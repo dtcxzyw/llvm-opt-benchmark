@@ -340,11 +340,11 @@ define dso_local void @elcr_set_level_irq(i32 noundef %0) local_unnamed_addr #0 
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %6
-  %13 = trunc i32 %7 to i16
+  %13 = trunc nuw i32 %7 to i16
   %14 = or i16 %8, %13
   store i16 %14, ptr @elcr_set_level_irq.elcr_irq_mask, align 2
   %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %0) #12
-  %16 = trunc i32 %4 to i16
+  %16 = trunc nuw i32 %4 to i16
   %17 = or disjoint i16 %16, 1232
   %18 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %17) #11, !srcloc !11
   %19 = zext i8 %18 to i32
@@ -353,7 +353,7 @@ define dso_local void @elcr_set_level_irq(i32 noundef %0) local_unnamed_addr #0 
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %12
-  %23 = trunc i32 %3 to i8
+  %23 = trunc nuw i32 %3 to i8
   %24 = or i8 %18, %23
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %24, i16 %17) #11, !srcloc !12
   br label %25
@@ -1078,7 +1078,7 @@ define internal fastcc ptr @pirq_find_routing_table() unnamed_addr #3 section ".
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds i8, ptr %83, i64 5
-  %107 = trunc i64 %102 to i16
+  %107 = trunc nuw nsw i64 %102 to i16
   store i32 1380536356, ptr %103, align 8
   %108 = getelementptr inbounds i8, ptr %103, i64 4
   store i16 256, ptr %108, align 4
@@ -1744,12 +1744,12 @@ define internal noundef i32 @ite_router_probe(ptr nocapture noundef writeonly %0
 define internal noundef i32 @via_router_probe(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) #10 section ".init.text" align 16 {
   switch i16 %2, label %11 [
     i16 1414, label %4
-    i16 12839, label %.thread
-    i16 1430, label %.thread
-    i16 1670, label %.thread
-    i16 -32207, label %.thread
-    i16 12615, label %.thread
-    i16 12663, label %.thread
+    i16 12839, label %.thread3
+    i16 1430, label %.thread3
+    i16 1670, label %.thread3
+    i16 -32207, label %.thread3
+    i16 12615, label %.thread3
+    i16 12663, label %.thread3
   ]
 
 4:                                                ; preds = %3
@@ -1761,12 +1761,12 @@ define internal noundef i32 @via_router_probe(ptr nocapture noundef writeonly %0
     i16 12839, label %.thread
   ]
 
-.thread:                                          ; preds = %3, %3, %3, %3, %3, %3, %4, %4, %4
+.thread:                                          ; preds = %4, %4, %4
   br label %.thread3
 
-.thread3:                                         ; preds = %4, %.thread
-  %7 = phi ptr [ @pirq_via_get, %.thread ], [ @pirq_via586_get, %4 ]
-  %8 = phi ptr [ @pirq_via_set, %.thread ], [ @pirq_via586_set, %4 ]
+.thread3:                                         ; preds = %3, %3, %3, %3, %3, %3, %4, %.thread
+  %7 = phi ptr [ @pirq_via_get, %.thread ], [ @pirq_via586_get, %4 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ], [ @pirq_via_get, %3 ]
+  %8 = phi ptr [ @pirq_via_set, %.thread ], [ @pirq_via586_set, %4 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ], [ @pirq_via_set, %3 ]
   store ptr @.str.24, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %7, ptr %9, align 8
@@ -2036,7 +2036,7 @@ define internal i32 @pirq_finali_get(ptr nocapture readnone %0, ptr nocapture re
   %6 = lshr i32 %2, 3
   %7 = and i32 %6, 1
   %8 = or disjoint i32 %5, %7
-  %9 = trunc i32 %8 to i8
+  %9 = trunc nuw nsw i32 %8 to i8
   %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #11
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #11, !srcloc !12
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -59, i16 35) #11, !srcloc !12
@@ -2075,7 +2075,7 @@ define internal noundef i32 @pirq_finali_set(ptr nocapture readnone %0, ptr noca
   %14 = lshr i32 %2, 3
   %15 = and i32 %14, 1
   %16 = or disjoint i32 %13, %15
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pc_conf_lock) #11
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 3, i16 34) #11, !srcloc !12
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -59, i16 35) #11, !srcloc !12
@@ -2129,11 +2129,11 @@ define internal noundef i32 @pirq_finali_lvl(ptr nocapture readnone %0, ptr noca
   br i1 %14, label %15, label %28
 
 15:                                               ; preds = %9
-  %16 = trunc i32 %10 to i16
+  %16 = trunc nuw i32 %10 to i16
   %17 = or i16 %11, %16
   store i16 %17, ptr @elcr_set_level_irq.elcr_irq_mask, align 2
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %3) #12
-  %19 = trunc i32 %7 to i16
+  %19 = trunc nuw i32 %7 to i16
   %20 = or disjoint i16 %19, 1232
   %21 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %20) #11, !srcloc !11
   %22 = zext i8 %21 to i32
@@ -2142,7 +2142,7 @@ define internal noundef i32 @pirq_finali_lvl(ptr nocapture readnone %0, ptr noca
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %15
-  %26 = trunc i32 %6 to i8
+  %26 = trunc nuw i32 %6 to i8
   %27 = or i8 %21, %26
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %27, i16 %20) #11, !srcloc !12
   br label %28

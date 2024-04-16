@@ -88,10 +88,10 @@ if.end3:                                          ; preds = %entry, %if.then
   br i1 %cmp5, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end3
-  %call885 = tail call i32 @ERR_set_mark() #3
-  %call986 = call i32 @PEM_read_bio(ptr noundef %bp, ptr noundef nonnull %name, ptr noundef nonnull %header, ptr noundef nonnull %data, ptr noundef nonnull %len) #3
-  %cmp1087 = icmp eq i32 %call986, 0
-  br i1 %cmp1087, label %if.then11, label %if.end20
+  %call891 = tail call i32 @ERR_set_mark() #3
+  %call992 = call i32 @PEM_read_bio(ptr noundef %bp, ptr noundef nonnull %name, ptr noundef nonnull %header, ptr noundef nonnull %data, ptr noundef nonnull %len) #3
+  %cmp1093 = icmp eq i32 %call992, 0
+  br i1 %cmp1093, label %if.then11, label %if.end20
 
 if.then11:                                        ; preds = %if.end170, %for.cond.preheader
   %xi.0.lcssa = phi ptr [ %call4, %for.cond.preheader ], [ %xi.1, %if.end170 ]
@@ -116,12 +116,12 @@ if.end18:                                         ; preds = %if.then11
   br label %for.cond196.preheader
 
 if.end20:                                         ; preds = %for.cond.preheader, %if.end170
-  %xi.088 = phi ptr [ %xi.1, %if.end170 ], [ %call4, %for.cond.preheader ]
+  %xi.094 = phi ptr [ %xi.1, %if.end170 ], [ %call4, %for.cond.preheader ]
   %call21 = call i32 @ERR_clear_last_mark() #3
   br label %start
 
 start:                                            ; preds = %start.backedge, %if.end20
-  %xi.1 = phi ptr [ %xi.088, %if.end20 ], [ %xi.1.be, %start.backedge ]
+  %xi.1 = phi ptr [ %xi.094, %if.end20 ], [ %xi.1.be, %start.backedge ]
   %2 = load ptr, ptr %name, align 8
   %call22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(12) @.str.1) #4
   %cmp23 = icmp eq i32 %call22, 0
@@ -240,23 +240,23 @@ if.end118:                                        ; preds = %if.end111
   %call120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #4
   %conv121 = trunc i64 %call120 to i32
   %cmp122 = icmp sgt i32 %conv121, 10
-  br i1 %cmp122, label %if.else161, label %lor.lhs.false124
+  br i1 %cmp122, label %if.else161, label %if.then136
 
-lor.lhs.false124:                                 ; preds = %if.end118
+if.then136:                                       ; preds = %if.end118
   %dec_pkey = getelementptr inbounds i8, ptr %call112, i64 24
   %8 = load ptr, ptr %name, align 8
   %call125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(22) @.str.6) #4
-  %cmp126 = icmp eq i32 %call125, 0
-  br i1 %cmp126, label %if.else161, label %if.then138
+  %cmp126.not = icmp eq i32 %call125, 0
+  br i1 %cmp126.not, label %if.else161, label %if.then138
 
 if.then138.loopexit:                              ; preds = %if.then65
   %crl.le = getelementptr inbounds i8, ptr %xi.1, i64 8
   br label %if.then138
 
-if.then138:                                       ; preds = %if.then138.loopexit, %if.end46, %lor.lhs.false124
-  %pp.0.ph.ph = phi ptr [ %dec_pkey, %lor.lhs.false124 ], [ %xi.1, %if.end46 ], [ %crl.le, %if.then138.loopexit ]
-  %ptype.1.ph.ph = phi i32 [ %ptype.0, %lor.lhs.false124 ], [ 0, %if.end46 ], [ 0, %if.then138.loopexit ]
-  %d2i.1.ph.ph = phi ptr [ @d2i_AutoPrivateKey, %lor.lhs.false124 ], [ %d2i_X509_AUX.d2i_X509, %if.end46 ], [ @d2i_X509_CRL, %if.then138.loopexit ]
+if.then138:                                       ; preds = %if.then138.loopexit, %if.end46, %if.then136
+  %d2i.1.ph61 = phi ptr [ @d2i_AutoPrivateKey, %if.then136 ], [ %d2i_X509_AUX.d2i_X509, %if.end46 ], [ @d2i_X509_CRL, %if.then138.loopexit ]
+  %ptype.1.ph60 = phi i32 [ %ptype.0, %if.then136 ], [ 0, %if.end46 ], [ 0, %if.then138.loopexit ]
+  %pp.0.ph59 = phi ptr [ %dec_pkey, %if.then136 ], [ %xi.1, %if.end46 ], [ %crl.le, %if.then138.loopexit ]
   %9 = load ptr, ptr %header, align 8
   %call139 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %9, ptr noundef nonnull %cipher) #3
   %tobool140.not = icmp eq i32 %call139, 0
@@ -271,12 +271,12 @@ if.end142:                                        ; preds = %if.then138
 if.end146:                                        ; preds = %if.end142
   %11 = load ptr, ptr %data, align 8
   store ptr %11, ptr %p, align 8
-  %tobool147.not = icmp eq i32 %ptype.1.ph.ph, 0
+  %tobool147.not = icmp eq i32 %ptype.1.ph60, 0
   %12 = load i64, ptr %len, align 8
   br i1 %tobool147.not, label %if.else154, label %if.then148
 
 if.then148:                                       ; preds = %if.end146
-  %call149 = call ptr @d2i_PrivateKey_ex(i32 noundef %ptype.1.ph.ph, ptr noundef nonnull %pp.0.ph.ph, ptr noundef nonnull %p, i64 noundef %12, ptr noundef %libctx, ptr noundef %propq) #3
+  %call149 = call ptr @d2i_PrivateKey_ex(i32 noundef %ptype.1.ph60, ptr noundef nonnull %pp.0.ph59, ptr noundef nonnull %p, i64 noundef %12, ptr noundef %libctx, ptr noundef %propq) #3
   %cmp150 = icmp eq ptr %call149, null
   br i1 %cmp150, label %if.then152, label %if.end170
 
@@ -288,7 +288,7 @@ if.then152:                                       ; preds = %if.then148
   br label %for.cond196.preheader
 
 if.else154:                                       ; preds = %if.end146
-  %call155 = call ptr %d2i.1.ph.ph(ptr noundef nonnull %pp.0.ph.ph, ptr noundef nonnull %p, i64 noundef %12) #3, !callees !4
+  %call155 = call ptr %d2i.1.ph61(ptr noundef nonnull %pp.0.ph59, ptr noundef nonnull %p, i64 noundef %12) #3, !callees !4
   %cmp156 = icmp eq ptr %call155, null
   br i1 %cmp156, label %if.then158, label %if.end170
 
@@ -299,7 +299,7 @@ if.then158:                                       ; preds = %if.else154
   call void @X509_INFO_free(ptr noundef nonnull %xi.1) #3
   br label %for.cond196.preheader
 
-if.else161:                                       ; preds = %lor.lhs.false124, %if.end118
+if.else161:                                       ; preds = %if.end118, %if.then136
   %enc_cipher = getelementptr inbounds i8, ptr %xi.1, i64 24
   %call162 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %7, ptr noundef nonnull %enc_cipher) #3
   %tobool163.not = icmp eq i32 %call162, 0
@@ -354,8 +354,8 @@ err.thread:                                       ; preds = %lor.lhs.false182
 if.then186:                                       ; preds = %lor.lhs.false182, %lor.lhs.false178, %lor.lhs.false174, %if.then16
   %call189 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.0.lcssa) #3
   %tobool190.not = icmp eq i32 %call189, 0
-  %spec.select = select i1 %tobool190.not, ptr %xi.0.lcssa, ptr null
-  call void @X509_INFO_free(ptr noundef %spec.select) #3
+  %spec.select44 = select i1 %tobool190.not, ptr %xi.0.lcssa, ptr null
+  call void @X509_INFO_free(ptr noundef %spec.select44) #3
   br i1 %tobool190.not, label %for.cond196.preheader, label %if.end209
 
 err:                                              ; preds = %if.else161, %if.end142, %if.then138, %if.end111, %if.end46, %if.end95, %if.then89, %if.end74, %if.then68, %if.end40, %if.then35, %if.end3
@@ -364,26 +364,26 @@ err:                                              ; preds = %if.else161, %if.end
   br label %for.cond196.preheader
 
 for.cond196.preheader:                            ; preds = %if.then186, %err, %if.then2, %if.end18, %if.then152, %if.then158
-  %ret.164.ph = phi ptr [ %ret.0, %if.then186 ], [ %ret.0, %if.then158 ], [ %ret.0, %if.then152 ], [ %ret.0, %if.end18 ], [ null, %if.then2 ], [ %ret.0, %err ]
-  %call19889 = call i32 @OPENSSL_sk_num(ptr noundef %ret.164.ph) #3
-  %cmp19990 = icmp sgt i32 %call19889, 0
-  br i1 %cmp19990, label %for.body, label %for.end203
+  %ret.170.ph = phi ptr [ %ret.0, %if.then186 ], [ %ret.0, %if.then158 ], [ %ret.0, %if.then152 ], [ %ret.0, %if.end18 ], [ null, %if.then2 ], [ %ret.0, %err ]
+  %call19895 = call i32 @OPENSSL_sk_num(ptr noundef %ret.170.ph) #3
+  %cmp19996 = icmp sgt i32 %call19895, 0
+  br i1 %cmp19996, label %for.body, label %for.end203
 
 for.body:                                         ; preds = %for.cond196.preheader, %for.body
-  %i.091 = phi i32 [ %inc, %for.body ], [ 0, %for.cond196.preheader ]
-  %call202 = call ptr @OPENSSL_sk_value(ptr noundef %ret.164.ph, i32 noundef %i.091) #3
+  %i.097 = phi i32 [ %inc, %for.body ], [ 0, %for.cond196.preheader ]
+  %call202 = call ptr @OPENSSL_sk_value(ptr noundef %ret.170.ph, i32 noundef %i.097) #3
   call void @X509_INFO_free(ptr noundef %call202) #3
-  %inc = add nuw nsw i32 %i.091, 1
-  %call198 = call i32 @OPENSSL_sk_num(ptr noundef %ret.164.ph) #3
+  %inc = add nuw nsw i32 %i.097, 1
+  %call198 = call i32 @OPENSSL_sk_num(ptr noundef %ret.170.ph) #3
   %cmp199 = icmp slt i32 %inc, %call198
   br i1 %cmp199, label %for.body, label %for.end203, !llvm.loop !5
 
 for.end203:                                       ; preds = %for.body, %for.cond196.preheader
-  %cmp204.not = icmp eq ptr %ret.164.ph, %sk
+  %cmp204.not = icmp eq ptr %ret.170.ph, %sk
   br i1 %cmp204.not, label %if.end209, label %if.then206
 
 if.then206:                                       ; preds = %for.end203
-  call void @OPENSSL_sk_free(ptr noundef %ret.164.ph) #3
+  call void @OPENSSL_sk_free(ptr noundef %ret.170.ph) #3
   br label %if.end209
 
 if.end209:                                        ; preds = %if.then186, %err.thread, %for.end203, %if.then206
@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PEM_X509_INFO_write_bio(ptr noundef %bp, ptr noundef %xi, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define i32 @PEM_X509_INFO_write_bio(ptr noundef %bp, ptr noundef %xi, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %cmp.not = icmp eq ptr %enc, null
@@ -558,18 +558,16 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 if.end49:                                         ; preds = %if.end30, %if.else, %if.end9
   %6 = load ptr, ptr %xi, align 8
   %cmp50.not = icmp eq ptr %6, null
-  br i1 %cmp50.not, label %if.end58, label %land.lhs.true52
+  br i1 %cmp50.not, label %err, label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %if.end49
   %call54 = call i32 @PEM_write_bio_X509(ptr noundef %bp, ptr noundef nonnull %6) #3
-  %cmp55 = icmp slt i32 %call54, 1
-  br i1 %cmp55, label %err, label %if.end58
-
-if.end58:                                         ; preds = %land.lhs.true52, %if.end49
+  %cmp55 = icmp sgt i32 %call54, 0
+  %spec.select = zext i1 %cmp55 to i32
   br label %err
 
-err:                                              ; preds = %land.lhs.true52, %if.else, %if.end30, %if.end58, %if.then29, %if.then20, %if.then8
-  %ret.0 = phi i32 [ 0, %if.then8 ], [ 0, %if.then20 ], [ 0, %if.then29 ], [ 0, %if.end30 ], [ 0, %land.lhs.true52 ], [ 1, %if.end58 ], [ 0, %if.else ]
+err:                                              ; preds = %land.lhs.true52, %if.end49, %if.else, %if.end30, %if.then29, %if.then20, %if.then8
+  %ret.0 = phi i32 [ 0, %if.then8 ], [ 0, %if.then20 ], [ 0, %if.then29 ], [ 0, %if.end30 ], [ 0, %if.else ], [ 1, %if.end49 ], [ %spec.select, %land.lhs.true52 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %buf, i64 noundef 1024) #3
   ret i32 %ret.0
 }

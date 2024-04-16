@@ -7203,17 +7203,17 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end28
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %ss to i8
+  %conv = trunc nuw nsw i64 %ss to i8
   %or.cond1 = icmp ult i64 %mm, 60
   br i1 %or.cond1, label %if.then5, label %if.end24
 
 if.then5:                                         ; preds = %if.then
-  %conv6 = trunc i64 %mm to i8
+  %conv6 = trunc nuw nsw i64 %mm to i8
   %or.cond2 = icmp ult i64 %hh, 24
   br i1 %or.cond2, label %if.then10, label %if.end22
 
 if.then10:                                        ; preds = %if.then5
-  %conv11 = trunc i64 %hh to i8
+  %conv11 = trunc nuw nsw i64 %hh to i8
   %0 = add i64 %d, -1
   %or.cond3 = icmp ult i64 %0, 28
   %1 = add i64 %m, -1
@@ -7240,7 +7240,7 @@ if.then2.i:                                       ; preds = %if.then.i
 _ZN4absl13time_internal4cctz6detail4impl5n_monEllllaaa.exit: ; preds = %if.end, %if.then.i, %if.then2.i
   %m.addr.0.i = phi i64 [ %add3.i, %if.then2.i ], [ %rem.i, %if.then.i ], [ 12, %if.end ]
   %y.addr.0.i = phi i64 [ %sub.i, %if.then2.i ], [ %add.i, %if.then.i ], [ %y, %if.end ]
-  %conv.i = trunc i64 %m.addr.0.i to i8
+  %conv.i = trunc nuw nsw i64 %m.addr.0.i to i8
   %call.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i, i8 noundef signext %conv.i, i64 noundef %d, i64 noundef 0, i8 noundef signext %conv11, i8 noundef signext %conv6, i8 noundef signext %conv) #14
   %3 = extractvalue { i64, i64 } %call.i, 0
   %4 = extractvalue { i64, i64 } %call.i, 1
@@ -7275,10 +7275,10 @@ _ZN4absl13time_internal4cctz6detail4impl6n_hourElllllaa.exit: ; preds = %if.end2
   %cmp.i = icmp slt i64 %rem, 0
   %add1.i = add nsw i64 %rem, 24
   %hh.addr.0.i = select i1 %cmp.i, i64 %add1.i, i64 %rem
-  %conv.i49 = trunc i64 %hh.addr.0.i to i8
+  %conv.i49 = trunc nuw nsw i64 %hh.addr.0.i to i8
   %rem.lobit.i = ashr i64 %rem, 63
   %cd.addr.0.i = add nsw i64 %rem.lobit.i, %div
-  %conv.i.i = trunc i64 %m.addr.0.i.i to i8
+  %conv.i.i = trunc nuw nsw i64 %m.addr.0.i.i to i8
   %call.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i, i8 noundef signext %conv.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i, i8 noundef signext %conv.i49, i8 noundef signext %conv6, i8 noundef signext %conv) #14
   %5 = extractvalue { i64, i64 } %call.i.i, 0
   %6 = extractvalue { i64, i64 } %call.i.i, 1
@@ -7313,7 +7313,7 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit: ; preds = %if.end24
   %cmp.i50 = icmp slt i64 %rem26, 0
   %add1.i51 = add nsw i64 %rem26, 60
   %mm.addr.0.i = select i1 %cmp.i50, i64 %add1.i51, i64 %rem26
-  %conv.i52 = trunc i64 %mm.addr.0.i to i8
+  %conv.i52 = trunc nuw nsw i64 %mm.addr.0.i to i8
   %rem5.i = srem i64 %hh, 24
   %rem.lobit.i53 = ashr i64 %rem26, 63
   %ch.addr.0.i = add nsw i64 %rem.lobit.i53, %div25
@@ -7322,7 +7322,7 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit: ; preds = %if.end24
   %div2.i = sdiv i64 %hh, 24
   %div3.i = sdiv i64 %ch.addr.0.i, 24
   %add4.i = add nsw i64 %div3.i, %div2.i
-  %rem.i.lhs.trunc.i = trunc i64 %add7.i to i8
+  %rem.i.lhs.trunc.i = trunc nsw i64 %add7.i to i8
   %rem.i9.i = srem i8 %rem.i.lhs.trunc.i, 24
   %cmp.i.i = icmp slt i8 %rem.i9.i, 0
   %add1.i.i = add nsw i8 %rem.i9.i, 24
@@ -7333,7 +7333,7 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit: ; preds = %if.end24
   %7 = ashr i8 %rem.i9.i, 7
   %rem.lobit.i.i = sext i8 %7 to i64
   %cd.addr.0.i.i = add nsw i64 %add.i.i54, %rem.lobit.i.i
-  %conv.i.i.i = trunc i64 %m.addr.0.i.i.i to i8
+  %conv.i.i.i = trunc nuw nsw i64 %m.addr.0.i.i.i to i8
   %call.i.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i, i8 noundef signext %conv.i.i.i, i64 noundef %d, i64 noundef %cd.addr.0.i.i, i8 noundef signext %hh.addr.0.i.i, i8 noundef signext %conv.i52, i8 noundef signext %conv) #14
   %8 = extractvalue { i64, i64 } %call.i.i.i, 0
   %9 = extractvalue { i64, i64 } %call.i.i.i, 1
@@ -7358,7 +7358,7 @@ if.end28:                                         ; preds = %entry
   %rem37 = srem i64 %mm, 60
   %rem38 = srem i64 %cm.0, 60
   %add39 = add nsw i64 %rem38, %rem37
-  %conv40 = trunc i64 %ss.addr.0 to i8
+  %conv40 = trunc nuw nsw i64 %ss.addr.0 to i8
   %cmp.not.i.i.i55 = icmp eq i64 %m, 12
   br i1 %cmp.not.i.i.i55, label %_ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93, label %if.then.i.i.i56
 
@@ -7377,7 +7377,7 @@ if.then2.i.i.i90:                                 ; preds = %if.then.i.i.i56
 _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93: ; preds = %if.end28, %if.then.i.i.i56, %if.then2.i.i.i90
   %m.addr.0.i.i.i61 = phi i64 [ %add3.i.i.i92, %if.then2.i.i.i90 ], [ %rem.i.i.i59, %if.then.i.i.i56 ], [ 12, %if.end28 ]
   %y.addr.0.i.i.i62 = phi i64 [ %sub.i.i.i91, %if.then2.i.i.i90 ], [ %add.i.i.i58, %if.then.i.i.i56 ], [ %y, %if.end28 ]
-  %rem.i63.lhs.trunc = trunc i64 %add39 to i8
+  %rem.i63.lhs.trunc = trunc nsw i64 %add39 to i8
   %rem.i63127 = srem i8 %rem.i63.lhs.trunc, 60
   %cmp.i64 = icmp slt i8 %rem.i63127, 0
   %add1.i65 = add nsw i8 %rem.i63127, 60
@@ -7394,7 +7394,7 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93: ; preds = %if.end
   %div2.i75 = sdiv i64 %hh, 24
   %div3.i76 = sdiv i64 %ch.addr.0.i72, 24
   %add4.i77 = add nsw i64 %div3.i76, %div2.i75
-  %rem.i.lhs.trunc.i78 = trunc i64 %add7.i74 to i8
+  %rem.i.lhs.trunc.i78 = trunc nsw i64 %add7.i74 to i8
   %rem.i9.i79 = srem i8 %rem.i.lhs.trunc.i78, 24
   %cmp.i.i80 = icmp slt i8 %rem.i9.i79, 0
   %add1.i.i81 = add nsw i8 %rem.i9.i79, 24
@@ -7405,7 +7405,7 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit93: ; preds = %if.end
   %11 = ashr i8 %rem.i9.i79, 7
   %rem.lobit.i.i86 = sext i8 %11 to i64
   %cd.addr.0.i.i87 = add nsw i64 %add.i.i85, %rem.lobit.i.i86
-  %conv.i.i.i88 = trunc i64 %m.addr.0.i.i.i61 to i8
+  %conv.i.i.i88 = trunc nuw nsw i64 %m.addr.0.i.i.i61 to i8
   %call.i.i.i89 = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i62, i8 noundef signext %conv.i.i.i88, i64 noundef %d, i64 noundef %cd.addr.0.i.i87, i8 noundef signext %hh.addr.0.i.i82, i8 noundef signext %mm.addr.0.i66, i8 noundef signext %conv40) #14
   %12 = extractvalue { i64, i64 } %call.i.i.i89, 0
   %13 = extractvalue { i64, i64 } %call.i.i.i89, 1
@@ -7488,15 +7488,17 @@ if.then16:                                        ; preds = %if.else
 
 land.rhs.i.i:                                     ; preds = %if.then16
   %rem1.i.i = srem i64 %add.i, 100
-  %cmp2.not.i.i = icmp ne i64 %rem1.i.i, 0
+  %cmp2.not.i.i = icmp eq i64 %rem1.i.i, 0
+  br i1 %cmp2.not.i.i, label %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit
+
+_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i: ; preds = %land.rhs.i.i
   %rem3.i.i = srem i64 %add.i, 400
   %cmp4.i.i = icmp eq i64 %rem3.i.i, 0
-  %or.cond.i = or i1 %cmp2.not.i.i, %cmp4.i.i
-  %1 = select i1 %or.cond.i, i64 366, i64 365
+  %1 = select i1 %cmp4.i.i, i64 366, i64 365
   br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit
 
-_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %if.then16, %land.rhs.i.i
-  %conv = phi i64 [ 365, %if.then16 ], [ %1, %land.rhs.i.i ]
+_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %if.then16, %land.rhs.i.i, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i
+  %conv = phi i64 [ 365, %if.then16 ], [ 366, %land.rhs.i.i ], [ %1, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i ]
   %add18 = add nsw i64 %conv, %add7
   br label %if.end23
 
@@ -7516,27 +7518,27 @@ if.then25:                                        ; preds = %if.end23
   %conv1.i59 = zext i1 %cmp.i58 to i64
   %add.i60 = add nsw i64 %ey.1, %conv1.i59
   %rem.i = srem i64 %add.i60, 400
-  %conv2.i = trunc i64 %rem.i to i32
+  %conv2.i = trunc nsw i64 %rem.i to i32
   %cmp3.i = icmp slt i32 %conv2.i, 0
   %add4.i = add nsw i32 %conv2.i, 400
   %cond.i = select i1 %cmp3.i, i32 %add4.i, i32 %conv2.i
-  %cmp.i6189 = icmp eq i32 %cond.i, 0
-  %cmp1.i90 = icmp sgt i32 %cond.i, 300
-  %2 = or i1 %cmp.i6189, %cmp1.i90
-  %conv2891 = select i1 %2, i64 36525, i64 36524
-  %cmp29.not92 = icmp ugt i64 %d.addr.0, %conv2891
-  br i1 %cmp29.not92, label %if.end31, label %for.cond40.preheader
+  %cmp.i6188 = icmp eq i32 %cond.i, 0
+  %cmp1.i89 = icmp sgt i32 %cond.i, 300
+  %2 = or i1 %cmp.i6188, %cmp1.i89
+  %conv2890 = select i1 %2, i64 36525, i64 36524
+  %cmp29.not91 = icmp ugt i64 %d.addr.0, %conv2890
+  br i1 %cmp29.not91, label %if.end31, label %for.cond40.preheader
 
 if.end31:                                         ; preds = %if.then25, %if.end31
-  %conv2896 = phi i64 [ %conv28, %if.end31 ], [ %conv2891, %if.then25 ]
-  %d.addr.195 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
-  %ey.294 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
-  %yi.093 = phi i32 [ %spec.select, %if.end31 ], [ %cond.i, %if.then25 ]
-  %sub33 = sub nuw nsw i64 %d.addr.195, %conv2896
-  %add34 = add nsw i64 %ey.294, 100
-  %cmp36 = icmp sgt i32 %yi.093, 299
+  %conv2895 = phi i64 [ %conv28, %if.end31 ], [ %conv2890, %if.then25 ]
+  %d.addr.194 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
+  %ey.293 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
+  %yi.092 = phi i32 [ %spec.select, %if.end31 ], [ %cond.i, %if.then25 ]
+  %sub33 = sub nuw nsw i64 %d.addr.194, %conv2895
+  %add34 = add nsw i64 %ey.293, 100
+  %cmp36 = icmp sgt i32 %yi.092, 299
   %spec.select.v = select i1 %cmp36, i32 -300, i32 100
-  %spec.select = add nsw i32 %spec.select.v, %yi.093
+  %spec.select = add nsw i32 %spec.select.v, %yi.092
   %cmp.i61 = icmp eq i32 %spec.select, 0
   %cmp1.i = icmp sgt i32 %spec.select, 300
   %3 = or i1 %cmp.i61, %cmp1.i
@@ -7556,13 +7558,13 @@ for.cond40:                                       ; preds = %for.cond40.preheade
   %d.addr.2 = phi i64 [ %sub48, %if.end46 ], [ %d.addr.2.ph, %for.cond40.preheader ]
   %cmp.i63 = icmp eq i32 %yi.2, 0
   %cmp1.i64 = icmp sgt i32 %yi.2, 300
-  %or.cond.i65 = or i1 %cmp.i63, %cmp1.i64
-  br i1 %or.cond.i65, label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, label %lor.rhs.i
+  %or.cond.i = or i1 %cmp.i63, %cmp1.i64
+  br i1 %or.cond.i, label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %for.cond40
   %sub.i = add nsw i32 %yi.2, -1
-  %rem.i66 = srem i32 %sub.i, 100
-  %cmp2.i = icmp slt i32 %rem.i66, 96
+  %rem.i65 = srem i32 %sub.i, 100
+  %cmp2.i = icmp slt i32 %rem.i65, 96
   %4 = select i1 %cmp2.i, i64 1461, i64 1460
   br label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit
 
@@ -7582,33 +7584,35 @@ if.end46:                                         ; preds = %_ZN4absl13time_inte
 for.cond56:                                       ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, %if.end62
   %ey.4 = phi i64 [ %inc, %if.end62 ], [ %ey.3, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
   %d.addr.3 = phi i64 [ %sub64, %if.end62 ], [ %d.addr.2, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
-  %add.i69 = add i64 %ey.4, %conv1.i59
-  %5 = and i64 %add.i69, 3
-  %cmp.i.i70 = icmp eq i64 %5, 0
-  br i1 %cmp.i.i70, label %land.rhs.i.i71, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
+  %add.i68 = add i64 %ey.4, %conv1.i59
+  %5 = and i64 %add.i68, 3
+  %cmp.i.i69 = icmp eq i64 %5, 0
+  br i1 %cmp.i.i69, label %land.rhs.i.i70, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
 
-land.rhs.i.i71:                                   ; preds = %for.cond56
-  %rem1.i.i72 = srem i64 %add.i69, 100
-  %cmp2.not.i.i73 = icmp ne i64 %rem1.i.i72, 0
-  %rem3.i.i74 = srem i64 %add.i69, 400
+land.rhs.i.i70:                                   ; preds = %for.cond56
+  %rem1.i.i71 = srem i64 %add.i68, 100
+  %cmp2.not.i.i72 = icmp eq i64 %rem1.i.i71, 0
+  br i1 %cmp2.not.i.i72, label %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
+
+_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73: ; preds = %land.rhs.i.i70
+  %rem3.i.i74 = srem i64 %add.i68, 400
   %cmp4.i.i75 = icmp eq i64 %rem3.i.i74, 0
-  %or.cond.i76 = or i1 %cmp2.not.i.i73, %cmp4.i.i75
-  %spec.select.i77 = select i1 %or.cond.i76, i64 366, i64 365
-  br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
+  %spec.select.i76 = select i1 %cmp4.i.i75, i64 366, i64 365
+  br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
 
-_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78: ; preds = %for.cond56, %land.rhs.i.i71
-  %conv59 = phi i64 [ 365, %for.cond56 ], [ %spec.select.i77, %land.rhs.i.i71 ]
+_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77: ; preds = %for.cond56, %land.rhs.i.i70, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73
+  %conv59 = phi i64 [ 365, %for.cond56 ], [ 366, %land.rhs.i.i70 ], [ %spec.select.i76, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73 ]
   %cmp60.not = icmp ugt i64 %d.addr.3, %conv59
   br i1 %cmp60.not, label %if.end62, label %if.end66
 
-if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
+if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
   %sub64 = sub nuw nsw i64 %d.addr.3, %conv59
   %inc = add nsw i64 %ey.4, 1
   br label %for.cond56, !llvm.loop !342
 
-if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78, %if.end23
-  %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
-  %d.addr.4 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
+if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77, %if.end23
+  %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77 ]
+  %d.addr.4 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77 ]
   %cmp67 = icmp ugt i64 %d.addr.4, 28
   br i1 %cmp67, label %for.cond69, label %if.end85
 
@@ -7619,27 +7623,27 @@ for.cond69:                                       ; preds = %if.end66, %if.end75
   %idxprom.i = sext i8 %m.addr.0 to i64
   %arrayidx.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i79 = icmp eq i8 %m.addr.0, 2
+  %cmp.i78 = icmp eq i8 %m.addr.0, 2
   %7 = and i64 %ey.6, 3
-  %cmp.i.i80 = icmp eq i64 %7, 0
-  %or.cond.i81 = and i1 %cmp.i.i80, %cmp.i79
-  br i1 %or.cond.i81, label %land.rhs.i.i84, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
+  %cmp.i.i79 = icmp eq i64 %7, 0
+  %or.cond.i80 = and i1 %cmp.i.i79, %cmp.i78
+  br i1 %or.cond.i80, label %land.rhs.i.i83, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-land.rhs.i.i84:                                   ; preds = %for.cond69
-  %rem1.i.i85 = srem i64 %ey.6, 100
-  %cmp2.not.i.i86 = icmp eq i64 %rem1.i.i85, 0
-  br i1 %cmp2.not.i.i86, label %lor.rhs.i.i, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
+land.rhs.i.i83:                                   ; preds = %for.cond69
+  %rem1.i.i84 = srem i64 %ey.6, 100
+  %cmp2.not.i.i85 = icmp eq i64 %rem1.i.i84, 0
+  br i1 %cmp2.not.i.i85, label %lor.rhs.i.i, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-lor.rhs.i.i:                                      ; preds = %land.rhs.i.i84
-  %rem3.i.i87 = srem i64 %ey.6, 400
-  %cmp4.i.i88 = icmp eq i64 %rem3.i.i87, 0
-  %8 = zext i1 %cmp4.i.i88 to i32
+lor.rhs.i.i:                                      ; preds = %land.rhs.i.i83
+  %rem3.i.i86 = srem i64 %ey.6, 400
+  %cmp4.i.i87 = icmp eq i64 %rem3.i.i86, 0
+  %8 = zext i1 %cmp4.i.i87 to i32
   br label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %for.cond69, %land.rhs.i.i84, %lor.rhs.i.i
-  %conv1.i82 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i84 ], [ %8, %lor.rhs.i.i ]
-  %add.i83 = add nsw i32 %conv1.i82, %6
-  %conv72 = sext i32 %add.i83 to i64
+_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %for.cond69, %land.rhs.i.i83, %lor.rhs.i.i
+  %conv1.i81 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i83 ], [ %8, %lor.rhs.i.i ]
+  %add.i82 = add nsw i32 %conv1.i81, %6
+  %conv72 = sext i32 %add.i82 to i64
   %cmp73.not = icmp sgt i64 %d.addr.5, %conv72
   br i1 %cmp73.not, label %if.end75, label %if.end85
 
@@ -21737,19 +21741,19 @@ _ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS0_10minute_tagEEEl.exit
   %151 = lshr i64 %137, 16
   %152 = shl i64 %137, 48
   %conv1.i.i462 = ashr i64 %152, 56
-  %153 = trunc i64 %conv3.i.i460 to i16
+  %153 = trunc nsw i64 %conv3.i.i460 to i16
   %rem.i.lhs.trunc.i.i = add nsw i16 %153, 1
   %rem.i5.i.i = srem i16 %rem.i.lhs.trunc.i.i, 60
   %cmp.i.i.i463 = icmp slt i16 %rem.i5.i.i, 0
   %add1.i.i.i = add nsw i16 %rem.i5.i.i, 60
   %mm.addr.0.i.i.i = select i1 %cmp.i.i.i463, i16 %add1.i.i.i, i16 %rem.i5.i.i
-  %conv.i.i.i464 = trunc i16 %mm.addr.0.i.i.i to i8
+  %conv.i.i.i464 = trunc nsw i16 %mm.addr.0.i.i.i to i8
   %rem5.i.i.i.lhs.trunc = trunc i64 %151 to i8
   %rem5.i.i.i2771 = srem i8 %rem5.i.i.i.lhs.trunc, 24
   %div.i6.i.i = sdiv i16 %rem.i.lhs.trunc.i.i, 60
   %154 = ashr i16 %rem.i5.i.i, 15
   %narrow.i.i = add nsw i16 %154, %div.i6.i.i
-  %ch.addr.0.i.i.i = trunc i16 %narrow.i.i to i8
+  %ch.addr.0.i.i.i = trunc nsw i16 %narrow.i.i to i8
   %add7.i.i.i = add nsw i8 %rem5.i.i.i2771, %ch.addr.0.i.i.i
   %div2.i.i.i2772 = sdiv i8 %rem5.i.i.i.lhs.trunc, 24
   %rem.i9.i.i.i = srem i8 %add7.i.i.i, 24
@@ -21905,11 +21909,11 @@ _ZN4absl13time_internal4cctz6detailplElNS2_10civil_timeINS0_10minute_tagEEE.exit
   %cmp.i.i.i.i518 = icmp slt i16 %rem.i5.i.i.i517, 0
   %add1.i.i.i.i519 = add nsw i16 %rem.i5.i.i.i517, 60
   %mm.addr.0.i.i.i.i520 = select i1 %cmp.i.i.i.i518, i16 %add1.i.i.i.i519, i16 %rem.i5.i.i.i517
-  %conv.i.i.i.i521 = trunc i16 %mm.addr.0.i.i.i.i520 to i8
+  %conv.i.i.i.i521 = trunc nsw i16 %mm.addr.0.i.i.i.i520 to i8
   %div.i6.i.i.i523 = sdiv i16 %rem.i.lhs.trunc.i.i.i516, 60
   %169 = ashr i16 %rem.i5.i.i.i517, 15
   %narrow.i.i.i524 = add nsw i16 %169, %div.i6.i.i.i523
-  %ch.addr.0.i.i.i.i525 = trunc i16 %narrow.i.i.i524 to i8
+  %ch.addr.0.i.i.i.i525 = trunc nsw i16 %narrow.i.i.i524 to i8
   %add7.i.i.i.i526 = add nsw i8 %rem5.i.i.i2771, %ch.addr.0.i.i.i.i525
   %rem.i9.i.i.i.i529 = srem i8 %add7.i.i.i.i526, 24
   %cmp.i.i.i.i.i530 = icmp slt i8 %rem.i9.i.i.i.i529, 0
@@ -22064,11 +22068,11 @@ _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_10minute_tagEEEl.exit
   %cmp.i.i.i588 = icmp slt i16 %rem.i5.i.i587, 0
   %add1.i.i.i589 = add nsw i16 %rem.i5.i.i587, 60
   %mm.addr.0.i.i.i590 = select i1 %cmp.i.i.i588, i16 %add1.i.i.i589, i16 %rem.i5.i.i587
-  %conv.i.i.i591 = trunc i16 %mm.addr.0.i.i.i590 to i8
+  %conv.i.i.i591 = trunc nsw i16 %mm.addr.0.i.i.i590 to i8
   %div.i6.i.i593 = sdiv i16 %rem.i.lhs.trunc.i.i586, 60
   %184 = ashr i16 %rem.i5.i.i587, 15
   %narrow.i.i594 = add nsw i16 %184, %div.i6.i.i593
-  %ch.addr.0.i.i.i595 = trunc i16 %narrow.i.i594 to i8
+  %ch.addr.0.i.i.i595 = trunc nsw i16 %narrow.i.i594 to i8
   %add7.i.i.i596 = add nsw i8 %rem5.i.i.i2771, %ch.addr.0.i.i.i595
   %rem.i9.i.i.i599 = srem i8 %add7.i.i.i596, 24
   %cmp.i.i.i.i600 = icmp slt i8 %rem.i9.i.i.i599, 0
@@ -22364,19 +22368,19 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEpLEl.exit2495:
   %211 = lshr i64 %retval.sroa.3.0.in.i2441, 16
   %212 = shl i64 %retval.sroa.3.0.in.i2441, 48
   %conv1.i.i.i2465 = ashr i64 %212, 56
-  %213 = trunc i64 %conv3.i.i.i2462 to i16
+  %213 = trunc nsw i64 %conv3.i.i.i2462 to i16
   %rem.i.lhs.trunc.i.i.i2468 = add nsw i16 %213, 1
   %rem.i5.i.i.i2469 = srem i16 %rem.i.lhs.trunc.i.i.i2468, 60
   %cmp.i.i.i.i2470 = icmp slt i16 %rem.i5.i.i.i2469, 0
   %add1.i.i.i.i2471 = add nsw i16 %rem.i5.i.i.i2469, 60
   %mm.addr.0.i.i.i.i2472 = select i1 %cmp.i.i.i.i2470, i16 %add1.i.i.i.i2471, i16 %rem.i5.i.i.i2469
-  %conv.i.i.i.i2473 = trunc i16 %mm.addr.0.i.i.i.i2472 to i8
+  %conv.i.i.i.i2473 = trunc nsw i16 %mm.addr.0.i.i.i.i2472 to i8
   %rem5.i.i.i.i2474.lhs.trunc = trunc i64 %211 to i8
   %rem5.i.i.i.i24742773 = srem i8 %rem5.i.i.i.i2474.lhs.trunc, 24
   %div.i6.i.i.i2475 = sdiv i16 %rem.i.lhs.trunc.i.i.i2468, 60
   %214 = ashr i16 %rem.i5.i.i.i2469, 15
   %narrow.i.i.i2476 = add nsw i16 %214, %div.i6.i.i.i2475
-  %ch.addr.0.i.i.i.i2477 = trunc i16 %narrow.i.i.i2476 to i8
+  %ch.addr.0.i.i.i.i2477 = trunc nsw i16 %narrow.i.i.i2476 to i8
   %add7.i.i.i.i2478 = add nsw i8 %rem5.i.i.i.i24742773, %ch.addr.0.i.i.i.i2477
   %div2.i.i.i.i24792774 = sdiv i8 %rem5.i.i.i.i2474.lhs.trunc, 24
   %rem.i9.i.i.i.i2481 = srem i8 %add7.i.i.i.i2478, 24
@@ -22533,19 +22537,19 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEpLEl.exit2543:
   %229 = lshr i64 %216, 16
   %230 = shl i64 %216, 48
   %conv1.i.i.i2513 = ashr i64 %230, 56
-  %231 = trunc i64 %conv3.i.i.i2510 to i16
+  %231 = trunc nsw i64 %conv3.i.i.i2510 to i16
   %rem.i.lhs.trunc.i.i.i2516 = add nsw i16 %231, 1
   %rem.i5.i.i.i2517 = srem i16 %rem.i.lhs.trunc.i.i.i2516, 60
   %cmp.i.i.i.i2518 = icmp slt i16 %rem.i5.i.i.i2517, 0
   %add1.i.i.i.i2519 = add nsw i16 %rem.i5.i.i.i2517, 60
   %mm.addr.0.i.i.i.i2520 = select i1 %cmp.i.i.i.i2518, i16 %add1.i.i.i.i2519, i16 %rem.i5.i.i.i2517
-  %conv.i.i.i.i2521 = trunc i16 %mm.addr.0.i.i.i.i2520 to i8
+  %conv.i.i.i.i2521 = trunc nsw i16 %mm.addr.0.i.i.i.i2520 to i8
   %rem5.i.i.i.i2522.lhs.trunc = trunc i64 %229 to i8
   %rem5.i.i.i.i25222775 = srem i8 %rem5.i.i.i.i2522.lhs.trunc, 24
   %div.i6.i.i.i2523 = sdiv i16 %rem.i.lhs.trunc.i.i.i2516, 60
   %232 = ashr i16 %rem.i5.i.i.i2517, 15
   %narrow.i.i.i2524 = add nsw i16 %232, %div.i6.i.i.i2523
-  %ch.addr.0.i.i.i.i2525 = trunc i16 %narrow.i.i.i2524 to i8
+  %ch.addr.0.i.i.i.i2525 = trunc nsw i16 %narrow.i.i.i2524 to i8
   %add7.i.i.i.i2526 = add nsw i8 %rem5.i.i.i.i25222775, %ch.addr.0.i.i.i.i2525
   %div2.i.i.i.i25272776 = sdiv i8 %rem5.i.i.i.i2522.lhs.trunc, 24
   %rem.i9.i.i.i.i2529 = srem i8 %add7.i.i.i.i2526, 24
@@ -22703,19 +22707,19 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEmmEi.exit: ; p
   %248 = lshr i64 %234, 16
   %249 = shl i64 %234, 48
   %conv1.i.i.i.i740 = ashr i64 %249, 56
-  %250 = trunc i64 %conv3.i.i.i.i739 to i16
+  %250 = trunc nsw i64 %conv3.i.i.i.i739 to i16
   %rem.i.lhs.trunc.i.i.i.i741 = add nsw i16 %250, -1
   %rem.i5.i.i.i.i = srem i16 %rem.i.lhs.trunc.i.i.i.i741, 60
   %cmp.i.i.i.i.i742 = icmp slt i16 %rem.i5.i.i.i.i, 0
   %add1.i.i.i.i.i743 = add nsw i16 %rem.i5.i.i.i.i, 60
   %mm.addr.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i742, i16 %add1.i.i.i.i.i743, i16 %rem.i5.i.i.i.i
-  %conv.i.i.i.i.i744 = trunc i16 %mm.addr.0.i.i.i.i.i to i8
+  %conv.i.i.i.i.i744 = trunc nsw i16 %mm.addr.0.i.i.i.i.i to i8
   %rem5.i.i.i.lhs.trunc.i.i = trunc i64 %248 to i8
   %rem5.i.i.i1.i.i = srem i8 %rem5.i.i.i.lhs.trunc.i.i, 24
   %div.i6.i.i.i.i = sdiv i16 %rem.i.lhs.trunc.i.i.i.i741, 60
   %251 = ashr i16 %rem.i5.i.i.i.i, 15
   %narrow.i.i.i.i = add nsw i16 %251, %div.i6.i.i.i.i
-  %ch.addr.0.i.i.i.i.i = trunc i16 %narrow.i.i.i.i to i8
+  %ch.addr.0.i.i.i.i.i = trunc nsw i16 %narrow.i.i.i.i to i8
   %add7.i.i.i.i.i = add nsw i8 %rem5.i.i.i1.i.i, %ch.addr.0.i.i.i.i.i
   %div2.i.i.i2.i.i = sdiv i8 %rem5.i.i.i.lhs.trunc.i.i, 24
   %rem.i9.i.i.i.i.i = srem i8 %add7.i.i.i.i.i, 24
@@ -22872,19 +22876,19 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEmmEv.exit: ; p
   %265 = lshr i64 %retval.sroa.3.0.in.i.i.i, 16
   %266 = shl i64 %retval.sroa.3.0.in.i.i.i, 48
   %conv1.i.i.i789 = ashr i64 %266, 56
-  %267 = trunc i64 %conv3.i.i.i788 to i16
+  %267 = trunc nsw i64 %conv3.i.i.i788 to i16
   %rem.i.lhs.trunc.i.i.i792 = add nsw i16 %267, -1
   %rem.i5.i.i.i793 = srem i16 %rem.i.lhs.trunc.i.i.i792, 60
   %cmp.i.i.i.i794 = icmp slt i16 %rem.i5.i.i.i793, 0
   %add1.i.i.i.i795 = add nsw i16 %rem.i5.i.i.i793, 60
   %mm.addr.0.i.i.i.i796 = select i1 %cmp.i.i.i.i794, i16 %add1.i.i.i.i795, i16 %rem.i5.i.i.i793
-  %conv.i.i.i.i797 = trunc i16 %mm.addr.0.i.i.i.i796 to i8
+  %conv.i.i.i.i797 = trunc nsw i16 %mm.addr.0.i.i.i.i796 to i8
   %rem5.i.i.i.lhs.trunc.i = trunc i64 %265 to i8
   %rem5.i.i.i1.i = srem i8 %rem5.i.i.i.lhs.trunc.i, 24
   %div.i6.i.i.i798 = sdiv i16 %rem.i.lhs.trunc.i.i.i792, 60
   %268 = ashr i16 %rem.i5.i.i.i793, 15
   %narrow.i.i.i799 = add nsw i16 %268, %div.i6.i.i.i798
-  %ch.addr.0.i.i.i.i800 = trunc i16 %narrow.i.i.i799 to i8
+  %ch.addr.0.i.i.i.i800 = trunc nsw i16 %narrow.i.i.i799 to i8
   %add7.i.i.i.i801 = add nsw i8 %rem5.i.i.i1.i, %ch.addr.0.i.i.i.i800
   %div2.i.i.i2.i = sdiv i8 %rem5.i.i.i.lhs.trunc.i, 24
   %rem.i9.i.i.i.i802 = srem i8 %add7.i.i.i.i801, 24
@@ -23161,13 +23165,13 @@ _ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS0_8hour_tagEEEl.exit: ;
   %conv2.i.i897 = ashr i64 %295, 56
   %296 = shl i64 %282, 48
   %conv1.i.i898 = ashr i64 %296, 56
-  %297 = trunc i64 %conv2.i.i897 to i16
+  %297 = trunc nsw i64 %conv2.i.i897 to i16
   %rem.i.lhs.trunc.i.i901 = add nsw i16 %297, 1
   %rem.i4.i.i = srem i16 %rem.i.lhs.trunc.i.i901, 24
   %cmp.i.i.i902 = icmp slt i16 %rem.i4.i.i, 0
   %add1.i.i.i903 = add nsw i16 %rem.i4.i.i, 24
   %hh.addr.0.i.i.i = select i1 %cmp.i.i.i902, i16 %add1.i.i.i903, i16 %rem.i4.i.i
-  %conv.i.i.i904 = trunc i16 %hh.addr.0.i.i.i to i8
+  %conv.i.i.i904 = trunc nsw i16 %hh.addr.0.i.i.i to i8
   %div.i5.i.i = sdiv i16 %rem.i.lhs.trunc.i.i901, 24
   %298 = ashr i16 %rem.i4.i.i, 15
   %narrow.i.i905 = add nsw i16 %298, %div.i5.i.i
@@ -23316,7 +23320,7 @@ _ZN4absl13time_internal4cctz6detailplElNS2_10civil_timeINS0_8hour_tagEEE.exit: ;
   %cmp.i.i.i.i957 = icmp slt i16 %rem.i4.i.i.i956, 0
   %add1.i.i.i.i958 = add nsw i16 %rem.i4.i.i.i956, 24
   %hh.addr.0.i.i.i.i959 = select i1 %cmp.i.i.i.i957, i16 %add1.i.i.i.i958, i16 %rem.i4.i.i.i956
-  %conv.i.i.i.i960 = trunc i16 %hh.addr.0.i.i.i.i959 to i8
+  %conv.i.i.i.i960 = trunc nsw i16 %hh.addr.0.i.i.i.i959 to i8
   %div.i5.i.i.i961 = sdiv i16 %rem.i.lhs.trunc.i.i.i955, 24
   %312 = ashr i16 %rem.i4.i.i.i956, 15
   %narrow.i.i.i962 = add nsw i16 %312, %div.i5.i.i.i961
@@ -23465,7 +23469,7 @@ _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_8hour_tagEEEl.exit: ;
   %cmp.i.i.i1017 = icmp slt i16 %rem.i4.i.i1016, 0
   %add1.i.i.i1018 = add nsw i16 %rem.i4.i.i1016, 24
   %hh.addr.0.i.i.i1019 = select i1 %cmp.i.i.i1017, i16 %add1.i.i.i1018, i16 %rem.i4.i.i1016
-  %conv.i.i.i1020 = trunc i16 %hh.addr.0.i.i.i1019 to i8
+  %conv.i.i.i1020 = trunc nsw i16 %hh.addr.0.i.i.i1019 to i8
   %div.i5.i.i1021 = sdiv i16 %rem.i.lhs.trunc.i.i1015, 24
   %326 = ashr i16 %rem.i4.i.i1016, 15
   %narrow.i.i1022 = add nsw i16 %326, %div.i5.i.i1021
@@ -23754,13 +23758,13 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEppEi.exit: ; pred
   %conv2.i.i.i.i.i1099 = ashr i64 %351, 56
   %352 = shl i64 %retval.sroa.3.0.in.i2574, 48
   %conv1.i.i.i.i.i1100 = ashr i64 %352, 56
-  %353 = trunc i64 %conv2.i.i.i.i.i1099 to i16
+  %353 = trunc nsw i64 %conv2.i.i.i.i.i1099 to i16
   %rem.i.lhs.trunc.i.i.i.i.i = add nsw i16 %353, 1
   %rem.i4.i.i.i.i.i = srem i16 %rem.i.lhs.trunc.i.i.i.i.i, 24
   %cmp.i.i.i.i.i.i1101 = icmp slt i16 %rem.i4.i.i.i.i.i, 0
   %add1.i.i.i.i.i.i1102 = add nsw i16 %rem.i4.i.i.i.i.i, 24
   %hh.addr.0.i.i.i.i.i.i1103 = select i1 %cmp.i.i.i.i.i.i1101, i16 %add1.i.i.i.i.i.i1102, i16 %rem.i4.i.i.i.i.i
-  %conv.i.i.i.i.i.i = trunc i16 %hh.addr.0.i.i.i.i.i.i1103 to i8
+  %conv.i.i.i.i.i.i = trunc nsw i16 %hh.addr.0.i.i.i.i.i.i1103 to i8
   %div.i5.i.i.i.i.i = sdiv i16 %rem.i.lhs.trunc.i.i.i.i.i, 24
   %354 = ashr i16 %rem.i4.i.i.i.i.i, 15
   %narrow.i.i.i.i.i = add nsw i16 %354, %div.i5.i.i.i.i.i
@@ -23909,13 +23913,13 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEppEv.exit: ; pred
   %conv2.i.i.i.i1148 = ashr i64 %retval.sroa.2.8.insert.insert.i.i.i.i.i.i, 56
   %368 = shl i64 %355, 48
   %conv1.i.i.i.i1149 = ashr i64 %368, 56
-  %369 = trunc i64 %conv2.i.i.i.i1148 to i16
+  %369 = trunc nsw i64 %conv2.i.i.i.i1148 to i16
   %rem.i.lhs.trunc.i.i.i.i1152 = add nsw i16 %369, 1
   %rem.i4.i.i.i.i = srem i16 %rem.i.lhs.trunc.i.i.i.i1152, 24
   %cmp.i.i.i.i.i1153 = icmp slt i16 %rem.i4.i.i.i.i, 0
   %add1.i.i.i.i.i1154 = add nsw i16 %rem.i4.i.i.i.i, 24
   %hh.addr.0.i.i.i.i.i1155 = select i1 %cmp.i.i.i.i.i1153, i16 %add1.i.i.i.i.i1154, i16 %rem.i4.i.i.i.i
-  %conv.i.i.i.i.i1156 = trunc i16 %hh.addr.0.i.i.i.i.i1155 to i8
+  %conv.i.i.i.i.i1156 = trunc nsw i16 %hh.addr.0.i.i.i.i.i1155 to i8
   %div.i5.i.i.i.i = sdiv i16 %rem.i.lhs.trunc.i.i.i.i1152, 24
   %370 = ashr i16 %rem.i4.i.i.i.i, 15
   %narrow.i.i.i.i1157 = add nsw i16 %370, %div.i5.i.i.i.i
@@ -24065,13 +24069,13 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEmmEi.exit: ; pred
   %conv2.i.i.i.i1204 = ashr i64 %384, 56
   %385 = shl i64 %371, 48
   %conv1.i.i.i.i1205 = ashr i64 %385, 56
-  %386 = trunc i64 %conv2.i.i.i.i1204 to i16
+  %386 = trunc nsw i64 %conv2.i.i.i.i1204 to i16
   %rem.i.lhs.trunc.i.i.i.i1210 = add nsw i16 %386, -1
   %rem.i4.i.i.i.i1211 = srem i16 %rem.i.lhs.trunc.i.i.i.i1210, 24
   %cmp.i.i.i.i.i1212 = icmp slt i16 %rem.i4.i.i.i.i1211, 0
   %add1.i.i.i.i.i1213 = add nsw i16 %rem.i4.i.i.i.i1211, 24
   %hh.addr.0.i.i.i.i.i1214 = select i1 %cmp.i.i.i.i.i1212, i16 %add1.i.i.i.i.i1213, i16 %rem.i4.i.i.i.i1211
-  %conv.i.i.i.i.i1215 = trunc i16 %hh.addr.0.i.i.i.i.i1214 to i8
+  %conv.i.i.i.i.i1215 = trunc nsw i16 %hh.addr.0.i.i.i.i.i1214 to i8
   %div.i5.i.i.i.i1216 = sdiv i16 %rem.i.lhs.trunc.i.i.i.i1210, 24
   %387 = ashr i16 %rem.i4.i.i.i.i1211, 15
   %narrow.i.i.i.i1217 = add nsw i16 %387, %div.i5.i.i.i.i1216
@@ -24220,13 +24224,13 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEmmEv.exit: ; pred
   %conv2.i.i.i1268 = ashr i64 %retval.sroa.3.0.i.i.i1221, 56
   %400 = shl i64 %retval.sroa.3.0.in.i.i.i1220, 48
   %conv1.i.i.i1269 = ashr i64 %400, 56
-  %401 = trunc i64 %conv2.i.i.i1268 to i16
+  %401 = trunc nsw i64 %conv2.i.i.i1268 to i16
   %rem.i.lhs.trunc.i.i.i1274 = add nsw i16 %401, -1
   %rem.i4.i.i.i1275 = srem i16 %rem.i.lhs.trunc.i.i.i1274, 24
   %cmp.i.i.i.i1276 = icmp slt i16 %rem.i4.i.i.i1275, 0
   %add1.i.i.i.i1277 = add nsw i16 %rem.i4.i.i.i1275, 24
   %hh.addr.0.i.i.i.i1278 = select i1 %cmp.i.i.i.i1276, i16 %add1.i.i.i.i1277, i16 %rem.i4.i.i.i1275
-  %conv.i.i.i.i1279 = trunc i16 %hh.addr.0.i.i.i.i1278 to i8
+  %conv.i.i.i.i1279 = trunc nsw i16 %hh.addr.0.i.i.i.i1278 to i8
   %div.i5.i.i.i1280 = sdiv i16 %rem.i.lhs.trunc.i.i.i1274, 24
   %402 = ashr i16 %rem.i4.i.i.i1275, 15
   %narrow.i.i.i1281 = add nsw i16 %402, %div.i5.i.i.i1280
@@ -25572,7 +25576,7 @@ _ZN7testing15AssertionResultD2Ev.exit1722:        ; preds = %if.end907, %_ZNKSt1
   br i1 %cmp.not.i.i.i, label %_ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS0_9month_tagEEEl.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit1722
-  %div.i.lhs.trunc.i.i = trunc i64 %add1.i.i to i16
+  %div.i.lhs.trunc.i.i = trunc nsw i64 %add1.i.i to i16
   %div.i3.i.i = sdiv i16 %div.i.lhs.trunc.i.i, 12
   %div.i.sext.i.i = sext i16 %div.i3.i.i to i64
   %add.i.i.i = add nsw i64 %532, %div.i.sext.i.i
@@ -25588,7 +25592,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 _ZN4absl13time_internal4cctz6detailplENS2_10civil_timeINS0_9month_tagEEEl.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit1722, %if.then.i.i.i, %if.then2.i.i.i
   %m.addr.0.i.i.i = phi i16 [ %add3.i.i.i1738, %if.then2.i.i.i ], [ %rem.i4.i.i1725, %if.then.i.i.i ], [ 12, %_ZN7testing15AssertionResultD2Ev.exit1722 ]
   %y.addr.0.i.i.i = phi i64 [ %sub.i.i.i, %if.then2.i.i.i ], [ %add.i.i.i, %if.then.i.i.i ], [ %532, %_ZN7testing15AssertionResultD2Ev.exit1722 ]
-  %conv.i.i.i1733 = trunc i16 %m.addr.0.i.i.i to i8
+  %conv.i.i.i1733 = trunc nsw i16 %m.addr.0.i.i.i to i8
   %call.i.i.i1734 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i, i8 noundef signext %conv.i.i.i1733, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %544 = extractvalue { i64, i64 } %call.i.i.i1734, 1
   %retval.sroa.2.8.insert.ext.i.i.i1735 = and i64 %544, 255
@@ -25715,7 +25719,7 @@ _ZN7testing15AssertionResultD2Ev.exit1766:        ; preds = %if.end933, %_ZNKSt1
   br i1 %cmp.not.i.i.i.i1770, label %_ZN4absl13time_internal4cctz6detailplElNS2_10civil_timeINS0_9month_tagEEE.exit, label %if.then.i.i.i.i1771
 
 if.then.i.i.i.i1771:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit1766
-  %div.i.lhs.trunc.i.i.i1772 = trunc i64 %add1.i.i.i1769 to i16
+  %div.i.lhs.trunc.i.i.i1772 = trunc nsw i64 %add1.i.i.i1769 to i16
   %div.i3.i.i.i1773 = sdiv i16 %div.i.lhs.trunc.i.i.i1772, 12
   %div.i.sext.i.i.i1774 = sext i16 %div.i3.i.i.i1773 to i64
   %add.i.i.i.i1775 = add nsw i64 %532, %div.i.sext.i.i.i1774
@@ -25731,7 +25735,7 @@ if.then2.i.i.i.i1792:                             ; preds = %if.then.i.i.i.i1771
 _ZN4absl13time_internal4cctz6detailplElNS2_10civil_timeINS0_9month_tagEEE.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit1766, %if.then.i.i.i.i1771, %if.then2.i.i.i.i1792
   %m.addr.0.i.i.i.i1778 = phi i16 [ %add3.i.i.i.i1794, %if.then2.i.i.i.i1792 ], [ %rem.i4.i.i.i1776, %if.then.i.i.i.i1771 ], [ 12, %_ZN7testing15AssertionResultD2Ev.exit1766 ]
   %y.addr.0.i.i.i.i1779 = phi i64 [ %sub.i.i.i.i1793, %if.then2.i.i.i.i1792 ], [ %add.i.i.i.i1775, %if.then.i.i.i.i1771 ], [ %532, %_ZN7testing15AssertionResultD2Ev.exit1766 ]
-  %conv.i.i.i.i1787 = trunc i16 %m.addr.0.i.i.i.i1778 to i8
+  %conv.i.i.i.i1787 = trunc nsw i16 %m.addr.0.i.i.i.i1778 to i8
   %call.i.i.i.i1788 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i.i1779, i8 noundef signext %conv.i.i.i.i1787, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %557 = extractvalue { i64, i64 } %call.i.i.i.i1788, 1
   %retval.sroa.2.8.insert.ext.i.i.i.i1789 = and i64 %557, 255
@@ -25858,7 +25862,7 @@ _ZN7testing15AssertionResultD2Ev.exit1822:        ; preds = %if.end959, %_ZNKSt1
   br i1 %cmp.not.i.i.i1826, label %_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_9month_tagEEEl.exit, label %if.then.i.i.i1827
 
 if.then.i.i.i1827:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit1822
-  %div.i.lhs.trunc.i.i1828 = trunc i64 %add1.i.i1825 to i16
+  %div.i.lhs.trunc.i.i1828 = trunc nsw i64 %add1.i.i1825 to i16
   %div.i3.i.i1829 = sdiv i16 %div.i.lhs.trunc.i.i1828, 12
   %div.i.sext.i.i1830 = sext i16 %div.i3.i.i1829 to i64
   %add.i.i.i1831 = add nsw i64 %532, %div.i.sext.i.i1830
@@ -25874,7 +25878,7 @@ if.then2.i.i.i1837:                               ; preds = %if.then.i.i.i1827
 _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_9month_tagEEEl.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit1822, %if.then.i.i.i1827, %if.then2.i.i.i1837
   %m.addr.0.i.i45.sink.i = phi i16 [ 12, %_ZN7testing15AssertionResultD2Ev.exit1822 ], [ %rem.i4.i.i1832, %if.then.i.i.i1827 ], [ %add3.i.i.i1839, %if.then2.i.i.i1837 ]
   %y.addr.0.i.i46.sink.i = phi i64 [ %532, %_ZN7testing15AssertionResultD2Ev.exit1822 ], [ %add.i.i.i1831, %if.then.i.i.i1827 ], [ %sub.i.i.i1838, %if.then2.i.i.i1837 ]
-  %conv.i.i54.i = trunc i16 %m.addr.0.i.i45.sink.i to i8
+  %conv.i.i54.i = trunc nsw i16 %m.addr.0.i.i45.sink.i to i8
   %call.i.i55.i = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i46.sink.i, i8 noundef signext %conv.i.i54.i, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %retval.sroa.3.0.in.in.i = extractvalue { i64, i64 } %call.i.i55.i, 1
   %retval.sroa.3.0.in.i1834 = and i64 %retval.sroa.3.0.in.in.i, 255
@@ -25999,7 +26003,7 @@ _ZN7testing15AssertionResultD2Ev.exit1867:        ; preds = %if.end985, %_ZNKSt1
   br i1 %cmp.not.i.i.i1826, label %_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_9month_tagEEEl.exit2626, label %if.then.i.i.i2601
 
 if.then.i.i.i2601:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit1867
-  %div.i.lhs.trunc.i.i2602 = trunc i64 %add1.i.i1825 to i16
+  %div.i.lhs.trunc.i.i2602 = trunc nsw i64 %add1.i.i1825 to i16
   %div.i3.i.i2603 = sdiv i16 %div.i.lhs.trunc.i.i2602, 12
   %div.i.sext.i.i2604 = sext i16 %div.i3.i.i2603 to i64
   %add.i.i.i2605 = add nsw i64 %532, %div.i.sext.i.i2604
@@ -26015,7 +26019,7 @@ if.then2.i.i.i2623:                               ; preds = %if.then.i.i.i2601
 _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_9month_tagEEEl.exit2626: ; preds = %_ZN7testing15AssertionResultD2Ev.exit1867, %if.then.i.i.i2601, %if.then2.i.i.i2623
   %m.addr.0.i.i45.sink.i2608 = phi i16 [ 12, %_ZN7testing15AssertionResultD2Ev.exit1867 ], [ %rem.i4.i.i2606, %if.then.i.i.i2601 ], [ %add3.i.i.i2625, %if.then2.i.i.i2623 ]
   %y.addr.0.i.i46.sink.i2609 = phi i64 [ %532, %_ZN7testing15AssertionResultD2Ev.exit1867 ], [ %add.i.i.i2605, %if.then.i.i.i2601 ], [ %sub.i.i.i2624, %if.then2.i.i.i2623 ]
-  %conv.i.i54.i2617 = trunc i16 %m.addr.0.i.i45.sink.i2608 to i8
+  %conv.i.i54.i2617 = trunc nsw i16 %m.addr.0.i.i45.sink.i2608 to i8
   %call.i.i55.i2618 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i46.sink.i2609, i8 noundef signext %conv.i.i54.i2617, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %retval.sroa.3.0.in.in.i2619 = extractvalue { i64, i64 } %call.i.i55.i2618, 1
   %retval.sroa.3.0.in.i2620 = and i64 %retval.sroa.3.0.in.in.i2619, 255
@@ -26144,7 +26148,7 @@ _ZN7testing15AssertionResultD2Ev.exit1899:        ; preds = %if.end1009, %_ZNKSt
   br i1 %cmp.not.i.i.i.i.i.i1906, label %_ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEppEi.exit, label %if.then.i.i.i.i.i.i1907
 
 if.then.i.i.i.i.i.i1907:                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit1899
-  %div.i.lhs.trunc.i.i.i.i.i = trunc i64 %add1.i.i.i.i.i1905 to i16
+  %div.i.lhs.trunc.i.i.i.i.i = trunc nsw i64 %add1.i.i.i.i.i1905 to i16
   %div.i3.i.i.i.i.i = sdiv i16 %div.i.lhs.trunc.i.i.i.i.i, 12
   %div.i.sext.i.i.i.i.i = sext i16 %div.i3.i.i.i.i.i to i64
   %add.i.i.i.i.i.i1908 = add nsw i64 %582, %div.i.sext.i.i.i.i.i
@@ -26160,7 +26164,7 @@ if.then2.i.i.i.i.i.i1925:                         ; preds = %if.then.i.i.i.i.i.i
 _ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEppEi.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit1899, %if.then.i.i.i.i.i.i1907, %if.then2.i.i.i.i.i.i1925
   %m.addr.0.i.i.i.i.i.i1911 = phi i16 [ %add3.i.i.i.i.i.i1927, %if.then2.i.i.i.i.i.i1925 ], [ %rem.i4.i.i.i.i.i1909, %if.then.i.i.i.i.i.i1907 ], [ 12, %_ZN7testing15AssertionResultD2Ev.exit1899 ]
   %y.addr.0.i.i.i.i.i.i1912 = phi i64 [ %sub.i.i.i.i.i.i1926, %if.then2.i.i.i.i.i.i1925 ], [ %add.i.i.i.i.i.i1908, %if.then.i.i.i.i.i.i1907 ], [ %582, %_ZN7testing15AssertionResultD2Ev.exit1899 ]
-  %conv.i.i.i.i.i.i1920 = trunc i16 %m.addr.0.i.i.i.i.i.i1911 to i8
+  %conv.i.i.i.i.i.i1920 = trunc nsw i16 %m.addr.0.i.i.i.i.i.i1911 to i8
   %call.i.i.i.i.i.i1921 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i.i.i.i1912, i8 noundef signext %conv.i.i.i.i.i.i1920, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %594 = extractvalue { i64, i64 } %call.i.i.i.i.i.i1921, 1
   %595 = extractvalue { i64, i64 } %call.i.i.i.i.i.i1921, 0
@@ -26287,7 +26291,7 @@ _ZN7testing15AssertionResultD2Ev.exit1955:        ; preds = %if.end1034, %_ZNKSt
   br i1 %cmp.not.i.i.i.i.i1962, label %_ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEppEv.exit, label %if.then.i.i.i.i.i1963
 
 if.then.i.i.i.i.i1963:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit1955
-  %div.i.lhs.trunc.i.i.i.i = trunc i64 %add1.i.i.i.i1961 to i16
+  %div.i.lhs.trunc.i.i.i.i = trunc nsw i64 %add1.i.i.i.i1961 to i16
   %div.i3.i.i.i.i = sdiv i16 %div.i.lhs.trunc.i.i.i.i, 12
   %div.i.sext.i.i.i.i1964 = sext i16 %div.i3.i.i.i.i to i64
   %add.i.i.i.i.i1965 = add nsw i64 %595, %div.i.sext.i.i.i.i1964
@@ -26303,7 +26307,7 @@ if.then2.i.i.i.i.i1980:                           ; preds = %if.then.i.i.i.i.i19
 _ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEppEv.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit1955, %if.then.i.i.i.i.i1963, %if.then2.i.i.i.i.i1980
   %m.addr.0.i.i.i.i.i1968 = phi i16 [ %add3.i.i.i.i.i1982, %if.then2.i.i.i.i.i1980 ], [ %rem.i4.i.i.i.i1966, %if.then.i.i.i.i.i1963 ], [ 12, %_ZN7testing15AssertionResultD2Ev.exit1955 ]
   %y.addr.0.i.i.i.i.i1969 = phi i64 [ %sub.i.i.i.i.i1981, %if.then2.i.i.i.i.i1980 ], [ %add.i.i.i.i.i1965, %if.then.i.i.i.i.i1963 ], [ %595, %_ZN7testing15AssertionResultD2Ev.exit1955 ]
-  %conv.i.i.i.i.i1977 = trunc i16 %m.addr.0.i.i.i.i.i1968 to i8
+  %conv.i.i.i.i.i1977 = trunc nsw i16 %m.addr.0.i.i.i.i.i1968 to i8
   %call.i.i.i.i.i1978 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i.i.i1969, i8 noundef signext %conv.i.i.i.i.i1977, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %607 = extractvalue { i64, i64 } %call.i.i.i.i.i1978, 1
   %retval.sroa.2.8.insert.ext.i.i.i.i.i = and i64 %607, 255
@@ -26432,7 +26436,7 @@ _ZN7testing15AssertionResultD2Ev.exit2010:        ; preds = %if.end1058, %_ZNKSt
   br i1 %cmp.not.i.i.i.i.i2017, label %_ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEmmEi.exit, label %if.then.i.i.i.i.i2018
 
 if.then.i.i.i.i.i2018:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit2010
-  %div.i.lhs.trunc.i.i.i.i2019 = trunc i64 %add1.i.i.i.i2016 to i16
+  %div.i.lhs.trunc.i.i.i.i2019 = trunc nsw i64 %add1.i.i.i.i2016 to i16
   %div.i3.i.i.i.i2020 = sdiv i16 %div.i.lhs.trunc.i.i.i.i2019, 12
   %div.i.sext.i.i.i.i2021 = sext i16 %div.i3.i.i.i.i2020 to i64
   %add.i.i.i.i.i2022 = add nsw i64 %608, %div.i.sext.i.i.i.i2021
@@ -26448,7 +26452,7 @@ if.then2.i.i.i.i.i2029:                           ; preds = %if.then.i.i.i.i.i20
 _ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEmmEi.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit2010, %if.then.i.i.i.i.i2018, %if.then2.i.i.i.i.i2029
   %m.addr.0.i.i45.sink.i.i.i = phi i16 [ 12, %_ZN7testing15AssertionResultD2Ev.exit2010 ], [ %rem.i4.i.i.i.i2023, %if.then.i.i.i.i.i2018 ], [ %add3.i.i.i.i.i2031, %if.then2.i.i.i.i.i2029 ]
   %y.addr.0.i.i46.sink.i.i.i = phi i64 [ %608, %_ZN7testing15AssertionResultD2Ev.exit2010 ], [ %add.i.i.i.i.i2022, %if.then.i.i.i.i.i2018 ], [ %sub.i.i.i.i.i2030, %if.then2.i.i.i.i.i2029 ]
-  %conv.i.i54.i.i.i = trunc i16 %m.addr.0.i.i45.sink.i.i.i to i8
+  %conv.i.i54.i.i.i = trunc nsw i16 %m.addr.0.i.i45.sink.i.i.i to i8
   %call.i.i55.i.i.i = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i46.sink.i.i.i, i8 noundef signext %conv.i.i54.i.i.i, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %retval.sroa.3.0.in.in.i.i.i = extractvalue { i64, i64 } %call.i.i55.i.i.i, 1
   %620 = extractvalue { i64, i64 } %call.i.i55.i.i.i, 0
@@ -26575,7 +26579,7 @@ _ZN7testing15AssertionResultD2Ev.exit2059:        ; preds = %if.end1083, %_ZNKSt
   br i1 %cmp.not.i.i.i.i2066, label %_ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEmmEv.exit, label %if.then.i.i.i.i2067
 
 if.then.i.i.i.i2067:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit2059
-  %div.i.lhs.trunc.i.i.i2068 = trunc i64 %add1.i.i.i2065 to i16
+  %div.i.lhs.trunc.i.i.i2068 = trunc nsw i64 %add1.i.i.i2065 to i16
   %div.i3.i.i.i2069 = sdiv i16 %div.i.lhs.trunc.i.i.i2068, 12
   %div.i.sext.i.i.i2070 = sext i16 %div.i3.i.i.i2069 to i64
   %add.i.i.i.i2071 = add nsw i64 %620, %div.i.sext.i.i.i2070
@@ -26591,7 +26595,7 @@ if.then2.i.i.i.i2076:                             ; preds = %if.then.i.i.i.i2067
 _ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEmmEv.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit2059, %if.then.i.i.i.i2067, %if.then2.i.i.i.i2076
   %m.addr.0.i.i45.sink.i.i = phi i16 [ 12, %_ZN7testing15AssertionResultD2Ev.exit2059 ], [ %rem.i4.i.i.i2072, %if.then.i.i.i.i2067 ], [ %add3.i.i.i.i2078, %if.then2.i.i.i.i2076 ]
   %y.addr.0.i.i46.sink.i.i = phi i64 [ %620, %_ZN7testing15AssertionResultD2Ev.exit2059 ], [ %add.i.i.i.i2071, %if.then.i.i.i.i2067 ], [ %sub.i.i.i.i2077, %if.then2.i.i.i.i2076 ]
-  %conv.i.i54.i.i = trunc i16 %m.addr.0.i.i45.sink.i.i to i8
+  %conv.i.i54.i.i = trunc nsw i16 %m.addr.0.i.i45.sink.i.i to i8
   %call.i.i55.i.i = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i46.sink.i.i, i8 noundef signext %conv.i.i54.i.i, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %retval.sroa.3.0.in.in.i.i = extractvalue { i64, i64 } %call.i.i55.i.i, 1
   %retval.sroa.3.0.in.i.i2074 = and i64 %retval.sroa.3.0.in.in.i.i, 255
@@ -28567,21 +28571,21 @@ _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_10minute_tagEEEl.exit
   %conv2.i.i = ashr i64 %78, 56
   %79 = shl i64 %64, 48
   %conv1.i.i = ashr i64 %79, 56
-  %80 = trunc i64 %conv3.i.i to i16
+  %80 = trunc nsw i64 %conv3.i.i to i16
   %rem.i.lhs.trunc.i.i = add nsw i16 %80, -7
   %rem.i5.i.i = srem i16 %rem.i.lhs.trunc.i.i, 60
   %cmp.i.i.i983 = icmp slt i16 %rem.i5.i.i, 0
   %add1.i.i.i984 = add nsw i16 %rem.i5.i.i, 60
   %mm.addr.0.i.i.i = select i1 %cmp.i.i.i983, i16 %add1.i.i.i984, i16 %rem.i5.i.i
-  %conv.i.i.i985 = trunc i16 %mm.addr.0.i.i.i to i8
-  %81 = trunc i64 %conv2.i.i to i32
+  %conv.i.i.i985 = trunc nsw i16 %mm.addr.0.i.i.i to i8
+  %81 = trunc nsw i64 %conv2.i.i to i32
   %rem5.i.i.i1247.lhs.trunc = sub nsw i32 35791394, %81
   %rem5.i.i.i12471248 = urem i32 %rem5.i.i.i1247.lhs.trunc, 24
-  %rem5.i.i.i1247.zext = trunc i32 %rem5.i.i.i12471248 to i8
+  %rem5.i.i.i1247.zext = trunc nuw nsw i32 %rem5.i.i.i12471248 to i8
   %div.i6.i.i = sdiv i16 %rem.i.lhs.trunc.i.i, 60
   %82 = ashr i16 %rem.i5.i.i, 15
   %narrow.i.i = add nsw i16 %82, %div.i6.i.i
-  %ch.addr.0.i.i.i = trunc i16 %narrow.i.i to i8
+  %ch.addr.0.i.i.i = trunc nsw i16 %narrow.i.i to i8
   %add7.i.i.i = sub nsw i8 %ch.addr.0.i.i.i, %rem5.i.i.i1247.zext
   %div2.i.i.i12501251 = udiv i32 %rem5.i.i.i1247.lhs.trunc, 24
   %div2.i.i.i1250.zext = zext nneg i32 %div2.i.i.i12501251 to i64
@@ -28742,21 +28746,21 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_10minute_tagEEpLEl.exit300: 
   %conv2.i.i.i268 = ashr i64 %97, 56
   %98 = shl i64 %retval.sroa.3.0.in.i, 48
   %conv1.i.i.i270 = ashr i64 %98, 56
-  %99 = trunc i64 %conv3.i.i.i266 to i16
+  %99 = trunc nsw i64 %conv3.i.i.i266 to i16
   %rem.i.lhs.trunc.i.i.i273 = add nsw i16 %99, -8
   %rem.i5.i.i.i274 = srem i16 %rem.i.lhs.trunc.i.i.i273, 60
   %cmp.i.i.i.i275 = icmp slt i16 %rem.i5.i.i.i274, 0
   %add1.i.i.i.i276 = add nsw i16 %rem.i5.i.i.i274, 60
   %mm.addr.0.i.i.i.i277 = select i1 %cmp.i.i.i.i275, i16 %add1.i.i.i.i276, i16 %rem.i5.i.i.i274
-  %conv.i.i.i.i278 = trunc i16 %mm.addr.0.i.i.i.i277 to i8
-  %100 = trunc i64 %conv2.i.i.i268 to i32
+  %conv.i.i.i.i278 = trunc nsw i16 %mm.addr.0.i.i.i.i277 to i8
+  %100 = trunc nsw i64 %conv2.i.i.i268 to i32
   %rem5.i.i.i.i2791252.lhs.trunc = sub nsw i32 35791394, %100
   %rem5.i.i.i.i27912521253 = urem i32 %rem5.i.i.i.i2791252.lhs.trunc, 24
-  %rem5.i.i.i.i2791252.zext = trunc i32 %rem5.i.i.i.i27912521253 to i8
+  %rem5.i.i.i.i2791252.zext = trunc nuw nsw i32 %rem5.i.i.i.i27912521253 to i8
   %div.i6.i.i.i280 = sdiv i16 %rem.i.lhs.trunc.i.i.i273, 60
   %101 = ashr i16 %rem.i5.i.i.i274, 15
   %narrow.i.i.i281 = add nsw i16 %101, %div.i6.i.i.i280
-  %ch.addr.0.i.i.i.i282 = trunc i16 %narrow.i.i.i281 to i8
+  %ch.addr.0.i.i.i.i282 = trunc nsw i16 %narrow.i.i.i281 to i8
   %add7.i.i.i.i283 = sub nsw i8 %ch.addr.0.i.i.i.i282, %rem5.i.i.i.i2791252.zext
   %div2.i.i.i.i28412551256 = udiv i32 %rem5.i.i.i.i2791252.lhs.trunc, 24
   %div2.i.i.i.i2841255.zext = zext nneg i32 %div2.i.i.i.i28412551256 to i64
@@ -28917,21 +28921,21 @@ _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_10minute_tagEEEl.exit
   %conv2.i.i1010 = ashr i64 %117, 56
   %118 = shl i64 %103, 48
   %conv1.i.i1012 = ashr i64 %118, 56
-  %119 = trunc i64 %conv3.i.i1008 to i16
+  %119 = trunc nsw i64 %conv3.i.i1008 to i16
   %rem.i.lhs.trunc.i.i1015 = add nsw i16 %119, 8
   %rem.i5.i.i1016 = srem i16 %rem.i.lhs.trunc.i.i1015, 60
   %cmp.i.i.i1017 = icmp slt i16 %rem.i5.i.i1016, 0
   %add1.i.i.i1018 = add nsw i16 %rem.i5.i.i1016, 60
   %mm.addr.0.i.i.i1019 = select i1 %cmp.i.i.i1017, i16 %add1.i.i.i1018, i16 %rem.i5.i.i1016
-  %conv.i.i.i1020 = trunc i16 %mm.addr.0.i.i.i1019 to i8
-  %120 = trunc i64 %conv2.i.i1010 to i32
+  %conv.i.i.i1020 = trunc nsw i16 %mm.addr.0.i.i.i1019 to i8
+  %120 = trunc nsw i64 %conv2.i.i1010 to i32
   %rem5.i.i.i10211257.lhs.trunc = add nsw i32 %120, 35791394
   %rem5.i.i.i102112571258 = urem i32 %rem5.i.i.i10211257.lhs.trunc, 24
-  %rem5.i.i.i10211257.zext = trunc i32 %rem5.i.i.i102112571258 to i8
+  %rem5.i.i.i10211257.zext = trunc nuw nsw i32 %rem5.i.i.i102112571258 to i8
   %div.i6.i.i1022 = sdiv i16 %rem.i.lhs.trunc.i.i1015, 60
   %121 = ashr i16 %rem.i5.i.i1016, 15
   %narrow.i.i1023 = add nsw i16 %121, %div.i6.i.i1022
-  %ch.addr.0.i.i.i1024 = trunc i16 %narrow.i.i1023 to i8
+  %ch.addr.0.i.i.i1024 = trunc nsw i16 %narrow.i.i1023 to i8
   %add7.i.i.i1025 = add nsw i8 %ch.addr.0.i.i.i1024, %rem5.i.i.i10211257.zext
   %div2.i.i.i102612591260 = udiv i32 %rem5.i.i.i10211257.lhs.trunc, 24
   %div2.i.i.i10261259.zext = zext nneg i32 %div2.i.i.i102612591260 to i64
@@ -29211,13 +29215,13 @@ _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_8hour_tagEEEl.exit: ;
   %149 = shl i64 %135, 48
   %conv1.i.i1053 = ashr i64 %149, 56
   %add.i.i1054 = add nsw i64 %conv1.i.i1053, -89478485
-  %150 = trunc i64 %conv2.i.i1052 to i16
+  %150 = trunc nsw i64 %conv2.i.i1052 to i16
   %rem.i.lhs.trunc.i.i1057 = add nsw i16 %150, -7
   %rem.i4.i.i = srem i16 %rem.i.lhs.trunc.i.i1057, 24
   %cmp.i.i.i1058 = icmp slt i16 %rem.i4.i.i, 0
   %add1.i.i.i1059 = add nsw i16 %rem.i4.i.i, 24
   %hh.addr.0.i.i.i = select i1 %cmp.i.i.i1058, i16 %add1.i.i.i1059, i16 %rem.i4.i.i
-  %conv.i.i.i1060 = trunc i16 %hh.addr.0.i.i.i to i8
+  %conv.i.i.i1060 = trunc nsw i16 %hh.addr.0.i.i.i to i8
   %div.i5.i.i = sdiv i16 %rem.i.lhs.trunc.i.i1057, 24
   %151 = ashr i16 %rem.i4.i.i, 15
   %narrow.i.i1061 = add nsw i16 %151, %div.i5.i.i
@@ -29368,13 +29372,13 @@ _ZN4absl13time_internal4cctz6detail10civil_timeINS0_8hour_tagEEpLEl.exit472: ; p
   %165 = shl i64 %retval.sroa.3.0.in.i1063, 48
   %conv1.i.i.i452 = ashr i64 %165, 56
   %add.i.i.i453 = add nsw i64 %conv1.i.i.i452, -89478485
-  %166 = trunc i64 %conv2.i.i.i450 to i16
+  %166 = trunc nsw i64 %conv2.i.i.i450 to i16
   %rem.i.lhs.trunc.i.i.i458 = add nsw i16 %166, -8
   %rem.i4.i.i.i459 = srem i16 %rem.i.lhs.trunc.i.i.i458, 24
   %cmp.i.i.i.i460 = icmp slt i16 %rem.i4.i.i.i459, 0
   %add1.i.i.i.i461 = add nsw i16 %rem.i4.i.i.i459, 24
   %hh.addr.0.i.i.i.i462 = select i1 %cmp.i.i.i.i460, i16 %add1.i.i.i.i461, i16 %rem.i4.i.i.i459
-  %conv.i.i.i.i463 = trunc i16 %hh.addr.0.i.i.i.i462 to i8
+  %conv.i.i.i.i463 = trunc nsw i16 %hh.addr.0.i.i.i.i462 to i8
   %div.i5.i.i.i464 = sdiv i16 %rem.i.lhs.trunc.i.i.i458, 24
   %167 = ashr i16 %rem.i4.i.i.i459, 15
   %narrow.i.i.i465 = add nsw i16 %167, %div.i5.i.i.i464
@@ -29525,13 +29529,13 @@ _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_8hour_tagEEEl.exit110
   %182 = shl i64 %168, 48
   %conv1.i.i1082 = ashr i64 %182, 56
   %add.i.i1083 = add nsw i64 %conv1.i.i1082, 89478485
-  %183 = trunc i64 %conv2.i.i1080 to i16
+  %183 = trunc nsw i64 %conv2.i.i1080 to i16
   %rem.i.lhs.trunc.i.i1088 = add nsw i16 %183, 8
   %rem.i4.i.i1089 = srem i16 %rem.i.lhs.trunc.i.i1088, 24
   %cmp.i.i.i1090 = icmp slt i16 %rem.i4.i.i1089, 0
   %add1.i.i.i1091 = add nsw i16 %rem.i4.i.i1089, 24
   %hh.addr.0.i.i.i1092 = select i1 %cmp.i.i.i1090, i16 %add1.i.i.i1091, i16 %rem.i4.i.i1089
-  %conv.i.i.i1093 = trunc i16 %hh.addr.0.i.i.i1092 to i8
+  %conv.i.i.i1093 = trunc nsw i16 %hh.addr.0.i.i.i1092 to i8
   %div.i5.i.i1094 = sdiv i16 %rem.i.lhs.trunc.i.i1088, 24
   %184 = ashr i16 %rem.i4.i.i1089, 15
   %narrow.i.i1095 = add nsw i16 %184, %div.i5.i.i1094
@@ -30274,7 +30278,7 @@ _ZN7testing15AssertionResultD2Ev.exit720:         ; preds = %if.end396, %_ZNKSt1
   br i1 %cmp.not.i.i.i, label %_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_9month_tagEEEl.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit720
-  %div.i.lhs.trunc.i.i = trunc i64 %add1.i.i to i16
+  %div.i.lhs.trunc.i.i = trunc nsw i64 %add1.i.i to i16
   %div.i3.i.i = sdiv i16 %div.i.lhs.trunc.i.i, 12
   %div.i.sext.i.i = sext i16 %div.i3.i.i to i64
   %add.i.i.i1129 = add nsw i64 %add.i.i1127, %div.i.sext.i.i
@@ -30290,7 +30294,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_9month_tagEEEl.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit720, %if.then.i.i.i, %if.then2.i.i.i
   %m.addr.0.i.i45.sink.i = phi i16 [ 12, %_ZN7testing15AssertionResultD2Ev.exit720 ], [ %rem.i4.i.i1130, %if.then.i.i.i ], [ %add3.i.i.i1134, %if.then2.i.i.i ]
   %y.addr.0.i.i46.sink.i = phi i64 [ %add.i.i1127, %_ZN7testing15AssertionResultD2Ev.exit720 ], [ %add.i.i.i1129, %if.then.i.i.i ], [ %sub.i.i.i, %if.then2.i.i.i ]
-  %conv.i.i54.i = trunc i16 %m.addr.0.i.i45.sink.i to i8
+  %conv.i.i54.i = trunc nsw i16 %m.addr.0.i.i45.sink.i to i8
   %call.i.i55.i = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i46.sink.i, i8 noundef signext %conv.i.i54.i, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %retval.sroa.3.0.in.in.i = extractvalue { i64, i64 } %call.i.i55.i, 1
   %retval.sroa.3.0.in.i1131 = and i64 %retval.sroa.3.0.in.in.i, 255
@@ -30420,7 +30424,7 @@ _ZN7testing15AssertionResultD2Ev.exit751:         ; preds = %if.end420, %_ZNKSt1
   br i1 %cmp.not.i.i.i.i759, label %_ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEpLEl.exit783, label %if.then.i.i.i.i760
 
 if.then.i.i.i.i760:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit751
-  %div.i.lhs.trunc.i.i.i761 = trunc i64 %add1.i.i.i758 to i16
+  %div.i.lhs.trunc.i.i.i761 = trunc nsw i64 %add1.i.i.i758 to i16
   %div.i3.i.i.i762 = sdiv i16 %div.i.lhs.trunc.i.i.i761, 12
   %div.i.sext.i.i.i763 = sext i16 %div.i3.i.i.i762 to i64
   %add.i.i.i.i764 = add nsw i64 %add.i.i.i755, %div.i.sext.i.i.i763
@@ -30436,7 +30440,7 @@ if.then2.i.i.i.i780:                              ; preds = %if.then.i.i.i.i760
 _ZN4absl13time_internal4cctz6detail10civil_timeINS0_9month_tagEEpLEl.exit783: ; preds = %_ZN7testing15AssertionResultD2Ev.exit751, %if.then.i.i.i.i760, %if.then2.i.i.i.i780
   %m.addr.0.i.i.i.i767 = phi i16 [ %add3.i.i.i.i782, %if.then2.i.i.i.i780 ], [ %rem.i4.i.i.i765, %if.then.i.i.i.i760 ], [ 12, %_ZN7testing15AssertionResultD2Ev.exit751 ]
   %y.addr.0.i.i.i.i768 = phi i64 [ %sub.i.i.i.i781, %if.then2.i.i.i.i780 ], [ %add.i.i.i.i764, %if.then.i.i.i.i760 ], [ %add.i.i.i755, %_ZN7testing15AssertionResultD2Ev.exit751 ]
-  %conv.i.i.i.i776 = trunc i16 %m.addr.0.i.i.i.i767 to i8
+  %conv.i.i.i.i776 = trunc nsw i16 %m.addr.0.i.i.i.i767 to i8
   %call.i.i.i.i777 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i.i.i768, i8 noundef signext %conv.i.i.i.i776, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %275 = extractvalue { i64, i64 } %call.i.i.i.i777, 1
   %retval.sroa.2.8.insert.ext.i.i.i.i778 = and i64 %275, 255
@@ -30566,7 +30570,7 @@ _ZN7testing15AssertionResultD2Ev.exit811:         ; preds = %if.end444, %_ZNKSt1
   br i1 %cmp.not.i.i.i1139, label %_ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_9month_tagEEEl.exit1165, label %if.then.i.i.i1140
 
 if.then.i.i.i1140:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit811
-  %div.i.lhs.trunc.i.i1141 = trunc i64 %add1.i.i1138 to i16
+  %div.i.lhs.trunc.i.i1141 = trunc nsw i64 %add1.i.i1138 to i16
   %div.i3.i.i1142 = sdiv i16 %div.i.lhs.trunc.i.i1141, 12
   %div.i.sext.i.i1143 = sext i16 %div.i3.i.i1142 to i64
   %add.i.i.i1144 = add nsw i64 %add.i.i1135, %div.i.sext.i.i1143
@@ -30582,7 +30586,7 @@ if.then2.i.i.i1162:                               ; preds = %if.then.i.i.i1140
 _ZN4absl13time_internal4cctz6detailmiENS2_10civil_timeINS0_9month_tagEEEl.exit1165: ; preds = %_ZN7testing15AssertionResultD2Ev.exit811, %if.then.i.i.i1140, %if.then2.i.i.i1162
   %m.addr.0.i.i45.sink.i1147 = phi i16 [ 12, %_ZN7testing15AssertionResultD2Ev.exit811 ], [ %rem.i4.i.i1145, %if.then.i.i.i1140 ], [ %add3.i.i.i1164, %if.then2.i.i.i1162 ]
   %y.addr.0.i.i46.sink.i1148 = phi i64 [ %add.i.i1135, %_ZN7testing15AssertionResultD2Ev.exit811 ], [ %add.i.i.i1144, %if.then.i.i.i1140 ], [ %sub.i.i.i1163, %if.then2.i.i.i1162 ]
-  %conv.i.i54.i1156 = trunc i16 %m.addr.0.i.i45.sink.i1147 to i8
+  %conv.i.i54.i1156 = trunc nsw i16 %m.addr.0.i.i45.sink.i1147 to i8
   %call.i.i55.i1157 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %y.addr.0.i.i46.sink.i1148, i8 noundef signext %conv.i.i54.i1156, i64 noundef 1, i64 noundef 0, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #14
   %retval.sroa.3.0.in.in.i1158 = extractvalue { i64, i64 } %call.i.i55.i1157, 1
   %retval.sroa.3.0.in.i1159 = and i64 %retval.sroa.3.0.in.in.i1158, 255
@@ -66039,7 +66043,7 @@ entry:
   %conv.neg.i.i.i = sext i1 %cmp.i.i.i to i64
   %sub.i.i.i = add nsw i64 %add.i.i.i, %conv.neg.i.i.i
   %div9.i.i.i = lshr i64 %sub.i.i.i, 2
-  %div2.lhs.trunc.i.i.i = trunc i64 %sub.i.i.i to i16
+  %div2.lhs.trunc.i.i.i = trunc nuw nsw i64 %sub.i.i.i to i16
   %div213.i.i.i = udiv i16 %div2.lhs.trunc.i.i.i, 100
   %div2.zext.i.i.i = zext nneg i16 %div213.i.i.i to i64
   %div414.i.i.i = udiv i16 %div2.lhs.trunc.i.i.i, 400
@@ -67148,7 +67152,7 @@ land.rhs.i:                                       ; preds = %lor.rhs.i
 lor.rhs8.i:                                       ; preds = %land.rhs.i
   %cmp11.i = icmp eq i8 %day116.sroa.4.8.extract.trunc, %july.sroa.2.8.extract.trunc
   %day116.sroa.4.9.extract.shift = lshr i64 %day116.sroa.4.0, 8
-  %day116.sroa.4.9.extract.trunc = trunc i64 %day116.sroa.4.9.extract.shift to i8
+  %day116.sroa.4.9.extract.trunc = trunc nuw i64 %day116.sroa.4.9.extract.shift to i8
   %cmp15.i = icmp slt i8 %day116.sroa.4.9.extract.trunc, 1
   %or.cond = select i1 %cmp11.i, i1 %cmp15.i, i1 false
   br i1 %or.cond, label %for.inc, label %for.end

@@ -972,7 +972,7 @@ sw.bb36:                                          ; preds = %entry
   %dsa37 = getelementptr inbounds i8, ptr %s, i64 3744
   %23 = load i32, ptr %dsa37, align 16
   %shr38 = lshr i32 %23, 24
-  %conv40 = trunc i32 %shr38 to i8
+  %conv40 = trunc nuw i32 %shr38 to i8
   br label %cond.true506
 
 sw.bb41:                                          ; preds = %entry
@@ -1046,7 +1046,7 @@ sw.bb80:                                          ; preds = %entry
   %temp81 = getelementptr inbounds i8, ptr %s, i64 3748
   %37 = load i32, ptr %temp81, align 4
   %shr82 = lshr i32 %37, 24
-  %conv84 = trunc i32 %shr82 to i8
+  %conv84 = trunc nuw i32 %shr82 to i8
   br label %cond.true506
 
 sw.bb85:                                          ; preds = %entry
@@ -1116,7 +1116,7 @@ sw.bb116:                                         ; preds = %entry
   %dnad117 = getelementptr inbounds i8, ptr %s, i64 3752
   %48 = load i32, ptr %dnad117, align 8
   %shr118 = lshr i32 %48, 24
-  %conv120 = trunc i32 %shr118 to i8
+  %conv120 = trunc nuw i32 %shr118 to i8
   br label %cond.true506
 
 sw.bb121:                                         ; preds = %entry
@@ -1143,7 +1143,7 @@ sw.bb134:                                         ; preds = %entry
   %dsp135 = getelementptr inbounds i8, ptr %s, i64 3780
   %52 = load i32, ptr %dsp135, align 4
   %shr136 = lshr i32 %52, 24
-  %conv138 = trunc i32 %shr136 to i8
+  %conv138 = trunc nuw i32 %shr136 to i8
   br label %cond.true506
 
 sw.bb139:                                         ; preds = %entry
@@ -1170,7 +1170,7 @@ sw.bb152:                                         ; preds = %entry
   %dsps153 = getelementptr inbounds i8, ptr %s, i64 3784
   %56 = load i32, ptr %dsps153, align 8
   %shr154 = lshr i32 %56, 24
-  %conv156 = trunc i32 %shr154 to i8
+  %conv156 = trunc nuw i32 %shr154 to i8
   br label %cond.true506
 
 sw.bb157:                                         ; preds = %entry
@@ -1197,7 +1197,7 @@ sw.bb172:                                         ; preds = %entry
   %scratch173 = getelementptr inbounds i8, ptr %s, i64 3868
   %60 = load i32, ptr %scratch173, align 4
   %shr175 = lshr i32 %60, 24
-  %conv177 = trunc i32 %shr175 to i8
+  %conv177 = trunc nuw i32 %shr175 to i8
   br label %cond.true506
 
 sw.bb178:                                         ; preds = %entry
@@ -1244,7 +1244,7 @@ sw.bb195:                                         ; preds = %entry
   %adder196 = getelementptr inbounds i8, ptr %s, i64 3944
   %68 = load i32, ptr %adder196, align 8
   %shr197 = lshr i32 %68, 24
-  %conv199 = trunc i32 %shr197 to i8
+  %conv199 = trunc nuw i32 %shr197 to i8
   br label %cond.true506
 
 sw.bb200:                                         ; preds = %entry
@@ -1374,7 +1374,7 @@ sw.bb245:                                         ; preds = %entry
   %mmrs246 = getelementptr inbounds i8, ptr %s, i64 3812
   %89 = load i32, ptr %mmrs246, align 4
   %shr247 = lshr i32 %89, 24
-  %conv249 = trunc i32 %shr247 to i8
+  %conv249 = trunc nuw i32 %shr247 to i8
   br label %cond.end510
 
 sw.bb250:                                         ; preds = %entry
@@ -1401,7 +1401,7 @@ sw.bb263:                                         ; preds = %entry
   %mmws264 = getelementptr inbounds i8, ptr %s, i64 3816
   %93 = load i32, ptr %mmws264, align 8
   %shr265 = lshr i32 %93, 24
-  %conv267 = trunc i32 %shr265 to i8
+  %conv267 = trunc nuw i32 %shr265 to i8
   br label %cond.end510
 
 sw.bb268:                                         ; preds = %entry
@@ -1428,7 +1428,7 @@ sw.bb281:                                         ; preds = %entry
   %sfs282 = getelementptr inbounds i8, ptr %s, i64 3820
   %97 = load i32, ptr %sfs282, align 4
   %shr283 = lshr i32 %97, 24
-  %conv285 = trunc i32 %shr283 to i8
+  %conv285 = trunc nuw i32 %shr283 to i8
   br label %cond.end510
 
 sw.bb286:                                         ; preds = %entry
@@ -1455,7 +1455,7 @@ sw.bb299:                                         ; preds = %entry
   %drs300 = getelementptr inbounds i8, ptr %s, i64 3824
   %101 = load i32, ptr %drs300, align 16
   %shr301 = lshr i32 %101, 24
-  %conv303 = trunc i32 %shr301 to i8
+  %conv303 = trunc nuw i32 %shr301 to i8
   br label %cond.end510
 
 sw.bb304:                                         ; preds = %entry
@@ -1482,7 +1482,7 @@ sw.bb317:                                         ; preds = %entry
   %sbms318 = getelementptr inbounds i8, ptr %s, i64 3828
   %105 = load i32, ptr %sbms318, align 4
   %shr319 = lshr i32 %105, 24
-  %conv321 = trunc i32 %shr319 to i8
+  %conv321 = trunc nuw i32 %shr319 to i8
   br label %cond.end510
 
 sw.bb322:                                         ; preds = %entry
@@ -1509,7 +1509,7 @@ sw.bb335:                                         ; preds = %entry
   %dbms336 = getelementptr inbounds i8, ptr %s, i64 3832
   %109 = load i32, ptr %dbms336, align 8
   %shr337 = lshr i32 %109, 24
-  %conv339 = trunc i32 %shr337 to i8
+  %conv339 = trunc nuw i32 %shr337 to i8
   br label %cond.end510
 
 sw.bb340:                                         ; preds = %entry
@@ -1536,7 +1536,7 @@ sw.bb353:                                         ; preds = %entry
   %dnad64354 = getelementptr inbounds i8, ptr %s, i64 3836
   %113 = load i32, ptr %dnad64354, align 4
   %shr355 = lshr i32 %113, 24
-  %conv357 = trunc i32 %shr355 to i8
+  %conv357 = trunc nuw i32 %shr355 to i8
   br label %cond.end510
 
 sw.bb358:                                         ; preds = %entry
@@ -1563,7 +1563,7 @@ sw.bb371:                                         ; preds = %entry
   %pmjad1372 = getelementptr inbounds i8, ptr %s, i64 3840
   %117 = load i32, ptr %pmjad1372, align 16
   %shr373 = lshr i32 %117, 24
-  %conv375 = trunc i32 %shr373 to i8
+  %conv375 = trunc nuw i32 %shr373 to i8
   br label %cond.end510
 
 sw.bb376:                                         ; preds = %entry
@@ -1590,7 +1590,7 @@ sw.bb389:                                         ; preds = %entry
   %pmjad2390 = getelementptr inbounds i8, ptr %s, i64 3844
   %121 = load i32, ptr %pmjad2390, align 4
   %shr391 = lshr i32 %121, 24
-  %conv393 = trunc i32 %shr391 to i8
+  %conv393 = trunc nuw i32 %shr391 to i8
   br label %cond.end510
 
 sw.bb394:                                         ; preds = %entry
@@ -1617,7 +1617,7 @@ sw.bb407:                                         ; preds = %entry
   %rbc408 = getelementptr inbounds i8, ptr %s, i64 3848
   %125 = load i32, ptr %rbc408, align 8
   %shr409 = lshr i32 %125, 24
-  %conv411 = trunc i32 %shr409 to i8
+  %conv411 = trunc nuw i32 %shr409 to i8
   br label %cond.end510
 
 sw.bb412:                                         ; preds = %entry
@@ -1644,7 +1644,7 @@ sw.bb425:                                         ; preds = %entry
   %ua426 = getelementptr inbounds i8, ptr %s, i64 3852
   %129 = load i32, ptr %ua426, align 4
   %shr427 = lshr i32 %129, 24
-  %conv429 = trunc i32 %shr427 to i8
+  %conv429 = trunc nuw i32 %shr427 to i8
   br label %cond.end510
 
 sw.bb430:                                         ; preds = %entry
@@ -1671,7 +1671,7 @@ sw.bb443:                                         ; preds = %entry
   %ia444 = getelementptr inbounds i8, ptr %s, i64 3856
   %133 = load i32, ptr %ia444, align 16
   %shr445 = lshr i32 %133, 24
-  %conv447 = trunc i32 %shr445 to i8
+  %conv447 = trunc nuw i32 %shr445 to i8
   br label %cond.end510
 
 sw.bb448:                                         ; preds = %entry
@@ -1698,7 +1698,7 @@ sw.bb461:                                         ; preds = %entry
   %sbc462 = getelementptr inbounds i8, ptr %s, i64 3860
   %137 = load i32, ptr %sbc462, align 4
   %shr463 = lshr i32 %137, 24
-  %conv465 = trunc i32 %shr463 to i8
+  %conv465 = trunc nuw i32 %shr463 to i8
   br label %cond.end510
 
 sw.bb466:                                         ; preds = %entry
@@ -1725,7 +1725,7 @@ sw.bb479:                                         ; preds = %entry
   %csbc480 = getelementptr inbounds i8, ptr %s, i64 3864
   %141 = load i32, ptr %csbc480, align 8
   %shr481 = lshr i32 %141, 24
-  %conv483 = trunc i32 %shr481 to i8
+  %conv483 = trunc nuw i32 %shr481 to i8
   br label %cond.end510
 
 sw.bb484:                                         ; preds = %sw.caserange
@@ -1828,7 +1828,7 @@ return:                                           ; preds = %trace_lsi_reg_read.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @lsi_update_irq(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %_now.i.i33 = alloca %struct.timeval, align 8
+  %_now.i.i34 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %dstat = getelementptr inbounds i8, ptr %s, i64 3763
   %0 = load i8, ptr %dstat, align 1
@@ -1871,7 +1871,7 @@ if.then16:                                        ; preds = %lor.lhs.false, %if.
   %9 = load i8, ptr %sien0, align 1
   %and2029 = and i8 %9, %7
   %tobool21.not = icmp eq i8 %and2029, 0
-  br i1 %tobool21.not, label %lor.lhs.false22, label %if.then28
+  br i1 %tobool21.not, label %lor.lhs.false22, label %if.end29
 
 lor.lhs.false22:                                  ; preds = %if.then16
   %sist123 = getelementptr inbounds i8, ptr %s, i64 3766
@@ -1880,13 +1880,11 @@ lor.lhs.false22:                                  ; preds = %if.then16
   %11 = load i8, ptr %sien1, align 8
   %and2630 = and i8 %11, %10
   %tobool27.not = icmp eq i8 %and2630, 0
-  br i1 %tobool27.not, label %if.end29, label %if.then28
-
-if.then28:                                        ; preds = %lor.lhs.false22, %if.then16
+  %spec.select32 = select i1 %tobool27.not, i32 %level.1, i32 1
   br label %if.end29
 
-if.end29:                                         ; preds = %if.then28, %lor.lhs.false22
-  %level.2 = phi i32 [ 1, %if.then28 ], [ %level.1, %lor.lhs.false22 ]
+if.end29:                                         ; preds = %lor.lhs.false22, %if.then16
+  %level.2 = phi i32 [ 1, %if.then16 ], [ %spec.select32, %lor.lhs.false22 ]
   %istat030 = getelementptr inbounds i8, ptr %s, i64 3760
   %12 = or i8 %6, 2
   store i8 %12, ptr %istat030, align 16
@@ -1981,8 +1979,8 @@ land.lhs.true54:                                  ; preds = %lsi_set_irq.exit
   %sien0.i = getelementptr inbounds i8, ptr %s, i64 3767
   %26 = load i8, ptr %sien0.i, align 1
   %27 = and i8 %26, 16
-  %tobool.not.i32 = icmp eq i8 %27, 0
-  br i1 %tobool.not.i32, label %if.end65, label %lsi_irq_on_rsl.exit
+  %tobool.not.i33 = icmp eq i8 %27, 0
+  br i1 %tobool.not.i33, label %if.end65, label %lsi_irq_on_rsl.exit
 
 lsi_irq_on_rsl.exit:                              ; preds = %land.lhs.true54
   %scid.i = getelementptr inbounds i8, ptr %s, i64 3796
@@ -1999,40 +1997,40 @@ land.lhs.true56:                                  ; preds = %lsi_irq_on_rsl.exit
   br i1 %tobool59.not, label %if.then60, label %if.end65
 
 if.then60:                                        ; preds = %land.lhs.true56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i33)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i34)
   %32 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i34 = icmp ne i32 %32, 0
+  %tobool.i.i35 = icmp ne i32 %32, 0
   %33 = load i16, ptr @_TRACE_LSI_UPDATE_IRQ_DISCONNECTED_DSTATE, align 2
-  %tobool4.i.i35 = icmp ne i16 %33, 0
-  %or.cond.i.i36 = select i1 %tobool.i.i34, i1 %tobool4.i.i35, i1 false
-  br i1 %or.cond.i.i36, label %land.lhs.true5.i.i37, label %trace_lsi_update_irq_disconnected.exit
+  %tobool4.i.i36 = icmp ne i16 %33, 0
+  %or.cond.i.i37 = select i1 %tobool.i.i35, i1 %tobool4.i.i36, i1 false
+  br i1 %or.cond.i.i37, label %land.lhs.true5.i.i38, label %trace_lsi_update_irq_disconnected.exit
 
-land.lhs.true5.i.i37:                             ; preds = %if.then60
+land.lhs.true5.i.i38:                             ; preds = %if.then60
   %34 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i38 = and i32 %34, 32768
-  %cmp.i.not.i.i39 = icmp eq i32 %and.i.i.i38, 0
-  br i1 %cmp.i.not.i.i39, label %trace_lsi_update_irq_disconnected.exit, label %if.then.i.i40
+  %and.i.i.i39 = and i32 %34, 32768
+  %cmp.i.not.i.i40 = icmp eq i32 %and.i.i.i39, 0
+  br i1 %cmp.i.not.i.i40, label %trace_lsi_update_irq_disconnected.exit, label %if.then.i.i41
 
-if.then.i.i40:                                    ; preds = %land.lhs.true5.i.i37
+if.then.i.i41:                                    ; preds = %land.lhs.true5.i.i38
   %35 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i41 = trunc i8 %35 to i1
-  br i1 %tobool7.i.i41, label %if.then8.i.i43, label %if.else.i.i42
+  %tobool7.i.i42 = trunc i8 %35 to i1
+  br i1 %tobool7.i.i42, label %if.then8.i.i44, label %if.else.i.i43
 
-if.then8.i.i43:                                   ; preds = %if.then.i.i40
-  %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33, ptr noundef null) #11
-  %call10.i.i45 = tail call i32 @qemu_get_thread_id() #11
-  %36 = load i64, ptr %_now.i.i33, align 8
-  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i33, i64 8
-  %37 = load i64, ptr %tv_usec.i.i46, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i45, i64 noundef %36, i64 noundef %37) #11
+if.then8.i.i44:                                   ; preds = %if.then.i.i41
+  %call9.i.i45 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #11
+  %call10.i.i46 = tail call i32 @qemu_get_thread_id() #11
+  %36 = load i64, ptr %_now.i.i34, align 8
+  %tv_usec.i.i47 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
+  %37 = load i64, ptr %tv_usec.i.i47, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i46, i64 noundef %36, i64 noundef %37) #11
   br label %trace_lsi_update_irq_disconnected.exit
 
-if.else.i.i42:                                    ; preds = %if.then.i.i40
+if.else.i.i43:                                    ; preds = %if.then.i.i41
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17) #11
   br label %trace_lsi_update_irq_disconnected.exit
 
-trace_lsi_update_irq_disconnected.exit:           ; preds = %if.then60, %land.lhs.true5.i.i37, %if.then8.i.i43, %if.else.i.i42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i33)
+trace_lsi_update_irq_disconnected.exit:           ; preds = %if.then60, %land.lhs.true5.i.i38, %if.then8.i.i44, %if.else.i.i43
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i34)
   %queue.i = getelementptr inbounds i8, ptr %s, i64 3720
   %p.04.i = load ptr, ptr %queue.i, align 8
   %tobool.not5.i = icmp eq ptr %p.04.i, null
@@ -2048,8 +2046,8 @@ for.body.i:                                       ; preds = %trace_lsi_update_ir
 for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %p.06.i, i64 32
   %p.0.i = load ptr, ptr %next.i, align 8
-  %tobool.not.i47 = icmp eq ptr %p.0.i, null
-  br i1 %tobool.not.i47, label %if.end65, label %for.body.i, !llvm.loop !5
+  %tobool.not.i48 = icmp eq ptr %p.0.i, null
+  br i1 %tobool.not.i48, label %if.end65, label %for.body.i, !llvm.loop !5
 
 if.then63:                                        ; preds = %for.body.i
   tail call fastcc void @lsi_reselect(ptr noundef %s, ptr noundef nonnull %p.06.i)
@@ -2095,7 +2093,7 @@ do.body:                                          ; preds = %entry
   %4 = load i32, ptr %tag, align 8
   %shr = lshr i32 %4, 8
   %and = and i32 %shr, 15
-  %5 = trunc i32 %and to i8
+  %5 = trunc nuw nsw i32 %and to i8
   %conv = or disjoint i8 %5, -128
   %ssid = getelementptr inbounds i8, ptr %s, i64 3800
   store i8 %conv, ptr %ssid, align 8
@@ -2108,7 +2106,7 @@ do.body:                                          ; preds = %entry
 if.then23:                                        ; preds = %do.body
   %and24 = and i32 %shr, 7
   %shl = shl nuw nsw i32 1, %and24
-  %conv25 = trunc i32 %shl to i8
+  %conv25 = trunc nuw i32 %shl to i8
   %sfbr = getelementptr inbounds i8, ptr %s, i64 3801
   store i8 %conv25, ptr %sfbr, align 1
   br label %if.end26
@@ -4230,7 +4228,7 @@ trace_lsi_execute_script.exit:                    ; preds = %if.end19, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i318)
   store i32 %21, ptr %dsps, align 8
   %shr = lshr i32 %18, 24
-  %conv24 = trunc i32 %shr to i8
+  %conv24 = trunc nuw i32 %shr to i8
   store i8 %conv24, ptr %dcmd, align 2
   %29 = load i32, ptr %dsp, align 4
   %add26 = add i32 %29, 8
@@ -5859,7 +5857,7 @@ if.end194:                                        ; preds = %if.then190, %if.end
   ]
 
 sw.bb196:                                         ; preds = %if.end194
-  %conv197 = trunc i32 %and187 to i8
+  %conv197 = trunc nuw nsw i32 %and187 to i8
   store i8 %conv197, ptr %sdid, align 1
   %338 = load i8, ptr %scntl1239, align 1
   %339 = and i8 %338, 16

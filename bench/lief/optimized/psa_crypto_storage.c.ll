@@ -67,7 +67,7 @@ define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readon
   store i8 %16, ptr %17, align 1
   %18 = load i32, ptr %6, align 4
   %19 = lshr i32 %18, 24
-  %20 = trunc i32 %19 to i8
+  %20 = trunc nuw i32 %19 to i8
   %21 = getelementptr inbounds i8, ptr %3, i64 15
   store i8 %20, ptr %21, align 1
   %22 = load i16, ptr %2, align 4
@@ -76,7 +76,7 @@ define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readon
   store i8 %23, ptr %24, align 1
   %25 = load i16, ptr %2, align 4
   %26 = lshr i16 %25, 8
-  %27 = trunc i16 %26 to i8
+  %27 = trunc nuw i16 %26 to i8
   %28 = getelementptr inbounds i8, ptr %3, i64 17
   store i8 %27, ptr %28, align 1
   %29 = getelementptr inbounds i8, ptr %2, i64 2
@@ -86,7 +86,7 @@ define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readon
   store i8 %31, ptr %32, align 1
   %33 = load i16, ptr %29, align 2
   %34 = lshr i16 %33, 8
-  %35 = trunc i16 %34 to i8
+  %35 = trunc nuw i16 %34 to i8
   %36 = getelementptr inbounds i8, ptr %3, i64 19
   store i8 %35, ptr %36, align 1
   %37 = getelementptr inbounds i8, ptr %2, i64 12
@@ -106,7 +106,7 @@ define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readon
   store i8 %47, ptr %48, align 1
   %49 = load i32, ptr %37, align 4
   %50 = lshr i32 %49, 24
-  %51 = trunc i32 %50 to i8
+  %51 = trunc nuw i32 %50 to i8
   %52 = getelementptr inbounds i8, ptr %3, i64 23
   store i8 %51, ptr %52, align 1
   %53 = getelementptr inbounds i8, ptr %2, i64 16
@@ -126,7 +126,7 @@ define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readon
   store i8 %63, ptr %64, align 1
   %65 = load i32, ptr %53, align 4
   %66 = lshr i32 %65, 24
-  %67 = trunc i32 %66 to i8
+  %67 = trunc nuw i32 %66 to i8
   %68 = getelementptr inbounds i8, ptr %3, i64 27
   store i8 %67, ptr %68, align 1
   %69 = getelementptr inbounds i8, ptr %2, i64 20
@@ -146,7 +146,7 @@ define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readon
   store i8 %79, ptr %80, align 1
   %81 = load i32, ptr %69, align 4
   %82 = lshr i32 %81, 24
-  %83 = trunc i32 %82 to i8
+  %83 = trunc nuw i32 %82 to i8
   %84 = getelementptr inbounds i8, ptr %3, i64 31
   store i8 %83, ptr %84, align 1
   %85 = trunc i64 %1 to i8
@@ -298,7 +298,7 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   %24 = getelementptr inbounds i8, ptr %12, i64 14
   store i8 %23, ptr %24, align 1
   %25 = lshr i32 %16, 24
-  %26 = trunc i32 %25 to i8
+  %26 = trunc nuw i32 %25 to i8
   %27 = getelementptr inbounds i8, ptr %12, i64 15
   store i8 %26, ptr %27, align 1
   %28 = load i16, ptr %0, align 4
@@ -306,7 +306,7 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   %30 = getelementptr inbounds i8, ptr %12, i64 16
   store i8 %29, ptr %30, align 1
   %31 = lshr i16 %28, 8
-  %32 = trunc i16 %31 to i8
+  %32 = trunc nuw i16 %31 to i8
   %33 = getelementptr inbounds i8, ptr %12, i64 17
   store i8 %32, ptr %33, align 1
   %34 = getelementptr inbounds i8, ptr %0, i64 2
@@ -315,7 +315,7 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   %37 = getelementptr inbounds i8, ptr %12, i64 18
   store i8 %36, ptr %37, align 1
   %38 = lshr i16 %35, 8
-  %39 = trunc i16 %38 to i8
+  %39 = trunc nuw i16 %38 to i8
   %40 = getelementptr inbounds i8, ptr %12, i64 19
   store i8 %39, ptr %40, align 1
   %41 = getelementptr inbounds i8, ptr %0, i64 12
@@ -332,7 +332,7 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   %50 = getelementptr inbounds i8, ptr %12, i64 22
   store i8 %49, ptr %50, align 1
   %51 = lshr i32 %42, 24
-  %52 = trunc i32 %51 to i8
+  %52 = trunc nuw i32 %51 to i8
   %53 = getelementptr inbounds i8, ptr %12, i64 23
   store i8 %52, ptr %53, align 1
   %54 = getelementptr inbounds i8, ptr %0, i64 16
@@ -349,7 +349,7 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   %63 = getelementptr inbounds i8, ptr %12, i64 26
   store i8 %62, ptr %63, align 1
   %64 = lshr i32 %55, 24
-  %65 = trunc i32 %64 to i8
+  %65 = trunc nuw i32 %64 to i8
   %66 = getelementptr inbounds i8, ptr %12, i64 27
   store i8 %65, ptr %66, align 1
   %67 = getelementptr inbounds i8, ptr %0, i64 20
@@ -366,14 +366,14 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   %76 = getelementptr inbounds i8, ptr %12, i64 30
   store i8 %75, ptr %76, align 1
   %77 = lshr i32 %68, 24
-  %78 = trunc i32 %77 to i8
+  %78 = trunc nuw i32 %77 to i8
   %79 = getelementptr inbounds i8, ptr %12, i64 31
   store i8 %78, ptr %79, align 1
   %80 = trunc i64 %2 to i8
   %81 = getelementptr inbounds i8, ptr %12, i64 32
   store i8 %80, ptr %81, align 1
   %82 = lshr i64 %2, 8
-  %83 = trunc i64 %82 to i8
+  %83 = trunc nuw i64 %82 to i8
   %84 = getelementptr inbounds i8, ptr %12, i64 33
   store i8 %83, ptr %84, align 1
   %85 = getelementptr inbounds i8, ptr %12, i64 36
@@ -389,7 +389,7 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
   br i1 %.not18.i, label %90, label %psa_crypto_storage_store.exit
 
 90:                                               ; preds = %14
-  %91 = trunc i64 %11 to i32
+  %91 = trunc nuw nsw i64 %11 to i32
   %92 = call i32 @psa_its_set(i64 noundef %88, i32 noundef %91, ptr noundef nonnull %12, i32 noundef 0) #9
   %.not14.i = icmp eq i32 %92, 0
   br i1 %.not14.i, label %93, label %psa_crypto_storage_store.exit
@@ -455,7 +455,7 @@ define hidden i32 @psa_load_persistent_key(ptr nocapture noundef %0, ptr nocaptu
 
 psa_crypto_storage_get_data_length.exit:          ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %71
+  br label %70
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %6, align 4
@@ -463,7 +463,7 @@ psa_crypto_storage_get_data_length.exit:          ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %14 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %13) #10
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %71, label %16
+  br i1 %15, label %70, label %16
 
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -565,23 +565,21 @@ psa_crypto_storage_load.exit:                     ; preds = %18
   store i32 %63, ptr %64, align 4
   %65 = load ptr, ptr %1, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %70, label %67
+  br i1 %66, label %psa_parse_key_data_from_storage.exit.thread, label %67
 
 67:                                               ; preds = %53
   %68 = load i64, ptr %2, align 8
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %70, label %psa_parse_key_data_from_storage.exit.thread
-
-70:                                               ; preds = %67, %53
+  %spec.select = select i1 %69, i32 -146, i32 0
   br label %psa_parse_key_data_from_storage.exit.thread
 
-psa_parse_key_data_from_storage.exit.thread:      ; preds = %47, %27, %24, %23, %21, %psa_crypto_storage_load.exit.thread, %67, %70, %psa_crypto_storage_load.exit
-  %.018 = phi i32 [ %19, %psa_crypto_storage_load.exit ], [ -146, %70 ], [ 0, %67 ], [ %.0.i.ph, %psa_crypto_storage_load.exit.thread ], [ -141, %47 ], [ -153, %27 ], [ -153, %24 ], [ -153, %23 ], [ -153, %21 ]
+psa_parse_key_data_from_storage.exit.thread:      ; preds = %47, %27, %24, %23, %21, %psa_crypto_storage_load.exit.thread, %67, %53, %psa_crypto_storage_load.exit
+  %.018 = phi i32 [ %19, %psa_crypto_storage_load.exit ], [ -146, %53 ], [ %spec.select, %67 ], [ %.0.i.ph, %psa_crypto_storage_load.exit.thread ], [ -141, %47 ], [ -153, %27 ], [ -153, %24 ], [ -153, %23 ], [ -153, %21 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %14, i64 noundef %13) #9
   call void @free(ptr noundef nonnull %14) #9
-  br label %71
+  br label %70
 
-71:                                               ; preds = %psa_crypto_storage_get_data_length.exit, %11, %psa_parse_key_data_from_storage.exit.thread
+70:                                               ; preds = %psa_crypto_storage_get_data_length.exit, %11, %psa_parse_key_data_from_storage.exit.thread
   %.0 = phi i32 [ %.018, %psa_parse_key_data_from_storage.exit.thread ], [ %10, %psa_crypto_storage_get_data_length.exit ], [ -141, %11 ]
   ret i32 %.0
 }

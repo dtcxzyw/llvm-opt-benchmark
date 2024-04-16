@@ -203,7 +203,7 @@ define internal noundef i32 @rss_fill_reply(ptr noundef %0, ptr nocapture readno
   %10 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %39
+  br i1 %11, label %12, label %38
 
 12:                                               ; preds = %9, %3
   %13 = getelementptr inbounds i8, ptr %2, i64 20
@@ -217,7 +217,7 @@ define internal noundef i32 @rss_fill_reply(ptr noundef %0, ptr nocapture readno
   %17 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %39
+  br i1 %18, label %19, label %38
 
 19:                                               ; preds = %16, %12
   %20 = getelementptr inbounds i8, ptr %2, i64 8
@@ -231,7 +231,7 @@ define internal noundef i32 @rss_fill_reply(ptr noundef %0, ptr nocapture readno
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef %24, ptr noundef %26) #7
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %39
+  br i1 %28, label %29, label %38
 
 29:                                               ; preds = %23, %19
   %30 = getelementptr inbounds i8, ptr %2, i64 12
@@ -244,14 +244,12 @@ define internal noundef i32 @rss_fill_reply(ptr noundef %0, ptr nocapture readno
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef %31, ptr noundef %35) #7
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %39
+  %spec.select = select i1 %37, i32 0, i32 -90
+  br label %38
 
-38:                                               ; preds = %33, %29
-  br label %39
-
-39:                                               ; preds = %38, %33, %23, %16, %9
-  %40 = phi i32 [ 0, %38 ], [ -90, %33 ], [ -90, %23 ], [ -90, %16 ], [ -90, %9 ]
-  ret i32 %40
+38:                                               ; preds = %33, %29, %23, %16, %9
+  %39 = phi i32 [ -90, %23 ], [ -90, %16 ], [ -90, %9 ], [ 0, %29 ], [ %spec.select, %33 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

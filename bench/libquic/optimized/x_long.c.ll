@@ -44,57 +44,49 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq i32 %len, 0
-  br i1 %tobool.not, label %for.end, label %land.lhs.true
+  br i1 %tobool.not, label %for.end, label %if.end3
 
-land.lhs.true:                                    ; preds = %if.end
+if.end3:                                          ; preds = %if.end
   %0 = load i8, ptr %cont, align 1
   %tobool1.not = icmp sgt i8 %0, -1
-  %cmp414 = icmp sgt i32 %len, 0
-  br i1 %tobool1.not, label %if.end3, label %if.end3.thread
+  %cmp415 = icmp sgt i32 %len, 0
+  br i1 %cmp415, label %for.body.lr.ph, label %for.end
 
-if.end3:                                          ; preds = %land.lhs.true
-  br i1 %cmp414, label %for.body.us.preheader, label %for.end
+for.body.lr.ph:                                   ; preds = %if.end3
+  %wide.trip.count23 = zext nneg i32 %len to i64
+  br i1 %tobool1.not, label %for.body.us, label %for.body
 
-if.end3.thread:                                   ; preds = %land.lhs.true
-  br i1 %cmp414, label %for.body.preheader, label %for.end
-
-for.body.preheader:                               ; preds = %if.end3.thread
-  %wide.trip.count = zext nneg i32 %len to i64
-  br label %for.body
-
-for.body.us.preheader:                            ; preds = %if.end3
-  %wide.trip.count22 = zext nneg i32 %len to i64
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %indvars.iv19 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next20, %for.body.us ]
-  %utmp.016.us = phi i64 [ 0, %for.body.us.preheader ], [ %utmp.1.us, %for.body.us ]
-  %shl.us = shl i64 %utmp.016.us, 8
-  %arrayidx13.us = getelementptr inbounds i8, ptr %cont, i64 %indvars.iv19
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
+  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ 0, %for.body.lr.ph ]
+  %utmp.017.us = phi i64 [ %utmp.1.us, %for.body.us ], [ 0, %for.body.lr.ph ]
+  %shl.us = shl i64 %utmp.017.us, 8
+  %arrayidx13.us = getelementptr inbounds i8, ptr %cont, i64 %indvars.iv20
   %1 = load i8, ptr %arrayidx13.us, align 1
   %conv10.pn.us = zext i8 %1 to i64
   %utmp.1.us = or disjoint i64 %shl.us, %conv10.pn.us
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !7
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
+  br i1 %exitcond24.not, label %for.end, label %for.body.us, !llvm.loop !7
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %utmp.016 = phi i64 [ 0, %for.body.preheader ], [ %utmp.1, %for.body ]
-  %shl = shl i64 %utmp.016, 8
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
+  %utmp.017 = phi i64 [ %utmp.1, %for.body ], [ 0, %for.body.lr.ph ]
+  %shl = shl i64 %utmp.017, 8
   %arrayidx8 = getelementptr inbounds i8, ptr %cont, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx8, align 1
   %3 = xor i8 %2, -1
   %conv10.pn = zext i8 %3 to i64
   %utmp.1 = or disjoint i64 %shl, %conv10.pn
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count23
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
-for.end:                                          ; preds = %for.body, %for.body.us, %if.end, %if.end3.thread, %if.end3
-  %tobool17.not26 = phi i64 [ 0, %if.end3 ], [ -1, %if.end3.thread ], [ 0, %if.end ], [ 0, %for.body.us ], [ -1, %for.body ]
-  %utmp.0.lcssa = phi i64 [ 0, %if.end3 ], [ 0, %if.end3.thread ], [ 0, %if.end ], [ %utmp.1.us, %for.body.us ], [ %utmp.1, %for.body ]
-  %spec.select = xor i64 %utmp.0.lcssa, %tobool17.not26
+for.end:                                          ; preds = %for.body, %for.body.us, %if.end, %if.end3
+  %tobool17.not27 = phi i1 [ %tobool1.not, %if.end3 ], [ true, %if.end ], [ %tobool1.not, %for.body.us ], [ %tobool1.not, %for.body ]
+  %utmp.0.lcssa = phi i64 [ 0, %if.end3 ], [ 0, %if.end ], [ %utmp.1.us, %for.body.us ], [ %utmp.1, %for.body ]
+  %not.tobool17.not = xor i1 %tobool17.not27, true
+  %sub = sext i1 %not.tobool17.not to i64
+  %spec.select = xor i64 %utmp.0.lcssa, %sub
   %size = getelementptr inbounds i8, ptr %it, i64 40
   %4 = load i64, ptr %size, align 8
   %cmp21 = icmp eq i64 %spec.select, %4
@@ -138,7 +130,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %tobool.not.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.then9
-  %conv = trunc i64 %ltmp.0.copyload.lobit18 to i8
+  %conv = trunc nsw i64 %ltmp.0.copyload.lobit18 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %cont, i64 1
   store i8 %conv, ptr %cont, align 1
   br label %if.end13

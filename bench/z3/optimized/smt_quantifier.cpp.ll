@@ -3080,7 +3080,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %6 = load ptr, ptr %m_trace_stream.i.i37, align 8
   %add.ptr.i.i38 = getelementptr inbounds i8, ptr %6, i64 16
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i38, ptr noundef nonnull @.str.14)
-  %7 = trunc i64 %indvars.iv85 to i32
+  %7 = trunc nuw i64 %indvars.iv85 to i32
   %8 = xor i32 %7, -1
   %sub10 = add i32 %8, %num_bindings
   %idxprom = zext i32 %sub10 to i64
@@ -3244,7 +3244,7 @@ for.body60:                                       ; preds = %for.body60.preheade
           to label %invoke.cont67 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %for.body60
-  %27 = trunc i64 %indvars.iv80 to i32
+  %27 = trunc nuw i64 %indvars.iv80 to i32
   %28 = xor i32 %27, -1
   %sub64 = add i32 %28, %num_bindings
   %idxprom65 = zext i32 %sub64 to i64
@@ -3527,7 +3527,7 @@ for.end:                                          ; preds = %for.inc, %if.end14,
   br i1 %cmp29, label %if.then30, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
-  %tobool = trunc i8 %result.0.lcssa to i1
+  %tobool = trunc nuw i8 %result.0.lcssa to i1
   br i1 %tobool, label %if.end33, label %if.then30
 
 if.then30:                                        ; preds = %lor.lhs.false, %for.end
@@ -3642,7 +3642,7 @@ for.end75:                                        ; preds = %for.inc73, %if.end5
 
 cleanup:                                          ; preds = %for.end75, %if.then30
   %retval.0.in = phi i8 [ %result.0.lcssa, %if.then30 ], [ %result.2.lcssa, %for.end75 ]
-  %retval.0 = trunc i8 %retval.0.in to i1
+  %retval.0 = trunc nuw i8 %retval.0.in to i1
   call void @_ZN3smt13quick_checkerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %mc) #19
   br label %return
 
@@ -4752,7 +4752,7 @@ entry:
   %m_mbqi = getelementptr inbounds i8, ptr %0, i64 215
   %1 = load i8, ptr %m_mbqi, align 1
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then, label %if.end20
+  br i1 %tobool, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call = tail call noundef i32 @_Z19get_verbosity_levelv()
@@ -4784,13 +4784,11 @@ if.end9:                                          ; preds = %if.then4, %if.else,
 if.else13:                                        ; preds = %if.end9
   %3 = load ptr, ptr %m_model_checker, align 8
   %call16 = tail call noundef zeroext i1 @_ZN3smt13model_checker17has_new_instancesEv(ptr noundef nonnull align 8 dereferenceable(184) %3)
-  br i1 %call16, label %return, label %if.end20
-
-if.end20:                                         ; preds = %if.else13, %entry
+  %spec.select = select i1 %call16, i32 2, i32 1
   br label %return
 
-return:                                           ; preds = %if.else13, %if.end9, %if.end20
-  %retval.0 = phi i32 [ 1, %if.end20 ], [ 0, %if.end9 ], [ 2, %if.else13 ]
+return:                                           ; preds = %if.else13, %entry, %if.end9
+  %retval.0 = phi i32 [ 0, %if.end9 ], [ 1, %entry ], [ %spec.select, %if.else13 ]
   ret i32 %retval.0
 }
 

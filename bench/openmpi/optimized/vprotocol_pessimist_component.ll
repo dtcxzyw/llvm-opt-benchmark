@@ -273,8 +273,7 @@ define i32 @mca_vprotocol_pessimist_enable(i1 noundef zeroext %0) local_unnamed_
   %4 = load i32, ptr @_sender_based_size, align 4
   %5 = sext i32 %4 to i64
   %6 = tail call i32 @ompi_vprotocol_pessimist_sender_based_init(ptr noundef %3, i64 noundef %5) #5
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %10, label %11
+  br label %10
 
 7:                                                ; preds = %1
   tail call void @ompi_vprotocol_pessimist_sender_based_finalize() #5
@@ -283,10 +282,7 @@ define i32 @mca_vprotocol_pessimist_enable(i1 noundef zeroext %0) local_unnamed_
   br label %10
 
 10:                                               ; preds = %2, %7
-  br label %11
-
-11:                                               ; preds = %2, %10
-  %.0 = phi i32 [ 0, %10 ], [ %6, %2 ]
+  %.0 = phi i32 [ 0, %7 ], [ %6, %2 ]
   ret i32 %.0
 }
 

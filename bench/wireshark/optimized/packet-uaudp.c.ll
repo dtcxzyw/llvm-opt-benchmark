@@ -160,83 +160,83 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_uaudp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @use_sys_ip, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %addresses_equal.exit30, label %6
+  br i1 %.not, label %addresses_equal.exit31.thread, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 208
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr @cs_address.0, align 8
   %10 = icmp eq i32 %8, %9
-  br i1 %10, label %11, label %addresses_equal.exit
+  br i1 %10, label %11, label %addresses_equal.exit.thread
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 212
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr @cs_address.1, align 8
   %15 = icmp eq i32 %13, %14
-  br i1 %15, label %16, label %addresses_equal.exit
+  br i1 %15, label %16, label %addresses_equal.exit.thread
 
 16:                                               ; preds = %11
   %17 = icmp eq i32 %13, 0
-  br i1 %17, label %49, label %18
+  br i1 %17, label %addresses_equal.exit.thread34, label %addresses_equal.exit
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 216
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr @cs_address.2, align 8
-  %22 = sext i32 %13 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %20, ptr %21, i64 %22)
-  %23 = icmp eq i32 %bcmp.i, 0
-  br i1 %23, label %49, label %addresses_equal.exit
+addresses_equal.exit:                             ; preds = %16
+  %18 = getelementptr inbounds i8, ptr %1, i64 216
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr @cs_address.2, align 8
+  %21 = sext i32 %13 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr %19, ptr %20, i64 %21)
+  %.not42 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not42, label %addresses_equal.exit.thread34, label %addresses_equal.exit.thread
 
-addresses_equal.exit:                             ; preds = %18, %11, %6
-  %24 = getelementptr inbounds i8, ptr %1, i64 232
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, %9
-  br i1 %26, label %27, label %addresses_equal.exit30
+addresses_equal.exit.thread:                      ; preds = %6, %11, %addresses_equal.exit
+  %22 = getelementptr inbounds i8, ptr %1, i64 232
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, %9
+  br i1 %24, label %25, label %addresses_equal.exit31.thread
 
-27:                                               ; preds = %addresses_equal.exit
-  %28 = getelementptr inbounds i8, ptr %1, i64 236
-  %29 = load i32, ptr %28, align 4
-  %30 = load i32, ptr @cs_address.1, align 8
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %32, label %addresses_equal.exit30
+25:                                               ; preds = %addresses_equal.exit.thread
+  %26 = getelementptr inbounds i8, ptr %1, i64 236
+  %27 = load i32, ptr %26, align 4
+  %28 = load i32, ptr @cs_address.1, align 8
+  %29 = icmp eq i32 %27, %28
+  br i1 %29, label %30, label %addresses_equal.exit31.thread
 
-32:                                               ; preds = %27
-  %33 = icmp eq i32 %29, 0
-  br i1 %33, label %49, label %34
+30:                                               ; preds = %25
+  %31 = icmp eq i32 %27, 0
+  br i1 %31, label %addresses_equal.exit.thread34, label %addresses_equal.exit31
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %1, i64 240
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr @cs_address.2, align 8
-  %38 = sext i32 %29 to i64
-  %bcmp.i29 = tail call i32 @bcmp(ptr %36, ptr %37, i64 %38)
-  %39 = icmp eq i32 %bcmp.i29, 0
-  br i1 %39, label %49, label %addresses_equal.exit30
+addresses_equal.exit31:                           ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %1, i64 240
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr @cs_address.2, align 8
+  %35 = sext i32 %27 to i64
+  %bcmp.i29 = tail call i32 @bcmp(ptr %33, ptr %34, i64 %35)
+  %.not43 = icmp eq i32 %bcmp.i29, 0
+  br i1 %.not43, label %addresses_equal.exit.thread34, label %addresses_equal.exit31.thread
 
-addresses_equal.exit30:                           ; preds = %34, %27, %addresses_equal.exit, %4
-  %40 = load ptr, ptr @ua_udp_range, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 284
-  %42 = load i32, ptr %41, align 4
-  %43 = tail call i32 @value_is_in_range(ptr noundef %40, i32 noundef %42) #3
-  %.not26 = icmp eq i32 %43, 0
-  br i1 %.not26, label %44, label %49
+addresses_equal.exit31.thread:                    ; preds = %addresses_equal.exit.thread, %25, %addresses_equal.exit31, %4
+  %36 = load ptr, ptr @ua_udp_range, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 284
+  %38 = load i32, ptr %37, align 4
+  %39 = tail call i32 @value_is_in_range(ptr noundef %36, i32 noundef %38) #3
+  %.not26 = icmp eq i32 %39, 0
+  br i1 %.not26, label %40, label %addresses_equal.exit.thread34
 
-44:                                               ; preds = %addresses_equal.exit30
-  %45 = load ptr, ptr @ua_udp_range, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 288
-  %47 = load i32, ptr %46, align 8
-  %48 = tail call i32 @value_is_in_range(ptr noundef %45, i32 noundef %47) #3
-  %.not27 = icmp eq i32 %48, 0
+40:                                               ; preds = %addresses_equal.exit31.thread
+  %41 = load ptr, ptr @ua_udp_range, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 288
+  %43 = load i32, ptr %42, align 8
+  %44 = tail call i32 @value_is_in_range(ptr noundef %41, i32 noundef %43) #3
+  %.not27 = icmp eq i32 %44, 0
   %. = select i1 %.not27, i32 2, i32 0
-  br label %49
+  br label %addresses_equal.exit.thread34
 
-49:                                               ; preds = %44, %addresses_equal.exit30, %32, %34, %16, %18
-  %.sink = phi i32 [ 0, %18 ], [ 0, %16 ], [ 1, %34 ], [ 1, %32 ], [ 1, %addresses_equal.exit30 ], [ %., %44 ]
+addresses_equal.exit.thread34:                    ; preds = %40, %addresses_equal.exit31.thread, %addresses_equal.exit31, %30, %addresses_equal.exit, %16
+  %.sink = phi i32 [ 0, %16 ], [ 0, %addresses_equal.exit ], [ 1, %30 ], [ 1, %addresses_equal.exit31 ], [ 1, %addresses_equal.exit31.thread ], [ %., %40 ]
   tail call fastcc void @_dissect_uaudp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.sink)
-  %50 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %50
+  %45 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %45
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0

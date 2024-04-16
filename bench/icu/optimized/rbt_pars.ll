@@ -629,7 +629,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shr.i.i.i.i = sext i16 %3 to i32
   %4 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nsw i64 %indvars.iv to i32
   %cmp.i.i = icmp ugt i32 %cond.i.i.i, %5
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont
 
@@ -1338,7 +1338,7 @@ for.cond105:                                      ; preds = %for.body, %invoke.c
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond105
   %indvars.iv = phi i64 [ %64, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond105 ]
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nsw i64 %indvars.iv to i32
   %cmp.i.i315 = icmp ugt i32 %cond.i309, %65
   br i1 %cmp.i.i315, label %invoke.cont108, label %for.cond105
 
@@ -3734,7 +3734,7 @@ while.body81:                                     ; preds = %invoke.cont75
   %shr.i.i.i.i158 = sext i16 %32 to i32
   %33 = load i32, ptr %fLength.i, align 4
   %cond.i.i.i160 = select i1 %cmp.i.i.i.i157, i32 %33, i32 %shr.i.i.i.i158
-  %34 = trunc i64 %indvars.iv.next to i32
+  %34 = trunc nsw i64 %indvars.iv.next to i32
   %cmp.i.i161 = icmp ugt i32 %cond.i.i.i160, %34
   br i1 %cmp.i.i161, label %if.then.i.i163, label %while.cond73.backedge
 
@@ -3752,7 +3752,7 @@ if.then.i.i163:                                   ; preds = %while.body81
   br label %while.cond73.backedge
 
 while.end85:                                      ; preds = %invoke.cont75
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nsw i64 %indvars.iv to i32
   store i32 %38, ptr %p, align 4
   %tobool86.not = icmp eq i8 %parsingIDs.0.ph295, 0
   br i1 %tobool86.not, label %if.then87, label %if.end112
@@ -4216,7 +4216,7 @@ for.body344.lr.ph:                                ; preds = %if.end340
 
 for.body344:                                      ; preds = %for.body344.lr.ph, %invoke.cont346
   %indvars.iv356 = phi i64 [ 0, %for.body344.lr.ph ], [ %indvars.iv.next357, %invoke.cont346 ]
-  %81 = trunc i64 %indvars.iv356 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv356 to i32
   %call347 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variablesVector, i32 noundef %81)
           to label %invoke.cont346 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -5500,7 +5500,7 @@ if.end27:                                         ; preds = %do.body24
 
 land.lhs.true:                                    ; preds = %if.then15
   %cmp40 = icmp ult ptr %add.ptr1077, %add.ptr
-  br i1 %cmp40, label %if.then41, label %if.then104.loopexit
+  br i1 %cmp40, label %if.then41, label %if.then104
 
 if.then41:                                        ; preds = %land.lhs.true
   %4 = load i16, ptr %add.ptr1077, align 2
@@ -5620,15 +5620,15 @@ if.end101:                                        ; preds = %if.end83
   %cmp103 = icmp ult i32 %c.4, 65536
   br i1 %cmp103, label %if.then104, label %if.else109
 
-if.then104.loopexit:                              ; preds = %if.then41, %land.lhs.true
+if.then104.loopexit:                              ; preds = %if.then41
   br label %if.then104
 
-if.then104:                                       ; preds = %if.then41, %if.then104.loopexit, %if.then12, %land.lhs.true49, %if.end101
-  %target.addr.288103 = phi ptr [ %target.addr.2, %if.end101 ], [ %target.addr.0.ph132, %land.lhs.true49 ], [ %target.addr.0.ph132, %if.then12 ], [ %target.addr.0.ph132, %if.then104.loopexit ], [ %target.addr.0.ph132, %if.then41 ]
-  %c.489101 = phi i32 [ %c.4, %if.end101 ], [ 92, %land.lhs.true49 ], [ 39, %if.then12 ], [ 92, %if.then104.loopexit ], [ 92, %if.then41 ]
-  %quoted.190100 = phi i8 [ %quoted.1, %if.end101 ], [ 0, %land.lhs.true49 ], [ %conv13, %if.then12 ], [ 0, %if.then104.loopexit ], [ 1, %if.then41 ]
-  %source.addr.59198 = phi ptr [ %source.addr.5, %if.end101 ], [ %add.ptr1077, %land.lhs.true49 ], [ %add.ptr10, %if.then12 ], [ %add.ptr1077, %if.then104.loopexit ], [ %add.ptr1077, %if.then41 ]
-  %conv105 = trunc i32 %c.489101 to i16
+if.then104:                                       ; preds = %land.lhs.true, %if.then41, %if.then104.loopexit, %if.then12, %land.lhs.true49, %if.end101
+  %target.addr.288103 = phi ptr [ %target.addr.2, %if.end101 ], [ %target.addr.0.ph132, %land.lhs.true49 ], [ %target.addr.0.ph132, %if.then12 ], [ %target.addr.0.ph132, %if.then41 ], [ %target.addr.0.ph132, %land.lhs.true ], [ %target.addr.0.ph132, %if.then104.loopexit ]
+  %c.489101 = phi i32 [ %c.4, %if.end101 ], [ 92, %land.lhs.true49 ], [ 39, %if.then12 ], [ 92, %if.then41 ], [ 92, %land.lhs.true ], [ 92, %if.then104.loopexit ]
+  %quoted.190100 = phi i8 [ %quoted.1, %if.end101 ], [ 0, %land.lhs.true49 ], [ %conv13, %if.then12 ], [ 1, %if.then41 ], [ 0, %land.lhs.true ], [ 0, %if.then104.loopexit ]
+  %source.addr.59198 = phi ptr [ %source.addr.5, %if.end101 ], [ %add.ptr1077, %land.lhs.true49 ], [ %add.ptr10, %if.then12 ], [ %add.ptr1077, %if.then41 ], [ %add.ptr1077, %land.lhs.true ], [ %add.ptr1077, %if.then104.loopexit ]
+  %conv105 = trunc nuw i32 %c.489101 to i16
   store i16 %conv105, ptr %target.addr.288103, align 2
   br label %do.end122
 

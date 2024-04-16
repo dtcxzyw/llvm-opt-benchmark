@@ -1094,7 +1094,7 @@ declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 deref
 ; Function Attrs: nounwind
 declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #9
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 declare void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
@@ -2551,7 +2551,7 @@ lpad12:                                           ; preds = %lpad12.loopexit.spl
   br label %arraydestroy.body28
 
 cleanup:                                          ; preds = %call.i42.i.noexc, %call2.i47.i.noexc, %call56.i.noexc, %call35.i.noexc, %if.then27.i, %call16.i.noexc, %if.then8.i, %arrayctor.cont, %if.then16
-  %cmp15.not49 = phi i1 [ false, %if.then16 ], [ true, %arrayctor.cont ], [ true, %if.then8.i ], [ true, %call16.i.noexc ], [ true, %if.then27.i ], [ true, %call35.i.noexc ], [ true, %call56.i.noexc ], [ true, %call2.i47.i.noexc ], [ true, %call.i42.i.noexc ]
+  %switch = phi i1 [ false, %if.then16 ], [ true, %arrayctor.cont ], [ true, %if.then8.i ], [ true, %call16.i.noexc ], [ true, %if.then27.i ], [ true, %call35.i.noexc ], [ true, %call56.i.noexc ], [ true, %call2.i47.i.noexc ], [ true, %call.i42.i.noexc ]
   br label %arraydestroy.body22
 
 arraydestroy.body22:                              ; preds = %arraydestroy.body22, %cleanup
@@ -2562,7 +2562,7 @@ arraydestroy.body22:                              ; preds = %arraydestroy.body22
   br i1 %arraydestroy.done25, label %arraydestroy.done26, label %arraydestroy.body22
 
 arraydestroy.done26:                              ; preds = %arraydestroy.body22
-  br i1 %cmp15.not49, label %if.end33, label %return
+  br i1 %switch, label %if.end33, label %return
 
 arraydestroy.body28:                              ; preds = %arraydestroy.body28, %lpad12
   %arraydestroy.elementPast29 = phi ptr [ %arrayctor.end, %lpad12 ], [ %arraydestroy.element30, %arraydestroy.body28 ]
@@ -3156,8 +3156,8 @@ if.then.i:                                        ; preds = %new.cont
 
 _ZN6icu_7510LocalArrayINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit: ; preds = %new.cont.thread, %new.cont, %if.then.i
   %7 = phi ptr [ %.ptr, %new.cont.thread ], [ null, %new.cont ], [ null, %if.then.i ]
-  %cmp50 = icmp sgt i32 %measureCount, 0
-  br i1 %cmp50, label %for.body.lr.ph, label %for.end
+  %cmp49 = icmp sgt i32 %measureCount, 0
+  br i1 %cmp49, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN6icu_7510LocalArrayINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit
   %cache = getelementptr inbounds i8, ptr %this, i64 328
@@ -3169,7 +3169,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6icu_7510LocalAr
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %fieldPositionFoundIndex.051 = phi i32 [ -1, %for.body.lr.ph ], [ %fieldPositionFoundIndex.1, %for.inc ]
+  %fieldPositionFoundIndex.050 = phi i32 [ -1, %for.body.lr.ph ], [ %fieldPositionFoundIndex.1, %for.inc ]
   %9 = load ptr, ptr %cache, align 8
   %integerFormat.i = getelementptr inbounds i8, ptr %9, i64 64
   %cmp19 = icmp eq i64 %indvars.iv, %8
@@ -3177,7 +3177,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %ptr.i = getelementptr inbounds i8, ptr %10, i64 24
   %nf.0.in = select i1 %cmp19, ptr %ptr.i, ptr %integerFormat.i
   %nf.0 = load ptr, ptr %nf.0.in, align 8
-  %cmp24 = icmp eq i32 %fieldPositionFoundIndex.051, -1
+  %cmp24 = icmp eq i32 %fieldPositionFoundIndex.050, -1
   %arrayidx = getelementptr inbounds %"class.icu_75::Measure", ptr %measures, i64 %indvars.iv
   %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %7, i64 %indvars.iv
   br i1 %cmp24, label %if.then25, label %if.else
@@ -3211,19 +3211,21 @@ invoke.cont29:                                    ; preds = %if.then25
 if.end35:                                         ; preds = %invoke.cont29
   %12 = load i32, ptr %fBeginIndex.i30, align 4
   %cmp38.not = icmp eq i32 %12, 0
-  %13 = load i32, ptr %fEndIndex.i31, align 8
-  %cmp41.not = icmp eq i32 %13, 0
-  %or.cond47 = select i1 %cmp38.not, i1 %cmp41.not, i1 false
-  %14 = trunc i64 %indvars.iv to i32
-  %spec.select = select i1 %or.cond47, i32 -1, i32 %14
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %cmp38.not, label %lor.lhs.false, label %for.inc
+
+lor.lhs.false:                                    ; preds = %if.end35
+  %14 = load i32, ptr %fEndIndex.i31, align 8
+  %cmp41.not = icmp eq i32 %14, 0
+  %spec.select = select i1 %cmp41.not, i32 -1, i32 %13
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
   %call50 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7513MeasureFormat13formatMeasureERKNS_7MeasureERKNS_12NumberFormatERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 8 dereferenceable(128) %arrayidx, ptr noundef nonnull align 8 dereferenceable(356) %nf.0, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(20) %dontCare, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %for.inc unwind label %lpad16.loopexit
 
-for.inc:                                          ; preds = %if.end35, %if.else
-  %fieldPositionFoundIndex.1 = phi i32 [ %fieldPositionFoundIndex.051, %if.else ], [ %spec.select, %if.end35 ]
+for.inc:                                          ; preds = %lor.lhs.false, %if.end35, %if.else
+  %fieldPositionFoundIndex.1 = phi i32 [ %fieldPositionFoundIndex.050, %if.else ], [ %13, %if.end35 ], [ %spec.select, %lor.lhs.false ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
@@ -4269,7 +4271,7 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(read) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

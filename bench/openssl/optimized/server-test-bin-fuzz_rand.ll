@@ -49,7 +49,7 @@ if.end:                                           ; preds = %lor.lhs.false3
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fuzz_rand_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
+define internal noundef i32 @fuzz_rand_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #6
   store ptr %call, ptr %provctx, align 8
@@ -87,7 +87,7 @@ declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #1
 declare void @OSSL_LIB_CTX_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal ptr @fuzz_rand_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #3 {
+define internal noundef ptr @fuzz_rand_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #3 {
 entry:
   store i32 0, ptr %no_cache, align 4
   %cond = icmp eq i32 %operation_id, 5
@@ -118,21 +118,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @fuzz_rand_instantiate(ptr nocapture noundef writeonly %vrng, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr nocapture readnone %params) #3 {
+define internal noundef i32 @fuzz_rand_instantiate(ptr nocapture noundef writeonly %vrng, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr nocapture readnone %params) #3 {
 entry:
   store i32 1, ptr %vrng, align 4
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @fuzz_rand_uninstantiate(ptr nocapture noundef writeonly %vrng) #3 {
+define internal noundef i32 @fuzz_rand_uninstantiate(ptr nocapture noundef writeonly %vrng) #3 {
 entry:
   store i32 0, ptr %vrng, align 4
   ret i32 1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal i32 @fuzz_rand_generate(ptr nocapture readnone %vdrbg, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adinlen) #4 {
+define internal noundef i32 @fuzz_rand_generate(ptr nocapture readnone %vdrbg, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adinlen) #4 {
 entry:
   %cmp3.not = icmp eq i64 %outlen, 0
   br i1 %cmp3.not, label %for.end, label %for.body
@@ -152,13 +152,13 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @fuzz_rand_enable_locking(ptr nocapture readnone %vrng) #5 {
+define internal noundef i32 @fuzz_rand_enable_locking(ptr nocapture readnone %vrng) #5 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @fuzz_rand_gettable_ctx_params(ptr nocapture readnone %vrng, ptr nocapture readnone %provctx) #5 {
+define internal noundef nonnull ptr @fuzz_rand_gettable_ctx_params(ptr nocapture readnone %vrng, ptr nocapture readnone %provctx) #5 {
 entry:
   ret ptr @fuzz_rand_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -189,18 +189,16 @@ land.lhs.true4:                                   ; preds = %if.end
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
   %call9 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.6) #6
   %cmp10.not = icmp eq ptr %call9, null
-  br i1 %cmp10.not, label %if.end15, label %land.lhs.true11
+  br i1 %cmp10.not, label %return, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end8
   %call12 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call9, i64 noundef 2147483647) #6
-  %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %return, label %if.end15
-
-if.end15:                                         ; preds = %land.lhs.true11, %if.end8
+  %tobool13.not = icmp ne i32 %call12, 0
+  %spec.select = zext i1 %tobool13.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true11, %land.lhs.true4, %land.lhs.true, %if.end15
-  %retval.0 = phi i32 [ 1, %if.end15 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ]
+return:                                           ; preds = %land.lhs.true11, %if.end8, %land.lhs.true4, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 1, %if.end8 ], [ %spec.select, %land.lhs.true11 ]
   ret i32 %retval.0
 }
 

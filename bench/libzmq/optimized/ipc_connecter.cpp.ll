@@ -174,7 +174,7 @@ if.end32:                                         ; preds = %if.end7
   br label %return
 
 switch.hole_check:                                ; preds = %if.then9
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 11283, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %return, label %lor.rhs
@@ -381,17 +381,17 @@ land.lhs.true:                                    ; preds = %if.end8
   %call20 = tail call ptr @__errno_location() #11
   %8 = load i32, ptr %call20, align 4
   %cmp21 = icmp eq i32 %8, 4
-  br i1 %cmp21, label %if.then22, label %if.end24
+  br i1 %cmp21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %land.lhs.true
   store i32 115, ptr %call20, align 4
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.end8, %if.then22, %land.lhs.true
   br label %return
 
-return:                                           ; preds = %if.end8, %do.end, %if.end24
-  %retval.0 = phi i32 [ -1, %if.end24 ], [ -1, %do.end ], [ %call15, %if.end8 ]
+if.end24:                                         ; preds = %if.end8
+  br label %return
+
+return:                                           ; preds = %land.lhs.true, %if.then22, %if.end8, %do.end, %if.end24
+  %retval.0 = phi i32 [ -1, %do.end ], [ %call15, %if.end8 ], [ -1, %if.then22 ], [ -1, %land.lhs.true ], [ -1, %if.end24 ]
   ret i32 %retval.0
 }
 

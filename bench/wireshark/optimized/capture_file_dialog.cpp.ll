@@ -5980,7 +5980,7 @@ _ZN7QStringD2Ev.exit302:                          ; preds = %437, %_ZN17QArrayDa
           to label %_ZNK7QString3argEjii5QChar.exit314 unwind label %478
 
 _ZNK7QString3argEjii5QChar.exit314:               ; preds = %451
-  %.lhs.trunc = trunc i32 %457 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %457 to i16
   %459 = udiv i16 %.lhs.trunc, 60
   %460 = zext nneg i16 %459 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %39, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %460, i32 noundef 2, i32 noundef 10, i16 48)
@@ -6988,8 +6988,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %8, %_ZN17QArrayData
   %19 = getelementptr inbounds i8, ptr %0, i64 448
   %20 = load i32, ptr %19, align 8
   %21 = call i32 @wtap_dump_can_compress(i32 noundef %20)
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %28, label %29
+  %.not = icmp ne i32 %21, 0
+  br label %28
 
 22:                                               ; preds = %2
   %23 = landingpad { ptr, i32 }
@@ -7012,10 +7012,7 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %22, %_ZN17QArrayDat
   resume { ptr, i32 } %23
 
 28:                                               ; preds = %18, %_ZN7QStringD2Ev.exit
-  br label %29
-
-29:                                               ; preds = %18, %28
-  %.sink = phi i1 [ false, %28 ], [ true, %18 ]
+  %.sink = phi i1 [ false, %_ZN7QStringD2Ev.exit ], [ %.not, %18 ]
   call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %7, i1 noundef zeroext %.sink)
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull %7, i32 noundef 0, i32 32)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -7026,15 +7023,15 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %22, %_ZN17QArrayDat
   store i64 ptrtoint (ptr @_ZN17CaptureFileDialog20fixFilenameExtensionEv to i64), ptr %4, align 8, !noalias !51
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !51
-  %30 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !51
-  store i32 1, ptr %30, align 4, !noalias !51
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM17CaptureFileDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %31, align 8, !noalias !51
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
-  store i64 ptrtoint (ptr @_ZN17CaptureFileDialog20fixFilenameExtensionEv to i64), ptr %32, align 8, !noalias !51
-  %.repack7.i.i = getelementptr inbounds i8, ptr %30, i64 24
+  %29 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !51
+  store i32 1, ptr %29, align 4, !noalias !51
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr @_ZN9QtPrivate11QSlotObjectIM17CaptureFileDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %30, align 8, !noalias !51
+  %31 = getelementptr inbounds i8, ptr %29, i64 16
+  store i64 ptrtoint (ptr @_ZN17CaptureFileDialog20fixFilenameExtensionEv to i64), ptr %31, align 8, !noalias !51
+  %.repack7.i.i = getelementptr inbounds i8, ptr %29, i64 24
   store i64 0, ptr %.repack7.i.i, align 8, !noalias !51
-  call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %30, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN9QCheckBox16staticMetaObjectE)
+  call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %29, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN9QCheckBox16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
@@ -7324,12 +7321,12 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %_ZN7QStringD2Ev.exi
 
 60:                                               ; preds = %56
   %.sroa.193.0.extract.shift = lshr i64 %55, 32
-  %.sroa.193.0.extract.trunc = trunc i64 %.sroa.193.0.extract.shift to i32
+  %.sroa.193.0.extract.trunc = trunc nuw i64 %.sroa.193.0.extract.shift to i32
   %61 = sitofp i32 %54 to double
   %62 = sitofp i32 %.sroa.193.0.extract.trunc to double
   %63 = call double @llvm.fmuladd.f64(double %61, double 1.400000e+00, double %62)
   %.sroa.1.0.extract.shift = lshr i64 %59, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %64 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %65 = fadd double %63, %64
   %66 = fptosi double %65 to i32
@@ -8066,7 +8063,7 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %44, %_ZN17QArrayDat
   %67 = sitofp i32 %66 to double
   %68 = call i64 @_ZNK10QBoxLayout11minimumSizeEv(ptr noundef nonnull align 8 dereferenceable(28) %49)
   %.sroa.1.0.extract.shift = lshr i64 %68, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %69 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %70 = call double @llvm.fmuladd.f64(double %67, double 1.400000e+00, double %69)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -9610,14 +9607,14 @@ _ZN7QString5clearEv.exit27:                       ; preds = %_ZN7QString5clearEv
   %68 = sitofp i32 %67 to double
   %69 = call i64 @_ZNK10QBoxLayout11minimumSizeEv(ptr noundef nonnull align 8 dereferenceable(28) %38)
   %.sroa.175.0.extract.shift = lshr i64 %69, 32
-  %.sroa.175.0.extract.trunc = trunc i64 %.sroa.175.0.extract.shift to i32
+  %.sroa.175.0.extract.trunc = trunc nuw i64 %.sroa.175.0.extract.shift to i32
   %70 = sitofp i32 %.sroa.175.0.extract.trunc to double
   %71 = call double @llvm.fmuladd.f64(double %68, double 1.400000e+00, double %70)
   %72 = getelementptr inbounds i8, ptr %0, i64 112
   %73 = load ptr, ptr %72, align 8
   %74 = call i64 @_ZNK7QWidget11minimumSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %73)
   %.sroa.1.0.extract.shift = lshr i64 %74, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %75 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %76 = fadd double %71, %75
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

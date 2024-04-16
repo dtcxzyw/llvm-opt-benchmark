@@ -230,7 +230,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
   br i1 %tobool.not.i33.i, label %land.lhs.true6.i, label %if.end17.i
 
 land.lhs.true6.i:                                 ; preds = %if.then3.i
-  %conv.i34.i = trunc i32 %or.i.i to i8
+  %conv.i34.i = trunc nuw i32 %or.i.i to i8
   %add.ptr7.i = getelementptr inbounds i8, ptr %ptr.1319, i64 3
   %add.ptr7.val.i = load i8, ptr %add.ptr7.i, align 1
   %18 = getelementptr i8, ptr %ptr.1319, i64 4
@@ -249,7 +249,7 @@ land.lhs.true6.i:                                 ; preds = %if.then3.i
   br i1 %tobool.not.i43.i, label %land.lhs.true10.i, label %if.end17.i
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true6.i
-  %conv.i46.i = trunc i32 %or.i42.i to i8
+  %conv.i46.i = trunc nuw i32 %or.i42.i to i8
   %add.ptr11.i = getelementptr inbounds i8, ptr %ptr.1319, i64 5
   %add.ptr11.val.i = load i8, ptr %add.ptr11.i, align 1
   %21 = getelementptr i8, ptr %ptr.1319, i64 6
@@ -268,7 +268,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true6.i
   br i1 %tobool.not.i56.i, label %if.then14.i, label %if.end17.i
 
 if.then14.i:                                      ; preds = %land.lhs.true10.i
-  %conv.i59.i = trunc i32 %or.i55.i to i8
+  %conv.i59.i = trunc nuw i32 %or.i55.i to i8
   br label %if.then45
 
 if.end17.i:                                       ; preds = %land.lhs.true10.i, %land.lhs.true6.i, %if.then3.i, %land.lhs.true.i, %if.end.i
@@ -340,7 +340,7 @@ if.else35.i:                                      ; preds = %if.else.i
   br i1 %cmp36.i, label %if.then38.i, label %if.else41.i
 
 if.then38.i:                                      ; preds = %if.else35.i
-  %31 = trunc i64 %call23.i to i8
+  %31 = trunc nuw i64 %call23.i to i8
   %conv40.i = add nuw nsw i8 %31, 30
   br label %if.then45
 
@@ -349,7 +349,7 @@ if.else41.i:                                      ; preds = %if.else35.i
   br i1 %cmp42.i, label %if.then44.i, label %if.else49.i
 
 if.then44.i:                                      ; preds = %if.else41.i
-  %32 = trunc i64 %call23.i to i8
+  %32 = trunc nuw i64 %call23.i to i8
   %conv47.i = add nuw nsw i8 %32, 82
   br label %if.then45
 
@@ -358,7 +358,7 @@ if.else49.i:                                      ; preds = %if.else41.i
   br i1 %cmp50.i, label %if.then52.i, label %if.end55
 
 if.then52.i:                                      ; preds = %if.else49.i
-  %conv54.i = trunc i64 %call23.i to i8
+  %conv54.i = trunc nuw i64 %call23.i to i8
   br label %if.then45
 
 if.then45:                                        ; preds = %match_word.exit.i, %match_word.exit.i.i, %if.else.i, %if.then38.i, %if.then44.i, %if.then52.i, %if.then14.i, %if.then10.i.i
@@ -815,7 +815,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then7.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.end12.i
+  br i1 %cmp.i, label %land.lhs.true.i, label %check_auto_color.exit
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %call3.i = tail call i32 @pager_in_use() #15
@@ -823,18 +823,16 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %5 = load i32, ptr @pager_use_color, align 4
   %tobool6.i = icmp ne i32 %5, 0
   %or.cond.i = select i1 %tobool4.i, i1 %tobool6.i, i1 false
-  br i1 %or.cond.i, label %if.then7.i, label %if.end12.i
+  br i1 %or.cond.i, label %if.then7.i, label %check_auto_color.exit
 
 if.then7.i:                                       ; preds = %land.lhs.true.i, %if.end.i
   %call8.i = tail call i32 @is_terminal_dumb() #15
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %check_auto_color.exit, label %if.end12.i
-
-if.end12.i:                                       ; preds = %if.then7.i, %land.lhs.true.i, %lor.lhs.false.i
+  %spec.select.i = zext i1 %tobool9.not.i to i32
   br label %check_auto_color.exit
 
-check_auto_color.exit:                            ; preds = %if.then7.i, %if.end12.i
-  %retval.0.i = phi i32 [ 0, %if.end12.i ], [ 1, %if.then7.i ]
+check_auto_color.exit:                            ; preds = %lor.lhs.false.i, %land.lhs.true.i, %if.then7.i
+  %retval.0.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %lor.lhs.false.i ], [ %spec.select.i, %if.then7.i ]
   store i32 %retval.0.i, ptr %arrayidx, align 4
   br label %return
 
@@ -925,7 +923,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 define dso_local i32 @color_fprintf(ptr nocapture noundef %fp, ptr noundef %color, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #5 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load i8, ptr %color, align 1
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -949,21 +947,15 @@ if.then4.i:                                       ; preds = %if.end.i
 
 color_vfprintf.exit:                              ; preds = %if.end.i, %if.then4.i
   %r.1.i = phi i32 [ %add6.i, %if.then4.i ], [ %add2.i, %if.end.i ]
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %r.1.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local i32 @color_fprintf_ln(ptr nocapture noundef %fp, ptr noundef %color, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #5 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load i8, ptr %color, align 1
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -989,12 +981,12 @@ color_vfprintf.exit:                              ; preds = %if.end.i, %if.then4
   %r.1.i = phi i32 [ %add6.i, %if.then4.i ], [ %add2.i, %if.end.i ]
   %call10.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24)
   %add11.i = add nsw i32 %call10.i, %r.1.i
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %add11.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @color_is_nil(ptr nocapture noundef readonly %c) local_unnamed_addr #8 {
+define dso_local i32 @color_is_nil(ptr nocapture noundef readonly %c) local_unnamed_addr #7 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %c, ptr noundef nonnull dereferenceable(4) @.str.25) #14
   %tobool.not = icmp eq i32 %call, 0
@@ -1006,13 +998,13 @@ entry:
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @gettext(ptr noundef) local_unnamed_addr #10
+declare ptr @gettext(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #10
+declare i32 @isatty(i32 noundef) local_unnamed_addr #9
 
 declare i32 @pager_in_use() local_unnamed_addr #3
 
@@ -1020,6 +1012,12 @@ declare i32 @is_terminal_dumb() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
@@ -1043,10 +1041,10 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nofree nounwind }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

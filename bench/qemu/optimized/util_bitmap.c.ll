@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.bitmap_test_and_clear_atomic = private unnamed_addr constant [64 x i8] c"_Bool bitmap_test_and_clear_atomic(unsigned long *, long, long)\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i32 @slow_bitmap_empty(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local i32 @slow_bitmap_empty(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div7 = lshr i64 %bits, 6
   %cmp9.not = icmp ult i64 %bits, 64
@@ -34,7 +34,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %k.0.lcssa = phi i64 [ 0, %entry ], [ %div7, %for.inc ]
   %rem = and i64 %bits, 63
   %tobool1.not = icmp eq i64 %rem, 0
-  br i1 %tobool1.not, label %if.end8, label %if.then2
+  br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %for.end
   %arrayidx3 = getelementptr i64, ptr %bitmap, i64 %k.0.lcssa
@@ -44,18 +44,16 @@ if.then2:                                         ; preds = %for.end
   %shr = lshr i64 -1, %and
   %and4 = and i64 %1, %shr
   %tobool5.not = icmp eq i64 %and4, 0
-  br i1 %tobool5.not, label %if.end8, label %return
-
-if.end8:                                          ; preds = %if.then2, %for.end
+  %spec.select = zext i1 %tobool5.not to i32
   br label %return
 
-return:                                           ; preds = %for.body, %if.then2, %if.end8
-  %retval.0 = phi i32 [ 1, %if.end8 ], [ 0, %if.then2 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %if.then2, %for.end
+  %retval.0 = phi i32 [ 1, %for.end ], [ %spec.select, %if.then2 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i32 @slow_bitmap_full(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local i32 @slow_bitmap_full(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div7 = lshr i64 %bits, 6
   %cmp9.not = icmp ult i64 %bits, 64
@@ -77,7 +75,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %k.0.lcssa = phi i64 [ 0, %entry ], [ %div7, %for.inc ]
   %rem = and i64 %bits, 63
   %tobool1.not = icmp eq i64 %rem, 0
-  br i1 %tobool1.not, label %if.end9, label %if.then2
+  br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %for.end
   %arrayidx3 = getelementptr i64, ptr %bitmap, i64 %k.0.lcssa
@@ -88,18 +86,16 @@ if.then2:                                         ; preds = %for.end
   %shr = lshr i64 -1, %and
   %and5 = and i64 %shr, %not4
   %tobool6.not = icmp eq i64 %and5, 0
-  br i1 %tobool6.not, label %if.end9, label %return
-
-if.end9:                                          ; preds = %if.then2, %for.end
+  %spec.select = zext i1 %tobool6.not to i32
   br label %return
 
-return:                                           ; preds = %for.body, %if.then2, %if.end9
-  %retval.0 = phi i32 [ 1, %if.end9 ], [ 0, %if.then2 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %if.then2, %for.end
+  %retval.0 = phi i32 [ 1, %for.end ], [ %spec.select, %if.then2 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i32 @slow_bitmap_equal(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local i32 @slow_bitmap_equal(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp12.not = icmp ult i64 %bits, 64
@@ -123,7 +119,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %k.0.lcssa = phi i64 [ 0, %entry ], [ %div10, %for.inc ]
   %rem = and i64 %bits, 63
   %tobool.not = icmp eq i64 %rem, 0
-  br i1 %tobool.not, label %if.end10, label %if.then3
+  br i1 %tobool.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %for.end
   %arrayidx4 = getelementptr i64, ptr %bitmap1, i64 %k.0.lcssa
@@ -136,13 +132,11 @@ if.then3:                                         ; preds = %for.end
   %shr = lshr i64 -1, %and
   %and6 = and i64 %xor, %shr
   %tobool7.not = icmp eq i64 %and6, 0
-  br i1 %tobool7.not, label %if.end10, label %return
-
-if.end10:                                         ; preds = %if.then3, %for.end
+  %spec.select = zext i1 %tobool7.not to i32
   br label %return
 
-return:                                           ; preds = %for.body, %if.then3, %if.end10
-  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %if.then3 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %if.then3, %for.end
+  %retval.0 = phi i32 [ 1, %for.end ], [ %spec.select, %if.then3 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 
@@ -739,7 +733,7 @@ declare i64 @find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unn
 declare i64 @find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i32 @slow_bitmap_intersects(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local i32 @slow_bitmap_intersects(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp12.not = icmp ult i64 %bits, 64
@@ -764,7 +758,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %k.0.lcssa = phi i64 [ 0, %entry ], [ %div10, %for.inc ]
   %rem = and i64 %bits, 63
   %tobool2.not = icmp eq i64 %rem, 0
-  br i1 %tobool2.not, label %if.end12, label %if.then3
+  br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %for.end
   %arrayidx4 = getelementptr i64, ptr %bitmap1, i64 %k.0.lcssa
@@ -776,14 +770,12 @@ if.then3:                                         ; preds = %for.end
   %shr = lshr i64 -1, %and7
   %and6 = and i64 %2, %shr
   %and8 = and i64 %and6, %3
-  %tobool9.not = icmp eq i64 %and8, 0
-  br i1 %tobool9.not, label %if.end12, label %return
-
-if.end12:                                         ; preds = %if.then3, %for.end
+  %tobool9.not = icmp ne i64 %and8, 0
+  %spec.select = zext i1 %tobool9.not to i32
   br label %return
 
-return:                                           ; preds = %for.body, %if.then3, %if.end12
-  %retval.0 = phi i32 [ 0, %if.end12 ], [ 1, %if.then3 ], [ 1, %for.body ]
+return:                                           ; preds = %for.body, %if.then3, %for.end
+  %retval.0 = phi i32 [ 0, %for.end ], [ %spec.select, %if.then3 ], [ 1, %for.body ]
   ret i32 %retval.0
 }
 

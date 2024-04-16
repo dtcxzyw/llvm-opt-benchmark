@@ -461,7 +461,7 @@ define noundef i32 @ompi_coll_base_retain_datatypes_w(ptr noundef %0, ptr nounde
 opal_thread_add_fetch_32.exit.us:                 ; preds = %29
   %32 = getelementptr inbounds i8, ptr %28, i64 8
   %33 = atomicrmw volatile add ptr %32, i32 1 monotonic, align 4
-  %34 = trunc i64 %indvars.iv89 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv89 to i32
   store i32 %34, ptr %22, align 8
   br label %35
 
@@ -490,7 +490,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %38
   %43 = add nsw i32 %42, 1
   store volatile i32 %43, ptr %41, align 4
   %44 = load volatile i32, ptr %41, align 4
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %45, ptr %22, align 8
   br label %46
 
@@ -535,7 +535,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %38
 opal_thread_add_fetch_32.exit78.us:               ; preds = %55
   %58 = getelementptr inbounds i8, ptr %54, i64 8
   %59 = atomicrmw volatile add ptr %58, i32 1 monotonic, align 4
-  %60 = trunc i64 %indvars.iv99 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv99 to i32
   store i32 %60, ptr %47, align 4
   br label %61
 
@@ -566,7 +566,7 @@ opal_thread_add_fetch_32.exit78:                  ; preds = %66
   %71 = add nsw i32 %70, 1
   store volatile i32 %71, ptr %69, align 4
   %72 = load volatile i32, ptr %69, align 4
-  %73 = trunc i64 %indvars.iv94 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv94 to i32
   store i32 %73, ptr %47, align 4
   br label %74
 
@@ -1017,7 +1017,7 @@ define i32 @mca_coll_base_name_to_colltype(ptr nocapture noundef readonly %0) lo
 3:                                                ; preds = %1
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.4, i64 noundef 12) #18
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %23
+  br i1 %5, label %6, label %95
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1028,7 +1028,7 @@ define i32 @mca_coll_base_name_to_colltype(ptr nocapture noundef readonly %0) lo
 9:                                                ; preds = %6
   %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(7) @.str.5, i64 noundef 6) #18
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %23
+  br i1 %11, label %12, label %95
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 18
@@ -1042,7 +1042,7 @@ define i32 @mca_coll_base_name_to_colltype(ptr nocapture noundef readonly %0) lo
 15:                                               ; preds = %6
   %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.6, i64 noundef 5) #18
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %95
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 17
@@ -1059,7 +1059,7 @@ define i32 @mca_coll_base_name_to_colltype(ptr nocapture noundef readonly %0) lo
 22:                                               ; preds = %18
   br label %95
 
-23:                                               ; preds = %18, %9, %15, %3
+23:                                               ; preds = %18
   br label %95
 
 24:                                               ; preds = %1
@@ -1212,8 +1212,8 @@ define i32 @mca_coll_base_name_to_colltype(ptr nocapture noundef readonly %0) lo
   %.51 = select i1 %94, i32 15, i32 -1
   br label %95
 
-95:                                               ; preds = %35, %12, %92, %89, %86, %82, %78, %71, %63, %59, %53, %50, %41, %29, %24, %18, %85, %62, %46, %45, %44, %23, %22, %21
-  %.0 = phi i32 [ -1, %23 ], [ 20, %21 ], [ 21, %22 ], [ -1, %46 ], [ 4, %44 ], [ 5, %45 ], [ 10, %62 ], [ -1, %85 ], [ 19, %18 ], [ -1, %24 ], [ 2, %29 ], [ 3, %41 ], [ 6, %50 ], [ 7, %53 ], [ 9, %59 ], [ %., %63 ], [ 11, %71 ], [ 12, %78 ], [ 13, %82 ], [ 14, %86 ], [ 16, %89 ], [ %.51, %92 ], [ %switch.select53, %12 ], [ %switch.select57, %35 ]
+95:                                               ; preds = %35, %3, %15, %9, %12, %92, %89, %86, %82, %78, %71, %63, %59, %53, %50, %41, %29, %24, %18, %85, %62, %46, %45, %44, %23, %22, %21
+  %.0 = phi i32 [ 20, %21 ], [ 21, %22 ], [ -1, %46 ], [ 4, %44 ], [ 5, %45 ], [ 10, %62 ], [ -1, %85 ], [ 19, %18 ], [ -1, %24 ], [ 2, %29 ], [ 3, %41 ], [ 6, %50 ], [ 7, %53 ], [ 9, %59 ], [ %., %63 ], [ 11, %71 ], [ 12, %78 ], [ 13, %82 ], [ 14, %86 ], [ 16, %89 ], [ %.51, %92 ], [ %switch.select53, %12 ], [ -1, %9 ], [ -1, %15 ], [ -1, %3 ], [ -1, %23 ], [ %switch.select57, %35 ]
   ret i32 %.0
 }
 

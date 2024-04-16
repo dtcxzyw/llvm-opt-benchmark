@@ -287,7 +287,7 @@ define dso_local noundef ptr @vmemmap_pte_populate(ptr nocapture noundef readonl
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %20 = and i64 %19, -97
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %85
+  br i1 %21, label %22, label %84
 
 22:                                               ; preds = %5
   %23 = icmp eq ptr %4, null
@@ -296,11 +296,11 @@ define dso_local noundef ptr @vmemmap_pte_populate(ptr nocapture noundef readonl
 24:                                               ; preds = %22
   %25 = tail call ptr @vmemmap_alloc_block_buf(i64 noundef 4096, i32 noundef %2, ptr noundef %3) #9
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %85, label %._crit_edge
+  br i1 %26, label %84, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24
   %.pre = load i64, ptr @page_offset_base, align 8
-  br label %62
+  br label %61
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %4, i64 8
@@ -312,11 +312,11 @@ define dso_local noundef ptr @vmemmap_pte_populate(ptr nocapture noundef readonl
 32:                                               ; preds = %27
   %33 = add nsw i64 %29, -1
   %34 = inttoptr i64 %33 to ptr
-  br label %52
+  br label %51
 
 35:                                               ; preds = %27
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #7
-          to label %52 [label %36], !srcloc !9
+          to label %51 [label %36], !srcloc !9
 
 36:                                               ; preds = %35
   %37 = ptrtoint ptr %4 to i64
@@ -337,57 +337,55 @@ define dso_local noundef ptr @vmemmap_pte_populate(ptr nocapture noundef readonl
   %48 = icmp eq i64 %47, 0
   %49 = add nsw i64 %46, -1
   %50 = inttoptr i64 %49 to ptr
-  br i1 %48, label %51, label %52
+  %spec.select = select i1 %48, ptr %4, ptr %50
+  br label %51
 
-51:                                               ; preds = %44, %40, %36
-  br label %52
+51:                                               ; preds = %44, %36, %40, %35, %32
+  %52 = phi ptr [ %34, %32 ], [ %4, %35 ], [ %4, %40 ], [ %4, %36 ], [ %spec.select, %44 ]
+  %53 = getelementptr inbounds i8, ptr %52, i64 52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, ptr elementtype(i32) %53) #7, !srcloc !10
+  %54 = load i64, ptr @vmemmap_base, align 8
+  %55 = ptrtoint ptr %4 to i64
+  %56 = sub i64 %55, %54
+  %57 = shl i64 %56, 6
+  %58 = load i64, ptr @page_offset_base, align 8
+  %59 = add i64 %57, %58
+  %60 = inttoptr i64 %59 to ptr
+  br label %61
 
-52:                                               ; preds = %51, %44, %35, %32
-  %53 = phi ptr [ %34, %32 ], [ %50, %44 ], [ %4, %51 ], [ %4, %35 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54, ptr elementtype(i32) %54) #7, !srcloc !10
-  %55 = load i64, ptr @vmemmap_base, align 8
-  %56 = ptrtoint ptr %4 to i64
-  %57 = sub i64 %56, %55
-  %58 = shl i64 %57, 6
-  %59 = load i64, ptr @page_offset_base, align 8
-  %60 = add i64 %58, %59
-  %61 = inttoptr i64 %60 to ptr
-  br label %62
-
-62:                                               ; preds = %._crit_edge, %52
-  %63 = phi i64 [ %59, %52 ], [ %.pre, %._crit_edge ]
-  %64 = phi ptr [ %61, %52 ], [ %25, %._crit_edge ]
-  %65 = ptrtoint ptr %64 to i64
-  %66 = add i64 %65, 2147483648
-  %67 = icmp ugt ptr %64, inttoptr (i64 -2147483649 to ptr)
-  %68 = load i64, ptr @phys_base, align 8
-  %69 = sub i64 4503597479886848, %63
-  %70 = select i1 %67, i64 %68, i64 %69
-  %71 = add i64 %66, %70
-  %72 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %73 = and i64 %72, -9223372036854775453
-  %74 = icmp ne i64 %73, 0
-  %75 = and i64 %72, 1
-  %76 = icmp eq i64 %75, 0
-  %77 = and i1 %74, %76
-  %78 = sext i1 %77 to i64
-  %79 = xor i64 %71, %78
-  %80 = and i64 %79, 4503599627366400
-  %81 = load i64, ptr @__supported_pte_mask, align 8
-  %82 = select i1 %76, i64 -9223372036854775453, i64 %81
-  %83 = and i64 %82, %73
-  %84 = or disjoint i64 %80, %83
+61:                                               ; preds = %._crit_edge, %51
+  %62 = phi i64 [ %58, %51 ], [ %.pre, %._crit_edge ]
+  %63 = phi ptr [ %60, %51 ], [ %25, %._crit_edge ]
+  %64 = ptrtoint ptr %63 to i64
+  %65 = add i64 %64, 2147483648
+  %66 = icmp ugt ptr %63, inttoptr (i64 -2147483649 to ptr)
+  %67 = load i64, ptr @phys_base, align 8
+  %68 = sub i64 4503597479886848, %62
+  %69 = select i1 %66, i64 %67, i64 %68
+  %70 = add i64 %65, %69
+  %71 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %72 = and i64 %71, -9223372036854775453
+  %73 = icmp ne i64 %72, 0
+  %74 = and i64 %71, 1
+  %75 = icmp eq i64 %74, 0
+  %76 = and i1 %73, %75
+  %77 = sext i1 %76 to i64
+  %78 = xor i64 %70, %77
+  %79 = and i64 %78, 4503599627366400
+  %80 = load i64, ptr @__supported_pte_mask, align 8
+  %81 = select i1 %75, i64 -9223372036854775453, i64 %80
+  %82 = and i64 %81, %72
+  %83 = or disjoint i64 %79, %82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store i64 %84, ptr %6, align 8
+  store i64 %83, ptr %6, align 8
   %.0..0..0..0. = load volatile i64, ptr %6, align 8
   store volatile i64 %.0..0..0..0., ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %85
+  br label %84
 
-85:                                               ; preds = %62, %24, %5
-  %86 = phi ptr [ null, %24 ], [ %18, %62 ], [ %18, %5 ]
-  ret ptr %86
+84:                                               ; preds = %61, %24, %5
+  %85 = phi ptr [ null, %24 ], [ %18, %61 ], [ %18, %5 ]
+  ret ptr %85
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -1382,7 +1382,7 @@ define internal fastcc void @clean_path(ptr noundef %0, i16 noundef zeroext %1) 
 define internal fastcc i32 @maybe_link() unnamed_addr #1 section ".init.text" align 16 {
   %1 = load i64, ptr @nlink, align 8
   %2 = icmp ugt i64 %1, 1
-  br i1 %2, label %3, label %.thread
+  br i1 %2, label %3, label %20
 
 3:                                                ; preds = %0
   %4 = load i64, ptr @major, align 8
@@ -1395,7 +1395,7 @@ define internal fastcc i32 @maybe_link() unnamed_addr #1 section ".init.text" al
   %11 = load ptr, ptr @collected, align 8
   %12 = tail call fastcc ptr @find_link(i32 noundef %5, i32 noundef %7, i32 noundef %9, i16 noundef zeroext %10, ptr noundef %11) #23
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %20, label %14
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr @collected, align 8
@@ -1404,11 +1404,11 @@ define internal fastcc i32 @maybe_link() unnamed_addr #1 section ".init.text" al
   %17 = tail call i32 @init_link(ptr noundef nonnull %12, ptr noundef %16) #22
   %18 = icmp sgt i32 %17, -1
   %19 = select i1 %18, i32 1, i32 -1
-  br label %.thread
+  br label %20
 
-.thread:                                          ; preds = %3, %0, %14
-  %20 = phi i32 [ %19, %14 ], [ 0, %0 ], [ 0, %3 ]
-  ret i32 %20
+20:                                               ; preds = %3, %14, %0
+  %21 = phi i32 [ 0, %0 ], [ %19, %14 ], [ 0, %3 ]
+  ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1639,7 +1639,7 @@ define internal fastcc i64 @xwrite(ptr noundef %0, ptr noundef %1, i64 noundef %
   %34 = icmp eq i64 %.ph3, 0
   br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !20
 
-.loopexit:                                        ; preds = %33, %13, %.thread6, %3
+.loopexit:                                        ; preds = %13, %33, %.thread6, %3
   %35 = phi i64 [ 0, %3 ], [ %12, %.thread6 ], [ %5, %13 ], [ %.ph4, %33 ]
   ret i64 %35
 }

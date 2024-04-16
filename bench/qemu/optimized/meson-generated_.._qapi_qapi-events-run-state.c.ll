@@ -49,7 +49,7 @@ entry:
   call void @visit_complete(ptr noundef %call4, ptr noundef nonnull %obj) #3
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -63,13 +63,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
   %call9 = call i64 @qdict_size(ptr noundef %retval.0.i) #3
   %tobool10.not = icmp eq i64 %call9, 0
   %2 = load ptr, ptr %obj, align 8
@@ -87,9 +85,9 @@ lor.lhs.false.i:                                  ; preds = %if.else
   %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
-  br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i11
 
-if.else.i13:                                      ; preds = %lor.lhs.false.i
+if.else.i:                                        ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
@@ -107,29 +105,29 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   call void @qapi_event_emit(i32 noundef 0, ptr noundef %call) #3
   call void @visit_free(ptr noundef %call4) #3
   %tobool14.not = icmp eq ptr %call, null
-  br i1 %tobool14.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
+  br i1 %tobool14.not, label %qobject_unref_impl.exit21, label %lor.lhs.false.i13
 
-lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
-  %4 = load i64, ptr %refcnt.i15, align 8
-  %tobool1.not.i16 = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
+lor.lhs.false.i13:                                ; preds = %if.end
+  %refcnt.i14 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = load i64, ptr %refcnt.i14, align 8
+  %tobool1.not.i15 = icmp eq i64 %4, 0
+  br i1 %tobool1.not.i15, label %if.else.i20, label %land.lhs.true.i16
 
-if.else.i21:                                      ; preds = %lor.lhs.false.i14
+if.else.i20:                                      ; preds = %lor.lhs.false.i13
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
-land.lhs.true.i17:                                ; preds = %lor.lhs.false.i14
-  %dec.i18 = add i64 %4, -1
-  store i64 %dec.i18, ptr %refcnt.i15, align 8
-  %cmp.i19 = icmp eq i64 %dec.i18, 0
-  br i1 %cmp.i19, label %if.then5.i20, label %qobject_unref_impl.exit22
+land.lhs.true.i16:                                ; preds = %lor.lhs.false.i13
+  %dec.i17 = add i64 %4, -1
+  store i64 %dec.i17, ptr %refcnt.i14, align 8
+  %cmp.i18 = icmp eq i64 %dec.i17, 0
+  br i1 %cmp.i18, label %if.then5.i19, label %qobject_unref_impl.exit21
 
-if.then5.i20:                                     ; preds = %land.lhs.true.i17
+if.then5.i19:                                     ; preds = %land.lhs.true.i16
   call void @qobject_destroy(ptr noundef nonnull %call) #3
-  br label %qobject_unref_impl.exit22
+  br label %qobject_unref_impl.exit21
 
-qobject_unref_impl.exit22:                        ; preds = %if.end, %land.lhs.true.i17, %if.then5.i20
+qobject_unref_impl.exit21:                        ; preds = %if.end, %land.lhs.true.i16, %if.then5.i19
   ret void
 }
 
@@ -205,7 +203,7 @@ entry:
   call void @visit_complete(ptr noundef %call4, ptr noundef nonnull %obj) #3
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -219,13 +217,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
   %call9 = call i64 @qdict_size(ptr noundef %retval.0.i) #3
   %tobool10.not = icmp eq i64 %call9, 0
   %2 = load ptr, ptr %obj, align 8
@@ -243,9 +239,9 @@ lor.lhs.false.i:                                  ; preds = %if.else
   %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
-  br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i11
 
-if.else.i13:                                      ; preds = %lor.lhs.false.i
+if.else.i:                                        ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
@@ -263,29 +259,29 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   call void @qapi_event_emit(i32 noundef 2, ptr noundef %call) #3
   call void @visit_free(ptr noundef %call4) #3
   %tobool14.not = icmp eq ptr %call, null
-  br i1 %tobool14.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
+  br i1 %tobool14.not, label %qobject_unref_impl.exit21, label %lor.lhs.false.i13
 
-lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
-  %4 = load i64, ptr %refcnt.i15, align 8
-  %tobool1.not.i16 = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
+lor.lhs.false.i13:                                ; preds = %if.end
+  %refcnt.i14 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = load i64, ptr %refcnt.i14, align 8
+  %tobool1.not.i15 = icmp eq i64 %4, 0
+  br i1 %tobool1.not.i15, label %if.else.i20, label %land.lhs.true.i16
 
-if.else.i21:                                      ; preds = %lor.lhs.false.i14
+if.else.i20:                                      ; preds = %lor.lhs.false.i13
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
-land.lhs.true.i17:                                ; preds = %lor.lhs.false.i14
-  %dec.i18 = add i64 %4, -1
-  store i64 %dec.i18, ptr %refcnt.i15, align 8
-  %cmp.i19 = icmp eq i64 %dec.i18, 0
-  br i1 %cmp.i19, label %if.then5.i20, label %qobject_unref_impl.exit22
+land.lhs.true.i16:                                ; preds = %lor.lhs.false.i13
+  %dec.i17 = add i64 %4, -1
+  store i64 %dec.i17, ptr %refcnt.i14, align 8
+  %cmp.i18 = icmp eq i64 %dec.i17, 0
+  br i1 %cmp.i18, label %if.then5.i19, label %qobject_unref_impl.exit21
 
-if.then5.i20:                                     ; preds = %land.lhs.true.i17
+if.then5.i19:                                     ; preds = %land.lhs.true.i16
   call void @qobject_destroy(ptr noundef nonnull %call) #3
-  br label %qobject_unref_impl.exit22
+  br label %qobject_unref_impl.exit21
 
-qobject_unref_impl.exit22:                        ; preds = %if.end, %land.lhs.true.i17, %if.then5.i20
+qobject_unref_impl.exit21:                        ; preds = %if.end, %land.lhs.true.i16, %if.then5.i19
   ret void
 }
 
@@ -466,7 +462,7 @@ entry:
   call void @visit_complete(ptr noundef %call2, ptr noundef nonnull %obj) #3
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -480,13 +476,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
   %call7 = call i64 @qdict_size(ptr noundef %retval.0.i) #3
   %tobool.not = icmp eq i64 %call7, 0
   %2 = load ptr, ptr %obj, align 8
@@ -504,9 +498,9 @@ lor.lhs.false.i:                                  ; preds = %if.else
   %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
-  br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i11
 
-if.else.i13:                                      ; preds = %lor.lhs.false.i
+if.else.i:                                        ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
@@ -524,29 +518,29 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   call void @qapi_event_emit(i32 noundef 8, ptr noundef %call) #3
   call void @visit_free(ptr noundef %call2) #3
   %tobool11.not = icmp eq ptr %call, null
-  br i1 %tobool11.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
+  br i1 %tobool11.not, label %qobject_unref_impl.exit21, label %lor.lhs.false.i13
 
-lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
-  %4 = load i64, ptr %refcnt.i15, align 8
-  %tobool1.not.i16 = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
+lor.lhs.false.i13:                                ; preds = %if.end
+  %refcnt.i14 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = load i64, ptr %refcnt.i14, align 8
+  %tobool1.not.i15 = icmp eq i64 %4, 0
+  br i1 %tobool1.not.i15, label %if.else.i20, label %land.lhs.true.i16
 
-if.else.i21:                                      ; preds = %lor.lhs.false.i14
+if.else.i20:                                      ; preds = %lor.lhs.false.i13
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
-land.lhs.true.i17:                                ; preds = %lor.lhs.false.i14
-  %dec.i18 = add i64 %4, -1
-  store i64 %dec.i18, ptr %refcnt.i15, align 8
-  %cmp.i19 = icmp eq i64 %dec.i18, 0
-  br i1 %cmp.i19, label %if.then5.i20, label %qobject_unref_impl.exit22
+land.lhs.true.i16:                                ; preds = %lor.lhs.false.i13
+  %dec.i17 = add i64 %4, -1
+  store i64 %dec.i17, ptr %refcnt.i14, align 8
+  %cmp.i18 = icmp eq i64 %dec.i17, 0
+  br i1 %cmp.i18, label %if.then5.i19, label %qobject_unref_impl.exit21
 
-if.then5.i20:                                     ; preds = %land.lhs.true.i17
+if.then5.i19:                                     ; preds = %land.lhs.true.i16
   call void @qobject_destroy(ptr noundef nonnull %call) #3
-  br label %qobject_unref_impl.exit22
+  br label %qobject_unref_impl.exit21
 
-qobject_unref_impl.exit22:                        ; preds = %if.end, %land.lhs.true.i17, %if.then5.i20
+qobject_unref_impl.exit21:                        ; preds = %if.end, %land.lhs.true.i16, %if.then5.i19
   ret void
 }
 
@@ -569,7 +563,7 @@ entry:
   call void @visit_complete(ptr noundef %call3, ptr noundef nonnull %obj) #3
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -583,13 +577,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
   %call8 = call i64 @qdict_size(ptr noundef %retval.0.i) #3
   %tobool.not = icmp eq i64 %call8, 0
   %2 = load ptr, ptr %obj, align 8
@@ -607,9 +599,9 @@ lor.lhs.false.i:                                  ; preds = %if.else
   %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
-  br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i11
 
-if.else.i13:                                      ; preds = %lor.lhs.false.i
+if.else.i:                                        ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
@@ -627,29 +619,29 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   call void @qapi_event_emit(i32 noundef 9, ptr noundef %call) #3
   call void @visit_free(ptr noundef %call3) #3
   %tobool12.not = icmp eq ptr %call, null
-  br i1 %tobool12.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
+  br i1 %tobool12.not, label %qobject_unref_impl.exit21, label %lor.lhs.false.i13
 
-lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
-  %4 = load i64, ptr %refcnt.i15, align 8
-  %tobool1.not.i16 = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
+lor.lhs.false.i13:                                ; preds = %if.end
+  %refcnt.i14 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = load i64, ptr %refcnt.i14, align 8
+  %tobool1.not.i15 = icmp eq i64 %4, 0
+  br i1 %tobool1.not.i15, label %if.else.i20, label %land.lhs.true.i16
 
-if.else.i21:                                      ; preds = %lor.lhs.false.i14
+if.else.i20:                                      ; preds = %lor.lhs.false.i13
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
-land.lhs.true.i17:                                ; preds = %lor.lhs.false.i14
-  %dec.i18 = add i64 %4, -1
-  store i64 %dec.i18, ptr %refcnt.i15, align 8
-  %cmp.i19 = icmp eq i64 %dec.i18, 0
-  br i1 %cmp.i19, label %if.then5.i20, label %qobject_unref_impl.exit22
+land.lhs.true.i16:                                ; preds = %lor.lhs.false.i13
+  %dec.i17 = add i64 %4, -1
+  store i64 %dec.i17, ptr %refcnt.i14, align 8
+  %cmp.i18 = icmp eq i64 %dec.i17, 0
+  br i1 %cmp.i18, label %if.then5.i19, label %qobject_unref_impl.exit21
 
-if.then5.i20:                                     ; preds = %land.lhs.true.i17
+if.then5.i19:                                     ; preds = %land.lhs.true.i16
   call void @qobject_destroy(ptr noundef nonnull %call) #3
-  br label %qobject_unref_impl.exit22
+  br label %qobject_unref_impl.exit21
 
-qobject_unref_impl.exit22:                        ; preds = %if.end, %land.lhs.true.i17, %if.then5.i20
+qobject_unref_impl.exit21:                        ; preds = %if.end, %land.lhs.true.i16, %if.then5.i19
   ret void
 }
 
@@ -672,7 +664,7 @@ entry:
   call void @visit_complete(ptr noundef %call3, ptr noundef nonnull %obj) #3
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -686,13 +678,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
   %call8 = call i64 @qdict_size(ptr noundef %retval.0.i) #3
   %tobool.not = icmp eq i64 %call8, 0
   %2 = load ptr, ptr %obj, align 8
@@ -710,9 +700,9 @@ lor.lhs.false.i:                                  ; preds = %if.else
   %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
-  br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i11
 
-if.else.i13:                                      ; preds = %lor.lhs.false.i
+if.else.i:                                        ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
@@ -730,29 +720,29 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   call void @qapi_event_emit(i32 noundef 10, ptr noundef %call) #3
   call void @visit_free(ptr noundef %call3) #3
   %tobool12.not = icmp eq ptr %call, null
-  br i1 %tobool12.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
+  br i1 %tobool12.not, label %qobject_unref_impl.exit21, label %lor.lhs.false.i13
 
-lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
-  %4 = load i64, ptr %refcnt.i15, align 8
-  %tobool1.not.i16 = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
+lor.lhs.false.i13:                                ; preds = %if.end
+  %refcnt.i14 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = load i64, ptr %refcnt.i14, align 8
+  %tobool1.not.i15 = icmp eq i64 %4, 0
+  br i1 %tobool1.not.i15, label %if.else.i20, label %land.lhs.true.i16
 
-if.else.i21:                                      ; preds = %lor.lhs.false.i14
+if.else.i20:                                      ; preds = %lor.lhs.false.i13
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
-land.lhs.true.i17:                                ; preds = %lor.lhs.false.i14
-  %dec.i18 = add i64 %4, -1
-  store i64 %dec.i18, ptr %refcnt.i15, align 8
-  %cmp.i19 = icmp eq i64 %dec.i18, 0
-  br i1 %cmp.i19, label %if.then5.i20, label %qobject_unref_impl.exit22
+land.lhs.true.i16:                                ; preds = %lor.lhs.false.i13
+  %dec.i17 = add i64 %4, -1
+  store i64 %dec.i17, ptr %refcnt.i14, align 8
+  %cmp.i18 = icmp eq i64 %dec.i17, 0
+  br i1 %cmp.i18, label %if.then5.i19, label %qobject_unref_impl.exit21
 
-if.then5.i20:                                     ; preds = %land.lhs.true.i17
+if.then5.i19:                                     ; preds = %land.lhs.true.i16
   call void @qobject_destroy(ptr noundef nonnull %call) #3
-  br label %qobject_unref_impl.exit22
+  br label %qobject_unref_impl.exit21
 
-qobject_unref_impl.exit22:                        ; preds = %if.end, %land.lhs.true.i17, %if.then5.i20
+qobject_unref_impl.exit21:                        ; preds = %if.end, %land.lhs.true.i16, %if.then5.i19
   ret void
 }
 
@@ -777,7 +767,7 @@ entry:
   call void @visit_complete(ptr noundef %call4, ptr noundef nonnull %obj) #3
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -791,13 +781,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
   %call9 = call i64 @qdict_size(ptr noundef %retval.0.i) #3
   %tobool.not = icmp eq i64 %call9, 0
   %2 = load ptr, ptr %obj, align 8
@@ -815,9 +803,9 @@ lor.lhs.false.i:                                  ; preds = %if.else
   %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
-  br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i11
 
-if.else.i13:                                      ; preds = %lor.lhs.false.i
+if.else.i:                                        ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
@@ -835,29 +823,29 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   call void @qapi_event_emit(i32 noundef 11, ptr noundef %call) #3
   call void @visit_free(ptr noundef %call4) #3
   %tobool13.not = icmp eq ptr %call, null
-  br i1 %tobool13.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
+  br i1 %tobool13.not, label %qobject_unref_impl.exit21, label %lor.lhs.false.i13
 
-lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
-  %4 = load i64, ptr %refcnt.i15, align 8
-  %tobool1.not.i16 = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17
+lor.lhs.false.i13:                                ; preds = %if.end
+  %refcnt.i14 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = load i64, ptr %refcnt.i14, align 8
+  %tobool1.not.i15 = icmp eq i64 %4, 0
+  br i1 %tobool1.not.i15, label %if.else.i20, label %land.lhs.true.i16
 
-if.else.i21:                                      ; preds = %lor.lhs.false.i14
+if.else.i20:                                      ; preds = %lor.lhs.false.i13
   call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #4
   unreachable
 
-land.lhs.true.i17:                                ; preds = %lor.lhs.false.i14
-  %dec.i18 = add i64 %4, -1
-  store i64 %dec.i18, ptr %refcnt.i15, align 8
-  %cmp.i19 = icmp eq i64 %dec.i18, 0
-  br i1 %cmp.i19, label %if.then5.i20, label %qobject_unref_impl.exit22
+land.lhs.true.i16:                                ; preds = %lor.lhs.false.i13
+  %dec.i17 = add i64 %4, -1
+  store i64 %dec.i17, ptr %refcnt.i14, align 8
+  %cmp.i18 = icmp eq i64 %dec.i17, 0
+  br i1 %cmp.i18, label %if.then5.i19, label %qobject_unref_impl.exit21
 
-if.then5.i20:                                     ; preds = %land.lhs.true.i17
+if.then5.i19:                                     ; preds = %land.lhs.true.i16
   call void @qobject_destroy(ptr noundef nonnull %call) #3
-  br label %qobject_unref_impl.exit22
+  br label %qobject_unref_impl.exit21
 
-qobject_unref_impl.exit22:                        ; preds = %if.end, %land.lhs.true.i17, %if.then5.i20
+qobject_unref_impl.exit21:                        ; preds = %if.end, %land.lhs.true.i16, %if.then5.i19
   ret void
 }
 

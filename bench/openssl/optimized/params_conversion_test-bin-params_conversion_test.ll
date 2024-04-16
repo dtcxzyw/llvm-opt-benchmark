@@ -173,10 +173,10 @@ if.end:                                           ; preds = %entry
 while.cond.preheader:                             ; preds = %if.end
   %fp = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %fp, align 8
-  %call7156 = tail call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
-  %1 = and i64 %call7156, 4294967295
-  %tobool9.not157 = icmp eq i64 %1, 0
-  br i1 %tobool9.not157, label %while.body.lr.ph, label %end
+  %call7185 = tail call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
+  %1 = and i64 %call7185, 4294967295
+  %tobool9.not186 = icmp eq i64 %1, 0
+  br i1 %tobool9.not186, label %while.body.lr.ph, label %end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %numpairs = getelementptr inbounds i8, ptr %call1, i64 36
@@ -189,7 +189,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end22
-  %res.0158 = phi i32 [ 1, %while.body.lr.ph ], [ %res.1, %if.end22 ]
+  %res.0187 = phi i32 [ 1, %while.body.lr.ph ], [ %res.1, %if.end22 ]
   %call10 = call i32 @test_readstanza(ptr noundef nonnull %call1) #7
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %end, label %if.end13
@@ -634,18 +634,18 @@ lor.lhs.false:                                    ; preds = %if.end223.i, %if.en
 if.then.i41:                                      ; preds = %lor.lhs.false
   %call1.i = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 193, ptr noundef nonnull @.str.52, i32 noundef %conv.i19) #7
   %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %param_conversion_test.exit, label %lor.lhs.false.i42
+  br i1 %tobool2.not.i, label %62, label %lor.lhs.false.i42
 
 lor.lhs.false.i42:                                ; preds = %if.then.i41
   %call3.i = call i64 @ERR_get_error() #7
   %call4.i43 = call i32 @test_ulong_ne(ptr noundef nonnull @.str.14, i32 noundef 194, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i64 noundef %call3.i, i64 noundef 0) #7
   %tobool5.not.i = icmp eq i32 %call4.i43, 0
-  br i1 %tobool5.not.i, label %param_conversion_test.exit, label %if.end37.i
+  br i1 %tobool5.not.i, label %62, label %if.end37.i
 
 if.else.i20:                                      ; preds = %lor.lhs.false
   %call11.i21 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 199, ptr noundef nonnull @.str.52, i32 noundef %conv.i19) #7
   %tobool12.not.i = icmp eq i32 %call11.i21, 0
-  br i1 %tobool12.not.i, label %param_conversion_test.exit, label %lor.lhs.false13.i
+  br i1 %tobool12.not.i, label %62, label %lor.lhs.false13.i
 
 lor.lhs.false13.i:                                ; preds = %if.else.i20
   %52 = load i32, ptr %i32.i10, align 4
@@ -653,7 +653,7 @@ lor.lhs.false13.i:                                ; preds = %if.else.i20
   %conv16.i = zext i1 %cmp15.i to i32
   %call19.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 200, ptr noundef nonnull @.str.56, i32 noundef %conv16.i) #7
   %tobool20.not.i = icmp eq i32 %call19.i, 0
-  br i1 %tobool20.not.i, label %param_conversion_test.exit, label %if.end22.i
+  br i1 %tobool20.not.i, label %62, label %if.end22.i
 
 if.end22.i:                                       ; preds = %lor.lhs.false13.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
@@ -663,12 +663,12 @@ if.end22.i:                                       ; preds = %lor.lhs.false13.i
   %conv26.i = zext i1 %cmp25.i to i32
   %call27.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 205, ptr noundef nonnull @.str.58, i32 noundef %conv26.i) #7
   %tobool28.not.i = icmp eq i32 %call27.i, 0
-  br i1 %tobool28.not.i, label %param_conversion_test.exit, label %lor.lhs.false29.i
+  br i1 %tobool28.not.i, label %62, label %lor.lhs.false29.i
 
 lor.lhs.false29.i:                                ; preds = %if.end22.i
   %call33.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 206, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
   %tobool34.not.i = icmp eq i32 %call33.i, 0
-  br i1 %tobool34.not.i, label %param_conversion_test.exit, label %if.end37.i
+  br i1 %tobool34.not.i, label %62, label %if.end37.i
 
 if.end37.i:                                       ; preds = %lor.lhs.false29.i, %lor.lhs.false.i42
   %tobool38.not.i = icmp eq i32 %pc.sroa.30.3, 0
@@ -680,18 +680,18 @@ if.end37.i:                                       ; preds = %lor.lhs.false29.i, 
 if.then39.i40:                                    ; preds = %if.end37.i
   %call44.i = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 214, ptr noundef nonnull @.str.62, i32 noundef %conv43.i) #7
   %tobool45.not.i = icmp eq i32 %call44.i, 0
-  br i1 %tobool45.not.i, label %param_conversion_test.exit, label %lor.lhs.false46.i
+  br i1 %tobool45.not.i, label %62, label %lor.lhs.false46.i
 
 lor.lhs.false46.i:                                ; preds = %if.then39.i40
   %call47.i = call i64 @ERR_get_error() #7
   %call48.i = call i32 @test_ulong_ne(ptr noundef nonnull @.str.14, i32 noundef 215, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i64 noundef %call47.i, i64 noundef 0) #7
   %tobool49.not.i = icmp eq i32 %call48.i, 0
-  br i1 %tobool49.not.i, label %param_conversion_test.exit, label %if.end86.i
+  br i1 %tobool49.not.i, label %62, label %if.end86.i
 
 if.else52.i:                                      ; preds = %if.end37.i
   %call57.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 220, ptr noundef nonnull @.str.62, i32 noundef %conv43.i) #7
   %tobool58.not.i = icmp eq i32 %call57.i, 0
-  br i1 %tobool58.not.i, label %param_conversion_test.exit, label %lor.lhs.false59.i
+  br i1 %tobool58.not.i, label %62, label %lor.lhs.false59.i
 
 lor.lhs.false59.i:                                ; preds = %if.else52.i
   %54 = load i64, ptr %i64.i11, align 8
@@ -699,7 +699,7 @@ lor.lhs.false59.i:                                ; preds = %if.else52.i
   %conv62.i = zext i1 %cmp61.i to i32
   %call65.i27 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 221, ptr noundef nonnull @.str.64, i32 noundef %conv62.i) #7
   %tobool66.not.i = icmp eq i32 %call65.i27, 0
-  br i1 %tobool66.not.i, label %param_conversion_test.exit, label %if.end68.i
+  br i1 %tobool66.not.i, label %62, label %if.end68.i
 
 if.end68.i:                                       ; preds = %lor.lhs.false59.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
@@ -709,12 +709,12 @@ if.end68.i:                                       ; preds = %lor.lhs.false59.i
   %conv74.i = zext i1 %cmp73.i to i32
   %call75.i28 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 226, ptr noundef nonnull @.str.66, i32 noundef %conv74.i) #7
   %tobool76.not.i = icmp eq i32 %call75.i28, 0
-  br i1 %tobool76.not.i, label %param_conversion_test.exit, label %lor.lhs.false77.i
+  br i1 %tobool76.not.i, label %62, label %lor.lhs.false77.i
 
 lor.lhs.false77.i:                                ; preds = %if.end68.i
   %call82.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 227, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
   %tobool83.not.i = icmp eq i32 %call82.i, 0
-  br i1 %tobool83.not.i, label %param_conversion_test.exit, label %if.end86.i
+  br i1 %tobool83.not.i, label %62, label %if.end86.i
 
 if.end86.i:                                       ; preds = %lor.lhs.false77.i, %lor.lhs.false46.i
   %tobool87.not.i = icmp eq i32 %pc.sroa.33.3, 0
@@ -726,18 +726,18 @@ if.end86.i:                                       ; preds = %lor.lhs.false77.i, 
 if.then88.i:                                      ; preds = %if.end86.i
   %call93.i = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 235, ptr noundef nonnull @.str.68, i32 noundef %conv92.i) #7
   %tobool94.not.i = icmp eq i32 %call93.i, 0
-  br i1 %tobool94.not.i, label %param_conversion_test.exit, label %lor.lhs.false95.i
+  br i1 %tobool94.not.i, label %62, label %lor.lhs.false95.i
 
 lor.lhs.false95.i:                                ; preds = %if.then88.i
   %call96.i = call i64 @ERR_get_error() #7
   %call97.i = call i32 @test_ulong_ne(ptr noundef nonnull @.str.14, i32 noundef 236, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i64 noundef %call96.i, i64 noundef 0) #7
   %tobool98.not.i = icmp eq i32 %call97.i, 0
-  br i1 %tobool98.not.i, label %param_conversion_test.exit, label %if.end135.i
+  br i1 %tobool98.not.i, label %62, label %if.end135.i
 
 if.else101.i30:                                   ; preds = %if.end86.i
   %call106.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 241, ptr noundef nonnull @.str.68, i32 noundef %conv92.i) #7
   %tobool107.not.i = icmp eq i32 %call106.i, 0
-  br i1 %tobool107.not.i, label %param_conversion_test.exit, label %lor.lhs.false108.i
+  br i1 %tobool107.not.i, label %62, label %lor.lhs.false108.i
 
 lor.lhs.false108.i:                               ; preds = %if.else101.i30
   %56 = load i32, ptr %u32.i12, align 4
@@ -745,7 +745,7 @@ lor.lhs.false108.i:                               ; preds = %if.else101.i30
   %conv111.i = zext i1 %cmp110.i to i32
   %call114.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 242, ptr noundef nonnull @.str.70, i32 noundef %conv111.i) #7
   %tobool115.not.i = icmp eq i32 %call114.i, 0
-  br i1 %tobool115.not.i, label %param_conversion_test.exit, label %if.end117.i
+  br i1 %tobool115.not.i, label %62, label %if.end117.i
 
 if.end117.i:                                      ; preds = %lor.lhs.false108.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
@@ -755,12 +755,12 @@ if.end117.i:                                      ; preds = %lor.lhs.false108.i
   %conv123.i = zext i1 %cmp122.i to i32
   %call124.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 247, ptr noundef nonnull @.str.72, i32 noundef %conv123.i) #7
   %tobool125.not.i = icmp eq i32 %call124.i, 0
-  br i1 %tobool125.not.i, label %param_conversion_test.exit, label %lor.lhs.false126.i
+  br i1 %tobool125.not.i, label %62, label %lor.lhs.false126.i
 
 lor.lhs.false126.i:                               ; preds = %if.end117.i
   %call131.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 248, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
   %tobool132.not.i = icmp eq i32 %call131.i, 0
-  br i1 %tobool132.not.i, label %param_conversion_test.exit, label %if.end135.i
+  br i1 %tobool132.not.i, label %62, label %if.end135.i
 
 if.end135.i:                                      ; preds = %lor.lhs.false126.i, %lor.lhs.false95.i
   %tobool136.not.i = icmp eq i32 %pc.sroa.36.3, 0
@@ -772,18 +772,18 @@ if.end135.i:                                      ; preds = %lor.lhs.false126.i,
 if.then137.i:                                     ; preds = %if.end135.i
   %call142.i = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 256, ptr noundef nonnull @.str.74, i32 noundef %conv141.i) #7
   %tobool143.not.i = icmp eq i32 %call142.i, 0
-  br i1 %tobool143.not.i, label %param_conversion_test.exit, label %lor.lhs.false144.i
+  br i1 %tobool143.not.i, label %62, label %lor.lhs.false144.i
 
 lor.lhs.false144.i:                               ; preds = %if.then137.i
   %call145.i = call i64 @ERR_get_error() #7
   %call146.i = call i32 @test_ulong_ne(ptr noundef nonnull @.str.14, i32 noundef 257, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i64 noundef %call145.i, i64 noundef 0) #7
   %tobool147.not.i = icmp eq i32 %call146.i, 0
-  br i1 %tobool147.not.i, label %param_conversion_test.exit, label %if.end184.i
+  br i1 %tobool147.not.i, label %62, label %if.end184.i
 
 if.else150.i:                                     ; preds = %if.end135.i
   %call155.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 262, ptr noundef nonnull @.str.74, i32 noundef %conv141.i) #7
   %tobool156.not.i = icmp eq i32 %call155.i, 0
-  br i1 %tobool156.not.i, label %param_conversion_test.exit, label %lor.lhs.false157.i
+  br i1 %tobool156.not.i, label %62, label %lor.lhs.false157.i
 
 lor.lhs.false157.i:                               ; preds = %if.else150.i
   %58 = load i64, ptr %u64.i13, align 8
@@ -791,7 +791,7 @@ lor.lhs.false157.i:                               ; preds = %if.else150.i
   %conv160.i = zext i1 %cmp159.i to i32
   %call163.i32 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 263, ptr noundef nonnull @.str.76, i32 noundef %conv160.i) #7
   %tobool164.not.i = icmp eq i32 %call163.i32, 0
-  br i1 %tobool164.not.i, label %param_conversion_test.exit, label %if.end166.i
+  br i1 %tobool164.not.i, label %62, label %if.end166.i
 
 if.end166.i:                                      ; preds = %lor.lhs.false157.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
@@ -801,12 +801,12 @@ if.end166.i:                                      ; preds = %lor.lhs.false157.i
   %conv172.i = zext i1 %cmp171.i to i32
   %call173.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 268, ptr noundef nonnull @.str.78, i32 noundef %conv172.i) #7
   %tobool174.not.i = icmp eq i32 %call173.i, 0
-  br i1 %tobool174.not.i, label %param_conversion_test.exit, label %lor.lhs.false175.i
+  br i1 %tobool174.not.i, label %62, label %lor.lhs.false175.i
 
 lor.lhs.false175.i:                               ; preds = %if.end166.i
   %call180.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
   %tobool181.not.i = icmp eq i32 %call180.i, 0
-  br i1 %tobool181.not.i, label %param_conversion_test.exit, label %if.end184.i
+  br i1 %tobool181.not.i, label %62, label %if.end184.i
 
 if.end184.i:                                      ; preds = %lor.lhs.false175.i, %lor.lhs.false144.i
   %tobool185.not.i = icmp eq i32 %pc.sroa.39.3, 0
@@ -818,18 +818,18 @@ if.end184.i:                                      ; preds = %lor.lhs.false175.i,
 if.then186.i:                                     ; preds = %if.end184.i
   %call191.i37 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 277, ptr noundef nonnull @.str.80, i32 noundef %conv190.i) #7
   %tobool192.not.i38 = icmp eq i32 %call191.i37, 0
-  br i1 %tobool192.not.i38, label %param_conversion_test.exit, label %lor.lhs.false193.i39
+  br i1 %tobool192.not.i38, label %62, label %lor.lhs.false193.i39
 
 lor.lhs.false193.i39:                             ; preds = %if.then186.i
   %call194.i = call i64 @ERR_get_error() #7
   %call195.i = call i32 @test_ulong_ne(ptr noundef nonnull @.str.14, i32 noundef 278, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, i64 noundef %call194.i, i64 noundef 0) #7
   %tobool196.not.i = icmp eq i32 %call195.i, 0
-  br i1 %tobool196.not.i, label %param_conversion_test.exit, label %param_conversion_test.exit.thread
+  br i1 %tobool196.not.i, label %62, label %param_conversion_test.exit.thread
 
 if.else199.i:                                     ; preds = %if.end184.i
   %call204.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 283, ptr noundef nonnull @.str.80, i32 noundef %conv190.i) #7
   %tobool205.not.i = icmp eq i32 %call204.i, 0
-  br i1 %tobool205.not.i, label %param_conversion_test.exit, label %if.end207.i
+  br i1 %tobool205.not.i, label %62, label %if.end207.i
 
 if.end207.i:                                      ; preds = %if.else199.i
   %60 = load double, ptr %d.i14, align 8
@@ -841,14 +841,14 @@ if.then210.i35:                                   ; preds = %if.end207.i
   %conv214.i = zext i1 %cmp213.i to i32
   %call217.i = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 300, ptr noundef nonnull @.str.83, i32 noundef %conv214.i) #7
   %tobool218.not.i = icmp eq i32 %call217.i, 0
-  br i1 %tobool218.not.i, label %param_conversion_test.exit, label %if.end231.i
+  br i1 %tobool218.not.i, label %62, label %if.end231.i
 
 if.else221.i:                                     ; preds = %if.end207.i
   %cmp223.i = fcmp oeq double %60, %pc.sroa.24.3
   %conv224.i = zext i1 %cmp223.i to i32
   %call227.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 304, ptr noundef nonnull @.str.85, i32 noundef %conv224.i) #7
   %tobool228.not.i = icmp eq i32 %call227.i, 0
-  br i1 %tobool228.not.i, label %param_conversion_test.exit, label %if.end231.i
+  br i1 %tobool228.not.i, label %62, label %if.end231.i
 
 if.end231.i:                                      ; preds = %if.else221.i, %if.then210.i35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pc.sroa.52.1, i8 44, i64 %pc.sroa.67.1, i1 false)
@@ -858,12 +858,12 @@ if.end231.i:                                      ; preds = %if.else221.i, %if.t
   %conv237.i = zext i1 %cmp236.i to i32
   %call238.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 309, ptr noundef nonnull @.str.87, i32 noundef %conv237.i) #7
   %tobool239.not.i = icmp eq i32 %call238.i, 0
-  br i1 %tobool239.not.i, label %param_conversion_test.exit, label %lor.lhs.false240.i
+  br i1 %tobool239.not.i, label %62, label %lor.lhs.false240.i
 
 lor.lhs.false240.i:                               ; preds = %if.end231.i
   %call245.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 310, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %pc.sroa.52.1, i64 noundef %pc.sroa.67.1, ptr noundef nonnull %pc.sroa.4265.1, i64 noundef %pc.sroa.67.1) #7
   %tobool246.not.i = icmp eq i32 %call245.i, 0
-  br i1 %tobool246.not.i, label %param_conversion_test.exit, label %param_conversion_test.exit.thread
+  br i1 %tobool246.not.i, label %62, label %param_conversion_test.exit.thread
 
 param_conversion_test.exit.thread:                ; preds = %lor.lhs.false240.i, %lor.lhs.false193.i39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i32.i10)
@@ -873,7 +873,7 @@ param_conversion_test.exit.thread:                ; preds = %lor.lhs.false240.i,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i14)
   br label %if.end22
 
-param_conversion_test.exit:                       ; preds = %if.then.i41, %lor.lhs.false.i42, %if.else.i20, %lor.lhs.false13.i, %if.end22.i, %lor.lhs.false29.i, %if.then39.i40, %lor.lhs.false46.i, %if.else52.i, %lor.lhs.false59.i, %if.end68.i, %lor.lhs.false77.i, %if.then88.i, %lor.lhs.false95.i, %if.else101.i30, %lor.lhs.false108.i, %if.end117.i, %lor.lhs.false126.i, %if.then137.i, %lor.lhs.false144.i, %if.else150.i, %lor.lhs.false157.i, %if.end166.i, %lor.lhs.false175.i, %if.then186.i, %lor.lhs.false193.i39, %if.else199.i, %if.then210.i35, %if.else221.i, %if.end231.i, %lor.lhs.false240.i
+62:                                               ; preds = %lor.lhs.false240.i, %if.end231.i, %if.else221.i, %if.then210.i35, %if.else199.i, %lor.lhs.false193.i39, %if.then186.i, %lor.lhs.false175.i, %if.end166.i, %lor.lhs.false157.i, %if.else150.i, %lor.lhs.false144.i, %if.then137.i, %lor.lhs.false126.i, %if.end117.i, %lor.lhs.false108.i, %if.else101.i30, %lor.lhs.false95.i, %if.then88.i, %lor.lhs.false77.i, %if.end68.i, %lor.lhs.false59.i, %if.else52.i, %lor.lhs.false46.i, %if.then39.i40, %lor.lhs.false29.i, %if.end22.i, %lor.lhs.false13.i, %if.else.i20, %lor.lhs.false.i42, %if.then.i41
   %.str.88.sink.i = phi ptr [ @.str.55, %lor.lhs.false.i42 ], [ @.str.55, %if.then.i41 ], [ @.str.57, %lor.lhs.false13.i ], [ @.str.57, %if.else.i20 ], [ @.str.61, %lor.lhs.false29.i ], [ @.str.61, %if.end22.i ], [ @.str.63, %lor.lhs.false46.i ], [ @.str.63, %if.then39.i40 ], [ @.str.65, %lor.lhs.false59.i ], [ @.str.65, %if.else52.i ], [ @.str.67, %lor.lhs.false77.i ], [ @.str.67, %if.end68.i ], [ @.str.69, %lor.lhs.false95.i ], [ @.str.69, %if.then88.i ], [ @.str.71, %lor.lhs.false108.i ], [ @.str.71, %if.else101.i30 ], [ @.str.73, %lor.lhs.false126.i ], [ @.str.73, %if.end117.i ], [ @.str.75, %lor.lhs.false144.i ], [ @.str.75, %if.then137.i ], [ @.str.77, %lor.lhs.false157.i ], [ @.str.77, %if.else150.i ], [ @.str.79, %lor.lhs.false175.i ], [ @.str.79, %if.end166.i ], [ @.str.81, %lor.lhs.false193.i39 ], [ @.str.81, %if.then186.i ], [ @.str.82, %if.else199.i ], [ @.str.84, %if.then210.i35 ], [ @.str.86, %if.else221.i ], [ @.str.88, %lor.lhs.false240.i ], [ @.str.88, %if.end231.i ]
   call void (ptr, ...) @test_note(ptr noundef nonnull %.str.88.sink.i, i32 noundef %51) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i32.i10)
@@ -883,13 +883,13 @@ param_conversion_test.exit:                       ; preds = %if.then.i41, %lor.l
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i14)
   br label %if.end22
 
-if.end22:                                         ; preds = %param_conversion_load_stanza.exit.thread, %param_conversion_test.exit, %param_conversion_test.exit.thread, %if.end13
-  %res.1 = phi i32 [ %res.0158, %if.end13 ], [ %res.0158, %param_conversion_test.exit.thread ], [ 0, %param_conversion_test.exit ], [ 0, %param_conversion_load_stanza.exit.thread ]
+if.end22:                                         ; preds = %62, %param_conversion_test.exit.thread, %param_conversion_load_stanza.exit.thread, %if.end13
+  %res.1 = phi i32 [ %res.0187, %if.end13 ], [ 0, %param_conversion_load_stanza.exit.thread ], [ 0, %62 ], [ %res.0187, %param_conversion_test.exit.thread ]
   call void @test_clearstanza(ptr noundef nonnull %call1) #7
-  %62 = load ptr, ptr %fp, align 8
-  %call7 = call i64 @BIO_ctrl(ptr noundef %62, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
-  %63 = and i64 %call7, 4294967295
-  %tobool9.not = icmp eq i64 %63, 0
+  %63 = load ptr, ptr %fp, align 8
+  %call7 = call i64 @BIO_ctrl(ptr noundef %63, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
+  %64 = and i64 %call7, 4294967295
+  %tobool9.not = icmp eq i64 %64, 0
   br i1 %tobool9.not, label %while.body, label %end, !llvm.loop !7
 
 end:                                              ; preds = %if.end22, %while.body, %while.cond.preheader

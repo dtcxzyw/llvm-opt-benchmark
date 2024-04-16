@@ -1737,7 +1737,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = trunc i64 %req_size to i32
+  %0 = trunc nuw i64 %req_size to i32
   %add2 = add nuw nsw i32 %0, 23
   %and = and i32 %add2, 2147483640
   %cmp4 = icmp ult i32 %and, 17
@@ -2278,19 +2278,17 @@ land.lhs.true.i:                                  ; preds = %if.end25.i
 
 if.end34.i:                                       ; preds = %land.lhs.true.i
   %cmp35.not.i = icmp eq i32 %type_id, 0
-  br i1 %cmp35.not.i, label %if.end42.i, label %land.lhs.true36.i
+  br i1 %cmp35.not.i, label %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit, label %land.lhs.true36.i
 
 land.lhs.true36.i:                                ; preds = %if.end34.i
   %type_id37.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %5 = load atomic volatile i32, ptr %type_id37.i monotonic, align 4
   %cmp39.not.i = icmp eq i32 %5, %type_id
-  br i1 %cmp39.not.i, label %if.end42.i, label %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit
-
-if.end42.i:                                       ; preds = %land.lhs.true36.i, %if.end34.i
+  %spec.select = select i1 %cmp39.not.i, ptr %add.ptr.i, ptr null
   br label %_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit
 
-_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit: ; preds = %entry, %if.end.i, %if.end5.i, %if.end11.i, %if.end21.i, %if.end25.i, %land.lhs.true.i, %land.lhs.true36.i, %if.end42.i
-  %retval.0.i = phi ptr [ %add.ptr.i, %if.end42.i ], [ null, %entry ], [ null, %if.end.i ], [ null, %if.end5.i ], [ null, %if.end11.i ], [ null, %if.end21.i ], [ null, %if.end25.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true36.i ]
+_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit: ; preds = %land.lhs.true36.i, %if.end34.i, %entry, %if.end.i, %if.end5.i, %if.end11.i, %if.end21.i, %if.end25.i, %land.lhs.true.i
+  %retval.0.i = phi ptr [ null, %entry ], [ null, %if.end.i ], [ null, %if.end5.i ], [ null, %if.end11.i ], [ null, %if.end21.i ], [ null, %if.end25.i ], [ null, %land.lhs.true.i ], [ %add.ptr.i, %if.end34.i ], [ %spec.select, %land.lhs.true36.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   %add.ptr = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %retval.0 = select i1 %tobool.not, ptr null, ptr %add.ptr

@@ -268,7 +268,7 @@ if.then104:                                       ; preds = %land.lhs.true97
 if.end105:                                        ; preds = %land.lhs.true97, %if.then104, %invoke.cont92
   %sext = shl i32 %.pre, 16
   %shr108 = ashr i32 %sext, 17
-  %conv109 = trunc i32 %shr108 to i16
+  %conv109 = trunc nsw i32 %shr108 to i16
   %typeCount = getelementptr inbounds i8, ptr %this, i64 104
   store i16 %conv109, ptr %typeCount, align 8
   %typeMapData = getelementptr inbounds i8, ptr %this, i64 120
@@ -1040,21 +1040,21 @@ if.then3:                                         ; preds = %if.then
 if.else:                                          ; preds = %entry
   %and.i.i = and i32 %year, 3
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego11monthLengthEii.exit
 
 land.rhs.i.i:                                     ; preds = %if.else
   %rem.i.i = srem i32 %year, 100
-  %cmp1.not.i.i = icmp ne i32 %rem.i.i, 0
+  %cmp1.not.i.i = icmp eq i32 %rem.i.i, 0
+  br i1 %cmp1.not.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.i, label %_ZN6icu_755Grego11monthLengthEii.exit
+
+_ZN6icu_755Grego10isLeapYearEi.exit.i:            ; preds = %land.rhs.i.i
   %rem2.i.i = srem i32 %year, 400
   %cmp3.i.not.i = icmp eq i32 %rem2.i.i, 0
-  %or.cond.i = or i1 %cmp1.not.i.i, %cmp3.i.not.i
-  br i1 %or.cond.i, label %_ZN6icu_755Grego11monthLengthEii.exit, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-
-_ZN6icu_755Grego10isLeapYearEi.exit.thread.i:     ; preds = %land.rhs.i.i, %if.else
+  %spec.select.i = select i1 %cmp3.i.not.i, i32 12, i32 0
   br label %_ZN6icu_755Grego11monthLengthEii.exit
 
-_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-  %1 = phi i32 [ 0, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i ], [ 12, %land.rhs.i.i ]
+_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %if.else, %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i
+  %1 = phi i32 [ 0, %if.else ], [ 12, %land.rhs.i.i ], [ %spec.select.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i ]
   %add.i = add nuw nsw i32 %1, %month
   %idxprom.i = zext nneg i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i
@@ -1270,7 +1270,7 @@ for.body.us:                                      ; preds = %for.cond.us
   br i1 %cmp.i63.not.us, label %if.end.i64.us, label %if.then.i88.us
 
 if.then.i88.us:                                   ; preds = %for.body.us
-  %23 = trunc i64 %indvars.iv.next172 to i32
+  %23 = trunc nsw i64 %indvars.iv.next172 to i32
   %shl.i.us = shl nuw nsw i32 %23, 1
   %idxprom.i.us = zext nneg i32 %shl.i.us to i64
   %arrayidx.i90.us = getelementptr inbounds i32, ptr %15, i64 %idxprom.i.us
@@ -1286,7 +1286,7 @@ if.then.i88.us:                                   ; preds = %for.body.us
   br label %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97.us
 
 if.end.i64.us:                                    ; preds = %for.body.us
-  %26 = trunc i64 %indvars.iv.next172 to i16
+  %26 = trunc nsw i64 %indvars.iv.next172 to i16
   %sub.i65.us = sub i16 %26, %.pre
   %cmp18.i67.us = icmp slt i16 %sub.i65.us, %16
   br i1 %cmp18.i67.us, label %if.then19.i83.us, label %if.end23.i68.us
@@ -1332,7 +1332,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp.i63.not, label %if.end.i64, label %if.then.i88
 
 if.then.i88:                                      ; preds = %for.body
-  %30 = trunc i64 %indvars.iv.next to i32
+  %30 = trunc nsw i64 %indvars.iv.next to i32
   %shl.i = shl nuw nsw i32 %30, 1
   %idxprom.i = zext nneg i32 %shl.i to i64
   %arrayidx.i90 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i
@@ -1348,7 +1348,7 @@ if.then.i88:                                      ; preds = %for.body
   br label %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97
 
 if.end.i64:                                       ; preds = %for.body
-  %33 = trunc i64 %indvars.iv.next to i16
+  %33 = trunc nsw i64 %indvars.iv.next to i16
   %sub.i65 = sub i16 %33, %.pre
   %cmp18.i67 = icmp slt i16 %sub.i65, %16
   br i1 %cmp18.i67, label %if.then19.i83, label %if.end23.i68
@@ -1790,7 +1790,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %shl.i = shl nsw i32 %14, 1
   %idxprom.i = sext i32 %shl.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %10, i64 %idxprom.i
@@ -1806,7 +1806,7 @@ if.then.i:                                        ; preds = %for.body
   br label %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit
 
 if.end.i:                                         ; preds = %for.body
-  %17 = trunc i64 %indvars.iv to i16
+  %17 = trunc nuw nsw i64 %indvars.iv to i16
   %sub.i = sub i16 %17, %5
   %cmp18.i = icmp slt i16 %sub.i, %6
   br i1 %cmp18.i, label %if.then19.i, label %if.end23.i
@@ -2084,7 +2084,7 @@ return:                                           ; preds = %if.end58, %land.lhs
   ret i8 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -2394,7 +2394,7 @@ if.then73:                                        ; preds = %for.body65
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then73
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nsw i64 %indvars.iv to i32
   %shl.i.i = shl nsw i32 %34, 1
   %idxprom.i.i = sext i32 %shl.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i.i
@@ -2410,7 +2410,7 @@ if.then.i.i:                                      ; preds = %if.then73
   br label %_ZNK6icu_7513OlsonTimeZone14transitionTimeEs.exit
 
 if.end.i.i:                                       ; preds = %if.then73
-  %37 = trunc i64 %indvars.iv to i16
+  %37 = trunc nsw i64 %indvars.iv to i16
   %sub.i.i = sub i16 %37, %23
   %cmp18.i.i = icmp slt i16 %sub.i.i, %24
   br i1 %cmp18.i.i, label %if.then19.i.i, label %if.end23.i.i
@@ -4093,7 +4093,7 @@ attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(read) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

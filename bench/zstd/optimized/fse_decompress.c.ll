@@ -1758,7 +1758,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @BIT_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #5 {
+define internal fastcc i64 @BIT_initDStream(ptr nocapture noundef writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #5 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1786,20 +1786,14 @@ if.then3:                                         ; preds = %if.end
   %arrayidx = getelementptr i8, ptr %add.ptr4, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %cond.end.thread, label %cond.end
-
-cond.end.thread:                                  ; preds = %if.then3
-  %bitsConsumed42 = getelementptr inbounds i8, ptr %bitD, i64 8
-  store i32 0, ptr %bitsConsumed42, align 8
-  br label %return
-
-cond.end:                                         ; preds = %if.then3
   %conv = zext i8 %0 to i32
   %1 = tail call i32 @llvm.ctlz.i32(i32 %conv, i1 true), !range !13
   %sub.i = xor i32 %1, 31
   %sub9 = sub nuw nsw i32 8, %sub.i
+  %cond = select i1 %tobool.not, i32 0, i32 %sub9
   %bitsConsumed = getelementptr inbounds i8, ptr %bitD, i64 8
-  store i32 %sub9, ptr %bitsConsumed, align 8
+  store i32 %cond, ptr %bitsConsumed, align 8
+  %spec.select = select i1 %tobool.not, i64 -1, i64 %srcSize
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -1884,8 +1878,8 @@ sw.epilog:                                        ; preds = %if.else, %sw.bb47
   br i1 %tobool57.not, label %cond.end63.thread, label %if.end70
 
 cond.end63.thread:                                ; preds = %sw.epilog
-  %bitsConsumed6544 = getelementptr inbounds i8, ptr %bitD, i64 8
-  store i32 0, ptr %bitsConsumed6544, align 8
+  %bitsConsumed6542 = getelementptr inbounds i8, ptr %bitD, i64 8
+  store i32 0, ptr %bitsConsumed6542, align 8
   br label %return
 
 if.end70:                                         ; preds = %sw.epilog
@@ -1899,8 +1893,8 @@ if.end70:                                         ; preds = %sw.epilog
   store i32 %add74, ptr %bitsConsumed65, align 8
   br label %return
 
-return:                                           ; preds = %if.end70, %cond.end, %cond.end63.thread, %cond.end.thread, %if.then
-  %retval.0 = phi i64 [ -72, %if.then ], [ -1, %cond.end.thread ], [ -20, %cond.end63.thread ], [ %srcSize, %cond.end ], [ %srcSize, %if.end70 ]
+return:                                           ; preds = %cond.end63.thread, %if.then3, %if.end70, %if.then
+  %retval.0 = phi i64 [ -72, %if.then ], [ %srcSize, %if.end70 ], [ %spec.select, %if.then3 ], [ -20, %cond.end63.thread ]
   ret i64 %retval.0
 }
 

@@ -388,17 +388,17 @@ if.end3.i:                                        ; preds = %if.then
   %0 = load i8, ptr %call.i.i, align 1
   %conv.i8 = sext i8 %0 to i32
   %call.i9 = tail call i32 @ossl_isdigit(i32 noundef %conv.i8) #14
-  %tobool.not20.i = icmp eq i32 %call.i9, 0
-  br i1 %tobool.not20.i, label %if.end.thread13, label %for.body.i
+  %tobool.not19.i = icmp eq i32 %call.i9, 0
+  br i1 %tobool.not19.i, label %if.end.thread13, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end3.i, %if.end25.i
-  %res.022.i = phi i64 [ %add.i, %if.end25.i ], [ 0, %if.end3.i ]
-  %str.021.i = phi ptr [ %incdec.ptr.i, %if.end25.i ], [ %call.i.i, %if.end3.i ]
-  %1 = load i8, ptr %str.021.i, align 1
+  %res.021.i = phi i64 [ %add.i, %if.end25.i ], [ 0, %if.end3.i ]
+  %str.020.i = phi ptr [ %incdec.ptr.i, %if.end25.i ], [ %call.i.i, %if.end3.i ]
+  %1 = load i8, ptr %str.020.i, align 1
   %conv.i6 = sext i8 %1 to i64
   %sub.i = sub i64 -9223372036854775761, %conv.i6
-  %div17.i = udiv i64 %sub.i, 10
-  %cmp22.i = icmp sgt i64 %res.022.i, %div17.i
+  %div.i = udiv i64 %sub.i, 10
+  %cmp22.i = icmp sgt i64 %res.021.i, %div.i
   br i1 %cmp22.i, label %if.then24.i, label %if.end25.i
 
 if.then24.i:                                      ; preds = %for.body.i
@@ -407,10 +407,10 @@ if.then24.i:                                      ; preds = %for.body.i
   br label %if.end.thread
 
 if.end25.i:                                       ; preds = %for.body.i
-  %mul.i = mul nsw i64 %res.022.i, 10
+  %mul.i = mul nsw i64 %res.021.i, 10
   %sub.i7 = add i64 %mul.i, -48
   %add.i = add i64 %sub.i7, %conv.i6
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.021.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.020.i, i64 1
   %2 = load i8, ptr %incdec.ptr.i, align 1
   %conv.i4 = sext i8 %2 to i32
   %call.i5 = tail call i32 @ossl_isdigit(i32 noundef %conv.i4) #14
@@ -420,7 +420,7 @@ if.end25.i:                                       ; preds = %for.body.i
 if.end.thread13:                                  ; preds = %if.end25.i, %if.end3.i
   %res.0.lcssa.i = phi i64 [ 0, %if.end3.i ], [ %add.i, %if.end25.i ]
   %call315 = tail call i32 @ERR_pop_to_mark() #14
-  br label %8
+  br label %7
 
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr @default_CONF_method, align 8
@@ -449,14 +449,12 @@ if.end:                                           ; preds = %if.then.i, %if.else
   %call3 = call i32 @ERR_pop_to_mark() #14
   %cmp4 = icmp eq i32 %call2, 0
   %6 = load i64, ptr %result, align 8
-  br i1 %cmp4, label %7, label %8
+  %spec.select = select i1 %cmp4, i64 0, i64 %6
+  br label %7
 
-7:                                                ; preds = %if.end.thread, %if.end
-  br label %8
-
-8:                                                ; preds = %if.end.thread13, %if.end, %7
-  %9 = phi i64 [ 0, %7 ], [ %6, %if.end ], [ %res.0.lcssa.i, %if.end.thread13 ]
-  ret i64 %9
+7:                                                ; preds = %if.end, %if.end.thread, %if.end.thread13
+  %8 = phi i64 [ %res.0.lcssa.i, %if.end.thread13 ], [ 0, %if.end.thread ], [ %spec.select, %if.end ]
+  ret i64 %8
 }
 
 declare i32 @ERR_set_mark() local_unnamed_addr #1
@@ -512,19 +510,19 @@ if.end19:                                         ; preds = %if.then5, %if.end3
   %is_number.1 = phi ptr [ @default_is_number, %if.end3 ], [ %spec.select, %if.then5 ]
   %to_int.0 = phi ptr [ @default_to_int, %if.end3 ], [ %spec.select16, %if.then5 ]
   %3 = load i8, ptr %call.i, align 1
-  %call2019 = tail call i32 %is_number.1(ptr noundef %conf, i8 noundef signext %3) #14
-  %tobool.not20 = icmp eq i32 %call2019, 0
-  br i1 %tobool.not20, label %for.end, label %for.body
+  %call2018 = tail call i32 %is_number.1(ptr noundef %conf, i8 noundef signext %3) #14
+  %tobool.not19 = icmp eq i32 %call2018, 0
+  br i1 %tobool.not19, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end19, %if.end25
-  %res.022 = phi i64 [ %add, %if.end25 ], [ 0, %if.end19 ]
-  %str.021 = phi ptr [ %incdec.ptr, %if.end25 ], [ %call.i, %if.end19 ]
-  %4 = load i8, ptr %str.021, align 1
+  %res.021 = phi i64 [ %add, %if.end25 ], [ 0, %if.end19 ]
+  %str.020 = phi ptr [ %incdec.ptr, %if.end25 ], [ %call.i, %if.end19 ]
+  %4 = load i8, ptr %str.020, align 1
   %call21 = tail call i32 %to_int.0(ptr noundef %conf, i8 noundef signext %4) #14
   %conv = sext i32 %call21 to i64
   %sub = sub nsw i64 9223372036854775807, %conv
-  %div17 = udiv i64 %sub, 10
-  %cmp22 = icmp sgt i64 %res.022, %div17
+  %div = udiv i64 %sub, 10
+  %cmp22 = icmp sgt i64 %res.021, %div
   br i1 %cmp22, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %for.body
@@ -534,9 +532,9 @@ if.then24:                                        ; preds = %for.body
   br label %return
 
 if.end25:                                         ; preds = %for.body
-  %mul = mul nsw i64 %res.022, 10
+  %mul = mul nsw i64 %res.021, 10
   %add = add nsw i64 %mul, %conv
-  %incdec.ptr = getelementptr inbounds i8, ptr %str.021, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %str.020, i64 1
   %5 = load i8, ptr %incdec.ptr, align 1
   %call20 = tail call i32 %is_number.1(ptr noundef %conf, i8 noundef signext %5) #14
   %tobool.not = icmp eq i32 %call20, 0

@@ -200,7 +200,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm2_get_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
+define internal i32 @sm2_get_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpsm2ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -208,7 +208,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.2) #5
   %cmp1.not = icmp eq ptr %call, null
-  br i1 %cmp1.not, label %if.end10, label %if.then2
+  br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %md3 = getelementptr inbounds i8, ptr %vpsm2ctx, i64 16
@@ -223,14 +223,12 @@ cond.false:                                       ; preds = %if.then2
 cond.end:                                         ; preds = %if.then2, %cond.false
   %cond = phi ptr [ %call6, %cond.false ], [ @.str.3, %if.then2 ]
   %call7 = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call, ptr noundef %cond) #5
-  %tobool.not = icmp eq i32 %call7, 0
-  br i1 %tobool.not, label %return, label %if.end10
-
-if.end10:                                         ; preds = %cond.end, %if.end
+  %tobool.not = icmp ne i32 %call7, 0
+  %spec.select = zext i1 %tobool.not to i32
   br label %return
 
-return:                                           ; preds = %cond.end, %entry, %if.end10
-  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %entry ], [ 0, %cond.end ]
+return:                                           ; preds = %cond.end, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ %spec.select, %cond.end ]
   ret i32 %retval.0
 }
 

@@ -515,7 +515,7 @@ declare ptr @EC_GROUP_get0_cofactor(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_fromdata(ptr noundef %ec, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define i32 @ossl_ec_key_fromdata(ptr noundef %ec, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %priv_key = alloca ptr, align 8
   %pub_key = alloca ptr, align 8
@@ -610,19 +610,17 @@ land.lhs.true47:                                  ; preds = %if.end45
 
 if.end51:                                         ; preds = %if.end21, %land.lhs.true47, %if.end45
   %cmp52.not = icmp eq ptr %pub_point.0, null
-  br i1 %cmp52.not, label %if.end57, label %land.lhs.true53
+  br i1 %cmp52.not, label %err, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
   %call54 = call i32 @EC_KEY_set_public_key(ptr noundef %ec, ptr noundef nonnull %pub_point.0) #4
-  %tobool55.not = icmp eq i32 %call54, 0
-  br i1 %tobool55.not, label %err, label %if.end57
-
-if.end57:                                         ; preds = %land.lhs.true53, %if.end51
+  %tobool55.not = icmp ne i32 %call54, 0
+  %spec.select = zext i1 %tobool55.not to i32
   br label %err
 
-err:                                              ; preds = %land.lhs.true53, %land.lhs.true47, %if.end40, %if.end36, %if.end31, %if.then24, %lor.lhs.false27, %if.then11, %lor.lhs.false, %lor.lhs.false16, %if.end4, %if.end57
-  %pub_point.1 = phi ptr [ null, %if.end4 ], [ null, %lor.lhs.false ], [ %pub_point.0, %if.then24 ], [ %pub_point.0, %lor.lhs.false27 ], [ %pub_point.0, %if.end31 ], [ %pub_point.0, %if.end36 ], [ %pub_point.0, %if.end57 ], [ %pub_point.0, %land.lhs.true53 ], [ %pub_point.0, %land.lhs.true47 ], [ %pub_point.0, %if.end40 ], [ %call14, %lor.lhs.false16 ], [ null, %if.then11 ]
-  %ok.0 = phi i32 [ 0, %if.end4 ], [ 0, %lor.lhs.false ], [ 0, %if.then24 ], [ 0, %lor.lhs.false27 ], [ 0, %if.end31 ], [ 0, %if.end36 ], [ 1, %if.end57 ], [ 0, %land.lhs.true53 ], [ 0, %land.lhs.true47 ], [ 0, %if.end40 ], [ 0, %lor.lhs.false16 ], [ 0, %if.then11 ]
+err:                                              ; preds = %land.lhs.true53, %if.end51, %land.lhs.true47, %if.end40, %if.end36, %if.end31, %if.then24, %lor.lhs.false27, %if.then11, %lor.lhs.false, %lor.lhs.false16, %if.end4
+  %pub_point.1 = phi ptr [ null, %if.end4 ], [ null, %lor.lhs.false ], [ %pub_point.0, %if.then24 ], [ %pub_point.0, %lor.lhs.false27 ], [ %pub_point.0, %if.end31 ], [ %pub_point.0, %if.end36 ], [ %pub_point.0, %land.lhs.true47 ], [ %pub_point.0, %if.end40 ], [ %call14, %lor.lhs.false16 ], [ null, %if.then11 ], [ null, %if.end51 ], [ %pub_point.0, %land.lhs.true53 ]
+  %ok.0 = phi i32 [ 0, %if.end4 ], [ 0, %lor.lhs.false ], [ 0, %if.then24 ], [ 0, %lor.lhs.false27 ], [ 0, %if.end31 ], [ 0, %if.end36 ], [ 0, %land.lhs.true47 ], [ 0, %if.end40 ], [ 0, %lor.lhs.false16 ], [ 0, %if.then11 ], [ 1, %if.end51 ], [ %spec.select, %land.lhs.true53 ]
   call void @BN_CTX_free(ptr noundef %call6) #4
   %2 = load ptr, ptr %priv_key, align 8
   call void @BN_clear_free(ptr noundef %2) #4

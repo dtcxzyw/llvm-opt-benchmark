@@ -9130,20 +9130,18 @@ if.end:                                           ; preds = %entry
   %m_domain = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_domain, align 8
   %cmp.i1 = icmp eq ptr %2, null
-  br i1 %cmp.i1, label %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit
+  br i1 %cmp.i1, label %return, label %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit
 
 _ZNK6vectorIP4sortLb0EjE5emptyEv.exit:            ; preds = %if.end
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i, align 4
   %.fr = freeze i32 %3
   %cmp3.i = icmp eq i32 %.fr, 0
-  br i1 %cmp3.i, label %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit.thread, label %return
-
-_ZNK6vectorIP4sortLb0EjE5emptyEv.exit.thread:     ; preds = %if.end, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit
+  %spec.select = select i1 %cmp3.i, i32 11, i32 14
   br label %return
 
-return:                                           ; preds = %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit.thread, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit, %entry
-  %retval.0 = phi i32 [ 8, %entry ], [ 11, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit.thread ], [ 14, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit ]
+return:                                           ; preds = %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit, %if.end, %entry
+  %retval.0 = phi i32 [ 8, %entry ], [ 11, %if.end ], [ %spec.select, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit ]
   ret i32 %retval.0
 }
 

@@ -2091,7 +2091,7 @@ define internal i32 @ring_request_alloc(ptr noundef %0) #0 align 16 {
 133:                                              ; preds = %130
   %134 = getelementptr i8, ptr %131, i64 4
   store i32 285212735, ptr %131, align 4
-  %135 = trunc i64 %118 to i32
+  %135 = trunc nuw nsw i64 %118 to i32
   %136 = shl nuw nsw i32 %135, 9
   %137 = or disjoint i32 %136, 45168
   br label %138
@@ -2497,7 +2497,7 @@ define internal i32 @ring_context_alloc(ptr nocapture noundef %0) #0 align 16 {
   %20 = getelementptr inbounds i8, ptr %3, i64 68
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %59, label %23
+  br i1 %22, label %60, label %23
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %3, align 8
@@ -2554,21 +2554,21 @@ define internal i32 @ring_context_alloc(ptr nocapture noundef %0) #0 align 16 {
 52:                                               ; preds = %.thread, %34, %23
   %53 = phi ptr [ %51, %.thread ], [ %39, %34 ], [ %26, %23 ]
   %54 = icmp ugt ptr %53, inttoptr (i64 -4096 to ptr)
-  br i1 %54, label %.thread8, label %57
+  br i1 %54, label %55, label %58
 
-.thread8:                                         ; preds = %52
-  %55 = ptrtoint ptr %53 to i64
-  %56 = trunc i64 %55 to i32
-  br label %59
+55:                                               ; preds = %52
+  %56 = ptrtoint ptr %53 to i64
+  %57 = trunc i64 %56 to i32
+  br label %60
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %53, ptr %58, align 8
-  br label %59
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %53, ptr %59, align 8
+  br label %60
 
-59:                                               ; preds = %18, %57, %.thread8
-  %60 = phi i32 [ %56, %.thread8 ], [ 0, %57 ], [ 0, %18 ]
-  ret i32 %60
+60:                                               ; preds = %55, %58, %18
+  %61 = phi i32 [ 0, %18 ], [ %57, %55 ], [ 0, %58 ]
+  ret i32 %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1519,7 +1519,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
   %7 = and i16 %4, 31
-  %len.tr.i.i.i = trunc i32 %call2.i to i16
+  %len.tr.i.i.i = trunc nuw i32 %call2.i to i16
   %8 = shl nuw nsw i16 %len.tr.i.i.i, 5
   %conv2.i.i.i = or disjoint i16 %7, %8
   store i16 %conv2.i.i.i, ptr %fUnion.i.i.i, align 8
@@ -3087,20 +3087,18 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522Translitera
 entry:
   %pos = alloca i32, align 4
   %cmp = icmp slt i32 %index, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+  br i1 %cmp, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %availableIDs = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %availableIDs, align 8
   %call.i = tail call noundef i32 @uhash_count_75(ptr noundef %0)
   %cmp2.not = icmp sgt i32 %call.i, %index
-  br i1 %cmp2.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
+  %spec.select = select i1 %cmp2.not, i32 %index, i32 0
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %index.addr.0 = phi i32 [ 0, %if.then ], [ %index, %lor.lhs.false ]
+if.end:                                           ; preds = %lor.lhs.false, %entry
+  %index.addr.0 = phi i32 [ 0, %entry ], [ %spec.select, %lor.lhs.false ]
   store i32 -1, ptr %pos, align 4
   %availableIDs4 = getelementptr inbounds i8, ptr %this, i64 224
   br label %while.body

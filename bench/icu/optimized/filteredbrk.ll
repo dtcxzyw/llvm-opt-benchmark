@@ -564,7 +564,7 @@ land.lhs.true:                                    ; preds = %if.then29
   %fForwardsPartialTrie.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %fForwardsPartialTrie.i, align 8
   %cmp.i.i6.not = icmp eq ptr %18, null
-  br i1 %cmp.i.i6.not, label %if.else60, label %if.then36
+  br i1 %cmp.i.i6.not, label %return, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true
   %19 = load ptr, ptr %fText, align 8
@@ -614,11 +614,11 @@ while.end56:                                      ; preds = %invoke.cont48, %inv
   call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %iter39) #13
   br label %return
 
-if.else60:                                        ; preds = %if.then29, %land.lhs.true
+if.else60:                                        ; preds = %if.then29
   br label %return
 
-return:                                           ; preds = %while.end, %if.then29, %if.else60, %while.end56
-  %retval.1 = phi i32 [ %., %while.end56 ], [ 0, %if.else60 ], [ 1, %if.then29 ], [ 0, %while.end ]
+return:                                           ; preds = %while.end, %land.lhs.true, %if.then29, %if.else60, %while.end56
+  %retval.1 = phi i32 [ %., %while.end56 ], [ 1, %if.then29 ], [ 0, %land.lhs.true ], [ 0, %if.else60 ], [ 0, %while.end ]
   ret i32 %retval.1
 
 eh.resume:                                        ; preds = %lpad45, %lpad
@@ -976,7 +976,7 @@ if.then.i.i:                                      ; preds = %if.end5
 _ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit: ; preds = %if.end5, %if.then.i.i
   store ptr %call4.i, ptr %fText.i, align 8
   %call6 = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset), !range !7
-  %8 = trunc i32 %call6 to i8
+  %8 = trunc nuw nsw i32 %call6 to i8
   %. = xor i8 %8, 1
   br label %return
 
@@ -1779,7 +1779,7 @@ if.then91:                                        ; preds = %if.then86
 if.else95:                                        ; preds = %if.then86
   %and = and i32 %28, 1
   %tobool99.not = icmp eq i32 %and, 0
-  %29 = trunc i64 %indvars.iv232 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv232 to i32
   %spec.select = select i1 %tobool99.not, i32 %sameAs.0216, i32 %29
   br label %for.inc104
 

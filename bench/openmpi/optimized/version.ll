@@ -324,21 +324,21 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.20) #7
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %56, label %.thread.i
+  br i1 %49, label %.thread46.i, label %50
 
-.thread.i:                                        ; preds = %47
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.33) #7
-  %51 = icmp eq i32 %50, 0
-  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.34) #7
-  %53 = icmp eq i32 %52, 0
-  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(10) @.str.35) #7
-  %55 = icmp eq i32 %54, 0
-  br label %56
+50:                                               ; preds = %47
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.33) #7
+  %52 = icmp eq i32 %51, 0
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.34) #7
+  %54 = icmp eq i32 %53, 0
+  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(10) @.str.35) #7
+  %56 = icmp eq i32 %55, 0
+  br label %.thread46.i
 
-56:                                               ; preds = %.thread.i, %47
-  %.03953.i = phi i1 [ true, %47 ], [ %53, %.thread.i ]
-  %.0384350.i = phi i1 [ true, %47 ], [ %51, %.thread.i ]
-  %.040.i = phi i1 [ true, %47 ], [ %55, %.thread.i ]
+.thread46.i:                                      ; preds = %50, %47
+  %.03950.i = phi i1 [ %54, %50 ], [ true, %47 ]
+  %.0384549.i = phi i1 [ %52, %50 ], [ true, %47 ]
+  %.040.i = phi i1 [ %56, %50 ], [ true, %47 ]
   %57 = load i32, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %42, i64 4
   %59 = load i32, ptr %58, align 4
@@ -364,11 +364,11 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   %79 = getelementptr inbounds i8, ptr %42, i64 40
   br i1 %78, label %80, label %123
 
-80:                                               ; preds = %56
+80:                                               ; preds = %.thread46.i
   %81 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.18, ptr noundef nonnull %79) #6
   %82 = getelementptr inbounds i8, ptr %42, i64 84
   %83 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.22, ptr noundef nonnull %82) #6
-  br i1 %.0384350.i, label %84, label %89
+  br i1 %.0384549.i, label %84, label %89
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr %6, align 8
@@ -381,10 +381,10 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
 
 89:                                               ; preds = %84, %80
   %.0.i40 = phi i8 [ 1, %84 ], [ 0, %80 ]
-  br i1 %.03953.i, label %90, label %101
+  br i1 %.03950.i, label %90, label %101
 
 90:                                               ; preds = %89
-  %91 = trunc i8 %.0.i40 to i1
+  %91 = trunc nuw i8 %.0.i40 to i1
   %.pre.i = load ptr, ptr %6, align 8
   br i1 %91, label %92, label %96
 
@@ -410,12 +410,12 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   br i1 %.040.i, label %102, label %thread-pre-split.i
 
 102:                                              ; preds = %101
-  %103 = trunc i8 %.1.i to i1
-  %.pre57.i = load ptr, ptr %6, align 8
+  %103 = trunc nuw i8 %.1.i to i1
+  %.pre51.i = load ptr, ptr %6, align 8
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %102
-  %105 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.24, ptr noundef %.pre57.i) #6
+  %105 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.24, ptr noundef %.pre51.i) #6
   %106 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %106) #6
   %107 = load ptr, ptr %7, align 8
@@ -423,7 +423,7 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   br label %108
 
 108:                                              ; preds = %104, %102
-  %109 = phi ptr [ %107, %104 ], [ %.pre57.i, %102 ]
+  %109 = phi ptr [ %107, %104 ], [ %.pre51.i, %102 ]
   %110 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.26, ptr noundef %109, ptr noundef %76) #6
   %111 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %111) #6
@@ -456,10 +456,10 @@ thread-pre-split.i:                               ; preds = %101
   call void @prte_info_out(ptr noundef %121, ptr noundef null, ptr noundef %122) #6
   br label %show_mca_version.exit.sink.split
 
-123:                                              ; preds = %56
+123:                                              ; preds = %.thread46.i
   %124 = getelementptr inbounds i8, ptr %42, i64 84
   %125 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.29, ptr noundef nonnull %79, ptr noundef nonnull %124) #6
-  br i1 %.0384350.i, label %126, label %131
+  br i1 %.0384549.i, label %126, label %131
 
 126:                                              ; preds = %123
   %127 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.30, ptr noundef %62) #6
@@ -471,7 +471,7 @@ thread-pre-split.i:                               ; preds = %101
   br label %131
 
 131:                                              ; preds = %126, %123
-  br i1 %.03953.i, label %132, label %137
+  br i1 %.03950.i, label %132, label %137
 
 132:                                              ; preds = %131
   %133 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.31, ptr noundef %69) #6

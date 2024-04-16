@@ -3881,14 +3881,14 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
 102:                                              ; preds = %87
   %103 = load volatile i64, ptr @jiffies, align 64
   %104 = trunc i64 %103 to i32
-  %105 = trunc i64 %98 to i32
+  %105 = trunc nuw nsw i64 %98 to i32
   %106 = add i32 %104, %105
   %107 = getelementptr inbounds i8, ptr %10, i64 8
   store volatile i32 %106, ptr %107, align 8
   br label %111
 
 108:                                              ; preds = %87
-  %109 = trunc i64 %98 to i32
+  %109 = trunc nuw nsw i64 %98 to i32
   %110 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %109, ptr %110, align 8
   br label %111
@@ -5375,7 +5375,7 @@ define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef %0, ptr nocapture
 
 .thread:                                          ; preds = %2
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_parse_nested.__msg) #16
-  br label %33
+  br label %32
 
 7:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !5
@@ -5385,7 +5385,7 @@ define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef %0, ptr nocapture
   %11 = zext i16 %10 to i32
   %12 = call i32 @__nla_parse(ptr noundef nonnull %3, i32 noundef 2, ptr noundef %8, i32 noundef %11, ptr noundef nonnull @cta_filter_nla_policy, i32 noundef 31, ptr noundef null) #16
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %33
+  br i1 %13, label %14, label %32
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %3, i64 8
@@ -5399,7 +5399,7 @@ define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef %0, ptr nocapture
   %21 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %20, ptr %21, align 4
   %22 = icmp ult i32 %20, 4096
-  br i1 %22, label %23, label %33
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %18, %14
   %24 = getelementptr inbounds i8, ptr %3, i64 16
@@ -5413,15 +5413,13 @@ define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef %0, ptr nocapture
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %29, ptr %30, align 4
   %31 = icmp ult i32 %29, 4096
-  br i1 %31, label %32, label %33
+  %spec.select = select i1 %31, i32 0, i32 -95
+  br label %32
 
-32:                                               ; preds = %27, %23
-  br label %33
-
-33:                                               ; preds = %.thread, %32, %27, %18, %7
-  %34 = phi i32 [ 0, %32 ], [ %12, %7 ], [ -95, %18 ], [ -95, %27 ], [ -22, %.thread ]
+32:                                               ; preds = %.thread, %27, %23, %18, %7
+  %33 = phi i32 [ %12, %7 ], [ -95, %18 ], [ 0, %23 ], [ %spec.select, %27 ], [ -22, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
-  ret i32 %34
+  ret i32 %33
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5991,7 +5989,7 @@ declare dso_local void @nf_ct_iterate_cleanup_net(ptr noundef, ptr noundef) loca
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 define internal noundef i32 @ctnetlink_flush_iterate(ptr noundef %0, ptr noundef readonly %1) #13 align 16 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %43, label %4
+  br i1 %3, label %42, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %1, align 4
@@ -6043,14 +6041,12 @@ define internal noundef i32 @ctnetlink_flush_iterate(ptr noundef %0, ptr noundef
   %39 = and i32 %38, %35
   %40 = load i32, ptr %36, align 4
   %41 = icmp eq i32 %39, %40
-  br i1 %41, label %43, label %42
+  %spec.select = zext i1 %41 to i32
+  br label %42
 
-42:                                               ; preds = %32, %26, %16, %7
-  br label %43
-
-43:                                               ; preds = %42, %32, %2
-  %44 = phi i32 [ 0, %42 ], [ 1, %32 ], [ 1, %2 ]
-  ret i32 %44
+42:                                               ; preds = %32, %7, %16, %26, %2
+  %43 = phi i32 [ 1, %2 ], [ 0, %26 ], [ 0, %16 ], [ 0, %7 ], [ %spec.select, %32 ]
+  ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

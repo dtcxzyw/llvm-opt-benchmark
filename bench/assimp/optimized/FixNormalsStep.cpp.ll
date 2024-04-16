@@ -57,7 +57,7 @@ entry:
   %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
   %0 = load i32, ptr %mNumMeshes, align 8
   %cmp5.not = icmp eq i32 %0, 0
-  br i1 %cmp5.not, label %if.else, label %for.body.lr.ph
+  br i1 %cmp5.not, label %if.end6, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
@@ -69,7 +69,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %mMeshes, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %call2 = tail call noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11ProcessMeshEP6aiMeshj(ptr nonnull align 8 poison, ptr noundef %2, i32 noundef %3)
   %spec.select = select i1 %call2, i1 true, i1 %bHas.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -79,13 +79,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  br i1 %spec.select, label %if.end6, label %if.else
-
-if.else:                                          ; preds = %entry, %for.end
+  %spec.select8 = select i1 %spec.select, ptr @.str.1, ptr @.str.2
   br label %if.end6
 
-if.end6:                                          ; preds = %for.end, %if.else
-  %.str.2.sink = phi ptr [ @.str.2, %if.else ], [ @.str.1, %for.end ]
+if.end6:                                          ; preds = %for.end, %entry
+  %.str.2.sink = phi ptr [ @.str.2, %entry ], [ %spec.select8, %for.end ]
   %call5 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call5, ptr noundef nonnull %.str.2.sink)
   ret void
@@ -274,7 +272,7 @@ for.body153:                                      ; preds = %for.body153.lr.ph, 
   %49 = phi i32 [ %48, %for.body153.lr.ph ], [ %55, %for.body153 ]
   %50 = load ptr, ptr %mIndices, align 8
   %arrayidx155 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv158
-  %51 = trunc i64 %indvars.iv158 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv158 to i32
   %52 = xor i32 %51, -1
   %sub159 = add i32 %49, %52
   %idxprom160 = zext i32 %sub159 to i64

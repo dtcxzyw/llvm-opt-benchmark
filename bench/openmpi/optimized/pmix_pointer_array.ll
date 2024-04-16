@@ -688,13 +688,12 @@ define noundef i32 @pmix_pointer_array_set_size(ptr noundef %0, i32 noundef %1) 
 
 6:                                                ; preds = %2
   %7 = tail call fastcc zeroext i1 @grow_table(ptr noundef nonnull %0, i32 noundef %1)
-  br i1 %7, label %8, label %9
+  %not. = xor i1 %7, true
+  %spec.select = sext i1 %not. to i32
+  br label %8
 
 8:                                                ; preds = %6, %2
-  br label %9
-
-9:                                                ; preds = %6, %8
-  %.0 = phi i32 [ 0, %8 ], [ -1, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %6 ]
   ret i32 %.0
 }
 

@@ -543,7 +543,7 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   br label %.thread
 
 .thread:                                          ; preds = %67, %47, %.thread.loopexit49, %58, %41
-  %.029 = phi i32 [ 0, %58 ], [ 0, %41 ], [ 0, %.thread.loopexit49 ], [ %.012.i, %47 ], [ %.012.i, %67 ]
+  %.029 = phi i32 [ 0, %58 ], [ 0, %41 ], [ %.012.i, %47 ], [ %.012.i, %67 ], [ 0, %.thread.loopexit49 ]
   ret i32 %.029
 }
 
@@ -630,7 +630,7 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %29
   br label %57
 
 32:                                               ; preds = %29
-  %33 = trunc i64 %.3.i to i32
+  %33 = trunc nuw i64 %.3.i to i32
   %34 = getelementptr i8, ptr %.158.i, i64 4
   store i32 %33, ptr %.158.i, align 4
   br label %35
@@ -965,7 +965,7 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
   br label %.loopexit
 
 39:                                               ; preds = %34
-  %40 = trunc i64 %.3 to i32
+  %40 = trunc nuw i64 %.3 to i32
   %41 = getelementptr i8, ptr %.158, i64 4
   store i32 %40, ptr %.158, align 4
   br label %42
@@ -1024,7 +1024,7 @@ define ptr @oid_get(i32 noundef %0, ptr noundef readonly %1, ptr nocapture nound
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit33:           ; preds = %.lr.ph
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit33, %.preheader
@@ -1084,7 +1084,7 @@ define ptr @oid_get_from_encoded(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit33.i:         ; preds = %.lr.ph.i
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %18, %._crit_edge.loopexit.split.loop.exit33.i, %.preheader.i
@@ -1142,7 +1142,7 @@ define ptr @oid_get_from_string(ptr noundef %0, ptr noundef %1, ptr nocapture no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit33.i:         ; preds = %.lr.ph.i
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %17, %._crit_edge.loopexit.split.loop.exit33.i, %.preheader.i
@@ -1242,7 +1242,7 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
   br label %oid_encoded2subid_sub.exit
 
 34:                                               ; preds = %30
-  %35 = trunc i64 %.3.i to i32
+  %35 = trunc nuw i64 %.3.i to i32
   %36 = getelementptr i8, ptr %.158.i, i64 4
   store i32 %35, ptr %.158.i, align 4
   br label %37
@@ -1302,7 +1302,7 @@ define ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2
   br i1 %exitcond.not.i, label %oid_get.exit, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit33.i:         ; preds = %.lr.ph.i
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw i64 %indvars.iv.i to i32
   br label %oid_get.exit
 
 oid_get.exit:                                     ; preds = %14, %.preheader.i, %._crit_edge.loopexit.split.loop.exit33.i
@@ -1507,7 +1507,7 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
   br label %oid_encoded2subid_sub.exit
 
 22:                                               ; preds = %18
-  %23 = trunc i64 %17 to i32
+  %23 = trunc nuw i64 %17 to i32
   %24 = getelementptr i8, ptr %.05775.i, i64 4
   store i32 %23, ptr %.05775.i, align 4
   br label %25
@@ -1610,7 +1610,7 @@ define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readon
 
 40:                                               ; preds = %38
   %41 = lshr i32 %32, 28
-  %42 = trunc i32 %41 to i8
+  %42 = trunc nuw nsw i32 %41 to i8
   %43 = or disjoint i8 %42, -128
   %44 = getelementptr i8, ptr %.04771, i64 1
   store i8 %43, ptr %.04771, align 1
@@ -1741,7 +1741,7 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %29
   br label %50
 
 32:                                               ; preds = %29
-  %33 = trunc i64 %.3.i to i32
+  %33 = trunc nuw i64 %.3.i to i32
   %34 = getelementptr i8, ptr %.158.i, i64 4
   store i32 %33, ptr %.158.i, align 4
   br label %35
@@ -1860,7 +1860,7 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %18
   br label %27
 
 21:                                               ; preds = %18
-  %22 = trunc i64 %17 to i32
+  %22 = trunc nuw i64 %17 to i32
   %23 = getelementptr i8, ptr %.05775.i, i64 4
   store i32 %22, ptr %.05775.i, align 4
   br label %24
@@ -1901,14 +1901,10 @@ define i32 @oid_string2encoded(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 
 6:                                                ; preds = %3
   %7 = tail call i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %5, ptr noundef %.pre, ptr noundef %2)
-  %.not7 = icmp eq i32 %7, 0
-  br i1 %.not7, label %8, label %9
+  br label %8
 
 8:                                                ; preds = %6, %3
-  br label %9
-
-9:                                                ; preds = %6, %8
-  %.0 = phi i32 [ 0, %8 ], [ %7, %6 ]
+  %.0 = phi i32 [ 0, %3 ], [ %7, %6 ]
   tail call void @wmem_free(ptr noundef null, ptr noundef %.pre) #8
   ret i32 %.0
 }
@@ -2048,7 +2044,7 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
   br label %oid_encoded2subid_sub.exit
 
 36:                                               ; preds = %32
-  %37 = trunc i64 %.3.i to i32
+  %37 = trunc nuw i64 %.3.i to i32
   %38 = getelementptr i8, ptr %.158.i, i64 4
   store i32 %37, ptr %.158.i, align 4
   br label %39

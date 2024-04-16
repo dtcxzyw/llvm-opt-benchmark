@@ -3675,19 +3675,16 @@ define dso_local noundef zeroext i1 @query_tree_walker_impl(ptr nocapture nounde
 92:                                               ; preds = %88, %.thread
   %93 = and i32 %3, 8
   %.not72 = icmp eq i32 %93, 0
-  br i1 %.not72, label %94, label %98
+  br i1 %.not72, label %94, label %.loopexit
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds i8, ptr %0, i64 64
   %96 = load ptr, ptr %95, align 8
   %97 = tail call zeroext i1 @range_table_walker_impl(ptr noundef %96, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  br i1 %97, label %.loopexit, label %98
-
-98:                                               ; preds = %94, %92
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph78, %79, %83, %94, %88, %58, %54, %50, %46, %40, %36, %32, %28, %24, %20, %16, %12, %8, %4, %98
-  %.0 = phi i1 [ false, %98 ], [ true, %4 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %20 ], [ true, %24 ], [ true, %28 ], [ true, %32 ], [ true, %36 ], [ true, %40 ], [ true, %46 ], [ true, %50 ], [ true, %54 ], [ true, %58 ], [ true, %88 ], [ true, %94 ], [ true, %83 ], [ true, %79 ], [ true, %.lr.ph78 ]
+.loopexit:                                        ; preds = %.lr.ph78, %79, %83, %94, %92, %88, %58, %54, %50, %46, %40, %36, %32, %28, %24, %20, %16, %12, %8, %4
+  %.0 = phi i1 [ true, %4 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %20 ], [ true, %24 ], [ true, %28 ], [ true, %32 ], [ true, %36 ], [ true, %40 ], [ true, %46 ], [ true, %50 ], [ true, %54 ], [ true, %58 ], [ true, %88 ], [ false, %92 ], [ %97, %94 ], [ true, %83 ], [ true, %79 ], [ true, %.lr.ph78 ]
   ret i1 %.0
 }
 
@@ -3724,14 +3721,14 @@ define dso_local noundef zeroext i1 @range_table_walker_impl(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @range_table_entry_walker_impl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local zeroext i1 @range_table_entry_walker_impl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i32 %3, 16
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = tail call zeroext i1 %1(ptr noundef %0, ptr noundef %2) #12
-  br i1 %7, label %48, label %8
+  br i1 %7, label %47, label %8
 
 8:                                                ; preds = %6, %4
   %9 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3749,7 +3746,7 @@ define dso_local noundef zeroext i1 @range_table_entry_walker_impl(ptr noundef %
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 %1(ptr noundef %13, ptr noundef %2) #12
-  br i1 %14, label %48, label %39
+  br i1 %14, label %47, label %39
 
 15:                                               ; preds = %8
   %16 = and i32 %3, 1
@@ -3760,7 +3757,7 @@ define dso_local noundef zeroext i1 @range_table_entry_walker_impl(ptr noundef %
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 %1(ptr noundef %19, ptr noundef %2) #12
-  br i1 %20, label %48, label %39
+  br i1 %20, label %47, label %39
 
 21:                                               ; preds = %8
   %22 = and i32 %3, 4
@@ -3771,31 +3768,31 @@ define dso_local noundef zeroext i1 @range_table_entry_walker_impl(ptr noundef %
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 %1(ptr noundef %25, ptr noundef %2) #12
-  br i1 %26, label %48, label %39
+  br i1 %26, label %47, label %39
 
 27:                                               ; preds = %8
   %28 = getelementptr inbounds i8, ptr %0, i64 96
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 %1(ptr noundef %29, ptr noundef %2) #12
-  br i1 %30, label %48, label %39
+  br i1 %30, label %47, label %39
 
 31:                                               ; preds = %8
   %32 = getelementptr inbounds i8, ptr %0, i64 112
   %33 = load ptr, ptr %32, align 8
   %34 = tail call zeroext i1 %1(ptr noundef %33, ptr noundef %2) #12
-  br i1 %34, label %48, label %39
+  br i1 %34, label %47, label %39
 
 35:                                               ; preds = %8
   %36 = getelementptr inbounds i8, ptr %0, i64 120
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 %1(ptr noundef %37, ptr noundef %2) #12
-  br i1 %38, label %48, label %39
+  br i1 %38, label %47, label %39
 
 39:                                               ; preds = %35, %31, %27, %21, %23, %15, %17, %11, %8
   %40 = getelementptr inbounds i8, ptr %0, i64 208
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 %1(ptr noundef %41, ptr noundef %2) #12
-  br i1 %42, label %48, label %43
+  br i1 %42, label %47, label %43
 
 43:                                               ; preds = %39
   %44 = and i32 %3, 32
@@ -3804,13 +3801,10 @@ define dso_local noundef zeroext i1 @range_table_entry_walker_impl(ptr noundef %
 
 45:                                               ; preds = %43
   %46 = tail call zeroext i1 %1(ptr noundef nonnull %0, ptr noundef %2) #12
-  br i1 %46, label %48, label %47
+  br label %47
 
-47:                                               ; preds = %45, %43
-  br label %48
-
-48:                                               ; preds = %45, %39, %35, %31, %27, %23, %17, %11, %6, %47
-  %.0 = phi i1 [ false, %47 ], [ true, %6 ], [ true, %11 ], [ true, %17 ], [ true, %23 ], [ true, %27 ], [ true, %31 ], [ true, %35 ], [ true, %39 ], [ true, %45 ]
+47:                                               ; preds = %45, %43, %39, %35, %31, %27, %23, %17, %11, %6
+  %.0 = phi i1 [ true, %6 ], [ true, %11 ], [ true, %17 ], [ true, %23 ], [ true, %27 ], [ true, %31 ], [ true, %35 ], [ true, %39 ], [ false, %43 ], [ %46, %45 ]
   ret i1 %.0
 }
 

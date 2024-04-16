@@ -749,7 +749,7 @@ define hidden void @zim_DOMXPath_registerPhpFunctionNS(ptr noundef %0, ptr nocap
 
 13:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 3, i32 noundef 3) #11
-  br label %47
+  br label %49
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 80
@@ -765,7 +765,7 @@ define hidden void @zim_DOMXPath_registerPhpFunctionNS(ptr noundef %0, ptr nocap
 
 20:                                               ; preds = %14
   %21 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 1) #11
-  br i1 %21, label %thread-pre-split, label %47
+  br i1 %21, label %thread-pre-split, label %49
 
 thread-pre-split:                                 ; preds = %20
   %.pr = load ptr, ptr %3, align 8
@@ -774,7 +774,7 @@ thread-pre-split:                                 ; preds = %20
 22:                                               ; preds = %thread-pre-split, %.critedge159
   %23 = phi ptr [ %.pr, %thread-pre-split ], [ %19, %.critedge159 ]
   %.not150 = icmp eq ptr %23, null
-  br i1 %.not150, label %.critedge161, label %24
+  br i1 %.not150, label %29, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %23, i64 24
@@ -782,91 +782,91 @@ thread-pre-split:                                 ; preds = %20
   %27 = load i64, ptr %26, align 8
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #12
   %.not151 = icmp eq i64 %27, %28
-  br i1 %.not151, label %.critedge161, label %47
+  br i1 %.not151, label %29, label %49
 
-.critedge161:                                     ; preds = %24, %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
-  %31 = load i8, ptr %30, align 8
-  %32 = icmp eq i8 %31, 6
-  br i1 %32, label %.critedge163, label %34
+29:                                               ; preds = %24, %22
+  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = load i8, ptr %31, align 8
+  %33 = icmp eq i8 %32, 6
+  br i1 %33, label %.critedge163, label %35
 
-.critedge163:                                     ; preds = %.critedge161
-  %33 = load ptr, ptr %29, align 8
-  store ptr %33, ptr %4, align 8
-  br label %36
+.critedge163:                                     ; preds = %29
+  %34 = load ptr, ptr %30, align 8
+  store ptr %34, ptr %4, align 8
+  br label %37
 
-34:                                               ; preds = %.critedge161
-  %35 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %29, ptr noundef nonnull %4, i32 noundef 2) #11
-  br i1 %35, label %thread-pre-split167, label %47
+35:                                               ; preds = %29
+  %36 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %30, ptr noundef nonnull %4, i32 noundef 2) #11
+  br i1 %36, label %thread-pre-split167, label %49
 
-thread-pre-split167:                              ; preds = %34
+thread-pre-split167:                              ; preds = %35
   %.pr168 = load ptr, ptr %4, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %thread-pre-split167, %.critedge163
-  %37 = phi ptr [ %.pr168, %thread-pre-split167 ], [ %33, %.critedge163 ]
-  %.not152 = icmp eq ptr %37, null
-  br i1 %.not152, label %.critedge165, label %38
+37:                                               ; preds = %thread-pre-split167, %.critedge163
+  %38 = phi ptr [ %.pr168, %thread-pre-split167 ], [ %34, %.critedge163 ]
+  %.not152 = icmp eq ptr %38, null
+  br i1 %.not152, label %44, label %39
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %37, i64 24
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
-  %41 = load i64, ptr %40, align 8
-  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #12
-  %.not153 = icmp eq i64 %41, %42
-  br i1 %.not153, label %.critedge165, label %47
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %38, i64 24
+  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #12
+  %.not153 = icmp eq i64 %42, %43
+  br i1 %.not153, label %44, label %49
 
-.critedge165:                                     ; preds = %38, %36
-  %43 = getelementptr inbounds i8, ptr %0, i64 112
-  %44 = call i32 @zend_fcall_info_init(ptr noundef nonnull %43, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7) #11
-  %.not154.not = icmp eq i32 %44, 0
-  br i1 %.not154.not, label %49, label %45
+44:                                               ; preds = %39, %37
+  %45 = getelementptr inbounds i8, ptr %0, i64 112
+  %46 = call i32 @zend_fcall_info_init(ptr noundef nonnull %45, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7) #11
+  %.not154.not = icmp eq i32 %46, 0
+  br i1 %.not154.not, label %.critedge161, label %47
 
-45:                                               ; preds = %.critedge165
-  %46 = load ptr, ptr %7, align 8
-  %.not155 = icmp eq ptr %46, null
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %7, align 8
+  %.not155 = icmp eq ptr %48, null
   %. = select i1 %.not155, i32 12, i32 0
   %.166 = select i1 %.not155, i32 9, i32 2
-  br label %47
+  br label %49
 
-47:                                               ; preds = %13, %24, %20, %38, %34, %45
-  %48 = phi ptr [ %46, %45 ], [ null, %34 ], [ null, %38 ], [ null, %20 ], [ null, %24 ], [ null, %13 ]
-  %.0141.ph = phi i32 [ 3, %45 ], [ 2, %34 ], [ 2, %38 ], [ 1, %20 ], [ 1, %24 ], [ 0, %13 ]
-  %.0140.ph = phi ptr [ %43, %45 ], [ %29, %34 ], [ %29, %38 ], [ %15, %20 ], [ %15, %24 ], [ null, %13 ]
-  %.0139.ph = phi i32 [ %., %45 ], [ 16, %34 ], [ 16, %38 ], [ 16, %20 ], [ 16, %24 ], [ 0, %13 ]
-  %.0.ph = phi i32 [ %.166, %45 ], [ 9, %34 ], [ 9, %38 ], [ 9, %20 ], [ 9, %24 ], [ 1, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0141.ph, ptr noundef %48, i32 noundef %.0139.ph, ptr noundef %.0140.ph) #11
-  br label %63
+49:                                               ; preds = %13, %47, %20, %24, %35, %39
+  %50 = phi ptr [ null, %39 ], [ null, %35 ], [ null, %24 ], [ null, %20 ], [ %48, %47 ], [ null, %13 ]
+  %.0141.ph = phi i32 [ 2, %39 ], [ 2, %35 ], [ 1, %24 ], [ 1, %20 ], [ 3, %47 ], [ 0, %13 ]
+  %.0140.ph = phi ptr [ %30, %39 ], [ %30, %35 ], [ %15, %24 ], [ %15, %20 ], [ %45, %47 ], [ null, %13 ]
+  %.0139.ph = phi i32 [ 16, %39 ], [ 16, %35 ], [ 16, %24 ], [ 16, %20 ], [ %., %47 ], [ 0, %13 ]
+  %.0.ph = phi i32 [ 9, %39 ], [ 9, %35 ], [ 9, %24 ], [ 9, %20 ], [ %.166, %47 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0141.ph, ptr noundef %50, i32 noundef %.0139.ph, ptr noundef %.0140.ph) #11
+  br label %64
 
-49:                                               ; preds = %.critedge165
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
-  %52 = load i64, ptr %51, align 8
-  %53 = icmp eq i64 %52, 20
-  br i1 %53, label %54, label %.critedge
+.critedge161:                                     ; preds = %44
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = load i64, ptr %52, align 8
+  %54 = icmp eq i64 %53, 20
+  br i1 %54, label %55, label %.critedge
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %50, i64 24
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %55, ptr noundef nonnull dereferenceable(20) @.str.3, i64 20)
+55:                                               ; preds = %.critedge161
+  %56 = getelementptr inbounds i8, ptr %51, i64 24
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %56, ptr noundef nonnull dereferenceable(20) @.str.3, i64 20)
   %.not157 = icmp eq i32 %bcmp, 0
-  br i1 %.not157, label %56, label %.critedge
+  br i1 %.not157, label %57, label %.critedge
 
-56:                                               ; preds = %54
+57:                                               ; preds = %55
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.7) #11
-  %57 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %58 = icmp ne ptr %57, null
-  call void @llvm.assume(i1 %58)
-  br label %63
+  %58 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %59 = icmp ne ptr %58, null
+  call void @llvm.assume(i1 %59)
+  br label %64
 
-.critedge:                                        ; preds = %49, %54
-  %59 = getelementptr inbounds i8, ptr %9, i64 -24
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %4, align 8
-  %62 = call i32 @php_dom_xpath_callbacks_update_single_method_handler(ptr noundef nonnull %10, ptr noundef %60, ptr noundef nonnull %50, ptr noundef %61, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @dom_xpath_register_func_in_ctx) #11
-  br label %63
+.critedge:                                        ; preds = %.critedge161, %55
+  %60 = getelementptr inbounds i8, ptr %9, i64 -24
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %4, align 8
+  %63 = call i32 @php_dom_xpath_callbacks_update_single_method_handler(ptr noundef nonnull %10, ptr noundef %61, ptr noundef nonnull %51, ptr noundef %62, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @dom_xpath_register_func_in_ctx) #11
+  br label %64
 
-63:                                               ; preds = %.critedge, %56, %47
+64:                                               ; preds = %.critedge, %57, %49
   ret void
 }
 

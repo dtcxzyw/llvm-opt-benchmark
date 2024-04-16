@@ -953,18 +953,16 @@ entry:
   %algorithm_prf1 = getelementptr inbounds i8, ptr %1, i64 28
   %2 = load i32, ptr %algorithm_prf1, align 4
   %cmp = icmp eq i32 %2, 1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call zeroext i16 @ssl3_protocol_version(ptr noundef nonnull %ssl) #14
   %cmp2 = icmp ugt i16 %call, 770
-  br i1 %cmp2, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %spec.select = select i1 %cmp2, i32 2, i32 1
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ %2, %if.end ], [ 2, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi i32 [ %2, %entry ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

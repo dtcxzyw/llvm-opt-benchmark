@@ -309,7 +309,7 @@ fdt_header_size.exit:                             ; preds = %if.else.i.i, %if.el
   br i1 %or.cond267, label %return, label %if.end31
 
 if.end31:                                         ; preds = %fdt_header_size.exit
-  %conv32 = trunc i64 %retval.0.i.i to i32
+  %conv32 = trunc nuw nsw i64 %retval.0.i.i to i32
   %off_mem_rsvmap = getelementptr inbounds i8, ptr %fdt, i64 16
   %19 = load i8, ptr %off_mem_rsvmap, align 1
   %conv.i115 = zext i8 %19 to i32
@@ -411,7 +411,7 @@ if.end67:                                         ; preds = %if.end.i, %if.then4
   %cmp.i.i251 = icmp ult i32 %or10.i237, %conv32
   %cmp1.i.i252 = icmp ugt i32 %or10.i237, %or10.i88
   %.not.i253 = or i1 %cmp.i.i251, %cmp1.i.i252
-  br i1 %.not.i253, label %check_block_.exit261.thread, label %if.end.i254
+  br i1 %.not.i253, label %return, label %if.end.i254
 
 if.end.i254:                                      ; preds = %if.end67
   %arrayidx1.i240 = getelementptr i8, ptr %fdt, i64 33
@@ -434,18 +434,16 @@ if.end.i254:                                      ; preds = %if.end67
   %or10.i250 = or disjoint i32 %or7.i247, %conv9.i249
   %add.i255 = add i32 %or10.i250, %or10.i237
   %cmp.i256 = icmp ult i32 %add.i255, %or10.i237
-  br i1 %cmp.i256, label %check_block_.exit261.thread, label %check_block_.exit261
+  br i1 %cmp.i256, label %return, label %check_block_.exit261
 
 check_block_.exit261:                             ; preds = %if.end.i254
   %cmp1.i8.i258.not = icmp ugt i32 %add.i255, %or10.i88
   %cond.fr = freeze i1 %cmp1.i8.i258.not
-  br i1 %cond.fr, label %check_block_.exit261.thread, label %return
-
-check_block_.exit261.thread:                      ; preds = %if.end.i254, %if.end67, %check_block_.exit261
+  %spec.select = select i1 %cond.fr, i32 -8, i32 0
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.else, %check_block_.exit261.thread, %check_block_.exit261, %if.then48, %if.end31, %fdt_header_size.exit, %if.end2, %lor.lhs.false, %if.end, %entry
-  %retval.0 = phi i32 [ -19, %entry ], [ -9, %if.end ], [ -10, %lor.lhs.false ], [ -10, %if.end2 ], [ -8, %fdt_header_size.exit ], [ -8, %if.end31 ], [ -8, %if.then48 ], [ -8, %check_block_.exit261.thread ], [ 0, %check_block_.exit261 ], [ -8, %if.else ], [ -8, %if.end.i ]
+return:                                           ; preds = %check_block_.exit261, %if.end.i254, %if.end67, %if.end.i, %if.else, %if.then48, %if.end31, %fdt_header_size.exit, %if.end2, %lor.lhs.false, %if.end, %entry
+  %retval.0 = phi i32 [ -19, %entry ], [ -9, %if.end ], [ -10, %lor.lhs.false ], [ -10, %if.end2 ], [ -8, %fdt_header_size.exit ], [ -8, %if.end31 ], [ -8, %if.then48 ], [ -8, %if.else ], [ -8, %if.end.i ], [ -8, %if.end67 ], [ -8, %if.end.i254 ], [ %spec.select, %check_block_.exit261 ]
   ret i32 %retval.0
 }
 
@@ -1040,7 +1038,7 @@ do.body.i5.preheader:                             ; preds = %if.end.i
 
 do.body.i5:                                       ; preds = %do.body.i5.preheader, %land.rhs.i
   %indvars.iv = phi i64 [ %21, %do.body.i5.preheader ], [ %indvars.iv.next, %land.rhs.i ]
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   %add.i21 = add i32 %or10.i.i40, %22
   %cmp.i22 = icmp sgt i32 %22, -1
   %23 = zext i32 %add.i21 to i64
@@ -1105,7 +1103,7 @@ land.lhs.true35.i:                                ; preds = %if.end19.i
   br label %sw.epilog.i
 
 sw.epilog.i.loopexit:                             ; preds = %land.rhs.i
-  %30 = trunc i64 %indvars.iv.next to i32
+  %30 = trunc nuw i64 %indvars.iv.next to i32
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.i.loopexit, %land.lhs.true35.i, %if.end19.i, %if.end.i, %if.end.i, %if.end.i

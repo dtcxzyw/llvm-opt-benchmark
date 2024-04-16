@@ -703,69 +703,65 @@ define internal fastcc void @set_output_count(ptr nocapture noundef %0, ptr noca
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load i32, ptr %5, align 8
-  switch i32 %6, label %33 [
+  switch i32 %6, label %31 [
     i32 0, label %7
-    i32 1, label %15
-    i32 2, label %19
-    i32 3, label %27
+    i32 1, label %14
+    i32 2, label %18
+    i32 3, label %25
   ]
 
 7:                                                ; preds = %2
   %8 = load i64, ptr %1, align 8
   %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %10, label %14
+  br i1 %9, label %10, label %35
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp sgt i64 %12, 0
-  br i1 %13, label %37, label %14
+  %spec.select25 = zext i1 %13 to i64
+  br label %35
 
-14:                                               ; preds = %10, %7
-  br label %37
+14:                                               ; preds = %2
+  %15 = load i64, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = load i64, ptr %16, align 8
+  %. = tail call i64 @llvm.smin.i64(i64 %15, i64 %17)
+  br label %35
 
-15:                                               ; preds = %2
-  %16 = load i64, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8
-  %. = tail call i64 @llvm.smin.i64(i64 %16, i64 %18)
-  br label %37
+18:                                               ; preds = %2
+  %19 = load i64, ptr %1, align 8
+  %20 = icmp sgt i64 %19, 0
+  br i1 %20, label %21, label %35
 
-19:                                               ; preds = %2
-  %20 = load i64, ptr %1, align 8
-  %21 = icmp sgt i64 %20, 0
-  br i1 %21, label %22, label %26
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp eq i64 %23, 0
+  %spec.select26 = zext i1 %24 to i64
+  br label %35
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %37, label %26
+25:                                               ; preds = %2
+  %26 = load i64, ptr %1, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp slt i64 %26, %28
+  %30 = sub i64 %26, %28
+  %spec.select = select i1 %29, i64 0, i64 %30
+  br label %35
 
-26:                                               ; preds = %22, %19
-  br label %37
-
-27:                                               ; preds = %2
-  %28 = load i64, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp slt i64 %28, %30
-  %32 = sub i64 %28, %30
-  %spec.select = select i1 %31, i64 0, i64 %32
-  br label %37
-
-33:                                               ; preds = %2
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %34)
-  %35 = load i32, ptr %5, align 8
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %35) #7
+31:                                               ; preds = %2
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %32)
+  %33 = load i32, ptr %5, align 8
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %33) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 179, ptr noundef nonnull @__func__.set_output_count) #7
   unreachable
 
-37:                                               ; preds = %22, %10, %26, %14, %27, %15
-  %.sink = phi i64 [ 0, %26 ], [ 0, %14 ], [ %spec.select, %27 ], [ %., %15 ], [ 1, %10 ], [ 1, %22 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 232
-  store i64 %.sink, ptr %38, align 8
+35:                                               ; preds = %21, %10, %18, %7, %25, %14
+  %.sink = phi i64 [ %spec.select, %25 ], [ %., %14 ], [ 0, %7 ], [ 0, %18 ], [ %spec.select25, %10 ], [ %spec.select26, %21 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 232
+  store i64 %.sink, ptr %36, align 8
   ret void
 }
 

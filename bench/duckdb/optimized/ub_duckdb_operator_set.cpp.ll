@@ -472,7 +472,7 @@ if.then6:                                         ; preds = %_ZN6duckdb10unique_
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
   %6 = load ptr, ptr %vfn, align 8
   %call8 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(128) %5)
-  br i1 %call8, label %if.then13, label %lor.lhs.false
+  br i1 %call8, label %if.end14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then6
   call void @_ZNK6duckdb12optional_ptrINS_16PhysicalOperatorEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %sink)
@@ -481,24 +481,22 @@ lor.lhs.false:                                    ; preds = %if.then6
   %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 256
   %8 = load ptr, ptr %vfn11, align 8
   %call12 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(128) %7)
-  br i1 %call12, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %lor.lhs.false, %if.then6
+  %spec.select1 = select i1 %call12, i8 1, i8 %spec.select
   br label %if.end14
 
-if.end14:                                         ; preds = %if.then13, %lor.lhs.false
-  %order_matters.1 = phi i8 [ 1, %if.then13 ], [ %spec.select, %lor.lhs.false ]
+if.end14:                                         ; preds = %lor.lhs.false, %if.then6
+  %order_matters.1 = phi i8 [ 1, %if.then6 ], [ %spec.select1, %lor.lhs.false ]
   call void @_ZNK6duckdb12optional_ptrINS_16PhysicalOperatorEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %sink)
   %9 = load ptr, ptr %sink, align 8, !tbaa !52
   %vtable16 = load ptr, ptr %9, align 8, !tbaa !39
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 248
   %10 = load ptr, ptr %vfn17, align 8
   %call18 = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(128) %9)
-  %spec.select3 = select i1 %call18, i8 %order_matters.1, i8 1
+  %spec.select4 = select i1 %call18, i8 %order_matters.1, i8 1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end14, %_ZN6duckdb10unique_ptrINS_15GlobalSinkStateESt14default_deleteIS1_ELb1EE5resetEPS1_.exit
-  %order_matters.2 = phi i8 [ %spec.select, %_ZN6duckdb10unique_ptrINS_15GlobalSinkStateESt14default_deleteIS1_ELb1EE5resetEPS1_.exit ], [ %spec.select3, %if.end14 ]
+  %order_matters.2 = phi i8 [ %spec.select, %_ZN6duckdb10unique_ptrINS_15GlobalSinkStateESt14default_deleteIS1_ELb1EE5resetEPS1_.exit ], [ %spec.select4, %if.end14 ]
   %tobool22 = icmp ne i8 %order_matters.2, 0
   %call23 = call noundef ptr @_ZN6duckdb12MetaPipeline19CreateUnionPipelineERNS_8PipelineEb(ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline, ptr noundef nonnull align 8 dereferenceable(224) %current, i1 noundef zeroext %tobool22)
   %children = getelementptr inbounds i8, ptr %this, i64 16
@@ -6817,7 +6815,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !264
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !64
@@ -6828,13 +6826,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #17
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -6948,7 +6944,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !264
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !64
@@ -6959,13 +6955,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #17
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

@@ -1907,7 +1907,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
 130:                                              ; preds = %117
   %131 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(8) @.str.193, i64 noundef 7) #9
   %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %139
+  br i1 %132, label %133, label %.loopexit
 
 133:                                              ; preds = %130
   %134 = load i32, ptr @hf_noreply, align 4
@@ -1917,7 +1917,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %140, label %.loopexit
 
-139:                                              ; preds = %117, %130
+139:                                              ; preds = %117
   br label %.loopexit
 
 140:                                              ; preds = %133
@@ -2074,7 +2074,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
 235:                                              ; preds = %228
   %236 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %229, ptr noundef nonnull dereferenceable(8) @.str.193, i64 noundef 7) #9
   %237 = icmp eq i32 %236, 0
-  br i1 %237, label %238, label %246
+  br i1 %237, label %238, label %.loopexit
 
 238:                                              ; preds = %235
   %239 = load i32, ptr @hf_noreply, align 4
@@ -2086,7 +2086,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   %245 = add i32 %233, %244
   br label %.loopexit
 
-246:                                              ; preds = %228, %235
+246:                                              ; preds = %228
   br label %.loopexit
 
 247:                                              ; preds = %12, %12
@@ -2095,8 +2095,8 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   %. = select i1 %249, i32 %20, i32 -1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %182, %107, %238, %12, %247, %228, %211, %208, %197, %194, %173, %156, %148, %145, %133, %117, %113, %110, %77, %45, %29, %24, %21, %7, %246, %203, %177, %140, %139
-  %.0 = phi i32 [ -1, %246 ], [ %207, %203 ], [ %181, %177 ], [ %144, %140 ], [ -1, %139 ], [ -1, %7 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %45 ], [ -1, %77 ], [ -1, %110 ], [ -1, %113 ], [ %128, %117 ], [ -1, %133 ], [ -1, %145 ], [ %153, %148 ], [ -1, %156 ], [ -1, %173 ], [ %20, %194 ], [ -1, %197 ], [ %20, %208 ], [ -1, %211 ], [ %233, %228 ], [ %., %247 ], [ %20, %12 ], [ %245, %238 ], [ %109, %107 ], [ %20, %182 ], [ %191, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %182, %107, %238, %12, %247, %235, %228, %211, %208, %197, %194, %173, %156, %148, %145, %133, %130, %117, %113, %110, %77, %45, %29, %24, %21, %7, %246, %203, %177, %140, %139
+  %.0 = phi i32 [ %207, %203 ], [ %181, %177 ], [ %144, %140 ], [ -1, %7 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %45 ], [ -1, %77 ], [ -1, %110 ], [ -1, %113 ], [ %128, %117 ], [ -1, %130 ], [ -1, %139 ], [ -1, %133 ], [ -1, %145 ], [ %153, %148 ], [ -1, %156 ], [ -1, %173 ], [ %20, %194 ], [ -1, %197 ], [ %20, %208 ], [ -1, %211 ], [ %233, %228 ], [ -1, %235 ], [ -1, %246 ], [ %., %247 ], [ %20, %12 ], [ %245, %238 ], [ %109, %107 ], [ %20, %182 ], [ %191, %.lr.ph ]
   ret i32 %.0
 }
 

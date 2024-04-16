@@ -737,7 +737,7 @@ aclitem_match.exit:                               ; preds = %95
   br i1 %102, label %103, label %aclitem_match.exit.thread
 
 103:                                              ; preds = %aclitem_match.exit
-  %104 = trunc i64 %indvars.iv133 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv133 to i32
   %105 = shl nuw nsw i64 %wide.trip.count136, 4
   %106 = add nuw nsw i64 %105, 24
   %107 = tail call ptr @palloc0(i64 noundef %106) #15
@@ -2889,7 +2889,7 @@ define internal fastcc i64 @convert_any_priv_string(ptr noundef %0, ptr nocaptur
 
 25:                                               ; preds = %28, %.critedge
   %indvars.iv = phi i64 [ %31, %28 ], [ %24, %.critedge ]
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw i64 %indvars.iv to i32
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %.critedge2
 
@@ -6828,9 +6828,9 @@ is_admin_of_role.exit.thread20:                   ; preds = %8
 is_admin_of_role.exit:                            ; preds = %8
   %10 = call fastcc ptr @roles_is_member_of(i32 noundef %1, i32 noundef 0, i32 noundef %0, ptr noundef nonnull %4)
   %11 = load i32, ptr %4, align 4
-  %.not25 = icmp eq i32 %11, 0
+  %.not26 = icmp eq i32 %11, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %.not25, label %12, label %is_member_of_role.exit.thread
+  br i1 %.not26, label %12, label %is_member_of_role.exit.thread
 
 12:                                               ; preds = %is_admin_of_role.exit.thread20, %is_admin_of_role.exit, %3
   %13 = and i64 %2, 512
@@ -6871,7 +6871,7 @@ has_privs_of_role.exit:                           ; preds = %24
 28:                                               ; preds = %has_privs_of_role.exit, %20
   %29 = and i64 %2, 4096
   %.not15 = icmp eq i64 %29, 0
-  br i1 %.not15, label %36, label %30
+  br i1 %.not15, label %is_member_of_role.exit.thread, label %30
 
 30:                                               ; preds = %28
   %31 = icmp eq i32 %1, %0
@@ -6884,13 +6884,13 @@ has_privs_of_role.exit:                           ; preds = %24
 member_can_set_role.exit:                         ; preds = %32
   %34 = call fastcc ptr @roles_is_member_of(i32 noundef %1, i32 noundef 2, i32 noundef 0, ptr noundef null)
   %35 = call zeroext i1 @list_member_oid(ptr noundef %34, i32 noundef %0) #15
-  br i1 %35, label %is_member_of_role.exit.thread, label %36
-
-36:                                               ; preds = %member_can_set_role.exit, %28
+  %cond.fr = freeze i1 %35
+  %not.cond.fr = xor i1 %cond.fr, true
+  %spec.select = zext i1 %not.cond.fr to i32
   br label %is_member_of_role.exit.thread
 
-is_member_of_role.exit.thread:                    ; preds = %32, %30, %24, %22, %16, %14, %is_admin_of_role.exit.thread, %member_can_set_role.exit, %has_privs_of_role.exit, %is_member_of_role.exit, %is_admin_of_role.exit, %36
-  %.0 = phi i32 [ 1, %36 ], [ 0, %is_admin_of_role.exit ], [ 0, %is_member_of_role.exit ], [ 0, %has_privs_of_role.exit ], [ 0, %member_can_set_role.exit ], [ 0, %is_admin_of_role.exit.thread ], [ 0, %14 ], [ 0, %16 ], [ 0, %22 ], [ 0, %24 ], [ 0, %30 ], [ 0, %32 ]
+is_member_of_role.exit.thread:                    ; preds = %member_can_set_role.exit, %32, %30, %24, %22, %16, %14, %is_admin_of_role.exit.thread, %28, %has_privs_of_role.exit, %is_member_of_role.exit, %is_admin_of_role.exit
+  %.0 = phi i32 [ 0, %is_admin_of_role.exit ], [ 0, %is_member_of_role.exit ], [ 0, %has_privs_of_role.exit ], [ 1, %28 ], [ 0, %is_admin_of_role.exit.thread ], [ 0, %14 ], [ 0, %16 ], [ 0, %22 ], [ 0, %24 ], [ 0, %30 ], [ 0, %32 ], [ %spec.select, %member_can_set_role.exit ]
   ret i32 %.0
 }
 

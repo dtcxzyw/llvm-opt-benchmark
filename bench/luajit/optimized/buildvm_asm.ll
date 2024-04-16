@@ -266,7 +266,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.end41.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %43 = trunc i64 %indvars.iv.i.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %and.i.i = and i32 %43, 15
   %cmp1.i.i = icmp eq i32 %and.i.i, 0
   %44 = load ptr, ptr %fp, align 8
@@ -311,18 +311,16 @@ emit_asm_bytes.exit.i:                            ; preds = %if.then17.i.i, %for
   %add.ptr.i = getelementptr inbounds i8, ptr %36, i64 %idx.ext.i
   %call45.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.19, i64 noundef 3) #7
   %tobool.not.i = icmp eq i32 %call45.i, 0
-  br i1 %tobool.not.i, label %if.end53.i, label %if.then46.i
+  br i1 %tobool.not.i, label %emit_asm_reloc_text.exit, label %if.then46.i
 
 if.then46.i:                                      ; preds = %emit_asm_bytes.exit.i
   %49 = load i32, ptr %mode.i, align 8
   %cmp47.i = icmp eq i32 %49, 0
-  br i1 %cmp47.i, label %emit_asm_reloc_text.exit, label %if.end53.i
-
-if.end53.i:                                       ; preds = %if.then46.i, %emit_asm_bytes.exit.i
+  %spec.select.i = select i1 %cmp47.i, ptr @.str.20, ptr @.str.21
   br label %emit_asm_reloc_text.exit
 
-emit_asm_reloc_text.exit:                         ; preds = %if.then46.i, %if.end53.i
-  %.str.21.sink.i = phi ptr [ @.str.21, %if.end53.i ], [ @.str.20, %if.then46.i ]
+emit_asm_reloc_text.exit:                         ; preds = %emit_asm_bytes.exit.i, %if.then46.i
+  %.str.21.sink.i = phi ptr [ @.str.21, %emit_asm_bytes.exit.i ], [ %spec.select.i, %if.then46.i ]
   %50 = load ptr, ptr %fp, align 8
   %call55.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull %.str.21.sink.i, ptr noundef %opname.0.i, ptr noundef nonnull %36)
   br label %if.end41
@@ -340,7 +338,7 @@ for.body.lr.ph.i:                                 ; preds = %if.else
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %52 = trunc i64 %indvars.iv.i to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.i to i32
   %and.i = and i32 %52, 15
   %cmp1.i = icmp eq i32 %and.i, 0
   %53 = load ptr, ptr %fp, align 8
@@ -455,7 +453,7 @@ for.body.lr.ph.i95:                               ; preds = %while.end
 
 for.body.i98:                                     ; preds = %for.inc.i107, %for.body.lr.ph.i95
   %indvars.iv.i99 = phi i64 [ 0, %for.body.lr.ph.i95 ], [ %indvars.iv.next.i108, %for.inc.i107 ]
-  %69 = trunc i64 %indvars.iv.i99 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv.i99 to i32
   %and.i100 = and i32 %69, 15
   %cmp1.i101 = icmp eq i32 %and.i100, 0
   %70 = load ptr, ptr %fp, align 8

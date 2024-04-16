@@ -556,7 +556,7 @@ land.lhs.true.i:                                  ; preds = %_ZNKSt9type_infoneE
   %fRawOffset3.i = getelementptr inbounds i8, ptr %other, i64 72
   %9 = load i32, ptr %fRawOffset3.i, align 8
   %cmp4.i = icmp eq i32 %8, %9
-  br i1 %cmp4.i, label %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit, label %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit.thread
+  br i1 %cmp4.i, label %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit, label %return
 
 _ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %land.lhs.true.i
   %fDSTSavings.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -565,13 +565,12 @@ _ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %land.lhs.true.i
   %11 = load i32, ptr %fDSTSavings5.i, align 4
   %cmp6.i = icmp ne i32 %10, %11
   %cond.fr = freeze i1 %cmp6.i
-  br i1 %cond.fr, label %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit.thread, label %return
-
-_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit.thread: ; preds = %land.lhs.true.i, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit
+  %not.cond.fr = xor i1 %cond.fr, true
+  %spec.select = zext i1 %not.cond.fr to i8
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit.thread, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit, %_ZNKSt9type_infoneERKS_.exit, %entry
-  %retval.0 = phi i8 [ 1, %entry ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit.thread ], [ 1, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %if.end.i.i ]
+return:                                           ; preds = %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit, %land.lhs.true.i, %if.end.i.i, %_ZNKSt9type_infoneERKS_.exit, %entry
+  %retval.0 = phi i8 [ 1, %entry ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %if.end.i.i ], [ 0, %land.lhs.true.i ], [ %spec.select, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit ]
   ret i8 %retval.0
 }
 
@@ -1006,21 +1005,21 @@ if.else19:                                        ; preds = %if.then11
   %call23 = tail call noundef i32 @_ZNK6icu_7512DateTimeRule12getRuleMonthEv(ptr noundef nonnull align 8 dereferenceable(36) %7)
   %and.i.i = and i32 %year, 3
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego11monthLengthEii.exit
 
 land.rhs.i.i:                                     ; preds = %if.else19
   %rem.i.i = srem i32 %year, 100
-  %cmp1.not.i.i = icmp ne i32 %rem.i.i, 0
+  %cmp1.not.i.i = icmp eq i32 %rem.i.i, 0
+  br i1 %cmp1.not.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.i, label %_ZN6icu_755Grego11monthLengthEii.exit
+
+_ZN6icu_755Grego10isLeapYearEi.exit.i:            ; preds = %land.rhs.i.i
   %rem2.i.i = srem i32 %year, 400
   %cmp3.i.not.i = icmp eq i32 %rem2.i.i, 0
-  %or.cond.i = or i1 %cmp1.not.i.i, %cmp3.i.not.i
-  br i1 %or.cond.i, label %_ZN6icu_755Grego11monthLengthEii.exit, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-
-_ZN6icu_755Grego10isLeapYearEi.exit.thread.i:     ; preds = %land.rhs.i.i, %if.else19
+  %spec.select.i = select i1 %cmp3.i.not.i, i32 12, i32 0
   br label %_ZN6icu_755Grego11monthLengthEii.exit
 
-_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-  %8 = phi i32 [ 0, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i ], [ 12, %land.rhs.i.i ]
+_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %if.else19, %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i
+  %8 = phi i32 [ 0, %if.else19 ], [ 12, %land.rhs.i.i ], [ %spec.select.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i ]
   %add.i = add nsw i32 %8, %call23
   %idxprom.i = sext i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i
@@ -1049,21 +1048,21 @@ if.then38:                                        ; preds = %if.else32
 land.lhs.true41:                                  ; preds = %if.then38
   %and.i = and i32 %year, 3
   %cmp.i = icmp eq i32 %and.i, 0
-  br i1 %cmp.i, label %land.rhs.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread
+  br i1 %cmp.i, label %land.rhs.i, label %if.end45
 
 land.rhs.i:                                       ; preds = %land.lhs.true41
   %rem.i = srem i32 %year, 100
-  %cmp1.not.i = icmp ne i32 %rem.i, 0
+  %cmp1.not.i = icmp eq i32 %rem.i, 0
+  br i1 %cmp1.not.i, label %_ZN6icu_755Grego10isLeapYearEi.exit, label %if.end45
+
+_ZN6icu_755Grego10isLeapYearEi.exit:              ; preds = %land.rhs.i
   %rem2.i = srem i32 %year, 400
   %cmp3.i.not = icmp eq i32 %rem2.i, 0
-  %or.cond33 = or i1 %cmp1.not.i, %cmp3.i.not
-  br i1 %or.cond33, label %if.end45, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread
-
-_ZN6icu_755Grego10isLeapYearEi.exit.thread:       ; preds = %land.rhs.i, %land.lhs.true41
+  %spec.select = select i1 %cmp3.i.not, i32 29, i32 28
   br label %if.end45
 
-if.end45:                                         ; preds = %land.rhs.i, %_ZN6icu_755Grego10isLeapYearEi.exit.thread, %if.then38, %if.else32
-  %dom.0 = phi i32 [ %call36, %if.then38 ], [ %call36, %if.else32 ], [ 28, %_ZN6icu_755Grego10isLeapYearEi.exit.thread ], [ 29, %land.rhs.i ]
+if.end45:                                         ; preds = %_ZN6icu_755Grego10isLeapYearEi.exit, %land.rhs.i, %land.lhs.true41, %if.then38, %if.else32
+  %dom.0 = phi i32 [ %call36, %if.then38 ], [ %call36, %if.else32 ], [ 28, %land.lhs.true41 ], [ 29, %land.rhs.i ], [ %spec.select, %_ZN6icu_755Grego10isLeapYearEi.exit ]
   %call46 = tail call noundef double @_ZN6icu_755Grego11fieldsToDayEiii(i32 noundef %year, i32 noundef %call34, i32 noundef %dom.0)
   br label %if.end47
 
@@ -2058,11 +2057,11 @@ if.end:                                           ; preds = %for.body.preheader,
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end.loopexit31.split.loop.exit:               ; preds = %for.body.us
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.body.for.end.loopexit_crit_edge:              ; preds = %for.body
-  %14 = trunc i64 %indvars.iv2845 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv2845 to i32
   br label %for.end
 
 for.end:                                          ; preds = %lor.lhs.false.us, %if.end, %for.body.preheader, %for.body.for.end.loopexit_crit_edge, %for.end.loopexit31.split.loop.exit, %for.body.lr.ph.split.us, %entry
@@ -2121,7 +2120,7 @@ for.cond.us.preheader:                            ; preds = %entry.split.us
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %for.body.us
   %indvars.iv96 = phi i64 [ %5, %for.cond.us.preheader ], [ %7, %for.body.us ]
-  %6 = trunc i64 %indvars.iv96 to i32
+  %6 = trunc nuw i64 %indvars.iv96 to i32
   %cmp.us = icmp sgt i32 %6, 0
   br i1 %cmp.us, label %for.body.us, label %return
 
@@ -2163,7 +2162,7 @@ for.body.us10.us:                                 ; preds = %for.body.us10.us.pr
 
 for.cond.us6:                                     ; preds = %for.cond.us6.preheader, %for.body.us10
   %indvars.iv89 = phi i64 [ %9, %for.cond.us6.preheader ], [ %13, %for.body.us10 ]
-  %12 = trunc i64 %indvars.iv89 to i32
+  %12 = trunc nuw i64 %indvars.iv89 to i32
   %cmp.us9 = icmp sgt i32 %12, 0
   br i1 %cmp.us9, label %for.body.us10, label %return
 
@@ -2206,7 +2205,7 @@ for.body.us26:                                    ; preds = %for.body.us26.prehe
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %15, %for.cond.preheader ], [ %19, %for.body ]
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw i64 %indvars.iv to i32
   %cmp = icmp sgt i32 %18, 0
   br i1 %cmp, label %for.body, label %return
 

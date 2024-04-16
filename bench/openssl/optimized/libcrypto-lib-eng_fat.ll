@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [10 x i8] c"PKEY_ASN1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ENGINE_set_default(ptr noundef %e, i32 noundef %flags) local_unnamed_addr #0 {
+define i32 @ENGINE_set_default(ptr noundef %e, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 64
   %tobool.not = icmp eq i32 %and, 0
@@ -103,18 +103,16 @@ land.lhs.true46:                                  ; preds = %if.end43
 if.end50:                                         ; preds = %land.lhs.true46, %if.end43
   %and51 = and i32 %flags, 1024
   %tobool52.not = icmp eq i32 %and51, 0
-  br i1 %tobool52.not, label %if.end57, label %land.lhs.true53
+  br i1 %tobool52.not, label %return, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end50
   %call54 = tail call i32 @ENGINE_set_default_pkey_asn1_meths(ptr noundef %e) #4
-  %tobool55.not = icmp eq i32 %call54, 0
-  br i1 %tobool55.not, label %return, label %if.end57
-
-if.end57:                                         ; preds = %land.lhs.true53, %if.end50
+  %tobool55.not = icmp ne i32 %call54, 0
+  %spec.select = zext i1 %tobool55.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true53, %land.lhs.true46, %land.lhs.true39, %land.lhs.true32, %land.lhs.true25, %land.lhs.true18, %land.lhs.true11, %land.lhs.true4, %land.lhs.true, %if.end57
-  %retval.0 = phi i32 [ 1, %if.end57 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true18 ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true32 ], [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true46 ], [ 0, %land.lhs.true53 ]
+return:                                           ; preds = %land.lhs.true53, %if.end50, %land.lhs.true46, %land.lhs.true39, %land.lhs.true32, %land.lhs.true25, %land.lhs.true18, %land.lhs.true11, %land.lhs.true4, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true18 ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true32 ], [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true46 ], [ 1, %if.end50 ], [ %spec.select, %land.lhs.true53 ]
   ret i32 %retval.0
 }
 
@@ -137,7 +135,7 @@ declare i32 @ENGINE_set_default_pkey_meths(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_default_pkey_asn1_meths(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ENGINE_set_default_string(ptr noundef %e, ptr noundef %def_list) local_unnamed_addr #0 {
+define i32 @ENGINE_set_default_string(ptr noundef %e, ptr noundef %def_list) local_unnamed_addr #0 {
 entry:
   %flags = alloca i32, align 4
   store i32 0, ptr %flags, align 4

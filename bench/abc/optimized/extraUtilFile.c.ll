@@ -577,7 +577,7 @@ define noalias noundef ptr @Extra_FileReadContents2(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #13 {
+define i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #13 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %6 = trunc i64 %5 to i32
   %.not = icmp eq ptr %1, null
@@ -601,7 +601,7 @@ define noundef i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noun
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = tail call i32 @strncmp(ptr noundef nonnull %16, ptr noundef nonnull %1, i64 noundef %14) #23
   %.not39 = icmp eq i32 %17, 0
-  br i1 %.not39, label %40, label %.thread
+  br i1 %.not39, label %.thread55, label %.thread
 
 .thread:                                          ; preds = %4, %11, %7
   %.not40 = icmp eq ptr %2, null
@@ -625,7 +625,7 @@ define noundef i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noun
   %27 = getelementptr inbounds i8, ptr %24, i64 %26
   %28 = tail call i32 @strncmp(ptr noundef nonnull %27, ptr noundef nonnull %2, i64 noundef %25) #23
   %.not43 = icmp eq i32 %28, 0
-  br i1 %.not43, label %40, label %.thread52
+  br i1 %.not43, label %.thread55, label %.thread52
 
 .thread52:                                        ; preds = %.thread, %22, %18
   %.not44 = icmp eq ptr %3, null
@@ -649,13 +649,11 @@ define noundef i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noun
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
   %39 = tail call i32 @strncmp(ptr noundef nonnull %38, ptr noundef nonnull %3, i64 noundef %36) #23
   %.not47 = icmp eq i32 %39, 0
-  br i1 %.not47, label %40, label %.thread55
+  %spec.select = zext i1 %.not47 to i32
+  br label %.thread55
 
-.thread55:                                        ; preds = %.thread52, %33, %29
-  br label %40
-
-40:                                               ; preds = %33, %22, %11, %.thread55
-  %.0 = phi i32 [ 0, %.thread55 ], [ 1, %11 ], [ 1, %22 ], [ 1, %33 ]
+.thread55:                                        ; preds = %.thread52, %33, %29, %22, %11
+  %.0 = phi i32 [ 1, %11 ], [ 1, %22 ], [ 0, %29 ], [ %spec.select, %33 ], [ 0, %.thread52 ]
   ret i32 %.0
 }
 
@@ -813,7 +811,7 @@ define noundef i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocapture nounde
 
 21:                                               ; preds = %13, %18, %9
   %.028 = phi i32 [ %10, %9 ], [ %15, %13 ], [ %20, %18 ]
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = shl i32 %22, 2
   %24 = and i32 %23, 28
   %25 = shl nuw i32 %.028, %24
@@ -895,7 +893,7 @@ define noundef i32 @Extra_ReadHexadecimal(ptr nocapture noundef %0, ptr nocaptur
 
 30:                                               ; preds = %27, %22, %18
   %.028.i = phi i32 [ %19, %18 ], [ %24, %22 ], [ %29, %27 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 2
   %33 = and i32 %32, 28
   %34 = shl nuw i32 %.028.i, %33
@@ -1011,7 +1009,7 @@ define void @Extra_PrintHexadecimalString(ptr nocapture noundef writeonly %0, pt
   %23 = lshr i32 %20, %22
   %24 = and i32 %23, 15
   %25 = icmp ult i32 %24, 10
-  %26 = trunc i32 %24 to i8
+  %26 = trunc nuw nsw i32 %24 to i8
   %27 = add nuw nsw i8 %26, 87
   %28 = or disjoint i8 %26, 48
   %storemerge = select i1 %25, i8 %28, i8 %27
@@ -1348,7 +1346,7 @@ define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %37 = getelementptr inbounds ptr, ptr %28, i64 %36
   store ptr %34, ptr %37, align 8
   %38 = add nuw nsw i64 %indvars.iv58, 1
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   br label %40
 
 40:                                               ; preds = %._crit_edge64, %31

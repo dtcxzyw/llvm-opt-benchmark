@@ -1121,7 +1121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
+define hidden i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
 entry:
   %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %0 = load i32, ptr %http_flags, align 4
@@ -1133,19 +1133,17 @@ if.end:                                           ; preds = %entry
   %content_length = getelementptr inbounds i8, ptr %stream, i64 48
   %1 = load i64, ptr %content_length, align 8
   %cmp.not = icmp eq i64 %1, -1
-  br i1 %cmp.not, label %if.end4, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %recv_content_length = getelementptr inbounds i8, ptr %stream, i64 56
   %2 = load i64, ptr %recv_content_length, align 8
-  %cmp2.not = icmp eq i64 %1, %2
-  br i1 %cmp2.not, label %if.end4, label %return
-
-if.end4:                                          ; preds = %land.lhs.true, %if.end
+  %cmp2.not = icmp ne i64 %1, %2
+  %spec.select = sext i1 %cmp2.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %if.end4
-  %retval.0 = phi i32 [ 0, %if.end4 ], [ -1, %entry ], [ -1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ 0, %if.end ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -1322,7 +1320,7 @@ sw.bb11:                                          ; preds = %if.end6
   br i1 %or.cond3, label %return, label %if.end21
 
 if.end21:                                         ; preds = %sw.bb11
-  %conv22 = trunc i64 %7 to i32
+  %conv22 = trunc nuw nsw i64 %7 to i32
   br label %for.cond.outer.outer30
 
 for.end:                                          ; preds = %for.cond

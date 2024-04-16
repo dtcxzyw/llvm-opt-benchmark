@@ -990,7 +990,7 @@ enc_uint64.exit190.i:                             ; preds = %78, %72
   %96 = getelementptr inbounds [9 x i8], ptr %9, i64 0, i64 %indvars.iv.i191.i
   store i8 %91, ptr %96, align 1
   %97 = lshr i64 %.01217.i193.i, 8
-  %98 = trunc i32 %.01118.i192.i to i8
+  %98 = trunc nuw i32 %.01118.i192.i to i8
   %99 = or i8 %88, %98
   %100 = lshr i32 %.01118.i192.i, 1
   %indvars.iv.next.i194.i = add nuw nsw i64 %indvars.iv.i191.i, 1
@@ -1048,7 +1048,7 @@ enc_uint64.exit206.i:                             ; preds = %104
   %123 = getelementptr inbounds [9 x i8], ptr %7, i64 0, i64 %indvars.iv.i207.i
   store i8 %118, ptr %123, align 1
   %124 = lshr i64 %.01217.i209.i, 8
-  %125 = trunc i32 %.01118.i208.i to i8
+  %125 = trunc nuw i32 %.01118.i208.i to i8
   %126 = or i8 %115, %125
   %127 = lshr i32 %.01118.i208.i, 1
   %indvars.iv.next.i210.i = add nuw nsw i64 %indvars.iv.i207.i, 1
@@ -1165,7 +1165,7 @@ enc_uint64.exit222.i:                             ; preds = %._crit_edge.thread.
   %173 = getelementptr inbounds [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i223.i
   store i8 %168, ptr %173, align 1
   %174 = lshr i64 %.01217.i225.i, 8
-  %175 = trunc i32 %.01118.i224.i to i8
+  %175 = trunc nuw i32 %.01118.i224.i to i8
   %176 = or i8 %165, %175
   %177 = lshr i32 %.01118.i224.i, 1
   %indvars.iv.next.i226.i = add nuw nsw i64 %indvars.iv.i223.i, 1
@@ -1288,7 +1288,7 @@ enc_uint64.exit238.i:                             ; preds = %.thread143, %204, %
   %224 = getelementptr inbounds [9 x i8], ptr %3, i64 0, i64 %indvars.iv.i239.i
   store i8 %219, ptr %224, align 1
   %225 = lshr i64 %.01217.i241.i, 8
-  %226 = trunc i32 %.01118.i240.i to i8
+  %226 = trunc nuw i32 %.01118.i240.i to i8
   %227 = or i8 %216, %226
   %228 = lshr i32 %.01118.i240.i, 1
   %indvars.iv.next.i242.i = add nuw nsw i64 %indvars.iv.i239.i, 1
@@ -1568,7 +1568,7 @@ enc_uint64.exit:                                  ; preds = %303, %compression_e
   %367 = getelementptr inbounds i8, ptr %16, i64 282
   store i8 %366, ptr %367, align 1
   %sum.shift.i = lshr i64 %.1112, 56
-  %368 = trunc i64 %sum.shift.i to i8
+  %368 = trunc nuw i64 %sum.shift.i to i8
   %369 = getelementptr inbounds i8, ptr %16, i64 283
   store i8 %368, ptr %369, align 1
   %370 = getelementptr inbounds i8, ptr %16, i64 284
@@ -1599,7 +1599,7 @@ enc_uint64.exit:                                  ; preds = %303, %compression_e
   %389 = getelementptr inbounds i8, ptr %16, i64 290
   store i8 %388, ptr %389, align 1
   %sum.shift.i133 = lshr i64 %.1114, 56
-  %390 = trunc i64 %sum.shift.i133 to i8
+  %390 = trunc nuw i64 %sum.shift.i133 to i8
   %391 = getelementptr inbounds i8, ptr %16, i64 291
   store i8 %390, ptr %391, align 1
   %392 = getelementptr inbounds i8, ptr %16, i64 292
@@ -1614,7 +1614,7 @@ enc_uint64.exit:                                  ; preds = %303, %compression_e
   %399 = getelementptr inbounds i8, ptr %16, i64 294
   store i8 %398, ptr %399, align 1
   %400 = lshr i32 %.1117, 24
-  %401 = trunc i32 %400 to i8
+  %401 = trunc nuw i32 %400 to i8
   %402 = getelementptr inbounds i8, ptr %16, i64 295
   store i8 %401, ptr %402, align 1
   %403 = getelementptr inbounds i8, ptr %16, i64 272
@@ -1922,7 +1922,7 @@ compression_end.exit.i25:                         ; preds = %45
   %68 = getelementptr inbounds i8, ptr %56, i64 12
   store i32 %67, ptr %68, align 4
   %69 = lshr i64 %66, 32
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw i64 %69 to i32
   %71 = getelementptr inbounds i8, ptr %56, i64 16
   store i32 %70, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %5, i64 160
@@ -1940,7 +1940,7 @@ compression_end.exit.i25:                         ; preds = %45
   %82 = getelementptr inbounds i8, ptr %56, i64 36
   store i32 %81, ptr %82, align 4
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   %85 = getelementptr inbounds i8, ptr %56, i64 40
   store i32 %84, ptr %85, align 8
   %86 = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %56, i32 noundef %2, i32 noundef 0, i32 noundef 30) #18
@@ -2447,7 +2447,7 @@ define internal noundef i32 @compression_code_bzip2(ptr noundef %0, ptr nocaptur
   store i32 %13, ptr %14, align 4
   %15 = load i64, ptr %11, align 8
   %16 = lshr i64 %15, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2466,7 +2466,7 @@ define internal noundef i32 @compression_code_bzip2(ptr noundef %0, ptr nocaptur
   store i32 %28, ptr %29, align 4
   %30 = load i64, ptr %26, align 8
   %31 = lshr i64 %30, 32
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   %33 = getelementptr inbounds i8, ptr %5, i64 40
   store i32 %32, ptr %33, align 8
   %34 = icmp eq i32 %2, 0
@@ -2809,7 +2809,7 @@ define internal void @ppmd_write(ptr nocapture noundef readonly %0, i8 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @compression_code_ppmd(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal i32 @compression_code_ppmd(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 19264
@@ -2822,7 +2822,7 @@ define internal noundef i32 @compression_code_ppmd(ptr nocapture readnone %0, pt
   %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i64, ptr %10, align 8
   %.not3239 = icmp eq i64 %11, 0
-  br i1 %.not3239, label %.critedge.thread44, label %.lr.ph
+  br i1 %.not3239, label %.critedge2.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %12 = load ptr, ptr %9, align 8
@@ -2856,12 +2856,12 @@ define internal noundef i32 @compression_code_ppmd(ptr nocapture readnone %0, pt
 
 .critedge:                                        ; preds = %18
   %28 = icmp eq i64 %26, 0
-  br i1 %28, label %.critedge.thread, label %.critedge.thread44
+  br i1 %28, label %.critedge.thread, label %.critedge2.thread
 
 .critedge.thread:                                 ; preds = %16, %.critedge
   %29 = load i32, ptr %5, align 8
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %.critedge.thread44, label %31
+  br i1 %30, label %.critedge2.thread, label %31
 
 31:                                               ; preds = %.critedge.thread
   %32 = getelementptr inbounds i8, ptr %5, i64 19240
@@ -2912,13 +2912,11 @@ define internal noundef i32 @compression_code_ppmd(ptr nocapture readnone %0, pt
   store i32 1, ptr %5, align 8
   %55 = load i64, ptr %6, align 8
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.critedge.thread44, label %.critedge2.thread
+  %spec.select = zext i1 %56 to i32
+  br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %41, %52, %.critedge2
-  br label %.critedge.thread44
-
-.critedge.thread44:                               ; preds = %8, %52, %.critedge.thread, %.critedge, %.critedge2.thread
-  %.030 = phi i32 [ 0, %.critedge2.thread ], [ 0, %.critedge ], [ 1, %.critedge.thread ], [ 1, %52 ], [ 0, %8 ]
+.critedge2.thread:                                ; preds = %41, %8, %52, %.critedge2, %.critedge.thread, %.critedge
+  %.030 = phi i32 [ 0, %.critedge ], [ 1, %.critedge.thread ], [ 0, %.critedge2 ], [ %spec.select, %52 ], [ 0, %8 ], [ 0, %41 ]
   ret i32 %.030
 }
 
@@ -2980,8 +2978,8 @@ define internal i32 @compression_code_copy(ptr nocapture readnone %0, ptr nocapt
   %27 = phi i64 [ %15, %8 ], [ %7, %3 ]
   %28 = icmp eq i32 %2, 0
   %29 = icmp eq i64 %27, 0
-  %or.cond = select i1 %28, i1 %29, i1 false
-  %.022 = zext i1 %or.cond to i32
+  %narrow = select i1 %28, i1 %29, i1 false
+  %.022 = zext i1 %narrow to i32
   ret i32 %.022
 }
 
@@ -3081,7 +3079,7 @@ define internal fastcc noundef i32 @enc_uint64(ptr noundef %0, i64 noundef %1) u
   %13 = getelementptr inbounds [9 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %8, ptr %13, align 1
   %14 = lshr i64 %.01217, 8
-  %15 = trunc i32 %.01118 to i8
+  %15 = trunc nuw i32 %.01118 to i8
   %16 = or i8 %5, %15
   %17 = lshr i32 %.01118, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3160,7 +3158,7 @@ enc_uint64.exit:                                  ; preds = %28, %7
   %45 = getelementptr inbounds [9 x i8], ptr %20, i64 0, i64 %indvars.iv.i168
   store i8 %40, ptr %45, align 1
   %46 = lshr i64 %.01217.i170, 8
-  %47 = trunc i32 %.01118.i169 to i8
+  %47 = trunc nuw i32 %.01118.i169 to i8
   %48 = or i8 %37, %47
   %49 = lshr i32 %.01118.i169, 1
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i168, 1
@@ -3201,7 +3199,7 @@ enc_uint64.exit175:                               ; preds = %44, %41
   %64 = getelementptr inbounds [9 x i8], ptr %19, i64 0, i64 %indvars.iv.i176
   store i8 %59, ptr %64, align 1
   %65 = lshr i64 %.01217.i178, 8
-  %66 = trunc i32 %.01118.i177 to i8
+  %66 = trunc nuw i32 %.01118.i177 to i8
   %67 = or i8 %56, %66
   %68 = lshr i32 %.01118.i177, 1
   %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i176, 1
@@ -3273,7 +3271,7 @@ enc_uint64.exit191:                               ; preds = %enc_uint64.exit183
   %94 = getelementptr inbounds [9 x i8], ptr %17, i64 0, i64 %indvars.iv.i192
   store i8 %89, ptr %94, align 1
   %95 = lshr i64 %.01217.i194, 8
-  %96 = trunc i32 %.01118.i193 to i8
+  %96 = trunc nuw i32 %.01118.i193 to i8
   %97 = or i8 %86, %96
   %98 = lshr i32 %.01118.i193, 1
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i192, 1
@@ -3313,7 +3311,7 @@ enc_uint64.exit199:                               ; preds = %93, %90
   %112 = getelementptr inbounds [9 x i8], ptr %16, i64 0, i64 %indvars.iv.i200
   store i8 %107, ptr %112, align 1
   %113 = lshr i64 %.01217.i202, 8
-  %114 = trunc i32 %.01118.i201 to i8
+  %114 = trunc nuw i32 %.01118.i201 to i8
   %115 = or i8 %104, %114
   %116 = lshr i32 %.01118.i201, 1
   %indvars.iv.next.i203 = add nuw nsw i64 %indvars.iv.i200, 1
@@ -3380,7 +3378,7 @@ enc_uint64.exit231:                               ; preds = %enc_uint64.exit223
   %139 = getelementptr inbounds [9 x i8], ptr %12, i64 0, i64 %indvars.iv.i232
   store i8 %134, ptr %139, align 1
   %140 = lshr i64 %.01217.i234, 8
-  %141 = trunc i32 %.01118.i233 to i8
+  %141 = trunc nuw i32 %.01118.i233 to i8
   %142 = or i8 %131, %141
   %143 = lshr i32 %.01118.i233, 1
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i232, 1
@@ -3428,7 +3426,7 @@ enc_uint64.exit247:                               ; preds = %.critedge, %.lr.ph3
 160:                                              ; preds = %enc_uint64.exit247
   %161 = load i32, ptr %4, align 8
   %162 = lshr i32 %161, 24
-  %163 = trunc i32 %162 to i8
+  %163 = trunc nuw i32 %162 to i8
   store i32 0, ptr %22, align 4
   store i8 %163, ptr %151, align 4
   %164 = lshr i32 %161, 16
@@ -3455,7 +3453,7 @@ enc_uint64.exit247:                               ; preds = %.critedge, %.lr.ph3
   br i1 %174, label %169, label %.split.loop.exit471, !llvm.loop !21
 
 .split.loop.exit:                                 ; preds = %169
-  %175 = trunc i64 %indvars.iv to i32
+  %175 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit471
 
 .split.loop.exit471:                              ; preds = %173, %.split.loop.exit
@@ -3490,7 +3488,7 @@ enc_uint64.exit247:                               ; preds = %.critedge, %.lr.ph3
   %189 = getelementptr inbounds [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i248
   store i8 %184, ptr %189, align 1
   %190 = lshr i64 %.01217.i250, 8
-  %191 = trunc i32 %.01118.i249 to i8
+  %191 = trunc nuw i32 %.01118.i249 to i8
   %192 = or i8 %181, %191
   %193 = lshr i32 %.01118.i249, 1
   %indvars.iv.next.i251 = add nuw nsw i64 %indvars.iv.i248, 1
@@ -3529,7 +3527,7 @@ enc_uint64.exit255:                               ; preds = %188, %185
   %206 = getelementptr inbounds [9 x i8], ptr %9, i64 0, i64 %indvars.iv.i256
   store i8 %201, ptr %206, align 1
   %207 = lshr i64 %.01217.i258, 8
-  %208 = trunc i32 %.01118.i257 to i8
+  %208 = trunc nuw i32 %.01118.i257 to i8
   %209 = or i8 %198, %208
   %210 = lshr i32 %.01118.i257, 1
   %indvars.iv.next.i259 = add nuw nsw i64 %indvars.iv.i256, 1
@@ -3589,7 +3587,7 @@ enc_uint64.exit263:                               ; preds = %205, %202
   %235 = getelementptr inbounds [9 x i8], ptr %8, i64 0, i64 %indvars.iv.i264
   store i8 %230, ptr %235, align 1
   %236 = lshr i64 %.01217.i266, 8
-  %237 = trunc i32 %.01118.i265 to i8
+  %237 = trunc nuw i32 %.01118.i265 to i8
   %238 = or i8 %227, %237
   %239 = lshr i32 %.01118.i265, 1
   %indvars.iv.next.i267 = add nuw nsw i64 %indvars.iv.i264, 1
@@ -3682,7 +3680,7 @@ enc_uint64.exit271:                               ; preds = %234, %231
   %279 = getelementptr inbounds i8, ptr %23, i64 2
   store i8 %278, ptr %279, align 1
   %280 = lshr i32 %6, 24
-  %281 = trunc i32 %280 to i8
+  %281 = trunc nuw i32 %280 to i8
   %282 = getelementptr inbounds i8, ptr %23, i64 3
   store i8 %281, ptr %282, align 1
   %283 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 4, i32 noundef 1)
@@ -3749,7 +3747,7 @@ define internal fastcc noundef i32 @make_time(ptr noundef %0, i8 noundef zeroext
   %26 = phi i8 [ 0, %23 ], [ %36, %33 ]
   %27 = zext nneg i32 %.01118.i to i64
   %28 = icmp ult i64 %.01217.i, %27
-  %29 = trunc i64 %.01217.i to i8
+  %29 = trunc nuw nsw i64 %.01217.i to i8
   br i1 %28, label %30, label %33
 
 30:                                               ; preds = %25
@@ -3760,7 +3758,7 @@ define internal fastcc noundef i32 @make_time(ptr noundef %0, i8 noundef zeroext
 33:                                               ; preds = %25
   %34 = getelementptr inbounds [9 x i8], ptr %11, i64 0, i64 %indvars.iv.i
   store i8 %29, ptr %34, align 1
-  %35 = trunc i32 %.01118.i to i8
+  %35 = trunc nuw i32 %.01118.i to i8
   %36 = or i8 %26, %35
   %37 = lshr i32 %.01118.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3803,7 +3801,7 @@ enc_uint64.exit:                                  ; preds = %33, %30
   %54 = getelementptr inbounds [9 x i8], ptr %10, i64 0, i64 %indvars.iv.i77
   store i8 %49, ptr %54, align 1
   %55 = lshr i64 %.01217.i79, 8
-  %56 = trunc i32 %.01118.i78 to i8
+  %56 = trunc nuw i32 %.01118.i78 to i8
   %57 = or i8 %46, %56
   %58 = lshr i32 %.01118.i78, 1
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i77, 1
@@ -3845,7 +3843,7 @@ enc_uint64.exit92:                                ; preds = %enc_uint64.exit84
   %70 = phi i8 [ 0, %67 ], [ %80, %77 ]
   %71 = zext nneg i32 %.01118.i94 to i64
   %72 = icmp ult i64 %.01217.i95, %71
-  %73 = trunc i64 %.01217.i95 to i8
+  %73 = trunc nuw nsw i64 %.01217.i95 to i8
   br i1 %72, label %74, label %77
 
 74:                                               ; preds = %69
@@ -3856,7 +3854,7 @@ enc_uint64.exit92:                                ; preds = %enc_uint64.exit84
 77:                                               ; preds = %69
   %78 = getelementptr inbounds [9 x i8], ptr %8, i64 0, i64 %indvars.iv.i93
   store i8 %73, ptr %78, align 1
-  %79 = trunc i32 %.01118.i94 to i8
+  %79 = trunc nuw i32 %.01118.i94 to i8
   %80 = or i8 %70, %79
   %81 = lshr i32 %.01118.i94, 1
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i93, 1
@@ -3903,7 +3901,7 @@ enc_uint64.exit100:                               ; preds = %77, %74
   %102 = getelementptr inbounds [9 x i8], ptr %7, i64 0, i64 %indvars.iv.i101
   store i8 %97, ptr %102, align 1
   %103 = lshr i64 %.01217.i103, 8
-  %104 = trunc i32 %.01118.i102 to i8
+  %104 = trunc nuw i32 %.01118.i102 to i8
   %105 = or i8 %94, %104
   %106 = lshr i32 %.01118.i102, 1
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i101, 1
@@ -4052,7 +4050,7 @@ enc_uint64.exit124:                               ; preds = %.thread, %113, %._c
   %174 = trunc i64 %173 to i8
   store i8 %174, ptr %145, align 1
   %sum.shift.i = lshr i64 %161, 56
-  %175 = trunc i64 %sum.shift.i to i8
+  %175 = trunc nuw i64 %sum.shift.i to i8
   store i8 %175, ptr %146, align 1
   %176 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 8, i32 noundef 1)
   %177 = trunc i64 %176 to i32
@@ -4136,7 +4134,7 @@ enc_uint64.exit62:                                ; preds = %20
   %36 = getelementptr inbounds [9 x i8], ptr %7, i64 0, i64 %indvars.iv.i63
   store i8 %31, ptr %36, align 1
   %37 = lshr i64 %.01217.i65, 8
-  %38 = trunc i32 %.01118.i64 to i8
+  %38 = trunc nuw i32 %.01118.i64 to i8
   %39 = or i8 %28, %38
   %40 = lshr i32 %.01118.i64, 1
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i63, 1
@@ -4209,7 +4207,7 @@ enc_uint64.exit78:                                ; preds = %enc_uint64.exit70
   %70 = getelementptr inbounds [9 x i8], ptr %5, i64 0, i64 %indvars.iv.i79
   store i8 %65, ptr %70, align 1
   %71 = lshr i64 %.01217.i81, 8
-  %72 = trunc i32 %.01118.i80 to i8
+  %72 = trunc nuw i32 %.01118.i80 to i8
   %73 = or i8 %62, %72
   %74 = lshr i32 %.01118.i80, 1
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i79, 1
@@ -4281,7 +4279,7 @@ enc_uint64.exit102:                               ; preds = %enc_uint64.exit94
   %102 = trunc i32 %101 to i8
   store i8 %102, ptr %87, align 1
   %103 = lshr i32 %97, 24
-  %104 = trunc i32 %103 to i8
+  %104 = trunc nuw i32 %103 to i8
   store i8 %104, ptr %88, align 1
   %105 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 4, i32 noundef 1)
   %106 = trunc i64 %105 to i32

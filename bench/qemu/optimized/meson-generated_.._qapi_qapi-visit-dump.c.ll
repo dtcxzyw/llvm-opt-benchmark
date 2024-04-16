@@ -40,7 +40,7 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_dump_guest_memory_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_dump_guest_memory_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
@@ -84,7 +84,7 @@ if.then17:                                        ; preds = %if.end15
 if.end21:                                         ; preds = %if.then17, %if.end15
   %has_format = getelementptr inbounds i8, ptr %obj, i64 48
   %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_format) #4
-  br i1 %call22, label %if.then23, label %if.end27
+  br i1 %call22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end21
   %format = getelementptr inbounds i8, ptr %obj, i64 52
@@ -95,13 +95,10 @@ if.then23:                                        ; preds = %if.end21
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %format, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
-  br i1 %call.i, label %if.end27, label %return
-
-if.end27:                                         ; preds = %if.then23, %if.end21
   br label %return
 
-return:                                           ; preds = %if.then23, %if.then17, %if.then11, %if.then5, %if.end, %entry, %if.end27
-  %retval.0 = phi i1 [ true, %if.end27 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ], [ false, %if.then23 ]
+return:                                           ; preds = %if.then23, %if.end21, %if.then17, %if.then11, %if.then5, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ], [ true, %if.end21 ], [ %call.i, %if.then23 ]
   ret i1 %retval.0
 }
 
@@ -237,7 +234,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_DumpQueryResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_DUMP_COMPLETED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_DUMP_COMPLETED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_error = alloca i8, align 1
   %error = getelementptr inbounds i8, ptr %obj, i64 8
@@ -250,17 +247,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_error) #4
-  br i1 %call2, label %if.then3, label %if.end8
+  br i1 %call2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
   %call5 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %error, ptr noundef %errp) #4
-  br i1 %call5, label %if.end8, label %return
-
-if.end8:                                          ; preds = %if.then3, %if.end
   br label %return
 
-return:                                           ; preds = %if.then3, %entry, %if.end8
-  %retval.0 = phi i1 [ true, %if.end8 ], [ false, %entry ], [ false, %if.then3 ]
+return:                                           ; preds = %if.then3, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call5, %if.then3 ]
   ret i1 %retval.0
 }
 

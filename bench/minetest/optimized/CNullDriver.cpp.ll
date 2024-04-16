@@ -6467,7 +6467,7 @@ if.end12:                                         ; preds = %if.then8
   %and6.i.i = lshr i32 %color.coerce, 3
   %shr7.i.i = and i32 %and6.i.i, 31
   %or8.i.i = or disjoint i32 %or5.i.i, %shr7.i.i
-  %conv.i.i = trunc i32 %or8.i.i to i16
+  %conv.i.i = trunc nuw nsw i32 %or8.i.i to i16
   %mul = mul i32 %div90, %dim.sroa.3.0.copyload
   %cmp17102.not = icmp eq i32 %mul, 0
   br i1 %cmp17102.not, label %if.end63, label %for.body.preheader
@@ -6659,7 +6659,7 @@ pred.store.continue196:                           ; preds = %pred.store.if195, %
   br i1 %41, label %middle.block131, label %vector.body142, !llvm.loop !211
 
 middle.block131:                                  ; preds = %pred.store.continue196
-  %ind.end139 = trunc i64 %n.vec136 to i32
+  %ind.end139 = trunc nuw i64 %n.vec136 to i32
   %cmp.n141 = icmp eq i64 %n.vec136, %3
   br i1 %cmp.n141, label %if.end63, label %for.body.preheader5
 
@@ -6814,7 +6814,7 @@ pred.store.continue130:                           ; preds = %pred.store.if129, %
   br i1 %68, label %middle.block, label %vector.body, !llvm.loop !215
 
 middle.block:                                     ; preds = %pred.store.continue130
-  %ind.end = trunc i64 %n.vec to i32
+  %ind.end = trunc nuw i64 %n.vec to i32
   %ind.end107 = getelementptr i8, ptr %call29, i64 %47
   %cmp.n = icmp eq i64 %n.vec, %46
   br i1 %cmp.n, label %if.end63, label %for.body48.preheader6
@@ -6862,7 +6862,7 @@ define void @_ZNK3irr5video11CNullDriver19makeColorKeyTextureEPNS0_8ITextureENS_
 entry:
   %colorKeyPixelPos.sroa.0.0.extract.trunc = trunc i64 %colorKeyPixelPos.coerce to i32
   %colorKeyPixelPos.sroa.3.0.extract.shift = lshr i64 %colorKeyPixelPos.coerce, 32
-  %colorKeyPixelPos.sroa.3.0.extract.trunc = trunc i64 %colorKeyPixelPos.sroa.3.0.extract.shift to i32
+  %colorKeyPixelPos.sroa.3.0.extract.trunc = trunc nuw i64 %colorKeyPixelPos.sroa.3.0.extract.shift to i32
   %tobool.not = icmp eq ptr %texture, null
   br i1 %tobool.not, label %cleanup.cont44, label %if.end
 
@@ -10563,20 +10563,17 @@ entry:
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(1164) %this, i32 noundef %0) #24
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %cleanup, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %vtable2 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %call) #24
-  br i1 %call4, label %cleanup, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end, %land.lhs.true
-  %retval.0 = phi i1 [ false, %if.end ], [ true, %land.lhs.true ]
+cleanup:                                          ; preds = %land.lhs.true, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ %call4, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -11749,7 +11746,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i = sub i64 %3, %4
   %spec.select6.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
@@ -11789,7 +11786,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %3, %9
   %spec.select6.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
@@ -11847,7 +11844,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i.i = sub i64 %15, %17
   %spec.select6.i.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
@@ -11969,7 +11966,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %4, %2
   %spec.select6.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
@@ -12000,7 +11997,7 @@ if.then.i.i.i.i.i.i38.i.i:                        ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i39.i.i = sub i64 %2, %8
   %spec.select6.i.i.i.i.i.i.i40.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i39.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i41.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i40.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i42.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i41.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i42.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i41.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit43.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit43.i.i: ; preds = %if.then.i.i.i.i.i.i38.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i31.i.i
@@ -12069,7 +12066,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -12140,7 +12137,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i = sub i64 %10, %8
   %spec.select6.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
@@ -12193,7 +12190,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -12223,7 +12220,7 @@ if.then.i.i.i.i.i.i74:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i75 = sub i64 %3, %9
   %spec.select6.i.i.i.i.i.i.i76 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i75, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i77 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i76, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i78 = trunc i64 %retval.07.i.i.i.i.i.i.i77 to i32
+  %retval.0.i12.i.i.i.i.i.i78 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i77 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit79
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit79: ; preds = %if.then.i.i.i.i.i.i74, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i67
@@ -12255,7 +12252,7 @@ if.then.i.i.i.i.i.i91:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i92 = sub i64 %2, %9
   %spec.select6.i.i.i.i.i.i.i93 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i92, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i94 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i93, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i95 = trunc i64 %retval.07.i.i.i.i.i.i.i94 to i32
+  %retval.0.i12.i.i.i.i.i.i95 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i94 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit96
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit96: ; preds = %if.then.i.i.i.i.i.i91, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i84
@@ -12292,7 +12289,7 @@ if.then.i.i.i.i.i.i110:                           ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i111 = sub i64 %2, %9
   %spec.select6.i.i.i.i.i.i.i112 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i111, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i113 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i112, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i114 = trunc i64 %retval.07.i.i.i.i.i.i.i113 to i32
+  %retval.0.i12.i.i.i.i.i.i114 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i113 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit115
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit115: ; preds = %if.then.i.i.i.i.i.i110, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i103
@@ -12324,7 +12321,7 @@ if.then.i.i.i.i.i.i128:                           ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i129 = sub i64 %3, %9
   %spec.select6.i.i.i.i.i.i.i130 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i129, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i131 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i130, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i132 = trunc i64 %retval.07.i.i.i.i.i.i.i131 to i32
+  %retval.0.i12.i.i.i.i.i.i132 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i131 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit133
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit133: ; preds = %if.then.i.i.i.i.i.i128, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i121
@@ -12392,7 +12389,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -12438,7 +12435,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i = sub i64 %2, %8
   %spec.select6.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
@@ -12535,7 +12532,7 @@ if.then.i.i.i.i.i.i53:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i54 = sub i64 %1, %3
   %spec.select6.i.i.i.i.i.i.i55 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i54, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i56 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i55, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i57 = trunc i64 %retval.07.i.i.i.i.i.i.i56 to i32
+  %retval.0.i12.i.i.i.i.i.i57 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i56 to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i53, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i46
@@ -12571,7 +12568,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i = sub i64 %10, %1
   %spec.select6.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
@@ -12620,7 +12617,7 @@ if.then.i.i.i.i.i.i.i99:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i100 = sub i64 %1, %15
   %spec.select6.i.i.i.i.i.i.i.i101 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i100, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i102 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i101, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i103 = trunc i64 %retval.07.i.i.i.i.i.i.i.i102 to i32
+  %retval.0.i12.i.i.i.i.i.i.i103 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i102 to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i99, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i88
@@ -12698,7 +12695,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %3, %1
   %spec.select6.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
@@ -12759,7 +12756,7 @@ if.then.i.i.i.i.i61:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i62 = sub i64 %1, %8
   %spec.select6.i.i.i.i.i.i63 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i62, i64 -2147483648)
   %retval.07.i.i.i.i.i.i64 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i63, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i65 = trunc i64 %retval.07.i.i.i.i.i.i64 to i32
+  %retval.0.i12.i.i.i.i.i65 = trunc nsw i64 %retval.07.i.i.i.i.i.i64 to i32
   br label %_ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit66
 
 _ZNK3irr5video11CNullDriver8SSurfaceltERKS2_.exit66: ; preds = %if.then.i.i.i.i.i61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54

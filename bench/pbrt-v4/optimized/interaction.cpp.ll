@@ -1457,7 +1457,7 @@ entry:
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %1, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb1.i.i.i
@@ -1684,7 +1684,7 @@ if.then:                                          ; preds = %while.end
 if.end:                                           ; preds = %while.end
   %32 = inttoptr i64 %and.i to ptr
   %shr.i.i.i9 = lshr i64 %.lcssa, 57
-  %conv.i.i.i10 = trunc i64 %shr.i.i.i9 to i32
+  %conv.i.i.i10 = trunc nuw nsw i64 %shr.i.i.i9 to i32
   switch i32 %conv.i.i.i10, label %sw.default.i.i.i12 [
     i32 1, label %_ZNK4pbrt8Material15GetDisplacementEv.exit
     i32 2, label %_ZNK4pbrt8Material15GetDisplacementEv.exit
@@ -2031,7 +2031,7 @@ _ZN4pbrt18SurfaceInteraction18SetShadingGeometryENS_7Normal3IfEENS_7Vector3IfEES
   %.pre189 = and i64 %.pre, 144115188075855871
   %.pre190 = inttoptr i64 %.pre189 to ptr
   %.pre191 = lshr i64 %.pre, 57
-  %.pre192 = trunc i64 %.pre191 to i32
+  %.pre192 = trunc nuw nsw i64 %.pre191 to i32
   br label %if.end37
 
 if.end37:                                         ; preds = %_ZNK4pbrt8Material12GetNormalMapEv.exit, %_ZN4pbrt18SurfaceInteraction18SetShadingGeometryENS_7Normal3IfEENS_7Vector3IfEES4_S2_S2_b.exit
@@ -2122,7 +2122,7 @@ if.then44:                                        ; preds = %land.lhs.true
   %and.i.i.i153 = and i64 %119, 144115188075855871
   %120 = inttoptr i64 %and.i.i.i153 to ptr
   %shr.i.i.i154 = lshr i64 %119, 57
-  %conv.i.i.i155 = trunc i64 %shr.i.i.i154 to i32
+  %conv.i.i.i155 = trunc nuw nsw i64 %shr.i.i.i154 to i32
   %sub.i.i156 = add nsw i32 %conv.i.i.i155, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get1DEvEUlT_E_fNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i, ptr noundef %120, i32 noundef %sub.i.i156)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i)
@@ -2132,7 +2132,7 @@ if.then44:                                        ; preds = %land.lhs.true
   %and.i.i.i158 = and i64 %121, 144115188075855871
   %122 = inttoptr i64 %and.i.i.i158 to ptr
   %shr.i.i.i159 = lshr i64 %121, 57
-  %conv.i.i.i160 = trunc i64 %shr.i.i.i159 to i32
+  %conv.i.i.i160 = trunc nuw nsw i64 %shr.i.i.i159 to i32
   %sub.i.i161 = add nsw i32 %conv.i.i.i160, -1
   %call3.i.i162 = call <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sampler5Get2DEvEUlT_E_NS_6Point2IfEENS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerEJNS_15DebugMLTSamplerEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %get.i157, ptr noundef %122, i32 noundef %sub.i.i161)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %get.i157)
@@ -2757,7 +2757,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -3045,7 +3045,7 @@ while.end:                                        ; preds = %_ZNK4pbrt11MixMater
   %and.i.i.i = and i64 %.lcssa, 144115188075855871
   %29 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %.lcssa, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
@@ -3598,33 +3598,32 @@ entry:
   %cmp4 = fcmp olt float %1, 0x3FE70A3D80000000
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   %.pre = extractelement <2 x float> %from.coerce0, i64 1
-  br i1 %or.cond, label %entry.if.end15_crit_edge, label %if.else
-
-entry.if.end15_crit_edge:                         ; preds = %entry
-  %.pre132 = extractelement <2 x float> %to.coerce0, i64 1
-  br label %if.end15
+  br i1 %or.cond, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %entry
   %2 = tail call noundef float @llvm.fabs.f32(float %.pre)
   %cmp6 = fcmp olt float %2, 0x3FE70A3D80000000
+  br i1 %cmp6, label %land.lhs.true7, label %if.end15
+
+land.lhs.true7:                                   ; preds = %if.else
   %to.sroa.0.4.vec.extract = extractelement <2 x float> %to.coerce0, i64 1
-  %3 = tail call float @llvm.fabs.f32(float %to.sroa.0.4.vec.extract)
+  %3 = tail call noundef float @llvm.fabs.f32(float %to.sroa.0.4.vec.extract)
   %cmp10 = fcmp olt float %3, 0x3FE70A3D80000000
-  %or.cond123 = select i1 %cmp6, i1 %cmp10, i1 false
-  %spec.select = select i1 %or.cond123, float 1.000000e+00, float 0.000000e+00
-  %spec.select124 = select i1 %or.cond123, float 0.000000e+00, float 1.000000e+00
+  br i1 %cmp10, label %if.end15, label %if.else13
+
+if.else13:                                        ; preds = %land.lhs.true7
   br label %if.end15
 
-if.end15:                                         ; preds = %entry.if.end15_crit_edge, %if.else
-  %c.sroa.0.4.vec.extract.i22.pre-phi = phi float [ %.pre132, %entry.if.end15_crit_edge ], [ %to.sroa.0.4.vec.extract, %if.else ]
-  %refl.sroa.0.0 = phi float [ 1.000000e+00, %entry.if.end15_crit_edge ], [ 0.000000e+00, %if.else ]
-  %refl.sroa.6.0 = phi float [ 0.000000e+00, %entry.if.end15_crit_edge ], [ %spec.select, %if.else ]
-  %refl.sroa.12.0 = phi float [ 0.000000e+00, %entry.if.end15_crit_edge ], [ %spec.select124, %if.else ]
+if.end15:                                         ; preds = %entry, %if.else, %land.lhs.true7, %if.else13
+  %refl.sroa.0.0 = phi float [ 0.000000e+00, %if.else ], [ 0.000000e+00, %land.lhs.true7 ], [ 0.000000e+00, %if.else13 ], [ 1.000000e+00, %entry ]
+  %refl.sroa.6.0 = phi float [ 0.000000e+00, %if.else ], [ 1.000000e+00, %land.lhs.true7 ], [ 0.000000e+00, %if.else13 ], [ 0.000000e+00, %entry ]
+  %refl.sroa.12.0 = phi float [ 1.000000e+00, %if.else ], [ 0.000000e+00, %land.lhs.true7 ], [ 1.000000e+00, %if.else13 ], [ 0.000000e+00, %entry ]
   %sub.i = fsub float %refl.sroa.0.0, %from.sroa.0.0.vec.extract
   %sub4.i = fsub float %refl.sroa.6.0, %.pre
   %sub6.i = fsub float %refl.sroa.12.0, %from.coerce1
   %sub.i20 = fsub float %refl.sroa.0.0, %to.sroa.0.0.vec.extract
-  %sub4.i23 = fsub float %refl.sroa.6.0, %c.sroa.0.4.vec.extract.i22.pre-phi
+  %c.sroa.0.4.vec.extract.i22 = extractelement <2 x float> %to.coerce0, i64 1
+  %sub4.i23 = fsub float %refl.sroa.6.0, %c.sroa.0.4.vec.extract.i22
   %sub6.i25 = fsub float %refl.sroa.12.0, %to.coerce1
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %r)
   %mul.i = fmul float %sub.i, %sub.i
@@ -3650,13 +3649,13 @@ if.end15:                                         ; preds = %entry.if.end15_crit
   br label %for.cond22.preheader
 
 for.cond22.preheader:                             ; preds = %if.end15, %for.inc61
-  %indvars.iv128 = phi i64 [ 0, %if.end15 ], [ %indvars.iv.next129, %for.inc61 ]
-  %4 = trunc i64 %indvars.iv128 to i32
+  %indvars.iv126 = phi i64 [ 0, %if.end15 ], [ %indvars.iv.next127, %for.inc61 ]
+  %4 = trunc nuw nsw i64 %indvars.iv126 to i32
   br label %for.body24
 
 for.body24:                                       ; preds = %for.cond22.preheader, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97
   %indvars.iv = phi i64 [ 0, %for.cond22.preheader ], [ %indvars.iv.next, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97 ]
-  %cmp25 = icmp eq i64 %indvars.iv128, %indvars.iv
+  %cmp25 = icmp eq i64 %indvars.iv126, %indvars.iv
   %conv = uitofp i1 %cmp25 to float
   switch i32 %4, label %if.end4.i [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
@@ -3672,7 +3671,7 @@ if.end4.i:                                        ; preds = %for.body24
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %for.body24, %if.then3.i, %if.end4.i
   %retval.0.i.sroa.speculated = phi float [ %sub4.i, %if.then3.i ], [ %sub6.i, %if.end4.i ], [ %sub.i, %for.body24 ]
   %mul = fmul float %div, %retval.0.i.sroa.speculated
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %5, label %if.end4.i35 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit37
     i32 1, label %if.then3.i32
@@ -3755,9 +3754,9 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97:        ; preds = %_ZN4pbrt6Tuple3INS_
   br i1 %exitcond.not, label %for.inc61, label %for.body24, !llvm.loop !97
 
 for.inc61:                                        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 3
-  br i1 %exitcond131.not, label %for.end63, label %for.cond22.preheader, !llvm.loop !98
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond129.not = icmp eq i64 %indvars.iv.next127, 3
+  br i1 %exitcond129.not, label %for.end63, label %for.cond22.preheader, !llvm.loop !98
 
 for.end63:                                        ; preds = %for.inc61
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp64)
@@ -3765,12 +3764,12 @@ for.end63:                                        ; preds = %for.inc61
 
 for.cond1.preheader.i:                            ; preds = %for.inc9.i, %for.end63
   %indvars.iv11.i = phi i64 [ 0, %for.end63 ], [ %indvars.iv.next12.i, %for.inc9.i ]
-  %7 = trunc i64 %indvars.iv11.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv11.i to i32
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.body3.i, %for.cond1.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %indvars.iv.next.i, %for.body3.i ]
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i = call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %r, i32 noundef %8)
   %9 = extractvalue { ptr, i64 } %call.i, 0
   %arrayidx.i.i = getelementptr inbounds float, ptr %9, i64 %indvars.iv11.i
@@ -5534,7 +5533,7 @@ sw.bb:                                            ; preds = %if.end
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp9.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i = lshr i64 %agg.tmp9.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i = trunc i64 %p.sroa.2.0.extract.shift.i to i32
+  %p.sroa.2.0.extract.trunc.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i to i32
   %nStored.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %nStored.i.i.i, align 8
   %conv.i.i = trunc i64 %1 to i32
@@ -5552,7 +5551,7 @@ sw.bb:                                            ; preds = %if.end
   %and.i.i.i = and i64 %5, 144115188075855871
   %6 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %for.body.i.i.i.i.i.preheader
     i32 2, label %sw.bb3.i.i.i
@@ -5581,7 +5580,7 @@ sw.bb14:                                          ; preds = %if.end
   %agg.tmp15.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i4 = trunc i64 %agg.tmp15.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i5 = lshr i64 %agg.tmp15.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i6 = trunc i64 %p.sroa.2.0.extract.shift.i5 to i32
+  %p.sroa.2.0.extract.trunc.i6 = trunc nuw i64 %p.sroa.2.0.extract.shift.i5 to i32
   %nStored.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i64, ptr %nStored.i.i.i7, align 8
   %conv.i.i8 = trunc i64 %9 to i32
@@ -5631,7 +5630,7 @@ sw.bb22:                                          ; preds = %if.end
   %agg.tmp23.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i18 = trunc i64 %agg.tmp23.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i19 = lshr i64 %agg.tmp23.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i20 = trunc i64 %p.sroa.2.0.extract.shift.i19 to i32
+  %p.sroa.2.0.extract.trunc.i20 = trunc nuw i64 %p.sroa.2.0.extract.shift.i19 to i32
   %nStored.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load i64, ptr %nStored.i.i.i21, align 8
   %conv.i.i22 = trunc i64 %17 to i32
@@ -5667,11 +5666,11 @@ entry:
   %wrapMode.sroa.2 = alloca i32, align 4
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.9.0.extract.shift = lshr i64 %resolution.coerce, 32
-  %resolution.sroa.9.0.extract.trunc = trunc i64 %resolution.sroa.9.0.extract.shift to i32
+  %resolution.sroa.9.0.extract.trunc = trunc nuw i64 %resolution.sroa.9.0.extract.shift to i32
   %wrapMode.sroa.0.0.extract.trunc = trunc i64 %wrapMode.coerce to i32
   store i32 %wrapMode.sroa.0.0.extract.trunc, ptr %wrapMode.sroa.0, align 8
   %wrapMode.sroa.2.0.extract.shift = lshr i64 %wrapMode.coerce, 32
-  %wrapMode.sroa.2.0.extract.trunc = trunc i64 %wrapMode.sroa.2.0.extract.shift to i32
+  %wrapMode.sroa.2.0.extract.trunc = trunc nuw i64 %wrapMode.sroa.2.0.extract.shift to i32
   store i32 %wrapMode.sroa.2.0.extract.trunc, ptr %wrapMode.sroa.2, align 4
   %0 = and i64 %wrapMode.coerce, 4294967295
   %cmp = icmp eq i64 %0, 3
@@ -6050,7 +6049,7 @@ sw.bb1:                                           ; preds = %entry
   %shr3.i.i.i.i = xor i64 %2, %3
   %conv.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
   %shr4.i.i.i.i = lshr i64 %0, 59
-  %conv5.i.i.i.i = trunc i64 %shr4.i.i.i.i to i32
+  %conv5.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i to i32
   %or.i.i.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i, i32 %conv.i.i.i.i, i32 %conv5.i.i.i.i)
   %conv.i.i.i = uitofp i32 %or.i.i.i.i to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3DF0000000000000
@@ -6559,7 +6558,7 @@ cond.true:                                        ; preds = %_ZN4pbrt18Permutati
   %shr3.i.i = xor i64 %9, %10
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %7, 59
-  %conv5.i.i = trunc i64 %shr4.i.i to i32
+  %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i2 = fmul float %conv.i, 0x3DF0000000000000
@@ -6922,7 +6921,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %dimension, align 4
   %shr = lshr i64 %mul41.i.i, 32
-  %conv4 = trunc i64 %shr to i32
+  %conv4 = trunc nuw i64 %shr to i32
   %call5 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 0, i32 noundef %rem.i, i32 noundef %conv4)
   ret float %call5
 }
@@ -7690,7 +7689,7 @@ sw.bb1:                                           ; preds = %entry
   %6 = xor <2 x i64> %4, %5
   %7 = trunc <2 x i64> %6 to <2 x i32>
   %8 = lshr <2 x i64> %3, <i64 59, i64 59>
-  %9 = trunc <2 x i64> %8 to <2 x i32>
+  %9 = trunc nuw nsw <2 x i64> %8 to <2 x i32>
   %10 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %7, <2 x i32> %7, <2 x i32> %9)
   %11 = uitofp <2 x i32> %10 to <2 x float>
   %12 = fmul <2 x float> %11, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -8069,7 +8068,7 @@ cond.true9:                                       ; preds = %_ZN4pbrt18Permutati
   %14 = xor <2 x i64> %12, %13
   %15 = trunc <2 x i64> %14 to <2 x i32>
   %16 = lshr <2 x i64> %11, <i64 59, i64 59>
-  %17 = trunc <2 x i64> %16 to <2 x i32>
+  %17 = trunc nuw nsw <2 x i64> %16 to <2 x i32>
   %18 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %15, <2 x i32> %15, <2 x i32> %17)
   %19 = uitofp <2 x i32> %18 to <2 x float>
   %20 = fmul <2 x float> %19, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -8195,7 +8194,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %do.body.i
   store i32 %add, ptr %dimension, align 4
   %call6 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 0, i32 noundef %rem.i, i32 noundef %conv)
   %shr = lshr i64 %mul41.i.i, 32
-  %conv7 = trunc i64 %shr to i32
+  %conv7 = trunc nuw i64 %shr to i32
   %call8 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %this, i32 noundef 1, i32 noundef %rem.i, i32 noundef %conv7)
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call6, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call8, i64 1
@@ -8311,7 +8310,7 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   %conv = trunc i64 %xor43.i.i to i32
   %shr = lshr i64 %mul41.i.i, 32
-  %conv4 = trunc i64 %shr to i32
+  %conv4 = trunc nuw i64 %shr to i32
   %17 = load i32, ptr %this, align 8
   %cmp.not6.i154 = icmp eq i64 %sampleIndex.1.i, 0
   switch i32 %17, label %if.else29 [
@@ -12401,7 +12400,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -12492,7 +12491,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -12574,7 +12573,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -12953,7 +12952,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -13041,7 +13040,7 @@ entry:
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %1, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i, ptr noundef %2, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lambda.addr.i)
@@ -13570,7 +13569,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -13650,7 +13649,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -13730,7 +13729,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -14245,7 +14244,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 8
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -14464,7 +14463,7 @@ entry:
   %and.i.i.i.i = and i64 %4, 144115188075855871
   %5 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %4, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i.i, ptr noundef %5, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lambda.addr.i.i)
@@ -14582,7 +14581,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
@@ -14662,7 +14661,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc i64 %rem.i to i32
+  %1 = trunc nuw nsw i64 %rem.i to i32
   %reass.sub = sub i32 %0, %1
   %conv7.i = add i32 %reass.sub, 8
   store i32 %conv7.i, ptr %offset.i, align 4

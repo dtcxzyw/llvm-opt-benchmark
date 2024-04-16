@@ -296,7 +296,8 @@ sw.bb26.i.i.i.i.i:                                ; preds = %if.end24.i.i.i.i.i,
   %conv.i.i42.i.i.i.i.i = sext i8 %__first.addr.2.val.i.i.i.i.i to i32
   %call.i.i43.i.i.i.i.i = tail call noundef i32 @isalpha(i32 noundef %conv.i.i42.i.i.i.i.i) #17
   %tobool.not.i44.i.i.i.i.i = icmp eq i32 %call.i.i43.i.i.i.i.i, 0
-  br i1 %tobool.not.i44.i.i.i.i.i, label %invoke.cont8, label %if.then10
+  %spec.select.i.i.i.i.i = select i1 %tobool.not.i44.i.i.i.i.i, ptr %__first.addr.2.i.i.i.i.i, ptr %add.ptr.i.i.i
+  br label %invoke.cont8
 
 invoke.cont8.loopexit.split.loop.exit:            ; preds = %if.end8.i.i.i.i.i
   %incdec.ptr9.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.056.i.i.i.i.i, i64 3
@@ -311,11 +312,11 @@ invoke.cont8.loopexit.split.loop.exit113:         ; preds = %if.end.i.i.i.i.i
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %for.body.i.i.i.i.i, %invoke.cont8.loopexit.split.loop.exit, %invoke.cont8.loopexit.split.loop.exit111, %invoke.cont8.loopexit.split.loop.exit113, %sw.bb.i.i.i.i.i, %sw.bb21.i.i.i.i.i, %sw.bb26.i.i.i.i.i
-  %retval.0.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i, %sw.bb21.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i, %sw.bb26.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit111 ], [ %incdec.ptr.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit113 ], [ %__first.addr.056.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i, %sw.bb21.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb26.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit111 ], [ %incdec.ptr.i.i.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit113 ], [ %__first.addr.056.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %retval.0.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i, label %if.then10, label %if.else126
 
-if.then10:                                        ; preds = %sw.bb26.i.i.i.i.i, %for.end.i.i.i.i.i, %invoke.cont8
+if.then10:                                        ; preds = %for.end.i.i.i.i.i, %invoke.cont8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %u, i8 0, i64 32, i1 false)
   %conv17 = zext i1 %strict to i8
   %call19 = invoke noundef i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %1, i64 noundef %sub.ptr.sub.i, i32 noundef 0, ptr noundef nonnull %u, i8 noundef zeroext %conv17)
@@ -982,7 +983,7 @@ if.end.i.i2:                                      ; preds = %for.body.i.i.i.i
 
 _ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toItEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_ItEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit: ; preds = %for.cond.i.i.i.i, %if.then.i.i
   %ref.tmp.sroa.3.0.extract.shift.i.i = lshr i32 %call.i.i.i, 16
-  %ref.tmp.sroa.3.0.extract.trunc.i.i = trunc i32 %ref.tmp.sroa.3.0.extract.shift.i.i to i16
+  %ref.tmp.sroa.3.0.extract.trunc.i.i = trunc nuw i32 %ref.tmp.sroa.3.0.extract.shift.i.i to i16
   ret i16 %ref.tmp.sroa.3.0.extract.trunc.i.i
 }
 
@@ -1158,8 +1159,8 @@ entry:
   %params.sroa.0.0.copyload = load ptr, ptr %query_, align 8
   %params.sroa.4.0.query_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 120
   %params.sroa.4.0.copyload = load ptr, ptr %params.sroa.4.0.query_.sroa_idx, align 8
-  %cmp.i23 = icmp eq ptr %params.sroa.0.0.copyload, %params.sroa.4.0.copyload
-  br i1 %cmp.i23, label %while.end, label %invoke.cont2.lr.ph
+  %cmp.i22 = icmp eq ptr %params.sroa.0.0.copyload, %params.sroa.4.0.copyload
+  br i1 %cmp.i22, label %while.end, label %invoke.cont2.lr.ph
 
 invoke.cont2.lr.ph:                               ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %params.sroa.4.0.copyload to i64
@@ -1171,17 +1172,17 @@ invoke.cont2.lr.ph:                               ; preds = %entry
   br i1 %cmp.i8.i.i.i.i.fr, label %invoke.cont2.us, label %invoke.cont2
 
 invoke.cont2.us:                                  ; preds = %invoke.cont2.lr.ph, %while.cond.backedge.us
-  %params.sroa.0.024.us = phi ptr [ %spec.select.i.us, %while.cond.backedge.us ], [ %params.sroa.0.0.copyload, %invoke.cont2.lr.ph ]
-  %sub.ptr.rhs.cast.i.i.i.i.us = ptrtoint ptr %params.sroa.0.024.us to i64
+  %params.sroa.0.023.us = phi ptr [ %spec.select.i.us, %while.cond.backedge.us ], [ %params.sroa.0.0.copyload, %invoke.cont2.lr.ph ]
+  %sub.ptr.rhs.cast.i.i.i.i.us = ptrtoint ptr %params.sroa.0.023.us to i64
   %sub.ptr.sub.i.i.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.us
-  %call3.i.i.i.us = tail call noundef ptr @memchr(ptr noundef %params.sroa.0.024.us, i32 noundef 38, i64 noundef %sub.ptr.sub.i.i.i.i.us) #17
+  %call3.i.i.i.us = tail call noundef ptr @memchr(ptr noundef %params.sroa.0.023.us, i32 noundef 38, i64 noundef %sub.ptr.sub.i.i.i.i.us) #17
   %cmp.i.i.i.us = icmp eq ptr %call3.i.i.i.us, null
   %sub.ptr.lhs.cast.i.i.i.us = ptrtoint ptr %call3.i.i.i.us to i64
   %sub.ptr.sub.i.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i.us, %sub.ptr.rhs.cast.i.i.i.i.us
   %cmp.i1.us = icmp eq i64 %sub.ptr.sub.i.i.i.us, -1
   %or.cond.i.us = or i1 %cmp.i.i.i.us, %cmp.i1.us
   %spec.select10.i.us = select i1 %or.cond.i.us, i64 %sub.ptr.sub.i.i.i.i.us, i64 %sub.ptr.sub.i.i.i.us
-  %add.ptr.i.i.us = getelementptr inbounds i8, ptr %params.sroa.0.024.us, i64 %spec.select10.i.us
+  %add.ptr.i.i.us = getelementptr inbounds i8, ptr %params.sroa.0.023.us, i64 %spec.select10.i.us
   %cmp4.i.us = icmp eq ptr %add.ptr.i.i.us, %params.sroa.4.0.copyload
   %incdec.ptr.i.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.us, i64 1
   %spec.select.i.us = select i1 %cmp4.i.us, ptr %params.sroa.4.0.copyload, ptr %incdec.ptr.i.i.i.i.us
@@ -1189,9 +1190,9 @@ invoke.cont2.us:                                  ; preds = %invoke.cont2.lr.ph,
   br i1 %cmp.not.i.i.us, label %while.cond.backedge.us, label %land.rhs.i.i.i.us
 
 land.rhs.i.i.i.us:                                ; preds = %invoke.cont2.us
-  %add.ptr.i.us = getelementptr inbounds i8, ptr %params.sroa.0.024.us, i64 %sub.ptr.sub.i6.i.i
-  %cmp.i.i.i6.us = icmp eq i64 %sub.ptr.sub.i6.i.i, %spec.select10.i.us
-  br i1 %cmp.i.i.i6.us, label %if.end11, label %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i.us
+  %add.ptr.i.us = getelementptr inbounds i8, ptr %params.sroa.0.023.us, i64 %sub.ptr.sub.i6.i.i
+  %cmp.i.i.i5.us = icmp eq i64 %sub.ptr.sub.i6.i.i, %spec.select10.i.us
+  br i1 %cmp.i.i.i5.us, label %if.end11, label %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i.us
 
 _ZNK5folly5RangeIPKcE10startsWithEc.exit.i.us:    ; preds = %land.rhs.i.i.i.us
   %0 = load i8, ptr %add.ptr.i.us, align 1
@@ -1203,17 +1204,17 @@ while.cond.backedge.us:                           ; preds = %_ZNK5folly5RangeIPK
   br i1 %cmp.i.us, label %while.end, label %invoke.cont2.us, !llvm.loop !43
 
 invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph, %while.cond.backedge
-  %params.sroa.0.024 = phi ptr [ %spec.select.i, %while.cond.backedge ], [ %params.sroa.0.0.copyload, %invoke.cont2.lr.ph ]
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %params.sroa.0.024 to i64
+  %params.sroa.0.023 = phi ptr [ %spec.select.i, %while.cond.backedge ], [ %params.sroa.0.0.copyload, %invoke.cont2.lr.ph ]
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %params.sroa.0.023 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %call3.i.i.i = tail call noundef ptr @memchr(ptr noundef %params.sroa.0.024, i32 noundef 38, i64 noundef %sub.ptr.sub.i.i.i.i) #17
+  %call3.i.i.i = tail call noundef ptr @memchr(ptr noundef %params.sroa.0.023, i32 noundef 38, i64 noundef %sub.ptr.sub.i.i.i.i) #17
   %cmp.i.i.i = icmp eq ptr %call3.i.i.i, null
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call3.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i1 = icmp eq i64 %sub.ptr.sub.i.i.i, -1
   %or.cond.i = or i1 %cmp.i.i.i, %cmp.i1
   %spec.select10.i = select i1 %or.cond.i, i64 %sub.ptr.sub.i.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %params.sroa.0.024, i64 %spec.select10.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %params.sroa.0.023, i64 %spec.select10.i
   %cmp4.i = icmp eq ptr %add.ptr.i.i, %params.sroa.4.0.copyload
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
   %spec.select.i = select i1 %cmp4.i, ptr %params.sroa.4.0.copyload, ptr %incdec.ptr.i.i.i.i
@@ -1221,25 +1222,25 @@ invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph,
   br i1 %cmp.not.i.i, label %while.cond.backedge, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %invoke.cont2
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %params.sroa.0.024, ptr %name.coerce0, i64 %sub.ptr.sub.i6.i.i)
-  %cmp.i.i.i.i4 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %cmp.i.i.i.i4, label %if.end, label %while.cond.backedge
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %params.sroa.0.023, ptr %name.coerce0, i64 %sub.ptr.sub.i6.i.i)
+  %1 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %1, label %if.end, label %while.cond.backedge
 
 if.end:                                           ; preds = %land.rhs.i.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %params.sroa.0.024, i64 %sub.ptr.sub.i6.i.i
-  %cmp.i.i.i6 = icmp eq i64 %sub.ptr.sub.i6.i.i, %spec.select10.i
-  br i1 %cmp.i.i.i6, label %if.end11, label %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %params.sroa.0.023, i64 %sub.ptr.sub.i6.i.i
+  %cmp.i.i.i5 = icmp eq i64 %sub.ptr.sub.i6.i.i, %spec.select10.i
+  br i1 %cmp.i.i.i5, label %if.end11, label %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i
 
 _ZNK5folly5RangeIPKcE10startsWithEc.exit.i:       ; preds = %if.end
-  %1 = load i8, ptr %add.ptr.i, align 1
-  %cmp.i.i = icmp eq i8 %1, 61
+  %2 = load i8, ptr %add.ptr.i, align 1
+  %cmp.i.i = icmp eq i8 %2, 61
   br i1 %cmp.i.i, label %invoke.cont6, label %while.cond.backedge
 
 invoke.cont6:                                     ; preds = %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i.us
-  %2 = phi ptr [ %params.sroa.0.024.us, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i.us ], [ %params.sroa.0.024, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i ]
-  %.us-phi25 = phi ptr [ %add.ptr.i.i.us, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i.us ], [ %add.ptr.i.i, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i ]
-  %3 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i6.i.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 1
+  %3 = phi ptr [ %params.sroa.0.023.us, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i.us ], [ %params.sroa.0.023, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i ]
+  %.us-phi24 = phi ptr [ %add.ptr.i.i.us, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i.us ], [ %add.ptr.i.i, %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i ]
+  %4 = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i6.i.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 1
   br label %if.end11
 
 while.cond.backedge:                              ; preds = %_ZNK5folly5RangeIPKcE10startsWithEc.exit.i, %invoke.cont2, %land.rhs.i.i.i
@@ -1247,19 +1248,19 @@ while.cond.backedge:                              ; preds = %_ZNK5folly5RangeIPK
   br i1 %cmp.i, label %while.end, label %invoke.cont2, !llvm.loop !43
 
 if.end11:                                         ; preds = %if.end, %land.rhs.i.i.i.us, %invoke.cont6
-  %add.ptr.i.i21 = phi ptr [ %.us-phi25, %invoke.cont6 ], [ %add.ptr.i.i.us, %land.rhs.i.i.i.us ], [ %add.ptr.i.i, %if.end ]
-  %param.sroa.0.119 = phi ptr [ %incdec.ptr.i, %invoke.cont6 ], [ %add.ptr.i.us, %land.rhs.i.i.i.us ], [ %add.ptr.i, %if.end ]
+  %add.ptr.i.i20 = phi ptr [ %.us-phi24, %invoke.cont6 ], [ %add.ptr.i.i.us, %land.rhs.i.i.i.us ], [ %add.ptr.i.i, %if.end ]
+  %param.sroa.0.118 = phi ptr [ %incdec.ptr.i, %invoke.cont6 ], [ %add.ptr.i.us, %land.rhs.i.i.i.us ], [ %add.ptr.i, %if.end ]
   %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %param.sroa.0.119, ptr %agg.result, align 8
+  store ptr %param.sroa.0.118, ptr %agg.result, align 8
   %param.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i.i21, ptr %param.sroa.7.0.agg.result.sroa_idx, align 8
+  store ptr %add.ptr.i.i20, ptr %param.sroa.7.0.agg.result.sroa_idx, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   br label %return
 
 while.end:                                        ; preds = %while.cond.backedge, %while.cond.backedge.us, %entry
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 0, ptr %hasValue.i.i10, align 8
+  %hasValue.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store i8 0, ptr %hasValue.i.i9, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.end11
@@ -1450,7 +1451,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i.i.i.i.i.i.i
   %9 = lshr i16 %8, 8
-  %conv4.i.i.i.i.i.i.i.i = trunc i16 %9 to i8
+  %conv4.i.i.i.i.i.i.i.i = trunc nuw i16 %9 to i8
   store i8 %conv4.i.i.i.i.i.i.i.i, ptr %buffer.i.i.i.i, align 16
   br label %_ZN5folly8toAppendIJNS_5RangeIPKcEEA2_ctPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt9enable_ifIXaagesZT_Li3Esr12IsSomeStringINSt14remove_pointerI19__type_pack_elementIXmisPDpT_ELi1EEJSH_EEE4typeEEE5valueEvE4typeEDpRKSG_.exit
 

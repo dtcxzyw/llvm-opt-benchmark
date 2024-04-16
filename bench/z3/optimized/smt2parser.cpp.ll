@@ -5337,7 +5337,7 @@ _ZN4smt26parser12check_rparenEPKc.exit:           ; preds = %_ZN15ref_vector_cor
   %m_print_success.i.i = getelementptr inbounds i8, ptr %48, i64 258
   %49 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %49 to i1
-  br i1 %tobool.i.i, label %_ZN11cmd_context13print_successEv.exit, label %sw.bb2.i.i46
+  br i1 %tobool.i.i, label %_ZN11cmd_context13print_successEv.exit, label %sw.epilog.sink.split.i.i47
 
 _ZN11cmd_context13print_successEv.exit:           ; preds = %_ZN4smt26parser12check_rparenEPKc.exit
   %vtable.i = load ptr, ptr %48, align 8
@@ -5353,11 +5353,11 @@ _ZN11cmd_context13print_successEv.exit:           ; preds = %_ZN4smt26parser12ch
     i32 2, label %sw.bb2.i.i46
   ]
 
-sw.bb2.i.i46:                                     ; preds = %_ZN4smt26parser12check_rparenEPKc.exit, %_ZN11cmd_context13print_successEv.exit
+sw.bb2.i.i46:                                     ; preds = %_ZN11cmd_context13print_successEv.exit
   br label %sw.epilog.sink.split.i.i47
 
-sw.epilog.sink.split.i.i47:                       ; preds = %sw.bb2.i.i46, %_ZN11cmd_context13print_successEv.exit
-  %.sink1.i.i48 = phi i32 [ -1, %sw.bb2.i.i46 ], [ %.pre, %_ZN11cmd_context13print_successEv.exit ]
+sw.epilog.sink.split.i.i47:                       ; preds = %_ZN4smt26parser12check_rparenEPKc.exit, %sw.bb2.i.i46, %_ZN11cmd_context13print_successEv.exit
+  %.sink1.i.i48 = phi i32 [ %.pre, %_ZN11cmd_context13print_successEv.exit ], [ -1, %sw.bb2.i.i46 ], [ -1, %_ZN4smt26parser12check_rparenEPKc.exit ]
   %m_num_open_paren.i.i49 = getelementptr inbounds i8, ptr %this, i64 2088
   %51 = load i32, ptr %m_num_open_paren.i.i49, align 8
   %dec.i.i50 = add nsw i32 %51, %.sink1.i.i48
@@ -5745,7 +5745,7 @@ invoke.cont24:                                    ; preds = %invoke.cont23
   %m_print_success.i.i = getelementptr inbounds i8, ptr %56, i64 258
   %57 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %57 to i1
-  br i1 %tobool.i.i, label %if.then.i84, label %sw.bb2.i.i90
+  br i1 %tobool.i.i, label %if.then.i84, label %sw.epilog.sink.split.i.i91
 
 if.then.i84:                                      ; preds = %invoke.cont24
   %vtable.i = load ptr, ptr %56, align 8
@@ -5770,11 +5770,11 @@ invoke.cont26:                                    ; preds = %call3.i.noexc
     i32 2, label %sw.bb2.i.i90
   ]
 
-sw.bb2.i.i90:                                     ; preds = %invoke.cont24, %invoke.cont26
+sw.bb2.i.i90:                                     ; preds = %invoke.cont26
   br label %sw.epilog.sink.split.i.i91
 
-sw.epilog.sink.split.i.i91:                       ; preds = %sw.bb2.i.i90, %invoke.cont26
-  %.sink1.i.i92 = phi i32 [ -1, %sw.bb2.i.i90 ], [ %.pre, %invoke.cont26 ]
+sw.epilog.sink.split.i.i91:                       ; preds = %invoke.cont24, %sw.bb2.i.i90, %invoke.cont26
+  %.sink1.i.i92 = phi i32 [ %.pre, %invoke.cont26 ], [ -1, %sw.bb2.i.i90 ], [ -1, %invoke.cont24 ]
   %59 = load i32, ptr %m_num_open_paren.i.i.i, align 8
   %dec.i.i94 = add nsw i32 %59, %.sink1.i.i92
   store i32 %dec.i.i94, ptr %m_num_open_paren.i.i.i, align 8
@@ -6124,7 +6124,7 @@ invoke.cont17:                                    ; preds = %invoke.cont16
   %m_print_success.i.i = getelementptr inbounds i8, ptr %44, i64 258
   %45 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %45 to i1
-  br i1 %tobool.i.i, label %if.then.i57, label %sw.bb2.i.i63
+  br i1 %tobool.i.i, label %if.then.i57, label %sw.epilog.sink.split.i.i64
 
 if.then.i57:                                      ; preds = %invoke.cont17
   %vtable.i = load ptr, ptr %44, align 8
@@ -6149,11 +6149,11 @@ invoke.cont19:                                    ; preds = %call3.i.noexc
     i32 2, label %sw.bb2.i.i63
   ]
 
-sw.bb2.i.i63:                                     ; preds = %invoke.cont17, %invoke.cont19
+sw.bb2.i.i63:                                     ; preds = %invoke.cont19
   br label %sw.epilog.sink.split.i.i64
 
-sw.epilog.sink.split.i.i64:                       ; preds = %sw.bb2.i.i63, %invoke.cont19
-  %.sink1.i.i65 = phi i32 [ -1, %sw.bb2.i.i63 ], [ %.pre, %invoke.cont19 ]
+sw.epilog.sink.split.i.i64:                       ; preds = %invoke.cont17, %sw.bb2.i.i63, %invoke.cont19
+  %.sink1.i.i65 = phi i32 [ %.pre, %invoke.cont19 ], [ -1, %sw.bb2.i.i63 ], [ -1, %invoke.cont17 ]
   %m_num_open_paren.i.i66 = getelementptr inbounds i8, ptr %this, i64 2088
   %47 = load i32, ptr %m_num_open_paren.i.i66, align 8
   %dec.i.i67 = add nsw i32 %47, %.sink1.i.i65
@@ -6530,7 +6530,7 @@ _ZN4smt26parser12check_rparenEPKc.exit:           ; preds = %_ZN4smt26parser4nex
   %m_print_success.i.i = getelementptr inbounds i8, ptr %7, i64 258
   %8 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %_ZN11cmd_context13print_successEv.exit, label %sw.bb2.i.i3
+  br i1 %tobool.i.i, label %_ZN11cmd_context13print_successEv.exit, label %sw.epilog.sink.split.i.i4
 
 _ZN11cmd_context13print_successEv.exit:           ; preds = %_ZN4smt26parser12check_rparenEPKc.exit
   %vtable.i = load ptr, ptr %7, align 8
@@ -6546,11 +6546,11 @@ _ZN11cmd_context13print_successEv.exit:           ; preds = %_ZN4smt26parser12ch
     i32 2, label %sw.bb2.i.i3
   ]
 
-sw.bb2.i.i3:                                      ; preds = %_ZN4smt26parser12check_rparenEPKc.exit, %_ZN11cmd_context13print_successEv.exit
+sw.bb2.i.i3:                                      ; preds = %_ZN11cmd_context13print_successEv.exit
   br label %sw.epilog.sink.split.i.i4
 
-sw.epilog.sink.split.i.i4:                        ; preds = %sw.bb2.i.i3, %_ZN11cmd_context13print_successEv.exit
-  %.sink1.i.i5 = phi i32 [ -1, %sw.bb2.i.i3 ], [ %.pre, %_ZN11cmd_context13print_successEv.exit ]
+sw.epilog.sink.split.i.i4:                        ; preds = %_ZN4smt26parser12check_rparenEPKc.exit, %sw.bb2.i.i3, %_ZN11cmd_context13print_successEv.exit
+  %.sink1.i.i5 = phi i32 [ %.pre, %_ZN11cmd_context13print_successEv.exit ], [ -1, %sw.bb2.i.i3 ], [ -1, %_ZN4smt26parser12check_rparenEPKc.exit ]
   %m_num_open_paren.i.i6 = getelementptr inbounds i8, ptr %this, i64 2088
   %10 = load i32, ptr %m_num_open_paren.i.i6, align 8
   %dec.i.i7 = add nsw i32 %10, %.sink1.i.i5
@@ -6651,7 +6651,7 @@ _ZN4smt26parser12check_rparenEPKc.exit:           ; preds = %_ZN4smt26parser4nex
   %m_print_success.i.i = getelementptr inbounds i8, ptr %7, i64 258
   %8 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %_ZN11cmd_context13print_successEv.exit, label %sw.bb2.i.i3
+  br i1 %tobool.i.i, label %_ZN11cmd_context13print_successEv.exit, label %sw.epilog.sink.split.i.i4
 
 _ZN11cmd_context13print_successEv.exit:           ; preds = %_ZN4smt26parser12check_rparenEPKc.exit
   %vtable.i = load ptr, ptr %7, align 8
@@ -6667,11 +6667,11 @@ _ZN11cmd_context13print_successEv.exit:           ; preds = %_ZN4smt26parser12ch
     i32 2, label %sw.bb2.i.i3
   ]
 
-sw.bb2.i.i3:                                      ; preds = %_ZN4smt26parser12check_rparenEPKc.exit, %_ZN11cmd_context13print_successEv.exit
+sw.bb2.i.i3:                                      ; preds = %_ZN11cmd_context13print_successEv.exit
   br label %sw.epilog.sink.split.i.i4
 
-sw.epilog.sink.split.i.i4:                        ; preds = %sw.bb2.i.i3, %_ZN11cmd_context13print_successEv.exit
-  %.sink1.i.i5 = phi i32 [ -1, %sw.bb2.i.i3 ], [ %.pre, %_ZN11cmd_context13print_successEv.exit ]
+sw.epilog.sink.split.i.i4:                        ; preds = %_ZN4smt26parser12check_rparenEPKc.exit, %sw.bb2.i.i3, %_ZN11cmd_context13print_successEv.exit
+  %.sink1.i.i5 = phi i32 [ %.pre, %_ZN11cmd_context13print_successEv.exit ], [ -1, %sw.bb2.i.i3 ], [ -1, %_ZN4smt26parser12check_rparenEPKc.exit ]
   %m_num_open_paren.i.i6 = getelementptr inbounds i8, ptr %this, i64 2088
   %10 = load i32, ptr %m_num_open_paren.i.i6, align 8
   %dec.i.i7 = add nsw i32 %10, %.sink1.i.i5
@@ -7495,7 +7495,7 @@ _ZN4smt26parser12check_rparenEPKc.exit:           ; preds = %_ZN15ref_vector_cor
   %m_print_success.i.i = getelementptr inbounds i8, ptr %56, i64 258
   %57 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %57 to i1
-  br i1 %tobool.i.i, label %_ZN11cmd_context13print_successEv.exit, label %sw.bb2.i.i54
+  br i1 %tobool.i.i, label %_ZN11cmd_context13print_successEv.exit, label %sw.epilog.sink.split.i.i55
 
 _ZN11cmd_context13print_successEv.exit:           ; preds = %_ZN4smt26parser12check_rparenEPKc.exit
   %vtable.i = load ptr, ptr %56, align 8
@@ -7511,11 +7511,11 @@ _ZN11cmd_context13print_successEv.exit:           ; preds = %_ZN4smt26parser12ch
     i32 2, label %sw.bb2.i.i54
   ]
 
-sw.bb2.i.i54:                                     ; preds = %_ZN4smt26parser12check_rparenEPKc.exit, %_ZN11cmd_context13print_successEv.exit
+sw.bb2.i.i54:                                     ; preds = %_ZN11cmd_context13print_successEv.exit
   br label %sw.epilog.sink.split.i.i55
 
-sw.epilog.sink.split.i.i55:                       ; preds = %sw.bb2.i.i54, %_ZN11cmd_context13print_successEv.exit
-  %.sink1.i.i56 = phi i32 [ -1, %sw.bb2.i.i54 ], [ %.pre, %_ZN11cmd_context13print_successEv.exit ]
+sw.epilog.sink.split.i.i55:                       ; preds = %_ZN4smt26parser12check_rparenEPKc.exit, %sw.bb2.i.i54, %_ZN11cmd_context13print_successEv.exit
+  %.sink1.i.i56 = phi i32 [ %.pre, %_ZN11cmd_context13print_successEv.exit ], [ -1, %sw.bb2.i.i54 ], [ -1, %_ZN4smt26parser12check_rparenEPKc.exit ]
   %m_num_open_paren.i.i57 = getelementptr inbounds i8, ptr %this, i64 2088
   %59 = load i32, ptr %m_num_open_paren.i.i57, align 8
   %dec.i.i58 = add nsw i32 %59, %.sink1.i.i56
@@ -8870,7 +8870,7 @@ if.then73:                                        ; preds = %invoke.cont70
   %m_print_success.i.i = getelementptr inbounds i8, ptr %97, i64 258
   %98 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %98 to i1
-  br i1 %tobool.i.i, label %if.then.i149, label %sw.bb2.i.i154
+  br i1 %tobool.i.i, label %if.then.i149, label %sw.epilog.sink.split.i.i155
 
 if.then.i149:                                     ; preds = %if.then73
   %vtable.i = load ptr, ptr %97, align 8
@@ -8895,11 +8895,11 @@ invoke.cont74:                                    ; preds = %call3.i.noexc
     i32 2, label %sw.bb2.i.i154
   ]
 
-sw.bb2.i.i154:                                    ; preds = %if.then73, %invoke.cont74
+sw.bb2.i.i154:                                    ; preds = %invoke.cont74
   br label %sw.epilog.sink.split.i.i155
 
-sw.epilog.sink.split.i.i155:                      ; preds = %sw.bb2.i.i154, %invoke.cont74
-  %.sink1.i.i156 = phi i32 [ -1, %sw.bb2.i.i154 ], [ %.pre, %invoke.cont74 ]
+sw.epilog.sink.split.i.i155:                      ; preds = %if.then73, %sw.bb2.i.i154, %invoke.cont74
+  %.sink1.i.i156 = phi i32 [ %.pre, %invoke.cont74 ], [ -1, %sw.bb2.i.i154 ], [ -1, %if.then73 ]
   %100 = load i32, ptr %m_num_open_paren.i.i128, align 8
   %dec.i.i158 = add nsw i32 %100, %.sink1.i.i156
   store i32 %dec.i.i158, ptr %m_num_open_paren.i.i128, align 8
@@ -9812,7 +9812,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
   %m_print_success.i.i = getelementptr inbounds i8, ptr %45, i64 258
   %46 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %46 to i1
-  br i1 %tobool.i.i, label %if.then.i97, label %sw.bb2.i.i102
+  br i1 %tobool.i.i, label %if.then.i97, label %sw.epilog.sink.split.i.i103
 
 if.then.i97:                                      ; preds = %invoke.cont34
   %vtable.i = load ptr, ptr %45, align 8
@@ -9837,11 +9837,11 @@ invoke.cont35:                                    ; preds = %call3.i.noexc
     i32 2, label %sw.bb2.i.i102
   ]
 
-sw.bb2.i.i102:                                    ; preds = %invoke.cont34, %invoke.cont35
+sw.bb2.i.i102:                                    ; preds = %invoke.cont35
   br label %sw.epilog.sink.split.i.i103
 
-sw.epilog.sink.split.i.i103:                      ; preds = %sw.bb2.i.i102, %invoke.cont35
-  %.sink1.i.i104 = phi i32 [ -1, %sw.bb2.i.i102 ], [ %.pre146, %invoke.cont35 ]
+sw.epilog.sink.split.i.i103:                      ; preds = %invoke.cont34, %sw.bb2.i.i102, %invoke.cont35
+  %.sink1.i.i104 = phi i32 [ %.pre146, %invoke.cont35 ], [ -1, %sw.bb2.i.i102 ], [ -1, %invoke.cont34 ]
   %m_num_open_paren.i.i105 = getelementptr inbounds i8, ptr %this, i64 2088
   %48 = load i32, ptr %m_num_open_paren.i.i105, align 8
   %dec.i.i106 = add nsw i32 %48, %.sink1.i.i104
@@ -11453,7 +11453,7 @@ invoke.cont12:                                    ; preds = %invoke.cont11
   %m_print_success.i.i = getelementptr inbounds i8, ptr %14, i64 258
   %15 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %15 to i1
-  br i1 %tobool.i.i, label %if.then.i3, label %sw.bb2.i.i8
+  br i1 %tobool.i.i, label %if.then.i3, label %sw.epilog.sink.split.i.i9
 
 if.then.i3:                                       ; preds = %invoke.cont12
   %vtable.i = load ptr, ptr %14, align 8
@@ -11478,11 +11478,11 @@ invoke.cont14:                                    ; preds = %call3.i.noexc
     i32 2, label %sw.bb2.i.i8
   ]
 
-sw.bb2.i.i8:                                      ; preds = %invoke.cont12, %invoke.cont14
+sw.bb2.i.i8:                                      ; preds = %invoke.cont14
   br label %sw.epilog.sink.split.i.i9
 
-sw.epilog.sink.split.i.i9:                        ; preds = %sw.bb2.i.i8, %invoke.cont14
-  %.sink1.i.i10 = phi i32 [ -1, %sw.bb2.i.i8 ], [ %.pre, %invoke.cont14 ]
+sw.epilog.sink.split.i.i9:                        ; preds = %invoke.cont12, %sw.bb2.i.i8, %invoke.cont14
+  %.sink1.i.i10 = phi i32 [ %.pre, %invoke.cont14 ], [ -1, %sw.bb2.i.i8 ], [ -1, %invoke.cont12 ]
   %m_num_open_paren.i.i11 = getelementptr inbounds i8, ptr %this, i64 2088
   %17 = load i32, ptr %m_num_open_paren.i.i11, align 8
   %dec.i.i12 = add nsw i32 %17, %.sink1.i.i10
@@ -11775,7 +11775,7 @@ invoke.cont8:                                     ; preds = %invoke.cont7
   %m_print_success.i.i = getelementptr inbounds i8, ptr %14, i64 258
   %15 = load i8, ptr %m_print_success.i.i, align 2
   %tobool.i.i = trunc i8 %15 to i1
-  br i1 %tobool.i.i, label %if.then.i5, label %sw.bb2.i.i10
+  br i1 %tobool.i.i, label %if.then.i5, label %sw.epilog.sink.split.i.i11
 
 if.then.i5:                                       ; preds = %invoke.cont8
   %vtable.i = load ptr, ptr %14, align 8
@@ -11800,11 +11800,11 @@ invoke.cont10:                                    ; preds = %call3.i.noexc
     i32 2, label %sw.bb2.i.i10
   ]
 
-sw.bb2.i.i10:                                     ; preds = %invoke.cont8, %invoke.cont10
+sw.bb2.i.i10:                                     ; preds = %invoke.cont10
   br label %sw.epilog.sink.split.i.i11
 
-sw.epilog.sink.split.i.i11:                       ; preds = %sw.bb2.i.i10, %invoke.cont10
-  %.sink1.i.i12 = phi i32 [ -1, %sw.bb2.i.i10 ], [ %.pre, %invoke.cont10 ]
+sw.epilog.sink.split.i.i11:                       ; preds = %invoke.cont8, %sw.bb2.i.i10, %invoke.cont10
+  %.sink1.i.i12 = phi i32 [ %.pre, %invoke.cont10 ], [ -1, %sw.bb2.i.i10 ], [ -1, %invoke.cont8 ]
   %m_num_open_paren.i.i13 = getelementptr inbounds i8, ptr %this, i64 2088
   %17 = load i32, ptr %m_num_open_paren.i.i13, align 8
   %dec.i.i14 = add nsw i32 %17, %.sink1.i.i12
@@ -31613,7 +31613,7 @@ invoke.cont95:                                    ; preds = %for.body
   %98 = load ptr, ptr %m_manager.i.i118, align 8
   %arrayidx.i121 = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv
   %99 = load ptr, ptr %arrayidx.i121, align 8
-  %100 = trunc i64 %indvars.iv to i32
+  %100 = trunc nuw i64 %indvars.iv to i32
   %call100 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %98, i32 noundef %100, ptr noundef %99)
           to label %invoke.cont99 unwind label %lpad4.loopexit
 
@@ -33772,8 +33772,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
@@ -33839,10 +33839,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #19
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #19
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i29
 
@@ -33851,7 +33851,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -33865,13 +33865,13 @@ invoke.cont19:                                    ; preds = %if.then.i29, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 terminate.lpad:                                   ; preds = %lpad17
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #21
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -34630,7 +34630,7 @@ invoke.cont32:                                    ; preds = %for.body
   %72 = load ptr, ptr %m_manager.i.i107, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %add.ptr, i64 %indvars.iv
   %73 = load ptr, ptr %arrayidx, align 8
-  %74 = trunc i64 %indvars.iv to i32
+  %74 = trunc nuw i64 %indvars.iv to i32
   %call35 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %72, i32 noundef %74, ptr noundef %73)
           to label %invoke.cont34 unwind label %lpad31.loopexit
 
@@ -37183,7 +37183,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp.i86 = icmp eq i32 %26, 1
   %frombool = zext i1 %cmp.i86 to i8
   %is_decl.1 = select i1 %first.0160, i8 %frombool, i8 %is_decl.0161
-  %tobool3 = trunc i8 %is_decl.1 to i1
+  %tobool3 = trunc nuw i8 %is_decl.1 to i1
   br i1 %tobool3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %while.body
@@ -37434,7 +37434,7 @@ _ZN4smt26parser4nextEv.exit127:                   ; preds = %if.end16, %_ZN4smt2
   br i1 %cmp.i, label %sw.epilog.i.i134.loopexit, label %while.body, !llvm.loop !147
 
 sw.epilog.i.i134.loopexit:                        ; preds = %_ZN4smt26parser4nextEv.exit127
-  %58 = trunc i8 %is_decl.1 to i1
+  %58 = trunc nuw i8 %is_decl.1 to i1
   br label %sw.epilog.i.i134
 
 sw.epilog.i.i134:                                 ; preds = %sw.epilog.i.i134.loopexit, %_ZN6vectorI6symbolLb0EjE5resetEv.exit
@@ -39715,8 +39715,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
@@ -41508,7 +41508,7 @@ while.body:                                       ; preds = %_ZNK15ref_vector_co
   br i1 %cmp.i, label %while.end, label %land.rhs, !llvm.loop !165
 
 while.end.loopexit.split.loop.exit46:             ; preds = %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit46, %_ZN4smt26parser4nextEv.exit

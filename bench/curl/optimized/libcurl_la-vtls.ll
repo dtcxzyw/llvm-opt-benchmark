@@ -71,7 +71,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @Curl_ssl_conn_config_match(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %candidate, i1 noundef zeroext %proxy) local_unnamed_addr #2 {
+define hidden zeroext i1 @Curl_ssl_conn_config_match(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %candidate, i1 noundef zeroext %proxy) local_unnamed_addr #2 {
 entry:
   %. = select i1 %proxy, i64 1496, i64 1296
   %.6 = select i1 %proxy, i64 576, i64 448
@@ -82,14 +82,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @match_ssl_primary_config(ptr nocapture noundef readonly %c1, ptr nocapture noundef readonly %c2) unnamed_addr #2 {
+define internal fastcc zeroext i1 @match_ssl_primary_config(ptr nocapture noundef readonly %c1, ptr nocapture noundef readonly %c2) unnamed_addr #2 {
 entry:
   %version = getelementptr inbounds i8, ptr %c1, i64 120
   %0 = load i8, ptr %version, align 8
   %version1 = getelementptr inbounds i8, ptr %c2, i64 120
   %1 = load i8, ptr %version1, align 8
   %cmp = icmp eq i8 %0, %1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %version_max = getelementptr inbounds i8, ptr %c1, i64 116
@@ -97,7 +97,7 @@ land.lhs.true:                                    ; preds = %entry
   %version_max4 = getelementptr inbounds i8, ptr %c2, i64 116
   %3 = load i32, ptr %version_max4, align 4
   %cmp5 = icmp eq i32 %2, %3
-  br i1 %cmp5, label %land.lhs.true7, label %if.end
+  br i1 %cmp5, label %land.lhs.true7, label %return
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
   %ssl_options = getelementptr inbounds i8, ptr %c1, i64 112
@@ -105,7 +105,7 @@ land.lhs.true7:                                   ; preds = %land.lhs.true
   %ssl_options9 = getelementptr inbounds i8, ptr %c2, i64 112
   %5 = load i8, ptr %ssl_options9, align 8
   %cmp11 = icmp eq i8 %4, %5
-  br i1 %cmp11, label %land.lhs.true13, label %if.end
+  br i1 %cmp11, label %land.lhs.true13, label %return
 
 land.lhs.true13:                                  ; preds = %land.lhs.true7
   %verifypeer = getelementptr inbounds i8, ptr %c1, i64 121
@@ -115,7 +115,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true7
   %6 = xor i8 %bf.load15, %bf.load
   %7 = and i8 %6, 7
   %or.cond1 = icmp eq i8 %7, 0
-  br i1 %or.cond1, label %land.lhs.true43, label %if.end
+  br i1 %or.cond1, label %land.lhs.true43, label %return
 
 land.lhs.true43:                                  ; preds = %land.lhs.true13
   %cert_blob = getelementptr inbounds i8, ptr %c1, i64 64
@@ -123,7 +123,7 @@ land.lhs.true43:                                  ; preds = %land.lhs.true13
   %cert_blob44 = getelementptr inbounds i8, ptr %c2, i64 64
   %9 = load ptr, ptr %cert_blob44, align 8
   %call = tail call fastcc zeroext i1 @blobcmp(ptr noundef %8, ptr noundef %9)
-  br i1 %call, label %land.lhs.true46, label %if.end
+  br i1 %call, label %land.lhs.true46, label %return
 
 land.lhs.true46:                                  ; preds = %land.lhs.true43
   %ca_info_blob = getelementptr inbounds i8, ptr %c1, i64 72
@@ -131,7 +131,7 @@ land.lhs.true46:                                  ; preds = %land.lhs.true43
   %ca_info_blob47 = getelementptr inbounds i8, ptr %c2, i64 72
   %11 = load ptr, ptr %ca_info_blob47, align 8
   %call48 = tail call fastcc zeroext i1 @blobcmp(ptr noundef %10, ptr noundef %11)
-  br i1 %call48, label %land.lhs.true50, label %if.end
+  br i1 %call48, label %land.lhs.true50, label %return
 
 land.lhs.true50:                                  ; preds = %land.lhs.true46
   %issuercert_blob = getelementptr inbounds i8, ptr %c1, i64 80
@@ -139,13 +139,13 @@ land.lhs.true50:                                  ; preds = %land.lhs.true46
   %issuercert_blob51 = getelementptr inbounds i8, ptr %c2, i64 80
   %13 = load ptr, ptr %issuercert_blob51, align 8
   %call52 = tail call fastcc zeroext i1 @blobcmp(ptr noundef %12, ptr noundef %13)
-  br i1 %call52, label %land.lhs.true54, label %if.end
+  br i1 %call52, label %land.lhs.true54, label %return
 
 land.lhs.true54:                                  ; preds = %land.lhs.true50
   %14 = load ptr, ptr %c1, align 8
   %15 = load ptr, ptr %c2, align 8
   %call56 = tail call zeroext i1 @Curl_safecmp(ptr noundef %14, ptr noundef %15) #18
-  br i1 %call56, label %land.lhs.true58, label %if.end
+  br i1 %call56, label %land.lhs.true58, label %return
 
 land.lhs.true58:                                  ; preds = %land.lhs.true54
   %CAfile = getelementptr inbounds i8, ptr %c1, i64 8
@@ -153,7 +153,7 @@ land.lhs.true58:                                  ; preds = %land.lhs.true54
   %CAfile59 = getelementptr inbounds i8, ptr %c2, i64 8
   %17 = load ptr, ptr %CAfile59, align 8
   %call60 = tail call zeroext i1 @Curl_safecmp(ptr noundef %16, ptr noundef %17) #18
-  br i1 %call60, label %land.lhs.true62, label %if.end
+  br i1 %call60, label %land.lhs.true62, label %return
 
 land.lhs.true62:                                  ; preds = %land.lhs.true58
   %issuercert = getelementptr inbounds i8, ptr %c1, i64 16
@@ -161,7 +161,7 @@ land.lhs.true62:                                  ; preds = %land.lhs.true58
   %issuercert63 = getelementptr inbounds i8, ptr %c2, i64 16
   %19 = load ptr, ptr %issuercert63, align 8
   %call64 = tail call zeroext i1 @Curl_safecmp(ptr noundef %18, ptr noundef %19) #18
-  br i1 %call64, label %land.lhs.true66, label %if.end
+  br i1 %call64, label %land.lhs.true66, label %return
 
 land.lhs.true66:                                  ; preds = %land.lhs.true62
   %clientcert = getelementptr inbounds i8, ptr %c1, i64 24
@@ -169,7 +169,7 @@ land.lhs.true66:                                  ; preds = %land.lhs.true62
   %clientcert67 = getelementptr inbounds i8, ptr %c2, i64 24
   %21 = load ptr, ptr %clientcert67, align 8
   %call68 = tail call zeroext i1 @Curl_safecmp(ptr noundef %20, ptr noundef %21) #18
-  br i1 %call68, label %land.lhs.true70, label %if.end
+  br i1 %call68, label %land.lhs.true70, label %return
 
 land.lhs.true70:                                  ; preds = %land.lhs.true66
   %username = getelementptr inbounds i8, ptr %c1, i64 88
@@ -178,7 +178,7 @@ land.lhs.true70:                                  ; preds = %land.lhs.true66
   %23 = load ptr, ptr %username71, align 8
   %call72 = tail call i32 @Curl_timestrcmp(ptr noundef %22, ptr noundef %23) #18
   %tobool.not = icmp eq i32 %call72, 0
-  br i1 %tobool.not, label %land.lhs.true73, label %if.end
+  br i1 %tobool.not, label %land.lhs.true73, label %return
 
 land.lhs.true73:                                  ; preds = %land.lhs.true70
   %password = getelementptr inbounds i8, ptr %c1, i64 96
@@ -187,7 +187,7 @@ land.lhs.true73:                                  ; preds = %land.lhs.true70
   %25 = load ptr, ptr %password74, align 8
   %call75 = tail call i32 @Curl_timestrcmp(ptr noundef %24, ptr noundef %25) #18
   %tobool76.not = icmp eq i32 %call75, 0
-  br i1 %tobool76.not, label %land.lhs.true77, label %if.end
+  br i1 %tobool76.not, label %land.lhs.true77, label %return
 
 land.lhs.true77:                                  ; preds = %land.lhs.true73
   %cipher_list = getelementptr inbounds i8, ptr %c1, i64 32
@@ -196,7 +196,7 @@ land.lhs.true77:                                  ; preds = %land.lhs.true73
   %27 = load ptr, ptr %cipher_list78, align 8
   %call79 = tail call i32 @curl_strequal(ptr noundef %26, ptr noundef %27) #18
   %tobool80.not = icmp eq i32 %call79, 0
-  br i1 %tobool80.not, label %if.end, label %land.lhs.true81
+  br i1 %tobool80.not, label %return, label %land.lhs.true81
 
 land.lhs.true81:                                  ; preds = %land.lhs.true77
   %cipher_list13 = getelementptr inbounds i8, ptr %c1, i64 40
@@ -205,7 +205,7 @@ land.lhs.true81:                                  ; preds = %land.lhs.true77
   %29 = load ptr, ptr %cipher_list1382, align 8
   %call83 = tail call i32 @curl_strequal(ptr noundef %28, ptr noundef %29) #18
   %tobool84.not = icmp eq i32 %call83, 0
-  br i1 %tobool84.not, label %if.end, label %land.lhs.true85
+  br i1 %tobool84.not, label %return, label %land.lhs.true85
 
 land.lhs.true85:                                  ; preds = %land.lhs.true81
   %curves = getelementptr inbounds i8, ptr %c1, i64 104
@@ -214,7 +214,7 @@ land.lhs.true85:                                  ; preds = %land.lhs.true81
   %31 = load ptr, ptr %curves86, align 8
   %call87 = tail call i32 @curl_strequal(ptr noundef %30, ptr noundef %31) #18
   %tobool88.not = icmp eq i32 %call87, 0
-  br i1 %tobool88.not, label %if.end, label %land.lhs.true89
+  br i1 %tobool88.not, label %return, label %land.lhs.true89
 
 land.lhs.true89:                                  ; preds = %land.lhs.true85
   %CRLfile = getelementptr inbounds i8, ptr %c1, i64 56
@@ -223,7 +223,7 @@ land.lhs.true89:                                  ; preds = %land.lhs.true85
   %33 = load ptr, ptr %CRLfile90, align 8
   %call91 = tail call i32 @curl_strequal(ptr noundef %32, ptr noundef %33) #18
   %tobool92.not = icmp eq i32 %call91, 0
-  br i1 %tobool92.not, label %if.end, label %land.lhs.true93
+  br i1 %tobool92.not, label %return, label %land.lhs.true93
 
 land.lhs.true93:                                  ; preds = %land.lhs.true89
   %pinned_key = getelementptr inbounds i8, ptr %c1, i64 48
@@ -231,14 +231,11 @@ land.lhs.true93:                                  ; preds = %land.lhs.true89
   %pinned_key94 = getelementptr inbounds i8, ptr %c2, i64 48
   %35 = load ptr, ptr %pinned_key94, align 8
   %call95 = tail call i32 @curl_strequal(ptr noundef %34, ptr noundef %35) #18
-  %tobool96.not = icmp eq i32 %call95, 0
-  br i1 %tobool96.not, label %if.end, label %return
-
-if.end:                                           ; preds = %land.lhs.true93, %land.lhs.true89, %land.lhs.true85, %land.lhs.true81, %land.lhs.true77, %land.lhs.true73, %land.lhs.true70, %land.lhs.true66, %land.lhs.true62, %land.lhs.true58, %land.lhs.true54, %land.lhs.true50, %land.lhs.true46, %land.lhs.true43, %land.lhs.true13, %land.lhs.true7, %land.lhs.true, %entry
+  %tobool96.not = icmp ne i32 %call95, 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true93, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ true, %land.lhs.true93 ]
+return:                                           ; preds = %land.lhs.true93, %entry, %land.lhs.true, %land.lhs.true7, %land.lhs.true13, %land.lhs.true43, %land.lhs.true46, %land.lhs.true50, %land.lhs.true54, %land.lhs.true58, %land.lhs.true62, %land.lhs.true66, %land.lhs.true70, %land.lhs.true73, %land.lhs.true77, %land.lhs.true81, %land.lhs.true85, %land.lhs.true89
+  %retval.0 = phi i1 [ false, %land.lhs.true89 ], [ false, %land.lhs.true85 ], [ false, %land.lhs.true81 ], [ false, %land.lhs.true77 ], [ false, %land.lhs.true73 ], [ false, %land.lhs.true70 ], [ false, %land.lhs.true66 ], [ false, %land.lhs.true62 ], [ false, %land.lhs.true58 ], [ false, %land.lhs.true54 ], [ false, %land.lhs.true50 ], [ false, %land.lhs.true46 ], [ false, %land.lhs.true43 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool96.not, %land.lhs.true93 ]
   ret i1 %retval.0
 }
 
@@ -397,7 +394,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %data, ptr nocapture noundef %conn) local_unnamed_addr #2 {
+define hidden i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %data, ptr nocapture noundef %conn) local_unnamed_addr #2 {
 entry:
   %ssl = getelementptr inbounds i8, ptr %data, i64 1296
   %ssl_config = getelementptr inbounds i8, ptr %conn, i64 448
@@ -417,7 +414,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @clone_ssl_primary_config(ptr nocapture noundef readonly %source, ptr nocapture noundef %dest) unnamed_addr #2 {
+define internal fastcc zeroext i1 @clone_ssl_primary_config(ptr nocapture noundef readonly %source, ptr nocapture noundef %dest) unnamed_addr #2 {
 entry:
   %version = getelementptr inbounds i8, ptr %source, i64 120
   %0 = load i8, ptr %version, align 8
@@ -741,19 +738,16 @@ if.then194:                                       ; preds = %do.body192
   %call196 = tail call ptr %42(ptr noundef nonnull %41) #18
   %password197 = getelementptr inbounds i8, ptr %dest, i64 96
   store ptr %call196, ptr %password197, align 8
-  %tobool199.not = icmp eq ptr %call196, null
-  br i1 %tobool199.not, label %return, label %do.end205
+  %tobool199.not = icmp ne ptr %call196, null
+  br label %return
 
 if.else202:                                       ; preds = %do.body192
   %password203 = getelementptr inbounds i8, ptr %dest, i64 96
   store ptr null, ptr %password203, align 8
-  br label %do.end205
-
-do.end205:                                        ; preds = %if.else202, %if.then194
   br label %return
 
-return:                                           ; preds = %if.then.i97, %if.then.i85, %if.then.i, %if.then194, %if.then180, %if.then166, %if.then152, %if.then138, %if.then124, %if.then110, %if.then96, %if.then82, %if.then68, %if.then55, %do.end205
-  %retval.0 = phi i1 [ true, %do.end205 ], [ false, %if.then55 ], [ false, %if.then68 ], [ false, %if.then82 ], [ false, %if.then96 ], [ false, %if.then110 ], [ false, %if.then124 ], [ false, %if.then138 ], [ false, %if.then152 ], [ false, %if.then166 ], [ false, %if.then180 ], [ false, %if.then194 ], [ false, %if.then.i ], [ false, %if.then.i85 ], [ false, %if.then.i97 ]
+return:                                           ; preds = %if.then.i97, %if.then.i85, %if.then.i, %if.then194, %if.else202, %if.then180, %if.then166, %if.then152, %if.then138, %if.then124, %if.then110, %if.then96, %if.then82, %if.then68, %if.then55
+  %retval.0 = phi i1 [ false, %if.then55 ], [ false, %if.then68 ], [ false, %if.then82 ], [ false, %if.then96 ], [ false, %if.then110 ], [ false, %if.then124 ], [ false, %if.then138 ], [ false, %if.then152 ], [ false, %if.then166 ], [ false, %if.then180 ], [ true, %if.else202 ], [ %tobool199.not, %if.then194 ], [ false, %if.then.i ], [ false, %if.then.i85 ], [ false, %if.then.i97 ]
   ret i1 %retval.0
 }
 
@@ -2806,7 +2800,7 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
 is_ip_address.exit:                               ; preds = %if.end38, %land.lhs.true.i, %land.rhs.i, %lor.rhs.i
   %land.ext.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end38 ], [ 1, %land.rhs.i ], [ %25, %lor.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %addr.i)
-  %26 = trunc i32 %land.ext.i to i8
+  %26 = trunc nuw nsw i32 %land.ext.i to i8
   %bf.load = load i8, ptr %is_ip_address.i, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or disjoint i8 %bf.clear, %26
@@ -3771,13 +3765,13 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %if
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %1 = trunc i64 %call to i32
+  %1 = trunc nuw i64 %call to i32
   %add = add nsw i32 %off.02024, %1
   %cmp4 = icmp sgt i32 %add, 31
   br i1 %cmp4, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %conv = trunc i64 %call to i8
+  %conv = trunc nuw nsw i64 %call to i8
   %inc = add nsw i32 %off.02024, 1
   %idxprom = sext i32 %off.02024 to i64
   %arrayidx8 = getelementptr inbounds [33 x i8], ptr %buf, i64 0, i64 %idxprom
@@ -3875,18 +3869,16 @@ entry:
   %bf.load = load i32, ptr %bits, align 8
   %1 = and i32 %bf.load, 8
   %tobool.not = icmp eq i32 %1, 0
-  br i1 %tobool.not, label %cond.false, label %land.lhs.true
+  br i1 %tobool.not, label %cond.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %2 = load ptr, ptr %cf, align 8
   %cmp.i = icmp eq ptr %2, @Curl_cft_ssl_proxy
-  br i1 %cmp.i, label %cond.end, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true, %entry
+  %spec.select = select i1 %cmp.i, i64 1165, i64 1164
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true, %cond.false
-  %.sink = phi i64 [ 1164, %cond.false ], [ 1165, %land.lhs.true ]
+cond.end:                                         ; preds = %land.lhs.true, %entry
+  %.sink = phi i64 [ 1164, %entry ], [ %spec.select, %land.lhs.true ]
   %alpn = getelementptr inbounds i8, ptr %0, i64 %.sink
   %tobool3 = icmp ne ptr %proto, null
   %tobool5 = icmp ne i64 %proto_len, 0

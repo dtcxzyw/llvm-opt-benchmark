@@ -677,7 +677,7 @@ define internal i32 @encode_case_2_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_decode_frame_ping(ptr noundef %pkt) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 65, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp ne i32 %call1, 0
   %. = zext i1 %tobool.not to i32
@@ -721,7 +721,7 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call2 = call i32 @ossl_quic_wire_decode_frame_ack(ptr noundef %pkt, i32 noundef 3, ptr noundef nonnull %f, ptr noundef nonnull %total_ranges) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call4 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 110, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.23, i32 noundef %call2, i32 noundef %conv) #3
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %if.end7
@@ -827,7 +827,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %f, i8 0, i64 24, i1 false)
   %call = call i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef %pkt, ptr noundef nonnull %f) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 187, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -864,7 +864,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %f, i8 0, i64 16, i1 false)
   %call = call i32 @ossl_quic_wire_decode_frame_stop_sending(ptr noundef %pkt, ptr noundef nonnull %f) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 224, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -901,7 +901,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %f, i8 0, i64 24, i1 false)
   %call = call i32 @ossl_quic_wire_decode_frame_crypto(ptr noundef %pkt, i32 noundef 0, ptr noundef nonnull %f) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 264, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -956,7 +956,7 @@ entry:
   store i64 0, ptr %token_len, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_new_token(ptr noundef %pkt, ptr noundef nonnull %token, ptr noundef nonnull %token_len) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 313, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -999,7 +999,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = call i32 @ossl_quic_wire_decode_frame_stream(ptr noundef %pkt, i32 noundef 0, ptr noundef nonnull %f) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call2 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 361, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
@@ -1077,7 +1077,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %f, i8 0, i64 40, i1 false)
   %call = call i32 @ossl_quic_wire_decode_frame_stream(ptr noundef %pkt, i32 noundef 0, ptr noundef nonnull %f) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 416, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1155,7 +1155,7 @@ entry:
   store i64 0, ptr %max_data, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_max_data(ptr noundef %pkt, ptr noundef nonnull %max_data) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 465, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1195,7 +1195,7 @@ entry:
   store i64 0, ptr %max_data, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_max_stream_data(ptr noundef %pkt, ptr noundef nonnull %stream_id, ptr noundef nonnull %max_data) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 499, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1243,7 +1243,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_12_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal i32 @encode_case_12_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %max_streams_1 = alloca i64, align 8
   %max_streams_2 = alloca i64, align 8
@@ -1300,16 +1300,14 @@ if.end36:                                         ; preds = %if.end24
 
 if.end47:                                         ; preds = %if.end36
   %fail.lobit = lshr i64 %fail, 63
-  %conv49 = trunc i64 %fail.lobit to i32
+  %conv49 = trunc nuw nsw i64 %fail.lobit to i32
   %call50 = call i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef %pkt, ptr noundef nonnull %max_streams_2) #3
   %call51 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 565, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.82, i32 noundef %call50, i32 noundef %conv49) #3
-  %tobool52.not = icmp eq i32 %call51, 0
-  br i1 %tobool52.not, label %return, label %if.end54
+  %tobool52.not = icmp ne i32 %call51, 0
+  %brmerge.not = and i1 %3, %tobool52.not
+  br i1 %brmerge.not, label %land.lhs.true, label %return
 
-if.end54:                                         ; preds = %if.end47
-  br i1 %3, label %land.lhs.true, label %if.end92
-
-land.lhs.true:                                    ; preds = %if.end54
+land.lhs.true:                                    ; preds = %if.end47
   %7 = load i64, ptr %frame_type_1, align 8
   %call59 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.5, i32 noundef 569, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, i64 noundef %7, i64 noundef 18) #3
   %tobool60.not = icmp eq i32 %call59, 0
@@ -1323,7 +1321,7 @@ land.lhs.true68:                                  ; preds = %land.lhs.true
 
 if.end72:                                         ; preds = %land.lhs.true68
   %or.cond2 = icmp ugt i64 %fail, 7
-  br i1 %or.cond2, label %land.lhs.true78, label %if.end92
+  br i1 %or.cond2, label %land.lhs.true78, label %return
 
 land.lhs.true78:                                  ; preds = %if.end72
   %9 = load i64, ptr %frame_type_2, align 8
@@ -1334,14 +1332,12 @@ land.lhs.true78:                                  ; preds = %if.end72
 land.lhs.true88:                                  ; preds = %land.lhs.true78
   %10 = load i64, ptr %max_streams_2, align 8
   %call89 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.5, i32 noundef 581, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.78, i64 noundef %10, i64 noundef 38785) #3
-  %tobool90.not = icmp eq i32 %call89, 0
-  br i1 %tobool90.not, label %return, label %if.end92
-
-if.end92:                                         ; preds = %if.end54, %if.end72, %land.lhs.true88
+  %tobool90.not = icmp ne i32 %call89, 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true88, %land.lhs.true78, %land.lhs.true68, %land.lhs.true, %if.end47, %if.end36, %if.end24, %if.end12, %if.end, %entry, %if.end92
-  %retval.0 = phi i32 [ 1, %if.end92 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end12 ], [ 0, %if.end24 ], [ 0, %if.end36 ], [ 0, %if.end47 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true68 ], [ 0, %land.lhs.true78 ], [ 0, %land.lhs.true88 ]
+return:                                           ; preds = %if.end47, %land.lhs.true88, %land.lhs.true78, %if.end72, %land.lhs.true68, %land.lhs.true, %if.end36, %if.end24, %if.end12, %if.end, %entry
+  %retval.0.shrunk = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end12 ], [ false, %if.end24 ], [ false, %if.end36 ], [ %tobool52.not, %if.end47 ], [ false, %land.lhs.true ], [ false, %land.lhs.true68 ], [ false, %land.lhs.true78 ], [ true, %if.end72 ], [ %tobool90.not, %land.lhs.true88 ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 
@@ -1362,7 +1358,7 @@ entry:
   store i64 0, ptr %max_data, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef %pkt, ptr noundef nonnull %max_data) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 608, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1402,7 +1398,7 @@ entry:
   store i64 0, ptr %max_data, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr noundef %pkt, ptr noundef nonnull %stream_id, ptr noundef nonnull %max_data) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 642, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1450,7 +1446,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_15_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal i32 @encode_case_15_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %max_streams_1 = alloca i64, align 8
   %max_streams_2 = alloca i64, align 8
@@ -1510,50 +1506,40 @@ if.end47:                                         ; preds = %if.end36
   %7 = icmp ugt i64 %fail, 7
   %lor.ext55 = zext i1 %7 to i32
   %call56 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 707, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, i32 noundef %call48, i32 noundef %lor.ext55) #3
-  %tobool57.not = icmp eq i32 %call56, 0
-  br i1 %tobool57.not, label %return, label %if.end59
+  %tobool57.not = icmp ne i32 %call56, 0
+  %brmerge34.not = and i1 %0, %tobool57.not
+  br i1 %brmerge34.not, label %land.lhs.true, label %return
 
-if.end59:                                         ; preds = %if.end47
-  br i1 %0, label %land.lhs.true, label %if.end97
-
-land.lhs.true:                                    ; preds = %if.end59
+land.lhs.true:                                    ; preds = %if.end47
   %8 = load i64, ptr %frame_type_1, align 8
   %call64 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.5, i32 noundef 711, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.102, i64 noundef %8, i64 noundef 22) #3
-  %tobool65.not = icmp eq i32 %call64, 0
-  br i1 %tobool65.not, label %return, label %if.end67
+  %tobool65.not = icmp ne i32 %call64, 0
+  %brmerge31.not = and i1 %3, %tobool65.not
+  br i1 %brmerge31.not, label %land.lhs.true73, label %return
 
-if.end67:                                         ; preds = %land.lhs.true
-  br i1 %3, label %land.lhs.true73, label %if.end97
-
-land.lhs.true73:                                  ; preds = %if.end67
+land.lhs.true73:                                  ; preds = %land.lhs.true
   %9 = load i64, ptr %max_streams_1, align 8
   %call74 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.5, i32 noundef 715, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.54, i64 noundef %9, i64 noundef 4660) #3
-  %tobool75.not = icmp eq i32 %call74, 0
-  br i1 %tobool75.not, label %return, label %if.end77
+  %tobool75.not = icmp ne i32 %call74, 0
+  %brmerge28.not = and i1 %4, %tobool75.not
+  br i1 %brmerge28.not, label %land.lhs.true83, label %return
 
-if.end77:                                         ; preds = %land.lhs.true73
-  br i1 %4, label %land.lhs.true83, label %if.end97
-
-land.lhs.true83:                                  ; preds = %if.end77
+land.lhs.true83:                                  ; preds = %land.lhs.true73
   %10 = load i64, ptr %frame_type_2, align 8
   %call84 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.5, i32 noundef 719, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.103, i64 noundef %10, i64 noundef 23) #3
-  %tobool85.not = icmp eq i32 %call84, 0
-  br i1 %tobool85.not, label %return, label %if.end87
+  %tobool85.not = icmp ne i32 %call84, 0
+  %brmerge.not = and i1 %7, %tobool85.not
+  br i1 %brmerge.not, label %land.lhs.true93, label %return
 
-if.end87:                                         ; preds = %land.lhs.true83
-  br i1 %7, label %land.lhs.true93, label %if.end97
-
-land.lhs.true93:                                  ; preds = %if.end87
+land.lhs.true93:                                  ; preds = %land.lhs.true83
   %11 = load i64, ptr %max_streams_2, align 8
   %call94 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.5, i32 noundef 723, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.78, i64 noundef %11, i64 noundef 38785) #3
-  %tobool95.not = icmp eq i32 %call94, 0
-  br i1 %tobool95.not, label %return, label %if.end97
-
-if.end97:                                         ; preds = %if.end59, %if.end67, %if.end77, %if.end87, %land.lhs.true93
+  %tobool95.not = icmp ne i32 %call94, 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true93, %land.lhs.true83, %land.lhs.true73, %land.lhs.true, %if.end47, %if.end36, %if.end24, %if.end12, %if.end, %entry, %if.end97
-  %retval.0 = phi i32 [ 1, %if.end97 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end12 ], [ 0, %if.end24 ], [ 0, %if.end36 ], [ 0, %if.end47 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true73 ], [ 0, %land.lhs.true83 ], [ 0, %land.lhs.true93 ]
+return:                                           ; preds = %if.end47, %land.lhs.true, %land.lhs.true93, %land.lhs.true73, %land.lhs.true83, %if.end36, %if.end24, %if.end12, %if.end, %entry
+  %retval.0.shrunk = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end12 ], [ false, %if.end24 ], [ false, %if.end36 ], [ %tobool57.not, %if.end47 ], [ %tobool65.not, %land.lhs.true ], [ %tobool75.not, %land.lhs.true73 ], [ %tobool85.not, %land.lhs.true83 ], [ %tobool95.not, %land.lhs.true93 ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 
@@ -1574,7 +1560,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %f, i8 0, i64 56, i1 false)
   %call = call i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef %pkt, ptr noundef nonnull %f) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 769, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1678,7 +1664,7 @@ entry:
   store i64 0, ptr %seq_num, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr noundef %pkt, ptr noundef nonnull %seq_num) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 868, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1716,7 +1702,7 @@ entry:
   store i64 0, ptr %challenge, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_path_challenge(ptr noundef %pkt, ptr noundef nonnull %challenge) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 902, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1754,7 +1740,7 @@ entry:
   store i64 0, ptr %challenge, align 8
   %call = call i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef %pkt, ptr noundef nonnull %challenge) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 936, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1792,7 +1778,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %f, i8 0, i64 40, i1 false)
   %call = call i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef %pkt, ptr noundef nonnull %f) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 981, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1859,7 +1845,7 @@ define internal i32 @encode_case_21_dec(ptr noundef %pkt, i64 noundef %fail) #0 
 entry:
   %call = tail call i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef %pkt) #3
   %fail.lobit = lshr i64 %fail, 63
-  %conv = trunc i64 %fail.lobit to i32
+  %conv = trunc nuw nsw i64 %fail.lobit to i32
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 1028, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.23, i32 noundef %call, i32 noundef %conv) #3
   %tobool.not = icmp ne i32 %call1, 0
   %. = zext i1 %tobool.not to i32
@@ -1892,7 +1878,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_22_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal i32 @encode_case_22_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %id = alloca i64, align 8
   %len = alloca i64, align 8
@@ -1910,7 +1896,7 @@ if.end:                                           ; preds = %entry
 
 if.end8.thread:                                   ; preds = %if.end
   store i64 0, ptr %id, align 8
-  %call938 = call ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef %pkt, ptr noundef nonnull %id, ptr noundef nonnull %len) #3
+  %call944 = call ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef %pkt, ptr noundef nonnull %id, ptr noundef nonnull %len) #3
   br label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
@@ -1931,8 +1917,8 @@ if.then13:                                        ; preds = %if.end8
   br i1 %tobool15.not, label %return, label %land.lhs.true26
 
 if.else:                                          ; preds = %if.end8.thread, %if.end8
-  %call941 = phi ptr [ %call938, %if.end8.thread ], [ %call9, %if.end8 ]
-  %call18 = call i32 @test_ptr_null(ptr noundef nonnull @.str.5, i32 noundef 1082, ptr noundef nonnull @.str.144, ptr noundef %call941) #3
+  %call947 = phi ptr [ %call944, %if.end8.thread ], [ %call9, %if.end8 ]
+  %call18 = call i32 @test_ptr_null(ptr noundef nonnull @.str.5, i32 noundef 1082, ptr noundef nonnull @.str.144, ptr noundef %call947) #3
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %if.end60.thread
 
@@ -1967,7 +1953,7 @@ land.lhs.true56:                                  ; preds = %if.end52
 
 if.end60.thread:                                  ; preds = %if.end52, %if.else
   store i64 0, ptr %id, align 8
-  %call6148 = call ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef %pkt, ptr noundef nonnull %id, ptr noundef nonnull %len) #3
+  %call6154 = call ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef %pkt, ptr noundef nonnull %id, ptr noundef nonnull %len) #3
   br label %if.else70
 
 if.end60:                                         ; preds = %land.lhs.true56
@@ -1982,10 +1968,10 @@ if.then65:                                        ; preds = %if.end60
   br i1 %tobool67.not, label %return, label %land.lhs.true79
 
 if.else70:                                        ; preds = %if.end60.thread, %if.end60
-  %call6151 = phi ptr [ %call6148, %if.end60.thread ], [ %call61, %if.end60 ]
-  %call71 = call i32 @test_ptr_null(ptr noundef nonnull @.str.5, i32 noundef 1110, ptr noundef nonnull @.str.144, ptr noundef %call6151) #3
-  %tobool72.not = icmp eq i32 %call71, 0
-  br i1 %tobool72.not, label %return, label %if.end91
+  %call6156 = phi ptr [ %call6154, %if.end60.thread ], [ %call61, %if.end60 ]
+  %call71 = call i32 @test_ptr_null(ptr noundef nonnull @.str.5, i32 noundef 1110, ptr noundef nonnull @.str.144, ptr noundef %call6156) #3
+  %tobool72.not = icmp ne i32 %call71, 0
+  br label %return
 
 land.lhs.true79:                                  ; preds = %if.then65
   %6 = load i64, ptr %id, align 8
@@ -1996,14 +1982,12 @@ land.lhs.true79:                                  ; preds = %if.then65
 land.lhs.true87:                                  ; preds = %land.lhs.true79
   %7 = load i64, ptr %len, align 8
   %call88 = call i32 @test_mem_eq(ptr noundef nonnull @.str.5, i32 noundef 1119, ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.147, ptr noundef %call61, i64 noundef %7, ptr noundef nonnull @encode_case_22_dec.data, i64 noundef 2) #3
-  %tobool89.not = icmp eq i32 %call88, 0
-  br i1 %tobool89.not, label %return, label %if.end91
-
-if.end91:                                         ; preds = %if.else70, %land.lhs.true87
+  %tobool89.not = icmp ne i32 %call88, 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true87, %land.lhs.true79, %if.else70, %if.then65, %land.lhs.true56, %land.lhs.true42, %land.lhs.true34, %land.lhs.true26, %if.else, %if.then13, %land.lhs.true, %entry, %if.end91
-  %retval.0 = phi i32 [ 1, %if.end91 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.then13 ], [ 0, %if.else ], [ 0, %land.lhs.true26 ], [ 0, %land.lhs.true34 ], [ 0, %land.lhs.true42 ], [ 0, %land.lhs.true56 ], [ 0, %if.then65 ], [ 0, %if.else70 ], [ 0, %land.lhs.true79 ], [ 0, %land.lhs.true87 ]
+return:                                           ; preds = %land.lhs.true87, %if.else70, %land.lhs.true79, %if.then65, %land.lhs.true56, %land.lhs.true42, %land.lhs.true34, %land.lhs.true26, %if.else, %if.then13, %land.lhs.true, %entry
+  %retval.0.shrunk = phi i1 [ false, %entry ], [ false, %land.lhs.true ], [ false, %if.then13 ], [ false, %if.else ], [ false, %land.lhs.true26 ], [ false, %land.lhs.true34 ], [ false, %land.lhs.true42 ], [ false, %land.lhs.true56 ], [ false, %if.then65 ], [ %tobool72.not, %if.else70 ], [ false, %land.lhs.true79 ], [ %tobool89.not, %land.lhs.true87 ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 
@@ -2028,7 +2012,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_23_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal i32 @encode_case_23_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %id = alloca i64, align 8
   %value = alloca i64, align 8
@@ -2061,13 +2045,11 @@ if.end16:                                         ; preds = %if.end, %land.lhs.t
   %3 = icmp ugt i64 %fail, 13
   %lor.ext22 = zext i1 %3 to i32
   %call23 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 1166, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.153, i32 noundef %call17, i32 noundef %lor.ext22) #3
-  %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %return, label %if.end26
+  %tobool24.not = icmp ne i32 %call23, 0
+  %brmerge.not = and i1 %3, %tobool24.not
+  br i1 %brmerge.not, label %land.lhs.true30, label %return
 
-if.end26:                                         ; preds = %if.end16
-  br i1 %3, label %land.lhs.true30, label %if.end42
-
-land.lhs.true30:                                  ; preds = %if.end26
+land.lhs.true30:                                  ; preds = %if.end16
   %4 = load i64, ptr %id, align 8
   %call31 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.5, i32 noundef 1170, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.154, i64 noundef %4, i64 noundef 8755) #3
   %tobool32.not = icmp eq i32 %call31, 0
@@ -2076,14 +2058,12 @@ land.lhs.true30:                                  ; preds = %if.end26
 land.lhs.true38:                                  ; preds = %land.lhs.true30
   %5 = load i64, ptr %value, align 8
   %call39 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.5, i32 noundef 1174, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.155, i64 noundef %5, i64 noundef 17733) #3
-  %tobool40.not = icmp eq i32 %call39, 0
-  br i1 %tobool40.not, label %return, label %if.end42
-
-if.end42:                                         ; preds = %if.end26, %land.lhs.true38
+  %tobool40.not = icmp ne i32 %call39, 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true38, %land.lhs.true30, %if.end16, %land.lhs.true12, %land.lhs.true, %entry, %if.end42
-  %retval.0 = phi i32 [ 1, %if.end42 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true12 ], [ 0, %if.end16 ], [ 0, %land.lhs.true30 ], [ 0, %land.lhs.true38 ]
+return:                                           ; preds = %land.lhs.true38, %land.lhs.true30, %if.end16, %land.lhs.true12, %land.lhs.true, %entry
+  %retval.0.shrunk = phi i1 [ false, %entry ], [ false, %land.lhs.true ], [ false, %land.lhs.true12 ], [ %tobool24.not, %if.end16 ], [ false, %land.lhs.true30 ], [ %tobool40.not, %land.lhs.true38 ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 

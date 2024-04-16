@@ -2272,7 +2272,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
 _ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %while.body.i.i, %entry
   %v.addr.0.lcssa.i.i = phi i64 [ %file_number, %entry ], [ %shr.i.i, %while.body.i.i ]
   %ptr.0.lcssa.i.i = phi ptr [ %buf.i, %entry ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %conv1.i.i = trunc i64 %v.addr.0.lcssa.i.i to i8
+  %conv1.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i.i to i8
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i, ptr %ptr.0.lcssa.i.i, align 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr2.i.i to i64
@@ -2298,7 +2298,7 @@ while.body.i.i17:                                 ; preds = %_ZN7rocksdb11PutVar
 _ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit24: ; preds = %while.body.i.i17, %_ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
   %v.addr.0.lcssa.i.i9 = phi i64 [ %offset, %_ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit ], [ %shr.i.i22, %while.body.i.i17 ]
   %ptr.0.lcssa.i.i10 = phi ptr [ %buf.i7, %_ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit ], [ %incdec.ptr.i.i21, %while.body.i.i17 ]
-  %conv1.i.i11 = trunc i64 %v.addr.0.lcssa.i.i9 to i8
+  %conv1.i.i11 = trunc nuw nsw i64 %v.addr.0.lcssa.i.i9 to i8
   %incdec.ptr2.i.i12 = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i10, i64 1
   store i8 %conv1.i.i11, ptr %ptr.0.lcssa.i.i10, align 1
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %incdec.ptr2.i.i12 to i64
@@ -2324,7 +2324,7 @@ while.body.i.i35:                                 ; preds = %_ZN7rocksdb11PutVar
 _ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit42: ; preds = %while.body.i.i35, %_ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit24
   %v.addr.0.lcssa.i.i27 = phi i64 [ %size, %_ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit24 ], [ %shr.i.i40, %while.body.i.i35 ]
   %ptr.0.lcssa.i.i28 = phi ptr [ %buf.i25, %_ZN7rocksdb11PutVarint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit24 ], [ %incdec.ptr.i.i39, %while.body.i.i35 ]
-  %conv1.i.i29 = trunc i64 %v.addr.0.lcssa.i.i27 to i8
+  %conv1.i.i29 = trunc nuw nsw i64 %v.addr.0.lcssa.i.i27 to i8
   %incdec.ptr2.i.i30 = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i28, i64 1
   store i8 %conv1.i.i29, ptr %ptr.0.lcssa.i.i28, align 1
   %sub.ptr.lhs.cast.i31 = ptrtoint ptr %incdec.ptr2.i.i30 to i64
@@ -3816,18 +3816,15 @@ if.else5:                                         ; preds = %if.else
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
-  br i1 %cmp.not, label %if.else11, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else5
   %call.i4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %call8) #19
   %cmp.i5 = icmp eq i32 %call.i4, 0
-  br i1 %cmp.i5, label %return, label %if.else11
-
-if.else11:                                        ; preds = %land.lhs.true, %if.else5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %entry, %if.else11
-  %retval.0 = phi i1 [ false, %if.else11 ], [ false, %entry ], [ true, %if.else ], [ true, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else5, %if.else, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.else ], [ false, %if.else5 ], [ %cmp.i5, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -4188,7 +4185,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -4346,7 +4343,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

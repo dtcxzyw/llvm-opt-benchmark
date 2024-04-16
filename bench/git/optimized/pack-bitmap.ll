@@ -2622,7 +2622,7 @@ for.body7.i:                                      ; preds = %for.inc.i, %for.bod
 
 if.end.i:                                         ; preds = %for.body7.i
   %11 = call i64 @llvm.cttz.i64(i64 %shr.i, i1 true), !range !25
-  %cast.i = trunc i64 %11 to i32
+  %cast.i = trunc nuw nsw i64 %11 to i32
   %add.i = add nuw nsw i32 %offset.034.i, %cast.i
   %add14.i = add i32 %add.i, %mul.i
   %conv16.i = zext i32 %add14.i to i64
@@ -2768,22 +2768,20 @@ if.then3.i:                                       ; preds = %if.end.i33
 if.then6.i:                                       ; preds = %if.then3.i
   tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 1)
   %cond16.i = icmp eq i32 %22, 2
-  br i1 %cond16.i, label %if.then12.i, label %filter_bitmap_object_type.exit
+  %spec.select.i = select i1 %cond16.i, i32 3, i32 2
+  br label %filter_bitmap_object_type.exit
 
 if.then9.thread.i:                                ; preds = %if.then3.i, %if.then6.thread.i
   tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef 2)
-  br label %if.then12.i
-
-if.then12.i:                                      ; preds = %if.then9.thread.i, %if.then6.i
   br label %filter_bitmap_object_type.exit
 
-filter_bitmap_object_type.exit:                   ; preds = %if.then6.i, %if.then12.i
-  %.sink.i = phi i32 [ 3, %if.then12.i ], [ 2, %if.then6.i ]
+filter_bitmap_object_type.exit:                   ; preds = %if.then6.i, %if.then9.thread.i
+  %.sink.i = phi i32 [ 3, %if.then9.thread.i ], [ %spec.select.i, %if.then6.i ]
   tail call fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull %bitmap_git, ptr noundef %tip_objects, ptr noundef %to_filter, i32 noundef %.sink.i)
   br label %return
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i64, ptr %sub_nr, align 8
   %cmp34 = icmp ugt i64 %24, %indvars.iv.next
   br i1 %cmp34, label %for.body, label %return, !llvm.loop !29
@@ -2880,7 +2878,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %packs_nr.082.us = phi i64 [ %packs_nr.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %i.081.us = phi i64 [ %inc40.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %packs.080.us = phi ptr [ %packs.2.us, %for.inc.us ], [ null, %for.body.lr.ph ]
-  %conv5.us = trunc i64 %i.081.us to i32
+  %conv5.us = trunc nuw i64 %i.081.us to i32
   %call6.us = call i32 @nth_bitmapped_pack(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %pack, i32 noundef %conv5.us) #18
   %cmp7.us = icmp slt i32 %call6.us, 0
   br i1 %cmp7.us, label %if.then9, label %if.end.us
@@ -2935,7 +2933,7 @@ for.inc.us:                                       ; preds = %do.end.us, %if.end.
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %20 = phi ptr [ %29, %for.inc ], [ %11, %for.body.lr.ph ]
   %i.081 = phi i64 [ %inc40, %for.inc ], [ 0, %for.body.lr.ph ]
-  %conv5 = trunc i64 %i.081 to i32
+  %conv5 = trunc nuw i64 %i.081 to i32
   %call6 = call i32 @nth_bitmapped_pack(ptr noundef %0, ptr noundef nonnull %20, ptr noundef nonnull %pack, i32 noundef %conv5) #18
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %if.then9, label %if.end
@@ -3124,7 +3122,7 @@ if.end41.i:                                       ; preds = %if.end33.i
   br i1 %tobool.i.not.i64, label %st_sub.exit.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end41.i
-  %conv44.i = trunc i64 %add27.i to i32
+  %conv44.i = trunc nuw i64 %add27.i to i32
   %call45.i = call i32 @pack_pos_to_midx(ptr noundef nonnull %48, i32 noundef %conv44.i) #18
   %49 = load ptr, ptr %midx.i.i, align 8
   %call47.i = call i64 @nth_midxed_offset(ptr noundef %49, i32 noundef %call45.i) #18
@@ -3762,7 +3760,7 @@ for.body5:                                        ; preds = %for.cond2.preheader
 
 if.end9:                                          ; preds = %for.body5
   %8 = call i64 @llvm.cttz.i64(i64 %shr, i1 true), !range !25
-  %cast = trunc i64 %8 to i32
+  %cast = trunc nuw nsw i64 %8 to i32
   %add = add nuw nsw i32 %offset.035, %cast
   %9 = load ptr, ptr %midx.i, align 8
   %tobool.i.not = icmp eq ptr %9, null
@@ -3939,7 +3937,7 @@ while.body:                                       ; preds = %land.rhs
   %add9.i = add nuw nsw i64 %and8.i, %and6.i
   %mul.i = mul i64 %add9.i, 72340172838076673
   %shr10.i = lshr i64 %mul.i, 56
-  %conv.i = trunc i64 %shr10.i to i32
+  %conv.i = trunc nuw nsw i64 %shr10.i to i32
   %add = add i32 %count.017, %conv.i
   %conv = zext i32 %inc to i64
   %7 = load i64, ptr %word_alloc, align 8
@@ -4705,7 +4703,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.end:                                           ; preds = %for.body
   %1 = call i64 @llvm.cttz.i64(i64 %shr, i1 true), !range !25
-  %cast = trunc i64 %1 to i32
+  %cast = trunc nuw nsw i64 %1 to i32
   %add = add nuw nsw i32 %offset.09, %cast
   %add6 = add i32 %add, %pos.012
   %idxprom = zext i32 %add6 to i64
@@ -4801,13 +4799,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.i25.not, label %if.else14, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %call13 = call i32 @pack_pos_to_midx(ptr noundef nonnull %6, i32 noundef %7) #18
   br label %if.end16
 
 if.else14:                                        ; preds = %for.body
   %8 = load ptr, ptr %bitmap_git, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %call15 = call i32 @pack_pos_to_index(ptr noundef %8, i32 noundef %9) #18
   br label %if.end16
 
@@ -5105,7 +5103,7 @@ for.body6:                                        ; preds = %for.cond3.preheader
 
 if.end10:                                         ; preds = %for.body6
   %8 = call i64 @llvm.cttz.i64(i64 %shr, i1 true), !range !25
-  %cast = trunc i64 %8 to i32
+  %cast = trunc nuw nsw i64 %8 to i32
   %add = add nuw nsw i32 %offset.034, %cast
   %9 = load ptr, ptr %midx.i, align 8
   %tobool.i.not = icmp eq ptr %9, null

@@ -325,7 +325,7 @@ define dso_local i32 @core_sys_select(i32 noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #9
   %8 = icmp slt i32 %0, 0
-  br i1 %8, label %109, label %9
+  br i1 %8, label %108, label %9
 
 9:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false), !annotation !7
@@ -350,7 +350,7 @@ define dso_local i32 @core_sys_select(i32 noundef %0, ptr noundef %1, ptr nounde
   %24 = mul nuw i64 %21, 6
   %25 = tail call noalias ptr @kvmalloc_node(i64 noundef %24, i32 noundef 3264, i32 noundef -1) #11
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %109, label %27
+  br i1 %26, label %108, label %27
 
 27:                                               ; preds = %23, %9
   %28 = phi ptr [ %25, %23 ], [ %7, %9 ]
@@ -385,12 +385,12 @@ define dso_local i32 @core_sys_select(i32 noundef %0, ptr noundef %1, ptr nounde
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #9, !srcloc !15
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 249, i32 2307, i64 12) #9, !srcloc !16
   call void asm sideeffect "44: nop\0A\09.pushsection .discard.instr_end\0A\09.long 44b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 44) #9, !srcloc !17
-  br label %105
+  br label %104
 
 47:                                               ; preds = %44
   %48 = call i64 @_copy_from_user(ptr noundef nonnull %28, ptr noundef nonnull %1, i64 noundef %21) #9
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %select.unfold, label %105
+  br i1 %49, label %select.unfold, label %104
 
 50:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %21, i1 false)
@@ -408,27 +408,27 @@ select.unfold:                                    ; preds = %47, %50
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #9, !srcloc !15
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 249, i32 2307, i64 12) #9, !srcloc !16
   call void asm sideeffect "44: nop\0A\09.pushsection .discard.instr_end\0A\09.long 44b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 44) #9, !srcloc !17
-  br label %105
+  br label %104
 
 55:                                               ; preds = %52
   %56 = call i64 @_copy_from_user(ptr noundef %29, ptr noundef nonnull %2, i64 noundef %21) #9
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.select.unfold15_crit_edge, label %105
+  br i1 %57, label %.select.unfold14_crit_edge, label %104
 
-.select.unfold15_crit_edge:                       ; preds = %55
+.select.unfold14_crit_edge:                       ; preds = %55
   %.pre = load ptr, ptr %33, align 8
-  br label %select.unfold15
+  br label %select.unfold14
 
 58:                                               ; preds = %select.unfold
   call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %21, i1 false)
-  br label %select.unfold15
+  br label %select.unfold14
 
-select.unfold15:                                  ; preds = %.select.unfold15_crit_edge, %58
-  %59 = phi ptr [ %.pre, %.select.unfold15_crit_edge ], [ %32, %58 ]
+select.unfold14:                                  ; preds = %.select.unfold14_crit_edge, %58
+  %59 = phi ptr [ %.pre, %.select.unfold14_crit_edge ], [ %32, %58 ]
   %60 = icmp eq ptr %3, null
   br i1 %60, label %67, label %61
 
-61:                                               ; preds = %select.unfold15
+61:                                               ; preds = %select.unfold14
   %62 = icmp ugt i64 %21, 2147483647
   br i1 %62, label %63, label %64, !prof !14
 
@@ -436,18 +436,18 @@ select.unfold15:                                  ; preds = %.select.unfold15_cr
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #9, !srcloc !15
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 249, i32 2307, i64 12) #9, !srcloc !16
   call void asm sideeffect "44: nop\0A\09.pushsection .discard.instr_end\0A\09.long 44b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 44) #9, !srcloc !17
-  br label %105
+  br label %104
 
 64:                                               ; preds = %61
   %65 = call i64 @_copy_from_user(ptr noundef %59, ptr noundef nonnull %3, i64 noundef %21) #9
   %66 = icmp eq i64 %65, 0
-  br i1 %66, label %select.unfold18, label %105
+  br i1 %66, label %select.unfold17, label %104
 
-67:                                               ; preds = %select.unfold15
+67:                                               ; preds = %select.unfold14
   call void @llvm.memset.p0.i64(ptr align 8 %59, i8 0, i64 %21, i1 false)
-  br label %select.unfold18
+  br label %select.unfold17
 
-select.unfold18:                                  ; preds = %64, %67
+select.unfold17:                                  ; preds = %64, %67
   %68 = load ptr, ptr %36, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %68, i8 0, i64 %21, i1 false)
   %69 = load ptr, ptr %39, align 8
@@ -456,9 +456,9 @@ select.unfold18:                                  ; preds = %64, %67
   call void @llvm.memset.p0.i64(ptr align 8 %70, i8 0, i64 %21, i1 false)
   %71 = call fastcc i32 @do_select(i32 noundef %17, ptr noundef nonnull %6, ptr noundef %4)
   %72 = icmp slt i32 %71, 0
-  br i1 %72, label %105, label %73
+  br i1 %72, label %104, label %73
 
-73:                                               ; preds = %select.unfold18
+73:                                               ; preds = %select.unfold17
   %74 = icmp eq i32 %71, 0
   br i1 %74, label %75, label %83
 
@@ -466,13 +466,13 @@ select.unfold18:                                  ; preds = %64, %67
   %76 = load volatile i64, ptr %11, align 8
   %77 = and i64 %76, 131072
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %105, !prof !18
+  br i1 %78, label %79, label %104, !prof !18
 
 79:                                               ; preds = %75
   %80 = load volatile i64, ptr %11, align 8
   %81 = and i64 %80, 4
   %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %105
+  br i1 %82, label %83, label %104
 
 83:                                               ; preds = %79, %73
   br i1 %43, label %90, label %84
@@ -499,13 +499,15 @@ select.unfold18:                                  ; preds = %64, %67
   %95 = extractvalue { i64, ptr, ptr, i64 } %93, 3
   call void @llvm.write_register.i64(metadata !0, i64 %95)
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !21
-  %96 = icmp eq i64 %94, 0
-  br i1 %96, label %97, label %104
+  %96 = icmp ne i64 %94, 0
+  %brmerge = or i1 %60, %96
+  %.mux = select i1 %96, i32 -14, i32 %71
+  br i1 %brmerge, label %104, label %98
 
-97:                                               ; preds = %91, %90
-  br i1 %60, label %105, label %98
+97:                                               ; preds = %90
+  br i1 %60, label %104, label %98
 
-98:                                               ; preds = %97
+98:                                               ; preds = %91, %97
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !19
   %99 = call i64 @llvm.read_register.i64(metadata !0)
   %100 = call { i64, ptr, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep movsb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((18*32+ 4)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_movs_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={si},={rsp},0,1,2,{rsp},~{memory},~{rax},~{dirflag},~{fpsr},~{flags}"(i64 %21, ptr nonnull %3, ptr %70, i64 %99) #9, !srcloc !20
@@ -514,25 +516,23 @@ select.unfold18:                                  ; preds = %64, %67
   call void @llvm.write_register.i64(metadata !0, i64 %102)
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !21
   %103 = icmp eq i64 %101, 0
-  br i1 %103, label %105, label %104
+  %spec.select = select i1 %103, i32 %71, i32 -14
+  br label %104
 
-104:                                              ; preds = %98, %91, %84
-  br label %105
+104:                                              ; preds = %63, %64, %54, %55, %46, %47, %98, %91, %84, %97, %79, %75, %select.unfold17
+  %105 = phi i32 [ %71, %select.unfold17 ], [ -514, %79 ], [ -514, %75 ], [ %71, %97 ], [ %.mux, %91 ], [ -14, %84 ], [ %spec.select, %98 ], [ -14, %47 ], [ -14, %46 ], [ -14, %55 ], [ -14, %54 ], [ -14, %64 ], [ -14, %63 ]
+  %106 = icmp eq ptr %28, %7
+  br i1 %106, label %108, label %107
 
-105:                                              ; preds = %63, %64, %54, %55, %46, %47, %104, %98, %97, %79, %75, %select.unfold18
-  %106 = phi i32 [ %71, %select.unfold18 ], [ -14, %104 ], [ %71, %98 ], [ -514, %79 ], [ -514, %75 ], [ %71, %97 ], [ -14, %47 ], [ -14, %46 ], [ -14, %55 ], [ -14, %54 ], [ -14, %64 ], [ -14, %63 ]
-  %107 = icmp eq ptr %28, %7
-  br i1 %107, label %109, label %108
-
-108:                                              ; preds = %105
+107:                                              ; preds = %104
   call void @kvfree(ptr noundef nonnull %28) #9
-  br label %109
+  br label %108
 
-109:                                              ; preds = %108, %105, %23, %5
-  %110 = phi i32 [ -22, %5 ], [ %106, %108 ], [ %106, %105 ], [ -12, %23 ]
+108:                                              ; preds = %107, %104, %23, %5
+  %109 = phi i32 [ -22, %5 ], [ %105, %107 ], [ %105, %104 ], [ -12, %23 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
-  ret i32 %110
+  ret i32 %109
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2336,7 +2336,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
 
 41:                                               ; preds = %36
   %42 = call i64 @llvm.umin.i64(i64 %39, i64 510)
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw nsw i64 %42 to i32
   %44 = shl nuw nsw i64 %42, 3
   %45 = add nuw nsw i64 %44, 16
   %46 = call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef 3264) #11
@@ -2538,7 +2538,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
   br label %160
 
 160:                                              ; preds = %159, %151
-  %161 = trunc i32 %156 to i16
+  %161 = trunc nuw nsw i32 %156 to i16
   %162 = getelementptr inbounds i8, ptr %124, i64 6
   store i16 %161, ptr %162, align 2
   %163 = icmp eq i32 %156, 0
@@ -2926,9 +2926,9 @@ define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %
   %51 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %50, ptr %51, align 8
   %52 = icmp eq ptr %1, null
-  br i1 %52, label %.thread13, label %54
+  br i1 %52, label %.thread12, label %54
 
-.thread13:                                        ; preds = %32
+.thread12:                                        ; preds = %32
   %53 = and i64 %20, 2305843009213693944
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %33, i8 0, i64 %53, i1 false)
   br label %58
@@ -2937,13 +2937,13 @@ define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %
   %55 = call i64 @compat_get_bitmap(ptr noundef nonnull %33, ptr noundef nonnull %1, i64 noundef %18) #9
   %56 = trunc i64 %55 to i32
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %105
+  br i1 %57, label %58, label %104
 
-58:                                               ; preds = %.thread13, %54
+58:                                               ; preds = %.thread12, %54
   %59 = icmp eq ptr %2, null
-  br i1 %59, label %.thread14, label %61
+  br i1 %59, label %.thread13, label %61
 
-.thread14:                                        ; preds = %58
+.thread13:                                        ; preds = %58
   %60 = and i64 %20, 2305843009213693944
   call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %60, i1 false)
   br label %65
@@ -2952,18 +2952,18 @@ define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %
   %62 = call i64 @compat_get_bitmap(ptr noundef %34, ptr noundef nonnull %2, i64 noundef %18) #9
   %63 = trunc i64 %62 to i32
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %._crit_edge, label %105
+  br i1 %64, label %._crit_edge, label %104
 
 ._crit_edge:                                      ; preds = %61
   %.pre = load ptr, ptr %39, align 8
   br label %65
 
-65:                                               ; preds = %._crit_edge, %.thread14
-  %66 = phi ptr [ %.pre, %._crit_edge ], [ %38, %.thread14 ]
+65:                                               ; preds = %._crit_edge, %.thread13
+  %66 = phi ptr [ %.pre, %._crit_edge ], [ %38, %.thread13 ]
   %67 = icmp eq ptr %3, null
-  br i1 %67, label %.thread15, label %69
+  br i1 %67, label %.thread14, label %69
 
-.thread15:                                        ; preds = %65
+.thread14:                                        ; preds = %65
   %68 = and i64 %20, 2305843009213693944
   call void @llvm.memset.p0.i64(ptr align 8 %66, i8 0, i64 %68, i1 false)
   br label %73
@@ -2972,14 +2972,14 @@ define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %
   %70 = call i64 @compat_get_bitmap(ptr noundef %66, ptr noundef nonnull %3, i64 noundef %18) #9
   %71 = trunc i64 %70 to i32
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %._crit_edge16, label %105
+  br i1 %72, label %._crit_edge15, label %104
 
-._crit_edge16:                                    ; preds = %69
-  %.pre17 = and i64 %20, 2305843009213693944
+._crit_edge15:                                    ; preds = %69
+  %.pre16 = and i64 %20, 2305843009213693944
   br label %73
 
-73:                                               ; preds = %._crit_edge16, %.thread15
-  %.pre-phi = phi i64 [ %.pre17, %._crit_edge16 ], [ %68, %.thread15 ]
+73:                                               ; preds = %._crit_edge15, %.thread14
+  %.pre-phi = phi i64 [ %.pre16, %._crit_edge15 ], [ %68, %.thread14 ]
   %74 = load ptr, ptr %43, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %74, i8 0, i64 %.pre-phi, i1 false)
   %75 = load ptr, ptr %47, align 8
@@ -2988,7 +2988,7 @@ define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %
   call void @llvm.memset.p0.i64(ptr align 8 %76, i8 0, i64 %.pre-phi, i1 false)
   %77 = call fastcc i32 @do_select(i32 noundef %17, ptr noundef nonnull %6, ptr noundef %4)
   %78 = icmp slt i32 %77, 0
-  br i1 %78, label %105, label %79
+  br i1 %78, label %104, label %79
 
 79:                                               ; preds = %73
   %80 = icmp eq i32 %77, 0
@@ -2998,13 +2998,13 @@ define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %
   %82 = load volatile i64, ptr %11, align 8
   %83 = and i64 %82, 131072
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %85, label %105, !prof !18
+  br i1 %84, label %85, label %104, !prof !18
 
 85:                                               ; preds = %81
   %86 = load volatile i64, ptr %11, align 8
   %87 = and i64 %86, 4
   %88 = icmp eq i64 %87, 0
-  br i1 %88, label %89, label %105
+  br i1 %88, label %89, label %104
 
 89:                                               ; preds = %85, %79
   br i1 %52, label %94, label %90
@@ -3021,35 +3021,35 @@ define internal fastcc i32 @compat_core_sys_select(i32 noundef %0, ptr noundef %
 95:                                               ; preds = %94
   %96 = call i64 @compat_put_bitmap(ptr noundef nonnull %2, ptr noundef %75, i64 noundef %18) #9
   %97 = and i64 %96, 4294967295
-  %98 = icmp eq i64 %97, 0
-  br i1 %98, label %99, label %104
+  %98 = icmp ne i64 %97, 0
+  %brmerge = or i1 %67, %98
+  %.mux = select i1 %98, i32 -14, i32 %77
+  br i1 %brmerge, label %104, label %100
 
-99:                                               ; preds = %95, %94
-  br i1 %67, label %105, label %100
+99:                                               ; preds = %94
+  br i1 %67, label %104, label %100
 
-100:                                              ; preds = %99
+100:                                              ; preds = %95, %99
   %101 = call i64 @compat_put_bitmap(ptr noundef nonnull %3, ptr noundef %76, i64 noundef %18) #9
   %102 = and i64 %101, 4294967295
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %105, label %104
+  %spec.select = select i1 %103, i32 %77, i32 -14
+  br label %104
 
-104:                                              ; preds = %100, %95, %90
-  br label %105
+104:                                              ; preds = %100, %95, %90, %99, %85, %81, %73, %69, %61, %54
+  %105 = phi i32 [ %56, %54 ], [ %63, %61 ], [ %71, %69 ], [ %77, %73 ], [ -514, %85 ], [ -514, %81 ], [ %77, %99 ], [ %.mux, %95 ], [ -14, %90 ], [ %spec.select, %100 ]
+  %106 = icmp eq ptr %33, %7
+  br i1 %106, label %.thread, label %107
 
-105:                                              ; preds = %104, %100, %99, %85, %81, %73, %69, %61, %54
-  %106 = phi i32 [ %56, %54 ], [ %63, %61 ], [ %71, %69 ], [ %77, %73 ], [ -14, %104 ], [ %77, %100 ], [ -514, %85 ], [ -514, %81 ], [ %77, %99 ]
-  %107 = icmp eq ptr %33, %7
-  br i1 %107, label %.thread, label %108
-
-108:                                              ; preds = %105
+107:                                              ; preds = %104
   call void @kfree(ptr noundef nonnull %33) #9
   br label %.thread
 
-.thread:                                          ; preds = %25, %108, %105, %28, %5
-  %109 = phi i32 [ -22, %5 ], [ %106, %108 ], [ %106, %105 ], [ -12, %28 ], [ -12, %25 ]
+.thread:                                          ; preds = %25, %107, %104, %28, %5
+  %108 = phi i32 [ -22, %5 ], [ %105, %107 ], [ %105, %104 ], [ -12, %28 ], [ -12, %25 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
-  ret i32 %109
+  ret i32 %108
 }
 
 ; Function Attrs: null_pointer_is_valid

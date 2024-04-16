@@ -62,18 +62,14 @@ entry:
   %module.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %module.val, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call3 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #8
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call3, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call3, %if.then ]
   ret i32 %retval.0
 }
 
@@ -515,7 +511,7 @@ if.then29.i:                                      ; preds = %if.end24.i, %land.l
   br label %_random_Random_setstate_impl.exit
 
 if.end30.i:                                       ; preds = %if.end24.i
-  %conv31.i = trunc i64 %call17.i to i32
+  %conv31.i = trunc nuw nsw i64 %call17.i to i32
   %index32.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 %conv31.i, ptr %index32.i, align 8
   %state39.i = getelementptr inbounds i8, ptr %self, i64 20
@@ -692,7 +688,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %shr.i.i.i = lshr i32 %store_forwarded117, 30
   %xor.i.i.i = xor i32 %shr.i.i.i, %store_forwarded117
   %mul.i.i.i = mul i32 %xor.i.i.i, 1812433253
-  %1 = trunc i64 %indvars.iv.i.i.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %add.i.i.i = add i32 %mul.i.i.i, %1
   store i32 %add.i.i.i, ptr %0, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -783,7 +779,7 @@ if.then3:                                         ; preds = %if.then
   %conv.i = trunc i64 %call.i24 to i32
   store i32 %conv.i, ptr %key.i23, align 16
   %shr.i = lshr i64 %call.i24, 32
-  %conv1.i = trunc i64 %shr.i to i32
+  %conv1.i = trunc nuw i64 %shr.i to i32
   %arrayidx2.i = getelementptr inbounds i8, ptr %key.i23, i64 4
   store i32 %conv1.i, ptr %arrayidx2.i, align 4
   %call3.i = call i32 @getpid() #8
@@ -794,7 +790,7 @@ if.then3:                                         ; preds = %if.then
   %arrayidx8.i = getelementptr inbounds i8, ptr %key.i23, i64 12
   store i32 %conv7.i, ptr %arrayidx8.i, align 4
   %shr9.i = lshr i64 %call5.i, 32
-  %conv10.i = trunc i64 %shr9.i to i32
+  %conv10.i = trunc nuw i64 %shr9.i to i32
   %arrayidx11.i = getelementptr inbounds i8, ptr %key.i23, i64 16
   store i32 %conv10.i, ptr %arrayidx11.i, align 16
   %state.i.i25 = getelementptr inbounds i8, ptr %self, i64 20
@@ -808,7 +804,7 @@ for.body.i.i.i26:                                 ; preds = %for.body.i.i.i26, %
   %shr.i.i.i29 = lshr i32 %store_forwarded, 30
   %xor.i.i.i30 = xor i32 %shr.i.i.i29, %store_forwarded
   %mul.i.i.i31 = mul i32 %xor.i.i.i30, 1812433253
-  %10 = trunc i64 %indvars.iv.i.i.i27 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i.i.i27 to i32
   %add.i.i.i32 = add i32 %mul.i.i.i31, %10
   store i32 %add.i.i.i32, ptr %9, align 4
   %indvars.iv.next.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i27, 1
@@ -975,7 +971,7 @@ for.body.i.i85:                                   ; preds = %for.body.i.i85, %if
   %shr.i.i87 = lshr i32 %store_forwarded119, 30
   %xor.i.i88 = xor i32 %shr.i.i87, %store_forwarded119
   %mul.i.i89 = mul i32 %xor.i.i88, 1812433253
-  %25 = trunc i64 %indvars.iv.i.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %add.i.i90 = add i32 %mul.i.i89, %25
   store i32 %add.i.i90, ptr %24, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

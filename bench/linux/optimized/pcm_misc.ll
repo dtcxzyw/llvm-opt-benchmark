@@ -220,8 +220,8 @@ define dso_local i64 @snd_pcm_format_size(i32 noundef %0, i64 noundef %1) #0 ali
   %14 = lshr i64 %13, 3
   br label %.thread
 
-.thread:                                          ; preds = %2, %4, %9
-  %15 = phi i64 [ %14, %9 ], [ -22, %4 ], [ -22, %2 ]
+.thread:                                          ; preds = %9, %4, %2
+  %15 = phi i64 [ -22, %2 ], [ -22, %4 ], [ %14, %9 ]
   ret i64 %15
 }
 
@@ -431,7 +431,7 @@ define dso_local i32 @snd_pcm_rate_to_rate_bit(i32 noundef %0) #5 align 16 {
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw i64 %indvars.iv to i32
   %13 = shl nuw i32 1, %12
   br label %.loopexit
 
@@ -536,14 +536,12 @@ define dso_local i32 @snd_pcm_rate_range_to_bits(i32 noundef %0, i32 noundef %1)
 
 21:                                               ; preds = %7
   %22 = icmp eq i32 %18, 0
-  br i1 %22, label %.thread, label %23
+  %spec.select = select i1 %22, i32 -2147483648, i32 %18
+  br label %.thread
 
-.thread:                                          ; preds = %2, %21
-  br label %23
-
-23:                                               ; preds = %21, %.thread
-  %24 = phi i32 [ -2147483648, %.thread ], [ %18, %21 ]
-  ret i32 %24
+.thread:                                          ; preds = %21, %2
+  %23 = phi i32 [ -2147483648, %2 ], [ %spec.select, %21 ]
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

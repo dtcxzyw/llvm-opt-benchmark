@@ -1377,10 +1377,11 @@ uv__handle_fd.exit.i:                             ; preds = %sw.bb1.i.i, %if.end
   %.sink.i.i = phi i64 [ 176, %sw.bb1.i.i ], [ 184, %if.end8.i ], [ 184, %if.end8.i ]
   %fd3.i.i = getelementptr inbounds i8, ptr %send_handle, i64 %.sink.i.i
   %5 = load i32, ptr %fd3.i.i, align 8
-  %cmp9.i = icmp slt i32 %5, 0
+  %.fr.i = freeze i32 %5
+  %cmp9.i = icmp slt i32 %.fr.i, 0
   br i1 %cmp9.i, label %return, label %if.end
 
-if.end:                                           ; preds = %uv__handle_fd.exit.i, %if.end2.i
+if.end:                                           ; preds = %if.end2.i, %uv__handle_fd.exit.i
   %write_queue_size = getelementptr inbounds i8, ptr %stream, i64 96
   %6 = load i64, ptr %write_queue_size, align 8
   %cmp1 = icmp eq i64 %6, 0
@@ -1454,8 +1455,8 @@ if.else32:                                        ; preds = %if.else
   tail call void @uv__io_start(ptr noundef %13, ptr noundef nonnull %io_watcher, i32 noundef 4) #12
   br label %return
 
-return:                                           ; preds = %if.end8.i, %uv__handle_fd.exit.i, %if.then4.i, %lor.lhs.false.i, %if.end.i, %entry, %if.end21, %if.else32, %if.then31, %if.end16
-  %retval.0 = phi i32 [ -12, %if.end16 ], [ 0, %if.then31 ], [ 0, %if.else32 ], [ 0, %if.end21 ], [ -9, %if.end8.i ], [ -9, %uv__handle_fd.exit.i ], [ -22, %if.then4.i ], [ -22, %lor.lhs.false.i ], [ -32, %if.end.i ], [ -9, %entry ]
+return:                                           ; preds = %uv__handle_fd.exit.i, %if.end8.i, %if.then4.i, %lor.lhs.false.i, %if.end.i, %entry, %if.end21, %if.else32, %if.then31, %if.end16
+  %retval.0 = phi i32 [ -12, %if.end16 ], [ 0, %if.then31 ], [ 0, %if.else32 ], [ 0, %if.end21 ], [ -9, %if.end8.i ], [ -22, %if.then4.i ], [ -22, %lor.lhs.false.i ], [ -32, %if.end.i ], [ -9, %entry ], [ -9, %uv__handle_fd.exit.i ]
   ret i32 %retval.0
 }
 

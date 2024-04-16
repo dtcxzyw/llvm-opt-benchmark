@@ -628,14 +628,14 @@ call.i.i.i.i.i.i.noexc124:                        ; preds = %if.then.i.i.i.i119
   br label %invoke.cont64
 
 if.else.i.i.i.i110:                               ; preds = %if.end.i
-  %35 = trunc i64 %sub.ptr.sub.i.i.i to i8
+  %35 = trunc nuw i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 23, %35
   store i8 %conv.i.i.i5.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i107, align 1, !alias.scope !5
   br label %invoke.cont64
 
 invoke.cont64:                                    ; preds = %if.else.i.i.i.i110, %call.i.i.i.i.i.i.noexc124
-  %tobool.i.i.i.i.i111 = phi ptr [ %call.i.i.i.i.i.i125, %call.i.i.i.i.i.i.noexc124 ], [ %ref.tmp63, %if.else.i.i.i.i110 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i111, ptr align 1 %spec.select.i.i.i, i64 %sub.ptr.sub.i.i.i, i1 false)
+  %spec.select.i.i.i.i111 = phi ptr [ %call.i.i.i.i.i.i125, %call.i.i.i.i.i.i.noexc124 ], [ %ref.tmp63, %if.else.i.i.i.i110 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i111, ptr align 1 %spec.select.i.i.i, i64 %sub.ptr.sub.i.i.i, i1 false)
   %36 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i107, align 1, !alias.scope !5
   %tobool.i.i5.i.i.i112 = icmp slt i8 %36, 0
   %37 = load ptr, ptr %ref.tmp63, align 8, !alias.scope !5
@@ -1103,14 +1103,14 @@ call.i.i.i.i.i.i316.noexc:                        ; preds = %if.then.i.i.i.i314
   br label %invoke.cont201
 
 if.else.i.i.i.i304:                               ; preds = %if.end.i289
-  %86 = trunc i64 %sub.ptr.sub.i.i.i302 to i8
+  %86 = trunc nuw i64 %sub.ptr.sub.i.i.i302 to i8
   %conv.i.i.i5.i.i305 = sub nuw nsw i8 23, %86
   store i8 %conv.i.i.i5.i.i305, ptr %mRemainingSizeField.i.i.i.i.i.i.i290, align 1, !alias.scope !11
   br label %invoke.cont201
 
 invoke.cont201:                                   ; preds = %if.else.i.i.i.i304, %call.i.i.i.i.i.i316.noexc
-  %tobool.i.i.i.i.i306 = phi ptr [ %call.i.i.i.i.i.i316320, %call.i.i.i.i.i.i316.noexc ], [ %ref.tmp200, %if.else.i.i.i.i304 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i306, ptr align 1 %spec.select.i.i.i293, i64 %sub.ptr.sub.i.i.i302, i1 false)
+  %spec.select.i.i.i.i306 = phi ptr [ %call.i.i.i.i.i.i316320, %call.i.i.i.i.i.i316.noexc ], [ %ref.tmp200, %if.else.i.i.i.i304 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i306, ptr align 1 %spec.select.i.i.i293, i64 %sub.ptr.sub.i.i.i302, i1 false)
   %87 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i290, align 1, !alias.scope !11
   %tobool.i.i5.i.i.i307 = icmp slt i8 %87, 0
   %88 = load ptr, ptr %ref.tmp200, align 8, !alias.scope !11
@@ -1343,14 +1343,14 @@ call.i.i.i.i.i.i469.noexc:                        ; preds = %if.then.i.i.i.i467
   br label %invoke.cont269
 
 if.else.i.i.i.i457:                               ; preds = %if.end.i442
-  %110 = trunc i64 %sub.ptr.sub.i.i.i455 to i8
+  %110 = trunc nuw i64 %sub.ptr.sub.i.i.i455 to i8
   %conv.i.i.i5.i.i458 = sub nuw nsw i8 23, %110
   store i8 %conv.i.i.i5.i.i458, ptr %mRemainingSizeField.i.i.i.i.i.i.i443, align 1, !alias.scope !14
   br label %invoke.cont269
 
 invoke.cont269:                                   ; preds = %if.else.i.i.i.i457, %call.i.i.i.i.i.i469.noexc
-  %tobool.i.i.i.i.i459 = phi ptr [ %call.i.i.i.i.i.i469473, %call.i.i.i.i.i.i469.noexc ], [ %ref.tmp266, %if.else.i.i.i.i457 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i459, ptr align 1 %spec.select.i.i.i446, i64 %sub.ptr.sub.i.i.i455, i1 false)
+  %spec.select.i.i.i.i459 = phi ptr [ %call.i.i.i.i.i.i469473, %call.i.i.i.i.i.i469.noexc ], [ %ref.tmp266, %if.else.i.i.i.i457 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i459, ptr align 1 %spec.select.i.i.i446, i64 %sub.ptr.sub.i.i.i455, i1 false)
   %111 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i443, align 1, !alias.scope !14
   %tobool.i.i5.i.i.i460 = icmp slt i8 %111, 0
   %112 = load ptr, ptr %ref.tmp266, align 8, !alias.scope !14
@@ -1723,14 +1723,14 @@ call.i.i.i.i.i.i687.noexc:                        ; preds = %if.then.i.i.i.i685
   br label %invoke.cont333
 
 if.else.i.i.i.i675:                               ; preds = %if.end.i660
-  %159 = trunc i64 %sub.ptr.sub.i.i.i673 to i8
+  %159 = trunc nuw i64 %sub.ptr.sub.i.i.i673 to i8
   %conv.i.i.i5.i.i676 = sub nuw nsw i8 23, %159
   store i8 %conv.i.i.i5.i.i676, ptr %mRemainingSizeField.i.i.i.i.i.i.i661, align 1, !alias.scope !17
   br label %invoke.cont333
 
 invoke.cont333:                                   ; preds = %if.else.i.i.i.i675, %call.i.i.i.i.i.i687.noexc
-  %tobool.i.i.i.i.i677 = phi ptr [ %call.i.i.i.i.i.i687691, %call.i.i.i.i.i.i687.noexc ], [ %ref.tmp330, %if.else.i.i.i.i675 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i677, ptr align 1 %spec.select.i.i.i664, i64 %sub.ptr.sub.i.i.i673, i1 false)
+  %spec.select.i.i.i.i677 = phi ptr [ %call.i.i.i.i.i.i687691, %call.i.i.i.i.i.i687.noexc ], [ %ref.tmp330, %if.else.i.i.i.i675 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i677, ptr align 1 %spec.select.i.i.i664, i64 %sub.ptr.sub.i.i.i673, i1 false)
   %160 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i661, align 1, !alias.scope !17
   %tobool.i.i5.i.i.i678 = icmp slt i8 %160, 0
   %161 = load ptr, ptr %ref.tmp330, align 8, !alias.scope !17
@@ -2573,14 +2573,14 @@ call.i.i.i.i.i.i1139.noexc:                       ; preds = %if.then.i.i.i.i1137
   br label %invoke.cont583
 
 if.else.i.i.i.i1127:                              ; preds = %if.end.i1112
-  %267 = trunc i64 %sub.ptr.sub.i.i.i1125 to i8
+  %267 = trunc nuw i64 %sub.ptr.sub.i.i.i1125 to i8
   %conv.i.i.i5.i.i1128 = sub nuw nsw i8 23, %267
   store i8 %conv.i.i.i5.i.i1128, ptr %mRemainingSizeField.i.i.i.i.i.i.i1113, align 1, !alias.scope !23
   br label %invoke.cont583
 
 invoke.cont583:                                   ; preds = %if.else.i.i.i.i1127, %call.i.i.i.i.i.i1139.noexc
-  %tobool.i.i.i.i.i1129 = phi ptr [ %call.i.i.i.i.i.i11391143, %call.i.i.i.i.i.i1139.noexc ], [ %ref.tmp582, %if.else.i.i.i.i1127 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i1129, ptr align 1 %spec.select.i.i.i1116, i64 %sub.ptr.sub.i.i.i1125, i1 false)
+  %spec.select.i.i.i.i1129 = phi ptr [ %call.i.i.i.i.i.i11391143, %call.i.i.i.i.i.i1139.noexc ], [ %ref.tmp582, %if.else.i.i.i.i1127 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i1129, ptr align 1 %spec.select.i.i.i1116, i64 %sub.ptr.sub.i.i.i1125, i1 false)
   %268 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1113, align 1, !alias.scope !23
   %tobool.i.i5.i.i.i1130 = icmp slt i8 %268, 0
   %269 = load ptr, ptr %ref.tmp582, align 8, !alias.scope !23
@@ -2986,14 +2986,14 @@ call.i.i.i.i.i.i1483.noexc:                       ; preds = %if.then.i.i.i.i1481
   br label %invoke.cont689
 
 if.else.i.i.i.i1471:                              ; preds = %if.end.i1456
-  %316 = trunc i64 %sub.ptr.sub.i.i.i1469 to i8
+  %316 = trunc nuw i64 %sub.ptr.sub.i.i.i1469 to i8
   %conv.i.i.i5.i.i1472 = sub nuw nsw i8 23, %316
   store i8 %conv.i.i.i5.i.i1472, ptr %mRemainingSizeField.i.i.i.i.i.i.i1457, align 1, !alias.scope !29
   br label %invoke.cont689
 
 invoke.cont689:                                   ; preds = %if.else.i.i.i.i1471, %call.i.i.i.i.i.i1483.noexc
-  %tobool.i.i.i.i.i1473 = phi ptr [ %call.i.i.i.i.i.i14831487, %call.i.i.i.i.i.i1483.noexc ], [ %ref.tmp688, %if.else.i.i.i.i1471 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i1473, ptr align 1 %spec.select.i.i.i1460, i64 %sub.ptr.sub.i.i.i1469, i1 false)
+  %spec.select.i.i.i.i1473 = phi ptr [ %call.i.i.i.i.i.i14831487, %call.i.i.i.i.i.i1483.noexc ], [ %ref.tmp688, %if.else.i.i.i.i1471 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i1473, ptr align 1 %spec.select.i.i.i1460, i64 %sub.ptr.sub.i.i.i1469, i1 false)
   %317 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1457, align 1, !alias.scope !29
   %tobool.i.i5.i.i.i1474 = icmp slt i8 %317, 0
   %318 = load ptr, ptr %ref.tmp688, align 8, !alias.scope !29
@@ -3087,14 +3087,14 @@ call.i.i.i.i.i.i1546.noexc:                       ; preds = %if.then.i.i.i.i1544
   br label %invoke.cont697
 
 if.else.i.i.i.i1534:                              ; preds = %if.end.i1519
-  %329 = trunc i64 %sub.ptr.sub.i.i.i1532 to i8
+  %329 = trunc nuw i64 %sub.ptr.sub.i.i.i1532 to i8
   %conv.i.i.i5.i.i1535 = sub nuw nsw i8 23, %329
   store i8 %conv.i.i.i5.i.i1535, ptr %mRemainingSizeField.i.i.i.i.i.i.i1520, align 1, !alias.scope !32
   br label %invoke.cont697
 
 invoke.cont697:                                   ; preds = %if.else.i.i.i.i1534, %call.i.i.i.i.i.i1546.noexc
-  %tobool.i.i.i.i.i1536 = phi ptr [ %call.i.i.i.i.i.i15461550, %call.i.i.i.i.i.i1546.noexc ], [ %ref.tmp696, %if.else.i.i.i.i1534 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i1536, ptr align 1 %spec.select.i.i.i1523, i64 %sub.ptr.sub.i.i.i1532, i1 false)
+  %spec.select.i.i.i.i1536 = phi ptr [ %call.i.i.i.i.i.i15461550, %call.i.i.i.i.i.i1546.noexc ], [ %ref.tmp696, %if.else.i.i.i.i1534 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i1536, ptr align 1 %spec.select.i.i.i1523, i64 %sub.ptr.sub.i.i.i1532, i1 false)
   %330 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1520, align 1, !alias.scope !32
   %tobool.i.i5.i.i.i1537 = icmp slt i8 %330, 0
   %331 = load ptr, ptr %ref.tmp696, align 8, !alias.scope !32
@@ -3187,14 +3187,14 @@ call.i.i.i.i.i.i1609.noexc:                       ; preds = %if.then.i.i.i.i1607
   br label %invoke.cont705
 
 if.else.i.i.i.i1597:                              ; preds = %if.end.i1582
-  %342 = trunc i64 %sub.ptr.sub.i.i.i1595 to i8
+  %342 = trunc nuw i64 %sub.ptr.sub.i.i.i1595 to i8
   %conv.i.i.i5.i.i1598 = sub nuw nsw i8 23, %342
   store i8 %conv.i.i.i5.i.i1598, ptr %mRemainingSizeField.i.i.i.i.i.i.i1583, align 1, !alias.scope !35
   br label %invoke.cont705
 
 invoke.cont705:                                   ; preds = %if.else.i.i.i.i1597, %call.i.i.i.i.i.i1609.noexc
-  %tobool.i.i.i.i.i1599 = phi ptr [ %call.i.i.i.i.i.i16091613, %call.i.i.i.i.i.i1609.noexc ], [ %ref.tmp704, %if.else.i.i.i.i1597 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i1599, ptr align 1 %spec.select.i.i.i1586, i64 %sub.ptr.sub.i.i.i1595, i1 false)
+  %spec.select.i.i.i.i1599 = phi ptr [ %call.i.i.i.i.i.i16091613, %call.i.i.i.i.i.i1609.noexc ], [ %ref.tmp704, %if.else.i.i.i.i1597 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i1599, ptr align 1 %spec.select.i.i.i1586, i64 %sub.ptr.sub.i.i.i1595, i1 false)
   %343 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1583, align 1, !alias.scope !35
   %tobool.i.i5.i.i.i1600 = icmp slt i8 %343, 0
   %344 = load ptr, ptr %ref.tmp704, align 8, !alias.scope !35
@@ -3288,14 +3288,14 @@ call.i.i.i.i.i.i1672.noexc:                       ; preds = %if.then.i.i.i.i1670
   br label %invoke.cont713
 
 if.else.i.i.i.i1660:                              ; preds = %if.end.i1645
-  %355 = trunc i64 %sub.ptr.sub.i.i.i1658 to i8
+  %355 = trunc nuw i64 %sub.ptr.sub.i.i.i1658 to i8
   %conv.i.i.i5.i.i1661 = sub nuw nsw i8 23, %355
   store i8 %conv.i.i.i5.i.i1661, ptr %mRemainingSizeField.i.i.i.i.i.i.i1646, align 1, !alias.scope !38
   br label %invoke.cont713
 
 invoke.cont713:                                   ; preds = %if.else.i.i.i.i1660, %call.i.i.i.i.i.i1672.noexc
-  %tobool.i.i.i.i.i1662 = phi ptr [ %call.i.i.i.i.i.i16721676, %call.i.i.i.i.i.i1672.noexc ], [ %ref.tmp712, %if.else.i.i.i.i1660 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i1662, ptr align 1 %spec.select.i.i.i1649, i64 %sub.ptr.sub.i.i.i1658, i1 false)
+  %spec.select.i.i.i.i1662 = phi ptr [ %call.i.i.i.i.i.i16721676, %call.i.i.i.i.i.i1672.noexc ], [ %ref.tmp712, %if.else.i.i.i.i1660 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i1662, ptr align 1 %spec.select.i.i.i1649, i64 %sub.ptr.sub.i.i.i1658, i1 false)
   %356 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1646, align 1, !alias.scope !38
   %tobool.i.i5.i.i.i1663 = icmp slt i8 %356, 0
   %357 = load ptr, ptr %ref.tmp712, align 8, !alias.scope !38
@@ -3388,14 +3388,14 @@ call.i.i.i.i.i.i1735.noexc:                       ; preds = %if.then.i.i.i.i1733
   br label %invoke.cont721
 
 if.else.i.i.i.i1723:                              ; preds = %if.end.i1708
-  %368 = trunc i64 %sub.ptr.sub.i.i.i1721 to i8
+  %368 = trunc nuw i64 %sub.ptr.sub.i.i.i1721 to i8
   %conv.i.i.i5.i.i1724 = sub nuw nsw i8 23, %368
   store i8 %conv.i.i.i5.i.i1724, ptr %mRemainingSizeField.i.i.i.i.i.i.i1709, align 1, !alias.scope !41
   br label %invoke.cont721
 
 invoke.cont721:                                   ; preds = %if.else.i.i.i.i1723, %call.i.i.i.i.i.i1735.noexc
-  %tobool.i.i.i.i.i1725 = phi ptr [ %call.i.i.i.i.i.i17351739, %call.i.i.i.i.i.i1735.noexc ], [ %ref.tmp720, %if.else.i.i.i.i1723 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i1725, ptr align 1 %spec.select.i.i.i1712, i64 %sub.ptr.sub.i.i.i1721, i1 false)
+  %spec.select.i.i.i.i1725 = phi ptr [ %call.i.i.i.i.i.i17351739, %call.i.i.i.i.i.i1735.noexc ], [ %ref.tmp720, %if.else.i.i.i.i1723 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i1725, ptr align 1 %spec.select.i.i.i1712, i64 %sub.ptr.sub.i.i.i1721, i1 false)
   %369 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i1709, align 1, !alias.scope !41
   %tobool.i.i5.i.i.i1726 = icmp slt i8 %369, 0
   %370 = load ptr, ptr %ref.tmp720, align 8, !alias.scope !41
@@ -6079,20 +6079,20 @@ entry:
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
-  %2 = and i8 %1, 1
-  store i8 %2, ptr %mbThrowOnCopy.i.i.i.i, align 4
+  %frombool.i.i.i.i = and i8 %1, 1
+  store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
   %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
-  %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
-  store i32 %3, ptr %mMagicValue.i.i.i.i, align 8
-  %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i.i = add nsw i64 %4, 1
+  %2 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
+  store i32 %2, ptr %mMagicValue.i.i.i.i, align 8
+  %3 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i.i = add nsw i64 %3, 1
   store i64 %inc.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %5 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i.i = add nsw i64 %5, 1
+  %4 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i.i = add nsw i64 %4, 1
   store i64 %inc5.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %6 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %inc6.i.i.i.i = add nsw i64 %6, 1
+  %5 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  %inc6.i.i.i.i = add nsw i64 %5, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
@@ -6101,19 +6101,19 @@ entry:
   %m_handler.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr @_ZN5eastl3any24storage_handler_externalI10TestObjectE12handler_funcENS0_17storage_operationEPKS0_PS0_, ptr %m_handler.i, align 8
   call void @_ZN5eastl3any4swapERS0_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %this) #13
-  %7 = load ptr, ptr %m_handler.i, align 8
-  %tobool.not.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %m_handler.i, align 8
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZN5eastl3anyD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = invoke noundef ptr %7(i32 noundef 1, ptr noundef nonnull %ref.tmp, ptr noundef null)
+  %call.i.i = invoke noundef ptr %6(i32 noundef 1, ptr noundef nonnull %ref.tmp, ptr noundef null)
           to label %_ZN5eastl3anyD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #11
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #11
   unreachable
 
 _ZN5eastl3anyD2Ev.exit:                           ; preds = %entry, %if.then.i.i
@@ -6268,7 +6268,7 @@ _ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit: ; preds
   tail call void @_ZdaPv(ptr noundef nonnull %1) #12
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %6 = load ptr, ptr %pThis, align 8
@@ -6279,85 +6279,85 @@ sw.bb2:                                           ; preds = %entry
   %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 4
   %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %8 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
-  %9 = and i8 %8, 1
-  store i8 %9, ptr %mbThrowOnCopy.i.i.i, align 4
+  %frombool.i.i.i = and i8 %8, 1
+  store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
   %mMagicValue.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = load i32, ptr %mMagicValue4.i.i.i, align 8
-  store i32 %10, ptr %mMagicValue.i.i.i7, align 8
-  %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i8 = add nsw i64 %11, 1
+  %9 = load i32, ptr %mMagicValue4.i.i.i, align 8
+  store i32 %9, ptr %mMagicValue.i.i.i7, align 8
+  %10 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i8 = add nsw i64 %10, 1
   store i64 %inc.i.i.i8, ptr @_ZN10TestObject8sTOCountE, align 8
-  %12 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i = add nsw i64 %12, 1
+  %11 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i = add nsw i64 %11, 1
   store i64 %inc5.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %13 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %inc6.i.i.i = add nsw i64 %13, 1
+  %12 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
+  %inc6.i.i.i = add nsw i64 %12, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store ptr %call.i.i.i, ptr %pOther, align 8
-  br label %sw.epilog
-
-sw.bb5:                                           ; preds = %entry
-  %14 = load ptr, ptr %pThis, align 8
-  %call.i.i9 = tail call noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
-  %call.i.i.i10 = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 24, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %15 = load i32, ptr %14, align 8
-  store i32 %15, ptr %call.i.i.i10, align 8
-  %mbThrowOnCopy.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 4
-  %mbThrowOnCopy3.i.i.i12 = getelementptr inbounds i8, ptr %14, i64 4
-  %16 = load i8, ptr %mbThrowOnCopy3.i.i.i12, align 4
-  %17 = and i8 %16, 1
-  store i8 %17, ptr %mbThrowOnCopy.i.i.i11, align 4
-  %mMagicValue.i.i.i13 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 16
-  %mMagicValue4.i.i.i14 = getelementptr inbounds i8, ptr %14, i64 16
-  %18 = load i32, ptr %mMagicValue4.i.i.i14, align 8
-  store i32 %18, ptr %mMagicValue.i.i.i13, align 8
-  %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc.i.i.i15 = add nsw i64 %19, 1
-  store i64 %inc.i.i.i15, ptr @_ZN10TestObject8sTOCountE, align 8
-  %20 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %inc5.i.i.i16 = add nsw i64 %20, 1
-  store i64 %inc5.i.i.i16, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %21 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %inc6.i.i.i17 = add nsw i64 %21, 1
-  store i64 %inc6.i.i.i17, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 8
-  store i64 %inc5.i.i.i16, ptr %mId.i.i.i18, align 8
-  store i32 0, ptr %14, align 8
-  store ptr %call.i.i.i10, ptr %pOther, align 8
-  %22 = load ptr, ptr %pThis, align 8
-  %mMagicValue.i.i.i19 = getelementptr inbounds i8, ptr %22, i64 16
-  %23 = load i32, ptr %mMagicValue.i.i.i19, align 8
-  %cmp.not.i.i.i20 = icmp eq i32 %23, 32623592
-  br i1 %cmp.not.i.i.i20, label %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit27, label %if.then.i.i.i21
-
-if.then.i.i.i21:                                  ; preds = %sw.bb5
-  %24 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %inc.i.i.i22 = add nsw i32 %24, 1
-  store i32 %inc.i.i.i22, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  br label %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit27
-
-_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit27: ; preds = %sw.bb5, %if.then.i.i.i21
-  store i32 0, ptr %mMagicValue.i.i.i19, align 8
-  %25 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i.i.i23 = add nsw i64 %25, -1
-  store i64 %dec.i.i.i23, ptr @_ZN10TestObject8sTOCountE, align 8
-  %26 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i.i.i24 = add nsw i64 %26, 1
-  store i64 %inc3.i.i.i24, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %call.i.i25 = tail call noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
-  tail call void @_ZdaPv(ptr noundef nonnull %22) #12
-  %m_handler.i26 = getelementptr inbounds i8, ptr %pThis, i64 32
-  store ptr null, ptr %m_handler.i26, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %entry, %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit27, %sw.bb2, %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ %0, %sw.bb ], [ @_ZTI10TestObject, %entry ]
+sw.bb5:                                           ; preds = %entry
+  %13 = load ptr, ptr %pThis, align 8
+  %call.i.i9 = tail call noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
+  %call.i.i.i10 = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 24, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %14 = load i32, ptr %13, align 8
+  store i32 %14, ptr %call.i.i.i10, align 8
+  %mbThrowOnCopy.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 4
+  %mbThrowOnCopy3.i.i.i12 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = load i8, ptr %mbThrowOnCopy3.i.i.i12, align 4
+  %frombool.i.i.i13 = and i8 %15, 1
+  store i8 %frombool.i.i.i13, ptr %mbThrowOnCopy.i.i.i11, align 4
+  %mMagicValue.i.i.i14 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 16
+  %mMagicValue4.i.i.i15 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = load i32, ptr %mMagicValue4.i.i.i15, align 8
+  store i32 %16, ptr %mMagicValue.i.i.i14, align 8
+  %17 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc.i.i.i16 = add nsw i64 %17, 1
+  store i64 %inc.i.i.i16, ptr @_ZN10TestObject8sTOCountE, align 8
+  %18 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %inc5.i.i.i17 = add nsw i64 %18, 1
+  store i64 %inc5.i.i.i17, ptr @_ZN10TestObject12sTOCtorCountE, align 8
+  %19 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  %inc6.i.i.i18 = add nsw i64 %19, 1
+  store i64 %inc6.i.i.i18, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
+  %mId.i.i.i19 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 8
+  store i64 %inc5.i.i.i17, ptr %mId.i.i.i19, align 8
+  store i32 0, ptr %13, align 8
+  store ptr %call.i.i.i10, ptr %pOther, align 8
+  %20 = load ptr, ptr %pThis, align 8
+  %mMagicValue.i.i.i20 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load i32, ptr %mMagicValue.i.i.i20, align 8
+  %cmp.not.i.i.i21 = icmp eq i32 %21, 32623592
+  br i1 %cmp.not.i.i.i21, label %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit28, label %if.then.i.i.i22
+
+if.then.i.i.i22:                                  ; preds = %sw.bb5
+  %22 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  %inc.i.i.i23 = add nsw i32 %22, 1
+  store i32 %inc.i.i.i23, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  br label %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit28
+
+_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit28: ; preds = %sw.bb5, %if.then.i.i.i22
+  store i32 0, ptr %mMagicValue.i.i.i20, align 8
+  %23 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i.i.i24 = add nsw i64 %23, -1
+  store i64 %dec.i.i.i24, ptr @_ZN10TestObject8sTOCountE, align 8
+  %24 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i.i.i25 = add nsw i64 %24, 1
+  store i64 %inc3.i.i.i25, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %call.i.i26 = tail call noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
+  tail call void @_ZdaPv(ptr noundef nonnull %20) #12
+  %m_handler.i27 = getelementptr inbounds i8, ptr %pThis, i64 32
+  store ptr null, ptr %m_handler.i27, align 8
+  br label %return
+
+sw.epilog:                                        ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit, %sw.bb2, %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit28, %entry, %sw.epilog, %sw.bb
+  %retval.0 = phi ptr [ %0, %sw.bb ], [ @_ZTI10TestObject, %entry ], [ null, %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit28 ], [ null, %sw.bb2 ], [ null, %_ZN5eastl3any24storage_handler_externalI10TestObjectE7destroyERS0_.exit ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6379,28 +6379,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load i32, ptr %pThis, align 4
   store i32 %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load i32, ptr %pThis, align 4
   store i32 %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIi, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIi, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6418,28 +6418,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load float, ptr %pThis, align 4
   store float %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load float, ptr %pThis, align 4
   store float %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIf, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIf, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6462,28 +6462,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %pThis.val = load i32, ptr %pThis, align 4
   store i32 %pThis.val, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %call.val = load i32, ptr %pThis, align 4
   store i32 %call.val, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIZ7TestAnyvE11custom_type, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIZ7TestAnyvE11custom_type, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6501,28 +6501,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load i8, ptr %pThis, align 1
   store i8 %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load i8, ptr %pThis, align 1
   store i8 %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIc, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIc, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6540,28 +6540,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load i32, ptr %pThis, align 4
   store i32 %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load i32, ptr %pThis, align 4
   store i32 %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIj, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIj, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6579,28 +6579,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load i64, ptr %pThis, align 8
   store i64 %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load i64, ptr %pThis, align 8
   store i64 %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIm, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIm, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6618,28 +6618,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load i64, ptr %pThis, align 8
   store i64 %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load i64, ptr %pThis, align 8
   store i64 %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIy, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIy, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6657,28 +6657,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load double, ptr %pThis, align 8
   store double %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load double, ptr %pThis, align 8
   store double %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTId, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTId, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6712,7 +6712,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %if.then.i.i.i
 _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit: ; preds = %sw.bb1, %if.then.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   store i8 0, ptr %pOther, align 1
@@ -6748,14 +6748,14 @@ if.then.i.i.i.i:                                  ; preds = %sw.bb2
   br label %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit
 
 if.else.i.i.i.i:                                  ; preds = %sw.bb2
-  %5 = trunc i64 %sub.ptr.sub.i.i.i to i8
+  %5 = trunc nuw i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 23, %5
   store i8 %conv.i.i.i5.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit
 
 _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %tobool.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %pOther, %if.else.i.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i.i, ptr align 1 %spec.select.i.i.i, i64 %sub.ptr.sub.i.i.i, i1 false)
+  %spec.select.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %pOther, %if.else.i.i.i.i ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i.i, ptr align 1 %spec.select.i.i.i, i64 %sub.ptr.sub.i.i.i, i1 false)
   %6 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i.i = icmp slt i8 %6, 0
   %7 = load ptr, ptr %pOther, align 8
@@ -6767,7 +6767,7 @@ _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9con
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %pOther, i64 %sub.i.i.i.i.i.i
   %cond.i.i.i.i = select i1 %tobool.i.i5.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i, align 1
-  br label %sw.epilog
+  br label %return
 
 _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit15: ; preds = %entry
   store i8 0, ptr %pOther, align 1
@@ -6783,16 +6783,16 @@ _ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7des
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i, align 1
   %m_handler.i11 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i11, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit15, %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit, %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIN5eastl12basic_stringIcNS_9allocatorEEE, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit, %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit, %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit15, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIN5eastl12basic_stringIcNS_9allocatorEEE, %sw.bb8 ], [ %pThis, %entry ], [ null, %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit15 ], [ null, %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit ], [ null, %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE7destroyERS0_.exit ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6945,28 +6945,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load i64, ptr %pThis, align 8
   store i64 %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load i64, ptr %pThis, align 8
   store i64 %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIl, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIl, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -6984,28 +6984,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load i16, ptr %pThis, align 2
   store i16 %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load i16, ptr %pThis, align 2
   store i16 %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIs, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIs, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -7023,28 +7023,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load i32, ptr %pThis, align 4
   store i32 %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load i32, ptr %pThis, align 4
   store i32 %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTI16RequiresInitList, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTI16RequiresInitList, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -7062,28 +7062,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load ptr, ptr %pThis, align 8
   store ptr %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
   store ptr %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIPs, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIPs, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -7101,28 +7101,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load ptr, ptr %pThis, align 8
   store ptr %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
   store ptr %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIPKs, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIPKs, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -7140,28 +7140,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load ptr, ptr %pThis, align 8
   store ptr %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
   store ptr %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIPVs, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIPVs, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -7179,28 +7179,28 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %0 = load ptr, ptr %pThis, align 8
   store ptr %0, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %1 = load ptr, ptr %pThis, align 8
   store ptr %1, ptr %pOther, align 8
   %m_handler.i6 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i6, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb8:                                           ; preds = %entry
   br label %return
 
-sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb8
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZTIPVKs, %sw.bb8 ], [ %pThis, %entry ]
+return:                                           ; preds = %sw.bb1, %sw.bb2, %sw.bb5, %entry, %sw.epilog, %sw.bb8
+  %retval.0 = phi ptr [ @_ZTIPVKs, %sw.bb8 ], [ %pThis, %entry ], [ null, %sw.bb5 ], [ null, %sw.bb2 ], [ null, %sw.bb1 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -7232,7 +7232,7 @@ delete.notnull.i.i.i:                             ; preds = %sw.bb1
 _ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit: ; preds = %sw.bb1, %delete.notnull.i.i.i
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %2 = load ptr, ptr %pThis, align 8
@@ -7240,7 +7240,7 @@ sw.bb2:                                           ; preds = %entry
   %call.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 16, i64 noundef 16, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %2, i64 16, i1 false)
   store ptr %call.i.i.i, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %3 = load ptr, ptr %pThis, align 8
@@ -7260,13 +7260,13 @@ delete.notnull.i.i.i11:                           ; preds = %sw.bb5
 _ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit13: ; preds = %sw.bb5, %delete.notnull.i.i.i11
   %m_handler.i12 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i12, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %entry, %_ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit13, %sw.bb2, %_ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ %0, %sw.bb ], [ @_ZTI7Align16, %entry ]
+sw.epilog:                                        ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %_ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit, %sw.bb2, %_ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit13, %entry, %sw.epilog, %sw.bb
+  %retval.0 = phi ptr [ %0, %sw.bb ], [ @_ZTI7Align16, %entry ], [ null, %_ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit13 ], [ null, %sw.bb2 ], [ null, %_ZN5eastl3any24storage_handler_externalI7Align16E7destroyERS0_.exit ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -7298,7 +7298,7 @@ delete.notnull.i.i.i:                             ; preds = %sw.bb1
 _ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit: ; preds = %sw.bb1, %delete.notnull.i.i.i
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %2 = load ptr, ptr %pThis, align 8
@@ -7306,7 +7306,7 @@ sw.bb2:                                           ; preds = %entry
   %call.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 32, i64 noundef 32, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 32 dereferenceable(32) %2, i64 32, i1 false)
   store ptr %call.i.i.i, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %3 = load ptr, ptr %pThis, align 8
@@ -7326,13 +7326,13 @@ delete.notnull.i.i.i11:                           ; preds = %sw.bb5
 _ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit13: ; preds = %sw.bb5, %delete.notnull.i.i.i11
   %m_handler.i12 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i12, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %entry, %_ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit13, %sw.bb2, %_ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ %0, %sw.bb ], [ @_ZTI7Align32, %entry ]
+sw.epilog:                                        ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %_ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit, %sw.bb2, %_ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit13, %entry, %sw.epilog, %sw.bb
+  %retval.0 = phi ptr [ %0, %sw.bb ], [ @_ZTI7Align32, %entry ], [ null, %_ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit13 ], [ null, %sw.bb2 ], [ null, %_ZN5eastl3any24storage_handler_externalI7Align32E7destroyERS0_.exit ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -7364,7 +7364,7 @@ delete.notnull.i.i.i:                             ; preds = %sw.bb1
 _ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit: ; preds = %sw.bb1, %delete.notnull.i.i.i
   %m_handler.i = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb2:                                           ; preds = %entry
   %2 = load ptr, ptr %pThis, align 8
@@ -7372,7 +7372,7 @@ sw.bb2:                                           ; preds = %entry
   %call.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 64, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %call.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %2, i64 64, i1 false)
   store ptr %call.i.i.i, ptr %pOther, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %3 = load ptr, ptr %pThis, align 8
@@ -7392,13 +7392,13 @@ delete.notnull.i.i.i11:                           ; preds = %sw.bb5
 _ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit13: ; preds = %sw.bb5, %delete.notnull.i.i.i11
   %m_handler.i12 = getelementptr inbounds i8, ptr %pThis, i64 32
   store ptr null, ptr %m_handler.i12, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %entry, %_ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit13, %sw.bb2, %_ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ %0, %sw.bb ], [ @_ZTI7Align64, %entry ]
+sw.epilog:                                        ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %_ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit, %sw.bb2, %_ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit13, %entry, %sw.epilog, %sw.bb
+  %retval.0 = phi ptr [ %0, %sw.bb ], [ @_ZTI7Align64, %entry ], [ null, %_ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit13 ], [ null, %sw.bb2 ], [ null, %_ZN5eastl3any24storage_handler_externalI7Align64E7destroyERS0_.exit ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 

@@ -1257,7 +1257,7 @@ invoke.cont8.i:                                   ; preds = %if.then.i
   %33 = load ptr, ptr %arrayElements.i, align 16, !noalias !38
   %34 = load i8, ptr %31, align 1, !noalias !38
   %tobool.i = trunc i8 %34 to i1
-  %35 = trunc i64 %indvars.iv.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %33, i32 noundef %35, i1 noundef zeroext %tobool.i)
           to label %for.inc.i unwind label %lpad.loopexit.i, !noalias !38
 
@@ -6402,7 +6402,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i1768
 invoke.cont9.i:                                   ; preds = %if.else.i.i.i, %if.end6.i.i.i, %if.then2.i.i.i
   %agg.tmp.i.0.agg.tmp.i.0.agg.tmp.i.0.agg.tmp.0.agg.tmp.0..i = load i64, ptr %agg.tmp.i, align 8, !noalias !302
   %agg.tmp.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..i = load ptr, ptr %agg.tmp.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..sroa_idx, align 8, !noalias !302
-  %780 = trunc i64 %indvars.iv.i1756 to i32
+  %780 = trunc nuw nsw i64 %indvars.iv.i1756 to i32
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %777, i32 noundef %780, i64 %agg.tmp.i.0.agg.tmp.i.0.agg.tmp.i.0.agg.tmp.0.agg.tmp.0..i, ptr %agg.tmp.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..i)
           to label %for.inc.i1771 unwind label %lpad.loopexit.i1770, !noalias !302
 
@@ -7035,7 +7035,7 @@ if.else.i.i.i1954:                                ; preds = %if.end.i.i.i1952
 invoke.cont9.i1955:                               ; preds = %if.else.i.i.i1954, %if.end6.i.i.i2105, %if.then2.i.i.i2103
   %agg.tmp.i1890.0.agg.tmp.i1890.0.agg.tmp.i1890.0.agg.tmp.0.agg.tmp.0..i1956 = load i64, ptr %agg.tmp.i1890, align 8, !noalias !335
   %agg.tmp.i1890.8.agg.tmp.i1890.8.agg.tmp.i1890.8.agg.tmp.8.agg.tmp.8..i1957 = load ptr, ptr %agg.tmp.i1890.8.agg.tmp.i1890.8.agg.tmp.i1890.8.agg.tmp.8.agg.tmp.8..sroa_idx, align 8, !noalias !335
-  %866 = trunc i64 %indvars.iv.i1935 to i32
+  %866 = trunc nuw nsw i64 %indvars.iv.i1935 to i32
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE3setEiS2_(ptr noundef nonnull align 8 dereferenceable(280) %863, i32 noundef %866, i64 %agg.tmp.i1890.0.agg.tmp.i1890.0.agg.tmp.i1890.0.agg.tmp.0.agg.tmp.0..i1956, ptr %agg.tmp.i1890.8.agg.tmp.i1890.8.agg.tmp.i1890.8.agg.tmp.8.agg.tmp.8..i1957)
           to label %for.inc.i1960 unwind label %lpad.loopexit.i1958, !noalias !335
 
@@ -8157,7 +8157,7 @@ cond.true.i.i:                                    ; preds = %_ZNK8facebook5velox
   %idxprom.i.i.i = zext nneg i32 %div2.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
-  %6 = trunc i32 %shl.i.i.i to i8
+  %6 = trunc nuw i32 %shl.i.i.i to i8
   %conv1.i.i.i = or i8 %5, %6
   store i8 %conv1.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %return
@@ -8612,7 +8612,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -8623,13 +8623,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #18
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

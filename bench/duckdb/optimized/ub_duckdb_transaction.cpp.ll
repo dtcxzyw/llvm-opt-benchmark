@@ -1484,7 +1484,7 @@ invoke.cont82:                                    ; preds = %_ZN6duckdb15DuckTra
   %43 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !tbaa !59, !noalias !56
   store ptr %43, ptr %_M_refcount.i.i.i, align 8, !tbaa !61, !alias.scope !56
   %tobool.not.i.i.i.i = icmp eq ptr %43, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i, label %land.lhs.true.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNKSt8weak_ptrIN6duckdb13ClientContextEE4lockEv.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %invoke.cont82
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
@@ -1505,12 +1505,12 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i
   store ptr null, ptr %_M_refcount.i.i.i, align 8, !tbaa !61, !alias.scope !56
-  br label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i
+  br label %_ZNKSt8weak_ptrIN6duckdb13ClientContextEE4lockEv.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i: ; preds = %do.cond.i.i.i.i.i
   %.pr.i.i.i = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !61, !alias.scope !56
   %tobool.not.i6.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %tobool.not.i6.i.i.i, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
+  br i1 %tobool.not.i6.i.i.i, label %_ZNKSt8weak_ptrIN6duckdb13ClientContextEE4lockEv.exit, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i: ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 8
@@ -1518,13 +1518,11 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   %.fr.i.i.i = freeze i32 %48
   %tobool.not.i.i.i217 = icmp eq i32 %.fr.i.i.i, 0
   %49 = load ptr, ptr %context84, align 8, !noalias !56
-  br i1 %tobool.not.i.i.i217, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i, label %_ZNKSt8weak_ptrIN6duckdb13ClientContextEE4lockEv.exit
-
-_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i, %if.then.i.i.i.i, %invoke.cont82
+  %spec.select = select i1 %tobool.not.i.i.i217, ptr null, ptr %49
   br label %_ZNKSt8weak_ptrIN6duckdb13ClientContextEE4lockEv.exit
 
-_ZNKSt8weak_ptrIN6duckdb13ClientContextEE4lockEv.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
-  %50 = phi ptr [ null, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.thread.i.i.i ], [ %49, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i ]
+_ZNKSt8weak_ptrIN6duckdb13ClientContextEE4lockEv.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i, %invoke.cont82, %if.then.i.i.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i
+  %50 = phi ptr [ null, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i ], [ null, %if.then.i.i.i.i ], [ null, %invoke.cont82 ], [ %spec.select, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i ]
   store ptr %50, ptr %transaction_context, align 8, !tbaa !64, !alias.scope !56
   %call87 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6duckdb10unique_ptrINS_15DuckTransactionESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %call78)
           to label %invoke.cont86 unwind label %lpad85

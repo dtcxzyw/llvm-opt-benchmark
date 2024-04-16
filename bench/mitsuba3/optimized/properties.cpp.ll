@@ -474,7 +474,7 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba10Properties3getIbEET_RKNSt3__11
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -494,18 +494,16 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba10Properties3getIbEET_RKNSt3__11
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -646,7 +644,7 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba10Properties3getIbEET_RKNSt3__11
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -666,18 +664,16 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba10Properties3getIbEET_RKNSt3__11
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -706,7 +702,7 @@ define weak_odr noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basi
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -726,18 +722,16 @@ define weak_odr noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basi
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -772,7 +766,7 @@ define weak_odr noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basi
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -792,18 +786,16 @@ define weak_odr noundef float @_ZNK7mitsuba10Properties3getIfEET_RKNSt3__112basi
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -832,7 +824,7 @@ define weak_odr noundef double @_ZNK7mitsuba10Properties3getIdEET_RKNSt3__112bas
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -852,18 +844,16 @@ define weak_odr noundef double @_ZNK7mitsuba10Properties3getIdEET_RKNSt3__112bas
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -897,7 +887,7 @@ define weak_odr noundef double @_ZNK7mitsuba10Properties3getIdEET_RKNSt3__112bas
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -917,18 +907,16 @@ define weak_odr noundef double @_ZNK7mitsuba10Properties3getIdEET_RKNSt3__112bas
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -958,7 +946,7 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIjEET_RKNSt3__112basic_
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not10.i.i.i = icmp eq ptr %9, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %10 = getelementptr inbounds i8, ptr %7, i64 16
@@ -978,18 +966,16 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIjEET_RKNSt3__112basic_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %11
   %.not.i.i = icmp eq ptr %.1.i.i.i, %8
-  br i1 %.not.i.i, label %.critedge.i.i, label %14
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %14
 
 14:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  br i1 %16, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %14, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %16, ptr %8, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %14, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %8, %.critedge.i.i ], [ %.1.i.i.i, %14 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %14
+  %.sroa.0.0.i.i = phi ptr [ %8, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %8, %2 ], [ %spec.select.i.i, %14 ]
   store ptr %.sroa.0.0.i.i, ptr %5, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
@@ -1056,7 +1042,7 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIjEET_RKNSt3__112basic_
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not10.i.i.i = icmp eq ptr %9, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %10 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1076,18 +1062,16 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIjEET_RKNSt3__112basic_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %11
   %.not.i.i = icmp eq ptr %.1.i.i.i, %8
-  br i1 %.not.i.i, label %.critedge.i.i, label %14
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %14
 
 14:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  br i1 %16, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %14, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %16, ptr %8, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %14, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %8, %.critedge.i.i ], [ %.1.i.i.i, %14 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %14
+  %.sroa.0.0.i.i = phi ptr [ %8, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %8, %3 ], [ %spec.select.i.i, %14 ]
   store ptr %.sroa.0.0.i.i, ptr %6, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
@@ -1142,7 +1126,7 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIiEET_RKNSt3__112basic_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1162,18 +1146,16 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIiEET_RKNSt3__112basic_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1208,7 +1190,7 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIiEET_RKNSt3__112basic_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1228,18 +1210,16 @@ define weak_odr noundef i32 @_ZNK7mitsuba10Properties3getIiEET_RKNSt3__112basic_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1270,7 +1250,7 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getImEET_RKNSt3__112basic_
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not10.i.i.i = icmp eq ptr %9, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %10 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1290,18 +1270,16 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getImEET_RKNSt3__112basic_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %11
   %.not.i.i = icmp eq ptr %.1.i.i.i, %8
-  br i1 %.not.i.i, label %.critedge.i.i, label %14
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %14
 
 14:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  br i1 %16, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %14, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %16, ptr %8, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %14, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %8, %.critedge.i.i ], [ %.1.i.i.i, %14 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %14
+  %.sroa.0.0.i.i = phi ptr [ %8, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %8, %2 ], [ %spec.select.i.i, %14 ]
   store ptr %.sroa.0.0.i.i, ptr %5, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
@@ -1367,7 +1345,7 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getImEET_RKNSt3__112basic_
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not10.i.i.i = icmp eq ptr %9, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %10 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1387,18 +1365,16 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getImEET_RKNSt3__112basic_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %11
   %.not.i.i = icmp eq ptr %.1.i.i.i, %8
-  br i1 %.not.i.i, label %.critedge.i.i, label %14
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %14
 
 14:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %15 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %16 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  br i1 %16, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %14, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %16, ptr %8, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %14, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %8, %.critedge.i.i ], [ %.1.i.i.i, %14 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %14
+  %.sroa.0.0.i.i = phi ptr [ %8, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %8, %3 ], [ %spec.select.i.i, %14 ]
   store ptr %.sroa.0.0.i.i, ptr %6, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
@@ -1452,7 +1428,7 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getIlEET_RKNSt3__112basic_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1472,18 +1448,16 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getIlEET_RKNSt3__112basic_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1517,7 +1491,7 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getIlEET_RKNSt3__112basic_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1537,18 +1511,16 @@ define weak_odr noundef i64 @_ZNK7mitsuba10Properties3getIlEET_RKNSt3__112basic_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1576,7 +1548,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIfLm3EEEE
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1596,18 +1568,16 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIfLm3EEEE
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1642,7 +1612,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIfLm3EEEE
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1662,18 +1632,16 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIfLm3EEEE
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1705,7 +1673,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIdLm3EEE
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1725,18 +1693,16 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIdLm3EEE
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1770,7 +1736,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIdLm3EEE
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1790,18 +1756,16 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getIN5drjit5ArrayIdLm3EEE
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1829,7 +1793,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5PointIfLm3EEEEET_R
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1849,18 +1813,16 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5PointIfLm3EEEEET_R
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1895,7 +1857,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5PointIfLm3EEEEET_R
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1915,18 +1877,16 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5PointIfLm3EEEEET_R
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1955,7 +1915,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5PointIdLm3EEEEET_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1975,18 +1935,16 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5PointIdLm3EEEEET_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2020,7 +1978,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5PointIdLm3EEEEET_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2040,18 +1998,16 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5PointIdLm3EEEEET_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2079,7 +2035,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_6VectorIfLm3EEEEET_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2099,18 +2055,16 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_6VectorIfLm3EEEEET_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2145,7 +2099,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_6VectorIfLm3EEEEET_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2165,18 +2119,16 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_6VectorIfLm3EEEEET_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2205,7 +2157,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_6VectorIdLm3EEEEET
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2225,18 +2177,16 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_6VectorIdLm3EEEEET
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2270,7 +2220,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_6VectorIdLm3EEEEET
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2290,18 +2240,16 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_6VectorIdLm3EEEEET
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2329,7 +2277,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5ColorIfLm3EEEEET_R
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2349,18 +2297,16 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5ColorIfLm3EEEEET_R
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2395,7 +2341,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5ColorIfLm3EEEEET_R
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2415,18 +2361,16 @@ define weak_odr <4 x float> @_ZNK7mitsuba10Properties3getINS_5ColorIfLm3EEEEET_R
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2455,7 +2399,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5ColorIdLm3EEEEET_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2475,18 +2419,16 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5ColorIdLm3EEEEET_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %3, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2520,7 +2462,7 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5ColorIdLm3EEEEET_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2540,18 +2482,16 @@ define weak_odr <4 x double> @_ZNK7mitsuba10Properties3getINS_5ColorIdLm3EEEEET_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2582,7 +2522,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm3E
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not10.i.i.i = icmp eq ptr %11, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %12 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2602,18 +2542,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm3E
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %13
   %.not.i.i = icmp eq ptr %.1.i.i.i, %10
-  br i1 %.not.i.i, label %.critedge.i.i, label %16
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %16
 
 16:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  br i1 %18, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %16, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %18, ptr %10, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %16, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %10, %.critedge.i.i ], [ %.1.i.i.i, %16 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %16
+  %.sroa.0.0.i.i = phi ptr [ %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %10, %3 ], [ %spec.select.i.i, %16 ]
   store ptr %.sroa.0.0.i.i, ptr %7, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -2710,7 +2648,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm3E
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not10.i.i.i = icmp eq ptr %11, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %12 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2730,18 +2668,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm3E
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %13
   %.not.i.i = icmp eq ptr %.1.i.i.i, %10
-  br i1 %.not.i.i, label %.critedge.i.i, label %16
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %16
 
 16:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  br i1 %18, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %16, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
+  %spec.select.i.i = select i1 %18, ptr %10, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %16, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %10, %.critedge.i.i ], [ %.1.i.i.i, %16 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %16
+  %.sroa.0.0.i.i = phi ptr [ %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %10, %4 ], [ %spec.select.i.i, %16 ]
   store ptr %.sroa.0.0.i.i, ptr %8, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -2828,7 +2764,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm3E
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -2848,18 +2784,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm3E
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %3 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -2893,7 +2827,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm3E
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -2913,18 +2847,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm3E
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %4 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %5, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -2954,7 +2886,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm4E
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not10.i.i.i = icmp eq ptr %11, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %12 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2974,18 +2906,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm4E
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %13
   %.not.i.i = icmp eq ptr %.1.i.i.i, %10
-  br i1 %.not.i.i, label %.critedge.i.i, label %16
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %16
 
 16:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  br i1 %18, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %16, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %18, ptr %10, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %16, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %10, %.critedge.i.i ], [ %.1.i.i.i, %16 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %16
+  %.sroa.0.0.i.i = phi ptr [ %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %10, %3 ], [ %spec.select.i.i, %16 ]
   store ptr %.sroa.0.0.i.i, ptr %7, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -3082,7 +3012,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm4E
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not10.i.i.i = icmp eq ptr %11, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %12 = getelementptr inbounds i8, ptr %9, i64 16
@@ -3102,18 +3032,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIfLm4E
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %13
   %.not.i.i = icmp eq ptr %.1.i.i.i, %10
-  br i1 %.not.i.i, label %.critedge.i.i, label %16
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %16
 
 16:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %17 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %18 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  br i1 %18, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %16, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
+  %spec.select.i.i = select i1 %18, ptr %10, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %16, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %10, %.critedge.i.i ], [ %.1.i.i.i, %16 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %16
+  %.sroa.0.0.i.i = phi ptr [ %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %10, %4 ], [ %spec.select.i.i, %16 ]
   store ptr %.sroa.0.0.i.i, ptr %8, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -3200,7 +3128,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm4E
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3220,18 +3148,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm4E
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %3 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3265,7 +3191,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm4E
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3285,18 +3211,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_9TransformINS_5PointIdLm4E
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %4 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %5, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3323,7 +3247,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__110shared_ptrIvEEEET_RK
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3343,18 +3267,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__110shared_ptrIvEEEET_RK
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %3 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3388,7 +3310,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__110shared_ptrIvEEEET_RK
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3408,18 +3330,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__110shared_ptrIvEEEET_RK
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %4 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %5, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3454,7 +3374,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__112basic_stringIcNS2_11
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3474,18 +3394,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__112basic_stringIcNS2_11
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %3 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3519,7 +3437,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__112basic_stringIcNS2_11
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3539,18 +3457,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINSt3__112basic_stringIcNS2_11
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %4 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %5, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3579,7 +3495,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_3refINS_6ObjectEEEEET_RKNS
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3599,18 +3515,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_3refINS_6ObjectEEEEET_RKNS
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %3 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %4, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3644,7 +3558,7 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_3refINS_6ObjectEEEEET_RKNS
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not10.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3664,18 +3578,16 @@ define weak_odr void @_ZNK7mitsuba10Properties3getINS_3refINS_6ObjectEEEEET_RKNS
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %10
   %.not.i.i = icmp eq ptr %.1.i.i.i, %7
-  br i1 %.not.i.i, label %.critedge.i.i, label %13
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %13
 
 13:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %14 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %15 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  br i1 %15, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %13, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
+  %spec.select.i.i = select i1 %15, ptr %7, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %13, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %7, %.critedge.i.i ], [ %.1.i.i.i, %13 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %13
+  %.sroa.0.0.i.i = phi ptr [ %7, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %7, %4 ], [ %spec.select.i.i, %13 ]
   store ptr %.sroa.0.0.i.i, ptr %5, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3960,7 +3872,7 @@ define void @_ZN7mitsuba10Properties8set_boolERKNSt3__112basic_stringIcNS1_11cha
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %13 = getelementptr inbounds i8, ptr %10, i64 16
@@ -3980,18 +3892,16 @@ define void @_ZN7mitsuba10Properties8set_boolERKNSt3__112basic_stringIcNS1_11cha
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %14
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %11
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %17
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %19, ptr %11, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %17, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %11, %.critedge.i.i.i ], [ %.1.i.i.i.i, %17 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %17
+  %.sroa.0.0.i.i.i = phi ptr [ %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %11, %4 ], [ %spec.select.i.i.i, %17 ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.not20 = icmp ne ptr %.sroa.0.0.i.i.i, %21
@@ -4075,7 +3985,7 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties12has_propertyERKNSt3__112bas
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not10.i.i.i = icmp eq ptr %5, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4095,18 +4005,16 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties12has_propertyERKNSt3__112bas
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %7
   %.not.i.i = icmp eq ptr %.1.i.i.i, %4
-  br i1 %.not.i.i, label %.critedge.i.i, label %10
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %10
 
 10:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  br i1 %12, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %12, ptr %4, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %10, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %4, %.critedge.i.i ], [ %.1.i.i.i, %10 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %10
+  %.sroa.0.0.i.i = phi ptr [ %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %4, %2 ], [ %spec.select.i.i, %10 ]
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = icmp ne ptr %.sroa.0.0.i.i, %14
@@ -4124,7 +4032,7 @@ define void @_ZN7mitsuba10Properties8set_longERKNSt3__112basic_stringIcNS1_11cha
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %13 = getelementptr inbounds i8, ptr %10, i64 16
@@ -4144,18 +4052,16 @@ define void @_ZN7mitsuba10Properties8set_longERKNSt3__112basic_stringIcNS1_11cha
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %14
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %11
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %17
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %19, ptr %11, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %17, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %11, %.critedge.i.i.i ], [ %.1.i.i.i.i, %17 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %17
+  %.sroa.0.0.i.i.i = phi ptr [ %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %11, %4 ], [ %spec.select.i.i.i, %17 ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.not20 = icmp ne ptr %.sroa.0.0.i.i.i, %21
@@ -4244,7 +4150,7 @@ define void @_ZN7mitsuba10Properties15set_transform3fERKNSt3__112basic_stringIcN
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not10.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %14 = getelementptr inbounds i8, ptr %11, i64 16
@@ -4264,18 +4170,16 @@ define void @_ZN7mitsuba10Properties15set_transform3fERKNSt3__112basic_stringIcN
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %15
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %12
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %18
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %18
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %20, ptr %12, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %18, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %12, %.critedge.i.i.i ], [ %.1.i.i.i.i, %18 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %18
+  %.sroa.0.0.i.i.i = phi ptr [ %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %12, %4 ], [ %spec.select.i.i.i, %18 ]
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %.not20 = icmp ne ptr %.sroa.0.0.i.i.i, %22
@@ -4364,7 +4268,7 @@ define void @_ZN7mitsuba10Properties13set_transformERKNSt3__112basic_stringIcNS1
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not10.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %14 = getelementptr inbounds i8, ptr %11, i64 16
@@ -4384,18 +4288,16 @@ define void @_ZN7mitsuba10Properties13set_transformERKNSt3__112basic_stringIcNS1
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %15
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %12
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %18
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %18
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %20, ptr %12, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %18, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %12, %.critedge.i.i.i ], [ %.1.i.i.i.i, %18 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %18
+  %.sroa.0.0.i.i.i = phi ptr [ %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %12, %4 ], [ %spec.select.i.i.i, %18 ]
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %.not20 = icmp ne ptr %.sroa.0.0.i.i.i, %22
@@ -4484,7 +4386,7 @@ define void @_ZN7mitsuba10Properties17set_tensor_handleERKNSt3__112basic_stringI
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not10.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %14 = getelementptr inbounds i8, ptr %11, i64 16
@@ -4504,18 +4406,16 @@ define void @_ZN7mitsuba10Properties17set_tensor_handleERKNSt3__112basic_stringI
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %15
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %12
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %18
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %18
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %20, ptr %12, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %18, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %12, %.critedge.i.i.i ], [ %.1.i.i.i.i, %18 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %18
+  %.sroa.0.0.i.i.i = phi ptr [ %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %12, %4 ], [ %spec.select.i.i.i, %18 ]
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %.not23 = icmp ne ptr %.sroa.0.0.i.i.i, %22
@@ -4654,7 +4554,7 @@ define void @_ZN7mitsuba10Properties9set_colorERKNSt3__112basic_stringIcNS1_11ch
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %13 = getelementptr inbounds i8, ptr %10, i64 16
@@ -4674,18 +4574,16 @@ define void @_ZN7mitsuba10Properties9set_colorERKNSt3__112basic_stringIcNS1_11ch
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %14
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %11
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %17
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %19, ptr %11, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %17, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %11, %.critedge.i.i.i ], [ %.1.i.i.i.i, %17 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %17
+  %.sroa.0.0.i.i.i = phi ptr [ %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %11, %4 ], [ %spec.select.i.i.i, %17 ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.not21 = icmp ne ptr %.sroa.0.0.i.i.i, %21
@@ -4774,7 +4672,7 @@ define void @_ZN7mitsuba10Properties10set_stringERKNSt3__112basic_stringIcNS1_11
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not10.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %14 = getelementptr inbounds i8, ptr %11, i64 16
@@ -4794,18 +4692,16 @@ define void @_ZN7mitsuba10Properties10set_stringERKNSt3__112basic_stringIcNS1_11
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %15
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %12
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %18
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %18
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %20, ptr %12, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %18, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %12, %.critedge.i.i.i ], [ %.1.i.i.i.i, %18 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %18
+  %.sroa.0.0.i.i.i = phi ptr [ %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %12, %4 ], [ %spec.select.i.i.i, %18 ]
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %.not22 = icmp ne ptr %.sroa.0.0.i.i.i, %22
@@ -4905,7 +4801,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -4925,18 +4821,16 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16
@@ -4996,7 +4890,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5016,18 +4910,16 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16
@@ -5077,7 +4969,7 @@ define void @_ZN7mitsuba10Properties19set_named_referenceERKNSt3__112basic_strin
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not10.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %14 = getelementptr inbounds i8, ptr %11, i64 16
@@ -5097,18 +4989,16 @@ define void @_ZN7mitsuba10Properties19set_named_referenceERKNSt3__112basic_strin
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %15
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %12
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %18
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %18
 
 18:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %19 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %20 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  br i1 %20, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %18, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %20, ptr %12, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %18, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %12, %.critedge.i.i.i ], [ %.1.i.i.i.i, %18 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %18
+  %.sroa.0.0.i.i.i = phi ptr [ %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %12, %4 ], [ %spec.select.i.i.i, %18 ]
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %.not22 = icmp ne ptr %.sroa.0.0.i.i.i, %22
@@ -5208,7 +5098,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5228,18 +5118,16 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16
@@ -5299,7 +5187,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5319,18 +5207,16 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7mitsuba10Properties
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16
@@ -5379,7 +5265,7 @@ define void @_ZN7mitsuba10Properties10set_objectERKNSt3__112basic_stringIcNS1_11
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %13 = getelementptr inbounds i8, ptr %10, i64 16
@@ -5399,18 +5285,16 @@ define void @_ZN7mitsuba10Properties10set_objectERKNSt3__112basic_stringIcNS1_11
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %14
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %11
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %17
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %19, ptr %11, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %17, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %11, %.critedge.i.i.i ], [ %.1.i.i.i.i, %17 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %17
+  %.sroa.0.0.i.i.i = phi ptr [ %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %11, %4 ], [ %spec.select.i.i.i, %17 ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.not27 = icmp ne ptr %.sroa.0.0.i.i.i, %21
@@ -5520,7 +5404,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties6
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5540,18 +5424,16 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties6
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16
@@ -5611,7 +5493,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties6
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5631,18 +5513,16 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties6
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16
@@ -5691,7 +5571,7 @@ define void @_ZN7mitsuba10Properties11set_pointerERKNSt3__112basic_stringIcNS1_1
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %13 = getelementptr inbounds i8, ptr %10, i64 16
@@ -5711,18 +5591,16 @@ define void @_ZN7mitsuba10Properties11set_pointerERKNSt3__112basic_stringIcNS1_1
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %14
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %11
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %17
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %19, ptr %11, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %17, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %11, %.critedge.i.i.i ], [ %.1.i.i.i.i, %17 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %17
+  %.sroa.0.0.i.i.i = phi ptr [ %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %11, %4 ], [ %spec.select.i.i.i, %17 ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.not20 = icmp ne ptr %.sroa.0.0.i.i.i, %21
@@ -5807,7 +5685,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties7
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5827,18 +5705,16 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties7
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16
@@ -5898,7 +5774,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties7
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5918,18 +5794,16 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7mitsuba10Properties7
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16
@@ -6184,7 +6058,7 @@ define noundef i32 @_ZNK7mitsuba10Properties4typeERKNSt3__112basic_stringIcNS1_1
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not10.i.i.i = icmp eq ptr %6, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -6204,18 +6078,16 @@ define noundef i32 @_ZNK7mitsuba10Properties4typeERKNSt3__112basic_stringIcNS1_1
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %8
   %.not.i.i = icmp eq ptr %.1.i.i.i, %5
-  br i1 %.not.i.i, label %.critedge.i.i, label %11
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %11
 
 11:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %12 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %12)
-  br i1 %13, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %13, ptr %5, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %11, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %5, %.critedge.i.i ], [ %.1.i.i.i, %11 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %11
+  %.sroa.0.0.i.i = phi ptr [ %5, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %5, %2 ], [ %spec.select.i.i, %11 ]
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = icmp eq ptr %.sroa.0.0.i.i, %15
@@ -6318,7 +6190,7 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties12mark_queriedERKNSt3__112bas
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not10.i.i.i = icmp eq ptr %5, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -6338,18 +6210,16 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties12mark_queriedERKNSt3__112bas
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %7
   %.not.i.i = icmp eq ptr %.1.i.i.i, %4
-  br i1 %.not.i.i, label %.critedge.i.i, label %10
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %10
 
 10:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  br i1 %12, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %12, ptr %4, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %10, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %4, %.critedge.i.i ], [ %.1.i.i.i, %10 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %10
+  %.sroa.0.0.i.i = phi ptr [ %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %4, %2 ], [ %spec.select.i.i, %10 ]
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = icmp ne ptr %.sroa.0.0.i.i, %14
@@ -6371,7 +6241,7 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties11was_queriedERKNSt3__112basi
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not10.i.i.i = icmp eq ptr %6, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 16
@@ -6391,18 +6261,16 @@ define noundef zeroext i1 @_ZNK7mitsuba10Properties11was_queriedERKNSt3__112basi
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %8
   %.not.i.i = icmp eq ptr %.1.i.i.i, %5
-  br i1 %.not.i.i, label %.critedge.i.i, label %11
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %11
 
 11:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %12 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %13 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %12)
-  br i1 %13, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %13, ptr %5, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %11, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %5, %.critedge.i.i ], [ %.1.i.i.i, %11 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %11
+  %.sroa.0.0.i.i = phi ptr [ %5, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %5, %2 ], [ %spec.select.i.i, %11 ]
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = icmp eq ptr %.sroa.0.0.i.i, %15
@@ -6436,7 +6304,7 @@ define noundef zeroext i1 @_ZN7mitsuba10Properties15remove_propertyERKNSt3__112b
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not10.i.i.i = icmp eq ptr %5, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 16
@@ -6456,18 +6324,16 @@ define noundef zeroext i1 @_ZN7mitsuba10Properties15remove_propertyERKNSt3__112b
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %7
   %.not.i.i = icmp eq ptr %.1.i.i.i, %4
-  br i1 %.not.i.i, label %.critedge.i.i, label %10
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %10
 
 10:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %11 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %12 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  br i1 %12, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %10, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %2
+  %spec.select.i.i = select i1 %12, ptr %4, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %10, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %4, %.critedge.i.i ], [ %.1.i.i.i, %10 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %10
+  %.sroa.0.0.i.i = phi ptr [ %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %4, %2 ], [ %spec.select.i.i, %10 ]
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = icmp ne ptr %.sroa.0.0.i.i, %14
@@ -6575,7 +6441,7 @@ define void @_ZN7mitsuba10Properties14copy_attributeERKS0_RKNSt3__112basic_strin
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not10.i.i.i = icmp eq ptr %10, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %11 = getelementptr inbounds i8, ptr %8, i64 16
@@ -6595,18 +6461,16 @@ define void @_ZN7mitsuba10Properties14copy_attributeERKS0_RKNSt3__112basic_strin
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %12
   %.not.i.i = icmp eq ptr %.1.i.i.i, %9
-  br i1 %.not.i.i, label %.critedge.i.i, label %15
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %15
 
 15:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %16 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %17 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %16)
-  br i1 %17, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %15, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %4
+  %spec.select.i.i = select i1 %17, ptr %9, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %15, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %9, %.critedge.i.i ], [ %.1.i.i.i, %15 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %15
+  %.sroa.0.0.i.i = phi ptr [ %9, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %9, %4 ], [ %spec.select.i.i, %15 ]
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = icmp eq ptr %.sroa.0.0.i.i, %19
@@ -7652,7 +7516,7 @@ _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not10.i.i.i = icmp eq ptr %71, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph
   %72 = getelementptr inbounds i8, ptr %69, i64 16
@@ -7672,18 +7536,16 @@ _ZNSt3__1neB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %73
   %.not.i.i27 = icmp eq ptr %.1.i.i.i, %70
-  br i1 %.not.i.i27, label %.critedge.i.i, label %76
+  br i1 %.not.i.i27, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %76
 
 76:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %77 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %78 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %77)
-  br i1 %78, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %76, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %.lr.ph
+  %spec.select.i.i = select i1 %78, ptr %70, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %76, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %70, %.critedge.i.i ], [ %.1.i.i.i, %76 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %.lr.ph, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %76
+  %.sroa.0.0.i.i = phi ptr [ %70, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %70, %.lr.ph ], [ %spec.select.i.i, %76 ]
   %79 = load ptr, ptr %1, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = icmp eq ptr %.sroa.0.0.i.i, %80
@@ -8785,7 +8647,7 @@ define void @_ZN7mitsuba10Properties9set_floatERKNSt3__112basic_stringIcNS1_11ch
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %13 = getelementptr inbounds i8, ptr %10, i64 16
@@ -8805,18 +8667,16 @@ define void @_ZN7mitsuba10Properties9set_floatERKNSt3__112basic_stringIcNS1_11ch
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %14
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %11
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %17
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %19, ptr %11, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %17, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %11, %.critedge.i.i.i ], [ %.1.i.i.i.i, %17 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %17
+  %.sroa.0.0.i.i.i = phi ptr [ %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %11, %4 ], [ %spec.select.i.i.i, %17 ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.not20 = icmp ne ptr %.sroa.0.0.i.i.i, %21
@@ -8904,7 +8764,7 @@ define void @_ZN7mitsuba10Properties11set_array3fERKNSt3__112basic_stringIcNS1_1
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not10.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %4
   %13 = getelementptr inbounds i8, ptr %10, i64 16
@@ -8924,18 +8784,16 @@ define void @_ZN7mitsuba10Properties11set_array3fERKNSt3__112basic_stringIcNS1_1
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i: ; preds = %14
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %11
-  br i1 %.not.i.i.i, label %.critedge.i.i.i, label %17
+  br i1 %.not.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %17
 
 17:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   %19 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  br i1 %19, label %.critedge.i.i.i, label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
-
-.critedge.i.i.i:                                  ; preds = %17, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %4
+  %spec.select.i.i.i = select i1 %19, ptr %11, ptr %.1.i.i.i.i
   br label %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit
 
-_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %17, %.critedge.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %11, %.critedge.i.i.i ], [ %.1.i.i.i.i, %17 ]
+_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %4, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i, %17
+  %.sroa.0.0.i.i.i = phi ptr [ %11, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i.i ], [ %11, %4 ], [ %spec.select.i.i.i, %17 ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.not21 = icmp ne ptr %.sroa.0.0.i.i.i, %21
@@ -9019,7 +8877,7 @@ define void @_ZNK7mitsuba10Properties11find_objectERKNSt3__112basic_stringIcNS1_
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not10.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -9039,18 +8897,16 @@ define void @_ZNK7mitsuba10Properties11find_objectERKNSt3__112basic_stringIcNS1_
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i: ; preds = %9
   %.not.i.i = icmp eq ptr %.1.i.i.i, %6
-  br i1 %.not.i.i, label %.critedge.i.i, label %12
+  br i1 %.not.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit, label %12
 
 12:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i
   %13 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZNK7mitsuba7SortKeyclERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  br i1 %14, label %.critedge.i.i, label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-
-.critedge.i.i:                                    ; preds = %12, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %3
+  %spec.select.i.i = select i1 %14, ptr %6, ptr %.1.i.i.i
   br label %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
 
-_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %12, %.critedge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %6, %.critedge.i.i ], [ %.1.i.i.i, %12 ]
+_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit: ; preds = %3, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i, %12
+  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE13__lower_boundIS7_EENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEERKT_SL_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISJ_EEEE.exit.i.i ], [ %6, %3 ], [ %spec.select.i.i, %12 ]
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = icmp eq ptr %.sroa.0.0.i.i, %16

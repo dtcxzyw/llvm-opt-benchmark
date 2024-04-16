@@ -4862,7 +4862,7 @@ define internal fastcc void @dissect_smb2_NETWORK_INTERFACE_INFO(ptr noundef %0,
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %.lhs.trunc = trunc i64 %26 to i32
+  %.lhs.trunc = trunc nuw i64 %26 to i32
   %35 = udiv i32 %.lhs.trunc, 1000000
   %.zext = zext nneg i32 %35 to i64
   br label %40
@@ -4872,7 +4872,7 @@ define internal fastcc void @dissect_smb2_NETWORK_INTERFACE_INFO(ptr noundef %0,
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %.lhs.trunc71 = trunc i64 %26 to i32
+  %.lhs.trunc71 = trunc nuw i64 %26 to i32
   %39 = udiv i32 %.lhs.trunc71, 1000
   %.zext72 = zext nneg i32 %39 to i64
   br label %40
@@ -11248,15 +11248,13 @@ define internal void @dissect_smb2_secblob(ptr noundef %0, ptr noundef %1, ptr n
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.2055, i64 noundef 7) #12
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %10, label %9
+  %spec.select = select i1 %.not, ptr @ntlmssp_handle, ptr @gssapi_handle
+  br label %9
 
 9:                                                ; preds = %7, %4
-  br label %10
-
-10:                                               ; preds = %7, %9
-  %gssapi_handle.sink = phi ptr [ @gssapi_handle, %9 ], [ @ntlmssp_handle, %7 ]
-  %11 = load ptr, ptr %gssapi_handle.sink, align 8
-  %12 = tail call i32 @call_dissector(ptr noundef %11, ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
+  %gssapi_handle.sink = phi ptr [ @gssapi_handle, %4 ], [ %spec.select, %7 ]
+  %10 = load ptr, ptr %gssapi_handle.sink, align 8
+  %11 = tail call i32 @call_dissector(ptr noundef %10, ptr noundef %0, ptr noundef %1, ptr noundef %2) #12
   ret void
 }
 
@@ -15179,7 +15177,7 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_decrypt(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @do_decrypt(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [3 x i64], align 16
   store ptr null, ptr %7, align 8
@@ -15294,9 +15292,9 @@ declare i32 @gcry_cipher_authenticate(ptr noundef, ptr noundef, i64 noundef) loc
 declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @is_decrypted_header_ok(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @is_decrypted_header_ok(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 {
   %3 = icmp ult i64 %1, 4
-  br i1 %3, label %19, label %4
+  br i1 %3, label %18, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1
@@ -15309,25 +15307,23 @@ define internal fastcc noundef i32 @is_decrypted_header_ok(ptr nocapture noundef
   %7 = getelementptr i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 83
-  br i1 %9, label %19, label %10
+  br i1 %9, label %18, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr i8, ptr %0, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 77
-  br i1 %13, label %19, label %14
+  br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %0, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 66
-  br i1 %17, label %19, label %18
+  %spec.select = zext i1 %17 to i32
+  br label %18
 
-18:                                               ; preds = %4, %14
-  br label %19
-
-19:                                               ; preds = %6, %10, %14, %2, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %2 ], [ 1, %14 ], [ 1, %10 ], [ 1, %6 ]
+18:                                               ; preds = %14, %4, %6, %10, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %10 ], [ 1, %6 ], [ 0, %4 ], [ %spec.select, %14 ]
   ret i32 %.0
 }
 

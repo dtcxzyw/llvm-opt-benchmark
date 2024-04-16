@@ -104,7 +104,7 @@ land.rhs18.us:                                    ; preds = %land.rhs18.lr.ph, %
   br i1 %tobool20.not.us, label %for.end43, label %for.body22.us
 
 for.body22.us:                                    ; preds = %land.rhs18.us
-  %tobool23.us = trunc i8 %escape.025.us to i1
+  %tobool23.us = trunc nuw i8 %escape.025.us to i1
   br i1 %tobool23.us, label %if.end40.us, label %if.then24.us
 
 if.then24.us:                                     ; preds = %for.body22.us
@@ -166,7 +166,7 @@ for.end43:                                        ; preds = %land.rhs18.us, %for
   %str.addr.2.lcssa.ph = phi ptr [ %str.addr.222.us, %land.rhs18.us ], [ %incdec.ptr42.us, %for.inc.us ]
   %content.addr.0.lcssa.ph = phi ptr [ %content.addr.023.us, %land.rhs18.us ], [ %content.addr.1.us, %for.inc.us ]
   %escape.0.lcssa.ph = phi i8 [ %escape.025.us, %land.rhs18.us ], [ %escape.1.us, %for.inc.us ]
-  %8 = trunc i8 %escape.0.lcssa.ph to i1
+  %8 = trunc nuw i8 %escape.0.lcssa.ph to i1
   br i1 %8, label %return, label %if.end46
 
 if.end46:                                         ; preds = %land.rhs18, %for.inc, %if.end, %for.end43
@@ -606,7 +606,7 @@ declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @curl_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_auth_decode_digest_http_message(ptr noundef %chlg, ptr nocapture noundef %digest) local_unnamed_addr #2 {
+define hidden i32 @Curl_auth_decode_digest_http_message(ptr noundef %chlg, ptr nocapture noundef %digest) local_unnamed_addr #2 {
 entry:
   %chlg.addr = alloca ptr, align 8
   %value = alloca [256 x i8], align 16
@@ -660,20 +660,20 @@ for.cond:                                         ; preds = %if.end212, %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.cond
-  %incdec.ptr43 = phi ptr [ %incdec.ptr, %while.body ], [ %chlg.addr.promoted, %for.cond ]
-  %12 = load i8, ptr %incdec.ptr43, align 1
+  %incdec.ptr44 = phi ptr [ %incdec.ptr, %while.body ], [ %chlg.addr.promoted, %for.cond ]
+  %12 = load i8, ptr %incdec.ptr44, align 1
   switch i8 %12, label %while.end [
     i8 9, label %while.body
     i8 32, label %while.body
   ]
 
 while.body:                                       ; preds = %while.cond, %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr43, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr44, i64 1
   br label %while.cond, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond
-  store ptr %incdec.ptr43, ptr %chlg.addr, align 8
-  %call = call zeroext i1 @Curl_auth_digest_get_pair(ptr noundef nonnull %incdec.ptr43, ptr noundef nonnull %value, ptr noundef nonnull %content, ptr noundef nonnull %chlg.addr)
+  store ptr %incdec.ptr44, ptr %chlg.addr, align 8
+  %call = call zeroext i1 @Curl_auth_digest_get_pair(ptr noundef nonnull %incdec.ptr44, ptr noundef nonnull %value, ptr noundef nonnull %content, ptr noundef nonnull %chlg.addr)
   br i1 %call, label %if.then8, label %for.end
 
 if.then8:                                         ; preds = %while.end
@@ -752,17 +752,17 @@ if.then58:                                        ; preds = %if.else54
 
 if.end63:                                         ; preds = %if.then58
   %call64 = call ptr @strtok_r(ptr noundef nonnull %call60, ptr noundef nonnull @.str.10, ptr noundef nonnull %tok_buf) #10
-  %tobool66.not44 = icmp eq ptr %call64, null
-  br i1 %tobool66.not44, label %while.end94, label %while.cond68.preheader
+  %tobool66.not45 = icmp eq ptr %call64, null
+  br i1 %tobool66.not45, label %while.end94, label %while.cond68.preheader
 
 while.cond68.preheader:                           ; preds = %if.end63, %if.end92
-  %token.047 = phi ptr [ %call93, %if.end92 ], [ %call64, %if.end63 ]
-  %foundAuthInt.146 = phi i1 [ %foundAuthInt.2, %if.end92 ], [ %foundAuthInt.0, %if.end63 ]
-  %foundAuth.145 = phi i1 [ %foundAuth.2, %if.end92 ], [ %foundAuth.0, %if.end63 ]
+  %token.048 = phi ptr [ %call93, %if.end92 ], [ %call64, %if.end63 ]
+  %foundAuthInt.147 = phi i1 [ %foundAuthInt.2, %if.end92 ], [ %foundAuthInt.0, %if.end63 ]
+  %foundAuth.146 = phi i1 [ %foundAuth.2, %if.end92 ], [ %foundAuth.0, %if.end63 ]
   br label %while.cond68
 
 while.cond68:                                     ; preds = %while.cond68.preheader, %while.body81
-  %token.1 = phi ptr [ %incdec.ptr82, %while.body81 ], [ %token.047, %while.cond68.preheader ]
+  %token.1 = phi ptr [ %incdec.ptr82, %while.body81 ], [ %token.048, %while.cond68.preheader ]
   %23 = load i8, ptr %token.1, align 1
   switch i8 %23, label %while.end83 [
     i8 9, label %while.body81
@@ -781,12 +781,12 @@ while.end83:                                      ; preds = %while.cond68
 if.else87:                                        ; preds = %while.end83
   %call88 = call i32 @curl_strequal(ptr noundef nonnull %token.1, ptr noundef nonnull @.str.12) #10
   %tobool89.not = icmp ne i32 %call88, 0
-  %spec.select = select i1 %tobool89.not, i1 true, i1 %foundAuthInt.146
+  %spec.select = select i1 %tobool89.not, i1 true, i1 %foundAuthInt.147
   br label %if.end92
 
 if.end92:                                         ; preds = %if.else87, %while.end83
-  %foundAuth.2 = phi i1 [ true, %while.end83 ], [ %foundAuth.145, %if.else87 ]
-  %foundAuthInt.2 = phi i1 [ %foundAuthInt.146, %while.end83 ], [ %spec.select, %if.else87 ]
+  %foundAuth.2 = phi i1 [ true, %while.end83 ], [ %foundAuth.146, %if.else87 ]
+  %foundAuthInt.2 = phi i1 [ %foundAuthInt.147, %while.end83 ], [ %spec.select, %if.else87 ]
   %call93 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %tok_buf) #10
   %tobool66.not = icmp eq ptr %call93, null
   br i1 %tobool66.not, label %while.end94, label %while.cond68.preheader, !llvm.loop !13
@@ -909,12 +909,12 @@ if.then176:                                       ; preds = %if.then172
 if.end190:                                        ; preds = %if.then12, %if.then34, %if.else103, %if.then105, %if.then96, %if.then176, %if.then172, %if.else168, %if.then130, %if.then141, %if.then153, %if.then159, %if.then147, %if.then135, %if.then46, %if.then24, %if.then28
   %foundAuth.3 = phi i1 [ %foundAuth.0, %if.then12 ], [ %foundAuth.0, %if.then28 ], [ %foundAuth.0, %if.then24 ], [ %foundAuth.0, %if.then34 ], [ %foundAuth.0, %if.then46 ], [ true, %if.then96 ], [ false, %if.then105 ], [ false, %if.else103 ], [ %foundAuth.0, %if.then130 ], [ %foundAuth.0, %if.then135 ], [ %foundAuth.0, %if.then141 ], [ %foundAuth.0, %if.then147 ], [ %foundAuth.0, %if.then153 ], [ %foundAuth.0, %if.then159 ], [ %foundAuth.0, %if.then176 ], [ %foundAuth.0, %if.then172 ], [ %foundAuth.0, %if.else168 ]
   %foundAuthInt.3 = phi i1 [ %foundAuthInt.0, %if.then12 ], [ %foundAuthInt.0, %if.then28 ], [ %foundAuthInt.0, %if.then24 ], [ %foundAuthInt.0, %if.then34 ], [ %foundAuthInt.0, %if.then46 ], [ %foundAuthInt.1.lcssa, %if.then96 ], [ true, %if.then105 ], [ false, %if.else103 ], [ %foundAuthInt.0, %if.then130 ], [ %foundAuthInt.0, %if.then135 ], [ %foundAuthInt.0, %if.then141 ], [ %foundAuthInt.0, %if.then147 ], [ %foundAuthInt.0, %if.then153 ], [ %foundAuthInt.0, %if.then159 ], [ %foundAuthInt.0, %if.then176 ], [ %foundAuthInt.0, %if.then172 ], [ %foundAuthInt.0, %if.else168 ]
-  %chlg.addr.promoted49 = load ptr, ptr %chlg.addr, align 8
+  %chlg.addr.promoted50 = load ptr, ptr %chlg.addr, align 8
   br label %while.cond191
 
 while.cond191:                                    ; preds = %while.body204, %if.end190
-  %incdec.ptr20550 = phi ptr [ %incdec.ptr205, %while.body204 ], [ %chlg.addr.promoted49, %if.end190 ]
-  %34 = load i8, ptr %incdec.ptr20550, align 1
+  %incdec.ptr20551 = phi ptr [ %incdec.ptr205, %while.body204 ], [ %chlg.addr.promoted50, %if.end190 ]
+  %34 = load i8, ptr %incdec.ptr20551, align 1
   switch i8 %34, label %if.end212 [
     i8 9, label %while.body204
     i8 32, label %while.body204
@@ -922,15 +922,15 @@ while.cond191:                                    ; preds = %while.body204, %if.
   ]
 
 while.body204:                                    ; preds = %while.cond191, %while.cond191
-  %incdec.ptr205 = getelementptr inbounds i8, ptr %incdec.ptr20550, i64 1
+  %incdec.ptr205 = getelementptr inbounds i8, ptr %incdec.ptr20551, i64 1
   br label %while.cond191, !llvm.loop !14
 
 if.then210:                                       ; preds = %while.cond191
-  %incdec.ptr211 = getelementptr inbounds i8, ptr %incdec.ptr20550, i64 1
+  %incdec.ptr211 = getelementptr inbounds i8, ptr %incdec.ptr20551, i64 1
   br label %if.end212
 
 if.end212:                                        ; preds = %while.cond191, %if.then210
-  %storemerge = phi ptr [ %incdec.ptr211, %if.then210 ], [ %incdec.ptr20550, %while.cond191 ]
+  %storemerge = phi ptr [ %incdec.ptr211, %if.then210 ], [ %incdec.ptr20551, %while.cond191 ]
   store ptr %storemerge, ptr %chlg.addr, align 8
   br label %for.cond
 
@@ -951,19 +951,17 @@ if.end220:                                        ; preds = %land.lhs.true, %for
 if.end224:                                        ; preds = %if.end220
   %36 = load ptr, ptr %qop.i, align 8
   %tobool226.not = icmp eq ptr %36, null
-  br i1 %tobool226.not, label %land.lhs.true227, label %if.end232
+  br i1 %tobool226.not, label %land.lhs.true227, label %return
 
 land.lhs.true227:                                 ; preds = %if.end224
   %37 = load i8, ptr %algo.i, align 4
   %38 = and i8 %37, 1
   %tobool230.not = icmp eq i8 %38, 0
-  br i1 %tobool230.not, label %if.end232, label %return
-
-if.end232:                                        ; preds = %land.lhs.true227, %if.end224
+  %spec.select41 = select i1 %tobool230.not, i32 0, i32 61
   br label %return
 
-return:                                           ; preds = %if.else155, %if.then119, %if.then105, %if.then96, %if.then58, %if.then46, %if.then34, %if.then12, %land.lhs.true227, %if.end220, %land.lhs.true, %if.end232
-  %retval.0 = phi i32 [ 0, %if.end232 ], [ 61, %land.lhs.true ], [ 61, %if.end220 ], [ 61, %land.lhs.true227 ], [ 61, %if.else155 ], [ 27, %if.then119 ], [ 27, %if.then105 ], [ 27, %if.then96 ], [ 27, %if.then58 ], [ 27, %if.then46 ], [ 27, %if.then34 ], [ 27, %if.then12 ]
+return:                                           ; preds = %if.else155, %if.then119, %if.then105, %if.then96, %if.then58, %if.then46, %if.then34, %if.then12, %land.lhs.true227, %if.end224, %if.end220, %land.lhs.true
+  %retval.0 = phi i32 [ 61, %land.lhs.true ], [ 61, %if.end220 ], [ 0, %if.end224 ], [ %spec.select41, %land.lhs.true227 ], [ 61, %if.else155 ], [ 27, %if.then119 ], [ 27, %if.then105 ], [ 27, %if.then96 ], [ 27, %if.then58 ], [ 27, %if.then46 ], [ 27, %if.then34 ], [ 27, %if.then12 ]
   ret i32 %retval.0
 }
 

@@ -102,20 +102,18 @@ define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #0 {
+define internal i32 @is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #0 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 10
-  br i1 %7, label %9, label %8
+  %spec.select = zext i1 %7 to i32
+  br label %8
 
 8:                                                ; preds = %5, %3
-  br label %9
-
-9:                                                ; preds = %5, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %5 ]
   ret i32 %.0
 }
 
@@ -268,7 +266,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noc
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = trunc i32 %0 to i8
+  %6 = trunc nuw i32 %0 to i8
   store i8 %6, ptr %1, align 1
   br label %55
 
@@ -278,7 +276,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noc
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 6
-  %11 = trunc i32 %10 to i8
+  %11 = trunc nuw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   %13 = getelementptr i8, ptr %1, i64 1
   store i8 %12, ptr %1, align 1
@@ -290,7 +288,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noc
 
 16:                                               ; preds = %14
   %17 = lshr i32 %0, 12
-  %18 = trunc i32 %17 to i8
+  %18 = trunc nuw i32 %17 to i8
   %19 = or disjoint i8 %18, -32
   %20 = getelementptr i8, ptr %1, i64 1
   store i8 %19, ptr %1, align 1
@@ -308,7 +306,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noc
 
 28:                                               ; preds = %26
   %29 = lshr i32 %0, 18
-  %30 = trunc i32 %29 to i8
+  %30 = trunc nuw i32 %29 to i8
   %31 = or disjoint i8 %30, -16
   %32 = getelementptr i8, ptr %1, i64 1
   store i8 %31, ptr %1, align 1

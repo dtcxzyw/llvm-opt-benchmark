@@ -9329,7 +9329,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -9340,13 +9340,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -11046,7 +11044,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -11057,13 +11055,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -11793,7 +11789,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -11804,13 +11800,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -11950,9 +11944,9 @@ sw.epilog.thread17.i:                             ; preds = %entry
   %1 = load i32, ptr @_ZN17succeeded_process7invokedE, align 4, !tbaa !28
   %inc.i.i.i = add i32 %1, 1
   store i32 %inc.i.i.i, ptr @_ZN17succeeded_process7invokedE, align 4, !tbaa !28
-  br label %sw.bb6.i
+  br label %sw.epilog16.sink.split.i
 
-sw.bb6.i:                                         ; preds = %sw.epilog.thread17.i, %entry
+sw.bb6.i:                                         ; preds = %entry
   br label %sw.epilog16.sink.split.i
 
 sw.bb9.i:                                         ; preds = %entry
@@ -11961,8 +11955,8 @@ sw.bb9.i:                                         ; preds = %entry
 sw.bb12.i:                                        ; preds = %entry
   br label %sw.epilog16.sink.split.i
 
-sw.epilog16.sink.split.i:                         ; preds = %sw.bb12.i, %sw.bb9.i, %sw.bb6.i, %entry
-  %.sink.i = phi i8 [ 7, %sw.bb12.i ], [ 7, %sw.bb9.i ], [ 6, %sw.bb6.i ], [ 1, %entry ]
+sw.epilog16.sink.split.i:                         ; preds = %sw.epilog.thread17.i, %sw.bb12.i, %sw.bb9.i, %sw.bb6.i, %entry
+  %.sink.i = phi i8 [ 7, %sw.bb12.i ], [ 7, %sw.bb9.i ], [ 1, %entry ], [ 6, %sw.epilog.thread17.i ], [ 6, %sw.bb6.i ]
   store i8 %.sink.i, ptr %current.i, align 8, !tbaa !247
   br label %_ZN4entt7processI17succeeded_processjE4tickEjPv.exit
 
@@ -12155,7 +12149,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -12166,13 +12160,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -12312,19 +12304,19 @@ sw.epilog.thread17.i:                             ; preds = %entry
   %1 = load i32, ptr @_ZN14failed_process7invokedE, align 4, !tbaa !28
   %inc.i.i.i = add i32 %1, 1
   store i32 %inc.i.i.i, ptr @_ZN14failed_process7invokedE, align 4, !tbaa !28
-  br label %sw.bb9.i
+  br label %sw.epilog16.sink.split.i
 
 sw.bb6.i:                                         ; preds = %entry
   br label %sw.epilog16.sink.split.i
 
-sw.bb9.i:                                         ; preds = %sw.epilog.thread17.i, %entry
+sw.bb9.i:                                         ; preds = %entry
   br label %sw.epilog16.sink.split.i
 
 sw.bb12.i:                                        ; preds = %entry
   br label %sw.epilog16.sink.split.i
 
-sw.epilog16.sink.split.i:                         ; preds = %sw.bb12.i, %sw.bb9.i, %sw.bb6.i, %entry
-  %.sink.i = phi i8 [ 7, %sw.bb12.i ], [ 7, %sw.bb9.i ], [ 6, %sw.bb6.i ], [ 1, %entry ]
+sw.epilog16.sink.split.i:                         ; preds = %sw.epilog.thread17.i, %sw.bb12.i, %sw.bb9.i, %sw.bb6.i, %entry
+  %.sink.i = phi i8 [ 7, %sw.bb12.i ], [ 6, %sw.bb6.i ], [ 1, %entry ], [ 7, %sw.epilog.thread17.i ], [ 7, %sw.bb9.i ]
   store i8 %.sink.i, ptr %current.i, align 8, !tbaa !250
   br label %_ZN4entt7processI14failed_processjE4tickEjPv.exit
 
@@ -12673,7 +12665,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -12684,13 +12676,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -13218,7 +13208,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -13229,13 +13219,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -13763,7 +13751,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -13774,13 +13762,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -14256,7 +14242,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -14267,13 +14253,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -14763,7 +14747,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !217
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !27
@@ -14774,13 +14758,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

@@ -2848,7 +2848,7 @@ rb_obj_traverse.exit:                             ; preds = %1, %7, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @make_shareable_check_shareable(i64 noundef %0) #0 {
+define internal i32 @make_shareable_check_shareable(i64 noundef %0) #0 {
   %2 = alloca %struct.obj_traverse_data, align 8
   %3 = alloca %struct.rb_obj_traverse_final_data, align 8
   %4 = and i64 %0, 7
@@ -2942,7 +2942,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %16
 frozen_shareable_p.exit:                          ; preds = %32, %23
   %44 = and i64 %24, 2048
   %.not8 = icmp eq i64 %44, 0
-  br i1 %.not8, label %45, label %53
+  br i1 %.not8, label %45, label %rb_ractor_shareable_p.exit.thread
 
 45:                                               ; preds = %frozen_shareable_p.exit
   %46 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef 2769, i32 noundef 0) #20
@@ -2957,15 +2957,13 @@ frozen_shareable_p.exit:                          ; preds = %32, %23
   unreachable
 
 51:                                               ; preds = %45
-  %52 = and i64 %47, 256
-  %.not10 = icmp eq i64 %52, 0
-  br i1 %.not10, label %53, label %rb_ractor_shareable_p.exit.thread
-
-53:                                               ; preds = %51, %frozen_shareable_p.exit
+  %52 = trunc i64 %47 to i32
+  %53 = lshr i32 %52, 8
+  %spec.select = and i32 %53, 1
   br label %rb_ractor_shareable_p.exit.thread
 
-rb_ractor_shareable_p.exit.thread:                ; preds = %8, %1, %40, %rb_ractor_shareable_p.exit.thread14, %51, %rb_ractor_shareable_p.exit, %53
-  %.0 = phi i32 [ 0, %53 ], [ 1, %rb_ractor_shareable_p.exit ], [ 1, %40 ], [ 1, %51 ], [ 1, %rb_ractor_shareable_p.exit.thread14 ], [ 1, %1 ], [ 1, %8 ]
+rb_ractor_shareable_p.exit.thread:                ; preds = %8, %1, %40, %rb_ractor_shareable_p.exit.thread14, %51, %frozen_shareable_p.exit, %rb_ractor_shareable_p.exit
+  %.0 = phi i32 [ 1, %rb_ractor_shareable_p.exit ], [ 1, %40 ], [ 0, %frozen_shareable_p.exit ], [ %spec.select, %51 ], [ 1, %rb_ractor_shareable_p.exit.thread14 ], [ 1, %1 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -3246,8 +3244,8 @@ define internal noundef i32 @shareable_p_enter(i64 noundef %0) #10 {
 frozen_shareable_p.exit.thread:                   ; preds = %.thread, %24, %.critedge71
   br label %frozen_shareable_p.exit
 
-frozen_shareable_p.exit:                          ; preds = %24, %.critedge71, %.critedge71.thread, %19, %frozen_shareable_p.exit.thread, %1, %14
-  %.061 = phi i32 [ 1, %14 ], [ 1, %1 ], [ 0, %frozen_shareable_p.exit.thread ], [ 2, %19 ], [ 2, %.critedge71.thread ], [ 2, %.critedge71 ], [ 2, %24 ]
+frozen_shareable_p.exit:                          ; preds = %24, %frozen_shareable_p.exit.thread, %19, %.critedge71.thread, %.critedge71, %1, %14
+  %.061 = phi i32 [ 1, %14 ], [ 1, %1 ], [ 2, %.critedge71 ], [ 2, %.critedge71.thread ], [ 0, %frozen_shareable_p.exit.thread ], [ 2, %19 ], [ 2, %24 ]
   ret i32 %.061
 }
 
@@ -3353,36 +3351,33 @@ rb_ractor_main_p.exit.thread.i:                   ; preds = %rb_ractor_main_p.ex
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, inttoptr (i64 36 to ptr)
-  br i1 %16, label %ractor_local_ref.exit, label %22
+  %17 = ptrtoint ptr %15 to i64
+  %spec.select6 = select i1 %16, i64 4, i64 %17
+  br label %ractor_local_ref.exit.thread
 
 rb_current_ractor.exit.i:                         ; preds = %rb_ractor_main_p.exit.i
-  %17 = getelementptr inbounds i8, ptr %8, i64 448
-  %18 = load ptr, ptr %17, align 8
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %ractor_local_ref.exit, label %19
+  %18 = getelementptr inbounds i8, ptr %8, i64 448
+  %19 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %ractor_local_ref.exit.thread, label %ractor_local_ref.exit
 
-19:                                               ; preds = %rb_current_ractor.exit.i
+ractor_local_ref.exit:                            ; preds = %rb_current_ractor.exit.i
   %20 = ptrtoint ptr %0 to i64
-  %21 = call i32 @rb_st_lookup(ptr noundef nonnull %18, i64 noundef %20, ptr noundef nonnull %2) #20
-  %.not9.i = icmp eq i32 %21, 0
-  br i1 %.not9.i, label %ractor_local_ref.exit, label %._crit_edge
+  %21 = call i32 @rb_st_lookup(ptr noundef nonnull %19, i64 noundef %20, ptr noundef nonnull %2) #20
+  %.fr = freeze i32 %21
+  %.not9.i.not = icmp eq i32 %.fr, 0
+  %22 = load ptr, ptr %2, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %spec.select = select i1 %.not9.i.not, i64 4, i64 %23
+  br label %ractor_local_ref.exit.thread
 
-._crit_edge:                                      ; preds = %19
-  %.pre = load ptr, ptr %2, align 8
-  br label %22
-
-22:                                               ; preds = %rb_ractor_main_p.exit.thread.i, %._crit_edge
-  %23 = phi ptr [ %.pre, %._crit_edge ], [ %15, %rb_ractor_main_p.exit.thread.i ]
-  %24 = ptrtoint ptr %23 to i64
-  br label %ractor_local_ref.exit
-
-ractor_local_ref.exit:                            ; preds = %rb_ractor_main_p.exit.thread.i, %19, %rb_current_ractor.exit.i, %22
-  %25 = phi i64 [ %24, %22 ], [ 4, %rb_current_ractor.exit.i ], [ 4, %19 ], [ 4, %rb_ractor_main_p.exit.thread.i ]
-  ret i64 %25
+ractor_local_ref.exit.thread:                     ; preds = %rb_ractor_main_p.exit.thread.i, %ractor_local_ref.exit, %rb_current_ractor.exit.i
+  %24 = phi i64 [ 4, %rb_current_ractor.exit.i ], [ %spec.select, %ractor_local_ref.exit ], [ %spec.select6, %rb_ractor_main_p.exit.thread.i ]
+  ret i64 %24
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @rb_ractor_local_storage_value_lookup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @rb_ractor_local_storage_value_lookup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %rb_ractor_main_p.exit.i, label %rb_ractor_main_p.exit.thread.i
@@ -3415,19 +3410,16 @@ rb_current_ractor.exit.i:                         ; preds = %rb_ractor_main_p.ex
   %18 = getelementptr inbounds i8, ptr %8, i64 448
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %23, label %20
+  br i1 %.not.i, label %ractor_local_ref.exit, label %20
 
 20:                                               ; preds = %rb_current_ractor.exit.i
   %21 = ptrtoint ptr %0 to i64
   %22 = tail call i32 @rb_st_lookup(ptr noundef nonnull %19, i64 noundef %21, ptr noundef %1) #20
-  %.not9.i = icmp eq i32 %22, 0
-  br i1 %.not9.i, label %23, label %ractor_local_ref.exit
-
-23:                                               ; preds = %20, %rb_current_ractor.exit.i
+  %.not9.i = icmp ne i32 %22, 0
   br label %ractor_local_ref.exit
 
-ractor_local_ref.exit:                            ; preds = %rb_ractor_main_p.exit.thread.i, %17, %20, %23
-  %.0.i = phi i1 [ true, %17 ], [ false, %23 ], [ false, %rb_ractor_main_p.exit.thread.i ], [ true, %20 ]
+ractor_local_ref.exit:                            ; preds = %rb_ractor_main_p.exit.thread.i, %17, %rb_current_ractor.exit.i, %20
+  %.0.i = phi i1 [ true, %17 ], [ false, %rb_ractor_main_p.exit.thread.i ], [ false, %rb_current_ractor.exit.i ], [ %.not9.i, %20 ]
   ret i1 %.0.i
 }
 
@@ -3515,25 +3507,26 @@ rb_ractor_main_p.exit.thread.i:                   ; preds = %rb_ractor_main_p.ex
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, inttoptr (i64 36 to ptr)
-  %spec.select = select i1 %16, ptr null, ptr %15
-  br label %ractor_local_ref.exit
+  %spec.select7 = select i1 %16, ptr null, ptr %15
+  br label %ractor_local_ref.exit.thread
 
 rb_current_ractor.exit.i:                         ; preds = %rb_ractor_main_p.exit.i
   %17 = getelementptr inbounds i8, ptr %8, i64 448
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %ractor_local_ref.exit, label %19
+  br i1 %.not.i, label %ractor_local_ref.exit.thread, label %ractor_local_ref.exit
 
-19:                                               ; preds = %rb_current_ractor.exit.i
-  %20 = ptrtoint ptr %0 to i64
-  %21 = call i32 @rb_st_lookup(ptr noundef nonnull %18, i64 noundef %20, ptr noundef nonnull %2) #20
-  %.not9.i = icmp eq i32 %21, 0
-  %.pre = load ptr, ptr %2, align 8
-  %spec.select3 = select i1 %.not9.i, ptr null, ptr %.pre
-  br label %ractor_local_ref.exit
+ractor_local_ref.exit:                            ; preds = %rb_current_ractor.exit.i
+  %19 = ptrtoint ptr %0 to i64
+  %20 = call i32 @rb_st_lookup(ptr noundef nonnull %18, i64 noundef %19, ptr noundef nonnull %2) #20
+  %.fr = freeze i32 %20
+  %.not9.i.not = icmp eq i32 %.fr, 0
+  %21 = load ptr, ptr %2, align 8
+  %spec.select = select i1 %.not9.i.not, ptr null, ptr %21
+  br label %ractor_local_ref.exit.thread
 
-ractor_local_ref.exit:                            ; preds = %19, %rb_ractor_main_p.exit.thread.i, %rb_current_ractor.exit.i
-  %22 = phi ptr [ null, %rb_current_ractor.exit.i ], [ %spec.select, %rb_ractor_main_p.exit.thread.i ], [ %spec.select3, %19 ]
+ractor_local_ref.exit.thread:                     ; preds = %rb_ractor_main_p.exit.thread.i, %ractor_local_ref.exit, %rb_current_ractor.exit.i
+  %22 = phi ptr [ null, %rb_current_ractor.exit.i ], [ %spec.select, %ractor_local_ref.exit ], [ %spec.select7, %rb_ractor_main_p.exit.thread.i ]
   ret ptr %22
 }
 
@@ -4689,7 +4682,7 @@ define internal noundef i64 @builtin_inline_class_785(ptr nocapture noundef read
 rb_ractor_shareable_p.exit.thread7:               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %30
+  br label %rb_ractor_shareable_p.exit.thread
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %21, align 8
@@ -4712,14 +4705,12 @@ rb_ractor_shareable_p.exit:                       ; preds = %23
   %29 = icmp eq i32 %.fr, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %29, label %rb_ractor_shareable_p.exit.thread, label %30
+  %spec.select = select i1 %29, i64 20, i64 0
+  br label %rb_ractor_shareable_p.exit.thread
 
-rb_ractor_shareable_p.exit.thread:                ; preds = %15, %2, %rb_ractor_shareable_p.exit.thread4, %rb_ractor_shareable_p.exit
-  br label %30
-
-30:                                               ; preds = %rb_ractor_shareable_p.exit.thread7, %rb_ractor_shareable_p.exit, %rb_ractor_shareable_p.exit.thread
-  %31 = phi i64 [ 20, %rb_ractor_shareable_p.exit.thread ], [ 0, %rb_ractor_shareable_p.exit ], [ 0, %rb_ractor_shareable_p.exit.thread7 ]
-  ret i64 %31
+rb_ractor_shareable_p.exit.thread:                ; preds = %rb_ractor_shareable_p.exit, %15, %2, %rb_ractor_shareable_p.exit.thread4, %rb_ractor_shareable_p.exit.thread7
+  %30 = phi i64 [ 0, %rb_ractor_shareable_p.exit.thread7 ], [ 20, %rb_ractor_shareable_p.exit.thread4 ], [ 20, %2 ], [ 20, %15 ], [ %spec.select, %rb_ractor_shareable_p.exit ]
+  ret i64 %30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6599,7 +6590,7 @@ define internal fastcc i32 @ROBJECT_IV_COUNT(i64 noundef %0) unnamed_addr #0 {
 9:                                                ; preds = %1
   %10 = load i64, ptr %3, align 8
   %11 = lshr i64 %10, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = tail call ptr @rb_shape_get_shape_by_id(i32 noundef %12) #20
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
@@ -7408,7 +7399,7 @@ define internal fastcc zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr no
   br i1 %31, label %13, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %28
-  %32 = trunc i8 %.1 to i1
+  %32 = trunc nuw i8 %.1 to i1
   %33 = icmp sgt i32 %29, 0
   %or.cond = and i1 %33, %32
   br i1 %or.cond, label %.lr.ph.i, label %ractor_queue_compact.exit
@@ -7461,7 +7452,7 @@ ractor_queue_advance.exit.i:                      ; preds = %56, %50
 ractor_queue_compact.exit:                        ; preds = %ractor_queue_advance.exit.i, %38, %.preheader, %2, %._crit_edge
   %.2 = phi i8 [ %.1, %._crit_edge ], [ 0, %2 ], [ 0, %.preheader ], [ %.1, %38 ], [ %.1, %ractor_queue_advance.exit.i ]
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %4) #20
-  %59 = trunc i8 %.2 to i1
+  %59 = trunc nuw i8 %.2 to i1
   ret i1 %59
 }
 

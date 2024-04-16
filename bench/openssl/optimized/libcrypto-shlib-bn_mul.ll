@@ -301,7 +301,7 @@ if.then81:                                        ; preds = %sw.epilog
 
 if.then82:                                        ; preds = %if.then81
   %arrayidx86 = getelementptr inbounds i64, ptr %t, i64 %idxprom18
-  tail call void @bn_mul_comba4(ptr noundef nonnull %arrayidx84, ptr noundef %t, ptr noundef %arrayidx86) #4
+  tail call void @bn_mul_comba4(ptr noundef nonnull %arrayidx84, ptr noundef %t, ptr noundef nonnull %arrayidx86) #4
   br label %if.end89
 
 if.else:                                          ; preds = %if.then81
@@ -311,7 +311,7 @@ if.else:                                          ; preds = %if.then81
 if.end89:                                         ; preds = %if.else, %if.then82
   tail call void @bn_mul_comba4(ptr noundef %r, ptr noundef %a, ptr noundef %b) #4
   %arrayidx91 = getelementptr inbounds i64, ptr %r, i64 %idxprom83
-  tail call void @bn_mul_comba4(ptr noundef nonnull %arrayidx91, ptr noundef %arrayidx19, ptr noundef %arrayidx22) #4
+  tail call void @bn_mul_comba4(ptr noundef nonnull %arrayidx91, ptr noundef nonnull %arrayidx19, ptr noundef nonnull %arrayidx22) #4
   br label %if.end145
 
 if.else96:                                        ; preds = %sw.epilog
@@ -326,7 +326,7 @@ if.then105:                                       ; preds = %if.else96
 
 if.then107:                                       ; preds = %if.then105
   %arrayidx111 = getelementptr inbounds i64, ptr %t, i64 %idxprom18
-  tail call void @bn_mul_comba8(ptr noundef nonnull %arrayidx109, ptr noundef %t, ptr noundef %arrayidx111) #4
+  tail call void @bn_mul_comba8(ptr noundef nonnull %arrayidx109, ptr noundef %t, ptr noundef nonnull %arrayidx111) #4
   br label %if.end115
 
 if.else112:                                       ; preds = %if.then105
@@ -336,7 +336,7 @@ if.else112:                                       ; preds = %if.then105
 if.end115:                                        ; preds = %if.else112, %if.then107
   tail call void @bn_mul_comba8(ptr noundef %r, ptr noundef %a, ptr noundef %b) #4
   %arrayidx117 = getelementptr inbounds i64, ptr %r, i64 %idxprom108
-  tail call void @bn_mul_comba8(ptr noundef nonnull %arrayidx117, ptr noundef %arrayidx19, ptr noundef %arrayidx22) #4
+  tail call void @bn_mul_comba8(ptr noundef nonnull %arrayidx117, ptr noundef nonnull %arrayidx19, ptr noundef nonnull %arrayidx22) #4
   br label %if.end145
 
 if.else122:                                       ; preds = %if.else96
@@ -820,7 +820,7 @@ return:                                           ; preds = %if.end21, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define i32 @BN_mul(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx), !range !8
   tail call void @bn_correct_top(ptr noundef %r) #4
@@ -828,7 +828,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
+define i32 @bn_mul_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %top1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top1, align 8
@@ -974,18 +974,16 @@ end:                                              ; preds = %if.end99, %if.end91
   %neg105 = getelementptr inbounds i8, ptr %rr.0, i64 16
   store i32 %xor, ptr %neg105, align 8
   %cmp106.not = icmp eq ptr %rr.0, %r
-  br i1 %cmp106.not, label %if.end113, label %land.lhs.true108
+  br i1 %cmp106.not, label %err, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %end
   %call109 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef nonnull %rr.0) #4
-  %cmp110 = icmp eq ptr %call109, null
-  br i1 %cmp110, label %err, label %if.end113
-
-if.end113:                                        ; preds = %land.lhs.true108, %end
+  %cmp110 = icmp ne ptr %call109, null
+  %spec.select = zext i1 %cmp110 to i32
   br label %err
 
-err:                                              ; preds = %land.lhs.true108, %if.end94, %if.end78, %if.else72, %if.end59, %if.then54, %if.then31, %if.then15, %if.then7, %if.end113
-  %ret.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then15 ], [ 0, %land.lhs.true108 ], [ 1, %if.end113 ], [ 0, %if.then31 ], [ 0, %if.then54 ], [ 0, %if.end59 ], [ 0, %if.else72 ], [ 0, %if.end78 ], [ 0, %if.end94 ]
+err:                                              ; preds = %land.lhs.true108, %end, %if.end94, %if.end78, %if.else72, %if.end59, %if.then54, %if.then31, %if.then15, %if.then7
+  %ret.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then15 ], [ 0, %if.then31 ], [ 0, %if.then54 ], [ 0, %if.end59 ], [ 0, %if.else72 ], [ 0, %if.end78 ], [ 0, %if.end94 ], [ 1, %end ], [ %spec.select, %land.lhs.true108 ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #4
   br label %return
 

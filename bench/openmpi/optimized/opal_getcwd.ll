@@ -17,31 +17,31 @@ define noundef i32 @opal_getcwd(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %7 = icmp eq ptr %0, null
   %8 = icmp ugt i64 %1, 2147483647
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %35, label %9
+  br i1 %or.cond, label %34, label %9
 
 9:                                                ; preds = %2
   %10 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 4097) #7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %35, label %12
+  br i1 %11, label %34, label %12
 
 12:                                               ; preds = %9
   %13 = icmp eq ptr %6, null
-  br i1 %13, label %29, label %14
+  br i1 %13, label %28, label %14
 
 14:                                               ; preds = %12
   %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %3) #8
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %29, label %16
+  br i1 %.not, label %28, label %16
 
 16:                                               ; preds = %14
   %17 = call i32 @stat(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %.not20 = icmp eq i32 %17, 0
-  br i1 %.not20, label %18, label %35
+  br i1 %.not20, label %18, label %34
 
 18:                                               ; preds = %16
   %19 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %5) #7
   %.not21 = icmp eq i32 %19, 0
-  br i1 %.not21, label %20, label %29
+  br i1 %.not21, label %20, label %28
 
 20:                                               ; preds = %18
   %21 = load i64, ptr %4, align 8
@@ -55,29 +55,27 @@ define noundef i32 @opal_getcwd(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %26 = getelementptr inbounds i8, ptr %5, i64 8
   %27 = load i64, ptr %26, align 8
   %.not23 = icmp eq i64 %25, %27
-  br i1 %.not23, label %29, label %28
+  %spec.select = select i1 %.not23, ptr %6, ptr %3
+  br label %28
 
-28:                                               ; preds = %23, %20
-  br label %29
+28:                                               ; preds = %23, %20, %18, %12, %14
+  %.016 = phi ptr [ %6, %14 ], [ %3, %12 ], [ %3, %18 ], [ %3, %20 ], [ %spec.select, %23 ]
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016) #8
+  %30 = icmp ugt i64 %29, %1
+  br i1 %30, label %31, label %33
 
-29:                                               ; preds = %18, %12, %14, %28, %23
-  %.016 = phi ptr [ %3, %28 ], [ %6, %23 ], [ %6, %14 ], [ %3, %12 ], [ %3, %18 ]
-  %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016) #8
-  %31 = icmp ugt i64 %30, %1
-  br i1 %31, label %32, label %34
+31:                                               ; preds = %28
+  %32 = call noalias ptr @opal_basename(ptr noundef nonnull %.016) #7
+  call void @opal_string_copy(ptr noundef nonnull %0, ptr noundef %32, i64 noundef %1) #7
+  call void @free(ptr noundef %32) #7
+  br label %34
 
-32:                                               ; preds = %29
-  %33 = call noalias ptr @opal_basename(ptr noundef nonnull %.016) #7
-  call void @opal_string_copy(ptr noundef nonnull %0, ptr noundef %33, i64 noundef %1) #7
-  call void @free(ptr noundef %33) #7
-  br label %35
-
-34:                                               ; preds = %29
+33:                                               ; preds = %28
   call void @opal_string_copy(ptr noundef nonnull %0, ptr noundef nonnull %.016, i64 noundef %1) #7
-  br label %35
+  br label %34
 
-35:                                               ; preds = %16, %9, %2, %34, %32
-  %.0 = phi i32 [ -3, %32 ], [ 0, %34 ], [ -5, %2 ], [ -11, %9 ], [ -11, %16 ]
+34:                                               ; preds = %16, %9, %2, %33, %31
+  %.0 = phi i32 [ -3, %31 ], [ 0, %33 ], [ -5, %2 ], [ -11, %9 ], [ -11, %16 ]
   ret i32 %.0
 }
 

@@ -576,7 +576,7 @@ return:                                           ; preds = %lor.lhs.false9, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal i32 @rsa_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @pkey_rsa_print(ptr noundef %bp, ptr noundef %pkey, i32 noundef %indent, i32 noundef 0), !range !4
   ret i32 %call
@@ -669,7 +669,7 @@ return:                                           ; preds = %if.end4.i, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal i32 @rsa_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
   %call = tail call fastcc i32 @pkey_rsa_print(ptr noundef %bp, ptr noundef %pkey, i32 noundef %indent, i32 noundef 1), !range !4
   ret i32 %call
@@ -867,7 +867,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_item_sign(ptr noundef %ctx, ptr nocapture readnone %it, ptr nocapture readnone %asn, ptr noundef %alg1, ptr noundef %alg2, ptr nocapture readnone %sig) #0 {
+define internal i32 @rsa_item_sign(ptr noundef %ctx, ptr nocapture readnone %it, ptr nocapture readnone %asn, ptr noundef %alg1, ptr noundef %alg2, ptr nocapture readnone %sig) #0 {
 entry:
   %alg1.addr = alloca ptr, align 8
   %alg2.addr = alloca ptr, align 8
@@ -963,19 +963,17 @@ if.then42:                                        ; preds = %if.end40
 
 if.end48:                                         ; preds = %if.then42, %if.end40
   %cmp49.not = icmp eq ptr %alg2, null
-  br i1 %cmp49.not, label %if.end57, label %if.then50
+  br i1 %cmp49.not, label %return, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
   store ptr %aid, ptr %pp51, align 8
   %call53 = call ptr @d2i_X509_ALGOR(ptr noundef nonnull %alg2.addr, ptr noundef nonnull %pp51, i64 noundef %2) #6
   %cmp54 = icmp eq ptr %call53, null
-  br i1 %cmp54, label %return, label %if.end57
-
-if.end57:                                         ; preds = %if.then50, %if.end48
+  %spec.select = select i1 %cmp54, i32 0, i32 3
   br label %return
 
-return:                                           ; preds = %if.end, %if.then50, %if.then42, %if.end36, %if.end29, %if.end23, %if.then8, %entry, %if.end57, %if.then27, %if.then21, %if.then17
-  %retval.0 = phi i32 [ 0, %if.then17 ], [ 0, %if.then27 ], [ 0, %if.then21 ], [ 3, %if.end57 ], [ 0, %entry ], [ 0, %if.then8 ], [ 3, %if.end23 ], [ 0, %if.end29 ], [ 0, %if.end36 ], [ 0, %if.then42 ], [ 0, %if.then50 ], [ 2, %if.end ]
+return:                                           ; preds = %if.then50, %if.end, %if.end48, %if.then42, %if.end36, %if.end29, %if.end23, %if.then8, %entry, %if.then27, %if.then21, %if.then17
+  %retval.0 = phi i32 [ 0, %if.then17 ], [ 0, %if.then27 ], [ 0, %if.then21 ], [ 0, %entry ], [ 0, %if.then8 ], [ 3, %if.end23 ], [ 0, %if.end29 ], [ 0, %if.end36 ], [ 0, %if.then42 ], [ 3, %if.end48 ], [ 2, %if.end ], [ %spec.select, %if.then50 ]
   ret i32 %retval.0
 }
 
@@ -1029,26 +1027,24 @@ if.end4:                                          ; preds = %if.end.i.i
   %call5 = call i32 @EVP_MD_get_type(ptr noundef %3) #6
   %call5.off = add i32 %call5, -672
   %switch = icmp ult i32 %call5.off, 3
-  br i1 %switch, label %land.lhs.true, label %if.else
+  br i1 %switch, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %if.end4
   %4 = load ptr, ptr %mgf1md, align 8
   %call10 = call i32 @EVP_MD_get_type(ptr noundef %4) #6
   %cmp11 = icmp eq i32 %call5, %call10
-  br i1 %cmp11, label %land.lhs.true12, label %if.else
+  br i1 %cmp11, label %land.lhs.true12, label %if.end16
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
   %5 = load i32, ptr %saltlen, align 4
   %6 = load ptr, ptr %md, align 8
   %call13 = call i32 @EVP_MD_get_size(ptr noundef %6) #6
   %cmp14 = icmp eq i32 %5, %call13
-  br i1 %cmp14, label %if.end16, label %if.else
-
-if.else:                                          ; preds = %if.end4, %land.lhs.true12, %land.lhs.true
+  %spec.select = select i1 %cmp14, i32 2, i32 0
   br label %if.end16
 
-if.end16:                                         ; preds = %land.lhs.true12, %if.else
-  %flags.0 = phi i32 [ 0, %if.else ], [ 2, %land.lhs.true12 ]
+if.end16:                                         ; preds = %land.lhs.true12, %if.end4, %land.lhs.true
+  %flags.0 = phi i32 [ 0, %if.end4 ], [ 0, %land.lhs.true ], [ %spec.select, %land.lhs.true12 ]
   %7 = load ptr, ptr %md, align 8
   %call17 = call i32 @EVP_MD_get_size(ptr noundef %7) #6
   switch i32 %call5, label %if.end28.fold.split [
@@ -1206,7 +1202,7 @@ declare i32 @RSA_flags(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pkey_rsa_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %off, i32 noundef %priv) unnamed_addr #0 {
+define internal fastcc i32 @pkey_rsa_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %off, i32 noundef %priv) unnamed_addr #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -1392,20 +1388,16 @@ if.end99:                                         ; preds = %for.inc96, %for.con
   %18 = load ptr, ptr %ameth, align 8
   %19 = load i32, ptr %18, align 8
   %cmp102 = icmp eq i32 %19, 912
-  br i1 %cmp102, label %land.lhs.true103, label %if.end107
+  br i1 %cmp102, label %land.lhs.true103, label %err
 
 land.lhs.true103:                                 ; preds = %if.end99
   %pss = getelementptr inbounds i8, ptr %0, i64 128
   %20 = load ptr, ptr %pss, align 8
   %call104 = tail call fastcc i32 @rsa_pss_param_print(ptr noundef %bp, i32 noundef 1, ptr noundef %20, i32 noundef %off), !range !4
-  %tobool105.not = icmp eq i32 %call104, 0
-  br i1 %tobool105.not, label %err, label %if.end107
-
-if.end107:                                        ; preds = %land.lhs.true103, %if.end99
   br label %err
 
-err:                                              ; preds = %sw.epilog, %sw.bb86, %sw.bb79, %sw.bb, %for.body69, %land.lhs.true103, %if.end57, %if.end53, %if.end49, %if.end45, %if.end41, %if.then36, %if.end30, %if.end25, %if.else, %if.then14, %if.end6, %if.end, %if.end107
-  %ret.0 = phi i32 [ 0, %if.end6 ], [ 0, %if.then14 ], [ 1, %if.end107 ], [ 0, %land.lhs.true103 ], [ 0, %if.end57 ], [ 0, %if.end53 ], [ 0, %if.end49 ], [ 0, %if.end45 ], [ 0, %if.end41 ], [ 0, %if.then36 ], [ 0, %if.end30 ], [ 0, %if.end25 ], [ 0, %if.else ], [ 0, %if.end ], [ 0, %for.body69 ], [ 0, %sw.bb ], [ 0, %sw.bb79 ], [ 0, %sw.bb86 ], [ 0, %sw.epilog ]
+err:                                              ; preds = %sw.epilog, %sw.bb86, %sw.bb79, %sw.bb, %for.body69, %land.lhs.true103, %if.end99, %if.end57, %if.end53, %if.end49, %if.end45, %if.end41, %if.then36, %if.end30, %if.end25, %if.else, %if.then14, %if.end6, %if.end
+  %ret.0 = phi i32 [ 0, %if.end6 ], [ 0, %if.then14 ], [ 0, %if.end57 ], [ 0, %if.end53 ], [ 0, %if.end49 ], [ 0, %if.end45 ], [ 0, %if.end41 ], [ 0, %if.then36 ], [ 0, %if.end30 ], [ 0, %if.end25 ], [ 0, %if.else ], [ 0, %if.end ], [ 1, %if.end99 ], [ %call104, %land.lhs.true103 ], [ 0, %for.body69 ], [ 0, %sw.bb ], [ 0, %sw.bb79 ], [ 0, %sw.bb86 ], [ 0, %sw.epilog ]
   ret i32 %ret.0
 }
 

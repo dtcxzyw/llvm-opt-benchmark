@@ -54,7 +54,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @ossl_ecx_key_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal i32 @x25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 253, i32 noundef 128, i32 noundef 32), !range !4
   ret i32 %call
@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x25519_set_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal noundef i32 @x25519_set_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_set_params(ptr noundef %key, ptr noundef %params), !range !4
   ret i32 %call
@@ -319,15 +319,15 @@ land.lhs.true.i:                                  ; preds = %if.end2.i
   %privkey.i = getelementptr inbounds i8, ptr %keydata, i64 80
   %1 = load ptr, ptr %privkey.i, align 8
   %cmp4.not.i = icmp eq ptr %1, null
-  br i1 %cmp4.not.i, label %if.end17, label %land.lhs.true5.i
+  br i1 %cmp4.not.i, label %if.end17, label %key_to_params.exit
 
-land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
+key_to_params.exit:                               ; preds = %land.lhs.true.i
   %2 = load i64, ptr %keylen.i, align 8
   %call8.i = tail call i32 @ossl_param_build_set_octet_string(ptr noundef nonnull %call4, ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %1, i64 noundef %2) #4
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %err, label %if.end17
+  %tobool9.not.i.not = icmp eq i32 %call8.i, 0
+  br i1 %tobool9.not.i.not, label %err, label %if.end17
 
-if.end17:                                         ; preds = %land.lhs.true5.i, %land.lhs.true.i, %if.end2.i
+if.end17:                                         ; preds = %if.end2.i, %land.lhs.true.i, %key_to_params.exit
   %call18 = tail call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %call4) #4
   %cmp19 = icmp eq ptr %call18, null
   br i1 %cmp19, label %err, label %if.end22
@@ -337,8 +337,8 @@ if.end22:                                         ; preds = %if.end17
   tail call void @OSSL_PARAM_free(ptr noundef nonnull %call18) #4
   br label %err
 
-err:                                              ; preds = %land.lhs.true5.i, %if.end.i, %if.end17, %if.end22
-  %ret.0 = phi i32 [ 0, %if.end17 ], [ %call23, %if.end22 ], [ 0, %if.end.i ], [ 0, %land.lhs.true5.i ]
+err:                                              ; preds = %if.end.i, %if.end17, %key_to_params.exit, %if.end22
+  %ret.0 = phi i32 [ 0, %if.end17 ], [ %call23, %if.end22 ], [ 0, %key_to_params.exit ], [ 0, %if.end.i ]
   tail call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %call4) #4
   br label %return
 
@@ -380,7 +380,7 @@ ecx_gen_init.exit:                                ; preds = %entry, %if.end7.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecx_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
+define internal i32 @ecx_gen_set_params(ptr noundef %genctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %genctx, null
   br i1 %cmp, label %return, label %if.end
@@ -446,19 +446,19 @@ if.end18:                                         ; preds = %if.then14
 if.end26:                                         ; preds = %if.end18, %if.end11
   %call27 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.12) #4
   %cmp28.not = icmp eq ptr %call27, null
-  br i1 %cmp28.not, label %if.end40, label %if.then29
+  br i1 %cmp28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
   %data_size = getelementptr inbounds i8, ptr %call27, i64 24
   %6 = load i64, ptr %data_size, align 8
   %cmp30.not = icmp eq i64 %6, 0
-  br i1 %cmp30.not, label %if.end40, label %land.lhs.true
+  br i1 %cmp30.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then29
   %data31 = getelementptr inbounds i8, ptr %call27, i64 16
   %7 = load ptr, ptr %data31, align 8
   %cmp32.not = icmp eq ptr %7, null
-  br i1 %cmp32.not, label %if.end40, label %if.then33
+  br i1 %cmp32.not, label %return, label %if.then33
 
 if.then33:                                        ; preds = %land.lhs.true
   %dhkem_ikm = getelementptr inbounds i8, ptr %genctx, i64 24
@@ -467,14 +467,12 @@ if.then33:                                        ; preds = %land.lhs.true
   store ptr null, ptr %dhkem_ikm, align 8
   %dhkem_ikmlen = getelementptr inbounds i8, ptr %genctx, i64 32
   %call36 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %call27, ptr noundef nonnull %dhkem_ikm, i64 noundef 0, ptr noundef nonnull %dhkem_ikmlen) #4
-  %tobool.not = icmp eq i32 %call36, 0
-  br i1 %tobool.not, label %return, label %if.end40
-
-if.end40:                                         ; preds = %if.then29, %land.lhs.true, %if.then33, %if.end26
+  %tobool.not = icmp ne i32 %call36, 0
+  %spec.select = zext i1 %tobool.not to i32
   br label %return
 
-return:                                           ; preds = %if.then33, %if.end18, %if.then14, %entry, %if.end40, %if.then9
-  %retval.0 = phi i32 [ 0, %if.then9 ], [ 1, %if.end40 ], [ 0, %entry ], [ 0, %if.then14 ], [ 0, %if.end18 ], [ 0, %if.then33 ]
+return:                                           ; preds = %if.then33, %if.end26, %land.lhs.true, %if.then29, %if.end18, %if.then14, %entry, %if.then9
+  %retval.0 = phi i32 [ 0, %if.then9 ], [ 0, %entry ], [ 0, %if.then14 ], [ 0, %if.end18 ], [ 1, %if.then29 ], [ 1, %land.lhs.true ], [ 1, %if.end26 ], [ %spec.select, %if.then33 ]
   ret i32 %retval.0
 }
 
@@ -568,7 +566,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x448_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal i32 @x448_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 448, i32 noundef 224, i32 noundef 56), !range !4
   ret i32 %call
@@ -581,7 +579,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x448_set_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal noundef i32 @x448_set_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_set_params(ptr noundef %key, ptr noundef %params), !range !4
   ret i32 %call
@@ -666,7 +664,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ed25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal i32 @ed25519_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 256, i32 noundef 128, i32 noundef 64), !range !4
   %tobool.not = icmp eq i32 %call, 0
@@ -675,18 +673,16 @@ entry:
 land.rhs:                                         ; preds = %entry
   %call.i = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.6) #4
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
   %call1.i = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13) #4
-  %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %land.end, label %if.end.i
-
-if.end.i:                                         ; preds = %land.lhs.true.i, %land.rhs
+  %tobool.not.i = icmp ne i32 %call1.i, 0
+  %spec.select.i = zext i1 %tobool.not.i to i32
   br label %land.end
 
-land.end:                                         ; preds = %if.end.i, %land.lhs.true.i, %entry
-  %land.ext = phi i32 [ 0, %entry ], [ 1, %if.end.i ], [ 0, %land.lhs.true.i ]
+land.end:                                         ; preds = %land.lhs.true.i, %land.rhs, %entry
+  %land.ext = phi i32 [ 0, %entry ], [ 1, %land.rhs ], [ %spec.select.i, %land.lhs.true.i ]
   ret i32 %land.ext
 }
 
@@ -781,7 +777,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ed448_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal i32 @ed448_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef 456, i32 noundef 224, i32 noundef 114), !range !4
   %tobool.not = icmp eq i32 %call, 0
@@ -790,18 +786,16 @@ entry:
 land.rhs:                                         ; preds = %entry
   %call.i = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.6) #4
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.rhs
   %call1.i = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13) #4
-  %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %land.end, label %if.end.i
-
-if.end.i:                                         ; preds = %land.lhs.true.i, %land.rhs
+  %tobool.not.i = icmp ne i32 %call1.i, 0
+  %spec.select.i = zext i1 %tobool.not.i to i32
   br label %land.end
 
-land.end:                                         ; preds = %if.end.i, %land.lhs.true.i, %entry
-  %land.ext = phi i32 [ 0, %entry ], [ 1, %if.end.i ], [ 0, %land.lhs.true.i ]
+land.end:                                         ; preds = %land.lhs.true.i, %land.rhs, %entry
+  %land.ext = phi i32 [ 0, %entry ], [ 1, %land.rhs ], [ %spec.select.i, %land.lhs.true.i ]
   ret i32 %land.ext
 }
 
@@ -885,7 +879,7 @@ declare ptr @ossl_ecx_key_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef %bits, i32 noundef %secbits, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc i32 @ecx_get_params(ptr noundef %key, ptr noundef %params, i32 noundef %bits, i32 noundef %secbits, i32 noundef %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null
@@ -951,19 +945,17 @@ if.end2.i:                                        ; preds = %if.end.i
   %privkey.i = getelementptr inbounds i8, ptr %key, i64 80
   %3 = load ptr, ptr %privkey.i, align 8
   %cmp4.not.i = icmp eq ptr %3, null
-  br i1 %cmp4.not.i, label %if.end11.i, label %land.lhs.true5.i
+  br i1 %cmp4.not.i, label %return, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %if.end2.i
   %4 = load i64, ptr %keylen.i, align 8
   %call8.i = tail call i32 @ossl_param_build_set_octet_string(ptr noundef null, ptr noundef %params, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, i64 noundef %4) #4
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %return, label %if.end11.i
-
-if.end11.i:                                       ; preds = %land.lhs.true5.i, %if.end2.i
+  %tobool9.not.i = icmp ne i32 %call8.i, 0
+  %spec.select.i = zext i1 %tobool9.not.i to i32
   br label %return
 
-return:                                           ; preds = %if.end11.i, %land.lhs.true5.i, %if.end.i, %if.end27, %if.then22, %land.lhs.true11, %land.lhs.true4, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %if.then22 ], [ 1, %if.end11.i ], [ 0, %if.end27 ], [ 0, %if.end.i ], [ 0, %land.lhs.true5.i ]
+return:                                           ; preds = %land.lhs.true5.i, %if.end2.i, %if.end.i, %if.end27, %if.then22, %land.lhs.true11, %land.lhs.true4, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %if.then22 ], [ 0, %if.end27 ], [ 0, %if.end.i ], [ 1, %if.end2.i ], [ %spec.select.i, %land.lhs.true5.i ]
   ret i32 %retval.0
 }
 
@@ -976,7 +968,7 @@ declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @ossl_param_build_set_octet_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecx_set_params(ptr noundef %key, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc noundef i32 @ecx_set_params(ptr noundef %key, ptr noundef %params) unnamed_addr #0 {
 entry:
   %buf = alloca ptr, align 8
   %cmp = icmp eq ptr %params, null
@@ -1033,17 +1025,18 @@ lor.lhs.false14:                                  ; preds = %if.then12
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.7, i32 noundef 386) #4
   store ptr null, ptr %propq1.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i, label %return, label %if.then.i
+  br i1 %cmp.not.i, label %return, label %set_property_query.exit
 
-if.then.i:                                        ; preds = %lor.lhs.false14
+set_property_query.exit:                          ; preds = %lor.lhs.false14
   %call.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, i32 noundef 389) #4
-  store ptr %call.i, ptr %propq1.i, align 8
-  %cmp5.i = icmp ne ptr %call.i, null
-  %spec.select = zext i1 %cmp5.i to i32
+  %call.i.fr = freeze ptr %call.i
+  store ptr %call.i.fr, ptr %propq1.i, align 8
+  %cmp5.i.not = icmp ne ptr %call.i.fr, null
+  %spec.select = zext i1 %cmp5.i.not to i32
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.end9, %lor.lhs.false14, %if.then12, %if.then2, %lor.lhs.false, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %lor.lhs.false ], [ 0, %if.then2 ], [ 0, %if.then12 ], [ 1, %lor.lhs.false14 ], [ 1, %if.end9 ], [ %spec.select, %if.then.i ]
+return:                                           ; preds = %set_property_query.exit, %lor.lhs.false14, %if.end9, %if.then12, %if.then2, %lor.lhs.false, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %lor.lhs.false ], [ 0, %if.then2 ], [ 0, %if.then12 ], [ 1, %if.end9 ], [ 1, %lor.lhs.false14 ], [ %spec.select, %set_property_query.exit ]
   ret i32 %retval.0
 }
 

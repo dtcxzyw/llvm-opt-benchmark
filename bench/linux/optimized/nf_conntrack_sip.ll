@@ -5702,7 +5702,7 @@ ct_sip_header_search.exit5:                       ; preds = %90
 107:                                              ; preds = %98
   %108 = tail call i32 @strncasecmp(ptr noundef %104, ptr noundef nonnull @.str.52, i64 noundef 3)
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %118
+  br i1 %109, label %110, label %117
 
 110:                                              ; preds = %107, %98
   %111 = phi i8 [ 6, %98 ], [ 17, %107 ]
@@ -5710,7 +5710,8 @@ ct_sip_header_search.exit5:                       ; preds = %90
   %112 = getelementptr inbounds i8, ptr %0, i64 70
   %113 = load i8, ptr %112, align 2
   %114 = icmp eq i8 %111, %113
-  br i1 %114, label %117, label %118
+  %spec.select = zext i1 %114 to i32
+  br label %117
 
 .thread:                                          ; preds = %.loopexit.i4, %93, %62, %70, %73, %ct_sip_header_search.exit, %ct_sip_header_search.exit5
   %115 = getelementptr inbounds i8, ptr %0, i64 70
@@ -5718,12 +5719,9 @@ ct_sip_header_search.exit5:                       ; preds = %90
   store i8 %116, ptr %4, align 1
   br label %117
 
-117:                                              ; preds = %.thread, %110
-  br label %118
-
-118:                                              ; preds = %117, %110, %107
-  %119 = phi i32 [ 1, %117 ], [ 0, %107 ], [ 0, %110 ]
-  ret i32 %119
+117:                                              ; preds = %110, %.thread, %107
+  %118 = phi i32 [ 0, %107 ], [ 1, %.thread ], [ %spec.select, %110 ]
+  ret i32 %118
 }
 
 ; Function Attrs: null_pointer_is_valid

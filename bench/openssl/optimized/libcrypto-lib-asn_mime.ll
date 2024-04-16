@@ -1101,20 +1101,18 @@ while.cond:                                       ; preds = %entry, %if.end108
 
 while.body:                                       ; preds = %while.cond
   %tobool.not = icmp eq ptr %mhdr.0, null
-  br i1 %tobool.not, label %if.else, label %land.lhs.true
+  br i1 %tobool.not, label %for.cond.preheader, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
   %0 = load i8, ptr %linebuf, align 16
   %conv = sext i8 %0 to i32
   %call3 = call i32 @ossl_ctype_check(i32 noundef %conv, i32 noundef 8) #6
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.else, label %for.cond.preheader
-
-if.else:                                          ; preds = %land.lhs.true, %while.body
+  %spec.select54 = select i1 %tobool4.not, i32 1, i32 3
   br label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %land.lhs.true, %if.else
-  %state.1.ph = phi i32 [ 1, %if.else ], [ 3, %land.lhs.true ]
+for.cond.preheader:                               ; preds = %land.lhs.true, %while.body
+  %state.1.ph = phi i32 [ 1, %while.body ], [ %spec.select54, %land.lhs.true ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
@@ -1229,84 +1227,84 @@ sw.bb24:                                          ; preds = %for.body
 
 if.then28:                                        ; preds = %sw.bb24
   store i8 0, ptr %p.0, align 1
-  br label %for.cond.i.i54
+  br label %for.cond.i.i55
 
-for.cond.i.i54:                                   ; preds = %for.inc.i.i88, %if.then28
-  %p.0.i.i55 = phi ptr [ %q.0, %if.then28 ], [ %incdec.ptr.i.i89, %for.inc.i.i88 ]
-  %7 = load i8, ptr %p.0.i.i55, align 1
-  switch i8 %7, label %if.end4.i.i84 [
-    i8 0, label %strip_ends.exit90
-    i8 34, label %if.then.i.i56
+for.cond.i.i55:                                   ; preds = %for.inc.i.i89, %if.then28
+  %p.0.i.i56 = phi ptr [ %q.0, %if.then28 ], [ %incdec.ptr.i.i90, %for.inc.i.i89 ]
+  %7 = load i8, ptr %p.0.i.i56, align 1
+  switch i8 %7, label %if.end4.i.i85 [
+    i8 0, label %strip_ends.exit91
+    i8 34, label %if.then.i.i57
   ]
 
-if.then.i.i56:                                    ; preds = %for.cond.i.i54
-  %arrayidx.i.i57 = getelementptr inbounds i8, ptr %p.0.i.i55, i64 1
-  %8 = load i8, ptr %arrayidx.i.i57, align 1
-  %tobool2.not.i.i58 = icmp eq i8 %8, 0
-  br i1 %tobool2.not.i.i58, label %strip_ends.exit90, label %if.end.i.i59
+if.then.i.i57:                                    ; preds = %for.cond.i.i55
+  %arrayidx.i.i58 = getelementptr inbounds i8, ptr %p.0.i.i56, i64 1
+  %8 = load i8, ptr %arrayidx.i.i58, align 1
+  %tobool2.not.i.i59 = icmp eq i8 %8, 0
+  br i1 %tobool2.not.i.i59, label %strip_ends.exit91, label %if.end.i.i60
 
-if.end4.i.i84:                                    ; preds = %for.cond.i.i54
-  %conv.i.i85 = sext i8 %7 to i32
-  %call.i.i86 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i85, i32 noundef 8) #6
-  %tobool6.not.i.i87 = icmp eq i32 %call.i.i86, 0
-  br i1 %tobool6.not.i.i87, label %if.end.i.i59, label %for.inc.i.i88
+if.end4.i.i85:                                    ; preds = %for.cond.i.i55
+  %conv.i.i86 = sext i8 %7 to i32
+  %call.i.i87 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i86, i32 noundef 8) #6
+  %tobool6.not.i.i88 = icmp eq i32 %call.i.i87, 0
+  br i1 %tobool6.not.i.i88, label %if.end.i.i60, label %for.inc.i.i89
 
-for.inc.i.i88:                                    ; preds = %if.end4.i.i84
-  %incdec.ptr.i.i89 = getelementptr inbounds i8, ptr %p.0.i.i55, i64 1
-  br label %for.cond.i.i54, !llvm.loop !15
+for.inc.i.i89:                                    ; preds = %if.end4.i.i85
+  %incdec.ptr.i.i90 = getelementptr inbounds i8, ptr %p.0.i.i56, i64 1
+  br label %for.cond.i.i55, !llvm.loop !15
 
-if.end.i.i59:                                     ; preds = %if.end4.i.i84, %if.then.i.i56
-  %retval.0.i.i60 = phi ptr [ %arrayidx.i.i57, %if.then.i.i56 ], [ %p.0.i.i55, %if.end4.i.i84 ]
-  %call.i1.i61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i60) #7
-  %add.ptr.i.i62 = getelementptr inbounds i8, ptr %retval.0.i.i60, i64 %call.i1.i61
-  %p.015.i.i63 = getelementptr inbounds i8, ptr %add.ptr.i.i62, i64 -1
-  %cmp.not16.i.i64 = icmp ult ptr %p.015.i.i63, %retval.0.i.i60
-  br i1 %cmp.not16.i.i64, label %strip_ends.exit90, label %for.body.i.preheader.i65
+if.end.i.i60:                                     ; preds = %if.end4.i.i85, %if.then.i.i57
+  %retval.0.i.i61 = phi ptr [ %arrayidx.i.i58, %if.then.i.i57 ], [ %p.0.i.i56, %if.end4.i.i85 ]
+  %call.i1.i62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i61) #7
+  %add.ptr.i.i63 = getelementptr inbounds i8, ptr %retval.0.i.i61, i64 %call.i1.i62
+  %p.015.i.i64 = getelementptr inbounds i8, ptr %add.ptr.i.i63, i64 -1
+  %cmp.not16.i.i65 = icmp ult ptr %p.015.i.i64, %retval.0.i.i61
+  br i1 %cmp.not16.i.i65, label %strip_ends.exit91, label %for.body.i.preheader.i66
 
-for.body.i.preheader.i65:                         ; preds = %if.end.i.i59
-  %9 = load i8, ptr %p.015.i.i63, align 1
-  %cmp2.i12.i66 = icmp eq i8 %9, 34
-  br i1 %cmp2.i12.i66, label %if.then4.i.i77, label %if.end10.i.i67
+for.body.i.preheader.i66:                         ; preds = %if.end.i.i60
+  %9 = load i8, ptr %p.015.i.i64, align 1
+  %cmp2.i12.i67 = icmp eq i8 %9, 34
+  br i1 %cmp2.i12.i67, label %if.then4.i.i78, label %if.end10.i.i68
 
-for.body.i.i75:                                   ; preds = %if.then14.i.i72
-  %10 = load i8, ptr %p.0.i3.i73, align 1
-  %cmp2.i.i76 = icmp eq i8 %10, 34
-  br i1 %cmp2.i.i76, label %if.then4.i.i77, label %if.end10.i.i67, !llvm.loop !16
+for.body.i.i76:                                   ; preds = %if.then14.i.i73
+  %10 = load i8, ptr %p.0.i3.i74, align 1
+  %cmp2.i.i77 = icmp eq i8 %10, 34
+  br i1 %cmp2.i.i77, label %if.then4.i.i78, label %if.end10.i.i68, !llvm.loop !16
 
-if.then4.i.i77:                                   ; preds = %for.body.i.i75, %for.body.i.preheader.i65
-  %p.018.i.lcssa.i78 = phi ptr [ %p.015.i.i63, %for.body.i.preheader.i65 ], [ %p.0.i3.i73, %for.body.i.i75 ]
-  %add.ptr.pn17.i.lcssa.i79 = phi ptr [ %add.ptr.i.i62, %for.body.i.preheader.i65 ], [ %p.018.i13.i68, %for.body.i.i75 ]
-  %add.ptr5.i.i80 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i79, i64 -2
-  %cmp6.i.i81 = icmp eq ptr %add.ptr5.i.i80, %retval.0.i.i60
-  br i1 %cmp6.i.i81, label %strip_ends.exit90, label %if.end9.i.i82
+if.then4.i.i78:                                   ; preds = %for.body.i.i76, %for.body.i.preheader.i66
+  %p.018.i.lcssa.i79 = phi ptr [ %p.015.i.i64, %for.body.i.preheader.i66 ], [ %p.0.i3.i74, %for.body.i.i76 ]
+  %add.ptr.pn17.i.lcssa.i80 = phi ptr [ %add.ptr.i.i63, %for.body.i.preheader.i66 ], [ %p.018.i13.i69, %for.body.i.i76 ]
+  %add.ptr5.i.i81 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i80, i64 -2
+  %cmp6.i.i82 = icmp eq ptr %add.ptr5.i.i81, %retval.0.i.i61
+  br i1 %cmp6.i.i82, label %strip_ends.exit91, label %if.end9.i.i83
 
-if.end9.i.i82:                                    ; preds = %if.then4.i.i77
-  store i8 0, ptr %p.018.i.lcssa.i78, align 1
-  br label %strip_ends.exit90
+if.end9.i.i83:                                    ; preds = %if.then4.i.i78
+  store i8 0, ptr %p.018.i.lcssa.i79, align 1
+  br label %strip_ends.exit91
 
-if.end10.i.i67:                                   ; preds = %for.body.i.preheader.i65, %for.body.i.i75
-  %11 = phi i8 [ %10, %for.body.i.i75 ], [ %9, %for.body.i.preheader.i65 ]
-  %p.018.i13.i68 = phi ptr [ %p.0.i3.i73, %for.body.i.i75 ], [ %p.015.i.i63, %for.body.i.preheader.i65 ]
-  %conv.i2.i69 = sext i8 %11 to i32
-  %call12.i.i70 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i69, i32 noundef 8) #6
-  %tobool13.not.i.i71 = icmp eq i32 %call12.i.i70, 0
-  br i1 %tobool13.not.i.i71, label %strip_ends.exit90, label %if.then14.i.i72
+if.end10.i.i68:                                   ; preds = %for.body.i.preheader.i66, %for.body.i.i76
+  %11 = phi i8 [ %10, %for.body.i.i76 ], [ %9, %for.body.i.preheader.i66 ]
+  %p.018.i13.i69 = phi ptr [ %p.0.i3.i74, %for.body.i.i76 ], [ %p.015.i.i64, %for.body.i.preheader.i66 ]
+  %conv.i2.i70 = sext i8 %11 to i32
+  %call12.i.i71 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i70, i32 noundef 8) #6
+  %tobool13.not.i.i72 = icmp eq i32 %call12.i.i71, 0
+  br i1 %tobool13.not.i.i72, label %strip_ends.exit91, label %if.then14.i.i73
 
-if.then14.i.i72:                                  ; preds = %if.end10.i.i67
-  store i8 0, ptr %p.018.i13.i68, align 1
-  %p.0.i3.i73 = getelementptr inbounds i8, ptr %p.018.i13.i68, i64 -1
-  %cmp.not.i.i74 = icmp ult ptr %p.0.i3.i73, %retval.0.i.i60
-  br i1 %cmp.not.i.i74, label %strip_ends.exit90, label %for.body.i.i75, !llvm.loop !16
+if.then14.i.i73:                                  ; preds = %if.end10.i.i68
+  store i8 0, ptr %p.018.i13.i69, align 1
+  %p.0.i3.i74 = getelementptr inbounds i8, ptr %p.018.i13.i69, i64 -1
+  %cmp.not.i.i75 = icmp ult ptr %p.0.i3.i74, %retval.0.i.i61
+  br i1 %cmp.not.i.i75, label %strip_ends.exit91, label %for.body.i.i76, !llvm.loop !16
 
-strip_ends.exit90:                                ; preds = %for.cond.i.i54, %if.end10.i.i67, %if.then14.i.i72, %if.then.i.i56, %if.end.i.i59, %if.then4.i.i77, %if.end9.i.i82
-  %retval.0.i4.i83 = phi ptr [ %retval.0.i.i60, %if.end9.i.i82 ], [ null, %if.then4.i.i77 ], [ null, %if.end.i.i59 ], [ null, %if.then.i.i56 ], [ %retval.0.i.i60, %if.end10.i.i67 ], [ null, %if.then14.i.i72 ], [ null, %for.cond.i.i54 ]
-  %call30 = call fastcc ptr @mime_hdr_new(ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i83)
+strip_ends.exit91:                                ; preds = %for.cond.i.i55, %if.end10.i.i68, %if.then14.i.i73, %if.then.i.i57, %if.end.i.i60, %if.then4.i.i78, %if.end9.i.i83
+  %retval.0.i4.i84 = phi ptr [ %retval.0.i.i61, %if.end9.i.i83 ], [ null, %if.then4.i.i78 ], [ null, %if.end.i.i60 ], [ null, %if.then.i.i57 ], [ %retval.0.i.i61, %if.end10.i.i68 ], [ null, %if.then14.i.i73 ], [ null, %for.cond.i.i55 ]
+  %call30 = call fastcc ptr @mime_hdr_new(ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i84)
   %cmp31 = icmp eq ptr %call30, null
   br i1 %cmp31, label %mime_hdr_free.exit, label %if.end34
 
-if.end34:                                         ; preds = %strip_ends.exit90
-  %call.i91 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call30) #6
-  %tobool36.not = icmp eq i32 %call.i91, 0
+if.end34:                                         ; preds = %strip_ends.exit91
+  %call.i92 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call30) #6
+  %tobool36.not = icmp eq i32 %call.i92, 0
   br i1 %tobool36.not, label %if.end.i, label %if.end38
 
 if.end38:                                         ; preds = %if.end34
@@ -1327,77 +1325,77 @@ sw.bb53:                                          ; preds = %for.body
 
 if.then57:                                        ; preds = %sw.bb53
   store i8 0, ptr %p.0, align 1
-  br label %for.cond.i.i92
+  br label %for.cond.i.i93
 
-for.cond.i.i92:                                   ; preds = %for.inc.i.i126, %if.then57
-  %p.0.i.i93 = phi ptr [ %q.0, %if.then57 ], [ %incdec.ptr.i.i127, %for.inc.i.i126 ]
-  %12 = load i8, ptr %p.0.i.i93, align 1
-  switch i8 %12, label %if.end4.i.i122 [
-    i8 0, label %strip_ends.exit128
-    i8 34, label %if.then.i.i94
+for.cond.i.i93:                                   ; preds = %for.inc.i.i127, %if.then57
+  %p.0.i.i94 = phi ptr [ %q.0, %if.then57 ], [ %incdec.ptr.i.i128, %for.inc.i.i127 ]
+  %12 = load i8, ptr %p.0.i.i94, align 1
+  switch i8 %12, label %if.end4.i.i123 [
+    i8 0, label %strip_ends.exit129
+    i8 34, label %if.then.i.i95
   ]
 
-if.then.i.i94:                                    ; preds = %for.cond.i.i92
-  %arrayidx.i.i95 = getelementptr inbounds i8, ptr %p.0.i.i93, i64 1
-  %13 = load i8, ptr %arrayidx.i.i95, align 1
-  %tobool2.not.i.i96 = icmp eq i8 %13, 0
-  br i1 %tobool2.not.i.i96, label %strip_ends.exit128, label %if.end.i.i97
+if.then.i.i95:                                    ; preds = %for.cond.i.i93
+  %arrayidx.i.i96 = getelementptr inbounds i8, ptr %p.0.i.i94, i64 1
+  %13 = load i8, ptr %arrayidx.i.i96, align 1
+  %tobool2.not.i.i97 = icmp eq i8 %13, 0
+  br i1 %tobool2.not.i.i97, label %strip_ends.exit129, label %if.end.i.i98
 
-if.end4.i.i122:                                   ; preds = %for.cond.i.i92
-  %conv.i.i123 = sext i8 %12 to i32
-  %call.i.i124 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i123, i32 noundef 8) #6
-  %tobool6.not.i.i125 = icmp eq i32 %call.i.i124, 0
-  br i1 %tobool6.not.i.i125, label %if.end.i.i97, label %for.inc.i.i126
+if.end4.i.i123:                                   ; preds = %for.cond.i.i93
+  %conv.i.i124 = sext i8 %12 to i32
+  %call.i.i125 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i124, i32 noundef 8) #6
+  %tobool6.not.i.i126 = icmp eq i32 %call.i.i125, 0
+  br i1 %tobool6.not.i.i126, label %if.end.i.i98, label %for.inc.i.i127
 
-for.inc.i.i126:                                   ; preds = %if.end4.i.i122
-  %incdec.ptr.i.i127 = getelementptr inbounds i8, ptr %p.0.i.i93, i64 1
-  br label %for.cond.i.i92, !llvm.loop !15
+for.inc.i.i127:                                   ; preds = %if.end4.i.i123
+  %incdec.ptr.i.i128 = getelementptr inbounds i8, ptr %p.0.i.i94, i64 1
+  br label %for.cond.i.i93, !llvm.loop !15
 
-if.end.i.i97:                                     ; preds = %if.end4.i.i122, %if.then.i.i94
-  %retval.0.i.i98 = phi ptr [ %arrayidx.i.i95, %if.then.i.i94 ], [ %p.0.i.i93, %if.end4.i.i122 ]
-  %call.i1.i99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i98) #7
-  %add.ptr.i.i100 = getelementptr inbounds i8, ptr %retval.0.i.i98, i64 %call.i1.i99
-  %p.015.i.i101 = getelementptr inbounds i8, ptr %add.ptr.i.i100, i64 -1
-  %cmp.not16.i.i102 = icmp ult ptr %p.015.i.i101, %retval.0.i.i98
-  br i1 %cmp.not16.i.i102, label %strip_ends.exit128, label %for.body.i.preheader.i103
+if.end.i.i98:                                     ; preds = %if.end4.i.i123, %if.then.i.i95
+  %retval.0.i.i99 = phi ptr [ %arrayidx.i.i96, %if.then.i.i95 ], [ %p.0.i.i94, %if.end4.i.i123 ]
+  %call.i1.i100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i99) #7
+  %add.ptr.i.i101 = getelementptr inbounds i8, ptr %retval.0.i.i99, i64 %call.i1.i100
+  %p.015.i.i102 = getelementptr inbounds i8, ptr %add.ptr.i.i101, i64 -1
+  %cmp.not16.i.i103 = icmp ult ptr %p.015.i.i102, %retval.0.i.i99
+  br i1 %cmp.not16.i.i103, label %strip_ends.exit129, label %for.body.i.preheader.i104
 
-for.body.i.preheader.i103:                        ; preds = %if.end.i.i97
-  %14 = load i8, ptr %p.015.i.i101, align 1
-  %cmp2.i12.i104 = icmp eq i8 %14, 34
-  br i1 %cmp2.i12.i104, label %if.then4.i.i115, label %if.end10.i.i105
+for.body.i.preheader.i104:                        ; preds = %if.end.i.i98
+  %14 = load i8, ptr %p.015.i.i102, align 1
+  %cmp2.i12.i105 = icmp eq i8 %14, 34
+  br i1 %cmp2.i12.i105, label %if.then4.i.i116, label %if.end10.i.i106
 
-for.body.i.i113:                                  ; preds = %if.then14.i.i110
-  %15 = load i8, ptr %p.0.i3.i111, align 1
-  %cmp2.i.i114 = icmp eq i8 %15, 34
-  br i1 %cmp2.i.i114, label %if.then4.i.i115, label %if.end10.i.i105, !llvm.loop !16
+for.body.i.i114:                                  ; preds = %if.then14.i.i111
+  %15 = load i8, ptr %p.0.i3.i112, align 1
+  %cmp2.i.i115 = icmp eq i8 %15, 34
+  br i1 %cmp2.i.i115, label %if.then4.i.i116, label %if.end10.i.i106, !llvm.loop !16
 
-if.then4.i.i115:                                  ; preds = %for.body.i.i113, %for.body.i.preheader.i103
-  %p.018.i.lcssa.i116 = phi ptr [ %p.015.i.i101, %for.body.i.preheader.i103 ], [ %p.0.i3.i111, %for.body.i.i113 ]
-  %add.ptr.pn17.i.lcssa.i117 = phi ptr [ %add.ptr.i.i100, %for.body.i.preheader.i103 ], [ %p.018.i13.i106, %for.body.i.i113 ]
-  %add.ptr5.i.i118 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i117, i64 -2
-  %cmp6.i.i119 = icmp eq ptr %add.ptr5.i.i118, %retval.0.i.i98
-  br i1 %cmp6.i.i119, label %strip_ends.exit128, label %if.end9.i.i120
+if.then4.i.i116:                                  ; preds = %for.body.i.i114, %for.body.i.preheader.i104
+  %p.018.i.lcssa.i117 = phi ptr [ %p.015.i.i102, %for.body.i.preheader.i104 ], [ %p.0.i3.i112, %for.body.i.i114 ]
+  %add.ptr.pn17.i.lcssa.i118 = phi ptr [ %add.ptr.i.i101, %for.body.i.preheader.i104 ], [ %p.018.i13.i107, %for.body.i.i114 ]
+  %add.ptr5.i.i119 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i118, i64 -2
+  %cmp6.i.i120 = icmp eq ptr %add.ptr5.i.i119, %retval.0.i.i99
+  br i1 %cmp6.i.i120, label %strip_ends.exit129, label %if.end9.i.i121
 
-if.end9.i.i120:                                   ; preds = %if.then4.i.i115
-  store i8 0, ptr %p.018.i.lcssa.i116, align 1
-  br label %strip_ends.exit128
+if.end9.i.i121:                                   ; preds = %if.then4.i.i116
+  store i8 0, ptr %p.018.i.lcssa.i117, align 1
+  br label %strip_ends.exit129
 
-if.end10.i.i105:                                  ; preds = %for.body.i.preheader.i103, %for.body.i.i113
-  %16 = phi i8 [ %15, %for.body.i.i113 ], [ %14, %for.body.i.preheader.i103 ]
-  %p.018.i13.i106 = phi ptr [ %p.0.i3.i111, %for.body.i.i113 ], [ %p.015.i.i101, %for.body.i.preheader.i103 ]
-  %conv.i2.i107 = sext i8 %16 to i32
-  %call12.i.i108 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i107, i32 noundef 8) #6
-  %tobool13.not.i.i109 = icmp eq i32 %call12.i.i108, 0
-  br i1 %tobool13.not.i.i109, label %strip_ends.exit128, label %if.then14.i.i110
+if.end10.i.i106:                                  ; preds = %for.body.i.preheader.i104, %for.body.i.i114
+  %16 = phi i8 [ %15, %for.body.i.i114 ], [ %14, %for.body.i.preheader.i104 ]
+  %p.018.i13.i107 = phi ptr [ %p.0.i3.i112, %for.body.i.i114 ], [ %p.015.i.i102, %for.body.i.preheader.i104 ]
+  %conv.i2.i108 = sext i8 %16 to i32
+  %call12.i.i109 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i108, i32 noundef 8) #6
+  %tobool13.not.i.i110 = icmp eq i32 %call12.i.i109, 0
+  br i1 %tobool13.not.i.i110, label %strip_ends.exit129, label %if.then14.i.i111
 
-if.then14.i.i110:                                 ; preds = %if.end10.i.i105
-  store i8 0, ptr %p.018.i13.i106, align 1
-  %p.0.i3.i111 = getelementptr inbounds i8, ptr %p.018.i13.i106, i64 -1
-  %cmp.not.i.i112 = icmp ult ptr %p.0.i3.i111, %retval.0.i.i98
-  br i1 %cmp.not.i.i112, label %strip_ends.exit128, label %for.body.i.i113, !llvm.loop !16
+if.then14.i.i111:                                 ; preds = %if.end10.i.i106
+  store i8 0, ptr %p.018.i13.i107, align 1
+  %p.0.i3.i112 = getelementptr inbounds i8, ptr %p.018.i13.i107, i64 -1
+  %cmp.not.i.i113 = icmp ult ptr %p.0.i3.i112, %retval.0.i.i99
+  br i1 %cmp.not.i.i113, label %strip_ends.exit129, label %for.body.i.i114, !llvm.loop !16
 
-strip_ends.exit128:                               ; preds = %for.cond.i.i92, %if.end10.i.i105, %if.then14.i.i110, %if.then.i.i94, %if.end.i.i97, %if.then4.i.i115, %if.end9.i.i120
-  %retval.0.i4.i121 = phi ptr [ %retval.0.i.i98, %if.end9.i.i120 ], [ null, %if.then4.i.i115 ], [ null, %if.end.i.i97 ], [ null, %if.then.i.i94 ], [ %retval.0.i.i98, %if.end10.i.i105 ], [ null, %if.then14.i.i110 ], [ null, %for.cond.i.i92 ]
+strip_ends.exit129:                               ; preds = %for.cond.i.i93, %if.end10.i.i106, %if.then14.i.i111, %if.then.i.i95, %if.end.i.i98, %if.then4.i.i116, %if.end9.i.i121
+  %retval.0.i4.i122 = phi ptr [ %retval.0.i.i99, %if.end9.i.i121 ], [ null, %if.then4.i.i116 ], [ null, %if.end.i.i98 ], [ null, %if.then.i.i95 ], [ %retval.0.i.i99, %if.end10.i.i106 ], [ null, %if.then14.i.i111 ], [ null, %for.cond.i.i93 ]
   %add.ptr59 = getelementptr inbounds i8, ptr %p.0, i64 1
   br label %for.inc
 
@@ -1410,78 +1408,78 @@ sw.bb61:                                          ; preds = %for.body
 
 if.then65:                                        ; preds = %sw.bb61
   store i8 0, ptr %p.0, align 1
-  br label %for.cond.i.i129
+  br label %for.cond.i.i130
 
-for.cond.i.i129:                                  ; preds = %for.inc.i.i163, %if.then65
-  %p.0.i.i130 = phi ptr [ %q.0, %if.then65 ], [ %incdec.ptr.i.i164, %for.inc.i.i163 ]
-  %17 = load i8, ptr %p.0.i.i130, align 1
-  switch i8 %17, label %if.end4.i.i159 [
-    i8 0, label %strip_ends.exit165
-    i8 34, label %if.then.i.i131
+for.cond.i.i130:                                  ; preds = %for.inc.i.i164, %if.then65
+  %p.0.i.i131 = phi ptr [ %q.0, %if.then65 ], [ %incdec.ptr.i.i165, %for.inc.i.i164 ]
+  %17 = load i8, ptr %p.0.i.i131, align 1
+  switch i8 %17, label %if.end4.i.i160 [
+    i8 0, label %strip_ends.exit166
+    i8 34, label %if.then.i.i132
   ]
 
-if.then.i.i131:                                   ; preds = %for.cond.i.i129
-  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %p.0.i.i130, i64 1
-  %18 = load i8, ptr %arrayidx.i.i132, align 1
-  %tobool2.not.i.i133 = icmp eq i8 %18, 0
-  br i1 %tobool2.not.i.i133, label %strip_ends.exit165, label %if.end.i.i134
+if.then.i.i132:                                   ; preds = %for.cond.i.i130
+  %arrayidx.i.i133 = getelementptr inbounds i8, ptr %p.0.i.i131, i64 1
+  %18 = load i8, ptr %arrayidx.i.i133, align 1
+  %tobool2.not.i.i134 = icmp eq i8 %18, 0
+  br i1 %tobool2.not.i.i134, label %strip_ends.exit166, label %if.end.i.i135
 
-if.end4.i.i159:                                   ; preds = %for.cond.i.i129
-  %conv.i.i160 = sext i8 %17 to i32
-  %call.i.i161 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i160, i32 noundef 8) #6
-  %tobool6.not.i.i162 = icmp eq i32 %call.i.i161, 0
-  br i1 %tobool6.not.i.i162, label %if.end.i.i134, label %for.inc.i.i163
+if.end4.i.i160:                                   ; preds = %for.cond.i.i130
+  %conv.i.i161 = sext i8 %17 to i32
+  %call.i.i162 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i161, i32 noundef 8) #6
+  %tobool6.not.i.i163 = icmp eq i32 %call.i.i162, 0
+  br i1 %tobool6.not.i.i163, label %if.end.i.i135, label %for.inc.i.i164
 
-for.inc.i.i163:                                   ; preds = %if.end4.i.i159
-  %incdec.ptr.i.i164 = getelementptr inbounds i8, ptr %p.0.i.i130, i64 1
-  br label %for.cond.i.i129, !llvm.loop !15
+for.inc.i.i164:                                   ; preds = %if.end4.i.i160
+  %incdec.ptr.i.i165 = getelementptr inbounds i8, ptr %p.0.i.i131, i64 1
+  br label %for.cond.i.i130, !llvm.loop !15
 
-if.end.i.i134:                                    ; preds = %if.end4.i.i159, %if.then.i.i131
-  %retval.0.i.i135 = phi ptr [ %arrayidx.i.i132, %if.then.i.i131 ], [ %p.0.i.i130, %if.end4.i.i159 ]
-  %call.i1.i136 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i135) #7
-  %add.ptr.i.i137 = getelementptr inbounds i8, ptr %retval.0.i.i135, i64 %call.i1.i136
-  %p.015.i.i138 = getelementptr inbounds i8, ptr %add.ptr.i.i137, i64 -1
-  %cmp.not16.i.i139 = icmp ult ptr %p.015.i.i138, %retval.0.i.i135
-  br i1 %cmp.not16.i.i139, label %strip_ends.exit165, label %for.body.i.preheader.i140
+if.end.i.i135:                                    ; preds = %if.end4.i.i160, %if.then.i.i132
+  %retval.0.i.i136 = phi ptr [ %arrayidx.i.i133, %if.then.i.i132 ], [ %p.0.i.i131, %if.end4.i.i160 ]
+  %call.i1.i137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i136) #7
+  %add.ptr.i.i138 = getelementptr inbounds i8, ptr %retval.0.i.i136, i64 %call.i1.i137
+  %p.015.i.i139 = getelementptr inbounds i8, ptr %add.ptr.i.i138, i64 -1
+  %cmp.not16.i.i140 = icmp ult ptr %p.015.i.i139, %retval.0.i.i136
+  br i1 %cmp.not16.i.i140, label %strip_ends.exit166, label %for.body.i.preheader.i141
 
-for.body.i.preheader.i140:                        ; preds = %if.end.i.i134
-  %19 = load i8, ptr %p.015.i.i138, align 1
-  %cmp2.i12.i141 = icmp eq i8 %19, 34
-  br i1 %cmp2.i12.i141, label %if.then4.i.i152, label %if.end10.i.i142
+for.body.i.preheader.i141:                        ; preds = %if.end.i.i135
+  %19 = load i8, ptr %p.015.i.i139, align 1
+  %cmp2.i12.i142 = icmp eq i8 %19, 34
+  br i1 %cmp2.i12.i142, label %if.then4.i.i153, label %if.end10.i.i143
 
-for.body.i.i150:                                  ; preds = %if.then14.i.i147
-  %20 = load i8, ptr %p.0.i3.i148, align 1
-  %cmp2.i.i151 = icmp eq i8 %20, 34
-  br i1 %cmp2.i.i151, label %if.then4.i.i152, label %if.end10.i.i142, !llvm.loop !16
+for.body.i.i151:                                  ; preds = %if.then14.i.i148
+  %20 = load i8, ptr %p.0.i3.i149, align 1
+  %cmp2.i.i152 = icmp eq i8 %20, 34
+  br i1 %cmp2.i.i152, label %if.then4.i.i153, label %if.end10.i.i143, !llvm.loop !16
 
-if.then4.i.i152:                                  ; preds = %for.body.i.i150, %for.body.i.preheader.i140
-  %p.018.i.lcssa.i153 = phi ptr [ %p.015.i.i138, %for.body.i.preheader.i140 ], [ %p.0.i3.i148, %for.body.i.i150 ]
-  %add.ptr.pn17.i.lcssa.i154 = phi ptr [ %add.ptr.i.i137, %for.body.i.preheader.i140 ], [ %p.018.i13.i143, %for.body.i.i150 ]
-  %add.ptr5.i.i155 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i154, i64 -2
-  %cmp6.i.i156 = icmp eq ptr %add.ptr5.i.i155, %retval.0.i.i135
-  br i1 %cmp6.i.i156, label %strip_ends.exit165, label %if.end9.i.i157
+if.then4.i.i153:                                  ; preds = %for.body.i.i151, %for.body.i.preheader.i141
+  %p.018.i.lcssa.i154 = phi ptr [ %p.015.i.i139, %for.body.i.preheader.i141 ], [ %p.0.i3.i149, %for.body.i.i151 ]
+  %add.ptr.pn17.i.lcssa.i155 = phi ptr [ %add.ptr.i.i138, %for.body.i.preheader.i141 ], [ %p.018.i13.i144, %for.body.i.i151 ]
+  %add.ptr5.i.i156 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i155, i64 -2
+  %cmp6.i.i157 = icmp eq ptr %add.ptr5.i.i156, %retval.0.i.i136
+  br i1 %cmp6.i.i157, label %strip_ends.exit166, label %if.end9.i.i158
 
-if.end9.i.i157:                                   ; preds = %if.then4.i.i152
-  store i8 0, ptr %p.018.i.lcssa.i153, align 1
-  br label %strip_ends.exit165
+if.end9.i.i158:                                   ; preds = %if.then4.i.i153
+  store i8 0, ptr %p.018.i.lcssa.i154, align 1
+  br label %strip_ends.exit166
 
-if.end10.i.i142:                                  ; preds = %for.body.i.preheader.i140, %for.body.i.i150
-  %21 = phi i8 [ %20, %for.body.i.i150 ], [ %19, %for.body.i.preheader.i140 ]
-  %p.018.i13.i143 = phi ptr [ %p.0.i3.i148, %for.body.i.i150 ], [ %p.015.i.i138, %for.body.i.preheader.i140 ]
-  %conv.i2.i144 = sext i8 %21 to i32
-  %call12.i.i145 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i144, i32 noundef 8) #6
-  %tobool13.not.i.i146 = icmp eq i32 %call12.i.i145, 0
-  br i1 %tobool13.not.i.i146, label %strip_ends.exit165, label %if.then14.i.i147
+if.end10.i.i143:                                  ; preds = %for.body.i.preheader.i141, %for.body.i.i151
+  %21 = phi i8 [ %20, %for.body.i.i151 ], [ %19, %for.body.i.preheader.i141 ]
+  %p.018.i13.i144 = phi ptr [ %p.0.i3.i149, %for.body.i.i151 ], [ %p.015.i.i139, %for.body.i.preheader.i141 ]
+  %conv.i2.i145 = sext i8 %21 to i32
+  %call12.i.i146 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i145, i32 noundef 8) #6
+  %tobool13.not.i.i147 = icmp eq i32 %call12.i.i146, 0
+  br i1 %tobool13.not.i.i147, label %strip_ends.exit166, label %if.then14.i.i148
 
-if.then14.i.i147:                                 ; preds = %if.end10.i.i142
-  store i8 0, ptr %p.018.i13.i143, align 1
-  %p.0.i3.i148 = getelementptr inbounds i8, ptr %p.018.i13.i143, i64 -1
-  %cmp.not.i.i149 = icmp ult ptr %p.0.i3.i148, %retval.0.i.i135
-  br i1 %cmp.not.i.i149, label %strip_ends.exit165, label %for.body.i.i150, !llvm.loop !16
+if.then14.i.i148:                                 ; preds = %if.end10.i.i143
+  store i8 0, ptr %p.018.i13.i144, align 1
+  %p.0.i3.i149 = getelementptr inbounds i8, ptr %p.018.i13.i144, i64 -1
+  %cmp.not.i.i150 = icmp ult ptr %p.0.i3.i149, %retval.0.i.i136
+  br i1 %cmp.not.i.i150, label %strip_ends.exit166, label %for.body.i.i151, !llvm.loop !16
 
-strip_ends.exit165:                               ; preds = %for.cond.i.i129, %if.end10.i.i142, %if.then14.i.i147, %if.then.i.i131, %if.end.i.i134, %if.then4.i.i152, %if.end9.i.i157
-  %retval.0.i4.i158 = phi ptr [ %retval.0.i.i135, %if.end9.i.i157 ], [ null, %if.then4.i.i152 ], [ null, %if.end.i.i134 ], [ null, %if.then.i.i131 ], [ %retval.0.i.i135, %if.end10.i.i142 ], [ null, %if.then14.i.i147 ], [ null, %for.cond.i.i129 ]
-  call fastcc void @mime_hdr_addparam(ptr noundef %mhdr.1, ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i158)
+strip_ends.exit166:                               ; preds = %for.cond.i.i130, %if.end10.i.i143, %if.then14.i.i148, %if.then.i.i132, %if.end.i.i135, %if.then4.i.i153, %if.end9.i.i158
+  %retval.0.i4.i159 = phi ptr [ %retval.0.i.i136, %if.end9.i.i158 ], [ null, %if.then4.i.i153 ], [ null, %if.end.i.i135 ], [ null, %if.then.i.i132 ], [ %retval.0.i.i136, %if.end10.i.i143 ], [ null, %if.then14.i.i148 ], [ null, %for.cond.i.i130 ]
+  call fastcc void @mime_hdr_addparam(ptr noundef %mhdr.1, ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i159)
   %add.ptr68 = getelementptr inbounds i8, ptr %p.0, i64 1
   br label %for.inc
 
@@ -1496,190 +1494,190 @@ sw.bb82:                                          ; preds = %for.body
 for.inc.fold.split:                               ; preds = %sw.bb61
   br label %for.inc
 
-for.inc:                                          ; preds = %sw.bb82, %sw.bb47, %sw.bb61, %for.inc.fold.split, %sw.bb24, %for.body, %strip_ends.exit, %sw.bb, %if.then44, %if.end38, %strip_ends.exit128, %sw.bb53, %if.then78, %strip_ends.exit165
-  %q.1 = phi ptr [ %q.0, %for.body ], [ %add.ptr68, %strip_ends.exit165 ], [ %q.0, %if.then78 ], [ %add.ptr59, %strip_ends.exit128 ], [ %q.0, %sw.bb53 ], [ %add.ptr39, %if.end38 ], [ %q.0, %if.then44 ], [ %add.ptr, %strip_ends.exit ], [ %q.0, %sw.bb ], [ %q.0, %sw.bb24 ], [ %q.0, %sw.bb47 ], [ %q.0, %sw.bb61 ], [ %q.0, %for.inc.fold.split ], [ %q.0, %sw.bb82 ]
-  %ntmp.1 = phi ptr [ %ntmp.0, %for.body ], [ null, %strip_ends.exit165 ], [ %ntmp.0, %if.then78 ], [ %retval.0.i4.i121, %strip_ends.exit128 ], [ %ntmp.0, %sw.bb53 ], [ null, %if.end38 ], [ %ntmp.0, %if.then44 ], [ %retval.0.i4.i, %strip_ends.exit ], [ %ntmp.0, %sw.bb ], [ %ntmp.0, %sw.bb24 ], [ %ntmp.0, %sw.bb47 ], [ %ntmp.0, %sw.bb61 ], [ %ntmp.0, %for.inc.fold.split ], [ %ntmp.0, %sw.bb82 ]
-  %mhdr.2 = phi ptr [ %mhdr.1, %for.body ], [ %mhdr.1, %strip_ends.exit165 ], [ %mhdr.1, %if.then78 ], [ %mhdr.1, %strip_ends.exit128 ], [ %mhdr.1, %sw.bb53 ], [ %call30, %if.end38 ], [ %mhdr.1, %if.then44 ], [ %mhdr.1, %strip_ends.exit ], [ %mhdr.1, %sw.bb ], [ %mhdr.1, %sw.bb24 ], [ %mhdr.1, %sw.bb47 ], [ %mhdr.1, %sw.bb61 ], [ %mhdr.1, %for.inc.fold.split ], [ %mhdr.1, %sw.bb82 ]
-  %state.2 = phi i32 [ %state.1, %for.body ], [ 3, %strip_ends.exit165 ], [ 6, %if.then78 ], [ 4, %strip_ends.exit128 ], [ 3, %sw.bb53 ], [ 3, %if.end38 ], [ 6, %if.then44 ], [ 2, %strip_ends.exit ], [ 1, %sw.bb ], [ 2, %sw.bb24 ], [ %spec.select, %sw.bb47 ], [ 5, %sw.bb61 ], [ 4, %for.inc.fold.split ], [ %spec.select53, %sw.bb82 ]
-  %save_state.2 = phi i32 [ %save_state.1, %for.body ], [ %save_state.1, %strip_ends.exit165 ], [ 4, %if.then78 ], [ %save_state.1, %strip_ends.exit128 ], [ %save_state.1, %sw.bb53 ], [ %save_state.1, %if.end38 ], [ 2, %if.then44 ], [ %save_state.1, %strip_ends.exit ], [ %save_state.1, %sw.bb ], [ %save_state.1, %sw.bb24 ], [ %save_state.1, %sw.bb47 ], [ %save_state.1, %sw.bb61 ], [ %save_state.1, %for.inc.fold.split ], [ %save_state.1, %sw.bb82 ]
+for.inc:                                          ; preds = %sw.bb82, %sw.bb47, %sw.bb61, %for.inc.fold.split, %sw.bb24, %for.body, %strip_ends.exit, %sw.bb, %if.then44, %if.end38, %strip_ends.exit129, %sw.bb53, %if.then78, %strip_ends.exit166
+  %q.1 = phi ptr [ %q.0, %for.body ], [ %add.ptr68, %strip_ends.exit166 ], [ %q.0, %if.then78 ], [ %add.ptr59, %strip_ends.exit129 ], [ %q.0, %sw.bb53 ], [ %add.ptr39, %if.end38 ], [ %q.0, %if.then44 ], [ %add.ptr, %strip_ends.exit ], [ %q.0, %sw.bb ], [ %q.0, %sw.bb24 ], [ %q.0, %sw.bb47 ], [ %q.0, %sw.bb61 ], [ %q.0, %for.inc.fold.split ], [ %q.0, %sw.bb82 ]
+  %ntmp.1 = phi ptr [ %ntmp.0, %for.body ], [ null, %strip_ends.exit166 ], [ %ntmp.0, %if.then78 ], [ %retval.0.i4.i122, %strip_ends.exit129 ], [ %ntmp.0, %sw.bb53 ], [ null, %if.end38 ], [ %ntmp.0, %if.then44 ], [ %retval.0.i4.i, %strip_ends.exit ], [ %ntmp.0, %sw.bb ], [ %ntmp.0, %sw.bb24 ], [ %ntmp.0, %sw.bb47 ], [ %ntmp.0, %sw.bb61 ], [ %ntmp.0, %for.inc.fold.split ], [ %ntmp.0, %sw.bb82 ]
+  %mhdr.2 = phi ptr [ %mhdr.1, %for.body ], [ %mhdr.1, %strip_ends.exit166 ], [ %mhdr.1, %if.then78 ], [ %mhdr.1, %strip_ends.exit129 ], [ %mhdr.1, %sw.bb53 ], [ %call30, %if.end38 ], [ %mhdr.1, %if.then44 ], [ %mhdr.1, %strip_ends.exit ], [ %mhdr.1, %sw.bb ], [ %mhdr.1, %sw.bb24 ], [ %mhdr.1, %sw.bb47 ], [ %mhdr.1, %sw.bb61 ], [ %mhdr.1, %for.inc.fold.split ], [ %mhdr.1, %sw.bb82 ]
+  %state.2 = phi i32 [ %state.1, %for.body ], [ 3, %strip_ends.exit166 ], [ 6, %if.then78 ], [ 4, %strip_ends.exit129 ], [ 3, %sw.bb53 ], [ 3, %if.end38 ], [ 6, %if.then44 ], [ 2, %strip_ends.exit ], [ 1, %sw.bb ], [ 2, %sw.bb24 ], [ %spec.select, %sw.bb47 ], [ 5, %sw.bb61 ], [ 4, %for.inc.fold.split ], [ %spec.select53, %sw.bb82 ]
+  %save_state.2 = phi i32 [ %save_state.1, %for.body ], [ %save_state.1, %strip_ends.exit166 ], [ 4, %if.then78 ], [ %save_state.1, %strip_ends.exit129 ], [ %save_state.1, %sw.bb53 ], [ %save_state.1, %if.end38 ], [ 2, %if.then44 ], [ %save_state.1, %strip_ends.exit ], [ %save_state.1, %sw.bb ], [ %save_state.1, %sw.bb24 ], [ %save_state.1, %sw.bb47 ], [ %save_state.1, %sw.bb61 ], [ %save_state.1, %for.inc.fold.split ], [ %save_state.1, %sw.bb82 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br label %for.cond, !llvm.loop !17
 
 for.end:                                          ; preds = %for.cond, %for.cond, %for.cond
   switch i32 %state.1, label %if.end108 [
-    i32 2, label %for.cond.i.i166
-    i32 4, label %for.cond.i.i204
+    i32 2, label %for.cond.i.i167
+    i32 4, label %for.cond.i.i205
   ]
 
-for.cond.i.i166:                                  ; preds = %for.end, %for.inc.i.i200
-  %p.0.i.i167 = phi ptr [ %incdec.ptr.i.i201, %for.inc.i.i200 ], [ %q.0, %for.end ]
-  %22 = load i8, ptr %p.0.i.i167, align 1
-  switch i8 %22, label %if.end4.i.i196 [
-    i8 0, label %strip_ends.exit202
-    i8 34, label %if.then.i.i168
+for.cond.i.i167:                                  ; preds = %for.end, %for.inc.i.i201
+  %p.0.i.i168 = phi ptr [ %incdec.ptr.i.i202, %for.inc.i.i201 ], [ %q.0, %for.end ]
+  %22 = load i8, ptr %p.0.i.i168, align 1
+  switch i8 %22, label %if.end4.i.i197 [
+    i8 0, label %strip_ends.exit203
+    i8 34, label %if.then.i.i169
   ]
 
-if.then.i.i168:                                   ; preds = %for.cond.i.i166
-  %arrayidx.i.i169 = getelementptr inbounds i8, ptr %p.0.i.i167, i64 1
-  %23 = load i8, ptr %arrayidx.i.i169, align 1
-  %tobool2.not.i.i170 = icmp eq i8 %23, 0
-  br i1 %tobool2.not.i.i170, label %strip_ends.exit202, label %if.end.i.i171
+if.then.i.i169:                                   ; preds = %for.cond.i.i167
+  %arrayidx.i.i170 = getelementptr inbounds i8, ptr %p.0.i.i168, i64 1
+  %23 = load i8, ptr %arrayidx.i.i170, align 1
+  %tobool2.not.i.i171 = icmp eq i8 %23, 0
+  br i1 %tobool2.not.i.i171, label %strip_ends.exit203, label %if.end.i.i172
 
-if.end4.i.i196:                                   ; preds = %for.cond.i.i166
-  %conv.i.i197 = sext i8 %22 to i32
-  %call.i.i198 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i197, i32 noundef 8) #6
-  %tobool6.not.i.i199 = icmp eq i32 %call.i.i198, 0
-  br i1 %tobool6.not.i.i199, label %if.end.i.i171, label %for.inc.i.i200
+if.end4.i.i197:                                   ; preds = %for.cond.i.i167
+  %conv.i.i198 = sext i8 %22 to i32
+  %call.i.i199 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i198, i32 noundef 8) #6
+  %tobool6.not.i.i200 = icmp eq i32 %call.i.i199, 0
+  br i1 %tobool6.not.i.i200, label %if.end.i.i172, label %for.inc.i.i201
 
-for.inc.i.i200:                                   ; preds = %if.end4.i.i196
-  %incdec.ptr.i.i201 = getelementptr inbounds i8, ptr %p.0.i.i167, i64 1
-  br label %for.cond.i.i166, !llvm.loop !15
+for.inc.i.i201:                                   ; preds = %if.end4.i.i197
+  %incdec.ptr.i.i202 = getelementptr inbounds i8, ptr %p.0.i.i168, i64 1
+  br label %for.cond.i.i167, !llvm.loop !15
 
-if.end.i.i171:                                    ; preds = %if.end4.i.i196, %if.then.i.i168
-  %retval.0.i.i172 = phi ptr [ %arrayidx.i.i169, %if.then.i.i168 ], [ %p.0.i.i167, %if.end4.i.i196 ]
-  %call.i1.i173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i172) #7
-  %add.ptr.i.i174 = getelementptr inbounds i8, ptr %retval.0.i.i172, i64 %call.i1.i173
-  %p.015.i.i175 = getelementptr inbounds i8, ptr %add.ptr.i.i174, i64 -1
-  %cmp.not16.i.i176 = icmp ult ptr %p.015.i.i175, %retval.0.i.i172
-  br i1 %cmp.not16.i.i176, label %strip_ends.exit202, label %for.body.i.preheader.i177
+if.end.i.i172:                                    ; preds = %if.end4.i.i197, %if.then.i.i169
+  %retval.0.i.i173 = phi ptr [ %arrayidx.i.i170, %if.then.i.i169 ], [ %p.0.i.i168, %if.end4.i.i197 ]
+  %call.i1.i174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i173) #7
+  %add.ptr.i.i175 = getelementptr inbounds i8, ptr %retval.0.i.i173, i64 %call.i1.i174
+  %p.015.i.i176 = getelementptr inbounds i8, ptr %add.ptr.i.i175, i64 -1
+  %cmp.not16.i.i177 = icmp ult ptr %p.015.i.i176, %retval.0.i.i173
+  br i1 %cmp.not16.i.i177, label %strip_ends.exit203, label %for.body.i.preheader.i178
 
-for.body.i.preheader.i177:                        ; preds = %if.end.i.i171
-  %24 = load i8, ptr %p.015.i.i175, align 1
-  %cmp2.i12.i178 = icmp eq i8 %24, 34
-  br i1 %cmp2.i12.i178, label %if.then4.i.i189, label %if.end10.i.i179
+for.body.i.preheader.i178:                        ; preds = %if.end.i.i172
+  %24 = load i8, ptr %p.015.i.i176, align 1
+  %cmp2.i12.i179 = icmp eq i8 %24, 34
+  br i1 %cmp2.i12.i179, label %if.then4.i.i190, label %if.end10.i.i180
 
-for.body.i.i187:                                  ; preds = %if.then14.i.i184
-  %25 = load i8, ptr %p.0.i3.i185, align 1
-  %cmp2.i.i188 = icmp eq i8 %25, 34
-  br i1 %cmp2.i.i188, label %if.then4.i.i189, label %if.end10.i.i179, !llvm.loop !16
+for.body.i.i188:                                  ; preds = %if.then14.i.i185
+  %25 = load i8, ptr %p.0.i3.i186, align 1
+  %cmp2.i.i189 = icmp eq i8 %25, 34
+  br i1 %cmp2.i.i189, label %if.then4.i.i190, label %if.end10.i.i180, !llvm.loop !16
 
-if.then4.i.i189:                                  ; preds = %for.body.i.i187, %for.body.i.preheader.i177
-  %p.018.i.lcssa.i190 = phi ptr [ %p.015.i.i175, %for.body.i.preheader.i177 ], [ %p.0.i3.i185, %for.body.i.i187 ]
-  %add.ptr.pn17.i.lcssa.i191 = phi ptr [ %add.ptr.i.i174, %for.body.i.preheader.i177 ], [ %p.018.i13.i180, %for.body.i.i187 ]
-  %add.ptr5.i.i192 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i191, i64 -2
-  %cmp6.i.i193 = icmp eq ptr %add.ptr5.i.i192, %retval.0.i.i172
-  br i1 %cmp6.i.i193, label %strip_ends.exit202, label %if.end9.i.i194
+if.then4.i.i190:                                  ; preds = %for.body.i.i188, %for.body.i.preheader.i178
+  %p.018.i.lcssa.i191 = phi ptr [ %p.015.i.i176, %for.body.i.preheader.i178 ], [ %p.0.i3.i186, %for.body.i.i188 ]
+  %add.ptr.pn17.i.lcssa.i192 = phi ptr [ %add.ptr.i.i175, %for.body.i.preheader.i178 ], [ %p.018.i13.i181, %for.body.i.i188 ]
+  %add.ptr5.i.i193 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i192, i64 -2
+  %cmp6.i.i194 = icmp eq ptr %add.ptr5.i.i193, %retval.0.i.i173
+  br i1 %cmp6.i.i194, label %strip_ends.exit203, label %if.end9.i.i195
 
-if.end9.i.i194:                                   ; preds = %if.then4.i.i189
-  store i8 0, ptr %p.018.i.lcssa.i190, align 1
-  br label %strip_ends.exit202
+if.end9.i.i195:                                   ; preds = %if.then4.i.i190
+  store i8 0, ptr %p.018.i.lcssa.i191, align 1
+  br label %strip_ends.exit203
 
-if.end10.i.i179:                                  ; preds = %for.body.i.preheader.i177, %for.body.i.i187
-  %26 = phi i8 [ %25, %for.body.i.i187 ], [ %24, %for.body.i.preheader.i177 ]
-  %p.018.i13.i180 = phi ptr [ %p.0.i3.i185, %for.body.i.i187 ], [ %p.015.i.i175, %for.body.i.preheader.i177 ]
-  %conv.i2.i181 = sext i8 %26 to i32
-  %call12.i.i182 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i181, i32 noundef 8) #6
-  %tobool13.not.i.i183 = icmp eq i32 %call12.i.i182, 0
-  br i1 %tobool13.not.i.i183, label %strip_ends.exit202, label %if.then14.i.i184
+if.end10.i.i180:                                  ; preds = %for.body.i.preheader.i178, %for.body.i.i188
+  %26 = phi i8 [ %25, %for.body.i.i188 ], [ %24, %for.body.i.preheader.i178 ]
+  %p.018.i13.i181 = phi ptr [ %p.0.i3.i186, %for.body.i.i188 ], [ %p.015.i.i176, %for.body.i.preheader.i178 ]
+  %conv.i2.i182 = sext i8 %26 to i32
+  %call12.i.i183 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i182, i32 noundef 8) #6
+  %tobool13.not.i.i184 = icmp eq i32 %call12.i.i183, 0
+  br i1 %tobool13.not.i.i184, label %strip_ends.exit203, label %if.then14.i.i185
 
-if.then14.i.i184:                                 ; preds = %if.end10.i.i179
-  store i8 0, ptr %p.018.i13.i180, align 1
-  %p.0.i3.i185 = getelementptr inbounds i8, ptr %p.018.i13.i180, i64 -1
-  %cmp.not.i.i186 = icmp ult ptr %p.0.i3.i185, %retval.0.i.i172
-  br i1 %cmp.not.i.i186, label %strip_ends.exit202, label %for.body.i.i187, !llvm.loop !16
+if.then14.i.i185:                                 ; preds = %if.end10.i.i180
+  store i8 0, ptr %p.018.i13.i181, align 1
+  %p.0.i3.i186 = getelementptr inbounds i8, ptr %p.018.i13.i181, i64 -1
+  %cmp.not.i.i187 = icmp ult ptr %p.0.i3.i186, %retval.0.i.i173
+  br i1 %cmp.not.i.i187, label %strip_ends.exit203, label %for.body.i.i188, !llvm.loop !16
 
-strip_ends.exit202:                               ; preds = %for.cond.i.i166, %if.end10.i.i179, %if.then14.i.i184, %if.then.i.i168, %if.end.i.i171, %if.then4.i.i189, %if.end9.i.i194
-  %retval.0.i4.i195 = phi ptr [ %retval.0.i.i172, %if.end9.i.i194 ], [ null, %if.then4.i.i189 ], [ null, %if.end.i.i171 ], [ null, %if.then.i.i168 ], [ %retval.0.i.i172, %if.end10.i.i179 ], [ null, %if.then14.i.i184 ], [ null, %for.cond.i.i166 ]
-  %call92 = call fastcc ptr @mime_hdr_new(ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i195)
+strip_ends.exit203:                               ; preds = %for.cond.i.i167, %if.end10.i.i180, %if.then14.i.i185, %if.then.i.i169, %if.end.i.i172, %if.then4.i.i190, %if.end9.i.i195
+  %retval.0.i4.i196 = phi ptr [ %retval.0.i.i173, %if.end9.i.i195 ], [ null, %if.then4.i.i190 ], [ null, %if.end.i.i172 ], [ null, %if.then.i.i169 ], [ %retval.0.i.i173, %if.end10.i.i180 ], [ null, %if.then14.i.i185 ], [ null, %for.cond.i.i167 ]
+  %call92 = call fastcc ptr @mime_hdr_new(ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i196)
   %cmp93 = icmp eq ptr %call92, null
   br i1 %cmp93, label %mime_hdr_free.exit, label %if.end96
 
-if.end96:                                         ; preds = %strip_ends.exit202
-  %call.i203 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call92) #6
-  %tobool98.not = icmp eq i32 %call.i203, 0
+if.end96:                                         ; preds = %strip_ends.exit203
+  %call.i204 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call92) #6
+  %tobool98.not = icmp eq i32 %call.i204, 0
   br i1 %tobool98.not, label %if.end.i, label %if.end108
 
-for.cond.i.i204:                                  ; preds = %for.end, %for.inc.i.i238
-  %p.0.i.i205 = phi ptr [ %incdec.ptr.i.i239, %for.inc.i.i238 ], [ %q.0, %for.end ]
-  %27 = load i8, ptr %p.0.i.i205, align 1
-  switch i8 %27, label %if.end4.i.i234 [
-    i8 0, label %strip_ends.exit240
-    i8 34, label %if.then.i.i206
+for.cond.i.i205:                                  ; preds = %for.end, %for.inc.i.i239
+  %p.0.i.i206 = phi ptr [ %incdec.ptr.i.i240, %for.inc.i.i239 ], [ %q.0, %for.end ]
+  %27 = load i8, ptr %p.0.i.i206, align 1
+  switch i8 %27, label %if.end4.i.i235 [
+    i8 0, label %strip_ends.exit241
+    i8 34, label %if.then.i.i207
   ]
 
-if.then.i.i206:                                   ; preds = %for.cond.i.i204
-  %arrayidx.i.i207 = getelementptr inbounds i8, ptr %p.0.i.i205, i64 1
-  %28 = load i8, ptr %arrayidx.i.i207, align 1
-  %tobool2.not.i.i208 = icmp eq i8 %28, 0
-  br i1 %tobool2.not.i.i208, label %strip_ends.exit240, label %if.end.i.i209
+if.then.i.i207:                                   ; preds = %for.cond.i.i205
+  %arrayidx.i.i208 = getelementptr inbounds i8, ptr %p.0.i.i206, i64 1
+  %28 = load i8, ptr %arrayidx.i.i208, align 1
+  %tobool2.not.i.i209 = icmp eq i8 %28, 0
+  br i1 %tobool2.not.i.i209, label %strip_ends.exit241, label %if.end.i.i210
 
-if.end4.i.i234:                                   ; preds = %for.cond.i.i204
-  %conv.i.i235 = sext i8 %27 to i32
-  %call.i.i236 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i235, i32 noundef 8) #6
-  %tobool6.not.i.i237 = icmp eq i32 %call.i.i236, 0
-  br i1 %tobool6.not.i.i237, label %if.end.i.i209, label %for.inc.i.i238
+if.end4.i.i235:                                   ; preds = %for.cond.i.i205
+  %conv.i.i236 = sext i8 %27 to i32
+  %call.i.i237 = call i32 @ossl_ctype_check(i32 noundef %conv.i.i236, i32 noundef 8) #6
+  %tobool6.not.i.i238 = icmp eq i32 %call.i.i237, 0
+  br i1 %tobool6.not.i.i238, label %if.end.i.i210, label %for.inc.i.i239
 
-for.inc.i.i238:                                   ; preds = %if.end4.i.i234
-  %incdec.ptr.i.i239 = getelementptr inbounds i8, ptr %p.0.i.i205, i64 1
-  br label %for.cond.i.i204, !llvm.loop !15
+for.inc.i.i239:                                   ; preds = %if.end4.i.i235
+  %incdec.ptr.i.i240 = getelementptr inbounds i8, ptr %p.0.i.i206, i64 1
+  br label %for.cond.i.i205, !llvm.loop !15
 
-if.end.i.i209:                                    ; preds = %if.end4.i.i234, %if.then.i.i206
-  %retval.0.i.i210 = phi ptr [ %arrayidx.i.i207, %if.then.i.i206 ], [ %p.0.i.i205, %if.end4.i.i234 ]
-  %call.i1.i211 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i210) #7
-  %add.ptr.i.i212 = getelementptr inbounds i8, ptr %retval.0.i.i210, i64 %call.i1.i211
-  %p.015.i.i213 = getelementptr inbounds i8, ptr %add.ptr.i.i212, i64 -1
-  %cmp.not16.i.i214 = icmp ult ptr %p.015.i.i213, %retval.0.i.i210
-  br i1 %cmp.not16.i.i214, label %strip_ends.exit240, label %for.body.i.preheader.i215
+if.end.i.i210:                                    ; preds = %if.end4.i.i235, %if.then.i.i207
+  %retval.0.i.i211 = phi ptr [ %arrayidx.i.i208, %if.then.i.i207 ], [ %p.0.i.i206, %if.end4.i.i235 ]
+  %call.i1.i212 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i211) #7
+  %add.ptr.i.i213 = getelementptr inbounds i8, ptr %retval.0.i.i211, i64 %call.i1.i212
+  %p.015.i.i214 = getelementptr inbounds i8, ptr %add.ptr.i.i213, i64 -1
+  %cmp.not16.i.i215 = icmp ult ptr %p.015.i.i214, %retval.0.i.i211
+  br i1 %cmp.not16.i.i215, label %strip_ends.exit241, label %for.body.i.preheader.i216
 
-for.body.i.preheader.i215:                        ; preds = %if.end.i.i209
-  %29 = load i8, ptr %p.015.i.i213, align 1
-  %cmp2.i12.i216 = icmp eq i8 %29, 34
-  br i1 %cmp2.i12.i216, label %if.then4.i.i227, label %if.end10.i.i217
+for.body.i.preheader.i216:                        ; preds = %if.end.i.i210
+  %29 = load i8, ptr %p.015.i.i214, align 1
+  %cmp2.i12.i217 = icmp eq i8 %29, 34
+  br i1 %cmp2.i12.i217, label %if.then4.i.i228, label %if.end10.i.i218
 
-for.body.i.i225:                                  ; preds = %if.then14.i.i222
-  %30 = load i8, ptr %p.0.i3.i223, align 1
-  %cmp2.i.i226 = icmp eq i8 %30, 34
-  br i1 %cmp2.i.i226, label %if.then4.i.i227, label %if.end10.i.i217, !llvm.loop !16
+for.body.i.i226:                                  ; preds = %if.then14.i.i223
+  %30 = load i8, ptr %p.0.i3.i224, align 1
+  %cmp2.i.i227 = icmp eq i8 %30, 34
+  br i1 %cmp2.i.i227, label %if.then4.i.i228, label %if.end10.i.i218, !llvm.loop !16
 
-if.then4.i.i227:                                  ; preds = %for.body.i.i225, %for.body.i.preheader.i215
-  %p.018.i.lcssa.i228 = phi ptr [ %p.015.i.i213, %for.body.i.preheader.i215 ], [ %p.0.i3.i223, %for.body.i.i225 ]
-  %add.ptr.pn17.i.lcssa.i229 = phi ptr [ %add.ptr.i.i212, %for.body.i.preheader.i215 ], [ %p.018.i13.i218, %for.body.i.i225 ]
-  %add.ptr5.i.i230 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i229, i64 -2
-  %cmp6.i.i231 = icmp eq ptr %add.ptr5.i.i230, %retval.0.i.i210
-  br i1 %cmp6.i.i231, label %strip_ends.exit240, label %if.end9.i.i232
+if.then4.i.i228:                                  ; preds = %for.body.i.i226, %for.body.i.preheader.i216
+  %p.018.i.lcssa.i229 = phi ptr [ %p.015.i.i214, %for.body.i.preheader.i216 ], [ %p.0.i3.i224, %for.body.i.i226 ]
+  %add.ptr.pn17.i.lcssa.i230 = phi ptr [ %add.ptr.i.i213, %for.body.i.preheader.i216 ], [ %p.018.i13.i219, %for.body.i.i226 ]
+  %add.ptr5.i.i231 = getelementptr inbounds i8, ptr %add.ptr.pn17.i.lcssa.i230, i64 -2
+  %cmp6.i.i232 = icmp eq ptr %add.ptr5.i.i231, %retval.0.i.i211
+  br i1 %cmp6.i.i232, label %strip_ends.exit241, label %if.end9.i.i233
 
-if.end9.i.i232:                                   ; preds = %if.then4.i.i227
-  store i8 0, ptr %p.018.i.lcssa.i228, align 1
-  br label %strip_ends.exit240
+if.end9.i.i233:                                   ; preds = %if.then4.i.i228
+  store i8 0, ptr %p.018.i.lcssa.i229, align 1
+  br label %strip_ends.exit241
 
-if.end10.i.i217:                                  ; preds = %for.body.i.preheader.i215, %for.body.i.i225
-  %31 = phi i8 [ %30, %for.body.i.i225 ], [ %29, %for.body.i.preheader.i215 ]
-  %p.018.i13.i218 = phi ptr [ %p.0.i3.i223, %for.body.i.i225 ], [ %p.015.i.i213, %for.body.i.preheader.i215 ]
-  %conv.i2.i219 = sext i8 %31 to i32
-  %call12.i.i220 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i219, i32 noundef 8) #6
-  %tobool13.not.i.i221 = icmp eq i32 %call12.i.i220, 0
-  br i1 %tobool13.not.i.i221, label %strip_ends.exit240, label %if.then14.i.i222
+if.end10.i.i218:                                  ; preds = %for.body.i.preheader.i216, %for.body.i.i226
+  %31 = phi i8 [ %30, %for.body.i.i226 ], [ %29, %for.body.i.preheader.i216 ]
+  %p.018.i13.i219 = phi ptr [ %p.0.i3.i224, %for.body.i.i226 ], [ %p.015.i.i214, %for.body.i.preheader.i216 ]
+  %conv.i2.i220 = sext i8 %31 to i32
+  %call12.i.i221 = call i32 @ossl_ctype_check(i32 noundef %conv.i2.i220, i32 noundef 8) #6
+  %tobool13.not.i.i222 = icmp eq i32 %call12.i.i221, 0
+  br i1 %tobool13.not.i.i222, label %strip_ends.exit241, label %if.then14.i.i223
 
-if.then14.i.i222:                                 ; preds = %if.end10.i.i217
-  store i8 0, ptr %p.018.i13.i218, align 1
-  %p.0.i3.i223 = getelementptr inbounds i8, ptr %p.018.i13.i218, i64 -1
-  %cmp.not.i.i224 = icmp ult ptr %p.0.i3.i223, %retval.0.i.i210
-  br i1 %cmp.not.i.i224, label %strip_ends.exit240, label %for.body.i.i225, !llvm.loop !16
+if.then14.i.i223:                                 ; preds = %if.end10.i.i218
+  store i8 0, ptr %p.018.i13.i219, align 1
+  %p.0.i3.i224 = getelementptr inbounds i8, ptr %p.018.i13.i219, i64 -1
+  %cmp.not.i.i225 = icmp ult ptr %p.0.i3.i224, %retval.0.i.i211
+  br i1 %cmp.not.i.i225, label %strip_ends.exit241, label %for.body.i.i226, !llvm.loop !16
 
-strip_ends.exit240:                               ; preds = %for.cond.i.i204, %if.end10.i.i217, %if.then14.i.i222, %if.then.i.i206, %if.end.i.i209, %if.then4.i.i227, %if.end9.i.i232
-  %retval.0.i4.i233 = phi ptr [ %retval.0.i.i210, %if.end9.i.i232 ], [ null, %if.then4.i.i227 ], [ null, %if.end.i.i209 ], [ null, %if.then.i.i206 ], [ %retval.0.i.i210, %if.end10.i.i217 ], [ null, %if.then14.i.i222 ], [ null, %for.cond.i.i204 ]
-  call fastcc void @mime_hdr_addparam(ptr noundef %mhdr.1, ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i233)
+strip_ends.exit241:                               ; preds = %for.cond.i.i205, %if.end10.i.i218, %if.then14.i.i223, %if.then.i.i207, %if.end.i.i210, %if.then4.i.i228, %if.end9.i.i233
+  %retval.0.i4.i234 = phi ptr [ %retval.0.i.i211, %if.end9.i.i233 ], [ null, %if.then4.i.i228 ], [ null, %if.end.i.i210 ], [ null, %if.then.i.i207 ], [ %retval.0.i.i211, %if.end10.i.i218 ], [ null, %if.then14.i.i223 ], [ null, %for.cond.i.i205 ]
+  call fastcc void @mime_hdr_addparam(ptr noundef %mhdr.1, ptr noundef %ntmp.0, ptr noundef %retval.0.i4.i234)
   br label %if.end108
 
-if.end108:                                        ; preds = %for.end, %if.end96, %strip_ends.exit240
-  %mhdr.3 = phi ptr [ %mhdr.1, %strip_ends.exit240 ], [ %call92, %if.end96 ], [ %mhdr.1, %for.end ]
+if.end108:                                        ; preds = %for.end, %if.end96, %strip_ends.exit241
+  %mhdr.3 = phi ptr [ %mhdr.1, %strip_ends.exit241 ], [ %call92, %if.end96 ], [ %mhdr.1, %for.end ]
   %cmp110 = icmp eq ptr %p.0, %linebuf
   br i1 %cmp110, label %while.end, label %while.cond, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end108, %while.cond
   call void @OPENSSL_sk_sort(ptr noundef nonnull %call.i) #6
-  %call.i241285 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
-  %cmp116286 = icmp sgt i32 %call.i241285, 0
-  br i1 %cmp116286, label %for.body118, label %return
+  %call.i242286 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
+  %cmp116287 = icmp sgt i32 %call.i242286, 0
+  br i1 %cmp116287, label %for.body118, label %return
 
 for.body118:                                      ; preds = %while.end, %for.inc128
-  %i.0287 = phi i32 [ %inc, %for.inc128 ], [ 0, %while.end ]
-  %call.i242 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.0287) #6
-  %cmp120.not = icmp eq ptr %call.i242, null
+  %i.0288 = phi i32 [ %inc, %for.inc128 ], [ 0, %while.end ]
+  %call.i243 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.0288) #6
+  %cmp120.not = icmp eq ptr %call.i243, null
   br i1 %cmp120.not, label %for.inc128, label %land.lhs.true122
 
 land.lhs.true122:                                 ; preds = %for.body118
-  %params = getelementptr inbounds i8, ptr %call.i242, i64 16
+  %params = getelementptr inbounds i8, ptr %call.i243, i64 16
   %32 = load ptr, ptr %params, align 8
   %cmp123.not = icmp eq ptr %32, null
   br i1 %cmp123.not, label %for.inc128, label %if.then125
@@ -1689,9 +1687,9 @@ if.then125:                                       ; preds = %land.lhs.true122
   br label %for.inc128
 
 for.inc128:                                       ; preds = %for.body118, %land.lhs.true122, %if.then125
-  %inc = add nuw nsw i32 %i.0287, 1
-  %call.i241 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
-  %cmp116 = icmp slt i32 %inc, %call.i241
+  %inc = add nuw nsw i32 %i.0288, 1
+  %call.i242 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
+  %cmp116 = icmp slt i32 %inc, %call.i242
   br i1 %cmp116, label %for.body118, label %return, !llvm.loop !19
 
 if.end.i:                                         ; preds = %if.end96, %if.end34
@@ -1714,7 +1712,7 @@ if.end3.i:                                        ; preds = %if.then1.i, %if.end
   call void @CRYPTO_free(ptr noundef nonnull %new_hdr.0, ptr noundef nonnull @.str, i32 noundef 972) #6
   br label %mime_hdr_free.exit
 
-mime_hdr_free.exit:                               ; preds = %strip_ends.exit202, %strip_ends.exit90, %if.end3.i
+mime_hdr_free.exit:                               ; preds = %strip_ends.exit203, %strip_ends.exit91, %if.end3.i
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call.i, ptr noundef nonnull @mime_hdr_free) #6
   br label %return
 

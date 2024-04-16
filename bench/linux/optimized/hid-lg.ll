@@ -628,7 +628,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread:                                          ; preds = %29, %26
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %3, i64 16
@@ -640,7 +640,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 %36) #8, !srcloc !8
-  br label %628
+  br label %627
 
 37:                                               ; preds = %16
   %38 = load ptr, ptr %17, align 8
@@ -660,7 +660,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread80:                                        ; preds = %44, %41
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds i8, ptr %3, i64 16
@@ -672,7 +672,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %39, i64 %51) #8, !srcloc !8
-  br label %628
+  br label %627
 
 52:                                               ; preds = %16
   %53 = load ptr, ptr %17, align 8
@@ -692,7 +692,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread82:                                        ; preds = %59, %56
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 62:                                               ; preds = %52
   %63 = getelementptr inbounds i8, ptr %3, i64 16
@@ -704,7 +704,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %54, i64 %66) #8, !srcloc !8
-  br label %628
+  br label %627
 
 67:                                               ; preds = %16
   %68 = load ptr, ptr %17, align 8
@@ -724,7 +724,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread84:                                        ; preds = %74, %71
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 77:                                               ; preds = %67
   %78 = getelementptr inbounds i8, ptr %3, i64 16
@@ -736,7 +736,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %69, i64 %81) #8, !srcloc !8
-  br label %628
+  br label %627
 
 82:                                               ; preds = %16
   %83 = load ptr, ptr %17, align 8
@@ -756,7 +756,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread86:                                        ; preds = %89, %86
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 92:                                               ; preds = %82
   %93 = getelementptr inbounds i8, ptr %3, i64 16
@@ -768,7 +768,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %84, i64 %96) #8, !srcloc !8
-  br label %628
+  br label %627
 
 97:                                               ; preds = %16
   %98 = load ptr, ptr %17, align 8
@@ -788,7 +788,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread88:                                        ; preds = %104, %101
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 107:                                              ; preds = %97
   %108 = getelementptr inbounds i8, ptr %3, i64 16
@@ -800,7 +800,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %99, i64 %111) #8, !srcloc !8
-  br label %628
+  br label %627
 
 112:                                              ; preds = %16
   %113 = load ptr, ptr %17, align 8
@@ -820,7 +820,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread90:                                        ; preds = %119, %116
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 122:                                              ; preds = %112
   %123 = getelementptr inbounds i8, ptr %3, i64 16
@@ -832,7 +832,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %114, i64 %126) #8, !srcloc !8
-  br label %628
+  br label %627
 
 127:                                              ; preds = %16
   %128 = load ptr, ptr %17, align 8
@@ -852,7 +852,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread92:                                        ; preds = %134, %131
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 137:                                              ; preds = %127
   %138 = getelementptr inbounds i8, ptr %3, i64 16
@@ -864,7 +864,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %129, i64 %141) #8, !srcloc !8
-  br label %628
+  br label %627
 
 142:                                              ; preds = %16
   %143 = load ptr, ptr %17, align 8
@@ -884,7 +884,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread94:                                        ; preds = %149, %146
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 152:                                              ; preds = %142
   %153 = getelementptr inbounds i8, ptr %3, i64 16
@@ -896,7 +896,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %155 = load i16, ptr %154, align 2
   %156 = zext i16 %155 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %144, i64 %156) #8, !srcloc !8
-  br label %628
+  br label %627
 
 157:                                              ; preds = %16
   %158 = load ptr, ptr %17, align 8
@@ -916,7 +916,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread96:                                        ; preds = %164, %161
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 167:                                              ; preds = %157
   %168 = getelementptr inbounds i8, ptr %3, i64 16
@@ -928,7 +928,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %170 = load i16, ptr %169, align 2
   %171 = zext i16 %170 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %159, i64 %171) #8, !srcloc !8
-  br label %628
+  br label %627
 
 172:                                              ; preds = %16
   %173 = load ptr, ptr %17, align 8
@@ -948,7 +948,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread98:                                        ; preds = %179, %176
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 182:                                              ; preds = %172
   %183 = getelementptr inbounds i8, ptr %3, i64 16
@@ -960,7 +960,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %185 = load i16, ptr %184, align 2
   %186 = zext i16 %185 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %174, i64 %186) #8, !srcloc !8
-  br label %628
+  br label %627
 
 187:                                              ; preds = %16
   %188 = load ptr, ptr %17, align 8
@@ -980,7 +980,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread100:                                       ; preds = %194, %191
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 197:                                              ; preds = %187
   %198 = getelementptr inbounds i8, ptr %3, i64 16
@@ -992,7 +992,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %200 = load i16, ptr %199, align 2
   %201 = zext i16 %200 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %189, i64 %201) #8, !srcloc !8
-  br label %628
+  br label %627
 
 202:                                              ; preds = %16
   %203 = load ptr, ptr %17, align 8
@@ -1012,7 +1012,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread102:                                       ; preds = %209, %206
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 212:                                              ; preds = %202
   %213 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1024,7 +1024,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %215 = load i16, ptr %214, align 2
   %216 = zext i16 %215 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %204, i64 %216) #8, !srcloc !8
-  br label %628
+  br label %627
 
 217:                                              ; preds = %16
   %218 = load ptr, ptr %17, align 8
@@ -1044,7 +1044,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread104:                                       ; preds = %224, %221
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 227:                                              ; preds = %217
   %228 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1056,7 +1056,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %230 = load i16, ptr %229, align 2
   %231 = zext i16 %230 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %219, i64 %231) #8, !srcloc !8
-  br label %628
+  br label %627
 
 232:                                              ; preds = %16
   %233 = load ptr, ptr %17, align 8
@@ -1076,7 +1076,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread106:                                       ; preds = %239, %236
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 242:                                              ; preds = %232
   %243 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1088,7 +1088,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %245 = load i16, ptr %244, align 2
   %246 = zext i16 %245 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %234, i64 %246) #8, !srcloc !8
-  br label %628
+  br label %627
 
 247:                                              ; preds = %16
   %248 = load ptr, ptr %17, align 8
@@ -1108,7 +1108,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread108:                                       ; preds = %254, %251
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 257:                                              ; preds = %247
   %258 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1120,7 +1120,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %260 = load i16, ptr %259, align 2
   %261 = zext i16 %260 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %249, i64 %261) #8, !srcloc !8
-  br label %628
+  br label %627
 
 262:                                              ; preds = %16
   %263 = load ptr, ptr %17, align 8
@@ -1140,7 +1140,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 .thread110:                                       ; preds = %269, %266
   store ptr null, ptr %4, align 8
-  br label %628
+  br label %627
 
 272:                                              ; preds = %262
   %273 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1152,7 +1152,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %275 = load i16, ptr %274, align 2
   %276 = zext i16 %275 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %264, i64 %276) #8, !srcloc !8
-  br label %628
+  br label %627
 
 277:                                              ; preds = %16, %6
   %278 = phi i32 [ %20, %16 ], [ %9, %6 ]
@@ -1225,7 +1225,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %291 = load i16, ptr %290, align 2
   %292 = zext i16 %291 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %288, i64 %292) #8, !srcloc !8
-  br label %628
+  br label %627
 
 293:                                              ; preds = %284
   %294 = getelementptr i8, ptr %1, i64 24
@@ -1240,7 +1240,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %298 = load i16, ptr %297, align 2
   %299 = zext i16 %298 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %295, i64 %299) #8, !srcloc !8
-  br label %628
+  br label %627
 
 300:                                              ; preds = %284
   %301 = getelementptr i8, ptr %1, i64 24
@@ -1255,7 +1255,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %305 = load i16, ptr %304, align 2
   %306 = zext i16 %305 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %302, i64 %306) #8, !srcloc !8
-  br label %628
+  br label %627
 
 307:                                              ; preds = %284
   %308 = getelementptr i8, ptr %1, i64 24
@@ -1270,7 +1270,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %312 = load i16, ptr %311, align 2
   %313 = zext i16 %312 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %309, i64 %313) #8, !srcloc !8
-  br label %628
+  br label %627
 
 314:                                              ; preds = %284
   %315 = getelementptr i8, ptr %1, i64 24
@@ -1285,7 +1285,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %319 = load i16, ptr %318, align 2
   %320 = zext i16 %319 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %316, i64 %320) #8, !srcloc !8
-  br label %628
+  br label %627
 
 321:                                              ; preds = %284
   %322 = getelementptr i8, ptr %1, i64 24
@@ -1300,7 +1300,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %326 = load i16, ptr %325, align 2
   %327 = zext i16 %326 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %323, i64 %327) #8, !srcloc !8
-  br label %628
+  br label %627
 
 328:                                              ; preds = %284
   %329 = getelementptr i8, ptr %1, i64 24
@@ -1315,7 +1315,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %333 = load i16, ptr %332, align 2
   %334 = zext i16 %333 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %330, i64 %334) #8, !srcloc !8
-  br label %628
+  br label %627
 
 335:                                              ; preds = %284
   %336 = getelementptr i8, ptr %1, i64 24
@@ -1330,7 +1330,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %340 = load i16, ptr %339, align 2
   %341 = zext i16 %340 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %337, i64 %341) #8, !srcloc !8
-  br label %628
+  br label %627
 
 342:                                              ; preds = %284
   %343 = getelementptr i8, ptr %1, i64 24
@@ -1345,7 +1345,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %347 = load i16, ptr %346, align 2
   %348 = zext i16 %347 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %344, i64 %348) #8, !srcloc !8
-  br label %628
+  br label %627
 
 349:                                              ; preds = %284
   %350 = getelementptr i8, ptr %1, i64 24
@@ -1360,7 +1360,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %354 = load i16, ptr %353, align 2
   %355 = zext i16 %354 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %351, i64 %355) #8, !srcloc !8
-  br label %628
+  br label %627
 
 356:                                              ; preds = %284
   %357 = getelementptr i8, ptr %1, i64 24
@@ -1375,7 +1375,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %361 = load i16, ptr %360, align 2
   %362 = zext i16 %361 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %358, i64 %362) #8, !srcloc !8
-  br label %628
+  br label %627
 
 363:                                              ; preds = %284
   %364 = getelementptr i8, ptr %1, i64 24
@@ -1390,7 +1390,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %368 = load i16, ptr %367, align 2
   %369 = zext i16 %368 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %365, i64 %369) #8, !srcloc !8
-  br label %628
+  br label %627
 
 370:                                              ; preds = %284
   %371 = getelementptr i8, ptr %1, i64 24
@@ -1405,7 +1405,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %375 = load i16, ptr %374, align 2
   %376 = zext i16 %375 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %372, i64 %376) #8, !srcloc !8
-  br label %628
+  br label %627
 
 377:                                              ; preds = %284
   %378 = getelementptr i8, ptr %1, i64 24
@@ -1420,7 +1420,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %382 = load i16, ptr %381, align 2
   %383 = zext i16 %382 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %379, i64 %383) #8, !srcloc !8
-  br label %628
+  br label %627
 
 384:                                              ; preds = %284
   %385 = getelementptr i8, ptr %1, i64 24
@@ -1435,7 +1435,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %389 = load i16, ptr %388, align 2
   %390 = zext i16 %389 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %386, i64 %390) #8, !srcloc !8
-  br label %628
+  br label %627
 
 391:                                              ; preds = %284
   %392 = getelementptr i8, ptr %1, i64 24
@@ -1450,7 +1450,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %396 = load i16, ptr %395, align 2
   %397 = zext i16 %396 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %393, i64 %397) #8, !srcloc !8
-  br label %628
+  br label %627
 
 398:                                              ; preds = %284
   %399 = getelementptr i8, ptr %1, i64 24
@@ -1465,7 +1465,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %403 = load i16, ptr %402, align 2
   %404 = zext i16 %403 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %400, i64 %404) #8, !srcloc !8
-  br label %628
+  br label %627
 
 405:                                              ; preds = %284
   %406 = getelementptr i8, ptr %1, i64 24
@@ -1480,7 +1480,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %410 = load i16, ptr %409, align 2
   %411 = zext i16 %410 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %407, i64 %411) #8, !srcloc !8
-  br label %628
+  br label %627
 
 412:                                              ; preds = %284
   %413 = getelementptr i8, ptr %1, i64 24
@@ -1495,7 +1495,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %417 = load i16, ptr %416, align 2
   %418 = zext i16 %417 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %414, i64 %418) #8, !srcloc !8
-  br label %628
+  br label %627
 
 419:                                              ; preds = %284
   %420 = getelementptr i8, ptr %1, i64 24
@@ -1510,7 +1510,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %424 = load i16, ptr %423, align 2
   %425 = zext i16 %424 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %421, i64 %425) #8, !srcloc !8
-  br label %628
+  br label %627
 
 426:                                              ; preds = %284
   %427 = getelementptr i8, ptr %1, i64 24
@@ -1525,7 +1525,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %431 = load i16, ptr %430, align 2
   %432 = zext i16 %431 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %428, i64 %432) #8, !srcloc !8
-  br label %628
+  br label %627
 
 433:                                              ; preds = %284
   %434 = getelementptr i8, ptr %1, i64 24
@@ -1540,7 +1540,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %438 = load i16, ptr %437, align 2
   %439 = zext i16 %438 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %435, i64 %439) #8, !srcloc !8
-  br label %628
+  br label %627
 
 440:                                              ; preds = %284
   %441 = getelementptr i8, ptr %1, i64 24
@@ -1555,7 +1555,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %445 = load i16, ptr %444, align 2
   %446 = zext i16 %445 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %442, i64 %446) #8, !srcloc !8
-  br label %628
+  br label %627
 
 447:                                              ; preds = %284
   %448 = getelementptr i8, ptr %1, i64 24
@@ -1570,7 +1570,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %452 = load i16, ptr %451, align 2
   %453 = zext i16 %452 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %449, i64 %453) #8, !srcloc !8
-  br label %628
+  br label %627
 
 454:                                              ; preds = %284
   %455 = getelementptr i8, ptr %1, i64 24
@@ -1585,7 +1585,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %459 = load i16, ptr %458, align 2
   %460 = zext i16 %459 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %456, i64 %460) #8, !srcloc !8
-  br label %628
+  br label %627
 
 461:                                              ; preds = %284
   %462 = getelementptr i8, ptr %1, i64 24
@@ -1600,7 +1600,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %466 = load i16, ptr %465, align 2
   %467 = zext i16 %466 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %463, i64 %467) #8, !srcloc !8
-  br label %628
+  br label %627
 
 468:                                              ; preds = %284
   %469 = getelementptr i8, ptr %1, i64 24
@@ -1615,7 +1615,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %473 = load i16, ptr %472, align 2
   %474 = zext i16 %473 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %470, i64 %474) #8, !srcloc !8
-  br label %628
+  br label %627
 
 475:                                              ; preds = %284
   %476 = getelementptr i8, ptr %1, i64 24
@@ -1630,7 +1630,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %480 = load i16, ptr %479, align 2
   %481 = zext i16 %480 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %477, i64 %481) #8, !srcloc !8
-  br label %628
+  br label %627
 
 482:                                              ; preds = %284
   %483 = getelementptr i8, ptr %1, i64 24
@@ -1645,7 +1645,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %487 = load i16, ptr %486, align 2
   %488 = zext i16 %487 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %484, i64 %488) #8, !srcloc !8
-  br label %628
+  br label %627
 
 489:                                              ; preds = %284
   %490 = getelementptr i8, ptr %1, i64 24
@@ -1660,7 +1660,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %494 = load i16, ptr %493, align 2
   %495 = zext i16 %494 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %491, i64 %495) #8, !srcloc !8
-  br label %628
+  br label %627
 
 496:                                              ; preds = %284
   %497 = getelementptr i8, ptr %1, i64 24
@@ -1675,7 +1675,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %501 = load i16, ptr %500, align 2
   %502 = zext i16 %501 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %498, i64 %502) #8, !srcloc !8
-  br label %628
+  br label %627
 
 503:                                              ; preds = %284
   %504 = getelementptr i8, ptr %1, i64 24
@@ -1690,7 +1690,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %508 = load i16, ptr %507, align 2
   %509 = zext i16 %508 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %505, i64 %509) #8, !srcloc !8
-  br label %628
+  br label %627
 
 510:                                              ; preds = %284
   %511 = getelementptr i8, ptr %1, i64 24
@@ -1705,7 +1705,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %515 = load i16, ptr %514, align 2
   %516 = zext i16 %515 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %512, i64 %516) #8, !srcloc !8
-  br label %628
+  br label %627
 
 517:                                              ; preds = %284
   %518 = getelementptr i8, ptr %1, i64 24
@@ -1720,7 +1720,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %522 = load i16, ptr %521, align 2
   %523 = zext i16 %522 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %519, i64 %523) #8, !srcloc !8
-  br label %628
+  br label %627
 
 524:                                              ; preds = %284
   %525 = getelementptr i8, ptr %1, i64 24
@@ -1735,7 +1735,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %529 = load i16, ptr %528, align 2
   %530 = zext i16 %529 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %526, i64 %530) #8, !srcloc !8
-  br label %628
+  br label %627
 
 531:                                              ; preds = %284
   %532 = getelementptr i8, ptr %1, i64 24
@@ -1750,7 +1750,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %536 = load i16, ptr %535, align 2
   %537 = zext i16 %536 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %533, i64 %537) #8, !srcloc !8
-  br label %628
+  br label %627
 
 538:                                              ; preds = %284
   %539 = getelementptr i8, ptr %1, i64 24
@@ -1765,7 +1765,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %543 = load i16, ptr %542, align 2
   %544 = zext i16 %543 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %540, i64 %544) #8, !srcloc !8
-  br label %628
+  br label %627
 
 545:                                              ; preds = %284
   %546 = getelementptr i8, ptr %1, i64 24
@@ -1780,7 +1780,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %550 = load i16, ptr %549, align 2
   %551 = zext i16 %550 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %547, i64 %551) #8, !srcloc !8
-  br label %628
+  br label %627
 
 552:                                              ; preds = %284
   %553 = getelementptr i8, ptr %1, i64 24
@@ -1795,7 +1795,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %557 = load i16, ptr %556, align 2
   %558 = zext i16 %557 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %554, i64 %558) #8, !srcloc !8
-  br label %628
+  br label %627
 
 559:                                              ; preds = %284
   %560 = getelementptr i8, ptr %1, i64 24
@@ -1810,7 +1810,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %564 = load i16, ptr %563, align 2
   %565 = zext i16 %564 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %561, i64 %565) #8, !srcloc !8
-  br label %628
+  br label %627
 
 566:                                              ; preds = %284
   %567 = getelementptr i8, ptr %1, i64 24
@@ -1825,7 +1825,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %571 = load i16, ptr %570, align 2
   %572 = zext i16 %571 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %568, i64 %572) #8, !srcloc !8
-  br label %628
+  br label %627
 
 573:                                              ; preds = %284
   %574 = getelementptr i8, ptr %1, i64 24
@@ -1840,7 +1840,7 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %578 = load i16, ptr %577, align 2
   %579 = zext i16 %578 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %575, i64 %579) #8, !srcloc !8
-  br label %628
+  br label %627
 
 580:                                              ; preds = %284
   %581 = getelementptr i8, ptr %1, i64 24
@@ -1855,11 +1855,11 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %585 = load i16, ptr %584, align 2
   %586 = zext i16 %585 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %582, i64 %586) #8, !srcloc !8
-  br label %628
+  br label %627
 
 587:                                              ; preds = %284, %277
   %588 = icmp eq i32 %13, 589824
-  br i1 %588, label %589, label %628
+  br i1 %588, label %589, label %627
 
 589:                                              ; preds = %587
   %590 = and i32 %9, 65535
@@ -1874,7 +1874,8 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
   %597 = add nsw i32 %590, -7
   %598 = icmp ult i32 %597, 2
   %599 = select i1 %596, i1 %598, i1 false
-  br i1 %599, label %628, label %627
+  %spec.select = sext i1 %599 to i32
+  br label %627
 
 600:                                              ; preds = %589
   %601 = and i64 %279, 16
@@ -1919,14 +1920,11 @@ define internal noundef i32 @lg_input_mapping(ptr nocapture noundef readonly %0,
 
 626:                                              ; preds = %622, %619, %616
   store ptr %614, ptr %4, align 8
-  br label %628
+  br label %627
 
-627:                                              ; preds = %605, %600, %594
-  br label %628
-
-628:                                              ; preds = %.thread110, %.thread108, %.thread106, %.thread104, %.thread102, %.thread100, %.thread98, %.thread96, %.thread94, %.thread92, %.thread90, %.thread88, %.thread86, %.thread84, %.thread82, %.thread80, %.thread, %627, %626, %594, %587, %580, %573, %566, %559, %552, %545, %538, %531, %524, %517, %510, %503, %496, %489, %482, %475, %468, %461, %454, %447, %440, %433, %426, %419, %412, %405, %398, %391, %384, %377, %370, %363, %356, %349, %342, %335, %328, %321, %314, %307, %300, %293, %286, %272, %257, %242, %227, %212, %197, %182, %167, %152, %137, %122, %107, %92, %77, %62, %47, %32
-  %629 = phi i32 [ 0, %627 ], [ 1, %626 ], [ 0, %587 ], [ -1, %594 ], [ 1, %32 ], [ 1, %47 ], [ 1, %62 ], [ 1, %77 ], [ 1, %92 ], [ 1, %107 ], [ 1, %122 ], [ 1, %137 ], [ 1, %152 ], [ 1, %167 ], [ 1, %182 ], [ 1, %197 ], [ 1, %212 ], [ 1, %227 ], [ 1, %242 ], [ 1, %257 ], [ 1, %272 ], [ 1, %286 ], [ 1, %293 ], [ 1, %300 ], [ 1, %307 ], [ 1, %314 ], [ 1, %321 ], [ 1, %328 ], [ 1, %335 ], [ 1, %342 ], [ 1, %349 ], [ 1, %356 ], [ 1, %363 ], [ 1, %370 ], [ 1, %377 ], [ 1, %384 ], [ 1, %391 ], [ 1, %398 ], [ 1, %405 ], [ 1, %412 ], [ 1, %419 ], [ 1, %426 ], [ 1, %433 ], [ 1, %440 ], [ 1, %447 ], [ 1, %454 ], [ 1, %461 ], [ 1, %468 ], [ 1, %475 ], [ 1, %482 ], [ 1, %489 ], [ 1, %496 ], [ 1, %503 ], [ 1, %510 ], [ 1, %517 ], [ 1, %524 ], [ 1, %531 ], [ 1, %538 ], [ 1, %545 ], [ 1, %552 ], [ 1, %559 ], [ 1, %566 ], [ 1, %573 ], [ 1, %580 ], [ 1, %.thread ], [ 1, %.thread80 ], [ 1, %.thread82 ], [ 1, %.thread84 ], [ 1, %.thread86 ], [ 1, %.thread88 ], [ 1, %.thread90 ], [ 1, %.thread92 ], [ 1, %.thread94 ], [ 1, %.thread96 ], [ 1, %.thread98 ], [ 1, %.thread100 ], [ 1, %.thread102 ], [ 1, %.thread104 ], [ 1, %.thread106 ], [ 1, %.thread108 ], [ 1, %.thread110 ]
-  ret i32 %629
+627:                                              ; preds = %.thread110, %.thread108, %.thread106, %.thread104, %.thread102, %.thread100, %.thread98, %.thread96, %.thread94, %.thread92, %.thread90, %.thread88, %.thread86, %.thread84, %.thread82, %.thread80, %.thread, %594, %600, %605, %626, %587, %580, %573, %566, %559, %552, %545, %538, %531, %524, %517, %510, %503, %496, %489, %482, %475, %468, %461, %454, %447, %440, %433, %426, %419, %412, %405, %398, %391, %384, %377, %370, %363, %356, %349, %342, %335, %328, %321, %314, %307, %300, %293, %286, %272, %257, %242, %227, %212, %197, %182, %167, %152, %137, %122, %107, %92, %77, %62, %47, %32
+  %628 = phi i32 [ 1, %626 ], [ 0, %587 ], [ 1, %32 ], [ 1, %47 ], [ 1, %62 ], [ 1, %77 ], [ 1, %92 ], [ 1, %107 ], [ 1, %122 ], [ 1, %137 ], [ 1, %152 ], [ 1, %167 ], [ 1, %182 ], [ 1, %197 ], [ 1, %212 ], [ 1, %227 ], [ 1, %242 ], [ 1, %257 ], [ 1, %272 ], [ 1, %286 ], [ 1, %293 ], [ 1, %300 ], [ 1, %307 ], [ 1, %314 ], [ 1, %321 ], [ 1, %328 ], [ 1, %335 ], [ 1, %342 ], [ 1, %349 ], [ 1, %356 ], [ 1, %363 ], [ 1, %370 ], [ 1, %377 ], [ 1, %384 ], [ 1, %391 ], [ 1, %398 ], [ 1, %405 ], [ 1, %412 ], [ 1, %419 ], [ 1, %426 ], [ 1, %433 ], [ 1, %440 ], [ 1, %447 ], [ 1, %454 ], [ 1, %461 ], [ 1, %468 ], [ 1, %475 ], [ 1, %482 ], [ 1, %489 ], [ 1, %496 ], [ 1, %503 ], [ 1, %510 ], [ 1, %517 ], [ 1, %524 ], [ 1, %531 ], [ 1, %538 ], [ 1, %545 ], [ 1, %552 ], [ 1, %559 ], [ 1, %566 ], [ 1, %573 ], [ 1, %580 ], [ 0, %605 ], [ 0, %600 ], [ %spec.select, %594 ], [ 1, %.thread ], [ 1, %.thread80 ], [ 1, %.thread82 ], [ 1, %.thread84 ], [ 1, %.thread86 ], [ 1, %.thread88 ], [ 1, %.thread90 ], [ 1, %.thread92 ], [ 1, %.thread94 ], [ 1, %.thread96 ], [ 1, %.thread98 ], [ 1, %.thread100 ], [ 1, %.thread102 ], [ 1, %.thread104 ], [ 1, %.thread106 ], [ 1, %.thread108 ], [ 1, %.thread110 ]
+  ret i32 %628
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

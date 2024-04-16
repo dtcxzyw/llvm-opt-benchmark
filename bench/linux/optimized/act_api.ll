@@ -1532,7 +1532,7 @@ define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr nocapture noundef read
 
 9:                                                ; preds = %4
   %10 = icmp sgt i32 %2, 0
-  br i1 %10, label %11, label %.thread13
+  br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 68
@@ -1542,7 +1542,7 @@ define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr nocapture noundef read
 14:                                               ; preds = %4
   %15 = and i24 %6, -5
   store i24 %15, ptr %5, align 1
-  br label %.thread13
+  br label %.thread
 
 16:                                               ; preds = %51, %11
   %17 = phi i32 [ 0, %11 ], [ %52, %51 ]
@@ -1591,11 +1591,11 @@ define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr nocapture noundef read
 44:                                               ; preds = %41
   %45 = tail call i32 @net_ratelimit() #14
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread13, label %47
+  br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %44
   %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #18
-  br label %.thread13
+  br label %.thread
 
 49:                                               ; preds = %35
   %50 = and i32 %39, -268435456
@@ -1611,7 +1611,7 @@ define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr nocapture noundef read
   %55 = add nsw i32 %18, -1
   %56 = icmp eq i32 %55, 0
   %or.cond = select i1 %54, i1 true, i1 %56
-  br i1 %or.cond, label %.thread13, label %16
+  br i1 %or.cond, label %.thread, label %16
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds i8, ptr %25, i64 184
@@ -1621,7 +1621,7 @@ define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr nocapture noundef read
 
 61:                                               ; preds = %57
   store i32 85, ptr %12, align 4
-  br label %.thread13
+  br label %.thread
 
 62:                                               ; preds = %57
   %63 = load volatile ptr, ptr %58, align 8
@@ -1632,16 +1632,16 @@ define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr nocapture noundef read
 
 66:                                               ; preds = %62, %49
   %67 = icmp eq i32 %39, 3
-  br i1 %67, label %select.unfold5, label %.thread13
+  br i1 %67, label %select.unfold5, label %.thread
 
 select.unfold5:                                   ; preds = %66, %27, %29
   %.ph = phi i32 [ %23, %29 ], [ %23, %27 ], [ 3, %66 ]
   %.ph11 = phi i32 [ 0, %29 ], [ %28, %27 ], [ 0, %66 ]
   %68 = add nuw nsw i64 %21, 1
   %69 = icmp eq i64 %68, %13
-  br i1 %69, label %.thread13, label %20, !llvm.loop !48
+  br i1 %69, label %.thread, label %20, !llvm.loop !48
 
-.thread13:                                        ; preds = %51, %66, %select.unfold5, %44, %47, %61, %14, %9
+.thread:                                          ; preds = %51, %66, %select.unfold5, %44, %47, %61, %14, %9
   %70 = phi i32 [ 0, %14 ], [ 0, %9 ], [ 0, %44 ], [ 0, %47 ], [ 2, %61 ], [ %39, %66 ], [ %.ph, %select.unfold5 ], [ 0, %51 ]
   ret i32 %70
 }
@@ -2802,7 +2802,7 @@ define dso_local noundef i32 @tcf_action_copy_stats(ptr noundef %0, ptr noundef 
   %4 = alloca %struct.gnet_dump, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #14
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %47, label %6
+  br i1 %5, label %46, label %6
 
 6:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 96, i1 false), !annotation !54
@@ -2813,7 +2813,7 @@ define dso_local noundef i32 @tcf_action_copy_stats(ptr noundef %0, ptr noundef 
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 12
-  br i1 %11, label %12, label %48
+  br i1 %11, label %12, label %46
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %1, i64 144
@@ -2828,7 +2828,7 @@ define dso_local noundef i32 @tcf_action_copy_stats(ptr noundef %0, ptr noundef 
 18:                                               ; preds = %15, %12
   %19 = phi i32 [ %14, %12 ], [ %17, %15 ]
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %47, label %21
+  br i1 %20, label %46, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %1, i64 152
@@ -2836,7 +2836,7 @@ define dso_local noundef i32 @tcf_action_copy_stats(ptr noundef %0, ptr noundef 
   %24 = getelementptr inbounds i8, ptr %1, i64 80
   %25 = call i32 @gnet_stats_copy_basic(ptr noundef nonnull %4, ptr noundef %23, ptr noundef %24, i1 noundef zeroext false) #14
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %47, label %27
+  br i1 %26, label %46, label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %1, i64 160
@@ -2844,13 +2844,13 @@ define dso_local noundef i32 @tcf_action_copy_stats(ptr noundef %0, ptr noundef 
   %30 = getelementptr inbounds i8, ptr %1, i64 96
   %31 = call i32 @gnet_stats_copy_basic_hw(ptr noundef nonnull %4, ptr noundef %29, ptr noundef %30, i1 noundef zeroext false) #14
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %47, label %33
+  br i1 %32, label %46, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %1, i64 136
   %35 = call i32 @gnet_stats_copy_rate_est(ptr noundef nonnull %4, ptr noundef %34) #14
   %36 = icmp slt i32 %35, 0
-  br i1 %36, label %47, label %37
+  br i1 %36, label %46, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %1, i64 168
@@ -2859,20 +2859,17 @@ define dso_local noundef i32 @tcf_action_copy_stats(ptr noundef %0, ptr noundef 
   %41 = load i32, ptr %40, align 16
   %42 = call i32 @gnet_stats_copy_queue(ptr noundef nonnull %4, ptr noundef %39, ptr noundef %40, i32 noundef %41) #14
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %47, label %44
+  br i1 %43, label %46, label %44
 
 44:                                               ; preds = %37
   %45 = call i32 @gnet_stats_finish_copy(ptr noundef nonnull %4) #14
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %47, label %48
+  %.lobit = ashr i32 %45, 31
+  br label %46
 
-47:                                               ; preds = %44, %37, %33, %27, %21, %18, %3
-  br label %48
-
-48:                                               ; preds = %47, %44, %8
-  %49 = phi i32 [ -1, %47 ], [ 0, %8 ], [ 0, %44 ]
+46:                                               ; preds = %44, %3, %18, %21, %27, %33, %37, %8
+  %47 = phi i32 [ 0, %8 ], [ -1, %37 ], [ -1, %33 ], [ -1, %27 ], [ -1, %21 ], [ -1, %18 ], [ -1, %3 ], [ %.lobit, %44 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #14
-  ret i32 %49
+  ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid

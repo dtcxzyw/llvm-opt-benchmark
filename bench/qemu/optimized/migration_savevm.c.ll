@@ -1062,7 +1062,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %cmp2.not.i = icmp eq ptr %2, null
-  br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %cmp2.not.i, label %do.body.sink.split.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
   %7 = getelementptr i8, ptr %2, i64 304
@@ -1078,13 +1078,11 @@ if.then.i19.i:                                    ; preds = %land.lhs.true.i
 save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i
   %retval.0.i21.i = phi i32 [ %8, %if.then.i19.i ], [ 0, %land.lhs.true.i ]
   %cmp4.i = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
-  br i1 %cmp4.i, label %do.body.sink.split.i, label %if.else.i
-
-if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
+  %spec.select.i = select i1 %cmp4.i, ptr %2, ptr null
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
-  %.sink.i = phi ptr [ null, %if.else.i ], [ %2, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %save_state_priority.exit22.i, %if.then.i
+  %.sink.i = phi ptr [ null, %if.then.i ], [ %spec.select.i, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   %.pre = load ptr, ptr %se.011, align 8
   br label %savevm_state_handler_remove.exit
@@ -1206,7 +1204,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %9 = load ptr, ptr %se.019.i, align 8
   %cmp2.not.i = icmp eq ptr %9, null
-  br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i5
+  br i1 %cmp2.not.i, label %do.body.sink.split.i, label %land.lhs.true.i5
 
 land.lhs.true.i5:                                 ; preds = %if.then.i
   %10 = getelementptr i8, ptr %9, i64 304
@@ -1222,13 +1220,11 @@ if.then.i19.i:                                    ; preds = %land.lhs.true.i5
 save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i5
   %retval.0.i21.i = phi i32 [ %11, %if.then.i19.i ], [ 0, %land.lhs.true.i5 ]
   %cmp4.i6 = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
-  br i1 %cmp4.i6, label %do.body.sink.split.i, label %if.else.i
-
-if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
+  %spec.select.i = select i1 %cmp4.i6, ptr %9, ptr null
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
-  %.sink.i = phi ptr [ null, %if.else.i ], [ %9, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %save_state_priority.exit22.i, %if.then.i
+  %.sink.i = phi ptr [ null, %if.then.i ], [ %spec.select.i, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   br label %savevm_state_handler_remove.exit
 
@@ -1567,7 +1563,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
 
 if.then.i:                                        ; preds = %save_state_priority.exit.i
   %cmp2.not.i = icmp eq ptr %1, null
-  br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %cmp2.not.i, label %do.body.sink.split.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
   %6 = getelementptr i8, ptr %1, i64 304
@@ -1583,13 +1579,11 @@ if.then.i19.i:                                    ; preds = %land.lhs.true.i
 save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i
   %retval.0.i21.i = phi i32 [ %7, %if.then.i19.i ], [ 0, %land.lhs.true.i ]
   %cmp4.i = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
-  br i1 %cmp4.i, label %do.body.sink.split.i, label %if.else.i
-
-if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
+  %spec.select.i = select i1 %cmp4.i, ptr %1, ptr null
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
-  %.sink.i = phi ptr [ null, %if.else.i ], [ %1, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %save_state_priority.exit22.i, %if.then.i
+  %.sink.i = phi ptr [ null, %if.then.i ], [ %spec.select.i, %save_state_priority.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   %.pre = load ptr, ptr %se.08, align 8
   br label %savevm_state_handler_remove.exit
@@ -1821,7 +1815,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %len to i32
+  %conv = trunc nuw i64 %len to i32
   %2 = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
   store i32 %2, ptr %tmp, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1997,12 +1991,12 @@ if.end:                                           ; preds = %trace_qemu_savevm_s
   %add3 = add nuw nsw i64 %add1, %call
   %call4 = tail call noalias ptr @g_malloc0(i64 noundef %add3) #20
   store i8 0, ptr %call4, align 1
-  %conv6 = trunc i64 %call to i8
+  %conv6 = trunc nuw i64 %call to i8
   %arrayidx7 = getelementptr i8, ptr %call4, i64 1
   store i8 %conv6, ptr %arrayidx7, align 1
   %add.ptr = getelementptr i8, ptr %call4, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %name, i64 %call, i1 false)
-  %6 = trunc i64 %call to i16
+  %6 = trunc nuw i64 %call to i16
   %inc = add nuw nsw i16 %6, 3
   %7 = getelementptr i8, ptr %call4, i64 %call
   %arrayidx10 = getelementptr i8, ptr %7, i64 2
@@ -7425,7 +7419,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %call1 to i32
+  %conv = trunc nuw nsw i64 %call1 to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv) #16
   tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %call, i64 noundef %call1) #16
   ret i32 0

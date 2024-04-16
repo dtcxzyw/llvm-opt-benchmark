@@ -156,7 +156,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 define noundef nonnull ptr @Extra_UtilPrintTime(i64 noundef %0) local_unnamed_addr #2 {
   %2 = sdiv i64 %0, 1000
   %3 = srem i64 %0, 1000
-  %.lhs.trunc = trunc i64 %3 to i16
+  %.lhs.trunc = trunc nsw i64 %3 to i16
   %4 = sdiv i16 %.lhs.trunc, 10
   %.sext = sext i16 %4 to i64
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_UtilPrintTime.s, ptr noundef nonnull dereferenceable(1) @.str.2, i64 noundef %2, i64 noundef %.sext) #16
@@ -244,104 +244,102 @@ define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly %1
 5:                                                ; preds = %3
   %strcmpload = load i8, ptr %1, align 1
   %6 = icmp eq i8 %strcmpload, 0
-  br i1 %6, label %7, label %8
+  %spec.select = select i1 %6, ptr @.str.6, ptr %1
+  br label %7
 
 7:                                                ; preds = %5, %3
-  br label %8
+  %.029 = phi ptr [ @.str.6, %3 ], [ %spec.select, %5 ]
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029) #14
+  %9 = add i64 %8, 1
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #17
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.029) #16
+  %12 = icmp eq ptr %0, null
+  br label %13
 
-8:                                                ; preds = %7, %5
-  %.029 = phi ptr [ @.str.6, %7 ], [ %1, %5 ]
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029) #14
-  %10 = add i64 %9, 1
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #17
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %.029) #16
-  %13 = icmp eq ptr %0, null
-  br label %14
+13:                                               ; preds = %45, %7
+  %.130 = phi ptr [ %10, %7 ], [ %46, %45 ]
+  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.130, i32 noundef 58) #14
+  %.not.not = icmp eq ptr %14, null
+  br i1 %.not.not, label %16, label %15
 
-14:                                               ; preds = %46, %8
-  %.130 = phi ptr [ %11, %8 ], [ %47, %46 ]
-  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.130, i32 noundef 58) #14
-  %.not.not = icmp eq ptr %15, null
-  br i1 %.not.not, label %17, label %16
+15:                                               ; preds = %13
+  store i8 0, ptr %14, align 1
+  br label %16
 
-16:                                               ; preds = %14
-  store i8 0, ptr %15, align 1
-  br label %17
+16:                                               ; preds = %13, %15
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.130, ptr noundef nonnull dereferenceable(2) @.str.6) #14
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %25
 
-17:                                               ; preds = %14, %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.130, ptr noundef nonnull dereferenceable(2) @.str.6) #14
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %26
+19:                                               ; preds = %16
+  br i1 %12, label %Extra_UtilTildeExpand.exit.thread, label %20
 
-20:                                               ; preds = %17
-  br i1 %13, label %Extra_UtilTildeExpand.exit.thread, label %21
-
-21:                                               ; preds = %20
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %23 = add i64 %22, 1
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #17
-  %25 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %0) #16
+20:                                               ; preds = %19
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %22 = add i64 %21, 1
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #17
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %0) #16
   br label %Extra_UtilStrsav.exit
 
-26:                                               ; preds = %17
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.130) #14
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %29 = add i64 %27, 4
-  %30 = add i64 %29, %28
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #17
-  %32 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %.130, ptr noundef %0) #16
+25:                                               ; preds = %16
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.130) #14
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
+  %28 = add i64 %26, 4
+  %29 = add i64 %28, %27
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #17
+  %31 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %.130, ptr noundef %0) #16
   br label %Extra_UtilStrsav.exit
 
-Extra_UtilStrsav.exit:                            ; preds = %21, %26
-  %.0 = phi ptr [ %31, %26 ], [ %24, %21 ]
-  %33 = icmp eq ptr %.0, null
-  br i1 %33, label %Extra_UtilTildeExpand.exit.thread, label %34
+Extra_UtilStrsav.exit:                            ; preds = %20, %25
+  %.0 = phi ptr [ %30, %25 ], [ %23, %20 ]
+  %32 = icmp eq ptr %.0, null
+  br i1 %32, label %Extra_UtilTildeExpand.exit.thread, label %33
 
-34:                                               ; preds = %Extra_UtilStrsav.exit
-  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #14
-  %36 = add i64 %35, 1
-  %37 = tail call noalias ptr @malloc(i64 noundef %36) #17
-  %38 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %.0) #16
+33:                                               ; preds = %Extra_UtilStrsav.exit
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #14
+  %35 = add i64 %34, 1
+  %36 = tail call noalias ptr @malloc(i64 noundef %35) #17
+  %37 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %.0) #16
   tail call void @free(ptr noundef nonnull %.0) #16
   br label %Extra_UtilTildeExpand.exit.thread
 
-Extra_UtilTildeExpand.exit.thread:                ; preds = %20, %Extra_UtilStrsav.exit, %34
-  %.0.i.i45 = phi ptr [ %37, %34 ], [ null, %Extra_UtilStrsav.exit ], [ null, %20 ]
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(2) @.str.3) #14
-  %40 = icmp eq i32 %39, 0
-  %spec.store.select.i = select i1 %40, ptr @.str.4, ptr %2
-  %41 = tail call noalias ptr @fopen(ptr noundef %.0.i.i45, ptr noundef %spec.store.select.i)
-  %.not47 = icmp eq ptr %41, null
-  br i1 %.not47, label %44, label %42
+Extra_UtilTildeExpand.exit.thread:                ; preds = %19, %Extra_UtilStrsav.exit, %33
+  %.0.i.i45 = phi ptr [ %36, %33 ], [ null, %Extra_UtilStrsav.exit ], [ null, %19 ]
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(2) @.str.3) #14
+  %39 = icmp eq i32 %38, 0
+  %spec.store.select.i = select i1 %39, ptr @.str.4, ptr %2
+  %40 = tail call noalias ptr @fopen(ptr noundef %.0.i.i45, ptr noundef %spec.store.select.i)
+  %.not47 = icmp eq ptr %40, null
+  br i1 %.not47, label %43, label %41
 
-42:                                               ; preds = %Extra_UtilTildeExpand.exit.thread
-  %43 = tail call i32 @fclose(ptr noundef nonnull %41)
-  %.not40 = icmp eq ptr %11, null
-  br i1 %.not40, label %49, label %.sink.split
+41:                                               ; preds = %Extra_UtilTildeExpand.exit.thread
+  %42 = tail call i32 @fclose(ptr noundef nonnull %40)
+  %.not40 = icmp eq ptr %10, null
+  br i1 %.not40, label %48, label %.sink.split
 
-44:                                               ; preds = %Extra_UtilTildeExpand.exit.thread
+43:                                               ; preds = %Extra_UtilTildeExpand.exit.thread
   %.not38 = icmp eq ptr %.0.i.i45, null
-  br i1 %.not38, label %46, label %45
+  br i1 %.not38, label %45, label %44
 
-45:                                               ; preds = %44
+44:                                               ; preds = %43
   tail call void @free(ptr noundef nonnull %.0.i.i45) #16
-  br label %46
+  br label %45
 
-46:                                               ; preds = %44, %45
-  %47 = getelementptr inbounds i8, ptr %15, i64 1
-  br i1 %.not.not, label %48, label %14
+45:                                               ; preds = %43, %44
+  %46 = getelementptr inbounds i8, ptr %14, i64 1
+  br i1 %.not.not, label %47, label %13
 
-48:                                               ; preds = %46
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %49, label %.sink.split
+47:                                               ; preds = %45
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %48, label %.sink.split
 
-.sink.split:                                      ; preds = %48, %42
-  %.028.ph = phi ptr [ %.0.i.i45, %42 ], [ null, %48 ]
-  tail call void @free(ptr noundef nonnull %11) #16
-  br label %49
+.sink.split:                                      ; preds = %47, %41
+  %.028.ph = phi ptr [ %.0.i.i45, %41 ], [ null, %47 ]
+  tail call void @free(ptr noundef nonnull %10) #16
+  br label %48
 
-49:                                               ; preds = %.sink.split, %48, %42
-  %.028 = phi ptr [ %.0.i.i45, %42 ], [ null, %48 ], [ %.028.ph, %.sink.split ]
+48:                                               ; preds = %.sink.split, %47, %41
+  %.028 = phi ptr [ %.0.i.i45, %41 ], [ null, %47 ], [ %.028.ph, %.sink.split ]
   ret ptr %.028
 }
 

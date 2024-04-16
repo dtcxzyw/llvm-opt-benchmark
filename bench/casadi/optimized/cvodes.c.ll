@@ -310,7 +310,7 @@ define i32 @cvSensRhsInternalDQ(i32 noundef %0, double noundef %1, ptr noundef %
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call i32 @cvSensRhs1InternalDQ(i32 poison, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %16, ptr noundef %13, ptr noundef %15, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %11, label %._crit_edge
@@ -1633,7 +1633,7 @@ define noundef i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %indvars.iv71 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next72, %55 ]
   %56 = load ptr, ptr %53, align 8
   %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv71
-  %58 = trunc i64 %indvars.iv71 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv71 to i32
   store i32 %58, ptr %57, align 4
   %59 = load ptr, ptr %54, align 8
   %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv71
@@ -2120,7 +2120,7 @@ define noundef i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv112 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next113, %87 ]
   %88 = load ptr, ptr %85, align 8
   %89 = getelementptr inbounds i32, ptr %88, i64 %indvars.iv112
-  %90 = trunc i64 %indvars.iv112 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv112 to i32
   store i32 %90, ptr %89, align 4
   %91 = load ptr, ptr %86, align 8
   %92 = getelementptr inbounds double, ptr %91, i64 %indvars.iv112
@@ -5111,7 +5111,7 @@ define i32 @cvSensRhsWrapper(ptr nocapture noundef %0, double noundef %1, ptr no
   %38 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %16, align 8
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = tail call i32 %35(i32 noundef %34, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %41, ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef %6, ptr noundef %7) #13
   %43 = load i64, ptr %17, align 8
   %44 = add nsw i64 %43, 1
@@ -5529,7 +5529,7 @@ cvUpperBoundH0.exit:                              ; preds = %107, %.loopexit116.
   %248 = getelementptr inbounds ptr, ptr %228, i64 %indvars.iv.i.i
   %249 = load ptr, ptr %248, align 8
   %250 = load ptr, ptr %145, align 8
-  %251 = trunc i64 %indvars.iv.i.i to i32
+  %251 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %252 = tail call i32 %245(i32 noundef %244, double noundef %224, ptr noundef %225, ptr noundef %226, i32 noundef %251, ptr noundef %247, ptr noundef %249, ptr noundef %250, ptr noundef %221, ptr noundef %222) #13
   %253 = load i64, ptr %146, align 8
   %254 = add nsw i64 %253, 1
@@ -6536,7 +6536,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   br i1 %118, label %73, label %._crit_edge.i, !llvm.loop !64
 
 .thread.i:                                        ; preds = %110
-  %119 = trunc i64 %indvars.iv.i to i32
+  %119 = trunc nuw nsw i64 %indvars.iv.i to i32
   %indvars.iv.next343.i = add nuw nsw i64 %indvars.iv.i, 1
   %120 = load i32, ptr %63, align 8
   %121 = sext i32 %120 to i64
@@ -6808,7 +6808,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   br i1 %293, label %.lr.ph268.i, label %._crit_edge269.i, !llvm.loop !67
 
 .thread:                                          ; preds = %285
-  %294 = trunc i64 %indvars.iv310.i to i32
+  %294 = trunc nuw nsw i64 %indvars.iv310.i to i32
   %indvars.iv.next311.i60 = add nuw nsw i64 %indvars.iv310.i, 1
   %295 = load i32, ptr %63, align 8
   %296 = sext i32 %295 to i64
@@ -8137,7 +8137,7 @@ cvAltSum.exit27.i.i:                              ; preds = %.preheader.i20.i.i
   %indvars.iv.i31.i.i = phi i64 [ 1, %cvAltSum.exit27.i.i ], [ %indvars.iv.next.i33.i.i, %.lr.ph.i30.i.i ]
   %gep.i32.i.i = getelementptr double, ptr %invariant.gep.i28.i.i, i64 %indvars.iv.i31.i.i
   %307 = load double, ptr %gep.i32.i.i, align 8
-  %308 = trunc i64 %indvars.iv.i31.i.i to i32
+  %308 = trunc nuw nsw i64 %indvars.iv.i31.i.i to i32
   %309 = sitofp i32 %308 to double
   %310 = fdiv double %307, %309
   %311 = fmul double %305, %310
@@ -8263,7 +8263,7 @@ cvSetAdams.exit.i:                                ; preds = %cvAdamsFinish.exit.
   %358 = load double, ptr %357, align 8
   %359 = fadd double %.05266.i.i, %358
   %360 = fdiv double %354, %359
-  %361 = trunc i64 %indvars.iv.i.i to i32
+  %361 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %362
 
 362:                                              ; preds = %362, %355
@@ -8523,7 +8523,7 @@ cvSet.exit:                                       ; preds = %.thread.i, %458, %4
   %513 = getelementptr inbounds ptr, ptr %493, i64 %indvars.iv.i.i.i
   %514 = load ptr, ptr %513, align 8
   %515 = load ptr, ptr %112, align 8
-  %516 = trunc i64 %indvars.iv.i.i.i to i32
+  %516 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %517 = tail call i32 %510(i32 noundef %509, double noundef %489, ptr noundef %490, ptr noundef %491, i32 noundef %516, ptr noundef %512, ptr noundef %514, ptr noundef %515, ptr noundef %486, ptr noundef %488) #13
   %518 = load i64, ptr %113, align 8
   %519 = add nsw i64 %518, 1
@@ -8877,7 +8877,7 @@ cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i305, %648
   %713 = getelementptr inbounds ptr, ptr %693, i64 %indvars.iv.i180.i.i
   %714 = load ptr, ptr %713, align 8
   %715 = load ptr, ptr %112, align 8
-  %716 = trunc i64 %indvars.iv.i180.i.i to i32
+  %716 = trunc nuw nsw i64 %indvars.iv.i180.i.i to i32
   %717 = tail call i32 %710(i32 noundef %709, double noundef %689, ptr noundef %690, ptr noundef %691, i32 noundef %716, ptr noundef %712, ptr noundef %714, ptr noundef %715, ptr noundef %686, ptr noundef %688) #13
   %718 = load i64, ptr %113, align 8
   %719 = add nsw i64 %718, 1
@@ -8963,16 +8963,16 @@ cvSensRhsWrapper.exit183.i.i:                     ; preds = %.lr.ph.i179.i.i, %6
   %759 = add nsw i64 %758, 1
   store i64 %759, ptr %107, align 8
   %760 = icmp slt i32 %757, 0
-  br i1 %760, label %cvNls.exit, label %.lr.ph150.i.i
+  br i1 %760, label %cvNls.exit, label %.lr.ph154.i.i
 
-.lr.ph150.i.i:                                    ; preds = %751, %cvNewtonIteration.exit.i.i
+.lr.ph154.i.i:                                    ; preds = %751, %cvNewtonIteration.exit.i.i
   %761 = phi i32 [ %1062, %cvNewtonIteration.exit.i.i ], [ %757, %751 ]
-  %.1149.i.i = phi i1 [ false, %cvNewtonIteration.exit.i.i ], [ %.077.i.i, %751 ]
-  %.179148.i.i = phi i32 [ 1, %cvNewtonIteration.exit.i.i ], [ %.078.i.i, %751 ]
+  %.1153.i.i = phi i1 [ false, %cvNewtonIteration.exit.i.i ], [ %.077.i.i, %751 ]
+  %.179152.i.i = phi i32 [ 1, %cvNewtonIteration.exit.i.i ], [ %.078.i.i, %751 ]
   %.not88.i.i = icmp eq i32 %761, 0
   br i1 %.not88.i.i, label %762, label %cvNls.exit
 
-762:                                              ; preds = %.lr.ph150.i.i
+762:                                              ; preds = %.lr.ph154.i.i
   br i1 %728, label %763, label %.thread.i.i
 
 763:                                              ; preds = %762
@@ -9019,7 +9019,7 @@ cvSensRhsWrapper.exit183.i.i:                     ; preds = %.lr.ph.i179.i.i, %6
   %791 = getelementptr inbounds ptr, ptr %771, i64 %indvars.iv.i.i20.i
   %792 = load ptr, ptr %791, align 8
   %793 = load ptr, ptr %112, align 8
-  %794 = trunc i64 %indvars.iv.i.i20.i to i32
+  %794 = trunc nuw nsw i64 %indvars.iv.i.i20.i to i32
   %795 = tail call i32 %788(i32 noundef %787, double noundef %767, ptr noundef %768, ptr noundef %769, i32 noundef %794, ptr noundef %790, ptr noundef %792, ptr noundef %793, ptr noundef %764, ptr noundef %766) #13
   %796 = load i64, ptr %113, align 8
   %797 = add nsw i64 %796, 1
@@ -9037,13 +9037,13 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   br i1 %.not89.i.i, label %.thread.i.i, label %cvNls.exit
 
 .thread.i.i:                                      ; preds = %783, %799, %.preheader.i.i18.i, %762
-  br i1 %.1149.i.i, label %811, label %800
+  br i1 %.1153.i.i, label %811, label %800
 
 800:                                              ; preds = %.thread.i.i
   %801 = load ptr, ptr %115, align 8
   %802 = load ptr, ptr %71, align 8
   %803 = load ptr, ptr %105, align 8
-  %804 = tail call i32 %801(ptr noundef nonnull %0, i32 noundef %.179148.i.i, ptr noundef %802, ptr noundef %803, ptr noundef nonnull %116, ptr noundef %729, ptr noundef %730, ptr noundef %731) #13
+  %804 = tail call i32 %801(ptr noundef nonnull %0, i32 noundef %.179152.i.i, ptr noundef %802, ptr noundef %803, ptr noundef nonnull %116, ptr noundef %729, ptr noundef %730, ptr noundef %731) #13
   %805 = load i64, ptr %117, align 8
   %806 = add nsw i64 %805, 1
   store i64 %806, ptr %117, align 8
@@ -9149,7 +9149,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   br i1 %.not186.i.i.i, label %cvNls.exit, label %cvNewtonIteration.exit.i.i
 
 856:                                              ; preds = %851
-  br i1 %834, label %.preheader.i95.i.i, label %.loopexit192.i.i.i
+  br i1 %834, label %.preheader.i95.i.i, label %.loopexit196.i.i.i
 
 .preheader.i95.i.i:                               ; preds = %856
   %857 = load i32, ptr %74, align 4
@@ -9158,7 +9158,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
 
 ._crit_edge.thread.i.i.i:                         ; preds = %.preheader.i95.i.i
   %859 = load ptr, ptr %108, align 8
-  br label %.loopexit192.i.i.i
+  br label %.loopexit196.i.i.i
 
 .lr.ph.i96.i.i:                                   ; preds = %.preheader.i95.i.i, %.lr.ph.i96.i.i
   %indvars.iv.i97.i.i = phi i64 [ %indvars.iv.next.i98.i.i, %.lr.ph.i96.i.i ], [ 0, %.preheader.i95.i.i ]
@@ -9190,22 +9190,22 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
 ._crit_edge.i.i.i196:                             ; preds = %.lr.ph.i96.i.i
   %880 = load ptr, ptr %108, align 8
   %881 = icmp sgt i32 %877, 0
-  br i1 %881, label %.lr.ph226.i.i.i, label %.loopexit192.i.i.i
+  br i1 %881, label %.lr.ph230.i.i.i, label %.loopexit196.i.i.i
 
 882:                                              ; preds = %896
-  %indvars.iv.next243.i.i.i = add nuw nsw i64 %indvars.iv242.i.i.i, 1
+  %indvars.iv.next247.i.i.i = add nuw nsw i64 %indvars.iv246.i.i.i, 1
   %883 = load i32, ptr %74, align 4
   %884 = sext i32 %883 to i64
-  %885 = icmp slt i64 %indvars.iv.next243.i.i.i, %884
-  br i1 %885, label %.lr.ph226.i.i.i, label %.loopexit192.i.i.i, !llvm.loop !108
+  %885 = icmp slt i64 %indvars.iv.next247.i.i.i, %884
+  br i1 %885, label %.lr.ph230.i.i.i, label %.loopexit196.i.i.i, !llvm.loop !108
 
-.lr.ph226.i.i.i:                                  ; preds = %._crit_edge.i.i.i196, %882
-  %indvars.iv242.i.i.i = phi i64 [ %indvars.iv.next243.i.i.i, %882 ], [ 0, %._crit_edge.i.i.i196 ]
+.lr.ph230.i.i.i:                                  ; preds = %._crit_edge.i.i.i196, %882
+  %indvars.iv246.i.i.i = phi i64 [ %indvars.iv.next247.i.i.i, %882 ], [ 0, %._crit_edge.i.i.i196 ]
   %886 = load ptr, ptr %122, align 8
-  %887 = getelementptr inbounds ptr, ptr %880, i64 %indvars.iv242.i.i.i
+  %887 = getelementptr inbounds ptr, ptr %880, i64 %indvars.iv246.i.i.i
   %888 = load ptr, ptr %887, align 8
   %889 = load ptr, ptr %126, align 8
-  %890 = getelementptr inbounds ptr, ptr %889, i64 %indvars.iv242.i.i.i
+  %890 = getelementptr inbounds ptr, ptr %889, i64 %indvars.iv246.i.i.i
   %891 = load ptr, ptr %890, align 8
   %892 = load ptr, ptr %97, align 8
   %893 = load ptr, ptr %105, align 8
@@ -9213,7 +9213,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   %895 = icmp slt i32 %894, 0
   br i1 %895, label %cvNls.exit, label %896
 
-896:                                              ; preds = %.lr.ph226.i.i.i
+896:                                              ; preds = %.lr.ph230.i.i.i
   %.not182.i.i.i = icmp eq i32 %894, 0
   br i1 %.not182.i.i.i, label %882, label %897
 
@@ -9227,7 +9227,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   %.not184.i.i.i = icmp eq i32 %900, 0
   br i1 %.not184.i.i.i, label %cvNls.exit, label %cvNewtonIteration.exit.i.i
 
-.loopexit192.i.i.i:                               ; preds = %882, %._crit_edge.i.i.i196, %._crit_edge.thread.i.i.i, %856
+.loopexit196.i.i.i:                               ; preds = %882, %._crit_edge.i.i.i196, %._crit_edge.thread.i.i.i, %856
   %.1159.i.i.i = phi ptr [ %.0158.i.i.i, %856 ], [ %880, %._crit_edge.i.i.i196 ], [ %859, %._crit_edge.thread.i.i.i ], [ %880, %882 ]
   %901 = load ptr, ptr %123, align 8
   %902 = tail call double @N_VWrmsNorm(ptr noundef %842, ptr noundef %901) #13
@@ -9239,7 +9239,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %904, double noundef 1.000000e+00, ptr noundef %905, ptr noundef %906) #13
   br i1 %834, label %907, label %.loopexit.i.i.i
 
-907:                                              ; preds = %.loopexit192.i.i.i
+907:                                              ; preds = %.loopexit196.i.i.i
   %908 = load ptr, ptr %126, align 8
   %909 = load ptr, ptr %.1159.i.i.i, align 8
   %910 = load ptr, ptr %908, align 8
@@ -9270,38 +9270,38 @@ cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   %924 = fcmp olt double %.012.lcssa.i.i.i.i.i, %902
   %..i.i.i.i = select i1 %924, double %902, double %.012.lcssa.i.i.i.i.i
   %925 = icmp sgt i32 %923, 0
-  br i1 %925, label %.lr.ph228.i.i.i, label %.loopexit.i.i.i
+  br i1 %925, label %.lr.ph232.i.i.i, label %.loopexit.i.i.i
 
-.lr.ph228.i.i.i:                                  ; preds = %cvSensUpdateNorm.exit.i.i.i, %.lr.ph228.i.i.i
-  %indvars.iv245.i.i.i = phi i64 [ %indvars.iv.next246.i.i.i, %.lr.ph228.i.i.i ], [ 0, %cvSensUpdateNorm.exit.i.i.i ]
+.lr.ph232.i.i.i:                                  ; preds = %cvSensUpdateNorm.exit.i.i.i, %.lr.ph232.i.i.i
+  %indvars.iv249.i.i.i = phi i64 [ %indvars.iv.next250.i.i.i, %.lr.ph232.i.i.i ], [ 0, %cvSensUpdateNorm.exit.i.i.i ]
   %926 = load ptr, ptr %118, align 8
-  %927 = getelementptr inbounds ptr, ptr %926, i64 %indvars.iv245.i.i.i
+  %927 = getelementptr inbounds ptr, ptr %926, i64 %indvars.iv249.i.i.i
   %928 = load ptr, ptr %927, align 8
-  %929 = getelementptr inbounds ptr, ptr %.1159.i.i.i, i64 %indvars.iv245.i.i.i
+  %929 = getelementptr inbounds ptr, ptr %.1159.i.i.i, i64 %indvars.iv249.i.i.i
   %930 = load ptr, ptr %929, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %928, double noundef 1.000000e+00, ptr noundef %930, ptr noundef %928) #13
   %931 = load ptr, ptr %75, align 8
-  %932 = getelementptr inbounds ptr, ptr %931, i64 %indvars.iv245.i.i.i
+  %932 = getelementptr inbounds ptr, ptr %931, i64 %indvars.iv249.i.i.i
   %933 = load ptr, ptr %932, align 8
   %934 = load ptr, ptr %118, align 8
-  %935 = getelementptr inbounds ptr, ptr %934, i64 %indvars.iv245.i.i.i
+  %935 = getelementptr inbounds ptr, ptr %934, i64 %indvars.iv249.i.i.i
   %936 = load ptr, ptr %935, align 8
   %937 = load ptr, ptr %119, align 8
-  %938 = getelementptr inbounds ptr, ptr %937, i64 %indvars.iv245.i.i.i
+  %938 = getelementptr inbounds ptr, ptr %937, i64 %indvars.iv249.i.i.i
   %939 = load ptr, ptr %938, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %933, double noundef 1.000000e+00, ptr noundef %936, ptr noundef %939) #13
-  %indvars.iv.next246.i.i.i = add nuw nsw i64 %indvars.iv245.i.i.i, 1
+  %indvars.iv.next250.i.i.i = add nuw nsw i64 %indvars.iv249.i.i.i, 1
   %940 = load i32, ptr %74, align 4
   %941 = sext i32 %940 to i64
-  %942 = icmp slt i64 %indvars.iv.next246.i.i.i, %941
-  br i1 %942, label %.lr.ph228.i.i.i, label %.loopexit.i.i.i, !llvm.loop !109
+  %942 = icmp slt i64 %indvars.iv.next250.i.i.i, %941
+  br i1 %942, label %.lr.ph232.i.i.i, label %.loopexit.i.i.i, !llvm.loop !109
 
-.loopexit.i.i.i:                                  ; preds = %.lr.ph228.i.i.i, %cvSensUpdateNorm.exit.i.i.i, %.loopexit192.i.i.i
-  %943 = phi double [ %902, %.loopexit192.i.i.i ], [ %..i.i.i.i, %cvSensUpdateNorm.exit.i.i.i ], [ %..i.i.i.i, %.lr.ph228.i.i.i ]
-  %.1157.i.i.i = phi double [ %.0156.i.i.i, %.loopexit192.i.i.i ], [ %..i.i.i.i, %cvSensUpdateNorm.exit.i.i.i ], [ %..i.i.i.i, %.lr.ph228.i.i.i ]
+.loopexit.i.i.i:                                  ; preds = %.lr.ph232.i.i.i, %cvSensUpdateNorm.exit.i.i.i, %.loopexit196.i.i.i
+  %943 = phi double [ %902, %.loopexit196.i.i.i ], [ %..i.i.i.i, %cvSensUpdateNorm.exit.i.i.i ], [ %..i.i.i.i, %.lr.ph232.i.i.i ]
+  %.1157.i.i.i = phi double [ %.0156.i.i.i, %.loopexit196.i.i.i ], [ %..i.i.i.i, %cvSensUpdateNorm.exit.i.i.i ], [ %..i.i.i.i, %.lr.ph232.i.i.i ]
   %.not170.i.i.i = icmp eq i32 %.0155.i.i.i, 0
   %.pre.i.i.i194 = load double, ptr %102, align 8
-  br i1 %.not170.i.i.i, label %944, label %.thread248.i.i.i
+  br i1 %.not170.i.i.i, label %944, label %.thread252.i.i.i
 
 944:                                              ; preds = %.loopexit.i.i.i
   %945 = fcmp ogt double %.pre.i.i.i194, 1.000000e+00
@@ -9312,7 +9312,7 @@ cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   %950 = fcmp ugt double %949, 1.000000e+00
   br i1 %950, label %989, label %960
 
-.thread248.i.i.i:                                 ; preds = %.loopexit.i.i.i
+.thread252.i.i.i:                                 ; preds = %.loopexit.i.i.i
   %951 = fmul double %.pre.i.i.i194, 3.000000e-01
   %952 = fdiv double %943, %.0160.i.i.i
   %953 = fcmp ogt double %951, %952
@@ -9327,17 +9327,17 @@ cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %959, label %989, label %964
 
 960:                                              ; preds = %944
-  br i1 %834, label %961, label %963
+  br i1 %834, label %961, label %.sink.split
 
 961:                                              ; preds = %960
   %962 = load i32, ptr %129, align 8
   %.not181.i.i.i = icmp eq i32 %962, 0
   br i1 %.not181.i.i.i, label %963, label %.sink.split
 
-963:                                              ; preds = %961, %960
+963:                                              ; preds = %961
   br label %.sink.split
 
-964:                                              ; preds = %.thread248.i.i.i
+964:                                              ; preds = %.thread252.i.i.i
   %965 = load ptr, ptr %96, align 8
   %966 = load ptr, ptr %123, align 8
   %967 = tail call double @N_VWrmsNorm(ptr noundef %965, ptr noundef %966) #13
@@ -9381,8 +9381,8 @@ cvSensUpdateNorm.exit.i.i:                        ; preds = %.lr.ph.i.i100.i.i, 
   %..i99.i.i = select i1 %987, double %967, double %.012.lcssa.i.i.i8.i
   br label %.sink.split
 
-.sink.split:                                      ; preds = %961, %963, %cvSensUpdateNorm.exit.i.i
-  %..i99.i.i.sink = phi double [ %..i99.i.i, %cvSensUpdateNorm.exit.i.i ], [ %902, %963 ], [ %.1157.i.i.i, %961 ]
+.sink.split:                                      ; preds = %960, %961, %963, %cvSensUpdateNorm.exit.i.i
+  %..i99.i.i.sink = phi double [ %..i99.i.i, %cvSensUpdateNorm.exit.i.i ], [ %.1157.i.i.i, %961 ], [ %902, %960 ], [ %902, %963 ]
   store double %..i99.i.i.sink, ptr %128, align 8
   br label %988
 
@@ -9390,7 +9390,7 @@ cvSensUpdateNorm.exit.i.i:                        ; preds = %.lr.ph.i.i100.i.i, 
   store i32 0, ptr %116, align 8
   br label %cvNls.exit
 
-989:                                              ; preds = %.thread248.i.i.i, %944
+989:                                              ; preds = %.thread252.i.i.i, %944
   %990 = add nuw nsw i32 %.0155.i.i.i, 1
   store i32 %990, ptr %120, align 8
   %991 = load i32, ptr %127, align 8
@@ -9488,7 +9488,7 @@ cvSensUpdateNorm.exit.i.i:                        ; preds = %.lr.ph.i.i100.i.i, 
   %1044 = getelementptr inbounds ptr, ptr %1024, i64 %indvars.iv.i.i.i11.i
   %1045 = load ptr, ptr %1044, align 8
   %1046 = load ptr, ptr %112, align 8
-  %1047 = trunc i64 %indvars.iv.i.i.i11.i to i32
+  %1047 = trunc nuw nsw i64 %indvars.iv.i.i.i11.i to i32
   %1048 = tail call i32 %1041(i32 noundef %1040, double noundef %1020, ptr noundef %1021, ptr noundef %1022, i32 noundef %1047, ptr noundef %1043, ptr noundef %1045, ptr noundef %1046, ptr noundef %1017, ptr noundef %1019) #13
   %1049 = load i64, ptr %113, align 8
   %1050 = add nsw i64 %1049, 1
@@ -9529,10 +9529,10 @@ cvNewtonIteration.exit.i.i:                       ; preds = %1055, %1013, %998, 
   %1064 = add nsw i64 %1063, 1
   store i64 %1064, ptr %107, align 8
   %1065 = icmp slt i32 %1062, 0
-  br i1 %1065, label %cvNls.exit, label %.lr.ph150.i.i
+  br i1 %1065, label %cvNls.exit, label %.lr.ph154.i.i
 
-cvNls.exit:                                       ; preds = %.lr.ph150.i.i, %cvSensRhsWrapper.exit.i22.i, %799, %800, %810, %852, %854, %897, %899, %996, %998, %1011, %1013, %1053, %1055, %cvNewtonIteration.exit.i.i, %666, %670, %673, %683, %cvSensRhsWrapper.exit183.i.i, %721, %.thread.i.i.i, %1000, %cvSensRhsWrapper.exit.i.i.i, %.lr.ph226.i.i.i, %cvSet.exit, %471, %482, %cvSensRhsWrapper.exit.i.i, %521, %640, %641, %642, %646, %cvSensUpdateNorm.exit, %751, %988
-  %.0.i = phi i32 [ 0, %cvSet.exit ], [ -8, %471 ], [ 9, %482 ], [ -41, %cvSensRhsWrapper.exit.i.i ], [ 12, %521 ], [ 0, %642 ], [ 0, %646 ], [ 0, %cvSensUpdateNorm.exit ], [ 0, %640 ], [ 0, %641 ], [ 0, %988 ], [ -8, %751 ], [ -7, %.lr.ph226.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i ], [ -8, %1000 ], [ -7, %.thread.i.i.i ], [ 12, %721 ], [ -41, %cvSensRhsWrapper.exit183.i.i ], [ 9, %683 ], [ -8, %673 ], [ 4, %666 ], [ 4, %670 ], [ -8, %cvNewtonIteration.exit.i.i ], [ 9, %.lr.ph150.i.i ], [ -41, %cvSensRhsWrapper.exit.i22.i ], [ 12, %799 ], [ -6, %800 ], [ 4, %810 ], [ 4, %854 ], [ 4, %852 ], [ 4, %899 ], [ 4, %897 ], [ 4, %998 ], [ 4, %996 ], [ 9, %1013 ], [ 9, %1011 ], [ 12, %1055 ], [ 12, %1053 ]
+cvNls.exit:                                       ; preds = %.lr.ph154.i.i, %cvSensRhsWrapper.exit.i22.i, %799, %800, %810, %852, %854, %897, %899, %996, %998, %1011, %1013, %1053, %1055, %cvNewtonIteration.exit.i.i, %666, %670, %673, %683, %cvSensRhsWrapper.exit183.i.i, %721, %.thread.i.i.i, %1000, %cvSensRhsWrapper.exit.i.i.i, %.lr.ph230.i.i.i, %cvSet.exit, %471, %482, %cvSensRhsWrapper.exit.i.i, %521, %640, %641, %642, %646, %cvSensUpdateNorm.exit, %751, %988
+  %.0.i = phi i32 [ 0, %cvSet.exit ], [ -8, %471 ], [ 9, %482 ], [ -41, %cvSensRhsWrapper.exit.i.i ], [ 12, %521 ], [ 0, %642 ], [ 0, %646 ], [ 0, %cvSensUpdateNorm.exit ], [ 0, %640 ], [ 0, %641 ], [ 0, %988 ], [ -8, %751 ], [ -7, %.lr.ph230.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i ], [ -8, %1000 ], [ -7, %.thread.i.i.i ], [ 12, %721 ], [ -41, %cvSensRhsWrapper.exit183.i.i ], [ 9, %683 ], [ -8, %673 ], [ 4, %666 ], [ 4, %670 ], [ -8, %cvNewtonIteration.exit.i.i ], [ 9, %.lr.ph154.i.i ], [ -41, %cvSensRhsWrapper.exit.i22.i ], [ 12, %799 ], [ -6, %800 ], [ 4, %810 ], [ 4, %852 ], [ 4, %897 ], [ 4, %996 ], [ 9, %1011 ], [ 12, %1053 ], [ 4, %854 ], [ 4, %899 ], [ 4, %998 ], [ 9, %1013 ], [ 12, %1055 ]
   store i32 %.0.i, ptr %24, align 4
   %1066 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130), !range !110
   switch i32 %1066, label %.loopexit [
@@ -9730,7 +9730,7 @@ cvQuadNls.exit:                                   ; preds = %1072, %1082, %1088
   %1159 = getelementptr inbounds ptr, ptr %1139, i64 %indvars.iv.i.i.i229
   %1160 = load ptr, ptr %1159, align 8
   %1161 = load ptr, ptr %112, align 8
-  %1162 = trunc i64 %indvars.iv.i.i.i229 to i32
+  %1162 = trunc nuw nsw i64 %indvars.iv.i.i.i229 to i32
   %1163 = tail call i32 %1156(i32 noundef %1155, double noundef %1135, ptr noundef %1136, ptr noundef %1137, i32 noundef %1162, ptr noundef %1158, ptr noundef %1160, ptr noundef %1161, ptr noundef %1132, ptr noundef %1134) #13
   %1164 = load i64, ptr %113, align 8
   %1165 = add nsw i64 %1164, 1
@@ -9976,7 +9976,7 @@ cvSensNorm.exit.i.i:                              ; preds = %.lr.ph.i112.i.i, %.
   %1293 = getelementptr inbounds ptr, ptr %1275, i64 %indvars.iv.i119.i.i
   %1294 = load ptr, ptr %1293, align 8
   %1295 = load ptr, ptr %112, align 8
-  %1296 = trunc i64 %indvars.iv.i119.i.i to i32
+  %1296 = trunc nuw nsw i64 %indvars.iv.i119.i.i to i32
   %1297 = tail call i32 %1290(i32 noundef %1289, double noundef %1271, ptr noundef %1272, ptr noundef %1273, i32 noundef %1296, ptr noundef %1292, ptr noundef %1294, ptr noundef %1295, ptr noundef %1268, ptr noundef %1270) #13
   %1298 = load i64, ptr %113, align 8
   %1299 = add nsw i64 %1298, 1
@@ -10061,7 +10061,7 @@ cvSensRhsWrapper.exit122.thread.i.i:              ; preds = %1285, %cvSensRhsWra
   %1340 = getelementptr inbounds ptr, ptr %1322, i64 %indvars.iv.i.i10.i
   %1341 = load ptr, ptr %1340, align 8
   %1342 = load ptr, ptr %112, align 8
-  %1343 = trunc i64 %indvars.iv.i.i10.i to i32
+  %1343 = trunc nuw nsw i64 %indvars.iv.i.i10.i to i32
   %1344 = tail call i32 %1337(i32 noundef %1336, double noundef %1318, ptr noundef %1319, ptr noundef %1320, i32 noundef %1343, ptr noundef %1339, ptr noundef %1341, ptr noundef %1342, ptr noundef %1315, ptr noundef %1317) #13
   %1345 = load i64, ptr %113, align 8
   %1346 = add nsw i64 %1345, 1
@@ -10093,7 +10093,7 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %1352 = load i64, ptr %146, align 8
   %1353 = add nsw i64 %1352, 1
   store i64 %1353, ptr %146, align 8
-  br label %._crit_edge140.i.i.i
+  br label %._crit_edge142.i.i.i
 
 .lr.ph.i54.i.i:                                   ; preds = %.thread.i.i207, %.lr.ph.i54.i.i
   %indvars.iv.i55.i.i = phi i64 [ %indvars.iv.next.i56.i.i, %.lr.ph.i54.i.i ], [ 0, %.thread.i.i207 ]
@@ -10128,22 +10128,22 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %1376 = add nsw i64 %1375, 1
   store i64 %1376, ptr %146, align 8
   %1377 = icmp sgt i32 %1371, 0
-  br i1 %1377, label %.lr.ph139.i.i.i, label %._crit_edge140.i.i.i
+  br i1 %1377, label %.lr.ph141.i.i.i, label %._crit_edge142.i.i.i
 
 1378:                                             ; preds = %1392
-  %indvars.iv.next155.i.i.i = add nuw nsw i64 %indvars.iv154.i.i.i, 1
+  %indvars.iv.next157.i.i.i = add nuw nsw i64 %indvars.iv156.i.i.i, 1
   %1379 = load i32, ptr %74, align 4
   %1380 = sext i32 %1379 to i64
-  %1381 = icmp slt i64 %indvars.iv.next155.i.i.i, %1380
-  br i1 %1381, label %.lr.ph139.i.i.i, label %._crit_edge140.i.i.i, !llvm.loop !118
+  %1381 = icmp slt i64 %indvars.iv.next157.i.i.i, %1380
+  br i1 %1381, label %.lr.ph141.i.i.i, label %._crit_edge142.i.i.i, !llvm.loop !118
 
-.lr.ph139.i.i.i:                                  ; preds = %._crit_edge.i.i.i222, %1378
-  %indvars.iv154.i.i.i = phi i64 [ %indvars.iv.next155.i.i.i, %1378 ], [ 0, %._crit_edge.i.i.i222 ]
+.lr.ph141.i.i.i:                                  ; preds = %._crit_edge.i.i.i222, %1378
+  %indvars.iv156.i.i.i = phi i64 [ %indvars.iv.next157.i.i.i, %1378 ], [ 0, %._crit_edge.i.i.i222 ]
   %1382 = load ptr, ptr %122, align 8
-  %1383 = getelementptr inbounds ptr, ptr %1374, i64 %indvars.iv154.i.i.i
+  %1383 = getelementptr inbounds ptr, ptr %1374, i64 %indvars.iv156.i.i.i
   %1384 = load ptr, ptr %1383, align 8
   %1385 = load ptr, ptr %126, align 8
-  %1386 = getelementptr inbounds ptr, ptr %1385, i64 %indvars.iv154.i.i.i
+  %1386 = getelementptr inbounds ptr, ptr %1385, i64 %indvars.iv156.i.i.i
   %1387 = load ptr, ptr %1386, align 8
   %1388 = load ptr, ptr %97, align 8
   %1389 = load ptr, ptr %105, align 8
@@ -10151,7 +10151,7 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %1391 = icmp slt i32 %1390, 0
   br i1 %1391, label %cvStgrNls.exit, label %1392
 
-1392:                                             ; preds = %.lr.ph139.i.i.i
+1392:                                             ; preds = %.lr.ph141.i.i.i
   %.not112.i.i.i = icmp eq i32 %1390, 0
   br i1 %.not112.i.i.i, label %1378, label %1393
 
@@ -10165,7 +10165,7 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %.not114.i.i.i = icmp eq i32 %1396, 0
   br i1 %.not114.i.i.i, label %cvStgrNls.exit, label %cvStgrNewtonIteration.exit.i.i
 
-._crit_edge140.i.i.i:                             ; preds = %1378, %._crit_edge.i.i.i222, %._crit_edge.thread.i.i.i208
+._crit_edge142.i.i.i:                             ; preds = %1378, %._crit_edge.i.i.i222, %._crit_edge.thread.i.i.i208
   %1397 = phi ptr [ %1351, %._crit_edge.thread.i.i.i208 ], [ %1374, %._crit_edge.i.i.i222 ], [ %1374, %1378 ]
   %1398 = load ptr, ptr %126, align 8
   %1399 = load ptr, ptr %1397, align 8
@@ -10175,9 +10175,9 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %1403 = icmp sgt i32 %1402, 1
   br i1 %1403, label %.lr.ph.i.i.i.i217, label %cvSensNorm.exit.i.i.i
 
-.lr.ph.i.i.i.i217:                                ; preds = %._crit_edge140.i.i.i, %.lr.ph.i.i.i.i217
-  %indvars.iv.i.i.i.i218 = phi i64 [ %indvars.iv.next.i.i.i.i221, %.lr.ph.i.i.i.i217 ], [ 1, %._crit_edge140.i.i.i ]
-  %.01214.i.i.i.i219 = phi double [ %.1.i.i.i.i220, %.lr.ph.i.i.i.i217 ], [ %1401, %._crit_edge140.i.i.i ]
+.lr.ph.i.i.i.i217:                                ; preds = %._crit_edge142.i.i.i, %.lr.ph.i.i.i.i217
+  %indvars.iv.i.i.i.i218 = phi i64 [ %indvars.iv.next.i.i.i.i221, %.lr.ph.i.i.i.i217 ], [ 1, %._crit_edge142.i.i.i ]
+  %.01214.i.i.i.i219 = phi double [ %.1.i.i.i.i220, %.lr.ph.i.i.i.i217 ], [ %1401, %._crit_edge142.i.i.i ]
   %1404 = getelementptr inbounds ptr, ptr %1397, i64 %indvars.iv.i.i.i.i218
   %1405 = load ptr, ptr %1404, align 8
   %1406 = getelementptr inbounds ptr, ptr %1398, i64 %indvars.iv.i.i.i.i218
@@ -10191,43 +10191,43 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %1412 = icmp slt i64 %indvars.iv.next.i.i.i.i221, %1411
   br i1 %1412, label %.lr.ph.i.i.i.i217, label %cvSensNorm.exit.i.i.i, !llvm.loop !47
 
-cvSensNorm.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i217, %._crit_edge140.i.i.i
-  %1413 = phi i32 [ %1402, %._crit_edge140.i.i.i ], [ %1410, %.lr.ph.i.i.i.i217 ]
-  %.012.lcssa.i.i.i.i209 = phi double [ %1401, %._crit_edge140.i.i.i ], [ %.1.i.i.i.i220, %.lr.ph.i.i.i.i217 ]
+cvSensNorm.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i217, %._crit_edge142.i.i.i
+  %1413 = phi i32 [ %1402, %._crit_edge142.i.i.i ], [ %1410, %.lr.ph.i.i.i.i217 ]
+  %.012.lcssa.i.i.i.i209 = phi double [ %1401, %._crit_edge142.i.i.i ], [ %.1.i.i.i.i220, %.lr.ph.i.i.i.i217 ]
   %1414 = icmp sgt i32 %1413, 0
-  br i1 %1414, label %.lr.ph142.i.i.i, label %._crit_edge143.i.i.i
+  br i1 %1414, label %.lr.ph144.i.i.i, label %._crit_edge145.i.i.i
 
-.lr.ph142.i.i.i:                                  ; preds = %cvSensNorm.exit.i.i.i, %.lr.ph142.i.i.i
-  %indvars.iv157.i.i.i = phi i64 [ %indvars.iv.next158.i.i.i, %.lr.ph142.i.i.i ], [ 0, %cvSensNorm.exit.i.i.i ]
+.lr.ph144.i.i.i:                                  ; preds = %cvSensNorm.exit.i.i.i, %.lr.ph144.i.i.i
+  %indvars.iv159.i.i.i = phi i64 [ %indvars.iv.next160.i.i.i, %.lr.ph144.i.i.i ], [ 0, %cvSensNorm.exit.i.i.i ]
   %1415 = load ptr, ptr %118, align 8
-  %1416 = getelementptr inbounds ptr, ptr %1415, i64 %indvars.iv157.i.i.i
+  %1416 = getelementptr inbounds ptr, ptr %1415, i64 %indvars.iv159.i.i.i
   %1417 = load ptr, ptr %1416, align 8
-  %1418 = getelementptr inbounds ptr, ptr %1397, i64 %indvars.iv157.i.i.i
+  %1418 = getelementptr inbounds ptr, ptr %1397, i64 %indvars.iv159.i.i.i
   %1419 = load ptr, ptr %1418, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1417, double noundef 1.000000e+00, ptr noundef %1419, ptr noundef %1417) #13
   %1420 = load ptr, ptr %75, align 8
-  %1421 = getelementptr inbounds ptr, ptr %1420, i64 %indvars.iv157.i.i.i
+  %1421 = getelementptr inbounds ptr, ptr %1420, i64 %indvars.iv159.i.i.i
   %1422 = load ptr, ptr %1421, align 8
   %1423 = load ptr, ptr %118, align 8
-  %1424 = getelementptr inbounds ptr, ptr %1423, i64 %indvars.iv157.i.i.i
+  %1424 = getelementptr inbounds ptr, ptr %1423, i64 %indvars.iv159.i.i.i
   %1425 = load ptr, ptr %1424, align 8
   %1426 = load ptr, ptr %119, align 8
-  %1427 = getelementptr inbounds ptr, ptr %1426, i64 %indvars.iv157.i.i.i
+  %1427 = getelementptr inbounds ptr, ptr %1426, i64 %indvars.iv159.i.i.i
   %1428 = load ptr, ptr %1427, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1422, double noundef 1.000000e+00, ptr noundef %1425, ptr noundef %1428) #13
-  %indvars.iv.next158.i.i.i = add nuw nsw i64 %indvars.iv157.i.i.i, 1
+  %indvars.iv.next160.i.i.i = add nuw nsw i64 %indvars.iv159.i.i.i, 1
   %1429 = load i32, ptr %74, align 4
   %1430 = sext i32 %1429 to i64
-  %1431 = icmp slt i64 %indvars.iv.next158.i.i.i, %1430
-  br i1 %1431, label %.lr.ph142.i.i.i, label %._crit_edge143.i.i.i, !llvm.loop !119
+  %1431 = icmp slt i64 %indvars.iv.next160.i.i.i, %1430
+  br i1 %1431, label %.lr.ph144.i.i.i, label %._crit_edge145.i.i.i, !llvm.loop !119
 
-._crit_edge143.i.i.i:                             ; preds = %.lr.ph142.i.i.i, %cvSensNorm.exit.i.i.i
-  %.lcssa123.i.i.i = phi i32 [ %1413, %cvSensNorm.exit.i.i.i ], [ %1429, %.lr.ph142.i.i.i ]
+._crit_edge145.i.i.i:                             ; preds = %.lr.ph144.i.i.i, %cvSensNorm.exit.i.i.i
+  %.lcssa125.i.i.i = phi i32 [ %1413, %cvSensNorm.exit.i.i.i ], [ %1429, %.lr.ph144.i.i.i ]
   %.not.i53.i.i = icmp eq i32 %.097.i.i.i, 0
   %.pre.i.i.i210 = load double, ptr %103, align 8
   br i1 %.not.i53.i.i, label %1436, label %1432
 
-1432:                                             ; preds = %._crit_edge143.i.i.i
+1432:                                             ; preds = %._crit_edge145.i.i.i
   %1433 = fmul double %.pre.i.i.i210, 3.000000e-01
   %1434 = fdiv double %.012.lcssa.i.i.i.i209, %.098.i.i.i
   %1435 = fcmp ogt double %1433, %1434
@@ -10235,8 +10235,8 @@ cvSensNorm.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i217, 
   store double %..i.i.i211, ptr %103, align 8
   br label %1436
 
-1436:                                             ; preds = %1432, %._crit_edge143.i.i.i
-  %1437 = phi double [ %..i.i.i211, %1432 ], [ %.pre.i.i.i210, %._crit_edge143.i.i.i ]
+1436:                                             ; preds = %1432, %._crit_edge145.i.i.i
+  %1437 = phi double [ %..i.i.i211, %1432 ], [ %.pre.i.i.i210, %._crit_edge145.i.i.i ]
   %1438 = fcmp ogt double %1437, 1.000000e+00
   %1439 = select i1 %1438, double 1.000000e+00, double %1437
   %1440 = fmul double %.012.lcssa.i.i.i.i209, %1439
@@ -10325,35 +10325,35 @@ cvSensNorm.exit.i6.i:                             ; preds = %.lr.ph.i58.i.i, %14
   br i1 %1487, label %1489, label %.preheader.i.i.i.i214
 
 .preheader.i.i.i.i214:                            ; preds = %1477
-  %1488 = icmp sgt i32 %.lcssa123.i.i.i, 0
-  br i1 %1488, label %.lr.ph.i117.i.i.i, label %cvSensRhsWrapper.exit.thread.i.i.i
+  %1488 = icmp sgt i32 %.lcssa125.i.i.i, 0
+  br i1 %1488, label %.lr.ph.i119.i.i.i, label %cvSensRhsWrapper.exit.thread.i.i.i
 
 1489:                                             ; preds = %1477
   %1490 = load ptr, ptr %114, align 8
   %1491 = load ptr, ptr %112, align 8
-  %1492 = tail call i32 %1490(i32 noundef %.lcssa123.i.i.i, double noundef %1481, ptr noundef %1482, ptr noundef %1483, ptr noundef %1484, ptr noundef %1485, ptr noundef %1491, ptr noundef %1478, ptr noundef %1480) #13
+  %1492 = tail call i32 %1490(i32 noundef %.lcssa125.i.i.i, double noundef %1481, ptr noundef %1482, ptr noundef %1483, ptr noundef %1484, ptr noundef %1485, ptr noundef %1491, ptr noundef %1478, ptr noundef %1480) #13
   %1493 = load i64, ptr %113, align 8
   %1494 = add nsw i64 %1493, 1
   store i64 %1494, ptr %113, align 8
   br label %cvSensRhsWrapper.exit.i.i.i216
 
-1495:                                             ; preds = %.lr.ph.i117.i.i.i
-  %indvars.iv.next.i119.i.i.i = add nuw nsw i64 %indvars.iv.i118.i.i.i, 1
+1495:                                             ; preds = %.lr.ph.i119.i.i.i
+  %indvars.iv.next.i121.i.i.i = add nuw nsw i64 %indvars.iv.i120.i.i.i, 1
   %1496 = load i32, ptr %74, align 4
   %1497 = sext i32 %1496 to i64
-  %1498 = icmp slt i64 %indvars.iv.next.i119.i.i.i, %1497
-  br i1 %1498, label %.lr.ph.i117.i.i.i, label %cvSensRhsWrapper.exit.thread.i.i.i, !llvm.loop !51
+  %1498 = icmp slt i64 %indvars.iv.next.i121.i.i.i, %1497
+  br i1 %1498, label %.lr.ph.i119.i.i.i, label %cvSensRhsWrapper.exit.thread.i.i.i, !llvm.loop !51
 
-.lr.ph.i117.i.i.i:                                ; preds = %.preheader.i.i.i.i214, %1495
-  %indvars.iv.i118.i.i.i = phi i64 [ %indvars.iv.next.i119.i.i.i, %1495 ], [ 0, %.preheader.i.i.i.i214 ]
-  %1499 = phi i32 [ %1496, %1495 ], [ %.lcssa123.i.i.i, %.preheader.i.i.i.i214 ]
+.lr.ph.i119.i.i.i:                                ; preds = %.preheader.i.i.i.i214, %1495
+  %indvars.iv.i120.i.i.i = phi i64 [ %indvars.iv.next.i121.i.i.i, %1495 ], [ 0, %.preheader.i.i.i.i214 ]
+  %1499 = phi i32 [ %1496, %1495 ], [ %.lcssa125.i.i.i, %.preheader.i.i.i.i214 ]
   %1500 = load ptr, ptr %111, align 8
-  %1501 = getelementptr inbounds ptr, ptr %1484, i64 %indvars.iv.i118.i.i.i
+  %1501 = getelementptr inbounds ptr, ptr %1484, i64 %indvars.iv.i120.i.i.i
   %1502 = load ptr, ptr %1501, align 8
-  %1503 = getelementptr inbounds ptr, ptr %1485, i64 %indvars.iv.i118.i.i.i
+  %1503 = getelementptr inbounds ptr, ptr %1485, i64 %indvars.iv.i120.i.i.i
   %1504 = load ptr, ptr %1503, align 8
   %1505 = load ptr, ptr %112, align 8
-  %1506 = trunc i64 %indvars.iv.i118.i.i.i to i32
+  %1506 = trunc nuw nsw i64 %indvars.iv.i120.i.i.i to i32
   %1507 = tail call i32 %1500(i32 noundef %1499, double noundef %1481, ptr noundef %1482, ptr noundef %1483, i32 noundef %1506, ptr noundef %1502, ptr noundef %1504, ptr noundef %1505, ptr noundef %1478, ptr noundef %1480) #13
   %1508 = load i64, ptr %113, align 8
   %1509 = add nsw i64 %1508, 1
@@ -10361,14 +10361,14 @@ cvSensNorm.exit.i6.i:                             ; preds = %.lr.ph.i58.i.i, %14
   %.not.i.i.i.i215 = icmp eq i32 %1507, 0
   br i1 %.not.i.i.i.i215, label %1495, label %cvSensRhsWrapper.exit.i.i.i216
 
-cvSensRhsWrapper.exit.i.i.i216:                   ; preds = %.lr.ph.i117.i.i.i, %1489
-  %.1.i116.i.i.i = phi i32 [ %1492, %1489 ], [ %1507, %.lr.ph.i117.i.i.i ]
-  %1510 = icmp slt i32 %.1.i116.i.i.i, 0
+cvSensRhsWrapper.exit.i.i.i216:                   ; preds = %.lr.ph.i119.i.i.i, %1489
+  %.1.i118.i.i.i = phi i32 [ %1492, %1489 ], [ %1507, %.lr.ph.i119.i.i.i ]
+  %1510 = icmp slt i32 %.1.i118.i.i.i, 0
   br i1 %1510, label %cvStgrNls.exit, label %cvSensRhsWrapper.exit.thread.i.i.i
 
 cvSensRhsWrapper.exit.thread.i.i.i:               ; preds = %1495, %cvSensRhsWrapper.exit.i.i.i216, %.preheader.i.i.i.i214
-  %.1.i116121.i.i.i = phi i32 [ %.1.i116.i.i.i, %cvSensRhsWrapper.exit.i.i.i216 ], [ 0, %.preheader.i.i.i.i214 ], [ 0, %1495 ]
-  %.not106.i.i.i = icmp eq i32 %.1.i116121.i.i.i, 0
+  %.1.i118123.i.i.i = phi i32 [ %.1.i118.i.i.i, %cvSensRhsWrapper.exit.i.i.i216 ], [ 0, %.preheader.i.i.i.i214 ], [ 0, %1495 ]
+  %.not106.i.i.i = icmp eq i32 %.1.i118123.i.i.i, 0
   br i1 %.not106.i.i.i, label %.thread.i.i207, label %1511
 
 1511:                                             ; preds = %cvSensRhsWrapper.exit.thread.i.i.i
@@ -10407,8 +10407,8 @@ cvStgrNewtonIteration.exit.i.i:                   ; preds = %1513, %1475, %1395
   %.not52.i.i = icmp eq i32 %1523, 0
   br i1 %.not52.i.i, label %.preheader453, label %cvStgrNls.exit
 
-cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.exit.i12.i, %1348, %1393, %1395, %1473, %1475, %1511, %1513, %cvStgrNewtonIteration.exit.i.i, %1529, %1260, %1264, %cvSensRhsWrapper.exit122.i.i, %cvSensRhsWrapper.exit122.thread.i.i, %cvSensRhsWrapper.exit.i.i.i216, %.lr.ph139.i.i.i, %1129, %cvSensRhsWrapper.exit.i.i231, %cvSensRhsWrapper.exit.thread.i.i, %1251, %1258, %1465
-  %.0.i212 = phi i32 [ 0, %1129 ], [ -41, %cvSensRhsWrapper.exit.i.i231 ], [ 12, %cvSensRhsWrapper.exit.thread.i.i ], [ 0, %1258 ], [ 0, %1251 ], [ 0, %1465 ], [ -7, %.lr.ph139.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i216 ], [ 12, %cvSensRhsWrapper.exit122.thread.i.i ], [ -41, %cvSensRhsWrapper.exit122.i.i ], [ 4, %1260 ], [ 4, %1264 ], [ 12, %1511 ], [ 12, %1513 ], [ 4, %1473 ], [ 4, %1475 ], [ 4, %1393 ], [ 4, %1395 ], [ 4, %1529 ], [ -6, %cvStgrNewtonIteration.exit.i.i ], [ 12, %1348 ], [ -41, %cvSensRhsWrapper.exit.i12.i ]
+cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.exit.i12.i, %1348, %1393, %1395, %1473, %1475, %1511, %1513, %cvStgrNewtonIteration.exit.i.i, %1529, %1260, %1264, %cvSensRhsWrapper.exit122.i.i, %cvSensRhsWrapper.exit122.thread.i.i, %cvSensRhsWrapper.exit.i.i.i216, %.lr.ph141.i.i.i, %1129, %cvSensRhsWrapper.exit.i.i231, %cvSensRhsWrapper.exit.thread.i.i, %1251, %1258, %1465
+  %.0.i212 = phi i32 [ 0, %1129 ], [ -41, %cvSensRhsWrapper.exit.i.i231 ], [ 12, %cvSensRhsWrapper.exit.thread.i.i ], [ 0, %1258 ], [ 0, %1251 ], [ 0, %1465 ], [ -7, %.lr.ph141.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i216 ], [ 12, %cvSensRhsWrapper.exit122.thread.i.i ], [ -41, %cvSensRhsWrapper.exit122.i.i ], [ 4, %1260 ], [ 4, %1264 ], [ 12, %1513 ], [ 4, %1475 ], [ 4, %1395 ], [ 4, %1393 ], [ 4, %1473 ], [ 12, %1511 ], [ 4, %1529 ], [ -6, %cvStgrNewtonIteration.exit.i.i ], [ 12, %1348 ], [ -41, %cvSensRhsWrapper.exit.i12.i ]
   store i32 %.0.i212, ptr %24, align 4
   %1530 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %19, ptr noundef nonnull %148), !range !110
   br label %.loopexit332
@@ -10445,7 +10445,7 @@ cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.ex
   %1549 = load ptr, ptr %1548, align 8
   %1550 = load ptr, ptr %111, align 8
   %1551 = load ptr, ptr %112, align 8
-  %1552 = trunc i64 %indvars.iv541 to i32
+  %1552 = trunc nuw nsw i64 %indvars.iv541 to i32
   %1553 = tail call i32 %1550(i32 noundef %1535, double noundef %1541, ptr noundef %1542, ptr noundef %1543, i32 noundef %1552, ptr noundef %1546, ptr noundef %1549, ptr noundef %1551, ptr noundef %1538, ptr noundef %1540) #13
   %1554 = load i64, ptr %113, align 8
   %1555 = add nsw i64 %1554, 1
@@ -10579,7 +10579,7 @@ cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.ex
   br i1 %.not97.i.i, label %1562, label %cvStgr1Nls.exit
 
 1646:                                             ; preds = %.lr.ph436
-  %1647 = trunc i64 %indvars.iv541 to i32
+  %1647 = trunc nuw nsw i64 %indvars.iv541 to i32
   br label %1648
 
 1648:                                             ; preds = %1797, %1646
@@ -10808,7 +10808,7 @@ cvStgr1NewtonIteration.exit.i.i:                  ; preds = %1781, %1756, %1713
   br i1 %.not52.i.i242, label %1648, label %cvStgr1Nls.exit
 
 cvStgr1Nls.exit:                                  ; preds = %1648, %1677, %1711, %1713, %1754, %1756, %1779, %1781, %cvStgr1NewtonIteration.exit.i.i, %1797, %1610, %1618, %1622, %1625, %1645, %.preheader.i.i240, %1758, %.lr.ph436, %1537, %1557, %1746
-  %.0.i239 = phi i32 [ 0, %.lr.ph436 ], [ -41, %1537 ], [ 12, %1557 ], [ 0, %1746 ], [ -41, %1758 ], [ -7, %.preheader.i.i240 ], [ 12, %1645 ], [ -41, %1625 ], [ 4, %1618 ], [ 4, %1622 ], [ 0, %1610 ], [ 12, %1779 ], [ 12, %1781 ], [ 4, %1754 ], [ 4, %1756 ], [ 4, %1711 ], [ 4, %1713 ], [ 4, %1797 ], [ -6, %cvStgr1NewtonIteration.exit.i.i ], [ 12, %1677 ], [ -41, %1648 ]
+  %.0.i239 = phi i32 [ 0, %.lr.ph436 ], [ -41, %1537 ], [ 12, %1557 ], [ 0, %1746 ], [ -41, %1758 ], [ -7, %.preheader.i.i240 ], [ 12, %1645 ], [ -41, %1625 ], [ 4, %1618 ], [ 4, %1622 ], [ 0, %1610 ], [ 12, %1781 ], [ 4, %1756 ], [ 4, %1713 ], [ 4, %1711 ], [ 4, %1754 ], [ 12, %1779 ], [ 4, %1797 ], [ -6, %cvStgr1NewtonIteration.exit.i.i ], [ 12, %1677 ], [ -41, %1648 ]
   store i32 %.0.i239, ptr %24, align 4
   %1798 = load ptr, ptr %144, align 8
   %1799 = getelementptr inbounds i32, ptr %1798, i64 %indvars.iv541
@@ -12505,7 +12505,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %2743 = load double, ptr %2742, align 8
   %2744 = fcmp olt double %2743, %.1318358.i.i
   %.2319.i.i = select i1 %2744, double %2743, double %.1318358.i.i
-  %2745 = trunc i64 %indvars.iv417.i.i to i32
+  %2745 = trunc nuw nsw i64 %indvars.iv417.i.i to i32
   %.2301.i.i = select i1 %2744, i32 %2745, i32 %.1300359.i.i
   %indvars.iv.next418.i.i = add nuw nsw i64 %indvars.iv417.i.i, 1
   %exitcond420.not.i.i = icmp eq i64 %indvars.iv.next418.i.i, 4
@@ -12991,7 +12991,7 @@ define noundef i32 @CVodeGetSens(ptr noundef %0, ptr nocapture noundef writeonly
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
   %18 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %21 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19), !range !162
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %14, label %CVodeGetSensDky.exit
@@ -13035,7 +13035,7 @@ define noundef i32 @CVodeGetSensDky(ptr noundef %0, double noundef %1, i32 nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %19, ptr noundef %18), !range !162
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %13, label %.loopexit
@@ -13256,7 +13256,7 @@ define noundef i32 @CVodeGetQuadSens(ptr noundef %0, ptr nocapture noundef write
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
   %18 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %21 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19), !range !166
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %14, label %CVodeGetQuadSensDky.exit
@@ -13300,7 +13300,7 @@ define noundef i32 @CVodeGetQuadSensDky(ptr noundef %0, double noundef %1, i32 n
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %19, ptr noundef %18), !range !166
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %13, label %.loopexit
@@ -14099,7 +14099,7 @@ define internal fastcc noundef i32 @cvHandleNFlag(ptr nocapture noundef %0, ptr 
   br label %43
 
 switch.hole_check:                                ; preds = %27
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 929, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %29
@@ -14654,7 +14654,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %74 = phi double [ %.pre.i, %.lr.ph122.i ], [ %78, %73 ]
   %indvars.iv146.i = phi i64 [ 1, %.lr.ph122.i ], [ %indvars.iv.next147.i, %73 ]
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
-  %75 = trunc i64 %indvars.iv.next147.i to i32
+  %75 = trunc nuw nsw i64 %indvars.iv.next147.i to i32
   %76 = sitofp i32 %75 to double
   %77 = fdiv double %74, %76
   %78 = fmul double %77, %57
@@ -14832,7 +14832,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %162 = getelementptr inbounds [14 x double], ptr %156, i64 0, i64 %indvars.iv.next185.i.i
   %163 = load double, ptr %162, align 8
   %164 = fadd double %.0124150.i.i, %163
-  %165 = trunc i64 %indvars.iv.next185.i.i to i32
+  %165 = trunc nuw nsw i64 %indvars.iv.next185.i.i to i32
   %166 = sitofp i32 %165 to double
   %167 = fdiv double 1.000000e+00, %166
   br label %.lr.ph146.i.i
@@ -14847,7 +14847,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %172 = load double, ptr %171, align 8
   %173 = tail call double @llvm.fmuladd.f64(double %169, double %.0125149.i.i, double %172)
   store double %173, ptr %168, align 8
-  %174 = trunc i64 %indvars.iv181.i.i to i32
+  %174 = trunc nuw i64 %indvars.iv181.i.i to i32
   %175 = icmp sgt i32 %174, 2
   br i1 %175, label %.lr.ph146.i.i, label %.loopexit140.i.i, !llvm.loop !186
 

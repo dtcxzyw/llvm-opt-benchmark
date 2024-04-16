@@ -785,7 +785,7 @@ php_output_handler_append.exit.thread:            ; preds = %.php_output_handler
   %93 = getelementptr inbounds i8, ptr %92, i64 64
   %94 = call i32 @zend_call_function(ptr noundef %92, ptr noundef nonnull %93) #20
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %115
+  br i1 %95, label %96, label %140
 
 96:                                               ; preds = %69
   %97 = getelementptr inbounds i8, ptr %4, i64 8
@@ -824,7 +824,7 @@ php_output_handler_append.exit.thread:            ; preds = %.php_output_handler
   store i32 %114, ptr %112, align 8
   br label %140
 
-115:                                              ; preds = %96, %96, %69
+115:                                              ; preds = %96, %96
   br label %140
 
 116:                                              ; preds = %64
@@ -877,8 +877,8 @@ php_output_context_feed.exit:                     ; preds = %116, %122, %124
   store ptr null, ptr getelementptr inbounds (%struct._zend_output_globals, ptr @output_globals, i64 0, i32 2), align 8
   br i1 %.not123, label %.thread140, label %.thread144
 
-140:                                              ; preds = %115, %100, %104, %96
-  %.0114 = phi i32 [ 0, %115 ], [ 1, %104 ], [ 2, %100 ], [ 2, %96 ]
+140:                                              ; preds = %115, %100, %104, %96, %69
+  %.0114 = phi i32 [ 1, %104 ], [ 2, %100 ], [ 2, %96 ], [ 0, %69 ], [ 0, %115 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #20
   call void @zval_ptr_dtor(ptr noundef nonnull %81) #20
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #20

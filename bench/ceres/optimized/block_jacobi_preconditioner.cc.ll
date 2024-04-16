@@ -998,7 +998,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i.i.i:    ; preds = %235, %_ZN5ceres8int
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
-  %242 = trunc i64 %indvars.iv.next.i.i.i to i32
+  %242 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   %.not.i.i.i.i = icmp eq i32 %197, %242
   br i1 %.not.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_31BlockSparseJacobiPreconditioner10UpdateImplERKNS0_17BlockSparseMatrixEPKdE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %.lr.ph.i.i.i.i, !llvm.loop !18
 
@@ -1285,7 +1285,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i14:   ; preds = %_ZN6google22MakeChe
   %351 = load i32, ptr %350, align 4
   %352 = getelementptr inbounds i8, ptr %347, i64 80
   %353 = load ptr, ptr %352, align 8
-  %354 = trunc i64 %indvars.iv.i.i to i32
+  %354 = trunc nsw i64 %indvars.iv.i.i to i32
   %355 = call noundef ptr @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrix7GetCellEiiPiS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(56) %353, i32 noundef %354, i32 noundef %354, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %356 = load ptr, ptr %355, align 8
   %357 = load i32, ptr %13, align 4
@@ -1541,7 +1541,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i48:          ; preds = %445, %442, %440
   %472 = load i32, ptr %471, align 4
   %473 = getelementptr inbounds i8, ptr %468, i64 80
   %474 = load ptr, ptr %473, align 8
-  %475 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %475 = trunc nsw i64 %indvars.iv.i.i.i.i to i32
   %476 = invoke noundef ptr @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrix7GetCellEiiPiS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(56) %474, i32 noundef %475, i32 noundef %475, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
           to label %.noexc.i.i44 unwind label %.loopexit.i.i42
 
@@ -1588,7 +1588,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i48:          ; preds = %445, %442, %440
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
-  %505 = trunc i64 %indvars.iv.next.i.i.i.i to i32
+  %505 = trunc nsw i64 %indvars.iv.next.i.i.i.i to i32
   %.not.i.i.i.i45 = icmp eq i32 %465, %505
   br i1 %.not.i.i.i.i45, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_31BlockSparseJacobiPreconditioner10UpdateImplERKNS0_17BlockSparseMatrixEPKdE3$_1EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %467, !llvm.loop !25
 
@@ -1960,7 +1960,7 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
   br label %.body
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %80 = trunc i64 %indvars.iv.next to i32
+  %80 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -5089,7 +5089,7 @@ _ZN5Eigen8internal26triangular_solver_selectorIKNS_9TransposeIKNS_6MatrixIdLin1E
   call void @free(ptr noundef %1294) #24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
-  %1295 = trunc i64 %indvars.iv.next.i.i.i to i32
+  %1295 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   %.not.i.i.i.i72 = icmp eq i32 %491, %1295
   br i1 %.not.i.i.i.i72, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_28BlockCRSJacobiPreconditioner10UpdateImplERKNS0_25CompressedRowSparseMatrixEPKdE3$_1EEviSt5tupleIJiiEEOT_.exit.i.i.i", label %.lr.ph.i.i.i.i71, !llvm.loop !68
 
@@ -5603,7 +5603,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %58 = add nsw i64 %55, -1
   %59 = add i32 %8, %7
   %60 = add i32 %59, %51
-  %61 = trunc i64 %58 to i32
+  %61 = trunc nsw i64 %58 to i32
   %62 = add i32 %60, %61
   %63 = icmp slt i32 %62, %60
   %64 = icmp ugt i64 %58, 4294967295
@@ -5717,7 +5717,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us.us.us
   %indvars.iv225 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next226, %._crit_edge.split.us.us.us ]
-  %119 = trunc i64 %indvars.iv225 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv225 to i32
   %120 = add i32 %119, %8
   %121 = getelementptr inbounds double, ptr %3, i64 %indvars.iv225
   br label %.lr.ph.i.preheader.us.us.us
@@ -5857,7 +5857,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph164
   %213 = add i32 %8, %7
   %scevgep = getelementptr i8, ptr %6, i64 16
   %ident.check = icmp ne i32 %10, 1
-  %214 = trunc i64 %212 to i32
+  %214 = trunc nsw i64 %212 to i32
   %215 = icmp ugt i64 %212, 4294967295
   br label %.preheader.i.us.lver.check
 
@@ -5868,7 +5868,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph164
 
 .preheader.us.us166:                              ; preds = %.preheader.us.us166.preheader, %._crit_edge.split.split.us.us.us
   %indvars.iv217 = phi i64 [ 0, %.preheader.us.us166.preheader ], [ %indvars.iv.next218, %._crit_edge.split.split.us.us.us ]
-  %217 = trunc i64 %indvars.iv217 to i32
+  %217 = trunc nuw nsw i64 %indvars.iv217 to i32
   %218 = add i32 %217, %8
   %219 = getelementptr inbounds double, ptr %3, i64 %indvars.iv217
   br label %.preheader.i.us134.us.us
@@ -6189,7 +6189,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
+  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6200,19 +6200,17 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8i
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %10, 42
-  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
+  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
-  br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
+  %spec.select = select i1 %12, ptr %3, ptr null
+  br label %_ZNKSt9type_infoeqERKS_.exit.thread
 
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %5, %_ZNKSt9type_infoeqERKS_.exit
-  br label %_ZNKSt9type_infoeqERKS_.exit.thread8
-
-_ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %2
-  %.0 = phi ptr [ %3, %2 ], [ %3, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ]
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %9, %5, %2
+  %.0 = phi ptr [ %3, %2 ], [ %3, %5 ], [ null, %9 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %.0
 }
 
@@ -6807,7 +6805,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.i:          ; preds = %163, %_ZN5ceres8int
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %170 = trunc i64 %indvars.iv.next to i32
+  %170 = trunc nsw i64 %indvars.iv.next to i32
   %.not.i = icmp eq i32 %122, %170
   br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_31BlockSparseJacobiPreconditioner10UpdateImplERKNS0_17BlockSparseMatrixEPKdE3$_0EEviSt5tupleIJiiEEOT_.exit", label %.lr.ph.i, !llvm.loop !18
 
@@ -7632,7 +7630,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %99, %96, %94
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds i8, ptr %128, i64 80
   %134 = load ptr, ptr %133, align 8
-  %135 = trunc i64 %indvars.iv.i to i32
+  %135 = trunc nsw i64 %indvars.iv.i to i32
   %136 = call noundef ptr @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrix7GetCellEiiPiS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(56) %134, i32 noundef %135, i32 noundef %135, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %137 = load ptr, ptr %136, align 8
   %138 = load i32, ptr %6, align 4
@@ -7676,7 +7674,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %99, %96, %94
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %165 = trunc i64 %indvars.iv.next.i to i32
+  %165 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not.i = icmp eq i32 %122, %165
   br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_31BlockSparseJacobiPreconditioner10UpdateImplERKNS0_17BlockSparseMatrixEPKdE3$_1EEviSt5tupleIJiiEEOT_.exit", label %127, !llvm.loop !25
 
@@ -19863,7 +19861,7 @@ _ZN5Eigen8internal26triangular_solver_selectorIKNS_9TransposeIKNS_6MatrixIdLin1E
   call void @free(ptr noundef %993) #24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %994 = trunc i64 %indvars.iv.next to i32
+  %994 = trunc nsw i64 %indvars.iv.next to i32
   %.not.i = icmp eq i32 %172, %994
   br i1 %.not.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_28BlockCRSJacobiPreconditioner10UpdateImplERKNS0_25CompressedRowSparseMatrixEPKdE3$_1EEviSt5tupleIJiiEEOT_.exit", label %.lr.ph.i, !llvm.loop !68
 

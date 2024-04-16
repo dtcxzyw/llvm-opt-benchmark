@@ -4677,8 +4677,8 @@ if.end9.i:                                        ; preds = %if.end.i
     i16 58, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit
     i16 32, label %if.end10
     i16 59, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit354
-    i16 46, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit394
-    i16 44, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit442
+    i16 46, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit392
+    i16 44, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit440
     i16 33, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread
     i16 61, label %sw.bb16.i
     i16 37, label %sw.bb17.i
@@ -4711,14 +4711,14 @@ _ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit: ; preds = %if.end
 _ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit354: ; preds = %if.end9.i
   br label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread
 
-_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit394: ; preds = %if.end9.i
+_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit392: ; preds = %if.end9.i
   br label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread
 
-_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit442: ; preds = %if.end9.i
+_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit440: ; preds = %if.end9.i
   br label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread
 
-_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread: ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.end.i, %while.body, %if.end9.i, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit442, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit394, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit354, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit, %sw.default.i, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i
-  %retval.0.i.ph = phi i32 [ 16, %sw.bb16.i ], [ 13, %sw.bb17.i ], [ 6, %sw.bb18.i ], [ 9, %sw.bb19.i ], [ 18, %sw.bb20.i ], [ 5, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit ], [ 0, %sw.default.i ], [ 3, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit354 ], [ 7, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit394 ], [ 17, %if.end9.i ], [ 0, %while.body ], [ 10, %if.end.i ], [ 1, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 2, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit442 ]
+_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread: ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.end.i, %while.body, %if.end9.i, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit440, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit392, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit354, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.default.i
+  %retval.0.i.ph = phi i32 [ 0, %sw.default.i ], [ 16, %sw.bb16.i ], [ 13, %sw.bb17.i ], [ 6, %sw.bb18.i ], [ 9, %sw.bb19.i ], [ 18, %sw.bb20.i ], [ 5, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit ], [ 3, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit354 ], [ 7, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit392 ], [ 17, %if.end9.i ], [ 10, %if.end.i ], [ 1, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 0, %while.body ], [ 2, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread.loopexit440 ]
   store i32 %retval.0.i.ph, ptr %type, align 8
   %.pre = load i16, ptr %fUnion.i.i, align 8
   %.pre347 = load i32, ptr %fLength.i, align 4
@@ -4777,37 +4777,37 @@ while.cond47.preheader:                           ; preds = %if.end18
   %fBuffer.i.i.i93 = getelementptr inbounds i8, ptr %1, i64 10
   %fArray.i.i.i94 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = sext i32 %23 to i64
-  %indvars.iv.next342423 = add nsw i64 %26, 1
+  %indvars.iv.next342421 = add nsw i64 %26, 1
   %27 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i80424 = icmp slt i16 %27, 0
+  %cmp.i.i80422 = icmp slt i16 %27, 0
   %28 = ashr i16 %27, 5
-  %shr.i.i81425 = sext i16 %28 to i32
+  %shr.i.i81423 = sext i16 %28 to i32
   %29 = load i32, ptr %fLength.i, align 4
-  %cond.i83426 = select i1 %cmp.i.i80424, i32 %29, i32 %shr.i.i81425
-  %30 = sext i32 %cond.i83426 to i64
-  %cmp54427 = icmp slt i64 %indvars.iv.next342423, %30
-  %31 = trunc nsw i64 %indvars.iv.next342423 to i32
-  %cmp.i.i89428 = icmp ugt i32 %cond.i83426, %31
-  %or.cond392429 = select i1 %cmp54427, i1 %cmp.i.i89428, i1 false
-  br i1 %or.cond392429, label %_ZNK6icu_7513UnicodeString6charAtEi.exit98, label %while.end61
+  %cond.i83424 = select i1 %cmp.i.i80422, i32 %29, i32 %shr.i.i81423
+  %30 = sext i32 %cond.i83424 to i64
+  %cmp54425 = icmp slt i64 %indvars.iv.next342421, %30
+  %31 = trunc nsw i64 %indvars.iv.next342421 to i32
+  %cmp.i.i89426 = icmp ugt i32 %cond.i83424, %31
+  %or.cond390427 = select i1 %cmp54425, i1 %cmp.i.i89426, i1 false
+  br i1 %or.cond390427, label %_ZNK6icu_7513UnicodeString6charAtEi.exit98, label %while.end61
 
 while.cond32.preheader:                           ; preds = %if.end18
   %fBuffer.i.i.i56 = getelementptr inbounds i8, ptr %1, i64 10
   %fArray.i.i.i57 = getelementptr inbounds i8, ptr %1, i64 24
   %32 = sext i32 %23 to i64
-  %indvars.iv.next345432 = add nsw i64 %32, 1
+  %indvars.iv.next345430 = add nsw i64 %32, 1
   %33 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i43433 = icmp slt i16 %33, 0
+  %cmp.i.i43431 = icmp slt i16 %33, 0
   %34 = ashr i16 %33, 5
-  %shr.i.i44434 = sext i16 %34 to i32
+  %shr.i.i44432 = sext i16 %34 to i32
   %35 = load i32, ptr %fLength.i, align 4
-  %cond.i46435 = select i1 %cmp.i.i43433, i32 %35, i32 %shr.i.i44434
-  %36 = sext i32 %cond.i46435 to i64
-  %cmp38436 = icmp slt i64 %indvars.iv.next345432, %36
-  %37 = trunc nsw i64 %indvars.iv.next345432 to i32
-  %cmp.i.i52437 = icmp ugt i32 %cond.i46435, %37
-  %or.cond391438 = select i1 %cmp38436, i1 %cmp.i.i52437, i1 false
-  br i1 %or.cond391438, label %_ZNK6icu_7513UnicodeString6charAtEi.exit61, label %while.end44
+  %cond.i46433 = select i1 %cmp.i.i43431, i32 %35, i32 %shr.i.i44432
+  %36 = sext i32 %cond.i46433 to i64
+  %cmp38434 = icmp slt i64 %indvars.iv.next345430, %36
+  %37 = trunc nsw i64 %indvars.iv.next345430 to i32
+  %cmp.i.i52435 = icmp ugt i32 %cond.i46433, %37
+  %or.cond389436 = select i1 %cmp38434, i1 %cmp.i.i52435, i1 false
+  br i1 %or.cond389436, label %_ZNK6icu_7513UnicodeString6charAtEi.exit61, label %while.end44
 
 sw.bb:                                            ; preds = %if.end18, %if.end18, %if.end18, %if.end18, %if.end18, %if.end18, %if.end18, %if.end18
   %inc21 = add nsw i32 %23, 1
@@ -4842,20 +4842,20 @@ if.else:                                          ; preds = %sw.bb22, %_ZNK6icu_
 _ZNK6icu_7513UnicodeString6charAtEi.exit61:       ; preds = %while.cond32.preheader, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78
   %41 = phi i32 [ %51, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78 ], [ %37, %while.cond32.preheader ]
   %42 = phi i16 [ %47, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78 ], [ %33, %while.cond32.preheader ]
-  %indvars.iv.next345439 = phi i64 [ %indvars.iv.next345, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78 ], [ %indvars.iv.next345432, %while.cond32.preheader ]
+  %indvars.iv.next345437 = phi i64 [ %indvars.iv.next345, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78 ], [ %indvars.iv.next345430, %while.cond32.preheader ]
   %43 = and i16 %42, 2
   %tobool.not.i.i.i55 = icmp eq i16 %43, 0
   %44 = load ptr, ptr %fArray.i.i.i57, align 8
   %cond.i2.i.i58 = select i1 %tobool.not.i.i.i55, ptr %44, ptr %fBuffer.i.i.i56
-  %arrayidx.i.i60 = getelementptr inbounds i16, ptr %cond.i2.i.i58, i64 %indvars.iv.next345439
+  %arrayidx.i.i60 = getelementptr inbounds i16, ptr %cond.i2.i.i58, i64 %indvars.iv.next345437
   %45 = load i16, ptr %arrayidx.i.i60, align 2
   %46 = add i16 %45, -97
-  %or.cond393 = icmp ult i16 %46, 26
-  br i1 %or.cond393, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78, label %while.end44
+  %or.cond391 = icmp ult i16 %46, 26
+  br i1 %or.cond391, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78, label %while.end44
 
 _ZN6icu_7516PluralRuleParser8charTypeEDs.exit78:  ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit61
   store i32 10, ptr %type20, align 8
-  %indvars.iv.next345 = add nsw i64 %indvars.iv.next345439, 1
+  %indvars.iv.next345 = add nsw i64 %indvars.iv.next345437, 1
   %47 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i43 = icmp slt i16 %47, 0
   %48 = ashr i16 %47, 5
@@ -4866,8 +4866,8 @@ _ZN6icu_7516PluralRuleParser8charTypeEDs.exit78:  ; preds = %_ZNK6icu_7513Unicod
   %cmp38 = icmp slt i64 %indvars.iv.next345, %50
   %51 = trunc nsw i64 %indvars.iv.next345 to i32
   %cmp.i.i52 = icmp ugt i32 %cond.i46, %51
-  %or.cond391 = select i1 %cmp38, i1 %cmp.i.i52, i1 false
-  br i1 %or.cond391, label %_ZNK6icu_7513UnicodeString6charAtEi.exit61, label %while.end44, !llvm.loop !45
+  %or.cond389 = select i1 %cmp38, i1 %cmp.i.i52, i1 false
+  br i1 %or.cond389, label %_ZNK6icu_7513UnicodeString6charAtEi.exit61, label %while.end44, !llvm.loop !45
 
 while.end44:                                      ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit61, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78, %while.cond32.preheader
   %.lcssa = phi i32 [ %37, %while.cond32.preheader ], [ %41, %_ZNK6icu_7513UnicodeString6charAtEi.exit61 ], [ %51, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78 ]
@@ -4877,12 +4877,12 @@ while.end44:                                      ; preds = %_ZNK6icu_7513Unicod
 _ZNK6icu_7513UnicodeString6charAtEi.exit98:       ; preds = %while.cond47.preheader, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115
   %52 = phi i32 [ %62, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115 ], [ %31, %while.cond47.preheader ]
   %53 = phi i16 [ %58, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115 ], [ %27, %while.cond47.preheader ]
-  %indvars.iv.next342430 = phi i64 [ %indvars.iv.next342, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115 ], [ %indvars.iv.next342423, %while.cond47.preheader ]
+  %indvars.iv.next342428 = phi i64 [ %indvars.iv.next342, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115 ], [ %indvars.iv.next342421, %while.cond47.preheader ]
   %54 = and i16 %53, 2
   %tobool.not.i.i.i92 = icmp eq i16 %54, 0
   %55 = load ptr, ptr %fArray.i.i.i94, align 8
   %cond.i2.i.i95 = select i1 %tobool.not.i.i.i92, ptr %55, ptr %fBuffer.i.i.i93
-  %arrayidx.i.i97 = getelementptr inbounds i16, ptr %cond.i2.i.i95, i64 %indvars.iv.next342430
+  %arrayidx.i.i97 = getelementptr inbounds i16, ptr %cond.i2.i.i95, i64 %indvars.iv.next342428
   %56 = load i16, ptr %arrayidx.i.i97, align 2
   %57 = add i16 %56, -48
   %or.cond.i99 = icmp ult i16 %57, 10
@@ -4890,7 +4890,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit98:       ; preds = %while.cond47.prehea
 
 _ZN6icu_7516PluralRuleParser8charTypeEDs.exit115: ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit98
   store i32 1, ptr %type20, align 8
-  %indvars.iv.next342 = add nsw i64 %indvars.iv.next342430, 1
+  %indvars.iv.next342 = add nsw i64 %indvars.iv.next342428, 1
   %58 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i80 = icmp slt i16 %58, 0
   %59 = ashr i16 %58, 5
@@ -4901,11 +4901,11 @@ _ZN6icu_7516PluralRuleParser8charTypeEDs.exit115: ; preds = %_ZNK6icu_7513Unicod
   %cmp54 = icmp slt i64 %indvars.iv.next342, %61
   %62 = trunc nsw i64 %indvars.iv.next342 to i32
   %cmp.i.i89 = icmp ugt i32 %cond.i83, %62
-  %or.cond392 = select i1 %cmp54, i1 %cmp.i.i89, i1 false
-  br i1 %or.cond392, label %_ZNK6icu_7513UnicodeString6charAtEi.exit98, label %while.end61, !llvm.loop !46
+  %or.cond390 = select i1 %cmp54, i1 %cmp.i.i89, i1 false
+  br i1 %or.cond390, label %_ZNK6icu_7513UnicodeString6charAtEi.exit98, label %while.end61, !llvm.loop !46
 
 while.end61:                                      ; preds = %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115, %_ZNK6icu_7513UnicodeString6charAtEi.exit98, %while.cond47.preheader
-  %.lcssa395 = phi i32 [ %31, %while.cond47.preheader ], [ %62, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115 ], [ %52, %_ZNK6icu_7513UnicodeString6charAtEi.exit98 ]
+  %.lcssa393 = phi i32 [ %31, %while.cond47.preheader ], [ %62, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115 ], [ %52, %_ZNK6icu_7513UnicodeString6charAtEi.exit98 ]
   store i32 1, ptr %type20, align 8
   br label %sw.epilog
 
@@ -4962,7 +4962,7 @@ sw.default:                                       ; preds = %if.end18
 sw.epilog:                                        ; preds = %sw.bb63, %_ZNK6icu_7513UnicodeString6charAtEi.exit135, %if.then26, %if.else, %sw.default, %if.end89, %if.then86, %while.end61, %while.end44, %sw.bb
   %67 = phi i32 [ %.pre349, %sw.default ], [ %20, %if.then86 ], [ %20, %if.end89 ], [ %20, %while.end61 ], [ %20, %while.end44 ], [ %20, %if.then26 ], [ %20, %if.else ], [ %20, %sw.bb ], [ %20, %_ZNK6icu_7513UnicodeString6charAtEi.exit135 ], [ %20, %sw.bb63 ]
   %68 = phi ptr [ %.pre348, %sw.default ], [ %1, %if.then86 ], [ %1, %if.end89 ], [ %1, %while.end61 ], [ %1, %while.end44 ], [ %1, %if.then26 ], [ %1, %if.else ], [ %1, %sw.bb ], [ %1, %_ZNK6icu_7513UnicodeString6charAtEi.exit135 ], [ %1, %sw.bb63 ]
-  %curIndex.4 = phi i32 [ %inc92, %sw.default ], [ %add76, %if.then86 ], [ %add91, %if.end89 ], [ %.lcssa395, %while.end61 ], [ %.lcssa, %while.end44 ], [ %add27, %if.then26 ], [ %add, %if.else ], [ %inc21, %sw.bb ], [ %add64, %_ZNK6icu_7513UnicodeString6charAtEi.exit135 ], [ %add64, %sw.bb63 ]
+  %curIndex.4 = phi i32 [ %inc92, %sw.default ], [ %add76, %if.then86 ], [ %add91, %if.end89 ], [ %.lcssa393, %while.end61 ], [ %.lcssa, %while.end44 ], [ %add27, %if.then26 ], [ %add, %if.else ], [ %inc21, %sw.bb ], [ %add64, %_ZNK6icu_7513UnicodeString6charAtEi.exit135 ], [ %add64, %sw.bb63 ]
   %sub = sub nsw i32 %curIndex.4, %67
   call void @_ZN6icu_7513UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %68, i32 noundef %67, i32 noundef %sub)
   %token = getelementptr inbounds i8, ptr %this, i64 24

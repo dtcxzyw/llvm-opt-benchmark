@@ -523,7 +523,7 @@ kdf_argon2_ctx_set_pwd.exit.thread:               ; preds = %if.then2, %if.end6.
   br label %return
 
 kdf_argon2_ctx_set_pwd.exit:                      ; preds = %if.end9.i
-  %conv14.i = trunc i64 %3 to i32
+  %conv14.i = trunc nuw i64 %3 to i32
   %pwdlen18.i = getelementptr inbounds i8, ptr %vctx, i64 24
   store i32 %conv14.i, ptr %pwdlen18.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i)
@@ -596,7 +596,7 @@ kdf_argon2_ctx_set_salt.exit.thread:              ; preds = %if.then9, %if.end6.
   br label %return
 
 kdf_argon2_ctx_set_salt.exit:                     ; preds = %if.end13.i48
-  %conv18.i = trunc i64 %8 to i32
+  %conv18.i = trunc nuw i64 %8 to i32
   %saltlen22.i = getelementptr inbounds i8, ptr %vctx, i64 40
   store i32 %conv18.i, ptr %saltlen22.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i36)
@@ -653,7 +653,7 @@ kdf_argon2_ctx_set_secret.exit.thread:            ; preds = %if.then17, %if.end6
   br label %return
 
 kdf_argon2_ctx_set_secret.exit:                   ; preds = %if.end9.i64
-  %conv17.i = trunc i64 %13 to i32
+  %conv17.i = trunc nuw i64 %13 to i32
   %secretlen18.i = getelementptr inbounds i8, ptr %vctx, i64 56
   store i32 %conv17.i, ptr %secretlen18.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i54)
@@ -710,7 +710,7 @@ kdf_argon2_ctx_set_ad.exit.thread:                ; preds = %if.then25, %if.end6
   br label %return
 
 kdf_argon2_ctx_set_ad.exit:                       ; preds = %if.end9.i80
-  %conv17.i83 = trunc i64 %18 to i32
+  %conv17.i83 = trunc nuw i64 %18 to i32
   %adlen18.i = getelementptr inbounds i8, ptr %vctx, i64 72
   store i32 %conv17.i83, ptr %adlen18.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i70)
@@ -873,7 +873,7 @@ if.end105:                                        ; preds = %if.then101
 if.end110:                                        ; preds = %if.end105, %if.end98
   %call111 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.23) #9
   %cmp112.not = icmp eq ptr %call111, null
-  br i1 %cmp112.not, label %if.end119, label %if.then113
+  br i1 %cmp112.not, label %return, label %if.then113
 
 if.then113:                                       ; preds = %if.end110
   %data_type = getelementptr inbounds i8, ptr %call111, i64 8
@@ -885,14 +885,10 @@ lor.lhs.false:                                    ; preds = %if.then113
   %data = getelementptr inbounds i8, ptr %call111, i64 16
   %28 = load ptr, ptr %data, align 8
   %call115 = call fastcc i32 @set_property_query(ptr noundef %vctx, ptr noundef %28), !range !4
-  %tobool116.not = icmp eq i32 %call115, 0
-  br i1 %tobool116.not, label %return, label %if.end119
-
-if.end119:                                        ; preds = %lor.lhs.false, %if.end110
   br label %return
 
-return:                                           ; preds = %if.then2.i99, %if.then.i100, %kdf_argon2_ctx_set_t_cost.exit.thread, %kdf_argon2_ctx_set_out_length.exit.thread, %kdf_argon2_ctx_set_ad.exit.thread124, %kdf_argon2_ctx_set_ad.exit.thread, %kdf_argon2_ctx_set_secret.exit.thread117, %kdf_argon2_ctx_set_secret.exit.thread, %kdf_argon2_ctx_set_salt.exit.thread110, %kdf_argon2_ctx_set_salt.exit.thread, %kdf_argon2_ctx_set_pwd.exit.thread103, %kdf_argon2_ctx_set_pwd.exit.thread, %if.then113, %lor.lhs.false, %if.end105, %if.then101, %if.then93, %if.end85, %if.then81, %if.end73, %if.then69, %if.then57, %if.then45, %if.then33, %entry, %if.end119
-  %retval.0 = phi i32 [ 1, %if.end119 ], [ 1, %entry ], [ 0, %if.then33 ], [ 0, %if.then45 ], [ 0, %if.then57 ], [ 0, %if.then69 ], [ 0, %if.end73 ], [ 0, %if.then81 ], [ 0, %if.end85 ], [ 0, %if.then93 ], [ 0, %if.then101 ], [ 0, %if.end105 ], [ 0, %lor.lhs.false ], [ 0, %if.then113 ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread103 ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread110 ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread117 ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread124 ], [ 0, %kdf_argon2_ctx_set_out_length.exit.thread ], [ 0, %kdf_argon2_ctx_set_t_cost.exit.thread ], [ 0, %if.then.i100 ], [ 0, %if.then2.i99 ]
+return:                                           ; preds = %if.then2.i99, %if.then.i100, %kdf_argon2_ctx_set_t_cost.exit.thread, %kdf_argon2_ctx_set_out_length.exit.thread, %kdf_argon2_ctx_set_ad.exit.thread124, %kdf_argon2_ctx_set_ad.exit.thread, %kdf_argon2_ctx_set_secret.exit.thread117, %kdf_argon2_ctx_set_secret.exit.thread, %kdf_argon2_ctx_set_salt.exit.thread110, %kdf_argon2_ctx_set_salt.exit.thread, %kdf_argon2_ctx_set_pwd.exit.thread103, %kdf_argon2_ctx_set_pwd.exit.thread, %lor.lhs.false, %if.end110, %if.then113, %if.end105, %if.then101, %if.then93, %if.end85, %if.then81, %if.end73, %if.then69, %if.then57, %if.then45, %if.then33, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then33 ], [ 0, %if.then45 ], [ 0, %if.then57 ], [ 0, %if.then69 ], [ 0, %if.end73 ], [ 0, %if.then81 ], [ 0, %if.end85 ], [ 0, %if.then93 ], [ 0, %if.then101 ], [ 0, %if.end105 ], [ 0, %if.then113 ], [ 1, %if.end110 ], [ %call115, %lor.lhs.false ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread ], [ 0, %kdf_argon2_ctx_set_pwd.exit.thread103 ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread ], [ 0, %kdf_argon2_ctx_set_salt.exit.thread110 ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread ], [ 0, %kdf_argon2_ctx_set_secret.exit.thread117 ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread ], [ 0, %kdf_argon2_ctx_set_ad.exit.thread124 ], [ 0, %kdf_argon2_ctx_set_out_length.exit.thread ], [ 0, %kdf_argon2_ctx_set_t_cost.exit.thread ], [ 0, %if.then.i100 ], [ 0, %if.then2.i99 ]
   ret i32 %retval.0
 }
 
@@ -1145,7 +1141,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
   %conv5.i.i = trunc i32 %shr4.i.i to i8
   store i8 %conv5.i.i, ptr %arrayidx6.i.i, align 1
   %shr7.i.i = lshr i32 %11, 24
-  %conv8.i.i = trunc i32 %shr7.i.i to i8
+  %conv8.i.i = trunc nuw i32 %shr7.i.i to i8
   store i8 %conv8.i.i, ptr %arrayidx9.i.i, align 1
   %call17.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
   %cmp18.not.i = icmp eq i32 %call17.i, 1
@@ -1153,7 +1149,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.con
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = trunc i64 %indvars.iv.next to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %12, ptr %tmp.i, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -1197,7 +1193,7 @@ if.end39.i:                                       ; preds = %if.then33.i, %if.en
   %conv5.i52.i = trunc i32 %shr4.i51.i to i8
   store i8 %conv5.i52.i, ptr %arrayidx6.i.i, align 1
   %shr7.i54.i = lshr i32 %18, 24
-  %conv8.i55.i = trunc i32 %shr7.i54.i to i8
+  %conv8.i55.i = trunc nuw i32 %shr7.i54.i to i8
   store i8 %conv8.i55.i, ptr %arrayidx9.i.i, align 1
   %call40.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
   %cmp41.not.i = icmp eq i32 %call40.i, 1
@@ -1228,7 +1224,7 @@ if.end56.i:                                       ; preds = %if.then47.i, %if.en
   %conv5.i62.i = trunc i32 %shr4.i61.i to i8
   store i8 %conv5.i62.i, ptr %arrayidx6.i.i, align 1
   %shr7.i64.i = lshr i32 %21, 24
-  %conv8.i65.i = trunc i32 %shr7.i64.i to i8
+  %conv8.i65.i = trunc nuw i32 %shr7.i64.i to i8
   store i8 %conv8.i65.i, ptr %arrayidx9.i.i, align 1
   %call57.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
   %cmp58.not.i = icmp eq i32 %call57.i, 1
@@ -1273,7 +1269,7 @@ if.end81.i:                                       ; preds = %if.then75.i, %if.en
   %conv5.i72.i = trunc i32 %shr4.i71.i to i8
   store i8 %conv5.i72.i, ptr %arrayidx6.i.i, align 1
   %shr7.i74.i = lshr i32 %27, 24
-  %conv8.i75.i = trunc i32 %shr7.i74.i to i8
+  %conv8.i75.i = trunc nuw i32 %shr7.i74.i to i8
   store i8 %conv8.i75.i, ptr %arrayidx9.i.i, align 1
   %call82.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
   %cmp83.not.i = icmp eq i32 %call82.i, 1
@@ -1330,7 +1326,7 @@ for.body.i16:                                     ; preds = %load_block.exit30.i
   %conv5.i.i21 = trunc i32 %shr4.i.i20 to i8
   store i8 %conv5.i.i21, ptr %arrayidx6.i18.i, align 2
   %shr7.i.i22 = lshr i32 %l.032.i, 24
-  %conv8.i.i23 = trunc i32 %shr7.i.i22 to i8
+  %conv8.i.i23 = trunc nuw i32 %shr7.i.i22 to i8
   store i8 %conv8.i.i23, ptr %arrayidx9.i19.i, align 1
   %31 = load ptr, ptr %md.i15, align 8
   call fastcc void @blake2b_long(ptr noundef %31, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72)
@@ -1427,7 +1423,7 @@ for.cond4.preheader.i:                            ; preds = %for.cond1.preheader
   br i1 %cmp59.not.i, label %for.inc7.i, label %for.body6.lr.ph.i
 
 for.body6.lr.ph.i:                                ; preds = %for.cond4.preheader.i
-  %conv.i = trunc i32 %s.011.i to i8
+  %conv.i = trunc nuw nsw i32 %s.011.i to i8
   br label %for.body6.i
 
 for.body6.i:                                      ; preds = %for.body6.i, %for.body6.lr.ph.i
@@ -1495,7 +1491,7 @@ for.cond14.preheader.i:                           ; preds = %for.inc107.i, %for.
   br i1 %cmp1665.not.i, label %for.inc107.i, label %for.body18.lr.ph.i
 
 for.body18.lr.ph.i:                               ; preds = %for.cond14.preheader.i
-  %conv40.i = trunc i32 %s.069.i to i8
+  %conv40.i = trunc nuw nsw i32 %s.069.i to i8
   br label %for.body18.i
 
 for.body18.i:                                     ; preds = %for.inc77.i, %for.body18.lr.ph.i
@@ -1681,7 +1677,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %xor_block.exit
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %xor_block.exit ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %mul = mul i32 %1, %3
   %add = add i32 %sub, %mul
   %idx.ext6 = zext i32 %add to i64
@@ -1741,7 +1737,7 @@ for.body.i17:                                     ; preds = %for.body.i17.prehea
   %arrayidx18.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 6
   store i8 %conv17.i.i, ptr %arrayidx18.i.i, align 2
   %shr19.i.i = lshr i64 %6, 56
-  %conv20.i.i = trunc i64 %shr19.i.i to i8
+  %conv20.i.i = trunc nuw i64 %shr19.i.i to i8
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 7
   store i8 %conv20.i.i, ptr %arrayidx21.i.i, align 1
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
@@ -1809,7 +1805,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %outlen to i32
+  %conv = trunc nuw i64 %outlen to i32
   %conv.i = trunc i64 %outlen to i8
   store i8 %conv.i, ptr %outlen_bytes, align 1
   %shr1.i1 = lshr i64 %outlen, 8
@@ -2123,7 +2119,7 @@ if.end66:                                         ; preds = %if.else61, %if.end5
   %rnd.0 = load i64, ptr %rnd.0.in, align 8
   %shr = lshr i64 %rnd.0, 32
   %11 = load i32, ptr %lanes, align 4
-  %rem68.lhs.trunc = trunc i64 %shr to i32
+  %rem68.lhs.trunc = trunc nuw i64 %shr to i32
   %rem6893 = urem i32 %rem68.lhs.trunc, %11
   %rem68.zext = zext i32 %rem6893 to i64
   %spec.select58 = select i1 %or.cond, i64 %conv76, i64 %rem68.zext

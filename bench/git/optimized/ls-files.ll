@@ -803,7 +803,7 @@ for.body:                                         ; preds = %if.end388, %for.bod
   %dec = add nsw i32 %8, -1
   store i32 %dec, ptr @exclude_args, align 4
   call void @add_pattern(ptr noundef %7, ptr noundef nonnull @.str.61, i32 noundef 0, ptr noundef %call391, i32 noundef %dec) #15
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i64, ptr %nr, align 8
   %cmp393 = icmp ugt i64 %9, %indvars.iv.next
   br i1 %cmp393, label %for.body, label %for.end, !llvm.loop !5
@@ -871,22 +871,19 @@ if.end420:                                        ; preds = %if.end413, %if.then
   %21 = load i32, ptr @show_deleted, align 4
   %tobool425 = icmp ne i32 %21, 0
   %or.cond9 = select i1 %or.cond8, i1 true, i1 %tobool425
-  br i1 %or.cond9, label %if.then431, label %lor.lhs.false426
+  br i1 %or.cond9, label %if.end432, label %lor.lhs.false426
 
 lor.lhs.false426:                                 ; preds = %if.end420
   %22 = load i32, ptr %dir, align 8
   %and = and i32 %22, 1
-  %tobool428 = icmp ne i32 %and, 0
+  %tobool428 = icmp eq i32 %and, 0
   %23 = load i32, ptr @show_killed, align 4
-  %tobool430 = icmp ne i32 %23, 0
-  %or.cond10 = select i1 %tobool428, i1 true, i1 %tobool430
-  br i1 %or.cond10, label %if.then431, label %if.end432
-
-if.then431:                                       ; preds = %lor.lhs.false426, %if.end420
+  %tobool430 = icmp eq i32 %23, 0
+  %or.cond10.not = select i1 %tobool428, i1 %tobool430, i1 false
   br label %if.end432
 
-if.end432:                                        ; preds = %lor.lhs.false426, %if.then431
-  %tobool445.not = phi i1 [ false, %if.then431 ], [ true, %lor.lhs.false426 ]
+if.end432:                                        ; preds = %lor.lhs.false426, %if.end420
+  %tobool445.not = phi i1 [ false, %if.end420 ], [ %or.cond10.not, %lor.lhs.false426 ]
   %24 = load i32, ptr @show_unmerged, align 4
   %tobool433.not = icmp eq i32 %24, 0
   br i1 %tobool433.not, label %if.end435, label %if.end435.thread
@@ -1205,7 +1202,7 @@ if.end20.i:                                       ; preds = %for.body17.i
   %73 = load i32, ptr @abbrev, align 4
   %call26.i = call ptr @repo_find_unique_abbrev(ptr noundef %72, ptr noundef nonnull %arrayidx25.i, i32 noundef %73) #15
   %74 = add nuw nsw i64 %indvars.iv.i, 1
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw nsw i64 %74 to i32
   %call27.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.91, ptr noundef %71, i32 noundef %70, ptr noundef %call26.i, i32 noundef %75)
   %76 = load i32, ptr @prefix_len, align 4
   %tobool.not.i.i55 = icmp eq i32 %76, 0
@@ -1809,8 +1806,8 @@ skip_to_next_name:                                ; preds = %if.then105, %if.the
 
 for.cond114:                                      ; preds = %for.body118, %skip_to_next_name
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body118 ], [ %idxprom, %skip_to_next_name ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %89 = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %89 = trunc nsw i64 %indvars.iv.next to i32
   %cmp117 = icmp ugt i32 %86, %89
   br i1 %cmp117, label %for.body118, label %for.inc127
 
@@ -1823,7 +1820,7 @@ for.body118:                                      ; preds = %for.cond114
   br i1 %tobool124.not, label %for.cond114, label %for.inc127.loopexit.split.loop.exit, !llvm.loop !14
 
 for.inc127.loopexit.split.loop.exit:              ; preds = %for.body118
-  %91 = trunc i64 %indvars.iv to i32
+  %91 = trunc nsw i64 %indvars.iv to i32
   br label %for.inc127
 
 for.inc127:                                       ; preds = %for.cond114, %for.inc127.loopexit.split.loop.exit, %if.end97.thread, %if.end97, %lor.lhs.false101, %if.then105, %if.end69, %if.end64, %if.end34, %ce_excluded.exit

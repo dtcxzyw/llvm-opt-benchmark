@@ -136,7 +136,7 @@ define internal noundef i32 @vmware_platform() #1 section ".init.text" align 16 
   store i32 %11, ptr %7, align 4
   %12 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %1, ptr noundef nonnull dereferenceable(12) @.str.1, i64 12)
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %47
+  br i1 %13, label %14, label %46
 
 14:                                               ; preds = %5
   %15 = extractvalue { i32, i32, i32, i32 } %8, 0
@@ -160,17 +160,17 @@ define internal noundef i32 @vmware_platform() #1 section ".init.text" align 16 
   %24 = zext nneg i8 %23 to i32
   %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %24) #11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #10
-  br label %49
+  br label %47
 
 26:                                               ; preds = %0
   %27 = load i32, ptr @dmi_available, align 4
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %48, label %29
+  br i1 %28, label %47, label %29
 
 29:                                               ; preds = %26
   %30 = tail call i32 @dmi_name_in_serial(ptr noundef nonnull @.str) #10
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %48, label %32
+  br i1 %31, label %47, label %32
 
 32:                                               ; preds = %29
   %33 = load i8, ptr @vmware_hypercall_mode, align 1
@@ -195,21 +195,19 @@ define internal noundef i32 @vmware_platform() #1 section ".init.text" align 16 
   %41 = phi { i32, i32, i32, i32 } [ %39, %38 ], [ %37, %36 ], [ %35, %34 ]
   %42 = extractvalue { i32, i32, i32, i32 } %41, 3
   %43 = extractvalue { i32, i32, i32, i32 } %41, 0
-  %44 = icmp eq i32 %43, -1
-  %45 = icmp ne i32 %42, 1447909480
-  %46 = select i1 %44, i1 true, i1 %45
-  br i1 %46, label %48, label %49
+  %44 = icmp ne i32 %43, -1
+  %45 = icmp eq i32 %42, 1447909480
+  %.not2 = select i1 %44, i1 %45, i1 false
+  %spec.select = zext i1 %.not2 to i32
+  br label %47
 
-47:                                               ; preds = %5
+46:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #10
-  br label %48
+  br label %47
 
-48:                                               ; preds = %47, %40, %29, %26
-  br label %49
-
-49:                                               ; preds = %22, %48, %40
-  %50 = phi i32 [ 1073741824, %22 ], [ 0, %48 ], [ 1, %40 ]
-  ret i32 %50
+47:                                               ; preds = %40, %26, %29, %46, %22
+  %48 = phi i32 [ 1073741824, %22 ], [ 0, %46 ], [ 0, %29 ], [ 0, %26 ], [ %spec.select, %40 ]
+  ret i32 %48
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -503,7 +501,7 @@ define internal void @vmware_smp_prepare_boot_cpu() #1 section ".init.text" alig
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call i64 @slow_virt_to_phys(ptr noundef %8) #10
   %10 = lshr i64 %9, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = trunc i64 %9 to i32
   %13 = tail call { i32, i32 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09movw $$0x5658, %dx; inl (%dx), %eax\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+18)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 8*32+19)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmcall\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09vmmcall\0A6652:\0A.popsection\0A", "={ax},={cx},{ax},{bx},{cx},{dx},{si},{di},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 0, i32 91, i32 0, i32 %11, i32 %12) #10, !srcloc !19
   %14 = extractvalue { i32, i32 } %13, 0
@@ -539,7 +537,7 @@ define internal noundef i32 @vmware_cpu_online(i32 %0) #8 align 16 {
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call i64 @slow_virt_to_phys(ptr noundef %9) #10
   %11 = lshr i64 %10, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = trunc i64 %10 to i32
   %14 = tail call { i32, i32 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09movw $$0x5658, %dx; inl (%dx), %eax\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+18)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 8*32+19)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmcall\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09vmmcall\0A6652:\0A.popsection\0A", "={ax},={cx},{ax},{bx},{cx},{dx},{si},{di},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1447909480, i32 0, i32 91, i32 0, i32 %12, i32 %13) #10, !srcloc !19
   %15 = extractvalue { i32, i32 } %14, 0

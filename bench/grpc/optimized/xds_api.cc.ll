@@ -1098,12 +1098,12 @@ call1.i.noexc:                                    ; preds = %if.end.i
 
 if.then:                                          ; preds = %call1.i.noexc, %upb_Arena_Malloc.exit.i.i.i
   invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 31, ptr nonnull @.str.2)
-          to label %if.then.i.i192 unwind label %lpad
+          to label %if.then.i.i191 unwind label %lpad
 
 lpad:                                             ; preds = %call3.i.noexc, %call1.i.i.noexc, %call.i.i31.noexc, %if.then.i, %land.lhs.true.i, %if.end.i, %if.then.i.i.i.i, %if.then
   %7 = landingpad { ptr, i32 }
           cleanup
-  br label %if.then.i.i195
+  br label %if.then.i.i194
 
 if.end:                                           ; preds = %call1.i.noexc
   call void @llvm.lifetime.start.p0(i64 10240, ptr nonnull %buf.i)
@@ -1326,14 +1326,14 @@ _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i102 = getelementptr inbounds i8, ptr %27, i64 24
   %retval.sroa.9.0.copyload33.i103 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i102, align 1
   %cmp.i111 = icmp eq i64 %str.sroa.0.0.i92, 35
-  br i1 %cmp.i111, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %if.end116
+  br i1 %cmp.i111, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %if.end116
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(35) %str.sroa.4.0.i93, ptr noundef nonnull dereferenceable(35) @.str.3, i64 35)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i, label %if.then71, label %if.end116
 
-if.then71:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+if.then71:                                        ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
   %28 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @envoy__service__discovery__v3__Resource_msg_init, i64 0, i32 2), align 8
   %conv.i.i.i.i114 = zext i16 %28 to i64
   %add.i.i.i.i115 = add nuw nsw i64 %conv.i.i.i.i114, 8
@@ -1417,13 +1417,13 @@ invoke.cont112:                                   ; preds = %invoke.cont97, %_ZN
   %retval.sroa.9.0.copyload33.i180 = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i179, align 1
   br label %if.end116
 
-if.end116:                                        ; preds = %invoke.cont64.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88, %invoke.cont112
-  %resource_name.sroa.3.1 = phi ptr [ %retval.sroa.0.0.copyload32.i178, %invoke.cont112 ], [ null, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ null, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ null, %invoke.cont64.thread ]
-  %resource_name.sroa.0.1 = phi i64 [ %retval.sroa.9.0.copyload33.i180, %invoke.cont112 ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %invoke.cont64.thread ]
-  %serialized_resource.sroa.0.0 = phi i64 [ %retval.sroa.9.0.copyload33.i171, %invoke.cont112 ], [ %retval.sroa.9.0.copyload33.i103, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ %retval.sroa.9.0.copyload33.i103, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %retval.sroa.9.0.copyload33.i103218, %invoke.cont64.thread ]
-  %serialized_resource.sroa.4.0 = phi ptr [ %retval.sroa.0.0.copyload32.i169, %invoke.cont112 ], [ %retval.sroa.0.0.copyload32.i101, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ %retval.sroa.0.0.copyload32.i101, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %retval.sroa.0.0.copyload32.i101216, %invoke.cont64.thread ]
-  %type_url52.sroa.0.0 = phi i64 [ %str.sroa.0.0.i160, %invoke.cont112 ], [ %str.sroa.0.0.i92, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ 35, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %retval.sroa.9.0.copyload33.i77, %invoke.cont64.thread ]
-  %type_url52.sroa.4.0 = phi ptr [ %str.sroa.4.0.i161, %invoke.cont112 ], [ %str.sroa.4.0.i93, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ %str.sroa.4.0.i93, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %retval.sroa.0.0.copyload32.i75, %invoke.cont64.thread ]
+if.end116:                                        ; preds = %invoke.cont64.thread, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88, %invoke.cont112, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+  %resource_name.sroa.3.1 = phi ptr [ %retval.sroa.0.0.copyload32.i178, %invoke.cont112 ], [ null, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ null, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ null, %invoke.cont64.thread ]
+  %resource_name.sroa.0.1 = phi i64 [ %retval.sroa.9.0.copyload33.i180, %invoke.cont112 ], [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ 0, %invoke.cont64.thread ]
+  %serialized_resource.sroa.0.0 = phi i64 [ %retval.sroa.9.0.copyload33.i171, %invoke.cont112 ], [ %retval.sroa.9.0.copyload33.i103, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %retval.sroa.9.0.copyload33.i103, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ %retval.sroa.9.0.copyload33.i103218, %invoke.cont64.thread ]
+  %serialized_resource.sroa.4.0 = phi ptr [ %retval.sroa.0.0.copyload32.i169, %invoke.cont112 ], [ %retval.sroa.0.0.copyload32.i101, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %retval.sroa.0.0.copyload32.i101, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ %retval.sroa.0.0.copyload32.i101216, %invoke.cont64.thread ]
+  %type_url52.sroa.0.0 = phi i64 [ %str.sroa.0.0.i160, %invoke.cont112 ], [ 35, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %str.sroa.0.0.i92, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ %retval.sroa.9.0.copyload33.i77, %invoke.cont64.thread ]
+  %type_url52.sroa.4.0 = phi ptr [ %str.sroa.4.0.i161, %invoke.cont112 ], [ %str.sroa.4.0.i93, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %str.sroa.4.0.i93, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i88 ], [ %retval.sroa.0.0.copyload32.i75, %invoke.cont64.thread ]
   store i64 %resource_name.sroa.0.1, ptr %agg.tmp119, align 8
   store ptr %resource_name.sroa.3.1, ptr %resource_name.sroa.3.0.agg.tmp119.sroa_idx, align 8
   store i64 %serialized_resource.sroa.0.0, ptr %agg.tmp120, align 8
@@ -1444,57 +1444,57 @@ cleanup:                                          ; preds = %for.inc
   store i64 0, ptr %agg.result, align 8, !alias.scope !13
   %and.i.i.i = and i64 %.pre.pre, 1
   %cmp.i.i.i186 = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp.i.i.i186, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i187
+  br i1 %cmp.i.i.i186, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i
 
-if.then.i.i187:                                   ; preds = %cleanup
+if.then.i.i:                                      ; preds = %cleanup
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre.pre)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i.i187
+terminate.lpad.i:                                 ; preds = %if.then.i.i
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   call void @__clang_call_terminate(ptr %38) #19
   unreachable
 
-_ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %cleanup.thread222, %cleanup.thread, %cleanup, %if.then.i.i187
+_ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %cleanup.thread222, %cleanup.thread, %cleanup, %if.then.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nonce.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fields) #18
-  br label %if.then.i.i192
+  br label %if.then.i.i191
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad.i62, %lpad46, %lpad44, %lpad25
   %.pn = phi { ptr, i32 } [ %26, %lpad46 ], [ %25, %lpad44 ], [ %24, %lpad25 ], [ %14, %lpad.i ], [ %15, %lpad.i62 ]
   call void @_ZN9grpc_core6XdsApi26AdsResponseParserInterface17AdsResponseFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %fields) #18
-  br label %if.then.i.i195
+  br label %if.then.i.i194
 
-if.then.i.i192:                                   ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then
+if.then.i.i191:                                   ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
           to label %_ZN3upb5ArenaD2Ev.exit unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %if.then.i.i192
+terminate.lpad.i.i:                               ; preds = %if.then.i.i191
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
   call void @__clang_call_terminate(ptr %40) #19
   unreachable
 
-_ZN3upb5ArenaD2Ev.exit:                           ; preds = %if.then.i.i192
+_ZN3upb5ArenaD2Ev.exit:                           ; preds = %if.then.i.i191
   ret void
 
-if.then.i.i195:                                   ; preds = %lpad, %ehcleanup
+if.then.i.i194:                                   ; preds = %lpad, %ehcleanup
   %.pn22 = phi { ptr, i32 } [ %7, %lpad ], [ %.pn, %ehcleanup ]
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
-          to label %_ZN3upb5ArenaD2Ev.exit197 unwind label %terminate.lpad.i.i196
+          to label %_ZN3upb5ArenaD2Ev.exit196 unwind label %terminate.lpad.i.i195
 
-terminate.lpad.i.i196:                            ; preds = %if.then.i.i195
+terminate.lpad.i.i195:                            ; preds = %if.then.i.i194
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
   call void @__clang_call_terminate(ptr %42) #19
   unreachable
 
-_ZN3upb5ArenaD2Ev.exit197:                        ; preds = %if.then.i.i195
+_ZN3upb5ArenaD2Ev.exit196:                        ; preds = %if.then.i.i194
   resume { ptr, i32 } %.pn22
 }
 
@@ -4835,8 +4835,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5

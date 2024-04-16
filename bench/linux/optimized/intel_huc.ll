@@ -311,7 +311,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   %18 = tail call i32 %17(ptr noundef %15, i32 49256, i1 noundef zeroext true) #4
   %19 = getelementptr inbounds i8, ptr %0, i64 584
   %20 = lshr i32 %18, 30
-  %21 = trunc i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = and i8 %21, 1
   store i8 %22, ptr %19, align 8
   br label %23
@@ -869,7 +869,7 @@ define dso_local noundef i32 @intel_huc_check_status(ptr nocapture noundef reado
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %9 [
-    i32 -1, label %89
+    i32 -1, label %88
     i32 1, label %4
     i32 3, label %5
     i32 4, label %6
@@ -878,19 +878,19 @@ define dso_local noundef i32 @intel_huc_check_status(ptr nocapture noundef reado
   ]
 
 4:                                                ; preds = %1
-  br label %89
+  br label %88
 
 5:                                                ; preds = %1
-  br label %89
+  br label %88
 
 6:                                                ; preds = %1
-  br label %89
+  br label %88
 
 7:                                                ; preds = %1
-  br label %89
+  br label %88
 
 8:                                                ; preds = %1
-  br label %89
+  br label %88
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 408
@@ -956,7 +956,7 @@ huc_is_fully_authenticated.exit:                  ; preds = %13, %29, %36
   %56 = getelementptr i8, ptr %0, i64 %52
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %55, %57
-  br i1 %58, label %89, label %huc_is_fully_authenticated.exit.thread
+  br i1 %58, label %88, label %huc_is_fully_authenticated.exit.thread
 
 huc_is_fully_authenticated.exit.thread:           ; preds = %huc_is_fully_authenticated.exit
   %.pre = load i8, ptr %10, align 8, !range !5
@@ -999,14 +999,12 @@ huc_is_fully_authenticated.exit.thread.thread:    ; preds = %24, %huc_is_fully_a
   %85 = getelementptr inbounds i8, ptr %0, i64 424
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %84, %86
-  br i1 %87, label %89, label %88
+  %spec.select = select i1 %87, i32 2, i32 0
+  br label %88
 
-88:                                               ; preds = %80, %huc_is_fully_authenticated.exit.thread.thread, %huc_is_fully_authenticated.exit.thread
-  br label %89
-
-89:                                               ; preds = %88, %80, %huc_is_fully_authenticated.exit, %8, %7, %6, %5, %4, %1
-  %90 = phi i32 [ 0, %88 ], [ -5, %8 ], [ -12, %7 ], [ -8, %6 ], [ -65, %5 ], [ -95, %4 ], [ -19, %1 ], [ 1, %huc_is_fully_authenticated.exit ], [ 2, %80 ]
-  ret i32 %90
+88:                                               ; preds = %80, %huc_is_fully_authenticated.exit.thread, %huc_is_fully_authenticated.exit.thread.thread, %huc_is_fully_authenticated.exit, %8, %7, %6, %5, %4, %1
+  %89 = phi i32 [ -5, %8 ], [ -12, %7 ], [ -8, %6 ], [ -65, %5 ], [ -95, %4 ], [ -19, %1 ], [ 1, %huc_is_fully_authenticated.exit ], [ 0, %huc_is_fully_authenticated.exit.thread.thread ], [ 0, %huc_is_fully_authenticated.exit.thread ], [ %spec.select, %80 ]
+  ret i32 %89
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

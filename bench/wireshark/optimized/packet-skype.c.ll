@@ -161,29 +161,26 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef i32 @dissect_skype_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ugt i32 %5, 3
-  br i1 %6, label %7, label %test_skype_udp.exit
+  br i1 %6, label %test_skype_udp.exit, label %test_skype_udp.exit.thread
 
-7:                                                ; preds = %4
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %.fr26.i = freeze i8 %8
-  %9 = and i8 %.fr26.i, 15
-  %10 = icmp eq i8 %9, 3
-  br i1 %10, label %12, label %switch.early.test.i
+test_skype_udp.exit:                              ; preds = %4
+  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
+  %8 = and i8 %7, 15
+  %9 = and i8 %7, 13
+  %or.cond.i = icmp ne i8 %9, 0
+  %10 = icmp ne i8 %8, 3
+  %or.cond5.i.not7 = and i1 %or.cond.i, %10
+  %11 = and i8 %7, 5
+  %12 = icmp ne i8 %11, 5
+  %or.cond17.i.not = and i1 %12, %or.cond5.i.not7
+  br i1 %or.cond17.i.not, label %test_skype_udp.exit.thread, label %13
 
-switch.early.test.i:                              ; preds = %7
-  %11 = and i8 %.fr26.i, 13
-  switch i8 %11, label %test_skype_udp.exit [
-    i8 13, label %12
-    i8 5, label %12
-    i8 0, label %12
-  ]
+13:                                               ; preds = %test_skype_udp.exit
+  %14 = tail call fastcc i32 @dissect_skype_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %test_skype_udp.exit.thread
 
-12:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %7
-  %13 = tail call fastcc i32 @dissect_skype_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %test_skype_udp.exit
-
-test_skype_udp.exit:                              ; preds = %switch.early.test.i, %4, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %4 ], [ 0, %switch.early.test.i ]
+test_skype_udp.exit.thread:                       ; preds = %4, %test_skype_udp.exit, %13
+  %.0 = phi i32 [ 1, %13 ], [ 0, %test_skype_udp.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

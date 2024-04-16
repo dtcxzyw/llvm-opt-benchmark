@@ -995,14 +995,10 @@ _Py_NewRef.exit75.i:                              ; preds = %if.end.i.i74.i, %_P
 
 if.end77.i:                                       ; preds = %_Py_NewRef.exit75.i
   store i32 1, ptr %initialized.i, align 8
-  br i1 %cmp79.i, label %if.then81.i, label %if.end87.i
+  br i1 %cmp79.i, label %if.then81.i, label %pysqlite_connection_init_impl.exit
 
 if.then81.i:                                      ; preds = %if.end77.i
   %call82.i = call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46), !range !4
-  %cmp83.i = icmp slt i32 %call82.i, 0
-  br i1 %cmp83.i, label %pysqlite_connection_init_impl.exit, label %if.end87.i
-
-if.end87.i:                                       ; preds = %if.then81.i, %if.end77.i
   br label %pysqlite_connection_init_impl.exit
 
 error.i:                                          ; preds = %if.then1.i.i, %if.end.i.i, %Py_DECREF.exit97.i, %if.then1.i104.i, %if.end.i101.i, %if.then44.i, %new_statement_cache.exit.i, %new_statement_cache.exit.thread.i, %if.then33.i
@@ -1010,8 +1006,8 @@ error.i:                                          ; preds = %if.then1.i.i, %if.e
   %call88.i = call i32 @sqlite3_close(ptr noundef %63) #6
   br label %pysqlite_connection_init_impl.exit
 
-pysqlite_connection_init_impl.exit:               ; preds = %skip_optional_kwonly, %if.end.i63, %if.then5.i, %if.then26.i, %_Py_NewRef.exit75.i, %if.then81.i, %if.end87.i, %error.i
-  %retval.0.i67 = phi i32 [ -1, %if.then26.i ], [ -1, %error.i ], [ 0, %if.end87.i ], [ -1, %skip_optional_kwonly ], [ -1, %if.end.i63 ], [ -1, %if.then5.i ], [ -1, %_Py_NewRef.exit75.i ], [ -1, %if.then81.i ]
+pysqlite_connection_init_impl.exit:               ; preds = %skip_optional_kwonly, %if.end.i63, %if.then5.i, %if.then26.i, %_Py_NewRef.exit75.i, %if.end77.i, %if.then81.i, %error.i
+  %retval.0.i67 = phi i32 [ -1, %if.then26.i ], [ -1, %error.i ], [ -1, %skip_optional_kwonly ], [ -1, %if.end.i63 ], [ -1, %if.then5.i ], [ -1, %_Py_NewRef.exit75.i ], [ 0, %if.end77.i ], [ %call82.i, %if.then81.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %db.i)
   br label %exit
@@ -1236,7 +1232,7 @@ do.body125:                                       ; preds = %if.then113, %do.bod
   %authorizer_ctx = getelementptr inbounds i8, ptr %self, i64 136
   %14 = load ptr, ptr %authorizer_ctx, align 8
   %tobool126.not = icmp eq ptr %14, null
-  br i1 %tobool126.not, label %do.end157, label %do.body128
+  br i1 %tobool126.not, label %return, label %do.body128
 
 do.body128:                                       ; preds = %do.body125
   %15 = load ptr, ptr %14, align 8
@@ -1257,18 +1253,14 @@ do.body142:                                       ; preds = %if.then132.do.body1
   %module144 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %module144, align 8
   %tobool145.not = icmp eq ptr %17, null
-  br i1 %tobool145.not, label %do.end157, label %if.then146
+  br i1 %tobool145.not, label %return, label %if.then146
 
 if.then146:                                       ; preds = %do.body142
   %call150 = tail call i32 %visit(ptr noundef nonnull %17, ptr noundef %arg) #6
-  %tobool151.not = icmp eq i32 %call150, 0
-  br i1 %tobool151.not, label %do.end157, label %return
-
-do.end157:                                        ; preds = %do.body125, %do.body142, %if.then146
   br label %return
 
-return:                                           ; preds = %if.then146, %if.then132, %if.then113, %if.then99, %if.then80, %if.then67, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end157
-  %retval.0 = phi i32 [ 0, %do.end157 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call71, %if.then67 ], [ %call84, %if.then80 ], [ %call103, %if.then99 ], [ %call117, %if.then113 ], [ %call136, %if.then132 ], [ %call150, %if.then146 ]
+return:                                           ; preds = %if.then146, %do.body142, %do.body125, %if.then132, %if.then113, %if.then99, %if.then80, %if.then67, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call71, %if.then67 ], [ %call84, %if.then80 ], [ %call103, %if.then99 ], [ %call117, %if.then113 ], [ %call136, %if.then132 ], [ 0, %do.body125 ], [ 0, %do.body142 ], [ %call150, %if.then146 ]
   ret i32 %retval.0
 }
 

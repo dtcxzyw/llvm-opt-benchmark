@@ -861,16 +861,14 @@ if.end242.thread156:                              ; preds = %if.else234
   store ptr %call230, ptr %right239, align 8
   %52 = load i8, ptr %balance243163, align 8
   %cmp245159 = icmp eq i8 %52, 0
-  br i1 %cmp245159, label %if.else257, label %if.end264
+  br i1 %cmp245159, label %if.end262, label %if.end264
 
 if.end250:                                        ; preds = %if.end242
-  br i1 %48, label %if.end262, label %if.else257
-
-if.else257:                                       ; preds = %if.end242.thread156, %if.end250
+  %spec.select = select i1 %48, i8 1, i8 -1
   br label %if.end262
 
-if.end262:                                        ; preds = %if.end250, %if.end242.thread161, %if.else257
-  %.sink236 = phi i8 [ -1, %if.else257 ], [ 1, %if.end242.thread161 ], [ 1, %if.end250 ]
+if.end262:                                        ; preds = %if.end250, %if.end242.thread156, %if.end242.thread161
+  %.sink236 = phi i8 [ 1, %if.end242.thread161 ], [ -1, %if.end242.thread156 ], [ %spec.select, %if.end250 ]
   br label %while.body195.sink.split
 
 if.end264.sink.split:                             ; preds = %if.then229, %q_tree_node_previous.exit, %q_tree_node_next.exit, %if.then47
@@ -1501,16 +1499,14 @@ if.end117.thread92:                               ; preds = %if.else109
   store ptr %call104, ptr %right114, align 8
   %27 = load i8, ptr %balance11899, align 8
   %cmp12095 = icmp eq i8 %27, 0
-  br i1 %cmp12095, label %return, label %if.else133
+  br i1 %cmp12095, label %return, label %if.end138
 
 if.end126:                                        ; preds = %if.end117
-  br i1 %23, label %if.end138, label %if.else133
-
-if.else133:                                       ; preds = %if.end117.thread92, %if.end126
+  %spec.select = select i1 %23, i8 -1, i8 1
   br label %if.end138
 
-if.end138:                                        ; preds = %if.end126, %if.end117.thread97, %if.else133
-  %.sink136 = phi i8 [ 1, %if.else133 ], [ -1, %if.end117.thread97 ], [ -1, %if.end126 ]
+if.end138:                                        ; preds = %if.end126, %if.end117.thread92, %if.end117.thread97
+  %.sink136 = phi i8 [ -1, %if.end117.thread97 ], [ 1, %if.end117.thread92 ], [ %spec.select, %if.end126 ]
   %balance134 = getelementptr inbounds i8, ptr %20, i64 32
   %28 = load i8, ptr %balance134, align 8
   %add136 = add i8 %28, %.sink136

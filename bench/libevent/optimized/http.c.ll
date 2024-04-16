@@ -1175,12 +1175,12 @@ return:                                           ; preds = %do.body, %if.then9,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evhttp_parse_firstline_(ptr noundef %req, ptr noundef %buffer) local_unnamed_addr #0 {
+define i32 @evhttp_parse_firstline_(ptr noundef %req, ptr noundef %buffer) local_unnamed_addr #0 {
 entry:
-  %major.i.i14 = alloca i32, align 4
-  %minor.i.i15 = alloca i32, align 4
-  %ch.i.i16 = alloca i8, align 1
-  %line.addr.i17 = alloca ptr, align 8
+  %major.i.i15 = alloca i32, align 4
+  %minor.i.i16 = alloca i32, align 4
+  %ch.i.i17 = alloca i8, align 1
+  %line.addr.i18 = alloca ptr, align 8
   %major.i.i = alloca i32, align 4
   %minor.i.i = alloca i32, align 4
   %ch.i.i = alloca i8, align 1
@@ -1195,7 +1195,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  br i1 %cmp1.not, label %if.else, label %land.lhs.true
+  br i1 %cmp1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
   %call2 = call i64 @evbuffer_get_length(ptr noundef %buffer) #19
@@ -1203,9 +1203,7 @@ land.lhs.true:                                    ; preds = %if.then
   %max_headers_size = getelementptr inbounds i8, ptr %1, i64 184
   %2 = load i64, ptr %max_headers_size, align 8
   %cmp4 = icmp ugt i64 %call2, %2
-  br i1 %cmp4, label %return, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true, %if.then
+  %spec.select14 = select i1 %cmp4, i32 -3, i32 0
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1975,63 +1973,63 @@ evhttp_parse_request_line.exit:                   ; preds = %if.end476.i, %lor.l
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %line.addr.i17)
-  store ptr %call, ptr %line.addr.i17, align 8
-  %call.i18 = call ptr @strsep(ptr noundef nonnull %line.addr.i17, ptr noundef nonnull @.str.7) #19
-  %102 = load ptr, ptr %line.addr.i17, align 8
-  %cmp.i19 = icmp eq ptr %102, null
-  br i1 %cmp.i19, label %110, label %if.end.i20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %line.addr.i18)
+  store ptr %call, ptr %line.addr.i18, align 8
+  %call.i19 = call ptr @strsep(ptr noundef nonnull %line.addr.i18, ptr noundef nonnull @.str.7) #19
+  %102 = load ptr, ptr %line.addr.i18, align 8
+  %cmp.i20 = icmp eq ptr %102, null
+  br i1 %cmp.i20, label %110, label %if.end.i21
 
-if.end.i20:                                       ; preds = %sw.bb18
-  %call1.i = call ptr @strsep(ptr noundef nonnull %line.addr.i17, ptr noundef nonnull @.str.7) #19
-  %103 = load ptr, ptr %line.addr.i17, align 8
+if.end.i21:                                       ; preds = %sw.bb18
+  %call1.i = call ptr @strsep(ptr noundef nonnull %line.addr.i18, ptr noundef nonnull @.str.7) #19
+  %103 = load ptr, ptr %line.addr.i18, align 8
   %cmp2.not.i = icmp eq ptr %103, null
   %spec.select.i = select i1 %cmp2.not.i, ptr @.str.14, ptr %103
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %major.i.i14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %minor.i.i15)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i.i16)
-  %call.i.i21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call.i18, ptr noundef nonnull @.str.58, ptr noundef nonnull %major.i.i14, ptr noundef nonnull %minor.i.i15, ptr noundef nonnull %ch.i.i16) #19
-  %cmp.i.i22 = icmp ne i32 %call.i.i21, 2
-  %104 = load i32, ptr %major.i.i14, align 4
-  %cmp1.i.i23 = icmp sgt i32 %104, 1
-  %or.cond.i.i24 = select i1 %cmp.i.i22, i1 true, i1 %cmp1.i.i23
-  br i1 %or.cond.i.i24, label %do.body.i.i34, label %if.end8.i25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %major.i.i15)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %minor.i.i16)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i.i17)
+  %call.i.i22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call.i19, ptr noundef nonnull @.str.58, ptr noundef nonnull %major.i.i15, ptr noundef nonnull %minor.i.i16, ptr noundef nonnull %ch.i.i17) #19
+  %cmp.i.i23 = icmp ne i32 %call.i.i22, 2
+  %104 = load i32, ptr %major.i.i15, align 4
+  %cmp1.i.i24 = icmp sgt i32 %104, 1
+  %or.cond.i.i25 = select i1 %cmp.i.i23, i1 true, i1 %cmp1.i.i24
+  br i1 %or.cond.i.i25, label %do.body.i.i35, label %if.end8.i26
 
-do.body.i.i34:                                    ; preds = %if.end.i20
+do.body.i.i35:                                    ; preds = %if.end.i21
   %105 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool.not.i.i35 = icmp eq i32 %105, 0
-  br i1 %tobool.not.i.i35, label %evhttp_parse_http_version.exit.thread.i38, label %if.then2.i.i36
+  %tobool.not.i.i36 = icmp eq i32 %105, 0
+  br i1 %tobool.not.i.i36, label %evhttp_parse_http_version.exit.thread.i39, label %if.then2.i.i37
 
-if.then2.i.i36:                                   ; preds = %do.body.i.i34
-  %remote_host.i.i37 = getelementptr inbounds i8, ptr %req, i64 48
-  %106 = load ptr, ptr %remote_host.i.i37, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.evhttp_parse_http_version, ptr noundef %call.i18, ptr noundef nonnull %req, ptr noundef %106) #19
-  br label %evhttp_parse_http_version.exit.thread.i38
+if.then2.i.i37:                                   ; preds = %do.body.i.i35
+  %remote_host.i.i38 = getelementptr inbounds i8, ptr %req, i64 48
+  %106 = load ptr, ptr %remote_host.i.i38, align 8
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.evhttp_parse_http_version, ptr noundef %call.i19, ptr noundef nonnull %req, ptr noundef %106) #19
+  br label %evhttp_parse_http_version.exit.thread.i39
 
-evhttp_parse_http_version.exit.thread.i38:        ; preds = %if.then2.i.i36, %do.body.i.i34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major.i.i14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minor.i.i15)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i.i16)
+evhttp_parse_http_version.exit.thread.i39:        ; preds = %if.then2.i.i37, %do.body.i.i35
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major.i.i15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minor.i.i16)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i.i17)
   br label %110
 
-if.end8.i25:                                      ; preds = %if.end.i20
-  %conv.i.i26 = trunc i32 %104 to i8
-  %major4.i.i27 = getelementptr inbounds i8, ptr %req, i64 112
-  store i8 %conv.i.i26, ptr %major4.i.i27, align 8
-  %107 = load i32, ptr %minor.i.i15, align 4
-  %conv5.i.i28 = trunc i32 %107 to i8
-  %minor6.i.i29 = getelementptr inbounds i8, ptr %req, i64 113
-  store i8 %conv5.i.i28, ptr %minor6.i.i29, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major.i.i14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minor.i.i15)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i.i16)
-  %call9.i30 = call i32 @atoi(ptr nocapture noundef %call1.i) #18
+if.end8.i26:                                      ; preds = %if.end.i21
+  %conv.i.i27 = trunc i32 %104 to i8
+  %major4.i.i28 = getelementptr inbounds i8, ptr %req, i64 112
+  store i8 %conv.i.i27, ptr %major4.i.i28, align 8
+  %107 = load i32, ptr %minor.i.i16, align 4
+  %conv5.i.i29 = trunc i32 %107 to i8
+  %minor6.i.i30 = getelementptr inbounds i8, ptr %req, i64 113
+  store i8 %conv5.i.i29, ptr %minor6.i.i30, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major.i.i15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minor.i.i16)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i.i17)
+  %call9.i31 = call i32 @atoi(ptr nocapture noundef %call1.i) #18
   %response_code.i = getelementptr inbounds i8, ptr %req, i64 116
-  store i32 %call9.i30, ptr %response_code.i, align 4
-  %cmp.i8.not.i = icmp eq i32 %call9.i30, 0
+  store i32 %call9.i31, ptr %response_code.i, align 4
+  %cmp.i8.not.i = icmp eq i32 %call9.i31, 0
   br i1 %cmp.i8.not.i, label %do.body.i, label %if.end16.i
 
-do.body.i:                                        ; preds = %if.end8.i25
+do.body.i:                                        ; preds = %if.end8.i26
   %108 = load i32, ptr @event_debug_logging_mask_, align 4
   %tobool13.not.i = icmp eq i32 %108, 0
   br i1 %tobool13.not.i, label %110, label %if.then14.i
@@ -2040,32 +2038,32 @@ if.then14.i:                                      ; preds = %do.body.i
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__.evhttp_parse_response_line, ptr noundef %call1.i) #19
   br label %110
 
-if.end16.i:                                       ; preds = %if.end8.i25
+if.end16.i:                                       ; preds = %if.end8.i26
   %response_code_line.i = getelementptr inbounds i8, ptr %req, i64 120
   %109 = load ptr, ptr %response_code_line.i, align 8
-  %cmp17.not.i31 = icmp eq ptr %109, null
-  br i1 %cmp17.not.i31, label %if.end20.i32, label %if.then18.i
+  %cmp17.not.i32 = icmp eq ptr %109, null
+  br i1 %cmp17.not.i32, label %if.end20.i33, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end16.i
   call void @event_mm_free_(ptr noundef nonnull %109) #19
-  br label %if.end20.i32
+  br label %if.end20.i33
 
-if.end20.i32:                                     ; preds = %if.then18.i, %if.end16.i
+if.end20.i33:                                     ; preds = %if.then18.i, %if.end16.i
   %call21.i = call ptr @event_mm_strdup_(ptr noundef nonnull %spec.select.i) #19
   store ptr %call21.i, ptr %response_code_line.i, align 8
   %cmp23.i = icmp eq ptr %call21.i, null
   br i1 %cmp23.i, label %if.then24.i, label %evhttp_parse_response_line.exit
 
-if.then24.i:                                      ; preds = %if.end20.i32
+if.then24.i:                                      ; preds = %if.end20.i33
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_parse_response_line) #19
   br label %110
 
-evhttp_parse_response_line.exit:                  ; preds = %if.end20.i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %line.addr.i17)
+evhttp_parse_response_line.exit:                  ; preds = %if.end20.i33
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %line.addr.i18)
   br label %sw.epilog
 
-110:                                              ; preds = %if.then24.i, %sw.bb18, %do.body.i, %if.then14.i, %evhttp_parse_http_version.exit.thread.i38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %line.addr.i17)
+110:                                              ; preds = %if.then24.i, %sw.bb18, %do.body.i, %if.then14.i, %evhttp_parse_http_version.exit.thread.i39
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %line.addr.i18)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %110, %evhttp_parse_response_line.exit, %101, %evhttp_parse_request_line.exit, %if.end13
@@ -2073,8 +2071,8 @@ sw.epilog:                                        ; preds = %110, %evhttp_parse_
   call void @event_mm_free_(ptr noundef nonnull %call) #19
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %sw.epilog, %if.then12, %if.else
-  %retval.0 = phi i32 [ 0, %if.else ], [ -3, %if.then12 ], [ %status.0, %sw.epilog ], [ -3, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.then, %sw.epilog, %if.then12
+  %retval.0 = phi i32 [ -3, %if.then12 ], [ %status.0, %sw.epilog ], [ 0, %if.then ], [ %spec.select14, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -2089,9 +2087,9 @@ entry:
   %svalue = alloca ptr, align 8
   %input_headers = getelementptr inbounds i8, ptr %req, i64 32
   %0 = load ptr, ptr %input_headers, align 8
-  %call29 = call ptr @evbuffer_readln(ptr noundef %buffer, ptr noundef nonnull %len, i32 noundef 1) #19
-  %cmp.not30 = icmp eq ptr %call29, null
-  br i1 %cmp.not30, label %if.then35, label %while.body.lr.ph
+  %call26 = call ptr @evbuffer_readln(ptr noundef %buffer, ptr noundef nonnull %len, i32 noundef 1) #19
+  %cmp.not27 = icmp eq ptr %call26, null
+  br i1 %cmp.not27, label %if.then35, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %headers_size = getelementptr inbounds i8, ptr %req, i64 80
@@ -2100,7 +2098,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %call31 = phi ptr [ %call29, %while.body.lr.ph ], [ %call, %while.cond.backedge ]
+  %call29 = phi ptr [ %call26, %while.body.lr.ph ], [ %call, %while.cond.backedge ]
   %2 = load i64, ptr %len, align 8
   %3 = load i64, ptr %headers_size, align 8
   %add = add i64 %3, %2
@@ -2116,7 +2114,7 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp4, label %error, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %while.body
-  %6 = load i8, ptr %call31, align 1
+  %6 = load i8, ptr %call29, align 1
   switch i8 %6, label %if.end21 [
     i8 0, label %while.end
     i8 32, label %if.then15
@@ -2139,7 +2137,7 @@ if.end.i:                                         ; preds = %if.then15
 
 while.cond.i:                                     ; preds = %while.body.i, %if.end.i
   %9 = phi i8 [ %6, %if.end.i ], [ %.pre, %while.body.i ]
-  %line.addr.0.i = phi ptr [ %call31, %if.end.i ], [ %incdec.ptr.i, %while.body.i ]
+  %line.addr.0.i = phi ptr [ %call29, %if.end.i ], [ %incdec.ptr.i, %while.body.i ]
   switch i8 %9, label %while.end.i [
     i8 32, label %while.body.i
     i8 9, label %while.body.i
@@ -2170,13 +2168,13 @@ if.end20:                                         ; preds = %while.end.i
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end26, %if.end20
-  call void @event_mm_free_(ptr noundef nonnull %call31) #19
+  call void @event_mm_free_(ptr noundef nonnull %call29) #19
   %call = call ptr @evbuffer_readln(ptr noundef %buffer, ptr noundef nonnull %len, i32 noundef 1) #19
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.then35, label %while.body, !llvm.loop !17
 
 if.end21:                                         ; preds = %if.end
-  store ptr %call31, ptr %svalue, align 8
+  store ptr %call29, ptr %svalue, align 8
   %call22 = call ptr @strsep(ptr noundef nonnull %svalue, ptr noundef nonnull @.str.6) #19
   %11 = load ptr, ptr %svalue, align 8
   %cmp23 = icmp eq ptr %11, null
@@ -2193,7 +2191,7 @@ if.end26:                                         ; preds = %if.end21
   br i1 %cmp29, label %error, label %while.cond.backedge
 
 while.end:                                        ; preds = %if.end
-  call void @event_mm_free_(ptr noundef nonnull %call31) #19
+  call void @event_mm_free_(ptr noundef nonnull %call29) #19
   br label %return
 
 if.then35:                                        ; preds = %while.cond.backedge, %entry
@@ -2216,10 +2214,10 @@ land.lhs.true39:                                  ; preds = %if.then35
 
 error:                                            ; preds = %while.end.i, %if.then15, %land.lhs.true, %if.end26, %if.end21
   %errcode.0 = phi i32 [ -1, %if.end21 ], [ -1, %if.end26 ], [ -3, %land.lhs.true ], [ -1, %if.then15 ], [ -1, %while.end.i ]
-  call void @event_mm_free_(ptr noundef nonnull %call31) #19
+  call void @event_mm_free_(ptr noundef nonnull %call29) #19
   br label %return
 
-return:                                           ; preds = %land.lhs.true39, %if.then35, %while.end, %error
+return:                                           ; preds = %while.end, %land.lhs.true39, %if.then35, %error
   %retval.0 = phi i32 [ %errcode.0, %error ], [ 0, %if.then35 ], [ 1, %while.end ], [ %spec.select, %land.lhs.true39 ]
   ret i32 %retval.0
 }
@@ -2509,7 +2507,7 @@ if.end:                                           ; preds = %entry
   %flags3 = getelementptr inbounds i8, ptr %evcon, i64 200
   %0 = load i32, ptr %flags3, align 8
   %and4 = and i32 %0, -25
-  %or6 = or i32 %and4, %flags
+  %or6 = or disjoint i32 %and4, %flags
   store i32 %or6, ptr %flags3, align 8
   br label %return
 
@@ -3744,7 +3742,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %or.cond.i.i, label %if.end4.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %div7.lhs.trunc.i.i = trunc i32 %error to i16
+  %div7.lhs.trunc.i.i = trunc nuw i32 %error to i16
   %div78.i.i = udiv i16 %div7.lhs.trunc.i.i, 100
   %div7.zext.i.i = zext nneg i16 %div78.i.i to i64
   %sub.i.i = add nuw nsw i64 %div7.zext.i.i, 4294967295
@@ -3799,7 +3797,7 @@ if.then6:                                         ; preds = %lor.lhs.false, %evh
   br i1 %or.cond.i, label %evhttp_response_phrase_internal.exit, label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then6
-  %div7.lhs.trunc.i = trunc i32 %error to i16
+  %div7.lhs.trunc.i = trunc nuw i32 %error to i16
   %div78.i = udiv i16 %div7.lhs.trunc.i, 100
   %div7.zext.i = zext nneg i16 %div78.i to i64
   %sub.i = add nuw nsw i64 %div7.zext.i, 4294967295
@@ -3869,7 +3867,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %or.cond.i, label %if.end4, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3
-  %div7.lhs.trunc.i = trunc i32 %code to i16
+  %div7.lhs.trunc.i = trunc nuw i32 %code to i16
   %div78.i = udiv i16 %div7.lhs.trunc.i, 100
   %div7.zext.i = zext nneg i16 %div78.i to i64
   %sub.i = add nuw nsw i64 %div7.zext.i, 4294967295
@@ -4032,7 +4030,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %or.cond.i.i, label %if.end4.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %div7.lhs.trunc.i.i = trunc i32 %code to i16
+  %div7.lhs.trunc.i.i = trunc nuw i32 %code to i16
   %div78.i.i = udiv i16 %div7.lhs.trunc.i.i, 100
   %div7.zext.i.i = zext nneg i16 %div78.i.i to i64
   %sub.i.i = add nuw nsw i64 %div7.zext.i.i, 4294967295
@@ -4151,7 +4149,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %or.cond.i.i, label %if.end4.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %div7.lhs.trunc.i.i = trunc i32 %code to i16
+  %div7.lhs.trunc.i.i = trunc nuw i32 %code to i16
   %div78.i.i = udiv i16 %div7.lhs.trunc.i.i, 100
   %div7.zext.i.i = zext nneg i16 %div78.i.i to i64
   %sub.i.i = add nuw nsw i64 %div7.zext.i.i, 4294967295
@@ -5563,7 +5561,7 @@ if.end47.us:                                      ; preds = %for.body.us, %if.th
   %c.0.us = phi i8 [ %conv43.us, %if.then32.us ], [ 37, %land.lhs.true26.us ], [ 37, %land.lhs.true21.us ], [ %0, %if.else13.us ], [ 32, %if.else.us ], [ 63, %for.body.us ]
   %decode_plus.1.us = phi i32 [ %decode_plus.024.us, %if.then32.us ], [ %decode_plus.024.us, %land.lhs.true26.us ], [ %decode_plus.024.us, %land.lhs.true21.us ], [ %decode_plus.024.us, %if.else13.us ], [ 1, %if.else.us ], [ 1, %for.body.us ]
   %i.1.us = phi i32 [ %add.us, %if.then32.us ], [ %i.025.us, %land.lhs.true26.us ], [ %i.025.us, %land.lhs.true21.us ], [ %i.025.us, %if.else13.us ], [ %i.025.us, %if.else.us ], [ %i.025.us, %for.body.us ]
-  %indvars.iv.next30 = add nuw i64 %indvars.iv29, 1
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %arrayidx49.us = getelementptr inbounds i8, ptr %ret, i64 %indvars.iv29
   store i8 %c.0.us, ptr %arrayidx49.us, align 1
   %inc50.us = add i32 %i.1.us, 1
@@ -5625,7 +5623,7 @@ if.end47:                                         ; preds = %for.body, %if.else,
   %c.0 = phi i8 [ %conv43, %if.then32 ], [ 37, %land.lhs.true26 ], [ 37, %land.lhs.true21 ], [ %5, %if.else13 ], [ 32, %if.else ], [ 63, %for.body ]
   %decode_plus.1 = phi i32 [ %decode_plus.024, %if.then32 ], [ %decode_plus.024, %land.lhs.true26 ], [ %decode_plus.024, %land.lhs.true21 ], [ %decode_plus.024, %if.else13 ], [ 1, %if.else ], [ %decode_plus.024, %for.body ]
   %i.1 = phi i32 [ %add, %if.then32 ], [ %i.025, %land.lhs.true26 ], [ %i.025, %land.lhs.true21 ], [ %i.025, %if.else13 ], [ %i.025, %if.else ], [ %i.025, %for.body ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx49 = getelementptr inbounds i8, ptr %ret, i64 %indvars.iv
   store i8 %c.0, ptr %arrayidx49, align 1
   %inc50 = add i32 %i.1, 1
@@ -5634,11 +5632,11 @@ if.end47:                                         ; preds = %for.body, %if.else,
   br i1 %cmp1, label %for.body, label %for.end.loopexit27, !llvm.loop !24
 
 for.end.loopexit:                                 ; preds = %if.end47.us
-  %10 = trunc i64 %indvars.iv.next30 to i32
+  %10 = trunc nuw i64 %indvars.iv.next30 to i32
   br label %for.end
 
 for.end.loopexit27:                               ; preds = %if.end47
-  %11 = trunc i64 %indvars.iv.next to i32
+  %11 = trunc nuw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit27, %for.end.loopexit, %entry
@@ -5734,7 +5732,7 @@ if.end47.us.i:                                    ; preds = %if.then32.us.i, %la
   %c.0.us.i = phi i8 [ %conv43.us.i, %if.then32.us.i ], [ 37, %land.lhs.true26.us.i ], [ 37, %land.lhs.true21.us.i ], [ %0, %if.else13.us.i ], [ 32, %if.else.us.i ], [ 63, %for.body.us.i ]
   %decode_plus.1.us.i = phi i32 [ %decode_plus.024.us.i, %if.then32.us.i ], [ %decode_plus.024.us.i, %land.lhs.true26.us.i ], [ %decode_plus.024.us.i, %land.lhs.true21.us.i ], [ %decode_plus.024.us.i, %if.else13.us.i ], [ 1, %if.else.us.i ], [ 1, %for.body.us.i ]
   %i.1.us.i = phi i32 [ %add.us.i, %if.then32.us.i ], [ %i.025.us.i, %land.lhs.true26.us.i ], [ %i.025.us.i, %land.lhs.true21.us.i ], [ %i.025.us.i, %if.else13.us.i ], [ %i.025.us.i, %if.else.us.i ], [ %i.025.us.i, %for.body.us.i ]
-  %indvars.iv.next30.i = add nuw i64 %indvars.iv29.i, 1
+  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %arrayidx49.us.i = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv29.i
   store i8 %c.0.us.i, ptr %arrayidx49.us.i, align 1
   %inc50.us.i = add i32 %i.1.us.i, 1
@@ -5957,7 +5955,7 @@ if.end47.i.fold.split:                            ; preds = %for.body.i
 if.end47.i:                                       ; preds = %for.body.i, %if.end47.i.fold.split, %if.then32.i, %land.lhs.true26.i, %land.lhs.true21.i, %if.else13.i
   %c.0.i = phi i8 [ %conv43.i, %if.then32.i ], [ 37, %land.lhs.true26.i ], [ 37, %land.lhs.true21.i ], [ %9, %if.else13.i ], [ %9, %for.body.i ], [ 32, %if.end47.i.fold.split ]
   %i.1.i = phi i32 [ %add.i, %if.then32.i ], [ %i.025.i, %land.lhs.true26.i ], [ %i.025.i, %land.lhs.true21.i ], [ %i.025.i, %if.else13.i ], [ %i.025.i, %for.body.i ], [ %i.025.i, %if.end47.i.fold.split ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx49.i = getelementptr inbounds i8, ptr %call41, i64 %indvars.iv.i
   store i8 %c.0.i, ptr %arrayidx49.i, align 1
   %inc50.i = add i32 %i.1.i, 1
@@ -11121,7 +11119,7 @@ if.then32.i.i:                                    ; preds = %land.lhs.true26.i.i
 if.end47.i.i:                                     ; preds = %if.then32.i.i, %land.lhs.true26.i.i, %land.lhs.true21.i.i, %if.else13.i.i, %for.body.i.i
   %c.0.i.i = phi i8 [ %conv43.i.i, %if.then32.i.i ], [ 37, %land.lhs.true26.i.i ], [ 37, %land.lhs.true21.i.i ], [ %11, %if.else13.i.i ], [ 63, %for.body.i.i ]
   %i.1.i.i = phi i32 [ %add.i.i, %if.then32.i.i ], [ %i.025.i.i, %land.lhs.true26.i.i ], [ %i.025.i.i, %land.lhs.true21.i.i ], [ %i.025.i.i, %if.else13.i.i ], [ %i.025.i.i, %for.body.i.i ]
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx49.i.i = getelementptr inbounds i8, ptr %call2.i, i64 %indvars.iv.i.i
   store i8 %c.0.i.i, ptr %arrayidx49.i.i, align 1
   %inc50.i.i = add i32 %i.1.i.i, 1

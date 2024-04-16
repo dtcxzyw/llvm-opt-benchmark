@@ -2068,7 +2068,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load i8, ptr %this, align 1
-  %sh_prom.i = trunc i64 %inc.i to i32
+  %sh_prom.i = trunc nuw nsw i64 %inc.i to i32
   %shl.i = shl nsw i32 -1, %sh_prom.i
   %1 = trunc i32 %shl.i to i8
   %conv2.i = and i8 %0, %1
@@ -2430,7 +2430,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
 
 for.end27.i:                                      ; preds = %for.body11.i
   %4 = load i8, ptr %this, align 1
-  %sh_prom31.i = trunc i64 %and.i to i8
+  %sh_prom31.i = trunc nuw nsw i64 %and.i to i8
   %shl32.i = shl i8 %4, %sh_prom31.i
   store i8 %shl32.i, ptr %this, align 1
   br label %_ZN5eastl10BitsetBaseILm5EhElSEm.exit
@@ -2487,7 +2487,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   br i1 %tobool5.not.i, label %if.end, label %for.cond8.preheader.i
 
 for.cond8.preheader.i:                            ; preds = %if.end.i
-  %1 = trunc i64 %n to i8
+  %1 = trunc nuw i64 %n to i8
   %.pre.i = load i8, ptr %this, align 1
   br label %for.body10.i
 
@@ -2506,7 +2506,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
 for.end25.i:                                      ; preds = %for.body10.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %arrayidx27.i, align 1
-  %sh_prom29.i = trunc i64 %and.i to i8
+  %sh_prom29.i = trunc nuw nsw i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
   store i8 %shr30.i, ptr %arrayidx27.i, align 1
   br label %if.end
@@ -2535,7 +2535,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom.i = and i8 %0, 7
   %shl.i = shl nuw i8 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -2575,7 +2575,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %not = xor i8 %shl, -1
@@ -2620,7 +2620,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %shr.i = lshr i64 %i, 3
@@ -2797,7 +2797,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -2916,7 +2916,7 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 for.end27.i.i:                                    ; preds = %for.body11.i.i
   %4 = load i8, ptr %ref.tmp, align 8
-  %sh_prom31.i.i = trunc i64 %and.i.i to i8
+  %sh_prom31.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shl32.i.i = shl i8 %4, %sh_prom31.i.i
   store i8 %shl32.i.i, ptr %ref.tmp, align 8
   br label %_ZN5eastl10BitsetBaseILm5EhElSEm.exit.i
@@ -2973,7 +2973,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
   br i1 %tobool5.not.i.i, label %_ZN5eastl6bitsetILm33EhErSEm.exit, label %for.cond8.preheader.i.i
 
 for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
-  %1 = trunc i64 %n to i8
+  %1 = trunc nuw i64 %n to i8
   %.pre.i.i = load i8, ptr %ref.tmp, align 8
   br label %for.body10.i.i
 
@@ -2992,7 +2992,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 for.end25.i.i:                                    ; preds = %for.body10.i.i
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %4 = load i8, ptr %arrayidx27.i.i, align 4
-  %sh_prom29.i.i = trunc i64 %and.i.i to i8
+  %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
   store i8 %shr30.i.i, ptr %arrayidx27.i.i, align 4
   br label %_ZN5eastl6bitsetILm33EhErSEm.exit
@@ -3061,7 +3061,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 3
   %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %1 = trunc i64 %inc.i to i8
+  %1 = trunc nuw i64 %inc.i to i8
   %sh_prom.i = and i8 %1, 7
   %shl.i = shl nsw i8 -1, %sh_prom.i
   %and2.i = and i8 %0, %shl.i
@@ -3471,7 +3471,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
 
 for.end27.i:                                      ; preds = %for.body11.i
   %4 = load i8, ptr %this, align 1
-  %sh_prom31.i = trunc i64 %and.i to i8
+  %sh_prom31.i = trunc nuw nsw i64 %and.i to i8
   %shl32.i = shl i8 %4, %sh_prom31.i
   store i8 %shl32.i, ptr %this, align 1
   br label %_ZN5eastl10BitsetBaseILm9EhElSEm.exit
@@ -3528,7 +3528,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   br i1 %tobool5.not.i, label %if.end, label %for.cond8.preheader.i
 
 for.cond8.preheader.i:                            ; preds = %if.end.i
-  %1 = trunc i64 %n to i8
+  %1 = trunc nuw i64 %n to i8
   %.pre.i = load i8, ptr %this, align 1
   br label %for.body10.i
 
@@ -3547,7 +3547,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
 for.end25.i:                                      ; preds = %for.body10.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i8, ptr %arrayidx27.i, align 1
-  %sh_prom29.i = trunc i64 %and.i to i8
+  %sh_prom29.i = trunc nuw nsw i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
   store i8 %shr30.i, ptr %arrayidx27.i, align 1
   br label %if.end
@@ -3576,7 +3576,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom.i = and i8 %0, 7
   %shl.i = shl nuw i8 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -3616,7 +3616,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %not = xor i8 %shl, -1
@@ -3661,7 +3661,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %shr.i = lshr i64 %i, 3
@@ -3839,7 +3839,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -3958,7 +3958,7 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 for.end27.i.i:                                    ; preds = %for.body11.i.i
   %4 = load i8, ptr %ref.tmp, align 8
-  %sh_prom31.i.i = trunc i64 %and.i.i to i8
+  %sh_prom31.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shl32.i.i = shl i8 %4, %sh_prom31.i.i
   store i8 %shl32.i.i, ptr %ref.tmp, align 8
   br label %_ZN5eastl10BitsetBaseILm9EhElSEm.exit.i
@@ -4022,7 +4022,7 @@ if.end.i.i._ZN5eastl6bitsetILm65EhErSEm.exit_crit_edge: ; preds = %if.end.i.i
   br label %_ZN5eastl6bitsetILm65EhErSEm.exit
 
 for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
-  %1 = trunc i64 %n to i8
+  %1 = trunc nuw i64 %n to i8
   %.pre.i.i = load i8, ptr %ref.tmp, align 8
   br label %for.body10.i.i
 
@@ -4041,7 +4041,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 for.end25.i.i:                                    ; preds = %for.body10.i.i
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i8, ptr %arrayidx27.i.i, align 8
-  %sh_prom29.i.i = trunc i64 %and.i.i to i8
+  %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
   br label %_ZN5eastl6bitsetILm65EhErSEm.exit
 
@@ -4112,7 +4112,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 3
   %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %1 = trunc i64 %inc.i to i8
+  %1 = trunc nuw i64 %inc.i to i8
   %sh_prom.i = and i8 %1, 7
   %shl.i = shl nsw i8 -1, %sh_prom.i
   %and2.i = and i8 %0, %shl.i
@@ -4524,7 +4524,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
 
 for.end27.i:                                      ; preds = %for.body11.i
   %4 = load i8, ptr %this, align 1
-  %sh_prom31.i = trunc i64 %and.i to i8
+  %sh_prom31.i = trunc nuw nsw i64 %and.i to i8
   %shl32.i = shl i8 %4, %sh_prom31.i
   store i8 %shl32.i, ptr %this, align 1
   br label %_ZN5eastl10BitsetBaseILm17EhElSEm.exit
@@ -4581,7 +4581,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   br i1 %tobool5.not.i, label %if.end, label %for.cond8.preheader.i
 
 for.cond8.preheader.i:                            ; preds = %if.end.i
-  %1 = trunc i64 %n to i8
+  %1 = trunc nuw i64 %n to i8
   %.pre.i = load i8, ptr %this, align 1
   br label %for.body10.i
 
@@ -4600,7 +4600,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
 for.end25.i:                                      ; preds = %for.body10.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i8, ptr %arrayidx27.i, align 1
-  %sh_prom29.i = trunc i64 %and.i to i8
+  %sh_prom29.i = trunc nuw nsw i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
   store i8 %shr30.i, ptr %arrayidx27.i, align 1
   br label %if.end
@@ -4629,7 +4629,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom.i = and i8 %0, 7
   %shl.i = shl nuw i8 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -4669,7 +4669,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %not = xor i8 %shl, -1
@@ -4714,7 +4714,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i8
+  %0 = trunc nuw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %shr.i = lshr i64 %i, 3
@@ -4895,7 +4895,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -5014,7 +5014,7 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 for.end27.i.i:                                    ; preds = %for.body11.i.i
   %4 = load i8, ptr %ref.tmp, align 1
-  %sh_prom31.i.i = trunc i64 %and.i.i to i8
+  %sh_prom31.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shl32.i.i = shl i8 %4, %sh_prom31.i.i
   store i8 %shl32.i.i, ptr %ref.tmp, align 1
   br label %_ZN5eastl10BitsetBaseILm17EhElSEm.exit.i
@@ -5074,7 +5074,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
   br i1 %tobool5.not.i.i, label %_ZN5eastl6bitsetILm129EhErSEm.exit, label %for.cond8.preheader.i.i
 
 for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
-  %1 = trunc i64 %n to i8
+  %1 = trunc nuw i64 %n to i8
   %.pre.i.i = load i8, ptr %ref.tmp, align 1
   br label %for.body10.i.i
 
@@ -5093,7 +5093,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 for.end25.i.i:                                    ; preds = %for.body10.i.i
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load i8, ptr %arrayidx27.i.i, align 1
-  %sh_prom29.i.i = trunc i64 %and.i.i to i8
+  %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
   store i8 %shr30.i.i, ptr %arrayidx27.i.i, align 1
   br label %_ZN5eastl6bitsetILm129EhErSEm.exit
@@ -5162,7 +5162,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 3
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %1 = trunc i64 %inc.i to i8
+  %1 = trunc nuw i64 %inc.i to i8
   %sh_prom.i = and i8 %1, 7
   %shl.i = shl nsw i8 -1, %sh_prom.i
   %and2.i = and i8 %0, %shl.i
@@ -5764,7 +5764,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load i16, ptr %this, align 2
-  %sh_prom.i = trunc i64 %inc.i to i32
+  %sh_prom.i = trunc nuw nsw i64 %inc.i to i32
   %shl.i = shl nsw i32 -1, %sh_prom.i
   %1 = trunc i32 %shl.i to i16
   %conv2.i = and i16 %0, %1
@@ -6141,7 +6141,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
 
 for.end27.i:                                      ; preds = %for.body11.i
   %4 = load i16, ptr %this, align 2
-  %sh_prom31.i = trunc i64 %and.i to i16
+  %sh_prom31.i = trunc nuw nsw i64 %and.i to i16
   %shl32.i = shl i16 %4, %sh_prom31.i
   store i16 %shl32.i, ptr %this, align 2
   br label %_ZN5eastl10BitsetBaseILm3EtElSEm.exit
@@ -6198,7 +6198,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   br i1 %tobool5.not.i, label %if.end, label %for.cond8.preheader.i
 
 for.cond8.preheader.i:                            ; preds = %if.end.i
-  %1 = trunc i64 %n to i16
+  %1 = trunc nuw i64 %n to i16
   %.pre.i = load i16, ptr %this, align 2
   br label %for.body10.i
 
@@ -6217,7 +6217,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
 for.end25.i:                                      ; preds = %for.body10.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i16, ptr %arrayidx27.i, align 2
-  %sh_prom29.i = trunc i64 %and.i to i16
+  %sh_prom29.i = trunc nuw nsw i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
   store i16 %shr30.i, ptr %arrayidx27.i, align 2
   br label %if.end
@@ -6246,7 +6246,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom.i = and i16 %0, 15
   %shl.i = shl nuw i16 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -6286,7 +6286,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
@@ -6331,7 +6331,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
@@ -6508,7 +6508,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -6627,7 +6627,7 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 for.end27.i.i:                                    ; preds = %for.body11.i.i
   %4 = load i16, ptr %ref.tmp, align 8
-  %sh_prom31.i.i = trunc i64 %and.i.i to i16
+  %sh_prom31.i.i = trunc nuw nsw i64 %and.i.i to i16
   %shl32.i.i = shl i16 %4, %sh_prom31.i.i
   store i16 %shl32.i.i, ptr %ref.tmp, align 8
   br label %_ZN5eastl10BitsetBaseILm3EtElSEm.exit.i
@@ -6686,7 +6686,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
   br i1 %tobool5.not.i.i, label %_ZN5eastl6bitsetILm33EtErSEm.exit, label %for.cond8.preheader.i.i
 
 for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
-  %1 = trunc i64 %n to i16
+  %1 = trunc nuw i64 %n to i16
   %.pre.i.i = load i16, ptr %ref.tmp, align 8
   br label %for.body10.i.i
 
@@ -6702,7 +6702,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
   %4 = load i16, ptr %i7.016.i.i.sroa.gep3, align 4
-  %sh_prom29.i.i = trunc i64 %and.i.i to i16
+  %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i16
   %shr30.i.i = lshr i16 %4, %sh_prom29.i.i
   store i16 %shr30.i.i, ptr %i7.016.i.i.sroa.gep3, align 4
   br label %_ZN5eastl6bitsetILm33EtErSEm.exit
@@ -6777,7 +6777,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
   %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %1 = trunc i64 %inc.i to i16
+  %1 = trunc nuw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
   %shl.i = shl nsw i16 -1, %sh_prom.i
   %and2.i = and i16 %0, %shl.i
@@ -7203,7 +7203,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
 
 for.end27.i:                                      ; preds = %for.body11.i
   %4 = load i16, ptr %this, align 2
-  %sh_prom31.i = trunc i64 %and.i to i16
+  %sh_prom31.i = trunc nuw nsw i64 %and.i to i16
   %shl32.i = shl i16 %4, %sh_prom31.i
   store i16 %shl32.i, ptr %this, align 2
   br label %_ZN5eastl10BitsetBaseILm5EtElSEm.exit
@@ -7260,7 +7260,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   br i1 %tobool5.not.i, label %if.end, label %for.cond8.preheader.i
 
 for.cond8.preheader.i:                            ; preds = %if.end.i
-  %1 = trunc i64 %n to i16
+  %1 = trunc nuw i64 %n to i16
   %.pre.i = load i16, ptr %this, align 2
   br label %for.body10.i
 
@@ -7279,7 +7279,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
 for.end25.i:                                      ; preds = %for.body10.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i16, ptr %arrayidx27.i, align 2
-  %sh_prom29.i = trunc i64 %and.i to i16
+  %sh_prom29.i = trunc nuw nsw i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
   store i16 %shr30.i, ptr %arrayidx27.i, align 2
   br label %if.end
@@ -7308,7 +7308,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom.i = and i16 %0, 15
   %shl.i = shl nuw i16 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -7348,7 +7348,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
@@ -7393,7 +7393,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
@@ -7571,7 +7571,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -7690,7 +7690,7 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 for.end27.i.i:                                    ; preds = %for.body11.i.i
   %4 = load i16, ptr %ref.tmp, align 8
-  %sh_prom31.i.i = trunc i64 %and.i.i to i16
+  %sh_prom31.i.i = trunc nuw nsw i64 %and.i.i to i16
   %shl32.i.i = shl i16 %4, %sh_prom31.i.i
   store i16 %shl32.i.i, ptr %ref.tmp, align 8
   br label %_ZN5eastl10BitsetBaseILm5EtElSEm.exit.i
@@ -7754,7 +7754,7 @@ if.end.i.i._ZN5eastl6bitsetILm65EtErSEm.exit_crit_edge: ; preds = %if.end.i.i
   br label %_ZN5eastl6bitsetILm65EtErSEm.exit
 
 for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
-  %1 = trunc i64 %n to i16
+  %1 = trunc nuw i64 %n to i16
   %.pre.i.i = load i16, ptr %ref.tmp, align 8
   br label %for.body10.i.i
 
@@ -7773,7 +7773,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 for.end25.i.i:                                    ; preds = %for.body10.i.i
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i16, ptr %arrayidx27.i.i, align 8
-  %sh_prom29.i.i = trunc i64 %and.i.i to i16
+  %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i16
   %shr30.i.i = lshr i16 %4, %sh_prom29.i.i
   br label %_ZN5eastl6bitsetILm65EtErSEm.exit
 
@@ -7850,7 +7850,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
   %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %1 = trunc i64 %inc.i to i16
+  %1 = trunc nuw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
   %shl.i = shl nsw i16 -1, %sh_prom.i
   %and2.i = and i16 %0, %shl.i
@@ -8278,7 +8278,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
 
 for.end27.i:                                      ; preds = %for.body11.i
   %4 = load i16, ptr %this, align 2
-  %sh_prom31.i = trunc i64 %and.i to i16
+  %sh_prom31.i = trunc nuw nsw i64 %and.i to i16
   %shl32.i = shl i16 %4, %sh_prom31.i
   store i16 %shl32.i, ptr %this, align 2
   br label %_ZN5eastl10BitsetBaseILm9EtElSEm.exit
@@ -8335,7 +8335,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   br i1 %tobool5.not.i, label %if.end, label %for.cond8.preheader.i
 
 for.cond8.preheader.i:                            ; preds = %if.end.i
-  %1 = trunc i64 %n to i16
+  %1 = trunc nuw i64 %n to i16
   %.pre.i = load i16, ptr %this, align 2
   br label %for.body10.i
 
@@ -8354,7 +8354,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
 for.end25.i:                                      ; preds = %for.body10.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i16, ptr %arrayidx27.i, align 2
-  %sh_prom29.i = trunc i64 %and.i to i16
+  %sh_prom29.i = trunc nuw nsw i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
   store i16 %shr30.i, ptr %arrayidx27.i, align 2
   br label %if.end
@@ -8383,7 +8383,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom.i = and i16 %0, 15
   %shl.i = shl nuw i16 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -8423,7 +8423,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
@@ -8468,7 +8468,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i16
+  %0 = trunc nuw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
@@ -8649,7 +8649,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -8768,7 +8768,7 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 for.end27.i.i:                                    ; preds = %for.body11.i.i
   %4 = load i16, ptr %ref.tmp, align 2
-  %sh_prom31.i.i = trunc i64 %and.i.i to i16
+  %sh_prom31.i.i = trunc nuw nsw i64 %and.i.i to i16
   %shl32.i.i = shl i16 %4, %sh_prom31.i.i
   store i16 %shl32.i.i, ptr %ref.tmp, align 2
   br label %_ZN5eastl10BitsetBaseILm9EtElSEm.exit.i
@@ -8828,7 +8828,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
   br i1 %tobool5.not.i.i, label %_ZN5eastl6bitsetILm129EtErSEm.exit, label %for.cond8.preheader.i.i
 
 for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
-  %1 = trunc i64 %n to i16
+  %1 = trunc nuw i64 %n to i16
   %.pre.i.i = load i16, ptr %ref.tmp, align 2
   br label %for.body10.i.i
 
@@ -8847,7 +8847,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 for.end25.i.i:                                    ; preds = %for.body10.i.i
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load i16, ptr %arrayidx27.i.i, align 2
-  %sh_prom29.i.i = trunc i64 %and.i.i to i16
+  %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i16
   %shr30.i.i = lshr i16 %4, %sh_prom29.i.i
   store i16 %shr30.i.i, ptr %arrayidx27.i.i, align 2
   br label %_ZN5eastl6bitsetILm129EtErSEm.exit
@@ -8922,7 +8922,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
   %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %1 = trunc i64 %inc.i to i16
+  %1 = trunc nuw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
   %shl.i = shl nsw i16 -1, %sh_prom.i
   %and2.i = and i16 %0, %shl.i
@@ -9535,7 +9535,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load i32, ptr %this, align 4
-  %sh_prom.i = trunc i64 %inc.i to i32
+  %sh_prom.i = trunc nuw nsw i64 %inc.i to i32
   %shl.i = shl nsw i32 -1, %sh_prom.i
   %and.i = and i32 %0, %shl.i
   %tobool.not.i.i = icmp eq i32 %and.i, 0
@@ -9925,7 +9925,7 @@ if.then.i:                                        ; preds = %if.then
   %.pre.i = load i32, ptr %this, align 4
   %1 = select i1 %cmp.i, i32 0, i32 %0
   %2 = select i1 %cmp.i, i32 %0, i32 %.pre.i
-  %3 = trunc i64 %n to i32
+  %3 = trunc nuw i64 %n to i32
   %sh_prom.i = select i1 %cmp.i, i32 0, i32 %3
   %shr.i = lshr i32 %2, %sh_prom.i
   %sh_prom13.i = sub nuw nsw i32 32, %sh_prom.i
@@ -9962,7 +9962,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom.i = and i32 %0, 31
   %shl.i = shl nuw i32 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -10004,7 +10004,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
@@ -10040,7 +10040,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
@@ -10162,7 +10162,7 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 31
   %shl = shl nuw i32 1, %sh_prom
   %and3 = and i32 %0, %shl
@@ -10204,7 +10204,7 @@ entry:
   %0 = load i64, ptr %this, align 4
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %ref.tmp.sroa.5.0.extract.shift = lshr i64 %0, 32
-  %ref.tmp.sroa.5.0.extract.trunc = trunc i64 %ref.tmp.sroa.5.0.extract.shift to i32
+  %ref.tmp.sroa.5.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.5.0.extract.shift to i32
   %cmp.i = icmp slt i64 %n, 33
   br i1 %cmp.i, label %if.then.i, label %_ZN5eastl6bitsetILm33EjElSEm.exit
 
@@ -10247,7 +10247,7 @@ entry:
   %0 = load i64, ptr %this, align 4
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %ref.tmp.sroa.5.0.extract.shift = lshr i64 %0, 32
-  %ref.tmp.sroa.5.0.extract.trunc = trunc i64 %ref.tmp.sroa.5.0.extract.shift to i32
+  %ref.tmp.sroa.5.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.5.0.extract.shift to i32
   %cmp.i = icmp ult i64 %n, 33
   br i1 %cmp.i, label %if.then.i, label %_ZN5eastl6bitsetILm33EjErSEm.exit
 
@@ -10259,7 +10259,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %cmp.i.i = icmp eq i64 %n, 32
   %1 = select i1 %cmp.i.i, i32 0, i32 %ref.tmp.sroa.5.0.extract.trunc
   %2 = select i1 %cmp.i.i, i32 %ref.tmp.sroa.5.0.extract.trunc, i32 %ref.tmp.sroa.0.0.extract.trunc
-  %3 = trunc i64 %n to i32
+  %3 = trunc nuw i64 %n to i32
   %sh_prom.i.i = select i1 %cmp.i.i, i32 0, i32 %3
   %shr.i.i = lshr i32 %2, %sh_prom.i.i
   %sh_prom13.i.i = sub nuw nsw i32 32, %sh_prom.i.i
@@ -10380,7 +10380,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr %this, align 4
-  %sh_prom = trunc i64 %inc to i32
+  %sh_prom = trunc nuw nsw i64 %inc to i32
   %shl = shl nsw i32 -1, %sh_prom
   %and = and i32 %0, %shl
   %tobool.not.i = icmp eq i32 %and, 0
@@ -10531,11 +10531,12 @@ _ZN5eastl10GetLastBitEj.exit.i:                   ; preds = %entry
   %tobool22.not.i.i = icmp ugt i32 %x.addr.3.i.i, 1
   %add24.i.i = zext i1 %tobool22.not.i.i to i32
   %n.4.i.i = add nuw nsw i32 %n.3.i.i, %add24.i.i
-  %cmp.not.i = icmp eq i32 %n.4.i.i, 32
+  %n.4.i.i.fr = freeze i32 %n.4.i.i
+  %cmp.not.i = icmp eq i32 %n.4.i.i.fr, 32
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastl10GetLastBitEj.exit.i
-  %conv.i = zext nneg i32 %n.4.i.i to i64
+  %conv.i = zext i32 %n.4.i.i.fr to i64
   %add.i = add nuw nsw i64 %conv.i, 32
   br label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit
 
@@ -10569,17 +10570,17 @@ _ZN5eastl10GetLastBitEj.exit29.i:                 ; preds = %if.end.i
   %n.4.i27.i = add nuw nsw i32 %n.3.i24.i, %add24.i26.i
   %n.4.i27.fr.i = freeze i32 %n.4.i27.i
   %cmp6.not.i = icmp eq i32 %n.4.i27.fr.i, 32
-  %conv5.i = zext nneg i32 %n.4.i27.fr.i to i64
-  br i1 %cmp6.not.i, label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread, label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit
+  %narrow.i = select i1 %cmp6.not.i, i32 64, i32 %n.4.i27.fr.i
+  %spec.select.i = zext i32 %narrow.i to i64
+  br label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit
 
 _ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit: ; preds = %if.then.i, %_ZN5eastl10GetLastBitEj.exit29.i
-  %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %conv5.i, %_ZN5eastl10GetLastBitEj.exit29.i ]
-  %retval.0.i.fr = freeze i64 %retval.0.i
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %retval.0.i.fr, i64 33)
+  %retval.0.i = phi i64 [ %add.i, %if.then.i ], [ %spec.select.i, %_ZN5eastl10GetLastBitEj.exit29.i ]
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 33)
   br label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread
 
-_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit, %_ZN5eastl10GetLastBitEj.exit29.i, %if.end.i
-  %2 = phi i64 [ 33, %if.end.i ], [ 33, %_ZN5eastl10GetLastBitEj.exit29.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit ]
+_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit, %if.end.i
+  %2 = phi i64 [ 33, %if.end.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit ]
   ret i64 %2
 }
 
@@ -10641,7 +10642,7 @@ if.then4:                                         ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %if.then, %_ZN5eastl10GetLastBitEj.exit
   %2 = load i32, ptr %this, align 4
   %tobool.not.i10 = icmp eq i32 %2, 0
-  br i1 %tobool.not.i10, label %_ZN5eastl10GetLastBitEj.exit35.thread, label %_ZN5eastl10GetLastBitEj.exit35
+  br i1 %tobool.not.i10, label %return, label %_ZN5eastl10GetLastBitEj.exit35
 
 _ZN5eastl10GetLastBitEj.exit35:                   ; preds = %if.end
   %tobool1.not.i12 = icmp ult i32 %2, 65536
@@ -10668,10 +10669,8 @@ _ZN5eastl10GetLastBitEj.exit35:                   ; preds = %if.end
   %n.4.i33 = add nuw nsw i32 %n.3.i30, %add24.i32
   %n.4.i33.fr = freeze i32 %n.4.i33
   %cmp9.not = icmp eq i32 %n.4.i33.fr, 32
-  %conv8 = zext nneg i32 %n.4.i33.fr to i64
-  br i1 %cmp9.not, label %_ZN5eastl10GetLastBitEj.exit35.thread, label %return
-
-_ZN5eastl10GetLastBitEj.exit35.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEj.exit35
+  %narrow74 = select i1 %cmp9.not, i32 64, i32 %n.4.i33.fr
+  %spec.select = zext i32 %narrow74 to i64
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -10680,12 +10679,12 @@ if.else:                                          ; preds = %entry
 
 if.then13:                                        ; preds = %if.else
   %3 = load i32, ptr %this, align 4
-  %4 = trunc i64 %last_find to i32
+  %4 = trunc nuw i64 %last_find to i32
   %sh_prom18 = sub nuw nsw i32 32, %4
   %shr19 = lshr i32 -1, %sh_prom18
   %and20 = and i32 %3, %shr19
   %tobool.not.i36 = icmp eq i32 %and20, 0
-  br i1 %tobool.not.i36, label %_ZN5eastl10GetLastBitEj.exit61.thread, label %_ZN5eastl10GetLastBitEj.exit61
+  br i1 %tobool.not.i36, label %return, label %_ZN5eastl10GetLastBitEj.exit61
 
 _ZN5eastl10GetLastBitEj.exit61:                   ; preds = %if.then13
   %tobool1.not.i38 = icmp ult i32 %and20, 65536
@@ -10712,14 +10711,12 @@ _ZN5eastl10GetLastBitEj.exit61:                   ; preds = %if.then13
   %n.4.i59 = add nuw nsw i32 %n.3.i56, %add24.i58
   %n.4.i59.fr = freeze i32 %n.4.i59
   %cmp24.not = icmp eq i32 %n.4.i59.fr, 32
-  %conv23 = zext nneg i32 %n.4.i59.fr to i64
-  br i1 %cmp24.not, label %_ZN5eastl10GetLastBitEj.exit61.thread, label %return
-
-_ZN5eastl10GetLastBitEj.exit61.thread:            ; preds = %if.then13, %_ZN5eastl10GetLastBitEj.exit61
+  %narrow = select i1 %cmp24.not, i32 64, i32 %n.4.i59.fr
+  %spec.select73 = zext i32 %narrow to i64
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEj.exit61.thread, %_ZN5eastl10GetLastBitEj.exit61, %_ZN5eastl10GetLastBitEj.exit35.thread, %_ZN5eastl10GetLastBitEj.exit35, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ 64, %if.else ], [ 64, %_ZN5eastl10GetLastBitEj.exit35.thread ], [ %conv8, %_ZN5eastl10GetLastBitEj.exit35 ], [ 64, %_ZN5eastl10GetLastBitEj.exit61.thread ], [ %conv23, %_ZN5eastl10GetLastBitEj.exit61 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEj.exit61, %_ZN5eastl10GetLastBitEj.exit35, %if.then13, %if.end, %if.else, %if.then4
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 64, %if.else ], [ 64, %if.end ], [ 64, %if.then13 ], [ %spec.select, %_ZN5eastl10GetLastBitEj.exit35 ], [ %spec.select73, %_ZN5eastl10GetLastBitEj.exit61 ]
   ret i64 %retval.0
 }
 
@@ -10987,7 +10984,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
 
 for.end24.i:                                      ; preds = %for.body11.i
   %3 = load i32, ptr %this, align 4
-  %sh_prom27.i = trunc i64 %and.i to i32
+  %sh_prom27.i = trunc nuw nsw i64 %and.i to i32
   %shl28.i = shl i32 %3, %sh_prom27.i
   store i32 %shl28.i, ptr %this, align 4
   br label %_ZN5eastl10BitsetBaseILm3EjElSEm.exit
@@ -11044,7 +11041,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   br i1 %tobool5.not.i, label %if.end, label %for.cond8.preheader.i
 
 for.cond8.preheader.i:                            ; preds = %if.end.i
-  %sh_prom.i = trunc i64 %n to i32
+  %sh_prom.i = trunc nuw i64 %n to i32
   %.pre.i = load i32, ptr %this, align 4
   br label %for.body10.i
 
@@ -11063,7 +11060,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
 for.end23.i:                                      ; preds = %for.body10.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %arrayidx25.i, align 4
-  %sh_prom26.i = trunc i64 %and.i to i32
+  %sh_prom26.i = trunc nuw nsw i64 %and.i to i32
   %shr27.i = lshr i32 %3, %sh_prom26.i
   store i32 %shr27.i, ptr %arrayidx25.i, align 4
   br label %if.end
@@ -11092,7 +11089,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom.i = and i32 %0, 31
   %shl.i = shl nuw i32 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -11132,7 +11129,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
@@ -11177,7 +11174,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
@@ -11352,7 +11349,7 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 31
   %shl = shl nuw i32 1, %sh_prom
   %and3 = and i32 %0, %shl
@@ -11471,7 +11468,7 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 for.end24.i.i:                                    ; preds = %for.body11.i.i
   %3 = load i32, ptr %ref.tmp, align 8
-  %sh_prom27.i.i = trunc i64 %and.i.i to i32
+  %sh_prom27.i.i = trunc nuw nsw i64 %and.i.i to i32
   %shl28.i.i = shl i32 %3, %sh_prom27.i.i
   store i32 %shl28.i.i, ptr %ref.tmp, align 8
   br label %_ZN5eastl10BitsetBaseILm3EjElSEm.exit.i
@@ -11536,7 +11533,7 @@ if.end.i.i._ZN5eastl6bitsetILm65EjErSEm.exit_crit_edge: ; preds = %if.end.i.i
   br label %_ZN5eastl6bitsetILm65EjErSEm.exit
 
 for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
-  %sh_prom.i.i = trunc i64 %n to i32
+  %sh_prom.i.i = trunc nuw i64 %n to i32
   %.pre.i.i = load i32, ptr %ref.tmp, align 8
   br label %for.body10.i.i
 
@@ -11552,7 +11549,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 
 for.end23.i.i:                                    ; preds = %for.body10.i.i
   %3 = load i32, ptr %i7.016.i.i.sroa.gep3, align 8
-  %sh_prom26.i.i = trunc i64 %and.i.i to i32
+  %sh_prom26.i.i = trunc nuw nsw i64 %and.i.i to i32
   %shr27.i.i = lshr i32 %3, %sh_prom26.i.i
   br label %_ZN5eastl6bitsetILm65EjErSEm.exit
 
@@ -11634,7 +11631,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 5
   %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc i64 %inc.i to i32
+  %1 = trunc nuw i64 %inc.i to i32
   %sh_prom.i = and i32 %1, 31
   %shl.i = shl nsw i32 -1, %sh_prom.i
   %and2.i = and i32 %0, %shl.i
@@ -12087,7 +12084,7 @@ for.body11.i:                                     ; preds = %for.body11.i, %for.
 
 for.end24.i:                                      ; preds = %for.body11.i
   %3 = load i32, ptr %this, align 4
-  %sh_prom27.i = trunc i64 %and.i to i32
+  %sh_prom27.i = trunc nuw nsw i64 %and.i to i32
   %shl28.i = shl i32 %3, %sh_prom27.i
   store i32 %shl28.i, ptr %this, align 4
   br label %_ZN5eastl10BitsetBaseILm5EjElSEm.exit
@@ -12144,7 +12141,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
   br i1 %tobool5.not.i, label %if.end, label %for.cond8.preheader.i
 
 for.cond8.preheader.i:                            ; preds = %if.end.i
-  %sh_prom.i = trunc i64 %n to i32
+  %sh_prom.i = trunc nuw i64 %n to i32
   %.pre.i = load i32, ptr %this, align 4
   br label %for.body10.i
 
@@ -12163,7 +12160,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
 for.end23.i:                                      ; preds = %for.body10.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %arrayidx25.i, align 4
-  %sh_prom26.i = trunc i64 %and.i to i32
+  %sh_prom26.i = trunc nuw nsw i64 %and.i to i32
   %shr27.i = lshr i32 %3, %sh_prom26.i
   store i32 %shr27.i, ptr %arrayidx25.i, align 4
   br label %if.end
@@ -12192,7 +12189,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom.i = and i32 %0, 31
   %shl.i = shl nuw i32 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -12232,7 +12229,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
@@ -12277,7 +12274,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %i to i32
+  %0 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
@@ -12455,7 +12452,7 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc i64 %i to i32
+  %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 31
   %shl = shl nuw i32 1, %sh_prom
   %and3 = and i32 %0, %shl
@@ -12574,7 +12571,7 @@ for.body11.i.i:                                   ; preds = %for.body11.i.i, %fo
 
 for.end24.i.i:                                    ; preds = %for.body11.i.i
   %3 = load i32, ptr %ref.tmp, align 4
-  %sh_prom27.i.i = trunc i64 %and.i.i to i32
+  %sh_prom27.i.i = trunc nuw nsw i64 %and.i.i to i32
   %shl28.i.i = shl i32 %3, %sh_prom27.i.i
   store i32 %shl28.i.i, ptr %ref.tmp, align 4
   br label %_ZN5eastl10BitsetBaseILm5EjElSEm.exit.i
@@ -12634,7 +12631,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
   br i1 %tobool5.not.i.i, label %_ZN5eastl6bitsetILm129EjErSEm.exit, label %for.cond8.preheader.i.i
 
 for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
-  %sh_prom.i.i = trunc i64 %n to i32
+  %sh_prom.i.i = trunc nuw i64 %n to i32
   %.pre.i.i = load i32, ptr %ref.tmp, align 4
   br label %for.body10.i.i
 
@@ -12653,7 +12650,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
 for.end23.i.i:                                    ; preds = %for.body10.i.i
   %arrayidx25.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load i32, ptr %arrayidx25.i.i, align 4
-  %sh_prom26.i.i = trunc i64 %and.i.i to i32
+  %sh_prom26.i.i = trunc nuw nsw i64 %and.i.i to i32
   %shr27.i.i = lshr i32 %3, %sh_prom26.i.i
   store i32 %shr27.i.i, ptr %arrayidx25.i.i, align 4
   br label %_ZN5eastl6bitsetILm129EjErSEm.exit
@@ -12733,7 +12730,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 5
   %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc i64 %inc.i to i32
+  %1 = trunc nuw i64 %inc.i to i32
   %sh_prom.i = and i32 %1, 31
   %shl.i = shl nsw i32 -1, %sh_prom.i
   %and2.i = and i32 %0, %shl.i
@@ -14024,7 +14021,7 @@ entry:
   %storemerge.i = select i1 %cmp.i, i128 %shr.i.i, i128 0
   %ref.tmp.sroa.0.0.extract.trunc = trunc i128 %storemerge.i to i64
   %ref.tmp.sroa.4.0.extract.shift = lshr i128 %storemerge.i, 64
-  %ref.tmp.sroa.4.0.extract.trunc = trunc i128 %ref.tmp.sroa.4.0.extract.shift to i64
+  %ref.tmp.sroa.4.0.extract.trunc = trunc nuw i128 %ref.tmp.sroa.4.0.extract.shift to i64
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %ref.tmp.sroa.0.0.extract.trunc, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %ref.tmp.sroa.4.0.extract.trunc, 1
   ret { i64, i64 } %.fca.1.insert
@@ -14574,7 +14571,7 @@ entry:
   %and.i = xor i128 %not.i.i, 36893488147419103231
   %ref.tmp.sroa.0.0.extract.trunc = trunc i128 %and.i to i64
   %ref.tmp.sroa.4.0.extract.shift = lshr i128 %and.i, 64
-  %ref.tmp.sroa.4.0.extract.trunc = trunc i128 %ref.tmp.sroa.4.0.extract.shift to i64
+  %ref.tmp.sroa.4.0.extract.trunc = trunc nuw nsw i128 %ref.tmp.sroa.4.0.extract.shift to i64
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %ref.tmp.sroa.0.0.extract.trunc, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %ref.tmp.sroa.4.0.extract.trunc, 1
   ret { i64, i64 } %.fca.1.insert
@@ -14703,7 +14700,7 @@ entry:
   %storemerge.i = select i1 %cmp.i, i128 %and.i, i128 0
   %ref.tmp.sroa.0.0.extract.trunc = trunc i128 %storemerge.i to i64
   %ref.tmp.sroa.4.0.extract.shift = lshr i128 %storemerge.i, 64
-  %ref.tmp.sroa.4.0.extract.trunc = trunc i128 %ref.tmp.sroa.4.0.extract.shift to i64
+  %ref.tmp.sroa.4.0.extract.trunc = trunc nuw nsw i128 %ref.tmp.sroa.4.0.extract.shift to i64
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %ref.tmp.sroa.0.0.extract.trunc, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %ref.tmp.sroa.4.0.extract.trunc, 1
   ret { i64, i64 } %.fca.1.insert
@@ -14725,7 +14722,7 @@ entry:
   %storemerge.i = select i1 %cmp.i, i128 %shr.i.i, i128 0
   %ref.tmp.sroa.0.0.extract.trunc = trunc i128 %storemerge.i to i64
   %ref.tmp.sroa.4.0.extract.shift = lshr i128 %storemerge.i, 64
-  %ref.tmp.sroa.4.0.extract.trunc = trunc i128 %ref.tmp.sroa.4.0.extract.shift to i64
+  %ref.tmp.sroa.4.0.extract.trunc = trunc nuw i128 %ref.tmp.sroa.4.0.extract.shift to i64
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %ref.tmp.sroa.0.0.extract.trunc, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %ref.tmp.sroa.4.0.extract.trunc, 1
   ret { i64, i64 } %.fca.1.insert
@@ -15957,7 +15954,7 @@ if.then:                                          ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %entry, %_ZN5eastl10GetLastBitEo.exit
   %1 = load i128, ptr %this, align 16
   %tobool.not.i8 = icmp eq i128 %1, 0
-  br i1 %tobool.not.i8, label %_ZN5eastl10GetLastBitEo.exit48.thread, label %_ZN5eastl10GetLastBitEo.exit48
+  br i1 %tobool.not.i8, label %return, label %_ZN5eastl10GetLastBitEo.exit48
 
 _ZN5eastl10GetLastBitEo.exit48:                   ; preds = %if.end
   %coerce4.sroa.2.0.extract.shift = lshr i128 %1, 64
@@ -16000,14 +15997,12 @@ _ZN5eastl10GetLastBitEo.exit48:                   ; preds = %if.end
   %n.6.i46 = add nuw nsw i32 %n.5.i42, %add37.i45
   %n.6.i46.fr = freeze i32 %n.6.i46
   %cmp7.not = icmp eq i32 %n.6.i46.fr, 128
-  %conv6 = zext nneg i32 %n.6.i46.fr to i64
-  br i1 %cmp7.not, label %_ZN5eastl10GetLastBitEo.exit48.thread, label %return
-
-_ZN5eastl10GetLastBitEo.exit48.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEo.exit48
+  %narrow = select i1 %cmp7.not, i32 256, i32 %n.6.i46.fr
+  %spec.select = zext i32 %narrow to i64
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit48.thread, %_ZN5eastl10GetLastBitEo.exit48, %if.then
-  %retval.0 = phi i64 [ %add, %if.then ], [ 256, %_ZN5eastl10GetLastBitEo.exit48.thread ], [ %conv6, %_ZN5eastl10GetLastBitEo.exit48 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit48, %if.end, %if.then
+  %retval.0 = phi i64 [ %add, %if.then ], [ 256, %if.end ], [ %spec.select, %_ZN5eastl10GetLastBitEo.exit48 ]
   ret i64 %retval.0
 }
 
@@ -16085,7 +16080,7 @@ if.then4:                                         ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %if.then, %_ZN5eastl10GetLastBitEo.exit
   %1 = load i128, ptr %this, align 16
   %tobool.not.i14 = icmp eq i128 %1, 0
-  br i1 %tobool.not.i14, label %_ZN5eastl10GetLastBitEo.exit54.thread, label %_ZN5eastl10GetLastBitEo.exit54
+  br i1 %tobool.not.i14, label %return, label %_ZN5eastl10GetLastBitEo.exit54
 
 _ZN5eastl10GetLastBitEo.exit54:                   ; preds = %if.end
   %coerce7.sroa.2.0.extract.shift = lshr i128 %1, 64
@@ -16128,10 +16123,8 @@ _ZN5eastl10GetLastBitEo.exit54:                   ; preds = %if.end
   %n.6.i52 = add nuw nsw i32 %n.5.i48, %add37.i51
   %n.6.i52.fr = freeze i32 %n.6.i52
   %cmp10.not = icmp eq i32 %n.6.i52.fr, 128
-  %conv9 = zext nneg i32 %n.6.i52.fr to i64
-  br i1 %cmp10.not, label %_ZN5eastl10GetLastBitEo.exit54.thread, label %return
-
-_ZN5eastl10GetLastBitEo.exit54.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEo.exit54
+  %narrow112 = select i1 %cmp10.not, i32 256, i32 %n.6.i52.fr
+  %spec.select = zext i32 %narrow112 to i64
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -16145,7 +16138,7 @@ if.then14:                                        ; preds = %if.else
   %shr20 = lshr i128 -1, %sh_prom19
   %and21 = and i128 %2, %shr20
   %tobool.not.i59 = icmp eq i128 %and21, 0
-  br i1 %tobool.not.i59, label %_ZN5eastl10GetLastBitEo.exit99.thread, label %_ZN5eastl10GetLastBitEo.exit99
+  br i1 %tobool.not.i59, label %return, label %_ZN5eastl10GetLastBitEo.exit99
 
 _ZN5eastl10GetLastBitEo.exit99:                   ; preds = %if.then14
   %coerce23.sroa.2.0.extract.shift = lshr i128 %and21, 64
@@ -16188,14 +16181,12 @@ _ZN5eastl10GetLastBitEo.exit99:                   ; preds = %if.then14
   %n.6.i97 = add nuw nsw i32 %n.5.i93, %add37.i96
   %n.6.i97.fr = freeze i32 %n.6.i97
   %cmp26.not = icmp eq i32 %n.6.i97.fr, 128
-  %conv25 = zext nneg i32 %n.6.i97.fr to i64
-  br i1 %cmp26.not, label %_ZN5eastl10GetLastBitEo.exit99.thread, label %return
-
-_ZN5eastl10GetLastBitEo.exit99.thread:            ; preds = %if.then14, %_ZN5eastl10GetLastBitEo.exit99
+  %narrow = select i1 %cmp26.not, i32 256, i32 %n.6.i97.fr
+  %spec.select111 = zext i32 %narrow to i64
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit99.thread, %_ZN5eastl10GetLastBitEo.exit99, %_ZN5eastl10GetLastBitEo.exit54.thread, %_ZN5eastl10GetLastBitEo.exit54, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ 256, %if.else ], [ 256, %_ZN5eastl10GetLastBitEo.exit54.thread ], [ %conv9, %_ZN5eastl10GetLastBitEo.exit54 ], [ 256, %_ZN5eastl10GetLastBitEo.exit99.thread ], [ %conv25, %_ZN5eastl10GetLastBitEo.exit99 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit99, %_ZN5eastl10GetLastBitEo.exit54, %if.then14, %if.end, %if.else, %if.then4
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 256, %if.else ], [ 256, %if.end ], [ 256, %if.then14 ], [ %spec.select, %_ZN5eastl10GetLastBitEo.exit54 ], [ %spec.select111, %_ZN5eastl10GetLastBitEo.exit99 ]
   ret i64 %retval.0
 }
 
@@ -17515,7 +17506,7 @@ _ZNK5eastl6bitsetILm7EmE9find_nextEm.exit2770:    ; preds = %if.then.i.i2730
   %shr24.i.i.i2761 = lshr exact i64 %x.addr.3.i.i.i2756, 2
   %x.addr.4.i.i.i2762 = select i1 %cmp21.i.i.i2759, i64 %shr24.i.i.i2761, i64 %x.addr.3.i.i.i2756
   %n.4.i.i.i2763 = select i1 %cmp21.i.i.i2759, i32 %add23.i.i.i2760, i32 %n.3.i.i.i2757
-  %conv.i.i.i2764 = trunc i64 %x.addr.4.i.i.i2762 to i32
+  %conv.i.i.i2764 = trunc nuw nsw i64 %x.addr.4.i.i.i2762 to i32
   %and26.i.i.i2765 = and i32 %conv.i.i.i2764, 1
   %sub.i.i.i2766 = sub nuw nsw i32 %n.4.i.i.i2763, %and26.i.i.i2765
   %sub.i.i.fr.i2767 = freeze i32 %sub.i.i.i2766
@@ -17566,7 +17557,7 @@ _ZNK5eastl6bitsetILm32EmE9find_nextEm.exit3017:   ; preds = %if.then.i.i2977
   %shr24.i.i.i3008 = lshr exact i64 %x.addr.3.i.i.i3003, 2
   %x.addr.4.i.i.i3009 = select i1 %cmp21.i.i.i3006, i64 %shr24.i.i.i3008, i64 %x.addr.3.i.i.i3003
   %n.4.i.i.i3010 = select i1 %cmp21.i.i.i3006, i32 %add23.i.i.i3007, i32 %n.3.i.i.i3004
-  %conv.i.i.i3011 = trunc i64 %x.addr.4.i.i.i3009 to i32
+  %conv.i.i.i3011 = trunc nuw i64 %x.addr.4.i.i.i3009 to i32
   %and26.i.i.i3012 = and i32 %conv.i.i.i3011, 1
   %sub.i.i.i3013 = sub nuw nsw i32 %n.4.i.i.i3010, %and26.i.i.i3012
   %sub.i.i.fr.i3014 = freeze i32 %sub.i.i.i3013
@@ -19798,7 +19789,7 @@ if.then:                                          ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %entry, %_ZN5eastl10GetLastBitEm.exit
   %1 = load i64, ptr %this, align 8
   %tobool.not.i4 = icmp eq i64 %1, 0
-  br i1 %tobool.not.i4, label %_ZN5eastl10GetLastBitEm.exit36.thread, label %_ZN5eastl10GetLastBitEm.exit36
+  br i1 %tobool.not.i4, label %return, label %_ZN5eastl10GetLastBitEm.exit36
 
 _ZN5eastl10GetLastBitEm.exit36:                   ; preds = %if.end
   %tobool1.not.i6 = icmp ult i64 %1, 4294967296
@@ -19832,14 +19823,12 @@ _ZN5eastl10GetLastBitEm.exit36:                   ; preds = %if.end
   %n.5.i34 = add nuw nsw i32 %n.4.i30, %add30.i33
   %n.5.i34.fr = freeze i32 %n.5.i34
   %cmp6.not = icmp eq i32 %n.5.i34.fr, 64
-  %conv5 = zext nneg i32 %n.5.i34.fr to i64
-  br i1 %cmp6.not, label %_ZN5eastl10GetLastBitEm.exit36.thread, label %return
-
-_ZN5eastl10GetLastBitEm.exit36.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEm.exit36
+  %narrow = select i1 %cmp6.not, i32 128, i32 %n.5.i34.fr
+  %spec.select = zext i32 %narrow to i64
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit36.thread, %_ZN5eastl10GetLastBitEm.exit36, %if.then
-  %retval.0 = phi i64 [ %add, %if.then ], [ 128, %_ZN5eastl10GetLastBitEm.exit36.thread ], [ %conv5, %_ZN5eastl10GetLastBitEm.exit36 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit36, %if.end, %if.then
+  %retval.0 = phi i64 [ %add, %if.then ], [ 128, %if.end ], [ %spec.select, %_ZN5eastl10GetLastBitEm.exit36 ]
   ret i64 %retval.0
 }
 
@@ -19899,7 +19888,7 @@ if.then4:                                         ; preds = %_ZN5eastl10GetLastB
 if.end:                                           ; preds = %if.then, %_ZN5eastl10GetLastBitEm.exit
   %1 = load i64, ptr %this, align 8
   %tobool.not.i10 = icmp eq i64 %1, 0
-  br i1 %tobool.not.i10, label %_ZN5eastl10GetLastBitEm.exit42.thread, label %_ZN5eastl10GetLastBitEm.exit42
+  br i1 %tobool.not.i10, label %return, label %_ZN5eastl10GetLastBitEm.exit42
 
 _ZN5eastl10GetLastBitEm.exit42:                   ; preds = %if.end
   %tobool1.not.i12 = icmp ult i64 %1, 4294967296
@@ -19933,10 +19922,8 @@ _ZN5eastl10GetLastBitEm.exit42:                   ; preds = %if.end
   %n.5.i40 = add nuw nsw i32 %n.4.i36, %add30.i39
   %n.5.i40.fr = freeze i32 %n.5.i40
   %cmp9.not = icmp eq i32 %n.5.i40.fr, 64
-  %conv8 = zext nneg i32 %n.5.i40.fr to i64
-  br i1 %cmp9.not, label %_ZN5eastl10GetLastBitEm.exit42.thread, label %return
-
-_ZN5eastl10GetLastBitEm.exit42.thread:            ; preds = %if.end, %_ZN5eastl10GetLastBitEm.exit42
+  %narrow88 = select i1 %cmp9.not, i32 128, i32 %n.5.i40.fr
+  %spec.select = zext i32 %narrow88 to i64
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -19949,7 +19936,7 @@ if.then13:                                        ; preds = %if.else
   %shr18 = lshr i64 -1, %sub17
   %and19 = and i64 %2, %shr18
   %tobool.not.i43 = icmp eq i64 %and19, 0
-  br i1 %tobool.not.i43, label %_ZN5eastl10GetLastBitEm.exit75.thread, label %_ZN5eastl10GetLastBitEm.exit75
+  br i1 %tobool.not.i43, label %return, label %_ZN5eastl10GetLastBitEm.exit75
 
 _ZN5eastl10GetLastBitEm.exit75:                   ; preds = %if.then13
   %tobool1.not.i45 = icmp ult i64 %and19, 4294967296
@@ -19983,14 +19970,12 @@ _ZN5eastl10GetLastBitEm.exit75:                   ; preds = %if.then13
   %n.5.i73 = add nuw nsw i32 %n.4.i69, %add30.i72
   %n.5.i73.fr = freeze i32 %n.5.i73
   %cmp23.not = icmp eq i32 %n.5.i73.fr, 64
-  %conv22 = zext nneg i32 %n.5.i73.fr to i64
-  br i1 %cmp23.not, label %_ZN5eastl10GetLastBitEm.exit75.thread, label %return
-
-_ZN5eastl10GetLastBitEm.exit75.thread:            ; preds = %if.then13, %_ZN5eastl10GetLastBitEm.exit75
+  %narrow = select i1 %cmp23.not, i32 128, i32 %n.5.i73.fr
+  %spec.select87 = zext i32 %narrow to i64
   br label %return
 
-return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit75.thread, %_ZN5eastl10GetLastBitEm.exit75, %_ZN5eastl10GetLastBitEm.exit42.thread, %_ZN5eastl10GetLastBitEm.exit42, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ 128, %if.else ], [ 128, %_ZN5eastl10GetLastBitEm.exit42.thread ], [ %conv8, %_ZN5eastl10GetLastBitEm.exit42 ], [ 128, %_ZN5eastl10GetLastBitEm.exit75.thread ], [ %conv22, %_ZN5eastl10GetLastBitEm.exit75 ]
+return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit75, %_ZN5eastl10GetLastBitEm.exit42, %if.then13, %if.end, %if.else, %if.then4
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 128, %if.else ], [ 128, %if.end ], [ 128, %if.then13 ], [ %spec.select, %_ZN5eastl10GetLastBitEm.exit42 ], [ %spec.select87, %_ZN5eastl10GetLastBitEm.exit75 ]
   ret i64 %retval.0
 }
 

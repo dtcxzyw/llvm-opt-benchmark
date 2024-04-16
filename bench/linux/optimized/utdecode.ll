@@ -206,9 +206,9 @@ define dso_local noundef ptr @acpi_ut_get_node_name(ptr noundef %0) local_unname
 3:                                                ; preds = %1
   %4 = load ptr, ptr @acpi_gbl_root_node, align 8
   %5 = icmp eq ptr %4, %0
-  br i1 %5, label %6, label %7
+  br i1 %5, label %13, label %7
 
-6:                                                ; preds = %3, %1
+6:                                                ; preds = %1
   br label %13
 
 7:                                                ; preds = %3
@@ -222,8 +222,8 @@ define dso_local noundef ptr @acpi_ut_get_node_name(ptr noundef %0) local_unname
   tail call void @acpi_ut_repair_name(ptr noundef %12) #5
   br label %13
 
-13:                                               ; preds = %11, %7, %6, %1
-  %14 = phi ptr [ @.str.20, %6 ], [ %12, %11 ], [ @.str.19, %1 ], [ @.str.21, %7 ]
+13:                                               ; preds = %3, %11, %7, %6, %1
+  %14 = phi ptr [ %12, %11 ], [ @.str.19, %1 ], [ @.str.21, %7 ], [ @.str.20, %3 ], [ @.str.20, %6 ]
   ret ptr %14
 }
 

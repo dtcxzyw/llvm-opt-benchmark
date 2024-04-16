@@ -935,7 +935,7 @@ new.cont:                                         ; preds = %new.notnull, %_ZN6i
   %fUnion.i.i8 = getelementptr inbounds i8, ptr %call5, i64 8
   %18 = load i16, ptr %fUnion.i.i8, align 8
   %cmp.i.i9 = icmp ugt i16 %18, 31
-  br i1 %cmp.i.i9, label %land.lhs.true.i11, label %if.else.i
+  br i1 %cmp.i.i9, label %land.lhs.true.i11, label %_ZN6icu_754Norm12setMappingCPEv.exit
 
 land.lhs.true.i11:                                ; preds = %new.cont
   %cmp.i.i.i12 = icmp slt i16 %18, 0
@@ -948,13 +948,11 @@ land.lhs.true.i11:                                ; preds = %new.cont
   %cmp.i16 = icmp ult i32 %call5.i, 65536
   %cond.i = select i1 %cmp.i16, i32 1, i32 2
   %cmp6.i = icmp eq i32 %cond.i.i15, %cond.i
-  br i1 %cmp6.i, label %_ZN6icu_754Norm12setMappingCPEv.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %land.lhs.true.i11, %new.cont
+  %spec.select.i = select i1 %cmp6.i, i32 %call5.i, i32 -1
   br label %_ZN6icu_754Norm12setMappingCPEv.exit
 
-_ZN6icu_754Norm12setMappingCPEv.exit:             ; preds = %land.lhs.true.i11, %if.else.i
-  %.sink.i = phi i32 [ -1, %if.else.i ], [ %call5.i, %land.lhs.true.i11 ]
+_ZN6icu_754Norm12setMappingCPEv.exit:             ; preds = %new.cont, %land.lhs.true.i11
+  %.sink.i = phi i32 [ -1, %new.cont ], [ %spec.select.i, %land.lhs.true.i11 ]
   %mappingCP7.i = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 %.sink.i, ptr %mappingCP7.i, align 8
   %mappingSet = getelementptr inbounds i8, ptr %this, i64 200
@@ -1371,11 +1369,11 @@ while.body:                                       ; preds = %land.rhs.i, %land.r
   br i1 %cmp35, label %land.lhs.true36, label %while.end, !llvm.loop !6
 
 while.end.loopexit.split.loop.exit:               ; preds = %land.rhs.i
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.loopexit.split.loop.exit123:            ; preds = %land.lhs.true36
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit, %while.end.loopexit.split.loop.exit123, %if.end34
@@ -1492,7 +1490,7 @@ if.end110:                                        ; preds = %if.else, %if.then97
   %31 = load i32, ptr %fLength.i, align 4
   %32 = sext i32 %31 to i64
   %cmp56 = icmp slt i64 %indvars.iv.next119, %32
-  %33 = trunc i64 %indvars.iv118 to i32
+  %33 = trunc nsw i64 %indvars.iv118 to i32
   br i1 %cmp56, label %while.body57, label %while.end111, !llvm.loop !8
 
 while.end111:                                     ; preds = %if.end110
@@ -1861,7 +1859,7 @@ entry:
   %idxprom = sext i32 %shr4 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr %smallFCD, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = trunc i32 %shl to i8
+  %1 = trunc nuw i32 %shl to i8
   %conv6 = or i8 %0, %1
   store i8 %conv6, ptr %arrayidx, align 1
   ret void
@@ -1899,7 +1897,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom.i = sext i32 %shr4.i to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %smallFCD.i, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %3 = trunc i32 %shl.i to i8
+  %3 = trunc nuw i32 %shl.i to i8
   %conv6.i = or i8 %2, %3
   store i8 %conv6.i, ptr %arrayidx.i, align 1
   %inc = add i32 %c.039, 1

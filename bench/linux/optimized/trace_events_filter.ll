@@ -2623,7 +2623,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread89
 
 165:                                              ; preds = %159
-  %166 = trunc i32 %137 to i8
+  %166 = trunc nuw nsw i32 %137 to i8
   %167 = sext i32 %135 to i64
   %168 = getelementptr i8, ptr %122, i64 %167
   store i8 %166, ptr %168, align 1
@@ -4056,7 +4056,7 @@ select.unfold.thread:                             ; preds = %24
   %45 = trunc i64 %37 to i32
   %46 = add nsw i32 %13, -1
   %47 = icmp eq i32 %46, %45
-  br i1 %47, label %48, label %.loopexit
+  br i1 %47, label %48, label %.thread4
 
 48:                                               ; preds = %44
   %49 = getelementptr i8, ptr %14, i64 %37
@@ -4073,13 +4073,14 @@ select.unfold.thread:                             ; preds = %24
   %57 = add i64 %56, 4294967296
   %58 = ashr exact i64 %57, 32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %53, i64 %58, i1 false)
-  br i1 %50, label %select.unfold.thread24, label %select.unfold.thread23
+  %regex_match_middle.regex_match_front = select i1 %50, ptr @regex_match_middle, ptr @regex_match_front
+  br label %.thread
 
 59:                                               ; preds = %36
   %60 = zext i8 %40 to i32
   %61 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str, i32 %60, i64 4)
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %.loopexit
+  br i1 %62, label %63, label %.thread4
 
 63:                                               ; preds = %59, %42
   %64 = phi i32 [ %38, %59 ], [ 3, %42 ]
@@ -4087,51 +4088,51 @@ select.unfold.thread:                             ; preds = %24
   %66 = icmp eq i64 %65, %35
   br i1 %66, label %select.unfold, label %36, !llvm.loop !5
 
+.thread4:                                         ; preds = %59, %44
+  %67 = tail call i64 @strlen(ptr noundef %14) #17
+  %68 = trunc i64 %67 to i32
+  store i32 %68, ptr %7, align 8
+  %69 = shl i64 %67, 32
+  %70 = add i64 %69, 4294967296
+  %71 = ashr exact i64 %70, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %14, i64 %71, i1 false)
+  br label %.thread
+
 select.unfold:                                    ; preds = %63
-  %67 = icmp eq i8 %15, 42
-  %68 = zext i1 %67 to i64
-  %69 = getelementptr i8, ptr %14, i64 %68
-  %70 = tail call i64 @strlen(ptr noundef %69) #17
-  %71 = trunc i64 %70 to i32
-  store i32 %71, ptr %7, align 8
-  %72 = shl i64 %70, 32
-  %73 = add i64 %72, 4294967296
-  %74 = ashr exact i64 %73, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %69, i64 %74, i1 false)
+  %72 = icmp eq i8 %15, 42
+  %73 = zext i1 %72 to i64
+  %74 = getelementptr i8, ptr %14, i64 %73
+  %75 = tail call i64 @strlen(ptr noundef %74) #17
+  %76 = trunc i64 %75 to i32
+  store i32 %76, ptr %7, align 8
+  %77 = shl i64 %75, 32
+  %78 = add i64 %77, 4294967296
+  %79 = ashr exact i64 %78, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %74, i64 %79, i1 false)
   switch i32 %64, label %default.unreachable21 [
     i32 5, label %.thread
     i32 0, label %.thread
-    i32 1, label %select.unfold.thread23
-    i32 2, label %select.unfold.thread24
-    i32 3, label %75
+    i32 1, label %80
+    i32 2, label %81
+    i32 3, label %82
   ]
 
-select.unfold.thread23:                           ; preds = %48, %select.unfold
+80:                                               ; preds = %select.unfold
   br label %.thread
 
-select.unfold.thread24:                           ; preds = %48, %select.unfold
+81:                                               ; preds = %select.unfold
   br label %.thread
 
-75:                                               ; preds = %select.unfold
-  br label %.thread
-
-.loopexit:                                        ; preds = %59, %44
-  %76 = tail call i64 @strlen(ptr noundef %14) #17
-  %77 = trunc i64 %76 to i32
-  store i32 %77, ptr %7, align 8
-  %78 = shl i64 %76, 32
-  %79 = add i64 %78, 4294967296
-  %80 = ashr exact i64 %79, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %14, i64 %80, i1 false)
+82:                                               ; preds = %select.unfold
   br label %.thread
 
 default.unreachable21:                            ; preds = %select.unfold
   unreachable
 
-.thread:                                          ; preds = %select.unfold.thread, %1, %.thread5, %.loopexit, %75, %select.unfold.thread24, %select.unfold.thread23, %select.unfold, %select.unfold
-  %81 = phi ptr [ @regex_match_glob, %.loopexit ], [ @regex_match_end, %75 ], [ @regex_match_middle, %select.unfold.thread24 ], [ @regex_match_front, %select.unfold.thread23 ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %.thread5 ], [ @regex_match_full, %1 ], [ @regex_match_full, %select.unfold.thread ]
-  %82 = getelementptr inbounds i8, ptr %2, i64 264
-  store ptr %81, ptr %82, align 8
+.thread:                                          ; preds = %48, %select.unfold.thread, %1, %.thread4, %.thread5, %82, %81, %80, %select.unfold, %select.unfold
+  %83 = phi ptr [ @regex_match_end, %82 ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %.thread5 ], [ @regex_match_glob, %.thread4 ], [ @regex_match_full, %1 ], [ @regex_match_full, %select.unfold.thread ], [ @regex_match_front, %80 ], [ @regex_match_middle, %81 ], [ %regex_match_middle.regex_match_front, %48 ]
+  %84 = getelementptr inbounds i8, ptr %2, i64 264
+  store ptr %83, ptr %84, align 8
   ret void
 }
 
@@ -4229,14 +4230,12 @@ define internal noundef i32 @regex_match_end(ptr nocapture noundef readonly %0, 
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = tail call i32 @bcmp(ptr %13, ptr %1, i64 %11)
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %17, label %16
+  %spec.select = zext i1 %15 to i32
+  br label %16
 
 16:                                               ; preds = %8, %3
-  br label %17
-
-17:                                               ; preds = %16, %8
-  %18 = phi i32 [ 0, %16 ], [ 1, %8 ]
-  ret i32 %18
+  %17 = phi i32 [ 0, %3 ], [ %spec.select, %8 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)

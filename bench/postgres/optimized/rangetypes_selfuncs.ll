@@ -555,8 +555,8 @@ switch.lookup55:                                  ; preds = %.thread
   %switch.load58 = load double, ptr %switch.gep57, align 8
   br label %default_range_selectivity.exit47
 
-default_range_selectivity.exit47:                 ; preds = %61, %62, %switch.lookup55, %.thread, %calc_rangesel.exit
-  %.027 = phi double [ %.1.i, %calc_rangesel.exit ], [ 1.000000e-02, %.thread ], [ %switch.load58, %switch.lookup55 ], [ 5.000000e-03, %62 ], [ 5.000000e-03, %61 ]
+default_range_selectivity.exit47:                 ; preds = %switch.lookup55, %.thread, %62, %61, %calc_rangesel.exit
+  %.027 = phi double [ %.1.i, %calc_rangesel.exit ], [ 1.000000e-02, %.thread ], [ 5.000000e-03, %61 ], [ 5.000000e-03, %62 ], [ %switch.load58, %switch.lookup55 ]
   %255 = getelementptr inbounds i8, ptr %8, i64 16
   %256 = load ptr, ptr %255, align 8
   %.not40 = icmp eq ptr %256, null
@@ -1441,7 +1441,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   %64 = fcmp ugt double %62, %3
   %or.cond94 = or i1 %64, %.not92
   %or.cond103 = and i1 %63, %or.cond94
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw i64 %indvars.iv to i32
   br i1 %or.cond103, label %79, label %66
 
 66:                                               ; preds = %.lr.ph
@@ -1461,7 +1461,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
 
 76:                                               ; preds = %71, %66
   %.1 = phi double [ %75, %71 ], [ %.077116, %66 ]
-  %77 = trunc i64 %indvars.iv.next to i32
+  %77 = trunc nuw i64 %indvars.iv.next to i32
   %78 = icmp sgt i32 %11, %77
   br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !11
 

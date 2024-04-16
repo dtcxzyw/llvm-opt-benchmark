@@ -82,7 +82,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress norecurse uwtable
 define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %digest_hex.i14 = alloca [129 x i8], align 16
+  %digest_hex.i15 = alloca [129 x i8], align 16
   %digest_hex.i = alloca [129 x i8], align 16
   %digest_hex.i28.i = alloca [129 x i8], align 16
   %digest_hex.i.i = alloca [129 x i8], align 16
@@ -93,8 +93,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.048 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [28 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.048
+  %i.049 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds [28 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.049
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digest_len.i)
@@ -319,8 +319,8 @@ if.then68.i:                                      ; preds = %invoke.cont65.i
   br label %cleanup.i
 
 for.inc74.i:                                      ; preds = %for.cond60.i, %for.body58.i
-  %exitcond54.not = icmp eq i64 %i54.070.i, %28
-  br i1 %exitcond54.not, label %for.end76.i, label %for.body58.ithread-pre-split, !llvm.loop !11
+  %exitcond55.not = icmp eq i64 %i54.070.i, %28
+  br i1 %exitcond55.not, label %for.end76.i, label %for.body58.ithread-pre-split, !llvm.loop !11
 
 for.end76.i:                                      ; preds = %for.inc74.i, %for.body58.lr.ph.i, %for.cond55.preheader.i
   %call81.i = invoke i32 @EVP_DigestFinal_ex(ptr noundef nonnull %ctx.i, ptr noundef nonnull %digest.i, ptr noundef nonnull %digest_len.i)
@@ -437,49 +437,49 @@ invoke.cont127.i:                                 ; preds = %if.end123.i
           to label %invoke.cont129.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont129.i:                                 ; preds = %invoke.cont127.i
-  call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %digest_hex.i14)
-  %cmp12.not.i15 = icmp eq i64 %call130.i, 0
-  br i1 %cmp12.not.i15, label %for.end.i29, label %for.body.i16
+  call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %digest_hex.i15)
+  %cmp12.not.i16 = icmp eq i64 %call130.i, 0
+  br i1 %cmp12.not.i16, label %for.end.i30, label %for.body.i17
 
-for.body.i16:                                     ; preds = %invoke.cont129.i, %for.body.i16
-  %i.013.i17 = phi i64 [ %inc.i27, %for.body.i16 ], [ 0, %invoke.cont129.i ]
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %digest.i, i64 %i.013.i17
-  %55 = load i8, ptr %arrayidx.i18, align 1
+for.body.i17:                                     ; preds = %invoke.cont129.i, %for.body.i17
+  %i.013.i18 = phi i64 [ %inc.i28, %for.body.i17 ], [ 0, %invoke.cont129.i ]
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %digest.i, i64 %i.013.i18
+  %55 = load i8, ptr %arrayidx.i19, align 1
   %56 = lshr i8 %55, 4
-  %idxprom.i19 = zext nneg i8 %56 to i64
-  %arrayidx1.i20 = getelementptr inbounds [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom.i19
-  %57 = load i8, ptr %arrayidx1.i20, align 1
-  %mul.i21 = shl i64 %i.013.i17, 1
-  %arrayidx2.i22 = getelementptr inbounds [129 x i8], ptr %digest_hex.i14, i64 0, i64 %mul.i21
-  store i8 %57, ptr %arrayidx2.i22, align 2
+  %idxprom.i20 = zext nneg i8 %56 to i64
+  %arrayidx1.i21 = getelementptr inbounds [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom.i20
+  %57 = load i8, ptr %arrayidx1.i21, align 1
+  %mul.i22 = shl i64 %i.013.i18, 1
+  %arrayidx2.i23 = getelementptr inbounds [129 x i8], ptr %digest_hex.i15, i64 0, i64 %mul.i22
+  store i8 %57, ptr %arrayidx2.i23, align 2
   %58 = and i8 %55, 15
-  %idxprom5.i23 = zext nneg i8 %58 to i64
-  %arrayidx6.i24 = getelementptr inbounds [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom5.i23
-  %59 = load i8, ptr %arrayidx6.i24, align 1
-  %add.i25 = or disjoint i64 %mul.i21, 1
-  %arrayidx8.i26 = getelementptr inbounds [129 x i8], ptr %digest_hex.i14, i64 0, i64 %add.i25
-  store i8 %59, ptr %arrayidx8.i26, align 1
-  %inc.i27 = add nuw i64 %i.013.i17, 1
-  %exitcond.not.i28 = icmp eq i64 %inc.i27, %call130.i
-  br i1 %exitcond.not.i28, label %for.end.i29, label %for.body.i16, !llvm.loop !9
+  %idxprom5.i24 = zext nneg i8 %58 to i64
+  %arrayidx6.i25 = getelementptr inbounds [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom5.i24
+  %59 = load i8, ptr %arrayidx6.i25, align 1
+  %add.i26 = or disjoint i64 %mul.i22, 1
+  %arrayidx8.i27 = getelementptr inbounds [129 x i8], ptr %digest_hex.i15, i64 0, i64 %add.i26
+  store i8 %59, ptr %arrayidx8.i27, align 1
+  %inc.i28 = add nuw i64 %i.013.i18, 1
+  %exitcond.not.i29 = icmp eq i64 %inc.i28, %call130.i
+  br i1 %exitcond.not.i29, label %for.end.i30, label %for.body.i17, !llvm.loop !9
 
-for.end.i29:                                      ; preds = %for.body.i16, %invoke.cont129.i
-  %mul9.i30 = shl i64 %call130.i, 1
-  %arrayidx10.i31 = getelementptr inbounds [129 x i8], ptr %digest_hex.i14, i64 0, i64 %mul9.i30
-  store i8 0, ptr %arrayidx10.i31, align 2
-  %call.i33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i14, ptr noundef nonnull dereferenceable(1) %18) #9
-  %cmp11.not.i34 = icmp eq i32 %call.i33, 0
-  br i1 %cmp11.not.i34, label %if.end134.i, label %_ZL13CompareDigestPK10TestVectorPKhm.exit40
+for.end.i30:                                      ; preds = %for.body.i17, %invoke.cont129.i
+  %mul9.i31 = shl i64 %call130.i, 1
+  %arrayidx10.i32 = getelementptr inbounds [129 x i8], ptr %digest_hex.i15, i64 0, i64 %mul9.i31
+  store i8 0, ptr %arrayidx10.i32, align 2
+  %call.i34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i15, ptr noundef nonnull dereferenceable(1) %18) #9
+  %cmp11.not.i35 = icmp eq i32 %call.i34, 0
+  br i1 %cmp11.not.i35, label %if.end134.i, label %_ZL13CompareDigestPK10TestVectorPKhm.exit41
 
-_ZL13CompareDigestPK10TestVectorPKhm.exit40:      ; preds = %for.end.i29
+_ZL13CompareDigestPK10TestVectorPKhm.exit41:      ; preds = %for.end.i30
   %60 = load ptr, ptr @stderr, align 8
   %61 = load ptr, ptr %0, align 8
-  %call15.i39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.7, ptr noundef %61, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i14, ptr noundef %18) #7
-  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i14)
+  %call15.i40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.7, ptr noundef %61, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i15, ptr noundef %18) #7
+  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i15)
   br label %cleanup.i
 
-if.end134.i:                                      ; preds = %for.end.i29
-  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i14)
+if.end134.i:                                      ; preds = %for.end.i30
+  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i15)
   %62 = load ptr, ptr %one_shot_func.i, align 8
   %call139.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #9
   %call141.i = invoke noundef ptr %62(ptr noundef %51, i64 noundef %call139.i, ptr noundef null)
@@ -497,10 +497,10 @@ invoke.cont144.i:                                 ; preds = %invoke.cont140.i
 invoke.cont146.i:                                 ; preds = %invoke.cont144.i
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %digest_hex.i)
   %cmp12.not.i = icmp eq i64 %call147.i, 0
-  br i1 %cmp12.not.i, label %for.end.i9, label %for.body.i7
+  br i1 %cmp12.not.i, label %for.end.i10, label %for.body.i8
 
-for.body.i7:                                      ; preds = %invoke.cont146.i, %for.body.i7
-  %i.013.i = phi i64 [ %inc.i8, %for.body.i7 ], [ 0, %invoke.cont146.i ]
+for.body.i8:                                      ; preds = %invoke.cont146.i, %for.body.i8
+  %i.013.i = phi i64 [ %inc.i9, %for.body.i8 ], [ 0, %invoke.cont146.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %call141.i, i64 %i.013.i
   %64 = load i8, ptr %arrayidx.i, align 1
   %65 = lshr i8 %64, 4
@@ -517,31 +517,31 @@ for.body.i7:                                      ; preds = %invoke.cont146.i, %
   %add.i = or disjoint i64 %mul.i, 1
   %arrayidx8.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i, i64 0, i64 %add.i
   store i8 %68, ptr %arrayidx8.i, align 1
-  %inc.i8 = add nuw i64 %i.013.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i8, %call147.i
-  br i1 %exitcond.not.i, label %for.end.i9, label %for.body.i7, !llvm.loop !9
+  %inc.i9 = add nuw i64 %i.013.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i9, %call147.i
+  br i1 %exitcond.not.i, label %for.end.i10, label %for.body.i8, !llvm.loop !9
 
-for.end.i9:                                       ; preds = %for.body.i7, %invoke.cont146.i
+for.end.i10:                                      ; preds = %for.body.i8, %invoke.cont146.i
   %mul9.i = shl i64 %call147.i, 1
   %arrayidx10.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i, i64 0, i64 %mul9.i
   store i8 0, ptr %arrayidx10.i, align 2
-  %call.i10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i, ptr noundef nonnull dereferenceable(1) %18) #9
-  %cmp11.not.i = icmp eq i32 %call.i10, 0
-  br i1 %cmp11.not.i, label %_ZL13CompareDigestPK10TestVectorPKhm.exit.thread, label %_ZL13CompareDigestPK10TestVectorPKhm.exit
+  %call.i11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i, ptr noundef nonnull dereferenceable(1) %18) #9
+  %cmp11.not.i = icmp eq i32 %call.i11, 0
+  br i1 %cmp11.not.i, label %_ZL13CompareDigestPK10TestVectorPKhm.exit, label %if.then.i12
 
-_ZL13CompareDigestPK10TestVectorPKhm.exit.thread: ; preds = %for.end.i9
-  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i)
-  br label %cleanup.i
-
-_ZL13CompareDigestPK10TestVectorPKhm.exit:        ; preds = %for.end.i9
+if.then.i12:                                      ; preds = %for.end.i10
   %69 = load ptr, ptr @stderr, align 8
   %70 = load ptr, ptr %0, align 8
   %call15.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.7, ptr noundef %70, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %digest_hex.i, ptr noundef %18) #7
+  br label %_ZL13CompareDigestPK10TestVectorPKhm.exit
+
+_ZL13CompareDigestPK10TestVectorPKhm.exit:        ; preds = %for.end.i10, %if.then.i12
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %digest_hex.i)
+  %spec.select.i = zext i1 %cmp11.not.i to i32
   br label %cleanup.i
 
-cleanup.i:                                        ; preds = %if.end104.i, %_ZL13CompareDigestPK10TestVectorPKhm.exit.thread, %_ZL13CompareDigestPK10TestVectorPKhm.exit, %_ZL13CompareDigestPK10TestVectorPKhm.exit40, %if.then120.i, %invoke.cont101.i, %if.then95.i, %if.then83.i, %if.then68.i, %if.then50.i, %if.then41.i, %invoke.cont28.i, %if.then23.i, %if.then14.i, %if.then.i
-  %tobool.not = phi i1 [ true, %if.then14.i ], [ true, %if.then68.i ], [ true, %if.then95.i ], [ true, %if.then120.i ], [ true, %if.then83.i ], [ true, %if.then50.i ], [ true, %if.then41.i ], [ true, %if.then23.i ], [ true, %if.then.i ], [ true, %invoke.cont28.i ], [ true, %invoke.cont101.i ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit40 ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit ], [ false, %_ZL13CompareDigestPK10TestVectorPKhm.exit.thread ], [ false, %if.end104.i ]
+cleanup.i:                                        ; preds = %_ZL13CompareDigestPK10TestVectorPKhm.exit41, %_ZL13CompareDigestPK10TestVectorPKhm.exit, %if.then120.i, %if.end104.i, %invoke.cont101.i, %if.then95.i, %if.then83.i, %if.then68.i, %if.then50.i, %if.then41.i, %invoke.cont28.i, %if.then23.i, %if.then14.i, %if.then.i
+  %retval.0.i = phi i32 [ 0, %if.then14.i ], [ 0, %if.then68.i ], [ 0, %if.then95.i ], [ 0, %if.then120.i ], [ 0, %if.then83.i ], [ 0, %if.then50.i ], [ 0, %if.then41.i ], [ 0, %if.then23.i ], [ 0, %if.then.i ], [ 0, %invoke.cont28.i ], [ 0, %invoke.cont101.i ], [ 0, %_ZL13CompareDigestPK10TestVectorPKhm.exit41 ], [ 1, %if.end104.i ], [ %spec.select.i, %_ZL13CompareDigestPK10TestVectorPKhm.exit ]
   %call.i55.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %ctx.i)
           to label %_ZL10TestDigestPK10TestVector.exit unwind label %terminate.lpad.i56.i
 
@@ -556,18 +556,19 @@ _ZL10TestDigestPK10TestVector.exit:               ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digest_len.i)
+  %tobool.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %_ZL10TestDigestPK10TestVector.exit
   %73 = load ptr, ptr @stderr, align 8
-  %conv = trunc i64 %i.048 to i32
+  %conv = trunc nuw nsw i64 %i.049 to i32
   %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str, i32 noundef %conv) #7
   br label %return
 
 for.inc:                                          ; preds = %_ZL10TestDigestPK10TestVector.exit
-  %inc = add nuw nsw i64 %i.048, 1
-  %exitcond55.not = icmp eq i64 %inc, 28
-  br i1 %exitcond55.not, label %for.end, label %for.body, !llvm.loop !13
+  %inc = add nuw nsw i64 %i.049, 1
+  %exitcond56.not = icmp eq i64 %inc, 28
+  br i1 %exitcond56.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
   %call.i = call ptr @EVP_get_digestbyname(ptr noundef nonnull @.str.54)

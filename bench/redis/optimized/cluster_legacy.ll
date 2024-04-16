@@ -968,7 +968,7 @@ if.end76:                                         ; preds = %do.body72
 for.inc:                                          ; preds = %if.then56, %if.end76, %do.body72, %if.then66
   %indvars.iv.next732 = add nuw nsw i64 %indvars.iv731, 2
   %15 = load i32, ptr %argc, align 4
-  %16 = trunc i64 %indvars.iv.next732 to i32
+  %16 = trunc nuw i64 %indvars.iv.next732 to i32
   %cmp50 = icmp sgt i32 %15, %16
   br i1 %cmp50, label %for.body, label %while.cond.backedge.sink.split, !llvm.loop !8
 
@@ -2315,7 +2315,7 @@ while.body525:                                    ; preds = %while.body525.prehe
   %arrayidx.i481 = getelementptr inbounds [16384 x ptr], ptr %slots.i480, i64 0, i64 %indvars.iv725
   %169 = load ptr, ptr %arrayidx.i481, align 8
   %tobool.not.i482 = icmp eq ptr %169, null
-  %170 = trunc i64 %indvars.iv725 to i32
+  %170 = trunc nuw i64 %indvars.iv725 to i32
   br i1 %tobool.not.i482, label %if.end.i484, label %clusterAddSlot.exit
 
 if.end.i484:                                      ; preds = %while.body525
@@ -2331,7 +2331,7 @@ if.end.i484:                                      ; preds = %while.body525
   br i1 %tobool.not.i509, label %if.then.i, label %clusterNodeSetSlotBit.exit
 
 if.then.i:                                        ; preds = %if.end.i484
-  %174 = trunc i32 %172 to i8
+  %174 = trunc nuw i32 %172 to i8
   %conv2.i.i = or i8 %171, %174
   store i8 %conv2.i.i, ptr %arrayidx.i.i, align 1
   %175 = load i32, ptr %numslots.i, align 4
@@ -4215,7 +4215,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %6 = trunc i64 %indvars.iv.i.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %add.i.i = add nuw nsw i32 %6, 1
   %cmp3.i.i = icmp slt i32 %add.i.i, %3
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end.i.i
@@ -4314,7 +4314,7 @@ for.body:                                         ; preds = %resetManualFailover
   br i1 %tobool.not.i9, label %clusterDelSlot.exit, label %if.end.i10
 
 if.end.i10:                                       ; preds = %for.body
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @removeChannelsInSlot(i32 noundef %19)
   %slots.i.i = getelementptr inbounds i8, ptr %18, i64 104
   %div.i.i.i161718 = lshr i64 %indvars.iv, 3
@@ -4334,7 +4334,7 @@ cond.false.i:                                     ; preds = %if.end.i10
   unreachable
 
 cond.end.i:                                       ; preds = %if.end.i10
-  %23 = trunc i32 %21 to i8
+  %23 = trunc nuw i32 %21 to i8
   %24 = xor i8 %23, -1
   %conv3.i9.i.i = and i8 %20, %24
   store i8 %conv3.i9.i.i, ptr %arrayidx.i.i.i, align 1
@@ -4505,7 +4505,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i = add nuw nsw i32 %5, 1
   %cmp3.i = icmp slt i32 %add.i, %2
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
@@ -4601,7 +4601,7 @@ cond.false:                                       ; preds = %if.end
   unreachable
 
 cond.end:                                         ; preds = %if.end
-  %5 = trunc i32 %3 to i8
+  %5 = trunc nuw i32 %3 to i8
   %6 = xor i8 %5, -1
   %conv3.i9.i = and i8 %2, %6
   store i8 %conv3.i9.i, ptr %arrayidx.i.i, align 1
@@ -4680,7 +4680,7 @@ if.end12:                                         ; preds = %if.then8, %if.end
   br i1 %brmerge, label %for.inc, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @removeChannelsInSlot(i32 noundef %6)
   %div.i.i.i161718 = lshr i64 %indvars.iv, 3
   %conv.i.i.i = and i64 %div.i.i.i161718, 536870911
@@ -4699,7 +4699,7 @@ cond.false.i:                                     ; preds = %if.end.i
   unreachable
 
 cond.end.i:                                       ; preds = %if.end.i
-  %10 = trunc i32 %8 to i8
+  %10 = trunc nuw i32 %8 to i8
   %11 = xor i8 %10, -1
   %conv3.i9.i.i = and i8 %7, %11
   store i8 %conv3.i9.i.i, ptr %arrayidx.i.i.i, align 1
@@ -5307,7 +5307,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add nuw nsw i32 %3, 1
   %cmp3 = icmp slt i32 %add, %0
   br i1 %cmp3, label %if.then4, label %if.end
@@ -5446,7 +5446,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i = add nuw nsw i32 %10, 1
   %cmp3.i = icmp slt i32 %add.i, %7
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
@@ -7158,7 +7158,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %sender_slots.078 = phi i32 [ %sender_slots.1, %for.inc ], [ 0, %entry ]
   %dirty_slots_count.077 = phi i32 [ %dirty_slots_count.2, %for.inc ], [ 0, %entry ]
   %newmaster.076 = phi ptr [ %newmaster.2, %for.inc ], [ null, %entry ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %div.i676869 = lshr i64 %indvars.iv, 3
   %conv.i = and i64 %div.i676869, 536870911
   %and.i39 = and i32 %3, 7
@@ -7183,7 +7183,7 @@ if.then10:                                        ; preds = %if.then7
   %owner_not_claiming_slot = getelementptr inbounds i8, ptr %7, i64 393552
   %arrayidx.i43 = getelementptr inbounds i8, ptr %owner_not_claiming_slot, i64 %conv.i
   %9 = load i8, ptr %arrayidx.i43, align 1
-  %10 = trunc i32 %5 to i8
+  %10 = trunc nuw i32 %5 to i8
   %11 = xor i8 %10, -1
   %conv3.i44 = and i8 %9, %11
   store i8 %conv3.i44, ptr %arrayidx.i43, align 1
@@ -7265,7 +7265,7 @@ cond.false.i:                                     ; preds = %if.end.i
   unreachable
 
 clusterDelSlot.exit:                              ; preds = %if.end.i
-  %22 = trunc i32 %5 to i8
+  %22 = trunc nuw i32 %5 to i8
   %23 = xor i8 %22, -1
   %conv3.i9.i.i = and i8 %20, %23
   store i8 %conv3.i9.i.i, ptr %arrayidx.i.i.i, align 1
@@ -7319,7 +7319,7 @@ if.then60:                                        ; preds = %if.else
   %owner_not_claiming_slot61 = getelementptr inbounds i8, ptr %31, i64 393552
   %arrayidx.i62 = getelementptr inbounds i8, ptr %owner_not_claiming_slot61, i64 %conv.i
   %33 = load i8, ptr %arrayidx.i62, align 1
-  %34 = trunc i32 %5 to i8
+  %34 = trunc nuw i32 %5 to i8
   %conv2.i = or i8 %33, %34
   store i8 %conv2.i, ptr %arrayidx.i62, align 1
   br label %for.inc
@@ -7464,7 +7464,7 @@ entry:
   %shl = shl nuw nsw i32 1, %and
   %arrayidx = getelementptr inbounds i8, ptr %bitmap, i64 %conv
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = trunc i32 %shl to i8
+  %1 = trunc nuw i32 %shl to i8
   %2 = xor i8 %1, -1
   %conv3 = and i8 %0, %2
   store i8 %conv3, ptr %arrayidx, align 1
@@ -7482,7 +7482,7 @@ entry:
   %shl = shl nuw nsw i32 1, %and
   %arrayidx = getelementptr inbounds i8, ptr %bitmap, i64 %conv
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = trunc i32 %shl to i8
+  %1 = trunc nuw i32 %shl to i8
   %conv2 = or i8 %0, %1
   store i8 %conv2, ptr %arrayidx, align 1
   ret void
@@ -7556,7 +7556,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i = add nuw nsw i32 %9, 1
   %cmp3.i = icmp slt i32 %add.i, %6
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
@@ -7680,7 +7680,7 @@ for.body.i30:                                     ; preds = %for.inc.i33, %if.en
   br i1 %cmp5.not.i, label %for.inc.i33, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.body.i30
-  %29 = trunc i64 %indvars.iv.i31 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i31 to i32
   tail call void @removeChannelsInSlot(i32 noundef %29)
   %.pre.i32 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   br label %for.inc.i33
@@ -9773,7 +9773,7 @@ for.cond.preheader:                               ; preds = %if.end528, %if.then
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %110 = trunc i64 %indvars.iv to i32
+  %110 = trunc nuw nsw i64 %indvars.iv to i32
   %div.i357358359 = lshr i64 %indvars.iv, 3
   %conv.i = and i64 %div.i357358359, 536870911
   %and.i310 = and i32 %110, 7
@@ -10431,7 +10431,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %deleted.012 = phi i32 [ 0, %entry ], [ %deleted.1, %for.inc ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %div.i.i8910 = lshr i64 %indvars.iv, 3
   %conv.i.i = and i64 %div.i.i8910, 536870911
   %and.i.i = and i32 %0, 7
@@ -10467,7 +10467,7 @@ cond.false.i:                                     ; preds = %if.end.i
   unreachable
 
 cond.end.i:                                       ; preds = %if.end.i
-  %8 = trunc i32 %2 to i8
+  %8 = trunc nuw i32 %2 to i8
   %9 = xor i8 %8, -1
   %conv3.i9.i.i = and i8 %6, %9
   store i8 %conv3.i9.i.i, ptr %arrayidx.i.i.i, align 1
@@ -10803,7 +10803,7 @@ if.end92:                                         ; preds = %do.body88
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %div.i535455 = lshr i64 %indvars.iv, 3
   %conv.i = and i64 %div.i535455, 536870911
   %and.i45 = and i32 %32, 7
@@ -11545,19 +11545,17 @@ entry:
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %cond.false.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %cond.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %slaveof.i = getelementptr inbounds i8, ptr %1, i64 2184
   %3 = load ptr, ptr %slaveof.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
-  br i1 %tobool1.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %land.lhs.true.i, %entry
+  %spec.select.i = select i1 %tobool1.not.i, ptr %1, ptr %3
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.false.i, %land.lhs.true.i
-  %cond.i = phi ptr [ %1, %cond.false.i ], [ %3, %land.lhs.true.i ]
+cond.end.i:                                       ; preds = %land.lhs.true.i, %entry
+  %cond.i = phi ptr [ %1, %entry ], [ %spec.select.i, %land.lhs.true.i ]
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext 1) #35
   %ver.i = getelementptr inbounds i8, ptr %call, i64 24
   store i16 %call.i, ptr %ver.i, align 8
@@ -12819,7 +12817,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %6 = trunc i64 %indvars.iv.i.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %add.i.i = add nuw nsw i32 %6, 1
   %cmp3.i.i = icmp slt i32 %add.i.i, %3
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end.i.i
@@ -12876,7 +12874,7 @@ clusterSetNodeAsMaster.exit:                      ; preds = %for.inc.i.i, %if.th
 
 for.body:                                         ; preds = %clusterSetNodeAsMaster.exit, %for.inc
   %indvars.iv = phi i64 [ 0, %clusterSetNodeAsMaster.exit ], [ %indvars.iv.next, %for.inc ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %div.i.i272829 = lshr i64 %indvars.iv, 3
   %conv.i.i7 = and i64 %div.i.i272829, 536870911
   %and.i.i8 = and i32 %13, 7
@@ -12912,7 +12910,7 @@ cond.false.i:                                     ; preds = %if.end.i12
   unreachable
 
 clusterDelSlot.exit:                              ; preds = %if.end.i12
-  %21 = trunc i32 %15 to i8
+  %21 = trunc nuw i32 %15 to i8
   %22 = xor i8 %21, -1
   %conv3.i9.i.i = and i8 %19, %22
   store i8 %conv3.i9.i.i, ptr %arrayidx.i.i.i, align 1
@@ -14721,7 +14719,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shl.i = shl nuw nsw i32 1, %and.i
-  %2 = trunc i32 %shl.i to i8
+  %2 = trunc nuw i32 %shl.i to i8
   %conv2.i = or i8 %0, %2
   store i8 %conv2.i, ptr %arrayidx.i, align 1
   %numslots = getelementptr inbounds i8, ptr %n, i64 2164
@@ -14794,7 +14792,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shl.i = shl nuw nsw i32 1, %and.i
-  %2 = trunc i32 %shl.i to i8
+  %2 = trunc nuw i32 %shl.i to i8
   %3 = xor i8 %2, -1
   %conv3.i9 = and i8 %0, %3
   store i8 %conv3.i9, ptr %arrayidx.i, align 1
@@ -14920,7 +14918,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.body10:                                       ; preds = %for.body10.preheader, %for.inc45
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %for.inc45 ], [ 0, %for.body10.preheader ]
   %update_config.022 = phi i32 [ %update_config.1, %for.inc45 ], [ 0, %for.body10.preheader ]
-  %7 = trunc i64 %indvars.iv24 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv24 to i32
   %call11 = tail call i32 @countKeysInSlot(i32 noundef %7) #32
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %for.inc45, label %if.end14
@@ -15060,7 +15058,7 @@ if.else:                                          ; preds = %for.body
 for.inc:                                          ; preds = %if.then, %if.else
   %ci.addr.1 = phi ptr [ %call, %if.then ], [ %call6, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nuw i64 %indvars.iv.next to i32
   %cmp = icmp slt i32 %3, %slot_info_pairs_count
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !68
 
@@ -15317,7 +15315,7 @@ if.else.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
   %ci.addr.1.i = phi ptr [ %call.i, %if.then.i ], [ %call6.i, %if.else.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %31 = trunc i64 %indvars.iv.next.i to i32
+  %31 = trunc nuw i64 %indvars.iv.next.i to i32
   %cmp.i = icmp sgt i32 %27, %31
   br i1 %cmp.i, label %for.body.i, label %if.end107, !llvm.loop !68
 
@@ -15407,7 +15405,7 @@ for.inc139.sink.split:                            ; preds = %if.else126, %for.bo
   %.sink = phi ptr [ %37, %for.body115 ], [ %38, %if.else126 ]
   %.str.156.sink = phi ptr [ @.str.156, %for.body115 ], [ @.str.157, %if.else126 ]
   %name123 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %39 = trunc i64 %indvars.iv116 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv116 to i32
   %call125 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %ci.10112, ptr noundef nonnull %.str.156.sink, i32 noundef %39, ptr noundef nonnull %name123) #32
   br label %for.inc139
 
@@ -15434,7 +15432,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %n.0 = phi ptr [ null, %entry ], [ %n.1, %for.inc ]
   %start.0 = phi i32 [ -1, %entry ], [ %start.1, %for.inc ]
   %cmp1 = icmp eq ptr %n.0, null
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp2 = icmp eq i64 %indvars.iv, 16384
   br i1 %cmp1, label %if.then, label %if.end4
 
@@ -15696,7 +15694,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %0 to i32
+  %conv = trunc nuw nsw i64 %0 to i32
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -15816,7 +15814,7 @@ if.end.us:                                        ; preds = %if.then4.us, %if.th
 
 if.end.i12.us:                                    ; preds = %if.end.us
   %5 = load ptr, ptr @myself, align 8
-  %6 = trunc i64 %indvars.iv22 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv22 to i32
   %call.i.us = tail call i32 @clusterNodeSetSlotBit(ptr noundef %5, i32 noundef %6), !range !18
   %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots1.i.us = getelementptr inbounds i8, ptr %7, i64 262192
@@ -15858,7 +15856,7 @@ if.end:                                           ; preds = %if.then4, %if.then
   br i1 %tobool.not.i, label %cond.false14, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @removeChannelsInSlot(i32 noundef %13)
   %slots.i.i = getelementptr inbounds i8, ptr %12, i64 104
   %div.i.i.i151617 = lshr i64 %indvars.iv, 3
@@ -15878,7 +15876,7 @@ cond.false.i:                                     ; preds = %if.end.i
   unreachable
 
 cond.end.i:                                       ; preds = %if.end.i
-  %17 = trunc i32 %15 to i8
+  %17 = trunc nuw i32 %15 to i8
   %18 = xor i8 %17, -1
   %conv3.i9.i.i = and i8 %14, %18
   store i8 %conv3.i9.i.i, ptr %arrayidx.i.i.i, align 1
@@ -16369,19 +16367,17 @@ for.end:                                          ; preds = %for.inc
   %4 = load i32, ptr %flags14, align 8
   %and15 = and i32 %4, 2
   %tobool16.not = icmp eq i32 %and15, 0
-  br i1 %tobool16.not, label %cond.false, label %land.lhs.true
+  br i1 %tobool16.not, label %cond.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end
   %slaveof = getelementptr inbounds i8, ptr %3, i64 2184
   %5 = load ptr, ptr %slaveof, align 8
   %tobool17.not = icmp eq ptr %5, null
-  br i1 %tobool17.not, label %cond.false, label %cond.end
-
-cond.false:                                       ; preds = %land.lhs.true, %for.end
+  %spec.select = select i1 %tobool17.not, ptr %3, ptr %5
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true, %cond.false
-  %.pn = phi ptr [ %3, %cond.false ], [ %5, %land.lhs.true ]
+cond.end:                                         ; preds = %land.lhs.true, %for.end
+  %.pn = phi ptr [ %3, %for.end ], [ %spec.select, %land.lhs.true ]
   %cond.in = getelementptr inbounds i8, ptr %.pn, i64 96
   %cond = load i64, ptr %cond.in, align 8
   %state = getelementptr inbounds i8, ptr %0, i64 16
@@ -16417,7 +16413,7 @@ for.body29:                                       ; preds = %cond.end, %for.inc4
 
 if.end34:                                         ; preds = %for.body29
   %add38 = add nsw i64 %14, %tot_msg_sent.049
-  %15 = trunc i64 %indvars.iv55 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv55 to i32
   %16 = icmp ult i32 %15, 11
   br i1 %16, label %switch.lookup, label %clusterGetMessageTypeString.exit
 
@@ -16459,7 +16455,7 @@ for.body51:                                       ; preds = %for.end46, %for.inc
 
 if.end56:                                         ; preds = %for.body51
   %add60 = add nsw i64 %20, %tot_msg_received.052
-  %21 = trunc i64 %indvars.iv59 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv59 to i32
   %22 = icmp ult i32 %21, 11
   br i1 %22, label %switch.lookup66, label %clusterGetMessageTypeString.exit42
 
@@ -17204,7 +17200,7 @@ if.end60:                                         ; preds = %if.then54
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end60
   %indvars.iv.i = phi i64 [ 0, %if.end60 ], [ %indvars.iv.next.i, %for.inc.i ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %div.i.i8910.i = lshr i64 %indvars.iv.i, 3
   %conv.i.i.i = and i64 %div.i.i8910.i, 536870911
   %and.i.i.i = and i32 %31, 7
@@ -17240,7 +17236,7 @@ cond.false.i.i:                                   ; preds = %if.end.i.i
   unreachable
 
 cond.end.i.i:                                     ; preds = %if.end.i.i
-  %39 = trunc i32 %33 to i8
+  %39 = trunc nuw i32 %33 to i8
   %40 = xor i8 %39, -1
   %conv3.i9.i.i.i = and i8 %37, %40
   store i8 %conv3.i9.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -17428,7 +17424,7 @@ for.inc.us.i:                                     ; preds = %if.end10.us.i
 if.then107:                                       ; preds = %if.end10.us.i, %getSlotOrReply.exit241, %if.end10.i.us, %getSlotOrReply.exit241.us
   %.us-phi16.in.sink.i = phi i64 [ %retval.0.i239.us, %getSlotOrReply.exit241.us ], [ %retval.0.i239.us, %if.end10.i.us ], [ %retval.0.i239, %getSlotOrReply.exit241 ], [ %retval.0.i239, %if.end10.us.i ]
   %.str.183.sink.i = phi ptr [ @.str.183, %if.end10.i.us ], [ @.str.181, %getSlotOrReply.exit241.us ], [ @.str.183, %if.end10.us.i ], [ @.str.182, %getSlotOrReply.exit241 ]
-  %.us-phi16.i = trunc i64 %.us-phi16.in.sink.i to i32
+  %.us-phi16.i = trunc nsw i64 %.us-phi16.in.sink.i to i32
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull %.str.183.sink.i, i32 noundef %.us-phi16.i) #32
   call void @zfree(ptr noundef %call79) #32
   br label %return
@@ -17525,13 +17521,13 @@ getSlotOrReply.exit269.thread:                    ; preds = %getSlotOrReply.exit
   br label %return
 
 getSlotOrReply.exit269:                           ; preds = %getSlotOrReply.exit260
-  %conv.i266 = trunc i64 %93 to i32
+  %conv.i266 = trunc nuw nsw i64 %93 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %slot.i261)
   %cmp167 = icmp ugt i64 %88, %93
   br i1 %cmp167, label %if.then169, label %for.body.lr.ph.i
 
 if.then169:                                       ; preds = %getSlotOrReply.exit269
-  %conv.i257.le = trunc i64 %88 to i32
+  %conv.i257.le = trunc nuw nsw i64 %88 to i32
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.224, i32 noundef %conv.i257.le, i32 noundef %conv.i266) #32
   call void @zfree(ptr noundef nonnull %call136) #32
   br label %return
@@ -17595,7 +17591,7 @@ if.then174:                                       ; preds = %if.end10.us.i294, %
 for.inc176:                                       ; preds = %for.inc.us.i298, %for.inc.i280
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %101 = load i32, ptr %argc125, align 8
-  %102 = trunc i64 %indvars.iv.next to i32
+  %102 = trunc nuw i64 %indvars.iv.next to i32
   %cmp147 = icmp sgt i32 %101, %102
   br i1 %cmp147, label %for.body149, label %for.end178, !llvm.loop !87
 
@@ -17651,7 +17647,7 @@ getSlotOrReply.exit313.thread:                    ; preds = %if.end193
   br label %return
 
 getSlotOrReply.exit313:                           ; preds = %if.end193
-  %conv.i310 = trunc i64 %110 to i32
+  %conv.i310 = trunc nuw nsw i64 %110 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %slot.i305)
   %112 = load ptr, ptr %argv, align 8
   %arrayidx202 = getelementptr inbounds i8, ptr %112, i64 24

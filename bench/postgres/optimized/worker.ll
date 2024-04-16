@@ -493,7 +493,7 @@ am_parallel_apply_worker.exit.thread:             ; preds = %3, %am_parallel_app
 25:                                               ; preds = %23
   %26 = load i64, ptr @skip_xact_finish_lsn, align 8
   %27 = lshr i64 %26, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %26 to i32
   %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.86, i32 noundef %28, i32 noundef %29) #17
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4808, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #17
@@ -801,7 +801,7 @@ define dso_local void @apply_dispatch(ptr noundef %0) local_unnamed_addr #0 {
 48:                                               ; preds = %46
   %49 = load i64, ptr @skip_xact_finish_lsn, align 8
   %50 = lshr i64 %49, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   %52 = trunc i64 %49 to i32
   %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.86, i32 noundef %51, i32 noundef %52) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4808, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #17
@@ -827,11 +827,11 @@ apply_handle_begin.exit:                          ; preds = %37, %46, %48
   %59 = call i32 @errcode(i32 noundef 16908800) #17
   %60 = load i64, ptr %33, align 8
   %61 = lshr i64 %60, 32
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   %63 = trunc i64 %60 to i32
   %64 = load i64, ptr @remote_final_lsn, align 8
   %65 = lshr i64 %64, 32
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw i64 %65 to i32
   %67 = trunc i64 %64 to i32
   %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %62, i32 noundef %63, i32 noundef %66, i32 noundef %67) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1052, ptr noundef nonnull @__func__.apply_handle_commit) #17
@@ -2624,7 +2624,7 @@ am_tablesync_worker.exit.thread.i58:              ; preds = %am_tablesync_worker
 895:                                              ; preds = %893
   %896 = load i64, ptr @skip_xact_finish_lsn, align 8
   %897 = lshr i64 %896, 32
-  %898 = trunc i64 %897 to i32
+  %898 = trunc nuw i64 %897 to i32
   %899 = trunc i64 %896 to i32
   %900 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.86, i32 noundef %898, i32 noundef %899) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4808, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #17
@@ -2650,11 +2650,11 @@ apply_handle_begin_prepare.exit:                  ; preds = %am_tablesync_worker
   %906 = call i32 @errcode(i32 noundef 16908800) #17
   %907 = load i64, ptr %8, align 8
   %908 = lshr i64 %907, 32
-  %909 = trunc i64 %908 to i32
+  %909 = trunc nuw i64 %908 to i32
   %910 = trunc i64 %907 to i32
   %911 = load i64, ptr @remote_final_lsn, align 8
   %912 = lshr i64 %911, 32
-  %913 = trunc i64 %912 to i32
+  %913 = trunc nuw i64 %912 to i32
   %914 = trunc i64 %911 to i32
   %915 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.65, i32 noundef %909, i32 noundef %910, i32 noundef %913, i32 noundef %914) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1144, ptr noundef nonnull @__func__.apply_handle_prepare) #17
@@ -2742,7 +2742,7 @@ store_flush_position.exit.i:                      ; preds = %dlist_push_tail.exi
 946:                                              ; preds = %944
   %947 = load i64, ptr @skip_xact_finish_lsn, align 8
   %948 = lshr i64 %947, 32
-  %949 = trunc i64 %948 to i32
+  %949 = trunc nuw i64 %948 to i32
   %950 = trunc i64 %947 to i32
   %951 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, i32 noundef %949, i32 noundef %950) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4822, ptr noundef nonnull @__func__.stop_skipping_changes) #17
@@ -3177,7 +3177,7 @@ apply_handle_stream_prepare.exit:                 ; preds = %1072, %1086, %1093,
 1123:                                             ; preds = %1121
   %1124 = load i64, ptr @skip_xact_finish_lsn, align 8
   %1125 = lshr i64 %1124, 32
-  %1126 = trunc i64 %1125 to i32
+  %1126 = trunc nuw i64 %1125 to i32
   %1127 = trunc i64 %1124 to i32
   %1128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, i32 noundef %1126, i32 noundef %1127) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4822, ptr noundef nonnull @__func__.stop_skipping_changes) #17
@@ -3683,7 +3683,7 @@ define dso_local void @set_stream_options(ptr nocapture noundef writeonly %0, pt
   %28 = getelementptr inbounds i8, ptr %19, i64 31
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 112
-  br i1 %30, label %34, label %.thread
+  br i1 %30, label %33, label %.thread
 
 31:                                               ; preds = %3
   br i1 %14, label %..thread_crit_edge, label %33
@@ -3696,26 +3696,24 @@ define dso_local void @set_stream_options(ptr nocapture noundef writeonly %0, pt
 .thread:                                          ; preds = %..thread_crit_edge, %27
   %32 = phi i8 [ %.pre, %..thread_crit_edge ], [ %29, %27 ]
   %.not = icmp eq i8 %32, 102
-  br i1 %.not, label %33, label %34
+  %spec.select = select i1 %.not, ptr null, ptr @.str.17
+  br label %33
 
-33:                                               ; preds = %.thread, %31
-  br label %34
-
-34:                                               ; preds = %.thread, %27, %33
-  %.str.17.sink = phi ptr [ null, %33 ], [ @.str.16, %27 ], [ @.str.17, %.thread ]
-  %.sink = phi i8 [ 0, %33 ], [ 1, %27 ], [ 0, %.thread ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %.str.17.sink, ptr %35, align 8
-  %36 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 84
-  store i8 %.sink, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 72
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call ptr @pstrdup(ptr noundef %40) #17
-  %42 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %41, ptr %42, align 8
+33:                                               ; preds = %.thread, %31, %27
+  %.str.17.sink = phi ptr [ @.str.16, %27 ], [ null, %31 ], [ %spec.select, %.thread ]
+  %.sink = phi i8 [ 1, %27 ], [ 0, %31 ], [ 0, %.thread ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %.str.17.sink, ptr %34, align 8
+  %35 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 84
+  store i8 %.sink, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  store i8 0, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %19, i64 72
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call ptr @pstrdup(ptr noundef %39) #17
+  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %40, ptr %41, align 8
   ret void
 }
 
@@ -4435,7 +4433,7 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
 25:                                               ; preds = %15
   %26 = load i64, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
   %27 = lshr i64 %26, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %26 to i32
   %30 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.32, ptr noundef %19, ptr noundef %21, i32 noundef %22, i32 noundef %28, i32 noundef %29) #17
   br label %71
@@ -4467,7 +4465,7 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
 49:                                               ; preds = %45
   %50 = load i64, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
   %51 = lshr i64 %50, 32
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw i64 %51 to i32
   %53 = trunc i64 %50 to i32
   %54 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.34, ptr noundef %37, ptr noundef %39, ptr noundef %42, ptr noundef %44, i32 noundef %46, i32 noundef %52, i32 noundef %53) #17
   br label %71
@@ -4489,7 +4487,7 @@ define dso_local void @apply_error_callback(ptr nocapture readnone %0) #0 {
 65:                                               ; preds = %55
   %66 = load i64, ptr getelementptr inbounds (%struct.ApplyErrorCallbackArg, ptr @apply_error_callback_arg, i64 0, i32 4), align 8
   %67 = lshr i64 %66, 32
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw i64 %67 to i32
   %69 = trunc i64 %66 to i32
   %70 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.36, ptr noundef %37, ptr noundef %39, ptr noundef %42, ptr noundef %44, ptr noundef %61, i32 noundef %62, i32 noundef %68, i32 noundef %69) #17
   br label %71
@@ -4635,7 +4633,7 @@ define internal fastcc void @apply_handle_commit_internal(ptr nocapture noundef 
 5:                                                ; preds = %3
   %6 = load i64, ptr @skip_xact_finish_lsn, align 8
   %7 = lshr i64 %6, 32
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %9 = trunc i64 %6 to i32
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, i32 noundef %8, i32 noundef %9) #17
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4822, ptr noundef nonnull @__func__.stop_skipping_changes) #17
@@ -4820,10 +4818,10 @@ am_parallel_apply_worker.exit.thread:             ; preds = %9, %am_parallel_app
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef %53) #17
   %55 = lshr i64 %0, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = trunc i64 %0 to i32
   %58 = lshr i64 %7, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   %60 = trunc i64 %7 to i32
   %61 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.42, i32 noundef %56, i32 noundef %57, i32 noundef %59, i32 noundef %60) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4906, ptr noundef nonnull @__func__.clear_subscription_skip_lsn) #17
@@ -5006,7 +5004,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   br label %subxact_info_add.exit
 
 subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %49
-  %61 = trunc i32 %0 to i8
+  %61 = trunc nuw nsw i32 %0 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i8 %61, ptr %5, align 1
@@ -5051,7 +5049,7 @@ subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %49
   br label %86
 
 86:                                               ; preds = %85, %24
-  %87 = trunc i32 %0 to i8
+  %87 = trunc nuw nsw i32 %0 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i8 %87, ptr %3, align 1
@@ -6457,13 +6455,13 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
 93:                                               ; preds = %45
   %94 = zext i1 %1 to i32
   %95 = lshr i64 %spec.select, 32
-  %96 = trunc i64 %95 to i32
+  %96 = trunc nuw i64 %95 to i32
   %97 = trunc i64 %spec.select to i32
   %98 = lshr i64 %spec.select42, 32
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw i64 %98 to i32
   %100 = trunc i64 %spec.select42 to i32
   %101 = lshr i64 %.4, 32
-  %102 = trunc i64 %101 to i32
+  %102 = trunc nuw i64 %101 to i32
   %103 = trunc i64 %.4 to i32
   %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78, i32 noundef %94, i32 noundef %96, i32 noundef %97, i32 noundef %99, i32 noundef %100, i32 noundef %102, i32 noundef %103) #17
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3839, ptr noundef nonnull @__func__.send_feedback) #17
@@ -6644,7 +6642,7 @@ define internal fastcc void @run_apply_worker() unnamed_addr #0 {
   br i1 %76, label %set_stream_options.exit, label %.thread.i
 
 77:                                               ; preds = %44
-  br i1 %60, label %..thread_crit_edge.i, label %79
+  br i1 %60, label %..thread_crit_edge.i, label %set_stream_options.exit
 
 ..thread_crit_edge.i:                             ; preds = %77
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %65, i64 31
@@ -6654,91 +6652,89 @@ define internal fastcc void @run_apply_worker() unnamed_addr #0 {
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %73
   %78 = phi i8 [ %.pre.i, %..thread_crit_edge.i ], [ %75, %73 ]
   %.not.i = icmp eq i8 %78, 102
-  br i1 %.not.i, label %79, label %set_stream_options.exit
-
-79:                                               ; preds = %.thread.i, %77
+  %spec.select.i = select i1 %.not.i, ptr null, ptr @.str.17
   br label %set_stream_options.exit
 
-set_stream_options.exit:                          ; preds = %73, %.thread.i, %79
-  %.str.17.sink.i = phi ptr [ null, %79 ], [ @.str.16, %73 ], [ @.str.17, %.thread.i ]
-  %.sink.i = phi i8 [ 0, %79 ], [ 1, %73 ], [ 0, %.thread.i ]
-  %80 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr %.str.17.sink.i, ptr %80, align 8
-  %81 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 84
-  store i8 %.sink.i, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %2, i64 56
-  store i8 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %65, i64 72
-  %85 = load ptr, ptr %84, align 8
-  %86 = call ptr @pstrdup(ptr noundef %85) #17
-  %87 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr %86, ptr %87, align 8
-  %88 = load ptr, ptr @MySubscription, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
-  %90 = load i8, ptr %89, align 8
-  %91 = icmp eq i8 %90, 112
-  br i1 %91, label %92, label %104
+set_stream_options.exit:                          ; preds = %73, %77, %.thread.i
+  %.str.17.sink.i = phi ptr [ @.str.16, %73 ], [ null, %77 ], [ %spec.select.i, %.thread.i ]
+  %.sink.i = phi i8 [ 1, %73 ], [ 0, %77 ], [ 0, %.thread.i ]
+  %79 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %.str.17.sink.i, ptr %79, align 8
+  %80 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 84
+  store i8 %.sink.i, ptr %81, align 4
+  %82 = getelementptr inbounds i8, ptr %2, i64 56
+  store i8 0, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %65, i64 72
+  %84 = load ptr, ptr %83, align 8
+  %85 = call ptr @pstrdup(ptr noundef %84) #17
+  %86 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr %85, ptr %86, align 8
+  %87 = load ptr, ptr @MySubscription, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 32
+  %89 = load i8, ptr %88, align 8
+  %90 = icmp eq i8 %89, 112
+  br i1 %90, label %91, label %103
 
-92:                                               ; preds = %set_stream_options.exit
-  %93 = call zeroext i1 @AllTablesyncsReady() #17
-  br i1 %93, label %94, label %104
+91:                                               ; preds = %set_stream_options.exit
+  %92 = call zeroext i1 @AllTablesyncsReady() #17
+  br i1 %92, label %93, label %103
 
-94:                                               ; preds = %92
-  store i8 1, ptr %83, align 8
-  %95 = load ptr, ptr @WalReceiverFunctions, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 64
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %99 = call zeroext i1 %97(ptr noundef %98, ptr noundef nonnull %2) #17
+93:                                               ; preds = %91
+  store i8 1, ptr %82, align 8
+  %94 = load ptr, ptr @WalReceiverFunctions, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 64
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
+  %98 = call zeroext i1 %96(ptr noundef %97, ptr noundef nonnull %2) #17
   call void @StartTransactionCommand() #17
-  %100 = load ptr, ptr @MySubscription, align 8
-  %101 = load i32, ptr %100, align 8
-  call void @UpdateTwoPhaseState(i32 noundef %101, i8 noundef signext 101) #17
-  %102 = load ptr, ptr @MySubscription, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 32
-  store i8 101, ptr %103, align 8
+  %99 = load ptr, ptr @MySubscription, align 8
+  %100 = load i32, ptr %99, align 8
+  call void @UpdateTwoPhaseState(i32 noundef %100, i8 noundef signext 101) #17
+  %101 = load ptr, ptr @MySubscription, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 32
+  store i8 101, ptr %102, align 8
   call void @CommitTransactionCommand() #17
-  br label %110
+  br label %109
 
-104:                                              ; preds = %92, %set_stream_options.exit
-  %105 = load ptr, ptr @WalReceiverFunctions, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 64
-  %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %109 = call zeroext i1 %107(ptr noundef %108, ptr noundef nonnull %2) #17
-  br label %110
+103:                                              ; preds = %91, %set_stream_options.exit
+  %104 = load ptr, ptr @WalReceiverFunctions, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 64
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
+  %108 = call zeroext i1 %106(ptr noundef %107, ptr noundef nonnull %2) #17
+  br label %109
 
-110:                                              ; preds = %104, %94
-  %111 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
-  br i1 %111, label %112, label %124
+109:                                              ; preds = %103, %93
+  %110 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  br i1 %110, label %111, label %123
 
-112:                                              ; preds = %110
-  %113 = load ptr, ptr @MySubscription, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %113, i64 32
-  %117 = load i8, ptr %116, align 8
-  switch i8 %117, label %118 [
-    i8 100, label %121
+111:                                              ; preds = %109
+  %112 = load ptr, ptr @MySubscription, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 16
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %112, i64 32
+  %116 = load i8, ptr %115, align 8
+  switch i8 %116, label %117 [
+    i8 100, label %120
     i8 112, label %.fold.split
   ]
 
-118:                                              ; preds = %112
-  %119 = icmp eq i8 %117, 101
-  %120 = select i1 %119, ptr @.str.84, ptr @.str.85
-  br label %121
+117:                                              ; preds = %111
+  %118 = icmp eq i8 %116, 101
+  %119 = select i1 %118, ptr @.str.84, ptr @.str.85
+  br label %120
 
-.fold.split:                                      ; preds = %112
-  br label %121
+.fold.split:                                      ; preds = %111
+  br label %120
 
-121:                                              ; preds = %112, %.fold.split, %118
-  %122 = phi ptr [ @.str.82, %112 ], [ %120, %118 ], [ @.str.83, %.fold.split ]
-  %123 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.81, ptr noundef %115, ptr noundef nonnull %122) #17
+120:                                              ; preds = %111, %.fold.split, %117
+  %121 = phi ptr [ @.str.82, %111 ], [ %119, %117 ], [ @.str.83, %.fold.split ]
+  %122 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.81, ptr noundef %114, ptr noundef nonnull %121) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4572, ptr noundef nonnull @__func__.run_apply_worker) #17
-  br label %124
+  br label %123
 
-124:                                              ; preds = %110, %121
+123:                                              ; preds = %109, %120
   call void @start_apply(i64 noundef %19)
   ret void
 }

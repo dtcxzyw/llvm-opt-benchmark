@@ -406,7 +406,7 @@ define internal noundef i32 @mca_common_monitoring_get_flush(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @mca_common_monitoring_set_flush(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
+define internal i32 @mca_common_monitoring_set_flush(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 {
   %4 = load ptr, ptr @mca_common_monitoring_current_filename, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -430,13 +430,11 @@ define internal noundef i32 @mca_common_monitoring_set_flush(ptr nocapture readn
   %13 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #19
   store ptr %13, ptr @mca_common_monitoring_current_filename, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %16, label %15
+  %spec.select = sext i1 %14 to i32
+  br label %15
 
 15:                                               ; preds = %12, %11
-  br label %16
-
-16:                                               ; preds = %12, %15
-  %.0 = phi i32 [ 0, %15 ], [ -1, %12 ]
+  %.0 = phi i32 [ 0, %11 ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 
@@ -899,9 +897,9 @@ define noundef i32 @mca_common_monitoring_add_procs(ptr nocapture noundef readon
   %37 = and i64 %36, 32767
   %38 = and i64 %33, 4294901760
   %.sroa.0.0.insert.insert.i = or disjoint i64 %37, %38
-  %.sroa.013.0.extract.trunc = trunc i64 %.sroa.0.0.insert.insert.i to i32
+  %.sroa.013.0.extract.trunc = trunc nuw i64 %.sroa.0.0.insert.insert.i to i32
   %.sroa.5.0.extract.shift = lshr i64 %33, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   br label %41
 
 39:                                               ; preds = %.lr.ph37
@@ -1135,7 +1133,7 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %12 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv89
   %13 = load volatile i64, ptr %12, align 8
   %14 = load volatile i64, ptr %8, align 8
-  %15 = trunc i64 %indvars.iv89 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv89 to i32
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef %1, i32 noundef %15, i64 noundef %13, i64 noundef %14) #19
   %17 = mul i64 %indvars.iv89, 66
   %18 = and i64 %17, 4294967294
@@ -1187,7 +1185,7 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %38 = load volatile i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   %40 = select i1 %39, ptr @.str.49, ptr @.str.47
-  %41 = trunc i64 %indvars.iv97 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv97 to i32
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, i32 noundef %1, i32 noundef %41, i64 noundef %34, i64 noundef %35, ptr noundef nonnull %40) #19
   %43 = load ptr, ptr @pml_count, align 8
   %44 = getelementptr inbounds i64, ptr %43, i64 %indvars.iv97
@@ -1239,7 +1237,7 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %62 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv102
   %63 = load volatile i64, ptr %62, align 8
   %64 = load volatile i64, ptr %58, align 8
-  %65 = trunc i64 %indvars.iv102 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv102 to i32
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.51, i32 noundef %1, i32 noundef %65, i64 noundef %63, i64 noundef %64) #19
   br label %67
 
@@ -1255,7 +1253,7 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %73 = getelementptr inbounds i64, ptr %72, i64 %indvars.iv102
   %74 = load volatile i64, ptr %73, align 8
   %75 = load volatile i64, ptr %69, align 8
-  %76 = trunc i64 %indvars.iv102 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv102 to i32
   %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, i32 noundef %1, i32 noundef %76, i64 noundef %74, i64 noundef %75) #19
   br label %78
 
@@ -1290,7 +1288,7 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
   %86 = getelementptr inbounds i64, ptr %85, i64 %indvars.iv107
   %87 = load volatile i64, ptr %86, align 8
   %88 = load volatile i64, ptr %82, align 8
-  %89 = trunc i64 %indvars.iv107 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv107 to i32
   %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %1, i32 noundef %89, i64 noundef %87, i64 noundef %88) #19
   %.pre = load ptr, ptr @coll_count, align 8
   br label %91

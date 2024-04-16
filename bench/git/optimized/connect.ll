@@ -3812,18 +3812,16 @@ lor.lhs.false19:                                  ; preds = %if.else16
 if.else23:                                        ; preds = %lor.lhs.false19
   %call24 = call i32 @strcasecmp(ptr noundef %variant.0, ptr noundef nonnull @.str.105) #25
   %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %if.then29, label %lor.lhs.false26
+  br i1 %tobool25.not, label %if.end32, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %if.else23
   %call27 = call i32 @strcasecmp(ptr noundef %variant.0, ptr noundef nonnull @.str.106) #25
   %tobool28.not = icmp eq i32 %call27, 0
-  br i1 %tobool28.not, label %if.then29, label %if.end32
-
-if.then29:                                        ; preds = %lor.lhs.false26, %if.else23
+  %spec.select = select i1 %tobool28.not, i32 5, i32 0
   br label %if.end32
 
-if.end32:                                         ; preds = %if.else16, %lor.lhs.false19, %if.end10, %lor.lhs.false, %if.then29, %lor.lhs.false26
-  %ssh_variant.1 = phi i32 [ 5, %if.then29 ], [ 0, %lor.lhs.false26 ], [ 2, %lor.lhs.false ], [ 2, %if.end10 ], [ 3, %lor.lhs.false19 ], [ 3, %if.else16 ]
+if.end32:                                         ; preds = %lor.lhs.false26, %if.else23, %if.else16, %lor.lhs.false19, %if.end10, %lor.lhs.false
+  %ssh_variant.1 = phi i32 [ 2, %lor.lhs.false ], [ 2, %if.end10 ], [ 3, %lor.lhs.false19 ], [ 3, %if.else16 ], [ 5, %if.else23 ], [ %spec.select, %lor.lhs.false26 ]
   call void @free(ptr noundef %call) #23
   br label %return
 

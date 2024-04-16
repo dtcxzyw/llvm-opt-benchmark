@@ -797,7 +797,7 @@ hdev_get_max_segments.exit.thread:                ; preds = %if.then.i32
 
 if.end3.i:                                        ; preds = %if.end19
   %call4.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.61), !range !5
-  %conv.i30 = trunc i64 %call4.i to i32
+  %conv.i30 = trunc nsw i64 %call4.i to i32
   br label %hdev_get_max_segments.exit
 
 hdev_get_max_segments.exit:                       ; preds = %if.then.i32, %if.end3.i
@@ -876,7 +876,7 @@ get_sysfs_zoned_model.exit.i:                     ; preds = %if.else.i.i, %if.en
   %zoned2.i = getelementptr inbounds i8, ptr %bs, i64 16552
   store i32 %zoned.0.i, ptr %zoned2.i, align 8
   %call3.i36 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.63), !range !5
-  %conv.i37 = trunc i64 %call3.i36 to i32
+  %conv.i37 = trunc nsw i64 %call3.i36 to i32
   %cmp4.i38 = icmp sgt i32 %conv.i37, -1
   br i1 %cmp4.i38, label %if.then6.i44, label %if.end8.i39
 
@@ -887,7 +887,7 @@ if.then6.i44:                                     ; preds = %get_sysfs_zoned_mod
 
 if.end8.i39:                                      ; preds = %if.then6.i44, %get_sysfs_zoned_model.exit.i
   %call9.i40 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.64), !range !5
-  %conv10.i = trunc i64 %call9.i40 to i32
+  %conv10.i = trunc nsw i64 %call9.i40 to i32
   %cmp11.i = icmp sgt i32 %conv10.i, -1
   br i1 %cmp11.i, label %if.then13.i, label %if.end15.i
 
@@ -898,7 +898,7 @@ if.then13.i:                                      ; preds = %if.end8.i39
 
 if.end15.i:                                       ; preds = %if.then13.i, %if.end8.i39
   %call16.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.65), !range !5
-  %conv17.i = trunc i64 %call16.i to i32
+  %conv17.i = trunc nsw i64 %call16.i to i32
   %cmp18.i = icmp slt i32 %conv17.i, 0
   br i1 %cmp18.i, label %if.then20.i, label %if.else.i41
 
@@ -920,7 +920,7 @@ if.end23.i:                                       ; preds = %if.else.i41
   %zone_size.i = getelementptr inbounds i8, ptr %bs, i64 16556
   store i32 %shl.i, ptr %zone_size.i, align 4
   %call25.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.68), !range !5
-  %conv26.i = trunc i64 %call25.i to i32
+  %conv26.i = trunc nsw i64 %call25.i to i32
   %cmp27.i = icmp slt i32 %conv26.i, 0
   br i1 %cmp27.i, label %if.then29.i, label %if.else31.i
 
@@ -941,7 +941,7 @@ if.end35.i:                                       ; preds = %if.else31.i
   %nr_zones.i = getelementptr inbounds i8, ptr %bs, i64 16560
   store i32 %conv26.i, ptr %nr_zones.i, align 8
   %call37.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.71), !range !5
-  %conv38.i = trunc i64 %call37.i to i32
+  %conv38.i = trunc nsw i64 %call37.i to i32
   %cmp39.i = icmp sgt i32 %conv38.i, 0
   br i1 %cmp39.i, label %if.then41.i, label %if.end43.i
 
@@ -953,7 +953,7 @@ if.then41.i:                                      ; preds = %if.end35.i
 
 if.end43.i:                                       ; preds = %if.then41.i, %if.end35.i
   %call44.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull %st, ptr noundef nonnull @.str.72), !range !5
-  %conv45.i = trunc i64 %call44.i to i32
+  %conv45.i = trunc nsw i64 %call44.i to i32
   %cmp46.i = icmp sgt i32 %conv45.i, -1
   br i1 %cmp46.i, label %if.then48.i, label %if.end50.i
 
@@ -1885,7 +1885,7 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %trunc = trunc i32 %and to i16
+  %trunc = trunc nuw i32 %and to i16
   switch i16 %trunc, label %if.else26 [
     i16 8192, label %if.then17
     i16 24576, label %if.then17
@@ -2676,14 +2676,14 @@ if.then12:                                        ; preds = %for.body
 if.then20:                                        ; preds = %if.then12.us, %if.then12.us, %if.then12, %if.then12, %if.then12.us.us, %if.then12.us.us, %if.then12.us93, %if.then12.us93
   %.lcssa226.sink = phi i64 [ %5, %if.then12.us93 ], [ %5, %if.then12.us93 ], [ %2, %if.then12.us.us ], [ %2, %if.then12.us.us ], [ %6, %if.then12 ], [ %6, %if.then12 ], [ %3, %if.then12.us ], [ %3, %if.then12.us ]
   %.us-phi81 = phi i32 [ %call.us95, %if.then12.us93 ], [ %call.us95, %if.then12.us93 ], [ %call.us.us, %if.then12.us.us ], [ %call.us.us, %if.then12.us.us ], [ %call, %if.then12 ], [ %call, %if.then12 ], [ %call.us, %if.then12.us ], [ %call.us, %if.then12.us ]
-  %7 = trunc i64 %.lcssa226.sink to i32
+  %7 = trunc nuw nsw i64 %.lcssa226.sink to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 888, ptr noundef nonnull @__func__.raw_apply_lock_bytes, ptr noundef nonnull @.str.47, i32 noundef %7) #17
   br label %return
 
 if.else21:                                        ; preds = %if.then12.us, %if.then12, %if.then12.us.us, %if.then12.us93
   %.lcssa227.sink = phi i64 [ %5, %if.then12.us93 ], [ %2, %if.then12.us.us ], [ %6, %if.then12 ], [ %3, %if.then12.us ]
   %.us-phi = phi i32 [ %call.us95, %if.then12.us93 ], [ %call.us.us, %if.then12.us.us ], [ %call, %if.then12 ], [ %call.us, %if.then12.us ]
-  %8 = trunc i64 %.lcssa227.sink to i32
+  %8 = trunc nuw nsw i64 %.lcssa227.sink to i32
   %sub = sub i32 0, %.us-phi
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 888, ptr noundef nonnull @__func__.raw_apply_lock_bytes, i32 noundef %sub, ptr noundef nonnull @.str.47, i32 noundef %8) #17
   br label %return
@@ -2747,12 +2747,12 @@ if.then70:                                        ; preds = %for.body59
   ]
 
 if.then83:                                        ; preds = %if.then70, %if.then70
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 910, ptr noundef nonnull @__func__.raw_apply_lock_bytes, ptr noundef nonnull @.str.47, i32 noundef %12) #17
   br label %return
 
 if.else84:                                        ; preds = %if.then70
-  %13 = trunc i64 %11 to i32
+  %13 = trunc nuw nsw i64 %11 to i32
   %sub76 = sub i32 0, %call72
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 910, ptr noundef nonnull @__func__.raw_apply_lock_bytes, i32 noundef %sub76, ptr noundef nonnull @.str.47, i32 noundef %13) #17
   br label %return
@@ -2776,7 +2776,7 @@ if.then104:                                       ; preds = %if.else95
   br i1 %tobool107.not, label %if.else110, label %if.then108
 
 if.then108:                                       ; preds = %if.then104
-  %15 = trunc i64 %11 to i32
+  %15 = trunc nuw nsw i64 %11 to i32
   %sub109 = sub i32 0, %call106
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 919, ptr noundef nonnull @__func__.raw_apply_lock_bytes, i32 noundef %sub109, ptr noundef nonnull @.str.48, i32 noundef %15) #17
   br label %return
@@ -5229,8 +5229,8 @@ land.lhs.true:                                    ; preds = %if.end
   %2 = select i1 %switch.selectcmp, i32 100, i32 0
   br label %return
 
-return:                                           ; preds = %if.end, %land.lhs.true, %entry
-  %retval.0 = phi i32 [ 50, %entry ], [ %2, %land.lhs.true ], [ 0, %if.end ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry
+  %retval.0 = phi i32 [ 50, %entry ], [ 0, %if.end ], [ %2, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -5818,7 +5818,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.140, i32 noundef %6, i64 noundef %5, i64 noundef %conv7) #17
   br label %return
 

@@ -463,7 +463,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %88 = extractvalue { i128, i1 } %86, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %88 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %88, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -987,7 +987,7 @@ opal_interval_tree_reader_get_token.exit:         ; preds = %21, %27
   %32 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 104
   %33 = load i64, ptr %32, align 8
   %.not27.i.us.i.i = icmp ugt i64 %33, %1
-  br i1 %.not27.i.us.i.i, label %select.unfold.us.i.i, label %34
+  br i1 %.not27.i.us.i.i, label %tailrecurse.backedge.us.i.i, label %34
 
 34:                                               ; preds = %.critedge.i.us.i.i
   %35 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 112
@@ -997,13 +997,11 @@ opal_interval_tree_reader_get_token.exit:         ; preds = %21, %27
 
 37:                                               ; preds = %34
   %38 = icmp ult i64 %33, %1
-  br i1 %38, label %tailrecurse.backedge.us.i.i, label %select.unfold.us.i.i
-
-select.unfold.us.i.i:                             ; preds = %37, %.critedge.i.us.i.i
+  %spec.select.i = select i1 %38, i64 80, i64 72
   br label %tailrecurse.backedge.us.i.i
 
-tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.i, %37
-  %.sink.i.i = phi i64 [ 72, %select.unfold.us.i.i ], [ 80, %37 ]
+tailrecurse.backedge.us.i.i:                      ; preds = %37, %.critedge.i.us.i.i
+  %.sink.i.i = phi i64 [ 72, %.critedge.i.us.i.i ], [ %spec.select.i, %37 ]
   %39 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 %.sink.i.i
   %.tr25.be.us.i.i = load ptr, ptr %39, align 8
   %40 = icmp eq ptr %30, %.tr25.be.us.i.i
@@ -1152,7 +1150,7 @@ opal_interval_tree_write_lock.exit:               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 104
   %20 = load i64, ptr %19, align 8
   %.not27.i.us.i.i = icmp ugt i64 %20, %1
-  br i1 %.not27.i.us.i.i, label %select.unfold.us.i.i, label %21
+  br i1 %.not27.i.us.i.i, label %tailrecurse.backedge.us.i.i, label %21
 
 21:                                               ; preds = %.critedge.i.us.i.i
   %22 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 112
@@ -1162,13 +1160,11 @@ opal_interval_tree_write_lock.exit:               ; preds = %12
 
 24:                                               ; preds = %21
   %25 = icmp ult i64 %20, %1
-  br i1 %25, label %tailrecurse.backedge.us.i.i, label %select.unfold.us.i.i
-
-select.unfold.us.i.i:                             ; preds = %24, %.critedge.i.us.i.i
+  %spec.select.i = select i1 %25, i64 80, i64 72
   br label %tailrecurse.backedge.us.i.i
 
-tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.i, %24
-  %.sink.i.i = phi i64 [ 72, %select.unfold.us.i.i ], [ 80, %24 ]
+tailrecurse.backedge.us.i.i:                      ; preds = %24, %.critedge.i.us.i.i
+  %.sink.i.i = phi i64 [ 72, %.critedge.i.us.i.i ], [ %spec.select.i, %24 ]
   %26 = getelementptr inbounds i8, ptr %.tr2529.us.i.i, i64 %.sink.i.i
   %.tr25.be.us.i.i = load ptr, ptr %26, align 8
   %27 = icmp eq ptr %17, %.tr25.be.us.i.i
@@ -1195,7 +1191,7 @@ tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.
 
 39:                                               ; preds = %.lr.ph.split.i.i
   %40 = icmp ugt i64 %29, %1
-  br i1 %40, label %select.unfold.i.i, label %41
+  br i1 %40, label %tailrecurse.backedge.i.i, label %41
 
 41:                                               ; preds = %39
   %42 = icmp ult i64 %29, %1
@@ -1209,7 +1205,7 @@ tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.
 .thread29.i.i.i:                                  ; preds = %..thread29.i_crit_edge.i.i, %31
   %43 = phi i64 [ %.pre.i.i, %..thread29.i_crit_edge.i.i ], [ %33, %31 ]
   %44 = icmp ult i64 %43, %2
-  br i1 %44, label %select.unfold.i.i, label %45
+  br i1 %44, label %tailrecurse.backedge.i.i, label %45
 
 45:                                               ; preds = %.thread29.i.i.i
   %46 = icmp ugt i64 %43, %2
@@ -1223,13 +1219,11 @@ tailrecurse.backedge.us.i.i:                      ; preds = %select.unfold.us.i.
 .thread39.i.i:                                    ; preds = %..thread39.i_crit_edge.i, %35
   %47 = phi ptr [ %.pre.i, %..thread39.i_crit_edge.i ], [ %37, %35 ]
   %48 = icmp ugt ptr %47, %3
-  br i1 %48, label %select.unfold.i.i, label %tailrecurse.backedge.i.i
-
-select.unfold.i.i:                                ; preds = %.thread39.i.i, %.thread29.i.i.i, %39
+  %spec.select43.i.i = select i1 %48, i64 72, i64 80
   br label %tailrecurse.backedge.i.i
 
-tailrecurse.backedge.i.i:                         ; preds = %select.unfold.i.i, %.thread39.i.i, %45, %41
-  %.sink42.i.i = phi i64 [ 72, %select.unfold.i.i ], [ 80, %41 ], [ 80, %45 ], [ 80, %.thread39.i.i ]
+tailrecurse.backedge.i.i:                         ; preds = %.thread39.i.i, %45, %.thread29.i.i.i, %41, %39
+  %.sink42.i.i = phi i64 [ 80, %41 ], [ 80, %45 ], [ 72, %39 ], [ 72, %.thread29.i.i.i ], [ %spec.select43.i.i, %.thread39.i.i ]
   %49 = getelementptr inbounds i8, ptr %.tr2529.i.i, i64 %.sink42.i.i
   %.tr25.be.i.i = load ptr, ptr %49, align 8
   %50 = icmp eq ptr %17, %.tr25.be.i.i
@@ -1375,7 +1369,7 @@ opal_update_counted_pointer.exit.i.i.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i
   %117 = extractvalue { i128, i1 } %115, 0
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %117 to i64
   %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i128 %117, 64
-  %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i.i.i, ptr %.sroa.4.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i.i.i)
@@ -1498,7 +1492,7 @@ opal_update_counted_pointer.exit.i.i25.i.i.i:     ; preds = %.lr.ph.i.i13.i.i.i
   %164 = extractvalue { i128, i1 } %162, 0
   %.sroa.0.0.extract.trunc.i.i26.i.i.i = trunc i128 %164 to i64
   %.sroa.4.0.extract.shift.i.i27.i.i.i = lshr i128 %164, 64
-  %.sroa.4.0.extract.trunc.i.i28.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i27.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i28.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i27.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i28.i.i.i, ptr %.sroa.4.i.i8.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i.i)

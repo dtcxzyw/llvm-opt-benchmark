@@ -756,18 +756,15 @@ if.else5:                                         ; preds = %if.else
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
-  br i1 %cmp.not, label %if.else11, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else5
   %call.i4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %call8) #22
   %cmp.i5 = icmp eq i32 %call.i4, 0
-  br i1 %cmp.i5, label %return, label %if.else11
-
-if.else11:                                        ; preds = %land.lhs.true, %if.else5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %entry, %if.else11
-  %retval.0 = phi i1 [ false, %if.else11 ], [ false, %entry ], [ true, %if.else ], [ true, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else5, %if.else, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.else ], [ false, %if.else5 ], [ %cmp.i5, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -1313,8 +1310,8 @@ _ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i: ; preds = %if.else.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %5
+  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -1356,30 +1353,30 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIPKcSaI
           to label %_ZN7rocksdb9WriteLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #21
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #21
   unreachable
 
 _ZN7rocksdb9WriteLockD2Ev.exit:                   ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %cond.true.i.i.i, %if.then.i.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN7rocksdb4port7RWMutex11WriteUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %rwlock_)
           to label %_ZN7rocksdb9WriteLockD2Ev.exit3 unwind label %terminate.lpad.i2
 
 terminate.lpad.i2:                                ; preds = %lpad
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #21
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #21
   unreachable
 
 _ZN7rocksdb9WriteLockD2Ev.exit3:                  ; preds = %lpad
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1705,7 +1705,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder21decodeTransitionalArwEv(ptr dead_o
   %177 = add i64 %168, -10
   %178 = call i64 @llvm.smax.i64(i64 %177, i64 -2147483648)
   %179 = call i64 @llvm.smin.i64(i64 %178, i64 2147483647)
-  %180 = trunc i64 %179 to i32
+  %180 = trunc nsw i64 %179 to i32
   br label %181
 
 181:                                              ; preds = %176, %170
@@ -1740,7 +1740,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder21decodeTransitionalArwEv(ptr dead_o
   %202 = sub i64 10, %193
   %203 = call i64 @llvm.smax.i64(i64 %202, i64 -2147483648)
   %204 = call i64 @llvm.smin.i64(i64 %203, i64 2147483647)
-  %205 = trunc i64 %204 to i32
+  %205 = trunc nsw i64 %204 to i32
   br label %207
 
 206:                                              ; preds = %189, %157
@@ -2032,7 +2032,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %88 = insertelement <16 x i16> poison, i16 %81, i64 0
   %89 = shufflevector <16 x i16> %88, <16 x i16> poison, <16 x i32> zeroinitializer
   %90 = add <16 x i16> %89, <i16 0, i16 2, i16 4, i16 6, i16 8, i16 10, i16 12, i16 14, i16 16, i16 18, i16 20, i16 22, i16 24, i16 26, i16 28, i16 30>
-  %91 = trunc i32 %87 to i16
+  %91 = trunc nsw i32 %87 to i16
   %92 = shl nsw i16 %91, 1
   %93 = zext i32 %87 to i64
   br label %94
@@ -2040,7 +2040,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 94:                                               ; preds = %94, %86
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %94 ], [ 0, %86 ]
   %95 = phi <16 x i16> [ %107, %94 ], [ %90, %86 ]
-  %96 = trunc i64 %indvars.iv29 to i32
+  %96 = trunc nuw i64 %indvars.iv29 to i32
   %97 = add i32 %78, %96
   %98 = add <16 x i16> %95, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
   %99 = add <16 x i16> %95, <i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34>
@@ -2075,7 +2075,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %116 = phi i16 [ %112, %111 ], [ %81, %84 ]
   %117 = phi i32 [ %87, %111 ], [ 0, %84 ]
   %118 = and i32 %82, -8
-  %119 = trunc i32 %118 to i16
+  %119 = trunc nsw i32 %118 to i16
   %120 = shl nsw i16 %119, 1
   %121 = add i16 %81, %120
   %122 = insertelement <8 x i16> poison, i16 %116, i64 0
@@ -2088,7 +2088,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 127:                                              ; preds = %127, %._crit_edge55
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %127 ], [ %125, %._crit_edge55 ]
   %128 = phi <8 x i16> [ %134, %127 ], [ %124, %._crit_edge55 ]
-  %129 = trunc i64 %indvars.iv32 to i32
+  %129 = trunc nuw i64 %indvars.iv32 to i32
   %130 = add i32 %78, %129
   %131 = add <8 x i16> %128, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
   %132 = zext i32 %130 to i64
@@ -2142,7 +2142,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %159 = insertelement <16 x i16> poison, i16 %152, i64 0
   %160 = shufflevector <16 x i16> %159, <16 x i16> poison, <16 x i32> zeroinitializer
   %161 = add <16 x i16> %160, <i16 0, i16 4, i16 8, i16 12, i16 16, i16 20, i16 24, i16 28, i16 32, i16 36, i16 40, i16 44, i16 48, i16 52, i16 56, i16 60>
-  %162 = trunc i32 %158 to i16
+  %162 = trunc nsw i32 %158 to i16
   %163 = shl nsw i16 %162, 2
   %164 = zext i32 %158 to i64
   br label %165
@@ -2150,7 +2150,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 165:                                              ; preds = %165, %157
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %165 ], [ 0, %157 ]
   %166 = phi <16 x i16> [ %178, %165 ], [ %161, %157 ]
-  %167 = trunc i64 %indvars.iv35 to i32
+  %167 = trunc nuw i64 %indvars.iv35 to i32
   %168 = add i32 %149, %167
   %169 = add <16 x i16> %166, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %170 = add <16 x i16> %166, <i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68>
@@ -2185,7 +2185,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %187 = phi i16 [ %183, %182 ], [ %152, %155 ]
   %188 = phi i32 [ %158, %182 ], [ 0, %155 ]
   %189 = and i32 %153, -8
-  %190 = trunc i32 %189 to i16
+  %190 = trunc nsw i32 %189 to i16
   %191 = shl nsw i16 %190, 2
   %192 = add i16 %152, %191
   %193 = insertelement <8 x i16> poison, i16 %187, i64 0
@@ -2198,7 +2198,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 198:                                              ; preds = %198, %._crit_edge56
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %198 ], [ %196, %._crit_edge56 ]
   %199 = phi <8 x i16> [ %205, %198 ], [ %195, %._crit_edge56 ]
-  %200 = trunc i64 %indvars.iv38 to i32
+  %200 = trunc nuw i64 %indvars.iv38 to i32
   %201 = add i32 %149, %200
   %202 = add <8 x i16> %199, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
   %203 = zext i32 %201 to i64
@@ -2252,7 +2252,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %230 = insertelement <16 x i16> poison, i16 %223, i64 0
   %231 = shufflevector <16 x i16> %230, <16 x i16> poison, <16 x i32> zeroinitializer
   %232 = add <16 x i16> %231, <i16 0, i16 8, i16 16, i16 24, i16 32, i16 40, i16 48, i16 56, i16 64, i16 72, i16 80, i16 88, i16 96, i16 104, i16 112, i16 120>
-  %233 = trunc i32 %229 to i16
+  %233 = trunc nsw i32 %229 to i16
   %234 = shl i16 %233, 3
   %235 = zext i32 %229 to i64
   br label %236
@@ -2260,7 +2260,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 236:                                              ; preds = %236, %228
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %236 ], [ 0, %228 ]
   %237 = phi <16 x i16> [ %249, %236 ], [ %232, %228 ]
-  %238 = trunc i64 %indvars.iv41 to i32
+  %238 = trunc nuw i64 %indvars.iv41 to i32
   %239 = add i32 %220, %238
   %240 = add <16 x i16> %237, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
   %241 = add <16 x i16> %237, <i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136>
@@ -2295,7 +2295,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %258 = phi i16 [ %254, %253 ], [ %223, %226 ]
   %259 = phi i32 [ %229, %253 ], [ 0, %226 ]
   %260 = and i32 %224, -8
-  %261 = trunc i32 %260 to i16
+  %261 = trunc nsw i32 %260 to i16
   %262 = shl i16 %261, 3
   %263 = add i16 %223, %262
   %264 = insertelement <8 x i16> poison, i16 %258, i64 0
@@ -2308,7 +2308,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 269:                                              ; preds = %269, %._crit_edge57
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %269 ], [ %267, %._crit_edge57 ]
   %270 = phi <8 x i16> [ %276, %269 ], [ %266, %._crit_edge57 ]
-  %271 = trunc i64 %indvars.iv44 to i32
+  %271 = trunc nuw i64 %indvars.iv44 to i32
   %272 = add i32 %220, %271
   %273 = add <8 x i16> %270, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
   %274 = zext i32 %272 to i64
@@ -2362,7 +2362,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %301 = insertelement <16 x i16> poison, i16 %294, i64 0
   %302 = shufflevector <16 x i16> %301, <16 x i16> poison, <16 x i32> zeroinitializer
   %303 = add <16 x i16> %302, <i16 0, i16 16, i16 32, i16 48, i16 64, i16 80, i16 96, i16 112, i16 128, i16 144, i16 160, i16 176, i16 192, i16 208, i16 224, i16 240>
-  %304 = trunc i32 %300 to i16
+  %304 = trunc nuw nsw i32 %300 to i16
   %305 = shl nuw i16 %304, 4
   %306 = zext nneg i32 %291 to i64
   %307 = zext nneg i32 %300 to i64
@@ -2404,7 +2404,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %326 = phi i16 [ %322, %321 ], [ %294, %297 ]
   %327 = phi i32 [ %300, %321 ], [ 0, %297 ]
   %328 = and i32 %295, 4088
-  %329 = trunc i32 %328 to i16
+  %329 = trunc nuw nsw i32 %328 to i16
   %330 = shl nuw i16 %329, 4
   %331 = add i16 %294, %330
   %332 = insertelement <8 x i16> poison, i16 %326, i64 0
@@ -2417,7 +2417,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 337:                                              ; preds = %337, %._crit_edge58
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %337 ], [ %335, %._crit_edge58 ]
   %338 = phi <8 x i16> [ %344, %337 ], [ %334, %._crit_edge58 ]
-  %339 = trunc i64 %indvars.iv50 to i32
+  %339 = trunc nuw i64 %indvars.iv50 to i32
   %340 = add i32 %291, %339
   %341 = add <8 x i16> %338, <i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16>
   %342 = zext i32 %340 to i64
@@ -2466,7 +2466,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %365 = insertelement <16 x i16> poison, i16 %359, i64 0
   %366 = shufflevector <16 x i16> %365, <16 x i16> poison, <16 x i32> zeroinitializer
   %367 = add <16 x i16> %366, <i16 0, i16 1, i16 2, i16 3, i16 4, i16 5, i16 6, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 13, i16 14, i16 15>
-  %368 = trunc i32 %364 to i16
+  %368 = trunc nuw nsw i32 %364 to i16
   %369 = zext nneg i32 %364 to i64
   br label %370
 
@@ -2506,7 +2506,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %390 = phi i16 [ %386, %385 ], [ %359, %361 ]
   %391 = phi i32 [ %364, %385 ], [ 0, %361 ]
   %392 = and i32 %15, 4088
-  %393 = trunc i32 %392 to i16
+  %393 = trunc nuw nsw i32 %392 to i16
   %394 = add i16 %359, %393
   %395 = insertelement <8 x i16> poison, i16 %390, i64 0
   %396 = shufflevector <8 x i16> %395, <8 x i16> poison, <8 x i32> zeroinitializer
@@ -3457,7 +3457,7 @@ define hidden void @_ZNK8rawspeed10ArwDecoder18DecodeUncompressedEPKNS_7TiffIFDE
   %73 = add i64 %64, -10
   %74 = call i64 @llvm.smax.i64(i64 %73, i64 -2147483648)
   %75 = call i64 @llvm.smin.i64(i64 %74, i64 2147483647)
-  %76 = trunc i64 %75 to i32
+  %76 = trunc nsw i64 %75 to i32
   br label %77
 
 77:                                               ; preds = %72, %66
@@ -3492,7 +3492,7 @@ define hidden void @_ZNK8rawspeed10ArwDecoder18DecodeUncompressedEPKNS_7TiffIFDE
   %98 = sub i64 10, %89
   %99 = call i64 @llvm.smax.i64(i64 %98, i64 -2147483648)
   %100 = call i64 @llvm.smin.i64(i64 %99, i64 2147483647)
-  %101 = trunc i64 %100 to i32
+  %101 = trunc nsw i64 %100 to i32
   br label %103
 
 102:                                              ; preds = %85, %45
@@ -8057,7 +8057,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawI
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawImageDataU16ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %17, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -8068,20 +8068,18 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspee
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1, !tbaa !20
   %11 = icmp eq i8 %10, 42
-  br i1 %11, label %17, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #25
   %14 = freeze i32 %13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, ptr %3, ptr null
+  br label %16
 
-16:                                               ; preds = %12, %5
-  br label %17
-
-17:                                               ; preds = %16, %12, %9, %2
-  %18 = phi ptr [ %3, %2 ], [ %3, %16 ], [ null, %12 ], [ null, %9 ]
-  ret ptr %18
+16:                                               ; preds = %12, %5, %9, %2
+  %17 = phi ptr [ %3, %2 ], [ null, %9 ], [ %3, %5 ], [ %spec.select, %12 ]
+  ret ptr %17
 }
 
 declare void @_ZN8rawspeed15RawImageDataU16C1ERKNS_8iPoint2DEj(ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) unnamed_addr #2

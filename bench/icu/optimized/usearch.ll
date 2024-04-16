@@ -403,7 +403,7 @@ if.else.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr @_ZL9g_nfcImpl, align 8
   %idx.ext1.i.i = sext i32 %2 to i64
   %add.ptr2.i.idx.i = shl nsw i64 %idx.ext1.i.i, 1
-  %add.ptr2.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr2.i.idx.i
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr2.i.idx.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
   %5 = load i16, ptr %1, align 2
   %conv.i.i.i = zext i16 %5 to i32
@@ -453,7 +453,7 @@ if.end12.i.i.i:                                   ; preds = %if.then9.i.i.i, %la
   %c.0.i.i.i = phi i32 [ %conv.i.i.i, %if.end.i.i.i ], [ %sub.i.i.i, %if.then9.i.i.i ], [ %conv.i.i.i, %land.lhs.true5.i.i.i ]
   %call13.i.i.i = tail call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %4, i32 noundef %c.0.i.i.i)
   %12 = lshr i16 %call13.i.i.i, 8
-  %13 = trunc i16 %12 to i8
+  %13 = trunc nuw i16 %12 to i8
   br label %_ZL6getFCDPKDsPii.exit.i
 
 _ZL6getFCDPKDsPii.exit.i:                         ; preds = %if.end12.i.i.i, %lor.lhs.false.i.i.i, %if.else.i
@@ -516,7 +516,7 @@ lor.lhs.false.i.i28.i:                            ; preds = %do.end.i
 if.end.i.i39.i:                                   ; preds = %lor.lhs.false.i.i28.i
   %and.i.i40.i = and i32 %conv.i.i25.i, 64512
   %cmp3.i.i41.i = icmp ne i32 %and.i.i40.i, 55296
-  %cmp4.not.i.i42.i = icmp eq ptr %incdec.ptr.i.i24.i, %add.ptr2.i.ptr.i
+  %cmp4.not.i.i42.i = icmp eq ptr %incdec.ptr.i.i24.i, %add.ptr2.i.i
   %or.cond.i.i43.i = select i1 %cmp3.i.i41.i, i1 true, i1 %cmp4.not.i.i42.i
   br i1 %or.cond.i.i43.i, label %if.end12.i.i48.i, label %land.lhs.true5.i.i44.i
 
@@ -846,7 +846,7 @@ sw.bb7:                                           ; preds = %if.then
   br i1 %or.cond1, label %if.end16.thread, label %if.else
 
 if.end16.thread:                                  ; preds = %sw.bb7
-  %conv11 = trunc i32 %value to i16
+  %conv11 = trunc nuw i32 %value to i16
   %4 = load ptr, ptr %strsrch, align 8
   %elementComparisonType = getelementptr inbounds i8, ptr %4, i64 14
   store i16 %conv11, ptr %elementComparisonType, align 2
@@ -2925,22 +2925,14 @@ if.then:                                          ; preds = %entry
   %call = tail call i32 @ucol_getStrength_75(ptr noundef %0)
   %strength = getelementptr inbounds i8, ptr %strsrch, i64 3172
   %1 = load i32, ptr %strength, align 4
-  %cmp = icmp slt i32 %1, 3
-  %cmp1 = icmp sgt i32 %call, 2
-  %or.cond = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %or.cond, label %if.then6, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then
-  %cmp3 = icmp sgt i32 %1, 2
-  %cmp5 = icmp slt i32 %call, 3
-  %or.cond1 = select i1 %cmp3, i1 %cmp5, i1 false
-  br i1 %or.cond1, label %if.then6, label %if.end
-
-if.then6:                                         ; preds = %lor.lhs.false, %if.then
-  br label %if.end
-
-if.end:                                           ; preds = %if.then6, %lor.lhs.false
-  %sameCollAttribute.0 = phi i8 [ 0, %if.then6 ], [ 1, %lor.lhs.false ]
+  %cmp = icmp sgt i32 %1, 2
+  %cmp1 = icmp slt i32 %call, 3
+  %or.cond.not = select i1 %cmp, i1 true, i1 %cmp1
+  %cmp3 = icmp slt i32 %1, 3
+  %cmp5 = icmp sgt i32 %call, 2
+  %or.cond1.not = select i1 %cmp3, i1 true, i1 %cmp5
+  %narrow = select i1 %or.cond.not, i1 %or.cond1.not, i1 false
+  %sameCollAttribute.0 = zext i1 %narrow to i8
   %2 = load ptr, ptr %collator, align 8
   %call8 = tail call i32 @ucol_getStrength_75(ptr noundef %2)
   store i32 %call8, ptr %strength, align 4
@@ -2953,12 +2945,12 @@ if.end:                                           ; preds = %if.then6, %lor.lhs.
   %cmp13.not = icmp eq i32 %3, %switch.select2.i
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
-if.then14:                                        ; preds = %if.end
+if.then14:                                        ; preds = %if.then
   store i32 %switch.select2.i, ptr %ceMask12, align 8
   br label %if.end16
 
-if.end16:                                         ; preds = %if.then14, %if.end
-  %sameCollAttribute.1 = phi i8 [ 0, %if.then14 ], [ %sameCollAttribute.0, %if.end ]
+if.end16:                                         ; preds = %if.then14, %if.then
+  %sameCollAttribute.1 = phi i8 [ 0, %if.then14 ], [ %sameCollAttribute.0, %if.then ]
   %4 = load ptr, ptr %collator, align 8
   %call18 = call i32 @ucol_getAttribute_75(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %status)
   %cmp19 = icmp eq i32 %call18, 20
@@ -3272,9 +3264,9 @@ if.end.i162:                                      ; preds = %invoke.cont28
 if.end3.i:                                        ; preds = %if.end.i162
   %shr.i = lshr i64 %30, 32
   %shr4.i = lshr i64 %21, 32
-  %33 = trunc i64 %shr.i to i32
+  %33 = trunc nuw i64 %shr.i to i32
   %conv5.i = and i32 %33, -65536
-  %34 = trunc i64 %shr4.i to i32
+  %34 = trunc nuw i64 %shr4.i to i32
   %conv7.i = and i32 %34, -65536
   %cmp8.not.i = icmp eq i32 %conv5.i, %conv7.i
   br i1 %cmp8.not.i, label %if.end18.i, label %if.then9.i
@@ -3421,7 +3413,7 @@ invoke.cont59:                                    ; preds = %call.i.noexc195, %i
 
 for.cond78.preheader:                             ; preds = %invoke.cont59
   %shr4.i271 = lshr i64 %patCE.0.lcssa, 32
-  %54 = trunc i64 %shr4.i271 to i32
+  %54 = trunc nuw i64 %shr4.i271 to i32
   %cmp8.not.i274 = icmp ult i32 %54, 65536
   %cmp28.i290 = icmp eq i32 %54, 0
   %cmp34.i294 = icmp eq i32 %54, 5
@@ -3581,7 +3573,7 @@ if.end.i267:                                      ; preds = %if.then89
 
 if.end3.i269:                                     ; preds = %if.end.i267
   %shr.i270 = lshr i64 %78, 32
-  %81 = trunc i64 %shr.i270 to i32
+  %81 = trunc nuw i64 %shr.i270 to i32
   br i1 %cmp8.not.i274, label %if.end18.i283, label %for.inc108
 
 if.end18.i283:                                    ; preds = %if.end3.i269
@@ -4932,9 +4924,9 @@ if.end.i197:                                      ; preds = %invoke.cont56
 if.end3.i:                                        ; preds = %if.end.i197
   %shr.i = lshr i64 %54, 32
   %shr4.i = lshr i64 %44, 32
-  %57 = trunc i64 %shr.i to i32
+  %57 = trunc nuw i64 %shr.i to i32
   %conv5.i = and i32 %57, -65536
-  %58 = trunc i64 %shr4.i to i32
+  %58 = trunc nuw i64 %shr4.i to i32
   %conv7.i = and i32 %58, -65536
   %cmp8.not.i = icmp eq i32 %conv5.i, %conv7.i
   br i1 %cmp8.not.i, label %if.end18.i, label %if.then9.i

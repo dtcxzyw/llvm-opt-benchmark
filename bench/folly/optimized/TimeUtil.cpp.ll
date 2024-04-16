@@ -857,23 +857,21 @@ _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4t
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit.i89.i:     ; preds = %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit82.i
   %add.ptr.i.i90.i = getelementptr i8, ptr %release.ptr, i64 %add15.i
   %cmp.i.i.i91.i = icmp eq ptr %add.ptr.i.i90.i, %add.ptr.i.ptr
-  br i1 %cmp.i.i.i91.i, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.thread.i103.i, label %if.end.i.i92.i
+  br i1 %cmp.i.i.i91.i, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit117.i, label %if.end.i.i92.i
 
 if.end.i.i92.i:                                   ; preds = %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i89.i
   %sub.ptr.rhs.cast.i.i15.i93.i = ptrtoint ptr %add.ptr.i.i90.i to i64
   %sub.ptr.sub.i.i16.i94.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i15.i93.i
   %call3.i.i95.i = call noundef ptr @memchr(ptr noundef %add.ptr.i.i90.i, i32 noundef 45, i64 noundef %sub.ptr.sub.i.i16.i94.i) #28
   %cmp.i17.i96.i = icmp eq ptr %call3.i.i95.i, null
-  br i1 %cmp.i17.i96.i, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.thread.i103.i, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i97.i
+  br i1 %cmp.i17.i96.i, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit117.i, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i97.i
 
 _ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i97.i: ; preds = %if.end.i.i92.i
   %sub.ptr.lhs.cast.i18.i98.i = ptrtoint ptr %call3.i.i95.i to i64
   %sub.ptr.sub.i19.i99.i = sub i64 %sub.ptr.lhs.cast.i18.i98.i, %sub.ptr.rhs.cast.i.i15.i93.i
   %cmp6.i100.i = icmp eq i64 %sub.ptr.sub.i19.i99.i, -1
   %add.i101.i = add i64 %sub.ptr.sub.i19.i99.i, %add15.i
-  br i1 %cmp6.i100.i, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.thread.i103.i, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit117.i
-
-_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.thread.i103.i: ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i97.i, %if.end.i.i92.i, %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i89.i
+  %spec.select1 = select i1 %cmp6.i100.i, i64 -1, i64 %add.i101.i
   br label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit117.i
 
 if.then.i116.i:                                   ; preds = %_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_.exit82.i
@@ -883,8 +881,8 @@ if.then.i116.i:                                   ; preds = %_ZN5folly2toIiEENSt
 .noexc177:                                        ; preds = %if.then.i116.i
   unreachable
 
-_ZNK5folly5RangeIPKcE8subpieceEmm.exit117.i:      ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.thread.i103.i, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i97.i
-  %retval.0.i102.ph.i = phi i64 [ %add.i101.i, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i97.i ], [ -1, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.thread.i103.i ]
+_ZNK5folly5RangeIPKcE8subpieceEmm.exit117.i:      ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i97.i, %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i89.i, %if.end.i.i92.i
+  %retval.0.i102.ph.i = phi i64 [ -1, %if.end.i.i92.i ], [ -1, %_ZNK5folly5RangeIPKcE8subpieceEmm.exit.i89.i ], [ %spec.select1, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i97.i ]
   %sext.i = shl i64 %retval.0.i102.ph.i, 32
   %conv19.i = ashr exact i64 %sext.i, 32
   %sub21.i = sub i64 %conv19.i, %add15.i
@@ -964,12 +962,12 @@ if.end.i.i7.i143.i.invoke:                        ; preds = %if.end.i.i7.i143.i,
 
 invoke.cont15:                                    ; preds = %for.cond.i.i.i.i.i138.i, %if.then.i.i.i128.i
   %ref.tmp.sroa.52.0.extract.shift.i.i.i79.i = lshr i64 %call.i.i.i.i61.i, 32
-  %ref.tmp.sroa.52.0.extract.trunc.i.i.i80.i = trunc i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i79.i to i32
+  %ref.tmp.sroa.52.0.extract.trunc.i.i.i80.i = trunc nuw i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i79.i to i32
   %ref.tmp.sroa.52.0.extract.shift.i.i.i.i = lshr i64 %call.i.i.i.i.i, 32
-  %ref.tmp.sroa.52.0.extract.trunc.i.i.i.i = trunc i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i.i to i32
+  %ref.tmp.sroa.52.0.extract.trunc.i.i.i.i = trunc nuw i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i122.i) #23
   %ref.tmp.sroa.52.0.extract.shift.i.i.i141.i = lshr i64 %call.i.i.i.i123.i, 32
-  %ref.tmp.sroa.52.0.extract.trunc.i.i.i142.i = trunc i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i141.i to i32
+  %ref.tmp.sroa.52.0.extract.trunc.i.i.i142.i = trunc nuw i64 %ref.tmp.sroa.52.0.extract.shift.i.i.i141.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i122.i) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i121.i) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i120.i) #23
@@ -1968,7 +1966,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !23
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 

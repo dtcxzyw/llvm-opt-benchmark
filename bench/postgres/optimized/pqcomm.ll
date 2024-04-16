@@ -1503,15 +1503,15 @@ socket_set_nonblocking.exit:                      ; preds = %10
 
 25:                                               ; preds = %23
   %26 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #19
-  br i1 %26, label %27, label %30
+  br i1 %26, label %27, label %33
 
 27:                                               ; preds = %25
   %28 = tail call i32 @errcode_for_socket_access() #19
   %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #19
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1060, ptr noundef nonnull @__func__.pq_getbyte_if_available) #19
-  br label %30
+  br label %33
 
-30:                                               ; preds = %23, %27, %25
+30:                                               ; preds = %23
   br label %33
 
 31:                                               ; preds = %socket_set_nonblocking.exit
@@ -1519,8 +1519,8 @@ socket_set_nonblocking.exit:                      ; preds = %10
   %spec.store.select = select i1 %32, i32 -1, i32 %21
   br label %33
 
-33:                                               ; preds = %31, %30, %23, %23, %5
-  %.05 = phi i32 [ 1, %5 ], [ -1, %30 ], [ %spec.store.select, %31 ], [ 0, %23 ], [ 0, %23 ]
+33:                                               ; preds = %31, %30, %23, %23, %27, %25, %5
+  %.05 = phi i32 [ 1, %5 ], [ %spec.store.select, %31 ], [ 0, %23 ], [ 0, %23 ], [ -1, %27 ], [ -1, %25 ], [ -1, %30 ]
   ret i32 %.05
 }
 
@@ -1837,28 +1837,26 @@ define dso_local noundef i32 @pq_putmessage_v2(i8 noundef signext %0, ptr nocapt
   %4 = alloca i8, align 1
   store i8 %0, ptr %4, align 1
   %.b2 = load i1, ptr @PqCommBusy, align 1
-  br i1 %.b2, label %10, label %5
+  br i1 %.b2, label %9, label %5
 
 5:                                                ; preds = %3
   store i1 true, ptr @PqCommBusy, align 1
   %6 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %4, i64 noundef 1), !range !7
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %9
+  br i1 %.not, label %7, label %.sink.split
 
 7:                                                ; preds = %5
   %8 = tail call fastcc i32 @internal_putbytes(ptr noundef %1, i64 noundef %2), !range !7
-  %.not3 = icmp eq i32 %8, 0
-  br i1 %.not3, label %.sink.split, label %9
-
-9:                                                ; preds = %7, %5
+  %.not3 = icmp ne i32 %8, 0
+  %spec.select = sext i1 %.not3 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %7, %9
-  %.0.ph = phi i32 [ -1, %9 ], [ 0, %7 ]
+.sink.split:                                      ; preds = %7, %5
+  %.0.ph = phi i32 [ -1, %5 ], [ %spec.select, %7 ]
   store i1 false, ptr @PqCommBusy, align 1
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.sink.split, %3
+9:                                                ; preds = %.sink.split, %3
   %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
@@ -2553,13 +2551,13 @@ define internal noundef i32 @socket_putmessage(i8 noundef signext %0, ptr nocapt
   %5 = alloca i32, align 4
   store i8 %0, ptr %4, align 1
   %.b3 = load i1, ptr @PqCommBusy, align 1
-  br i1 %.b3, label %16, label %6
+  br i1 %.b3, label %15, label %6
 
 6:                                                ; preds = %3
   store i1 true, ptr @PqCommBusy, align 1
   %7 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %4, i64 noundef 1), !range !7
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %15
+  br i1 %.not, label %8, label %.sink.split
 
 8:                                                ; preds = %6
   %9 = trunc i64 %2 to i32
@@ -2568,22 +2566,20 @@ define internal noundef i32 @socket_putmessage(i8 noundef signext %0, ptr nocapt
   store i32 %11, ptr %5, align 4
   %12 = call fastcc i32 @internal_putbytes(ptr noundef nonnull %5, i64 noundef 4), !range !7
   %.not4 = icmp eq i32 %12, 0
-  br i1 %.not4, label %13, label %15
+  br i1 %.not4, label %13, label %.sink.split
 
 13:                                               ; preds = %8
   %14 = tail call fastcc i32 @internal_putbytes(ptr noundef %1, i64 noundef %2), !range !7
-  %.not5 = icmp eq i32 %14, 0
-  br i1 %.not5, label %.sink.split, label %15
-
-15:                                               ; preds = %13, %8, %6
+  %.not5 = icmp ne i32 %14, 0
+  %spec.select = sext i1 %.not5 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %13, %15
-  %.0.ph = phi i32 [ -1, %15 ], [ 0, %13 ]
+.sink.split:                                      ; preds = %13, %6, %8
+  %.0.ph = phi i32 [ -1, %8 ], [ -1, %6 ], [ %spec.select, %13 ]
   store i1 false, ptr @PqCommBusy, align 1
-  br label %16
+  br label %15
 
-16:                                               ; preds = %.sink.split, %3
+15:                                               ; preds = %.sink.split, %3
   %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

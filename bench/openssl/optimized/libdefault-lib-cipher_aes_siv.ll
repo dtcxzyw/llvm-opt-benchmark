@@ -102,7 +102,7 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siv_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
+define internal i32 @siv_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -146,7 +146,7 @@ siv_init.exit:                                    ; preds = %entry, %if.then5.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @siv_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
+define internal i32 @siv_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -359,7 +359,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_siv_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal i32 @aes_siv_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %speed = alloca i32, align 4
   %keylen = alloca i64, align 8
@@ -432,7 +432,7 @@ if.end17:                                         ; preds = %if.then13
 if.end19:                                         ; preds = %if.end17, %if.end10
   %call20 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.3) #3
   %cmp21.not = icmp eq ptr %call20, null
-  br i1 %cmp21.not, label %if.end31, label %if.then22
+  br i1 %cmp21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
   %call23 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call20, ptr noundef nonnull %keylen) #3
@@ -450,13 +450,11 @@ if.end26:                                         ; preds = %if.then22
   %keylen27 = getelementptr inbounds i8, ptr %vctx, i64 8
   %9 = load i64, ptr %keylen27, align 8
   %cmp28.not = icmp eq i64 %8, %9
-  br i1 %cmp28.not, label %if.end31, label %return
-
-if.end31:                                         ; preds = %if.end26, %if.end19
+  %spec.select = zext i1 %cmp28.not to i32
   br label %return
 
-return:                                           ; preds = %if.end26, %if.then2, %entry, %if.end31, %if.then25, %if.then16, %if.then8
-  %retval.0 = phi i32 [ 0, %if.then8 ], [ 1, %if.end31 ], [ 0, %if.then25 ], [ 0, %if.then16 ], [ 1, %entry ], [ 1, %if.then2 ], [ 0, %if.end26 ]
+return:                                           ; preds = %if.end26, %if.end19, %if.then2, %entry, %if.then25, %if.then16, %if.then8
+  %retval.0 = phi i32 [ 0, %if.then8 ], [ 0, %if.then25 ], [ 0, %if.then16 ], [ 1, %entry ], [ 1, %if.then2 ], [ 1, %if.end19 ], [ %spec.select, %if.end26 ]
   ret i32 %retval.0
 }
 

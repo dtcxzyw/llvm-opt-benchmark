@@ -1280,14 +1280,12 @@ pgstat_lock_entry.exit.thread:                    ; preds = %4
 pgstat_lock_entry.exit:                           ; preds = %4
   %10 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %8, i32 noundef 0) #14
   %cond.fr = freeze i1 %10
-  br i1 %cond.fr, label %11, label %12
+  %spec.select = select i1 %cond.fr, ptr %5, ptr null
+  br label %11
 
-11:                                               ; preds = %pgstat_lock_entry.exit.thread, %pgstat_lock_entry.exit
-  br label %12
-
-12:                                               ; preds = %pgstat_lock_entry.exit, %11
-  %13 = phi ptr [ %5, %11 ], [ null, %pgstat_lock_entry.exit ]
-  ret ptr %13
+11:                                               ; preds = %pgstat_lock_entry.exit, %pgstat_lock_entry.exit.thread
+  %12 = phi ptr [ %5, %pgstat_lock_entry.exit.thread ], [ %spec.select, %pgstat_lock_entry.exit ]
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable

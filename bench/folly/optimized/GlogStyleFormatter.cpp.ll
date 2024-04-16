@@ -763,7 +763,7 @@ if.then112:                                       ; preds = %cleanup.done93
 while.cond:                                       ; preds = %if.then112, %invoke.cont139
   %idx.0 = phi i64 [ %add145, %invoke.cont139 ], [ 0, %if.then112 ]
   %or.cond437.not = icmp ult i64 %idx.0, %77
-  br i1 %or.cond437.not, label %if.end.i.i, label %if.then124
+  br i1 %or.cond437.not, label %if.end.i.i, label %if.end127
 
 if.end.i.i:                                       ; preds = %while.cond
   %add.ptr.i.i = getelementptr i8, ptr %.fr.i, i64 %idx.0
@@ -771,7 +771,7 @@ if.end.i.i:                                       ; preds = %while.cond
   %sub.ptr.sub.i.i16.i = sub i64 %sub.ptr.lhs.cast.i283, %sub.ptr.rhs.cast.i.i15.i
   %call3.i.i = call noundef ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 10, i64 noundef %sub.ptr.sub.i.i16.i) #22
   %cmp.i17.i = icmp eq ptr %call3.i.i, null
-  br i1 %cmp.i17.i, label %if.then124, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
+  br i1 %cmp.i17.i, label %if.end127, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
 
 _ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i: ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %call3.i.i to i64
@@ -780,9 +780,7 @@ _ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i: ; preds = %if.
   %add.i = add i64 %sub.ptr.sub.i19.i, %idx.0
   %cmp = icmp eq i64 %add.i, -1
   %or.cond = or i1 %cmp6.i, %cmp
-  br i1 %or.cond, label %if.then124, label %if.end127
-
-if.then124:                                       ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i, %if.end.i.i, %while.cond
+  %spec.select = select i1 %or.cond, i64 %77, i64 %add.i
   br label %if.end127
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i296: ; preds = %ehcleanup72.thread430
@@ -838,8 +836,8 @@ lpad121.loopexit.split-lp:                        ; preds = %if.then.i.i.i311
           cleanup
   br label %ehcleanup165
 
-if.end127:                                        ; preds = %if.then124, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
-  %end.0 = phi i64 [ %77, %if.then124 ], [ %add.i, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i ]
+if.end127:                                        ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i, %while.cond, %if.end.i.i
+  %end.0 = phi i64 [ %77, %if.end.i.i ], [ %77, %while.cond ], [ %spec.select, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i ]
   %86 = load i64, ptr %_M_string_length.i, align 8, !tbaa !38
   %87 = load i64, ptr %_M_string_length.i.i.i276, align 8, !tbaa !38
   %sub3.i.i.i = sub i64 4611686018427387903, %87
@@ -1713,7 +1711,7 @@ if.then.i167:                                     ; preds = %for.body.i.i.i.i.i,
 
 _ZNR5folly8ExpectedIiNS_14ConversionCodeEEdeEv.exit: ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i165
   %result.sroa.6178.0.extract.shift = lshr i64 %call.i.i.i163, 32
-  %result.sroa.6178.0.extract.trunc = trunc i64 %result.sroa.6178.0.extract.shift to i32
+  %result.sroa.6178.0.extract.trunc = trunc nuw i64 %result.sroa.6178.0.extract.shift to i32
   %cmp55 = icmp slt i64 %call.i.i.i163, 0
   br i1 %cmp55, label %if.then.i172, label %if.end57, !prof !71
 
@@ -2735,7 +2733,7 @@ if.then.i7:                                       ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %24 = lshr i16 %23, 8
-  %conv8.i = trunc i16 %24 to i8
+  %conv8.i = trunc nuw i16 %24 to i8
   store i8 %conv8.i, ptr %outb, align 1, !tbaa !39
   br label %_ZN5folly6detail19to_ascii_with_routeILm10ENS_17to_ascii_alphabetILb0EEEEEmPcPKcm.exit
 
@@ -2802,7 +2800,7 @@ if.then26:                                        ; preds = %if.end8
   %2 = load i8, ptr %fill27, align 8, !tbaa !126
   %cmp29 = icmp eq i8 %2, 0
   %spec.select = select i1 %cmp29, i8 32, i8 %2
-  %3 = trunc i64 %.pre123 to i32
+  %3 = trunc nuw i64 %.pre123 to i32
   %conv34 = sub nsw i32 %0, %3
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv34, i32 128)
   %conv37 = sext i32 %.sroa.speculated to i64
@@ -4842,7 +4840,7 @@ _ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_
 
 _ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit.thread2: ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i
   %result.sroa.69.0.extract.shift5 = lshr i64 %call.i.i.i, 32
-  %result.sroa.69.0.extract.trunc6 = trunc i64 %result.sroa.69.0.extract.shift5 to i32
+  %result.sroa.69.0.extract.trunc6 = trunc nuw i64 %result.sroa.69.0.extract.shift5 to i32
   br label %return
 
 if.then.i5:                                       ; preds = %for.body.i.i.i.i.i, %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit.thread
@@ -5971,7 +5969,7 @@ if.then.i4.i:                                     ; preds = %while.end.i.i
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %22 = lshr i16 %21, 8
-  %conv8.i.i = trunc i16 %22 to i8
+  %conv8.i.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i.i, ptr %out, align 1, !tbaa !39
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit
 

@@ -1428,23 +1428,20 @@ lor.lhs.false16:                                  ; preds = %land.lhs.true, %lor
 
 if.end19:                                         ; preds = %lor.lhs.false16
   %call20 = call noundef zeroext i1 @_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull %n, ptr noundef nonnull align 8 dereferenceable(8) %e1, ptr noundef nonnull align 8 dereferenceable(8) %e2)
-  br i1 %call20, label %land.lhs.true21, label %if.end26
+  br i1 %call20, label %land.lhs.true21, label %return
 
 land.lhs.true21:                                  ; preds = %if.end19
   %7 = load ptr, ptr %e1, align 8
   %call22 = call noundef zeroext i1 @_ZN6spacer7is_atomER11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %7)
-  br i1 %call22, label %land.lhs.true23, label %if.end26
+  br i1 %call22, label %land.lhs.true23, label %return
 
 land.lhs.true23:                                  ; preds = %land.lhs.true21
   %8 = load ptr, ptr %e2, align 8
   %call24 = call noundef zeroext i1 @_ZN6spacer7is_atomER11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %8)
-  br i1 %call24, label %return, label %if.end26
-
-if.end26:                                         ; preds = %land.lhs.true23, %land.lhs.true21, %if.end19
   br label %return
 
-return:                                           ; preds = %if.end4, %land.lhs.true23, %land.lhs.true, %lor.lhs.false14, %lor.lhs.false16, %_ZNK3app13get_family_idEv.exit, %if.end, %entry, %lor.lhs.false, %if.end26
-  %retval.0 = phi i1 [ false, %if.end26 ], [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.end ], [ true, %_ZNK3app13get_family_idEv.exit ], [ true, %lor.lhs.false16 ], [ true, %lor.lhs.false14 ], [ true, %land.lhs.true ], [ true, %land.lhs.true23 ], [ true, %if.end4 ]
+return:                                           ; preds = %if.end4, %land.lhs.true23, %if.end19, %land.lhs.true21, %land.lhs.true, %lor.lhs.false14, %lor.lhs.false16, %_ZNK3app13get_family_idEv.exit, %if.end, %entry, %lor.lhs.false
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.end ], [ true, %_ZNK3app13get_family_idEv.exit ], [ true, %lor.lhs.false16 ], [ true, %lor.lhs.false14 ], [ true, %land.lhs.true ], [ false, %land.lhs.true21 ], [ false, %if.end19 ], [ %call24, %land.lhs.true23 ], [ true, %if.end4 ]
   ret i1 %retval.0
 }
 
@@ -9567,7 +9564,7 @@ cond.false:                                       ; preds = %invoke.cont12
 
 cond.end:                                         ; preds = %invoke.cont12, %cond.false
   %cond = phi ptr [ %18, %cond.false ], [ %17, %invoke.cont12 ]
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw i64 %indvars.iv to i32
   %call19 = invoke noundef ptr @_ZN6spacer11mk_zk_constER11ast_managerjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %0, i32 noundef %19, ptr noundef %cond)
           to label %invoke.cont20 unwind label %lpad.loopexit
 
@@ -10908,7 +10905,7 @@ for.body:                                         ; preds = %_ZNK6vectorIP4exprL
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %4)
   %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.19)
   %5 = load ptr, ptr %m_bindings, align 8
@@ -14611,7 +14608,7 @@ for.body:                                         ; preds = %_ZNK6vectorIP4exprL
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %4)
   %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.19)
   %5 = load ptr, ptr %m_bindings, align 8

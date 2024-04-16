@@ -314,7 +314,7 @@ define internal noundef i64 @rb_digest_instance_block_length(i64 noundef %0) #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @rb_digest_instance_equal(i64 noundef %0, i64 noundef %1) #0 {
+define internal i64 @rb_digest_instance_equal(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i64, ptr @rb_mDigest_Instance, align 8
@@ -336,7 +336,7 @@ define internal noundef i64 @rb_digest_instance_equal(i64 noundef %0, i64 nounde
   %14 = tail call i64 @rb_check_string_type(i64 noundef %1) #9
   store i64 %14, ptr %4, align 8
   %15 = icmp eq i64 %14, 4
-  br i1 %15, label %32, label %16
+  br i1 %15, label %31, label %16
 
 16:                                               ; preds = %11, %8
   %17 = call i64 @rb_string_value(ptr noundef nonnull %3) #9
@@ -355,13 +355,11 @@ define internal noundef i64 @rb_digest_instance_equal(i64 noundef %0, i64 nounde
 28:                                               ; preds = %16
   %29 = call i32 @rb_str_cmp(i64 noundef %19, i64 noundef %23) #9
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %32, label %31
+  %spec.select = select i1 %30, i64 20, i64 0
+  br label %31
 
-31:                                               ; preds = %28, %16
-  br label %32
-
-32:                                               ; preds = %28, %11, %31
-  %.0 = phi i64 [ 0, %31 ], [ 0, %11 ], [ 20, %28 ]
+31:                                               ; preds = %28, %16, %11
+  %.0 = phi i64 [ 0, %11 ], [ 0, %16 ], [ %spec.select, %28 ]
   ret i64 %.0
 }
 

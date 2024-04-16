@@ -673,7 +673,7 @@ for.inc.i:                                        ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !7
 
 for.end.loopexit.split.loop.exit38.i:             ; preds = %land.rhs.i
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.inc.i, %for.end.loopexit.split.loop.exit38.i, %if.end
@@ -685,7 +685,7 @@ for.end.i:                                        ; preds = %for.inc.i, %for.end
 for.cond6.i:                                      ; preds = %land.rhs14.i, %for.end.i
   %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %land.rhs14.i ], [ %conv, %for.end.i ]
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, -1
-  %4 = trunc i64 %indvars.iv35.i to i32
+  %4 = trunc nuw i64 %indvars.iv35.i to i32
   %cmp7.i = icmp sgt i32 %4, 0
   br i1 %cmp7.i, label %land.lhs.true.i, label %for.end23.i
 
@@ -1037,10 +1037,10 @@ if.then6.i:                                       ; preds = %if.end.i
   br i1 %cmp8.not.i, label %land.rhs, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then6.i
-  %5 = trunc i64 %and.i to i16
+  %5 = trunc nuw nsw i64 %and.i to i16
   %sh_prom.i = sub nuw nsw i16 8, %5
   %6 = ashr i16 -256, %sh_prom.i
-  %not.i = trunc i16 %6 to i8
+  %not.i = trunc nsw i16 %6 to i8
   %7 = sext i32 %.pre88 to i64
   %8 = getelementptr i8, ptr %min, i64 %7
   %arrayidx.i = getelementptr i8, ptr %8, i64 -1
@@ -1107,10 +1107,10 @@ if.then6.i39:                                     ; preds = %if.end.i37
   br i1 %cmp8.not.i44, label %land.rhs12, label %if.then10.i45
 
 if.then10.i45:                                    ; preds = %if.then6.i39
-  %20 = trunc i64 %and.i43 to i16
+  %20 = trunc nuw nsw i64 %and.i43 to i16
   %sh_prom.i46 = sub nuw nsw i16 8, %20
   %21 = ashr i16 -256, %sh_prom.i46
-  %not.i47 = trunc i16 %21 to i8
+  %not.i47 = trunc nsw i16 %21 to i8
   %22 = sext i32 %.pre84 to i64
   %23 = getelementptr i8, ptr %min, i64 %22
   %arrayidx.i48 = getelementptr i8, ptr %23, i64 -1
@@ -1156,14 +1156,14 @@ return.sink.split.sink.split:                     ; preds = %if.then6.i62, %if.t
   %and.i23.sink = phi i64 [ %and.i23, %if.then6.i19 ], [ %and.i66, %if.then6.i62 ]
   %.pre90.sink = phi i32 [ %.pre90, %if.then6.i19 ], [ %.pre86, %if.then6.i62 ]
   %.sink = phi ptr [ %11, %if.then6.i19 ], [ %27, %if.then6.i62 ]
-  %31 = trunc i64 %and.i23.sink to i16
+  %31 = trunc nuw nsw i64 %and.i23.sink to i16
   %sh_prom.i26 = sub nuw nsw i16 8, %31
   %shr.i = lshr i16 255, %sh_prom.i26
   %32 = sext i32 %.pre90.sink to i64
   %33 = getelementptr i8, ptr %max, i64 %32
   %arrayidx28.i = getelementptr i8, ptr %33, i64 -1
   %34 = load i8, ptr %arrayidx28.i, align 1
-  %35 = trunc i16 %shr.i to i8
+  %35 = trunc nuw nsw i16 %shr.i to i8
   %conv30.i72 = or i8 %34, %35
   store i8 %conv30.i72, ptr %arrayidx28.i, align 1
   %.pre85 = load i32, ptr %.sink, align 8
@@ -1381,7 +1381,7 @@ for.inc.i:                                        ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !7
 
 for.end.loopexit.split.loop.exit38.i:             ; preds = %land.rhs.i
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.inc.i, %for.end.loopexit.split.loop.exit38.i, %land.lhs.true
@@ -1391,7 +1391,7 @@ for.end.i:                                        ; preds = %for.inc.i, %for.end
 for.cond6.i:                                      ; preds = %land.rhs14.i, %for.end.i
   %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %land.rhs14.i ], [ %conv, %for.end.i ]
   %indvars.iv.next36.i = add nsw i64 %indvars.iv35.i, -1
-  %20 = trunc i64 %indvars.iv35.i to i32
+  %20 = trunc nuw i64 %indvars.iv35.i to i32
   %cmp7.i49 = icmp sgt i32 %20, 0
   br i1 %cmp7.i49, label %land.lhs.true.i, label %for.end23.i
 
@@ -1580,7 +1580,7 @@ for.inc:                                          ; preds = %land.rhs
   br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !7
 
 for.end.loopexit.split.loop.exit38:               ; preds = %land.rhs
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit38, %entry
@@ -1592,7 +1592,7 @@ for.end:                                          ; preds = %for.inc, %for.end.l
 for.cond6:                                        ; preds = %land.rhs14, %for.end
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %land.rhs14 ], [ %wide.trip.count, %for.end ]
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, -1
-  %4 = trunc i64 %indvars.iv35 to i32
+  %4 = trunc nuw i64 %indvars.iv35 to i32
   %cmp7 = icmp sgt i32 %4, 0
   br i1 %cmp7, label %land.lhs.true, label %for.end23
 
@@ -1695,13 +1695,13 @@ entry:
   %merged.i = alloca ptr, align 8
   %a_min79.i = alloca [16 x i8], align 16
   %a_max80.i = alloca [16 x i8], align 16
-  %call128 = tail call i32 @OPENSSL_sk_num(ptr noundef %addr) #15
-  %cmp29 = icmp sgt i32 %call128, 0
-  br i1 %cmp29, label %for.body, label %for.end
+  %call132 = tail call i32 @OPENSSL_sk_num(ptr noundef %addr) #15
+  %cmp33 = icmp sgt i32 %call132, 0
+  br i1 %cmp33, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
-  %call3 = call ptr @OPENSSL_sk_value(ptr noundef %addr, i32 noundef %i.030) #15
+  %i.034 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
+  %call3 = call ptr @OPENSSL_sk_value(ptr noundef %addr, i32 noundef %i.034) #15
   %call3.val = load ptr, ptr %call3, align 8
   %call3.val.val = load i32, ptr %call3.val, align 8
   %0 = and i32 %call3.val.val, -2
@@ -1752,11 +1752,11 @@ X509v3_addr_get_afi.exit:                         ; preds = %lor.lhs.false2.i
   %switch.selectcmp.i.i = icmp eq i32 %or.i.fr, 2
   %spec.select = select i1 %switch.selectcmp.i.i, i32 16, i32 0
   %switch.selectcmp1.i.i = icmp eq i32 %or.i.fr, 1
-  %spec.select26 = select i1 %switch.selectcmp1.i.i, i32 4, i32 %spec.select
+  %spec.select30 = select i1 %switch.selectcmp1.i.i, i32 4, i32 %spec.select
   br label %7
 
 7:                                                ; preds = %X509v3_addr_get_afi.exit, %.thread
-  %8 = phi i32 [ 0, %.thread ], [ %spec.select26, %X509v3_addr_get_afi.exit ]
+  %8 = phi i32 [ 0, %.thread ], [ %spec.select30, %X509v3_addr_get_afi.exit ]
   call void @OPENSSL_sk_sort(ptr noundef %3) #15
   %call330.i = call i32 @OPENSSL_sk_num(ptr noundef %3) #15
   %cmp33.i = icmp sgt i32 %call330.i, 1
@@ -1839,25 +1839,19 @@ for.end67.i:                                      ; preds = %for.inc66.i, %7
   %sub70.i = add nsw i32 %call69.i, -1
   %call73.i = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %sub70.i) #15
   %cmp74.not.i = icmp eq ptr %call73.i, null
-  br i1 %cmp74.not.i, label %IPAddressOrRanges_canonize.exit, label %land.lhs.true.i
+  br i1 %cmp74.not.i, label %IPAddressOrRanges_canonize.exit.thread27, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.end67.i
   %11 = load i32, ptr %call73.i, align 8
   %cmp76.i = icmp eq i32 %11, 1
-  br i1 %cmp76.i, label %if.then78.i, label %IPAddressOrRanges_canonize.exit
+  br i1 %cmp76.i, label %if.then78.i, label %IPAddressOrRanges_canonize.exit.thread27
 
 if.then78.i:                                      ; preds = %land.lhs.true.i
   %call83.i = call fastcc i32 @extract_min_max(ptr noundef nonnull %call73.i, ptr noundef nonnull %a_min79.i, ptr noundef nonnull %a_max80.i, i32 noundef %8), !range !6
   %tobool84.not.i = icmp eq i32 %call83.i, 0
-  br i1 %tobool84.not.i, label %IPAddressOrRanges_canonize.exit.thread, label %if.end86.i
+  br i1 %tobool84.not.i, label %IPAddressOrRanges_canonize.exit.thread, label %IPAddressOrRanges_canonize.exit
 
-if.end86.i:                                       ; preds = %if.then78.i
-  %conv89.i = zext nneg i32 %8 to i64
-  %call90.i = call i32 @memcmp(ptr noundef nonnull %a_min79.i, ptr noundef nonnull %a_max80.i, i64 noundef %conv89.i) #16
-  %cmp91.i = icmp sgt i32 %call90.i, 0
-  br i1 %cmp91.i, label %IPAddressOrRanges_canonize.exit.thread, label %IPAddressOrRanges_canonize.exit
-
-IPAddressOrRanges_canonize.exit.thread:           ; preds = %if.then78.i, %if.end86.i, %lor.lhs.false.i13, %for.body.i, %lor.lhs.false19.i, %if.end.i14, %if.end27.i, %if.then51.i
+IPAddressOrRanges_canonize.exit.thread:           ; preds = %if.then78.i, %lor.lhs.false.i13, %for.body.i, %lor.lhs.false19.i, %if.end.i14, %if.end27.i, %if.then51.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_min.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b_min.i)
@@ -1867,7 +1861,7 @@ IPAddressOrRanges_canonize.exit.thread:           ; preds = %if.then78.i, %if.en
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max80.i)
   br label %return
 
-IPAddressOrRanges_canonize.exit:                  ; preds = %for.end67.i, %land.lhs.true.i, %if.end86.i
+IPAddressOrRanges_canonize.exit.thread27:         ; preds = %land.lhs.true.i, %for.end67.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_min.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b_min.i)
@@ -1877,8 +1871,21 @@ IPAddressOrRanges_canonize.exit:                  ; preds = %for.end67.i, %land.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max80.i)
   br label %for.inc
 
-for.inc:                                          ; preds = %IPAddressOrRanges_canonize.exit, %if.end
-  %inc = add nuw nsw i32 %i.030, 1
+IPAddressOrRanges_canonize.exit:                  ; preds = %if.then78.i
+  %conv89.i = zext nneg i32 %8 to i64
+  %call90.i = call i32 @memcmp(ptr noundef nonnull %a_min79.i, ptr noundef nonnull %a_max80.i, i64 noundef %conv89.i) #16
+  %cmp91.i = icmp sgt i32 %call90.i, 0
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_min.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b_min.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %b_max.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %merged.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_min79.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a_max80.i)
+  br i1 %cmp91.i, label %return, label %for.inc
+
+for.inc:                                          ; preds = %IPAddressOrRanges_canonize.exit.thread27, %if.end, %IPAddressOrRanges_canonize.exit
+  %inc = add nuw nsw i32 %i.034, 1
   %call1 = call i32 @OPENSSL_sk_num(ptr noundef %addr) #15
   %cmp = icmp slt i32 %inc, %call1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
@@ -1889,8 +1896,8 @@ for.end:                                          ; preds = %for.inc, %entry
   %call16 = call i32 @X509v3_addr_is_canonical(ptr noundef %addr), !range !6
   br label %return
 
-return:                                           ; preds = %for.body, %IPAddressOrRanges_canonize.exit.thread, %for.end
-  %retval.0 = phi i32 [ %call16, %for.end ], [ 0, %IPAddressOrRanges_canonize.exit.thread ], [ 0, %for.body ]
+return:                                           ; preds = %IPAddressOrRanges_canonize.exit, %for.body, %IPAddressOrRanges_canonize.exit.thread, %for.end
+  %retval.0 = phi i32 [ %call16, %for.end ], [ 0, %IPAddressOrRanges_canonize.exit.thread ], [ 0, %for.body ], [ 0, %IPAddressOrRanges_canonize.exit ]
   ret i32 %retval.0
 }
 
@@ -2313,7 +2320,7 @@ X509v3_addr_get_afi.exit:                         ; preds = %lor.lhs.false5.i
   %4 = load i8, ptr %arrayidx12.i, align 1
   %conv13.i = zext i8 %4 to i32
   %or.i = or disjoint i32 %shl.i, %conv13.i
-  %trunc = trunc i32 %or.i to i16
+  %trunc = trunc nuw i32 %or.i to i16
   switch i16 %trunc, label %sw.default [
     i16 1, label %sw.bb
     i16 2, label %sw.bb6
@@ -3254,10 +3261,10 @@ if.then6.i:                                       ; preds = %if.end.i
   br i1 %cmp8.not.i, label %if.end, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then6.i
-  %5 = trunc i64 %and.i to i16
+  %5 = trunc nuw nsw i64 %and.i to i16
   %sh_prom.i = sub nuw nsw i16 8, %5
   %6 = ashr i16 -256, %sh_prom.i
-  %not.i = trunc i16 %6 to i8
+  %not.i = trunc nsw i16 %6 to i8
   %7 = getelementptr i8, ptr %addr_a, i64 %conv.i
   %arrayidx.i = getelementptr i8, ptr %7, i64 -1
   %8 = load i8, ptr %arrayidx.i, align 1
@@ -3304,10 +3311,10 @@ if.then6.i20:                                     ; preds = %if.end.i18
   br i1 %cmp8.not.i25, label %if.end11, label %if.then10.i26
 
 if.then10.i26:                                    ; preds = %if.then6.i20
-  %17 = trunc i64 %and.i24 to i16
+  %17 = trunc nuw nsw i64 %and.i24 to i16
   %sh_prom.i27 = sub nuw nsw i16 8, %17
   %18 = ashr i16 -256, %sh_prom.i27
-  %not.i28 = trunc i16 %18 to i8
+  %not.i28 = trunc nsw i16 %18 to i8
   %19 = getelementptr i8, ptr %addr_a, i64 %conv.i22
   %arrayidx.i29 = getelementptr i8, ptr %19, i64 -1
   %20 = load i8, ptr %arrayidx.i29, align 1
@@ -3362,10 +3369,10 @@ if.then6.i43:                                     ; preds = %if.end.i41
   br i1 %cmp8.not.i48, label %if.end20, label %if.then10.i49
 
 if.then10.i49:                                    ; preds = %if.then6.i43
-  %26 = trunc i64 %and.i47 to i16
+  %26 = trunc nuw nsw i64 %and.i47 to i16
   %sh_prom.i50 = sub nuw nsw i16 8, %26
   %27 = ashr i16 -256, %sh_prom.i50
-  %not.i51 = trunc i16 %27 to i8
+  %not.i51 = trunc nsw i16 %27 to i8
   %28 = getelementptr i8, ptr %addr_b, i64 %conv.i45
   %arrayidx.i52 = getelementptr i8, ptr %28, i64 -1
   %29 = load i8, ptr %arrayidx.i52, align 1
@@ -3412,10 +3419,10 @@ if.then6.i66:                                     ; preds = %if.end.i64
   br i1 %cmp8.not.i71, label %if.end37, label %if.then10.i72
 
 if.then10.i72:                                    ; preds = %if.then6.i66
-  %38 = trunc i64 %and.i70 to i16
+  %38 = trunc nuw nsw i64 %and.i70 to i16
   %sh_prom.i73 = sub nuw nsw i16 8, %38
   %39 = ashr i16 -256, %sh_prom.i73
-  %not.i74 = trunc i16 %39 to i8
+  %not.i74 = trunc nsw i16 %39 to i8
   %40 = getelementptr i8, ptr %addr_b, i64 %conv.i68
   %arrayidx.i75 = getelementptr i8, ptr %40, i64 -1
   %41 = load i8, ptr %arrayidx.i75, align 1
@@ -3539,14 +3546,14 @@ if.then6.i:                                       ; preds = %if.end.i
   br i1 %cmp8.not.i, label %if.end2, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then6.i
-  %3 = trunc i64 %and.i to i16
+  %3 = trunc nuw nsw i64 %and.i to i16
   %sh_prom.i = sub nuw nsw i16 8, %3
   %cmp15.i = icmp eq i8 %fill, 0
   br i1 %cmp15.i, label %if.then17.i, label %if.else.i
 
 if.then17.i:                                      ; preds = %if.then10.i
   %4 = ashr i16 -256, %sh_prom.i
-  %not.i = trunc i16 %4 to i8
+  %not.i = trunc nsw i16 %4 to i8
   %5 = getelementptr i8, ptr %addr, i64 %conv.i
   %arrayidx.i = getelementptr i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -3559,7 +3566,7 @@ if.else.i:                                        ; preds = %if.then10.i
   %7 = getelementptr i8, ptr %addr, i64 %conv.i
   %arrayidx28.i = getelementptr i8, ptr %7, i64 -1
   %8 = load i8, ptr %arrayidx28.i, align 1
-  %9 = trunc i16 %shr.i to i8
+  %9 = trunc nuw nsw i16 %shr.i to i8
   %conv30.i = or i8 %8, %9
   store i8 %conv30.i, ptr %arrayidx28.i, align 1
   br label %if.end2
@@ -3604,14 +3611,14 @@ if.then6.i31:                                     ; preds = %if.end.i29
   br i1 %cmp8.not.i36, label %addr_expand.exit54, label %if.then10.i37
 
 if.then10.i37:                                    ; preds = %if.then6.i31
-  %16 = trunc i64 %and.i35 to i16
+  %16 = trunc nuw nsw i64 %and.i35 to i16
   %sh_prom.i38 = sub nuw nsw i16 8, %16
   %cmp15.i39 = icmp eq i8 %fill, 0
   br i1 %cmp15.i39, label %if.then17.i50, label %if.else.i40
 
 if.then17.i50:                                    ; preds = %if.then10.i37
   %17 = ashr i16 -256, %sh_prom.i38
-  %not.i51 = trunc i16 %17 to i8
+  %not.i51 = trunc nsw i16 %17 to i8
   %18 = getelementptr i8, ptr %addr, i64 %conv.i33
   %arrayidx.i52 = getelementptr i8, ptr %18, i64 -1
   %19 = load i8, ptr %arrayidx.i52, align 1
@@ -3624,7 +3631,7 @@ if.else.i40:                                      ; preds = %if.then10.i37
   %20 = getelementptr i8, ptr %addr, i64 %conv.i33
   %arrayidx28.i42 = getelementptr i8, ptr %20, i64 -1
   %21 = load i8, ptr %arrayidx28.i42, align 1
-  %22 = trunc i16 %shr.i41 to i8
+  %22 = trunc nuw nsw i16 %shr.i41 to i8
   %conv30.i43 = or i8 %21, %22
   store i8 %conv30.i43, ptr %arrayidx28.i42, align 1
   br label %addr_expand.exit54
@@ -3657,7 +3664,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp26, label %for.cond, label %for.end, !llvm.loop !30
 
 for.end:                                          ; preds = %land.lhs.true, %land.rhs
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp3060 = icmp sgt i32 %26, 0
   br i1 %cmp3060, label %for.body32.preheader, label %if.end49.thread
 
@@ -3688,7 +3695,7 @@ if.end49.thread:                                  ; preds = %for.cond, %for.end
   br label %if.then52
 
 for.end44:                                        ; preds = %for.body32
-  %31 = trunc i64 %indvars.iv.next67 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.next67 to i32
   %cmp45 = icmp ult i32 %31, 16
   br i1 %cmp45, label %if.end49, label %return
 

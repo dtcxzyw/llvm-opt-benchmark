@@ -666,7 +666,7 @@ cond.end:                                         ; preds = %if.then, %cond.true
   %fUnion2.i = getelementptr inbounds i8, ptr %zoneStrID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %len.lobit = lshr i32 %len, 31
-  %conv = trunc i32 %len.lobit to i8
+  %conv = trunc nuw nsw i32 %len.lobit to i8
   store ptr %zoneID, ptr %agg.tmp, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %zoneStrID, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %cond)
           to label %invoke.cont5 unwind label %lpad4
@@ -850,7 +850,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
   ret i32 %result.016
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 declare noundef double @_ZN6icu_758Calendar6getNowEv() local_unnamed_addr #5
@@ -2343,12 +2343,16 @@ if.then5:                                         ; preds = %land.lhs.true
           to label %cond.end unwind label %lpad
 
 cond.end:                                         ; preds = %if.then5
-  %tobool15.not.not = icmp eq i8 %6, 0
-  br i1 %tobool15.not.not, label %return.sink.split, label %if.then16
+  %tobool15.not.not = icmp ne i8 %6, 0
+  br i1 %tobool15.not.not, label %if.then16, label %cleanup
 
 if.then16:                                        ; preds = %cond.end
   %call18 = invoke noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull align 8 dereferenceable(32) %tzt)
-          to label %cleanup unwind label %lpad
+          to label %invoke.cont17 unwind label %lpad
+
+invoke.cont17:                                    ; preds = %if.then16
+  store double %call18, ptr %transition, align 8
+  br label %cleanup
 
 lpad:                                             ; preds = %if.then5, %if.then16
   %7 = landingpad { ptr, i32 }
@@ -2356,17 +2360,13 @@ lpad:                                             ; preds = %if.then5, %if.then1
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt) #11
   resume { ptr, i32 } %7
 
-cleanup:                                          ; preds = %if.then16
-  store double %call18, ptr %transition, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %cond.end, %cleanup
-  %retval.1.ph = phi i8 [ 1, %cleanup ], [ 0, %cond.end ]
+cleanup:                                          ; preds = %cond.end, %invoke.cont17
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt) #11
+  %spec.select = zext i1 %tobool15.not.not to i8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end, %land.lhs.true, %entry
-  %retval.1 = phi i8 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ %retval.1.ph, %return.sink.split ]
+return:                                           ; preds = %cleanup, %if.end, %land.lhs.true, %entry
+  %retval.1 = phi i8 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ %spec.select, %cleanup ]
   ret i8 %retval.1
 }
 
@@ -2612,7 +2612,7 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(read) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

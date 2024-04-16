@@ -4245,7 +4245,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIiSaIiE
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit
-  %47 = phi ptr [ %43, %for.body.lr.ph ], [ %53, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit ]
+  %47 = phi ptr [ %43, %for.body.lr.ph ], [ %52, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit ]
   %__begin1.sroa.0.0116 = phi ptr [ %45, %for.body.lr.ph ], [ %incdec.ptr.i111, %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit ]
   %48 = load i32, ptr %__begin1.sroa.0.0116, align 4
   %49 = load ptr, ptr %_M_end_of_storage.i, align 8
@@ -4276,8 +4276,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %52 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2305843009213693951)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2305843009213693951, i64 %52
+  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2305843009213693951)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2305843009213693951, i64 %spec.select.i.i.i
   %cmp.not.i.i.i108 = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i108, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -4315,7 +4315,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPi
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit
 
 _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
-  %53 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
+  %52 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
   %incdec.ptr.i111 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0116, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i111, %46
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -4331,97 +4331,97 @@ for.end:                                          ; preds = %_ZNSt6vectorIiSaIiE
   %compaction_options_universal43 = getelementptr inbounds i8, ptr %cf_opts, i64 236
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(26) %compaction_options_universal43, ptr noundef nonnull align 8 dereferenceable(26) %compaction_options_universal, i64 26, i1 false)
   %enable_blob_files = getelementptr inbounds i8, ptr %moptions, i64 292
-  %54 = load i8, ptr %enable_blob_files, align 4
+  %53 = load i8, ptr %enable_blob_files, align 4
   %enable_blob_files45 = getelementptr inbounds i8, ptr %cf_opts, i64 424
-  %frombool46 = and i8 %54, 1
+  %frombool46 = and i8 %53, 1
   store i8 %frombool46, ptr %enable_blob_files45, align 8
   %min_blob_size = getelementptr inbounds i8, ptr %moptions, i64 296
-  %55 = load i64, ptr %min_blob_size, align 8
+  %54 = load i64, ptr %min_blob_size, align 8
   %min_blob_size47 = getelementptr inbounds i8, ptr %cf_opts, i64 432
-  store i64 %55, ptr %min_blob_size47, align 8
+  store i64 %54, ptr %min_blob_size47, align 8
   %blob_file_size = getelementptr inbounds i8, ptr %moptions, i64 304
-  %56 = load i64, ptr %blob_file_size, align 8
+  %55 = load i64, ptr %blob_file_size, align 8
   %blob_file_size48 = getelementptr inbounds i8, ptr %cf_opts, i64 440
-  store i64 %56, ptr %blob_file_size48, align 8
+  store i64 %55, ptr %blob_file_size48, align 8
   %blob_compression_type = getelementptr inbounds i8, ptr %moptions, i64 312
-  %57 = load i8, ptr %blob_compression_type, align 8
+  %56 = load i8, ptr %blob_compression_type, align 8
   %blob_compression_type49 = getelementptr inbounds i8, ptr %cf_opts, i64 448
-  store i8 %57, ptr %blob_compression_type49, align 8
+  store i8 %56, ptr %blob_compression_type49, align 8
   %enable_blob_garbage_collection = getelementptr inbounds i8, ptr %moptions, i64 313
-  %58 = load i8, ptr %enable_blob_garbage_collection, align 1
+  %57 = load i8, ptr %enable_blob_garbage_collection, align 1
   %enable_blob_garbage_collection51 = getelementptr inbounds i8, ptr %cf_opts, i64 449
-  %frombool52 = and i8 %58, 1
+  %frombool52 = and i8 %57, 1
   store i8 %frombool52, ptr %enable_blob_garbage_collection51, align 1
   %blob_garbage_collection_age_cutoff = getelementptr inbounds i8, ptr %moptions, i64 320
-  %59 = load double, ptr %blob_garbage_collection_age_cutoff, align 8
+  %58 = load double, ptr %blob_garbage_collection_age_cutoff, align 8
   %blob_garbage_collection_age_cutoff53 = getelementptr inbounds i8, ptr %cf_opts, i64 456
-  store double %59, ptr %blob_garbage_collection_age_cutoff53, align 8
+  store double %58, ptr %blob_garbage_collection_age_cutoff53, align 8
   %blob_garbage_collection_force_threshold = getelementptr inbounds i8, ptr %moptions, i64 328
-  %60 = load double, ptr %blob_garbage_collection_force_threshold, align 8
+  %59 = load double, ptr %blob_garbage_collection_force_threshold, align 8
   %blob_garbage_collection_force_threshold54 = getelementptr inbounds i8, ptr %cf_opts, i64 464
-  store double %60, ptr %blob_garbage_collection_force_threshold54, align 8
+  store double %59, ptr %blob_garbage_collection_force_threshold54, align 8
   %blob_compaction_readahead_size = getelementptr inbounds i8, ptr %moptions, i64 336
-  %61 = load i64, ptr %blob_compaction_readahead_size, align 8
+  %60 = load i64, ptr %blob_compaction_readahead_size, align 8
   %blob_compaction_readahead_size55 = getelementptr inbounds i8, ptr %cf_opts, i64 472
-  store i64 %61, ptr %blob_compaction_readahead_size55, align 8
+  store i64 %60, ptr %blob_compaction_readahead_size55, align 8
   %blob_file_starting_level = getelementptr inbounds i8, ptr %moptions, i64 344
-  %62 = load i32, ptr %blob_file_starting_level, align 8
+  %61 = load i32, ptr %blob_file_starting_level, align 8
   %blob_file_starting_level56 = getelementptr inbounds i8, ptr %cf_opts, i64 480
-  store i32 %62, ptr %blob_file_starting_level56, align 8
+  store i32 %61, ptr %blob_file_starting_level56, align 8
   %prepopulate_blob_cache = getelementptr inbounds i8, ptr %moptions, i64 348
-  %63 = load i8, ptr %prepopulate_blob_cache, align 4
+  %62 = load i8, ptr %prepopulate_blob_cache, align 4
   %prepopulate_blob_cache57 = getelementptr inbounds i8, ptr %cf_opts, i64 504
-  store i8 %63, ptr %prepopulate_blob_cache57, align 8
+  store i8 %62, ptr %prepopulate_blob_cache57, align 8
   %max_sequential_skip_in_iterations = getelementptr inbounds i8, ptr %moptions, i64 352
-  %64 = load i64, ptr %max_sequential_skip_in_iterations, align 8
+  %63 = load i64, ptr %max_sequential_skip_in_iterations, align 8
   %max_sequential_skip_in_iterations58 = getelementptr inbounds i8, ptr %cf_opts, i64 312
-  store i64 %64, ptr %max_sequential_skip_in_iterations58, align 8
+  store i64 %63, ptr %max_sequential_skip_in_iterations58, align 8
   %check_flush_compaction_key_order = getelementptr inbounds i8, ptr %moptions, i64 360
-  %65 = load i8, ptr %check_flush_compaction_key_order, align 8
+  %64 = load i8, ptr %check_flush_compaction_key_order, align 8
   %check_flush_compaction_key_order60 = getelementptr inbounds i8, ptr %cf_opts, i64 369
-  %frombool61 = and i8 %65, 1
+  %frombool61 = and i8 %64, 1
   store i8 %frombool61, ptr %check_flush_compaction_key_order60, align 1
   %paranoid_file_checks = getelementptr inbounds i8, ptr %moptions, i64 361
-  %66 = load i8, ptr %paranoid_file_checks, align 1
+  %65 = load i8, ptr %paranoid_file_checks, align 1
   %paranoid_file_checks63 = getelementptr inbounds i8, ptr %cf_opts, i64 370
-  %frombool64 = and i8 %66, 1
+  %frombool64 = and i8 %65, 1
   store i8 %frombool64, ptr %paranoid_file_checks63, align 2
   %report_bg_io_stats = getelementptr inbounds i8, ptr %moptions, i64 362
-  %67 = load i8, ptr %report_bg_io_stats, align 2
+  %66 = load i8, ptr %report_bg_io_stats, align 2
   %report_bg_io_stats66 = getelementptr inbounds i8, ptr %cf_opts, i64 372
-  %frombool67 = and i8 %67, 1
+  %frombool67 = and i8 %66, 1
   store i8 %frombool67, ptr %report_bg_io_stats66, align 4
   %compression = getelementptr inbounds i8, ptr %moptions, i64 363
-  %68 = load i8, ptr %compression, align 1
+  %67 = load i8, ptr %compression, align 1
   %compression68 = getelementptr inbounds i8, ptr %cf_opts, i64 576
-  store i8 %68, ptr %compression68, align 8
+  store i8 %67, ptr %compression68, align 8
   %compression_opts = getelementptr inbounds i8, ptr %moptions, i64 368
   %compression_opts69 = getelementptr inbounds i8, ptr %cf_opts, i64 640
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %compression_opts69, ptr noundef nonnull align 8 dereferenceable(49) %compression_opts, i64 49, i1 false)
   %bottommost_compression = getelementptr inbounds i8, ptr %moptions, i64 364
-  %69 = load i8, ptr %bottommost_compression, align 4
+  %68 = load i8, ptr %bottommost_compression, align 4
   %bottommost_compression70 = getelementptr inbounds i8, ptr %cf_opts, i64 577
-  store i8 %69, ptr %bottommost_compression70, align 1
+  store i8 %68, ptr %bottommost_compression70, align 1
   %bottommost_compression_opts = getelementptr inbounds i8, ptr %moptions, i64 424
   %bottommost_compression_opts71 = getelementptr inbounds i8, ptr %cf_opts, i64 584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %bottommost_compression_opts71, ptr noundef nonnull align 8 dereferenceable(49) %bottommost_compression_opts, i64 49, i1 false)
   %sample_for_compression = getelementptr inbounds i8, ptr %moptions, i64 496
-  %70 = load i64, ptr %sample_for_compression, align 8
+  %69 = load i64, ptr %sample_for_compression, align 8
   %sample_for_compression72 = getelementptr inbounds i8, ptr %cf_opts, i64 392
-  store i64 %70, ptr %sample_for_compression72, align 8
+  store i64 %69, ptr %sample_for_compression72, align 8
   %compression_per_level = getelementptr inbounds i8, ptr %moptions, i64 504
   %compression_per_level73 = getelementptr inbounds i8, ptr %cf_opts, i64 112
   %call74 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %compression_per_level73, ptr noundef nonnull align 8 dereferenceable(24) %compression_per_level)
   %last_level_temperature = getelementptr inbounds i8, ptr %moptions, i64 480
-  %71 = load i8, ptr %last_level_temperature, align 8
+  %70 = load i8, ptr %last_level_temperature, align 8
   %last_level_temperature75 = getelementptr inbounds i8, ptr %cf_opts, i64 401
-  store i8 %71, ptr %last_level_temperature75, align 1
+  store i8 %70, ptr %last_level_temperature75, align 1
   %bottommost_temperature = getelementptr inbounds i8, ptr %cf_opts, i64 400
-  store i8 %71, ptr %bottommost_temperature, align 8
+  store i8 %70, ptr %bottommost_temperature, align 8
   %memtable_max_range_deletions = getelementptr inbounds i8, ptr %moptions, i64 528
-  %72 = load i32, ptr %memtable_max_range_deletions, align 8
+  %71 = load i32, ptr %memtable_max_range_deletions, align 8
   %memtable_max_range_deletions77 = getelementptr inbounds i8, ptr %cf_opts, i64 816
-  store i32 %72, ptr %memtable_max_range_deletions77, align 8
+  store i32 %71, ptr %memtable_max_range_deletions77, align 8
   ret void
 }
 
@@ -8940,7 +8940,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -9007,7 +9007,7 @@ if.end16.i:                                       ; preds = %if.end12.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
   %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
-  %conv = trunc i64 %__val.lobit to i32
+  %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
@@ -9080,7 +9080,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -9228,7 +9228,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -9363,7 +9363,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -15459,7 +15459,7 @@ cleanup31:                                        ; preds = %cleanup, %cleanup.u
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %opt_name) #22
   br label %return
 
-for.inc:                                          ; preds = %_ZN7rocksdb6StatusD2Ev.exit15, %invoke.cont17
+for.inc:                                          ; preds = %invoke.cont17, %_ZN7rocksdb6StatusD2Ev.exit15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %opt_name) #22
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.029, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, null
@@ -18370,7 +18370,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont3:                                     ; preds = %if.then
   %1 = load i8, ptr %ref.tmp, align 8
-  %cmp.i = icmp eq i8 %1, 0
+  %cmp.i.not = icmp eq i8 %1, 0
   %state_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -18382,11 +18382,11 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont3, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i, align 8
-  br i1 %cmp.i, label %if.then5, label %return.sink.split
+  br i1 %cmp.i.not, label %if.then5, label %cleanup
 
 if.then5:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit
   %call7 = invoke noundef zeroext i1 @_ZNK7rocksdb14OptionTypeInfo14AreEqualByNameERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSB_(ptr noundef nonnull align 8 dereferenceable(180) %this, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef nonnull align 8 dereferenceable(32) %opt_name, ptr noundef %this_ptr, ptr noundef nonnull align 8 dereferenceable(32) %that_value)
-          to label %return.sink.split unwind label %lpad
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.then5, %if.then
   %3 = landingpad { ptr, i32 }
@@ -18394,13 +18394,14 @@ lpad:                                             ; preds = %if.then5, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %that_value) #22
   resume { ptr, i32 } %3
 
-return.sink.split:                                ; preds = %if.then5, %_ZN7rocksdb6StatusD2Ev.exit
-  %retval.1.ph = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit ], [ %call7, %if.then5 ]
+cleanup:                                          ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %if.then5
+  %retval.0 = phi i1 [ %call7, %if.then5 ], [ undef, %_ZN7rocksdb6StatusD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %that_value) #22
+  %spec.select = and i1 %cmp.i.not, %retval.0
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.1.ph, %return.sink.split ]
+return:                                           ; preds = %cleanup, %entry
+  %retval.1 = phi i1 [ false, %entry ], [ %spec.select, %cleanup ]
   ret i1 %retval.1
 }
 

@@ -1157,14 +1157,12 @@ define internal noundef i32 @wmidev_match_notify_id(ptr nocapture noundef readon
   %10 = zext i8 %9 to i32
   %11 = load i32, ptr %1, align 4
   %12 = icmp eq i32 %11, %10
-  br i1 %12, label %14, label %13
+  %spec.select = zext i1 %12 to i32
+  br label %13
 
 13:                                               ; preds = %7, %2
-  br label %14
-
-14:                                               ; preds = %13, %7
-  %15 = phi i32 [ 0, %13 ], [ 1, %7 ]
-  ret i32 %15
+  %14 = phi i32 [ 0, %2 ], [ %spec.select, %7 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1901,7 +1899,7 @@ define internal noundef i32 @acpi_wmi_ec_space_handler(i32 noundef %0, i64 nound
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = trunc i64 %1 to i8
+  %18 = trunc nuw i64 %1 to i8
   %19 = call i32 @ec_read(i8 noundef zeroext %18, ptr noundef nonnull %7) #12
   %20 = load i8, ptr %7, align 1
   %21 = zext i8 %20 to i64
@@ -1911,7 +1909,7 @@ define internal noundef i32 @acpi_wmi_ec_space_handler(i32 noundef %0, i64 nound
 22:                                               ; preds = %15
   %23 = load i64, ptr %3, align 8
   %24 = trunc i64 %23 to i8
-  %25 = trunc i64 %1 to i8
+  %25 = trunc nuw i64 %1 to i8
   %26 = tail call i32 @ec_write(i8 noundef zeroext %25, i8 noundef zeroext %24) #12
   br label %27
 

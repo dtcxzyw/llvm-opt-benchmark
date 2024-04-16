@@ -244,13 +244,13 @@ define internal fastcc void @dopr(ptr nocapture noundef %0, ptr noundef %1, ptr 
   br label %.backedge
 
 78:                                               ; preds = %66
-  %79 = trunc i8 %.0157 to i1
+  %79 = trunc nuw i8 %.0157 to i1
   %.0173..0193 = select i1 %79, i32 %.0173, i32 %.0193
   %..0157 = select i1 %79, i8 0, i8 %.0157
   br label %.backedge
 
 80:                                               ; preds = %66
-  %81 = trunc i8 %.1155 to i1
+  %81 = trunc nuw i8 %.1155 to i1
   br i1 %81, label %.backedge, label %82
 
 82:                                               ; preds = %80
@@ -291,7 +291,7 @@ define internal fastcc void @dopr(ptr nocapture noundef %0, ptr noundef %1, ptr 
   br label %.backedge
 
 100:                                              ; preds = %66
-  %101 = trunc i8 %.1155 to i1
+  %101 = trunc nuw i8 %.1155 to i1
   br i1 %101, label %244, label %102
 
 102:                                              ; preds = %100
@@ -378,7 +378,7 @@ define internal fastcc void @dopr(ptr nocapture noundef %0, ptr noundef %1, ptr 
   br label %.backedge.i.backedge
 
 119:                                              ; preds = %.backedge.i
-  %120 = trunc i8 %.088.i to i1
+  %120 = trunc nuw i8 %.088.i to i1
   br i1 %120, label %find_arguments.exit.thread, label %.backedge.i.backedge
 
 121:                                              ; preds = %.backedge.i
@@ -387,7 +387,7 @@ define internal fastcc void @dopr(ptr nocapture noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond.i, label %find_arguments.exit.thread, label %123
 
 123:                                              ; preds = %121
-  %124 = trunc i8 %.088.i to i1
+  %124 = trunc nuw i8 %.088.i to i1
   br i1 %124, label %125, label %.backedge.i.backedge
 
 125:                                              ; preds = %123
@@ -498,7 +498,7 @@ define internal fastcc void @dopr(ptr nocapture noundef %0, ptr noundef %1, ptr 
 
 .loopexit128.i:                                   ; preds = %.backedge.i, %.backedge.i, %160, %153, %146, %139
   %.3.i = phi i32 [ %161, %160 ], [ %154, %153 ], [ %147, %146 ], [ %140, %139 ], [ %.1.i, %.backedge.i ], [ %.1.i, %.backedge.i ]
-  %162 = trunc i8 %.088.i to i1
+  %162 = trunc nuw i8 %.088.i to i1
   br i1 %162, label %find_arguments.exit.thread, label %103, !llvm.loop !6
 
 163:                                              ; preds = %105, %103
@@ -697,13 +697,13 @@ find_arguments.exit:                              ; preds = %242, %163
   br label %.backedge
 
 256:                                              ; preds = %66, %66
-  %257 = trunc i8 %.0157 to i1
+  %257 = trunc nuw i8 %.0157 to i1
   %.not225 = icmp eq i32 %.0185, 0
   %.0193..0173 = select i1 %.not225, i32 %.0193, i32 %.0173
   %.5178 = select i1 %257, i32 %.0173, i32 %.0193..0173
   %258 = select i1 %257, i1 true, i1 %.not225
   %.4 = select i1 %258, i32 %.0170, i32 %.0193
-  %259 = trunc i8 %.1155 to i1
+  %259 = trunc nuw i8 %.1155 to i1
   %.not228 = icmp eq i32 %.0191, 0
   br i1 %259, label %260, label %273
 
@@ -815,13 +815,13 @@ find_arguments.exit:                              ; preds = %242, %163
   br label %fmtchar.exit
 
 317:                                              ; preds = %66, %66, %66, %66
-  %318 = trunc i8 %.0157 to i1
+  %318 = trunc nuw i8 %.0157 to i1
   %.not220 = icmp eq i32 %.0185, 0
   %.0193..0173242 = select i1 %.not220, i32 %.0193, i32 %.0173
   %.6179 = select i1 %318, i32 %.0173, i32 %.0193..0173242
   %319 = select i1 %318, i1 true, i1 %.not220
   %.5 = select i1 %319, i32 %.0170, i32 %.0193
-  %320 = trunc i8 %.1155 to i1
+  %320 = trunc nuw i8 %.1155 to i1
   %.not223 = icmp eq i32 %.0191, 0
   br i1 %320, label %321, label %334
 
@@ -933,11 +933,11 @@ find_arguments.exit:                              ; preds = %242, %163
   br label %fmtchar.exit
 
 378:                                              ; preds = %66
-  %379 = trunc i8 %.0157 to i1
+  %379 = trunc nuw i8 %.0157 to i1
   %.not219 = icmp eq i32 %.0185, 0
   %.0193..0173244 = select i1 %.not219, i32 %.0193, i32 %.0173
   %.7180 = select i1 %379, i32 %.0173, i32 %.0193..0173244
-  %380 = trunc i8 %.1155 to i1
+  %380 = trunc nuw i8 %.1155 to i1
   br i1 %380, label %381, label %384
 
 381:                                              ; preds = %378
@@ -1045,13 +1045,13 @@ dopr_outch.exit.i:                                ; preds = %423, %405
   br label %fmtchar.exit
 
 430:                                              ; preds = %66
-  %431 = trunc i8 %.0157 to i1
+  %431 = trunc nuw i8 %.0157 to i1
   %.not218 = icmp eq i32 %.0185, 0
   %.0193..0173245 = select i1 %.not218, i32 %.0193, i32 %.0173
   %.8 = select i1 %431, i32 %.0173, i32 %.0193..0173245
   %432 = select i1 %431, i1 true, i1 %.not218
   %.6 = select i1 %432, i32 %.0170, i32 %.0193
-  %433 = trunc i8 %.1155 to i1
+  %433 = trunc nuw i8 %.1155 to i1
   br i1 %433, label %434, label %437
 
 434:                                              ; preds = %430
@@ -1121,7 +1121,7 @@ dopr_outch.exit.i:                                ; preds = %423, %405
   br label %fmtchar.exit
 
 463:                                              ; preds = %66
-  %464 = trunc i8 %.1155 to i1
+  %464 = trunc nuw i8 %.1155 to i1
   br i1 %464, label %465, label %468
 
 465:                                              ; preds = %463
@@ -1169,13 +1169,13 @@ fmtptr.exit:                                      ; preds = %482, %483
   br label %fmtchar.exit
 
 484:                                              ; preds = %66, %66, %66, %66, %66
-  %485 = trunc i8 %.0157 to i1
+  %485 = trunc nuw i8 %.0157 to i1
   %.not217 = icmp eq i32 %.0185, 0
   %.0193..0173247 = select i1 %.not217, i32 %.0193, i32 %.0173
   %.9 = select i1 %485, i32 %.0173, i32 %.0193..0173247
   %486 = select i1 %485, i1 true, i1 %.not217
   %.7 = select i1 %486, i32 %.0170, i32 %.0193
-  %487 = trunc i8 %.1155 to i1
+  %487 = trunc nuw i8 %.1155 to i1
   br i1 %487, label %488, label %491
 
 488:                                              ; preds = %484
@@ -1889,14 +1889,12 @@ define i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2, double n
   %40 = sub i64 %38, %39
   %41 = trunc i64 %40 to i32
   %42 = add i32 %.pre25, %41
-  br i1 %37, label %43, label %44
+  %spec.select = select i1 %37, i32 -1, i32 %42
+  br label %43
 
-43:                                               ; preds = %.thread26, %36
-  br label %44
-
-44:                                               ; preds = %36, %43
-  %45 = phi i32 [ -1, %43 ], [ %42, %36 ]
-  ret i32 %45
+43:                                               ; preds = %36, %.thread26
+  %44 = phi i32 [ -1, %.thread26 ], [ %spec.select, %36 ]
+  ret i32 %44
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2172,11 +2170,11 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
   br i1 %.not54, label %.loopexit.loopexit78, label %.preheader73, !llvm.loop !11
 
 .loopexit.loopexit77:                             ; preds = %.preheader71
-  %45 = trunc i64 %indvars.iv.next83 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.next83 to i32
   br label %.loopexit
 
 .loopexit.loopexit78:                             ; preds = %.preheader73
-  %46 = trunc i64 %indvars.iv.next to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit78, %.loopexit.loopexit77, %.thread
@@ -2430,7 +2428,7 @@ define internal fastcc void @dopr_outchmulti(i32 noundef %0, i32 noundef %1, ptr
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = getelementptr inbounds i8, ptr %2, i64 36
   %10 = getelementptr inbounds i8, ptr %2, i64 32
-  %11 = trunc i32 %0 to i8
+  %11 = trunc nuw nsw i32 %0 to i8
   br label %.lr.ph.split.us
 
 12:                                               ; preds = %3

@@ -269,7 +269,7 @@ declare i64 @BUF_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i64 @BUF_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_TIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
+define hidden i32 @ASN1_TIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 ASN1_TIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #6
@@ -293,18 +293,16 @@ ASN1_TIME_check.exit9:                            ; preds = %ASN1_TIME_check.exi
 
 if.end6:                                          ; preds = %ASN1_TIME_check.exit9, %ASN1_TIME_check.exit
   %tobool7.not = icmp eq ptr %s, null
-  br i1 %tobool7.not, label %if.end11, label %land.lhs.true
+  br i1 %tobool7.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end6
   %call8 = call i32 @ASN1_STRING_copy(ptr noundef nonnull %s, ptr noundef nonnull %t) #5
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %return, label %if.end11
-
-if.end11:                                         ; preds = %land.lhs.true, %if.end6
+  %tobool9.not = icmp ne i32 %call8, 0
+  %spec.select = zext i1 %tobool9.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %ASN1_TIME_check.exit9, %if.end11
-  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %ASN1_TIME_check.exit9 ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end6, %ASN1_TIME_check.exit9
+  %retval.0 = phi i32 [ 0, %ASN1_TIME_check.exit9 ], [ 1, %if.end6 ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

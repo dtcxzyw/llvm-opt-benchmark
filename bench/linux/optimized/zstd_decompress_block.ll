@@ -1445,7 +1445,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   store i64 %121, ptr %10, align 8
   %122 = lshr i64 %121, 56
   %123 = icmp ugt i64 %121, 72057594037927935
-  %124 = trunc i64 %122 to i32
+  %124 = trunc nuw nsw i64 %122 to i32
   %125 = tail call i32 @llvm.ctlz.i32(i32 %124, i1 true), !range !15
   %126 = xor i32 %125, 31
   %127 = sub nuw nsw i32 8, %126
@@ -1538,7 +1538,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %183 = zext i8 %180 to i32
   %184 = tail call i32 @llvm.ctlz.i32(i32 %183, i1 true), !range !15
   %185 = xor i32 %184, 31
-  %186 = trunc i64 %26 to i32
+  %186 = trunc nuw nsw i64 %26 to i32
   %187 = shl nuw nsw i32 %186, 3
   %188 = add nuw nsw i32 %185, %187
   %189 = sub nsw i32 72, %188
@@ -3872,8 +3872,8 @@ thread-pre-split102:                              ; preds = %1297, %.loopexit126
   %1741 = icmp eq i64 %1740, 3
   br i1 %1741, label %1742, label %1734, !llvm.loop !40
 
-.thread117:                                       ; preds = %.loopexit152, %805, %.loopexit142, %891, %1026, %1155, %.loopexit, %.loopexit130, %1302, %1388, %1516, %1642, %106, %.thread91, %.thread93, %117, %176
-  %.ph114 = phi i64 [ -20, %.thread93 ], [ -20, %.thread91 ], [ -20, %117 ], [ -20, %176 ], [ -20, %106 ], [ -20, %1642 ], [ -20, %1516 ], [ -20, %1388 ], [ -70, %1302 ], [ %1476, %.loopexit ], [ %1730, %.loopexit130 ], [ -20, %1155 ], [ -20, %1026 ], [ -20, %891 ], [ %1243, %.loopexit152 ], [ -70, %805 ], [ %979, %.loopexit142 ]
+.thread117:                                       ; preds = %.loopexit152, %805, %.loopexit142, %891, %1026, %1155, %.loopexit, %.loopexit130, %1302, %1388, %1516, %1642, %106, %.thread91, %.thread93, %176, %117
+  %.ph114 = phi i64 [ -20, %.thread93 ], [ -20, %.thread91 ], [ -20, %176 ], [ -20, %117 ], [ -20, %106 ], [ -20, %1642 ], [ -20, %1516 ], [ -20, %1388 ], [ -70, %1302 ], [ %1476, %.loopexit ], [ %1730, %.loopexit130 ], [ -20, %1155 ], [ -20, %1026 ], [ -20, %891 ], [ %1243, %.loopexit152 ], [ -70, %805 ], [ %979, %.loopexit142 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %9) #15
   br label %.thread118
@@ -4059,7 +4059,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   store i64 %53, ptr %11, align 8
   %54 = lshr i64 %53, 56
   %55 = icmp ugt i64 %53, 72057594037927935
-  %56 = trunc i64 %54 to i32
+  %56 = trunc nuw nsw i64 %54 to i32
   %57 = tail call i32 @llvm.ctlz.i32(i32 %56, i1 true), !range !15
   %58 = xor i32 %57, 31
   %59 = sub nuw nsw i32 8, %58
@@ -4152,7 +4152,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %115 = zext i8 %112 to i32
   %116 = tail call i32 @llvm.ctlz.i32(i32 %115, i1 true), !range !15
   %117 = xor i32 %116, 31
-  %118 = trunc i64 %4 to i32
+  %118 = trunc nuw nsw i64 %4 to i32
   %119 = shl nuw nsw i32 %118, 3
   %120 = add nuw nsw i32 %117, %119
   %121 = sub nsw i32 72, %120
@@ -5966,8 +5966,8 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %1351 = icmp eq i64 %1350, 3
   br i1 %1351, label %1352, label %1344, !llvm.loop !58
 
-.thread113:                                       ; preds = %.loopexit132, %.loopexit, %1337, %42, %._crit_edge, %.thread88, %.loopexit122, %786, %49, %108, %.thread82, %.thread101
-  %.ph110 = phi i64 [ -20, %.thread88 ], [ %965, %.loopexit122 ], [ -70, %786 ], [ -20, %49 ], [ -20, %108 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %42 ], [ -20, %1337 ], [ %1294, %.loopexit ], [ %572, %.loopexit132 ]
+.thread113:                                       ; preds = %.loopexit132, %.loopexit, %1337, %42, %._crit_edge, %.thread88, %.loopexit122, %786, %108, %49, %.thread82, %.thread101
+  %.ph110 = phi i64 [ -20, %.thread88 ], [ %965, %.loopexit122 ], [ -70, %786 ], [ -20, %108 ], [ -20, %49 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %42 ], [ -20, %1337 ], [ %1294, %.loopexit ], [ %572, %.loopexit132 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #15
   br label %.thread114
 
@@ -6143,7 +6143,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   store i64 %61, ptr %9, align 8
   %62 = lshr i64 %61, 56
   %63 = icmp ugt i64 %61, 72057594037927935
-  %64 = trunc i64 %62 to i32
+  %64 = trunc nuw nsw i64 %62 to i32
   %65 = tail call i32 @llvm.ctlz.i32(i32 %64, i1 true), !range !15
   %66 = xor i32 %65, 31
   %67 = sub nuw nsw i32 8, %66
@@ -6236,7 +6236,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %123 = zext i8 %120 to i32
   %124 = tail call i32 @llvm.ctlz.i32(i32 %123, i1 true), !range !15
   %125 = xor i32 %124, 31
-  %126 = trunc i64 %4 to i32
+  %126 = trunc nuw nsw i64 %4 to i32
   %127 = shl nuw nsw i32 %126, 3
   %128 = add nuw nsw i32 %125, %127
   %129 = sub nsw i32 72, %128
@@ -6977,8 +6977,8 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %632 = icmp eq i64 %631, 3
   br i1 %632, label %633, label %625, !llvm.loop !68
 
-.thread43:                                        ; preds = %.loopexit, %618, %50, %57, %116, %.thread36
-  %.ph41 = phi i64 [ -20, %57 ], [ -20, %116 ], [ -20, %.thread36 ], [ -20, %50 ], [ -20, %618 ], [ %575, %.loopexit ]
+.thread43:                                        ; preds = %.loopexit, %618, %50, %116, %57, %.thread36
+  %.ph41 = phi i64 [ -20, %116 ], [ -20, %57 ], [ -20, %.thread36 ], [ -20, %50 ], [ -20, %618 ], [ %575, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #15
   br label %652
 
@@ -7174,7 +7174,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   store i64 %58, ptr %9, align 8
   %59 = lshr i64 %58, 56
   %60 = icmp ugt i64 %58, 72057594037927935
-  %61 = trunc i64 %59 to i32
+  %61 = trunc nuw nsw i64 %59 to i32
   %62 = tail call i32 @llvm.ctlz.i32(i32 %61, i1 true), !range !15
   %63 = xor i32 %62, 31
   %64 = sub nuw nsw i32 8, %63
@@ -7267,7 +7267,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %120 = zext i8 %117 to i32
   %121 = tail call i32 @llvm.ctlz.i32(i32 %120, i1 true), !range !15
   %122 = xor i32 %121, 31
-  %123 = trunc i64 %4 to i32
+  %123 = trunc nuw nsw i64 %4 to i32
   %124 = shl nuw nsw i32 %123, 3
   %125 = add nuw nsw i32 %122, %124
   %126 = sub nsw i32 72, %125
@@ -9601,8 +9601,8 @@ thread-pre-split98:                               ; preds = %1230, %.loopexit122
   %1674 = icmp eq i64 %1673, 3
   br i1 %1674, label %1675, label %1667, !llvm.loop !40
 
-.thread113:                                       ; preds = %.loopexit148, %738, %.loopexit138, %824, %959, %1088, %.loopexit, %.loopexit126, %1235, %1321, %1449, %1575, %43, %.thread87, %.thread89, %54, %113
-  %.ph110 = phi i64 [ -20, %.thread89 ], [ -20, %.thread87 ], [ -20, %54 ], [ -20, %113 ], [ -20, %43 ], [ -20, %1575 ], [ -20, %1449 ], [ -20, %1321 ], [ -70, %1235 ], [ %1409, %.loopexit ], [ %1663, %.loopexit126 ], [ -20, %1088 ], [ -20, %959 ], [ -20, %824 ], [ %1176, %.loopexit148 ], [ -70, %738 ], [ %912, %.loopexit138 ]
+.thread113:                                       ; preds = %.loopexit148, %738, %.loopexit138, %824, %959, %1088, %.loopexit, %.loopexit126, %1235, %1321, %1449, %1575, %43, %.thread87, %.thread89, %113, %54
+  %.ph110 = phi i64 [ -20, %.thread89 ], [ -20, %.thread87 ], [ -20, %113 ], [ -20, %54 ], [ -20, %43 ], [ -20, %1575 ], [ -20, %1449 ], [ -20, %1321 ], [ -70, %1235 ], [ %1409, %.loopexit ], [ %1663, %.loopexit126 ], [ -20, %1088 ], [ -20, %959 ], [ -20, %824 ], [ %1176, %.loopexit148 ], [ -70, %738 ], [ %912, %.loopexit138 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #15
   br label %.thread114
@@ -10298,7 +10298,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   store i64 %47, ptr %11, align 8
   %48 = lshr i64 %47, 56
   %49 = icmp ugt i64 %47, 72057594037927935
-  %50 = trunc i64 %48 to i32
+  %50 = trunc nuw nsw i64 %48 to i32
   %51 = tail call i32 @llvm.ctlz.i32(i32 %50, i1 true), !range !15
   %52 = xor i32 %51, 31
   %53 = sub nuw nsw i32 8, %52
@@ -10391,7 +10391,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %109 = zext i8 %106 to i32
   %110 = tail call i32 @llvm.ctlz.i32(i32 %109, i1 true), !range !15
   %111 = xor i32 %110, 31
-  %112 = trunc i64 %4 to i32
+  %112 = trunc nuw nsw i64 %4 to i32
   %113 = shl nuw nsw i32 %112, 3
   %114 = add nuw nsw i32 %111, %113
   %115 = sub nsw i32 72, %114
@@ -12205,8 +12205,8 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %1340 = icmp eq i64 %1339, 3
   br i1 %1340, label %1341, label %1333, !llvm.loop !58
 
-.thread113:                                       ; preds = %.loopexit132, %.loopexit, %1326, %36, %._crit_edge, %.thread88, %.loopexit122, %777, %43, %102, %.thread82, %.thread101
-  %.ph110 = phi i64 [ -20, %.thread88 ], [ %956, %.loopexit122 ], [ -70, %777 ], [ -20, %43 ], [ -20, %102 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %36 ], [ -20, %1326 ], [ %1283, %.loopexit ], [ %565, %.loopexit132 ]
+.thread113:                                       ; preds = %.loopexit132, %.loopexit, %1326, %36, %._crit_edge, %.thread88, %.loopexit122, %777, %102, %43, %.thread82, %.thread101
+  %.ph110 = phi i64 [ -20, %.thread88 ], [ %956, %.loopexit122 ], [ -70, %777 ], [ -20, %102 ], [ -20, %43 ], [ -20, %.thread82 ], [ -20, %.thread101 ], [ -20, %._crit_edge ], [ -20, %36 ], [ -20, %1326 ], [ %1283, %.loopexit ], [ %565, %.loopexit132 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #15
   br label %.thread114
 
@@ -12368,7 +12368,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   store i64 %55, ptr %9, align 8
   %56 = lshr i64 %55, 56
   %57 = icmp ugt i64 %55, 72057594037927935
-  %58 = trunc i64 %56 to i32
+  %58 = trunc nuw nsw i64 %56 to i32
   %59 = tail call i32 @llvm.ctlz.i32(i32 %58, i1 true), !range !15
   %60 = xor i32 %59, 31
   %61 = sub nuw nsw i32 8, %60
@@ -12461,7 +12461,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %117 = zext i8 %114 to i32
   %118 = tail call i32 @llvm.ctlz.i32(i32 %117, i1 true), !range !15
   %119 = xor i32 %118, 31
-  %120 = trunc i64 %4 to i32
+  %120 = trunc nuw nsw i64 %4 to i32
   %121 = shl nuw nsw i32 %120, 3
   %122 = add nuw nsw i32 %119, %121
   %123 = sub nsw i32 72, %122
@@ -13202,8 +13202,8 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %624 = icmp eq i64 %623, 3
   br i1 %624, label %625, label %617, !llvm.loop !68
 
-.thread43:                                        ; preds = %.loopexit, %610, %44, %51, %110, %.thread36
-  %.ph41 = phi i64 [ -20, %51 ], [ -20, %110 ], [ -20, %.thread36 ], [ -20, %44 ], [ -20, %610 ], [ %567, %.loopexit ]
+.thread43:                                        ; preds = %.loopexit, %610, %44, %110, %51, %.thread36
+  %.ph41 = phi i64 [ -20, %110 ], [ -20, %51 ], [ -20, %.thread36 ], [ -20, %44 ], [ -20, %610 ], [ %567, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #15
   br label %644
 

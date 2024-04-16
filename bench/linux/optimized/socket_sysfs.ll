@@ -256,7 +256,7 @@ define internal noundef i64 @pccard_store_irq_mask(ptr noundef %0, ptr nocapture
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %6 = icmp eq i64 %3, 0
-  br i1 %6, label %19, label %7
+  br i1 %6, label %18, label %7
 
 7:                                                ; preds = %4
   store i32 0, ptr %5, align 4, !annotation !5
@@ -278,15 +278,13 @@ define internal noundef i64 @pccard_store_irq_mask(ptr noundef %0, ptr nocapture
 15:                                               ; preds = %7
   %16 = sext i32 %8 to i64
   %17 = icmp eq i32 %8, 0
-  br i1 %17, label %18, label %19
+  %spec.select = select i1 %17, i64 %3, i64 %16
+  br label %18
 
-18:                                               ; preds = %.thread, %15
-  br label %19
-
-19:                                               ; preds = %18, %15, %4
-  %20 = phi i64 [ -22, %4 ], [ %3, %18 ], [ %16, %15 ]
+18:                                               ; preds = %15, %.thread, %4
+  %19 = phi i64 [ -22, %4 ], [ %3, %.thread ], [ %spec.select, %15 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  ret i64 %20
+  ret i64 %19
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

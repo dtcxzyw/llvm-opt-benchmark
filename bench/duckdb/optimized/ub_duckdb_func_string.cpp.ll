@@ -50857,7 +50857,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !1330
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !35
@@ -50868,13 +50868,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #22
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -88090,7 +88088,7 @@ sw.bb11:                                          ; preds = %entry
   %5 = load i128, ptr %arg, align 16, !tbaa !35
   %coerce.sroa.0.0.extract.trunc = trunc i128 %5 to i64
   %coerce.sroa.2.0.extract.shift = lshr i128 %5, 64
-  %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
+  %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
   %call13 = tail call noundef i32 @_ZN10duckdb_fmt2v68internal24printf_precision_handlerclInTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEiS5_(ptr noundef nonnull align 1 dereferenceable(1) %vis, i64 noundef %coerce.sroa.0.0.extract.trunc, i64 noundef %coerce.sroa.2.0.extract.trunc)
   br label %return
 
@@ -88098,7 +88096,7 @@ sw.bb14:                                          ; preds = %entry
   %6 = load i128, ptr %arg, align 16, !tbaa !35
   %coerce16.sroa.0.0.extract.trunc = trunc i128 %6 to i64
   %coerce16.sroa.2.0.extract.shift = lshr i128 %6, 64
-  %coerce16.sroa.2.0.extract.trunc = trunc i128 %coerce16.sroa.2.0.extract.shift to i64
+  %coerce16.sroa.2.0.extract.trunc = trunc nuw i128 %coerce16.sroa.2.0.extract.shift to i64
   %call17 = tail call noundef i32 @_ZN10duckdb_fmt2v68internal24printf_precision_handlerclIoTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEiS5_(ptr noundef nonnull align 1 dereferenceable(1) %vis, i64 noundef %coerce16.sroa.0.0.extract.trunc, i64 noundef %coerce16.sroa.2.0.extract.trunc)
   br label %return
 
@@ -88366,7 +88364,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE9write_intInNS0
 
 if.else.i.i141:                                   ; preds = %sw.bb14
   %coerce.sroa.2.0.extract.shift = lshr i128 %7, 64
-  %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
+  %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
   %coerce.sroa.0.0.extract.trunc = trunc i128 %7 to i64
   tail call void @_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE13write_decimalInEEvT_(ptr noundef nonnull align 8 dereferenceable(16) %vis, i64 noundef %coerce.sroa.0.0.extract.trunc, i64 noundef %coerce.sroa.2.0.extract.trunc)
   br label %_ZN10duckdb_fmt2v620printf_arg_formatterINS0_12buffer_rangeIcEEEclInTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS0_8internal6bufferIcEEES7_.exit
@@ -88414,7 +88412,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE9write_intIoNS0
 if.else.i.i163:                                   ; preds = %sw.bb18
   %coerce20.sroa.0.0.extract.trunc = trunc i128 %9 to i64
   %coerce20.sroa.2.0.extract.shift = lshr i128 %9, 64
-  %coerce20.sroa.2.0.extract.trunc = trunc i128 %coerce20.sroa.2.0.extract.shift to i64
+  %coerce20.sroa.2.0.extract.trunc = trunc nuw i128 %coerce20.sroa.2.0.extract.shift to i64
   tail call void @_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE13write_decimalIoEEvT_(ptr noundef nonnull align 8 dereferenceable(16) %vis, i64 noundef %coerce20.sroa.0.0.extract.trunc, i64 noundef %coerce20.sroa.2.0.extract.trunc)
   br label %_ZN10duckdb_fmt2v620printf_arg_formatterINS0_12buffer_rangeIcEEEclIoTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS0_8internal6bufferIcEEES7_.exit
 
@@ -88811,7 +88809,7 @@ sw.bb11:                                          ; preds = %entry
   %5 = load i128, ptr %arg, align 16, !tbaa !35
   %coerce.sroa.0.0.extract.trunc = trunc i128 %5 to i64
   %coerce.sroa.2.0.extract.shift = lshr i128 %5, 64
-  %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
+  %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
   %call13 = tail call noundef i32 @_ZN10duckdb_fmt2v68internal20printf_width_handlerIcEclInTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %vis, i64 noundef %coerce.sroa.0.0.extract.trunc, i64 noundef %coerce.sroa.2.0.extract.trunc)
   br label %return
 
@@ -88819,7 +88817,7 @@ sw.bb14:                                          ; preds = %entry
   %6 = load i128, ptr %arg, align 16, !tbaa !35
   %coerce16.sroa.0.0.extract.trunc = trunc i128 %6 to i64
   %coerce16.sroa.2.0.extract.shift = lshr i128 %6, 64
-  %coerce16.sroa.2.0.extract.trunc = trunc i128 %coerce16.sroa.2.0.extract.shift to i64
+  %coerce16.sroa.2.0.extract.trunc = trunc nuw i128 %coerce16.sroa.2.0.extract.shift to i64
   %call17 = tail call noundef i32 @_ZN10duckdb_fmt2v68internal20printf_width_handlerIcEclIoTnNSt9enable_ifIXntsr3std11is_integralIT_EE5valueEiE4typeELi0EEEjS6_(ptr noundef nonnull align 8 dereferenceable(8) %vis, i64 noundef %coerce16.sroa.0.0.extract.trunc, i64 noundef %coerce16.sroa.2.0.extract.trunc)
   br label %return
 
@@ -89112,7 +89110,7 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   resume { ptr, i32 } %.pn21
 
 if.end10:                                         ; preds = %if.end
-  %conv11 = trunc i64 %width.0 to i32
+  %conv11 = trunc nuw nsw i64 %width.0 to i32
   ret i32 %conv11
 
 unreachable:                                      ; preds = %invoke.cont6
@@ -89183,7 +89181,7 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   resume { ptr, i32 } %.pn21
 
 if.end10:                                         ; preds = %if.end
-  %conv11 = trunc i64 %value to i32
+  %conv11 = trunc nuw nsw i64 %value to i32
   ret i32 %conv11
 
 unreachable:                                      ; preds = %invoke.cont6
@@ -90192,7 +90190,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %value to i32
+  %conv = trunc nuw nsw i64 %value to i32
   ret i32 %conv
 
 eh.resume:                                        ; preds = %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
@@ -91334,7 +91332,7 @@ if.then.i.i15:                                    ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %15 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %15 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %15, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -93953,7 +93951,7 @@ while.end:                                        ; preds = %_ZZNK10duckdb_fmt2v
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %29 = trunc i32 %value.addr.0.lcssa to i8
+  %29 = trunc nuw nsw i32 %value.addr.0.lcssa to i8
   %conv = or disjoint i8 %29, 48
   br label %cleanup
 
@@ -94235,7 +94233,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i.i.i13.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i13.i:                              ; preds = %while.end.i.i.i.i.i
-  %35 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %35 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv.i.i.i.i.i = or disjoint i8 %35, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -94468,7 +94466,7 @@ while.end.i.i.i.i.i102:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i105, label %if.then.i.i.i.i13.i122, label %if.end.i.i.i.i.i106
 
 if.then.i.i.i.i13.i122:                           ; preds = %while.end.i.i.i.i.i102
-  %71 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i103 to i8
+  %71 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i103 to i8
   %conv.i.i.i.i.i123 = or disjoint i8 %71, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i114
 
@@ -94679,7 +94677,7 @@ while.end.i.i.i.i.i170:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i173, label %if.then.i.i.i.i13.i190, label %if.end.i.i.i.i.i174
 
 if.then.i.i.i.i13.i190:                           ; preds = %while.end.i.i.i.i.i170
-  %101 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i171 to i8
+  %101 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i171 to i8
   %conv.i.i.i.i.i191 = or disjoint i8 %101, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182
 
@@ -94885,7 +94883,7 @@ while.end.i.i.i.i.i239:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i242, label %if.then.i.i.i.i13.i259, label %if.end.i.i.i.i.i243
 
 if.then.i.i.i.i13.i259:                           ; preds = %while.end.i.i.i.i.i239
-  %132 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i240 to i8
+  %132 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i240 to i8
   %conv.i.i.i.i.i260 = or disjoint i8 %132, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i251
 
@@ -97117,7 +97115,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   br i1 %cmp4.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
-  %8 = trunc i32 %value.addr.0.lcssa.i.i.i to i8
+  %8 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %8, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i
 
@@ -97256,7 +97254,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
-  %9 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %9 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv.i.i.i.i.i = or disjoint i8 %9, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -99210,7 +99208,7 @@ while.end:                                        ; preds = %_ZZNK10duckdb_fmt2v
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %29 = trunc i32 %value.addr.0.lcssa to i8
+  %29 = trunc nuw nsw i32 %value.addr.0.lcssa to i8
   %conv = or disjoint i8 %29, 48
   br label %cleanup
 
@@ -99492,7 +99490,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i.i.i13.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i13.i:                              ; preds = %while.end.i.i.i.i.i
-  %35 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %35 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv.i.i.i.i.i = or disjoint i8 %35, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -99725,7 +99723,7 @@ while.end.i.i.i.i.i102:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i105, label %if.then.i.i.i.i13.i122, label %if.end.i.i.i.i.i106
 
 if.then.i.i.i.i13.i122:                           ; preds = %while.end.i.i.i.i.i102
-  %71 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i103 to i8
+  %71 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i103 to i8
   %conv.i.i.i.i.i123 = or disjoint i8 %71, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i114
 
@@ -99936,7 +99934,7 @@ while.end.i.i.i.i.i170:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i173, label %if.then.i.i.i.i13.i190, label %if.end.i.i.i.i.i174
 
 if.then.i.i.i.i13.i190:                           ; preds = %while.end.i.i.i.i.i170
-  %101 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i171 to i8
+  %101 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i171 to i8
   %conv.i.i.i.i.i191 = or disjoint i8 %101, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182
 
@@ -100142,7 +100140,7 @@ while.end.i.i.i.i.i239:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i242, label %if.then.i.i.i.i13.i259, label %if.end.i.i.i.i.i243
 
 if.then.i.i.i.i13.i259:                           ; preds = %while.end.i.i.i.i.i239
-  %132 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i240 to i8
+  %132 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i240 to i8
   %conv.i.i.i.i.i260 = or disjoint i8 %132, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i251
 
@@ -102331,7 +102329,7 @@ sw.bb:                                            ; preds = %if.end, %if.end
   %2 = load i64, ptr %abs_value.i, align 8, !tbaa !1791
   %or.i.i = or i64 %2, 1
   %3 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !2060
-  %cast.i.i = trunc i64 %3 to i32
+  %cast.i.i = trunc nuw nsw i64 %3 to i32
   %sub.i.i = sub nuw nsw i32 64, %cast.i.i
   %mul.i.i = mul nuw nsw i32 %sub.i.i, 1233
   %shr.i.i = lshr i32 %mul.i.i, 12
@@ -102549,7 +102547,7 @@ if.then:                                          ; preds = %entry
   %2 = load i64, ptr %abs_value.i, align 8, !tbaa !1791
   %or.i.i = or i64 %2, 1
   %3 = call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !2060
-  %cast.i.i = trunc i64 %3 to i32
+  %cast.i.i = trunc nuw nsw i64 %3 to i32
   %sub.i.i = sub nuw nsw i32 64, %cast.i.i
   %mul.i.i = mul nuw nsw i32 %sub.i.i, 1233
   %shr.i.i = lshr i32 %mul.i.i, 12
@@ -102651,7 +102649,7 @@ if.then2:                                         ; preds = %if.end
   %14 = load i64, ptr %abs_value.i70, align 8, !tbaa !1791
   %or.i.i71 = or i64 %14, 1
   %15 = call i64 @llvm.ctlz.i64(i64 %or.i.i71, i1 true), !range !2060
-  %cast.i.i72 = trunc i64 %15 to i32
+  %cast.i.i72 = trunc nuw nsw i64 %15 to i32
   %sub.i.i73 = sub nuw nsw i32 64, %cast.i.i72
   %mul.i.i74 = mul nuw nsw i32 %sub.i.i73, 1233
   %shr.i.i75 = lshr i32 %mul.i.i74, 12
@@ -102744,7 +102742,7 @@ land.lhs.true.preheader:                          ; preds = %if.end
   %add.ptr.i = getelementptr i8, ptr %24, i64 %1
   %or.i = or i64 %23, 1
   %25 = call i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !2060
-  %cast.i = trunc i64 %25 to i32
+  %cast.i = trunc nuw nsw i64 %25 to i32
   %sub.i = sub nuw nsw i32 64, %cast.i
   %mul.i = mul nuw nsw i32 %sub.i, 1233
   %shr.i = lshr i32 %mul.i, 12
@@ -104083,7 +104081,7 @@ while.body:                                       ; preds = %_ZZNK10duckdb_fmt2v
   %value.addr.079 = phi i64 [ %value, %while.body.lr.ph ], [ %div, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIxNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit47 ]
   %buffer.addr.078 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %buffer.addr.2, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIxNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit47 ]
   %rem = urem i64 %value.addr.079, 100
-  %rem.tr = trunc i64 %rem to i32
+  %rem.tr = trunc nuw nsw i64 %rem to i32
   %conv = shl nuw nsw i32 %rem.tr, 1
   %div = udiv i64 %value.addr.079, 100
   %add = or disjoint i32 %conv, 1
@@ -104207,7 +104205,7 @@ while.end:                                        ; preds = %_ZZNK10duckdb_fmt2v
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %29 = trunc i64 %value.addr.0.lcssa to i8
+  %29 = trunc nuw nsw i64 %value.addr.0.lcssa to i8
   %conv6 = or disjoint i8 %29, 48
   br label %cleanup
 
@@ -104467,7 +104465,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZSt6fill_nIPcmcET_
   %buffer.addr.037.i.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i ]
   %value.addr.036.i.i.i.i.i = phi i64 [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %31, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i ]
   %rem.i.i.i.i.i = urem i64 %value.addr.036.i.i.i.i.i, 100
-  %rem.tr.i.i.i.i.i = trunc i64 %rem.i.i.i.i.i to i32
+  %rem.tr.i.i.i.i.i = trunc nuw nsw i64 %rem.i.i.i.i.i to i32
   %conv.i.i.i.i.i = shl nuw nsw i32 %rem.tr.i.i.i.i.i, 1
   %div.i.i.i.i.i = udiv i64 %value.addr.036.i.i.i.i.i, 100
   %add.i.i.i.i.i = or disjoint i32 %conv.i.i.i.i.i, 1
@@ -104491,7 +104489,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i.i.i13.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i13.i:                              ; preds = %while.end.i.i.i.i.i
-  %35 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %35 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv6.i.i.i.i.i = or disjoint i8 %35, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -104702,7 +104700,7 @@ while.body.i.i.i.i.i125:                          ; preds = %_ZSt6fill_nIPcmcET_
   %buffer.addr.037.i.i.i.i.i126 = phi ptr [ %incdec.ptr3.i.i.i.i.i138, %while.body.i.i.i.i.i125 ], [ %add.ptr.i.i.i.i.i100, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95 ]
   %value.addr.036.i.i.i.i.i127 = phi i64 [ %div.i.i.i.i.i131, %while.body.i.i.i.i.i125 ], [ %67, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95 ]
   %rem.i.i.i.i.i128 = urem i64 %value.addr.036.i.i.i.i.i127, 100
-  %rem.tr.i.i.i.i.i129 = trunc i64 %rem.i.i.i.i.i128 to i32
+  %rem.tr.i.i.i.i.i129 = trunc nuw nsw i64 %rem.i.i.i.i.i128 to i32
   %conv.i.i.i.i.i130 = shl nuw nsw i32 %rem.tr.i.i.i.i.i129, 1
   %div.i.i.i.i.i131 = udiv i64 %value.addr.036.i.i.i.i.i127, 100
   %add.i.i.i.i.i132 = or disjoint i32 %conv.i.i.i.i.i130, 1
@@ -104726,7 +104724,7 @@ while.end.i.i.i.i.i102:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i105, label %if.then.i.i.i.i13.i123, label %if.end.i.i.i.i.i106
 
 if.then.i.i.i.i13.i123:                           ; preds = %while.end.i.i.i.i.i102
-  %71 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i103 to i8
+  %71 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i103 to i8
   %conv6.i.i.i.i.i124 = or disjoint i8 %71, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i115
 
@@ -104915,7 +104913,7 @@ while.body.i.i.i.i.i195:                          ; preds = %_ZSt6fill_nIPcmcET_
   %buffer.addr.037.i.i.i.i.i196 = phi ptr [ %incdec.ptr3.i.i.i.i.i208, %while.body.i.i.i.i.i195 ], [ %add.ptr.i.i.i.i.i170, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165 ]
   %value.addr.036.i.i.i.i.i197 = phi i64 [ %div.i.i.i.i.i201, %while.body.i.i.i.i.i195 ], [ %97, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165 ]
   %rem.i.i.i.i.i198 = urem i64 %value.addr.036.i.i.i.i.i197, 100
-  %rem.tr.i.i.i.i.i199 = trunc i64 %rem.i.i.i.i.i198 to i32
+  %rem.tr.i.i.i.i.i199 = trunc nuw nsw i64 %rem.i.i.i.i.i198 to i32
   %conv.i.i.i.i.i200 = shl nuw nsw i32 %rem.tr.i.i.i.i.i199, 1
   %div.i.i.i.i.i201 = udiv i64 %value.addr.036.i.i.i.i.i197, 100
   %add.i.i.i.i.i202 = or disjoint i32 %conv.i.i.i.i.i200, 1
@@ -104939,7 +104937,7 @@ while.end.i.i.i.i.i172:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i175, label %if.then.i.i.i.i13.i193, label %if.end.i.i.i.i.i176
 
 if.then.i.i.i.i13.i193:                           ; preds = %while.end.i.i.i.i.i172
-  %101 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i173 to i8
+  %101 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i173 to i8
   %conv6.i.i.i.i.i194 = or disjoint i8 %101, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185
 
@@ -105123,7 +105121,7 @@ while.body.i.i.i.i.i266:                          ; preds = %_ZSt6fill_nIPcmcET_
   %buffer.addr.037.i.i.i.i.i267 = phi ptr [ %incdec.ptr3.i.i.i.i.i279, %while.body.i.i.i.i.i266 ], [ %add.ptr.i.i.i.i.i241, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236 ]
   %value.addr.036.i.i.i.i.i268 = phi i64 [ %div.i.i.i.i.i272, %while.body.i.i.i.i.i266 ], [ %128, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236 ]
   %rem.i.i.i.i.i269 = urem i64 %value.addr.036.i.i.i.i.i268, 100
-  %rem.tr.i.i.i.i.i270 = trunc i64 %rem.i.i.i.i.i269 to i32
+  %rem.tr.i.i.i.i.i270 = trunc nuw nsw i64 %rem.i.i.i.i.i269 to i32
   %conv.i.i.i.i.i271 = shl nuw nsw i32 %rem.tr.i.i.i.i.i270, 1
   %div.i.i.i.i.i272 = udiv i64 %value.addr.036.i.i.i.i.i268, 100
   %add.i.i.i.i.i273 = or disjoint i32 %conv.i.i.i.i.i271, 1
@@ -105147,7 +105145,7 @@ while.end.i.i.i.i.i243:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i246, label %if.then.i.i.i.i13.i264, label %if.end.i.i.i.i.i247
 
 if.then.i.i.i.i13.i264:                           ; preds = %while.end.i.i.i.i.i243
-  %132 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i244 to i8
+  %132 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i244 to i8
   %conv6.i.i.i.i.i265 = or disjoint i8 %132, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i256
 
@@ -107301,7 +107299,7 @@ entry:
   %spec.select = tail call i64 @llvm.abs.i64(i64 %value, i1 false)
   %or.i = or i64 %spec.select, 1
   %0 = tail call i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !2060
-  %cast.i = trunc i64 %0 to i32
+  %cast.i = trunc nuw nsw i64 %0 to i32
   %sub.i = sub nuw nsw i32 64, %cast.i
   %mul.i = mul nuw nsw i32 %sub.i, 1233
   %shr.i = lshr i32 %mul.i, 12
@@ -107353,7 +107351,7 @@ while.body.i.i.i:                                 ; preds = %if.end9, %while.bod
   %buffer.addr.037.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %if.end9 ]
   %value.addr.036.i.i.i = phi i64 [ %div.i.i.i, %while.body.i.i.i ], [ %spec.select, %if.end9 ]
   %rem.i.i.i = urem i64 %value.addr.036.i.i.i, 100
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nuw nsw i64 %rem.i.i.i to i32
   %conv.i.i.i = shl nuw nsw i32 %rem.tr.i.i.i, 1
   %div.i.i.i = udiv i64 %value.addr.036.i.i.i, 100
   %add.i.i.i = or disjoint i32 %conv.i.i.i, 1
@@ -107377,7 +107375,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   br i1 %cmp4.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
-  %8 = trunc i64 %value.addr.0.lcssa.i.i.i to i8
+  %8 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i to i8
   %conv6.i.i.i = or disjoint i8 %8, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i
 
@@ -107454,7 +107452,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE9write_intIyNS0
 if.else:                                          ; preds = %entry
   %or.i.i.i = or i64 %value, 1
   %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !2060
-  %cast.i.i.i = trunc i64 %1 to i32
+  %cast.i.i.i = trunc nuw nsw i64 %1 to i32
   %sub.i.i.i = sub nuw nsw i32 64, %cast.i.i.i
   %mul.i.i.i = mul nuw nsw i32 %sub.i.i.i, 1233
   %shr.i.i.i = lshr i32 %mul.i.i.i, 12
@@ -107495,7 +107493,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end9.i.i, %while
   %buffer.addr.037.i.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end9.i.i ]
   %value.addr.036.i.i.i.i.i = phi i64 [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %value, %if.end9.i.i ]
   %rem.i.i.i.i.i = urem i64 %value.addr.036.i.i.i.i.i, 100
-  %rem.tr.i.i.i.i.i = trunc i64 %rem.i.i.i.i.i to i32
+  %rem.tr.i.i.i.i.i = trunc nuw nsw i64 %rem.i.i.i.i.i to i32
   %conv.i.i.i.i.i = shl nuw nsw i32 %rem.tr.i.i.i.i.i, 1
   %div.i.i.i.i.i = udiv i64 %value.addr.036.i.i.i.i.i, 100
   %add.i.i.i.i.i = or disjoint i32 %conv.i.i.i.i.i, 1
@@ -107519,7 +107517,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
-  %9 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %9 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv6.i.i.i.i.i = or disjoint i8 %9, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -107598,7 +107596,7 @@ sw.bb:                                            ; preds = %if.end, %if.end
   %2 = load i64, ptr %abs_value.i, align 8, !tbaa !2172
   %or.i.i = or i64 %2, 1
   %3 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !2060
-  %cast.i.i = trunc i64 %3 to i32
+  %cast.i.i = trunc nuw nsw i64 %3 to i32
   %sub.i.i = sub nuw nsw i32 64, %cast.i.i
   %mul.i.i = mul nuw nsw i32 %sub.i.i, 1233
   %shr.i.i = lshr i32 %mul.i.i, 12
@@ -107816,7 +107814,7 @@ if.then:                                          ; preds = %entry
   %2 = load i64, ptr %abs_value.i, align 8, !tbaa !2172
   %or.i.i = or i64 %2, 1
   %3 = call i64 @llvm.ctlz.i64(i64 %or.i.i, i1 true), !range !2060
-  %cast.i.i = trunc i64 %3 to i32
+  %cast.i.i = trunc nuw nsw i64 %3 to i32
   %sub.i.i = sub nuw nsw i32 64, %cast.i.i
   %mul.i.i = mul nuw nsw i32 %sub.i.i, 1233
   %shr.i.i = lshr i32 %mul.i.i, 12
@@ -107918,7 +107916,7 @@ if.then2:                                         ; preds = %if.end
   %14 = load i64, ptr %abs_value.i67, align 8, !tbaa !2172
   %or.i.i68 = or i64 %14, 1
   %15 = call i64 @llvm.ctlz.i64(i64 %or.i.i68, i1 true), !range !2060
-  %cast.i.i69 = trunc i64 %15 to i32
+  %cast.i.i69 = trunc nuw nsw i64 %15 to i32
   %sub.i.i70 = sub nuw nsw i32 64, %cast.i.i69
   %mul.i.i71 = mul nuw nsw i32 %sub.i.i70, 1233
   %shr.i.i72 = lshr i32 %mul.i.i71, 12
@@ -108011,7 +108009,7 @@ land.lhs.true.preheader:                          ; preds = %if.end
   %add.ptr.i = getelementptr i8, ptr %24, i64 %1
   %or.i = or i64 %23, 1
   %25 = call i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !2060
-  %cast.i = trunc i64 %25 to i32
+  %cast.i = trunc nuw nsw i64 %25 to i32
   %sub.i = sub nuw nsw i32 64, %cast.i
   %mul.i = mul nuw nsw i32 %sub.i, 1233
   %shr.i = lshr i32 %mul.i, 12
@@ -109350,7 +109348,7 @@ while.body:                                       ; preds = %_ZZNK10duckdb_fmt2v
   %value.addr.079 = phi i64 [ %value, %while.body.lr.ph ], [ %div, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIyNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit47 ]
   %buffer.addr.078 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %buffer.addr.2, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIyNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit47 ]
   %rem = urem i64 %value.addr.079, 100
-  %rem.tr = trunc i64 %rem to i32
+  %rem.tr = trunc nuw nsw i64 %rem to i32
   %conv = shl nuw nsw i32 %rem.tr, 1
   %div = udiv i64 %value.addr.079, 100
   %add = or disjoint i32 %conv, 1
@@ -109474,7 +109472,7 @@ while.end:                                        ; preds = %_ZZNK10duckdb_fmt2v
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %29 = trunc i64 %value.addr.0.lcssa to i8
+  %29 = trunc nuw nsw i64 %value.addr.0.lcssa to i8
   %conv6 = or disjoint i8 %29, 48
   br label %cleanup
 
@@ -109734,7 +109732,7 @@ while.body.i.i.i.i.i:                             ; preds = %_ZSt6fill_nIPcmcET_
   %buffer.addr.037.i.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i ]
   %value.addr.036.i.i.i.i.i = phi i64 [ %div.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %31, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i ]
   %rem.i.i.i.i.i = urem i64 %value.addr.036.i.i.i.i.i, 100
-  %rem.tr.i.i.i.i.i = trunc i64 %rem.i.i.i.i.i to i32
+  %rem.tr.i.i.i.i.i = trunc nuw nsw i64 %rem.i.i.i.i.i to i32
   %conv.i.i.i.i.i = shl nuw nsw i32 %rem.tr.i.i.i.i.i, 1
   %div.i.i.i.i.i = udiv i64 %value.addr.036.i.i.i.i.i, 100
   %add.i.i.i.i.i = or disjoint i32 %conv.i.i.i.i.i, 1
@@ -109758,7 +109756,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i.i.i13.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i13.i:                              ; preds = %while.end.i.i.i.i.i
-  %35 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %35 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv6.i.i.i.i.i = or disjoint i8 %35, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -109969,7 +109967,7 @@ while.body.i.i.i.i.i125:                          ; preds = %_ZSt6fill_nIPcmcET_
   %buffer.addr.037.i.i.i.i.i126 = phi ptr [ %incdec.ptr3.i.i.i.i.i138, %while.body.i.i.i.i.i125 ], [ %add.ptr.i.i.i.i.i100, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95 ]
   %value.addr.036.i.i.i.i.i127 = phi i64 [ %div.i.i.i.i.i131, %while.body.i.i.i.i.i125 ], [ %67, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95 ]
   %rem.i.i.i.i.i128 = urem i64 %value.addr.036.i.i.i.i.i127, 100
-  %rem.tr.i.i.i.i.i129 = trunc i64 %rem.i.i.i.i.i128 to i32
+  %rem.tr.i.i.i.i.i129 = trunc nuw nsw i64 %rem.i.i.i.i.i128 to i32
   %conv.i.i.i.i.i130 = shl nuw nsw i32 %rem.tr.i.i.i.i.i129, 1
   %div.i.i.i.i.i131 = udiv i64 %value.addr.036.i.i.i.i.i127, 100
   %add.i.i.i.i.i132 = or disjoint i32 %conv.i.i.i.i.i130, 1
@@ -109993,7 +109991,7 @@ while.end.i.i.i.i.i102:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i105, label %if.then.i.i.i.i13.i123, label %if.end.i.i.i.i.i106
 
 if.then.i.i.i.i13.i123:                           ; preds = %while.end.i.i.i.i.i102
-  %71 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i103 to i8
+  %71 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i103 to i8
   %conv6.i.i.i.i.i124 = or disjoint i8 %71, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i115
 
@@ -110182,7 +110180,7 @@ while.body.i.i.i.i.i195:                          ; preds = %_ZSt6fill_nIPcmcET_
   %buffer.addr.037.i.i.i.i.i196 = phi ptr [ %incdec.ptr3.i.i.i.i.i208, %while.body.i.i.i.i.i195 ], [ %add.ptr.i.i.i.i.i170, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165 ]
   %value.addr.036.i.i.i.i.i197 = phi i64 [ %div.i.i.i.i.i201, %while.body.i.i.i.i.i195 ], [ %97, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165 ]
   %rem.i.i.i.i.i198 = urem i64 %value.addr.036.i.i.i.i.i197, 100
-  %rem.tr.i.i.i.i.i199 = trunc i64 %rem.i.i.i.i.i198 to i32
+  %rem.tr.i.i.i.i.i199 = trunc nuw nsw i64 %rem.i.i.i.i.i198 to i32
   %conv.i.i.i.i.i200 = shl nuw nsw i32 %rem.tr.i.i.i.i.i199, 1
   %div.i.i.i.i.i201 = udiv i64 %value.addr.036.i.i.i.i.i197, 100
   %add.i.i.i.i.i202 = or disjoint i32 %conv.i.i.i.i.i200, 1
@@ -110206,7 +110204,7 @@ while.end.i.i.i.i.i172:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i175, label %if.then.i.i.i.i13.i193, label %if.end.i.i.i.i.i176
 
 if.then.i.i.i.i13.i193:                           ; preds = %while.end.i.i.i.i.i172
-  %101 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i173 to i8
+  %101 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i173 to i8
   %conv6.i.i.i.i.i194 = or disjoint i8 %101, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185
 
@@ -110390,7 +110388,7 @@ while.body.i.i.i.i.i266:                          ; preds = %_ZSt6fill_nIPcmcET_
   %buffer.addr.037.i.i.i.i.i267 = phi ptr [ %incdec.ptr3.i.i.i.i.i279, %while.body.i.i.i.i.i266 ], [ %add.ptr.i.i.i.i.i241, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236 ]
   %value.addr.036.i.i.i.i.i268 = phi i64 [ %div.i.i.i.i.i272, %while.body.i.i.i.i.i266 ], [ %128, %_ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236 ]
   %rem.i.i.i.i.i269 = urem i64 %value.addr.036.i.i.i.i.i268, 100
-  %rem.tr.i.i.i.i.i270 = trunc i64 %rem.i.i.i.i.i269 to i32
+  %rem.tr.i.i.i.i.i270 = trunc nuw nsw i64 %rem.i.i.i.i.i269 to i32
   %conv.i.i.i.i.i271 = shl nuw nsw i32 %rem.tr.i.i.i.i.i270, 1
   %div.i.i.i.i.i272 = udiv i64 %value.addr.036.i.i.i.i.i268, 100
   %add.i.i.i.i.i273 = or disjoint i32 %conv.i.i.i.i.i271, 1
@@ -110414,7 +110412,7 @@ while.end.i.i.i.i.i243:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i246, label %if.then.i.i.i.i13.i264, label %if.end.i.i.i.i.i247
 
 if.then.i.i.i.i13.i264:                           ; preds = %while.end.i.i.i.i.i243
-  %132 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i244 to i8
+  %132 = trunc nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i244 to i8
   %conv6.i.i.i.i.i265 = or disjoint i8 %132, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i256
 
@@ -113617,7 +113615,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %34 = load i32, ptr %size.i.i, align 16, !tbaa !2317
   %coerce.sroa.0.0.extract.trunc.i.i = trunc i128 %33 to i64
   %coerce.sroa.2.0.extract.shift.i.i = lshr i128 %33, 64
-  %coerce.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce.sroa.2.0.extract.shift.i.i to i64
+  %coerce.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp4.i.i)
   store ptr %f.i, ptr %agg.tmp4.i.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp4.i.i, i64 8
@@ -113824,7 +113822,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i98:          ; preds = %if.then.i.i.i.i.i95
   %68 = load i32, ptr %size.i.i103, align 16, !tbaa !2317
   %coerce.sroa.0.0.extract.trunc.i.i104 = trunc i128 %67 to i64
   %coerce.sroa.2.0.extract.shift.i.i105 = lshr i128 %67, 64
-  %coerce.sroa.2.0.extract.trunc.i.i106 = trunc i128 %coerce.sroa.2.0.extract.shift.i.i105 to i64
+  %coerce.sroa.2.0.extract.trunc.i.i106 = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i105 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp4.i.i76)
   store ptr %f.i100, ptr %agg.tmp4.i.i76, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx.i.i107 = getelementptr inbounds i8, ptr %agg.tmp4.i.i76, i64 8
@@ -114009,7 +114007,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i146:         ; preds = %if.then.i.i.i.i.i14
   %96 = load i32, ptr %size.i.i151, align 16, !tbaa !2317
   %coerce.sroa.0.0.extract.trunc.i.i152 = trunc i128 %95 to i64
   %coerce.sroa.2.0.extract.shift.i.i153 = lshr i128 %95, 64
-  %coerce.sroa.2.0.extract.trunc.i.i154 = trunc i128 %coerce.sroa.2.0.extract.shift.i.i153 to i64
+  %coerce.sroa.2.0.extract.trunc.i.i154 = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i153 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp4.i.i124)
   store ptr %f.i148, ptr %agg.tmp4.i.i124, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx.i.i155 = getelementptr inbounds i8, ptr %agg.tmp4.i.i124, i64 8
@@ -114189,7 +114187,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i195:         ; preds = %if.then.i.i.i.i.i19
   %125 = load i32, ptr %size.i.i200, align 16, !tbaa !2317
   %coerce.sroa.0.0.extract.trunc.i.i201 = trunc i128 %124 to i64
   %coerce.sroa.2.0.extract.shift.i.i202 = lshr i128 %124, 64
-  %coerce.sroa.2.0.extract.trunc.i.i203 = trunc i128 %coerce.sroa.2.0.extract.shift.i.i202 to i64
+  %coerce.sroa.2.0.extract.trunc.i.i203 = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i202 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp4.i.i173)
   store ptr %f.i197, ptr %agg.tmp4.i.i173, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx.i.i204 = getelementptr inbounds i8, ptr %agg.tmp4.i.i173, i64 8
@@ -114374,7 +114372,7 @@ while.end:                                        ; preds = %_ZZNK10duckdb_fmt2v
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %29 = trunc i128 %value.addr.0.lcssa to i8
+  %29 = trunc nuw nsw i128 %value.addr.0.lcssa to i8
   %conv7 = or disjoint i8 %29, 48
   br label %cleanup
 
@@ -114660,7 +114658,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i, label %if.then.i.i.i.i13.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i13.i:                              ; preds = %while.end.i.i.i.i.i
-  %35 = trunc i128 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %35 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv7.i.i.i.i.i = or disjoint i8 %35, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -114897,7 +114895,7 @@ while.end.i.i.i.i.i102:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i105, label %if.then.i.i.i.i13.i123, label %if.end.i.i.i.i.i106
 
 if.then.i.i.i.i13.i123:                           ; preds = %while.end.i.i.i.i.i102
-  %71 = trunc i128 %value.addr.0.lcssa.i.i.i.i.i103 to i8
+  %71 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i.i.i103 to i8
   %conv7.i.i.i.i.i124 = or disjoint i8 %71, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i115
 
@@ -115112,7 +115110,7 @@ while.end.i.i.i.i.i172:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i175, label %if.then.i.i.i.i13.i193, label %if.end.i.i.i.i.i176
 
 if.then.i.i.i.i13.i193:                           ; preds = %while.end.i.i.i.i.i172
-  %101 = trunc i128 %value.addr.0.lcssa.i.i.i.i.i173 to i8
+  %101 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i.i.i173 to i8
   %conv7.i.i.i.i.i194 = or disjoint i8 %101, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185
 
@@ -115322,7 +115320,7 @@ while.end.i.i.i.i.i243:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i246, label %if.then.i.i.i.i13.i264, label %if.end.i.i.i.i.i247
 
 if.then.i.i.i.i13.i264:                           ; preds = %while.end.i.i.i.i.i243
-  %132 = trunc i128 %value.addr.0.lcssa.i.i.i.i.i244 to i8
+  %132 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i.i.i244 to i8
   %conv7.i.i.i.i.i265 = or disjoint i8 %132, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i256
 
@@ -117487,7 +117485,7 @@ if.then:                                          ; preds = %entry
   %value.sroa.0.0.insert.insert.neg = sub nuw i128 %value.sroa.2.0.insert.shift.neg, %value.sroa.0.0.insert.ext
   %extract.t = trunc i128 %value.sroa.0.0.insert.insert.neg to i64
   %extract = lshr i128 %value.sroa.0.0.insert.insert.neg, 64
-  %extract.t24 = trunc i128 %extract to i64
+  %extract.t24 = trunc nuw i128 %extract to i64
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -117601,7 +117599,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
-  %6 = trunc i128 %value.addr.0.lcssa.i.i.i to i8
+  %6 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i to i8
   %conv7.i.i.i = or disjoint i8 %6, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIcPcoEET0_S4_T1_i.exit
 
@@ -118686,7 +118684,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %34 = load i32, ptr %size.i.i, align 16, !tbaa !2425
   %coerce.sroa.0.0.extract.trunc.i.i = trunc i128 %33 to i64
   %coerce.sroa.2.0.extract.shift.i.i = lshr i128 %33, 64
-  %coerce.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce.sroa.2.0.extract.shift.i.i to i64
+  %coerce.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp4.i.i)
   store ptr %f.i, ptr %agg.tmp4.i.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp4.i.i, i64 8
@@ -118893,7 +118891,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i98:          ; preds = %if.then.i.i.i.i.i95
   %68 = load i32, ptr %size.i.i103, align 16, !tbaa !2425
   %coerce.sroa.0.0.extract.trunc.i.i104 = trunc i128 %67 to i64
   %coerce.sroa.2.0.extract.shift.i.i105 = lshr i128 %67, 64
-  %coerce.sroa.2.0.extract.trunc.i.i106 = trunc i128 %coerce.sroa.2.0.extract.shift.i.i105 to i64
+  %coerce.sroa.2.0.extract.trunc.i.i106 = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i105 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp4.i.i76)
   store ptr %f.i100, ptr %agg.tmp4.i.i76, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx.i.i107 = getelementptr inbounds i8, ptr %agg.tmp4.i.i76, i64 8
@@ -119078,7 +119076,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i146:         ; preds = %if.then.i.i.i.i.i14
   %96 = load i32, ptr %size.i.i151, align 16, !tbaa !2425
   %coerce.sroa.0.0.extract.trunc.i.i152 = trunc i128 %95 to i64
   %coerce.sroa.2.0.extract.shift.i.i153 = lshr i128 %95, 64
-  %coerce.sroa.2.0.extract.trunc.i.i154 = trunc i128 %coerce.sroa.2.0.extract.shift.i.i153 to i64
+  %coerce.sroa.2.0.extract.trunc.i.i154 = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i153 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp4.i.i124)
   store ptr %f.i148, ptr %agg.tmp4.i.i124, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx.i.i155 = getelementptr inbounds i8, ptr %agg.tmp4.i.i124, i64 8
@@ -119258,7 +119256,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i195:         ; preds = %if.then.i.i.i.i.i19
   %125 = load i32, ptr %size.i.i200, align 16, !tbaa !2425
   %coerce.sroa.0.0.extract.trunc.i.i201 = trunc i128 %124 to i64
   %coerce.sroa.2.0.extract.shift.i.i202 = lshr i128 %124, 64
-  %coerce.sroa.2.0.extract.trunc.i.i203 = trunc i128 %coerce.sroa.2.0.extract.shift.i.i202 to i64
+  %coerce.sroa.2.0.extract.trunc.i.i203 = trunc nuw i128 %coerce.sroa.2.0.extract.shift.i.i202 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp4.i.i173)
   store ptr %f.i197, ptr %agg.tmp4.i.i173, align 8
   %agg.tmp.sroa.2.0.agg.tmp4.sroa_idx.i.i204 = getelementptr inbounds i8, ptr %agg.tmp4.i.i173, i64 8
@@ -119443,7 +119441,7 @@ while.end:                                        ; preds = %_ZZNK10duckdb_fmt2v
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %29 = trunc i128 %value.addr.0.lcssa to i8
+  %29 = trunc nuw nsw i128 %value.addr.0.lcssa to i8
   %conv7 = or disjoint i8 %29, 48
   br label %cleanup
 
@@ -119729,7 +119727,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i, label %if.then.i.i.i.i13.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i13.i:                              ; preds = %while.end.i.i.i.i.i
-  %35 = trunc i128 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %35 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv7.i.i.i.i.i = or disjoint i8 %35, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -119966,7 +119964,7 @@ while.end.i.i.i.i.i102:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i105, label %if.then.i.i.i.i13.i123, label %if.end.i.i.i.i.i106
 
 if.then.i.i.i.i13.i123:                           ; preds = %while.end.i.i.i.i.i102
-  %71 = trunc i128 %value.addr.0.lcssa.i.i.i.i.i103 to i8
+  %71 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i.i.i103 to i8
   %conv7.i.i.i.i.i124 = or disjoint i8 %71, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i115
 
@@ -120181,7 +120179,7 @@ while.end.i.i.i.i.i172:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i175, label %if.then.i.i.i.i13.i193, label %if.end.i.i.i.i.i176
 
 if.then.i.i.i.i13.i193:                           ; preds = %while.end.i.i.i.i.i172
-  %101 = trunc i128 %value.addr.0.lcssa.i.i.i.i.i173 to i8
+  %101 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i.i.i173 to i8
   %conv7.i.i.i.i.i194 = or disjoint i8 %101, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i185
 
@@ -120391,7 +120389,7 @@ while.end.i.i.i.i.i243:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp5.i.i.i.i.i246, label %if.then.i.i.i.i13.i264, label %if.end.i.i.i.i.i247
 
 if.then.i.i.i.i13.i264:                           ; preds = %while.end.i.i.i.i.i243
-  %132 = trunc i128 %value.addr.0.lcssa.i.i.i.i.i244 to i8
+  %132 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i.i.i244 to i8
   %conv7.i.i.i.i.i265 = or disjoint i8 %132, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i256
 
@@ -122640,7 +122638,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
-  %6 = trunc i128 %value.addr.0.lcssa.i.i.i to i8
+  %6 = trunc nuw nsw i128 %value.addr.0.lcssa.i.i.i to i8
   %conv7.i.i.i = or disjoint i8 %6, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIcPcoEET0_S4_T1_i.exit
 
@@ -125522,7 +125520,7 @@ while.end:                                        ; preds = %_ZZNK10duckdb_fmt2v
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %29 = trunc i32 %value.addr.0.lcssa to i8
+  %29 = trunc nuw nsw i32 %value.addr.0.lcssa to i8
   %conv = or disjoint i8 %29, 48
   br label %cleanup
 
@@ -125804,7 +125802,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i.i.i13.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i13.i:                              ; preds = %while.end.i.i.i.i.i
-  %35 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i to i8
+  %35 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i to i8
   %conv.i.i.i.i.i = or disjoint i8 %35, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -126037,7 +126035,7 @@ while.end.i.i.i.i.i102:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i105, label %if.then.i.i.i.i13.i122, label %if.end.i.i.i.i.i106
 
 if.then.i.i.i.i13.i122:                           ; preds = %while.end.i.i.i.i.i102
-  %71 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i103 to i8
+  %71 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i103 to i8
   %conv.i.i.i.i.i123 = or disjoint i8 %71, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i114
 
@@ -126248,7 +126246,7 @@ while.end.i.i.i.i.i170:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i173, label %if.then.i.i.i.i13.i190, label %if.end.i.i.i.i.i174
 
 if.then.i.i.i.i13.i190:                           ; preds = %while.end.i.i.i.i.i170
-  %101 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i171 to i8
+  %101 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i171 to i8
   %conv.i.i.i.i.i191 = or disjoint i8 %101, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i182
 
@@ -126454,7 +126452,7 @@ while.end.i.i.i.i.i239:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp4.i.i.i.i.i242, label %if.then.i.i.i.i13.i259, label %if.end.i.i.i.i.i243
 
 if.then.i.i.i.i13.i259:                           ; preds = %while.end.i.i.i.i.i239
-  %132 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i240 to i8
+  %132 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i.i.i240 to i8
   %conv.i.i.i.i.i260 = or disjoint i8 %132, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i251
 
@@ -128614,7 +128612,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp) #22
   %call = call i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(17) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %fspecs.sroa.8.0.extract.shift = lshr i64 %call, 32
-  %fspecs.sroa.8.0.extract.trunc = trunc i64 %fspecs.sroa.8.0.extract.shift to i32
+  %fspecs.sroa.8.0.extract.trunc = trunc nuw i64 %fspecs.sroa.8.0.extract.shift to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp) #22
   %sign = getelementptr inbounds i8, ptr %specs, i64 9
   %bf.load = load i8, ptr %sign, align 1
@@ -130066,7 +130064,7 @@ while.body:                                       ; preds = %land.rhs88
   br i1 %cmp87, label %land.rhs88, label %cleanup183, !llvm.loop !2641
 
 while.end.loopexit:                               ; preds = %land.rhs88
-  %84 = trunc i64 %indvars.iv to i32
+  %84 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.then85
@@ -130627,7 +130625,7 @@ while.body:                                       ; preds = %land.rhs137
   br i1 %cmp136, label %land.rhs137, label %while.end, !llvm.loop !2651
 
 while.end.split.loop.exit:                        ; preds = %land.rhs137
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.split.loop.exit
@@ -130741,7 +130739,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp) #22
   %call = call i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(17) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %fspecs.sroa.8.0.extract.shift = lshr i64 %call, 32
-  %fspecs.sroa.8.0.extract.trunc = trunc i64 %fspecs.sroa.8.0.extract.shift to i32
+  %fspecs.sroa.8.0.extract.trunc = trunc nuw i64 %fspecs.sroa.8.0.extract.shift to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp) #22
   %sign = getelementptr inbounds i8, ptr %specs, i64 9
   %bf.load = load i8, ptr %sign, align 1
@@ -131057,7 +131055,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp) #22
   %call = call i64 @_ZN10duckdb_fmt2v68internal21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(17) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %fspecs.sroa.8.0.extract.shift = lshr i64 %call, 32
-  %fspecs.sroa.8.0.extract.trunc = trunc i64 %fspecs.sroa.8.0.extract.shift to i32
+  %fspecs.sroa.8.0.extract.trunc = trunc nuw i64 %fspecs.sroa.8.0.extract.shift to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp) #22
   %sign = getelementptr inbounds i8, ptr %specs, i64 9
   %bf.load = load i8, ptr %sign, align 1
@@ -133822,7 +133820,7 @@ if.then.i.i15:                                    ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %15 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %15 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %15, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -134270,7 +134268,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE9write_intInNS0
 
 if.else.i140:                                     ; preds = %sw.bb14
   %coerce.sroa.2.0.extract.shift = lshr i128 %7, 64
-  %coerce.sroa.2.0.extract.trunc = trunc i128 %coerce.sroa.2.0.extract.shift to i64
+  %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
   %coerce.sroa.0.0.extract.trunc = trunc i128 %7 to i64
   tail call void @_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE13write_decimalInEEvT_(ptr noundef nonnull align 8 dereferenceable(16) %vis, i64 noundef %coerce.sroa.0.0.extract.trunc, i64 noundef %coerce.sroa.2.0.extract.trunc)
   br label %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclInTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit
@@ -134318,7 +134316,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE9write_intIoNS0
 if.else.i162:                                     ; preds = %sw.bb18
   %coerce20.sroa.0.0.extract.trunc = trunc i128 %9 to i64
   %coerce20.sroa.2.0.extract.shift = lshr i128 %9, 64
-  %coerce20.sroa.2.0.extract.trunc = trunc i128 %coerce20.sroa.2.0.extract.shift to i64
+  %coerce20.sroa.2.0.extract.trunc = trunc nuw i128 %coerce20.sroa.2.0.extract.shift to i64
   tail call void @_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE13write_decimalIoEEvT_(ptr noundef nonnull align 8 dereferenceable(16) %vis, i64 noundef %coerce20.sroa.0.0.extract.trunc, i64 noundef %coerce20.sroa.2.0.extract.trunc)
   br label %_ZN10duckdb_fmt2v68internal18arg_formatter_baseINS0_12buffer_rangeIcEENS1_13error_handlerEEclIoTnNSt9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEESt20back_insert_iteratorINS1_6bufferIcEEES9_.exit
 
@@ -137023,7 +137021,7 @@ ehcleanup.i.i.i:                                  ; preds = %if.then.i.i.i.i.i, 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclEv.exit: ; preds = %if.then
-  %conv7.i.i.i = trunc i64 %call.i5.i.i to i32
+  %conv7.i.i.i = trunc nuw nsw i64 %call.i5.i.i to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %eh.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
@@ -137237,7 +137235,7 @@ ehcleanup.i.i.i99:                                ; preds = %if.then.i.i.i.i.i98
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclEi.exit: ; preds = %if.else
-  %conv7.i.i.i94 = trunc i64 %call.i.i.i92 to i32
+  %conv7.i.i.i94 = trunc nuw nsw i64 %call.i.i.i92 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %eh.i.i.i85)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i87)
@@ -137471,7 +137469,7 @@ ehcleanup.i.i.i173:                               ; preds = %if.then.i.i.i.i.i17
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclENS0_17basic_string_viewIcEE.exit: ; preds = %do.end
-  %conv7.i.i.i168 = trunc i64 %call.i.i.i166 to i32
+  %conv7.i.i.i168 = trunc nuw nsw i64 %call.i.i.i166 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4.i.i163)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %eh.i.i.i159)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i161)
@@ -138380,7 +138378,7 @@ ehcleanup.i.i.i:                                  ; preds = %if.then.i.i.i.i.i, 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclEv.exit: ; preds = %if.then
-  %conv7.i.i.i = trunc i64 %call.i5.i.i to i32
+  %conv7.i.i.i = trunc nuw nsw i64 %call.i5.i.i to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %eh.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
@@ -138595,7 +138593,7 @@ ehcleanup.i.i.i100:                               ; preds = %if.then.i.i.i.i.i99
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclEi.exit: ; preds = %if.else
-  %conv7.i.i.i94 = trunc i64 %call.i.i.i92 to i32
+  %conv7.i.i.i94 = trunc nuw nsw i64 %call.i.i.i92 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %eh.i.i.i85)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i87)
@@ -138830,7 +138828,7 @@ ehcleanup.i.i.i175:                               ; preds = %if.then.i.i.i.i.i17
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclENS0_17basic_string_viewIcEE.exit: ; preds = %do.end
-  %conv7.i.i.i169 = trunc i64 %call.i.i.i167 to i32
+  %conv7.i.i.i169 = trunc nuw nsw i64 %call.i.i.i167 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4.i.i164)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %eh.i.i.i160)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i162)

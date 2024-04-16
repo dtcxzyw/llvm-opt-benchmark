@@ -296,7 +296,7 @@ if.end10:                                         ; preds = %for.body
   %inc = add i32 %valid.020, 1
   %bf.clear = and i32 %bf.load6, 63
   %tobool.not = icmp eq i32 %bf.clear, 0
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %tobool.not, label %for.inc, label %if.then14
 
 if.then14:                                        ; preds = %if.end10
@@ -838,7 +838,7 @@ lor.lhs.false1.i:                                 ; preds = %lor.lhs.false.i
 section_covers_addr.exit.i:                       ; preds = %lor.lhs.false1.i
   %offset_within_address_space.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load i64, ptr %offset_within_address_space.i.i, align 8
-  %coerce2.sroa.0.0.extract.trunc.i.i = trunc i128 %2 to i64
+  %coerce2.sroa.0.0.extract.trunc.i.i = trunc nuw i128 %2 to i64
   %cmp.not.i.i.i = icmp ule i64 %3, %addr
   %add.i.i.i.i = add i64 %coerce2.sroa.0.0.extract.trunc.i.i, -1
   %sub.i.i.i.i = add i64 %add.i.i.i.i, %3
@@ -890,25 +890,23 @@ for.end.i.i:                                      ; preds = %if.end.i.i, %land.r
   %arrayidx16.i.i = getelementptr %struct.MemoryRegionSection, ptr %4, i64 %idxprom15.i.i
   %6 = load i128, ptr %arrayidx16.i.i, align 16
   %tobool.not.i.i.i = icmp ult i128 %6, 18446744073709551616
-  br i1 %tobool.not.i.i.i, label %section_covers_addr.exit.i.i, label %section_covers_addr.exit.thread.i.i
+  br i1 %tobool.not.i.i.i, label %section_covers_addr.exit.i.i, label %phys_page_find.exit.i
 
 section_covers_addr.exit.i.i:                     ; preds = %for.end.i.i
   %offset_within_address_space.i.i.i = getelementptr inbounds i8, ptr %arrayidx16.i.i, i64 40
   %7 = load i64, ptr %offset_within_address_space.i.i.i, align 8
-  %coerce2.sroa.0.0.extract.trunc.i.i.i = trunc i128 %6 to i64
+  %coerce2.sroa.0.0.extract.trunc.i.i.i = trunc nuw i128 %6 to i64
   %cmp.not.i.i.i.i = icmp ule i64 %7, %addr
   %add.i.i.i.i.i = add i64 %coerce2.sroa.0.0.extract.trunc.i.i.i, -1
   %sub.i.i.i.i.i = add i64 %add.i.i.i.i.i, %7
   %cmp1.i.i.i.i = icmp uge i64 %sub.i.i.i.i.i, %addr
   %narrow.i.i.i.i = and i1 %cmp.not.i.i.i.i, %cmp1.i.i.i.i
   %cond.fr.i.i = freeze i1 %narrow.i.i.i.i
-  br i1 %cond.fr.i.i, label %section_covers_addr.exit.thread.i.i, label %phys_page_find.exit.i
-
-section_covers_addr.exit.thread.i.i:              ; preds = %section_covers_addr.exit.i.i, %for.end.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, ptr %arrayidx16.i.i, ptr %4
   br label %phys_page_find.exit.i
 
-phys_page_find.exit.i:                            ; preds = %for.body.i.i, %section_covers_addr.exit.thread.i.i, %section_covers_addr.exit.i.i
-  %retval.0.i.i = phi ptr [ %arrayidx16.i.i, %section_covers_addr.exit.thread.i.i ], [ %4, %section_covers_addr.exit.i.i ], [ %4, %for.body.i.i ]
+phys_page_find.exit.i:                            ; preds = %for.body.i.i, %section_covers_addr.exit.i.i, %for.end.i.i
+  %retval.0.i.i = phi ptr [ %arrayidx16.i.i, %for.end.i.i ], [ %spec.select.i.i, %section_covers_addr.exit.i.i ], [ %4, %for.body.i.i ]
   %8 = ptrtoint ptr %retval.0.i.i to i64
   store atomic i64 %8, ptr %d monotonic, align 8
   br label %if.end.i
@@ -966,7 +964,7 @@ if.else.i:                                        ; preds = %if.then
   unreachable
 
 int128_get64.exit:                                ; preds = %if.then
-  %retval.sroa.0.0.extract.trunc.i18 = trunc i128 %cond.i to i64
+  %retval.sroa.0.0.extract.trunc.i18 = trunc nuw i128 %cond.i to i64
   store i64 %retval.sroa.0.0.extract.trunc.i18, ptr %plen, align 8
   br label %if.end
 
@@ -1786,10 +1784,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %b.sroa.0.0.insert.ext.i9 = and i128 %cond.i, 18446744073709551615
   %retval.sroa.2.0.extract.shift.i = lshr i128 %cond.i, 64
-  %retval.sroa.2.0.extract.trunc.i = trunc i128 %retval.sroa.2.0.extract.shift.i to i64
+  %retval.sroa.2.0.extract.trunc.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i to i64
   %a.sroa.0.0.insert.insert.i15 = sub i128 %2, %b.sroa.0.0.insert.ext.i9
   %3 = lshr i128 %a.sroa.0.0.insert.insert.i15, 64
-  %.tr.i = trunc i128 %3 to i64
+  %.tr.i = trunc nuw i128 %3 to i64
   %.narrow.i = sub i64 %.tr.i, %retval.sroa.2.0.extract.trunc.i
   %coerce23.sroa.2.0.insert.ext = zext i64 %.narrow.i to i128
   %coerce23.sroa.2.0.insert.shift = shl nuw i128 %coerce23.sroa.2.0.insert.ext, 64
@@ -2012,25 +2010,23 @@ for.end.i:                                        ; preds = %if.end.i, %land.rhs
   %arrayidx16.i = getelementptr %struct.MemoryRegionSection, ptr %3, i64 %idxprom15.i
   %4 = load i128, ptr %arrayidx16.i, align 16
   %tobool.not.i.i = icmp ult i128 %4, 18446744073709551616
-  br i1 %tobool.not.i.i, label %section_covers_addr.exit.i, label %section_covers_addr.exit.thread.i
+  br i1 %tobool.not.i.i, label %section_covers_addr.exit.i, label %phys_page_find.exit
 
 section_covers_addr.exit.i:                       ; preds = %for.end.i
   %offset_within_address_space.i.i = getelementptr inbounds i8, ptr %arrayidx16.i, i64 40
   %5 = load i64, ptr %offset_within_address_space.i.i, align 8
-  %coerce2.sroa.0.0.extract.trunc.i.i = trunc i128 %4 to i64
+  %coerce2.sroa.0.0.extract.trunc.i.i = trunc nuw i128 %4 to i64
   %cmp.not.i.i.i = icmp ule i64 %5, %and
   %add.i.i.i.i = add i64 %coerce2.sroa.0.0.extract.trunc.i.i, -1
   %sub.i.i.i.i = add i64 %add.i.i.i.i, %5
   %cmp1.i.i.i = icmp uge i64 %sub.i.i.i.i, %and
   %narrow.i.i.i = and i1 %cmp.not.i.i.i, %cmp1.i.i.i
   %cond.fr.i = freeze i1 %narrow.i.i.i
-  br i1 %cond.fr.i, label %section_covers_addr.exit.thread.i, label %phys_page_find.exit
-
-section_covers_addr.exit.thread.i:                ; preds = %section_covers_addr.exit.i, %for.end.i
+  %spec.select.i = select i1 %cond.fr.i, ptr %arrayidx16.i, ptr %3
   br label %phys_page_find.exit
 
-phys_page_find.exit:                              ; preds = %for.body.i, %section_covers_addr.exit.i, %section_covers_addr.exit.thread.i
-  %retval.0.i = phi ptr [ %arrayidx16.i, %section_covers_addr.exit.thread.i ], [ %3, %section_covers_addr.exit.i ], [ %3, %for.body.i ]
+phys_page_find.exit:                              ; preds = %for.body.i, %for.end.i, %section_covers_addr.exit.i
+  %retval.0.i = phi ptr [ %arrayidx16.i, %for.end.i ], [ %spec.select.i, %section_covers_addr.exit.i ], [ %3, %for.body.i ]
   %mr5 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %6 = load ptr, ptr %mr5, align 16
   %subpage6 = getelementptr inbounds i8, ptr %6, i64 42
@@ -2153,11 +2149,11 @@ if.else.i24:                                      ; preds = %if.end18
   unreachable
 
 int128_get64.exit:                                ; preds = %if.end18
-  %coerce22.sroa.0.0.extract.trunc = trunc i128 %19 to i64
+  %coerce22.sroa.0.0.extract.trunc = trunc nuw i128 %19 to i64
   %20 = load i64, ptr %offset_within_address_space, align 8
   %and20 = and i64 %20, 4095
   %add = add i64 %and20, %coerce22.sroa.0.0.extract.trunc
-  %conv = trunc i64 %and20 to i32
+  %conv = trunc nuw nsw i64 %and20 to i32
   %21 = trunc i64 %add to i32
   %conv24 = add i32 %21, -1
   %sections_nb.i26 = getelementptr inbounds i8, ptr %fv.val, i64 32
@@ -3730,7 +3726,7 @@ for.cond.preheader.i:                             ; preds = %if.then23
   %mul.i = shl nuw nsw i64 %div316.i, 3
   %add5.i = add nuw nsw i64 %mul.i, 16
   %mul9.i = shl nuw nsw i64 %div15.i, 3
-  %conv.i = trunc i64 %div15.i to i32
+  %conv.i = trunc nuw nsw i64 %div15.i to i32
   %tobool.not.i75 = icmp eq i64 %last.0.lcssa.i, 0
   br i1 %tobool.not.i75, label %while.end.us.us.i, label %while.end.us.i
 
@@ -5140,7 +5136,7 @@ if.end9:                                          ; preds = %if.then2, %entry
   %tobool.not.i = icmp eq i32 %spec.select, 0
   %4 = tail call i64 @llvm.ctlz.i64(i64 %conv14, i1 true), !range !42
   %shr.i = lshr exact i64 -9223372036854775808, %4
-  %5 = trunc i64 %shr.i to i32
+  %5 = trunc nuw i64 %shr.i to i32
   %conv15 = select i1 %tobool.not.i, i32 0, i32 %5
   ret i32 %conv15
 }
@@ -5269,7 +5265,7 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
   %12 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !42
   %shr.i.i = lshr exact i64 -9223372036854775808, %12
-  %13 = trunc i64 %shr.i.i to i32
+  %13 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %13
   %conv10 = sext i32 %conv15.i to i64
   store i64 %conv10, ptr %l.addr, align 8
@@ -6217,7 +6213,7 @@ memory_access_size.exit:                          ; preds = %if.then, %if.then2.
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
   %11 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !42
   %shr.i.i = lshr exact i64 -9223372036854775808, %11
-  %12 = trunc i64 %shr.i.i to i32
+  %12 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %12
   %conv5 = sext i32 %conv15.i to i64
   store i64 %conv5, ptr %l, align 8
@@ -8496,7 +8492,7 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
   %12 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !42
   %shr.i.i = lshr exact i64 -9223372036854775808, %12
-  %13 = trunc i64 %shr.i.i to i32
+  %13 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %13
   %conv10 = sext i32 %conv15.i to i64
   store i64 %conv10, ptr %l.addr, align 8
@@ -9827,18 +9823,16 @@ if.then30:                                        ; preds = %if.end28
   %10 = load i32, ptr %flags.i41, align 8
   %and.i42 = and i32 %10, 2
   %tobool.i43.not = icmp eq i32 %and.i42, 0
-  br i1 %tobool.i43.not, label %if.else, label %land.lhs.true
+  br i1 %tobool.i43.not, label %if.end37, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then30
   %11 = load i32, ptr %fd, align 8
   %cmp33 = icmp slt i32 %11, 0
-  br i1 %cmp33, label %if.end37, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true, %if.then30
+  %spec.select = select i1 %cmp33, i32 9, i32 4
   br label %if.end37
 
-if.end37:                                         ; preds = %land.lhs.true, %if.else
-  %.sink = phi i32 [ 4, %if.else ], [ 9, %land.lhs.true ]
+if.end37:                                         ; preds = %land.lhs.true, %if.then30
+  %.sink = phi i32 [ 4, %if.then30 ], [ %spec.select, %land.lhs.true ]
   %call36 = tail call i32 @madvise(ptr noundef %add.ptr, i64 noundef %length, i32 noundef %.sink) #26
   %tobool38.not = icmp eq i32 %call36, 0
   br i1 %tobool38.not, label %if.end45, label %if.then39
@@ -10088,7 +10082,7 @@ if.else10.i:                                      ; preds = %if.else7.i
 mtree_print_phys_entries.exit:                    ; preds = %if.then5.i, %if.then8.i, %if.else10.i
   %call14.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.75) #26
   %prev.sroa.0.0.copyload7 = load i32, ptr %add.ptr73, align 4
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.inc92
 
 for.inc92:                                        ; preds = %land.lhs.true, %mtree_print_phys_entries.exit

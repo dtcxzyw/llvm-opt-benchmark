@@ -138,7 +138,7 @@ if.then.i:                                        ; preds = %entry
   %call.i1 = tail call i32 %visit(ptr noundef nonnull %call.val, ptr noundef %arg) #7
   br label %traverse_module_state.exit
 
-traverse_module_state.exit:                       ; preds = %if.then.i, %entry
+traverse_module_state.exit:                       ; preds = %entry, %if.then.i
   ret i32 0
 }
 
@@ -1398,19 +1398,19 @@ entry:
   %0 = load ptr, ptr @PyExc_InterpreterError, align 8
   %call1 = tail call i32 @PyModule_AddType(ptr noundef %mod, ptr noundef %0) #7
   %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %error, label %if.end
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @PyExc_InterpreterNotFoundError, align 8
   %call2 = tail call i32 @PyModule_AddType(ptr noundef %mod, ptr noundef %1) #7
   %cmp3 = icmp slt i32 %call2, 0
-  br i1 %cmp3, label %error, label %if.end5
+  br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %XIBufferViewType = getelementptr inbounds i8, ptr %call.i, i64 8
   %call.i4 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %mod, ptr noundef nonnull @XIBufferViewType_spec, ptr noundef null) #7
   %cmp.i = icmp eq ptr %call.i4, null
-  br i1 %cmp.i, label %error, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end5
   %call1.i = tail call i32 @PyModule_AddType(ptr noundef %mod, ptr noundef nonnull %call.i4) #7
@@ -1421,29 +1421,27 @@ if.then3.i:                                       ; preds = %if.end.i
   %2 = load i64, ptr %call.i4, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i10.not.i = icmp eq i64 %3, 0
-  br i1 %cmp.i10.not.i, label %if.end.i.i, label %error
+  br i1 %cmp.i10.not.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.then3.i
   %dec.i.i = add i64 %2, -1
   store i64 %dec.i.i, ptr %call.i4, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %error
+  br i1 %cmp.i.i, label %if.then1.i.i, label %return
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i4) #7
-  br label %error
+  br label %return
 
 register_memoryview_xid.exit:                     ; preds = %if.end.i
   store ptr %call.i4, ptr %XIBufferViewType, align 8
   %call5.i = tail call i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef nonnull @PyMemoryView_Type, ptr noundef nonnull @_memoryview_shared) #7
-  %cmp7 = icmp slt i32 %call5.i, 0
-  br i1 %cmp7, label %error, label %return
-
-error:                                            ; preds = %if.end.i.i, %if.then1.i.i, %if.then3.i, %if.end5, %register_memoryview_xid.exit, %if.end, %entry
+  %call5.i.fr = freeze i32 %call5.i
+  %call5.i.fr.lobit = ashr i32 %call5.i.fr, 31
   br label %return
 
-return:                                           ; preds = %register_memoryview_xid.exit, %error
-  %retval.0 = phi i32 [ -1, %error ], [ 0, %register_memoryview_xid.exit ]
+return:                                           ; preds = %register_memoryview_xid.exit, %if.end.i.i, %if.then1.i.i, %if.then3.i, %if.end5, %entry, %if.end
+  %retval.0 = phi i32 [ -1, %if.end ], [ -1, %entry ], [ -1, %if.end5 ], [ -1, %if.then3.i ], [ -1, %if.then1.i.i ], [ -1, %if.end.i.i ], [ %call5.i.fr.lobit, %register_memoryview_xid.exit ]
   ret i32 %retval.0
 }
 

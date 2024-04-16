@@ -1602,8 +1602,8 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
   %cond = icmp eq i32 %5, 5
   br i1 %cond, label %.thread29, label %.thread23
 
-.thread29:                                        ; preds = %.thread14, %184, %.thread16
-  %185 = phi i32 [ 28, %.thread16 ], [ 20, %184 ], [ 20, %.thread14 ]
+.thread29:                                        ; preds = %184, %.thread14, %.thread16
+  %185 = phi i32 [ 28, %.thread16 ], [ 20, %.thread14 ], [ 20, %184 ]
   %186 = load i64, ptr %19, align 8
   %187 = trunc i64 %186 to i16
   %188 = add i16 %187, 13
@@ -1789,7 +1789,7 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
   %318 = or disjoint i32 %310, 32
   %319 = select i1 %97, i32 %318, i32 20
   %320 = select i1 %317, i32 %319, i32 %310
-  %321 = trunc i32 %320 to i8
+  %321 = trunc nuw nsw i32 %320 to i8
   %322 = or disjoint i8 %321, 1
   %323 = getelementptr inbounds i8, ptr %10, i64 1089
   store i8 %322, ptr %323, align 1
@@ -1829,7 +1829,7 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
   %347 = and i1 %97, %346
   %348 = or disjoint i32 %310, 32
   %349 = select i1 %347, i32 %348, i32 %310
-  %350 = trunc i32 %349 to i8
+  %350 = trunc nuw nsw i32 %349 to i8
   %351 = or disjoint i8 %350, 64
   %352 = load i64, ptr %19, align 8
   %353 = trunc i64 %352 to i16
@@ -2184,7 +2184,7 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
   tail call void @llvm.write_register.i64(metadata !0, i64 %581)
   %582 = load i16, ptr %6, align 2
   %583 = lshr i16 %582, 8
-  %584 = trunc i16 %583 to i8
+  %584 = trunc nuw i16 %583 to i8
   %585 = load i64, ptr %19, align 8
   %586 = trunc i64 %585 to i16
   %587 = add i16 %586, 6
@@ -2226,7 +2226,7 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
   tail call void @llvm.write_register.i64(metadata !0, i64 %612)
   %613 = load i16, ptr %6, align 2
   %614 = lshr i16 %613, 8
-  %615 = trunc i16 %614 to i8
+  %615 = trunc nuw i16 %614 to i8
   %616 = load i64, ptr %19, align 8
   %617 = trunc i64 %616 to i16
   %618 = add i16 %617, 6
@@ -2491,7 +2491,7 @@ define internal fastcc i32 @i801_transaction(ptr noundef %0, i32 noundef %1) unn
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 1056
   store i32 0, ptr %8, align 8
-  %9 = trunc i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   %10 = or i8 %9, 65
   %11 = getelementptr inbounds i8, ptr %0, i64 1024
   %12 = load i64, ptr %11, align 8
@@ -2516,7 +2516,7 @@ define internal fastcc i32 @i801_transaction(ptr noundef %0, i32 noundef %1) unn
   br label %.loopexit
 
 27:                                               ; preds = %2
-  %28 = trunc i32 %1 to i8
+  %28 = trunc nuw nsw i32 %1 to i8
   %29 = or i8 %28, 64
   %30 = getelementptr inbounds i8, ptr %0, i64 1024
   %31 = load i64, ptr %30, align 8

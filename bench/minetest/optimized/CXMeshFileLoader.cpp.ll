@@ -7073,7 +7073,7 @@ entry:
   %0 = load ptr, ptr %nameOrBrace, align 8, !tbaa !29
   %call.i.i.i = call noundef i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(2) @.str.75) #24
   %tobool3.not.i.i.not = icmp eq i32 %call.i.i.i, 0
-  br i1 %tobool3.not.i.i.not, label %if.end7, label %if.then
+  br i1 %tobool3.not.i.i.not, label %cleanup, label %if.then
 
 if.then:                                          ; preds = %entry
   %tobool.not = icmp eq ptr %outname, null
@@ -7108,14 +7108,12 @@ if.then.i.i.i:                                    ; preds = %if.end
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
-  br i1 %tobool3.not.i.i11.not, label %if.end7, label %cleanup
-
-if.end7:                                          ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %entry
+  %.pre = load ptr, ptr %nameOrBrace, align 8, !tbaa !29
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end7, %_ZN3irr4core6stringIcED2Ev.exit
-  %retval.0 = phi i1 [ true, %if.end7 ], [ false, %_ZN3irr4core6stringIcED2Ev.exit ]
-  %4 = load ptr, ptr %nameOrBrace, align 8, !tbaa !29
+cleanup:                                          ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %entry
+  %4 = phi ptr [ %0, %entry ], [ %.pre, %_ZN3irr4core6stringIcED2Ev.exit ]
+  %retval.0 = phi i1 [ true, %entry ], [ %tobool3.not.i.i11.not, %_ZN3irr4core6stringIcED2Ev.exit ]
   %5 = getelementptr inbounds i8, ptr %nameOrBrace, i64 16
   %cmp.i.i.i.i12 = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i14, label %if.then.i.i.i13
@@ -7242,7 +7240,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %9 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %9 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %9, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -9792,7 +9790,7 @@ vector.ph:                                        ; preds = %for.body28.lr.ph
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %vector.body ], [ 0, %vector.ph ]
-  %28 = trunc i64 %indvars.iv22 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv22 to i32
   %offset.idx = add i32 %triangulatedindex.0251, %28
   %29 = zext i32 %offset.idx to i64
   %30 = getelementptr inbounds i32, ptr %23, i64 %29

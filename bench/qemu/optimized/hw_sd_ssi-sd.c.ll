@@ -256,15 +256,15 @@ if.end100:                                        ; preds = %if.else82, %if.then
   %13 = and i16 %12, 3072
   %status.3 = or disjoint i16 %status.1, %13
   %and130 = lshr i32 %7, 16
-  %14 = trunc i32 %and130 to i16
+  %14 = trunc nuw i32 %and130 to i16
   %15 = and i16 %14, 4096
   %status.4 = or disjoint i16 %status.3, %15
   %and137 = lshr i32 %7, 17
-  %16 = trunc i32 %and137 to i16
+  %16 = trunc nuw nsw i32 %and137 to i16
   %17 = and i16 %16, 8192
   %status.5 = or disjoint i16 %status.4, %17
   %and144 = lshr i32 %7, 25
-  %18 = trunc i32 %and144 to i16
+  %18 = trunc nuw nsw i32 %and144 to i16
   %19 = and i16 %18, 1
   %status.6 = or disjoint i16 %status.5, %19
   %and151 = and i32 %7, 16809984
@@ -272,7 +272,7 @@ if.end100:                                        ; preds = %if.else82, %if.then
   %20 = or i16 %status.6, 2
   %status.7 = select i1 %tobool152.not, i16 %status.6, i16 %20
   %and179 = lshr i32 %7, 21
-  %21 = trunc i32 %and179 to i16
+  %21 = trunc nuw nsw i32 %and179 to i16
   %status.9 = and i16 %16, 28
   %22 = and i16 %21, 96
   %status.11 = or disjoint i16 %status.9, %22
@@ -286,7 +286,7 @@ if.end100:                                        ; preds = %if.else82, %if.then
   %or205 = or i16 %status.13, 16384
   %status.14 = select i1 %tobool202.not, i16 %status.13, i16 %or205
   %25 = lshr i16 %status.14, 8
-  %conv210 = trunc i16 %25 to i8
+  %conv210 = trunc nuw nsw i16 %25 to i8
   %response211 = getelementptr inbounds i8, ptr %call.i, i64 188
   store i8 %conv210, ptr %response211, align 4
   %conv213 = trunc i16 %status.14 to i8
@@ -407,19 +407,17 @@ do.end306:                                        ; preds = %sw.bb291
   %read_bytes307 = getelementptr inbounds i8, ptr %call.i, i64 196
   %37 = load i32, ptr %read_bytes307, align 4
   %cmp308 = icmp eq i32 %37, 512
-  br i1 %cmp308, label %land.lhs.true310, label %if.else316
+  br i1 %cmp308, label %land.lhs.true310, label %if.end318
 
 land.lhs.true310:                                 ; preds = %do.end306
   %cmd311 = getelementptr inbounds i8, ptr %call.i, i64 180
   %38 = load i32, ptr %cmd311, align 4
   %cmp312.not = icmp eq i32 %38, 17
-  br i1 %cmp312.not, label %if.else316, label %if.end318
-
-if.else316:                                       ; preds = %land.lhs.true310, %do.end306
+  %spec.select124 = select i1 %cmp312.not, i32 0, i32 4
   br label %if.end318
 
-if.end318:                                        ; preds = %land.lhs.true310, %if.else316
-  %storemerge = phi i32 [ 0, %if.else316 ], [ 4, %land.lhs.true310 ]
+if.end318:                                        ; preds = %land.lhs.true310, %do.end306
+  %storemerge = phi i32 [ 0, %do.end306 ], [ %spec.select124, %land.lhs.true310 ]
   store i32 %storemerge, ptr %mode, align 8
   store i32 0, ptr %read_bytes307, align 4
   store i32 0, ptr %response_pos299, align 8
@@ -507,7 +505,7 @@ declare zeroext i1 @sdbus_receive_ready(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.bswap.i32(i32) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @ssi_sd_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #4 {
+define internal i32 @ssi_sd_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #4 {
 entry:
   %mode = getelementptr inbounds i8, ptr %opaque, i64 176
   %0 = load i32, ptr %mode, align 8
@@ -515,40 +513,33 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  switch i32 %0, label %if.end27 [
-    i32 1, label %land.lhs.true
+  switch i32 %0, label %return [
+    i32 1, label %return.sink.split
     i32 3, label %land.lhs.true12
   ]
 
-land.lhs.true:                                    ; preds = %if.end
-  %arglen = getelementptr inbounds i8, ptr %opaque, i64 204
-  %1 = load i32, ptr %arglen, align 4
-  %cmp5 = icmp ugt i32 %1, 3
-  br i1 %cmp5, label %return, label %if.end27
-
 land.lhs.true12:                                  ; preds = %if.end
   %response_pos = getelementptr inbounds i8, ptr %opaque, i64 208
-  %2 = load i32, ptr %response_pos, align 8
-  %cmp18 = icmp ugt i32 %2, 4
+  %1 = load i32, ptr %response_pos, align 8
+  %cmp18 = icmp ugt i32 %1, 4
   br i1 %cmp18, label %return, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %land.lhs.true12
   %stopping = getelementptr inbounds i8, ptr %opaque, i64 212
-  %3 = load i32, ptr %stopping, align 4
-  %tobool.not = icmp eq i32 %3, 0
-  br i1 %tobool.not, label %land.lhs.true21, label %if.end27
+  %2 = load i32, ptr %stopping, align 4
+  %tobool.not = icmp eq i32 %2, 0
+  br i1 %tobool.not, label %return.sink.split, label %return
 
-land.lhs.true21:                                  ; preds = %lor.lhs.false20
-  %arglen22 = getelementptr inbounds i8, ptr %opaque, i64 204
-  %4 = load i32, ptr %arglen22, align 4
-  %cmp24 = icmp ugt i32 %4, 5
-  br i1 %cmp24, label %return, label %if.end27
-
-if.end27:                                         ; preds = %if.end, %land.lhs.true, %land.lhs.true21, %lor.lhs.false20
+return.sink.split:                                ; preds = %lor.lhs.false20, %if.end
+  %.sink14 = phi i32 [ 3, %if.end ], [ 5, %lor.lhs.false20 ]
+  %arglen = getelementptr inbounds i8, ptr %opaque, i64 204
+  %3 = load i32, ptr %arglen, align 4
+  %cmp5 = icmp ugt i32 %3, %.sink14
+  %spec.select13 = select i1 %cmp5, i32 -22, i32 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true12, %land.lhs.true21, %land.lhs.true, %entry, %if.end27
-  %retval.0 = phi i32 [ 0, %if.end27 ], [ -22, %entry ], [ -22, %land.lhs.true ], [ -22, %land.lhs.true21 ], [ -22, %land.lhs.true12 ]
+return:                                           ; preds = %return.sink.split, %if.end, %lor.lhs.false20, %land.lhs.true12, %entry
+  %retval.0 = phi i32 [ -22, %entry ], [ -22, %land.lhs.true12 ], [ 0, %lor.lhs.false20 ], [ 0, %if.end ], [ %spec.select13, %return.sink.split ]
   ret i32 %retval.0
 }
 

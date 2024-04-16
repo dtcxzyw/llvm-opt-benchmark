@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [7 x i8] c"pager.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @git_pager(i32 noundef %stdout_is_tty) local_unnamed_addr #0 {
+define dso_local ptr @git_pager(i32 noundef %stdout_is_tty) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %stdout_is_tty, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -65,18 +65,16 @@ if.end10:                                         ; preds = %if.then2, %if.end, 
   %spec.store.select = select i1 %tobool11.not, ptr @.str.2, ptr %pager.1
   %1 = load i8, ptr %spec.store.select, align 1
   %tobool14.not = icmp eq i8 %1, 0
-  br i1 %tobool14.not, label %if.then17, label %lor.lhs.false
+  br i1 %tobool14.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
   %call15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(4) @.str.3) #13
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %if.then17, label %return
-
-if.then17:                                        ; preds = %lor.lhs.false, %if.end10
+  %spec.select = select i1 %tobool16.not, ptr null, ptr %spec.store.select
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %if.then17, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %spec.store.select, %lor.lhs.false ], [ null, %if.then17 ]
+return:                                           ; preds = %lor.lhs.false, %if.end10, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end10 ], [ %spec.select, %lor.lhs.false ]
   ret ptr %retval.0
 }
 
@@ -304,7 +302,7 @@ if.end20:                                         ; preds = %if.then18, %if.end1
   %call22 = call i32 @atexit(ptr noundef nonnull @wait_for_pager_atexit) #12
   br label %return
 
-return:                                           ; preds = %if.end10.i, %lor.lhs.false.i, %entry, %if.end8, %if.end20
+return:                                           ; preds = %lor.lhs.false.i, %if.end10.i, %entry, %if.end8, %if.end20
   ret void
 }
 

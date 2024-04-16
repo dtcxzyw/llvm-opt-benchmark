@@ -145,7 +145,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %14 = load float, ptr %arrayidx6.i.i.i.i.i, align 8
   %15 = call noundef float @llvm.fmuladd.f32(float %14, float %scaled.sroa.3.0.copyload.i.i.i, float %13)
   %cmp2.i.i.i.i = fcmp ogt float %15, %maxDot.010.i.i.i.i
-  %16 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %ptIndex.1.i.i.i.i = select i1 %cmp2.i.i.i.i, i32 %16, i32 %ptIndex.09.i.i.i.i
   %maxDot.1.i.i.i.i = select i1 %cmp2.i.i.i.i, float %15, float %maxDot.010.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -182,7 +182,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %22 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 8
   %23 = call noundef float @llvm.fmuladd.f32(float %22, float %scaled.sroa.3.0.copyload.i.i.i.i, float %21)
   %cmp2.i.i.i.i.i = fcmp ogt float %23, %maxDot.010.i.i.i.i.i
-  %24 = trunc i64 %indvars.iv.i.i.i.i.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i to i32
   %ptIndex.1.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i, i32 %24, i32 %ptIndex.09.i.i.i.i.i
   %maxDot.1.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i, float %23, float %maxDot.010.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -898,7 +898,7 @@ for.body139:                                      ; preds = %for.body139.lr.ph, 
   %indvars.iv118 = phi i64 [ 0, %for.body139.lr.ph ], [ %indvars.iv.next119, %for.inc179 ]
   %add8.i111113 = phi float [ 0.000000e+00, %for.body139.lr.ph ], [ %add8.i110, %for.inc179 ]
   %66 = phi <2 x float> [ zeroinitializer, %for.body139.lr.ph ], [ %80, %for.inc179 ]
-  %67 = trunc i64 %indvars.iv118 to i32
+  %67 = trunc nuw i64 %indvars.iv118 to i32
   %shl = shl nuw i32 1, %67
   %and140 = and i32 %.pre125, %shl
   %tobool141.not = icmp eq i32 %and140, 0
@@ -1174,7 +1174,7 @@ for.body.i.i.i.i.us.us:                           ; preds = %for.body.i.i.i.i.us
   %17 = load float, ptr %arrayidx6.i.i.i.i.i.us.us, align 8
   %18 = call noundef float @llvm.fmuladd.f32(float %17, float %scaled.sroa.3.0.copyload.i.i.i.us.us, float %16)
   %cmp2.i.i.i.i.us.us = fcmp ogt float %18, %maxDot.010.i.i.i.i.us.us
-  %19 = trunc i64 %indvars.iv.i.i.i.i.us.us to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.us.us to i32
   %ptIndex.1.i.i.i.i.us.us = select i1 %cmp2.i.i.i.i.us.us, i32 %19, i32 %ptIndex.09.i.i.i.i.us.us
   %maxDot.1.i.i.i.i.us.us = select i1 %cmp2.i.i.i.i.us.us, float %18, float %maxDot.010.i.i.i.i.us.us
   %indvars.iv.next.i.i.i.i.us.us = add nuw nsw i64 %indvars.iv.i.i.i.i.us.us, 1
@@ -1262,7 +1262,7 @@ for.body.i.i.i.i.i.us:                            ; preds = %for.body.i.i.i.i.i.
   %34 = load float, ptr %arrayidx6.i.i.i.i.i.i.us, align 8
   %35 = call noundef float @llvm.fmuladd.f32(float %34, float %scaled.sroa.3.0.copyload.i.i.i.i.us, float %33)
   %cmp2.i.i.i.i.i.us = fcmp ogt float %35, %maxDot.010.i.i.i.i.i.us
-  %36 = trunc i64 %indvars.iv.i.i.i.i.i.us to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.us to i32
   %ptIndex.1.i.i.i.i.i.us = select i1 %cmp2.i.i.i.i.i.us, i32 %36, i32 %ptIndex.09.i.i.i.i.i.us
   %maxDot.1.i.i.i.i.i.us = select i1 %cmp2.i.i.i.i.i.us, float %35, float %maxDot.010.i.i.i.i.i.us
   %indvars.iv.next.i.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i.i.i.i.i.us, 1
@@ -1794,7 +1794,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %80 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 8
   %81 = call noundef float @llvm.fmuladd.f32(float %80, float %mul4.i.i.i, float %79)
   %cmp2.i.i.i.i.i = fcmp ogt float %81, %maxDot.010.i.i.i.i.i
-  %82 = trunc i64 %indvars.iv.i.i.i.i.i to i32
+  %82 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i to i32
   %ptIndex.1.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i, i32 %82, i32 %ptIndex.09.i.i.i.i.i
   %maxDot.1.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i, float %81, float %maxDot.010.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -1830,7 +1830,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %90 = load float, ptr %arrayidx6.i.i.i.i.i.i.i, align 8
   %91 = call noundef float @llvm.fmuladd.f32(float %90, float %mul4.i.i.i, float %89)
   %cmp2.i.i.i.i.i.i = fcmp ogt float %91, %maxDot.010.i.i.i.i.i.i
-  %92 = trunc i64 %indvars.iv.i.i.i.i.i.i to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i to i32
   %ptIndex.1.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, i32 %92, i32 %ptIndex.09.i.i.i.i.i.i
   %maxDot.1.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, float %91, float %maxDot.010.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -2291,7 +2291,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %27 = load float, ptr %arrayidx6.i.i.i.i.i.i, align 8
   %28 = tail call noundef float @llvm.fmuladd.f32(float %27, float %mul4.i.i.i, float %26)
   %cmp2.i.i.i.i.i = fcmp ogt float %28, %maxDot.010.i.i.i.i.i
-  %29 = trunc i64 %indvars.iv.i.i.i.i.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i to i32
   %ptIndex.1.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i, i32 %29, i32 %ptIndex.09.i.i.i.i.i
   %maxDot.1.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i, float %28, float %maxDot.010.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -2327,7 +2327,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %37 = load float, ptr %arrayidx6.i.i.i.i.i.i.i, align 8
   %38 = tail call noundef float @llvm.fmuladd.f32(float %37, float %mul4.i.i.i, float %36)
   %cmp2.i.i.i.i.i.i = fcmp ogt float %38, %maxDot.010.i.i.i.i.i.i
-  %39 = trunc i64 %indvars.iv.i.i.i.i.i.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i to i32
   %ptIndex.1.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, i32 %39, i32 %ptIndex.09.i.i.i.i.i.i
   %maxDot.1.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, float %38, float %maxDot.010.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -2536,7 +2536,7 @@ _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %if.
 if.then36:                                        ; preds = %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit
   %and = and i32 %subm.1, 1
   %tobool.not = icmp eq i32 %and, 0
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 1, %54
   %cond = select i1 %tobool.not, i32 0, i32 %shl
   %and37 = and i32 %subm.1, 2
@@ -2802,7 +2802,7 @@ if.then51:                                        ; preds = %if.then43
   %62 = load i32, ptr %subm, align 4
   %and = and i32 %62, 1
   %tobool52.not = icmp eq i32 %and, 0
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 1, %63
   %cond = select i1 %tobool52.not, i32 0, i32 %shl
   %and53 = and i32 %62, 2
@@ -3005,7 +3005,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %26 = load float, ptr %arrayidx6.i.i.i, align 8
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %18, float %25)
   %cmp2.i.i = fcmp ogt float %27, %maxDot.010.i.i
-  %28 = trunc i64 %indvars.iv.i.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %ptIndex.1.i.i = select i1 %cmp2.i.i, i32 %28, i32 %ptIndex.09.i.i
   %maxDot.1.i.i = select i1 %cmp2.i.i, float %27, float %maxDot.010.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3065,7 +3065,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %39 = load float, ptr %arrayidx6.i.i.i.i30, align 8
   %40 = tail call noundef float @llvm.fmuladd.f32(float %39, float %18, float %38)
   %cmp2.i.i.i = fcmp ogt float %40, %maxDot.010.i.i.i
-  %41 = trunc i64 %indvars.iv.i.i.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %ptIndex.1.i.i.i = select i1 %cmp2.i.i.i, i32 %41, i32 %ptIndex.09.i.i.i
   %maxDot.1.i.i.i = select i1 %cmp2.i.i.i, float %40, float %maxDot.010.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3161,7 +3161,7 @@ entry:
   %0 = load ptr, ptr %m_simplex, align 8
   %rank = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %rank, align 8
-  switch i32 %1, label %sw.epilog [
+  switch i32 %1, label %return [
     i32 1, label %for.cond.preheader
     i32 2, label %sw.bb15
     i32 3, label %sw.bb60
@@ -3229,7 +3229,7 @@ if.end13:                                         ; preds = %if.end
   store ptr %15, ptr %arrayidx3.i14, align 8
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 3
-  br i1 %exitcond163.not, label %sw.epilog, label %for.body, !llvm.loop !28
+  br i1 %exitcond163.not, label %return, label %for.body, !llvm.loop !28
 
 sw.bb15:                                          ; preds = %entry
   %arrayidx17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3335,7 +3335,7 @@ if.end54:                                         ; preds = %if.end45
 for.inc57:                                        ; preds = %for.body28, %if.end54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %sw.epilog, label %for.body28, !llvm.loop !29
+  br i1 %exitcond.not, label %return, label %for.body28, !llvm.loop !29
 
 sw.bb60:                                          ; preds = %entry
   %arrayidx64 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3388,7 +3388,7 @@ sw.bb60:                                          ; preds = %entry
   %87 = tail call float @llvm.fmuladd.f32(float %86, float %86, float %mul5.i.i87)
   %88 = tail call noundef float @llvm.fmuladd.f32(float %83, float %83, float %87)
   %cmp89 = fcmp ogt float %88, 0.000000e+00
-  br i1 %cmp89, label %if.then90, label %sw.epilog
+  br i1 %cmp89, label %if.then90, label %return
 
 if.then90:                                        ; preds = %sw.bb60
   call void @_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3(ptr noundef nonnull align 16 dereferenceable(484) %this, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 16 dereferenceable(16) %n)
@@ -3440,7 +3440,7 @@ if.end103:                                        ; preds = %if.end94
   %idxprom2.i115 = zext i32 %101 to i64
   %arrayidx3.i116 = getelementptr inbounds [4 x ptr], ptr %m_free.i93, i64 0, i64 %idxprom2.i115
   store ptr %100, ptr %arrayidx3.i116, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb106:                                         ; preds = %entry
   %102 = load ptr, ptr %0, align 8
@@ -3501,11 +3501,11 @@ sw.bb106:                                         ; preds = %entry
   %cmp145 = fcmp ueq float %125, 0.000000e+00
   br i1 %cmp145, label %sw.epilog, label %return
 
-sw.epilog:                                        ; preds = %for.inc57, %if.end13, %sw.bb106, %sw.bb60, %if.end103, %entry
+sw.epilog:                                        ; preds = %sw.bb106
   br label %return
 
-return:                                           ; preds = %if.end45, %if.then41, %if.end, %for.body, %sw.bb106, %if.end94, %if.then90, %sw.epilog
-  %retval.0 = phi i1 [ false, %sw.epilog ], [ true, %if.then90 ], [ true, %if.end94 ], [ true, %sw.bb106 ], [ true, %for.body ], [ true, %if.end ], [ true, %if.then41 ], [ true, %if.end45 ]
+return:                                           ; preds = %for.inc57, %if.end45, %if.then41, %if.end13, %if.end, %for.body, %entry, %if.end103, %sw.bb60, %sw.bb106, %if.end94, %if.then90, %sw.epilog
+  %retval.0 = phi i1 [ true, %if.then90 ], [ true, %if.end94 ], [ true, %sw.bb106 ], [ false, %sw.bb60 ], [ false, %if.end103 ], [ false, %entry ], [ false, %sw.epilog ], [ false, %if.end13 ], [ true, %if.end ], [ true, %for.body ], [ false, %for.inc57 ], [ true, %if.end45 ], [ true, %if.then41 ]
   ret i1 %retval.0
 }
 

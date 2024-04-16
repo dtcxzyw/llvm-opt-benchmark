@@ -44,20 +44,18 @@ define dso_local i32 @cm_zlib_gzread(ptr noundef %0, ptr noundef %1, i32 noundef
   %16 = tail call fastcc i64 @gz_read(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %15)
   %17 = trunc i64 %16 to i32
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
   %20 = load i32, ptr %9, align 4
-  switch i32 %20, label %22 [
-    i32 0, label %21
-    i32 -5, label %21
-  ]
-
-21:                                               ; preds = %19, %19, %14
+  %switch.selectcmp.case1 = icmp ne i32 %20, 0
+  %switch.selectcmp.case2 = icmp ne i32 %20, -5
+  %switch.selectcmp.not = and i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  %21 = sext i1 %switch.selectcmp.not to i32
   br label %22
 
-22:                                               ; preds = %19, %5, %8, %3, %21, %13
-  %.0 = phi i32 [ -1, %13 ], [ %17, %21 ], [ -1, %3 ], [ -1, %8 ], [ -1, %5 ], [ -1, %19 ]
+22:                                               ; preds = %19, %14, %5, %8, %3, %13
+  %.0 = phi i32 [ -1, %13 ], [ -1, %3 ], [ -1, %8 ], [ -1, %5 ], [ %17, %14 ], [ %21, %19 ]
   ret i32 %.0
 }
 
@@ -148,7 +146,7 @@ gz_skip.exit.thread:                              ; preds = %31, %37, %8, %5
   %.035 = phi i64 [ %2, %gz_skip.exit.thread ], [ %.136, %103 ]
   %.0 = phi i64 [ 0, %gz_skip.exit.thread ], [ %.1, %103 ]
   %spec.select59 = tail call i64 @llvm.umin.i64(i64 %.035, i64 4294967295)
-  %spec.select = trunc i64 %spec.select59 to i32
+  %spec.select = trunc nuw i64 %spec.select59 to i32
   %48 = load i32, ptr %0, align 8
   %.not44 = icmp eq i32 %48, 0
   br i1 %.not44, label %56, label %49

@@ -107,7 +107,7 @@ declare i32 @ossl_ec_GFp_simple_point_set_to_infinity(ptr noundef, ptr noundef) 
 declare i32 @ossl_ec_GFp_simple_point_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecp_nistz256_get_affine(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr nocapture readnone %ctx) #1 {
+define internal i32 @ecp_nistz256_get_affine(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr nocapture readnone %ctx) #1 {
 entry:
   %p2.i = alloca [4 x i64], align 16
   %p4.i = alloca [4 x i64], align 16
@@ -289,21 +289,19 @@ if.then19:                                        ; preds = %ecp_nistz256_mod_in
 
 if.end27:                                         ; preds = %if.then19, %ecp_nistz256_mod_inverse.exit
   %cmp28.not = icmp eq ptr %y, null
-  br i1 %cmp28.not, label %if.end43, label %if.then29
+  br i1 %cmp28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %z_inv3, ptr noundef nonnull %z_inv3, ptr noundef nonnull %z_inv2) #8
   call void @ecp_nistz256_mul_mont(ptr noundef nonnull %y_aff, ptr noundef nonnull %z_inv3, ptr noundef nonnull %point_y) #8
   call void @ecp_nistz256_from_mont(ptr noundef nonnull %y_ret, ptr noundef nonnull %y_aff) #8
   %call39 = call i32 @bn_set_words(ptr noundef nonnull %y, ptr noundef nonnull %y_ret, i32 noundef 4) #8
-  %tobool40.not = icmp eq i32 %call39, 0
-  br i1 %tobool40.not, label %return, label %if.end43
-
-if.end43:                                         ; preds = %if.then29, %if.end27
+  %tobool40.not = icmp ne i32 %call39, 0
+  %spec.select = zext i1 %tobool40.not to i32
   br label %return
 
-return:                                           ; preds = %if.then29, %if.then19, %if.end43, %if.then10, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end43 ], [ 0, %if.then10 ], [ 0, %if.then19 ], [ 0, %if.then29 ]
+return:                                           ; preds = %if.then29, %if.end27, %if.then19, %if.then10, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then10 ], [ 0, %if.then19 ], [ 1, %if.end27 ], [ %spec.select, %if.then29 ]
   ret i32 %retval.0
 }
 
@@ -455,7 +453,7 @@ if.end45:                                         ; preds = %if.end40, %lor.lhs.
   br i1 %cmp47186, label %for.body, label %for.body91.preheader
 
 for.cond88.preheader:                             ; preds = %for.body
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.next to i32
   %cmp89188 = icmp ult i32 %7, 33
   br i1 %cmp89188, label %for.body91.preheader, label %for.end95
 
@@ -507,7 +505,7 @@ for.body:                                         ; preds = %if.end45, %for.body
   %arrayidx81 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %16
   store i8 %conv78, ptr %arrayidx81, align 2
   %shr82 = lshr i64 %10, 56
-  %conv83 = trunc i64 %shr82 to i8
+  %conv83 = trunc nuw i64 %shr82 to i8
   %17 = or disjoint i64 %indvars.iv, 7
   %arrayidx86 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %17
   store i8 %conv83, ptr %arrayidx86, align 1
@@ -782,7 +780,7 @@ if.end37.i:                                       ; preds = %if.else.i, %if.end2
   br i1 %cmp42260.i, label %for.body43.i, label %for.body96.preheader.i
 
 for.cond93.preheader.i:                           ; preds = %for.body43.i
-  %66 = trunc i64 %indvars.iv.next.i to i32
+  %66 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %cmp94262.i = icmp ult i32 %66, 33
   br i1 %cmp94262.i, label %for.body96.preheader.i, label %for.end101.i
 
@@ -835,7 +833,7 @@ for.body43.i:                                     ; preds = %if.end37.i, %for.bo
   %arrayidx85.i = getelementptr inbounds [33 x i8], ptr %call9.i, i64 %i.0265.i, i64 %76
   store i8 %conv81.i, ptr %arrayidx85.i, align 1
   %shr86.i = lshr i64 %70, 56
-  %conv87.i = trunc i64 %shr86.i to i8
+  %conv87.i = trunc nuw i64 %shr86.i to i8
   %77 = or disjoint i64 %indvars.iv.i, 7
   %arrayidx91.i = getelementptr inbounds [33 x i8], ptr %call9.i, i64 %i.0265.i, i64 %77
   store i8 %conv87.i, ptr %arrayidx91.i, align 1
@@ -1105,7 +1103,7 @@ if.then.i149:                                     ; preds = %if.end238
   %127 = xor i64 %125, -1
   %not.i.i = and i64 %126, %127
   %shr.i.i = lshr i64 %not.i.i, 63
-  %128 = trunc i64 %shr.i.i to i32
+  %128 = trunc nuw nsw i64 %shr.i.i to i32
   br label %is_one.exit
 
 is_one.exit:                                      ; preds = %if.end238, %if.then.i149
@@ -1641,7 +1639,7 @@ if.then.i:                                        ; preds = %land.rhs
   %29 = xor i64 %27, -1
   %not.i.i20 = and i64 %28, %29
   %shr.i.i21 = lshr i64 %not.i.i20, 63
-  %30 = trunc i64 %shr.i.i21 to i32
+  %30 = trunc nuw nsw i64 %shr.i.i21 to i32
   br label %land.end
 
 land.end:                                         ; preds = %if.then.i, %land.rhs, %land.lhs.true7, %land.lhs.true3, %land.lhs.true, %entry

@@ -863,7 +863,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.end73:                                         ; preds = %for.body
   %29 = load ptr, ptr %fSets, align 8
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %call75 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %29, i32 noundef %30)
   %call76 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #11
   %new.isnull77 = icmp eq ptr %call76, null
@@ -1267,7 +1267,7 @@ entry:
   %fFlags2 = getelementptr inbounds i8, ptr %other, i64 24
   %1 = load i32, ptr %fFlags2, align 8
   %cmp = icmp eq i32 %0, %1
-  br i1 %cmp, label %land.lhs.true, label %if.end67
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 120
@@ -1275,7 +1275,7 @@ land.lhs.true:                                    ; preds = %entry
   %fDeferredStatus3 = getelementptr inbounds i8, ptr %other, i64 120
   %3 = load i32, ptr %fDeferredStatus3, align 8
   %cmp4 = icmp eq i32 %2, %3
-  br i1 %cmp4, label %if.then, label %if.end67
+  br i1 %cmp4, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
   %fPatternString = getelementptr inbounds i8, ptr %this, i64 16
@@ -1336,15 +1336,11 @@ if.else:                                          ; preds = %land.lhs.true6, %if
   %fPattern14 = getelementptr inbounds i8, ptr %other, i64 8
   %14 = load ptr, ptr %fPattern14, align 8
   %cmp15 = icmp eq ptr %14, null
-  br i1 %cmp12, label %if.then13, label %if.else17
+  %brmerge = select i1 %cmp12, i1 true, i1 %cmp15
+  %cmp15.mux = select i1 %cmp12, i1 %cmp15, i1 false
+  br i1 %brmerge, label %return, label %do.body
 
-if.then13:                                        ; preds = %if.else
-  br i1 %cmp15, label %return, label %if.end67
-
-if.else17:                                        ; preds = %if.else
-  br i1 %cmp15, label %if.end67, label %do.body
-
-do.body:                                          ; preds = %if.else17
+do.body:                                          ; preds = %if.else
   %chunkNativeStart = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load i64, ptr %chunkNativeStart, align 8
   %sub = sub nsw i64 0, %15
@@ -1367,7 +1363,7 @@ land.lhs.true26:                                  ; preds = %land.lhs.true23
   br i1 %cmp29, label %if.then30, label %if.else33
 
 if.then30:                                        ; preds = %land.lhs.true26
-  %conv31 = trunc i64 %sub to i32
+  %conv31 = trunc nuw nsw i64 %sub to i32
   %chunkOffset = getelementptr inbounds i8, ptr %13, i64 40
   store i32 %conv31, ptr %chunkOffset, align 8
   br label %do.body36
@@ -1400,7 +1396,7 @@ land.lhs.true47:                                  ; preds = %land.lhs.true42
   br i1 %cmp52, label %if.then53, label %if.else57
 
 if.then53:                                        ; preds = %land.lhs.true47
-  %conv54 = trunc i64 %sub40 to i32
+  %conv54 = trunc nuw nsw i64 %sub40 to i32
   %chunkOffset56 = getelementptr inbounds i8, ptr %19, i64 40
   store i32 %conv54, ptr %chunkOffset56, align 8
   br label %do.end60
@@ -1416,11 +1412,8 @@ do.end60:                                         ; preds = %if.then53, %if.else
   %tobool = icmp ne i8 %call63, 0
   br label %return
 
-if.end67:                                         ; preds = %if.else17, %if.then13, %land.lhs.true, %entry
-  br label %return
-
-return:                                           ; preds = %land.rhs.i, %if.else.i, %if.then.i, %if.then13, %if.end67, %do.end60
-  %retval.0 = phi i1 [ false, %if.end67 ], [ %tobool, %do.end60 ], [ true, %if.then13 ], [ %tobool3.i, %if.then.i ], [ false, %if.else.i ], [ %tobool9.i, %land.rhs.i ]
+return:                                           ; preds = %if.else, %land.rhs.i, %if.else.i, %if.then.i, %entry, %land.lhs.true, %do.end60
+  %retval.0 = phi i1 [ %tobool, %do.end60 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool3.i, %if.then.i ], [ false, %if.else.i ], [ %tobool9.i, %land.rhs.i ], [ %cmp15.mux, %if.else ]
   ret i1 %retval.0
 }
 

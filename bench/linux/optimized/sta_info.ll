@@ -1819,7 +1819,7 @@ define internal fastcc void @__sta_info_recalc_tim(ptr noundef %0, i1 noundef ze
   %111 = zext nneg i16 %110 to i64
   %112 = getelementptr i8, ptr %22, i64 %111
   %113 = load i8, ptr %112, align 1
-  %114 = trunc i16 %109 to i8
+  %114 = trunc nuw i16 %109 to i8
   %115 = xor i8 %114, -1
   %116 = and i8 %113, %115
   %117 = or i8 %113, %114
@@ -4275,7 +4275,7 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
   br i1 %90, label %91, label %.preheader98
 
 91:                                               ; preds = %.thread17
-  %92 = trunc i64 %89 to i32
+  %92 = trunc nuw nsw i64 %89 to i32
   %93 = and i32 %92, 65535
   %94 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %93) #23, !srcloc !173
   %95 = icmp ugt i32 %94, 1
@@ -4321,7 +4321,7 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
   br i1 %118, label %122, label %119
 
 119:                                              ; preds = %116
-  %120 = trunc i64 %89 to i32
+  %120 = trunc nuw nsw i64 %89 to i32
   %121 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %120, i32 -1) #22, !srcloc !175
   br label %.thread19
 
@@ -4331,7 +4331,7 @@ define internal fastcc void @ieee80211_sta_ps_deliver_response(ptr noundef %0, i
   br i1 %124, label %125, label %.thread19
 
 125:                                              ; preds = %122
-  %126 = trunc i64 %89 to i32
+  %126 = trunc nuw nsw i64 %89 to i32
   %127 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %126, i32 -1) #22, !srcloc !175
   br label %.thread19
 
@@ -6979,7 +6979,7 @@ define dso_local i32 @sta_get_expected_throughput(ptr noundef %0) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @ieee80211_sta_set_expected_throughput(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %12, label %4
+  br i1 %3, label %13, label %4
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
@@ -6991,13 +6991,13 @@ define dso_local void @ieee80211_sta_set_expected_throughput(ptr nocapture nound
   %11 = icmp ugt i64 %10, %5
   br i1 %11, label %13, label %12
 
-12:                                               ; preds = %4, %2
+12:                                               ; preds = %4
   br label %13
 
-13:                                               ; preds = %12, %4
-  %14 = phi i32 [ 19531, %12 ], [ 48828, %4 ]
-  %15 = phi i32 [ 97656, %12 ], [ 292968, %4 ]
-  %16 = phi i8 [ 1, %12 ], [ 0, %4 ]
+13:                                               ; preds = %2, %12, %4
+  %14 = phi i32 [ 48828, %4 ], [ 19531, %2 ], [ 19531, %12 ]
+  %15 = phi i32 [ 292968, %4 ], [ 97656, %2 ], [ 97656, %12 ]
+  %16 = phi i8 [ 0, %4 ], [ 1, %2 ], [ 1, %12 ]
   %17 = getelementptr i8, ptr %0, i64 -1368
   store i32 %14, ptr %17, align 8
   %18 = getelementptr i8, ptr %0, i64 -1360

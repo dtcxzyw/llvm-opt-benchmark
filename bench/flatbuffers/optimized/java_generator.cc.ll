@@ -2825,7 +2825,7 @@ for.body.i:                                       ; preds = %invoke.cont12.i
   %vtable14.i = load ptr, ptr %service, align 8
   %vfn15.i = getelementptr inbounds i8, ptr %vtable14.i, i64 72
   %25 = load ptr, ptr %vfn15.i, align 8
-  %26 = trunc i64 %indvars.iv.i to i32
+  %26 = trunc nuw nsw i64 %indvars.iv.i to i32
   invoke void %25(ptr nonnull sret(%"class.std::unique_ptr.12") align 8 %method.i, ptr noundef nonnull align 8 dereferenceable(8) %service, i32 noundef %26)
           to label %invoke.cont16.i unwind label %lpad11.i
 
@@ -4930,7 +4930,7 @@ for.body.i221:                                    ; preds = %invoke.cont4.i
   %vtable7.i = load ptr, ptr %service, align 8
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 72
   %210 = load ptr, ptr %vfn8.i, align 8
-  %211 = trunc i64 %indvars.iv.i153 to i32
+  %211 = trunc nuw nsw i64 %indvars.iv.i153 to i32
   invoke void %210(ptr nonnull sret(%"class.std::unique_ptr.12") align 8 %ref.tmp6.i, ptr noundef nonnull align 8 dereferenceable(8) %service, i32 noundef %211)
           to label %invoke.cont9.i unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
@@ -10063,7 +10063,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %7 = load ptr, ptr %lines, align 8
   %add.ptr.i18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %i.025
   %call11 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i18) #17
-  br i1 %call11, label %if.else, label %land.lhs.true
+  br i1 %call11, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont8
   %8 = load ptr, ptr %lines, align 8
@@ -10071,7 +10071,8 @@ land.lhs.true:                                    ; preds = %invoke.cont8
   %call13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i19, i64 noundef 0) #17
   %9 = load i8, ptr %call13, align 1
   %cmp14 = icmp eq i8 %9, 47
-  br i1 %cmp14, label %for.inc, label %if.else
+  %spec.select = select i1 %cmp14, ptr @.str.77, ptr @.str.78
+  br label %for.inc
 
 lpad:                                             ; preds = %call.i.noexc, %for.body
   %10 = landingpad { ptr, i32 }
@@ -10089,11 +10090,8 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #17
   resume { ptr, i32 } %.pn
 
-if.else:                                          ; preds = %land.lhs.true, %invoke.cont8
-  br label %for.inc
-
-for.inc:                                          ; preds = %land.lhs.true, %if.else
-  %.str.77.sink = phi ptr [ @.str.78, %if.else ], [ @.str.77, %land.lhs.true ]
+for.inc:                                          ; preds = %land.lhs.true, %invoke.cont8
+  %.str.77.sink = phi ptr [ @.str.78, %invoke.cont8 ], [ %spec.select, %land.lhs.true ]
   %vtable16 = load ptr, ptr %printer, align 8
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 16
   %12 = load ptr, ptr %vfn17, align 8
@@ -10683,8 +10681,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5

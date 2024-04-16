@@ -560,7 +560,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ecdh_get_ctx_params(ptr noundef readonly %vpecdhctx, ptr noundef %params) #0 {
+define internal i32 @ecdh_get_ctx_params(ptr noundef readonly %vpecdhctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpecdhctx, null
   br i1 %cmp, label %return, label %if.end
@@ -648,7 +648,7 @@ land.lhs.true34:                                  ; preds = %if.end31
 if.end38:                                         ; preds = %land.lhs.true34, %if.end31
   %call39 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.7) #7
   %cmp40.not = icmp eq ptr %call39, null
-  br i1 %cmp40.not, label %if.end45, label %land.lhs.true41
+  br i1 %cmp40.not, label %return, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end38
   %kdf_ukm = getelementptr inbounds i8, ptr %vpecdhctx, i64 40
@@ -656,14 +656,12 @@ land.lhs.true41:                                  ; preds = %if.end38
   %kdf_ukmlen = getelementptr inbounds i8, ptr %vpecdhctx, i64 48
   %6 = load i64, ptr %kdf_ukmlen, align 8
   %call42 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call39, ptr noundef %5, i64 noundef %6) #7
-  %tobool43.not = icmp eq i32 %call42, 0
-  br i1 %tobool43.not, label %return, label %if.end45
-
-if.end45:                                         ; preds = %land.lhs.true41, %if.end38
+  %tobool43.not = icmp ne i32 %call42, 0
+  %spec.select = zext i1 %tobool43.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true41, %land.lhs.true34, %cond.end, %sw.epilog, %if.then14, %if.end6, %entry, %if.end45
-  %retval.0 = phi i32 [ 1, %if.end45 ], [ 0, %entry ], [ 0, %if.end6 ], [ 0, %if.then14 ], [ 0, %sw.epilog ], [ 0, %cond.end ], [ 0, %land.lhs.true34 ], [ 0, %land.lhs.true41 ]
+return:                                           ; preds = %land.lhs.true41, %if.end38, %land.lhs.true34, %cond.end, %sw.epilog, %if.then14, %if.end6, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end6 ], [ 0, %if.then14 ], [ 0, %sw.epilog ], [ 0, %cond.end ], [ 0, %land.lhs.true34 ], [ 1, %if.end38 ], [ %spec.select, %land.lhs.true41 ]
   ret i32 %retval.0
 }
 

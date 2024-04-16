@@ -3741,9 +3741,9 @@ if.then3:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call10 = call i32 @vfprintf(ptr noundef %0, ptr noundef %format, ptr noundef nonnull %vargs) #21
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %fputc = call i32 @fputc(i32 10, ptr %0)
   %call13 = call i32 @fflush(ptr noundef %0)
   call fastcc void @fatal_error(i32 noundef %call, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef -1) #22
@@ -3768,14 +3768,8 @@ if.else:                                          ; preds = %entry
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
@@ -3788,7 +3782,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #14
+declare void @exit(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @Py_AtExit(ptr noundef %func) local_unnamed_addr #1 {
@@ -3957,7 +3951,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
 
 declare void @_PyConfig_Write(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -6045,7 +6039,7 @@ Py_DECREF.exit218:                                ; preds = %if.end31, %if.then1
 
 if.end35:                                         ; preds = %Py_DECREF.exit218
   %_Py_TrueStruct._Py_FalseStruct = select i1 %tobool2, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  br i1 %tobool2, label %land.lhs.true41, label %if.else47
+  br i1 %tobool2, label %land.lhs.true41, label %if.then50
 
 land.lhs.true41:                                  ; preds = %if.end35
   %tobool42.not = icmp eq i32 %call32, 0
@@ -6055,13 +6049,11 @@ lor.lhs.false43:                                  ; preds = %land.lhs.true41
   %3 = load ptr, ptr @stderr, align 8
   %call44 = call i32 @fileno(ptr noundef %3) #19
   %cmp45 = icmp eq i32 %call44, %fd
-  br i1 %cmp45, label %if.then50, label %if.else47
-
-if.else47:                                        ; preds = %lor.lhs.false43, %if.end35
+  %spec.select = select i1 %cmp45, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   br label %if.then50
 
-if.then50:                                        ; preds = %if.else47, %lor.lhs.false43, %land.lhs.true41
-  %line_buffering.0 = phi ptr [ @_Py_FalseStruct, %if.else47 ], [ @_Py_TrueStruct, %lor.lhs.false43 ], [ @_Py_TrueStruct, %land.lhs.true41 ]
+if.then50:                                        ; preds = %land.lhs.true41, %if.end35, %lor.lhs.false43
+  %line_buffering.0 = phi ptr [ @_Py_TrueStruct, %land.lhs.true41 ], [ @_Py_FalseStruct, %if.end35 ], [ %spec.select, %lor.lhs.false43 ]
   %4 = load i64, ptr %raw.0, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i223.not = icmp eq i64 %5, 0
@@ -6498,13 +6490,19 @@ declare ptr @PyException_GetTraceback(ptr noundef) local_unnamed_addr #0
 declare ptr @_Py_DumpTracebackThreads(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #14
+declare void @abort() local_unnamed_addr #13
 
 declare ptr @PyImport_GetModule(ptr noundef) local_unnamed_addr #0
 
 declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #0
 
 declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
@@ -6534,9 +6532,9 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nofree nounwind }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

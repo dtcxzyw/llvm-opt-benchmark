@@ -30,19 +30,15 @@ entry:
   %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.else, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %asn1_cb1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %asn1_cb1, align 8
-  %tobool2.not = icmp eq ptr %1, null
-  br i1 %tobool2.not, label %if.else, label %if.end
-
-if.else:                                          ; preds = %land.lhs.true, %entry
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %if.else
-  %asn1_cb.0 = phi ptr [ null, %if.else ], [ %1, %land.lhs.true ]
+if.end:                                           ; preds = %land.lhs.true, %entry
+  %asn1_cb.0 = phi ptr [ null, %entry ], [ %1, %land.lhs.true ]
   %2 = load i8, ptr %it, align 8
   switch i8 %2, label %return [
     i8 4, label %sw.bb

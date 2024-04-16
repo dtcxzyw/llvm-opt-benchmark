@@ -1660,13 +1660,13 @@ define dso_local ptr @nghttp2_frame_iv_copy(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define dso_local i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %4, %6
-  br i1 %.not, label %7, label %29
+  br i1 %.not, label %7, label %28
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1674,7 +1674,7 @@ define dso_local noundef i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %0
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
   %.not19 = icmp eq i64 %9, %11
-  br i1 %.not19, label %12, label %29
+  br i1 %.not19, label %12, label %28
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %0, align 8
@@ -1689,7 +1689,7 @@ define dso_local noundef i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %0
 18:                                               ; preds = %15
   %bcmp = tail call i32 @bcmp(ptr nonnull %13, ptr nonnull %16, i64 %4)
   %.not20 = icmp eq i32 %bcmp, 0
-  br i1 %.not20, label %19, label %29
+  br i1 %.not20, label %19, label %28
 
 19:                                               ; preds = %18, %12, %15
   %20 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1706,13 +1706,11 @@ define dso_local noundef i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %0
 27:                                               ; preds = %23
   %bcmp21 = tail call i32 @bcmp(ptr nonnull %21, ptr nonnull %25, i64 %9)
   %.not22 = icmp eq i32 %bcmp21, 0
-  br i1 %.not22, label %28, label %29
+  %spec.select = zext i1 %.not22 to i32
+  br label %28
 
-28:                                               ; preds = %27, %19, %23
-  br label %29
-
-29:                                               ; preds = %27, %18, %2, %7, %28
-  %.0 = phi i32 [ 1, %28 ], [ 0, %7 ], [ 0, %2 ], [ 0, %18 ], [ 0, %27 ]
+28:                                               ; preds = %27, %23, %19, %18, %2, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 0, %18 ], [ 1, %19 ], [ 1, %23 ], [ %spec.select, %27 ]
   ret i32 %.0
 }
 

@@ -64,7 +64,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
 
 24:                                               ; preds = %6
   %25 = getelementptr inbounds i8, ptr %8, i64 8
-  %.03.i.i = load i32, ptr %25, align 4, !noalias !16, !noundef !15
+  %.03.i12.i = load i32, ptr %25, align 4, !noalias !16, !noundef !15
   %26 = load i64, ptr %8, align 8, !noalias !4, !noundef !15
   %27 = add i64 %26, -1
   store i64 %27, ptr %8, align 8, !noalias !4
@@ -73,7 +73,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
 
 29:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4
-  %30 = zext i32 %.03.i.i to i64
+  %30 = zext i32 %.03.i12.i to i64
   %31 = add nuw nsw i64 %30, 15
   %32 = lshr i64 %31, 4
   %33 = add nuw nsw i64 %32, 1
@@ -263,8 +263,8 @@ define internal fastcc noundef i32 @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14
   %.old = icmp eq i32 %65, 0
   br i1 %.old, label %.thread, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i21"
 
-.thread:                                          ; preds = %78, %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit", %49, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39"
-  %.046 = phi i32 [ %.sroa.4.0.i.ph10.i33, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39" ], [ 1114112, %49 ], [ 1114112, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ], [ %.sroa.4.0.i.ph10.i33, %64 ], [ %.sroa.4.0.i.ph10.i33, %78 ]
+.thread:                                          ; preds = %64, %78, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit", %49, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39"
+  %.046 = phi i32 [ %.sroa.4.0.i.ph10.i33, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39" ], [ 1114112, %49 ], [ 1114112, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ], [ %.sroa.4.0.i.ph10.i33, %78 ], [ %.sroa.4.0.i.ph10.i33, %64 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %98 = icmp ult i64 %2, 16
   br i1 %98, label %.thread.thread, label %99
@@ -313,7 +313,7 @@ common.resume:                                    ; preds = %142, %105
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i21": ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit19.thread39", %78
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %108 = icmp ult i64 %2, 9
-  %109 = trunc i64 %2 to i32
+  %109 = trunc nuw nsw i64 %2 to i32
   %110 = getelementptr inbounds i8, ptr %0, i64 8
   %111 = load i32, ptr %110, align 8, !alias.scope !40
   %.0.i.i = select i1 %108, i32 %109, i32 %111
@@ -789,8 +789,8 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue15pop_except_from17
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %34, ptr %35, align 8, !noalias !88
   %36 = call noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.llvm.5283878113924261044"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !92
-  %.not9.i = icmp eq ptr %36, null
-  br i1 %.not9.i, label %_ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit.thread, label %.lr.ph.i
+  %.not8.i = icmp eq ptr %36, null
+  br i1 %.not8.i, label %_ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit.thread, label %.lr.ph.i
 
 _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit.thread: ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !88
@@ -798,7 +798,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
 
 .lr.ph.i:                                         ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit", %45
   %37 = phi ptr [ %47, %45 ], [ %36, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
-  %.010.i = phi i32 [ %46, %45 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
+  %.09.i = phi i32 [ %46, %45 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
   %38 = load i8, ptr %37, align 1, !noalias !92, !noundef !15
   %39 = icmp ugt i8 %38, 63
   br i1 %39, label %45, label %40
@@ -811,13 +811,13 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   br i1 %44, label %45, label %_ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit
 
 45:                                               ; preds = %40, %.lr.ph.i
-  %46 = add i32 %.010.i, 1
+  %46 = add i32 %.09.i, 1
   %47 = call noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.llvm.5283878113924261044"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !92
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %_ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit, label %.lr.ph.i
 
 _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit: ; preds = %40, %45
-  %.0.lcssa.i = phi i32 [ %46, %45 ], [ %.010.i, %40 ]
+  %.0.lcssa.i = phi i32 [ %46, %45 ], [ %.09.i, %40 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !88
   %.not = icmp eq i32 %.0.lcssa.i, 0
   br i1 %.not, label %48, label %51
@@ -952,14 +952,14 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %.sroa.072.0 = phi i64 [ %92, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ], [ %75, %"_ZN75_$LT$tendril..tendril..NonAtomic$u20$as$u20$tendril..tendril..Atomicity$GT$9increment17hd9677b8a71d1b543E.exit.i" ]
   %.sroa.573.8.extract.trunc = trunc i64 %.sroa.573.0 to i32
   %.sroa.573.12.extract.shift = lshr i64 %.sroa.573.0, 32
-  %.sroa.573.12.extract.trunc = trunc i64 %.sroa.573.12.extract.shift to i32
+  %.sroa.573.12.extract.trunc = trunc nuw i64 %.sroa.573.12.extract.shift to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %106 = icmp eq i64 %105, 15
   br i1 %106, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread.i", label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i30"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i30": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$17unsafe_subtendril17h61aa787dcca1b780E.exit"
   %107 = icmp ult i64 %105, 9
-  %108 = trunc i64 %105 to i32
+  %108 = trunc nuw nsw i64 %105 to i32
   %109 = getelementptr inbounds i8, ptr %14, i64 8
   %110 = load i32, ptr %109, align 4, !alias.scope !105
   %.0.i.i31 = select i1 %107, i32 %108, i32 %110

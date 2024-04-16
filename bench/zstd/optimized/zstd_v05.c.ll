@@ -141,7 +141,7 @@ for.inc59:                                        ; preds = %for.inc56, %for.con
   br i1 %exitcond61.not, label %for.end61, label %for.cond40.preheader, !llvm.loop !8
 
 for.end61:                                        ; preds = %for.inc59
-  %conv10 = trunc i32 %tableLog to i16
+  %conv10 = trunc nuw nsw i32 %tableLog to i16
   %cmp62.not = icmp eq i32 %position.1.lcssa, 0
   br i1 %cmp62.not, label %for.body70.preheader, label %return
 
@@ -163,7 +163,7 @@ for.body70:                                       ; preds = %for.body70.preheade
   %6 = tail call i32 @llvm.ctlz.i32(i32 %conv78, i1 true), !range !9
   %xor.i = xor i32 %6, 31
   %sub80 = sub nsw i32 %tableLog, %xor.i
-  %conv81 = trunc i32 %sub80 to i8
+  %conv81 = trunc nsw i32 %sub80 to i8
   %nbBits = getelementptr inbounds i8, ptr %arrayidx73, i64 3
   store i8 %conv81, ptr %nbBits, align 1
   %conv88 = and i32 %sub80, 255
@@ -604,7 +604,7 @@ sw.epilog.i:                                      ; preds = %sw.bb50.i, %if.else
 BITv05_initDStream.exit.thread898:                ; preds = %sw.epilog.i
   %conv59.i = zext i8 %15 to i32
   %16 = tail call i32 @llvm.ctlz.i32(i32 %conv59.i, i1 true), !range !9
-  %17 = trunc i64 %cSrcSize to i32
+  %17 = trunc nuw i64 %cSrcSize to i32
   %18 = shl nuw nsw i32 %17, 3
   %reass.sub = sub nsw i32 %16, %18
   %add70.i = add nsw i32 %reass.sub, 41
@@ -1147,7 +1147,7 @@ sw.epilog.i358:                                   ; preds = %sw.bb50.i353, %if.e
 BITv05_initDStream.exit404.thread939:             ; preds = %sw.epilog.i358
   %conv59.i362 = zext i8 %39 to i32
   %40 = tail call i32 @llvm.ctlz.i32(i32 %conv59.i362, i1 true), !range !9
-  %41 = trunc i64 %cSrcSize to i32
+  %41 = trunc nuw i64 %cSrcSize to i32
   %42 = shl nuw nsw i32 %41, 3
   %reass.sub1082 = sub nsw i32 %40, %42
   %add70.i364 = add nsw i32 %reass.sub1082, 41
@@ -1694,7 +1694,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %conv6 = trunc i32 %0 to i16
+  %conv6 = trunc nuw i32 %0 to i16
   store i16 %conv6, ptr %DTable, align 2
   %cmp8.not21 = icmp eq i32 %0, 0
   br i1 %cmp8.not21, label %for.cond13.preheader, label %for.body.preheader
@@ -1816,7 +1816,7 @@ if.end49.thread:                                  ; preds = %if.end17
   br label %return
 
 for.body.preheader:                               ; preds = %if.end17
-  %2 = trunc i64 %sub8 to i32
+  %2 = trunc nuw nsw i64 %sub8 to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -1940,7 +1940,7 @@ if.end83:                                         ; preds = %if.end77
 
 if.end93:                                         ; preds = %if.end83
   %add89 = sub nuw nsw i32 32, %15
-  %conv94 = trunc i32 %add89 to i8
+  %conv94 = trunc nuw nsw i32 %add89 to i8
   %arrayidx95 = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.0
   store i8 %conv94, ptr %arrayidx95, align 1
   %idxprom96 = zext nneg i32 %add89 to i64
@@ -1970,7 +1970,7 @@ return:                                           ; preds = %for.body54, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @HUFv05_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #13 {
+define noundef i64 @HUFv05_decompress1X2_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #13 {
 entry:
   %bitD = alloca %struct.BITv05_DStream_t, align 8
   %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %dstSize
@@ -2080,7 +2080,7 @@ BITv05_initDStream.exit.thread16:                 ; preds = %sw.epilog.i
   %conv59.i = zext i8 %14 to i32
   %15 = tail call i32 @llvm.ctlz.i32(i32 %conv59.i, i1 true), !range !9
   %bitsConsumed66.i = getelementptr inbounds i8, ptr %bitD, i64 8
-  %16 = trunc i64 %cSrcSize to i32
+  %16 = trunc nuw i64 %cSrcSize to i32
   %17 = shl nuw nsw i32 %16, 3
   %reass.sub = sub nsw i32 %15, %17
   %add70.i = add nsw i32 %reass.sub, 41
@@ -2089,7 +2089,7 @@ BITv05_initDStream.exit.thread16:                 ; preds = %sw.epilog.i
 
 BITv05_initDStream.exit:                          ; preds = %if.then2.i
   %18 = lshr i64 %add.ptr3.val.i, 56
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !9
   %xor.i.i = xor i32 %20, 31
   %sub10.i = sub nuw nsw i32 8, %xor.i.i
@@ -2104,16 +2104,18 @@ if.end5:                                          ; preds = %BITv05_initDStream.
   %21 = load ptr, ptr %ptr.i7, align 8
   %22 = load ptr, ptr %start.i, align 8
   %cmp.i9 = icmp eq ptr %21, %22
+  br i1 %cmp.i9, label %BITv05_endOfDStream.exit, label %return
+
+BITv05_endOfDStream.exit:                         ; preds = %if.end5
   %bitsConsumed.i10 = getelementptr inbounds i8, ptr %bitD, i64 8
   %23 = load i32, ptr %bitsConsumed.i10, align 8
   %.fr = freeze i32 %23
   %cmp1.i11.not = icmp eq i32 %.fr, 64
-  %or.cond = and i1 %cmp.i9, %cmp1.i11.not
-  %spec.select = select i1 %or.cond, i64 %dstSize, i64 -20
+  %spec.select = select i1 %cmp1.i11.not, i64 %dstSize, i64 -20
   br label %return
 
-return:                                           ; preds = %if.end, %if.end5, %sw.epilog.i, %if.then2.i, %BITv05_initDStream.exit, %entry
-  %retval.0 = phi i64 [ -70, %entry ], [ %cSrcSize, %BITv05_initDStream.exit ], [ -1, %sw.epilog.i ], [ -1, %if.then2.i ], [ %spec.select, %if.end5 ], [ -72, %if.end ]
+return:                                           ; preds = %if.end, %BITv05_endOfDStream.exit, %if.end5, %sw.epilog.i, %if.then2.i, %BITv05_initDStream.exit, %entry
+  %retval.0 = phi i64 [ -70, %entry ], [ %cSrcSize, %BITv05_initDStream.exit ], [ -1, %sw.epilog.i ], [ -1, %if.then2.i ], [ -20, %if.end5 ], [ %spec.select, %BITv05_endOfDStream.exit ], [ -72, %if.end ]
   ret i64 %retval.0
 }
 
@@ -2239,7 +2241,7 @@ if.end63:                                         ; preds = %sw.epilog
   %conv59 = zext i8 %15 to i32
   %16 = tail call i32 @llvm.ctlz.i32(i32 %conv59, i1 true), !range !9
   %bitsConsumed66 = getelementptr inbounds i8, ptr %bitD, i64 8
-  %17 = trunc i64 %srcSize to i32
+  %17 = trunc nuw i64 %srcSize to i32
   %18 = shl nuw nsw i32 %17, 3
   %19 = sub nsw i32 %16, %18
   %add70 = add nsw i32 %19, 41
@@ -2524,7 +2526,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %HUFv05_readDTableX2.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %conv6.i = trunc i32 %0 to i16
+  %conv6.i = trunc nuw i32 %0 to i16
   store i16 %conv6.i, ptr %DTable, align 16
   %cmp8.not21.i = icmp eq i32 %0, 0
   br i1 %cmp8.not21.i, label %for.cond13.preheader.i, label %for.body.preheader.i
@@ -2540,7 +2542,7 @@ for.cond13.preheader.i:                           ; preds = %for.body.i, %if.end
   br i1 %cmp1426.not.i, label %HUFv05_readDTableX2.exit, label %for.body16.lr.ph.i
 
 for.body16.lr.ph.i:                               ; preds = %for.cond13.preheader.i
-  %3 = trunc i32 %0 to i8
+  %3 = trunc nuw i32 %0 to i8
   %4 = add nuw nsw i8 %3, 1
   %wide.trip.count38.i = zext i32 %2 to i64
   br label %for.body16.i
@@ -2683,7 +2685,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.then2.i
   %1 = lshr i64 %add.ptr3.val.i, 56
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %3 = tail call i32 @llvm.ctlz.i32(i32 %2, i1 true), !range !9
   %xor.i.i = xor i32 %3, 31
   %sub10.i = sub nuw nsw i32 8, %xor.i.i
@@ -2798,7 +2800,7 @@ if.then2.i145:                                    ; preds = %if.end.i101
 
 if.end8.i152:                                     ; preds = %if.then2.i145
   %20 = lshr i64 %add.ptr3.val.i149, 56
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = tail call i32 @llvm.ctlz.i32(i32 %21, i1 true), !range !9
   %xor.i.i154 = xor i32 %22, 31
   %sub10.i155 = sub nuw nsw i32 8, %xor.i.i154
@@ -2913,7 +2915,7 @@ if.then2.i206:                                    ; preds = %if.end.i162
 
 if.end8.i213:                                     ; preds = %if.then2.i206
   %39 = lshr i64 %add.ptr3.val.i210, 56
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %41 = tail call i32 @llvm.ctlz.i32(i32 %40, i1 true), !range !9
   %xor.i.i215 = xor i32 %41, 31
   %sub10.i216 = sub nuw nsw i32 8, %xor.i.i215
@@ -3647,7 +3649,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %HUFv05_readDTableX2.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %conv6.i = trunc i32 %0 to i16
+  %conv6.i = trunc nuw i32 %0 to i16
   store i16 %conv6.i, ptr %DTable, align 16
   %cmp8.not21.i = icmp eq i32 %0, 0
   br i1 %cmp8.not21.i, label %for.cond13.preheader.i, label %for.body.preheader.i
@@ -3663,7 +3665,7 @@ for.cond13.preheader.i:                           ; preds = %for.body.i, %if.end
   br i1 %cmp1426.not.i, label %HUFv05_readDTableX2.exit, label %for.body16.lr.ph.i
 
 for.body16.lr.ph.i:                               ; preds = %for.cond13.preheader.i
-  %3 = trunc i32 %0 to i8
+  %3 = trunc nuw i32 %0 to i8
   %4 = add nuw nsw i8 %3, 1
   %wide.trip.count38.i = zext i32 %2 to i64
   br label %for.body16.i
@@ -3850,7 +3852,7 @@ for.body50:                                       ; preds = %for.end39, %for.bod
   %nextRankVal.050 = phi i32 [ %add55, %for.body50 ], [ 0, %for.end39 ]
   %arrayidx53 = getelementptr inbounds [17 x i32], ptr %rankStats, i64 0, i64 %indvars.iv61
   %8 = load i32, ptr %arrayidx53, align 4
-  %9 = trunc i64 %indvars.iv61 to i32
+  %9 = trunc nuw i64 %indvars.iv61 to i32
   %add54 = add i32 %sub44, %9
   %shl = shl i32 %8, %add54
   %add55 = add i32 %shl, %nextRankVal.050
@@ -4041,7 +4043,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @HUFv05_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #13 {
+define noundef i64 @HUFv05_decompress1X4_usingDTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize, ptr nocapture noundef readonly %DTable) local_unnamed_addr #13 {
 entry:
   %bitD = alloca %struct.BITv05_DStream_t, align 8
   %0 = load i32, ptr %DTable, align 4
@@ -4144,7 +4146,7 @@ BITv05_initDStream.exit.thread14:                 ; preds = %sw.epilog.i
   %conv59.i = zext i8 %14 to i32
   %15 = tail call i32 @llvm.ctlz.i32(i32 %conv59.i, i1 true), !range !9
   %bitsConsumed66.i = getelementptr inbounds i8, ptr %bitD, i64 8
-  %16 = trunc i64 %cSrcSize to i32
+  %16 = trunc nuw i64 %cSrcSize to i32
   %17 = shl nuw nsw i32 %16, 3
   %reass.sub = sub nsw i32 %15, %17
   %add70.i = add nsw i32 %reass.sub, 41
@@ -4153,7 +4155,7 @@ BITv05_initDStream.exit.thread14:                 ; preds = %sw.epilog.i
 
 BITv05_initDStream.exit:                          ; preds = %if.then2.i
   %18 = lshr i64 %add.ptr3.val.i, 56
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !9
   %xor.i.i = xor i32 %20, 31
   %sub10.i = sub nuw nsw i32 8, %xor.i.i
@@ -4170,16 +4172,18 @@ if.end:                                           ; preds = %BITv05_initDStream.
   %21 = load ptr, ptr %ptr.i5, align 8
   %22 = load ptr, ptr %start.i, align 8
   %cmp.i7 = icmp eq ptr %21, %22
+  br i1 %cmp.i7, label %BITv05_endOfDStream.exit, label %return
+
+BITv05_endOfDStream.exit:                         ; preds = %if.end
   %bitsConsumed.i8 = getelementptr inbounds i8, ptr %bitD, i64 8
   %23 = load i32, ptr %bitsConsumed.i8, align 8
   %.fr = freeze i32 %23
   %cmp1.i9.not = icmp eq i32 %.fr, 64
-  %or.cond = and i1 %cmp.i7, %cmp1.i9.not
-  %spec.select = select i1 %or.cond, i64 %dstSize, i64 -20
+  %spec.select = select i1 %cmp1.i9.not, i64 %dstSize, i64 -20
   br label %return
 
-return:                                           ; preds = %entry, %if.end, %sw.epilog.i, %if.then2.i, %BITv05_initDStream.exit
-  %retval.0 = phi i64 [ %cSrcSize, %BITv05_initDStream.exit ], [ -1, %sw.epilog.i ], [ -1, %if.then2.i ], [ %spec.select, %if.end ], [ -72, %entry ]
+return:                                           ; preds = %entry, %BITv05_endOfDStream.exit, %if.end, %sw.epilog.i, %if.then2.i, %BITv05_initDStream.exit
+  %retval.0 = phi i64 [ %cSrcSize, %BITv05_initDStream.exit ], [ -1, %sw.epilog.i ], [ -1, %if.then2.i ], [ -20, %if.end ], [ %spec.select, %BITv05_endOfDStream.exit ], [ -72, %entry ]
   ret i64 %retval.0
 }
 
@@ -4574,7 +4578,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.then2.i
   %1 = lshr i64 %add.ptr3.val.i, 56
-  %2 = trunc i64 %1 to i32
+  %2 = trunc nuw nsw i64 %1 to i32
   %3 = tail call i32 @llvm.ctlz.i32(i32 %2, i1 true), !range !9
   %xor.i.i = xor i32 %3, 31
   %sub10.i = sub nuw nsw i32 8, %xor.i.i
@@ -4689,7 +4693,7 @@ if.then2.i161:                                    ; preds = %if.end.i117
 
 if.end8.i168:                                     ; preds = %if.then2.i161
   %20 = lshr i64 %add.ptr3.val.i165, 56
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = tail call i32 @llvm.ctlz.i32(i32 %21, i1 true), !range !9
   %xor.i.i170 = xor i32 %22, 31
   %sub10.i171 = sub nuw nsw i32 8, %xor.i.i170
@@ -4804,7 +4808,7 @@ if.then2.i222:                                    ; preds = %if.end.i178
 
 if.end8.i229:                                     ; preds = %if.then2.i222
   %39 = lshr i64 %add.ptr3.val.i226, 56
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %41 = tail call i32 @llvm.ctlz.i32(i32 %40, i1 true), !range !9
   %xor.i.i231 = xor i32 %41, 31
   %sub10.i232 = sub nuw nsw i32 8, %xor.i.i231
@@ -6497,7 +6501,7 @@ sw.epilog.i40.i:                                  ; preds = %sw.bb50.i.i, %if.el
 BITv05_initDStream.exit.thread275.i:              ; preds = %sw.epilog.i40.i
   %conv59.i.i = zext i8 %57 to i32
   %58 = tail call i32 @llvm.ctlz.i32(i32 %conv59.i.i, i1 true), !range !9
-  %59 = trunc i64 %sub.ptr.sub.i to i32
+  %59 = trunc nuw i64 %sub.ptr.sub.i to i32
   %60 = shl nuw nsw i32 %59, 3
   %reass.sub = sub nsw i32 %58, %60
   %add70.i.i = add nsw i32 %reass.sub, 41
@@ -7525,8 +7529,8 @@ if.end4.i:                                        ; preds = %ZSTDv05_loadEntropy
   store ptr %add.ptr3.i23.i, ptr %previousDstEnd.i, align 8
   br label %return
 
-return:                                           ; preds = %ZSTDv05_loadEntropy.exit.i, %ZSTDv05_loadEntropy.exit.thread.i, %if.end4.i, %if.then.i, %if.end
-  %retval.0 = phi i64 [ 0, %if.end ], [ 0, %if.then.i ], [ 0, %if.end4.i ], [ -30, %ZSTDv05_loadEntropy.exit.thread.i ], [ -30, %ZSTDv05_loadEntropy.exit.i ]
+return:                                           ; preds = %if.end4.i, %ZSTDv05_loadEntropy.exit.i, %ZSTDv05_loadEntropy.exit.thread.i, %if.then.i, %if.end
+  %retval.0 = phi i64 [ 0, %if.end ], [ 0, %if.then.i ], [ 0, %if.end4.i ], [ -30, %ZSTDv05_loadEntropy.exit.i ], [ -30, %ZSTDv05_loadEntropy.exit.thread.i ]
   ret i64 %retval.0
 }
 

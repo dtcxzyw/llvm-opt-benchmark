@@ -1030,16 +1030,16 @@ define dso_local void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext %0
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1, %33
-  %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %1 ]
-  %.02334 = phi i32 [ %.2, %33 ], [ 0, %1 ]
-  %.02433 = phi i32 [ %.125, %33 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %31
+  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %1 ]
+  %.02335 = phi i32 [ %.2, %31 ], [ 0, %1 ]
+  %.02434 = phi i32 [ %.125, %31 ], [ 0, %1 ]
   %7 = load ptr, ptr @ReplicationSlotCtl, align 8
   %8 = getelementptr [1 x %struct.ReplicationSlot], ptr %7, i64 0, i64 %indvars.iv
   %9 = getelementptr inbounds i8, ptr %8, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %33
+  br i1 %11, label %12, label %31
 
 12:                                               ; preds = %.lr.ph
   %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %8, i8 1, ptr elementtype(i8) %8) #15, !srcloc !10
@@ -1060,54 +1060,50 @@ define dso_local void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext %0
   %.not28 = icmp eq i32 %22, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
   store i8 0, ptr %8, align 8
-  br i1 %.not28, label %23, label %33
+  br i1 %.not28, label %23, label %31
 
 23:                                               ; preds = %16
   %.not29 = icmp eq i32 %18, 0
-  br i1 %.not29, label %28, label %24
+  br i1 %.not29, label %27, label %24
 
 24:                                               ; preds = %23
-  %.not30 = icmp eq i32 %.02334, 0
+  %.not30 = icmp eq i32 %.02335, 0
   br i1 %.not30, label %27, label %25
 
 25:                                               ; preds = %24
-  %26 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %18, i32 noundef %.02334) #15
-  br i1 %26, label %27, label %28
+  %26 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %18, i32 noundef %.02335) #15
+  %spec.select = select i1 %26, i32 %18, i32 %.02335
+  br label %27
 
-27:                                               ; preds = %25, %24
-  br label %28
-
-28:                                               ; preds = %27, %25, %23
-  %.1 = phi i32 [ %18, %27 ], [ %.02334, %25 ], [ %.02334, %23 ]
+27:                                               ; preds = %25, %24, %23
+  %.1 = phi i32 [ %.02335, %23 ], [ %18, %24 ], [ %spec.select, %25 ]
   %.not31 = icmp eq i32 %20, 0
-  br i1 %.not31, label %33, label %29
+  br i1 %.not31, label %31, label %28
+
+28:                                               ; preds = %27
+  %.not32 = icmp eq i32 %.02434, 0
+  br i1 %.not32, label %31, label %29
 
 29:                                               ; preds = %28
-  %.not32 = icmp eq i32 %.02433, 0
-  br i1 %.not32, label %32, label %30
+  %30 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %20, i32 noundef %.02434) #15
+  %spec.select33 = select i1 %30, i32 %20, i32 %.02434
+  br label %31
 
-30:                                               ; preds = %29
-  %31 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %20, i32 noundef %.02433) #15
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %30, %29
-  br label %33
-
-33:                                               ; preds = %28, %30, %32, %16, %.lr.ph
-  %.125 = phi i32 [ %.02433, %16 ], [ %20, %32 ], [ %.02433, %30 ], [ %.02433, %28 ], [ %.02433, %.lr.ph ]
-  %.2 = phi i32 [ %.02334, %16 ], [ %.1, %32 ], [ %.1, %30 ], [ %.1, %28 ], [ %.02334, %.lr.ph ]
+31:                                               ; preds = %29, %28, %27, %16, %.lr.ph
+  %.125 = phi i32 [ %.02434, %16 ], [ %.02434, %27 ], [ %.02434, %.lr.ph ], [ %20, %28 ], [ %spec.select33, %29 ]
+  %.2 = phi i32 [ %.02335, %16 ], [ %.1, %27 ], [ %.02335, %.lr.ph ], [ %.1, %28 ], [ %.1, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = load i32, ptr @max_replication_slots, align 4
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  %32 = load i32, ptr @max_replication_slots, align 4
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %indvars.iv.next, %33
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %33, %1
-  %.024.lcssa = phi i32 [ 0, %1 ], [ %.125, %33 ]
-  %.023.lcssa = phi i32 [ 0, %1 ], [ %.2, %33 ]
-  %37 = load ptr, ptr @MainLWLockArray, align 8
-  %38 = getelementptr i8, ptr %37, i64 4736
-  tail call void @LWLockRelease(ptr noundef %38) #15
+._crit_edge:                                      ; preds = %31, %1
+  %.024.lcssa = phi i32 [ 0, %1 ], [ %.125, %31 ]
+  %.023.lcssa = phi i32 [ 0, %1 ], [ %.2, %31 ]
+  %35 = load ptr, ptr @MainLWLockArray, align 8
+  %36 = getelementptr i8, ptr %35, i64 4736
+  tail call void @LWLockRelease(ptr noundef %36) #15
   tail call void @ProcArraySetReplicationSlotXmin(i32 noundef %.023.lcssa, i32 noundef %.024.lcssa, i1 noundef zeroext %0) #15
   ret void
 }
@@ -2326,7 +2322,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   br i1 %.not87.i, label %63, label %60
 
 60:                                               ; preds = %59
-  %61 = trunc i64 %.170.i to i32
+  %61 = trunc nuw i64 %.170.i to i32
   %62 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %61, i32 noundef %3) #15
   br i1 %62, label %.thread100.i, label %63
 
@@ -2335,7 +2331,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   br i1 %.not88.i, label %.thread.i, label %64
 
 64:                                               ; preds = %63
-  %65 = trunc i64 %.167.i to i32
+  %65 = trunc nuw i64 %.167.i to i32
   %66 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %65, i32 noundef %3) #15
   br i1 %66, label %.thread100.i, label %.thread.i
 
@@ -3048,7 +3044,7 @@ define dso_local i32 @GetSlotInvalidationCause(ptr nocapture noundef readonly %0
   br i1 %exitcond.not, label %.split.loop.exit8, label %2, !llvm.loop !42
 
 .split.loop.exit:                                 ; preds = %2
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit8
 
 .split.loop.exit8:                                ; preds = %7, %.split.loop.exit
@@ -3083,7 +3079,7 @@ define internal fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef z
   %11 = icmp eq i64 %10, 1
   %12 = select i1 %11, ptr @.str.42, ptr @.str.43
   %13 = lshr i64 %4, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = trunc i64 %4 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %14, i32 noundef %15, i64 noundef %10) #15
   br label %18

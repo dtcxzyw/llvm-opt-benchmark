@@ -227,8 +227,8 @@ entry:
   %Length = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %Length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %RHS.coerce1)
-  %cmp.not60 = icmp eq i64 %.sroa.speculated, 0
-  br i1 %cmp.not60, label %for.end62, label %for.body.lr.ph
+  %cmp.not59 = icmp eq i64 %.sroa.speculated, 0
+  br i1 %cmp.not59, label %for.end62, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load ptr, ptr %this, align 8
@@ -236,12 +236,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc60
-  %I.061 = phi i64 [ 0, %for.body.lr.ph ], [ %inc61, %for.inc60 ]
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %I.061
+  %I.060 = phi i64 [ 0, %for.body.lr.ph ], [ %inc61, %for.inc60 ]
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %I.060
   %3 = load i8, ptr %arrayidx, align 1
   %4 = add i8 %3, -48
   %5 = icmp ult i8 %4, 10
-  %arrayidx5 = getelementptr inbounds i8, ptr %RHS.coerce0, i64 %I.061
+  %arrayidx5 = getelementptr inbounds i8, ptr %RHS.coerce0, i64 %I.060
   %6 = load i8, ptr %arrayidx5, align 1
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
@@ -249,15 +249,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %for.cond7.preheader, label %if.end42
 
 for.cond7.preheader:                              ; preds = %for.body
-  %9 = add i64 %I.061, 1
+  %9 = add i64 %I.060, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %0, i64 %9)
   %10 = add i64 %umax, -1
-  %umax79 = tail call i64 @llvm.umax.i64(i64 %RHS.coerce1, i64 %9)
-  %11 = add i64 %umax79, -1
+  %umax77 = tail call i64 @llvm.umax.i64(i64 %RHS.coerce1, i64 %9)
+  %11 = add i64 %umax77, -1
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.cond7.preheader, %if.end
-  %J.0.in = phi i64 [ %J.0, %if.end ], [ %I.061, %for.cond7.preheader ]
+  %J.0.in = phi i64 [ %J.0, %if.end ], [ %I.060, %for.cond7.preheader ]
   %J.0 = add i64 %J.0.in, 1
   %cmp9.not = icmp eq i64 %J.0.in, %.sroa.speculated
   br i1 %cmp9.not, label %for.end, label %for.body10
@@ -283,7 +283,7 @@ land.end.thread.land.end22_crit_edge:             ; preds = %land.end.thread
   %15 = load i8, ptr %arrayidx2039, align 1
   %16 = add i8 %15, -48
   %17 = icmp ult i8 %16, 10
-  br i1 %17, label %if.then27.thread40, label %for.end
+  br i1 %17, label %return, label %for.end
 
 land.end.land.end22_crit_edge:                    ; preds = %land.end
   br i1 %14, label %return, label %for.end
@@ -298,22 +298,20 @@ land.end22:                                       ; preds = %land.end
   br i1 %21, label %if.then27, label %if.end
 
 if.then27:                                        ; preds = %land.end22
-  br i1 %20, label %if.then27.thread40, label %return
-
-if.then27.thread40:                               ; preds = %land.end.thread.land.end22_crit_edge, %if.then27
+  %spec.select = select i1 %20, i32 -1, i32 1
   br label %return
 
 if.end:                                           ; preds = %land.end22
   br i1 %20, label %for.cond7, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end, %for.cond7, %land.end.thread, %land.end.thread.land.end22_crit_edge, %land.end.land.end22_crit_edge
-  %J.0.in71 = phi i64 [ %10, %land.end.thread ], [ %10, %land.end.thread.land.end22_crit_edge ], [ %11, %land.end.land.end22_crit_edge ], [ %J.0.in, %if.end ], [ %.sroa.speculated, %for.cond7 ]
-  %J.067 = phi i64 [ %umax, %land.end.thread ], [ %umax, %land.end.thread.land.end22_crit_edge ], [ %umax79, %land.end.land.end22_crit_edge ], [ %J.0, %if.end ], [ %2, %for.cond7 ]
-  %cmp.i = icmp eq i64 %J.067, %I.061
+  %J.0.in70 = phi i64 [ %10, %land.end.thread ], [ %10, %land.end.thread.land.end22_crit_edge ], [ %11, %land.end.land.end22_crit_edge ], [ %J.0.in, %if.end ], [ %.sroa.speculated, %for.cond7 ]
+  %J.066 = phi i64 [ %umax, %land.end.thread ], [ %umax, %land.end.thread.land.end22_crit_edge ], [ %umax77, %land.end.land.end22_crit_edge ], [ %J.0, %if.end ], [ %2, %for.cond7 ]
+  %cmp.i = icmp eq i64 %J.066, %I.060
   br i1 %cmp.i, label %for.inc60, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %for.end
-  %sub = sub i64 %J.067, %I.061
+  %sub = sub i64 %J.066, %I.060
   %call.i = tail call i32 @memcmp(ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx5, i64 noundef %sub) #17
   %tobool36.not = icmp eq i32 %call.i, 0
   br i1 %tobool36.not, label %for.inc60, label %if.then37
@@ -333,7 +331,7 @@ if.then50:                                        ; preds = %if.end42
   br label %return
 
 for.inc60:                                        ; preds = %for.end, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %if.end42
-  %I.1 = phi i64 [ %I.061, %if.end42 ], [ %J.0.in71, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %J.0.in71, %for.end ]
+  %I.1 = phi i64 [ %I.060, %if.end42 ], [ %J.0.in70, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %J.0.in70, %for.end ]
   %inc61 = add i64 %I.1, 1
   %cmp.not = icmp eq i64 %inc61, %.sroa.speculated
   br i1 %cmp.not, label %for.end62, label %for.body, !llvm.loop !8
@@ -347,8 +345,8 @@ if.end67:                                         ; preds = %for.end62
   %cond71 = select i1 %cmp70, i32 -1, i32 1
   br label %return
 
-return:                                           ; preds = %land.end.land.end22_crit_edge, %if.then27.thread40, %if.then27, %for.end62, %if.end67, %if.then50, %if.then37
-  %retval.0 = phi i32 [ %cond39, %if.then37 ], [ %cond58, %if.then50 ], [ %cond71, %if.end67 ], [ 0, %for.end62 ], [ -1, %if.then27.thread40 ], [ 1, %if.then27 ], [ 1, %land.end.land.end22_crit_edge ]
+return:                                           ; preds = %land.end.thread.land.end22_crit_edge, %land.end.land.end22_crit_edge, %if.then27, %for.end62, %if.end67, %if.then50, %if.then37
+  %retval.0 = phi i32 [ %cond39, %if.then37 ], [ %cond58, %if.then50 ], [ %cond71, %if.end67 ], [ 0, %for.end62 ], [ %spec.select, %if.then27 ], [ -1, %land.end.thread.land.end22_crit_edge ], [ 1, %land.end.land.end22_crit_edge ]
   ret i32 %retval.0
 }
 
@@ -785,7 +783,7 @@ if.end28:                                         ; preds = %do.body
   br i1 %cmp29, label %do.body, label %return, !llvm.loop !14
 
 for.body.preheader:                               ; preds = %if.end15
-  %4 = trunc i64 %Str.coerce1 to i8
+  %4 = trunc nuw i64 %Str.coerce1 to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %BadCharSkip, i8 %4, i64 256, i1 false)
   %sub33 = add nsw i64 %Str.coerce1, -1
   br label %for.body

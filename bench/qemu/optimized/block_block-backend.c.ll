@@ -4714,7 +4714,7 @@ if.end5:                                          ; preds = %if.end2
   %allow_write_beyond_eof = getelementptr inbounds i8, ptr %blk, i64 826
   %5 = load i8, ptr %allow_write_beyond_eof, align 2
   %tobool = trunc i8 %5 to i1
-  br i1 %tobool, label %if.end18, label %if.then6
+  br i1 %tobool, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end5
   %6 = load ptr, ptr %root.i.i.i, align 8
@@ -4740,13 +4740,11 @@ if.end11:                                         ; preds = %blk_bs.exit
   %sub = sub nsw i64 %call8, %offset
   %cmp14 = icmp slt i64 %sub, %bytes
   %or.cond = select i1 %cmp12, i1 true, i1 %cmp14
-  br i1 %or.cond, label %return, label %if.end18
-
-if.end18:                                         ; preds = %if.end11, %if.end5
+  %spec.select = select i1 %or.cond, i32 -5, i32 0
   br label %return
 
-return:                                           ; preds = %blk_bs.exit.thread.i.i, %blk_bs.exit.i.i, %blk_co_is_inserted.exit.i, %if.end11, %if.end2, %blk_co_is_available.exit, %entry, %if.end18, %if.then10
-  %retval.0 = phi i32 [ 0, %if.end18 ], [ %conv, %if.then10 ], [ -5, %entry ], [ -123, %blk_co_is_available.exit ], [ -5, %if.end2 ], [ -5, %if.end11 ], [ -123, %blk_co_is_inserted.exit.i ], [ -123, %blk_bs.exit.i.i ], [ -123, %blk_bs.exit.thread.i.i ]
+return:                                           ; preds = %blk_bs.exit.thread.i.i, %blk_bs.exit.i.i, %blk_co_is_inserted.exit.i, %if.end11, %if.end5, %if.end2, %blk_co_is_available.exit, %entry, %if.then10
+  %retval.0 = phi i32 [ %conv, %if.then10 ], [ -5, %entry ], [ -123, %blk_co_is_available.exit ], [ -5, %if.end2 ], [ 0, %if.end5 ], [ %spec.select, %if.end11 ], [ -123, %blk_co_is_inserted.exit.i ], [ -123, %blk_bs.exit.i.i ], [ -123, %blk_bs.exit.thread.i.i ]
   ret i32 %retval.0
 }
 

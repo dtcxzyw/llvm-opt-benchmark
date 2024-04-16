@@ -121,7 +121,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   %48 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
   %49 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %48, ptr noundef nonnull @.str.2, i32 noundef %51, i32 noundef %50) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %24, align 8
@@ -181,7 +181,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 
 74:                                               ; preds = %.lr.ph180.split
   %75 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
-  %76 = trunc i64 %indvars.iv212 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv212 to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %75, ptr noundef nonnull @.str.3, i32 noundef %76, i32 noundef %.0102179) #8
   %.pre = load i32, ptr @mca_sharedfp_individual_verbose, align 4
   %.pre231 = load i32, ptr %24, align 8
@@ -230,7 +230,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 
 .lr.ph183.preheader:                              ; preds = %.preheader171
   %96 = sext i32 %.0103187 to i64
-  %97 = trunc i64 %indvars.iv222 to i32
+  %97 = trunc nuw nsw i64 %indvars.iv222 to i32
   br label %.lr.ph183
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %.lr.ph183
@@ -244,7 +244,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   br i1 %exitcond221.not, label %._crit_edge184.loopexit, label %.lr.ph183, !llvm.loop !9
 
 ._crit_edge184.loopexit:                          ; preds = %.lr.ph183
-  %100 = trunc i64 %indvars.iv.next219 to i32
+  %100 = trunc nsw i64 %indvars.iv.next219 to i32
   br label %._crit_edge184
 
 ._crit_edge184:                                   ; preds = %._crit_edge184.loopexit, %.preheader171
@@ -422,7 +422,7 @@ select.unfold.i:                                  ; preds = %194, %190
   br i1 %198, label %mca_sharedfp_individual_getoffset.exit, label %190
 
 .split.loop.exit.i:                               ; preds = %194
-  %199 = trunc i64 %indvars.iv.i159 to i32
+  %199 = trunc nuw nsw i64 %indvars.iv.i159 to i32
   br label %mca_sharedfp_individual_getoffset.exit
 
 mca_sharedfp_individual_getoffset.exit:           ; preds = %select.unfold.i, %.split.loop.exit.i
@@ -663,7 +663,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
 
 70:                                               ; preds = %58
   %71 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %71, ptr noundef nonnull @.str.7, i32 noundef %72) #8
   br label %73
 
@@ -695,7 +695,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
 
 79:                                               ; preds = %.lr.ph87
   %80 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 11), align 4
-  %81 = trunc i64 %indvars.iv95 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv95 to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %80, ptr noundef nonnull @.str.8, i32 noundef %81) #8
   br label %82
 
@@ -754,19 +754,17 @@ define noundef i32 @mca_sharedfp_individual_create_buff(ptr nocapture noundef wr
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #9
   store ptr %8, ptr %1, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %13, label %10
 
 10:                                               ; preds = %5
   %11 = tail call noalias ptr @malloc(i64 noundef %7) #9
   store ptr %11, ptr %0, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13
+  %spec.select = select i1 %12, i32 -2, i32 0
+  br label %13
 
-13:                                               ; preds = %10, %4
-  br label %14
-
-14:                                               ; preds = %10, %5, %13
-  %.0 = phi i32 [ 0, %13 ], [ -2, %5 ], [ -2, %10 ]
+13:                                               ; preds = %10, %4, %5
+  %.0 = phi i32 [ -2, %5 ], [ 0, %4 ], [ %spec.select, %10 ]
   ret i32 %.0
 }
 
@@ -919,7 +917,7 @@ select.unfold:                                    ; preds = %11, %7
   br i1 %15, label %.split.loop.exit16, label %7
 
 .split.loop.exit:                                 ; preds = %11
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit16
 
 .split.loop.exit16:                               ; preds = %select.unfold, %.split.loop.exit

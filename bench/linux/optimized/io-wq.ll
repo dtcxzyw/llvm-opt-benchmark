@@ -515,7 +515,7 @@ define internal fastcc noundef zeroext i1 @io_acct_cancel_pending_work(ptr nound
   %9 = phi ptr [ %5, %3 ], [ %10, %11 ]
   %10 = load ptr, ptr %9, align 8
   %.not = icmp ne ptr %10, null
-  br i1 %.not, label %11, label %68
+  br i1 %.not, label %11, label %67
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %2, align 8
@@ -533,7 +533,7 @@ define internal fastcc noundef zeroext i1 @io_acct_cancel_pending_work(ptr nound
   %22 = lshr i32 %17, 24
   %23 = and i32 %17, 2
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %41, label %25
+  br i1 %24, label %40, label %25
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %0, i64 264
@@ -541,7 +541,7 @@ define internal fastcc noundef zeroext i1 @io_acct_cancel_pending_work(ptr nound
   %28 = getelementptr [64 x ptr], ptr %26, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %10
-  br i1 %30, label %31, label %41
+  br i1 %30, label %31, label %40
 
 31:                                               ; preds = %25
   %32 = icmp eq ptr %8, null
@@ -552,72 +552,70 @@ define internal fastcc noundef zeroext i1 @io_acct_cancel_pending_work(ptr nound
   %35 = load i32, ptr %34, align 8
   %36 = lshr i32 %35, 24
   %37 = icmp eq i32 %36, %22
-  br i1 %37, label %39, label %38
+  %spec.select = select i1 %37, ptr %8, ptr null
+  br label %38
 
 38:                                               ; preds = %33, %31
-  br label %39
+  %39 = phi ptr [ null, %31 ], [ %spec.select, %33 ]
+  store ptr %39, ptr %28, align 8
+  br label %40
 
-39:                                               ; preds = %38, %33
-  %40 = phi ptr [ null, %38 ], [ %8, %33 ]
-  store ptr %40, ptr %28, align 8
-  br label %41
+40:                                               ; preds = %38, %25, %15
+  %41 = getelementptr [2 x %struct.io_wq_acct], ptr %18, i64 0, i64 %21, i32 5
+  %42 = icmp eq ptr %8, null
+  %43 = load ptr, ptr %10, align 8
+  br i1 %42, label %44, label %45
 
-41:                                               ; preds = %39, %25, %15
-  %42 = getelementptr [2 x %struct.io_wq_acct], ptr %18, i64 0, i64 %21, i32 5
-  %43 = icmp eq ptr %8, null
-  %44 = load ptr, ptr %10, align 8
-  br i1 %43, label %45, label %46
+44:                                               ; preds = %40
+  store volatile ptr %43, ptr %41, align 8
+  br label %46
 
-45:                                               ; preds = %41
-  store volatile ptr %44, ptr %42, align 8
-  br label %47
+45:                                               ; preds = %40
+  store ptr %43, ptr %8, align 8
+  br label %46
 
-46:                                               ; preds = %41
-  store ptr %44, ptr %8, align 8
-  br label %47
+46:                                               ; preds = %45, %44
+  %47 = getelementptr inbounds i8, ptr %41, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, %10
+  br i1 %49, label %50, label %51
 
-47:                                               ; preds = %46, %45
-  %48 = getelementptr inbounds i8, ptr %42, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %10
-  br i1 %50, label %51, label %52
+50:                                               ; preds = %46
+  store ptr %8, ptr %47, align 8
+  br label %51
 
-51:                                               ; preds = %47
-  store ptr %8, ptr %48, align 8
-  br label %52
-
-52:                                               ; preds = %51, %47
+51:                                               ; preds = %50, %46
   store ptr null, ptr %10, align 8
   tail call void @_raw_spin_unlock(ptr noundef %4) #17
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %55
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %54
 
-55:                                               ; preds = %55, %52
-  %56 = phi ptr [ %10, %52 ], [ %62, %55 ]
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = load i32, ptr %57, align 8
-  %59 = or i32 %58, 1
-  store i32 %59, ptr %57, align 8
+54:                                               ; preds = %54, %51
+  %55 = phi ptr [ %10, %51 ], [ %61, %54 ]
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = load i32, ptr %56, align 8
+  %58 = or i32 %57, 1
+  store i32 %58, ptr %56, align 8
+  %59 = load ptr, ptr %52, align 8
+  tail call void %59(ptr noundef nonnull %55) #17
   %60 = load ptr, ptr %53, align 8
-  tail call void %60(ptr noundef nonnull %56) #17
-  %61 = load ptr, ptr %54, align 8
-  %62 = tail call ptr %61(ptr noundef nonnull %56) #17
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %55, !llvm.loop !13
+  %61 = tail call ptr %60(ptr noundef nonnull %55) #17
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %54, !llvm.loop !13
 
-64:                                               ; preds = %55
-  %65 = getelementptr inbounds i8, ptr %2, i64 20
-  %66 = load i32, ptr %65, align 4
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %65, align 4
-  br label %69
+63:                                               ; preds = %54
+  %64 = getelementptr inbounds i8, ptr %2, i64 20
+  %65 = load i32, ptr %64, align 4
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 4
+  br label %68
 
-68:                                               ; preds = %7
+67:                                               ; preds = %7
   tail call void @_raw_spin_unlock(ptr noundef %4) #17
-  br label %69
+  br label %68
 
-69:                                               ; preds = %68, %64
+68:                                               ; preds = %67, %63
   ret i1 %.not
 }
 
@@ -626,7 +624,7 @@ define dso_local void @io_wq_hash_work(ptr nocapture noundef %0, ptr noundef %1)
   %3 = ptrtoint ptr %1 to i64
   %4 = mul i64 %3, 7046029254386353131
   %5 = lshr i64 %4, 34
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = and i32 %6, 1056964608
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8

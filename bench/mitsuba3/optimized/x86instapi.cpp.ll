@@ -68,7 +68,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   %15 = icmp ult i32 %12, 27
   %16 = select i1 %15, i32 96, i32 21
   %17 = add nuw nsw i32 %16, %12
-  %18 = trunc i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   store i8 %18, ptr %4, align 16, !tbaa !8
   %19 = lshr i32 %9, 5
   %20 = and i32 %19, 31
@@ -79,7 +79,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   %23 = icmp ult i32 %20, 27
   %24 = select i1 %23, i32 96, i32 21
   %25 = add nuw nsw i32 %24, %20
-  %26 = trunc i32 %25 to i8
+  %26 = trunc nuw nsw i32 %25 to i8
   %27 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 %26, ptr %27, align 1, !tbaa !8
   %28 = lshr i32 %9, 10
@@ -91,7 +91,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   %32 = icmp ult i32 %29, 27
   %33 = select i1 %32, i32 96, i32 21
   %34 = add nuw nsw i32 %33, %29
-  %35 = trunc i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 %35, ptr %36, align 2, !tbaa !8
   %37 = lshr i32 %9, 15
@@ -103,7 +103,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   %41 = icmp ult i32 %38, 27
   %42 = select i1 %41, i32 96, i32 21
   %43 = add nuw nsw i32 %42, %38
-  %44 = trunc i32 %43 to i8
+  %44 = trunc nuw nsw i32 %43 to i8
   %45 = getelementptr inbounds i8, ptr %4, i64 3
   store i8 %44, ptr %45, align 1, !tbaa !8
   %46 = lshr i32 %9, 20
@@ -115,7 +115,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   %50 = icmp ult i32 %47, 27
   %51 = select i1 %50, i32 96, i32 21
   %52 = add nuw nsw i32 %51, %47
-  %53 = trunc i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = getelementptr inbounds i8, ptr %4, i64 4
   store i8 %53, ptr %54, align 4, !tbaa !8
   %55 = lshr i32 %9, 25
@@ -127,7 +127,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   %59 = icmp ult i32 %56, 27
   %60 = select i1 %59, i32 96, i32 21
   %61 = add nuw nsw i32 %60, %56
-  %62 = trunc i32 %61 to i8
+  %62 = trunc nuw nsw i32 %61 to i8
   %63 = getelementptr inbounds i8, ptr %4, i64 5
   store i8 %62, ptr %63, align 1, !tbaa !8
   br label %85
@@ -227,7 +227,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %24
-  %32 = trunc i64 %11 to i32
+  %32 = trunc nuw i64 %11 to i32
   %33 = getelementptr inbounds i8, ptr %4, i64 1
   %34 = getelementptr inbounds i8, ptr %4, i64 2
   %35 = getelementptr inbounds i8, ptr %4, i64 3
@@ -255,7 +255,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %51 = icmp ult i32 %48, 27
   %52 = select i1 %51, i32 96, i32 21
   %53 = add nuw nsw i32 %52, %48
-  %54 = trunc i32 %53 to i8
+  %54 = trunc nuw nsw i32 %53 to i8
   store i8 %54, ptr %4, align 16, !tbaa !8
   %55 = lshr i32 %45, 5
   %56 = and i32 %55, 31
@@ -266,7 +266,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %59 = icmp ult i32 %56, 27
   %60 = select i1 %59, i32 96, i32 21
   %61 = add nuw nsw i32 %60, %56
-  %62 = trunc i32 %61 to i8
+  %62 = trunc nuw nsw i32 %61 to i8
   store i8 %62, ptr %33, align 1, !tbaa !8
   %63 = lshr i32 %45, 10
   %64 = and i32 %63, 31
@@ -277,7 +277,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %67 = icmp ult i32 %64, 27
   %68 = select i1 %67, i32 96, i32 21
   %69 = add nuw nsw i32 %68, %64
-  %70 = trunc i32 %69 to i8
+  %70 = trunc nuw nsw i32 %69 to i8
   store i8 %70, ptr %34, align 2, !tbaa !8
   %71 = lshr i32 %45, 15
   %72 = and i32 %71, 31
@@ -288,7 +288,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %75 = icmp ult i32 %72, 27
   %76 = select i1 %75, i32 96, i32 21
   %77 = add nuw nsw i32 %76, %72
-  %78 = trunc i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   store i8 %78, ptr %35, align 1, !tbaa !8
   %79 = lshr i32 %45, 20
   %80 = and i32 %79, 31
@@ -299,7 +299,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %83 = icmp ult i32 %80, 27
   %84 = select i1 %83, i32 96, i32 21
   %85 = add nuw nsw i32 %84, %80
-  %86 = trunc i32 %85 to i8
+  %86 = trunc nuw nsw i32 %85 to i8
   store i8 %86, ptr %36, align 4, !tbaa !8
   %87 = lshr i32 %45, 25
   %88 = and i32 %87, 31
@@ -310,7 +310,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %91 = icmp ult i32 %88, 27
   %92 = select i1 %91, i32 96, i32 21
   %93 = add nuw nsw i32 %92, %88
-  %94 = trunc i32 %93 to i8
+  %94 = trunc nuw nsw i32 %93 to i8
   store i8 %94, ptr %37, align 1, !tbaa !8
   br label %116
 
@@ -361,7 +361,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %124, label %.preheader, label %143
 
 125:                                              ; preds = %116
-  %126 = trunc i64 %117 to i32
+  %126 = trunc nuw nsw i64 %117 to i32
   %127 = sub nsw i32 %32, %126
   br label %150
 
@@ -391,7 +391,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
 143:                                              ; preds = %140, %120
   %144 = phi i1 [ true, %120 ], [ %142, %140 ]
   %145 = phi i32 [ %123, %120 ], [ %141, %140 ]
-  %146 = trunc i64 %117 to i32
+  %146 = trunc nuw nsw i64 %117 to i32
   %147 = sub nsw i32 %32, %146
   %148 = freeze i1 %144
   %149 = select i1 %148, i32 %145, i32 %147
@@ -448,7 +448,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %13 = getelementptr inbounds i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !22
   %15 = icmp ult i32 %12, 1663
-  br i1 %15, label %16, label %560, !prof !3
+  br i1 %15, label %16, label %558, !prof !3
 
 16:                                               ; preds = %5
   %17 = zext nneg i32 %12 to i64
@@ -478,29 +478,29 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %35 = icmp eq i32 %34, 0
   %36 = icmp eq i64 %3, 0
   %37 = or i1 %36, %35
-  br i1 %37, label %560, label %40, !prof !25
+  br i1 %37, label %558, label %40, !prof !25
 
 38:                                               ; preds = %30
   %39 = icmp eq i64 %3, 0
-  br i1 %39, label %560, label %40, !prof !9
+  br i1 %39, label %558, label %40, !prof !9
 
 40:                                               ; preds = %38, %33
   %41 = load i32, ptr %2, align 4, !tbaa !26
   %42 = and i32 %41, 7
   %43 = icmp eq i32 %42, 2
-  br i1 %43, label %44, label %560, !prof !3
+  br i1 %43, label %44, label %558, !prof !3
 
 44:                                               ; preds = %40
   %45 = and i32 %14, 196608
   switch i32 %45, label %49 [
     i32 0, label %61
-    i32 196608, label %560
+    i32 196608, label %558
   ], !prof !27
 
 46:                                               ; preds = %27
   %47 = and i32 %14, 196608
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %61, label %560
+  br i1 %48, label %61, label %558
 
 49:                                               ; preds = %44
   %50 = and i32 %14, 65536
@@ -508,7 +508,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %52 = and i32 %24, 131072
   %53 = icmp eq i32 %52, 0
   %54 = select i1 %51, i1 %53, i1 false
-  br i1 %54, label %560, label %55, !prof !28
+  br i1 %54, label %558, label %55, !prof !28
 
 55:                                               ; preds = %49
   %56 = and i32 %14, 131072
@@ -516,7 +516,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %58 = and i32 %24, 262144
   %59 = icmp eq i32 %58, 0
   %60 = select i1 %57, i1 %59, i1 false
-  br i1 %60, label %560, label %61, !prof !28
+  br i1 %60, label %558, label %61, !prof !28
 
 61:                                               ; preds = %55, %46, %44, %16
   %62 = and i32 %14, 49152
@@ -525,17 +525,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
 
 64:                                               ; preds = %61
   %65 = icmp eq i32 %62, 49152
-  br i1 %65, label %560, label %66, !prof !9
+  br i1 %65, label %558, label %66, !prof !9
 
 66:                                               ; preds = %64
   %67 = and i32 %24, 16384
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %560, label %69, !prof !9
+  br i1 %68, label %558, label %69, !prof !9
 
 69:                                               ; preds = %66, %61
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
   %70 = icmp eq i64 %3, 0
-  br i1 %70, label %.loopexit27, label %71
+  br i1 %70, label %.loopexit30, label %71
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds i8, ptr %23, i64 4
@@ -554,7 +554,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %83 = getelementptr inbounds %"struct.asmjit::_abi_1_10::Operand_", ptr %2, i64 %78
   %84 = load i32, ptr %83, align 4, !tbaa !26
   %85 = and i32 %84, 7
-  switch i32 %85, label %.loopexit28 [
+  switch i32 %85, label %.loopexit31 [
     i32 0, label %86
     i32 1, label %90
     i32 2, label %114
@@ -577,7 +577,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %96 = lshr i64 4261515015, %93
   %97 = and i64 %96, 1
   %98 = icmp eq i64 %97, 0
-  br i1 %98, label %99, label %.loopexit28, !prof !3
+  br i1 %98, label %99, label %.loopexit31, !prof !3
 
 99:                                               ; preds = %90
   %100 = getelementptr inbounds i8, ptr %83, i64 4
@@ -587,7 +587,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
 
 103:                                              ; preds = %99
   %104 = icmp ugt i32 %101, 31
-  br i1 %104, label %.loopexit28, label %105, !prof !9
+  br i1 %104, label %.loopexit31, label %105, !prof !9
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds [32 x i32], ptr %8, i64 0, i64 %93
@@ -595,14 +595,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %108 = shl nuw i32 1, %101
   %109 = and i32 %107, %108
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %.loopexit28, label %111, !prof !9
+  br i1 %110, label %.loopexit31, label %111, !prof !9
 
 111:                                              ; preds = %105
   %112 = or i32 %108, %80
   br label %284
 
 113:                                              ; preds = %99
-  br i1 %75, label %.loopexit28, label %284
+  br i1 %75, label %.loopexit31, label %284
 
 114:                                              ; preds = %77
   %115 = lshr i32 %84, 24
@@ -613,7 +613,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %120 = and i8 %119, 31
   %121 = and i32 %84, 1835008
   %122 = icmp eq i32 %121, 1835008
-  br i1 %122, label %.loopexit28, label %123
+  br i1 %122, label %.loopexit31, label %123
 
 123:                                              ; preds = %114
   %124 = and i32 %84, 14680064
@@ -630,14 +630,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %131 = icmp ne i32 %130, 0
   %132 = icmp ne i32 %115, 4
   %133 = and i1 %132, %131
-  br i1 %133, label %.loopexit28, label %134, !prof !9
+  br i1 %133, label %.loopexit31, label %134, !prof !9
 
 134:                                              ; preds = %129
   %135 = and i32 %128, 64
   %136 = icmp ne i32 %135, 0
   %137 = icmp ne i32 %115, 8
   %138 = and i1 %137, %136
-  br i1 %138, label %.loopexit28, label %146, !prof !9
+  br i1 %138, label %.loopexit31, label %146, !prof !9
 
 139:                                              ; preds = %126
   %140 = and i32 %128, 64
@@ -678,7 +678,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %163 = shl nuw i32 1, %162
   %164 = and i32 %163, %73
   %165 = icmp eq i32 %164, 0
-  br i1 %165, label %.loopexit28, label %166, !prof !9
+  br i1 %165, label %.loopexit31, label %166, !prof !9
 
 166:                                              ; preds = %161, %156
   %167 = icmp ult i32 %158, 256
@@ -686,7 +686,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
 
 168:                                              ; preds = %166
   %169 = icmp ugt i32 %158, 31
-  br i1 %169, label %.loopexit28, label %170, !prof !9
+  br i1 %169, label %.loopexit31, label %170, !prof !9
 
 170:                                              ; preds = %168
   %171 = shl nuw i32 1, %158
@@ -694,7 +694,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   br label %174
 
 173:                                              ; preds = %166
-  br i1 %75, label %.loopexit28, label %174
+  br i1 %75, label %.loopexit31, label %174
 
 174:                                              ; preds = %173, %170
   %175 = phi i32 [ %171, %170 ], [ -1, %173 ]
@@ -720,7 +720,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
 
 188:                                              ; preds = %187
   %189 = icmp ult i64 %184, 4294967296
-  br i1 %189, label %196, label %.loopexit28
+  br i1 %189, label %196, label %.loopexit31
 
 190:                                              ; preds = %187
   %191 = icmp eq i8 %120, 0
@@ -728,11 +728,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
 
 192:                                              ; preds = %190
   %193 = icmp ult i64 %184, 4294967296
-  br i1 %193, label %194, label %.loopexit28
+  br i1 %193, label %194, label %.loopexit31
 
 194:                                              ; preds = %192
   %195 = icmp eq i8 %120, 6
-  br i1 %195, label %198, label %.loopexit28
+  br i1 %195, label %198, label %.loopexit31
 
 196:                                              ; preds = %188, %183, %154
   %197 = icmp eq i8 %120, 0
@@ -744,7 +744,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %201 = shl nuw i32 1, %200
   %202 = and i32 %201, %76
   %203 = icmp eq i32 %202, 0
-  br i1 %203, label %.loopexit28, label %204, !prof !9
+  br i1 %203, label %.loopexit31, label %204, !prof !9
 
 204:                                              ; preds = %198
   %205 = add nsw i8 %120, -12
@@ -766,7 +766,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %215 = and i64 %213, 67645734912
   %216 = icmp ne i64 %215, 0
   %217 = and i1 %214, %216
-  br i1 %217, label %.loopexit28, label %218
+  br i1 %217, label %.loopexit31, label %218
 
 218:                                              ; preds = %212, %207
   %219 = phi i64 [ %213, %212 ], [ 0, %207 ]
@@ -777,7 +777,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
 
 223:                                              ; preds = %218
   %224 = icmp ugt i32 %221, 31
-  br i1 %224, label %.loopexit28, label %225, !prof !9
+  br i1 %224, label %.loopexit31, label %225, !prof !9
 
 225:                                              ; preds = %223
   %226 = shl nuw i32 1, %221
@@ -785,13 +785,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   br label %229
 
 228:                                              ; preds = %218
-  br i1 %75, label %.loopexit28, label %229
+  br i1 %75, label %.loopexit31, label %229
 
 229:                                              ; preds = %228, %225, %196, %190, %178
   %230 = phi i64 [ 0, %196 ], [ %219, %228 ], [ %219, %225 ], [ 0, %190 ], [ %182, %178 ]
   %231 = phi i32 [ 0, %196 ], [ 0, %228 ], [ 0, %225 ], [ 0, %190 ], [ %175, %178 ]
   %232 = phi i32 [ %80, %196 ], [ %199, %228 ], [ %227, %225 ], [ %80, %190 ], [ %176, %178 ]
-  switch i32 %152, label %.loopexit28 [
+  switch i32 %152, label %.loopexit31 [
     i32 0, label %233
     i32 1, label %235
     i32 2, label %237
@@ -917,33 +917,33 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %296 = add i32 %79, 1
   %297 = zext i32 %296 to i64
   %298 = icmp ult i64 %297, %3
-  br i1 %298, label %77, label %.loopexit27, !llvm.loop !33
+  br i1 %298, label %77, label %.loopexit30, !llvm.loop !33
 
 299:                                              ; preds = %303, %86
   %300 = phi i64 [ %301, %303 ], [ %3, %86 ]
   %301 = add i64 %300, -1
   %302 = icmp ugt i64 %301, %78
-  br i1 %302, label %303, label %.loopexit27
+  br i1 %302, label %303, label %.loopexit30
 
 303:                                              ; preds = %299
   %304 = getelementptr inbounds %"struct.asmjit::_abi_1_10::Operand_", ptr %2, i64 %301
   %305 = load i32, ptr %304, align 4, !tbaa !26
   %306 = icmp eq i32 %305, 0
-  br i1 %306, label %299, label %.loopexit28, !prof !3, !llvm.loop !34
+  br i1 %306, label %299, label %.loopexit31, !prof !3, !llvm.loop !34
 
-.loopexit27:                                      ; preds = %284, %299, %69
+.loopexit30:                                      ; preds = %284, %299, %69
   %307 = phi i64 [ 0, %69 ], [ %82, %299 ], [ %295, %284 ]
   %308 = phi ptr [ null, %69 ], [ %81, %299 ], [ %287, %284 ]
   %309 = phi i32 [ 0, %69 ], [ %80, %299 ], [ %288, %284 ]
   %310 = phi i64 [ 0, %69 ], [ %89, %299 ], [ %3, %284 ]
   br i1 %7, label %311, label %314
 
-311:                                              ; preds = %.loopexit27
+311:                                              ; preds = %.loopexit30
   %312 = and i64 %307, 16
   %313 = icmp eq i64 %312, 0
-  br i1 %313, label %323, label %.loopexit28, !prof !3
+  br i1 %313, label %323, label %.loopexit31, !prof !3
 
-314:                                              ; preds = %.loopexit27
+314:                                              ; preds = %.loopexit30
   %315 = load i32, ptr %13, align 4, !tbaa !22
   %316 = and i32 %315, 1073741824
   %317 = icmp ne i32 %316, 0
@@ -952,7 +952,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %320 = and i64 %307, 2
   %321 = icmp ne i64 %320, 0
   %322 = select i1 %319, i1 %321, i1 false
-  br i1 %322, label %.loopexit28, label %323, !prof !35
+  br i1 %322, label %.loopexit31, label %323, !prof !35
 
 323:                                              ; preds = %314, %311
   %324 = getelementptr inbounds i8, ptr %23, i64 4
@@ -1089,7 +1089,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   br i1 %422, label %413, label %.loopexit
 
 423:                                              ; preds = %413
-  %424 = trunc i64 %indvars.iv to i32
+  %424 = trunc nuw i64 %indvars.iv to i32
   %425 = load i64, ptr %411, align 8
   %426 = and i64 %425, %418
   %427 = and i64 %426, 281474439643135
@@ -1149,18 +1149,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %468 = phi i8 [ %465, %.loopexit ], [ %340, %338 ]
   %469 = getelementptr inbounds i8, ptr %339, i64 8
   %470 = icmp eq ptr %469, %333
-  br i1 %470, label %.loopexit26, label %338, !llvm.loop !38
+  br i1 %470, label %.loopexit29, label %338, !llvm.loop !38
 
 471:                                              ; preds = %.loopexit
   %472 = icmp eq ptr %339, %333
-  br i1 %472, label %.loopexit26, label %477
+  br i1 %472, label %.loopexit29, label %477
 
-.loopexit26:                                      ; preds = %467, %471
+.loopexit29:                                      ; preds = %467, %471
   %473 = phi i8 [ %465, %471 ], [ %468, %467 ]
   %474 = and i8 %473, 1
   %475 = icmp eq i8 %474, 0
   %476 = select i1 %475, i32 26, i32 50
-  br label %.loopexit28
+  br label %.loopexit31
 
 477:                                              ; preds = %471, %323
   %478 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1172,7 +1172,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %482 = load i32, ptr %23, align 4, !tbaa !23
   %483 = and i32 %482, 8388608
   %484 = icmp eq i32 %483, 0
-  br i1 %484, label %.loopexit28, label %485
+  br i1 %484, label %.loopexit31, label %485
 
 485:                                              ; preds = %481
   %486 = and i32 %14, 8388608
@@ -1180,7 +1180,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %488 = and i32 %325, 2
   %489 = icmp eq i32 %488, 0
   %490 = and i1 %487, %489
-  br i1 %490, label %.loopexit28, label %491, !prof !28
+  br i1 %490, label %.loopexit31, label %491, !prof !28
 
 491:                                              ; preds = %485
   %492 = and i32 %14, 786432
@@ -1189,7 +1189,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
 
 494:                                              ; preds = %491
   %495 = icmp eq ptr %308, null
-  br i1 %495, label %496, label %.loopexit28, !prof !3
+  br i1 %495, label %496, label %.loopexit31, !prof !3
 
 496:                                              ; preds = %494
   %497 = and i32 %14, 262144
@@ -1199,12 +1199,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
 499:                                              ; preds = %496
   %500 = and i32 %325, 4
   %501 = icmp eq i32 %500, 0
-  br i1 %501, label %.loopexit28, label %505, !prof !9
+  br i1 %501, label %.loopexit31, label %505, !prof !9
 
 502:                                              ; preds = %496
   %503 = and i32 %325, 8
   %504 = icmp eq i32 %503, 0
-  br i1 %504, label %.loopexit28, label %505, !prof !9
+  br i1 %504, label %.loopexit31, label %505, !prof !9
 
 505:                                              ; preds = %502, %499
   %506 = and i32 %325, 112
@@ -1228,72 +1228,70 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal8validateENS0_4
   %520 = and i32 %517, -16777209
   %521 = icmp eq i32 %520, 1073741826
   %522 = or i1 %519, %521
-  br i1 %522, label %523, label %.loopexit28, !prof !39
+  br i1 %522, label %523, label %.loopexit31, !prof !39
 
 523:                                              ; preds = %515, %508, %505, %491, %477
   %524 = load i32, ptr %478, align 4, !tbaa !26
   %525 = icmp eq i32 %524, 0
-  br i1 %525, label %.loopexit28, label %526
+  br i1 %525, label %.loopexit31, label %526
 
 526:                                              ; preds = %523
-  br i1 %63, label %544, label %527
+  br i1 %63, label %542, label %527
 
 527:                                              ; preds = %526
   %528 = and i32 %24, 32768
   %529 = icmp eq i32 %528, 0
-  br i1 %529, label %530, label %.loopexit28, !prof !3
+  br i1 %529, label %530, label %.loopexit31, !prof !3
 
 530:                                              ; preds = %527
   %531 = getelementptr inbounds i8, ptr %1, i64 12
   %532 = load i32, ptr %531, align 4, !tbaa !40
-  %533 = icmp ugt i32 %532, 254
-  %534 = icmp eq i32 %532, 1
-  %535 = or i1 %533, %534
-  br i1 %535, label %536, label %.loopexit28, !prof !41
+  %533 = icmp ult i32 %532, 255
+  %534 = icmp ne i32 %532, 1
+  %.not23 = and i1 %533, %534
+  %535 = icmp eq ptr %308, null
+  %or.cond = select i1 %.not23, i1 true, i1 %535
+  br i1 %or.cond, label %.loopexit31, label %536, !prof !41
 
 536:                                              ; preds = %530
-  %537 = icmp eq ptr %308, null
-  br i1 %537, label %543, label %538, !prof !9
+  %537 = load i32, ptr %308, align 4, !tbaa !26
+  %538 = xor i32 %537, %524
+  %539 = and i32 %538, 248
+  %540 = icmp eq i32 %539, 0
+  br i1 %540, label %.loopexit31, label %541, !prof !3
 
-538:                                              ; preds = %536
-  %539 = load i32, ptr %308, align 4, !tbaa !26
-  %540 = xor i32 %539, %524
-  %541 = and i32 %540, 248
-  %542 = icmp eq i32 %541, 0
-  br i1 %542, label %.loopexit28, label %543, !prof !3
+541:                                              ; preds = %536
+  br label %.loopexit31
 
-543:                                              ; preds = %538, %536
-  br label %.loopexit28
+542:                                              ; preds = %526
+  %543 = load i32, ptr %23, align 4, !tbaa !23
+  %544 = and i32 %543, 8388608
+  %545 = icmp ne i32 %544, 0
+  %546 = and i32 %524, 248
+  %547 = icmp eq i32 %546, 136
+  %548 = and i1 %547, %545
+  br i1 %548, label %549, label %.loopexit31, !prof !42
 
-544:                                              ; preds = %526
-  %545 = load i32, ptr %23, align 4, !tbaa !23
-  %546 = and i32 %545, 8388608
-  %547 = icmp ne i32 %546, 0
-  %548 = and i32 %524, 248
-  %549 = icmp eq i32 %548, 136
-  %550 = and i1 %549, %547
-  br i1 %550, label %551, label %.loopexit28, !prof !42
-
-551:                                              ; preds = %544
-  %552 = getelementptr inbounds i8, ptr %1, i64 12
-  %553 = load i32, ptr %552, align 4, !tbaa !40
+549:                                              ; preds = %542
+  %550 = getelementptr inbounds i8, ptr %1, i64 12
+  %551 = load i32, ptr %550, align 4, !tbaa !40
+  %552 = icmp eq i32 %551, 0
+  %553 = and i32 %325, 1
   %554 = icmp eq i32 %553, 0
-  %555 = and i32 %325, 1
-  %556 = icmp eq i32 %555, 0
-  %557 = or i1 %556, %554
-  br i1 %557, label %558, label %.loopexit28, !prof !25
+  %555 = or i1 %554, %552
+  br i1 %555, label %556, label %.loopexit31, !prof !25
 
-558:                                              ; preds = %551
-  br label %.loopexit28
+556:                                              ; preds = %549
+  br label %.loopexit31
 
-.loopexit28:                                      ; preds = %229, %228, %223, %212, %198, %194, %192, %188, %173, %168, %161, %134, %129, %114, %113, %105, %103, %90, %77, %303, %558, %551, %544, %543, %538, %530, %527, %523, %515, %502, %499, %494, %485, %481, %.loopexit26, %314, %311
-  %559 = phi i32 [ 38, %543 ], [ 39, %558 ], [ 0, %538 ], [ 0, %523 ], [ 58, %311 ], [ 42, %494 ], [ 42, %499 ], [ 42, %502 ], [ 26, %481 ], [ 38, %527 ], [ 38, %544 ], [ 57, %314 ], [ %476, %.loopexit26 ], [ 38, %530 ], [ 40, %485 ], [ 0, %551 ], [ 42, %515 ], [ 26, %303 ], [ 29, %105 ], [ 29, %103 ], [ 27, %90 ], [ 62, %113 ], [ 51, %229 ], [ 29, %223 ], [ 43, %198 ], [ 46, %192 ], [ 62, %173 ], [ 29, %168 ], [ 43, %161 ], [ 41, %134 ], [ 41, %129 ], [ 49, %114 ], [ 46, %188 ], [ 47, %194 ], [ 62, %228 ], [ 3, %77 ], [ 43, %212 ]
+.loopexit31:                                      ; preds = %229, %228, %223, %212, %198, %194, %192, %188, %173, %168, %161, %134, %129, %114, %113, %105, %103, %90, %77, %303, %556, %549, %542, %541, %536, %530, %527, %523, %515, %502, %499, %494, %485, %481, %.loopexit29, %314, %311
+  %557 = phi i32 [ 39, %556 ], [ 0, %536 ], [ 0, %523 ], [ 58, %311 ], [ 42, %494 ], [ 42, %499 ], [ 42, %502 ], [ 26, %481 ], [ 38, %527 ], [ 38, %542 ], [ 57, %314 ], [ %476, %.loopexit29 ], [ 38, %530 ], [ 40, %485 ], [ 0, %549 ], [ 42, %515 ], [ 38, %541 ], [ 26, %303 ], [ 29, %105 ], [ 29, %103 ], [ 27, %90 ], [ 62, %113 ], [ 51, %229 ], [ 29, %223 ], [ 43, %198 ], [ 46, %192 ], [ 62, %173 ], [ 29, %168 ], [ 43, %161 ], [ 41, %134 ], [ 41, %129 ], [ 49, %114 ], [ 46, %188 ], [ 47, %194 ], [ 62, %228 ], [ 3, %77 ], [ 43, %212 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
-  br label %560
+  br label %558
 
-560:                                              ; preds = %.loopexit28, %66, %64, %55, %49, %46, %44, %40, %38, %33, %5
-  %561 = phi i32 [ %559, %.loopexit28 ], [ 26, %5 ], [ 33, %33 ], [ 33, %38 ], [ 33, %40 ], [ 32, %64 ], [ 36, %66 ], [ 32, %46 ], [ 34, %49 ], [ 35, %55 ], [ 32, %44 ]
-  ret i32 %561
+558:                                              ; preds = %.loopexit31, %66, %64, %55, %49, %46, %44, %40, %38, %33, %5
+  %559 = phi i32 [ %557, %.loopexit31 ], [ 26, %5 ], [ 33, %33 ], [ 33, %38 ], [ 33, %40 ], [ 32, %64 ], [ 36, %66 ], [ 32, %46 ], [ 34, %49 ], [ 35, %55 ], [ 32, %44 ]
+  ret i32 %559
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1709,11 +1707,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   %265 = getelementptr inbounds i8, ptr %4, i64 64
   %266 = load i8, ptr %33, align 1, !tbaa !81
   %267 = lshr i32 %194, 3
-  %268 = trunc i32 %267 to i8
+  %268 = trunc nuw nsw i32 %267 to i8
   %269 = lshr i32 %194, 2
-  %270 = trunc i32 %269 to i8
+  %270 = trunc nuw nsw i32 %269 to i8
   %271 = lshr i32 %194, 1
-  %272 = trunc i32 %271 to i8
+  %272 = trunc nuw nsw i32 %271 to i8
   %273 = getelementptr inbounds i8, ptr %33, i64 2
   br label %274
 
@@ -1743,7 +1741,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   %286 = getelementptr inbounds %"struct.asmjit::_abi_1_10::Operand_", ptr %2, i64 %279
   %287 = load i32, ptr %286, align 4, !tbaa !26
   %288 = lshr i32 %287, 24
-  %289 = trunc i32 %288 to i8
+  %289 = trunc nuw i32 %288 to i8
   br label %292
 
 290:                                              ; preds = %274
@@ -1840,7 +1838,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   store i32 6, ptr %340, align 8, !tbaa !64
   %342 = getelementptr inbounds i8, ptr %4, i64 68
   store i8 -1, ptr %342, align 4, !tbaa !66
-  %343 = trunc i32 %341 to i8
+  %343 = trunc nuw i32 %341 to i8
   %344 = getelementptr inbounds i8, ptr %4, i64 69
   store i8 %343, ptr %344, align 1, !tbaa !67
   %345 = getelementptr inbounds i8, ptr %4, i64 70
@@ -1864,7 +1862,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   store i32 5, ptr %355, align 8, !tbaa !64
   %358 = getelementptr inbounds i8, ptr %4, i64 100
   store i8 -1, ptr %358, align 4, !tbaa !66
-  %359 = trunc i32 %357 to i8
+  %359 = trunc nuw i32 %357 to i8
   %360 = getelementptr inbounds i8, ptr %4, i64 101
   store i8 %359, ptr %360, align 1, !tbaa !67
   %361 = getelementptr inbounds i8, ptr %4, i64 102
@@ -2224,7 +2222,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   store i32 6, ptr %562, align 8, !tbaa !64
   %564 = getelementptr inbounds i8, ptr %4, i64 68
   store i8 -1, ptr %564, align 4, !tbaa !66
-  %565 = trunc i32 %563 to i8
+  %565 = trunc nuw i32 %563 to i8
   %566 = getelementptr inbounds i8, ptr %4, i64 69
   store i8 %565, ptr %566, align 1, !tbaa !67
   %567 = getelementptr inbounds i8, ptr %4, i64 70
@@ -2531,7 +2529,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   store i32 5, ptr %756, align 8, !tbaa !64
   %759 = getelementptr inbounds i8, ptr %4, i64 100
   store i8 -1, ptr %759, align 4, !tbaa !66
-  %760 = trunc i32 %758 to i8
+  %760 = trunc nuw i32 %758 to i8
   %761 = getelementptr inbounds i8, ptr %4, i64 101
   store i8 %760, ptr %761, align 1, !tbaa !67
   %762 = getelementptr inbounds i8, ptr %4, i64 102
@@ -2608,7 +2606,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   %809 = lshr i32 %808, 24
   store i32 5, ptr %804, align 8, !tbaa !64
   store i8 -1, ptr %806, align 4, !tbaa !66
-  %810 = trunc i32 %809 to i8
+  %810 = trunc nuw i32 %809 to i8
   %811 = getelementptr inbounds i8, ptr %4, i64 101
   store i8 %810, ptr %811, align 1, !tbaa !67
   %812 = getelementptr inbounds i8, ptr %4, i64 102
@@ -2674,7 +2672,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   store i32 5, ptr %844, align 8, !tbaa !64
   %847 = getelementptr inbounds i8, ptr %4, i64 132
   store i8 -1, ptr %847, align 4, !tbaa !66
-  %848 = trunc i32 %846 to i8
+  %848 = trunc nuw i32 %846 to i8
   %849 = getelementptr inbounds i8, ptr %4, i64 133
   store i8 %848, ptr %849, align 1, !tbaa !67
   %850 = getelementptr inbounds i8, ptr %4, i64 134
@@ -3086,7 +3084,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
   store i32 5, ptr %1102, align 8, !tbaa !64
   %1103 = getelementptr inbounds i8, ptr %4, i64 100
   store i8 -1, ptr %1103, align 4, !tbaa !66
-  %1104 = trunc i32 %1090 to i8
+  %1104 = trunc nuw i32 %1090 to i8
   %1105 = getelementptr inbounds i8, ptr %4, i64 101
   store i8 %1104, ptr %1105, align 1, !tbaa !67
   %1106 = getelementptr inbounds i8, ptr %4, i64 102
@@ -3368,7 +3366,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
 
 1285:                                             ; preds = %1257
   store i32 6, ptr %1260, align 4, !tbaa !75
-  %1286 = trunc i32 %1259 to i8
+  %1286 = trunc nuw i32 %1259 to i8
   store i8 %1286, ptr %1262, align 1, !tbaa !67
   br label %1287
 
@@ -3380,7 +3378,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
 
 1291:                                             ; preds = %1287
   store i32 5, ptr %1271, align 4, !tbaa !75
-  %1292 = trunc i32 %1258 to i8
+  %1292 = trunc nuw i32 %1258 to i8
   store i8 %1292, ptr %1273, align 1, !tbaa !67
   br label %1293
 
@@ -3639,7 +3637,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
 
 1455:                                             ; preds = %1450
   store i32 6, ptr %1422, align 4, !tbaa !75
-  %1456 = trunc i32 %1420 to i8
+  %1456 = trunc nuw i32 %1420 to i8
   store i8 %1456, ptr %1424, align 1, !tbaa !67
   br label %1457
 
@@ -3651,7 +3649,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal11queryRWInfoEN
 
 1461:                                             ; preds = %1457
   store i32 5, ptr %1433, align 4, !tbaa !75
-  %1462 = trunc i32 %1421 to i8
+  %1462 = trunc nuw i32 %1421 to i8
   store i8 %1462, ptr %1435, align 1, !tbaa !67
   br label %1463
 
@@ -3725,7 +3723,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal13queryFeatures
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !22
   %9 = icmp ult i32 %6, 1663
-  br i1 %9, label %10, label %305, !prof !3
+  br i1 %9, label %10, label %304, !prof !3
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %6 to i64
@@ -3738,7 +3736,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal13queryFeatures
   %17 = getelementptr inbounds i8, ptr %16, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !8
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %305, label %20
+  br i1 %19, label %304, label %20
 
 20:                                               ; preds = %10
   %21 = zext i8 %18 to i32
@@ -3908,7 +3906,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal13queryFeatures
   %147 = phi i64 [ 0, %95 ], [ %101, %97 ]
   %148 = trunc i64 %147 to i32
   %149 = lshr i64 %147, 32
-  %150 = trunc i64 %149 to i32
+  %150 = trunc nuw nsw i64 %149 to i32
   %151 = getelementptr inbounds i8, ptr %4, i64 8
   %152 = load i64, ptr %151, align 8, !tbaa !76
   %153 = and i64 %152, 3072
@@ -3916,7 +3914,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal13queryFeatures
   %155 = and i64 %152, 105553116266496
   %156 = icmp eq i64 %155, 0
   %157 = or i1 %154, %156
-  br i1 %157, label %173, label %158
+  br i1 %157, label %172, label %158
 
 158:                                              ; preds = %146
   %159 = and i32 %148, 4096
@@ -3925,7 +3923,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal13queryFeatures
   %162 = and i64 %161, %152
   store i64 %162, ptr %151, align 8, !tbaa !76
   %163 = icmp eq i32 %6, 518
-  br i1 %163, label %164, label %173
+  br i1 %163, label %164, label %172
 
 164:                                              ; preds = %158
   br i1 %96, label %169, label %165
@@ -3934,245 +3932,243 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal13queryFeatures
   %166 = load i32, ptr %2, align 4, !tbaa !26
   %167 = and i32 %166, 7
   %168 = icmp eq i32 %167, 2
-  br i1 %168, label %170, label %169
+  %spec.select = select i1 %168, i64 -70368744177665, i64 -281474976710657
+  br label %169
 
 169:                                              ; preds = %165, %164
-  br label %170
+  %170 = phi i64 [ -281474976710657, %164 ], [ %spec.select, %165 ]
+  %171 = and i64 %170, %162
+  store i64 %171, ptr %151, align 8, !tbaa !76
+  br label %172
 
-170:                                              ; preds = %169, %165
-  %171 = phi i64 [ -281474976710657, %169 ], [ -70368744177665, %165 ]
-  %172 = and i64 %171, %162
-  store i64 %172, ptr %151, align 8, !tbaa !76
-  br label %173
+172:                                              ; preds = %169, %158, %146
+  %173 = phi i64 [ %152, %146 ], [ %162, %158 ], [ %171, %169 ]
+  %174 = and i64 %173, 576460752303423488
+  %175 = icmp eq i64 %174, 0
+  br i1 %175, label %176, label %178
 
-173:                                              ; preds = %170, %158, %146
-  %174 = phi i64 [ %152, %146 ], [ %162, %158 ], [ %172, %170 ]
-  %175 = and i64 %174, 576460752303423488
-  %176 = icmp eq i64 %175, 0
-  br i1 %176, label %177, label %179
+176:                                              ; preds = %172
+  %177 = load i64, ptr %4, align 8, !tbaa !76
+  br label %195
 
-177:                                              ; preds = %173
-  %178 = load i64, ptr %4, align 8, !tbaa !76
-  br label %196
+178:                                              ; preds = %172
+  %179 = and i32 %148, 16384
+  %180 = icmp ne i32 %179, 0
+  %181 = and i32 %8, 4096
+  %182 = icmp ne i32 %181, 0
+  %183 = select i1 %180, i1 true, i1 %182
+  br i1 %183, label %184, label %188
 
-179:                                              ; preds = %173
-  %180 = and i32 %148, 16384
-  %181 = icmp ne i32 %180, 0
-  %182 = and i32 %8, 4096
-  %183 = icmp ne i32 %182, 0
-  %184 = select i1 %181, i1 true, i1 %183
-  br i1 %184, label %185, label %189
+184:                                              ; preds = %178
+  %185 = load i64, ptr %4, align 8, !tbaa !76
+  %186 = and i64 %185, -4097
+  store i64 %186, ptr %4, align 8, !tbaa !76
+  %187 = and i64 %173, -8388609
+  store i64 %187, ptr %151, align 8, !tbaa !76
+  br label %195
 
-185:                                              ; preds = %179
-  %186 = load i64, ptr %4, align 8, !tbaa !76
-  %187 = and i64 %186, -4097
-  store i64 %187, ptr %4, align 8, !tbaa !76
-  %188 = and i64 %174, -8388609
-  store i64 %188, ptr %151, align 8, !tbaa !76
-  br label %196
+188:                                              ; preds = %178
+  %189 = and i32 %148, 8192
+  %190 = icmp eq i32 %189, 0
+  %191 = load i64, ptr %4, align 8, !tbaa !76
+  %192 = and i64 %191, -272629761
+  store i64 %192, ptr %4, align 8, !tbaa !76
+  br i1 %190, label %193, label %195
 
-189:                                              ; preds = %179
-  %190 = and i32 %148, 8192
-  %191 = icmp eq i32 %190, 0
-  %192 = load i64, ptr %4, align 8, !tbaa !76
-  %193 = and i64 %192, -272629761
-  store i64 %193, ptr %4, align 8, !tbaa !76
-  br i1 %191, label %194, label %196
+193:                                              ; preds = %188
+  %194 = and i64 %173, -576460752303423489
+  store i64 %194, ptr %151, align 8, !tbaa !76
+  br label %195
 
-194:                                              ; preds = %189
-  %195 = and i64 %174, -576460752303423489
-  store i64 %195, ptr %151, align 8, !tbaa !76
-  br label %196
+195:                                              ; preds = %193, %188, %184, %176
+  %196 = phi i64 [ %177, %176 ], [ %186, %184 ], [ %192, %193 ], [ %192, %188 ]
+  %197 = and i64 %196, 12288
+  %198 = icmp eq i64 %197, 12288
+  br i1 %198, label %199, label %216
 
-196:                                              ; preds = %194, %189, %185, %177
-  %197 = phi i64 [ %178, %177 ], [ %187, %185 ], [ %193, %194 ], [ %193, %189 ]
-  %198 = and i64 %197, 12288
-  %199 = icmp eq i64 %198, 12288
-  br i1 %199, label %200, label %217
+199:                                              ; preds = %195
+  %200 = and i32 %6, 2046
+  %201 = icmp eq i32 %200, 840
+  br i1 %201, label %202, label %209
 
-200:                                              ; preds = %196
-  %201 = and i32 %6, 2046
-  %202 = icmp eq i32 %201, 840
-  br i1 %202, label %203, label %210
+202:                                              ; preds = %199
+  %203 = icmp ugt i64 %3, 1
+  br i1 %203, label %204, label %213
 
-203:                                              ; preds = %200
-  %204 = icmp ugt i64 %3, 1
-  br i1 %204, label %205, label %214
+204:                                              ; preds = %202
+  %205 = getelementptr inbounds i8, ptr %2, i64 16
+  %206 = load i32, ptr %205, align 4, !tbaa !26
+  %207 = and i32 %206, 7
+  %208 = icmp eq i32 %207, 2
+  br i1 %208, label %212, label %213
 
-205:                                              ; preds = %203
-  %206 = getelementptr inbounds i8, ptr %2, i64 16
-  %207 = load i32, ptr %206, align 4, !tbaa !26
-  %208 = and i32 %207, 7
-  %209 = icmp eq i32 %208, 2
-  br i1 %209, label %213, label %214
+209:                                              ; preds = %199
+  %210 = and i32 %148, 24576
+  %211 = icmp eq i32 %210, 0
+  br i1 %211, label %212, label %213
 
-210:                                              ; preds = %200
-  %211 = and i32 %148, 24576
-  %212 = icmp eq i32 %211, 0
-  br i1 %212, label %213, label %214
+212:                                              ; preds = %209, %204
+  br label %213
 
-213:                                              ; preds = %210, %205
-  br label %214
+213:                                              ; preds = %212, %209, %204, %202
+  %214 = phi i64 [ -8193, %212 ], [ -4097, %204 ], [ -4097, %202 ], [ -4097, %209 ]
+  %215 = and i64 %214, %196
+  store i64 %215, ptr %4, align 8, !tbaa !76
+  br label %216
 
-214:                                              ; preds = %213, %210, %205, %203
-  %215 = phi i64 [ -8193, %213 ], [ -4097, %205 ], [ -4097, %203 ], [ -4097, %210 ]
-  %216 = and i64 %215, %197
-  store i64 %216, ptr %4, align 8, !tbaa !76
-  br label %217
+216:                                              ; preds = %213, %195
+  %217 = phi i64 [ %196, %195 ], [ %215, %213 ]
+  %218 = and i64 %217, 27021597764235264
+  %219 = icmp eq i64 %218, 0
+  %220 = and i64 %217, 5505024
+  %221 = icmp eq i64 %220, 0
+  %222 = or i1 %219, %221
+  br i1 %222, label %279, label %223
 
-217:                                              ; preds = %214, %196
-  %218 = phi i64 [ %197, %196 ], [ %216, %214 ]
-  %219 = and i64 %218, 27021597764235264
-  %220 = icmp eq i64 %219, 0
-  %221 = and i64 %218, 5505024
-  %222 = icmp eq i64 %221, 0
-  %223 = or i1 %220, %222
-  br i1 %223, label %280, label %224
-
-224:                                              ; preds = %217
-  %225 = getelementptr inbounds i8, ptr %1, i64 8
-  %226 = and i32 %8, 16519168
-  %227 = load i32, ptr %225, align 4, !tbaa !26
-  %228 = and i32 %227, 248
-  %229 = icmp eq i32 %228, 136
-  %230 = zext i1 %229 to i32
-  %231 = and i32 %148, 147456
-  %232 = or disjoint i32 %231, %226
-  switch i32 %6, label %272 [
-    i32 1239, label %233
-    i32 1240, label %233
-    i32 1243, label %233
-    i32 1244, label %233
-    i32 858, label %240
-    i32 860, label %240
-    i32 898, label %240
-    i32 1485, label %246
-    i32 1484, label %246
-    i32 1486, label %246
-    i32 1490, label %246
-    i32 1491, label %246
-    i32 1492, label %246
-    i32 1496, label %246
-    i32 1497, label %246
-    i32 1498, label %246
-    i32 1499, label %246
-    i32 1503, label %246
-    i32 1299, label %253
-    i32 1301, label %260
+223:                                              ; preds = %216
+  %224 = getelementptr inbounds i8, ptr %1, i64 8
+  %225 = and i32 %8, 16519168
+  %226 = load i32, ptr %224, align 4, !tbaa !26
+  %227 = and i32 %226, 248
+  %228 = icmp eq i32 %227, 136
+  %229 = zext i1 %228 to i32
+  %230 = and i32 %148, 147456
+  %231 = or disjoint i32 %230, %225
+  switch i32 %6, label %271 [
+    i32 1239, label %232
+    i32 1240, label %232
+    i32 1243, label %232
+    i32 1244, label %232
+    i32 858, label %239
+    i32 860, label %239
+    i32 898, label %239
+    i32 1485, label %245
+    i32 1484, label %245
+    i32 1486, label %245
+    i32 1490, label %245
+    i32 1491, label %245
+    i32 1492, label %245
+    i32 1496, label %245
+    i32 1497, label %245
+    i32 1498, label %245
+    i32 1499, label %245
+    i32 1503, label %245
+    i32 1299, label %252
+    i32 1301, label %259
   ]
 
-233:                                              ; preds = %224, %224, %224, %224
-  %234 = icmp ugt i64 %3, 1
-  br i1 %234, label %235, label %272
+232:                                              ; preds = %223, %223, %223, %223
+  %233 = icmp ugt i64 %3, 1
+  br i1 %233, label %234, label %271
 
-235:                                              ; preds = %233
-  %236 = getelementptr inbounds i8, ptr %2, i64 16
-  %237 = load i32, ptr %236, align 4, !tbaa !4
-  %238 = and i32 %237, 3847
-  %239 = icmp eq i32 %238, 1
-  br label %272
+234:                                              ; preds = %232
+  %235 = getelementptr inbounds i8, ptr %2, i64 16
+  %236 = load i32, ptr %235, align 4, !tbaa !4
+  %237 = and i32 %236, 3847
+  %238 = icmp eq i32 %237, 1
+  br label %271
 
-240:                                              ; preds = %224, %224, %224
-  %241 = icmp ugt i64 %3, 1
-  br i1 %241, label %242, label %272
+239:                                              ; preds = %223, %223, %223
+  %240 = icmp ugt i64 %3, 1
+  br i1 %240, label %241, label %271
 
-242:                                              ; preds = %240
-  %243 = load i32, ptr %2, align 4, !tbaa !26
-  %244 = and i32 %243, -16773121
-  %245 = icmp eq i32 %244, 536871273
-  br label %272
+241:                                              ; preds = %239
+  %242 = load i32, ptr %2, align 4, !tbaa !26
+  %243 = and i32 %242, -16773121
+  %244 = icmp eq i32 %243, 536871273
+  br label %271
 
-246:                                              ; preds = %224, %224, %224, %224, %224, %224, %224, %224, %224, %224, %224
-  %247 = icmp ugt i64 %3, 1
-  br i1 %247, label %248, label %272
+245:                                              ; preds = %223, %223, %223, %223, %223, %223, %223, %223, %223, %223, %223
+  %246 = icmp ugt i64 %3, 1
+  br i1 %246, label %247, label %271
 
-248:                                              ; preds = %246
-  %249 = getelementptr inbounds i8, ptr %2, i64 16
-  %250 = load i32, ptr %249, align 4, !tbaa !26
-  %251 = and i32 %250, 7
-  %252 = icmp eq i32 %251, 2
-  br label %272
+247:                                              ; preds = %245
+  %248 = getelementptr inbounds i8, ptr %2, i64 16
+  %249 = load i32, ptr %248, align 4, !tbaa !26
+  %250 = and i32 %249, 7
+  %251 = icmp eq i32 %250, 2
+  br label %271
 
-253:                                              ; preds = %224
-  %254 = icmp ugt i64 %3, 2
-  br i1 %254, label %255, label %272
+252:                                              ; preds = %223
+  %253 = icmp ugt i64 %3, 2
+  br i1 %253, label %254, label %271
 
-255:                                              ; preds = %253
-  %256 = getelementptr inbounds i8, ptr %2, i64 32
-  %257 = load i32, ptr %256, align 4, !tbaa !26
-  %258 = and i32 %257, 7
-  %259 = icmp ne i32 %258, 3
-  br label %272
+254:                                              ; preds = %252
+  %255 = getelementptr inbounds i8, ptr %2, i64 32
+  %256 = load i32, ptr %255, align 4, !tbaa !26
+  %257 = and i32 %256, 7
+  %258 = icmp ne i32 %257, 3
+  br label %271
 
-260:                                              ; preds = %224
-  %261 = icmp ugt i64 %3, 2
-  br i1 %261, label %262, label %272
+259:                                              ; preds = %223
+  %260 = icmp ugt i64 %3, 2
+  br i1 %260, label %261, label %271
 
-262:                                              ; preds = %260
-  %263 = getelementptr inbounds i8, ptr %2, i64 16
-  %264 = load i32, ptr %263, align 4, !tbaa !26
-  %265 = and i32 %264, 7
-  %266 = icmp eq i32 %265, 2
-  br i1 %266, label %272, label %267
+261:                                              ; preds = %259
+  %262 = getelementptr inbounds i8, ptr %2, i64 16
+  %263 = load i32, ptr %262, align 4, !tbaa !26
+  %264 = and i32 %263, 7
+  %265 = icmp eq i32 %264, 2
+  br i1 %265, label %271, label %266
 
-267:                                              ; preds = %262
-  %268 = getelementptr inbounds i8, ptr %2, i64 32
-  %269 = load i32, ptr %268, align 4, !tbaa !26
-  %270 = and i32 %269, 7
-  %271 = icmp ne i32 %270, 3
-  br label %272
+266:                                              ; preds = %261
+  %267 = getelementptr inbounds i8, ptr %2, i64 32
+  %268 = load i32, ptr %267, align 4, !tbaa !26
+  %269 = and i32 %268, 7
+  %270 = icmp ne i32 %269, 3
+  br label %271
 
-272:                                              ; preds = %267, %262, %260, %255, %253, %248, %246, %242, %240, %235, %233, %224
-  %273 = phi i1 [ false, %224 ], [ false, %233 ], [ %239, %235 ], [ false, %240 ], [ %245, %242 ], [ false, %246 ], [ %252, %248 ], [ false, %253 ], [ %259, %255 ], [ false, %260 ], [ true, %262 ], [ %271, %267 ]
-  %274 = zext i1 %273 to i32
-  %275 = or i32 %232, %150
-  %276 = or i32 %275, %230
-  %277 = or i32 %276, %274
-  %278 = icmp eq i32 %277, 0
-  %.v = select i1 %278, i64 -273940481, i64 -27021597764235265
-  %279 = and i64 %.v, %218
-  store i64 %279, ptr %4, align 8, !tbaa !76
-  br label %280
+271:                                              ; preds = %266, %261, %259, %254, %252, %247, %245, %241, %239, %234, %232, %223
+  %272 = phi i1 [ false, %223 ], [ false, %232 ], [ %238, %234 ], [ false, %239 ], [ %244, %241 ], [ false, %245 ], [ %251, %247 ], [ false, %252 ], [ %258, %254 ], [ false, %259 ], [ true, %261 ], [ %270, %266 ]
+  %273 = zext i1 %272 to i32
+  %274 = or i32 %231, %150
+  %275 = or i32 %274, %229
+  %276 = or i32 %275, %273
+  %277 = icmp eq i32 %276, 0
+  %.v = select i1 %277, i64 -273940481, i64 -27021597764235265
+  %278 = and i64 %.v, %217
+  store i64 %278, ptr %4, align 8, !tbaa !76
+  br label %279
 
-280:                                              ; preds = %272, %217
-  %281 = phi i64 [ %218, %217 ], [ %279, %272 ]
-  %282 = and i64 %281, 536870912
-  %283 = icmp eq i64 %282, 0
-  br i1 %283, label %299, label %284
+279:                                              ; preds = %271, %216
+  %280 = phi i64 [ %217, %216 ], [ %278, %271 ]
+  %281 = and i64 %280, 536870912
+  %282 = icmp eq i64 %281, 0
+  br i1 %282, label %298, label %283
 
-284:                                              ; preds = %280
-  %285 = getelementptr inbounds i8, ptr %1, i64 8
-  %286 = and i32 %8, 16519168
-  %287 = load i32, ptr %285, align 4, !tbaa !26
-  %288 = and i32 %287, 248
-  %289 = icmp eq i32 %288, 136
-  %290 = zext i1 %289 to i32
-  %291 = and i32 %148, 147456
-  %292 = or disjoint i32 %291, %286
-  %293 = or disjoint i32 %292, %290
-  %294 = icmp eq i32 %293, 0
-  %295 = and i32 %8, 3072
-  %296 = icmp ne i32 %295, 0
-  %297 = select i1 %294, i1 %296, i1 false
-  %.v8 = select i1 %297, i64 -805306369, i64 -17179869185
-  %298 = and i64 %.v8, %281
-  store i64 %298, ptr %4, align 8, !tbaa !76
-  br label %299
+283:                                              ; preds = %279
+  %284 = getelementptr inbounds i8, ptr %1, i64 8
+  %285 = and i32 %8, 16519168
+  %286 = load i32, ptr %284, align 4, !tbaa !26
+  %287 = and i32 %286, 248
+  %288 = icmp eq i32 %287, 136
+  %289 = zext i1 %288 to i32
+  %290 = and i32 %148, 147456
+  %291 = or disjoint i32 %290, %285
+  %292 = or disjoint i32 %291, %289
+  %293 = icmp eq i32 %292, 0
+  %294 = and i32 %8, 3072
+  %295 = icmp ne i32 %294, 0
+  %296 = select i1 %293, i1 %295, i1 false
+  %.v8 = select i1 %296, i64 -805306369, i64 -17179869185
+  %297 = and i64 %.v8, %280
+  store i64 %297, ptr %4, align 8, !tbaa !76
+  br label %298
 
-299:                                              ; preds = %284, %280
-  %300 = phi i64 [ %281, %280 ], [ %298, %284 ]
-  %301 = and i32 %148, 16384
-  %302 = icmp eq i32 %301, 0
-  br i1 %302, label %305, label %303
+298:                                              ; preds = %283, %279
+  %299 = phi i64 [ %280, %279 ], [ %297, %283 ]
+  %300 = and i32 %148, 16384
+  %301 = icmp eq i32 %300, 0
+  br i1 %301, label %304, label %302
 
-303:                                              ; preds = %299
-  %304 = and i64 %300, -268435457
-  store i64 %304, ptr %4, align 8, !tbaa !76
-  br label %305
+302:                                              ; preds = %298
+  %303 = and i64 %299, -268435457
+  store i64 %303, ptr %4, align 8, !tbaa !76
+  br label %304
 
-305:                                              ; preds = %303, %299, %10, %5
-  %306 = phi i32 [ 26, %5 ], [ 0, %303 ], [ 0, %299 ], [ 0, %10 ]
-  ret i32 %306
+304:                                              ; preds = %302, %298, %10, %5
+  %305 = phi i32 [ 26, %5 ], [ 0, %302 ], [ 0, %298 ], [ 0, %10 ]
+  ret i32 %305
 }
 
 ; Function Attrs: nounwind
@@ -4250,7 +4246,7 @@ attributes #12 = { nounwind willreturn memory(read) }
 !38 = distinct !{!38, !15}
 !39 = !{!"branch_weights", i32 -1073741824, i32 1073741824}
 !40 = !{!20, !5, i64 4}
-!41 = !{!"branch_weights", i32 4001, i32 1}
+!41 = !{!"branch_weights", i32 6002, i32 8002000}
 !42 = !{!"branch_weights", i32 2000, i32 2002}
 !43 = !{!44, !6, i64 1}
 !44 = !{!"_ZTSN6asmjit9_abi_1_103x866InstDB14AdditionalInfoE", !6, i64 0, !6, i64 1, !6, i64 2}

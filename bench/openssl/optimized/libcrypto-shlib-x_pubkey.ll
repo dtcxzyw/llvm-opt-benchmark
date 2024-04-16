@@ -120,20 +120,20 @@ if.then.i:                                        ; preds = %entry
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 52) #8
   store ptr null, ptr %propq2.i, align 8
   %cmp4.not.i = icmp eq ptr %propq, null
-  br i1 %cmp4.not.i, label %if.end, label %if.then5.i
+  br i1 %cmp4.not.i, label %if.end, label %x509_pubkey_set0_libctx.exit
 
-if.then5.i:                                       ; preds = %if.then.i
+x509_pubkey_set0_libctx.exit:                     ; preds = %if.then.i
   %call.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 55) #8
   store ptr %call.i, ptr %propq2.i, align 8
-  %cmp8.i = icmp eq ptr %call.i, null
-  br i1 %cmp8.i, label %if.then, label %if.end
+  %cmp8.i.not = icmp eq ptr %call.i, null
+  br i1 %cmp8.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %if.then5.i
+if.then:                                          ; preds = %x509_pubkey_set0_libctx.exit
   tail call void @ASN1_item_free(ptr noundef nonnull %call1, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
   br label %if.end
 
-if.end:                                           ; preds = %if.then5.i, %if.then.i, %entry, %if.then
-  %pubkey.0 = phi ptr [ null, %if.then ], [ null, %entry ], [ %call1, %if.then.i ], [ %call1, %if.then5.i ]
+if.end:                                           ; preds = %entry, %if.then.i, %if.then, %x509_pubkey_set0_libctx.exit
+  %pubkey.0 = phi ptr [ %call1, %x509_pubkey_set0_libctx.exit ], [ null, %if.then ], [ %call1, %if.then.i ], [ null, %entry ]
   ret ptr %pubkey.0
 }
 
@@ -160,15 +160,15 @@ if.then.i:                                        ; preds = %entry
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 52) #8
   store ptr null, ptr %propq2.i, align 8
   %cmp4.not.i = icmp eq ptr %1, null
-  br i1 %cmp4.not.i, label %if.end4, label %if.then5.i
+  br i1 %cmp4.not.i, label %if.end4, label %x509_pubkey_set0_libctx.exit
 
-if.then5.i:                                       ; preds = %if.then.i
+x509_pubkey_set0_libctx.exit:                     ; preds = %if.then.i
   %call.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %1, ptr noundef nonnull @.str, i32 noundef 55) #8
   store ptr %call.i, ptr %propq2.i, align 8
-  %cmp8.i = icmp eq ptr %call.i, null
-  br i1 %cmp8.i, label %if.then.i7, label %if.end4
+  %cmp8.i.not = icmp eq ptr %call.i, null
+  br i1 %cmp8.i.not, label %if.then.i7, label %if.end4
 
-if.then.i7:                                       ; preds = %if.then5.i
+if.then.i7:                                       ; preds = %x509_pubkey_set0_libctx.exit
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 290, ptr noundef nonnull @__func__.X509_PUBKEY_dup) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524299, ptr noundef null) #8
@@ -185,7 +185,7 @@ if.then.i7:                                       ; preds = %if.then5.i
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 95) #8
   br label %return
 
-if.end4:                                          ; preds = %if.then5.i, %if.then.i
+if.end4:                                          ; preds = %if.then.i, %x509_pubkey_set0_libctx.exit
   %7 = load ptr, ptr %a, align 8
   %call5 = tail call ptr @X509_ALGOR_dup(ptr noundef %7) #8
   store ptr %call5, ptr %call, align 8
@@ -635,15 +635,15 @@ if.then.i:                                        ; preds = %if.then
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 52) #8
   store ptr null, ptr %propq2.i, align 8
   %cmp4.not.i = icmp eq ptr %propq, null
-  br i1 %cmp4.not.i, label %if.end8, label %if.then5.i
+  br i1 %cmp4.not.i, label %if.end8, label %x509_pubkey_set0_libctx.exit
 
-if.then5.i:                                       ; preds = %if.then.i
+x509_pubkey_set0_libctx.exit:                     ; preds = %if.then.i
   %call.i = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 55) #8
   store ptr %call.i, ptr %propq2.i, align 8
-  %cmp8.i = icmp eq ptr %call.i, null
-  br i1 %cmp8.i, label %end, label %if.end8
+  %cmp8.i.not = icmp eq ptr %call.i, null
+  br i1 %cmp8.i.not, label %end, label %if.end8
 
-if.end8:                                          ; preds = %if.then5.i, %if.then.i
+if.end8:                                          ; preds = %if.then.i, %x509_pubkey_set0_libctx.exit
   %flag_force_legacy = getelementptr inbounds i8, ptr %call, i64 40
   %2 = zext i1 %tobool to i8
   %bf.load = load i8, ptr %flag_force_legacy, align 8
@@ -677,8 +677,8 @@ if.then21:                                        ; preds = %if.end19
   store ptr %call16, ptr %a, align 8
   br label %end
 
-end:                                              ; preds = %if.then5.i, %if.end19, %if.then21, %if.end15, %if.end11
-  %pktmp.0 = phi ptr [ null, %if.end11 ], [ null, %if.end15 ], [ %call16, %if.then21 ], [ %call16, %if.end19 ], [ null, %if.then5.i ]
+end:                                              ; preds = %if.end19, %if.then21, %if.end15, %if.end11, %x509_pubkey_set0_libctx.exit
+  %pktmp.0 = phi ptr [ null, %if.end11 ], [ null, %if.end15 ], [ %call16, %if.then21 ], [ %call16, %if.end19 ], [ null, %x509_pubkey_set0_libctx.exit ]
   %5 = load ptr, ptr %xpk2, align 8
   call void @ASN1_item_free(ptr noundef %5, ptr noundef nonnull @X509_PUBKEY_it.local_it) #8
   br label %return
@@ -1819,15 +1819,15 @@ if.then.i:                                        ; preds = %land.rhs.i, %x509_p
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 52) #8
   store ptr null, ptr %propq2.i, align 8
   %cmp4.not.i = icmp eq ptr %propq, null
-  br i1 %cmp4.not.i, label %if.else, label %if.then5.i
+  br i1 %cmp4.not.i, label %if.else, label %x509_pubkey_set0_libctx.exit
 
-if.then5.i:                                       ; preds = %if.then.i
+x509_pubkey_set0_libctx.exit:                     ; preds = %if.then.i
   %call.i2 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 55) #8
   store ptr %call.i2, ptr %propq2.i, align 8
-  %cmp8.i = icmp eq ptr %call.i2, null
-  br i1 %cmp8.i, label %x509_pubkey_ex_free.exit, label %if.else
+  %cmp8.i.not = icmp eq ptr %call.i2, null
+  br i1 %cmp8.i.not, label %x509_pubkey_ex_free.exit, label %if.else
 
-x509_pubkey_ex_free.exit:                         ; preds = %if.then5.i, %lor.lhs.false.i, %x509_pubkey_ex_populate.exit
+x509_pubkey_ex_free.exit:                         ; preds = %lor.lhs.false.i, %x509_pubkey_set0_libctx.exit, %x509_pubkey_ex_populate.exit
   %3 = load ptr, ptr %call, align 8
   tail call void @X509_ALGOR_free(ptr noundef %3) #8
   %public_key.i4 = getelementptr inbounds i8, ptr %call, i64 8
@@ -1845,7 +1845,7 @@ x509_pubkey_ex_free.exit:                         ; preds = %if.then5.i, %lor.lh
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524299, ptr noundef null) #8
   br label %return
 
-if.else:                                          ; preds = %if.then5.i, %if.then.i
+if.else:                                          ; preds = %if.then.i, %x509_pubkey_set0_libctx.exit
   store ptr %call, ptr %pval, align 8
   br label %return
 

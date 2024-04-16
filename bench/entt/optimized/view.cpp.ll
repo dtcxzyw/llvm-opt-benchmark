@@ -13331,7 +13331,7 @@ cond.true.i:                                      ; preds = %land.lhs.true.i.i
   %add.ptr.i.i = getelementptr inbounds i32, ptr %8, i64 %and.i6.i.i.i.i.pre-phi
   %9 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !41
   %shr.i.i = lshr i32 %9, 20
-  %conv2.i.i = trunc i32 %shr.i.i to i16
+  %conv2.i.i = trunc nuw nsw i32 %shr.i.i to i16
   br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE7currentES1_.exit
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE7currentES1_.exit: ; preds = %cond.true.i, %land.lhs.true.i.i, %for.cond.cleanup
@@ -101636,7 +101636,7 @@ land.rhs.i.preheader:                             ; preds = %land.lhs.true.split
   %filter = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %filter, align 8, !tbaa !20
   %tobool.not.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i, label %for.inc.i57, label %land.rhs1.i
+  br i1 %tobool.not.i, label %return, label %land.rhs1.i
 
 land.rhs1.i:                                      ; preds = %land.rhs.i.preheader
   %sparse.i.i.i50 = getelementptr inbounds i8, ptr %15, i64 8
@@ -101648,26 +101648,23 @@ land.rhs1.i:                                      ; preds = %land.rhs.i.preheade
   %sub.ptr.sub.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i52, %sub.ptr.rhs.cast.i.i.i.i53
   %sub.ptr.div.i.i.i.i55 = ashr exact i64 %sub.ptr.sub.i.i.i.i54, 3
   %cmp.i.i.i56 = icmp ult i64 %div11.i.i.i, %sub.ptr.div.i.i.i.i55
-  br i1 %cmp.i.i.i56, label %land.lhs.true.i.i.i61, label %for.inc.i57
+  br i1 %cmp.i.i.i56, label %land.lhs.true.i.i.i61, label %return
 
 land.lhs.true.i.i.i61:                            ; preds = %land.rhs1.i
   %add.ptr.i.i.i.i62 = getelementptr inbounds ptr, ptr %17, i64 %div11.i.i.i
   %18 = load ptr, ptr %add.ptr.i.i.i.i62, align 8, !tbaa !20
   %tobool.not.i.i.i63 = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i.i63, label %for.inc.i57, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64
+  br i1 %tobool.not.i.i.i63, label %return, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64: ; preds = %land.lhs.true.i.i.i61
   %add.ptr.i.i.i65 = getelementptr inbounds i32, ptr %18, i64 %and.i13.i.i.i
   %19 = load i32, ptr %add.ptr.i.i.i65, align 4, !tbaa !41
   %xor.i.i66 = xor i32 %19, %and.i.i
-  %cmp.i.i67 = icmp ult i32 %xor.i.i66, 1048575
-  br i1 %cmp.i.i67, label %return, label %for.inc.i57
-
-for.inc.i57:                                      ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.lhs.true.i.i.i61, %land.rhs1.i, %land.rhs.i.preheader
+  %cmp.i.i67 = icmp ugt i32 %xor.i.i66, 1048574
   br label %return
 
-return:                                           ; preds = %for.inc.i57, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.lhs.true.split.split, %land.lhs.true.split, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %if.then, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %if.then ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %land.lhs.true.split ], [ false, %land.lhs.true.split.split ], [ false, %land.lhs.true ], [ true, %for.inc.i57 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ]
+return:                                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.rhs.i.preheader, %land.rhs1.i, %land.lhs.true.i.i.i61, %land.lhs.true.split.split, %land.lhs.true.split, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %if.then, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %if.then ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %land.lhs.true.split ], [ false, %land.lhs.true.split.split ], [ false, %land.lhs.true ], [ true, %land.lhs.true.i.i.i61 ], [ true, %land.rhs1.i ], [ true, %land.rhs.i.preheader ], [ %cmp.i.i67, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ]
   ret i1 %retval.0
 }
 
@@ -108248,7 +108245,7 @@ for.inc.i57:                                      ; preds = %_ZNK4entt16basic_sp
   %arrayidx.i49.1 = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load ptr, ptr %arrayidx.i49.1, align 8, !tbaa !20
   %tobool.not.i.1 = icmp eq ptr %20, null
-  br i1 %tobool.not.i.1, label %for.inc.i57.1, label %land.rhs1.i.1
+  br i1 %tobool.not.i.1, label %return, label %land.rhs1.i.1
 
 land.rhs1.i.1:                                    ; preds = %for.inc.i57
   %sparse.i.i.i50.1 = getelementptr inbounds i8, ptr %20, i64 8
@@ -108260,26 +108257,23 @@ land.rhs1.i.1:                                    ; preds = %for.inc.i57
   %sub.ptr.sub.i.i.i.i54.1 = sub i64 %sub.ptr.lhs.cast.i.i.i.i52.1, %sub.ptr.rhs.cast.i.i.i.i53.1
   %sub.ptr.div.i.i.i.i55.1 = ashr exact i64 %sub.ptr.sub.i.i.i.i54.1, 3
   %cmp.i.i.i56.1 = icmp ult i64 %div11.i.i.i, %sub.ptr.div.i.i.i.i55.1
-  br i1 %cmp.i.i.i56.1, label %land.lhs.true.i.i.i61.1, label %for.inc.i57.1
+  br i1 %cmp.i.i.i56.1, label %land.lhs.true.i.i.i61.1, label %return
 
 land.lhs.true.i.i.i61.1:                          ; preds = %land.rhs1.i.1
   %add.ptr.i.i.i.i62.1 = getelementptr inbounds ptr, ptr %22, i64 %div11.i.i.i
   %23 = load ptr, ptr %add.ptr.i.i.i.i62.1, align 8, !tbaa !20
   %tobool.not.i.i.i63.1 = icmp eq ptr %23, null
-  br i1 %tobool.not.i.i.i63.1, label %for.inc.i57.1, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1
+  br i1 %tobool.not.i.i.i63.1, label %return, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1: ; preds = %land.lhs.true.i.i.i61.1
   %add.ptr.i.i.i65.1 = getelementptr inbounds i32, ptr %23, i64 %and.i13.i.i.i
   %24 = load i32, ptr %add.ptr.i.i.i65.1, align 4, !tbaa !41
   %xor.i.i66.1 = xor i32 %24, %and.i.i
-  %cmp.i.i67.1 = icmp ult i32 %xor.i.i66.1, 1048575
-  br i1 %cmp.i.i67.1, label %return, label %for.inc.i57.1
-
-for.inc.i57.1:                                    ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %land.lhs.true.i.i.i61.1, %land.rhs1.i.1, %for.inc.i57
+  %cmp.i.i67.1 = icmp ugt i32 %xor.i.i66.1, 1048574
   br label %return
 
-return:                                           ; preds = %for.inc.i57.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.lhs.true.split.split, %land.lhs.true.split, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %if.then, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %if.then ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %land.lhs.true.split ], [ false, %land.lhs.true.split.split ], [ false, %land.lhs.true ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1 ], [ true, %for.inc.i57.1 ]
+return:                                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %for.inc.i57, %land.rhs1.i.1, %land.lhs.true.i.i.i61.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.lhs.true.split.split, %land.lhs.true.split, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %if.then, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %if.then ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %land.lhs.true.split ], [ false, %land.lhs.true.split.split ], [ false, %land.lhs.true ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ], [ true, %land.lhs.true.i.i.i61.1 ], [ true, %land.rhs1.i.1 ], [ true, %for.inc.i57 ], [ %cmp.i.i67.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1 ]
   ret i1 %retval.0
 }
 
@@ -108387,7 +108381,7 @@ land.rhs.i.preheader:                             ; preds = %land.lhs.true.split
   %filter = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %filter, align 8, !tbaa !20
   %tobool.not.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i, label %for.inc.i57, label %land.rhs1.i
+  br i1 %tobool.not.i, label %return, label %land.rhs1.i
 
 land.rhs1.i:                                      ; preds = %land.rhs.i.preheader
   %sparse.i.i.i50 = getelementptr inbounds i8, ptr %15, i64 8
@@ -108399,26 +108393,23 @@ land.rhs1.i:                                      ; preds = %land.rhs.i.preheade
   %sub.ptr.sub.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i52, %sub.ptr.rhs.cast.i.i.i.i53
   %sub.ptr.div.i.i.i.i55 = ashr exact i64 %sub.ptr.sub.i.i.i.i54, 3
   %cmp.i.i.i56 = icmp ult i64 %div11.i.i.i, %sub.ptr.div.i.i.i.i55
-  br i1 %cmp.i.i.i56, label %land.lhs.true.i.i.i61, label %for.inc.i57
+  br i1 %cmp.i.i.i56, label %land.lhs.true.i.i.i61, label %return
 
 land.lhs.true.i.i.i61:                            ; preds = %land.rhs1.i
   %add.ptr.i.i.i.i62 = getelementptr inbounds ptr, ptr %17, i64 %div11.i.i.i
   %18 = load ptr, ptr %add.ptr.i.i.i.i62, align 8, !tbaa !20
   %tobool.not.i.i.i63 = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i.i63, label %for.inc.i57, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64
+  br i1 %tobool.not.i.i.i63, label %return, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64: ; preds = %land.lhs.true.i.i.i61
   %add.ptr.i.i.i65 = getelementptr inbounds i32, ptr %18, i64 %and.i13.i.i.i
   %19 = load i32, ptr %add.ptr.i.i.i65, align 4, !tbaa !41
   %xor.i.i66 = xor i32 %19, %and.i.i
-  %cmp.i.i67 = icmp ult i32 %xor.i.i66, 1048575
-  br i1 %cmp.i.i67, label %return, label %for.inc.i57
-
-for.inc.i57:                                      ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.lhs.true.i.i.i61, %land.rhs1.i, %land.rhs.i.preheader
+  %cmp.i.i67 = icmp ugt i32 %xor.i.i66, 1048574
   br label %return
 
-return:                                           ; preds = %for.inc.i57, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.lhs.true.split.split, %land.lhs.true.split, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %if.then, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %if.then ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %land.lhs.true.split ], [ false, %land.lhs.true.split.split ], [ false, %land.lhs.true ], [ true, %for.inc.i57 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ]
+return:                                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.rhs.i.preheader, %land.rhs1.i, %land.lhs.true.i.i.i61, %land.lhs.true.split.split, %land.lhs.true.split, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %if.then, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %if.then ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %land.lhs.true.split ], [ false, %land.lhs.true.split.split ], [ false, %land.lhs.true ], [ true, %land.lhs.true.i.i.i61 ], [ true, %land.rhs1.i ], [ true, %land.rhs.i.preheader ], [ %cmp.i.i67, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ]
   ret i1 %retval.0
 }
 
@@ -108618,7 +108609,7 @@ for.inc.i57:                                      ; preds = %_ZNK4entt16basic_sp
   %arrayidx.i49.1 = getelementptr inbounds i8, ptr %this, i64 32
   %25 = load ptr, ptr %arrayidx.i49.1, align 8, !tbaa !20
   %tobool.not.i.1 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.1, label %for.inc.i57.1, label %land.rhs1.i.1
+  br i1 %tobool.not.i.1, label %return, label %land.rhs1.i.1
 
 land.rhs1.i.1:                                    ; preds = %for.inc.i57
   %sparse.i.i.i50.1 = getelementptr inbounds i8, ptr %25, i64 8
@@ -108630,26 +108621,23 @@ land.rhs1.i.1:                                    ; preds = %for.inc.i57
   %sub.ptr.sub.i.i.i.i54.1 = sub i64 %sub.ptr.lhs.cast.i.i.i.i52.1, %sub.ptr.rhs.cast.i.i.i.i53.1
   %sub.ptr.div.i.i.i.i55.1 = ashr exact i64 %sub.ptr.sub.i.i.i.i54.1, 3
   %cmp.i.i.i56.1 = icmp ult i64 %div11.i.i.i, %sub.ptr.div.i.i.i.i55.1
-  br i1 %cmp.i.i.i56.1, label %land.lhs.true.i.i.i61.1, label %for.inc.i57.1
+  br i1 %cmp.i.i.i56.1, label %land.lhs.true.i.i.i61.1, label %return
 
 land.lhs.true.i.i.i61.1:                          ; preds = %land.rhs1.i.1
   %add.ptr.i.i.i.i62.1 = getelementptr inbounds ptr, ptr %27, i64 %div11.i.i.i
   %28 = load ptr, ptr %add.ptr.i.i.i.i62.1, align 8, !tbaa !20
   %tobool.not.i.i.i63.1 = icmp eq ptr %28, null
-  br i1 %tobool.not.i.i.i63.1, label %for.inc.i57.1, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1
+  br i1 %tobool.not.i.i.i63.1, label %return, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1: ; preds = %land.lhs.true.i.i.i61.1
   %add.ptr.i.i.i65.1 = getelementptr inbounds i32, ptr %28, i64 %and.i13.i.i.i
   %29 = load i32, ptr %add.ptr.i.i.i65.1, align 4, !tbaa !41
   %xor.i.i66.1 = xor i32 %29, %and.i.i
-  %cmp.i.i67.1 = icmp ult i32 %xor.i.i66.1, 1048575
-  br i1 %cmp.i.i67.1, label %return, label %for.inc.i57.1
-
-for.inc.i57.1:                                    ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %land.lhs.true.i.i.i61.1, %land.rhs1.i.1, %for.inc.i57
+  %cmp.i.i67.1 = icmp ugt i32 %xor.i.i66.1, 1048574
   br label %return
 
-return:                                           ; preds = %for.inc.i57.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39.1, %land.lhs.true.i.i.i36.1, %for.inc.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39, %land.lhs.true.i.i.i36, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEKNS2_INS3_IcS4_SaIcEvEES9_EENS2_INS3_IN4test5emptyES4_SaISG_EvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IdS4_SaIdEvEES9_EENS2_INS3_IfS4_SaIfEvEES9_EEEEEvE16opaque_check_setEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEKNS2_INS3_IcS4_SaIcEvEES9_EENS2_INS3_IN4test5emptyES4_SaISG_EvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IdS4_SaIdEvEES9_EENS2_INS3_IfS4_SaIfEvEES9_EEEEEvE16opaque_check_setEv.exit ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39.1 ], [ false, %land.lhs.true.i.i.i36.1 ], [ false, %for.inc.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i.i.i36 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1 ], [ true, %for.inc.i57.1 ]
+return:                                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %for.inc.i57, %land.rhs1.i.1, %land.lhs.true.i.i.i61.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39.1, %land.lhs.true.i.i.i36.1, %for.inc.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39, %land.lhs.true.i.i.i36, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEKNS2_INS3_IcS4_SaIcEvEES9_EENS2_INS3_IN4test5emptyES4_SaISG_EvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IdS4_SaIdEvEES9_EENS2_INS3_IfS4_SaIfEvEES9_EEEEEvE16opaque_check_setEv.exit, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEKNS2_INS3_IcS4_SaIcEvEES9_EENS2_INS3_IN4test5emptyES4_SaISG_EvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IdS4_SaIdEvEES9_EENS2_INS3_IfS4_SaIfEvEES9_EEEEEvE16opaque_check_setEv.exit ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39.1 ], [ false, %land.lhs.true.i.i.i36.1 ], [ false, %for.inc.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i.i.i36 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ], [ true, %land.lhs.true.i.i.i61.1 ], [ true, %land.rhs1.i.1 ], [ true, %for.inc.i57 ], [ %cmp.i.i67.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1 ]
   ret i1 %retval.0
 }
 
@@ -108849,7 +108837,7 @@ for.inc.i57:                                      ; preds = %_ZNK4entt16basic_sp
   %arrayidx.i49.1 = getelementptr inbounds i8, ptr %this, i64 32
   %25 = load ptr, ptr %arrayidx.i49.1, align 8, !tbaa !20
   %tobool.not.i.1 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.1, label %for.inc.i57.1, label %land.rhs1.i.1
+  br i1 %tobool.not.i.1, label %return, label %land.rhs1.i.1
 
 land.rhs1.i.1:                                    ; preds = %for.inc.i57
   %sparse.i.i.i50.1 = getelementptr inbounds i8, ptr %25, i64 8
@@ -108861,26 +108849,23 @@ land.rhs1.i.1:                                    ; preds = %for.inc.i57
   %sub.ptr.sub.i.i.i.i54.1 = sub i64 %sub.ptr.lhs.cast.i.i.i.i52.1, %sub.ptr.rhs.cast.i.i.i.i53.1
   %sub.ptr.div.i.i.i.i55.1 = ashr exact i64 %sub.ptr.sub.i.i.i.i54.1, 3
   %cmp.i.i.i56.1 = icmp ult i64 %div11.i.i.i, %sub.ptr.div.i.i.i.i55.1
-  br i1 %cmp.i.i.i56.1, label %land.lhs.true.i.i.i61.1, label %for.inc.i57.1
+  br i1 %cmp.i.i.i56.1, label %land.lhs.true.i.i.i61.1, label %return
 
 land.lhs.true.i.i.i61.1:                          ; preds = %land.rhs1.i.1
   %add.ptr.i.i.i.i62.1 = getelementptr inbounds ptr, ptr %27, i64 %div11.i.i.i
   %28 = load ptr, ptr %add.ptr.i.i.i.i62.1, align 8, !tbaa !20
   %tobool.not.i.i.i63.1 = icmp eq ptr %28, null
-  br i1 %tobool.not.i.i.i63.1, label %for.inc.i57.1, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1
+  br i1 %tobool.not.i.i.i63.1, label %return, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1: ; preds = %land.lhs.true.i.i.i61.1
   %add.ptr.i.i.i65.1 = getelementptr inbounds i32, ptr %28, i64 %and.i13.i.i.i
   %29 = load i32, ptr %add.ptr.i.i.i65.1, align 4, !tbaa !41
   %xor.i.i66.1 = xor i32 %29, %and.i.i
-  %cmp.i.i67.1 = icmp ult i32 %xor.i.i66.1, 1048575
-  br i1 %cmp.i.i67.1, label %return, label %for.inc.i57.1
-
-for.inc.i57.1:                                    ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %land.lhs.true.i.i.i61.1, %land.rhs1.i.1, %for.inc.i57
+  %cmp.i.i67.1 = icmp ugt i32 %xor.i.i66.1, 1048574
   br label %return
 
-return:                                           ; preds = %for.inc.i57.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39.1, %land.lhs.true.i.i.i36.1, %for.inc.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39, %land.lhs.true.i.i.i36, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IN4test14pointer_stableES4_SaISC_EvEES9_EEKNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IdS4_SaIdEvEES9_EENS2_INS3_IfS4_SaIfEvEES9_EEEEEvE16opaque_check_setEv.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IN4test14pointer_stableES4_SaISC_EvEES9_EEKNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IdS4_SaIdEvEES9_EENS2_INS3_IfS4_SaIfEvEES9_EEEEEvE16opaque_check_setEv.exit ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39.1 ], [ false, %land.lhs.true.i.i.i36.1 ], [ false, %for.inc.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i.i.i36 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1 ], [ true, %for.inc.i57.1 ]
+return:                                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1, %for.inc.i57, %land.rhs1.i.1, %land.lhs.true.i.i.i61.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39.1, %land.lhs.true.i.i.i36.1, %for.inc.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39, %land.lhs.true.i.i.i36, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IN4test14pointer_stableES4_SaISC_EvEES9_EEKNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IdS4_SaIdEvEES9_EENS2_INS3_IfS4_SaIfEvEES9_EEEEEvE16opaque_check_setEv.exit, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IN4test14pointer_stableES4_SaISC_EvEES9_EEKNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJKNS2_INS3_IdS4_SaIdEvEES9_EENS2_INS3_IfS4_SaIfEvEES9_EEEEEvE16opaque_check_setEv.exit ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39.1 ], [ false, %land.lhs.true.i.i.i36.1 ], [ false, %for.inc.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i.i.i36 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i39 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ], [ true, %land.lhs.true.i.i.i61.1 ], [ true, %land.rhs1.i.1 ], [ true, %for.inc.i57 ], [ %cmp.i.i67.1, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64.1 ]
   ret i1 %retval.0
 }
 
@@ -110180,7 +110165,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !2915
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !122
@@ -110191,13 +110176,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -114021,7 +114004,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !2915
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !122
@@ -114032,13 +114015,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -115742,7 +115723,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !2915
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !122
@@ -115753,13 +115734,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -118074,7 +118053,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !2915
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !122
@@ -118085,13 +118064,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -119279,7 +119256,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !2915
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !122
@@ -119290,13 +119267,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -121526,7 +121501,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !2915
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !122
@@ -121537,13 +121512,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -125044,23 +125017,23 @@ sw.bb2:                                           ; preds = %entry
 
 sw.bb5:                                           ; preds = %entry
   %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %sw.epilog, label %delete.notnull
+  br i1 %isnull, label %cleanup, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb5
   tail call void @_ZN4entt14basic_registryINS_6entityESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
-  br label %sw.epilog
+  br label %cleanup
 
 sw.bb6:                                           ; preds = %entry
   %cmp = icmp eq ptr %0, %other
   %cond = select i1 %cmp, ptr %other, ptr null
   br label %cleanup
 
-sw.epilog:                                        ; preds = %delete.notnull, %sw.bb5, %entry
+sw.epilog:                                        ; preds = %entry
   br label %cleanup
 
-cleanup:                                          ; preds = %sw.epilog, %sw.bb6, %sw.bb2, %sw.bb1, %entry
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ %cond, %sw.bb6 ], [ %other, %sw.bb2 ], [ %0, %sw.bb1 ], [ %0, %entry ]
+cleanup:                                          ; preds = %sw.bb5, %delete.notnull, %sw.epilog, %sw.bb6, %sw.bb2, %sw.bb1, %entry
+  %retval.0 = phi ptr [ %cond, %sw.bb6 ], [ %other, %sw.bb2 ], [ %0, %sw.bb1 ], [ %0, %entry ], [ null, %delete.notnull ], [ null, %sw.bb5 ], [ null, %sw.epilog ]
   ret ptr %retval.0
 }
 
@@ -136725,7 +136698,7 @@ land.rhs.i.preheader:                             ; preds = %land.lhs.true.split
   %filter = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %filter, align 8, !tbaa !20
   %tobool.not.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i, label %for.inc.i57, label %land.rhs1.i
+  br i1 %tobool.not.i, label %return, label %land.rhs1.i
 
 land.rhs1.i:                                      ; preds = %land.rhs.i.preheader
   %sparse.i.i.i50 = getelementptr inbounds i8, ptr %15, i64 8
@@ -136737,26 +136710,23 @@ land.rhs1.i:                                      ; preds = %land.rhs.i.preheade
   %sub.ptr.sub.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i52, %sub.ptr.rhs.cast.i.i.i.i53
   %sub.ptr.div.i.i.i.i55 = ashr exact i64 %sub.ptr.sub.i.i.i.i54, 3
   %cmp.i.i.i56 = icmp ult i64 %div11.i.i.i, %sub.ptr.div.i.i.i.i55
-  br i1 %cmp.i.i.i56, label %land.lhs.true.i.i.i61, label %for.inc.i57
+  br i1 %cmp.i.i.i56, label %land.lhs.true.i.i.i61, label %return
 
 land.lhs.true.i.i.i61:                            ; preds = %land.rhs1.i
   %add.ptr.i.i.i.i62 = getelementptr inbounds ptr, ptr %17, i64 %div11.i.i.i
   %18 = load ptr, ptr %add.ptr.i.i.i.i62, align 8, !tbaa !20
   %tobool.not.i.i.i63 = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i.i63, label %for.inc.i57, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64
+  br i1 %tobool.not.i.i.i63, label %return, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64: ; preds = %land.lhs.true.i.i.i61
   %add.ptr.i.i.i65 = getelementptr inbounds i32, ptr %18, i64 %and.i13.i.i.i
   %19 = load i32, ptr %add.ptr.i.i.i65, align 4, !tbaa !41
   %xor.i.i66 = xor i32 %19, %and.i.i
-  %cmp.i.i67 = icmp ult i32 %xor.i.i66, 1048575
-  br i1 %cmp.i.i67, label %return, label %for.inc.i57
-
-for.inc.i57:                                      ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.lhs.true.i.i.i61, %land.rhs1.i, %land.rhs.i.preheader
+  %cmp.i.i67 = icmp ugt i32 %xor.i.i66, 1048574
   br label %return
 
-return:                                           ; preds = %for.inc.i57, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.lhs.true.split.split, %land.lhs.true.split, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %if.then, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %if.then ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %land.lhs.true.split ], [ false, %land.lhs.true.split.split ], [ false, %land.lhs.true ], [ true, %for.inc.i57 ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ]
+return:                                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64, %land.rhs.i.preheader, %land.rhs1.i, %land.lhs.true.i.i.i61, %land.lhs.true.split.split, %land.lhs.true.split, %land.lhs.true, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %if.then, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit ], [ false, %if.then ], [ false, %land.lhs.true.i.i.i ], [ false, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ], [ false, %land.lhs.true.split ], [ false, %land.lhs.true.split.split ], [ false, %land.lhs.true ], [ true, %land.lhs.true.i.i.i61 ], [ true, %land.rhs1.i ], [ true, %land.rhs.i.preheader ], [ %cmp.i.i67, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i64 ]
   ret i1 %retval.0
 }
 

@@ -1060,12 +1060,12 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %mThreadMutex53 = getelementptr inbounds i8, ptr %this, i64 160
-  %mpNodeHead.i30 = getelementptr inbounds i8, ptr %this, i64 248
-  %mpNodeTail.i32 = getelementptr inbounds i8, ptr %this, i64 256
-  %mpNodeHead.i34 = getelementptr inbounds i8, ptr %this, i64 216
-  %mpNodeTail.i36 = getelementptr inbounds i8, ptr %this, i64 224
-  %tv_nsec2.i41 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
-  %tv_nsec.i49 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
+  %mpNodeHead.i31 = getelementptr inbounds i8, ptr %this, i64 248
+  %mpNodeTail.i33 = getelementptr inbounds i8, ptr %this, i64 256
+  %mpNodeHead.i35 = getelementptr inbounds i8, ptr %this, i64 216
+  %mpNodeTail.i37 = getelementptr inbounds i8, ptr %this, i64 224
+  %tv_nsec2.i42 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
+  %tv_nsec.i50 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
   br label %for.cond
 
 if.then:                                          ; preds = %entry
@@ -1077,12 +1077,12 @@ if.then:                                          ; preds = %entry
 while.cond.preheader:                             ; preds = %if.then
   %mnActiveCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i32, ptr %mnActiveCount seq_cst, align 8
-  %cmp6.not77 = icmp eq i32 %0, 0
-  br i1 %cmp6.not77, label %while.end, label %land.rhs.lr.ph
+  %cmp6.not78 = icmp eq i32 %0, 0
+  br i1 %cmp6.not78, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
   %tv_nsec2.i = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
-  %tv_nsec.i13 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %tv_nsec.i14 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   br label %land.rhs
 
 while.body18.preheader:                           ; preds = %if.then
@@ -1090,8 +1090,8 @@ while.body18.preheader:                           ; preds = %if.then
   %mnActiveCount20 = getelementptr inbounds i8, ptr %this, i64 16
   %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 248
   %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 256
-  %tv_nsec2.i17 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
-  %tv_nsec.i25 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
+  %tv_nsec2.i18 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
+  %tv_nsec.i26 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   br label %while.body18
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
@@ -1108,7 +1108,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 
 while.body:                                       ; preds = %land.rhs
   store i64 0, ptr %ref.tmp9, align 8
-  store i64 10000000, ptr %tv_nsec.i13, align 8
+  store i64 10000000, ptr %tv_nsec.i14, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
   %5 = load atomic i32, ptr %mnActiveCount seq_cst, align 8
   %cmp6.not = icmp eq i32 %5, 0
@@ -1131,25 +1131,25 @@ lor.lhs.false:                                    ; preds = %while.body18
   %mpNext.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %mpNext.i, align 8
   %10 = load ptr, ptr %mpNodeTail.i, align 8
-  %cmp.i14 = icmp eq ptr %9, %10
-  br i1 %cmp.i14, label %while.end37.critedge, label %land.rhs24
+  %cmp.i15 = icmp eq ptr %9, %10
+  br i1 %cmp.i15, label %while.end37.critedge, label %land.rhs24
 
 land.rhs24:                                       ; preds = %lor.lhs.false, %while.body18
   %call26 = call { i64, i64 } @_ZN2EA6Thread13GetThreadTimeEv()
   %11 = extractvalue { i64, i64 } %call26, 0
   %12 = extractvalue { i64, i64 } %call26, 1
   %13 = load i64, ptr %timeoutAbsolute, align 8
-  %cmp.i15 = icmp eq i64 %11, %13
-  %14 = load i64, ptr %tv_nsec2.i17, align 8
-  %cmp3.i18 = icmp slt i64 %12, %14
-  %cmp6.i19 = icmp slt i64 %11, %13
-  %cond.i20 = select i1 %cmp.i15, i1 %cmp3.i18, i1 %cmp6.i19
+  %cmp.i16 = icmp eq i64 %11, %13
+  %14 = load i64, ptr %tv_nsec2.i18, align 8
+  %cmp3.i19 = icmp slt i64 %12, %14
+  %cmp6.i20 = icmp slt i64 %11, %13
+  %cond.i21 = select i1 %cmp.i16, i1 %cmp3.i19, i1 %cmp6.i20
   %call31 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
-  br i1 %cond.i20, label %if.then33, label %while.end37
+  br i1 %cond.i21, label %if.then33, label %while.end37
 
 if.then33:                                        ; preds = %land.rhs24
   store i64 0, ptr %ref.tmp34, align 8
-  store i64 10000000, ptr %tv_nsec.i25, align 8
+  store i64 10000000, ptr %tv_nsec.i26, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
   br label %while.body18
 
@@ -1161,62 +1161,60 @@ while.end37:                                      ; preds = %land.rhs24, %while.
   %call39 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %15 = load atomic i32, ptr %mnActiveCount20 seq_cst, align 8
   %cmp42 = icmp eq i32 %15, 0
-  br i1 %cmp42, label %land.lhs.true, label %if.else46
+  br i1 %cmp42, label %land.lhs.true, label %if.end47
 
 land.lhs.true:                                    ; preds = %while.end37
   %16 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i27 = getelementptr inbounds i8, ptr %16, i64 40
-  %17 = load ptr, ptr %mpNext.i27, align 8
+  %mpNext.i28 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = load ptr, ptr %mpNext.i28, align 8
   %18 = load ptr, ptr %mpNodeTail.i, align 8
-  %cmp.i29 = icmp eq ptr %17, %18
-  br i1 %cmp.i29, label %if.end47, label %if.else46
-
-if.else46:                                        ; preds = %land.lhs.true, %while.end37
+  %cmp.i30 = icmp eq ptr %17, %18
+  %spec.select13 = select i1 %cmp.i30, i32 0, i32 -2
   br label %if.end47
 
-if.end47:                                         ; preds = %land.lhs.true, %if.else46
-  %nResult.0 = phi i32 [ -2, %if.else46 ], [ 0, %land.lhs.true ]
+if.end47:                                         ; preds = %land.lhs.true, %while.end37
+  %nResult.0 = phi i32 [ -2, %while.end37 ], [ %spec.select13, %land.lhs.true ]
   %call49 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
   br label %if.end99
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end92
   %nResult.1 = phi i32 [ %nResult.4.lcssa, %if.end92 ], [ -1, %for.cond.preheader ]
   %call54 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex53, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %19 = load ptr, ptr %mpNodeHead.i30, align 8, !noalias !32
-  %20 = load ptr, ptr %mpNodeTail.i32, align 8, !noalias !35
-  %it.sroa.0.0.in62 = getelementptr inbounds i8, ptr %19, i64 40
-  %it.sroa.0.063 = load ptr, ptr %it.sroa.0.0.in62, align 8
-  %cmp.i33.not64 = icmp eq ptr %20, %it.sroa.0.063
-  br i1 %cmp.i33.not64, label %for.end, label %for.body
+  %19 = load ptr, ptr %mpNodeHead.i31, align 8, !noalias !32
+  %20 = load ptr, ptr %mpNodeTail.i33, align 8, !noalias !35
+  %it.sroa.0.0.in63 = getelementptr inbounds i8, ptr %19, i64 40
+  %it.sroa.0.064 = load ptr, ptr %it.sroa.0.0.in63, align 8
+  %cmp.i34.not65 = icmp eq ptr %20, %it.sroa.0.064
+  br i1 %cmp.i34.not65, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond, %for.body
-  %it.sroa.0.067 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.063, %for.cond ]
-  %nResult.266 = phi i32 [ %spec.select9, %for.body ], [ %nResult.1, %for.cond ]
-  %bJobExists.065 = phi i1 [ %spec.select, %for.body ], [ false, %for.cond ]
-  %21 = load i32, ptr %it.sroa.0.067, align 8
+  %it.sroa.0.068 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.064, %for.cond ]
+  %nResult.267 = phi i32 [ %spec.select9, %for.body ], [ %nResult.1, %for.cond ]
+  %bJobExists.066 = phi i1 [ %spec.select, %for.body ], [ false, %for.cond ]
+  %21 = load i32, ptr %it.sroa.0.068, align 8
   %cmp62 = icmp eq i32 %21, %nJob
-  %spec.select = select i1 %cmp62, i1 true, i1 %bJobExists.065
-  %spec.select9 = select i1 %cmp62, i32 -2, i32 %nResult.266
-  %it.sroa.0.0.in = getelementptr inbounds i8, ptr %it.sroa.0.067, i64 40
+  %spec.select = select i1 %cmp62, i1 true, i1 %bJobExists.066
+  %spec.select9 = select i1 %cmp62, i32 -2, i32 %nResult.267
+  %it.sroa.0.0.in = getelementptr inbounds i8, ptr %it.sroa.0.068, i64 40
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0.in, align 8
-  %cmp.i33.not = icmp eq ptr %20, %it.sroa.0.0
-  br i1 %cmp.i33.not, label %for.end, label %for.body, !llvm.loop !38
+  %cmp.i34.not = icmp eq ptr %20, %it.sroa.0.0
+  br i1 %cmp.i34.not, label %for.end, label %for.body, !llvm.loop !38
 
 for.end:                                          ; preds = %for.body, %for.cond
   %bJobExists.0.lcssa = phi i1 [ false, %for.cond ], [ %spec.select, %for.body ]
   %nResult.2.lcssa = phi i32 [ %nResult.1, %for.cond ], [ %spec.select9, %for.body ]
-  %22 = load ptr, ptr %mpNodeHead.i34, align 8, !noalias !39
-  %23 = load ptr, ptr %mpNodeTail.i36, align 8, !noalias !42
-  %it66.sroa.0.0.in69 = getelementptr inbounds i8, ptr %22, i64 16
-  %it66.sroa.0.070 = load ptr, ptr %it66.sroa.0.0.in69, align 8
-  %cmp.i37.not71 = icmp eq ptr %23, %it66.sroa.0.070
-  br i1 %cmp.i37.not71, label %for.end83, label %for.body72
+  %22 = load ptr, ptr %mpNodeHead.i35, align 8, !noalias !39
+  %23 = load ptr, ptr %mpNodeTail.i37, align 8, !noalias !42
+  %it66.sroa.0.0.in70 = getelementptr inbounds i8, ptr %22, i64 16
+  %it66.sroa.0.071 = load ptr, ptr %it66.sroa.0.0.in70, align 8
+  %cmp.i38.not72 = icmp eq ptr %23, %it66.sroa.0.071
+  br i1 %cmp.i38.not72, label %for.end83, label %for.body72
 
 for.body72:                                       ; preds = %for.end, %for.inc81
-  %it66.sroa.0.074 = phi ptr [ %it66.sroa.0.0, %for.inc81 ], [ %it66.sroa.0.070, %for.end ]
-  %nResult.473 = phi i32 [ %nResult.5, %for.inc81 ], [ %nResult.2.lcssa, %for.end ]
-  %bJobExists.272 = phi i1 [ %bJobExists.3, %for.inc81 ], [ %bJobExists.0.lcssa, %for.end ]
-  %24 = load ptr, ptr %it66.sroa.0.074, align 8
+  %it66.sroa.0.075 = phi ptr [ %it66.sroa.0.0, %for.inc81 ], [ %it66.sroa.0.071, %for.end ]
+  %nResult.474 = phi i32 [ %nResult.5, %for.inc81 ], [ %nResult.2.lcssa, %for.end ]
+  %bJobExists.273 = phi i1 [ %bJobExists.3, %for.inc81 ], [ %bJobExists.0.lcssa, %for.end ]
+  %24 = load ptr, ptr %it66.sroa.0.075, align 8
   %25 = load volatile i8, ptr %24, align 8
   %tobool75 = trunc i8 %25 to i1
   br i1 %tobool75, label %land.lhs.true76, label %for.inc81
@@ -1225,17 +1223,17 @@ land.lhs.true76:                                  ; preds = %for.body72
   %mCurrentJob = getelementptr inbounds i8, ptr %24, i64 24
   %26 = load i32, ptr %mCurrentJob, align 8
   %cmp78 = icmp eq i32 %26, %nJob
-  %spec.select10 = select i1 %cmp78, i1 true, i1 %bJobExists.272
-  %spec.select11 = select i1 %cmp78, i32 -2, i32 %nResult.473
+  %spec.select10 = select i1 %cmp78, i1 true, i1 %bJobExists.273
+  %spec.select11 = select i1 %cmp78, i32 -2, i32 %nResult.474
   br label %for.inc81
 
 for.inc81:                                        ; preds = %land.lhs.true76, %for.body72
-  %bJobExists.3 = phi i1 [ %bJobExists.272, %for.body72 ], [ %spec.select10, %land.lhs.true76 ]
-  %nResult.5 = phi i32 [ %nResult.473, %for.body72 ], [ %spec.select11, %land.lhs.true76 ]
-  %it66.sroa.0.0.in = getelementptr inbounds i8, ptr %it66.sroa.0.074, i64 16
+  %bJobExists.3 = phi i1 [ %bJobExists.273, %for.body72 ], [ %spec.select10, %land.lhs.true76 ]
+  %nResult.5 = phi i32 [ %nResult.474, %for.body72 ], [ %spec.select11, %land.lhs.true76 ]
+  %it66.sroa.0.0.in = getelementptr inbounds i8, ptr %it66.sroa.0.075, i64 16
   %it66.sroa.0.0 = load ptr, ptr %it66.sroa.0.0.in, align 8
-  %cmp.i37.not = icmp eq ptr %23, %it66.sroa.0.0
-  br i1 %cmp.i37.not, label %for.end83, label %for.body72, !llvm.loop !45
+  %cmp.i38.not = icmp eq ptr %23, %it66.sroa.0.0
+  br i1 %cmp.i38.not, label %for.end83, label %for.body72, !llvm.loop !45
 
 for.end83:                                        ; preds = %for.inc81, %for.end
   %bJobExists.2.lcssa = phi i1 [ %bJobExists.0.lcssa, %for.end ], [ %bJobExists.3, %for.inc81 ]
@@ -1248,16 +1246,16 @@ lor.rhs:                                          ; preds = %for.end83
   %27 = extractvalue { i64, i64 } %call88, 0
   %28 = extractvalue { i64, i64 } %call88, 1
   %29 = load i64, ptr %timeoutAbsolute, align 8
-  %cmp.i39 = icmp eq i64 %27, %29
-  %30 = load i64, ptr %tv_nsec2.i41, align 8
-  %cmp3.i42 = icmp sge i64 %28, %30
-  %cmp6.i43 = icmp sge i64 %27, %29
-  %cond.i44 = select i1 %cmp.i39, i1 %cmp3.i42, i1 %cmp6.i43
-  br i1 %cond.i44, label %if.end99, label %if.end92
+  %cmp.i40 = icmp eq i64 %27, %29
+  %30 = load i64, ptr %tv_nsec2.i42, align 8
+  %cmp3.i43 = icmp sge i64 %28, %30
+  %cmp6.i44 = icmp sge i64 %27, %29
+  %cond.i45 = select i1 %cmp.i40, i1 %cmp3.i43, i1 %cmp6.i44
+  br i1 %cond.i45, label %if.end99, label %if.end92
 
 if.end92:                                         ; preds = %lor.rhs
   store i64 0, ptr %ref.tmp93, align 8
-  store i64 10000000, ptr %tv_nsec.i49, align 8
+  store i64 10000000, ptr %tv_nsec.i50, align 8
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp93)
   br label %for.cond, !llvm.loop !46
 

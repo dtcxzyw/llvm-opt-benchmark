@@ -1466,7 +1466,7 @@ return:                                           ; preds = %if.end3, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef readonly %val) local_unnamed_addr #7 {
+define dso_local ptr @yyjson_mut_val_mut_copy(ptr noundef %doc, ptr noundef readonly %val) local_unnamed_addr #7 {
 entry:
   %tobool = icmp ne ptr %doc, null
   %tobool1 = icmp ne ptr %val, null
@@ -1483,7 +1483,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr nocapture noundef readonly %m_vals) unnamed_addr #7 {
+define internal fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr nocapture noundef readonly %m_vals) unnamed_addr #7 {
 entry:
   %alc1.i = getelementptr inbounds i8, ptr %m_doc, i64 8
   %val_pool.i = getelementptr inbounds i8, ptr %m_doc, i64 80
@@ -1522,8 +1522,8 @@ unsafe_yyjson_mut_val.exit.thread:                ; preds = %if.then.i
   %cmp31.i = icmp ult i64 %mul20..i, %6
   %spec.select.i = select i1 %cmp31.i, i64 %7, i64 %mul20..i
   store i64 %spec.select.i, ptr %chunk_size.i, align 8
-  %add.ptr.i79 = getelementptr inbounds i8, ptr %call.i46, i64 48
-  store ptr %add.ptr.i79, ptr %val_pool.i, align 8
+  %add.ptr.i76 = getelementptr inbounds i8, ptr %call.i46, i64 48
+  store ptr %add.ptr.i76, ptr %val_pool.i, align 8
   br label %if.end
 
 unsafe_yyjson_mut_val.exit:                       ; preds = %entry
@@ -1561,20 +1561,20 @@ if.then9:                                         ; preds = %sw.bb
 if.end14:                                         ; preds = %if.then9
   %uni15 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call11, ptr %uni15, align 8
-  %cmp16.not75 = icmp eq ptr %11, %10
-  br i1 %cmp16.not75, label %while.end, label %while.body
+  %cmp16.not72 = icmp eq ptr %11, %10
+  br i1 %cmp16.not72, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end14, %if.end23
-  %prev.077 = phi ptr [ %call18, %if.end23 ], [ %call11, %if.end14 ]
-  %next.076 = phi ptr [ %12, %if.end23 ], [ %11, %if.end14 ]
-  %call18 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr noundef %next.076)
-  %next19 = getelementptr inbounds i8, ptr %prev.077, i64 16
+  %prev.074 = phi ptr [ %call18, %if.end23 ], [ %call11, %if.end14 ]
+  %next.073 = phi ptr [ %12, %if.end23 ], [ %11, %if.end14 ]
+  %call18 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef %m_doc, ptr noundef %next.073)
+  %next19 = getelementptr inbounds i8, ptr %prev.074, i64 16
   store ptr %call18, ptr %next19, align 8
   %tobool21.not = icmp eq ptr %call18, null
   br i1 %tobool21.not, label %return, label %if.end23
 
 if.end23:                                         ; preds = %while.body
-  %next25 = getelementptr inbounds i8, ptr %next.076, i64 16
+  %next25 = getelementptr inbounds i8, ptr %next.073, i64 16
   %12 = load ptr, ptr %next25, align 8
   %cmp16.not = icmp eq ptr %12, %10
   br i1 %cmp16.not, label %while.end.loopexit, label %while.body, !llvm.loop !18
@@ -1614,7 +1614,7 @@ if.end.i:                                         ; preds = %sw.bb29
   %19 = load ptr, ptr %ctx.i52, align 8
   %call.i = tail call ptr %18(ptr noundef %19, i64 noundef %.add.i) #26
   %tobool5.not.i53 = icmp eq ptr %call.i, null
-  br i1 %tobool5.not.i53, label %unsafe_yyjson_mut_strncpy.exit.thread, label %unsafe_yyjson_mut_str_alc.exit.thread
+  br i1 %tobool5.not.i53, label %unsafe_yyjson_mut_strncpy.exit, label %unsafe_yyjson_mut_str_alc.exit.thread
 
 unsafe_yyjson_mut_str_alc.exit.thread:            ; preds = %if.end.i
   %chunks.i55 = getelementptr inbounds i8, ptr %m_doc, i64 72
@@ -1634,30 +1634,31 @@ unsafe_yyjson_mut_str_alc.exit.thread:            ; preds = %if.end.i
   %cmp30.i = icmp ult i64 %mul..i, %21
   %spec.select.i62 = select i1 %cmp30.i, i64 %22, i64 %mul..i
   store i64 %spec.select.i62, ptr %chunk_size.i51, align 8
-  %add.ptr.i6881 = getelementptr inbounds i8, ptr %add.ptr.i57, i64 %shr.i
-  %add.ptr14.i82 = getelementptr inbounds i8, ptr %add.ptr.i6881, i64 1
-  store ptr %add.ptr14.i82, ptr %str_pool.i, align 8
-  br label %unsafe_yyjson_mut_strncpy.exit
+  %add.ptr.i6878 = getelementptr inbounds i8, ptr %add.ptr.i57, i64 %shr.i
+  %add.ptr14.i79 = getelementptr inbounds i8, ptr %add.ptr.i6878, i64 1
+  store ptr %add.ptr14.i79, ptr %str_pool.i, align 8
+  br label %if.end.i50
 
 unsafe_yyjson_mut_str_alc.exit:                   ; preds = %sw.bb29
   %add.ptr.i68 = getelementptr inbounds i8, ptr %16, i64 %shr.i
   %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr.i68, i64 1
   store ptr %add.ptr14.i, ptr %str_pool.i, align 8
   %tobool.i.not = icmp eq ptr %16, null
-  br i1 %tobool.i.not, label %unsafe_yyjson_mut_strncpy.exit.thread, label %unsafe_yyjson_mut_strncpy.exit
+  br i1 %tobool.i.not, label %unsafe_yyjson_mut_strncpy.exit, label %if.end.i50
 
-unsafe_yyjson_mut_strncpy.exit.thread:            ; preds = %unsafe_yyjson_mut_str_alc.exit, %if.end.i
-  %uni3372 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr null, ptr %uni3372, align 8
-  br label %return
-
-unsafe_yyjson_mut_strncpy.exit:                   ; preds = %unsafe_yyjson_mut_str_alc.exit.thread, %unsafe_yyjson_mut_str_alc.exit
-  %add.ptr.i6884 = phi ptr [ %add.ptr.i6881, %unsafe_yyjson_mut_str_alc.exit.thread ], [ %add.ptr.i68, %unsafe_yyjson_mut_str_alc.exit ]
+if.end.i50:                                       ; preds = %unsafe_yyjson_mut_str_alc.exit.thread, %unsafe_yyjson_mut_str_alc.exit
+  %add.ptr.i6881 = phi ptr [ %add.ptr.i6878, %unsafe_yyjson_mut_str_alc.exit.thread ], [ %add.ptr.i68, %unsafe_yyjson_mut_str_alc.exit ]
   %23 = phi ptr [ %add.ptr.i57, %unsafe_yyjson_mut_str_alc.exit.thread ], [ %16, %unsafe_yyjson_mut_str_alc.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %14, i64 %shr.i, i1 false)
-  store i8 0, ptr %add.ptr.i6884, align 1
+  store i8 0, ptr %add.ptr.i6881, align 1
+  br label %unsafe_yyjson_mut_strncpy.exit
+
+unsafe_yyjson_mut_strncpy.exit:                   ; preds = %if.end.i, %unsafe_yyjson_mut_str_alc.exit, %if.end.i50
+  %retval.i44.0 = phi ptr [ %23, %if.end.i50 ], [ null, %unsafe_yyjson_mut_str_alc.exit ], [ null, %if.end.i ]
   %uni33 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %23, ptr %uni33, align 8
+  store ptr %retval.i44.0, ptr %uni33, align 8
+  %tobool35.not = icmp eq ptr %retval.i44.0, null
+  %spec.select = select i1 %tobool35.not, ptr null, ptr %8
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -1667,8 +1668,8 @@ sw.default:                                       ; preds = %if.end
   store i64 %24, ptr %uni38, align 8
   br label %return
 
-return:                                           ; preds = %while.body, %if.then.i, %sw.default, %while.end, %sw.bb, %unsafe_yyjson_mut_strncpy.exit, %unsafe_yyjson_mut_strncpy.exit.thread, %if.then9, %unsafe_yyjson_mut_val.exit
-  %retval.0 = phi ptr [ null, %unsafe_yyjson_mut_val.exit ], [ null, %if.then9 ], [ null, %unsafe_yyjson_mut_strncpy.exit.thread ], [ %8, %unsafe_yyjson_mut_strncpy.exit ], [ %8, %sw.bb ], [ %8, %while.end ], [ %8, %sw.default ], [ null, %if.then.i ], [ null, %while.body ]
+return:                                           ; preds = %while.body, %if.then.i, %unsafe_yyjson_mut_strncpy.exit, %sw.default, %while.end, %sw.bb, %if.then9, %unsafe_yyjson_mut_val.exit
+  %retval.0 = phi ptr [ null, %unsafe_yyjson_mut_val.exit ], [ null, %if.then9 ], [ %8, %sw.bb ], [ %8, %while.end ], [ %8, %sw.default ], [ %spec.select, %unsafe_yyjson_mut_strncpy.exit ], [ null, %if.then.i ], [ null, %while.body ]
   ret ptr %retval.0
 }
 
@@ -2080,7 +2081,7 @@ if.end16.i:                                       ; preds = %while.body.i, %land
   %spec.select = select i1 %cmp18.i, ptr %add.ptr.i106, ptr %add.ptr.i.i
   %max.i116.1 = select i1 %cmp18.i, i64 %iter.sroa.0.1128, i64 %max.i116.0122
   %idx.i.2 = select i1 %cmp18.i, i64 0, i64 %inc.i123
-  %inc.i = add i64 %idx.i.2, 1
+  %inc.i = add nuw i64 %idx.i.2, 1
   %cmp8.i = icmp ult i64 %idx.i.2, %max.i116.1
   br i1 %cmp8.i, label %while.body.i, label %return, !llvm.loop !21
 
@@ -3399,7 +3400,7 @@ if.end61:                                         ; preds = %if.then47
   br i1 %cmp63, label %if.then65, label %if.end116
 
 if.then65:                                        ; preds = %if.end61
-  %tobool66 = trunc i8 %idx_is_last.3748756 to i1
+  %tobool66 = trunc nuw i8 %idx_is_last.3748756 to i1
   %brmerge.demorgan = and i1 %tobool66, %insert_new
   br i1 %brmerge.demorgan, label %if.end80, label %do.body69
 
@@ -4387,7 +4388,7 @@ land.rhs.i986:                                    ; preds = %while.body.i725
   br i1 %cmp2.i, label %if.then9.i729, label %if.end18.i728
 
 if.then9.i729:                                    ; preds = %land.rhs.i986
-  %tobool10.i = trunc i8 %replaced.i.01017 to i1
+  %tobool10.i = trunc nuw i8 %replaced.i.01017 to i1
   %or.cond1.not = or i1 %tobool11.i, %tobool10.i
   %next6.i1332 = getelementptr inbounds i8, ptr %126, i64 16
   %130 = load ptr, ptr %next6.i1332, align 8
@@ -4431,7 +4432,7 @@ if.end18.i728:                                    ; preds = %while.body.i725, %i
 while.end.i724.loopexit:                          ; preds = %if.end18.i728, %yyjson_mut_obj_iter_next.exit
   %iter.i.sroa.8.1.lcssa.ph = phi i64 [ %iter.i.sroa.8.11015, %yyjson_mut_obj_iter_next.exit ], [ %iter.i.sroa.8.2, %if.end18.i728 ]
   %replaced.i.0.lcssa.ph = phi i8 [ %replaced.i.01017, %yyjson_mut_obj_iter_next.exit ], [ %replaced.i.1, %if.end18.i728 ]
-  %134 = trunc i8 %replaced.i.0.lcssa.ph to i1
+  %134 = trunc nuw i8 %replaced.i.0.lcssa.ph to i1
   br label %while.end.i724
 
 while.end.i724:                                   ; preds = %if.then.i.i733, %while.end.i724.loopexit
@@ -4479,7 +4480,7 @@ land.lhs.true:                                    ; preds = %if.else224
   br i1 %tobool226.not, label %lor.lhs.false227, label %if.then230
 
 lor.lhs.false227:                                 ; preds = %land.lhs.true
-  %tobool228 = trunc i8 %idx_is_last.3749 to i1
+  %tobool228 = trunc nuw i8 %idx_is_last.3749 to i1
   br i1 %tobool228, label %if.then230, label %if.end232.thread
 
 if.then230:                                       ; preds = %lor.lhs.false227, %land.lhs.true
@@ -4517,7 +4518,7 @@ if.end242:                                        ; preds = %if.then240, %if.the
   br label %if.end311
 
 if.else243:                                       ; preds = %if.then234
-  %tobool244 = trunc i8 %idx_is_last.3749 to i1
+  %tobool244 = trunc nuw i8 %idx_is_last.3749 to i1
   br i1 %tobool244, label %if.then245, label %do.body258
 
 if.then245:                                       ; preds = %if.else243
@@ -4870,7 +4871,7 @@ land.rhs.i:                                       ; preds = %while.body.i
   br i1 %cmp2.i, label %if.then9.i, label %if.end18.i
 
 if.then9.i:                                       ; preds = %land.rhs.i
-  %tobool10.i = trunc i8 %replaced.i.0158 to i1
+  %tobool10.i = trunc nuw i8 %replaced.i.0158 to i1
   %next6.i = getelementptr inbounds i8, ptr %17, i64 16
   %21 = load ptr, ptr %next6.i, align 8
   %next7.i = getelementptr inbounds i8, ptr %21, i64 16
@@ -4913,7 +4914,7 @@ if.end18.i:                                       ; preds = %while.body.i, %if.t
 while.end.i.loopexit165:                          ; preds = %if.end18.i, %yyjson_mut_obj_iter_next.exit
   %iter.i.sroa.8.1.lcssa.ph166 = phi i64 [ %iter.i.sroa.8.1156, %yyjson_mut_obj_iter_next.exit ], [ %iter.i.sroa.8.2, %if.end18.i ]
   %replaced.i.0.lcssa.ph = phi i8 [ %replaced.i.0158, %yyjson_mut_obj_iter_next.exit ], [ %replaced.i.1, %if.end18.i ]
-  %25 = trunc i8 %replaced.i.0.lcssa.ph to i1
+  %25 = trunc nuw i8 %replaced.i.0.lcssa.ph to i1
   br label %while.end.i
 
 while.end.i:                                      ; preds = %yyjson_mut_obj_iter_next.exit.us, %if.end18.i.us, %while.end.i.loopexit165
@@ -7633,7 +7634,7 @@ yyjson_mut_is_obj.exit:                           ; preds = %yyjson_mut_val_mut_
   %and.i.i209131 = and i64 %24, 7
   %cmp.i212 = icmp ne i64 %and.i.i209131, 7
   %tobool.i214.not = icmp eq ptr %call.i141, null
-  %or.cond247 = or i1 %tobool.i214.not, %cmp.i212
+  %or.cond247 = select i1 %cmp.i212, i1 true, i1 %tobool.i214.not
   br i1 %or.cond247, label %return, label %yyjson_mut_is_str.exit
 
 yyjson_mut_is_str.exit:                           ; preds = %yyjson_mut_is_obj.exit
@@ -7641,7 +7642,7 @@ yyjson_mut_is_str.exit:                           ; preds = %yyjson_mut_is_obj.e
   %and.i.i383132 = and i64 %25, 7
   %cmp.i386 = icmp eq i64 %and.i.i383132, 5
   %tobool.i110 = icmp ne ptr %retval.0.i146, null
-  %or.cond = and i1 %tobool.i110, %cmp.i386
+  %or.cond = select i1 %cmp.i386, i1 %tobool.i110, i1 false
   br i1 %or.cond, label %if.then.i105, label %return
 
 if.then.i105:                                     ; preds = %yyjson_mut_is_str.exit
@@ -7789,7 +7790,7 @@ yyjson_mut_is_obj.exit164:                        ; preds = %if.end.i290, %yyjso
   %and.i.i200125 = and i64 %47, 7
   %cmp.i203 = icmp ne i64 %and.i.i200125, 7
   %tobool.i221.not = icmp eq ptr %retval.0.i153, null
-  %or.cond248 = or i1 %tobool.i221.not, %cmp.i203
+  %or.cond248 = select i1 %cmp.i203, i1 true, i1 %tobool.i221.not
   br i1 %or.cond248, label %return, label %yyjson_mut_is_str.exit228
 
 yyjson_mut_is_str.exit228:                        ; preds = %yyjson_mut_is_obj.exit164
@@ -10248,7 +10249,7 @@ if.end2141.i2811.if.end2219.i2819_crit_edge:      ; preds = %if.end2141.i2811
   %.pre11237 = add i32 %.pre11236, 686
   %.pre11238 = add i32 %.pre11236, 687
   %.pre11242 = zext i64 %.pre11235 to i128
-  %.pre11243 = trunc i64 %.pre11233 to i32
+  %.pre11243 = trunc nuw nsw i64 %.pre11233 to i32
   br label %if.end2219.i2819
 
 if.then2156.i3033:                                ; preds = %if.end2141.i2811
@@ -10258,13 +10259,13 @@ if.then2156.i3033:                                ; preds = %if.end2141.i2811
   %arrayidx.i15778 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i15777
   %200 = load i64, ptr %arrayidx.i15778, align 16
   %201 = tail call i64 @llvm.ctlz.i64(i64 %sig.i2665.22, i1 true), !range !56
-  %cast.i15831 = trunc i64 %201 to i32
+  %cast.i15831 = trunc nuw nsw i64 %201 to i32
   %shl2159.i3036 = shl i64 %sig.i2665.22, %201
   %conv.i15881 = zext i64 %shl2159.i3036 to i128
   %conv1.i15882 = zext i64 %200 to i128
   %mul.i15883 = mul nuw i128 %conv1.i15882, %conv.i15881
   %shr.i15884 = lshr i128 %mul.i15883, 64
-  %conv2.i15885 = trunc i128 %shr.i15884 to i64
+  %conv2.i15885 = trunc nuw i128 %shr.i15884 to i64
   %conv3.i15886 = trunc i128 %mul.i15883 to i64
   %and.i3038 = and i64 %conv2.i15885, 511
   %sub2161.i3039 = add nsw i64 %and.i3038, -1
@@ -10279,7 +10280,7 @@ if.else2165.i3041:                                ; preds = %if.then2156.i3033
   %conv1.i15871 = zext i64 %202 to i128
   %mul.i15872 = mul nuw i128 %conv1.i15871, %conv.i15881
   %shr.i15873 = lshr i128 %mul.i15872, 64
-  %conv2.i15874 = trunc i128 %shr.i15873 to i64
+  %conv2.i15874 = trunc nuw i128 %shr.i15873 to i64
   %add2166.i3042 = add i64 %conv2.i15874, %conv3.i15886
   %203 = add i64 %add2166.i3042, -1
   %cmp2168.i3044 = icmp ult i64 %203, -2
@@ -10337,7 +10338,7 @@ if.end2219.i2819:                                 ; preds = %if.end2141.i2811.if
   %conv1.i.i15952 = zext i64 %add.i16040 to i128
   %mul.i.i15953 = mul nuw i128 %conv.i.i15951.pre-phi, %conv1.i.i15952
   %shr.i.i15954 = lshr i128 %mul.i.i15953, 64
-  %conv2.i.i15955 = trunc i128 %shr.i.i15954 to i64
+  %conv2.i.i15955 = trunc nuw i128 %shr.i.i15954 to i64
   %conv3.i.i15956 = trunc i128 %mul.i.i15953 to i64
   %shr.i15957 = lshr i64 %conv3.i.i15956, 63
   %add.i15958 = add nuw i64 %shr.i15957, %conv2.i.i15955
@@ -10345,7 +10346,7 @@ if.end2219.i2819:                                 ; preds = %if.end2141.i2811.if
   %add2243.i2836 = select i1 %cmp2239.i2832.not, i64 8, i64 9
   %add2244.i2837 = add i64 %add2243.i2836, %shl2235.i2829
   %207 = tail call i64 @llvm.ctlz.i64(i64 %add.i15958, i1 true), !range !56
-  %cast.i15833 = trunc i64 %207 to i32
+  %cast.i15833 = trunc nuw nsw i64 %207 to i32
   %shl2249.i2840 = shl i64 %add.i15958, %207
   %.neg8621 = add nsw i32 %shr.i15815, 64
   %208 = add nuw nsw i32 %.pre-phi11244, %cast.i15833
@@ -10393,7 +10394,7 @@ if.end2298.i2863:                                 ; preds = %if.then2283.i3018, 
 if.end.i16124:                                    ; preds = %if.end2298.i2863
   %add2319.i2881 = add nsw i32 %precision_digits_count.i2703.0, %fp.i2707.sroa.17.0
   %209 = tail call i64 @llvm.ctlz.i64(i64 %add2317.i2879, i1 true), !range !56
-  %cast.i.i16125 = trunc i64 %209 to i32
+  %cast.i.i16125 = trunc nuw nsw i64 %209 to i32
   %shl.i16127 = shl i64 %add2317.i2879, %209
   %shr.i16128 = lshr i64 %shl.i16127, 11
   %sub.i16129 = sub nsw i32 %add2319.i2881, %cast.i.i16125
@@ -10483,7 +10484,7 @@ if.end2397.i2897:                                 ; preds = %if.end2373.i2887
   %and2398.i2898 = and i64 %retval.i16114.08416, 9218868437227405312
   %tobool2399.i2899.not = icmp eq i64 %and2398.i2898, 0
   %shr2405.i2980 = lshr exact i64 %and2398.i2898, 52
-  %conv2406.i2981 = trunc i64 %shr2405.i2980 to i32
+  %conv2406.i2981 = trunc nuw nsw i64 %shr2405.i2980 to i32
   %fp_upper.i2708.sroa.7.0 = select i1 %tobool2399.i2899.not, i32 1, i32 %conv2406.i2981
   %and2401.i2977 = shl nuw i64 %retval.i16114.08416, 1
   %211 = and i64 %and2401.i2977, 9007199254740990
@@ -10531,7 +10532,7 @@ if.end.i18831:                                    ; preds = %for.body.i18826
   br i1 %exitcond11021.not, label %bigint_mul_u64.exit18834, label %for.body.i18826, !llvm.loop !57
 
 for.end.i18808.loopexit:                          ; preds = %for.body.i18826
-  %215 = trunc i64 %indvars.iv11017 to i32
+  %215 = trunc nuw i64 %indvars.iv11017 to i32
   br label %for.end.i18808
 
 for.end.i18808:                                   ; preds = %for.end.i18808.loopexit, %for.body.i16299
@@ -10554,7 +10555,7 @@ for.body3.i18818:                                 ; preds = %for.body3.i18818.pr
   %conv2.i19094 = zext i64 %carry.i18805.09622 to i128
   %add.i19095 = add nuw i128 %mul.i19093, %conv2.i19094
   %shr.i19096 = lshr i128 %add.i19095, 64
-  %conv3.i19097 = trunc i128 %shr.i19096 to i64
+  %conv3.i19097 = trunc nuw i128 %shr.i19096 to i64
   %conv4.i19098 = trunc i128 %add.i19095 to i64
   store i64 %conv4.i19098, ptr %arrayidx6.i18821, align 8
   %indvars.iv.next11023 = add nuw nsw i64 %indvars.iv11022, 1
@@ -10610,7 +10611,7 @@ if.end.i18867:                                    ; preds = %for.body.i18862
   br i1 %exitcond11031.not, label %if.end2427.i2913, label %for.body.i18862, !llvm.loop !57
 
 for.end.i18844.loopexit:                          ; preds = %for.body.i18862
-  %221 = trunc i64 %indvars.iv11027 to i32
+  %221 = trunc nuw i64 %indvars.iv11027 to i32
   br label %for.end.i18844
 
 for.end.i18844:                                   ; preds = %for.end.i18844.loopexit, %if.then.i16296
@@ -10634,7 +10635,7 @@ for.body3.i18854:                                 ; preds = %for.body3.i18854.lr
   %conv2.i19080 = zext i64 %carry.i18841.09637 to i128
   %add.i19081 = add nuw i128 %mul.i19079, %conv2.i19080
   %shr.i19082 = lshr i128 %add.i19081, 64
-  %conv3.i19083 = trunc i128 %shr.i19082 to i64
+  %conv3.i19083 = trunc nuw i128 %shr.i19082 to i64
   %conv4.i19084 = trunc i128 %add.i19081 to i64
   store i64 %conv4.i19084, ptr %arrayidx6.i18857, align 8
   %indvars.iv.next11033 = add nuw nsw i64 %indvars.iv11032, 1
@@ -10685,7 +10686,7 @@ if.end.i18759:                                    ; preds = %for.body.i18754
   br i1 %exitcond11001.not, label %bigint_mul_u64.exit18762, label %for.body.i18754, !llvm.loop !57
 
 for.end.i18736.loopexit:                          ; preds = %for.body.i18754
-  %226 = trunc i64 %indvars.iv10997 to i32
+  %226 = trunc nuw i64 %indvars.iv10997 to i32
   br label %for.end.i18736
 
 for.end.i18736:                                   ; preds = %for.end.i18736.loopexit, %for.body.i16312
@@ -10708,7 +10709,7 @@ for.body3.i18746:                                 ; preds = %for.body3.i18746.pr
   %conv2.i19122 = zext i64 %carry.i18733.09599 to i128
   %add.i19123 = add nuw i128 %mul.i19121, %conv2.i19122
   %shr.i19124 = lshr i128 %add.i19123, 64
-  %conv3.i19125 = trunc i128 %shr.i19124 to i64
+  %conv3.i19125 = trunc nuw i128 %shr.i19124 to i64
   %conv4.i19126 = trunc i128 %add.i19123 to i64
   store i64 %conv4.i19126, ptr %arrayidx6.i18749, align 8
   %indvars.iv.next11003 = add nuw nsw i64 %indvars.iv11002, 1
@@ -10763,7 +10764,7 @@ if.end.i18795:                                    ; preds = %for.body.i18790
   br i1 %exitcond11011.not, label %if.end2427.i2913, label %for.body.i18790, !llvm.loop !57
 
 for.end.i18772.loopexit:                          ; preds = %for.body.i18790
-  %233 = trunc i64 %indvars.iv11007 to i32
+  %233 = trunc nuw i64 %indvars.iv11007 to i32
   br label %for.end.i18772
 
 for.end.i18772:                                   ; preds = %for.end.i18772.loopexit, %if.then.i16309
@@ -10789,7 +10790,7 @@ for.body3.i18782:                                 ; preds = %for.body3.i18782.lr
   %conv2.i19108 = zext i64 %carry.i18769.09614 to i128
   %add.i19109 = add nuw i128 %mul.i19107, %conv2.i19108
   %shr.i19110 = lshr i128 %add.i19109, 64
-  %conv3.i19111 = trunc i128 %shr.i19110 to i64
+  %conv3.i19111 = trunc nuw i128 %shr.i19110 to i64
   %conv4.i19112 = trunc i128 %add.i19109 to i64
   store i64 %conv4.i19112, ptr %arrayidx6.i18785, align 8
   %indvars.iv.next11013 = add nuw nsw i64 %indvars.iv11012, 1
@@ -10841,7 +10842,7 @@ for.body.i16560:                                  ; preds = %for.body.i16560.lr.
   %242 = add nsw i64 %indvars.iv11049, -1
   %arrayidx.i16564 = getelementptr inbounds [64 x i64], ptr %bits.i16261, i64 0, i64 %242
   %243 = load i64, ptr %arrayidx.i16564, align 8
-  %244 = trunc i64 %indvars.iv11049 to i32
+  %244 = trunc nuw i64 %indvars.iv11049 to i32
   %sub5.i16567 = add i32 %add.i16566, %244
   %idxprom6.i16568 = zext i32 %sub5.i16567 to i64
   %arrayidx7.i16569 = getelementptr inbounds [64 x i64], ptr %bits.i16261, i64 0, i64 %idxprom6.i16568
@@ -10878,7 +10879,7 @@ for.body21.i16528:                                ; preds = %for.body21.i16528.l
   %247 = load i64, ptr %arrayidx28.i16537, align 8
   %shr.i16540 = lshr i64 %247, %sh_prom30.i16539
   %or.i16541 = or i64 %shr.i16540, %shl.i16533
-  %248 = trunc i64 %indvars.iv11045 to i32
+  %248 = trunc nuw i64 %indvars.iv11045 to i32
   %add32.i16543 = add i32 %div.i164937776, %248
   %idxprom33.i16544 = zext i32 %add32.i16543 to i64
   %arrayidx34.i16545 = getelementptr inbounds [64 x i64], ptr %bits.i16261, i64 0, i64 %idxprom33.i16544
@@ -10926,7 +10927,7 @@ for.body.i16646:                                  ; preds = %for.body.i16646.lr.
   %253 = add nsw i64 %indvars.iv11041, -1
   %arrayidx.i16650 = getelementptr inbounds [64 x i64], ptr %bits.i16647, i64 0, i64 %253
   %254 = load i64, ptr %arrayidx.i16650, align 8
-  %255 = trunc i64 %indvars.iv11041 to i32
+  %255 = trunc nuw i64 %indvars.iv11041 to i32
   %sub5.i16653 = add i32 %add.i16652, %255
   %idxprom6.i16654 = zext i32 %sub5.i16653 to i64
   %arrayidx7.i16655 = getelementptr inbounds [64 x i64], ptr %bits.i16647, i64 0, i64 %idxprom6.i16654
@@ -10968,7 +10969,7 @@ for.body21.i16614:                                ; preds = %for.body21.i16614.l
   %258 = load i64, ptr %arrayidx28.i16623, align 8
   %shr.i16626 = lshr i64 %258, %sh_prom30.i16625
   %or.i16627 = or i64 %shr.i16626, %shl.i16619
-  %259 = trunc i64 %indvars.iv11037 to i32
+  %259 = trunc nuw i64 %indvars.iv11037 to i32
   %add32.i16629 = add i32 %div.i165797775, %259
   %idxprom33.i16630 = zext i32 %add32.i16629 to i64
   %arrayidx34.i16631 = getelementptr inbounds [64 x i64], ptr %bits15.i16585, i64 0, i64 %idxprom33.i16630
@@ -11606,7 +11607,7 @@ if.then352.i9132:                                 ; preds = %if.end340.i9061
 
 if.then356.i9154:                                 ; preds = %if.then352.i9132
   %shr.i9156 = lshr i32 %conv342.i9063, 12
-  %341 = trunc i32 %shr.i9156 to i8
+  %341 = trunc nuw nsw i32 %shr.i9156 to i8
   %conv359.i9158 = or disjoint i8 %341, -32
   %incdec.ptr360.i9159 = getelementptr inbounds i8, ptr %dst.i8744.0, i64 1
   store i8 %conv359.i9158, ptr %dst.i8744.0, align 1
@@ -13596,7 +13597,7 @@ if.then352.i10504:                                ; preds = %if.end340.i10433
 
 if.then356.i10526:                                ; preds = %if.then352.i10504
   %shr.i10528 = lshr i32 %conv342.i10435, 12
-  %539 = trunc i32 %shr.i10528 to i8
+  %539 = trunc nuw nsw i32 %shr.i10528 to i8
   %conv359.i10530 = or disjoint i8 %539, -32
   %incdec.ptr360.i10531 = getelementptr inbounds i8, ptr %dst.i10116.0, i64 1
   store i8 %conv359.i10530, ptr %dst.i10116.0, align 1
@@ -14870,7 +14871,7 @@ if.then352.i9818:                                 ; preds = %if.end340.i9747
 
 if.then356.i9840:                                 ; preds = %if.then352.i9818
   %shr.i9842 = lshr i32 %conv342.i9749, 12
-  %706 = trunc i32 %shr.i9842 to i8
+  %706 = trunc nuw nsw i32 %shr.i9842 to i8
   %conv359.i9844 = or disjoint i8 %706, -32
   %incdec.ptr360.i9845 = getelementptr inbounds i8, ptr %dst.i9430.0, i64 1
   store i8 %conv359.i9844, ptr %dst.i9430.0, align 1
@@ -17218,7 +17219,7 @@ if.end2141.i4796.if.end2219.i4804_crit_edge:      ; preds = %if.end2141.i4796
   %.pre11251 = add i32 %.pre11250, 686
   %.pre11252 = add i32 %.pre11250, 687
   %.pre11256 = zext i64 %.pre11249 to i128
-  %.pre11257 = trunc i64 %.pre11247 to i32
+  %.pre11257 = trunc nuw nsw i64 %.pre11247 to i32
   br label %if.end2219.i4804
 
 if.then2156.i5018:                                ; preds = %if.end2141.i4796
@@ -17228,13 +17229,13 @@ if.then2156.i5018:                                ; preds = %if.end2141.i4796
   %arrayidx.i15768 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i15767
   %940 = load i64, ptr %arrayidx.i15768, align 16
   %941 = tail call i64 @llvm.ctlz.i64(i64 %sig.i4650.22, i1 true), !range !56
-  %cast.i = trunc i64 %941 to i32
+  %cast.i = trunc nuw nsw i64 %941 to i32
   %shl2159.i5021 = shl i64 %sig.i4650.22, %941
   %conv.i15859 = zext i64 %shl2159.i5021 to i128
   %conv1.i15860 = zext i64 %940 to i128
   %mul.i15861 = mul nuw i128 %conv1.i15860, %conv.i15859
   %shr.i15862 = lshr i128 %mul.i15861, 64
-  %conv2.i15863 = trunc i128 %shr.i15862 to i64
+  %conv2.i15863 = trunc nuw i128 %shr.i15862 to i64
   %conv3.i15864 = trunc i128 %mul.i15861 to i64
   %and.i5023 = and i64 %conv2.i15863, 511
   %sub2161.i5024 = add nsw i64 %and.i5023, -1
@@ -17249,7 +17250,7 @@ if.else2165.i5026:                                ; preds = %if.then2156.i5018
   %conv1.i15851 = zext i64 %942 to i128
   %mul.i15852 = mul nuw i128 %conv1.i15851, %conv.i15859
   %shr.i15853 = lshr i128 %mul.i15852, 64
-  %conv2.i = trunc i128 %shr.i15853 to i64
+  %conv2.i = trunc nuw i128 %shr.i15853 to i64
   %add2166.i5027 = add i64 %conv2.i, %conv3.i15864
   %943 = add i64 %add2166.i5027, -1
   %cmp2168.i5029 = icmp ult i64 %943, -2
@@ -17307,7 +17308,7 @@ if.end2219.i4804:                                 ; preds = %if.end2141.i4796.if
   %conv1.i.i15936 = zext i64 %add.i16017 to i128
   %mul.i.i = mul nuw i128 %conv.i.i15935.pre-phi, %conv1.i.i15936
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   %shr.i15937 = lshr i64 %conv3.i.i, 63
   %add.i15938 = add nuw i64 %shr.i15937, %conv2.i.i
@@ -17315,7 +17316,7 @@ if.end2219.i4804:                                 ; preds = %if.end2141.i4796.if
   %add2243.i4821 = select i1 %cmp2239.i4817.not, i64 8, i64 9
   %add2244.i4822 = add i64 %add2243.i4821, %shl2235.i4814
   %947 = tail call i64 @llvm.ctlz.i64(i64 %add.i15938, i1 true), !range !56
-  %cast.i15827 = trunc i64 %947 to i32
+  %cast.i15827 = trunc nuw nsw i64 %947 to i32
   %shl2249.i4825 = shl i64 %add.i15938, %947
   %.neg8619 = add nsw i32 %shr.i15810, 64
   %948 = add nuw nsw i32 %.pre-phi11258, %cast.i15827
@@ -17363,7 +17364,7 @@ if.end2298.i4848:                                 ; preds = %if.then2283.i5003, 
 if.end.i16096:                                    ; preds = %if.end2298.i4848
   %add2319.i4866 = add nsw i32 %precision_digits_count.i4688.0, %fp.i4692.sroa.17.0
   %949 = tail call i64 @llvm.ctlz.i64(i64 %add2317.i4864, i1 true), !range !56
-  %cast.i.i = trunc i64 %949 to i32
+  %cast.i.i = trunc nuw nsw i64 %949 to i32
   %shl.i16098 = shl i64 %add2317.i4864, %949
   %shr.i16099 = lshr i64 %shl.i16098, 11
   %sub.i16100 = sub nsw i32 %add2319.i4866, %cast.i.i
@@ -17453,7 +17454,7 @@ if.end2397.i4882:                                 ; preds = %if.end2373.i4872
   %and2398.i4883 = and i64 %retval.i16087.08437, 9218868437227405312
   %tobool2399.i4884.not = icmp eq i64 %and2398.i4883, 0
   %shr2405.i4965 = lshr exact i64 %and2398.i4883, 52
-  %conv2406.i4966 = trunc i64 %shr2405.i4965 to i32
+  %conv2406.i4966 = trunc nuw nsw i64 %shr2405.i4965 to i32
   %fp_upper.i4693.sroa.7.0 = select i1 %tobool2399.i4884.not, i32 1, i32 %conv2406.i4966
   %and2401.i4962 = shl nuw i64 %retval.i16087.08437, 1
   %951 = and i64 %and2401.i4962, 9007199254740990
@@ -17501,7 +17502,7 @@ if.end.i18975:                                    ; preds = %for.body.i18970
   br i1 %exitcond10961.not, label %bigint_mul_u64.exit18978, label %for.body.i18970, !llvm.loop !57
 
 for.end.i18952.loopexit:                          ; preds = %for.body.i18970
-  %955 = trunc i64 %indvars.iv10957 to i32
+  %955 = trunc nuw i64 %indvars.iv10957 to i32
   br label %for.end.i18952
 
 for.end.i18952:                                   ; preds = %for.end.i18952.loopexit, %for.body.i
@@ -17524,7 +17525,7 @@ for.body3.i18962:                                 ; preds = %for.body3.i18962.pr
   %conv2.i19038 = zext i64 %carry.i18949.09411 to i128
   %add.i19039 = add nuw i128 %mul.i19037, %conv2.i19038
   %shr.i19040 = lshr i128 %add.i19039, 64
-  %conv3.i19041 = trunc i128 %shr.i19040 to i64
+  %conv3.i19041 = trunc nuw i128 %shr.i19040 to i64
   %conv4.i19042 = trunc i128 %add.i19039 to i64
   store i64 %conv4.i19042, ptr %arrayidx6.i18965, align 8
   %indvars.iv.next10963 = add nuw nsw i64 %indvars.iv10962, 1
@@ -17580,7 +17581,7 @@ if.end.i19011:                                    ; preds = %for.body.i19006
   br i1 %exitcond10971.not, label %if.end2427.i4898, label %for.body.i19006, !llvm.loop !57
 
 for.end.i18988.loopexit:                          ; preds = %for.body.i19006
-  %961 = trunc i64 %indvars.iv10967 to i32
+  %961 = trunc nuw i64 %indvars.iv10967 to i32
   br label %for.end.i18988
 
 for.end.i18988:                                   ; preds = %for.end.i18988.loopexit, %if.then.i16272
@@ -17604,7 +17605,7 @@ for.body3.i18998:                                 ; preds = %for.body3.i18998.lr
   %conv2.i19024 = zext i64 %carry.i18985.09426 to i128
   %add.i19025 = add nuw i128 %mul.i19023, %conv2.i19024
   %shr.i19026 = lshr i128 %add.i19025, 64
-  %conv3.i19027 = trunc i128 %shr.i19026 to i64
+  %conv3.i19027 = trunc nuw i128 %shr.i19026 to i64
   %conv4.i19028 = trunc i128 %add.i19025 to i64
   store i64 %conv4.i19028, ptr %arrayidx6.i19001, align 8
   %indvars.iv.next10973 = add nuw nsw i64 %indvars.iv10972, 1
@@ -17655,7 +17656,7 @@ if.end.i18903:                                    ; preds = %for.body.i18898
   br i1 %exitcond.not, label %bigint_mul_u64.exit18906, label %for.body.i18898, !llvm.loop !57
 
 for.end.i18880.loopexit:                          ; preds = %for.body.i18898
-  %966 = trunc i64 %indvars.iv to i32
+  %966 = trunc nuw i64 %indvars.iv to i32
   br label %for.end.i18880
 
 for.end.i18880:                                   ; preds = %for.end.i18880.loopexit, %for.body.i16286
@@ -17678,7 +17679,7 @@ for.body3.i18890:                                 ; preds = %for.body3.i18890.pr
   %conv2.i19066 = zext i64 %carry.i18877.09388 to i128
   %add.i19067 = add nuw i128 %mul.i19065, %conv2.i19066
   %shr.i19068 = lshr i128 %add.i19067, 64
-  %conv3.i19069 = trunc i128 %shr.i19068 to i64
+  %conv3.i19069 = trunc nuw i128 %shr.i19068 to i64
   %conv4.i19070 = trunc i128 %add.i19067 to i64
   store i64 %conv4.i19070, ptr %arrayidx6.i18893, align 8
   %indvars.iv.next10943 = add nuw nsw i64 %indvars.iv10942, 1
@@ -17733,7 +17734,7 @@ if.end.i18939:                                    ; preds = %for.body.i18934
   br i1 %exitcond10951.not, label %if.end2427.i4898, label %for.body.i18934, !llvm.loop !57
 
 for.end.i18916.loopexit:                          ; preds = %for.body.i18934
-  %973 = trunc i64 %indvars.iv10947 to i32
+  %973 = trunc nuw i64 %indvars.iv10947 to i32
   br label %for.end.i18916
 
 for.end.i18916:                                   ; preds = %for.end.i18916.loopexit, %if.then.i16283
@@ -17759,7 +17760,7 @@ for.body3.i18926:                                 ; preds = %for.body3.i18926.lr
   %conv2.i19052 = zext i64 %carry.i18913.09403 to i128
   %add.i19053 = add nuw i128 %mul.i19051, %conv2.i19052
   %shr.i19054 = lshr i128 %add.i19053, 64
-  %conv3.i19055 = trunc i128 %shr.i19054 to i64
+  %conv3.i19055 = trunc nuw i128 %shr.i19054 to i64
   %conv4.i19056 = trunc i128 %add.i19053 to i64
   store i64 %conv4.i19056, ptr %arrayidx6.i18929, align 8
   %indvars.iv.next10953 = add nuw nsw i64 %indvars.iv10952, 1
@@ -17811,7 +17812,7 @@ for.body.i16393:                                  ; preds = %for.body.i16393.lr.
   %982 = add nsw i64 %indvars.iv10989, -1
   %arrayidx.i16397 = getelementptr inbounds [64 x i64], ptr %bits.i16258, i64 0, i64 %982
   %983 = load i64, ptr %arrayidx.i16397, align 8
-  %984 = trunc i64 %indvars.iv10989 to i32
+  %984 = trunc nuw i64 %indvars.iv10989 to i32
   %sub5.i = add i32 %add.i16398, %984
   %idxprom6.i = zext i32 %sub5.i to i64
   %arrayidx7.i16399 = getelementptr inbounds [64 x i64], ptr %bits.i16258, i64 0, i64 %idxprom6.i
@@ -17848,7 +17849,7 @@ for.body21.i:                                     ; preds = %for.body21.i.lr.ph,
   %987 = load i64, ptr %arrayidx28.i, align 8
   %shr.i16384 = lshr i64 %987, %sh_prom30.i
   %or.i16385 = or i64 %shr.i16384, %shl.i16383
-  %988 = trunc i64 %indvars.iv10985 to i32
+  %988 = trunc nuw i64 %indvars.iv10985 to i32
   %add32.i = add i32 %div.i163717755, %988
   %idxprom33.i = zext i32 %add32.i to i64
   %arrayidx34.i = getelementptr inbounds [64 x i64], ptr %bits.i16258, i64 0, i64 %idxprom33.i
@@ -17896,7 +17897,7 @@ for.body.i16474:                                  ; preds = %for.body.i16474.lr.
   %993 = add nsw i64 %indvars.iv10981, -1
   %arrayidx.i16478 = getelementptr inbounds [64 x i64], ptr %bits.i16475, i64 0, i64 %993
   %994 = load i64, ptr %arrayidx.i16478, align 8
-  %995 = trunc i64 %indvars.iv10981 to i32
+  %995 = trunc nuw i64 %indvars.iv10981 to i32
   %sub5.i16481 = add i32 %add.i16480, %995
   %idxprom6.i16482 = zext i32 %sub5.i16481 to i64
   %arrayidx7.i16483 = getelementptr inbounds [64 x i64], ptr %bits.i16475, i64 0, i64 %idxprom6.i16482
@@ -17938,7 +17939,7 @@ for.body21.i16442:                                ; preds = %for.body21.i16442.l
   %998 = load i64, ptr %arrayidx28.i16451, align 8
   %shr.i16454 = lshr i64 %998, %sh_prom30.i16453
   %or.i16455 = or i64 %shr.i16454, %shl.i16447
-  %999 = trunc i64 %indvars.iv10977 to i32
+  %999 = trunc nuw i64 %indvars.iv10977 to i32
   %add32.i16457 = add i32 %div.i164077754, %999
   %idxprom33.i16458 = zext i32 %add32.i16457 to i64
   %arrayidx34.i16459 = getelementptr inbounds [64 x i64], ptr %bits15.i16413, i64 0, i64 %idxprom33.i16458
@@ -20767,7 +20768,7 @@ if.end2141.i.if.end2219.i_crit_edge:              ; preds = %if.end2141.i
   %.pre11209 = add i32 %.pre11208, 686
   %.pre11210 = add i32 %.pre11208, 687
   %.pre11214 = zext i64 %.pre11207 to i128
-  %.pre11215 = trunc i64 %.pre11206 to i32
+  %.pre11215 = trunc nuw nsw i64 %.pre11206 to i32
   br label %if.end2219.i
 
 if.then2156.i:                                    ; preds = %if.end2141.i
@@ -20777,13 +20778,13 @@ if.then2156.i:                                    ; preds = %if.end2141.i
   %arrayidx.i15802 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i15801
   %1261 = load i64, ptr %arrayidx.i15802, align 16
   %1262 = tail call i64 @llvm.ctlz.i64(i64 %sig.i.22, i1 true), !range !56
-  %cast.i15843 = trunc i64 %1262 to i32
+  %cast.i15843 = trunc nuw nsw i64 %1262 to i32
   %shl2159.i = shl i64 %sig.i.22, %1262
   %conv.i15925 = zext i64 %shl2159.i to i128
   %conv1.i15926 = zext i64 %1261 to i128
   %mul.i15927 = mul nuw i128 %conv1.i15926, %conv.i15925
   %shr.i15928 = lshr i128 %mul.i15927, 64
-  %conv2.i15929 = trunc i128 %shr.i15928 to i64
+  %conv2.i15929 = trunc nuw i128 %shr.i15928 to i64
   %conv3.i15930 = trunc i128 %mul.i15927 to i64
   %and.i554 = and i64 %conv2.i15929, 511
   %sub2161.i = add nsw i64 %and.i554, -1
@@ -20798,7 +20799,7 @@ if.else2165.i:                                    ; preds = %if.then2156.i
   %conv1.i15915 = zext i64 %1263 to i128
   %mul.i15916 = mul nuw i128 %conv1.i15915, %conv.i15925
   %shr.i15917 = lshr i128 %mul.i15916, 64
-  %conv2.i15918 = trunc i128 %shr.i15917 to i64
+  %conv2.i15918 = trunc nuw i128 %shr.i15917 to i64
   %add2166.i = add i64 %conv2.i15918, %conv3.i15930
   %1264 = add i64 %add2166.i, -1
   %cmp2168.i = icmp ult i64 %1264, -2
@@ -20856,7 +20857,7 @@ if.end2219.i:                                     ; preds = %if.end2141.i.if.end
   %conv1.i.i15996 = zext i64 %add.i16086 to i128
   %mul.i.i15997 = mul nuw i128 %conv.i.i15995.pre-phi, %conv1.i.i15996
   %shr.i.i15998 = lshr i128 %mul.i.i15997, 64
-  %conv2.i.i15999 = trunc i128 %shr.i.i15998 to i64
+  %conv2.i.i15999 = trunc nuw i128 %shr.i.i15998 to i64
   %conv3.i.i16000 = trunc i128 %mul.i.i15997 to i64
   %shr.i16001 = lshr i64 %conv3.i.i16000, 63
   %add.i16002 = add nuw i64 %shr.i16001, %conv2.i.i15999
@@ -20864,7 +20865,7 @@ if.end2219.i:                                     ; preds = %if.end2141.i.if.end
   %add2243.i = select i1 %cmp2239.i.not, i64 8, i64 9
   %add2244.i = add i64 %add2243.i, %shl2235.i
   %1268 = tail call i64 @llvm.ctlz.i64(i64 %add.i16002, i1 true), !range !56
-  %cast.i15845 = trunc i64 %1268 to i32
+  %cast.i15845 = trunc nuw nsw i64 %1268 to i32
   %shl2249.i = shl i64 %add.i16002, %1268
   %.neg8625 = add nsw i32 %shr.i15825, 64
   %1269 = add nuw nsw i32 %.pre-phi11216, %cast.i15845
@@ -20912,7 +20913,7 @@ if.end2298.i:                                     ; preds = %if.then2283.i, %if.
 if.end.i16220:                                    ; preds = %if.end2298.i
   %add2319.i = add nsw i32 %fp.i.sroa.17.0, %precision_digits_count.i.0
   %1270 = tail call i64 @llvm.ctlz.i64(i64 %add2317.i, i1 true), !range !56
-  %cast.i.i16221 = trunc i64 %1270 to i32
+  %cast.i.i16221 = trunc nuw nsw i64 %1270 to i32
   %shl.i16223 = shl i64 %add2317.i, %1270
   %shr.i16224 = lshr i64 %shl.i16223, 11
   %sub.i16225 = sub nsw i32 %add2319.i, %cast.i.i16221
@@ -21002,7 +21003,7 @@ if.end2397.i:                                     ; preds = %if.end2373.i
   %and2398.i = and i64 %retval.i16210.08498, 9218868437227405312
   %tobool2399.i.not = icmp eq i64 %and2398.i, 0
   %shr2405.i = lshr exact i64 %and2398.i, 52
-  %conv2406.i = trunc i64 %shr2405.i to i32
+  %conv2406.i = trunc nuw nsw i64 %shr2405.i to i32
   %fp_upper.i.sroa.7.0 = select i1 %tobool2399.i.not, i32 1, i32 %conv2406.i
   %and2401.i = shl nuw i64 %retval.i16210.08498, 1
   %1272 = and i64 %and2401.i, 9007199254740990
@@ -21050,7 +21051,7 @@ if.end.i18543:                                    ; preds = %for.body.i18538
   br i1 %exitcond11141.not, label %bigint_mul_u64.exit18546, label %for.body.i18538, !llvm.loop !57
 
 for.end.i18520.loopexit:                          ; preds = %for.body.i18538
-  %1276 = trunc i64 %indvars.iv11137 to i32
+  %1276 = trunc nuw i64 %indvars.iv11137 to i32
   br label %for.end.i18520
 
 for.end.i18520:                                   ; preds = %for.end.i18520.loopexit, %for.body.i16351
@@ -21073,7 +21074,7 @@ for.body3.i18530:                                 ; preds = %for.body3.i18530.pr
   %conv2.i19206 = zext i64 %carry.i18517.010154 to i128
   %add.i19207 = add nuw i128 %mul.i19205, %conv2.i19206
   %shr.i19208 = lshr i128 %add.i19207, 64
-  %conv3.i19209 = trunc i128 %shr.i19208 to i64
+  %conv3.i19209 = trunc nuw i128 %shr.i19208 to i64
   %conv4.i19210 = trunc i128 %add.i19207 to i64
   store i64 %conv4.i19210, ptr %arrayidx6.i18533, align 8
   %indvars.iv.next11143 = add nuw nsw i64 %indvars.iv11142, 1
@@ -21129,7 +21130,7 @@ if.end.i18579:                                    ; preds = %for.body.i18574
   br i1 %exitcond11151.not, label %if.end2427.i, label %for.body.i18574, !llvm.loop !57
 
 for.end.i18556.loopexit:                          ; preds = %for.body.i18574
-  %1282 = trunc i64 %indvars.iv11147 to i32
+  %1282 = trunc nuw i64 %indvars.iv11147 to i32
   br label %for.end.i18556
 
 for.end.i18556:                                   ; preds = %for.end.i18556.loopexit, %if.then.i16348
@@ -21153,7 +21154,7 @@ for.body3.i18566:                                 ; preds = %for.body3.i18566.lr
   %conv2.i19192 = zext i64 %carry.i18553.010169 to i128
   %add.i19193 = add nuw i128 %mul.i19191, %conv2.i19192
   %shr.i19194 = lshr i128 %add.i19193, 64
-  %conv3.i19195 = trunc i128 %shr.i19194 to i64
+  %conv3.i19195 = trunc nuw i128 %shr.i19194 to i64
   %conv4.i19196 = trunc i128 %add.i19193 to i64
   store i64 %conv4.i19196, ptr %arrayidx6.i18569, align 8
   %indvars.iv.next11153 = add nuw nsw i64 %indvars.iv11152, 1
@@ -21204,7 +21205,7 @@ if.end.i18472:                                    ; preds = %for.body.i18467
   br i1 %exitcond11121.not, label %bigint_mul_u64.exit, label %for.body.i18467, !llvm.loop !57
 
 for.end.i18461.loopexit:                          ; preds = %for.body.i18467
-  %1287 = trunc i64 %indvars.iv11117 to i32
+  %1287 = trunc nuw i64 %indvars.iv11117 to i32
   br label %for.end.i18461
 
 for.end.i18461:                                   ; preds = %for.end.i18461.loopexit, %for.body.i16364
@@ -21227,7 +21228,7 @@ for.body3.i:                                      ; preds = %for.body3.i.prehead
   %conv2.i19234 = zext i64 %carry.i18458.010131 to i128
   %add.i19235 = add nuw i128 %mul.i19233, %conv2.i19234
   %shr.i19236 = lshr i128 %add.i19235, 64
-  %conv3.i19237 = trunc i128 %shr.i19236 to i64
+  %conv3.i19237 = trunc nuw i128 %shr.i19236 to i64
   %conv4.i19238 = trunc i128 %add.i19235 to i64
   store i64 %conv4.i19238, ptr %arrayidx6.i18466, align 8
   %indvars.iv.next11123 = add nuw nsw i64 %indvars.iv11122, 1
@@ -21282,7 +21283,7 @@ if.end.i18507:                                    ; preds = %for.body.i18502
   br i1 %exitcond11131.not, label %if.end2427.i, label %for.body.i18502, !llvm.loop !57
 
 for.end.i18484.loopexit:                          ; preds = %for.body.i18502
-  %1294 = trunc i64 %indvars.iv11127 to i32
+  %1294 = trunc nuw i64 %indvars.iv11127 to i32
   br label %for.end.i18484
 
 for.end.i18484:                                   ; preds = %for.end.i18484.loopexit, %if.then.i16361
@@ -21308,7 +21309,7 @@ for.body3.i18494:                                 ; preds = %for.body3.i18494.lr
   %conv2.i19220 = zext i64 %carry.i18481.010146 to i128
   %add.i19221 = add nuw i128 %mul.i19219, %conv2.i19220
   %shr.i19222 = lshr i128 %add.i19221, 64
-  %conv3.i19223 = trunc i128 %shr.i19222 to i64
+  %conv3.i19223 = trunc nuw i128 %shr.i19222 to i64
   %conv4.i19224 = trunc i128 %add.i19221 to i64
   store i64 %conv4.i19224, ptr %arrayidx6.i18497, align 8
   %indvars.iv.next11133 = add nuw nsw i64 %indvars.iv11132, 1
@@ -21360,7 +21361,7 @@ for.body.i16904:                                  ; preds = %for.body.i16904.lr.
   %1303 = add nsw i64 %indvars.iv11169, -1
   %arrayidx.i16908 = getelementptr inbounds [64 x i64], ptr %bits.i16267, i64 0, i64 %1303
   %1304 = load i64, ptr %arrayidx.i16908, align 8
-  %1305 = trunc i64 %indvars.iv11169 to i32
+  %1305 = trunc nuw i64 %indvars.iv11169 to i32
   %sub5.i16911 = add i32 %add.i16910, %1305
   %idxprom6.i16912 = zext i32 %sub5.i16911 to i64
   %arrayidx7.i16913 = getelementptr inbounds [64 x i64], ptr %bits.i16267, i64 0, i64 %idxprom6.i16912
@@ -21397,7 +21398,7 @@ for.body21.i16872:                                ; preds = %for.body21.i16872.l
   %1308 = load i64, ptr %arrayidx28.i16881, align 8
   %shr.i16884 = lshr i64 %1308, %sh_prom30.i16883
   %or.i16885 = or i64 %shr.i16884, %shl.i16877
-  %1309 = trunc i64 %indvars.iv11165 to i32
+  %1309 = trunc nuw i64 %indvars.iv11165 to i32
   %add32.i16887 = add i32 %div.i168377734, %1309
   %idxprom33.i16888 = zext i32 %add32.i16887 to i64
   %arrayidx34.i16889 = getelementptr inbounds [64 x i64], ptr %bits.i16267, i64 0, i64 %idxprom33.i16888
@@ -21445,7 +21446,7 @@ for.body.i16990:                                  ; preds = %for.body.i16990.lr.
   %1314 = add nsw i64 %indvars.iv11161, -1
   %arrayidx.i16994 = getelementptr inbounds [64 x i64], ptr %bits.i16991, i64 0, i64 %1314
   %1315 = load i64, ptr %arrayidx.i16994, align 8
-  %1316 = trunc i64 %indvars.iv11161 to i32
+  %1316 = trunc nuw i64 %indvars.iv11161 to i32
   %sub5.i16997 = add i32 %add.i16996, %1316
   %idxprom6.i16998 = zext i32 %sub5.i16997 to i64
   %arrayidx7.i16999 = getelementptr inbounds [64 x i64], ptr %bits.i16991, i64 0, i64 %idxprom6.i16998
@@ -21487,7 +21488,7 @@ for.body21.i16958:                                ; preds = %for.body21.i16958.l
   %1319 = load i64, ptr %arrayidx28.i16967, align 8
   %shr.i16970 = lshr i64 %1319, %sh_prom30.i16969
   %or.i16971 = or i64 %shr.i16970, %shl.i16963
-  %1320 = trunc i64 %indvars.iv11157 to i32
+  %1320 = trunc nuw i64 %indvars.iv11157 to i32
   %add32.i16973 = add i32 %div.i169237733, %1320
   %idxprom33.i16974 = zext i32 %add32.i16973 to i64
   %arrayidx34.i16975 = getelementptr inbounds [64 x i64], ptr %bits15.i16929, i64 0, i64 %idxprom33.i16974
@@ -22125,7 +22126,7 @@ if.then352.i:                                     ; preds = %if.end340.i
 
 if.then356.i7300:                                 ; preds = %if.then352.i
   %shr.i7301 = lshr i32 %conv342.i, 12
-  %1402 = trunc i32 %shr.i7301 to i8
+  %1402 = trunc nuw nsw i32 %shr.i7301 to i8
   %conv359.i = or disjoint i8 %1402, -32
   %incdec.ptr360.i = getelementptr inbounds i8, ptr %dst.i.0, i64 1
   store i8 %conv359.i, ptr %dst.i.0, align 1
@@ -23982,7 +23983,7 @@ if.then352.i8446:                                 ; preds = %if.end340.i8375
 
 if.then356.i8468:                                 ; preds = %if.then352.i8446
   %shr.i8470 = lshr i32 %conv342.i8377, 12
-  %1607 = trunc i32 %shr.i8470 to i8
+  %1607 = trunc nuw nsw i32 %shr.i8470 to i8
   %conv359.i8472 = or disjoint i8 %1607, -32
   %incdec.ptr360.i8473 = getelementptr inbounds i8, ptr %dst.i8058.0, i64 1
   store i8 %conv359.i8472, ptr %dst.i8058.0, align 1
@@ -25327,7 +25328,7 @@ if.then352.i7760:                                 ; preds = %if.end340.i7689
 
 if.then356.i7782:                                 ; preds = %if.then352.i7760
   %shr.i7784 = lshr i32 %conv342.i7691, 12
-  %1788 = trunc i32 %shr.i7784 to i8
+  %1788 = trunc nuw nsw i32 %shr.i7784 to i8
   %conv359.i7786 = or disjoint i8 %1788, -32
   %incdec.ptr360.i7787 = getelementptr inbounds i8, ptr %dst.i7372.0, i64 1
   store i8 %conv359.i7786, ptr %dst.i7372.0, align 1
@@ -27675,7 +27676,7 @@ if.end2141.i826.if.end2219.i834_crit_edge:        ; preds = %if.end2141.i826
   %.pre11223 = add i32 %.pre11222, 686
   %.pre11224 = add i32 %.pre11222, 687
   %.pre11228 = zext i64 %.pre11221 to i128
-  %.pre11229 = trunc i64 %.pre11219 to i32
+  %.pre11229 = trunc nuw nsw i64 %.pre11219 to i32
   br label %if.end2219.i834
 
 if.then2156.i1048:                                ; preds = %if.end2141.i826
@@ -27685,13 +27686,13 @@ if.then2156.i1048:                                ; preds = %if.end2141.i826
   %arrayidx.i15790 = getelementptr inbounds [1336 x i64], ptr @pow10_sig_table, i64 0, i64 %idxprom.i15789
   %2022 = load i64, ptr %arrayidx.i15790, align 16
   %2023 = tail call i64 @llvm.ctlz.i64(i64 %sig.i680.22, i1 true), !range !56
-  %cast.i15837 = trunc i64 %2023 to i32
+  %cast.i15837 = trunc nuw nsw i64 %2023 to i32
   %shl2159.i1051 = shl i64 %sig.i680.22, %2023
   %conv.i15903 = zext i64 %shl2159.i1051 to i128
   %conv1.i15904 = zext i64 %2022 to i128
   %mul.i15905 = mul nuw i128 %conv1.i15904, %conv.i15903
   %shr.i15906 = lshr i128 %mul.i15905, 64
-  %conv2.i15907 = trunc i128 %shr.i15906 to i64
+  %conv2.i15907 = trunc nuw i128 %shr.i15906 to i64
   %conv3.i15908 = trunc i128 %mul.i15905 to i64
   %and.i1053 = and i64 %conv2.i15907, 511
   %sub2161.i1054 = add nsw i64 %and.i1053, -1
@@ -27706,7 +27707,7 @@ if.else2165.i1056:                                ; preds = %if.then2156.i1048
   %conv1.i15893 = zext i64 %2024 to i128
   %mul.i15894 = mul nuw i128 %conv1.i15893, %conv.i15903
   %shr.i15895 = lshr i128 %mul.i15894, 64
-  %conv2.i15896 = trunc i128 %shr.i15895 to i64
+  %conv2.i15896 = trunc nuw i128 %shr.i15895 to i64
   %add2166.i1057 = add i64 %conv2.i15896, %conv3.i15908
   %2025 = add i64 %add2166.i1057, -1
   %cmp2168.i1059 = icmp ult i64 %2025, -2
@@ -27764,7 +27765,7 @@ if.end2219.i834:                                  ; preds = %if.end2141.i826.if.
   %conv1.i.i15974 = zext i64 %add.i16063 to i128
   %mul.i.i15975 = mul nuw i128 %conv.i.i15973.pre-phi, %conv1.i.i15974
   %shr.i.i15976 = lshr i128 %mul.i.i15975, 64
-  %conv2.i.i15977 = trunc i128 %shr.i.i15976 to i64
+  %conv2.i.i15977 = trunc nuw i128 %shr.i.i15976 to i64
   %conv3.i.i15978 = trunc i128 %mul.i.i15975 to i64
   %shr.i15979 = lshr i64 %conv3.i.i15978, 63
   %add.i15980 = add nuw i64 %shr.i15979, %conv2.i.i15977
@@ -27772,7 +27773,7 @@ if.end2219.i834:                                  ; preds = %if.end2141.i826.if.
   %add2243.i851 = select i1 %cmp2239.i847.not, i64 8, i64 9
   %add2244.i852 = add i64 %add2243.i851, %shl2235.i844
   %2029 = tail call i64 @llvm.ctlz.i64(i64 %add.i15980, i1 true), !range !56
-  %cast.i15839 = trunc i64 %2029 to i32
+  %cast.i15839 = trunc nuw nsw i64 %2029 to i32
   %shl2249.i855 = shl i64 %add.i15980, %2029
   %.neg8623 = add nsw i32 %shr.i15820, 64
   %2030 = add nuw nsw i32 %.pre-phi11230, %cast.i15839
@@ -27820,7 +27821,7 @@ if.end2298.i878:                                  ; preds = %if.then2283.i1033, 
 if.end.i16172:                                    ; preds = %if.end2298.i878
   %add2319.i896 = add nsw i32 %precision_digits_count.i718.0, %fp.i722.sroa.17.0
   %2031 = tail call i64 @llvm.ctlz.i64(i64 %add2317.i894, i1 true), !range !56
-  %cast.i.i16173 = trunc i64 %2031 to i32
+  %cast.i.i16173 = trunc nuw nsw i64 %2031 to i32
   %shl.i16175 = shl i64 %add2317.i894, %2031
   %shr.i16176 = lshr i64 %shl.i16175, 11
   %sub.i16177 = sub nsw i32 %add2319.i896, %cast.i.i16173
@@ -27910,7 +27911,7 @@ if.end2397.i912:                                  ; preds = %if.end2373.i902
   %and2398.i913 = and i64 %retval.i16162.08521, 9218868437227405312
   %tobool2399.i914.not = icmp eq i64 %and2398.i913, 0
   %shr2405.i995 = lshr exact i64 %and2398.i913, 52
-  %conv2406.i996 = trunc i64 %shr2405.i995 to i32
+  %conv2406.i996 = trunc nuw nsw i64 %shr2405.i995 to i32
   %fp_upper.i723.sroa.7.0 = select i1 %tobool2399.i914.not, i32 1, i32 %conv2406.i996
   %and2401.i992 = shl nuw i64 %retval.i16162.08521, 1
   %2033 = and i64 %and2401.i992, 9007199254740990
@@ -27958,7 +27959,7 @@ if.end.i18687:                                    ; preds = %for.body.i18682
   br i1 %exitcond11081.not, label %bigint_mul_u64.exit18690, label %for.body.i18682, !llvm.loop !57
 
 for.end.i18664.loopexit:                          ; preds = %for.body.i18682
-  %2037 = trunc i64 %indvars.iv11077 to i32
+  %2037 = trunc nuw i64 %indvars.iv11077 to i32
   br label %for.end.i18664
 
 for.end.i18664:                                   ; preds = %for.end.i18664.loopexit, %for.body.i16325
@@ -27981,7 +27982,7 @@ for.body3.i18674:                                 ; preds = %for.body3.i18674.pr
   %conv2.i19150 = zext i64 %carry.i18661.09953 to i128
   %add.i19151 = add nuw i128 %mul.i19149, %conv2.i19150
   %shr.i19152 = lshr i128 %add.i19151, 64
-  %conv3.i19153 = trunc i128 %shr.i19152 to i64
+  %conv3.i19153 = trunc nuw i128 %shr.i19152 to i64
   %conv4.i19154 = trunc i128 %add.i19151 to i64
   store i64 %conv4.i19154, ptr %arrayidx6.i18677, align 8
   %indvars.iv.next11083 = add nuw nsw i64 %indvars.iv11082, 1
@@ -28037,7 +28038,7 @@ if.end.i18723:                                    ; preds = %for.body.i18718
   br i1 %exitcond11091.not, label %if.end2427.i928, label %for.body.i18718, !llvm.loop !57
 
 for.end.i18700.loopexit:                          ; preds = %for.body.i18718
-  %2043 = trunc i64 %indvars.iv11087 to i32
+  %2043 = trunc nuw i64 %indvars.iv11087 to i32
   br label %for.end.i18700
 
 for.end.i18700:                                   ; preds = %for.end.i18700.loopexit, %if.then.i16322
@@ -28061,7 +28062,7 @@ for.body3.i18710:                                 ; preds = %for.body3.i18710.lr
   %conv2.i19136 = zext i64 %carry.i18697.09968 to i128
   %add.i19137 = add nuw i128 %mul.i19135, %conv2.i19136
   %shr.i19138 = lshr i128 %add.i19137, 64
-  %conv3.i19139 = trunc i128 %shr.i19138 to i64
+  %conv3.i19139 = trunc nuw i128 %shr.i19138 to i64
   %conv4.i19140 = trunc i128 %add.i19137 to i64
   store i64 %conv4.i19140, ptr %arrayidx6.i18713, align 8
   %indvars.iv.next11093 = add nuw nsw i64 %indvars.iv11092, 1
@@ -28112,7 +28113,7 @@ if.end.i18615:                                    ; preds = %for.body.i18610
   br i1 %exitcond11061.not, label %bigint_mul_u64.exit18618, label %for.body.i18610, !llvm.loop !57
 
 for.end.i18592.loopexit:                          ; preds = %for.body.i18610
-  %2048 = trunc i64 %indvars.iv11057 to i32
+  %2048 = trunc nuw i64 %indvars.iv11057 to i32
   br label %for.end.i18592
 
 for.end.i18592:                                   ; preds = %for.end.i18592.loopexit, %for.body.i16338
@@ -28135,7 +28136,7 @@ for.body3.i18602:                                 ; preds = %for.body3.i18602.pr
   %conv2.i19178 = zext i64 %carry.i18589.09930 to i128
   %add.i19179 = add nuw i128 %mul.i19177, %conv2.i19178
   %shr.i19180 = lshr i128 %add.i19179, 64
-  %conv3.i19181 = trunc i128 %shr.i19180 to i64
+  %conv3.i19181 = trunc nuw i128 %shr.i19180 to i64
   %conv4.i19182 = trunc i128 %add.i19179 to i64
   store i64 %conv4.i19182, ptr %arrayidx6.i18605, align 8
   %indvars.iv.next11063 = add nuw nsw i64 %indvars.iv11062, 1
@@ -28190,7 +28191,7 @@ if.end.i18651:                                    ; preds = %for.body.i18646
   br i1 %exitcond11071.not, label %if.end2427.i928, label %for.body.i18646, !llvm.loop !57
 
 for.end.i18628.loopexit:                          ; preds = %for.body.i18646
-  %2055 = trunc i64 %indvars.iv11067 to i32
+  %2055 = trunc nuw i64 %indvars.iv11067 to i32
   br label %for.end.i18628
 
 for.end.i18628:                                   ; preds = %for.end.i18628.loopexit, %if.then.i16335
@@ -28216,7 +28217,7 @@ for.body3.i18638:                                 ; preds = %for.body3.i18638.lr
   %conv2.i19164 = zext i64 %carry.i18625.09945 to i128
   %add.i19165 = add nuw i128 %mul.i19163, %conv2.i19164
   %shr.i19166 = lshr i128 %add.i19165, 64
-  %conv3.i19167 = trunc i128 %shr.i19166 to i64
+  %conv3.i19167 = trunc nuw i128 %shr.i19166 to i64
   %conv4.i19168 = trunc i128 %add.i19165 to i64
   store i64 %conv4.i19168, ptr %arrayidx6.i18641, align 8
   %indvars.iv.next11073 = add nuw nsw i64 %indvars.iv11072, 1
@@ -28268,7 +28269,7 @@ for.body.i16732:                                  ; preds = %for.body.i16732.lr.
   %2064 = add nsw i64 %indvars.iv11109, -1
   %arrayidx.i16736 = getelementptr inbounds [64 x i64], ptr %bits.i16264, i64 0, i64 %2064
   %2065 = load i64, ptr %arrayidx.i16736, align 8
-  %2066 = trunc i64 %indvars.iv11109 to i32
+  %2066 = trunc nuw i64 %indvars.iv11109 to i32
   %sub5.i16739 = add i32 %add.i16738, %2066
   %idxprom6.i16740 = zext i32 %sub5.i16739 to i64
   %arrayidx7.i16741 = getelementptr inbounds [64 x i64], ptr %bits.i16264, i64 0, i64 %idxprom6.i16740
@@ -28305,7 +28306,7 @@ for.body21.i16700:                                ; preds = %for.body21.i16700.l
   %2069 = load i64, ptr %arrayidx28.i16709, align 8
   %shr.i16712 = lshr i64 %2069, %sh_prom30.i16711
   %or.i16713 = or i64 %shr.i16712, %shl.i16705
-  %2070 = trunc i64 %indvars.iv11105 to i32
+  %2070 = trunc nuw i64 %indvars.iv11105 to i32
   %add32.i16715 = add i32 %div.i166657713, %2070
   %idxprom33.i16716 = zext i32 %add32.i16715 to i64
   %arrayidx34.i16717 = getelementptr inbounds [64 x i64], ptr %bits.i16264, i64 0, i64 %idxprom33.i16716
@@ -28353,7 +28354,7 @@ for.body.i16818:                                  ; preds = %for.body.i16818.lr.
   %2075 = add nsw i64 %indvars.iv11101, -1
   %arrayidx.i16822 = getelementptr inbounds [64 x i64], ptr %bits.i16819, i64 0, i64 %2075
   %2076 = load i64, ptr %arrayidx.i16822, align 8
-  %2077 = trunc i64 %indvars.iv11101 to i32
+  %2077 = trunc nuw i64 %indvars.iv11101 to i32
   %sub5.i16825 = add i32 %add.i16824, %2077
   %idxprom6.i16826 = zext i32 %sub5.i16825 to i64
   %arrayidx7.i16827 = getelementptr inbounds [64 x i64], ptr %bits.i16819, i64 0, i64 %idxprom6.i16826
@@ -28395,7 +28396,7 @@ for.body21.i16786:                                ; preds = %for.body21.i16786.l
   %2080 = load i64, ptr %arrayidx28.i16795, align 8
   %shr.i16798 = lshr i64 %2080, %sh_prom30.i16797
   %or.i16799 = or i64 %shr.i16798, %shl.i16791
-  %2081 = trunc i64 %indvars.iv11097 to i32
+  %2081 = trunc nuw i64 %indvars.iv11097 to i32
   %add32.i16801 = add i32 %div.i167517712, %2081
   %idxprom33.i16802 = zext i32 %add32.i16801 to i64
   %arrayidx34.i16803 = getelementptr inbounds [64 x i64], ptr %bits15.i16757, i64 0, i64 %idxprom33.i16802
@@ -31111,7 +31112,7 @@ if.end2141.i.i:                                   ; preds = %digi_finish.i.i
 
 if.end2141.i.if.end2219.i_crit_edge.i:            ; preds = %if.end2141.i.i
   %.pre.i8295 = tail call i64 @llvm.ctlz.i64(i64 %sig.i.22.i, i1 true), !range !56
-  %.pre2068.i = trunc i64 %.pre.i8295 to i32
+  %.pre2068.i = trunc nuw nsw i64 %.pre.i8295 to i32
   %.pre2069.i = shl i64 %sig.i.22.i, %.pre.i8295
   %.pre2070.i = shl i32 %storemerge.i, 1
   %.pre2071.i = add i32 %.pre2070.i, 686
@@ -31132,13 +31133,13 @@ if.then2156.i.i:                                  ; preds = %if.end2141.i.i
   %sub.i1344.i = add nsw i32 %mul.i1343.i, -4128768
   %shr.i1345.i = ashr i32 %sub.i1344.i, 16
   %2339 = tail call i64 @llvm.ctlz.i64(i64 %sig.i.22.i, i1 true), !range !56
-  %cast.i.i8311 = trunc i64 %2339 to i32
+  %cast.i.i8311 = trunc nuw nsw i64 %2339 to i32
   %shl2159.i.i = shl i64 %sig.i.22.i, %2339
   %conv.i1361.i = zext i64 %shl2159.i.i to i128
   %conv1.i1362.i = zext i64 %2338 to i128
   %mul.i1363.i = mul nuw i128 %conv1.i1362.i, %conv.i1361.i
   %shr.i1364.i = lshr i128 %mul.i1363.i, 64
-  %conv2.i1365.i = trunc i128 %shr.i1364.i to i64
+  %conv2.i1365.i = trunc nuw i128 %shr.i1364.i to i64
   %conv3.i1366.i = trunc i128 %mul.i1363.i to i64
   %and.i369.i = and i64 %conv2.i1365.i, 511
   %sub2161.i.i = add nsw i64 %and.i369.i, -1
@@ -31153,7 +31154,7 @@ if.else2165.i.i:                                  ; preds = %if.then2156.i.i
   %conv1.i1353.i = zext i64 %2340 to i128
   %mul.i1354.i = mul nuw i128 %conv1.i1353.i, %conv.i1361.i
   %shr.i1355.i = lshr i128 %mul.i1354.i, 64
-  %conv2.i.i8313 = trunc i128 %shr.i1355.i to i64
+  %conv2.i.i8313 = trunc nuw i128 %shr.i1355.i to i64
   %add2166.i.i = add i64 %conv2.i.i8313, %conv3.i1366.i
   %2341 = add i64 %add2166.i.i, -1
   %cmp2168.i.i = icmp ult i64 %2341, -2
@@ -31212,7 +31213,7 @@ if.end2219.i.i:                                   ; preds = %if.else2165.i.i, %i
   %conv1.i.i1372.i = zext i64 %add.i1386.i to i128
   %mul.i.i.i = mul nuw i128 %conv.i.i1371.pre-phi.i, %conv1.i.i1372.i
   %shr.i.i.i = lshr i128 %mul.i.i.i, 64
-  %conv2.i.i.i = trunc i128 %shr.i.i.i to i64
+  %conv2.i.i.i = trunc nuw i128 %shr.i.i.i to i64
   %conv3.i.i.i = trunc i128 %mul.i.i.i to i64
   %shr.i1373.i = lshr i64 %conv3.i.i.i, 63
   %add.i1374.i = add nuw i64 %shr.i1373.i, %conv2.i.i.i
@@ -31220,7 +31221,7 @@ if.end2219.i.i:                                   ; preds = %if.else2165.i.i, %i
   %add2243.i.i = select i1 %cmp2239.i.not.i, i64 8, i64 9
   %add2244.i.i = add i64 %add2243.i.i, %shl2235.i.i
   %2345 = tail call i64 @llvm.ctlz.i64(i64 %add.i1374.i, i1 true), !range !56
-  %cast.i1347.i = trunc i64 %2345 to i32
+  %cast.i1347.i = trunc nuw nsw i64 %2345 to i32
   %shl2249.i.i = shl i64 %add.i1374.i, %2345
   %.neg8617 = add nsw i32 %shr.i.i1384.pre-phi.i, 64
   %2346 = add nuw nsw i32 %cast.i1349.pre-phi.i, %cast.i1347.i
@@ -31268,7 +31269,7 @@ if.end2298.i.i:                                   ; preds = %if.then2283.i.i, %i
 if.end.i1396.i:                                   ; preds = %if.end2298.i.i
   %add2319.i.i = add nsw i32 %fp.i.sroa.17.0.i, %precision_digits_count.i.0.i
   %2347 = tail call i64 @llvm.ctlz.i64(i64 %add2317.i.i, i1 true), !range !56
-  %cast.i.i.i = trunc i64 %2347 to i32
+  %cast.i.i.i = trunc nuw nsw i64 %2347 to i32
   %shl.i1398.i = shl i64 %add2317.i.i, %2347
   %shr.i1399.i = lshr i64 %shl.i1398.i, 11
   %sub.i1400.i = sub nsw i32 %add2319.i.i, %cast.i.i.i
@@ -31361,7 +31362,7 @@ if.end2397.i.i:                                   ; preds = %if.end2373.i.i
   %and2398.i.i = and i64 %retval.i1387.01705.i, 9218868437227405312
   %tobool2399.i.not.i = icmp eq i64 %and2398.i.i, 0
   %shr2405.i.i = lshr exact i64 %and2398.i.i, 52
-  %conv2406.i.i = trunc i64 %shr2405.i.i to i32
+  %conv2406.i.i = trunc nuw nsw i64 %shr2405.i.i to i32
   %fp_upper.i.sroa.7.0.i = select i1 %tobool2399.i.not.i, i32 1, i32 %conv2406.i.i
   %and2401.i.i = shl nuw i64 %retval.i1387.01705.i, 1
   %2349 = and i64 %and2401.i.i, 9007199254740990
@@ -31404,7 +31405,7 @@ if.end.i1994.i:                                   ; preds = %for.body.i1989.i
   br i1 %exitcond2027.not.i, label %bigint_mul_u64.exit1997.i, label %for.body.i1989.i, !llvm.loop !57
 
 for.end.i1971.loopexit.i:                         ; preds = %for.body.i1989.i
-  %2353 = trunc i64 %indvars.iv2023.i to i32
+  %2353 = trunc nuw i64 %indvars.iv2023.i to i32
   br label %for.end.i1971.i
 
 for.end.i1971.i:                                  ; preds = %for.end.i1971.loopexit.i, %for.body.i.i
@@ -31427,7 +31428,7 @@ for.body3.i1981.i:                                ; preds = %for.body3.i1981.i, 
   %conv2.i2057.i = zext i64 %carry.i1968.01799.i to i128
   %add.i2058.i = add nuw i128 %mul.i2056.i, %conv2.i2057.i
   %shr.i2059.i = lshr i128 %add.i2058.i, 64
-  %conv3.i2060.i = trunc i128 %shr.i2059.i to i64
+  %conv3.i2060.i = trunc nuw i128 %shr.i2059.i to i64
   %conv4.i2061.i = trunc i128 %add.i2058.i to i64
   store i64 %conv4.i2061.i, ptr %arrayidx6.i1984.i, align 8
   %indvars.iv.next2029.i = add nuw nsw i64 %indvars.iv2028.i, 1
@@ -31481,7 +31482,7 @@ if.end.i2030.i:                                   ; preds = %for.body.i2025.i
   br i1 %exitcond2037.not.i, label %if.end2427.i.i, label %for.body.i2025.i, !llvm.loop !57
 
 for.end.i2007.loopexit.i:                         ; preds = %for.body.i2025.i
-  %2359 = trunc i64 %indvars.iv2033.i to i32
+  %2359 = trunc nuw i64 %indvars.iv2033.i to i32
   br label %for.end.i2007.i
 
 for.end.i2007.i:                                  ; preds = %for.end.i2007.loopexit.i, %if.then.i1418.i
@@ -31505,7 +31506,7 @@ for.body3.i2017.i:                                ; preds = %for.body3.i2017.i, 
   %conv2.i2043.i = zext i64 %carry.i2004.01814.i to i128
   %add.i2044.i = add nuw i128 %mul.i2042.i, %conv2.i2043.i
   %shr.i2045.i = lshr i128 %add.i2044.i, 64
-  %conv3.i2046.i = trunc i128 %shr.i2045.i to i64
+  %conv3.i2046.i = trunc nuw i128 %shr.i2045.i to i64
   %conv4.i2047.i = trunc i128 %add.i2044.i to i64
   store i64 %conv4.i2047.i, ptr %arrayidx6.i2020.i, align 8
   %indvars.iv.next2039.i = add nuw nsw i64 %indvars.iv2038.i, 1
@@ -31553,7 +31554,7 @@ if.end.i1924.i:                                   ; preds = %for.body.i1919.i
   br i1 %exitcond.not.i, label %bigint_mul_u64.exit.i, label %for.body.i1919.i, !llvm.loop !57
 
 for.end.i1913.loopexit.i:                         ; preds = %for.body.i1919.i
-  %2363 = trunc i64 %indvars.iv.i to i32
+  %2363 = trunc nuw i64 %indvars.iv.i to i32
   br label %for.end.i1913.i
 
 for.end.i1913.i:                                  ; preds = %for.end.i1913.loopexit.i, %for.body.i1432.i
@@ -31576,7 +31577,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
   %conv2.i2085.i = zext i64 %carry.i1910.01776.i to i128
   %add.i2086.i = add nuw i128 %mul.i2084.i, %conv2.i2085.i
   %shr.i2087.i = lshr i128 %add.i2086.i, 64
-  %conv3.i2088.i = trunc i128 %shr.i2087.i to i64
+  %conv3.i2088.i = trunc nuw i128 %shr.i2087.i to i64
   %conv4.i2089.i = trunc i128 %add.i2086.i to i64
   store i64 %conv4.i2089.i, ptr %arrayidx6.i1918.i, align 8
   %indvars.iv.next2009.i = add nuw nsw i64 %indvars.iv2008.i, 1
@@ -31630,7 +31631,7 @@ if.end.i1958.i:                                   ; preds = %for.body.i1953.i
   br i1 %exitcond2017.not.i, label %if.end2427.i.i, label %for.body.i1953.i, !llvm.loop !57
 
 for.end.i1935.i:                                  ; preds = %for.body.i1953.i
-  %2369 = trunc i64 %indvars.iv2013.i to i32
+  %2369 = trunc nuw i64 %indvars.iv2013.i to i32
   %cmp2.i19371790.i = icmp ugt i32 %2366, %2369
   br i1 %cmp2.i19371790.i, label %for.body3.i1945.lr.ph.i, label %if.end2427.i.i
 
@@ -31649,7 +31650,7 @@ for.body3.i1945.i:                                ; preds = %for.body3.i1945.i, 
   %conv2.i2071.i = zext i64 %carry.i1932.01791.i to i128
   %add.i2072.i = add nuw i128 %mul.i2070.i, %conv2.i2071.i
   %shr.i2073.i = lshr i128 %add.i2072.i, 64
-  %conv3.i2074.i = trunc i128 %shr.i2073.i to i64
+  %conv3.i2074.i = trunc nuw i128 %shr.i2073.i to i64
   %conv4.i2075.i = trunc i128 %add.i2072.i to i64
   store i64 %conv4.i2075.i, ptr %arrayidx6.i1948.i, align 8
   %indvars.iv.next2019.i = add nuw nsw i64 %indvars.iv2018.i, 1
@@ -31700,7 +31701,7 @@ for.body.i1459.i:                                 ; preds = %for.body.i1459.i, %
   %2376 = add nsw i64 %indvars.iv2055.i, -1
   %arrayidx.i1463.i = getelementptr inbounds [64 x i64], ptr %.sroa.gep, i64 0, i64 %2376
   %2377 = load i64, ptr %arrayidx.i1463.i, align 8
-  %2378 = trunc i64 %indvars.iv2055.i to i32
+  %2378 = trunc nuw i64 %indvars.iv2055.i to i32
   %sub5.i.i = add i32 %add.i1464.i, %2378
   %idxprom6.i.i = zext i32 %sub5.i.i to i64
   %arrayidx7.i1465.i = getelementptr inbounds [64 x i64], ptr %.sroa.gep, i64 0, i64 %idxprom6.i.i
@@ -31737,7 +31738,7 @@ for.body21.i.i:                                   ; preds = %for.body21.i.i, %fo
   %2381 = load i64, ptr %arrayidx28.i.i, align 8
   %shr.i1451.i = lshr i64 %2381, %sh_prom30.i.i
   %or.i1452.i = or i64 %shr.i1451.i, %shl.i1450.i
-  %2382 = trunc i64 %indvars.iv2051.i to i32
+  %2382 = trunc nuw i64 %indvars.iv2051.i to i32
   %add32.i.i = add i32 %div.i14391583.i, %2382
   %idxprom33.i.i = zext i32 %add32.i.i to i64
   %arrayidx34.i.i = getelementptr inbounds [64 x i64], ptr %.sroa.gep, i64 0, i64 %idxprom33.i.i
@@ -31784,7 +31785,7 @@ for.body.i1540.i:                                 ; preds = %for.body.i1540.i, %
   %2387 = add nsw i64 %indvars.iv2047.i, -1
   %arrayidx.i1544.i = getelementptr inbounds [64 x i64], ptr %.sroa.gep8403, i64 0, i64 %2387
   %2388 = load i64, ptr %arrayidx.i1544.i, align 8
-  %2389 = trunc i64 %indvars.iv2047.i to i32
+  %2389 = trunc nuw i64 %indvars.iv2047.i to i32
   %sub5.i1547.i = add i32 %add.i1546.i, %2389
   %idxprom6.i1548.i = zext i32 %sub5.i1547.i to i64
   %arrayidx7.i1549.i = getelementptr inbounds [64 x i64], ptr %.sroa.gep8403, i64 0, i64 %idxprom6.i1548.i
@@ -31821,7 +31822,7 @@ for.body21.i1508.i:                               ; preds = %for.body21.i1508.i,
   %2392 = load i64, ptr %arrayidx28.i1517.i, align 8
   %shr.i1520.i = lshr i64 %2392, %sh_prom30.i1519.i
   %or.i1521.i = or i64 %shr.i1520.i, %shl.i1513.i
-  %2393 = trunc i64 %indvars.iv2043.i to i32
+  %2393 = trunc nuw i64 %indvars.iv2043.i to i32
   %add32.i1523.i = add i32 %div.i14731582.i, %2393
   %idxprom33.i1524.i = zext i32 %add32.i1523.i to i64
   %arrayidx34.i1525.i = getelementptr inbounds [64 x i64], ptr %.sroa.gep8403, i64 0, i64 %idxprom33.i1524.i
@@ -32433,7 +32434,7 @@ if.then352.i.i:                                   ; preds = %if.end340.i.i
 
 if.then356.i.i:                                   ; preds = %if.then352.i.i
   %shr.i434.i = lshr i32 %conv342.i.i, 12
-  %2474 = trunc i32 %shr.i434.i to i8
+  %2474 = trunc nuw nsw i32 %shr.i434.i to i8
   %conv359.i.i = or disjoint i8 %2474, -32
   %incdec.ptr360.i.i = getelementptr inbounds i8, ptr %dst.i.0.i, i64 1
   store i8 %conv359.i.i, ptr %dst.i.0.i, align 1
@@ -33540,7 +33541,7 @@ lor.lhs.false25.critedge.i1643.i:                 ; preds = %for.body.i272.i1666
   %add.ptr.i223.i1644.i = getelementptr inbounds i8, ptr %spec.select.i1638.i, i64 3
   %cmp.i224.not.i1645.i = icmp ugt ptr %add.ptr.i223.i1644.i, %end.0
   %or.cond145.i1646.i = and i1 %cmp1.i265.not.i1641.i, %cmp.i224.not.i1645.i
-  br i1 %or.cond145.i1646.i, label %for.body.i233.i1653.i, label %if.else302.i8332
+  br i1 %or.cond145.i1646.i, label %for.body.i233.i1653.i, label %if.then311.i8331
 
 for.body.i233.i1653.i:                            ; preds = %lor.lhs.false25.critedge.i1643.i, %if.end15.i237.i1662.i
   %cur.addr.i217.0177.i1654.i = phi ptr [ %incdec.ptr.i238.i1663.i, %if.end15.i237.i1662.i ], [ %spec.select.i1638.i, %lor.lhs.false25.critedge.i1643.i ]
@@ -33553,7 +33554,7 @@ for.body.i233.i1653.i:                            ; preds = %lor.lhs.false25.cri
   %add.i244.i1659.i = add nsw i32 %conv7.i235.i1657.i, -32
   %cmp12.i245.not.i1660.i = icmp eq i32 %add.i244.i1659.i, %conv.i234.i1658.i
   %or.cond146.i1661.i = select i1 %cmp8.i236.not.i1656.i, i1 true, i1 %cmp12.i245.not.i1660.i
-  br i1 %or.cond146.i1661.i, label %if.end15.i237.i1662.i, label %if.else302.i8332
+  br i1 %or.cond146.i1661.i, label %if.end15.i237.i1662.i, label %if.then311.i8331
 
 if.end15.i237.i1662.i:                            ; preds = %for.body.i233.i1653.i
   %incdec.ptr.i238.i1663.i = getelementptr inbounds i8, ptr %cur.addr.i217.0177.i1654.i, i64 1
@@ -33561,13 +33562,13 @@ if.end15.i237.i1662.i:                            ; preds = %for.body.i233.i1653
   %cmp6.i231.i1665.i = icmp ult ptr %incdec.ptr.i238.i1663.i, %end.0
   br i1 %cmp6.i231.i1665.i, label %for.body.i233.i1653.i, label %if.then311.i8331, !llvm.loop !87
 
-if.else302.i8332:                                 ; preds = %for.body.i233.i1653.i, %lor.lhs.false25.critedge.i1643.i, %do.body293.i
+if.else302.i8332:                                 ; preds = %do.body293.i
   br label %if.then311.i8331
 
-if.then311.i8331:                                 ; preds = %if.end15.i276.i1675.i, %if.end15.i237.i1662.i, %if.else302.i8332, %do.body293.thread.i, %do.body293.i
-  %end.sink2230.i = phi ptr [ %18, %if.else302.i8332 ], [ %end.0, %do.body293.i ], [ %end.0, %do.body293.thread.i ], [ %end.0, %if.end15.i237.i1662.i ], [ %end.0, %if.end15.i276.i1675.i ]
-  %.sink2229.i = phi i32 [ 6, %if.else302.i8332 ], [ 5, %do.body293.i ], [ 5, %do.body293.thread.i ], [ 5, %if.end15.i237.i1662.i ], [ 5, %if.end15.i276.i1675.i ]
-  %.str.57.sink2228.i = phi ptr [ @.str.60, %if.else302.i8332 ], [ @.str.57, %do.body293.i ], [ @.str.57, %do.body293.thread.i ], [ @.str.57, %if.end15.i237.i1662.i ], [ @.str.57, %if.end15.i276.i1675.i ]
+if.then311.i8331:                                 ; preds = %if.end15.i276.i1675.i, %if.end15.i237.i1662.i, %for.body.i233.i1653.i, %if.else302.i8332, %lor.lhs.false25.critedge.i1643.i, %do.body293.thread.i, %do.body293.i
+  %end.sink2230.i = phi ptr [ %end.0, %do.body293.i ], [ %end.0, %do.body293.thread.i ], [ %18, %lor.lhs.false25.critedge.i1643.i ], [ %18, %if.else302.i8332 ], [ %18, %for.body.i233.i1653.i ], [ %end.0, %if.end15.i237.i1662.i ], [ %end.0, %if.end15.i276.i1675.i ]
+  %.sink2229.i = phi i32 [ 5, %do.body293.i ], [ 5, %do.body293.thread.i ], [ 6, %lor.lhs.false25.critedge.i1643.i ], [ 6, %if.else302.i8332 ], [ 6, %for.body.i233.i1653.i ], [ 5, %if.end15.i237.i1662.i ], [ 5, %if.end15.i276.i1675.i ]
+  %.str.57.sink2228.i = phi ptr [ @.str.57, %do.body293.i ], [ @.str.57, %do.body293.thread.i ], [ @.str.60, %lor.lhs.false25.critedge.i1643.i ], [ @.str.60, %if.else302.i8332 ], [ @.str.60, %for.body.i233.i1653.i ], [ @.str.57, %if.end15.i237.i1662.i ], [ @.str.57, %if.end15.i276.i1675.i ]
   %sub.ptr.lhs.cast296.i = ptrtoint ptr %end.sink2230.i to i64
   %sub.ptr.rhs.cast297.i = ptrtoint ptr %cur.0 to i64
   %sub.ptr.sub298.i = sub i64 %sub.ptr.lhs.cast296.i, %sub.ptr.rhs.cast297.i
@@ -33735,13 +33736,14 @@ land.lhs.true290:                                 ; preds = %land.lhs.true285
   %arrayidx291 = getelementptr inbounds i8, ptr %cur.0, i64 2
   %2607 = load i8, ptr %arrayidx291, align 1
   %cmp293 = icmp eq i8 %2607, 0
-  br i1 %cmp293, label %land.lhs.true295, label %if.then325
+  br i1 %cmp293, label %land.lhs.true295, label %if.end330.sink.split
 
 land.lhs.true295:                                 ; preds = %land.lhs.true290
   %arrayidx296 = getelementptr inbounds i8, ptr %cur.0, i64 3
   %2608 = load i8, ptr %arrayidx296, align 1
   %cmp298 = icmp eq i8 %2608, 0
-  br i1 %cmp298, label %if.end330.sink.split, label %if.then325
+  %spec.select = select i1 %cmp298, ptr @.str.32, ptr @.str.33
+  br label %if.end330.sink.split
 
 if.else302:                                       ; preds = %if.else258
   %cmp303.not = icmp eq i64 %len, 1
@@ -33757,19 +33759,16 @@ land.lhs.true310:                                 ; preds = %land.lhs.true261, %
   %arrayidx311 = getelementptr inbounds i8, ptr %cur.0, i64 1
   %2609 = load i8, ptr %arrayidx311, align 1
   %cmp313 = icmp eq i8 %2609, -1
-  br i1 %cmp313, label %if.then325, label %if.end330
+  br i1 %cmp313, label %if.end330.sink.split, label %if.end330
 
 land.lhs.true320:                                 ; preds = %land.lhs.true305
   %arrayidx321.phi.trans.insert = getelementptr inbounds i8, ptr %cur.0, i64 1
   %.pre11205 = load i8, ptr %arrayidx321.phi.trans.insert, align 1
   %2610 = icmp eq i8 %.pre11205, -2
-  br i1 %2610, label %if.then325, label %if.end330
+  br i1 %2610, label %if.end330.sink.split, label %if.end330
 
-if.then325:                                       ; preds = %land.lhs.true295, %land.lhs.true290, %land.lhs.true320, %land.lhs.true310
-  br label %if.end330.sink.split
-
-if.end330.sink.split:                             ; preds = %land.lhs.true276, %land.lhs.true295, %land.lhs.true251, %if.then325
-  %.str.31.sink = phi ptr [ @.str.33, %if.then325 ], [ @.str.31, %land.lhs.true251 ], [ @.str.32, %land.lhs.true295 ], [ @.str.32, %land.lhs.true276 ]
+if.end330.sink.split:                             ; preds = %land.lhs.true295, %land.lhs.true310, %land.lhs.true320, %land.lhs.true290, %land.lhs.true276, %land.lhs.true251
+  %.str.31.sink = phi ptr [ @.str.31, %land.lhs.true251 ], [ @.str.32, %land.lhs.true276 ], [ @.str.33, %land.lhs.true290 ], [ @.str.33, %land.lhs.true320 ], [ @.str.33, %land.lhs.true310 ], [ %spec.select, %land.lhs.true295 ]
   store ptr %.str.31.sink, ptr %err.addr.0.sroa.phi7622.v.sroa.sel.v.sroa.sel, align 8
   br label %if.end330
 
@@ -35878,7 +35877,7 @@ if.end2141.i:                                     ; preds = %digi_finish.i
 
 if.end2141.i.if.end2219.i_crit_edge:              ; preds = %if.end2141.i
   %.pre1247 = tail call i64 @llvm.ctlz.i64(i64 %sig.i.22, i1 true), !range !56
-  %.pre1248 = trunc i64 %.pre1247 to i32
+  %.pre1248 = trunc nuw nsw i64 %.pre1247 to i32
   %.pre1249 = shl i64 %sig.i.22, %.pre1247
   %.pre1250 = shl i32 %storemerge, 1
   %.pre1251 = add i32 %.pre1250, 686
@@ -35899,13 +35898,13 @@ if.then2156.i:                                    ; preds = %if.end2141.i
   %sub.i205 = add nsw i32 %mul.i204, -4128768
   %shr.i206 = ashr i32 %sub.i205, 16
   %157 = tail call i64 @llvm.ctlz.i64(i64 %sig.i.22, i1 true), !range !56
-  %cast.i = trunc i64 %157 to i32
+  %cast.i = trunc nuw nsw i64 %157 to i32
   %shl2159.i = shl i64 %sig.i.22, %157
   %conv.i222 = zext i64 %shl2159.i to i128
   %conv1.i223 = zext i64 %156 to i128
   %mul.i224 = mul nuw i128 %conv1.i223, %conv.i222
   %shr.i225 = lshr i128 %mul.i224, 64
-  %conv2.i226 = trunc i128 %shr.i225 to i64
+  %conv2.i226 = trunc nuw i128 %shr.i225 to i64
   %conv3.i227 = trunc i128 %mul.i224 to i64
   %and.i = and i64 %conv2.i226, 511
   %sub2161.i = add nsw i64 %and.i, -1
@@ -35920,7 +35919,7 @@ if.else2165.i:                                    ; preds = %if.then2156.i
   %conv1.i214 = zext i64 %158 to i128
   %mul.i215 = mul nuw i128 %conv1.i214, %conv.i222
   %shr.i216 = lshr i128 %mul.i215, 64
-  %conv2.i = trunc i128 %shr.i216 to i64
+  %conv2.i = trunc nuw i128 %shr.i216 to i64
   %add2166.i = add i64 %conv2.i, %conv3.i227
   %159 = add i64 %add2166.i, -1
   %cmp2168.i = icmp ult i64 %159, -2
@@ -35978,7 +35977,7 @@ if.end2219.i:                                     ; preds = %if.end2141.i.if.end
   %conv1.i.i233 = zext i64 %add.i245 to i128
   %mul.i.i = mul nuw i128 %conv.i.i232.pre-phi, %conv1.i.i233
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   %shr.i234 = lshr i64 %conv3.i.i, 63
   %add.i235 = add nuw i64 %shr.i234, %conv2.i.i
@@ -35986,7 +35985,7 @@ if.end2219.i:                                     ; preds = %if.end2141.i.if.end
   %add2243.i = select i1 %cmp2239.i.not, i64 8, i64 9
   %add2244.i = add i64 %add2243.i, %shl2235.i
   %163 = tail call i64 @llvm.ctlz.i64(i64 %add.i235, i1 true), !range !56
-  %cast.i208 = trunc i64 %163 to i32
+  %cast.i208 = trunc nuw nsw i64 %163 to i32
   %shl2249.i = shl i64 %add.i235, %163
   %.neg1113 = add nsw i32 %shr.i.i243.pre-phi, 64
   %164 = add nuw nsw i32 %cast.i210.pre-phi, %cast.i208
@@ -36034,7 +36033,7 @@ if.end2298.i:                                     ; preds = %if.then2283.i, %if.
 if.end.i255:                                      ; preds = %if.end2298.i
   %add2319.i = add nsw i32 %fp.i.sroa.17.0, %precision_digits_count.i.0
   %165 = tail call i64 @llvm.ctlz.i64(i64 %add2317.i, i1 true), !range !56
-  %cast.i.i = trunc i64 %165 to i32
+  %cast.i.i = trunc nuw nsw i64 %165 to i32
   %shl.i257 = shl i64 %add2317.i, %165
   %shr.i258 = lshr i64 %shl.i257, 11
   %sub.i259 = sub nsw i32 %add2319.i, %cast.i.i
@@ -36123,7 +36122,7 @@ if.end2397.i:                                     ; preds = %if.end2373.i
   %and2398.i = and i64 %retval.i246.01106, 9218868437227405312
   %tobool2399.i.not = icmp eq i64 %and2398.i, 0
   %shr2405.i = lshr exact i64 %and2398.i, 52
-  %conv2406.i = trunc i64 %shr2405.i to i32
+  %conv2406.i = trunc nuw nsw i64 %shr2405.i to i32
   %fp_upper.i.sroa.7.0 = select i1 %tobool2399.i.not, i32 1, i32 %conv2406.i
   %and2401.i = shl nuw i64 %retval.i246.01106, 1
   %167 = and i64 %and2401.i, 9007199254740990
@@ -36171,7 +36170,7 @@ if.end.i848:                                      ; preds = %for.body.i843
   br i1 %exitcond1211.not, label %bigint_mul_u64.exit851, label %for.body.i843, !llvm.loop !57
 
 for.end.i825.loopexit:                            ; preds = %for.body.i843
-  %171 = trunc i64 %indvars.iv1207 to i32
+  %171 = trunc nuw i64 %indvars.iv1207 to i32
   br label %for.end.i825
 
 for.end.i825:                                     ; preds = %for.end.i825.loopexit, %for.body.i
@@ -36194,7 +36193,7 @@ for.body3.i835:                                   ; preds = %for.body3.i835.preh
   %conv2.i910 = zext i64 %carry.i822.01152 to i128
   %add.i911 = add nuw i128 %mul.i909, %conv2.i910
   %shr.i912 = lshr i128 %add.i911, 64
-  %conv3.i913 = trunc i128 %shr.i912 to i64
+  %conv3.i913 = trunc nuw i128 %shr.i912 to i64
   %conv4.i914 = trunc i128 %add.i911 to i64
   store i64 %conv4.i914, ptr %arrayidx6.i838, align 8
   %indvars.iv.next1213 = add nuw nsw i64 %indvars.iv1212, 1
@@ -36250,7 +36249,7 @@ if.end.i884:                                      ; preds = %for.body.i879
   br i1 %exitcond1221.not, label %if.end2427.i, label %for.body.i879, !llvm.loop !57
 
 for.end.i861.loopexit:                            ; preds = %for.body.i879
-  %177 = trunc i64 %indvars.iv1217 to i32
+  %177 = trunc nuw i64 %indvars.iv1217 to i32
   br label %for.end.i861
 
 for.end.i861:                                     ; preds = %for.end.i861.loopexit, %if.then.i275
@@ -36274,7 +36273,7 @@ for.body3.i871:                                   ; preds = %for.body3.i871.lr.p
   %conv2.i896 = zext i64 %carry.i858.01167 to i128
   %add.i897 = add nuw i128 %mul.i895, %conv2.i896
   %shr.i898 = lshr i128 %add.i897, 64
-  %conv3.i899 = trunc i128 %shr.i898 to i64
+  %conv3.i899 = trunc nuw i128 %shr.i898 to i64
   %conv4.i900 = trunc i128 %add.i897 to i64
   store i64 %conv4.i900, ptr %arrayidx6.i874, align 8
   %indvars.iv.next1223 = add nuw nsw i64 %indvars.iv1222, 1
@@ -36325,7 +36324,7 @@ if.end.i778:                                      ; preds = %for.body.i773
   br i1 %exitcond.not, label %bigint_mul_u64.exit, label %for.body.i773, !llvm.loop !57
 
 for.end.i768.loopexit:                            ; preds = %for.body.i773
-  %182 = trunc i64 %indvars.iv to i32
+  %182 = trunc nuw i64 %indvars.iv to i32
   br label %for.end.i768
 
 for.end.i768:                                     ; preds = %for.end.i768.loopexit, %for.body.i289
@@ -36348,7 +36347,7 @@ for.body3.i:                                      ; preds = %for.body3.i.prehead
   %conv2.i938 = zext i64 %carry.i765.01129 to i128
   %add.i939 = add nuw i128 %mul.i937, %conv2.i938
   %shr.i940 = lshr i128 %add.i939, 64
-  %conv3.i941 = trunc i128 %shr.i940 to i64
+  %conv3.i941 = trunc nuw i128 %shr.i940 to i64
   %conv4.i942 = trunc i128 %add.i939 to i64
   store i64 %conv4.i942, ptr %arrayidx6.i, align 8
   %indvars.iv.next1193 = add nuw nsw i64 %indvars.iv1192, 1
@@ -36403,7 +36402,7 @@ if.end.i812:                                      ; preds = %for.body.i807
   br i1 %exitcond1201.not, label %if.end2427.i, label %for.body.i807, !llvm.loop !57
 
 for.end.i789.loopexit:                            ; preds = %for.body.i807
-  %189 = trunc i64 %indvars.iv1197 to i32
+  %189 = trunc nuw i64 %indvars.iv1197 to i32
   br label %for.end.i789
 
 for.end.i789:                                     ; preds = %for.end.i789.loopexit, %if.then.i286
@@ -36429,7 +36428,7 @@ for.body3.i799:                                   ; preds = %for.body3.i799.lr.p
   %conv2.i924 = zext i64 %carry.i786.01144 to i128
   %add.i925 = add nuw i128 %mul.i923, %conv2.i924
   %shr.i926 = lshr i128 %add.i925, 64
-  %conv3.i927 = trunc i128 %shr.i926 to i64
+  %conv3.i927 = trunc nuw i128 %shr.i926 to i64
   %conv4.i928 = trunc i128 %add.i925 to i64
   store i64 %conv4.i928, ptr %arrayidx6.i802, align 8
   %indvars.iv.next1203 = add nuw nsw i64 %indvars.iv1202, 1
@@ -36481,7 +36480,7 @@ for.body.i316:                                    ; preds = %for.body.i316.lr.ph
   %198 = add nsw i64 %indvars.iv1239, -1
   %arrayidx.i320 = getelementptr inbounds [64 x i64], ptr %bits.i270, i64 0, i64 %198
   %199 = load i64, ptr %arrayidx.i320, align 8
-  %200 = trunc i64 %indvars.iv1239 to i32
+  %200 = trunc nuw i64 %indvars.iv1239 to i32
   %sub5.i = add i32 %add.i321, %200
   %idxprom6.i = zext i32 %sub5.i to i64
   %arrayidx7.i322 = getelementptr inbounds [64 x i64], ptr %bits.i270, i64 0, i64 %idxprom6.i
@@ -36518,7 +36517,7 @@ for.body21.i:                                     ; preds = %for.body21.i.lr.ph,
   %203 = load i64, ptr %arrayidx28.i, align 8
   %shr.i308 = lshr i64 %203, %sh_prom30.i
   %or.i309 = or i64 %shr.i308, %shl.i307
-  %204 = trunc i64 %indvars.iv1235 to i32
+  %204 = trunc nuw i64 %indvars.iv1235 to i32
   %add32.i = add i32 %div.i2961090, %204
   %idxprom33.i = zext i32 %add32.i to i64
   %arrayidx34.i = getelementptr inbounds [64 x i64], ptr %bits.i270, i64 0, i64 %idxprom33.i
@@ -36566,7 +36565,7 @@ for.body.i397:                                    ; preds = %for.body.i397.lr.ph
   %209 = add nsw i64 %indvars.iv1231, -1
   %arrayidx.i401 = getelementptr inbounds [64 x i64], ptr %bits.i398, i64 0, i64 %209
   %210 = load i64, ptr %arrayidx.i401, align 8
-  %211 = trunc i64 %indvars.iv1231 to i32
+  %211 = trunc nuw i64 %indvars.iv1231 to i32
   %sub5.i404 = add i32 %add.i403, %211
   %idxprom6.i405 = zext i32 %sub5.i404 to i64
   %arrayidx7.i406 = getelementptr inbounds [64 x i64], ptr %bits.i398, i64 0, i64 %idxprom6.i405
@@ -36608,7 +36607,7 @@ for.body21.i365:                                  ; preds = %for.body21.i365.lr.
   %214 = load i64, ptr %arrayidx28.i374, align 8
   %shr.i377 = lshr i64 %214, %sh_prom30.i376
   %or.i378 = or i64 %shr.i377, %shl.i370
-  %215 = trunc i64 %indvars.iv1227 to i32
+  %215 = trunc nuw i64 %indvars.iv1227 to i32
   %add32.i380 = add i32 %div.i3301089, %215
   %idxprom33.i381 = zext i32 %add32.i380 to i64
   %arrayidx34.i382 = getelementptr inbounds [64 x i64], ptr %bits15.i336, i64 0, i64 %idxprom33.i381
@@ -37457,7 +37456,7 @@ sw.bb448.i1465:                                   ; preds = %if.end322.i1329
 
 if.end469.i1475:                                  ; preds = %sw.bb448.i1465
   %68 = lshr i16 %uni.i2028.sroa.0.0.copyload, 8
-  %69 = trunc i16 %68 to i8
+  %69 = trunc nuw i16 %68 to i8
   %70 = trunc i16 %uni.i2028.sroa.0.0.copyload to i8
   %shl.i1480 = shl i8 %70, 6
   %71 = and i8 %69, 63
@@ -37640,7 +37639,7 @@ if.end81.i:                                       ; preds = %sw.bb74.i
 if.then.i1923:                                    ; preds = %if.end81.i
   %and.i2076 = and i64 %100, 4503599627370495
   %and1.i = lshr i64 %100, 52
-  %101 = trunc i64 %and1.i to i32
+  %101 = trunc nuw nsw i64 %and1.i to i32
   %conv.i2077 = and i32 %101, 2047
   %cmp.i2078 = icmp eq i32 %conv.i2077, 2047
   br i1 %cmp.i2078, label %if.then.i2120, label %if.end32.i
@@ -37702,7 +37701,7 @@ if.then51.i2096:                                  ; preds = %if.end42.i
 
 if.then57.i2117:                                  ; preds = %if.then51.i2096
   %103 = tail call i64 @llvm.cttz.i64(i64 %or.i2097, i1 true), !range !95
-  %cast.i2665 = trunc i64 %103 to i32
+  %cast.i2665 = trunc nuw nsw i64 %103 to i32
   %sub59.i = sub nuw nsw i32 1075, %conv.i2077
   %cmp60.i2118.not = icmp ugt i32 %sub59.i, %cast.i2665
   br i1 %cmp60.i2118.not, label %if.end68.i, label %if.then62.i
@@ -37714,7 +37713,7 @@ if.then62.i:                                      ; preds = %if.then57.i2117
   br i1 %cmp.i2704, label %if.then.i2713, label %if.else.i2705
 
 if.then.i2713:                                    ; preds = %if.then62.i
-  %conv.i2714 = trunc i64 %shr64.i to i32
+  %conv.i2714 = trunc nuw nsw i64 %shr64.i to i32
   %cmp.i6290 = icmp ult i32 %conv.i2714, 100
   br i1 %cmp.i6290, label %if.then.i6383, label %if.else.i6291
 
@@ -37766,7 +37765,7 @@ if.else29.i6293:                                  ; preds = %if.else.i6291
 if.then32.i6333:                                  ; preds = %if.else29.i6293
   %mul34.i6335 = mul nuw nsw i64 %shr64.i, 429497
   %shr35.i6336 = lshr i64 %mul34.i6335, 32
-  %conv36.i6337 = trunc i64 %shr35.i6336 to i32
+  %conv36.i6337 = trunc nuw nsw i64 %shr35.i6336 to i32
   %mul37.i6338.neg = mul nsw i32 %conv36.i6337, -10000
   %sub38.i6339 = add nsw i32 %mul37.i6338.neg, %conv.i2714
   %mul39.i6340 = mul i32 %sub38.i6339, 5243
@@ -37800,7 +37799,7 @@ if.then32.i6333:                                  ; preds = %if.else29.i6293
 if.else63.i6295:                                  ; preds = %if.else29.i6293
   %mul65.i6297 = mul nuw nsw i64 %shr64.i, 109951163
   %shr66.i6298 = lshr i64 %mul65.i6297, 40
-  %conv67.i6299 = trunc i64 %shr66.i6298 to i32
+  %conv67.i6299 = trunc nuw nsw i64 %shr66.i6298 to i32
   %mul68.i6300.neg = mul nsw i32 %conv67.i6299, -10000
   %sub69.i6301 = add nsw i32 %mul68.i6300.neg, %conv.i2714
   %mul70.i6302 = mul nuw nsw i32 %conv67.i6299, 5243
@@ -37847,7 +37846,7 @@ if.else.i2705:                                    ; preds = %if.then62.i
   %mul.i2707.neg = mul nuw nsw i64 %div.i2706, 4194967296
   %sub.i2708 = add nuw nsw i64 %mul.i2707.neg, %shr64.i
   %conv1.i2709 = trunc i64 %sub.i2708 to i32
-  %conv2.i2710 = trunc i64 %div.i2706 to i32
+  %conv2.i2710 = trunc nuw nsw i64 %div.i2706 to i32
   %cmp.i6427 = icmp ult i32 %conv2.i2710, 100
   br i1 %cmp.i6427, label %if.then.i6520, label %if.else.i6428
 
@@ -37899,7 +37898,7 @@ if.else29.i6430:                                  ; preds = %if.else.i6428
 if.then32.i6470:                                  ; preds = %if.else29.i6430
   %mul34.i6472 = mul nuw nsw i64 %div.i2706, 429497
   %shr35.i6473 = lshr i64 %mul34.i6472, 32
-  %conv36.i6474 = trunc i64 %shr35.i6473 to i32
+  %conv36.i6474 = trunc nuw nsw i64 %shr35.i6473 to i32
   %mul37.i6475.neg = mul nsw i32 %conv36.i6474, -10000
   %sub38.i6476 = add nsw i32 %mul37.i6475.neg, %conv2.i2710
   %mul39.i6477 = mul i32 %sub38.i6476, 5243
@@ -37933,7 +37932,7 @@ if.then32.i6470:                                  ; preds = %if.else29.i6430
 if.else63.i6432:                                  ; preds = %if.else29.i6430
   %mul65.i6434 = mul nuw nsw i64 %div.i2706, 109951163
   %shr66.i6435 = lshr i64 %mul65.i6434, 40
-  %conv67.i6436 = trunc i64 %shr66.i6435 to i32
+  %conv67.i6436 = trunc nuw nsw i64 %shr66.i6435 to i32
   %mul68.i6437.neg = mul nsw i32 %conv67.i6436, -10000
   %sub69.i6438 = add nsw i32 %mul68.i6437.neg, %conv2.i2710
   %mul70.i6439 = mul nuw nsw i32 %conv67.i6436, 5243
@@ -37980,7 +37979,7 @@ write_u32_len_1_8.exit6532:                       ; preds = %if.else63.i6432, %i
   %conv.i8315 = and i64 %sub.i2708, 4294967295
   %mul.i8316 = mul nuw nsw i64 %conv.i8315, 109951163
   %shr.i8317 = lshr i64 %mul.i8316, 40
-  %conv1.i8318 = trunc i64 %shr.i8317 to i32
+  %conv1.i8318 = trunc nuw nsw i64 %shr.i8317 to i32
   %mul2.i8319.neg = mul i32 %conv1.i8318, -10000
   %sub.i8320 = add i32 %mul2.i8319.neg, %conv1.i2709
   %mul3.i8321 = mul nuw i32 %conv1.i8318, 5243
@@ -38064,7 +38063,7 @@ if.end68.i:                                       ; preds = %if.then57.i2117, %i
   %mul.i9.i8895 = mul nuw i128 %conv1.i8.i8894, %conv.i.i8887
   %add.i.i8897 = add nuw i128 %shr.i.i8890, %mul.i9.i8895
   %shr.i11.i8898 = lshr i128 %add.i.i8897, 64
-  %conv3.i12.i8899 = trunc i128 %shr.i11.i8898 to i64
+  %conv3.i12.i8899 = trunc nuw i128 %shr.i11.i8898 to i64
   %135 = and i128 %add.i.i8897, 18446744073709551614
   %cmp.i8901 = icmp ne i128 %135, 0
   %conv1.i8903 = zext i1 %cmp.i8901 to i64
@@ -38076,7 +38075,7 @@ if.end68.i:                                       ; preds = %if.then57.i2117, %i
   %mul.i9.i8859 = mul nuw i128 %conv1.i8.i8894, %conv.i.i8851
   %add.i.i8861 = add nuw i128 %shr.i.i8854, %mul.i9.i8859
   %shr.i11.i8862 = lshr i128 %add.i.i8861, 64
-  %conv3.i12.i8863 = trunc i128 %shr.i11.i8862 to i64
+  %conv3.i12.i8863 = trunc nuw i128 %shr.i11.i8862 to i64
   %136 = and i128 %add.i.i8861, 18446744073709551614
   %cmp.i8865 = icmp ne i128 %136, 0
   %conv1.i8867 = zext i1 %cmp.i8865 to i64
@@ -38088,7 +38087,7 @@ if.end68.i:                                       ; preds = %if.then57.i2117, %i
   %mul.i9.i8823 = mul nuw i128 %conv1.i8.i8894, %conv.i.i8815
   %add.i.i8825 = add nuw i128 %shr.i.i8818, %mul.i9.i8823
   %shr.i11.i8826 = lshr i128 %add.i.i8825, 64
-  %conv3.i12.i8827 = trunc i128 %shr.i11.i8826 to i64
+  %conv3.i12.i8827 = trunc nuw i128 %shr.i11.i8826 to i64
   %137 = and i128 %add.i.i8825, 18446744073709551614
   %cmp.i8829 = icmp ne i128 %137, 0
   %conv1.i8831 = zext i1 %cmp.i8829 to i64
@@ -38161,14 +38160,14 @@ f64_bin_to_dec.exit3358:                          ; preds = %lor.end82.i3316, %i
   %conv6.i4693 = zext nneg i32 %div3.i4690 to i64
   %mul7.i4694 = mul nuw nsw i64 %conv6.i4693, 167773
   %shr.i4695 = lshr i64 %mul7.i4694, 24
-  %conv8.i4696 = trunc i64 %shr.i4695 to i32
+  %conv8.i4696 = trunc nuw nsw i64 %shr.i4695 to i32
   %mul9.i4697 = mul nuw nsw i32 %conv8.i4696, 41
   %shr10.i4698 = lshr i32 %mul9.i4697, 12
   %mul11.i4699.neg = mul nsw i32 %shr10.i4698, -100
   %sub12.i4700 = add nsw i32 %mul11.i4699.neg, %conv8.i4696
   %mul13.i4701.neg = mul nsw i32 %conv8.i4696, -100
   %sub14.i4702 = add nsw i32 %mul13.i4701.neg, %div3.i4690
-  %144 = trunc i32 %shr10.i4698 to i8
+  %144 = trunc nuw nsw i32 %shr10.i4698 to i8
   %conv15.i4704 = add nuw nsw i8 %144, 48
   br i1 %or.cond1, label %if.then80.i2105, label %if.else120.i
 
@@ -38213,7 +38212,7 @@ if.then.i4775:                                    ; preds = %if.then83.i
   %conv41.i4780 = and i64 %sub.i4688, 4294967295
   %mul42.i4781 = mul nuw nsw i64 %conv41.i4780, 109951163
   %shr43.i4782 = lshr i64 %mul42.i4781, 40
-  %conv44.i4783 = trunc i64 %shr43.i4782 to i32
+  %conv44.i4783 = trunc nuw nsw i64 %shr43.i4782 to i32
   %mul45.i4784.neg = mul i32 %conv44.i4783, -10000
   %sub46.i4785 = add i32 %mul45.i4784.neg, %conv2.i4689
   %mul47.i4786 = mul nuw i32 %conv44.i4783, 5243
@@ -38396,7 +38395,7 @@ if.then.i4990:                                    ; preds = %if.else95.i
   %conv41.i4995 = and i64 %sub.i4688, 4294967295
   %mul42.i4996 = mul nuw nsw i64 %conv41.i4995, 109951163
   %shr43.i4997 = lshr i64 %mul42.i4996, 40
-  %conv44.i4998 = trunc i64 %shr43.i4997 to i32
+  %conv44.i4998 = trunc nuw nsw i64 %shr43.i4997 to i32
   %mul45.i4999.neg = mul i32 %conv44.i4998, -10000
   %sub46.i5000 = add i32 %mul45.i4999.neg, %conv2.i4689
   %mul47.i5001 = mul nuw i32 %conv44.i4998, 5243
@@ -38588,7 +38587,7 @@ if.then.i5205:                                    ; preds = %if.else120.i
   %conv41.i5210 = and i64 %sub.i4688, 4294967295
   %mul42.i5211 = mul nuw nsw i64 %conv41.i5210, 109951163
   %shr43.i5212 = lshr i64 %mul42.i5211, 40
-  %conv44.i5213 = trunc i64 %shr43.i5212 to i32
+  %conv44.i5213 = trunc nuw nsw i64 %shr43.i5212 to i32
   %mul45.i5214.neg = mul i32 %conv44.i5213, -10000
   %sub46.i5215 = add i32 %mul45.i5214.neg, %conv2.i4689
   %mul47.i5216 = mul nuw i32 %conv44.i5213, 5243
@@ -38759,7 +38758,7 @@ if.else.i5381:                                    ; preds = %write_u64_len_15_to
   %shr.i5383 = lshr i32 %mul15.i5382, 16
   %mul16.i5384.neg = mul nsw i32 %shr.i5383, -100
   %sub17.i5385 = add nsw i32 %mul16.i5384.neg, %cond.i5379
-  %209 = trunc i32 %shr.i5383 to i8
+  %209 = trunc nuw nsw i32 %shr.i5383 to i8
   %conv20.i5389 = add nuw nsw i8 %209, 48
   store i8 %conv20.i5389, ptr %add.ptr.i5375, align 1
   %add.ptr22.i5390 = getelementptr inbounds i8, ptr %add.ptr.i5375, i64 1
@@ -38781,7 +38780,7 @@ if.else136.i:                                     ; preds = %if.end42.i
   %mul.i9.i8787 = mul nuw i128 %conv.i.i8779, 11392378155556871081
   %add.i.i8789 = add nuw i128 %shr.i.i8782, %mul.i9.i8787
   %shr.i11.i8790 = lshr i128 %add.i.i8789, 64
-  %conv3.i12.i8791 = trunc i128 %shr.i11.i8790 to i64
+  %conv3.i12.i8791 = trunc nuw i128 %shr.i11.i8790 to i64
   %211 = and i128 %add.i.i8789, 18446744073709551614
   %cmp.i8793 = icmp ne i128 %211, 0
   %conv1.i8795 = zext i1 %cmp.i8793 to i64
@@ -38792,7 +38791,7 @@ if.else136.i:                                     ; preds = %if.end42.i
   %mul.i9.i8751 = mul nuw nsw i128 %conv.i.i8743, 11392378155556871081
   %add.i.i8753 = add nuw nsw i128 %shr.i.i8746, %mul.i9.i8751
   %shr.i11.i8754 = lshr i128 %add.i.i8753, 64
-  %conv3.i12.i8755 = trunc i128 %shr.i11.i8754 to i64
+  %conv3.i12.i8755 = trunc nuw nsw i128 %shr.i11.i8754 to i64
   %212 = and i128 %add.i.i8753, 18446744073709551614
   %cmp.i8757 = icmp ne i128 %212, 0
   %conv1.i8759 = zext i1 %cmp.i8757 to i64
@@ -38803,7 +38802,7 @@ if.else136.i:                                     ; preds = %if.end42.i
   %mul.i9.i = mul nuw nsw i128 %conv.i.i8715, 11392378155556871081
   %add.i.i8720 = add nuw nsw i128 %shr.i.i8717, %mul.i9.i
   %shr.i11.i = lshr i128 %add.i.i8720, 64
-  %conv3.i12.i = trunc i128 %shr.i11.i to i64
+  %conv3.i12.i = trunc nuw nsw i128 %shr.i11.i to i64
   %213 = and i128 %add.i.i8720, 18446744073709551614
   %cmp.i8721 = icmp ne i128 %213, 0
   %conv1.i8723 = zext i1 %cmp.i8721 to i64
@@ -38865,7 +38864,7 @@ if.then.i5504:                                    ; preds = %f64_bin_to_dec.exit
   %mul4.i5512.neg = mul nuw nsw i64 %div1.i5509, 4194967296
   %sub5.i5513 = add nuw nsw i64 %mul4.i5512.neg, %div.i5505
   %conv6.i5514 = trunc i64 %sub5.i5513 to i32
-  %conv7.i5515 = trunc i64 %div1.i5509 to i8
+  %conv7.i5515 = trunc nuw nsw i64 %div1.i5509 to i8
   %add.i5517 = add nuw nsw i8 %conv7.i5515, 48
   store i8 %add.i5517, ptr %add.ptr137.i, align 1
   %cmp10.i5519 = icmp ugt i64 %add97.i3478, 9999999999999999
@@ -38874,7 +38873,7 @@ if.then.i5504:                                    ; preds = %f64_bin_to_dec.exit
   %conv.i7947 = and i64 %sub5.i5513, 4294967295
   %mul.i7948 = mul nuw nsw i64 %conv.i7947, 109951163
   %shr.i7949 = lshr i64 %mul.i7948, 40
-  %conv1.i7950 = trunc i64 %shr.i7949 to i32
+  %conv1.i7950 = trunc nuw nsw i64 %shr.i7949 to i32
   %mul2.i7951.neg = mul i32 %conv1.i7950, -10000
   %sub.i7952 = add i32 %mul2.i7951.neg, %conv6.i5514
   %mul3.i7953 = mul nuw i32 %conv1.i7950, 5243
@@ -38912,7 +38911,7 @@ if.then.i5504:                                    ; preds = %f64_bin_to_dec.exit
   %conv.i7913 = and i64 %sub.i5507, 4294967295
   %mul.i7914 = mul nuw nsw i64 %conv.i7913, 109951163
   %shr.i7915 = lshr i64 %mul.i7914, 40
-  %conv1.i7916 = trunc i64 %shr.i7915 to i32
+  %conv1.i7916 = trunc nuw nsw i64 %shr.i7915 to i32
   %mul2.i.neg = mul i32 %conv1.i7916, -10000
   %sub.i7917 = add i32 %mul2.i.neg, %conv.i5508
   %mul3.i = mul nuw i32 %conv1.i7916, 5243
@@ -38958,7 +38957,7 @@ if.then15.i5496:                                  ; preds = %if.else.i5491
   %mul17.i5498.neg = mul nuw nsw i64 %div16.i5497, 4194967296
   %sub18.i5499 = add nuw nsw i64 %mul17.i5498.neg, %add97.i3478
   %conv19.i5500 = trunc i64 %sub18.i5499 to i32
-  %conv20.i5501 = trunc i64 %div16.i5497 to i32
+  %conv20.i5501 = trunc nuw nsw i64 %div16.i5497 to i32
   %cmp.i5535 = icmp ult i32 %conv20.i5501, 100
   br i1 %cmp.i5535, label %if.then.i5566, label %if.else.i5536
 
@@ -39010,7 +39009,7 @@ if.else29.i5537:                                  ; preds = %if.else.i5536
 if.then32.i:                                      ; preds = %if.else29.i5537
   %mul34.i = mul nuw nsw i64 %div16.i5497, 429497
   %shr35.i = lshr i64 %mul34.i, 32
-  %conv36.i5547 = trunc i64 %shr35.i to i32
+  %conv36.i5547 = trunc nuw nsw i64 %shr35.i to i32
   %mul37.i5548.neg = mul nsw i32 %conv36.i5547, -10000
   %sub38.i = add nsw i32 %mul37.i5548.neg, %conv20.i5501
   %mul39.i5549 = mul i32 %sub38.i, 5243
@@ -39044,7 +39043,7 @@ if.then32.i:                                      ; preds = %if.else29.i5537
 if.else63.i:                                      ; preds = %if.else29.i5537
   %mul65.i5539 = mul nuw nsw i64 %div16.i5497, 109951163
   %shr66.i = lshr i64 %mul65.i5539, 40
-  %conv67.i5540 = trunc i64 %shr66.i to i32
+  %conv67.i5540 = trunc nuw nsw i64 %shr66.i to i32
   %mul68.i.neg = mul nsw i32 %conv67.i5540, -10000
   %sub69.i = add nsw i32 %mul68.i.neg, %conv20.i5501
   %mul70.i5541 = mul nuw nsw i32 %conv67.i5540, 5243
@@ -39087,7 +39086,7 @@ write_u32_len_1_8.exit:                           ; preds = %if.else63.i, %if.th
   %conv.i7993 = and i64 %sub18.i5499, 4294967295
   %mul.i7994 = mul nuw nsw i64 %conv.i7993, 109951163
   %shr.i7995 = lshr i64 %mul.i7994, 40
-  %conv1.i7996 = trunc i64 %shr.i7995 to i32
+  %conv1.i7996 = trunc nuw nsw i64 %shr.i7995 to i32
   %mul2.i7997.neg = mul i32 %conv1.i7996, -10000
   %sub.i7998 = add i32 %mul2.i7997.neg, %conv19.i5500
   %mul3.i7999 = mul nuw i32 %conv1.i7996, 5243
@@ -39125,7 +39124,7 @@ write_u32_len_1_8.exit:                           ; preds = %if.else63.i, %if.th
   br label %write_u64_len_1_to_17.exit5525
 
 if.else23.i5493:                                  ; preds = %if.else.i5491
-  %conv24.i5494 = trunc i64 %add97.i3478 to i32
+  %conv24.i5494 = trunc nuw nsw i64 %add97.i3478 to i32
   %cmp.i5605 = icmp ult i32 %conv24.i5494, 100
   br i1 %cmp.i5605, label %if.then.i5698, label %if.else.i5606
 
@@ -39177,7 +39176,7 @@ if.else29.i5608:                                  ; preds = %if.else.i5606
 if.then32.i5648:                                  ; preds = %if.else29.i5608
   %mul34.i5650 = mul nuw nsw i64 %add97.i3478, 429497
   %shr35.i5651 = lshr i64 %mul34.i5650, 32
-  %conv36.i5652 = trunc i64 %shr35.i5651 to i32
+  %conv36.i5652 = trunc nuw nsw i64 %shr35.i5651 to i32
   %mul37.i5653.neg = mul nsw i32 %conv36.i5652, -10000
   %sub38.i5654 = add nsw i32 %mul37.i5653.neg, %conv24.i5494
   %mul39.i5655 = mul i32 %sub38.i5654, 5243
@@ -39211,7 +39210,7 @@ if.then32.i5648:                                  ; preds = %if.else29.i5608
 if.else63.i5610:                                  ; preds = %if.else29.i5608
   %mul65.i5612 = mul nuw nsw i64 %add97.i3478, 109951163
   %shr66.i5613 = lshr i64 %mul65.i5612, 40
-  %conv67.i5614 = trunc i64 %shr66.i5613 to i32
+  %conv67.i5614 = trunc nuw nsw i64 %shr66.i5613 to i32
   %mul68.i5615.neg = mul nsw i32 %conv67.i5614, -10000
   %sub69.i5616 = add nsw i32 %mul68.i5615.neg, %conv24.i5494
   %mul70.i5617 = mul nuw nsw i32 %conv67.i5614, 5243
@@ -39312,7 +39311,7 @@ if.else.i1905:                                    ; preds = %if.end81.i
   br i1 %cmp.i2555, label %if.then.i2562, label %if.else.i2556
 
 if.then.i2562:                                    ; preds = %if.else.i1905
-  %conv.i2563 = trunc i64 %cond.i1919 to i32
+  %conv.i2563 = trunc nuw nsw i64 %cond.i1919 to i32
   %cmp.i7660 = icmp ult i32 %conv.i2563, 100
   br i1 %cmp.i7660, label %if.then.i7753, label %if.else.i7661
 
@@ -39364,7 +39363,7 @@ if.else29.i7663:                                  ; preds = %if.else.i7661
 if.then32.i7703:                                  ; preds = %if.else29.i7663
   %mul34.i7705 = mul nuw nsw i64 %cond.i1919, 429497
   %shr35.i7706 = lshr i64 %mul34.i7705, 32
-  %conv36.i7707 = trunc i64 %shr35.i7706 to i32
+  %conv36.i7707 = trunc nuw nsw i64 %shr35.i7706 to i32
   %mul37.i7708.neg = mul nsw i32 %conv36.i7707, -10000
   %sub38.i7709 = add nsw i32 %mul37.i7708.neg, %conv.i2563
   %mul39.i7710 = mul i32 %sub38.i7709, 5243
@@ -39398,7 +39397,7 @@ if.then32.i7703:                                  ; preds = %if.else29.i7663
 if.else63.i7665:                                  ; preds = %if.else29.i7663
   %mul65.i7667 = mul nuw nsw i64 %cond.i1919, 109951163
   %shr66.i7668 = lshr i64 %mul65.i7667, 40
-  %conv67.i7669 = trunc i64 %shr66.i7668 to i32
+  %conv67.i7669 = trunc nuw nsw i64 %shr66.i7668 to i32
   %mul68.i7670.neg = mul nsw i32 %conv67.i7669, -10000
   %sub69.i7671 = add nsw i32 %mul68.i7670.neg, %conv.i2563
   %mul70.i7672 = mul nuw nsw i32 %conv67.i7669, 5243
@@ -39449,7 +39448,7 @@ if.else.i2556:                                    ; preds = %if.else.i1905
   br i1 %cmp1.i, label %if.then3.i, label %if.else8.i
 
 if.then3.i:                                       ; preds = %if.else.i2556
-  %conv5.i2561 = trunc i64 %div.i2558 to i32
+  %conv5.i2561 = trunc nuw nsw i64 %div.i2558 to i32
   %cmp.i7797 = icmp ult i32 %conv5.i2561, 100
   br i1 %cmp.i7797, label %if.then.i7890, label %if.else.i7798
 
@@ -39501,7 +39500,7 @@ if.else29.i7800:                                  ; preds = %if.else.i7798
 if.then32.i7840:                                  ; preds = %if.else29.i7800
   %mul34.i7842 = mul nuw nsw i64 %div.i2558, 429497
   %shr35.i7843 = lshr i64 %mul34.i7842, 32
-  %conv36.i7844 = trunc i64 %shr35.i7843 to i32
+  %conv36.i7844 = trunc nuw nsw i64 %shr35.i7843 to i32
   %mul37.i7845.neg = mul nsw i32 %conv36.i7844, -10000
   %sub38.i7846 = add nsw i32 %mul37.i7845.neg, %conv5.i2561
   %mul39.i7847 = mul i32 %sub38.i7846, 5243
@@ -39535,7 +39534,7 @@ if.then32.i7840:                                  ; preds = %if.else29.i7800
 if.else63.i7802:                                  ; preds = %if.else29.i7800
   %mul65.i7804 = mul nuw nsw i64 %div.i2558, 109951163
   %shr66.i7805 = lshr i64 %mul65.i7804, 40
-  %conv67.i7806 = trunc i64 %shr66.i7805 to i32
+  %conv67.i7806 = trunc nuw nsw i64 %shr66.i7805 to i32
   %mul68.i7807.neg = mul nsw i32 %conv67.i7806, -10000
   %sub69.i7808 = add nsw i32 %mul68.i7807.neg, %conv5.i2561
   %mul70.i7809 = mul nuw nsw i32 %conv67.i7806, 5243
@@ -39582,7 +39581,7 @@ write_u32_len_1_8.exit7902:                       ; preds = %if.else63.i7802, %i
   %conv.i8637 = and i64 %sub.i2560, 4294967295
   %mul.i8638 = mul nuw nsw i64 %conv.i8637, 109951163
   %shr.i8639 = lshr i64 %mul.i8638, 40
-  %conv1.i8640 = trunc i64 %shr.i8639 to i32
+  %conv1.i8640 = trunc nuw nsw i64 %shr.i8639 to i32
   %mul2.i8641.neg = mul i32 %conv1.i8640, -10000
   %sub.i8642 = add i32 %mul2.i8641.neg, %conv4.i
   %mul3.i8643 = mul nuw i32 %conv1.i8640, 5243
@@ -39621,7 +39620,7 @@ write_u32_len_1_8.exit7902:                       ; preds = %if.else63.i7802, %i
 
 if.else8.i:                                       ; preds = %if.else.i2556
   %div13.i = udiv i64 %cond.i1919, 1000000000000
-  %conv14.i = trunc i64 %div13.i to i32
+  %conv14.i = trunc nuw nsw i64 %div13.i to i32
   %mul16.i.neg = mul nuw nsw i64 %div13.i, 4294957296
   %sub17.i = add nuw nsw i64 %mul16.i.neg, %div.i2558
   %conv18.i = trunc i64 %sub17.i to i32
@@ -39631,7 +39630,7 @@ if.else8.i:                                       ; preds = %if.else.i2556
 if.then.i9545:                                    ; preds = %if.else8.i
   %mul.i9547 = mul nuw nsw i64 %div13.i, 429497
   %shr.i9548 = lshr i64 %mul.i9547, 32
-  %conv1.i9549 = trunc i64 %shr.i9548 to i32
+  %conv1.i9549 = trunc nuw nsw i64 %shr.i9548 to i32
   %mul2.i9550.neg = mul nsw i32 %conv1.i9549, -10000
   %sub.i9551 = add nsw i32 %mul2.i9550.neg, %conv14.i
   %mul3.i9552 = mul i32 %sub.i9551, 5243
@@ -39665,7 +39664,7 @@ if.then.i9545:                                    ; preds = %if.else8.i
 if.else.i9507:                                    ; preds = %if.else8.i
   %mul25.i9509 = mul nuw nsw i64 %div13.i, 109951163
   %shr26.i9510 = lshr i64 %mul25.i9509, 40
-  %conv27.i9511 = trunc i64 %shr26.i9510 to i32
+  %conv27.i9511 = trunc nuw nsw i64 %shr26.i9510 to i32
   %mul28.i9512.neg = mul nsw i32 %conv27.i9511, -10000
   %sub29.i9513 = add nsw i32 %mul28.i9512.neg, %conv14.i
   %mul30.i9514 = mul nuw nsw i32 %conv27.i9511, 5243
@@ -39728,7 +39727,7 @@ write_u64_len_5_8.exit9575:                       ; preds = %if.else.i9507, %if.
   %conv.i8683 = and i64 %sub.i2560, 4294967295
   %mul.i8684 = mul nuw nsw i64 %conv.i8683, 109951163
   %shr.i8685 = lshr i64 %mul.i8684, 40
-  %conv1.i8686 = trunc i64 %shr.i8685 to i32
+  %conv1.i8686 = trunc nuw nsw i64 %shr.i8685 to i32
   %mul2.i8687.neg = mul i32 %conv1.i8686, -10000
   %sub.i8688 = add i32 %mul2.i8687.neg, %conv4.i
   %mul3.i8689 = mul nuw i32 %conv1.i8686, 5243
@@ -40637,7 +40636,7 @@ sw.bb448.i825:                                    ; preds = %if.end322.i689
 
 if.end469.i835:                                   ; preds = %sw.bb448.i825
   %368 = lshr i16 %uni.i2032.sroa.0.0.copyload, 8
-  %369 = trunc i16 %368 to i8
+  %369 = trunc nuw i16 %368 to i8
   %370 = trunc i16 %uni.i2032.sroa.0.0.copyload to i8
   %shl.i840 = shl i8 %370, 6
   %371 = and i8 %369, 63
@@ -40891,7 +40890,7 @@ write_indent.exit9650:                            ; preds = %while.body.i9648, %
 if.then.i1891:                                    ; preds = %write_indent.exit9650
   %and.i2168 = and i64 %400, 4503599627370495
   %and1.i2169 = lshr i64 %400, 52
-  %401 = trunc i64 %and1.i2169 to i32
+  %401 = trunc nuw nsw i64 %and1.i2169 to i32
   %conv.i2171 = and i32 %401, 2047
   %cmp.i2172 = icmp eq i32 %conv.i2171, 2047
   br i1 %cmp.i2172, label %if.then.i2314, label %if.end32.i2176
@@ -40949,7 +40948,7 @@ if.then51.i2226:                                  ; preds = %if.end42.i2183
 
 if.then57.i2301:                                  ; preds = %if.then51.i2226
   %403 = tail call i64 @llvm.cttz.i64(i64 %or.i2227, i1 true), !range !95
-  %cast.i2663 = trunc i64 %403 to i32
+  %cast.i2663 = trunc nuw nsw i64 %403 to i32
   %sub59.i2303 = sub nuw nsw i32 1075, %conv.i2171
   %cmp60.i2304.not = icmp ugt i32 %sub59.i2303, %cast.i2663
   br i1 %cmp60.i2304.not, label %if.end68.i2231, label %if.then62.i2306
@@ -40961,7 +40960,7 @@ if.then62.i2306:                                  ; preds = %if.then57.i2301
   br i1 %cmp.i2686, label %if.then.i2695, label %if.else.i2687
 
 if.then.i2695:                                    ; preds = %if.then62.i2306
-  %conv.i2696 = trunc i64 %shr64.i2309 to i32
+  %conv.i2696 = trunc nuw nsw i64 %shr64.i2309 to i32
   %cmp.i6564 = icmp ult i32 %conv.i2696, 100
   br i1 %cmp.i6564, label %if.then.i6657, label %if.else.i6565
 
@@ -41013,7 +41012,7 @@ if.else29.i6567:                                  ; preds = %if.else.i6565
 if.then32.i6607:                                  ; preds = %if.else29.i6567
   %mul34.i6609 = mul nuw nsw i64 %shr64.i2309, 429497
   %shr35.i6610 = lshr i64 %mul34.i6609, 32
-  %conv36.i6611 = trunc i64 %shr35.i6610 to i32
+  %conv36.i6611 = trunc nuw nsw i64 %shr35.i6610 to i32
   %mul37.i6612.neg = mul nsw i32 %conv36.i6611, -10000
   %sub38.i6613 = add nsw i32 %mul37.i6612.neg, %conv.i2696
   %mul39.i6614 = mul i32 %sub38.i6613, 5243
@@ -41047,7 +41046,7 @@ if.then32.i6607:                                  ; preds = %if.else29.i6567
 if.else63.i6569:                                  ; preds = %if.else29.i6567
   %mul65.i6571 = mul nuw nsw i64 %shr64.i2309, 109951163
   %shr66.i6572 = lshr i64 %mul65.i6571, 40
-  %conv67.i6573 = trunc i64 %shr66.i6572 to i32
+  %conv67.i6573 = trunc nuw nsw i64 %shr66.i6572 to i32
   %mul68.i6574.neg = mul nsw i32 %conv67.i6573, -10000
   %sub69.i6575 = add nsw i32 %mul68.i6574.neg, %conv.i2696
   %mul70.i6576 = mul nuw nsw i32 %conv67.i6573, 5243
@@ -41094,7 +41093,7 @@ if.else.i2687:                                    ; preds = %if.then62.i2306
   %mul.i2689.neg = mul nuw nsw i64 %div.i2688, 4194967296
   %sub.i2690 = add nuw nsw i64 %mul.i2689.neg, %shr64.i2309
   %conv1.i2691 = trunc i64 %sub.i2690 to i32
-  %conv2.i2692 = trunc i64 %div.i2688 to i32
+  %conv2.i2692 = trunc nuw nsw i64 %div.i2688 to i32
   %cmp.i6701 = icmp ult i32 %conv2.i2692, 100
   br i1 %cmp.i6701, label %if.then.i6794, label %if.else.i6702
 
@@ -41146,7 +41145,7 @@ if.else29.i6704:                                  ; preds = %if.else.i6702
 if.then32.i6744:                                  ; preds = %if.else29.i6704
   %mul34.i6746 = mul nuw nsw i64 %div.i2688, 429497
   %shr35.i6747 = lshr i64 %mul34.i6746, 32
-  %conv36.i6748 = trunc i64 %shr35.i6747 to i32
+  %conv36.i6748 = trunc nuw nsw i64 %shr35.i6747 to i32
   %mul37.i6749.neg = mul nsw i32 %conv36.i6748, -10000
   %sub38.i6750 = add nsw i32 %mul37.i6749.neg, %conv2.i2692
   %mul39.i6751 = mul i32 %sub38.i6750, 5243
@@ -41180,7 +41179,7 @@ if.then32.i6744:                                  ; preds = %if.else29.i6704
 if.else63.i6706:                                  ; preds = %if.else29.i6704
   %mul65.i6708 = mul nuw nsw i64 %div.i2688, 109951163
   %shr66.i6709 = lshr i64 %mul65.i6708, 40
-  %conv67.i6710 = trunc i64 %shr66.i6709 to i32
+  %conv67.i6710 = trunc nuw nsw i64 %shr66.i6709 to i32
   %mul68.i6711.neg = mul nsw i32 %conv67.i6710, -10000
   %sub69.i6712 = add nsw i32 %mul68.i6711.neg, %conv2.i2692
   %mul70.i6713 = mul nuw nsw i32 %conv67.i6710, 5243
@@ -41227,7 +41226,7 @@ write_u32_len_1_8.exit6806:                       ; preds = %if.else63.i6706, %i
   %conv.i8361 = and i64 %sub.i2690, 4294967295
   %mul.i8362 = mul nuw nsw i64 %conv.i8361, 109951163
   %shr.i8363 = lshr i64 %mul.i8362, 40
-  %conv1.i8364 = trunc i64 %shr.i8363 to i32
+  %conv1.i8364 = trunc nuw nsw i64 %shr.i8363 to i32
   %mul2.i8365.neg = mul i32 %conv1.i8364, -10000
   %sub.i8366 = add i32 %mul2.i8365.neg, %conv1.i2691
   %mul3.i8367 = mul nuw i32 %conv1.i8364, 5243
@@ -41311,7 +41310,7 @@ if.end68.i2231:                                   ; preds = %if.then57.i2301, %i
   %mul.i9.i9111 = mul nuw i128 %conv1.i8.i9110, %conv.i.i9103
   %add.i.i9113 = add nuw i128 %shr.i.i9106, %mul.i9.i9111
   %shr.i11.i9114 = lshr i128 %add.i.i9113, 64
-  %conv3.i12.i9115 = trunc i128 %shr.i11.i9114 to i64
+  %conv3.i12.i9115 = trunc nuw i128 %shr.i11.i9114 to i64
   %435 = and i128 %add.i.i9113, 18446744073709551614
   %cmp.i9117 = icmp ne i128 %435, 0
   %conv1.i9119 = zext i1 %cmp.i9117 to i64
@@ -41323,7 +41322,7 @@ if.end68.i2231:                                   ; preds = %if.then57.i2301, %i
   %mul.i9.i9075 = mul nuw i128 %conv1.i8.i9110, %conv.i.i9067
   %add.i.i9077 = add nuw i128 %shr.i.i9070, %mul.i9.i9075
   %shr.i11.i9078 = lshr i128 %add.i.i9077, 64
-  %conv3.i12.i9079 = trunc i128 %shr.i11.i9078 to i64
+  %conv3.i12.i9079 = trunc nuw i128 %shr.i11.i9078 to i64
   %436 = and i128 %add.i.i9077, 18446744073709551614
   %cmp.i9081 = icmp ne i128 %436, 0
   %conv1.i9083 = zext i1 %cmp.i9081 to i64
@@ -41335,7 +41334,7 @@ if.end68.i2231:                                   ; preds = %if.then57.i2301, %i
   %mul.i9.i9039 = mul nuw i128 %conv1.i8.i9110, %conv.i.i9031
   %add.i.i9041 = add nuw i128 %shr.i.i9034, %mul.i9.i9039
   %shr.i11.i9042 = lshr i128 %add.i.i9041, 64
-  %conv3.i12.i9043 = trunc i128 %shr.i11.i9042 to i64
+  %conv3.i12.i9043 = trunc nuw i128 %shr.i11.i9042 to i64
   %437 = and i128 %add.i.i9041, 18446744073709551614
   %cmp.i9045 = icmp ne i128 %437, 0
   %conv1.i9047 = zext i1 %cmp.i9045 to i64
@@ -41418,14 +41417,14 @@ if.then83.i2284:                                  ; preds = %if.then80.i2257
   %conv6.i4048 = zext nneg i32 %div3.i4045 to i64
   %mul7.i4049 = mul nuw nsw i64 %conv6.i4048, 167773
   %shr.i4050 = lshr i64 %mul7.i4049, 24
-  %conv8.i4051 = trunc i64 %shr.i4050 to i32
+  %conv8.i4051 = trunc nuw nsw i64 %shr.i4050 to i32
   %mul9.i4052 = mul nuw nsw i32 %conv8.i4051, 41
   %shr10.i4053 = lshr i32 %mul9.i4052, 12
   %mul11.i4054.neg = mul nsw i32 %shr10.i4053, -100
   %sub12.i4055 = add nsw i32 %mul11.i4054.neg, %conv8.i4051
   %mul13.i4056.neg = mul nsw i32 %conv8.i4051, -100
   %sub14.i4057 = add nsw i32 %mul13.i4056.neg, %div3.i4045
-  %444 = trunc i32 %shr10.i4053 to i8
+  %444 = trunc nuw nsw i32 %shr10.i4053 to i8
   %conv15.i4059 = add nuw nsw i8 %444, 48
   store i8 %conv15.i4059, ptr %add.ptr86.i2287, align 1
   %cmp.i4060 = icmp ugt i32 %conv8.i4051, 99
@@ -41460,7 +41459,7 @@ if.then.i4130:                                    ; preds = %if.then83.i2284
   %conv41.i4135 = and i64 %sub.i4043, 4294967295
   %mul42.i4136 = mul nuw nsw i64 %conv41.i4135, 109951163
   %shr43.i4137 = lshr i64 %mul42.i4136, 40
-  %conv44.i4138 = trunc i64 %shr43.i4137 to i32
+  %conv44.i4138 = trunc nuw nsw i64 %shr43.i4137 to i32
   %mul45.i4139.neg = mul i32 %conv44.i4138, -10000
   %sub46.i4140 = add i32 %mul45.i4139.neg, %conv2.i4044
   %mul47.i4141 = mul nuw i32 %conv44.i4138, 5243
@@ -41620,14 +41619,14 @@ if.else95.i2259:                                  ; preds = %if.then80.i2257
   %conv6.i4263 = zext nneg i32 %div3.i4260 to i64
   %mul7.i4264 = mul nuw nsw i64 %conv6.i4263, 167773
   %shr.i4265 = lshr i64 %mul7.i4264, 24
-  %conv8.i4266 = trunc i64 %shr.i4265 to i32
+  %conv8.i4266 = trunc nuw nsw i64 %shr.i4265 to i32
   %mul9.i4267 = mul nuw nsw i32 %conv8.i4266, 41
   %shr10.i4268 = lshr i32 %mul9.i4267, 12
   %mul11.i4269.neg = mul nsw i32 %shr10.i4268, -100
   %sub12.i4270 = add nsw i32 %mul11.i4269.neg, %conv8.i4266
   %mul13.i4271.neg = mul nsw i32 %conv8.i4266, -100
   %sub14.i4272 = add nsw i32 %mul13.i4271.neg, %div3.i4260
-  %466 = trunc i32 %shr10.i4268 to i8
+  %466 = trunc nuw nsw i32 %shr10.i4268 to i8
   %conv15.i4274 = add nuw nsw i8 %466, 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr37.i2180, i8 48, i64 24, i1 false)
   store i8 %conv15.i4274, ptr %add.ptr99.i2262, align 1
@@ -41663,7 +41662,7 @@ if.then.i4345:                                    ; preds = %if.else95.i2259
   %conv41.i4350 = and i64 %sub.i4258, 4294967295
   %mul42.i4351 = mul nuw nsw i64 %conv41.i4350, 109951163
   %shr43.i4352 = lshr i64 %mul42.i4351, 40
-  %conv44.i4353 = trunc i64 %shr43.i4352 to i32
+  %conv44.i4353 = trunc nuw nsw i64 %shr43.i4352 to i32
   %mul45.i4354.neg = mul i32 %conv44.i4353, -10000
   %sub46.i4355 = add i32 %mul45.i4354.neg, %conv2.i4259
   %mul47.i4356 = mul nuw i32 %conv44.i4353, 5243
@@ -41832,14 +41831,14 @@ if.else120.i2240:                                 ; preds = %f64_bin_to_dec.exit
   %conv6.i4478 = zext nneg i32 %div3.i4475 to i64
   %mul7.i4479 = mul nuw nsw i64 %conv6.i4478, 167773
   %shr.i4480 = lshr i64 %mul7.i4479, 24
-  %conv8.i4481 = trunc i64 %shr.i4480 to i32
+  %conv8.i4481 = trunc nuw nsw i64 %shr.i4480 to i32
   %mul9.i4482 = mul nuw nsw i32 %conv8.i4481, 41
   %shr10.i4483 = lshr i32 %mul9.i4482, 12
   %mul11.i4484.neg = mul nsw i32 %shr10.i4483, -100
   %sub12.i4485 = add nsw i32 %mul11.i4484.neg, %conv8.i4481
   %mul13.i4486.neg = mul nsw i32 %conv8.i4481, -100
   %sub14.i4487 = add nsw i32 %mul13.i4486.neg, %div3.i4475
-  %488 = trunc i32 %shr10.i4483 to i8
+  %488 = trunc nuw nsw i32 %shr10.i4483 to i8
   %conv15.i4489 = add nuw nsw i8 %488, 48
   store i8 %conv15.i4489, ptr %add.ptr121.i2241.ptr, align 1
   %cmp.i4490 = icmp ugt i32 %conv8.i4481, 99
@@ -41875,7 +41874,7 @@ if.then.i4560:                                    ; preds = %if.else120.i2240
   %conv41.i4565 = and i64 %sub.i4473, 4294967295
   %mul42.i4566 = mul nuw nsw i64 %conv41.i4565, 109951163
   %shr43.i4567 = lshr i64 %mul42.i4566, 40
-  %conv44.i4568 = trunc i64 %shr43.i4567 to i32
+  %conv44.i4568 = trunc nuw nsw i64 %shr43.i4567 to i32
   %mul45.i4569.neg = mul i32 %conv44.i4568, -10000
   %sub46.i4570 = add i32 %mul45.i4569.neg, %conv2.i4474
   %mul47.i4571 = mul nuw i32 %conv44.i4568, 5243
@@ -42046,7 +42045,7 @@ if.else.i5333:                                    ; preds = %write_u64_len_15_to
   %shr.i5335 = lshr i32 %mul15.i5334, 16
   %mul16.i5336.neg = mul nsw i32 %shr.i5335, -100
   %sub17.i5337 = add nsw i32 %mul16.i5336.neg, %cond.i5331
-  %511 = trunc i32 %shr.i5335 to i8
+  %511 = trunc nuw nsw i32 %shr.i5335 to i8
   %conv20.i5341 = add nuw nsw i8 %511, 48
   store i8 %conv20.i5341, ptr %add.ptr.i5327, align 1
   %add.ptr22.i5342 = getelementptr inbounds i8, ptr %add.ptr.i5327, i64 1
@@ -42068,7 +42067,7 @@ if.else136.i2188:                                 ; preds = %if.end42.i2183
   %mul.i9.i9003 = mul nuw i128 %conv.i.i8995, 11392378155556871081
   %add.i.i9005 = add nuw i128 %shr.i.i8998, %mul.i9.i9003
   %shr.i11.i9006 = lshr i128 %add.i.i9005, 64
-  %conv3.i12.i9007 = trunc i128 %shr.i11.i9006 to i64
+  %conv3.i12.i9007 = trunc nuw i128 %shr.i11.i9006 to i64
   %513 = and i128 %add.i.i9005, 18446744073709551614
   %cmp.i9009 = icmp ne i128 %513, 0
   %conv1.i9011 = zext i1 %cmp.i9009 to i64
@@ -42079,7 +42078,7 @@ if.else136.i2188:                                 ; preds = %if.end42.i2183
   %mul.i9.i8967 = mul nuw nsw i128 %conv.i.i8959, 11392378155556871081
   %add.i.i8969 = add nuw nsw i128 %shr.i.i8962, %mul.i9.i8967
   %shr.i11.i8970 = lshr i128 %add.i.i8969, 64
-  %conv3.i12.i8971 = trunc i128 %shr.i11.i8970 to i64
+  %conv3.i12.i8971 = trunc nuw nsw i128 %shr.i11.i8970 to i64
   %514 = and i128 %add.i.i8969, 18446744073709551614
   %cmp.i8973 = icmp ne i128 %514, 0
   %conv1.i8975 = zext i1 %cmp.i8973 to i64
@@ -42090,7 +42089,7 @@ if.else136.i2188:                                 ; preds = %if.end42.i2183
   %mul.i9.i8931 = mul nuw nsw i128 %conv.i.i8923, 11392378155556871081
   %add.i.i8933 = add nuw nsw i128 %shr.i.i8926, %mul.i9.i8931
   %shr.i11.i8934 = lshr i128 %add.i.i8933, 64
-  %conv3.i12.i8935 = trunc i128 %shr.i11.i8934 to i64
+  %conv3.i12.i8935 = trunc nuw nsw i128 %shr.i11.i8934 to i64
   %515 = and i128 %add.i.i8933, 18446744073709551614
   %cmp.i8937 = icmp ne i128 %515, 0
   %conv1.i8939 = zext i1 %cmp.i8937 to i64
@@ -42152,7 +42151,7 @@ if.then.i5461:                                    ; preds = %f64_bin_to_dec.exit
   %mul4.i5469.neg = mul nuw nsw i64 %div1.i5466, 4194967296
   %sub5.i5470 = add nuw nsw i64 %mul4.i5469.neg, %div.i5462
   %conv6.i5471 = trunc i64 %sub5.i5470 to i32
-  %conv7.i5472 = trunc i64 %div1.i5466 to i8
+  %conv7.i5472 = trunc nuw nsw i64 %div1.i5466 to i8
   %add.i5474 = add nuw nsw i8 %conv7.i5472, 48
   store i8 %add.i5474, ptr %add.ptr137.i2189, align 1
   %cmp10.i5476 = icmp ugt i64 %add97.i3180, 9999999999999999
@@ -42161,7 +42160,7 @@ if.then.i5461:                                    ; preds = %f64_bin_to_dec.exit
   %conv.i8085 = and i64 %sub5.i5470, 4294967295
   %mul.i8086 = mul nuw nsw i64 %conv.i8085, 109951163
   %shr.i8087 = lshr i64 %mul.i8086, 40
-  %conv1.i8088 = trunc i64 %shr.i8087 to i32
+  %conv1.i8088 = trunc nuw nsw i64 %shr.i8087 to i32
   %mul2.i8089.neg = mul i32 %conv1.i8088, -10000
   %sub.i8090 = add i32 %mul2.i8089.neg, %conv6.i5471
   %mul3.i8091 = mul nuw i32 %conv1.i8088, 5243
@@ -42199,7 +42198,7 @@ if.then.i5461:                                    ; preds = %f64_bin_to_dec.exit
   %conv.i8039 = and i64 %sub.i5464, 4294967295
   %mul.i8040 = mul nuw nsw i64 %conv.i8039, 109951163
   %shr.i8041 = lshr i64 %mul.i8040, 40
-  %conv1.i8042 = trunc i64 %shr.i8041 to i32
+  %conv1.i8042 = trunc nuw nsw i64 %shr.i8041 to i32
   %mul2.i8043.neg = mul i32 %conv1.i8042, -10000
   %sub.i8044 = add i32 %mul2.i8043.neg, %conv.i5465
   %mul3.i8045 = mul nuw i32 %conv1.i8042, 5243
@@ -42245,7 +42244,7 @@ if.then15.i5453:                                  ; preds = %if.else.i5448
   %mul17.i5455.neg = mul nuw nsw i64 %div16.i5454, 4194967296
   %sub18.i5456 = add nuw nsw i64 %mul17.i5455.neg, %add97.i3180
   %conv19.i5457 = trunc i64 %sub18.i5456 to i32
-  %conv20.i5458 = trunc i64 %div16.i5454 to i32
+  %conv20.i5458 = trunc nuw nsw i64 %div16.i5454 to i32
   %cmp.i5742 = icmp ult i32 %conv20.i5458, 100
   br i1 %cmp.i5742, label %if.then.i5835, label %if.else.i5743
 
@@ -42297,7 +42296,7 @@ if.else29.i5745:                                  ; preds = %if.else.i5743
 if.then32.i5785:                                  ; preds = %if.else29.i5745
   %mul34.i5787 = mul nuw nsw i64 %div16.i5454, 429497
   %shr35.i5788 = lshr i64 %mul34.i5787, 32
-  %conv36.i5789 = trunc i64 %shr35.i5788 to i32
+  %conv36.i5789 = trunc nuw nsw i64 %shr35.i5788 to i32
   %mul37.i5790.neg = mul nsw i32 %conv36.i5789, -10000
   %sub38.i5791 = add nsw i32 %mul37.i5790.neg, %conv20.i5458
   %mul39.i5792 = mul i32 %sub38.i5791, 5243
@@ -42331,7 +42330,7 @@ if.then32.i5785:                                  ; preds = %if.else29.i5745
 if.else63.i5747:                                  ; preds = %if.else29.i5745
   %mul65.i5749 = mul nuw nsw i64 %div16.i5454, 109951163
   %shr66.i5750 = lshr i64 %mul65.i5749, 40
-  %conv67.i5751 = trunc i64 %shr66.i5750 to i32
+  %conv67.i5751 = trunc nuw nsw i64 %shr66.i5750 to i32
   %mul68.i5752.neg = mul nsw i32 %conv67.i5751, -10000
   %sub69.i5753 = add nsw i32 %mul68.i5752.neg, %conv20.i5458
   %mul70.i5754 = mul nuw nsw i32 %conv67.i5751, 5243
@@ -42373,7 +42372,7 @@ write_u32_len_1_8.exit5847:                       ; preds = %if.else63.i5747, %i
   %conv.i8131 = and i64 %sub18.i5456, 4294967295
   %mul.i8132 = mul nuw nsw i64 %conv.i8131, 109951163
   %shr.i8133 = lshr i64 %mul.i8132, 40
-  %conv1.i8134 = trunc i64 %shr.i8133 to i32
+  %conv1.i8134 = trunc nuw nsw i64 %shr.i8133 to i32
   %mul2.i8135.neg = mul i32 %conv1.i8134, -10000
   %sub.i8136 = add i32 %mul2.i8135.neg, %conv19.i5457
   %mul3.i8137 = mul nuw i32 %conv1.i8134, 5243
@@ -42411,7 +42410,7 @@ write_u32_len_1_8.exit5847:                       ; preds = %if.else63.i5747, %i
   br label %write_u64_len_1_to_17.exit5482
 
 if.else23.i5450:                                  ; preds = %if.else.i5448
-  %conv24.i5451 = trunc i64 %add97.i3180 to i32
+  %conv24.i5451 = trunc nuw nsw i64 %add97.i3180 to i32
   %cmp.i5879 = icmp ult i32 %conv24.i5451, 100
   br i1 %cmp.i5879, label %if.then.i5972, label %if.else.i5880
 
@@ -42463,7 +42462,7 @@ if.else29.i5882:                                  ; preds = %if.else.i5880
 if.then32.i5922:                                  ; preds = %if.else29.i5882
   %mul34.i5924 = mul nuw nsw i64 %add97.i3180, 429497
   %shr35.i5925 = lshr i64 %mul34.i5924, 32
-  %conv36.i5926 = trunc i64 %shr35.i5925 to i32
+  %conv36.i5926 = trunc nuw nsw i64 %shr35.i5925 to i32
   %mul37.i5927.neg = mul nsw i32 %conv36.i5926, -10000
   %sub38.i5928 = add nsw i32 %mul37.i5927.neg, %conv24.i5451
   %mul39.i5929 = mul i32 %sub38.i5928, 5243
@@ -42497,7 +42496,7 @@ if.then32.i5922:                                  ; preds = %if.else29.i5882
 if.else63.i5884:                                  ; preds = %if.else29.i5882
   %mul65.i5886 = mul nuw nsw i64 %add97.i3180, 109951163
   %shr66.i5887 = lshr i64 %mul65.i5886, 40
-  %conv67.i5888 = trunc i64 %shr66.i5887 to i32
+  %conv67.i5888 = trunc nuw nsw i64 %shr66.i5887 to i32
   %mul68.i5889.neg = mul nsw i32 %conv67.i5888, -10000
   %sub69.i5890 = add nsw i32 %mul68.i5889.neg, %conv24.i5451
   %mul70.i5891 = mul nuw nsw i32 %conv67.i5888, 5243
@@ -42598,7 +42597,7 @@ if.else.i1873:                                    ; preds = %write_indent.exit96
   br i1 %cmp.i2571, label %if.then.i2597, label %if.else.i2572
 
 if.then.i2597:                                    ; preds = %if.else.i1873
-  %conv.i2598 = trunc i64 %cond.i1887 to i32
+  %conv.i2598 = trunc nuw nsw i64 %cond.i1887 to i32
   %cmp.i7386 = icmp ult i32 %conv.i2598, 100
   br i1 %cmp.i7386, label %if.then.i7479, label %if.else.i7387
 
@@ -42650,7 +42649,7 @@ if.else29.i7389:                                  ; preds = %if.else.i7387
 if.then32.i7429:                                  ; preds = %if.else29.i7389
   %mul34.i7431 = mul nuw nsw i64 %cond.i1887, 429497
   %shr35.i7432 = lshr i64 %mul34.i7431, 32
-  %conv36.i7433 = trunc i64 %shr35.i7432 to i32
+  %conv36.i7433 = trunc nuw nsw i64 %shr35.i7432 to i32
   %mul37.i7434.neg = mul nsw i32 %conv36.i7433, -10000
   %sub38.i7435 = add nsw i32 %mul37.i7434.neg, %conv.i2598
   %mul39.i7436 = mul i32 %sub38.i7435, 5243
@@ -42684,7 +42683,7 @@ if.then32.i7429:                                  ; preds = %if.else29.i7389
 if.else63.i7391:                                  ; preds = %if.else29.i7389
   %mul65.i7393 = mul nuw nsw i64 %cond.i1887, 109951163
   %shr66.i7394 = lshr i64 %mul65.i7393, 40
-  %conv67.i7395 = trunc i64 %shr66.i7394 to i32
+  %conv67.i7395 = trunc nuw nsw i64 %shr66.i7394 to i32
   %mul68.i7396.neg = mul nsw i32 %conv67.i7395, -10000
   %sub69.i7397 = add nsw i32 %mul68.i7396.neg, %conv.i2598
   %mul70.i7398 = mul nuw nsw i32 %conv67.i7395, 5243
@@ -42735,7 +42734,7 @@ if.else.i2572:                                    ; preds = %if.else.i1873
   br i1 %cmp1.i2573, label %if.then3.i2589, label %if.else8.i2574
 
 if.then3.i2589:                                   ; preds = %if.else.i2572
-  %conv5.i2594 = trunc i64 %div.i2590 to i32
+  %conv5.i2594 = trunc nuw nsw i64 %div.i2590 to i32
   %cmp.i7523 = icmp ult i32 %conv5.i2594, 100
   br i1 %cmp.i7523, label %if.then.i7616, label %if.else.i7524
 
@@ -42787,7 +42786,7 @@ if.else29.i7526:                                  ; preds = %if.else.i7524
 if.then32.i7566:                                  ; preds = %if.else29.i7526
   %mul34.i7568 = mul nuw nsw i64 %div.i2590, 429497
   %shr35.i7569 = lshr i64 %mul34.i7568, 32
-  %conv36.i7570 = trunc i64 %shr35.i7569 to i32
+  %conv36.i7570 = trunc nuw nsw i64 %shr35.i7569 to i32
   %mul37.i7571.neg = mul nsw i32 %conv36.i7570, -10000
   %sub38.i7572 = add nsw i32 %mul37.i7571.neg, %conv5.i2594
   %mul39.i7573 = mul i32 %sub38.i7572, 5243
@@ -42821,7 +42820,7 @@ if.then32.i7566:                                  ; preds = %if.else29.i7526
 if.else63.i7528:                                  ; preds = %if.else29.i7526
   %mul65.i7530 = mul nuw nsw i64 %div.i2590, 109951163
   %shr66.i7531 = lshr i64 %mul65.i7530, 40
-  %conv67.i7532 = trunc i64 %shr66.i7531 to i32
+  %conv67.i7532 = trunc nuw nsw i64 %shr66.i7531 to i32
   %mul68.i7533.neg = mul nsw i32 %conv67.i7532, -10000
   %sub69.i7534 = add nsw i32 %mul68.i7533.neg, %conv5.i2594
   %mul70.i7535 = mul nuw nsw i32 %conv67.i7532, 5243
@@ -42868,7 +42867,7 @@ write_u32_len_1_8.exit7628:                       ; preds = %if.else63.i7528, %i
   %conv.i8545 = and i64 %sub.i2592, 4294967295
   %mul.i8546 = mul nuw nsw i64 %conv.i8545, 109951163
   %shr.i8547 = lshr i64 %mul.i8546, 40
-  %conv1.i8548 = trunc i64 %shr.i8547 to i32
+  %conv1.i8548 = trunc nuw nsw i64 %shr.i8547 to i32
   %mul2.i8549.neg = mul i32 %conv1.i8548, -10000
   %sub.i8550 = add i32 %mul2.i8549.neg, %conv4.i2593
   %mul3.i8551 = mul nuw i32 %conv1.i8548, 5243
@@ -42907,7 +42906,7 @@ write_u32_len_1_8.exit7628:                       ; preds = %if.else63.i7528, %i
 
 if.else8.i2574:                                   ; preds = %if.else.i2572
   %div13.i2579 = udiv i64 %cond.i1887, 1000000000000
-  %conv14.i2580 = trunc i64 %div13.i2579 to i32
+  %conv14.i2580 = trunc nuw nsw i64 %div13.i2579 to i32
   %mul16.i2582.neg = mul nuw nsw i64 %div13.i2579, 4294957296
   %sub17.i2583 = add nuw nsw i64 %mul16.i2582.neg, %div.i2590
   %conv18.i2584 = trunc i64 %sub17.i2583 to i32
@@ -42917,7 +42916,7 @@ if.else8.i2574:                                   ; preds = %if.else.i2572
 if.then.i9450:                                    ; preds = %if.else8.i2574
   %mul.i9452 = mul nuw nsw i64 %div13.i2579, 429497
   %shr.i9453 = lshr i64 %mul.i9452, 32
-  %conv1.i9454 = trunc i64 %shr.i9453 to i32
+  %conv1.i9454 = trunc nuw nsw i64 %shr.i9453 to i32
   %mul2.i9455.neg = mul nsw i32 %conv1.i9454, -10000
   %sub.i9456 = add nsw i32 %mul2.i9455.neg, %conv14.i2580
   %mul3.i9457 = mul i32 %sub.i9456, 5243
@@ -42951,7 +42950,7 @@ if.then.i9450:                                    ; preds = %if.else8.i2574
 if.else.i9412:                                    ; preds = %if.else8.i2574
   %mul25.i9414 = mul nuw nsw i64 %div13.i2579, 109951163
   %shr26.i9415 = lshr i64 %mul25.i9414, 40
-  %conv27.i9416 = trunc i64 %shr26.i9415 to i32
+  %conv27.i9416 = trunc nuw nsw i64 %shr26.i9415 to i32
   %mul28.i9417.neg = mul nsw i32 %conv27.i9416, -10000
   %sub29.i9418 = add nsw i32 %mul28.i9417.neg, %conv14.i2580
   %mul30.i9419 = mul nuw nsw i32 %conv27.i9416, 5243
@@ -43014,7 +43013,7 @@ write_u64_len_5_8.exit9480:                       ; preds = %if.else.i9412, %if.
   %conv.i8591 = and i64 %sub.i2592, 4294967295
   %mul.i8592 = mul nuw nsw i64 %conv.i8591, 109951163
   %shr.i8593 = lshr i64 %mul.i8592, 40
-  %conv1.i8594 = trunc i64 %shr.i8593 to i32
+  %conv1.i8594 = trunc nuw nsw i64 %shr.i8593 to i32
   %mul2.i8595.neg = mul i32 %conv1.i8594, -10000
   %sub.i8596 = add i32 %mul2.i8595.neg, %conv4.i2593
   %mul3.i8597 = mul nuw i32 %conv1.i8594, 5243
@@ -44310,7 +44309,7 @@ sw.bb448.i:                                       ; preds = %if.end322.i
 
 if.end469.i:                                      ; preds = %sw.bb448.i
   %671 = lshr i16 %uni.i2036.sroa.0.0.copyload, 8
-  %672 = trunc i16 %671 to i8
+  %672 = trunc nuw i16 %671 to i8
   %673 = trunc i16 %uni.i2036.sroa.0.0.copyload to i8
   %shl.i524 = shl i8 %673, 6
   %674 = and i8 %672, 63
@@ -44544,7 +44543,7 @@ if.end188.i:                                      ; preds = %if.end173.i, %if.th
 if.then.i1860:                                    ; preds = %if.end188.i
   %and.i2379 = and i64 %703, 4503599627370495
   %and1.i2380 = lshr i64 %703, 52
-  %704 = trunc i64 %and1.i2380 to i32
+  %704 = trunc nuw nsw i64 %and1.i2380 to i32
   %conv.i2382 = and i32 %704, 2047
   %cmp.i2383 = icmp eq i32 %conv.i2382, 2047
   br i1 %cmp.i2383, label %if.then.i2525, label %if.end32.i2387
@@ -44602,7 +44601,7 @@ if.then51.i2437:                                  ; preds = %if.end42.i2394
 
 if.then57.i2512:                                  ; preds = %if.then51.i2437
   %706 = tail call i64 @llvm.cttz.i64(i64 %or.i2438, i1 true), !range !95
-  %cast.i = trunc i64 %706 to i32
+  %cast.i = trunc nuw nsw i64 %706 to i32
   %sub59.i2514 = sub nuw nsw i32 1075, %conv.i2382
   %cmp60.i2515.not = icmp ugt i32 %sub59.i2514, %cast.i
   br i1 %cmp60.i2515.not, label %if.end68.i2442, label %if.then62.i2517
@@ -44614,7 +44613,7 @@ if.then62.i2517:                                  ; preds = %if.then57.i2512
   br i1 %cmp.i2671, label %if.then.i2678, label %if.else.i2672
 
 if.then.i2678:                                    ; preds = %if.then62.i2517
-  %conv.i2679 = trunc i64 %shr64.i2520 to i32
+  %conv.i2679 = trunc nuw nsw i64 %shr64.i2520 to i32
   %cmp.i6838 = icmp ult i32 %conv.i2679, 100
   br i1 %cmp.i6838, label %if.then.i6931, label %if.else.i6839
 
@@ -44666,7 +44665,7 @@ if.else29.i6841:                                  ; preds = %if.else.i6839
 if.then32.i6881:                                  ; preds = %if.else29.i6841
   %mul34.i6883 = mul nuw nsw i64 %shr64.i2520, 429497
   %shr35.i6884 = lshr i64 %mul34.i6883, 32
-  %conv36.i6885 = trunc i64 %shr35.i6884 to i32
+  %conv36.i6885 = trunc nuw nsw i64 %shr35.i6884 to i32
   %mul37.i6886.neg = mul nsw i32 %conv36.i6885, -10000
   %sub38.i6887 = add nsw i32 %mul37.i6886.neg, %conv.i2679
   %mul39.i6888 = mul i32 %sub38.i6887, 5243
@@ -44700,7 +44699,7 @@ if.then32.i6881:                                  ; preds = %if.else29.i6841
 if.else63.i6843:                                  ; preds = %if.else29.i6841
   %mul65.i6845 = mul nuw nsw i64 %shr64.i2520, 109951163
   %shr66.i6846 = lshr i64 %mul65.i6845, 40
-  %conv67.i6847 = trunc i64 %shr66.i6846 to i32
+  %conv67.i6847 = trunc nuw nsw i64 %shr66.i6846 to i32
   %mul68.i6848.neg = mul nsw i32 %conv67.i6847, -10000
   %sub69.i6849 = add nsw i32 %mul68.i6848.neg, %conv.i2679
   %mul70.i6850 = mul nuw nsw i32 %conv67.i6847, 5243
@@ -44747,7 +44746,7 @@ if.else.i2672:                                    ; preds = %if.then62.i2517
   %mul.i2674.neg = mul nuw nsw i64 %div.i2673, 4194967296
   %sub.i2675 = add nuw nsw i64 %mul.i2674.neg, %shr64.i2520
   %conv1.i2676 = trunc i64 %sub.i2675 to i32
-  %conv2.i2677 = trunc i64 %div.i2673 to i32
+  %conv2.i2677 = trunc nuw nsw i64 %div.i2673 to i32
   %cmp.i6975 = icmp ult i32 %conv2.i2677, 100
   br i1 %cmp.i6975, label %if.then.i7068, label %if.else.i6976
 
@@ -44799,7 +44798,7 @@ if.else29.i6978:                                  ; preds = %if.else.i6976
 if.then32.i7018:                                  ; preds = %if.else29.i6978
   %mul34.i7020 = mul nuw nsw i64 %div.i2673, 429497
   %shr35.i7021 = lshr i64 %mul34.i7020, 32
-  %conv36.i7022 = trunc i64 %shr35.i7021 to i32
+  %conv36.i7022 = trunc nuw nsw i64 %shr35.i7021 to i32
   %mul37.i7023.neg = mul nsw i32 %conv36.i7022, -10000
   %sub38.i7024 = add nsw i32 %mul37.i7023.neg, %conv2.i2677
   %mul39.i7025 = mul i32 %sub38.i7024, 5243
@@ -44833,7 +44832,7 @@ if.then32.i7018:                                  ; preds = %if.else29.i6978
 if.else63.i6980:                                  ; preds = %if.else29.i6978
   %mul65.i6982 = mul nuw nsw i64 %div.i2673, 109951163
   %shr66.i6983 = lshr i64 %mul65.i6982, 40
-  %conv67.i6984 = trunc i64 %shr66.i6983 to i32
+  %conv67.i6984 = trunc nuw nsw i64 %shr66.i6983 to i32
   %mul68.i6985.neg = mul nsw i32 %conv67.i6984, -10000
   %sub69.i6986 = add nsw i32 %mul68.i6985.neg, %conv2.i2677
   %mul70.i6987 = mul nuw nsw i32 %conv67.i6984, 5243
@@ -44880,7 +44879,7 @@ write_u32_len_1_8.exit7080:                       ; preds = %if.else63.i6980, %i
   %conv.i8407 = and i64 %sub.i2675, 4294967295
   %mul.i8408 = mul nuw nsw i64 %conv.i8407, 109951163
   %shr.i8409 = lshr i64 %mul.i8408, 40
-  %conv1.i8410 = trunc i64 %shr.i8409 to i32
+  %conv1.i8410 = trunc nuw nsw i64 %shr.i8409 to i32
   %mul2.i8411.neg = mul i32 %conv1.i8410, -10000
   %sub.i8412 = add i32 %mul2.i8411.neg, %conv1.i2676
   %mul3.i8413 = mul nuw i32 %conv1.i8410, 5243
@@ -44964,7 +44963,7 @@ if.end68.i2442:                                   ; preds = %if.then57.i2512, %i
   %mul.i9.i9327 = mul nuw i128 %conv1.i8.i9326, %conv.i.i9319
   %add.i.i9329 = add nuw i128 %shr.i.i9322, %mul.i9.i9327
   %shr.i11.i9330 = lshr i128 %add.i.i9329, 64
-  %conv3.i12.i9331 = trunc i128 %shr.i11.i9330 to i64
+  %conv3.i12.i9331 = trunc nuw i128 %shr.i11.i9330 to i64
   %738 = and i128 %add.i.i9329, 18446744073709551614
   %cmp.i9333 = icmp ne i128 %738, 0
   %conv1.i9335 = zext i1 %cmp.i9333 to i64
@@ -44976,7 +44975,7 @@ if.end68.i2442:                                   ; preds = %if.then57.i2512, %i
   %mul.i9.i9291 = mul nuw i128 %conv1.i8.i9326, %conv.i.i9283
   %add.i.i9293 = add nuw i128 %shr.i.i9286, %mul.i9.i9291
   %shr.i11.i9294 = lshr i128 %add.i.i9293, 64
-  %conv3.i12.i9295 = trunc i128 %shr.i11.i9294 to i64
+  %conv3.i12.i9295 = trunc nuw i128 %shr.i11.i9294 to i64
   %739 = and i128 %add.i.i9293, 18446744073709551614
   %cmp.i9297 = icmp ne i128 %739, 0
   %conv1.i9299 = zext i1 %cmp.i9297 to i64
@@ -44988,7 +44987,7 @@ if.end68.i2442:                                   ; preds = %if.then57.i2512, %i
   %mul.i9.i9255 = mul nuw i128 %conv1.i8.i9326, %conv.i.i9247
   %add.i.i9257 = add nuw i128 %shr.i.i9250, %mul.i9.i9255
   %shr.i11.i9258 = lshr i128 %add.i.i9257, 64
-  %conv3.i12.i9259 = trunc i128 %shr.i11.i9258 to i64
+  %conv3.i12.i9259 = trunc nuw i128 %shr.i11.i9258 to i64
   %740 = and i128 %add.i.i9257, 18446744073709551614
   %cmp.i9261 = icmp ne i128 %740, 0
   %conv1.i9263 = zext i1 %cmp.i9261 to i64
@@ -45071,14 +45070,14 @@ if.then83.i2495:                                  ; preds = %if.then80.i2468
   %conv6.i = zext nneg i32 %div3.i to i64
   %mul7.i3519 = mul nuw nsw i64 %conv6.i, 167773
   %shr.i3520 = lshr i64 %mul7.i3519, 24
-  %conv8.i = trunc i64 %shr.i3520 to i32
+  %conv8.i = trunc nuw nsw i64 %shr.i3520 to i32
   %mul9.i = mul nuw nsw i32 %conv8.i, 41
   %shr10.i = lshr i32 %mul9.i, 12
   %mul11.i.neg = mul nsw i32 %shr10.i, -100
   %sub12.i = add nsw i32 %mul11.i.neg, %conv8.i
   %mul13.i.neg = mul nsw i32 %conv8.i, -100
   %sub14.i = add nsw i32 %mul13.i.neg, %div3.i
-  %747 = trunc i32 %shr10.i to i8
+  %747 = trunc nuw nsw i32 %shr10.i to i8
   %conv15.i3522 = add nuw nsw i8 %747, 48
   store i8 %conv15.i3522, ptr %add.ptr86.i2498, align 1
   %cmp.i3523 = icmp ugt i32 %conv8.i, 99
@@ -45113,7 +45112,7 @@ if.then.i3546:                                    ; preds = %if.then83.i2495
   %conv41.i = and i64 %sub.i3516, 4294967295
   %mul42.i = mul nuw nsw i64 %conv41.i, 109951163
   %shr43.i = lshr i64 %mul42.i, 40
-  %conv44.i = trunc i64 %shr43.i to i32
+  %conv44.i = trunc nuw nsw i64 %shr43.i to i32
   %mul45.i.neg = mul i32 %conv44.i, -10000
   %sub46.i = add i32 %mul45.i.neg, %conv2.i3517
   %mul47.i = mul nuw i32 %conv44.i, 5243
@@ -45273,14 +45272,14 @@ if.else95.i2470:                                  ; preds = %if.then80.i2468
   %conv6.i3618 = zext nneg i32 %div3.i3615 to i64
   %mul7.i3619 = mul nuw nsw i64 %conv6.i3618, 167773
   %shr.i3620 = lshr i64 %mul7.i3619, 24
-  %conv8.i3621 = trunc i64 %shr.i3620 to i32
+  %conv8.i3621 = trunc nuw nsw i64 %shr.i3620 to i32
   %mul9.i3622 = mul nuw nsw i32 %conv8.i3621, 41
   %shr10.i3623 = lshr i32 %mul9.i3622, 12
   %mul11.i3624.neg = mul nsw i32 %shr10.i3623, -100
   %sub12.i3625 = add nsw i32 %mul11.i3624.neg, %conv8.i3621
   %mul13.i3626.neg = mul nsw i32 %conv8.i3621, -100
   %sub14.i3627 = add nsw i32 %mul13.i3626.neg, %div3.i3615
-  %769 = trunc i32 %shr10.i3623 to i8
+  %769 = trunc nuw nsw i32 %shr10.i3623 to i8
   %conv15.i3629 = add nuw nsw i8 %769, 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr37.i2391, i8 48, i64 24, i1 false)
   store i8 %conv15.i3629, ptr %add.ptr99.i2473, align 1
@@ -45316,7 +45315,7 @@ if.then.i3700:                                    ; preds = %if.else95.i2470
   %conv41.i3705 = and i64 %sub.i3613, 4294967295
   %mul42.i3706 = mul nuw nsw i64 %conv41.i3705, 109951163
   %shr43.i3707 = lshr i64 %mul42.i3706, 40
-  %conv44.i3708 = trunc i64 %shr43.i3707 to i32
+  %conv44.i3708 = trunc nuw nsw i64 %shr43.i3707 to i32
   %mul45.i3709.neg = mul i32 %conv44.i3708, -10000
   %sub46.i3710 = add i32 %mul45.i3709.neg, %conv2.i3614
   %mul47.i3711 = mul nuw i32 %conv44.i3708, 5243
@@ -45485,14 +45484,14 @@ if.else120.i2451:                                 ; preds = %f64_bin_to_dec.exit
   %conv6.i3833 = zext nneg i32 %div3.i3830 to i64
   %mul7.i3834 = mul nuw nsw i64 %conv6.i3833, 167773
   %shr.i3835 = lshr i64 %mul7.i3834, 24
-  %conv8.i3836 = trunc i64 %shr.i3835 to i32
+  %conv8.i3836 = trunc nuw nsw i64 %shr.i3835 to i32
   %mul9.i3837 = mul nuw nsw i32 %conv8.i3836, 41
   %shr10.i3838 = lshr i32 %mul9.i3837, 12
   %mul11.i3839.neg = mul nsw i32 %shr10.i3838, -100
   %sub12.i3840 = add nsw i32 %mul11.i3839.neg, %conv8.i3836
   %mul13.i3841.neg = mul nsw i32 %conv8.i3836, -100
   %sub14.i3842 = add nsw i32 %mul13.i3841.neg, %div3.i3830
-  %791 = trunc i32 %shr10.i3838 to i8
+  %791 = trunc nuw nsw i32 %shr10.i3838 to i8
   %conv15.i3844 = add nuw nsw i8 %791, 48
   store i8 %conv15.i3844, ptr %add.ptr121.i2452.ptr, align 1
   %cmp.i3845 = icmp ugt i32 %conv8.i3836, 99
@@ -45528,7 +45527,7 @@ if.then.i3915:                                    ; preds = %if.else120.i2451
   %conv41.i3920 = and i64 %sub.i3828, 4294967295
   %mul42.i3921 = mul nuw nsw i64 %conv41.i3920, 109951163
   %shr43.i3922 = lshr i64 %mul42.i3921, 40
-  %conv44.i3923 = trunc i64 %shr43.i3922 to i32
+  %conv44.i3923 = trunc nuw nsw i64 %shr43.i3922 to i32
   %mul45.i3924.neg = mul i32 %conv44.i3923, -10000
   %sub46.i3925 = add i32 %mul45.i3924.neg, %conv2.i3829
   %mul47.i3926 = mul nuw i32 %conv44.i3923, 5243
@@ -45699,7 +45698,7 @@ if.else.i5300:                                    ; preds = %write_u64_len_15_to
   %shr.i5301 = lshr i32 %mul15.i, 16
   %mul16.i5302.neg = mul nsw i32 %shr.i5301, -100
   %sub17.i5303 = add nsw i32 %mul16.i5302.neg, %cond.i5298
-  %814 = trunc i32 %shr.i5301 to i8
+  %814 = trunc nuw nsw i32 %shr.i5301 to i8
   %conv20.i5307 = add nuw nsw i8 %814, 48
   store i8 %conv20.i5307, ptr %add.ptr.i5294, align 1
   %add.ptr22.i = getelementptr inbounds i8, ptr %add.ptr.i5294, i64 1
@@ -45721,7 +45720,7 @@ if.else136.i2399:                                 ; preds = %if.end42.i2394
   %mul.i9.i9219 = mul nuw i128 %conv.i.i9211, 11392378155556871081
   %add.i.i9221 = add nuw i128 %shr.i.i9214, %mul.i9.i9219
   %shr.i11.i9222 = lshr i128 %add.i.i9221, 64
-  %conv3.i12.i9223 = trunc i128 %shr.i11.i9222 to i64
+  %conv3.i12.i9223 = trunc nuw i128 %shr.i11.i9222 to i64
   %816 = and i128 %add.i.i9221, 18446744073709551614
   %cmp.i9225 = icmp ne i128 %816, 0
   %conv1.i9227 = zext i1 %cmp.i9225 to i64
@@ -45732,7 +45731,7 @@ if.else136.i2399:                                 ; preds = %if.end42.i2394
   %mul.i9.i9183 = mul nuw nsw i128 %conv.i.i9175, 11392378155556871081
   %add.i.i9185 = add nuw nsw i128 %shr.i.i9178, %mul.i9.i9183
   %shr.i11.i9186 = lshr i128 %add.i.i9185, 64
-  %conv3.i12.i9187 = trunc i128 %shr.i11.i9186 to i64
+  %conv3.i12.i9187 = trunc nuw nsw i128 %shr.i11.i9186 to i64
   %817 = and i128 %add.i.i9185, 18446744073709551614
   %cmp.i9189 = icmp ne i128 %817, 0
   %conv1.i9191 = zext i1 %cmp.i9189 to i64
@@ -45743,7 +45742,7 @@ if.else136.i2399:                                 ; preds = %if.end42.i2394
   %mul.i9.i9147 = mul nuw nsw i128 %conv.i.i9139, 11392378155556871081
   %add.i.i9149 = add nuw nsw i128 %shr.i.i9142, %mul.i9.i9147
   %shr.i11.i9150 = lshr i128 %add.i.i9149, 64
-  %conv3.i12.i9151 = trunc i128 %shr.i11.i9150 to i64
+  %conv3.i12.i9151 = trunc nuw nsw i128 %shr.i11.i9150 to i64
   %818 = and i128 %add.i.i9149, 18446744073709551614
   %cmp.i9153 = icmp ne i128 %818, 0
   %conv1.i9155 = zext i1 %cmp.i9153 to i64
@@ -45805,7 +45804,7 @@ if.then.i5423:                                    ; preds = %f64_bin_to_dec.exit
   %mul4.i5430.neg = mul nuw nsw i64 %div1.i, 4194967296
   %sub5.i5431 = add nuw nsw i64 %mul4.i5430.neg, %div.i5424
   %conv6.i5432 = trunc i64 %sub5.i5431 to i32
-  %conv7.i5433 = trunc i64 %div1.i to i8
+  %conv7.i5433 = trunc nuw nsw i64 %div1.i to i8
   %add.i5435 = add nuw nsw i8 %conv7.i5433, 48
   store i8 %add.i5435, ptr %add.ptr137.i2400, align 1
   %cmp10.i = icmp ugt i64 %add97.i2882, 9999999999999999
@@ -45814,7 +45813,7 @@ if.then.i5423:                                    ; preds = %f64_bin_to_dec.exit
   %conv.i8223 = and i64 %sub5.i5431, 4294967295
   %mul.i8224 = mul nuw nsw i64 %conv.i8223, 109951163
   %shr.i8225 = lshr i64 %mul.i8224, 40
-  %conv1.i8226 = trunc i64 %shr.i8225 to i32
+  %conv1.i8226 = trunc nuw nsw i64 %shr.i8225 to i32
   %mul2.i8227.neg = mul i32 %conv1.i8226, -10000
   %sub.i8228 = add i32 %mul2.i8227.neg, %conv6.i5432
   %mul3.i8229 = mul nuw i32 %conv1.i8226, 5243
@@ -45852,7 +45851,7 @@ if.then.i5423:                                    ; preds = %f64_bin_to_dec.exit
   %conv.i8177 = and i64 %sub.i5426, 4294967295
   %mul.i8178 = mul nuw nsw i64 %conv.i8177, 109951163
   %shr.i8179 = lshr i64 %mul.i8178, 40
-  %conv1.i8180 = trunc i64 %shr.i8179 to i32
+  %conv1.i8180 = trunc nuw nsw i64 %shr.i8179 to i32
   %mul2.i8181.neg = mul i32 %conv1.i8180, -10000
   %sub.i8182 = add i32 %mul2.i8181.neg, %conv.i5427
   %mul3.i8183 = mul nuw i32 %conv1.i8180, 5243
@@ -45898,7 +45897,7 @@ if.then15.i5418:                                  ; preds = %if.else.i5417
   %mul17.i.neg = mul nuw nsw i64 %div16.i, 4194967296
   %sub18.i = add nuw nsw i64 %mul17.i.neg, %add97.i2882
   %conv19.i5419 = trunc i64 %sub18.i to i32
-  %conv20.i5420 = trunc i64 %div16.i to i32
+  %conv20.i5420 = trunc nuw nsw i64 %div16.i to i32
   %cmp.i6016 = icmp ult i32 %conv20.i5420, 100
   br i1 %cmp.i6016, label %if.then.i6109, label %if.else.i6017
 
@@ -45950,7 +45949,7 @@ if.else29.i6019:                                  ; preds = %if.else.i6017
 if.then32.i6059:                                  ; preds = %if.else29.i6019
   %mul34.i6061 = mul nuw nsw i64 %div16.i, 429497
   %shr35.i6062 = lshr i64 %mul34.i6061, 32
-  %conv36.i6063 = trunc i64 %shr35.i6062 to i32
+  %conv36.i6063 = trunc nuw nsw i64 %shr35.i6062 to i32
   %mul37.i6064.neg = mul nsw i32 %conv36.i6063, -10000
   %sub38.i6065 = add nsw i32 %mul37.i6064.neg, %conv20.i5420
   %mul39.i6066 = mul i32 %sub38.i6065, 5243
@@ -45984,7 +45983,7 @@ if.then32.i6059:                                  ; preds = %if.else29.i6019
 if.else63.i6021:                                  ; preds = %if.else29.i6019
   %mul65.i6023 = mul nuw nsw i64 %div16.i, 109951163
   %shr66.i6024 = lshr i64 %mul65.i6023, 40
-  %conv67.i6025 = trunc i64 %shr66.i6024 to i32
+  %conv67.i6025 = trunc nuw nsw i64 %shr66.i6024 to i32
   %mul68.i6026.neg = mul nsw i32 %conv67.i6025, -10000
   %sub69.i6027 = add nsw i32 %mul68.i6026.neg, %conv20.i5420
   %mul70.i6028 = mul nuw nsw i32 %conv67.i6025, 5243
@@ -46026,7 +46025,7 @@ write_u32_len_1_8.exit6121:                       ; preds = %if.else63.i6021, %i
   %conv.i8269 = and i64 %sub18.i, 4294967295
   %mul.i8270 = mul nuw nsw i64 %conv.i8269, 109951163
   %shr.i8271 = lshr i64 %mul.i8270, 40
-  %conv1.i8272 = trunc i64 %shr.i8271 to i32
+  %conv1.i8272 = trunc nuw nsw i64 %shr.i8271 to i32
   %mul2.i8273.neg = mul i32 %conv1.i8272, -10000
   %sub.i8274 = add i32 %mul2.i8273.neg, %conv19.i5419
   %mul3.i8275 = mul nuw i32 %conv1.i8272, 5243
@@ -46064,7 +46063,7 @@ write_u32_len_1_8.exit6121:                       ; preds = %if.else63.i6021, %i
   br label %write_u64_len_1_to_17.exit
 
 if.else23.i:                                      ; preds = %if.else.i5417
-  %conv24.i = trunc i64 %add97.i2882 to i32
+  %conv24.i = trunc nuw nsw i64 %add97.i2882 to i32
   %cmp.i6153 = icmp ult i32 %conv24.i, 100
   br i1 %cmp.i6153, label %if.then.i6246, label %if.else.i6154
 
@@ -46116,7 +46115,7 @@ if.else29.i6156:                                  ; preds = %if.else.i6154
 if.then32.i6196:                                  ; preds = %if.else29.i6156
   %mul34.i6198 = mul nuw nsw i64 %add97.i2882, 429497
   %shr35.i6199 = lshr i64 %mul34.i6198, 32
-  %conv36.i6200 = trunc i64 %shr35.i6199 to i32
+  %conv36.i6200 = trunc nuw nsw i64 %shr35.i6199 to i32
   %mul37.i6201.neg = mul nsw i32 %conv36.i6200, -10000
   %sub38.i6202 = add nsw i32 %mul37.i6201.neg, %conv24.i
   %mul39.i6203 = mul i32 %sub38.i6202, 5243
@@ -46150,7 +46149,7 @@ if.then32.i6196:                                  ; preds = %if.else29.i6156
 if.else63.i6158:                                  ; preds = %if.else29.i6156
   %mul65.i6160 = mul nuw nsw i64 %add97.i2882, 109951163
   %shr66.i6161 = lshr i64 %mul65.i6160, 40
-  %conv67.i6162 = trunc i64 %shr66.i6161 to i32
+  %conv67.i6162 = trunc nuw nsw i64 %shr66.i6161 to i32
   %mul68.i6163.neg = mul nsw i32 %conv67.i6162, -10000
   %sub69.i6164 = add nsw i32 %mul68.i6163.neg, %conv24.i
   %mul70.i6165 = mul nuw nsw i32 %conv67.i6162, 5243
@@ -46251,7 +46250,7 @@ if.else.i1848:                                    ; preds = %if.end188.i
   br i1 %cmp.i2608, label %if.then.i2634, label %if.else.i2609
 
 if.then.i2634:                                    ; preds = %if.else.i1848
-  %conv.i2635 = trunc i64 %cond.i1857 to i32
+  %conv.i2635 = trunc nuw nsw i64 %cond.i1857 to i32
   %cmp.i7112 = icmp ult i32 %conv.i2635, 100
   br i1 %cmp.i7112, label %if.then.i7205, label %if.else.i7113
 
@@ -46303,7 +46302,7 @@ if.else29.i7115:                                  ; preds = %if.else.i7113
 if.then32.i7155:                                  ; preds = %if.else29.i7115
   %mul34.i7157 = mul nuw nsw i64 %cond.i1857, 429497
   %shr35.i7158 = lshr i64 %mul34.i7157, 32
-  %conv36.i7159 = trunc i64 %shr35.i7158 to i32
+  %conv36.i7159 = trunc nuw nsw i64 %shr35.i7158 to i32
   %mul37.i7160.neg = mul nsw i32 %conv36.i7159, -10000
   %sub38.i7161 = add nsw i32 %mul37.i7160.neg, %conv.i2635
   %mul39.i7162 = mul i32 %sub38.i7161, 5243
@@ -46337,7 +46336,7 @@ if.then32.i7155:                                  ; preds = %if.else29.i7115
 if.else63.i7117:                                  ; preds = %if.else29.i7115
   %mul65.i7119 = mul nuw nsw i64 %cond.i1857, 109951163
   %shr66.i7120 = lshr i64 %mul65.i7119, 40
-  %conv67.i7121 = trunc i64 %shr66.i7120 to i32
+  %conv67.i7121 = trunc nuw nsw i64 %shr66.i7120 to i32
   %mul68.i7122.neg = mul nsw i32 %conv67.i7121, -10000
   %sub69.i7123 = add nsw i32 %mul68.i7122.neg, %conv.i2635
   %mul70.i7124 = mul nuw nsw i32 %conv67.i7121, 5243
@@ -46388,7 +46387,7 @@ if.else.i2609:                                    ; preds = %if.else.i1848
   br i1 %cmp1.i2610, label %if.then3.i2626, label %if.else8.i2611
 
 if.then3.i2626:                                   ; preds = %if.else.i2609
-  %conv5.i2631 = trunc i64 %div.i2627 to i32
+  %conv5.i2631 = trunc nuw nsw i64 %div.i2627 to i32
   %cmp.i7249 = icmp ult i32 %conv5.i2631, 100
   br i1 %cmp.i7249, label %if.then.i7342, label %if.else.i7250
 
@@ -46440,7 +46439,7 @@ if.else29.i7252:                                  ; preds = %if.else.i7250
 if.then32.i7292:                                  ; preds = %if.else29.i7252
   %mul34.i7294 = mul nuw nsw i64 %div.i2627, 429497
   %shr35.i7295 = lshr i64 %mul34.i7294, 32
-  %conv36.i7296 = trunc i64 %shr35.i7295 to i32
+  %conv36.i7296 = trunc nuw nsw i64 %shr35.i7295 to i32
   %mul37.i7297.neg = mul nsw i32 %conv36.i7296, -10000
   %sub38.i7298 = add nsw i32 %mul37.i7297.neg, %conv5.i2631
   %mul39.i7299 = mul i32 %sub38.i7298, 5243
@@ -46474,7 +46473,7 @@ if.then32.i7292:                                  ; preds = %if.else29.i7252
 if.else63.i7254:                                  ; preds = %if.else29.i7252
   %mul65.i7256 = mul nuw nsw i64 %div.i2627, 109951163
   %shr66.i7257 = lshr i64 %mul65.i7256, 40
-  %conv67.i7258 = trunc i64 %shr66.i7257 to i32
+  %conv67.i7258 = trunc nuw nsw i64 %shr66.i7257 to i32
   %mul68.i7259.neg = mul nsw i32 %conv67.i7258, -10000
   %sub69.i7260 = add nsw i32 %mul68.i7259.neg, %conv5.i2631
   %mul70.i7261 = mul nuw nsw i32 %conv67.i7258, 5243
@@ -46521,7 +46520,7 @@ write_u32_len_1_8.exit7354:                       ; preds = %if.else63.i7254, %i
   %conv.i8453 = and i64 %sub.i2629, 4294967295
   %mul.i8454 = mul nuw nsw i64 %conv.i8453, 109951163
   %shr.i8455 = lshr i64 %mul.i8454, 40
-  %conv1.i8456 = trunc i64 %shr.i8455 to i32
+  %conv1.i8456 = trunc nuw nsw i64 %shr.i8455 to i32
   %mul2.i8457.neg = mul i32 %conv1.i8456, -10000
   %sub.i8458 = add i32 %mul2.i8457.neg, %conv4.i2630
   %mul3.i8459 = mul nuw i32 %conv1.i8456, 5243
@@ -46560,7 +46559,7 @@ write_u32_len_1_8.exit7354:                       ; preds = %if.else63.i7254, %i
 
 if.else8.i2611:                                   ; preds = %if.else.i2609
   %div13.i2616 = udiv i64 %cond.i1857, 1000000000000
-  %conv14.i2617 = trunc i64 %div13.i2616 to i32
+  %conv14.i2617 = trunc nuw nsw i64 %div13.i2616 to i32
   %mul16.i2619.neg = mul nuw nsw i64 %div13.i2616, 4294957296
   %sub17.i2620 = add nuw nsw i64 %mul16.i2619.neg, %div.i2627
   %conv18.i2621 = trunc i64 %sub17.i2620 to i32
@@ -46570,7 +46569,7 @@ if.else8.i2611:                                   ; preds = %if.else.i2609
 if.then.i9363:                                    ; preds = %if.else8.i2611
   %mul.i9365 = mul nuw nsw i64 %div13.i2616, 429497
   %shr.i9366 = lshr i64 %mul.i9365, 32
-  %conv1.i9367 = trunc i64 %shr.i9366 to i32
+  %conv1.i9367 = trunc nuw nsw i64 %shr.i9366 to i32
   %mul2.i9368.neg = mul nsw i32 %conv1.i9367, -10000
   %sub.i9369 = add nsw i32 %mul2.i9368.neg, %conv14.i2617
   %mul3.i9370 = mul i32 %sub.i9369, 5243
@@ -46604,7 +46603,7 @@ if.then.i9363:                                    ; preds = %if.else8.i2611
 if.else.i9351:                                    ; preds = %if.else8.i2611
   %mul25.i9353 = mul nuw nsw i64 %div13.i2616, 109951163
   %shr26.i = lshr i64 %mul25.i9353, 40
-  %conv27.i9354 = trunc i64 %shr26.i to i32
+  %conv27.i9354 = trunc nuw nsw i64 %shr26.i to i32
   %mul28.i.neg = mul nsw i32 %conv27.i9354, -10000
   %sub29.i = add nsw i32 %mul28.i.neg, %conv14.i2617
   %mul30.i = mul nuw nsw i32 %conv27.i9354, 5243
@@ -46667,7 +46666,7 @@ write_u64_len_5_8.exit:                           ; preds = %if.else.i9351, %if.
   %conv.i8499 = and i64 %sub.i2629, 4294967295
   %mul.i8500 = mul nuw nsw i64 %conv.i8499, 109951163
   %shr.i8501 = lshr i64 %mul.i8500, 40
-  %conv1.i8502 = trunc i64 %shr.i8501 to i32
+  %conv1.i8502 = trunc nuw nsw i64 %shr.i8501 to i32
   %mul2.i8503.neg = mul i32 %conv1.i8502, -10000
   %sub.i8504 = add i32 %mul2.i8503.neg, %conv4.i2630
   %mul3.i8505 = mul nuw i32 %conv1.i8502, 5243
@@ -48035,7 +48034,7 @@ sw.bb448.i.i:                                     ; preds = %if.end322.i.i
 
 if.end469.i.i:                                    ; preds = %sw.bb448.i.i
   %68 = lshr i16 %uni.i123.i.sroa.0.0.copyload, 8
-  %69 = trunc i16 %68 to i8
+  %69 = trunc nuw i16 %68 to i8
   %70 = trunc i16 %uni.i123.i.sroa.0.0.copyload to i8
   %shl.i.i = shl i8 %70, 6
   %71 = and i8 %69, 63
@@ -48218,7 +48217,7 @@ if.end81.i.i:                                     ; preds = %sw.bb74.i.i
 if.then.i90.i:                                    ; preds = %if.end81.i.i
   %and.i143.i = and i64 %100, 4503599627370495
   %and1.i.i = lshr i64 %100, 52
-  %101 = trunc i64 %and1.i.i to i32
+  %101 = trunc nuw nsw i64 %and1.i.i to i32
   %conv.i144.i = and i32 %101, 2047
   %cmp.i145.i = icmp eq i32 %conv.i144.i, 2047
   br i1 %cmp.i145.i, label %if.then.i175.i, label %if.end32.i.i
@@ -48280,7 +48279,7 @@ if.then51.i159.i:                                 ; preds = %if.end42.i.i
 
 if.then57.i174.i:                                 ; preds = %if.then51.i159.i
   %103 = tail call i64 @llvm.cttz.i64(i64 %or.i160.i, i1 true), !range !95
-  %cast.i.i = trunc i64 %103 to i32
+  %cast.i.i = trunc nuw nsw i64 %103 to i32
   %sub59.i.i = sub nuw nsw i32 1075, %conv.i144.i
   %cmp60.i.i.not = icmp ugt i32 %sub59.i.i, %cast.i.i
   br i1 %cmp60.i.i.not, label %if.end68.i.i, label %if.then62.i.i
@@ -48292,7 +48291,7 @@ if.then62.i.i:                                    ; preds = %if.then57.i174.i
   br i1 %cmp.i210.i, label %if.then.i216.i, label %if.else.i211.i
 
 if.then.i216.i:                                   ; preds = %if.then62.i.i
-  %conv.i217.i = trunc i64 %shr64.i.i to i32
+  %conv.i217.i = trunc nuw nsw i64 %shr64.i.i to i32
   %cmp.i1153.i = icmp ult i32 %conv.i217.i, 100
   br i1 %cmp.i1153.i, label %if.then.i1246.i, label %if.else.i1154.i
 
@@ -48344,7 +48343,7 @@ if.else29.i1156.i:                                ; preds = %if.else.i1154.i
 if.then32.i1196.i:                                ; preds = %if.else29.i1156.i
   %mul34.i1198.i = mul nuw nsw i64 %shr64.i.i, 429497
   %shr35.i1199.i = lshr i64 %mul34.i1198.i, 32
-  %conv36.i1200.i = trunc i64 %shr35.i1199.i to i32
+  %conv36.i1200.i = trunc nuw nsw i64 %shr35.i1199.i to i32
   %mul37.i1201.i.neg = mul nsw i32 %conv36.i1200.i, -10000
   %sub38.i1202.i = add nsw i32 %mul37.i1201.i.neg, %conv.i217.i
   %mul39.i1203.i = mul i32 %sub38.i1202.i, 5243
@@ -48378,7 +48377,7 @@ if.then32.i1196.i:                                ; preds = %if.else29.i1156.i
 if.else63.i1158.i:                                ; preds = %if.else29.i1156.i
   %mul65.i1160.i = mul nuw nsw i64 %shr64.i.i, 109951163
   %shr66.i1161.i = lshr i64 %mul65.i1160.i, 40
-  %conv67.i1162.i = trunc i64 %shr66.i1161.i to i32
+  %conv67.i1162.i = trunc nuw nsw i64 %shr66.i1161.i to i32
   %mul68.i1163.i.neg = mul nsw i32 %conv67.i1162.i, -10000
   %sub69.i1164.i = add nsw i32 %mul68.i1163.i.neg, %conv.i217.i
   %mul70.i1165.i = mul nuw nsw i32 %conv67.i1162.i, 5243
@@ -48425,7 +48424,7 @@ if.else.i211.i:                                   ; preds = %if.then62.i.i
   %mul.i213.i.neg = mul nuw nsw i64 %div.i212.i, 4194967296
   %sub.i214.i = add nuw nsw i64 %mul.i213.i.neg, %shr64.i.i
   %conv1.i.i = trunc i64 %sub.i214.i to i32
-  %conv2.i215.i = trunc i64 %div.i212.i to i32
+  %conv2.i215.i = trunc nuw nsw i64 %div.i212.i to i32
   %cmp.i1290.i = icmp ult i32 %conv2.i215.i, 100
   br i1 %cmp.i1290.i, label %if.then.i1383.i, label %if.else.i1291.i
 
@@ -48477,7 +48476,7 @@ if.else29.i1293.i:                                ; preds = %if.else.i1291.i
 if.then32.i1333.i:                                ; preds = %if.else29.i1293.i
   %mul34.i1335.i = mul nuw nsw i64 %div.i212.i, 429497
   %shr35.i1336.i = lshr i64 %mul34.i1335.i, 32
-  %conv36.i1337.i = trunc i64 %shr35.i1336.i to i32
+  %conv36.i1337.i = trunc nuw nsw i64 %shr35.i1336.i to i32
   %mul37.i1338.i.neg = mul nsw i32 %conv36.i1337.i, -10000
   %sub38.i1339.i = add nsw i32 %mul37.i1338.i.neg, %conv2.i215.i
   %mul39.i1340.i = mul i32 %sub38.i1339.i, 5243
@@ -48511,7 +48510,7 @@ if.then32.i1333.i:                                ; preds = %if.else29.i1293.i
 if.else63.i1295.i:                                ; preds = %if.else29.i1293.i
   %mul65.i1297.i = mul nuw nsw i64 %div.i212.i, 109951163
   %shr66.i1298.i = lshr i64 %mul65.i1297.i, 40
-  %conv67.i1299.i = trunc i64 %shr66.i1298.i to i32
+  %conv67.i1299.i = trunc nuw nsw i64 %shr66.i1298.i to i32
   %mul68.i1300.i.neg = mul nsw i32 %conv67.i1299.i, -10000
   %sub69.i1301.i = add nsw i32 %mul68.i1300.i.neg, %conv2.i215.i
   %mul70.i1302.i = mul nuw nsw i32 %conv67.i1299.i, 5243
@@ -48558,7 +48557,7 @@ write_u32_len_1_8.exit1395.i:                     ; preds = %if.else63.i1295.i, 
   %conv.i1806.i = and i64 %sub.i214.i, 4294967295
   %mul.i1807.i = mul nuw nsw i64 %conv.i1806.i, 109951163
   %shr.i1808.i = lshr i64 %mul.i1807.i, 40
-  %conv1.i1809.i = trunc i64 %shr.i1808.i to i32
+  %conv1.i1809.i = trunc nuw nsw i64 %shr.i1808.i to i32
   %mul2.i1810.i.neg = mul i32 %conv1.i1809.i, -10000
   %sub.i1811.i = add i32 %mul2.i1810.i.neg, %conv1.i.i
   %mul3.i1812.i = mul nuw i32 %conv1.i1809.i, 5243
@@ -48642,7 +48641,7 @@ if.end68.i.i:                                     ; preds = %if.then57.i174.i, %
   %mul.i9.i2110.i = mul nuw i128 %conv1.i8.i2109.i, %conv.i.i2102.i
   %add.i.i2112.i = add nuw i128 %shr.i.i2105.i, %mul.i9.i2110.i
   %shr.i11.i2113.i = lshr i128 %add.i.i2112.i, 64
-  %conv3.i12.i2114.i = trunc i128 %shr.i11.i2113.i to i64
+  %conv3.i12.i2114.i = trunc nuw i128 %shr.i11.i2113.i to i64
   %135 = and i128 %add.i.i2112.i, 18446744073709551614
   %cmp.i2116.i = icmp ne i128 %135, 0
   %conv1.i2118.i = zext i1 %cmp.i2116.i to i64
@@ -48654,7 +48653,7 @@ if.end68.i.i:                                     ; preds = %if.then57.i174.i, %
   %mul.i9.i2074.i = mul nuw i128 %conv1.i8.i2109.i, %conv.i.i2066.i
   %add.i.i2076.i = add nuw i128 %shr.i.i2069.i, %mul.i9.i2074.i
   %shr.i11.i2077.i = lshr i128 %add.i.i2076.i, 64
-  %conv3.i12.i2078.i = trunc i128 %shr.i11.i2077.i to i64
+  %conv3.i12.i2078.i = trunc nuw i128 %shr.i11.i2077.i to i64
   %136 = and i128 %add.i.i2076.i, 18446744073709551614
   %cmp.i2080.i = icmp ne i128 %136, 0
   %conv1.i2082.i = zext i1 %cmp.i2080.i to i64
@@ -48666,7 +48665,7 @@ if.end68.i.i:                                     ; preds = %if.then57.i174.i, %
   %mul.i9.i2038.i = mul nuw i128 %conv1.i8.i2109.i, %conv.i.i2030.i
   %add.i.i2040.i = add nuw i128 %shr.i.i2033.i, %mul.i9.i2038.i
   %shr.i11.i2041.i = lshr i128 %add.i.i2040.i, 64
-  %conv3.i12.i2042.i = trunc i128 %shr.i11.i2041.i to i64
+  %conv3.i12.i2042.i = trunc nuw i128 %shr.i11.i2041.i to i64
   %137 = and i128 %add.i.i2040.i, 18446744073709551614
   %cmp.i2044.i = icmp ne i128 %137, 0
   %conv1.i2046.i = zext i1 %cmp.i2044.i to i64
@@ -48739,14 +48738,14 @@ f64_bin_to_dec.exit.i:                            ; preds = %lor.end82.i.i, %if.
   %conv6.i.i = zext nneg i32 %div3.i.i to i64
   %mul7.i417.i = mul nuw nsw i64 %conv6.i.i, 167773
   %shr.i418.i = lshr i64 %mul7.i417.i, 24
-  %conv8.i.i = trunc i64 %shr.i418.i to i32
+  %conv8.i.i = trunc nuw nsw i64 %shr.i418.i to i32
   %mul9.i.i = mul nuw nsw i32 %conv8.i.i, 41
   %shr10.i.i = lshr i32 %mul9.i.i, 12
   %mul11.i.i.neg = mul nsw i32 %shr10.i.i, -100
   %sub12.i.i = add nsw i32 %mul11.i.i.neg, %conv8.i.i
   %mul13.i.i.neg = mul nsw i32 %conv8.i.i, -100
   %sub14.i.i = add nsw i32 %mul13.i.i.neg, %div3.i.i
-  %144 = trunc i32 %shr10.i.i to i8
+  %144 = trunc nuw nsw i32 %shr10.i.i to i8
   %conv15.i420.i = add nuw nsw i8 %144, 48
   br i1 %or.cond1, label %if.then80.i166.i, label %if.else120.i.i
 
@@ -48791,7 +48790,7 @@ if.then.i440.i:                                   ; preds = %if.then83.i.i
   %conv41.i.i = and i64 %sub.i414.i, 4294967295
   %mul42.i.i = mul nuw nsw i64 %conv41.i.i, 109951163
   %shr43.i.i = lshr i64 %mul42.i.i, 40
-  %conv44.i.i = trunc i64 %shr43.i.i to i32
+  %conv44.i.i = trunc nuw nsw i64 %shr43.i.i to i32
   %mul45.i.i.neg = mul i32 %conv44.i.i, -10000
   %sub46.i.i = add i32 %mul45.i.i.neg, %conv2.i415.i
   %mul47.i.i = mul nuw i32 %conv44.i.i, 5243
@@ -48974,7 +48973,7 @@ if.then.i588.i:                                   ; preds = %if.else95.i.i
   %conv41.i593.i = and i64 %sub.i414.i, 4294967295
   %mul42.i594.i = mul nuw nsw i64 %conv41.i593.i, 109951163
   %shr43.i595.i = lshr i64 %mul42.i594.i, 40
-  %conv44.i596.i = trunc i64 %shr43.i595.i to i32
+  %conv44.i596.i = trunc nuw nsw i64 %shr43.i595.i to i32
   %mul45.i597.i.neg = mul i32 %conv44.i596.i, -10000
   %sub46.i598.i = add i32 %mul45.i597.i.neg, %conv2.i415.i
   %mul47.i599.i = mul nuw i32 %conv44.i596.i, 5243
@@ -49166,7 +49165,7 @@ if.then.i803.i:                                   ; preds = %if.else120.i.i
   %conv41.i808.i = and i64 %sub.i414.i, 4294967295
   %mul42.i809.i = mul nuw nsw i64 %conv41.i808.i, 109951163
   %shr43.i810.i = lshr i64 %mul42.i809.i, 40
-  %conv44.i811.i = trunc i64 %shr43.i810.i to i32
+  %conv44.i811.i = trunc nuw nsw i64 %shr43.i810.i to i32
   %mul45.i812.i.neg = mul i32 %conv44.i811.i, -10000
   %sub46.i813.i = add i32 %mul45.i812.i.neg, %conv2.i415.i
   %mul47.i814.i = mul nuw i32 %conv44.i811.i, 5243
@@ -49337,7 +49336,7 @@ if.else.i898.i:                                   ; preds = %write_u64_len_15_to
   %shr.i899.i = lshr i32 %mul15.i.i, 16
   %mul16.i900.i.neg = mul nsw i32 %shr.i899.i, -100
   %sub17.i901.i = add nsw i32 %mul16.i900.i.neg, %cond.i896.i
-  %209 = trunc i32 %shr.i899.i to i8
+  %209 = trunc nuw nsw i32 %shr.i899.i to i8
   %conv20.i905.i = add nuw nsw i8 %209, 48
   store i8 %conv20.i905.i, ptr %add.ptr.i892.i, align 1
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr.i892.i, i64 1
@@ -49359,7 +49358,7 @@ if.else136.i.i:                                   ; preds = %if.end42.i.i
   %mul.i9.i2002.i = mul nuw i128 %conv.i.i1994.i, 11392378155556871081
   %add.i.i2004.i = add nuw i128 %shr.i.i1997.i, %mul.i9.i2002.i
   %shr.i11.i2005.i = lshr i128 %add.i.i2004.i, 64
-  %conv3.i12.i2006.i = trunc i128 %shr.i11.i2005.i to i64
+  %conv3.i12.i2006.i = trunc nuw i128 %shr.i11.i2005.i to i64
   %211 = and i128 %add.i.i2004.i, 18446744073709551614
   %cmp.i2008.i = icmp ne i128 %211, 0
   %conv1.i2010.i = zext i1 %cmp.i2008.i to i64
@@ -49370,7 +49369,7 @@ if.else136.i.i:                                   ; preds = %if.end42.i.i
   %mul.i9.i1966.i = mul nuw nsw i128 %conv.i.i1958.i, 11392378155556871081
   %add.i.i1968.i = add nuw nsw i128 %shr.i.i1961.i, %mul.i9.i1966.i
   %shr.i11.i1969.i = lshr i128 %add.i.i1968.i, 64
-  %conv3.i12.i1970.i = trunc i128 %shr.i11.i1969.i to i64
+  %conv3.i12.i1970.i = trunc nuw nsw i128 %shr.i11.i1969.i to i64
   %212 = and i128 %add.i.i1968.i, 18446744073709551614
   %cmp.i1972.i = icmp ne i128 %212, 0
   %conv1.i1974.i = zext i1 %cmp.i1972.i to i64
@@ -49381,7 +49380,7 @@ if.else136.i.i:                                   ; preds = %if.end42.i.i
   %mul.i9.i.i = mul nuw nsw i128 %conv.i.i1930.i, 11392378155556871081
   %add.i.i1935.i = add nuw nsw i128 %shr.i.i1932.i, %mul.i9.i.i
   %shr.i11.i.i = lshr i128 %add.i.i1935.i, 64
-  %conv3.i12.i.i = trunc i128 %shr.i11.i.i to i64
+  %conv3.i12.i.i = trunc nuw nsw i128 %shr.i11.i.i to i64
   %213 = and i128 %add.i.i1935.i, 18446744073709551614
   %cmp.i1936.i = icmp ne i128 %213, 0
   %conv1.i1938.i = zext i1 %cmp.i1936.i to i64
@@ -49443,7 +49442,7 @@ if.then.i925.i:                                   ; preds = %f64_bin_to_dec.exit
   %mul4.i932.i.neg = mul nuw nsw i64 %div1.i.i, 4194967296
   %sub5.i933.i = add nuw nsw i64 %mul4.i932.i.neg, %div.i926.i
   %conv6.i934.i = trunc i64 %sub5.i933.i to i32
-  %conv7.i935.i = trunc i64 %div1.i.i to i8
+  %conv7.i935.i = trunc nuw nsw i64 %div1.i.i to i8
   %add.i937.i = add nuw nsw i8 %conv7.i935.i, 48
   store i8 %add.i937.i, ptr %add.ptr137.i.i, align 1
   %cmp10.i.i = icmp ugt i64 %add97.i376.i, 9999999999999999
@@ -49452,7 +49451,7 @@ if.then.i925.i:                                   ; preds = %f64_bin_to_dec.exit
   %conv.i1714.i = and i64 %sub5.i933.i, 4294967295
   %mul.i1715.i = mul nuw nsw i64 %conv.i1714.i, 109951163
   %shr.i1716.i = lshr i64 %mul.i1715.i, 40
-  %conv1.i1717.i = trunc i64 %shr.i1716.i to i32
+  %conv1.i1717.i = trunc nuw nsw i64 %shr.i1716.i to i32
   %mul2.i1718.i.neg = mul i32 %conv1.i1717.i, -10000
   %sub.i1719.i = add i32 %mul2.i1718.i.neg, %conv6.i934.i
   %mul3.i1720.i = mul nuw i32 %conv1.i1717.i, 5243
@@ -49490,7 +49489,7 @@ if.then.i925.i:                                   ; preds = %f64_bin_to_dec.exit
   %conv.i1680.i = and i64 %sub.i928.i, 4294967295
   %mul.i1681.i = mul nuw nsw i64 %conv.i1680.i, 109951163
   %shr.i1682.i = lshr i64 %mul.i1681.i, 40
-  %conv1.i1683.i = trunc i64 %shr.i1682.i to i32
+  %conv1.i1683.i = trunc nuw nsw i64 %shr.i1682.i to i32
   %mul2.i.i.neg = mul i32 %conv1.i1683.i, -10000
   %sub.i1684.i = add i32 %mul2.i.i.neg, %conv.i929.i
   %mul3.i.i = mul nuw i32 %conv1.i1683.i, 5243
@@ -49536,7 +49535,7 @@ if.then15.i920.i:                                 ; preds = %if.else.i919.i
   %mul17.i.i.neg = mul nuw nsw i64 %div16.i.i, 4194967296
   %sub18.i.i = add nuw nsw i64 %mul17.i.i.neg, %add97.i376.i
   %conv19.i921.i = trunc i64 %sub18.i.i to i32
-  %conv20.i922.i = trunc i64 %div16.i.i to i32
+  %conv20.i922.i = trunc nuw nsw i64 %div16.i.i to i32
   %cmp.i951.i = icmp ult i32 %conv20.i922.i, 100
   br i1 %cmp.i951.i, label %if.then.i977.i, label %if.else.i952.i
 
@@ -49588,7 +49587,7 @@ if.else29.i953.i:                                 ; preds = %if.else.i952.i
 if.then32.i.i:                                    ; preds = %if.else29.i953.i
   %mul34.i.i = mul nuw nsw i64 %div16.i.i, 429497
   %shr35.i.i = lshr i64 %mul34.i.i, 32
-  %conv36.i.i = trunc i64 %shr35.i.i to i32
+  %conv36.i.i = trunc nuw nsw i64 %shr35.i.i to i32
   %mul37.i959.i.neg = mul nsw i32 %conv36.i.i, -10000
   %sub38.i.i = add nsw i32 %mul37.i959.i.neg, %conv20.i922.i
   %mul39.i960.i = mul i32 %sub38.i.i, 5243
@@ -49622,7 +49621,7 @@ if.then32.i.i:                                    ; preds = %if.else29.i953.i
 if.else63.i.i:                                    ; preds = %if.else29.i953.i
   %mul65.i954.i = mul nuw nsw i64 %div16.i.i, 109951163
   %shr66.i.i = lshr i64 %mul65.i954.i, 40
-  %conv67.i.i = trunc i64 %shr66.i.i to i32
+  %conv67.i.i = trunc nuw nsw i64 %shr66.i.i to i32
   %mul68.i.i.neg = mul nsw i32 %conv67.i.i, -10000
   %sub69.i.i = add nsw i32 %mul68.i.i.neg, %conv20.i922.i
   %mul70.i955.i = mul nuw nsw i32 %conv67.i.i, 5243
@@ -49665,7 +49664,7 @@ write_u32_len_1_8.exit.i:                         ; preds = %if.else63.i.i, %if.
   %conv.i1760.i = and i64 %sub18.i.i, 4294967295
   %mul.i1761.i = mul nuw nsw i64 %conv.i1760.i, 109951163
   %shr.i1762.i = lshr i64 %mul.i1761.i, 40
-  %conv1.i1763.i = trunc i64 %shr.i1762.i to i32
+  %conv1.i1763.i = trunc nuw nsw i64 %shr.i1762.i to i32
   %mul2.i1764.i.neg = mul i32 %conv1.i1763.i, -10000
   %sub.i1765.i = add i32 %mul2.i1764.i.neg, %conv19.i921.i
   %mul3.i1766.i = mul nuw i32 %conv1.i1763.i, 5243
@@ -49703,7 +49702,7 @@ write_u32_len_1_8.exit.i:                         ; preds = %if.else63.i.i, %if.
   br label %write_u64_len_1_to_17.exit.i
 
 if.else23.i.i:                                    ; preds = %if.else.i919.i
-  %conv24.i.i = trunc i64 %add97.i376.i to i32
+  %conv24.i.i = trunc nuw nsw i64 %add97.i376.i to i32
   %cmp.i1016.i = icmp ult i32 %conv24.i.i, 100
   br i1 %cmp.i1016.i, label %if.then.i1109.i, label %if.else.i1017.i
 
@@ -49755,7 +49754,7 @@ if.else29.i1019.i:                                ; preds = %if.else.i1017.i
 if.then32.i1059.i:                                ; preds = %if.else29.i1019.i
   %mul34.i1061.i = mul nuw nsw i64 %add97.i376.i, 429497
   %shr35.i1062.i = lshr i64 %mul34.i1061.i, 32
-  %conv36.i1063.i = trunc i64 %shr35.i1062.i to i32
+  %conv36.i1063.i = trunc nuw nsw i64 %shr35.i1062.i to i32
   %mul37.i1064.i.neg = mul nsw i32 %conv36.i1063.i, -10000
   %sub38.i1065.i = add nsw i32 %mul37.i1064.i.neg, %conv24.i.i
   %mul39.i1066.i = mul i32 %sub38.i1065.i, 5243
@@ -49789,7 +49788,7 @@ if.then32.i1059.i:                                ; preds = %if.else29.i1019.i
 if.else63.i1021.i:                                ; preds = %if.else29.i1019.i
   %mul65.i1023.i = mul nuw nsw i64 %add97.i376.i, 109951163
   %shr66.i1024.i = lshr i64 %mul65.i1023.i, 40
-  %conv67.i1025.i = trunc i64 %shr66.i1024.i to i32
+  %conv67.i1025.i = trunc nuw nsw i64 %shr66.i1024.i to i32
   %mul68.i1026.i.neg = mul nsw i32 %conv67.i1025.i, -10000
   %sub69.i1027.i = add nsw i32 %mul68.i1026.i.neg, %conv24.i.i
   %mul70.i1028.i = mul nuw nsw i32 %conv67.i1025.i, 5243
@@ -49890,7 +49889,7 @@ if.else.i83.i:                                    ; preds = %if.end81.i.i
   br i1 %cmp.i188.i, label %if.then.i195.i, label %if.else.i189.i
 
 if.then.i195.i:                                   ; preds = %if.else.i83.i
-  %conv.i196.i = trunc i64 %cond.i.i to i32
+  %conv.i196.i = trunc nuw nsw i64 %cond.i.i to i32
   %cmp.i1427.i = icmp ult i32 %conv.i196.i, 100
   br i1 %cmp.i1427.i, label %if.then.i1520.i, label %if.else.i1428.i
 
@@ -49942,7 +49941,7 @@ if.else29.i1430.i:                                ; preds = %if.else.i1428.i
 if.then32.i1470.i:                                ; preds = %if.else29.i1430.i
   %mul34.i1472.i = mul nuw nsw i64 %cond.i.i, 429497
   %shr35.i1473.i = lshr i64 %mul34.i1472.i, 32
-  %conv36.i1474.i = trunc i64 %shr35.i1473.i to i32
+  %conv36.i1474.i = trunc nuw nsw i64 %shr35.i1473.i to i32
   %mul37.i1475.i.neg = mul nsw i32 %conv36.i1474.i, -10000
   %sub38.i1476.i = add nsw i32 %mul37.i1475.i.neg, %conv.i196.i
   %mul39.i1477.i = mul i32 %sub38.i1476.i, 5243
@@ -49976,7 +49975,7 @@ if.then32.i1470.i:                                ; preds = %if.else29.i1430.i
 if.else63.i1432.i:                                ; preds = %if.else29.i1430.i
   %mul65.i1434.i = mul nuw nsw i64 %cond.i.i, 109951163
   %shr66.i1435.i = lshr i64 %mul65.i1434.i, 40
-  %conv67.i1436.i = trunc i64 %shr66.i1435.i to i32
+  %conv67.i1436.i = trunc nuw nsw i64 %shr66.i1435.i to i32
   %mul68.i1437.i.neg = mul nsw i32 %conv67.i1436.i, -10000
   %sub69.i1438.i = add nsw i32 %mul68.i1437.i.neg, %conv.i196.i
   %mul70.i1439.i = mul nuw nsw i32 %conv67.i1436.i, 5243
@@ -50027,7 +50026,7 @@ if.else.i189.i:                                   ; preds = %if.else.i83.i
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else8.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i189.i
-  %conv5.i194.i = trunc i64 %div.i191.i to i32
+  %conv5.i194.i = trunc nuw nsw i64 %div.i191.i to i32
   %cmp.i1564.i = icmp ult i32 %conv5.i194.i, 100
   br i1 %cmp.i1564.i, label %if.then.i1657.i, label %if.else.i1565.i
 
@@ -50079,7 +50078,7 @@ if.else29.i1567.i:                                ; preds = %if.else.i1565.i
 if.then32.i1607.i:                                ; preds = %if.else29.i1567.i
   %mul34.i1609.i = mul nuw nsw i64 %div.i191.i, 429497
   %shr35.i1610.i = lshr i64 %mul34.i1609.i, 32
-  %conv36.i1611.i = trunc i64 %shr35.i1610.i to i32
+  %conv36.i1611.i = trunc nuw nsw i64 %shr35.i1610.i to i32
   %mul37.i1612.i.neg = mul nsw i32 %conv36.i1611.i, -10000
   %sub38.i1613.i = add nsw i32 %mul37.i1612.i.neg, %conv5.i194.i
   %mul39.i1614.i = mul i32 %sub38.i1613.i, 5243
@@ -50113,7 +50112,7 @@ if.then32.i1607.i:                                ; preds = %if.else29.i1567.i
 if.else63.i1569.i:                                ; preds = %if.else29.i1567.i
   %mul65.i1571.i = mul nuw nsw i64 %div.i191.i, 109951163
   %shr66.i1572.i = lshr i64 %mul65.i1571.i, 40
-  %conv67.i1573.i = trunc i64 %shr66.i1572.i to i32
+  %conv67.i1573.i = trunc nuw nsw i64 %shr66.i1572.i to i32
   %mul68.i1574.i.neg = mul nsw i32 %conv67.i1573.i, -10000
   %sub69.i1575.i = add nsw i32 %mul68.i1574.i.neg, %conv5.i194.i
   %mul70.i1576.i = mul nuw nsw i32 %conv67.i1573.i, 5243
@@ -50160,7 +50159,7 @@ write_u32_len_1_8.exit1669.i:                     ; preds = %if.else63.i1569.i, 
   %conv.i1852.i = and i64 %sub.i193.i, 4294967295
   %mul.i1853.i = mul nuw nsw i64 %conv.i1852.i, 109951163
   %shr.i1854.i = lshr i64 %mul.i1853.i, 40
-  %conv1.i1855.i = trunc i64 %shr.i1854.i to i32
+  %conv1.i1855.i = trunc nuw nsw i64 %shr.i1854.i to i32
   %mul2.i1856.i.neg = mul i32 %conv1.i1855.i, -10000
   %sub.i1857.i = add i32 %mul2.i1856.i.neg, %conv4.i.i
   %mul3.i1858.i = mul nuw i32 %conv1.i1855.i, 5243
@@ -50199,7 +50198,7 @@ write_u32_len_1_8.exit1669.i:                     ; preds = %if.else63.i1569.i, 
 
 if.else8.i.i:                                     ; preds = %if.else.i189.i
   %div13.i.i = udiv i64 %cond.i.i, 1000000000000
-  %conv14.i.i = trunc i64 %div13.i.i to i32
+  %conv14.i.i = trunc nuw nsw i64 %div13.i.i to i32
   %mul16.i.i.neg = mul nuw nsw i64 %div13.i.i, 4294957296
   %sub17.i.i = add nuw nsw i64 %mul16.i.i.neg, %div.i191.i
   %conv18.i.i = trunc i64 %sub17.i.i to i32
@@ -50209,7 +50208,7 @@ if.else8.i.i:                                     ; preds = %if.else.i189.i
 if.then.i2145.i:                                  ; preds = %if.else8.i.i
   %mul.i2147.i = mul nuw nsw i64 %div13.i.i, 429497
   %shr.i2148.i = lshr i64 %mul.i2147.i, 32
-  %conv1.i2149.i = trunc i64 %shr.i2148.i to i32
+  %conv1.i2149.i = trunc nuw nsw i64 %shr.i2148.i to i32
   %mul2.i2150.i.neg = mul nsw i32 %conv1.i2149.i, -10000
   %sub.i2151.i = add nsw i32 %mul2.i2150.i.neg, %conv14.i.i
   %mul3.i2152.i = mul i32 %sub.i2151.i, 5243
@@ -50243,7 +50242,7 @@ if.then.i2145.i:                                  ; preds = %if.else8.i.i
 if.else.i2134.i:                                  ; preds = %if.else8.i.i
   %mul25.i2136.i = mul nuw nsw i64 %div13.i.i, 109951163
   %shr26.i.i = lshr i64 %mul25.i2136.i, 40
-  %conv27.i.i = trunc i64 %shr26.i.i to i32
+  %conv27.i.i = trunc nuw nsw i64 %shr26.i.i to i32
   %mul28.i.i.neg = mul nsw i32 %conv27.i.i, -10000
   %sub29.i.i = add nsw i32 %mul28.i.i.neg, %conv14.i.i
   %mul30.i.i = mul nuw nsw i32 %conv27.i.i, 5243
@@ -50306,7 +50305,7 @@ write_u64_len_5_8.exit.i:                         ; preds = %if.else.i2134.i, %i
   %conv.i1898.i = and i64 %sub.i193.i, 4294967295
   %mul.i1899.i = mul nuw nsw i64 %conv.i1898.i, 109951163
   %shr.i1900.i = lshr i64 %mul.i1899.i, 40
-  %conv1.i1901.i = trunc i64 %shr.i1900.i to i32
+  %conv1.i1901.i = trunc nuw nsw i64 %shr.i1900.i to i32
   %mul2.i1902.i.neg = mul i32 %conv1.i1901.i, -10000
   %sub.i1903.i = add i32 %mul2.i1902.i.neg, %conv4.i.i
   %mul3.i1904.i = mul nuw i32 %conv1.i1901.i, 5243
@@ -51225,7 +51224,7 @@ sw.bb448.i.i1033:                                 ; preds = %if.end322.i.i900
 
 if.end469.i.i1042:                                ; preds = %sw.bb448.i.i1033
   %368 = lshr i16 %uni.i1223.i.sroa.0.0.copyload, 8
-  %369 = trunc i16 %368 to i8
+  %369 = trunc nuw i16 %368 to i8
   %370 = trunc i16 %uni.i1223.i.sroa.0.0.copyload to i8
   %shl.i.i1047 = shl i8 %370, 6
   %371 = and i8 %369, 63
@@ -51479,7 +51478,7 @@ write_indent.exit3340.i:                          ; preds = %while.body.i3338.i,
 if.then.i1197.i:                                  ; preds = %write_indent.exit3340.i
   %and.i1242.i = and i64 %400, 4503599627370495
   %and1.i.i403 = lshr i64 %400, 52
-  %401 = trunc i64 %and1.i.i403 to i32
+  %401 = trunc nuw nsw i64 %and1.i.i403 to i32
   %conv.i1243.i = and i32 %401, 2047
   %cmp.i1244.i = icmp eq i32 %conv.i1243.i, 2047
   br i1 %cmp.i1244.i, label %if.then.i1271.i, label %if.end32.i.i405
@@ -51537,7 +51536,7 @@ if.then51.i1258.i:                                ; preds = %if.end42.i.i411
 
 if.then57.i.i831:                                 ; preds = %if.then51.i1258.i
   %403 = tail call i64 @llvm.cttz.i64(i64 %or.i1259.i, i1 true), !range !95
-  %cast.i.i832 = trunc i64 %403 to i32
+  %cast.i.i832 = trunc nuw nsw i64 %403 to i32
   %sub59.i.i833 = sub nuw nsw i32 1075, %conv.i1243.i
   %cmp60.i.i834.not = icmp ugt i32 %sub59.i.i833, %cast.i.i832
   br i1 %cmp60.i.i834.not, label %if.end68.i.i551, label %if.then62.i.i836
@@ -51549,7 +51548,7 @@ if.then62.i.i836:                                 ; preds = %if.then57.i.i831
   br i1 %cmp.i1303.i, label %if.then.i1309.i, label %if.else.i1304.i
 
 if.then.i1309.i:                                  ; preds = %if.then62.i.i836
-  %conv.i1310.i = trunc i64 %shr64.i.i839 to i32
+  %conv.i1310.i = trunc nuw nsw i64 %shr64.i.i839 to i32
   %cmp.i2244.i = icmp ult i32 %conv.i1310.i, 100
   br i1 %cmp.i2244.i, label %if.then.i2337.i, label %if.else.i2245.i
 
@@ -51601,7 +51600,7 @@ if.else29.i2247.i:                                ; preds = %if.else.i2245.i
 if.then32.i2287.i:                                ; preds = %if.else29.i2247.i
   %mul34.i2289.i = mul nuw nsw i64 %shr64.i.i839, 429497
   %shr35.i2290.i = lshr i64 %mul34.i2289.i, 32
-  %conv36.i2291.i = trunc i64 %shr35.i2290.i to i32
+  %conv36.i2291.i = trunc nuw nsw i64 %shr35.i2290.i to i32
   %mul37.i2292.i.neg = mul nsw i32 %conv36.i2291.i, -10000
   %sub38.i2293.i = add nsw i32 %mul37.i2292.i.neg, %conv.i1310.i
   %mul39.i2294.i = mul i32 %sub38.i2293.i, 5243
@@ -51635,7 +51634,7 @@ if.then32.i2287.i:                                ; preds = %if.else29.i2247.i
 if.else63.i2249.i:                                ; preds = %if.else29.i2247.i
   %mul65.i2251.i = mul nuw nsw i64 %shr64.i.i839, 109951163
   %shr66.i2252.i = lshr i64 %mul65.i2251.i, 40
-  %conv67.i2253.i = trunc i64 %shr66.i2252.i to i32
+  %conv67.i2253.i = trunc nuw nsw i64 %shr66.i2252.i to i32
   %mul68.i2254.i.neg = mul nsw i32 %conv67.i2253.i, -10000
   %sub69.i2255.i = add nsw i32 %mul68.i2254.i.neg, %conv.i1310.i
   %mul70.i2256.i = mul nuw nsw i32 %conv67.i2253.i, 5243
@@ -51682,7 +51681,7 @@ if.else.i1304.i:                                  ; preds = %if.then62.i.i836
   %mul.i1306.i.neg = mul nuw nsw i64 %div.i1305.i, 4194967296
   %sub.i1307.i = add nuw nsw i64 %mul.i1306.i.neg, %shr64.i.i839
   %conv1.i.i840 = trunc i64 %sub.i1307.i to i32
-  %conv2.i1308.i = trunc i64 %div.i1305.i to i32
+  %conv2.i1308.i = trunc nuw nsw i64 %div.i1305.i to i32
   %cmp.i2381.i = icmp ult i32 %conv2.i1308.i, 100
   br i1 %cmp.i2381.i, label %if.then.i2474.i, label %if.else.i2382.i
 
@@ -51734,7 +51733,7 @@ if.else29.i2384.i:                                ; preds = %if.else.i2382.i
 if.then32.i2424.i:                                ; preds = %if.else29.i2384.i
   %mul34.i2426.i = mul nuw nsw i64 %div.i1305.i, 429497
   %shr35.i2427.i = lshr i64 %mul34.i2426.i, 32
-  %conv36.i2428.i = trunc i64 %shr35.i2427.i to i32
+  %conv36.i2428.i = trunc nuw nsw i64 %shr35.i2427.i to i32
   %mul37.i2429.i.neg = mul nsw i32 %conv36.i2428.i, -10000
   %sub38.i2430.i = add nsw i32 %mul37.i2429.i.neg, %conv2.i1308.i
   %mul39.i2431.i = mul i32 %sub38.i2430.i, 5243
@@ -51768,7 +51767,7 @@ if.then32.i2424.i:                                ; preds = %if.else29.i2384.i
 if.else63.i2386.i:                                ; preds = %if.else29.i2384.i
   %mul65.i2388.i = mul nuw nsw i64 %div.i1305.i, 109951163
   %shr66.i2389.i = lshr i64 %mul65.i2388.i, 40
-  %conv67.i2390.i = trunc i64 %shr66.i2389.i to i32
+  %conv67.i2390.i = trunc nuw nsw i64 %shr66.i2389.i to i32
   %mul68.i2391.i.neg = mul nsw i32 %conv67.i2390.i, -10000
   %sub69.i2392.i = add nsw i32 %mul68.i2391.i.neg, %conv2.i1308.i
   %mul70.i2393.i = mul nuw nsw i32 %conv67.i2390.i, 5243
@@ -51815,7 +51814,7 @@ write_u32_len_1_8.exit2486.i:                     ; preds = %if.else63.i2386.i, 
   %conv.i2897.i = and i64 %sub.i1307.i, 4294967295
   %mul.i2898.i = mul nuw nsw i64 %conv.i2897.i, 109951163
   %shr.i2899.i = lshr i64 %mul.i2898.i, 40
-  %conv1.i2900.i = trunc i64 %shr.i2899.i to i32
+  %conv1.i2900.i = trunc nuw nsw i64 %shr.i2899.i to i32
   %mul2.i2901.i.neg = mul i32 %conv1.i2900.i, -10000
   %sub.i2902.i = add i32 %mul2.i2901.i.neg, %conv1.i.i840
   %mul3.i2903.i = mul nuw i32 %conv1.i2900.i, 5243
@@ -51899,7 +51898,7 @@ if.end68.i.i551:                                  ; preds = %if.then57.i.i831, %
   %mul.i9.i3200.i = mul nuw i128 %conv1.i8.i3199.i, %conv.i.i3192.i
   %add.i.i3202.i = add nuw i128 %shr.i.i3195.i, %mul.i9.i3200.i
   %shr.i11.i3203.i = lshr i128 %add.i.i3202.i, 64
-  %conv3.i12.i3204.i = trunc i128 %shr.i11.i3203.i to i64
+  %conv3.i12.i3204.i = trunc nuw i128 %shr.i11.i3203.i to i64
   %435 = and i128 %add.i.i3202.i, 18446744073709551614
   %cmp.i3206.i = icmp ne i128 %435, 0
   %conv1.i3208.i = zext i1 %cmp.i3206.i to i64
@@ -51911,7 +51910,7 @@ if.end68.i.i551:                                  ; preds = %if.then57.i.i831, %
   %mul.i9.i3164.i = mul nuw i128 %conv1.i8.i3199.i, %conv.i.i3156.i
   %add.i.i3166.i = add nuw i128 %shr.i.i3159.i, %mul.i9.i3164.i
   %shr.i11.i3167.i = lshr i128 %add.i.i3166.i, 64
-  %conv3.i12.i3168.i = trunc i128 %shr.i11.i3167.i to i64
+  %conv3.i12.i3168.i = trunc nuw i128 %shr.i11.i3167.i to i64
   %436 = and i128 %add.i.i3166.i, 18446744073709551614
   %cmp.i3170.i = icmp ne i128 %436, 0
   %conv1.i3172.i = zext i1 %cmp.i3170.i to i64
@@ -51923,7 +51922,7 @@ if.end68.i.i551:                                  ; preds = %if.then57.i.i831, %
   %mul.i9.i3128.i = mul nuw i128 %conv1.i8.i3199.i, %conv.i.i3120.i
   %add.i.i3130.i = add nuw i128 %shr.i.i3123.i, %mul.i9.i3128.i
   %shr.i11.i3131.i = lshr i128 %add.i.i3130.i, 64
-  %conv3.i12.i3132.i = trunc i128 %shr.i11.i3131.i to i64
+  %conv3.i12.i3132.i = trunc nuw i128 %shr.i11.i3131.i to i64
   %437 = and i128 %add.i.i3130.i, 18446744073709551614
   %cmp.i3134.i = icmp ne i128 %437, 0
   %conv1.i3136.i = zext i1 %cmp.i3134.i to i64
@@ -52006,14 +52005,14 @@ if.then83.i.i669:                                 ; preds = %if.then80.i.i647
   %conv6.i.i674 = zext nneg i32 %div3.i.i673 to i64
   %mul7.i1509.i = mul nuw nsw i64 %conv6.i.i674, 167773
   %shr.i1510.i = lshr i64 %mul7.i1509.i, 24
-  %conv8.i.i675 = trunc i64 %shr.i1510.i to i32
+  %conv8.i.i675 = trunc nuw nsw i64 %shr.i1510.i to i32
   %mul9.i.i676 = mul nuw nsw i32 %conv8.i.i675, 41
   %shr10.i.i677 = lshr i32 %mul9.i.i676, 12
   %mul11.i.i678.neg = mul nsw i32 %shr10.i.i677, -100
   %sub12.i.i679 = add nsw i32 %mul11.i.i678.neg, %conv8.i.i675
   %mul13.i.i680.neg = mul nsw i32 %conv8.i.i675, -100
   %sub14.i.i681 = add nsw i32 %mul13.i.i680.neg, %div3.i.i673
-  %444 = trunc i32 %shr10.i.i677 to i8
+  %444 = trunc nuw nsw i32 %shr10.i.i677 to i8
   %conv15.i1512.i = add nuw nsw i8 %444, 48
   store i8 %conv15.i1512.i, ptr %add.ptr86.i.i672, align 1
   %cmp.i1513.i = icmp ugt i32 %conv8.i.i675, 99
@@ -52048,7 +52047,7 @@ if.then.i1531.i:                                  ; preds = %if.then83.i.i669
   %conv41.i.i747 = and i64 %sub.i1505.i, 4294967295
   %mul42.i.i748 = mul nuw nsw i64 %conv41.i.i747, 109951163
   %shr43.i.i749 = lshr i64 %mul42.i.i748, 40
-  %conv44.i.i750 = trunc i64 %shr43.i.i749 to i32
+  %conv44.i.i750 = trunc nuw nsw i64 %shr43.i.i749 to i32
   %mul45.i.i751.neg = mul i32 %conv44.i.i750, -10000
   %sub46.i.i752 = add i32 %mul45.i.i751.neg, %conv2.i1506.i
   %mul47.i.i753 = mul nuw i32 %conv44.i.i750, 5243
@@ -52208,14 +52207,14 @@ if.else95.i.i649:                                 ; preds = %if.then80.i.i647
   %conv6.i1597.i = zext nneg i32 %div3.i1594.i to i64
   %mul7.i1598.i = mul nuw nsw i64 %conv6.i1597.i, 167773
   %shr.i1599.i = lshr i64 %mul7.i1598.i, 24
-  %conv8.i1600.i = trunc i64 %shr.i1599.i to i32
+  %conv8.i1600.i = trunc nuw nsw i64 %shr.i1599.i to i32
   %mul9.i1601.i = mul nuw nsw i32 %conv8.i1600.i, 41
   %shr10.i1602.i = lshr i32 %mul9.i1601.i, 12
   %mul11.i1603.i.neg = mul nsw i32 %shr10.i1602.i, -100
   %sub12.i1604.i = add nsw i32 %mul11.i1603.i.neg, %conv8.i1600.i
   %mul13.i1605.i.neg = mul nsw i32 %conv8.i1600.i, -100
   %sub14.i1606.i = add nsw i32 %mul13.i1605.i.neg, %div3.i1594.i
-  %466 = trunc i32 %shr10.i1602.i to i8
+  %466 = trunc nuw nsw i32 %shr10.i1602.i to i8
   %conv15.i1608.i = add nuw nsw i8 %466, 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr37.i.i409, i8 48, i64 24, i1 false)
   store i8 %conv15.i1608.i, ptr %add.ptr99.i.i652, align 1
@@ -52251,7 +52250,7 @@ if.then.i1679.i:                                  ; preds = %if.else95.i.i649
   %conv41.i1684.i = and i64 %sub.i1592.i, 4294967295
   %mul42.i1685.i = mul nuw nsw i64 %conv41.i1684.i, 109951163
   %shr43.i1686.i = lshr i64 %mul42.i1685.i, 40
-  %conv44.i1687.i = trunc i64 %shr43.i1686.i to i32
+  %conv44.i1687.i = trunc nuw nsw i64 %shr43.i1686.i to i32
   %mul45.i1688.i.neg = mul i32 %conv44.i1687.i, -10000
   %sub46.i1689.i = add i32 %mul45.i1688.i.neg, %conv2.i1593.i
   %mul47.i1690.i = mul nuw i32 %conv44.i1687.i, 5243
@@ -52420,14 +52419,14 @@ if.else120.i.i618:                                ; preds = %f64_bin_to_dec.exit
   %conv6.i1812.i = zext nneg i32 %div3.i1809.i to i64
   %mul7.i1813.i = mul nuw nsw i64 %conv6.i1812.i, 167773
   %shr.i1814.i = lshr i64 %mul7.i1813.i, 24
-  %conv8.i1815.i = trunc i64 %shr.i1814.i to i32
+  %conv8.i1815.i = trunc nuw nsw i64 %shr.i1814.i to i32
   %mul9.i1816.i = mul nuw nsw i32 %conv8.i1815.i, 41
   %shr10.i1817.i = lshr i32 %mul9.i1816.i, 12
   %mul11.i1818.i.neg = mul nsw i32 %shr10.i1817.i, -100
   %sub12.i1819.i = add nsw i32 %mul11.i1818.i.neg, %conv8.i1815.i
   %mul13.i1820.i.neg = mul nsw i32 %conv8.i1815.i, -100
   %sub14.i1821.i = add nsw i32 %mul13.i1820.i.neg, %div3.i1809.i
-  %488 = trunc i32 %shr10.i1817.i to i8
+  %488 = trunc nuw nsw i32 %shr10.i1817.i to i8
   %conv15.i1823.i = add nuw nsw i8 %488, 48
   store i8 %conv15.i1823.i, ptr %add.ptr121.i.i619.ptr, align 1
   %cmp.i1824.i = icmp ugt i32 %conv8.i1815.i, 99
@@ -52463,7 +52462,7 @@ if.then.i1894.i:                                  ; preds = %if.else120.i.i618
   %conv41.i1899.i = and i64 %sub.i1807.i, 4294967295
   %mul42.i1900.i = mul nuw nsw i64 %conv41.i1899.i, 109951163
   %shr43.i1901.i = lshr i64 %mul42.i1900.i, 40
-  %conv44.i1902.i = trunc i64 %shr43.i1901.i to i32
+  %conv44.i1902.i = trunc nuw nsw i64 %shr43.i1901.i to i32
   %mul45.i1903.i.neg = mul i32 %conv44.i1902.i, -10000
   %sub46.i1904.i = add i32 %mul45.i1903.i.neg, %conv2.i1808.i
   %mul47.i1905.i = mul nuw i32 %conv44.i1902.i, 5243
@@ -52634,7 +52633,7 @@ if.else.i1989.i:                                  ; preds = %write_u64_len_15_to
   %shr.i1990.i = lshr i32 %mul15.i.i630, 16
   %mul16.i1991.i.neg = mul nsw i32 %shr.i1990.i, -100
   %sub17.i1992.i = add nsw i32 %mul16.i1991.i.neg, %cond.i1987.i
-  %511 = trunc i32 %shr.i1990.i to i8
+  %511 = trunc nuw nsw i32 %shr.i1990.i to i8
   %conv20.i1996.i = add nuw nsw i8 %511, 48
   store i8 %conv20.i1996.i, ptr %add.ptr.i1983.i, align 1
   %add.ptr22.i.i631 = getelementptr inbounds i8, ptr %add.ptr.i1983.i, i64 1
@@ -52656,7 +52655,7 @@ if.else136.i.i413:                                ; preds = %if.end42.i.i411
   %mul.i9.i3092.i = mul nuw i128 %conv.i.i3084.i, 11392378155556871081
   %add.i.i3094.i = add nuw i128 %shr.i.i3087.i, %mul.i9.i3092.i
   %shr.i11.i3095.i = lshr i128 %add.i.i3094.i, 64
-  %conv3.i12.i3096.i = trunc i128 %shr.i11.i3095.i to i64
+  %conv3.i12.i3096.i = trunc nuw i128 %shr.i11.i3095.i to i64
   %513 = and i128 %add.i.i3094.i, 18446744073709551614
   %cmp.i3098.i = icmp ne i128 %513, 0
   %conv1.i3100.i = zext i1 %cmp.i3098.i to i64
@@ -52667,7 +52666,7 @@ if.else136.i.i413:                                ; preds = %if.end42.i.i411
   %mul.i9.i3056.i = mul nuw nsw i128 %conv.i.i3048.i, 11392378155556871081
   %add.i.i3058.i = add nuw nsw i128 %shr.i.i3051.i, %mul.i9.i3056.i
   %shr.i11.i3059.i = lshr i128 %add.i.i3058.i, 64
-  %conv3.i12.i3060.i = trunc i128 %shr.i11.i3059.i to i64
+  %conv3.i12.i3060.i = trunc nuw nsw i128 %shr.i11.i3059.i to i64
   %514 = and i128 %add.i.i3058.i, 18446744073709551614
   %cmp.i3062.i = icmp ne i128 %514, 0
   %conv1.i3064.i = zext i1 %cmp.i3062.i to i64
@@ -52678,7 +52677,7 @@ if.else136.i.i413:                                ; preds = %if.end42.i.i411
   %mul.i9.i.i419 = mul nuw nsw i128 %conv.i.i3021.i, 11392378155556871081
   %add.i.i3025.i = add nuw nsw i128 %shr.i.i.i416, %mul.i9.i.i419
   %shr.i11.i.i421 = lshr i128 %add.i.i3025.i, 64
-  %conv3.i12.i.i422 = trunc i128 %shr.i11.i.i421 to i64
+  %conv3.i12.i.i422 = trunc nuw nsw i128 %shr.i11.i.i421 to i64
   %515 = and i128 %add.i.i3025.i, 18446744073709551614
   %cmp.i3026.i = icmp ne i128 %515, 0
   %conv1.i3028.i = zext i1 %cmp.i3026.i to i64
@@ -52740,7 +52739,7 @@ if.then.i2016.i:                                  ; preds = %f64_bin_to_dec.exit
   %mul4.i2023.i.neg = mul nuw nsw i64 %div1.i.i534, 4194967296
   %sub5.i2024.i = add nuw nsw i64 %mul4.i2023.i.neg, %div.i2017.i
   %conv6.i2025.i = trunc i64 %sub5.i2024.i to i32
-  %conv7.i2026.i = trunc i64 %div1.i.i534 to i8
+  %conv7.i2026.i = trunc nuw nsw i64 %div1.i.i534 to i8
   %add.i2028.i = add nuw nsw i8 %conv7.i2026.i, 48
   store i8 %add.i2028.i, ptr %add.ptr137.i.i424, align 1
   %cmp10.i.i536 = icmp ugt i64 %add97.i1467.i, 9999999999999999
@@ -52749,7 +52748,7 @@ if.then.i2016.i:                                  ; preds = %f64_bin_to_dec.exit
   %conv.i2805.i = and i64 %sub5.i2024.i, 4294967295
   %mul.i2806.i = mul nuw nsw i64 %conv.i2805.i, 109951163
   %shr.i2807.i = lshr i64 %mul.i2806.i, 40
-  %conv1.i2808.i = trunc i64 %shr.i2807.i to i32
+  %conv1.i2808.i = trunc nuw nsw i64 %shr.i2807.i to i32
   %mul2.i2809.i.neg = mul i32 %conv1.i2808.i, -10000
   %sub.i2810.i = add i32 %mul2.i2809.i.neg, %conv6.i2025.i
   %mul3.i2811.i = mul nuw i32 %conv1.i2808.i, 5243
@@ -52787,7 +52786,7 @@ if.then.i2016.i:                                  ; preds = %f64_bin_to_dec.exit
   %conv.i2771.i = and i64 %sub.i2019.i, 4294967295
   %mul.i2772.i = mul nuw nsw i64 %conv.i2771.i, 109951163
   %shr.i2773.i = lshr i64 %mul.i2772.i, 40
-  %conv1.i2774.i = trunc i64 %shr.i2773.i to i32
+  %conv1.i2774.i = trunc nuw nsw i64 %shr.i2773.i to i32
   %mul2.i.i537.neg = mul i32 %conv1.i2774.i, -10000
   %sub.i2775.i = add i32 %mul2.i.i537.neg, %conv.i2020.i
   %mul3.i.i538 = mul nuw i32 %conv1.i2774.i, 5243
@@ -52833,7 +52832,7 @@ if.then15.i2011.i:                                ; preds = %if.else.i2010.i
   %mul17.i.i460.neg = mul nuw nsw i64 %div16.i.i459, 4194967296
   %sub18.i.i461 = add nuw nsw i64 %mul17.i.i460.neg, %add97.i1467.i
   %conv19.i2012.i = trunc i64 %sub18.i.i461 to i32
-  %conv20.i2013.i = trunc i64 %div16.i.i459 to i32
+  %conv20.i2013.i = trunc nuw nsw i64 %div16.i.i459 to i32
   %cmp.i2042.i = icmp ult i32 %conv20.i2013.i, 100
   br i1 %cmp.i2042.i, label %if.then.i2068.i, label %if.else.i2043.i
 
@@ -52885,7 +52884,7 @@ if.else29.i2044.i:                                ; preds = %if.else.i2043.i
 if.then32.i.i498:                                 ; preds = %if.else29.i2044.i
   %mul34.i.i500 = mul nuw nsw i64 %div16.i.i459, 429497
   %shr35.i.i501 = lshr i64 %mul34.i.i500, 32
-  %conv36.i.i502 = trunc i64 %shr35.i.i501 to i32
+  %conv36.i.i502 = trunc nuw nsw i64 %shr35.i.i501 to i32
   %mul37.i2050.i.neg = mul nsw i32 %conv36.i.i502, -10000
   %sub38.i.i503 = add nsw i32 %mul37.i2050.i.neg, %conv20.i2013.i
   %mul39.i2051.i = mul i32 %sub38.i.i503, 5243
@@ -52919,7 +52918,7 @@ if.then32.i.i498:                                 ; preds = %if.else29.i2044.i
 if.else63.i.i464:                                 ; preds = %if.else29.i2044.i
   %mul65.i2045.i = mul nuw nsw i64 %div16.i.i459, 109951163
   %shr66.i.i466 = lshr i64 %mul65.i2045.i, 40
-  %conv67.i.i467 = trunc i64 %shr66.i.i466 to i32
+  %conv67.i.i467 = trunc nuw nsw i64 %shr66.i.i466 to i32
   %mul68.i.i468.neg = mul nsw i32 %conv67.i.i467, -10000
   %sub69.i.i469 = add nsw i32 %mul68.i.i468.neg, %conv20.i2013.i
   %mul70.i2046.i = mul nuw nsw i32 %conv67.i.i467, 5243
@@ -52961,7 +52960,7 @@ write_u32_len_1_8.exit.i497:                      ; preds = %if.else63.i.i464, %
   %conv.i2851.i = and i64 %sub18.i.i461, 4294967295
   %mul.i2852.i = mul nuw nsw i64 %conv.i2851.i, 109951163
   %shr.i2853.i = lshr i64 %mul.i2852.i, 40
-  %conv1.i2854.i = trunc i64 %shr.i2853.i to i32
+  %conv1.i2854.i = trunc nuw nsw i64 %shr.i2853.i to i32
   %mul2.i2855.i.neg = mul i32 %conv1.i2854.i, -10000
   %sub.i2856.i = add i32 %mul2.i2855.i.neg, %conv19.i2012.i
   %mul3.i2857.i = mul nuw i32 %conv1.i2854.i, 5243
@@ -52999,7 +52998,7 @@ write_u32_len_1_8.exit.i497:                      ; preds = %if.else63.i.i464, %
   br label %write_u64_len_1_to_17.exit.i428
 
 if.else23.i.i426:                                 ; preds = %if.else.i2010.i
-  %conv24.i.i427 = trunc i64 %add97.i1467.i to i32
+  %conv24.i.i427 = trunc nuw nsw i64 %add97.i1467.i to i32
   %cmp.i2107.i = icmp ult i32 %conv24.i.i427, 100
   br i1 %cmp.i2107.i, label %if.then.i2200.i, label %if.else.i2108.i
 
@@ -53051,7 +53050,7 @@ if.else29.i2110.i:                                ; preds = %if.else.i2108.i
 if.then32.i2150.i:                                ; preds = %if.else29.i2110.i
   %mul34.i2152.i = mul nuw nsw i64 %add97.i1467.i, 429497
   %shr35.i2153.i = lshr i64 %mul34.i2152.i, 32
-  %conv36.i2154.i = trunc i64 %shr35.i2153.i to i32
+  %conv36.i2154.i = trunc nuw nsw i64 %shr35.i2153.i to i32
   %mul37.i2155.i.neg = mul nsw i32 %conv36.i2154.i, -10000
   %sub38.i2156.i = add nsw i32 %mul37.i2155.i.neg, %conv24.i.i427
   %mul39.i2157.i = mul i32 %sub38.i2156.i, 5243
@@ -53085,7 +53084,7 @@ if.then32.i2150.i:                                ; preds = %if.else29.i2110.i
 if.else63.i2112.i:                                ; preds = %if.else29.i2110.i
   %mul65.i2114.i = mul nuw nsw i64 %add97.i1467.i, 109951163
   %shr66.i2115.i = lshr i64 %mul65.i2114.i, 40
-  %conv67.i2116.i = trunc i64 %shr66.i2115.i to i32
+  %conv67.i2116.i = trunc nuw nsw i64 %shr66.i2115.i to i32
   %mul68.i2117.i.neg = mul nsw i32 %conv67.i2116.i, -10000
   %sub69.i2118.i = add nsw i32 %mul68.i2117.i.neg, %conv24.i.i427
   %mul70.i2119.i = mul nuw nsw i32 %conv67.i2116.i, 5243
@@ -53186,7 +53185,7 @@ if.else.i1189.i:                                  ; preds = %write_indent.exit33
   br i1 %cmp.i1281.i, label %if.then.i1288.i, label %if.else.i1282.i
 
 if.then.i1288.i:                                  ; preds = %if.else.i1189.i
-  %conv.i1289.i = trunc i64 %cond.i.i347 to i32
+  %conv.i1289.i = trunc nuw nsw i64 %cond.i.i347 to i32
   %cmp.i2518.i = icmp ult i32 %conv.i1289.i, 100
   br i1 %cmp.i2518.i, label %if.then.i2611.i, label %if.else.i2519.i
 
@@ -53238,7 +53237,7 @@ if.else29.i2521.i:                                ; preds = %if.else.i2519.i
 if.then32.i2561.i:                                ; preds = %if.else29.i2521.i
   %mul34.i2563.i = mul nuw nsw i64 %cond.i.i347, 429497
   %shr35.i2564.i = lshr i64 %mul34.i2563.i, 32
-  %conv36.i2565.i = trunc i64 %shr35.i2564.i to i32
+  %conv36.i2565.i = trunc nuw nsw i64 %shr35.i2564.i to i32
   %mul37.i2566.i.neg = mul nsw i32 %conv36.i2565.i, -10000
   %sub38.i2567.i = add nsw i32 %mul37.i2566.i.neg, %conv.i1289.i
   %mul39.i2568.i = mul i32 %sub38.i2567.i, 5243
@@ -53272,7 +53271,7 @@ if.then32.i2561.i:                                ; preds = %if.else29.i2521.i
 if.else63.i2523.i:                                ; preds = %if.else29.i2521.i
   %mul65.i2525.i = mul nuw nsw i64 %cond.i.i347, 109951163
   %shr66.i2526.i = lshr i64 %mul65.i2525.i, 40
-  %conv67.i2527.i = trunc i64 %shr66.i2526.i to i32
+  %conv67.i2527.i = trunc nuw nsw i64 %shr66.i2526.i to i32
   %mul68.i2528.i.neg = mul nsw i32 %conv67.i2527.i, -10000
   %sub69.i2529.i = add nsw i32 %mul68.i2528.i.neg, %conv.i1289.i
   %mul70.i2530.i = mul nuw nsw i32 %conv67.i2527.i, 5243
@@ -53323,7 +53322,7 @@ if.else.i1282.i:                                  ; preds = %if.else.i1189.i
   br i1 %cmp1.i.i348, label %if.then3.i.i400, label %if.else8.i.i349
 
 if.then3.i.i400:                                  ; preds = %if.else.i1282.i
-  %conv5.i1287.i = trunc i64 %div.i1284.i to i32
+  %conv5.i1287.i = trunc nuw nsw i64 %div.i1284.i to i32
   %cmp.i2655.i = icmp ult i32 %conv5.i1287.i, 100
   br i1 %cmp.i2655.i, label %if.then.i2748.i, label %if.else.i2656.i
 
@@ -53375,7 +53374,7 @@ if.else29.i2658.i:                                ; preds = %if.else.i2656.i
 if.then32.i2698.i:                                ; preds = %if.else29.i2658.i
   %mul34.i2700.i = mul nuw nsw i64 %div.i1284.i, 429497
   %shr35.i2701.i = lshr i64 %mul34.i2700.i, 32
-  %conv36.i2702.i = trunc i64 %shr35.i2701.i to i32
+  %conv36.i2702.i = trunc nuw nsw i64 %shr35.i2701.i to i32
   %mul37.i2703.i.neg = mul nsw i32 %conv36.i2702.i, -10000
   %sub38.i2704.i = add nsw i32 %mul37.i2703.i.neg, %conv5.i1287.i
   %mul39.i2705.i = mul i32 %sub38.i2704.i, 5243
@@ -53409,7 +53408,7 @@ if.then32.i2698.i:                                ; preds = %if.else29.i2658.i
 if.else63.i2660.i:                                ; preds = %if.else29.i2658.i
   %mul65.i2662.i = mul nuw nsw i64 %div.i1284.i, 109951163
   %shr66.i2663.i = lshr i64 %mul65.i2662.i, 40
-  %conv67.i2664.i = trunc i64 %shr66.i2663.i to i32
+  %conv67.i2664.i = trunc nuw nsw i64 %shr66.i2663.i to i32
   %mul68.i2665.i.neg = mul nsw i32 %conv67.i2664.i, -10000
   %sub69.i2666.i = add nsw i32 %mul68.i2665.i.neg, %conv5.i1287.i
   %mul70.i2667.i = mul nuw nsw i32 %conv67.i2664.i, 5243
@@ -53456,7 +53455,7 @@ write_u32_len_1_8.exit2760.i:                     ; preds = %if.else63.i2660.i, 
   %conv.i2943.i = and i64 %sub.i1286.i, 4294967295
   %mul.i2944.i = mul nuw nsw i64 %conv.i2943.i, 109951163
   %shr.i2945.i = lshr i64 %mul.i2944.i, 40
-  %conv1.i2946.i = trunc i64 %shr.i2945.i to i32
+  %conv1.i2946.i = trunc nuw nsw i64 %shr.i2945.i to i32
   %mul2.i2947.i.neg = mul i32 %conv1.i2946.i, -10000
   %sub.i2948.i = add i32 %mul2.i2947.i.neg, %conv4.i.i401
   %mul3.i2949.i = mul nuw i32 %conv1.i2946.i, 5243
@@ -53495,7 +53494,7 @@ write_u32_len_1_8.exit2760.i:                     ; preds = %if.else63.i2660.i, 
 
 if.else8.i.i349:                                  ; preds = %if.else.i1282.i
   %div13.i.i354 = udiv i64 %cond.i.i347, 1000000000000
-  %conv14.i.i355 = trunc i64 %div13.i.i354 to i32
+  %conv14.i.i355 = trunc nuw nsw i64 %div13.i.i354 to i32
   %mul16.i.i357.neg = mul nuw nsw i64 %div13.i.i354, 4294957296
   %sub17.i.i358 = add nuw nsw i64 %mul16.i.i357.neg, %div.i1284.i
   %conv18.i.i359 = trunc i64 %sub17.i.i358 to i32
@@ -53505,7 +53504,7 @@ if.else8.i.i349:                                  ; preds = %if.else.i1282.i
 if.then.i3235.i:                                  ; preds = %if.else8.i.i349
   %mul.i3237.i = mul nuw nsw i64 %div13.i.i354, 429497
   %shr.i3238.i = lshr i64 %mul.i3237.i, 32
-  %conv1.i3239.i = trunc i64 %shr.i3238.i to i32
+  %conv1.i3239.i = trunc nuw nsw i64 %shr.i3238.i to i32
   %mul2.i3240.i.neg = mul nsw i32 %conv1.i3239.i, -10000
   %sub.i3241.i = add nsw i32 %mul2.i3240.i.neg, %conv14.i.i355
   %mul3.i3242.i = mul i32 %sub.i3241.i, 5243
@@ -53539,7 +53538,7 @@ if.then.i3235.i:                                  ; preds = %if.else8.i.i349
 if.else.i3224.i:                                  ; preds = %if.else8.i.i349
   %mul25.i3226.i = mul nuw nsw i64 %div13.i.i354, 109951163
   %shr26.i.i360 = lshr i64 %mul25.i3226.i, 40
-  %conv27.i.i361 = trunc i64 %shr26.i.i360 to i32
+  %conv27.i.i361 = trunc nuw nsw i64 %shr26.i.i360 to i32
   %mul28.i.i362.neg = mul nsw i32 %conv27.i.i361, -10000
   %sub29.i.i363 = add nsw i32 %mul28.i.i362.neg, %conv14.i.i355
   %mul30.i.i364 = mul nuw nsw i32 %conv27.i.i361, 5243
@@ -53602,7 +53601,7 @@ write_u64_len_5_8.exit.i387:                      ; preds = %if.else.i3224.i, %i
   %conv.i2989.i = and i64 %sub.i1286.i, 4294967295
   %mul.i2990.i = mul nuw nsw i64 %conv.i2989.i, 109951163
   %shr.i2991.i = lshr i64 %mul.i2990.i, 40
-  %conv1.i2992.i = trunc i64 %shr.i2991.i to i32
+  %conv1.i2992.i = trunc nuw nsw i64 %shr.i2991.i to i32
   %mul2.i2993.i.neg = mul i32 %conv1.i2992.i, -10000
   %sub.i2994.i = add i32 %mul2.i2993.i.neg, %conv4.i.i401
   %mul3.i2995.i = mul nuw i32 %conv1.i2992.i, 5243
@@ -54935,7 +54934,7 @@ sw.bb448.i.i2512:                                 ; preds = %if.end322.i.i2379
 
 if.end469.i.i2521:                                ; preds = %sw.bb448.i.i2512
   %677 = lshr i16 %uni.i919.i.sroa.0.0.copyload, 8
-  %678 = trunc i16 %677 to i8
+  %678 = trunc nuw i16 %677 to i8
   %679 = trunc i16 %uni.i919.i.sroa.0.0.copyload to i8
   %shl.i.i2526 = shl i8 %679, 6
   %680 = and i8 %678, 63
@@ -55169,7 +55168,7 @@ if.end194.i:                                      ; preds = %if.end179.i, %if.th
 if.then.i893.i:                                   ; preds = %if.end194.i
   %and.i938.i = and i64 %709, 4503599627370495
   %and1.i.i1873 = lshr i64 %709, 52
-  %710 = trunc i64 %and1.i.i1873 to i32
+  %710 = trunc nuw nsw i64 %and1.i.i1873 to i32
   %conv.i939.i = and i32 %710, 2047
   %cmp.i940.i = icmp eq i32 %conv.i939.i, 2047
   br i1 %cmp.i940.i, label %if.then.i967.i, label %if.end32.i.i1875
@@ -55227,7 +55226,7 @@ if.then51.i954.i:                                 ; preds = %if.end42.i.i1881
 
 if.then57.i.i2305:                                ; preds = %if.then51.i954.i
   %712 = tail call i64 @llvm.cttz.i64(i64 %or.i955.i, i1 true), !range !95
-  %cast.i.i2306 = trunc i64 %712 to i32
+  %cast.i.i2306 = trunc nuw nsw i64 %712 to i32
   %sub59.i.i2307 = sub nuw nsw i32 1075, %conv.i939.i
   %cmp60.i.i2308.not = icmp ugt i32 %sub59.i.i2307, %cast.i.i2306
   br i1 %cmp60.i.i2308.not, label %if.end68.i.i2022, label %if.then62.i.i2310
@@ -55239,7 +55238,7 @@ if.then62.i.i2310:                                ; preds = %if.then57.i.i2305
   br i1 %cmp.i999.i, label %if.then.i1005.i, label %if.else.i1000.i
 
 if.then.i1005.i:                                  ; preds = %if.then62.i.i2310
-  %conv.i1006.i = trunc i64 %shr64.i.i2313 to i32
+  %conv.i1006.i = trunc nuw nsw i64 %shr64.i.i2313 to i32
   %cmp.i1940.i = icmp ult i32 %conv.i1006.i, 100
   br i1 %cmp.i1940.i, label %if.then.i2033.i, label %if.else.i1941.i
 
@@ -55291,7 +55290,7 @@ if.else29.i1943.i:                                ; preds = %if.else.i1941.i
 if.then32.i1983.i:                                ; preds = %if.else29.i1943.i
   %mul34.i1985.i = mul nuw nsw i64 %shr64.i.i2313, 429497
   %shr35.i1986.i = lshr i64 %mul34.i1985.i, 32
-  %conv36.i1987.i = trunc i64 %shr35.i1986.i to i32
+  %conv36.i1987.i = trunc nuw nsw i64 %shr35.i1986.i to i32
   %mul37.i1988.i.neg = mul nsw i32 %conv36.i1987.i, -10000
   %sub38.i1989.i = add nsw i32 %mul37.i1988.i.neg, %conv.i1006.i
   %mul39.i1990.i = mul i32 %sub38.i1989.i, 5243
@@ -55325,7 +55324,7 @@ if.then32.i1983.i:                                ; preds = %if.else29.i1943.i
 if.else63.i1945.i:                                ; preds = %if.else29.i1943.i
   %mul65.i1947.i = mul nuw nsw i64 %shr64.i.i2313, 109951163
   %shr66.i1948.i = lshr i64 %mul65.i1947.i, 40
-  %conv67.i1949.i = trunc i64 %shr66.i1948.i to i32
+  %conv67.i1949.i = trunc nuw nsw i64 %shr66.i1948.i to i32
   %mul68.i1950.i.neg = mul nsw i32 %conv67.i1949.i, -10000
   %sub69.i1951.i = add nsw i32 %mul68.i1950.i.neg, %conv.i1006.i
   %mul70.i1952.i = mul nuw nsw i32 %conv67.i1949.i, 5243
@@ -55372,7 +55371,7 @@ if.else.i1000.i:                                  ; preds = %if.then62.i.i2310
   %mul.i1002.i.neg = mul nuw nsw i64 %div.i1001.i, 4194967296
   %sub.i1003.i = add nuw nsw i64 %mul.i1002.i.neg, %shr64.i.i2313
   %conv1.i.i2314 = trunc i64 %sub.i1003.i to i32
-  %conv2.i1004.i = trunc i64 %div.i1001.i to i32
+  %conv2.i1004.i = trunc nuw nsw i64 %div.i1001.i to i32
   %cmp.i2077.i = icmp ult i32 %conv2.i1004.i, 100
   br i1 %cmp.i2077.i, label %if.then.i2170.i, label %if.else.i2078.i
 
@@ -55424,7 +55423,7 @@ if.else29.i2080.i:                                ; preds = %if.else.i2078.i
 if.then32.i2120.i:                                ; preds = %if.else29.i2080.i
   %mul34.i2122.i = mul nuw nsw i64 %div.i1001.i, 429497
   %shr35.i2123.i = lshr i64 %mul34.i2122.i, 32
-  %conv36.i2124.i = trunc i64 %shr35.i2123.i to i32
+  %conv36.i2124.i = trunc nuw nsw i64 %shr35.i2123.i to i32
   %mul37.i2125.i.neg = mul nsw i32 %conv36.i2124.i, -10000
   %sub38.i2126.i = add nsw i32 %mul37.i2125.i.neg, %conv2.i1004.i
   %mul39.i2127.i = mul i32 %sub38.i2126.i, 5243
@@ -55458,7 +55457,7 @@ if.then32.i2120.i:                                ; preds = %if.else29.i2080.i
 if.else63.i2082.i:                                ; preds = %if.else29.i2080.i
   %mul65.i2084.i = mul nuw nsw i64 %div.i1001.i, 109951163
   %shr66.i2085.i = lshr i64 %mul65.i2084.i, 40
-  %conv67.i2086.i = trunc i64 %shr66.i2085.i to i32
+  %conv67.i2086.i = trunc nuw nsw i64 %shr66.i2085.i to i32
   %mul68.i2087.i.neg = mul nsw i32 %conv67.i2086.i, -10000
   %sub69.i2088.i = add nsw i32 %mul68.i2087.i.neg, %conv2.i1004.i
   %mul70.i2089.i = mul nuw nsw i32 %conv67.i2086.i, 5243
@@ -55505,7 +55504,7 @@ write_u32_len_1_8.exit2182.i:                     ; preds = %if.else63.i2082.i, 
   %conv.i2593.i = and i64 %sub.i1003.i, 4294967295
   %mul.i2594.i = mul nuw nsw i64 %conv.i2593.i, 109951163
   %shr.i2595.i = lshr i64 %mul.i2594.i, 40
-  %conv1.i2596.i = trunc i64 %shr.i2595.i to i32
+  %conv1.i2596.i = trunc nuw nsw i64 %shr.i2595.i to i32
   %mul2.i2597.i.neg = mul i32 %conv1.i2596.i, -10000
   %sub.i2598.i = add i32 %mul2.i2597.i.neg, %conv1.i.i2314
   %mul3.i2599.i = mul nuw i32 %conv1.i2596.i, 5243
@@ -55589,7 +55588,7 @@ if.end68.i.i2022:                                 ; preds = %if.then57.i.i2305, 
   %mul.i9.i2896.i = mul nuw i128 %conv1.i8.i2895.i, %conv.i.i2888.i
   %add.i.i2898.i = add nuw i128 %shr.i.i2891.i, %mul.i9.i2896.i
   %shr.i11.i2899.i = lshr i128 %add.i.i2898.i, 64
-  %conv3.i12.i2900.i = trunc i128 %shr.i11.i2899.i to i64
+  %conv3.i12.i2900.i = trunc nuw i128 %shr.i11.i2899.i to i64
   %744 = and i128 %add.i.i2898.i, 18446744073709551614
   %cmp.i2902.i = icmp ne i128 %744, 0
   %conv1.i2904.i = zext i1 %cmp.i2902.i to i64
@@ -55601,7 +55600,7 @@ if.end68.i.i2022:                                 ; preds = %if.then57.i.i2305, 
   %mul.i9.i2860.i = mul nuw i128 %conv1.i8.i2895.i, %conv.i.i2852.i
   %add.i.i2862.i = add nuw i128 %shr.i.i2855.i, %mul.i9.i2860.i
   %shr.i11.i2863.i = lshr i128 %add.i.i2862.i, 64
-  %conv3.i12.i2864.i = trunc i128 %shr.i11.i2863.i to i64
+  %conv3.i12.i2864.i = trunc nuw i128 %shr.i11.i2863.i to i64
   %745 = and i128 %add.i.i2862.i, 18446744073709551614
   %cmp.i2866.i = icmp ne i128 %745, 0
   %conv1.i2868.i = zext i1 %cmp.i2866.i to i64
@@ -55613,7 +55612,7 @@ if.end68.i.i2022:                                 ; preds = %if.then57.i.i2305, 
   %mul.i9.i2824.i = mul nuw i128 %conv1.i8.i2895.i, %conv.i.i2816.i
   %add.i.i2826.i = add nuw i128 %shr.i.i2819.i, %mul.i9.i2824.i
   %shr.i11.i2827.i = lshr i128 %add.i.i2826.i, 64
-  %conv3.i12.i2828.i = trunc i128 %shr.i11.i2827.i to i64
+  %conv3.i12.i2828.i = trunc nuw i128 %shr.i11.i2827.i to i64
   %746 = and i128 %add.i.i2826.i, 18446744073709551614
   %cmp.i2830.i = icmp ne i128 %746, 0
   %conv1.i2832.i = zext i1 %cmp.i2830.i to i64
@@ -55696,14 +55695,14 @@ if.then83.i.i2143:                                ; preds = %if.then80.i.i2120
   %conv6.i.i2148 = zext nneg i32 %div3.i.i2147 to i64
   %mul7.i1205.i = mul nuw nsw i64 %conv6.i.i2148, 167773
   %shr.i1206.i = lshr i64 %mul7.i1205.i, 24
-  %conv8.i.i2149 = trunc i64 %shr.i1206.i to i32
+  %conv8.i.i2149 = trunc nuw nsw i64 %shr.i1206.i to i32
   %mul9.i.i2150 = mul nuw nsw i32 %conv8.i.i2149, 41
   %shr10.i.i2151 = lshr i32 %mul9.i.i2150, 12
   %mul11.i.i2152.neg = mul nsw i32 %shr10.i.i2151, -100
   %sub12.i.i2153 = add nsw i32 %mul11.i.i2152.neg, %conv8.i.i2149
   %mul13.i.i2154.neg = mul nsw i32 %conv8.i.i2149, -100
   %sub14.i.i2155 = add nsw i32 %mul13.i.i2154.neg, %div3.i.i2147
-  %753 = trunc i32 %shr10.i.i2151 to i8
+  %753 = trunc nuw nsw i32 %shr10.i.i2151 to i8
   %conv15.i1208.i = add nuw nsw i8 %753, 48
   store i8 %conv15.i1208.i, ptr %add.ptr86.i.i2146, align 1
   %cmp.i1209.i = icmp ugt i32 %conv8.i.i2149, 99
@@ -55738,7 +55737,7 @@ if.then.i1227.i:                                  ; preds = %if.then83.i.i2143
   %conv41.i.i2221 = and i64 %sub.i1201.i, 4294967295
   %mul42.i.i2222 = mul nuw nsw i64 %conv41.i.i2221, 109951163
   %shr43.i.i2223 = lshr i64 %mul42.i.i2222, 40
-  %conv44.i.i2224 = trunc i64 %shr43.i.i2223 to i32
+  %conv44.i.i2224 = trunc nuw nsw i64 %shr43.i.i2223 to i32
   %mul45.i.i2225.neg = mul i32 %conv44.i.i2224, -10000
   %sub46.i.i2226 = add i32 %mul45.i.i2225.neg, %conv2.i1202.i
   %mul47.i.i2227 = mul nuw i32 %conv44.i.i2224, 5243
@@ -55898,14 +55897,14 @@ if.else95.i.i2122:                                ; preds = %if.then80.i.i2120
   %conv6.i1293.i = zext nneg i32 %div3.i1290.i to i64
   %mul7.i1294.i = mul nuw nsw i64 %conv6.i1293.i, 167773
   %shr.i1295.i = lshr i64 %mul7.i1294.i, 24
-  %conv8.i1296.i = trunc i64 %shr.i1295.i to i32
+  %conv8.i1296.i = trunc nuw nsw i64 %shr.i1295.i to i32
   %mul9.i1297.i = mul nuw nsw i32 %conv8.i1296.i, 41
   %shr10.i1298.i = lshr i32 %mul9.i1297.i, 12
   %mul11.i1299.i.neg = mul nsw i32 %shr10.i1298.i, -100
   %sub12.i1300.i = add nsw i32 %mul11.i1299.i.neg, %conv8.i1296.i
   %mul13.i1301.i.neg = mul nsw i32 %conv8.i1296.i, -100
   %sub14.i1302.i = add nsw i32 %mul13.i1301.i.neg, %div3.i1290.i
-  %775 = trunc i32 %shr10.i1298.i to i8
+  %775 = trunc nuw nsw i32 %shr10.i1298.i to i8
   %conv15.i1304.i = add nuw nsw i8 %775, 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr37.i.i1879, i8 48, i64 24, i1 false)
   store i8 %conv15.i1304.i, ptr %add.ptr99.i.i2125, align 1
@@ -55941,7 +55940,7 @@ if.then.i1375.i:                                  ; preds = %if.else95.i.i2122
   %conv41.i1380.i = and i64 %sub.i1288.i, 4294967295
   %mul42.i1381.i = mul nuw nsw i64 %conv41.i1380.i, 109951163
   %shr43.i1382.i = lshr i64 %mul42.i1381.i, 40
-  %conv44.i1383.i = trunc i64 %shr43.i1382.i to i32
+  %conv44.i1383.i = trunc nuw nsw i64 %shr43.i1382.i to i32
   %mul45.i1384.i.neg = mul i32 %conv44.i1383.i, -10000
   %sub46.i1385.i = add i32 %mul45.i1384.i.neg, %conv2.i1289.i
   %mul47.i1386.i = mul nuw i32 %conv44.i1383.i, 5243
@@ -56110,14 +56109,14 @@ if.else120.i.i2089:                               ; preds = %f64_bin_to_dec.exit
   %conv6.i1508.i = zext nneg i32 %div3.i1505.i to i64
   %mul7.i1509.i2091 = mul nuw nsw i64 %conv6.i1508.i, 167773
   %shr.i1510.i2092 = lshr i64 %mul7.i1509.i2091, 24
-  %conv8.i1511.i = trunc i64 %shr.i1510.i2092 to i32
+  %conv8.i1511.i = trunc nuw nsw i64 %shr.i1510.i2092 to i32
   %mul9.i1512.i = mul nuw nsw i32 %conv8.i1511.i, 41
   %shr10.i1513.i = lshr i32 %mul9.i1512.i, 12
   %mul11.i1514.i.neg = mul nsw i32 %shr10.i1513.i, -100
   %sub12.i1515.i = add nsw i32 %mul11.i1514.i.neg, %conv8.i1511.i
   %mul13.i1516.i.neg = mul nsw i32 %conv8.i1511.i, -100
   %sub14.i1517.i = add nsw i32 %mul13.i1516.i.neg, %div3.i1505.i
-  %797 = trunc i32 %shr10.i1513.i to i8
+  %797 = trunc nuw nsw i32 %shr10.i1513.i to i8
   %conv15.i1519.i = add nuw nsw i8 %797, 48
   store i8 %conv15.i1519.i, ptr %add.ptr121.i.i2090.ptr, align 1
   %cmp.i1520.i = icmp ugt i32 %conv8.i1511.i, 99
@@ -56153,7 +56152,7 @@ if.then.i1590.i:                                  ; preds = %if.else120.i.i2089
   %conv41.i1595.i = and i64 %sub.i1503.i, 4294967295
   %mul42.i1596.i = mul nuw nsw i64 %conv41.i1595.i, 109951163
   %shr43.i1597.i = lshr i64 %mul42.i1596.i, 40
-  %conv44.i1598.i = trunc i64 %shr43.i1597.i to i32
+  %conv44.i1598.i = trunc nuw nsw i64 %shr43.i1597.i to i32
   %mul45.i1599.i.neg = mul i32 %conv44.i1598.i, -10000
   %sub46.i1600.i = add i32 %mul45.i1599.i.neg, %conv2.i1504.i
   %mul47.i1601.i = mul nuw i32 %conv44.i1598.i, 5243
@@ -56324,7 +56323,7 @@ if.else.i1685.i:                                  ; preds = %write_u64_len_15_to
   %shr.i1686.i = lshr i32 %mul15.i.i2103, 16
   %mul16.i1687.i.neg = mul nsw i32 %shr.i1686.i, -100
   %sub17.i1688.i = add nsw i32 %mul16.i1687.i.neg, %cond.i1683.i
-  %820 = trunc i32 %shr.i1686.i to i8
+  %820 = trunc nuw nsw i32 %shr.i1686.i to i8
   %conv20.i1692.i = add nuw nsw i8 %820, 48
   store i8 %conv20.i1692.i, ptr %add.ptr.i1679.i, align 1
   %add.ptr22.i.i2104 = getelementptr inbounds i8, ptr %add.ptr.i1679.i, i64 1
@@ -56346,7 +56345,7 @@ if.else136.i.i1883:                               ; preds = %if.end42.i.i1881
   %mul.i9.i2788.i = mul nuw i128 %conv.i.i2780.i, 11392378155556871081
   %add.i.i2790.i = add nuw i128 %shr.i.i2783.i, %mul.i9.i2788.i
   %shr.i11.i2791.i = lshr i128 %add.i.i2790.i, 64
-  %conv3.i12.i2792.i = trunc i128 %shr.i11.i2791.i to i64
+  %conv3.i12.i2792.i = trunc nuw i128 %shr.i11.i2791.i to i64
   %822 = and i128 %add.i.i2790.i, 18446744073709551614
   %cmp.i2794.i = icmp ne i128 %822, 0
   %conv1.i2796.i = zext i1 %cmp.i2794.i to i64
@@ -56357,7 +56356,7 @@ if.else136.i.i1883:                               ; preds = %if.end42.i.i1881
   %mul.i9.i2752.i = mul nuw nsw i128 %conv.i.i2744.i, 11392378155556871081
   %add.i.i2754.i = add nuw nsw i128 %shr.i.i2747.i, %mul.i9.i2752.i
   %shr.i11.i2755.i = lshr i128 %add.i.i2754.i, 64
-  %conv3.i12.i2756.i = trunc i128 %shr.i11.i2755.i to i64
+  %conv3.i12.i2756.i = trunc nuw nsw i128 %shr.i11.i2755.i to i64
   %823 = and i128 %add.i.i2754.i, 18446744073709551614
   %cmp.i2758.i = icmp ne i128 %823, 0
   %conv1.i2760.i = zext i1 %cmp.i2758.i to i64
@@ -56368,7 +56367,7 @@ if.else136.i.i1883:                               ; preds = %if.end42.i.i1881
   %mul.i9.i.i1888 = mul nuw nsw i128 %conv.i.i2717.i, 11392378155556871081
   %add.i.i2721.i = add nuw nsw i128 %shr.i.i.i1885, %mul.i9.i.i1888
   %shr.i11.i.i1890 = lshr i128 %add.i.i2721.i, 64
-  %conv3.i12.i.i1891 = trunc i128 %shr.i11.i.i1890 to i64
+  %conv3.i12.i.i1891 = trunc nuw nsw i128 %shr.i11.i.i1890 to i64
   %824 = and i128 %add.i.i2721.i, 18446744073709551614
   %cmp.i2722.i = icmp ne i128 %824, 0
   %conv1.i2724.i = zext i1 %cmp.i2722.i to i64
@@ -56430,7 +56429,7 @@ if.then.i1712.i:                                  ; preds = %f64_bin_to_dec.exit
   %mul4.i1719.i.neg = mul nuw nsw i64 %div1.i.i2005, 4194967296
   %sub5.i1720.i = add nuw nsw i64 %mul4.i1719.i.neg, %div.i1713.i
   %conv6.i1721.i = trunc i64 %sub5.i1720.i to i32
-  %conv7.i1722.i = trunc i64 %div1.i.i2005 to i8
+  %conv7.i1722.i = trunc nuw nsw i64 %div1.i.i2005 to i8
   %add.i1724.i = add nuw nsw i8 %conv7.i1722.i, 48
   store i8 %add.i1724.i, ptr %add.ptr137.i.i1893, align 1
   %cmp10.i.i2007 = icmp ugt i64 %add97.i1163.i, 9999999999999999
@@ -56439,7 +56438,7 @@ if.then.i1712.i:                                  ; preds = %f64_bin_to_dec.exit
   %conv.i2501.i = and i64 %sub5.i1720.i, 4294967295
   %mul.i2502.i = mul nuw nsw i64 %conv.i2501.i, 109951163
   %shr.i2503.i = lshr i64 %mul.i2502.i, 40
-  %conv1.i2504.i = trunc i64 %shr.i2503.i to i32
+  %conv1.i2504.i = trunc nuw nsw i64 %shr.i2503.i to i32
   %mul2.i2505.i.neg = mul i32 %conv1.i2504.i, -10000
   %sub.i2506.i = add i32 %mul2.i2505.i.neg, %conv6.i1721.i
   %mul3.i2507.i = mul nuw i32 %conv1.i2504.i, 5243
@@ -56477,7 +56476,7 @@ if.then.i1712.i:                                  ; preds = %f64_bin_to_dec.exit
   %conv.i2467.i = and i64 %sub.i1715.i, 4294967295
   %mul.i2468.i = mul nuw nsw i64 %conv.i2467.i, 109951163
   %shr.i2469.i = lshr i64 %mul.i2468.i, 40
-  %conv1.i2470.i = trunc i64 %shr.i2469.i to i32
+  %conv1.i2470.i = trunc nuw nsw i64 %shr.i2469.i to i32
   %mul2.i.i2008.neg = mul i32 %conv1.i2470.i, -10000
   %sub.i2471.i = add i32 %mul2.i.i2008.neg, %conv.i1716.i
   %mul3.i.i2009 = mul nuw i32 %conv1.i2470.i, 5243
@@ -56523,7 +56522,7 @@ if.then15.i1707.i:                                ; preds = %if.else.i1706.i
   %mul17.i.i1931.neg = mul nuw nsw i64 %div16.i.i1930, 4194967296
   %sub18.i.i1932 = add nuw nsw i64 %mul17.i.i1931.neg, %add97.i1163.i
   %conv19.i1708.i = trunc i64 %sub18.i.i1932 to i32
-  %conv20.i1709.i = trunc i64 %div16.i.i1930 to i32
+  %conv20.i1709.i = trunc nuw nsw i64 %div16.i.i1930 to i32
   %cmp.i1738.i = icmp ult i32 %conv20.i1709.i, 100
   br i1 %cmp.i1738.i, label %if.then.i1764.i, label %if.else.i1739.i
 
@@ -56575,7 +56574,7 @@ if.else29.i1740.i:                                ; preds = %if.else.i1739.i
 if.then32.i.i1969:                                ; preds = %if.else29.i1740.i
   %mul34.i.i1971 = mul nuw nsw i64 %div16.i.i1930, 429497
   %shr35.i.i1972 = lshr i64 %mul34.i.i1971, 32
-  %conv36.i.i1973 = trunc i64 %shr35.i.i1972 to i32
+  %conv36.i.i1973 = trunc nuw nsw i64 %shr35.i.i1972 to i32
   %mul37.i1746.i.neg = mul nsw i32 %conv36.i.i1973, -10000
   %sub38.i.i1974 = add nsw i32 %mul37.i1746.i.neg, %conv20.i1709.i
   %mul39.i1747.i = mul i32 %sub38.i.i1974, 5243
@@ -56609,7 +56608,7 @@ if.then32.i.i1969:                                ; preds = %if.else29.i1740.i
 if.else63.i.i1935:                                ; preds = %if.else29.i1740.i
   %mul65.i1741.i = mul nuw nsw i64 %div16.i.i1930, 109951163
   %shr66.i.i1937 = lshr i64 %mul65.i1741.i, 40
-  %conv67.i.i1938 = trunc i64 %shr66.i.i1937 to i32
+  %conv67.i.i1938 = trunc nuw nsw i64 %shr66.i.i1937 to i32
   %mul68.i.i1939.neg = mul nsw i32 %conv67.i.i1938, -10000
   %sub69.i.i1940 = add nsw i32 %mul68.i.i1939.neg, %conv20.i1709.i
   %mul70.i1742.i = mul nuw nsw i32 %conv67.i.i1938, 5243
@@ -56651,7 +56650,7 @@ write_u32_len_1_8.exit.i1968:                     ; preds = %if.else63.i.i1935, 
   %conv.i2547.i = and i64 %sub18.i.i1932, 4294967295
   %mul.i2548.i = mul nuw nsw i64 %conv.i2547.i, 109951163
   %shr.i2549.i = lshr i64 %mul.i2548.i, 40
-  %conv1.i2550.i = trunc i64 %shr.i2549.i to i32
+  %conv1.i2550.i = trunc nuw nsw i64 %shr.i2549.i to i32
   %mul2.i2551.i.neg = mul i32 %conv1.i2550.i, -10000
   %sub.i2552.i = add i32 %mul2.i2551.i.neg, %conv19.i1708.i
   %mul3.i2553.i = mul nuw i32 %conv1.i2550.i, 5243
@@ -56689,7 +56688,7 @@ write_u32_len_1_8.exit.i1968:                     ; preds = %if.else63.i.i1935, 
   br label %write_u64_len_1_to_17.exit.i1897
 
 if.else23.i.i1895:                                ; preds = %if.else.i1706.i
-  %conv24.i.i1896 = trunc i64 %add97.i1163.i to i32
+  %conv24.i.i1896 = trunc nuw nsw i64 %add97.i1163.i to i32
   %cmp.i1803.i = icmp ult i32 %conv24.i.i1896, 100
   br i1 %cmp.i1803.i, label %if.then.i1896.i, label %if.else.i1804.i
 
@@ -56741,7 +56740,7 @@ if.else29.i1806.i:                                ; preds = %if.else.i1804.i
 if.then32.i1846.i:                                ; preds = %if.else29.i1806.i
   %mul34.i1848.i = mul nuw nsw i64 %add97.i1163.i, 429497
   %shr35.i1849.i = lshr i64 %mul34.i1848.i, 32
-  %conv36.i1850.i = trunc i64 %shr35.i1849.i to i32
+  %conv36.i1850.i = trunc nuw nsw i64 %shr35.i1849.i to i32
   %mul37.i1851.i.neg = mul nsw i32 %conv36.i1850.i, -10000
   %sub38.i1852.i = add nsw i32 %mul37.i1851.i.neg, %conv24.i.i1896
   %mul39.i1853.i = mul i32 %sub38.i1852.i, 5243
@@ -56775,7 +56774,7 @@ if.then32.i1846.i:                                ; preds = %if.else29.i1806.i
 if.else63.i1808.i:                                ; preds = %if.else29.i1806.i
   %mul65.i1810.i = mul nuw nsw i64 %add97.i1163.i, 109951163
   %shr66.i1811.i = lshr i64 %mul65.i1810.i, 40
-  %conv67.i1812.i = trunc i64 %shr66.i1811.i to i32
+  %conv67.i1812.i = trunc nuw nsw i64 %shr66.i1811.i to i32
   %mul68.i1813.i.neg = mul nsw i32 %conv67.i1812.i, -10000
   %sub69.i1814.i = add nsw i32 %mul68.i1813.i.neg, %conv24.i.i1896
   %mul70.i1815.i = mul nuw nsw i32 %conv67.i1812.i, 5243
@@ -56876,7 +56875,7 @@ if.else.i885.i:                                   ; preds = %if.end194.i
   br i1 %cmp.i977.i, label %if.then.i984.i, label %if.else.i978.i
 
 if.then.i984.i:                                   ; preds = %if.else.i885.i
-  %conv.i985.i = trunc i64 %cond.i.i1814 to i32
+  %conv.i985.i = trunc nuw nsw i64 %cond.i.i1814 to i32
   %cmp.i2214.i = icmp ult i32 %conv.i985.i, 100
   br i1 %cmp.i2214.i, label %if.then.i2307.i, label %if.else.i2215.i
 
@@ -56928,7 +56927,7 @@ if.else29.i2217.i:                                ; preds = %if.else.i2215.i
 if.then32.i2257.i:                                ; preds = %if.else29.i2217.i
   %mul34.i2259.i = mul nuw nsw i64 %cond.i.i1814, 429497
   %shr35.i2260.i = lshr i64 %mul34.i2259.i, 32
-  %conv36.i2261.i = trunc i64 %shr35.i2260.i to i32
+  %conv36.i2261.i = trunc nuw nsw i64 %shr35.i2260.i to i32
   %mul37.i2262.i.neg = mul nsw i32 %conv36.i2261.i, -10000
   %sub38.i2263.i = add nsw i32 %mul37.i2262.i.neg, %conv.i985.i
   %mul39.i2264.i = mul i32 %sub38.i2263.i, 5243
@@ -56962,7 +56961,7 @@ if.then32.i2257.i:                                ; preds = %if.else29.i2217.i
 if.else63.i2219.i:                                ; preds = %if.else29.i2217.i
   %mul65.i2221.i = mul nuw nsw i64 %cond.i.i1814, 109951163
   %shr66.i2222.i = lshr i64 %mul65.i2221.i, 40
-  %conv67.i2223.i = trunc i64 %shr66.i2222.i to i32
+  %conv67.i2223.i = trunc nuw nsw i64 %shr66.i2222.i to i32
   %mul68.i2224.i.neg = mul nsw i32 %conv67.i2223.i, -10000
   %sub69.i2225.i = add nsw i32 %mul68.i2224.i.neg, %conv.i985.i
   %mul70.i2226.i = mul nuw nsw i32 %conv67.i2223.i, 5243
@@ -57013,7 +57012,7 @@ if.else.i978.i:                                   ; preds = %if.else.i885.i
   br i1 %cmp1.i.i1816, label %if.then3.i.i1869, label %if.else8.i.i1817
 
 if.then3.i.i1869:                                 ; preds = %if.else.i978.i
-  %conv5.i983.i = trunc i64 %div.i980.i to i32
+  %conv5.i983.i = trunc nuw nsw i64 %div.i980.i to i32
   %cmp.i2351.i = icmp ult i32 %conv5.i983.i, 100
   br i1 %cmp.i2351.i, label %if.then.i2444.i, label %if.else.i2352.i
 
@@ -57065,7 +57064,7 @@ if.else29.i2354.i:                                ; preds = %if.else.i2352.i
 if.then32.i2394.i:                                ; preds = %if.else29.i2354.i
   %mul34.i2396.i = mul nuw nsw i64 %div.i980.i, 429497
   %shr35.i2397.i = lshr i64 %mul34.i2396.i, 32
-  %conv36.i2398.i = trunc i64 %shr35.i2397.i to i32
+  %conv36.i2398.i = trunc nuw nsw i64 %shr35.i2397.i to i32
   %mul37.i2399.i.neg = mul nsw i32 %conv36.i2398.i, -10000
   %sub38.i2400.i = add nsw i32 %mul37.i2399.i.neg, %conv5.i983.i
   %mul39.i2401.i = mul i32 %sub38.i2400.i, 5243
@@ -57099,7 +57098,7 @@ if.then32.i2394.i:                                ; preds = %if.else29.i2354.i
 if.else63.i2356.i:                                ; preds = %if.else29.i2354.i
   %mul65.i2358.i = mul nuw nsw i64 %div.i980.i, 109951163
   %shr66.i2359.i = lshr i64 %mul65.i2358.i, 40
-  %conv67.i2360.i = trunc i64 %shr66.i2359.i to i32
+  %conv67.i2360.i = trunc nuw nsw i64 %shr66.i2359.i to i32
   %mul68.i2361.i.neg = mul nsw i32 %conv67.i2360.i, -10000
   %sub69.i2362.i = add nsw i32 %mul68.i2361.i.neg, %conv5.i983.i
   %mul70.i2363.i = mul nuw nsw i32 %conv67.i2360.i, 5243
@@ -57146,7 +57145,7 @@ write_u32_len_1_8.exit2456.i:                     ; preds = %if.else63.i2356.i, 
   %conv.i2639.i = and i64 %sub.i982.i1870, 4294967295
   %mul.i2640.i = mul nuw nsw i64 %conv.i2639.i, 109951163
   %shr.i2641.i = lshr i64 %mul.i2640.i, 40
-  %conv1.i2642.i = trunc i64 %shr.i2641.i to i32
+  %conv1.i2642.i = trunc nuw nsw i64 %shr.i2641.i to i32
   %mul2.i2643.i.neg = mul i32 %conv1.i2642.i, -10000
   %sub.i2644.i = add i32 %mul2.i2643.i.neg, %conv4.i.i1871
   %mul3.i2645.i = mul nuw i32 %conv1.i2642.i, 5243
@@ -57185,7 +57184,7 @@ write_u32_len_1_8.exit2456.i:                     ; preds = %if.else63.i2356.i, 
 
 if.else8.i.i1817:                                 ; preds = %if.else.i978.i
   %div13.i.i1822 = udiv i64 %cond.i.i1814, 1000000000000
-  %conv14.i.i1823 = trunc i64 %div13.i.i1822 to i32
+  %conv14.i.i1823 = trunc nuw nsw i64 %div13.i.i1822 to i32
   %mul16.i.i1825.neg = mul nuw nsw i64 %div13.i.i1822, 4294957296
   %sub17.i.i1826 = add nuw nsw i64 %mul16.i.i1825.neg, %div.i980.i
   %conv18.i.i1827 = trunc i64 %sub17.i.i1826 to i32
@@ -57195,7 +57194,7 @@ if.else8.i.i1817:                                 ; preds = %if.else.i978.i
 if.then.i2931.i:                                  ; preds = %if.else8.i.i1817
   %mul.i2933.i = mul nuw nsw i64 %div13.i.i1822, 429497
   %shr.i2934.i = lshr i64 %mul.i2933.i, 32
-  %conv1.i2935.i = trunc i64 %shr.i2934.i to i32
+  %conv1.i2935.i = trunc nuw nsw i64 %shr.i2934.i to i32
   %mul2.i2936.i.neg = mul nsw i32 %conv1.i2935.i, -10000
   %sub.i2937.i = add nsw i32 %mul2.i2936.i.neg, %conv14.i.i1823
   %mul3.i2938.i = mul i32 %sub.i2937.i, 5243
@@ -57229,7 +57228,7 @@ if.then.i2931.i:                                  ; preds = %if.else8.i.i1817
 if.else.i2920.i:                                  ; preds = %if.else8.i.i1817
   %mul25.i2922.i = mul nuw nsw i64 %div13.i.i1822, 109951163
   %shr26.i.i1828 = lshr i64 %mul25.i2922.i, 40
-  %conv27.i.i1829 = trunc i64 %shr26.i.i1828 to i32
+  %conv27.i.i1829 = trunc nuw nsw i64 %shr26.i.i1828 to i32
   %mul28.i.i1830.neg = mul nsw i32 %conv27.i.i1829, -10000
   %sub29.i.i1831 = add nsw i32 %mul28.i.i1830.neg, %conv14.i.i1823
   %mul30.i.i1832 = mul nuw nsw i32 %conv27.i.i1829, 5243
@@ -57292,7 +57291,7 @@ write_u64_len_5_8.exit.i1855:                     ; preds = %if.else.i2920.i, %i
   %conv.i2685.i = and i64 %sub.i982.i1870, 4294967295
   %mul.i2686.i = mul nuw nsw i64 %conv.i2685.i, 109951163
   %shr.i2687.i = lshr i64 %mul.i2686.i, 40
-  %conv1.i2688.i = trunc i64 %shr.i2687.i to i32
+  %conv1.i2688.i = trunc nuw nsw i64 %shr.i2687.i to i32
   %mul2.i2689.i.neg = mul i32 %conv1.i2688.i, -10000
   %sub.i2690.i = add i32 %mul2.i2689.i.neg, %conv4.i.i1871
   %mul3.i2691.i = mul nuw i32 %conv1.i2688.i, 5243
@@ -58758,7 +58757,7 @@ if.end.i91:                                       ; preds = %for.body.i86
   br i1 %exitcond.not, label %bigint_mul_u64.exit, label %for.body.i86, !llvm.loop !57
 
 for.end.i84.loopexit:                             ; preds = %for.body.i86
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   br label %for.end.i84
 
 for.end.i84:                                      ; preds = %for.end.i84.loopexit, %for.body.i
@@ -58781,7 +58780,7 @@ for.body3.i:                                      ; preds = %for.body3.i.prehead
   %conv2.i141 = zext i64 %carry.i.088 to i128
   %add.i142 = add nuw i128 %mul.i140, %conv2.i141
   %shr.i143 = lshr i128 %add.i142, 64
-  %conv3.i144 = trunc i128 %shr.i143 to i64
+  %conv3.i144 = trunc nuw i128 %shr.i143 to i64
   %conv4.i145 = trunc i128 %add.i142 to i64
   store i64 %conv4.i145, ptr %arrayidx6.i, align 8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
@@ -58841,7 +58840,7 @@ if.end.i126:                                      ; preds = %for.body.i121
   br i1 %exitcond122.not, label %bigint_mul_pow10.exit, label %for.body.i121, !llvm.loop !57
 
 for.end.i103.loopexit:                            ; preds = %for.body.i121
-  %19 = trunc i64 %indvars.iv118 to i32
+  %19 = trunc nuw i64 %indvars.iv118 to i32
   br label %for.end.i103
 
 for.end.i103:                                     ; preds = %for.end.i103.loopexit, %if.then.i
@@ -58865,7 +58864,7 @@ for.body3.i113:                                   ; preds = %for.body3.i113.lr.p
   %conv2.i = zext i64 %carry.i100.0101 to i128
   %add.i131 = add nuw i128 %mul.i, %conv2.i
   %shr.i = lshr i128 %add.i131, 64
-  %conv3.i = trunc i128 %shr.i to i64
+  %conv3.i = trunc nuw i128 %shr.i to i64
   %conv4.i = trunc i128 %add.i131 to i64
   store i64 %conv4.i, ptr %arrayidx6.i116, align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1

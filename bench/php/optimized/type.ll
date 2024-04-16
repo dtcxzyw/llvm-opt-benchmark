@@ -1434,23 +1434,21 @@ define hidden void @zif_is_numeric(ptr nocapture noundef readonly %0, ptr nocapt
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load i8, ptr %12, align 1
   %14 = icmp sgt i8 %13, 57
-  br i1 %14, label %.critedge.i, label %15
+  br i1 %14, label %_zend_is_numeric.exit, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %11, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %12, i64 noundef %17, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #8
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %.critedge.i, label %_zend_is_numeric.exit
-
-.critedge.i:                                      ; preds = %15, %9
+  %spec.select.i = select i1 %19, i32 2, i32 3
   br label %_zend_is_numeric.exit
 
 20:                                               ; preds = %6
   br label %_zend_is_numeric.exit
 
-_zend_is_numeric.exit:                            ; preds = %6, %6, %15, %.critedge.i, %20
-  %.sink.i = phi i32 [ 2, %20 ], [ 2, %.critedge.i ], [ 3, %6 ], [ 3, %6 ], [ 3, %15 ]
+_zend_is_numeric.exit:                            ; preds = %6, %6, %9, %15, %20
+  %.sink.i = phi i32 [ 2, %20 ], [ 3, %6 ], [ 3, %6 ], [ 2, %9 ], [ %spec.select.i, %15 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %.sink.i, ptr %21, align 8
   br label %22
@@ -1474,23 +1472,21 @@ define hidden void @zflf_is_numeric_1(ptr nocapture noundef writeonly %0, ptr no
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 1
   %9 = icmp sgt i8 %8, 57
-  br i1 %9, label %.critedge.i, label %10
+  br i1 %9, label %_zend_is_numeric.exit, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %7, i64 noundef %12, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #8
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %.critedge.i, label %_zend_is_numeric.exit
-
-.critedge.i:                                      ; preds = %10, %5
+  %spec.select.i = select i1 %14, i32 2, i32 3
   br label %_zend_is_numeric.exit
 
 15:                                               ; preds = %2
   br label %_zend_is_numeric.exit
 
-_zend_is_numeric.exit:                            ; preds = %2, %2, %10, %.critedge.i, %15
-  %.sink.i = phi i32 [ 2, %15 ], [ 2, %.critedge.i ], [ 3, %2 ], [ 3, %2 ], [ 3, %10 ]
+_zend_is_numeric.exit:                            ; preds = %2, %2, %5, %10, %15
+  %.sink.i = phi i32 [ 2, %15 ], [ 3, %2 ], [ 3, %2 ], [ 2, %5 ], [ %spec.select.i, %10 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %16, align 8
   ret void
@@ -1566,7 +1562,7 @@ define hidden void @zif_is_callable(ptr noundef %0, ptr nocapture noundef writeo
 
 ._crit_edge:                                      ; preds = %16
   %.pre.pre = load i8, ptr %4, align 1
-  %.pre136.pre = load i32, ptr %5, align 4
+  %.pre135.pre = load i32, ptr %5, align 4
   br label %20
 
 .critedge:                                        ; preds = %12, %15
@@ -1582,11 +1578,11 @@ define hidden void @zif_is_callable(ptr noundef %0, ptr nocapture noundef writeo
   br label %45
 
 20:                                               ; preds = %.critedge, %._crit_edge
-  %.pre136 = phi i32 [ %.pre136.pre, %._crit_edge ], [ %6, %.critedge ]
+  %.pre135 = phi i32 [ %.pre135.pre, %._crit_edge ], [ %6, %.critedge ]
   %.pre = phi i8 [ %.pre.pre, %._crit_edge ], [ %storemerge, %.critedge ]
   %21 = and i8 %.pre, 1
   %22 = zext nneg i8 %21 to i32
-  %23 = icmp ugt i32 %.pre136, 2
+  %23 = icmp ugt i32 %.pre135, 2
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
@@ -1595,8 +1591,8 @@ define hidden void @zif_is_callable(ptr noundef %0, ptr nocapture noundef writeo
   %27 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  %.not123 = icmp eq ptr %29, null
-  br i1 %.not123, label %33, label %30
+  %.not122 = icmp eq ptr %29, null
+  br i1 %.not122, label %33, label %30
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %3, align 8
@@ -1611,15 +1607,15 @@ define hidden void @zif_is_callable(ptr noundef %0, ptr nocapture noundef writeo
   %36 = getelementptr inbounds i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 64
-  %.not124 = icmp eq i32 %38, 0
-  %39 = select i1 %.not124, i32 262, i32 6
+  %.not123 = icmp eq i32 %38, 0
+  %39 = select i1 %.not123, i32 262, i32 6
   %40 = getelementptr inbounds i8, ptr %27, i64 16
   store i32 %39, ptr %40, align 8
   br label %42
 
 .thread:                                          ; preds = %9, %20
-  %spec.select141 = phi i32 [ %22, %20 ], [ 0, %9 ]
-  %41 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef %spec.select141, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %spec.select140 = phi i32 [ %22, %20 ], [ 0, %9 ]
+  %41 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef %spec.select140, ptr noundef null, ptr noundef null, ptr noundef null) #8
   br label %42
 
 42:                                               ; preds = %33, %30, %.thread

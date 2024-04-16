@@ -1177,7 +1177,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %first_out_inited.142 = phi i32 [ %first_out_inited.045, %for.body21.lr.ph ], [ %first_out_inited.2, %for.inc ]
   %11 = add nuw nsw i64 %indvars.iv, %8
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %conv23 = sitofp i32 %12 to float
   %add24 = fadd float %conv23, 5.000000e-01
   %sub25 = fadd float %7, %add24
@@ -1449,7 +1449,7 @@ for.body85.preheader:                             ; preds = %if.then71
 
 for.body85:                                       ; preds = %for.body85.preheader, %for.body85
   %indvars.iv342 = phi i64 [ 0, %for.body85.preheader ], [ %indvars.iv.next343, %for.body85 ]
-  %23 = trunc i64 %indvars.iv342 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv342 to i32
   %add86 = sub i32 %23, %21
   %idxprom87 = sext i32 %add86 to i64
   %arrayidx88 = getelementptr inbounds float, ptr %coeffs.1300, i64 %idxprom87
@@ -1479,7 +1479,7 @@ if.then106:                                       ; preds = %if.then102
 for.body113:                                      ; preds = %if.then106, %stbir__insert_coeff.exit
   %indvars.iv333 = phi i64 [ %18, %if.then106 ], [ %indvars.iv.next334, %stbir__insert_coeff.exit ]
   %28 = load ptr, ptr %arrayidx115, align 8
-  %29 = trunc i64 %indvars.iv333 to i32
+  %29 = trunc nsw i64 %indvars.iv333 to i32
   %call = tail call i32 %28(i32 noundef %29, i32 noundef %0) #24
   %30 = sub nsw i64 %indvars.iv333, %26
   %arrayidx118 = getelementptr inbounds float, ptr %coeffs.1300, i64 %30
@@ -1834,7 +1834,7 @@ land.rhs174:                                      ; preds = %while.cond
   br i1 %cmp178, label %while.cond, label %while.end, !llvm.loop !30
 
 while.end:                                        ; preds = %land.rhs174
-  %88 = trunc i64 %indvars.iv347 to i32
+  %88 = trunc nsw i64 %indvars.iv347 to i32
   %add184 = add i32 %83, -1
   %sub185 = add i32 %add184, %88
   store i32 %sub185, ptr %n1165, align 4
@@ -24629,7 +24629,7 @@ for.body.lr.ph:                                   ; preds = %do.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %add9 = add i32 %add8, %12
   %sub.i = add i32 %add9, %7
   %add.i = sub i32 %sub.i, %8
@@ -25482,7 +25482,7 @@ for.body.lr.ph:                                   ; preds = %do.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %add3 = add i32 %add2, %5
   %sub.i = add i32 %add3, %0
   %add.i = sub i32 %sub.i, %1
@@ -25782,7 +25782,7 @@ for.body.lr.ph.i:                                 ; preds = %do.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %44 = trunc i64 %indvars.iv.i to i32
+  %44 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i.i = add i32 %sub.i.i, %44
   %rem.i.i = srem i32 %add.i.i, %41
   %mul.i.i.i = mul nsw i32 %rem.i.i, %43
@@ -25895,7 +25895,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %cmp4 = fcmp ugt float %0, 1.000000e+00
-  br i1 %cmp4, label %if.else, label %land.lhs.true
+  br i1 %cmp4, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
   %pixel_shift = getelementptr inbounds i8, ptr %scale_info, i64 16
@@ -25905,11 +25905,11 @@ land.lhs.true:                                    ; preds = %if.then2
   %cmp6 = fcmp oeq float %call, %2
   br i1 %cmp6, label %if.end9, label %if.else
 
-if.else:                                          ; preds = %land.lhs.true, %if.then2
+if.else:                                          ; preds = %land.lhs.true
   br label %if.end9
 
-if.end9:                                          ; preds = %land.lhs.true, %if.then, %if.else, %entry
-  %filter.addr.0 = phi i32 [ 4, %if.else ], [ 5, %if.then ], [ %filter, %entry ], [ 6, %land.lhs.true ]
+if.end9:                                          ; preds = %if.then2, %land.lhs.true, %if.then, %if.else, %entry
+  %filter.addr.0 = phi i32 [ 5, %if.then ], [ %filter, %entry ], [ 6, %land.lhs.true ], [ 4, %if.then2 ], [ 4, %if.else ]
   %filter_enum = getelementptr inbounds i8, ptr %samp, i64 68
   store i32 %filter.addr.0, ptr %filter_enum, align 4
   %idxprom = zext i32 %filter.addr.0 to i64

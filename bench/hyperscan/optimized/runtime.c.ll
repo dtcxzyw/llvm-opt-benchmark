@@ -2690,34 +2690,32 @@ maintainHistoryBuffer.exit:                       ; preds = %if.then114, %if.end
   store i64 %add, ptr %offset, align 8
   %104 = load i32, ptr %somLocationCount, align 8
   %tobool119.not = icmp eq i32 %104, 0
-  br i1 %tobool119.not, label %if.end129, label %if.then120
+  br i1 %tobool119.not, label %return, label %if.then120
 
 if.then120:                                       ; preds = %maintainHistoryBuffer.exit
   tail call void @storeSomToStream(ptr noundef nonnull %scratch, i64 noundef %add) #11
-  br label %if.end129
+  br label %return
 
 if.else123:                                       ; preds = %if.else103
   %105 = and i8 %99, 1
   %tobool125.not = icmp eq i8 %105, 0
-  br i1 %tobool125.not, label %if.end129, label %return
-
-if.end129:                                        ; preds = %if.then120, %maintainHistoryBuffer.exit, %if.else123
+  %spec.select = select i1 %tobool125.not, i32 0, i32 -3
   br label %return
 
-return:                                           ; preds = %if.else123, %if.end91, %do.end65, %if.end17, %if.else, %do.end, %entry, %if.end129
-  %retval.0 = phi i32 [ 0, %if.end129 ], [ -1, %entry ], [ -13, %do.end ], [ %., %if.else ], [ 0, %if.end17 ], [ %.226, %do.end65 ], [ -13, %if.end91 ], [ -3, %if.else123 ]
+return:                                           ; preds = %if.else123, %maintainHistoryBuffer.exit, %if.then120, %if.end91, %do.end65, %if.end17, %if.else, %do.end, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -13, %do.end ], [ %., %if.else ], [ 0, %if.end17 ], [ %.226, %do.end65 ], [ -13, %if.end91 ], [ 0, %if.then120 ], [ 0, %maintainHistoryBuffer.exit ], [ %spec.select, %if.else123 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hs_close_stream(ptr noundef %id, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local i32 @hs_close_stream(ptr noundef %id, ptr noundef %scratch, ptr noundef %onEvent, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %id, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq ptr %onEvent, null
-  br i1 %tobool1.not, label %if.end23, label %if.then2
+  br i1 %tobool1.not, label %return.sink.split, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %tobool3.not = icmp eq ptr %scratch, null
@@ -3118,13 +3116,11 @@ report_eod_matches.exit:                          ; preds = %if.then78.i, %if.th
   %57 = and i8 %56, 8
   %tobool14.not = icmp eq i8 %57, 0
   store i8 0, ptr %in_use.i, align 4
-  br i1 %tobool14.not, label %if.end23, label %return.sink.split
-
-if.end23:                                         ; preds = %report_eod_matches.exit, %if.end
+  %spec.select = select i1 %tobool14.not, i32 0, i32 -13
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %report_eod_matches.exit, %if.end23
-  %retval.0.ph = phi i32 [ 0, %if.end23 ], [ -13, %report_eod_matches.exit ]
+return.sink.split:                                ; preds = %report_eod_matches.exit, %if.end
+  %retval.0.ph = phi i32 [ 0, %if.end ], [ %spec.select, %report_eod_matches.exit ]
   %58 = load ptr, ptr @hs_stream_free, align 8
   tail call void %58(ptr noundef nonnull %id) #11
   br label %return
@@ -3948,7 +3944,7 @@ do.end:                                           ; preds = %do.end.preheader, %
 
 for.end:                                          ; preds = %for.cond, %initSomState.exit
   %tobool69.not = icmp eq ptr %onEvent, null
-  br i1 %tobool69.not, label %if.end85, label %if.then70
+  br i1 %tobool69.not, label %return.sink.split, label %if.then70
 
 if.then70:                                        ; preds = %for.end
   %28 = load ptr, ptr %11, align 8
@@ -4306,13 +4302,11 @@ report_eod_matches.exit:                          ; preds = %if.then78.i, %if.th
 if.else:                                          ; preds = %report_eod_matches.exit
   %76 = and i8 %75, 1
   %tobool81.not = icmp eq i8 %76, 0
-  br i1 %tobool81.not, label %if.end85, label %return.sink.split
-
-if.end85:                                         ; preds = %if.else, %for.end
+  %spec.select = select i1 %tobool81.not, i32 0, i32 -3
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %do.end, %if.else, %report_eod_matches.exit, %if.end85
-  %retval.0.ph = phi i32 [ 0, %if.end85 ], [ -13, %report_eod_matches.exit ], [ -3, %if.else ], [ %call64, %do.end ]
+return.sink.split:                                ; preds = %do.end, %if.else, %for.end, %report_eod_matches.exit
+  %retval.0.ph = phi i32 [ -13, %report_eod_matches.exit ], [ 0, %for.end ], [ %spec.select, %if.else ], [ %call64, %do.end ]
   store i8 0, ptr %in_use.i, align 4
   br label %return
 

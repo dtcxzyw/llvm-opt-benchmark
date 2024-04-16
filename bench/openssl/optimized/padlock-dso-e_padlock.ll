@@ -63,7 +63,7 @@ skip_cbs:                                         ; preds = %entry, %if.end
 land.lhs.true.i:                                  ; preds = %skip_cbs
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(8) @.str) #10
   %cmp.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.not.i, label %if.end.i, label %padlock_bind_fn.exit
+  br i1 %cmp.not.i, label %if.end.i, label %padlock_bind_fn.exit.thread6
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %skip_cbs
   %call.i.i.i = tail call i32 @padlock_capability() #9
@@ -75,34 +75,32 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %s
   %call3.i.i = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull @padlock_name, i64 noundef 100, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull %cond2.i.i) #9
   %call4.i.i = tail call i32 @ENGINE_set_id(ptr noundef %e, ptr noundef nonnull @.str) #9
   %tobool5.not.i.i = icmp eq i32 %call4.i.i, 0
-  br i1 %tobool5.not.i.i, label %5, label %lor.lhs.false.i.i
+  br i1 %tobool5.not.i.i, label %padlock_bind_fn.exit.thread6, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i
   %call6.i.i = tail call i32 @ENGINE_set_name(ptr noundef %e, ptr noundef nonnull @padlock_name) #9
   %tobool7.not.i.i = icmp eq i32 %call6.i.i, 0
-  br i1 %tobool7.not.i.i, label %5, label %lor.lhs.false8.i.i
+  br i1 %tobool7.not.i.i, label %padlock_bind_fn.exit.thread6, label %lor.lhs.false8.i.i
 
 lor.lhs.false8.i.i:                               ; preds = %lor.lhs.false.i.i
   %call9.i.i = tail call i32 @ENGINE_set_init_function(ptr noundef %e, ptr noundef nonnull @padlock_init) #9
   %tobool10.not.i.i = icmp eq i32 %call9.i.i, 0
-  br i1 %tobool10.not.i.i, label %5, label %lor.lhs.false11.i.i
+  br i1 %tobool10.not.i.i, label %padlock_bind_fn.exit.thread6, label %lor.lhs.false11.i.i
 
 lor.lhs.false11.i.i:                              ; preds = %lor.lhs.false8.i.i
   %4 = load i32, ptr @padlock_use_ace, align 4
   %tobool12.not.i.i = icmp eq i32 %4, 0
-  br i1 %tobool12.not.i.i, label %padlock_bind_fn.exit, label %land.lhs.true.i.i
+  br i1 %tobool12.not.i.i, label %padlock_bind_fn.exit.thread6, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false11.i.i
   %call13.i.i = tail call i32 @ENGINE_set_ciphers(ptr noundef %e, ptr noundef nonnull @padlock_ciphers) #9
-  %tobool14.not.i.i = icmp eq i32 %call13.i.i, 0
-  br i1 %tobool14.not.i.i, label %5, label %padlock_bind_fn.exit
+  %tobool14.not.i.i = icmp ne i32 %call13.i.i, 0
+  %spec.select = zext i1 %tobool14.not.i.i to i32
+  br label %padlock_bind_fn.exit.thread6
 
-5:                                                ; preds = %land.lhs.true.i.i, %lor.lhs.false8.i.i, %lor.lhs.false.i.i, %if.end.i
-  br label %padlock_bind_fn.exit
-
-padlock_bind_fn.exit:                             ; preds = %lor.lhs.false11.i.i, %land.lhs.true.i.i, %5, %land.lhs.true.i
-  %6 = phi i32 [ 0, %land.lhs.true.i ], [ 0, %5 ], [ 1, %land.lhs.true.i.i ], [ 1, %lor.lhs.false11.i.i ]
-  ret i32 %6
+padlock_bind_fn.exit.thread6:                     ; preds = %land.lhs.true.i.i, %lor.lhs.false11.i.i, %if.end.i, %lor.lhs.false.i.i, %lor.lhs.false8.i.i, %land.lhs.true.i
+  %5 = phi i32 [ 0, %land.lhs.true.i ], [ 0, %lor.lhs.false8.i.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %if.end.i ], [ 1, %lor.lhs.false11.i.i ], [ %spec.select, %land.lhs.true.i.i ]
+  ret i32 %5
 }
 
 declare ptr @ENGINE_get_static_state() local_unnamed_addr #2

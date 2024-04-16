@@ -3063,7 +3063,7 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
 
 17:                                               ; preds = %13, %11
   %18 = icmp eq i32 %4, 3
-  br i1 %18, label %19, label %34
+  br i1 %18, label %19, label %33
 
 19:                                               ; preds = %17
   %20 = getelementptr i8, ptr %10, i64 176
@@ -3075,7 +3075,7 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   %23 = getelementptr inbounds i8, ptr %1, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = icmp ult i32 %21, %24
-  br i1 %25, label %34, label %26
+  br i1 %25, label %33, label %26
 
 26:                                               ; preds = %22, %19
   %27 = getelementptr i8, ptr %10, i64 144
@@ -3087,230 +3087,228 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   %30 = getelementptr inbounds i8, ptr %1, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = icmp ult i32 %28, %31
-  br i1 %32, label %34, label %33
+  %spec.select = select i1 %32, i32 4, i32 3
+  br label %33
 
-33:                                               ; preds = %29, %26
-  br label %34
+33:                                               ; preds = %29, %26, %22, %17
+  %.0 = phi i32 [ %4, %17 ], [ 3, %22 ], [ 3, %26 ], [ %spec.select, %29 ]
+  %34 = getelementptr inbounds i8, ptr %3, i64 17
+  %35 = zext nneg i32 %.0 to i64
+  %36 = getelementptr [10 x i8], ptr %34, i64 0, i64 %35
+  store i8 1, ptr %36, align 1
+  %37 = getelementptr inbounds i8, ptr %10, i64 16
+  %38 = getelementptr [10 x %struct.camelsrt_category_t], ptr %37, i64 0, i64 %35
+  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %49
 
-34:                                               ; preds = %33, %29, %22, %17
-  %.0 = phi i32 [ %4, %17 ], [ 3, %22 ], [ 4, %29 ], [ 3, %33 ]
-  %35 = getelementptr inbounds i8, ptr %3, i64 17
-  %36 = zext nneg i32 %.0 to i64
-  %37 = getelementptr [10 x i8], ptr %35, i64 0, i64 %36
-  store i8 1, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %10, i64 16
-  %39 = getelementptr [10 x %struct.camelsrt_category_t], ptr %38, i64 0, i64 %36
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %50
+42:                                               ; preds = %33
+  %43 = load i32, ptr %38, align 8
+  %.not82 = icmp eq i32 %43, 0
+  br i1 %.not82, label %camelsrt_display_DeltaTime.exit, label %44
 
-43:                                               ; preds = %34
-  %44 = load i32, ptr %39, align 8
-  %.not82 = icmp eq i32 %44, 0
-  br i1 %.not82, label %camelsrt_display_DeltaTime.exit, label %45
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %1, i64 20
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp ugt i32 %46, %43
+  br i1 %47, label %48, label %proto_item_set_hidden.exit
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %1, i64 20
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp ugt i32 %47, %44
-  br i1 %48, label %49, label %proto_item_set_hidden.exit
-
-49:                                               ; preds = %45
-  store i32 %47, ptr %40, align 4
+48:                                               ; preds = %44
+  store i32 %46, ptr %39, align 4
   br label %proto_item_set_hidden.exit
 
-50:                                               ; preds = %34
-  %51 = getelementptr inbounds i8, ptr %1, i64 20
-  %52 = load i32, ptr %51, align 4
-  %.not80 = icmp eq i32 %41, %52
-  br i1 %.not80, label %proto_item_set_hidden.exit, label %53
+49:                                               ; preds = %33
+  %50 = getelementptr inbounds i8, ptr %1, i64 20
+  %51 = load i32, ptr %50, align 4
+  %.not80 = icmp eq i32 %40, %51
+  br i1 %.not80, label %proto_item_set_hidden.exit, label %52
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %3, i64 32
-  %55 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %54, i64 0, i64 %36, i32 1
-  store i32 1, ptr %55, align 4
-  %56 = load i32, ptr @gcamel_DisplaySRT, align 4
-  %.not81 = icmp eq i32 %56, 0
-  br i1 %.not81, label %proto_item_set_hidden.exit, label %57
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %3, i64 32
+  %54 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %53, i64 0, i64 %35, i32 1
+  store i32 1, ptr %54, align 4
+  %55 = load i32, ptr @gcamel_DisplaySRT, align 4
+  %.not81 = icmp eq i32 %55, 0
+  br i1 %.not81, label %proto_item_set_hidden.exit, label %56
 
-57:                                               ; preds = %53
-  %58 = load i32, ptr @hf_camelsrt_Duplicate, align 4
-  %59 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 77) #8
-  %.not.i = icmp eq ptr %59, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %60
+56:                                               ; preds = %52
+  %57 = load i32, ptr @hf_camelsrt_Duplicate, align 4
+  %58 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 77) #8
+  %.not.i = icmp eq ptr %58, null
+  br i1 %.not.i, label %proto_item_set_hidden.exit, label %59
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 32
-  %62 = load ptr, ptr %61, align 8
-  %.not5.i = icmp eq ptr %62, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %63
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds i8, ptr %58, i64 32
+  %61 = load ptr, ptr %60, align 8
+  %.not5.i = icmp eq ptr %61, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %62
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 28
-  %65 = load i32, ptr %64, align 4
-  %66 = or i32 %65, 1
-  store i32 %66, ptr %64, align 4
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %61, i64 28
+  %64 = load i32, ptr %63, align 4
+  %65 = or i32 %64, 1
+  store i32 %65, ptr %63, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %63, %60, %57, %50, %53, %49, %45
-  %.pr = load i32, ptr %39, align 8
+proto_item_set_hidden.exit:                       ; preds = %62, %59, %56, %49, %52, %48, %44
+  %.pr = load i32, ptr %38, align 8
   %.not83 = icmp eq i32 %.pr, 0
-  br i1 %.not83, label %camelsrt_display_DeltaTime.exit, label %67
+  br i1 %.not83, label %camelsrt_display_DeltaTime.exit, label %66
 
-67:                                               ; preds = %proto_item_set_hidden.exit
-  %68 = load i32, ptr %40, align 4
-  %.not84 = icmp eq i32 %68, 0
-  br i1 %.not84, label %camelsrt_display_DeltaTime.exit, label %69
+66:                                               ; preds = %proto_item_set_hidden.exit
+  %67 = load i32, ptr %39, align 4
+  %.not84 = icmp eq i32 %67, 0
+  br i1 %.not84, label %camelsrt_display_DeltaTime.exit, label %68
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %1, i64 20
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %68, %71
-  br i1 %72, label %73, label %camelsrt_display_DeltaTime.exit
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %1, i64 20
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %67, %70
+  br i1 %71, label %72, label %camelsrt_display_DeltaTime.exit
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %39, i64 24
-  store i32 1, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %3, i64 32
-  %76 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %75, i64 0, i64 %36
-  store i32 1, ptr %76, align 8
-  %77 = load i32, ptr @gcamel_DisplaySRT, align 4
-  %.not85 = icmp eq i32 %77, 0
-  br i1 %.not85, label %proto_item_set_generated.exit, label %78
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds i8, ptr %38, i64 24
+  store i32 1, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %3, i64 32
+  %75 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %74, i64 0, i64 %35
+  store i32 1, ptr %75, align 8
+  %76 = load i32, ptr @gcamel_DisplaySRT, align 4
+  %.not85 = icmp eq i32 %76, 0
+  br i1 %.not85, label %proto_item_set_generated.exit, label %77
 
-78:                                               ; preds = %73
-  %79 = load i32, ptr @hf_camelsrt_ResponseFrame, align 4
-  %80 = load i32, ptr %39, align 8
-  %81 = call ptr @val_to_str_const(i32 noundef %.0, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.1209) #8
-  %82 = load i32, ptr %39, align 8
-  %83 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %80, ptr noundef nonnull @.str.1210, ptr noundef %81, i32 noundef %82) #8
-  %.not.i86 = icmp eq ptr %83, null
-  br i1 %.not.i86, label %proto_item_set_generated.exit, label %84
+77:                                               ; preds = %72
+  %78 = load i32, ptr @hf_camelsrt_ResponseFrame, align 4
+  %79 = load i32, ptr %38, align 8
+  %80 = call ptr @val_to_str_const(i32 noundef %.0, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.1209) #8
+  %81 = load i32, ptr %38, align 8
+  %82 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %78, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %79, ptr noundef nonnull @.str.1210, ptr noundef %80, i32 noundef %81) #8
+  %.not.i86 = icmp eq ptr %82, null
+  br i1 %.not.i86, label %proto_item_set_generated.exit, label %83
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %83, i64 32
-  %86 = load ptr, ptr %85, align 8
-  %.not5.i87 = icmp eq ptr %86, null
-  br i1 %.not5.i87, label %proto_item_set_generated.exit, label %87
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %85 = load ptr, ptr %84, align 8
+  %.not5.i87 = icmp eq ptr %85, null
+  br i1 %.not5.i87, label %proto_item_set_generated.exit, label %86
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %86, i64 28
-  %89 = load i32, ptr %88, align 4
-  %90 = or i32 %89, 2
-  store i32 %90, ptr %88, align 4
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %85, i64 28
+  %88 = load i32, ptr %87, align 4
+  %89 = or i32 %88, 2
+  store i32 %89, ptr %87, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
-  %91 = getelementptr inbounds i8, ptr %1, i64 24
-  %92 = getelementptr inbounds i8, ptr %39, i64 8
-  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %91, ptr noundef nonnull %92) #8
-  %93 = getelementptr inbounds i8, ptr %76, i64 8
-  store i32 1, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %76, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %95 = getelementptr inbounds i8, ptr %76, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false)
-  %96 = load i32, ptr @gcamel_DisplaySRT, align 4
-  %.not.i88 = icmp eq i32 %96, 0
-  br i1 %.not.i88, label %camelsrt_display_DeltaTime.exit, label %97
+proto_item_set_generated.exit:                    ; preds = %86, %83, %77, %72
+  %90 = getelementptr inbounds i8, ptr %1, i64 24
+  %91 = getelementptr inbounds i8, ptr %38, i64 8
+  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %90, ptr noundef nonnull %91) #8
+  %92 = getelementptr inbounds i8, ptr %75, i64 8
+  store i32 1, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %75, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  %94 = getelementptr inbounds i8, ptr %75, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
+  %95 = load i32, ptr @gcamel_DisplaySRT, align 4
+  %.not.i88 = icmp eq i32 %95, 0
+  br i1 %.not.i88, label %camelsrt_display_DeltaTime.exit, label %96
 
-97:                                               ; preds = %proto_item_set_generated.exit
+96:                                               ; preds = %proto_item_set_generated.exit
   switch i32 %.0, label %default.unreachable.i [
-    i32 2, label %98
-    i32 3, label %104
-    i32 4, label %104
-    i32 5, label %104
-    i32 6, label %110
-    i32 7, label %116
-    i32 8, label %122
-    i32 9, label %128
+    i32 2, label %97
+    i32 3, label %103
+    i32 4, label %103
+    i32 5, label %103
+    i32 6, label %109
+    i32 7, label %115
+    i32 8, label %121
+    i32 9, label %127
   ]
 
-98:                                               ; preds = %97
-  %99 = load i32, ptr @hf_camelsrt_DeltaTime31, align 4
-  %100 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %99, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
-  %.not.i.i = icmp eq ptr %100, null
-  br i1 %.not.i.i, label %camelsrt_display_DeltaTime.exit, label %101
+97:                                               ; preds = %96
+  %98 = load i32, ptr @hf_camelsrt_DeltaTime31, align 4
+  %99 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
+  %.not.i.i = icmp eq ptr %99, null
+  br i1 %.not.i.i, label %camelsrt_display_DeltaTime.exit, label %100
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %100, i64 32
-  %103 = load ptr, ptr %102, align 8
-  %.not5.i.i = icmp eq ptr %103, null
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds i8, ptr %99, i64 32
+  %102 = load ptr, ptr %101, align 8
+  %.not5.i.i = icmp eq ptr %102, null
   br i1 %.not5.i.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
 
-104:                                              ; preds = %97, %97, %97
-  %105 = load i32, ptr @hf_camelsrt_DeltaTime22, align 4
-  %106 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %105, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
-  %.not.i24.i = icmp eq ptr %106, null
-  br i1 %.not.i24.i, label %camelsrt_display_DeltaTime.exit, label %107
+103:                                              ; preds = %96, %96, %96
+  %104 = load i32, ptr @hf_camelsrt_DeltaTime22, align 4
+  %105 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %104, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
+  %.not.i24.i = icmp eq ptr %105, null
+  br i1 %.not.i24.i, label %camelsrt_display_DeltaTime.exit, label %106
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %106, i64 32
-  %109 = load ptr, ptr %108, align 8
-  %.not5.i25.i = icmp eq ptr %109, null
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds i8, ptr %105, i64 32
+  %108 = load ptr, ptr %107, align 8
+  %.not5.i25.i = icmp eq ptr %108, null
   br i1 %.not5.i25.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
 
-110:                                              ; preds = %97
-  %111 = load i32, ptr @hf_camelsrt_DeltaTime35, align 4
-  %112 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %111, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
-  %.not.i27.i = icmp eq ptr %112, null
-  br i1 %.not.i27.i, label %camelsrt_display_DeltaTime.exit, label %113
+109:                                              ; preds = %96
+  %110 = load i32, ptr @hf_camelsrt_DeltaTime35, align 4
+  %111 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %110, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
+  %.not.i27.i = icmp eq ptr %111, null
+  br i1 %.not.i27.i, label %camelsrt_display_DeltaTime.exit, label %112
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %112, i64 32
-  %115 = load ptr, ptr %114, align 8
-  %.not5.i28.i = icmp eq ptr %115, null
+112:                                              ; preds = %109
+  %113 = getelementptr inbounds i8, ptr %111, i64 32
+  %114 = load ptr, ptr %113, align 8
+  %.not5.i28.i = icmp eq ptr %114, null
   br i1 %.not5.i28.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
 
-116:                                              ; preds = %97
-  %117 = load i32, ptr @hf_camelsrt_DeltaTime75, align 4
-  %118 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %117, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
-  %.not.i30.i = icmp eq ptr %118, null
-  br i1 %.not.i30.i, label %camelsrt_display_DeltaTime.exit, label %119
+115:                                              ; preds = %96
+  %116 = load i32, ptr @hf_camelsrt_DeltaTime75, align 4
+  %117 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
+  %.not.i30.i = icmp eq ptr %117, null
+  br i1 %.not.i30.i, label %camelsrt_display_DeltaTime.exit, label %118
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %118, i64 32
-  %121 = load ptr, ptr %120, align 8
-  %.not5.i31.i = icmp eq ptr %121, null
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds i8, ptr %117, i64 32
+  %120 = load ptr, ptr %119, align 8
+  %.not5.i31.i = icmp eq ptr %120, null
   br i1 %.not5.i31.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
 
-122:                                              ; preds = %97
-  %123 = load i32, ptr @hf_camelsrt_DeltaTime80, align 4
-  %124 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %123, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
-  %.not.i33.i = icmp eq ptr %124, null
-  br i1 %.not.i33.i, label %camelsrt_display_DeltaTime.exit, label %125
+121:                                              ; preds = %96
+  %122 = load i32, ptr @hf_camelsrt_DeltaTime80, align 4
+  %123 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
+  %.not.i33.i = icmp eq ptr %123, null
+  br i1 %.not.i33.i, label %camelsrt_display_DeltaTime.exit, label %124
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %124, i64 32
-  %127 = load ptr, ptr %126, align 8
-  %.not5.i34.i = icmp eq ptr %127, null
+124:                                              ; preds = %121
+  %125 = getelementptr inbounds i8, ptr %123, i64 32
+  %126 = load ptr, ptr %125, align 8
+  %.not5.i34.i = icmp eq ptr %126, null
   br i1 %.not5.i34.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
 
-128:                                              ; preds = %97
-  %129 = load i32, ptr @hf_camelsrt_DeltaTime65, align 4
-  %130 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %129, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
-  %.not.i36.i = icmp eq ptr %130, null
-  br i1 %.not.i36.i, label %camelsrt_display_DeltaTime.exit, label %131
+127:                                              ; preds = %96
+  %128 = load i32, ptr @hf_camelsrt_DeltaTime65, align 4
+  %129 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %128, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #8
+  %.not.i36.i = icmp eq ptr %129, null
+  br i1 %.not.i36.i, label %camelsrt_display_DeltaTime.exit, label %130
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %130, i64 32
-  %133 = load ptr, ptr %132, align 8
-  %.not5.i37.i = icmp eq ptr %133, null
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds i8, ptr %129, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %.not5.i37.i = icmp eq ptr %132, null
   br i1 %.not5.i37.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
 
-default.unreachable.i:                            ; preds = %97
+default.unreachable.i:                            ; preds = %96
   unreachable
 
-proto_item_set_generated.exit.sink.split.i:       ; preds = %131, %125, %119, %113, %107, %101
-  %.sink41.i = phi ptr [ %103, %101 ], [ %109, %107 ], [ %115, %113 ], [ %121, %119 ], [ %127, %125 ], [ %133, %131 ]
-  %134 = getelementptr inbounds i8, ptr %.sink41.i, i64 28
-  %135 = load i32, ptr %134, align 4
-  %136 = or i32 %135, 2
-  store i32 %136, ptr %134, align 4
+proto_item_set_generated.exit.sink.split.i:       ; preds = %130, %124, %118, %112, %106, %100
+  %.sink41.i = phi ptr [ %102, %100 ], [ %108, %106 ], [ %114, %112 ], [ %120, %118 ], [ %126, %124 ], [ %132, %130 ]
+  %133 = getelementptr inbounds i8, ptr %.sink41.i, i64 28
+  %134 = load i32, ptr %133, align 4
+  %135 = or i32 %134, 2
+  store i32 %135, ptr %133, align 4
   br label %camelsrt_display_DeltaTime.exit
 
-camelsrt_display_DeltaTime.exit:                  ; preds = %43, %proto_item_set_generated.exit.sink.split.i, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %proto_item_set_generated.exit, %proto_item_set_hidden.exit, %67, %69, %5
+camelsrt_display_DeltaTime.exit:                  ; preds = %42, %proto_item_set_generated.exit.sink.split.i, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %proto_item_set_generated.exit, %proto_item_set_hidden.exit, %66, %68, %5
   ret void
 }
 
@@ -3774,7 +3772,7 @@ define internal noundef i32 @camelstat_packet(ptr nocapture noundef readonly %0,
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %12, i64 16
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @add_srt_table_data(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %24, ptr noundef %1) #8
   br label %26
 
@@ -5673,14 +5671,14 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %16 = lshr i32 %12, 4
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %15, ptr noundef %1, i32 noundef %indvars.iv, i32 noundef 1, i32 noundef %16) #8
   %18 = icmp ult i32 %13, 10
-  %19 = trunc i32 %13 to i8
+  %19 = trunc nuw nsw i32 %13 to i8
   %.0.v.i = select i1 %18, i8 48, i8 55
   %.0.i = add nuw nsw i8 %.0.v.i, %19
   %20 = getelementptr [20 x i8], ptr %8, i64 0, i64 %indvars.iv26
   store i8 %.0.i, ptr %20, align 2
   %21 = or disjoint i64 %indvars.iv26, 1
   %22 = icmp ult i8 %10, -96
-  %23 = trunc i32 %16 to i8
+  %23 = trunc nuw nsw i32 %16 to i8
   %.0.v.i22 = select i1 %22, i8 48, i8 55
   %.0.i23 = add nuw nsw i8 %.0.v.i22, %23
   %24 = getelementptr [20 x i8], ptr %8, i64 0, i64 %21

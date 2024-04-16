@@ -212,7 +212,7 @@ define dso_local ptr @__get_insn_slot(ptr noundef %0) local_unnamed_addr #0 alig
   %10 = load i32, ptr %9, align 8
   %11 = load i64, ptr %3, align 8
   %12 = udiv i64 4096, %11
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = icmp slt i32 %10, %13
   br i1 %14, label %15, label %35
 
@@ -528,7 +528,7 @@ define dso_local void @__free_insn_slot(ptr noundef %0, ptr noundef %1, i32 noun
   store i32 %42, ptr %40, align 8
   %43 = load i64, ptr %9, align 8
   %44 = udiv i64 4096, %43
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = icmp sgt i32 %42, %45
   br i1 %46, label %47, label %75
 
@@ -1102,8 +1102,8 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
 
-.thread:                                          ; preds = %15, %18, %24, %1
-  %.ph = phi ptr [ inttoptr (i64 -2 to ptr), %18 ], [ inttoptr (i64 -2 to ptr), %15 ], [ inttoptr (i64 -22 to ptr), %24 ], [ inttoptr (i64 -22 to ptr), %1 ]
+.thread:                                          ; preds = %15, %18, %1, %24
+  %.ph = phi ptr [ inttoptr (i64 -22 to ptr), %1 ], [ inttoptr (i64 -2 to ptr), %18 ], [ inttoptr (i64 -2 to ptr), %15 ], [ inttoptr (i64 -22 to ptr), %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %33
 
@@ -1116,7 +1116,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %34 = phi ptr [ %.ph, %.thread ], [ %29, %31 ]
   %35 = ptrtoint ptr %34 to i64
   %36 = trunc i64 %35 to i32
-  br label %.thread40
+  br label %.thread39
 
 37:                                               ; preds = %31
   store ptr %29, ptr %4, align 8
@@ -1132,7 +1132,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %44 = phi ptr [ %42, %37 ], [ %45, %47 ]
   %45 = load volatile ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread24, label %47
+  br i1 %46, label %.thread23, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %45, i64 40
@@ -1152,7 +1152,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %56 = phi ptr [ %54, %53 ], [ %57, %59 ]
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %54
-  br i1 %58, label %.thread24, label %59
+  br i1 %58, label %.thread23, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %57, i64 -16
@@ -1164,9 +1164,9 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1527, i32 2307, i64 12) #20, !srcloc !48
   call void asm sideeffect "411: nop\0A\09.pushsection .discard.instr_end\0A\09.long 411b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 411) #20, !srcloc !49
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
-  br label %.thread40
+  br label %.thread39
 
-.thread24:                                        ; preds = %43, %55
+.thread23:                                        ; preds = %43, %55
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
   %62 = getelementptr inbounds i8, ptr %0, i64 120
   %63 = load i32, ptr %62, align 8
@@ -1180,9 +1180,9 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   store volatile ptr %66, ptr %67, align 8
   %68 = load ptr, ptr %4, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.thread40, label %70
+  br i1 %69, label %.thread39, label %70
 
-70:                                               ; preds = %.thread24
+70:                                               ; preds = %.thread23
   call void @jump_label_lock() #20
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !36
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !50
@@ -1311,7 +1311,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
 
 152:                                              ; preds = %142, %149
   call void @jump_label_unlock() #20
-  br i1 %144, label %153, label %.thread40
+  br i1 %144, label %153, label %.thread39
 
 153:                                              ; preds = %152
   call void @mutex_lock(ptr noundef nonnull @kprobe_mutex) #20
@@ -1359,7 +1359,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %179 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
   %180 = call noalias noundef align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %179, i32 noundef 3520, i64 noundef 168) #23
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread31, label %182
+  br i1 %181, label %.thread30, label %182
 
 182:                                              ; preds = %178
   %183 = getelementptr inbounds i8, ptr %180, i64 128
@@ -1463,9 +1463,9 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %238 = getelementptr inbounds i8, ptr %167, i64 128
   %239 = load volatile ptr, ptr %238, align 8
   %240 = icmp eq ptr %239, %238
-  br i1 %240, label %242, label %.thread41, !prof !57
+  br i1 %240, label %242, label %.thread40, !prof !57
 
-.thread41:                                        ; preds = %237
+.thread40:                                        ; preds = %237
   %241 = and i32 %230, -3
   store i32 %241, ptr %229, align 8
   br label %245
@@ -1475,18 +1475,18 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 775, i32 2307, i64 12) #20, !srcloc !59
   call void asm sideeffect "402: nop\0A\09.pushsection .discard.instr_end\0A\09.long 402b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 402) #20, !srcloc !60
   %.pre = load i32, ptr %229, align 8
-  %.pre38 = load ptr, ptr %175, align 8
-  %243 = icmp eq ptr %.pre38, @aggr_pre_handler
+  %.pre37 = load ptr, ptr %175, align 8
+  %243 = icmp eq ptr %.pre37, @aggr_pre_handler
   %244 = and i32 %.pre, -3
   store i32 %244, ptr %229, align 8
-  br i1 %243, label %245, label %.thread31
+  br i1 %243, label %245, label %.thread30
 
-245:                                              ; preds = %.thread41, %242
+245:                                              ; preds = %.thread40, %242
   %246 = getelementptr inbounds i8, ptr %167, i64 160
   %247 = load i64, ptr %246, align 8
   %248 = and i64 %247, 4294967295
   %249 = icmp eq i64 %248, 0
-  br i1 %249, label %.thread31, label %250
+  br i1 %249, label %.thread30, label %250
 
 250:                                              ; preds = %245
   call fastcc void @optimize_kprobe(ptr noundef nonnull %167)
@@ -1503,7 +1503,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
 257:                                              ; preds = %251
   %258 = call i32 @arch_prepare_kprobe(ptr noundef nonnull %252) #20
   %259 = icmp eq i32 %258, 0
-  br i1 %259, label %260, label %.thread31
+  br i1 %259, label %260, label %.thread30
 
 260:                                              ; preds = %257
   %261 = load i32, ptr %253, align 8
@@ -1513,11 +1513,11 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
 
 264:                                              ; preds = %260
   %265 = call i32 @arch_prepare_optimized_kprobe(ptr noundef nonnull %252, ptr noundef nonnull %252) #20
-  %.pre39 = load i32, ptr %253, align 8
+  %.pre38 = load i32, ptr %253, align 8
   br label %266
 
 266:                                              ; preds = %264, %260
-  %267 = phi i32 [ %.pre39, %264 ], [ %261, %260 ]
+  %267 = phi i32 [ %.pre38, %264 ], [ %261, %260 ]
   %268 = and i32 %267, -4
   %269 = or disjoint i32 %268, 2
   store i32 %269, ptr %253, align 8
@@ -1551,19 +1551,19 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   store ptr %66, ptr %283, align 8
   %284 = load ptr, ptr %276, align 8
   %285 = icmp eq ptr %284, null
-  br i1 %285, label %.thread31, label %286
+  br i1 %285, label %.thread30, label %286
 
 286:                                              ; preds = %280
   %287 = getelementptr inbounds i8, ptr %252, i64 72
   %288 = load ptr, ptr %287, align 8
   %289 = icmp eq ptr %288, null
-  br i1 %289, label %290, label %.thread31
+  br i1 %289, label %290, label %.thread30
 
 290:                                              ; preds = %286
   store ptr @aggr_post_handler, ptr %287, align 8
-  br label %.thread31
+  br label %.thread30
 
-.thread31:                                        ; preds = %242, %245, %178, %290, %286, %280, %257
+.thread30:                                        ; preds = %242, %245, %178, %290, %286, %280, %257
   %291 = phi i32 [ %258, %257 ], [ 0, %280 ], [ 0, %286 ], [ 0, %290 ], [ -12, %178 ], [ -22, %245 ], [ -22, %242 ]
   %292 = phi ptr [ %252, %257 ], [ %252, %280 ], [ %252, %286 ], [ %252, %290 ], [ null, %178 ], [ %167, %245 ], [ %167, %242 ]
   call void @mutex_unlock(ptr noundef nonnull @text_mutex) #20
@@ -1572,7 +1572,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %293 = icmp eq i32 %291, 0
   br i1 %293, label %294, label %352
 
-294:                                              ; preds = %.thread31
+294:                                              ; preds = %.thread30
   %295 = getelementptr inbounds i8, ptr %292, i64 120
   %296 = load i32, ptr %295, align 8
   %297 = and i32 %296, 3
@@ -1685,18 +1685,18 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   call fastcc void @try_to_optimize_kprobe(ptr noundef %0)
   br label %352
 
-352:                                              ; preds = %351, %350, %321, %309, %306, %303, %299, %294, %.thread31
-  %353 = phi i32 [ %322, %321 ], [ 0, %351 ], [ %342, %350 ], [ 0, %299 ], [ 0, %303 ], [ %307, %309 ], [ 0, %306 ], [ 0, %294 ], [ %291, %.thread31 ]
+352:                                              ; preds = %351, %350, %321, %309, %306, %303, %299, %294, %.thread30
+  %353 = phi i32 [ %322, %321 ], [ 0, %351 ], [ %342, %350 ], [ 0, %299 ], [ 0, %303 ], [ %307, %309 ], [ 0, %306 ], [ 0, %294 ], [ %291, %.thread30 ]
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
   %354 = icmp eq ptr %143, null
-  br i1 %354, label %.thread40, label %355
+  br i1 %354, label %.thread39, label %355
 
 355:                                              ; preds = %352
   call void @module_put(ptr noundef nonnull %143) #20
-  br label %.thread40
+  br label %.thread39
 
-.thread40:                                        ; preds = %.thread24, %.loopexit, %355, %352, %152, %33
-  %356 = phi i32 [ %36, %33 ], [ -22, %.loopexit ], [ %145, %152 ], [ %353, %355 ], [ %353, %352 ], [ -22, %.thread24 ]
+.thread39:                                        ; preds = %.thread23, %.loopexit, %355, %352, %152, %33
+  %356 = phi i32 [ %36, %33 ], [ -22, %.loopexit ], [ %145, %152 ], [ %353, %355 ], [ %353, %352 ], [ -22, %.thread23 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #20
   ret i32 %356
 }
@@ -1771,7 +1771,7 @@ define internal fastcc noundef i32 @arm_kprobe(ptr noundef %0) unnamed_addr #0 a
   tail call fastcc void @unoptimize_kprobe(ptr noundef nonnull %19, i1 noundef zeroext true)
   br label %.thread3
 
-.thread3:                                         ; preds = %25, %35, %30, %.thread, %38
+.thread3:                                         ; preds = %25, %35, %.thread, %30, %38
   tail call void @arch_arm_kprobe(ptr noundef %0) #20
   tail call fastcc void @optimize_kprobe(ptr noundef %0)
   tail call void @mutex_unlock(ptr noundef nonnull @text_mutex) #20
@@ -2289,7 +2289,7 @@ define dso_local i32 @kprobe_on_func_entry(ptr noundef %0, ptr noundef %1, i64 n
   %11 = trunc i64 %2 to i32
   %12 = tail call ptr @kprobe_lookup_name(ptr noundef nonnull %1, i32 noundef %11)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %28, label %14
+  br i1 %13, label %27, label %14
 
 14:                                               ; preds = %10, %9
   %15 = phi ptr [ %12, %10 ], [ %0, %9 ]
@@ -2297,7 +2297,7 @@ define dso_local i32 @kprobe_on_func_entry(ptr noundef %0, ptr noundef %1, i64 n
   %17 = ptrtoint ptr %16 to i64
   %18 = call i32 @kallsyms_lookup_size_offset(i64 noundef %17, ptr noundef null, ptr noundef nonnull %4) #20
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %28, label %20
+  br i1 %19, label %27, label %20
 
 20:                                               ; preds = %14
   %21 = load i64, ptr %4, align 8
@@ -2306,23 +2306,21 @@ define dso_local i32 @kprobe_on_func_entry(ptr noundef %0, ptr noundef %1, i64 n
   %24 = ptrtoint ptr %23 to i64
   %25 = call ptr @arch_adjust_kprobe_addr(i64 noundef %24, i64 noundef %21, ptr noundef nonnull %5)
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %28
+  %spec.select = select i1 %26, ptr inttoptr (i64 -22 to ptr), ptr %25
+  br label %27
 
-27:                                               ; preds = %20, %3
-  br label %28
-
-28:                                               ; preds = %27, %20, %14, %10
-  %29 = phi ptr [ inttoptr (i64 -22 to ptr), %27 ], [ %25, %20 ], [ inttoptr (i64 -2 to ptr), %10 ], [ inttoptr (i64 -2 to ptr), %14 ]
+27:                                               ; preds = %20, %3, %14, %10
+  %28 = phi ptr [ inttoptr (i64 -2 to ptr), %10 ], [ inttoptr (i64 -2 to ptr), %14 ], [ inttoptr (i64 -22 to ptr), %3 ], [ %spec.select, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %30 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
-  %31 = ptrtoint ptr %29 to i64
-  %32 = trunc i64 %31 to i32
-  %33 = load i8, ptr %5, align 1, !range !54
-  %34 = icmp eq i8 %33, 0
-  %35 = select i1 %34, i32 -22, i32 0
-  %36 = select i1 %30, i32 %32, i32 %35
+  %29 = icmp ugt ptr %28, inttoptr (i64 -4096 to ptr)
+  %30 = ptrtoint ptr %28 to i64
+  %31 = trunc i64 %30 to i32
+  %32 = load i8, ptr %5, align 1, !range !54
+  %33 = icmp eq i8 %32, 0
+  %34 = select i1 %33, i32 -22, i32 0
+  %35 = select i1 %29, i32 %31, i32 %34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #20
-  ret i32 %36
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2353,7 +2351,7 @@ define dso_local i32 @register_kretprobe(ptr noundef %0) #0 align 16 {
 17:                                               ; preds = %16
   %18 = tail call ptr @kprobe_lookup_name(ptr noundef nonnull %9, i32 noundef %11)
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %34, label %20
+  br i1 %19, label %33, label %20
 
 20:                                               ; preds = %17, %16
   %21 = phi ptr [ %18, %17 ], [ %7, %16 ]
@@ -2361,7 +2359,7 @@ define dso_local i32 @register_kretprobe(ptr noundef %0) #0 align 16 {
   %23 = ptrtoint ptr %22 to i64
   %24 = call i32 @kallsyms_lookup_size_offset(i64 noundef %23, ptr noundef null, ptr noundef nonnull %4) #20
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %34, label %26
+  br i1 %25, label %33, label %26
 
 26:                                               ; preds = %20
   %27 = load i64, ptr %4, align 8
@@ -2370,220 +2368,218 @@ define dso_local i32 @register_kretprobe(ptr noundef %0) #0 align 16 {
   %30 = ptrtoint ptr %29 to i64
   %31 = call ptr @arch_adjust_kprobe_addr(i64 noundef %30, i64 noundef %27, ptr noundef nonnull %5)
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %34
+  %spec.select = select i1 %32, ptr inttoptr (i64 -22 to ptr), ptr %31
+  br label %33
 
-33:                                               ; preds = %26, %1
-  br label %34
-
-34:                                               ; preds = %33, %26, %20, %17
-  %35 = phi ptr [ inttoptr (i64 -22 to ptr), %33 ], [ %31, %26 ], [ inttoptr (i64 -2 to ptr), %17 ], [ inttoptr (i64 -2 to ptr), %20 ]
+33:                                               ; preds = %26, %1, %20, %17
+  %34 = phi ptr [ inttoptr (i64 -2 to ptr), %17 ], [ inttoptr (i64 -2 to ptr), %20 ], [ inttoptr (i64 -22 to ptr), %1 ], [ %spec.select, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %36 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
-  %37 = ptrtoint ptr %35 to i64
-  %38 = trunc i64 %37 to i32
-  %39 = load i8, ptr %5, align 1, !range !54
-  %40 = icmp eq i8 %39, 0
-  %41 = select i1 %40, i32 -22, i32 0
-  %42 = select i1 %36, i32 %38, i32 %41
+  %35 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
+  %36 = ptrtoint ptr %34 to i64
+  %37 = trunc i64 %36 to i32
+  %38 = load i8, ptr %5, align 1, !range !54
+  %39 = icmp eq i8 %38, 0
+  %40 = select i1 %39, i32 -22, i32 0
+  %41 = select i1 %35, i32 %37, i32 %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #20
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.loopexit
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %.loopexit
 
-44:                                               ; preds = %34
-  %45 = load ptr, ptr %6, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %72, label %47
+43:                                               ; preds = %33
+  %44 = load ptr, ptr %6, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %71, label %46
 
-47:                                               ; preds = %44
+46:                                               ; preds = %43
   call void @mutex_lock(ptr noundef nonnull @kprobe_mutex) #20
-  %48 = load ptr, ptr %6, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = mul i64 %49, 7046029254386353131
-  %51 = lshr i64 %50, 58
-  %52 = getelementptr [64 x %struct.hlist_head], ptr @kprobe_table, i64 0, i64 %51
-  br label %53
+  %47 = load ptr, ptr %6, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = mul i64 %48, 7046029254386353131
+  %50 = lshr i64 %49, 58
+  %51 = getelementptr [64 x %struct.hlist_head], ptr @kprobe_table, i64 0, i64 %50
+  br label %52
 
-53:                                               ; preds = %57, %47
-  %54 = phi ptr [ %52, %47 ], [ %55, %57 ]
-  %55 = load volatile ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %.thread, label %57
+52:                                               ; preds = %56, %46
+  %53 = phi ptr [ %51, %46 ], [ %54, %56 ]
+  %54 = load volatile ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %.thread, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %55, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %48
-  br i1 %60, label %61, label %53, !llvm.loop !26
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %54, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, %47
+  br i1 %59, label %60, label %52, !llvm.loop !26
 
-61:                                               ; preds = %57
-  %62 = icmp eq ptr %55, %0
-  br i1 %62, label %.loopexit18, label %63
+60:                                               ; preds = %56
+  %61 = icmp eq ptr %54, %0
+  br i1 %61, label %.loopexit17, label %62
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %55, i64 16
-  br label %65
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds i8, ptr %54, i64 16
+  br label %64
 
-65:                                               ; preds = %69, %63
-  %66 = phi ptr [ %64, %63 ], [ %67, %69 ]
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %64
-  br i1 %68, label %.thread, label %69
+64:                                               ; preds = %68, %62
+  %65 = phi ptr [ %63, %62 ], [ %66, %68 ]
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, %63
+  br i1 %67, label %.thread, label %68
 
-69:                                               ; preds = %65
-  %70 = getelementptr i8, ptr %67, i64 -16
-  %71 = icmp eq ptr %70, %0
-  br i1 %71, label %.loopexit18, label %65, !llvm.loop !46
+68:                                               ; preds = %64
+  %69 = getelementptr i8, ptr %66, i64 -16
+  %70 = icmp eq ptr %69, %0
+  br i1 %70, label %.loopexit17, label %64, !llvm.loop !46
 
-.loopexit18:                                      ; preds = %69, %61
+.loopexit17:                                      ; preds = %68, %60
   call void asm sideeffect "410: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 410b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 410) #20, !srcloc !47
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1527, i32 2307, i64 12) #20, !srcloc !48
   call void asm sideeffect "411: nop\0A\09.pushsection .discard.instr_end\0A\09.long 411b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 411) #20, !srcloc !49
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
   br label %.loopexit
 
-.thread:                                          ; preds = %53, %65
+.thread:                                          ; preds = %52, %64
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
-  br label %72
+  br label %71
 
-72:                                               ; preds = %.thread, %44
-  %73 = load i32, ptr @kretprobe_blacklist_size, align 4
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.loopexit17, label %75
+71:                                               ; preds = %.thread, %43
+  %72 = load i32, ptr @kretprobe_blacklist_size, align 4
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %.loopexit16, label %74
 
-75:                                               ; preds = %72
+74:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20
   store i8 0, ptr %3, align 1, !annotation !44
-  %76 = load ptr, ptr %6, align 8
-  %77 = load ptr, ptr %8, align 8
-  %78 = load i32, ptr %10, align 8
-  %79 = zext i32 %78 to i64
+  %75 = load ptr, ptr %6, align 8
+  %76 = load ptr, ptr %8, align 8
+  %77 = load i32, ptr %10, align 8
+  %78 = zext i32 %77 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store i64 %79, ptr %2, align 8
-  %80 = icmp ne ptr %77, null
-  %81 = icmp ne ptr %76, null
-  %82 = xor i1 %81, %80
-  br i1 %82, label %83, label %.thread16
+  store i64 %78, ptr %2, align 8
+  %79 = icmp ne ptr %76, null
+  %80 = icmp ne ptr %75, null
+  %81 = xor i1 %80, %79
+  br i1 %81, label %82, label %.thread15
 
-83:                                               ; preds = %75
-  br i1 %80, label %84, label %87
+82:                                               ; preds = %74
+  br i1 %79, label %83, label %86
 
-84:                                               ; preds = %83
-  %85 = call ptr @kprobe_lookup_name(ptr noundef nonnull %77, i32 noundef %78)
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %.thread16, label %87
+83:                                               ; preds = %82
+  %84 = call ptr @kprobe_lookup_name(ptr noundef nonnull %76, i32 noundef %77)
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %.thread15, label %86
 
-87:                                               ; preds = %84, %83
-  %88 = phi ptr [ %85, %84 ], [ %76, %83 ]
-  %89 = getelementptr i8, ptr %88, i64 %79
-  %90 = ptrtoint ptr %89 to i64
-  %91 = call i32 @kallsyms_lookup_size_offset(i64 noundef %90, ptr noundef null, ptr noundef nonnull %2) #20
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.thread16, label %93
+86:                                               ; preds = %83, %82
+  %87 = phi ptr [ %84, %83 ], [ %75, %82 ]
+  %88 = getelementptr i8, ptr %87, i64 %78
+  %89 = ptrtoint ptr %88 to i64
+  %90 = call i32 @kallsyms_lookup_size_offset(i64 noundef %89, ptr noundef null, ptr noundef nonnull %2) #20
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %.thread15, label %92
 
-93:                                               ; preds = %87
-  %94 = load i64, ptr %2, align 8
-  %95 = sub i64 0, %94
-  %96 = getelementptr i8, ptr %89, i64 %95
-  %97 = ptrtoint ptr %96 to i64
-  %98 = call ptr @arch_adjust_kprobe_addr(i64 noundef %97, i64 noundef %94, ptr noundef nonnull %3)
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %.thread16, label %100
+92:                                               ; preds = %86
+  %93 = load i64, ptr %2, align 8
+  %94 = sub i64 0, %93
+  %95 = getelementptr i8, ptr %88, i64 %94
+  %96 = ptrtoint ptr %95 to i64
+  %97 = call ptr @arch_adjust_kprobe_addr(i64 noundef %96, i64 noundef %93, ptr noundef nonnull %3)
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %.thread15, label %99
 
-.thread16:                                        ; preds = %84, %87, %93, %75
-  %.ph = phi ptr [ inttoptr (i64 -2 to ptr), %87 ], [ inttoptr (i64 -2 to ptr), %84 ], [ inttoptr (i64 -22 to ptr), %93 ], [ inttoptr (i64 -22 to ptr), %75 ]
+.thread15:                                        ; preds = %83, %86, %74, %92
+  %.ph = phi ptr [ inttoptr (i64 -22 to ptr), %74 ], [ inttoptr (i64 -2 to ptr), %86 ], [ inttoptr (i64 -2 to ptr), %83 ], [ inttoptr (i64 -22 to ptr), %92 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #20
-  br label %105
+  br label %104
 
-100:                                              ; preds = %93
+99:                                               ; preds = %92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #20
-  %101 = icmp ugt ptr %98, inttoptr (i64 -4096 to ptr)
-  br i1 %101, label %105, label %102
+  %100 = icmp ugt ptr %97, inttoptr (i64 -4096 to ptr)
+  br i1 %100, label %104, label %101
 
-102:                                              ; preds = %100
-  %103 = load ptr, ptr @kretprobe_blacklist, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %.loopexit17, label %.preheader
+101:                                              ; preds = %99
+  %102 = load ptr, ptr @kretprobe_blacklist, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %.loopexit16, label %.preheader
 
-105:                                              ; preds = %.thread16, %100
-  %106 = phi ptr [ %.ph, %.thread16 ], [ %98, %100 ]
-  %107 = ptrtoint ptr %106 to i64
-  %108 = trunc i64 %107 to i32
+104:                                              ; preds = %.thread15, %99
+  %105 = phi ptr [ %.ph, %.thread15 ], [ %97, %99 ]
+  %106 = ptrtoint ptr %105 to i64
+  %107 = trunc i64 %106 to i32
   br label %.loopexit
 
-109:                                              ; preds = %.preheader
-  %110 = add i32 %116, 1
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr [0 x %struct.kretprobe_blackpoint], ptr @kretprobe_blacklist, i64 0, i64 %111
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %.loopexit17, label %.preheader, !llvm.loop !77
+108:                                              ; preds = %.preheader
+  %109 = add i32 %115, 1
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr [0 x %struct.kretprobe_blackpoint], ptr @kretprobe_blacklist, i64 0, i64 %110
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %.loopexit16, label %.preheader, !llvm.loop !77
 
-.preheader:                                       ; preds = %102, %109
-  %115 = phi ptr [ %112, %109 ], [ @kretprobe_blacklist, %102 ]
-  %116 = phi i32 [ %110, %109 ], [ 0, %102 ]
-  %117 = getelementptr inbounds i8, ptr %115, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = icmp eq ptr %118, %98
-  br i1 %119, label %.loopexit, label %109
+.preheader:                                       ; preds = %101, %108
+  %114 = phi ptr [ %111, %108 ], [ @kretprobe_blacklist, %101 ]
+  %115 = phi i32 [ %109, %108 ], [ 0, %101 ]
+  %116 = getelementptr inbounds i8, ptr %114, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, %97
+  br i1 %118, label %.loopexit, label %108
 
-.loopexit17:                                      ; preds = %109, %102, %72
-  %120 = getelementptr inbounds i8, ptr %0, i64 152
-  %121 = load i64, ptr %120, align 8
-  %122 = icmp ugt i64 %121, 4096
-  br i1 %122, label %.loopexit, label %123
+.loopexit16:                                      ; preds = %108, %101, %71
+  %119 = getelementptr inbounds i8, ptr %0, i64 152
+  %120 = load i64, ptr %119, align 8
+  %121 = icmp ugt i64 %120, 4096
+  br i1 %121, label %.loopexit, label %122
 
-123:                                              ; preds = %.loopexit17
-  %124 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr @pre_handler_kretprobe, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr null, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 144
-  %127 = load i32, ptr %126, align 8
-  %128 = icmp slt i32 %127, 1
-  br i1 %128, label %129, label %135
+122:                                              ; preds = %.loopexit16
+  %123 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr @pre_handler_kretprobe, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr null, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 144
+  %126 = load i32, ptr %125, align 8
+  %127 = icmp slt i32 %126, 1
+  br i1 %127, label %128, label %134
 
-129:                                              ; preds = %123
-  %130 = load i64, ptr @__cpu_possible_mask, align 8
-  %131 = call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %130) #24, !srcloc !78
-  %132 = trunc i64 %131 to i32
-  %133 = shl i32 %132, 1
-  %134 = call i32 @llvm.umax.i32(i32 %133, i32 10)
-  store i32 %134, ptr %126, align 8
-  br label %135
+128:                                              ; preds = %122
+  %129 = load i64, ptr @__cpu_possible_mask, align 8
+  %130 = call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %129) #24, !srcloc !78
+  %131 = trunc i64 %130 to i32
+  %132 = shl i32 %131, 1
+  %133 = call i32 @llvm.umax.i32(i32 %132, i32 10)
+  store i32 %133, ptr %125, align 8
+  br label %134
 
-135:                                              ; preds = %129, %123
-  %136 = phi i32 [ %134, %129 ], [ %127, %123 ]
-  %137 = trunc i64 %121 to i32
-  %138 = add nuw nsw i32 %137, 48
-  %139 = call ptr @rethook_alloc(ptr noundef %0, ptr noundef nonnull @kretprobe_rethook_handler, i32 noundef %138, i32 noundef %136) #20
-  %140 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr %139, ptr %140, align 8
-  %141 = icmp ugt ptr %139, inttoptr (i64 -4096 to ptr)
-  br i1 %141, label %142, label %145
+134:                                              ; preds = %128, %122
+  %135 = phi i32 [ %133, %128 ], [ %126, %122 ]
+  %136 = trunc nuw nsw i64 %120 to i32
+  %137 = add nuw nsw i32 %136, 48
+  %138 = call ptr @rethook_alloc(ptr noundef %0, ptr noundef nonnull @kretprobe_rethook_handler, i32 noundef %137, i32 noundef %135) #20
+  %139 = getelementptr inbounds i8, ptr %0, i64 160
+  store ptr %138, ptr %139, align 8
+  %140 = icmp ugt ptr %138, inttoptr (i64 -4096 to ptr)
+  br i1 %140, label %141, label %144
 
-142:                                              ; preds = %135
-  %143 = ptrtoint ptr %139 to i64
-  %144 = trunc i64 %143 to i32
+141:                                              ; preds = %134
+  %142 = ptrtoint ptr %138 to i64
+  %143 = trunc i64 %142 to i32
   br label %.loopexit
 
-145:                                              ; preds = %135
-  %146 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 0, ptr %146, align 4
-  %147 = call i32 @register_kprobe(ptr noundef %0)
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %.loopexit, label %149
+144:                                              ; preds = %134
+  %145 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 0, ptr %145, align 4
+  %146 = call i32 @register_kprobe(ptr noundef %0)
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %.loopexit, label %148
 
-149:                                              ; preds = %145
-  %150 = load ptr, ptr %140, align 8
-  call void @rethook_free(ptr noundef %150) #20
-  store ptr null, ptr %140, align 8
+148:                                              ; preds = %144
+  %149 = load ptr, ptr %139, align 8
+  call void @rethook_free(ptr noundef %149) #20
+  store ptr null, ptr %139, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %149, %145, %142, %.loopexit17, %105, %.loopexit18, %34
-  %151 = phi i32 [ %108, %105 ], [ %144, %142 ], [ %42, %34 ], [ -7, %.loopexit17 ], [ %147, %149 ], [ 0, %145 ], [ -22, %.loopexit18 ], [ -22, %.preheader ]
-  ret i32 %151
+.loopexit:                                        ; preds = %.preheader, %148, %144, %141, %.loopexit16, %104, %.loopexit17, %33
+  %150 = phi i32 [ %107, %104 ], [ %143, %141 ], [ %41, %33 ], [ -7, %.loopexit16 ], [ %146, %148 ], [ 0, %144 ], [ -22, %.loopexit17 ], [ -22, %.preheader ]
+  ret i32 %150
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3914,7 +3910,7 @@ define internal fastcc noundef i32 @disarm_kprobe(ptr noundef %0, i1 noundef zer
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %50, !prof !20
+  br i1 %6, label %7, label %49, !prof !20
 
 7:                                                ; preds = %2
   tail call void @cpus_read_lock() #20
@@ -3980,24 +3976,22 @@ define internal fastcc noundef i32 @disarm_kprobe(ptr noundef %0, i1 noundef zer
 
 45:                                               ; preds = %40
   %46 = tail call i32 @arch_within_optimized_kprobe(ptr noundef nonnull %29, ptr noundef %18) #20
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.thread3, label %48, !prof !64
+  %47 = icmp ne i32 %46, 0
+  %brmerge.not = and i1 %47, %1
+  br i1 %brmerge.not, label %48, label %.thread3, !prof !96
 
 48:                                               ; preds = %45
-  br i1 %1, label %49, label %.thread3
-
-49:                                               ; preds = %48
   tail call fastcc void @optimize_kprobe(ptr noundef nonnull %29)
   br label %.thread3
 
-.thread3:                                         ; preds = %35, %45, %40, %.thread, %49, %48, %12
+.thread3:                                         ; preds = %35, %45, %.thread, %40, %48, %12
   tail call void @mutex_unlock(ptr noundef nonnull @text_mutex) #20
   tail call void @cpus_read_unlock() #20
-  br label %50
+  br label %49
 
-50:                                               ; preds = %.thread3, %2
-  %51 = phi i32 [ 0, %.thread3 ], [ -19, %2 ]
-  ret i32 %51
+49:                                               ; preds = %.thread3, %2
+  %50 = phi i32 [ 0, %.thread3 ], [ -19, %2 ]
+  ret i32 %50
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -4007,7 +4001,7 @@ define internal fastcc i32 @populate_kprobe_blacklist() unnamed_addr #11 section
 1:                                                ; preds = %.preheader
   %2 = getelementptr i8, ptr %4, i64 8
   %3 = icmp ult ptr %2, @__stop_kprobe_blacklist
-  br i1 %3, label %.preheader, label %.loopexit4, !llvm.loop !96
+  br i1 %3, label %.preheader, label %.loopexit4, !llvm.loop !97
 
 .preheader:                                       ; preds = %0, %1
   %4 = phi ptr [ %2, %1 ], [ @__start_kprobe_blacklist, %0 ]
@@ -4019,12 +4013,12 @@ define internal fastcc i32 @populate_kprobe_blacklist() unnamed_addr #11 section
   br i1 %9, label %.loopexit, label %1
 
 .loopexit4:                                       ; preds = %1, %0
-  %10 = tail call i32 @kprobe_add_area_blacklist(i64 noundef ptrtoint (ptr @__kprobes_text_start to i64), i64 noundef ptrtoint (ptr @__kprobes_text_end to i64)), !range !97
+  %10 = tail call i32 @kprobe_add_area_blacklist(i64 noundef ptrtoint (ptr @__kprobes_text_start to i64), i64 noundef ptrtoint (ptr @__kprobes_text_end to i64)), !range !98
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %.loopexit4
-  %13 = tail call i32 @kprobe_add_area_blacklist(i64 noundef ptrtoint (ptr @__noinstr_text_start to i64), i64 noundef ptrtoint (ptr @__noinstr_text_end to i64)), !range !97
+  %13 = tail call i32 @kprobe_add_area_blacklist(i64 noundef ptrtoint (ptr @__noinstr_text_start to i64), i64 noundef ptrtoint (ptr @__noinstr_text_end to i64)), !range !98
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.loopexit
 
@@ -4119,7 +4113,7 @@ define internal noundef i32 @kprobes_module_callback(ptr nocapture readnone %0, 
   %42 = add nuw i32 %20, 1
   %43 = load i32, ptr %17, align 64
   %44 = icmp ult i32 %42, %43
-  br i1 %44, label %.preheader33, label %.loopexit34, !llvm.loop !98
+  br i1 %44, label %.preheader33, label %.loopexit34, !llvm.loop !99
 
 .loopexit34:                                      ; preds = %41, %16, %12
   %45 = getelementptr inbounds i8, ptr %2, i64 1064
@@ -4346,7 +4340,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
   %168 = add nuw nsw i64 %152, 1
   %169 = icmp ult i64 %152, 6
   %170 = icmp eq i64 %168, 7
-  br i1 %170, label %171, label %.preheader30, !llvm.loop !99
+  br i1 %170, label %171, label %.preheader30, !llvm.loop !100
 
 171:                                              ; preds = %167, %158
   %172 = phi i1 [ %153, %158 ], [ %169, %167 ]
@@ -4447,12 +4441,12 @@ kill_kprobe.exit:                                 ; preds = %173, %221
 222:                                              ; preds = %kill_kprobe.exit, %171, %151
   %223 = load ptr, ptr %125, align 8
   %224 = icmp eq ptr %223, null
-  br i1 %224, label %.loopexit32, label %.preheader31, !llvm.loop !100
+  br i1 %224, label %.loopexit32, label %.preheader31, !llvm.loop !101
 
 .loopexit32:                                      ; preds = %222, %120
   %225 = add nuw nsw i64 %121, 1
   %226 = icmp eq i64 %225, 64
-  br i1 %226, label %227, label %120, !llvm.loop !101
+  br i1 %226, label %227, label %120, !llvm.loop !102
 
 227:                                              ; preds = %.loopexit32
   br i1 %10, label %228, label %.loopexit
@@ -4507,7 +4501,7 @@ kill_kprobe.exit:                                 ; preds = %173, %221
 
 258:                                              ; preds = %254, %.preheader26
   %259 = icmp eq ptr %248, @kprobe_blacklist
-  br i1 %259, label %.loopexit27.loopexit, label %.preheader26, !llvm.loop !102
+  br i1 %259, label %.loopexit27.loopexit, label %.preheader26, !llvm.loop !103
 
 .loopexit27.loopexit:                             ; preds = %258
   %.pre = load i32, ptr %233, align 64
@@ -4517,7 +4511,7 @@ kill_kprobe.exit:                                 ; preds = %173, %221
   %260 = phi i32 [ %.pre, %.loopexit27.loopexit ], [ %238, %.preheader28.split ]
   %261 = add nuw i32 %239, 1
   %262 = icmp ult i32 %261, %260
-  br i1 %262, label %.preheader28.split, label %.loopexit29, !llvm.loop !103
+  br i1 %262, label %.preheader28.split, label %.loopexit29, !llvm.loop !104
 
 .loopexit29:                                      ; preds = %.loopexit27, %232, %228
   %263 = getelementptr inbounds i8, ptr %2, i64 1064
@@ -4558,7 +4552,7 @@ kill_kprobe.exit:                                 ; preds = %173, %221
 
 285:                                              ; preds = %281, %.preheader24
   %286 = icmp eq ptr %275, @kprobe_blacklist
-  br i1 %286, label %.loopexit25, label %.preheader24, !llvm.loop !102
+  br i1 %286, label %.loopexit25, label %.preheader24, !llvm.loop !103
 
 .loopexit25:                                      ; preds = %285, %266, %.loopexit29
   %287 = getelementptr inbounds i8, ptr %2, i64 968
@@ -4599,7 +4593,7 @@ kill_kprobe.exit:                                 ; preds = %173, %221
 
 309:                                              ; preds = %305, %.preheader
   %310 = icmp eq ptr %299, @kprobe_blacklist
-  br i1 %310, label %.loopexit, label %.preheader, !llvm.loop !102
+  br i1 %310, label %.loopexit, label %.preheader, !llvm.loop !103
 
 .loopexit:                                        ; preds = %309, %290, %.loopexit25, %227
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
@@ -4711,12 +4705,12 @@ define internal i32 @proc_kprobes_optimization_handler(ptr noundef %0, i32 nound
 56:                                               ; preds = %50, %44, %43, %26, %.preheader4
   %57 = load ptr, ptr %21, align 8
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit, label %.preheader4, !llvm.loop !105
+  br i1 %58, label %.loopexit, label %.preheader4, !llvm.loop !106
 
 .loopexit:                                        ; preds = %56, %16
   %59 = add nuw nsw i64 %17, 1
   %60 = icmp eq i64 %59, 64
-  br i1 %60, label %61, label %16, !llvm.loop !106
+  br i1 %60, label %61, label %16, !llvm.loop !107
 
 61:                                               ; preds = %.loopexit
   tail call void @cpus_read_unlock() #20
@@ -4870,12 +4864,12 @@ define internal fastcc void @optimize_all_kprobes() unnamed_addr #0 align 16 {
 optimize_kprobe.exit:                             ; preds = %56, %55, %44, %43, %30, %26, %24, %22, %17, %13, %.preheader
   %62 = load ptr, ptr %8, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %.preheader, !llvm.loop !107
+  br i1 %63, label %.loopexit, label %.preheader, !llvm.loop !108
 
 .loopexit:                                        ; preds = %optimize_kprobe.exit, %3
   %64 = add nuw nsw i64 %4, 1
   %65 = icmp eq i64 %64, 64
-  br i1 %65, label %66, label %3, !llvm.loop !108
+  br i1 %65, label %66, label %3, !llvm.loop !109
 
 66:                                               ; preds = %.loopexit
   tail call void @cpus_read_unlock() #20
@@ -4966,7 +4960,7 @@ define internal noundef i32 @show_kprobe_addr(ptr noundef %0, ptr nocapture noun
   %7 = and i64 %6, 4294967295
   %8 = getelementptr [64 x %struct.hlist_head], ptr @kprobe_table, i64 0, i64 %7
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !36
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !109
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !110
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit5, label %.preheader4
@@ -5032,7 +5026,7 @@ report_probe.exit.us:                             ; preds = %.preheader, %report
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef nonnull %52, ptr noundef nonnull %55) #20
   %56 = load volatile ptr, ptr %27, align 8
   %57 = icmp eq ptr %56, %22
-  br i1 %57, label %.loopexit, label %report_probe.exit.us, !llvm.loop !110
+  br i1 %57, label %.loopexit, label %report_probe.exit.us, !llvm.loop !111
 
 report_probe.exit:                                ; preds = %.preheader, %report_probe.exit
   %58 = phi ptr [ %91, %report_probe.exit ], [ %23, %.preheader ]
@@ -5072,7 +5066,7 @@ report_probe.exit:                                ; preds = %.preheader, %report
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %83, ptr noundef nonnull %82, ptr noundef nonnull %87, ptr noundef nonnull %90) #20
   %91 = load volatile ptr, ptr %58, align 8
   %92 = icmp eq ptr %91, %22
-  br i1 %92, label %.loopexit, label %report_probe.exit, !llvm.loop !110
+  br i1 %92, label %.loopexit, label %report_probe.exit, !llvm.loop !111
 
 93:                                               ; preds = %12
   %94 = load i64, ptr %3, align 8
@@ -5122,10 +5116,10 @@ report_probe.exit3:                               ; preds = %105, %109
 .loopexit:                                        ; preds = %report_probe.exit, %report_probe.exit.us, %report_probe.exit3, %21
   %126 = load volatile ptr, ptr %13, align 8
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %.loopexit5, label %12, !llvm.loop !111
+  br i1 %127, label %.loopexit5, label %12, !llvm.loop !112
 
 .loopexit5:                                       ; preds = %.loopexit, %2
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !112
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !113
   %128 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #20, !srcloc !42
   %129 = icmp ult i8 %128, 2
   call void @llvm.assume(i1 %129)
@@ -5134,7 +5128,7 @@ report_probe.exit3:                               ; preds = %105, %109
 
 131:                                              ; preds = %.loopexit5
   %132 = call i64 @llvm.read_register.i64(metadata !0)
-  %133 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %132) #20, !srcloc !113
+  %133 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %132) #20, !srcloc !114
   call void @llvm.write_register.i64(metadata !0, i64 %133)
   br label %134
 
@@ -5184,7 +5178,7 @@ define internal i64 @write_enabled_file_bool(ptr nocapture readnone %0, ptr noun
 
 8:                                                ; preds = %4
   %9 = sext i32 %6 to i64
-  br label %114
+  br label %113
 
 10:                                               ; preds = %4
   %11 = load i8, ptr %5, align 1, !range !54, !noundef !55
@@ -5236,7 +5230,7 @@ define internal i64 @write_enabled_file_bool(ptr nocapture readnone %0, ptr noun
   %42 = phi i32 [ %25, %.preheader11 ], [ %38, %32 ]
   %43 = load ptr, ptr %24, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.loopexit12, label %.preheader11, !llvm.loop !114
+  br i1 %44, label %.loopexit12, label %.preheader11, !llvm.loop !115
 
 .loopexit12:                                      ; preds = %39, %16
   %45 = phi i32 [ %20, %16 ], [ %40, %39 ]
@@ -5244,7 +5238,7 @@ define internal i64 @write_enabled_file_bool(ptr nocapture readnone %0, ptr noun
   %47 = phi i32 [ %18, %16 ], [ %42, %39 ]
   %48 = add nuw nsw i64 %17, 1
   %49 = icmp eq i64 %48, 64
-  br i1 %49, label %50, label %16, !llvm.loop !115
+  br i1 %49, label %50, label %16, !llvm.loop !116
 
 50:                                               ; preds = %.loopexit12
   %51 = icmp eq i32 %46, 0
@@ -5306,7 +5300,7 @@ define internal i64 @write_enabled_file_bool(ptr nocapture readnone %0, ptr noun
   %87 = phi i32 [ %67, %.preheader ], [ %67, %72 ], [ %83, %77 ]
   %88 = load ptr, ptr %66, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit10, label %.preheader, !llvm.loop !116
+  br i1 %89, label %.loopexit10, label %.preheader, !llvm.loop !117
 
 .loopexit10:                                      ; preds = %84, %58
   %90 = phi i32 [ %62, %58 ], [ %85, %84 ]
@@ -5314,7 +5308,7 @@ define internal i64 @write_enabled_file_bool(ptr nocapture readnone %0, ptr noun
   %92 = phi i32 [ %60, %58 ], [ %87, %84 ]
   %93 = add nuw nsw i64 %59, 1
   %94 = icmp eq i64 %93, 64
-  br i1 %94, label %95, label %58, !llvm.loop !117
+  br i1 %94, label %95, label %58, !llvm.loop !118
 
 95:                                               ; preds = %.loopexit10
   %96 = icmp eq i32 %91, 0
@@ -5359,15 +5353,13 @@ define internal i64 @write_enabled_file_bool(ptr nocapture readnone %0, ptr noun
   call void @mutex_unlock(ptr noundef nonnull @kprobe_mutex) #20
   %111 = icmp eq i32 %.fr, 0
   %112 = sext i32 %.fr to i64
-  br i1 %111, label %113, label %114
+  %spec.select = select i1 %111, i64 %2, i64 %112
+  br label %113
 
-113:                                              ; preds = %.thread, %.loopexit
-  br label %114
-
-114:                                              ; preds = %113, %.loopexit, %8
-  %115 = phi i64 [ %9, %8 ], [ %2, %113 ], [ %112, %.loopexit ]
+113:                                              ; preds = %.loopexit, %.thread, %8
+  %114 = phi i64 [ %9, %8 ], [ %2, %.thread ], [ %spec.select, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #20
-  ret i64 %115
+  ret i64 %114
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5553,7 +5545,7 @@ attributes #26 = { cold }
 !61 = !{i32 -19, i32 1}
 !62 = !{i64 2152956846}
 !63 = distinct !{!63, !7, !8}
-!64 = !{!"branch_weights", i32 -11722260, i32 11722260}
+!64 = !{!"branch_weights", i32 -2147483648, i32 -2147483648}
 !65 = distinct !{!65, !7, !8}
 !66 = distinct !{!66, !7, !8}
 !67 = distinct !{!67, !7, !8}
@@ -5585,25 +5577,26 @@ attributes #26 = { cold }
 !93 = !{i64 2155857498, i64 2155857307, i64 2155857359, i64 2155857405, i64 2155857433}
 !94 = !{i64 2155857572, i64 2155857601, i64 2155857647, i64 2155857705, i64 2155857759, i64 2155857813, i64 2155857868, i64 2155857899, i64 2155858207, i64 2155858213, i64 2155858260, i64 2155858283, i64 2155858309}
 !95 = !{i64 2155858758, i64 2155858569, i64 2155858619, i64 2155858665, i64 2155858693}
-!96 = distinct !{!96, !7, !8}
-!97 = !{i32 -2147483648, i32 1}
-!98 = distinct !{!98, !7, !8}
+!96 = !{!"branch_weights", i32 1073741824, i32 -1073741824}
+!97 = distinct !{!97, !7, !8}
+!98 = !{i32 -2147483648, i32 1}
 !99 = distinct !{!99, !7, !8}
 !100 = distinct !{!100, !7, !8}
 !101 = distinct !{!101, !7, !8}
 !102 = distinct !{!102, !7, !8}
-!103 = distinct !{!103, !7, !8, !104}
-!104 = !{!"llvm.loop.unswitch.partial.disable"}
-!105 = distinct !{!105, !7, !8}
+!103 = distinct !{!103, !7, !8}
+!104 = distinct !{!104, !7, !8, !105}
+!105 = !{!"llvm.loop.unswitch.partial.disable"}
 !106 = distinct !{!106, !7, !8}
 !107 = distinct !{!107, !7, !8}
 !108 = distinct !{!108, !7, !8}
-!109 = !{i64 2156097306}
-!110 = distinct !{!110, !7, !8}
+!109 = distinct !{!109, !7, !8}
+!110 = !{i64 2156097306}
 !111 = distinct !{!111, !7, !8}
-!112 = !{i64 2156150773}
-!113 = !{i64 2156150955}
-!114 = distinct !{!114, !7, !8}
+!112 = distinct !{!112, !7, !8}
+!113 = !{i64 2156150773}
+!114 = !{i64 2156150955}
 !115 = distinct !{!115, !7, !8}
 !116 = distinct !{!116, !7, !8}
 !117 = distinct !{!117, !7, !8}
+!118 = distinct !{!118, !7, !8}

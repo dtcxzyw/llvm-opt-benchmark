@@ -869,7 +869,7 @@ err_index:                                        ; preds = %if.then49, %entry
   %add.ptr4 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %add.ptr4, align 8
   %shr = ashr i64 %3, 47
-  %conv5 = trunc i64 %shr to i32
+  %conv5 = trunc nsw i64 %shr to i32
   switch i32 %conv5, label %cond.false [
     i32 -5, label %if.then7
     i32 -11, label %cond.true
@@ -1023,7 +1023,7 @@ err_argtype.i:                                    ; preds = %if.end.i, %entry
 if.end.i:                                         ; preds = %entry
   %6 = load i64, ptr %4, align 8
   %shr.i = ashr i64 %6, 47
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nsw i64 %shr.i to i32
   switch i32 %conv.i, label %err_argtype.i [
     i32 -5, label %if.then3.i
     i32 -11, label %if.end15.i
@@ -1276,7 +1276,7 @@ err_argtype:                                      ; preds = %if.end, %entry
 if.end:                                           ; preds = %entry
   %2 = load i64, ptr %0, align 8
   %shr = ashr i64 %2, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %err_argtype [
     i32 -5, label %if.then3
     i32 -11, label %if.end15
@@ -2010,7 +2010,7 @@ err_argtype.i:                                    ; preds = %if.end.i, %entry
 if.end.i:                                         ; preds = %entry
   %6 = load i64, ptr %4, align 8
   %shr.i = ashr i64 %6, 47
-  %conv.i36 = trunc i64 %shr.i to i32
+  %conv.i36 = trunc nsw i64 %shr.i to i32
   switch i32 %conv.i36, label %err_argtype.i [
     i32 -5, label %if.then3.i
     i32 -11, label %if.end15.i
@@ -2360,7 +2360,7 @@ err_argtype.i:                                    ; preds = %if.end.i, %entry
 if.end.i:                                         ; preds = %entry
   %6 = load i64, ptr %4, align 8
   %shr.i = ashr i64 %6, 47
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nsw i64 %shr.i to i32
   switch i32 %conv.i, label %err_argtype.i [
     i32 -5, label %if.then3.i
     i32 -11, label %if.end15.i
@@ -2555,7 +2555,7 @@ err_argtype.i:                                    ; preds = %if.end.i, %entry
 if.end.i:                                         ; preds = %entry
   %6 = load i64, ptr %4, align 8
   %shr.i = ashr i64 %6, 47
-  %conv.i16 = trunc i64 %shr.i to i32
+  %conv.i16 = trunc nsw i64 %shr.i to i32
   switch i32 %conv.i16, label %err_argtype.i [
     i32 -5, label %if.then3.i
     i32 -11, label %if.end15.i
@@ -2726,7 +2726,7 @@ err_argtype.i:                                    ; preds = %if.end.i, %entry
 if.end.i:                                         ; preds = %entry
   %6 = load i64, ptr %4, align 8
   %shr.i = ashr i64 %6, 47
-  %conv.i6 = trunc i64 %shr.i to i32
+  %conv.i6 = trunc nsw i64 %shr.i to i32
   switch i32 %conv.i6, label %err_argtype.i [
     i32 -5, label %if.then3.i
     i32 -11, label %if.end15.i
@@ -2821,7 +2821,7 @@ err_argtype.i:                                    ; preds = %if.end.i, %entry
 if.end.i:                                         ; preds = %entry
   %6 = load i64, ptr %4, align 8
   %shr.i = ashr i64 %6, 47
-  %conv.i16 = trunc i64 %shr.i to i32
+  %conv.i16 = trunc nsw i64 %shr.i to i32
   switch i32 %conv.i16, label %err_argtype.i [
     i32 -5, label %if.then3.i
     i32 -11, label %if.end15.i
@@ -2881,18 +2881,18 @@ ffi_checkctype.exit:                              ; preds = %if.end9.i, %cond.tr
   %12 = load i32, ptr %call3, align 8
   %shr.mask = and i32 %12, -268435456
   %cmp = icmp eq i32 %shr.mask, 268435456
-  br i1 %cmp, label %land.lhs.true, label %if.end25
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %ffi_checkctype.exit
   %size = getelementptr inbounds i8, ptr %call3, i64 4
   %13 = load i32, ptr %size, align 4
   %cmp4.not = icmp eq i32 %13, -1
-  br i1 %cmp4.not, label %if.end25, label %if.then
+  br i1 %cmp4.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %call5 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %3, ptr noundef nonnull %call3, ptr noundef %call2, ptr noundef nonnull %ofs, ptr noundef null) #9
   %tobool.not = icmp eq ptr %call5, null
-  br i1 %tobool.not, label %if.end25, label %if.then6
+  br i1 %tobool.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.then
   %14 = load ptr, ptr %top.i, align 8
@@ -2925,11 +2925,11 @@ if.then14:                                        ; preds = %if.then6
   store double %conv.i, ptr %19, align 8
   br label %return
 
-if.end25:                                         ; preds = %if.then6, %if.then, %land.lhs.true, %ffi_checkctype.exit
+if.end25:                                         ; preds = %if.then6
   br label %return
 
-return:                                           ; preds = %if.then6, %if.end25, %if.then14
-  %retval.0 = phi i32 [ 3, %if.then14 ], [ 0, %if.end25 ], [ 1, %if.then6 ]
+return:                                           ; preds = %ffi_checkctype.exit, %land.lhs.true, %if.then, %if.then6, %if.end25, %if.then14
+  %retval.0 = phi i32 [ 3, %if.then14 ], [ 1, %if.then6 ], [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %ffi_checkctype.exit ], [ 0, %if.end25 ]
   ret i32 %retval.0
 }
 
@@ -3335,7 +3335,7 @@ err_argtype.i:                                    ; preds = %if.end.i, %entry
 if.end.i:                                         ; preds = %entry
   %6 = load i64, ptr %4, align 8
   %shr.i40 = ashr i64 %6, 47
-  %conv.i = trunc i64 %shr.i40 to i32
+  %conv.i = trunc nsw i64 %shr.i40 to i32
   switch i32 %conv.i, label %err_argtype.i [
     i32 -5, label %if.then3.i
     i32 -11, label %if.end15.i
@@ -3557,7 +3557,7 @@ if.end:                                           ; preds = %while.cond.i, %whil
   %and13 = and i64 %12, 140737488355327
   %13 = inttoptr i64 %and13 to ptr
   %shr14 = ashr i64 %12, 47
-  %conv15 = trunc i64 %shr14 to i32
+  %conv15 = trunc nsw i64 %shr14 to i32
   tail call void @lj_cdata_setfin(ptr noundef %L, ptr noundef %4, ptr noundef %13, i32 noundef %conv15) #9
   %14 = load ptr, ptr %base.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %14, i64 8

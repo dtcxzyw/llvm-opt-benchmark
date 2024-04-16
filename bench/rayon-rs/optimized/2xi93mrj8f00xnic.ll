@@ -58,12 +58,12 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = sub i64 %4, %6
   %8 = icmp slt i64 %7, 1
-  br i1 %8, label %41, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i8, ptr %10, align 8, !range !10, !noundef !9
-  %trunc = trunc i8 %11 to i1
+  %trunc = trunc nuw i8 %11 to i1
   br i1 %trunc, label %16, label %12
 
 12:                                               ; preds = %9
@@ -81,7 +81,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
   %20 = load atomic i64, ptr %19 monotonic, align 8
   %21 = sub i64 %17, %20
   %22 = icmp slt i64 %21, 0
-  br i1 %22, label %56, label %44
+  br i1 %22, label %55, label %43
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds i8, ptr %0, i64 8
@@ -98,66 +98,64 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17he
   %35 = sdiv i64 %27, 4
   %.not41 = icmp sgt i64 %7, %35
   %or.cond = or i1 %34, %.not41
-  br i1 %or.cond, label %41, label %39
+  br i1 %or.cond, label %.thread, label %39
 
 36:                                               ; preds = %12
   %37 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
   %38 = getelementptr inbounds i8, ptr %37, i64 256
   store atomic i64 %13, ptr %38 monotonic, align 8
-  br label %41
+  br label %.thread
 
 39:                                               ; preds = %23
   %40 = lshr i64 %27, 1
   tail call fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17h27e21cf936793231E"(ptr noundef nonnull align 8 %0, i64 noundef %40)
-  br label %41
+  br label %.thread
 
-41:                                               ; preds = %.thread, %58, %39, %23, %1, %56, %36
-  %.sroa.7.0 = phi ptr [ undef, %56 ], [ undef, %36 ], [ undef, %1 ], [ %33, %39 ], [ %33, %23 ], [ %54, %58 ], [ %54, %.thread ]
-  %.sroa.0.0 = phi ptr [ null, %56 ], [ null, %36 ], [ null, %1 ], [ %32, %39 ], [ %32, %23 ], [ null, %58 ], [ %53, %.thread ]
-  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.7.0, 1
-  ret { ptr, ptr } %43
+.thread:                                          ; preds = %57, %62, %66, %39, %23, %1, %55, %36
+  %.sroa.7.0 = phi ptr [ undef, %55 ], [ undef, %36 ], [ undef, %1 ], [ %33, %39 ], [ %33, %23 ], [ %53, %66 ], [ %53, %62 ], [ %53, %57 ]
+  %.sroa.0.0 = phi ptr [ null, %55 ], [ null, %36 ], [ null, %1 ], [ %32, %39 ], [ %32, %23 ], [ %52, %66 ], [ %52, %62 ], [ %spec.select, %57 ]
+  %41 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %42 = insertvalue { ptr, ptr } %41, ptr %.sroa.7.0, 1
+  ret { ptr, ptr } %42
 
-44:                                               ; preds = %16
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !noundef !9
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
-  %48 = load i64, ptr %47, align 8, !noundef !9
-  %49 = add i64 %48, -1
-  %50 = and i64 %49, %17
-  %51 = getelementptr inbounds { ptr, ptr }, ptr %46, i64 %50
-  %52 = load volatile { ptr, ptr }, ptr %51, align 8
-  %53 = extractvalue { ptr, ptr } %52, 0
-  %54 = extractvalue { ptr, ptr } %52, 1
-  %55 = icmp eq i64 %17, %20
-  br i1 %55, label %58, label %63
+43:                                               ; preds = %16
+  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = load ptr, ptr %44, align 8, !noundef !9
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = load i64, ptr %46, align 8, !noundef !9
+  %48 = add i64 %47, -1
+  %49 = and i64 %48, %17
+  %50 = getelementptr inbounds { ptr, ptr }, ptr %45, i64 %49
+  %51 = load volatile { ptr, ptr }, ptr %50, align 8
+  %52 = extractvalue { ptr, ptr } %51, 0
+  %53 = extractvalue { ptr, ptr } %51, 1
+  %54 = icmp eq i64 %17, %20
+  br i1 %54, label %57, label %62
 
-56:                                               ; preds = %16
-  %57 = getelementptr inbounds i8, ptr %18, i64 264
-  store atomic i64 %4, ptr %57 monotonic, align 8
-  br label %41
+55:                                               ; preds = %16
+  %56 = getelementptr inbounds i8, ptr %18, i64 264
+  store atomic i64 %4, ptr %56 monotonic, align 8
+  br label %.thread
 
-58:                                               ; preds = %44
-  %59 = cmpxchg ptr %19, i64 %17, i64 %4 seq_cst monotonic, align 8
-  %60 = extractvalue { i64, i1 } %59, 1
-  %61 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
-  %62 = getelementptr inbounds i8, ptr %61, i64 264
-  store atomic i64 %4, ptr %62 monotonic, align 8
-  br i1 %60, label %.thread, label %41
+57:                                               ; preds = %43
+  %58 = cmpxchg ptr %19, i64 %17, i64 %4 seq_cst monotonic, align 8
+  %59 = extractvalue { i64, i1 } %58, 1
+  %60 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
+  %61 = getelementptr inbounds i8, ptr %60, i64 264
+  store atomic i64 %4, ptr %61 monotonic, align 8
+  %spec.select = select i1 %59, ptr %52, ptr null
+  br label %.thread
 
-63:                                               ; preds = %44
-  %64 = icmp ugt i64 %48, 64
-  %65 = sdiv i64 %48, 4
-  %66 = icmp slt i64 %21, %65
-  %or.cond45 = and i1 %64, %66
-  br i1 %or.cond45, label %67, label %.thread
+62:                                               ; preds = %43
+  %63 = icmp ugt i64 %47, 64
+  %64 = sdiv i64 %47, 4
+  %65 = icmp slt i64 %21, %64
+  %or.cond45 = and i1 %63, %65
+  br i1 %or.cond45, label %66, label %.thread
 
-.thread:                                          ; preds = %67, %63, %58
-  br label %41
-
-67:                                               ; preds = %63
-  %68 = lshr i64 %48, 1
-  tail call fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17h27e21cf936793231E"(ptr noundef nonnull align 8 %0, i64 noundef %68)
+66:                                               ; preds = %62
+  %67 = lshr i64 %47, 1
+  tail call fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17h27e21cf936793231E"(ptr noundef nonnull align 8 %0, i64 noundef %67)
   br label %.thread
 }
 
@@ -527,7 +525,7 @@ define hidden void @"_ZN15crossbeam_deque5deque16Stealer$LT$T$GT$5steal17h201b26
   %4 = getelementptr inbounds i8, ptr %3, i64 256
   %5 = load atomic i64, ptr %4 acquire, align 8
   %6 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfbe0768a47868df2E, align 8, !range !34, !noalias !35, !noundef !9
-  %trunc.i.i.i.i = trunc i64 %6 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %6 to i1
   br i1 %trunc.i.i.i.i, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h96685dda6de7513cE.exit.i", label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i.i
 
 _ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i.i: ; preds = %2
@@ -1085,7 +1083,7 @@ define internal fastcc noundef ptr @_ZN15crossbeam_epoch7default11with_handle17h
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = load i64, ptr @_ZN15crossbeam_epoch7default6HANDLE7__getit5__KEY17hfbe0768a47868df2E, align 8, !range !34, !noalias !40, !noundef !9
-  %trunc.i.i.i = trunc i64 %3 to i1
+  %trunc.i.i.i = trunc nuw i64 %3 to i1
   br i1 %trunc.i.i.i, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.thread.i, label %_ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i
 
 _ZN15crossbeam_epoch7default6HANDLE7__getit17hd0db8d3f6a4bb93cE.exit.i: ; preds = %0

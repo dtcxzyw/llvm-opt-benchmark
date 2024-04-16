@@ -952,7 +952,7 @@ dissect_opensafety_siii.exit:                     ; preds = %13, %12, %10, %open
 define internal i32 @dissect_opensafety_mbtcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @global_enable_mbtcp, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %14, label %6
+  br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %4
   %.not8 = icmp eq ptr %2, null
@@ -962,18 +962,16 @@ define internal i32 @dissect_opensafety_mbtcp(ptr noundef %0, ptr noundef %1, pt
   %8 = getelementptr inbounds i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not9 = icmp eq ptr %9, null
-  br i1 %.not9, label %10, label %11
+  %spec.select = select i1 %.not9, ptr %2, ptr %9
+  br label %10
 
 10:                                               ; preds = %7, %6
-  br label %11
+  %11 = phi ptr [ null, %6 ], [ %spec.select, %7 ]
+  %12 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 1, i8 noundef zeroext 0, ptr noundef %0, ptr noundef %1, ptr noundef %11, i8 noundef zeroext 0), !range !4
+  br label %13
 
-11:                                               ; preds = %7, %10
-  %12 = phi ptr [ %2, %10 ], [ %9, %7 ]
-  %13 = tail call fastcc i32 @opensafety_package_dissector(ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.342, i32 noundef 0, i32 noundef 1, i8 noundef zeroext 0, ptr noundef %0, ptr noundef %1, ptr noundef %12, i8 noundef zeroext 0), !range !4
-  br label %14
-
-14:                                               ; preds = %4, %11
-  %.0 = phi i32 [ %13, %11 ], [ 0, %4 ]
+13:                                               ; preds = %4, %10
+  %.0 = phi i32 [ %12, %10 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1762,7 +1760,7 @@ findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.
   %120 = trunc i32 %64 to i8
   %121 = and i32 %64, 255
   %122 = lshr i32 %121, 1
-  %123 = trunc i32 %122 to i16
+  %123 = trunc nuw nsw i32 %122 to i16
   %124 = add nuw nsw i16 %123, 1
   %125 = zext nneg i16 %124 to i32
   %126 = add nuw nsw i32 %125, 2
@@ -2573,7 +2571,7 @@ opensafety_packet_receiver.exit.i:                ; preds = %108, %105
   %253 = zext i8 %248 to i32
   %254 = and i32 %253, 15
   %255 = add nuw nsw i32 %254, 1
-  %256 = trunc i32 %255 to i8
+  %256 = trunc nuw nsw i32 %255 to i8
   %257 = load ptr, ptr %117, align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 9
   store i8 %256, ptr %258, align 1
@@ -5377,42 +5375,33 @@ declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef,
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @opensafety_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
-  switch i32 %1, label %19 [
-    i32 0, label %3
-    i32 1, label %7
-    i32 2, label %11
+define internal nonnull ptr @opensafety_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+  switch i32 %1, label %11 [
+    i32 0, label %.sink.split
+    i32 1, label %3
+    i32 2, label %4
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp eq i32 %5, 12
-  br i1 %6, label %20, label %19
+  br label %.sink.split
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp eq i32 %6, 12
+  br i1 %7, label %.sink.split, label %11
+
+.sink.split:                                      ; preds = %4, %2, %3
+  %.sink10 = phi i64 [ 32, %3 ], [ 8, %2 ], [ 32, %4 ]
+  %.str.21.sink = phi ptr [ @.str.21, %3 ], [ @.str.19, %2 ], [ @.str.15, %4 ]
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.sink10
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 12
-  br i1 %10, label %20, label %19
+  %spec.select8 = select i1 %10, ptr %.str.21.sink, ptr @.str.511
+  br label %11
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 12
-  br i1 %14, label %15, label %19
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, 12
-  br i1 %18, label %20, label %19
-
-19:                                               ; preds = %7, %3, %2, %11, %15
-  br label %20
-
-20:                                               ; preds = %15, %7, %3, %19
-  %.0 = phi ptr [ @.str.511, %19 ], [ @.str.19, %3 ], [ @.str.21, %7 ], [ @.str.15, %15 ]
+11:                                               ; preds = %.sink.split, %4, %2
+  %.0 = phi ptr [ @.str.511, %2 ], [ @.str.511, %4 ], [ %spec.select8, %.sink.split ]
   ret ptr %.0
 }
 
@@ -5433,8 +5422,8 @@ switch.lookup:                                    ; preds = %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
-8:                                                ; preds = %2, %switch.lookup
-  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.511, %2 ]
+8:                                                ; preds = %switch.lookup, %2
+  %.0 = phi ptr [ @.str.511, %2 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 

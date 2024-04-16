@@ -1398,7 +1398,7 @@ for.body:                                         ; preds = %if.end95, %for.inc
   br i1 %cmp118.not, label %if.end130, label %if.then120
 
 if.then120:                                       ; preds = %for.body
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg99 = mul nsw i32 %8, -100000
   %sub128 = add nsw i32 %narrow.neg99, -1610614982
   br label %return
@@ -1410,7 +1410,7 @@ if.end130:                                        ; preds = %for.body
   br i1 %cmp136.not, label %for.inc, label %if.then138
 
 if.then138:                                       ; preds = %if.end130
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg96 = mul nsw i32 %9, -100000
   %sub146 = add nsw i32 %narrow.neg96, -1610614985
   br label %return
@@ -1423,7 +1423,7 @@ for.inc:                                          ; preds = %if.end130
 for.body152:                                      ; preds = %for.inc, %for.inc170
   %i.1127 = phi i32 [ %inc171, %for.inc170 ], [ 1, %for.inc ]
   store i32 128, ptr %outLen, align 4
-  %conv153 = trunc i32 %i.1127 to i8
+  %conv153 = trunc nuw i32 %i.1127 to i8
   store i8 %conv153, ptr %charTest, align 8
   %call156 = call i32 @Base64_Decode(ptr noundef nonnull %charTest, i32 noundef 8, ptr noundef nonnull %out, ptr noundef nonnull %outLen) #19
   %cmp157.not = icmp eq i32 %call156, -154
@@ -1450,7 +1450,7 @@ for.body176:                                      ; preds = %for.inc170, %for.in
   br i1 %cmp182.not, label %for.inc195, label %if.then184
 
 if.then184:                                       ; preds = %for.body176
-  %11 = trunc i64 %indvars.iv137 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv137 to i32
   %narrow.neg90 = mul nsw i32 %11, -100000
   %sub192 = add nsw i32 %narrow.neg90, -1610615001
   br label %return
@@ -1463,7 +1463,7 @@ for.inc195:                                       ; preds = %for.body176
 for.body201:                                      ; preds = %for.inc195, %for.inc220
   %i.3129 = phi i32 [ %inc221, %for.inc220 ], [ 123, %for.inc195 ]
   store i32 128, ptr %outLen, align 4
-  %conv202 = trunc i32 %i.3129 to i8
+  %conv202 = trunc nuw i32 %i.3129 to i8
   store i8 %conv202, ptr %charTest, align 8
   %call206 = call i32 @Base64_Decode(ptr noundef nonnull %charTest, i32 noundef 8, ptr noundef nonnull %out, ptr noundef nonnull %outLen) #19
   %cmp207.not = icmp eq i32 %call206, -154
@@ -1893,7 +1893,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp67.not, label %if.end79, label %do.body
 
 do.body:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg54 = mul nsw i32 %4, -100000
   %sub77 = add nsw i32 %narrow.neg54, -1610615304
   br label %exit
@@ -1904,7 +1904,7 @@ if.end79:                                         ; preds = %for.body
   br i1 %cmp81.not, label %if.end95, label %do.body84
 
 do.body84:                                        ; preds = %if.end79
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg51 = mul nsw i32 %5, -100000
   %sub92 = add nsw i32 %narrow.neg51, -1610615308
   br label %exit
@@ -1915,7 +1915,7 @@ if.end95:                                         ; preds = %if.end79
   br i1 %cmp97.not, label %if.end111, label %do.body100
 
 do.body100:                                       ; preds = %if.end95
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg48 = mul nsw i32 %6, -100000
   %sub108 = add nsw i32 %narrow.neg48, -1610615312
   br label %exit
@@ -1926,7 +1926,7 @@ if.end111:                                        ; preds = %if.end95
   br i1 %cmp114.not, label %if.end128, label %do.body117
 
 do.body117:                                       ; preds = %if.end111
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg45 = mul nsw i32 %7, -100000
   %sub125 = add nsw i32 %narrow.neg45, -1610615316
   br label %exit
@@ -1940,7 +1940,7 @@ if.end128:                                        ; preds = %if.end111
   br i1 %cmp134.not, label %if.end148, label %do.body137
 
 do.body137:                                       ; preds = %if.end128
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg42 = mul nsw i32 %9, -100000
   %sub145 = add nsw i32 %narrow.neg42, -1610615321
   br label %exit
@@ -1951,7 +1951,7 @@ if.end148:                                        ; preds = %if.end128
   br i1 %cmp152.not, label %for.inc, label %do.body155
 
 do.body155:                                       ; preds = %if.end148
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg39 = mul nsw i32 %10, -100000
   %sub163 = add nsw i32 %narrow.neg39, -1610615324
   br label %exit
@@ -2091,7 +2091,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp60.not, label %if.end72, label %do.body
 
 do.body:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg54 = mul nsw i32 %4, -100000
   %sub70 = add nsw i32 %narrow.neg54, -1610615506
   br label %exit
@@ -2102,7 +2102,7 @@ if.end72:                                         ; preds = %for.body
   br i1 %cmp74.not, label %if.end88, label %do.body77
 
 do.body77:                                        ; preds = %if.end72
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg51 = mul nsw i32 %5, -100000
   %sub85 = add nsw i32 %narrow.neg51, -1610615509
   br label %exit
@@ -2113,7 +2113,7 @@ if.end88:                                         ; preds = %if.end72
   br i1 %cmp90.not, label %if.end104, label %do.body93
 
 do.body93:                                        ; preds = %if.end88
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg48 = mul nsw i32 %6, -100000
   %sub101 = add nsw i32 %narrow.neg48, -1610615512
   br label %exit
@@ -2124,7 +2124,7 @@ if.end104:                                        ; preds = %if.end88
   br i1 %cmp107.not, label %if.end121, label %do.body110
 
 do.body110:                                       ; preds = %if.end104
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg45 = mul nsw i32 %7, -100000
   %sub118 = add nsw i32 %narrow.neg45, -1610615515
   br label %exit
@@ -2138,7 +2138,7 @@ if.end121:                                        ; preds = %if.end104
   br i1 %cmp127.not, label %if.end141, label %do.body130
 
 do.body130:                                       ; preds = %if.end121
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg42 = mul nsw i32 %9, -100000
   %sub138 = add nsw i32 %narrow.neg42, -1610615519
   br label %exit
@@ -2149,7 +2149,7 @@ if.end141:                                        ; preds = %if.end121
   br i1 %cmp145.not, label %for.inc, label %do.body148
 
 do.body148:                                       ; preds = %if.end141
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg39 = mul nsw i32 %10, -100000
   %sub156 = add nsw i32 %narrow.neg39, -1610615521
   br label %exit
@@ -2276,7 +2276,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp46.not, label %if.end58, label %do.body
 
 do.body:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg36 = mul nsw i32 %4, -100000
   %sub56 = add nsw i32 %narrow.neg36, -1610615822
   br label %exit
@@ -2287,7 +2287,7 @@ if.end58:                                         ; preds = %for.body
   br i1 %cmp60.not, label %if.end74, label %do.body63
 
 do.body63:                                        ; preds = %if.end58
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg33 = mul nsw i32 %5, -100000
   %sub71 = add nsw i32 %narrow.neg33, -1610615825
   br label %exit
@@ -2298,7 +2298,7 @@ if.end74:                                         ; preds = %if.end58
   br i1 %cmp76.not, label %if.end90, label %do.body79
 
 do.body79:                                        ; preds = %if.end74
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg30 = mul nsw i32 %6, -100000
   %sub87 = add nsw i32 %narrow.neg30, -1610615828
   br label %exit
@@ -2309,7 +2309,7 @@ if.end90:                                         ; preds = %if.end74
   br i1 %cmp93.not, label %if.end107, label %do.body96
 
 do.body96:                                        ; preds = %if.end90
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg27 = mul nsw i32 %7, -100000
   %sub104 = add nsw i32 %narrow.neg27, -1610615831
   br label %exit
@@ -2323,7 +2323,7 @@ if.end107:                                        ; preds = %if.end90
   br i1 %cmp113.not, label %if.end127, label %do.body116
 
 do.body116:                                       ; preds = %if.end107
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg24 = mul nsw i32 %9, -100000
   %sub124 = add nsw i32 %narrow.neg24, -1610615835
   br label %exit
@@ -2334,7 +2334,7 @@ if.end127:                                        ; preds = %if.end107
   br i1 %cmp131.not, label %for.inc, label %do.body134
 
 do.body134:                                       ; preds = %if.end127
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg = mul nsw i32 %10, -100000
   %sub142 = add nsw i32 %narrow.neg, -1610615837
   br label %exit
@@ -2417,7 +2417,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp46.not, label %if.end58, label %do.body
 
 do.body:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg54 = mul nsw i32 %4, -100000
   %sub56 = add nsw i32 %narrow.neg54, -1610615899
   br label %exit
@@ -2428,7 +2428,7 @@ if.end58:                                         ; preds = %for.body
   br i1 %cmp60.not, label %if.end74, label %do.body63
 
 do.body63:                                        ; preds = %if.end58
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg51 = mul nsw i32 %5, -100000
   %sub71 = add nsw i32 %narrow.neg51, -1610615903
   br label %exit
@@ -2439,7 +2439,7 @@ if.end74:                                         ; preds = %if.end58
   br i1 %cmp76.not, label %if.end90, label %do.body79
 
 do.body79:                                        ; preds = %if.end74
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg48 = mul nsw i32 %6, -100000
   %sub87 = add nsw i32 %narrow.neg48, -1610615906
   br label %exit
@@ -2450,7 +2450,7 @@ if.end90:                                         ; preds = %if.end74
   br i1 %cmp93.not, label %if.end107, label %do.body96
 
 do.body96:                                        ; preds = %if.end90
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg45 = mul nsw i32 %7, -100000
   %sub104 = add nsw i32 %narrow.neg45, -1610615909
   br label %exit
@@ -2464,7 +2464,7 @@ if.end107:                                        ; preds = %if.end90
   br i1 %cmp113.not, label %if.end127, label %do.body116
 
 do.body116:                                       ; preds = %if.end107
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg42 = mul nsw i32 %9, -100000
   %sub124 = add nsw i32 %narrow.neg42, -1610615913
   br label %exit
@@ -2475,7 +2475,7 @@ if.end127:                                        ; preds = %if.end107
   br i1 %cmp131.not, label %for.inc, label %do.body134
 
 do.body134:                                       ; preds = %if.end127
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg39 = mul nsw i32 %10, -100000
   %sub142 = add nsw i32 %narrow.neg39, -1610615915
   br label %exit
@@ -2603,7 +2603,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp46.not, label %if.end58, label %do.body
 
 do.body:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg54 = mul nsw i32 %4, -100000
   %sub56 = add nsw i32 %narrow.neg54, -1610616460
   br label %exit
@@ -2614,7 +2614,7 @@ if.end58:                                         ; preds = %for.body
   br i1 %cmp60.not, label %if.end74, label %do.body63
 
 do.body63:                                        ; preds = %if.end58
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg51 = mul nsw i32 %5, -100000
   %sub71 = add nsw i32 %narrow.neg51, -1610616463
   br label %exit
@@ -2625,7 +2625,7 @@ if.end74:                                         ; preds = %if.end58
   br i1 %cmp76.not, label %if.end90, label %do.body79
 
 do.body79:                                        ; preds = %if.end74
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg48 = mul nsw i32 %6, -100000
   %sub87 = add nsw i32 %narrow.neg48, -1610616466
   br label %exit
@@ -2636,7 +2636,7 @@ if.end90:                                         ; preds = %if.end74
   br i1 %cmp93.not, label %if.end107, label %do.body96
 
 do.body96:                                        ; preds = %if.end90
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg45 = mul nsw i32 %7, -100000
   %sub104 = add nsw i32 %narrow.neg45, -1610616469
   br label %exit
@@ -2650,7 +2650,7 @@ if.end107:                                        ; preds = %if.end90
   br i1 %cmp113.not, label %if.end127, label %do.body116
 
 do.body116:                                       ; preds = %if.end107
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg42 = mul nsw i32 %9, -100000
   %sub124 = add nsw i32 %narrow.neg42, -1610616473
   br label %exit
@@ -2661,7 +2661,7 @@ if.end127:                                        ; preds = %if.end107
   br i1 %cmp131.not, label %for.inc, label %do.body134
 
 do.body134:                                       ; preds = %if.end127
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg39 = mul nsw i32 %10, -100000
   %sub142 = add nsw i32 %narrow.neg39, -1610616475
   br label %exit
@@ -2789,7 +2789,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp46.not, label %if.end58, label %do.body
 
 do.body:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg63 = mul nsw i32 %4, -100000
   %sub56 = add nsw i32 %narrow.neg63, -1610616025
   br label %exit
@@ -2800,7 +2800,7 @@ if.end58:                                         ; preds = %for.body
   br i1 %cmp60.not, label %if.end74, label %do.body63
 
 do.body63:                                        ; preds = %if.end58
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg60 = mul nsw i32 %5, -100000
   %sub71 = add nsw i32 %narrow.neg60, -1610616028
   br label %exit
@@ -2811,7 +2811,7 @@ if.end74:                                         ; preds = %if.end58
   br i1 %cmp76.not, label %if.end90, label %do.body79
 
 do.body79:                                        ; preds = %if.end74
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg57 = mul nsw i32 %6, -100000
   %sub87 = add nsw i32 %narrow.neg57, -1610616031
   br label %exit
@@ -2822,7 +2822,7 @@ if.end90:                                         ; preds = %if.end74
   br i1 %cmp93.not, label %if.end107, label %do.body96
 
 do.body96:                                        ; preds = %if.end90
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg54 = mul nsw i32 %7, -100000
   %sub104 = add nsw i32 %narrow.neg54, -1610616034
   br label %exit
@@ -2836,7 +2836,7 @@ if.end107:                                        ; preds = %if.end90
   br i1 %cmp113.not, label %if.end127, label %do.body116
 
 do.body116:                                       ; preds = %if.end107
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg51 = mul nsw i32 %9, -100000
   %sub124 = add nsw i32 %narrow.neg51, -1610616038
   br label %exit
@@ -2847,7 +2847,7 @@ if.end127:                                        ; preds = %if.end107
   br i1 %cmp131.not, label %for.inc, label %do.body134
 
 do.body134:                                       ; preds = %if.end127
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg48 = mul nsw i32 %10, -100000
   %sub142 = add nsw i32 %narrow.neg48, -1610616040
   br label %exit
@@ -2996,7 +2996,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp46.not, label %if.end58, label %do.body
 
 do.body:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg63 = mul nsw i32 %4, -100000
   %sub56 = add nsw i32 %narrow.neg63, -1610616172
   br label %exit
@@ -3007,7 +3007,7 @@ if.end58:                                         ; preds = %for.body
   br i1 %cmp60.not, label %if.end74, label %do.body63
 
 do.body63:                                        ; preds = %if.end58
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg60 = mul nsw i32 %5, -100000
   %sub71 = add nsw i32 %narrow.neg60, -1610616175
   br label %exit
@@ -3018,7 +3018,7 @@ if.end74:                                         ; preds = %if.end58
   br i1 %cmp76.not, label %if.end90, label %do.body79
 
 do.body79:                                        ; preds = %if.end74
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg57 = mul nsw i32 %6, -100000
   %sub87 = add nsw i32 %narrow.neg57, -1610616178
   br label %exit
@@ -3029,7 +3029,7 @@ if.end90:                                         ; preds = %if.end74
   br i1 %cmp93.not, label %if.end107, label %do.body96
 
 do.body96:                                        ; preds = %if.end90
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg54 = mul nsw i32 %7, -100000
   %sub104 = add nsw i32 %narrow.neg54, -1610616181
   br label %exit
@@ -3043,7 +3043,7 @@ if.end107:                                        ; preds = %if.end90
   br i1 %cmp113.not, label %if.end127, label %do.body116
 
 do.body116:                                       ; preds = %if.end107
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg51 = mul nsw i32 %9, -100000
   %sub124 = add nsw i32 %narrow.neg51, -1610616185
   br label %exit
@@ -3054,7 +3054,7 @@ if.end127:                                        ; preds = %if.end107
   br i1 %cmp131.not, label %for.inc, label %do.body134
 
 do.body134:                                       ; preds = %if.end127
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg48 = mul nsw i32 %10, -100000
   %sub142 = add nsw i32 %narrow.neg48, -1610616189
   br label %exit
@@ -3203,7 +3203,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp46.not, label %if.end58, label %do.body
 
 do.body:                                          ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg63 = mul nsw i32 %4, -100000
   %sub56 = add nsw i32 %narrow.neg63, -1610616324
   br label %exit
@@ -3214,7 +3214,7 @@ if.end58:                                         ; preds = %for.body
   br i1 %cmp60.not, label %if.end74, label %do.body63
 
 do.body63:                                        ; preds = %if.end58
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg60 = mul nsw i32 %5, -100000
   %sub71 = add nsw i32 %narrow.neg60, -1610616327
   br label %exit
@@ -3225,7 +3225,7 @@ if.end74:                                         ; preds = %if.end58
   br i1 %cmp76.not, label %if.end90, label %do.body79
 
 do.body79:                                        ; preds = %if.end74
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg57 = mul nsw i32 %6, -100000
   %sub87 = add nsw i32 %narrow.neg57, -1610616330
   br label %exit
@@ -3236,7 +3236,7 @@ if.end90:                                         ; preds = %if.end74
   br i1 %cmp93.not, label %if.end107, label %do.body96
 
 do.body96:                                        ; preds = %if.end90
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg54 = mul nsw i32 %7, -100000
   %sub104 = add nsw i32 %narrow.neg54, -1610616333
   br label %exit
@@ -3250,7 +3250,7 @@ if.end107:                                        ; preds = %if.end90
   br i1 %cmp113.not, label %if.end127, label %do.body116
 
 do.body116:                                       ; preds = %if.end107
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg51 = mul nsw i32 %9, -100000
   %sub124 = add nsw i32 %narrow.neg51, -1610616337
   br label %exit
@@ -3261,7 +3261,7 @@ if.end127:                                        ; preds = %if.end107
   br i1 %cmp131.not, label %for.inc, label %do.body134
 
 do.body134:                                       ; preds = %if.end127
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg48 = mul nsw i32 %10, -100000
   %sub142 = add nsw i32 %narrow.neg48, -1610616341
   br label %exit
@@ -3422,7 +3422,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp31.not.i, label %if.end43.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow.neg47.i = mul nsw i32 %3, -100000
   %sub41.i = add nsw i32 %narrow.neg47.i, -1610616567
   br label %sha3_224_test.exit.thread216
@@ -3433,7 +3433,7 @@ if.end43.i:                                       ; preds = %for.body.i
   br i1 %cmp45.not.i, label %if.end59.i, label %do.body48.i
 
 do.body48.i:                                      ; preds = %if.end43.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow.neg44.i = mul nsw i32 %4, -100000
   %sub56.i = add nsw i32 %narrow.neg44.i, -1610616570
   br label %sha3_224_test.exit.thread216
@@ -3444,7 +3444,7 @@ if.end59.i:                                       ; preds = %if.end43.i
   br i1 %cmp62.not.i, label %if.end76.i, label %do.body65.i
 
 do.body65.i:                                      ; preds = %if.end59.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow.neg41.i = mul nsw i32 %5, -100000
   %sub73.i = add nsw i32 %narrow.neg41.i, -1610616573
   br label %sha3_224_test.exit.thread216
@@ -3462,7 +3462,7 @@ if.end96.i:                                       ; preds = %if.end76.i
   br i1 %cmp100.not.i, label %for.inc.i, label %do.body103.i
 
 do.body103.i:                                     ; preds = %if.end96.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow.neg35.i = mul nsw i32 %7, -100000
   %sub111.i = add nsw i32 %narrow.neg35.i, -1610616578
   br label %sha3_224_test.exit.thread216
@@ -3536,7 +3536,7 @@ sha3_224_test.exit.thread216:                     ; preds = %do.body.i, %do.body
   br label %return
 
 sha3_224_test.exit:                               ; preds = %if.end76.i
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow.neg38.i = mul nsw i32 %10, -100000
   %sub93.i = add nsw i32 %narrow.neg38.i, -1610616576
   call void @wc_Sha3_224_Free(ptr noundef nonnull %sha.i) #19
@@ -3599,7 +3599,7 @@ for.body.i24:                                     ; preds = %if.end, %for.inc.i6
   br i1 %cmp31.not.i30, label %if.end43.i36, label %do.body.i31
 
 do.body.i31:                                      ; preds = %for.body.i24
-  %14 = trunc i64 %indvars.iv.i25 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %narrow.neg47.i32 = mul nsw i32 %14, -100000
   %sub41.i33 = add nsw i32 %narrow.neg47.i32, -1610616673
   br label %sha3_256_test.exit.thread225
@@ -3610,7 +3610,7 @@ if.end43.i36:                                     ; preds = %for.body.i24
   br i1 %cmp45.not.i38, label %if.end59.i42, label %do.body48.i39
 
 do.body48.i39:                                    ; preds = %if.end43.i36
-  %15 = trunc i64 %indvars.iv.i25 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %narrow.neg44.i40 = mul nsw i32 %15, -100000
   %sub56.i41 = add nsw i32 %narrow.neg44.i40, -1610616676
   br label %sha3_256_test.exit.thread225
@@ -3621,7 +3621,7 @@ if.end59.i42:                                     ; preds = %if.end43.i36
   br i1 %cmp62.not.i44, label %if.end76.i48, label %do.body65.i45
 
 do.body65.i45:                                    ; preds = %if.end59.i42
-  %16 = trunc i64 %indvars.iv.i25 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %narrow.neg41.i46 = mul nsw i32 %16, -100000
   %sub73.i47 = add nsw i32 %narrow.neg41.i46, -1610616679
   br label %sha3_256_test.exit.thread225
@@ -3634,7 +3634,7 @@ if.end76.i48:                                     ; preds = %if.end59.i42
   br i1 %cmp82.not.i51, label %if.end96.i55, label %do.body85.i52
 
 do.body85.i52:                                    ; preds = %if.end76.i48
-  %18 = trunc i64 %indvars.iv.i25 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %narrow.neg38.i53 = mul nsw i32 %18, -100000
   %sub93.i54 = add nsw i32 %narrow.neg38.i53, -1610616682
   br label %sha3_256_test.exit.thread225
@@ -3645,7 +3645,7 @@ if.end96.i55:                                     ; preds = %if.end76.i48
   br i1 %cmp100.not.i57, label %for.inc.i61, label %do.body103.i58
 
 do.body103.i58:                                   ; preds = %if.end96.i55
-  %19 = trunc i64 %indvars.iv.i25 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %narrow.neg35.i59 = mul nsw i32 %19, -100000
   %sub111.i60 = add nsw i32 %narrow.neg35.i59, -1610616684
   br label %sha3_256_test.exit.thread225
@@ -3769,7 +3769,7 @@ for.body.i111:                                    ; preds = %if.end4, %for.inc.i
   br i1 %cmp35.not.i, label %if.end47.i, label %do.body.i115
 
 do.body.i115:                                     ; preds = %for.body.i111
-  %25 = trunc i64 %indvars.iv.i112 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i112 to i32
   %narrow.neg48.i = mul nsw i32 %25, -100000
   %sub45.i = add nsw i32 %narrow.neg48.i, -1610616804
   br label %sha3_384_test.exit.thread231
@@ -3780,7 +3780,7 @@ if.end47.i:                                       ; preds = %for.body.i111
   br i1 %cmp50.not.i, label %if.end64.i, label %do.body53.i
 
 do.body53.i:                                      ; preds = %if.end47.i
-  %26 = trunc i64 %indvars.iv.i112 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv.i112 to i32
   %narrow.neg45.i = mul nsw i32 %26, -100000
   %sub61.i = add nsw i32 %narrow.neg45.i, -1610616808
   br label %sha3_384_test.exit.thread231
@@ -3791,7 +3791,7 @@ if.end64.i:                                       ; preds = %if.end47.i
   br i1 %cmp67.not.i, label %if.end81.i, label %do.body70.i
 
 do.body70.i:                                      ; preds = %if.end64.i
-  %27 = trunc i64 %indvars.iv.i112 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i112 to i32
   %narrow.neg42.i = mul nsw i32 %27, -100000
   %sub78.i = add nsw i32 %narrow.neg42.i, -1610616812
   br label %sha3_384_test.exit.thread231
@@ -3804,7 +3804,7 @@ if.end81.i:                                       ; preds = %if.end64.i
   br i1 %cmp87.not.i, label %if.end101.i, label %do.body90.i
 
 do.body90.i:                                      ; preds = %if.end81.i
-  %29 = trunc i64 %indvars.iv.i112 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i112 to i32
   %narrow.neg39.i = mul nsw i32 %29, -100000
   %sub98.i = add nsw i32 %narrow.neg39.i, -1610616815
   br label %sha3_384_test.exit.thread231
@@ -3815,7 +3815,7 @@ if.end101.i:                                      ; preds = %if.end81.i
   br i1 %cmp105.not.i, label %for.inc.i119, label %do.body108.i
 
 do.body108.i:                                     ; preds = %if.end101.i
-  %30 = trunc i64 %indvars.iv.i112 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv.i112 to i32
   %narrow.neg36.i = mul nsw i32 %30, -100000
   %sub116.i = add nsw i32 %narrow.neg36.i, -1610616818
   br label %sha3_384_test.exit.thread231
@@ -3933,7 +3933,7 @@ for.body.i146:                                    ; preds = %if.end8, %for.inc.i
   br i1 %cmp31.not.i152, label %if.end43.i158, label %do.body.i153
 
 do.body.i153:                                     ; preds = %for.body.i146
-  %36 = trunc i64 %indvars.iv.i147 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.i147 to i32
   %narrow.neg47.i154 = mul nsw i32 %36, -100000
   %sub41.i155 = add nsw i32 %narrow.neg47.i154, -1610616909
   br label %exit.i156
@@ -3944,7 +3944,7 @@ if.end43.i158:                                    ; preds = %for.body.i146
   br i1 %cmp45.not.i160, label %if.end59.i164, label %do.body48.i161
 
 do.body48.i161:                                   ; preds = %if.end43.i158
-  %37 = trunc i64 %indvars.iv.i147 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv.i147 to i32
   %narrow.neg44.i162 = mul nsw i32 %37, -100000
   %sub56.i163 = add nsw i32 %narrow.neg44.i162, -1610616912
   br label %exit.i156
@@ -3955,7 +3955,7 @@ if.end59.i164:                                    ; preds = %if.end43.i158
   br i1 %cmp62.not.i166, label %if.end76.i170, label %do.body65.i167
 
 do.body65.i167:                                   ; preds = %if.end59.i164
-  %38 = trunc i64 %indvars.iv.i147 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i147 to i32
   %narrow.neg41.i168 = mul nsw i32 %38, -100000
   %sub73.i169 = add nsw i32 %narrow.neg41.i168, -1610616915
   br label %exit.i156
@@ -3968,7 +3968,7 @@ if.end76.i170:                                    ; preds = %if.end59.i164
   br i1 %cmp82.not.i173, label %if.end96.i177, label %do.body85.i174
 
 do.body85.i174:                                   ; preds = %if.end76.i170
-  %40 = trunc i64 %indvars.iv.i147 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv.i147 to i32
   %narrow.neg38.i175 = mul nsw i32 %40, -100000
   %sub93.i176 = add nsw i32 %narrow.neg38.i175, -1610616918
   br label %exit.i156
@@ -3979,7 +3979,7 @@ if.end96.i177:                                    ; preds = %if.end76.i170
   br i1 %cmp100.not.i179, label %for.inc.i183, label %do.body103.i180
 
 do.body103.i180:                                  ; preds = %if.end96.i177
-  %41 = trunc i64 %indvars.iv.i147 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i147 to i32
   %narrow.neg35.i181 = mul nsw i32 %41, -100000
   %sub111.i182 = add nsw i32 %narrow.neg35.i181, -1610616920
   br label %exit.i156
@@ -4153,7 +4153,7 @@ for.body:                                         ; preds = %if.end80, %if.end14
   br i1 %cmp100.not, label %if.end112, label %if.then102
 
 if.then102:                                       ; preds = %for.body
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg226 = mul nsw i32 %8, -100000
   %sub110 = add nsw i32 %narrow.neg226, -1610617925
   br label %return
@@ -4164,7 +4164,7 @@ if.end112:                                        ; preds = %for.body
   br i1 %cmp117.not, label %if.end129, label %if.then119
 
 if.then119:                                       ; preds = %if.end112
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg223 = mul nsw i32 %9, -100000
   %sub127 = add nsw i32 %narrow.neg223, -1610617928
   br label %return
@@ -4175,7 +4175,7 @@ if.end129:                                        ; preds = %if.end112
   br i1 %cmp134.not, label %if.end146, label %if.then136
 
 if.then136:                                       ; preds = %if.end129
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg220 = mul nsw i32 %10, -100000
   %sub144 = add nsw i32 %narrow.neg220, -1610617931
   br label %return
@@ -4195,7 +4195,7 @@ for.body153:                                      ; preds = %if.end146, %for.inc
   br i1 %cmp166.not, label %if.end178, label %if.then168
 
 if.then168:                                       ; preds = %for.body153
-  %12 = trunc i64 %indvars.iv289 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg217 = mul nsw i32 %12, -100000
   %sub176 = add nsw i32 %narrow.neg217, -1610617945
   br label %return
@@ -4206,7 +4206,7 @@ if.end178:                                        ; preds = %for.body153
   br i1 %cmp183.not, label %if.end195, label %if.then185
 
 if.then185:                                       ; preds = %if.end178
-  %13 = trunc i64 %indvars.iv289 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg214 = mul nsw i32 %13, -100000
   %sub193 = add nsw i32 %narrow.neg214, -1610617948
   br label %return
@@ -4217,7 +4217,7 @@ if.end195:                                        ; preds = %if.end178
   br i1 %cmp200.not, label %if.end212, label %if.then202
 
 if.then202:                                       ; preds = %if.end195
-  %14 = trunc i64 %indvars.iv289 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg211 = mul nsw i32 %14, -100000
   %sub210 = add nsw i32 %narrow.neg211, -1610617951
   br label %return
@@ -4229,7 +4229,7 @@ if.end212:                                        ; preds = %if.end195
   br i1 %cmp237, label %if.then239, label %if.then252
 
 if.then239:                                       ; preds = %if.end212
-  %15 = trunc i64 %indvars.iv289 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg205 = mul nsw i32 %15, -100000
   %sub247 = add nsw i32 %narrow.neg205, -1610617958
   br label %return
@@ -4241,7 +4241,7 @@ if.then252:                                       ; preds = %if.end212
   br i1 %cmp259.not, label %if.end272, label %if.then261
 
 if.then261:                                       ; preds = %if.then252
-  %16 = trunc i64 %indvars.iv289 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg202 = mul nsw i32 %16, -100000
   %sub269 = add nsw i32 %narrow.neg202, -1610617963
   br label %return
@@ -4252,7 +4252,7 @@ if.end272:                                        ; preds = %if.then252
   br i1 %cmp278.not, label %land.lhs.true293, label %if.then280
 
 if.then280:                                       ; preds = %if.end272
-  %17 = trunc i64 %indvars.iv289 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg199 = mul nsw i32 %17, -100000
   %sub288 = add nsw i32 %narrow.neg199, -1610617967
   br label %return
@@ -4264,7 +4264,7 @@ land.lhs.true293:                                 ; preds = %if.end272
   br i1 %cmp298.not, label %if.end310, label %if.then300
 
 if.then300:                                       ; preds = %land.lhs.true293
-  %18 = trunc i64 %indvars.iv289 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg196 = mul nsw i32 %18, -100000
   %sub308 = add nsw i32 %narrow.neg196, -1610617969
   br label %return
@@ -4275,7 +4275,7 @@ if.end310:                                        ; preds = %land.lhs.true293
   br i1 %cmp333, label %if.then335, label %if.end345
 
 if.then335:                                       ; preds = %if.end310
-  %19 = trunc i64 %indvars.iv289 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg190 = mul nsw i32 %19, -100000
   %sub343 = add nsw i32 %narrow.neg190, -1610617975
   br label %return
@@ -4288,7 +4288,7 @@ if.end345:                                        ; preds = %if.end310
   ]
 
 if.then362:                                       ; preds = %if.end345, %if.end345
-  %20 = trunc i64 %indvars.iv289 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg187 = mul nsw i32 %20, -100000
   %sub370 = add nsw i32 %narrow.neg187, -1610617982
   br label %return
@@ -4299,7 +4299,7 @@ if.end372:                                        ; preds = %if.end345
   br i1 %cmp379.not, label %for.inc392, label %if.then381
 
 if.then381:                                       ; preds = %if.end372
-  %21 = trunc i64 %indvars.iv289 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv289 to i32
   %narrow.neg184 = mul nsw i32 %21, -100000
   %sub389 = add nsw i32 %narrow.neg184, -1610617987
   br label %return
@@ -4321,7 +4321,7 @@ for.body398:                                      ; preds = %for.inc392, %for.in
   ]
 
 if.then412:                                       ; preds = %for.body398
-  %23 = trunc i64 %indvars.iv293 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv293 to i32
   %narrow.neg181 = mul nsw i32 %23, -100000
   %sub420 = add nsw i32 %narrow.neg181, -1610617994
   br label %return
@@ -4635,7 +4635,7 @@ if.end79:                                         ; preds = %if.end64
   br i1 %cmp85.not, label %if.end97, label %if.then87
 
 if.then87:                                        ; preds = %if.end79
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg20 = mul nsw i32 %8, -100000
   %sub95 = add nsw i32 %narrow.neg20, -1610618216
   br label %return
@@ -4754,7 +4754,7 @@ if.end79:                                         ; preds = %if.end64
   br i1 %cmp85.not, label %if.end97, label %if.then87
 
 if.then87:                                        ; preds = %if.end79
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg19 = mul nsw i32 %8, -100000
   %sub95 = add nsw i32 %narrow.neg19, -1610618298
   br label %return
@@ -4879,7 +4879,7 @@ if.end86:                                         ; preds = %if.end71
   br i1 %cmp92.not, label %if.end104, label %if.then94
 
 if.then94:                                        ; preds = %if.end86
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg19 = mul nsw i32 %8, -100000
   %sub102 = add nsw i32 %narrow.neg19, -1610618393
   br label %return
@@ -4945,7 +4945,7 @@ for.body:                                         ; preds = %entry, %if.end105
   br i1 %cmp22.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg40 = mul nsw i32 %0, -100000
   %sub = add nsw i32 %narrow.neg40, -1610618478
   br label %return
@@ -4960,7 +4960,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp33.not, label %if.end45, label %if.then35
 
 if.then35:                                        ; preds = %if.end
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg37 = mul nsw i32 %2, -100000
   %sub43 = add nsw i32 %narrow.neg37, -1610618483
   br label %return
@@ -4980,7 +4980,7 @@ if.then51:                                        ; preds = %if.end45
   br i1 %cmp60.not, label %if.end73, label %if.then62
 
 if.then62:                                        ; preds = %if.then51
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg34 = mul nsw i32 %5, -100000
   %sub70 = add nsw i32 %narrow.neg34, -1610618488
   br label %return
@@ -4991,7 +4991,7 @@ if.end73:                                         ; preds = %if.then51, %if.end4
   br i1 %cmp75.not, label %if.end87, label %if.then77
 
 if.then77:                                        ; preds = %if.end73
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg31 = mul nsw i32 %6, -100000
   %sub85 = add nsw i32 %narrow.neg31, -1610618492
   br label %return
@@ -5004,7 +5004,7 @@ if.end87:                                         ; preds = %if.end73
   br i1 %cmp93.not, label %if.end105, label %if.then95
 
 if.then95:                                        ; preds = %if.end87
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg28 = mul nsw i32 %8, -100000
   %sub103 = add nsw i32 %narrow.neg28, -1610618495
   br label %return
@@ -5153,7 +5153,7 @@ if.end86:                                         ; preds = %if.end71
   br i1 %cmp92.not, label %if.end104, label %if.then94
 
 if.then94:                                        ; preds = %if.end86
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg19 = mul nsw i32 %8, -100000
   %sub102 = add nsw i32 %narrow.neg19, -1610618606
   br label %return
@@ -5278,7 +5278,7 @@ if.end86:                                         ; preds = %if.end71
   br i1 %cmp92.not, label %if.end104, label %if.then94
 
 if.then94:                                        ; preds = %if.end86
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg19 = mul nsw i32 %8, -100000
   %sub102 = add nsw i32 %narrow.neg19, -1610618717
   br label %return
@@ -5946,7 +5946,7 @@ if.end61:                                         ; preds = %if.end47
   br i1 %tobool.not, label %if.end72, label %if.then66
 
 if.then66:                                        ; preds = %if.end61
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg150 = mul nsw i32 %4, -100000
   %sub = add nsw i32 %narrow.neg150, -1610619575
   br label %return
@@ -5957,7 +5957,7 @@ if.end72:                                         ; preds = %if.end61
   br i1 %.not, label %for.inc, label %if.then77
 
 if.then77:                                        ; preds = %if.end72
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg147 = mul nsw i32 %5, -100000
   %sub85 = add nsw i32 %narrow.neg147, -1610619578
   br label %return
@@ -6134,7 +6134,7 @@ if.end304:                                        ; preds = %if.end288
 
 for.body325.preheader:                            ; preds = %if.end304
   %10 = sub nuw nsw i64 1305, %indvars.iv243
-  %11 = trunc i64 %indvars.iv243 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv243 to i32
   br label %for.body325
 
 if.then309:                                       ; preds = %if.end304
@@ -6177,7 +6177,7 @@ for.inc367:                                       ; preds = %if.end345
   br i1 %cmp323, label %for.body325, label %for.end369, !llvm.loop !79
 
 for.end369:                                       ; preds = %for.inc367
-  %15 = trunc i64 %indvars.iv.next246 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.next246 to i32
   %sub370 = sub nsw i32 1305, %15
   %idx.ext372 = and i64 %indvars.iv.next246, 4294967295
   %add.ptr373 = getelementptr inbounds i8, ptr %cipher_big, i64 %idx.ext372
@@ -6306,7 +6306,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp33.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg39 = mul nsw i32 %1, -100000
   %sub = add nsw i32 %narrow.neg39, -1610619882
   br label %return
@@ -6321,7 +6321,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp43.not, label %if.end55, label %if.then45
 
 if.then45:                                        ; preds = %if.end
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg36 = mul nsw i32 %4, -100000
   %sub53 = add nsw i32 %narrow.neg36, -1610619886
   br label %return
@@ -6332,7 +6332,7 @@ if.end55:                                         ; preds = %if.end
   br i1 %cmp58.not, label %if.end70, label %if.then60
 
 if.then60:                                        ; preds = %if.end55
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg33 = mul nsw i32 %5, -100000
   %sub68 = add nsw i32 %narrow.neg33, -1610619890
   br label %return
@@ -6345,7 +6345,7 @@ if.end70:                                         ; preds = %if.end55
   br i1 %tobool.not, label %for.inc, label %if.then75
 
 if.then75:                                        ; preds = %if.end70
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg30 = mul nsw i32 %7, -100000
   %sub83 = add nsw i32 %narrow.neg30, -1610619893
   br label %return
@@ -10875,15 +10875,13 @@ do.body111:                                       ; preds = %if.end102
 
 if.end123:                                        ; preds = %if.end102
   %cmp124.not = icmp eq ptr %plain, null
-  br i1 %cmp124.not, label %if.end135, label %if.then126
+  br i1 %cmp124.not, label %if.then141, label %if.then126
 
 if.then126:                                       ; preds = %if.end123
   %conv128 = zext nneg i32 %plainSz to i64
   %bcmp27 = call i32 @bcmp(ptr nonnull %plain, ptr nonnull %resultP, i64 %conv128)
   %tobool130.not = icmp eq i32 %bcmp27, 0
-  br i1 %tobool130.not, label %if.end135, label %if.then141
-
-if.end135:                                        ; preds = %if.then126, %if.end123
+  %spec.select = select i1 %tobool130.not, i32 0, i32 -12196
   br label %if.then141
 
 if.end139.thread:                                 ; preds = %entry
@@ -10901,8 +10899,8 @@ if.end139:                                        ; preds = %if.else
   call void @wc_AesFree(ptr noundef nonnull %enc) #19
   br label %if.end143
 
-if.then141:                                       ; preds = %if.then126, %if.end76, %if.then68, %if.end135, %do.body111, %do.body90, %do.body53, %do.body33
-  %ret.0.ph.ph = phi i32 [ %sub42, %do.body33 ], [ %sub62, %do.body53 ], [ %sub99, %do.body90 ], [ %sub120, %do.body111 ], [ 0, %if.end135 ], [ -12159, %if.then68 ], [ -12162, %if.end76 ], [ -12196, %if.then126 ]
+if.then141:                                       ; preds = %if.then126, %if.end123, %if.end76, %if.then68, %do.body111, %do.body90, %do.body53, %do.body33
+  %ret.0.ph.ph = phi i32 [ %sub42, %do.body33 ], [ %sub62, %do.body53 ], [ %sub99, %do.body90 ], [ %sub120, %do.body111 ], [ -12159, %if.then68 ], [ -12162, %if.end76 ], [ 0, %if.end123 ], [ %spec.select, %if.then126 ]
   call void @wc_AesFree(ptr noundef nonnull %enc) #19
   call void @wc_AesFree(ptr noundef nonnull %dec) #19
   br label %if.end143
@@ -12921,7 +12919,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp66.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg15 = mul nsw i32 %2, -100000
   %sub = add nsw i32 %narrow.neg15, -1610632622
   br label %return
@@ -12942,7 +12940,7 @@ for.body77:                                       ; preds = %for.inc, %for.inc99
   br i1 %cmp86.not, label %for.inc99, label %if.then88
 
 if.then88:                                        ; preds = %for.body77
-  %5 = trunc i64 %indvars.iv23 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv23 to i32
   %narrow.neg = mul nsw i32 %5, -100000
   %sub96 = add nsw i32 %narrow.neg, -1610632629
   br label %return
@@ -13096,19 +13094,17 @@ if.end147:                                        ; preds = %if.end126
   %20 = load i32, ptr %agreeSz, align 4
   %21 = load i32, ptr %agreeSz2, align 4
   %cmp148.not = icmp eq i32 %20, %21
-  br i1 %cmp148.not, label %lor.lhs.false, label %do.body155
+  br i1 %cmp148.not, label %lor.lhs.false, label %done
 
 lor.lhs.false:                                    ; preds = %if.end147
   %conv152 = zext i32 %20 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %agree, ptr nonnull %agree2, i64 %conv152)
   %tobool.not = icmp eq i32 %bcmp, 0
-  br i1 %tobool.not, label %done, label %do.body155
-
-do.body155:                                       ; preds = %if.end147, %lor.lhs.false
+  %spec.select = select i1 %tobool.not, i32 0, i32 -20026
   br label %done
 
-done:                                             ; preds = %lor.lhs.false, %do.body155, %do.body135, %do.body114, %do.body93, %do.body73, %do.body53, %do.body31, %do.body13, %do.body
-  %ret.0 = phi i32 [ %sub6, %do.body ], [ %sub22, %do.body13 ], [ %sub40, %do.body31 ], [ %sub62, %do.body53 ], [ %sub82, %do.body73 ], [ %sub102, %do.body93 ], [ %sub123, %do.body114 ], [ %sub144, %do.body135 ], [ -20026, %do.body155 ], [ 0, %lor.lhs.false ]
+done:                                             ; preds = %lor.lhs.false, %if.end147, %do.body135, %do.body114, %do.body93, %do.body73, %do.body53, %do.body31, %do.body13, %do.body
+  %ret.0 = phi i32 [ %sub6, %do.body ], [ %sub22, %do.body13 ], [ %sub40, %do.body31 ], [ %sub62, %do.body53 ], [ %sub82, %do.body73 ], [ %sub102, %do.body93 ], [ %sub123, %do.body114 ], [ %sub144, %do.body135 ], [ -20026, %if.end147 ], [ %spec.select, %lor.lhs.false ]
   %call159 = call i32 @wc_FreeDhKey(ptr noundef nonnull %key) #19
   %call161 = call i32 @wc_FreeDhKey(ptr noundef nonnull %key2) #19
   ret i32 %ret.0

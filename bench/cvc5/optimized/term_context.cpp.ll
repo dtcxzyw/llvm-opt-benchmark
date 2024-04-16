@@ -328,14 +328,12 @@ lor.rhs.i:                                        ; preds = %entry
   %.fr = freeze i32 %1
   %cmp2.i.not = icmp eq i32 %call1.i2, %.fr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  br i1 %cmp2.i.not, label %3, label %2
+  %spec.select = select i1 %cmp2.i.not, i32 %tval, i32 1
+  br label %2
 
-2:                                                ; preds = %invoke.cont.thread, %lor.rhs.i
-  br label %3
-
-3:                                                ; preds = %lor.rhs.i, %2
-  %4 = phi i32 [ 1, %2 ], [ %tval, %lor.rhs.i ]
-  ret i32 %4
+2:                                                ; preds = %lor.rhs.i, %invoke.cont.thread
+  %3 = phi i32 [ 1, %invoke.cont.thread ], [ %spec.select, %lor.rhs.i ]
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -448,7 +446,7 @@ _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %init.check, %init.c
   store ptr %4, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
   %bf.load.i.i = load i64, ptr %4, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
-  %5 = trunc i64 %bf.lshr.i.i to i32
+  %5 = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %5, 1048575
   %cmp.i.i = icmp ult i32 %bf.cast.i.i, 1048574
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i

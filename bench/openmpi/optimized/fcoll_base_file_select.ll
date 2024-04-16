@@ -426,7 +426,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @mca_fcoll_base_query_table(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define i32 @mca_fcoll_base_query_table(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.7) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %17
@@ -444,13 +444,13 @@ define noundef i32 @mca_fcoll_base_query_table(ptr nocapture noundef readonly %0
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = load i64, ptr %11, align 8
   %.not16 = icmp ult i64 %6, %12
-  br i1 %.not16, label %13, label %41
+  br i1 %.not16, label %13, label %40
 
 13:                                               ; preds = %10, %4
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %15, 3
-  br i1 %16, label %41, label %17
+  br i1 %16, label %40, label %17
 
 17:                                               ; preds = %13, %2
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.8) #9
@@ -461,7 +461,7 @@ define noundef i32 @mca_fcoll_base_query_table(ptr nocapture noundef readonly %0
   %20 = getelementptr inbounds i8, ptr %0, i64 148
   %21 = load i32, ptr %20, align 4
   %.not18 = icmp eq i32 %21, 3
-  br i1 %.not18, label %22, label %41
+  br i1 %.not18, label %22, label %40
 
 22:                                               ; preds = %19, %17
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.9) #9
@@ -481,7 +481,7 @@ define noundef i32 @mca_fcoll_base_query_table(ptr nocapture noundef readonly %0
   %32 = getelementptr inbounds i8, ptr %0, i64 112
   %33 = load i64, ptr %32, align 8
   %.not20 = icmp ult i64 %26, %33
-  br i1 %.not20, label %34, label %41
+  br i1 %.not20, label %34, label %40
 
 34:                                               ; preds = %24, %31, %22
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.10) #9
@@ -492,13 +492,11 @@ define noundef i32 @mca_fcoll_base_query_table(ptr nocapture noundef readonly %0
   %37 = getelementptr inbounds i8, ptr %0, i64 148
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %41, label %40
+  %spec.select = zext i1 %39 to i32
+  br label %40
 
-40:                                               ; preds = %36, %34
-  br label %41
-
-41:                                               ; preds = %36, %31, %19, %13, %10, %40
-  %.0 = phi i32 [ 0, %40 ], [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %31 ], [ 1, %36 ]
+40:                                               ; preds = %36, %34, %31, %19, %13, %10
+  %.0 = phi i32 [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %31 ], [ 0, %34 ], [ %spec.select, %36 ]
   ret i32 %.0
 }
 

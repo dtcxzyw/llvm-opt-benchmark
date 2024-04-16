@@ -162,7 +162,7 @@ if.then40.i:                                      ; preds = %do.body38.i
   %call43.i = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #4
   br label %traverse_module_state.exit
 
-traverse_module_state.exit:                       ; preds = %if.then40.i, %do.body38.i, %if.then.i, %if.then7.i, %if.then18.i, %if.then29.i
+traverse_module_state.exit:                       ; preds = %if.then.i, %if.then7.i, %if.then18.i, %if.then29.i, %do.body38.i, %if.then40.i
   ret i32 0
 }
 
@@ -292,7 +292,7 @@ if.then2.sink.split:                              ; preds = %if.end.i, %_queue_c
 
 if.then2:                                         ; preds = %if.then2.sink.split, %if.end
   %retval.0.i.ph = phi i64 [ -12, %if.end ], [ %retval.0.i.ph.ph, %if.then2.sink.split ]
-  %conv = trunc i64 %retval.0.i.ph to i32
+  %conv = trunc nsw i64 %retval.0.i.ph to i32
   %call3 = call fastcc i32 @handle_queue_error(i32 noundef %conv, ptr noundef %self, i64 noundef %retval.0.i.ph), !range !6
   br label %return
 
@@ -1216,7 +1216,7 @@ if.end4:                                          ; preds = %if.end
 set_external_queue_type.exit.thread:              ; preds = %if.end4
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.38) #4
-  br label %7
+  br label %return
 
 if.end.i:                                         ; preds = %if.end4
   %6 = load i32, ptr %0, align 8
@@ -1233,13 +1233,11 @@ set_external_queue_type.exit:                     ; preds = %if.end.i, %if.end.i
   %call4.i = call i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef nonnull %0, ptr noundef nonnull @_queueobj_shared) #4
   %call4.i.fr = freeze i32 %call4.i
   %cmp = icmp slt i32 %call4.i.fr, 0
-  br i1 %cmp, label %7, label %return
-
-7:                                                ; preds = %set_external_queue_type.exit.thread, %set_external_queue_type.exit
+  %spec.select = select i1 %cmp, ptr null, ptr @_Py_NoneStruct
   br label %return
 
-return:                                           ; preds = %7, %set_external_queue_type.exit, %entry, %if.then3
-  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %entry ], [ null, %7 ], [ @_Py_NoneStruct, %set_external_queue_type.exit ]
+return:                                           ; preds = %set_external_queue_type.exit, %set_external_queue_type.exit.thread, %entry, %if.then3
+  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %entry ], [ null, %set_external_queue_type.exit.thread ], [ %spec.select, %set_external_queue_type.exit ]
   ret ptr %retval.0
 }
 

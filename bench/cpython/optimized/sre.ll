@@ -1163,18 +1163,14 @@ do.body39:                                        ; preds = %if.then30, %do.body
   %compile_template = getelementptr inbounds i8, ptr %module.val, i64 32
   %5 = load ptr, ptr %compile_template, align 8
   %tobool40.not = icmp eq ptr %5, null
-  br i1 %tobool40.not, label %do.end49, label %if.then41
+  br i1 %tobool40.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %do.body39
   %call44 = tail call i32 %visit(ptr noundef nonnull %5, ptr noundef %arg) #14
-  %tobool45.not = icmp eq i32 %call44, 0
-  br i1 %tobool45.not, label %do.end49, label %return
-
-do.end49:                                         ; preds = %do.body39, %if.then41
   br label %return
 
-return:                                           ; preds = %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end49
-  %retval.0 = phi i32 [ 0, %do.end49 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ]
+return:                                           ; preds = %if.then41, %do.body39, %if.then30, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ 0, %do.body39 ], [ %call44, %if.then41 ]
   ret i32 %retval.0
 }
 
@@ -2795,68 +2791,65 @@ declare i32 @_PyUnicode_ToLowercase(i32 noundef) local_unnamed_addr #1
 declare i32 @_PyUnicode_ToUppercase(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sre_exec(ptr noundef %m) #0 {
+define internal i32 @sre_exec(ptr noundef %m) #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @pattern_spec, ptr noundef null) #14
   store ptr %call1, ptr %m.val, align 8
   %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %error, label %do.body3
+  br i1 %cmp, label %return, label %do.body3
 
 do.body3:                                         ; preds = %entry
   %call4 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @match_spec, ptr noundef null) #14
   %Match_Type = getelementptr inbounds i8, ptr %m.val, i64 8
   store ptr %call4, ptr %Match_Type, align 8
   %cmp6 = icmp eq ptr %call4, null
-  br i1 %cmp6, label %error, label %do.body10
+  br i1 %cmp6, label %return, label %do.body10
 
 do.body10:                                        ; preds = %do.body3
   %call11 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @scanner_spec, ptr noundef null) #14
   %Scanner_Type = getelementptr inbounds i8, ptr %m.val, i64 16
   store ptr %call11, ptr %Scanner_Type, align 8
   %cmp13 = icmp eq ptr %call11, null
-  br i1 %cmp13, label %error, label %do.body17
+  br i1 %cmp13, label %return, label %do.body17
 
 do.body17:                                        ; preds = %do.body10
   %call18 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %m, ptr noundef nonnull @template_spec, ptr noundef null) #14
   %Template_Type = getelementptr inbounds i8, ptr %m.val, i64 24
   store ptr %call18, ptr %Template_Type, align 8
   %cmp20 = icmp eq ptr %call18, null
-  br i1 %cmp20, label %error, label %do.end23
+  br i1 %cmp20, label %return, label %do.end23
 
 do.end23:                                         ; preds = %do.body17
   %call24 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.26, i64 noundef 20230612) #14
   %cmp25 = icmp slt i32 %call24, 0
-  br i1 %cmp25, label %error, label %if.end27
+  br i1 %cmp25, label %return, label %if.end27
 
 if.end27:                                         ; preds = %do.end23
   %call28 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.27, i64 noundef 4) #14
   %cmp29 = icmp slt i32 %call28, 0
-  br i1 %cmp29, label %error, label %do.body32
+  br i1 %cmp29, label %return, label %do.body32
 
 do.body32:                                        ; preds = %if.end27
   %call33 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef 4294967295) #14
   %call34 = tail call i32 @PyModule_Add(ptr noundef nonnull %m, ptr noundef nonnull @.str.28, ptr noundef %call33) #14
   %cmp35 = icmp slt i32 %call34, 0
-  br i1 %cmp35, label %error, label %do.body39
+  br i1 %cmp35, label %return, label %do.body39
 
 do.body39:                                        ; preds = %do.body32
   %call40 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef 1073741823) #14
   %call41 = tail call i32 @PyModule_Add(ptr noundef nonnull %m, ptr noundef nonnull @.str.29, ptr noundef %call40) #14
   %cmp42 = icmp slt i32 %call41, 0
-  br i1 %cmp42, label %error, label %do.end45
+  br i1 %cmp42, label %return, label %do.end45
 
 do.end45:                                         ; preds = %do.body39
   %call46 = tail call i32 @PyModule_AddStringConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.30, ptr noundef nonnull @copyright) #14
-  %cmp47 = icmp slt i32 %call46, 0
-  br i1 %cmp47, label %error, label %return
-
-error:                                            ; preds = %do.end45, %do.body39, %do.body32, %if.end27, %do.end23, %do.body17, %do.body10, %do.body3, %entry
+  %call46.lobit = ashr i32 %call46, 31
   br label %return
 
-return:                                           ; preds = %do.end45, %error
-  %retval.0 = phi i32 [ -1, %error ], [ 0, %do.end45 ]
+return:                                           ; preds = %do.end45, %entry, %do.body3, %do.body10, %do.body17, %do.end23, %if.end27, %do.body32, %do.body39
+  %retval.0 = phi i32 [ -1, %do.body39 ], [ -1, %do.body32 ], [ -1, %if.end27 ], [ -1, %do.end23 ], [ -1, %do.body17 ], [ -1, %do.body10 ], [ -1, %do.body3 ], [ -1, %entry ], [ %call46.lobit, %do.end45 ]
   ret i32 %retval.0
 }
 
@@ -3272,18 +3265,14 @@ do.body28:                                        ; preds = %if.then19, %do.body
   %pattern = getelementptr inbounds i8, ptr %self, i64 48
   %3 = load ptr, ptr %pattern, align 8
   %tobool29.not = icmp eq ptr %3, null
-  br i1 %tobool29.not, label %do.end38, label %if.then30
+  br i1 %tobool29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %do.body28
   %call33 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #14
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %do.end38, label %return
-
-do.end38:                                         ; preds = %do.body28, %if.then30
   br label %return
 
-return:                                           ; preds = %if.then30, %if.then19, %if.then8, %if.then, %do.end38
-  %retval.0 = phi i32 [ 0, %do.end38 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ]
+return:                                           ; preds = %if.then30, %do.body28, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ 0, %do.body28 ], [ %call33, %if.then30 ]
   ret i32 %retval.0
 }
 
@@ -24039,18 +24028,14 @@ do.body28:                                        ; preds = %if.then19, %do.body
   %pattern = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load ptr, ptr %pattern, align 8
   %tobool29.not = icmp eq ptr %3, null
-  br i1 %tobool29.not, label %do.end38, label %if.then30
+  br i1 %tobool29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %do.body28
   %call33 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #14
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %do.end38, label %return
-
-do.end38:                                         ; preds = %do.body28, %if.then30
   br label %return
 
-return:                                           ; preds = %if.then30, %if.then19, %if.then8, %if.then, %do.end38
-  %retval.0 = phi i32 [ 0, %do.end38 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ]
+return:                                           ; preds = %if.then30, %do.body28, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ 0, %do.body28 ], [ %call33, %if.then30 ]
   ret i32 %retval.0
 }
 
@@ -25129,18 +25114,14 @@ do.body6:                                         ; preds = %if.then, %entry
   %pattern = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %pattern, align 8
   %tobool7.not = icmp eq ptr %1, null
-  br i1 %tobool7.not, label %do.end16, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
   %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #14
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.end16, label %return
-
-do.end16:                                         ; preds = %do.body6, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %do.end16
-  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call2, %if.then ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %do.body6, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ 0, %do.body6 ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 

@@ -423,7 +423,7 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
 
 .thread.i:                                        ; preds = %79
   %97 = load ptr, ptr @stderr, align 8
-  %98 = trunc i64 %indvars.iv259.i to i32
+  %98 = trunc nuw nsw i64 %indvars.iv259.i to i32
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.12, i32 noundef %98, i32 noundef %indvars.i) #22
   tail call fastcc void @printpath(ptr noundef %0)
   br label %101
@@ -1379,7 +1379,7 @@ overlap.exit239.thread.i:                         ; preds = %204, %203, %201, %2
   br i1 %565, label %566, label %571
 
 566:                                              ; preds = %563, %.lr.ph400
-  %567 = trunc i64 %indvars.iv444 to i32
+  %567 = trunc nuw nsw i64 %indvars.iv444 to i32
   %568 = shl nsw i32 %.0320403, 1
   %569 = udiv i32 2147483647, %13
   %570 = icmp sgt i32 %568, %569
@@ -1645,15 +1645,15 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   %.not.i22.i = icmp eq i64 %.val20.i, 0
   br i1 %.not.i22.i, label %cycles_free.exit.i, label %.lr.ph11.i.i
 
-.lr.ph11.i.i:                                     ; preds = %find_all_cycles.exit.i, %cycle_contains_edge.exit.i.thread.i
-  %.010.i.i = phi ptr [ %.1.i.i, %cycle_contains_edge.exit.i.thread.i ], [ null, %find_all_cycles.exit.i ]
-  %.0149.i.i = phi i64 [ %109, %cycle_contains_edge.exit.i.thread.i ], [ 0, %find_all_cycles.exit.i ]
+.lr.ph11.i.i:                                     ; preds = %find_all_cycles.exit.i, %cycle_contains_edge.exit.thread.i.i
+  %.010.i.i = phi ptr [ %.1.i.i, %cycle_contains_edge.exit.thread.i.i ], [ null, %find_all_cycles.exit.i ]
+  %.0149.i.i = phi i64 [ %109, %cycle_contains_edge.exit.thread.i.i ], [ 0, %find_all_cycles.exit.i ]
   %82 = getelementptr inbounds ptr, ptr %.val19.i, i64 %.0149.i.i
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr i8, ptr %83, i64 8
   %.val.i.i = load i64, ptr %84, align 8
   %85 = icmp ult i64 %.val.i.i, 3
-  br i1 %85, label %cycle_contains_edge.exit.i.thread.i, label %86
+  br i1 %85, label %cycle_contains_edge.exit.thread.i.i, label %86
 
 86:                                               ; preds = %.lr.ph11.i.i
   %87 = icmp eq ptr %.010.i.i, null
@@ -1663,7 +1663,7 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   %89 = getelementptr i8, ptr %.010.i.i, i64 8
   %.0.val.i.i = load i64, ptr %89, align 8
   %90 = icmp ugt i64 %.0.val.i.i, %.val.i.i
-  br i1 %90, label %.lr.ph.i.i.i, label %cycle_contains_edge.exit.i.thread.i
+  br i1 %90, label %.lr.ph.i.i.i, label %cycle_contains_edge.exit.thread.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %88, %86
   %91 = load i32, ptr %12, align 8
@@ -1690,7 +1690,7 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   %.02025.i4.i.i = phi i64 [ %101, %102 ], [ 0, %.lr.ph.i.i.i ]
   %101 = add nuw i64 %.02025.i4.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %101, %.val.i.i
-  br i1 %exitcond.not.i.i.i, label %cycle_contains_edge.exit.i.thread.i, label %102
+  br i1 %exitcond.not.i.i.i, label %cycle_contains_edge.exit.i.i, label %102
 
 102:                                              ; preds = %.lr.ph.i25.i
   %gep.i.i.i = getelementptr ptr, ptr %invariant.gep.i.i.i, i64 %101
@@ -1702,21 +1702,20 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   %or.cond.i.i.i = select i1 %106, i1 %107, i1 false
   br i1 %or.cond.i.i.i, label %cycle_contains_edge.exit.i.i, label %.lr.ph.i25.i
 
-cycle_contains_edge.exit.i.i:                     ; preds = %102
-  %108 = icmp ult i64 %101, %.val.i.i
+cycle_contains_edge.exit.i.i:                     ; preds = %102, %.lr.ph.i25.i
+  %.lcssa46.i = phi i64 [ %101, %102 ], [ %.val.i.i, %.lr.ph.i25.i ]
+  %108 = icmp ult i64 %.lcssa46.i, %.val.i.i
   %cond.fr.i.i = freeze i1 %108
-  br i1 %cond.fr.i.i, label %cycle_contains_edge.exit.thread.i.i, label %cycle_contains_edge.exit.i.thread.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, ptr %83, ptr %.010.i.i
+  br label %cycle_contains_edge.exit.thread.i.i
 
-cycle_contains_edge.exit.thread.i.i:              ; preds = %cycle_contains_edge.exit.i.i, %.lr.ph.i.i.i
-  br label %cycle_contains_edge.exit.i.thread.i
-
-cycle_contains_edge.exit.i.thread.i:              ; preds = %.lr.ph.i25.i, %cycle_contains_edge.exit.thread.i.i, %cycle_contains_edge.exit.i.i, %88, %.lr.ph11.i.i
-  %.1.i.i = phi ptr [ %.010.i.i, %.lr.ph11.i.i ], [ %.010.i.i, %88 ], [ %83, %cycle_contains_edge.exit.thread.i.i ], [ %.010.i.i, %cycle_contains_edge.exit.i.i ], [ %.010.i.i, %.lr.ph.i25.i ]
+cycle_contains_edge.exit.thread.i.i:              ; preds = %cycle_contains_edge.exit.i.i, %.lr.ph.i.i.i, %88, %.lr.ph11.i.i
+  %.1.i.i = phi ptr [ %.010.i.i, %.lr.ph11.i.i ], [ %.010.i.i, %88 ], [ %83, %.lr.ph.i.i.i ], [ %spec.select.i.i, %cycle_contains_edge.exit.i.i ]
   %109 = add nuw i64 %.0149.i.i, 1
   %exitcond.not.i23.i = icmp eq i64 %109, %.val20.i
   br i1 %exitcond.not.i23.i, label %find_shortest_cycle_with_edge.exit.i, label %.lr.ph11.i.i
 
-find_shortest_cycle_with_edge.exit.i:             ; preds = %cycle_contains_edge.exit.i.thread.i
+find_shortest_cycle_with_edge.exit.i:             ; preds = %cycle_contains_edge.exit.thread.i.i
   %110 = icmp eq ptr %.1.i.i, null
   br i1 %110, label %.lr.ph.i.i26.i, label %.preheader.i
 
@@ -1939,12 +1938,12 @@ bend.exit:                                        ; preds = %156, %get_cycle_cen
   br label %.loopexit
 
 .preheader96:                                     ; preds = %226, %.preheader96
-  %.086106 = phi i64 [ %240, %.preheader96 ], [ 0, %226 ]
-  %237 = xor i64 %.086106, 3
+  %.086104 = phi i64 [ %240, %.preheader96 ], [ 0, %226 ]
+  %237 = xor i64 %.086104, 3
   %238 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 %237
-  %239 = getelementptr inbounds [4 x %struct.pointf_s], ptr %7, i64 0, i64 %.086106
+  %239 = getelementptr inbounds [4 x %struct.pointf_s], ptr %7, i64 0, i64 %.086104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %238, ptr noundef nonnull align 16 dereferenceable(16) %239, i64 16, i1 false)
-  %240 = add nuw nsw i64 %.086106, 1
+  %240 = add nuw nsw i64 %.086104, 1
   %exitcond.not = icmp eq i64 %240, 4
   br i1 %exitcond.not, label %.loopexit, label %.preheader96
 
@@ -1988,8 +1987,8 @@ bend.exit:                                        ; preds = %156, %get_cycle_cen
   %262 = fadd <2 x double> %216, %261
   store <2 x double> %262, ptr %34, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond118.not, label %.loopexit98, label %226
+  %exitcond114.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond114.not, label %.loopexit98, label %226
 
 .loopexit98:                                      ; preds = %258, %215, %bend.exit
   ret void
@@ -2165,7 +2164,7 @@ define internal fastcc void @printpath(ptr nocapture noundef readonly %0) unname
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 24
   %19 = load double, ptr %18, align 8
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.16, i32 noundef %20, double noundef %13, double noundef %15, double noundef %17, double noundef %19) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %3, align 8

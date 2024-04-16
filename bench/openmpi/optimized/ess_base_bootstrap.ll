@@ -383,7 +383,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i, %120
   %.1108222.i = phi i8 [ %.1108.i, %.loopexit.i ], [ %.0107.i, %120 ]
-  %131 = trunc i8 %.1108222.i to i1
+  %131 = trunc nuw i8 %.1108222.i to i1
   br i1 %131, label %.thread.i, label %132
 
 132:                                              ; preds = %.loopexit.thread.i
@@ -394,7 +394,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %.1232.i = phi i1 [ %.1.i, %.loopexit.i ], [ %.0106.i, %127 ]
   %.1108231.i = phi i8 [ %.1108.i, %.loopexit.i ], [ %.0107.i, %127 ]
   %.0110146230.i = phi i32 [ %129, %.loopexit.i ], [ %124, %127 ]
-  %.pre.i = trunc i8 %.1108231.i to i1
+  %.pre.i = trunc nuw i8 %.1108231.i to i1
   br i1 %.pre.i, label %.thread.i, label %241
 
 .thread.i:                                        ; preds = %.loopexit.thread226.i, %.loopexit.thread.i
@@ -422,7 +422,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 142:                                              ; preds = %.lr.ph167.i
   %indvars.iv.next199.i = add nuw nsw i64 %indvars.iv198.i, 1
-  %143 = trunc i64 %indvars.iv.next199.i to i32
+  %143 = trunc nuw i64 %indvars.iv.next199.i to i32
   %144 = icmp slt i32 %143, %122
   %indvars.iv.next202.i = add i32 %indvars.iv201.i, 1
   %indvars.iv.next208.i = add i32 %indvars.iv207.i, 1
@@ -434,7 +434,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 145:                                              ; preds = %.lr.ph167.i
   %146 = getelementptr inbounds i8, ptr %.0111.i, i64 %indvars.iv198.i
-  %147 = trunc i64 %indvars.iv198.i to i32
+  %147 = trunc nuw i64 %indvars.iv198.i to i32
   store i8 0, ptr %146, align 1
   %148 = zext nneg i32 %133 to i64
   %149 = getelementptr inbounds i8, ptr %.0111.i, i64 %148
@@ -459,7 +459,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 159:                                              ; preds = %.lr.ph172.i
   %indvars.iv.next205.i = add nuw nsw i64 %indvars.iv204.i, 1
-  %160 = trunc i64 %indvars.iv.next205.i to i32
+  %160 = trunc nuw i64 %indvars.iv.next205.i to i32
   %161 = icmp slt i32 %160, %122
   %indvars.iv.next211.i = add nsw i64 %indvars.iv210.i, 1
   br i1 %161, label %.lr.ph172.i, label %._crit_edge173.i, !llvm.loop !9
@@ -470,7 +470,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 162:                                              ; preds = %.lr.ph172.i
   %163 = getelementptr inbounds i8, ptr %.0111.i, i64 %indvars.iv204.i
-  %164 = trunc i64 %indvars.iv204.i to i32
+  %164 = trunc nuw i64 %indvars.iv204.i to i32
   store i8 0, ptr %163, align 1
   %165 = add nuw nsw i32 %164, 1
   %166 = icmp slt i32 %165, %122
@@ -590,7 +590,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   %211 = ashr exact i64 %sext.i.i, 32
   %212 = getelementptr inbounds i8, ptr %197, i64 %211
   %213 = icmp ult ptr %.034.lcssa.i.i, %212
-  br i1 %213, label %214, label %226
+  br i1 %213, label %214, label %regex_parse_value_ranges.exit.i
 
 214:                                              ; preds = %._crit_edge.i136.i
   %215 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i64 0, i32 11), align 4
@@ -620,11 +620,11 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %225, ptr noundef nonnull @.str.27, i32 noundef 446) #13
   br label %regex_parse_value_ranges.exit.i
 
-226:                                              ; preds = %222, %._crit_edge.i136.i
+226:                                              ; preds = %222
   br label %regex_parse_value_ranges.exit.i
 
-regex_parse_value_ranges.exit.i:                  ; preds = %204, %226, %224, %222, %206
-  %.0.i137.i = phi i32 [ 0, %226 ], [ %205, %206 ], [ %223, %222 ], [ %223, %224 ], [ %205, %204 ]
+regex_parse_value_ranges.exit.i:                  ; preds = %204, %226, %224, %222, %._crit_edge.i136.i, %206
+  %.0.i137.i = phi i32 [ %205, %206 ], [ %223, %222 ], [ %223, %224 ], [ 0, %._crit_edge.i136.i ], [ 0, %226 ], [ %205, %204 ]
   %.not133.i = icmp eq ptr %.0109.i, null
   br i1 %.not133.i, label %228, label %227
 
@@ -707,7 +707,7 @@ regex_extract_nodes.exit:                         ; preds = %.thread140.i, %._cr
 .lr.ph214:                                        ; preds = %.preheader, %.lr.ph214
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph214 ], [ 0, %.preheader ]
   %260 = phi ptr [ %264, %.lr.ph214 ], [ %256, %.preheader ]
-  %261 = trunc i64 %indvars.iv to i32
+  %261 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.24, i32 noundef %261, ptr noundef nonnull %260) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %262 = load ptr, ptr %1, align 8

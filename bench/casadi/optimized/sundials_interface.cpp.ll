@@ -13222,7 +13222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not = icmp eq i32 %35, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23
-  br i1 %.not, label %41, label %99
+  br i1 %.not, label %41, label %98
 
 37:                                               ; preds = %.noexc, %7
   %38 = landingpad { ptr, i32 }
@@ -13320,11 +13320,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
           to label %90 unwind label %95
 
 90:                                               ; preds = %88
-  %.not54 = icmp eq i32 %89, 0
+  %.not54 = icmp ne i32 %89, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #23
-  br i1 %.not54, label %98, label %99
+  %spec.select = zext i1 %.not54 to i32
+  br label %98
 
 91:                                               ; preds = %.noexc56, %45
   %92 = landingpad { ptr, i32 }
@@ -13347,11 +13348,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   br label %.body
 
-98:                                               ; preds = %90, %41
-  br label %99
-
-99:                                               ; preds = %90, %36, %98
-  %.042 = phi i32 [ 0, %98 ], [ 1, %36 ], [ 1, %90 ]
+98:                                               ; preds = %90, %41, %36
+  %.042 = phi i32 [ 1, %36 ], [ 0, %41 ], [ %spec.select, %90 ]
   ret i32 %.042
 
 .body:                                            ; preds = %97, %85, %91, %39, %33, %37
@@ -13517,7 +13515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not = icmp eq i32 %50, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #23
-  br i1 %.not, label %56, label %150
+  br i1 %.not, label %56, label %149
 
 52:                                               ; preds = %.noexc, %10
   %53 = landingpad { ptr, i32 }
@@ -13661,11 +13659,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94: ; 
           to label %141 unwind label %146
 
 141:                                              ; preds = %139
-  %.not88 = icmp eq i32 %140, 0
+  %.not88 = icmp ne i32 %140, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #23
-  br i1 %.not88, label %149, label %150
+  %spec.select = zext i1 %.not88 to i32
+  br label %149
 
 142:                                              ; preds = %.noexc90, %60
   %143 = landingpad { ptr, i32 }
@@ -13688,11 +13687,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
   br label %.body
 
-149:                                              ; preds = %141, %56
-  br label %150
-
-150:                                              ; preds = %141, %51, %149
-  %.066 = phi i32 [ 0, %149 ], [ 1, %51 ], [ 1, %141 ]
+149:                                              ; preds = %141, %56, %51
+  %.066 = phi i32 [ 1, %51 ], [ 0, %56 ], [ %spec.select, %141 ]
   ret i32 %.066
 
 .body:                                            ; preds = %148, %136, %142, %54, %48, %52
@@ -13759,7 +13755,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not = icmp eq i32 %32, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
-  br i1 %.not, label %38, label %90
+  br i1 %.not, label %38, label %89
 
 34:                                               ; preds = %.noexc, %6
   %35 = landingpad { ptr, i32 }
@@ -13848,11 +13844,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
           to label %81 unwind label %86
 
 81:                                               ; preds = %79
-  %.not45 = icmp eq i32 %80, 0
+  %.not45 = icmp ne i32 %80, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #23
-  br i1 %.not45, label %89, label %90
+  %spec.select = zext i1 %.not45 to i32
+  br label %89
 
 82:                                               ; preds = %.noexc47, %42
   %83 = landingpad { ptr, i32 }
@@ -13875,11 +13872,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   br label %.body
 
-89:                                               ; preds = %81, %38
-  br label %90
-
-90:                                               ; preds = %81, %33, %89
-  %.035 = phi i32 [ 0, %89 ], [ 1, %33 ], [ 1, %81 ]
+89:                                               ; preds = %81, %38, %33
+  %.035 = phi i32 [ 1, %33 ], [ 0, %38 ], [ %spec.select, %81 ]
   ret i32 %.035
 
 .body:                                            ; preds = %88, %76, %82, %36, %30, %34
@@ -13969,7 +13963,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not = icmp eq i32 %51, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #23
-  br i1 %.not, label %57, label %151
+  br i1 %.not, label %57, label %150
 
 53:                                               ; preds = %.noexc, %9
   %54 = landingpad { ptr, i32 }
@@ -14110,11 +14104,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81: ; 
           to label %142 unwind label %147
 
 142:                                              ; preds = %140
-  %.not75 = icmp eq i32 %141, 0
+  %.not75 = icmp ne i32 %141, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #23
-  br i1 %.not75, label %150, label %151
+  %spec.select = zext i1 %.not75 to i32
+  br label %150
 
 143:                                              ; preds = %.noexc77, %61
   %144 = landingpad { ptr, i32 }
@@ -14137,11 +14132,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   br label %.body
 
-150:                                              ; preds = %142, %57
-  br label %151
-
-151:                                              ; preds = %142, %52, %150
-  %.061 = phi i32 [ 0, %150 ], [ 1, %52 ], [ 1, %142 ]
+150:                                              ; preds = %142, %57, %52
+  %.061 = phi i32 [ 1, %52 ], [ 0, %57 ], [ %spec.select, %142 ]
   ret i32 %.061
 
 .body:                                            ; preds = %149, %137, %143, %55, %49, %53
@@ -14217,7 +14209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.not = icmp eq i32 %41, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #23
-  br i1 %.not, label %47, label %110
+  br i1 %.not, label %47, label %109
 
 43:                                               ; preds = %.noexc, %9
   %44 = landingpad { ptr, i32 }
@@ -14319,11 +14311,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; 
           to label %101 unwind label %106
 
 101:                                              ; preds = %99
-  %.not53 = icmp eq i32 %100, 0
+  %.not53 = icmp ne i32 %100, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #23
-  br i1 %.not53, label %109, label %110
+  %spec.select = zext i1 %.not53 to i32
+  br label %109
 
 102:                                              ; preds = %.noexc55, %51
   %103 = landingpad { ptr, i32 }
@@ -14346,11 +14339,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   br label %.body
 
-109:                                              ; preds = %101, %47
-  br label %110
-
-110:                                              ; preds = %101, %42, %109
-  %.047 = phi i32 [ 0, %109 ], [ 1, %42 ], [ 1, %101 ]
+109:                                              ; preds = %101, %47, %42
+  %.047 = phi i32 [ 1, %42 ], [ 0, %47 ], [ %spec.select, %101 ]
   ret i32 %.047
 
 .body:                                            ; preds = %108, %96, %102, %45, %39, %43

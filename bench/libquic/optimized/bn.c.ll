@@ -289,7 +289,7 @@ if.end11:                                         ; preds = %if.end7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call, ptr align 8 %2, i64 %mul13, i1 false)
   tail call void @free(ptr noundef %2) #14
   store ptr %call, ptr %bn, align 8
-  %conv16 = trunc i64 %words to i32
+  %conv16 = trunc nuw nsw i64 %words to i32
   store i32 %conv16, ptr %dmax, align 4
   br label %return
 
@@ -915,18 +915,16 @@ entry:
 define hidden void @BN_set_negative(ptr noundef %bn, i32 noundef %sign) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %sign, 0
-  br i1 %tobool.not, label %if.else, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i32 @BN_is_zero(ptr noundef %bn) #14
   %tobool1.not = icmp eq i32 %call, 0
-  br i1 %tobool1.not, label %if.end, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true, %entry
+  %spec.select = zext i1 %tobool1.not to i32
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %if.else
-  %.sink = phi i32 [ 0, %if.else ], [ 1, %land.lhs.true ]
+if.end:                                           ; preds = %land.lhs.true, %entry
+  %.sink = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true ]
   %neg2 = getelementptr inbounds i8, ptr %bn, i64 16
   store i32 %.sink, ptr %neg2, align 8
   ret void

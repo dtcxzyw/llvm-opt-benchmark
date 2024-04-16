@@ -227,18 +227,16 @@ dhm_read_bignum.exit26:                           ; preds = %73
 81:                                               ; preds = %79
   %82 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %56, i64 noundef 2) #10
   %83 = icmp slt i32 %82, 0
-  br i1 %83, label %87, label %84
+  br i1 %83, label %dhm_check_range.exit, label %84
 
 84:                                               ; preds = %81
   %85 = call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %56, ptr noundef nonnull %4) #10
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %87, label %dhm_check_range.exit
-
-87:                                               ; preds = %84, %81
+  %spec.select.i = select i1 %86, i32 -12416, i32 0
   br label %dhm_check_range.exit
 
-dhm_check_range.exit:                             ; preds = %79, %84, %87
-  %.0.i28 = phi i32 [ %80, %79 ], [ -12416, %87 ], [ 0, %84 ]
+dhm_check_range.exit:                             ; preds = %79, %81, %84
+  %.0.i28 = phi i32 [ %80, %79 ], [ -12416, %81 ], [ %spec.select.i, %84 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %dhm_read_bignum.exit.thread
@@ -324,7 +322,7 @@ define internal fastcc i32 @dhm_make_common(ptr noundef %0, i32 noundef %1, ptr 
   %7 = icmp eq i32 %6, 0
   %8 = icmp slt i32 %1, 0
   %or.cond = or i1 %8, %7
-  br i1 %or.cond, label %36, label %9
+  br i1 %or.cond, label %35, label %9
 
 9:                                                ; preds = %4
   %10 = zext nneg i32 %1 to i64
@@ -336,7 +334,7 @@ define internal fastcc i32 @dhm_make_common(ptr noundef %0, i32 noundef %1, ptr 
 14:                                               ; preds = %9
   %15 = tail call i32 @mbedtls_mpi_fill_random(ptr noundef nonnull %13, i64 noundef %10, ptr noundef %2, ptr noundef %3) #10
   %.not30 = icmp eq i32 %15, 0
-  br i1 %.not30, label %21, label %36
+  br i1 %.not30, label %21, label %35
 
 16:                                               ; preds = %9
   %17 = tail call i32 @mbedtls_mpi_random(ptr noundef nonnull %13, i64 noundef 3, ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
@@ -350,12 +348,12 @@ define internal fastcc i32 @dhm_make_common(ptr noundef %0, i32 noundef %1, ptr 
 dhm_random_below.exit:                            ; preds = %16, %18
   %.0.i = phi i32 [ %17, %16 ], [ %19, %18 ]
   switch i32 %.0.i, label %20 [
-    i32 -14, label %36
+    i32 -14, label %35
     i32 0, label %21
   ]
 
 20:                                               ; preds = %dhm_random_below.exit
-  br label %36
+  br label %35
 
 21:                                               ; preds = %dhm_random_below.exit, %14
   %22 = getelementptr inbounds i8, ptr %0, i64 72
@@ -364,7 +362,7 @@ dhm_random_below.exit:                            ; preds = %16, %18
   %25 = getelementptr inbounds i8, ptr %0, i64 144
   %26 = tail call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull %25) #10
   %.not31 = icmp eq i32 %26, 0
-  br i1 %.not31, label %27, label %36
+  br i1 %.not31, label %27, label %35
 
 27:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -376,23 +374,21 @@ dhm_random_below.exit:                            ; preds = %16, %18
 29:                                               ; preds = %27
   %30 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %22, i64 noundef 2) #10
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %35, label %32
+  br i1 %31, label %dhm_check_range.exit, label %32
 
 32:                                               ; preds = %29
   %33 = call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %22, ptr noundef nonnull %5) #10
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %dhm_check_range.exit
-
-35:                                               ; preds = %32, %29
+  %spec.select.i = select i1 %34, i32 -12416, i32 0
   br label %dhm_check_range.exit
 
-dhm_check_range.exit:                             ; preds = %27, %32, %35
-  %.0.i34 = phi i32 [ %28, %27 ], [ -12416, %35 ], [ 0, %32 ]
+dhm_check_range.exit:                             ; preds = %27, %29, %32
+  %.0.i34 = phi i32 [ %28, %27 ], [ -12416, %29 ], [ %spec.select.i, %32 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %36
+  br label %35
 
-36:                                               ; preds = %dhm_check_range.exit, %14, %21, %dhm_random_below.exit, %4, %20
+35:                                               ; preds = %dhm_check_range.exit, %14, %21, %dhm_random_below.exit, %4, %20
   %.024 = phi i32 [ %.0.i, %20 ], [ -12416, %4 ], [ -12672, %dhm_random_below.exit ], [ %15, %14 ], [ %26, %21 ], [ %.0.i34, %dhm_check_range.exit ]
   ret i32 %.024
 }
@@ -513,8 +509,8 @@ define hidden i32 @mbedtls_dhm_calc_secret(ptr noundef %0, ptr noundef %1, i64 n
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %dhm_check_range.exit.thread, label %23
 
-dhm_check_range.exit.thread:                      ; preds = %14, %20, %17
-  %.0.i.ph = phi i32 [ %16, %14 ], [ -12416, %20 ], [ -12416, %17 ]
+dhm_check_range.exit.thread:                      ; preds = %14, %17, %20
+  %.0.i.ph = phi i32 [ -12416, %17 ], [ %16, %14 ], [ -12416, %20 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %85

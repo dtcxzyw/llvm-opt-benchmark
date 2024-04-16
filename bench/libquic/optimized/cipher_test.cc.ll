@@ -1258,7 +1258,7 @@ invoke.cont159:                                   ; preds = %invoke.cont154
 if.end162:                                        ; preds = %invoke.cont159
   %encrypt.not = xor i1 %encrypt, true
   %brmerge52 = select i1 %encrypt.not, i1 true, i1 %cmp.not141
-  br i1 %brmerge52, label %if.end188, label %if.then166
+  br i1 %brmerge52, label %cleanup, label %if.then166
 
 if.then166:                                       ; preds = %if.end162
   %_M_finish.i117 = getelementptr inbounds i8, ptr %tag, i64 8
@@ -1271,7 +1271,7 @@ if.then166:                                       ; preds = %if.end162
   br i1 %cmp168, label %if.then99.invoke, label %if.end171
 
 if.end171:                                        ; preds = %if.then166
-  %conv175 = trunc i64 %sub.ptr.sub.i120 to i32
+  %conv175 = trunc nuw i64 %sub.ptr.sub.i120 to i32
   %call177 = invoke i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %ctx, i32 noundef 16, i32 noundef %conv175, ptr noundef nonnull %rtag)
           to label %invoke.cont176 unwind label %lpad65.loopexit.split-lp
 
@@ -1286,16 +1286,10 @@ lor.lhs.false179:                                 ; preds = %invoke.cont176
   %sub.ptr.rhs.cast.i127 = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i128 = sub i64 %sub.ptr.lhs.cast.i126, %sub.ptr.rhs.cast.i127
   %call185 = invoke noundef zeroext i1 @_ZN8FileTest16ExpectBytesEqualEPKhmS1_m(ptr noundef nonnull align 8 dereferenceable(176) %t, ptr noundef %43, i64 noundef %sub.ptr.sub.i128, ptr noundef nonnull %rtag, i64 noundef %sub.ptr.sub.i128)
-          to label %invoke.cont184 unwind label %lpad65.loopexit.split-lp
+          to label %cleanup unwind label %lpad65.loopexit.split-lp
 
-invoke.cont184:                                   ; preds = %lor.lhs.false179
-  br i1 %call185, label %if.end188, label %cleanup
-
-if.end188:                                        ; preds = %if.end162, %invoke.cont184
-  br label %cleanup
-
-cleanup:                                          ; preds = %if.then99.invoke, %invoke.cont176, %invoke.cont184, %invoke.cont159, %if.then60, %if.end188
-  %retval.0 = phi i1 [ true, %if.end188 ], [ false, %if.then60 ], [ false, %invoke.cont159 ], [ false, %invoke.cont184 ], [ false, %invoke.cont176 ], [ false, %if.then99.invoke ]
+cleanup:                                          ; preds = %if.then99.invoke, %lor.lhs.false179, %if.end162, %invoke.cont176, %invoke.cont159, %if.then60
+  %retval.0 = phi i1 [ false, %if.then60 ], [ false, %invoke.cont159 ], [ false, %invoke.cont176 ], [ true, %if.end162 ], [ %call185, %lor.lhs.false179 ], [ false, %if.then99.invoke ]
   %45 = load ptr, ptr %result, align 8
   %tobool.not.i.i.i133 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i133, label %cleanup190, label %if.then.i.i.i134
@@ -1465,8 +1459,8 @@ if.then.i.i:                                      ; preds = %if.else.i
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 %sub)
   %add.i.i = add nuw i64 %.sroa.speculated.i.i, %sub.ptr.sub.i
-  %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #15
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %spec.select.i.i) #15
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %add.ptr.i, align 1
   %sub.i.i.i23.i = add nsw i64 %sub, -1
@@ -1498,7 +1492,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i: ; preds = %if.then.i31.
   store ptr %call5.i.i.i.i, ptr %this, align 8
   %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
   store ptr %add.ptr36.i, ptr %_M_finish.i, align 8
-  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %3
+  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %spec.select.i.i
   store ptr %add.ptr39.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 

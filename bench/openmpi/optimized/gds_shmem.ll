@@ -4865,7 +4865,7 @@ define internal fastcc noundef i32 @shmem_segment_fix_perms(ptr nocapture nounde
   %7 = getelementptr inbounds i8, ptr %0, i64 153
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %13, label %29
+  br i1 %9, label %13, label %30
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 144
@@ -4910,11 +4910,11 @@ define internal fastcc noundef i32 @shmem_segment_fix_perms(ptr nocapture nounde
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %28, ptr noundef nonnull @.str.11, i32 noundef 1140) #20
   br label %30
 
-29:                                               ; preds = %25, %6
+29:                                               ; preds = %25
   br label %30
 
-30:                                               ; preds = %27, %25, %23, %20, %29
-  %.0 = phi i32 [ 0, %29 ], [ %22, %20 ], [ %22, %23 ], [ %26, %25 ], [ %26, %27 ]
+30:                                               ; preds = %6, %27, %25, %23, %20, %29
+  %.0 = phi i32 [ %22, %20 ], [ %22, %23 ], [ %26, %25 ], [ %26, %27 ], [ 0, %6 ], [ 0, %29 ]
   ret i32 %.0
 }
 

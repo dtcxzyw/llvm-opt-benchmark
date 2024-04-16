@@ -255,14 +255,14 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %159 = getelementptr inbounds double, ptr %44, i64 %158
   %160 = load double, ptr %159, align 8, !tbaa !7
   %161 = fcmp oeq double %160, 0.000000e+00
-  br i1 %161, label %174, label %162
+  br i1 %161, label %175, label %162
 
 162:                                              ; preds = %155
   %163 = mul i64 %148, %142
   %164 = getelementptr inbounds double, ptr %44, i64 %163
   %165 = load double, ptr %164, align 8, !tbaa !7
   %166 = fcmp oeq double %165, 0.000000e+00
-  br i1 %166, label %174, label %167
+  br i1 %166, label %175, label %167
 
 167:                                              ; preds = %162
   %168 = mul nsw i32 %41, %149
@@ -273,11 +273,11 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %173 = fcmp une double %172, 0.000000e+00
   br i1 %173, label %174, label %175
 
-174:                                              ; preds = %167, %162, %155
+174:                                              ; preds = %167
   br label %175
 
-175:                                              ; preds = %174, %167
-  %176 = phi i32 [ 1, %174 ], [ %147, %167 ]
+175:                                              ; preds = %155, %162, %174, %167
+  %176 = phi i32 [ %147, %167 ], [ 1, %162 ], [ 1, %155 ], [ 1, %174 ]
   %177 = icmp ult i64 %146, %140
   br i1 %177, label %178, label %184
 

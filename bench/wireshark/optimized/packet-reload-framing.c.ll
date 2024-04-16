@@ -189,7 +189,7 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %9 = icmp ult i32 %8, 9
-  br i1 %9, label %318, label %10
+  br i1 %9, label %317, label %10
 
 10:                                               ; preds = %4
   %11 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0) #4
@@ -205,28 +205,28 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   %.0224 = phi ptr [ %14, %12 ], [ null, %10 ]
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %17 = zext i8 %16 to i32
-  switch i8 %16, label %318 [
+  switch i8 %16, label %317 [
     i8 -128, label %18
     i8 -127, label %25
   ]
 
 18:                                               ; preds = %15
   %19 = icmp ult i32 %8, 12
-  br i1 %19, label %318, label %20
+  br i1 %19, label %317, label %20
 
 20:                                               ; preds = %18
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #4
   %.not240 = icmp eq i32 %21, -767210417
-  br i1 %.not240, label %22, label %318
+  br i1 %.not240, label %22, label %317
 
 22:                                               ; preds = %20
   %23 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 5) #4
   %24 = icmp ult i32 %23, 38
-  br i1 %24, label %318, label %26
+  br i1 %24, label %317, label %26
 
 25:                                               ; preds = %15
   %.not239 = icmp eq ptr %.0224, null
-  br i1 %.not239, label %318, label %26
+  br i1 %.not239, label %317, label %26
 
 26:                                               ; preds = %25, %22
   %.0222 = phi i32 [ 0, %25 ], [ %23, %22 ]
@@ -720,68 +720,66 @@ proto_item_set_generated.exit270:                 ; preds = %175, %178, %181
 
 291:                                              ; preds = %.outer._crit_edge
   %292 = icmp ugt i32 %.0218.lcssa, 1
-  br i1 %292, label %293, label %309
+  br i1 %292, label %293, label %308
 
 293:                                              ; preds = %291
   %294 = sub nsw i32 32, %.0218.lcssa
   %295 = shl nuw nsw i32 1, %294
   %296 = and i32 %295, %226
   %.not251 = icmp eq i32 %296, 0
-  br i1 %.not251, label %309, label %297
+  br i1 %.not251, label %308, label %297
 
 297:                                              ; preds = %293
   %298 = sub nsw i32 33, %.0218.lcssa
   %299 = shl nuw i32 1, %298
   %300 = and i32 %299, %226
   %.not252 = icmp eq i32 %300, 0
-  br i1 %.not252, label %309, label %301
+  br i1 %.not252, label %308, label %301
 
 301:                                              ; preds = %297
   %.not253 = icmp eq i32 %.0218.lcssa, 2
-  br i1 %.not253, label %306, label %302
+  br i1 %.not253, label %.sink.split, label %302
 
 302:                                              ; preds = %301
   %303 = sub nsw i32 34, %.0218.lcssa
   %304 = shl nuw i32 1, %303
   %305 = and i32 %304, %226
   %.not254 = icmp eq i32 %305, 0
-  br i1 %.not254, label %306, label %.sink.split
-
-306:                                              ; preds = %302, %301
+  %spec.select = select i1 %.not254, ptr @.str.54, ptr @.str.55
   br label %.sink.split
 
-.sink.split:                                      ; preds = %302, %306
-  %.str.55.sink = phi ptr [ @.str.54, %306 ], [ @.str.55, %302 ]
+.sink.split:                                      ; preds = %302, %301
+  %.str.55.sink = phi ptr [ @.str.54, %301 ], [ %spec.select, %302 ]
   %.sink328 = load i32, ptr %6, align 4
-  %307 = add i32 %.0218.lcssa, -33
-  %308 = add i32 %307, %.sink328
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0.ph.lcssa, ptr noundef nonnull %.str.55.sink, i32 noundef %308) #4
-  br label %309
+  %306 = add i32 %.0218.lcssa, -33
+  %307 = add i32 %306, %.sink328
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0.ph.lcssa, ptr noundef nonnull %.str.55.sink, i32 noundef %307) #4
+  br label %308
 
-309:                                              ; preds = %.sink.split, %297, %293, %291
+308:                                              ; preds = %.sink.split, %297, %293, %291
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0.ph.lcssa, ptr noundef nonnull @.str.56) #4
   %.not.i274 = icmp eq ptr %.0.ph.lcssa, null
-  br i1 %.not.i274, label %.sink.split329, label %310
+  br i1 %.not.i274, label %.sink.split329, label %309
 
-310:                                              ; preds = %309
-  %311 = getelementptr inbounds i8, ptr %.0.ph.lcssa, i64 32
-  %312 = load ptr, ptr %311, align 8
-  %.not5.i275 = icmp eq ptr %312, null
-  br i1 %.not5.i275, label %.sink.split329, label %313
+309:                                              ; preds = %308
+  %310 = getelementptr inbounds i8, ptr %.0.ph.lcssa, i64 32
+  %311 = load ptr, ptr %310, align 8
+  %.not5.i275 = icmp eq ptr %311, null
+  br i1 %.not5.i275, label %.sink.split329, label %312
 
-313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %312, i64 28
-  %315 = load i32, ptr %314, align 4
-  %316 = or i32 %315, 2
-  store i32 %316, ptr %314, align 4
+312:                                              ; preds = %309
+  %313 = getelementptr inbounds i8, ptr %311, i64 28
+  %314 = load i32, ptr %313, align 4
+  %315 = or i32 %314, 2
+  store i32 %315, ptr %313, align 4
   br label %.sink.split329
 
-.sink.split329:                                   ; preds = %216, %.outer._crit_edge, %309, %310, %313, %218, %214
-  %317 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %318
+.sink.split329:                                   ; preds = %216, %.outer._crit_edge, %308, %309, %312, %218, %214
+  %316 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  br label %317
 
-318:                                              ; preds = %.sink.split329, %15, %25, %22, %20, %18, %4
-  %.0221 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 0, %20 ], [ 0, %22 ], [ 0, %25 ], [ 0, %15 ], [ %317, %.sink.split329 ]
+317:                                              ; preds = %.sink.split329, %15, %25, %22, %20, %18, %4
+  %.0221 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 0, %20 ], [ 0, %22 ], [ 0, %25 ], [ 0, %15 ], [ %316, %.sink.split329 ]
   ret i32 %.0221
 }
 

@@ -384,7 +384,7 @@ define dso_local void @ata_tf_to_fis(ptr nocapture noundef readonly %0, i8 nound
   store i8 %60, ptr %61, align 1
   %62 = load i32, ptr %50, align 8
   %63 = lshr i32 %62, 24
-  %64 = trunc i32 %63 to i8
+  %64 = trunc nuw i32 %63 to i8
   %65 = getelementptr i8, ptr %3, i64 19
   store i8 %64, ptr %65, align 1
   ret void
@@ -1798,7 +1798,7 @@ define dso_local noundef zeroext i1 @sata_lpm_ignore_phy_events(ptr nocapture no
   %4 = getelementptr inbounds i8, ptr %0, i64 772
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, 1
-  br i1 %6, label %17, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 752
@@ -1812,14 +1812,11 @@ define dso_local noundef zeroext i1 @sata_lpm_ignore_phy_events(ptr nocapture no
   %reass.sub = sub i64 %13, %3
   %14 = add i64 %reass.sub, -10000
   %15 = icmp slt i64 %14, 0
-  br i1 %15, label %17, label %16
+  br label %16
 
-16:                                               ; preds = %12, %7
-  br label %17
-
-17:                                               ; preds = %16, %12, %1
-  %18 = phi i1 [ false, %16 ], [ true, %1 ], [ true, %12 ]
-  ret i1 %18
+16:                                               ; preds = %12, %7, %1
+  %17 = phi i1 [ true, %1 ], [ false, %7 ], [ %15, %12 ]
+  ret i1 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3003,7 +3000,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #2 align 16 {
 
 179:                                              ; preds = %156
   %180 = lshr i32 %.ph, 16
-  %181 = trunc i32 %180 to i8
+  %181 = trunc nuw i32 %180 to i8
   %182 = lshr i32 %.ph, 8
   %183 = trunc i32 %182 to i8
   %184 = trunc i32 %.ph to i8

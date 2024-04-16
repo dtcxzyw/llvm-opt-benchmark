@@ -243,7 +243,7 @@ define internal i64 @mon_bin_read(ptr nocapture noundef readonly %0, ptr noundef
   %38 = phi i32 [ %.pre, %._crit_edge ], [ %24, %26 ]
   %39 = sub i64 %2, %29
   %40 = getelementptr i8, ptr %1, i64 %29
-  %41 = trunc i64 %29 to i32
+  %41 = trunc nuw nsw i64 %29 to i32
   %42 = add i32 %38, %41
   store i32 %42, ptr %23, align 4
   %43 = icmp ugt i32 %42, 47
@@ -459,7 +459,7 @@ define internal i64 @mon_bin_ioctl(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %34, label %292, label %35
 
 35:                                               ; preds = %32
-  %36 = trunc i64 %2 to i32
+  %36 = trunc nuw i64 %2 to i32
   %37 = add nuw nsw i32 %36, 4095
   %38 = and i32 %37, 4190208
   %39 = lshr i32 %37, 12
@@ -668,7 +668,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %157 = select i1 %156, i32 48, i32 64
   %158 = getelementptr inbounds i8, ptr %4, i64 8
   %159 = load ptr, ptr %158, align 8
-  %160 = trunc i64 %152 to i32
+  %160 = trunc nuw nsw i64 %152 to i32
   %161 = call fastcc i32 @mon_bin_get_event(ptr noundef %0, ptr noundef %7, ptr noundef %155, i32 noundef %157, ptr noundef %159, i32 noundef %160), !range !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   br label %.thread13
@@ -1632,7 +1632,7 @@ define internal noundef i32 @mon_bin_vma_fault(ptr nocapture noundef %0) #0 alig
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = icmp ult i64 %8, %11
-  br i1 %12, label %13, label %47
+  br i1 %12, label %13, label %46
 
 13:                                               ; preds = %1
   %14 = and i64 %7, 4503599627370495
@@ -1649,11 +1649,11 @@ define internal noundef i32 @mon_bin_vma_fault(ptr nocapture noundef %0) #0 alig
 23:                                               ; preds = %13
   %24 = add nsw i64 %20, -1
   %25 = inttoptr i64 %24 to ptr
-  br label %43
+  br label %42
 
 26:                                               ; preds = %13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %43 [label %27], !srcloc !32
+          to label %42 [label %27], !srcloc !32
 
 27:                                               ; preds = %26
   %28 = ptrtoint ptr %18 to i64
@@ -1674,23 +1674,21 @@ define internal noundef i32 @mon_bin_vma_fault(ptr nocapture noundef %0) #0 alig
   %39 = icmp eq i64 %38, 0
   %40 = add nsw i64 %37, -1
   %41 = inttoptr i64 %40 to ptr
-  br i1 %39, label %42, label %43
+  %spec.select = select i1 %39, ptr %18, ptr %41
+  br label %42
 
-42:                                               ; preds = %35, %31, %27
-  br label %43
+42:                                               ; preds = %35, %27, %31, %26, %23
+  %43 = phi ptr [ %25, %23 ], [ %18, %26 ], [ %18, %31 ], [ %18, %27 ], [ %spec.select, %35 ]
+  %44 = getelementptr inbounds i8, ptr %43, i64 52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44, ptr elementtype(i32) %44) #12, !srcloc !33
+  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %18, ptr %45, align 8
+  br label %46
 
-43:                                               ; preds = %42, %35, %26, %23
-  %44 = phi ptr [ %25, %23 ], [ %41, %35 ], [ %18, %42 ], [ %18, %26 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, ptr elementtype(i32) %45) #12, !srcloc !33
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %18, ptr %46, align 8
-  br label %47
-
-47:                                               ; preds = %43, %1
-  %48 = phi i32 [ 0, %43 ], [ 2, %1 ]
+46:                                               ; preds = %42, %1
+  %47 = phi i32 [ 0, %42 ], [ 2, %1 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %5) #12
-  ret i32 %48
+  ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid

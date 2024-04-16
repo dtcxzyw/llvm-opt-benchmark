@@ -1103,7 +1103,7 @@ entry:
   %conv.i = zext i8 %0 to i32
   %conv.i.off = add nsw i32 %conv.i, -7
   %switch = icmp ult i32 %conv.i.off, 4
-  br i1 %switch, label %land.lhs.true, label %if.end80
+  br i1 %switch, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %nsub_.i = getelementptr inbounds i8, ptr %r1, i64 6
@@ -1114,7 +1114,7 @@ land.lhs.true:                                    ; preds = %entry
   %retval.0.i = select i1 %cmp.i, ptr %2, ptr %3
   %4 = load ptr, ptr %retval.0.i, align 8
   %5 = load i8, ptr %4, align 8
-  switch i8 %5, label %if.end80 [
+  switch i8 %5, label %return [
     i8 3, label %if.then
     i8 20, label %if.then
     i8 12, label %if.then
@@ -1166,12 +1166,12 @@ if.end55:                                         ; preds = %if.end
   %20 = load ptr, ptr %retval.0.i58, align 8
   %21 = load i8, ptr %20, align 8
   %cmp59 = icmp eq i8 %21, 3
-  br i1 %cmp59, label %land.lhs.true60, label %if.end80
+  br i1 %cmp59, label %land.lhs.true60, label %return
 
 land.lhs.true60:                                  ; preds = %if.end55
   %22 = load i8, ptr %r2, align 8
   %cmp62 = icmp eq i8 %22, 4
-  br i1 %cmp62, label %land.lhs.true63, label %if.end80
+  br i1 %cmp62, label %land.lhs.true63, label %return
 
 land.lhs.true63:                                  ; preds = %land.lhs.true60
   %runes_.i = getelementptr inbounds i8, ptr %r2, i64 32
@@ -1180,7 +1180,7 @@ land.lhs.true63:                                  ; preds = %land.lhs.true60
   %25 = getelementptr inbounds i8, ptr %20, i64 24
   %26 = load i32, ptr %25, align 8
   %cmp69 = icmp eq i32 %24, %26
-  br i1 %cmp69, label %land.lhs.true70, label %if.end80
+  br i1 %cmp69, label %land.lhs.true70, label %return
 
 land.lhs.true70:                                  ; preds = %land.lhs.true63
   %parse_flags_.i67 = getelementptr inbounds i8, ptr %20, i64 2
@@ -1190,13 +1190,10 @@ land.lhs.true70:                                  ; preds = %land.lhs.true63
   %29 = xor i16 %28, %27
   %30 = and i16 %29, 1
   %cmp77 = icmp eq i16 %30, 0
-  br i1 %cmp77, label %return, label %if.end80
-
-if.end80:                                         ; preds = %entry, %land.lhs.true, %if.end55, %land.lhs.true60, %land.lhs.true63, %land.lhs.true70
   br label %return
 
-return:                                           ; preds = %land.lhs.true70, %if.end, %land.lhs.true44, %if.end80
-  %retval.0 = phi i1 [ false, %if.end80 ], [ true, %land.lhs.true44 ], [ true, %if.end ], [ true, %land.lhs.true70 ]
+return:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true70, %land.lhs.true63, %land.lhs.true60, %if.end55, %if.end, %land.lhs.true44
+  %retval.0 = phi i1 [ true, %land.lhs.true44 ], [ true, %if.end ], [ false, %if.end55 ], [ false, %land.lhs.true60 ], [ false, %land.lhs.true63 ], [ %cmp77, %land.lhs.true70 ], [ false, %entry ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -1433,7 +1430,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !15
 
 while.end.loopexit.split.loop.exit84:             ; preds = %land.rhs
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit84, %sw.bb60
@@ -2062,7 +2059,8 @@ sw.bb26.i.i.i.i:                                  ; preds = %if.end24.i.i.i.i, %
   %conv.i.i87 = zext i8 %17 to i32
   %conv.i.off.i88 = add nsw i32 %conv.i.i87, -14
   %switch.i89 = icmp ult i32 %conv.i.off.i88, 6
-  br i1 %switch.i89, label %if.then, label %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit
+  %spec.select.i.i.i.i = select i1 %switch.i89, ptr %add.ptr, ptr %__first.addr.2.i.i.i.i
+  br label %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit
 
 _ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i, i64 8
@@ -2077,11 +2075,11 @@ _ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit180: ;
   br label %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit
 
 _ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit178, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit180, %sw.bb.i.i.i.i, %sw.bb21.i.i.i.i, %sw.bb26.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb21.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit178 ], [ %incdec.ptr8.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit180 ], [ %__first.addr.055.i.i.i.i, %for.body.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb21.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit178 ], [ %incdec.ptr8.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit180 ], [ %__first.addr.055.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i47 = icmp eq ptr %retval.0.i.i.i.i, %add.ptr
   br i1 %cmp.i47, label %if.then, label %if.end
 
-if.then:                                          ; preds = %sw.bb26.i.i.i.i, %for.end.i.i.i.i, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit, %entry
+if.then:                                          ; preds = %for.end.i.i.i.i, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit, %entry
   %.sroa.speculated117 = tail call i32 @llvm.smin.i32(i32 %min, i32 1)
   %cmp.i49 = icmp sgt i32 %max, 1
   br i1 %cmp.i49, label %if.end39, label %if.end

@@ -152,21 +152,20 @@ define internal i64 @objspace_dump(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %16 = icmp ne i64 %15, 0
   %17 = icmp eq i64 %2, 0
   %18 = or i1 %17, %16
-  br i1 %18, label %rb_type.exit.thread.i, label %rb_type.exit.i
+  br i1 %18, label %dump_output.exit, label %rb_type.exit.i
 
 rb_type.exit.i:                                   ; preds = %12
   %19 = inttoptr i64 %2 to ptr
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 31
   %22 = icmp eq i64 %21, 5
-  br i1 %22, label %dump_output.exit, label %rb_type.exit.thread.i
-
-rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %12
+  %spec.select.i = select i1 %22, i64 0, i64 %2
+  %spec.select28.i = select i1 %22, i64 %2, i64 0
   br label %dump_output.exit
 
-dump_output.exit:                                 ; preds = %rb_type.exit.i, %rb_type.exit.thread.i
-  %.sink26.i = phi i64 [ %2, %rb_type.exit.thread.i ], [ 0, %rb_type.exit.i ]
-  %.sink.i = phi i64 [ 0, %rb_type.exit.thread.i ], [ %2, %rb_type.exit.i ]
+dump_output.exit:                                 ; preds = %12, %rb_type.exit.i
+  %.sink26.i = phi i64 [ %2, %12 ], [ %spec.select.i, %rb_type.exit.i ]
+  %.sink.i = phi i64 [ 0, %12 ], [ %spec.select28.i, %rb_type.exit.i ]
   %23 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.sink26.i, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 16
@@ -246,203 +245,202 @@ rb_type.exit.i:                                   ; preds = %5
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 31
   %16 = icmp eq i64 %15, 5
-  br i1 %16, label %17, label %rb_type.exit.thread.i
+  %spec.select.i = select i1 %16, i64 0, i64 %1
+  %spec.select28.i = select i1 %16, i64 %1, i64 0
+  br label %rb_type.exit.thread.i
 
 rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %5
-  br label %17
+  %.sink26.i = phi i64 [ %1, %5 ], [ %spec.select.i, %rb_type.exit.i ]
+  %.sink.i = phi i64 [ 0, %5 ], [ %spec.select28.i, %rb_type.exit.i ]
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %.sink26.i, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %.sink.i, ptr %18, align 8
+  %19 = icmp eq i64 %2, 20
+  br i1 %19, label %20, label %21
 
-17:                                               ; preds = %rb_type.exit.thread.i, %rb_type.exit.i
-  %.sink26.i = phi i64 [ %1, %rb_type.exit.thread.i ], [ 0, %rb_type.exit.i ]
-  %.sink.i = phi i64 [ 0, %rb_type.exit.thread.i ], [ %1, %rb_type.exit.i ]
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sink26.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 %.sink.i, ptr %19, align 8
-  %20 = icmp eq i64 %2, 20
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %17
+20:                                               ; preds = %rb_type.exit.thread.i
   store i8 2, ptr %7, align 8
-  br label %22
+  br label %21
 
-22:                                               ; preds = %21, %17
-  %23 = and i64 %3, -5
-  %.not.i = icmp eq i64 %23, 0
-  %24 = getelementptr inbounds i8, ptr %6, i64 68
-  br i1 %.not.i, label %33, label %25
+21:                                               ; preds = %20, %rb_type.exit.thread.i
+  %22 = and i64 %3, -5
+  %.not.i = icmp eq i64 %22, 0
+  %23 = getelementptr inbounds i8, ptr %6, i64 68
+  br i1 %.not.i, label %32, label %24
 
-25:                                               ; preds = %22
-  store i32 1, ptr %24, align 4
-  %26 = and i64 %3, 1
-  %.not.i18.i = icmp eq i64 %26, 0
-  br i1 %.not.i18.i, label %29, label %27
+24:                                               ; preds = %21
+  store i32 1, ptr %23, align 4
+  %25 = and i64 %3, 1
+  %.not.i18.i = icmp eq i64 %25, 0
+  br i1 %.not.i18.i, label %28, label %26
 
-27:                                               ; preds = %25
-  %28 = ashr i64 %3, 1
+26:                                               ; preds = %24
+  %27 = ashr i64 %3, 1
   br label %rb_num2ull_inline.exit.i
 
-29:                                               ; preds = %25
-  %30 = tail call i64 @rb_num2ull(i64 noundef %3) #10
+28:                                               ; preds = %24
+  %29 = tail call i64 @rb_num2ull(i64 noundef %3) #10
   br label %rb_num2ull_inline.exit.i
 
-rb_num2ull_inline.exit.i:                         ; preds = %29, %27
-  %.0.i19.i = phi i64 [ %28, %27 ], [ %30, %29 ]
-  %31 = getelementptr inbounds i8, ptr %6, i64 72
-  store i64 %.0.i19.i, ptr %31, align 8
-  %32 = icmp eq i64 %.0.i19.i, 0
-  br label %34
+rb_num2ull_inline.exit.i:                         ; preds = %28, %26
+  %.0.i19.i = phi i64 [ %27, %26 ], [ %29, %28 ]
+  %30 = getelementptr inbounds i8, ptr %6, i64 72
+  store i64 %.0.i19.i, ptr %30, align 8
+  %31 = icmp eq i64 %.0.i19.i, 0
+  br label %33
 
-33:                                               ; preds = %22
-  store i32 0, ptr %24, align 4
-  br label %34
+32:                                               ; preds = %21
+  store i32 0, ptr %23, align 4
+  br label %33
 
-34:                                               ; preds = %33, %rb_num2ull_inline.exit.i
-  %or.cond = phi i1 [ true, %33 ], [ %32, %rb_num2ull_inline.exit.i ]
-  %35 = and i64 %4, -5
-  %.not24.i = icmp eq i64 %35, 0
-  br i1 %.not24.i, label %dump_output.exit, label %36
+33:                                               ; preds = %32, %rb_num2ull_inline.exit.i
+  %or.cond = phi i1 [ true, %32 ], [ %31, %rb_num2ull_inline.exit.i ]
+  %34 = and i64 %4, -5
+  %.not24.i = icmp eq i64 %34, 0
+  br i1 %.not24.i, label %dump_output.exit, label %35
 
-36:                                               ; preds = %34
-  %37 = and i64 %4, 1
-  %.not.i20.i = icmp eq i64 %37, 0
-  br i1 %.not.i20.i, label %40, label %38
+35:                                               ; preds = %33
+  %36 = and i64 %4, 1
+  %.not.i20.i = icmp eq i64 %36, 0
+  br i1 %.not.i20.i, label %39, label %37
 
-38:                                               ; preds = %36
-  %39 = ashr i64 %4, 1
+37:                                               ; preds = %35
+  %38 = ashr i64 %4, 1
   br label %dump_output.exit
 
-40:                                               ; preds = %36
-  %41 = tail call i64 @rb_num2ull(i64 noundef %4) #10
+39:                                               ; preds = %35
+  %40 = tail call i64 @rb_num2ull(i64 noundef %4) #10
   br label %dump_output.exit
 
-dump_output.exit:                                 ; preds = %34, %38, %40
-  %42 = phi i64 [ 0, %34 ], [ %39, %38 ], [ %41, %40 ]
-  %43 = getelementptr inbounds i8, ptr %6, i64 80
-  store i64 %42, ptr %43, align 8
-  br i1 %or.cond, label %44, label %74
+dump_output.exit:                                 ; preds = %33, %37, %39
+  %41 = phi i64 [ 0, %33 ], [ %38, %37 ], [ %40, %39 ]
+  %42 = getelementptr inbounds i8, ptr %6, i64 80
+  store i64 %41, ptr %42, align 8
+  br i1 %or.cond, label %43, label %73
 
-44:                                               ; preds = %dump_output.exit
+43:                                               ; preds = %dump_output.exit
   call void @rb_objspace_reachable_objects_from_root(ptr noundef nonnull @root_obj_i, ptr noundef nonnull %6) #10
-  %45 = load i8, ptr %7, align 8
-  %46 = and i8 %45, 1
-  %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %74, label %47
+  %44 = load i8, ptr %7, align 8
+  %45 = and i8 %44, 1
+  %.not = icmp eq i8 %45, 0
+  br i1 %.not, label %73, label %46
 
-47:                                               ; preds = %44
-  %48 = load i64, ptr %8, align 8
-  %49 = add i64 %48, -4093
-  %50 = icmp ult i64 %49, -4096
-  br i1 %50, label %51, label %buffer_append.exit
+46:                                               ; preds = %43
+  %47 = load i64, ptr %8, align 8
+  %48 = add i64 %47, -4093
+  %49 = icmp ult i64 %48, -4096
+  br i1 %49, label %50, label %buffer_append.exit
 
-51:                                               ; preds = %47
-  %52 = load i64, ptr %18, align 8
-  %.not22.i.i.i = icmp eq i64 %52, 0
-  br i1 %.not22.i.i.i, label %58, label %53
+50:                                               ; preds = %46
+  %51 = load i64, ptr %17, align 8
+  %.not22.i.i.i = icmp eq i64 %51, 0
+  br i1 %.not22.i.i.i, label %57, label %52
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %6, i64 96
-  %55 = call i64 @rb_io_bufwrite(i64 noundef %52, ptr noundef nonnull %54, i64 noundef %48) #10
-  %56 = load i64, ptr %8, align 8
-  %57 = icmp ult i64 %55, %56
-  br i1 %57, label %dump_flush.exit.i.i, label %dump_flush.exit.i.i.thread
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds i8, ptr %6, i64 96
+  %54 = call i64 @rb_io_bufwrite(i64 noundef %51, ptr noundef nonnull %53, i64 noundef %47) #10
+  %55 = load i64, ptr %8, align 8
+  %56 = icmp ult i64 %54, %55
+  br i1 %56, label %dump_flush.exit.i.i, label %dump_flush.exit.i.i.thread
 
-58:                                               ; preds = %51
-  %59 = load i64, ptr %19, align 8
-  %.not23.i.i.i = icmp eq i64 %59, 0
-  br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %60
+57:                                               ; preds = %50
+  %58 = load i64, ptr %18, align 8
+  %.not23.i.i.i = icmp eq i64 %58, 0
+  br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %59
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %6, i64 96
-  %62 = call i64 @rb_str_cat(i64 noundef %59, ptr noundef nonnull %61, i64 noundef %48) #10
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds i8, ptr %6, i64 96
+  %61 = call i64 @rb_str_cat(i64 noundef %58, ptr noundef nonnull %60, i64 noundef %47) #10
   br label %dump_flush.exit.i.i.thread
 
-dump_flush.exit.i.i.thread:                       ; preds = %58, %60, %53
+dump_flush.exit.i.i.thread:                       ; preds = %57, %59, %52
   store i64 0, ptr %8, align 8
   br label %buffer_append.exit
 
-dump_flush.exit.i.i:                              ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %54, i64 %55
-  %64 = sub i64 %56, %55
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 1 %63, i64 %64, i1 false)
-  store i64 %64, ptr %8, align 8
-  %65 = add i64 %64, -4093
-  %66 = icmp ult i64 %65, -4096
-  br i1 %66, label %67, label %buffer_append.exit
+dump_flush.exit.i.i:                              ; preds = %52
+  %62 = getelementptr inbounds i8, ptr %53, i64 %54
+  %63 = sub i64 %55, %54
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 1 %62, i64 %63, i1 false)
+  store i64 %63, ptr %8, align 8
+  %64 = add i64 %63, -4093
+  %65 = icmp ult i64 %64, -4096
+  br i1 %65, label %66, label %buffer_append.exit
 
-67:                                               ; preds = %dump_flush.exit.i.i
-  %68 = load i64, ptr @rb_eIOError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %68, ptr noundef nonnull @.str.53) #11
+66:                                               ; preds = %dump_flush.exit.i.i
+  %67 = load i64, ptr @rb_eIOError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %67, ptr noundef nonnull @.str.53) #11
   unreachable
 
-buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %47, %dump_flush.exit.i.i
-  %69 = phi i64 [ %48, %47 ], [ %64, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %70 = getelementptr inbounds i8, ptr %6, i64 96
-  %71 = getelementptr inbounds i8, ptr %70, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %71, ptr noundef nonnull align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
-  %72 = load i64, ptr %8, align 8
-  %73 = add i64 %72, 3
-  store i64 %73, ptr %8, align 8
-  br label %74
+buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %46, %dump_flush.exit.i.i
+  %68 = phi i64 [ %47, %46 ], [ %63, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
+  %69 = getelementptr inbounds i8, ptr %6, i64 96
+  %70 = getelementptr inbounds i8, ptr %69, i64 %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %70, ptr noundef nonnull align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
+  %71 = load i64, ptr %8, align 8
+  %72 = add i64 %71, 3
+  store i64 %72, ptr %8, align 8
+  br label %73
 
-74:                                               ; preds = %44, %buffer_append.exit, %dump_output.exit
-  br i1 %.not24.i, label %76, label %75
+73:                                               ; preds = %43, %buffer_append.exit, %dump_output.exit
+  br i1 %.not24.i, label %75, label %74
 
-75:                                               ; preds = %74
+74:                                               ; preds = %73
   call void @rb_shape_each_shape(ptr noundef nonnull @shape_i, ptr noundef nonnull %6) #10
-  br label %76
+  br label %75
 
-76:                                               ; preds = %75, %74
+75:                                               ; preds = %74, %73
   call void @rb_objspace_each_objects(ptr noundef nonnull @heap_i, ptr noundef nonnull %6) #10
-  %77 = load i64, ptr %8, align 8
-  %.not.i.i = icmp eq i64 %77, 0
-  br i1 %.not.i.i, label %dump_flush.exit.i, label %78
+  %76 = load i64, ptr %8, align 8
+  %.not.i.i = icmp eq i64 %76, 0
+  br i1 %.not.i.i, label %dump_flush.exit.i, label %77
 
-78:                                               ; preds = %76
-  %79 = load i64, ptr %18, align 8
-  %.not22.i.i = icmp eq i64 %79, 0
-  br i1 %.not22.i.i, label %88, label %80
+77:                                               ; preds = %75
+  %78 = load i64, ptr %17, align 8
+  %.not22.i.i = icmp eq i64 %78, 0
+  br i1 %.not22.i.i, label %87, label %79
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %6, i64 96
-  %82 = call i64 @rb_io_bufwrite(i64 noundef %79, ptr noundef nonnull %81, i64 noundef %77) #10
-  %83 = load i64, ptr %8, align 8
-  %84 = icmp ult i64 %82, %83
-  br i1 %84, label %85, label %.sink.split.i.i
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds i8, ptr %6, i64 96
+  %81 = call i64 @rb_io_bufwrite(i64 noundef %78, ptr noundef nonnull %80, i64 noundef %76) #10
+  %82 = load i64, ptr %8, align 8
+  %83 = icmp ult i64 %81, %82
+  br i1 %83, label %84, label %.sink.split.i.i
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %81, i64 %82
-  %87 = sub i64 %83, %82
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %81, ptr nonnull align 1 %86, i64 %87, i1 false)
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds i8, ptr %80, i64 %81
+  %86 = sub i64 %82, %81
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %80, ptr nonnull align 1 %85, i64 %86, i1 false)
   br label %.sink.split.i.i
 
-88:                                               ; preds = %78
-  %89 = load i64, ptr %19, align 8
-  %.not23.i.i = icmp eq i64 %89, 0
-  br i1 %.not23.i.i, label %.sink.split.i.i, label %90
+87:                                               ; preds = %77
+  %88 = load i64, ptr %18, align 8
+  %.not23.i.i = icmp eq i64 %88, 0
+  br i1 %.not23.i.i, label %.sink.split.i.i, label %89
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %6, i64 96
-  %92 = call i64 @rb_str_cat(i64 noundef %89, ptr noundef nonnull %91, i64 noundef %77) #10
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds i8, ptr %6, i64 96
+  %91 = call i64 @rb_str_cat(i64 noundef %88, ptr noundef nonnull %90, i64 noundef %76) #10
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %90, %88, %85, %80
-  %.sink.i.i = phi i64 [ %87, %85 ], [ 0, %88 ], [ 0, %90 ], [ 0, %80 ]
+.sink.split.i.i:                                  ; preds = %89, %87, %84, %79
+  %.sink.i.i = phi i64 [ %86, %84 ], [ 0, %87 ], [ 0, %89 ], [ 0, %79 ]
   store i64 %.sink.i.i, ptr %8, align 8
   br label %dump_flush.exit.i
 
-dump_flush.exit.i:                                ; preds = %.sink.split.i.i, %76
-  %93 = load i64, ptr %19, align 8
-  %.not.i7 = icmp eq i64 %93, 0
-  br i1 %.not.i7, label %94, label %dump_result.exit
+dump_flush.exit.i:                                ; preds = %.sink.split.i.i, %75
+  %92 = load i64, ptr %18, align 8
+  %.not.i7 = icmp eq i64 %92, 0
+  br i1 %.not.i7, label %93, label %dump_result.exit
 
-94:                                               ; preds = %dump_flush.exit.i
-  %95 = load i64, ptr %18, align 8
-  %96 = call i64 @rb_io_flush(i64 noundef %95) #10
-  %97 = load i64, ptr %18, align 8
+93:                                               ; preds = %dump_flush.exit.i
+  %94 = load i64, ptr %17, align 8
+  %95 = call i64 @rb_io_flush(i64 noundef %94) #10
+  %96 = load i64, ptr %17, align 8
   br label %dump_result.exit
 
-dump_result.exit:                                 ; preds = %dump_flush.exit.i, %94
-  %.0.i = phi i64 [ %97, %94 ], [ %93, %dump_flush.exit.i ]
+dump_result.exit:                                 ; preds = %dump_flush.exit.i, %93
+  %.0.i = phi i64 [ %96, %93 ], [ %92, %dump_flush.exit.i ]
   ret i64 %.0.i
 }
 
@@ -462,90 +460,89 @@ rb_type.exit.i:                                   ; preds = %3
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 31
   %13 = icmp eq i64 %12, 5
-  br i1 %13, label %14, label %rb_type.exit.thread.i
+  %spec.select.i = select i1 %13, i64 0, i64 %1
+  %spec.select28.i = select i1 %13, i64 %1, i64 0
+  br label %rb_type.exit.thread.i
 
 rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %3
-  br label %14
+  %.sink26.i = phi i64 [ %1, %3 ], [ %spec.select.i, %rb_type.exit.i ]
+  %.sink.i = phi i64 [ 0, %3 ], [ %spec.select28.i, %rb_type.exit.i ]
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %.sink26.i, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %.sink.i, ptr %15, align 8
+  %16 = and i64 %2, -5
+  %.not24.i = icmp eq i64 %16, 0
+  br i1 %.not24.i, label %dump_flush.exit.i, label %17
 
-14:                                               ; preds = %rb_type.exit.thread.i, %rb_type.exit.i
-  %.sink26.i = phi i64 [ %1, %rb_type.exit.thread.i ], [ 0, %rb_type.exit.i ]
-  %.sink.i = phi i64 [ 0, %rb_type.exit.thread.i ], [ %1, %rb_type.exit.i ]
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %.sink26.i, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %.sink.i, ptr %16, align 8
-  %17 = and i64 %2, -5
-  %.not24.i = icmp eq i64 %17, 0
-  br i1 %.not24.i, label %dump_flush.exit.i, label %18
+17:                                               ; preds = %rb_type.exit.thread.i
+  %18 = and i64 %2, 1
+  %.not.i20.i = icmp eq i64 %18, 0
+  br i1 %.not.i20.i, label %21, label %19
 
-18:                                               ; preds = %14
-  %19 = and i64 %2, 1
-  %.not.i20.i = icmp eq i64 %19, 0
-  br i1 %.not.i20.i, label %22, label %20
+19:                                               ; preds = %17
+  %20 = ashr i64 %2, 1
+  br label %23
 
-20:                                               ; preds = %18
-  %21 = ashr i64 %2, 1
-  br label %24
+21:                                               ; preds = %17
+  %22 = tail call i64 @rb_num2ull(i64 noundef %2) #10
+  br label %23
 
-22:                                               ; preds = %18
-  %23 = tail call i64 @rb_num2ull(i64 noundef %2) #10
-  br label %24
-
-24:                                               ; preds = %22, %20
-  %.ph = phi i64 [ %23, %22 ], [ %21, %20 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 80
-  store i64 %.ph, ptr %25, align 8
+23:                                               ; preds = %21, %19
+  %.ph = phi i64 [ %22, %21 ], [ %20, %19 ]
+  %24 = getelementptr inbounds i8, ptr %4, i64 80
+  store i64 %.ph, ptr %24, align 8
   call void @rb_shape_each_shape(ptr noundef nonnull @shape_i, ptr noundef nonnull %4) #10
   %.pre = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i, label %dump_flush.exit.i, label %26
+  br i1 %.not.i.i, label %dump_flush.exit.i, label %25
 
-26:                                               ; preds = %24
-  %27 = load i64, ptr %15, align 8
-  %.not22.i.i = icmp eq i64 %27, 0
-  br i1 %.not22.i.i, label %36, label %28
+25:                                               ; preds = %23
+  %26 = load i64, ptr %14, align 8
+  %.not22.i.i = icmp eq i64 %26, 0
+  br i1 %.not22.i.i, label %35, label %27
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %4, i64 96
-  %30 = call i64 @rb_io_bufwrite(i64 noundef %27, ptr noundef nonnull %29, i64 noundef %.pre) #10
-  %31 = load i64, ptr %5, align 8
-  %32 = icmp ult i64 %30, %31
-  br i1 %32, label %33, label %.sink.split.i.i
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds i8, ptr %4, i64 96
+  %29 = call i64 @rb_io_bufwrite(i64 noundef %26, ptr noundef nonnull %28, i64 noundef %.pre) #10
+  %30 = load i64, ptr %5, align 8
+  %31 = icmp ult i64 %29, %30
+  br i1 %31, label %32, label %.sink.split.i.i
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %29, i64 %30
-  %35 = sub i64 %31, %30
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 1 %34, i64 %35, i1 false)
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %28, i64 %29
+  %34 = sub i64 %30, %29
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %33, i64 %34, i1 false)
   br label %.sink.split.i.i
 
-36:                                               ; preds = %26
-  %37 = load i64, ptr %16, align 8
-  %.not23.i.i = icmp eq i64 %37, 0
-  br i1 %.not23.i.i, label %.sink.split.i.i, label %38
+35:                                               ; preds = %25
+  %36 = load i64, ptr %15, align 8
+  %.not23.i.i = icmp eq i64 %36, 0
+  br i1 %.not23.i.i, label %.sink.split.i.i, label %37
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %4, i64 96
-  %40 = call i64 @rb_str_cat(i64 noundef %37, ptr noundef nonnull %39, i64 noundef %.pre) #10
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %4, i64 96
+  %39 = call i64 @rb_str_cat(i64 noundef %36, ptr noundef nonnull %38, i64 noundef %.pre) #10
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %38, %36, %33, %28
-  %.sink.i.i = phi i64 [ %35, %33 ], [ 0, %36 ], [ 0, %38 ], [ 0, %28 ]
+.sink.split.i.i:                                  ; preds = %37, %35, %32, %27
+  %.sink.i.i = phi i64 [ %34, %32 ], [ 0, %35 ], [ 0, %37 ], [ 0, %27 ]
   store i64 %.sink.i.i, ptr %5, align 8
   br label %dump_flush.exit.i
 
-dump_flush.exit.i:                                ; preds = %14, %.sink.split.i.i, %24
-  %41 = load i64, ptr %16, align 8
-  %.not.i = icmp eq i64 %41, 0
-  br i1 %.not.i, label %42, label %dump_result.exit
+dump_flush.exit.i:                                ; preds = %rb_type.exit.thread.i, %.sink.split.i.i, %23
+  %40 = load i64, ptr %15, align 8
+  %.not.i = icmp eq i64 %40, 0
+  br i1 %.not.i, label %41, label %dump_result.exit
 
-42:                                               ; preds = %dump_flush.exit.i
-  %43 = load i64, ptr %15, align 8
-  %44 = call i64 @rb_io_flush(i64 noundef %43) #10
-  %45 = load i64, ptr %15, align 8
+41:                                               ; preds = %dump_flush.exit.i
+  %42 = load i64, ptr %14, align 8
+  %43 = call i64 @rb_io_flush(i64 noundef %42) #10
+  %44 = load i64, ptr %14, align 8
   br label %dump_result.exit
 
-dump_result.exit:                                 ; preds = %dump_flush.exit.i, %42
-  %.0.i = phi i64 [ %45, %42 ], [ %41, %dump_flush.exit.i ]
+dump_result.exit:                                 ; preds = %dump_flush.exit.i, %41
+  %.0.i = phi i64 [ %44, %41 ], [ %40, %dump_flush.exit.i ]
   ret i64 %.0.i
 }
 
@@ -3446,7 +3443,7 @@ dump_string_ascii_only.exit:                      ; preds = %.lr.ph.i, %.lr.ph
   %97 = freeze i1 %96
   br i1 %97, label %.thread, label %rb_enc_asciicompat.exit.thread
 
-.thread:                                          ; preds = %82, %RSTRING_PTR.exit, %dump_string_ascii_only.exit
+.thread:                                          ; preds = %82, %dump_string_ascii_only.exit, %RSTRING_PTR.exit
   %98 = load i64, ptr %3, align 8
   %99 = add i64 %98, -4086
   %100 = icmp ult i64 %99, -4096
@@ -3802,7 +3799,7 @@ define internal fastcc i32 @ROBJECT_IV_COUNT(i64 noundef %0) unnamed_addr #0 {
 9:                                                ; preds = %1
   %10 = load i64, ptr %3, align 8
   %11 = lshr i64 %10, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = tail call ptr @rb_shape_get_shape_by_id(i32 noundef %12) #10
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8

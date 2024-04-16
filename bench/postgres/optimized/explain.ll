@@ -1502,7 +1502,7 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @ExecutorStart(ptr noundef %44, i32 noundef %.1) #11
   %53 = load i8, ptr %17, align 1
   %54 = trunc i8 %53 to i1
-  br i1 %54, label %63, label %74
+  br i1 %54, label %64, label %74
 
 .thread:                                          ; preds = %42
   %55 = call i32 @GetIntoRelEFlags(ptr noundef nonnull %1) #11
@@ -1515,14 +1515,13 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
 59:                                               ; preds = %.thread
   %60 = getelementptr inbounds i8, ptr %1, i64 64
   %61 = load i8, ptr %60, align 8
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %64, label %63
-
-63:                                               ; preds = %52, %59
+  %62 = and i8 %61, 1
+  %63 = xor i8 %62, 1
+  %spec.select89 = zext nneg i8 %63 to i32
   br label %64
 
-64:                                               ; preds = %59, %63
-  %.076 = phi i32 [ 1, %63 ], [ 0, %59 ]
+64:                                               ; preds = %52, %59
+  %.076 = phi i32 [ %spec.select89, %59 ], [ 1, %52 ]
   call void @ExecutorRun(ptr noundef %44, i32 noundef %.076, i64 noundef 0, i1 noundef zeroext true) #11
   call void @ExecutorFinish(ptr noundef %44) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
@@ -1840,8 +1839,8 @@ show_memory_counters.exit:                        ; preds = %206, %ExplainIndent
   %244 = getelementptr inbounds i8, ptr %243, i64 264
   %245 = load i32, ptr %244, align 8
   %246 = and i32 %245, 1
-  %.not.i89 = icmp eq i32 %246, 0
-  br i1 %.not.i89, label %ExplainPrintJITSummary.exit, label %247
+  %.not.i90 = icmp eq i32 %246, 0
+  br i1 %.not.i90, label %ExplainPrintJITSummary.exit, label %247
 
 247:                                              ; preds = %241
   %248 = getelementptr inbounds i8, ptr %243, i64 272
@@ -1852,11 +1851,11 @@ show_memory_counters.exit:                        ; preds = %206, %ExplainIndent
 250:                                              ; preds = %247
   %251 = getelementptr inbounds i8, ptr %249, i64 16
   call void @InstrJitAgg(ptr noundef nonnull %12, ptr noundef nonnull %251) #11
-  %.pre.i90 = load ptr, ptr %242, align 8
+  %.pre.i91 = load ptr, ptr %242, align 8
   br label %252
 
 252:                                              ; preds = %250, %247
-  %253 = phi ptr [ %.pre.i90, %250 ], [ %243, %247 ]
+  %253 = phi ptr [ %.pre.i91, %250 ], [ %243, %247 ]
   %254 = getelementptr inbounds i8, ptr %253, i64 280
   %255 = load ptr, ptr %254, align 8
   %.not9.i = icmp eq ptr %255, null
@@ -1903,10 +1902,10 @@ ExplainPrintJITSummary.exit:                      ; preds = %241, %257
   %272 = getelementptr inbounds i8, ptr %10, i64 8
   %273 = load i64, ptr %272, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %reass.add101 = sub i64 %271, %263
-  %reass.mul102 = mul i64 %reass.add101, 1000000000
+  %reass.add102 = sub i64 %271, %263
+  %reass.mul103 = mul i64 %reass.add102, 1000000000
   %274 = sub i64 %273, %265
-  %275 = add i64 %274, %reass.mul102
+  %275 = add i64 %274, %reass.mul103
   %276 = sitofp i64 %275 to double
   %277 = fdiv double %276, 1.000000e+09
   %278 = fadd double %.075, %277
@@ -4056,7 +4055,7 @@ switch.lookup1209:                                ; preds = %290
   %420 = getelementptr inbounds i8, ptr %407, i64 208
   %421 = load double, ptr %420, align 8
   %422 = fdiv double %421, %409
-  %423 = trunc i64 %indvars.iv to i32
+  %423 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @ExplainOpenWorker(i32 noundef %423, ptr noundef %4)
   %424 = load i32, ptr %147, align 4
   %425 = icmp eq i32 %424, 0
@@ -5975,7 +5974,7 @@ ExplainIndentText.exit75.i:                       ; preds = %1333, %1330, %1323
   br i1 %.not73.i, label %1368, label %1366
 
 1366:                                             ; preds = %1358
-  %1367 = trunc i64 %indvars.iv.i855 to i32
+  %1367 = trunc nuw nsw i64 %indvars.iv.i855 to i32
   call fastcc void @ExplainOpenWorker(i32 noundef %1367, ptr noundef nonnull %4)
   br label %1368
 
@@ -6045,7 +6044,7 @@ ExplainIndentText.exit76.i:                       ; preds = %1383, %1376
   br i1 %.not74.i, label %1401, label %1399
 
 1399:                                             ; preds = %1397
-  %1400 = trunc i64 %indvars.iv.i855 to i32
+  %1400 = trunc nuw nsw i64 %indvars.iv.i855 to i32
   call fastcc void @ExplainCloseWorker(i32 noundef %1400, ptr noundef nonnull %4)
   br label %1401
 
@@ -6303,7 +6302,7 @@ ExplainIndentText.exit.i882:                      ; preds = %1515, %1508
   br i1 %.not47.i, label %1541, label %1539
 
 1539:                                             ; preds = %1531
-  %1540 = trunc i64 %indvars.iv.i879 to i32
+  %1540 = trunc nuw nsw i64 %indvars.iv.i879 to i32
   call fastcc void @ExplainOpenWorker(i32 noundef %1540, ptr noundef nonnull %4)
   br label %1541
 
@@ -6355,7 +6354,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1556, %1549
   br i1 %.not48.i, label %1566, label %1564
 
 1564:                                             ; preds = %1562
-  %1565 = trunc i64 %indvars.iv.i879 to i32
+  %1565 = trunc nuw nsw i64 %indvars.iv.i879 to i32
   call fastcc void @ExplainCloseWorker(i32 noundef %1565, ptr noundef nonnull %4)
   br label %1566
 
@@ -6453,7 +6452,7 @@ show_sort_info.exit:                              ; preds = %1566, %1473, %1521,
   br i1 %.not39.i, label %.thread.i888, label %1617
 
 1617:                                             ; preds = %1615
-  %1618 = trunc i64 %indvars.iv.i887 to i32
+  %1618 = trunc nuw nsw i64 %indvars.iv.i887 to i32
   call fastcc void @ExplainOpenWorker(i32 noundef %1618, ptr noundef nonnull %4)
   %.pr.i = load ptr, ptr %39, align 8
   %1619 = icmp eq ptr %.pr.i, null
@@ -6502,7 +6501,7 @@ show_sort_info.exit:                              ; preds = %1566, %1473, %1521,
   br i1 %.not40.i, label %1642, label %1640
 
 1640:                                             ; preds = %1638
-  %1641 = trunc i64 %indvars.iv.i887 to i32
+  %1641 = trunc nuw nsw i64 %indvars.iv.i887 to i32
   call fastcc void @ExplainCloseWorker(i32 noundef %1641, ptr noundef nonnull %4)
   br label %1642
 
@@ -6734,7 +6733,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1736, %1729
   %.val.us.i = load ptr, ptr %1760, align 8
   %1761 = getelementptr %union.ListCell, ptr %.val.us.i, i64 %indvars.iv156.i
   %1762 = load ptr, ptr %1761, align 8
-  %1763 = trunc i64 %indvars.iv156.i to i32
+  %1763 = trunc nuw nsw i64 %indvars.iv156.i to i32
   call void %1757(ptr noundef nonnull %0, ptr noundef %1719, ptr noundef %1762, i32 noundef %1763, ptr noundef nonnull %4) #11
   br label %1764
 
@@ -6783,7 +6782,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1736, %1729
   %.val.i909 = load ptr, ptr %1788, align 8
   %1789 = getelementptr %union.ListCell, ptr %.val.i909, i64 %indvars.iv.i907
   %1790 = load ptr, ptr %1789, align 8
-  %1791 = trunc i64 %indvars.iv.i907 to i32
+  %1791 = trunc nuw nsw i64 %indvars.iv.i907 to i32
   call void %1785(ptr noundef nonnull %0, ptr noundef %1776, ptr noundef %1790, i32 noundef %1791, ptr noundef %4) #11
   %.pre162.i = load i32, ptr %1702, align 8
   br label %1792
@@ -7444,7 +7443,7 @@ ExplainIndentText.exit92.i:                       ; preds = %2106, %2099
   br i1 %.not89.i, label %2132, label %2130
 
 2130:                                             ; preds = %2128
-  %2131 = trunc i64 %indvars.iv105.i to i32
+  %2131 = trunc nuw nsw i64 %indvars.iv105.i to i32
   call fastcc void @ExplainOpenWorker(i32 noundef %2131, ptr noundef nonnull %4)
   br label %2132
 
@@ -7526,7 +7525,7 @@ ExplainIndentText.exit93.i:                       ; preds = %2151, %2144
   br i1 %.not90.i, label %2177, label %2175
 
 2175:                                             ; preds = %2173
-  %2176 = trunc i64 %indvars.iv105.i to i32
+  %2176 = trunc nuw nsw i64 %indvars.iv105.i to i32
   call fastcc void @ExplainCloseWorker(i32 noundef %2176, ptr noundef nonnull %4)
   br label %2177
 
@@ -7575,7 +7574,7 @@ show_scan_qual.exit766:                           ; preds = %1642, %1685, %1464,
 
 2196:                                             ; preds = %.lr.ph1024, %2196
   %indvars.iv1069 = phi i64 [ 0, %.lr.ph1024 ], [ %indvars.iv.next1070, %2196 ]
-  %2197 = trunc i64 %indvars.iv1069 to i32
+  %2197 = trunc nuw nsw i64 %indvars.iv1069 to i32
   call fastcc void @ExplainOpenWorker(i32 noundef %2197, ptr noundef %4)
   %2198 = load ptr, ptr %2194, align 8
   %2199 = getelementptr inbounds i8, ptr %2198, i64 264
@@ -7661,7 +7660,7 @@ show_scan_qual.exit766:                           ; preds = %1642, %1685, %1464,
   br i1 %2241, label %2242, label %2254
 
 2242:                                             ; preds = %2236
-  %2243 = trunc i64 %indvars.iv1072 to i32
+  %2243 = trunc nuw nsw i64 %indvars.iv1072 to i32
   call fastcc void @ExplainOpenWorker(i32 noundef %2243, ptr noundef %4)
   %2244 = load i8, ptr %2205, align 1
   %2245 = trunc i8 %2244 to i1

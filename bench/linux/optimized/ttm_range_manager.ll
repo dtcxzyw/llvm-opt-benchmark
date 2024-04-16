@@ -272,7 +272,7 @@ define internal noundef zeroext i1 @ttm_range_man_compatible(ptr nocapture readn
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp ult i64 %8, %10
-  br i1 %11, label %22, label %12
+  br i1 %11, label %21, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %2, i64 4
@@ -284,15 +284,12 @@ define internal noundef zeroext i1 @ttm_range_man_compatible(ptr nocapture readn
   %17 = and i64 %6, 4294967295
   %18 = add i64 %8, %17
   %19 = zext i32 %14 to i64
-  %20 = icmp ugt i64 %18, %19
-  br i1 %20, label %22, label %21
+  %20 = icmp ule i64 %18, %19
+  br label %21
 
-21:                                               ; preds = %16, %12
-  br label %22
-
-22:                                               ; preds = %21, %16, %4
-  %23 = phi i1 [ true, %21 ], [ false, %16 ], [ false, %4 ]
-  ret i1 %23
+21:                                               ; preds = %16, %12, %4
+  %22 = phi i1 [ false, %4 ], [ true, %12 ], [ %20, %16 ]
+  ret i1 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

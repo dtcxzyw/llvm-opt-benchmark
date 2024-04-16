@@ -958,7 +958,7 @@ for.cond1.preheader.us.preheader:                 ; preds = %if.end
 
 for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.us.preheader, %for.cond1.for.inc6_crit_edge.us
   %indvars.iv18 = phi i64 [ 0, %for.cond1.preheader.us.preheader ], [ %indvars.iv.next19, %for.cond1.for.inc6_crit_edge.us ]
-  %0 = trunc i64 %indvars.iv18 to i32
+  %0 = trunc nuw nsw i64 %indvars.iv18 to i32
   %conv4.us = sitofp i32 %0 to float
   %mul.us = fmul float %div, %conv4.us
   %1 = trunc i64 %indvars.iv18 to i32
@@ -1009,7 +1009,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond4.for.inc7_crit_edge.us
   %indvars.iv18 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next19, %for.cond4.for.inc7_crit_edge.us ]
-  %0 = trunc i64 %indvars.iv18 to i32
+  %0 = trunc nuw nsw i64 %indvars.iv18 to i32
   %conv.us = sitofp i32 %0 to double
   %div.us = fdiv double %conv.us, %conv1
   %conv2.us = fptrunc double %div.us to float
@@ -2141,7 +2141,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -2152,13 +2152,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

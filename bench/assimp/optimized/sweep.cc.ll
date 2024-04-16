@@ -1097,8 +1097,8 @@ _ZNKSt6vectorIPN3p2t4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.el
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %9
+  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN3p2t4NodeESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -1136,12 +1136,12 @@ _ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__no
   br label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN3p2t4NodeESaIS2_EE9push_backERKS2_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %10 = load ptr, ptr %next, align 8
+  %9 = load ptr, ptr %next, align 8
   %next9 = getelementptr inbounds i8, ptr %call5, i64 16
-  store ptr %10, ptr %next9, align 8
+  store ptr %9, ptr %next9, align 8
   %prev = getelementptr inbounds i8, ptr %call5, i64 24
   store ptr %node, ptr %prev, align 8
-  %prev11 = getelementptr inbounds i8, ptr %10, i64 24
+  %prev11 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %call5, ptr %prev11, align 8
   store ptr %call5, ptr %next, align 8
   %call13 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call)
@@ -1152,10 +1152,10 @@ if.then:                                          ; preds = %_ZNSt6vectorIPN3p2t
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #17
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %10
 
 if.end:                                           ; preds = %if.then, %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE9push_backERKS2_.exit
   ret ptr %call5
@@ -2018,7 +2018,7 @@ if.end10:                                         ; preds = %land.lhs.true, %if.
   %prev11 = getelementptr inbounds i8, ptr %1, i64 24
   %30 = load ptr, ptr %prev11, align 8
   %cmp12.not = icmp eq ptr %30, null
-  br i1 %cmp12.not, label %if.end19, label %land.lhs.true13
+  br i1 %cmp12.not, label %return, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %if.end10
   %31 = load ptr, ptr %node, align 8
@@ -2046,13 +2046,10 @@ land.lhs.true13:                                  ; preds = %if.end10
   %cmp.i32 = fcmp ogt double %call.i.i31, 0x3FF921FB54442D18
   %cmp2.i33 = fcmp olt double %call.i.i31, 0.000000e+00
   %43 = or i1 %cmp.i32, %cmp2.i33
-  br i1 %43, label %if.end19, label %return
-
-if.end19:                                         ; preds = %land.lhs.true13, %if.end10
   br label %return
 
-return:                                           ; preds = %land.lhs.true13, %land.lhs.true, %entry, %if.end19
-  %retval.0 = phi i1 [ true, %if.end19 ], [ false, %entry ], [ false, %land.lhs.true ], [ false, %land.lhs.true13 ]
+return:                                           ; preds = %land.lhs.true13, %if.end10, %land.lhs.true, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %land.lhs.true ], [ true, %if.end10 ], [ %43, %land.lhs.true13 ]
   ret i1 %retval.0
 }
 

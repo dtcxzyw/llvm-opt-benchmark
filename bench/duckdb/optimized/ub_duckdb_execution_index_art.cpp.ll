@@ -1674,7 +1674,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.epilog [
     i8 1, label %sw.bb
     i8 2, label %sw.bb2
@@ -2955,7 +2955,7 @@ entry:
   %ref.tmp33 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.default [
     i8 3, label %sw.bb
     i8 4, label %sw.bb9
@@ -3527,7 +3527,7 @@ entry:
   %ref.tmp16 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %node, align 8, !tbaa !27
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.default [
     i8 3, label %sw.bb
     i8 4, label %sw.bb4
@@ -4255,7 +4255,7 @@ entry:
   %ref.tmp4 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %node, align 8, !tbaa !27
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.default [
     i8 3, label %sw.bb
     i8 4, label %sw.bb1
@@ -4911,7 +4911,7 @@ entry:
   %ref.tmp27 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.default [
     i8 3, label %sw.bb
     i8 4, label %sw.bb6
@@ -5503,7 +5503,7 @@ entry:
   %ref.tmp27 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.default [
     i8 3, label %sw.bb
     i8 4, label %sw.bb6
@@ -6103,7 +6103,7 @@ entry:
   %ref.tmp27 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.default [
     i8 3, label %sw.bb
     i8 4, label %sw.bb6
@@ -6447,7 +6447,7 @@ for.inc.i160:                                     ; preds = %for.body.i154
 
 cleanup.i156:                                     ; preds = %for.body.i154
   %arrayidx.i155.le = getelementptr inbounds [256 x i8], ptr %child_index.i, i64 0, i64 %i.018.i
-  %conv4.i = trunc i64 %i.018.i to i8
+  %conv4.i = trunc nuw i64 %i.018.i to i8
   store i8 %conv4.i, ptr %byte, align 1, !tbaa !14
   %children.i157 = getelementptr inbounds i8, ptr %add.ptr9.i.i.i141, i64 264
   %51 = load i8, ptr %arrayidx.i155.le, align 1, !tbaa !14
@@ -6561,7 +6561,7 @@ for.inc.i215:                                     ; preds = %for.body.i213
 
 cleanup.i219:                                     ; preds = %for.body.i213
   %arrayidx.i214.le = getelementptr inbounds [256 x %"class.duckdb::Node"], ptr %children.i212, i64 0, i64 %i.015.i
-  %conv2.i = trunc i64 %i.015.i to i8
+  %conv2.i = trunc nuw i64 %i.015.i to i8
   store i8 %conv2.i, ptr %byte, align 1, !tbaa !14
   br label %return
 
@@ -6722,7 +6722,7 @@ for.inc:                                          ; preds = %for.body
 
 cleanup:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds [256 x i8], ptr %child_index, i64 0, i64 %i.018
-  %conv4 = trunc i64 %i.018 to i8
+  %conv4 = trunc nuw i64 %i.018 to i8
   store i8 %conv4, ptr %byte, align 1, !tbaa !14
   %children = getelementptr inbounds i8, ptr %this, i64 264
   %2 = load i8, ptr %arrayidx.le, align 1, !tbaa !14
@@ -6757,7 +6757,7 @@ for.inc:                                          ; preds = %for.body
 
 cleanup:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds [256 x %"class.duckdb::Node"], ptr %children, i64 0, i64 %i.015
-  %conv2 = trunc i64 %i.015 to i8
+  %conv2 = trunc nuw i64 %i.015 to i8
   store i8 %conv2, ptr %byte, align 1, !tbaa !14
   br label %return
 
@@ -6773,7 +6773,7 @@ entry:
   %ref.tmp27 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.default [
     i8 3, label %sw.bb
     i8 4, label %sw.bb6
@@ -7123,7 +7123,7 @@ for.inc.i162:                                     ; preds = %for.body.i156
 
 cleanup.i158:                                     ; preds = %for.body.i156
   %arrayidx.i157.le = getelementptr inbounds [256 x i8], ptr %child_index.i, i64 0, i64 %i.018.i
-  %conv4.i = trunc i64 %i.018.i to i8
+  %conv4.i = trunc nuw i64 %i.018.i to i8
   store i8 %conv4.i, ptr %byte, align 1, !tbaa !14
   %children.i159 = getelementptr inbounds i8, ptr %add.ptr9.i.i.i143, i64 264
   %51 = load i8, ptr %arrayidx.i157.le, align 1, !tbaa !14
@@ -7239,7 +7239,7 @@ for.inc.i218:                                     ; preds = %for.body.i216
 
 cleanup.i222:                                     ; preds = %for.body.i216
   %arrayidx.i217.le = getelementptr inbounds [256 x %"class.duckdb::Node"], ptr %children.i215, i64 0, i64 %i.015.i
-  %conv2.i = trunc i64 %i.015.i to i8
+  %conv2.i = trunc nuw i64 %i.015.i to i8
   store i8 %conv2.i, ptr %byte, align 1, !tbaa !14
   br label %return
 
@@ -7400,7 +7400,7 @@ for.inc:                                          ; preds = %for.body
 
 cleanup:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds [256 x i8], ptr %child_index, i64 0, i64 %i.018
-  %conv4 = trunc i64 %i.018 to i8
+  %conv4 = trunc nuw i64 %i.018 to i8
   store i8 %conv4, ptr %byte, align 1, !tbaa !14
   %children = getelementptr inbounds i8, ptr %this, i64 264
   %2 = load i8, ptr %arrayidx.le, align 1, !tbaa !14
@@ -7435,7 +7435,7 @@ for.inc:                                          ; preds = %for.body
 
 cleanup:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds [256 x %"class.duckdb::Node"], ptr %children, i64 0, i64 %i.015
-  %conv2 = trunc i64 %i.015 to i8
+  %conv2 = trunc nuw i64 %i.015 to i8
   store i8 %conv2, ptr %byte, align 1, !tbaa !14
   br label %return
 
@@ -7463,7 +7463,7 @@ entry:
   %ref.tmp114 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i64, ptr %this, align 8, !tbaa !27
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %if.end43 [
     i8 2, label %if.then
     i8 7, label %if.then
@@ -7613,7 +7613,7 @@ while.end.i.i.thread:                             ; preds = %if.end43
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp46, i64 8
   %19 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !19, !alias.scope !99
   %sub.i.i = add i64 %19, 4294967295
-  %rem.i.i.lhs.trunc = trunc i64 %call47 to i16
+  %rem.i.i.lhs.trunc = trunc nuw nsw i64 %call47 to i16
   %rem.i.i602 = urem i16 %rem.i.i.lhs.trunc, 100
   %20 = shl nuw nsw i16 %rem.i.i602, 1
   %mul.i.i = zext nneg i16 %20 to i64
@@ -8754,7 +8754,7 @@ if.then.i.i158:                                   ; preds = %while.end.i.i
   br label %invoke.cont9
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %8 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %8 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i157 = or disjoint i8 %8, 48
   br label %invoke.cont9
 
@@ -9423,7 +9423,7 @@ if.end16.i.i337:                                  ; preds = %if.end12.i.i335
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i341: ; preds = %if.end16.i.i337, %if.then14.i.i379, %if.then10.i.i381, %if.then6.i.i383, %for.body
   %retval.0.i.i342 = phi i32 [ %add.i.i384, %if.then6.i.i383 ], [ %add11.i.i382, %if.then10.i.i381 ], [ %add15.i.i380, %if.then14.i.i379 ], [ 1, %for.body ], [ %add17.i.i339, %if.end16.i.i337 ]
   %__val.lobit.i343 = lshr i64 %96, 63
-  %conv.i344 = trunc i64 %__val.lobit.i343 to i32
+  %conv.i344 = trunc nuw nsw i64 %__val.lobit.i343 to i32
   %add2.i345 = add i32 %retval.0.i.i342, %conv.i344
   %conv3.i346 = zext i32 %add2.i345 to i64
   store ptr %35, ptr %ref.tmp87, align 8, !tbaa !97, !alias.scope !152
@@ -9479,7 +9479,7 @@ if.then.i.i355:                                   ; preds = %while.end.i.i349
   br label %invoke.cont89
 
 if.else.i.i352:                                   ; preds = %while.end.i.i349
-  %102 = trunc i64 %__val.addr.0.lcssa.i.i350 to i8
+  %102 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i350 to i8
   %conv.i.i353 = or disjoint i8 %102, 48
   br label %invoke.cont89
 
@@ -10350,7 +10350,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8, !tbaa !27
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   %switch.tableidx = add i8 %conv.i.i, -3
   %1 = icmp ult i8 %switch.tableidx, 4
   br i1 %1, label %switch.lookup, label %sw.default
@@ -10445,7 +10445,7 @@ define void @_ZN6duckdb4Node15InitializeMergeERNS_3ARTERKNS_8ARTFlagsE(ptr nocap
 entry:
   %0 = load i64, ptr %this, align 8
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %sw.epilog [
     i8 1, label %sw.bb
     i8 2, label %sw.bb2
@@ -12311,7 +12311,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %shr.i.i62.pre-phi = phi i64 [ %shr.i.i, %if.then ], [ %shr.i.i60, %entry ]
-  %conv.i.i63 = trunc i64 %shr.i.i62.pre-phi to i8
+  %conv.i.i63 = trunc nuw i64 %shr.i.i62.pre-phi to i8
   switch i8 %conv.i.i63, label %if.end11 [
     i8 2, label %if.then7
     i8 7, label %if.then7
@@ -13237,7 +13237,7 @@ entry:
   %ref.tmp45 = alloca %"class.std::allocator", align 1
   %0 = load i64, ptr %this, align 8, !tbaa !27
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %if.end11 [
     i8 1, label %if.then
     i8 7, label %cleanup54
@@ -15269,7 +15269,7 @@ entry:
   %next = alloca %"class.duckdb::optional_ptr.76", align 8
   %0 = load i64, ptr %node, align 8
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %if.end13 [
     i8 2, label %if.then
     i8 7, label %if.then
@@ -15614,7 +15614,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %if.then13 [
     i8 2, label %if.then5
     i8 7, label %if.then5
@@ -16363,7 +16363,7 @@ _ZN6duckdb4Node10RefMutableINS_4LeafEEERT_RKNS_3ARTES0_NS_5NTypeE.exit: ; preds 
   %15 = load i64, ptr %bitmask_offset.i.i.i, align 8, !tbaa !55
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %15
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %count.addr.042, i64 4)
-  %conv = trunc i64 %cond.i to i8
+  %conv = trunc nuw nsw i64 %cond.i to i8
   store i8 %conv, ptr %add.ptr9.i.i.i, align 8, !tbaa !140
   %16 = getelementptr i64, ptr %row_ids, i64 %copy_count.041
   %row_ids12 = getelementptr inbounds i8, ptr %add.ptr9.i.i.i, i64 8
@@ -18824,7 +18824,7 @@ _ZN6duckdb4Node10RefMutableINS_6PrefixEEERT_RKNS_3ARTES0_NS_5NTypeE.exit: ; pred
   %15 = load i64, ptr %bitmask_offset.i.i.i, align 8, !tbaa !55
   %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %15
   %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %count.addr.031, i32 15)
-  %conv = trunc i32 %cond.i to i8
+  %conv = trunc nuw nsw i32 %cond.i to i8
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr9.i.i.i, i64 15
   store i8 %conv, ptr %arrayidx, align 1, !tbaa !14
   %16 = load ptr, ptr %data10, align 8, !tbaa !11
@@ -28566,7 +28566,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %shr.i.i = lshr i64 %0, 56
-  %conv.i.i = trunc i64 %shr.i.i to i8
+  %conv.i.i = trunc nuw i64 %shr.i.i to i8
   switch i8 %conv.i.i, label %if.then11 [
     i8 7, label %if.then7
     i8 2, label %if.then7
@@ -28622,7 +28622,7 @@ if.end22:                                         ; preds = %if.then11
   br i1 %cmp27, label %if.then28, label %if.end36
 
 if.then28:                                        ; preds = %if.end22
-  %conv30 = trunc i64 %add24 to i32
+  %conv30 = trunc nuw i64 %add24 to i32
   %14 = trunc i64 %depth to i32
   %15 = xor i32 %14, -1
   %conv35 = add i32 %13, %15
@@ -28771,7 +28771,7 @@ _ZN6duckdb6Prefix7GetByteERKNS_3ARTERKNS_4NodeEm.exit: ; preds = %if.then.i.i.i.
   br i1 %cmp64, label %if.then65, label %if.end73
 
 if.then65:                                        ; preds = %_ZN6duckdb6Prefix7GetByteERKNS_3ARTERKNS_4NodeEm.exit
-  %conv67 = trunc i64 %add61 to i32
+  %conv67 = trunc nuw i64 %add61 to i32
   %41 = trunc i64 %39 to i32
   %42 = xor i32 %41, -1
   %conv72 = add i32 %40, %42
@@ -28837,7 +28837,7 @@ if.end11:                                         ; preds = %if.then4, %if.end
   %3 = phi i64 [ %2, %if.then4 ], [ %0, %if.end ]
   %4 = phi ptr [ %1, %if.then4 ], [ %node, %if.end ]
   %shr.i.i79 = lshr i64 %3, 56
-  %conv.i.i80 = trunc i64 %shr.i.i79 to i8
+  %conv.i.i80 = trunc nuw i64 %shr.i.i79 to i8
   switch i8 %conv.i.i80, label %if.end22 [
     i8 2, label %if.then18
     i8 7, label %if.then18
@@ -28888,7 +28888,7 @@ if.then32:                                        ; preds = %if.then27
 if.end39:                                         ; preds = %if.then32, %if.then27
   %13 = phi i64 [ %12, %if.then32 ], [ %10, %if.then27 ]
   %shr.i.i88 = lshr i64 %13, 56
-  %conv.i.i89 = trunc i64 %shr.i.i88 to i8
+  %conv.i.i89 = trunc nuw i64 %shr.i.i88 to i8
   switch i8 %conv.i.i89, label %if.end53 [
     i8 2, label %if.then47
     i8 7, label %if.then47
@@ -29730,7 +29730,7 @@ if.end11:                                         ; preds = %if.then, %while.bod
   %4 = phi i64 [ %3, %if.then ], [ %1, %while.body ]
   %5 = phi ptr [ %2, %if.then ], [ %node_ref.sroa.0.050, %while.body ]
   %shr.i.i34 = lshr i64 %4, 56
-  %conv.i.i35 = trunc i64 %shr.i.i34 to i8
+  %conv.i.i35 = trunc nuw i64 %shr.i.i34 to i8
   switch i8 %conv.i.i35, label %if.end20 [
     i8 2, label %cleanup28.thread
     i8 7, label %cleanup28.thread
@@ -37604,7 +37604,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !538
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !14
@@ -37615,13 +37615,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

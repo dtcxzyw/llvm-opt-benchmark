@@ -1806,7 +1806,7 @@ if.then.i124.i:                                   ; preds = %if.else.i56.i
   %107 = and i16 %106, -16
   %and.i141.i = zext i16 %107 to i32
   %conv.i142.i = zext nneg i8 %104 to i32
-  %shl.i144.i = shl i32 16, %conv.i142.i
+  %shl.i144.i = shl nuw i32 16, %conv.i142.i
   %sub.i145.i = add nuw i32 %shl.i144.i, 65535
   %and4.i.i = and i32 %sub.i145.i, %and.i141.i
   %tobool5.i.not.i = icmp eq i32 %and4.i.i, 0
@@ -2380,7 +2380,7 @@ if.then.i194.i:                                   ; preds = %if.else.i12.i
   %205 = and i16 %204, -16
   %and.i214.i = zext i16 %205 to i32
   %conv.i215.i = zext nneg i8 %202 to i32
-  %shl.i217.i = shl i32 16, %conv.i215.i
+  %shl.i217.i = shl nuw i32 16, %conv.i215.i
   %sub.i218.i = add nuw i32 %shl.i217.i, 65535
   %and4.i219.i = and i32 %sub.i218.i, %and.i214.i
   %tobool5.i220.not.i = icmp eq i32 %and4.i219.i, 0
@@ -2529,7 +2529,7 @@ if.then108.i:                                     ; preds = %land.lhs.true100.i
   store i32 0, ptr %arrayidx116.i, align 8
   %location122.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom115.i, i32 1
   store i64 %end, ptr %location122.i, align 8
-  %conv123.i = trunc i32 %s.i.1 to i16
+  %conv123.i = trunc nuw i32 %s.i.1 to i16
   %220 = load ptr, ptr %state.i, align 8
   store i16 %conv123.i, ptr %220, align 2
   br label %nfaExecMcSheng16_Q2i.exit
@@ -2568,7 +2568,7 @@ if.end144.i:                                      ; preds = %sw.bb.i
   br label %sw.epilog.i
 
 sw.bb146.i:                                       ; preds = %if.end133.i
-  %conv147.i = trunc i32 %s.i.1 to i16
+  %conv147.i = trunc nuw i32 %s.i.1 to i16
   %225 = load ptr, ptr %state.i, align 8
   store i16 %conv147.i, ptr %225, align 2
   %226 = load i32, ptr %cur.i48, align 8
@@ -4557,7 +4557,7 @@ if.then.i124.i:                                   ; preds = %if.else.i56.i
   %107 = and i16 %106, -16
   %and.i141.i = zext i16 %107 to i32
   %conv.i142.i = zext nneg i8 %104 to i32
-  %shl.i144.i = shl i32 16, %conv.i142.i
+  %shl.i144.i = shl nuw i32 16, %conv.i142.i
   %sub.i145.i = add nuw i32 %shl.i144.i, 65535
   %and4.i.i = and i32 %sub.i145.i, %and.i141.i
   %tobool5.i.not.i = icmp eq i32 %and4.i.i, 0
@@ -5056,7 +5056,7 @@ if.then.i194.i:                                   ; preds = %if.else.i12.i
   %199 = and i16 %198, -16
   %and.i214.i = zext i16 %199 to i32
   %conv.i215.i = zext nneg i8 %196 to i32
-  %shl.i217.i = shl i32 16, %conv.i215.i
+  %shl.i217.i = shl nuw i32 16, %conv.i215.i
   %sub.i218.i = add nuw i32 %shl.i217.i, 65535
   %and4.i219.i = and i32 %sub.i218.i, %and.i214.i
   %tobool5.i220.not.i = icmp eq i32 %and4.i219.i, 0
@@ -5133,7 +5133,7 @@ if.then77.i:                                      ; preds = %exit.i356.i.i, %exi
   %add89.i = add i64 %reass.sub, 1
   %location94.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom86.i, i32 1
   store i64 %add89.i, ptr %location94.i, align 8
-  %206 = trunc i32 %s.i.1.ph.in to i16
+  %206 = trunc nuw i32 %s.i.1.ph.in to i16
   %conv95.i = and i16 %206, 16383
   %207 = load ptr, ptr %state.i, align 8
   store i16 %conv95.i, ptr %207, align 2
@@ -5155,7 +5155,7 @@ if.then108.i:                                     ; preds = %land.lhs.true100.i
   store i32 0, ptr %arrayidx116.i, align 8
   %location122.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom115.i, i32 1
   store i64 %end, ptr %location122.i, align 8
-  %conv123.i = trunc i32 %s.i.1 to i16
+  %conv123.i = trunc nuw i32 %s.i.1 to i16
   %210 = load ptr, ptr %state.i, align 8
   store i16 %conv123.i, ptr %210, align 2
   br label %nfaExecMcSheng16_Q2i.exit
@@ -5194,7 +5194,7 @@ if.end144.i:                                      ; preds = %sw.bb.i
   br label %sw.epilog.i
 
 sw.bb146.i:                                       ; preds = %if.end133.i
-  %conv147.i = trunc i32 %s.i.1 to i16
+  %conv147.i = trunc nuw i32 %s.i.1 to i16
   %215 = load ptr, ptr %state.i, align 8
   store i16 %conv147.i, ptr %215, align 2
   %216 = load i32, ptr %cur.i48, align 8
@@ -6268,8 +6268,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %cmp4.i.i = icmp eq i32 %195, %report
   br i1 %cmp4.i.i, label %return, label %for.cond.i.i
 
-return:                                           ; preds = %for.cond.i.i, %for.body.i.i, %if.end.i.i139, %land.lhs.true, %if.end.i.thread, %if.end.i, %nfaExecMcSheng8_Q2i.exit
-  %retval.0 = phi i8 [ 0, %nfaExecMcSheng8_Q2i.exit ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ 1, %land.lhs.true ], [ 1, %if.end.i.i139 ], [ %conv156.i, %for.cond.i.i ], [ 2, %for.body.i.i ]
+return:                                           ; preds = %for.body.i.i, %for.cond.i.i, %if.end.i.thread, %if.end.i, %land.lhs.true, %if.end.i.i139, %nfaExecMcSheng8_Q2i.exit
+  %retval.0 = phi i8 [ 0, %nfaExecMcSheng8_Q2i.exit ], [ 1, %land.lhs.true ], [ 1, %if.end.i.i139 ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ %conv156.i, %for.cond.i.i ], [ 2, %for.body.i.i ]
   ret i8 %retval.0
 }
 
@@ -6406,11 +6406,11 @@ if.end11.i:                                       ; preds = %if.end.i.thread147,
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %if.end11.i
-  %.pre.pre457 = phi i32 [ %inc.i, %if.end11.i ], [ %.pre.pre457.be, %while.body.i.backedge ]
+  %.pre.pre456 = phi i32 [ %inc.i, %if.end11.i ], [ %.pre.pre456.be, %while.body.i.backedge ]
   %s.i.0 = phi i32 [ %conv.i, %if.end11.i ], [ %s.i.0.be, %while.body.i.backedge ]
   %cur_buf.i.0 = phi ptr [ %cond.i, %if.end11.i ], [ %cur_buf.i.1, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %if.end11.i ], [ %local_ep.i.0, %while.body.i.backedge ]
-  %idxprom38.i = zext i32 %.pre.pre457 to i64
+  %idxprom38.i = zext i32 %.pre.pre456 to i64
   %location40.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom38.i, i32 1
   %21 = load i64, ptr %location40.i, align 8
   %cmp51.i = icmp slt i64 %sp.i.0, 0
@@ -6823,7 +6823,7 @@ if.then.i124.i:                                   ; preds = %if.else.i56.i
   %103 = and i16 %102, -16
   %and.i141.i = zext i16 %103 to i32
   %conv.i142.i = zext nneg i8 %100 to i32
-  %shl.i144.i = shl i32 16, %conv.i142.i
+  %shl.i144.i = shl nuw i32 16, %conv.i142.i
   %sub.i145.i = add nuw i32 %shl.i144.i, 65535
   %and4.i.i = and i32 %sub.i145.i, %and.i141.i
   %tobool5.i.not.i = icmp eq i32 %and4.i.i, 0
@@ -7318,7 +7318,7 @@ if.then.i194.i:                                   ; preds = %if.else.i12.i
   %196 = and i16 %195, -16
   %and.i214.i = zext i16 %196 to i32
   %conv.i215.i = zext nneg i8 %193 to i32
-  %shl.i217.i = shl i32 16, %conv.i215.i
+  %shl.i217.i = shl nuw i32 16, %conv.i215.i
   %sub.i218.i = add nuw i32 %shl.i217.i, 65535
   %and4.i219.i = and i32 %sub.i218.i, %and.i214.i
   %tobool5.i220.not.i = icmp eq i32 %and4.i219.i, 0
@@ -7371,7 +7371,7 @@ if.end165.i.i:                                    ; preds = %do.body11.i.i, %if.
   br label %mcshengExec16_i_nm.exit
 
 mcshengExec16_i_nm.exit:                          ; preds = %while.body.i, %if.end165.i.i
-  %.pre.pre = phi i32 [ %.pre.pre457, %while.body.i ], [ %.pre.pre.pre, %if.end165.i.i ]
+  %.pre.pre = phi i32 [ %.pre.pre456, %while.body.i ], [ %.pre.pre.pre, %if.end165.i.i ]
   %s.i.1 = phi i32 [ %s.i.0, %while.body.i ], [ %and161.i.i, %if.end165.i.i ]
   %cmp126.i = icmp eq i64 %local_ep.i.0, 0
   %cur_buf.i.1 = select i1 %cmp126.i, ptr %1, ptr %cur_buf.i.0
@@ -7413,12 +7413,12 @@ sw.epilog.i:                                      ; preds = %if.end133.i, %if.en
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcshengExec16_i_nm.exit
-  %.pre.pre457.be = phi i32 [ %inc155.i, %sw.epilog.i ], [ %.pre.pre, %mcshengExec16_i_nm.exit ]
+  %.pre.pre456.be = phi i32 [ %inc155.i, %sw.epilog.i ], [ %.pre.pre, %mcshengExec16_i_nm.exit ]
   %s.i.0.be = phi i32 [ %s.i.2, %sw.epilog.i ], [ %s.i.1, %mcshengExec16_i_nm.exit ]
   br label %while.body.i
 
 nfaExecMcSheng16_Q2i.exit:                        ; preds = %if.end133.i
-  %conv147.i = trunc i32 %s.i.1 to i16
+  %conv147.i = trunc nuw i32 %s.i.1 to i16
   %206 = load ptr, ptr %state.i, align 8
   store i16 %conv147.i, ptr %206, align 2
   %207 = load i32, ptr %cur.i52, align 8
@@ -7465,8 +7465,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %cmp4.i.i = icmp eq i32 %212, %report
   br i1 %cmp4.i.i, label %return, label %for.cond.i.i
 
-return:                                           ; preds = %for.cond.i.i, %for.body.i.i, %if.end.i.i, %land.lhs.true, %if.end.i.thread, %if.end.i, %nfaExecMcSheng16_Q2i.exit
-  %retval.0 = phi i8 [ 0, %nfaExecMcSheng16_Q2i.exit ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ 1, %land.lhs.true ], [ 1, %if.end.i.i ], [ %conv153.i, %for.cond.i.i ], [ 2, %for.body.i.i ]
+return:                                           ; preds = %for.body.i.i, %for.cond.i.i, %if.end.i.thread, %if.end.i, %land.lhs.true, %if.end.i.i, %nfaExecMcSheng16_Q2i.exit
+  %retval.0 = phi i8 [ 0, %nfaExecMcSheng16_Q2i.exit ], [ 1, %land.lhs.true ], [ 1, %if.end.i.i ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ %conv153.i, %for.cond.i.i ], [ 2, %for.body.i.i ]
   ret i8 %retval.0
 }
 

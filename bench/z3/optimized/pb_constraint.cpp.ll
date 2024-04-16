@@ -1111,7 +1111,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.sub15.pre-phi = phi i64 [ %.pre77, %for.end.loopexit ], [ %sub.ptr.sub, %entry ]
   %__first.addr.0.lcssa = phi ptr [ %scevgep, %for.end.loopexit ], [ %__first, %entry ]
   %sub.ptr.div16 = ashr exact i64 %sub.ptr.sub15.pre-phi, 4
-  switch i64 %sub.ptr.div16, label %sw.default [
+  switch i64 %sub.ptr.div16, label %return [
     i64 3, label %sw.bb
     i64 2, label %for.end.sw.bb21_crit_edge
     i64 1, label %for.end.sw.bb26_crit_edge
@@ -1171,9 +1171,7 @@ sw.bb26:                                          ; preds = %for.end.sw.bb26_cri
   %28 = load i32, ptr %m_val2.i.i47, align 8
   %cmp4.i.i49 = icmp eq i32 %28, %25
   %29 = select i1 %cmp.i.i46, i1 %cmp4.i.i49, i1 false
-  br i1 %29, label %return, label %sw.default
-
-sw.default:                                       ; preds = %sw.bb26, %for.end
+  %spec.select = select i1 %29, ptr %__first.addr.2, ptr %__last
   br label %return
 
 return.loopexit.split.loop.exit:                  ; preds = %if.end
@@ -1188,8 +1186,8 @@ return.loopexit.split.loop.exit80:                ; preds = %if.end7
   %incdec.ptr8.le = getelementptr inbounds i8, ptr %__first.addr.067, i64 48
   br label %return
 
-return:                                           ; preds = %for.body, %return.loopexit.split.loop.exit, %return.loopexit.split.loop.exit78, %return.loopexit.split.loop.exit80, %sw.bb26, %sw.bb21, %sw.bb, %sw.default
-  %retval.0 = phi ptr [ %__last, %sw.default ], [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %incdec.ptr.le, %return.loopexit.split.loop.exit ], [ %incdec.ptr4.le, %return.loopexit.split.loop.exit78 ], [ %incdec.ptr8.le, %return.loopexit.split.loop.exit80 ], [ %__first.addr.067, %for.body ]
+return:                                           ; preds = %for.body, %return.loopexit.split.loop.exit, %return.loopexit.split.loop.exit78, %return.loopexit.split.loop.exit80, %sw.bb26, %for.end, %sw.bb21, %sw.bb
+  %retval.0 = phi ptr [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__last, %for.end ], [ %spec.select, %sw.bb26 ], [ %incdec.ptr.le, %return.loopexit.split.loop.exit ], [ %incdec.ptr4.le, %return.loopexit.split.loop.exit78 ], [ %incdec.ptr8.le, %return.loopexit.split.loop.exit80 ], [ %__first.addr.067, %for.body ]
   ret ptr %retval.0
 }
 

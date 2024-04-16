@@ -482,7 +482,7 @@ quoteOneName.exit:                                ; preds = %118
   store i8 34, ptr %.08.i, align 1
   store i8 0, ptr %125, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %126 = trunc i64 %indvars.iv.next to i32
+  %126 = trunc nuw nsw i64 %indvars.iv.next to i32
   %127 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %126) #11
   %128 = getelementptr [32 x i32], ptr %105, i64 0, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4
@@ -728,7 +728,7 @@ quoteOneName.exit.i:                              ; preds = %77
   store i8 34, ptr %.08.i.i, align 1
   store i8 0, ptr %84, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %85 = trunc i64 %indvars.iv.next.i to i32
+  %85 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %86 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.13, i32 noundef %85) #11
   %87 = getelementptr [32 x i32], ptr %68, i64 0, i64 %indvars.iv.i
   %88 = load i32, ptr %87, align 4
@@ -929,7 +929,7 @@ quoteOneName.exit:                                ; preds = %164
   store i8 34, ptr %.08.i, align 1
   store i8 0, ptr %171, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %172 = trunc i64 %indvars.iv.next to i32
+  %172 = trunc nuw nsw i64 %indvars.iv.next to i32
   %173 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.13, i32 noundef %172) #11
   %174 = getelementptr [32 x i32], ptr %145, i64 0, i64 %indvars.iv
   %175 = load i32, ptr %174, align 4
@@ -1189,7 +1189,7 @@ quoteOneName.exit:                                ; preds = %82
   store i8 34, ptr %.08.i, align 1
   store i8 0, ptr %89, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %90 = trunc i64 %indvars.iv.next to i32
+  %90 = trunc nuw nsw i64 %indvars.iv.next to i32
   %91 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %90) #11
   %92 = getelementptr [32 x i32], ptr %63, i64 0, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
@@ -2235,7 +2235,7 @@ quoteOneName.exit:                                ; preds = %85
   store i8 34, ptr %.08.i, align 1
   store i8 0, ptr %92, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %93 = trunc i64 %indvars.iv.next to i32
+  %93 = trunc nuw nsw i64 %indvars.iv.next to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %.05768, ptr noundef nonnull %6, i32 noundef %93) #11
   %94 = add i32 %.06065, 1
   %95 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.13, i32 noundef %94) #11
@@ -2555,7 +2555,7 @@ quoteOneName.exit92:                              ; preds = %106
   store i8 34, ptr %.08.i89, align 1
   store i8 0, ptr %113, align 1
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %114 = trunc i64 %indvars.iv.next101 to i32
+  %114 = trunc nuw nsw i64 %indvars.iv.next101 to i32
   %115 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.13, i32 noundef %114) #11
   %116 = getelementptr [32 x i32], ptr %74, i64 0, i64 %indvars.iv100
   %117 = load i32, ptr %116, align 4
@@ -2692,17 +2692,15 @@ slot_attisnull.exit.i:                            ; preds = %slot_getsomeattrs.e
 
 29:                                               ; preds = %._crit_edge.loopexit.i
   %.not12 = icmp eq ptr %3, null
-  br i1 %.not12, label %32, label %30
+  br i1 %.not12, label %ri_NullCheck.exit.thread, label %30
 
 30:                                               ; preds = %29
   %31 = tail call fastcc zeroext i1 @ri_KeysEqual(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, i1 noundef zeroext true)
-  br i1 %31, label %ri_NullCheck.exit.thread, label %32
-
-32:                                               ; preds = %30, %29
+  %not.15 = xor i1 %31, true
   br label %ri_NullCheck.exit.thread
 
-ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexit.i, %4, %30, %32
-  %.0 = phi i1 [ true, %32 ], [ false, %30 ], [ false, %4 ], [ false, %._crit_edge.loopexit.i ]
+ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexit.i, %4, %30, %29
+  %.0 = phi i1 [ true, %29 ], [ %not.15, %30 ], [ false, %4 ], [ false, %._crit_edge.loopexit.i ]
   ret i1 %.0
 }
 

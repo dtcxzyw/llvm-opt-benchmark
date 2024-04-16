@@ -11,27 +11,25 @@ define noundef i32 @dgemm_small_matrix_permit(i32 noundef %0, i32 noundef %1, i6
   %11 = sitofp i64 %4 to double
   %12 = fmul double %10, %11
   %13 = fcmp ogt double %12, 1.000000e+06
-  br i1 %13, label %24, label %14
+  br i1 %13, label %22, label %14
 
 14:                                               ; preds = %7
   %15 = icmp eq i32 %0, 0
   %16 = icmp ne i32 %1, 0
   %17 = or i1 %15, %16
-  br i1 %17, label %23, label %18
+  br i1 %17, label %22, label %18
 
 18:                                               ; preds = %14
   %19 = mul nsw i64 %3, %2
-  %20 = icmp sgt i64 %19, 1200
-  %21 = icmp slt i64 %4, 32
-  %22 = or i1 %20, %21
-  br i1 %22, label %24, label %23
+  %20 = icmp slt i64 %19, 1201
+  %21 = icmp sgt i64 %4, 31
+  %.not2 = and i1 %20, %21
+  %spec.select = zext i1 %.not2 to i32
+  br label %22
 
-23:                                               ; preds = %18, %14
-  br label %24
-
-24:                                               ; preds = %23, %18, %7
-  %25 = phi i32 [ 1, %23 ], [ 0, %7 ], [ 0, %18 ]
-  ret i32 %25
+22:                                               ; preds = %18, %14, %7
+  %23 = phi i32 [ 0, %7 ], [ 1, %14 ], [ %spec.select, %18 ]
+  ret i32 %23
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }

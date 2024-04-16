@@ -98,7 +98,7 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr nocapture noundef rea
   br label %.thread
 
 .thread:                                          ; preds = %39, %.preheader, %.thread.loopexit6, %32, %25, %21, %15, %7, %3
-  %49 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %15 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ true, %.thread.loopexit6 ], [ false, %.preheader ], [ false, %39 ]
+  %49 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %15 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ false, %.preheader ], [ false, %39 ], [ true, %.thread.loopexit6 ]
   ret i1 %49
 }
 
@@ -242,7 +242,7 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.thread
 
 .thread:                                          ; preds = %71, %.preheader, %.thread.loopexit18, %64, %57, %52, %48, %42, %38, %36, %18, %16, %2
-  %81 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %38 ], [ null, %16 ], [ null, %36 ], [ null, %42 ], [ null, %48 ], [ null, %52 ], [ null, %57 ], [ null, %64 ], [ %44, %.thread.loopexit18 ], [ null, %.preheader ], [ null, %71 ]
+  %81 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %38 ], [ null, %16 ], [ null, %36 ], [ null, %42 ], [ null, %48 ], [ null, %52 ], [ null, %57 ], [ null, %64 ], [ null, %.preheader ], [ null, %71 ], [ %44, %.thread.loopexit18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   ret ptr %81
 }

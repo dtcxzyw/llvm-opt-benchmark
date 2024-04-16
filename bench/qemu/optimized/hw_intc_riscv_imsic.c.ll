@@ -594,7 +594,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %shr = lshr i64 %addr, 12
-  %conv5 = trunc i64 %shr to i32
+  %conv5 = trunc nuw i64 %shr to i32
   %and6 = and i64 %addr, 4092
   %cmp7 = icmp eq i64 %and6, 0
   %tobool = icmp ne i64 %value, 0
@@ -626,7 +626,7 @@ if.end18:                                         ; preds = %land.lhs.true, %if.
   %arrayidx.i = getelementptr i32, ptr %5, i64 %shr
   %6 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i = icmp eq i32 %6, 0
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %riscv_imsic_update.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end18
   %num_irqs.i.i = getelementptr inbounds i8, ptr %opaque, i64 1148
@@ -641,7 +641,7 @@ land.lhs.true.i:                                  ; preds = %if.end18
   %or.cond.not.i.i = icmp ult i32 %11, %8
   %spec.select.i.i = select i1 %or.cond.not.i.i, i32 %10, i32 %8
   %cmp915.i.i = icmp ugt i32 %spec.select.i.i, 1
-  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
+  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %riscv_imsic_update.exit
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
   %eistate.i.i = getelementptr inbounds i8, ptr %opaque, i64 1128
@@ -651,7 +651,7 @@ for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %13 = trunc i64 %indvars.iv.i.i to i32
+  %13 = trunc nuw i64 %indvars.iv.i.i to i32
   %add.i.i = add i32 %mul.i.i, %13
   %idxprom10.i.i = zext i32 %add.i.i to i64
   %arrayidx11.i.i = getelementptr i32, ptr %12, i64 %idxprom10.i.i
@@ -663,19 +663,17 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
 
 riscv_imsic_topei.exit.i:                         ; preds = %for.body.i.i
   %shl.i.i = shl i32 %13, 16
   %or.i.i = or i32 %shl.i.i, %13
-  %tobool1.not.i = icmp eq i32 %or.i.i, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %riscv_imsic_update.exit
-
-if.else.i:                                        ; preds = %for.inc.i.i, %riscv_imsic_topei.exit.i, %land.lhs.true.i, %if.end18
+  %tobool1.not.i = icmp ne i32 %or.i.i, 0
+  %spec.select.i = zext i1 %tobool1.not.i to i32
   br label %riscv_imsic_update.exit
 
-riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
-  %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
+riscv_imsic_update.exit:                          ; preds = %for.inc.i.i, %if.end18, %land.lhs.true.i, %riscv_imsic_topei.exit.i
+  %.sink12.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end18 ], [ %spec.select.i, %riscv_imsic_topei.exit.i ], [ 0, %for.inc.i.i ]
   %external_irqs4.i = getelementptr inbounds i8, ptr %opaque, i64 816
   %15 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %15, i64 %shr
@@ -725,14 +723,14 @@ if.end:                                           ; preds = %if.then, %entry
   %and1 = and i64 %conv, %not
   %and2 = and i64 %and, %new_val
   %or = or disjoint i64 %and1, %and2
-  %conv3 = trunc i64 %or to i32
+  %conv3 = trunc nuw i64 %or to i32
   %arrayidx6 = getelementptr i32, ptr %2, i64 %idxprom
   store i32 %conv3, ptr %arrayidx6, align 4
   %3 = load ptr, ptr %eidelivery, align 8
   %arrayidx.i = getelementptr i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i = icmp eq i32 %4, 0
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %riscv_imsic_update.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
   %num_irqs.i.i = getelementptr inbounds i8, ptr %imsic, i64 1148
@@ -747,7 +745,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %or.cond.not.i.i = icmp ult i32 %9, %6
   %spec.select.i.i = select i1 %or.cond.not.i.i, i32 %8, i32 %6
   %cmp915.i.i = icmp ugt i32 %spec.select.i.i, 1
-  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
+  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %riscv_imsic_update.exit
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
   %eistate.i.i = getelementptr inbounds i8, ptr %imsic, i64 1128
@@ -757,7 +755,7 @@ for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %11 = trunc i64 %indvars.iv.i.i to i32
+  %11 = trunc nuw i64 %indvars.iv.i.i to i32
   %add.i.i = add i32 %mul.i.i, %11
   %idxprom10.i.i = zext i32 %add.i.i to i64
   %arrayidx11.i.i = getelementptr i32, ptr %10, i64 %idxprom10.i.i
@@ -769,19 +767,17 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
 
 riscv_imsic_topei.exit.i:                         ; preds = %for.body.i.i
   %shl.i.i = shl i32 %11, 16
   %or.i.i = or i32 %shl.i.i, %11
-  %tobool1.not.i = icmp eq i32 %or.i.i, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %riscv_imsic_update.exit
-
-if.else.i:                                        ; preds = %for.inc.i.i, %riscv_imsic_topei.exit.i, %land.lhs.true.i, %if.end
+  %tobool1.not.i = icmp ne i32 %or.i.i, 0
+  %spec.select.i = zext i1 %tobool1.not.i to i32
   br label %riscv_imsic_update.exit
 
-riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
-  %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
+riscv_imsic_update.exit:                          ; preds = %for.inc.i.i, %if.end, %land.lhs.true.i, %riscv_imsic_topei.exit.i
+  %.sink12.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end ], [ %spec.select.i, %riscv_imsic_topei.exit.i ], [ 0, %for.inc.i.i ]
   %external_irqs4.i = getelementptr inbounds i8, ptr %imsic, i64 816
   %13 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %13, i64 %idxprom
@@ -814,7 +810,7 @@ if.end:                                           ; preds = %if.then, %entry
   %and1 = and i64 %conv, %not
   %and2 = and i64 %and, %new_val
   %or = or disjoint i64 %and1, %and2
-  %conv3 = trunc i64 %or to i32
+  %conv3 = trunc nuw i64 %or to i32
   %arrayidx6 = getelementptr i32, ptr %2, i64 %idxprom
   store i32 %conv3, ptr %arrayidx6, align 4
   %eidelivery.i = getelementptr inbounds i8, ptr %imsic, i64 1112
@@ -822,7 +818,7 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx.i = getelementptr i32, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i = icmp eq i32 %4, 0
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %riscv_imsic_update.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
   %num_irqs.i.i = getelementptr inbounds i8, ptr %imsic, i64 1148
@@ -836,7 +832,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %or.cond.not.i.i = icmp ult i32 %9, %6
   %spec.select.i.i = select i1 %or.cond.not.i.i, i32 %8, i32 %6
   %cmp915.i.i = icmp ugt i32 %spec.select.i.i, 1
-  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
+  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %riscv_imsic_update.exit
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
   %eistate.i.i = getelementptr inbounds i8, ptr %imsic, i64 1128
@@ -846,7 +842,7 @@ for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %11 = trunc i64 %indvars.iv.i.i to i32
+  %11 = trunc nuw i64 %indvars.iv.i.i to i32
   %add.i.i = add i32 %mul.i.i, %11
   %idxprom10.i.i = zext i32 %add.i.i to i64
   %arrayidx11.i.i = getelementptr i32, ptr %10, i64 %idxprom10.i.i
@@ -858,19 +854,17 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
 
 riscv_imsic_topei.exit.i:                         ; preds = %for.body.i.i
   %shl.i.i = shl i32 %11, 16
   %or.i.i = or i32 %shl.i.i, %11
-  %tobool1.not.i = icmp eq i32 %or.i.i, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %riscv_imsic_update.exit
-
-if.else.i:                                        ; preds = %for.inc.i.i, %riscv_imsic_topei.exit.i, %land.lhs.true.i, %if.end
+  %tobool1.not.i = icmp ne i32 %or.i.i, 0
+  %spec.select.i = zext i1 %tobool1.not.i to i32
   br label %riscv_imsic_update.exit
 
-riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
-  %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
+riscv_imsic_update.exit:                          ; preds = %for.inc.i.i, %if.end, %land.lhs.true.i, %riscv_imsic_topei.exit.i
+  %.sink12.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end ], [ %spec.select.i, %riscv_imsic_topei.exit.i ], [ 0, %for.inc.i.i ]
   %external_irqs4.i = getelementptr inbounds i8, ptr %imsic, i64 816
   %13 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %13, i64 %idxprom
@@ -905,7 +899,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw i64 %indvars.iv.i to i32
   %add.i = add i32 %mul.i, %6
   %idxprom10.i = zext i32 %add.i to i64
   %arrayidx11.i = getelementptr i32, ptr %5, i64 %idxprom10.i
@@ -964,7 +958,7 @@ if.end6:                                          ; preds = %if.then5, %if.then3
   %arrayidx.i12 = getelementptr i32, ptr %11, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx.i12, align 4
   %tobool.not.i = icmp eq i32 %12, 0
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %riscv_imsic_update.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6
   %13 = load i32, ptr %num_irqs.i, align 4
@@ -977,7 +971,7 @@ land.lhs.true.i:                                  ; preds = %if.end6
   %or.cond.not.i.i = icmp ult i32 %17, %14
   %spec.select.i.i = select i1 %or.cond.not.i.i, i32 %16, i32 %14
   %cmp915.i.i = icmp ugt i32 %spec.select.i.i, 1
-  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
+  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %riscv_imsic_update.exit
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
   %eistate.i.i = getelementptr inbounds i8, ptr %imsic, i64 1128
@@ -987,7 +981,7 @@ for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %19 = trunc i64 %indvars.iv.i.i to i32
+  %19 = trunc nuw i64 %indvars.iv.i.i to i32
   %add.i.i = add i32 %mul.i.i, %19
   %idxprom10.i.i = zext i32 %add.i.i to i64
   %arrayidx11.i.i = getelementptr i32, ptr %18, i64 %idxprom10.i.i
@@ -999,19 +993,17 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
 
 riscv_imsic_topei.exit.i:                         ; preds = %for.body.i.i
   %shl.i.i = shl i32 %19, 16
   %or.i.i = or i32 %shl.i.i, %19
-  %tobool1.not.i = icmp eq i32 %or.i.i, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %riscv_imsic_update.exit
-
-if.else.i:                                        ; preds = %for.inc.i.i, %riscv_imsic_topei.exit.i, %land.lhs.true.i, %if.end6
+  %tobool1.not.i = icmp ne i32 %or.i.i, 0
+  %spec.select.i13 = zext i1 %tobool1.not.i to i32
   br label %riscv_imsic_update.exit
 
-riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
-  %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
+riscv_imsic_update.exit:                          ; preds = %for.inc.i.i, %if.end6, %land.lhs.true.i, %riscv_imsic_topei.exit.i
+  %.sink12.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %if.end6 ], [ %spec.select.i13, %riscv_imsic_topei.exit.i ], [ 0, %for.inc.i.i ]
   %external_irqs4.i = getelementptr inbounds i8, ptr %imsic, i64 816
   %21 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %21, i64 %idxprom.i
@@ -1071,7 +1063,7 @@ for.body:                                         ; preds = %if.then10, %for.bod
   %indvars.iv = phi i64 [ 0, %if.then10 ], [ %indvars.iv.next, %for.body ]
   %shl = shl nuw i64 1, %indvars.iv
   %2 = load ptr, ptr %eistate, align 8
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %add12 = add i32 %add, %3
   %idxprom = zext i32 %add12 to i64
   %arrayidx = getelementptr i32, ptr %2, i64 %idxprom
@@ -1093,7 +1085,7 @@ if.end16:                                         ; preds = %for.body, %if.end6.
 
 for.body19:                                       ; preds = %if.end16, %for.inc44
   %indvars.iv37 = phi i64 [ 0, %if.end16 ], [ %indvars.iv.next38, %for.inc44 ]
-  %5 = trunc i64 %indvars.iv37 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv37 to i32
   %6 = or i32 %num.addr.0, %5
   %or.cond.not = icmp eq i32 %6, 0
   br i1 %or.cond.not, label %for.inc44, label %if.end23
@@ -1130,7 +1122,7 @@ for.end46:                                        ; preds = %for.inc44
   %arrayidx.i = getelementptr i32, ptr %9, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i = icmp eq i32 %10, 0
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %riscv_imsic_update.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.end46
   %11 = load i32, ptr %num_irqs, align 4
@@ -1144,7 +1136,7 @@ land.lhs.true.i:                                  ; preds = %for.end46
   %or.cond.not.i.i = icmp ult i32 %15, %12
   %spec.select.i.i = select i1 %or.cond.not.i.i, i32 %14, i32 %12
   %cmp915.i.i = icmp ugt i32 %spec.select.i.i, 1
-  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %if.else.i
+  br i1 %cmp915.i.i, label %for.body.lr.ph.i.i, label %riscv_imsic_update.exit
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
   %16 = load ptr, ptr %eistate32, align 8
@@ -1153,7 +1145,7 @@ for.body.lr.ph.i.i:                               ; preds = %land.lhs.true.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %17 = trunc i64 %indvars.iv.i.i to i32
+  %17 = trunc nuw i64 %indvars.iv.i.i to i32
   %add.i.i = add i32 %mul.i.i, %17
   %idxprom10.i.i = zext i32 %add.i.i to i64
   %arrayidx11.i.i = getelementptr i32, ptr %16, i64 %idxprom10.i.i
@@ -1165,19 +1157,17 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if.else.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %riscv_imsic_update.exit, label %for.body.i.i, !llvm.loop !8
 
 riscv_imsic_topei.exit.i:                         ; preds = %for.body.i.i
   %shl.i.i = shl i32 %17, 16
   %or.i.i = or i32 %shl.i.i, %17
-  %tobool1.not.i = icmp eq i32 %or.i.i, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %riscv_imsic_update.exit
-
-if.else.i:                                        ; preds = %for.inc.i.i, %riscv_imsic_topei.exit.i, %land.lhs.true.i, %for.end46
+  %tobool1.not.i = icmp ne i32 %or.i.i, 0
+  %spec.select.i = zext i1 %tobool1.not.i to i32
   br label %riscv_imsic_update.exit
 
-riscv_imsic_update.exit:                          ; preds = %riscv_imsic_topei.exit.i, %if.else.i
-  %.sink12.i = phi i32 [ 0, %if.else.i ], [ 1, %riscv_imsic_topei.exit.i ]
+riscv_imsic_update.exit:                          ; preds = %for.inc.i.i, %for.end46, %land.lhs.true.i, %riscv_imsic_topei.exit.i
+  %.sink12.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %for.end46 ], [ %spec.select.i, %riscv_imsic_topei.exit.i ], [ 0, %for.inc.i.i ]
   %external_irqs4.i = getelementptr inbounds i8, ptr %imsic, i64 816
   %19 = load ptr, ptr %external_irqs4.i, align 16
   %arrayidx6.i = getelementptr ptr, ptr %19, i64 %idxprom.i

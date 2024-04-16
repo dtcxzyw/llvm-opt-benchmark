@@ -377,19 +377,18 @@ ehcleanup:                                        ; preds = %lpad21, %lpad.i, %l
 
 sw.bb25:                                          ; preds = %if.end
   %call.i13 = call noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedState7IsEmptyEv(ptr noundef nonnull align 8 dereferenceable(384) %call)
-  br i1 %call.i13, label %if.else.i19, label %land.lhs.true.i14
+  br i1 %call.i13, label %do.body5.i, label %land.lhs.true.i14
 
 land.lhs.true.i14:                                ; preds = %sw.bb25
   %call2.i15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3net22QuicCryptoClientConfig11CachedState9signatureB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(384) %call)
   %call3.i16 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %call2.i15) #19
-  br i1 %call3.i16, label %if.else.i19, label %do.body5.i
-
-if.else.i19:                                      ; preds = %land.lhs.true.i14, %sw.bb25
+  %spec.select.i = select i1 %call3.i16, i32 10, i32 4
+  %spec.select4.i = zext i1 %call3.i16 to i32
   br label %do.body5.i
 
-do.body5.i:                                       ; preds = %if.else.i19, %land.lhs.true.i14
-  %.sink.i17 = phi i32 [ 10, %if.else.i19 ], [ 4, %land.lhs.true.i14 ]
-  %update_ignored.0.i = phi i32 [ 1, %if.else.i19 ], [ 0, %land.lhs.true.i14 ]
+do.body5.i:                                       ; preds = %land.lhs.true.i14, %sw.bb25
+  %.sink.i17 = phi i32 [ 10, %sw.bb25 ], [ %spec.select.i, %land.lhs.true.i14 ]
+  %update_ignored.0.i = phi i32 [ 1, %sw.bb25 ], [ %spec.select4.i, %land.lhs.true.i14 ]
   store i32 %.sink.i17, ptr %next_state_, align 8
   %7 = load atomic volatile i64, ptr @_ZZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateEE24atomic_histogram_pointer acquire, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -1854,7 +1853,7 @@ if.end78:                                         ; preds = %invoke.cont70
           to label %invoke.cont79 unwind label %lpad50
 
 invoke.cont79:                                    ; preds = %if.end78
-  br i1 %call80, label %if.end88, label %if.then81
+  br i1 %call80, label %cleanup.sink.split, label %if.then81
 
 if.then81:                                        ; preds = %invoke.cont79
   %call83 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3net22QuicCryptoClientConfig11CachedState9signatureB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(384) %cached)
@@ -1862,13 +1861,11 @@ if.then81:                                        ; preds = %invoke.cont79
 
 invoke.cont82:                                    ; preds = %if.then81
   %call84 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %call83) #19
-  br i1 %call84, label %if.end88, label %cleanup.sink.split
-
-if.end88:                                         ; preds = %invoke.cont82, %invoke.cont79
+  %spec.select = select i1 %call84, i32 6, i32 4
   br label %cleanup.sink.split
 
-cleanup.sink.split:                               ; preds = %invoke.cont82, %if.end88
-  %.sink = phi i32 [ 6, %if.end88 ], [ 4, %invoke.cont82 ]
+cleanup.sink.split:                               ; preds = %invoke.cont82, %invoke.cont79
+  %.sink = phi i32 [ 6, %invoke.cont79 ], [ %spec.select, %invoke.cont82 ]
   %next_state_89 = getelementptr inbounds i8, ptr %this, i64 1048
   store i32 %.sink, ptr %next_state_89, align 8
   br label %cleanup
@@ -2686,19 +2683,18 @@ eh.resume:                                        ; preds = %ehcleanup124, %ehcl
 define dso_local void @_ZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1268) %this, ptr noundef nonnull %cached) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK3net22QuicCryptoClientConfig11CachedState7IsEmptyEv(ptr noundef nonnull align 8 dereferenceable(384) %cached)
-  br i1 %call, label %if.else, label %land.lhs.true
+  br i1 %call, label %do.body5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3net22QuicCryptoClientConfig11CachedState9signatureB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(384) %cached)
   %call3 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %call2) #19
-  br i1 %call3, label %if.else, label %do.body5
-
-if.else:                                          ; preds = %land.lhs.true, %entry
+  %spec.select = select i1 %call3, i32 10, i32 4
+  %spec.select4 = zext i1 %call3 to i32
   br label %do.body5
 
-do.body5:                                         ; preds = %land.lhs.true, %if.else
-  %.sink = phi i32 [ 10, %if.else ], [ 4, %land.lhs.true ]
-  %update_ignored.0 = phi i32 [ 1, %if.else ], [ 0, %land.lhs.true ]
+do.body5:                                         ; preds = %land.lhs.true, %entry
+  %.sink = phi i32 [ 10, %entry ], [ %spec.select, %land.lhs.true ]
+  %update_ignored.0 = phi i32 [ 1, %entry ], [ %spec.select4, %land.lhs.true ]
   %next_state_4 = getelementptr inbounds i8, ptr %this, i64 1048
   store i32 %.sink, ptr %next_state_4, align 8
   %0 = load atomic volatile i64, ptr @_ZZN3net22QuicCryptoClientStream30DoInitializeServerConfigUpdateEPNS_22QuicCryptoClientConfig11CachedStateEE24atomic_histogram_pointer acquire, align 8

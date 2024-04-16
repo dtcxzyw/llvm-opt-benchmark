@@ -226,16 +226,16 @@ if.then:                                          ; preds = %entry
   %strings.i = getelementptr inbounds i8, ptr %ui, i64 8
   %0 = load ptr, ptr %strings.i, align 8
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %if.then.i, label %if.then3
+  br i1 %cmp.i, label %allocate_string_stack.exit, label %if.then3
 
-if.then.i:                                        ; preds = %if.then
+allocate_string_stack.exit:                       ; preds = %if.then
   %call.i = tail call ptr @OPENSSL_sk_new_null() #7
   store ptr %call.i, ptr %strings.i, align 8
-  %cmp3.i = icmp eq ptr %call.i, null
-  br i1 %cmp3.i, label %if.else, label %if.then3
+  %cmp3.i.not = icmp eq ptr %call.i, null
+  br i1 %cmp3.i.not, label %if.else, label %if.then3
 
-if.then3:                                         ; preds = %if.then, %if.then.i
-  %1 = phi ptr [ %0, %if.then ], [ %call.i, %if.then.i ]
+if.then3:                                         ; preds = %if.then, %allocate_string_stack.exit
+  %1 = phi ptr [ %0, %if.then ], [ %call.i, %allocate_string_stack.exit ]
   %_ = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %minsize, ptr %_, align 8
   %result_maxsize = getelementptr inbounds i8, ptr %call, i64 44
@@ -267,7 +267,7 @@ sw.bb.i:                                          ; preds = %if.then.i11
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 56) #7
   br label %if.end13.sink.split.sink.split
 
-if.else:                                          ; preds = %if.then.i
+if.else:                                          ; preds = %allocate_string_stack.exit
   %flags.i12 = getelementptr inbounds i8, ptr %call, i64 64
   %6 = load i32, ptr %flags.i12, align 8
   %and.i13 = and i32 %6, 1
@@ -423,16 +423,16 @@ if.then13:                                        ; preds = %for.end
   %strings.i = getelementptr inbounds i8, ptr %ui, i64 8
   %3 = load ptr, ptr %strings.i, align 8
   %cmp.i = icmp eq ptr %3, null
-  br i1 %cmp.i, label %if.then.i, label %if.then17
+  br i1 %cmp.i, label %allocate_string_stack.exit, label %if.then17
 
-if.then.i:                                        ; preds = %if.then13
+allocate_string_stack.exit:                       ; preds = %if.then13
   %call.i = tail call ptr @OPENSSL_sk_new_null() #7
   store ptr %call.i, ptr %strings.i, align 8
-  %cmp3.i = icmp eq ptr %call.i, null
-  br i1 %cmp3.i, label %if.else30, label %if.then17
+  %cmp3.i.not = icmp eq ptr %call.i, null
+  br i1 %cmp3.i.not, label %if.else30, label %if.then17
 
-if.then17:                                        ; preds = %if.then13, %if.then.i
-  %4 = phi ptr [ %3, %if.then13 ], [ %call.i, %if.then.i ]
+if.then17:                                        ; preds = %if.then13, %allocate_string_stack.exit
+  %4 = phi ptr [ %3, %if.then13 ], [ %call.i, %allocate_string_stack.exit ]
   %_ = getelementptr inbounds i8, ptr %call10, i64 40
   store ptr %action_desc, ptr %_, align 8
   %ok_chars20 = getelementptr inbounds i8, ptr %call10, i64 48
@@ -472,7 +472,7 @@ free_string.exit:                                 ; preds = %if.then28, %if.then
   tail call void @CRYPTO_free(ptr noundef nonnull %call10, ptr noundef nonnull @.str, i32 noundef 68) #7
   br label %if.end34
 
-if.else30:                                        ; preds = %if.then.i
+if.else30:                                        ; preds = %allocate_string_stack.exit
   %flags.i18 = getelementptr inbounds i8, ptr %call10, i64 64
   %11 = load i32, ptr %flags.i18, align 8
   %and.i19 = and i32 %11, 1
@@ -1073,7 +1073,7 @@ if.end72:                                         ; preds = %land.lhs.true60, %i
 declare void @ERR_print_errors_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @print_error(ptr noundef %str, i64 %len, ptr noundef %ui) #0 {
+define internal i32 @print_error(ptr noundef %str, i64 %len, ptr noundef %ui) #0 {
 entry:
   %uis = alloca %struct.ui_string_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %uis, i8 0, i64 72, i1 false)
@@ -1084,18 +1084,16 @@ entry:
   %ui_write_string = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %ui_write_string, align 8
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call = call i32 %1(ptr noundef nonnull %ui, ptr noundef nonnull %uis) #7
   %cmp3 = icmp slt i32 %call, 1
-  br i1 %cmp3, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %spec.select = sext i1 %cmp3 to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ -1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

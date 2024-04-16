@@ -287,7 +287,7 @@ Mpm_CutSetupInfo.exit:                            ; preds = %Mpm_CutGetArea.exit
 
 148:                                              ; preds = %151, %143
   %indvars.iv = phi i64 [ %152, %151 ], [ %147, %143 ]
-  %149 = trunc i64 %indvars.iv to i32
+  %149 = trunc nuw i64 %indvars.iv to i32
   %150 = icmp sgt i32 %149, 0
   br i1 %150, label %151, label %._crit_edge
 
@@ -365,7 +365,7 @@ Mpm_CutSetupInfo.exit:                            ; preds = %Mpm_CutGetArea.exit
   br i1 %exitcond.not.i.i, label %Mpm_CutIsContained.exit.thread, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.loopexit.split.loop.exit13.i.i:       ; preds = %.lr.ph.i.i
-  %183 = trunc i64 %indvars.iv.i.i to i32
+  %183 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %184 = icmp eq i32 %160, %183
   br i1 %184, label %Mpm_CutIsContained.exit.thread, label %176
 
@@ -497,7 +497,7 @@ Mpm_CutIsContained.exit.thread:                   ; preds = %._crit_edge.loopexi
   br i1 %exitcond.not.i.i109, label %Mpm_CutIsContained.exit114.thread, label %.lr.ph.i.i105, !llvm.loop !9
 
 ._crit_edge.loopexit.split.loop.exit13.i.i111:    ; preds = %.lr.ph.i.i105
-  %236 = trunc i64 %indvars.iv.i.i106 to i32
+  %236 = trunc nuw nsw i64 %indvars.iv.i.i106 to i32
   %237 = icmp eq i32 %220, %236
   br i1 %237, label %Mpm_CutIsContained.exit114.thread, label %229
 
@@ -864,7 +864,7 @@ define internal fastcc ptr @Mpm_ManMergeCuts(ptr nocapture noundef %0, ptr nocap
   br i1 %exitcond.not.i, label %Mpm_CutFindLeaf.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.loopexit.split.loop.exit13.i:         ; preds = %.lr.ph.i
-  %53 = trunc i64 %indvars.iv.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Mpm_CutFindLeaf.exit
 
 Mpm_CutFindLeaf.exit:                             ; preds = %43, %._crit_edge.loopexit.split.loop.exit13.i
@@ -893,7 +893,7 @@ Mpm_CutFindLeaf.exit.thread:                      ; preds = %52, %Mpm_CutFindLea
 64:                                               ; preds = %57, %Mpm_CutFindLeaf.exit
   %.0.lcssa.i139 = phi i32 [ %.0.lcssa.i140, %57 ], [ %.0.lcssa.i, %Mpm_CutFindLeaf.exit ]
   %65 = phi i32 [ %.pre, %57 ], [ %44, %Mpm_CutFindLeaf.exit ]
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = and i32 %66, 7
   %68 = xor i32 %67, 7
   %69 = mul nsw i32 %.0.lcssa.i139, 3
@@ -975,7 +975,7 @@ Mpm_CutFindLeaf.exit.thread:                      ; preds = %52, %Mpm_CutFindLea
   br i1 %exitcond.not.i98, label %Mpm_CutFindLeaf.exit101, label %.lr.ph.i95, !llvm.loop !9
 
 ._crit_edge.loopexit.split.loop.exit13.i100:      ; preds = %.lr.ph.i95
-  %105 = trunc i64 %indvars.iv.i96 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv.i96 to i32
   br label %Mpm_CutFindLeaf.exit101
 
 Mpm_CutFindLeaf.exit101:                          ; preds = %104, %94, %._crit_edge.loopexit.split.loop.exit13.i100
@@ -1074,7 +1074,7 @@ Mpm_CutFindLeaf.exit101:                          ; preds = %104, %94, %._crit_e
 .lr.ph.preheader.i103:                            ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.i ]
   %indvars.iv.i104 = phi i64 [ 1, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i107, %._crit_edge.i ]
-  %158 = trunc i64 %indvars.iv32.i to i32
+  %158 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i105
 
 .lr.ph.i105:                                      ; preds = %.lr.ph.i105, %.lr.ph.preheader.i103
@@ -1086,7 +1086,7 @@ Mpm_CutFindLeaf.exit101:                          ; preds = %104, %94, %._crit_e
   %162 = getelementptr inbounds i32, ptr %12, i64 %161
   %163 = load i32, ptr %162, align 4
   %164 = icmp slt i32 %160, %163
-  %165 = trunc i64 %indvars.iv29.i to i32
+  %165 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %spec.select.i = select i1 %164, i32 %165, i32 %.024.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i102
@@ -2193,7 +2193,7 @@ define internal fastcc void @Mpm_ManExploreNewCut(ptr noundef %0, ptr nocapture 
   %27 = icmp ugt i32 %.val74, -3
   %28 = icmp ult i32 %.val78, -2
   %or.cond107 = select i1 %27, i1 true, i1 %28
-  br i1 %or.cond107, label %Mig_ObjIsXor.exit.thread.i, label %Mig_ObjIsAnd.exit.i
+  br i1 %or.cond107, label %Mig_ObjNodeType.exit, label %Mig_ObjIsAnd.exit.i
 
 Mig_ObjIsAnd.exit.i:                              ; preds = %21
   %29 = lshr i32 %.val70, 1
@@ -2204,13 +2204,11 @@ Mig_ObjIsAnd.exit.i:                              ; preds = %21
 Mig_ObjIsXor.exit.i:                              ; preds = %Mig_ObjIsAnd.exit.i
   %31 = icmp ule i32 %29, %30
   %cond.fr.i = freeze i1 %31
-  br i1 %cond.fr.i, label %Mig_ObjIsXor.exit.thread.i, label %Mig_ObjNodeType.exit
-
-Mig_ObjIsXor.exit.thread.i:                       ; preds = %Mig_ObjIsXor.exit.i, %21
+  %spec.select.i = select i1 %cond.fr.i, i32 3, i32 2
   br label %Mig_ObjNodeType.exit
 
-Mig_ObjNodeType.exit:                             ; preds = %Mig_ObjIsAnd.exit.i, %Mig_ObjIsXor.exit.i, %Mig_ObjIsXor.exit.thread.i
-  %32 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i ], [ 3, %Mig_ObjIsXor.exit.thread.i ], [ 2, %Mig_ObjIsXor.exit.i ]
+Mig_ObjNodeType.exit:                             ; preds = %21, %Mig_ObjIsAnd.exit.i, %Mig_ObjIsXor.exit.i
+  %32 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i ], [ 3, %21 ], [ %spec.select.i, %Mig_ObjIsXor.exit.i ]
   %33 = tail call i32 @Mpm_CutComputeTruth(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef %32) #19
   br label %89
 
@@ -2232,7 +2230,7 @@ Mig_ObjNodeType.exit:                             ; preds = %Mig_ObjIsAnd.exit.i
   %43 = icmp ugt i32 %.val75, -3
   %44 = icmp ult i32 %.val79, -2
   %or.cond108 = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond108, label %Mig_ObjIsXor.exit.thread.i88, label %Mig_ObjIsAnd.exit.i84
+  br i1 %or.cond108, label %Mig_ObjNodeType.exit89, label %Mig_ObjIsAnd.exit.i84
 
 Mig_ObjIsAnd.exit.i84:                            ; preds = %37
   %45 = lshr i32 %.val71, 1
@@ -2243,13 +2241,11 @@ Mig_ObjIsAnd.exit.i84:                            ; preds = %37
 Mig_ObjIsXor.exit.i86:                            ; preds = %Mig_ObjIsAnd.exit.i84
   %47 = icmp ule i32 %45, %46
   %cond.fr.i87 = freeze i1 %47
-  br i1 %cond.fr.i87, label %Mig_ObjIsXor.exit.thread.i88, label %Mig_ObjNodeType.exit89
-
-Mig_ObjIsXor.exit.thread.i88:                     ; preds = %Mig_ObjIsXor.exit.i86, %37
+  %spec.select.i88 = select i1 %cond.fr.i87, i32 3, i32 2
   br label %Mig_ObjNodeType.exit89
 
-Mig_ObjNodeType.exit89:                           ; preds = %Mig_ObjIsAnd.exit.i84, %Mig_ObjIsXor.exit.i86, %Mig_ObjIsXor.exit.thread.i88
-  %48 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i84 ], [ 3, %Mig_ObjIsXor.exit.thread.i88 ], [ 2, %Mig_ObjIsXor.exit.i86 ]
+Mig_ObjNodeType.exit89:                           ; preds = %37, %Mig_ObjIsAnd.exit.i84, %Mig_ObjIsXor.exit.i86
+  %48 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i84 ], [ 3, %37 ], [ %spec.select.i88, %Mig_ObjIsXor.exit.i86 ]
   %49 = tail call i32 @Mpm_CutComputeDsd6(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %38, i32 noundef %40, i32 noundef %42, i32 noundef %48) #19
   %.not67 = icmp eq i32 %49, 0
   br i1 %.not67, label %115, label %89
@@ -2280,7 +2276,7 @@ Mig_ObjNodeType.exit89:                           ; preds = %Mig_ObjIsAnd.exit.i
   %65 = icmp ugt i32 %.val76, -3
   %66 = icmp ult i32 %.val80, -2
   %or.cond109 = select i1 %65, i1 true, i1 %66
-  br i1 %or.cond109, label %Mig_ObjIsXor.exit.thread.i96, label %Mig_ObjIsAnd.exit.i92
+  br i1 %or.cond109, label %Mig_ObjNodeType.exit97, label %Mig_ObjIsAnd.exit.i92
 
 Mig_ObjIsAnd.exit.i92:                            ; preds = %58
   %67 = lshr i32 %.val72, 1
@@ -2291,13 +2287,11 @@ Mig_ObjIsAnd.exit.i92:                            ; preds = %58
 Mig_ObjIsXor.exit.i94:                            ; preds = %Mig_ObjIsAnd.exit.i92
   %69 = icmp ule i32 %67, %68
   %cond.fr.i95 = freeze i1 %69
-  br i1 %cond.fr.i95, label %Mig_ObjIsXor.exit.thread.i96, label %Mig_ObjNodeType.exit97
-
-Mig_ObjIsXor.exit.thread.i96:                     ; preds = %Mig_ObjIsXor.exit.i94, %58
+  %spec.select.i96 = select i1 %cond.fr.i95, i32 3, i32 2
   br label %Mig_ObjNodeType.exit97
 
-Mig_ObjNodeType.exit97:                           ; preds = %Mig_ObjIsAnd.exit.i92, %Mig_ObjIsXor.exit.i94, %Mig_ObjIsXor.exit.thread.i96
-  %70 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i92 ], [ 3, %Mig_ObjIsXor.exit.thread.i96 ], [ 2, %Mig_ObjIsXor.exit.i94 ]
+Mig_ObjNodeType.exit97:                           ; preds = %58, %Mig_ObjIsAnd.exit.i92, %Mig_ObjIsXor.exit.i94
+  %70 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i92 ], [ 3, %58 ], [ %spec.select.i96, %Mig_ObjIsXor.exit.i94 ]
   %71 = tail call i32 @Mpm_CutComputeTruth(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %4, i32 noundef %60, i32 noundef %61, i32 noundef %64, i32 noundef %70) #19
   br label %89
 
@@ -2320,7 +2314,7 @@ Mig_ObjNodeType.exit97:                           ; preds = %Mig_ObjIsAnd.exit.i
   %82 = icmp ugt i32 %.val77, -3
   %83 = icmp ult i32 %.val81, -2
   %or.cond110 = select i1 %82, i1 true, i1 %83
-  br i1 %or.cond110, label %Mig_ObjIsXor.exit.thread.i104, label %Mig_ObjIsAnd.exit.i100
+  br i1 %or.cond110, label %Mig_ObjNodeType.exit105, label %Mig_ObjIsAnd.exit.i100
 
 Mig_ObjIsAnd.exit.i100:                           ; preds = %75
   %84 = lshr i32 %.val73, 1
@@ -2331,13 +2325,11 @@ Mig_ObjIsAnd.exit.i100:                           ; preds = %75
 Mig_ObjIsXor.exit.i102:                           ; preds = %Mig_ObjIsAnd.exit.i100
   %86 = icmp ule i32 %84, %85
   %cond.fr.i103 = freeze i1 %86
-  br i1 %cond.fr.i103, label %Mig_ObjIsXor.exit.thread.i104, label %Mig_ObjNodeType.exit105
-
-Mig_ObjIsXor.exit.thread.i104:                    ; preds = %Mig_ObjIsXor.exit.i102, %75
+  %spec.select.i104 = select i1 %cond.fr.i103, i32 3, i32 2
   br label %Mig_ObjNodeType.exit105
 
-Mig_ObjNodeType.exit105:                          ; preds = %Mig_ObjIsAnd.exit.i100, %Mig_ObjIsXor.exit.i102, %Mig_ObjIsXor.exit.thread.i104
-  %87 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i100 ], [ 3, %Mig_ObjIsXor.exit.thread.i104 ], [ 2, %Mig_ObjIsXor.exit.i102 ]
+Mig_ObjNodeType.exit105:                          ; preds = %75, %Mig_ObjIsAnd.exit.i100, %Mig_ObjIsXor.exit.i102
+  %87 = phi i32 [ 1, %Mig_ObjIsAnd.exit.i100 ], [ 3, %75 ], [ %spec.select.i104, %Mig_ObjIsXor.exit.i102 ]
   %88 = tail call i32 @Mpm_CutComputeDsd6(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %4, i32 noundef %77, i32 noundef %78, i32 noundef %81, i32 noundef %87) #19
   %.not64 = icmp eq i32 %88, 0
   br i1 %.not64, label %115, label %89
@@ -3873,7 +3865,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %89, %Vec_IntGrow.ex
   %105 = load ptr, ptr %102, align 8
   %106 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv.i.i.i
   %107 = load i32, ptr %106, align 4
-  %108 = trunc i64 %indvars.iv.i.i.i to i32
+  %108 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %109 = xor i32 %108, -1
   %110 = add i32 %104, %109
   %111 = sext i32 %110 to i64
@@ -3975,7 +3967,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #19
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #19
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3994,7 +3986,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4005,22 +3997,22 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #10
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
@@ -4055,9 +4047,9 @@ attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nofree nounwind }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

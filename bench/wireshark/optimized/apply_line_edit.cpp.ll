@@ -1149,58 +1149,54 @@ define noundef zeroext i1 @_ZN13ApplyLineEdit11isValidTextER7QStringb(ptr nounde
   %16 = getelementptr inbounds i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8
   %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %19, label %31
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   call void @_ZN18QRegularExpressionC1ERK7QString6QFlagsINS_13PatternOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %20, i32 0)
   invoke void @_ZN27QRegularExpressionValidatorC1ERK18QRegularExpressionP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
-          to label %21 unwind label %26
+          to label %21 unwind label %27
 
 21:                                               ; preds = %19
   store i32 0, ptr %6, align 4
   %22 = invoke noundef zeroext i1 @_ZNK18QRegularExpression7isValidEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %23 unwind label %28
+          to label %23 unwind label %29
 
 23:                                               ; preds = %21
-  br i1 %22, label %24, label %.critedge.critedge
+  br i1 %22, label %24, label %31
 
 24:                                               ; preds = %23
   %25 = invoke noundef i32 @_ZNK27QRegularExpressionValidator8validateER7QStringRi(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %select.unfold unwind label %28
+          to label %26 unwind label %29
 
-select.unfold:                                    ; preds = %24
+26:                                               ; preds = %24
   %.not = icmp eq i32 %25, 2
+  br label %31
+
+27:                                               ; preds = %19
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  br label %32
+
+29:                                               ; preds = %24, %21
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN27QRegularExpressionValidatorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  br label %32
+
+31:                                               ; preds = %26, %23
+  %.0 = phi i1 [ false, %23 ], [ %.not, %26 ]
   call void @_ZN27QRegularExpressionValidatorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
-  br i1 %.not, label %31, label %.critedge
+  br label %.critedge
 
-26:                                               ; preds = %19
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  br label %30
-
-28:                                               ; preds = %24, %21
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN27QRegularExpressionValidatorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
-  br label %30
-
-30:                                               ; preds = %28, %26
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
+32:                                               ; preds = %29, %27
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
   call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   resume { ptr, i32 } %.pn
 
-31:                                               ; preds = %select.unfold, %15
-  br label %.critedge
-
-.critedge.critedge:                               ; preds = %23
-  call void @_ZN27QRegularExpressionValidatorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
-  call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.critedge, %10, %11, %select.unfold, %31
-  %.1 = phi i1 [ false, %select.unfold ], [ true, %31 ], [ false, %11 ], [ true, %10 ], [ false, %.critedge.critedge ]
+.critedge:                                        ; preds = %31, %10, %11, %15
+  %.1 = phi i1 [ false, %11 ], [ true, %15 ], [ true, %10 ], [ %.0, %31 ]
   ret i1 %.1
 }
 
@@ -1254,10 +1250,10 @@ define void @_ZN13ApplyLineEdit11resizeEventEP12QResizeEvent(ptr noundef nonnull
   %22 = tail call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %23 = extractvalue { i64, i64 } %22, 0
   %.sroa.12.0.extract.shift = lshr i64 %23, 32
-  %.sroa.12.0.extract.trunc = trunc i64 %.sroa.12.0.extract.shift to i32
+  %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
   %24 = tail call i64 @_ZNK7QWidget3posEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.sroa.1.0.extract.shift = lshr i64 %24, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %25 = add i32 %.sroa.12.0.extract.trunc, %.sroa.1.0.extract.trunc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %21, ptr %3, align 4

@@ -78,10 +78,10 @@ define internal i32 @index_encode(ptr noundef %0, ptr nocapture readnone %1, ptr
   %.pre = load i32, ptr %0, align 8
   br label %15
 
-15:                                               ; preds = %.lr.ph, %68
-  %16 = phi i32 [ %.pre, %.lr.ph ], [ %69, %68 ]
-  %17 = phi i32 [ %.pre, %.lr.ph ], [ %70, %68 ]
-  %.promoted = phi i64 [ %10, %.lr.ph ], [ %71, %68 ]
+15:                                               ; preds = %.lr.ph, %67
+  %16 = phi i32 [ %.pre, %.lr.ph ], [ %68, %67 ]
+  %17 = phi i32 [ %.pre, %.lr.ph ], [ %69, %67 ]
+  %.promoted = phi i64 [ %10, %.lr.ph ], [ %70, %67 ]
   %.fr = freeze i32 %16
   switch i32 %17, label %.loopexit [
     i32 0, label %18
@@ -89,7 +89,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr nocapture readnone %1, ptr
     i32 4, label %26
     i32 2, label %32
     i32 3, label %32
-    i32 5, label %42
+    i32 5, label %41
     i32 6, label %.loopexit71
   ]
 
@@ -99,7 +99,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr nocapture readnone %1, ptr
   %20 = add nuw i64 %.promoted, 1
   store i64 %20, ptr %6, align 8
   store i32 1, ptr %0, align 8
-  br label %68
+  br label %67
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %14, align 8
@@ -111,7 +111,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr nocapture readnone %1, ptr
 25:                                               ; preds = %21
   store i64 0, ptr %12, align 8
   store i32 4, ptr %0, align 8
-  br label %68
+  br label %67
 
 26:                                               ; preds = %15
   %27 = tail call zeroext i8 @lzma_index_iter_next(ptr noundef nonnull %13, i32 noundef 2) #4
@@ -124,7 +124,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr nocapture readnone %1, ptr
   %31 = zext i32 %30 to i64
   store i64 %31, ptr %12, align 8
   store i32 5, ptr %0, align 8
-  br label %68
+  br label %67
 
 .thread:                                          ; preds = %26
   store i32 2, ptr %0, align 8
@@ -132,100 +132,98 @@ define internal i32 @index_encode(ptr noundef %0, ptr nocapture readnone %1, ptr
 
 32:                                               ; preds = %15, %15
   %33 = icmp eq i32 %.fr, 2
-  br i1 %33, label %34, label %35
+  %spec.select = select i1 %33, i64 192, i64 184
+  br label %34
 
-34:                                               ; preds = %.thread, %32
-  br label %35
+34:                                               ; preds = %32, %.thread
+  %35 = phi i64 [ 192, %.thread ], [ %spec.select, %32 ]
+  %.in = getelementptr inbounds i8, ptr %0, i64 %35
+  %36 = load i64, ptr %.in, align 8
+  %37 = tail call i32 @lzma_vli_encode(i64 noundef %36, ptr noundef nonnull %12, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7) #4
+  %.not68 = icmp eq i32 %37, 1
+  br i1 %.not68, label %38, label %._crit_edge.loopexit
 
-35:                                               ; preds = %32, %34
-  %36 = phi i64 [ 192, %34 ], [ 184, %32 ]
-  %.in = getelementptr inbounds i8, ptr %0, i64 %36
-  %37 = load i64, ptr %.in, align 8
-  %38 = tail call i32 @lzma_vli_encode(i64 noundef %37, ptr noundef nonnull %12, ptr noundef %5, ptr noundef nonnull %6, i64 noundef %7) #4
-  %.not68 = icmp eq i32 %38, 1
-  br i1 %.not68, label %39, label %._crit_edge.loopexit
-
-39:                                               ; preds = %35
+38:                                               ; preds = %34
   store i64 0, ptr %12, align 8
-  %40 = load i32, ptr %0, align 8
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %0, align 8
-  br label %68
+  %39 = load i32, ptr %0, align 8
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %0, align 8
+  br label %67
 
-42:                                               ; preds = %15
-  %43 = load i64, ptr %12, align 8
-  %.not = icmp eq i64 %43, 0
-  br i1 %.not, label %48, label %44
+41:                                               ; preds = %15
+  %42 = load i64, ptr %12, align 8
+  %.not = icmp eq i64 %42, 0
+  br i1 %.not, label %47, label %43
 
-44:                                               ; preds = %42
-  %45 = add i64 %43, -1
-  store i64 %45, ptr %12, align 8
-  %46 = add nuw i64 %.promoted, 1
-  store i64 %46, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 %.promoted
-  store i8 0, ptr %47, align 1
-  br label %68
+43:                                               ; preds = %41
+  %44 = add i64 %42, -1
+  store i64 %44, ptr %12, align 8
+  %45 = add nuw i64 %.promoted, 1
+  store i64 %45, ptr %6, align 8
+  %46 = getelementptr inbounds i8, ptr %5, i64 %.promoted
+  store i8 0, ptr %46, align 1
+  br label %67
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %5, i64 %10
-  %50 = sub i64 %.promoted, %10
-  %51 = getelementptr inbounds i8, ptr %0, i64 328
-  %52 = load i32, ptr %51, align 8
-  %53 = tail call i32 @lzma_crc32(ptr noundef %49, i64 noundef %50, i32 noundef %52) #5
-  store i32 %53, ptr %51, align 8
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds i8, ptr %5, i64 %10
+  %49 = sub i64 %.promoted, %10
+  %50 = getelementptr inbounds i8, ptr %0, i64 328
+  %51 = load i32, ptr %50, align 8
+  %52 = tail call i32 @lzma_crc32(ptr noundef %48, i64 noundef %49, i32 noundef %51) #5
+  store i32 %52, ptr %50, align 8
   store i32 6, ptr %0, align 8
   br label %.loopexit71
 
-.loopexit71:                                      ; preds = %15, %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 328
-  br label %55
+.loopexit71:                                      ; preds = %15, %47
+  %53 = getelementptr inbounds i8, ptr %0, i64 328
+  br label %54
 
-55:                                               ; preds = %58, %.loopexit71
-  %56 = phi i64 [ %65, %58 ], [ %.promoted, %.loopexit71 ]
-  %57 = icmp eq i64 %56, %7
-  br i1 %57, label %.loopexit, label %58
+54:                                               ; preds = %57, %.loopexit71
+  %55 = phi i64 [ %64, %57 ], [ %.promoted, %.loopexit71 ]
+  %56 = icmp eq i64 %55, %7
+  br i1 %56, label %.loopexit, label %57
 
-58:                                               ; preds = %55
-  %59 = load i32, ptr %54, align 8
-  %60 = load i64, ptr %12, align 8
-  %.tr = trunc i64 %60 to i32
-  %61 = shl i32 %.tr, 3
-  %62 = lshr i32 %59, %61
-  %63 = trunc i32 %62 to i8
-  %64 = getelementptr inbounds i8, ptr %5, i64 %56
-  store i8 %63, ptr %64, align 1
-  %65 = add i64 %56, 1
-  store i64 %65, ptr %6, align 8
-  %66 = add i64 %60, 1
-  store i64 %66, ptr %12, align 8
-  %67 = icmp ult i64 %66, 4
-  br i1 %67, label %55, label %.loopexit, !llvm.loop !5
+57:                                               ; preds = %54
+  %58 = load i32, ptr %53, align 8
+  %59 = load i64, ptr %12, align 8
+  %.tr = trunc i64 %59 to i32
+  %60 = shl i32 %.tr, 3
+  %61 = lshr i32 %58, %60
+  %62 = trunc i32 %61 to i8
+  %63 = getelementptr inbounds i8, ptr %5, i64 %55
+  store i8 %62, ptr %63, align 1
+  %64 = add i64 %55, 1
+  store i64 %64, ptr %6, align 8
+  %65 = add i64 %59, 1
+  store i64 %65, ptr %12, align 8
+  %66 = icmp ult i64 %65, 4
+  br i1 %66, label %54, label %.loopexit, !llvm.loop !5
 
-68:                                               ; preds = %44, %39, %28, %25, %18
-  %69 = phi i32 [ %.fr, %44 ], [ %41, %39 ], [ 5, %28 ], [ 4, %25 ], [ 1, %18 ]
-  %70 = phi i32 [ 5, %44 ], [ %41, %39 ], [ 5, %28 ], [ 4, %25 ], [ 1, %18 ]
-  %71 = load i64, ptr %6, align 8
-  %72 = icmp ult i64 %71, %7
-  br i1 %72, label %15, label %._crit_edge.loopexit, !llvm.loop !7
+67:                                               ; preds = %43, %38, %28, %25, %18
+  %68 = phi i32 [ %.fr, %43 ], [ %40, %38 ], [ 5, %28 ], [ 4, %25 ], [ 1, %18 ]
+  %69 = phi i32 [ 5, %43 ], [ %40, %38 ], [ 5, %28 ], [ 4, %25 ], [ 1, %18 ]
+  %70 = load i64, ptr %6, align 8
+  %71 = icmp ult i64 %70, %7
+  br i1 %71, label %15, label %._crit_edge.loopexit, !llvm.loop !7
 
-._crit_edge.loopexit:                             ; preds = %68, %35, %21
-  %.2.ph = phi i32 [ %24, %21 ], [ %38, %35 ], [ 0, %68 ]
+._crit_edge.loopexit:                             ; preds = %67, %34, %21
+  %.2.ph = phi i32 [ %24, %21 ], [ %37, %34 ], [ 0, %67 ]
   %.pre83 = load i64, ptr %6, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
-  %73 = phi i64 [ %10, %9 ], [ %.pre83, %._crit_edge.loopexit ]
+  %72 = phi i64 [ %10, %9 ], [ %.pre83, %._crit_edge.loopexit ]
   %.2 = phi i32 [ 0, %9 ], [ %.2.ph, %._crit_edge.loopexit ]
-  %74 = getelementptr inbounds i8, ptr %5, i64 %10
-  %75 = sub i64 %73, %10
-  %76 = getelementptr inbounds i8, ptr %0, i64 328
-  %77 = load i32, ptr %76, align 8
-  %78 = tail call i32 @lzma_crc32(ptr noundef %74, i64 noundef %75, i32 noundef %77) #5
-  store i32 %78, ptr %76, align 8
+  %73 = getelementptr inbounds i8, ptr %5, i64 %10
+  %74 = sub i64 %72, %10
+  %75 = getelementptr inbounds i8, ptr %0, i64 328
+  %76 = load i32, ptr %75, align 8
+  %77 = tail call i32 @lzma_crc32(ptr noundef %73, i64 noundef %74, i32 noundef %76) #5
+  store i32 %77, ptr %75, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %58, %55, %._crit_edge
-  %.0 = phi i32 [ %.2, %._crit_edge ], [ 1, %58 ], [ 0, %55 ], [ 11, %15 ]
+.loopexit:                                        ; preds = %15, %57, %54, %._crit_edge
+  %.0 = phi i32 [ %.2, %._crit_edge ], [ 1, %57 ], [ 0, %54 ], [ 11, %15 ]
   ret i32 %.0
 }
 

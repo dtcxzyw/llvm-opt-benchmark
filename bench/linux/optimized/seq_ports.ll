@@ -100,14 +100,14 @@ define dso_local ptr @snd_seq_port_query_nearest(ptr noundef %0, ptr nocapture n
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.preheader.split, label %.preheader.split.us
 
-.preheader.split.us:                              ; preds = %.preheader, %27
-  %12 = phi ptr [ %29, %27 ], [ %9, %.preheader ]
-  %13 = phi ptr [ %28, %27 ], [ null, %.preheader ]
+.preheader.split.us:                              ; preds = %.preheader, %26
+  %12 = phi ptr [ %28, %26 ], [ %9, %.preheader ]
+  %13 = phi ptr [ %27, %26 ], [ null, %.preheader ]
   %14 = getelementptr i8, ptr %12, i64 -80
   %15 = getelementptr i8, ptr %12, i64 -79
   %16 = load i8, ptr %15, align 1
   %17 = icmp ult i8 %16, %6
-  br i1 %17, label %27, label %18
+  br i1 %17, label %26, label %18
 
 18:                                               ; preds = %.preheader.split.us
   %19 = icmp eq i8 %16, %6
@@ -121,77 +121,73 @@ define dso_local ptr @snd_seq_port_query_nearest(ptr noundef %0, ptr nocapture n
   %23 = getelementptr inbounds i8, ptr %13, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp ult i8 %16, %24
-  br i1 %25, label %26, label %27
+  %spec.select.us = select i1 %25, ptr %14, ptr %13
+  br label %26
 
-26:                                               ; preds = %22, %20
-  br label %27
+26:                                               ; preds = %22, %20, %.preheader.split.us
+  %27 = phi ptr [ %13, %.preheader.split.us ], [ %14, %20 ], [ %spec.select.us, %22 ]
+  %28 = load ptr, ptr %12, align 8
+  %29 = icmp eq ptr %28, %8
+  br i1 %29, label %.split.us, label %.preheader.split.us, !llvm.loop !9
 
-27:                                               ; preds = %26, %22, %.preheader.split.us
-  %28 = phi ptr [ %13, %.preheader.split.us ], [ %14, %26 ], [ %13, %22 ]
-  %29 = load ptr, ptr %12, align 8
-  %30 = icmp eq ptr %29, %8
-  br i1 %30, label %.split.us, label %.preheader.split.us, !llvm.loop !9
+.preheader.split:                                 ; preds = %.preheader, %49
+  %30 = phi ptr [ %51, %49 ], [ %9, %.preheader ]
+  %31 = phi ptr [ %50, %49 ], [ null, %.preheader ]
+  %32 = getelementptr i8, ptr %30, i64 -80
+  %33 = getelementptr i8, ptr %30, i64 232
+  %34 = load i32, ptr %33, align 8
+  %35 = and i32 %34, 256
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %49
 
-.preheader.split:                                 ; preds = %.preheader, %51
-  %31 = phi ptr [ %53, %51 ], [ %9, %.preheader ]
-  %32 = phi ptr [ %52, %51 ], [ null, %.preheader ]
-  %33 = getelementptr i8, ptr %31, i64 -80
-  %34 = getelementptr i8, ptr %31, i64 232
-  %35 = load i32, ptr %34, align 8
-  %36 = and i32 %35, 256
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %51
+37:                                               ; preds = %.preheader.split
+  %38 = getelementptr i8, ptr %30, i64 -79
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp ult i8 %39, %6
+  br i1 %40, label %49, label %41
 
-38:                                               ; preds = %.preheader.split
-  %39 = getelementptr i8, ptr %31, i64 -79
-  %40 = load i8, ptr %39, align 1
-  %41 = icmp ult i8 %40, %6
-  br i1 %41, label %51, label %42
+41:                                               ; preds = %37
+  %42 = icmp eq i8 %39, %6
+  br i1 %42, label %.split.us, label %43
 
-42:                                               ; preds = %38
-  %43 = icmp eq i8 %40, %6
-  br i1 %43, label %.split.us, label %44
+43:                                               ; preds = %41
+  %44 = icmp eq ptr %31, null
+  br i1 %44, label %49, label %45
 
-44:                                               ; preds = %42
-  %45 = icmp eq ptr %32, null
-  br i1 %45, label %50, label %46
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %31, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp ult i8 %39, %47
+  %spec.select = select i1 %48, ptr %32, ptr %31
+  br label %49
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %32, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = icmp ult i8 %40, %48
-  br i1 %49, label %50, label %51
+49:                                               ; preds = %45, %43, %37, %.preheader.split
+  %50 = phi ptr [ %31, %37 ], [ %31, %.preheader.split ], [ %32, %43 ], [ %spec.select, %45 ]
+  %51 = load ptr, ptr %30, align 8
+  %52 = icmp eq ptr %51, %8
+  br i1 %52, label %.split.us, label %.preheader.split, !llvm.loop !9
 
-50:                                               ; preds = %46, %44
-  br label %51
+.split.us:                                        ; preds = %18, %26, %41, %49
+  %.us-phi = phi ptr [ %50, %49 ], [ %32, %41 ], [ %27, %26 ], [ %14, %18 ]
+  %53 = icmp eq ptr %.us-phi, null
+  br i1 %53, label %.thread, label %54
 
-51:                                               ; preds = %50, %46, %38, %.preheader.split
-  %52 = phi ptr [ %32, %38 ], [ %33, %50 ], [ %32, %46 ], [ %32, %.preheader.split ]
-  %53 = load ptr, ptr %31, align 8
-  %54 = icmp eq ptr %53, %8
-  br i1 %54, label %.split.us, label %.preheader.split, !llvm.loop !9
+54:                                               ; preds = %.split.us
+  %55 = getelementptr inbounds i8, ptr %.us-phi, i64 304
+  %56 = load i8, ptr %55, align 8
+  %57 = and i8 %56, 1
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %59, label %.thread
 
-.split.us:                                        ; preds = %18, %27, %42, %51
-  %.us-phi = phi ptr [ %52, %51 ], [ %33, %42 ], [ %28, %27 ], [ %14, %18 ]
-  %55 = icmp eq ptr %.us-phi, null
-  br i1 %55, label %.thread, label %56
-
-56:                                               ; preds = %.split.us
-  %57 = getelementptr inbounds i8, ptr %.us-phi, i64 304
-  %58 = load i8, ptr %57, align 8
-  %59 = and i8 %58, 1
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %.thread
-
-61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %.us-phi, i64 96
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %62, ptr elementtype(i32) %62) #10, !srcloc !8
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds i8, ptr %.us-phi, i64 96
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60, ptr elementtype(i32) %60) #10, !srcloc !8
   br label %.thread
 
-.thread:                                          ; preds = %2, %61, %56, %.split.us
-  %63 = phi ptr [ %.us-phi, %61 ], [ null, %.split.us ], [ null, %56 ], [ null, %2 ]
+.thread:                                          ; preds = %2, %59, %54, %.split.us
+  %61 = phi ptr [ %.us-phi, %59 ], [ null, %.split.us ], [ null, %54 ], [ null, %2 ]
   tail call void @_raw_read_unlock(ptr noundef %7) #10
-  ret ptr %63
+  ret ptr %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

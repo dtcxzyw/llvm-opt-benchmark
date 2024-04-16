@@ -327,7 +327,7 @@ if.end:                                           ; preds = %land.rhs.i.i, %entr
   %t.addr.0 = phi ptr [ %5, %if.then ], [ %t, %_ZNK17arith_recognizers6is_addEPK4expr.exit ], [ %t, %entry ], [ %t, %land.rhs.i.i ]
   %bf.clear.i.i.i7 = and i32 %bf.load.i.i.i6, 65535
   %cmp.i.i8 = icmp eq i32 %bf.clear.i.i.i7, 0
-  br i1 %cmp.i.i8, label %land.rhs.i.i9, label %if.end15
+  br i1 %cmp.i.i8, label %land.rhs.i.i9, label %return
 
 land.rhs.i.i9:                                    ; preds = %if.end
   %m_decl.i.i.i10 = getelementptr inbounds i8, ptr %t.addr.0, i64 16
@@ -335,7 +335,7 @@ land.rhs.i.i9:                                    ; preds = %if.end
   %m_info.i.i.i.i11 = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %m_info.i.i.i.i11, align 8
   %tobool.not.i.i.i.i12 = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i12, label %if.end15, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit
+  br i1 %tobool.not.i.i.i.i12, label %return, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit
 
 _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %land.rhs.i.i9
   %8 = load i32, ptr %7, align 8
@@ -344,7 +344,7 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %land.rhs.i.i9
   %9 = load i32, ptr %m_kind.i.i.i.i.i15, align 4
   %cmp2.i.i.i.i.i16 = icmp eq i32 %9, 9
   %10 = select i1 %cmp.i.i.i.i.i14, i1 %cmp2.i.i.i.i.i16, i1 false
-  br i1 %10, label %if.then6, label %if.end15
+  br i1 %10, label %if.then6, label %return
 
 if.then6:                                         ; preds = %_ZNK17arith_recognizers6is_mulEPK4expr.exit
   %m_args.i17 = getelementptr inbounds i8, ptr %t.addr.0, i64 32
@@ -388,13 +388,11 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
-  br i1 %call10, label %return, label %if.end15
-
-if.end15:                                         ; preds = %land.rhs.i.i9, %if.end, %_ZN8rationalD2Ev.exit, %_ZNK17arith_recognizers6is_mulEPK4expr.exit
+  %spec.select = select i1 %call10, i1 %cmp.i.i.i.i, i1 false
   br label %return
 
-return:                                           ; preds = %_ZN8rationalD2Ev.exit, %if.end15
-  %retval.1 = phi i1 [ %cmp.i.i.i.i, %_ZN8rationalD2Ev.exit ], [ false, %if.end15 ]
+return:                                           ; preds = %land.rhs.i.i9, %if.end, %_ZN8rationalD2Ev.exit, %_ZNK17arith_recognizers6is_mulEPK4expr.exit
+  %retval.1 = phi i1 [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit ], [ %spec.select, %_ZN8rationalD2Ev.exit ], [ false, %if.end ], [ false, %land.rhs.i.i9 ]
   ret i1 %retval.1
 }
 
@@ -1545,7 +1543,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i:   ; preds = %if.else.i.i.i.i15, 
   %bf.load.i.i.i4.i.i = load i8, ptr %m_kind.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i5.i.i = and i8 %bf.load.i.i.i4.i.i, 1
   %cmp.i.i.i6.i.i = icmp eq i8 %bf.clear.i.i.i5.i.i, 0
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   br i1 %cmp.i.i.i6.i.i, label %if.then.i.i8.i.i, label %if.else.i.i7.i.i
 
 if.then.i.i8.i.i:                                 ; preds = %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i
@@ -4310,7 +4308,7 @@ invoke.cont12:                                    ; preds = %.noexc, %lor.lhs.fa
   %9 = phi ptr [ %.pre.i, %.noexc ], [ %5, %lor.lhs.false.i ]
   %idx.ext.i = zext i32 %8 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %9, i64 %idx.ext.i
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   store i32 %10, ptr %add.ptr.i, align 4
   %11 = load ptr, ptr %live, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %11, i64 -4
@@ -5463,7 +5461,7 @@ _ZN6vectorIjLb0EjE3endEv.exit.us:                 ; preds = %_ZN6vectorIjLb0EjE5
   br i1 %cmp197.not821.us, label %cleanup.us, label %invoke.cont204.us.preheader
 
 invoke.cont204.us.preheader:                      ; preds = %_ZN6vectorIjLb0EjE3endEv.exit.us
-  %191 = trunc i64 %indvars.iv887 to i32
+  %191 = trunc nuw i64 %indvars.iv887 to i32
   br label %invoke.cont204.us
 
 invoke.cont204.us:                                ; preds = %invoke.cont204.us.preheader, %for.inc216.us
@@ -6207,7 +6205,7 @@ invoke.cont4:                                     ; preds = %.noexc, %lor.lhs.fa
   %7 = phi ptr [ %.pre.i, %.noexc ], [ %3, %lor.lhs.false.i ]
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %7, i64 %idx.ext.i
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   store i32 %8, ptr %add.ptr.i, align 4
   %9 = load ptr, ptr %todo, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %9, i64 -4
@@ -6387,7 +6385,7 @@ invoke.cont42:                                    ; preds = %if.else
   br i1 %27, label %for.cond45.preheader, label %if.else85
 
 for.cond45.preheader:                             ; preds = %invoke.cont42
-  %28 = trunc i64 %indvars.iv148 to i32
+  %28 = trunc nuw i64 %indvars.iv148 to i32
   br label %for.cond45
 
 for.cond45:                                       ; preds = %for.cond45.preheader, %for.body49

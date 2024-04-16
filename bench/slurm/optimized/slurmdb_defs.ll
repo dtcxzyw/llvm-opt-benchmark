@@ -293,7 +293,7 @@ define ptr @get_qos_complete_str_bitstr(ptr noundef %0, ptr noundef %1) #0 {
 
 18:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %19, ptr %3, align 4
   %.not7.i = icmp eq i64 %indvars.iv, 0
   br i1 %.not7.i, label %20, label %24
@@ -8964,12 +8964,12 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
   %8 = icmp ne ptr %1, null
   %9 = icmp ne ptr %0, null
   %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %10, label %81
+  br i1 %or.cond, label %10, label %80
 
 10:                                               ; preds = %3
   %11 = load i8, ptr %0, align 1
   switch i8 %11, label %.preheader101 [
-    i8 0, label %81
+    i8 0, label %80
     i8 44, label %12
   ]
 
@@ -8981,8 +8981,8 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
   %.1.ph = phi ptr [ %0, %10 ], [ %13, %12 ]
   br label %14
 
-14:                                               ; preds = %.preheader101, %76
-  %.1 = phi ptr [ %78, %76 ], [ %.1.ph, %.preheader101 ]
+14:                                               ; preds = %.preheader101, %75
+  %.1 = phi ptr [ %77, %75 ], [ %.1.ph, %.preheader101 ]
   %15 = load i8, ptr %.1, align 1
   %16 = add i8 %15, -48
   %or.cond75 = icmp ult i8 %16, 10
@@ -8996,7 +8996,7 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 20:                                               ; preds = %17
   %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.165, ptr noundef nonnull @__func__.slurmdb_format_tres_str, ptr noundef nonnull %.1) #20
-  br label %81
+  br label %80
 
 22:                                               ; preds = %17
   %23 = call ptr @list_find_first(ptr noundef nonnull %1, ptr noundef nonnull @slurmdb_find_tres_in_list, ptr noundef nonnull %6) #20
@@ -9006,7 +9006,7 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
 24:                                               ; preds = %22
   %25 = load i32, ptr %6, align 4
   %26 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.166, ptr noundef nonnull @__func__.slurmdb_format_tres_str, i32 noundef %25) #20
-  br label %81
+  br label %80
 
 .preheader:                                       ; preds = %14, %28
   %27 = phi i8 [ %.pre, %28 ], [ %15, %14 ]
@@ -9024,7 +9024,7 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 29:                                               ; preds = %.preheader
   %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.167, ptr noundef nonnull @__func__.slurmdb_format_tres_str, ptr noundef nonnull %.1) #20
-  br label %81
+  br label %80
 
 31:                                               ; preds = %.preheader
   %32 = call ptr @xstrndup(ptr noundef nonnull %.1, i64 noundef %indvars.iv) #20
@@ -9037,7 +9037,7 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
   %35 = load ptr, ptr %7, align 8
   %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.168, ptr noundef nonnull @__func__.slurmdb_format_tres_str, ptr noundef %35) #20
   call void @slurm_xfree(ptr noundef nonnull %7) #20
-  br label %81
+  br label %80
 
 37:                                               ; preds = %31
   call void @slurm_xfree(ptr noundef nonnull %7) #20
@@ -9051,104 +9051,102 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 40:                                               ; preds = %38
   %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.169, ptr noundef nonnull @__func__.slurmdb_format_tres_str) #20
-  br label %81
+  br label %80
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %39, i64 1
   %44 = call i64 @strtoull(ptr noundef nonnull %43, ptr noundef nonnull %5, i32 noundef 10) #20
   %45 = load ptr, ptr %5, align 8
   %.not67 = icmp eq ptr %45, null
-  br i1 %.not67, label %62, label %46
+  br i1 %.not67, label %61, label %46
 
 46:                                               ; preds = %42
   %47 = load i8, ptr %45, align 1
   switch i8 %47, label %48 [
-    i8 44, label %62
-    i8 0, label %62
+    i8 44, label %61
+    i8 0, label %61
   ]
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %.045, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not70 = icmp eq ptr %50, null
-  br i1 %.not70, label %62, label %51
+  br i1 %.not70, label %61, label %51
 
 51:                                               ; preds = %48
   %52 = call i32 @xstrcasecmp(ptr noundef nonnull %50, ptr noundef nonnull @.str.180) #20
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %55, label %53
+  br i1 %.not.i, label %slurmdb_get_tres_base_unit.exit, label %53
 
 53:                                               ; preds = %51
   %54 = call i32 @xstrcasecmp(ptr noundef nonnull %50, ptr noundef nonnull @.str.163) #20
   %.not2.i = icmp eq i32 %54, 0
-  br i1 %.not2.i, label %55, label %slurmdb_get_tres_base_unit.exit
-
-55:                                               ; preds = %53, %51
+  %spec.select.i = select i1 %.not2.i, i32 2, i32 0
   br label %slurmdb_get_tres_base_unit.exit
 
-slurmdb_get_tres_base_unit.exit:                  ; preds = %53, %55
-  %.0.i = phi i32 [ 0, %53 ], [ 2, %55 ]
-  %56 = load i8, ptr %45, align 1
-  %57 = call i32 @get_convert_unit_val(i32 noundef %.0.i, i8 noundef signext %56) #20
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %59, label %62
+slurmdb_get_tres_base_unit.exit:                  ; preds = %51, %53
+  %.0.i = phi i32 [ 2, %51 ], [ %spec.select.i, %53 ]
+  %55 = load i8, ptr %45, align 1
+  %56 = call i32 @get_convert_unit_val(i32 noundef %.0.i, i8 noundef signext %55) #20
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %58, label %61
 
-59:                                               ; preds = %slurmdb_get_tres_base_unit.exit
-  %60 = zext nneg i32 %57 to i64
-  %61 = mul i64 %44, %60
-  br label %62
+58:                                               ; preds = %slurmdb_get_tres_base_unit.exit
+  %59 = zext nneg i32 %56 to i64
+  %60 = mul i64 %44, %59
+  br label %61
 
-62:                                               ; preds = %46, %46, %slurmdb_get_tres_base_unit.exit, %59, %48, %42
-  %.046 = phi i64 [ %61, %59 ], [ %44, %slurmdb_get_tres_base_unit.exit ], [ %44, %48 ], [ %44, %46 ], [ %44, %42 ], [ %44, %46 ]
-  %63 = load ptr, ptr %4, align 8
-  %.not71 = icmp eq ptr %63, null
-  br i1 %.not71, label %65, label %64
+61:                                               ; preds = %46, %46, %slurmdb_get_tres_base_unit.exit, %58, %48, %42
+  %.046 = phi i64 [ %60, %58 ], [ %44, %slurmdb_get_tres_base_unit.exit ], [ %44, %48 ], [ %44, %46 ], [ %44, %42 ], [ %44, %46 ]
+  %62 = load ptr, ptr %4, align 8
+  %.not71 = icmp eq ptr %62, null
+  br i1 %.not71, label %64, label %63
 
-64:                                               ; preds = %62
+63:                                               ; preds = %61
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.14) #20
-  br label %65
+  br label %64
 
-65:                                               ; preds = %64, %62
-  br i1 %2, label %69, label %66
+64:                                               ; preds = %63, %61
+  br i1 %2, label %68, label %65
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %.045, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %.not72 = icmp eq ptr %68, null
-  br i1 %.not72, label %69, label %72
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds i8, ptr %.045, i64 40
+  %67 = load ptr, ptr %66, align 8
+  %.not72 = icmp eq ptr %67, null
+  br i1 %.not72, label %68, label %71
 
-69:                                               ; preds = %66, %65
-  %70 = getelementptr inbounds i8, ptr %.045, i64 24
-  %71 = load i32, ptr %70, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.151, i32 noundef %71, i64 noundef %.046) #20
-  br label %76
+68:                                               ; preds = %65, %64
+  %69 = getelementptr inbounds i8, ptr %.045, i64 24
+  %70 = load i32, ptr %69, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.151, i32 noundef %70, i64 noundef %.046) #20
+  br label %75
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %.045, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %.not73 = icmp eq ptr %74, null
-  %75 = select i1 %.not73, ptr @.str.11, ptr @.str.154
-  %spec.select = select i1 %.not73, ptr @.str.11, ptr %74
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.170, ptr noundef nonnull %68, ptr noundef nonnull %75, ptr noundef nonnull %spec.select, i64 noundef %.046) #20
-  br label %76
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds i8, ptr %.045, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %.not73 = icmp eq ptr %73, null
+  %74 = select i1 %.not73, ptr @.str.11, ptr @.str.154
+  %spec.select = select i1 %.not73, ptr @.str.11, ptr %73
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.170, ptr noundef nonnull %67, ptr noundef nonnull %74, ptr noundef nonnull %spec.select, i64 noundef %.046) #20
+  br label %75
 
-76:                                               ; preds = %72, %69
-  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 44) #21
-  %.not74 = icmp eq ptr %77, null
-  %78 = getelementptr inbounds i8, ptr %77, i64 1
-  br i1 %.not74, label %79, label %14, !llvm.loop !47
+75:                                               ; preds = %71, %68
+  %76 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 44) #21
+  %.not74 = icmp eq ptr %76, null
+  %77 = getelementptr inbounds i8, ptr %76, i64 1
+  br i1 %.not74, label %78, label %14, !llvm.loop !47
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %4, align 8
-  br label %81
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %4, align 8
+  br label %80
 
-81:                                               ; preds = %3, %10, %79, %40, %34, %29, %24, %20
-  %.0 = phi ptr [ null, %20 ], [ %80, %79 ], [ null, %40 ], [ null, %24 ], [ null, %34 ], [ null, %29 ], [ null, %10 ], [ null, %3 ]
+80:                                               ; preds = %3, %10, %78, %40, %34, %29, %24, %20
+  %.0 = phi ptr [ null, %20 ], [ %79, %78 ], [ null, %40 ], [ null, %24 ], [ null, %34 ], [ null, %29 ], [ null, %10 ], [ null, %3 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_find_tres_in_list_by_type(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define i32 @slurmdb_find_tres_in_list_by_type(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   br label %3
 
 3:                                                ; preds = %6, %2
@@ -9180,24 +9178,22 @@ define noundef i32 @slurmdb_find_tres_in_list_by_type(ptr nocapture noundef read
 
 15:                                               ; preds = %12
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %19, label %18
+  br label %18
 
 .critedge:                                        ; preds = %12
   %16 = getelementptr inbounds i8, ptr %8, i64 1
   %17 = tail call i32 @xstrcasecmp(ptr noundef %14, ptr noundef nonnull %16) #20
   %.not20 = icmp eq i32 %17, 0
-  br i1 %.not20, label %19, label %18
+  br label %18
 
-18:                                               ; preds = %15, %.critedge, %7
-  br label %19
-
-19:                                               ; preds = %15, %.critedge, %18
-  %.017 = phi i32 [ 0, %18 ], [ 1, %.critedge ], [ 1, %15 ]
+18:                                               ; preds = %.critedge, %15, %7
+  %.017.shrunk = phi i1 [ %.not, %15 ], [ false, %7 ], [ %.not20, %.critedge ]
+  %.017 = zext i1 %.017.shrunk to i32
   ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_get_tres_base_unit(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @slurmdb_get_tres_base_unit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.180) #20
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -9205,13 +9201,11 @@ define noundef i32 @slurmdb_get_tres_base_unit(ptr noundef %0) local_unnamed_add
 3:                                                ; preds = %1
   %4 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.163) #20
   %.not2 = icmp eq i32 %4, 0
-  br i1 %.not2, label %5, label %6
+  %spec.select = select i1 %.not2, i32 2, i32 0
+  br label %5
 
 5:                                                ; preds = %3, %1
-  br label %6
-
-6:                                                ; preds = %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 2, %5 ]
+  %.0 = phi i32 [ 2, %1 ], [ %spec.select, %3 ]
   ret i32 %.0
 }
 
@@ -9750,7 +9744,7 @@ define i32 @slurmdb_find_qos_in_list_by_name(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @slurmdb_find_selected_step_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 {
+define i32 @slurmdb_find_selected_step_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %3, ptr noundef nonnull dereferenceable(12) %4, i64 12)
@@ -9769,13 +9763,11 @@ define noundef i32 @slurmdb_find_selected_step_in_list(ptr nocapture noundef rea
   %12 = getelementptr inbounds i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %11, %13
-  br i1 %14, label %16, label %15
+  %spec.select = zext i1 %14 to i32
+  br label %15
 
-15:                                               ; preds = %9, %5, %2
-  br label %16
-
-16:                                               ; preds = %9, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %9 ]
+15:                                               ; preds = %9, %2, %5
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 

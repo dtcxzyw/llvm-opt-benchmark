@@ -1526,7 +1526,7 @@ define internal void @xml_new_namespace(ptr noundef %0, ptr nocapture readnone %
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %14, align 8
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds i8, ptr %3, i64 8
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   br label %17
@@ -1566,7 +1566,7 @@ define internal void @xml_new_namespace(ptr noundef %0, ptr nocapture readnone %
   br label %17, !llvm.loop !18
 
 37:                                               ; preds = %28
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %38 = call ptr @wmem_map_insert(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %5) #10
   ret void
 }
@@ -1719,12 +1719,6 @@ define internal void @add_xmlpi_namespace(ptr nocapture readnone %0, ptr noundef
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare ptr @g_ptr_array_remove_index_fast(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -2088,7 +2082,7 @@ declare ptr @tvbparse_char(i32 noundef, ptr noundef, ptr noundef, ptr noundef, p
 declare ptr @tvbparse_set_oneof(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @get_attrib_value(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #6 {
+define internal void @get_attrib_value(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #5 {
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 32
@@ -2141,93 +2135,92 @@ define internal void @after_attrib(ptr nocapture noundef readonly %0, ptr nocapt
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @wmem_map_lookup(ptr noundef %35, ptr noundef %27) #10
   %.not51 = icmp eq ptr %36, null
-  br i1 %.not51, label %37, label %38
+  %spec.select = select i1 %.not51, ptr @hf_unknowwn_attrib, ptr %36
+  %spec.select52 = select i1 %.not51, ptr %2, ptr %18
+  br label %37
 
-37:                                               ; preds = %33, %3
-  br label %38
-
-38:                                               ; preds = %37, %33
-  %.048.in = phi ptr [ @hf_unknowwn_attrib, %37 ], [ %36, %33 ]
-  %.0 = phi ptr [ %2, %37 ], [ %18, %33 ]
+37:                                               ; preds = %3, %33
+  %.048.in = phi ptr [ @hf_unknowwn_attrib, %3 ], [ %spec.select, %33 ]
+  %.0 = phi ptr [ %2, %3 ], [ %spec.select52, %33 ]
   %.048 = load i32, ptr %.048.in, align 4
-  %39 = getelementptr inbounds i8, ptr %10, i64 72
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %.0, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %.0, i64 24
-  %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.0, i64 28
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %.048, ptr noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef 2) #10
-  %48 = tail call ptr @wmem_packet_scope() #10
-  %49 = getelementptr inbounds i8, ptr %2, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 24
-  %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 28
-  %54 = load i32, ptr %53, align 4
-  %55 = tail call ptr @tvb_format_text(ptr noundef %48, ptr noundef %50, i32 noundef %52, i32 noundef %54) #10
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %47, ptr noundef nonnull @.str.252, ptr noundef %55) #10
-  %56 = getelementptr inbounds i8, ptr %10, i64 88
-  store ptr %47, ptr %56, align 8
-  %57 = tail call ptr @wmem_packet_scope() #10
-  %58 = tail call noalias ptr @wmem_alloc(ptr noundef %57, i64 noundef 120) #10
-  store i32 4, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
-  store ptr %27, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 56
-  store ptr %29, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %18, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %18, i64 24
-  %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %18, i64 28
-  %66 = load i32, ptr %65, align 4
-  %67 = tail call ptr @tvb_new_subset_length(ptr noundef %62, i32 noundef %64, i32 noundef %66) #10
-  %68 = getelementptr inbounds i8, ptr %58, i64 64
-  store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %58, i64 16
-  %70 = getelementptr inbounds i8, ptr %58, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  store ptr %10, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %58, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  %72 = getelementptr inbounds i8, ptr %10, i64 16
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %76
+  %38 = getelementptr inbounds i8, ptr %10, i64 72
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %.0, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %.0, i64 24
+  %43 = load i32, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %.0, i64 28
+  %45 = load i32, ptr %44, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %.048, ptr noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef 2) #10
+  %47 = tail call ptr @wmem_packet_scope() #10
+  %48 = getelementptr inbounds i8, ptr %2, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %2, i64 24
+  %51 = load i32, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %2, i64 28
+  %53 = load i32, ptr %52, align 4
+  %54 = tail call ptr @tvb_format_text(ptr noundef %47, ptr noundef %49, i32 noundef %51, i32 noundef %53) #10
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %46, ptr noundef nonnull @.str.252, ptr noundef %54) #10
+  %55 = getelementptr inbounds i8, ptr %10, i64 88
+  store ptr %46, ptr %55, align 8
+  %56 = tail call ptr @wmem_packet_scope() #10
+  %57 = tail call noalias ptr @wmem_alloc(ptr noundef %56, i64 noundef 120) #10
+  store i32 4, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 48
+  store ptr %27, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %57, i64 56
+  store ptr %29, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %18, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %18, i64 24
+  %63 = load i32, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %18, i64 28
+  %65 = load i32, ptr %64, align 4
+  %66 = tail call ptr @tvb_new_subset_length(ptr noundef %61, i32 noundef %63, i32 noundef %65) #10
+  %67 = getelementptr inbounds i8, ptr %57, i64 64
+  store ptr %66, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %57, i64 16
+  %69 = getelementptr inbounds i8, ptr %57, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
+  store ptr %10, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %57, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  %71 = getelementptr inbounds i8, ptr %10, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %75
 
-75:                                               ; preds = %38
-  store ptr %58, ptr %72, align 8
+74:                                               ; preds = %37
+  store ptr %57, ptr %71, align 8
   br label %insert_xml_frame.exit
 
-76:                                               ; preds = %38
-  %77 = getelementptr inbounds i8, ptr %10, i64 24
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 40
-  store ptr %58, ptr %79, align 8
-  %80 = load ptr, ptr %77, align 8
-  store ptr %80, ptr %71, align 8
+75:                                               ; preds = %37
+  %76 = getelementptr inbounds i8, ptr %10, i64 24
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 40
+  store ptr %57, ptr %78, align 8
+  %79 = load ptr, ptr %76, align 8
+  store ptr %79, ptr %70, align 8
   br label %insert_xml_frame.exit
 
-insert_xml_frame.exit:                            ; preds = %75, %76
-  %81 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %58, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %58, i64 80
-  store ptr %47, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %58, i64 88
-  store ptr %47, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %58, i64 72
-  store ptr null, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %58, i64 104
-  %86 = load <2 x i32>, ptr %51, align 8
-  store <2 x i32> %86, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %58, i64 96
-  store ptr null, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %10, i64 112
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %58, i64 112
-  store ptr %89, ptr %90, align 8
+insert_xml_frame.exit:                            ; preds = %74, %75
+  %80 = getelementptr inbounds i8, ptr %10, i64 24
+  store ptr %57, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %57, i64 80
+  store ptr %46, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %57, i64 88
+  store ptr %46, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %57, i64 72
+  store ptr null, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %57, i64 104
+  %85 = load <2 x i32>, ptr %50, align 8
+  store <2 x i32> %85, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %57, i64 96
+  store ptr null, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %10, i64 112
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %57, i64 112
+  store ptr %88, ptr %89, align 8
   ret void
 }
 
@@ -2995,6 +2988,12 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 
 declare i32 @tvbparse_peek(ptr noundef, ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
@@ -3009,8 +3008,8 @@ attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind willreturn memory(read) }

@@ -295,7 +295,7 @@ if.end.us.us.i:                                   ; preds = %jmp_patchins.exit.u
   %add1.i.us.us.sink.i = phi i32 [ %add1.i.us.us.i, %jmp_patchins.exit.us.us.i ], [ %add1.i20.us.us.i, %if.else.us.us.i ]
   %11 = phi ptr [ %10, %jmp_patchins.exit.us.us.i ], [ %fs.val.us.us.i, %if.else.us.us.i ]
   %12 = getelementptr inbounds %struct.BCInsLine, ptr %11, i64 %idxprom.i.us.us.i
-  %conv.i17.us.us.i = trunc i32 %add1.i.us.us.sink.i to i16
+  %conv.i17.us.us.i = trunc nuw i32 %add1.i.us.us.sink.i to i16
   %arrayidx2.i.us.us.i = getelementptr inbounds i8, ptr %12, i64 2
   store i16 %conv.i17.us.us.i, ptr %arrayidx2.i.us.us.i, align 2
   %cmp.not.us.us41.i = icmp eq i32 %conv5.i.us.us.i, -1
@@ -646,7 +646,7 @@ if.then.i.i.i.i363:                               ; preds = %while.end.i.i.i341
 
 jmp_patchins.exit.i.i.i345:                       ; preds = %while.end.i.i.i341
   %arrayidx.i.i.i.i331.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i.i327, i64 %idxprom.i.i.i.i330
-  %conv.i10.i.i.i347 = trunc i32 %add1.i.i.i.i343 to i16
+  %conv.i10.i.i.i347 = trunc nuw i32 %add1.i.i.i.i343 to i16
   %arrayidx2.i.i.i.i348 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i331.le, i64 2
   store i16 %conv.i10.i.i.i347, ptr %arrayidx2.i.i.i.i348, align 2
   br label %bcemit_jmp.exit.i349
@@ -695,7 +695,7 @@ if.then.i.i.i361:                                 ; preds = %while.end.i.i357
 
 jmp_patchins.exit.i.i:                            ; preds = %while.end.i.i357
   %arrayidx.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i, i64 %idxprom.i.i.i
-  %conv.i10.i.i = trunc i32 %add1.i.i.i to i16
+  %conv.i10.i.i = trunc nuw i32 %add1.i.i.i to i16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.le, i64 2
   store i16 %conv.i10.i.i, ptr %arrayidx2.i.i.i, align 2
   br label %jmp_append.exit.i
@@ -751,7 +751,7 @@ if.then.i.i.i48.i:                                ; preds = %while.end.i.i40.i
 
 jmp_patchins.exit.i.i44.i:                        ; preds = %while.end.i.i40.i
   %arrayidx.i.i.i30.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i26.i, i64 %idxprom.i.i.i29.i
-  %conv.i10.i.i46.i = trunc i32 %add1.i.i.i42.i to i16
+  %conv.i10.i.i46.i = trunc nuw i32 %add1.i.i.i42.i to i16
   %arrayidx2.i.i.i47.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i30.i.le, i64 2
   store i16 %conv.i10.i.i46.i, ptr %arrayidx2.i.i.i47.i, align 2
   br label %jmp_tohere.exit.i359
@@ -879,7 +879,7 @@ if.then.i.i.i96.i:                                ; preds = %while.end.i.i87.i
 
 jmp_patchins.exit.i.i91.i:                        ; preds = %while.end.i.i87.i
   %arrayidx.i.i.i77.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i73.i, i64 %idxprom.i.i.i76.i
-  %conv.i10.i.i93.i = trunc i32 %add1.i.i.i89.i to i16
+  %conv.i10.i.i93.i = trunc nuw i32 %add1.i.i.i89.i to i16
   %arrayidx2.i.i.i94.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i77.i.le, i64 2
   store i16 %conv.i10.i.i93.i, ptr %arrayidx2.i.i.i94.i, align 2
   br label %bcemit_jmp.exit100.i
@@ -928,7 +928,7 @@ if.then.i.i127.i:                                 ; preds = %while.end.i119.i
 
 jmp_patchins.exit.i123.i:                         ; preds = %while.end.i119.i
   %arrayidx.i.i109.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i105.i, i64 %idxprom.i.i108.i
-  %conv.i10.i125.i = trunc i32 %add1.i.i121.i to i16
+  %conv.i10.i125.i = trunc nuw i32 %add1.i.i121.i to i16
   %arrayidx2.i.i126.i = getelementptr inbounds i8, ptr %arrayidx.i.i109.i.le, i64 2
   store i16 %conv.i10.i125.i, ptr %arrayidx2.i.i126.i, align 2
   br label %jmp_append.exit130.i
@@ -984,7 +984,7 @@ if.then.i.i.i160.i:                               ; preds = %while.end.i.i152.i
 
 jmp_patchins.exit.i.i156.i:                       ; preds = %while.end.i.i152.i
   %arrayidx.i.i.i142.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i138.i, i64 %idxprom.i.i.i141.i
-  %conv.i10.i.i158.i = trunc i32 %add1.i.i.i154.i to i16
+  %conv.i10.i.i158.i = trunc nuw i32 %add1.i.i.i154.i to i16
   %arrayidx2.i.i.i159.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i142.i.le, i64 2
   store i16 %conv.i10.i.i158.i, ptr %arrayidx2.i.i.i159.i, align 2
   br label %jmp_tohere.exit163.i
@@ -1060,7 +1060,7 @@ if.then.i.i190.i:                                 ; preds = %while.end.i182.i
 
 jmp_patchins.exit.i186.i:                         ; preds = %while.end.i182.i
   %arrayidx.i.i172.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i168.i, i64 %idxprom.i.i171.i
-  %conv.i10.i188.i = trunc i32 %add1.i.i184.i to i16
+  %conv.i10.i188.i = trunc nuw i32 %add1.i.i184.i to i16
   %arrayidx2.i.i189.i = getelementptr inbounds i8, ptr %arrayidx.i.i172.i.le, i64 2
   store i16 %conv.i10.i188.i, ptr %arrayidx2.i.i189.i, align 2
   br label %if.end.i297
@@ -1117,7 +1117,7 @@ if.then.i.i.i223.i:                               ; preds = %while.end.i.i215.i
 
 jmp_patchins.exit.i.i219.i:                       ; preds = %while.end.i.i215.i
   %arrayidx.i.i.i205.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i201.i, i64 %idxprom.i.i.i204.i
-  %conv.i10.i.i221.i = trunc i32 %add1.i.i.i217.i to i16
+  %conv.i10.i.i221.i = trunc nuw i32 %add1.i.i.i217.i to i16
   %arrayidx2.i.i.i222.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i205.i.le, i64 2
   store i16 %conv.i10.i.i221.i, ptr %arrayidx2.i.i.i222.i, align 2
   br label %jmp_tohere.exit226.i
@@ -1294,7 +1294,7 @@ if.then.i.i.i.i288:                               ; preds = %while.end.i.i.i266
 
 jmp_patchins.exit.i.i.i270:                       ; preds = %while.end.i.i.i266
   %arrayidx.i.i.i.i256.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i.i252, i64 %idxprom.i.i.i.i255
-  %conv.i10.i.i.i272 = trunc i32 %add1.i.i.i.i268 to i16
+  %conv.i10.i.i.i272 = trunc nuw i32 %add1.i.i.i.i268 to i16
   %arrayidx2.i.i.i.i273 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i256.le, i64 2
   store i16 %conv.i10.i.i.i272, ptr %arrayidx2.i.i.i.i273, align 2
   br label %bcemit_jmp.exit.i274
@@ -1374,7 +1374,7 @@ if.then.i.i.i52.i:                                ; preds = %while.end.i.i44.i
 
 jmp_patchins.exit.i.i48.i:                        ; preds = %while.end.i.i44.i
   %arrayidx.i.i.i34.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i30.i, i64 %idxprom.i.i.i33.i
-  %conv.i10.i.i50.i = trunc i32 %add1.i.i.i46.i to i16
+  %conv.i10.i.i50.i = trunc nuw i32 %add1.i.i.i46.i to i16
   %arrayidx2.i.i.i51.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i34.i.le, i64 2
   store i16 %conv.i10.i.i50.i, ptr %arrayidx2.i.i.i51.i, align 2
   %.pre1803 = load i32, ptr %pc.i211, align 8
@@ -1397,7 +1397,7 @@ parse_while.exit:                                 ; preds = %jmp_tohere.exit.i28
   %109 = load ptr, ptr %bcbase.i.i234, align 8
   %idxprom.i57.i = zext i32 %call3.i230 to i64
   %arrayidx.i58.i = getelementptr inbounds %struct.BCInsLine, ptr %109, i64 %idxprom.i57.i
-  %conv.i59.i = trunc i32 %add1.i.i285 to i16
+  %conv.i59.i = trunc nuw i32 %add1.i.i285 to i16
   %arrayidx2.i.i286 = getelementptr inbounds i8, ptr %arrayidx.i58.i, i64 2
   store i16 %conv.i59.i, ptr %arrayidx2.i.i286, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i210)
@@ -1739,7 +1739,7 @@ if.then4.i.i.i.i865:                              ; preds = %if.then.i.i8.i.i861
   unreachable
 
 if.end.i.i.i.i863:                                ; preds = %if.then.i.i8.i.i861
-  %conv5.i.i.i.i864 = trunc i32 %add.i.i.i.i856 to i8
+  %conv5.i.i.i.i864 = trunc nuw i32 %add.i.i.i.i856 to i8
   store i8 %conv5.i.i.i.i864, ptr %framesize.i.i.i.i857, align 2
   br label %expr_next.exit873
 
@@ -1800,7 +1800,7 @@ if.then4.i.i.i.i836:                              ; preds = %if.then.i.i8.i.i832
   unreachable
 
 if.end.i.i.i.i834:                                ; preds = %if.then.i.i8.i.i832
-  %conv5.i.i.i.i835 = trunc i32 %add.i.i.i.i827 to i8
+  %conv5.i.i.i.i835 = trunc nuw i32 %add.i.i.i.i827 to i8
   store i8 %conv5.i.i.i.i835, ptr %framesize.i.i.i.i828, align 2
   br label %expr_next.exit844
 
@@ -1857,7 +1857,7 @@ if.then4.i.i.i.i808:                              ; preds = %if.then.i.i8.i.i804
   unreachable
 
 if.end.i.i.i.i806:                                ; preds = %if.then.i.i8.i.i804
-  %conv5.i.i.i.i807 = trunc i32 %add.i.i.i.i799 to i8
+  %conv5.i.i.i.i807 = trunc nuw i32 %add.i.i.i.i799 to i8
   store i8 %conv5.i.i.i.i807, ptr %framesize.i.i.i.i800, align 2
   br label %expr_next.exit
 
@@ -1891,7 +1891,7 @@ if.then4.i.i790:                                  ; preds = %if.then.i.i786
   unreachable
 
 if.end.i.i788:                                    ; preds = %if.then.i.i786
-  %conv5.i.i789 = trunc i32 %add.i.i782 to i8
+  %conv5.i.i789 = trunc nuw i32 %add.i.i782 to i8
   store i8 %conv5.i.i789, ptr %framesize.i.i783, align 2
   br label %bcreg_reserve.exit792
 
@@ -1997,7 +1997,7 @@ if.then4.i.i723:                                  ; preds = %if.then.i.i719
   unreachable
 
 if.end.i.i721:                                    ; preds = %if.then.i.i719
-  %conv5.i.i722 = trunc i32 %add.i.i715 to i8
+  %conv5.i.i722 = trunc nuw i32 %add.i.i715 to i8
   store i8 %conv5.i.i722, ptr %framesize.i.i716, align 2
   br label %bcreg_reserve.exit725
 
@@ -2044,7 +2044,7 @@ if.then.i702:                                     ; preds = %bcreg_reserve.exit7
 jmp_patchins.exit704:                             ; preds = %bcreg_reserve.exit725
   %217 = load ptr, ptr %bcbase.i.i184, align 8
   %arrayidx.i699 = getelementptr inbounds %struct.BCInsLine, ptr %217, i64 %idxprom.i.i185
-  %conv.i700 = trunc i32 %add1.i694 to i16
+  %conv.i700 = trunc nuw i32 %add1.i694 to i16
   %arrayidx2.i701 = getelementptr inbounds i8, ptr %arrayidx.i699, i64 2
   store i16 %conv.i700, ptr %arrayidx2.i701, align 2
   %pc.i.i187 = getelementptr inbounds i8, ptr %126, i64 40
@@ -2064,7 +2064,7 @@ jmp_patchins.exit692:                             ; preds = %jmp_patchins.exit70
   %220 = load ptr, ptr %bcbase.i.i184, align 8
   %idxprom.i686 = zext i32 %call8.i.i to i64
   %arrayidx.i687 = getelementptr inbounds %struct.BCInsLine, ptr %220, i64 %idxprom.i686
-  %conv.i688 = trunc i32 %add1.i682 to i16
+  %conv.i688 = trunc nuw i32 %add1.i682 to i16
   %arrayidx2.i689 = getelementptr inbounds i8, ptr %arrayidx.i687, i64 2
   store i16 %conv.i688, ptr %arrayidx2.i689, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bl.i.i154)
@@ -2410,7 +2410,7 @@ if.then4.i.i.i.i541:                              ; preds = %if.then.i.i8.i.i537
   unreachable
 
 if.end.i.i.i.i539:                                ; preds = %if.then.i.i8.i.i537
-  %conv5.i.i.i.i540 = trunc i32 %add.i.i.i.i531 to i8
+  %conv5.i.i.i.i540 = trunc nuw i32 %add.i.i.i.i531 to i8
   store i8 %conv5.i.i.i.i540, ptr %framesize.i.i.i.i532, align 2
   br label %expr_tonextreg.exit.i535
 
@@ -2445,7 +2445,7 @@ if.then4.i:                                       ; preds = %if.then.i516
   unreachable
 
 if.end.i517:                                      ; preds = %if.then.i516
-  %conv5.i = trunc i32 %add.i513 to i8
+  %conv5.i = trunc nuw i32 %add.i513 to i8
   store i8 %conv5.i, ptr %framesize.i, align 2
   br label %bcreg_bump.exit
 
@@ -2516,21 +2516,18 @@ if.end27.i:                                       ; preds = %land.lhs.true23.i, 
   %call30.i = call ptr @lj_str_new(ptr noundef %291, ptr noundef nonnull @.str.7, i64 noundef 4) #10
   %call31.i = call ptr @lj_tab_getstr(ptr noundef %290, ptr noundef %call30.i) #10
   %tobool32.not.i = icmp eq ptr %call31.i, null
-  br i1 %tobool32.not.i, label %if.end41.i, label %land.lhs.true33.i
+  br i1 %tobool32.not.i, label %parse_for_iter.exit.i, label %land.lhs.true33.i
 
 land.lhs.true33.i:                                ; preds = %if.end27.i
   %hi34.i = getelementptr inbounds i8, ptr %call31.i, i64 4
   %292 = load i32, ptr %hi34.i, align 4
   %cmp35.i = icmp eq i32 %292, 0
-  br i1 %cmp35.i, label %land.lhs.true36.i, label %if.end41.i
+  br i1 %cmp35.i, label %land.lhs.true36.i, label %parse_for_iter.exit.i
 
 land.lhs.true36.i:                                ; preds = %land.lhs.true33.i
   %293 = load i32, ptr %call31.i, align 8
   %shr38.i = lshr i32 %284, 16
   %cmp39.i = icmp eq i32 %293, %shr38.i
-  br i1 %cmp39.i, label %parse_for_iter.exit.i, label %if.end41.i
-
-if.end41.i:                                       ; preds = %land.lhs.true36.i, %land.lhs.true33.i, %if.end27.i
   br label %parse_for_iter.exit.i
 
 sw.epilog.i:                                      ; preds = %sw.bb11.i, %if.end4.i
@@ -2560,8 +2557,8 @@ land.rhs.i:                                       ; preds = %sw.epilog.i
   %tobool50.not.i = icmp eq i32 %call49.i, 0
   br label %parse_for_iter.exit.i
 
-parse_for_iter.exit.i:                            ; preds = %land.rhs.i, %land.lhs.true43.i, %sw.epilog.i, %if.end41.i, %land.lhs.true36.i, %land.lhs.true23.i, %sw.bb.i507, %if.end.i501, %land.rhs.i.i, %bcreg_bump.exit
-  %296 = phi i1 [ false, %bcreg_bump.exit ], [ false, %if.end41.i ], [ false, %land.rhs.i.i ], [ false, %sw.bb.i507 ], [ true, %land.lhs.true23.i ], [ true, %land.lhs.true36.i ], [ false, %if.end.i501 ], [ %tobool50.not.i, %land.rhs.i ], [ %tobool45.not.i, %land.lhs.true43.i ], [ false, %sw.epilog.i ]
+parse_for_iter.exit.i:                            ; preds = %land.rhs.i, %land.lhs.true43.i, %sw.epilog.i, %land.lhs.true36.i, %land.lhs.true33.i, %if.end27.i, %land.lhs.true23.i, %sw.bb.i507, %if.end.i501, %land.rhs.i.i, %bcreg_bump.exit
+  %296 = phi i1 [ false, %bcreg_bump.exit ], [ false, %land.rhs.i.i ], [ false, %sw.bb.i507 ], [ true, %land.lhs.true23.i ], [ false, %land.lhs.true33.i ], [ false, %if.end27.i ], [ false, %if.end.i501 ], [ %tobool50.not.i, %land.rhs.i ], [ %cmp39.i, %land.lhs.true36.i ], [ %tobool45.not.i, %land.lhs.true43.i ], [ false, %sw.epilog.i ]
   %297 = load ptr, ptr %ls, align 8
   %nactvar2.i478 = getelementptr inbounds i8, ptr %297, i64 56
   %298 = load i32, ptr %nactvar2.i478, align 8
@@ -2677,7 +2674,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i456
   unreachable
 
 if.end.i.i457:                                    ; preds = %if.then.i.i456
-  %conv5.i.i = trunc i32 %add.i.i453 to i8
+  %conv5.i.i = trunc nuw i32 %add.i.i453 to i8
   store i8 %conv5.i.i, ptr %framesize.i, align 2
   br label %bcreg_reserve.exit
 
@@ -2720,7 +2717,7 @@ jmp_patchins.exit442:                             ; preds = %bcreg_reserve.exit
   %322 = load ptr, ptr %bcbase.i435, align 8
   %idxprom.i436 = zext i32 %call12.i22.i to i64
   %arrayidx.i437 = getelementptr inbounds %struct.BCInsLine, ptr %322, i64 %idxprom.i436
-  %conv.i438 = trunc i32 %add1.i432 to i16
+  %conv.i438 = trunc nuw i32 %add1.i432 to i16
   %arrayidx2.i439 = getelementptr inbounds i8, ptr %arrayidx.i437, i64 2
   store i16 %conv.i438, ptr %arrayidx2.i439, align 2
   %cond16.i.i = select i1 %296, i32 70, i32 69
@@ -2755,7 +2752,7 @@ if.then.i430:                                     ; preds = %jmp_patchins.exit44
 jmp_patchins.exit:                                ; preds = %jmp_patchins.exit442
   %327 = load ptr, ptr %bcbase.i435, align 8
   %arrayidx.i428 = getelementptr inbounds %struct.BCInsLine, ptr %327, i64 %idxprom32.i.i
-  %conv.i429 = trunc i32 %add1.i to i16
+  %conv.i429 = trunc nuw i32 %add1.i to i16
   %arrayidx2.i = getelementptr inbounds i8, ptr %arrayidx.i428, i64 2
   store i16 %conv.i429, ptr %arrayidx2.i, align 2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i.i)
@@ -2928,7 +2925,7 @@ if.then.i.i.i.i150:                               ; preds = %while.end.i.i.i124
 
 jmp_patchins.exit.i.i.i128:                       ; preds = %while.end.i.i.i124
   %arrayidx.i.i.i.i114.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i.i110, i64 %idxprom.i.i.i.i113
-  %conv.i10.i.i.i129 = trunc i32 %add1.i.i.i.i126 to i16
+  %conv.i10.i.i.i129 = trunc nuw i32 %add1.i.i.i.i126 to i16
   %arrayidx2.i.i.i.i130 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i114.le, i64 2
   store i16 %conv.i10.i.i.i129, ptr %arrayidx2.i.i.i.i130, align 2
   br label %jmp_tohere.exit.i
@@ -3011,7 +3008,7 @@ if.then.i.i.i61.i:                                ; preds = %while.end.i.i53.i
 
 jmp_patchins.exit.i.i57.i:                        ; preds = %while.end.i.i53.i
   %arrayidx.i.i.i43.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i39.i, i64 %idxprom.i.i.i42.i
-  %conv.i10.i.i59.i = trunc i32 %add1.i.i.i55.i to i16
+  %conv.i10.i.i59.i = trunc nuw i32 %add1.i.i.i55.i to i16
   %arrayidx2.i.i.i60.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i43.i.le, i64 2
   store i16 %conv.i10.i.i59.i, ptr %arrayidx2.i.i.i60.i, align 2
   br label %if.end.i148
@@ -3036,7 +3033,7 @@ parse_repeat.exit:                                ; preds = %if.end.i148
   %365 = load ptr, ptr %bcbase.i66.i, align 8
   %idxprom.i67.i = zext i32 %332 to i64
   %arrayidx.i68.i = getelementptr inbounds %struct.BCInsLine, ptr %365, i64 %idxprom.i67.i
-  %conv.i69.i = trunc i32 %add1.i.i to i16
+  %conv.i69.i = trunc nuw i32 %add1.i.i to i16
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %arrayidx.i68.i, i64 2
   store i16 %conv.i69.i, ptr %arrayidx2.i.i, align 2
   call fastcc void @fscope_end(ptr noundef nonnull %331)
@@ -3193,7 +3190,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i65
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i65
-  %conv5.i.i.i = trunc i32 %add.i.i.i to i8
+  %conv5.i.i.i = trunc nuw i32 %add.i.i.i to i8
   store i8 %conv5.i.i.i, ptr %framesize.i.i.i, align 2
   br label %bcreg_reserve.exit.i
 
@@ -3384,7 +3381,7 @@ if.then4.i.i.i408:                                ; preds = %if.then.i.i8.i404
   unreachable
 
 if.end.i.i.i406:                                  ; preds = %if.then.i.i8.i404
-  %conv5.i.i.i407 = trunc i32 %add.i.i.i399 to i8
+  %conv5.i.i.i407 = trunc nuw i32 %add.i.i.i399 to i8
   store i8 %conv5.i.i.i407, ptr %framesize.i.i.i400, align 2
   br label %expr_tonextreg.exit416
 
@@ -3515,7 +3512,7 @@ if.then4.i.i.i380:                                ; preds = %if.then.i.i8.i
   unreachable
 
 if.end.i.i.i378:                                  ; preds = %if.then.i.i8.i
-  %conv5.i.i.i379 = trunc i32 %add.i.i.i372 to i8
+  %conv5.i.i.i379 = trunc nuw i32 %add.i.i.i372 to i8
   store i8 %conv5.i.i.i379, ptr %framesize.i.i.i373, align 2
   br label %expr_tonextreg.exit
 
@@ -3635,7 +3632,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.then.i.i8.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i8.i.i
-  %conv5.i.i.i.i27 = trunc i32 %add.i.i.i.i24 to i8
+  %conv5.i.i.i.i27 = trunc nuw i32 %add.i.i.i.i24 to i8
   store i8 %conv5.i.i.i.i27, ptr %framesize.i.i.i.i, align 2
   br label %expr_tonextreg.exit.i
 
@@ -3829,7 +3826,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i
 
 jmp_patchins.exit.i.i.i:                          ; preds = %while.end.i.i.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i.i, i64 %idxprom.i.i.i.i
-  %conv.i10.i.i.i = trunc i32 %add1.i.i.i.i to i16
+  %conv.i10.i.i.i = trunc nuw i32 %add1.i.i.i.i to i16
   %arrayidx2.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.le, i64 2
   store i16 %conv.i10.i.i.i, ptr %arrayidx2.i.i.i.i, align 2
   br label %bcemit_jmp.exit.i
@@ -4039,7 +4036,7 @@ sw.bb.i:                                          ; preds = %for.body.i, %for.bo
   %idxprom30.i = zext i32 %call25.i to i64
   %line32.i = getelementptr inbounds %struct.BCInsLine, ptr %17, i64 %idxprom30.i, i32 1
   store i32 %18, ptr %line32.i, align 4
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw i64 %indvars.iv.i to i32
   %reass.sub.i = sub i32 %call25.i, %19
   %add34.i = add i32 %reass.sub.i, 32767
   %cmp35.i = icmp ugt i32 %add34.i, 65535
@@ -4203,7 +4200,7 @@ if.then.i73.i:                                    ; preds = %if.then27.i
 
 lj_buf_more.exit75.i:                             ; preds = %if.then.i73.i, %if.then27.i
   %retval.i60.0.i = phi ptr [ %call.i74.i, %if.then.i73.i ], [ %39, %if.then27.i ]
-  %conv30.i = trunc i64 %42 to i8
+  %conv30.i = trunc nuw nsw i64 %42 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.i60.0.i, i64 1
   store i8 %conv30.i, ptr %retval.i60.0.i, align 1
   br label %if.end.i74
@@ -4397,7 +4394,7 @@ if.then11.i:                                      ; preds = %for.body.i90
   %78 = load i32, ptr %arrayidx.i92, align 8
   %idxprom14.i = zext i32 %78 to i64
   %arrayidx15.i = getelementptr inbounds %union.TValue, ptr %add.ptr, i64 %idxprom14.i
-  %79 = trunc i64 %indvars.iv.i91 to i32
+  %79 = trunc nuw i64 %indvars.iv.i91 to i32
   %conv.i100 = uitofp i32 %79 to double
   store double %conv.i100, ptr %arrayidx15.i, align 8
   %.pre.i101 = load i32, ptr %asize.i, align 8
@@ -4436,7 +4433,7 @@ if.then29.i:                                      ; preds = %for.body23.i
   %key.i = getelementptr inbounds i8, ptr %arrayidx25.i, i64 8
   %88 = load i64, ptr %key.i, align 8
   %shr.i = ashr i64 %88, 47
-  %conv33.i = trunc i64 %shr.i to i32
+  %conv33.i = trunc nsw i64 %shr.i to i32
   %cmp34.i = icmp ult i32 %conv33.i, -14
   br i1 %cmp34.i, label %if.then36.i, label %if.else.i96
 
@@ -4734,7 +4731,7 @@ if.end.us.us:                                     ; preds = %if.else.us.us, %jmp
   %add1.i.us.us.sink = phi i32 [ %add1.i.us.us, %jmp_patchins.exit.us.us ], [ %add1.i20.us.us, %if.else.us.us ]
   %8 = phi ptr [ %7, %jmp_patchins.exit.us.us ], [ %fs.val.us.us, %if.else.us.us ]
   %9 = getelementptr inbounds %struct.BCInsLine, ptr %8, i64 %idxprom.i.us.us
-  %conv.i17.us.us = trunc i32 %add1.i.us.us.sink to i16
+  %conv.i17.us.us = trunc nuw i32 %add1.i.us.us.sink to i16
   %arrayidx2.i.us.us = getelementptr inbounds i8, ptr %9, i64 2
   store i16 %conv.i17.us.us, ptr %arrayidx2.i.us.us, align 2
   %cmp.not.us.us41 = icmp eq i32 %conv5.i.us.us, -1
@@ -4828,7 +4825,7 @@ if.end:                                           ; preds = %if.else, %jmp_patch
   %add1.i20.sink = phi i32 [ %add1.i, %jmp_patchins.exit ], [ %add1.i20, %if.else ]
   %20 = phi ptr [ %18, %jmp_patchins.exit ], [ %fs.val, %if.else ]
   %21 = getelementptr inbounds %struct.BCInsLine, ptr %20, i64 %idxprom.i
-  %conv.i25 = trunc i32 %add1.i20.sink to i16
+  %conv.i25 = trunc nuw i32 %add1.i20.sink to i16
   %arrayidx2.i26 = getelementptr inbounds i8, ptr %21, i64 2
   store i16 %conv.i25, ptr %arrayidx2.i26, align 2
   %cmp.not40 = icmp eq i32 %conv5.i, -1
@@ -4962,7 +4959,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
 
 jmp_patchins.exit.i.i:                            ; preds = %while.end.i.i
   %arrayidx.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i, i64 %idxprom.i.i.i
-  %conv.i10.i.i = trunc i32 %add1.i.i.i to i16
+  %conv.i10.i.i = trunc nuw i32 %add1.i.i.i to i16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.le, i64 2
   store i16 %conv.i10.i.i, ptr %arrayidx2.i.i.i, align 2
   br label %bcemit_jmp.exit
@@ -5388,7 +5385,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
 
 jmp_patchins.exit.i.i:                            ; preds = %while.end.i.i
   %arrayidx.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i, i64 %idxprom.i.i.i
-  %conv.i10.i.i = trunc i32 %add1.i.i.i to i16
+  %conv.i10.i.i = trunc nuw i32 %add1.i.i.i to i16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.le, i64 2
   store i16 %conv.i10.i.i, ptr %arrayidx2.i.i.i, align 2
   br label %if.end19
@@ -5449,7 +5446,7 @@ if.then.i.i:                                      ; preds = %while.end.i
 
 jmp_patchins.exit.i:                              ; preds = %while.end.i
   %arrayidx.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i, i64 %idxprom.i.i
-  %conv.i10.i = trunc i32 %add1.i.i to i16
+  %conv.i10.i = trunc nuw i32 %add1.i.i to i16
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.le, i64 2
   store i16 %conv.i10.i, ptr %arrayidx2.i.i, align 2
   br label %jmp_append.exit
@@ -5510,7 +5507,7 @@ if.then.i.i.i53:                                  ; preds = %while.end.i.i45
 
 jmp_patchins.exit.i.i49:                          ; preds = %while.end.i.i45
   %arrayidx.i.i.i35.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i31, i64 %idxprom.i.i.i34
-  %conv.i10.i.i51 = trunc i32 %add1.i.i.i47 to i16
+  %conv.i10.i.i51 = trunc nuw i32 %add1.i.i.i47 to i16
   %arrayidx2.i.i.i52 = getelementptr inbounds i8, ptr %arrayidx.i.i.i35.le, i64 2
   store i16 %conv.i10.i.i51, ptr %arrayidx2.i.i.i52, align 2
   br label %jmp_tohere.exit
@@ -5655,7 +5652,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i139
   unreachable
 
 if.end.i.i.i140:                                  ; preds = %if.then.i.i.i139
-  %conv5.i.i.i141 = trunc i32 %add.i.i.i131 to i8
+  %conv5.i.i.i141 = trunc nuw i32 %add.i.i.i131 to i8
   store i8 %conv5.i.i.i141, ptr %framesize.i.i.i, align 2
   br label %bcreg_reserve.exit.i
 
@@ -6179,7 +6176,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i
 
 jmp_patchins.exit.i.i.i.i:                        ; preds = %while.end.i.i.i.i
   %arrayidx.i.i.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i.i.i, i64 %idxprom.i.i.i.i.i
-  %conv.i10.i.i.i.i = trunc i32 %add1.i.i.i.i.i to i16
+  %conv.i10.i.i.i.i = trunc nuw i32 %add1.i.i.i.i.i to i16
   %arrayidx2.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.le, i64 2
   store i16 %conv.i10.i.i.i.i, ptr %arrayidx2.i.i.i.i.i, align 2
   br label %if.end19.i.i
@@ -6239,7 +6236,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i
 
 jmp_patchins.exit.i.i.i:                          ; preds = %while.end.i.i.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i.i, i64 %idxprom.i.i.i.i
-  %conv.i10.i.i.i = trunc i32 %add1.i.i.i.i to i16
+  %conv.i10.i.i.i = trunc nuw i32 %add1.i.i.i.i to i16
   %arrayidx2.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.le, i64 2
   store i16 %conv.i10.i.i.i, ptr %arrayidx2.i.i.i.i, align 2
   br label %jmp_append.exit.i.i
@@ -6299,7 +6296,7 @@ if.then.i.i.i48.i.i:                              ; preds = %while.end.i.i40.i.i
 
 jmp_patchins.exit.i.i44.i.i:                      ; preds = %while.end.i.i40.i.i
   %arrayidx.i.i.i30.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i26.i.i, i64 %idxprom.i.i.i29.i.i
-  %conv.i10.i.i46.i.i = trunc i32 %add1.i.i.i42.i.i to i16
+  %conv.i10.i.i46.i.i = trunc nuw i32 %add1.i.i.i42.i.i to i16
   %arrayidx2.i.i.i47.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i30.i.i.le, i64 2
   store i16 %conv.i10.i.i46.i.i, ptr %arrayidx2.i.i.i47.i.i, align 2
   br label %bcemit_branch_f.exit.i
@@ -6349,7 +6346,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.then.i.i8.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i8.i.i
-  %conv5.i.i.i23.i = trunc i32 %add.i.i.i20.i to i8
+  %conv5.i.i.i23.i = trunc nuw i32 %add.i.i.i20.i to i8
   store i8 %conv5.i.i.i23.i, ptr %framesize.i.i.i.i, align 2
   br label %expr_tonextreg.exit.i
 
@@ -6668,7 +6665,7 @@ if.then.i.i50.i:                                  ; preds = %while.end.i.i
 
 jmp_patchins.exit.i.i:                            ; preds = %while.end.i.i
   %arrayidx.i.i.i45.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i, i64 %idxprom.i.i.i44
-  %conv.i10.i.i = trunc i32 %add1.i.i.i to i16
+  %conv.i10.i.i = trunc nuw i32 %add1.i.i.i to i16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i45.le, i64 2
   store i16 %conv.i10.i.i, ptr %arrayidx2.i.i.i, align 2
   br label %jmp_append.exit.i
@@ -6728,7 +6725,7 @@ if.then.i.i77.i:                                  ; preds = %while.end.i69.i
 
 jmp_patchins.exit.i73.i:                          ; preds = %while.end.i69.i
   %arrayidx.i.i59.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i55.i, i64 %idxprom.i.i58.i
-  %conv.i10.i75.i = trunc i32 %add1.i.i71.i to i16
+  %conv.i10.i75.i = trunc nuw i32 %add1.i.i71.i to i16
   %arrayidx2.i.i76.i = getelementptr inbounds i8, ptr %arrayidx.i.i59.i.le, i64 2
   store i16 %conv.i10.i75.i, ptr %arrayidx2.i.i76.i, align 2
   br label %jmp_append.exit80.i
@@ -6836,7 +6833,7 @@ if.then4.i.i.i.i32:                               ; preds = %if.then.i.i8.i.i28
   unreachable
 
 if.end.i.i.i.i30:                                 ; preds = %if.then.i.i8.i.i28
-  %conv5.i.i.i.i31 = trunc i32 %add.i.i.i.i22 to i8
+  %conv5.i.i.i.i31 = trunc nuw i32 %add.i.i.i.i22 to i8
   store i8 %conv5.i.i.i.i31, ptr %framesize.i.i.i.i23, align 2
   br label %expr_tonextreg.exit.i26
 
@@ -7203,7 +7200,7 @@ if.then.i.i.i.i.i80:                              ; preds = %while.end.i.i.i.i72
 
 jmp_patchins.exit.i.i.i.i76:                      ; preds = %while.end.i.i.i.i72
   %arrayidx.i.i.i.i.i62.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i.i.i58, i64 %idxprom.i.i.i.i.i61
-  %conv.i10.i.i.i.i78 = trunc i32 %add1.i.i.i.i.i74 to i16
+  %conv.i10.i.i.i.i78 = trunc nuw i32 %add1.i.i.i.i.i74 to i16
   %arrayidx2.i.i.i.i.i79 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i62.le, i64 2
   store i16 %conv.i10.i.i.i.i78, ptr %arrayidx2.i.i.i.i.i79, align 2
   br label %bcemit_comp.exit.i
@@ -7249,7 +7246,7 @@ if.then4.i:                                       ; preds = %if.then.i
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv5.i = trunc i32 %add.i to i8
+  %conv5.i = trunc nuw i32 %add.i to i8
   store i8 %conv5.i, ptr %framesize.i, align 2
   br label %bcreg_bump.exit
 
@@ -7301,7 +7298,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv5.i.i = trunc i32 %add.i.i to i8
+  %conv5.i.i = trunc nuw i32 %add.i.i to i8
   store i8 %conv5.i.i, ptr %framesize.i.i, align 2
   br label %bcreg_reserve.exit
 
@@ -8318,7 +8315,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %conv5.i.i.i = trunc i32 %add.i.i.i to i8
+  %conv5.i.i.i = trunc nuw i32 %add.i.i.i to i8
   store i8 %conv5.i.i.i, ptr %framesize.i.i.i, align 2
   br label %bcreg_reserve.exit.i
 
@@ -8721,7 +8718,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i27.i
   unreachable
 
 if.end.i.i28.i:                                   ; preds = %if.then.i.i27.i
-  %conv5.i.i.i = trunc i32 %add.i.i.i to i8
+  %conv5.i.i.i = trunc nuw i32 %add.i.i.i to i8
   store i8 %conv5.i.i.i, ptr %framesize.i.i.i63, align 2
   br label %bcreg_reserve.exit.i
 
@@ -8751,7 +8748,7 @@ if.then4.i.i38.i:                                 ; preds = %if.then.i.i34.i
   unreachable
 
 if.end.i.i36.i:                                   ; preds = %if.then.i.i34.i
-  %conv5.i.i37.i = trunc i32 %add.i.i30.i to i8
+  %conv5.i.i37.i = trunc nuw i32 %add.i.i30.i to i8
   store i8 %conv5.i.i37.i, ptr %framesize.i.i.i63, align 2
   br label %bcreg_reserve.exit40.i
 
@@ -8948,7 +8945,7 @@ if.then4.i.i.i70:                                 ; preds = %if.then.i.i8.i
   unreachable
 
 if.end.i.i.i68:                                   ; preds = %if.then.i.i8.i
-  %conv5.i.i.i69 = trunc i32 %add.i.i.i62 to i8
+  %conv5.i.i.i69 = trunc nuw i32 %add.i.i.i62 to i8
   store i8 %conv5.i.i.i69, ptr %framesize.i.i.i63, align 2
   br label %expr_tonextreg.exit
 
@@ -8973,7 +8970,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i79
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i79
-  %conv5.i.i = trunc i32 %add.i.i to i8
+  %conv5.i.i = trunc nuw i32 %add.i.i to i8
   store i8 %conv5.i.i, ptr %framesize.i.i.i63, align 2
   br label %bcreg_reserve.exit
 
@@ -9057,7 +9054,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i8.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i8.i
-  %conv5.i.i.i = trunc i32 %add.i.i.i to i8
+  %conv5.i.i.i = trunc nuw i32 %add.i.i.i to i8
   store i8 %conv5.i.i.i, ptr %framesize.i.i.i, align 2
   br label %expr_tonextreg.exit
 
@@ -9556,7 +9553,7 @@ if.then.i.i:                                      ; preds = %while.end.i
 
 jmp_patchins.exit.i:                              ; preds = %while.end.i
   %arrayidx.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i, i64 %idxprom.i.i
-  %conv.i10.i = trunc i32 %add1.i.i to i16
+  %conv.i10.i = trunc nuw i32 %add1.i.i to i16
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.le, i64 2
   store i16 %conv.i10.i, ptr %arrayidx2.i.i, align 2
   br label %if.end
@@ -9730,7 +9727,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
 
 jmp_patchins.exit.i.i:                            ; preds = %while.end.i.i
   %arrayidx.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i, i64 %idxprom.i.i.i
-  %conv.i10.i.i = trunc i32 %add1.i.i.i to i16
+  %conv.i10.i.i = trunc nuw i32 %add1.i.i.i to i16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.le, i64 2
   store i16 %conv.i10.i.i, ptr %arrayidx2.i.i.i, align 2
   br label %cond.end
@@ -9800,7 +9797,7 @@ if.then.i.i.i105:                                 ; preds = %while.end.i.i97
 
 jmp_patchins.exit.i.i101:                         ; preds = %while.end.i.i97
   %arrayidx.i.i.i87.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i83, i64 %idxprom.i.i.i86
-  %conv.i10.i.i103 = trunc i32 %add1.i.i.i99 to i16
+  %conv.i10.i.i103 = trunc nuw i32 %add1.i.i.i99 to i16
   %arrayidx2.i.i.i104 = getelementptr inbounds i8, ptr %arrayidx.i.i.i87.le, i64 2
   store i16 %conv.i10.i.i103, ptr %arrayidx2.i.i.i104, align 2
   br label %if.end22
@@ -10202,7 +10199,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
   br label %var_lookup_uv.exit
 
 return.loopexit.i:                                ; preds = %for.body.i30
-  %17 = trunc i64 %indvars.iv.i31 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i31 to i32
   br label %var_lookup_uv.exit
 
 var_lookup_uv.exit:                               ; preds = %cond.end.i, %return.loopexit.i
@@ -10398,7 +10395,7 @@ if.then4.i.i.i52:                                 ; preds = %if.then.i.i8.i48
   unreachable
 
 if.end.i.i.i50:                                   ; preds = %if.then.i.i8.i48
-  %conv5.i.i.i51 = trunc i32 %add.i.i.i44 to i8
+  %conv5.i.i.i51 = trunc nuw i32 %add.i.i.i44 to i8
   store i8 %conv5.i.i.i51, ptr %framesize.i.i.i45, align 2
   br label %expr_tonextreg.exit60
 
@@ -10538,7 +10535,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i8.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i8.i
-  %conv5.i.i.i = trunc i32 %add.i.i.i to i8
+  %conv5.i.i.i = trunc nuw i32 %add.i.i.i to i8
   store i8 %conv5.i.i.i, ptr %framesize.i.i.i, align 2
   br label %expr_tonextreg.exit
 
@@ -10689,7 +10686,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
 
 jmp_patchins.exit.i.i:                            ; preds = %while.end.i.i
   %arrayidx.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i, i64 %idxprom.i.i.i
-  %conv.i10.i.i = trunc i32 %add1.i.i.i to i16
+  %conv.i10.i.i = trunc nuw i32 %add1.i.i.i to i16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.le, i64 2
   store i16 %conv.i10.i.i, ptr %arrayidx2.i.i.i, align 2
   br label %return
@@ -10715,7 +10712,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv5.i.i = trunc i32 %add.i.i to i8
+  %conv5.i.i = trunc nuw i32 %add.i.i to i8
   store i8 %conv5.i.i, ptr %framesize.i.i, align 2
   br label %bcreg_reserve.exit
 
@@ -10810,7 +10807,7 @@ if.then.i.i.i62:                                  ; preds = %while.end.i.i53
 
 jmp_patchins.exit.i.i57:                          ; preds = %while.end.i.i53
   %arrayidx.i.i.i43.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i39, i64 %idxprom.i.i.i42
-  %conv.i10.i.i59 = trunc i32 %add1.i.i.i55 to i16
+  %conv.i10.i.i59 = trunc nuw i32 %add1.i.i.i55 to i16
   %arrayidx2.i.i.i60 = getelementptr inbounds i8, ptr %arrayidx.i.i.i43.le, i64 2
   store i16 %conv.i10.i.i59, ptr %arrayidx2.i.i.i60, align 2
   br label %bcemit_jmp.exit66
@@ -10902,7 +10899,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i
 
 jmp_patchins.exit.i.i:                            ; preds = %while.end.i.i
   %arrayidx.i.i.i.le = getelementptr inbounds %struct.BCInsLine, ptr %fs.val.i.i, i64 %idxprom.i.i.i
-  %conv.i10.i.i = trunc i32 %add1.i.i.i to i16
+  %conv.i10.i.i = trunc nuw i32 %add1.i.i.i to i16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.le, i64 2
   store i16 %conv.i10.i.i, ptr %arrayidx2.i.i.i, align 2
   br label %if.end
@@ -10976,7 +10973,7 @@ if.end.us.us.i:                                   ; preds = %jmp_patchins.exit.u
   %add1.i.us.us.sink.i = phi i32 [ %add1.i.us.us.i, %jmp_patchins.exit.us.us.i ], [ %add1.i20.us.us.i, %if.else.us.us.i ]
   %14 = phi ptr [ %13, %jmp_patchins.exit.us.us.i ], [ %fs.val.us.us.i, %if.else.us.us.i ]
   %15 = getelementptr inbounds %struct.BCInsLine, ptr %14, i64 %idxprom.i.us.us.i
-  %conv.i17.us.us.i = trunc i32 %add1.i.us.us.sink.i to i16
+  %conv.i17.us.us.i = trunc nuw i32 %add1.i.us.us.sink.i to i16
   %arrayidx2.i.us.us.i = getelementptr inbounds i8, ptr %15, i64 2
   store i16 %conv.i17.us.us.i, ptr %arrayidx2.i.us.us.i, align 2
   %cmp.not.us.us41.i = icmp eq i32 %conv5.i.us.us.i, -1
@@ -11504,7 +11501,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv5.i.i = trunc i32 %add.i.i to i8
+  %conv5.i.i = trunc nuw i32 %add.i.i to i8
   store i8 %conv5.i.i, ptr %framesize.i.i, align 2
   br label %bcreg_reserve.exit
 
@@ -11553,7 +11550,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i8.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i8.i
-  %conv5.i.i.i = trunc i32 %add.i.i.i to i8
+  %conv5.i.i.i = trunc nuw i32 %add.i.i.i to i8
   store i8 %conv5.i.i.i, ptr %framesize.i.i.i, align 2
   br label %expr_tonextreg.exit
 
@@ -11587,7 +11584,7 @@ if.then4.i.i32:                                   ; preds = %if.then.i.i28
   unreachable
 
 if.end.i.i30:                                     ; preds = %if.then.i.i28
-  %conv5.i.i31 = trunc i32 %add.i.i24 to i8
+  %conv5.i.i31 = trunc nuw i32 %add.i.i24 to i8
   store i8 %conv5.i.i31, ptr %framesize.i.i25, align 2
   br label %bcreg_reserve.exit34
 
@@ -11821,7 +11818,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %conv5.i.i.i = trunc i32 %add.i.i.i to i8
+  %conv5.i.i.i = trunc nuw i32 %add.i.i.i to i8
   store i8 %conv5.i.i.i, ptr %framesize.i.i.i, align 2
   br label %bcreg_reserve.exit.i
 
@@ -11905,7 +11902,7 @@ if.then4.i.i.i43:                                 ; preds = %if.then.i.i8.i
   unreachable
 
 if.end.i.i.i41:                                   ; preds = %if.then.i.i8.i
-  %conv5.i.i.i42 = trunc i32 %add.i.i.i35 to i8
+  %conv5.i.i.i42 = trunc nuw i32 %add.i.i.i35 to i8
   store i8 %conv5.i.i.i42, ptr %framesize.i.i.i36, align 2
   br label %expr_tonextreg.exit
 

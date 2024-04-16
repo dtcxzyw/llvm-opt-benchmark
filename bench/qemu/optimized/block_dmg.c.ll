@@ -462,7 +462,7 @@ entry:
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @dmg_probe(ptr nocapture readnone %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
+define internal i32 @dmg_probe(ptr nocapture readnone %buf, i32 %buf_size, ptr noundef readonly %filename) #3 {
 entry:
   %tobool.not = icmp eq ptr %filename, null
   br i1 %tobool.not, label %return, label %if.end
@@ -471,7 +471,7 @@ if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #13
   %conv = trunc i64 %call to i32
   %cmp = icmp sgt i32 %conv, 4
-  br i1 %cmp, label %land.lhs.true, label %if.end6
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
   %idx.ext = and i64 %call, 2147483647
@@ -479,13 +479,11 @@ land.lhs.true:                                    ; preds = %if.end
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 -4
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2, ptr noundef nonnull dereferenceable(5) @.str.21) #13
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %return, label %if.end6
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
+  %spec.select = select i1 %tobool4.not, i32 2, i32 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %if.end6
-  %retval.0 = phi i32 [ 0, %if.end6 ], [ 0, %entry ], [ 2, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -546,7 +544,7 @@ if.end15:                                         ; preds = %for.body
   ]
 
 if.then24:                                        ; preds = %if.end15, %if.end15
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %mul = shl i32 %4, 9
   %conv25 = sext i32 %mul to i64
   %call26 = tail call i64 @qemu_iovec_memset(ptr noundef %qiov, i64 noundef %conv25, i32 noundef 0, i64 noundef 512) #11
@@ -561,7 +559,7 @@ if.end27:                                         ; preds = %if.end15
   %mul34 = shl i64 %sub, 9
   %idx.ext = and i64 %mul34, 4294966784
   %add.ptr = getelementptr i8, ptr %7, i64 %idx.ext
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %mul35 = shl i32 %8, 9
   %conv36 = sext i32 %mul35 to i64
   %call37 = tail call i64 @qemu_iovec_from_buf(ptr noundef %qiov, i64 noundef %conv36, ptr noundef %add.ptr, i64 noundef 512) #11
@@ -967,7 +965,7 @@ sw.bb6.i:                                         ; preds = %if.end109
   br label %if.end.i
 
 sw.epilog.i:                                      ; preds = %if.end109, %if.end109, %if.end109
-  %conv.i = trunc i64 %41 to i32
+  %conv.i = trunc nuw i64 %41 to i32
   %44 = load ptr, ptr %sectorcounts, align 8
   %arrayidx4.i = getelementptr i64, ptr %44, i64 %idxprom
   %45 = load i64, ptr %arrayidx4.i, align 8

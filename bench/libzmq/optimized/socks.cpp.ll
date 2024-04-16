@@ -202,7 +202,7 @@ do.end:                                           ; preds = %entry, %if.then
   %sub = sub i64 2, %3
   %call5 = tail call noundef i32 @_ZN3zmq8tcp_readEiPvm(i32 noundef %fd_, ptr noundef nonnull %add.ptr, i64 noundef %sub)
   %cmp6 = icmp sgt i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %if.end14
+  br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %do.end
   %conv = zext nneg i32 %call5 to i64
@@ -211,13 +211,11 @@ if.then7:                                         ; preds = %do.end
   store i64 %add, ptr %_bytes_read, align 8
   %5 = load i8, ptr %this, align 8
   %cmp11.not = icmp eq i8 %5, 5
-  br i1 %cmp11.not, label %if.end14, label %return
-
-if.end14:                                         ; preds = %if.then7, %do.end
+  %spec.select = select i1 %cmp11.not, i32 %call5, i32 -1
   br label %return
 
-return:                                           ; preds = %if.then7, %if.end14
-  %retval.0 = phi i32 [ %call5, %if.end14 ], [ -1, %if.then7 ]
+return:                                           ; preds = %if.then7, %do.end
+  %retval.0 = phi i32 [ %call5, %do.end ], [ %spec.select, %if.then7 ]
   ret i32 %retval.0
 }
 
@@ -463,7 +461,7 @@ do.end:                                           ; preds = %entry, %if.then
   %sub = sub i64 2, %3
   %call5 = tail call noundef i32 @_ZN3zmq8tcp_readEiPvm(i32 noundef %fd_, ptr noundef nonnull %add.ptr, i64 noundef %sub)
   %cmp6 = icmp sgt i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %if.end14
+  br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %do.end
   %conv = zext nneg i32 %call5 to i64
@@ -472,13 +470,11 @@ if.then7:                                         ; preds = %do.end
   store i64 %add, ptr %_bytes_read, align 8
   %5 = load i8, ptr %this, align 8
   %cmp11.not = icmp eq i8 %5, 1
-  br i1 %cmp11.not, label %if.end14, label %return
-
-if.end14:                                         ; preds = %if.then7, %do.end
+  %spec.select = select i1 %cmp11.not, i32 %call5, i32 -1
   br label %return
 
-return:                                           ; preds = %if.then7, %if.end14
-  %retval.0 = phi i32 [ %call5, %if.end14 ], [ -1, %if.then7 ]
+return:                                           ; preds = %if.then7, %do.end
+  %retval.0 = phi i32 [ %call5, %do.end ], [ %spec.select, %if.then7 ]
   ret i32 %retval.0
 }
 
@@ -658,7 +654,7 @@ if.end37:                                         ; preds = %if.then36, %if.end3
   %port = getelementptr inbounds i8, ptr %req_, i64 40
   %9 = load i16, ptr %port, align 8
   %10 = lshr i16 %9, 8
-  %conv39 = trunc i16 %10 to i8
+  %conv39 = trunc nuw i16 %10 to i8
   %incdec.ptr40 = getelementptr inbounds i8, ptr %ptr.027, i64 1
   store i8 %conv39, ptr %ptr.027, align 1
   %11 = load i16, ptr %port, align 8
@@ -788,7 +784,7 @@ if.end29:                                         ; preds = %if.else, %lor.rhs, 
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %5
   %call32 = tail call noundef i32 @_ZN3zmq8tcp_readEiPvm(i32 noundef %fd_, ptr noundef nonnull %add.ptr, i64 noundef %n.0)
   %cmp33 = icmp sgt i32 %call32, 0
-  br i1 %cmp33, label %if.then34, label %if.end80
+  br i1 %cmp33, label %if.then34, label %return
 
 if.then34:                                        ; preds = %if.end29
   %conv35 = zext nneg i32 %call32 to i64
@@ -817,7 +813,7 @@ if.end53:                                         ; preds = %if.end43
 
 if.end63:                                         ; preds = %if.end53
   %cmp65 = icmp ugt i64 %add37, 3
-  br i1 %cmp65, label %if.then66, label %if.end80
+  br i1 %cmp65, label %if.then66, label %return
 
 if.then66:                                        ; preds = %if.end63
   %arrayidx69 = getelementptr inbounds i8, ptr %this, i64 3
@@ -828,11 +824,11 @@ if.then66:                                        ; preds = %if.end63
     i8 1, label %if.end80
   ]
 
-if.end80:                                         ; preds = %if.then66, %if.then66, %if.then66, %if.end63, %if.end29
+if.end80:                                         ; preds = %if.then66, %if.then66, %if.then66
   br label %return
 
-return:                                           ; preds = %if.then66, %if.end53, %if.end43, %if.then34, %if.end80
-  %retval.0 = phi i32 [ %call32, %if.end80 ], [ -1, %if.then34 ], [ -1, %if.end43 ], [ -1, %if.end53 ], [ -1, %if.then66 ]
+return:                                           ; preds = %if.end29, %if.end63, %if.then66, %if.end53, %if.end43, %if.then34, %if.end80
+  %retval.0 = phi i32 [ -1, %if.then34 ], [ -1, %if.end43 ], [ -1, %if.end53 ], [ -1, %if.then66 ], [ %call32, %if.end63 ], [ %call32, %if.end29 ], [ %call32, %if.end80 ]
   ret i32 %retval.0
 }
 

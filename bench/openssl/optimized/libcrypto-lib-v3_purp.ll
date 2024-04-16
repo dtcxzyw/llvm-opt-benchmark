@@ -797,7 +797,7 @@ if.end327:                                        ; preds = %X509_supported_exte
   br i1 %85, label %switch.hole_check, label %for.inc342
 
 switch.hole_check:                                ; preds = %if.end327
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 297, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %for.inc342
@@ -1010,7 +1010,7 @@ for.inc:                                          ; preds = %X509_PURPOSE_get0.e
   br label %for.cond, !llvm.loop !12
 
 return.split.loop.exit8:                          ; preds = %X509_PURPOSE_get0.exit
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %X509_PURPOSE_get_count.exit, %return.split.loop.exit8
@@ -1314,7 +1314,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_check_akid(ptr noundef %issuer, ptr noundef readonly %akid) local_unnamed_addr #0 {
+define i32 @X509_check_akid(ptr noundef %issuer, ptr noundef readonly %akid) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %akid, null
   br i1 %cmp, label %return, label %if.end
@@ -1352,18 +1352,18 @@ if.end15:                                         ; preds = %land.lhs.true9, %if
   %issuer16 = getelementptr inbounds i8, ptr %akid, i64 8
   %4 = load ptr, ptr %issuer16, align 8
   %tobool17.not = icmp eq ptr %4, null
-  br i1 %tobool17.not, label %if.end35, label %for.cond.preheader
+  br i1 %tobool17.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end15
   %call2119 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #8
   %cmp2220 = icmp sgt i32 %call2119, 0
-  br i1 %cmp2220, label %for.body, label %if.end35
+  br i1 %cmp2220, label %for.body, label %return
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.021, 1
   %call21 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #8
   %cmp22 = icmp slt i32 %inc, %call21
-  br i1 %cmp22, label %for.body, label %if.end35, !llvm.loop !13
+  br i1 %cmp22, label %for.body, label %return, !llvm.loop !13
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.021 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -1376,19 +1376,17 @@ for.end:                                          ; preds = %for.body
   %d = getelementptr inbounds i8, ptr %call24, i64 8
   %6 = load ptr, ptr %d, align 8
   %cmp28.not = icmp eq ptr %6, null
-  br i1 %cmp28.not, label %if.end35, label %land.lhs.true29
+  br i1 %cmp28.not, label %return, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %for.end
   %call30 = tail call ptr @X509_get_issuer_name(ptr noundef %issuer) #8
   %call31 = tail call i32 @X509_NAME_cmp(ptr noundef nonnull %6, ptr noundef %call30) #8
   %cmp32.not = icmp eq i32 %call31, 0
-  br i1 %cmp32.not, label %if.end35, label %return
-
-if.end35:                                         ; preds = %for.cond, %for.cond.preheader, %for.end, %land.lhs.true29, %if.end15
+  %spec.select = select i1 %cmp32.not, i32 0, i32 31
   br label %return
 
-return:                                           ; preds = %land.lhs.true29, %land.lhs.true9, %land.lhs.true2, %entry, %if.end35
-  %retval.0 = phi i32 [ 0, %if.end35 ], [ 0, %entry ], [ 30, %land.lhs.true2 ], [ 31, %land.lhs.true9 ], [ 31, %land.lhs.true29 ]
+return:                                           ; preds = %for.cond, %for.cond.preheader, %land.lhs.true29, %if.end15, %for.end, %land.lhs.true9, %land.lhs.true2, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 30, %land.lhs.true2 ], [ 31, %land.lhs.true9 ], [ 0, %for.end ], [ 0, %if.end15 ], [ %spec.select, %land.lhs.true29 ], [ 0, %for.cond.preheader ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -1511,20 +1509,18 @@ if.else.i:                                        ; preds = %if.end.i
 if.else21.i:                                      ; preds = %if.else.i
   %and23.i = and i32 %0, 8
   %cmp24.not.i = icmp eq i32 %and23.i, 0
-  br i1 %cmp24.not.i, label %if.end33.i, label %land.lhs.true26.i
+  br i1 %cmp24.not.i, label %return, label %land.lhs.true26.i
 
 land.lhs.true26.i:                                ; preds = %if.else21.i
   %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 244
   %2 = load i32, ptr %ex_nscert.i, align 4
   %and27.i = and i32 %2, 7
   %cmp28.not.i = icmp eq i32 %and27.i, 0
-  br i1 %cmp28.not.i, label %if.end33.i, label %return
-
-if.end33.i:                                       ; preds = %land.lhs.true26.i, %if.else21.i
+  %spec.select.i = select i1 %cmp28.not.i, i32 0, i32 5
   br label %return
 
-return:                                           ; preds = %if.end33.i, %land.lhs.true26.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %and8.lobit.i, %if.then6.i ], [ 0, %if.end33.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 5, %land.lhs.true26.i ]
+return:                                           ; preds = %land.lhs.true26.i, %if.else21.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %and8.lobit.i, %if.then6.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 0, %if.else21.i ], [ %spec.select.i, %land.lhs.true26.i ]
   ret i32 %retval.0
 }
 
@@ -1957,20 +1953,17 @@ land.lhs.true8:                                   ; preds = %if.end4
 if.end12:                                         ; preds = %land.lhs.true8, %if.end4
   %and14 = and i32 %0, 8
   %cmp15.not = icmp eq i32 %and14, 0
-  br i1 %cmp15.not, label %if.end20, label %land.lhs.true16
+  br i1 %cmp15.not, label %return, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %if.end12
   %ex_nscert = getelementptr inbounds i8, ptr %x, i64 244
   %6 = load i32, ptr %ex_nscert, align 4
-  %and17 = and i32 %6, 128
-  %cmp18 = icmp eq i32 %and17, 0
-  br i1 %cmp18, label %return, label %if.end20
-
-if.end20:                                         ; preds = %land.lhs.true16, %if.end12
+  %and17 = lshr i32 %6, 7
+  %and17.lobit = and i32 %and17, 1
   br label %return
 
-return:                                           ; preds = %lor.rhs.i, %land.lhs.true26.i.i, %if.else21.i.i, %if.else.i.i, %if.then6.i.i, %land.lhs.true.i.i, %land.lhs.true16, %land.lhs.true8, %land.lhs.true, %if.end20
-  %retval.0 = phi i32 [ 1, %if.end20 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true8 ], [ 0, %land.lhs.true16 ], [ %and.lobit.i, %lor.rhs.i ], [ 0, %land.lhs.true.i.i ], [ 0, %land.lhs.true26.i.i ], [ 0, %if.else21.i.i ], [ %.lobit.i, %if.then6.i.i ], [ 1, %if.else.i.i ]
+return:                                           ; preds = %lor.rhs.i, %land.lhs.true26.i.i, %if.else21.i.i, %if.else.i.i, %if.then6.i.i, %land.lhs.true.i.i, %land.lhs.true16, %if.end12, %land.lhs.true8, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true8 ], [ 1, %if.end12 ], [ %and17.lobit, %land.lhs.true16 ], [ %and.lobit.i, %lor.rhs.i ], [ 0, %land.lhs.true.i.i ], [ 0, %if.else21.i.i ], [ 0, %land.lhs.true26.i.i ], [ %.lobit.i, %if.then6.i.i ], [ 1, %if.else.i.i ]
   ret i32 %retval.0
 }
 
@@ -2054,20 +2047,18 @@ land.lhs.true8:                                   ; preds = %if.end4
 if.end12:                                         ; preds = %land.lhs.true8, %if.end4
   %and14 = and i32 %0, 2
   %cmp15.not = icmp eq i32 %and14, 0
-  br i1 %cmp15.not, label %if.end20, label %land.lhs.true16
+  br i1 %cmp15.not, label %return, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %if.end12
   %ex_kusage = getelementptr inbounds i8, ptr %x, i64 236
   %6 = load i32, ptr %ex_kusage, align 4
   %and17 = and i32 %6, 168
-  %cmp18 = icmp eq i32 %and17, 0
-  br i1 %cmp18, label %return, label %if.end20
-
-if.end20:                                         ; preds = %land.lhs.true16, %if.end12
+  %cmp18 = icmp ne i32 %and17, 0
+  %spec.select = zext i1 %cmp18 to i32
   br label %return
 
-return:                                           ; preds = %lor.rhs.i, %land.lhs.true26.i.i, %if.else21.i.i, %if.else.i.i, %if.then6.i.i, %land.lhs.true.i.i, %land.lhs.true16, %land.lhs.true8, %land.lhs.true, %if.end20
-  %retval.0 = phi i32 [ 1, %if.end20 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true8 ], [ 0, %land.lhs.true16 ], [ %and.lobit.i, %lor.rhs.i ], [ 0, %land.lhs.true.i.i ], [ 0, %land.lhs.true26.i.i ], [ 0, %if.else21.i.i ], [ %.lobit.i, %if.then6.i.i ], [ 1, %if.else.i.i ]
+return:                                           ; preds = %lor.rhs.i, %land.lhs.true26.i.i, %if.else21.i.i, %if.else.i.i, %if.then6.i.i, %land.lhs.true.i.i, %land.lhs.true16, %if.end12, %land.lhs.true8, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true8 ], [ 1, %if.end12 ], [ %spec.select, %land.lhs.true16 ], [ %and.lobit.i, %lor.rhs.i ], [ 0, %land.lhs.true.i.i ], [ 0, %if.else21.i.i ], [ 0, %land.lhs.true26.i.i ], [ %.lobit.i, %if.then6.i.i ], [ 1, %if.else.i.i ]
   ret i32 %retval.0
 }
 
@@ -2151,27 +2142,24 @@ land.lhs.true8.i:                                 ; preds = %if.end4.i
 if.end12.i:                                       ; preds = %land.lhs.true8.i, %if.end4.i
   %and14.i = and i32 %0, 2
   %cmp15.not.i = icmp eq i32 %and14.i, 0
-  br i1 %cmp15.not.i, label %cond.false, label %land.lhs.true16.i
+  br i1 %cmp15.not.i, label %return, label %check_purpose_ssl_server.exit
 
-land.lhs.true16.i:                                ; preds = %if.end12.i
+check_purpose_ssl_server.exit:                    ; preds = %if.end12.i
   %ex_kusage.i = getelementptr inbounds i8, ptr %x, i64 236
   %6 = load i32, ptr %ex_kusage.i, align 4
   %and17.i = and i32 %6, 168
-  %cmp18.i = icmp eq i32 %and17.i, 0
-  br i1 %cmp18.i, label %return, label %land.lhs.true
+  %cmp18.i.not = icmp eq i32 %and17.i, 0
+  br i1 %cmp18.i.not, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %land.lhs.true16.i
+land.lhs.true:                                    ; preds = %check_purpose_ssl_server.exit
   %ex_kusage = getelementptr inbounds i8, ptr %x, i64 236
   %7 = load i32, ptr %ex_kusage, align 4
-  %and2 = and i32 %7, 32
-  %cmp3 = icmp eq i32 %and2, 0
-  br i1 %cmp3, label %return, label %cond.false
-
-cond.false:                                       ; preds = %if.end12.i, %land.lhs.true
+  %and2 = lshr i32 %7, 5
+  %and2.lobit = and i32 %and2, 1
   br label %return
 
-return:                                           ; preds = %lor.rhs.i.i, %if.else.i.i.i, %if.then6.i.i.i, %if.else21.i.i.i, %land.lhs.true26.i.i.i, %land.lhs.true.i.i.i, %land.lhs.true16.i, %land.lhs.true8.i, %land.lhs.true.i, %cond.false, %land.lhs.true
-  %retval.0 = phi i32 [ 1, %cond.false ], [ 0, %land.lhs.true ], [ 1, %if.else.i.i.i ], [ %.lobit.i.i, %if.then6.i.i.i ], [ 0, %if.else21.i.i.i ], [ 0, %land.lhs.true26.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ %and.lobit.i.i, %lor.rhs.i.i ], [ 0, %land.lhs.true16.i ], [ 0, %land.lhs.true8.i ], [ 0, %land.lhs.true.i ]
+return:                                           ; preds = %if.end12.i, %lor.rhs.i.i, %if.else.i.i.i, %if.then6.i.i.i, %land.lhs.true26.i.i.i, %if.else21.i.i.i, %land.lhs.true.i.i.i, %land.lhs.true8.i, %land.lhs.true.i, %land.lhs.true, %check_purpose_ssl_server.exit
+  %retval.0 = phi i32 [ 0, %check_purpose_ssl_server.exit ], [ %and2.lobit, %land.lhs.true ], [ 1, %if.else.i.i.i ], [ %.lobit.i.i, %if.then6.i.i.i ], [ 0, %land.lhs.true26.i.i.i ], [ 0, %if.else21.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ %and.lobit.i.i, %lor.rhs.i.i ], [ 0, %land.lhs.true8.i ], [ 0, %land.lhs.true.i ], [ 1, %if.end12.i ]
   ret i32 %retval.0
 }
 
@@ -2210,14 +2198,19 @@ land.lhs.true.i.i:                                ; preds = %if.then3.i
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.then3.i
   %and4.i.i = and i32 %0, 1
   %cmp5.not.i.i = icmp eq i32 %and4.i.i, 0
-  br i1 %cmp5.not.i.i, label %if.else.i.i, label %check_ca.exit.i
+  br i1 %cmp5.not.i.i, label %if.else.i.i, label %if.then6.i.i
+
+if.then6.i.i:                                     ; preds = %if.end.i.i
+  %and8.i.i = lshr i32 %0, 4
+  %and8.lobit.i.i = and i32 %and8.i.i, 1
+  br label %return
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %and11.i.i = and i32 %0, 8256
   %cmp12.i.i = icmp eq i32 %and11.i.i, 8256
   %brmerge.i.i = or i1 %cmp12.i.i, %cmp.not.i.i
   %.mux.i.i = select i1 %cmp12.i.i, i32 3, i32 4
-  br i1 %brmerge.i.i, label %if.then10.i, label %if.else21.i.i
+  br i1 %brmerge.i.i, label %return, label %if.else21.i.i
 
 if.else21.i.i:                                    ; preds = %if.else.i.i
   %and23.i.i = and i32 %0, 8
@@ -2227,55 +2220,51 @@ if.else21.i.i:                                    ; preds = %if.else.i.i
 land.lhs.true26.i.i:                              ; preds = %if.else21.i.i
   %ex_nscert.i.i = getelementptr inbounds i8, ptr %x, i64 244
   %3 = load i32, ptr %ex_nscert.i.i, align 4
+  %and27.i.i = and i32 %3, 7
+  %cmp28.not.i.i = icmp eq i32 %and27.i.i, 0
+  br i1 %cmp28.not.i.i, label %return, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %land.lhs.true26.i.i
   %and8.i = and i32 %3, 2
   %cmp9.not.i = icmp eq i32 %and8.i, 0
-  br i1 %cmp9.not.i, label %return, label %if.then10.i
-
-check_ca.exit.i:                                  ; preds = %if.end.i.i
-  %4 = and i32 %0, 16
-  %cond14.i = icmp eq i32 %4, 0
-  br i1 %cond14.i, label %return, label %if.then10.i
-
-if.then10.i:                                      ; preds = %check_ca.exit.i, %land.lhs.true26.i.i, %if.else.i.i
-  %retval.0.i13.i = phi i32 [ 1, %check_ca.exit.i ], [ %.mux.i.i, %if.else.i.i ], [ 5, %land.lhs.true26.i.i ]
+  %spec.select.i = select i1 %cmp9.not.i, i32 0, i32 5
   br label %return
 
 if.end11.i:                                       ; preds = %if.end.i
   %and13.i = and i32 %0, 8
   %cmp14.not.i = icmp eq i32 %and13.i, 0
-  br i1 %cmp14.not.i, label %if.end, label %if.then15.i
+  br i1 %cmp14.not.i, label %purpose_smime.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end11.i
   %ex_nscert16.i = getelementptr inbounds i8, ptr %x, i64 244
-  %5 = load i32, ptr %ex_nscert16.i, align 4
-  %and17.i = and i32 %5, 32
+  %4 = load i32, ptr %ex_nscert16.i, align 4
+  %and17.i = and i32 %4, 32
   %cmp18.not.i = icmp eq i32 %and17.i, 0
-  br i1 %cmp18.not.i, label %purpose_smime.exit, label %if.end
+  br i1 %cmp18.not.i, label %if.end20.i, label %purpose_smime.exit
 
-purpose_smime.exit:                               ; preds = %if.then15.i
-  %and22.i = lshr i32 %5, 6
+if.end20.i:                                       ; preds = %if.then15.i
+  %and22.i = lshr i32 %4, 6
   %cond.i = and i32 %and22.i, 2
-  %tobool = icmp eq i32 %cond.i, 0
-  br i1 %tobool, label %return, label %if.end
+  br label %purpose_smime.exit
 
-if.end:                                           ; preds = %if.end11.i, %if.then15.i, %purpose_smime.exit
-  %retval.0.i12 = phi i32 [ %cond.i, %purpose_smime.exit ], [ 1, %if.then15.i ], [ 1, %if.end11.i ]
+purpose_smime.exit:                               ; preds = %if.end11.i, %if.then15.i, %if.end20.i
+  %retval.0.i = phi i32 [ %cond.i, %if.end20.i ], [ 1, %if.then15.i ], [ 1, %if.end11.i ]
+  %tobool = icmp eq i32 %retval.0.i, 0
   %and = and i32 %0, 2
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %cond.false, label %land.lhs.true
+  %or.cond10 = or i1 %cmp.not, %tobool
+  br i1 %or.cond10, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end
+land.lhs.true:                                    ; preds = %purpose_smime.exit
   %ex_kusage = getelementptr inbounds i8, ptr %x, i64 236
-  %6 = load i32, ptr %ex_kusage, align 4
-  %and2 = and i32 %6, 192
+  %5 = load i32, ptr %ex_kusage, align 4
+  %and2 = and i32 %5, 192
   %cmp3 = icmp eq i32 %and2, 0
-  br i1 %cmp3, label %return, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true, %if.end
+  %spec.select = select i1 %cmp3, i32 0, i32 %retval.0.i
   br label %return
 
-return:                                           ; preds = %if.then10.i, %if.else21.i.i, %land.lhs.true26.i.i, %land.lhs.true.i.i, %check_ca.exit.i, %land.lhs.true.i, %cond.false, %land.lhs.true, %purpose_smime.exit
-  %retval.0 = phi i32 [ 0, %purpose_smime.exit ], [ %retval.0.i12, %cond.false ], [ 0, %land.lhs.true ], [ 0, %if.else21.i.i ], [ 0, %land.lhs.true26.i.i ], [ 0, %land.lhs.true.i.i ], [ 0, %check_ca.exit.i ], [ 0, %land.lhs.true.i ], [ %retval.0.i13.i, %if.then10.i ]
+return:                                           ; preds = %lor.lhs.false.i, %if.else.i.i, %if.then6.i.i, %land.lhs.true26.i.i, %if.else21.i.i, %land.lhs.true.i.i, %land.lhs.true.i, %land.lhs.true, %purpose_smime.exit
+  %retval.0 = phi i32 [ %retval.0.i, %purpose_smime.exit ], [ %spec.select, %land.lhs.true ], [ %.mux.i.i, %if.else.i.i ], [ %and8.lobit.i.i, %if.then6.i.i ], [ 0, %land.lhs.true26.i.i ], [ 0, %if.else21.i.i ], [ 0, %land.lhs.true.i.i ], [ %spec.select.i, %lor.lhs.false.i ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0
 }
 
@@ -2314,14 +2303,19 @@ land.lhs.true.i.i:                                ; preds = %if.then3.i
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.then3.i
   %and4.i.i = and i32 %0, 1
   %cmp5.not.i.i = icmp eq i32 %and4.i.i, 0
-  br i1 %cmp5.not.i.i, label %if.else.i.i, label %check_ca.exit.i
+  br i1 %cmp5.not.i.i, label %if.else.i.i, label %if.then6.i.i
+
+if.then6.i.i:                                     ; preds = %if.end.i.i
+  %and8.i.i = lshr i32 %0, 4
+  %and8.lobit.i.i = and i32 %and8.i.i, 1
+  br label %return
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %and11.i.i = and i32 %0, 8256
   %cmp12.i.i = icmp eq i32 %and11.i.i, 8256
   %brmerge.i.i = or i1 %cmp12.i.i, %cmp.not.i.i
   %.mux.i.i = select i1 %cmp12.i.i, i32 3, i32 4
-  br i1 %brmerge.i.i, label %if.then10.i, label %if.else21.i.i
+  br i1 %brmerge.i.i, label %return, label %if.else21.i.i
 
 if.else21.i.i:                                    ; preds = %if.else.i.i
   %and23.i.i = and i32 %0, 8
@@ -2331,55 +2325,51 @@ if.else21.i.i:                                    ; preds = %if.else.i.i
 land.lhs.true26.i.i:                              ; preds = %if.else21.i.i
   %ex_nscert.i.i = getelementptr inbounds i8, ptr %x, i64 244
   %3 = load i32, ptr %ex_nscert.i.i, align 4
+  %and27.i.i = and i32 %3, 7
+  %cmp28.not.i.i = icmp eq i32 %and27.i.i, 0
+  br i1 %cmp28.not.i.i, label %return, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %land.lhs.true26.i.i
   %and8.i = and i32 %3, 2
   %cmp9.not.i = icmp eq i32 %and8.i, 0
-  br i1 %cmp9.not.i, label %return, label %if.then10.i
-
-check_ca.exit.i:                                  ; preds = %if.end.i.i
-  %4 = and i32 %0, 16
-  %cond14.i = icmp eq i32 %4, 0
-  br i1 %cond14.i, label %return, label %if.then10.i
-
-if.then10.i:                                      ; preds = %check_ca.exit.i, %land.lhs.true26.i.i, %if.else.i.i
-  %retval.0.i13.i = phi i32 [ 1, %check_ca.exit.i ], [ %.mux.i.i, %if.else.i.i ], [ 5, %land.lhs.true26.i.i ]
+  %spec.select.i = select i1 %cmp9.not.i, i32 0, i32 5
   br label %return
 
 if.end11.i:                                       ; preds = %if.end.i
   %and13.i = and i32 %0, 8
   %cmp14.not.i = icmp eq i32 %and13.i, 0
-  br i1 %cmp14.not.i, label %if.end, label %if.then15.i
+  br i1 %cmp14.not.i, label %purpose_smime.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end11.i
   %ex_nscert16.i = getelementptr inbounds i8, ptr %x, i64 244
-  %5 = load i32, ptr %ex_nscert16.i, align 4
-  %and17.i = and i32 %5, 32
+  %4 = load i32, ptr %ex_nscert16.i, align 4
+  %and17.i = and i32 %4, 32
   %cmp18.not.i = icmp eq i32 %and17.i, 0
-  br i1 %cmp18.not.i, label %purpose_smime.exit, label %if.end
+  br i1 %cmp18.not.i, label %if.end20.i, label %purpose_smime.exit
 
-purpose_smime.exit:                               ; preds = %if.then15.i
-  %and22.i = lshr i32 %5, 6
+if.end20.i:                                       ; preds = %if.then15.i
+  %and22.i = lshr i32 %4, 6
   %cond.i = and i32 %and22.i, 2
-  %tobool = icmp eq i32 %cond.i, 0
-  br i1 %tobool, label %return, label %if.end
+  br label %purpose_smime.exit
 
-if.end:                                           ; preds = %if.end11.i, %if.then15.i, %purpose_smime.exit
-  %retval.0.i12 = phi i32 [ %cond.i, %purpose_smime.exit ], [ 1, %if.then15.i ], [ 1, %if.end11.i ]
+purpose_smime.exit:                               ; preds = %if.end11.i, %if.then15.i, %if.end20.i
+  %retval.0.i = phi i32 [ %cond.i, %if.end20.i ], [ 1, %if.then15.i ], [ 1, %if.end11.i ]
+  %tobool = icmp eq i32 %retval.0.i, 0
   %and = and i32 %0, 2
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %cond.false, label %land.lhs.true
+  %or.cond10 = or i1 %cmp.not, %tobool
+  br i1 %or.cond10, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end
+land.lhs.true:                                    ; preds = %purpose_smime.exit
   %ex_kusage = getelementptr inbounds i8, ptr %x, i64 236
-  %6 = load i32, ptr %ex_kusage, align 4
-  %and2 = and i32 %6, 32
+  %5 = load i32, ptr %ex_kusage, align 4
+  %and2 = and i32 %5, 32
   %cmp3 = icmp eq i32 %and2, 0
-  br i1 %cmp3, label %return, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true, %if.end
+  %spec.select = select i1 %cmp3, i32 0, i32 %retval.0.i
   br label %return
 
-return:                                           ; preds = %if.then10.i, %if.else21.i.i, %land.lhs.true26.i.i, %land.lhs.true.i.i, %check_ca.exit.i, %land.lhs.true.i, %cond.false, %land.lhs.true, %purpose_smime.exit
-  %retval.0 = phi i32 [ 0, %purpose_smime.exit ], [ %retval.0.i12, %cond.false ], [ 0, %land.lhs.true ], [ 0, %if.else21.i.i ], [ 0, %land.lhs.true26.i.i ], [ 0, %land.lhs.true.i.i ], [ 0, %check_ca.exit.i ], [ 0, %land.lhs.true.i ], [ %retval.0.i13.i, %if.then10.i ]
+return:                                           ; preds = %lor.lhs.false.i, %if.else.i.i, %if.then6.i.i, %land.lhs.true26.i.i, %if.else21.i.i, %land.lhs.true.i.i, %land.lhs.true.i, %land.lhs.true, %purpose_smime.exit
+  %retval.0 = phi i32 [ %retval.0.i, %purpose_smime.exit ], [ %spec.select, %land.lhs.true ], [ %.mux.i.i, %if.else.i.i ], [ %and8.lobit.i.i, %if.then6.i.i ], [ 0, %land.lhs.true26.i.i ], [ 0, %if.else21.i.i ], [ 0, %land.lhs.true.i.i ], [ %spec.select.i, %lor.lhs.false.i ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0
 }
 
@@ -2423,16 +2413,14 @@ if.else.i:                                        ; preds = %if.end.i
 if.else21.i:                                      ; preds = %if.else.i
   %and23.i = and i32 %0, 8
   %cmp24.not.i = icmp eq i32 %and23.i, 0
-  br i1 %cmp24.not.i, label %if.end33.i, label %land.lhs.true26.i
+  br i1 %cmp24.not.i, label %return, label %land.lhs.true26.i
 
 land.lhs.true26.i:                                ; preds = %if.else21.i
   %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 244
   %2 = load i32, ptr %ex_nscert.i, align 4
   %and27.i = and i32 %2, 7
   %cmp28.not.i = icmp eq i32 %and27.i, 0
-  br i1 %cmp28.not.i, label %if.end33.i, label %return
-
-if.end33.i:                                       ; preds = %land.lhs.true26.i, %if.else21.i
+  %spec.select.i = select i1 %cmp28.not.i, i32 0, i32 5
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2446,8 +2434,8 @@ land.rhs:                                         ; preds = %if.end
   %and2.lobit = and i32 %and2, 1
   br label %return
 
-return:                                           ; preds = %if.end33.i, %land.lhs.true26.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %if.end, %land.rhs
-  %retval.0 = phi i32 [ 1, %if.end ], [ %and2.lobit, %land.rhs ], [ %and8.lobit.i, %if.then6.i ], [ 0, %if.end33.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 5, %land.lhs.true26.i ]
+return:                                           ; preds = %land.lhs.true26.i, %if.else21.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %if.end, %land.rhs
+  %retval.0 = phi i32 [ 1, %if.end ], [ %and2.lobit, %land.rhs ], [ %and8.lobit.i, %if.then6.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 0, %if.else21.i ], [ %spec.select.i, %land.lhs.true26.i ]
   ret i32 %retval.0
 }
 
@@ -2497,20 +2485,18 @@ if.else.i:                                        ; preds = %if.end.i
 if.else21.i:                                      ; preds = %if.else.i
   %and23.i = and i32 %0, 8
   %cmp24.not.i = icmp eq i32 %and23.i, 0
-  br i1 %cmp24.not.i, label %if.end33.i, label %land.lhs.true26.i
+  br i1 %cmp24.not.i, label %return, label %land.lhs.true26.i
 
 land.lhs.true26.i:                                ; preds = %if.else21.i
   %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 244
   %2 = load i32, ptr %ex_nscert.i, align 4
   %and27.i = and i32 %2, 7
   %cmp28.not.i = icmp eq i32 %and27.i, 0
-  br i1 %cmp28.not.i, label %if.end33.i, label %return
-
-if.end33.i:                                       ; preds = %land.lhs.true26.i, %if.else21.i
+  %spec.select.i = select i1 %cmp28.not.i, i32 0, i32 5
   br label %return
 
-return:                                           ; preds = %if.end33.i, %land.lhs.true26.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ %and8.lobit.i, %if.then6.i ], [ 0, %if.end33.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 5, %land.lhs.true26.i ]
+return:                                           ; preds = %land.lhs.true26.i, %if.else21.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ %and8.lobit.i, %if.then6.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 0, %if.else21.i ], [ %spec.select.i, %land.lhs.true26.i ]
   ret i32 %retval.0
 }
 
@@ -2554,16 +2540,14 @@ if.else.i:                                        ; preds = %if.end.i
 if.else21.i:                                      ; preds = %if.else.i
   %and23.i = and i32 %0, 8
   %cmp24.not.i = icmp eq i32 %and23.i, 0
-  br i1 %cmp24.not.i, label %if.end33.i, label %land.lhs.true26.i
+  br i1 %cmp24.not.i, label %return, label %land.lhs.true26.i
 
 land.lhs.true26.i:                                ; preds = %if.else21.i
   %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 244
   %2 = load i32, ptr %ex_nscert.i, align 4
   %and27.i = and i32 %2, 7
   %cmp28.not.i = icmp eq i32 %and27.i, 0
-  br i1 %cmp28.not.i, label %if.end33.i, label %return
-
-if.end33.i:                                       ; preds = %land.lhs.true26.i, %if.else21.i
+  %spec.select.i = select i1 %cmp28.not.i, i32 0, i32 5
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2596,19 +2580,17 @@ lor.lhs.false11:                                  ; preds = %land.lhs.true, %if.
 if.end14:                                         ; preds = %lor.lhs.false11
   %call15 = tail call i32 @X509_get_ext_by_NID(ptr noundef nonnull %x, i32 noundef 126, i32 noundef -1) #8
   %cmp16 = icmp sgt i32 %call15, -1
-  br i1 %cmp16, label %land.lhs.true17, label %if.end22
+  br i1 %cmp16, label %land.lhs.true17, label %return
 
 land.lhs.true17:                                  ; preds = %if.end14
   %call18 = tail call ptr @X509_get_ext(ptr noundef nonnull %x, i32 noundef %call15) #8
   %call19 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef %call18) #8
-  %tobool20.not = icmp eq i32 %call19, 0
-  br i1 %tobool20.not, label %return, label %if.end22
-
-if.end22:                                         ; preds = %land.lhs.true17, %if.end14
+  %tobool20.not = icmp ne i32 %call19, 0
+  %spec.select = zext i1 %tobool20.not to i32
   br label %return
 
-return:                                           ; preds = %if.end33.i, %land.lhs.true26.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %land.lhs.true17, %if.end7, %lor.lhs.false11, %land.lhs.true, %if.end22
-  %retval.0 = phi i32 [ 1, %if.end22 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false11 ], [ 0, %if.end7 ], [ 0, %land.lhs.true17 ], [ %and8.lobit.i, %if.then6.i ], [ 0, %if.end33.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 5, %land.lhs.true26.i ]
+return:                                           ; preds = %land.lhs.true26.i, %if.else21.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %land.lhs.true17, %if.end14, %if.end7, %lor.lhs.false11, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %lor.lhs.false11 ], [ 0, %if.end7 ], [ 1, %if.end14 ], [ %spec.select, %land.lhs.true17 ], [ %and8.lobit.i, %if.then6.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 0, %if.else21.i ], [ %spec.select.i, %land.lhs.true26.i ]
   ret i32 %retval.0
 }
 
@@ -2652,16 +2634,14 @@ if.else.i:                                        ; preds = %if.end.i
 if.else21.i:                                      ; preds = %if.else.i
   %and23.i = and i32 %0, 8
   %cmp24.not.i = icmp eq i32 %and23.i, 0
-  br i1 %cmp24.not.i, label %if.end33.i, label %land.lhs.true26.i
+  br i1 %cmp24.not.i, label %return, label %land.lhs.true26.i
 
 land.lhs.true26.i:                                ; preds = %if.else21.i
   %ex_nscert.i = getelementptr inbounds i8, ptr %x, i64 244
   %2 = load i32, ptr %ex_nscert.i, align 4
   %and27.i = and i32 %2, 7
   %cmp28.not.i = icmp eq i32 %and27.i, 0
-  br i1 %cmp28.not.i, label %if.end33.i, label %return
-
-if.end33.i:                                       ; preds = %land.lhs.true26.i, %if.else21.i
+  %spec.select.i = select i1 %cmp28.not.i, i32 0, i32 5
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2705,8 +2685,8 @@ if.end32:                                         ; preds = %if.end28
   %. = zext i1 %cmp35.not to i32
   br label %return
 
-return:                                           ; preds = %if.end33.i, %land.lhs.true26.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %if.end32, %if.end28, %if.end23, %if.then17, %if.end11, %if.end2, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 0, %if.end2 ], [ 0, %if.end11 ], [ 0, %if.then17 ], [ 0, %if.end23 ], [ 0, %if.end28 ], [ %., %if.end32 ], [ %and8.lobit.i, %if.then6.i ], [ 0, %if.end33.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 5, %land.lhs.true26.i ]
+return:                                           ; preds = %land.lhs.true26.i, %if.else21.i, %if.else.i, %if.then6.i, %land.lhs.true.i, %if.end32, %if.end28, %if.end23, %if.then17, %if.end11, %if.end2, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 0, %if.end2 ], [ 0, %if.end11 ], [ 0, %if.then17 ], [ 0, %if.end23 ], [ 0, %if.end28 ], [ %., %if.end32 ], [ %and8.lobit.i, %if.then6.i ], [ 0, %land.lhs.true.i ], [ %.mux.i, %if.else.i ], [ 0, %if.else21.i ], [ %spec.select.i, %land.lhs.true26.i ]
   ret i32 %retval.0
 }
 

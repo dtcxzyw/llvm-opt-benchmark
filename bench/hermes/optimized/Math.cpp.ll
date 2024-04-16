@@ -277,7 +277,7 @@ if.else:                                          ; preds = %if.end
 
 if.else15:                                        ; preds = %if.else
   %cmp = fcmp olt double %result.022, %10
-  br i1 %cmp, label %if.then20, label %lor.lhs.false
+  br i1 %cmp, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else15
   %13 = icmp sgt i64 %9, -1
@@ -286,11 +286,11 @@ lor.lhs.false:                                    ; preds = %if.else15
   %cmp19 = and i1 %15, %13
   br i1 %cmp19, label %if.then20, label %for.inc
 
-if.then20:                                        ; preds = %lor.lhs.false, %if.else15
+if.then20:                                        ; preds = %lor.lhs.false
   br label %for.inc
 
-for.inc:                                          ; preds = %if.else, %lor.lhs.false, %if.then20, %if.end
-  %result.1 = phi double [ %result.022, %if.end ], [ %10, %if.then20 ], [ %result.022, %lor.lhs.false ], [ 0x7FF8000000000000, %if.else ]
+for.inc:                                          ; preds = %if.else, %if.else15, %lor.lhs.false, %if.then20, %if.end
+  %result.1 = phi double [ %result.022, %if.end ], [ %result.022, %lor.lhs.false ], [ %10, %if.else15 ], [ %10, %if.then20 ], [ 0x7FF8000000000000, %if.else ]
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
@@ -376,7 +376,7 @@ if.else:                                          ; preds = %if.end
 
 if.else15:                                        ; preds = %if.else
   %cmp = fcmp ogt double %result.022, %10
-  br i1 %cmp, label %if.then20, label %lor.lhs.false
+  br i1 %cmp, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else15
   %13 = icmp slt i64 %9, 0
@@ -385,11 +385,11 @@ lor.lhs.false:                                    ; preds = %if.else15
   %cmp19 = and i1 %15, %13
   br i1 %cmp19, label %if.then20, label %for.inc
 
-if.then20:                                        ; preds = %lor.lhs.false, %if.else15
+if.then20:                                        ; preds = %lor.lhs.false
   br label %for.inc
 
-for.inc:                                          ; preds = %if.else, %lor.lhs.false, %if.then20, %if.end
-  %result.1 = phi double [ %result.022, %if.end ], [ %10, %if.then20 ], [ %result.022, %lor.lhs.false ], [ 0x7FF8000000000000, %if.else ]
+for.inc:                                          ; preds = %if.else, %if.else15, %lor.lhs.false, %if.then20, %if.end
+  %result.1 = phi double [ %result.022, %if.end ], [ %result.022, %lor.lhs.false ], [ %10, %if.else15 ], [ %10, %if.then20 ], [ 0x7FF8000000000000, %if.else ]
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 

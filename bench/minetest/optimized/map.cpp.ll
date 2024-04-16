@@ -678,7 +678,7 @@ define dso_local noundef ptr @_ZN3Map25getSectorNoGenerateNoLockEN3irr4core8vect
 entry:
   %p.sroa.0.0.extract.trunc = trunc i32 %p.coerce to i16
   %p.sroa.5.0.extract.shift = lshr i32 %p.coerce, 16
-  %p.sroa.5.0.extract.trunc = trunc i32 %p.sroa.5.0.extract.shift to i16
+  %p.sroa.5.0.extract.trunc = trunc nuw i32 %p.sroa.5.0.extract.shift to i16
   %m_sector_cache = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_sector_cache, align 8, !tbaa !44
   %cmp.not = icmp eq ptr %0, null
@@ -791,7 +791,7 @@ define dso_local noundef ptr @_ZN3Map19getSectorNoGenerateEN3irr4core8vector2dIs
 entry:
   %p.sroa.0.0.extract.trunc.i = trunc i32 %p.coerce to i16
   %p.sroa.5.0.extract.shift.i = lshr i32 %p.coerce, 16
-  %p.sroa.5.0.extract.trunc.i = trunc i32 %p.sroa.5.0.extract.shift.i to i16
+  %p.sroa.5.0.extract.trunc.i = trunc nuw i32 %p.sroa.5.0.extract.shift.i to i16
   %m_sector_cache.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_sector_cache.i, align 8, !tbaa !44
   %cmp.not.i = icmp eq ptr %0, null
@@ -901,13 +901,13 @@ define dso_local noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dI
 entry:
   %p3d.sroa.0.0.extract.trunc = trunc i48 %p3d.coerce to i32
   %sh.diff = lshr i48 %p3d.coerce, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %p2d.sroa.4.0.insert.shift = and i32 %tr.sh.diff, -65536
   %p2d.sroa.0.0.insert.ext = and i32 %p3d.sroa.0.0.extract.trunc, 65535
   %p2d.sroa.0.0.insert.insert = or disjoint i32 %p2d.sroa.4.0.insert.shift, %p2d.sroa.0.0.insert.ext
   %p.sroa.0.0.extract.trunc.i.i = trunc i48 %p3d.coerce to i16
   %p.sroa.5.0.extract.shift.i.i11 = lshr i48 %p3d.coerce, 32
-  %p.sroa.5.0.extract.trunc.i.i = trunc i48 %p.sroa.5.0.extract.shift.i.i11 to i16
+  %p.sroa.5.0.extract.trunc.i.i = trunc nuw i48 %p.sroa.5.0.extract.shift.i.i11 to i16
   %m_sector_cache.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_sector_cache.i.i, align 8, !tbaa !44
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1188,7 +1188,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -1224,7 +1224,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -1249,8 +1249,8 @@ if.then:                                          ; preds = %entry
 
 if.end7:                                          ; preds = %entry
   %blockpos.sroa.5.0.extract.trunc = zext i32 %div.i19.i.i to i64
-  %blockpos.sroa.4.0.extract.trunc = trunc i32 %div.i11.i.i to i16
-  %blockpos.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i to i16
+  %blockpos.sroa.4.0.extract.trunc = trunc nsw i32 %div.i11.i.i to i16
+  %blockpos.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i to i16
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 32
   %p.sroa.3.0.extract.trunc = zext nneg i48 %p.sroa.3.0.extract.shift to i64
   %mul.i = shl nsw i16 %blockpos.sroa.0.0.extract.trunc, 4
@@ -1314,7 +1314,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -1349,11 +1349,11 @@ lpad.i:                                           ; preds = %if.then.i
   resume { ptr, i32 } %2
 
 _ZN3Map16getBlockNoCreateEN3irr4core8vector3dIsEE.exit: ; preds = %entry
-  %blockpos.sroa.5.0.extract.trunc = trunc i32 %div.i19.i.i to i16
-  %blockpos.sroa.4.0.extract.trunc = trunc i32 %div.i11.i.i to i16
-  %blockpos.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i to i16
+  %blockpos.sroa.5.0.extract.trunc = trunc nsw i32 %div.i19.i.i to i16
+  %blockpos.sroa.4.0.extract.trunc = trunc nsw i32 %div.i11.i.i to i16
+  %blockpos.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i to i16
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i16
+  %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i16
   %mul.i = shl nsw i16 %blockpos.sroa.0.0.extract.trunc, 4
   %mul6.i = shl nsw i16 %blockpos.sroa.4.0.extract.trunc, 4
   %mul10.i = shl nsw i16 %blockpos.sroa.5.0.extract.trunc, 4
@@ -1391,7 +1391,7 @@ entry:
 if.then:                                          ; preds = %entry
   %relpos.sroa.0.0.extract.trunc = trunc i48 %relpos.coerce to i16
   %relpos.sroa.4.0.extract.trunc = trunc i48 %relpos.sroa.4.0.extract.shift to i16
-  %relpos.sroa.5.0.extract.trunc = trunc i48 %relpos.sroa.5.0.extract.shift to i16
+  %relpos.sroa.5.0.extract.trunc = trunc nuw i48 %relpos.sroa.5.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %blockpos) #24
   %m_pos.i = getelementptr inbounds i8, ptr %block, i64 10
   %retval.sroa.0.0.copyload.i = load i48, ptr %m_pos.i, align 2, !tbaa.struct !97
@@ -1643,7 +1643,7 @@ invoke.cont:
   %p.sroa.8.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.8.0.extract.trunc = trunc i48 %p.sroa.8.0.extract.shift to i16
   %p.sroa.9.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.9.0.extract.trunc = trunc i48 %p.sroa.9.0.extract.shift to i16
+  %p.sroa.9.0.extract.trunc = trunc nuw i48 %p.sroa.9.0.extract.shift to i16
   %n.sroa.0.0.extract.trunc = trunc i32 %n.coerce to i16
   %n.sroa.6.0.extract.shift = lshr i32 %n.coerce, 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %rollback_oldnode) #24
@@ -1661,7 +1661,7 @@ invoke.cont:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.8.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.8.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.8.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -1677,9 +1677,9 @@ invoke.cont:
   %2 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %2, %retval.sroa.2.0.insert.shift.i.i
   store i48 %retval.sroa.0.0.insert.insert.i.i, ptr %blockpos, align 8
-  %3 = trunc i32 %div.i.i.i to i16
-  %4 = trunc i32 %div.i11.i.i to i16
-  %5 = trunc i32 %div.i19.i.i to i16
+  %3 = trunc nsw i32 %div.i.i.i to i16
+  %4 = trunc nsw i32 %div.i11.i.i to i16
+  %5 = trunc nsw i32 %div.i19.i.i to i16
   %call.i122 = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %this, i48 %retval.sroa.0.0.insert.insert.i.i)
           to label %call.i.noexc unwind label %lpad5
 
@@ -1816,7 +1816,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %wh
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 32
   %26 = load i16, ptr %_M_storage.i.i.i.i.i.i, align 2, !tbaa !127
   %cmp.i.i.i.i.i.i = icmp slt i16 %26, %23
-  br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i
   %cmp8.i.i.i.i.i.i = icmp eq i16 %26, %23
@@ -1826,7 +1826,7 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i
   %Y.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 34
   %27 = load i16, ptr %Y.i.i.i.i.i.i, align 2, !tbaa !128
   %cmp12.i.i.i.i.i.i = icmp slt i16 %27, %24
-  br i1 %cmp12.i.i.i.i.i.i, label %if.else.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
+  br i1 %cmp12.i.i.i.i.i.i, label %if.end.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
 
 land.lhs.true18.i.i.i.i.i.i:                      ; preds = %land.lhs.true.i.i.i.i.i.i
   %cmp23.i.i.i.i.i.i = icmp eq i16 %27, %24
@@ -1836,14 +1836,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i: ; preds = %land.lh
   %Z.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 36
   %28 = load i16, ptr %Z.i.i.i.i.i.i, align 2, !tbaa !129
   %cmp27.i.i.i.i.i.i = icmp slt i16 %28, %25
-  br i1 %cmp27.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %while.body.i.i.i.i
+  %spec.select1 = select i1 %cmp27.i.i.i.i.i.i, i64 24, i64 16
+  %spec.select2 = select i1 %cmp27.i.i.i.i.i.i, ptr %__y.addr.012.i.i.i.i, ptr %__x.addr.013.i.i.i.i
   br label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %lor.lhs.false.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.012.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
+if.end.i.i.i.i:                                   ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %while.body.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 16, %lor.lhs.false.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i ], [ 24, %land.lhs.true.i.i.i.i.i.i ], [ 24, %while.body.i.i.i.i ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__x.addr.013.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i, %while.body.i.i.i.i ], [ %spec.select2, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -2185,7 +2184,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -2269,11 +2268,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  %blockpos.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i to i16
-  %blockpos.sroa.5.0.extract.trunc = trunc i32 %div.i11.i.i to i16
-  %blockpos.sroa.6.0.extract.trunc = trunc i32 %div.i19.i.i to i16
+  %blockpos.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i to i16
+  %blockpos.sroa.5.0.extract.trunc = trunc nsw i32 %div.i11.i.i to i16
+  %blockpos.sroa.6.0.extract.trunc = trunc nsw i32 %div.i19.i.i to i16
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i16
+  %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i16
   %mul10.i = shl nsw i16 %blockpos.sroa.6.0.extract.trunc, 4
   %sub13.i = sub i16 %p.sroa.3.0.extract.trunc, %mul10.i
   %retval.sroa.3.0.insert.ext.i17 = zext i16 %sub13.i to i48
@@ -5017,7 +5016,7 @@ for.body:                                         ; preds = %delete.end, %for.bo
   %3 = trunc i32 %2 to i16
   %conv.i.i.i.i = sext i16 %3 to i64
   %4 = lshr i32 %2, 16
-  %5 = trunc i32 %4 to i16
+  %5 = trunc nuw i32 %4 to i16
   %conv.i6.i.i.i = sext i16 %5 to i64
   %or.i.i.i = call i64 @llvm.fshl.i64(i64 %conv.i.i.i.i, i64 %conv.i.i.i.i, i64 32)
   %xor.i.i.i = xor i64 %or.i.i.i, %conv.i6.i.i.i
@@ -5182,12 +5181,12 @@ entry:
   %p1.sroa.5.0.extract.shift = lshr i48 %p1.coerce, 16
   %p1.sroa.5.0.extract.trunc = trunc i48 %p1.sroa.5.0.extract.shift to i16
   %p1.sroa.8.0.extract.shift = lshr i48 %p1.coerce, 32
-  %p1.sroa.8.0.extract.trunc = trunc i48 %p1.sroa.8.0.extract.shift to i16
+  %p1.sroa.8.0.extract.trunc = trunc nuw i48 %p1.sroa.8.0.extract.shift to i16
   %p2.sroa.0.0.extract.trunc = trunc i48 %p2.coerce to i16
   %p2.sroa.5.0.extract.shift = lshr i48 %p2.coerce, 16
   %p2.sroa.5.0.extract.trunc = trunc i48 %p2.sroa.5.0.extract.shift to i16
   %p2.sroa.8.0.extract.shift = lshr i48 %p2.coerce, 32
-  %p2.sroa.8.0.extract.trunc = trunc i48 %p2.sroa.8.0.extract.shift to i16
+  %p2.sroa.8.0.extract.trunc = trunc nuw i48 %p2.sroa.8.0.extract.shift to i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %spec.select = tail call i16 @llvm.smax.i16(i16 %p1.sroa.0.0.extract.trunc, i16 %p2.sroa.0.0.extract.trunc)
   %spec.select292 = tail call i16 @llvm.smin.i16(i16 %p1.sroa.0.0.extract.trunc, i16 %p2.sroa.0.0.extract.trunc)
@@ -5212,14 +5211,14 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p1.sroa.5.0.insert.insert, 0
   %cond.i18.i.i = select i1 %cmp9.i17.i.i, i32 %add.i16.i.i, i32 %conv.i13.i.i
   %div.i19.i.i = sdiv i32 %cond.i18.i.i, 16
-  %bpmin.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i to i16
-  %bpmin.sroa.5.0.extract.trunc = trunc i32 %div.i11.i.i to i16
+  %bpmin.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i to i16
+  %bpmin.sroa.5.0.extract.trunc = trunc nsw i32 %div.i11.i.i to i16
   %p2.sroa.8.0.insert.ext = zext i16 %p2.sroa.8.0 to i48
   %p2.sroa.8.0.insert.shift = shl nuw i48 %p2.sroa.8.0.insert.ext, 32
   %p2.sroa.5.0.insert.ext = zext i16 %p2.sroa.5.0 to i48
@@ -5237,7 +5236,7 @@ entry:
   %cmp9.i9.i.i131 = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i123, 0
   %cond.i10.i.i132 = select i1 %cmp9.i9.i.i131, i32 %add.i8.i.i130, i32 %conv.i5.i.i129
   %div.i11.i.i133 = sdiv i32 %cond.i10.i.i132, 16
-  %tr.sh.diff.i.i134 = trunc i48 %p.sroa.2.0.extract.shift.i.i122 to i32
+  %tr.sh.diff.i.i134 = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i122 to i32
   %conv.i13.i.i135 = ashr i32 %tr.sh.diff.i.i134, 16
   %add.i16.i.i136 = add nsw i32 %conv.i13.i.i135, -15
   %cmp9.i17.i.i137 = icmp slt i48 %p2.sroa.5.0.insert.insert, 0
@@ -5267,7 +5266,7 @@ for.cond15.preheader.lr.ph:                       ; preds = %entry
   br i1 %or.cond362, label %for.cond.cleanup, label %for.cond15.preheader.preheader
 
 for.cond15.preheader.preheader:                   ; preds = %for.cond15.preheader.lr.ph
-  %bpmin.sroa.6.0.extract.trunc = trunc i32 %div.i19.i.i to i16
+  %bpmin.sroa.6.0.extract.trunc = trunc nsw i32 %div.i19.i.i to i16
   br label %for.cond15.preheader
 
 for.cond15.preheader:                             ; preds = %for.cond15.for.cond.cleanup20_crit_edge.split, %for.cond15.preheader.preheader
@@ -5289,7 +5288,7 @@ for.cond22.preheader:                             ; preds = %for.cond22.for.cond
   %blockpos.sroa.8.0.insert.shift261 = shl nuw nsw i48 %blockpos.sroa.8.0.insert.ext260, 16
   %blockpos.sroa.8.0.insert.insert263 = or disjoint i48 %blockpos.sroa.8.0.insert.shift261, %blockpos.sroa.10.0.insert.shift269
   %sh.diff.i = lshr exact i48 %blockpos.sroa.8.0.insert.insert263, 16
-  %tr.sh.diff.i = trunc i48 %sh.diff.i to i32
+  %tr.sh.diff.i = trunc nuw i48 %sh.diff.i to i32
   %p2d.sroa.4.0.insert.shift.i = and i32 %tr.sh.diff.i, -65536
   %p3d.sroa.2.0.extract.trunc.i = trunc i48 %sh.diff.i to i16
   %mul6.i = shl i16 %y.0321, 4
@@ -5669,7 +5668,7 @@ invoke.cont64:                                    ; preds = %for.cond57.preheade
   %retval.sroa.0.0.insert.ext.i194 = zext i16 %add.i to i48
   %49 = or disjoint i48 %retval.sroa.2.0.insert.shift.i192, %retval.sroa.0.0.insert.ext.i194
   %retval.sroa.0.0.insert.insert.i195 = or disjoint i48 %49, %retval.sroa.3.0.insert.shift.i190
-  %p.sroa.0.0.extract.trunc.i = trunc i48 %49 to i32
+  %p.sroa.0.0.extract.trunc.i = trunc nuw i48 %49 to i32
   %sext.i = shl i32 %p.sroa.0.0.extract.trunc.i, 16
   %conv.i = ashr exact i32 %sext.i, 16
   %cmp.not.i = icmp slt i32 %conv.i, %conv.i.i.i
@@ -5835,7 +5834,7 @@ if.then:                                          ; preds = %entry
   %vec.sroa.2.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %vec.sroa.2.0.extract.trunc.i = trunc i48 %vec.sroa.2.0.extract.shift.i to i16
   %vec.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %vec.sroa.3.0.extract.trunc.i = trunc i48 %vec.sroa.3.0.extract.shift.i to i16
+  %vec.sroa.3.0.extract.trunc.i = trunc nuw i48 %vec.sroa.3.0.extract.shift.i to i16
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.36, i64 noundef 1)
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %0, i16 noundef signext %vec.sroa.0.0.extract.trunc.i)
   %call1.i8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1.i, ptr noundef nonnull @.str.37, i64 noundef 1)
@@ -5859,7 +5858,7 @@ entry:
   %p.sroa.2.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.2.0.extract.trunc = trunc i48 %p.sroa.2.0.extract.shift to i16
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i16
+  %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %blockpos) #24
   %conv.i.i.i = sext i16 %p.sroa.0.0.extract.trunc to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, -15
@@ -5871,7 +5870,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -5887,11 +5886,11 @@ entry:
   %1 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %1, %retval.sroa.2.0.insert.shift.i.i
   store i48 %retval.sroa.0.0.insert.insert.i.i, ptr %blockpos, align 8
-  %2 = trunc i32 %div.i.i.i to i16
+  %2 = trunc nsw i32 %div.i.i.i to i16
   %mul.i = shl nsw i16 %2, 4
-  %3 = trunc i32 %div.i11.i.i to i16
+  %3 = trunc nsw i32 %div.i11.i.i to i16
   %mul6.i = shl nsw i16 %3, 4
-  %4 = trunc i32 %div.i19.i.i to i16
+  %4 = trunc nsw i32 %div.i19.i.i to i16
   %mul10.i = shl nsw i16 %4, 4
   %sub.i = sub i16 %p.sroa.0.0.extract.trunc, %mul.i
   %sub8.i = sub i16 %p.sroa.2.0.extract.trunc, %mul6.i
@@ -6070,7 +6069,7 @@ entry:
   %p.sroa.2.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.2.0.extract.trunc = trunc i48 %p.sroa.2.0.extract.shift to i16
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i16
+  %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %blockpos) #24
   %conv.i.i.i = sext i16 %p.sroa.0.0.extract.trunc to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, -15
@@ -6082,7 +6081,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -6098,11 +6097,11 @@ entry:
   %1 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %1, %retval.sroa.2.0.insert.shift.i.i
   store i48 %retval.sroa.0.0.insert.insert.i.i, ptr %blockpos, align 8
-  %2 = trunc i32 %div.i.i.i to i16
+  %2 = trunc nsw i32 %div.i.i.i to i16
   %mul.i = shl nsw i16 %2, 4
-  %3 = trunc i32 %div.i11.i.i to i16
+  %3 = trunc nsw i32 %div.i11.i.i to i16
   %mul6.i = shl nsw i16 %3, 4
-  %4 = trunc i32 %div.i19.i.i to i16
+  %4 = trunc nsw i32 %div.i19.i.i to i16
   %mul10.i = shl nsw i16 %4, 4
   %sub.i = sub i16 %p.sroa.0.0.extract.trunc, %mul.i
   %sub8.i = sub i16 %p.sroa.2.0.extract.trunc, %mul6.i
@@ -6283,7 +6282,7 @@ entry:
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i16
   %p.sroa.4.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.4.0.extract.trunc = trunc i48 %p.sroa.4.0.extract.shift to i16
+  %p.sroa.4.0.extract.trunc = trunc nuw i48 %p.sroa.4.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %blockpos) #24
   %conv.i.i.i = sext i16 %p.sroa.0.0.extract.trunc to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, -15
@@ -6295,7 +6294,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.3.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.3.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.3.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -6311,11 +6310,11 @@ entry:
   %1 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %1, %retval.sroa.2.0.insert.shift.i.i
   store i48 %retval.sroa.0.0.insert.insert.i.i, ptr %blockpos, align 8
-  %2 = trunc i32 %div.i.i.i to i16
+  %2 = trunc nsw i32 %div.i.i.i to i16
   %mul.i = shl nsw i16 %2, 4
-  %3 = trunc i32 %div.i11.i.i to i16
+  %3 = trunc nsw i32 %div.i11.i.i to i16
   %mul6.i = shl nsw i16 %3, 4
-  %4 = trunc i32 %div.i19.i.i to i16
+  %4 = trunc nsw i32 %div.i19.i.i to i16
   %mul10.i = shl nsw i16 %4, 4
   %sub.i = sub i16 %p.sroa.0.0.extract.trunc, %mul.i
   %sub8.i = sub i16 %p.sroa.3.0.extract.trunc, %mul6.i
@@ -6479,7 +6478,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end18, %if.end.i
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i.i, i64 32
   %26 = load i16, ptr %_M_storage.i.i.i.i.i.i.i, align 2, !tbaa !127
   %cmp.i.i.i.i.i.i.i = icmp slt i16 %26, %sub.i
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i.i:                      ; preds = %while.body.i.i.i.i.i
   %cmp8.i.i.i.i.i.i.i = icmp eq i16 %26, %sub.i
@@ -6489,7 +6488,7 @@ land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %lor.lhs.false.i.i.i
   %Y.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i.i, i64 34
   %27 = load i16, ptr %Y.i.i.i.i.i.i.i, align 2, !tbaa !128
   %cmp12.i.i.i.i.i.i.i = icmp slt i16 %27, %sub8.i
-  br i1 %cmp12.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i.i
+  br i1 %cmp12.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i.i
 
 land.lhs.true18.i.i.i.i.i.i.i:                    ; preds = %land.lhs.true.i.i.i.i.i.i.i
   %cmp23.i.i.i.i.i.i.i = icmp eq i16 %27, %sub8.i
@@ -6499,14 +6498,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i.i: ; preds = %land.
   %Z.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i.i, i64 36
   %28 = load i16, ptr %Z.i.i.i.i.i.i.i, align 2, !tbaa !129
   %cmp27.i.i.i.i.i.i.i = icmp slt i16 %28, %sub13.i
-  br i1 %cmp27.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
-
-if.else.i.i.i.i.i:                                ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
+  %spec.select = select i1 %cmp27.i.i.i.i.i.i.i, i64 24, i64 16
+  %spec.select1 = select i1 %cmp27.i.i.i.i.i.i.i, ptr %__y.addr.012.i.i.i.i.i, ptr %__x.addr.013.i.i.i.i.i
   br label %if.end.i.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i
-  %.sink.i.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i.i ], [ 16, %lor.lhs.false.i.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i.i ]
-  %__y.addr.1.i.i.i.i.i = phi ptr [ %__y.addr.012.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i.i ]
+if.end.i.i.i.i.i:                                 ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i.i, %while.body.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i
+  %.sink.i.i.i.i.i = phi i64 [ 16, %lor.lhs.false.i.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i.i ], [ 24, %land.lhs.true.i.i.i.i.i.i.i ], [ 24, %while.body.i.i.i.i.i ], [ %spec.select, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i.i ]
+  %__y.addr.1.i.i.i.i.i = phi ptr [ %__x.addr.013.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i.i ]
   %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i.i, i64 %.sink.i.i.i.i.i
   %__x.addr.1.i.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i, null
@@ -6605,7 +6603,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.sroa.5.0.insert.insert, 0
@@ -6621,11 +6619,11 @@ entry:
   %1 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %1, %retval.sroa.2.0.insert.shift.i.i
   store i48 %retval.sroa.0.0.insert.insert.i.i, ptr %blockpos, align 8
-  %2 = trunc i32 %div.i.i.i to i16
+  %2 = trunc nsw i32 %div.i.i.i to i16
   %mul.i = shl nsw i16 %2, 4
-  %3 = trunc i32 %div.i11.i.i to i16
+  %3 = trunc nsw i32 %div.i11.i.i to i16
   %mul6.i = shl nsw i16 %3, 4
-  %4 = trunc i32 %div.i19.i.i to i16
+  %4 = trunc nsw i32 %div.i19.i.i to i16
   %mul10.i = shl nsw i16 %4, 4
   %sub.i = sub i16 %p.sroa.0.0.copyload, %mul.i
   %sub8.i = sub i16 %p.sroa.5.0.copyload, %mul6.i
@@ -6816,7 +6814,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -6900,11 +6898,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  %blockpos.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i to i16
-  %blockpos.sroa.5.0.extract.trunc = trunc i32 %div.i11.i.i to i16
-  %blockpos.sroa.6.0.extract.trunc = trunc i32 %div.i19.i.i to i16
+  %blockpos.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i to i16
+  %blockpos.sroa.5.0.extract.trunc = trunc nsw i32 %div.i11.i.i to i16
+  %blockpos.sroa.6.0.extract.trunc = trunc nsw i32 %div.i19.i.i to i16
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i16
+  %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i16
   %mul10.i = shl nsw i16 %blockpos.sroa.6.0.extract.trunc, 4
   %sub13.i = sub i16 %p.sroa.3.0.extract.trunc, %mul10.i
   %retval.sroa.3.0.insert.ext.i17 = zext i16 %sub13.i to i48
@@ -6933,7 +6931,7 @@ entry:
   %pos_camera.sroa.9.0.extract.shift = lshr i48 %pos_camera.coerce, 16
   %pos_camera.sroa.9.0.extract.trunc = trunc i48 %pos_camera.sroa.9.0.extract.shift to i16
   %pos_camera.sroa.17.0.extract.shift = lshr i48 %pos_camera.coerce, 32
-  %pos_camera.sroa.17.0.extract.trunc = trunc i48 %pos_camera.sroa.17.0.extract.shift to i16
+  %pos_camera.sroa.17.0.extract.trunc = trunc nuw i48 %pos_camera.sroa.17.0.extract.shift to i16
   %0 = load i16, ptr %block_bounds, align 2, !tbaa !254
   %cmp.not = icmp sgt i16 %0, %pos_camera.sroa.0.0.extract.trunc
   %MaxEdge = getelementptr inbounds i8, ptr %block_bounds, i64 6
@@ -7085,10 +7083,10 @@ entry:
   %1 = insertelement <2 x i48> %0, i48 %pos_camera.sroa.3.0.extract.shift, i64 1
   %2 = trunc <2 x i48> %1 to <2 x i16>
   %pos_camera.sroa.4.0.extract.shift = lshr i48 %pos_camera.coerce, 32
-  %pos_camera.sroa.4.0.extract.trunc = trunc i48 %pos_camera.sroa.4.0.extract.shift to i16
+  %pos_camera.sroa.4.0.extract.trunc = trunc nuw i48 %pos_camera.sroa.4.0.extract.shift to i16
   %pos_target.sroa.2.0.extract.shift = lshr i48 %pos_target.coerce, 16
   %pos_target.sroa.3.0.extract.shift = lshr i48 %pos_target.coerce, 32
-  %pos_target.sroa.3.0.extract.trunc = trunc i48 %pos_target.sroa.3.0.extract.shift to i16
+  %pos_target.sroa.3.0.extract.trunc = trunc nuw i48 %pos_target.sroa.3.0.extract.shift to i16
   %sub13.i = sub i16 %pos_target.sroa.3.0.extract.trunc, %pos_camera.sroa.4.0.extract.trunc
   %3 = insertelement <2 x i48> poison, i48 %pos_target.coerce, i64 0
   %4 = insertelement <2 x i48> %3, i48 %pos_target.sroa.2.0.extract.shift, i64 1
@@ -7208,7 +7206,7 @@ entry:
   %pos_relative.sroa.4.0.extract.shift = lshr i48 %pos_relative.coerce, 16
   %pos_relative.sroa.4.0.extract.trunc = trunc i48 %pos_relative.sroa.4.0.extract.shift to i16
   %pos_relative.sroa.6.0.extract.shift = lshr i48 %pos_relative.coerce, 32
-  %pos_relative.sroa.6.0.extract.trunc = trunc i48 %pos_relative.sroa.6.0.extract.shift to i16
+  %pos_relative.sroa.6.0.extract.trunc = trunc nuw i48 %pos_relative.sroa.6.0.extract.shift to i16
   %0 = load atomic i8, ptr @_ZGVZN3Map15isBlockOccludedEN3irr4core8vector3dIsEES3_bE4dir9 acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !261
@@ -7255,7 +7253,7 @@ if.then:                                          ; preds = %init.end
   %.pre400 = insertelement <2 x i48> %.pre399, i48 %.pre, i64 1
   %.pre402 = trunc <2 x i48> %.pre400 to <2 x i16>
   %.pre404 = lshr i48 %cam_pos_nodes.coerce, 32
-  %.pre405 = trunc i48 %.pre404 to i16
+  %.pre405 = trunc nuw i48 %.pre404 to i16
   %.pre406 = sitofp <2 x i16> %.pre402 to <2 x float>
   %.pre408 = fmul nsz <2 x float> %.pre406, <float 1.000000e+01, float 1.000000e+01>
   %.pre410 = sitofp i16 %.pre405 to float
@@ -7287,11 +7285,11 @@ if.end:                                           ; preds = %init.end
   %pos_camera.sroa.9.0.extract.shift.i = lshr i48 %cam_pos_nodes.coerce, 16
   %pos_camera.sroa.9.0.extract.trunc.i = trunc i48 %pos_camera.sroa.9.0.extract.shift.i to i16
   %pos_camera.sroa.17.0.extract.shift.i = lshr i48 %cam_pos_nodes.coerce, 32
-  %pos_camera.sroa.17.0.extract.trunc.i = trunc i48 %pos_camera.sroa.17.0.extract.shift.i to i16
+  %pos_camera.sroa.17.0.extract.trunc.i = trunc nuw i48 %pos_camera.sroa.17.0.extract.shift.i to i16
   %ref.tmp69.sroa.0.0.extract.trunc = trunc i64 %retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i to i16
   %cmp.not.i = icmp sgt i16 %ref.tmp69.sroa.0.0.extract.trunc, %pos_camera.sroa.0.0.extract.trunc.i
   %ref.tmp69.sroa.0.6.extract.shift = lshr i64 %retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i, 48
-  %ref.tmp69.sroa.0.6.extract.trunc = trunc i64 %ref.tmp69.sroa.0.6.extract.shift to i16
+  %ref.tmp69.sroa.0.6.extract.trunc = trunc nuw i64 %ref.tmp69.sroa.0.6.extract.shift to i16
   %cmp8.i = icmp slt i16 %ref.tmp69.sroa.0.6.extract.trunc, %pos_camera.sroa.0.0.extract.trunc.i
   %.not312.i = or i1 %cmp.not.i, %cmp8.i
   %ref.tmp69.sroa.0.2.extract.shift = lshr i64 %retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i, 16
@@ -8284,12 +8282,12 @@ invoke.cont28:                                    ; preds = %if.then.i.i237, %_Z
   %p_min.sroa.6.0.extract.shift = lshr i48 %blockpos_min.coerce, 16
   %p_min.sroa.6.0.extract.trunc = trunc i48 %p_min.sroa.6.0.extract.shift to i16
   %p_min.sroa.8.0.extract.shift = lshr i48 %blockpos_min.coerce, 32
-  %p_min.sroa.8.0.extract.trunc = trunc i48 %p_min.sroa.8.0.extract.shift to i16
+  %p_min.sroa.8.0.extract.trunc = trunc nuw i48 %p_min.sroa.8.0.extract.shift to i16
   %p_max.sroa.0.0.extract.trunc = trunc i48 %blockpos_max.coerce to i16
   %p_max.sroa.6.0.extract.shift = lshr i48 %blockpos_max.coerce, 16
   %p_max.sroa.6.0.extract.trunc = trunc i48 %p_max.sroa.6.0.extract.shift to i16
   %p_max.sroa.8.0.extract.shift = lshr i48 %blockpos_max.coerce, 32
-  %p_max.sroa.8.0.extract.trunc = trunc i48 %p_max.sroa.8.0.extract.shift to i16
+  %p_max.sroa.8.0.extract.trunc = trunc nuw i48 %p_max.sroa.8.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %block_area_nodes) #24
   %mul.i = shl i16 %p_min.sroa.0.0.extract.trunc, 4
   %mul6.i = shl i16 %p_min.sroa.6.0.extract.trunc, 4
@@ -8320,10 +8318,10 @@ invoke.cont28:                                    ; preds = %if.then.i.i237, %_Z
   %m_cache_extent.i = getelementptr inbounds i8, ptr %block_area_nodes, i64 12
   %reass.sub = sub i16 %add.i, %mul.i
   %add.i.i.i = add i16 %reass.sub, 16
-  %reass.sub35 = sub i16 %add6.i, %mul6.i
-  %add8.i.i.i = add i16 %reass.sub35, 16
-  %reass.sub36 = sub i16 %add10.i, %mul10.i
-  %add13.i.i.i = add i16 %reass.sub36, 16
+  %reass.sub38 = sub i16 %add6.i, %mul6.i
+  %add8.i.i.i = add i16 %reass.sub38, 16
+  %reass.sub39 = sub i16 %add10.i, %mul10.i
+  %add13.i.i.i = add i16 %reass.sub39, 16
   %retval.sroa.3.0.insert.ext.i12.i.i = zext i16 %add13.i.i.i to i48
   %retval.sroa.3.0.insert.shift.i13.i.i = shl nuw i48 %retval.sroa.3.0.insert.ext.i12.i.i, 32
   %retval.sroa.2.0.insert.ext.i14.i.i = zext i16 %add8.i.i.i to i48
@@ -8625,7 +8623,7 @@ for.body60:                                       ; preds = %for.cond62.for.cond
   %p.sroa.9.0.insert.shift579 = zext i32 %38 to i48
   %p.sroa.9.0.insert.insert581 = or disjoint i48 %p.sroa.12.0.insert.shift584, %p.sroa.9.0.insert.shift579
   %sh.diff.i = lshr exact i48 %p.sroa.9.0.insert.insert581, 16
-  %tr.sh.diff.i = trunc i48 %sh.diff.i to i32
+  %tr.sh.diff.i = trunc nuw i48 %sh.diff.i to i32
   %p2d.sroa.4.0.insert.shift.i = and i32 %tr.sh.diff.i, -65536
   %p3d.sroa.2.0.extract.trunc.i = trunc i48 %sh.diff.i to i16
   %conv12.i = ashr i32 %tr.sh.diff.i, 16
@@ -8668,7 +8666,7 @@ while.body.i.i.i:                                 ; preds = %for.body67, %if.end
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i, i64 32
   %42 = load i16, ptr %_M_storage.i.i.i.i.i, align 2, !tbaa !127
   %cmp.i.i.i.i.i = icmp slt i16 %42, %conv68
-  br i1 %cmp.i.i.i.i.i, label %if.else.i.i.i, label %lor.lhs.false.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %while.body.i.i.i
   %cmp8.i.i.i.i.i = icmp eq i16 %42, %conv68
@@ -8678,7 +8676,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i
   %Y.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i, i64 34
   %43 = load i16, ptr %Y.i.i.i.i.i, align 2, !tbaa !128
   %cmp12.i.i.i.i.i = icmp slt i16 %43, %conv69
-  br i1 %cmp12.i.i.i.i.i, label %if.else.i.i.i, label %land.lhs.true18.i.i.i.i.i
+  br i1 %cmp12.i.i.i.i.i, label %if.end.i.i.i, label %land.lhs.true18.i.i.i.i.i
 
 land.lhs.true18.i.i.i.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i
   %cmp23.i.i.i.i.i = icmp eq i16 %43, %conv69
@@ -8688,14 +8686,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i: ; preds = %land.lhs.
   %Z.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i, i64 36
   %44 = load i16, ptr %Z.i.i.i.i.i, align 2, !tbaa !129
   %cmp27.i.i.i.i.i = icmp slt i16 %44, %conv70
-  br i1 %cmp27.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
-
-if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i, %land.lhs.true.i.i.i.i.i, %while.body.i.i.i
+  %spec.select = select i1 %cmp27.i.i.i.i.i, i64 24, i64 16
+  %spec.select1 = select i1 %cmp27.i.i.i.i.i, ptr %__y.addr.012.i.i.i, ptr %__x.addr.013.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i, %land.lhs.true18.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %lor.lhs.false.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.012.i.i.i, %if.else.i.i.i ], [ %__x.addr.013.i.i.i, %lor.lhs.false.i.i.i.i.i ], [ %__x.addr.013.i.i.i, %land.lhs.true18.i.i.i.i.i ], [ %__x.addr.013.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i ]
+if.end.i.i.i:                                     ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i, %while.body.i.i.i, %land.lhs.true.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
+  %.sink.i.i.i = phi i64 [ 16, %lor.lhs.false.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i ], [ 24, %land.lhs.true.i.i.i.i.i ], [ 24, %while.body.i.i.i ], [ %spec.select, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__x.addr.013.i.i.i, %lor.lhs.false.i.i.i.i.i ], [ %__x.addr.013.i.i.i, %land.lhs.true18.i.i.i.i.i ], [ %__y.addr.012.i.i.i, %land.lhs.true.i.i.i.i.i ], [ %__y.addr.012.i.i.i, %while.body.i.i.i ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -9359,7 +9356,7 @@ while.body.i.i.i.i:                               ; preds = %if.end174, %if.end.
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 32
   %186 = load i16, ptr %_M_storage.i.i.i.i.i.i, align 2, !tbaa !127
   %cmp.i.i.i.i.i.i = icmp slt i16 %186, %conv68
-  br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i
   %cmp8.i.i.i.i.i.i = icmp eq i16 %186, %conv68
@@ -9369,7 +9366,7 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i
   %Y.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 34
   %187 = load i16, ptr %Y.i.i.i.i.i.i, align 2, !tbaa !128
   %cmp12.i.i.i.i.i.i = icmp slt i16 %187, %conv69
-  br i1 %cmp12.i.i.i.i.i.i, label %if.else.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
+  br i1 %cmp12.i.i.i.i.i.i, label %if.end.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
 
 land.lhs.true18.i.i.i.i.i.i:                      ; preds = %land.lhs.true.i.i.i.i.i.i
   %cmp23.i.i.i.i.i.i = icmp eq i16 %187, %conv69
@@ -9379,14 +9376,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i: ; preds = %land.lh
   %Z.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 36
   %188 = load i16, ptr %Z.i.i.i.i.i.i, align 2, !tbaa !129
   %cmp27.i.i.i.i.i.i = icmp slt i16 %188, %conv70
-  br i1 %cmp27.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %while.body.i.i.i.i
+  %spec.select2 = select i1 %cmp27.i.i.i.i.i.i, i64 24, i64 16
+  %spec.select3 = select i1 %cmp27.i.i.i.i.i.i, ptr %__y.addr.012.i.i.i.i, ptr %__x.addr.013.i.i.i.i
   br label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %lor.lhs.false.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.012.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
+if.end.i.i.i.i:                                   ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %while.body.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 16, %lor.lhs.false.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i ], [ 24, %land.lhs.true.i.i.i.i.i.i ], [ 24, %while.body.i.i.i.i ], [ %spec.select2, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__x.addr.013.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i, %while.body.i.i.i.i ], [ %spec.select3, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -9555,7 +9551,7 @@ entry:
   %vec.sroa.2.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %vec.sroa.2.0.extract.trunc.i = trunc i48 %vec.sroa.2.0.extract.shift.i to i16
   %vec.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %vec.sroa.3.0.extract.trunc.i = trunc i48 %vec.sroa.3.0.extract.shift.i to i16
+  %vec.sroa.3.0.extract.trunc.i = trunc nuw i48 %vec.sroa.3.0.extract.shift.i to i16
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %o, ptr noundef nonnull @.str.36, i64 noundef 1)
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %o, i16 noundef signext %vec.sroa.0.0.extract.trunc.i)
   %call1.i8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1.i, ptr noundef nonnull @.str.37, i64 noundef 1)
@@ -9569,7 +9565,7 @@ entry:
   %vec.sroa.2.0.extract.shift.i16 = lshr i48 %agg.tmp2.sroa.0.0.copyload, 16
   %vec.sroa.2.0.extract.trunc.i17 = trunc i48 %vec.sroa.2.0.extract.shift.i16 to i16
   %vec.sroa.3.0.extract.shift.i18 = lshr i48 %agg.tmp2.sroa.0.0.copyload, 32
-  %vec.sroa.3.0.extract.trunc.i19 = trunc i48 %vec.sroa.3.0.extract.shift.i18 to i16
+  %vec.sroa.3.0.extract.trunc.i19 = trunc nuw i48 %vec.sroa.3.0.extract.shift.i18 to i16
   %call1.i.i20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call5.i, ptr noundef nonnull @.str.36, i64 noundef 1)
   %call1.i21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %call5.i, i16 noundef signext %vec.sroa.0.0.extract.trunc.i15)
   %call1.i8.i22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1.i21, ptr noundef nonnull @.str.37, i64 noundef 1)
@@ -9899,7 +9895,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %wh
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 32
   %34 = load i16, ptr %_M_storage.i.i.i.i.i.i, align 2, !tbaa !127
   %cmp.i.i.i.i.i.i = icmp slt i16 %34, %31
-  br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i
   %cmp8.i.i.i.i.i.i = icmp eq i16 %34, %31
@@ -9909,7 +9905,7 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i
   %Y.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 34
   %35 = load i16, ptr %Y.i.i.i.i.i.i, align 2, !tbaa !128
   %cmp12.i.i.i.i.i.i = icmp slt i16 %35, %32
-  br i1 %cmp12.i.i.i.i.i.i, label %if.else.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
+  br i1 %cmp12.i.i.i.i.i.i, label %if.end.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
 
 land.lhs.true18.i.i.i.i.i.i:                      ; preds = %land.lhs.true.i.i.i.i.i.i
   %cmp23.i.i.i.i.i.i = icmp eq i16 %35, %32
@@ -9919,14 +9915,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i: ; preds = %land.lh
   %Z.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 36
   %36 = load i16, ptr %Z.i.i.i.i.i.i, align 2, !tbaa !129
   %cmp27.i.i.i.i.i.i = icmp slt i16 %36, %33
-  br i1 %cmp27.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %while.body.i.i.i.i
+  %spec.select = select i1 %cmp27.i.i.i.i.i.i, i64 24, i64 16
+  %spec.select1 = select i1 %cmp27.i.i.i.i.i.i, ptr %__y.addr.012.i.i.i.i, ptr %__x.addr.013.i.i.i.i
   br label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %lor.lhs.false.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.012.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
+if.end.i.i.i.i:                                   ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %while.body.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 16, %lor.lhs.false.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i ], [ 24, %land.lhs.true.i.i.i.i.i.i ], [ 24, %while.body.i.i.i.i ], [ %spec.select, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__x.addr.013.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i, %while.body.i.i.i.i ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -11978,7 +11973,7 @@ entry:
   %p.sroa.2.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.2.0.extract.trunc = trunc i48 %p.sroa.2.0.extract.shift to i16
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i16
+  %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i16
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !28
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -11991,7 +11986,7 @@ while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i, i64 32
   %1 = load i16, ptr %_M_storage.i.i.i.i.i, align 2, !tbaa !127
   %cmp.i.i.i.i.i = icmp slt i16 %1, %p.sroa.0.0.extract.trunc
-  br i1 %cmp.i.i.i.i.i, label %if.else.i.i.i, label %lor.lhs.false.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %while.body.i.i.i
   %cmp8.i.i.i.i.i = icmp eq i16 %1, %p.sroa.0.0.extract.trunc
@@ -12001,7 +11996,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %lor.lhs.false.i.i.i
   %Y.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i, i64 34
   %2 = load i16, ptr %Y.i.i.i.i.i, align 2, !tbaa !128
   %cmp12.i.i.i.i.i = icmp slt i16 %2, %p.sroa.2.0.extract.trunc
-  br i1 %cmp12.i.i.i.i.i, label %if.else.i.i.i, label %land.lhs.true18.i.i.i.i.i
+  br i1 %cmp12.i.i.i.i.i, label %if.end.i.i.i, label %land.lhs.true18.i.i.i.i.i
 
 land.lhs.true18.i.i.i.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i
   %cmp23.i.i.i.i.i = icmp eq i16 %2, %p.sroa.2.0.extract.trunc
@@ -12011,14 +12006,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i: ; preds = %land.lhs.
   %Z.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i, i64 36
   %3 = load i16, ptr %Z.i.i.i.i.i, align 2, !tbaa !129
   %cmp27.i.i.i.i.i = icmp slt i16 %3, %p.sroa.3.0.extract.trunc
-  br i1 %cmp27.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
-
-if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i, %land.lhs.true.i.i.i.i.i, %while.body.i.i.i
+  %spec.select = select i1 %cmp27.i.i.i.i.i, i64 24, i64 16
+  %spec.select1 = select i1 %cmp27.i.i.i.i.i, ptr %__y.addr.012.i.i.i, ptr %__x.addr.013.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i, %land.lhs.true18.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %if.else.i.i.i ], [ 16, %lor.lhs.false.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i ]
-  %__y.addr.1.i.i.i = phi ptr [ %__y.addr.012.i.i.i, %if.else.i.i.i ], [ %__x.addr.013.i.i.i, %lor.lhs.false.i.i.i.i.i ], [ %__x.addr.013.i.i.i, %land.lhs.true18.i.i.i.i.i ], [ %__x.addr.013.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i ]
+if.end.i.i.i:                                     ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i, %while.body.i.i.i, %land.lhs.true.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i
+  %.sink.i.i.i = phi i64 [ 16, %lor.lhs.false.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i ], [ 24, %land.lhs.true.i.i.i.i.i ], [ 24, %while.body.i.i.i ], [ %spec.select, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i ]
+  %__y.addr.1.i.i.i = phi ptr [ %__x.addr.013.i.i.i, %lor.lhs.false.i.i.i.i.i ], [ %__x.addr.013.i.i.i, %land.lhs.true18.i.i.i.i.i ], [ %__y.addr.012.i.i.i, %land.lhs.true.i.i.i.i.i ], [ %__y.addr.012.i.i.i, %while.body.i.i.i ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i, i64 %.sink.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
@@ -12172,7 +12166,7 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %wh
   %_M_storage.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 32
   %10 = load i16, ptr %_M_storage.i.i.i.i.i.i11, align 2, !tbaa !127
   %cmp.i.i.i.i.i.i = icmp slt i16 %10, %7
-  br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i
   %cmp8.i.i.i.i.i.i = icmp eq i16 %10, %7
@@ -12182,7 +12176,7 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i
   %Y.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 34
   %11 = load i16, ptr %Y.i.i.i.i.i.i, align 2, !tbaa !128
   %cmp12.i.i.i.i.i.i = icmp slt i16 %11, %8
-  br i1 %cmp12.i.i.i.i.i.i, label %if.else.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
+  br i1 %cmp12.i.i.i.i.i.i, label %if.end.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
 
 land.lhs.true18.i.i.i.i.i.i:                      ; preds = %land.lhs.true.i.i.i.i.i.i
   %cmp23.i.i.i.i.i.i = icmp eq i16 %11, %8
@@ -12192,14 +12186,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i: ; preds = %land.lh
   %Z.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 36
   %12 = load i16, ptr %Z.i.i.i.i.i.i, align 2, !tbaa !129
   %cmp27.i.i.i.i.i.i = icmp slt i16 %12, %9
-  br i1 %cmp27.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
-
-if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %while.body.i.i.i.i
+  %spec.select = select i1 %cmp27.i.i.i.i.i.i, i64 24, i64 16
+  %spec.select1 = select i1 %cmp27.i.i.i.i.i.i, ptr %__y.addr.012.i.i.i.i, ptr %__x.addr.013.i.i.i.i
   br label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %lor.lhs.false.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.012.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
+if.end.i.i.i.i:                                   ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %while.body.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 16, %lor.lhs.false.i.i.i.i.i.i ], [ 16, %land.lhs.true18.i.i.i.i.i.i ], [ 24, %land.lhs.true.i.i.i.i.i.i ], [ 24, %while.body.i.i.i.i ], [ %spec.select, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__x.addr.013.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i ], [ %__x.addr.013.i.i.i.i, %land.lhs.true18.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i, %land.lhs.true.i.i.i.i.i.i ], [ %__y.addr.012.i.i.i.i, %while.body.i.i.i.i ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i ]
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.013.i.i.i.i, i64 %.sink.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
@@ -12474,7 +12467,7 @@ if.end12.i:                                       ; preds = %cond.end.i.thread, 
 
 lor.lhs.false.i.i28.i:                            ; preds = %if.end12.i
   %cmp8.i.i29.i = icmp eq i16 %16, %15
-  br i1 %cmp8.i.i29.i, label %land.lhs.true.i.i30.i, label %if.end18.i
+  br i1 %cmp8.i.i29.i, label %land.lhs.true.i.i30.i, label %cleanup80
 
 land.lhs.true.i.i30.i:                            ; preds = %lor.lhs.false.i.i28.i
   %Y.i.i31.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 34
@@ -12486,7 +12479,7 @@ land.lhs.true.i.i30.i:                            ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i:                          ; preds = %land.lhs.true.i.i30.i
   %cmp23.i.i35.i = icmp eq i16 %17, %18
-  br i1 %cmp23.i.i35.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, label %if.end18.i
+  br i1 %cmp23.i.i35.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i: ; preds = %land.lhs.true18.i.i34.i
   %Z.i.i37.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 36
@@ -12494,9 +12487,8 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i: ; preds = %land.lhs.tr
   %Z25.i.i38.i = getelementptr inbounds i8, ptr %__k, i64 4
   %20 = load i16, ptr %Z25.i.i38.i, align 2, !tbaa !129
   %cmp27.i.i39.i = icmp slt i16 %19, %20
-  br i1 %cmp27.i.i39.i, label %cleanup80, label %if.end18.i
-
-if.end18.i:                                       ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %land.lhs.true18.i.i34.i, %lor.lhs.false.i.i28.i
+  %spec.select1 = select i1 %cmp27.i.i39.i, ptr null, ptr %__j.sroa.0.0.i
+  %spec.select2 = select i1 %cmp27.i.i39.i, ptr %__y.0.lcssa63.i, ptr null
   br label %cleanup80
 
 if.else12:                                        ; preds = %entry
@@ -12520,7 +12512,7 @@ land.lhs.true.i.i96:                              ; preds = %lor.lhs.false.i.i94
 
 land.lhs.true18.i.i100:                           ; preds = %land.lhs.true.i.i96
   %cmp23.i.i101 = icmp eq i16 %23, %24
-  br i1 %cmp23.i.i101, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106, label %if.else44.thread53
+  br i1 %cmp23.i.i101, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106, label %if.else44.thread59
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106: ; preds = %land.lhs.true18.i.i100
   %Z.i.i103 = getelementptr inbounds i8, ptr %__k, i64 4
@@ -12651,7 +12643,7 @@ if.end12.i148:                                    ; preds = %cond.end.i142.threa
 
 lor.lhs.false.i.i28.i153:                         ; preds = %if.end12.i148
   %cmp8.i.i29.i154 = icmp eq i16 %39, %21
-  br i1 %cmp8.i.i29.i154, label %land.lhs.true.i.i30.i160, label %if.end18.i155
+  br i1 %cmp8.i.i29.i154, label %land.lhs.true.i.i30.i160, label %cleanup80
 
 land.lhs.true.i.i30.i160:                         ; preds = %lor.lhs.false.i.i28.i153
   %Y.i.i31.i161 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i150, i64 34
@@ -12663,7 +12655,7 @@ land.lhs.true.i.i30.i160:                         ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i164:                       ; preds = %land.lhs.true.i.i30.i160
   %cmp23.i.i35.i165 = icmp eq i16 %40, %41
-  br i1 %cmp23.i.i35.i165, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, label %if.end18.i155
+  br i1 %cmp23.i.i35.i165, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166: ; preds = %land.lhs.true18.i.i34.i164
   %Z.i.i37.i167 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i150, i64 36
@@ -12671,14 +12663,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166: ; preds = %land.lhs
   %Z25.i.i38.i168 = getelementptr inbounds i8, ptr %__k, i64 4
   %43 = load i16, ptr %Z25.i.i38.i168, align 2, !tbaa !129
   %cmp27.i.i39.i169 = icmp slt i16 %42, %43
-  br i1 %cmp27.i.i39.i169, label %cleanup80, label %if.end18.i155
-
-if.end18.i155:                                    ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %land.lhs.true18.i.i34.i164, %lor.lhs.false.i.i28.i153
+  %spec.select3 = select i1 %cmp27.i.i39.i169, ptr null, ptr %__j.sroa.0.0.i150
+  %spec.select4 = select i1 %cmp27.i.i39.i169, ptr %__y.0.lcssa63.i149, ptr null
   br label %cleanup80
 
-if.else44.thread53:                               ; preds = %land.lhs.true18.i.i100
-  %cmp12.i.i19254 = icmp slt i16 %24, %23
-  br i1 %cmp12.i.i19254, label %if.then50, label %cleanup80
+if.else44.thread59:                               ; preds = %land.lhs.true18.i.i100
+  %cmp12.i.i19260 = icmp slt i16 %24, %23
+  br i1 %cmp12.i.i19260, label %if.then50, label %cleanup80
 
 if.else44.thread:                                 ; preds = %lor.lhs.false.i.i94
   %cmp.i.i186327 = icmp slt i16 %22, %21
@@ -12692,7 +12683,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199: ; preds = %_ZNKSt4lessI
   %cmp27.i.i198 = icmp slt i16 %44, %45
   br i1 %cmp27.i.i198, label %if.then50, label %cleanup80
 
-if.then50:                                        ; preds = %if.else44.thread53, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread
+if.then50:                                        ; preds = %if.else44.thread59, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread
   %_M_right.i200 = getelementptr inbounds i8, ptr %this, i64 32
   %46 = load ptr, ptr %_M_right.i200, align 8, !tbaa !42
   %cmp53 = icmp eq ptr %46, %__position.coerce
@@ -12815,7 +12806,7 @@ if.end12.i242:                                    ; preds = %cond.end.i236.threa
 
 lor.lhs.false.i.i28.i247:                         ; preds = %if.end12.i242
   %cmp8.i.i29.i248 = icmp eq i16 %59, %21
-  br i1 %cmp8.i.i29.i248, label %land.lhs.true.i.i30.i254, label %if.end18.i249
+  br i1 %cmp8.i.i29.i248, label %land.lhs.true.i.i30.i254, label %cleanup80
 
 land.lhs.true.i.i30.i254:                         ; preds = %lor.lhs.false.i.i28.i247
   %Y.i.i31.i255 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i244, i64 34
@@ -12827,7 +12818,7 @@ land.lhs.true.i.i30.i254:                         ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i258:                       ; preds = %land.lhs.true.i.i30.i254
   %cmp23.i.i35.i259 = icmp eq i16 %60, %61
-  br i1 %cmp23.i.i35.i259, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, label %if.end18.i249
+  br i1 %cmp23.i.i35.i259, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260: ; preds = %land.lhs.true18.i.i34.i258
   %Z.i.i37.i261 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i244, i64 36
@@ -12835,14 +12826,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260: ; preds = %land.lhs
   %Z25.i.i38.i262 = getelementptr inbounds i8, ptr %__k, i64 4
   %63 = load i16, ptr %Z25.i.i38.i262, align 2, !tbaa !129
   %cmp27.i.i39.i263 = icmp slt i16 %62, %63
-  br i1 %cmp27.i.i39.i263, label %cleanup80, label %if.end18.i249
-
-if.end18.i249:                                    ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %land.lhs.true18.i.i34.i258, %lor.lhs.false.i.i28.i247
+  %spec.select5 = select i1 %cmp27.i.i39.i263, ptr null, ptr %__j.sroa.0.0.i244
+  %spec.select6 = select i1 %cmp27.i.i39.i263, ptr %__y.0.lcssa63.i243, ptr null
   br label %cleanup80
 
-cleanup80:                                        ; preds = %if.else44.thread53, %if.end18.i249, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %land.lhs.true.i.i30.i254, %if.end12.i242, %if.then.i264, %if.then64, %if.then50, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread, %if.end18.i155, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %land.lhs.true.i.i30.i160, %if.end12.i148, %if.then.i170, %if.then32, %if.then18, %if.end18.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %land.lhs.true.i.i30.i, %if.end12.i, %if.then.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %land.lhs.true
-  %retval.sroa.0.2 = phi ptr [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select316, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ null, %land.lhs.true.i.i30.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i150, %if.end18.i155 ], [ null, %if.then.i170 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ null, %land.lhs.true.i.i30.i160 ], [ null, %if.end12.i148 ], [ %__j.sroa.0.0.i244, %if.end18.i249 ], [ null, %if.then.i264 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ null, %land.lhs.true.i.i30.i254 ], [ null, %if.end12.i242 ], [ %__position.coerce, %if.else44.thread ], [ %__position.coerce, %if.else44.thread53 ]
-  %retval.sroa.12.2 = phi ptr [ %1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ %1, %land.lhs.true.i.i ], [ %1, %land.lhs.true ], [ %spec.select315, %if.then32 ], [ %spec.select317, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa64.i, %if.then.i ], [ %__y.0.lcssa63.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %__y.0.lcssa63.i, %land.lhs.true.i.i30.i ], [ %__y.0.lcssa63.i, %if.end12.i ], [ null, %if.end18.i155 ], [ %27, %if.then.i170 ], [ %__y.0.lcssa63.i149, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %__y.0.lcssa63.i149, %land.lhs.true.i.i30.i160 ], [ %__y.0.lcssa63.i149, %if.end12.i148 ], [ null, %if.end18.i249 ], [ %__y.0.lcssa64.i265, %if.then.i264 ], [ %__y.0.lcssa63.i243, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ %__y.0.lcssa63.i243, %land.lhs.true.i.i30.i254 ], [ %__y.0.lcssa63.i243, %if.end12.i242 ], [ null, %if.else44.thread ], [ null, %if.else44.thread53 ]
+cleanup80:                                        ; preds = %if.else44.thread59, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %lor.lhs.false.i.i28.i247, %land.lhs.true18.i.i34.i258, %lor.lhs.false.i.i28.i153, %land.lhs.true18.i.i34.i164, %lor.lhs.false.i.i28.i, %land.lhs.true18.i.i34.i, %land.lhs.true.i.i30.i254, %if.end12.i242, %if.then.i264, %if.then64, %if.then50, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread, %land.lhs.true.i.i30.i160, %if.end12.i148, %if.then.i170, %if.then32, %if.then18, %land.lhs.true.i.i30.i, %if.end12.i, %if.then.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %land.lhs.true
+  %retval.sroa.0.2 = phi ptr [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select316, %if.then64 ], [ null, %if.then.i ], [ null, %land.lhs.true.i.i30.i ], [ null, %if.end12.i ], [ null, %if.then.i170 ], [ null, %land.lhs.true.i.i30.i160 ], [ null, %if.end12.i148 ], [ null, %if.then.i264 ], [ null, %land.lhs.true.i.i30.i254 ], [ null, %if.end12.i242 ], [ %__position.coerce, %if.else44.thread ], [ %__j.sroa.0.0.i, %land.lhs.true18.i.i34.i ], [ %__j.sroa.0.0.i, %lor.lhs.false.i.i28.i ], [ %__j.sroa.0.0.i150, %land.lhs.true18.i.i34.i164 ], [ %__j.sroa.0.0.i150, %lor.lhs.false.i.i28.i153 ], [ %__j.sroa.0.0.i244, %land.lhs.true18.i.i34.i258 ], [ %__j.sroa.0.0.i244, %lor.lhs.false.i.i28.i247 ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %spec.select3, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %spec.select5, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ %__position.coerce, %if.else44.thread59 ]
+  %retval.sroa.12.2 = phi ptr [ %1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ %1, %land.lhs.true.i.i ], [ %1, %land.lhs.true ], [ %spec.select315, %if.then32 ], [ %spec.select317, %if.then64 ], [ %__y.0.lcssa64.i, %if.then.i ], [ %__y.0.lcssa63.i, %land.lhs.true.i.i30.i ], [ %__y.0.lcssa63.i, %if.end12.i ], [ %27, %if.then.i170 ], [ %__y.0.lcssa63.i149, %land.lhs.true.i.i30.i160 ], [ %__y.0.lcssa63.i149, %if.end12.i148 ], [ %__y.0.lcssa64.i265, %if.then.i264 ], [ %__y.0.lcssa63.i243, %land.lhs.true.i.i30.i254 ], [ %__y.0.lcssa63.i243, %if.end12.i242 ], [ null, %if.else44.thread ], [ null, %land.lhs.true18.i.i34.i ], [ null, %lor.lhs.false.i.i28.i ], [ null, %land.lhs.true18.i.i34.i164 ], [ null, %lor.lhs.false.i.i28.i153 ], [ null, %land.lhs.true18.i.i34.i258 ], [ null, %lor.lhs.false.i.i28.i247 ], [ %spec.select2, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %spec.select4, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %spec.select6, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ null, %if.else44.thread59 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.2, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -13578,7 +13568,7 @@ if.end12.i:                                       ; preds = %cond.end.i.thread, 
 
 lor.lhs.false.i.i28.i:                            ; preds = %if.end12.i
   %cmp8.i.i29.i = icmp eq i16 %16, %15
-  br i1 %cmp8.i.i29.i, label %land.lhs.true.i.i30.i, label %if.end18.i
+  br i1 %cmp8.i.i29.i, label %land.lhs.true.i.i30.i, label %cleanup80
 
 land.lhs.true.i.i30.i:                            ; preds = %lor.lhs.false.i.i28.i
   %Y.i.i31.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 34
@@ -13590,7 +13580,7 @@ land.lhs.true.i.i30.i:                            ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i:                          ; preds = %land.lhs.true.i.i30.i
   %cmp23.i.i35.i = icmp eq i16 %17, %18
-  br i1 %cmp23.i.i35.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, label %if.end18.i
+  br i1 %cmp23.i.i35.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i: ; preds = %land.lhs.true18.i.i34.i
   %Z.i.i37.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 36
@@ -13598,9 +13588,8 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i: ; preds = %land.lhs.tr
   %Z25.i.i38.i = getelementptr inbounds i8, ptr %__k, i64 4
   %20 = load i16, ptr %Z25.i.i38.i, align 2, !tbaa !129
   %cmp27.i.i39.i = icmp slt i16 %19, %20
-  br i1 %cmp27.i.i39.i, label %cleanup80, label %if.end18.i
-
-if.end18.i:                                       ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %land.lhs.true18.i.i34.i, %lor.lhs.false.i.i28.i
+  %spec.select1 = select i1 %cmp27.i.i39.i, ptr null, ptr %__j.sroa.0.0.i
+  %spec.select2 = select i1 %cmp27.i.i39.i, ptr %__y.0.lcssa63.i, ptr null
   br label %cleanup80
 
 if.else12:                                        ; preds = %entry
@@ -13624,7 +13613,7 @@ land.lhs.true.i.i96:                              ; preds = %lor.lhs.false.i.i94
 
 land.lhs.true18.i.i100:                           ; preds = %land.lhs.true.i.i96
   %cmp23.i.i101 = icmp eq i16 %23, %24
-  br i1 %cmp23.i.i101, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106, label %if.else44.thread53
+  br i1 %cmp23.i.i101, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106, label %if.else44.thread59
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106: ; preds = %land.lhs.true18.i.i100
   %Z.i.i103 = getelementptr inbounds i8, ptr %__k, i64 4
@@ -13755,7 +13744,7 @@ if.end12.i148:                                    ; preds = %cond.end.i142.threa
 
 lor.lhs.false.i.i28.i153:                         ; preds = %if.end12.i148
   %cmp8.i.i29.i154 = icmp eq i16 %39, %21
-  br i1 %cmp8.i.i29.i154, label %land.lhs.true.i.i30.i160, label %if.end18.i155
+  br i1 %cmp8.i.i29.i154, label %land.lhs.true.i.i30.i160, label %cleanup80
 
 land.lhs.true.i.i30.i160:                         ; preds = %lor.lhs.false.i.i28.i153
   %Y.i.i31.i161 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i150, i64 34
@@ -13767,7 +13756,7 @@ land.lhs.true.i.i30.i160:                         ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i164:                       ; preds = %land.lhs.true.i.i30.i160
   %cmp23.i.i35.i165 = icmp eq i16 %40, %41
-  br i1 %cmp23.i.i35.i165, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, label %if.end18.i155
+  br i1 %cmp23.i.i35.i165, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166: ; preds = %land.lhs.true18.i.i34.i164
   %Z.i.i37.i167 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i150, i64 36
@@ -13775,14 +13764,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166: ; preds = %land.lhs
   %Z25.i.i38.i168 = getelementptr inbounds i8, ptr %__k, i64 4
   %43 = load i16, ptr %Z25.i.i38.i168, align 2, !tbaa !129
   %cmp27.i.i39.i169 = icmp slt i16 %42, %43
-  br i1 %cmp27.i.i39.i169, label %cleanup80, label %if.end18.i155
-
-if.end18.i155:                                    ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %land.lhs.true18.i.i34.i164, %lor.lhs.false.i.i28.i153
+  %spec.select3 = select i1 %cmp27.i.i39.i169, ptr null, ptr %__j.sroa.0.0.i150
+  %spec.select4 = select i1 %cmp27.i.i39.i169, ptr %__y.0.lcssa63.i149, ptr null
   br label %cleanup80
 
-if.else44.thread53:                               ; preds = %land.lhs.true18.i.i100
-  %cmp12.i.i19254 = icmp slt i16 %24, %23
-  br i1 %cmp12.i.i19254, label %if.then50, label %cleanup80
+if.else44.thread59:                               ; preds = %land.lhs.true18.i.i100
+  %cmp12.i.i19260 = icmp slt i16 %24, %23
+  br i1 %cmp12.i.i19260, label %if.then50, label %cleanup80
 
 if.else44.thread:                                 ; preds = %lor.lhs.false.i.i94
   %cmp.i.i186327 = icmp slt i16 %22, %21
@@ -13796,7 +13784,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199: ; preds = %_ZNKSt4lessI
   %cmp27.i.i198 = icmp slt i16 %44, %45
   br i1 %cmp27.i.i198, label %if.then50, label %cleanup80
 
-if.then50:                                        ; preds = %if.else44.thread53, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread
+if.then50:                                        ; preds = %if.else44.thread59, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread
   %_M_right.i200 = getelementptr inbounds i8, ptr %this, i64 32
   %46 = load ptr, ptr %_M_right.i200, align 8, !tbaa !42
   %cmp53 = icmp eq ptr %46, %__position.coerce
@@ -13919,7 +13907,7 @@ if.end12.i242:                                    ; preds = %cond.end.i236.threa
 
 lor.lhs.false.i.i28.i247:                         ; preds = %if.end12.i242
   %cmp8.i.i29.i248 = icmp eq i16 %59, %21
-  br i1 %cmp8.i.i29.i248, label %land.lhs.true.i.i30.i254, label %if.end18.i249
+  br i1 %cmp8.i.i29.i248, label %land.lhs.true.i.i30.i254, label %cleanup80
 
 land.lhs.true.i.i30.i254:                         ; preds = %lor.lhs.false.i.i28.i247
   %Y.i.i31.i255 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i244, i64 34
@@ -13931,7 +13919,7 @@ land.lhs.true.i.i30.i254:                         ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i258:                       ; preds = %land.lhs.true.i.i30.i254
   %cmp23.i.i35.i259 = icmp eq i16 %60, %61
-  br i1 %cmp23.i.i35.i259, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, label %if.end18.i249
+  br i1 %cmp23.i.i35.i259, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260: ; preds = %land.lhs.true18.i.i34.i258
   %Z.i.i37.i261 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i244, i64 36
@@ -13939,14 +13927,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260: ; preds = %land.lhs
   %Z25.i.i38.i262 = getelementptr inbounds i8, ptr %__k, i64 4
   %63 = load i16, ptr %Z25.i.i38.i262, align 2, !tbaa !129
   %cmp27.i.i39.i263 = icmp slt i16 %62, %63
-  br i1 %cmp27.i.i39.i263, label %cleanup80, label %if.end18.i249
-
-if.end18.i249:                                    ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %land.lhs.true18.i.i34.i258, %lor.lhs.false.i.i28.i247
+  %spec.select5 = select i1 %cmp27.i.i39.i263, ptr null, ptr %__j.sroa.0.0.i244
+  %spec.select6 = select i1 %cmp27.i.i39.i263, ptr %__y.0.lcssa63.i243, ptr null
   br label %cleanup80
 
-cleanup80:                                        ; preds = %if.else44.thread53, %if.end18.i249, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %land.lhs.true.i.i30.i254, %if.end12.i242, %if.then.i264, %if.then64, %if.then50, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread, %if.end18.i155, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %land.lhs.true.i.i30.i160, %if.end12.i148, %if.then.i170, %if.then32, %if.then18, %if.end18.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %land.lhs.true.i.i30.i, %if.end12.i, %if.then.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %land.lhs.true
-  %retval.sroa.0.2 = phi ptr [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select316, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ null, %land.lhs.true.i.i30.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i150, %if.end18.i155 ], [ null, %if.then.i170 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ null, %land.lhs.true.i.i30.i160 ], [ null, %if.end12.i148 ], [ %__j.sroa.0.0.i244, %if.end18.i249 ], [ null, %if.then.i264 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ null, %land.lhs.true.i.i30.i254 ], [ null, %if.end12.i242 ], [ %__position.coerce, %if.else44.thread ], [ %__position.coerce, %if.else44.thread53 ]
-  %retval.sroa.12.2 = phi ptr [ %1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ %1, %land.lhs.true.i.i ], [ %1, %land.lhs.true ], [ %spec.select315, %if.then32 ], [ %spec.select317, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa64.i, %if.then.i ], [ %__y.0.lcssa63.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %__y.0.lcssa63.i, %land.lhs.true.i.i30.i ], [ %__y.0.lcssa63.i, %if.end12.i ], [ null, %if.end18.i155 ], [ %27, %if.then.i170 ], [ %__y.0.lcssa63.i149, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %__y.0.lcssa63.i149, %land.lhs.true.i.i30.i160 ], [ %__y.0.lcssa63.i149, %if.end12.i148 ], [ null, %if.end18.i249 ], [ %__y.0.lcssa64.i265, %if.then.i264 ], [ %__y.0.lcssa63.i243, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ %__y.0.lcssa63.i243, %land.lhs.true.i.i30.i254 ], [ %__y.0.lcssa63.i243, %if.end12.i242 ], [ null, %if.else44.thread ], [ null, %if.else44.thread53 ]
+cleanup80:                                        ; preds = %if.else44.thread59, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %lor.lhs.false.i.i28.i247, %land.lhs.true18.i.i34.i258, %lor.lhs.false.i.i28.i153, %land.lhs.true18.i.i34.i164, %lor.lhs.false.i.i28.i, %land.lhs.true18.i.i34.i, %land.lhs.true.i.i30.i254, %if.end12.i242, %if.then.i264, %if.then64, %if.then50, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread, %land.lhs.true.i.i30.i160, %if.end12.i148, %if.then.i170, %if.then32, %if.then18, %land.lhs.true.i.i30.i, %if.end12.i, %if.then.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %land.lhs.true
+  %retval.sroa.0.2 = phi ptr [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select316, %if.then64 ], [ null, %if.then.i ], [ null, %land.lhs.true.i.i30.i ], [ null, %if.end12.i ], [ null, %if.then.i170 ], [ null, %land.lhs.true.i.i30.i160 ], [ null, %if.end12.i148 ], [ null, %if.then.i264 ], [ null, %land.lhs.true.i.i30.i254 ], [ null, %if.end12.i242 ], [ %__position.coerce, %if.else44.thread ], [ %__j.sroa.0.0.i, %land.lhs.true18.i.i34.i ], [ %__j.sroa.0.0.i, %lor.lhs.false.i.i28.i ], [ %__j.sroa.0.0.i150, %land.lhs.true18.i.i34.i164 ], [ %__j.sroa.0.0.i150, %lor.lhs.false.i.i28.i153 ], [ %__j.sroa.0.0.i244, %land.lhs.true18.i.i34.i258 ], [ %__j.sroa.0.0.i244, %lor.lhs.false.i.i28.i247 ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %spec.select3, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %spec.select5, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ %__position.coerce, %if.else44.thread59 ]
+  %retval.sroa.12.2 = phi ptr [ %1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ %1, %land.lhs.true.i.i ], [ %1, %land.lhs.true ], [ %spec.select315, %if.then32 ], [ %spec.select317, %if.then64 ], [ %__y.0.lcssa64.i, %if.then.i ], [ %__y.0.lcssa63.i, %land.lhs.true.i.i30.i ], [ %__y.0.lcssa63.i, %if.end12.i ], [ %27, %if.then.i170 ], [ %__y.0.lcssa63.i149, %land.lhs.true.i.i30.i160 ], [ %__y.0.lcssa63.i149, %if.end12.i148 ], [ %__y.0.lcssa64.i265, %if.then.i264 ], [ %__y.0.lcssa63.i243, %land.lhs.true.i.i30.i254 ], [ %__y.0.lcssa63.i243, %if.end12.i242 ], [ null, %if.else44.thread ], [ null, %land.lhs.true18.i.i34.i ], [ null, %lor.lhs.false.i.i28.i ], [ null, %land.lhs.true18.i.i34.i164 ], [ null, %lor.lhs.false.i.i28.i153 ], [ null, %land.lhs.true18.i.i34.i258 ], [ null, %lor.lhs.false.i.i28.i247 ], [ %spec.select2, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %spec.select4, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %spec.select6, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ null, %if.else44.thread59 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.2, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -14469,7 +14456,7 @@ if.end12.i:                                       ; preds = %cond.end.i.thread, 
 
 lor.lhs.false.i.i28.i:                            ; preds = %if.end12.i
   %cmp8.i.i29.i = icmp eq i16 %16, %15
-  br i1 %cmp8.i.i29.i, label %land.lhs.true.i.i30.i, label %if.end18.i
+  br i1 %cmp8.i.i29.i, label %land.lhs.true.i.i30.i, label %cleanup80
 
 land.lhs.true.i.i30.i:                            ; preds = %lor.lhs.false.i.i28.i
   %Y.i.i31.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 34
@@ -14481,7 +14468,7 @@ land.lhs.true.i.i30.i:                            ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i:                          ; preds = %land.lhs.true.i.i30.i
   %cmp23.i.i35.i = icmp eq i16 %17, %18
-  br i1 %cmp23.i.i35.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, label %if.end18.i
+  br i1 %cmp23.i.i35.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i: ; preds = %land.lhs.true18.i.i34.i
   %Z.i.i37.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 36
@@ -14489,9 +14476,8 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i: ; preds = %land.lhs.tr
   %Z25.i.i38.i = getelementptr inbounds i8, ptr %__k, i64 4
   %20 = load i16, ptr %Z25.i.i38.i, align 2, !tbaa !129
   %cmp27.i.i39.i = icmp slt i16 %19, %20
-  br i1 %cmp27.i.i39.i, label %cleanup80, label %if.end18.i
-
-if.end18.i:                                       ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %land.lhs.true18.i.i34.i, %lor.lhs.false.i.i28.i
+  %spec.select1 = select i1 %cmp27.i.i39.i, ptr null, ptr %__j.sroa.0.0.i
+  %spec.select2 = select i1 %cmp27.i.i39.i, ptr %__y.0.lcssa63.i, ptr null
   br label %cleanup80
 
 if.else12:                                        ; preds = %entry
@@ -14515,7 +14501,7 @@ land.lhs.true.i.i96:                              ; preds = %lor.lhs.false.i.i94
 
 land.lhs.true18.i.i100:                           ; preds = %land.lhs.true.i.i96
   %cmp23.i.i101 = icmp eq i16 %23, %24
-  br i1 %cmp23.i.i101, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106, label %if.else44.thread53
+  br i1 %cmp23.i.i101, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106, label %if.else44.thread59
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit106: ; preds = %land.lhs.true18.i.i100
   %Z.i.i103 = getelementptr inbounds i8, ptr %__k, i64 4
@@ -14646,7 +14632,7 @@ if.end12.i148:                                    ; preds = %cond.end.i142.threa
 
 lor.lhs.false.i.i28.i153:                         ; preds = %if.end12.i148
   %cmp8.i.i29.i154 = icmp eq i16 %39, %21
-  br i1 %cmp8.i.i29.i154, label %land.lhs.true.i.i30.i160, label %if.end18.i155
+  br i1 %cmp8.i.i29.i154, label %land.lhs.true.i.i30.i160, label %cleanup80
 
 land.lhs.true.i.i30.i160:                         ; preds = %lor.lhs.false.i.i28.i153
   %Y.i.i31.i161 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i150, i64 34
@@ -14658,7 +14644,7 @@ land.lhs.true.i.i30.i160:                         ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i164:                       ; preds = %land.lhs.true.i.i30.i160
   %cmp23.i.i35.i165 = icmp eq i16 %40, %41
-  br i1 %cmp23.i.i35.i165, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, label %if.end18.i155
+  br i1 %cmp23.i.i35.i165, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166: ; preds = %land.lhs.true18.i.i34.i164
   %Z.i.i37.i167 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i150, i64 36
@@ -14666,14 +14652,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166: ; preds = %land.lhs
   %Z25.i.i38.i168 = getelementptr inbounds i8, ptr %__k, i64 4
   %43 = load i16, ptr %Z25.i.i38.i168, align 2, !tbaa !129
   %cmp27.i.i39.i169 = icmp slt i16 %42, %43
-  br i1 %cmp27.i.i39.i169, label %cleanup80, label %if.end18.i155
-
-if.end18.i155:                                    ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %land.lhs.true18.i.i34.i164, %lor.lhs.false.i.i28.i153
+  %spec.select3 = select i1 %cmp27.i.i39.i169, ptr null, ptr %__j.sroa.0.0.i150
+  %spec.select4 = select i1 %cmp27.i.i39.i169, ptr %__y.0.lcssa63.i149, ptr null
   br label %cleanup80
 
-if.else44.thread53:                               ; preds = %land.lhs.true18.i.i100
-  %cmp12.i.i19254 = icmp slt i16 %24, %23
-  br i1 %cmp12.i.i19254, label %if.then50, label %cleanup80
+if.else44.thread59:                               ; preds = %land.lhs.true18.i.i100
+  %cmp12.i.i19260 = icmp slt i16 %24, %23
+  br i1 %cmp12.i.i19260, label %if.then50, label %cleanup80
 
 if.else44.thread:                                 ; preds = %lor.lhs.false.i.i94
   %cmp.i.i186327 = icmp slt i16 %22, %21
@@ -14687,7 +14672,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199: ; preds = %_ZNKSt4lessI
   %cmp27.i.i198 = icmp slt i16 %44, %45
   br i1 %cmp27.i.i198, label %if.then50, label %cleanup80
 
-if.then50:                                        ; preds = %if.else44.thread53, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread
+if.then50:                                        ; preds = %if.else44.thread59, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread
   %_M_right.i200 = getelementptr inbounds i8, ptr %this, i64 32
   %46 = load ptr, ptr %_M_right.i200, align 8, !tbaa !42
   %cmp53 = icmp eq ptr %46, %__position.coerce
@@ -14810,7 +14795,7 @@ if.end12.i242:                                    ; preds = %cond.end.i236.threa
 
 lor.lhs.false.i.i28.i247:                         ; preds = %if.end12.i242
   %cmp8.i.i29.i248 = icmp eq i16 %59, %21
-  br i1 %cmp8.i.i29.i248, label %land.lhs.true.i.i30.i254, label %if.end18.i249
+  br i1 %cmp8.i.i29.i248, label %land.lhs.true.i.i30.i254, label %cleanup80
 
 land.lhs.true.i.i30.i254:                         ; preds = %lor.lhs.false.i.i28.i247
   %Y.i.i31.i255 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i244, i64 34
@@ -14822,7 +14807,7 @@ land.lhs.true.i.i30.i254:                         ; preds = %lor.lhs.false.i.i28
 
 land.lhs.true18.i.i34.i258:                       ; preds = %land.lhs.true.i.i30.i254
   %cmp23.i.i35.i259 = icmp eq i16 %60, %61
-  br i1 %cmp23.i.i35.i259, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, label %if.end18.i249
+  br i1 %cmp23.i.i35.i259, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, label %cleanup80
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260: ; preds = %land.lhs.true18.i.i34.i258
   %Z.i.i37.i261 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i244, i64 36
@@ -14830,14 +14815,13 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260: ; preds = %land.lhs
   %Z25.i.i38.i262 = getelementptr inbounds i8, ptr %__k, i64 4
   %63 = load i16, ptr %Z25.i.i38.i262, align 2, !tbaa !129
   %cmp27.i.i39.i263 = icmp slt i16 %62, %63
-  br i1 %cmp27.i.i39.i263, label %cleanup80, label %if.end18.i249
-
-if.end18.i249:                                    ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %land.lhs.true18.i.i34.i258, %lor.lhs.false.i.i28.i247
+  %spec.select5 = select i1 %cmp27.i.i39.i263, ptr null, ptr %__j.sroa.0.0.i244
+  %spec.select6 = select i1 %cmp27.i.i39.i263, ptr %__y.0.lcssa63.i243, ptr null
   br label %cleanup80
 
-cleanup80:                                        ; preds = %if.else44.thread53, %if.end18.i249, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %land.lhs.true.i.i30.i254, %if.end12.i242, %if.then.i264, %if.then64, %if.then50, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread, %if.end18.i155, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %land.lhs.true.i.i30.i160, %if.end12.i148, %if.then.i170, %if.then32, %if.then18, %if.end18.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %land.lhs.true.i.i30.i, %if.end12.i, %if.then.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %land.lhs.true
-  %retval.sroa.0.2 = phi ptr [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select316, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ null, %land.lhs.true.i.i30.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i150, %if.end18.i155 ], [ null, %if.then.i170 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ null, %land.lhs.true.i.i30.i160 ], [ null, %if.end12.i148 ], [ %__j.sroa.0.0.i244, %if.end18.i249 ], [ null, %if.then.i264 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ null, %land.lhs.true.i.i30.i254 ], [ null, %if.end12.i242 ], [ %__position.coerce, %if.else44.thread ], [ %__position.coerce, %if.else44.thread53 ]
-  %retval.sroa.12.2 = phi ptr [ %1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ %1, %land.lhs.true.i.i ], [ %1, %land.lhs.true ], [ %spec.select315, %if.then32 ], [ %spec.select317, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa64.i, %if.then.i ], [ %__y.0.lcssa63.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %__y.0.lcssa63.i, %land.lhs.true.i.i30.i ], [ %__y.0.lcssa63.i, %if.end12.i ], [ null, %if.end18.i155 ], [ %27, %if.then.i170 ], [ %__y.0.lcssa63.i149, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %__y.0.lcssa63.i149, %land.lhs.true.i.i30.i160 ], [ %__y.0.lcssa63.i149, %if.end12.i148 ], [ null, %if.end18.i249 ], [ %__y.0.lcssa64.i265, %if.then.i264 ], [ %__y.0.lcssa63.i243, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ %__y.0.lcssa63.i243, %land.lhs.true.i.i30.i254 ], [ %__y.0.lcssa63.i243, %if.end12.i242 ], [ null, %if.else44.thread ], [ null, %if.else44.thread53 ]
+cleanup80:                                        ; preds = %if.else44.thread59, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i, %lor.lhs.false.i.i28.i247, %land.lhs.true18.i.i34.i258, %lor.lhs.false.i.i28.i153, %land.lhs.true18.i.i34.i164, %lor.lhs.false.i.i28.i, %land.lhs.true18.i.i34.i, %land.lhs.true.i.i30.i254, %if.end12.i242, %if.then.i264, %if.then64, %if.then50, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199, %if.else44.thread, %land.lhs.true.i.i30.i160, %if.end12.i148, %if.then.i170, %if.then32, %if.then18, %land.lhs.true.i.i30.i, %if.end12.i, %if.then.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit, %land.lhs.true.i.i, %land.lhs.true
+  %retval.sroa.0.2 = phi ptr [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ null, %land.lhs.true.i.i ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select316, %if.then64 ], [ null, %if.then.i ], [ null, %land.lhs.true.i.i30.i ], [ null, %if.end12.i ], [ null, %if.then.i170 ], [ null, %land.lhs.true.i.i30.i160 ], [ null, %if.end12.i148 ], [ null, %if.then.i264 ], [ null, %land.lhs.true.i.i30.i254 ], [ null, %if.end12.i242 ], [ %__position.coerce, %if.else44.thread ], [ %__j.sroa.0.0.i, %land.lhs.true18.i.i34.i ], [ %__j.sroa.0.0.i, %lor.lhs.false.i.i28.i ], [ %__j.sroa.0.0.i150, %land.lhs.true18.i.i34.i164 ], [ %__j.sroa.0.0.i150, %lor.lhs.false.i.i28.i153 ], [ %__j.sroa.0.0.i244, %land.lhs.true18.i.i34.i258 ], [ %__j.sroa.0.0.i244, %lor.lhs.false.i.i28.i247 ], [ %spec.select1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %spec.select3, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %spec.select5, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ %__position.coerce, %if.else44.thread59 ]
+  %retval.sroa.12.2 = phi ptr [ %1, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit199 ], [ %1, %land.lhs.true.i.i ], [ %1, %land.lhs.true ], [ %spec.select315, %if.then32 ], [ %spec.select317, %if.then64 ], [ %__y.0.lcssa64.i, %if.then.i ], [ %__y.0.lcssa63.i, %land.lhs.true.i.i30.i ], [ %__y.0.lcssa63.i, %if.end12.i ], [ %27, %if.then.i170 ], [ %__y.0.lcssa63.i149, %land.lhs.true.i.i30.i160 ], [ %__y.0.lcssa63.i149, %if.end12.i148 ], [ %__y.0.lcssa64.i265, %if.then.i264 ], [ %__y.0.lcssa63.i243, %land.lhs.true.i.i30.i254 ], [ %__y.0.lcssa63.i243, %if.end12.i242 ], [ null, %if.else44.thread ], [ null, %land.lhs.true18.i.i34.i ], [ null, %lor.lhs.false.i.i28.i ], [ null, %land.lhs.true18.i.i34.i164 ], [ null, %lor.lhs.false.i.i28.i153 ], [ null, %land.lhs.true18.i.i34.i258 ], [ null, %lor.lhs.false.i.i28.i247 ], [ %spec.select2, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i ], [ %spec.select4, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i166 ], [ %spec.select6, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i260 ], [ null, %if.else44.thread59 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.2, 1
   ret { ptr, ptr } %.fca.1.insert

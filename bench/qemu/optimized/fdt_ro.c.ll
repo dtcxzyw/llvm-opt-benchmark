@@ -271,26 +271,24 @@ if.end.i.i:                                       ; preds = %entry
   %conv9.i.i.i = zext i8 %3 to i32
   %or10.i.i.i = or disjoint i32 %or7.i.i.i, %conv9.i.i.i
   %cmp.i.i = icmp ult i32 %or10.i.i.i, 16
-  br i1 %cmp.i.i, label %land.lhs.true3.i.i, label %if.end10.i.i
+  br i1 %cmp.i.i, label %land.lhs.true3.i.i, label %fdt_getprop.exit
 
 land.lhs.true3.i.i:                               ; preds = %if.end.i.i
   %4 = load i32, ptr %poffset.i.i, align 4
   %5 = and i32 %4, 7
   %tobool4.not.i.i = icmp eq i32 %5, 4
-  br i1 %tobool4.not.i.i, label %if.end10.i.i, label %land.lhs.true5.i.i
+  br i1 %tobool4.not.i.i, label %fdt_getprop.exit, label %land.lhs.true5.i.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
   %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   %len.val.i.i = load i32, ptr %len.i.i, align 4
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
-  br i1 %cmp7.i.i, label %fdt_getprop.exit, label %if.end10.i.i
-
-if.end10.i.i:                                     ; preds = %land.lhs.true5.i.i, %land.lhs.true3.i.i, %if.end.i.i
+  %spec.select = select i1 %cmp7.i.i, i64 16, i64 12
   br label %fdt_getprop.exit
 
-fdt_getprop.exit:                                 ; preds = %land.lhs.true5.i.i, %if.end10.i.i
-  %.sink = phi i64 [ 12, %if.end10.i.i ], [ 16, %land.lhs.true5.i.i ]
+fdt_getprop.exit:                                 ; preds = %land.lhs.true5.i.i, %if.end.i.i, %land.lhs.true3.i.i
+  %.sink = phi i64 [ 12, %land.lhs.true3.i.i ], [ 12, %if.end.i.i ], [ %spec.select, %land.lhs.true5.i.i ]
   %add.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 %.sink
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %poffset.i.i)
   %tobool = icmp eq ptr %add.ptr.i.i, null
@@ -329,26 +327,24 @@ if.end.i.i11:                                     ; preds = %if.then
   %conv9.i.i.i24 = zext i8 %10 to i32
   %or10.i.i.i25 = or disjoint i32 %or7.i.i.i22, %conv9.i.i.i24
   %cmp.i.i26 = icmp ult i32 %or10.i.i.i25, 16
-  br i1 %cmp.i.i26, label %land.lhs.true3.i.i30, label %if.end10.i.i27
+  br i1 %cmp.i.i26, label %land.lhs.true3.i.i30, label %fdt_getprop.exit39
 
 land.lhs.true3.i.i30:                             ; preds = %if.end.i.i11
   %11 = load i32, ptr %poffset.i.i6, align 4
   %12 = and i32 %11, 7
   %tobool4.not.i.i31 = icmp eq i32 %12, 4
-  br i1 %tobool4.not.i.i31, label %if.end10.i.i27, label %land.lhs.true5.i.i32
+  br i1 %tobool4.not.i.i31, label %fdt_getprop.exit39, label %land.lhs.true5.i.i32
 
 land.lhs.true5.i.i32:                             ; preds = %land.lhs.true3.i.i30
   %len.i.i33 = getelementptr inbounds i8, ptr %call.i.i9, i64 4
   %len.val.i.i34 = load i32, ptr %len.i.i33, align 4
   %rev.i.i.i.i35 = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i34)
   %cmp7.i.i36 = icmp ugt i32 %rev.i.i.i.i35, 7
-  br i1 %cmp7.i.i36, label %fdt_getprop.exit39, label %if.end10.i.i27
-
-if.end10.i.i27:                                   ; preds = %land.lhs.true5.i.i32, %land.lhs.true3.i.i30, %if.end.i.i11
+  %spec.select49 = select i1 %cmp7.i.i36, i64 16, i64 12
   br label %fdt_getprop.exit39
 
-fdt_getprop.exit39:                               ; preds = %land.lhs.true5.i.i32, %if.end10.i.i27
-  %.sink48 = phi i64 [ 12, %if.end10.i.i27 ], [ 16, %land.lhs.true5.i.i32 ]
+fdt_getprop.exit39:                               ; preds = %land.lhs.true5.i.i32, %if.end.i.i11, %land.lhs.true3.i.i30
+  %.sink48 = phi i64 [ 12, %land.lhs.true3.i.i30 ], [ 12, %if.end.i.i11 ], [ %spec.select49, %land.lhs.true5.i.i32 ]
   %add.ptr.i.i38 = getelementptr i8, ptr %call.i.i9, i64 %.sink48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %poffset.i.i6)
   %tobool3 = icmp eq ptr %add.ptr.i.i38, null

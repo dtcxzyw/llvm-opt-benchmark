@@ -248,17 +248,25 @@ if.end42:                                         ; preds = %if.end35
 
 if.end47:                                         ; preds = %if.end42
   %call.i45 = call i64 @ERR_peek_error() #6
-  %12 = and i64 %call.i45, 4294967295
-  %or.cond84 = icmp eq i64 %12, 167772306
-  %retval.0.i47 = zext i1 %or.cond84 to i32
+  %and.i.i = and i64 %call.i45, 2147483648
+  %cmp.not.i.i = icmp eq i64 %and.i.i, 0
+  %12 = trunc i64 %call.i45 to i32
+  %.mask.i = and i32 %12, -8388608
+  %cmp5.i = icmp eq i32 %.mask.i, 167772160
+  %retval.0.v.i.i = select i1 %cmp.not.i.i, i32 8388607, i32 2147483647
+  %retval.0.i4.i = and i32 %retval.0.v.i.i, %12
+  %cmp3.i = icmp eq i32 %retval.0.i4.i, 146
+  %13 = and i1 %cmp5.i, %cmp3.i
+  %narrow.i = and i1 %cmp.not.i.i, %13
+  %retval.0.i47 = zext i1 %narrow.i to i32
   %call51 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 143, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %retval.0.i47, i32 noundef %idx) #6
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %end, label %success
 
 if.end55:                                         ; preds = %if.end24
-  %13 = load ptr, ptr %serverssl, align 8
-  %14 = load ptr, ptr %clientssl, align 8
-  %call56 = call i32 @create_ssl_connection(ptr noundef %13, ptr noundef %14, i32 noundef 0) #6
+  %14 = load ptr, ptr %serverssl, align 8
+  %15 = load ptr, ptr %clientssl, align 8
+  %call56 = call i32 @create_ssl_connection(ptr noundef %14, ptr noundef %15, i32 noundef 0) #6
   %cmp57 = icmp ne i32 %call56, 0
   %conv58 = zext i1 %cmp57 to i32
   %call59 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 150, ptr noundef nonnull @.str.26, i32 noundef %conv58) #6
@@ -288,7 +296,7 @@ if.end71:                                         ; preds = %if.end62, %if.then6
   %arrayidx4.i52 = getelementptr inbounds i8, ptr %header.i48, i64 2
   store i8 3, ptr %arrayidx4.i52, align 1
   %shr5.i = lshr i64 %len.2, 8
-  %conv7.i = trunc i64 %shr5.i to i8
+  %conv7.i = trunc nuw nsw i64 %shr5.i to i8
   %arrayidx8.i53 = getelementptr inbounds i8, ptr %header.i48, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i53, align 1
   %conv10.i = trunc i64 %len.2 to i8
@@ -296,8 +304,8 @@ if.end71:                                         ; preds = %if.end62, %if.then6
   store i8 %conv10.i, ptr %arrayidx11.i54, align 1
   %call.i55 = call i32 @BIO_write_ex(ptr noundef %call25, ptr noundef nonnull %header.i48, i64 noundef 5, ptr noundef nonnull %written.i49) #6
   %tobool.i56 = icmp eq i32 %call.i55, 0
-  %15 = load i64, ptr %written.i49, align 8
-  %cmp.i57 = icmp ne i64 %15, 5
+  %16 = load i64, ptr %written.i49, align 8
+  %cmp.i57 = icmp ne i64 %16, 5
   %or.cond.i58 = select i1 %tobool.i56, i1 true, i1 %cmp.i57
   br i1 %or.cond.i58, label %write_record.exit71, label %while.cond.preheader.i59
 
@@ -315,8 +323,8 @@ while.body.i60:                                   ; preds = %while.cond.preheade
   %.len.addr.0.i62 = call i64 @llvm.umin.i64(i64 %len.addr.012.i61, i64 256)
   %call21.i63 = call i32 @BIO_write_ex(ptr noundef %call25, ptr noundef nonnull %buf.i50, i64 noundef %.len.addr.0.i62, ptr noundef nonnull %written.i49) #6
   %tobool22.not.i64 = icmp ne i32 %call21.i63, 0
-  %16 = load i64, ptr %written.i49, align 8
-  %cmp24.not.i65 = icmp eq i64 %16, %.len.addr.0.i62
+  %17 = load i64, ptr %written.i49, align 8
+  %cmp24.not.i65 = icmp eq i64 %17, %.len.addr.0.i62
   %or.cond10.i66 = select i1 %tobool22.not.i64, i1 %cmp24.not.i65, i1 false
   br i1 %or.cond10.i66, label %while.cond.i68, label %write_record.exit71
 
@@ -330,8 +338,8 @@ write_record.exit71:                              ; preds = %while.cond.i68, %wh
   br i1 %tobool76.not, label %end, label %if.end78
 
 if.end78:                                         ; preds = %write_record.exit71
-  %17 = load ptr, ptr %serverssl, align 8
-  %call79 = call i32 @SSL_read_ex(ptr noundef %17, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef nonnull %written) #6
+  %18 = load ptr, ptr %serverssl, align 8
+  %call79 = call i32 @SSL_read_ex(ptr noundef %18, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef nonnull %written) #6
   %cmp80 = icmp ne i32 %call79, 0
   %conv81 = zext i1 %cmp80 to i32
   %call82 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 167, ptr noundef nonnull @.str.28, i32 noundef %conv81) #6
@@ -340,10 +348,18 @@ if.end78:                                         ; preds = %write_record.exit71
 
 if.end85:                                         ; preds = %if.end78
   %call.i72 = call i64 @ERR_peek_error() #6
-  %18 = and i64 %call.i72, 4294967295
-  %or.cond85 = icmp eq i64 %18, 167772310
-  %retval.0.i79 = zext i1 %or.cond85 to i32
-  %call87 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 170, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.25, i32 noundef %retval.0.i79, i32 noundef %overf_expected.0) #6
+  %and.i.i73 = and i64 %call.i72, 2147483648
+  %cmp.not.i.i74 = icmp eq i64 %and.i.i73, 0
+  %19 = trunc i64 %call.i72 to i32
+  %.mask.i75 = and i32 %19, -8388608
+  %cmp5.i76 = icmp eq i32 %.mask.i75, 167772160
+  %retval.0.v.i.i78 = select i1 %cmp.not.i.i74, i32 8388607, i32 2147483647
+  %retval.0.i4.i79 = and i32 %retval.0.v.i.i78, %19
+  %cmp3.i80 = icmp eq i32 %retval.0.i4.i79, 150
+  %20 = and i1 %cmp5.i76, %cmp3.i80
+  %narrow.i81 = and i1 %cmp.not.i.i74, %20
+  %retval.0.i82 = zext i1 %narrow.i81 to i32
+  %call87 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 170, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.25, i32 noundef %retval.0.i82, i32 noundef %overf_expected.0) #6
   %tobool88.not = icmp eq i32 %call87, 0
   br i1 %tobool88.not, label %end, label %success
 
@@ -352,14 +368,14 @@ success:                                          ; preds = %if.end85, %if.end47
 
 end:                                              ; preds = %if.end85, %if.end78, %write_record.exit71, %if.end55, %if.end47, %if.end42, %if.end35, %if.end17, %entry, %success
   %testresult.0 = phi i32 [ 1, %success ], [ 0, %if.end47 ], [ 0, %if.end42 ], [ 0, %if.end35 ], [ 0, %if.end85 ], [ 0, %if.end78 ], [ 0, %write_record.exit71 ], [ 0, %if.end55 ], [ 0, %if.end17 ], [ 0, %entry ]
-  %19 = load ptr, ptr %serverssl, align 8
-  call void @SSL_free(ptr noundef %19) #6
-  %20 = load ptr, ptr %clientssl, align 8
-  call void @SSL_free(ptr noundef %20) #6
-  %21 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %21) #6
-  %22 = load ptr, ptr %cctx, align 8
-  call void @SSL_CTX_free(ptr noundef %22) #6
+  %21 = load ptr, ptr %serverssl, align 8
+  call void @SSL_free(ptr noundef %21) #6
+  %22 = load ptr, ptr %clientssl, align 8
+  call void @SSL_free(ptr noundef %22) #6
+  %23 = load ptr, ptr %sctx, align 8
+  call void @SSL_CTX_free(ptr noundef %23) #6
+  %24 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %24) #6
   ret i32 %testresult.0
 }
 

@@ -1547,13 +1547,13 @@ define dso_local i32 @ftrace_set_clr_event(ptr noundef %0, ptr noundef %1, i32 n
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %34, label %6
+  br i1 %5, label %32, label %6
 
 6:                                                ; preds = %3
   %7 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.1) #19
   %8 = load ptr, ptr %4, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %25, label %10
+  br i1 %9, label %23, label %10
 
 10:                                               ; preds = %6
   %11 = load i8, ptr %7, align 1
@@ -1563,44 +1563,40 @@ define dso_local i32 @ftrace_set_clr_event(ptr noundef %0, ptr noundef %1, i32 n
 13:                                               ; preds = %10
   %14 = call i32 @strcmp(ptr noundef %7, ptr noundef nonnull dereferenceable(2) @.str.2) #19
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, ptr null, ptr %7
+  br label %16
 
 16:                                               ; preds = %13, %10
-  br label %17
+  %17 = phi ptr [ null, %10 ], [ %spec.select, %13 ]
+  %18 = load i8, ptr %8, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %23, label %20
 
-17:                                               ; preds = %16, %13
-  %18 = phi ptr [ null, %16 ], [ %7, %13 ]
-  %19 = load i8, ptr %8, align 1
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %24, label %21
+20:                                               ; preds = %16
+  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(2) @.str.2) #19
+  %22 = icmp eq i32 %21, 0
+  %spec.select1 = select i1 %22, ptr null, ptr %8
+  br label %23
 
-21:                                               ; preds = %17
-  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(2) @.str.2) #19
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %21, %17
-  br label %25
-
-25:                                               ; preds = %24, %21, %6
-  %26 = phi ptr [ null, %24 ], [ %8, %21 ], [ null, %6 ]
-  %27 = phi ptr [ %18, %24 ], [ %18, %21 ], [ null, %6 ]
-  %28 = phi ptr [ null, %24 ], [ null, %21 ], [ %7, %6 ]
+23:                                               ; preds = %20, %16, %6
+  %24 = phi ptr [ null, %6 ], [ null, %16 ], [ %spec.select1, %20 ]
+  %25 = phi ptr [ null, %6 ], [ %17, %16 ], [ %17, %20 ]
+  %26 = phi ptr [ %7, %6 ], [ null, %16 ], [ null, %20 ]
   call void @mutex_lock(ptr noundef nonnull @event_mutex) #19
-  %29 = call fastcc i32 @__ftrace_set_clr_event_nolock(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %27, ptr noundef %26, i32 noundef %2)
+  %27 = call fastcc i32 @__ftrace_set_clr_event_nolock(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %25, ptr noundef %24, i32 noundef %2)
   call void @mutex_unlock(ptr noundef nonnull @event_mutex) #19
-  %30 = load ptr, ptr %4, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %34, label %32
+  %28 = load ptr, ptr %4, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %32, label %30
 
-32:                                               ; preds = %25
-  %33 = getelementptr i8, ptr %30, i64 -1
-  store i8 58, ptr %33, align 1
-  br label %34
+30:                                               ; preds = %23
+  %31 = getelementptr i8, ptr %28, i64 -1
+  store i8 58, ptr %31, align 1
+  br label %32
 
-34:                                               ; preds = %32, %25, %3
-  %35 = phi i32 [ -2, %3 ], [ %29, %32 ], [ %29, %25 ]
-  ret i32 %35
+32:                                               ; preds = %30, %23, %3
+  %33 = phi i32 [ -2, %3 ], [ %27, %30 ], [ %27, %23 ]
+  ret i32 %33
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -6240,7 +6236,7 @@ define internal i64 @system_enable_write(ptr nocapture noundef readonly %0, ptr 
 30:                                               ; preds = %26, %24
   %.fr6 = phi ptr [ %29, %26 ], [ null, %24 ]
   %31 = load ptr, ptr %15, align 8
-  %32 = trunc i64 %22 to i32
+  %32 = trunc nuw nsw i64 %22 to i32
   call void @mutex_lock(ptr noundef nonnull @event_mutex) #19
   %33 = getelementptr inbounds i8, ptr %31, i64 248
   %34 = load ptr, ptr %33, align 8
@@ -6579,7 +6575,7 @@ define internal i64 @ftrace_event_write(ptr nocapture noundef readonly %0, ptr n
   %8 = getelementptr inbounds i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq i64 %2, 0
-  br i1 %10, label %41, label %11
+  br i1 %10, label %40, label %11
 
 11:                                               ; preds = %4
   %12 = tail call i32 @tracing_update_buffers(ptr noundef %9) #19
@@ -6588,13 +6584,13 @@ define internal i64 @ftrace_event_write(ptr nocapture noundef readonly %0, ptr n
 
 14:                                               ; preds = %11
   %15 = sext i32 %12 to i64
-  br label %41
+  br label %40
 
 16:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !36
   %17 = call i32 @trace_parser_get_init(ptr noundef nonnull %5, i32 noundef 128) #19
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %41
+  br i1 %18, label %19, label %40
 
 19:                                               ; preds = %16
   %20 = call i32 @trace_get_user(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2, ptr noundef %3) #19
@@ -6616,21 +6612,19 @@ define internal i64 @ftrace_event_write(ptr nocapture noundef readonly %0, ptr n
   %34 = getelementptr i8, ptr %28, i64 %33
   %35 = call i32 @ftrace_set_clr_event(ptr noundef %9, ptr noundef %34, i32 noundef %31)
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %38
+  %spec.select = select i1 %36, i32 %20, i32 %35
+  br label %37
 
 37:                                               ; preds = %26, %19
-  br label %38
-
-38:                                               ; preds = %37, %26
-  %39 = phi i32 [ %35, %26 ], [ %20, %37 ]
-  %40 = sext i32 %39 to i64
+  %38 = phi i32 [ %20, %19 ], [ %spec.select, %26 ]
+  %39 = sext i32 %38 to i64
   call void @trace_parser_put(ptr noundef nonnull %5) #19
-  br label %41
+  br label %40
 
-41:                                               ; preds = %38, %16, %14, %4
-  %42 = phi i64 [ %15, %14 ], [ %40, %38 ], [ 0, %4 ], [ -12, %16 ]
+40:                                               ; preds = %37, %16, %14, %4
+  %41 = phi i64 [ %15, %14 ], [ %39, %37 ], [ 0, %4 ], [ -12, %16 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
-  ret i64 %42
+  ret i64 %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -226,8 +226,8 @@ define internal fastcc i32 @parse_authority(ptr nocapture noundef %0, ptr nounde
   br label %29
 
 29:                                               ; preds = %25, %20, %.thread.i
-  %30 = phi i64 [ %19, %.thread.i ], [ %24, %20 ], [ %24, %25 ]
-  %31 = phi ptr [ null, %.thread.i ], [ null, %20 ], [ %spec.select.i, %25 ]
+  %30 = phi i64 [ %24, %20 ], [ %24, %25 ], [ %19, %.thread.i ]
+  %31 = phi ptr [ null, %20 ], [ %spec.select.i, %25 ], [ null, %.thread.i ]
   %32 = add nsw i64 %30, -1
   %33 = call i32 @Curl_parse_login_details(ptr noundef %1, i64 noundef %32, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %31) #10
   %.not34.i = icmp eq i32 %33, 0
@@ -305,9 +305,9 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
   br i1 %.not.i, label %63, label %193
 
 63:                                               ; preds = %parse_hostname_login.exit.thread, %parse_hostname_login.exit
-  %.04448 = phi i64 [ %30, %parse_hostname_login.exit.thread ], [ 0, %parse_hostname_login.exit ]
-  %64 = getelementptr inbounds i8, ptr %1, i64 %.04448
-  %65 = sub i64 %2, %.04448
+  %.04650 = phi i64 [ %30, %parse_hostname_login.exit.thread ], [ 0, %parse_hostname_login.exit ]
+  %64 = getelementptr inbounds i8, ptr %1, i64 %.04650
+  %65 = sub i64 %2, %.04650
   %66 = call i32 @Curl_dyn_addn(ptr noundef %4, ptr noundef %64, i64 noundef %65) #10
   %.not30 = icmp eq i32 %66, 0
   br i1 %.not30, label %70, label %67
@@ -333,14 +333,14 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
   %77 = getelementptr inbounds i8, ptr %75, i64 1
   %78 = load i8, ptr %77, align 1
   switch i8 %78, label %Curl_parse_port.exit.thread [
-    i8 0, label %.thread.i38
+    i8 0, label %.thread.i40
     i8 58, label %.thread40.i
   ]
 
 79:                                               ; preds = %70
   %80 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %71, i32 noundef 58) #11
   %.not34.i34 = icmp eq ptr %80, null
-  br i1 %.not34.i34, label %.thread.i38, label %.thread40.i
+  br i1 %.not34.i34, label %.thread.i40, label %.thread40.i
 
 .thread40.i:                                      ; preds = %79, %76
   %.02643.i = phi ptr [ %80, %79 ], [ %77, %76 ]
@@ -354,7 +354,7 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
   br i1 %.not35.i35, label %87, label %88
 
 87:                                               ; preds = %.thread40.i
-  br i1 %5, label %.thread.i38, label %Curl_parse_port.exit.thread
+  br i1 %5, label %.thread.i40, label %Curl_parse_port.exit.thread
 
 88:                                               ; preds = %.thread40.i
   %89 = add i8 %86, -48
@@ -382,20 +382,20 @@ parse_hostname_login.exit:                        ; preds = %6, %29, %35
   %101 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.16, i64 noundef %91) #10
   store ptr %101, ptr %99, align 8
   %.not37.i37 = icmp eq ptr %101, null
-  br i1 %.not37.i37, label %Curl_parse_port.exit.thread, label %.thread.i38
+  br i1 %.not37.i37, label %Curl_parse_port.exit.thread, label %.thread.i40
 
 Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, %90, %93, %96
-  %.0.i.ph = phi i32 [ 7, %96 ], [ 4, %93 ], [ 4, %90 ], [ 4, %88 ], [ 4, %76 ], [ 22, %74 ], [ 4, %87 ]
+  %.0.i.ph = phi i32 [ 4, %93 ], [ 4, %90 ], [ 4, %88 ], [ 4, %76 ], [ 22, %74 ], [ 4, %87 ], [ 7, %96 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %193
 
-.thread.i38:                                      ; preds = %87, %76, %79, %96
+.thread.i40:                                      ; preds = %87, %76, %79, %96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %102 = call i64 @Curl_dyn_len(ptr noundef %4) #10
   %.not32 = icmp eq i64 %102, 0
   br i1 %.not32, label %193, label %103
 
-103:                                              ; preds = %.thread.i38
+103:                                              ; preds = %.thread.i40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %104 = call ptr @Curl_dyn_ptr(ptr noundef %4) #10
@@ -445,7 +445,7 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
   br i1 %.old.i, label %.loopexit, label %.preheader.i, !llvm.loop !8
 
 122:                                              ; preds = %.preheader.i
-  switch i32 %.043.i, label %ipv4_normalize.exit.thread52 [
+  switch i32 %.043.i, label %ipv4_normalize.exit.thread57 [
     i32 0, label %123
     i32 1, label %134
     i32 2, label %148
@@ -472,13 +472,13 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
   %137 = getelementptr inbounds i8, ptr %7, i64 8
   %138 = load i64, ptr %137, align 8
   %139 = icmp ugt i64 %138, 16777215
-  %or.cond.i43 = select i1 %136, i1 true, i1 %139
-  br i1 %or.cond.i43, label %.loopexit, label %140
+  %or.cond.i45 = select i1 %136, i1 true, i1 %139
+  br i1 %or.cond.i45, label %.loopexit, label %140
 
 140:                                              ; preds = %134
   call void @Curl_dyn_reset(ptr noundef %4) #10
-  %141 = trunc i64 %135 to i32
-  %142 = trunc i64 %138 to i32
+  %141 = trunc nuw i64 %135 to i32
+  %142 = trunc nuw i64 %138 to i32
   %143 = lshr i32 %142, 16
   %144 = lshr i32 %142, 8
   %145 = and i32 %144, 255
@@ -501,9 +501,9 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
 
 157:                                              ; preds = %148
   call void @Curl_dyn_reset(ptr noundef %4) #10
-  %158 = trunc i64 %149 to i32
-  %159 = trunc i64 %152 to i32
-  %160 = trunc i64 %155 to i32
+  %158 = trunc nuw i64 %149 to i32
+  %159 = trunc nuw i64 %152 to i32
+  %160 = trunc nuw i64 %155 to i32
   %161 = lshr i32 %160, 8
   %162 = and i32 %160, 255
   %163 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %158, i32 noundef %159, i32 noundef %161, i32 noundef %162) #10
@@ -528,20 +528,20 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
 
 176:                                              ; preds = %164
   call void @Curl_dyn_reset(ptr noundef %4) #10
-  %177 = trunc i64 %165 to i32
-  %178 = trunc i64 %168 to i32
-  %179 = trunc i64 %171 to i32
-  %180 = trunc i64 %174 to i32
+  %177 = trunc nuw i64 %165 to i32
+  %178 = trunc nuw i64 %168 to i32
+  %179 = trunc nuw i64 %171 to i32
+  %180 = trunc nuw i64 %174 to i32
   %181 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %177, i32 noundef %178, i32 noundef %179, i32 noundef %180) #10
   br label %182
 
 182:                                              ; preds = %176, %157, %140, %123
   %.041.i = phi i32 [ %181, %176 ], [ %163, %157 ], [ %147, %140 ], [ %133, %123 ]
   %.041.fr.i = freeze i32 %.041.i
-  %.not.i41 = icmp eq i32 %.041.fr.i, 0
-  br i1 %.not.i41, label %ipv4_normalize.exit.thread52, label %192
+  %.not.i43 = icmp eq i32 %.041.fr.i, 0
+  br i1 %.not.i43, label %ipv4_normalize.exit.thread57, label %192
 
-ipv4_normalize.exit.thread52:                     ; preds = %122, %182
+ipv4_normalize.exit.thread57:                     ; preds = %122, %182
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %193
@@ -572,8 +572,8 @@ ipv4_normalize.exit.thread52:                     ; preds = %122, %182
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %193
 
-193:                                              ; preds = %ipv4_normalize.exit.thread52, %Curl_parse_port.exit.thread, %67, %parse_hostname_login.exit, %.loopexit, %188, %192, %183, %.thread.i38
-  %.0 = phi i32 [ 14, %.thread.i38 ], [ %.028.i, %parse_hostname_login.exit ], [ %69, %67 ], [ 7, %192 ], [ %187, %.loopexit ], [ %191, %188 ], [ %186, %183 ], [ %.0.i.ph, %Curl_parse_port.exit.thread ], [ 0, %ipv4_normalize.exit.thread52 ]
+193:                                              ; preds = %ipv4_normalize.exit.thread57, %Curl_parse_port.exit.thread, %67, %parse_hostname_login.exit, %.loopexit, %188, %192, %183, %.thread.i40
+  %.0 = phi i32 [ 14, %.thread.i40 ], [ %.028.i, %parse_hostname_login.exit ], [ %69, %67 ], [ 7, %192 ], [ %187, %.loopexit ], [ %191, %188 ], [ %186, %183 ], [ %.0.i.ph, %Curl_parse_port.exit.thread ], [ 0, %ipv4_normalize.exit.thread57 ]
   ret i32 %.0
 }
 

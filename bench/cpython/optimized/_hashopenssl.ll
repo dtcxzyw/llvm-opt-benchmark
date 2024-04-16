@@ -994,18 +994,14 @@ do.body39:                                        ; preds = %if.then30, %do.body
   %unsupported_digestmod_error = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load ptr, ptr %unsupported_digestmod_error, align 8
   %tobool40.not = icmp eq ptr %4, null
-  br i1 %tobool40.not, label %do.end49, label %if.then41
+  br i1 %tobool40.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %do.body39
   %call44 = tail call i32 %visit(ptr noundef nonnull %4, ptr noundef %arg) #9
-  %tobool45.not = icmp eq i32 %call44, 0
-  br i1 %tobool45.not, label %do.end49, label %return
-
-do.end49:                                         ; preds = %do.body39, %if.then41
   br label %return
 
-return:                                           ; preds = %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end49
-  %retval.0 = phi i32 [ 0, %do.end49 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ]
+return:                                           ; preds = %if.then41, %do.body39, %if.then30, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ 0, %do.body39 ], [ %call44, %if.then41 ]
   ret i32 %retval.0
 }
 
@@ -3312,8 +3308,8 @@ if.end37:                                         ; preds = %if.end32
   %10 = load ptr, ptr %salt, align 8
   %11 = load i64, ptr %len5, align 8
   %conv44 = trunc i64 %11 to i32
-  %conv45 = trunc i64 %iterations to i32
-  %conv46 = trunc i64 %dklen.0 to i32
+  %conv45 = trunc nuw nsw i64 %iterations to i32
+  %conv46 = trunc nuw nsw i64 %dklen.0 to i32
   %call47 = tail call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %8, i32 noundef %conv41, ptr noundef %10, i32 noundef %conv44, i32 noundef %conv45, ptr noundef nonnull %call, i32 noundef %conv46, ptr noundef nonnull %ob_sval.i) #9
   tail call void @PyEval_RestoreThread(ptr noundef %call39) #9
   %tobool48.not = icmp eq i32 %call47, 0
@@ -4010,7 +4006,7 @@ if.end5.i:                                        ; preds = %while.body.i
   br i1 %cmp.i9, label %while.body.i, label %EVP_hash.exit, !llvm.loop !8
 
 EVP_hash.exit:                                    ; preds = %if.end5.i, %PyMutex_Lock.exit, %if.then3.i
-  %cmp28 = phi i1 [ true, %if.then3.i ], [ false, %PyMutex_Lock.exit ], [ false, %if.end5.i ]
+  %cmp28 = phi ptr [ null, %if.then3.i ], [ @_Py_NoneStruct, %PyMutex_Lock.exit ], [ @_Py_NoneStruct, %if.end5.i ]
   %15 = cmpxchg ptr %mutex, i8 1, i8 0 seq_cst seq_cst, align 1
   %16 = extractvalue { i8, i1 } %15, 1
   br i1 %16, label %if.end27, label %if.then.i10
@@ -4041,7 +4037,7 @@ if.end27.thread30:                                ; preds = %while.body.i15
   %19 = load ptr, ptr @PyExc_ValueError, align 8
   call void (ptr, ptr, ...) @_setException(ptr noundef %19, ptr noundef null)
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
-  br label %20
+  br label %return
 
 if.end5.i21:                                      ; preds = %while.body.i15
   %sub.i22 = sub nsw i64 %len.addr.08.i17, %.len.addr.0.i18
@@ -4056,13 +4052,10 @@ if.end27.thread:                                  ; preds = %if.end5.i21, %if.el
 if.end27:                                         ; preds = %if.then.i10, %EVP_hash.exit
   call void @PyEval_RestoreThread(ptr noundef %call20) #9
   call void @PyBuffer_Release(ptr noundef nonnull %view) #9
-  br i1 %cmp28, label %20, label %return
-
-20:                                               ; preds = %if.end27.thread30, %if.end27
   br label %return
 
-return:                                           ; preds = %20, %if.end27, %if.end27.thread, %if.end5, %if.then10, %if.then4, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ null, %if.then4 ], [ null, %if.end5 ], [ null, %20 ], [ @_Py_NoneStruct, %if.end27 ], [ @_Py_NoneStruct, %if.end27.thread ]
+return:                                           ; preds = %if.end27, %if.end27.thread, %if.end27.thread30, %if.end5, %if.then10, %if.then4, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ null, %if.then4 ], [ null, %if.end5 ], [ @_Py_NoneStruct, %if.end27.thread ], [ null, %if.end27.thread30 ], [ %cmp28, %if.end27 ]
   ret ptr %retval.0
 }
 

@@ -37,12 +37,12 @@ declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64
 define dso_local noundef i32 @acpi_tb_validate_rsdp(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str, i64 noundef 8) #6
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %15
+  br i1 %3, label %4, label %14
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i8 @acpi_ut_checksum(ptr noundef %0, i32 noundef 20) #6
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 15
@@ -53,14 +53,12 @@ define dso_local noundef i32 @acpi_tb_validate_rsdp(ptr noundef %0) local_unname
 11:                                               ; preds = %7
   %12 = tail call zeroext i8 @acpi_ut_checksum(ptr noundef %0, i32 noundef 36) #6
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %14, label %15
+  %spec.select = select i1 %13, i32 0, i32 8195
+  br label %14
 
-14:                                               ; preds = %11, %7
-  br label %15
-
-15:                                               ; preds = %14, %11, %4, %1
-  %16 = phi i32 [ 0, %14 ], [ 8193, %1 ], [ 8195, %4 ], [ 8195, %11 ]
-  ret i32 %16
+14:                                               ; preds = %11, %7, %4, %1
+  %15 = phi i32 [ 8193, %1 ], [ 8195, %4 ], [ 0, %7 ], [ %spec.select, %11 ]
+  ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid

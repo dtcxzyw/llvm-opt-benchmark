@@ -1177,7 +1177,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   store i32 1, ptr %.sroa.456.0..sroa_idx, align 8
   %.sroa.558.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 32
   store ptr null, ptr %.sroa.558.0..sroa_idx, align 16
-  %230 = trunc i8 %.0260.lcssa to i1
+  %230 = trunc nuw i8 %.0260.lcssa to i1
   br i1 %230, label %235, label %231
 
 231:                                              ; preds = %226
@@ -1226,7 +1226,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.542.0..sroa_idx = getelementptr inbounds i8, ptr %.0266.sroa.phi, i64 32
   store ptr null, ptr %.sroa.542.0..sroa_idx, align 8
-  %242 = trunc i8 %.2262 to i1
+  %242 = trunc nuw i8 %.2262 to i1
   br i1 %242, label %.thread437, label %243
 
 243:                                              ; preds = %241
@@ -1278,7 +1278,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread419
   br label %258
 
 258:                                              ; preds = %255, %254
-  %259 = trunc i8 %.4440 to i1
+  %259 = trunc nuw i8 %.4440 to i1
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %258
@@ -2444,7 +2444,7 @@ define internal noundef i32 @_ZN8nanobind6detailL13inst_traverseEP7_objectPFiS2_
 11:                                               ; preds = %8
   %12 = tail call noundef i32 %1(ptr noundef nonnull %10, ptr noundef %2)
   %.not20 = icmp eq i32 %12, 0
-  br i1 %.not20, label %13, label %17
+  br i1 %.not20, label %13, label %16
 
 13:                                               ; preds = %11
   %.pre = load ptr, ptr %4, align 8
@@ -2454,14 +2454,10 @@ define internal noundef i32 @_ZN8nanobind6detailL13inst_traverseEP7_objectPFiS2_
 .thread:                                          ; preds = %8, %3, %13
   %14 = phi ptr [ %.pre, %13 ], [ %5, %3 ], [ %5, %8 ]
   %15 = tail call noundef i32 %1(ptr noundef nonnull %14, ptr noundef %2)
-  %.not22 = icmp eq i32 %15, 0
-  br i1 %.not22, label %16, label %17
+  br label %16
 
-16:                                               ; preds = %13, %.thread
-  br label %17
-
-17:                                               ; preds = %.thread, %11, %16
-  %.0 = phi i32 [ 0, %16 ], [ %12, %11 ], [ %15, %.thread ]
+16:                                               ; preds = %.thread, %13, %11
+  %.0 = phi i32 [ %12, %11 ], [ 0, %13 ], [ %15, %.thread ]
   ret i32 %.0
 }
 
@@ -2642,7 +2638,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit114, %79
   br i1 %.not102, label %91, label %82
 
 82:                                               ; preds = %_ZL11_Py_XINCREFP7_object.exit
-  %83 = trunc i8 %.087 to i1
+  %83 = trunc nuw i8 %.087 to i1
   br i1 %83, label %91, label %84
 
 84:                                               ; preds = %82
@@ -2667,7 +2663,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit114, %79
   br i1 %.not104, label %.loopexit, label %92
 
 92:                                               ; preds = %91
-  %93 = trunc i8 %.1 to i1
+  %93 = trunc nuw i8 %.1 to i1
   br i1 %93, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %92
@@ -2726,7 +2722,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit114, %79
   br label %125
 
 .loopexit:                                        ; preds = %115, %.preheader, %92, %91
-  %122 = trunc i8 %.1 to i1
+  %122 = trunc nuw i8 %.1 to i1
   br i1 %122, label %125, label %123
 
 123:                                              ; preds = %.loopexit

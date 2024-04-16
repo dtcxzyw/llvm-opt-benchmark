@@ -1054,7 +1054,7 @@ define internal i32 @disable_proto_list_check(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enable_proto_list_check(ptr noundef %0) #1 {
+define internal i32 @enable_proto_list_check(ptr noundef %0) #1 {
   %2 = tail call i32 @proto_is_protocol_enabled_by_default(ptr noundef %0) #12
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %7
@@ -1062,13 +1062,11 @@ define internal noundef i32 @enable_proto_list_check(ptr noundef %0) #1 {
 4:                                                ; preds = %1
   %5 = tail call i32 @proto_is_protocol_enabled(ptr noundef %0) #12
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %8, label %7
+  %spec.select = zext i1 %6 to i32
+  br label %7
 
 7:                                                ; preds = %4, %1
-  br label %8
-
-8:                                                ; preds = %4, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %4 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %4 ]
   ret i32 %.0
 }
 

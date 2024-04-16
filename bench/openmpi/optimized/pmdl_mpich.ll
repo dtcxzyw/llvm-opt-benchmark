@@ -448,7 +448,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %72, %7
 93:                                               ; preds = %63, %pmix_obj_new_tma.exit, %57
   %94 = load ptr, ptr getelementptr inbounds (%struct.pmix_pmdl_mpich_component_t, ptr @pmix_mca_pmdl_mpich_component, i64 0, i32 3), align 8
   %.not49 = icmp eq ptr %94, null
-  br i1 %.not49, label %113, label %95
+  br i1 %.not49, label %checkus.exit.thread, label %95
 
 95:                                               ; preds = %93
   %96 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pmdl_base_framework, i64 0, i32 11), align 4
@@ -477,14 +477,10 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %72, %7
   %110 = phi ptr [ %.pre, %102 ], [ %94, %97 ], [ %94, %95 ]
   %111 = load ptr, ptr getelementptr inbounds (%struct.pmix_pmdl_mpich_component_t, ptr @pmix_mca_pmdl_mpich_component, i64 0, i32 4), align 8
   %112 = tail call i32 @pmix_util_harvest_envars(ptr noundef %110, ptr noundef %111, ptr noundef %3) #12
-  %.not50 = icmp eq i32 %112, 0
-  br i1 %.not50, label %113, label %checkus.exit.thread
-
-113:                                              ; preds = %109, %93
   br label %checkus.exit.thread
 
-checkus.exit.thread:                              ; preds = %24, %.lr.ph, %13, %109, %49, %51, %56, %113
-  %.0 = phi i32 [ 0, %113 ], [ -1366, %56 ], [ -1366, %51 ], [ -1366, %49 ], [ %112, %109 ], [ -1366, %13 ], [ -1366, %.lr.ph ], [ -1366, %24 ]
+checkus.exit.thread:                              ; preds = %24, %.lr.ph, %13, %109, %93, %49, %51, %56
+  %.0 = phi i32 [ -1366, %56 ], [ -1366, %51 ], [ -1366, %49 ], [ 0, %93 ], [ %112, %109 ], [ -1366, %13 ], [ -1366, %.lr.ph ], [ -1366, %24 ]
   ret i32 %.0
 }
 

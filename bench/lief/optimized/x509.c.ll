@@ -203,7 +203,7 @@ define hidden i32 @mbedtls_x509_get_rsassa_pss_params(ptr nocapture noundef read
   br i1 %.not71, label %51, label %.critedge
 
 51:                                               ; preds = %48
-  %52 = call fastcc i32 @x509_get_hash_alg(ptr noundef nonnull %8, ptr noundef nonnull %2)
+  %52 = call fastcc i32 @x509_get_hash_alg(ptr noundef nonnull %8, ptr noundef nonnull %2), !range !4
   %.not59 = icmp eq i32 %52, 0
   br i1 %.not59, label %53, label %.critedge
 
@@ -597,7 +597,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 %37, ptr %2, align 4
   %38 = add nsw i64 %.0811.i.i, -1
   %.not.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i, label %39, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %39, label %.lr.ph.i.i, !llvm.loop !5
 
 39:                                               ; preds = %29
   br i1 %14, label %40, label %.thread.i
@@ -638,7 +638,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 %57, ptr %44, align 4
   %58 = add nsw i64 %.0811.i57.i, -1
   %.not.i59.i = icmp eq i64 %58, 0
-  br i1 %.not.i59.i, label %59, label %.lr.ph.i56.i, !llvm.loop !4
+  br i1 %.not.i59.i, label %59, label %.lr.ph.i56.i, !llvm.loop !5
 
 59:                                               ; preds = %49
   %60 = getelementptr inbounds i8, ptr %2, i64 8
@@ -668,7 +668,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 %73, ptr %60, align 4
   %74 = add nsw i64 %.0811.i63.i, -1
   %.not.i65.i = icmp eq i64 %74, 0
-  br i1 %.not.i65.i, label %75, label %.lr.ph.i62.i, !llvm.loop !4
+  br i1 %.not.i65.i, label %75, label %.lr.ph.i62.i, !llvm.loop !5
 
 75:                                               ; preds = %65
   %76 = getelementptr inbounds i8, ptr %2, i64 12
@@ -698,11 +698,11 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 %89, ptr %76, align 4
   %90 = add nsw i64 %.0811.i69.i, -1
   %.not.i71.i = icmp eq i64 %90, 0
-  br i1 %.not.i71.i, label %91, label %.lr.ph.i68.i, !llvm.loop !4
+  br i1 %.not.i71.i, label %91, label %.lr.ph.i68.i, !llvm.loop !5
 
 91:                                               ; preds = %81
   %92 = getelementptr inbounds i8, ptr %2, i64 16
-  %93 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %92), !range !6
+  %93 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %92), !range !7
   %.not52.i = icmp eq i32 %93, 0
   br i1 %.not52.i, label %94, label %x509_parse_time.exit
 
@@ -712,7 +712,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds i8, ptr %2, i64 20
-  %98 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %97), !range !6
+  %98 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %97), !range !7
   %.not53.i = icmp eq i32 %98, 0
   br i1 %.not53.i, label %99, label %x509_parse_time.exit
 
@@ -734,7 +734,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   br label %105
 
 105:                                              ; preds = %.thread82.i, %99
-  %106 = call fastcc i32 @x509_date_is_valid(ptr noundef nonnull %2), !range !6
+  %106 = call fastcc i32 @x509_date_is_valid(ptr noundef nonnull %2), !range !7
   br label %x509_parse_time.exit
 
 x509_parse_time.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph.i56.i, %.lr.ph.i62.i, %.lr.ph.i68.i, %105, %100, %99, %96, %94, %91, %19, %10, %3, %17
@@ -786,7 +786,7 @@ declare i32 @mbedtls_asn1_get_bitstring_null(ptr noundef, ptr noundef, ptr nound
 define hidden i32 @mbedtls_x509_get_sig_alg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %28
+  br i1 %.not, label %7, label %27
 
 7:                                                ; preds = %5
   %8 = tail call i32 @mbedtls_oid_get_sig_alg(ptr noundef %0, ptr noundef %2, ptr noundef %3) #12
@@ -795,7 +795,7 @@ define hidden i32 @mbedtls_x509_get_sig_alg(ptr noundef %0, ptr nocapture nounde
 
 9:                                                ; preds = %7
   %10 = add nsw i32 %8, -9728
-  br label %28
+  br label %27
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %3, align 4
@@ -805,7 +805,7 @@ define hidden i32 @mbedtls_x509_get_sig_alg(ptr noundef %0, ptr nocapture nounde
 14:                                               ; preds = %11
   %15 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #13
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %28, label %17
+  br i1 %16, label %27, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %15, i64 4
@@ -815,7 +815,7 @@ define hidden i32 @mbedtls_x509_get_sig_alg(ptr noundef %0, ptr nocapture nounde
 
 20:                                               ; preds = %17
   tail call void @free(ptr noundef nonnull %15) #12
-  br label %28
+  br label %27
 
 21:                                               ; preds = %17
   store ptr %15, ptr %4, align 8
@@ -823,7 +823,7 @@ define hidden i32 @mbedtls_x509_get_sig_alg(ptr noundef %0, ptr nocapture nounde
 
 22:                                               ; preds = %11
   %23 = load i32, ptr %1, align 8
-  switch i32 %23, label %28 [
+  switch i32 %23, label %27 [
     i32 5, label %24
     i32 0, label %24
   ]
@@ -832,13 +832,11 @@ define hidden i32 @mbedtls_x509_get_sig_alg(ptr noundef %0, ptr nocapture nounde
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8
   %.not26 = icmp eq i64 %26, 0
-  br i1 %.not26, label %27, label %28
+  %spec.select = select i1 %.not26, i32 0, i32 -8960
+  br label %27
 
-27:                                               ; preds = %24, %21
-  br label %28
-
-28:                                               ; preds = %24, %22, %14, %5, %27, %20, %9
-  %.0 = phi i32 [ %10, %9 ], [ %19, %20 ], [ 0, %27 ], [ -10240, %5 ], [ -10368, %14 ], [ -8960, %22 ], [ -8960, %24 ]
+27:                                               ; preds = %24, %21, %22, %14, %5, %20, %9
+  %.0 = phi i32 [ %10, %9 ], [ %19, %20 ], [ -10240, %5 ], [ -10368, %14 ], [ -8960, %22 ], [ 0, %21 ], [ %spec.select, %24 ]
   ret i32 %.0
 }
 
@@ -915,7 +913,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   %10 = getelementptr inbounds i8, ptr %.06398, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !7
+  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !8
 
 12:                                               ; preds = %6
   %.not81 = icmp eq ptr %.06398, %2
@@ -1021,7 +1019,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   %57 = add nuw nsw i64 %.16990.sink, 1
   %58 = load i64, ptr %37, align 8
   %59 = icmp ult i64 %56, %58
-  br i1 %59, label %40, label %._crit_edge104, !llvm.loop !8
+  br i1 %59, label %40, label %._crit_edge104, !llvm.loop !9
 
 ._crit_edge104:                                   ; preds = %.thread, %34
   %.068.lcssa = phi i64 [ 0, %34 ], [ %57, %.thread ]
@@ -1044,7 +1042,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   %69 = getelementptr inbounds i8, ptr %.06398, i64 48
   %70 = load ptr, ptr %69, align 8
   %.not97 = icmp eq ptr %70, null
-  br i1 %.not97, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not97, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .outer._crit_edge:                                ; preds = %.outer, %9, %3
   %.066.ph.lcssa96 = phi i64 [ %1, %3 ], [ %.066.ph107, %9 ], [ %65, %.outer ]
@@ -1132,7 +1130,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
   %.1 = phi ptr [ %.055, %17 ], [ %32, %30 ]
   %34 = add nuw i64 %.04153, 1
   %exitcond.not = icmp eq i64 %34, %spec.select.fr
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %14
   %35 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -1268,7 +1266,7 @@ define hidden i32 @mbedtls_x509_key_size_helper(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_x509_time_is_past(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_time_is_past(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
@@ -1306,7 +1304,7 @@ x509_get_current_time.exit:                       ; preds = %1
 
 23:                                               ; preds = %7
   %24 = icmp eq i32 %10, %21
-  br i1 %24, label %25, label %54
+  br i1 %24, label %25, label %x509_check_time.exit
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1316,7 +1314,7 @@ x509_get_current_time.exit:                       ; preds = %1
 
 28:                                               ; preds = %25
   %29 = icmp eq i32 %13, %27
-  br i1 %29, label %30, label %54
+  br i1 %29, label %30, label %x509_check_time.exit
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1326,7 +1324,7 @@ x509_get_current_time.exit:                       ; preds = %1
 
 34:                                               ; preds = %30
   %35 = icmp eq i32 %15, %32
-  br i1 %35, label %36, label %54
+  br i1 %35, label %36, label %x509_check_time.exit
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1336,7 +1334,7 @@ x509_get_current_time.exit:                       ; preds = %1
 
 40:                                               ; preds = %36
   %41 = icmp eq i32 %17, %38
-  br i1 %41, label %42, label %54
+  br i1 %41, label %42, label %x509_check_time.exit
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1348,24 +1346,22 @@ x509_get_current_time.exit:                       ; preds = %1
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %19, %48
-  br i1 %49, label %50, label %54
+  br i1 %49, label %50, label %x509_check_time.exit
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %0, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %20, %52
-  br i1 %53, label %x509_check_time.exit, label %54
-
-54:                                               ; preds = %40, %34, %50, %46, %28, %23
+  %spec.select.i = zext i1 %53 to i32
   br label %x509_check_time.exit
 
-x509_check_time.exit:                             ; preds = %54, %50, %42, %36, %30, %25, %7, %x509_get_current_time.exit
-  %.0 = phi i32 [ 1, %x509_get_current_time.exit ], [ 0, %54 ], [ 1, %7 ], [ 1, %25 ], [ 1, %30 ], [ 1, %36 ], [ 1, %42 ], [ 1, %50 ]
+x509_check_time.exit:                             ; preds = %40, %50, %46, %42, %36, %30, %28, %25, %23, %7, %34, %x509_get_current_time.exit
+  %.0 = phi i32 [ 1, %x509_get_current_time.exit ], [ 1, %7 ], [ 1, %25 ], [ 1, %30 ], [ 1, %36 ], [ 1, %42 ], [ 0, %46 ], [ %spec.select.i, %50 ], [ 0, %23 ], [ 0, %28 ], [ 0, %34 ], [ 0, %40 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_x509_time_is_future(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_time_is_future(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
@@ -1403,7 +1399,7 @@ x509_get_current_time.exit:                       ; preds = %1
 
 23:                                               ; preds = %7
   %24 = icmp eq i32 %21, %10
-  br i1 %24, label %25, label %55
+  br i1 %24, label %25, label %x509_check_time.exit
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1413,7 +1409,7 @@ x509_get_current_time.exit:                       ; preds = %1
 
 29:                                               ; preds = %25
   %30 = icmp eq i32 %27, %13
-  br i1 %30, label %31, label %55
+  br i1 %30, label %31, label %x509_check_time.exit
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1423,7 +1419,7 @@ x509_get_current_time.exit:                       ; preds = %1
 
 35:                                               ; preds = %31
   %36 = icmp eq i32 %33, %15
-  br i1 %36, label %37, label %55
+  br i1 %36, label %37, label %x509_check_time.exit
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1433,7 +1429,7 @@ x509_get_current_time.exit:                       ; preds = %1
 
 41:                                               ; preds = %37
   %42 = icmp eq i32 %39, %17
-  br i1 %42, label %43, label %55
+  br i1 %42, label %43, label %x509_check_time.exit
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1445,19 +1441,17 @@ x509_get_current_time.exit:                       ; preds = %1
   %48 = getelementptr inbounds i8, ptr %0, i64 16
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, %19
-  br i1 %50, label %51, label %55
+  br i1 %50, label %51, label %x509_check_time.exit
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %0, i64 20
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, %20
-  br i1 %54, label %x509_check_time.exit, label %55
-
-55:                                               ; preds = %41, %35, %51, %47, %29, %23
+  %spec.select.i = zext i1 %54 to i32
   br label %x509_check_time.exit
 
-x509_check_time.exit:                             ; preds = %55, %51, %43, %37, %31, %25, %7, %x509_get_current_time.exit
-  %.0 = phi i32 [ 1, %x509_get_current_time.exit ], [ 0, %55 ], [ 1, %7 ], [ 1, %25 ], [ 1, %31 ], [ 1, %37 ], [ 1, %43 ], [ 1, %51 ]
+x509_check_time.exit:                             ; preds = %41, %51, %47, %43, %37, %31, %29, %25, %23, %7, %35, %x509_get_current_time.exit
+  %.0 = phi i32 [ 1, %x509_get_current_time.exit ], [ 1, %7 ], [ 1, %25 ], [ 1, %31 ], [ 1, %37 ], [ 1, %43 ], [ 0, %47 ], [ %spec.select.i, %51 ], [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ 0, %41 ]
   ret i32 %.0
 }
 
@@ -1490,7 +1484,7 @@ define internal fastcc noundef i32 @x509_parse_int(ptr nocapture noundef %0, i64
   store i32 %16, ptr %2, align 4
   %17 = add i64 %.0811, -1
   %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ -9216, %.lr.ph ]
@@ -1545,7 +1539,7 @@ define internal fastcc i32 @x509_date_is_valid(ptr nocapture noundef readonly %0
 16:                                               ; preds = %12
   %17 = and i32 %2, 3
   %.not = icmp ne i32 %17, 0
-  %.lhs.trunc = trunc i32 %2 to i16
+  %.lhs.trunc = trunc nuw i32 %2 to i16
   %18 = urem i16 %.lhs.trunc, 100
   %.not27 = icmp eq i16 %18, 0
   %or.cond32 = or i1 %.not, %.not27
@@ -1610,9 +1604,10 @@ attributes #13 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -9216, i32 1}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!4 = !{i32 -2147483648, i32 2147475328}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = !{i32 -9216, i32 1}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

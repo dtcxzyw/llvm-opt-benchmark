@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.45 = private unnamed_addr constant [29 x i8] c"non-fatal or transient error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_err_load_BIO_strings() local_unnamed_addr #0 {
+define noundef i32 @ossl_err_load_BIO_strings() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ERR_reason_error_string(i64 noundef 268435556) #2
   %cmp = icmp eq ptr %call, null
@@ -84,12 +84,18 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %or.cond = icmp eq i32 %errcode, 268435568
-  %spec.select = zext i1 %or.cond to i32
+  %.mask = and i32 %errcode, 2139095040
+  %cmp4 = icmp eq i32 %.mask, 268435456
+  br i1 %cmp4, label %land.lhs.true, label %return
+
+land.lhs.true:                                    ; preds = %if.else
+  %retval.0.i10 = and i32 %errcode, 8388607
+  %cmp8 = icmp eq i32 %retval.0.i10, 112
+  %spec.select = zext i1 %cmp8 to i32
   br label %return
 
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i32 [ %call1, %if.then ], [ %spec.select, %if.else ]
+return:                                           ; preds = %land.lhs.true, %if.else, %if.then
+  %retval.0 = phi i32 [ %call1, %if.then ], [ 0, %if.else ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

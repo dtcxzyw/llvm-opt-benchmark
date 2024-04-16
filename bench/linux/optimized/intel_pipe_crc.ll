@@ -828,19 +828,19 @@ define internal fastcc noundef i32 @ivb_pipe_crc_ctl_reg(ptr nocapture noundef %
 
 .thread:                                          ; preds = %2
   store i32 8, ptr %0, align 4
-  br label %5
+  br label %7
 
 4:                                                ; preds = %2
   br label %7
 
-5:                                                ; preds = %2, %.thread
+5:                                                ; preds = %2
   br label %7
 
 6:                                                ; preds = %2
   br label %7
 
-7:                                                ; preds = %2, %6, %5, %4
-  %8 = phi i32 [ -1610612736, %4 ], [ -1073741824, %5 ], [ 0, %6 ], [ -2147483648, %2 ]
+7:                                                ; preds = %2, %.thread, %6, %5, %4
+  %8 = phi i32 [ -1610612736, %4 ], [ 0, %6 ], [ -1073741824, %.thread ], [ -1073741824, %5 ], [ -2147483648, %2 ]
   store i32 %8, ptr %1, align 4
   br label %9
 
@@ -867,7 +867,7 @@ define internal fastcc noundef i32 @skl_pipe_crc_ctl_reg(ptr nocapture noundef %
 
 .thread:                                          ; preds = %2
   store i32 8, ptr %0, align 4
-  br label %10
+  br label %12
 
 4:                                                ; preds = %2
   br label %12
@@ -887,14 +887,14 @@ define internal fastcc noundef i32 @skl_pipe_crc_ctl_reg(ptr nocapture noundef %
 9:                                                ; preds = %2
   br label %12
 
-10:                                               ; preds = %2, %.thread
+10:                                               ; preds = %2
   br label %12
 
 11:                                               ; preds = %2
   br label %12
 
-12:                                               ; preds = %2, %11, %10, %9, %8, %7, %6, %5, %4
-  %13 = phi i32 [ -1610612736, %4 ], [ -536870912, %5 ], [ -268435456, %6 ], [ -805306368, %7 ], [ -1342177280, %8 ], [ -1879048192, %9 ], [ -1073741824, %10 ], [ 0, %11 ], [ -2147483648, %2 ]
+12:                                               ; preds = %2, %.thread, %11, %10, %9, %8, %7, %6, %5, %4
+  %13 = phi i32 [ -1610612736, %4 ], [ -536870912, %5 ], [ -268435456, %6 ], [ -805306368, %7 ], [ -1342177280, %8 ], [ -1879048192, %9 ], [ 0, %11 ], [ -1073741824, %.thread ], [ -1073741824, %10 ], [ -2147483648, %2 ]
   store i32 %13, ptr %1, align 4
   br label %14
 

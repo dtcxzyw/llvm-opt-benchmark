@@ -1599,7 +1599,7 @@ define internal i64 @vga_arb_read(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal i64 @vga_arb_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca [64 x i8], align 16
   %7 = alloca i32, align 4
@@ -1856,7 +1856,7 @@ define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, pt
 161:                                              ; preds = %115
   %162 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %6, ptr noundef nonnull dereferenceable(7) @.str.17, i64 7)
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %215
+  br i1 %163, label %164, label %214
 
 164:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
@@ -1878,7 +1878,7 @@ define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, pt
 171:                                              ; preds = %164
   %172 = call fastcc i32 @vga_pci_str_to_vars(ptr noundef %165, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !31
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %213, label %174
+  br i1 %173, label %212, label %174
 
 174:                                              ; preds = %171
   %175 = load i32, ptr %7, align 4
@@ -1886,7 +1886,7 @@ define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, pt
   %177 = load i32, ptr %9, align 4
   %178 = call ptr @pci_get_domain_bus_and_slot(i32 noundef %175, i32 noundef %176, i32 noundef %177) #14
   %179 = icmp eq ptr %178, null
-  br i1 %179, label %213, label %180
+  br i1 %179, label %212, label %180
 
 180:                                              ; preds = %174, %168
   %181 = phi ptr [ %170, %168 ], [ %178, %174 ]
@@ -1910,11 +1910,11 @@ define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, pt
 
 .thread14:                                        ; preds = %182, %190
   %192 = icmp eq ptr %181, null
-  br i1 %192, label %213, label %193
+  br i1 %192, label %212, label %193
 
 193:                                              ; preds = %.thread14
   call void @pci_dev_put(ptr noundef nonnull %181) #14
-  br label %213
+  br label %212
 
 194:                                              ; preds = %190
   %195 = getelementptr inbounds i8, ptr %11, i64 16
@@ -1954,45 +1954,43 @@ define internal noundef i64 @vga_arb_write(ptr nocapture noundef readonly %0, pt
   %210 = and i64 %198, 4294967295
   %211 = icmp eq i64 %210, 16
   call void @pci_dev_put(ptr noundef %181) #14
-  br i1 %211, label %212, label %213
+  %spec.select = select i1 %211, i64 -12, i64 %2
+  br label %212
 
-212:                                              ; preds = %.thread15, %.loopexit19
-  br label %213
-
-213:                                              ; preds = %212, %.loopexit19, %193, %.thread14, %174, %171
-  %214 = phi i64 [ -71, %171 ], [ -19, %174 ], [ -19, %193 ], [ -19, %.thread14 ], [ -12, %212 ], [ %2, %.loopexit19 ]
+212:                                              ; preds = %.loopexit19, %.thread15, %193, %.thread14, %174, %171
+  %213 = phi i64 [ -71, %171 ], [ -19, %174 ], [ -19, %193 ], [ -19, %.thread14 ], [ -12, %.thread15 ], [ %spec.select, %.loopexit19 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   br label %.loopexit
 
-215:                                              ; preds = %161
-  %216 = icmp eq i64 %116, 2338324113575339364
-  br i1 %216, label %217, label %.loopexit
+214:                                              ; preds = %161
+  %215 = icmp eq i64 %116, 2338324113575339364
+  br i1 %215, label %216, label %.loopexit
 
-217:                                              ; preds = %215
+216:                                              ; preds = %214
   store i32 0, ptr %5, align 4, !annotation !5
-  %218 = getelementptr inbounds i8, ptr %6, i64 8
-  %219 = call fastcc i32 @vga_str_to_iostate(ptr noundef %218, ptr noundef nonnull %5), !range !31
-  %220 = icmp eq i32 %219, 0
-  br i1 %220, label %.loopexit, label %221
+  %217 = getelementptr inbounds i8, ptr %6, i64 8
+  %218 = call fastcc i32 @vga_str_to_iostate(ptr noundef %217, ptr noundef nonnull %5), !range !31
+  %219 = icmp eq i32 %218, 0
+  br i1 %219, label %.loopexit, label %220
 
-221:                                              ; preds = %217
-  %222 = getelementptr inbounds i8, ptr %11, i64 16
-  %223 = load ptr, ptr %222, align 8
-  %224 = icmp eq ptr %223, null
-  br i1 %224, label %.loopexit, label %225
+220:                                              ; preds = %216
+  %221 = getelementptr inbounds i8, ptr %11, i64 16
+  %222 = load ptr, ptr %221, align 8
+  %223 = icmp eq ptr %222, null
+  br i1 %223, label %.loopexit, label %224
 
-225:                                              ; preds = %221
-  %226 = load i32, ptr %5, align 4
-  call fastcc void @__vga_set_legacy_decoding(ptr noundef nonnull %223, i32 noundef %226)
+224:                                              ; preds = %220
+  %225 = load i32, ptr %5, align 4
+  call fastcc void @__vga_set_legacy_decoding(ptr noundef nonnull %222, i32 noundef %225)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %141, %40, %20, %30, %33, %48, %71, %74, %91, %96, %101, %110, %111, %128, %131, %136, %156, %157, %213, %217, %221, %225, %215, %13, %4
-  %227 = phi i64 [ -22, %4 ], [ -14, %13 ], [ -71, %215 ], [ %214, %213 ], [ %2, %225 ], [ -19, %33 ], [ %2, %48 ], [ -19, %74 ], [ -22, %91 ], [ -22, %96 ], [ -22, %101 ], [ %2, %111 ], [ %2, %110 ], [ -19, %131 ], [ %2, %156 ], [ %2, %157 ], [ -16, %136 ], [ -71, %217 ], [ -19, %221 ], [ -71, %30 ], [ -71, %71 ], [ -71, %128 ], [ -71, %20 ], [ %2, %40 ], [ %2, %141 ]
+.loopexit:                                        ; preds = %141, %40, %20, %30, %33, %48, %71, %74, %91, %96, %101, %110, %111, %128, %131, %136, %156, %157, %212, %216, %220, %224, %214, %13, %4
+  %226 = phi i64 [ -22, %4 ], [ -14, %13 ], [ -71, %214 ], [ %213, %212 ], [ %2, %224 ], [ -19, %33 ], [ %2, %48 ], [ -19, %74 ], [ -22, %91 ], [ -22, %96 ], [ -22, %101 ], [ %2, %111 ], [ %2, %110 ], [ -19, %131 ], [ %2, %156 ], [ %2, %157 ], [ -16, %136 ], [ -71, %216 ], [ -19, %220 ], [ -71, %30 ], [ -71, %71 ], [ -71, %128 ], [ -71, %20 ], [ %2, %40 ], [ %2, %141 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  ret i64 %227
+  ret i64 %226
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -820,7 +820,7 @@ if.end17:                                         ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @connSocketSetWriteHandler(ptr noundef %conn, ptr noundef %func, i32 noundef %barrier) #0 {
+define internal i32 @connSocketSetWriteHandler(ptr noundef %conn, ptr noundef %func, i32 noundef %barrier) #0 {
 entry:
   %write_handler = getelementptr inbounds i8, ptr %conn, i64 48
   %0 = load ptr, ptr %write_handler, align 8
@@ -844,7 +844,7 @@ if.end:                                           ; preds = %entry
 
 if.then10:                                        ; preds = %if.end
   tail call void @aeDeleteFileEvent(ptr noundef %3, i32 noundef %4, i32 noundef 2) #9
-  br label %if.end17
+  br label %return
 
 if.else11:                                        ; preds = %if.end
   %5 = load ptr, ptr %conn, align 8
@@ -852,18 +852,16 @@ if.else11:                                        ; preds = %if.end
   %6 = load ptr, ptr %ae_handler, align 8
   %call = tail call i32 @aeCreateFileEvent(ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %6, ptr noundef nonnull %conn) #9
   %cmp13 = icmp eq i32 %call, -1
-  br i1 %cmp13, label %return, label %if.end17
-
-if.end17:                                         ; preds = %if.else11, %if.then10
+  %spec.select = sext i1 %cmp13 to i32
   br label %return
 
-return:                                           ; preds = %if.else11, %entry, %if.end17
-  %retval.0 = phi i32 [ 0, %if.end17 ], [ 0, %entry ], [ -1, %if.else11 ]
+return:                                           ; preds = %if.else11, %if.then10, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then10 ], [ %spec.select, %if.else11 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @connSocketSetReadHandler(ptr noundef %conn, ptr noundef %func) #0 {
+define internal i32 @connSocketSetReadHandler(ptr noundef %conn, ptr noundef %func) #0 {
 entry:
   %read_handler = getelementptr inbounds i8, ptr %conn, i64 56
   %0 = load ptr, ptr %read_handler, align 8
@@ -880,7 +878,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   tail call void @aeDeleteFileEvent(ptr noundef %1, i32 noundef %2, i32 noundef 1) #9
-  br label %if.end8
+  br label %return
 
 if.else:                                          ; preds = %if.end
   %3 = load ptr, ptr %conn, align 8
@@ -888,13 +886,11 @@ if.else:                                          ; preds = %if.end
   %4 = load ptr, ptr %ae_handler, align 8
   %call = tail call i32 @aeCreateFileEvent(ptr noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef %4, ptr noundef nonnull %conn) #9
   %cmp5 = icmp eq i32 %call, -1
-  br i1 %cmp5, label %return, label %if.end8
-
-if.end8:                                          ; preds = %if.else, %if.then3
+  %spec.select = sext i1 %cmp5 to i32
   br label %return
 
-return:                                           ; preds = %if.else, %entry, %if.end8
-  %retval.0 = phi i32 [ 0, %if.end8 ], [ 0, %entry ], [ -1, %if.else ]
+return:                                           ; preds = %if.else, %if.then3, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then3 ], [ %spec.select, %if.else ]
   ret i32 %retval.0
 }
 

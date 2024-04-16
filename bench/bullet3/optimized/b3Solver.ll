@@ -554,7 +554,7 @@ entry:
 
 for.body8:                                        ; preds = %entry, %for.inc54
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc54 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %conv = sitofp i32 %4 to float
   %5 = load float, ptr %w19, align 4
   %cmp20 = fcmp ugt float %5, %conv
@@ -723,7 +723,7 @@ for.body69:                                       ; preds = %for.end56, %for.bod
   %add8.i99 = fadd float %center.sroa.14.8.vec.extract, %93
   %center.sroa.14.8.vec.insert = insertelement <2 x float> %center.sroa.14.0252, float %add8.i99, i64 0
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
-  %94 = trunc i64 %indvars.iv.next260 to i32
+  %94 = trunc nuw nsw i64 %indvars.iv.next260 to i32
   %conv65 = sitofp i32 %94 to float
   %cmp68 = fcmp ogt float %90, %conv65
   br i1 %cmp68, label %for.body69, label %for.end76, !llvm.loop !7
@@ -908,7 +908,7 @@ if.end118:                                        ; preds = %for.end117, %for.en
 
 for.body122:                                      ; preds = %if.end118, %for.inc141
   %indvars.iv265 = phi i64 [ 0, %if.end118 ], [ %indvars.iv.next266, %for.inc141 ]
-  %181 = trunc i64 %indvars.iv265 to i32
+  %181 = trunc nuw nsw i64 %indvars.iv265 to i32
   %conv123 = sitofp i32 %181 to float
   %182 = load float, ptr %w19, align 4
   %cmp126 = fcmp ogt float %182, %conv123
@@ -3312,7 +3312,7 @@ if.end7.i:                                        ; preds = %entry
 
 _ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit.thread: ; preds = %if.end7.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
-  br label %13
+  br label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
 
 if.then.i5:                                       ; preds = %if.end7.i
   %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
@@ -3379,33 +3379,31 @@ _ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit: ; preds = %if.end12.i, %l
   store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
   store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
-  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
-
-13:                                               ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit
+  %spec.select = select i1 %cmp4.not.i, i64 %conv, i64 0
   br label %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
 
-_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit: ; preds = %13, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit.thread8, %entry
-  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit.thread8 ]
+_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit: ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit.thread8, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit.thread, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ 0, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit.thread8 ], [ %conv, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit.thread ], [ %spec.select, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE7reserveEmb.exit ]
   store i64 %storemerge.i, ptr %m_size.i.i, align 8
   %tobool3.not = icmp eq i32 %0, 0
   br i1 %tobool3.not, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
   %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
-  %14 = load ptr, ptr %m_data.i, align 8
+  %13 = load ptr, ptr %m_data.i, align 8
   %mul.i = mul nsw i64 %conv, 80
-  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %14 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %15 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %16 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %14(ptr noundef %15, ptr noundef %16, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %13, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
-  %18 = load ptr, ptr @__clewFinish, align 8
-  %19 = load ptr, ptr %m_commandQueue.i, align 8
-  %call6.i = call i32 %18(ptr noundef %19)
+  %17 = load ptr, ptr @__clewFinish, align 8
+  %18 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %17(ptr noundef %18)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI15b3RigidBodyDataE6resizeEmb.exit
@@ -3433,7 +3431,7 @@ if.end7.i:                                        ; preds = %entry
 
 _ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit.thread: ; preds = %if.end7.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
-  br label %13
+  br label %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
 
 if.then.i5:                                       ; preds = %if.end7.i
   %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
@@ -3500,33 +3498,31 @@ _ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit: ; preds = %if.end12.i, %lan
   store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
   store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
-  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
-
-13:                                               ; preds = %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit
+  %spec.select = select i1 %cmp4.not.i, i64 %conv, i64 0
   br label %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
 
-_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit: ; preds = %13, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit.thread8, %entry
-  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit.thread8 ]
+_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit: ; preds = %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit.thread8, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit.thread, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ 0, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit.thread8 ], [ %conv, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit.thread ], [ %spec.select, %_ZN13b3OpenCLArrayI13b3InertiaDataE7reserveEmb.exit ]
   store i64 %storemerge.i, ptr %m_size.i.i, align 8
   %tobool3.not = icmp eq i32 %0, 0
   br i1 %tobool3.not, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
   %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
-  %14 = load ptr, ptr %m_data.i, align 8
+  %13 = load ptr, ptr %m_data.i, align 8
   %mul.i = mul nsw i64 %conv, 96
-  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %14 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %15 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %16 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %14(ptr noundef %15, ptr noundef %16, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %13, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
-  %18 = load ptr, ptr @__clewFinish, align 8
-  %19 = load ptr, ptr %m_commandQueue.i, align 8
-  %call6.i = call i32 %18(ptr noundef %19)
+  %17 = load ptr, ptr @__clewFinish, align 8
+  %18 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %17(ptr noundef %18)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI13b3InertiaDataE6resizeEmb.exit
@@ -3554,7 +3550,7 @@ if.end7.i:                                        ; preds = %entry
 
 _ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread: ; preds = %if.end7.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
-  br label %13
+  br label %_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb.exit
 
 if.then.i5:                                       ; preds = %if.end7.i
   %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 49
@@ -3621,33 +3617,31 @@ _ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit: ; preds = %if.end12.i, %
   store ptr %call3.i, ptr %m_clBuffer.i5.i, align 8
   store i64 %_Count.addr.023.i, ptr %m_capacity.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ciErrNum.i)
-  br i1 %cmp4.not.i, label %13, label %_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb.exit
-
-13:                                               ; preds = %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit
+  %spec.select = select i1 %cmp4.not.i, i64 %conv, i64 0
   br label %_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb.exit
 
-_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb.exit: ; preds = %13, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread8, %entry
-  %storemerge.i = phi i64 [ %conv, %entry ], [ %conv, %13 ], [ 0, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit ], [ 0, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread8 ]
+_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb.exit: ; preds = %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread8, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread, %entry
+  %storemerge.i = phi i64 [ %conv, %entry ], [ 0, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread8 ], [ %conv, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit.thread ], [ %spec.select, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E7reserveEmb.exit ]
   store i64 %storemerge.i, ptr %m_size.i.i, align 8
   %tobool3.not = icmp eq i32 %0, 0
   br i1 %tobool3.not, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb.exit
   %m_data.i = getelementptr inbounds i8, ptr %srcArray, i64 16
-  %14 = load ptr, ptr %m_data.i, align 8
+  %13 = load ptr, ptr %m_data.i, align 8
   %mul.i = mul nsw i64 %conv, 176
-  %15 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
+  %14 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
   %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
-  %16 = load ptr, ptr %m_commandQueue.i, align 8
+  %15 = load ptr, ptr %m_commandQueue.i, align 8
   %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load ptr, ptr %m_clBuffer.i, align 8
-  %call.i = call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %14, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %16 = load ptr, ptr %m_clBuffer.i, align 8
+  %call.i = call i32 %14(ptr noundef %15, ptr noundef %16, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i, ptr noundef %13, i32 noundef 0, ptr noundef null, ptr noundef null)
   br i1 %waitForCompletion, label %if.then4.i, label %if.end
 
 if.then4.i:                                       ; preds = %if.then.i
-  %18 = load ptr, ptr @__clewFinish, align 8
-  %19 = load ptr, ptr %m_commandQueue.i, align 8
-  %call6.i = call i32 %18(ptr noundef %19)
+  %17 = load ptr, ptr @__clewFinish, align 8
+  %18 = load ptr, ptr %m_commandQueue.i, align 8
+  %call6.i = call i32 %17(ptr noundef %18)
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i, %if.then.i, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E6resizeEmb.exit
@@ -3957,7 +3951,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end55, label %for.body.i, !llvm.loop !28
 
 invoke.cont47:                                    ; preds = %for.body.i
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp51 = icmp sgt i32 %19, %23
   br i1 %cmp51, label %if.then52, label %if.end55
 
@@ -3983,7 +3977,7 @@ for.inc.i67:                                      ; preds = %for.body.i63
   br i1 %exitcond.not.i69, label %for.inc, label %for.body.i63, !llvm.loop !28
 
 invoke.cont57:                                    ; preds = %for.body.i63
-  %26 = trunc i64 %indvars.iv.i64 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv.i64 to i32
   %cmp61 = icmp sgt i32 %.pr, %26
   br i1 %cmp61, label %if.then62, label %for.inc
 

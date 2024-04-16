@@ -431,7 +431,7 @@ return:                                           ; preds = %entry, %mpd_alloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mpd_realloc_dyn_cxx(ptr nocapture noundef %result, i64 noundef %nwords) local_unnamed_addr #4 {
+define hidden i32 @mpd_realloc_dyn_cxx(ptr nocapture noundef %result, i64 noundef %nwords) local_unnamed_addr #4 {
 entry:
   %data = getelementptr inbounds i8, ptr %result, i64 40
   %0 = icmp ugt i64 %nwords, 2305843009213693951
@@ -449,19 +449,17 @@ if.then:                                          ; preds = %if.end.i
   store ptr %call1.i, ptr %data, align 8
   %alloc = getelementptr inbounds i8, ptr %result, i64 32
   store i64 %nwords, ptr %alloc, align 8
-  br label %if.end4
+  br label %return
 
 if.else:                                          ; preds = %if.end.i, %entry
   %alloc2 = getelementptr inbounds i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc2, align 8
-  %cmp = icmp slt i64 %3, %nwords
-  br i1 %cmp, label %return, label %if.end4
-
-if.end4:                                          ; preds = %if.else, %if.then
+  %cmp = icmp sge i64 %3, %nwords
+  %spec.select = zext i1 %cmp to i32
   br label %return
 
-return:                                           ; preds = %if.else, %if.end4
-  %retval.0 = phi i32 [ 1, %if.end4 ], [ 0, %if.else ]
+return:                                           ; preds = %if.else, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ %spec.select, %if.else ]
   ret i32 %retval.0
 }
 

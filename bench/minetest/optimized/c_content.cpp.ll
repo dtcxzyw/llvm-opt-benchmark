@@ -1105,7 +1105,7 @@ if.end16:                                         ; preds = %if.then14, %if.end
   %call19 = tail call noundef i32 @_Z19getintfield_defaultP9lua_StateiPKci(ptr noundef %L, i32 noundef %index.addr.0, ptr noundef nonnull @.str.28, i32 noundef %conv18)
   %cond = tail call i32 @llvm.smin.i32(i32 %call19, i32 65535)
   %cond25 = tail call i32 @llvm.smax.i32(i32 %cond, i32 1)
-  %conv26 = trunc i32 %cond25 to i16
+  %conv26 = trunc nuw i32 %cond25 to i16
   store i16 %conv26, ptr %stack_max17, align 8, !tbaa !47
   tail call void @lua_getfield(ptr noundef %L, i32 noundef %index.addr.0, ptr noundef nonnull @.str.29)
   %call28 = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1)
@@ -1734,7 +1734,7 @@ if.else.i334:                                     ; preds = %if.then102
   br label %_ZNSt8optionalIhEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIhES4_IhNSt5decayIS7_E4typeEEEEESt16is_constructibleIhJS7_EESt13is_assignableIRhS7_EEERS0_E4typeEOS7_.exit
 
 _ZNSt8optionalIhEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIhES4_IhNSt5decayIS7_E4typeEEEEESt16is_constructibleIhJS7_EESt13is_assignableIRhS7_EEERS0_E4typeEOS7_.exit: ; preds = %if.else.i334, %if.then102
-  %conv.sink.i = trunc i32 %cond113 to i8
+  %conv.sink.i = trunc nuw i32 %cond113 to i8
   store i8 %conv.sink.i, ptr %place_param2114, align 8
   br label %if.end116
 
@@ -5974,7 +5974,7 @@ if.then7:                                         ; preds = %if.end5
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)
   %cond = tail call i32 @llvm.smin.i32(i32 %conv.i, i32 65535)
   %cond13 = tail call i32 @llvm.smax.i32(i32 %cond, i32 0)
-  %conv = trunc i32 %cond13 to i16
+  %conv = trunc nuw i32 %cond13 to i16
   %hp_max14 = getelementptr inbounds i8, ptr %prop, i64 344
   store i16 %conv, ptr %hp_max14, align 8, !tbaa !190
   %cmp17 = icmp slt i32 %conv.i, 1
@@ -19163,13 +19163,13 @@ invoke.cont113:                                   ; preds = %sw.bb112
 sw.epilog.sink.split:                             ; preds = %invoke.cont113, %invoke.cont107, %cond.end102, %invoke.cont80, %invoke.cont73, %invoke.cont66, %invoke.cont59, %invoke.cont52, %if.then47, %land.lhs.true, %invoke.cont42, %invoke.cont37, %invoke.cont31, %invoke.cont26, %invoke.cont18, %invoke.cont12
   %style.sink = phi ptr [ %style, %invoke.cont113 ], [ %z_index, %cond.end102 ], [ %size, %invoke.cont80 ], [ %world_pos, %invoke.cont73 ], [ %offset, %invoke.cont66 ], [ %align, %invoke.cont59 ], [ %dir, %invoke.cont52 ], [ %number, %invoke.cont37 ], [ %scale, %invoke.cont26 ], [ %pos, %invoke.cont12 ], [ %name, %invoke.cont18 ], [ %text, %invoke.cont31 ], [ %item, %if.then47 ], [ %item, %land.lhs.true ], [ %item, %invoke.cont42 ], [ %text2, %invoke.cont107 ]
   store ptr %style.sink, ptr %value, align 8, !tbaa !64
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %cleanup.cont
   br label %cleanup118
 
-cleanup118:                                       ; preds = %sw.epilog, %cleanup.cont, %if.then.i.i193, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %retval.1 = phi i1 [ true, %sw.epilog ], [ false, %cleanup.cont ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ false, %if.then.i.i193 ]
+sw.epilog:                                        ; preds = %cleanup.cont
+  br label %cleanup118
+
+cleanup118:                                       ; preds = %sw.epilog.sink.split, %sw.epilog, %cleanup.cont, %if.then.i.i193, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  %retval.1 = phi i1 [ false, %cleanup.cont ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ false, %if.then.i.i193 ], [ true, %sw.epilog.sink.split ], [ true, %sw.epilog ]
   %35 = load ptr, ptr %statstr, align 8, !tbaa !11
   %cmp.i.i.i211 = icmp eq ptr %35, %0
   br i1 %cmp.i.i.i211, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i213, label %if.then.i.i212
@@ -21477,7 +21477,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !506
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !13
@@ -21488,13 +21488,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #29
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

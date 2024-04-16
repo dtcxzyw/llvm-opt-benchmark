@@ -379,132 +379,92 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load ptr, ptr @dmi_devices, align 8
-  %.fr18 = freeze ptr %3
-  %4 = icmp eq ptr %.fr18, @dmi_devices
-  br i1 %4, label %.split13.us, label %.split13
+  br label %3
 
-.split13.us:                                      ; preds = %1, %.thread6.us
-  %5 = phi i64 [ %23, %.thread6.us ], [ 0, %1 ]
-  %6 = getelementptr [4 x %struct.dmi_strmatch], ptr %2, i64 0, i64 %5
-  %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 127
-  switch i8 %8, label %9 [
-    i8 0, label %.thread7
-    i8 24, label %.thread7.loopexit45
+3:                                                ; preds = %.thread6, %1
+  %4 = phi i64 [ 0, %1 ], [ %41, %.thread6 ]
+  %5 = getelementptr [4 x %struct.dmi_strmatch], ptr %2, i64 0, i64 %4
+  %6 = load i8, ptr %5, align 8
+  %7 = and i8 %6, 127
+  switch i8 %7, label %27 [
+    i8 0, label %.thread8
+    i8 24, label %8
   ]
 
-9:                                                ; preds = %.split13.us
-  %10 = zext nneg i8 %8 to i64
-  %11 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread7, label %14
+8:                                                ; preds = %3
+  %9 = getelementptr i8, ptr %5, i64 1
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %.outer.us, label %.outer
 
-14:                                               ; preds = %9
-  %15 = icmp sgt i8 %7, -1
-  %16 = getelementptr inbounds i8, ptr %6, i64 1
-  br i1 %15, label %20, label %17
+.outer.us:                                        ; preds = %8, %.split.us.us
+  %.ph.us = phi ptr [ %11, %.split.us.us ], [ @dmi_devices, %8 ]
+  %11 = load ptr, ptr %.ph.us, align 8
+  %12 = icmp eq ptr %11, @dmi_devices
+  br i1 %12, label %.thread8, label %.split.us.us
 
-17:                                               ; preds = %14
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef %16) #21
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.thread6.us, label %.thread7
+.split.us.us:                                     ; preds = %.outer.us
+  %13 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = load i32, ptr %13, align 8
+  %.not22 = icmp eq i32 %14, -2
+  br i1 %.not22, label %.loopexit, label %.outer.us, !llvm.loop !13
 
-20:                                               ; preds = %14
-  %21 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef %16) #21
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread7, label %.thread6.us
+.outer:                                           ; preds = %8, %.outer.backedge
+  %15 = phi ptr [ %16, %.outer.backedge ], [ @dmi_devices, %8 ]
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, @dmi_devices
+  br i1 %17, label %.thread8, label %18
 
-.thread6.us:                                      ; preds = %20, %17
-  %23 = add nuw nsw i64 %5, 1
-  %24 = icmp eq i64 %23, 4
-  br i1 %24, label %.thread7, label %.split13.us, !llvm.loop !13
+18:                                               ; preds = %.outer
+  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = load i32, ptr %19, align 8
+  %.not21 = icmp eq i32 %20, -2
+  br i1 %.not21, label %21, label %.outer.backedge
 
-.split13:                                         ; preds = %1, %.thread6
-  %25 = phi i64 [ %65, %.thread6 ], [ 0, %1 ]
-  %26 = getelementptr [4 x %struct.dmi_strmatch], ptr %2, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 127
-  switch i8 %28, label %51 [
-    i8 0, label %.thread7
-    i8 24, label %.lr.ph
-  ]
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %16, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 @strcmp(ptr noundef %23, ptr noundef nonnull dereferenceable(1) %9) #21
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %.loopexit, label %.outer.backedge
 
-.lr.ph:                                           ; preds = %.split13
-  %29 = getelementptr i8, ptr %26, i64 1
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.lr.ph.split.us, label %.lr.ph.split
+.outer.backedge:                                  ; preds = %21, %18
+  br label %.outer, !llvm.loop !13
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %35
-  %31 = phi ptr [ %36, %35 ], [ %.fr18, %.lr.ph ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, -2
-  br i1 %34, label %.split.us, label %35
+.loopexit:                                        ; preds = %21, %.split.us.us
+  %25 = phi ptr [ %11, %.split.us.us ], [ %16, %21 ]
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %.thread8, label %.thread6
 
-35:                                               ; preds = %.lr.ph.split.us
-  %36 = load ptr, ptr %31, align 8
-  %37 = icmp eq ptr %36, @dmi_devices
-  br i1 %37, label %.thread7, label %.lr.ph.split.us, !llvm.loop !14
+27:                                               ; preds = %3
+  %28 = zext nneg i8 %7 to i64
+  %29 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %.thread8, label %32
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %47
-  %38 = phi ptr [ %48, %47 ], [ %.fr18, %.lr.ph ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %40, -2
-  br i1 %41, label %42, label %47
+32:                                               ; preds = %27
+  %33 = icmp sgt i8 %6, -1
+  %34 = getelementptr inbounds i8, ptr %5, i64 1
+  br i1 %33, label %38, label %35
 
-42:                                               ; preds = %.lr.ph.split
-  %43 = getelementptr inbounds i8, ptr %38, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @strcmp(ptr noundef %44, ptr noundef nonnull dereferenceable(1) %29) #21
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.split.us, label %47
+35:                                               ; preds = %32
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef %34) #21
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %.thread6, label %.thread8
 
-47:                                               ; preds = %.lr.ph.split, %42
-  %48 = load ptr, ptr %38, align 8
-  %49 = icmp eq ptr %48, @dmi_devices
-  br i1 %49, label %.thread7, label %.lr.ph.split, !llvm.loop !14
+38:                                               ; preds = %32
+  %39 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %30, ptr noundef %34) #21
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %.thread8, label %.thread6
 
-.split.us:                                        ; preds = %42, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %31, %.lr.ph.split.us ], [ %38, %42 ]
-  %50 = icmp eq ptr %.us-phi, null
-  br i1 %50, label %.thread7, label %.thread6
+.thread6:                                         ; preds = %.loopexit, %38, %35
+  %41 = add nuw nsw i64 %4, 1
+  %42 = icmp eq i64 %41, 4
+  br i1 %42, label %.thread8, label %3, !llvm.loop !14
 
-51:                                               ; preds = %.split13
-  %52 = zext nneg i8 %28 to i64
-  %53 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread7, label %56
-
-56:                                               ; preds = %51
-  %57 = icmp sgt i8 %27, -1
-  %58 = getelementptr inbounds i8, ptr %26, i64 1
-  br i1 %57, label %62, label %59
-
-59:                                               ; preds = %56
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef %58) #21
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.thread6, label %.thread7
-
-62:                                               ; preds = %56
-  %63 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %54, ptr noundef %58) #21
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread7, label %.thread6
-
-.thread6:                                         ; preds = %.split.us, %62, %59
-  %65 = add nuw nsw i64 %25, 1
-  %66 = icmp eq i64 %65, 4
-  br i1 %66, label %.thread7, label %.split13, !llvm.loop !13
-
-.thread7.loopexit45:                              ; preds = %.split13.us
-  br label %.thread7
-
-.thread7:                                         ; preds = %.split.us, %51, %59, %62, %.split13, %.thread6, %47, %35, %.thread6.us, %20, %17, %9, %.split13.us, %.thread7.loopexit45
-  %67 = phi i1 [ true, %.split13.us ], [ true, %.thread6.us ], [ false, %20 ], [ false, %17 ], [ false, %9 ], [ false, %.thread7.loopexit45 ], [ false, %35 ], [ false, %47 ], [ true, %.thread6 ], [ true, %.split13 ], [ false, %62 ], [ false, %59 ], [ false, %51 ], [ false, %.split.us ]
-  ret i1 %67
+.thread8:                                         ; preds = %38, %35, %27, %.loopexit, %3, %.thread6, %.outer, %.outer.us
+  %43 = phi i1 [ false, %.outer.us ], [ false, %.outer ], [ false, %38 ], [ false, %35 ], [ false, %27 ], [ false, %.loopexit ], [ true, %3 ], [ true, %.thread6 ]
+  ret i1 %43
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -552,15 +512,13 @@ define dso_local noundef i32 @dmi_name_in_serial(ptr nocapture noundef readonly 
 
 4:                                                ; preds = %1
   %5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef %0) #21
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %8
+  %6 = icmp ne ptr %5, null
+  %spec.select = zext i1 %6 to i32
+  br label %7
 
 7:                                                ; preds = %4, %1
-  br label %8
-
-8:                                                ; preds = %7, %4
-  %9 = phi i32 [ 0, %7 ], [ 1, %4 ]
-  ret i32 %9
+  %8 = phi i32 [ 0, %1 ], [ %spec.select, %4 ]
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -607,67 +565,67 @@ define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly %1, p
   %4 = icmp eq ptr %2, null
   %5 = select i1 %4, ptr @dmi_devices, ptr %2
   %6 = icmp eq i32 %0, 0
-  %7 = load ptr, ptr %5, align 8
-  %8 = icmp eq ptr %7, @dmi_devices
-  br i1 %8, label %.thread, label %.lr.ph
+  %7 = icmp eq ptr %1, null
+  br i1 %6, label %.outer.split.us, label %.split15
 
-.lr.ph:                                           ; preds = %3
-  %9 = icmp eq ptr %1, null
-  br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
+.split15:                                         ; preds = %3
+  br i1 %7, label %.outer.us17, label %.outer
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %6, label %.thread, label %.lr.ph.split.us.split
+.outer.us17:                                      ; preds = %.split15, %.split.us.us
+  %.ph.us18 = phi ptr [ %8, %.split.us.us ], [ %5, %.split15 ]
+  %8 = load ptr, ptr %.ph.us18, align 8
+  %9 = icmp eq ptr %8, @dmi_devices
+  br i1 %9, label %.thread, label %.split.us.us
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %14
-  %10 = phi ptr [ %15, %14 ], [ %7, %.lr.ph.split.us ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, %0
-  br i1 %13, label %.thread, label %14
+.split.us.us:                                     ; preds = %.outer.us17
+  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = load i32, ptr %10, align 8
+  %.not24 = icmp eq i32 %11, %0
+  br i1 %.not24, label %.thread, label %.outer.us17, !llvm.loop !13
 
-14:                                               ; preds = %.lr.ph.split.us.split
-  %15 = load ptr, ptr %10, align 8
-  %16 = icmp eq ptr %15, @dmi_devices
-  br i1 %16, label %.thread, label %.lr.ph.split.us.split, !llvm.loop !14
+.outer.split.us:                                  ; preds = %3, %15
+  %12 = phi ptr [ %13, %15 ], [ %5, %3 ]
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, @dmi_devices
+  %brmerge = or i1 %14, %7
+  br i1 %brmerge, label %.thread.loopexit.split.loop.exit37, label %15
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %6, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+15:                                               ; preds = %.outer.split.us
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 @strcmp(ptr noundef %17, ptr noundef nonnull dereferenceable(1) %1) #21
+  %.not.us = icmp eq i32 %18, 0
+  br i1 %.not.us, label %.thread, label %.outer.split.us, !llvm.loop !13
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %22
-  %17 = phi ptr [ %23, %22 ], [ %7, %.lr.ph.split ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @strcmp(ptr noundef %19, ptr noundef nonnull dereferenceable(1) %1) #21
-  %21 = icmp eq i32 %20, 0
+.outer:                                           ; preds = %.split15, %.outer.backedge
+  %19 = phi ptr [ %20, %.outer.backedge ], [ %5, %.split15 ]
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, @dmi_devices
   br i1 %21, label %.thread, label %22
 
-22:                                               ; preds = %.lr.ph.split.split.us
-  %23 = load ptr, ptr %17, align 8
-  %24 = icmp eq ptr %23, @dmi_devices
-  br i1 %24, label %.thread, label %.lr.ph.split.split.us, !llvm.loop !14
+22:                                               ; preds = %.outer
+  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = load i32, ptr %23, align 8
+  %.not23 = icmp eq i32 %24, %0
+  br i1 %.not23, label %25, label %.outer.backedge
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %34
-  %25 = phi ptr [ %35, %34 ], [ %7, %.lr.ph.split ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp eq i32 %27, %0
-  br i1 %28, label %29, label %34
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %20, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call i32 @strcmp(ptr noundef %27, ptr noundef nonnull dereferenceable(1) %1) #21
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %.thread, label %.outer.backedge
 
-29:                                               ; preds = %.lr.ph.split.split
-  %30 = getelementptr inbounds i8, ptr %25, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @strcmp(ptr noundef %31, ptr noundef nonnull dereferenceable(1) %1) #21
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.thread, label %34
+.outer.backedge:                                  ; preds = %25, %22
+  br label %.outer, !llvm.loop !13
 
-34:                                               ; preds = %.lr.ph.split.split, %29
-  %35 = load ptr, ptr %25, align 8
-  %36 = icmp eq ptr %35, @dmi_devices
-  br i1 %36, label %.thread, label %.lr.ph.split.split, !llvm.loop !14
+.thread.loopexit.split.loop.exit37:               ; preds = %.outer.split.us
+  %.mux22.le = select i1 %14, ptr null, ptr %13
+  br label %.thread
 
-.thread:                                          ; preds = %34, %29, %22, %.lr.ph.split.split.us, %14, %.lr.ph.split.us.split, %.lr.ph.split.us, %3
-  %37 = phi ptr [ null, %3 ], [ %7, %.lr.ph.split.us ], [ %10, %.lr.ph.split.us.split ], [ null, %14 ], [ %17, %.lr.ph.split.split.us ], [ null, %22 ], [ %25, %29 ], [ null, %34 ]
-  ret ptr %37
+.thread:                                          ; preds = %25, %.outer, %.split.us.us, %.outer.us17, %15, %.thread.loopexit.split.loop.exit37
+  %29 = phi ptr [ %.mux22.le, %.thread.loopexit.split.loop.exit37 ], [ %13, %15 ], [ null, %.outer.us17 ], [ %8, %.split.us.us ], [ %20, %25 ], [ null, %.outer ]
+  ret ptr %29
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -681,12 +639,12 @@ define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef wr
   %7 = getelementptr [23 x ptr], ptr @dmi_ident, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %52
+  br i1 %9, label %10, label %51
 
 10:                                               ; preds = %4
   %11 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #21
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %52, label %13
+  br i1 %12, label %51, label %13
 
 13:                                               ; preds = %10
   store ptr null, ptr %5, align 8, !annotation !5
@@ -707,7 +665,7 @@ define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef wr
   %28 = trunc i64 %27 to i32
   %29 = load ptr, ptr %5, align 8
   %30 = icmp eq ptr %8, %29
-  br i1 %30, label %52, label %31
+  br i1 %30, label %51, label %31
 
 31:                                               ; preds = %13
   %32 = load i8, ptr %29, align 1
@@ -716,7 +674,7 @@ define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef wr
   %35 = icmp sgt i32 %28, 12
   %36 = or i1 %34, %35
   %37 = select i1 %33, i1 true, i1 %36
-  br i1 %37, label %52, label %38
+  br i1 %37, label %51, label %38
 
 38:                                               ; preds = %31
   %39 = getelementptr i8, ptr %29, i64 1
@@ -735,39 +693,37 @@ define dso_local noundef zeroext i1 @dmi_get_date(i32 noundef %0, ptr noundef wr
   %48 = icmp ne i8 %47, 47
   %49 = icmp sgt i32 %41, 31
   %50 = select i1 %48, i1 true, i1 %49
-  br i1 %50, label %51, label %52
+  %spec.select = select i1 %50, i32 0, i32 %41
+  br label %51
 
-51:                                               ; preds = %46, %43, %38
-  br label %52
+51:                                               ; preds = %46, %38, %43, %31, %13, %10, %4
+  %52 = phi i32 [ 0, %10 ], [ 0, %4 ], [ %26, %31 ], [ %26, %13 ], [ %26, %43 ], [ %26, %38 ], [ %26, %46 ]
+  %53 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %31 ], [ 0, %13 ], [ %28, %43 ], [ %28, %38 ], [ %28, %46 ]
+  %54 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %31 ], [ 0, %13 ], [ 0, %43 ], [ 0, %38 ], [ %spec.select, %46 ]
+  %55 = icmp eq ptr %1, null
+  br i1 %55, label %57, label %56
 
-52:                                               ; preds = %51, %46, %31, %13, %10, %4
-  %53 = phi i32 [ %26, %51 ], [ %26, %46 ], [ 0, %10 ], [ 0, %4 ], [ %26, %31 ], [ %26, %13 ]
-  %54 = phi i32 [ %28, %51 ], [ %28, %46 ], [ 0, %10 ], [ 0, %4 ], [ 0, %31 ], [ 0, %13 ]
-  %55 = phi i32 [ 0, %51 ], [ %41, %46 ], [ 0, %10 ], [ 0, %4 ], [ 0, %31 ], [ 0, %13 ]
-  %56 = icmp eq ptr %1, null
-  br i1 %56, label %58, label %57
+56:                                               ; preds = %51
+  store i32 %52, ptr %1, align 4
+  br label %57
 
-57:                                               ; preds = %52
-  store i32 %53, ptr %1, align 4
-  br label %58
+57:                                               ; preds = %56, %51
+  %58 = icmp eq ptr %2, null
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %57, %52
-  %59 = icmp eq ptr %2, null
-  br i1 %59, label %61, label %60
+59:                                               ; preds = %57
+  store i32 %53, ptr %2, align 4
+  br label %60
 
-60:                                               ; preds = %58
-  store i32 %54, ptr %2, align 4
-  br label %61
+60:                                               ; preds = %59, %57
+  %61 = icmp eq ptr %3, null
+  br i1 %61, label %63, label %62
 
-61:                                               ; preds = %60, %58
-  %62 = icmp eq ptr %3, null
-  br i1 %62, label %64, label %63
+62:                                               ; preds = %60
+  store i32 %54, ptr %3, align 4
+  br label %63
 
-63:                                               ; preds = %61
-  store i32 %55, ptr %3, align 4
-  br label %64
-
-64:                                               ; preds = %63, %61
+63:                                               ; preds = %62, %60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   ret i1 %9
 }

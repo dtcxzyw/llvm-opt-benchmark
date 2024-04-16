@@ -385,8 +385,8 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %len = getelementptr inbounds i8, ptr %props, i64 8
   %0 = load i32, ptr %len, align 8
-  %cmp25.not = icmp eq i32 %0, 0
-  br i1 %cmp25.not, label %return, label %for.body.lr.ph
+  %cmp24.not = icmp eq i32 %0, 0
+  br i1 %cmp24.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool.not.i = icmp eq ptr %obj, null
@@ -395,9 +395,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br i1 %tobool.not.i, label %return, label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.026 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %i.025 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %1 = load ptr, ptr %props, align 8
-  %idxprom = sext i32 %i.026 to i64
+  %idxprom = sext i32 %i.025 to i64
   %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   store ptr null, ptr %err, align 8
@@ -435,9 +435,9 @@ if.end8:                                          ; preds = %land.lhs.true, %obj
   %value = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %value, align 8
   %call.i = call ptr @string_input_visitor_new(ptr noundef %10) #19
-  %call1.i20 = call zeroext i1 @object_property_set(ptr noundef nonnull %obj, ptr noundef %9, ptr noundef %call.i, ptr noundef nonnull %err)
+  %call1.i19 = call zeroext i1 @object_property_set(ptr noundef nonnull %obj, ptr noundef %9, ptr noundef %call.i, ptr noundef nonnull %err)
   call void @visit_free(ptr noundef %call.i) #19
-  br i1 %call1.i20, label %for.inc, label %if.then11
+  br i1 %call1.i19, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
   %11 = load ptr, ptr %2, align 8
@@ -456,7 +456,7 @@ if.else:                                          ; preds = %if.then11
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end8, %if.else, %object_property_find.exit
-  %inc = add nuw i32 %i.026, 1
+  %inc = add nuw i32 %i.025, 1
   %15 = load i32, ptr %len, align 8
   %cmp = icmp ult i32 %inc, %15
   br i1 %cmp, label %for.body, label %return, !llvm.loop !7
@@ -467,22 +467,20 @@ return:                                           ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_dynamic_cast(ptr noundef readonly %obj, ptr noundef %typename) local_unnamed_addr #0 {
+define dso_local ptr @object_dynamic_cast(ptr noundef readonly %obj, ptr noundef %typename) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load ptr, ptr %obj, align 8
   %call1 = tail call ptr @object_class_dynamic_cast(ptr noundef %0, ptr noundef %typename)
   %tobool2.not = icmp eq ptr %call1, null
-  br i1 %tobool2.not, label %if.end, label %return
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %spec.select = select i1 %tobool2.not, ptr null, ptr %obj
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ %obj, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -1558,19 +1556,19 @@ object_new_with_type.exit:                        ; preds = %if.then3.i, %if.els
 
 if.end7:                                          ; preds = %object_new_with_type.exit
   %cmp.not = icmp eq ptr %id, null
-  br i1 %cmp.not, label %land.lhs.true.i, label %if.then8
+  br i1 %cmp.not, label %object_dynamic_cast.exit, label %if.then8
 
 if.then8:                                         ; preds = %if.end7
   %call.i17 = tail call ptr @object_property_try_add_child(ptr noundef %parent, ptr noundef nonnull %id, ptr noundef nonnull %obj.0.i, ptr noundef nonnull @error_abort)
-  br label %land.lhs.true.i
+  br label %object_dynamic_cast.exit
 
-land.lhs.true.i:                                  ; preds = %if.end7, %if.then8
+object_dynamic_cast.exit:                         ; preds = %if.then8, %if.end7
   %7 = load ptr, ptr %obj.0.i, align 8
   %call1.i = tail call ptr @object_class_dynamic_cast(ptr noundef %7, ptr noundef nonnull @.str.7)
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %if.end20, label %if.then13
 
-if.then13:                                        ; preds = %land.lhs.true.i
+if.then13:                                        ; preds = %object_dynamic_cast.exit
   %call14 = tail call zeroext i1 @user_creatable_complete(ptr noundef nonnull %obj.0.i, ptr noundef %errp) #19
   br i1 %call14, label %if.end20, label %if.then15
 
@@ -1581,7 +1579,7 @@ if.then17:                                        ; preds = %if.then15
   tail call void @object_unparent(ptr noundef nonnull %obj.0.i)
   br label %error
 
-if.end20:                                         ; preds = %land.lhs.true.i, %if.then13
+if.end20:                                         ; preds = %if.then13, %object_dynamic_cast.exit
   tail call void @object_unref(ptr noundef nonnull %obj.0.i)
   br label %return
 
@@ -2004,32 +2002,32 @@ while.end:                                        ; preds = %while.end.lr.ph, %f
   br i1 %cmp3, label %out, label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  br i1 %tobool.not, label %out, label %land.lhs.true.i
+  br i1 %tobool.not, label %out, label %object_dynamic_cast.exit
 
-land.lhs.true.i:                                  ; preds = %for.end
+object_dynamic_cast.exit:                         ; preds = %for.end
   %12 = load ptr, ptr %obj, align 8
   %call1.i = tail call ptr @object_class_dynamic_cast(ptr noundef %12, ptr noundef %typename)
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %if.then6, label %while.end24
 
-if.then6:                                         ; preds = %land.lhs.true.i
+if.then6:                                         ; preds = %object_dynamic_cast.exit
   %13 = load ptr, ptr @stderr, align 8
   %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.12, ptr noundef %file, i32 noundef %line, ptr noundef %func, ptr noundef nonnull %obj, ptr noundef %typename) #20
   tail call void @abort() #18
   unreachable
 
-while.end24:                                      ; preds = %land.lhs.true.i, %while.end24
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %while.end24 ], [ 1, %land.lhs.true.i ]
+while.end24:                                      ; preds = %object_dynamic_cast.exit, %while.end24
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %while.end24 ], [ 1, %object_dynamic_cast.exit ]
   %14 = load ptr, ptr %obj, align 8
   %object_cast_cache26 = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = add nsw i64 %indvars.iv43, -1
+  %15 = add nsw i64 %indvars.iv37, -1
   %arrayidx28 = getelementptr [4 x ptr], ptr %object_cast_cache26, i64 0, i64 %15
-  %arrayidx38 = getelementptr [4 x ptr], ptr %object_cast_cache26, i64 0, i64 %indvars.iv43
+  %arrayidx38 = getelementptr [4 x ptr], ptr %object_cast_cache26, i64 0, i64 %indvars.iv37
   %16 = load atomic i64, ptr %arrayidx38 monotonic, align 8
   store atomic i64 %16, ptr %arrayidx28 monotonic, align 8
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next44, 4
-  br i1 %exitcond47.not, label %while.end49, label %while.end24, !llvm.loop !19
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %exitcond41.not = icmp eq i64 %indvars.iv.next38, 4
+  br i1 %exitcond41.not, label %while.end49, label %while.end24, !llvm.loop !19
 
 while.end49:                                      ; preds = %while.end24
   %17 = load ptr, ptr %obj, align 8
@@ -2038,7 +2036,7 @@ while.end49:                                      ; preds = %while.end24
   store atomic i64 %18, ptr %arrayidx54 monotonic, align 8
   br label %out
 
-out:                                              ; preds = %while.end, %trace_object_dynamic_cast_assert.exit, %for.end, %while.end49
+out:                                              ; preds = %while.end, %for.end, %trace_object_dynamic_cast_assert.exit, %while.end49
   ret ptr %obj
 }
 
@@ -5080,78 +5078,76 @@ object_get_root.exit11:                           ; preds = %if.else11, %if.then
   %5 = phi ptr [ %call.i10, %if.then.i9 ], [ %4, %if.else11 ]
   %add.ptr = getelementptr i8, ptr %call, i64 8
   %6 = load ptr, ptr %add.ptr, align 8
-  %cmp1821.i = icmp eq ptr %6, null
-  br i1 %cmp1821.i, label %if.then.i13, label %if.end.lr.ph.i
+  %cmp1720.i = icmp eq ptr %6, null
+  br i1 %cmp1720.i, label %if.then.i13, label %if.end.lr.ph.i
 
 tailrecurse.outer.i:                              ; preds = %object_resolve_path_component.exit.i
-  %add.ptr9.i = getelementptr i8, ptr %parts.tr19.i, i64 8
+  %add.ptr9.i = getelementptr i8, ptr %parts.tr18.i, i64 8
   %7 = load ptr, ptr %add.ptr9.i, align 8
-  %cmp18.i = icmp eq ptr %7, null
-  br i1 %cmp18.i, label %land.lhs.true.i.i, label %if.end.lr.ph.i
+  %cmp17.i = icmp eq ptr %7, null
+  br i1 %cmp17.i, label %land.lhs.true.i.i, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %object_get_root.exit11, %tailrecurse.outer.i
   %8 = phi ptr [ %7, %tailrecurse.outer.i ], [ %6, %object_get_root.exit11 ]
-  %parts.tr.ph23.i = phi ptr [ %add.ptr9.i, %tailrecurse.outer.i ], [ %add.ptr, %object_get_root.exit11 ]
-  %parent.tr.ph22.i = phi ptr [ %call3.i.i, %tailrecurse.outer.i ], [ %5, %object_get_root.exit11 ]
+  %parts.tr.ph22.i = phi ptr [ %add.ptr9.i, %tailrecurse.outer.i ], [ %add.ptr, %object_get_root.exit11 ]
+  %parent.tr.ph21.i = phi ptr [ %call3.i.i, %tailrecurse.outer.i ], [ %5, %object_get_root.exit11 ]
   br label %if.end.i
 
 if.then.i13:                                      ; preds = %if.then3.i, %object_get_root.exit11
-  %parent.tr.ph.lcssa17.i = phi ptr [ %5, %object_get_root.exit11 ], [ %parent.tr.ph22.i, %if.then3.i ]
-  %tobool.not.i.i = icmp eq ptr %parent.tr.ph.lcssa17.i, null
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
+  %parent.tr.ph.lcssa16.i = phi ptr [ %5, %object_get_root.exit11 ], [ %parent.tr.ph21.i, %if.then3.i ]
+  %tobool.not.i.i = icmp eq ptr %parent.tr.ph.lcssa16.i, null
+  br i1 %tobool.not.i.i, label %if.end14, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %tailrecurse.outer.i, %if.then.i13
-  %parent.tr.ph.lcssa1732.i = phi ptr [ %parent.tr.ph.lcssa17.i, %if.then.i13 ], [ %call3.i.i, %tailrecurse.outer.i ]
-  %9 = load ptr, ptr %parent.tr.ph.lcssa1732.i, align 8
+  %parent.tr.ph.lcssa1631.i = phi ptr [ %parent.tr.ph.lcssa16.i, %if.then.i13 ], [ %call3.i.i, %tailrecurse.outer.i ]
+  %9 = load ptr, ptr %parent.tr.ph.lcssa1631.i, align 8
   %call1.i.i = tail call ptr @object_class_dynamic_cast(ptr noundef %9, ptr noundef %typename)
   %tobool2.not.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %tobool2.not.i.i, label %if.end.i.i, label %if.end14
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.then.i13
+  %spec.select.i.i = select i1 %tobool2.not.i.i, ptr null, ptr %parent.tr.ph.lcssa1631.i
   br label %if.end14
 
 if.end.i:                                         ; preds = %if.then3.i, %if.end.lr.ph.i
   %10 = phi ptr [ %8, %if.end.lr.ph.i ], [ %11, %if.then3.i ]
-  %parts.tr19.i = phi ptr [ %parts.tr.ph23.i, %if.end.lr.ph.i ], [ %add.ptr.i, %if.then3.i ]
+  %parts.tr18.i = phi ptr [ %parts.tr.ph22.i, %if.end.lr.ph.i ], [ %add.ptr.i, %if.then3.i ]
   %strcmpload.i = load i8, ptr %10, align 1
   %cmp2.i = icmp eq i8 %strcmpload.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %parts.tr19.i, i64 8
+  %add.ptr.i = getelementptr i8, ptr %parts.tr18.i, i64 8
   %11 = load ptr, ptr %add.ptr.i, align 8
   %cmp.i = icmp eq ptr %11, null
   br i1 %cmp.i, label %if.then.i13, label %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %12 = load ptr, ptr %parent.tr.ph22.i, align 8
+  %12 = load ptr, ptr %parent.tr.ph21.i, align 8
   %call1.i.i.i = tail call ptr @object_class_property_find(ptr noundef %12, ptr noundef nonnull %10)
   %tobool.not.i.i.i = icmp eq ptr %call1.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %object_property_find.exit.i.i, label %if.end.i10.i
+  br i1 %tobool.not.i.i.i, label %object_property_find.exit.i.i, label %if.end.i.i
 
 object_property_find.exit.i.i:                    ; preds = %if.end5.i
-  %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph22.i, i64 16
+  %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph21.i, i64 16
   %13 = load ptr, ptr %properties.i.i.i, align 8
   %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %10) #19
   %cmp.i.i = icmp eq ptr %call2.i.i.i, null
-  br i1 %cmp.i.i, label %if.end14, label %if.end.i10.i
+  br i1 %cmp.i.i, label %if.end14, label %if.end.i.i
 
-if.end.i10.i:                                     ; preds = %object_property_find.exit.i.i, %if.end5.i
+if.end.i.i:                                       ; preds = %object_property_find.exit.i.i, %if.end5.i
   %retval.0.i8.i.i = phi ptr [ %call2.i.i.i, %object_property_find.exit.i.i ], [ %call1.i.i.i, %if.end5.i ]
   %resolve.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 40
   %14 = load ptr, ptr %resolve.i.i, align 8
-  %tobool.not.i11.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i11.i, label %if.end14, label %object_resolve_path_component.exit.i
+  %tobool.not.i10.i = icmp eq ptr %14, null
+  br i1 %tobool.not.i10.i, label %if.end14, label %object_resolve_path_component.exit.i
 
-object_resolve_path_component.exit.i:             ; preds = %if.end.i10.i
+object_resolve_path_component.exit.i:             ; preds = %if.end.i.i
   %opaque.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 64
   %15 = load ptr, ptr %opaque.i.i, align 8
-  %call3.i.i = tail call ptr %14(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %15, ptr noundef nonnull %10) #19
+  %call3.i.i = tail call ptr %14(ptr noundef nonnull %parent.tr.ph21.i, ptr noundef %15, ptr noundef nonnull %10) #19
   %tobool.not.i12 = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i12, label %if.end14, label %tailrecurse.outer.i
 
-if.end14:                                         ; preds = %object_resolve_path_component.exit.i, %if.end.i10.i, %object_property_find.exit.i.i, %if.end.i.i, %land.lhs.true.i.i, %object_get_root.exit, %if.then8
-  %obj.0 = phi ptr [ %call6, %if.then8 ], [ %call6, %object_get_root.exit ], [ null, %if.end.i.i ], [ %parent.tr.ph.lcssa1732.i, %land.lhs.true.i.i ], [ null, %object_property_find.exit.i.i ], [ null, %if.end.i10.i ], [ null, %object_resolve_path_component.exit.i ]
+if.end14:                                         ; preds = %object_resolve_path_component.exit.i, %if.end.i.i, %object_property_find.exit.i.i, %land.lhs.true.i.i, %if.then.i13, %object_get_root.exit, %if.then8
+  %obj.0 = phi ptr [ %call6, %if.then8 ], [ %call6, %object_get_root.exit ], [ null, %if.then.i13 ], [ %spec.select.i.i, %land.lhs.true.i.i ], [ null, %object_property_find.exit.i.i ], [ null, %if.end.i.i ], [ null, %object_resolve_path_component.exit.i ]
   tail call void @g_strfreev(ptr noundef nonnull %call) #19
   ret ptr %obj.0
 }
@@ -5164,78 +5160,76 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %prop = alloca ptr, align 8
   %0 = load ptr, ptr %parts, align 8
-  %cmp1821.i = icmp eq ptr %0, null
-  br i1 %cmp1821.i, label %if.then.i, label %if.end.lr.ph.i
+  %cmp1720.i = icmp eq ptr %0, null
+  br i1 %cmp1720.i, label %if.then.i, label %if.end.lr.ph.i
 
 tailrecurse.outer.i:                              ; preds = %object_resolve_path_component.exit.i
-  %add.ptr9.i = getelementptr i8, ptr %parts.tr19.i, i64 8
+  %add.ptr9.i = getelementptr i8, ptr %parts.tr18.i, i64 8
   %1 = load ptr, ptr %add.ptr9.i, align 8
-  %cmp18.i = icmp eq ptr %1, null
-  br i1 %cmp18.i, label %land.lhs.true.i.i, label %if.end.lr.ph.i
+  %cmp17.i = icmp eq ptr %1, null
+  br i1 %cmp17.i, label %land.lhs.true.i.i, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %entry, %tailrecurse.outer.i
   %2 = phi ptr [ %1, %tailrecurse.outer.i ], [ %0, %entry ]
-  %parts.tr.ph23.i = phi ptr [ %add.ptr9.i, %tailrecurse.outer.i ], [ %parts, %entry ]
-  %parent.tr.ph22.i = phi ptr [ %call3.i.i, %tailrecurse.outer.i ], [ %parent, %entry ]
+  %parts.tr.ph22.i = phi ptr [ %add.ptr9.i, %tailrecurse.outer.i ], [ %parts, %entry ]
+  %parent.tr.ph21.i = phi ptr [ %call3.i.i, %tailrecurse.outer.i ], [ %parent, %entry ]
   br label %if.end.i
 
 if.then.i:                                        ; preds = %if.then3.i, %entry
-  %parent.tr.ph.lcssa17.i = phi ptr [ %parent, %entry ], [ %parent.tr.ph22.i, %if.then3.i ]
-  %tobool.not.i.i = icmp eq ptr %parent.tr.ph.lcssa17.i, null
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
+  %parent.tr.ph.lcssa16.i = phi ptr [ %parent, %entry ], [ %parent.tr.ph21.i, %if.then3.i ]
+  %tobool.not.i.i = icmp eq ptr %parent.tr.ph.lcssa16.i, null
+  br i1 %tobool.not.i.i, label %object_resolve_abs_path.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %tailrecurse.outer.i, %if.then.i
-  %parent.tr.ph.lcssa1732.i = phi ptr [ %parent.tr.ph.lcssa17.i, %if.then.i ], [ %call3.i.i, %tailrecurse.outer.i ]
-  %3 = load ptr, ptr %parent.tr.ph.lcssa1732.i, align 8
+  %parent.tr.ph.lcssa1631.i = phi ptr [ %parent.tr.ph.lcssa16.i, %if.then.i ], [ %call3.i.i, %tailrecurse.outer.i ]
+  %3 = load ptr, ptr %parent.tr.ph.lcssa1631.i, align 8
   %call1.i.i = tail call ptr @object_class_dynamic_cast(ptr noundef %3, ptr noundef %typename)
   %tobool2.not.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %tobool2.not.i.i, label %if.end.i.i, label %object_resolve_abs_path.exit
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.then.i
+  %spec.select.i.i = select i1 %tobool2.not.i.i, ptr null, ptr %parent.tr.ph.lcssa1631.i
   br label %object_resolve_abs_path.exit
 
 if.end.i:                                         ; preds = %if.then3.i, %if.end.lr.ph.i
   %4 = phi ptr [ %2, %if.end.lr.ph.i ], [ %5, %if.then3.i ]
-  %parts.tr19.i = phi ptr [ %parts.tr.ph23.i, %if.end.lr.ph.i ], [ %add.ptr.i, %if.then3.i ]
+  %parts.tr18.i = phi ptr [ %parts.tr.ph22.i, %if.end.lr.ph.i ], [ %add.ptr.i, %if.then3.i ]
   %strcmpload.i = load i8, ptr %4, align 1
   %cmp2.i = icmp eq i8 %strcmpload.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %parts.tr19.i, i64 8
+  %add.ptr.i = getelementptr i8, ptr %parts.tr18.i, i64 8
   %5 = load ptr, ptr %add.ptr.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %6 = load ptr, ptr %parent.tr.ph22.i, align 8
+  %6 = load ptr, ptr %parent.tr.ph21.i, align 8
   %call1.i.i.i = tail call ptr @object_class_property_find(ptr noundef %6, ptr noundef nonnull %4)
   %tobool.not.i.i.i = icmp eq ptr %call1.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %object_property_find.exit.i.i, label %if.end.i10.i
+  br i1 %tobool.not.i.i.i, label %object_property_find.exit.i.i, label %if.end.i.i
 
 object_property_find.exit.i.i:                    ; preds = %if.end5.i
-  %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph22.i, i64 16
+  %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph21.i, i64 16
   %7 = load ptr, ptr %properties.i.i.i, align 8
   %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull %4) #19
   %cmp.i.i = icmp eq ptr %call2.i.i.i, null
-  br i1 %cmp.i.i, label %object_resolve_abs_path.exit, label %if.end.i10.i
+  br i1 %cmp.i.i, label %object_resolve_abs_path.exit, label %if.end.i.i
 
-if.end.i10.i:                                     ; preds = %object_property_find.exit.i.i, %if.end5.i
+if.end.i.i:                                       ; preds = %object_property_find.exit.i.i, %if.end5.i
   %retval.0.i8.i.i = phi ptr [ %call2.i.i.i, %object_property_find.exit.i.i ], [ %call1.i.i.i, %if.end5.i ]
   %resolve.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 40
   %8 = load ptr, ptr %resolve.i.i, align 8
-  %tobool.not.i11.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i11.i, label %object_resolve_abs_path.exit, label %object_resolve_path_component.exit.i
+  %tobool.not.i10.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i10.i, label %object_resolve_abs_path.exit, label %object_resolve_path_component.exit.i
 
-object_resolve_path_component.exit.i:             ; preds = %if.end.i10.i
+object_resolve_path_component.exit.i:             ; preds = %if.end.i.i
   %opaque.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 64
   %9 = load ptr, ptr %opaque.i.i, align 8
-  %call3.i.i = tail call ptr %8(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %9, ptr noundef nonnull %4) #19
+  %call3.i.i = tail call ptr %8(ptr noundef nonnull %parent.tr.ph21.i, ptr noundef %9, ptr noundef nonnull %4) #19
   %tobool.not.i = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i, label %object_resolve_abs_path.exit, label %tailrecurse.outer.i
 
-object_resolve_abs_path.exit:                     ; preds = %object_property_find.exit.i.i, %if.end.i10.i, %object_resolve_path_component.exit.i, %land.lhs.true.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ null, %if.end.i.i ], [ %parent.tr.ph.lcssa1732.i, %land.lhs.true.i.i ], [ null, %object_resolve_path_component.exit.i ], [ null, %if.end.i10.i ], [ null, %object_property_find.exit.i.i ]
+object_resolve_abs_path.exit:                     ; preds = %object_property_find.exit.i.i, %if.end.i.i, %object_resolve_path_component.exit.i, %if.then.i, %land.lhs.true.i.i
+  %retval.0.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ], [ null, %object_resolve_path_component.exit.i ], [ null, %if.end.i.i ], [ null, %object_property_find.exit.i.i ]
   %properties = getelementptr inbounds i8, ptr %parent, i64 16
   %10 = load ptr, ptr %properties, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %10) #19
@@ -5288,7 +5282,7 @@ return:                                           ; preds = %if.end9, %while.con
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @object_resolve_path_at(ptr noundef %parent, ptr noundef %path) local_unnamed_addr #0 {
+define dso_local ptr @object_resolve_path_at(ptr noundef %parent, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_strsplit(ptr noundef %path, ptr noundef nonnull @.str.38, i32 noundef 0) #19
   %0 = load i8, ptr %path, align 1
@@ -5309,150 +5303,138 @@ object_get_root.exit:                             ; preds = %if.then, %if.then.i
   %2 = phi ptr [ %call.i, %if.then.i ], [ %1, %if.then ]
   %add.ptr = getelementptr i8, ptr %call, i64 8
   %3 = load ptr, ptr %add.ptr, align 8
-  %cmp1821.i = icmp eq ptr %3, null
-  br i1 %cmp1821.i, label %if.then.i3, label %if.end.lr.ph.i
+  %cmp1720.i = icmp eq ptr %3, null
+  br i1 %cmp1720.i, label %if.then.i3, label %if.end.lr.ph.i
 
 tailrecurse.outer.i:                              ; preds = %object_resolve_path_component.exit.i
-  %add.ptr9.i = getelementptr i8, ptr %parts.tr19.i, i64 8
+  %add.ptr9.i = getelementptr i8, ptr %parts.tr18.i, i64 8
   %4 = load ptr, ptr %add.ptr9.i, align 8
-  %cmp18.i = icmp eq ptr %4, null
-  br i1 %cmp18.i, label %land.lhs.true.i.i, label %if.end.lr.ph.i
+  %cmp17.i = icmp eq ptr %4, null
+  br i1 %cmp17.i, label %cleanup.sink.split, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %object_get_root.exit, %tailrecurse.outer.i
   %5 = phi ptr [ %4, %tailrecurse.outer.i ], [ %3, %object_get_root.exit ]
-  %parts.tr.ph23.i = phi ptr [ %add.ptr9.i, %tailrecurse.outer.i ], [ %add.ptr, %object_get_root.exit ]
-  %parent.tr.ph22.i = phi ptr [ %call3.i.i, %tailrecurse.outer.i ], [ %2, %object_get_root.exit ]
+  %parts.tr.ph22.i = phi ptr [ %add.ptr9.i, %tailrecurse.outer.i ], [ %add.ptr, %object_get_root.exit ]
+  %parent.tr.ph21.i = phi ptr [ %call3.i.i, %tailrecurse.outer.i ], [ %2, %object_get_root.exit ]
   br label %if.end.i
 
 if.then.i3:                                       ; preds = %if.then3.i, %object_get_root.exit
-  %parent.tr.ph.lcssa17.i = phi ptr [ %2, %object_get_root.exit ], [ %parent.tr.ph22.i, %if.then3.i ]
-  %tobool.not.i.i = icmp eq ptr %parent.tr.ph.lcssa17.i, null
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %tailrecurse.outer.i, %if.then.i3
-  %parent.tr.ph.lcssa1732.i = phi ptr [ %parent.tr.ph.lcssa17.i, %if.then.i3 ], [ %call3.i.i, %tailrecurse.outer.i ]
-  %6 = load ptr, ptr %parent.tr.ph.lcssa1732.i, align 8
-  %call1.i.i = tail call ptr @object_class_dynamic_cast(ptr noundef %6, ptr noundef nonnull @.str.41)
-  %tobool2.not.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %tobool2.not.i.i, label %if.end.i.i, label %cleanup
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.then.i3
-  br label %cleanup
+  %parent.tr.ph.lcssa16.i = phi ptr [ %2, %object_get_root.exit ], [ %parent.tr.ph21.i, %if.then3.i ]
+  %tobool.not.i.i = icmp eq ptr %parent.tr.ph.lcssa16.i, null
+  br i1 %tobool.not.i.i, label %cleanup, label %cleanup.sink.split
 
 if.end.i:                                         ; preds = %if.then3.i, %if.end.lr.ph.i
-  %7 = phi ptr [ %5, %if.end.lr.ph.i ], [ %8, %if.then3.i ]
-  %parts.tr19.i = phi ptr [ %parts.tr.ph23.i, %if.end.lr.ph.i ], [ %add.ptr.i, %if.then3.i ]
-  %strcmpload.i = load i8, ptr %7, align 1
+  %6 = phi ptr [ %5, %if.end.lr.ph.i ], [ %7, %if.then3.i ]
+  %parts.tr18.i = phi ptr [ %parts.tr.ph22.i, %if.end.lr.ph.i ], [ %add.ptr.i, %if.then3.i ]
+  %strcmpload.i = load i8, ptr %6, align 1
   %cmp2.i = icmp eq i8 %strcmpload.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %parts.tr19.i, i64 8
-  %8 = load ptr, ptr %add.ptr.i, align 8
-  %cmp.i = icmp eq ptr %8, null
+  %add.ptr.i = getelementptr i8, ptr %parts.tr18.i, i64 8
+  %7 = load ptr, ptr %add.ptr.i, align 8
+  %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %if.then.i3, label %if.end.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %9 = load ptr, ptr %parent.tr.ph22.i, align 8
-  %call1.i.i.i = tail call ptr @object_class_property_find(ptr noundef %9, ptr noundef nonnull %7)
+  %8 = load ptr, ptr %parent.tr.ph21.i, align 8
+  %call1.i.i.i = tail call ptr @object_class_property_find(ptr noundef %8, ptr noundef nonnull %6)
   %tobool.not.i.i.i = icmp eq ptr %call1.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %object_property_find.exit.i.i, label %if.end.i10.i
+  br i1 %tobool.not.i.i.i, label %object_property_find.exit.i.i, label %if.end.i.i
 
 object_property_find.exit.i.i:                    ; preds = %if.end5.i
-  %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph22.i, i64 16
-  %10 = load ptr, ptr %properties.i.i.i, align 8
-  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %7) #19
+  %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph21.i, i64 16
+  %9 = load ptr, ptr %properties.i.i.i, align 8
+  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %6) #19
   %cmp.i.i = icmp eq ptr %call2.i.i.i, null
-  br i1 %cmp.i.i, label %cleanup, label %if.end.i10.i
+  br i1 %cmp.i.i, label %cleanup, label %if.end.i.i
 
-if.end.i10.i:                                     ; preds = %object_property_find.exit.i.i, %if.end5.i
+if.end.i.i:                                       ; preds = %object_property_find.exit.i.i, %if.end5.i
   %retval.0.i8.i.i = phi ptr [ %call2.i.i.i, %object_property_find.exit.i.i ], [ %call1.i.i.i, %if.end5.i ]
   %resolve.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 40
-  %11 = load ptr, ptr %resolve.i.i, align 8
-  %tobool.not.i11.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i11.i, label %cleanup, label %object_resolve_path_component.exit.i
+  %10 = load ptr, ptr %resolve.i.i, align 8
+  %tobool.not.i10.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i10.i, label %cleanup, label %object_resolve_path_component.exit.i
 
-object_resolve_path_component.exit.i:             ; preds = %if.end.i10.i
+object_resolve_path_component.exit.i:             ; preds = %if.end.i.i
   %opaque.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 64
-  %12 = load ptr, ptr %opaque.i.i, align 8
-  %call3.i.i = tail call ptr %11(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %12, ptr noundef nonnull %7) #19
+  %11 = load ptr, ptr %opaque.i.i, align 8
+  %call3.i.i = tail call ptr %10(ptr noundef nonnull %parent.tr.ph21.i, ptr noundef %11, ptr noundef nonnull %6) #19
   %tobool.not.i2 = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i2, label %cleanup, label %tailrecurse.outer.i
 
 if.end:                                           ; preds = %entry
-  %13 = load ptr, ptr %call, align 8
-  %cmp1821.i4 = icmp eq ptr %13, null
-  br i1 %cmp1821.i4, label %if.then.i39, label %if.end.lr.ph.i5
+  %12 = load ptr, ptr %call, align 8
+  %cmp1720.i4 = icmp eq ptr %12, null
+  br i1 %cmp1720.i4, label %if.then.i39, label %if.end.lr.ph.i5
 
 tailrecurse.outer.i23:                            ; preds = %object_resolve_path_component.exit.i19
-  %add.ptr9.i24 = getelementptr i8, ptr %parts.tr19.i9, i64 8
-  %14 = load ptr, ptr %add.ptr9.i24, align 8
-  %cmp18.i25 = icmp eq ptr %14, null
-  br i1 %cmp18.i25, label %land.lhs.true.i.i26, label %if.end.lr.ph.i5
+  %add.ptr9.i24 = getelementptr i8, ptr %parts.tr18.i9, i64 8
+  %13 = load ptr, ptr %add.ptr9.i24, align 8
+  %cmp17.i25 = icmp eq ptr %13, null
+  br i1 %cmp17.i25, label %cleanup.sink.split, label %if.end.lr.ph.i5
 
 if.end.lr.ph.i5:                                  ; preds = %if.end, %tailrecurse.outer.i23
-  %15 = phi ptr [ %14, %tailrecurse.outer.i23 ], [ %13, %if.end ]
-  %parts.tr.ph23.i6 = phi ptr [ %add.ptr9.i24, %tailrecurse.outer.i23 ], [ %call, %if.end ]
-  %parent.tr.ph22.i7 = phi ptr [ %call3.i.i21, %tailrecurse.outer.i23 ], [ %parent, %if.end ]
+  %14 = phi ptr [ %13, %tailrecurse.outer.i23 ], [ %12, %if.end ]
+  %parts.tr.ph22.i6 = phi ptr [ %add.ptr9.i24, %tailrecurse.outer.i23 ], [ %call, %if.end ]
+  %parent.tr.ph21.i7 = phi ptr [ %call3.i.i21, %tailrecurse.outer.i23 ], [ %parent, %if.end ]
   br label %if.end.i8
 
 if.then.i39:                                      ; preds = %if.then3.i36, %if.end
-  %parent.tr.ph.lcssa17.i40 = phi ptr [ %parent, %if.end ], [ %parent.tr.ph22.i7, %if.then3.i36 ]
-  %tobool.not.i.i41 = icmp eq ptr %parent.tr.ph.lcssa17.i40, null
-  br i1 %tobool.not.i.i41, label %if.end.i.i31, label %land.lhs.true.i.i26
-
-land.lhs.true.i.i26:                              ; preds = %tailrecurse.outer.i23, %if.then.i39
-  %parent.tr.ph.lcssa1732.i27 = phi ptr [ %parent.tr.ph.lcssa17.i40, %if.then.i39 ], [ %call3.i.i21, %tailrecurse.outer.i23 ]
-  %16 = load ptr, ptr %parent.tr.ph.lcssa1732.i27, align 8
-  %call1.i.i28 = tail call ptr @object_class_dynamic_cast(ptr noundef %16, ptr noundef nonnull @.str.41)
-  %tobool2.not.i.i29 = icmp eq ptr %call1.i.i28, null
-  br i1 %tobool2.not.i.i29, label %if.end.i.i31, label %cleanup
-
-if.end.i.i31:                                     ; preds = %land.lhs.true.i.i26, %if.then.i39
-  br label %cleanup
+  %parent.tr.ph.lcssa16.i40 = phi ptr [ %parent, %if.end ], [ %parent.tr.ph21.i7, %if.then3.i36 ]
+  %tobool.not.i.i41 = icmp eq ptr %parent.tr.ph.lcssa16.i40, null
+  br i1 %tobool.not.i.i41, label %cleanup, label %cleanup.sink.split
 
 if.end.i8:                                        ; preds = %if.then3.i36, %if.end.lr.ph.i5
-  %17 = phi ptr [ %15, %if.end.lr.ph.i5 ], [ %18, %if.then3.i36 ]
-  %parts.tr19.i9 = phi ptr [ %parts.tr.ph23.i6, %if.end.lr.ph.i5 ], [ %add.ptr.i37, %if.then3.i36 ]
-  %strcmpload.i10 = load i8, ptr %17, align 1
+  %15 = phi ptr [ %14, %if.end.lr.ph.i5 ], [ %16, %if.then3.i36 ]
+  %parts.tr18.i9 = phi ptr [ %parts.tr.ph22.i6, %if.end.lr.ph.i5 ], [ %add.ptr.i37, %if.then3.i36 ]
+  %strcmpload.i10 = load i8, ptr %15, align 1
   %cmp2.i11 = icmp eq i8 %strcmpload.i10, 0
   br i1 %cmp2.i11, label %if.then3.i36, label %if.end5.i12
 
 if.then3.i36:                                     ; preds = %if.end.i8
-  %add.ptr.i37 = getelementptr i8, ptr %parts.tr19.i9, i64 8
-  %18 = load ptr, ptr %add.ptr.i37, align 8
-  %cmp.i38 = icmp eq ptr %18, null
+  %add.ptr.i37 = getelementptr i8, ptr %parts.tr18.i9, i64 8
+  %16 = load ptr, ptr %add.ptr.i37, align 8
+  %cmp.i38 = icmp eq ptr %16, null
   br i1 %cmp.i38, label %if.then.i39, label %if.end.i8
 
 if.end5.i12:                                      ; preds = %if.end.i8
-  %19 = load ptr, ptr %parent.tr.ph22.i7, align 8
-  %call1.i.i.i13 = tail call ptr @object_class_property_find(ptr noundef %19, ptr noundef nonnull %17)
+  %17 = load ptr, ptr %parent.tr.ph21.i7, align 8
+  %call1.i.i.i13 = tail call ptr @object_class_property_find(ptr noundef %17, ptr noundef nonnull %15)
   %tobool.not.i.i.i14 = icmp eq ptr %call1.i.i.i13, null
-  br i1 %tobool.not.i.i.i14, label %object_property_find.exit.i.i32, label %if.end.i10.i15
+  br i1 %tobool.not.i.i.i14, label %object_property_find.exit.i.i32, label %if.end.i.i15
 
 object_property_find.exit.i.i32:                  ; preds = %if.end5.i12
-  %properties.i.i.i33 = getelementptr inbounds i8, ptr %parent.tr.ph22.i7, i64 16
-  %20 = load ptr, ptr %properties.i.i.i33, align 8
-  %call2.i.i.i34 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef nonnull %17) #19
+  %properties.i.i.i33 = getelementptr inbounds i8, ptr %parent.tr.ph21.i7, i64 16
+  %18 = load ptr, ptr %properties.i.i.i33, align 8
+  %call2.i.i.i34 = tail call ptr @g_hash_table_lookup(ptr noundef %18, ptr noundef nonnull %15) #19
   %cmp.i.i35 = icmp eq ptr %call2.i.i.i34, null
-  br i1 %cmp.i.i35, label %cleanup, label %if.end.i10.i15
+  br i1 %cmp.i.i35, label %cleanup, label %if.end.i.i15
 
-if.end.i10.i15:                                   ; preds = %object_property_find.exit.i.i32, %if.end5.i12
+if.end.i.i15:                                     ; preds = %object_property_find.exit.i.i32, %if.end5.i12
   %retval.0.i8.i.i16 = phi ptr [ %call2.i.i.i34, %object_property_find.exit.i.i32 ], [ %call1.i.i.i13, %if.end5.i12 ]
   %resolve.i.i17 = getelementptr inbounds i8, ptr %retval.0.i8.i.i16, i64 40
-  %21 = load ptr, ptr %resolve.i.i17, align 8
-  %tobool.not.i11.i18 = icmp eq ptr %21, null
-  br i1 %tobool.not.i11.i18, label %cleanup, label %object_resolve_path_component.exit.i19
+  %19 = load ptr, ptr %resolve.i.i17, align 8
+  %tobool.not.i10.i18 = icmp eq ptr %19, null
+  br i1 %tobool.not.i10.i18, label %cleanup, label %object_resolve_path_component.exit.i19
 
-object_resolve_path_component.exit.i19:           ; preds = %if.end.i10.i15
+object_resolve_path_component.exit.i19:           ; preds = %if.end.i.i15
   %opaque.i.i20 = getelementptr inbounds i8, ptr %retval.0.i8.i.i16, i64 64
-  %22 = load ptr, ptr %opaque.i.i20, align 8
-  %call3.i.i21 = tail call ptr %21(ptr noundef nonnull %parent.tr.ph22.i7, ptr noundef %22, ptr noundef nonnull %17) #19
+  %20 = load ptr, ptr %opaque.i.i20, align 8
+  %call3.i.i21 = tail call ptr %19(ptr noundef nonnull %parent.tr.ph21.i7, ptr noundef %20, ptr noundef nonnull %15) #19
   %tobool.not.i22 = icmp eq ptr %call3.i.i21, null
   br i1 %tobool.not.i22, label %cleanup, label %tailrecurse.outer.i23
 
-cleanup:                                          ; preds = %object_resolve_path_component.exit.i19, %if.end.i10.i15, %object_property_find.exit.i.i32, %object_resolve_path_component.exit.i, %if.end.i10.i, %object_property_find.exit.i.i, %if.end.i.i31, %land.lhs.true.i.i26, %if.end.i.i, %land.lhs.true.i.i
-  %retval.0 = phi ptr [ null, %if.end.i.i ], [ %parent.tr.ph.lcssa1732.i, %land.lhs.true.i.i ], [ null, %if.end.i.i31 ], [ %parent.tr.ph.lcssa1732.i27, %land.lhs.true.i.i26 ], [ null, %object_property_find.exit.i.i ], [ null, %if.end.i10.i ], [ null, %object_resolve_path_component.exit.i ], [ null, %object_property_find.exit.i.i32 ], [ null, %if.end.i10.i15 ], [ null, %object_resolve_path_component.exit.i19 ]
+cleanup.sink.split:                               ; preds = %tailrecurse.outer.i23, %tailrecurse.outer.i, %if.then.i39, %if.then.i3
+  %parent.tr.ph.lcssa1631.i27.sink75 = phi ptr [ %parent.tr.ph.lcssa16.i, %if.then.i3 ], [ %parent.tr.ph.lcssa16.i40, %if.then.i39 ], [ %call3.i.i, %tailrecurse.outer.i ], [ %call3.i.i21, %tailrecurse.outer.i23 ]
+  %21 = load ptr, ptr %parent.tr.ph.lcssa1631.i27.sink75, align 8
+  %call1.i.i28 = tail call ptr @object_class_dynamic_cast(ptr noundef %21, ptr noundef nonnull @.str.41)
+  %tobool2.not.i.i29 = icmp eq ptr %call1.i.i28, null
+  %spec.select.i.i30 = select i1 %tobool2.not.i.i29, ptr null, ptr %parent.tr.ph.lcssa1631.i27.sink75
+  br label %cleanup
+
+cleanup:                                          ; preds = %object_resolve_path_component.exit.i19, %if.end.i.i15, %object_property_find.exit.i.i32, %object_resolve_path_component.exit.i, %if.end.i.i, %object_property_find.exit.i.i, %cleanup.sink.split, %if.then.i39, %if.then.i3
+  %retval.0 = phi ptr [ null, %if.then.i3 ], [ null, %if.then.i39 ], [ %spec.select.i.i30, %cleanup.sink.split ], [ null, %object_property_find.exit.i.i ], [ null, %if.end.i.i ], [ null, %object_resolve_path_component.exit.i ], [ null, %object_property_find.exit.i.i32 ], [ null, %if.end.i.i15 ], [ null, %object_resolve_path_component.exit.i19 ]
   %cmp.not.i = icmp eq ptr %call, null
   br i1 %cmp.not.i, label %glib_auto_cleanup_GStrv.exit, label %if.then.i43
 

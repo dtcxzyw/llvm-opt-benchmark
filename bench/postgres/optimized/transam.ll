@@ -32,7 +32,7 @@ define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) local_unname
   %.off.i = add nsw i32 %0, -1
   %switch.i = icmp ult i32 %.off.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br i1 %switch.i, label %TransactionLogFetch.exit.thread12, label %TransactionLogFetch.exit.thread
+  br label %31
 
 10:                                               ; preds = %7
   %11 = call i32 @TransactionIdGetStatus(i32 noundef %0, ptr noundef nonnull %2) #5
@@ -51,8 +51,8 @@ define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) local_unname
 TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
   %.0.i = phi i32 [ %6, %5 ], [ %11, %10 ], [ %11, %10 ], [ %11, %12 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  switch i32 %.0.i, label %TransactionLogFetch.exit.thread [
-    i32 1, label %TransactionLogFetch.exit.thread12
+  switch i32 %.0.i, label %30 [
+    i32 1, label %31
     i32 3, label %14
   ]
 
@@ -66,11 +66,11 @@ TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
 18:                                               ; preds = %14
   %19 = sub i32 %0, %15
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %TransactionLogFetch.exit.thread12, label %22
+  br i1 %20, label %31, label %22
 
 TransactionIdPrecedes.exit:                       ; preds = %14
   %21 = icmp ugt i32 %15, %0
-  br i1 %21, label %TransactionLogFetch.exit.thread12, label %22
+  br i1 %21, label %31, label %22
 
 22:                                               ; preds = %18, %TransactionIdPrecedes.exit
   %23 = call i32 @SubTransGetParent(i32 noundef %0) #5
@@ -79,22 +79,22 @@ TransactionIdPrecedes.exit:                       ; preds = %14
 
 24:                                               ; preds = %22
   %25 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #5
-  br i1 %25, label %26, label %TransactionLogFetch.exit.thread12
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24
   %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__func__.TransactionIdDidCommit) #5
-  br label %TransactionLogFetch.exit.thread12
+  br label %31
 
 28:                                               ; preds = %22
   %29 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %23)
-  br label %TransactionLogFetch.exit.thread12
+  br label %31
 
-TransactionLogFetch.exit.thread:                  ; preds = %9, %TransactionLogFetch.exit
-  br label %TransactionLogFetch.exit.thread12
+30:                                               ; preds = %TransactionLogFetch.exit
+  br label %31
 
-TransactionLogFetch.exit.thread12:                ; preds = %9, %18, %26, %24, %TransactionIdPrecedes.exit, %TransactionLogFetch.exit, %TransactionLogFetch.exit.thread, %28
-  %.0 = phi i1 [ %29, %28 ], [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ false, %TransactionIdPrecedes.exit ], [ false, %24 ], [ false, %26 ], [ false, %18 ], [ true, %9 ]
+31:                                               ; preds = %9, %18, %26, %24, %TransactionIdPrecedes.exit, %TransactionLogFetch.exit, %30, %28
+  %.0 = phi i1 [ %29, %28 ], [ true, %TransactionLogFetch.exit ], [ false, %TransactionIdPrecedes.exit ], [ false, %24 ], [ false, %26 ], [ false, %18 ], [ false, %30 ], [ %switch.i, %9 ]
   ret i1 %.0
 }
 
@@ -141,75 +141,75 @@ define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) local_unnamed
 
 7:                                                ; preds = %1
   %8 = icmp ugt i32 %0, 2
-  br i1 %8, label %10, label %9
+  br i1 %8, label %11, label %9
 
 9:                                                ; preds = %7
-  %.off.i = add nsw i32 %0, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %10 = add nsw i32 %0, -3
+  %switch.i = icmp ult i32 %10, -2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br i1 %switch.i, label %TransactionLogFetch.exit.thread, label %TransactionLogFetch.exit.thread12
+  br label %32
 
-10:                                               ; preds = %7
-  %11 = call i32 @TransactionIdGetStatus(i32 noundef %0, ptr noundef nonnull %2) #5
-  switch i32 %11, label %12 [
+11:                                               ; preds = %7
+  %12 = call i32 @TransactionIdGetStatus(i32 noundef %0, ptr noundef nonnull %2) #5
+  switch i32 %12, label %13 [
     i32 3, label %TransactionLogFetch.exit
     i32 0, label %TransactionLogFetch.exit
   ]
 
-12:                                               ; preds = %10
+13:                                               ; preds = %11
   store i32 %0, ptr @cachedFetchXid, align 4
-  store i32 %11, ptr @cachedFetchXidStatus, align 4
-  %13 = load i64, ptr %2, align 8
-  store i64 %13, ptr @cachedCommitLSN, align 8
+  store i32 %12, ptr @cachedFetchXidStatus, align 4
+  %14 = load i64, ptr %2, align 8
+  store i64 %14, ptr @cachedCommitLSN, align 8
   br label %TransactionLogFetch.exit
 
-TransactionLogFetch.exit:                         ; preds = %5, %10, %10, %12
-  %.0.i = phi i32 [ %6, %5 ], [ %11, %10 ], [ %11, %10 ], [ %11, %12 ]
+TransactionLogFetch.exit:                         ; preds = %5, %11, %11, %13
+  %.0.i = phi i32 [ %6, %5 ], [ %12, %11 ], [ %12, %11 ], [ %12, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  switch i32 %.0.i, label %TransactionLogFetch.exit.thread [
-    i32 2, label %TransactionLogFetch.exit.thread12
-    i32 3, label %14
+  switch i32 %.0.i, label %31 [
+    i32 2, label %32
+    i32 3, label %15
   ]
 
-14:                                               ; preds = %TransactionLogFetch.exit
-  %15 = load i32, ptr @TransactionXmin, align 4
-  %16 = icmp ugt i32 %0, 2
-  %17 = icmp ugt i32 %15, 2
-  %or.cond.i = and i1 %16, %17
-  br i1 %or.cond.i, label %18, label %TransactionIdPrecedes.exit
+15:                                               ; preds = %TransactionLogFetch.exit
+  %16 = load i32, ptr @TransactionXmin, align 4
+  %17 = icmp ugt i32 %0, 2
+  %18 = icmp ugt i32 %16, 2
+  %or.cond.i = and i1 %17, %18
+  br i1 %or.cond.i, label %19, label %TransactionIdPrecedes.exit
 
-18:                                               ; preds = %14
-  %19 = sub i32 %0, %15
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %TransactionLogFetch.exit.thread12, label %22
+19:                                               ; preds = %15
+  %20 = sub i32 %0, %16
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %32, label %23
 
-TransactionIdPrecedes.exit:                       ; preds = %14
-  %21 = icmp ugt i32 %15, %0
-  br i1 %21, label %TransactionLogFetch.exit.thread12, label %22
+TransactionIdPrecedes.exit:                       ; preds = %15
+  %22 = icmp ugt i32 %16, %0
+  br i1 %22, label %32, label %23
 
-22:                                               ; preds = %18, %TransactionIdPrecedes.exit
-  %23 = call i32 @SubTransGetParent(i32 noundef %0) #5
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %24, label %28
+23:                                               ; preds = %19, %TransactionIdPrecedes.exit
+  %24 = call i32 @SubTransGetParent(i32 noundef %0) #5
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %25, label %29
 
-24:                                               ; preds = %22
-  %25 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #5
-  br i1 %25, label %26, label %TransactionLogFetch.exit.thread12
+25:                                               ; preds = %23
+  %26 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #5
+  br i1 %26, label %27, label %32
 
-26:                                               ; preds = %24
-  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #5
+27:                                               ; preds = %25
+  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 217, ptr noundef nonnull @__func__.TransactionIdDidAbort) #5
-  br label %TransactionLogFetch.exit.thread12
+  br label %32
 
-28:                                               ; preds = %22
-  %29 = call zeroext i1 @TransactionIdDidAbort(i32 noundef %23)
-  br label %TransactionLogFetch.exit.thread12
+29:                                               ; preds = %23
+  %30 = call zeroext i1 @TransactionIdDidAbort(i32 noundef %24)
+  br label %32
 
-TransactionLogFetch.exit.thread:                  ; preds = %9, %TransactionLogFetch.exit
-  br label %TransactionLogFetch.exit.thread12
+31:                                               ; preds = %TransactionLogFetch.exit
+  br label %32
 
-TransactionLogFetch.exit.thread12:                ; preds = %9, %18, %26, %24, %TransactionIdPrecedes.exit, %TransactionLogFetch.exit, %TransactionLogFetch.exit.thread, %28
-  %.0 = phi i1 [ %29, %28 ], [ false, %TransactionLogFetch.exit.thread ], [ true, %TransactionLogFetch.exit ], [ true, %TransactionIdPrecedes.exit ], [ true, %24 ], [ true, %26 ], [ true, %18 ], [ true, %9 ]
+32:                                               ; preds = %9, %19, %27, %25, %TransactionIdPrecedes.exit, %TransactionLogFetch.exit, %31, %29
+  %.0 = phi i1 [ %30, %29 ], [ true, %TransactionLogFetch.exit ], [ true, %TransactionIdPrecedes.exit ], [ true, %25 ], [ true, %27 ], [ true, %19 ], [ false, %31 ], [ %switch.i, %9 ]
   ret i1 %.0
 }
 

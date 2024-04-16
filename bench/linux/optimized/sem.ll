@@ -1163,7 +1163,7 @@ define internal fastcc i64 @compat_ksys_semctl(i32 noundef %0, i32 noundef %1, i
   %34 = getelementptr inbounds i8, ptr %6, i64 36
   store i32 %33, ptr %34, align 4
   %35 = lshr i64 %32, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = getelementptr inbounds i8, ptr %6, i64 40
   store i32 %36, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %8, i64 64
@@ -1172,7 +1172,7 @@ define internal fastcc i64 @compat_ksys_semctl(i32 noundef %0, i32 noundef %1, i
   %41 = getelementptr inbounds i8, ptr %6, i64 44
   store i32 %40, ptr %41, align 4
   %42 = lshr i64 %39, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = getelementptr inbounds i8, ptr %6, i64 48
   store i32 %43, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %8, i64 80
@@ -1994,12 +1994,12 @@ define internal fastcc i32 @perform_atomic_semop(ptr nocapture noundef %0, ptr n
   %21 = tail call fastcc i32 @perform_atomic_semop_slow(ptr noundef %0, ptr noundef %1)
   br label %.critedge
 
-22:                                               ; preds = %60
+22:                                               ; preds = %.thread10
   %23 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %63
+  br label %62
 
-24:                                               ; preds = %60, %16
-  %25 = phi ptr [ %4, %16 ], [ %61, %60 ]
+24:                                               ; preds = %.thread10, %16
+  %25 = phi ptr [ %4, %16 ], [ %60, %.thread10 ]
   %26 = load i16, ptr %25, align 2
   %27 = load i32, ptr %17, align 8
   %28 = zext i16 %26 to i64
@@ -2016,12 +2016,12 @@ define internal fastcc i32 @perform_atomic_semop(ptr nocapture noundef %0, ptr n
   %39 = icmp eq i16 %36, 0
   %40 = icmp ne i32 %38, 0
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %101, label %42
+  br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %24
   %43 = add i32 %38, %37
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %101, label %45
+  br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %42
   %46 = icmp ugt i32 %43, 32767
@@ -2032,7 +2032,7 @@ define internal fastcc i32 @perform_atomic_semop(ptr nocapture noundef %0, ptr n
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 4096
   %51 = icmp eq i16 %50, 0
-  br i1 %51, label %60, label %52
+  br i1 %51, label %.thread10, label %52
 
 52:                                               ; preds = %47
   %53 = load i16, ptr %25, align 2
@@ -2043,87 +2043,87 @@ define internal fastcc i32 @perform_atomic_semop(ptr nocapture noundef %0, ptr n
   %reass.sub = sub nsw i32 %57, %37
   %58 = add nsw i32 %reass.sub, 32768
   %59 = icmp ult i32 %58, 65536
-  br i1 %59, label %60, label %.critedge
+  br i1 %59, label %.thread10, label %.critedge
 
-60:                                               ; preds = %52, %47
-  %61 = getelementptr i8, ptr %25, i64 6
-  %62 = icmp ult ptr %61, %14
-  br i1 %62, label %24, label %22, !llvm.loop !41
+.thread10:                                        ; preds = %52, %47
+  %60 = getelementptr i8, ptr %25, i64 6
+  %61 = icmp ult ptr %60, %14
+  br i1 %61, label %24, label %22, !llvm.loop !41
 
-63:                                               ; preds = %98, %22
-  %64 = phi ptr [ %4, %22 ], [ %99, %98 ]
-  %65 = load i16, ptr %64, align 2
-  %66 = zext i16 %65 to i64
-  %67 = getelementptr [0 x %struct.sem], ptr %18, i64 0, i64 %66
-  %68 = getelementptr inbounds i8, ptr %64, i64 2
-  %69 = load i16, ptr %68, align 2
-  %70 = sext i16 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %64, i64 4
-  %72 = load i16, ptr %71, align 2
-  %73 = and i16 %72, 4096
-  %74 = icmp eq i16 %73, 0
-  br i1 %74, label %79, label %75
+62:                                               ; preds = %97, %22
+  %63 = phi ptr [ %4, %22 ], [ %98, %97 ]
+  %64 = load i16, ptr %63, align 2
+  %65 = zext i16 %64 to i64
+  %66 = getelementptr [0 x %struct.sem], ptr %18, i64 0, i64 %65
+  %67 = getelementptr inbounds i8, ptr %63, i64 2
+  %68 = load i16, ptr %67, align 2
+  %69 = sext i16 %68 to i32
+  %70 = getelementptr inbounds i8, ptr %63, i64 4
+  %71 = load i16, ptr %70, align 2
+  %72 = and i16 %71, 4096
+  %73 = icmp eq i16 %72, 0
+  br i1 %73, label %78, label %74
 
-75:                                               ; preds = %63
-  %76 = getelementptr [0 x i16], ptr %19, i64 0, i64 %66
-  %77 = load i16, ptr %76, align 2
-  %78 = sub i16 %77, %69
-  store i16 %78, ptr %76, align 2
-  br label %79
+74:                                               ; preds = %62
+  %75 = getelementptr [0 x i16], ptr %19, i64 0, i64 %65
+  %76 = load i16, ptr %75, align 2
+  %77 = sub i16 %76, %68
+  store i16 %77, ptr %75, align 2
+  br label %78
 
-79:                                               ; preds = %75, %63
-  %80 = load i32, ptr %67, align 64
-  %81 = add i32 %80, %70
-  store i32 %81, ptr %67, align 64
-  %82 = getelementptr inbounds i8, ptr %67, i64 8
-  %83 = load ptr, ptr %23, align 8
-  %84 = load ptr, ptr %82, align 8
-  %85 = icmp eq ptr %84, %83
-  br i1 %85, label %98, label %86
+78:                                               ; preds = %74, %62
+  %79 = load i32, ptr %66, align 64
+  %80 = add i32 %79, %69
+  store i32 %80, ptr %66, align 64
+  %81 = getelementptr inbounds i8, ptr %66, i64 8
+  %82 = load ptr, ptr %23, align 8
+  %83 = load ptr, ptr %81, align 8
+  %84 = icmp eq ptr %83, %82
+  br i1 %84, label %97, label %85
 
-86:                                               ; preds = %79
-  %87 = icmp eq ptr %83, null
-  br i1 %87, label %97, label %88
+85:                                               ; preds = %78
+  %86 = icmp eq ptr %82, null
+  br i1 %86, label %96, label %87
 
-88:                                               ; preds = %86
-  %89 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %83, i32 1, ptr nonnull elementtype(i32) %83) #12, !srcloc !11
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %95, label %91, !prof !5
+87:                                               ; preds = %85
+  %88 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %82, i32 1, ptr nonnull elementtype(i32) %82) #12, !srcloc !11
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %94, label %90, !prof !5
 
-91:                                               ; preds = %88
-  %92 = add i32 %89, 1
-  %93 = or i32 %92, %89
-  %94 = icmp sgt i32 %93, -1
-  br i1 %94, label %97, label %95, !prof !12
+90:                                               ; preds = %87
+  %91 = add i32 %88, 1
+  %92 = or i32 %91, %88
+  %93 = icmp sgt i32 %92, -1
+  br i1 %93, label %96, label %94, !prof !12
 
-95:                                               ; preds = %91, %88
-  %96 = phi i32 [ 2, %88 ], [ 1, %91 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %83, i32 noundef %96) #12
+94:                                               ; preds = %90, %87
+  %95 = phi i32 [ 2, %87 ], [ 1, %90 ]
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %82, i32 noundef %95) #12
+  br label %96
+
+96:                                               ; preds = %94, %90, %85
+  store ptr %82, ptr %81, align 8
+  tail call void @put_pid(ptr noundef %83) #12
   br label %97
 
-97:                                               ; preds = %95, %91, %86
-  store ptr %83, ptr %82, align 8
-  tail call void @put_pid(ptr noundef %84) #12
-  br label %98
+97:                                               ; preds = %96, %78
+  %98 = getelementptr i8, ptr %63, i64 6
+  %99 = icmp ult ptr %98, %14
+  br i1 %99, label %62, label %.critedge, !llvm.loop !42
 
-98:                                               ; preds = %97, %79
-  %99 = getelementptr i8, ptr %64, i64 6
-  %100 = icmp ult ptr %99, %14
-  br i1 %100, label %63, label %.critedge, !llvm.loop !42
-
-101:                                              ; preds = %24, %42
-  %102 = getelementptr inbounds i8, ptr %1, i64 56
-  store ptr %25, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %25, i64 4
-  %104 = load i16, ptr %103, align 2
-  %105 = and i16 %104, 2048
-  %106 = icmp eq i16 %105, 0
-  %107 = select i1 %106, i32 1, i32 -11
+.thread:                                          ; preds = %42, %24
+  %100 = getelementptr inbounds i8, ptr %1, i64 56
+  store ptr %25, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %25, i64 4
+  %102 = load i16, ptr %101, align 2
+  %103 = and i16 %102, 2048
+  %104 = icmp eq i16 %103, 0
+  %105 = select i1 %104, i32 1, i32 -11
   br label %.critedge
 
-.critedge:                                        ; preds = %45, %52, %98, %10, %101, %20
-  %108 = phi i32 [ %21, %20 ], [ %107, %101 ], [ 0, %10 ], [ 0, %98 ], [ -34, %52 ], [ -34, %45 ]
-  ret i32 %108
+.critedge:                                        ; preds = %52, %45, %97, %10, %.thread, %20
+  %106 = phi i32 [ %21, %20 ], [ %105, %.thread ], [ 0, %10 ], [ 0, %97 ], [ -34, %45 ], [ -34, %52 ]
+  ret i32 %106
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4478,21 +4478,21 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly %0, i16 noundef ze
   %16 = getelementptr inbounds i8, ptr %0, i64 136
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
-  br i1 %18, label %.loopexit6, label %.preheader5
+  br i1 %18, label %.loopexit5, label %.preheader4
 
-.preheader5:                                      ; preds = %15
-  %.pre16 = load i1, ptr @check_qop.__already_done, align 1
-  br i1 %2, label %.preheader5.split.us, label %.preheader5.split
+.preheader4:                                      ; preds = %15
+  %.pre14 = load i1, ptr @check_qop.__already_done, align 1
+  br i1 %2, label %.preheader4.split.us, label %.preheader4.split
 
-.preheader5.split.us:                             ; preds = %.preheader5, %39
-  %19 = phi i1 [ %32, %39 ], [ %.pre16, %.preheader5 ]
-  %20 = phi ptr [ %42, %39 ], [ %17, %.preheader5 ]
-  %21 = phi i32 [ %41, %39 ], [ %10, %.preheader5 ]
+.preheader4.split.us:                             ; preds = %.preheader4, %39
+  %19 = phi i1 [ %32, %39 ], [ %.pre14, %.preheader4 ]
+  %20 = phi ptr [ %42, %39 ], [ %17, %.preheader4 ]
+  %21 = phi i32 [ %41, %39 ], [ %10, %.preheader4 ]
   %22 = getelementptr inbounds i8, ptr %20, i64 56
   %23 = load ptr, ptr %22, align 8
   br i1 %19, label %31, label %24, !prof !12
 
-24:                                               ; preds = %.preheader5.split.us
+24:                                               ; preds = %.preheader4.split.us
   store i1 true, ptr @check_qop.__already_done, align 1
   %25 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !23
   %26 = inttoptr i64 %25 to ptr
@@ -4500,11 +4500,11 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly %0, i16 noundef ze
   %28 = getelementptr inbounds i8, ptr %26, i64 1320
   %29 = load i32, ptr %28, align 8
   %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %27, i32 noundef %29) #13
-  %.pre15 = load i1, ptr @check_qop.__already_done, align 1
+  %.pre13 = load i1, ptr @check_qop.__already_done, align 1
   br label %31
 
-31:                                               ; preds = %24, %.preheader5.split.us
-  %32 = phi i1 [ %.pre15, %24 ], [ true, %.preheader5.split.us ]
+31:                                               ; preds = %24, %.preheader4.split.us
+  %32 = phi i1 [ %.pre13, %24 ], [ true, %.preheader4.split.us ]
   %33 = load i16, ptr %23, align 2
   %34 = icmp eq i16 %33, %1
   br i1 %34, label %35, label %39
@@ -4513,25 +4513,25 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly %0, i16 noundef ze
   %36 = getelementptr inbounds i8, ptr %23, i64 2
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 0
-  %spec.select = zext i1 %38 to i32
+  %.mux.us = zext i1 %38 to i32
   br label %39
 
 39:                                               ; preds = %35, %31
-  %40 = phi i32 [ 0, %31 ], [ %spec.select, %35 ]
+  %40 = phi i32 [ 0, %31 ], [ %.mux.us, %35 ]
   %41 = add i32 %40, %21
   %42 = load ptr, ptr %20, align 8
   %43 = icmp eq ptr %42, %16
-  br i1 %43, label %.loopexit6, label %.preheader5.split.us, !llvm.loop !63
+  br i1 %43, label %.loopexit5, label %.preheader4.split.us, !llvm.loop !63
 
-.preheader5.split:                                ; preds = %.preheader5, %63
-  %44 = phi i1 [ %57, %63 ], [ %.pre16, %.preheader5 ]
-  %45 = phi ptr [ %66, %63 ], [ %17, %.preheader5 ]
-  %46 = phi i32 [ %65, %63 ], [ %10, %.preheader5 ]
+.preheader4.split:                                ; preds = %.preheader4, %63
+  %44 = phi i1 [ %57, %63 ], [ %.pre14, %.preheader4 ]
+  %45 = phi ptr [ %66, %63 ], [ %17, %.preheader4 ]
+  %46 = phi i32 [ %65, %63 ], [ %10, %.preheader4 ]
   %47 = getelementptr inbounds i8, ptr %45, i64 56
   %48 = load ptr, ptr %47, align 8
   br i1 %44, label %56, label %49, !prof !12
 
-49:                                               ; preds = %.preheader5.split
+49:                                               ; preds = %.preheader4.split
   store i1 true, ptr @check_qop.__already_done, align 1
   %50 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !23
   %51 = inttoptr i64 %50 to ptr
@@ -4542,8 +4542,8 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly %0, i16 noundef ze
   %.pre = load i1, ptr @check_qop.__already_done, align 1
   br label %56
 
-56:                                               ; preds = %49, %.preheader5.split
-  %57 = phi i1 [ %.pre, %49 ], [ true, %.preheader5.split ]
+56:                                               ; preds = %49, %.preheader4.split
+  %57 = phi i1 [ %.pre, %49 ], [ true, %.preheader4.split ]
   %58 = load i16, ptr %48, align 2
   %59 = icmp eq i16 %58, %1
   br i1 %59, label %60, label %63
@@ -4552,32 +4552,32 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly %0, i16 noundef ze
   %61 = getelementptr inbounds i8, ptr %48, i64 2
   %62 = load i16, ptr %61, align 2
   %.lobit = lshr i16 %62, 15
-  %spec.select9 = zext nneg i16 %.lobit to i32
+  %spec.select = zext nneg i16 %.lobit to i32
   br label %63
 
 63:                                               ; preds = %60, %56
-  %64 = phi i32 [ 0, %56 ], [ %spec.select9, %60 ]
+  %64 = phi i32 [ 0, %56 ], [ %spec.select, %60 ]
   %65 = add i32 %64, %46
   %66 = load ptr, ptr %45, align 8
   %67 = icmp eq ptr %66, %16
-  br i1 %67, label %.loopexit6, label %.preheader5.split, !llvm.loop !63
+  br i1 %67, label %.loopexit5, label %.preheader4.split, !llvm.loop !63
 
-.loopexit6:                                       ; preds = %63, %39, %15
+.loopexit5:                                       ; preds = %63, %39, %15
   %68 = phi i32 [ %10, %15 ], [ %41, %39 ], [ %65, %63 ]
   br i1 %2, label %69, label %.loopexit
 
-69:                                               ; preds = %.loopexit6
+69:                                               ; preds = %.loopexit5
   %70 = getelementptr inbounds i8, ptr %0, i64 152
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, %70
   br i1 %72, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %69
-  %.pre18 = load i1, ptr @check_qop.__already_done, align 1
+  %.pre16 = load i1, ptr @check_qop.__already_done, align 1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %94
-  %73 = phi i1 [ %86, %94 ], [ %.pre18, %.preheader.preheader ]
+  %73 = phi i1 [ %86, %94 ], [ %.pre16, %.preheader.preheader ]
   %74 = phi ptr [ %97, %94 ], [ %71, %.preheader.preheader ]
   %75 = phi i32 [ %96, %94 ], [ %68, %.preheader.preheader ]
   %76 = getelementptr inbounds i8, ptr %74, i64 56
@@ -4592,11 +4592,11 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly %0, i16 noundef ze
   %82 = getelementptr inbounds i8, ptr %80, i64 1320
   %83 = load i32, ptr %82, align 8
   %84 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef %81, i32 noundef %83) #13
-  %.pre17 = load i1, ptr @check_qop.__already_done, align 1
+  %.pre15 = load i1, ptr @check_qop.__already_done, align 1
   br label %85
 
 85:                                               ; preds = %78, %.preheader
-  %86 = phi i1 [ %.pre17, %78 ], [ true, %.preheader ]
+  %86 = phi i1 [ %.pre15, %78 ], [ true, %.preheader ]
   %87 = load i16, ptr %77, align 2
   %88 = icmp eq i16 %87, %1
   br i1 %88, label %89, label %94
@@ -4615,8 +4615,8 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly %0, i16 noundef ze
   %98 = icmp eq ptr %97, %70
   br i1 %98, label %.loopexit, label %.preheader, !llvm.loop !64
 
-.loopexit:                                        ; preds = %94, %69, %.loopexit6
-  %99 = phi i32 [ %68, %.loopexit6 ], [ %68, %69 ], [ %96, %94 ]
+.loopexit:                                        ; preds = %94, %69, %.loopexit5
+  %99 = phi i32 [ %68, %.loopexit5 ], [ %68, %69 ], [ %96, %94 ]
   ret i32 %99
 }
 

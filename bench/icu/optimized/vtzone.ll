@@ -720,7 +720,7 @@ if.end5:                                          ; preds = %lor.lhs.false
   %vfn = getelementptr inbounds i8, ptr %vtable7, i64 24
   %10 = load ptr, ptr %vfn, align 8
   %call8 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %9)
-  br i1 %call8, label %land.lhs.true, label %if.end15
+  br i1 %call8, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end5
   %tzurl = getelementptr inbounds i8, ptr %this, i64 88
@@ -736,7 +736,7 @@ if.then.i:                                        ; preds = %land.lhs.true
   %12 = load i16, ptr %fUnion.i5.i, align 8
   %conv2.i615.i = and i16 %12, 1
   %tobool3.i.not = icmp eq i16 %conv2.i615.i, 0
-  br i1 %tobool3.i.not, label %if.end15, label %land.lhs.true11
+  br i1 %tobool3.i.not, label %return, label %land.lhs.true11
 
 if.else.i:                                        ; preds = %land.lhs.true
   %cmp.i.i.i6 = icmp slt i16 %11, 0
@@ -757,12 +757,12 @@ if.else.i:                                        ; preds = %land.lhs.true
   %tobool7.not.i = icmp eq i16 %conv2.i1316.i, 0
   %cmp.i = icmp eq i32 %cond.i.i, %cond.i11.i
   %or.cond.i = and i1 %tobool7.not.i, %cmp.i
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeStringeqERKS0_.exit, label %if.end15
+  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeStringeqERKS0_.exit, label %return
 
 _ZNK6icu_7513UnicodeStringeqERKS0_.exit:          ; preds = %if.else.i
   %call8.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64) %tzurl, ptr noundef nonnull align 8 dereferenceable(64) %tzurl9, i32 noundef %cond.i.i)
   %tobool9.i.not = icmp eq i8 %call8.i, 0
-  br i1 %tobool9.i.not, label %if.end15, label %land.lhs.true11
+  br i1 %tobool9.i.not, label %return, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.then.i, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit
   %lastmod = getelementptr inbounds i8, ptr %this, i64 152
@@ -772,11 +772,11 @@ land.lhs.true11:                                  ; preds = %if.then.i, %_ZNK6ic
   %cmp13 = fcmp oeq double %18, %19
   br i1 %cmp13, label %return, label %if.end15
 
-if.end15:                                         ; preds = %if.else.i, %if.then.i, %land.lhs.true11, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit, %if.end5
+if.end15:                                         ; preds = %land.lhs.true11
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true11, %_ZNKSt9type_infoneERKS_.exit, %lor.lhs.false, %entry, %if.end15
-  %retval.0 = phi i1 [ false, %if.end15 ], [ true, %entry ], [ false, %lor.lhs.false ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %land.lhs.true11 ], [ false, %if.end.i.i ]
+return:                                           ; preds = %if.else.i, %if.end.i.i, %if.then.i, %if.end5, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit, %land.lhs.true11, %_ZNKSt9type_infoneERKS_.exit, %lor.lhs.false, %entry, %if.end15
+  %retval.0 = phi i1 [ true, %entry ], [ false, %lor.lhs.false ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %land.lhs.true11 ], [ false, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit ], [ false, %if.end5 ], [ false, %if.end15 ], [ false, %if.then.i ], [ false, %if.end.i.i ], [ false, %if.else.i ]
   ret i1 %retval.0
 }
 
@@ -3286,7 +3286,7 @@ lpad214:                                          ; preds = %if.else211
   br label %ehcleanup643
 
 while.cond:                                       ; preds = %invoke.cont257
-  %add263 = add nsw i32 %call2.i284, 1
+  %add263 = add nuw nsw i32 %call2.i284, 1
   br i1 %cmp229, label %for.inc, label %while.body, !llvm.loop !12
 
 while.body:                                       ; preds = %if.then220, %while.cond
@@ -4528,21 +4528,21 @@ if.end26:                                         ; preds = %if.end27.i297
   %mul30.i305 = mul nsw i32 %add28.i301, %sign.080.i280
   %and.i.i = and i32 %mul30.i, 3
   %cmp.i.i320 = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i320, label %land.rhs.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
+  br i1 %cmp.i.i320, label %land.rhs.i.i, label %_ZN6icu_755Grego11monthLengthEii.exit
 
 land.rhs.i.i:                                     ; preds = %if.end26
   %rem.i.i = srem i32 %mul30.i, 100
-  %cmp1.not.i.i = icmp ne i32 %rem.i.i, 0
+  %cmp1.not.i.i = icmp eq i32 %rem.i.i, 0
+  br i1 %cmp1.not.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.i, label %_ZN6icu_755Grego11monthLengthEii.exit
+
+_ZN6icu_755Grego10isLeapYearEi.exit.i:            ; preds = %land.rhs.i.i
   %rem2.i.i = srem i32 %mul30.i, 400
   %cmp3.i.not.i = icmp eq i32 %rem2.i.i, 0
-  %or.cond.i321 = or i1 %cmp1.not.i.i, %cmp3.i.not.i
-  br i1 %or.cond.i321, label %_ZN6icu_755Grego11monthLengthEii.exit, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-
-_ZN6icu_755Grego10isLeapYearEi.exit.thread.i:     ; preds = %land.rhs.i.i, %if.end26
+  %spec.select.i = select i1 %cmp3.i.not.i, i32 12, i32 0
   br label %_ZN6icu_755Grego11monthLengthEii.exit
 
-_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-  %39 = phi i32 [ 0, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i ], [ 12, %land.rhs.i.i ]
+_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %if.end26, %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i
+  %39 = phi i32 [ 0, %if.end26 ], [ 12, %land.rhs.i.i ], [ %spec.select.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i ]
   %cmp29 = icmp slt i32 %mul30.i, 0
   %40 = add i32 %mul30.i98, -13
   %41 = icmp ult i32 %40, -12
@@ -5469,7 +5469,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %call11 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %dates, i32 noundef %3)
   %call12 = tail call fastcc noundef double @_ZN6icu_75L19parseDateTimeStringERKNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %call11, i32 noundef %fromOffset, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %arrayidx = getelementptr inbounds double, ptr %call6, i64 %indvars.iv
@@ -6451,7 +6451,7 @@ do.body:                                          ; preds = %do.body, %if.end4
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body ], [ 0, %if.end4 ]
   %number.2 = phi i64 [ %div, %do.body ], [ %spec.select, %if.end4 ]
   %rem = urem i64 %number.2, 10
-  %conv8 = trunc i64 %rem to i32
+  %conv8 = trunc nuw nsw i64 %rem to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [20 x i32], ptr %digits, i64 0, i64 %indvars.iv
   store i32 %conv8, ptr %arrayidx, align 4
@@ -7452,7 +7452,7 @@ land.lhs.true26:                                  ; preds = %land.lhs.true23
 if.end35:                                         ; preds = %if.end21, %land.lhs.true23, %land.lhs.true26, %if.end12
   %call36 = tail call noundef i32 @_ZNK6icu_7512DateTimeRule15getDateRuleTypeEv(ptr noundef nonnull align 8 dereferenceable(36) %dtrule)
   %cmp37 = icmp eq i32 %call36, 3
-  br i1 %cmp37, label %if.then38, label %if.end63
+  br i1 %cmp37, label %if.then38, label %return
 
 if.then38:                                        ; preds = %if.end35
   %rem39 = srem i32 %call13, 7
@@ -7464,7 +7464,7 @@ if.then38:                                        ; preds = %if.end35
 
 if.end45:                                         ; preds = %if.then38
   %cmp46.not = icmp eq i32 %month, 1
-  br i1 %cmp46.not, label %if.end63, label %land.lhs.true47
+  br i1 %cmp46.not, label %return, label %land.lhs.true47
 
 land.lhs.true47:                                  ; preds = %if.end45
   %idxprom48 = sext i32 %month to i64
@@ -7473,19 +7473,17 @@ land.lhs.true47:                                  ; preds = %if.end45
   %sub50 = sub nsw i32 %1, %call13
   %rem51 = srem i32 %sub50, 7
   %cmp52 = icmp eq i32 %rem51, 0
-  br i1 %cmp52, label %land.lhs.true53, label %if.end63
+  br i1 %cmp52, label %land.lhs.true53, label %return
 
 land.lhs.true53:                                  ; preds = %land.lhs.true47
   %div57.neg = sdiv i32 %sub50, -7
   %mul59 = add nsw i32 %div57.neg, -1
   %cmp60 = icmp eq i32 %mul59, %weekInMonth
-  br i1 %cmp60, label %return, label %if.end63
-
-if.end63:                                         ; preds = %if.end45, %land.lhs.true47, %land.lhs.true53, %if.end35
+  %spec.select = zext i1 %cmp60 to i8
   br label %return
 
-return:                                           ; preds = %land.lhs.true53, %if.then38, %land.lhs.true26, %land.lhs.true18, %land.lhs.true, %if.end, %entry, %lor.lhs.false, %if.end63
-  %retval.0 = phi i8 [ 0, %if.end63 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true18 ], [ 1, %land.lhs.true26 ], [ 1, %if.then38 ], [ 1, %land.lhs.true53 ]
+return:                                           ; preds = %land.lhs.true53, %if.end35, %land.lhs.true47, %if.end45, %if.then38, %land.lhs.true26, %land.lhs.true18, %land.lhs.true, %if.end, %entry, %lor.lhs.false
+  %retval.0 = phi i8 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true18 ], [ 1, %land.lhs.true26 ], [ 1, %if.then38 ], [ 0, %if.end45 ], [ 0, %land.lhs.true47 ], [ 0, %if.end35 ], [ %spec.select, %land.lhs.true53 ]
   ret i8 %retval.0
 }
 
@@ -9861,7 +9859,7 @@ for.inc:                                          ; preds = %invoke.cont135
   br i1 %exitcond.not, label %rruleParseErrorthread-pre-split, label %for.body, !llvm.loop !34
 
 if.then142:                                       ; preds = %invoke.cont135
-  %72 = trunc i64 %indvars.iv419 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv419 to i32
   %add143 = add nuw nsw i32 %72, 1
   store i32 %add143, ptr %dow, align 4
   br label %if.end184
@@ -10052,7 +10050,7 @@ if.else177:                                       ; preds = %if.end164
   br label %cleanup
 
 if.end184.loopexit:                               ; preds = %if.end175
-  %95 = trunc i64 %indvars.iv.next to i32
+  %95 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end184
 
 if.end184:                                        ; preds = %if.end184.loopexit, %invoke.cont71, %invoke.cont49, %if.then142, %invoke.cont150

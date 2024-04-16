@@ -465,7 +465,7 @@ if.then:                                          ; preds = %entry
   %2 = load i32, ptr %sec, align 4
   %3 = load i32, ptr %sign, align 4
   %.lobit = lshr i32 %3, 31
-  %conv = trunc i32 %.lobit to i8
+  %conv = trunc nuw nsw i32 %.lobit to i8
   %call1 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone14formatCustomIDEiiiaRNS_13UnicodeStringE(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %conv, ptr noundef nonnull align 8 dereferenceable(64) %customID)
           to label %invoke.cont unwind label %lpad
 
@@ -1040,21 +1040,21 @@ for.cond:                                         ; preds = %if.end19, %if.end
   %6 = load i32, ptr %millis, align 4
   %and.i.i = and i32 %2, 3
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego11monthLengthEii.exit
 
 land.rhs.i.i:                                     ; preds = %for.cond
   %rem.i.i = srem i32 %2, 100
-  %cmp1.not.i.i = icmp ne i32 %rem.i.i, 0
+  %cmp1.not.i.i = icmp eq i32 %rem.i.i, 0
+  br i1 %cmp1.not.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.i, label %_ZN6icu_755Grego11monthLengthEii.exit
+
+_ZN6icu_755Grego10isLeapYearEi.exit.i:            ; preds = %land.rhs.i.i
   %rem2.i.i = srem i32 %2, 400
   %cmp3.i.not.i = icmp eq i32 %rem2.i.i, 0
-  %or.cond.i = or i1 %cmp1.not.i.i, %cmp3.i.not.i
-  br i1 %or.cond.i, label %_ZN6icu_755Grego11monthLengthEii.exit, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-
-_ZN6icu_755Grego10isLeapYearEi.exit.thread.i:     ; preds = %land.rhs.i.i, %for.cond
+  %spec.select.i = select i1 %cmp3.i.not.i, i32 12, i32 0
   br label %_ZN6icu_755Grego11monthLengthEii.exit
 
-_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-  %7 = phi i32 [ 0, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i ], [ 12, %land.rhs.i.i ]
+_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %for.cond, %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i
+  %7 = phi i32 [ 0, %for.cond ], [ 12, %land.rhs.i.i ], [ %spec.select.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i ]
   %add.i = add nsw i32 %7, %3
   %idxprom.i = sext i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i
@@ -3062,7 +3062,7 @@ if.else8:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.else8, %if.then6
   %rem = srem i32 %hour, 10
-  %4 = trunc i32 %rem to i16
+  %4 = trunc nsw i32 %rem to i16
   %conv12 = add nsw i16 %4, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i31)
   store i16 %conv12, ptr %ch.addr.i31, align 2
@@ -3094,7 +3094,7 @@ if.else18:                                        ; preds = %if.end10
 
 if.end23:                                         ; preds = %if.else18, %if.then16
   %rem24 = srem i32 %min, 10
-  %6 = trunc i32 %rem24 to i16
+  %6 = trunc nsw i32 %rem24 to i16
   %conv26 = add nsw i16 %6, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i39)
   store i16 %conv26, ptr %ch.addr.i39, align 2
@@ -3130,7 +3130,7 @@ if.else34:                                        ; preds = %if.then29
 
 if.end39:                                         ; preds = %if.else34, %if.then32
   %rem40 = srem i32 %sec, 10
-  %8 = trunc i32 %rem40 to i16
+  %8 = trunc nsw i32 %rem40 to i16
   %conv42 = add nsw i16 %8, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i47)
   store i16 %conv42, ptr %ch.addr.i47, align 2
@@ -3171,7 +3171,7 @@ if.then4:                                         ; preds = %if.end
   %5 = load i32, ptr %sec, align 4
   %6 = load i32, ptr %sign, align 4
   %.lobit = lshr i32 %6, 31
-  %conv = trunc i32 %.lobit to i8
+  %conv = trunc nuw nsw i32 %.lobit to i8
   %call5 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone14formatCustomIDEiiiaRNS_13UnicodeStringE(i32 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef signext %conv, ptr noundef nonnull align 8 dereferenceable(64) %normalized)
   br label %return
 
@@ -3421,7 +3421,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %13 = load i32, ptr %sec.i, align 4
   %14 = load i32, ptr %sign.i, align 4
   %.lobit.i = lshr i32 %14, 31
-  %conv.i19 = trunc i32 %.lobit.i to i8
+  %conv.i19 = trunc nuw nsw i32 %.lobit.i to i8
   %call5.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone14formatCustomIDEiiiaRNS_13UnicodeStringE(i32 noundef %11, i32 noundef %12, i32 noundef %13, i8 noundef signext %conv.i19, ptr noundef nonnull align 8 dereferenceable(64) %canonicalID)
   br label %_ZN6icu_758TimeZone11getCustomIDERKNS_13UnicodeStringERS1_R10UErrorCode.exit
 

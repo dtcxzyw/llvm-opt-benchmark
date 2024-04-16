@@ -2785,7 +2785,7 @@ define dso_local void @_ZN7AstNode7vpiNameERKNSt7__cxx1112basic_stringIcSt11char
   %66 = phi i1 [ false, %11 ], [ false, %9 ], [ false, %25 ], [ true, %22 ], [ false, %19 ]
   %.056 = phi i8 [ 46, %11 ], [ %10, %9 ], [ 46, %25 ], [ 93, %22 ], [ 91, %19 ]
   %67 = getelementptr inbounds i8, ptr %.057, i64 %.sink
-  %68 = trunc i8 %.060.ph to i1
+  %68 = trunc nuw i8 %.060.ph to i1
   %or.cond = or i1 %64, %65
   %or.cond70 = and i1 %or.cond, %68
   br i1 %or.cond70, label %69, label %73
@@ -2826,7 +2826,7 @@ define dso_local void @_ZN7AstNode7vpiNameERKNSt7__cxx1112basic_stringIcSt11char
   br label %.outer.outer.backedge
 
 82:                                               ; preds = %9
-  %83 = trunc i8 %.060.ph to i1
+  %83 = trunc nuw i8 %.060.ph to i1
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %82
@@ -6901,57 +6901,54 @@ define linkonce_odr dso_local noundef ptr @_ZNK8AstBegin6stmtspEv(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK7AstNode12gateTreeIterEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #4 align 2 {
-  %2 = load ptr, ptr %0, align 8
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %21, %1
+  %.tr = phi ptr [ %0, %1 ], [ %23, %21 ]
+  %2 = load ptr, ptr %.tr, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 152
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(152) %0)
-  br i1 %5, label %6, label %27
+  %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(152) %.tr)
+  br i1 %5, label %6, label %24
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+6:                                                ; preds = %tailrecurse
+  %7 = getelementptr inbounds i8, ptr %.tr, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %6
   %10 = tail call noundef zeroext i1 @_ZNK7AstNode12gateTreeIterEv(ptr noundef nonnull align 8 dereferenceable(152) %8)
-  br i1 %10, label %11, label %27
+  br i1 %10, label %11, label %24
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds i8, ptr %.tr, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not6 = icmp eq ptr %13, null
   br i1 %.not6, label %16, label %14
 
 14:                                               ; preds = %11
   %15 = tail call noundef zeroext i1 @_ZNK7AstNode12gateTreeIterEv(ptr noundef nonnull align 8 dereferenceable(152) %13)
-  br i1 %15, label %16, label %27
+  br i1 %15, label %16, label %24
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds i8, ptr %.tr, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not7 = icmp eq ptr %18, null
   br i1 %.not7, label %21, label %19
 
 19:                                               ; preds = %16
   %20 = tail call noundef zeroext i1 @_ZNK7AstNode12gateTreeIterEv(ptr noundef nonnull align 8 dereferenceable(152) %18)
-  br i1 %20, label %21, label %27
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds i8, ptr %.tr, i64 48
   %23 = load ptr, ptr %22, align 8
   %.not8 = icmp eq ptr %23, null
-  br i1 %.not8, label %26, label %24
+  br i1 %.not8, label %24, label %tailrecurse
 
-24:                                               ; preds = %21
-  %25 = tail call noundef zeroext i1 @_ZNK7AstNode12gateTreeIterEv(ptr noundef nonnull align 8 dereferenceable(152) %23)
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %24, %21
-  br label %27
-
-27:                                               ; preds = %24, %19, %14, %9, %1, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %1 ], [ false, %9 ], [ false, %14 ], [ false, %19 ], [ false, %24 ]
+24:                                               ; preds = %21, %19, %14, %9, %tailrecurse
+  %.0 = phi i1 [ false, %tailrecurse ], [ false, %9 ], [ false, %14 ], [ false, %19 ], [ true, %21 ]
   ret i1 %.0
 }
 
@@ -7131,7 +7128,7 @@ define dso_local void @_ZNK7AstNode13checkTreeIterEPKS_(ptr noundef nonnull alig
 
 23:                                               ; preds = %14, %119
   %indvars.iv = phi i64 [ 1, %14 ], [ %indvars.iv.next, %119 ]
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %24, label %28 [
     i32 1, label %32
     i32 2, label %25
@@ -16577,7 +16574,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringI
 define linkonce_odr dso_local noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
+  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -16588,19 +16585,17 @@ define linkonce_odr dso_local noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt7__
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %10, 42
-  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
+  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
-  br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
+  %spec.select = select i1 %12, ptr %3, ptr null
+  br label %_ZNKSt9type_infoeqERKS_.exit.thread
 
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %5, %_ZNKSt9type_infoeqERKS_.exit
-  br label %_ZNKSt9type_infoeqERKS_.exit.thread8
-
-_ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %2
-  %.0 = phi ptr [ %3, %2 ], [ %3, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ]
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %9, %5, %2
+  %.0 = phi ptr [ %3, %2 ], [ %3, %5 ], [ null, %9 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %.0
 }
 

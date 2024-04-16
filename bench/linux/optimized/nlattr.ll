@@ -1411,7 +1411,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   store ptr %168, ptr %29, align 8
   br label %.thread54
 
-.thread51:                                        ; preds = %342, %592, %596, %527, %582, %518, %145
+.thread51:                                        ; preds = %596, %518, %342, %592, %527, %582, %145
   br i1 %22, label %604, label %602
 
 602:                                              ; preds = %.thread51
@@ -1433,7 +1433,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 ._crit_edge:                                      ; preds = %604, %.thread51.us, %98, %.thread51.us.us, %51, %._crit_edge221
   %.lcssa96 = phi i32 [ %1, %._crit_edge221 ], [ %54, %51 ], [ %77, %.thread51.us.us ], [ %101, %98 ], [ %126, %.thread51.us ], [ %609, %604 ]
   %613 = icmp sgt i32 %.lcssa96, 0
-  br i1 %613, label %.thread56, label %627, !prof !26
+  br i1 %613, label %.thread56, label %.thread54, !prof !26
 
 .thread56:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %._crit_edge
   %614 = phi i32 [ %.lcssa96, %._crit_edge ], [ %37, %.lr.ph.split.us.split.us.split.us ], [ %59, %.lr.ph.split.us.split.us.split ], [ %82, %.lr.ph.split.us.split.split.us ], [ %106, %.lr.ph.split.us.split.split ], [ %131, %.lr.ph.split ]
@@ -1459,14 +1459,12 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 624:                                              ; preds = %623, %622
   %625 = and i32 %4, 1
   %626 = icmp eq i32 %625, 0
-  br i1 %626, label %627, label %.thread54
-
-627:                                              ; preds = %624, %._crit_edge
+  %spec.select = select i1 %626, i32 0, i32 -22
   br label %.thread54
 
-.thread54:                                        ; preds = %596, %309, %291, %528, %218, %194, %193, %205, %204, %211, %210, %224, %223, %323, %322, %600, %.thread32, %.thread42, %.thread45, %526, %525, %524, %591, %590, %.split.us, %144, %627, %624, %20, %18
-  %628 = phi i32 [ 0, %627 ], [ -22, %20 ], [ -22, %18 ], [ -22, %624 ], [ -22, %.split.us ], [ -22, %144 ], [ -22, %.thread45 ], [ %.ph41, %.thread42 ], [ %599, %.thread32 ], [ %601, %600 ], [ -22, %322 ], [ -22, %323 ], [ -22, %223 ], [ -22, %224 ], [ -22, %210 ], [ -22, %211 ], [ -22, %204 ], [ -22, %205 ], [ -22, %193 ], [ -22, %194 ], [ -22, %218 ], [ -34, %524 ], [ -34, %525 ], [ -22, %526 ], [ -22, %591 ], [ -22, %590 ], [ %597, %596 ], [ -22, %528 ], [ %317, %309 ], [ %299, %291 ]
-  ret i32 %628
+.thread54:                                        ; preds = %596, %309, %291, %528, %218, %194, %193, %205, %204, %211, %210, %224, %223, %323, %322, %600, %.thread32, %.thread42, %.thread45, %526, %525, %524, %591, %590, %.split.us, %144, %624, %._crit_edge, %20, %18
+  %627 = phi i32 [ -22, %20 ], [ -22, %18 ], [ 0, %._crit_edge ], [ %spec.select, %624 ], [ -22, %.split.us ], [ -22, %144 ], [ -22, %.thread45 ], [ %.ph41, %.thread42 ], [ %599, %.thread32 ], [ %601, %600 ], [ -22, %322 ], [ -22, %323 ], [ -22, %223 ], [ -22, %224 ], [ -22, %210 ], [ -22, %211 ], [ -22, %204 ], [ -22, %205 ], [ -22, %193 ], [ -22, %194 ], [ -22, %218 ], [ -34, %524 ], [ -34, %525 ], [ -22, %526 ], [ -22, %591 ], [ -22, %590 ], [ %597, %596 ], [ -22, %528 ], [ %317, %309 ], [ %299, %291 ]
+  ret i32 %627
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)

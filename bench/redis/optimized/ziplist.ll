@@ -86,7 +86,7 @@ if.then4:                                         ; preds = %if.then
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then4
-  %conv7 = trunc i32 %rawlen to i8
+  %conv7 = trunc nuw nsw i32 %rawlen to i8
   store i8 %conv7, ptr %buf, align 1
   br label %if.end56
 
@@ -100,7 +100,7 @@ if.then10:                                        ; preds = %if.else
 
 if.end16:                                         ; preds = %if.then10
   %shr = lshr i32 %rawlen, 8
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv19 = or disjoint i8 %0, 64
   store i8 %conv19, ptr %buf, align 1
   %conv22 = trunc i32 %rawlen to i8
@@ -114,7 +114,7 @@ if.else24:                                        ; preds = %if.else
 if.end31:                                         ; preds = %if.else24
   store i8 -128, ptr %buf, align 1
   %shr33 = lshr i32 %rawlen, 24
-  %conv35 = trunc i32 %shr33 to i8
+  %conv35 = trunc nuw i32 %shr33 to i8
   %buf.1.buf.1.buf.1.buf.1.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 %conv35, ptr %buf.1.buf.1.buf.1.buf.1.arrayidx36.sroa_idx, align 1
   %shr37 = lshr i32 %rawlen, 16
@@ -184,7 +184,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp1, label %if.then4, label %zipStorePrevEntryLengthLarge.exit
 
 if.then4:                                         ; preds = %if.else
-  %conv5 = trunc i32 %len to i8
+  %conv5 = trunc nuw i32 %len to i8
   store i8 %conv5, ptr %p, align 1
   br label %return
 
@@ -231,7 +231,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %or.cond1, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then3
-  %2 = trunc i64 %1 to i8
+  %2 = trunc nuw i64 %1 to i8
   %conv9 = add nuw nsw i8 %2, -15
   br label %if.end42
 
@@ -409,7 +409,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   %call = tail call ptr @zrealloc(ptr noundef %zl, i64 noundef %len) #19
-  %conv2 = trunc i64 %len to i32
+  %conv2 = trunc nuw i64 %len to i32
   store i32 %conv2, ptr %call, align 4
   %0 = getelementptr i8, ptr %call, i64 %len
   %arrayidx = getelementptr i8, ptr %0, i64 -1
@@ -586,7 +586,7 @@ ziplistResize.exit:                               ; preds = %if.end90
   %sub.ptr.lhs.cast91 = ptrtoint ptr %p.addr.099 to i64
   %sub.ptr.sub93 = sub i64 %sub.ptr.lhs.cast91, %sub.ptr.rhs.cast
   %call.i = tail call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %add94) #19
-  %conv2.i = trunc i64 %add94 to i32
+  %conv2.i = trunc nuw i64 %add94 to i32
   store i32 %conv2.i, ptr %call.i, align 4
   %17 = getelementptr i8, ptr %call.i, i64 %add94
   %arrayidx.i = getelementptr i8, ptr %17, i64 -1
@@ -601,7 +601,7 @@ ziplistResize.exit:                               ; preds = %if.end90
 
 while.body103.lr.ph:                              ; preds = %ziplistResize.exit
   %prevrawlen123 = getelementptr inbounds i8, ptr %cur, i64 4
-  %conv5.i82 = trunc i32 %add.fr to i8
+  %conv5.i82 = trunc nuw i32 %add.fr to i8
   br i1 %cmp1.i, label %while.body103.us, label %while.body103
 
 while.body103.us:                                 ; preds = %while.body103.lr.ph, %if.end135.us
@@ -639,7 +639,7 @@ zipStorePrevEntryLengthLarge.exit.i86.us:         ; preds = %if.else129.us
   br label %if.end135.us
 
 if.then4.i89.us:                                  ; preds = %if.else129.us
-  %conv5.i90.us = trunc i32 %add132.us to i8
+  %conv5.i90.us = trunc nuw i32 %add132.us to i8
   store i8 %conv5.i90.us, ptr %add.ptr122.us, align 1
   br label %if.end135.us
 
@@ -689,7 +689,7 @@ if.else129:                                       ; preds = %while.body103
   br i1 %cmp1.i84, label %if.then4.i89, label %zipStorePrevEntryLengthLarge.exit.i86
 
 if.then4.i89:                                     ; preds = %if.else129
-  %conv5.i90 = trunc i32 %add132 to i8
+  %conv5.i90 = trunc nuw i32 %add132 to i8
   store i8 %conv5.i90, ptr %add.ptr122, align 1
   br label %if.end135
 
@@ -855,7 +855,7 @@ cond.end:                                         ; preds = %cond.end.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @zipEntrySafe(ptr noundef readnone %zl, i64 noundef %zlbytes, ptr noundef %p, ptr nocapture noundef writeonly %e, i32 noundef %validate_prevlen) unnamed_addr #1 {
+define internal fastcc i32 @zipEntrySafe(ptr noundef readnone %zl, i64 noundef %zlbytes, ptr noundef %p, ptr nocapture noundef writeonly %e, i32 noundef %validate_prevlen) unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %zl, i64 10
   %add.ptr1 = getelementptr inbounds i8, ptr %zl, i64 %zlbytes
@@ -994,7 +994,7 @@ do.end182:                                        ; preds = %if.else118, %if.els
 
 if.end192.sink.split:                             ; preds = %if.else124, %if.then144, %if.then158, %if.then151, %if.then137, %if.then56, %if.then89, %if.then68
   %or82.sink = phi i32 [ %or82, %if.then68 ], [ %or116, %if.then89 ], [ %and62, %if.then56 ], [ 2, %if.then137 ], [ 4, %if.then151 ], [ 8, %if.then158 ], [ 3, %if.then144 ], [ 1, %if.else124 ]
-  %.ph202.ph = phi i32 [ 2, %if.then68 ], [ 5, %if.then89 ], [ 1, %if.then56 ], [ 1, %if.then137 ], [ 1, %if.then151 ], [ 1, %if.then158 ], [ 1, %if.then144 ], [ 1, %if.else124 ]
+  %.ph203.ph = phi i32 [ 2, %if.then68 ], [ 5, %if.then89 ], [ 1, %if.then56 ], [ 1, %if.then137 ], [ 1, %if.then151 ], [ 1, %if.then158 ], [ 1, %if.then144 ], [ 1, %if.else124 ]
   %len83 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %or82.sink, ptr %len83, align 4
   %18 = zext i32 %or82.sink to i64
@@ -1002,13 +1002,13 @@ if.end192.sink.split:                             ; preds = %if.else124, %if.the
 
 if.end192:                                        ; preds = %if.end192.sink.split, %if.else160
   %.ph = phi i64 [ 0, %if.else160 ], [ %18, %if.end192.sink.split ]
-  %.ph202 = phi i32 [ 1, %if.else160 ], [ %.ph202.ph, %if.end192.sink.split ]
-  %add204 = add nuw nsw i32 %.ph202, %.
-  %headersize205 = getelementptr inbounds i8, ptr %e, i64 16
-  store i32 %add204, ptr %headersize205, align 8
-  %p185206 = getelementptr inbounds i8, ptr %e, i64 24
-  store ptr %p, ptr %p185206, align 8
-  %idx.ext194 = zext nneg i32 %add204 to i64
+  %.ph203 = phi i32 [ 1, %if.else160 ], [ %.ph203.ph, %if.end192.sink.split ]
+  %add205 = add nuw nsw i32 %.ph203, %.
+  %headersize206 = getelementptr inbounds i8, ptr %e, i64 16
+  store i32 %add205, ptr %headersize206, align 8
+  %p185207 = getelementptr inbounds i8, ptr %e, i64 24
+  store ptr %p, ptr %p185207, align 8
+  %idx.ext194 = zext nneg i32 %add205 to i64
   %add.ptr195 = getelementptr inbounds i8, ptr %p, i64 %idx.ext194
   %add.ptr198 = getelementptr inbounds i8, ptr %add.ptr195, i64 %.ph
   %cmp199 = icmp ult ptr %add.ptr198, %add.ptr
@@ -1018,18 +1018,16 @@ if.end192:                                        ; preds = %if.end192.sink.spli
 
 if.end216:                                        ; preds = %if.end192
   %tobool217.not = icmp eq i32 %validate_prevlen, 0
-  br i1 %tobool217.not, label %if.end239, label %land.lhs.true218
+  br i1 %tobool217.not, label %return, label %land.lhs.true218
 
 land.lhs.true218:                                 ; preds = %if.end216
   %idx.ext220 = zext i32 %4 to i64
   %idx.neg = sub nsw i64 0, %idx.ext220
   %add.ptr221 = getelementptr inbounds i8, ptr %p, i64 %idx.neg
-  %cmp222 = icmp ult ptr %add.ptr221, %add.ptr
-  %cmp229 = icmp ugt ptr %add.ptr221, %add.ptr2
-  %spec.select188 = select i1 %cmp222, i1 true, i1 %cmp229
-  br i1 %spec.select188, label %return, label %if.end239
-
-if.end239:                                        ; preds = %land.lhs.true218, %if.end216
+  %cmp222 = icmp uge ptr %add.ptr221, %add.ptr
+  %cmp229 = icmp ule ptr %add.ptr221, %add.ptr2
+  %spec.select188.not = select i1 %cmp222, i1 %cmp229, i1 false
+  %spec.select196 = zext i1 %spec.select188.not to i32
   br label %return
 
 if.end240:                                        ; preds = %entry
@@ -1090,8 +1088,8 @@ zipEncodingLenSize.exit:                          ; preds = %if.end24.i
 
 if.end315:                                        ; preds = %if.then33.i, %if.then38.i, %do.body286, %do.body286, %do.body286, %do.body286, %do.body286, %if.end.i, %if.end24.i
   %retval.0.i.ph = phi i32 [ 1, %if.end24.i ], [ 1, %if.end.i ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 5, %if.then38.i ], [ 2, %if.then33.i ]
-  %lensize304197 = getelementptr inbounds i8, ptr %e, i64 8
-  store i32 %retval.0.i.ph, ptr %lensize304197, align 8
+  %lensize304198 = getelementptr inbounds i8, ptr %e, i64 8
+  store i32 %retval.0.i.ph, ptr %lensize304198, align 8
   %idx.ext320 = zext nneg i32 %retval.0.i.ph to i64
   %add.ptr321 = getelementptr inbounds i8, ptr %add.ptr268, i64 %idx.ext320
   %cmp322 = icmp ult ptr %add.ptr321, %add.ptr
@@ -1130,7 +1128,7 @@ if.then384:                                       ; preds = %do.body379
   ]
 
 if.then389:                                       ; preds = %if.then384
-  store i32 1, ptr %lensize304197, align 8
+  store i32 1, ptr %lensize304198, align 8
   %idx.ext392 = zext nneg i32 %.192 to i64
   %add.ptr393 = getelementptr inbounds i8, ptr %p, i64 %idx.ext392
   %31 = load i8, ptr %add.ptr393, align 1
@@ -1141,7 +1139,7 @@ if.then389:                                       ; preds = %if.then384
   br label %do.end517
 
 if.then403:                                       ; preds = %if.then384
-  store i32 2, ptr %lensize304197, align 8
+  store i32 2, ptr %lensize304198, align 8
   %idx.ext406 = zext nneg i32 %.192 to i64
   %add.ptr407 = getelementptr inbounds i8, ptr %p, i64 %idx.ext406
   %33 = load i8, ptr %add.ptr407, align 1
@@ -1157,7 +1155,7 @@ if.then403:                                       ; preds = %if.then384
   br label %do.end517
 
 if.then424:                                       ; preds = %if.then384
-  store i32 5, ptr %lensize304197, align 8
+  store i32 5, ptr %lensize304198, align 8
   %idx.ext427 = zext nneg i32 %.192 to i64
   %add.ptr428 = getelementptr inbounds i8, ptr %p, i64 %idx.ext427
   %arrayidx429 = getelementptr inbounds i8, ptr %add.ptr428, i64 1
@@ -1183,13 +1181,13 @@ if.then424:                                       ; preds = %if.then384
   br label %do.end517
 
 if.else453:                                       ; preds = %if.then384
-  store i32 0, ptr %lensize304197, align 8
+  store i32 0, ptr %lensize304198, align 8
   %len455 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len455, align 4
   br label %do.end517
 
 if.else459:                                       ; preds = %do.body379
-  store i32 1, ptr %lensize304197, align 8
+  store i32 1, ptr %lensize304198, align 8
   switch i8 %22, label %if.else495 [
     i8 -2, label %if.then465
     i8 -64, label %if.then472
@@ -1231,7 +1229,7 @@ if.else495:                                       ; preds = %if.else459
   br i1 %or.cond193, label %if.else507, label %do.end517
 
 if.else507:                                       ; preds = %if.else495
-  store i32 0, ptr %lensize304197, align 8
+  store i32 0, ptr %lensize304198, align 8
   br label %do.end517
 
 do.end517:                                        ; preds = %if.else495, %if.then403, %if.else453, %if.then424, %if.then389, %if.then472, %if.then486, %if.else507, %if.then493, %if.then479, %if.then465
@@ -1267,8 +1265,8 @@ if.end571:                                        ; preds = %land.lhs.true549, %
   store ptr %p, ptr %p572, align 8
   br label %return
 
-return:                                           ; preds = %do.end182, %zipEncodingLenSize.exit, %land.lhs.true549, %do.end517, %if.end315, %do.body255, %if.end240, %land.lhs.true218, %if.end192, %if.end571, %if.end239
-  %retval.0 = phi i32 [ 1, %if.end239 ], [ 1, %if.end571 ], [ 0, %do.end182 ], [ 0, %if.end192 ], [ 0, %land.lhs.true218 ], [ 0, %if.end240 ], [ 0, %do.body255 ], [ 0, %zipEncodingLenSize.exit ], [ 0, %if.end315 ], [ 0, %do.end517 ], [ 0, %land.lhs.true549 ]
+return:                                           ; preds = %do.end182, %zipEncodingLenSize.exit, %land.lhs.true218, %land.lhs.true549, %do.end517, %if.end315, %do.body255, %if.end240, %if.end216, %if.end192, %if.end571
+  %retval.0 = phi i32 [ 1, %if.end571 ], [ 0, %do.end182 ], [ 0, %if.end192 ], [ 1, %if.end216 ], [ 0, %if.end240 ], [ 0, %do.body255 ], [ 0, %zipEncodingLenSize.exit ], [ 0, %if.end315 ], [ 0, %do.end517 ], [ 0, %land.lhs.true549 ], [ %spec.select196, %land.lhs.true218 ]
   ret i32 %retval.0
 }
 
@@ -1379,7 +1377,7 @@ if.else.i:                                        ; preds = %if.then19
   br i1 %cmp1.i.i, label %if.then4.i, label %zipStorePrevEntryLengthLarge.exit.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %conv5.i = trunc i32 %8 to i8
+  %conv5.i = trunc nuw i32 %8 to i8
   br label %zipStorePrevEntryLength.exit
 
 zipStorePrevEntryLengthLarge.exit.i:              ; preds = %if.else.i
@@ -1450,7 +1448,7 @@ ziplistResize.exit:                               ; preds = %if.end75
   %sub.ptr.rhs.cast78 = ptrtoint ptr %zl to i64
   %sub.ptr.sub79 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast78
   %call.i50 = tail call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %sub82) #19
-  %conv2.i = trunc i64 %sub82 to i32
+  %conv2.i = trunc nuw i64 %sub82 to i32
   store i32 %conv2.i, ptr %call.i50, align 4
   %16 = getelementptr i8, ptr %call.i50, i64 %sub82
   %arrayidx.i = getelementptr i8, ptr %16, i64 -1
@@ -1607,7 +1605,7 @@ if.else30.i:                                      ; preds = %if.else23.i
   br label %if.else50.i
 
 if.then39:                                        ; preds = %if.then3.i
-  %14 = trunc i64 %9 to i8
+  %14 = trunc nuw i64 %9 to i8
   %conv9.i = add nuw nsw i8 %14, -15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   br label %if.else50.i
@@ -1680,7 +1678,7 @@ cond.false.i87:                                   ; preds = %cond.end
 
 ziplistResize.exit:                               ; preds = %cond.end
   %call.i88 = call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %add64) #19
-  %conv2.i = trunc i64 %add64 to i32
+  %conv2.i = trunc nuw i64 %add64 to i32
   store i32 %conv2.i, ptr %call.i88, align 4
   %16 = getelementptr i8, ptr %call.i88, i64 %add64
   %arrayidx.i = getelementptr i8, ptr %16, i64 -1
@@ -1778,7 +1776,7 @@ if.else.i97:                                      ; preds = %if.end121, %if.end1
   br i1 %cmp1.i161, label %if.then4.i101, label %zipStorePrevEntryLengthLarge.exit.i98
 
 if.then4.i101:                                    ; preds = %if.else.i97
-  %conv5.i102 = trunc i32 %prevlen.0 to i8
+  %conv5.i102 = trunc nuw i32 %prevlen.0 to i8
   store i8 %conv5.i102, ptr %p.addr.0187, align 1
   br label %zipStorePrevEntryLength.exit105
 
@@ -1802,7 +1800,7 @@ if.then.i107:                                     ; preds = %zipStorePrevEntryLe
   br i1 %cmp2.i108, label %if.then4.i114, label %if.else.i109
 
 if.then4.i114:                                    ; preds = %if.then.i107
-  %conv7.i = trunc i32 %slen to i8
+  %conv7.i = trunc nuw nsw i32 %slen to i8
   store i8 %conv7.i, ptr %buf.i, align 1
   br label %if.then141
 
@@ -1812,7 +1810,7 @@ if.else.i109:                                     ; preds = %if.then.i107
 
 if.then10.i113:                                   ; preds = %if.else.i109
   %shr.i = lshr i32 %slen, 8
-  %25 = trunc i32 %shr.i to i8
+  %25 = trunc nuw i32 %shr.i to i8
   %conv19.i = or disjoint i8 %25, 64
   store i8 %conv19.i, ptr %buf.i, align 1
   %conv22.i = trunc i32 %slen to i8
@@ -1823,7 +1821,7 @@ if.then10.i113:                                   ; preds = %if.else.i109
 if.else24.i111:                                   ; preds = %if.else.i109
   store i8 -128, ptr %buf.i, align 1
   %shr33.i = lshr i32 %slen, 24
-  %conv35.i = trunc i32 %shr33.i to i8
+  %conv35.i = trunc nuw i32 %shr33.i to i8
   %buf.i.1.buf.i.1.buf.i.1.buf.1.buf.1.buf.1.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %buf.i, i64 1
   store i8 %conv35.i, ptr %buf.i.1.buf.i.1.buf.i.1.buf.1.buf.1.buf.1.arrayidx36.sroa_idx, align 1
   %shr37.i = lshr i32 %slen, 16
@@ -1981,9 +1979,9 @@ if.else38:                                        ; preds = %cond.end27
 if.end44:                                         ; preds = %if.else38, %if.then33
   %second.first = phi ptr [ %second, %if.else38 ], [ %first, %if.then33 ]
   %first.second = phi ptr [ %first, %if.else38 ], [ %second, %if.then33 ]
-  %conv45 = trunc i64 %sub17 to i32
+  %conv45 = trunc nuw i64 %sub17 to i32
   store i32 %conv45, ptr %call, align 4
-  %conv46 = trunc i64 %cond to i16
+  %conv46 = trunc nuw i64 %cond to i16
   %add.ptr47 = getelementptr inbounds i8, ptr %call, i64 8
   store i16 %conv46, ptr %add.ptr47, align 2
   %sub49 = add i32 %2, -11
@@ -2521,7 +2519,7 @@ if.else30.i:                                      ; preds = %if.else23.i
   br label %zipStoreEntryEncoding.exit
 
 if.then:                                          ; preds = %if.then3.i
-  %6 = trunc i64 %1 to i8
+  %6 = trunc nuw i64 %1 to i8
   %conv9.i = add nuw nsw i8 %6, -15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   br label %zipStoreEntryEncoding.exit
@@ -2567,7 +2565,7 @@ if.then4.i24:                                     ; preds = %if.then.i17
   br i1 %tobool.not.i25, label %zipStoreEntryEncoding.exit28.thread, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then4.i24
-  %conv7.i = trunc i32 %slen to i8
+  %conv7.i = trunc nuw nsw i32 %slen to i8
   store i8 %conv7.i, ptr %buf.i, align 1
   br label %zipStoreEntryEncoding.exit28.thread95
 
@@ -2581,7 +2579,7 @@ if.then10.i23:                                    ; preds = %if.else.i19
 
 if.end16.i:                                       ; preds = %if.then10.i23
   %shr.i = lshr i32 %slen, 8
-  %10 = trunc i32 %shr.i to i8
+  %10 = trunc nuw i32 %shr.i to i8
   %conv19.i = or disjoint i8 %10, 64
   store i8 %conv19.i, ptr %buf.i, align 1
   %conv22.i = trunc i32 %slen to i8
@@ -2595,7 +2593,7 @@ if.else24.i21:                                    ; preds = %if.else.i19
 if.end31.i:                                       ; preds = %if.else24.i21
   store i8 -128, ptr %buf.i, align 1
   %shr33.i = lshr i32 %slen, 24
-  %conv35.i = trunc i32 %shr33.i to i8
+  %conv35.i = trunc nuw i32 %shr33.i to i8
   %buf.i.1.buf.i.1.buf.i.1.buf.1.buf.1.buf.1.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %buf.i, i64 1
   store i8 %conv35.i, ptr %buf.i.1.buf.i.1.buf.i.1.buf.1.buf.1.buf.1.arrayidx36.sroa_idx, align 1
   %shr37.i = lshr i32 %slen, 16
@@ -2894,7 +2892,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %or.cond1.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then3.i
-  %8 = trunc i64 %7 to i8
+  %8 = trunc nuw i64 %7 to i8
   %conv9.i = add nuw nsw i8 %8, -15
   br label %if.end39.thread24
 
@@ -3061,7 +3059,7 @@ while.end:                                        ; preds = %zipRawEntryLengthSa
 
 if.then12:                                        ; preds = %if.else, %while.end
   %len.0.lcssa17 = phi i32 [ %inc, %while.end ], [ 0, %if.else ]
-  %conv13 = trunc i32 %len.0.lcssa17 to i16
+  %conv13 = trunc nuw i32 %len.0.lcssa17 to i16
   store i16 %conv13, ptr %add.ptr, align 2
   br label %if.end15
 
@@ -3559,7 +3557,7 @@ while.end.i:                                      ; preds = %zipRawEntryLengthSa
 
 if.then12.i:                                      ; preds = %while.end.i, %if.else.i
   %len.0.lcssa17.i = phi i32 [ %inc.i, %while.end.i ], [ 0, %if.else.i ]
-  %conv13.i = trunc i32 %len.0.lcssa17.i to i16
+  %conv13.i = trunc nuw i32 %len.0.lcssa17.i to i16
   store i16 %conv13.i, ptr %add.ptr.i, align 2
   br label %ziplistLen.exit
 
@@ -3587,7 +3585,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv
   store i32 %mul7, ptr %arrayidx, align 4
   %order = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   store i32 %6, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
@@ -3723,11 +3721,11 @@ while.body40:                                     ; preds = %land.rhs33
   br i1 %exitcond80.not, label %while.end, label %land.rhs33, !llvm.loop !18
 
 while.end.loopexit.split.loop.exit93:             ; preds = %land.rhs33.us
-  %25 = trunc i64 %indvars.iv81 to i32
+  %25 = trunc nuw i64 %indvars.iv81 to i32
   br label %while.end
 
 while.end.loopexit89.split.loop.exit91:           ; preds = %land.rhs33
-  %26 = trunc i64 %indvars.iv77 to i32
+  %26 = trunc nuw i64 %indvars.iv77 to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body40, %while.body40.us, %while.end.loopexit89.split.loop.exit91, %while.end.loopexit.split.loop.exit93, %while.cond30.preheader
@@ -3851,7 +3849,7 @@ while.end.i:                                      ; preds = %zipRawEntryLengthSa
 
 if.then12.i:                                      ; preds = %while.end.i, %if.else.i
   %len.0.lcssa17.i = phi i32 [ %inc.i, %while.end.i ], [ 0, %if.else.i ]
-  %conv13.i = trunc i32 %len.0.lcssa17.i to i16
+  %conv13.i = trunc nuw i32 %len.0.lcssa17.i to i16
   store i16 %conv13.i, ptr %add.ptr.i, align 2
   br label %ziplistLen.exit
 

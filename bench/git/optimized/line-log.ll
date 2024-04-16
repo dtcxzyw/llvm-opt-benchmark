@@ -324,7 +324,7 @@ if.end11.i:                                       ; preds = %lor.lhs.false.i
   br i1 %tobool12.not.i, label %if.end11.for.inc_crit_edge.i, label %if.then13.i
 
 if.end11.for.inc_crit_edge.i:                     ; preds = %if.end11.i
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.pre.i = load i32, ptr %pending.i, align 8
   br label %for.inc.i
 
@@ -502,38 +502,33 @@ land.lhs.true37.i:                                ; preds = %if.end35.i
   %36 = load i64, ptr %end.i, align 8
   %tobool40.i = icmp ne i64 %36, 0
   %or.cond.i = select i1 %tobool38.i, i1 true, i1 %tobool40.i
-  br i1 %or.cond.i, label %if.then44.i, label %if.then48.i
+  br i1 %or.cond.i, label %if.then44.i, label %if.then55.i
 
 lor.lhs.false41.i:                                ; preds = %if.end35.i
   %cmp42.i = icmp slt i64 %27, %35
-  br i1 %cmp42.i, label %if.then44.i, label %if.end45.i
+  br i1 %cmp42.i, label %if.then44.i, label %if.end49.i
 
 if.then44.i:                                      ; preds = %lor.lhs.false41.i, %land.lhs.true37.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.6, ptr noundef nonnull %arrayidx.i12, i64 noundef %27) #17
   unreachable
 
-if.end45.i:                                       ; preds = %lor.lhs.false41.i
-  %cmp46.i = icmp slt i64 %35, 1
-  br i1 %cmp46.i, label %if.then48.i, label %if.end49.i
-
-if.then48.i:                                      ; preds = %if.end45.i, %land.lhs.true37.i
-  br label %if.end49.i
-
-if.end49.i:                                       ; preds = %if.then48.i, %if.end45.i
-  %37 = phi i64 [ 1, %if.then48.i ], [ %35, %if.end45.i ]
-  %38 = load i64, ptr %end.i, align 8
-  %cmp50.i = icmp slt i64 %38, 1
-  %cmp53.i = icmp slt i64 %27, %38
+if.end49.i:                                       ; preds = %lor.lhs.false41.i
+  %spec.select.i = call i64 @llvm.smax.i64(i64 %35, i64 1)
+  %.pre = load i64, ptr %end.i, align 8
+  %cmp50.i = icmp slt i64 %.pre, 1
+  %cmp53.i = icmp slt i64 %27, %.pre
   %or.cond35.i = select i1 %cmp50.i, i1 true, i1 %cmp53.i
   br i1 %or.cond35.i, label %if.then55.i, label %if.end56.i
 
-if.then55.i:                                      ; preds = %if.end49.i
+if.then55.i:                                      ; preds = %land.lhs.true37.i, %if.end49.i
+  %37 = phi i64 [ %spec.select.i, %if.end49.i ], [ 1, %land.lhs.true37.i ]
   store i64 %27, ptr %end.i, align 8
   br label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.then55.i, %if.end49.i
-  %39 = phi i64 [ %38, %if.end49.i ], [ %27, %if.then55.i ]
-  %dec.i = add nsw i64 %37, -1
+  %38 = phi i64 [ %spec.select.i, %if.end49.i ], [ %37, %if.then55.i ]
+  %39 = phi i64 [ %.pre, %if.end49.i ], [ %27, %if.then55.i ]
+  %dec.i = add nsw i64 %38, -1
   store i64 %dec.i, ptr %begin.i, align 8
   br i1 %tobool1.not9.i.i, label %if.end.i.i, label %while.body.i.i.i
 
@@ -1136,7 +1131,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %exitcond.not.i.i, label %for.inc226.i.i, label %land.rhs.i.i, !llvm.loop !13
 
 while.end.loopexit.i.i:                           ; preds = %land.rhs.i.i
-  %39 = trunc i64 %indvars.iv.i.i to i32
+  %39 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %for.body.i.i
@@ -1173,7 +1168,7 @@ while.body85.i.i:                                 ; preds = %land.rhs77.i.i
   br i1 %exitcond172.not.i.i, label %while.end87.i.i, label %land.rhs77.i.i, !llvm.loop !14
 
 while.end87.loopexit.split.loop.exit189.i.i:      ; preds = %land.rhs77.i.i
-  %43 = trunc i64 %indvars.iv169.i.i to i32
+  %43 = trunc nuw i64 %indvars.iv169.i.i to i32
   br label %while.end87.i.i
 
 while.end87.i.i:                                  ; preds = %while.body85.i.i, %while.end87.loopexit.split.loop.exit189.i.i, %while.cond73.preheader.i.i
@@ -2061,7 +2056,7 @@ if.end40:                                         ; preds = %while.body, %do.end
   %size.3 = phi i32 [ %size.2, %do.end ], [ %size.032, %while.body ]
   %cur.1 = phi i64 [ %add, %do.end ], [ %cur.033, %while.body ]
   %ends.2 = phi ptr [ %ends.1, %do.end ], [ %ends.034, %while.body ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp ugt i64 %5, %indvars.iv.next
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !30
 
@@ -2873,7 +2868,7 @@ while.body15.i.i.i:                               ; preds = %land.rhs.i.i.i
   br i1 %exitcond.not.i.i.i, label %if.then.i.i.i, label %land.rhs.i.i.i, !llvm.loop !37
 
 lor.lhs.false.i.i.i:                              ; preds = %land.rhs.i.i.i
-  %68 = trunc i64 %indvars.iv.i31.i.i to i32
+  %68 = trunc nuw i64 %indvars.iv.i31.i.i to i32
   %idxprom19.i.i.i = and i64 %indvars.iv.i31.i.i, 4294967295
   %arrayidx20.i.i.i = getelementptr inbounds %struct.range, ptr %65, i64 %idxprom19.i.i.i
   %69 = load i64, ptr %arrayidx20.i.i.i, align 8
@@ -3029,7 +3024,7 @@ while.body.i66.i.i:                               ; preds = %land.rhs.i64.i.i
   br i1 %exitcond.not.i69.i.i, label %while.end.i42.i.i, label %land.rhs.i64.i.i, !llvm.loop !40
 
 while.end.loopexit.split.loop.exit36.i.i.i:       ; preds = %land.rhs.i64.i.i
-  %88 = trunc i64 %indvars.iv.i65.i.i to i32
+  %88 = trunc nuw i64 %indvars.iv.i65.i.i to i32
   br label %while.end.i42.i.i
 
 while.end.i42.i.i:                                ; preds = %while.body.i66.i.i, %while.end.loopexit.split.loop.exit36.i.i.i, %while.cond.preheader.i40.i.i
@@ -3471,6 +3466,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

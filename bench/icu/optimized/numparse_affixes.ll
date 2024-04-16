@@ -2111,7 +2111,7 @@ lpad9:                                            ; preds = %land.lhs.true48, %l
 if.end:                                           ; preds = %invoke.cont18, %invoke.cont10
   %and = and i32 %parseFlags, 256
   %cmp = icmp eq i32 %and, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end52
+  br i1 %cmp, label %land.lhs.true, label %cleanup
 
 land.lhs.true:                                    ; preds = %if.end
   %call21 = invoke noundef ptr @_ZNK6icu_758numparse4impl13SymbolMatcher6getSetEv(ptr noundef nonnull align 8 dereferenceable(80) %ignorables)
@@ -2122,7 +2122,7 @@ invoke.cont20:                                    ; preds = %land.lhs.true
           to label %invoke.cont22 unwind label %lpad9
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  br i1 %call23, label %land.lhs.true24, label %if.end52
+  br i1 %call23, label %land.lhs.true24, label %cleanup
 
 land.lhs.true24:                                  ; preds = %invoke.cont22
   %call26 = invoke noundef ptr @_ZNK6icu_758numparse4impl13SymbolMatcher6getSetEv(ptr noundef nonnull align 8 dereferenceable(80) %ignorables)
@@ -2133,7 +2133,7 @@ invoke.cont25:                                    ; preds = %land.lhs.true24
           to label %invoke.cont27 unwind label %lpad9
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  br i1 %call28, label %land.lhs.true29, label %if.end52
+  br i1 %call28, label %land.lhs.true29, label %cleanup
 
 land.lhs.true29:                                  ; preds = %invoke.cont27
   %call31 = invoke noundef ptr @_ZNK6icu_758numparse4impl13SymbolMatcher6getSetEv(ptr noundef nonnull align 8 dereferenceable(80) %ignorables)
@@ -2144,7 +2144,7 @@ invoke.cont30:                                    ; preds = %land.lhs.true29
           to label %invoke.cont32 unwind label %lpad9
 
 invoke.cont32:                                    ; preds = %invoke.cont30
-  br i1 %call33, label %land.lhs.true34, label %if.end52
+  br i1 %call33, label %land.lhs.true34, label %cleanup
 
 land.lhs.true34:                                  ; preds = %invoke.cont32
   %call36 = invoke noundef ptr @_ZNK6icu_758numparse4impl13SymbolMatcher6getSetEv(ptr noundef nonnull align 8 dereferenceable(80) %ignorables)
@@ -2155,41 +2155,35 @@ invoke.cont35:                                    ; preds = %land.lhs.true34
           to label %invoke.cont37 unwind label %lpad9
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  br i1 %call38, label %land.lhs.true39, label %if.end52
+  br i1 %call38, label %land.lhs.true39, label %cleanup
 
 land.lhs.true39:                                  ; preds = %invoke.cont37
   %call41 = invoke noundef zeroext i1 @_ZN6icu_756number4impl10AffixUtils12containsTypeERKNS_13UnicodeStringENS1_16AffixPatternTypeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %posSuffixString, i32 noundef -2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont40 unwind label %lpad9
 
 invoke.cont40:                                    ; preds = %land.lhs.true39
-  br i1 %call41, label %if.end52, label %land.lhs.true42
+  br i1 %call41, label %cleanup, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %invoke.cont40
   %call44 = invoke noundef zeroext i1 @_ZN6icu_756number4impl10AffixUtils12containsTypeERKNS_13UnicodeStringENS1_16AffixPatternTypeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %posSuffixString, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont43 unwind label %lpad9
 
 invoke.cont43:                                    ; preds = %land.lhs.true42
-  br i1 %call44, label %if.end52, label %land.lhs.true45
+  br i1 %call44, label %cleanup, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %invoke.cont43
   %call47 = invoke noundef zeroext i1 @_ZN6icu_756number4impl10AffixUtils12containsTypeERKNS_13UnicodeStringENS1_16AffixPatternTypeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %negSuffixString, i32 noundef -2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont46 unwind label %lpad9
 
 invoke.cont46:                                    ; preds = %land.lhs.true45
-  br i1 %call47, label %if.end52, label %land.lhs.true48
+  br i1 %call47, label %cleanup, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %invoke.cont46
   %call50 = invoke noundef zeroext i1 @_ZN6icu_756number4impl10AffixUtils12containsTypeERKNS_13UnicodeStringENS1_16AffixPatternTypeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %negSuffixString, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont49 unwind label %lpad9
+          to label %cleanup unwind label %lpad9
 
-invoke.cont49:                                    ; preds = %land.lhs.true48
-  br i1 %call50, label %if.end52, label %cleanup
-
-if.end52:                                         ; preds = %invoke.cont49, %invoke.cont46, %invoke.cont43, %invoke.cont40, %invoke.cont37, %invoke.cont32, %invoke.cont27, %invoke.cont22, %if.end
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont49, %if.end52
-  %retval.0 = phi i1 [ true, %if.end52 ], [ false, %invoke.cont49 ]
+cleanup:                                          ; preds = %land.lhs.true48, %if.end, %invoke.cont22, %invoke.cont27, %invoke.cont32, %invoke.cont37, %invoke.cont40, %invoke.cont43, %invoke.cont46
+  %retval.0 = phi i1 [ true, %invoke.cont46 ], [ true, %invoke.cont43 ], [ true, %invoke.cont40 ], [ true, %invoke.cont37 ], [ true, %invoke.cont32 ], [ true, %invoke.cont27 ], [ true, %invoke.cont22 ], [ true, %if.end ], [ %call50, %land.lhs.true48 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffixString) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negPrefixString) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %posSuffixString) #16

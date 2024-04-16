@@ -5559,7 +5559,7 @@ define internal void @trace_event_raw_event_nfs_inode_event_done(ptr noundef %0,
   store i32 %36, ptr %37, align 4
   %38 = load i16, ptr %1, align 8
   %39 = lshr i16 %38, 12
-  %40 = trunc i16 %39 to i8
+  %40 = trunc nuw nsw i16 %39 to i8
   %41 = getelementptr inbounds i8, ptr %15, i64 24
   store i8 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 312
@@ -5653,7 +5653,7 @@ define internal void @perf_trace_nfs_inode_event_done(ptr noundef %0, ptr nounde
   store i32 %47, ptr %48, align 4
   %49 = load i16, ptr %1, align 8
   %50 = lshr i16 %49, 12
-  %51 = trunc i16 %50 to i8
+  %51 = trunc nuw nsw i16 %50 to i8
   %52 = getelementptr inbounds i8, ptr %17, i64 24
   store i8 %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %1, i64 312
@@ -5734,7 +5734,7 @@ define internal void @trace_event_raw_event_nfs_access_exit(ptr noundef %0, ptr 
   store i32 %38, ptr %39, align 4
   %40 = load i16, ptr %1, align 8
   %41 = lshr i16 %40, 12
-  %42 = trunc i16 %41 to i8
+  %42 = trunc nuw nsw i16 %41 to i8
   %43 = getelementptr inbounds i8, ptr %17, i64 24
   store i8 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 312
@@ -5832,7 +5832,7 @@ define internal void @perf_trace_nfs_access_exit(ptr noundef %0, ptr noundef %1,
   store i32 %49, ptr %50, align 4
   %51 = load i16, ptr %1, align 8
   %52 = lshr i16 %51, 12
-  %53 = trunc i16 %52 to i8
+  %53 = trunc nuw nsw i16 %52 to i8
   %54 = getelementptr inbounds i8, ptr %19, i64 24
   store i8 %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %1, i64 312
@@ -8499,13 +8499,13 @@ define internal void @trace_event_raw_event_nfs_folio_event(ptr noundef %0, ptr 
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #12
-  br i1 %13, label %81, label %14
+  br i1 %13, label %80, label %14
 
 14:                                               ; preds = %12, %9, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !97
   %15 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 48) #12
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %81, label %17
+  br i1 %16, label %80, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %1, i64 -432
@@ -8539,11 +8539,11 @@ define internal void @trace_event_raw_event_nfs_folio_event(ptr noundef %0, ptr 
 40:                                               ; preds = %17
   %41 = add nsw i64 %37, -1
   %42 = inttoptr i64 %41 to ptr
-  br label %60
+  br label %59
 
 43:                                               ; preds = %17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %60 [label %44], !srcloc !117
+          to label %59 [label %44], !srcloc !117
 
 44:                                               ; preds = %43
   %45 = ptrtoint ptr %2 to i64
@@ -8564,46 +8564,44 @@ define internal void @trace_event_raw_event_nfs_folio_event(ptr noundef %0, ptr 
   %56 = icmp eq i64 %55, 0
   %57 = add nsw i64 %54, -1
   %58 = inttoptr i64 %57 to ptr
-  br i1 %56, label %59, label %60
+  %spec.select = select i1 %56, ptr %2, ptr %58
+  br label %59
 
-59:                                               ; preds = %52, %48, %44
-  br label %60
+59:                                               ; preds = %52, %44, %48, %43, %40
+  %60 = phi ptr [ %42, %40 ], [ %2, %43 ], [ %2, %48 ], [ %2, %44 ], [ %spec.select, %52 ]
+  %61 = load volatile i64, ptr %60, align 8
+  %62 = and i64 %61, 524288
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %70, label %64
 
-60:                                               ; preds = %59, %52, %43, %40
-  %61 = phi ptr [ %42, %40 ], [ %58, %52 ], [ %2, %59 ], [ %2, %43 ]
-  %62 = load volatile i64, ptr %61, align 8
-  %63 = and i64 %62, 524288
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %71, label %65
+64:                                               ; preds = %59
+  %65 = load volatile i64, ptr %60, align 8
+  %66 = and i64 %65, 4096
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %70, label %68, !prof !95
 
-65:                                               ; preds = %60
-  %66 = load volatile i64, ptr %61, align 8
-  %67 = and i64 %66, 4096
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %71, label %69, !prof !95
+68:                                               ; preds = %64
+  %69 = call i64 @__page_file_index(ptr noundef %2) #12
+  br label %73
 
-69:                                               ; preds = %65
-  %70 = call i64 @__page_file_index(ptr noundef %2) #12
-  br label %74
+70:                                               ; preds = %64, %59
+  %71 = getelementptr inbounds i8, ptr %2, i64 32
+  %72 = load i64, ptr %71, align 8
+  br label %73
 
-71:                                               ; preds = %65, %60
-  %72 = getelementptr inbounds i8, ptr %2, i64 32
-  %73 = load i64, ptr %72, align 8
-  br label %74
-
-74:                                               ; preds = %71, %69
-  %75 = phi i64 [ %70, %69 ], [ %73, %71 ]
-  %76 = shl i64 %75, 12
-  %77 = getelementptr inbounds i8, ptr %15, i64 32
-  store i64 %76, ptr %77, align 8
-  %78 = call fastcc i64 @nfs_folio_length(ptr noundef %2)
-  %79 = trunc i64 %78 to i32
-  %80 = getelementptr inbounds i8, ptr %15, i64 40
-  store i32 %79, ptr %80, align 8
+73:                                               ; preds = %70, %68
+  %74 = phi i64 [ %69, %68 ], [ %72, %70 ]
+  %75 = shl i64 %74, 12
+  %76 = getelementptr inbounds i8, ptr %15, i64 32
+  store i64 %75, ptr %76, align 8
+  %77 = call fastcc i64 @nfs_folio_length(ptr noundef %2)
+  %78 = trunc i64 %77 to i32
+  %79 = getelementptr inbounds i8, ptr %15, i64 40
+  store i32 %78, ptr %79, align 8
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #12
-  br label %81
+  br label %80
 
-81:                                               ; preds = %74, %14, %12
+80:                                               ; preds = %73, %14, %12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
   ret void
 }
@@ -8627,13 +8625,13 @@ define internal void @perf_trace_nfs_folio_event(ptr noundef %0, ptr noundef %1,
 13:                                               ; preds = %3
   %14 = load volatile ptr, ptr %9, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %94, label %16
+  br i1 %15, label %93, label %16
 
 16:                                               ; preds = %13, %3
   store i32 0, ptr %5, align 4, !annotation !97
   %17 = call ptr @perf_trace_buf_alloc(i32 noundef 52, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %94, label %19
+  br i1 %18, label %93, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %4, align 8
@@ -8680,11 +8678,11 @@ define internal void @perf_trace_nfs_folio_event(ptr noundef %0, ptr noundef %1,
 51:                                               ; preds = %19
   %52 = add nsw i64 %48, -1
   %53 = inttoptr i64 %52 to ptr
-  br label %71
+  br label %70
 
 54:                                               ; preds = %19
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %71 [label %55], !srcloc !117
+          to label %70 [label %55], !srcloc !117
 
 55:                                               ; preds = %54
   %56 = ptrtoint ptr %2 to i64
@@ -8705,48 +8703,46 @@ define internal void @perf_trace_nfs_folio_event(ptr noundef %0, ptr noundef %1,
   %67 = icmp eq i64 %66, 0
   %68 = add nsw i64 %65, -1
   %69 = inttoptr i64 %68 to ptr
-  br i1 %67, label %70, label %71
+  %spec.select = select i1 %67, ptr %2, ptr %69
+  br label %70
 
-70:                                               ; preds = %63, %59, %55
-  br label %71
+70:                                               ; preds = %63, %55, %59, %54, %51
+  %71 = phi ptr [ %53, %51 ], [ %2, %54 ], [ %2, %59 ], [ %2, %55 ], [ %spec.select, %63 ]
+  %72 = load volatile i64, ptr %71, align 8
+  %73 = and i64 %72, 524288
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %81, label %75
 
-71:                                               ; preds = %70, %63, %54, %51
-  %72 = phi ptr [ %53, %51 ], [ %69, %63 ], [ %2, %70 ], [ %2, %54 ]
-  %73 = load volatile i64, ptr %72, align 8
-  %74 = and i64 %73, 524288
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %82, label %76
+75:                                               ; preds = %70
+  %76 = load volatile i64, ptr %71, align 8
+  %77 = and i64 %76, 4096
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %81, label %79, !prof !95
 
-76:                                               ; preds = %71
-  %77 = load volatile i64, ptr %72, align 8
-  %78 = and i64 %77, 4096
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %82, label %80, !prof !95
+79:                                               ; preds = %75
+  %80 = call i64 @__page_file_index(ptr noundef %2) #12
+  br label %84
 
-80:                                               ; preds = %76
-  %81 = call i64 @__page_file_index(ptr noundef %2) #12
-  br label %85
+81:                                               ; preds = %75, %70
+  %82 = getelementptr inbounds i8, ptr %2, i64 32
+  %83 = load i64, ptr %82, align 8
+  br label %84
 
-82:                                               ; preds = %76, %71
-  %83 = getelementptr inbounds i8, ptr %2, i64 32
-  %84 = load i64, ptr %83, align 8
-  br label %85
+84:                                               ; preds = %81, %79
+  %85 = phi i64 [ %80, %79 ], [ %83, %81 ]
+  %86 = shl i64 %85, 12
+  %87 = getelementptr inbounds i8, ptr %17, i64 32
+  store i64 %86, ptr %87, align 8
+  %88 = call fastcc i64 @nfs_folio_length(ptr noundef %2)
+  %89 = trunc i64 %88 to i32
+  %90 = getelementptr inbounds i8, ptr %17, i64 40
+  store i32 %89, ptr %90, align 8
+  %91 = load i32, ptr %5, align 4
+  %92 = load ptr, ptr %4, align 8
+  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %17, i32 noundef 52, i32 noundef %91, ptr noundef %0, i64 noundef 1, ptr noundef %92, ptr noundef %9, ptr noundef null) #12
+  br label %93
 
-85:                                               ; preds = %82, %80
-  %86 = phi i64 [ %81, %80 ], [ %84, %82 ]
-  %87 = shl i64 %86, 12
-  %88 = getelementptr inbounds i8, ptr %17, i64 32
-  store i64 %87, ptr %88, align 8
-  %89 = call fastcc i64 @nfs_folio_length(ptr noundef %2)
-  %90 = trunc i64 %89 to i32
-  %91 = getelementptr inbounds i8, ptr %17, i64 40
-  store i32 %90, ptr %91, align 8
-  %92 = load i32, ptr %5, align 4
-  %93 = load ptr, ptr %4, align 8
-  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %17, i32 noundef 52, i32 noundef %92, ptr noundef %0, i64 noundef 1, ptr noundef %93, ptr noundef %9, ptr noundef null) #12
-  br label %94
-
-94:                                               ; preds = %85, %16, %13
+93:                                               ; preds = %84, %16, %13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   ret void
@@ -8769,13 +8765,13 @@ define internal void @trace_event_raw_event_nfs_folio_event_done(ptr noundef %0,
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @__trace_trigger_soft_disabled(ptr noundef %0) #12
-  br i1 %14, label %83, label %15
+  br i1 %14, label %82, label %15
 
 15:                                               ; preds = %13, %10, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !97
   %16 = call ptr @trace_event_buffer_reserve(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 56) #12
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %83, label %18
+  br i1 %17, label %82, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr i8, ptr %1, i64 -432
@@ -8809,11 +8805,11 @@ define internal void @trace_event_raw_event_nfs_folio_event_done(ptr noundef %0,
 41:                                               ; preds = %18
   %42 = add nsw i64 %38, -1
   %43 = inttoptr i64 %42 to ptr
-  br label %61
+  br label %60
 
 44:                                               ; preds = %18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %61 [label %45], !srcloc !117
+          to label %60 [label %45], !srcloc !117
 
 45:                                               ; preds = %44
   %46 = ptrtoint ptr %2 to i64
@@ -8834,48 +8830,46 @@ define internal void @trace_event_raw_event_nfs_folio_event_done(ptr noundef %0,
   %57 = icmp eq i64 %56, 0
   %58 = add nsw i64 %55, -1
   %59 = inttoptr i64 %58 to ptr
-  br i1 %57, label %60, label %61
+  %spec.select = select i1 %57, ptr %2, ptr %59
+  br label %60
 
-60:                                               ; preds = %53, %49, %45
-  br label %61
+60:                                               ; preds = %53, %45, %49, %44, %41
+  %61 = phi ptr [ %43, %41 ], [ %2, %44 ], [ %2, %49 ], [ %2, %45 ], [ %spec.select, %53 ]
+  %62 = load volatile i64, ptr %61, align 8
+  %63 = and i64 %62, 524288
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %71, label %65
 
-61:                                               ; preds = %60, %53, %44, %41
-  %62 = phi ptr [ %43, %41 ], [ %59, %53 ], [ %2, %60 ], [ %2, %44 ]
-  %63 = load volatile i64, ptr %62, align 8
-  %64 = and i64 %63, 524288
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %72, label %66
+65:                                               ; preds = %60
+  %66 = load volatile i64, ptr %61, align 8
+  %67 = and i64 %66, 4096
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %71, label %69, !prof !95
 
-66:                                               ; preds = %61
-  %67 = load volatile i64, ptr %62, align 8
-  %68 = and i64 %67, 4096
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %72, label %70, !prof !95
+69:                                               ; preds = %65
+  %70 = call i64 @__page_file_index(ptr noundef %2) #12
+  br label %74
 
-70:                                               ; preds = %66
-  %71 = call i64 @__page_file_index(ptr noundef %2) #12
-  br label %75
+71:                                               ; preds = %65, %60
+  %72 = getelementptr inbounds i8, ptr %2, i64 32
+  %73 = load i64, ptr %72, align 8
+  br label %74
 
-72:                                               ; preds = %66, %61
-  %73 = getelementptr inbounds i8, ptr %2, i64 32
-  %74 = load i64, ptr %73, align 8
-  br label %75
-
-75:                                               ; preds = %72, %70
-  %76 = phi i64 [ %71, %70 ], [ %74, %72 ]
-  %77 = shl i64 %76, 12
-  %78 = getelementptr inbounds i8, ptr %16, i64 40
-  store i64 %77, ptr %78, align 8
-  %79 = call fastcc i64 @nfs_folio_length(ptr noundef %2)
-  %80 = trunc i64 %79 to i32
-  %81 = getelementptr inbounds i8, ptr %16, i64 48
-  store i32 %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %16, i64 16
-  store i32 %3, ptr %82, align 8
+74:                                               ; preds = %71, %69
+  %75 = phi i64 [ %70, %69 ], [ %73, %71 ]
+  %76 = shl i64 %75, 12
+  %77 = getelementptr inbounds i8, ptr %16, i64 40
+  store i64 %76, ptr %77, align 8
+  %78 = call fastcc i64 @nfs_folio_length(ptr noundef %2)
+  %79 = trunc i64 %78 to i32
+  %80 = getelementptr inbounds i8, ptr %16, i64 48
+  store i32 %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %16, i64 16
+  store i32 %3, ptr %81, align 8
   call void @trace_event_buffer_commit(ptr noundef nonnull %5) #12
-  br label %83
+  br label %82
 
-83:                                               ; preds = %75, %15, %13
+82:                                               ; preds = %74, %15, %13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
   ret void
 }
@@ -8899,13 +8893,13 @@ define internal void @perf_trace_nfs_folio_event_done(ptr noundef %0, ptr nounde
 14:                                               ; preds = %4
   %15 = load volatile ptr, ptr %10, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %96, label %17
+  br i1 %16, label %95, label %17
 
 17:                                               ; preds = %14, %4
   store i32 0, ptr %6, align 4, !annotation !97
   %18 = call ptr @perf_trace_buf_alloc(i32 noundef 60, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %96, label %20
+  br i1 %19, label %95, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %5, align 8
@@ -8952,11 +8946,11 @@ define internal void @perf_trace_nfs_folio_event_done(ptr noundef %0, ptr nounde
 52:                                               ; preds = %20
   %53 = add nsw i64 %49, -1
   %54 = inttoptr i64 %53 to ptr
-  br label %72
+  br label %71
 
 55:                                               ; preds = %20
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %72 [label %56], !srcloc !117
+          to label %71 [label %56], !srcloc !117
 
 56:                                               ; preds = %55
   %57 = ptrtoint ptr %2 to i64
@@ -8977,50 +8971,48 @@ define internal void @perf_trace_nfs_folio_event_done(ptr noundef %0, ptr nounde
   %68 = icmp eq i64 %67, 0
   %69 = add nsw i64 %66, -1
   %70 = inttoptr i64 %69 to ptr
-  br i1 %68, label %71, label %72
+  %spec.select = select i1 %68, ptr %2, ptr %70
+  br label %71
 
-71:                                               ; preds = %64, %60, %56
-  br label %72
+71:                                               ; preds = %64, %56, %60, %55, %52
+  %72 = phi ptr [ %54, %52 ], [ %2, %55 ], [ %2, %60 ], [ %2, %56 ], [ %spec.select, %64 ]
+  %73 = load volatile i64, ptr %72, align 8
+  %74 = and i64 %73, 524288
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %82, label %76
 
-72:                                               ; preds = %71, %64, %55, %52
-  %73 = phi ptr [ %54, %52 ], [ %70, %64 ], [ %2, %71 ], [ %2, %55 ]
-  %74 = load volatile i64, ptr %73, align 8
-  %75 = and i64 %74, 524288
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %83, label %77
+76:                                               ; preds = %71
+  %77 = load volatile i64, ptr %72, align 8
+  %78 = and i64 %77, 4096
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %82, label %80, !prof !95
 
-77:                                               ; preds = %72
-  %78 = load volatile i64, ptr %73, align 8
-  %79 = and i64 %78, 4096
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %83, label %81, !prof !95
+80:                                               ; preds = %76
+  %81 = call i64 @__page_file_index(ptr noundef %2) #12
+  br label %85
 
-81:                                               ; preds = %77
-  %82 = call i64 @__page_file_index(ptr noundef %2) #12
-  br label %86
+82:                                               ; preds = %76, %71
+  %83 = getelementptr inbounds i8, ptr %2, i64 32
+  %84 = load i64, ptr %83, align 8
+  br label %85
 
-83:                                               ; preds = %77, %72
-  %84 = getelementptr inbounds i8, ptr %2, i64 32
-  %85 = load i64, ptr %84, align 8
-  br label %86
+85:                                               ; preds = %82, %80
+  %86 = phi i64 [ %81, %80 ], [ %84, %82 ]
+  %87 = shl i64 %86, 12
+  %88 = getelementptr inbounds i8, ptr %18, i64 40
+  store i64 %87, ptr %88, align 8
+  %89 = call fastcc i64 @nfs_folio_length(ptr noundef %2)
+  %90 = trunc i64 %89 to i32
+  %91 = getelementptr inbounds i8, ptr %18, i64 48
+  store i32 %90, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %18, i64 16
+  store i32 %3, ptr %92, align 8
+  %93 = load i32, ptr %6, align 4
+  %94 = load ptr, ptr %5, align 8
+  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %18, i32 noundef 60, i32 noundef %93, ptr noundef %0, i64 noundef 1, ptr noundef %94, ptr noundef %10, ptr noundef null) #12
+  br label %95
 
-86:                                               ; preds = %83, %81
-  %87 = phi i64 [ %82, %81 ], [ %85, %83 ]
-  %88 = shl i64 %87, 12
-  %89 = getelementptr inbounds i8, ptr %18, i64 40
-  store i64 %88, ptr %89, align 8
-  %90 = call fastcc i64 @nfs_folio_length(ptr noundef %2)
-  %91 = trunc i64 %90 to i32
-  %92 = getelementptr inbounds i8, ptr %18, i64 48
-  store i32 %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %18, i64 16
-  store i32 %3, ptr %93, align 8
-  %94 = load i32, ptr %6, align 4
-  %95 = load ptr, ptr %5, align 8
-  call void @perf_trace_run_bpf_submit(ptr noundef nonnull %18, i32 noundef 60, i32 noundef %94, ptr noundef %0, i64 noundef 1, ptr noundef %95, ptr noundef %10, ptr noundef null) #12
-  br label %96
-
-96:                                               ; preds = %86, %17, %14
+95:                                               ; preds = %85, %17, %14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   ret void
@@ -12438,7 +12430,7 @@ define internal fastcc i64 @nfs_folio_length(ptr noundef %0) unnamed_addr #9 ali
   %17 = getelementptr inbounds i8, ptr %16, i64 80
   %18 = load i64, ptr %17, align 8
   %19 = icmp sgt i64 %18, 0
-  br i1 %19, label %20, label %.thread
+  br i1 %19, label %20, label %85
 
 20:                                               ; preds = %14
   %21 = load volatile i64, ptr %0, align 8
@@ -12511,11 +12503,11 @@ define internal fastcc i64 @nfs_folio_length(ptr noundef %0) unnamed_addr #9 ali
 66:                                               ; preds = %62, %58
   %67 = phi i64 [ %65, %62 ], [ 0, %58 ]
   %68 = shl i64 4096, %67
-  br label %.thread
+  br label %85
 
 69:                                               ; preds = %54
   %70 = icmp eq i64 %44, %56
-  br i1 %70, label %71, label %.thread
+  br i1 %70, label %71, label %85
 
 71:                                               ; preds = %69
   %72 = load volatile i64, ptr %0, align 8
@@ -12535,11 +12527,11 @@ define internal fastcc i64 @nfs_folio_length(ptr noundef %0) unnamed_addr #9 ali
   %82 = add i64 %81, -1
   %83 = and i64 %82, %45
   %84 = add nuw nsw i64 %83, 1
-  br label %.thread
+  br label %85
 
-.thread:                                          ; preds = %79, %66, %14, %69
-  %85 = phi i64 [ 0, %69 ], [ 0, %14 ], [ %84, %79 ], [ %68, %66 ]
-  ret i64 %85
+85:                                               ; preds = %66, %69, %79, %14
+  %86 = phi i64 [ 0, %14 ], [ %68, %66 ], [ %84, %79 ], [ 0, %69 ]
+  ret i64 %86
 }
 
 ; Function Attrs: null_pointer_is_valid

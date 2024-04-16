@@ -69,13 +69,13 @@ define dso_local noundef zeroext i1 @raw_v6_match(ptr noundef readnone %0, ptr n
   %8 = getelementptr inbounds i8, ptr %1, i64 14
   %9 = load i16, ptr %8, align 2
   %10 = icmp eq i16 %9, %2
-  br i1 %10, label %11, label %57
+  br i1 %10, label %11, label %56
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
-  br i1 %14, label %15, label %57
+  br i1 %14, label %15, label %56
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %1, i64 56
@@ -93,7 +93,7 @@ define dso_local noundef zeroext i1 @raw_v6_match(ptr noundef readnone %0, ptr n
   %26 = icmp eq i64 %17, %23
   %27 = icmp eq i64 %19, %25
   %28 = and i1 %26, %27
-  br i1 %28, label %29, label %57
+  br i1 %28, label %29, label %56
 
 29:                                               ; preds = %22, %15
   %30 = getelementptr inbounds i8, ptr %1, i64 20
@@ -105,7 +105,7 @@ define dso_local noundef zeroext i1 @raw_v6_match(ptr noundef readnone %0, ptr n
   %34 = icmp eq i32 %31, %5
   %35 = icmp eq i32 %31, %6
   %36 = or i1 %34, %35
-  br i1 %36, label %37, label %57
+  br i1 %36, label %37, label %56
 
 37:                                               ; preds = %33, %29
   %38 = getelementptr inbounds i8, ptr %1, i64 72
@@ -114,7 +114,7 @@ define dso_local noundef zeroext i1 @raw_v6_match(ptr noundef readnone %0, ptr n
   %41 = load i64, ptr %40, align 8
   %42 = or i64 %41, %39
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %57, label %44
+  br i1 %43, label %56, label %44
 
 44:                                               ; preds = %37
   %45 = load i64, ptr %3, align 8
@@ -123,7 +123,7 @@ define dso_local noundef zeroext i1 @raw_v6_match(ptr noundef readnone %0, ptr n
   %48 = icmp eq i64 %39, %45
   %49 = icmp eq i64 %41, %47
   %50 = and i1 %48, %49
-  br i1 %50, label %57, label %51
+  br i1 %50, label %56, label %51
 
 51:                                               ; preds = %44
   %52 = and i64 %45, 255
@@ -132,14 +132,11 @@ define dso_local noundef zeroext i1 @raw_v6_match(ptr noundef readnone %0, ptr n
 
 54:                                               ; preds = %51
   %55 = tail call zeroext i1 @inet6_mc_check(ptr noundef %1, ptr noundef %3, ptr noundef %4) #13
-  br i1 %55, label %57, label %56
+  br label %56
 
-56:                                               ; preds = %54, %51
-  br label %57
-
-57:                                               ; preds = %56, %54, %44, %37, %33, %22, %11, %7
-  %58 = phi i1 [ false, %56 ], [ false, %33 ], [ false, %22 ], [ false, %11 ], [ false, %7 ], [ true, %54 ], [ true, %44 ], [ true, %37 ]
-  ret i1 %58
+56:                                               ; preds = %54, %51, %44, %37, %33, %22, %11, %7
+  %57 = phi i1 [ false, %33 ], [ false, %22 ], [ false, %11 ], [ false, %7 ], [ true, %44 ], [ true, %37 ], [ false, %51 ], [ %55, %54 ]
+  ret i1 %57
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1978,7 +1975,7 @@ select.unfold:                                    ; preds = %162, %134
   br i1 %34, label %313, label %310
 
 310:                                              ; preds = %.thread
-  %311 = trunc i64 %2 to i32
+  %311 = trunc nuw nsw i64 %2 to i32
   %312 = call fastcc i32 @rawv6_send_hdrinc(ptr noundef %0, ptr noundef %1, i32 noundef %311, ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef %309, ptr noundef nonnull %9)
   %.pre32 = load ptr, ptr %6, align 8
   br label %327
@@ -2053,7 +2050,7 @@ select.unfold:                                    ; preds = %162, %134
   %344 = icmp slt i32 %331, 0
   %345 = zext i32 %331 to i64
   %346 = select i1 %344, i64 %345, i64 %2
-  %347 = trunc i64 %346 to i32
+  %347 = trunc nuw i64 %346 to i32
   br label %361
 
 348:                                              ; preds = %306
@@ -2160,7 +2157,7 @@ define internal i32 @rawv6_recvmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 32
   store i32 %50, ptr %48, align 4
-  %51 = trunc i64 %2 to i32
+  %51 = trunc nuw i64 %2 to i32
   br label %52
 
 52:                                               ; preds = %47, %42

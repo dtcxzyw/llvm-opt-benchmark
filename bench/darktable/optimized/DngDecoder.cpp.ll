@@ -3131,7 +3131,7 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
   %76 = icmp eq i32 %75, 0
   %77 = trunc i64 %72 to i32
   %78 = lshr i64 %72, 32
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw i64 %78 to i32
   br i1 %76, label %91, label %84
 
 80:                                               ; preds = %562, %467, %424, %379, %324, %286, %242, %221, %184, %82
@@ -3200,7 +3200,7 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
   %119 = getelementptr inbounds i8, ptr %114, i64 44
   %120 = load i32, ptr %119, align 4, !tbaa !132
   %121 = lshr i64 %113, 32
-  %122 = trunc i64 %121 to i32
+  %122 = trunc nuw nsw i64 %121 to i32
   %123 = sub nsw i32 %120, %122
   %124 = zext i32 %123 to i64
   %125 = shl nuw i64 %124, 32
@@ -3227,7 +3227,7 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
   %137 = icmp eq i32 %136, 0
   %138 = trunc i64 %133 to i32
   %139 = lshr i64 %133, 32
-  %140 = trunc i64 %139 to i32
+  %140 = trunc nuw i64 %139 to i32
   br i1 %137, label %150, label %143
 
 141:                                              ; preds = %132, %129
@@ -3361,7 +3361,7 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
   %217 = select i1 %215, i1 true, i1 %216
   %218 = trunc i64 %211 to i32
   %219 = lshr i64 %211, 32
-  %220 = trunc i64 %219 to i32
+  %220 = trunc nuw i64 %219 to i32
   br i1 %217, label %240, label %223
 
 221:                                              ; preds = %210, %205
@@ -6055,11 +6055,11 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeMaskedAreasEP
   %38 = tail call i64 @_ZNK8rawspeed12RawImageData15getUncroppedDimEv(ptr noundef nonnull align 8 dereferenceable(616) %37) #24
   %39 = trunc i64 %38 to i32
   %40 = lshr i64 %38, 32
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   %42 = tail call i64 @_ZNK8rawspeed12RawImageData13getCropOffsetEv(ptr noundef nonnull align 8 dereferenceable(616) %37) #24
   %43 = trunc i64 %42 to i32
   %44 = lshr i64 %42, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
   %47 = zext nneg i32 %46 to i64
   br label %57
@@ -7557,7 +7557,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawI
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawImageDataU16ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #12 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %17, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7568,20 +7568,18 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspee
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1, !tbaa !47
   %11 = icmp eq i8 %10, 42
-  br i1 %11, label %17, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
   %14 = freeze i32 %13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, ptr %3, ptr null
+  br label %16
 
-16:                                               ; preds = %12, %5
-  br label %17
-
-17:                                               ; preds = %16, %12, %9, %2
-  %18 = phi ptr [ %3, %2 ], [ %3, %16 ], [ null, %12 ], [ null, %9 ]
-  ret ptr %18
+16:                                               ; preds = %12, %5, %9, %2
+  %17 = phi ptr [ %3, %2 ], [ null, %9 ], [ %3, %5 ], [ %spec.select, %12 ]
+  ret ptr %17
 }
 
 declare void @_ZN8rawspeed15RawImageDataU16C1Ev(ptr noundef nonnull align 8 dereferenceable(616)) unnamed_addr #6
@@ -7761,7 +7759,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed17RawI
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed17RawImageDataFloatESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #12 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %17, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7772,20 +7770,18 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspee
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1, !tbaa !47
   %11 = icmp eq i8 %10, 42
-  br i1 %11, label %17, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
   %14 = freeze i32 %13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, ptr %3, ptr null
+  br label %16
 
-16:                                               ; preds = %12, %5
-  br label %17
-
-17:                                               ; preds = %16, %12, %9, %2
-  %18 = phi ptr [ %3, %2 ], [ %3, %16 ], [ null, %12 ], [ null, %9 ]
-  ret ptr %18
+16:                                               ; preds = %12, %5, %9, %2
+  %17 = phi ptr [ %3, %2 ], [ null, %9 ], [ %3, %5 ], [ %spec.select, %12 ]
+  ret ptr %17
 }
 
 declare void @_ZN8rawspeed17RawImageDataFloatC1Ev(ptr noundef nonnull align 8 dereferenceable(616)) unnamed_addr #6

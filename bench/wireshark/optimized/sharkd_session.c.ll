@@ -660,7 +660,7 @@ define hidden noundef i32 @sharkd_session_main(i32 noundef %0) local_unnamed_add
 
 66:                                               ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 2
-  %67 = trunc i64 %indvars.iv.next.i.i.i to i32
+  %67 = trunc nuw i64 %indvars.iv.next.i.i.i to i32
   %68 = icmp sgt i32 %47, %67
   br i1 %68, label %.lr.ph.i.i.i, label %.lr.ph.i159.i.i.preheader, !llvm.loop !8
 
@@ -698,7 +698,7 @@ json_find_attr.exit.i.i:                          ; preds = %.lr.ph.i.i.i
 
 84:                                               ; preds = %.lr.ph.i159.i.i
   %indvars.iv.next.i162.i.i = add nuw nsw i64 %indvars.iv.i160.i.i, 2
-  %85 = trunc i64 %indvars.iv.next.i162.i.i to i32
+  %85 = trunc nuw i64 %indvars.iv.next.i162.i.i to i32
   %86 = icmp sgt i32 %47, %85
   br i1 %86, label %.lr.ph.i159.i.i, label %json_find_attr.exit163.thread.i.i, !llvm.loop !8
 
@@ -785,7 +785,7 @@ json_find_attr.exit163.thread.i.i:                ; preds = %84, %103, %json_fin
 
 120:                                              ; preds = %.lr.ph.i167.us.i.i
   %indvars.iv.next.i170.us.i.i = add nuw nsw i64 %indvars.iv.i168.us.i.i, 2
-  %121 = trunc i64 %indvars.iv.next.i170.us.i.i to i32
+  %121 = trunc nuw i64 %indvars.iv.next.i170.us.i.i to i32
   %122 = icmp sgt i32 %47, %121
   br i1 %122, label %.lr.ph.i167.us.i.i, label %json_find_attr.exit171.thread.i.i, !llvm.loop !8
 
@@ -813,7 +813,7 @@ json_find_attr.exit171.us.i.i:                    ; preds = %.lr.ph.i167.us.i.i
   br i1 %.not142.i.i, label %139, label %134
 
 134:                                              ; preds = %.lr.ph242.i.i
-  %135 = trunc i64 %indvars.iv298.i.i to i32
+  %135 = trunc nuw nsw i64 %indvars.iv298.i.i to i32
   %136 = load i32, ptr @rpcid, align 4
   %137 = lshr exact i32 %135, 1
   %138 = add nuw nsw i32 %137, 1
@@ -858,7 +858,7 @@ json_find_attr.exit171.us.i.i:                    ; preds = %.lr.ph.i167.us.i.i
   br i1 %159, label %.preheader191.i.i.preheader, label %160
 
 160:                                              ; preds = %158
-  %161 = trunc i64 %indvars.iv298.i.i to i32
+  %161 = trunc nuw nsw i64 %indvars.iv298.i.i to i32
   %162 = load i32, ptr @rpcid, align 4
   %163 = lshr exact i32 %161, 1
   %164 = add nuw nsw i32 %163, 1
@@ -1045,7 +1045,7 @@ is_param_match.exit.i.i:                          ; preds = %203, %198
 
 239:                                              ; preds = %236
   %indvars.iv.next299.i.i = add nuw nsw i64 %indvars.iv298.i.i, 2
-  %240 = trunc i64 %indvars.iv.next299.i.i to i32
+  %240 = trunc nuw i64 %indvars.iv.next299.i.i to i32
   %241 = icmp sgt i32 %47, %240
   br i1 %241, label %.lr.ph242.i.i, label %.preheader189.split.us.i.i, !llvm.loop !13
 
@@ -1092,7 +1092,7 @@ json_find_attr.exit171.thread.i.i:                ; preds = %json_find_attr.exit
 
 262:                                              ; preds = %.lr.ph.i173.i.i
   %indvars.iv.next.i176.i.i = add nuw nsw i64 %indvars.iv.i174.i.i, 2
-  %263 = trunc i64 %indvars.iv.next.i176.i.i to i32
+  %263 = trunc nuw i64 %indvars.iv.next.i176.i.i to i32
   %264 = icmp sgt i32 %47, %263
   br i1 %264, label %.lr.ph.i173.i.i, label %json_find_attr.exit177.thread.i.i, !llvm.loop !8
 
@@ -1137,7 +1137,7 @@ json_prep.exit.thread.i:                          ; preds = %json_find_attr.exit
 
 281:                                              ; preds = %.lr.ph.i83.i
   %indvars.iv.next.i86.i = add nuw nsw i64 %indvars.iv.i84.i, 2
-  %282 = trunc i64 %indvars.iv.next.i86.i to i32
+  %282 = trunc nuw i64 %indvars.iv.next.i86.i to i32
   %283 = icmp sgt i32 %47, %282
   br i1 %283, label %.lr.ph.i83.i, label %json_find_attr.exit.thread.i, !llvm.loop !8
 
@@ -1445,7 +1445,7 @@ sharkd_session_print_capture_types.exit.i.i:      ; preds = %.lr.ph.i.i98.i, %36
 .lr.ph.i12.i.i:                                   ; preds = %sharkd_session_print_capture_types.exit.i.i, %392
   %indvars.iv.i13.i.i = phi i64 [ %indvars.iv.next.i15.i.i, %392 ], [ 0, %sharkd_session_print_capture_types.exit.i.i ]
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %392 ], [ null, %sharkd_session_print_capture_types.exit.i.i ]
-  %385 = trunc i64 %indvars.iv.i13.i.i to i32
+  %385 = trunc nuw nsw i64 %indvars.iv.i13.i.i to i32
   %386 = call ptr @wtap_encap_name(i32 noundef %385) #17
   %387 = getelementptr %struct.encap_type_info, ptr %382, i64 %indvars.iv.i13.i.i
   store ptr %386, ptr %387, align 8
@@ -1589,7 +1589,7 @@ sharkd_session_process_info.exit.i:               ; preds = %392, %sharkd_sessio
 
 415:                                              ; preds = %.lr.ph.i.i102.i
   %indvars.iv.next.i.i105.i = add nuw nsw i64 %indvars.iv.i.i103.i, 2
-  %416 = trunc i64 %indvars.iv.next.i.i105.i to i32
+  %416 = trunc nuw i64 %indvars.iv.next.i.i105.i to i32
   %417 = icmp sgt i32 %47, %416
   br i1 %417, label %.lr.ph.i.i102.i, label %.lr.ph.i20.preheader.i.i, !llvm.loop !8
 
@@ -1609,7 +1609,7 @@ sharkd_session_process_info.exit.i:               ; preds = %392, %sharkd_sessio
 
 423:                                              ; preds = %.lr.ph.i20.i.i
   %indvars.iv.next.i23.i.i = add nuw nsw i64 %indvars.iv.i21.i.i, 2
-  %424 = trunc i64 %indvars.iv.next.i23.i.i to i32
+  %424 = trunc nuw i64 %indvars.iv.next.i23.i.i to i32
   %425 = icmp sgt i32 %47, %424
   br i1 %425, label %.lr.ph.i20.i.i, label %json_find_attr.exit24.thread.i.i, !llvm.loop !8
 
@@ -1871,9 +1871,9 @@ define internal void @sharkd_json_error(i32 noundef %0, i32 noundef %1, ptr noca
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %7 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %5) #17
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.6) #17
   call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %7) #17
   call void @g_free(ptr noundef %7) #17
@@ -1908,19 +1908,13 @@ define internal void @sharkd_json_value_anyf(ptr noundef %0, ptr noundef %1, ...
   br label %5
 
 5:                                                ; preds = %4, %2
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   call void @json_dumper_value_va_list(ptr noundef nonnull @dumper, ptr noundef %1, ptr noundef nonnull %3) #17
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 declare void @json_dumper_begin_object(ptr noundef) local_unnamed_addr #2
 
@@ -1938,7 +1932,7 @@ declare zeroext i1 @json_dumper_finish(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sharkd_session_process_load(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
@@ -1962,7 +1956,7 @@ define internal fastcc void @sharkd_session_process_load(ptr noundef %0, ptr noc
 
 15:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = trunc i64 %indvars.iv.next.i to i32
+  %16 = trunc nuw i64 %indvars.iv.next.i to i32
   %17 = icmp slt i32 %16, %2
   br i1 %17, label %.lr.ph.i, label %json_find_attr.exit.thread, !llvm.loop !8
 
@@ -2138,7 +2132,7 @@ define internal fastcc void @sharkd_session_process_complete(ptr noundef %0, ptr
 
 20:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = trunc i64 %indvars.iv.next.i to i32
+  %21 = trunc nuw i64 %indvars.iv.next.i to i32
   %22 = icmp slt i32 %21, %2
   br i1 %22, label %.lr.ph.i, label %.lr.ph.i66.preheader, !llvm.loop !8
 
@@ -2167,7 +2161,7 @@ define internal fastcc void @sharkd_session_process_complete(ptr noundef %0, ptr
 
 35:                                               ; preds = %.lr.ph.i66
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i67, 2
-  %36 = trunc i64 %indvars.iv.next.i69 to i32
+  %36 = trunc nuw i64 %indvars.iv.next.i69 to i32
   %37 = icmp slt i32 %36, %2
   br i1 %37, label %.lr.ph.i66, label %json_find_attr.exit70, !llvm.loop !8
 
@@ -2419,7 +2413,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 31:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %32 = trunc i64 %indvars.iv.next.i to i32
+  %32 = trunc nuw i64 %indvars.iv.next.i to i32
   %33 = icmp slt i32 %32, %2
   br i1 %33, label %.lr.ph.i, label %.lr.ph.i88.preheader, !llvm.loop !8
 
@@ -2448,7 +2442,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 46:                                               ; preds = %.lr.ph.i88
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i89, 2
-  %47 = trunc i64 %indvars.iv.next.i91 to i32
+  %47 = trunc nuw i64 %indvars.iv.next.i91 to i32
   %48 = icmp slt i32 %47, %2
   br i1 %48, label %.lr.ph.i88, label %.lr.ph.i94.preheader, !llvm.loop !8
 
@@ -2477,7 +2471,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 61:                                               ; preds = %.lr.ph.i94
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i95, 2
-  %62 = trunc i64 %indvars.iv.next.i97 to i32
+  %62 = trunc nuw i64 %indvars.iv.next.i97 to i32
   %63 = icmp slt i32 %62, %2
   br i1 %63, label %.lr.ph.i94, label %.lr.ph.i100.preheader, !llvm.loop !8
 
@@ -2506,7 +2500,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 76:                                               ; preds = %.lr.ph.i100
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i101, 2
-  %77 = trunc i64 %indvars.iv.next.i103 to i32
+  %77 = trunc nuw i64 %indvars.iv.next.i103 to i32
   %78 = icmp slt i32 %77, %2
   br i1 %78, label %.lr.ph.i100, label %.lr.ph.i106.preheader, !llvm.loop !8
 
@@ -2535,7 +2529,7 @@ define internal fastcc void @sharkd_session_process_frames(ptr noundef %0, ptr n
 
 91:                                               ; preds = %.lr.ph.i106
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i107, 2
-  %92 = trunc i64 %indvars.iv.next.i109 to i32
+  %92 = trunc nuw i64 %indvars.iv.next.i109 to i32
   %93 = icmp slt i32 %92, %2
   br i1 %93, label %.lr.ph.i106, label %json_find_attr.exit110, !llvm.loop !8
 
@@ -2563,7 +2557,7 @@ json_find_attr.exit110:                           ; preds = %91, %84
 
 .lr.ph.i.preheader.us.i:                          ; preds = %.lr.ph.i.preheader.us.i.preheader, %126
   %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i115, %126 ], [ 0, %.lr.ph.i.preheader.us.i.preheader ]
-  %94 = trunc i64 %indvars.iv.i112 to i32
+  %94 = trunc nuw nsw i64 %indvars.iv.i112 to i32
   %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.176, i32 noundef %94) #17
   br label %.lr.ph.i.us.i
 
@@ -2579,7 +2573,7 @@ json_find_attr.exit110:                           ; preds = %91, %84
 
 101:                                              ; preds = %.lr.ph.i.us.i
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 2
-  %102 = trunc i64 %indvars.iv.next.i.us.i to i32
+  %102 = trunc nuw i64 %indvars.iv.next.i.us.i to i32
   %103 = icmp slt i32 %102, %2
   br i1 %103, label %.lr.ph.i.us.i, label %json_find_attr.exit.thread.i, !llvm.loop !8
 
@@ -2979,7 +2973,7 @@ define internal fastcc void @sharkd_session_process_tap(ptr noundef %0, ptr noca
 
 29:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = trunc i64 %indvars.iv.next.i to i32
+  %30 = trunc nuw i64 %indvars.iv.next.i to i32
   %31 = icmp slt i32 %30, %2
   br i1 %31, label %.lr.ph.i, label %.lr.ph.i275.preheader.us.preheader, !llvm.loop !8
 
@@ -3009,7 +3003,7 @@ define internal fastcc void @sharkd_session_process_tap(ptr noundef %0, ptr noca
 
 38:                                               ; preds = %.lr.ph.i275.us
   %indvars.iv.next.i278.us = add nuw nsw i64 %indvars.iv.i276.us, 2
-  %39 = trunc i64 %indvars.iv.next.i278.us to i32
+  %39 = trunc nuw i64 %indvars.iv.next.i278.us to i32
   %40 = icmp slt i32 %39, %2
   br i1 %40, label %.lr.ph.i275.us, label %json_find_attr.exit279.thread, !llvm.loop !8
 
@@ -3740,7 +3734,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef %0, ptr n
 
 17:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %18 = trunc i64 %indvars.iv.next.i to i32
+  %18 = trunc nuw i64 %indvars.iv.next.i to i32
   %19 = icmp slt i32 %18, %2
   br i1 %19, label %.lr.ph.i, label %.lr.ph.i50.preheader, !llvm.loop !8
 
@@ -3769,7 +3763,7 @@ define internal fastcc void @sharkd_session_process_follow(ptr noundef %0, ptr n
 
 32:                                               ; preds = %.lr.ph.i50
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i51, 2
-  %33 = trunc i64 %indvars.iv.next.i53 to i32
+  %33 = trunc nuw i64 %indvars.iv.next.i53 to i32
   %34 = icmp slt i32 %33, %2
   br i1 %34, label %.lr.ph.i50, label %json_find_attr.exit54, !llvm.loop !8
 
@@ -3921,7 +3915,7 @@ define internal fastcc void @sharkd_session_process_iograph(ptr noundef %0, ptr 
 
 13:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = trunc i64 %indvars.iv.next.i to i32
+  %14 = trunc nuw i64 %indvars.iv.next.i to i32
   %15 = icmp slt i32 %14, %2
   br i1 %15, label %.lr.ph.i, label %json_find_attr.exit.thread, !llvm.loop !8
 
@@ -3967,7 +3961,7 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
 
 32:                                               ; preds = %.lr.ph.i113.us
   %indvars.iv.next.i116.us = add nuw nsw i64 %indvars.iv.i114.us, 2
-  %33 = trunc i64 %indvars.iv.next.i116.us to i32
+  %33 = trunc nuw i64 %indvars.iv.next.i116.us to i32
   %34 = icmp slt i32 %33, %2
   br i1 %34, label %.lr.ph.i113.us, label %json_find_attr.exit117.thread.loopexit, !llvm.loop !8
 
@@ -3997,7 +3991,7 @@ json_find_attr.exit117.us:                        ; preds = %.lr.ph.i113.us
 
 47:                                               ; preds = %.lr.ph.i119.us
   %indvars.iv.next.i122.us = add nuw nsw i64 %indvars.iv.i120.us, 2
-  %48 = trunc i64 %indvars.iv.next.i122.us to i32
+  %48 = trunc nuw i64 %indvars.iv.next.i122.us to i32
   %49 = icmp slt i32 %48, %2
   br i1 %49, label %.lr.ph.i119.us, label %json_find_attr.exit123.us, !llvm.loop !8
 
@@ -4111,11 +4105,11 @@ json_find_attr.exit117.thread.thread:             ; preds = %24
   br label %140
 
 json_find_attr.exit117.thread.loopexit:           ; preds = %32
-  %96 = trunc i64 %indvars.iv to i32
+  %96 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not106142.us, label %99, label %json_find_attr.exit117.thread.thread175
 
 json_find_attr.exit117.thread:                    ; preds = %74, %json_find_attr.exit117.us
-  %97 = trunc i64 %indvars.iv to i32
+  %97 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not106142.us, label %99, label %json_find_attr.exit117.thread.thread175
 
 json_find_attr.exit117.thread.thread175:          ; preds = %88, %json_find_attr.exit117.thread.loopexit, %json_find_attr.exit117.thread
@@ -4262,7 +4256,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef %0, pt
 
 19:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %20 = trunc i64 %indvars.iv.next.i to i32
+  %20 = trunc nuw i64 %indvars.iv.next.i to i32
   %21 = icmp slt i32 %20, %2
   br i1 %21, label %.lr.ph.i, label %.lr.ph.i63.preheader, !llvm.loop !8
 
@@ -4291,7 +4285,7 @@ define internal fastcc void @sharkd_session_process_intervals(ptr noundef %0, pt
 
 34:                                               ; preds = %.lr.ph.i63
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i64, 2
-  %35 = trunc i64 %indvars.iv.next.i66 to i32
+  %35 = trunc nuw i64 %indvars.iv.next.i66 to i32
   %36 = icmp slt i32 %35, %2
   br i1 %36, label %.lr.ph.i63, label %json_find_attr.exit67, !llvm.loop !8
 
@@ -4572,7 +4566,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
 
 25:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = trunc i64 %indvars.iv.next.i to i32
+  %26 = trunc nuw i64 %indvars.iv.next.i to i32
   %27 = icmp slt i32 %26, %2
   br i1 %27, label %.lr.ph.i, label %.lr.ph.i46.preheader, !llvm.loop !8
 
@@ -4601,7 +4595,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
 
 40:                                               ; preds = %.lr.ph.i46
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i47, 2
-  %41 = trunc i64 %indvars.iv.next.i49 to i32
+  %41 = trunc nuw i64 %indvars.iv.next.i49 to i32
   %42 = icmp slt i32 %41, %2
   br i1 %42, label %.lr.ph.i46, label %.lr.ph.i52.preheader, !llvm.loop !8
 
@@ -4630,7 +4624,7 @@ define internal fastcc void @sharkd_session_process_frame(ptr noundef %0, ptr no
 
 55:                                               ; preds = %.lr.ph.i52
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i53, 2
-  %56 = trunc i64 %indvars.iv.next.i55 to i32
+  %56 = trunc nuw i64 %indvars.iv.next.i55 to i32
   %57 = icmp slt i32 %56, %2
   br i1 %57, label %.lr.ph.i52, label %json_find_attr.exit56, !llvm.loop !8
 
@@ -4656,7 +4650,7 @@ json_find_attr.exit56:                            ; preds = %55, %3, %48
 66:                                               ; preds = %61
   %67 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %67, i32 noundef -8001, ptr poison, ptr noundef nonnull @.str.396)
-  br label %176
+  br label %175
 
 68:                                               ; preds = %61, %json_find_attr.exit56
   %69 = phi i32 [ %64, %61 ], [ %59, %json_find_attr.exit56 ]
@@ -4675,7 +4669,7 @@ json_find_attr.exit56:                            ; preds = %55, %3, %48
 75:                                               ; preds = %71
   %76 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %76, i32 noundef -8002, ptr poison, ptr noundef nonnull @.str.397)
-  br label %176
+  br label %175
 
 77:                                               ; preds = %71, %68
   br i1 %12, label %.lr.ph.i58, label %json_find_attr.exit86
@@ -4703,7 +4697,7 @@ json_find_attr.exit56:                            ; preds = %55, %3, %48
 
 92:                                               ; preds = %.lr.ph.i58
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i59, 2
-  %93 = trunc i64 %indvars.iv.next.i61 to i32
+  %93 = trunc nuw i64 %indvars.iv.next.i61 to i32
   %94 = icmp slt i32 %93, %2
   br i1 %94, label %.lr.ph.i58, label %.lr.ph.i64.preheader, !llvm.loop !8
 
@@ -4734,7 +4728,7 @@ json_find_attr.exit56:                            ; preds = %55, %3, %48
 
 109:                                              ; preds = %.lr.ph.i64
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i65, 2
-  %110 = trunc i64 %indvars.iv.next.i67 to i32
+  %110 = trunc nuw i64 %indvars.iv.next.i67 to i32
   %111 = icmp slt i32 %110, %2
   br i1 %111, label %.lr.ph.i64, label %json_find_attr.exit68, !llvm.loop !8
 
@@ -4755,7 +4749,7 @@ json_find_attr.exit68:                            ; preds = %109, %100
 
 117:                                              ; preds = %.lr.ph.i70
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i71, 2
-  %118 = trunc i64 %indvars.iv.next.i73 to i32
+  %118 = trunc nuw i64 %indvars.iv.next.i73 to i32
   %119 = icmp slt i32 %118, %2
   br i1 %119, label %.lr.ph.i70, label %.thread, !llvm.loop !8
 
@@ -4791,7 +4785,7 @@ json_find_attr.exit74:                            ; preds = %.lr.ph.i70
 
 136:                                              ; preds = %.lr.ph.i76
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i77, 2
-  %137 = trunc i64 %indvars.iv.next.i79 to i32
+  %137 = trunc nuw i64 %indvars.iv.next.i79 to i32
   %138 = icmp slt i32 %137, %2
   br i1 %138, label %.lr.ph.i76, label %json_find_attr.exit80.thread, !llvm.loop !8
 
@@ -4800,81 +4794,79 @@ json_find_attr.exit80:                            ; preds = %.lr.ph.i76
   %140 = or disjoint i64 %139, 1
   %141 = getelementptr %struct.jsmntok_t, ptr %1, i64 %140, i32 1
   %142 = load i32, ptr %141, align 4
-  %.fr154 = freeze i32 %142
-  %143 = sext i32 %.fr154 to i64
+  %.fr155 = freeze i32 %142
+  %143 = sext i32 %.fr155 to i64
   %144 = getelementptr i8, ptr %0, i64 %143
   %145 = icmp eq ptr %144, null
   %146 = or disjoint i32 %129, 8
-  br i1 %145, label %json_find_attr.exit80.thread, label %147
+  %spec.select151 = select i1 %145, i32 %129, i32 %146
+  br label %json_find_attr.exit80.thread
 
 json_find_attr.exit80.thread:                     ; preds = %136, %json_find_attr.exit80
-  br label %147
-
-147:                                              ; preds = %json_find_attr.exit80, %json_find_attr.exit80.thread
-  %148 = phi i32 [ %129, %json_find_attr.exit80.thread ], [ %146, %json_find_attr.exit80 ]
+  %147 = phi i32 [ %spec.select151, %json_find_attr.exit80 ], [ %129, %136 ]
   br label %.lr.ph.i82
 
-.lr.ph.i82:                                       ; preds = %147, %163
-  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i85, %163 ], [ 0, %147 ]
-  %149 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i83, i32 1
-  %150 = load i32, ptr %149, align 4
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr i8, ptr %0, i64 %151
-  %153 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(2) @.str.398) #18
-  %.not.i84 = icmp eq i32 %153, 0
-  br i1 %.not.i84, label %154, label %163
+.lr.ph.i82:                                       ; preds = %json_find_attr.exit80.thread, %162
+  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i85, %162 ], [ 0, %json_find_attr.exit80.thread ]
+  %148 = getelementptr %struct.jsmntok_t, ptr %1, i64 %indvars.iv.i83, i32 1
+  %149 = load i32, ptr %148, align 4
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr i8, ptr %0, i64 %150
+  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %151, ptr noundef nonnull dereferenceable(2) @.str.398) #18
+  %.not.i84 = icmp eq i32 %152, 0
+  br i1 %.not.i84, label %153, label %162
 
-154:                                              ; preds = %.lr.ph.i82
-  %155 = and i64 %indvars.iv.i83, 4294967294
-  %156 = or disjoint i64 %155, 1
-  %157 = getelementptr %struct.jsmntok_t, ptr %1, i64 %156, i32 1
-  %158 = load i32, ptr %157, align 4
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr i8, ptr %0, i64 %159
-  %161 = icmp ne ptr %160, null
-  %162 = zext i1 %161 to i32
+153:                                              ; preds = %.lr.ph.i82
+  %154 = and i64 %indvars.iv.i83, 4294967294
+  %155 = or disjoint i64 %154, 1
+  %156 = getelementptr %struct.jsmntok_t, ptr %1, i64 %155, i32 1
+  %157 = load i32, ptr %156, align 4
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr i8, ptr %0, i64 %158
+  %160 = icmp ne ptr %159, null
+  %161 = zext i1 %160 to i32
   br label %json_find_attr.exit86
 
-163:                                              ; preds = %.lr.ph.i82
+162:                                              ; preds = %.lr.ph.i82
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 2
-  %164 = trunc i64 %indvars.iv.next.i85 to i32
-  %165 = icmp slt i32 %164, %2
-  br i1 %165, label %.lr.ph.i82, label %json_find_attr.exit86, !llvm.loop !8
+  %163 = trunc nuw i64 %indvars.iv.next.i85 to i32
+  %164 = icmp slt i32 %163, %2
+  br i1 %164, label %.lr.ph.i82, label %json_find_attr.exit86, !llvm.loop !8
 
-json_find_attr.exit86:                            ; preds = %163, %77, %154
-  %.3115 = phi i32 [ %148, %154 ], [ 0, %77 ], [ %148, %163 ]
-  %.0108114 = phi ptr [ %130, %154 ], [ null, %77 ], [ %130, %163 ]
-  %.0.i81 = phi i32 [ %162, %154 ], [ 0, %77 ], [ 0, %163 ]
+json_find_attr.exit86:                            ; preds = %162, %77, %153
+  %.3115 = phi i32 [ %147, %153 ], [ 0, %77 ], [ %147, %162 ]
+  %.0108114 = phi ptr [ %130, %153 ], [ null, %77 ], [ %130, %162 ]
+  %.0.i81 = phi i32 [ %161, %153 ], [ 0, %77 ], [ 0, %162 ]
   store i32 %.0.i81, ptr %7, align 4
   call void @wtap_rec_init(ptr noundef nonnull %8) #17
   call void @ws_buffer_init(ptr noundef nonnull %9, i64 noundef 1514) #17
-  %166 = load i32, ptr %4, align 4
-  %167 = load i32, ptr %5, align 4
-  %168 = load i32, ptr %6, align 4
-  %169 = call i32 @sharkd_dissect_request(i32 noundef %166, i32 noundef %167, i32 noundef %168, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %.0108114, i32 noundef %.3115, ptr noundef nonnull @sharkd_session_process_frame_cb, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
-  switch i32 %169, label %175 [
-    i32 2, label %172
-    i32 1, label %170
+  %165 = load i32, ptr %4, align 4
+  %166 = load i32, ptr %5, align 4
+  %167 = load i32, ptr %6, align 4
+  %168 = call i32 @sharkd_dissect_request(i32 noundef %165, i32 noundef %166, i32 noundef %167, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %.0108114, i32 noundef %.3115, ptr noundef nonnull @sharkd_session_process_frame_cb, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
+  switch i32 %168, label %174 [
+    i32 2, label %171
+    i32 1, label %169
   ]
 
-170:                                              ; preds = %json_find_attr.exit86
-  %171 = load i32, ptr @rpcid, align 4
-  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %171, i32 noundef -8003, ptr poison, ptr noundef nonnull @.str.399)
-  br label %175
+169:                                              ; preds = %json_find_attr.exit86
+  %170 = load i32, ptr @rpcid, align 4
+  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %170, i32 noundef -8003, ptr poison, ptr noundef nonnull @.str.399)
+  br label %174
 
-172:                                              ; preds = %json_find_attr.exit86
-  %173 = load i32, ptr @rpcid, align 4
-  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %173, i32 noundef -8003, ptr poison, ptr noundef nonnull @.str.400)
-  %174 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %174) #17
-  br label %175
+171:                                              ; preds = %json_find_attr.exit86
+  %172 = load i32, ptr @rpcid, align 4
+  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %172, i32 noundef -8003, ptr poison, ptr noundef nonnull @.str.400)
+  %173 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %173) #17
+  br label %174
 
-175:                                              ; preds = %172, %170, %json_find_attr.exit86
+174:                                              ; preds = %171, %169, %json_find_attr.exit86
   call void @wtap_rec_cleanup(ptr noundef nonnull %8) #17
   call void @ws_buffer_free(ptr noundef nonnull %9) #17
-  br label %176
+  br label %175
 
-176:                                              ; preds = %175, %75, %66
+175:                                              ; preds = %174, %75, %66
   ret void
 }
 
@@ -4905,7 +4897,7 @@ define internal fastcc void @sharkd_session_process_setcomment(ptr noundef %0, p
 
 18:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %19 = trunc i64 %indvars.iv.next.i to i32
+  %19 = trunc nuw i64 %indvars.iv.next.i to i32
   %20 = icmp slt i32 %19, %2
   br i1 %20, label %.lr.ph.i, label %.lr.ph.i22.preheader, !llvm.loop !8
 
@@ -4934,7 +4926,7 @@ define internal fastcc void @sharkd_session_process_setcomment(ptr noundef %0, p
 
 33:                                               ; preds = %.lr.ph.i22
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 2
-  %34 = trunc i64 %indvars.iv.next.i25 to i32
+  %34 = trunc nuw i64 %indvars.iv.next.i25 to i32
   %35 = icmp slt i32 %34, %2
   br i1 %35, label %.lr.ph.i22, label %json_find_attr.exit26, !llvm.loop !8
 
@@ -5015,7 +5007,7 @@ define internal fastcc void @sharkd_session_process_setconf(ptr noundef %0, ptr 
 
 19:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %20 = trunc i64 %indvars.iv.next.i to i32
+  %20 = trunc nuw i64 %indvars.iv.next.i to i32
   %21 = icmp slt i32 %20, %2
   br i1 %21, label %.lr.ph.i, label %.lr.ph.i14.preheader, !llvm.loop !8
 
@@ -5044,7 +5036,7 @@ define internal fastcc void @sharkd_session_process_setconf(ptr noundef %0, ptr 
 
 34:                                               ; preds = %.lr.ph.i14
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 2
-  %35 = trunc i64 %indvars.iv.next.i17 to i32
+  %35 = trunc nuw i64 %indvars.iv.next.i17 to i32
   %36 = icmp slt i32 %35, %2
   br i1 %36, label %.lr.ph.i14, label %json_find_attr.exit18, !llvm.loop !8
 
@@ -5128,7 +5120,7 @@ define internal fastcc void @sharkd_session_process_dumpconf(ptr noundef %0, ptr
 
 13:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = trunc i64 %indvars.iv.next.i to i32
+  %14 = trunc nuw i64 %indvars.iv.next.i to i32
   %15 = icmp slt i32 %14, %2
   br i1 %15, label %.lr.ph.i, label %json_find_attr.exit.thread, !llvm.loop !8
 
@@ -5265,7 +5257,7 @@ define internal fastcc void @sharkd_session_process_download(ptr noundef %0, ptr
 
 15:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = trunc i64 %indvars.iv.next.i to i32
+  %16 = trunc nuw i64 %indvars.iv.next.i to i32
   %17 = icmp slt i32 %16, %2
   br i1 %17, label %.lr.ph.i, label %json_find_attr.exit.thread, !llvm.loop !8
 
@@ -5588,10 +5580,10 @@ define internal fastcc void @sharkd_json_simple_ok(i32 noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -5600,19 +5592,19 @@ declare zeroext i1 @json_decode_string_inplace(ptr noundef) local_unnamed_addr #
 declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 declare i32 @sharkd_cf_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #8
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #7
 
 declare i32 @sharkd_load_cap_file() local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #9
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #8
 
 declare void @except_free(ptr noundef) local_unnamed_addr #2
 
@@ -5773,11 +5765,11 @@ define internal void @sharkd_json_value_stringf(ptr noundef %0, ptr noundef %1, 
   br label %5
 
 5:                                                ; preds = %4, %2
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %6 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.146, ptr noundef %1) #17
   call void @json_dumper_value_va_list(ptr noundef nonnull @dumper, ptr noundef %6, ptr noundef nonnull %3) #17
   call void @g_free(ptr noundef %6) #17
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5915,7 +5907,7 @@ declare ptr @wtap_file_type_subtype_description(i32 noundef) local_unnamed_addr 
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 declare i32 @wtap_get_num_encap_types() local_unnamed_addr #2
 
@@ -5982,10 +5974,10 @@ declare void @df_error_free(ptr noundef) local_unnamed_addr #2
 declare ptr @proto_registrar_get_byname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare i32 @proto_get_first_protocol(ptr noundef) local_unnamed_addr #2
 
@@ -6250,7 +6242,7 @@ define internal void @sharkd_session_free_tap_stats_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 declare ptr @g_string_chunk_new(i64 noundef) local_unnamed_addr #2
 
@@ -7160,7 +7152,7 @@ define internal void @sharkd_session_process_tap_srt_cb(ptr nocapture noundef re
   br label %21
 
 19:                                               ; preds = %15
-  %20 = trunc i64 %indvars.iv46 to i32
+  %20 = trunc nuw i64 %indvars.iv46 to i32
   tail call void (ptr, ptr, ...) @sharkd_json_value_stringf(ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.289, i32 noundef %20)
   br label %21
 
@@ -7537,7 +7529,7 @@ define internal void @sharkd_session_process_tap_rtp_cb(ptr nocapture noundef re
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @sharkd_rtp_match_init(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -9688,7 +9680,7 @@ declare ptr @fvalue_get_time(ptr noundef) local_unnamed_addr #2
 declare void @nstime_sum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #9
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) #0 {
@@ -9789,7 +9781,7 @@ define internal void @sharkd_session_process_frame_cb(ptr noundef %0, ptr nounde
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next, %.lr.ph103 ]
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw i64 %indvars.iv to i32
   %45 = call ptr @g_slist_nth_data(ptr noundef nonnull %3, i32 noundef %44) #17
   %46 = call ptr @get_data_source_tvb(ptr noundef %45) #17
   %47 = getelementptr ptr, ptr %43, i64 %indvars.iv
@@ -10507,7 +10499,7 @@ declare ptr @prefs_get_uat_value(ptr noundef) local_unnamed_addr #2
 declare ptr @uat_fld_tostr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare ptr @ssl_export_sessions(ptr noundef) local_unnamed_addr #2
 
@@ -10765,12 +10757,12 @@ define internal void @sharkd_rtp_download_free_items(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 declare ptr @rtp_decoder_hash_table_new() local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
 
 declare i64 @decode_rtp_packet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -10783,6 +10775,12 @@ declare void @speex_resampler_get_rate(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @speex_resampler_set_rate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @speex_resampler_process_int(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
@@ -10806,15 +10804,15 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

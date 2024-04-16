@@ -330,7 +330,7 @@ proto_item_set_generated.exit:                    ; preds = %94, %109, %112
 
 130:                                              ; preds = %proto_item_set_generated.exit
   %131 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %118, ptr noundef nonnull @ei_rtpdump_bin_ipv6) #3
-  br label %150
+  br label %149
 
 132:                                              ; preds = %proto_item_set_generated.exit
   %133 = shl i32 %119, 24
@@ -351,55 +351,53 @@ proto_item_set_generated.exit:                    ; preds = %94, %109, %112
   %146 = load i16, ptr %6, align 2
   %147 = zext i16 %146 to i32
   %148 = icmp eq i32 %145, %147
-  br i1 %148, label %150, label %149
+  %spec.select = select i1 %148, ptr @ei_rtpdump_addrs_match, ptr @ei_rtpdump_addrs_mismatch
+  br label %149
 
-149:                                              ; preds = %144, %132
-  br label %150
+149:                                              ; preds = %144, %132, %130
+  %ei_rtpdump_addrs_match.sink = phi ptr [ @ei_rtpdump_addrs_mismatch, %130 ], [ @ei_rtpdump_addrs_mismatch, %132 ], [ %spec.select, %144 ]
+  %150 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %98, ptr noundef nonnull %ei_rtpdump_addrs_match.sink) #3
+  %151 = icmp slt i32 %129, %12
+  br i1 %151, label %.lr.ph, label %.loopexit
 
-150:                                              ; preds = %144, %149, %130
-  %ei_rtpdump_addrs_match.sink = phi ptr [ @ei_rtpdump_addrs_mismatch, %149 ], [ @ei_rtpdump_addrs_mismatch, %130 ], [ @ei_rtpdump_addrs_match, %144 ]
-  %151 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %98, ptr noundef nonnull %ei_rtpdump_addrs_match.sink) #3
-  %152 = icmp slt i32 %129, %12
-  br i1 %152, label %.lr.ph, label %.loopexit
+.lr.ph:                                           ; preds = %149, %169
+  %.0159171 = phi i32 [ %176, %169 ], [ %129, %149 ]
+  %.0160170 = phi i32 [ %158, %169 ], [ 1, %149 ]
+  %152 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0159171) #3
+  %153 = zext i16 %152 to i32
+  %154 = load i32, ptr @hf_rtpdump_pkt, align 4
+  %155 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %154, ptr noundef %0, i32 noundef %.0159171, i32 noundef %153, i32 noundef 0) #3
+  %156 = load i32, ptr @ett_rtpdump_pkt, align 4
+  %157 = call ptr @proto_item_add_subtree(ptr noundef %155, i32 noundef %156) #3
+  %158 = add i32 %.0160170, 1
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %157, ptr noundef nonnull @.str.59, i32 noundef %.0160170) #3
+  %159 = add nsw i32 %153, -8
+  %160 = load i32, ptr @hf_rtpdump_pkt_len, align 4
+  %161 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %160, ptr noundef %0, i32 noundef %.0159171, i32 noundef 2, i32 noundef 0) #3
+  %162 = add i32 %.0159171, 2
+  %163 = load i32, ptr @hf_rtpdump_pkt_plen, align 4
+  %164 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %157, i32 noundef %163, ptr noundef %0, i32 noundef %162, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #3
+  %165 = load i32, ptr %11, align 4
+  %166 = icmp sgt i32 %165, %159
+  br i1 %166, label %167, label %169
 
-.lr.ph:                                           ; preds = %150, %170
-  %.0159171 = phi i32 [ %177, %170 ], [ %129, %150 ]
-  %.0160170 = phi i32 [ %159, %170 ], [ 1, %150 ]
-  %153 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0159171) #3
-  %154 = zext i16 %153 to i32
-  %155 = load i32, ptr @hf_rtpdump_pkt, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %155, ptr noundef %0, i32 noundef %.0159171, i32 noundef %154, i32 noundef 0) #3
-  %157 = load i32, ptr @ett_rtpdump_pkt, align 4
-  %158 = call ptr @proto_item_add_subtree(ptr noundef %156, i32 noundef %157) #3
-  %159 = add i32 %.0160170, 1
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %158, ptr noundef nonnull @.str.59, i32 noundef %.0160170) #3
-  %160 = add nsw i32 %154, -8
-  %161 = load i32, ptr @hf_rtpdump_pkt_len, align 4
-  %162 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %161, ptr noundef %0, i32 noundef %.0159171, i32 noundef 2, i32 noundef 0) #3
-  %163 = add i32 %.0159171, 2
-  %164 = load i32, ptr @hf_rtpdump_pkt_plen, align 4
-  %165 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %158, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #3
-  %166 = load i32, ptr %11, align 4
-  %167 = icmp sgt i32 %166, %160
-  br i1 %167, label %168, label %170
+167:                                              ; preds = %.lr.ph
+  %168 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %164, ptr noundef nonnull @ei_rtpdump_caplen) #3
+  br label %169
 
-168:                                              ; preds = %.lr.ph
-  %169 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %165, ptr noundef nonnull @ei_rtpdump_caplen) #3
-  br label %170
+169:                                              ; preds = %167, %.lr.ph
+  %170 = add i32 %.0159171, 4
+  %171 = load i32, ptr @hf_rtpdump_pkt_offset, align 4
+  %172 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %171, ptr noundef %0, i32 noundef %170, i32 noundef 4, i32 noundef 0) #3
+  %173 = add i32 %.0159171, 8
+  %174 = load i32, ptr @hf_rtpdump_pkt_data, align 4
+  %175 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef %159, i32 noundef 0) #3
+  %176 = add i32 %.0159171, %153
+  %177 = icmp slt i32 %176, %12
+  br i1 %177, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-170:                                              ; preds = %168, %.lr.ph
-  %171 = add i32 %.0159171, 4
-  %172 = load i32, ptr @hf_rtpdump_pkt_offset, align 4
-  %173 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %172, ptr noundef %0, i32 noundef %171, i32 noundef 4, i32 noundef 0) #3
-  %174 = add i32 %.0159171, 8
-  %175 = load i32, ptr @hf_rtpdump_pkt_data, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %175, ptr noundef %0, i32 noundef %174, i32 noundef %160, i32 noundef 0) #3
-  %177 = add i32 %.0159171, %154
-  %178 = icmp slt i32 %177, %12
-  br i1 %178, label %.lr.ph, label %.loopexit, !llvm.loop !6
-
-.loopexit:                                        ; preds = %170, %150, %16, %19, %22, %14, %4
-  %.0161 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ %12, %150 ], [ %12, %170 ]
+.loopexit:                                        ; preds = %169, %149, %16, %19, %22, %14, %4
+  %.0161 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ %12, %149 ], [ %12, %169 ]
   ret i32 %.0161
 }
 

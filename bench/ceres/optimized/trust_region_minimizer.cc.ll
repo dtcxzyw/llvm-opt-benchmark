@@ -1175,74 +1175,74 @@ _ZNKSt6vectorIN5ceres16IterationSummaryESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; 
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %96, i64 1)
   %97 = add nsw i64 %.sroa.speculated.i.i.i, %96
   %98 = icmp ult i64 %97, %96
-  %99 = tail call i64 @llvm.umin.i64(i64 %97, i64 76861433640456465)
-  %100 = select i1 %98, i64 76861433640456465, i64 %99
-  %.not.i.i.i = icmp eq i64 %100, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i, label %101
+  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %97, i64 76861433640456465)
+  %99 = select i1 %98, i64 76861433640456465, i64 %spec.select.i.i.i
+  %.not.i.i.i = icmp eq i64 %99, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i, label %100
 
-101:                                              ; preds = %_ZNKSt6vectorIN5ceres16IterationSummaryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %102 = mul nuw nsw i64 %100, 120
-  %103 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %102) #21
+100:                                              ; preds = %_ZNKSt6vectorIN5ceres16IterationSummaryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %101 = mul nuw nsw i64 %99, 120
+  %102 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %101) #21
   br label %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %101, %_ZNKSt6vectorIN5ceres16IterationSummaryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %104 = phi ptr [ %103, %101 ], [ null, %_ZNKSt6vectorIN5ceres16IterationSummaryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %105 = getelementptr inbounds %"struct.ceres::IterationSummary", ptr %104, i64 %96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %105, ptr noundef nonnull align 8 dereferenceable(120) %2, i64 120, i1 false)
+_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %100, %_ZNKSt6vectorIN5ceres16IterationSummaryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %103 = phi ptr [ %102, %100 ], [ null, %_ZNKSt6vectorIN5ceres16IterationSummaryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %104 = getelementptr inbounds %"struct.ceres::IterationSummary", ptr %103, i64 %96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %104, ptr noundef nonnull align 8 dereferenceable(120) %2, i64 120, i1 false)
   %.not10.i.i.i.i.i = icmp eq ptr %90, %83
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %107, %.lr.ph.i.i.i.i.i ], [ %104, %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i ]
-  %.0911.i.i.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i.i.i ], [ %90, %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i ]
+  %.012.i.i.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i.i.i ], [ %103, %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i.i ], [ %90, %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %.0911.i.i.i.i.i, i64 120, i1 false), !alias.scope !16
-  %106 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 120
-  %107 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 120
-  %.not.i.i.i.i.i = icmp eq ptr %106, %83
+  %105 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 120
+  %106 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 120
+  %.not.i.i.i.i.i = icmp eq ptr %105, %83
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %104, %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i ], [ %107, %.lr.ph.i.i.i.i.i ]
-  %108 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 120
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %103, %_ZNSt12_Vector_baseIN5ceres16IterationSummaryESaIS1_EE11_M_allocateEm.exit.i.i ], [ %106, %.lr.ph.i.i.i.i.i ]
+  %107 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 120
   %.not.i23.i.i = icmp eq ptr %90, null
-  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %109
+  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %108
 
-109:                                              ; preds = %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
+108:                                              ; preds = %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %90) #22
   br label %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %109, %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
-  store ptr %104, ptr %81, align 8
-  store ptr %108, ptr %82, align 8
-  %110 = getelementptr inbounds %"struct.ceres::IterationSummary", ptr %104, i64 %100
-  store ptr %110, ptr %84, align 8
+_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %108, %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
+  store ptr %103, ptr %81, align 8
+  store ptr %107, ptr %82, align 8
+  %109 = getelementptr inbounds %"struct.ceres::IterationSummary", ptr %103, i64 %99
+  store ptr %109, ptr %84, align 8
   br label %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE9push_backERKS1_.exit: ; preds = %86, %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
-  %112 = load ptr, ptr %75, align 8
-  %113 = tail call noundef zeroext i1 @_ZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryE(ptr noundef nonnull align 8 dereferenceable(352) %111, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %112)
-  br i1 %113, label %114, label %122
+  %110 = getelementptr inbounds i8, ptr %0, i64 8
+  %111 = load ptr, ptr %75, align 8
+  %112 = tail call noundef zeroext i1 @_ZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryE(ptr noundef nonnull align 8 dereferenceable(352) %110, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %111)
+  br i1 %112, label %113, label %121
 
-114:                                              ; preds = %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE9push_backERKS1_.exit
-  %115 = tail call noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer20MaxSolverTimeReachedEv(ptr noundef nonnull align 8 dereferenceable(784) %0)
-  br i1 %115, label %122, label %116
+113:                                              ; preds = %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE9push_backERKS1_.exit
+  %114 = tail call noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer20MaxSolverTimeReachedEv(ptr noundef nonnull align 8 dereferenceable(784) %0)
+  br i1 %114, label %121, label %115
 
-116:                                              ; preds = %114
-  %117 = tail call noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer26MaxSolverIterationsReachedEv(ptr noundef nonnull align 8 dereferenceable(784) %0)
-  br i1 %117, label %122, label %118
+115:                                              ; preds = %113
+  %116 = tail call noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer26MaxSolverIterationsReachedEv(ptr noundef nonnull align 8 dereferenceable(784) %0)
+  br i1 %116, label %121, label %117
 
-118:                                              ; preds = %116
-  %119 = tail call noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer24GradientToleranceReachedEv(ptr noundef nonnull align 8 dereferenceable(784) %0)
-  br i1 %119, label %122, label %120
+117:                                              ; preds = %115
+  %118 = tail call noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer24GradientToleranceReachedEv(ptr noundef nonnull align 8 dereferenceable(784) %0)
+  br i1 %118, label %121, label %119
 
-120:                                              ; preds = %118
-  %121 = tail call noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer27MinTrustRegionRadiusReachedEv(ptr noundef nonnull align 8 dereferenceable(784) %0)
-  %not. = xor i1 %121, true
-  br label %122
+119:                                              ; preds = %117
+  %120 = tail call noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer27MinTrustRegionRadiusReachedEv(ptr noundef nonnull align 8 dereferenceable(784) %0)
+  %not. = xor i1 %120, true
+  br label %121
 
-122:                                              ; preds = %120, %118, %116, %114, %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE9push_backERKS1_.exit
-  %.0 = phi i1 [ false, %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE9push_backERKS1_.exit ], [ false, %114 ], [ false, %116 ], [ false, %118 ], [ %not., %120 ]
+121:                                              ; preds = %119, %117, %115, %113, %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE9push_backERKS1_.exit
+  %.0 = phi i1 [ false, %_ZNSt6vectorIN5ceres16IterationSummaryESaIS1_EE9push_backERKS1_.exit ], [ false, %113 ], [ false, %115 ], [ false, %117 ], [ %not., %119 ]
   ret i1 %.0
 }
 
@@ -1438,7 +1438,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   %90 = extractvalue { double, i64 } %88, 1
   %.sroa.1.8.extract.trunc = trunc i64 %90 to i32
   %.sroa.3.8.extract.shift = lshr i64 %90, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %91 = icmp ne i32 %.sroa.3.8.extract.trunc, 3
   br i1 %91, label %100, label %92
 
@@ -6686,7 +6686,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
+  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6697,19 +6697,17 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8i
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %10, 42
-  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
+  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
-  br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
+  %spec.select = select i1 %12, ptr %3, ptr null
+  br label %_ZNKSt9type_infoeqERKS_.exit.thread
 
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %5, %_ZNKSt9type_infoeqERKS_.exit
-  br label %_ZNKSt9type_infoeqERKS_.exit.thread8
-
-_ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %2
-  %.0 = phi ptr [ %3, %2 ], [ %3, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ]
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %9, %5, %2
+  %.0 = phi ptr [ %3, %2 ], [ %3, %5 ], [ null, %9 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %.0
 }
 

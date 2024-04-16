@@ -886,7 +886,7 @@ if.end2:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_rtsp_parseheader(ptr noundef %data, ptr noundef %header) local_unnamed_addr #0 {
+define hidden i32 @Curl_rtsp_parseheader(ptr noundef %data, ptr noundef %header) local_unnamed_addr #0 {
 entry:
   %endp.i = alloca ptr, align 8
   %endp = alloca ptr, align 8
@@ -923,7 +923,7 @@ if.then8:                                         ; preds = %while.end
   store i64 %call5, ptr %CSeq_recv, align 8
   %rtsp_CSeq_recv = getelementptr inbounds i8, ptr %data, i64 4560
   store i64 %call5, ptr %rtsp_CSeq_recv, align 8
-  br label %if.end101
+  br label %return
 
 if.else:                                          ; preds = %while.end
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.2, ptr noundef %header) #7
@@ -992,7 +992,7 @@ if.then60:                                        ; preds = %while.end57
 lor.lhs.false67:                                  ; preds = %if.then60
   %call71 = tail call i32 @strncmp(ptr noundef nonnull %start.0, ptr noundef nonnull %6, i64 noundef %sub.ptr.sub) #8
   %tobool72.not = icmp eq i32 %call71, 0
-  br i1 %tobool72.not, label %if.end101, label %if.then73
+  br i1 %tobool72.not, label %return, label %if.then73
 
 if.then73:                                        ; preds = %lor.lhs.false67, %if.then60
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.5, ptr noundef nonnull %start.0, ptr noundef nonnull %6) #7
@@ -1002,12 +1002,13 @@ if.else78:                                        ; preds = %while.end57
   %call79 = tail call ptr @Curl_memdup0(ptr noundef nonnull %start.0, i64 noundef %sub.ptr.sub) #7
   store ptr %call79, ptr %arrayidx58, align 8
   %tobool86.not = icmp eq ptr %call79, null
-  br i1 %tobool86.not, label %return, label %if.end101
+  %spec.select42 = select i1 %tobool86.not, i32 27, i32 0
+  br label %return
 
 if.else90:                                        ; preds = %if.else10
   %call91 = tail call i32 @curl_strnequal(ptr noundef %header, ptr noundef nonnull @.str.6, i64 noundef 10) #7
   %tobool92.not = icmp eq i32 %call91, 0
-  br i1 %tobool92.not, label %if.end101, label %if.then93
+  br i1 %tobool92.not, label %return, label %if.then93
 
 if.then93:                                        ; preds = %if.else90
   %add.ptr94 = getelementptr inbounds i8, ptr %header, i64 10
@@ -1122,13 +1123,10 @@ if.end65.i:                                       ; preds = %while.end.i
 
 rtsp_parse_transport.exit:                        ; preds = %land.rhs.i, %if.end65.i, %for.body.i, %if.end44.i, %do.body51.i, %land.lhs.true53.i, %if.then61.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
-  br label %if.end101
-
-if.end101:                                        ; preds = %rtsp_parse_transport.exit, %if.else78, %lor.lhs.false67, %if.else90, %if.then8
   br label %return
 
-return:                                           ; preds = %if.else78, %if.end101, %if.then73, %if.then29, %if.else
-  %retval.0 = phi i32 [ 0, %if.end101 ], [ 85, %if.else ], [ 86, %if.then73 ], [ 86, %if.then29 ], [ 27, %if.else78 ]
+return:                                           ; preds = %if.else78, %if.then8, %if.else90, %lor.lhs.false67, %rtsp_parse_transport.exit, %if.then73, %if.then29, %if.else
+  %retval.0 = phi i32 [ 85, %if.else ], [ 86, %if.then73 ], [ 86, %if.then29 ], [ 0, %rtsp_parse_transport.exit ], [ 0, %lor.lhs.false67 ], [ 0, %if.else90 ], [ 0, %if.then8 ], [ %spec.select42, %if.else78 ]
   ret i32 %retval.0
 }
 

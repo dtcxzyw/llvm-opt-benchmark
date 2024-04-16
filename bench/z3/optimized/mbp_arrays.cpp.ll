@@ -6502,7 +6502,7 @@ _ZN6vectorIP3appLb0EjE9push_backEOS1_.exit43:     ; preds = %lor.lhs.false.i30, 
   br label %for.inc
 
 if.else:                                          ; preds = %invoke.cont27
-  %tobool = trunc i8 %args_have_stores.090 to i1
+  %tobool = trunc nuw i8 %args_have_stores.090 to i1
   br i1 %tobool, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
@@ -6555,15 +6555,15 @@ invoke.cont44:                                    ; preds = %land.rhs.i.i
   br i1 %29, label %invoke.cont49, label %land.lhs.true46.thread
 
 land.lhs.true46:                                  ; preds = %land.rhs.i.i
-  %tobool47 = trunc i8 %args_have_stores.0.lcssa100 to i1
+  %tobool47 = trunc nuw i8 %args_have_stores.0.lcssa100 to i1
   br i1 %tobool47, label %if.then56, label %if.end59
 
 land.lhs.true46.thread77:                         ; preds = %if.end42
-  %tobool4778 = trunc i8 %args_have_stores.0.lcssa100 to i1
+  %tobool4778 = trunc nuw i8 %args_have_stores.0.lcssa100 to i1
   br i1 %tobool4778, label %if.then56, label %if.end59
 
 land.lhs.true46.thread:                           ; preds = %invoke.cont44
-  %tobool4772 = trunc i8 %args_have_stores.0.lcssa100 to i1
+  %tobool4772 = trunc nuw i8 %args_have_stores.0.lcssa100 to i1
   br i1 %tobool4772, label %if.then56, label %invoke.cont49
 
 invoke.cont49:                                    ; preds = %land.lhs.true46.thread, %invoke.cont44
@@ -7462,7 +7462,7 @@ _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit: ; preds = %for.c
   %retval.0.i = phi i32 [ %73, %if.end.i ], [ 0, %for.cond ]
   %74 = zext i32 %retval.0.i to i64
   %cmp = icmp uge i64 %indvars.iv, %74
-  %tobool = trunc i8 %idx_in_I.0 to i1
+  %tobool = trunc nuw i8 %idx_in_I.0 to i1
   %.not = select i1 %cmp, i1 true, i1 %tobool
   br i1 %.not, label %for.end, label %for.body
 
@@ -9246,7 +9246,7 @@ if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops
 
 lor.rhs.i.i.i29.i:                                ; preds = %if.else.i
   %cmp4.i.i.i30.i = icmp ult i32 %4, %0
-  br i1 %cmp4.i.i.i30.i, label %if.else5.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i
+  br i1 %cmp4.i.i.i30.i, label %_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i: ; preds = %lor.rhs.i.i.i29.i
   %second.i.i.i32.i = getelementptr inbounds i8, ptr %__first, i64 24
@@ -9254,9 +9254,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEE
   %second5.i.i.i33.i = getelementptr inbounds i8, ptr %__last, i64 -8
   %8 = load ptr, ptr %second5.i.i.i33.i, align 8
   %cmp6.i.i.i34.i = icmp ult ptr %7, %8
-  br i1 %cmp6.i.i.i34.i, label %_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_.exit, label %if.else5.i
-
-if.else5.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i, %lor.rhs.i.i.i29.i
+  %spec.select.i = select i1 %cmp6.i.i.i34.i, i32 %4, i32 %0
+  %spec.select72.i = select i1 %cmp6.i.i.i34.i, ptr %add.ptr2, ptr %add.ptr1
   br label %_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_.exit
 
 if.else7.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i
@@ -9282,7 +9281,7 @@ if.else10.i:                                      ; preds = %_ZN9__gnu_cxx5__ops
 
 lor.rhs.i.i.i51.i:                                ; preds = %if.else10.i
   %cmp4.i.i.i52.i = icmp ult i32 %9, %1
-  br i1 %cmp4.i.i.i52.i, label %if.else13.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i
+  br i1 %cmp4.i.i.i52.i, label %_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i: ; preds = %lor.rhs.i.i.i51.i
   %second.i.i.i54.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -9290,14 +9289,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEE
   %second5.i.i.i55.i = getelementptr inbounds i8, ptr %__last, i64 -8
   %13 = load ptr, ptr %second5.i.i.i55.i, align 8
   %cmp6.i.i.i56.i = icmp ult ptr %12, %13
-  br i1 %cmp6.i.i.i56.i, label %_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_.exit, label %if.else13.i
-
-if.else13.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i, %lor.rhs.i.i.i51.i
+  %spec.select73.i = select i1 %cmp6.i.i.i56.i, i32 %9, i32 %1
+  %spec.select74.i = select i1 %cmp6.i.i.i56.i, ptr %add.ptr2, ptr %add.ptr
   br label %_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_.exit
 
-_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_.exit: ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit26.i, %if.else.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i, %if.else5.i, %if.else7.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit47.i, %if.else10.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i, %if.else13.i
-  %.sink71.i = phi i32 [ %1, %if.else13.i ], [ %0, %if.else5.i ], [ %1, %if.then.i ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit26.i ], [ %4, %if.else.i ], [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i ], [ %0, %if.else7.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit47.i ], [ %9, %if.else10.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i ]
-  %__a.sink70.i = phi ptr [ %add.ptr, %if.else13.i ], [ %add.ptr1, %if.else5.i ], [ %add.ptr, %if.then.i ], [ %add.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit26.i ], [ %add.ptr2, %if.else.i ], [ %add.ptr2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i ], [ %add.ptr1, %if.else7.i ], [ %add.ptr1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit47.i ], [ %add.ptr2, %if.else10.i ], [ %add.ptr2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i ]
+_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_.exit: ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit26.i, %if.else.i, %lor.rhs.i.i.i29.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i, %if.else7.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit47.i, %if.else10.i, %lor.rhs.i.i.i51.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i
+  %.sink71.i = phi i32 [ %1, %if.then.i ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit26.i ], [ %4, %if.else.i ], [ %0, %lor.rhs.i.i.i29.i ], [ %0, %if.else7.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit47.i ], [ %9, %if.else10.i ], [ %1, %lor.rhs.i.i.i51.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i ], [ %spec.select73.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i ]
+  %__a.sink70.i = phi ptr [ %add.ptr, %if.then.i ], [ %add.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit26.i ], [ %add.ptr2, %if.else.i ], [ %add.ptr1, %lor.rhs.i.i.i29.i ], [ %add.ptr1, %if.else7.i ], [ %add.ptr1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit47.i ], [ %add.ptr2, %if.else10.i ], [ %add.ptr, %lor.rhs.i.i.i51.i ], [ %spec.select72.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit35.i ], [ %spec.select74.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit57.i ]
   %14 = load i32, ptr %__first, align 4
   store i32 %.sink71.i, ptr %__first, align 4
   store i32 %14, ptr %__a.sink70.i, align 4
@@ -9388,8 +9386,8 @@ entry:
   %cmp29 = icmp sgt i64 %div, %__holeIndex
   br i1 %cmp29, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27
-  %__holeIndex.addr.030 = phi i64 [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27 ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread
+  %__holeIndex.addr.030 = phi i64 [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.030, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %mul
@@ -9402,7 +9400,7 @@ while.body:                                       ; preds = %entry, %_ZN9__gnu_c
 
 lor.rhs.i.i.i:                                    ; preds = %while.body
   %cmp4.i.i.i = icmp ult i32 %1, %0
-  br i1 %cmp4.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit
+  br i1 %cmp4.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit: ; preds = %lor.rhs.i.i.i
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -9411,25 +9409,24 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEE
   %3 = load ptr, ptr %second5.i.i.i, align 8
   %cmp6.i.i.i = icmp ult ptr %2, %3
   %cond.fr = freeze i1 %cmp6.i.i.i
-  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27
+  %spec.select = select i1 %cond.fr, i64 %sub1, i64 %mul
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread: ; preds = %while.body, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27: ; preds = %lor.rhs.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread
-  %4 = phi i32 [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit ], [ %0, %lor.rhs.i.i.i ]
-  %5 = phi i64 [ %sub1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread ], [ %mul, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit ], [ %mul, %lor.rhs.i.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit, %lor.rhs.i.i.i, %while.body
+  %4 = phi i64 [ %sub1, %while.body ], [ %mul, %lor.rhs.i.i.i ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit ]
+  %add.ptr3 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %4
   %add.ptr4 = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %__holeIndex.addr.030
-  store i32 %4, ptr %add.ptr4, align 8
-  %second.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %5, i32 1
+  %5 = load i32, ptr %add.ptr3, align 4
+  store i32 %5, ptr %add.ptr4, align 8
+  %second.i = getelementptr inbounds i8, ptr %add.ptr3, i64 8
   %6 = load ptr, ptr %second.i, align 8
   %second3.i = getelementptr inbounds i8, ptr %add.ptr4, i64 8
   store ptr %6, ptr %second3.i, align 8
-  %cmp = icmp slt i64 %5, %div
+  %cmp = icmp slt i64 %4, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !49
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread27 ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEclIPSt4pairIjP3appESB_EEbT_T0_.exit.thread ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end18
@@ -10380,7 +10377,7 @@ _ZN6vectorIP3appLb0EjE9push_backEOS1_.exit52:     ; preds = %lor.lhs.false.i39, 
   br label %for.inc.sink.split
 
 if.else32:                                        ; preds = %invoke.cont25
-  %tobool = trunc i8 %all_done.0289 to i1
+  %tobool = trunc nuw i8 %all_done.0289 to i1
   br i1 %tobool, label %if.then33, label %for.inc
 
 if.then33:                                        ; preds = %if.else32
@@ -10450,7 +10447,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   br i1 %cmp.not, label %for.end, label %invoke.cont20
 
 for.end:                                          ; preds = %for.inc
-  %tobool43 = trunc i8 %all_done.1 to i1
+  %tobool43 = trunc nuw i8 %all_done.1 to i1
   br i1 %tobool43, label %if.end45, label %cleanup, !llvm.loop !55
 
 if.end45:                                         ; preds = %invoke.cont16, %for.end
@@ -12873,22 +12870,20 @@ invoke.cont30:                                    ; preds = %.noexc102, %lor.lhs
   store i32 %inc.i.i97, ptr %arrayidx10.i.i96, align 4
   %cmp32 = icmp ne ptr %31, %50
   %59 = or i1 %dirty.0258, %cmp32
-  %tobool35 = trunc i8 %args_have_stores.0260 to i1
+  %tobool35 = trunc nuw i8 %args_have_stores.0260 to i1
   br i1 %tobool35, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont30
   %60 = load i8, ptr %m_reduce_all_selects.i, align 8
   %tobool.i = trunc i8 %60 to i1
-  br i1 %tobool.i, label %invoke.cont36.thread, label %if.end.i104
+  br i1 %tobool.i, label %for.inc, label %if.end.i104
 
 if.end.i104:                                      ; preds = %land.lhs.true
   %call.i106 = invoke noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %m_has_stores.i, ptr noundef %50)
           to label %invoke.cont36 unwind label %lpad14.loopexit
 
 invoke.cont36:                                    ; preds = %if.end.i104
-  br i1 %call.i106, label %invoke.cont36.thread, label %for.inc
-
-invoke.cont36.thread:                             ; preds = %land.lhs.true, %invoke.cont36
+  %spec.select = select i1 %call.i106, i8 1, i8 %args_have_stores.0260
   br label %for.inc
 
 if.else40:                                        ; preds = %for.body.i.i.i53, %for.body20.i.i.i61, %for.inc36.i.i.i64, %for.cond18.preheader.i.i.i59
@@ -12927,9 +12922,9 @@ _ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122:    ; preds = %lor.lhs.false.i108,
   store i32 %inc.i116, ptr %arrayidx10.i115, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %invoke.cont36.thread, %invoke.cont36, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %invoke.cont30
-  %dirty.1 = phi i1 [ %59, %invoke.cont30 ], [ %dirty.0258, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122 ], [ %dirty.0258, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %59, %invoke.cont36 ], [ %59, %invoke.cont36.thread ]
-  %args_have_stores.1 = phi i8 [ %args_have_stores.0260, %invoke.cont30 ], [ %args_have_stores.0260, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122 ], [ %args_have_stores.0260, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %args_have_stores.0260, %invoke.cont36 ], [ 1, %invoke.cont36.thread ]
+for.inc:                                          ; preds = %invoke.cont36, %land.lhs.true, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %invoke.cont30
+  %dirty.1 = phi i1 [ %59, %invoke.cont30 ], [ %dirty.0258, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122 ], [ %dirty.0258, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %59, %land.lhs.true ], [ %59, %invoke.cont36 ]
+  %args_have_stores.1 = phi i8 [ %args_have_stores.0260, %invoke.cont30 ], [ %args_have_stores.0260, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122 ], [ %args_have_stores.0260, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ 1, %land.lhs.true ], [ %spec.select, %invoke.cont36 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0262, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i34.ptr
   br i1 %cmp.not, label %for.end, label %invoke.cont21
@@ -13073,7 +13068,7 @@ if.else74:                                        ; preds = %land.rhs.i.i, %if.e
   br i1 %tobool.i170, label %if.end78, label %if.end.i171
 
 if.end.i171:                                      ; preds = %if.else74
-  %tobool76 = trunc i8 %args_have_stores.0.lcssa to i1
+  %tobool76 = trunc nuw i8 %args_have_stores.0.lcssa to i1
   br i1 %tobool76, label %if.then5.i, label %lor.lhs.false.i172
 
 lor.lhs.false.i172:                               ; preds = %if.end.i171

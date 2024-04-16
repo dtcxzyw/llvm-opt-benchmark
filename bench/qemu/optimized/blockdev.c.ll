@@ -1164,7 +1164,7 @@ if.then93:                                        ; preds = %for.inc88
   br label %fail
 
 if.end96.loopexit:                                ; preds = %land.rhs
-  %8 = trunc i64 %indvars.iv220 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv220 to i32
   br label %if.end96
 
 if.end96:                                         ; preds = %if.end96.loopexit, %5
@@ -3349,7 +3349,7 @@ if.end31.i66.i:                                   ; preds = %if.else27.i.i
   %date_sec.i.i = getelementptr inbounds i8, ptr %call.i53.i, i64 400
   store i32 %conv.i67.i, ptr %date_sec.i.i, align 8
   %rem.i.i = srem i64 %call34.i.i, 1000000
-  %73 = trunc i64 %rem.i.i to i32
+  %73 = trunc nsw i64 %rem.i.i to i32
   %conv35.i.i = mul nsw i32 %73, 1000
   %date_nsec.i.i = getelementptr inbounds i8, ptr %call.i53.i, i64 404
   store i32 %conv35.i.i, ptr %date_nsec.i.i, align 4
@@ -5432,7 +5432,7 @@ entry:
   call void @visit_complete(ptr noundef %call, ptr noundef nonnull %obj) #13
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -5446,13 +5446,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
   call void @qdict_flatten(ptr noundef %retval.0.i) #13
   %call3 = call ptr @qdict_get_try_str(ptr noundef %retval.0.i, ptr noundef nonnull @.str.116) #13
   %tobool.not = icmp eq ptr %call3, null
@@ -5469,9 +5467,9 @@ if.end:                                           ; preds = %qobject_check_type.
 
 if.end7:                                          ; preds = %if.end
   %call.i = call zeroext i1 @qemu_in_main_thread() #13
-  br i1 %call.i, label %bdrv_set_monitor_owned.exit, label %if.else.i7
+  br i1 %call.i, label %bdrv_set_monitor_owned.exit, label %if.else.i
 
-if.else.i7:                                       ; preds = %if.end7
+if.else.i:                                        ; preds = %if.end7
   call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_set_monitor_owned) #14
   unreachable
 
@@ -5544,7 +5542,7 @@ if.end5:                                          ; preds = %if.end
   call void @visit_free(ptr noundef %call6) #13
   %4 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end5
   %obj.val.i = load i32, ptr %4, align 8
@@ -5558,13 +5556,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %if.end5
+  %spec.select.i = select i1 %cmp.i, ptr %4, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %4, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %if.end5, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %if.end5 ], [ %spec.select.i, %qobject_type.exit.i ]
   call void @qdict_flatten(ptr noundef %retval.0.i) #13
   %call9 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %call) #13
   call void @aio_context_acquire(ptr noundef %call9) #13
@@ -5990,7 +5986,7 @@ if.else.i:                                        ; preds = %for.body
 qobject_type.exit:                                ; preds = %for.body
   switch i32 %.val, label %sw.default [
     i32 3, label %qobject_check_type.exit
-    i32 2, label %qobject_check_type.exit24
+    i32 2, label %qobject_check_type.exit23
   ]
 
 qobject_check_type.exit:                          ; preds = %qobject_type.exit
@@ -6007,13 +6003,13 @@ if.else:                                          ; preds = %qobject_check_type.
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.parse_stats_intervals, ptr noundef nonnull @.str.204, ptr noundef %call5) #13
   br label %return
 
-qobject_check_type.exit24:                        ; preds = %qobject_type.exit
+qobject_check_type.exit23:                        ; preds = %qobject_type.exit
   %call14 = call i64 @qnum_get_int(ptr noundef nonnull %0) #13
   %5 = add i64 %call14, -1
   %or.cond2 = icmp ult i64 %5, 4294967295
   br i1 %or.cond2, label %for.inc, label %if.else22
 
-if.else22:                                        ; preds = %qobject_check_type.exit24
+if.else22:                                        ; preds = %qobject_check_type.exit23
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__func__.parse_stats_intervals, ptr noundef nonnull @.str.205, i64 noundef %call14) #13
   br label %return
 
@@ -6021,9 +6017,9 @@ sw.default:                                       ; preds = %qobject_type.exit
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @__func__.parse_stats_intervals, ptr noundef nonnull @.str.206) #13
   br label %return
 
-for.inc:                                          ; preds = %qobject_check_type.exit24, %qobject_check_type.exit
-  %.sink = phi i64 [ %2, %qobject_check_type.exit ], [ %call14, %qobject_check_type.exit24 ]
-  %conv = trunc i64 %.sink to i32
+for.inc:                                          ; preds = %qobject_check_type.exit23, %qobject_check_type.exit
+  %.sink = phi i64 [ %2, %qobject_check_type.exit ], [ %call14, %qobject_check_type.exit23 ]
+  %conv = trunc nuw i64 %.sink to i32
   call void @block_acct_add_interval(ptr noundef %stats, i32 noundef %conv) #13
   %6 = getelementptr i8, ptr %entry1.07, i64 8
   %entry1.0.val = load ptr, ptr %6, align 8

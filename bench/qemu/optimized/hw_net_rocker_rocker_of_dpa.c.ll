@@ -566,7 +566,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %2 = load i32, ptr %value, align 8
   store i32 %2, ptr %call, align 8
   %shr10 = lshr i32 %2, 28
-  %conv11 = trunc i32 %shr10 to i8
+  %conv11 = trunc nuw nsw i32 %shr10 to i8
   %type12 = getelementptr inbounds i8, ptr %call, i64 4
   store i8 %conv11, ptr %type12, align 4
   switch i32 %shr10, label %do.body117 [
@@ -581,7 +581,7 @@ sw.bb:                                            ; preds = %if.end
   %has_vlan_id = getelementptr inbounds i8, ptr %call, i64 5
   store i8 1, ptr %has_vlan_id, align 1
   %and16 = lshr i32 %2, 16
-  %3 = trunc i32 %and16 to i16
+  %3 = trunc nuw i32 %and16 to i16
   %conv18 = and i16 %3, 4095
   %vlan_id = getelementptr inbounds i8, ptr %call, i64 6
   store i16 %conv18, ptr %vlan_id, align 2
@@ -657,7 +657,7 @@ sw.bb52:                                          ; preds = %if.end, %if.end
   %has_vlan_id53 = getelementptr inbounds i8, ptr %call, i64 5
   store i8 1, ptr %has_vlan_id53, align 1
   %and55 = lshr i32 %2, 16
-  %10 = trunc i32 %and55 to i16
+  %10 = trunc nuw i32 %and55 to i16
   %conv57 = and i16 %10, 4095
   %vlan_id58 = getelementptr inbounds i8, ptr %call, i64 6
   store i16 %conv57, ptr %vlan_id58, align 2
@@ -2558,19 +2558,24 @@ if.then9:                                         ; preds = %if.end
 
 if.end13:                                         ; preds = %if.then9, %if.end
   %and = and i32 %.val15, 65536
-  %tobool15.not.not = icmp eq i32 %and, 0
+  %tobool15.not = icmp eq i32 %and, 0
   %6 = load ptr, ptr %arrayidx4, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val = load i16, ptr %7, align 1
   %conv = zext i16 %.val to i32
   store i32 %conv, ptr %action3, align 4
-  %or.cond17.v = select i1 %tobool15.not.not, i16 10, i16 50
-  %or.cond17 = icmp eq i16 %.val, %or.cond17.v
-  %spec.select = select i1 %or.cond17, i32 0, i32 -22
+  %cmp.not = icmp ne i16 %.val, 10
+  %or.cond.not16 = select i1 %tobool15.not, i1 %cmp.not, i1 false
+  %.mux = select i1 %or.cond.not16, i32 -22, i32 0
+  br i1 %tobool15.not, label %return, label %land.lhs.true26
+
+land.lhs.true26:                                  ; preds = %if.end13
+  %cmp28.not = icmp eq i16 %.val, 50
+  %spec.select = select i1 %cmp28.not, i32 0, i32 -22
   br label %return
 
-return:                                           ; preds = %if.end13, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ -22, %lor.lhs.false ], [ -22, %entry ], [ %spec.select, %if.end13 ]
+return:                                           ; preds = %land.lhs.true26, %if.end13, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ -22, %lor.lhs.false ], [ -22, %entry ], [ %.mux, %if.end13 ], [ %spec.select, %land.lhs.true26 ]
   ret i32 %retval.0
 }
 
@@ -2788,7 +2793,7 @@ if.end107:                                        ; preds = %land.lhs.true96, %i
   br i1 %cmp62, label %if.end112, label %land.lhs.true109
 
 land.lhs.true109:                                 ; preds = %if.end107
-  %tobool110 = trunc i8 %multicast.1 to i1
+  %tobool110 = trunc nuw i8 %multicast.1 to i1
   br i1 %tobool110, label %if.end112, label %return
 
 if.end112:                                        ; preds = %land.lhs.true109, %if.end107
@@ -2823,13 +2828,13 @@ land.lhs.true137:                                 ; preds = %if.end134
   br i1 %cmp139.not, label %if.end142.thread, label %return
 
 if.end142:                                        ; preds = %if.end134
-  %tobool143 = trunc i8 %multicast.1 to i1
+  %tobool143 = trunc nuw i8 %multicast.1 to i1
   %cmp147.not = icmp ne i16 %.val, 40
   %or.cond.not = and i1 %cmp147.not, %tobool143
   br i1 %or.cond.not, label %return, label %if.end151
 
 if.end142.thread:                                 ; preds = %land.lhs.true137
-  %tobool14355 = trunc i8 %multicast.1 to i1
+  %tobool14355 = trunc nuw i8 %multicast.1 to i1
   br i1 %tobool14355, label %return, label %if.end151
 
 if.end151:                                        ; preds = %if.end142.thread, %if.end142, %if.end112
@@ -3217,8 +3222,8 @@ switch.early.test:                                ; preds = %if.then76
   %13 = select i1 %switch.selectcmp, i32 0, i32 -22
   br label %return
 
-return:                                           ; preds = %if.end73, %if.then76, %switch.early.test, %if.then65, %if.end43, %sw.bb9, %if.end17, %sw.epilog, %if.end, %entry
-  %retval.0 = phi i32 [ -22, %entry ], [ -22, %if.end ], [ -22, %sw.epilog ], [ -22, %if.end17 ], [ -22, %sw.bb9 ], [ -22, %if.end43 ], [ -22, %if.then65 ], [ %13, %switch.early.test ], [ 0, %if.then76 ], [ 0, %if.end73 ]
+return:                                           ; preds = %switch.early.test, %if.end73, %if.then76, %if.then65, %if.end43, %sw.bb9, %if.end17, %sw.epilog, %if.end, %entry
+  %retval.0 = phi i32 [ -22, %entry ], [ -22, %if.end ], [ -22, %sw.epilog ], [ -22, %if.end17 ], [ -22, %sw.bb9 ], [ -22, %if.end43 ], [ -22, %if.then65 ], [ 0, %if.then76 ], [ 0, %if.end73 ], [ %13, %switch.early.test ]
   ret i32 %retval.0
 }
 

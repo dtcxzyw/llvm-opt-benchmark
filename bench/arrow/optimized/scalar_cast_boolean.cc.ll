@@ -3738,7 +3738,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -3749,13 +3749,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #17
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -6349,7 +6347,7 @@ while.body.i.i.i.i:                               ; preds = %.noexc5, %if.end32.
 call.i.i.i.i.noexc:                               ; preds = %while.body.i.i.i.i
   %block.sroa.0.0.extract.trunc.i.i.i.i = trunc i32 %call.i.i.i.i6 to i16
   %block.sroa.5.0.extract.shift.i.i.i.i = lshr i32 %call.i.i.i.i6, 16
-  %block.sroa.5.0.extract.trunc.i.i.i.i = trunc i32 %block.sroa.5.0.extract.shift.i.i.i.i to i16
+  %block.sroa.5.0.extract.trunc.i.i.i.i = trunc nuw i32 %block.sroa.5.0.extract.shift.i.i.i.i to i16
   %cmp.i.i.i.i.i = icmp eq i16 %block.sroa.0.0.extract.trunc.i.i.i.i, %block.sroa.5.0.extract.trunc.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %for.cond.preheader.i.i.i.i, label %if.else.i.i.i.i4
 
@@ -6632,14 +6630,14 @@ if.end23.i:                                       ; preds = %if.end15.i, %if.end
   store ptr %add.ptr25.i, ptr %counter_, align 8
   %sub27.i = add nsw i64 %1, -64
   store i64 %sub27.i, ptr %bits_remaining_.i, align 8
-  %conv.i = trunc i64 %6 to i32
+  %conv.i = trunc nuw nsw i64 %6 to i32
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit
 
 _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit: ; preds = %if.then, %if.then6.i, %if.then13.i, %if.end23.i
   %retval.sroa.0.0.i = phi i32 [ %call.i, %if.then6.i ], [ 64, %if.end23.i ], [ %call14.i, %if.then13.i ], [ 0, %if.then ]
   %retval.sroa.5.0.i = phi i32 [ %retval.sroa.5.0.extract.shift.i, %if.then6.i ], [ %conv.i, %if.end23.i ], [ %retval.sroa.5.0.extract.shift2.i, %if.then13.i ], [ 0, %if.then ]
   %retval.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.i to i16
-  %retval.sroa.4.0.extract.trunc = trunc i32 %retval.sroa.5.0.i to i16
+  %retval.sroa.4.0.extract.trunc = trunc nuw i32 %retval.sroa.5.0.i to i16
   %conv = sext i16 %retval.sroa.0.0.extract.trunc to i64
   %position_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %position_, align 8
@@ -7066,7 +7064,7 @@ while.body.i.i.i.i:                               ; preds = %.noexc5, %if.end32.
 call.i.i.i.i.noexc:                               ; preds = %while.body.i.i.i.i
   %block.sroa.0.0.extract.trunc.i.i.i.i = trunc i32 %call.i.i.i.i6 to i16
   %block.sroa.5.0.extract.shift.i.i.i.i = lshr i32 %call.i.i.i.i6, 16
-  %block.sroa.5.0.extract.trunc.i.i.i.i = trunc i32 %block.sroa.5.0.extract.shift.i.i.i.i to i16
+  %block.sroa.5.0.extract.trunc.i.i.i.i = trunc nuw i32 %block.sroa.5.0.extract.shift.i.i.i.i to i16
   %cmp.i.i.i.i.i = icmp eq i16 %block.sroa.0.0.extract.trunc.i.i.i.i, %block.sroa.5.0.extract.trunc.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %for.cond.preheader.i.i.i.i, label %if.else.i.i.i.i4
 

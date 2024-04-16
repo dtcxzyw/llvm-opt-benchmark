@@ -264,12 +264,12 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %4 = getelementptr inbounds i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
   switch i32 %2, label %9 [
-    i32 1, label %.thread58
+    i32 1, label %.thread59
     i32 0, label %8
     i32 2, label %8
   ]
 
-.thread58:                                        ; preds = %3
+.thread59:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   br label %.split.us.preheader
@@ -283,15 +283,15 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   switch i32 %2, label %.split [
     i32 1, label %.split.us.preheader
-    i32 0, label %.split.us17
-    i32 2, label %.split.us26
+    i32 0, label %.split.us18
+    i32 2, label %.split.us27
   ]
 
-.split.us.preheader:                              ; preds = %.thread58, %9
-  %13 = phi ptr [ %7, %.thread58 ], [ %12, %9 ]
-  %14 = phi ptr [ %6, %.thread58 ], [ %11, %9 ]
-  %15 = phi i32 [ 0, %.thread58 ], [ %10, %9 ]
-  %16 = phi i32 [ -1, %.thread58 ], [ 0, %9 ]
+.split.us.preheader:                              ; preds = %.thread59, %9
+  %13 = phi ptr [ %7, %.thread59 ], [ %12, %9 ]
+  %14 = phi ptr [ %6, %.thread59 ], [ %11, %9 ]
+  %15 = phi i32 [ 0, %.thread59 ], [ %10, %9 ]
+  %16 = phi i32 [ -1, %.thread59 ], [ 0, %9 ]
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %43
@@ -304,7 +304,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %23 = getelementptr inbounds i8, ptr %18, i64 8
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %25 [
-    i32 -2, label %.split13.us
+    i32 -2, label %.split14.us
     i32 -1, label %43
   ]
 
@@ -347,7 +347,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %49 = add i32 %17, 1
   br label %.split.us, !llvm.loop !10
 
-.split.us17:                                      ; preds = %9, %76
+.split.us18:                                      ; preds = %9, %76
   %50 = phi i32 [ %82, %76 ], [ %2, %9 ]
   %51 = phi ptr [ %81, %76 ], [ %5, %9 ]
   %52 = phi i32 [ %77, %76 ], [ -1, %9 ]
@@ -357,11 +357,11 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %56 = getelementptr inbounds i8, ptr %51, i64 8
   %57 = load i32, ptr %56, align 4
   switch i32 %57, label %58 [
-    i32 -2, label %.split13.us
+    i32 -2, label %.split14.us
     i32 -1, label %76
   ]
 
-58:                                               ; preds = %.split.us17
+58:                                               ; preds = %.split.us18
   %59 = load i32, ptr %11, align 4
   %60 = icmp ult i32 %57, %59
   br i1 %60, label %76, label %61
@@ -391,36 +391,36 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %75 = tail call i32 @llvm.umin.i32(i32 %57, i32 %55)
   br label %76
 
-76:                                               ; preds = %72, %68, %61, %58, %.split.us17
-  %77 = phi i32 [ %52, %58 ], [ %52, %61 ], [ %52, %.split.us17 ], [ %52, %72 ], [ %70, %68 ]
-  %78 = phi i32 [ %53, %58 ], [ %53, %61 ], [ %53, %.split.us17 ], [ %53, %72 ], [ %71, %68 ]
-  %79 = phi i32 [ %54, %58 ], [ %54, %61 ], [ %54, %.split.us17 ], [ %74, %72 ], [ %54, %68 ]
-  %80 = phi i32 [ %55, %58 ], [ %55, %61 ], [ %55, %.split.us17 ], [ %75, %72 ], [ %55, %68 ]
+76:                                               ; preds = %72, %68, %61, %58, %.split.us18
+  %77 = phi i32 [ %52, %58 ], [ %52, %61 ], [ %52, %.split.us18 ], [ %52, %72 ], [ %70, %68 ]
+  %78 = phi i32 [ %53, %58 ], [ %53, %61 ], [ %53, %.split.us18 ], [ %53, %72 ], [ %71, %68 ]
+  %79 = phi i32 [ %54, %58 ], [ %54, %61 ], [ %54, %.split.us18 ], [ %74, %72 ], [ %54, %68 ]
+  %80 = phi i32 [ %55, %58 ], [ %55, %61 ], [ %55, %.split.us18 ], [ %75, %72 ], [ %55, %68 ]
   %81 = getelementptr i8, ptr %51, i64 12
   %82 = add i32 %50, 1
-  br label %.split.us17, !llvm.loop !10
+  br label %.split.us18, !llvm.loop !10
 
-.split.us26:                                      ; preds = %9, %109
-  %83 = phi i32 [ %113, %109 ], [ 0, %9 ]
-  %84 = phi ptr [ %112, %109 ], [ %5, %9 ]
-  %85 = phi i32 [ %110, %109 ], [ -1, %9 ]
-  %86 = phi i32 [ %111, %109 ], [ %10, %9 ]
+.split.us27:                                      ; preds = %9, %108
+  %83 = phi i32 [ %112, %108 ], [ 0, %9 ]
+  %84 = phi ptr [ %111, %108 ], [ %5, %9 ]
+  %85 = phi i32 [ %109, %108 ], [ -1, %9 ]
+  %86 = phi i32 [ %110, %108 ], [ %10, %9 ]
   %87 = getelementptr inbounds i8, ptr %84, i64 8
   %88 = load i32, ptr %87, align 4
   switch i32 %88, label %89 [
-    i32 -2, label %.split13.us
-    i32 -1, label %109
+    i32 -2, label %.split14.us
+    i32 -1, label %108
   ]
 
-89:                                               ; preds = %.split.us26
+89:                                               ; preds = %.split.us27
   %90 = load i32, ptr %11, align 4
   %91 = icmp ult i32 %88, %90
-  br i1 %91, label %109, label %92
+  br i1 %91, label %108, label %92
 
 92:                                               ; preds = %89
   %93 = load i32, ptr %12, align 8
   %94 = icmp ugt i32 %88, %93
-  br i1 %94, label %109, label %95
+  br i1 %94, label %108, label %95
 
 95:                                               ; preds = %92
   %96 = icmp eq i32 %88, %1
@@ -434,77 +434,75 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
 
 101:                                              ; preds = %97
   %102 = icmp eq i32 %99, %86
-  br i1 %102, label %103, label %109
+  br i1 %102, label %103, label %108
 
 103:                                              ; preds = %101
   %104 = zext i32 %85 to i64
   %105 = getelementptr %struct.cpufreq_frequency_table, ptr %5, i64 %104, i32 2
   %106 = load i32, ptr %105, align 4
   %107 = icmp ugt i32 %88, %106
-  br i1 %107, label %108, label %109
+  %spec.select.us = select i1 %107, i32 %83, i32 %85
+  br label %108
 
-108:                                              ; preds = %103, %97
-  br label %109
+108:                                              ; preds = %103, %101, %97, %92, %89, %.split.us27
+  %109 = phi i32 [ %85, %89 ], [ %85, %92 ], [ %85, %101 ], [ %85, %.split.us27 ], [ %83, %97 ], [ %spec.select.us, %103 ]
+  %110 = phi i32 [ %86, %89 ], [ %86, %92 ], [ %86, %101 ], [ %86, %.split.us27 ], [ %99, %97 ], [ %86, %103 ]
+  %111 = getelementptr i8, ptr %84, i64 12
+  %112 = add i32 %83, 1
+  br label %.split.us27, !llvm.loop !10
 
-109:                                              ; preds = %108, %103, %101, %92, %89, %.split.us26
-  %110 = phi i32 [ %85, %89 ], [ %85, %92 ], [ %83, %108 ], [ %85, %103 ], [ %85, %101 ], [ %85, %.split.us26 ]
-  %111 = phi i32 [ %86, %89 ], [ %86, %92 ], [ %99, %108 ], [ %86, %103 ], [ %86, %101 ], [ %86, %.split.us26 ]
-  %112 = getelementptr i8, ptr %84, i64 12
-  %113 = add i32 %83, 1
-  br label %.split.us26, !llvm.loop !10
-
-.split:                                           ; preds = %9, %125
-  %114 = phi i32 [ %127, %125 ], [ 0, %9 ]
-  %115 = phi ptr [ %126, %125 ], [ %5, %9 ]
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
-  %117 = load i32, ptr %116, align 4
-  switch i32 %117, label %118 [
-    i32 -2, label %.split13.us
-    i32 -1, label %125
+.split:                                           ; preds = %9, %124
+  %113 = phi i32 [ %126, %124 ], [ 0, %9 ]
+  %114 = phi ptr [ %125, %124 ], [ %5, %9 ]
+  %115 = getelementptr inbounds i8, ptr %114, i64 8
+  %116 = load i32, ptr %115, align 4
+  switch i32 %116, label %117 [
+    i32 -2, label %.split14.us
+    i32 -1, label %124
   ]
 
-118:                                              ; preds = %.split
-  %119 = load i32, ptr %11, align 4
-  %120 = icmp ult i32 %117, %119
-  br i1 %120, label %125, label %121
+117:                                              ; preds = %.split
+  %118 = load i32, ptr %11, align 4
+  %119 = icmp ult i32 %116, %118
+  br i1 %119, label %124, label %120
 
-121:                                              ; preds = %118
-  %122 = load i32, ptr %12, align 8
-  %123 = icmp ule i32 %117, %122
-  %124 = icmp eq i32 %117, %1
-  %or.cond = and i1 %123, %124
-  br i1 %or.cond, label %.thread, label %125
+120:                                              ; preds = %117
+  %121 = load i32, ptr %12, align 8
+  %122 = icmp ule i32 %116, %121
+  %123 = icmp eq i32 %116, %1
+  %or.cond = and i1 %122, %123
+  br i1 %or.cond, label %.thread, label %124
 
-125:                                              ; preds = %121, %118, %.split
-  %126 = getelementptr i8, ptr %115, i64 12
-  %127 = add i32 %114, 1
+124:                                              ; preds = %120, %117, %.split
+  %125 = getelementptr i8, ptr %114, i64 12
+  %126 = add i32 %113, 1
   br label %.split, !llvm.loop !10
 
-.split13.us:                                      ; preds = %.split.us26, %.split.us17, %.split.us, %.split
-  %.us-phi = phi i32 [ %114, %.split ], [ %17, %.split.us ], [ %50, %.split.us17 ], [ %83, %.split.us26 ]
-  %.us-phi14 = phi i32 [ -1, %.split ], [ %19, %.split.us ], [ %52, %.split.us17 ], [ -1, %.split.us26 ]
-  %.us-phi15 = phi i32 [ -1, %.split ], [ %21, %.split.us ], [ %54, %.split.us17 ], [ %85, %.split.us26 ]
-  %128 = icmp ugt i32 %.us-phi15, %.us-phi
-  br i1 %128, label %129, label %.thread
+.split14.us:                                      ; preds = %.split.us27, %.split.us18, %.split.us, %.split
+  %.us-phi = phi i32 [ %113, %.split ], [ %17, %.split.us ], [ %50, %.split.us18 ], [ %83, %.split.us27 ]
+  %.us-phi15 = phi i32 [ -1, %.split ], [ %19, %.split.us ], [ %52, %.split.us18 ], [ -1, %.split.us27 ]
+  %.us-phi16 = phi i32 [ -1, %.split ], [ %21, %.split.us ], [ %54, %.split.us18 ], [ %85, %.split.us27 ]
+  %127 = icmp ugt i32 %.us-phi16, %.us-phi
+  br i1 %127, label %128, label %.thread
 
-129:                                              ; preds = %.split13.us
-  %130 = icmp ugt i32 %.us-phi14, %.us-phi
-  br i1 %130, label %131, label %.thread
+128:                                              ; preds = %.split14.us
+  %129 = icmp ugt i32 %.us-phi15, %.us-phi
+  br i1 %129, label %130, label %.thread
 
-131:                                              ; preds = %129
+130:                                              ; preds = %128
   tail call void asm sideeffect "331: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 331b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 331) #8, !srcloc !11
-  %132 = getelementptr inbounds i8, ptr %0, i64 28
-  %133 = load i32, ptr %132, align 4
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %133) #8
+  %131 = getelementptr inbounds i8, ptr %0, i64 28
+  %132 = load i32, ptr %131, align 4
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %132) #8
   tail call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #8, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 197, i32 2313, i64 12) #8, !srcloc !13
   tail call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_end\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #8, !srcloc !14
   tail call void asm sideeffect "334: nop\0A\09.pushsection .discard.instr_end\0A\09.long 334b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 334) #8, !srcloc !15
   br label %.thread
 
-.thread:                                          ; preds = %95, %64, %31, %121, %131, %129, %.split13.us
-  %134 = phi i32 [ 0, %131 ], [ %.us-phi14, %129 ], [ %.us-phi15, %.split13.us ], [ %114, %121 ], [ %17, %31 ], [ %50, %64 ], [ %83, %95 ]
-  ret i32 %134
+.thread:                                          ; preds = %95, %64, %31, %120, %130, %128, %.split14.us
+  %133 = phi i32 [ 0, %130 ], [ %.us-phi15, %128 ], [ %.us-phi16, %.split14.us ], [ %113, %120 ], [ %17, %31 ], [ %50, %64 ], [ %83, %95 ]
+  ret i32 %133
 }
 
 ; Function Attrs: null_pointer_is_valid

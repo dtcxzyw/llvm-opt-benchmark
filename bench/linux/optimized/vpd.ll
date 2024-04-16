@@ -1086,11 +1086,11 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %7 = getelementptr inbounds i8, ptr %0, i64 1968
   %8 = add i64 %2, %1
   %9 = tail call fastcc zeroext i1 @pci_vpd_available(ptr noundef %0, i1 noundef zeroext %4)
-  br i1 %9, label %10, label %86
+  br i1 %9, label %10, label %85
 
 10:                                               ; preds = %5
   %11 = icmp slt i64 %1, 0
-  br i1 %11, label %86, label %12
+  br i1 %11, label %85, label %12
 
 12:                                               ; preds = %10
   br i1 %4, label %13, label %17
@@ -1104,7 +1104,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
 17:                                               ; preds = %13, %12
   %18 = phi i64 [ %16, %13 ], [ 32768, %12 ]
   %19 = icmp ugt i64 %18, %1
-  br i1 %19, label %20, label %86
+  br i1 %19, label %20, label %85
 
 20:                                               ; preds = %17
   %21 = icmp sgt i64 %8, %18
@@ -1113,7 +1113,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %24 = tail call i64 @llvm.smin.i64(i64 %8, i64 %18)
   %25 = tail call i32 @mutex_lock_killable(ptr noundef %7) #11
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %86
+  br i1 %26, label %27, label %85
 
 27:                                               ; preds = %20
   %28 = icmp sgt i64 %24, %1
@@ -1215,7 +1215,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   call void @mutex_unlock(ptr noundef %7) #11
   %80 = sext i32 %.ph to i64
-  br label %86
+  br label %85
 
 81:                                               ; preds = %73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
@@ -1226,14 +1226,12 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   call void @mutex_unlock(ptr noundef %7) #11
   %83 = icmp eq i32 %.fr, 0
   %84 = zext nneg i32 %.fr to i64
-  br i1 %83, label %85, label %86
+  %spec.select = select i1 %83, i64 %23, i64 %84
+  br label %85
 
-85:                                               ; preds = %.thread11, %.loopexit
-  br label %86
-
-86:                                               ; preds = %85, %.loopexit, %.thread13, %20, %17, %10, %5
-  %87 = phi i64 [ -19, %5 ], [ -22, %10 ], [ 0, %17 ], [ -4, %20 ], [ %23, %85 ], [ %84, %.loopexit ], [ %80, %.thread13 ]
-  ret i64 %87
+85:                                               ; preds = %.loopexit, %.thread13, %.thread11, %20, %17, %10, %5
+  %86 = phi i64 [ -19, %5 ], [ -22, %10 ], [ 0, %17 ], [ -4, %20 ], [ %80, %.thread13 ], [ %23, %.thread11 ], [ %spec.select, %.loopexit ]
+  ret i64 %86
 }
 
 ; Function Attrs: null_pointer_is_valid

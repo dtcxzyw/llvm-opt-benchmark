@@ -40,7 +40,7 @@ define i32 @Gia_ManQuantVerify_rec(ptr nocapture noundef readonly %0, i32 nounde
 
 15:                                               ; preds = %10
   %16 = lshr i64 %.val23, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 536870911
   %19 = icmp eq i32 %18, %2
   %20 = zext i1 %19 to i32
@@ -57,7 +57,7 @@ define i32 @Gia_ManQuantVerify_rec(ptr nocapture noundef readonly %0, i32 nounde
 tailrecurse:                                      ; preds = %21
   %.val26 = load i64, ptr %13, align 4
   %26 = lshr i64 %.val26, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 536870911
   %29 = sub nsw i32 %.tr2732, %28
   %.val = load i32, ptr %4, align 8
@@ -516,7 +516,7 @@ Vec_IntGrow.exit.i:                               ; preds = %110, %108
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %123
   %125 = phi ptr [ %.pre.i37, %.Vec_IntGrow.exit10_crit_edge.i ], [ %124, %123 ], [ %112, %Vec_IntGrow.exit.i ]
   %126 = lshr i64 %.val, 32
-  %127 = trunc i64 %126 to i32
+  %127 = trunc nuw i64 %126 to i32
   %128 = and i32 %127, 536870911
   %129 = load i32, ptr %99, align 4
   %130 = add nsw i32 %129, 1
@@ -568,7 +568,7 @@ define void @Gia_ManQuantSetSuppAnd(ptr nocapture noundef readonly %0, ptr nound
   %10 = and i32 %9, 536870911
   %11 = sub nsw i32 %8, %10
   %12 = lshr i64 %.val, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = and i32 %13, 536870911
   %15 = sub nsw i32 %8, %14
   tail call void @Gia_ManQuantSetSuppZero(ptr noundef %0)
@@ -857,7 +857,7 @@ define i32 @Gia_ManQuantCountUsed_rec(ptr nocapture noundef readonly %0, i32 nou
   %.val36 = phi i64 [ %.val36.pre, %34 ], [ %.val32, %17 ]
   %.0 = phi i32 [ %36, %34 ], [ 1, %17 ]
   %38 = lshr i64 %.val36, 32
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = and i32 %39, 536870911
   %41 = sub nsw i32 %.tr4045, %40
   %42 = mul nsw i32 %41, %.val.i37
@@ -928,7 +928,7 @@ define void @Gia_ManQuantDupConeSupp_rec(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void @Gia_ManQuantSetSuppZero(ptr noundef %0)
   %.val53 = load i64, ptr %2, align 4
   %24 = lshr i64 %.val53, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   %26 = and i32 %25, 536870911
   %27 = tail call i32 %5(ptr noundef %6, i32 noundef %26) #15
   %.not51 = icmp eq i32 %27, 0
@@ -1034,7 +1034,7 @@ Vec_IntGrow.exit.i:                               ; preds = %45, %43
   %82 = and i32 %81, 1
   %83 = xor i32 %82, %73
   %84 = lshr i64 %.val54, 61
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw nsw i64 %84 to i32
   %86 = and i32 %85, 1
   %87 = xor i32 %86, %79
   %88 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %83, i32 noundef %87) #15
@@ -1354,7 +1354,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %57
   %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val81, i64 %61
   %.val1.i = load i64, ptr %62, align 4
   %63 = lshr i64 %.val1.i, 32
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw i64 %63 to i32
   %65 = and i32 %64, 536870911
   store i32 %65, ptr %59, align 4
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -1542,7 +1542,7 @@ define void @Gia_ManQuantExist_rec(ptr noundef %0, i32 noundef %1, ptr nocapture
   %30 = and i32 %29, 536870911
   %31 = sub nsw i32 %1, %30
   %32 = lshr i64 %.val47, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = and i32 %33, 536870911
   %35 = sub nsw i32 %1, %34
   %36 = getelementptr inbounds i8, ptr %0, i64 976
@@ -1621,7 +1621,7 @@ define void @Gia_ManQuantExist_rec(ptr noundef %0, i32 noundef %1, ptr nocapture
   %.lobit = and i32 %70, 1
   %71 = xor i32 %69, %.lobit
   %72 = lshr i64 %.val47, 61
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw nsw i64 %72 to i32
   %74 = and i32 %73, 1
   %75 = xor i32 %68, %74
   %76 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %0, i32 noundef %71, i32 noundef %75) #15
@@ -1674,7 +1674,7 @@ define i32 @Gia_ManQuantExist2(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 15:                                               ; preds = %10
   %16 = lshr i64 %.val79, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 536870911
   %19 = tail call i32 %2(ptr noundef %3, i32 noundef %18) #15
   %.not78 = icmp eq i32 %19, 0
@@ -2275,7 +2275,7 @@ Vec_IntGrow.exit.i40:                             ; preds = %66, %64
   tail call void @Gia_ManQuantCollect_rec(ptr noundef nonnull %0, i32 noundef %84, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.val34 = load i64, ptr %52, align 4
   %85 = lshr i64 %.val34, 32
-  %86 = trunc i64 %85 to i32
+  %86 = trunc nuw i64 %85 to i32
   %87 = and i32 %86, 536870911
   %88 = sub nsw i32 %1, %87
   tail call void @Gia_ManQuantCollect_rec(ptr noundef nonnull %0, i32 noundef %88, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -2539,7 +2539,7 @@ define noundef ptr @Gia_ManQuantExist2Dup(ptr nocapture noundef %0, i32 noundef 
   %64 = getelementptr inbounds i32, ptr %.val113, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = lshr i64 %.val93, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = and i32 %67, 536870911
   %69 = sub nsw i32 %57, %68
   %70 = sext i32 %69 to i64
@@ -2549,7 +2549,7 @@ define noundef ptr @Gia_ManQuantExist2Dup(ptr nocapture noundef %0, i32 noundef 
   %.lobit = and i32 %73, 1
   %74 = xor i32 %.lobit, %65
   %75 = lshr i64 %.val93, 61
-  %76 = trunc i64 %75 to i32
+  %76 = trunc nuw nsw i64 %75 to i32
   %77 = and i32 %76, 1
   %78 = xor i32 %77, %72
   %79 = tail call i32 @Gia_ManHashAnd(ptr noundef %13, i32 noundef %74, i32 noundef %78) #15
@@ -2659,13 +2659,13 @@ define i32 @Gia_ManQuantExistInt(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %6 = alloca i32, align 4
   %7 = alloca [2 x i32], align 4
   %8 = icmp slt i32 %1, 2
-  br i1 %8, label %113, label %9
+  br i1 %8, label %Vec_IntFind.exit.thread, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 4
   %.val61 = load i32, ptr %10, align 4
   %11 = icmp eq i32 %.val61, 0
-  br i1 %11, label %113, label %12
+  br i1 %11, label %Vec_IntFind.exit.thread, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %4, i64 4
@@ -2699,10 +2699,8 @@ define i32 @Gia_ManQuantExistInt(ptr noundef %0, i32 noundef %1, ptr nocapture n
 Vec_IntFind.exit:                                 ; preds = %20
   %25 = and i64 %indvars.iv.i, 4294967295
   %26 = icmp eq i64 %25, 4294967295
-  br i1 %26, label %Vec_IntFind.exit.thread, label %113
-
-Vec_IntFind.exit.thread:                          ; preds = %24, %15, %Vec_IntFind.exit
-  br label %113
+  %spec.select = select i1 %26, i32 %1, i32 1
+  br label %Vec_IntFind.exit.thread
 
 27:                                               ; preds = %12
   %28 = call ptr @Gia_ManQuantExist2Dup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
@@ -2751,7 +2749,7 @@ Vec_IntFind.exit.thread:                          ; preds = %24, %15, %Vec_IntFi
   %45 = shl nuw nsw i64 %indvars.iv.next, 1
   %.val68 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds i32, ptr %.val68, i64 %45
-  %47 = trunc i64 %45 to i32
+  %47 = trunc nuw nsw i64 %45 to i32
   store i32 %47, ptr %46, align 4
   %48 = getelementptr inbounds i8, ptr %46, i64 4
   store i32 %47, ptr %48, align 4
@@ -2801,7 +2799,7 @@ Vec_IntFind.exit.thread:                          ; preds = %24, %15, %Vec_IntFi
   store i32 %70, ptr %6, align 4
   %.val66 = load ptr, ptr %36, align 8
   %71 = getelementptr inbounds i32, ptr %.val66, i64 %53
-  %72 = trunc i64 %53 to i32
+  %72 = trunc nsw i64 %53 to i32
   store i32 %72, ptr %71, align 4
   %73 = getelementptr inbounds i8, ptr %71, i64 4
   store i32 %72, ptr %73, align 4
@@ -2902,10 +2900,10 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
   %112 = sub nsw i32 %.val56, %.val
   store i32 %112, ptr %41, align 4
   call void @Gia_ManStop(ptr noundef %28) #15
-  br label %113
+  br label %Vec_IntFind.exit.thread
 
-113:                                              ; preds = %Vec_IntFind.exit.thread, %Vec_IntFind.exit, %9, %5, %Vec_IntAppend.exit
-  %.0 = phi i32 [ %111, %Vec_IntAppend.exit ], [ 0, %5 ], [ %1, %9 ], [ %1, %Vec_IntFind.exit.thread ], [ 1, %Vec_IntFind.exit ]
+Vec_IntFind.exit.thread:                          ; preds = %24, %Vec_IntFind.exit, %15, %9, %5, %Vec_IntAppend.exit
+  %.0 = phi i32 [ %111, %Vec_IntAppend.exit ], [ 0, %5 ], [ %1, %9 ], [ %1, %15 ], [ %spec.select, %Vec_IntFind.exit ], [ %1, %24 ]
   ret i32 %.0
 }
 

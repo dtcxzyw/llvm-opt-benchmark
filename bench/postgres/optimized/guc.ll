@@ -401,7 +401,7 @@ define dso_local ptr @ProcessConfigFileInternal(i32 noundef %0, i1 noundef zeroe
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = trunc i8 %.01126.i to i1
+  %64 = trunc nuw i8 %.01126.i to i1
   br i1 %64, label %valid_custom_variable_name.exit.thread, label %72
 
 65:                                               ; preds = %.lr.ph.i
@@ -412,7 +412,7 @@ define dso_local ptr @ProcessConfigFileInternal(i32 noundef %0, i1 noundef zeroe
   br i1 %or.cond.i, label %66, label %72
 
 66:                                               ; preds = %65
-  %67 = trunc i8 %.01126.i to i1
+  %67 = trunc nuw i8 %.01126.i to i1
   br i1 %67, label %valid_custom_variable_name.exit.thread, label %68
 
 68:                                               ; preds = %66
@@ -433,7 +433,7 @@ define dso_local ptr @ProcessConfigFileInternal(i32 noundef %0, i1 noundef zeroe
   br i1 %.not.i, label %valid_custom_variable_name.exit, label %.lr.ph.i, !llvm.loop !9
 
 valid_custom_variable_name.exit:                  ; preds = %72
-  %75 = trunc i8 %.1.i to i1
+  %75 = trunc nuw i8 %.1.i to i1
   %76 = xor i1 %75, true
   %77 = select i1 %76, i1 %.113.i, i1 false
   br i1 %77, label %92, label %valid_custom_variable_name.exit.thread
@@ -470,7 +470,7 @@ valid_custom_variable_name.exit.thread:           ; preds = %63, %68, %66, %vali
   br i1 %.not187, label %._crit_edge248, label %.lr.ph247, !llvm.loop !10
 
 ._crit_edge248:                                   ; preds = %92
-  %94 = trunc i8 %.1 to i1
+  %94 = trunc nuw i8 %.1 to i1
   br i1 %94, label %203, label %._crit_edge248.thread
 
 ._crit_edge248.thread:                            ; preds = %.preheader228, %._crit_edge248
@@ -729,7 +729,7 @@ set_guc_source.exit:                              ; preds = %124
   %.5164 = phi ptr [ %.1160, %._crit_edge248 ], [ %.2161.lcssa, %201 ], [ %7, %3 ], [ @.str, %11 ]
   %.0158 = phi i1 [ false, %._crit_edge248 ], [ true, %201 ], [ false, %3 ], [ false, %11 ]
   %.6 = phi i8 [ %.1, %._crit_edge248 ], [ %.3.lcssa, %201 ], [ 1, %3 ], [ 1, %11 ]
-  %204 = trunc i8 %.6 to i1
+  %204 = trunc nuw i8 %.6 to i1
   %brmerge211.demorgan = and i1 %204, %1
   br i1 %brmerge211.demorgan, label %205, label %.thread220
 
@@ -1859,7 +1859,7 @@ define internal fastcc noundef zeroext i1 @assignable_custom_variable_name(ptr n
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = trunc i8 %.01126.i to i1
+  %14 = trunc nuw i8 %.01126.i to i1
   br i1 %14, label %valid_custom_variable_name.exit.thread, label %22
 
 15:                                               ; preds = %.lr.ph.i
@@ -1870,7 +1870,7 @@ define internal fastcc noundef zeroext i1 @assignable_custom_variable_name(ptr n
   br i1 %or.cond.i, label %16, label %22
 
 16:                                               ; preds = %15
-  %17 = trunc i8 %.01126.i to i1
+  %17 = trunc nuw i8 %.01126.i to i1
   br i1 %17, label %valid_custom_variable_name.exit.thread, label %18
 
 18:                                               ; preds = %16
@@ -1891,7 +1891,7 @@ define internal fastcc noundef zeroext i1 @assignable_custom_variable_name(ptr n
   br i1 %.not.i, label %valid_custom_variable_name.exit, label %.lr.ph.i, !llvm.loop !9
 
 valid_custom_variable_name.exit:                  ; preds = %22
-  %25 = trunc i8 %.1.i to i1
+  %25 = trunc nuw i8 %.1.i to i1
   %26 = xor i1 %25, true
   %27 = select i1 %26, i1 %.113.i, i1 false
   br i1 %27, label %34, label %valid_custom_variable_name.exit.thread
@@ -5133,7 +5133,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   br i1 %.not, label %.critedge.loopexit, label %8, !llvm.loop !41
 
 .critedge.loopexit.split.loop.exit:               ; preds = %8
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge.loopexit
 
 .critedge.loopexit:                               ; preds = %16, %.critedge.loopexit.split.loop.exit
@@ -8029,13 +8029,11 @@ define dso_local ptr @get_config_handle(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %9, label %8
+  %spec.select = select i1 %7, ptr %2, ptr null
+  br label %8
 
 8:                                                ; preds = %3, %1
-  br label %9
-
-9:                                                ; preds = %3, %8
-  %.0 = phi ptr [ null, %8 ], [ %2, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
   ret ptr %.0
 }
 
@@ -8747,64 +8745,62 @@ define internal fastcc ptr @init_custom_variable(ptr nocapture noundef readonly 
 23:                                               ; preds = %21
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.128) #29
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %29, label %26
+  br i1 %25, label %.thread23, label %26
 
 26:                                               ; preds = %23
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.129) #29
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %.thread23
-
-29:                                               ; preds = %26, %23
+  %spec.select = select i1 %28, i32 5, i32 6
   br label %.thread23
 
-.thread23:                                        ; preds = %.thread, %29, %26, %21
-  %.0 = phi i32 [ 5, %29 ], [ 6, %26 ], [ %3, %21 ], [ 1, %.thread ]
-  %30 = load ptr, ptr @GUCMemoryContext, align 8
-  %31 = tail call ptr @MemoryContextAllocExtended(ptr noundef %30, i64 noundef %6, i32 noundef 2) #28
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %guc_malloc.exit
+.thread23:                                        ; preds = %.thread, %26, %23, %21
+  %.0 = phi i32 [ %3, %21 ], [ 5, %23 ], [ %spec.select, %26 ], [ 1, %.thread ]
+  %29 = load ptr, ptr @GUCMemoryContext, align 8
+  %30 = tail call ptr @MemoryContextAllocExtended(ptr noundef %29, i64 noundef %6, i32 noundef 2) #28
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %guc_malloc.exit
 
-33:                                               ; preds = %.thread23
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 @errcode(i32 noundef 8389) #28
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #28
+32:                                               ; preds = %.thread23
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
+  tail call void @llvm.assume(i1 %33)
+  %34 = tail call i32 @errcode(i32 noundef 8389) #28
+  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #28
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 642, ptr noundef nonnull @__func__.guc_malloc) #28
   unreachable
 
 guc_malloc.exit:                                  ; preds = %.thread23
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %6, i1 false)
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %38 = add i64 %37, 1
-  %39 = load ptr, ptr @GUCMemoryContext, align 8
-  %40 = tail call ptr @MemoryContextAllocExtended(ptr noundef %39, i64 noundef %38, i32 noundef 2) #28
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %guc_malloc.exit.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %30, i8 0, i64 %6, i1 false)
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %37 = add i64 %36, 1
+  %38 = load ptr, ptr @GUCMemoryContext, align 8
+  %39 = tail call ptr @MemoryContextAllocExtended(ptr noundef %38, i64 noundef %37, i32 noundef 2) #28
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %guc_malloc.exit.i
 
-42:                                               ; preds = %guc_malloc.exit
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 @errcode(i32 noundef 8389) #28
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #28
+41:                                               ; preds = %guc_malloc.exit
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
+  tail call void @llvm.assume(i1 %42)
+  %43 = tail call i32 @errcode(i32 noundef 8389) #28
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #28
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 642, ptr noundef nonnull @__func__.guc_malloc) #28
   unreachable
 
 guc_malloc.exit.i:                                ; preds = %guc_malloc.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %0, i64 %38, i1 false)
-  store ptr %40, ptr %31, align 8
-  %46 = getelementptr inbounds i8, ptr %31, i64 8
-  store i32 %.0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %31, i64 12
-  store i32 43, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr %1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %31, i64 24
-  store ptr %2, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %31, i64 32
-  store i32 %4, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %31, i64 36
-  store i32 %5, ptr %51, align 4
-  ret ptr %31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %0, i64 %37, i1 false)
+  store ptr %39, ptr %30, align 8
+  %45 = getelementptr inbounds i8, ptr %30, i64 8
+  store i32 %.0, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %30, i64 12
+  store i32 43, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %30, i64 16
+  store ptr %1, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %30, i64 24
+  store ptr %2, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %30, i64 32
+  store i32 %4, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %30, i64 36
+  store i32 %5, ptr %50, align 4
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9433,7 +9429,7 @@ define dso_local ptr @ShowGUCOption(ptr nocapture noundef readonly %0, i1 nounde
     i32 1, label %21
     i32 2, label %41
     i32 3, label %60
-    i32 4, label %72
+    i32 4, label %71
   ]
 
 10:                                               ; preds = %2
@@ -9546,64 +9542,62 @@ define dso_local ptr @ShowGUCOption(ptr nocapture noundef readonly %0, i1 nounde
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %67, align 8
   %.not44 = icmp eq ptr %68, null
-  br i1 %.not44, label %71, label %69
+  br i1 %.not44, label %config_enum_lookup_by_value.exit, label %69
 
 69:                                               ; preds = %65
   %70 = load i8, ptr %68, align 1
   %.not45 = icmp eq i8 %70, 0
-  br i1 %.not45, label %71, label %config_enum_lookup_by_value.exit
-
-71:                                               ; preds = %69, %65
+  %spec.select = select i1 %.not45, ptr @.str.8, ptr %68
   br label %config_enum_lookup_by_value.exit
 
-72:                                               ; preds = %2
-  %73 = getelementptr inbounds i8, ptr %0, i64 184
-  %74 = load ptr, ptr %73, align 8
-  %.not = icmp eq ptr %74, null
-  br i1 %.not, label %77, label %75
+71:                                               ; preds = %2
+  %72 = getelementptr inbounds i8, ptr %0, i64 184
+  %73 = load ptr, ptr %72, align 8
+  %.not = icmp eq ptr %73, null
+  br i1 %.not, label %76, label %74
 
-75:                                               ; preds = %72
-  %76 = tail call ptr %74() #28
+74:                                               ; preds = %71
+  %75 = tail call ptr %73() #28
   br label %config_enum_lookup_by_value.exit
 
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %0, i64 144
-  %79 = load ptr, ptr %78, align 8
-  %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 160
-  %82 = load ptr, ptr %81, align 8
-  %.not11.i = icmp eq ptr %82, null
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds i8, ptr %0, i64 144
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %78, align 4
+  %80 = getelementptr inbounds i8, ptr %0, i64 160
+  %81 = load ptr, ptr %80, align 8
+  %.not11.i = icmp eq ptr %81, null
   br i1 %.not11.i, label %.critedge.i, label %.lr.ph.i
 
-83:                                               ; preds = %86
-  %84 = getelementptr i8, ptr %.012.i, i64 16
-  %.not.i = icmp eq ptr %84, null
+82:                                               ; preds = %85
+  %83 = getelementptr i8, ptr %.012.i, i64 16
+  %.not.i = icmp eq ptr %83, null
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !17
 
-.lr.ph.i:                                         ; preds = %77, %83
-  %.012.i = phi ptr [ %84, %83 ], [ %82, %77 ]
-  %85 = load ptr, ptr %.012.i, align 8
-  %.not10.i = icmp eq ptr %85, null
-  br i1 %.not10.i, label %.critedge.i, label %86
+.lr.ph.i:                                         ; preds = %76, %82
+  %.012.i = phi ptr [ %83, %82 ], [ %81, %76 ]
+  %84 = load ptr, ptr %.012.i, align 8
+  %.not10.i = icmp eq ptr %84, null
+  br i1 %.not10.i, label %.critedge.i, label %85
 
-86:                                               ; preds = %.lr.ph.i
-  %87 = getelementptr inbounds i8, ptr %.012.i, i64 8
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp eq i32 %88, %80
-  br i1 %89, label %config_enum_lookup_by_value.exit, label %83
+85:                                               ; preds = %.lr.ph.i
+  %86 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp eq i32 %87, %79
+  br i1 %88, label %config_enum_lookup_by_value.exit, label %82
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %83, %77
-  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
-  tail call void @llvm.assume(i1 %90)
-  %91 = load ptr, ptr %0, align 8
-  %92 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %80, ptr noundef %91) #28
+.critedge.i:                                      ; preds = %.lr.ph.i, %82, %76
+  %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #30
+  tail call void @llvm.assume(i1 %89)
+  %90 = load ptr, ptr %0, align 8
+  %91 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %79, ptr noundef %90) #28
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3017, ptr noundef nonnull @__func__.config_enum_lookup_by_value) #28
   unreachable
 
-config_enum_lookup_by_value.exit:                 ; preds = %86, %2, %69, %75, %63, %71, %44, %56, %24, %37, %13, %15
-  %.0 = phi ptr [ %76, %75 ], [ %64, %63 ], [ @.str.8, %71 ], [ %45, %44 ], [ %3, %56 ], [ %25, %24 ], [ %3, %37 ], [ %14, %13 ], [ %20, %15 ], [ %68, %69 ], [ @.str.86, %2 ], [ %85, %86 ]
-  %93 = call ptr @pstrdup(ptr noundef %.0) #28
-  ret ptr %93
+config_enum_lookup_by_value.exit:                 ; preds = %85, %69, %2, %65, %74, %63, %44, %56, %24, %37, %13, %15
+  %.0 = phi ptr [ %75, %74 ], [ %64, %63 ], [ %45, %44 ], [ %3, %56 ], [ %25, %24 ], [ %3, %37 ], [ %14, %13 ], [ %20, %15 ], [ @.str.8, %65 ], [ @.str.86, %2 ], [ %spec.select, %69 ], [ %84, %85 ]
+  %92 = call ptr @pstrdup(ptr noundef %.0) #28
+  ret ptr %92
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable

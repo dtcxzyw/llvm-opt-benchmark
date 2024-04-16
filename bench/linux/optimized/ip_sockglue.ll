@@ -576,7 +576,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %90, label %.thread, label %91
 
 91:                                               ; preds = %86
-  %92 = trunc i32 %88 to i8
+  %92 = trunc nuw i32 %88 to i8
   store i8 %92, ptr %18, align 1
   br label %.thread9
 
@@ -600,7 +600,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr nocapture noundef readonl
 
 101:                                              ; preds = %.thread8, %97
   %102 = phi i32 [ %96, %.thread8 ], [ %99, %97 ]
-  %103 = trunc i32 %102 to i16
+  %103 = trunc nuw nsw i32 %102 to i16
   store i16 %103, ptr %16, align 2
   %104 = lshr i32 %102, 1
   %105 = and i32 %104, 15
@@ -622,7 +622,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %115, label %.thread, label %116
 
 116:                                              ; preds = %111
-  %117 = trunc i32 %113 to i8
+  %117 = trunc nuw i32 %113 to i8
   store i8 %117, ptr %15, align 8
   br label %.thread9
 
@@ -1356,7 +1356,7 @@ define dso_local noundef i32 @ip_sock_set_mtu_discover(ptr noundef %0, i32 nound
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = trunc i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 783
   store volatile i8 %5, ptr %6, align 1
   br label %7
@@ -1959,7 +1959,7 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
 
 .thread21:                                        ; preds = %232, %235
   %237 = phi i32 [ %233, %235 ], [ 1, %232 ]
-  %238 = trunc i32 %237 to i8
+  %238 = trunc nuw i32 %237 to i8
   %239 = getelementptr inbounds i8, ptr %0, i64 782
   store volatile i8 %238, ptr %239, align 2
   br label %560
@@ -1971,7 +1971,7 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
 
 .thread88:                                        ; preds = %.thread20, %240
   %242 = phi i32 [ %.pre52, %240 ], [ 0, %.thread20 ]
-  %243 = trunc i32 %242 to i8
+  %243 = trunc nuw nsw i32 %242 to i8
   %244 = getelementptr inbounds i8, ptr %0, i64 783
   store volatile i8 %243, ptr %244, align 1
   br label %560
@@ -2866,7 +2866,7 @@ define internal fastcc i32 @do_mcast_group_source(ptr noundef %0, i32 noundef %1
 .thread:                                          ; preds = %16, %21
   %.ph = phi i32 [ -14, %21 ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %6) #14
-  br label %.thread3
+  br label %73
 
 26:                                               ; preds = %21, %25
   %27 = load i32, ptr %6, align 4
@@ -2882,7 +2882,7 @@ define internal fastcc i32 @do_mcast_group_source(ptr noundef %0, i32 noundef %1
 
 32:                                               ; preds = %5
   %33 = icmp eq i32 %4, 264
-  br i1 %33, label %34, label %.thread3
+  br i1 %33, label %34, label %73
 
 34:                                               ; preds = %32
   %35 = and i8 %3, 1
@@ -2893,13 +2893,13 @@ define internal fastcc i32 @do_mcast_group_source(ptr noundef %0, i32 noundef %1
   %38 = call i64 @_copy_from_user(ptr noundef nonnull %7, ptr noundef %2, i64 noundef 264) #14
   %39 = and i64 %38, 4294967295
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %42, label %.thread3
+  br i1 %40, label %42, label %73
 
 41:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef align 1 dereferenceable(264) %2, i64 264, i1 false)
   br label %42
 
-42:                                               ; preds = %26, %41, %37
+42:                                               ; preds = %37, %26, %41
   %43 = getelementptr inbounds i8, ptr %7, i64 8
   %44 = load i16, ptr %43, align 8
   %45 = icmp ne i16 %44, 2
@@ -2907,7 +2907,7 @@ define internal fastcc i32 @do_mcast_group_source(ptr noundef %0, i32 noundef %1
   %47 = load i16, ptr %46, align 8
   %48 = icmp ne i16 %47, 2
   %49 = select i1 %45, i1 true, i1 %48
-  br i1 %49, label %.thread3, label %50
+  br i1 %49, label %73, label %50
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds i8, ptr %7, i64 12
@@ -2950,7 +2950,7 @@ define internal fastcc i32 @do_mcast_group_source(ptr noundef %0, i32 noundef %1
 65:                                               ; preds = %63, %58
   %66 = phi i32 [ 1, %63 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #14
-  switch i32 %62, label %.thread3 [
+  switch i32 %62, label %73 [
     i32 -98, label %68
     i32 0, label %68
   ]
@@ -2963,13 +2963,13 @@ define internal fastcc i32 @do_mcast_group_source(ptr noundef %0, i32 noundef %1
   %70 = phi i32 [ 0, %57 ], [ %66, %65 ], [ 0, %67 ], [ 1, %50 ], [ %66, %65 ]
   %71 = load i32, ptr %7, align 8
   %72 = call i32 @ip_mc_source(i32 noundef %70, i32 noundef %69, ptr noundef %0, ptr noundef nonnull %8, i32 noundef %71) #14
-  br label %.thread3
+  br label %73
 
-.thread3:                                         ; preds = %.thread, %37, %32, %68, %65, %42
-  %73 = phi i32 [ %72, %68 ], [ %62, %65 ], [ -99, %42 ], [ %.ph, %.thread ], [ -14, %37 ], [ -22, %32 ]
+73:                                               ; preds = %32, %37, %.thread, %68, %65, %42
+  %74 = phi i32 [ %72, %68 ], [ %62, %65 ], [ -99, %42 ], [ -22, %32 ], [ -14, %37 ], [ %.ph, %.thread ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7) #14
-  ret i32 %73
+  ret i32 %74
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3883,7 +3883,7 @@ thread-pre-split:                                 ; preds = %30
 313:                                              ; preds = %311, %306, %300
   %314 = phi i32 [ %312, %311 ], [ -22, %300 ], [ -14, %306 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #14
-  br label %366
+  br label %365
 
 315:                                              ; preds = %299
   %316 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !26
@@ -3897,11 +3897,11 @@ thread-pre-split:                                 ; preds = %30
 
 323:                                              ; preds = %315
   %324 = call fastcc i32 @compat_ip_get_mcast_msfilter(ptr noundef %0, ptr %3, i8 %4, ptr %21, i8 %23, i32 noundef %322)
-  br label %366
+  br label %365
 
 325:                                              ; preds = %315
   %326 = call fastcc i32 @ip_get_mcast_msfilter(ptr noundef %0, ptr %3, i8 %4, ptr %21, i8 %23, i32 noundef %322)
-  br label %366
+  br label %365
 
 327:                                              ; preds = %299
   %328 = getelementptr inbounds i8, ptr %0, i64 14
@@ -3926,7 +3926,7 @@ thread-pre-split:                                 ; preds = %30
 
 339:                                              ; preds = %332
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #14
-  %340 = trunc i32 %333 to i8
+  %340 = trunc nuw i32 %333 to i8
   store i8 %340, ptr %16, align 1
   store i32 1, ptr %8, align 4
   br i1 %28, label %341, label %345
@@ -3953,7 +3953,7 @@ thread-pre-split:                                 ; preds = %30
 .thread6:                                         ; preds = %346
   store i8 %340, ptr %3, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #14
-  br label %365
+  br label %.thread10
 
 349:                                              ; preds = %346
   %350 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %16, i64 noundef 1) #14
@@ -3961,7 +3961,8 @@ thread-pre-split:                                 ; preds = %30
   %351 = and i64 %.fr8, 4294967295
   %352 = icmp eq i64 %351, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #14
-  br i1 %352, label %365, label %.thread10
+  %. = select i1 %352, i32 0, i32 -14
+  br label %.thread10
 
 353:                                              ; preds = %332
   %354 = call i32 @llvm.umin.i32(i32 %334, i32 4)
@@ -3983,22 +3984,20 @@ thread-pre-split:                                 ; preds = %30
   %362 = sext i32 %361 to i64
   %363 = call fastcc i32 @copy_to_sockptr(ptr %3, i8 %4, ptr noundef nonnull %7, i64 noundef %362)
   %364 = icmp eq i32 %363, 0
-  br i1 %364, label %365, label %.thread10
-
-365:                                              ; preds = %349, %.thread6, %360
+  %spec.select = select i1 %364, i32 0, i32 -14
   br label %.thread10
 
-366:                                              ; preds = %313, %323, %325
-  %367 = phi i32 [ %324, %323 ], [ %326, %325 ], [ %314, %313 ]
+365:                                              ; preds = %313, %323, %325
+  %366 = phi i32 [ %324, %323 ], [ %326, %325 ], [ %314, %313 ]
   call void @sockopt_release_sock(ptr noundef %0) #14
   call void @rtnl_unlock() #14
   br label %.thread10
 
-.thread10:                                        ; preds = %349, %208, %.thread7, %366, %365, %360, %355, %331, %293, %272, %211, %206, %34, %30, %24, %6
-  %368 = phi i32 [ %25, %24 ], [ -92, %331 ], [ 0, %365 ], [ %294, %293 ], [ %273, %272 ], [ -107, %211 ], [ %207, %206 ], [ -95, %6 ], [ -14, %30 ], [ -22, %34 ], [ -14, %355 ], [ -14, %360 ], [ %367, %366 ], [ -14, %.thread7 ], [ -107, %208 ], [ -14, %349 ]
+.thread10:                                        ; preds = %349, %208, %360, %.thread6, %.thread7, %365, %355, %331, %293, %272, %211, %206, %34, %30, %24, %6
+  %367 = phi i32 [ %25, %24 ], [ -92, %331 ], [ %294, %293 ], [ %273, %272 ], [ -107, %211 ], [ %207, %206 ], [ -95, %6 ], [ -14, %30 ], [ -22, %34 ], [ -14, %355 ], [ %366, %365 ], [ -14, %.thread7 ], [ 0, %.thread6 ], [ %spec.select, %360 ], [ -107, %208 ], [ %., %349 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
-  ret i32 %368
+  ret i32 %367
 }
 
 ; Function Attrs: null_pointer_is_valid

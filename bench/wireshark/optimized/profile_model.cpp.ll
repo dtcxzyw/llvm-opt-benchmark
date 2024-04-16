@@ -3452,13 +3452,13 @@ _ZN7QStringD2Ev.exit24:                           ; preds = %29, %_ZN17QArrayDat
 35:                                               ; preds = %_ZN7QStringD2Ev.exit
   %36 = call noundef ptr @_ZNK12ProfileModel5guardEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %21)
   %.not17 = icmp eq ptr %36, null
-  br i1 %.not17, label %49, label %37
+  br i1 %.not17, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %36, i64 16
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 4
-  br i1 %40, label %41, label %49
+  br i1 %40, label %41, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %36, align 8
@@ -3466,19 +3466,16 @@ _ZN7QStringD2Ev.exit24:                           ; preds = %29, %_ZN17QArrayDat
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @g_strcmp0(ptr noundef %42, ptr noundef %44)
   %.not18 = icmp eq i32 %45, 0
-  br i1 %.not18, label %49, label %46
+  br i1 %.not18, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread, label %46
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %13, i64 20
   %48 = load i32, ptr %47, align 4
   %.not19 = icmp eq i32 %48, 0
-  br i1 %.not19, label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread, label %49
-
-49:                                               ; preds = %46, %41, %37, %35
   br label %_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread
 
-_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread: ; preds = %2, %46, %_ZN7QStringD2Ev.exit, %_ZNK12ProfileModel5guardERK11QModelIndex.exit, %49
-  %.0 = phi i1 [ false, %49 ], [ false, %_ZNK12ProfileModel5guardERK11QModelIndex.exit ], [ false, %_ZN7QStringD2Ev.exit ], [ true, %46 ], [ false, %2 ]
+_ZNK12ProfileModel5guardERK11QModelIndex.exit.thread: ; preds = %2, %46, %35, %37, %41, %_ZN7QStringD2Ev.exit, %_ZNK12ProfileModel5guardERK11QModelIndex.exit
+  %.0 = phi i1 [ false, %_ZNK12ProfileModel5guardERK11QModelIndex.exit ], [ false, %_ZN7QStringD2Ev.exit ], [ false, %41 ], [ false, %37 ], [ false, %35 ], [ %.not19, %46 ], [ false, %2 ]
   ret i1 %.0
 }
 

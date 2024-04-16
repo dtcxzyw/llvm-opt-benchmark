@@ -115,8 +115,8 @@ if.else.i.i:                                      ; preds = %entry
 
 qobject_type.exit.i:                              ; preds = %entry
   %cmp.i = icmp eq i32 %obj.val.i, 3
-  tail call void @llvm.assume(i1 %cmp.i)
-  %string = getelementptr inbounds i8, ptr %x, i64 16
+  %spec.select.i = select i1 %cmp.i, ptr %x, ptr null
+  %string = getelementptr inbounds i8, ptr %spec.select.i, i64 16
   %1 = load ptr, ptr %string, align 8
   %tobool.not.i1 = icmp ne ptr %y, null
   tail call void @llvm.assume(i1 %tobool.not.i1)
@@ -131,8 +131,8 @@ if.else.i.i5:                                     ; preds = %qobject_type.exit.i
 
 qobject_type.exit.i6:                             ; preds = %qobject_type.exit.i
   %cmp.i7 = icmp eq i32 %obj.val.i3, 3
-  tail call void @llvm.assume(i1 %cmp.i7)
-  %string2 = getelementptr inbounds i8, ptr %y, i64 16
+  %spec.select.i8 = select i1 %cmp.i7, ptr %y, ptr null
+  %string2 = getelementptr inbounds i8, ptr %spec.select.i8, i64 16
   %3 = load ptr, ptr %string2, align 8
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #9
   %tobool.not = icmp eq i32 %call3, 0
@@ -156,19 +156,19 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %obj, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_check_type.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #10
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
+qobject_check_type.exit:                          ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 3
-  %spec.select = select i1 %cmp.i, ptr %obj, ptr null
-  %string = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %spec.select.i = select i1 %cmp.i, ptr %obj, ptr null
+  %string = getelementptr inbounds i8, ptr %spec.select.i, i64 16
   %1 = load ptr, ptr %string, align 8
   tail call void @g_free(ptr noundef %1) #8
-  tail call void @g_free(ptr noundef %spec.select) #8
+  tail call void @g_free(ptr noundef %spec.select.i) #8
   ret void
 }
 

@@ -553,8 +553,8 @@ define dso_local zeroext i1 @path_contains_parent_reference(ptr nocapture nounde
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   br label %11
 
-11:                                               ; preds = %1, %4, %8
-  %.0 = phi i1 [ %switch.selectcmp, %8 ], [ false, %4 ], [ false, %1 ]
+11:                                               ; preds = %8, %1, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %1 ], [ %switch.selectcmp, %8 ]
   ret i1 %.0
 }
 
@@ -607,8 +607,8 @@ define dso_local zeroext i1 @path_is_prefix_of_path(ptr nocapture noundef readon
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   br label %10
 
-10:                                               ; preds = %2, %7
-  %.0 = phi i1 [ %switch.selectcmp, %7 ], [ false, %2 ]
+10:                                               ; preds = %7, %2
+  %.0 = phi i1 [ false, %2 ], [ %switch.selectcmp, %7 ]
   ret i1 %.0
 }
 

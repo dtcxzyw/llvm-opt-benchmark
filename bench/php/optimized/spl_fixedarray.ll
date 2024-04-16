@@ -2623,7 +2623,7 @@ define internal void @spl_fixedarray_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @spl_fixedarray_it_valid(ptr nocapture noundef readonly %0) #7 {
+define internal i32 @spl_fixedarray_it_valid(ptr nocapture noundef readonly %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, -1
@@ -2634,14 +2634,12 @@ define internal noundef i32 @spl_fixedarray_it_valid(ptr nocapture noundef reado
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -32
   %9 = load i64, ptr %8, align 8
-  %10 = icmp slt i64 %3, %9
-  br i1 %10, label %12, label %11
+  %10 = icmp sge i64 %3, %9
+  %spec.select = sext i1 %10 to i32
+  br label %11
 
 11:                                               ; preds = %5, %1
-  br label %12
-
-12:                                               ; preds = %5, %11
-  %.0 = phi i32 [ -1, %11 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %1 ], [ %spec.select, %5 ]
   ret i32 %.0
 }
 

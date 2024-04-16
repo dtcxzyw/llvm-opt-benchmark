@@ -1305,7 +1305,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Res_WinComputeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Res_WinComputeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -1385,14 +1385,12 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val10 = load ptr, ptr %41, align 8
   %42 = load ptr, ptr %.val10, align 8
   %43 = load ptr, ptr %0, align 8
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %46, label %45
+  %44 = icmp ne ptr %42, %43
+  %spec.select = zext i1 %44 to i32
+  br label %45
 
 45:                                               ; preds = %40, %Abc_NtkIncrementTravId.exit
-  br label %46
-
-46:                                               ; preds = %40, %45
-  %.0 = phi i32 [ 1, %45 ], [ 0, %40 ]
+  %.0 = phi i32 [ 1, %Abc_NtkIncrementTravId.exit ], [ %spec.select, %40 ]
   ret i32 %.0
 }
 
@@ -1868,7 +1866,7 @@ Vec_PtrPush.exit.i:                               ; preds = %62, %Vec_PtrGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Res_WinFinalizeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Res_WinFinalizeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.val7 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %2, i64 16
@@ -1901,14 +1899,12 @@ define noundef i32 @Res_WinFinalizeRoots(ptr nocapture noundef readonly %0) loca
   %.val9 = load ptr, ptr %20, align 8
   %21 = load ptr, ptr %.val9, align 8
   %22 = load ptr, ptr %0, align 8
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %25, label %24
+  %23 = icmp ne ptr %21, %22
+  %spec.select = zext i1 %23 to i32
+  br label %24
 
 24:                                               ; preds = %19, %1
-  br label %25
-
-25:                                               ; preds = %19, %24
-  %.0 = phi i32 [ 1, %24 ], [ 0, %19 ]
+  %.0 = phi i32 [ 1, %1 ], [ %spec.select, %19 ]
   ret i32 %.0
 }
 
@@ -2398,17 +2394,17 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %0, ptr %47, align 8
   %48 = tail call i32 @Res_WinCollectLeavesAndNodes(ptr noundef nonnull %3), !range !19
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %Res_WinFinalizeRoots.exit.thread, label %49
+  br i1 %.not, label %74, label %49
 
 49:                                               ; preds = %Vec_PtrPush.exit
   %50 = load i32, ptr %6, align 4
   %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %Res_WinFinalizeRoots.exit.thread
+  br i1 %51, label %52, label %74
 
 52:                                               ; preds = %49
   %53 = tail call i32 @Res_WinComputeRoots(ptr noundef nonnull %3), !range !19
   %.not17 = icmp eq i32 %53, 0
-  br i1 %.not17, label %Res_WinFinalizeRoots.exit.thread, label %54
+  br i1 %.not17, label %74, label %54
 
 54:                                               ; preds = %52
   tail call void @Res_WinMarkPaths(ptr noundef nonnull %3)
@@ -2436,22 +2432,22 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %69 = getelementptr i8, ptr %68, i64 4
   %.val.i = load i32, ptr %69, align 4
   %70 = icmp eq i32 %.val.i, 1
-  br i1 %70, label %71, label %Res_WinFinalizeRoots.exit
+  br i1 %70, label %Res_WinFinalizeRoots.exit, label %Res_WinFinalizeRoots.exit.thread
 
-71:                                               ; preds = %54
-  %72 = getelementptr i8, ptr %68, i64 8
-  %.val9.i = load ptr, ptr %72, align 8
-  %73 = load ptr, ptr %.val9.i, align 8
-  %74 = load ptr, ptr %3, align 8
-  %75 = icmp eq ptr %73, %74
-  br i1 %75, label %Res_WinFinalizeRoots.exit.thread, label %Res_WinFinalizeRoots.exit
+Res_WinFinalizeRoots.exit:                        ; preds = %54
+  %71 = getelementptr i8, ptr %68, i64 8
+  %.val9.i = load ptr, ptr %71, align 8
+  %72 = load ptr, ptr %.val9.i, align 8
+  %73 = load ptr, ptr %3, align 8
+  %.not21 = icmp eq ptr %72, %73
+  br i1 %.not21, label %74, label %Res_WinFinalizeRoots.exit.thread
 
-Res_WinFinalizeRoots.exit:                        ; preds = %71, %54
+Res_WinFinalizeRoots.exit.thread:                 ; preds = %54, %Res_WinFinalizeRoots.exit
   tail call void @Res_WinAddMissing(ptr noundef nonnull %3)
-  br label %Res_WinFinalizeRoots.exit.thread
+  br label %74
 
-Res_WinFinalizeRoots.exit.thread:                 ; preds = %71, %49, %52, %Res_WinFinalizeRoots.exit, %Vec_PtrPush.exit
-  %.0 = phi i32 [ 0, %Vec_PtrPush.exit ], [ 1, %Res_WinFinalizeRoots.exit ], [ 1, %52 ], [ 1, %49 ], [ 1, %71 ]
+74:                                               ; preds = %49, %52, %Res_WinFinalizeRoots.exit.thread, %Res_WinFinalizeRoots.exit, %Vec_PtrPush.exit
+  %.0 = phi i32 [ 0, %Vec_PtrPush.exit ], [ 1, %Res_WinFinalizeRoots.exit ], [ 1, %Res_WinFinalizeRoots.exit.thread ], [ 1, %52 ], [ 1, %49 ]
   ret i32 %.0
 }
 

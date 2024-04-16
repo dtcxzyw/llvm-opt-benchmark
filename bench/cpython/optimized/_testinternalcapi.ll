@@ -1205,7 +1205,7 @@ if.then.i:                                        ; preds = %get_module_state.ex
   %call.i2 = tail call i32 %visit(ptr noundef nonnull %call.val, ptr noundef %arg) #9
   br label %traverse_module_state.exit
 
-traverse_module_state.exit:                       ; preds = %if.then.i, %get_module_state.exit
+traverse_module_state.exit:                       ; preds = %get_module_state.exit, %if.then.i
   ret i32 0
 }
 
@@ -1493,7 +1493,7 @@ entry:
 
 check_bit_length.exit.thread:                     ; preds = %entry
   %0 = tail call i64 @llvm.ctlz.i64(i64 %u.i.0.u.i.0.u.i.0.u.0.u.0.u.0..i, i1 true), !range !5
-  %cast.i.i = trunc i64 %0 to i32
+  %cast.i.i = trunc nuw nsw i64 %0 to i32
   %sub.i.i = sub nuw nsw i32 64, %cast.i.i
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
   %call1.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.63, i64 noundef 0, i32 noundef %sub.i.i, i32 noundef 0) #9
@@ -1507,7 +1507,7 @@ do.body1:                                         ; preds = %entry
   %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2 = load volatile i64, ptr %u.i1, align 8
   %cmp.not.i.i3 = icmp eq i64 %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2, 0
   %2 = tail call i64 @llvm.ctlz.i64(i64 %u.i1.0.u.i1.0.u.i1.0.u.0.u.0.u.0..i2, i1 true), !range !5
-  %cast.i.i4 = trunc i64 %2 to i32
+  %cast.i.i4 = trunc nuw nsw i64 %2 to i32
   %sub.i.i5 = sub nuw nsw i32 64, %cast.i.i4
   %retval.0.i.i6 = select i1 %cmp.not.i.i3, i32 0, i32 %sub.i.i5
   %cmp.not.i = icmp eq i32 %retval.0.i.i6, 1
@@ -1526,7 +1526,7 @@ do.body7:                                         ; preds = %do.body1
   %u.i11.0.u.i11.0.u.i11.0.u.0.u.0.u.0..i12 = load volatile i64, ptr %u.i11, align 8
   %cmp.not.i.i13 = icmp eq i64 %u.i11.0.u.i11.0.u.i11.0.u.0.u.0.u.0..i12, 0
   %4 = tail call i64 @llvm.ctlz.i64(i64 %u.i11.0.u.i11.0.u.i11.0.u.0.u.0.u.0..i12, i1 true), !range !5
-  %cast.i.i14 = trunc i64 %4 to i32
+  %cast.i.i14 = trunc nuw nsw i64 %4 to i32
   %sub.i.i15 = sub nuw nsw i32 64, %cast.i.i14
   %retval.0.i.i16 = select i1 %cmp.not.i.i13, i32 0, i32 %sub.i.i15
   %cmp.not.i17 = icmp eq i32 %retval.0.i.i16, 13
@@ -1545,7 +1545,7 @@ do.body13:                                        ; preds = %do.body7
   %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23 = load volatile i64, ptr %u.i22, align 8
   %cmp.not.i.i24 = icmp eq i64 %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23, 0
   %6 = tail call i64 @llvm.ctlz.i64(i64 %u.i22.0.u.i22.0.u.i22.0.u.0.u.0.u.0..i23, i1 true), !range !5
-  %cast.i.i25 = trunc i64 %6 to i32
+  %cast.i.i25 = trunc nuw nsw i64 %6 to i32
   %sub.i.i26 = sub nuw nsw i32 64, %cast.i.i25
   %retval.0.i.i27 = select i1 %cmp.not.i.i24, i32 0, i32 %sub.i.i26
   %cmp.not.i28 = icmp eq i32 %retval.0.i.i27, 13
@@ -1564,7 +1564,7 @@ do.body19:                                        ; preds = %do.body13
   %u.i33.0.u.i33.0.u.i33.0.u.0.u.0.u.0..i34 = load volatile i64, ptr %u.i33, align 8
   %cmp.not.i.i35 = icmp eq i64 %u.i33.0.u.i33.0.u.i33.0.u.0.u.0.u.0..i34, 0
   %8 = tail call i64 @llvm.ctlz.i64(i64 %u.i33.0.u.i33.0.u.i33.0.u.0.u.0.u.0..i34, i1 true), !range !5
-  %cast.i.i36 = trunc i64 %8 to i32
+  %cast.i.i36 = trunc nuw nsw i64 %8 to i32
   %sub.i.i37 = sub nuw nsw i32 64, %cast.i.i36
   %retval.0.i.i38 = select i1 %cmp.not.i.i35, i32 0, i32 %sub.i.i37
   %cmp.not.i39 = icmp eq i32 %retval.0.i.i38, 19
@@ -1583,7 +1583,7 @@ do.body25:                                        ; preds = %do.body19
   %u.i44.0.u.i44.0.u.i44.0.u.0.u.0.u.0..i45 = load volatile i64, ptr %u.i44, align 8
   %cmp.not.i.i46 = icmp eq i64 %u.i44.0.u.i44.0.u.i44.0.u.0.u.0.u.0..i45, 0
   %10 = tail call i64 @llvm.ctlz.i64(i64 %u.i44.0.u.i44.0.u.i44.0.u.0.u.0.u.0..i45, i1 true), !range !5
-  %cast.i.i47 = trunc i64 %10 to i32
+  %cast.i.i47 = trunc nuw nsw i64 %10 to i32
   %sub.i.i48 = sub nuw nsw i32 64, %cast.i.i47
   %retval.0.i.i49 = select i1 %cmp.not.i.i46, i32 0, i32 %sub.i.i48
   %cmp.not.i50 = icmp eq i32 %retval.0.i.i49, 31
@@ -1602,7 +1602,7 @@ do.body31:                                        ; preds = %do.body25
   %u.i55.0.u.i55.0.u.i55.0.u.0.u.0.u.0..i56 = load volatile i64, ptr %u.i55, align 8
   %cmp.not.i.i57 = icmp eq i64 %u.i55.0.u.i55.0.u.i55.0.u.0.u.0.u.0..i56, 0
   %12 = tail call i64 @llvm.ctlz.i64(i64 %u.i55.0.u.i55.0.u.i55.0.u.0.u.0.u.0..i56, i1 true), !range !5
-  %cast.i.i58 = trunc i64 %12 to i32
+  %cast.i.i58 = trunc nuw nsw i64 %12 to i32
   %sub.i.i59 = sub nuw nsw i32 64, %cast.i.i58
   %retval.0.i.i60 = select i1 %cmp.not.i.i57, i32 0, i32 %sub.i.i59
   %cmp.not.i61 = icmp eq i32 %retval.0.i.i60, 32
@@ -1750,7 +1750,7 @@ for.cond69:                                       ; preds = %for.body73
 
 for.body73:                                       ; preds = %for.cond36, %for.cond69
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %for.cond69 ], [ 97, %for.cond36 ]
-  %11 = trunc i64 %indvars.iv48 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv48 to i32
   %12 = inttoptr i64 %indvars.iv48 to ptr
   %call75 = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %call, ptr noundef nonnull %12) #9
   %13 = ptrtoint ptr %call75 to i64
@@ -1869,24 +1869,22 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_set_config(ptr nocapture readnone %_unused_self, ptr noundef %dict) #0 {
+define internal ptr @test_set_config(ptr nocapture readnone %_unused_self, ptr noundef %dict) #0 {
 entry:
   %config = alloca %struct.PyConfig, align 8
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #9
   %call = call i32 @_PyConfig_FromDict(ptr noundef nonnull %config, ptr noundef %dict) #9
   %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %error, label %if.end
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call1 = call i32 @_PyInterpreterState_SetConfig(ptr noundef nonnull %config) #9
   %cmp2 = icmp slt i32 %call1, 0
-  br i1 %cmp2, label %error, label %return
-
-error:                                            ; preds = %if.end, %entry
+  %spec.select = select i1 %cmp2, ptr null, ptr @_Py_NoneStruct
   br label %return
 
-return:                                           ; preds = %if.end, %error
-  %retval.0 = phi ptr [ null, %error ], [ @_Py_NoneStruct, %if.end ]
+return:                                           ; preds = %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %if.end ]
   call void @PyConfig_Clear(ptr noundef nonnull %config) #9
   ret ptr %retval.0
 }

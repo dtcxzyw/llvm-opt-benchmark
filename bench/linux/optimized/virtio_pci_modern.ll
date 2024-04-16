@@ -1340,14 +1340,12 @@ define internal fastcc noundef i32 @vp_active_vq(ptr noundef %0, i16 noundef zer
 15:                                               ; preds = %2
   %16 = tail call zeroext i16 @vp_modern_queue_vector(ptr noundef %5, i16 noundef zeroext %8, i16 noundef zeroext %1) #8
   %17 = icmp eq i16 %16, -1
-  br i1 %17, label %19, label %18
+  %spec.select = select i1 %17, i32 -16, i32 0
+  br label %18
 
 18:                                               ; preds = %15, %2
-  br label %19
-
-19:                                               ; preds = %18, %15
-  %20 = phi i32 [ 0, %18 ], [ -16, %15 ]
-  ret i32 %20
+  %19 = phi i32 [ 0, %2 ], [ %spec.select, %15 ]
+  ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid

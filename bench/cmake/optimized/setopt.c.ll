@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Curl_vsetopt = private unnamed_addr constant [6 x i64] [i64 4, i64 1, i64 2, i64 3, i64 4, i64 5], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_setstropt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @Curl_setstropt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @Curl_cfree, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #8
@@ -30,20 +30,18 @@ define dso_local noundef i32 @Curl_setstropt(ptr nocapture noundef %0, ptr nound
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %7 = icmp ugt i64 %6, 8000000
-  br i1 %7, label %12, label %8
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @Curl_cstrdup, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %1) #8
   store ptr %10, ptr %0, align 8
   %.not8 = icmp eq ptr %10, null
-  br i1 %.not8, label %12, label %11
+  %spec.select = select i1 %.not8, i32 27, i32 0
+  br label %11
 
-11:                                               ; preds = %8, %2
-  br label %12
-
-12:                                               ; preds = %8, %5, %11
-  %.0 = phi i32 [ 0, %11 ], [ 43, %5 ], [ 27, %8 ]
+11:                                               ; preds = %8, %2, %5
+  %.0 = phi i32 [ 43, %5 ], [ 0, %2 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 
@@ -399,7 +397,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 24:                                               ; preds = %20
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 2147483647)
-  %25 = trunc i64 %spec.select to i32
+  %25 = trunc nsw i64 %spec.select to i32
   %26 = getelementptr inbounds i8, ptr %0, i64 1672
   store i32 %25, ptr %26, align 8
   br label %.critedge
@@ -433,7 +431,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 44:                                               ; preds = %40
   %spec.select1463 = tail call i64 @llvm.smin.i64(i64 %42, i64 2147483647)
-  %45 = trunc i64 %spec.select1463 to i32
+  %45 = trunc nsw i64 %spec.select1463 to i32
   %46 = getelementptr inbounds i8, ptr %0, i64 1664
   store i32 %45, ptr %46, align 8
   br label %.critedge
@@ -586,7 +584,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %139, label %.critedge, label %140
 
 140:                                              ; preds = %136
-  %141 = trunc i64 %138 to i32
+  %141 = trunc nuw i64 %138 to i32
   %142 = getelementptr inbounds i8, ptr %0, i64 2636
   store i32 %141, ptr %142, align 4
   br label %.critedge
@@ -1010,7 +1008,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %or.cond, label %400, label %.critedge
 
 400:                                              ; preds = %397
-  %401 = trunc i64 %399 to i32
+  %401 = trunc nuw nsw i64 %399 to i32
   %402 = mul nuw nsw i32 %401, 1000
   %403 = getelementptr inbounds i8, ptr %0, i64 716
   store i32 %402, ptr %403, align 4
@@ -1044,7 +1042,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %or.cond3, label %420, label %.critedge
 
 420:                                              ; preds = %417
-  %421 = trunc i64 %419 to i32
+  %421 = trunc nuw nsw i64 %419 to i32
   %422 = getelementptr inbounds i8, ptr %0, i64 716
   store i32 %421, ptr %422, align 4
   br label %.critedge
@@ -1077,7 +1075,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %or.cond5, label %.critedge, label %439
 
 439:                                              ; preds = %436
-  %440 = trunc i64 %438 to i8
+  %440 = trunc nuw nsw i64 %438 to i8
   %441 = getelementptr inbounds i8, ptr %0, i64 1753
   store i8 %440, ptr %441, align 1
   br label %.critedge
@@ -1171,7 +1169,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %or.cond7, label %.critedge, label %497
 
 497:                                              ; preds = %494
-  %498 = trunc i64 %496 to i8
+  %498 = trunc nuw i64 %496 to i8
   %499 = getelementptr inbounds i8, ptr %0, i64 1264
   store i8 %498, ptr %499, align 8
   br label %.critedge
@@ -1273,7 +1271,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   %556 = trunc i64 %549 to i8
   %557 = getelementptr inbounds i8, ptr %spec.select1464, i64 104
   store i8 %556, ptr %557, align 8
-  %558 = trunc i64 %551 to i32
+  %558 = trunc nuw nsw i64 %551 to i32
   %559 = getelementptr inbounds i8, ptr %spec.select1464, i64 100
   store i32 %558, ptr %559, align 4
   br label %.critedge
@@ -2728,7 +2726,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond19, label %.critedge, label %1410
 
 1410:                                             ; preds = %1407
-  %1411 = trunc i64 %1409 to i16
+  %1411 = trunc nuw i64 %1409 to i16
   %1412 = getelementptr inbounds i8, ptr %0, i64 1648
   store i16 %1411, ptr %1412, align 8
   br label %.critedge
@@ -2883,7 +2881,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond21, label %.critedge, label %1502
 
 1502:                                             ; preds = %1499
-  %1503 = trunc i64 %1501 to i8
+  %1503 = trunc nuw i64 %1501 to i8
   %1504 = getelementptr inbounds i8, ptr %0, i64 1650
   store i8 %1503, ptr %1504, align 2
   br label %.critedge
@@ -3197,7 +3195,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond23, label %.critedge, label %1693
 
 1693:                                             ; preds = %1690
-  %1694 = trunc i64 %1692 to i8
+  %1694 = trunc nuw nsw i64 %1692 to i8
   %1695 = getelementptr inbounds i8, ptr %0, i64 1720
   store i8 %1694, ptr %1695, align 8
   br label %.critedge
@@ -3365,7 +3363,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond25, label %.critedge, label %1799
 
 1799:                                             ; preds = %1796
-  %1800 = trunc i64 %1798 to i8
+  %1800 = trunc nuw nsw i64 %1798 to i8
   %1801 = getelementptr inbounds i8, ptr %0, i64 1722
   store i8 %1800, ptr %1801, align 2
   br label %.critedge
@@ -3487,7 +3485,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond27, label %.critedge, label %1875
 
 1875:                                             ; preds = %1872
-  %1876 = trunc i64 %1874 to i8
+  %1876 = trunc nuw i64 %1874 to i8
   %1877 = getelementptr inbounds i8, ptr %0, i64 1721
   store i8 %1876, ptr %1877, align 1
   br label %.critedge
@@ -3556,7 +3554,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond29, label %.critedge, label %1918
 
 1918:                                             ; preds = %1915
-  %1919 = trunc i64 %1917 to i8
+  %1919 = trunc nuw nsw i64 %1917 to i8
   %1920 = getelementptr inbounds i8, ptr %0, i64 1752
   store i8 %1919, ptr %1920, align 8
   br label %.critedge
@@ -3970,7 +3968,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond31, label %.critedge, label %2166
 
 2166:                                             ; preds = %2163
-  %2167 = trunc i64 %2165 to i16
+  %2167 = trunc nuw i64 %2165 to i16
   %2168 = getelementptr inbounds i8, ptr %0, i64 456
   store i16 %2167, ptr %2168, align 8
   br label %.critedge
@@ -4003,7 +4001,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond33, label %2185, label %.critedge
 
 2185:                                             ; preds = %2182
-  %2186 = trunc i64 %2184 to i32
+  %2186 = trunc nuw nsw i64 %2184 to i32
   %2187 = mul nuw nsw i32 %2186, 1000
   %2188 = getelementptr inbounds i8, ptr %0, i64 704
   store i32 %2187, ptr %2188, align 8
@@ -4034,7 +4032,7 @@ switch.lookup:                                    ; preds = %1185
   %2203 = phi ptr [ %2196, %2192 ], [ %2200, %2198 ]
   %2204 = load i64, ptr %2203, align 8
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %2204, i64 4294967295)
-  %2205 = trunc i64 %spec.store.select to i32
+  %2205 = trunc nuw i64 %spec.store.select to i32
   %2206 = getelementptr inbounds i8, ptr %0, i64 704
   store i32 %2205, ptr %2206, align 8
   br label %.critedge
@@ -4067,7 +4065,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond35, label %2223, label %.critedge
 
 2223:                                             ; preds = %2220
-  %2224 = trunc i64 %2222 to i32
+  %2224 = trunc nuw nsw i64 %2222 to i32
   %2225 = mul nuw nsw i32 %2224, 1000
   %2226 = getelementptr inbounds i8, ptr %0, i64 708
   store i32 %2225, ptr %2226, align 4
@@ -4098,7 +4096,7 @@ switch.lookup:                                    ; preds = %1185
   %2241 = phi ptr [ %2234, %2230 ], [ %2238, %2236 ]
   %2242 = load i64, ptr %2241, align 8
   %spec.store.select36 = tail call i64 @llvm.umin.i64(i64 %2242, i64 4294967295)
-  %2243 = trunc i64 %spec.store.select36 to i32
+  %2243 = trunc nuw i64 %spec.store.select36 to i32
   %2244 = getelementptr inbounds i8, ptr %0, i64 708
   store i32 %2243, ptr %2244, align 4
   br label %.critedge
@@ -4128,7 +4126,7 @@ switch.lookup:                                    ; preds = %1185
   %2259 = phi ptr [ %2252, %2248 ], [ %2256, %2254 ]
   %2260 = load i64, ptr %2259, align 8
   %spec.store.select37 = tail call i64 @llvm.umin.i64(i64 %2260, i64 4294967295)
-  %2261 = trunc i64 %spec.store.select37 to i32
+  %2261 = trunc nuw i64 %spec.store.select37 to i32
   %2262 = getelementptr inbounds i8, ptr %0, i64 1724
   store i32 %2261, ptr %2262, align 4
   br label %.critedge
@@ -6459,7 +6457,7 @@ switch.lookup:                                    ; preds = %1185
 
 3707:                                             ; preds = %3705
   %spec.select1470 = tail call i64 @llvm.umax.i64(i64 %3703, i64 1024)
-  %3708 = trunc i64 %spec.select1470 to i32
+  %3708 = trunc nuw nsw i64 %spec.select1470 to i32
   br label %3709
 
 3709:                                             ; preds = %3707, %3705, %3701
@@ -6494,7 +6492,7 @@ switch.lookup:                                    ; preds = %1185
   %3726 = load i64, ptr %3725, align 8
   %spec.select1471 = tail call i64 @llvm.smax.i64(i64 %3726, i64 16384)
   %3727 = tail call i64 @llvm.umin.i64(i64 %spec.select1471, i64 2097152)
-  %3728 = trunc i64 %3727 to i32
+  %3728 = trunc nuw nsw i64 %3727 to i32
   %3729 = getelementptr inbounds i8, ptr %0, i64 1680
   store i32 %3728, ptr %3729, align 8
   %3730 = load ptr, ptr @Curl_cfree, align 8
@@ -6798,7 +6796,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond43, label %.critedge, label %3906
 
 3906:                                             ; preds = %3903
-  %3907 = trunc i64 %3905 to i8
+  %3907 = trunc nuw nsw i64 %3905 to i8
   %3908 = getelementptr inbounds i8, ptr %0, i64 2640
   store i8 %3907, ptr %3908, align 8
   br label %.critedge
@@ -6929,7 +6927,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond45, label %.critedge, label %3989
 
 3989:                                             ; preds = %3986
-  %3990 = trunc i64 %3988 to i8
+  %3990 = trunc nuw nsw i64 %3988 to i8
   %3991 = getelementptr inbounds i8, ptr %0, i64 1704
   store i8 %3990, ptr %3991, align 8
   br label %.critedge
@@ -7421,7 +7419,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond47, label %.critedge, label %4294
 
 4294:                                             ; preds = %4291
-  %4295 = trunc i64 %4293 to i32
+  %4295 = trunc nuw nsw i64 %4293 to i32
   %4296 = getelementptr inbounds i8, ptr %0, i64 1756
   store i32 %4295, ptr %4296, align 4
   br label %.critedge
@@ -7454,7 +7452,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %4313, label %.critedge, label %4314
 
 4314:                                             ; preds = %4310
-  %4315 = trunc i64 %4312 to i32
+  %4315 = trunc nuw i64 %4312 to i32
   %4316 = getelementptr inbounds i8, ptr %0, i64 2464
   store i32 %4315, ptr %4316, align 8
   br label %.critedge
@@ -7909,7 +7907,7 @@ switch.lookup:                                    ; preds = %1185
 
 4594:                                             ; preds = %4590
   %spec.select1472 = tail call i64 @llvm.umin.i64(i64 %4592, i64 2147483647)
-  %4595 = trunc i64 %spec.select1472 to i32
+  %4595 = trunc nuw nsw i64 %spec.select1472 to i32
   %4596 = getelementptr inbounds i8, ptr %0, i64 2524
   store i32 %4595, ptr %4596, align 4
   br label %.critedge
@@ -7943,7 +7941,7 @@ switch.lookup:                                    ; preds = %1185
 
 4614:                                             ; preds = %4610
   %spec.select1473 = tail call i64 @llvm.umin.i64(i64 %4612, i64 2147483647)
-  %4615 = trunc i64 %spec.select1473 to i32
+  %4615 = trunc nuw nsw i64 %spec.select1473 to i32
   %4616 = getelementptr inbounds i8, ptr %0, i64 2528
   store i32 %4615, ptr %4616, align 8
   br label %.critedge
@@ -8109,7 +8107,7 @@ switch.lookup:                                    ; preds = %1185
   br i1 %or.cond49, label %4718, label %.critedge
 
 4718:                                             ; preds = %4714
-  %4719 = trunc i64 %4716 to i32
+  %4719 = trunc nuw nsw i64 %4716 to i32
   %4720 = getelementptr inbounds i8, ptr %0, i64 2560
   store i32 %4719, ptr %4720, align 8
   br label %.critedge
@@ -8237,7 +8235,7 @@ switch.lookup:                                    ; preds = %1185
   %4795 = phi ptr [ %4788, %4784 ], [ %4792, %4790 ]
   %4796 = load i64, ptr %4795, align 8
   %spec.store.select50 = tail call i64 @llvm.umin.i64(i64 %4796, i64 4294967295)
-  %4797 = trunc i64 %spec.store.select50 to i32
+  %4797 = trunc nuw i64 %spec.store.select50 to i32
   %4798 = getelementptr inbounds i8, ptr %0, i64 712
   store i32 %4797, ptr %4798, align 8
   br label %.critedge
@@ -9040,9 +9038,9 @@ define dso_local i32 @curl_easy_setopt(ptr noundef %0, i32 noundef %1, ...) loca
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call i32 @Curl_vsetopt(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %3)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -9050,18 +9048,18 @@ define dso_local i32 @curl_easy_setopt(ptr noundef %0, i32 noundef %1, ...) loca
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
 declare i32 @Curl_parse_login_details(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @Curl_getn_scheme_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

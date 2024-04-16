@@ -316,7 +316,7 @@ define dso_local void @snd_hdac_stream_start(ptr noundef %0) #0 align 16 {
 .loopexit.loopexit:                               ; preds = %69, %73
   %.ph = phi i32 [ %74, %73 ], [ %70, %69 ]
   %76 = lshr i32 %.ph, 1
-  %77 = trunc i32 %76 to i8
+  %77 = trunc nuw nsw i32 %76 to i8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %.loopexit.loopexit, %44
@@ -711,7 +711,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %62, ptr elementtype(i32) %64) #10, !srcloc !19
   %65 = load i64, ptr %60, align 8
   %66 = lshr i64 %65, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = load ptr, ptr %12, align 8
   %69 = getelementptr i8, ptr %68, i64 28
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %67, ptr elementtype(i32) %69) #10, !srcloc !19
@@ -881,27 +881,27 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
   %25 = getelementptr inbounds i8, ptr %0, i64 1176
   br label %26
 
-26:                                               ; preds = %49, %23
-  %27 = phi ptr [ %21, %23 ], [ %51, %49 ]
-  %28 = phi ptr [ null, %23 ], [ %50, %49 ]
+26:                                               ; preds = %48, %23
+  %27 = phi ptr [ %21, %23 ], [ %50, %48 ]
+  %28 = phi ptr [ null, %23 ], [ %49, %48 ]
   %29 = getelementptr i8, ptr %27, i64 -272
   %30 = getelementptr i8, ptr %27, i64 -200
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %24
-  br i1 %32, label %33, label %49
+  br i1 %32, label %33, label %48
 
 33:                                               ; preds = %26
   %34 = getelementptr i8, ptr %27, i64 -100
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, 1
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %38, label %49
+  br i1 %37, label %38, label %48
 
 38:                                               ; preds = %33
   %39 = getelementptr i8, ptr %27, i64 -104
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %18
-  br i1 %41, label %53, label %42
+  br i1 %41, label %52, label %42
 
 42:                                               ; preds = %38
   %43 = icmp eq ptr %28, null
@@ -911,38 +911,36 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
   %45 = load i16, ptr %25, align 8
   %46 = and i16 %45, 64
   %47 = icmp eq i16 %46, 0
-  br i1 %47, label %49, label %48
+  %spec.select = select i1 %47, ptr %28, ptr %29
+  br label %48
 
-48:                                               ; preds = %44, %42
-  br label %49
+48:                                               ; preds = %44, %42, %33, %26
+  %49 = phi ptr [ %28, %26 ], [ %28, %33 ], [ %29, %42 ], [ %spec.select, %44 ]
+  %50 = load ptr, ptr %27, align 8
+  %51 = icmp eq ptr %50, %20
+  br i1 %51, label %52, label %26, !llvm.loop !33
 
-49:                                               ; preds = %48, %44, %33, %26
-  %50 = phi ptr [ %28, %26 ], [ %28, %33 ], [ %29, %48 ], [ %28, %44 ]
-  %51 = load ptr, ptr %27, align 8
-  %52 = icmp eq ptr %51, %20
-  br i1 %52, label %53, label %26, !llvm.loop !33
+52:                                               ; preds = %48, %38
+  %53 = phi ptr [ %49, %48 ], [ %29, %38 ]
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %.thread, label %55
 
-53:                                               ; preds = %49, %38
-  %54 = phi ptr [ %50, %49 ], [ %29, %38 ]
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread, label %56
-
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %54, i64 172
-  %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, -4
-  %60 = or disjoint i8 %59, 1
-  store i8 %60, ptr %57, align 4
-  %61 = getelementptr inbounds i8, ptr %54, i64 168
-  store i32 %18, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %54, i64 144
-  store ptr %1, ptr %62, align 8
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds i8, ptr %53, i64 172
+  %57 = load i8, ptr %56, align 4
+  %58 = and i8 %57, -4
+  %59 = or disjoint i8 %58, 1
+  store i8 %59, ptr %56, align 4
+  %60 = getelementptr inbounds i8, ptr %53, i64 168
+  store i32 %18, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %53, i64 144
+  store ptr %1, ptr %61, align 8
   br label %.thread
 
-.thread:                                          ; preds = %17, %56, %53
-  %63 = phi ptr [ %54, %56 ], [ null, %53 ], [ null, %17 ]
+.thread:                                          ; preds = %17, %55, %52
+  %62 = phi ptr [ %53, %55 ], [ null, %52 ], [ null, %17 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef %19) #10
-  ret ptr %63
+  ret ptr %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
@@ -1129,7 +1127,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup_periods(ptr nocapture nounde
   %82 = trunc i64 %81 to i32
   store i32 %82, ptr %75, align 4
   %83 = lshr i64 %81, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   %85 = getelementptr i8, ptr %75, i64 4
   store i32 %84, ptr %85, align 4
   %86 = tail call i32 @snd_sgbuf_get_chunk_size(ptr noundef %22, i32 noundef %77, i32 noundef %76) #10
@@ -1206,7 +1204,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup_periods(ptr nocapture nounde
   %134 = trunc i64 %133 to i32
   store i32 %134, ptr %127, align 4
   %135 = lshr i64 %133, 32
-  %136 = trunc i64 %135 to i32
+  %136 = trunc nuw i64 %135 to i32
   %137 = getelementptr i8, ptr %127, i64 4
   store i32 %136, ptr %137, align 4
   %138 = tail call i32 @snd_sgbuf_get_chunk_size(ptr noundef %22, i32 noundef %129, i32 noundef %128) #10
@@ -1260,7 +1258,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup_periods(ptr nocapture nounde
   %172 = trunc i64 %171 to i32
   store i32 %172, ptr %165, align 4
   %173 = lshr i64 %171, 32
-  %174 = trunc i64 %173 to i32
+  %174 = trunc nuw i64 %173 to i32
   %175 = getelementptr i8, ptr %165, i64 4
   store i32 %174, ptr %175, align 4
   %176 = tail call i32 @snd_sgbuf_get_chunk_size(ptr noundef %22, i32 noundef %167, i32 noundef %166) #10
@@ -1330,7 +1328,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup_periods(ptr nocapture nounde
   %209 = trunc i64 %208 to i32
   store i32 %209, ptr %202, align 4
   %210 = lshr i64 %208, 32
-  %211 = trunc i64 %210 to i32
+  %211 = trunc nuw i64 %210 to i32
   %212 = getelementptr i8, ptr %202, i64 4
   store i32 %211, ptr %212, align 4
   %213 = tail call i32 @snd_sgbuf_get_chunk_size(ptr noundef %22, i32 noundef %204, i32 noundef %203) #10
@@ -1406,7 +1404,7 @@ define dso_local noundef i32 @snd_hdac_stream_set_params(ptr nocapture noundef %
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %6, null
-  br i1 %28, label %71, label %29
+  br i1 %28, label %69, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1446,7 +1444,7 @@ define dso_local noundef i32 @snd_hdac_stream_set_params(ptr nocapture noundef %
   %56 = and i8 %55, 1
   %57 = zext nneg i8 %56 to i32
   %58 = icmp eq i32 %39, %57
-  br i1 %58, label %70, label %59
+  br i1 %58, label %69, label %59
 
 59:                                               ; preds = %52, %48, %44, %36
   store i32 %40, ptr %41, align 4
@@ -1462,15 +1460,11 @@ define dso_local noundef i32 @snd_hdac_stream_set_params(ptr nocapture noundef %
   %67 = or disjoint i8 %66, %65
   store i8 %67, ptr %63, align 4
   %68 = tail call i32 @snd_hdac_stream_setup_periods(ptr noundef %0), !range !42
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %71, label %70
+  br label %69
 
-70:                                               ; preds = %59, %52
-  br label %71
-
-71:                                               ; preds = %70, %59, %27
-  %72 = phi i32 [ 0, %70 ], [ -22, %27 ], [ %68, %59 ]
-  ret i32 %72
+69:                                               ; preds = %59, %52, %27
+  %70 = phi i32 [ -22, %27 ], [ 0, %52 ], [ %68, %59 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

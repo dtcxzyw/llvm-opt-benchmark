@@ -73,7 +73,7 @@ if.end15:                                         ; preds = %if.then12, %if.end
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cast_test_iterations() #0 {
+define internal i32 @cast_test_iterations() #0 {
 entry:
   %key = alloca %struct.cast_key_st, align 4
   %key_b = alloca %struct.cast_key_st, align 4
@@ -100,18 +100,16 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 103, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull %out_a, i64 noundef 16, ptr noundef nonnull @c_a, i64 noundef 16) #3
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+  br i1 %tobool.not, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
   %call13 = call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 104, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %out_b, i64 noundef 16, ptr noundef nonnull @c_b, i64 noundef 16) #3
-  %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %for.end
+  %tobool14.not = icmp ne i32 %call13, 0
+  %spec.select = zext i1 %tobool14.not to i32
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %testresult.0 = phi i32 [ 1, %lor.lhs.false ], [ 0, %if.then ]
+if.end:                                           ; preds = %lor.lhs.false, %for.end
+  %testresult.0 = phi i32 [ 0, %for.end ], [ %spec.select, %lor.lhs.false ]
   ret i32 %testresult.0
 }
 

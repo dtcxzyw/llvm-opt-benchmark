@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @smb_connect(ptr nocapture noundef readonly %data, ptr nocapture readnone %done) #0 {
+define internal i32 @smb_connect(ptr nocapture noundef readonly %data, ptr nocapture readnone %done) #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -189,7 +189,7 @@ if.end22:                                         ; preds = %if.then15
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %arrayidx = getelementptr inbounds i8, ptr %call18, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
-  br label %if.end33
+  br label %return
 
 if.else:                                          ; preds = %if.end13
   %user26 = getelementptr inbounds i8, ptr %0, i64 864
@@ -201,13 +201,11 @@ if.else:                                          ; preds = %if.end13
   %domain28 = getelementptr inbounds i8, ptr %0, i64 872
   store ptr %call27, ptr %domain28, align 8
   %tobool30.not = icmp eq ptr %call27, null
-  br i1 %tobool30.not, label %return, label %if.end33
-
-if.end33:                                         ; preds = %if.else, %if.end22
+  %spec.select = select i1 %tobool30.not, i32 27, i32 0
   br label %return
 
-return:                                           ; preds = %if.else, %if.then15, %if.end, %entry, %if.end33
-  %retval.0 = phi i32 [ 0, %if.end33 ], [ 67, %entry ], [ 27, %if.end ], [ 27, %if.then15 ], [ 27, %if.else ]
+return:                                           ; preds = %if.else, %if.end22, %if.then15, %if.end, %entry
+  %retval.0 = phi i32 [ 67, %entry ], [ 27, %if.end ], [ 27, %if.then15 ], [ 0, %if.end22 ], [ %spec.select, %if.else ]
   ret i32 %retval.0
 }
 
@@ -714,7 +712,7 @@ sw.bb153:                                         ; preds = %if.end110, %if.then
   %offset5.i = getelementptr inbounds i8, ptr %msg.i92, i64 7
   store i32 %conv.i95, ptr %offset5.i, align 1
   %shr.i = lshr i64 %42, 32
-  %conv6.i = trunc i64 %shr.i to i32
+  %conv6.i = trunc nuw i64 %shr.i to i32
   %offset_high.i = getelementptr inbounds i8, ptr %msg.i92, i64 21
   store i32 %conv6.i, ptr %offset_high.i, align 1
   %min_bytes.i = getelementptr inbounds i8, ptr %msg.i92, i64 13
@@ -756,7 +754,7 @@ if.end.i102:                                      ; preds = %sw.bb155
   %offset9.i = getelementptr inbounds i8, ptr %49, i64 43
   store i32 %conv.i106, ptr %offset9.i, align 1
   %shr.i107 = lshr i64 %46, 32
-  %conv10.i = trunc i64 %shr.i107 to i32
+  %conv10.i = trunc nuw i64 %shr.i107 to i32
   %offset_high.i108 = getelementptr inbounds i8, ptr %49, i64 61
   store i32 %conv10.i, ptr %offset_high.i108, align 1
   %conv11.i = trunc i64 %spec.store.select.i to i16
@@ -792,7 +790,7 @@ if.end.i102:                                      ; preds = %sw.bb155
   store i16 %52, ptr %tid4.i.i, align 1
   %call5.i.i = call i32 @getpid() #12
   %shr.i.i = lshr i32 %call5.i.i, 16
-  %conv6.i.i = trunc i32 %shr.i.i to i16
+  %conv6.i.i = trunc nuw i32 %shr.i.i to i16
   %pid_high.i.i = getelementptr inbounds i8, ptr %49, i64 16
   store i16 %conv6.i.i, ptr %pid_high.i.i, align 1
   %conv7.i.i = trunc i32 %call5.i.i to i16
@@ -1226,7 +1224,7 @@ if.end:                                           ; preds = %entry
   store i16 %5, ptr %tid4.i, align 1
   %call5.i = tail call i32 @getpid() #12
   %shr.i = lshr i32 %call5.i, 16
-  %conv6.i = trunc i32 %shr.i to i16
+  %conv6.i = trunc nuw i32 %shr.i to i16
   %pid_high.i = getelementptr inbounds i8, ptr %0, i64 16
   store i16 %conv6.i, ptr %pid_high.i, align 1
   %conv7.i = trunc i32 %call5.i to i16

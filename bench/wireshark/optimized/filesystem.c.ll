@@ -332,7 +332,7 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
   %42 = load i32, ptr %41, align 4
   %43 = tail call ptr @g_strerror(i32 noundef %42) #21
   %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %43) #20
-  br label %126
+  br label %124
 
 45:                                               ; preds = %37
   %46 = tail call noalias ptr @g_malloc(i64 noundef %38) #22
@@ -346,7 +346,7 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
   %51 = load i32, ptr %50, align 4
   %52 = tail call ptr @g_strerror(i32 noundef %51) #21
   %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %52) #20
-  br label %126
+  br label %124
 
 54:                                               ; preds = %45
   %55 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef %46, ptr noundef nonnull %spec.select) #20
@@ -360,30 +360,30 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
 
 .preheader:                                       ; preds = %56
   %58 = load i8, ptr %57, align 1
-  %.not7484 = icmp eq i8 %58, 0
-  br i1 %.not7484, label %._crit_edge, label %.lr.ph
+  %.not7487 = icmp eq i8 %58, 0
+  br i1 %.not7487, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %77
-  %.06385 = phi ptr [ %spec.select78, %77 ], [ %57, %.preheader ]
-  %59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06385, i32 noundef 58) #19
+  %.06388 = phi ptr [ %spec.select78, %77 ], [ %57, %.preheader ]
+  %59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06388, i32 noundef 58) #19
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %.lr.ph
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.06385) #19
-  %63 = getelementptr i8, ptr %.06385, i64 %62
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.06388) #19
+  %63 = getelementptr i8, ptr %.06388, i64 %62
   br label %64
 
 64:                                               ; preds = %61, %.lr.ph
   %.064 = phi ptr [ %63, %61 ], [ %59, %.lr.ph ]
   %65 = ptrtoint ptr %.064 to i64
-  %66 = ptrtoint ptr %.06385 to i64
+  %66 = ptrtoint ptr %.06388 to i64
   %67 = sub i64 %65, %66
   %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #19
   %69 = add i64 %68, 2
   %70 = add i64 %69, %67
   %71 = tail call noalias ptr @g_malloc(i64 noundef %70) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %.06385, i64 %67, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %.06388, i64 %67, i1 false)
   %72 = getelementptr i8, ptr %71, i64 %67
   store i8 0, ptr %72, align 1
   %73 = tail call i64 @g_strlcat(ptr noundef %71, ptr noundef nonnull @.str.10, i64 noundef %70) #20
@@ -404,32 +404,32 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
 
 ._crit_edge:                                      ; preds = %77, %.preheader
   %81 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %spec.select, ptr noundef nonnull %57) #20
-  br label %126
+  br label %124
 
 82:                                               ; preds = %56
   %83 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.12) #20
-  br label %126
+  br label %124
 
 .loopexit:                                        ; preds = %64, %54, %33
   %.1 = phi ptr [ %34, %33 ], [ %55, %54 ], [ %71, %64 ]
   %84 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 47) #19
   %.not75 = icmp eq ptr %84, null
-  br i1 %.not75, label %118, label %85
+  br i1 %.not75, label %116, label %85
 
 85:                                               ; preds = %.loopexit
   store i8 0, ptr %84, align 1
   %86 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 47) #19
   %.not76 = icmp eq ptr %86, null
-  br i1 %.not76, label %106, label %87
+  br i1 %.not76, label %104, label %87
 
 87:                                               ; preds = %85
   %88 = tail call zeroext i1 @started_with_special_privs() #20
-  br i1 %88, label %106, label %89
+  br i1 %88, label %104, label %89
 
 89:                                               ; preds = %87
   %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(5) @.str.13) #19
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %106
+  br i1 %91, label %92, label %104
 
 92:                                               ; preds = %89
   %93 = ptrtoint ptr %86 to i64
@@ -439,87 +439,91 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
   %97 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %96, ptr noundef %.1) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   %.not.i = icmp eq ptr %97, null
-  br i1 %.not.i, label %file_exists.exit.thread, label %98
+  br i1 %.not.i, label %file_exists.exit.thread84, label %98
+
+file_exists.exit.thread84:                        ; preds = %92
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
+  br label %103
 
 98:                                               ; preds = %92
   %99 = call i32 @stat(ptr noundef nonnull %97, ptr noundef nonnull %2) #20
   %.not4.i = icmp eq i32 %99, 0
-  br i1 %.not4.i, label %104, label %100
+  br i1 %.not4.i, label %file_exists.exit.thread, label %file_exists.exit
 
-100:                                              ; preds = %98
-  %101 = tail call ptr @__errno_location() #21
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp eq i32 %102, 2
-  br i1 %103, label %file_exists.exit.thread, label %104
-
-file_exists.exit.thread:                          ; preds = %92, %100
+file_exists.exit.thread:                          ; preds = %98
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  br label %105
+  br label %102
 
-104:                                              ; preds = %100, %98
+file_exists.exit:                                 ; preds = %98
+  %100 = tail call ptr @__errno_location() #21
+  %101 = load i32, ptr %100, align 4
+  %.not86 = icmp eq i32 %101, 2
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
+  br i1 %.not86, label %103, label %102
+
+102:                                              ; preds = %file_exists.exit.thread, %file_exists.exit
   store i1 true, ptr @running_in_build_directory_flag, align 1
-  br label %105
+  br label %103
 
-105:                                              ; preds = %file_exists.exit.thread, %104
+103:                                              ; preds = %file_exists.exit.thread84, %102, %file_exists.exit
   tail call void @g_free(ptr noundef %97) #20
-  br label %106
+  br label %104
 
-106:                                              ; preds = %87, %105, %89, %85
+104:                                              ; preds = %87, %103, %89, %85
   store ptr %.1, ptr @progfile_dir, align 8
-  %107 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 47) #19
-  %.not.i80 = icmp eq ptr %107, null
-  br i1 %.not.i80, label %trim_progfile_dir.exit, label %108
+  %105 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 47) #19
+  %.not.i80 = icmp eq ptr %105, null
+  br i1 %.not.i80, label %trim_progfile_dir.exit, label %106
 
-108:                                              ; preds = %106
-  %109 = getelementptr i8, ptr %107, i64 1
-  %110 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(7) @.str.52, i64 noundef 7) #19
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %trim_progfile_dir.exit
+106:                                              ; preds = %104
+  %107 = getelementptr i8, ptr %105, i64 1
+  %108 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(7) @.str.52, i64 noundef 7) #19
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %trim_progfile_dir.exit
 
-112:                                              ; preds = %108
-  store i8 0, ptr %107, align 1
-  %113 = tail call noalias ptr @g_strdup(ptr noundef %.1) #20
-  store ptr %113, ptr @progfile_dir, align 8
+110:                                              ; preds = %106
+  store i8 0, ptr %105, align 1
+  %111 = tail call noalias ptr @g_strdup(ptr noundef %.1) #20
+  store ptr %111, ptr @progfile_dir, align 8
   tail call void @g_free(ptr noundef %.1) #20
   br label %trim_progfile_dir.exit
 
-trim_progfile_dir.exit:                           ; preds = %106, %108, %112
-  %114 = load ptr, ptr @install_prefix, align 8
-  tail call void @g_free(ptr noundef %114) #20
+trim_progfile_dir.exit:                           ; preds = %104, %106, %110
+  %112 = load ptr, ptr @install_prefix, align 8
+  tail call void @g_free(ptr noundef %112) #20
+  %113 = load ptr, ptr @progfile_dir, align 8
+  %114 = tail call i32 @g_str_has_suffix(ptr noundef %113, ptr noundef nonnull @.str.16) #20
+  %.not77 = icmp eq i32 %114, 0
   %115 = load ptr, ptr @progfile_dir, align 8
-  %116 = tail call i32 @g_str_has_suffix(ptr noundef %115, ptr noundef nonnull @.str.16) #20
-  %.not77 = icmp eq i32 %116, 0
-  %117 = load ptr, ptr @progfile_dir, align 8
-  br i1 %.not77, label %124, label %120
+  br i1 %.not77, label %122, label %118
 
-118:                                              ; preds = %.loopexit
-  %119 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef %.1) #20
+116:                                              ; preds = %.loopexit
+  %117 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef %.1) #20
   tail call void @g_free(ptr noundef %.1) #20
-  br label %126
+  br label %124
 
-120:                                              ; preds = %trim_progfile_dir.exit
-  %121 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %117) #20
-  %122 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %121, i32 noundef 47) #19
-  %.not.i81 = icmp eq ptr %122, null
-  br i1 %.not.i81, label %trim_last_dir_from_path.exit, label %123
+118:                                              ; preds = %trim_progfile_dir.exit
+  %119 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %115) #20
+  %120 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %119, i32 noundef 47) #19
+  %.not.i81 = icmp eq ptr %120, null
+  br i1 %.not.i81, label %trim_last_dir_from_path.exit, label %121
 
-123:                                              ; preds = %120
-  store i8 0, ptr %122, align 1
+121:                                              ; preds = %118
+  store i8 0, ptr %120, align 1
   br label %trim_last_dir_from_path.exit
 
-trim_last_dir_from_path.exit:                     ; preds = %120, %123
-  store ptr %121, ptr @install_prefix, align 8
-  br label %126
+trim_last_dir_from_path.exit:                     ; preds = %118, %121
+  store ptr %119, ptr @install_prefix, align 8
+  br label %124
 
-124:                                              ; preds = %trim_progfile_dir.exit
-  %125 = tail call noalias ptr @g_strdup(ptr noundef %117) #20
-  store ptr %125, ptr @install_prefix, align 8
+122:                                              ; preds = %trim_progfile_dir.exit
+  %123 = tail call noalias ptr @g_strdup(ptr noundef %115) #20
+  store ptr %123, ptr @install_prefix, align 8
   store i1 true, ptr @running_in_build_directory_flag, align 1
-  br label %126
+  br label %124
 
-126:                                              ; preds = %trim_last_dir_from_path.exit, %124, %118, %82, %._crit_edge, %49, %40
-  %.0 = phi ptr [ %119, %118 ], [ %44, %40 ], [ %53, %49 ], [ %81, %._crit_edge ], [ %83, %82 ], [ null, %124 ], [ null, %trim_last_dir_from_path.exit ]
+124:                                              ; preds = %trim_last_dir_from_path.exit, %122, %116, %82, %._crit_edge, %49, %40
+  %.0 = phi ptr [ %117, %116 ], [ %44, %40 ], [ %53, %49 ], [ %81, %._crit_edge ], [ %83, %82 ], [ null, %122 ], [ null, %trim_last_dir_from_path.exit ]
   ret ptr %.0
 }
 
@@ -561,10 +565,10 @@ declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_u
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef zeroext i1 @file_exists(ptr noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @file_exists(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %10, label %3
+  br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
   %4 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %2) #20
@@ -574,14 +578,11 @@ define noundef zeroext i1 @file_exists(ptr noundef readonly %0) local_unnamed_ad
 5:                                                ; preds = %3
   %6 = tail call ptr @__errno_location() #21
   %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, 2
-  br i1 %8, label %10, label %9
+  %8 = icmp ne i32 %7, 2
+  br label %9
 
-9:                                                ; preds = %5, %3
-  br label %10
-
-10:                                               ; preds = %5, %1, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %1 ], [ false, %5 ]
+9:                                                ; preds = %5, %3, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %3 ], [ %8, %5 ]
   ret i1 %.0
 }
 
@@ -1029,7 +1030,7 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #8
 ; Function Attrs: nounwind uwtable
 define void @profile_register_persconffile(ptr noundef %0) local_unnamed_addr #7 {
   %2 = load i8, ptr @do_store_persconffiles, align 1
-  %3 = trunc i8 %2 to i1
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %12
 
 4:                                                ; preds = %1
@@ -1379,7 +1380,7 @@ define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr nocapture no
   %5 = alloca %struct.stat, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.24) #19
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %28
+  br i1 %7, label %8, label %26
 
 8:                                                ; preds = %2
   %9 = tail call fastcc ptr @get_persconffile_dir_no_profile()
@@ -1387,146 +1388,150 @@ define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr nocapture no
   %11 = load ptr, ptr @profile_files, align 8
   %12 = tail call ptr @g_hash_table_get_keys(ptr noundef %11) #20
   %13 = tail call ptr @g_list_first(ptr noundef %12) #20
-  %.not22.i = icmp eq ptr %13, null
-  br i1 %.not22.i, label %reset_default_profile.exit, label %.lr.ph.i
+  %.not25.i = icmp eq ptr %13, null
+  br i1 %.not25.i, label %reset_default_profile.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %8, %25
-  %.01623.i = phi ptr [ %27, %25 ], [ %13, %8 ]
-  %14 = load ptr, ptr %.01623.i, align 8
+.lr.ph.i:                                         ; preds = %8, %23
+  %.01626.i = phi ptr [ %25, %23 ], [ %13, %8 ]
+  %14 = load ptr, ptr %.01626.i, align 8
   %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %10, ptr noundef nonnull @.str.10, ptr noundef %14) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %file_exists.exit.thread.i, label %16
+  br i1 %.not.i.i, label %file_exists.exit.thread21.i, label %16
+
+file_exists.exit.thread21.i:                      ; preds = %.lr.ph.i
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  br label %23
 
 16:                                               ; preds = %.lr.ph.i
   %17 = call i32 @stat(ptr noundef nonnull %15, ptr noundef nonnull %5) #20
   %.not4.i.i = icmp eq i32 %17, 0
-  br i1 %.not4.i.i, label %22, label %18
+  br i1 %.not4.i.i, label %file_exists.exit.thread.i, label %file_exists.exit.i
 
-18:                                               ; preds = %16
-  %19 = tail call ptr @__errno_location() #21
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, 2
-  br i1 %21, label %file_exists.exit.thread.i, label %22
-
-file_exists.exit.thread.i:                        ; preds = %18, %.lr.ph.i
+file_exists.exit.thread.i:                        ; preds = %16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  br label %25
+  br label %20
 
-22:                                               ; preds = %18, %16
+file_exists.exit.i:                               ; preds = %16
+  %18 = tail call ptr @__errno_location() #21
+  %19 = load i32, ptr %18, align 4
+  %.not23.i = icmp eq i32 %19, 2
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  %23 = tail call i32 @remove(ptr noundef nonnull %15) #20
-  %.not19.i = icmp eq i32 %23, 0
-  br i1 %.not19.i, label %25, label %24
+  br i1 %.not23.i, label %23, label %20
 
-24:                                               ; preds = %22
+20:                                               ; preds = %file_exists.exit.i, %file_exists.exit.thread.i
+  %21 = tail call i32 @remove(ptr noundef nonnull %15) #20
+  %.not19.i = icmp eq i32 %21, 0
+  br i1 %.not19.i, label %23, label %22
+
+22:                                               ; preds = %20
   store ptr %10, ptr %1, align 8
   tail call void @g_free(ptr noundef nonnull %15) #20
   br label %reset_default_profile.exit
 
-25:                                               ; preds = %22, %file_exists.exit.thread.i
+23:                                               ; preds = %20, %file_exists.exit.i, %file_exists.exit.thread21.i
   tail call void @g_free(ptr noundef %15) #20
-  %26 = getelementptr inbounds i8, ptr %.01623.i, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %27, null
+  %24 = getelementptr inbounds i8, ptr %.01626.i, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %reset_default_profile.exit, label %.lr.ph.i, !llvm.loop !8
 
-reset_default_profile.exit:                       ; preds = %25, %8, %24
-  %.2.i = phi i32 [ %23, %24 ], [ 0, %8 ], [ 0, %25 ]
+reset_default_profile.exit:                       ; preds = %23, %8, %22
+  %.2.i = phi i32 [ %21, %22 ], [ 0, %8 ], [ 0, %23 ]
   tail call void @g_list_free(ptr noundef %12) #20
   br label %delete_directory.exit
 
-28:                                               ; preds = %2
-  %29 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %0)
+26:                                               ; preds = %2
+  %27 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %30 = call i32 @stat(ptr noundef %29, ptr noundef nonnull %4) #20
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %test_for_directory.exit, label %32
+  %28 = call i32 @stat(ptr noundef %27, ptr noundef nonnull %4) #20
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %test_for_directory.exit, label %30
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %4, i64 24
-  %34 = load i32, ptr %33, align 8
-  %35 = and i32 %34, 61440
-  %36 = icmp eq i32 %35, 16384
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 61440
+  %34 = icmp eq i32 %33, 16384
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  br i1 %36, label %test_for_directory.exit.thread, label %delete_directory.exit
+  br i1 %34, label %test_for_directory.exit.thread, label %delete_directory.exit
 
-test_for_directory.exit:                          ; preds = %28
-  %37 = tail call ptr @__errno_location() #21
-  %38 = load i32, ptr %37, align 4
+test_for_directory.exit:                          ; preds = %26
+  %35 = tail call ptr @__errno_location() #21
+  %36 = load i32, ptr %35, align 4
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  %39 = icmp eq i32 %38, 21
-  br i1 %39, label %test_for_directory.exit.thread, label %delete_directory.exit
+  %37 = icmp eq i32 %36, 21
+  br i1 %37, label %test_for_directory.exit.thread, label %delete_directory.exit
 
-test_for_directory.exit.thread:                   ; preds = %32, %test_for_directory.exit
-  %40 = tail call ptr @g_dir_open(ptr noundef %29, i32 noundef 0, ptr noundef null) #20
-  %.not.i9 = icmp eq ptr %40, null
+test_for_directory.exit.thread:                   ; preds = %30, %test_for_directory.exit
+  %38 = tail call ptr @g_dir_open(ptr noundef %27, i32 noundef 0, ptr noundef null) #20
+  %.not.i9 = icmp eq ptr %38, null
   br i1 %.not.i9, label %.thread29.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %test_for_directory.exit.thread
-  %41 = tail call ptr @g_dir_read_name(ptr noundef nonnull %40) #20
-  %.not1834.i = icmp eq ptr %41, null
+  %39 = tail call ptr @g_dir_read_name(ptr noundef nonnull %38) #20
+  %.not1834.i = icmp eq ptr %39, null
   br i1 %.not1834.i, label %.thread31.i, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %.preheader.i
-  %42 = getelementptr inbounds i8, ptr %3, i64 24
-  br label %43
+  %40 = getelementptr inbounds i8, ptr %3, i64 24
+  br label %41
 
 .thread31.i:                                      ; preds = %.thread.i, %.preheader.i
-  tail call void @g_dir_close(ptr noundef nonnull %40) #20
+  tail call void @g_dir_close(ptr noundef nonnull %38) #20
   br label %.thread29.i
 
-43:                                               ; preds = %.thread.i, %.lr.ph.i10
-  %44 = phi ptr [ %41, %.lr.ph.i10 ], [ %55, %.thread.i ]
-  %45 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %29, ptr noundef nonnull @.str.10, ptr noundef nonnull %44) #20
+41:                                               ; preds = %.thread.i, %.lr.ph.i10
+  %42 = phi ptr [ %39, %.lr.ph.i10 ], [ %53, %.thread.i ]
+  %43 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %27, ptr noundef nonnull @.str.10, ptr noundef nonnull %42) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %46 = call i32 @stat(ptr noundef %45, ptr noundef nonnull %3) #20
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %test_for_directory.exit.i, label %48
+  %44 = call i32 @stat(ptr noundef %43, ptr noundef nonnull %3) #20
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %test_for_directory.exit.i, label %46
 
-48:                                               ; preds = %43
-  %49 = load i32, ptr %42, align 8
-  %50 = and i32 %49, 61440
-  %51 = icmp eq i32 %50, 16384
+46:                                               ; preds = %41
+  %47 = load i32, ptr %40, align 8
+  %48 = and i32 %47, 61440
+  %49 = icmp eq i32 %48, 16384
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  br i1 %51, label %.thread.i, label %test_for_directory.exit.thread24.i
+  br i1 %49, label %.thread.i, label %test_for_directory.exit.thread24.i
 
-test_for_directory.exit.i:                        ; preds = %43
-  %52 = tail call ptr @__errno_location() #21
-  %53 = load i32, ptr %52, align 4
+test_for_directory.exit.i:                        ; preds = %41
+  %50 = tail call ptr @__errno_location() #21
+  %51 = load i32, ptr %50, align 4
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  %.not19.i11 = icmp eq i32 %53, 21
+  %.not19.i11 = icmp eq i32 %51, 21
   br i1 %.not19.i11, label %.thread.i, label %test_for_directory.exit.thread24.i
 
-test_for_directory.exit.thread24.i:               ; preds = %test_for_directory.exit.i, %48
-  %54 = tail call i32 @remove(ptr noundef %45) #20
-  %.not20.i = icmp eq i32 %54, 0
-  br i1 %.not20.i, label %.thread.i, label %56
+test_for_directory.exit.thread24.i:               ; preds = %test_for_directory.exit.i, %46
+  %52 = tail call i32 @remove(ptr noundef %43) #20
+  %.not20.i = icmp eq i32 %52, 0
+  br i1 %.not20.i, label %.thread.i, label %54
 
-.thread.i:                                        ; preds = %test_for_directory.exit.thread24.i, %test_for_directory.exit.i, %48
-  tail call void @g_free(ptr noundef %45) #20
-  %55 = tail call ptr @g_dir_read_name(ptr noundef nonnull %40) #20
-  %.not18.i = icmp eq ptr %55, null
-  br i1 %.not18.i, label %.thread31.i, label %43, !llvm.loop !9
+.thread.i:                                        ; preds = %test_for_directory.exit.thread24.i, %test_for_directory.exit.i, %46
+  tail call void @g_free(ptr noundef %43) #20
+  %53 = tail call ptr @g_dir_read_name(ptr noundef nonnull %38) #20
+  %.not18.i = icmp eq ptr %53, null
+  br i1 %.not18.i, label %.thread31.i, label %41, !llvm.loop !9
 
-56:                                               ; preds = %test_for_directory.exit.thread24.i
-  store ptr %45, ptr %1, align 8
-  tail call void @g_dir_close(ptr noundef nonnull %40) #20
+54:                                               ; preds = %test_for_directory.exit.thread24.i
+  store ptr %43, ptr %1, align 8
+  tail call void @g_dir_close(ptr noundef nonnull %38) #20
   br label %delete_directory.exit
 
 .thread29.i:                                      ; preds = %.thread31.i, %test_for_directory.exit.thread
-  %57 = tail call i32 @remove(ptr noundef %29) #20
-  %.not21.i = icmp eq i32 %57, 0
-  br i1 %.not21.i, label %delete_directory.exit, label %58
+  %55 = tail call i32 @remove(ptr noundef %27) #20
+  %.not21.i = icmp eq i32 %55, 0
+  br i1 %.not21.i, label %delete_directory.exit, label %56
 
-58:                                               ; preds = %.thread29.i
-  %59 = tail call noalias ptr @g_strdup(ptr noundef %29) #20
-  store ptr %59, ptr %1, align 8
+56:                                               ; preds = %.thread29.i
+  %57 = tail call noalias ptr @g_strdup(ptr noundef %27) #20
+  store ptr %57, ptr %1, align 8
   br label %delete_directory.exit
 
-delete_directory.exit:                            ; preds = %test_for_directory.exit, %56, %.thread29.i, %58, %32, %reset_default_profile.exit
-  %.sink = phi ptr [ %10, %reset_default_profile.exit ], [ %29, %32 ], [ %29, %58 ], [ %29, %.thread29.i ], [ %29, %56 ], [ %29, %test_for_directory.exit ]
-  %.08 = phi i32 [ %.2.i, %reset_default_profile.exit ], [ 0, %32 ], [ %57, %58 ], [ 0, %.thread29.i ], [ %54, %56 ], [ 0, %test_for_directory.exit ]
+delete_directory.exit:                            ; preds = %test_for_directory.exit, %54, %.thread29.i, %56, %30, %reset_default_profile.exit
+  %.sink = phi ptr [ %10, %reset_default_profile.exit ], [ %27, %30 ], [ %27, %56 ], [ %27, %.thread29.i ], [ %27, %54 ], [ %27, %test_for_directory.exit ]
+  %.08 = phi i32 [ %.2.i, %reset_default_profile.exit ], [ 0, %30 ], [ %55, %56 ], [ 0, %.thread29.i ], [ %52, %54 ], [ 0, %test_for_directory.exit ]
   tail call void @g_free(ptr noundef %.sink) #20
   ret i32 %.08
 }
@@ -1585,7 +1590,7 @@ define noundef i32 @copy_persconffile_profile(ptr noundef %0, ptr noundef %1, i1
 
 14:                                               ; preds = %6
   %15 = load i8, ptr @do_store_persconffiles, align 1
-  %16 = trunc i8 %15 to i1
+  %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %14, %6
@@ -1858,7 +1863,7 @@ define noalias ptr @get_persconffile_path(ptr noundef %0, i1 noundef zeroext %1)
 
 3:                                                ; preds = %2
   %4 = load i8, ptr @do_store_persconffiles, align 1
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %profile_register_persconffile.exit
 
 6:                                                ; preds = %3
@@ -2015,20 +2020,20 @@ define noundef nonnull ptr @file_write_error_message(i32 noundef %0) local_unnam
 ; Function Attrs: nofree nounwind uwtable
 define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %28, label %3
+  br i1 %.not, label %27, label %3
 
 3:                                                ; preds = %2
   %4 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str.45)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %28, label %.preheader
+  br i1 %5, label %27, label %.preheader
 
 .preheader:                                       ; preds = %3
   %6 = sext i8 %1 to i32
   %7 = load ptr, ptr @g_ascii_table, align 8
   br label %8
 
-8:                                                ; preds = %.preheader, %25
-  %.014 = phi i1 [ %.1, %25 ], [ true, %.preheader ]
+8:                                                ; preds = %.preheader, %24
+  %.014 = phi i1 [ %.1, %24 ], [ true, %.preheader ]
   %9 = tail call i32 @getc_unlocked(ptr noundef nonnull %4)
   %.not19 = icmp ne i32 %9, %6
   %or.cond.not = and i1 %.014, %.not19
@@ -2041,7 +2046,7 @@ define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly 
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 320
   %or.cond25.not = icmp eq i16 %15, 64
-  br i1 %or.cond25.not, label %26, label %16
+  br i1 %or.cond25.not, label %25, label %16
 
 16:                                               ; preds = %10, %8
   %17 = icmp eq i32 %9, 10
@@ -2053,24 +2058,22 @@ define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly 
   %21 = getelementptr i16, ptr %7, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 256
-  %.not22 = icmp eq i16 %23, 0
-  br i1 %.not22, label %24, label %25
+  %.not22 = icmp ne i16 %23, 0
+  %spec.select = select i1 %.not22, i1 %.014, i1 false
+  br label %24
 
 24:                                               ; preds = %18, %16
-  br label %25
-
-25:                                               ; preds = %18, %24
-  %.1 = phi i1 [ %17, %24 ], [ %.014, %18 ]
+  %.1 = phi i1 [ true, %16 ], [ %spec.select, %18 ]
   %.not23 = icmp eq i32 %9, -1
-  br i1 %.not23, label %26, label %8, !llvm.loop !13
+  br i1 %.not23, label %25, label %8, !llvm.loop !13
 
-26:                                               ; preds = %10, %25
-  %.015 = phi i1 [ false, %25 ], [ true, %10 ]
-  %27 = tail call i32 @fclose(ptr noundef nonnull %4)
-  br label %28
+25:                                               ; preds = %10, %24
+  %.015 = phi i1 [ false, %24 ], [ true, %10 ]
+  %26 = tail call i32 @fclose(ptr noundef nonnull %4)
+  br label %27
 
-28:                                               ; preds = %3, %2, %26
-  %.0 = phi i1 [ %.015, %26 ], [ false, %2 ], [ false, %3 ]
+27:                                               ; preds = %3, %2, %25
+  %.0 = phi i1 [ %.015, %25 ], [ false, %2 ], [ false, %3 ]
   ret i1 %.0
 }
 

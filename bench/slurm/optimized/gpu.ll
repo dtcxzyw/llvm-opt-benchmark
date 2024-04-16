@@ -56,13 +56,13 @@ define noundef i32 @gpu_plugin_init() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr @g_context, align 8
   %.not10 = icmp eq ptr %5, null
-  br i1 %.not10, label %6, label %30
+  br i1 %.not10, label %6, label %32
 
 6:                                                ; preds = %4
   %7 = tail call i32 @gres_get_autodetect_flags() #6
   %8 = and i32 %7, 1
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %14, label %9
+  br i1 %.not.i, label %15, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @dlopen(ptr noundef nonnull @.str.8, i32 noundef 258) #6
@@ -72,65 +72,70 @@ define noundef i32 @gpu_plugin_init() local_unnamed_addr #0 {
 11:                                               ; preds = %9
   %12 = tail call i32 @get_log_level() #6
   %13 = icmp sgt i32 %12, 2
-  br i1 %13, label %.sink.split.i, label %26
+  br i1 %13, label %14, label %_get_gpu_type.exit
 
-14:                                               ; preds = %6
-  %15 = and i32 %7, 2
-  %.not4.i = icmp eq i32 %15, 0
-  br i1 %.not4.i, label %19, label %16
-
-16:                                               ; preds = %14
-  %17 = tail call i32 @get_log_level() #6
-  %18 = icmp sgt i32 %17, 2
-  br i1 %18, label %.sink.split.i, label %26
-
-19:                                               ; preds = %14
-  %20 = and i32 %7, 8
-  %.not5.i = icmp eq i32 %20, 0
-  br i1 %.not5.i, label %24, label %21
-
-21:                                               ; preds = %19
-  %22 = tail call i32 @get_log_level() #6
-  %23 = icmp sgt i32 %22, 2
-  br i1 %23, label %.sink.split.i, label %26
-
-24:                                               ; preds = %19
-  %25 = and i32 %7, 16
-  %.not6.i = icmp eq i32 %25, 0
-  br i1 %.not6.i, label %26, label %_get_gpu_type.exit
-
-.sink.split.i:                                    ; preds = %21, %16, %11
-  %.str.11.sink.i = phi ptr [ @.str.9, %11 ], [ @.str.11, %16 ], [ @.str.12, %21 ]
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.11.sink.i) #6
-  br label %26
-
-26:                                               ; preds = %.sink.split.i, %24, %21, %16, %11
+14:                                               ; preds = %11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.9) #6
   br label %_get_gpu_type.exit
 
-_get_gpu_type.exit:                               ; preds = %9, %24, %26
-  %.0.i = phi ptr [ @.str.14, %26 ], [ @.str.10, %9 ], [ @.str.13, %24 ]
-  %27 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef nonnull %.0.i, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 56) #6
-  store ptr %27, ptr @g_context, align 8
-  %.not11 = icmp eq ptr %27, null
-  br i1 %.not11, label %28, label %30
+15:                                               ; preds = %6
+  %16 = and i32 %7, 2
+  %.not4.i = icmp eq i32 %16, 0
+  br i1 %.not4.i, label %21, label %17
 
-28:                                               ; preds = %_get_gpu_type.exit
-  %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %.0.i) #6
-  br label %30
+17:                                               ; preds = %15
+  %18 = tail call i32 @get_log_level() #6
+  %19 = icmp sgt i32 %18, 2
+  br i1 %19, label %20, label %_get_gpu_type.exit
 
-30:                                               ; preds = %28, %4, %_get_gpu_type.exit
-  %.0 = phi i32 [ 0, %4 ], [ 0, %_get_gpu_type.exit ], [ -1, %28 ]
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #6
-  %.not12 = icmp eq i32 %31, 0
-  br i1 %.not12, label %34, label %32
+20:                                               ; preds = %17
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.11) #6
+  br label %_get_gpu_type.exit
 
-32:                                               ; preds = %30
-  %33 = tail call ptr @__errno_location() #7
-  store i32 %31, ptr %33, align 4
+21:                                               ; preds = %15
+  %22 = and i32 %7, 8
+  %.not5.i = icmp eq i32 %22, 0
+  br i1 %.not5.i, label %27, label %23
+
+23:                                               ; preds = %21
+  %24 = tail call i32 @get_log_level() #6
+  %25 = icmp sgt i32 %24, 2
+  br i1 %25, label %26, label %_get_gpu_type.exit
+
+26:                                               ; preds = %23
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12) #6
+  br label %_get_gpu_type.exit
+
+27:                                               ; preds = %21
+  %28 = and i32 %7, 16
+  %.not6.i = icmp eq i32 %28, 0
+  %spec.select.i = select i1 %.not6.i, ptr @.str.14, ptr @.str.13
+  br label %_get_gpu_type.exit
+
+_get_gpu_type.exit:                               ; preds = %9, %11, %14, %17, %20, %23, %26, %27
+  %.0.i = phi ptr [ @.str.10, %9 ], [ @.str.14, %20 ], [ @.str.14, %17 ], [ @.str.14, %23 ], [ @.str.14, %26 ], [ @.str.14, %14 ], [ @.str.14, %11 ], [ %spec.select.i, %27 ]
+  %29 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef nonnull %.0.i, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 56) #6
+  store ptr %29, ptr @g_context, align 8
+  %.not11 = icmp eq ptr %29, null
+  br i1 %.not11, label %30, label %32
+
+30:                                               ; preds = %_get_gpu_type.exit
+  %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef nonnull %.0.i) #6
+  br label %32
+
+32:                                               ; preds = %30, %4, %_get_gpu_type.exit
+  %.0 = phi i32 [ 0, %4 ], [ 0, %_get_gpu_type.exit ], [ -1, %30 ]
+  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #6
+  %.not12 = icmp eq i32 %33, 0
+  br i1 %.not12, label %36, label %34
+
+34:                                               ; preds = %32
+  %35 = tail call ptr @__errno_location() #7
+  store i32 %33, ptr %35, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 158, ptr noundef nonnull @__func__.gpu_plugin_init) #8
   unreachable
 
-34:                                               ; preds = %30
+36:                                               ; preds = %32
   ret i32 %.0
 }
 

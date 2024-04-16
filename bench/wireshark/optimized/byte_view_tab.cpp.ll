@@ -520,19 +520,18 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIP12ByteVi
   %32 = getelementptr inbounds i8, ptr %0, i64 48
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %47, label %35
+  br i1 %34, label %46, label %35
 
 35:                                               ; preds = %_ZN7QStringD2Ev.exit
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %45, label %38
+  br i1 %.not, label %.sink.split, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %37, i64 384
   %40 = load ptr, ptr %39, align 8
-  %.not15 = icmp eq ptr %40, null
-  br i1 %.not15, label %45, label %.sink.split
+  br label %.sink.split
 
 .body:                                            ; preds = %5, %_ZN17QArrayDataPointerIP12ByteViewTextE5derefEv.exit.i.i31, %9
   %41 = load ptr, ptr %4, align 8
@@ -552,62 +551,59 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27:    ; preds = %.body
 _ZN7QStringD2Ev.exit29:                           ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27, %43
   resume { ptr, i32 } %6
 
-45:                                               ; preds = %38, %35
-  br label %.sink.split
+.sink.split:                                      ; preds = %38, %35
+  %.sink = phi ptr [ null, %35 ], [ %40, %38 ]
+  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %.sink, ptr %45, align 8
+  br label %46
 
-.sink.split:                                      ; preds = %38, %45
-  %.sink = phi ptr [ null, %45 ], [ %40, %38 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %.sink, ptr %46, align 8
-  br label %47
+46:                                               ; preds = %.sink.split, %_ZN7QStringD2Ev.exit
+  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %48 = load i64, ptr %47, align 8
+  %49 = icmp eq i64 %48, 1
+  br i1 %49, label %50, label %64
 
-47:                                               ; preds = %.sink.split, %_ZN7QStringD2Ev.exit
-  %48 = getelementptr inbounds i8, ptr %1, i64 16
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp eq i64 %49, 1
-  br i1 %50, label %51, label %65
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %.not16 = icmp eq ptr %52, null
+  br i1 %.not16, label %65, label %53
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %.not16 = icmp eq ptr %53, null
-  br i1 %.not16, label %66, label %54
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %52, i64 384
+  %55 = load ptr, ptr %54, align 8
+  %.not17 = icmp eq ptr %55, null
+  br i1 %.not17, label %65, label %56
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 384
-  %56 = load ptr, ptr %55, align 8
-  %.not17 = icmp eq ptr %56, null
-  br i1 %.not17, label %66, label %57
-
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 56
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 128
-  %.01034 = load ptr, ptr %60, align 8
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 128
+  %.01034 = load ptr, ptr %59, align 8
   %.not1835 = icmp eq ptr %.01034, null
   br i1 %.not1835, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %57, %.lr.ph
-  %.01036 = phi ptr [ %.010, %.lr.ph ], [ %.01034, %57 ]
-  %61 = load ptr, ptr %.01036, align 8
-  %62 = call ptr @get_data_source_name(ptr noundef %61)
-  %63 = call ptr @get_data_source_tvb(ptr noundef %61)
-  call void @_ZN11ByteViewTab6addTabEPKcP6tvbuff(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %62, ptr noundef %63)
-  call void @wmem_free(ptr noundef null, ptr noundef %62)
-  %64 = getelementptr inbounds i8, ptr %.01036, i64 8
-  %.010 = load ptr, ptr %64, align 8
+.lr.ph:                                           ; preds = %56, %.lr.ph
+  %.01036 = phi ptr [ %.010, %.lr.ph ], [ %.01034, %56 ]
+  %60 = load ptr, ptr %.01036, align 8
+  %61 = call ptr @get_data_source_name(ptr noundef %60)
+  %62 = call ptr @get_data_source_tvb(ptr noundef %60)
+  call void @_ZN11ByteViewTab6addTabEPKcP6tvbuff(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %61, ptr noundef %62)
+  call void @wmem_free(ptr noundef null, ptr noundef %61)
+  %63 = getelementptr inbounds i8, ptr %.01036, i64 8
+  %.010 = load ptr, ptr %63, align 8
   %.not18 = icmp eq ptr %.010, null
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
-65:                                               ; preds = %47
+64:                                               ; preds = %46
   call void @_ZN11ByteViewTab6addTabEPKcP6tvbuff(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull @.str.24, ptr noundef null)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %57, %65
+.loopexit:                                        ; preds = %.lr.ph, %56, %64
   call void @_ZN10QTabWidget15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0)
-  br label %66
+  br label %65
 
-66:                                               ; preds = %51, %54, %.loopexit
+65:                                               ; preds = %50, %53, %.loopexit
   ret void
 }
 
@@ -1239,7 +1235,7 @@ define void @_ZN11ByteViewTab23highlightedFieldChangedEP16FieldInformation(ptr n
   %.sroa.02.0.extract.trunc = trunc i64 %29 to i32
   %30 = tail call i64 @_ZNK16FieldInformation8positionEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.sroa.1.0.extract.shift = lshr i64 %30, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   br label %31
 
 31:                                               ; preds = %28, %21
@@ -1718,7 +1714,7 @@ define void @_ZN11ByteViewTab20selectedFieldChangedEP16FieldInformation(ptr noun
   %.sroa.010.0.extract.trunc = trunc i64 %38 to i32
   %39 = call i64 @_ZNK16FieldInformation8positionEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.sroa.19.0.extract.shift = lshr i64 %39, 32
-  %.sroa.19.0.extract.trunc = trunc i64 %.sroa.19.0.extract.shift to i32
+  %.sroa.19.0.extract.trunc = trunc nuw i64 %.sroa.19.0.extract.shift to i32
   br label %40
 
 40:                                               ; preds = %37, %32
@@ -1732,10 +1728,10 @@ define void @_ZN11ByteViewTab20selectedFieldChangedEP16FieldInformation(ptr noun
   %45 = call i64 @_ZNK16FieldInformation8appendixEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %46 = call i64 @_ZNK16FieldInformation8appendixEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.sroa.1.0.extract.shift = lshr i64 %46, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %.sroa.01.0.extract.trunc = trunc i64 %45 to i32
   %.sroa.13.0.extract.shift = lshr i64 %44, 32
-  %.sroa.13.0.extract.trunc = trunc i64 %.sroa.13.0.extract.shift to i32
+  %.sroa.13.0.extract.trunc = trunc nuw i64 %.sroa.13.0.extract.shift to i32
   %.sroa.04.0.extract.trunc = trunc i64 %43 to i32
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 32

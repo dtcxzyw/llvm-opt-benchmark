@@ -6516,9 +6516,9 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %75 = load ptr, ptr %5, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 24
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %76) #11
-  br label %77
+  br label %94
 
-77:                                               ; preds = %74, %73, %73
+77:                                               ; preds = %73, %73
   br label %94
 
 78:                                               ; preds = %73
@@ -6544,9 +6544,9 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %84 = load ptr, ptr %5, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 24
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %85) #11
-  br label %86
+  br label %94
 
-86:                                               ; preds = %83, %82, %82
+86:                                               ; preds = %82, %82
   br label %94
 
 87:                                               ; preds = %82
@@ -6562,8 +6562,8 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %93 = call ptr @zend_hash_update(ptr noundef nonnull %43, ptr noundef %92, ptr noundef nonnull %6) #11
   br label %94
 
-94:                                               ; preds = %82, %86, %90, %64, %73, %77, %81, %68
-  %.033 = phi ptr [ %69, %73 ], [ %69, %81 ], [ @executor_globals, %77 ], [ %69, %68 ], [ %63, %64 ], [ null, %82 ], [ %93, %90 ], [ @executor_globals, %86 ]
+94:                                               ; preds = %83, %74, %82, %86, %90, %64, %73, %77, %81, %68
+  %.033 = phi ptr [ %69, %73 ], [ %69, %81 ], [ %69, %68 ], [ %63, %64 ], [ null, %82 ], [ %93, %90 ], [ @executor_globals, %74 ], [ @executor_globals, %77 ], [ @executor_globals, %83 ], [ @executor_globals, %86 ]
   %.val = load ptr, ptr %5, align 8
   %95 = getelementptr inbounds i8, ptr %5, i64 16
   %.val44 = load i8, ptr %95, align 8
@@ -6609,9 +6609,9 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 113:                                              ; preds = %112
   %114 = load i64, ptr %108, align 8
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.27, i64 noundef %114) #11
-  br label %115
+  br label %spl_hash_key_release.exit
 
-115:                                              ; preds = %113, %112, %112
+115:                                              ; preds = %112, %112
   br label %spl_hash_key_release.exit
 
 116:                                              ; preds = %112
@@ -6626,8 +6626,8 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %121 = call ptr @zend_hash_index_update(ptr noundef nonnull %43, i64 noundef %120, ptr noundef nonnull %7) #11
   br label %spl_hash_key_release.exit
 
-spl_hash_key_release.exit:                        ; preds = %106, %101, %97, %94, %112, %115, %118, %107, %spl_array_get_hash_table.exit, %44, %58, %54
-  %.0 = phi ptr [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %54 ], [ %59, %58 ], [ @executor_globals, %44 ], [ @executor_globals, %spl_array_get_hash_table.exit ], [ null, %112 ], [ %121, %118 ], [ @executor_globals, %115 ], [ %110, %107 ], [ %.033, %94 ], [ %.033, %97 ], [ %.033, %101 ], [ %.033, %106 ]
+spl_hash_key_release.exit:                        ; preds = %106, %101, %97, %94, %112, %115, %118, %107, %113, %spl_array_get_hash_table.exit, %44, %58, %54
+  %.0 = phi ptr [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %54 ], [ %59, %58 ], [ @executor_globals, %44 ], [ @executor_globals, %spl_array_get_hash_table.exit ], [ null, %112 ], [ %121, %118 ], [ %110, %107 ], [ @executor_globals, %113 ], [ @executor_globals, %115 ], [ %.033, %94 ], [ %.033, %97 ], [ %.033, %101 ], [ %.033, %106 ]
   ret ptr %.0
 }
 

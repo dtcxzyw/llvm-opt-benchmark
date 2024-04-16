@@ -231,17 +231,15 @@ for.body:                                         ; preds = %entry, %if.end
   %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool2.not = icmp eq ptr %3, null
-  br i1 %tobool2.not, label %if.else, label %land.lhs.true
+  br i1 %tobool2.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %call5 = tail call zeroext i1 %3(ptr noundef nonnull %hdev.014) #18
-  br i1 %call5, label %if.end, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true, %for.body
+  %spec.select = select i1 %call5, ptr @used_shared_memslots, ptr @used_memslots
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %if.else
-  %.pn.in = phi ptr [ @used_memslots, %if.else ], [ @used_shared_memslots, %land.lhs.true ]
+if.end:                                           ; preds = %land.lhs.true, %for.body
+  %.pn.in = phi ptr [ @used_memslots, %for.body ], [ %spec.select, %land.lhs.true ]
   %.pn = load i32, ptr %.pn.in, align 4
   %cur_free.0 = sub i32 %call, %.pn
   %cond = tail call i32 @llvm.umin.i32(i32 %free.013, i32 %cur_free.0)
@@ -1678,17 +1676,15 @@ if.end102:                                        ; preds = %if.then98, %if.end9
   %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %33, i64 32
   %34 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool106.not = icmp eq ptr %34, null
-  br i1 %tobool106.not, label %if.else112, label %land.lhs.true107
+  br i1 %tobool106.not, label %if.end113, label %land.lhs.true107
 
 land.lhs.true107:                                 ; preds = %if.end102
   %call110 = call zeroext i1 %34(ptr noundef nonnull %hdev) #18
-  br i1 %call110, label %if.end113, label %if.else112
-
-if.else112:                                       ; preds = %land.lhs.true107, %if.end102
+  %spec.select = select i1 %call110, ptr @used_shared_memslots, ptr @used_memslots
   br label %if.end113
 
-if.end113:                                        ; preds = %land.lhs.true107, %if.else112
-  %used.0.in = phi ptr [ @used_memslots, %if.else112 ], [ @used_shared_memslots, %land.lhs.true107 ]
+if.end113:                                        ; preds = %land.lhs.true107, %if.end102
+  %used.0.in = phi ptr [ @used_memslots, %if.end102 ], [ %spec.select, %land.lhs.true107 ]
   %used.0 = load i32, ptr %used.0.in, align 4
   %call114 = call i32 @memory_devices_get_reserved_memslots() #18
   %add115 = add i32 %call114, %used.0
@@ -1937,17 +1933,15 @@ if.end13:                                         ; preds = %trace_vhost_commit.
   %vhost_backend_no_private_memslots = getelementptr inbounds i8, ptr %33, i64 32
   %34 = load ptr, ptr %vhost_backend_no_private_memslots, align 8
   %tobool19.not = icmp eq ptr %34, null
-  br i1 %tobool19.not, label %if.else27, label %land.lhs.true
+  br i1 %tobool19.not, label %if.end30, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end13
   %call22 = tail call zeroext i1 %34(ptr noundef %add.ptr) #18
-  br i1 %call22, label %if.end30, label %if.else27
-
-if.else27:                                        ; preds = %land.lhs.true, %if.end13
+  %spec.select = select i1 %call22, ptr @used_shared_memslots, ptr @used_memslots
   br label %if.end30
 
-if.end30:                                         ; preds = %land.lhs.true, %if.else27
-  %used_memslots.sink = phi ptr [ @used_memslots, %if.else27 ], [ @used_shared_memslots, %land.lhs.true ]
+if.end30:                                         ; preds = %land.lhs.true, %if.end13
+  %used_memslots.sink = phi ptr [ @used_memslots, %if.end13 ], [ %spec.select, %land.lhs.true ]
   %35 = load ptr, ptr %mem, align 8
   %36 = load i32, ptr %35, align 8
   store i32 %36, ptr %used_memslots.sink, align 4
@@ -1974,7 +1968,7 @@ if.else.i:                                        ; preds = %for.body35
   unreachable
 
 int128_get64.exit:                                ; preds = %for.body35
-  %coerce.sroa.0.0.extract.trunc = trunc i128 %41 to i64
+  %coerce.sroa.0.0.extract.trunc = trunc nuw i128 %41 to i64
   %memory_size = getelementptr inbounds i8, ptr %add.ptr37, i64 8
   store i64 %coerce.sroa.0.0.extract.trunc, ptr %memory_size, align 8
   %mr = getelementptr inbounds i8, ptr %add.ptr40, i64 16
@@ -2647,7 +2641,7 @@ if.else.i98.i:                                    ; preds = %if.then21.i
   unreachable
 
 int128_get64.exit99.i:                            ; preds = %if.then21.i
-  %coerce26.sroa.0.0.extract.trunc.i = trunc i128 %57 to i64
+  %coerce26.sroa.0.0.extract.trunc.i = trunc nuw i128 %57 to i64
   %mr29.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %58 = load ptr, ptr %mr29.i, align 16
   %call30.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef %58) #18
@@ -2829,7 +2823,7 @@ if.end:                                           ; preds = %memory_region_get_i
   %4 = load i128, ptr %section, align 16
   %coerce6.sroa.0.0.extract.trunc = trunc i128 %4 to i64
   %coerce6.sroa.2.0.extract.shift = lshr i128 %4, 64
-  %coerce6.sroa.2.0.extract.trunc = trunc i128 %coerce6.sroa.2.0.extract.shift to i64
+  %coerce6.sroa.2.0.extract.trunc = trunc nuw i128 %coerce6.sroa.2.0.extract.shift to i64
   %add.narrowed.i = add i64 %3, %coerce6.sroa.0.0.extract.trunc
   %add.narrowed.overflow.i = icmp ult i64 %add.narrowed.i, %coerce6.sroa.0.0.extract.trunc
   %.tr.i = zext i1 %add.narrowed.overflow.i to i64
@@ -2837,7 +2831,7 @@ if.end:                                           ; preds = %memory_region_get_i
   %a.sroa.0.0.insert.ext.i = zext i64 %add.narrowed.i to i128
   %a.sroa.0.0.insert.insert.i = add nsw i128 %a.sroa.0.0.insert.ext.i, -1
   %5 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
-  %.tr.i35 = trunc i128 %5 to i64
+  %.tr.i35 = trunc nuw i128 %5 to i64
   %call42 = tail call i32 @memory_region_iommu_attrs_to_index(ptr noundef %call.i, i32 1) #18
   %.narrow.i36 = sub i64 0, %.tr.i35
   %cmp.i = icmp eq i64 %.narrow.i, %.narrow.i36
@@ -4308,7 +4302,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %69 = load ptr, ptr %vqs101, align 8
   %add.ptr103 = getelementptr %struct.vhost_virtqueue, ptr %69, i64 %indvars.iv
   %70 = load i32, ptr %vq_index104, align 4
-  %71 = trunc i64 %indvars.iv to i32
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
   %add105 = add i32 %70, %71
   tail call void @vhost_virtqueue_stop(ptr noundef nonnull %hdev, ptr noundef %vdev, ptr noundef %add.ptr103, i32 noundef %add105)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4927,7 +4921,7 @@ if.else24:                                        ; preds = %if.end21
   unreachable
 
 if.end25:                                         ; preds = %if.end21
-  %conv = trunc i64 %call13 to i32
+  %conv = trunc nuw nsw i64 %call13 to i32
   call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv) #18
   %cmp26 = icmp eq i64 %call13, 0
   br i1 %cmp26, label %while.end, label %if.end29
@@ -5394,7 +5388,7 @@ if.else.i:                                        ; preds = %if.end
   unreachable
 
 int128_get64.exit:                                ; preds = %if.end
-  %coerce.sroa.0.0.extract.trunc = trunc i128 %3 to i64
+  %coerce.sroa.0.0.extract.trunc = trunc nuw i128 %3 to i64
   %add.i = add i64 %2, -1
   %sub.i = add i64 %add.i, %coerce.sroa.0.0.extract.trunc
   %cond8 = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %last)
@@ -5912,7 +5906,7 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %vhost_get_vq_index16 = getelementptr inbounds i8, ptr %7, i64 208
   %8 = load ptr, ptr %vhost_get_vq_index16, align 8
   %9 = load i32, ptr %vq_index, align 4
-  %10 = trunc i64 %indvars.iv38 to i32
+  %10 = trunc nuw i64 %indvars.iv38 to i32
   %add18 = add i32 %9, %10
   %call19 = tail call i32 %8(ptr noundef nonnull %dev, i32 noundef %add18) #18
   %11 = load ptr, ptr %dev, align 8

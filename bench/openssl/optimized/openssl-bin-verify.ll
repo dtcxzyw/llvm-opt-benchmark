@@ -142,7 +142,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.126 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @verify_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @verify_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %untrusted = alloca ptr, align 8
   %trusted = alloca ptr, align 8
@@ -520,7 +520,7 @@ declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, pt
 declare void @X509_STORE_set_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cb(i32 noundef %ok, ptr noundef %ctx) #0 {
+define internal noundef i32 @cb(i32 noundef %ok, ptr noundef %ctx) #0 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_get_error(ptr noundef %ctx) #2
   %call1 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef %ctx) #2
@@ -579,9 +579,9 @@ if.end:                                           ; preds = %if.then2, %if.then
 
 sw.bb:                                            ; preds = %if.end
   tail call void @policies_print(ptr noundef %ctx) #2
-  br label %sw.bb12
+  br label %return
 
-sw.bb12:                                          ; preds = %sw.bb, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
+sw.bb12:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   br label %return
 
 if.end13:                                         ; preds = %entry
@@ -602,8 +602,8 @@ if.then21:                                        ; preds = %if.end19
   tail call void @ERR_clear_error() #2
   br label %return
 
-return:                                           ; preds = %if.end19, %if.then21, %if.end, %sw.bb12
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %sw.bb12 ], [ %ok, %if.then21 ], [ %ok, %if.end19 ]
+return:                                           ; preds = %if.end19, %if.then21, %if.end, %sw.bb12, %sw.bb
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %sw.bb ], [ 1, %sw.bb12 ], [ %ok, %if.then21 ], [ %ok, %if.end19 ]
   ret i32 %retval.0
 }
 
@@ -614,7 +614,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @store_setup_crl_download(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check(ptr noundef %ctx, ptr noundef %file, ptr noundef %uchain, ptr noundef %tchain, ptr noundef %crls, i32 noundef %show_chain, ptr noundef %opts) unnamed_addr #0 {
+define internal fastcc noundef i32 @check(ptr noundef %ctx, ptr noundef %file, ptr noundef %uchain, ptr noundef %tchain, ptr noundef %crls, i32 noundef %show_chain, ptr noundef %opts) unnamed_addr #0 {
 entry:
   %call = tail call ptr @load_cert_pass(ptr noundef %file, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.113) #2
   %cmp = icmp eq ptr %call, null

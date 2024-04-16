@@ -2777,8 +2777,8 @@ switch.lookup:                                    ; preds = %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 
-16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ @.str.268, %4 ], [ %switch.select19, %12 ], [ @.str.268, %5 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
+16:                                               ; preds = %switch.lookup, %9, %6, %12, %5, %4
+  %.0 = phi ptr [ @.str.268, %4 ], [ @.str.268, %5 ], [ %switch.select19, %12 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 
@@ -2834,8 +2834,8 @@ switch.lookup:                                    ; preds = %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 
-16:                                               ; preds = %switch.lookup, %9, %6, %5, %12, %4
-  %.0 = phi ptr [ @.str.268, %4 ], [ %switch.select19, %12 ], [ @.str.268, %5 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
+16:                                               ; preds = %switch.lookup, %9, %6, %12, %5, %4
+  %.0 = phi ptr [ @.str.268, %4 ], [ @.str.268, %5 ], [ %switch.select19, %12 ], [ %switch.select23, %6 ], [ %switch.select27, %9 ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 

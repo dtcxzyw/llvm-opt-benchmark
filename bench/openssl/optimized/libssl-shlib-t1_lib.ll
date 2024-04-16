@@ -774,7 +774,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 
 if.end:                                           ; preds = %for.body.i
   %shr = lshr i16 %group, 8
-  %conv1 = trunc i16 %shr to i8
+  %conv1 = trunc nuw i16 %shr to i8
   store i8 %conv1, ptr %gtmp, align 1
   %conv3 = trunc i16 %group to i8
   %arrayidx4 = getelementptr inbounds i8, ptr %gtmp, i64 1
@@ -1005,7 +1005,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 if.end.i:                                         ; preds = %for.body.i.i
   %shr.i = lshr i16 %23, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   store i8 %conv1.i, ptr %gtmp.i, align 1
   %conv3.i = trunc i16 %23 to i8
   store i8 %conv3.i, ptr %arrayidx4.i, align 1
@@ -1537,7 +1537,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 if.end.i:                                         ; preds = %for.body.i.i
   %shr.i = lshr i16 %group_id, 8
-  %conv1.i = trunc i16 %shr.i to i8
+  %conv1.i = trunc nuw i16 %shr.i to i8
   store i8 %conv1.i, ptr %gtmp.i, align 1
   %conv3.i = trunc i16 %group_id to i8
   %arrayidx4.i = getelementptr inbounds i8, ptr %gtmp.i, i64 1
@@ -2113,8 +2113,8 @@ if.end86:                                         ; preds = %if.end61
   %.legacy_rsa_sigalg = select i1 %tobool88.not, ptr null, ptr @legacy_rsa_sigalg
   br label %return
 
-return:                                           ; preds = %for.inc, %for.inc.i, %for.cond.preheader, %if.else.i, %if.then.i, %if.then68, %if.end86, %if.end81, %if.end55
-  %retval.0 = phi ptr [ null, %if.end55 ], [ %.call71, %if.end81 ], [ %.legacy_rsa_sigalg, %if.end86 ], [ null, %if.then68 ], [ null, %if.then.i ], [ null, %if.else.i ], [ null, %for.cond.preheader ], [ null, %for.inc.i ], [ null, %for.inc ]
+return:                                           ; preds = %for.inc, %for.inc.i, %for.cond.preheader, %if.then.i, %if.then68, %if.else.i, %if.end86, %if.end81, %if.end55
+  %retval.0 = phi ptr [ null, %if.end55 ], [ %.call71, %if.end81 ], [ %.legacy_rsa_sigalg, %if.end86 ], [ null, %if.else.i ], [ null, %if.then68 ], [ null, %if.then.i ], [ null, %for.cond.preheader ], [ null, %for.inc.i ], [ null, %for.inc ]
   ret ptr %retval.0
 }
 
@@ -2639,7 +2639,7 @@ if.then179:                                       ; preds = %if.else.i
 if.end180:                                        ; preds = %if.else.i, %if.end.i
   %md.0.ph = phi ptr [ null, %if.end.i ], [ %call.i, %if.else.i ]
   %shr = lshr i16 %sig, 8
-  %conv183 = trunc i16 %shr to i8
+  %conv183 = trunc nuw i16 %shr to i8
   store i8 %conv183, ptr %sigalgstr, align 1
   %conv186 = trunc i16 %sig to i8
   %arrayidx187 = getelementptr inbounds i8, ptr %sigalgstr, i64 1
@@ -4805,7 +4805,7 @@ sigalg_security_bits.exit:                        ; preds = %if.else.i.i, %if.th
   %sigalg = getelementptr inbounds i8, ptr %lu, i64 8
   %30 = load i16, ptr %sigalg, align 8
   %31 = lshr i16 %30, 8
-  %conv127 = trunc i16 %31 to i8
+  %conv127 = trunc nuw i16 %31 to i8
   store i8 %conv127, ptr %sigalgstr, align 1
   %conv131 = trunc i16 %30 to i8
   %arrayidx132 = getelementptr inbounds i8, ptr %sigalgstr, i64 1
@@ -4918,8 +4918,8 @@ land.lhs.true24:                                  ; preds = %lor.lhs.false21
   %17 = zext i1 %switch.selectcmp.not to i32
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.i, %if.then.i, %for.body, %land.lhs.true, %land.lhs.true10, %land.lhs.true24, %if.end6, %lor.lhs.false21, %lor.lhs.false
-  %rv.1 = phi i32 [ 0, %lor.lhs.false21 ], [ 1, %if.end6 ], [ %rv.022, %lor.lhs.false ], [ %17, %land.lhs.true24 ], [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true ], [ %rv.022, %for.body ], [ %rv.022, %if.then.i ], [ %rv.022, %for.inc.i ]
+for.inc:                                          ; preds = %for.inc.i, %if.then.i, %for.body, %land.lhs.true24, %land.lhs.true, %land.lhs.true10, %if.end6, %lor.lhs.false21, %lor.lhs.false
+  %rv.1 = phi i32 [ 0, %lor.lhs.false21 ], [ 1, %if.end6 ], [ %rv.022, %lor.lhs.false ], [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true ], [ %17, %land.lhs.true24 ], [ %rv.022, %for.body ], [ %rv.022, %if.then.i ], [ %rv.022, %for.inc.i ]
   %inc = add nuw i64 %i.021, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %psig.addr.020, i64 2
   %exitcond.not = icmp eq i64 %inc, %psiglen
@@ -5186,7 +5186,7 @@ if.end:                                           ; preds = %cond.false, %cond.e
 
 if.end18:                                         ; preds = %if.end
   %cmp19 = icmp sgt i32 %idx, -1
-  %conv = trunc i64 %3 to i32
+  %conv = trunc nuw nsw i64 %3 to i32
   br i1 %cmp19, label %if.then20, label %return
 
 if.then20:                                        ; preds = %if.end18
@@ -5202,7 +5202,7 @@ if.end24:                                         ; preds = %if.then20
 if.then27:                                        ; preds = %if.end24
   %4 = load i16, ptr %add.ptr, align 2
   %5 = lshr i16 %4, 8
-  %conv29 = trunc i16 %5 to i8
+  %conv29 = trunc nuw i16 %5 to i8
   store i8 %conv29, ptr %rhash, align 1
   br label %if.end30
 
@@ -5400,7 +5400,7 @@ if.then45:                                        ; preds = %if.end42
   %sigalg46 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i16, ptr %sigalg46, align 8
   %10 = lshr i16 %9, 8
-  %conv49 = trunc i16 %10 to i8
+  %conv49 = trunc nuw i16 %10 to i8
   store i8 %conv49, ptr %rhash, align 1
   br label %if.end50
 
@@ -5887,7 +5887,7 @@ if.else88:                                        ; preds = %lor.lhs.false82
   br i1 %21, label %switch.hole_check, label %if.end122
 
 switch.hole_check:                                ; preds = %if.else88
-  %switch.maskindex = trunc i32 %idx.addr.1 to i8
+  %switch.maskindex = trunc nuw i32 %idx.addr.1 to i8
   %switch.shifted = lshr i8 125, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %if.end122
@@ -6537,8 +6537,8 @@ rsa_pss_check_min_key_size.exit:                  ; preds = %if.else.i.i
   %cmp6.i.not = icmp slt i32 %call4.i, %add.i
   br i1 %cmp6.i.not, label %for.inc, label %for.end.loopexit
 
-for.inc:                                          ; preds = %if.end.i.i46, %if.else.i.i, %if.then39, %if.end6.i.i, %land.lhs.true, %lor.lhs.false.i.i, %ssl_has_cert.exit.i, %if.else.i, %is_cert_usable.exit.thread, %if.end29, %lor.lhs.false4, %lor.lhs.false4, %for.body, %for.body, %rsa_pss_check_min_key_size.exit, %has_usable_cert.exit, %is_cert_usable.exit
-  %curve.2 = phi i32 [ %curve.060, %for.body ], [ %curve.060, %lor.lhs.false4 ], [ %curve.060, %rsa_pss_check_min_key_size.exit ], [ %curve.060, %is_cert_usable.exit ], [ %curve.060, %has_usable_cert.exit ], [ %curve.060, %for.body ], [ %curve.060, %lor.lhs.false4 ], [ %curve.1, %if.end29 ], [ %curve.060, %is_cert_usable.exit.thread ], [ %curve.060, %if.else.i ], [ %curve.060, %ssl_has_cert.exit.i ], [ %curve.060, %lor.lhs.false.i.i ], [ %curve.060, %land.lhs.true ], [ %curve.060, %if.end6.i.i ], [ %curve.060, %if.then39 ], [ %curve.060, %if.else.i.i ], [ %curve.060, %if.end.i.i46 ]
+for.inc:                                          ; preds = %if.end.i.i46, %if.else.i.i, %if.then39, %if.end6.i.i, %land.lhs.true, %lor.lhs.false.i.i, %ssl_has_cert.exit.i, %is_cert_usable.exit.thread, %if.else.i, %if.end29, %lor.lhs.false4, %lor.lhs.false4, %for.body, %for.body, %rsa_pss_check_min_key_size.exit, %has_usable_cert.exit, %is_cert_usable.exit
+  %curve.2 = phi i32 [ %curve.060, %for.body ], [ %curve.060, %lor.lhs.false4 ], [ %curve.060, %rsa_pss_check_min_key_size.exit ], [ %curve.060, %is_cert_usable.exit ], [ %curve.060, %has_usable_cert.exit ], [ %curve.060, %for.body ], [ %curve.060, %lor.lhs.false4 ], [ %curve.1, %if.end29 ], [ %curve.060, %if.else.i ], [ %curve.060, %is_cert_usable.exit.thread ], [ %curve.060, %ssl_has_cert.exit.i ], [ %curve.060, %lor.lhs.false.i.i ], [ %curve.060, %land.lhs.true ], [ %curve.060, %if.end6.i.i ], [ %curve.060, %if.then39 ], [ %curve.060, %if.else.i.i ], [ %curve.060, %if.end.i.i46 ]
   %inc = add nuw i64 %i.058, 1
   %29 = load i64, ptr %shared_sigalgslen, align 8
   %cmp = icmp ult i64 %inc, %29
@@ -7410,12 +7410,12 @@ if.end.i79:                                       ; preds = %land.lhs.true.i, %l
 land.lhs.true.i.i:                                ; preds = %if.end.i79
   %31 = load i8, ptr %server_cert_type.i.i, align 2
   %cmp.i.i82 = icmp eq i8 %31, 2
-  br i1 %cmp.i.i82, label %land.lhs.true9.i.i, label %if.end20.i
+  br i1 %cmp.i.i82, label %land.lhs.true9.i.i, label %return.sink.split.i83
 
 land.lhs.true4.i.i:                               ; preds = %if.end.i79
   %32 = load i8, ptr %client_cert_type.i.i, align 8
   %cmp7.i.i = icmp eq i8 %32, 2
-  br i1 %cmp7.i.i, label %land.lhs.true9.i.i, label %if.end20.i
+  br i1 %cmp7.i.i, label %land.lhs.true9.i.i, label %return.sink.split.i83
 
 land.lhs.true9.i.i:                               ; preds = %land.lhs.true4.i.i, %land.lhs.true.i.i
   %33 = load ptr, ptr %cert42, align 8
@@ -7425,18 +7425,16 @@ land.lhs.true9.i.i:                               ; preds = %land.lhs.true4.i.i,
   %privatekey.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %35 = load ptr, ptr %privatekey.i.i, align 8
   %cmp10.not.i.i = icmp eq ptr %35, null
-  br i1 %cmp10.not.i.i, label %if.end20.i, label %tls12_rpk_and_privkey.exit.i
+  br i1 %cmp10.not.i.i, label %return.sink.split.i83, label %tls12_rpk_and_privkey.exit.i
 
 tls12_rpk_and_privkey.exit.i:                     ; preds = %land.lhs.true9.i.i
   %36 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp16.i.not.i = icmp eq ptr %36, null
-  br i1 %cmp16.i.not.i, label %return.sink.split.i83, label %if.end20.i
-
-if.end20.i:                                       ; preds = %tls12_rpk_and_privkey.exit.i, %land.lhs.true9.i.i, %land.lhs.true4.i.i, %land.lhs.true.i.i
+  %spec.select.i = select i1 %cmp16.i.not.i, i32 4096, i32 1
   br label %return.sink.split.i83
 
-return.sink.split.i83:                            ; preds = %if.end20.i, %tls12_rpk_and_privkey.exit.i
-  %.sink3.i = phi i32 [ 1, %if.end20.i ], [ 4096, %tls12_rpk_and_privkey.exit.i ]
+return.sink.split.i83:                            ; preds = %tls12_rpk_and_privkey.exit.i, %land.lhs.true9.i.i, %land.lhs.true4.i.i, %land.lhs.true.i.i
+  %.sink3.i = phi i32 [ 1, %land.lhs.true.i.i ], [ 1, %land.lhs.true4.i.i ], [ 1, %land.lhs.true9.i.i ], [ %spec.select.i, %tls12_rpk_and_privkey.exit.i ]
   %37 = load ptr, ptr %valid_flags23.i, align 8
   %arrayidx25.i = getelementptr inbounds i32, ptr %37, i64 %conv.i75
   %38 = load i32, ptr %arrayidx25.i, align 4
@@ -8147,7 +8145,7 @@ if.then48:                                        ; preds = %lor.lhs.false44, %i
   br label %if.then134
 
 if.end49:                                         ; preds = %lor.lhs.false44
-  %conv = trunc i32 %14 to i16
+  %conv = trunc nuw i32 %14 to i16
   %group_id = getelementptr inbounds i8, ptr %arrayidx, i64 28
   store i16 %conv, ptr %group_id, align 4
   %call50 = call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.19) #15
@@ -8482,7 +8480,7 @@ if.then50:                                        ; preds = %lor.lhs.false46, %i
   br label %if.then344
 
 if.end51:                                         ; preds = %lor.lhs.false46
-  %conv = trunc i32 %16 to i16
+  %conv = trunc nuw i32 %16 to i16
   %code_point52 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i16 %conv, ptr %code_point52, align 8
   %call53 = call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.30) #15

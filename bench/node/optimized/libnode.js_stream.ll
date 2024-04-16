@@ -443,7 +443,7 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %call37 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i15) #14
   %tobool.i91 = trunc i64 %call37 to i1
   %ref.tmp26.sroa.32.0.extract.shift = lshr i64 %call37, 32
-  %ref.tmp26.sroa.32.0.extract.trunc = trunc i64 %ref.tmp26.sroa.32.0.extract.shift to i32
+  %ref.tmp26.sroa.32.0.extract.trunc = trunc nuw i64 %ref.tmp26.sroa.32.0.extract.shift to i32
   br i1 %tobool.i91, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
@@ -592,7 +592,7 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %call37 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i15) #14
   %tobool.i91 = trunc i64 %call37 to i1
   %ref.tmp26.sroa.32.0.extract.shift = lshr i64 %call37, 32
-  %ref.tmp26.sroa.32.0.extract.trunc = trunc i64 %ref.tmp26.sroa.32.0.extract.shift to i32
+  %ref.tmp26.sroa.32.0.extract.trunc = trunc nuw i64 %ref.tmp26.sroa.32.0.extract.shift to i32
   br i1 %tobool.i91, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
@@ -770,7 +770,7 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %call46 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i19) #14
   %tobool.i104 = trunc i64 %call46 to i1
   %ref.tmp35.sroa.32.0.extract.shift = lshr i64 %call46, 32
-  %ref.tmp35.sroa.32.0.extract.trunc = trunc i64 %ref.tmp35.sroa.32.0.extract.shift to i32
+  %ref.tmp35.sroa.32.0.extract.trunc = trunc nuw i64 %ref.tmp35.sroa.32.0.extract.shift to i32
   br i1 %tobool.i104, label %if.end53, label %if.then
 
 if.then:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
@@ -1038,7 +1038,7 @@ lor.rhs:                                          ; preds = %_ZN4node9AsyncWrap1
   %call80 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i, ptr %call2.i32) #14
   %tobool.i155 = trunc i64 %call80 to i1
   %ref.tmp69.sroa.39.0.extract.shift = lshr i64 %call80, 32
-  %ref.tmp69.sroa.39.0.extract.trunc = trunc i64 %ref.tmp69.sroa.39.0.extract.shift to i32
+  %ref.tmp69.sroa.39.0.extract.trunc = trunc nuw i64 %ref.tmp69.sroa.39.0.extract.shift to i32
   br i1 %tobool.i155, label %if.end90, label %if.then83
 
 if.then83:                                        ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %lor.rhs
@@ -1767,7 +1767,7 @@ if.end.i.i:                                       ; preds = %entry
   %1 = load i8, ptr %add.ptr.i.i, align 1
   %2 = and i8 %1, 3
   %cmp.i.i = icmp eq i8 %2, 2
-  br i1 %cmp.i.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %if.end.i
+  br i1 %cmp.i.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %entry
   %pointer_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1780,20 +1780,18 @@ if.end4.i:                                        ; preds = %if.end.i
   %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
   %tobool.i = trunc i8 %4 to i1
-  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
+  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
   %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
   %5 = load i8, ptr %is_detached.i, align 1
   %.fr = freeze i8 %5
   %tobool6.i = trunc i8 %.fr to i1
-  br i1 %tobool6.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
-
-_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread: ; preds = %if.end4.i, %if.end.i.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
+  %spec.select = select i1 %tobool6.i, i8 2, i8 0
   br label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
-_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
-  %6 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
+_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %if.end4.i, %if.end.i.i, %if.end.i
+  %6 = phi i8 [ 0, %if.end.i ], [ 2, %if.end.i.i ], [ 2, %if.end4.i ], [ %spec.select, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ]
   ret i8 %6
 }
 

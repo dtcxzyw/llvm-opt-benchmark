@@ -140,8 +140,8 @@ if.end19:                                         ; preds = %if.then49.i, %if.en
   %spec.select17 = zext i1 %cmp21 to i32
   br label %err
 
-err:                                              ; preds = %if.end41.i, %if.else37.i, %if.then28.i, %if.else.i, %if.end.i, %if.then5.i, %if.then49.i, %if.end19, %euclid.exit, %if.end6, %if.end, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end6 ], [ 0, %euclid.exit ], [ %spec.select17, %if.end19 ], [ 0, %if.then49.i ], [ 0, %if.then5.i ], [ 0, %if.end.i ], [ 0, %if.else.i ], [ 0, %if.then28.i ], [ 0, %if.else37.i ], [ 0, %if.end41.i ]
+err:                                              ; preds = %if.then5.i, %if.end.i, %if.else.i, %if.then28.i, %if.else37.i, %if.end41.i, %if.then49.i, %if.end19, %euclid.exit, %if.end6, %if.end, %entry
+  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end6 ], [ 0, %euclid.exit ], [ %spec.select17, %if.end19 ], [ 0, %if.then49.i ], [ 0, %if.end41.i ], [ 0, %if.else37.i ], [ 0, %if.then28.i ], [ 0, %if.else.i ], [ 0, %if.end.i ], [ 0, %if.then5.i ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #3
   ret i32 %ret.0
 }

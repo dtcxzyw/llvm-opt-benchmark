@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [5 x i8] c"seed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls1_change_cipher_state(ptr noundef %s, i32 noundef %which) local_unnamed_addr #0 {
+define i32 @tls1_change_cipher_state(ptr noundef %s, i32 noundef %which) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %s, i64 280
   %new_sym_enc = getelementptr inbounds i8, ptr %s, i64 760
@@ -51,7 +51,13 @@ if.else.i:                                        ; preds = %entry
 tls_iv_length_within_key_block.exit:              ; preds = %if.else.i
   %call5.i = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %0) #5
   %cmp = icmp slt i32 %call5.i, 0
-  br i1 %cmp, label %err.sink.split, label %if.end
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %tls_iv_length_within_key_block.exit
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 147, ptr noundef nonnull @__func__.tls1_change_cipher_state) #5
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  br label %return
 
 if.end:                                           ; preds = %if.else.i, %entry, %tls_iv_length_within_key_block.exit
   %retval.0.i69 = phi i32 [ %call5.i, %tls_iv_length_within_key_block.exit ], [ 4, %entry ], [ 4, %if.else.i ]
@@ -88,7 +94,13 @@ if.end33:                                         ; preds = %if.else, %if.then18
   %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
   %6 = load i64, ptr %key_block_length, align 8
   %cmp36 = icmp ugt i64 %n.0, %6
-  br i1 %cmp36, label %err.sink.split, label %if.end39
+  br i1 %cmp36, label %if.then38, label %if.end39
+
+if.then38:                                        ; preds = %if.end33
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 170, ptr noundef nonnull @__func__.tls1_change_cipher_state) #5
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
+  br label %return
 
 if.end39:                                         ; preds = %if.end33
   %call40 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %0) #5
@@ -190,21 +202,12 @@ if.end130:                                        ; preds = %if.then123, %if.els
   %version = getelementptr inbounds i8, ptr %s, i64 64
   %20 = load i32, ptr %version, align 8
   %call131 = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %s, i32 noundef %20, i32 noundef %direction.0, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key.0, i64 noundef %conv, ptr noundef %iv.0, i64 noundef %conv13, ptr noundef %mac_secret.0, i64 noundef %5, ptr noundef %0, i64 noundef %taglen.0, i32 noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef null) #5
-  %tobool132.not = icmp eq i32 %call131, 0
-  br i1 %tobool132.not, label %err, label %return
-
-err.sink.split:                                   ; preds = %if.end33, %tls_iv_length_within_key_block.exit
-  %.sink = phi i32 [ 147, %tls_iv_length_within_key_block.exit ], [ 170, %if.end33 ]
-  tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls1_change_cipher_state) #5
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
-  br label %err
-
-err:                                              ; preds = %err.sink.split, %if.end130
+  %tobool132.not = icmp ne i32 %call131, 0
+  %spec.select = zext i1 %tobool132.not to i32
   br label %return
 
-return:                                           ; preds = %if.end130, %err
-  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end130 ]
+return:                                           ; preds = %if.end130, %if.then, %if.then38
+  %retval.0 = phi i32 [ 0, %if.then38 ], [ 0, %if.then ], [ %spec.select, %if.end130 ]
   ret i32 %retval.0
 }
 
@@ -580,7 +583,7 @@ if.end7:                                          ; preds = %if.end
 
 if.then16:                                        ; preds = %if.end7
   %shr = lshr i64 %contextlen, 8
-  %conv = trunc i64 %shr to i8
+  %conv = trunc nuw i64 %shr to i8
   %arrayidx = getelementptr i8, ptr %add.ptr9, i64 64
   store i8 %conv, ptr %arrayidx, align 1
   %conv18 = trunc i64 %contextlen to i8

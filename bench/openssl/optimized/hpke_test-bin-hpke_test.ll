@@ -674,7 +674,7 @@ if.end25:                                         ; preds = %if.end14, %if.then1
 for.body29.lr.ph:                                 ; preds = %if.end25
   %or.cond1.not = icmp ult i64 %mind.0122, 2
   %arrayidx225 = getelementptr inbounds [4 x ptr], ptr @mode_str_list, i64 0, i64 %mind.0122
-  %conv226 = trunc i64 %mind.0122 to i32
+  %conv226 = trunc nuw nsw i64 %mind.0122 to i32
   br label %for.body29
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.end236
@@ -1005,7 +1005,7 @@ if.then46:                                        ; preds = %for.body37
   br i1 %.b, label %if.then48, label %for.inc53
 
 if.then48:                                        ; preds = %if.then46
-  %4 = trunc i64 %indvars.iv30 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv30 to i32
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.143, i32 noundef %4, ptr noundef %3) #6
   br label %for.inc53
 
@@ -2495,7 +2495,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_HPKE_keygen(i48, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cmpkey(ptr noundef %pkey, ptr noundef %pub, i64 noundef %publen) unnamed_addr #1 {
+define internal fastcc i32 @cmpkey(ptr noundef %pkey, ptr noundef %pub, i64 noundef %publen) unnamed_addr #1 {
 entry:
   %pubbuf = alloca [256 x i8], align 16
   %pubbuflen = alloca i64, align 8
@@ -2516,19 +2516,17 @@ if.end:                                           ; preds = %entry
 
 if.end9:                                          ; preds = %if.end
   %cmp10.not = icmp eq ptr %pub, null
-  br i1 %cmp10.not, label %if.end16, label %land.lhs.true
+  br i1 %cmp10.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end9
   %0 = load i64, ptr %pubbuflen, align 8
   %call13 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 89, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull %pubbuf, i64 noundef %0, ptr noundef nonnull %pub, i64 noundef %publen) #6
-  %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %return, label %if.end16
-
-if.end16:                                         ; preds = %land.lhs.true, %if.end9
+  %tobool14.not = icmp ne i32 %call13, 0
+  %spec.select = zext i1 %tobool14.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end, %entry, %if.end16
-  %retval.0 = phi i32 [ 1, %if.end16 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end9, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 1, %if.end9 ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

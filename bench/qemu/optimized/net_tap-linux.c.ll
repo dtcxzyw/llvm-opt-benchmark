@@ -226,24 +226,22 @@ cond.false:                                       ; preds = %entry
   %1 = load i64, ptr %sndbuf1, align 8
   %.fr11 = freeze i64 %1
   %cmp = icmp ugt i64 %.fr11, 2147483647
-  br i1 %cmp, label %cond.end5.thread7, label %cond.end5
+  br i1 %cmp, label %cond.end5.thread, label %cond.end5
 
 cond.end5:                                        ; preds = %cond.false
-  %2 = trunc i64 %.fr11 to i32
+  %2 = trunc nuw i64 %.fr11 to i32
   %tobool7.not = icmp eq i32 %2, 0
-  br i1 %tobool7.not, label %cond.end5.thread, label %cond.end5.thread7
+  %spec.select = select i1 %tobool7.not, i32 2147483647, i32 %2
+  br label %cond.end5.thread
 
-cond.end5.thread:                                 ; preds = %entry, %cond.end5
-  br label %cond.end5.thread7
-
-cond.end5.thread7:                                ; preds = %cond.false, %cond.end5, %cond.end5.thread
-  %3 = phi i32 [ 2147483647, %cond.end5.thread ], [ %2, %cond.end5 ], [ 2147483647, %cond.false ]
+cond.end5.thread:                                 ; preds = %cond.end5, %cond.false, %entry
+  %3 = phi i32 [ 2147483647, %entry ], [ 2147483647, %cond.false ], [ %spec.select, %cond.end5 ]
   store i32 %3, ptr %sndbuf, align 4
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025684, ptr noundef nonnull %sndbuf) #8
   %cmp8 = icmp eq i32 %call, -1
   br i1 %cmp8, label %land.lhs.true, label %if.end15
 
-land.lhs.true:                                    ; preds = %cond.end5.thread7
+land.lhs.true:                                    ; preds = %cond.end5.thread
   %4 = load i8, ptr %has_sndbuf, align 8
   %tobool11 = trunc i8 %4 to i1
   br i1 %tobool11, label %if.then13, label %if.end15
@@ -254,7 +252,7 @@ if.then13:                                        ; preds = %land.lhs.true
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.tap_set_sndbuf, i32 noundef %5, ptr noundef nonnull @.str.9) #8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then13, %land.lhs.true, %cond.end5.thread7
+if.end15:                                         ; preds = %if.then13, %land.lhs.true, %cond.end5.thread
   ret void
 }
 

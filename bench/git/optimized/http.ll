@@ -455,14 +455,14 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   br i1 %cmp.i.i.i.i, label %do.body.i.i.i.i, label %do.body.i5.preheader.i.i.i, !llvm.loop !5
 
 do.body.i5.preheader.i.i.i:                       ; preds = %do.cond.i.i.i.i
-  %scevgep64.i.i.i = getelementptr i8, ptr %0, i64 4
+  %scevgep66.i.i.i = getelementptr i8, ptr %0, i64 4
   br label %do.body.i5.i.i.i
 
 do.body.i5.i.i.i:                                 ; preds = %do.cond.i9.i.i.i, %do.body.i5.preheader.i.i.i
   %str.addr.0.i6.i.i.i = phi ptr [ %incdec.ptr.i10.i.i.i, %do.cond.i9.i.i.i ], [ %0, %do.body.i5.preheader.i.i.i ]
   %prefix.addr.0.i7.idx.i.i.i = phi i64 [ %prefix.addr.0.i7.add.i.i.i, %do.cond.i9.i.i.i ], [ 0, %do.body.i5.preheader.i.i.i ]
-  %exitcond65.i.i.i = icmp eq i64 %prefix.addr.0.i7.idx.i.i.i, 4
-  br i1 %exitcond65.i.i.i, label %if.then.i.i, label %do.cond.i9.i.i.i
+  %exitcond67.i.i.i = icmp eq i64 %prefix.addr.0.i7.idx.i.i.i, 4
+  br i1 %exitcond67.i.i.i, label %if.then.i.i, label %do.cond.i9.i.i.i
 
 do.cond.i9.i.i.i:                                 ; preds = %do.body.i5.i.i.i
   %prefix.addr.0.i7.ptr.i.i.i = getelementptr inbounds i8, ptr @.str.61, i64 %prefix.addr.0.i7.idx.i.i.i
@@ -486,17 +486,17 @@ do.cond.i9.i.i.i:                                 ; preds = %do.body.i5.i.i.i
   br i1 %cmp.i18.i.i.i, label %do.body.i5.i.i.i, label %do.body.i22.preheader.i.i.i, !llvm.loop !5
 
 do.body.i22.preheader.i.i.i:                      ; preds = %do.cond.i9.i.i.i
-  %scevgep66.i.i.i = getelementptr i8, ptr %0, i64 10
+  %scevgep68.i.i.i = getelementptr i8, ptr %0, i64 10
   br label %do.body.i22.i.i.i
 
 do.body.i22.i.i.i:                                ; preds = %do.cond.i26.i.i.i, %do.body.i22.preheader.i.i.i
   %str.addr.0.i23.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i, %do.cond.i26.i.i.i ], [ %0, %do.body.i22.preheader.i.i.i ]
   %prefix.addr.0.i24.idx.i.i.i = phi i64 [ %prefix.addr.0.i24.add.i.i.i, %do.cond.i26.i.i.i ], [ 0, %do.body.i22.preheader.i.i.i ]
-  %exitcond67.i.i.i = icmp eq i64 %prefix.addr.0.i24.idx.i.i.i, 10
-  br i1 %exitcond67.i.i.i, label %while.cond.preheader.i.i.i, label %do.cond.i26.i.i.i
+  %exitcond69.i.i.i = icmp eq i64 %prefix.addr.0.i24.idx.i.i.i, 10
+  br i1 %exitcond69.i.i.i, label %while.cond.preheader.i.i.i, label %do.cond.i26.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %do.body.i22.i.i.i
-  %scevgep68.i.i.i = getelementptr i8, ptr %0, i64 13
+  %scevgep70.i.i.i = getelementptr i8, ptr %0, i64 13
   br label %while.cond.i.i.i
 
 do.cond.i26.i.i.i:                                ; preds = %do.body.i22.i.i.i
@@ -521,8 +521,8 @@ do.cond.i26.i.i.i:                                ; preds = %do.body.i22.i.i.i
   br i1 %cmp.i35.i.i.i, label %do.body.i22.i.i.i, label %redact_sensitive_info_header.exit.i, !llvm.loop !5
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.preheader.i.i.i
-  %indvars.iv.i.i.i = phi ptr [ %scevgep68.i.i.i, %while.cond.preheader.i.i.i ], [ %scevgep69.i.i.i, %while.cond.i.i.i ]
-  %p.1.i.i.i = phi ptr [ %scevgep66.i.i.i, %while.cond.preheader.i.i.i ], [ %incdec.ptr.i.i.i, %while.cond.i.i.i ]
+  %indvars.iv.i.i.i = phi ptr [ %scevgep70.i.i.i, %while.cond.preheader.i.i.i ], [ %scevgep71.i.i.i, %while.cond.i.i.i ]
+  %p.1.i.i.i = phi ptr [ %scevgep68.i.i.i, %while.cond.preheader.i.i.i ], [ %incdec.ptr.i.i.i, %while.cond.i.i.i ]
   %25 = load i8, ptr %p.1.i.i.i, align 1
   %idxprom.i.i.i = zext i8 %25 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
@@ -530,27 +530,31 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
   %27 = and i8 %26, 2
   %cmp.not.i.i.i = icmp eq i8 %27, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.1.i.i.i, i64 1
-  %scevgep69.i.i.i = getelementptr i8, ptr %indvars.iv.i.i.i, i64 1
+  %scevgep71.i.i.i = getelementptr i8, ptr %indvars.iv.i.i.i, i64 1
   br i1 %cmp.not.i.i.i, label %do.body.i39.i.i.i, label %while.cond.i.i.i, !llvm.loop !7
 
 do.body.i39.i.i.i:                                ; preds = %while.cond.i.i.i, %do.cond.i43.i.i.i
   %str.addr.0.i40.i.i.i = phi ptr [ %incdec.ptr.i44.i.i.i, %do.cond.i43.i.i.i ], [ %p.1.i.i.i, %while.cond.i.i.i ]
   %prefix.addr.0.i41.idx.i.i.i = phi i64 [ %prefix.addr.0.i41.add.i.i.i, %do.cond.i43.i.i.i ], [ 0, %while.cond.i.i.i ]
-  %exitcond70.i.i.i = icmp eq i64 %prefix.addr.0.i41.idx.i.i.i, 3
-  br i1 %exitcond70.i.i.i, label %if.then.i.i, label %do.cond.i43.i.i.i
-
-do.cond.i43.i.i.i:                                ; preds = %do.body.i39.i.i.i
   %prefix.addr.0.i41.ptr.i.i.i = getelementptr inbounds i8, ptr @.str.63, i64 %prefix.addr.0.i41.idx.i.i.i
   %28 = load i8, ptr %prefix.addr.0.i41.ptr.i.i.i, align 1
+  %exitcond72.i.i.i = icmp eq i64 %prefix.addr.0.i41.idx.i.i.i, 3
+  br i1 %exitcond72.i.i.i, label %match_curl_h2_trace.exit.i.i, label %do.cond.i43.i.i.i
+
+do.cond.i43.i.i.i:                                ; preds = %do.body.i39.i.i.i
   %incdec.ptr.i44.i.i.i = getelementptr inbounds i8, ptr %str.addr.0.i40.i.i.i, i64 1
   %29 = load i8, ptr %str.addr.0.i40.i.i.i, align 1
   %prefix.addr.0.i41.add.i.i.i = add nuw nsw i64 %prefix.addr.0.i41.idx.i.i.i, 1
   %cmp.i46.i.i.i = icmp eq i8 %29, %28
-  br i1 %cmp.i46.i.i.i, label %do.body.i39.i.i.i, label %redact_sensitive_info_header.exit.i, !llvm.loop !8
+  br i1 %cmp.i46.i.i.i, label %do.body.i39.i.i.i, label %match_curl_h2_trace.exit.i.i, !llvm.loop !8
 
-if.then.i.i:                                      ; preds = %do.body.i.i.i.i, %do.body.i5.i.i.i, %do.body.i39.i.i.i
-  %sensitive_header.0.ph.i.i = phi ptr [ %indvars.iv.i.i.i, %do.body.i39.i.i.i ], [ %scevgep64.i.i.i, %do.body.i5.i.i.i ], [ %scevgep.i.i.i, %do.body.i.i.i.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %sensitive_header.0.ph.i.i to i64
+match_curl_h2_trace.exit.i.i:                     ; preds = %do.cond.i43.i.i.i, %do.body.i39.i.i.i
+  %tobool.not.i4274.i.not.i.i = icmp eq i8 %28, 0
+  br i1 %tobool.not.i4274.i.not.i.i, label %if.then.i.i, label %redact_sensitive_info_header.exit.i
+
+if.then.i.i:                                      ; preds = %do.body.i.i.i.i, %do.body.i5.i.i.i, %match_curl_h2_trace.exit.i.i
+  %sensitive_header.18.i.i = phi ptr [ %indvars.iv.i.i.i, %match_curl_h2_trace.exit.i.i ], [ %scevgep66.i.i.i, %do.body.i5.i.i.i ], [ %scevgep.i.i.i, %do.body.i.i.i.i ]
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %sensitive_header.18.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %call3.i.i = call fastcc i32 @redact_sensitive_header(ptr noundef nonnull %buf.i, i64 noundef %sub.ptr.sub.i.i), !range !9
@@ -590,7 +594,7 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %str
   store i8 0, ptr %arrayidx3.i.i.i, align 1
   br label %redact_sensitive_info_header.exit.i
 
-redact_sensitive_info_header.exit.i:              ; preds = %do.cond.i26.i.i.i, %do.cond.i43.i.i.i, %strbuf_addch.exit.i.i, %if.then.i.i, %sw.bb
+redact_sensitive_info_header.exit.i:              ; preds = %do.cond.i26.i.i.i, %strbuf_addch.exit.i.i, %if.then.i.i, %match_curl_h2_trace.exit.i.i, %sw.bb
   %36 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_curl, i64 0, i32 1), align 8
   %tobool.not.i.i = icmp eq i32 %36, 0
   %bf.load.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_curl, i64 0, i32 2), align 4
@@ -1139,14 +1143,16 @@ if.end.i.i.i:                                     ; preds = %if.then.i80.i
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
   %42 = load i64, ptr @http_auth_methods, align 8
   %and.i.i.i = and i64 %42, -20
-  %tobool1.not.i.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %tobool1.not.i.i.i, label %if.end44.i, label %if.then3.i.i
+  %tobool1.not.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %spec.select.i.i.i = zext i1 %tobool1.not.i.i.i to i32
+  br label %curl_empty_auth_enabled.exit.i.i
 
-curl_empty_auth_enabled.exit.i.i:                 ; preds = %if.then.i80.i
-  %tobool2.not.i.i = icmp eq i32 %41, 0
+curl_empty_auth_enabled.exit.i.i:                 ; preds = %land.lhs.true.i.i.i, %if.then.i80.i
+  %retval.0.i.i.i = phi i32 [ %41, %if.then.i80.i ], [ %spec.select.i.i.i, %land.lhs.true.i.i.i ]
+  %tobool2.not.i.i = icmp eq i32 %retval.0.i.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end44.i, label %if.then3.i.i
 
-if.then3.i.i:                                     ; preds = %curl_empty_auth_enabled.exit.i.i, %land.lhs.true.i.i.i
+if.then3.i.i:                                     ; preds = %curl_empty_auth_enabled.exit.i.i
   %call4.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10005, ptr noundef nonnull @.str.164) #21
   br label %if.end44.i
 
@@ -1158,7 +1164,7 @@ if.end5.i.i:                                      ; preds = %lor.lhs.false.i.i
   %call7.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10174, ptr noundef %44) #21
   br label %if.end44.i
 
-if.end44.i:                                       ; preds = %if.end5.i.i, %if.then3.i.i, %curl_empty_auth_enabled.exit.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i, %if.end41.i
+if.end44.i:                                       ; preds = %if.end5.i.i, %if.then3.i.i, %curl_empty_auth_enabled.exit.i.i, %if.end.i.i.i, %if.end41.i
   %call45.i = call ptr @getenv(ptr noundef nonnull @.str.118) #21
   %tobool46.not.i = icmp eq ptr %call45.i, null
   br i1 %tobool46.not.i, label %if.end49.i, label %if.end49.thread.i
@@ -2447,12 +2453,12 @@ entry:
   %0 = load ptr, ptr @active_queue_head, align 8
   %1 = load i32, ptr @active_requests, align 4
   %2 = load i32, ptr @max_requests, align 4
-  %cmp.not47 = icmp slt i32 %1, %2
-  br i1 %cmp.not47, label %while.cond2.preheader, label %while.body
+  %cmp.not44 = icmp slt i32 %1, %2
+  br i1 %cmp.not44, label %while.cond2.preheader, label %while.body
 
 while.cond2.preheader:                            ; preds = %if.end, %entry
-  %cmp3.not48 = icmp eq ptr %0, null
-  br i1 %cmp3.not48, label %if.then7, label %land.rhs
+  %cmp3.not45 = icmp eq ptr %0, null
+  br i1 %cmp3.not45, label %if.then7, label %land.rhs
 
 while.body:                                       ; preds = %entry, %if.end
   %3 = load ptr, ptr @curlm, align 8
@@ -2474,14 +2480,14 @@ if.end:                                           ; preds = %if.then, %while.bod
   br i1 %cmp.not, label %while.cond2.preheader, label %while.body, !llvm.loop !16
 
 land.rhs:                                         ; preds = %while.cond2.preheader, %while.body4
-  %slot.049 = phi ptr [ %9, %while.body4 ], [ %0, %while.cond2.preheader ]
-  %in_use = getelementptr inbounds i8, ptr %slot.049, i64 8
+  %slot.046 = phi ptr [ %9, %while.body4 ], [ %0, %while.cond2.preheader ]
+  %in_use = getelementptr inbounds i8, ptr %slot.046, i64 8
   %8 = load i32, ptr %in_use, align 8
   %tobool.not = icmp eq i32 %8, 0
   br i1 %tobool.not, label %if.end21, label %while.body4
 
 while.body4:                                      ; preds = %land.rhs
-  %next = getelementptr inbounds i8, ptr %slot.049, i64 56
+  %next = getelementptr inbounds i8, ptr %slot.046, i64 56
   %9 = load ptr, ptr %next, align 8
   %cmp3.not = icmp eq ptr %9, null
   br i1 %cmp3.not, label %if.then7, label %land.rhs, !llvm.loop !17
@@ -2514,7 +2520,7 @@ if.end21.sink.split:                              ; preds = %if.then7, %while.en
   br label %if.end21
 
 if.end21:                                         ; preds = %land.rhs, %if.end21.sink.split
-  %slot.2 = phi ptr [ %call8, %if.end21.sink.split ], [ %slot.049, %land.rhs ]
+  %slot.2 = phi ptr [ %call8, %if.end21.sink.split ], [ %slot.046, %land.rhs ]
   %12 = load ptr, ptr %slot.2, align 8
   %tobool23.not = icmp eq ptr %12, null
   br i1 %tobool23.not, label %if.then24, label %if.end27
@@ -2601,14 +2607,16 @@ if.end.i:                                         ; preds = %lor.lhs.false
 land.lhs.true.i:                                  ; preds = %if.end.i
   %42 = load i64, ptr @http_auth_methods, align 8
   %and.i = and i64 %42, -20
-  %tobool1.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool1.not.i, label %if.end76, label %if.then74
+  %tobool1.not.i = icmp ne i64 %and.i, 0
+  %spec.select.i = zext i1 %tobool1.not.i to i32
+  br label %curl_empty_auth_enabled.exit
 
-curl_empty_auth_enabled.exit:                     ; preds = %lor.lhs.false
-  %tobool73.not = icmp eq i32 %41, 0
+curl_empty_auth_enabled.exit:                     ; preds = %lor.lhs.false, %land.lhs.true.i
+  %retval.0.i = phi i32 [ %41, %lor.lhs.false ], [ %spec.select.i, %land.lhs.true.i ]
+  %tobool73.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool73.not, label %if.end76, label %if.then74
 
-if.then74:                                        ; preds = %land.lhs.true.i, %curl_empty_auth_enabled.exit, %if.end36
+if.then74:                                        ; preds = %curl_empty_auth_enabled.exit, %if.end36
   %43 = load ptr, ptr %slot.2, align 8
   %44 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i64 0, i32 3), align 8
   %tobool.not.i = icmp eq ptr %44, null
@@ -2631,14 +2639,16 @@ if.end.i.i:                                       ; preds = %if.then.i
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %47 = load i64, ptr @http_auth_methods, align 8
   %and.i.i = and i64 %47, -20
-  %tobool1.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool1.not.i.i, label %if.end76, label %if.then3.i
+  %tobool1.not.i.i = icmp ne i64 %and.i.i, 0
+  %spec.select.i.i = zext i1 %tobool1.not.i.i to i32
+  br label %curl_empty_auth_enabled.exit.i
 
-curl_empty_auth_enabled.exit.i:                   ; preds = %if.then.i
-  %tobool2.not.i = icmp eq i32 %46, 0
+curl_empty_auth_enabled.exit.i:                   ; preds = %land.lhs.true.i.i, %if.then.i
+  %retval.0.i.i = phi i32 [ %46, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
+  %tobool2.not.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %tobool2.not.i, label %if.end76, label %if.then3.i
 
-if.then3.i:                                       ; preds = %curl_empty_auth_enabled.exit.i, %land.lhs.true.i.i
+if.then3.i:                                       ; preds = %curl_empty_auth_enabled.exit.i
   %call4.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %43, i32 noundef 10005, ptr noundef nonnull @.str.164) #21
   br label %if.end76
 
@@ -2650,7 +2660,7 @@ if.end5.i:                                        ; preds = %lor.lhs.false.i
   %call7.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %43, i32 noundef 10174, ptr noundef %49) #21
   br label %if.end76
 
-if.end76:                                         ; preds = %land.lhs.true.i, %if.end.i, %if.end5.i, %if.then3.i, %curl_empty_auth_enabled.exit.i, %land.lhs.true.i.i, %if.end.i.i, %curl_empty_auth_enabled.exit
+if.end76:                                         ; preds = %if.end.i, %if.end5.i, %if.then3.i, %curl_empty_auth_enabled.exit.i, %if.end.i.i, %curl_empty_auth_enabled.exit
   ret ptr %slot.2
 }
 

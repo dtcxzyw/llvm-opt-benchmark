@@ -662,7 +662,7 @@ define internal i32 @do_irp_handle_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @do_irp_handle_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @do_irp_handle_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -674,13 +674,11 @@ define internal noundef i32 @do_irp_handle_equal(ptr nocapture noundef readonly 
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
-  br i1 %11, label %13, label %12
+  %spec.select = zext i1 %11 to i32
+  br label %12
 
 12:                                               ; preds = %6, %2
-  br label %13
-
-13:                                               ; preds = %6, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %6 ]
   ret i32 %.0
 }
 

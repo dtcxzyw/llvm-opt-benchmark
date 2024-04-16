@@ -48,32 +48,32 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZN9grpc_core15XdsHealthStatus10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %status.coerce0, ptr nocapture readonly %status.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  switch i64 %status.coerce0, label %if.end13 [
-    i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-    i64 8, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19
+  switch i64 %status.coerce0, label %return [
+    i64 7, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i64 8, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit21
   ]
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %entry
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %status.coerce1, ptr noundef nonnull dereferenceable(7) @.str, i64 7)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8
+  br i1 %cmp.i.i, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit11
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8:  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit11: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
   %bcmp.i9 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %status.coerce1, ptr noundef nonnull dereferenceable(7) @.str.1, i64 7)
   %cmp.i.i10 = icmp eq i32 %bcmp.i9, 0
-  br i1 %cmp.i.i10, label %return, label %if.end13
-
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19: ; preds = %entry
-  %bcmp.i20 = tail call i32 @bcmp(ptr %status.coerce1, ptr nonnull @.str.2, i64 %status.coerce0)
-  %cmp.i.i21 = icmp eq i32 %bcmp.i20, 0
-  br i1 %cmp.i.i21, label %return, label %if.end13
-
-if.end13:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8, %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19
+  %spec.select = zext i1 %cmp.i.i10 to i64
+  %spec.select28 = select i1 %cmp.i.i10, i64 4294967296, i64 0
   br label %return
 
-return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %if.end13
-  %retval.sroa.0.0 = phi i64 [ 0, %if.end13 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19 ]
-  %retval.sroa.4.0 = phi i64 [ 0, %if.end13 ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i19 ]
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit21: ; preds = %entry
+  %bcmp.i19 = tail call i32 @bcmp(ptr %status.coerce1, ptr nonnull @.str.2, i64 %status.coerce0)
+  %cmp.i.i20 = icmp eq i32 %bcmp.i19, 0
+  %0 = select i1 %cmp.i.i20, i64 4294967296, i64 0
+  br label %return
+
+return:                                           ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit11, %entry, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit21, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+  %retval.sroa.0.0 = phi i64 [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ 2, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit21 ], [ 0, %entry ], [ %spec.select, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit11 ]
+  %retval.sroa.4.0 = phi i64 [ 4294967296, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit21 ], [ 0, %entry ], [ %spec.select28, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit11 ]
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0, %retval.sroa.0.0
   ret i64 %retval.sroa.0.0.insert.insert
 }

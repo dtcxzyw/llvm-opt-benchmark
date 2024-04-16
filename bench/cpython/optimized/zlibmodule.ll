@@ -228,18 +228,14 @@ do.body28:                                        ; preds = %if.then19, %do.body
   %ZlibError = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %ZlibError, align 8
   %tobool29.not = icmp eq ptr %3, null
-  br i1 %tobool29.not, label %do.end38, label %if.then30
+  br i1 %tobool29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %do.body28
   %call33 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #6
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %do.end38, label %return
-
-do.end38:                                         ; preds = %do.body28, %if.then30
   br label %return
 
-return:                                           ; preds = %if.then30, %if.then19, %if.then8, %if.then, %do.end38
-  %retval.0 = phi i32 [ 0, %do.end38 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ]
+return:                                           ; preds = %if.then30, %do.body28, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ 0, %do.body28 ], [ %call33, %if.then30 ]
   ret i32 %retval.0
 }
 
@@ -415,7 +411,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.t
   %len2.0.lcssa.i = phi i64 [ %data.val6, %if.then.i ], [ %sub.i, %while.body.i ]
   %value.addr.0.lcssa.i = phi i32 [ %value.0, %if.then.i ], [ %conv6.i, %while.body.i ]
   %conv7.i = zext i32 %value.addr.0.lcssa.i to i64
-  %conv8.i = trunc i64 %len2.0.lcssa.i to i32
+  %conv8.i = trunc nuw i64 %len2.0.lcssa.i to i32
   %call9.i = call i64 @adler32(i64 noundef %conv7.i, ptr noundef %buf.0.lcssa.i, i32 noundef %conv8.i) #6
   call void @PyEval_RestoreThread(ptr noundef %call.i) #6
   br label %zlib_adler32_impl.exit
@@ -640,7 +636,7 @@ do.body.i:                                        ; preds = %do.cond27.i, %do.bo
   %.pr.i = phi i32 [ %20, %do.cond27.i ], [ %.pr.pre.i, %do.body.preheader.i ]
   %ibuflen.0.i = phi i64 [ %sub.i.i, %do.cond27.i ], [ %8, %do.body.preheader.i ]
   %spec.select4.i.i = call i64 @llvm.umin.i64(i64 %ibuflen.0.i, i64 4294967295)
-  %spec.select.i.i = trunc i64 %spec.select4.i.i to i32
+  %spec.select.i.i = trunc nuw i64 %spec.select4.i.i to i32
   store i32 %spec.select.i.i, ptr %avail_in.i.i, align 8
   %sub.i.i = sub i64 %ibuflen.0.i, %spec.select4.i.i
   %cmp6.i = icmp eq i64 %sub.i.i, 0
@@ -1109,7 +1105,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.t
   %len2.0.lcssa.i = phi i64 [ %data.val7, %if.then.i ], [ %sub.i, %while.body.i ]
   %value.addr.0.lcssa.i = phi i32 [ %value.0, %if.then.i ], [ %conv6.i, %while.body.i ]
   %conv7.i = zext i32 %value.addr.0.lcssa.i to i64
-  %conv8.i = trunc i64 %len2.0.lcssa.i to i32
+  %conv8.i = trunc nuw nsw i64 %len2.0.lcssa.i to i32
   %call9.i = call i64 @crc32(i64 noundef %conv7.i, ptr noundef %buf.0.lcssa.i, i32 noundef %conv8.i) #6
   call void @PyEval_RestoreThread(ptr noundef %call.i) #6
   br label %zlib_crc32_impl.exit
@@ -1307,7 +1303,7 @@ if.end7.i:                                        ; preds = %if.end.i.i.i
   %ob_sval.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store ptr %ob_sval.i.i.i.i, ptr %next_out.i, align 8
   %cond.i.i = call i64 @llvm.umin.i64(i64 %spec.store.select.i, i64 4294967295)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw i64 %cond.i.i to i32
   store i32 %conv.i.i, ptr %avail_out.i, align 8
   %14 = load ptr, ptr %data, align 8
   %len.i = getelementptr inbounds i8, ptr %data, i64 16
@@ -1379,7 +1375,7 @@ do.body.i:                                        ; preds = %do.cond34.i, %do.bo
   %window.sroa.5.1.i = phi ptr [ %window.sroa.5.4.i, %do.cond34.i ], [ %add.ptr.i.i, %do.body.preheader.i ]
   %window.sroa.0.1.i = phi i64 [ %window.sroa.0.4.i, %do.cond34.i ], [ %sub.i.i, %do.body.preheader.i ]
   %spec.select4.i.i = call i64 @llvm.umin.i64(i64 %ibuflen.0.i, i64 4294967295)
-  %spec.select.i.i = trunc i64 %spec.select4.i.i to i32
+  %spec.select.i.i = trunc nuw i64 %spec.select4.i.i to i32
   store i32 %spec.select.i.i, ptr %avail_in.i, align 8
   %sub.i20.i = sub i64 %ibuflen.0.i, %spec.select4.i.i
   %cmp11.i = icmp eq i64 %sub.i20.i, 0
@@ -1400,7 +1396,7 @@ if.end.i.i:                                       ; preds = %do.body12.i
 OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %if.end.i.i
   %spec.select.i24.i = call i64 @llvm.umin.i64(i64 %window.sroa.0.2.i, i64 4294967295)
   store ptr %window.sroa.5.2.i, ptr %next_out.i, align 8
-  %conv.i26.i = trunc i64 %spec.select.i24.i to i32
+  %conv.i26.i = trunc nuw i64 %spec.select.i24.i to i32
   store i32 %conv.i26.i, ptr %avail_out.i, align 8
   %sub.i27.i = sub nsw i64 %window.sroa.0.2.i, %spec.select.i24.i
   %add.ptr.i28.i = getelementptr i8, ptr %window.sroa.5.2.i, i64 %spec.select.i24.i
@@ -2303,7 +2299,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %zst = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %zdict_buf, align 8
-  %conv = trunc i64 %1 to i32
+  %conv = trunc nuw i64 %1 to i32
   %call5 = call i32 @inflateSetDictionary(ptr noundef nonnull %zst, ptr noundef %3, i32 noundef %conv) #6
   call void @PyBuffer_Release(ptr noundef nonnull %zdict_buf) #6
   %cmp6.not = icmp eq i32 %call5, 0
@@ -2740,7 +2736,7 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %if.end4.i.i.i
 do.body10.i:                                      ; preds = %do.cond38.i, %OutputBuffer_InitAndGrow.exit.i
   %ibuflen.0.i = phi i64 [ %5, %OutputBuffer_InitAndGrow.exit.i ], [ %sub.i.i, %do.cond38.i ]
   %spec.select4.i.i = call i64 @llvm.umin.i64(i64 %ibuflen.0.i, i64 4294967295)
-  %spec.select.i.i = trunc i64 %spec.select4.i.i to i32
+  %spec.select.i.i = trunc nuw i64 %spec.select4.i.i to i32
   store i32 %spec.select.i.i, ptr %avail_in.i.i, align 8
   %sub.i.i = sub i64 %ibuflen.0.i, %spec.select4.i.i
   br label %if.end25.i
@@ -3568,7 +3564,7 @@ OutputBuffer_InitAndGrow.exit.i:                  ; preds = %if.end4.i.i.i
   store i64 %spec.store.select.i, ptr %max_length11.i.i.i, align 8
   %ob_sval.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store ptr %ob_sval.i.i.i.i, ptr %next_out.i, align 8
-  %conv.i.i = trunc i64 %block_size.0.i.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %block_size.0.i.i.i to i32
   store i32 %conv.i.i, ptr %avail_out.i, align 4
   %avail_in.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %zdict.i = getelementptr inbounds i8, ptr %self, i64 152
@@ -3579,7 +3575,7 @@ do.body20.i:                                      ; preds = %do.cond59.i, %Outpu
   %ibuflen.0.i = phi i64 [ %12, %OutputBuffer_InitAndGrow.exit.i ], [ %sub.i.i, %do.cond59.i ]
   %err.0.i = phi i32 [ 0, %OutputBuffer_InitAndGrow.exit.i ], [ %call45.i, %do.cond59.i ]
   %spec.select4.i.i = call i64 @llvm.umin.i64(i64 %ibuflen.0.i, i64 4294967295)
-  %spec.select.i.i = trunc i64 %spec.select4.i.i to i32
+  %spec.select.i.i = trunc nuw i64 %spec.select4.i.i to i32
   store i32 %spec.select.i.i, ptr %avail_in.i.i, align 8
   %sub.i.i = sub i64 %ibuflen.0.i, %spec.select4.i.i
   br label %do.body22.i
@@ -3892,7 +3888,7 @@ OutputBuffer_WindowInitWithSize.exit.i:           ; preds = %if.end.i.i.i
   %ob_sval.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store ptr %ob_sval.i.i.i.i, ptr %next_out.i, align 8
   %cond.i.i = call i64 @llvm.umin.i64(i64 %length.0, i64 4294967295)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw i64 %cond.i.i to i32
   store i32 %conv.i.i, ptr %avail_out.i, align 4
   %sub.i.i = sub nsw i64 %length.0, %cond.i.i
   %add.ptr.i.i = getelementptr i8, ptr %ob_sval.i.i.i.i, i64 %cond.i.i
@@ -3905,7 +3901,7 @@ do.body22.i:                                      ; preds = %do.cond48.i, %Outpu
   %window.sroa.5.1.i = phi ptr [ %add.ptr.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %window.sroa.5.4.i, %do.cond48.i ]
   %window.sroa.0.1.i = phi i64 [ %sub.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %window.sroa.0.4.i, %do.cond48.i ]
   %spec.select4.i.i = call i64 @llvm.umin.i64(i64 %ibuflen.0.i, i64 4294967295)
-  %spec.select.i.i = trunc i64 %spec.select4.i.i to i32
+  %spec.select.i.i = trunc nuw i64 %spec.select4.i.i to i32
   store i32 %spec.select.i.i, ptr %avail_in.i.i, align 8
   %sub.i29.i = sub i64 %ibuflen.0.i, %spec.select4.i.i
   %cmp24.i = icmp eq i64 %sub.i29.i, 0
@@ -3926,7 +3922,7 @@ if.end.i.i:                                       ; preds = %do.body25.i
 OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %if.end.i.i
   %spec.select.i32.i = call i64 @llvm.umin.i64(i64 %window.sroa.0.2.i, i64 4294967295)
   store ptr %window.sroa.5.2.i, ptr %next_out.i, align 8
-  %conv.i34.i = trunc i64 %spec.select.i32.i to i32
+  %conv.i34.i = trunc nuw i64 %spec.select.i32.i to i32
   store i32 %conv.i34.i, ptr %avail_out.i, align 4
   %sub.i35.i = sub nsw i64 %window.sroa.0.2.i, %spec.select.i32.i
   %add.ptr.i36.i = getelementptr i8, ptr %window.sroa.5.2.i, i64 %spec.select.i32.i
@@ -4807,7 +4803,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %zst = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %zdict_buf, align 8
-  %conv = trunc i64 %1 to i32
+  %conv = trunc nuw i64 %1 to i32
   %call5 = call i32 @inflateSetDictionary(ptr noundef nonnull %zst, ptr noundef %3, i32 noundef %conv) #6
   call void @PyBuffer_Release(ptr noundef nonnull %zdict_buf) #6
   %cmp6.not = icmp eq i32 %call5, 0
@@ -5052,7 +5048,7 @@ do.body.i.i.i:                                    ; preds = %land.rhs.i.i.i, %if
   %err.0.i.i.i = phi i32 [ 0, %if.end46.i.i ], [ %err.2.i.i.i, %land.rhs.i.i.i ]
   %obuflen.1.i.i.i = phi i64 [ %obuflen.0.i.i.i, %if.end46.i.i ], [ %retval.0.i46.i.i.i, %land.rhs.i.i.i ]
   %spec.select4.i.i.i.i = call i64 @llvm.umin.i64(i64 %25, i64 4294967295)
-  %spec.select.i.i.i.i = trunc i64 %spec.select4.i.i.i.i to i32
+  %spec.select.i.i.i.i = trunc nuw i64 %spec.select4.i.i.i.i to i32
   store i32 %spec.select.i.i.i.i, ptr %avail_in.i.i.i.i, align 8
   %sub.i.i.i.i = sub i64 %25, %spec.select4.i.i.i.i
   store i64 %sub.i.i.i.i, ptr %avail_in_real.i.i.i, align 8
@@ -5102,7 +5098,7 @@ arrange_output_buffer_with_maximum.exit.i.i.i:    ; preds = %if.end7.i.arrange_o
   %occupied.0.i.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %if.else.i.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %obuflen.2.i.i.i, %if.end7.i.arrange_output_buffer_with_maximum.exit_crit_edge.i.i.i ]
   %sub.i39.i.i.i = sub i64 %length.addr.0.i.i.i.i, %occupied.0.i.i.i.i
   %cond.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i39.i.i.i, i64 4294967295)
-  %conv.i.i.i.i = trunc i64 %cond.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw i64 %cond.i.i.i.i to i32
   store i32 %conv.i.i.i.i, ptr %avail_out.i.i.i, align 4
   %ob_sval.i19.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 32
   %add.ptr.i.i.i.i = getelementptr i8, ptr %ob_sval.i19.i.i.i.i, i64 %occupied.0.i.i.i.i

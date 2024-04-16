@@ -5045,80 +5045,77 @@ define internal noundef i32 @exp_pdu_data_dvbci_populate_data(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i8 @dvbci_get_evt_from_addrs(ptr nocapture noundef readonly %0) unnamed_addr #7 {
+define internal fastcc zeroext i8 @dvbci_get_evt_from_addrs(ptr nocapture noundef readonly %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 7
-  br i1 %4, label %5, label %addresses_equal.exit9
+  br i1 %4, label %5, label %addresses_equal.exit14.thread
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 212
   %7 = load i32, ptr %6, align 4
-  switch i32 %7, label %addresses_equal.exit9 [
-    i32 4, label %8
-    i32 5, label %23
+  switch i32 %7, label %addresses_equal.exit14.thread [
+    i32 4, label %addresses_equal.exit
+    i32 5, label %addresses_equal.exit14
   ]
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
-  %10 = load ptr, ptr %9, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
-  %11 = icmp eq i32 %bcmp.i, 0
-  br i1 %11, label %addresses_equal.exit, label %.thread.thread
+addresses_equal.exit:                             ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = load ptr, ptr %8, align 8
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %9, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
+  %.not = icmp eq i32 %bcmp.i, 0
+  br i1 %.not, label %10, label %addresses_equal.exit14.thread
 
-addresses_equal.exit:                             ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 232
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 7
-  br i1 %14, label %15, label %.thread.thread
+10:                                               ; preds = %addresses_equal.exit
+  %11 = getelementptr inbounds i8, ptr %0, i64 232
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, 7
+  br i1 %13, label %14, label %addresses_equal.exit14.thread
 
-15:                                               ; preds = %addresses_equal.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 236
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, 5
-  br i1 %18, label %19, label %.thread.thread
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %0, i64 236
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, 5
+  br i1 %17, label %addresses_equal.exit10, label %addresses_equal.exit14.thread
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 240
+addresses_equal.exit10:                           ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %0, i64 240
+  %19 = load ptr, ptr %18, align 8
+  %bcmp.i8 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %19, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
+  %.not29 = icmp eq i32 %bcmp.i8, 0
+  %spec.select32 = sext i1 %.not29 to i8
+  br label %addresses_equal.exit14.thread
+
+addresses_equal.exit14:                           ; preds = %5
+  %20 = getelementptr inbounds i8, ptr %0, i64 216
   %21 = load ptr, ptr %20, align 8
-  %bcmp.i8 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %21, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
-  %22 = icmp eq i32 %bcmp.i8, 0
-  br i1 %22, label %addresses_equal.exit9, label %.thread.thread
+  %bcmp.i12 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %21, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
+  %.not30 = icmp eq i32 %bcmp.i12, 0
+  br i1 %.not30, label %22, label %addresses_equal.exit14.thread
 
-.thread.thread:                                   ; preds = %8, %addresses_equal.exit, %15, %19
-  br label %addresses_equal.exit9
+22:                                               ; preds = %addresses_equal.exit14
+  %23 = getelementptr inbounds i8, ptr %0, i64 232
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp eq i32 %24, 7
+  br i1 %25, label %26, label %addresses_equal.exit14.thread
 
-23:                                               ; preds = %5
-  %24 = getelementptr inbounds i8, ptr %0, i64 216
-  %25 = load ptr, ptr %24, align 8
-  %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %25, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
-  %26 = icmp eq i32 %bcmp.i11, 0
-  br i1 %26, label %addresses_equal.exit12, label %addresses_equal.exit9
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %0, i64 236
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %28, 4
+  br i1 %29, label %addresses_equal.exit18, label %addresses_equal.exit14.thread
 
-addresses_equal.exit12:                           ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 232
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 7
-  br i1 %29, label %30, label %addresses_equal.exit15.thread
+addresses_equal.exit18:                           ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %0, i64 240
+  %31 = load ptr, ptr %30, align 8
+  %bcmp.i16 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %31, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
+  %bcmp.i16.fr = freeze i32 %bcmp.i16
+  %.not31 = icmp eq i32 %bcmp.i16.fr, 0
+  %spec.select = select i1 %.not31, i8 -2, i8 0
+  br label %addresses_equal.exit14.thread
 
-30:                                               ; preds = %addresses_equal.exit12
-  %31 = getelementptr inbounds i8, ptr %0, i64 236
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, 4
-  br i1 %33, label %34, label %addresses_equal.exit15.thread
-
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 240
-  %36 = load ptr, ptr %35, align 8
-  %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %36, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
-  %37 = icmp eq i32 %bcmp.i14, 0
-  br i1 %37, label %addresses_equal.exit9, label %addresses_equal.exit15.thread
-
-addresses_equal.exit15.thread:                    ; preds = %addresses_equal.exit12, %30, %34
-  br label %addresses_equal.exit9
-
-addresses_equal.exit9:                            ; preds = %5, %.thread.thread, %1, %23, %addresses_equal.exit15.thread, %34, %19
-  %.0 = phi i8 [ -1, %19 ], [ -2, %34 ], [ 0, %addresses_equal.exit15.thread ], [ 0, %23 ], [ 0, %1 ], [ 0, %.thread.thread ], [ 0, %5 ]
+addresses_equal.exit14.thread:                    ; preds = %addresses_equal.exit10, %5, %addresses_equal.exit, %14, %10, %addresses_equal.exit18, %22, %26, %1, %addresses_equal.exit14
+  %.0 = phi i8 [ 0, %addresses_equal.exit14 ], [ 0, %1 ], [ 0, %26 ], [ 0, %22 ], [ %spec.select, %addresses_equal.exit18 ], [ 0, %10 ], [ 0, %14 ], [ 0, %addresses_equal.exit ], [ %spec.select32, %addresses_equal.exit10 ], [ 0, %5 ]
   ret i8 %.0
 }
 

@@ -1205,19 +1205,17 @@ if.end30.thread:                                  ; preds = %if.end.i.i11.i.i.i8
   br label %land.lhs.true32
 
 if.end30:                                         ; preds = %if.end
-  br i1 %tobool24, label %land.lhs.true32, label %cond.false
+  br i1 %tobool24, label %land.lhs.true32, label %cond.end
 
 land.lhs.true32:                                  ; preds = %if.end30, %if.end30.thread
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %selected, i64 8
   %26 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !11
   %cmp.i = icmp eq i64 %26, 0
-  br i1 %cmp.i, label %cond.end, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true32, %if.end30
+  %spec.select = select i1 %cmp.i, ptr %hand, ptr %selected
   br label %cond.end
 
-cond.end:                                         ; preds = %cond.false, %land.lhs.true32
-  %cond-lvalue = phi ptr [ %selected, %cond.false ], [ %hand, %land.lhs.true32 ]
+cond.end:                                         ; preds = %land.lhs.true32, %if.end30
+  %cond-lvalue = phi ptr [ %selected, %if.end30 ], [ %spec.select, %land.lhs.true32 ]
   ret ptr %cond-lvalue
 
 ehcleanup35:                                      ; preds = %ehcleanup16, %ehcleanup

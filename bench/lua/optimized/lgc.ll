@@ -3728,12 +3728,12 @@ land.lhs.true18.i.i:                              ; preds = %if.end.i.i
   %27 = load i8, ptr %tt_.i.i, align 8
   %28 = and i8 %27, 64
   %tobool22.not.i.i = icmp eq i8 %28, 0
-  br i1 %tobool22.not.i.i, label %iscleared.exit.thread.i.i, label %cond.end.i.i
+  br i1 %tobool22.not.i.i, label %for.inc.i.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %land.lhs.true18.i.i
   %29 = load ptr, ptr %n.031.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %29, null
-  br i1 %cmp.i.i.i, label %iscleared.exit.thread.i.i, label %if.else.i.i.i
+  br i1 %cmp.i.i.i, label %for.inc.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cond.end.i.i
   %tt.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
@@ -3744,24 +3744,23 @@ if.else.i.i.i:                                    ; preds = %cond.end.i.i
   %32 = load i8, ptr %marked.i.i.i, align 1
   %.fr29.i.i = freeze i8 %32
   %33 = and i8 %.fr29.i.i, 24
-  %tobool.not.i21.i.i = icmp eq i8 %33, 0
   br i1 %cmp1.i.i.i, label %if.then3.i.i.i, label %iscleared.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
-  br i1 %tobool.not.i21.i.i, label %iscleared.exit.thread.i.i, label %if.then6.i.i.i
+  %tobool.not.i21.i.i = icmp eq i8 %33, 0
+  br i1 %tobool.not.i21.i.i, label %for.inc.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then3.i.i.i
   tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %29)
-  br label %iscleared.exit.thread.i.i
-
-iscleared.exit.i.i:                               ; preds = %if.else.i.i.i
-  br i1 %tobool.not.i21.i.i, label %iscleared.exit.thread.i.i, label %for.inc.i.i
-
-iscleared.exit.thread.i.i:                        ; preds = %iscleared.exit.i.i, %if.then6.i.i.i, %if.then3.i.i.i, %cond.end.i.i, %land.lhs.true18.i.i
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %iscleared.exit.thread.i.i, %iscleared.exit.i.i, %if.end.i.i, %if.then.i.i.i, %if.then.i.i
-  %hasclears.1.i.i = phi i32 [ 1, %if.end.i.i ], [ %hasclears.032.i.i, %if.then.i.i ], [ %hasclears.032.i.i, %if.then.i.i.i ], [ 0, %iscleared.exit.thread.i.i ], [ 1, %iscleared.exit.i.i ]
+iscleared.exit.i.i:                               ; preds = %if.else.i.i.i
+  %tobool23.not.i.i = icmp ne i8 %33, 0
+  %spec.select.i.i = zext i1 %tobool23.not.i.i to i32
+  br label %for.inc.i.i
+
+for.inc.i.i:                                      ; preds = %iscleared.exit.i.i, %if.then6.i.i.i, %if.then3.i.i.i, %cond.end.i.i, %land.lhs.true18.i.i, %if.end.i.i, %if.then.i.i.i, %if.then.i.i
+  %hasclears.1.i.i = phi i32 [ 1, %if.end.i.i ], [ %hasclears.032.i.i, %if.then.i.i ], [ %hasclears.032.i.i, %if.then.i.i.i ], [ 0, %cond.end.i.i ], [ 0, %if.then6.i.i.i ], [ 0, %if.then3.i.i.i ], [ 0, %land.lhs.true18.i.i ], [ %spec.select.i.i, %iscleared.exit.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %n.031.i.i, i64 24
   %cmp5.i.i = icmp ult ptr %incdec.ptr.i.i, %arrayidx.i.i
   br i1 %cmp5.i.i, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !36
@@ -4626,7 +4625,7 @@ for.body17:                                       ; preds = %for.cond14.preheade
   %hasclears.053 = phi i32 [ 0, %for.cond14.preheader ], [ %hasclears.1, %for.inc69 ]
   %hasww.052 = phi i32 [ 0, %for.cond14.preheader ], [ %hasww.1, %for.inc69 ]
   %7 = load ptr, ptr %node, align 8
-  %8 = trunc i64 %indvars.iv56 to i32
+  %8 = trunc nuw i64 %indvars.iv56 to i32
   %9 = xor i32 %8, -1
   %sub19 = add i32 %shl, %9
   %idxprom20 = zext i32 %sub19 to i64

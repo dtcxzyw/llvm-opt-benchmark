@@ -1541,7 +1541,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_ChainCAPath(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal i32 @cmd_ChainCAPath(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1593,23 +1593,21 @@ if.then43.i:                                      ; preds = %if.end36.i
 if.end47.i:                                       ; preds = %if.then43.i, %if.end36.i
   %5 = phi ptr [ %call.i, %if.then43.i ], [ %4, %if.end36.i ]
   %cmp53.not.i = icmp eq ptr %value, null
-  br i1 %cmp53.not.i, label %if.end58.i, label %land.lhs.true54.i
+  br i1 %cmp53.not.i, label %do_store.exit, label %land.lhs.true54.i
 
 land.lhs.true54.i:                                ; preds = %if.end47.i
   %call55.i = tail call i32 @X509_STORE_load_path(ptr noundef nonnull %5, ptr noundef nonnull %value) #8
-  %tobool56.not.i = icmp eq i32 %call55.i, 0
-  br i1 %tobool56.not.i, label %do_store.exit, label %if.end58.i
-
-if.end58.i:                                       ; preds = %land.lhs.true54.i, %if.end47.i
+  %tobool56.not.i = icmp ne i32 %call55.i, 0
+  %spec.select = zext i1 %tobool56.not.i to i32
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i, %land.lhs.true54.i, %if.end58.i
-  %retval.0.i = phi i32 [ 1, %if.end58.i ], [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %land.lhs.true54.i ], [ 0, %cond.false.i ]
+do_store.exit:                                    ; preds = %land.lhs.true54.i, %if.end47.i, %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i
+  %retval.0.i = phi i32 [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %cond.false.i ], [ 1, %if.end47.i ], [ %spec.select, %land.lhs.true54.i ]
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_ChainCAFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal i32 @cmd_ChainCAFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1675,23 +1673,21 @@ if.then43.i:                                      ; preds = %if.end36.i
 if.end47.i:                                       ; preds = %if.then43.i, %if.end36.i
   %8 = phi ptr [ %call.i, %if.then43.i ], [ %7, %if.end36.i ]
   %cmp48.not.i = icmp eq ptr %value, null
-  br i1 %cmp48.not.i, label %if.end52.i, label %land.lhs.true.i
+  br i1 %cmp48.not.i, label %do_store.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end47.i
   %call49.i = tail call i32 @X509_STORE_load_file_ex(ptr noundef nonnull %8, ptr noundef nonnull %value, ptr noundef %libctx.0.i, ptr noundef %propq.0.i) #8
-  %tobool50.not.i = icmp eq i32 %call49.i, 0
-  br i1 %tobool50.not.i, label %do_store.exit, label %if.end52.i
-
-if.end52.i:                                       ; preds = %land.lhs.true.i, %if.end47.i
+  %tobool50.not.i = icmp ne i32 %call49.i, 0
+  %spec.select = zext i1 %tobool50.not.i to i32
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i, %land.lhs.true.i, %if.end52.i
-  %retval.0.i = phi i32 [ 1, %if.end52.i ], [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %land.lhs.true.i ], [ 0, %cond.false.i ]
+do_store.exit:                                    ; preds = %land.lhs.true.i, %if.end47.i, %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i
+  %retval.0.i = phi i32 [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %cond.false.i ], [ 1, %if.end47.i ], [ %spec.select, %land.lhs.true.i ]
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_ChainCAStore(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal i32 @cmd_ChainCAStore(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1757,23 +1753,21 @@ if.then43.i:                                      ; preds = %if.end36.i
 if.end47.i:                                       ; preds = %if.then43.i, %if.end36.i
   %8 = phi ptr [ %call.i, %if.then43.i ], [ %7, %if.end36.i ]
   %cmp59.not.i = icmp eq ptr %value, null
-  br i1 %cmp59.not.i, label %if.end64.i, label %land.lhs.true60.i
+  br i1 %cmp59.not.i, label %do_store.exit, label %land.lhs.true60.i
 
 land.lhs.true60.i:                                ; preds = %if.end47.i
   %call61.i = tail call i32 @X509_STORE_load_store_ex(ptr noundef nonnull %8, ptr noundef nonnull %value, ptr noundef %libctx.0.i, ptr noundef %propq.0.i) #8
-  %tobool62.not.i = icmp eq i32 %call61.i, 0
-  br i1 %tobool62.not.i, label %do_store.exit, label %if.end64.i
-
-if.end64.i:                                       ; preds = %land.lhs.true60.i, %if.end47.i
+  %tobool62.not.i = icmp ne i32 %call61.i, 0
+  %spec.select.i = zext i1 %tobool62.not.i to i32
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i, %land.lhs.true60.i, %if.end64.i
-  %retval.0.i = phi i32 [ 1, %if.end64.i ], [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %land.lhs.true60.i ], [ 0, %cond.false.i ]
+do_store.exit:                                    ; preds = %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i, %if.end47.i, %land.lhs.true60.i
+  %retval.0.i = phi i32 [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 1, %if.end47.i ], [ %spec.select.i, %land.lhs.true60.i ], [ 0, %cond.false.i ]
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_VerifyCAPath(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal i32 @cmd_VerifyCAPath(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1825,23 +1819,21 @@ if.then43.i:                                      ; preds = %if.end36.i
 if.end47.i:                                       ; preds = %if.then43.i, %if.end36.i
   %5 = phi ptr [ %call.i, %if.then43.i ], [ %4, %if.end36.i ]
   %cmp53.not.i = icmp eq ptr %value, null
-  br i1 %cmp53.not.i, label %if.end58.i, label %land.lhs.true54.i
+  br i1 %cmp53.not.i, label %do_store.exit, label %land.lhs.true54.i
 
 land.lhs.true54.i:                                ; preds = %if.end47.i
   %call55.i = tail call i32 @X509_STORE_load_path(ptr noundef nonnull %5, ptr noundef nonnull %value) #8
-  %tobool56.not.i = icmp eq i32 %call55.i, 0
-  br i1 %tobool56.not.i, label %do_store.exit, label %if.end58.i
-
-if.end58.i:                                       ; preds = %land.lhs.true54.i, %if.end47.i
+  %tobool56.not.i = icmp ne i32 %call55.i, 0
+  %spec.select = zext i1 %tobool56.not.i to i32
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i, %land.lhs.true54.i, %if.end58.i
-  %retval.0.i = phi i32 [ 1, %if.end58.i ], [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %land.lhs.true54.i ], [ 0, %cond.false.i ]
+do_store.exit:                                    ; preds = %land.lhs.true54.i, %if.end47.i, %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i
+  %retval.0.i = phi i32 [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %cond.false.i ], [ 1, %if.end47.i ], [ %spec.select, %land.lhs.true54.i ]
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_VerifyCAFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal i32 @cmd_VerifyCAFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1907,23 +1899,21 @@ if.then43.i:                                      ; preds = %if.end36.i
 if.end47.i:                                       ; preds = %if.then43.i, %if.end36.i
   %8 = phi ptr [ %call.i, %if.then43.i ], [ %7, %if.end36.i ]
   %cmp48.not.i = icmp eq ptr %value, null
-  br i1 %cmp48.not.i, label %if.end52.i, label %land.lhs.true.i
+  br i1 %cmp48.not.i, label %do_store.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end47.i
   %call49.i = tail call i32 @X509_STORE_load_file_ex(ptr noundef nonnull %8, ptr noundef nonnull %value, ptr noundef %libctx.0.i, ptr noundef %propq.0.i) #8
-  %tobool50.not.i = icmp eq i32 %call49.i, 0
-  br i1 %tobool50.not.i, label %do_store.exit, label %if.end52.i
-
-if.end52.i:                                       ; preds = %land.lhs.true.i, %if.end47.i
+  %tobool50.not.i = icmp ne i32 %call49.i, 0
+  %spec.select = zext i1 %tobool50.not.i to i32
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i, %land.lhs.true.i, %if.end52.i
-  %retval.0.i = phi i32 [ 1, %if.end52.i ], [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %land.lhs.true.i ], [ 0, %cond.false.i ]
+do_store.exit:                                    ; preds = %land.lhs.true.i, %if.end47.i, %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i
+  %retval.0.i = phi i32 [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %cond.false.i ], [ 1, %if.end47.i ], [ %spec.select, %land.lhs.true.i ]
   ret i32 %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_VerifyCAStore(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal i32 @cmd_VerifyCAStore(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1989,18 +1979,16 @@ if.then43.i:                                      ; preds = %if.end36.i
 if.end47.i:                                       ; preds = %if.then43.i, %if.end36.i
   %8 = phi ptr [ %call.i, %if.then43.i ], [ %7, %if.end36.i ]
   %cmp59.not.i = icmp eq ptr %value, null
-  br i1 %cmp59.not.i, label %if.end64.i, label %land.lhs.true60.i
+  br i1 %cmp59.not.i, label %do_store.exit, label %land.lhs.true60.i
 
 land.lhs.true60.i:                                ; preds = %if.end47.i
   %call61.i = tail call i32 @X509_STORE_load_store_ex(ptr noundef nonnull %8, ptr noundef nonnull %value, ptr noundef %libctx.0.i, ptr noundef %propq.0.i) #8
-  %tobool62.not.i = icmp eq i32 %call61.i, 0
-  br i1 %tobool62.not.i, label %do_store.exit, label %if.end64.i
-
-if.end64.i:                                       ; preds = %land.lhs.true60.i, %if.end47.i
+  %tobool62.not.i = icmp ne i32 %call61.i, 0
+  %spec.select.i = zext i1 %tobool62.not.i to i32
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i, %land.lhs.true60.i, %if.end64.i
-  %retval.0.i = phi i32 [ 1, %if.end64.i ], [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 0, %land.lhs.true60.i ], [ 0, %cond.false.i ]
+do_store.exit:                                    ; preds = %if.else.i, %cond.false.i, %cond.end22.i, %if.then43.i, %if.end47.i, %land.lhs.true60.i
+  %retval.0.i = phi i32 [ 0, %cond.end22.i ], [ 1, %if.else.i ], [ 0, %if.then43.i ], [ 1, %if.end47.i ], [ %spec.select.i, %land.lhs.true60.i ], [ 0, %cond.false.i ]
   ret i32 %retval.0.i
 }
 

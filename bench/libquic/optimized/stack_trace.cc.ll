@@ -167,8 +167,8 @@ if.end11.i:                                       ; preds = %if.then7.i
   %8 = inttoptr i64 %7 to ptr
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp12.i = icmp ult i64 %9, 32768
-  br i1 %cmp12.i, label %if.end.i, label %while.cond.backedge
+  %cmp12.i = icmp ugt i64 %9, 32767
+  br i1 %cmp12.i, label %while.cond.backedge, label %if.end.i
 
 if.end6:                                          ; preds = %if.end
   br i1 %tobool6.not.i, label %while.end, label %if.end.i
@@ -177,63 +177,63 @@ if.end.i:                                         ; preds = %if.then7.i, %if.end
   %add1.i = add i64 %fp.023, 8200
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %add1.i, i64 %retval.0.i)
   %sub.i13 = add i64 %.sroa.speculated.i, -8
-  %fp.addr.038.i = add i64 %fp.023, 8
-  %cmp.not39.i = icmp ugt i64 %fp.addr.038.i, %sub.i13
-  br i1 %cmp.not39.i, label %while.end, label %for.body.i
+  %fp.addr.037.i = add i64 %fp.023, 8
+  %cmp.not38.i = icmp ugt i64 %fp.addr.037.i, %sub.i13
+  br i1 %cmp.not38.i, label %while.end, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
-  %fp.addr.040.i = phi i64 [ %fp.addr.0.i, %for.inc.i ], [ %fp.addr.038.i, %if.end.i ]
-  %10 = inttoptr i64 %fp.addr.040.i to ptr
+  %fp.addr.039.i = phi i64 [ %fp.addr.0.i, %for.inc.i ], [ %fp.addr.037.i, %if.end.i ]
+  %10 = inttoptr i64 %fp.addr.039.i to ptr
   %11 = load i64, ptr %10, align 8
-  %cmp.not.i.i = icmp ule i64 %11, %fp.addr.040.i
-  %sub.i.i = sub i64 %11, %fp.addr.040.i
+  %cmp.not.i.i = icmp ule i64 %11, %fp.addr.039.i
+  %sub.i.i = sub i64 %11, %fp.addr.039.i
   %cmp1.i.i = icmp ugt i64 %sub.i.i, 100000
-  %or.cond.not8.i.not35.i = or i1 %cmp.not.i.i, %cmp1.i.i
+  %or.cond.not8.i.not34.i = or i1 %cmp.not.i.i, %cmp1.i.i
   %and.i.i = and i64 %11, 7
   %tobool.not.i.i = icmp ne i64 %and.i.i, 0
-  %or.cond7.i.not34.i = or i1 %tobool.not.i.i, %or.cond.not8.i.not35.i
+  %or.cond7.i.not33.i = or i1 %tobool.not.i.i, %or.cond.not8.i.not34.i
   %cmp9.i.i = icmp ult i64 %sub8.i, %11
-  %or.cond.i = or i1 %cmp9.i.i, %or.cond7.i.not34.i
-  br i1 %or.cond.i, label %for.inc.i, label %if.end11.i.i
+  %or.cond.i = or i1 %cmp9.i.i, %or.cond7.i.not33.i
+  br i1 %or.cond.i, label %for.inc.i, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.i
 
-if.end11.i.i:                                     ; preds = %for.body.i
+_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.i: ; preds = %for.body.i
   %12 = inttoptr i64 %11 to ptr
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp12.i.i = icmp ult i64 %13, 32768
-  br i1 %cmp12.i.i, label %for.inc.i, label %if.then4.i
+  %cmp12.i.i = icmp ugt i64 %13, 32767
+  br i1 %cmp12.i.i, label %if.then4.i, label %for.inc.i
 
-if.then4.i:                                       ; preds = %if.end11.i.i
+if.then4.i:                                       ; preds = %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.i
   %14 = load i64, ptr %12, align 8
   %cmp.not.i9.i = icmp ule i64 %14, %11
   %sub.i10.i = sub i64 %14, %11
   %cmp1.i11.i = icmp ugt i64 %sub.i10.i, 100000
-  %or.cond.not8.i12.not37.i = or i1 %cmp.not.i9.i, %cmp1.i11.i
+  %or.cond.not8.i12.not36.i = or i1 %cmp.not.i9.i, %cmp1.i11.i
   %and.i13.i = and i64 %14, 7
   %tobool.not.i14.i = icmp ne i64 %and.i13.i, 0
-  %or.cond7.i15.not36.i = or i1 %tobool.not.i14.i, %or.cond.not8.i12.not37.i
+  %or.cond7.i15.not35.i = or i1 %tobool.not.i14.i, %or.cond.not8.i12.not36.i
   %cmp9.i21.i = icmp ult i64 %sub8.i, %14
-  %or.cond33.i = or i1 %cmp9.i21.i, %or.cond7.i15.not36.i
-  br i1 %or.cond33.i, label %for.inc.i, label %if.end11.i22.i
+  %or.cond32.i = or i1 %cmp9.i21.i, %or.cond7.i15.not35.i
+  br i1 %or.cond32.i, label %for.inc.i, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit25.i
 
-if.end11.i22.i:                                   ; preds = %if.then4.i
+_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit25.i: ; preds = %if.then4.i
   %15 = inttoptr i64 %14 to ptr
   %arrayidx.i.i23.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %arrayidx.i.i23.i, align 8
-  %cmp12.i24.i = icmp ult i64 %16, 32768
-  br i1 %cmp12.i24.i, label %for.inc.i, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit
+  %cmp12.i24.i = icmp ugt i64 %16, 32767
+  br i1 %cmp12.i24.i, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit, label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end11.i22.i, %if.then4.i, %if.end11.i.i, %for.body.i
-  %fp.addr.0.i = add i64 %fp.addr.040.i, 8
-  %cmp.not.i15 = icmp ugt i64 %fp.addr.0.i, %sub.i13
-  br i1 %cmp.not.i15, label %while.end, label %for.body.i, !llvm.loop !5
+for.inc.i:                                        ; preds = %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit25.i, %if.then4.i, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.i, %for.body.i
+  %fp.addr.0.i = add i64 %fp.addr.039.i, 8
+  %cmp.not.i14 = icmp ugt i64 %fp.addr.0.i, %sub.i13
+  br i1 %cmp.not.i14, label %while.end, label %for.body.i, !llvm.loop !5
 
-_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit: ; preds = %if.end11.i22.i
-  %tobool.not = icmp eq i64 %fp.addr.040.i, 0
+_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit: ; preds = %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit25.i
+  %tobool.not = icmp eq i64 %fp.addr.039.i, 0
   br i1 %tobool.not, label %while.end, label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %if.end11.i, %if.end5.i, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit
-  %fp.0.be = phi i64 [ %fp.addr.040.i, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %7, %if.end5.i ], [ %7, %if.end11.i ]
+while.cond.backedge:                              ; preds = %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit, %if.end11.i, %if.end5.i
+  %fp.0.be = phi i64 [ %fp.addr.039.i, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %7, %if.end11.i ], [ %7, %if.end5.i ]
   %cmp = icmp ult i64 %depth.1, %max_depth
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 

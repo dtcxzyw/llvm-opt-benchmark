@@ -341,11 +341,11 @@ Io_NtkEdgelistWritePis.exit.thread:               ; preds = %.preheader56.i
 
 49:                                               ; preds = %48
   tail call void @Io_NtkEdgelistWriteConvertedBox(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
-  br label %345
+  br label %343
 
 50:                                               ; preds = %48
   %51 = tail call i64 @fwrite(ptr nonnull @.str.58, i64 10, i64 1, ptr %0)
-  br label %345
+  br label %343
 
 52:                                               ; preds = %Io_NtkEdgelistWritePis.exit
   tail call void @Io_WriteTimingInfo(ptr noundef %0, ptr noundef nonnull %1) #11
@@ -577,23 +577,23 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
   %.not66.i.i = icmp eq i32 %5, 0
   br label %160
 
-160:                                              ; preds = %.lr.ph149, %302
-  %161 = phi ptr [ %157, %.lr.ph149 ], [ %304, %302 ]
-  %.3148 = phi i32 [ 0, %.lr.ph149 ], [ %303, %302 ]
+160:                                              ; preds = %.lr.ph149, %Io_NtkEdgelistWriteNode.exit.thread
+  %161 = phi ptr [ %157, %.lr.ph149 ], [ %302, %Io_NtkEdgelistWriteNode.exit.thread ]
+  %.3148 = phi i32 [ 0, %.lr.ph149 ], [ %301, %Io_NtkEdgelistWriteNode.exit.thread ]
   %162 = getelementptr i8, ptr %161, i64 8
   %.val96.val = load ptr, ptr %162, align 8
   %163 = sext i32 %.3148 to i64
   %164 = getelementptr inbounds ptr, ptr %.val96.val, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %302, label %167
+  br i1 %166, label %Io_NtkEdgelistWriteNode.exit.thread, label %167
 
 167:                                              ; preds = %160
   %168 = getelementptr i8, ptr %165, i64 20
   %.val97 = load i32, ptr %168, align 4
   %169 = and i32 %.val97, 15
   %.not134 = icmp eq i32 %169, 7
-  br i1 %.not134, label %170, label %302
+  br i1 %.not134, label %170, label %Io_NtkEdgelistWriteNode.exit.thread
 
 170:                                              ; preds = %167
   br i1 %.not.i101, label %174, label %171
@@ -874,110 +874,106 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %229, %223, %214
 Io_NtkEdgelistWriteNode.exit:                     ; preds = %177, %179, %Abc_ObjIsBarBuf.exit.i
   %300 = tail call i32 @Io_NtkEdgelistWriteNodeGate(ptr noundef %0, ptr noundef nonnull %165, i32 poison, i32 noundef %5), !range !13
   %fputc.i = tail call i32 @fputc(i32 10, ptr %0)
-  %.not77 = icmp eq i32 %300, 0
-  %301 = add nsw i32 %.3148, 1
-  br i1 %.not77, label %Io_NtkEdgelistWriteNode.exit.thread, label %302
+  %spec.select = add nsw i32 %300, %.3148
+  br label %Io_NtkEdgelistWriteNode.exit.thread
 
-Io_NtkEdgelistWriteNode.exit.thread:              ; preds = %297, %185, %184, %Io_NtkEdgelistWriteNode.exit
-  br label %302
+Io_NtkEdgelistWriteNode.exit.thread:              ; preds = %297, %Io_NtkEdgelistWriteNode.exit, %185, %184, %167, %160
+  %.4 = phi i32 [ %.3148, %160 ], [ %.3148, %167 ], [ %.3148, %184 ], [ %.3148, %185 ], [ %spec.select, %Io_NtkEdgelistWriteNode.exit ], [ %.3148, %297 ]
+  %301 = add nsw i32 %.4, 1
+  %302 = load ptr, ptr %154, align 8
+  %303 = getelementptr i8, ptr %302, i64 4
+  %.val = load i32, ptr %303, align 4
+  %304 = icmp slt i32 %301, %.val
+  br i1 %304, label %160, label %.critedge6, !llvm.loop !14
 
-302:                                              ; preds = %Io_NtkEdgelistWriteNode.exit.thread, %Io_NtkEdgelistWriteNode.exit, %167, %160
-  %.4 = phi i32 [ %.3148, %160 ], [ %.3148, %167 ], [ %.3148, %Io_NtkEdgelistWriteNode.exit.thread ], [ %301, %Io_NtkEdgelistWriteNode.exit ]
-  %303 = add nsw i32 %.4, 1
-  %304 = load ptr, ptr %154, align 8
-  %305 = getelementptr i8, ptr %304, i64 4
-  %.val = load i32, ptr %305, align 4
-  %306 = icmp slt i32 %303, %.val
-  br i1 %306, label %160, label %.critedge6, !llvm.loop !14
-
-.critedge6:                                       ; preds = %302, %152
+.critedge6:                                       ; preds = %Io_NtkEdgelistWriteNode.exit.thread, %152
   br i1 %.not.i, label %.preheader.i116, label %.preheader56.i105
 
 .preheader56.i105:                                ; preds = %.critedge6
-  %307 = getelementptr i8, ptr %1, i64 48
-  %.val4858.i = load ptr, ptr %307, align 8
-  %308 = getelementptr i8, ptr %.val4858.i, i64 4
-  %.val48.val59.i = load i32, ptr %308, align 4
-  %309 = icmp sgt i32 %.val48.val59.i, 0
-  br i1 %309, label %.lr.ph.i106, label %Io_NtkEdgelistWritePos.exit
+  %305 = getelementptr i8, ptr %1, i64 48
+  %.val4858.i = load ptr, ptr %305, align 8
+  %306 = getelementptr i8, ptr %.val4858.i, i64 4
+  %.val48.val59.i = load i32, ptr %306, align 4
+  %307 = icmp sgt i32 %.val48.val59.i, 0
+  br i1 %307, label %.lr.ph.i106, label %Io_NtkEdgelistWritePos.exit
 
 .preheader.i116:                                  ; preds = %.critedge6
-  %310 = getelementptr i8, ptr %1, i64 64
-  %.val5464.i117 = load ptr, ptr %310, align 8
-  %311 = getelementptr i8, ptr %.val5464.i117, i64 4
-  %.val54.val65.i118 = load i32, ptr %311, align 4
-  %312 = icmp sgt i32 %.val54.val65.i118, 0
-  br i1 %312, label %.lr.ph70.i119, label %Io_NtkEdgelistWritePos.exit
+  %308 = getelementptr i8, ptr %1, i64 64
+  %.val5464.i117 = load ptr, ptr %308, align 8
+  %309 = getelementptr i8, ptr %.val5464.i117, i64 4
+  %.val54.val65.i118 = load i32, ptr %309, align 4
+  %310 = icmp sgt i32 %.val54.val65.i118, 0
+  br i1 %310, label %.lr.ph70.i119, label %Io_NtkEdgelistWritePos.exit
 
 .lr.ph.i106:                                      ; preds = %.preheader56.i105, %.lr.ph.i106
   %indvars.iv.i107 = phi i64 [ %indvars.iv.next.i113, %.lr.ph.i106 ], [ 0, %.preheader56.i105 ]
   %.val4863.i = phi ptr [ %.val48.i114, %.lr.ph.i106 ], [ %.val4858.i, %.preheader56.i105 ]
-  %313 = getelementptr i8, ptr %.val4863.i, i64 8
-  %.val49.val.i108 = load ptr, ptr %313, align 8
-  %314 = getelementptr inbounds ptr, ptr %.val49.val.i108, i64 %indvars.iv.i107
-  %315 = load ptr, ptr %314, align 8
-  %.val52.i109 = load ptr, ptr %315, align 8
-  %316 = getelementptr i8, ptr %315, i64 32
-  %.val53.i110 = load ptr, ptr %316, align 8
-  %317 = getelementptr i8, ptr %.val52.i109, i64 32
-  %.val52.val.i = load ptr, ptr %317, align 8
+  %311 = getelementptr i8, ptr %.val4863.i, i64 8
+  %.val49.val.i108 = load ptr, ptr %311, align 8
+  %312 = getelementptr inbounds ptr, ptr %.val49.val.i108, i64 %indvars.iv.i107
+  %313 = load ptr, ptr %312, align 8
+  %.val52.i109 = load ptr, ptr %313, align 8
+  %314 = getelementptr i8, ptr %313, i64 32
+  %.val53.i110 = load ptr, ptr %314, align 8
+  %315 = getelementptr i8, ptr %.val52.i109, i64 32
+  %.val52.val.i = load ptr, ptr %315, align 8
   %.val53.val.i = load i32, ptr %.val53.i110, align 4
-  %318 = getelementptr i8, ptr %.val52.val.i, i64 8
-  %.val52.val.val.i = load ptr, ptr %318, align 8
-  %319 = sext i32 %.val53.val.i to i64
-  %320 = getelementptr inbounds ptr, ptr %.val52.val.val.i, i64 %319
-  %321 = load ptr, ptr %320, align 8
-  %322 = tail call ptr @Abc_ObjName(ptr noundef %321) #11
-  %323 = getelementptr i8, ptr %321, i64 16
-  %.val47.i111 = load i32, ptr %323, align 8
-  %324 = getelementptr i8, ptr %315, i64 16
-  %.val46.i112 = load i32, ptr %324, align 8
-  %325 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.70, i32 noundef %.val47.i111, i32 noundef %.val46.i112) #11
+  %316 = getelementptr i8, ptr %.val52.val.i, i64 8
+  %.val52.val.val.i = load ptr, ptr %316, align 8
+  %317 = sext i32 %.val53.val.i to i64
+  %318 = getelementptr inbounds ptr, ptr %.val52.val.val.i, i64 %317
+  %319 = load ptr, ptr %318, align 8
+  %320 = tail call ptr @Abc_ObjName(ptr noundef %319) #11
+  %321 = getelementptr i8, ptr %319, i64 16
+  %.val47.i111 = load i32, ptr %321, align 8
+  %322 = getelementptr i8, ptr %313, i64 16
+  %.val46.i112 = load i32, ptr %322, align 8
+  %323 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.70, i32 noundef %.val47.i111, i32 noundef %.val46.i112) #11
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i107, 1
-  %.val48.i114 = load ptr, ptr %307, align 8
-  %326 = getelementptr i8, ptr %.val48.i114, i64 4
-  %.val48.val.i115 = load i32, ptr %326, align 4
-  %327 = sext i32 %.val48.val.i115 to i64
-  %328 = icmp slt i64 %indvars.iv.next.i113, %327
-  br i1 %328, label %.lr.ph.i106, label %Io_NtkEdgelistWritePos.exit, !llvm.loop !15
+  %.val48.i114 = load ptr, ptr %305, align 8
+  %324 = getelementptr i8, ptr %.val48.i114, i64 4
+  %.val48.val.i115 = load i32, ptr %324, align 4
+  %325 = sext i32 %.val48.val.i115 to i64
+  %326 = icmp slt i64 %indvars.iv.next.i113, %325
+  br i1 %326, label %.lr.ph.i106, label %Io_NtkEdgelistWritePos.exit, !llvm.loop !15
 
 .lr.ph70.i119:                                    ; preds = %.preheader.i116, %.lr.ph70.i119
   %indvars.iv73.i120 = phi i64 [ %indvars.iv.next74.i126, %.lr.ph70.i119 ], [ 0, %.preheader.i116 ]
   %.val5469.i121 = phi ptr [ %.val54.i127, %.lr.ph70.i119 ], [ %.val5464.i117, %.preheader.i116 ]
-  %329 = getelementptr i8, ptr %.val5469.i121, i64 8
-  %.val55.val.i122 = load ptr, ptr %329, align 8
-  %330 = getelementptr inbounds ptr, ptr %.val55.val.i122, i64 %indvars.iv73.i120
-  %331 = load ptr, ptr %330, align 8
-  %.val50.i123 = load ptr, ptr %331, align 8
-  %332 = getelementptr i8, ptr %331, i64 32
-  %.val51.i124 = load ptr, ptr %332, align 8
-  %333 = getelementptr i8, ptr %.val50.i123, i64 32
-  %.val50.val.i = load ptr, ptr %333, align 8
+  %327 = getelementptr i8, ptr %.val5469.i121, i64 8
+  %.val55.val.i122 = load ptr, ptr %327, align 8
+  %328 = getelementptr inbounds ptr, ptr %.val55.val.i122, i64 %indvars.iv73.i120
+  %329 = load ptr, ptr %328, align 8
+  %.val50.i123 = load ptr, ptr %329, align 8
+  %330 = getelementptr i8, ptr %329, i64 32
+  %.val51.i124 = load ptr, ptr %330, align 8
+  %331 = getelementptr i8, ptr %.val50.i123, i64 32
+  %.val50.val.i = load ptr, ptr %331, align 8
   %.val51.val.i = load i32, ptr %.val51.i124, align 4
-  %334 = getelementptr i8, ptr %.val50.val.i, i64 8
-  %.val50.val.val.i = load ptr, ptr %334, align 8
-  %335 = sext i32 %.val51.val.i to i64
-  %336 = getelementptr inbounds ptr, ptr %.val50.val.val.i, i64 %335
-  %337 = load ptr, ptr %336, align 8
-  %338 = tail call ptr @Abc_ObjName(ptr noundef %337) #11
-  %339 = getelementptr i8, ptr %337, i64 16
-  %.val45.i = load i32, ptr %339, align 8
-  %340 = getelementptr i8, ptr %331, i64 16
-  %.val.i125 = load i32, ptr %340, align 8
-  %341 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.70, i32 noundef %.val45.i, i32 noundef %.val.i125) #11
+  %332 = getelementptr i8, ptr %.val50.val.i, i64 8
+  %.val50.val.val.i = load ptr, ptr %332, align 8
+  %333 = sext i32 %.val51.val.i to i64
+  %334 = getelementptr inbounds ptr, ptr %.val50.val.val.i, i64 %333
+  %335 = load ptr, ptr %334, align 8
+  %336 = tail call ptr @Abc_ObjName(ptr noundef %335) #11
+  %337 = getelementptr i8, ptr %335, i64 16
+  %.val45.i = load i32, ptr %337, align 8
+  %338 = getelementptr i8, ptr %329, i64 16
+  %.val.i125 = load i32, ptr %338, align 8
+  %339 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.70, i32 noundef %.val45.i, i32 noundef %.val.i125) #11
   %indvars.iv.next74.i126 = add nuw nsw i64 %indvars.iv73.i120, 1
-  %.val54.i127 = load ptr, ptr %310, align 8
-  %342 = getelementptr i8, ptr %.val54.i127, i64 4
-  %.val54.val.i128 = load i32, ptr %342, align 4
-  %343 = sext i32 %.val54.val.i128 to i64
-  %344 = icmp slt i64 %indvars.iv.next74.i126, %343
-  br i1 %344, label %.lr.ph70.i119, label %Io_NtkEdgelistWritePos.exit, !llvm.loop !16
+  %.val54.i127 = load ptr, ptr %308, align 8
+  %340 = getelementptr i8, ptr %.val54.i127, i64 4
+  %.val54.val.i128 = load i32, ptr %340, align 4
+  %341 = sext i32 %.val54.val.i128 to i64
+  %342 = icmp slt i64 %indvars.iv.next74.i126, %341
+  br i1 %342, label %.lr.ph70.i119, label %Io_NtkEdgelistWritePos.exit, !llvm.loop !16
 
 Io_NtkEdgelistWritePos.exit:                      ; preds = %.lr.ph.i106, %.lr.ph70.i119, %.preheader56.i105, %.preheader.i116
   tail call void @Extra_ProgressBarStop(ptr noundef %156) #11
-  br label %345
+  br label %343
 
-345:                                              ; preds = %49, %50, %Io_NtkEdgelistWritePos.exit
+343:                                              ; preds = %49, %50, %Io_NtkEdgelistWritePos.exit
   ret void
 }
 
@@ -1534,7 +1530,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = getelementptr inbounds [10 x i32], ptr %25, i64 0, i64 %indvars.iv
-  %51 = trunc i64 %indvars.iv to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %51, ptr %50, align 4
   %52 = getelementptr inbounds [10 x i32], ptr %10, i64 0, i64 %indvars.iv
   store i32 %51, ptr %52, align 4
@@ -2083,7 +2079,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
 
 94:                                               ; preds = %.preheader206, %94
   %indvars.iv251 = phi i64 [ 0, %.preheader206 ], [ %indvars.iv.next252, %94 ]
-  %95 = trunc i64 %indvars.iv251 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv251 to i32
   %96 = and i32 %92, %95
   %.not154 = icmp ne i32 %96, 0
   %97 = sext i1 %.not154 to i64
@@ -2112,7 +2108,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
 
 select.unfold.i:                                  ; preds = %108, %.loopexit
   %indvars.iv.i = phi i64 [ %105, %.loopexit ], [ %109, %108 ]
-  %106 = trunc i64 %indvars.iv.i to i32
+  %106 = trunc nuw i64 %indvars.iv.i to i32
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %108, label %Kit_TruthIsConst0.exit
 
@@ -2125,7 +2121,7 @@ select.unfold.i:                                  ; preds = %108, %.loopexit
 
 select.unfold.i191:                               ; preds = %108, %114
   %indvars.iv.i192 = phi i64 [ %115, %114 ], [ %105, %108 ]
-  %112 = trunc i64 %indvars.iv.i192 to i32
+  %112 = trunc nuw i64 %indvars.iv.i192 to i32
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %Kit_TruthIsConst0.exit
 
@@ -2153,7 +2149,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i, %s
 
 select.unfold.i196:                               ; preds = %127, %Kit_TruthIsConst0.exit
   %indvars.iv.i197 = phi i64 [ %105, %Kit_TruthIsConst0.exit ], [ %128, %127 ]
-  %125 = trunc i64 %indvars.iv.i197 to i32
+  %125 = trunc nuw i64 %indvars.iv.i197 to i32
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %127, label %Kit_TruthIsConst1.exit200
 
@@ -2604,7 +2600,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
 
 77:                                               ; preds = %.preheader174, %77
   %indvars.iv216 = phi i64 [ 0, %.preheader174 ], [ %indvars.iv.next217, %77 ]
-  %78 = trunc i64 %indvars.iv216 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv216 to i32
   %79 = and i32 %75, %78
   %.not144 = icmp ne i32 %79, 0
   %80 = sext i1 %.not144 to i64
@@ -2633,7 +2629,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
 
 select.unfold.i:                                  ; preds = %91, %.loopexit
   %indvars.iv.i = phi i64 [ %88, %.loopexit ], [ %92, %91 ]
-  %89 = trunc i64 %indvars.iv.i to i32
+  %89 = trunc nuw i64 %indvars.iv.i to i32
   %90 = icmp sgt i32 %89, 0
   br i1 %90, label %91, label %select.unfold.i164.preheader
 
@@ -2646,7 +2642,7 @@ select.unfold.i:                                  ; preds = %91, %.loopexit
 
 select.unfold.i159:                               ; preds = %91, %97
   %indvars.iv.i160 = phi i64 [ %98, %97 ], [ %88, %91 ]
-  %95 = trunc i64 %indvars.iv.i160 to i32
+  %95 = trunc nuw i64 %indvars.iv.i160 to i32
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %97, label %select.unfold.i164.preheader
 
@@ -2662,7 +2658,7 @@ select.unfold.i164.preheader:                     ; preds = %select.unfold.i, %s
 
 select.unfold.i164:                               ; preds = %select.unfold.i164.preheader, %103
   %indvars.iv.i165 = phi i64 [ %104, %103 ], [ %88, %select.unfold.i164.preheader ]
-  %101 = trunc i64 %indvars.iv.i165 to i32
+  %101 = trunc nuw i64 %indvars.iv.i165 to i32
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %103, label %Kit_TruthIsConst1.exit168
 

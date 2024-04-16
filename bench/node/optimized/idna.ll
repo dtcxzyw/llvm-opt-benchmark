@@ -580,7 +580,7 @@ if.end30:                                         ; preds = %uv__utf8_decode1.ex
   br i1 %cmp31, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end30
-  %conv = trunc i32 %retval.0.i104 to i8
+  %conv = trunc nuw nsw i32 %retval.0.i104 to i8
   %incdec.ptr33 = getelementptr inbounds i8, ptr %16, i64 1
   store ptr %incdec.ptr33, ptr %d, align 8
   store i8 %conv, ptr %16, align 1
@@ -939,7 +939,7 @@ for.body:                                         ; preds = %if.end124, %for.bod
 for.end138:                                       ; preds = %for.body, %if.end124
   %bias.2.lcssa = phi i32 [ 0, %if.end124 ], [ %add137, %for.body ]
   %delta.4.lcssa = phi i32 [ %add131, %if.end124 ], [ %div135, %for.body ]
-  %37 = trunc i32 %delta.4.lcssa to i16
+  %37 = trunc nuw i32 %delta.4.lcssa to i16
   %div141.lhs.trunc = mul nuw i16 %37, 36
   %div141.rhs.trunc = add nuw nsw i16 %37, 38
   %div141287 = udiv i16 %div141.lhs.trunc, %div141.rhs.trunc
@@ -1021,8 +1021,8 @@ if.end38.i:                                       ; preds = %if.end28.i
   %and41.i = and i32 %conv40.i, 192
   %cmp42.not.i = icmp eq i32 %and41.i, 128
   %cmp51.i = icmp ult i8 %0, -11
-  %or.cond = and i1 %cmp51.i, %cmp42.not.i
-  br i1 %or.cond, label %if.then53.i, label %return
+  %or.cond.i = and i1 %cmp51.i, %cmp42.not.i
+  br i1 %or.cond.i, label %if.then53.i, label %return
 
 if.then53.i:                                      ; preds = %if.end38.i
   %shl46.i = shl nuw nsw i32 %or32.i, 6
@@ -1107,8 +1107,8 @@ if.end38.i:                                       ; preds = %if.end28.i
   %and41.i = and i32 %conv40.i, 192
   %cmp42.not.i = icmp eq i32 %and41.i, 128
   %cmp51.i = icmp ult i8 %0, -11
-  %or.cond = and i1 %cmp51.i, %cmp42.not.i
-  br i1 %or.cond, label %if.then53.i, label %if.else
+  %or.cond.i = and i1 %cmp51.i, %cmp42.not.i
+  br i1 %or.cond.i, label %if.then53.i, label %if.else
 
 if.then53.i:                                      ; preds = %if.end38.i
   %shl46.i = shl nuw nsw i32 %or32.i, 6
@@ -1137,8 +1137,8 @@ if.then:                                          ; preds = %uv__wtf8_decode1.ex
   br label %do.cond
 
 if.else:                                          ; preds = %if.end28.i, %if.then53.i, %if.end38.i, %if.end21.i, %if.end7.i, %if.end.i, %do.body, %if.then19.i, %uv__wtf8_decode1.exit
-  %retval.0.i13 = phi i32 [ %and54.i, %uv__wtf8_decode1.exit ], [ -1, %if.end38.i ], [ -1, %if.end21.i ], [ -1, %if.end7.i ], [ -1, %if.end.i ], [ %conv.i, %do.body ], [ %and20.i, %if.then19.i ], [ -1, %if.then53.i ], [ %or32.i, %if.end28.i ]
-  %source_ptr.addr.112 = phi ptr [ %incdec.ptr39.i, %uv__wtf8_decode1.exit ], [ %incdec.ptr39.i, %if.end38.i ], [ %incdec.ptr22.i, %if.end21.i ], [ %incdec.ptr.i, %if.end7.i ], [ %source_ptr.addr.0, %if.end.i ], [ %source_ptr.addr.0, %do.body ], [ %incdec.ptr.i, %if.then19.i ], [ %incdec.ptr39.i, %if.then53.i ], [ %incdec.ptr22.i, %if.end28.i ]
+  %retval.0.i13 = phi i32 [ %and54.i, %uv__wtf8_decode1.exit ], [ -1, %if.then53.i ], [ -1, %if.end38.i ], [ -1, %if.end21.i ], [ -1, %if.end7.i ], [ -1, %if.end.i ], [ %conv.i, %do.body ], [ %and20.i, %if.then19.i ], [ %or32.i, %if.end28.i ]
+  %source_ptr.addr.112 = phi ptr [ %incdec.ptr39.i, %uv__wtf8_decode1.exit ], [ %incdec.ptr39.i, %if.then53.i ], [ %incdec.ptr39.i, %if.end38.i ], [ %incdec.ptr22.i, %if.end21.i ], [ %incdec.ptr.i, %if.end7.i ], [ %source_ptr.addr.0, %if.end.i ], [ %source_ptr.addr.0, %do.body ], [ %incdec.ptr.i, %if.then19.i ], [ %incdec.ptr22.i, %if.end28.i ]
   %conv6 = trunc i32 %retval.0.i13 to i16
   %incdec.ptr7 = getelementptr inbounds i8, ptr %w_target.addr.0, i64 2
   store i16 %conv6, ptr %w_target.addr.0, align 2
@@ -1185,7 +1185,7 @@ if.then16.i:                                      ; preds = %if.then.i
   %conv9.i = zext i16 %2 to i32
   %sub.i = shl nuw nsw i32 %conv.i, 10
   %sub19.i = add nsw i32 %sub.i, -56613888
-  %add20.i = add nsw i32 %sub19.i, %conv9.i
+  %add20.i = add nuw nsw i32 %sub19.i, %conv9.i
   br label %uv__get_surrogate_value.exit
 
 uv__get_surrogate_value.exit:                     ; preds = %while.body, %if.then.i, %if.then16.i
@@ -1281,7 +1281,7 @@ if.then16.i.i:                                    ; preds = %if.then.i.i
   %conv9.i.i = zext i16 %3 to i32
   %sub.i.i = shl nuw nsw i32 %conv.i.i, 10
   %sub19.i.i = add nsw i32 %sub.i.i, -56613888
-  %add20.i.i = add nsw i32 %sub19.i.i, %conv9.i.i
+  %add20.i.i = add nuw nsw i32 %sub19.i.i, %conv9.i.i
   br label %uv__get_surrogate_value.exit.i
 
 uv__get_surrogate_value.exit.i:                   ; preds = %if.then16.i.i, %if.then.i.i, %while.body.i
@@ -1398,7 +1398,7 @@ if.then16.i:                                      ; preds = %if.then.i
   %conv9.i = zext i16 %9 to i32
   %sub.i = shl nuw nsw i32 %conv.i, 10
   %sub19.i = add nsw i32 %sub.i, -56613888
-  %add20.i = add nsw i32 %sub19.i, %conv9.i
+  %add20.i = add nuw nsw i32 %sub19.i, %conv9.i
   br label %uv__get_surrogate_value.exit
 
 uv__get_surrogate_value.exit:                     ; preds = %while.body, %if.then.i, %if.then16.i
@@ -1413,7 +1413,7 @@ if.end21:                                         ; preds = %uv__get_surrogate_v
   br i1 %cmp22, label %if.then23, label %if.else24
 
 if.then23:                                        ; preds = %if.end21
-  %conv = trunc i32 %retval.0.i to i8
+  %conv = trunc nuw i32 %retval.0.i to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %target.1142, i64 1
   store i8 %conv, ptr %target.1142, align 1
   br label %if.end100
@@ -1424,7 +1424,7 @@ if.else24:                                        ; preds = %if.end21
 
 if.then27:                                        ; preds = %if.else24
   %shr = lshr i32 %retval.0.i, 6
-  %11 = trunc i32 %shr to i8
+  %11 = trunc nuw i32 %shr to i8
   %conv28 = or disjoint i8 %11, -64
   %incdec.ptr29 = getelementptr inbounds i8, ptr %target.1142, i64 1
   store i8 %conv28, ptr %target.1142, align 1
@@ -1447,7 +1447,7 @@ if.else37:                                        ; preds = %if.else24
 
 if.then40:                                        ; preds = %if.else37
   %shr41 = lshr i32 %retval.0.i, 12
-  %14 = trunc i32 %shr41 to i8
+  %14 = trunc nuw i32 %shr41 to i8
   %conv43 = or disjoint i8 %14, -32
   store i8 %conv43, ptr %target.1142, align 1
   br i1 %cmp45, label %while.end.thread, label %if.end48
@@ -1472,7 +1472,7 @@ if.end57:                                         ; preds = %if.end48
 
 if.else62:                                        ; preds = %if.else37
   %shr63 = lshr i32 %retval.0.i, 18
-  %19 = trunc i32 %shr63 to i8
+  %19 = trunc nuw nsw i32 %shr63 to i8
   %conv65 = or disjoint i8 %19, -16
   store i8 %conv65, ptr %target.1142, align 1
   br i1 %cmp45, label %while.end.thread, label %if.end70
@@ -1596,7 +1596,7 @@ if.then16.i.i127:                                 ; preds = %if.then.i.i124
   %conv9.i.i128 = zext i16 %32 to i32
   %sub.i.i129 = shl nuw nsw i32 %conv.i.i87, 10
   %sub19.i.i130 = add nsw i32 %sub.i.i129, -56613888
-  %add20.i.i131 = add nsw i32 %sub19.i.i130, %conv9.i.i128
+  %add20.i.i131 = add nuw nsw i32 %sub19.i.i130, %conv9.i.i128
   br label %uv__get_surrogate_value.exit.i91
 
 uv__get_surrogate_value.exit.i91:                 ; preds = %if.then16.i.i127, %if.then.i.i124, %while.body.i83

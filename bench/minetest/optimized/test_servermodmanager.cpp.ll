@@ -7028,7 +7028,7 @@ sw.bb38:                                          ; preds = %if.end36, %for.end.
   %_M_string_length.i.i.i104 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 8
   %35 = load i64, ptr %_M_string_length.i.i.i104, align 8, !tbaa !13
   %cmp.i.i106 = icmp eq i64 %35, %34
-  br i1 %cmp.i.i106, label %land.rhs.i.i107, label %if.end43
+  br i1 %cmp.i.i106, label %land.rhs.i.i107, label %cleanup
 
 land.rhs.i.i107:                                  ; preds = %sw.bb38
   %cmp.i.i.i108 = icmp eq i64 %34, 0
@@ -7039,9 +7039,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   %37 = load ptr, ptr %__first.sroa.0.2, align 8, !tbaa !7
   %bcmp.i.i110 = tail call i32 @bcmp(ptr %37, ptr %36, i64 %34)
   %38 = icmp eq i32 %bcmp.i.i110, 0
-  br i1 %38, label %cleanup, label %if.end43
-
-if.end43:                                         ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit111, %sw.bb38
+  %spec.select = select i1 %38, ptr %__first.sroa.0.2, ptr %__last.coerce
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit40:               ; preds = %if.end10.us
@@ -7060,8 +7058,8 @@ cleanup.loopexit26.split.loop.exit34:             ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i79.le = getelementptr inbounds i8, ptr %__first.sroa.0.0137, i64 32
   br label %cleanup
 
-cleanup:                                          ; preds = %land.rhs.i.i, %for.body.us, %cleanup.loopexit26.split.loop.exit, %cleanup.loopexit26.split.loop.exit32, %cleanup.loopexit26.split.loop.exit34, %cleanup.loopexit.split.loop.exit40, %land.rhs.i.i76.us, %land.rhs.i.i58.us, %if.end43, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit111, %land.rhs.i.i107, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit102, %land.rhs.i.i98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit93, %land.rhs.i.i89, %for.end
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit93 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit102 ], [ %__first.sroa.0.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit111 ], [ %__last.coerce, %if.end43 ], [ %__last.coerce, %for.end ], [ %__first.sroa.0.0.lcssa, %land.rhs.i.i89 ], [ %__first.sroa.0.1, %land.rhs.i.i98 ], [ %__first.sroa.0.2, %land.rhs.i.i107 ], [ %incdec.ptr.i72.us, %land.rhs.i.i76.us ], [ %incdec.ptr.i.us, %land.rhs.i.i58.us ], [ %incdec.ptr.i63.us.le, %cleanup.loopexit.split.loop.exit40 ], [ %incdec.ptr.i721315.le, %cleanup.loopexit26.split.loop.exit ], [ %incdec.ptr.i63.le, %cleanup.loopexit26.split.loop.exit32 ], [ %incdec.ptr.i79.le, %cleanup.loopexit26.split.loop.exit34 ], [ %__first.sroa.0.0137.us, %for.body.us ], [ %__first.sroa.0.0137, %land.rhs.i.i ]
+cleanup:                                          ; preds = %land.rhs.i.i, %for.body.us, %cleanup.loopexit26.split.loop.exit, %cleanup.loopexit26.split.loop.exit32, %cleanup.loopexit26.split.loop.exit34, %cleanup.loopexit.split.loop.exit40, %land.rhs.i.i76.us, %land.rhs.i.i58.us, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit111, %sw.bb38, %land.rhs.i.i107, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit102, %land.rhs.i.i98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit93, %land.rhs.i.i89, %for.end
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit93 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit102 ], [ %__last.coerce, %for.end ], [ %__first.sroa.0.0.lcssa, %land.rhs.i.i89 ], [ %__first.sroa.0.1, %land.rhs.i.i98 ], [ %__first.sroa.0.2, %land.rhs.i.i107 ], [ %__last.coerce, %sw.bb38 ], [ %spec.select, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit111 ], [ %incdec.ptr.i72.us, %land.rhs.i.i76.us ], [ %incdec.ptr.i.us, %land.rhs.i.i58.us ], [ %incdec.ptr.i63.us.le, %cleanup.loopexit.split.loop.exit40 ], [ %incdec.ptr.i721315.le, %cleanup.loopexit26.split.loop.exit ], [ %incdec.ptr.i63.le, %cleanup.loopexit26.split.loop.exit32 ], [ %incdec.ptr.i79.le, %cleanup.loopexit26.split.loop.exit34 ], [ %__first.sroa.0.0137.us, %for.body.us ], [ %__first.sroa.0.0137, %land.rhs.i.i ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated
 }
 

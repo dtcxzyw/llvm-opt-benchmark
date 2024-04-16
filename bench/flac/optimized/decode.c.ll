@@ -1474,9 +1474,9 @@ if.else273:                                       ; preds = %if.end256
   %add282 = add i32 %cond, %1
   %cmp283 = icmp eq i32 %add282, 16
   %or.cond355 = select i1 %or.cond1.not.not, i1 %cmp283, i1 false
-  br i1 %or.cond355, label %if.end295, label %if.else310
+  br i1 %or.cond355, label %if.else291, label %if.else310
 
-if.end295:                                        ; preds = %if.else273
+if.else291:                                       ; preds = %if.else273
   %65 = load ptr, ptr %buffer, align 8
   %mul294 = shl nuw nsw i64 %conv212, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 @write_callback.ubuf, ptr align 4 %65, i64 %mul294, i1 false)
@@ -1485,9 +1485,9 @@ if.end295:                                        ; preds = %if.else273
   %wide.trip.count634 = zext i32 %umax633 to i64
   br label %for.body299
 
-for.body299:                                      ; preds = %if.end295, %for.body299
-  %indvars.iv630 = phi i64 [ 0, %if.end295 ], [ %indvars.iv.next631, %for.body299 ]
-  %buf1_.0446 = phi ptr [ getelementptr inbounds (i16, ptr @write_callback.ubuf, i64 1), %if.end295 ], [ %add.ptr306, %for.body299 ]
+for.body299:                                      ; preds = %if.else291, %for.body299
+  %indvars.iv630 = phi i64 [ 0, %if.else291 ], [ %indvars.iv.next631, %for.body299 ]
+  %buf1_.0446 = phi ptr [ getelementptr inbounds (i16, ptr @write_callback.ubuf, i64 1), %if.else291 ], [ %add.ptr306, %for.body299 ]
   %66 = load ptr, ptr %arrayidx300, align 8
   %arrayidx302 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv630
   %67 = load i32, ptr %arrayidx302, align 4
@@ -3370,7 +3370,7 @@ if.end6.i:                                        ; preds = %56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %val.addr.i.i, i64 3
   %61 = lshr i32 %sub.i, 24
-  %62 = trunc i32 %61 to i8
+  %62 = trunc nuw i32 %61 to i8
   %63 = trunc i32 %sub.i to i8
   store i8 %63, ptr %arrayidx.i.i, align 1
   store i8 %62, ptr %val.addr.i.i, align 4
@@ -3477,7 +3477,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.addr.i25.i.i)
   %arrayidx.i26.i.i = getelementptr inbounds i8, ptr %val.addr.i25.i.i, i64 1
   %82 = lshr i16 %conv.i32.i, 8
-  %83 = trunc i16 %82 to i8
+  %83 = trunc nuw i16 %82 to i8
   %84 = trunc i16 %conv.i32.i to i8
   store i8 %84, ptr %arrayidx.i26.i.i, align 1
   store i8 %83, ptr %val.addr.i25.i.i, align 2
@@ -3491,7 +3491,7 @@ if.end17.i.i:                                     ; preds = %for.end.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i30.i.i)
   %arrayidx.i31.i.i = getelementptr inbounds i8, ptr %val.addr.i30.i.i, i64 3
   %85 = lshr i32 %shl.i.i, 24
-  %86 = trunc i32 %85 to i8
+  %86 = trunc nuw i32 %85 to i8
   %87 = trunc i32 %shl.i.i to i8
   store i8 %87, ptr %arrayidx.i31.i.i, align 1
   store i8 %86, ptr %val.addr.i30.i.i, align 4
@@ -3703,14 +3703,13 @@ if.end23:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.addr.i34)
   store i16 %conv27, ptr %val.addr.i34, align 2
   %call.i35 = call i64 @fwrite(ptr noundef nonnull %val.addr.i34, i64 noundef 1, i64 noundef 2, ptr noundef %f)
-  %cmp.i36.not = icmp eq i64 %call.i35, 2
+  %cmp.i36 = icmp ne i64 %call.i35, 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %val.addr.i34)
-  br i1 %cmp.i36.not, label %if.end31, label %return
+  %brmerge = or i1 %tobool.not, %cmp.i36
+  %not.cmp.i36 = xor i1 %cmp.i36, true
+  br i1 %brmerge, label %return, label %if.then33
 
-if.end31:                                         ; preds = %if.end23
-  br i1 %tobool.not, label %if.end51, label %if.then33
-
-if.then33:                                        ; preds = %if.end31
+if.then33:                                        ; preds = %if.end23
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.addr.i38)
   store i16 22, ptr %val.addr.i38, align 2
   %call.i39 = call i64 @fwrite(ptr noundef nonnull %val.addr.i38, i64 noundef 1, i64 noundef 2, ptr noundef %f)
@@ -3738,13 +3737,11 @@ if.end42:                                         ; preds = %if.end37
 if.end46:                                         ; preds = %if.end42
   %call47 = tail call i64 @fwrite(ptr noundef nonnull @.str.93, i64 noundef 1, i64 noundef 16, ptr noundef %f)
   %cmp.not = icmp eq i64 %call47, 16
-  br i1 %cmp.not, label %if.end51, label %return
-
-if.end51:                                         ; preds = %if.end46, %if.end31
   br label %return
 
-return:                                           ; preds = %if.end46, %if.end42, %if.end37, %if.then33, %if.end23, %if.end15, %if.end10, %if.end6, %if.end, %entry, %if.end51
-  %retval.0 = phi i32 [ 1, %if.end51 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end6 ], [ 0, %if.end10 ], [ 0, %if.end15 ], [ 0, %if.end23 ], [ 0, %if.then33 ], [ 0, %if.end37 ], [ 0, %if.end42 ], [ 0, %if.end46 ]
+return:                                           ; preds = %if.end46, %if.end23, %if.end42, %if.end37, %if.then33, %if.end15, %if.end10, %if.end6, %if.end, %entry
+  %retval.0.shrunk = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ false, %if.end10 ], [ false, %if.end15 ], [ %not.cmp.i36, %if.end23 ], [ false, %if.then33 ], [ false, %if.end37 ], [ false, %if.end42 ], [ %cmp.not, %if.end46 ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 
@@ -3754,7 +3751,7 @@ entry:
   %val.addr = alloca i32, align 4
   %arrayidx = getelementptr inbounds i8, ptr %val.addr, i64 3
   %0 = lshr i32 %val, 24
-  %1 = trunc i32 %0 to i8
+  %1 = trunc nuw i32 %0 to i8
   %2 = trunc i32 %val to i8
   store i8 %2, ptr %arrayidx, align 1
   store i8 %1, ptr %val.addr, align 4

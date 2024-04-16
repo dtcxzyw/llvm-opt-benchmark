@@ -610,13 +610,13 @@ define dso_local noundef zeroext i1 @_ZNK24FunctionInvocationBinary6equalsEi(ptr
   br label %switch.lookup
 
 switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 -11769, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %16
 
 switch.hole_check9:                               ; preds = %33
-  %switch.maskindex11 = trunc i32 %switch.tableidx8 to i16
+  %switch.maskindex11 = trunc nuw i32 %switch.tableidx8 to i16
   %switch.shifted12 = lshr i16 561, %switch.maskindex11
   %switch.lobit13 = trunc i16 %switch.shifted12 to i1
   br i1 %switch.lobit13, label %switch.lookup, label %37
@@ -653,12 +653,12 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK24Functio
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 4
-  br i1 %6, label %38, label %7
+  br i1 %6, label %35, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
-  switch i32 %9, label %38 [
+  switch i32 %9, label %35 [
     i32 0, label %10
     i32 1, label %10
     i32 2, label %10
@@ -667,8 +667,8 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK24Functio
     i32 13, label %10
     i32 14, label %10
     i32 15, label %10
-    i32 17, label %29
-    i32 16, label %29
+    i32 17, label %26
+    i32 16, label %26
   ]
 
 10:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7
@@ -687,31 +687,28 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK24Functio
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(136) ptr %23(ptr noundef nonnull align 8 dereferenceable(24) %20)
   %25 = tail call noundef zeroext i1 @_ZNK4Type9is_signedEv(ptr noundef nonnull align 8 dereferenceable(136) %17)
-  br i1 %25, label %26, label %28
+  br i1 %25, label %.sink.split, label %35
 
-26:                                               ; preds = %10
-  %27 = tail call noundef zeroext i1 @_ZNK4Type9is_signedEv(ptr noundef nonnull align 8 dereferenceable(136) %24)
-  br i1 %27, label %38, label %28
-
-28:                                               ; preds = %26, %10
-  br label %38
-
-29:                                               ; preds = %7, %7
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8
+26:                                               ; preds = %7, %7
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef nonnull align 8 dereferenceable(136) ptr %35(ptr noundef nonnull align 8 dereferenceable(24) %32)
-  %37 = tail call noundef zeroext i1 @_ZNK4Type9is_signedEv(ptr noundef nonnull align 8 dereferenceable(136) %36)
-  %. = select i1 %37, i32 2, i32 7
-  br label %38
+  %33 = tail call noundef nonnull align 8 dereferenceable(136) ptr %32(ptr noundef nonnull align 8 dereferenceable(24) %29)
+  br label %.sink.split
 
-38:                                               ; preds = %7, %29, %26, %1, %28
-  %.sink = phi i32 [ 7, %28 ], [ 10, %1 ], [ 2, %26 ], [ %., %29 ], [ 2, %7 ]
-  %39 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef %.sink)
-  ret ptr %39
+.sink.split:                                      ; preds = %10, %26
+  %.sink6 = phi ptr [ %33, %26 ], [ %24, %10 ]
+  %34 = tail call noundef zeroext i1 @_ZNK4Type9is_signedEv(ptr noundef nonnull align 8 dereferenceable(136) %.sink6)
+  %spec.select = select i1 %34, i32 2, i32 7
+  br label %35
+
+35:                                               ; preds = %.sink.split, %7, %10, %1
+  %.sink = phi i32 [ 10, %1 ], [ 7, %10 ], [ 2, %7 ], [ %spec.select, %.sink.split ]
+  %36 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef %.sink)
+  ret ptr %36
 }
 
 declare noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef) local_unnamed_addr #0
@@ -731,7 +728,7 @@ define dso_local void @_ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10
   resume { ptr, i32 } %5
 
 switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc i32 %1 to i16
+  %switch.maskindex = trunc nuw i32 %1 to i16
   %switch.shifted = lshr i16 -8161, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %8

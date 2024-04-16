@@ -45,20 +45,18 @@ if.end9:                                          ; preds = %if.end6
   %call = tail call fastcc i64 @gz_read(ptr noundef nonnull %file, ptr noundef %buf, i64 noundef %conv)
   %conv10 = trunc i64 %call to i32
   %cmp11 = icmp eq i32 %conv10, 0
-  br i1 %cmp11, label %land.lhs.true13, label %if.end22
+  br i1 %cmp11, label %land.lhs.true13, label %return
 
 land.lhs.true13:                                  ; preds = %if.end9
   %2 = load i32, ptr %err, align 4
-  switch i32 %2, label %return [
-    i32 0, label %if.end22
-    i32 -5, label %if.end22
-  ]
-
-if.end22:                                         ; preds = %land.lhs.true13, %land.lhs.true13, %if.end9
+  %switch.selectcmp.case1 = icmp ne i32 %2, 0
+  %switch.selectcmp.case2 = icmp ne i32 %2, -5
+  %switch.selectcmp.not = and i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  %3 = sext i1 %switch.selectcmp.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true13, %if.end, %lor.lhs.false, %entry, %if.end22, %if.then8
-  %retval.0 = phi i32 [ -1, %if.then8 ], [ %conv10, %if.end22 ], [ -1, %entry ], [ -1, %lor.lhs.false ], [ -1, %if.end ], [ -1, %land.lhs.true13 ]
+return:                                           ; preds = %land.lhs.true13, %if.end9, %if.end, %lor.lhs.false, %entry, %if.then8
+  %retval.0 = phi i32 [ -1, %if.then8 ], [ -1, %entry ], [ -1, %lor.lhs.false ], [ -1, %if.end ], [ %conv10, %if.end9 ], [ %3, %land.lhs.true13 ]
   ret i32 %retval.0
 }
 
@@ -150,7 +148,7 @@ do.body:                                          ; preds = %do.cond, %if.end6
   %len.addr.0 = phi i64 [ %len, %if.end6 ], [ %len.addr.1, %do.cond ]
   %got.0 = phi i64 [ 0, %if.end6 ], [ %got.1, %do.cond ]
   %spec.select53 = tail call i64 @llvm.umin.i64(i64 %len.addr.0, i64 4294967295)
-  %spec.select = trunc i64 %spec.select53 to i32
+  %spec.select = trunc nuw i64 %spec.select53 to i32
   %7 = load i32, ptr %state, align 8
   %tobool12.not = icmp eq i32 %7, 0
   br i1 %tobool12.not, label %if.else, label %if.then13

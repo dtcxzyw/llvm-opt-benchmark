@@ -573,48 +573,37 @@ define internal noundef i32 @ns2501_mode_valid(ptr nocapture readnone %0, ptr no
   %14 = zext i16 %13 to i32
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %5, i32 noundef %8, i32 noundef %11, i32 noundef %14) #7
   %15 = load i16, ptr %3, align 4
-  switch i16 %15, label %34 [
+  switch i16 %15, label %27 [
     i16 640, label %16
-    i16 800, label %22
-    i16 1024, label %28
+    i16 800, label %19
+    i16 1024, label %22
   ]
 
 16:                                               ; preds = %2
   %17 = load i16, ptr %9, align 2
   %18 = icmp eq i16 %17, 480
-  br i1 %18, label %19, label %34
+  br i1 %18, label %.sink.split, label %27
 
-19:                                               ; preds = %16
-  %20 = load i32, ptr %1, align 8
-  %21 = icmp eq i32 %20, 25175
-  br i1 %21, label %35, label %34
+19:                                               ; preds = %2
+  %20 = load i16, ptr %9, align 2
+  %21 = icmp eq i16 %20, 600
+  br i1 %21, label %.sink.split, label %27
 
 22:                                               ; preds = %2
   %23 = load i16, ptr %9, align 2
-  %24 = icmp eq i16 %23, 600
-  br i1 %24, label %25, label %34
+  %24 = icmp eq i16 %23, 768
+  br i1 %24, label %.sink.split, label %27
 
-25:                                               ; preds = %22
-  %26 = load i32, ptr %1, align 8
-  %27 = icmp eq i32 %26, 40000
-  br i1 %27, label %35, label %34
+.sink.split:                                      ; preds = %22, %19, %16
+  %.sink4 = phi i32 [ 25175, %16 ], [ 40000, %19 ], [ 65000, %22 ]
+  %25 = load i32, ptr %1, align 8
+  %26 = icmp eq i32 %25, %.sink4
+  %spec.select2 = select i1 %26, i32 0, i32 33
+  br label %27
 
-28:                                               ; preds = %2
-  %29 = load i16, ptr %9, align 2
-  %30 = icmp eq i16 %29, 768
-  br i1 %30, label %31, label %34
-
-31:                                               ; preds = %28
-  %32 = load i32, ptr %1, align 8
-  %33 = icmp eq i32 %32, 65000
-  br i1 %33, label %35, label %34
-
-34:                                               ; preds = %22, %25, %16, %19, %31, %28, %2
-  br label %35
-
-35:                                               ; preds = %34, %31, %25, %19
-  %36 = phi i32 [ 33, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %19 ]
-  ret i32 %36
+27:                                               ; preds = %.sink.split, %19, %16, %2, %22
+  %28 = phi i32 [ 33, %22 ], [ 33, %2 ], [ 33, %16 ], [ 33, %19 ], [ %spec.select2, %.sink.split ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -968,7 +957,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %56) #7
   %244 = lshr i16 %226, 8
-  %245 = trunc i16 %244 to i8
+  %245 = trunc nuw i16 %244 to i8
   %246 = load ptr, ptr %66, align 8
   %247 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %54) #7
@@ -1039,7 +1028,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %52) #7
   %281 = lshr i16 %263, 8
-  %282 = trunc i16 %281 to i8
+  %282 = trunc nuw i16 %281 to i8
   %283 = load ptr, ptr %66, align 8
   %284 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %50) #7
@@ -1110,7 +1099,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %48) #7
   %318 = lshr i16 %300, 8
-  %319 = trunc i16 %318 to i8
+  %319 = trunc nuw i16 %318 to i8
   %320 = load ptr, ptr %66, align 8
   %321 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %46) #7
@@ -1181,7 +1170,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %44) #7
   %355 = lshr i16 %337, 8
-  %356 = trunc i16 %355 to i8
+  %356 = trunc nuw i16 %355 to i8
   %357 = load ptr, ptr %66, align 8
   %358 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %42) #7
@@ -1252,7 +1241,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %40) #7
   %392 = lshr i16 %374, 8
-  %393 = trunc i16 %392 to i8
+  %393 = trunc nuw i16 %392 to i8
   %394 = load ptr, ptr %66, align 8
   %395 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %38) #7
@@ -1323,7 +1312,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %36) #7
   %429 = lshr i16 %411, 8
-  %430 = trunc i16 %429 to i8
+  %430 = trunc nuw i16 %429 to i8
   %431 = load ptr, ptr %66, align 8
   %432 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %34) #7
@@ -1394,7 +1383,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %32) #7
   %466 = lshr i16 %448, 8
-  %467 = trunc i16 %466 to i8
+  %467 = trunc nuw i16 %466 to i8
   %468 = load ptr, ptr %66, align 8
   %469 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %30) #7
@@ -1465,7 +1454,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %28) #7
   %503 = lshr i16 %485, 8
-  %504 = trunc i16 %503 to i8
+  %504 = trunc nuw i16 %503 to i8
   %505 = load ptr, ptr %66, align 8
   %506 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %26) #7
@@ -1536,7 +1525,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #7
   %540 = lshr i16 %522, 8
-  %541 = trunc i16 %540 to i8
+  %541 = trunc nuw i16 %540 to i8
   %542 = load ptr, ptr %66, align 8
   %543 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %22) #7
@@ -1607,7 +1596,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #7
   %577 = lshr i16 %559, 8
-  %578 = trunc i16 %577 to i8
+  %578 = trunc nuw i16 %577 to i8
   %579 = load ptr, ptr %66, align 8
   %580 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18) #7
@@ -1678,7 +1667,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #7
   %614 = lshr i16 %596, 8
-  %615 = trunc i16 %614 to i8
+  %615 = trunc nuw i16 %614 to i8
   %616 = load ptr, ptr %66, align 8
   %617 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #7
@@ -1749,7 +1738,7 @@ define internal void @ns2501_mode_set(ptr noundef readonly %0, ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #7
   %651 = lshr i16 %633, 8
-  %652 = trunc i16 %651 to i8
+  %652 = trunc nuw i16 %651 to i8
   %653 = load ptr, ptr %66, align 8
   %654 = load ptr, ptr %133, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #7

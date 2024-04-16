@@ -292,23 +292,19 @@ lor.lhs.false:                                    ; preds = %WPACKET_start_sub_p
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %3 = load ptr, ptr %subs.i, align 8
   %cmp.i = icmp eq ptr %3, null
-  br i1 %cmp.i, label %WPACKET_close.exit.thread, label %lor.lhs.false.i
+  br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   %4 = load ptr, ptr %3, align 8
   %cmp2.i = icmp eq ptr %4, null
-  br i1 %cmp2.i, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
+  br i1 %cmp2.i, label %return, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
   %call.i5 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %3, i32 noundef 1), !range !5
-  %tobool5.not = icmp eq i32 %call.i5, 0
-  br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return
-
-WPACKET_close.exit.thread:                        ; preds = %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_close.exit
   br label %return
 
-return:                                           ; preds = %WPACKET_close.exit.thread, %WPACKET_close.exit, %WPACKET_start_sub_packet_len__.exit.thread, %WPACKET_start_sub_packet_len__.exit, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %WPACKET_start_sub_packet_len__.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread ], [ 0, %WPACKET_close.exit.thread ], [ 1, %WPACKET_close.exit ]
+return:                                           ; preds = %WPACKET_close.exit, %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_start_sub_packet_len__.exit.thread, %WPACKET_start_sub_packet_len__.exit, %lor.lhs.false
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %WPACKET_start_sub_packet_len__.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false3 ], [ %call.i5, %WPACKET_close.exit ]
   ret i32 %retval.0
 }
 
@@ -1149,7 +1145,7 @@ lor.lhs.false6.i56:                               ; preds = %cond.false.i.i.i, %
   br i1 %cmp.i.i57, label %if.end79, label %if.end.i.i58
 
 if.end.i.i58:                                     ; preds = %lor.lhs.false6.i56
-  %31 = trunc i64 %numlenbytes.0.lcssa108 to i8
+  %31 = trunc nuw i64 %numlenbytes.0.lcssa108 to i8
   %32 = or disjoint i8 %31, -128
   store i8 %32, ptr %data.i52.0, align 1
   br label %if.end79
@@ -1468,23 +1464,19 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %4 = load ptr, ptr %subs.i, align 8
   %cmp.i7 = icmp eq ptr %4, null
-  br i1 %cmp.i7, label %WPACKET_close.exit.thread, label %lor.lhs.false.i
+  br i1 %cmp.i7, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   %5 = load ptr, ptr %4, align 8
   %cmp2.i = icmp eq ptr %5, null
-  br i1 %cmp2.i, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
+  br i1 %cmp2.i, label %return, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
   %call.i9 = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %4, i32 noundef 1), !range !5
-  %tobool5.not = icmp eq i32 %call.i9, 0
-  br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return
-
-WPACKET_close.exit.thread:                        ; preds = %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_close.exit
   br label %return
 
-return:                                           ; preds = %WPACKET_close.exit.thread, %WPACKET_close.exit, %WPACKET_memcpy.exit, %WPACKET_start_sub_packet_len__.exit.thread, %WPACKET_start_sub_packet_len__.exit
-  %retval.0 = phi i32 [ 0, %WPACKET_memcpy.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread ], [ 0, %WPACKET_close.exit.thread ], [ 1, %WPACKET_close.exit ]
+return:                                           ; preds = %WPACKET_close.exit, %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_memcpy.exit, %WPACKET_start_sub_packet_len__.exit.thread, %WPACKET_start_sub_packet_len__.exit
+  %retval.0 = phi i32 [ 0, %WPACKET_memcpy.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false3 ], [ %call.i9, %WPACKET_close.exit ]
   ret i32 %retval.0
 }
 
@@ -1801,23 +1793,19 @@ lor.lhs.false:                                    ; preds = %WPACKET_start_sub_p
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %5 = load ptr, ptr %subs.i.i, align 8
   %cmp.i = icmp eq ptr %5, null
-  br i1 %cmp.i, label %WPACKET_close.exit.thread, label %lor.lhs.false.i
+  br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false3
   %6 = load ptr, ptr %5, align 8
   %cmp2.i4 = icmp eq ptr %6, null
-  br i1 %cmp2.i4, label %WPACKET_close.exit.thread, label %WPACKET_close.exit
+  br i1 %cmp2.i4, label %return, label %WPACKET_close.exit
 
 WPACKET_close.exit:                               ; preds = %lor.lhs.false.i
   %call.i = call fastcc i32 @wpacket_intern_close(ptr noundef nonnull %pkt, ptr noundef nonnull %5, i32 noundef 1), !range !5
-  %tobool5.not = icmp eq i32 %call.i, 0
-  br i1 %tobool5.not, label %WPACKET_close.exit.thread, label %return
-
-WPACKET_close.exit.thread:                        ; preds = %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_close.exit
   br label %return
 
-return:                                           ; preds = %WPACKET_start_sub_packet_len__.exit.thread.i, %if.end6.i.i, %WPACKET_start_sub_packet_len__.exit.i, %WPACKET_close.exit.thread, %WPACKET_close.exit, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %WPACKET_close.exit.thread ], [ 1, %WPACKET_close.exit ], [ 0, %WPACKET_start_sub_packet_len__.exit.i ], [ 0, %if.end6.i.i ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread.i ]
+return:                                           ; preds = %WPACKET_close.exit, %lor.lhs.false3, %lor.lhs.false.i, %WPACKET_start_sub_packet_len__.exit.thread.i, %if.end6.i.i, %WPACKET_start_sub_packet_len__.exit.i, %lor.lhs.false
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %WPACKET_start_sub_packet_len__.exit.i ], [ 0, %if.end6.i.i ], [ 0, %WPACKET_start_sub_packet_len__.exit.thread.i ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false3 ], [ %call.i, %WPACKET_close.exit ]
   ret i32 %retval.0
 }
 

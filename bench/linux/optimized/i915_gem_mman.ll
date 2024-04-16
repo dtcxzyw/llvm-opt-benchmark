@@ -249,7 +249,7 @@ define dso_local i32 @i915_gem_mmap_ioctl(ptr nocapture noundef readonly %0, ptr
   br label %.thread19
 
 .thread19:                                        ; preds = %111, %113, %114
-  %115 = trunc i64 %108 to i32
+  %115 = trunc nsw i64 %108 to i32
   br label %116
 
 116:                                              ; preds = %.thread14, %.thread19, %106, %26, %20, %10, %3
@@ -1758,7 +1758,7 @@ define internal i32 @vm_access(ptr nocapture noundef readonly %0, i64 noundef %1
   %14 = icmp ne i64 %13, 0
   %15 = icmp ne i32 %4, 0
   %16 = and i1 %15, %14
-  br i1 %16, label %87, label %17
+  br i1 %16, label %86, label %17
 
 17:                                               ; preds = %5
   %18 = load i64, ptr %0, align 8
@@ -1770,7 +1770,7 @@ define internal i32 @vm_access(ptr nocapture noundef readonly %0, i64 noundef %1
   %24 = sub i64 %22, %19
   %25 = icmp ult i64 %24, %20
   %26 = or i1 %23, %25
-  br i1 %26, label %87, label %27
+  br i1 %26, label %86, label %27
 
 27:                                               ; preds = %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !21
@@ -1892,22 +1892,20 @@ define internal i32 @vm_access(ptr nocapture noundef readonly %0, i64 noundef %1
 
 .thread.thread8:                                  ; preds = %81
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %6) #13
-  br label %87
+  br label %86
 
 .thread:                                          ; preds = %58, %77
   %84 = phi i32 [ %79, %77 ], [ %45, %58 ]
   %.fr = freeze i32 %84
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %6) #13
   %85 = icmp eq i32 %.fr, 0
-  br i1 %85, label %86, label %87
+  %spec.select = select i1 %85, i32 %3, i32 %.fr
+  br label %86
 
-86:                                               ; preds = %.thread.thread, %.thread
-  br label %87
-
-87:                                               ; preds = %86, %.thread, %.thread.thread8, %17, %5
-  %88 = phi i32 [ -13, %5 ], [ -22, %17 ], [ %3, %86 ], [ %.fr, %.thread ], [ %82, %.thread.thread8 ]
+86:                                               ; preds = %.thread, %.thread.thread8, %.thread.thread, %17, %5
+  %87 = phi i32 [ -13, %5 ], [ -22, %17 ], [ %82, %.thread.thread8 ], [ %3, %.thread.thread ], [ %spec.select, %.thread ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #13
-  ret i32 %88
+  ret i32 %87
 }
 
 ; Function Attrs: null_pointer_is_valid

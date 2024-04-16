@@ -2689,26 +2689,26 @@ if.end20:                                         ; preds = %if.then15, %if.then
   %m_assumptions.i = getelementptr inbounds i8, ptr %14, i64 9896
   %15 = load ptr, ptr %m_assumptions.i, align 8
   %cmp.i.i5 = icmp eq ptr %15, null
-  br i1 %cmp.i.i5, label %return, label %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i
+  br i1 %cmp.i.i5, label %return, label %_ZNK3smt7context20tracking_assumptionsEv.exit
 
-_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i:  ; preds = %if.end20
+_ZNK3smt7context20tracking_assumptionsEv.exit:    ; preds = %if.end20
   %arrayidx.i.i6 = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx.i.i6, align 4
   %.fr.i = freeze i32 %16
-  %cmp3.i.i = icmp eq i32 %.fr.i, 0
+  %cmp3.i.i = icmp ne i32 %.fr.i, 0
   %m_search_lvl.i7 = getelementptr inbounds i8, ptr %14, i64 10024
   %17 = load i32, ptr %m_search_lvl.i7, align 8
   %m_base_lvl.i = getelementptr inbounds i8, ptr %14, i64 10020
   %18 = load i32, ptr %m_base_lvl.i, align 4
-  %cmp.i8 = icmp ule i32 %17, %18
-  %brmerge = select i1 %cmp3.i.i, i1 true, i1 %cmp.i8
-  br i1 %brmerge, label %return, label %if.then23
+  %cmp.i8 = icmp ugt i32 %17, %18
+  %spec.select.i = select i1 %cmp3.i.i, i1 %cmp.i8, i1 false
+  br i1 %spec.select.i, label %if.then23, label %return
 
-if.then23:                                        ; preds = %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i
+if.then23:                                        ; preds = %_ZNK3smt7context20tracking_assumptionsEv.exit
   tail call void @_ZN3smt19conflict_resolution13mk_unsat_coreENS_15b_justificationEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr %conflict.coerce, i32 %not_l.coerce)
   br label %return
 
-return:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.i, %if.end20, %if.end, %if.then23
+return:                                           ; preds = %if.end20, %if.end, %_ZNK3smt7context20tracking_assumptionsEv.exit, %if.then23
   ret i1 %cmp.not
 }
 
@@ -4236,7 +4236,7 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %if.end, %if.end.i.i
   %m_iscope_lvl.i.i = getelementptr inbounds %"struct.smt::bool_var_data", ptr %9, i64 %idxprom.i.i.i, i32 1
   %bf.load.i.i = load i64, ptr %m_iscope_lvl.i.i, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 32
-  %10 = trunc i64 %bf.lshr.i.i to i32
+  %10 = trunc nuw i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %10, 8388607
   %m_lemma_iscope_lvl = getelementptr inbounds i8, ptr %this, i64 84
   store i32 %bf.cast.i.i, ptr %m_lemma_iscope_lvl, align 4
@@ -4284,7 +4284,7 @@ if.then17:                                        ; preds = %if.then11
 if.end19:                                         ; preds = %if.then17, %if.then11
   %bf.load.i.i20 = phi i64 [ %bf.load.i.i20.pre, %if.then17 ], [ %bf.load.i16, %if.then11 ]
   %bf.lshr.i.i21 = lshr i64 %bf.load.i.i20, 32
-  %18 = trunc i64 %bf.lshr.i.i21 to i32
+  %18 = trunc nuw i64 %bf.lshr.i.i21 to i32
   %bf.cast.i.i22 = and i32 %18, 8388607
   %19 = load i32, ptr %m_lemma_iscope_lvl, align 4
   %cmp23 = icmp ugt i32 %bf.cast.i.i22, %19

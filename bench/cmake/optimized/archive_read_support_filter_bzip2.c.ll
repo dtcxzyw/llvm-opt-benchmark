@@ -42,23 +42,23 @@ define dso_local i32 @archive_read_support_filter_bzip2(ptr noundef %0) local_un
 declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bzip2_reader_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal i32 @bzip2_reader_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 14, ptr noundef nonnull %3) #7
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %17, label %6
+  br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %4, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %7, label %17
+  br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %4, i64 3
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, -58
   %or.cond = icmp ult i8 %10, -9
-  br i1 %or.cond, label %17, label %11
+  br i1 %or.cond, label %16, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %4, i64 4
@@ -69,13 +69,11 @@ define internal noundef i32 @bzip2_reader_bid(ptr nocapture readnone %0, ptr nou
 14:                                               ; preds = %11
   %bcmp16 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %12, ptr noundef nonnull dereferenceable(6) @.str.3, i64 6)
   %15 = icmp eq i32 %bcmp16, 0
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, i32 77, i32 0
+  br label %16
 
-16:                                               ; preds = %14, %11
-  br label %17
-
-17:                                               ; preds = %14, %7, %6, %2, %16
-  %.012 = phi i32 [ 77, %16 ], [ 0, %2 ], [ 0, %6 ], [ 0, %7 ], [ 0, %14 ]
+16:                                               ; preds = %14, %11, %7, %6, %2
+  %.012 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %7 ], [ 77, %11 ], [ %spec.select, %14 ]
   ret i32 %.012
 }
 
@@ -142,7 +140,7 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
 
 9:                                                ; preds = %2
   store ptr null, ptr %1, align 8
-  br label %101
+  br label %100
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %6, i64 80
@@ -159,10 +157,10 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   br label %21
 
-21:                                               ; preds = %89, %10
+21:                                               ; preds = %88, %10
   %22 = load i8, ptr %18, align 8
   %.not53 = icmp eq i8 %22, 0
-  br i1 %.not53, label %23, label %56
+  br i1 %.not53, label %23, label %55
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %19, align 8
@@ -187,12 +185,12 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   %33 = getelementptr inbounds i8, ptr %25, i64 4
   %bcmp15.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %33, ptr noundef nonnull dereferenceable(6) @.str.2, i64 6)
   %34 = icmp eq i32 %bcmp15.i, 0
-  br i1 %34, label %43, label %35
+  br i1 %34, label %select.unfold, label %35
 
 35:                                               ; preds = %32
   %bcmp16.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %33, ptr noundef nonnull dereferenceable(6) @.str.3, i64 6)
   %36 = icmp eq i32 %bcmp16.i, 0
-  br i1 %36, label %43, label %37
+  br i1 %36, label %select.unfold, label %37
 
 37:                                               ; preds = %23, %27, %28, %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -203,136 +201,136 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %38 to i64
   %42 = sub i64 %40, %41
-  br label %101
+  br label %100
 
-43:                                               ; preds = %35, %32
+select.unfold:                                    ; preds = %35, %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %44 = call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0) #7
-  %45 = sext i32 %44 to i64
-  store i64 %45, ptr %4, align 8
-  %46 = icmp eq i32 %44, -3
-  br i1 %46, label %47, label %50
+  %43 = call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0) #7
+  %44 = sext i32 %43 to i64
+  store i64 %44, ptr %4, align 8
+  %45 = icmp eq i32 %43, -3
+  br i1 %45, label %46, label %49
 
-47:                                               ; preds = %43
-  %48 = call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1) #7
-  %49 = sext i32 %48 to i64
-  store i64 %49, ptr %4, align 8
-  br label %50
+46:                                               ; preds = %select.unfold
+  %47 = call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 1) #7
+  %48 = sext i32 %47 to i64
+  store i64 %48, ptr %4, align 8
+  br label %49
 
-50:                                               ; preds = %47, %43
-  %51 = phi i64 [ %49, %47 ], [ %45, %43 ]
-  switch i64 %51, label %.loopexit.loopexit [
-    i64 0, label %55
+49:                                               ; preds = %46, %select.unfold
+  %50 = phi i64 [ %48, %46 ], [ %44, %select.unfold ]
+  switch i64 %50, label %.loopexit.loopexit [
+    i64 0, label %54
     i64 -2, label %.loopexit
     i64 -3, label %.loopexit57
     i64 -9, label %.loopexit58
   ]
 
-.loopexit57:                                      ; preds = %50
+.loopexit57:                                      ; preds = %49
   br label %.loopexit
 
-.loopexit58:                                      ; preds = %50
+.loopexit58:                                      ; preds = %49
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %50
+.loopexit.loopexit:                               ; preds = %49
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %.loopexit.loopexit, %.loopexit58, %.loopexit57
-  %52 = phi ptr [ @.str.10, %.loopexit57 ], [ @.str.10, %.loopexit58 ], [ @.str.9, %.loopexit.loopexit ], [ @.str.10, %50 ]
-  %.049 = phi ptr [ @.str.6, %.loopexit57 ], [ @.str.7, %.loopexit58 ], [ null, %.loopexit.loopexit ], [ @.str.5, %50 ]
-  %.0 = phi i32 [ 12, %.loopexit57 ], [ -1, %.loopexit58 ], [ -1, %.loopexit.loopexit ], [ -1, %50 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
-  %54 = load ptr, ptr %53, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %54, i32 noundef %.0, ptr noundef nonnull @.str.8, ptr noundef nonnull %52, ptr noundef %.049) #7
-  br label %101
+.loopexit:                                        ; preds = %49, %.loopexit.loopexit, %.loopexit58, %.loopexit57
+  %51 = phi ptr [ @.str.10, %.loopexit57 ], [ @.str.10, %.loopexit58 ], [ @.str.9, %.loopexit.loopexit ], [ @.str.10, %49 ]
+  %.049 = phi ptr [ @.str.6, %.loopexit57 ], [ @.str.7, %.loopexit58 ], [ null, %.loopexit.loopexit ], [ @.str.5, %49 ]
+  %.0 = phi i32 [ 12, %.loopexit57 ], [ -1, %.loopexit58 ], [ -1, %.loopexit.loopexit ], [ -1, %49 ]
+  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = load ptr, ptr %52, align 8
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %53, i32 noundef %.0, ptr noundef nonnull @.str.8, ptr noundef nonnull %51, ptr noundef %.049) #7
+  br label %100
 
-55:                                               ; preds = %50
+54:                                               ; preds = %49
   store i8 1, ptr %18, align 8
-  br label %56
+  br label %55
 
-56:                                               ; preds = %55, %21
-  %57 = load ptr, ptr %19, align 8
-  %58 = call ptr @__archive_read_filter_ahead(ptr noundef %57, i64 noundef 1, ptr noundef nonnull %4) #7
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %63
+55:                                               ; preds = %54, %21
+  %56 = load ptr, ptr %19, align 8
+  %57 = call ptr @__archive_read_filter_ahead(ptr noundef %56, i64 noundef 1, ptr noundef nonnull %4) #7
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %62
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
-  %62 = load ptr, ptr %61, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %62, i32 noundef -1, ptr noundef nonnull @.str.11) #7
-  br label %101
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = load ptr, ptr %60, align 8
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %61, i32 noundef -1, ptr noundef nonnull @.str.11) #7
+  br label %100
 
-63:                                               ; preds = %56
-  store ptr %58, ptr %6, align 8
-  %64 = load i64, ptr %4, align 8
-  %65 = trunc i64 %64 to i32
-  store i32 %65, ptr %20, align 8
-  %66 = icmp eq i64 %64, 0
-  br i1 %66, label %67, label %73
+62:                                               ; preds = %55
+  store ptr %57, ptr %6, align 8
+  %63 = load i64, ptr %4, align 8
+  %64 = trunc i64 %63 to i32
+  store i32 %64, ptr %20, align 8
+  %65 = icmp eq i64 %63, 0
+  br i1 %65, label %66, label %72
 
-67:                                               ; preds = %63
+66:                                               ; preds = %62
   store i8 1, ptr %7, align 1
-  %68 = load ptr, ptr %11, align 8
-  store ptr %68, ptr %1, align 8
-  %69 = load ptr, ptr %13, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = ptrtoint ptr %68 to i64
-  %72 = sub i64 %70, %71
-  br label %101
+  %67 = load ptr, ptr %11, align 8
+  store ptr %67, ptr %1, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = ptrtoint ptr %68 to i64
+  %70 = ptrtoint ptr %67 to i64
+  %71 = sub i64 %69, %70
+  br label %100
 
-73:                                               ; preds = %63
-  %74 = ptrtoint ptr %58 to i64
-  %75 = call i32 @BZ2_bzDecompress(ptr noundef nonnull %6) #7
-  %76 = sext i32 %75 to i64
-  store i64 %76, ptr %4, align 8
-  %77 = load ptr, ptr %19, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = sub i64 %79, %74
-  %81 = call i64 @__archive_read_filter_consume(ptr noundef %77, i64 noundef %80) #7
-  %82 = load i64, ptr %4, align 8
-  switch i64 %82, label %98 [
-    i64 4, label %83
-    i64 0, label %89
+72:                                               ; preds = %62
+  %73 = ptrtoint ptr %57 to i64
+  %74 = call i32 @BZ2_bzDecompress(ptr noundef nonnull %6) #7
+  %75 = sext i32 %74 to i64
+  store i64 %75, ptr %4, align 8
+  %76 = load ptr, ptr %19, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = sub i64 %78, %73
+  %80 = call i64 @__archive_read_filter_consume(ptr noundef %76, i64 noundef %79) #7
+  %81 = load i64, ptr %4, align 8
+  switch i64 %81, label %97 [
+    i64 4, label %82
+    i64 0, label %88
   ]
 
-83:                                               ; preds = %73
-  %84 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %6) #7
-  %cond = icmp eq i32 %84, 0
-  br i1 %cond, label %88, label %85
+82:                                               ; preds = %72
+  %83 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %6) #7
+  %cond = icmp eq i32 %83, 0
+  br i1 %cond, label %87, label %84
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
-  %87 = load ptr, ptr %86, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %87, i32 noundef -1, ptr noundef nonnull @.str.12) #7
-  br label %101
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = load ptr, ptr %85, align 8
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %86, i32 noundef -1, ptr noundef nonnull @.str.12) #7
+  br label %100
 
-88:                                               ; preds = %83
+87:                                               ; preds = %82
   store i8 0, ptr %18, align 8
-  br label %89
+  br label %88
 
-89:                                               ; preds = %88, %73
-  %90 = load i32, ptr %17, align 8
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %21
+88:                                               ; preds = %87, %72
+  %89 = load i32, ptr %17, align 8
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %21
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %11, align 8
-  store ptr %93, ptr %1, align 8
-  %94 = load ptr, ptr %13, align 8
-  %95 = ptrtoint ptr %94 to i64
-  %96 = ptrtoint ptr %93 to i64
-  %97 = sub i64 %95, %96
-  br label %101
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %11, align 8
+  store ptr %92, ptr %1, align 8
+  %93 = load ptr, ptr %13, align 8
+  %94 = ptrtoint ptr %93 to i64
+  %95 = ptrtoint ptr %92 to i64
+  %96 = sub i64 %94, %95
+  br label %100
 
-98:                                               ; preds = %73
-  %99 = getelementptr inbounds i8, ptr %0, i64 24
-  %100 = load ptr, ptr %99, align 8
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %100, i32 noundef -1, ptr noundef nonnull @.str.13) #7
-  br label %101
+97:                                               ; preds = %72
+  %98 = getelementptr inbounds i8, ptr %0, i64 24
+  %99 = load ptr, ptr %98, align 8
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %99, i32 noundef -1, ptr noundef nonnull @.str.13) #7
+  br label %100
 
-101:                                              ; preds = %98, %92, %85, %67, %60, %.loopexit, %37, %9
-  %.050 = phi i64 [ 0, %9 ], [ -30, %60 ], [ %72, %67 ], [ -30, %98 ], [ %97, %92 ], [ -30, %85 ], [ %42, %37 ], [ -30, %.loopexit ]
+100:                                              ; preds = %97, %91, %84, %66, %59, %.loopexit, %37, %9
+  %.050 = phi i64 [ 0, %9 ], [ -30, %59 ], [ %71, %66 ], [ -30, %97 ], [ %96, %91 ], [ -30, %84 ], [ %42, %37 ], [ -30, %.loopexit ]
   ret i64 %.050
 }
 

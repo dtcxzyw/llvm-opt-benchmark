@@ -1439,7 +1439,7 @@ if.end:                                           ; preds = %entry
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
   %3 = inttoptr i64 %and.i.i.i.i to ptr
   %desc.sroa.1.0.extract.shift.i = lshr i64 %desc.coerce, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   %cmp.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -1518,7 +1518,7 @@ return:                                           ; preds = %_ZN6hermes2vm8JSObj
 define linkonce_odr hidden { i32, i64 } @_ZN6hermes2vm8JSObject17getNamedSlotValueENS0_6HandleIS1_EERNS0_7RuntimeENS0_23NamedPropertyDescriptorE(ptr %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 %desc.coerce) local_unnamed_addr #1 comdat align 2 {
 entry:
   %desc.sroa.43.0.extract.shift = lshr i64 %desc.coerce, 32
-  %desc.sroa.43.0.extract.trunc = trunc i64 %desc.sroa.43.0.extract.shift to i32
+  %desc.sroa.43.0.extract.trunc = trunc nuw i64 %desc.sroa.43.0.extract.shift to i32
   %0 = and i64 %desc.coerce, 1280
   %or.cond = icmp eq i64 %0, 0
   br i1 %or.cond, label %if.end, label %if.then
@@ -1751,7 +1751,7 @@ entry:
   %0 = and i64 %desc.coerce, 32
   %tobool.not = icmp eq i64 %0, 0
   %desc.sroa.1.0.extract.shift.i = lshr i64 %desc.coerce, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2175,7 +2175,7 @@ if.end36:                                         ; preds = %entry, %if.end32
   %call1.i = tail call i64 %8(ptr noundef nonnull %.pre-phi, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #17
   %range.sroa.0.0.extract.trunc = trunc i64 %call1.i to i32
   %range.sroa.3.0.extract.shift = lshr i64 %call1.i, 32
-  %range.sroa.3.0.extract.trunc = trunc i64 %range.sroa.3.0.extract.shift to i32
+  %range.sroa.3.0.extract.trunc = trunc nuw i64 %range.sroa.3.0.extract.shift to i32
   %9 = and i8 %okFlags.sroa.0.0.extract.trunc, 2
   %bf.cast.i.not = icmp eq i8 %9, 0
   br i1 %bf.cast.i.not, label %cond.end, label %cond.true
@@ -2590,7 +2590,7 @@ for.body123:                                      ; preds = %for.body123.lr.ph, 
   %agg.tmp.sroa.0.0.copyload.i.i130 = load i64, ptr %hostObjectSymbols.sroa.0.0, align 8
   %and.i.i.i.i.i131 = and i64 %agg.tmp.sroa.0.0.copyload.i.i130, 281474976710655
   %72 = inttoptr i64 %and.i.i.i.i.i131 to ptr
-  %conv127 = trunc i64 %i120.0453 to i32
+  %conv127 = trunc nuw i64 %i120.0453 to i32
   %beginIndex_.i = getelementptr inbounds i8, ptr %72, i64 20
   %73 = load i32, ptr %beginIndex_.i, align 4
   %cmp.not.i = icmp ule i32 %73, %conv127
@@ -3003,7 +3003,7 @@ for.body219:                                      ; preds = %for.body219.lr.ph, 
   %135 = load i32, ptr %endIndex_.i269, align 4
   %cmp2.i270 = icmp ugt i32 %135, %dec
   %or.cond.i271 = select i1 %cmp.not.i268, i1 %cmp2.i270, i1 false
-  br i1 %or.cond.i271, label %cond.true.i273, label %sw.bb36.i
+  br i1 %or.cond.i271, label %cond.true.i273, label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
 
 cond.true.i273:                                   ; preds = %for.body219
   %indexedStorage_.i.i274 = getelementptr inbounds i8, ptr %133, i64 28
@@ -3117,7 +3117,7 @@ sw.bb29.i:                                        ; preds = %_ZNK6hermes2vm9Arra
   %or.i.i14.i = or disjoint i64 %conv.i13.i, -1407374883553280
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
 
-sw.bb36.i:                                        ; preds = %for.body219, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303
+sw.bb36.i:                                        ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
 
 sw.bb39.i:                                        ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303
@@ -3126,8 +3126,8 @@ sw.bb39.i:                                        ; preds = %_ZNK6hermes2vm9Arra
 default.unreachable:                              ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303
   unreachable
 
-_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
-  %retval.sroa.0.0.i305 = phi i64 [ -1548112371908608, %sw.bb39.i ], [ -1970324836974592, %sw.bb36.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i307, %sw.bb22.i ], [ %145, %sw.bb18.i ], [ %retval.sroa.0.0.i.i311, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303 ]
+_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %for.body219, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
+  %retval.sroa.0.0.i305 = phi i64 [ -1548112371908608, %sw.bb39.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i307, %sw.bb22.i ], [ %145, %sw.bb18.i ], [ %retval.sroa.0.0.i.i311, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit303 ], [ -1970324836974592, %sw.bb36.i ], [ -1970324836974592, %for.body219 ]
   store i64 %retval.sroa.0.0.i305, ptr %retval.0.i.i.i.i.i.i71, align 8
   %call.i316 = call i32 @_ZN6hermes2vm9ArrayImpl18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE(ptr nonnull %call43, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %dec220, ptr nonnull %retval.0.i.i.i.i.i.i71) #17
   %cmp218.not = icmp eq i32 %dec, %numIndexed.0
@@ -3226,7 +3226,7 @@ _ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit: ; preds = %if.
   %retval.0.i366 = phi double [ %conv.i369, %if.then.i367 ], [ %155, %if.end.i361 ]
   %conv255 = fptoui double %retval.0.i366 to i32
   %tobool256.not = icmp eq i32 %indexNamesLast.0460, 0
-  br i1 %tobool256.not, label %if.else, label %land.lhs.true257
+  br i1 %tobool256.not, label %if.end286, label %land.lhs.true257
 
 land.lhs.true257:                                 ; preds = %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit
   %sub258 = add i32 %indexNamesLast.0460, -1
@@ -3237,7 +3237,7 @@ land.lhs.true257:                                 ; preds = %_ZNK6hermes2vm13Her
   %cmp261 = icmp ugt i32 %157, %conv255
   br i1 %cmp261, label %if.end286, label %if.else
 
-if.else:                                          ; preds = %land.lhs.true257, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit
+if.else:                                          ; preds = %land.lhs.true257
   br label %if.end286
 
 if.else276:                                       ; preds = %for.body246
@@ -3248,10 +3248,10 @@ if.else276:                                       ; preds = %for.body246
   %159 = load i32, ptr %arrayidx.i, align 4
   br label %if.end286
 
-if.end286:                                        ; preds = %land.lhs.true257, %if.else, %if.else276
-  %.sink = phi i32 [ %conv255, %if.else ], [ %159, %if.else276 ], [ %157, %land.lhs.true257 ]
-  %indexNamesLast.1 = phi i32 [ %indexNamesLast.0460, %if.else ], [ %sub278, %if.else276 ], [ %sub258, %land.lhs.true257 ]
-  %numIndexed.2 = phi i32 [ %sub251, %if.else ], [ 0, %if.else276 ], [ %numIndexed.1461, %land.lhs.true257 ]
+if.end286:                                        ; preds = %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit, %land.lhs.true257, %if.else, %if.else276
+  %.sink = phi i32 [ %159, %if.else276 ], [ %157, %land.lhs.true257 ], [ %conv255, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit ], [ %conv255, %if.else ]
+  %indexNamesLast.1 = phi i32 [ %sub278, %if.else276 ], [ %sub258, %land.lhs.true257 ], [ %indexNamesLast.0460, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit ], [ %indexNamesLast.0460, %if.else ]
+  %numIndexed.2 = phi i32 [ 0, %if.else276 ], [ %numIndexed.1461, %land.lhs.true257 ], [ %sub251, %_ZNK6hermes2vm13HermesValue329getNumberERNS0_11PointerBaseE.exit ], [ %sub251, %if.else ]
   %conv.i370 = uitofp i32 %.sink to double
   store double %conv.i370, ptr %retval.0.i.i.i.i.i.i71, align 8
   %dec287 = add i32 %toLast237.0459, -1
@@ -3718,7 +3718,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit91: ; preds = %if.the
   %or.cond.i.i89 = and i1 %cmp2.i.i88, %cmp.i.i87
   %24 = zext i32 %conv.i.i85 to i64
   %25 = or disjoint i64 %24, 4294967296
-  %26 = trunc i64 %25 to i40
+  %26 = trunc nuw nsw i64 %25 to i40
   %ref.tmp88.i.sroa.0.0.extract.trunc = select i1 %or.cond.i.i89, i40 %26, i40 0
   %arrayIndex86.i.sroa.0.0.extract.trunc130 = trunc i40 %ref.tmp88.i.sroa.0.0.extract.trunc to i32
   %arrayIndex86.i.sroa.5.0.extract.trunc132.not = icmp ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
@@ -4306,7 +4306,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit107: ; preds = %if.th
   %or.cond.i.i105 = and i1 %cmp2.i.i104, %cmp.i.i103
   %27 = zext i32 %conv.i.i101 to i64
   %28 = or disjoint i64 %27, 4294967296
-  %29 = trunc i64 %28 to i40
+  %29 = trunc nuw nsw i64 %28 to i40
   %ref.tmp88.i.sroa.0.0.extract.trunc = select i1 %or.cond.i.i105, i40 %29, i40 0
   %arrayIndex86.i.sroa.0.0.extract.trunc178 = trunc i40 %ref.tmp88.i.sroa.0.0.extract.trunc to i32
   %arrayIndex86.i.sroa.5.0.extract.trunc180.not = icmp ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
@@ -4659,7 +4659,7 @@ if.then45:                                        ; preds = %land.lhs.true42
 if.end52:                                         ; preds = %if.then45, %land.lhs.true42, %if.then40
   %agg.tmp56.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp56.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   %cmp.i.i75 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
   br i1 %cmp.i.i75, label %if.then.i.i77, label %if.end.i.i76
 
@@ -4778,7 +4778,7 @@ if.end66:                                         ; preds = %if.end30
 if.then71:                                        ; preds = %if.end66
   %agg.tmp73.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i85 = lshr i64 %agg.tmp73.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i86 = trunc i64 %desc.sroa.1.0.extract.shift.i85 to i32
+  %desc.sroa.1.0.extract.trunc.i86 = trunc nuw i64 %desc.sroa.1.0.extract.shift.i85 to i32
   %cmp.i.i87 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i86, 5
   br i1 %cmp.i.i87, label %if.then.i.i99, label %if.end.i.i88
 
@@ -5742,7 +5742,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %retval.sroa.0.0.i = phi i32 [ 7, %if.then48 ], [ 14, %sw.bb3.i ], [ 15, %sw.bb6.i ], [ %or.i.i.i, %sw.bb9.i ], [ %or.i.i4.i, %sw.bb13.i ], [ %or.i.i.i.i, %sw.bb19.i ], [ %or.i.i.i8.i, %sw.bb23.i ], [ %conv.i.i.i.i.i11.i, %sw.bb27.i ], [ %or.i.i16.i, %if.then.i.i ], [ %or.i.i.i15.i, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i ]
   %agg.tmp56.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp56.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   %cmp.i.i49 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
   br i1 %cmp.i.i49, label %if.then.i.i52, label %if.end.i.i50
 
@@ -5796,7 +5796,7 @@ if.end:                                           ; preds = %if.then.if.end_crit
 if.then64:                                        ; preds = %if.end
   %agg.tmp66.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i53 = lshr i64 %agg.tmp66.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i54 = trunc i64 %desc.sroa.1.0.extract.shift.i53 to i32
+  %desc.sroa.1.0.extract.trunc.i54 = trunc nuw i64 %desc.sroa.1.0.extract.shift.i53 to i32
   %cmp.i.i55 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i54, 5
   br i1 %cmp.i.i55, label %if.then.i.i64, label %if.end.i.i56
 
@@ -6371,7 +6371,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %89 = inttoptr i64 %and.i.i.i.i.i311 to ptr
   %agg.tmp275.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i312 = lshr i64 %agg.tmp275.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i313 = trunc i64 %desc.sroa.1.0.extract.shift.i312 to i32
+  %desc.sroa.1.0.extract.trunc.i313 = trunc nuw i64 %desc.sroa.1.0.extract.shift.i312 to i32
   %cmp.i.i314 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i313, 5
   br i1 %cmp.i.i314, label %if.then.i.i331, label %if.end.i.i315
 
@@ -8171,7 +8171,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit367: ; preds = %_ZN6h
   %or.cond.i.i365 = and i1 %cmp2.i.i364, %cmp.i.i363
   %87 = zext i32 %conv.i.i361 to i64
   %88 = or disjoint i64 %87, 4294967296
-  %89 = trunc i64 %88 to i40
+  %89 = trunc nuw nsw i64 %88 to i40
   %ref.tmp499.sroa.0.0.extract.trunc = select i1 %or.cond.i.i365, i40 %89, i40 0
   %arrayIndex496.sroa.0.0.extract.trunc459 = trunc i40 %ref.tmp499.sroa.0.0.extract.trunc to i32
   %arrayIndex496.sroa.6.0.extract.trunc461.not = icmp ult i40 %ref.tmp499.sroa.0.0.extract.trunc, 4294967296
@@ -8348,7 +8348,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %desc.sroa.39.0.extract.shift = lshr i64 %desc.coerce, 32
-  %desc.sroa.39.0.extract.trunc = trunc i64 %desc.sroa.39.0.extract.shift to i32
+  %desc.sroa.39.0.extract.trunc = trunc nuw i64 %desc.sroa.39.0.extract.shift to i32
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
   %1 = inttoptr i64 %and.i.i.i.i.i.i to ptr
@@ -8469,7 +8469,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i3, 281474976710655
   %13 = inttoptr i64 %and.i.i.i.i to ptr
   %desc.sroa.1.0.extract.shift.i = lshr i64 %desc.coerce, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   %cmp.i.i4 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
   br i1 %cmp.i.i4, label %if.then.i.i7, label %if.end.i.i5
 
@@ -8767,7 +8767,7 @@ if.end69:                                         ; preds = %if.end48
   %26 = inttoptr i64 %and.i.i.i.i.i88 to ptr
   %agg.tmp71.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp71.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   %cmp.i.i89 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
   br i1 %cmp.i.i89, label %if.then.i.i95, label %if.end.i.i90
 
@@ -8934,7 +8934,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit: ; preds = %_ZN6herm
   %or.cond.i.i = and i1 %cmp2.i.i, %cmp.i.i21
   %6 = zext i32 %conv.i.i to i64
   %7 = or disjoint i64 %6, 4294967296
-  %8 = trunc i64 %7 to i40
+  %8 = trunc nuw nsw i64 %7 to i40
   %ref.tmp.sroa.0.0.extract.trunc = select i1 %or.cond.i.i, i40 %8, i40 0
   %arrayIndex.sroa.0.0.extract.trunc144 = trunc i40 %ref.tmp.sroa.0.0.extract.trunc to i32
   %arrayIndex.sroa.5.0.extract.trunc146.not = icmp ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
@@ -9136,7 +9136,7 @@ if.end140:                                        ; preds = %if.then127, %if.end
 if.then142:                                       ; preds = %if.end140
   %agg.tmp144.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp144.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   %cmp.i.i103 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
   br i1 %cmp.i.i103, label %if.then.i.i, label %if.end.i.i
 
@@ -9390,7 +9390,7 @@ entry:
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i to ptr
   %desc.sroa.1.0.extract.shift.i = lshr i64 %desc.coerce, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   %cmp.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -9701,7 +9701,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %and.i.i.i.i77 = and i64 %retval.sroa.0.0.copyload.i.i76, 281474976710655
   %38 = inttoptr i64 %and.i.i.i.i77 to ptr
   %desc.sroa.1.0.extract.shift.i78 = lshr i64 %desc.coerce, 32
-  %desc.sroa.1.0.extract.trunc.i79 = trunc i64 %desc.sroa.1.0.extract.shift.i78 to i32
+  %desc.sroa.1.0.extract.trunc.i79 = trunc nuw i64 %desc.sroa.1.0.extract.shift.i78 to i32
   %cmp.i.i80 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i79, 5
   br i1 %cmp.i.i80, label %if.then.i.i90, label %if.end.i.i81
 
@@ -9871,7 +9871,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %and.i.i.i.i145 = and i64 %retval.sroa.0.0.copyload.i.i144, 281474976710655
   %59 = inttoptr i64 %and.i.i.i.i145 to ptr
   %desc.sroa.1.0.extract.shift.i146 = lshr i64 %desc.coerce, 32
-  %desc.sroa.1.0.extract.trunc.i147 = trunc i64 %desc.sroa.1.0.extract.shift.i146 to i32
+  %desc.sroa.1.0.extract.trunc.i147 = trunc nuw i64 %desc.sroa.1.0.extract.shift.i146 to i32
   %cmp.i.i148 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i147, 5
   br i1 %cmp.i.i148, label %if.then.i.i165, label %if.end.i.i149
 
@@ -9920,7 +9920,7 @@ if.else120:                                       ; preds = %if.else105
   %retval.sroa.0.0.copyload.i.i172 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i173 = and i64 %retval.sroa.0.0.copyload.i.i172, 281474976710655
   %68 = inttoptr i64 %and.i.i.i.i173 to ptr
-  %desc.sroa.1.0.extract.trunc.i175 = trunc i64 %desc.sroa.11.0.extract.shift to i32
+  %desc.sroa.1.0.extract.trunc.i175 = trunc nuw i64 %desc.sroa.11.0.extract.shift to i32
   %cmp.i.i176 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i175, 5
   br i1 %cmp.i.i176, label %if.then.i.i193, label %if.end.i.i177
 
@@ -10132,7 +10132,7 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit: ; preds = %_ZN6herm
   %or.cond.i.i = and i1 %cmp2.i.i, %cmp.i.i
   %6 = zext i32 %conv.i.i to i64
   %7 = or disjoint i64 %6, 4294967296
-  %8 = trunc i64 %7 to i40
+  %8 = trunc nuw nsw i64 %7 to i40
   %ref.tmp.sroa.0.0.extract.trunc = select i1 %or.cond.i.i, i40 %8, i40 0
   %arrayIndex.sroa.0.0.extract.trunc270 = trunc i40 %ref.tmp.sroa.0.0.extract.trunc to i32
   %arrayIndex.sroa.10.0.extract.trunc272.not = icmp ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
@@ -11104,7 +11104,7 @@ if.end.i:                                         ; preds = %for.body.i
 if.then7.i:                                       ; preds = %if.end.i
   %call4.fca.0.extract.i = extractvalue { i64, i8 } %call4.i, 0
   %desc.sroa.1.0.extract.shift.i.i = lshr i64 %call4.fca.0.extract.i, 32
-  %desc.sroa.1.0.extract.trunc.i.i = trunc i64 %desc.sroa.1.0.extract.shift.i.i to i32
+  %desc.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i.i to i32
   %cmp.i.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i.i, 5
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
@@ -11241,7 +11241,7 @@ if.end.i21:                                       ; preds = %for.body.i13
 if.then7.i37:                                     ; preds = %if.end.i21
   %call4.fca.0.extract.i38 = extractvalue { i64, i8 } %call4.i26, 0
   %desc.sroa.1.0.extract.shift.i.i39 = lshr i64 %call4.fca.0.extract.i38, 32
-  %desc.sroa.1.0.extract.trunc.i.i40 = trunc i64 %desc.sroa.1.0.extract.shift.i.i39 to i32
+  %desc.sroa.1.0.extract.trunc.i.i40 = trunc nuw i64 %desc.sroa.1.0.extract.shift.i.i39 to i32
   %cmp.i.i.i41 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i.i40, 5
   br i1 %cmp.i.i.i41, label %if.then.i.i.i54, label %if.end.i.i.i42
 
@@ -12791,7 +12791,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %120 = load i32, ptr %endIndex_.i59.i, align 4
   %cmp2.i.i = icmp ugt i32 %120, %i.0286.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 %cmp2.i.i, i1 false
-  br i1 %or.cond.i.i, label %cond.true.i.i, label %sw.bb36.i.i
+  br i1 %or.cond.i.i, label %cond.true.i.i, label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread.i
 
 cond.true.i.i:                                    ; preds = %for.body.i
   %indexedStorage_.i.i.i = getelementptr inbounds i8, ptr %118, i64 28
@@ -12905,7 +12905,7 @@ sw.bb29.i.i:                                      ; preds = %_ZNK6hermes2vm9Arra
   %or.i.i14.i.i = or disjoint i64 %conv.i13.i.i, -1407374883553280
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i
 
-sw.bb36.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %for.body.i
+sw.bb36.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread.i
 
 sw.bb39.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
@@ -12914,8 +12914,8 @@ sw.bb39.i.i:                                      ; preds = %_ZNK6hermes2vm9Arra
 default.unreachable:                              ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   unreachable
 
-_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread.i: ; preds = %sw.bb39.i.i, %sw.bb36.i.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
-  %retval.sroa.0.0.i61.ph.i = phi i64 [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ -1970324836974592, %sw.bb36.i.i ], [ -1548112371908608, %sw.bb39.i.i ]
+_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.thread.i: ; preds = %sw.bb39.i.i, %sw.bb36.i.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %for.body.i
+  %retval.sroa.0.0.i61.ph.i = phi i64 [ -1970324836974592, %sw.bb36.i.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ -1548112371908608, %sw.bb39.i.i ], [ -1970324836974592, %for.body.i ]
   store i64 %retval.sroa.0.0.i61.ph.i, ptr %retval.0.i.i.i.i.i.i.i127, align 8
   br label %if.end58.i
 
@@ -13690,7 +13690,7 @@ declare void @_ZN6hermes2vm11TwineChar16C1EPKNS0_15StringPrimitiveE(ptr noundef 
 define linkonce_odr hidden { i32, i64 } @_ZN6hermes2vm8JSObject17getNamedSlotValueENS0_12PseudoHandleIS1_EERNS0_7RuntimeENS0_23NamedPropertyDescriptorE(ptr %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 %desc.coerce) local_unnamed_addr #1 comdat align 2 {
 entry:
   %desc.sroa.44.0.extract.shift = lshr i64 %desc.coerce, 32
-  %desc.sroa.44.0.extract.trunc = trunc i64 %desc.sroa.44.0.extract.shift to i32
+  %desc.sroa.44.0.extract.trunc = trunc nuw i64 %desc.sroa.44.0.extract.shift to i32
   %0 = and i64 %desc.coerce, 1280
   %or.cond = icmp eq i64 %0, 0
   br i1 %or.cond, label %if.end, label %if.then

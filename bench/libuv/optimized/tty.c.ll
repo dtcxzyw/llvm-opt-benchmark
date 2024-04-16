@@ -139,7 +139,7 @@ return:                                           ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uv_guess_handle(i32 noundef %file) local_unnamed_addr #0 {
+define i32 @uv_guess_handle(i32 noundef %file) local_unnamed_addr #0 {
 entry:
   %ss = alloca %struct.sockaddr_storage, align 8
   %s = alloca %struct.stat, align 8
@@ -190,7 +190,7 @@ if.end28:                                         ; preds = %if.end24
 
 if.end32:                                         ; preds = %if.end28
   %2 = load i32, ptr %type, align 4
-  switch i32 %2, label %if.end64 [
+  switch i32 %2, label %return [
     i32 2, label %if.then34
     i32 1, label %if.then46
   ]
@@ -199,7 +199,8 @@ if.then34:                                        ; preds = %if.end32
   %3 = load i16, ptr %ss, align 8
   %4 = and i16 %3, -9
   %or.cond = icmp eq i16 %4, 2
-  br i1 %or.cond, label %return, label %if.end64
+  %spec.select7 = select i1 %or.cond, i32 15, i32 0
+  br label %return
 
 if.then46:                                        ; preds = %if.end32
   %5 = load i16, ptr %ss, align 8
@@ -209,13 +210,11 @@ if.then46:                                        ; preds = %if.end32
 
 if.end57:                                         ; preds = %if.then46
   %cmp60 = icmp eq i16 %5, 1
-  br i1 %cmp60, label %return, label %if.end64
-
-if.end64:                                         ; preds = %if.end32, %if.then34, %if.end57
+  %spec.select = select i1 %cmp60, i32 7, i32 0
   br label %return
 
-return:                                           ; preds = %if.end57, %if.then46, %if.then34, %if.end28, %if.end24, %if.end6, %if.end6, %if.end2, %if.end, %entry, %if.end64, %if.then23, %if.then18
-  %retval.0 = phi i32 [ 7, %if.then18 ], [ 0, %if.end64 ], [ 0, %if.then23 ], [ 0, %entry ], [ 14, %if.end ], [ 0, %if.end2 ], [ 17, %if.end6 ], [ 17, %if.end6 ], [ 0, %if.end24 ], [ 0, %if.end28 ], [ 15, %if.then34 ], [ 12, %if.then46 ], [ 7, %if.end57 ]
+return:                                           ; preds = %if.then34, %if.end32, %if.end57, %if.then46, %if.end28, %if.end24, %if.end6, %if.end6, %if.end2, %if.end, %entry, %if.then23, %if.then18
+  %retval.0 = phi i32 [ 7, %if.then18 ], [ 0, %if.then23 ], [ 0, %entry ], [ 14, %if.end ], [ 0, %if.end2 ], [ 17, %if.end6 ], [ 17, %if.end6 ], [ 0, %if.end24 ], [ 0, %if.end28 ], [ 12, %if.then46 ], [ %spec.select, %if.end57 ], [ %spec.select7, %if.then34 ], [ 0, %if.end32 ]
   ret i32 %retval.0
 }
 

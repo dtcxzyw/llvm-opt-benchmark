@@ -526,21 +526,19 @@ define ptr @ucnv_getAvailableName_75(i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %err = alloca i32, align 4
   %or.cond = icmp ult i32 %n, 65536
-  br i1 %or.cond, label %if.then, label %if.end4
+  br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %err, align 4
-  %conv = trunc i32 %n to i16
+  %conv = trunc nuw i32 %n to i16
   %call = call ptr @ucnv_bld_getAvailableConverter_75(i16 noundef zeroext %conv, ptr noundef nonnull %err)
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %if.end4, label %return
-
-if.end4:                                          ; preds = %if.then, %entry
+  %spec.select = select i1 %cmp.i, ptr null, ptr %call
   br label %return
 
-return:                                           ; preds = %if.then, %if.end4
-  %retval.0 = phi ptr [ null, %if.end4 ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %if.then ]
   ret ptr %retval.0
 }
 
@@ -1991,7 +1989,7 @@ if.end166:                                        ; preds = %if.end132, %lor.lhs
   br i1 %cmp169, label %if.then170, label %if.else172
 
 if.then170:                                       ; preds = %if.end166
-  %conv171 = trunc i32 %45 to i16
+  %conv171 = trunc nuw i32 %45 to i16
   store i16 %conv171, ptr %invalidUCharBuffer175, align 2
   br label %do.end185
 
@@ -2008,7 +2006,7 @@ if.else172:                                       ; preds = %if.end166
 
 do.end185:                                        ; preds = %if.then170, %if.else172
   %errorInputLength.1 = phi i32 [ 1, %if.then170 ], [ 2, %if.else172 ]
-  %conv186 = trunc i32 %errorInputLength.1 to i8
+  %conv186 = trunc nuw nsw i32 %errorInputLength.1 to i8
   store i8 %conv186, ptr %invalidUCharLength, align 4
   store i32 0, ptr %fromUChar32, align 4
   %49 = load ptr, ptr %0, align 8
@@ -2887,7 +2885,7 @@ if.then27:                                        ; preds = %land.lhs.true21
 do.end:                                           ; preds = %if.then14, %if.then27, %land.lhs.true21
   %i.0 = phi i32 [ 2, %if.then27 ], [ 1, %land.lhs.true21 ], [ 1, %if.then14 ]
   %c.0 = phi i32 [ %sub, %if.then27 ], [ %conv17, %land.lhs.true21 ], [ %conv17, %if.then14 ]
-  %5 = trunc i32 %i.0 to i8
+  %5 = trunc nuw nsw i32 %i.0 to i8
   %conv33 = sub nsw i8 %2, %5
   store i8 %conv33, ptr %UCharErrorBufferLength, align 1
   %cmp36 = icmp sgt i8 %conv33, 0
@@ -3359,21 +3357,17 @@ if.else96:                                        ; preds = %if.end86, %land.lhs
   %conversionType99 = getelementptr inbounds i8, ptr %17, i64 69
   %18 = load i8, ptr %conversionType99, align 1
   %cmp101 = icmp eq i8 %18, 4
-  br i1 %cmp101, label %land.lhs.true102, label %if.else110
+  br i1 %cmp101, label %land.lhs.true102, label %if.end112
 
 land.lhs.true102:                                 ; preds = %if.else96
   %impl104 = getelementptr inbounds i8, ptr %11, i64 32
   %19 = load ptr, ptr %impl104, align 8
   %toUTF8 = getelementptr inbounds i8, ptr %19, i64 128
   %20 = load ptr, ptr %toUTF8, align 8
-  %cmp105.not = icmp eq ptr %20, null
-  br i1 %cmp105.not, label %if.else110, label %if.end112
-
-if.else110:                                       ; preds = %land.lhs.true102, %if.else96
   br label %if.end112
 
-if.end112:                                        ; preds = %land.lhs.true102, %land.lhs.true89, %if.else110
-  %convert.0 = phi ptr [ null, %if.else110 ], [ %16, %land.lhs.true89 ], [ %20, %land.lhs.true102 ]
+if.end112:                                        ; preds = %land.lhs.true102, %if.else96, %land.lhs.true89
+  %convert.0 = phi ptr [ %16, %land.lhs.true89 ], [ null, %if.else96 ], [ %20, %land.lhs.true102 ]
   %cmp113.not = icmp ne ptr %convert.0, null
   %sub.ptr.lhs.cast115 = ptrtoint ptr %pivotLimit.addr.0 to i64
   %sub.ptr.rhs.cast116 = ptrtoint ptr %pivotStart.addr.0 to i64

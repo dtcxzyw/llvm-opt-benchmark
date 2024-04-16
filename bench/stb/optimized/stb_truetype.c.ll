@@ -480,7 +480,7 @@ while.cond:                                       ; preds = %stbtt__buf_get8.exi
 
 stbtt__buf_get8.exit:                             ; preds = %while.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %5, ptr %cursor.i, align 8
   %arrayidx.i14 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx.i14, align 1
@@ -717,7 +717,7 @@ entry:
   %cmp3 = icmp sgt i32 %outcount, 0
   %3 = trunc i64 %2 to i32
   %4 = lshr i64 %2, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %cmp14 = icmp slt i32 %3, %5
   %6 = select i1 %cmp3, i1 %cmp14, i1 false
   br i1 %6, label %for.body.preheader, label %for.end
@@ -787,7 +787,7 @@ stbtt__buf_get.exit:                              ; preds = %stbtt__buf_get8.exi
 define { ptr, i64 } @stbtt__cff_index_get(ptr %b.coerce0, i64 %b.coerce1, i32 noundef %i) local_unnamed_addr #6 {
 entry:
   %b.sroa.18.8.extract.shift = lshr i64 %b.coerce1, 32
-  %b.sroa.18.8.extract.trunc = trunc i64 %b.sroa.18.8.extract.shift to i32
+  %b.sroa.18.8.extract.trunc = trunc nuw i64 %b.sroa.18.8.extract.shift to i32
   %0 = tail call i32 @llvm.smin.i32(i32 %b.sroa.18.8.extract.trunc, i32 0)
   br label %for.body.i
 
@@ -996,10 +996,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @stbtt__isfont(ptr nocapture noundef readonly %font) local_unnamed_addr #5 {
+define i32 @stbtt__isfont(ptr nocapture noundef readonly %font) local_unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %font, align 1
-  switch i8 %0, label %if.end111 [
+  switch i8 %0, label %return [
     i8 49, label %land.lhs.true
     i8 116, label %land.lhs.true21
     i8 79, label %land.lhs.true46
@@ -1010,94 +1010,69 @@ land.lhs.true:                                    ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %font, i64 1
   %1 = load i8, ptr %arrayidx2, align 1
   %cmp4 = icmp eq i8 %1, 0
-  br i1 %cmp4, label %land.lhs.true6, label %if.end111
+  br i1 %cmp4, label %land.lhs.true6, label %return
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
   %arrayidx7 = getelementptr inbounds i8, ptr %font, i64 2
   %2 = load i8, ptr %arrayidx7, align 1
   %cmp9 = icmp eq i8 %2, 0
-  br i1 %cmp9, label %land.lhs.true11, label %if.end111
-
-land.lhs.true11:                                  ; preds = %land.lhs.true6
-  %arrayidx12 = getelementptr inbounds i8, ptr %font, i64 3
-  %3 = load i8, ptr %arrayidx12, align 1
-  %cmp14 = icmp eq i8 %3, 0
-  br i1 %cmp14, label %return, label %if.end111
+  br i1 %cmp9, label %return.sink.split40, label %return
 
 land.lhs.true21:                                  ; preds = %entry
   %arrayidx22 = getelementptr inbounds i8, ptr %font, i64 1
-  %4 = load i8, ptr %arrayidx22, align 1
-  switch i8 %4, label %if.end111 [
+  %3 = load i8, ptr %arrayidx22, align 1
+  switch i8 %3, label %return [
     i8 121, label %land.lhs.true27
     i8 114, label %land.lhs.true98
   ]
 
 land.lhs.true27:                                  ; preds = %land.lhs.true21
   %arrayidx28 = getelementptr inbounds i8, ptr %font, i64 2
-  %5 = load i8, ptr %arrayidx28, align 1
-  %cmp31 = icmp eq i8 %5, 112
-  br i1 %cmp31, label %land.lhs.true33, label %if.end111
-
-land.lhs.true33:                                  ; preds = %land.lhs.true27
-  %arrayidx34 = getelementptr inbounds i8, ptr %font, i64 3
-  %6 = load i8, ptr %arrayidx34, align 1
-  %cmp37 = icmp eq i8 %6, 49
-  br i1 %cmp37, label %return, label %if.end111
+  %4 = load i8, ptr %arrayidx28, align 1
+  %cmp31 = icmp eq i8 %4, 112
+  br i1 %cmp31, label %return.sink.split40, label %return
 
 land.lhs.true46:                                  ; preds = %entry
   %arrayidx47 = getelementptr inbounds i8, ptr %font, i64 1
-  %7 = load i8, ptr %arrayidx47, align 1
-  %cmp50 = icmp eq i8 %7, 84
-  br i1 %cmp50, label %land.lhs.true52, label %if.end111
+  %5 = load i8, ptr %arrayidx47, align 1
+  %cmp50 = icmp eq i8 %5, 84
+  br i1 %cmp50, label %land.lhs.true52, label %return
 
 land.lhs.true52:                                  ; preds = %land.lhs.true46
   %arrayidx53 = getelementptr inbounds i8, ptr %font, i64 2
-  %8 = load i8, ptr %arrayidx53, align 1
-  %cmp56 = icmp eq i8 %8, 84
-  br i1 %cmp56, label %land.lhs.true58, label %if.end111
-
-land.lhs.true58:                                  ; preds = %land.lhs.true52
-  %arrayidx59 = getelementptr inbounds i8, ptr %font, i64 3
-  %9 = load i8, ptr %arrayidx59, align 1
-  %cmp62 = icmp eq i8 %9, 79
-  br i1 %cmp62, label %return, label %if.end111
+  %6 = load i8, ptr %arrayidx53, align 1
+  %cmp56 = icmp eq i8 %6, 84
+  br i1 %cmp56, label %return.sink.split40, label %return
 
 land.lhs.true70:                                  ; preds = %entry
   %arrayidx71 = getelementptr inbounds i8, ptr %font, i64 1
-  %10 = load i8, ptr %arrayidx71, align 1
-  %cmp73 = icmp eq i8 %10, 1
-  br i1 %cmp73, label %land.lhs.true75, label %if.end111
+  %7 = load i8, ptr %arrayidx71, align 1
+  %cmp73 = icmp eq i8 %7, 1
+  br i1 %cmp73, label %land.lhs.true75, label %return
 
 land.lhs.true75:                                  ; preds = %land.lhs.true70
   %arrayidx76 = getelementptr inbounds i8, ptr %font, i64 2
-  %11 = load i8, ptr %arrayidx76, align 1
-  %cmp78 = icmp eq i8 %11, 0
-  br i1 %cmp78, label %land.lhs.true80, label %if.end111
-
-land.lhs.true80:                                  ; preds = %land.lhs.true75
-  %arrayidx81 = getelementptr inbounds i8, ptr %font, i64 3
-  %12 = load i8, ptr %arrayidx81, align 1
-  %cmp83 = icmp eq i8 %12, 0
-  br i1 %cmp83, label %return, label %if.end111
+  %8 = load i8, ptr %arrayidx76, align 1
+  %cmp78 = icmp eq i8 %8, 0
+  br i1 %cmp78, label %return.sink.split40, label %return
 
 land.lhs.true98:                                  ; preds = %land.lhs.true21
   %arrayidx99 = getelementptr inbounds i8, ptr %font, i64 2
-  %13 = load i8, ptr %arrayidx99, align 1
-  %cmp102 = icmp eq i8 %13, 117
-  br i1 %cmp102, label %land.lhs.true104, label %if.end111
+  %9 = load i8, ptr %arrayidx99, align 1
+  %cmp102 = icmp eq i8 %9, 117
+  br i1 %cmp102, label %return.sink.split40, label %return
 
-land.lhs.true104:                                 ; preds = %land.lhs.true98
-  %arrayidx105 = getelementptr inbounds i8, ptr %font, i64 3
-  %14 = load i8, ptr %arrayidx105, align 1
-  %cmp108 = icmp eq i8 %14, 101
-  br i1 %cmp108, label %return, label %if.end111
-
-if.end111:                                        ; preds = %land.lhs.true21, %land.lhs.true33, %land.lhs.true27, %entry, %land.lhs.true58, %land.lhs.true52, %land.lhs.true46, %land.lhs.true70, %land.lhs.true75, %land.lhs.true80, %land.lhs.true, %land.lhs.true6, %land.lhs.true11, %land.lhs.true104, %land.lhs.true98
+return.sink.split40:                              ; preds = %land.lhs.true6, %land.lhs.true52, %land.lhs.true75, %land.lhs.true98, %land.lhs.true27
+  %.sink41 = phi i8 [ 49, %land.lhs.true27 ], [ 0, %land.lhs.true6 ], [ 79, %land.lhs.true52 ], [ 0, %land.lhs.true75 ], [ 101, %land.lhs.true98 ]
+  %arrayidx34 = getelementptr inbounds i8, ptr %font, i64 3
+  %10 = load i8, ptr %arrayidx34, align 1
+  %cmp37 = icmp eq i8 %10, %.sink41
+  %11 = zext i1 %cmp37 to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true104, %land.lhs.true80, %land.lhs.true58, %land.lhs.true33, %land.lhs.true11, %if.end111
-  %retval.0 = phi i32 [ 0, %if.end111 ], [ 1, %land.lhs.true11 ], [ 1, %land.lhs.true33 ], [ 1, %land.lhs.true58 ], [ 1, %land.lhs.true80 ], [ 1, %land.lhs.true104 ]
-  ret i32 %retval.0
+return:                                           ; preds = %return.sink.split40, %land.lhs.true21, %land.lhs.true27, %entry, %land.lhs.true52, %land.lhs.true46, %land.lhs.true70, %land.lhs.true75, %land.lhs.true, %land.lhs.true6, %land.lhs.true98
+  %retval.0.shrunk = phi i32 [ 0, %land.lhs.true98 ], [ 0, %land.lhs.true6 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true75 ], [ 0, %land.lhs.true70 ], [ 0, %land.lhs.true46 ], [ 0, %land.lhs.true52 ], [ 0, %entry ], [ 0, %land.lhs.true27 ], [ 0, %land.lhs.true21 ], [ %11, %return.sink.split40 ]
+  ret i32 %retval.0.shrunk
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -1199,56 +1174,125 @@ return:                                           ; preds = %for.inc, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbtt_GetFontOffsetForIndex_internal(ptr nocapture noundef readonly %font_collection, i32 noundef %index) local_unnamed_addr #5 {
 entry:
-  %call = tail call i32 @stbtt__isfont(ptr noundef %font_collection), !range !11
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  %0 = load i8, ptr %font_collection, align 1
+  switch i8 %0, label %return [
+    i8 49, label %land.lhs.true.i
+    i8 116, label %land.lhs.true21.i
+    i8 79, label %land.lhs.true46.i
+    i8 0, label %land.lhs.true70.i
+  ]
 
-if.then:                                          ; preds = %entry
+land.lhs.true.i:                                  ; preds = %entry
+  %arrayidx2.i = getelementptr inbounds i8, ptr %font_collection, i64 1
+  %1 = load i8, ptr %arrayidx2.i, align 1
+  %cmp4.i = icmp eq i8 %1, 0
+  br i1 %cmp4.i, label %land.lhs.true6.i, label %return
+
+land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
+  %arrayidx7.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %2 = load i8, ptr %arrayidx7.i, align 1
+  %cmp9.i = icmp eq i8 %2, 0
+  br i1 %cmp9.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true21.i:                                ; preds = %entry
+  %arrayidx22.i = getelementptr inbounds i8, ptr %font_collection, i64 1
+  %3 = load i8, ptr %arrayidx22.i, align 1
+  switch i8 %3, label %return [
+    i8 121, label %land.lhs.true27.i
+    i8 114, label %land.lhs.true98.i
+    i8 116, label %land.lhs.true9
+  ]
+
+land.lhs.true27.i:                                ; preds = %land.lhs.true21.i
+  %arrayidx28.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %4 = load i8, ptr %arrayidx28.i, align 1
+  %cmp31.i = icmp eq i8 %4, 112
+  br i1 %cmp31.i, label %land.lhs.true33.i, label %return
+
+land.lhs.true33.i:                                ; preds = %land.lhs.true27.i
+  %arrayidx34.i = getelementptr inbounds i8, ptr %font_collection, i64 3
+  %5 = load i8, ptr %arrayidx34.i, align 1
+  %cmp37.i = icmp eq i8 %5, 49
+  br i1 %cmp37.i, label %if.then, label %return
+
+land.lhs.true46.i:                                ; preds = %entry
+  %arrayidx47.i = getelementptr inbounds i8, ptr %font_collection, i64 1
+  %6 = load i8, ptr %arrayidx47.i, align 1
+  %cmp50.i = icmp eq i8 %6, 84
+  br i1 %cmp50.i, label %land.lhs.true52.i, label %return
+
+land.lhs.true52.i:                                ; preds = %land.lhs.true46.i
+  %arrayidx53.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %7 = load i8, ptr %arrayidx53.i, align 1
+  %cmp56.i = icmp eq i8 %7, 84
+  br i1 %cmp56.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true70.i:                                ; preds = %entry
+  %arrayidx71.i = getelementptr inbounds i8, ptr %font_collection, i64 1
+  %8 = load i8, ptr %arrayidx71.i, align 1
+  %cmp73.i = icmp eq i8 %8, 1
+  br i1 %cmp73.i, label %land.lhs.true75.i, label %return
+
+land.lhs.true75.i:                                ; preds = %land.lhs.true70.i
+  %arrayidx76.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %9 = load i8, ptr %arrayidx76.i, align 1
+  %cmp78.i = icmp eq i8 %9, 0
+  br i1 %cmp78.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true98.i:                                ; preds = %land.lhs.true21.i
+  %arrayidx99.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %10 = load i8, ptr %arrayidx99.i, align 1
+  %cmp102.i = icmp eq i8 %10, 117
+  br i1 %cmp102.i, label %stbtt__isfont.exit.thread, label %return
+
+stbtt__isfont.exit:                               ; preds = %land.lhs.true6.i, %land.lhs.true52.i, %land.lhs.true75.i
+  %.sink39.i = phi i8 [ 0, %land.lhs.true6.i ], [ 79, %land.lhs.true52.i ], [ 0, %land.lhs.true75.i ]
+  %arrayidx81.i = getelementptr inbounds i8, ptr %font_collection, i64 3
+  %11 = load i8, ptr %arrayidx81.i, align 1
+  %cmp83.i = icmp eq i8 %11, %.sink39.i
+  br i1 %cmp83.i, label %if.then, label %return
+
+stbtt__isfont.exit.thread:                        ; preds = %land.lhs.true98.i
+  %arrayidx81.i59 = getelementptr inbounds i8, ptr %font_collection, i64 3
+  %12 = load i8, ptr %arrayidx81.i59, align 1
+  %cmp83.i60 = icmp eq i8 %12, 101
+  br i1 %cmp83.i60, label %if.then, label %return
+
+if.then:                                          ; preds = %stbtt__isfont.exit.thread, %land.lhs.true33.i, %stbtt__isfont.exit
   %cmp = icmp ne i32 %index, 0
   %cond = sext i1 %cmp to i32
   br label %return
 
-if.end:                                           ; preds = %entry
-  %0 = load i8, ptr %font_collection, align 1
-  %cmp2 = icmp eq i8 %0, 116
-  br i1 %cmp2, label %land.lhs.true, label %return
-
-land.lhs.true:                                    ; preds = %if.end
-  %arrayidx4 = getelementptr inbounds i8, ptr %font_collection, i64 1
-  %1 = load i8, ptr %arrayidx4, align 1
-  %cmp7 = icmp eq i8 %1, 116
-  br i1 %cmp7, label %land.lhs.true9, label %return
-
-land.lhs.true9:                                   ; preds = %land.lhs.true
+land.lhs.true9:                                   ; preds = %land.lhs.true21.i
   %arrayidx10 = getelementptr inbounds i8, ptr %font_collection, i64 2
-  %2 = load i8, ptr %arrayidx10, align 1
-  %cmp13 = icmp eq i8 %2, 99
+  %13 = load i8, ptr %arrayidx10, align 1
+  %cmp13 = icmp eq i8 %13, 99
   br i1 %cmp13, label %land.lhs.true15, label %return
 
 land.lhs.true15:                                  ; preds = %land.lhs.true9
   %arrayidx16 = getelementptr inbounds i8, ptr %font_collection, i64 3
-  %3 = load i8, ptr %arrayidx16, align 1
-  %cmp19 = icmp eq i8 %3, 102
+  %14 = load i8, ptr %arrayidx16, align 1
+  %cmp19 = icmp eq i8 %14, 102
   br i1 %cmp19, label %if.then21, label %return
 
 if.then21:                                        ; preds = %land.lhs.true15
   %add.ptr = getelementptr inbounds i8, ptr %font_collection, i64 4
-  %4 = load i8, ptr %add.ptr, align 1
-  %conv.i = zext i8 %4 to i32
+  %15 = load i8, ptr %add.ptr, align 1
+  %conv.i = zext i8 %15 to i32
   %shl.i = shl nuw i32 %conv.i, 24
   %arrayidx1.i = getelementptr inbounds i8, ptr %font_collection, i64 5
-  %5 = load i8, ptr %arrayidx1.i, align 1
-  %conv2.i = zext i8 %5 to i32
+  %16 = load i8, ptr %arrayidx1.i, align 1
+  %conv2.i = zext i8 %16 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %add.i = or disjoint i32 %shl3.i, %shl.i
   %arrayidx4.i = getelementptr inbounds i8, ptr %font_collection, i64 6
-  %6 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = zext i8 %6 to i32
+  %17 = load i8, ptr %arrayidx4.i, align 1
+  %conv5.i = zext i8 %17 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
   %add7.i = or disjoint i32 %add.i, %shl6.i
   %arrayidx8.i = getelementptr inbounds i8, ptr %font_collection, i64 7
-  %7 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %7 to i32
+  %18 = load i8, ptr %arrayidx8.i, align 1
+  %conv9.i = zext i8 %18 to i32
   %add10.i = or disjoint i32 %add7.i, %conv9.i
   switch i32 %add10.i, label %return [
     i32 65536, label %if.then29
@@ -1257,22 +1301,22 @@ if.then21:                                        ; preds = %land.lhs.true15
 
 if.then29:                                        ; preds = %if.then21, %if.then21
   %add.ptr30 = getelementptr inbounds i8, ptr %font_collection, i64 8
-  %8 = load i8, ptr %add.ptr30, align 1
-  %conv.i24 = zext i8 %8 to i32
+  %19 = load i8, ptr %add.ptr30, align 1
+  %conv.i24 = zext i8 %19 to i32
   %shl.i25 = shl nuw i32 %conv.i24, 24
   %arrayidx1.i26 = getelementptr inbounds i8, ptr %font_collection, i64 9
-  %9 = load i8, ptr %arrayidx1.i26, align 1
-  %conv2.i27 = zext i8 %9 to i32
+  %20 = load i8, ptr %arrayidx1.i26, align 1
+  %conv2.i27 = zext i8 %20 to i32
   %shl3.i28 = shl nuw nsw i32 %conv2.i27, 16
   %add.i29 = or disjoint i32 %shl3.i28, %shl.i25
   %arrayidx4.i30 = getelementptr inbounds i8, ptr %font_collection, i64 10
-  %10 = load i8, ptr %arrayidx4.i30, align 1
-  %conv5.i31 = zext i8 %10 to i32
+  %21 = load i8, ptr %arrayidx4.i30, align 1
+  %conv5.i31 = zext i8 %21 to i32
   %shl6.i32 = shl nuw nsw i32 %conv5.i31, 8
   %add7.i33 = or disjoint i32 %add.i29, %shl6.i32
   %arrayidx8.i34 = getelementptr inbounds i8, ptr %font_collection, i64 11
-  %11 = load i8, ptr %arrayidx8.i34, align 1
-  %conv9.i35 = zext i8 %11 to i32
+  %22 = load i8, ptr %arrayidx8.i34, align 1
+  %conv9.i35 = zext i8 %22 to i32
   %add10.i36 = or disjoint i32 %add7.i33, %conv9.i35
   %cmp32.not = icmp sgt i32 %add10.i36, %index
   br i1 %cmp32.not, label %if.end35, label %return
@@ -1282,78 +1326,154 @@ if.end35:                                         ; preds = %if.then29
   %mul = shl nsw i32 %index, 2
   %idx.ext = sext i32 %mul to i64
   %add.ptr37 = getelementptr inbounds i8, ptr %add.ptr36, i64 %idx.ext
-  %12 = load i8, ptr %add.ptr37, align 1
-  %conv.i37 = zext i8 %12 to i32
+  %23 = load i8, ptr %add.ptr37, align 1
+  %conv.i37 = zext i8 %23 to i32
   %shl.i38 = shl nuw i32 %conv.i37, 24
   %arrayidx1.i39 = getelementptr inbounds i8, ptr %add.ptr37, i64 1
-  %13 = load i8, ptr %arrayidx1.i39, align 1
-  %conv2.i40 = zext i8 %13 to i32
+  %24 = load i8, ptr %arrayidx1.i39, align 1
+  %conv2.i40 = zext i8 %24 to i32
   %shl3.i41 = shl nuw nsw i32 %conv2.i40, 16
   %add.i42 = or disjoint i32 %shl3.i41, %shl.i38
   %arrayidx4.i43 = getelementptr inbounds i8, ptr %add.ptr37, i64 2
-  %14 = load i8, ptr %arrayidx4.i43, align 1
-  %conv5.i44 = zext i8 %14 to i32
+  %25 = load i8, ptr %arrayidx4.i43, align 1
+  %conv5.i44 = zext i8 %25 to i32
   %shl6.i45 = shl nuw nsw i32 %conv5.i44, 8
   %add7.i46 = or disjoint i32 %add.i42, %shl6.i45
   %arrayidx8.i47 = getelementptr inbounds i8, ptr %add.ptr37, i64 3
-  %15 = load i8, ptr %arrayidx8.i47, align 1
-  %conv9.i48 = zext i8 %15 to i32
+  %26 = load i8, ptr %arrayidx8.i47, align 1
+  %conv9.i48 = zext i8 %26 to i32
   %add10.i49 = or disjoint i32 %add7.i46, %conv9.i48
   br label %return
 
-return:                                           ; preds = %if.then21, %if.end, %land.lhs.true, %land.lhs.true9, %land.lhs.true15, %if.then29, %if.end35, %if.then
-  %retval.0 = phi i32 [ %cond, %if.then ], [ %add10.i49, %if.end35 ], [ -1, %if.then29 ], [ -1, %land.lhs.true15 ], [ -1, %land.lhs.true9 ], [ -1, %land.lhs.true ], [ -1, %if.end ], [ -1, %if.then21 ]
+return:                                           ; preds = %land.lhs.true21.i, %stbtt__isfont.exit, %stbtt__isfont.exit.thread, %land.lhs.true33.i, %land.lhs.true27.i, %land.lhs.true98.i, %if.then21, %entry, %land.lhs.true6.i, %land.lhs.true.i, %land.lhs.true75.i, %land.lhs.true70.i, %land.lhs.true46.i, %land.lhs.true52.i, %land.lhs.true9, %land.lhs.true15, %if.then29, %if.end35, %if.then
+  %retval.0 = phi i32 [ %cond, %if.then ], [ %add10.i49, %if.end35 ], [ -1, %if.then29 ], [ -1, %land.lhs.true15 ], [ -1, %land.lhs.true9 ], [ -1, %land.lhs.true52.i ], [ -1, %land.lhs.true46.i ], [ -1, %land.lhs.true70.i ], [ -1, %land.lhs.true75.i ], [ -1, %land.lhs.true.i ], [ -1, %land.lhs.true6.i ], [ -1, %entry ], [ -1, %if.then21 ], [ -1, %land.lhs.true98.i ], [ -1, %land.lhs.true27.i ], [ -1, %land.lhs.true33.i ], [ -1, %stbtt__isfont.exit.thread ], [ -1, %stbtt__isfont.exit ], [ -1, %land.lhs.true21.i ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbtt_GetNumberOfFonts_internal(ptr nocapture noundef readonly %font_collection) local_unnamed_addr #5 {
 entry:
-  %call = tail call i32 @stbtt__isfont(ptr noundef %font_collection), !range !11
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
   %0 = load i8, ptr %font_collection, align 1
+  switch i8 %0, label %return [
+    i8 49, label %land.lhs.true.i
+    i8 116, label %land.lhs.true21.i
+    i8 79, label %land.lhs.true46.i
+    i8 0, label %land.lhs.true70.i
+  ]
+
+land.lhs.true.i:                                  ; preds = %entry
+  %arrayidx2.i = getelementptr inbounds i8, ptr %font_collection, i64 1
+  %1 = load i8, ptr %arrayidx2.i, align 1
+  %cmp4.i = icmp eq i8 %1, 0
+  br i1 %cmp4.i, label %land.lhs.true6.i, label %return
+
+land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
+  %arrayidx7.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %2 = load i8, ptr %arrayidx7.i, align 1
+  %cmp9.i = icmp eq i8 %2, 0
+  br i1 %cmp9.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true21.i:                                ; preds = %entry
+  %arrayidx22.i = getelementptr inbounds i8, ptr %font_collection, i64 1
+  %3 = load i8, ptr %arrayidx22.i, align 1
+  switch i8 %3, label %return [
+    i8 121, label %land.lhs.true27.i
+    i8 114, label %land.lhs.true98.i
+    i8 116, label %land.lhs.true8
+  ]
+
+land.lhs.true27.i:                                ; preds = %land.lhs.true21.i
+  %arrayidx28.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %4 = load i8, ptr %arrayidx28.i, align 1
+  %cmp31.i = icmp eq i8 %4, 112
+  br i1 %cmp31.i, label %land.lhs.true33.i, label %land.lhs.true.thread
+
+land.lhs.true33.i:                                ; preds = %land.lhs.true27.i
+  %arrayidx34.i = getelementptr inbounds i8, ptr %font_collection, i64 3
+  %5 = load i8, ptr %arrayidx34.i, align 1
+  %cmp37.i = icmp eq i8 %5, 49
+  br i1 %cmp37.i, label %return, label %land.lhs.true.thread
+
+land.lhs.true46.i:                                ; preds = %entry
+  %arrayidx47.i = getelementptr inbounds i8, ptr %font_collection, i64 1
+  %6 = load i8, ptr %arrayidx47.i, align 1
+  %cmp50.i = icmp eq i8 %6, 84
+  br i1 %cmp50.i, label %land.lhs.true52.i, label %return
+
+land.lhs.true52.i:                                ; preds = %land.lhs.true46.i
+  %arrayidx53.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %7 = load i8, ptr %arrayidx53.i, align 1
+  %cmp56.i = icmp eq i8 %7, 84
+  br i1 %cmp56.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true70.i:                                ; preds = %entry
+  %arrayidx71.i = getelementptr inbounds i8, ptr %font_collection, i64 1
+  %8 = load i8, ptr %arrayidx71.i, align 1
+  %cmp73.i = icmp eq i8 %8, 1
+  br i1 %cmp73.i, label %land.lhs.true75.i, label %return
+
+land.lhs.true75.i:                                ; preds = %land.lhs.true70.i
+  %arrayidx76.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %9 = load i8, ptr %arrayidx76.i, align 1
+  %cmp78.i = icmp eq i8 %9, 0
+  br i1 %cmp78.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true98.i:                                ; preds = %land.lhs.true21.i
+  %arrayidx99.i = getelementptr inbounds i8, ptr %font_collection, i64 2
+  %10 = load i8, ptr %arrayidx99.i, align 1
+  %cmp102.i = icmp eq i8 %10, 117
+  br i1 %cmp102.i, label %stbtt__isfont.exit.thread, label %land.lhs.true.thread
+
+stbtt__isfont.exit:                               ; preds = %land.lhs.true6.i, %land.lhs.true52.i, %land.lhs.true75.i
+  %.sink39.i = phi i8 [ 0, %land.lhs.true6.i ], [ 79, %land.lhs.true52.i ], [ 0, %land.lhs.true75.i ]
+  %arrayidx81.i = getelementptr inbounds i8, ptr %font_collection, i64 3
+  %11 = load i8, ptr %arrayidx81.i, align 1
+  %cmp83.i = icmp eq i8 %11, %.sink39.i
+  br i1 %cmp83.i, label %return, label %if.end
+
+stbtt__isfont.exit.thread:                        ; preds = %land.lhs.true98.i
+  %arrayidx81.i43 = getelementptr inbounds i8, ptr %font_collection, i64 3
+  %12 = load i8, ptr %arrayidx81.i43, align 1
+  %cmp83.i44 = icmp eq i8 %12, 101
+  br i1 %cmp83.i44, label %return, label %land.lhs.true.thread
+
+if.end:                                           ; preds = %stbtt__isfont.exit
   %cmp = icmp eq i8 %0, 116
-  br i1 %cmp, label %land.lhs.true, label %return
+  br i1 %cmp, label %land.lhs.true.thread, label %return
 
-land.lhs.true:                                    ; preds = %if.end
-  %arrayidx3 = getelementptr inbounds i8, ptr %font_collection, i64 1
-  %1 = load i8, ptr %arrayidx3, align 1
-  %cmp6 = icmp eq i8 %1, 116
-  br i1 %cmp6, label %land.lhs.true8, label %return
+land.lhs.true.thread:                             ; preds = %land.lhs.true98.i, %land.lhs.true27.i, %if.end, %land.lhs.true33.i, %stbtt__isfont.exit.thread
+  br label %return
 
-land.lhs.true8:                                   ; preds = %land.lhs.true
+land.lhs.true8:                                   ; preds = %land.lhs.true21.i
   %arrayidx9 = getelementptr inbounds i8, ptr %font_collection, i64 2
-  %2 = load i8, ptr %arrayidx9, align 1
-  %cmp12 = icmp eq i8 %2, 99
+  %13 = load i8, ptr %arrayidx9, align 1
+  %cmp12 = icmp eq i8 %13, 99
   br i1 %cmp12, label %land.lhs.true14, label %return
 
 land.lhs.true14:                                  ; preds = %land.lhs.true8
   %arrayidx15 = getelementptr inbounds i8, ptr %font_collection, i64 3
-  %3 = load i8, ptr %arrayidx15, align 1
-  %cmp18 = icmp eq i8 %3, 102
+  %14 = load i8, ptr %arrayidx15, align 1
+  %cmp18 = icmp eq i8 %14, 102
   br i1 %cmp18, label %if.then20, label %return
 
 if.then20:                                        ; preds = %land.lhs.true14
   %add.ptr = getelementptr inbounds i8, ptr %font_collection, i64 4
-  %4 = load i8, ptr %add.ptr, align 1
-  %conv.i = zext i8 %4 to i32
+  %15 = load i8, ptr %add.ptr, align 1
+  %conv.i = zext i8 %15 to i32
   %shl.i = shl nuw i32 %conv.i, 24
   %arrayidx1.i = getelementptr inbounds i8, ptr %font_collection, i64 5
-  %5 = load i8, ptr %arrayidx1.i, align 1
-  %conv2.i = zext i8 %5 to i32
+  %16 = load i8, ptr %arrayidx1.i, align 1
+  %conv2.i = zext i8 %16 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %add.i = or disjoint i32 %shl3.i, %shl.i
   %arrayidx4.i = getelementptr inbounds i8, ptr %font_collection, i64 6
-  %6 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = zext i8 %6 to i32
+  %17 = load i8, ptr %arrayidx4.i, align 1
+  %conv5.i = zext i8 %17 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
   %add7.i = or disjoint i32 %add.i, %shl6.i
   %arrayidx8.i = getelementptr inbounds i8, ptr %font_collection, i64 7
-  %7 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %7 to i32
+  %18 = load i8, ptr %arrayidx8.i, align 1
+  %conv9.i = zext i8 %18 to i32
   %add10.i = or disjoint i32 %add7.i, %conv9.i
   switch i32 %add10.i, label %return [
     i32 65536, label %if.then28
@@ -1362,27 +1482,27 @@ if.then20:                                        ; preds = %land.lhs.true14
 
 if.then28:                                        ; preds = %if.then20, %if.then20
   %add.ptr29 = getelementptr inbounds i8, ptr %font_collection, i64 8
-  %8 = load i8, ptr %add.ptr29, align 1
-  %conv.i21 = zext i8 %8 to i32
+  %19 = load i8, ptr %add.ptr29, align 1
+  %conv.i21 = zext i8 %19 to i32
   %shl.i22 = shl nuw i32 %conv.i21, 24
   %arrayidx1.i23 = getelementptr inbounds i8, ptr %font_collection, i64 9
-  %9 = load i8, ptr %arrayidx1.i23, align 1
-  %conv2.i24 = zext i8 %9 to i32
+  %20 = load i8, ptr %arrayidx1.i23, align 1
+  %conv2.i24 = zext i8 %20 to i32
   %shl3.i25 = shl nuw nsw i32 %conv2.i24, 16
   %add.i26 = or disjoint i32 %shl3.i25, %shl.i22
   %arrayidx4.i27 = getelementptr inbounds i8, ptr %font_collection, i64 10
-  %10 = load i8, ptr %arrayidx4.i27, align 1
-  %conv5.i28 = zext i8 %10 to i32
+  %21 = load i8, ptr %arrayidx4.i27, align 1
+  %conv5.i28 = zext i8 %21 to i32
   %shl6.i29 = shl nuw nsw i32 %conv5.i28, 8
   %add7.i30 = or disjoint i32 %add.i26, %shl6.i29
   %arrayidx8.i31 = getelementptr inbounds i8, ptr %font_collection, i64 11
-  %11 = load i8, ptr %arrayidx8.i31, align 1
-  %conv9.i32 = zext i8 %11 to i32
+  %22 = load i8, ptr %arrayidx8.i31, align 1
+  %conv9.i32 = zext i8 %22 to i32
   %add10.i33 = or disjoint i32 %add7.i30, %conv9.i32
   br label %return
 
-return:                                           ; preds = %if.then20, %if.end, %land.lhs.true, %land.lhs.true8, %land.lhs.true14, %entry, %if.then28
-  %retval.0 = phi i32 [ %add10.i33, %if.then28 ], [ 1, %entry ], [ 0, %land.lhs.true14 ], [ 0, %land.lhs.true8 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %if.then20 ]
+return:                                           ; preds = %land.lhs.true21.i, %land.lhs.true.thread, %stbtt__isfont.exit.thread, %land.lhs.true33.i, %if.then20, %entry, %land.lhs.true6.i, %land.lhs.true.i, %land.lhs.true75.i, %land.lhs.true70.i, %land.lhs.true46.i, %land.lhs.true52.i, %if.end, %land.lhs.true8, %land.lhs.true14, %stbtt__isfont.exit, %if.then28
+  %retval.0 = phi i32 [ %add10.i33, %if.then28 ], [ 1, %stbtt__isfont.exit ], [ 0, %land.lhs.true14 ], [ 0, %land.lhs.true8 ], [ 0, %if.end ], [ 0, %land.lhs.true52.i ], [ 0, %land.lhs.true46.i ], [ 0, %land.lhs.true70.i ], [ 0, %land.lhs.true75.i ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true6.i ], [ 0, %entry ], [ 0, %if.then20 ], [ 1, %land.lhs.true33.i ], [ 1, %stbtt__isfont.exit.thread ], [ 0, %land.lhs.true.thread ], [ 0, %land.lhs.true21.i ]
   ret i32 %retval.0
 }
 
@@ -1396,7 +1516,7 @@ entry:
   %private_loc.sroa.3 = alloca i32, align 4
   %pdict = alloca %struct.stbtt__buf, align 8
   %cff.sroa.13.8.extract.shift = lshr i64 %cff.coerce1, 32
-  %cff.sroa.13.8.extract.trunc = trunc i64 %cff.sroa.13.8.extract.shift to i32
+  %cff.sroa.13.8.extract.trunc = trunc nuw i64 %cff.sroa.13.8.extract.shift to i32
   store ptr %fontdict.coerce0, ptr %fontdict, align 8
   %0 = getelementptr inbounds i8, ptr %fontdict, i64 8
   store i64 %fontdict.coerce1, ptr %0, align 8
@@ -1412,7 +1532,7 @@ entry:
   %size.i = getelementptr inbounds i8, ptr %operands.i, i64 12
   %4 = trunc i64 %3 to i32
   %5 = lshr i64 %3, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %cmp14.i = icmp slt i32 %4, %6
   br i1 %cmp14.i, label %for.body.i, label %stbtt__dict_get_ints.exit.thread
 
@@ -1474,7 +1594,7 @@ stbtt__buf_range.exit:                            ; preds = %if.end, %lor.lhs.fa
   store i64 %15, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = lshr i64 %15, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %cmp14.i8 = icmp slt i32 %16, %18
   br i1 %cmp14.i8, label %stbtt__dict_get_ints.exit16, label %stbtt__dict_get_ints.exit16.thread
 
@@ -2881,7 +3001,7 @@ stbtt__cff_get_index.exit711:                     ; preds = %if.end.i685, %lor.l
   store i64 %158, ptr %157, align 8
   %159 = trunc i64 %158 to i32
   %160 = lshr i64 %158, 32
-  %161 = trunc i64 %160 to i32
+  %161 = trunc nuw i64 %160 to i32
   %cmp14.i = icmp slt i32 %159, %161
   br i1 %cmp14.i, label %for.body.preheader.i, label %stbtt__dict_get_ints.exit
 
@@ -2901,7 +3021,7 @@ stbtt__dict_get_ints.exit:                        ; preds = %stbtt__cff_get_inde
   store i64 %164, ptr %163, align 8
   %165 = trunc i64 %164 to i32
   %166 = lshr i64 %164, 32
-  %167 = trunc i64 %166 to i32
+  %167 = trunc nuw i64 %166 to i32
   %cmp14.i720 = icmp slt i32 %165, %167
   br i1 %cmp14.i720, label %for.body.preheader.i721, label %stbtt__dict_get_ints.exit728
 
@@ -2922,7 +3042,7 @@ stbtt__dict_get_ints.exit728:                     ; preds = %stbtt__dict_get_int
   store i64 %171, ptr %170, align 8
   %172 = trunc i64 %171 to i32
   %173 = lshr i64 %171, 32
-  %174 = trunc i64 %173 to i32
+  %174 = trunc nuw i64 %173 to i32
   %cmp14.i732 = icmp slt i32 %172, %174
   br i1 %cmp14.i732, label %for.body.preheader.i733, label %stbtt__dict_get_ints.exit740
 
@@ -2942,7 +3062,7 @@ stbtt__dict_get_ints.exit740:                     ; preds = %stbtt__dict_get_int
   store i64 %177, ptr %176, align 8
   %178 = trunc i64 %177 to i32
   %179 = lshr i64 %177, 32
-  %180 = trunc i64 %179 to i32
+  %180 = trunc nuw i64 %179 to i32
   %cmp14.i744 = icmp slt i32 %178, %180
   br i1 %cmp14.i744, label %for.body.preheader.i745, label %stbtt__dict_get_ints.exit752
 
@@ -2969,7 +3089,7 @@ stbtt__dict_get_ints.exit752:                     ; preds = %stbtt__dict_get_int
 
 if.end57:                                         ; preds = %stbtt__dict_get_ints.exit752
   %186 = lshr i64 %181, 32
-  %187 = trunc i64 %186 to i32
+  %187 = trunc nuw i64 %186 to i32
   %tobool58.not = icmp eq i32 %fdarrayoff.0, 0
   br i1 %tobool58.not, label %if.end69, label %if.then59
 
@@ -3189,7 +3309,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %225 = phi i32 [ %215, %for.body ], [ %215, %sw.bb ], [ %add114.sink, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc
   %226 = icmp eq i32 %225, 0
@@ -3384,7 +3504,7 @@ while.body:                                       ; preds = %while.body.preheade
   %search.2 = add i32 %add118, %search.1212
   %dec = add i16 %entrySelector.0213, -1
   %tobool.not = icmp eq i16 %dec, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %if.end85
   %search.1.lcssa = phi i32 [ %sub101, %if.end85 ], [ %search.2, %while.body ]
@@ -3589,7 +3709,7 @@ if.end269:                                        ; preds = %while.body225, %if.
   %low.1 = phi i32 [ %add251, %if.then250 ], [ %low.0216, %while.body225 ]
   %high.1 = phi i32 [ %high.0217, %if.then250 ], [ %add228, %while.body225 ]
   %cmp223 = icmp slt i32 %low.1, %high.1
-  br i1 %cmp223, label %while.body225, label %return, !llvm.loop !14
+  br i1 %cmp223, label %while.body225, label %return, !llvm.loop !13
 
 return:                                           ; preds = %if.end269, %if.then217, %if.else209, %if.else252, %while.end, %if.then56, %entry, %if.then22, %land.lhs.true, %if.then, %if.then264, %if.end186, %if.then168, %if.then37, %if.then12
   %retval.0 = phi i32 [ %conv18, %if.then12 ], [ %add.i112, %if.then37 ], [ %conv185, %if.then168 ], [ %add.i167, %if.end186 ], [ %sub266, %if.then264 ], [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %if.then22 ], [ 0, %entry ], [ 0, %if.then56 ], [ 0, %while.end ], [ %add10.i210, %if.else252 ], [ 0, %if.else209 ], [ 0, %if.then217 ], [ 0, %if.end269 ]
@@ -3617,7 +3737,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call, ptr noundef nonnull %count_ctx.i.i), !range !11
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call, ptr noundef nonnull %count_ctx.i.i), !range !14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -3630,7 +3750,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   store ptr %call1.i.i, ptr %vertices, align 8
   %pvertices2.i.i = getelementptr inbounds i8, ptr %output_ctx.i.i, i64 40
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call, ptr noundef nonnull %output_ctx.i.i), !range !11
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call, ptr noundef nonnull %output_ctx.i.i), !range !14
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -3674,7 +3794,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i, i8 0, i64 56, i1 false)
-  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx.i), !range !11
+  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx.i), !range !14
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end7.i, label %if.then.i
 
@@ -3687,7 +3807,7 @@ if.then.i:                                        ; preds = %if.else
   store ptr %call1.i, ptr %pvertices, align 8
   %pvertices2.i = getelementptr inbounds i8, ptr %output_ctx.i, i64 40
   store ptr %call1.i, ptr %pvertices2.i, align 8
-  %call3.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx.i), !range !11
+  %call3.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx.i), !range !14
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end7.i, label %if.then5.i
 
@@ -3846,7 +3966,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i, align 8
-  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i), !range !11
+  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i), !range !14
   %tobool.not.i = icmp eq ptr %x0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -4085,7 +4205,7 @@ entry:
   %c = alloca %struct.stbtt__csctx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c, i8 0, i64 56, i1 false)
   store i32 1, ptr %c, align 8
-  %call = call i32 @stbtt__run_charstring(ptr noundef %info, i32 noundef %glyph_index, ptr noundef nonnull %c), !range !11
+  %call = call i32 @stbtt__run_charstring(ptr noundef %info, i32 noundef %glyph_index, ptr noundef nonnull %c), !range !14
   %tobool.not = icmp eq ptr %x0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -4145,7 +4265,7 @@ if.end25:                                         ; preds = %if.then19, %if.end1
 define noundef i32 @stbtt_GetCodepointBox(ptr nocapture noundef readonly %info, i32 noundef %codepoint, ptr noundef %x0, ptr noundef %y0, ptr noundef %x1, ptr noundef %y1) local_unnamed_addr #12 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
-  %call1 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %call, ptr noundef %x0, ptr noundef %y0, ptr noundef %x1, ptr noundef %y1), !range !11
+  %call1 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %call, ptr noundef %x0, ptr noundef %y0, ptr noundef %x1, ptr noundef %y1), !range !14
   ret i32 %call1
 }
 
@@ -4162,7 +4282,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i, align 8
-  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i), !range !11
+  %call.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph_index, ptr noundef nonnull %c.i), !range !14
   %tobool26.not.i = icmp eq i32 %call.i, 0
   %num_vertices.i = getelementptr inbounds i8, ptr %c.i, i64 48
   %1 = load i32, ptr %num_vertices.i, align 8
@@ -4727,10 +4847,10 @@ if.then2.i:                                       ; preds = %if.then.i
   %conv3.i.i = trunc i32 %shr4.i to i16
   %y4.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
   store i16 %conv3.i.i, ptr %y4.i.i, align 2
-  %conv5.i.i238 = trunc i32 %cx.0396 to i16
+  %conv5.i.i238 = trunc nsw i32 %cx.0396 to i16
   %cx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i16 %conv5.i.i238, ptr %cx6.i.i, align 2
-  %conv7.i.i = trunc i32 %cy.0399 to i16
+  %conv7.i.i = trunc nsw i32 %cy.0399 to i16
   %cy8.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
   store i16 %conv7.i.i, ptr %cy8.i.i, align 2
   br label %if.end.i239
@@ -4746,10 +4866,10 @@ if.end.i239:                                      ; preds = %if.then2.i, %if.the
   %conv3.i21.i = trunc i32 %sy.0403 to i16
   %y4.i22.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 2
   store i16 %conv3.i21.i, ptr %y4.i22.i, align 2
-  %conv5.i23.i = trunc i32 %scx.0404 to i16
+  %conv5.i23.i = trunc nsw i32 %scx.0404 to i16
   %cx6.i24.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 4
   store i16 %conv5.i23.i, ptr %cx6.i24.i, align 2
-  %conv7.i25.i = trunc i32 %scy.0406 to i16
+  %conv7.i25.i = trunc nsw i32 %scy.0406 to i16
   br label %stbtt__close_shape.exit
 
 if.else.i241:                                     ; preds = %if.then175
@@ -4765,10 +4885,10 @@ if.then9.i:                                       ; preds = %if.else.i241
   store i8 3, ptr %type1.i35.i, align 2
   store i16 %conv.i36.i, ptr %arrayidx16.i, align 2
   store i16 %conv3.i37.i, ptr %y4.i38.i, align 2
-  %conv5.i31.i = trunc i32 %cx.0396 to i16
+  %conv5.i31.i = trunc nsw i32 %cx.0396 to i16
   %cx6.i32.i = getelementptr inbounds i8, ptr %arrayidx16.i, i64 4
   store i16 %conv5.i31.i, ptr %cx6.i32.i, align 2
-  %conv7.i33.i = trunc i32 %cy.0399 to i16
+  %conv7.i33.i = trunc nsw i32 %cy.0399 to i16
   br label %stbtt__close_shape.exit
 
 if.else13.i:                                      ; preds = %if.else.i241
@@ -4882,10 +5002,10 @@ if.then240:                                       ; preds = %if.then238
   %conv3.i250 = trunc i32 %shr247 to i16
   %y4.i251 = getelementptr inbounds i8, ptr %arrayidx243, i64 2
   store i16 %conv3.i250, ptr %y4.i251, align 2
-  %conv5.i = trunc i32 %cx.0396 to i16
+  %conv5.i = trunc nsw i32 %cx.0396 to i16
   %cx6.i252 = getelementptr inbounds i8, ptr %arrayidx243, i64 4
   store i16 %conv5.i, ptr %cx6.i252, align 2
-  %conv7.i = trunc i32 %cy.0399 to i16
+  %conv7.i = trunc nsw i32 %cy.0399 to i16
   %cy8.i253 = getelementptr inbounds i8, ptr %arrayidx243, i64 6
   store i16 %conv7.i, ptr %cy8.i253, align 2
   br label %for.inc262
@@ -4901,10 +5021,10 @@ if.then251:                                       ; preds = %if.else249
   store i8 3, ptr %type1.i260, align 2
   store i16 %44, ptr %arrayidx258, align 2
   store i16 %45, ptr %y4.i261, align 2
-  %conv5.i256 = trunc i32 %cx.0396 to i16
+  %conv5.i256 = trunc nsw i32 %cx.0396 to i16
   %cx6.i257 = getelementptr inbounds i8, ptr %arrayidx258, i64 4
   store i16 %conv5.i256, ptr %cx6.i257, align 2
-  %conv7.i258 = trunc i32 %cy.0399 to i16
+  %conv7.i258 = trunc nsw i32 %cy.0399 to i16
   br label %if.end259
 
 if.else255:                                       ; preds = %if.else249
@@ -4962,10 +5082,10 @@ if.then2.i267:                                    ; preds = %if.then.i266
   %conv3.i.i277 = trunc i32 %shr4.i274 to i16
   %y4.i.i278 = getelementptr inbounds i8, ptr %arrayidx.i270, i64 2
   store i16 %conv3.i.i277, ptr %y4.i.i278, align 2
-  %conv5.i.i279 = trunc i32 %cx.1 to i16
+  %conv5.i.i279 = trunc nsw i32 %cx.1 to i16
   %cx6.i.i280 = getelementptr inbounds i8, ptr %arrayidx.i270, i64 4
   store i16 %conv5.i.i279, ptr %cx6.i.i280, align 2
-  %conv7.i.i281 = trunc i32 %cy.1 to i16
+  %conv7.i.i281 = trunc nsw i32 %cy.1 to i16
   %cy8.i.i282 = getelementptr inbounds i8, ptr %arrayidx.i270, i64 6
   store i16 %conv7.i.i281, ptr %cy8.i.i282, align 2
   br label %if.end.i283
@@ -4981,10 +5101,10 @@ if.end.i283:                                      ; preds = %if.then2.i267, %if.
   %conv3.i21.i289 = trunc i32 %sy.2 to i16
   %y4.i22.i290 = getelementptr inbounds i8, ptr %arrayidx7.i286, i64 2
   store i16 %conv3.i21.i289, ptr %y4.i22.i290, align 2
-  %conv5.i23.i291 = trunc i32 %scx.2 to i16
+  %conv5.i23.i291 = trunc nsw i32 %scx.2 to i16
   %cx6.i24.i292 = getelementptr inbounds i8, ptr %arrayidx7.i286, i64 4
   store i16 %conv5.i23.i291, ptr %cx6.i24.i292, align 2
-  %conv7.i25.i293 = trunc i32 %scy.2 to i16
+  %conv7.i25.i293 = trunc nsw i32 %scy.2 to i16
   br label %stbtt__close_shape.exit311
 
 if.else.i298:                                     ; preds = %for.end264
@@ -5000,10 +5120,10 @@ if.then9.i305:                                    ; preds = %if.else.i298
   store i8 3, ptr %type1.i35.i301, align 2
   store i16 %conv.i36.i302, ptr %arrayidx16.i300, align 2
   store i16 %conv3.i37.i303, ptr %y4.i38.i304, align 2
-  %conv5.i31.i306 = trunc i32 %cx.1 to i16
+  %conv5.i31.i306 = trunc nsw i32 %cx.1 to i16
   %cx6.i32.i307 = getelementptr inbounds i8, ptr %arrayidx16.i300, i64 4
   store i16 %conv5.i31.i306, ptr %cx6.i32.i307, align 2
-  %conv7.i33.i308 = trunc i32 %cy.1 to i16
+  %conv7.i33.i308 = trunc nsw i32 %cy.1 to i16
   br label %stbtt__close_shape.exit311
 
 if.else13.i309:                                   ; preds = %if.else.i298
@@ -5208,7 +5328,7 @@ if.else.i368:                                     ; preds = %if.end371
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %add.i321, ptr noundef nonnull %count_ctx.i.i), !range !11
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %add.i321, ptr noundef nonnull %count_ctx.i.i), !range !14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -5219,7 +5339,7 @@ if.then.i.i:                                      ; preds = %if.else.i368
   %call1.i.i = tail call noalias ptr @malloc(i64 noundef %mul.i.i) #33
   store ptr %call1.i.i, ptr %comp_verts, align 8
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %add.i321, ptr noundef nonnull %output_ctx.i.i), !range !11
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %add.i321, ptr noundef nonnull %output_ctx.i.i), !range !14
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -6034,7 +6154,7 @@ entry:
 define { ptr, i64 } @stbtt__get_subr(ptr readonly %idx.coerce0, i64 %idx.coerce1, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %idx.sroa.7.8.extract.shift = lshr i64 %idx.coerce1, 32
-  %idx.sroa.7.8.extract.trunc = trunc i64 %idx.sroa.7.8.extract.shift to i32
+  %idx.sroa.7.8.extract.trunc = trunc nuw i64 %idx.sroa.7.8.extract.shift to i32
   %0 = tail call i32 @llvm.smin.i32(i32 %idx.sroa.7.8.extract.trunc, i32 0)
   br label %for.body.i.i
 
@@ -6283,7 +6403,7 @@ entry:
   %size = getelementptr inbounds i8, ptr %b, i64 12
   %5 = trunc i64 %4 to i32
   %6 = lshr i64 %4, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %cmp445 = icmp slt i32 %5, %7
   br i1 %cmp445, label %stbtt__buf_get8.exit.lr.ph, label %return
 
@@ -6674,7 +6794,7 @@ for.body173:                                      ; preds = %for.body173.prehead
   br i1 %cmp171, label %for.body173, label %for.end193, !llvm.loop !24
 
 for.end193:                                       ; preds = %for.body173
-  %98 = trunc i64 %indvars.iv.next475 to i32
+  %98 = trunc nuw i64 %indvars.iv.next475 to i32
   %add194 = or disjoint i32 %98, 1
   %cmp195.not = icmp slt i32 %add194, %sp.0449
   br i1 %cmp195.not, label %if.end198, label %return
@@ -6712,7 +6832,7 @@ for.body214:                                      ; preds = %for.body214.prehead
   br i1 %cmp212, label %for.body214, label %for.end222, !llvm.loop !25
 
 for.end222:                                       ; preds = %for.body214
-  %106 = trunc i64 %indvars.iv.next470 to i32
+  %106 = trunc nuw nsw i64 %indvars.iv.next470 to i32
   %add223 = add nuw nsw i32 %106, 5
   %cmp224.not = icmp slt i32 %add223, %sp.0449
   br i1 %cmp224.not, label %if.end227, label %return
@@ -6905,7 +7025,7 @@ cond.end320:                                      ; preds = %if.end311, %cond.fa
   %agg.tmp.sroa.3.0 = phi i64 [ %agg.tmp.sroa.3.0.copyload47, %cond.false319 ], [ %subrs.sroa.3.2, %if.end311 ]
   %agg.tmp.sroa.0.0 = phi ptr [ %agg.tmp.sroa.0.0.copyload46, %cond.false319 ], [ %subrs.sroa.0.2, %if.end311 ]
   %idx.sroa.7.8.extract.shift.i = lshr i64 %agg.tmp.sroa.3.0, 32
-  %idx.sroa.7.8.extract.trunc.i = trunc i64 %idx.sroa.7.8.extract.shift.i to i32
+  %idx.sroa.7.8.extract.trunc.i = trunc nuw i64 %idx.sroa.7.8.extract.shift.i to i32
   %171 = tail call i32 @llvm.smin.i32(i32 %idx.sroa.7.8.extract.trunc.i, i32 0)
   br label %for.body.i.i.i
 
@@ -7300,7 +7420,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx, i8 0, i64 56, i1 false)
-  %call = call i32 @stbtt__run_charstring(ptr noundef %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx), !range !11
+  %call = call i32 @stbtt__run_charstring(ptr noundef %info, i32 noundef %glyph_index, ptr noundef nonnull %count_ctx), !range !14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end7, label %if.then
 
@@ -7313,7 +7433,7 @@ if.then:                                          ; preds = %entry
   store ptr %call1, ptr %pvertices, align 8
   %pvertices2 = getelementptr inbounds i8, ptr %output_ctx, i64 40
   store ptr %call1, ptr %pvertices2, align 8
-  %call3 = call i32 @stbtt__run_charstring(ptr noundef %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx), !range !11
+  %call3 = call i32 @stbtt__run_charstring(ptr noundef %info, i32 noundef %glyph_index, ptr noundef nonnull %output_ctx), !range !14
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
@@ -9277,7 +9397,7 @@ entry:
   %y1 = alloca i32, align 4
   store i32 0, ptr %x0, align 4
   store i32 0, ptr %y0, align 4
-  %call = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %glyph, ptr noundef nonnull %x0, ptr noundef nonnull %y0, ptr noundef nonnull %x1, ptr noundef nonnull %y1), !range !11
+  %call = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %glyph, ptr noundef nonnull %x0, ptr noundef nonnull %y0, ptr noundef nonnull %x1, ptr noundef nonnull %y1), !range !14
   %tobool.not = icmp eq i32 %call, 0
   %tobool1.not = icmp eq ptr %ix0, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -9383,7 +9503,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !11
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !14
   %tobool.not.i = icmp eq i32 %call.i, 0
   %tobool1.not.i = icmp eq ptr %ix0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
@@ -9494,7 +9614,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %call, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !11
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %font, i32 noundef %call, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !14
   %tobool.not.i = icmp eq i32 %call.i, 0
   %tobool1.not.i = icmp eq ptr %ix0, null
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
@@ -10342,10 +10462,10 @@ for.body134.lr.ph:                                ; preds = %if.else129
 
 for.body134:                                      ; preds = %for.body134.lr.ph, %for.inc197
   %indvars.iv = phi i64 [ 0, %for.body134.lr.ph ], [ %indvars.iv.next, %for.inc197 ]
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   %conv136 = sitofp i32 %46 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = trunc i64 %indvars.iv.next to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.next to i32
   %conv139 = sitofp i32 %47 to float
   %sub141 = fsub float %conv136, %1
   %div142 = fdiv float %sub141, %0
@@ -11837,7 +11957,7 @@ for.body:                                         ; preds = %if.end63, %for.body
   %29 = load ptr, ptr %pixels, align 8
   %30 = load i32, ptr %stride, align 8
   %mul82 = mul nsw i32 %30, %j.091
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %add83 = add nsw i32 %mul82, %31
   %idxprom84 = sext i32 %add83 to i64
   %arrayidx85 = getelementptr inbounds i8, ptr %29, i64 %idxprom84
@@ -11928,7 +12048,7 @@ if.end:                                           ; preds = %while.body
   br i1 %4, label %while.body, label %while.end, !llvm.loop !49
 
 while.end.split.loop.exit:                        ; preds = %while.body
-  %5 = trunc i64 %indvars.iv20 to i32
+  %5 = trunc nuw i64 %indvars.iv20 to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end, %while.end.split.loop.exit
@@ -12027,8 +12147,8 @@ for.cond50:                                       ; preds = %for.cond50, %for.co
   br i1 %cmp56, label %for.cond50, label %for.end61
 
 for.end61:                                        ; preds = %for.cond50
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = trunc i64 %indvars.iv62 to i32
+  %10 = trunc nsw i64 %indvars.iv to i32
+  %11 = trunc nsw i64 %indvars.iv62 to i32
   %cmp62.not = icmp slt i32 %10, %11
   br i1 %cmp62.not, label %if.end65, label %for.end76
 
@@ -12101,7 +12221,7 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %4, label %while.body.i, label %while.end.i, !llvm.loop !49
 
 while.end.split.loop.exit.i:                      ; preds = %while.body.i
-  %5 = trunc i64 %indvars.iv20.i to i32
+  %5 = trunc nuw i64 %indvars.iv20.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %if.end.i, %while.end.split.loop.exit.i
@@ -12358,7 +12478,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %34, label %while.body.i.i, label %while.end.i.i, !llvm.loop !49
 
 while.end.split.loop.exit.i.i:                    ; preds = %while.body.i.i
-  %35 = trunc i64 %indvars.iv20.i.i to i32
+  %35 = trunc nuw i64 %indvars.iv20.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %while.end.split.loop.exit.i.i
@@ -12875,7 +12995,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i), !range !11
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i), !range !14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -12888,7 +13008,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   store ptr %call1.i.i, ptr %vertices, align 8
   %pvertices2.i.i = getelementptr inbounds i8, ptr %output_ctx.i.i, i64 40
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i), !range !11
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i), !range !14
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -12928,7 +13048,7 @@ if.end6:                                          ; preds = %stbtt_GetGlyphShape
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i18 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !11
+  %call.i18 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !14
   %tobool.not.i19 = icmp eq i32 %call.i18, 0
   br i1 %tobool.not.i19, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %if.else.i20
 
@@ -13100,7 +13220,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i), !range !11
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i), !range !14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -13113,7 +13233,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   store ptr %call1.i.i, ptr %vertices, align 8
   %pvertices2.i.i = getelementptr inbounds i8, ptr %output_ctx.i.i, i64 40
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i), !range !11
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i), !range !14
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -13139,7 +13259,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %if.then.i, %stbtt__
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x1.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
-  %call.i8 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !11
+  %call.i8 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !14
   %tobool.not.i9 = icmp eq i32 %call.i8, 0
   br i1 %tobool.not.i9, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %if.else.i10
 
@@ -13369,7 +13489,7 @@ entry:
   %y1.i.i = alloca i32, align 4
   %f = alloca %struct.stbtt_fontinfo, align 8
   store ptr null, ptr %f, align 8
-  %call.i = call noundef i32 @stbtt_InitFont_internal(ptr noundef nonnull %f, ptr noundef %data, i32 noundef %offset), !range !11
+  %call.i = call noundef i32 @stbtt_InitFont_internal(ptr noundef nonnull %f, ptr noundef %data, i32 noundef %offset), !range !14
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -13457,7 +13577,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i.i)
   store i32 0, ptr %x0.i.i, align 4
   store i32 0, ptr %y0.i.i, align 4
-  %call.i.i = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %f, i32 noundef %call3, ptr noundef nonnull %x0.i.i, ptr noundef nonnull %y0.i.i, ptr noundef nonnull %x1.i.i, ptr noundef nonnull %y1.i.i), !range !11
+  %call.i.i = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull %f, i32 noundef %call3, ptr noundef nonnull %x0.i.i, ptr noundef nonnull %y0.i.i, ptr noundef nonnull %x1.i.i, ptr noundef nonnull %y1.i.i), !range !14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %stbtt_GetGlyphBitmapBox.exit, label %if.else.i.i
 
@@ -13503,7 +13623,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %for.body, %if.else.
   br i1 %cmp13.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %stbtt_GetGlyphBitmapBox.exit
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %sub16 = sub nsw i32 0, %36
   br label %return
 
@@ -13550,7 +13670,7 @@ return:                                           ; preds = %if.end17, %if.end, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @stbtt_InitFont(ptr nocapture noundef %info, ptr noundef %data, i32 noundef %offset) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @stbtt_InitFont_internal(ptr noundef %info, ptr noundef %data, i32 noundef %offset), !range !11
+  %call = tail call i32 @stbtt_InitFont_internal(ptr noundef %info, ptr noundef %data, i32 noundef %offset), !range !14
   ret i32 %call
 }
 
@@ -13722,7 +13842,7 @@ for.inc:                                          ; preds = %if.end9, %if.then32
   br i1 %exitcond.not, label %for.end48, label %for.body, !llvm.loop !59
 
 for.end.loopexit:                                 ; preds = %if.end
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
@@ -13739,7 +13859,7 @@ for.body42:                                       ; preds = %for.body42.preheade
   %was_packed45 = getelementptr inbounds %struct.stbrp_rect, ptr %rects, i64 %indvars.iv41, i32 5
   store i32 0, ptr %was_packed45, align 4
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %16 = trunc i64 %indvars.iv.next42 to i32
+  %16 = trunc nuw i64 %indvars.iv.next42 to i32
   %cmp41 = icmp slt i32 %16, %num_rects
   br i1 %cmp41, label %for.body42, label %for.end48, !llvm.loop !60
 
@@ -14011,7 +14131,7 @@ for.body104:                                      ; preds = %for.cond101.prehead
   %arrayidx106 = getelementptr inbounds i8, ptr %pixels.addr.0115, i64 %indvars.iv141
   %13 = load i8, ptr %arrayidx106, align 1
   %conv107 = zext i8 %13 to i32
-  %14 = trunc i64 %indvars.iv141 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv141 to i32
   %and108 = and i64 %indvars.iv141, 7
   %arrayidx110 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 %and108
   %15 = load i8, ptr %arrayidx110, align 1
@@ -14053,7 +14173,7 @@ for.body130:                                      ; preds = %for.body130.prehead
   %arrayidx139 = getelementptr inbounds i8, ptr %pixels.addr.0115, i64 %indvars.iv146
   store i8 %conv137, ptr %arrayidx139, align 1
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %18 = trunc i64 %indvars.iv.next147 to i32
+  %18 = trunc nuw i64 %indvars.iv.next147 to i32
   %cmp128 = icmp slt i32 %18, %w
   br i1 %cmp128, label %for.body130, label %for.end142, !llvm.loop !66
 
@@ -14219,7 +14339,7 @@ for.body115:                                      ; preds = %for.cond112.prehead
   %arrayidx118 = getelementptr inbounds i8, ptr %pixels.addr.0130, i64 %18
   %19 = load i8, ptr %arrayidx118, align 1
   %conv119 = zext i8 %19 to i32
-  %20 = trunc i64 %indvars.iv160 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv160 to i32
   %and120 = and i64 %indvars.iv160, 7
   %arrayidx122 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 %and120
   %21 = load i8, ptr %arrayidx122, align 1
@@ -14409,7 +14529,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
 
 cond.true20:                                      ; preds = %for.body15
   %18 = load i32, ptr %first_unicode_codepoint_in_range, align 4
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add nsw i32 %18, %19
   br label %cond.end29
 
@@ -14451,7 +14571,7 @@ if.then.i56:                                      ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i, align 8
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call31, ptr noundef nonnull %c.i.i), !range !11
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call31, ptr noundef nonnull %c.i.i), !range !14
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   %26 = load i32, ptr %min_x.i.i, align 8
   %cond.i.i = select i1 %tobool1.not.i.i, i32 0, i32 %26
@@ -14657,7 +14777,7 @@ if.end63:                                         ; preds = %stbtt_GetGlyphBitma
   br i1 %cmp13, label %for.body15, label %for.inc65.loopexit, !llvm.loop !75
 
 for.inc65.loopexit:                               ; preds = %if.end63
-  %83 = trunc i64 %indvars.iv.next94 to i32
+  %83 = trunc nsw i64 %indvars.iv.next94 to i32
   br label %for.inc65
 
 for.inc65:                                        ; preds = %for.inc65.loopexit, %cond.end
@@ -14831,7 +14951,7 @@ if.then:                                          ; preds = %land.lhs.true31
 
 cond.true42:                                      ; preds = %if.then
   %39 = load i32, ptr %first_unicode_codepoint_in_range, align 4
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add nsw i32 %39, %40
   br label %cond.end51
 
@@ -14899,7 +15019,7 @@ if.then.i192:                                     ; preds = %cond.end51
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %c.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %c.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %c.i.i, align 8
-  %call.i.i193 = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call53, ptr noundef nonnull %c.i.i), !range !11
+  %call.i.i193 = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %call53, ptr noundef nonnull %c.i.i), !range !14
   %tobool1.not.i.i = icmp eq i32 %call.i.i193, 0
   %57 = load i32, ptr %min_x.i.i, align 8
   %cond.i.i = select i1 %tobool1.not.i.i, i32 0, i32 %57
@@ -15224,7 +15344,7 @@ for.body104.i:                                    ; preds = %for.cond101.prehead
   %arrayidx106.i = getelementptr inbounds i8, ptr %pixels.addr.0115.i, i64 %indvars.iv141.i
   %125 = load i8, ptr %arrayidx106.i, align 1
   %conv107.i = zext i8 %125 to i32
-  %126 = trunc i64 %indvars.iv141.i to i32
+  %126 = trunc nuw nsw i64 %indvars.iv141.i to i32
   %and108.i = and i64 %indvars.iv141.i, 7
   %arrayidx110.i = getelementptr inbounds [8 x i8], ptr %buffer.i, i64 0, i64 %and108.i
   %127 = load i8, ptr %arrayidx110.i, align 1
@@ -15266,7 +15386,7 @@ for.body130.i:                                    ; preds = %for.body130.i, %for
   %arrayidx139.i = getelementptr inbounds i8, ptr %pixels.addr.0115.i, i64 %indvars.iv146.i
   store i8 %conv137.i, ptr %arrayidx139.i, align 1
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
-  %130 = trunc i64 %indvars.iv.next147.i to i32
+  %130 = trunc nuw i64 %indvars.iv.next147.i to i32
   %cmp128.i = icmp sgt i32 %111, %130
   br i1 %cmp128.i, label %for.body130.i, label %for.end142.i, !llvm.loop !66
 
@@ -15445,7 +15565,7 @@ for.body115.i:                                    ; preds = %for.cond112.prehead
   %arrayidx118.i = getelementptr inbounds i8, ptr %pixels.addr.0130.i, i64 %154
   %155 = load i8, ptr %arrayidx118.i, align 1
   %conv119.i = zext i8 %155 to i32
-  %156 = trunc i64 %indvars.iv160.i to i32
+  %156 = trunc nuw nsw i64 %indvars.iv160.i to i32
   %and120.i = and i64 %indvars.iv160.i, 7
   %arrayidx122.i = getelementptr inbounds [8 x i8], ptr %buffer.i162, i64 0, i64 %and120.i
   %157 = load i8, ptr %arrayidx122.i, align 1
@@ -15549,7 +15669,7 @@ if.end118:                                        ; preds = %stbtt__v_prefilter.
   %yoff2 = getelementptr inbounds i8, ptr %arrayidx37, i64 24
   store float %174, ptr %yoff2, align 4
   %cmp149 = icmp eq i32 %call53, 0
-  %175 = trunc i64 %indvars.iv to i32
+  %175 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %cmp149, i32 %175, i32 %missing_glyph.1237
   br label %if.end183
 
@@ -15585,7 +15705,7 @@ if.end183:                                        ; preds = %land.lhs.true31, %f
   br i1 %cmp24, label %for.body26, label %for.inc185.loopexit, !llvm.loop !77
 
 for.inc185.loopexit:                              ; preds = %if.end183
-  %181 = trunc i64 %indvars.iv.next262 to i32
+  %181 = trunc nsw i64 %indvars.iv.next262 to i32
   br label %for.inc185
 
 for.inc185:                                       ; preds = %for.inc185.loopexit, %cond.end
@@ -15678,7 +15798,7 @@ for.inc.i:                                        ; preds = %if.then32.i, %if.en
   br i1 %exitcond.not.i, label %stbrp_pack_rects.exit, label %for.body.i, !llvm.loop !59
 
 for.end.loopexit.i:                               ; preds = %if.end.i
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %entry
@@ -15783,7 +15903,7 @@ if.end:                                           ; preds = %for.end34
   %10 = load ptr, ptr %spc, align 8
   store ptr %10, ptr %info, align 8
   %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %fontdata, i32 noundef %font_index)
-  %call.i35 = call noundef i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i), !range !11
+  %call.i35 = call noundef i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i), !range !14
   %call40 = call i32 @stbtt_PackFontRangesGatherRects(ptr noundef nonnull %spc, ptr noundef nonnull %info, ptr noundef %ranges, i32 noundef %num_ranges, ptr noundef nonnull %call)
   %cmp35.i.i = icmp sgt i32 %call40, 0
   br i1 %cmp35.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
@@ -15852,7 +15972,7 @@ for.inc.i.i:                                      ; preds = %if.then32.i.i, %if.
   br i1 %exitcond.not.i.i, label %stbtt_PackFontRangesPackRects.exit, label %for.body.i.i, !llvm.loop !59
 
 for.end.loopexit.i.i:                             ; preds = %if.end.i.i
-  %20 = trunc i64 %indvars.iv.i.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %for.end.i.i
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.end
@@ -15874,7 +15994,7 @@ for.body42.i.i:                                   ; preds = %for.body42.i.i, %fo
   br i1 %exitcond.not.i, label %stbtt_PackFontRangesPackRects.exit, label %for.body42.i.i, !llvm.loop !60
 
 stbtt_PackFontRangesPackRects.exit:               ; preds = %for.inc.i.i, %for.body42.i.i, %for.end.i.i
-  %call41 = call i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef nonnull %spc, ptr noundef nonnull %info, ptr noundef %ranges, i32 noundef %num_ranges, ptr noundef nonnull %call), !range !11
+  %call41 = call i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef nonnull %spc, ptr noundef nonnull %info, ptr noundef %ranges, i32 noundef %num_ranges, ptr noundef nonnull %call), !range !14
   tail call void @free(ptr noundef nonnull %call) #34
   br label %return
 
@@ -15903,7 +16023,7 @@ entry:
   %chardata_for_range2 = getelementptr inbounds i8, ptr %range, i64 24
   store ptr %chardata_for_range, ptr %chardata_for_range2, align 8
   store float %font_size, ptr %range, align 8
-  %call = call i32 @stbtt_PackFontRanges(ptr noundef %spc, ptr noundef %fontdata, i32 noundef %font_index, ptr noundef nonnull %range, i32 noundef 1), !range !11
+  %call = call i32 @stbtt_PackFontRanges(ptr noundef %spc, ptr noundef %fontdata, i32 noundef %font_index, ptr noundef nonnull %range, i32 noundef 1), !range !14
   ret i32 %call
 }
 
@@ -15912,7 +16032,7 @@ define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %ind
 entry:
   %info = alloca %struct.stbtt_fontinfo, align 8
   %call.i = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %fontdata, i32 noundef %index)
-  %call.i6 = call noundef i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i), !range !11
+  %call.i6 = call noundef i32 @stbtt_InitFont_internal(ptr noundef nonnull %info, ptr noundef %fontdata, i32 noundef %call.i), !range !14
   %cmp = fcmp ogt float %size, 0.000000e+00
   br i1 %cmp, label %cond.true, label %cond.false
 
@@ -16678,7 +16798,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y1.i)
   store i32 0, ptr %x0.i, align 4
   store i32 0, ptr %y0.i, align 4
-  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !11
+  %call.i = call i32 @stbtt_GetGlyphBox(ptr noundef %info, i32 noundef %glyph, ptr noundef nonnull %x0.i, ptr noundef nonnull %y0.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %y1.i), !range !14
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.thread, label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
@@ -16780,7 +16900,7 @@ if.else.i357:                                     ; preds = %if.end19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %count_ctx.i.i, i8 0, i64 56, i1 false)
   store i32 1, ptr %count_ctx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %output_ctx.i.i, i8 0, i64 56, i1 false)
-  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i), !range !11
+  %call.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %count_ctx.i.i), !range !14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end7.i.i, label %if.then.i.i
 
@@ -16793,7 +16913,7 @@ if.then.i.i:                                      ; preds = %if.else.i357
   store ptr %call1.i.i, ptr %verts, align 8
   %pvertices2.i.i = getelementptr inbounds i8, ptr %output_ctx.i.i, i64 40
   store ptr %call1.i.i, ptr %pvertices2.i.i, align 8
-  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i), !range !11
+  %call3.i.i = call i32 @stbtt__run_charstring(ptr noundef nonnull %info, i32 noundef %glyph, ptr noundef nonnull %output_ctx.i.i), !range !14
   %tobool4.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.not.i.i, label %if.end7.i.i, label %if.then5.i.i
 
@@ -16862,7 +16982,7 @@ for.cond141.preheader.us.us:                      ; preds = %for.cond141.prehead
 
 for.body144.us.us.us:                             ; preds = %if.end618.us.us.us, %for.cond141.preheader.us.us
   %indvars.iv454 = phi i64 [ %indvars.iv.next455, %if.end618.us.us.us ], [ %28, %for.cond141.preheader.us.us ]
-  %31 = trunc i64 %indvars.iv454 to i32
+  %31 = trunc nsw i64 %indvars.iv454 to i32
   %conv145.us.us.us = sitofp i32 %31 to float
   %add146.us.us.us = fadd float %conv145.us.us.us, 5.000000e-01
   %div149.us.us.us = fdiv float %add146.us.us.us, %scale
@@ -17304,7 +17424,7 @@ for.cond141.preheader.us:                         ; preds = %for.cond141.prehead
 
 for.body144.us421:                                ; preds = %for.cond141.preheader.us, %if.end618.us433
   %indvars.iv446 = phi i64 [ %28, %for.cond141.preheader.us ], [ %indvars.iv.next447, %if.end618.us433 ]
-  %124 = trunc i64 %indvars.iv446 to i32
+  %124 = trunc nsw i64 %indvars.iv446 to i32
   %conv145.us423 = sitofp i32 %124 to float
   %add146.us424 = fadd float %conv145.us423, 5.000000e-01
   %div149.us425 = fdiv float %add146.us424, %scale
@@ -17423,7 +17543,7 @@ for.inc:                                          ; preds = %for.body, %if.then7
   %arrayidx68 = getelementptr inbounds float, ptr %call24, i64 %indvars.iv
   store float %cond.sink, ptr %arrayidx68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %153 = trunc i64 %indvars.iv to i32
+  %153 = trunc nuw nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond137.preheader, label %for.body, !llvm.loop !87
 
@@ -18062,32 +18182,105 @@ entry:
   %conv = trunc i64 %call to i32
   %idx.ext = zext i32 %offset to i64
   %add.ptr = getelementptr inbounds i8, ptr %fc, i64 %idx.ext
-  %call1 = tail call i32 @stbtt__isfont(ptr noundef %add.ptr), !range !11
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %0 = load i8, ptr %add.ptr, align 1
+  switch i8 %0, label %return [
+    i8 49, label %land.lhs.true.i
+    i8 116, label %land.lhs.true21.i
+    i8 79, label %land.lhs.true46.i
+    i8 0, label %land.lhs.true70.i
+  ]
 
-if.end:                                           ; preds = %entry
+land.lhs.true.i:                                  ; preds = %entry
+  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %1 = load i8, ptr %arrayidx2.i, align 1
+  %cmp4.i = icmp eq i8 %1, 0
+  br i1 %cmp4.i, label %land.lhs.true6.i, label %return
+
+land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
+  %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %2 = load i8, ptr %arrayidx7.i, align 1
+  %cmp9.i = icmp eq i8 %2, 0
+  br i1 %cmp9.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true21.i:                                ; preds = %entry
+  %arrayidx22.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %3 = load i8, ptr %arrayidx22.i, align 1
+  switch i8 %3, label %return [
+    i8 121, label %land.lhs.true27.i
+    i8 114, label %land.lhs.true98.i
+  ]
+
+land.lhs.true27.i:                                ; preds = %land.lhs.true21.i
+  %arrayidx28.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %4 = load i8, ptr %arrayidx28.i, align 1
+  %cmp31.i = icmp eq i8 %4, 112
+  br i1 %cmp31.i, label %land.lhs.true33.i, label %return
+
+land.lhs.true33.i:                                ; preds = %land.lhs.true27.i
+  %arrayidx34.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  %5 = load i8, ptr %arrayidx34.i, align 1
+  %cmp37.i = icmp eq i8 %5, 49
+  br i1 %cmp37.i, label %if.end, label %return
+
+land.lhs.true46.i:                                ; preds = %entry
+  %arrayidx47.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %6 = load i8, ptr %arrayidx47.i, align 1
+  %cmp50.i = icmp eq i8 %6, 84
+  br i1 %cmp50.i, label %land.lhs.true52.i, label %return
+
+land.lhs.true52.i:                                ; preds = %land.lhs.true46.i
+  %arrayidx53.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %7 = load i8, ptr %arrayidx53.i, align 1
+  %cmp56.i = icmp eq i8 %7, 84
+  br i1 %cmp56.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true70.i:                                ; preds = %entry
+  %arrayidx71.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %8 = load i8, ptr %arrayidx71.i, align 1
+  %cmp73.i = icmp eq i8 %8, 1
+  br i1 %cmp73.i, label %land.lhs.true75.i, label %return
+
+land.lhs.true75.i:                                ; preds = %land.lhs.true70.i
+  %arrayidx76.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %9 = load i8, ptr %arrayidx76.i, align 1
+  %cmp78.i = icmp eq i8 %9, 0
+  br i1 %cmp78.i, label %stbtt__isfont.exit, label %return
+
+land.lhs.true98.i:                                ; preds = %land.lhs.true21.i
+  %arrayidx99.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %10 = load i8, ptr %arrayidx99.i, align 1
+  %cmp102.i = icmp eq i8 %10, 117
+  br i1 %cmp102.i, label %stbtt__isfont.exit, label %return
+
+stbtt__isfont.exit:                               ; preds = %land.lhs.true6.i, %land.lhs.true52.i, %land.lhs.true75.i, %land.lhs.true98.i
+  %.sink39.i = phi i8 [ 0, %land.lhs.true6.i ], [ 79, %land.lhs.true52.i ], [ 0, %land.lhs.true75.i ], [ 101, %land.lhs.true98.i ]
+  %arrayidx81.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  %11 = load i8, ptr %arrayidx81.i, align 1
+  %cmp83.i = icmp eq i8 %11, %.sink39.i
+  br i1 %cmp83.i, label %if.end, label %return
+
+if.end:                                           ; preds = %land.lhs.true33.i, %stbtt__isfont.exit
   %tobool2.not = icmp eq i32 %flags, 0
-  %add.ptr1.i34.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr, i64 4
-  %.pre = load i8, ptr %add.ptr1.i34.phi.trans.insert, align 1
-  %.pre95 = add i32 %offset, 12
+  %add.ptr1.i37.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %.pre = load i8, ptr %add.ptr1.i37.phi.trans.insert, align 1
+  %.pre101 = add i32 %offset, 12
   br i1 %tobool2.not, label %if.end.if.end14_crit_edge, label %if.then3
 
 if.end.if.end14_crit_edge:                        ; preds = %if.end
-  %arrayidx1.i.i37.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr, i64 5
-  %.pre90 = load i8, ptr %arrayidx1.i.i37.phi.trans.insert, align 1
-  %.pre91 = zext i8 %.pre to i32
-  %.pre92 = shl nuw nsw i32 %.pre91, 8
-  %.pre93 = zext i8 %.pre90 to i32
-  %.pre94 = or disjoint i32 %.pre92, %.pre93
+  %arrayidx1.i.i40.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr, i64 5
+  %.pre96 = load i8, ptr %arrayidx1.i.i40.phi.trans.insert, align 1
+  %.pre97 = zext i8 %.pre to i32
+  %.pre98 = shl nuw nsw i32 %.pre97, 8
+  %.pre99 = zext i8 %.pre96 to i32
+  %.pre100 = or disjoint i32 %.pre98, %.pre99
   br label %if.end14
 
 if.then3:                                         ; preds = %if.end
   %conv.i.i = zext i8 %.pre to i32
   %mul.i.i = shl nuw nsw i32 %conv.i.i, 8
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 5
-  %0 = load i8, ptr %arrayidx1.i.i, align 1
-  %conv2.i.i = zext i8 %0 to i32
+  %12 = load i8, ptr %arrayidx1.i.i, align 1
+  %conv2.i.i = zext i8 %12 to i32
   %add.i.i = or disjoint i32 %mul.i.i, %conv2.i.i
   %cmp20.not.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp20.not.i, label %stbtt__find_table.exit, label %for.body.lr.ph.i
@@ -18099,172 +18292,172 @@ for.body.lr.ph.i:                                 ; preds = %if.then3
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %1 = shl i32 %indvars.iv.tr.i, 4
-  %add3.i = add i32 %.pre95, %1
+  %13 = shl i32 %indvars.iv.tr.i, 4
+  %add3.i = add i32 %.pre101, %13
   %idx.ext4.i = zext i32 %add3.i to i64
   %add.ptr5.i = getelementptr inbounds i8, ptr %fc, i64 %idx.ext4.i
-  %2 = load i8, ptr %add.ptr5.i, align 1
-  %cmp10.i = icmp eq i8 %2, 104
-  br i1 %cmp10.i, label %land.lhs.true.i, label %for.inc.i
+  %14 = load i8, ptr %add.ptr5.i, align 1
+  %cmp10.i = icmp eq i8 %14, 104
+  br i1 %cmp10.i, label %land.lhs.true.i32, label %for.inc.i
 
-land.lhs.true.i:                                  ; preds = %for.body.i
+land.lhs.true.i32:                                ; preds = %for.body.i
   %arrayidx15.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 1
-  %3 = load i8, ptr %arrayidx15.i, align 1
-  %cmp19.i = icmp eq i8 %3, 101
-  br i1 %cmp19.i, label %land.lhs.true21.i, label %for.inc.i
+  %15 = load i8, ptr %arrayidx15.i, align 1
+  %cmp19.i = icmp eq i8 %15, 101
+  br i1 %cmp19.i, label %land.lhs.true21.i33, label %for.inc.i
 
-land.lhs.true21.i:                                ; preds = %land.lhs.true.i
+land.lhs.true21.i33:                              ; preds = %land.lhs.true.i32
   %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 2
-  %4 = load i8, ptr %arrayidx25.i, align 1
-  %cmp29.i = icmp eq i8 %4, 97
+  %16 = load i8, ptr %arrayidx25.i, align 1
+  %cmp29.i = icmp eq i8 %16, 97
   br i1 %cmp29.i, label %land.lhs.true31.i, label %for.inc.i
 
-land.lhs.true31.i:                                ; preds = %land.lhs.true21.i
+land.lhs.true31.i:                                ; preds = %land.lhs.true21.i33
   %arrayidx35.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 3
-  %5 = load i8, ptr %arrayidx35.i, align 1
-  %cmp39.i = icmp eq i8 %5, 100
+  %17 = load i8, ptr %arrayidx35.i, align 1
+  %cmp39.i = icmp eq i8 %17, 100
   br i1 %cmp39.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.lhs.true31.i
   %add.ptr43.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 8
-  %6 = load i8, ptr %add.ptr43.i, align 1
-  %conv.i16.i = zext i8 %6 to i64
+  %18 = load i8, ptr %add.ptr43.i, align 1
+  %conv.i16.i = zext i8 %18 to i64
   %shl.i.i = shl nuw nsw i64 %conv.i16.i, 24
   %arrayidx1.i17.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 9
-  %7 = load i8, ptr %arrayidx1.i17.i, align 1
-  %conv2.i18.i = zext i8 %7 to i64
+  %19 = load i8, ptr %arrayidx1.i17.i, align 1
+  %conv2.i18.i = zext i8 %19 to i64
   %shl3.i.i = shl nuw nsw i64 %conv2.i18.i, 16
   %add.i19.i = or disjoint i64 %shl3.i.i, %shl.i.i
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 10
-  %8 = load i8, ptr %arrayidx4.i.i, align 1
-  %conv5.i.i = zext i8 %8 to i64
+  %20 = load i8, ptr %arrayidx4.i.i, align 1
+  %conv5.i.i = zext i8 %20 to i64
   %shl6.i.i = shl nuw nsw i64 %conv5.i.i, 8
   %add7.i.i = or disjoint i64 %add.i19.i, %shl6.i.i
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 11
-  %9 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %9 to i64
+  %21 = load i8, ptr %arrayidx8.i.i, align 1
+  %conv9.i.i = zext i8 %21 to i64
   %add10.i.i = or disjoint i64 %add7.i.i, %conv9.i.i
   br label %stbtt__find_table.exit
 
-for.inc.i:                                        ; preds = %land.lhs.true31.i, %land.lhs.true21.i, %land.lhs.true.i, %for.body.i
+for.inc.i:                                        ; preds = %land.lhs.true31.i, %land.lhs.true21.i33, %land.lhs.true.i32, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %stbtt__find_table.exit, label %for.body.i, !llvm.loop !10
 
 stbtt__find_table.exit:                           ; preds = %for.inc.i, %if.then3, %if.then.i
-  %retval.0.i = phi i64 [ %add10.i.i, %if.then.i ], [ 0, %if.then3 ], [ 0, %for.inc.i ]
-  %add.ptr6 = getelementptr inbounds i8, ptr %fc, i64 %retval.0.i
+  %retval.0.i31 = phi i64 [ %add10.i.i, %if.then.i ], [ 0, %if.then3 ], [ 0, %for.inc.i ]
+  %add.ptr6 = getelementptr inbounds i8, ptr %fc, i64 %retval.0.i31
   %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr6, i64 45
-  %10 = load i8, ptr %arrayidx1.i, align 1
-  %11 = and i8 %10, 7
-  %and = zext nneg i8 %11 to i32
+  %22 = load i8, ptr %arrayidx1.i, align 1
+  %23 = and i8 %22, 7
+  %and = zext nneg i8 %23 to i32
   %and10 = and i32 %flags, 7
   %cmp.not = icmp eq i32 %and10, %and
   br i1 %cmp.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end.if.end14_crit_edge, %stbtt__find_table.exit
-  %add.i.i39.pre-phi = phi i32 [ %.pre94, %if.end.if.end14_crit_edge ], [ %add.i.i, %stbtt__find_table.exit ]
-  %cmp20.not.i41 = icmp eq i32 %add.i.i39.pre-phi, 0
-  br i1 %cmp20.not.i41, label %return, label %for.body.lr.ph.i42
+  %add.i.i42.pre-phi = phi i32 [ %.pre100, %if.end.if.end14_crit_edge ], [ %add.i.i, %stbtt__find_table.exit ]
+  %cmp20.not.i44 = icmp eq i32 %add.i.i42.pre-phi, 0
+  br i1 %cmp20.not.i44, label %return, label %for.body.lr.ph.i45
 
-for.body.lr.ph.i42:                               ; preds = %if.end14
-  %wide.trip.count.i43 = zext nneg i32 %add.i.i39.pre-phi to i64
-  br label %for.body.i44
+for.body.lr.ph.i45:                               ; preds = %if.end14
+  %wide.trip.count.i46 = zext nneg i32 %add.i.i42.pre-phi to i64
+  br label %for.body.i47
 
-for.body.i44:                                     ; preds = %for.inc.i52, %for.body.lr.ph.i42
-  %indvars.iv.i45 = phi i64 [ 0, %for.body.lr.ph.i42 ], [ %indvars.iv.next.i53, %for.inc.i52 ]
-  %indvars.iv.tr.i46 = trunc i64 %indvars.iv.i45 to i32
-  %12 = shl i32 %indvars.iv.tr.i46, 4
-  %add3.i47 = add i32 %.pre95, %12
-  %idx.ext4.i48 = zext i32 %add3.i47 to i64
-  %add.ptr5.i49 = getelementptr inbounds i8, ptr %fc, i64 %idx.ext4.i48
-  %13 = load i8, ptr %add.ptr5.i49, align 1
-  %cmp10.i51 = icmp eq i8 %13, 110
-  br i1 %cmp10.i51, label %land.lhs.true.i56, label %for.inc.i52
+for.body.i47:                                     ; preds = %for.inc.i55, %for.body.lr.ph.i45
+  %indvars.iv.i48 = phi i64 [ 0, %for.body.lr.ph.i45 ], [ %indvars.iv.next.i56, %for.inc.i55 ]
+  %indvars.iv.tr.i49 = trunc i64 %indvars.iv.i48 to i32
+  %24 = shl i32 %indvars.iv.tr.i49, 4
+  %add3.i50 = add i32 %.pre101, %24
+  %idx.ext4.i51 = zext i32 %add3.i50 to i64
+  %add.ptr5.i52 = getelementptr inbounds i8, ptr %fc, i64 %idx.ext4.i51
+  %25 = load i8, ptr %add.ptr5.i52, align 1
+  %cmp10.i54 = icmp eq i8 %25, 110
+  br i1 %cmp10.i54, label %land.lhs.true.i59, label %for.inc.i55
 
-land.lhs.true.i56:                                ; preds = %for.body.i44
-  %arrayidx15.i57 = getelementptr inbounds i8, ptr %add.ptr5.i49, i64 1
-  %14 = load i8, ptr %arrayidx15.i57, align 1
-  %cmp19.i59 = icmp eq i8 %14, 97
-  br i1 %cmp19.i59, label %land.lhs.true21.i60, label %for.inc.i52
+land.lhs.true.i59:                                ; preds = %for.body.i47
+  %arrayidx15.i60 = getelementptr inbounds i8, ptr %add.ptr5.i52, i64 1
+  %26 = load i8, ptr %arrayidx15.i60, align 1
+  %cmp19.i62 = icmp eq i8 %26, 97
+  br i1 %cmp19.i62, label %land.lhs.true21.i63, label %for.inc.i55
 
-land.lhs.true21.i60:                              ; preds = %land.lhs.true.i56
-  %arrayidx25.i61 = getelementptr inbounds i8, ptr %add.ptr5.i49, i64 2
-  %15 = load i8, ptr %arrayidx25.i61, align 1
-  %cmp29.i63 = icmp eq i8 %15, 109
-  br i1 %cmp29.i63, label %land.lhs.true31.i64, label %for.inc.i52
+land.lhs.true21.i63:                              ; preds = %land.lhs.true.i59
+  %arrayidx25.i64 = getelementptr inbounds i8, ptr %add.ptr5.i52, i64 2
+  %27 = load i8, ptr %arrayidx25.i64, align 1
+  %cmp29.i66 = icmp eq i8 %27, 109
+  br i1 %cmp29.i66, label %land.lhs.true31.i67, label %for.inc.i55
 
-land.lhs.true31.i64:                              ; preds = %land.lhs.true21.i60
-  %arrayidx35.i65 = getelementptr inbounds i8, ptr %add.ptr5.i49, i64 3
-  %16 = load i8, ptr %arrayidx35.i65, align 1
-  %cmp39.i67 = icmp eq i8 %16, 101
-  br i1 %cmp39.i67, label %stbtt__find_table.exit83, label %for.inc.i52
+land.lhs.true31.i67:                              ; preds = %land.lhs.true21.i63
+  %arrayidx35.i68 = getelementptr inbounds i8, ptr %add.ptr5.i52, i64 3
+  %28 = load i8, ptr %arrayidx35.i68, align 1
+  %cmp39.i70 = icmp eq i8 %28, 101
+  br i1 %cmp39.i70, label %stbtt__find_table.exit86, label %for.inc.i55
 
-for.inc.i52:                                      ; preds = %land.lhs.true31.i64, %land.lhs.true21.i60, %land.lhs.true.i56, %for.body.i44
-  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i45, 1
-  %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i43
-  br i1 %exitcond.not.i54, label %return, label %for.body.i44, !llvm.loop !10
+for.inc.i55:                                      ; preds = %land.lhs.true31.i67, %land.lhs.true21.i63, %land.lhs.true.i59, %for.body.i47
+  %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i48, 1
+  %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i46
+  br i1 %exitcond.not.i57, label %return, label %for.body.i47, !llvm.loop !10
 
-stbtt__find_table.exit83:                         ; preds = %land.lhs.true31.i64
-  %add.ptr43.i69 = getelementptr inbounds i8, ptr %add.ptr5.i49, i64 8
-  %17 = load i8, ptr %add.ptr43.i69, align 1
-  %conv.i16.i70 = zext i8 %17 to i32
-  %shl.i.i71 = shl nuw i32 %conv.i16.i70, 24
-  %arrayidx1.i17.i72 = getelementptr inbounds i8, ptr %add.ptr5.i49, i64 9
-  %18 = load i8, ptr %arrayidx1.i17.i72, align 1
-  %conv2.i18.i73 = zext i8 %18 to i32
-  %shl3.i.i74 = shl nuw nsw i32 %conv2.i18.i73, 16
-  %add.i19.i75 = or disjoint i32 %shl3.i.i74, %shl.i.i71
-  %arrayidx4.i.i76 = getelementptr inbounds i8, ptr %add.ptr5.i49, i64 10
-  %19 = load i8, ptr %arrayidx4.i.i76, align 1
-  %conv5.i.i77 = zext i8 %19 to i32
-  %shl6.i.i78 = shl nuw nsw i32 %conv5.i.i77, 8
-  %add7.i.i79 = or disjoint i32 %add.i19.i75, %shl6.i.i78
-  %arrayidx8.i.i80 = getelementptr inbounds i8, ptr %add.ptr5.i49, i64 11
-  %20 = load i8, ptr %arrayidx8.i.i80, align 1
-  %conv9.i.i81 = zext i8 %20 to i32
-  %add10.i.i82 = or disjoint i32 %add7.i.i79, %conv9.i.i81
-  %tobool16.not = icmp eq i32 %add10.i.i82, 0
+stbtt__find_table.exit86:                         ; preds = %land.lhs.true31.i67
+  %add.ptr43.i72 = getelementptr inbounds i8, ptr %add.ptr5.i52, i64 8
+  %29 = load i8, ptr %add.ptr43.i72, align 1
+  %conv.i16.i73 = zext i8 %29 to i32
+  %shl.i.i74 = shl nuw i32 %conv.i16.i73, 24
+  %arrayidx1.i17.i75 = getelementptr inbounds i8, ptr %add.ptr5.i52, i64 9
+  %30 = load i8, ptr %arrayidx1.i17.i75, align 1
+  %conv2.i18.i76 = zext i8 %30 to i32
+  %shl3.i.i77 = shl nuw nsw i32 %conv2.i18.i76, 16
+  %add.i19.i78 = or disjoint i32 %shl3.i.i77, %shl.i.i74
+  %arrayidx4.i.i79 = getelementptr inbounds i8, ptr %add.ptr5.i52, i64 10
+  %31 = load i8, ptr %arrayidx4.i.i79, align 1
+  %conv5.i.i80 = zext i8 %31 to i32
+  %shl6.i.i81 = shl nuw nsw i32 %conv5.i.i80, 8
+  %add7.i.i82 = or disjoint i32 %add.i19.i78, %shl6.i.i81
+  %arrayidx8.i.i83 = getelementptr inbounds i8, ptr %add.ptr5.i52, i64 11
+  %32 = load i8, ptr %arrayidx8.i.i83, align 1
+  %conv9.i.i84 = zext i8 %32 to i32
+  %add10.i.i85 = or disjoint i32 %add7.i.i82, %conv9.i.i84
+  %tobool16.not = icmp eq i32 %add10.i.i85, 0
   br i1 %tobool16.not, label %return, label %if.end18
 
-if.end18:                                         ; preds = %stbtt__find_table.exit83
+if.end18:                                         ; preds = %stbtt__find_table.exit86
   br i1 %tobool2.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %call21 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 16, i32 noundef -1), !range !11
+  %call21 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i85, ptr noundef %name, i32 noundef %conv, i32 noundef 16, i32 noundef -1), !range !14
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20
-  %call25 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 1, i32 noundef -1), !range !11
+  %call25 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i85, ptr noundef %name, i32 noundef %conv, i32 noundef 1, i32 noundef -1), !range !14
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end24
-  %call29 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 3, i32 noundef -1), !range !11
+  %call29 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i85, ptr noundef %name, i32 noundef %conv, i32 noundef 3, i32 noundef -1), !range !14
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.end45, label %return
 
 if.else:                                          ; preds = %if.end18
-  %call33 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 16, i32 noundef 17), !range !11
+  %call33 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i85, ptr noundef %name, i32 noundef %conv, i32 noundef 16, i32 noundef 17), !range !14
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.else
-  %call37 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 1, i32 noundef 2), !range !11
+  %call37 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i85, ptr noundef %name, i32 noundef %conv, i32 noundef 1, i32 noundef 2), !range !14
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end40, label %return
 
 if.end40:                                         ; preds = %if.end36
-  %call41 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i82, ptr noundef %name, i32 noundef %conv, i32 noundef 3, i32 noundef -1), !range !11
+  %call41 = tail call i32 @stbtt__matchpair(ptr noundef nonnull %fc, i32 noundef %add10.i.i85, ptr noundef %name, i32 noundef %conv, i32 noundef 3, i32 noundef -1), !range !14
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.end40, %if.end28
   br label %return
 
-return:                                           ; preds = %for.inc.i52, %if.end14, %if.end40, %if.end36, %if.else, %if.end28, %if.end24, %if.then20, %stbtt__find_table.exit83, %stbtt__find_table.exit, %entry, %if.end45
-  %retval.0 = phi i32 [ 0, %if.end45 ], [ 0, %entry ], [ 0, %stbtt__find_table.exit ], [ 0, %stbtt__find_table.exit83 ], [ 1, %if.then20 ], [ 1, %if.end24 ], [ 1, %if.end28 ], [ 1, %if.else ], [ 1, %if.end36 ], [ 1, %if.end40 ], [ 0, %if.end14 ], [ 0, %for.inc.i52 ]
+return:                                           ; preds = %for.inc.i55, %land.lhs.true33.i, %if.end14, %land.lhs.true21.i, %land.lhs.true27.i, %entry, %land.lhs.true52.i, %land.lhs.true46.i, %land.lhs.true70.i, %land.lhs.true75.i, %land.lhs.true.i, %land.lhs.true6.i, %land.lhs.true98.i, %if.end40, %if.end36, %if.else, %if.end28, %if.end24, %if.then20, %stbtt__find_table.exit86, %stbtt__find_table.exit, %stbtt__isfont.exit, %if.end45
+  %retval.0 = phi i32 [ 0, %if.end45 ], [ 0, %stbtt__isfont.exit ], [ 0, %stbtt__find_table.exit ], [ 0, %stbtt__find_table.exit86 ], [ 1, %if.then20 ], [ 1, %if.end24 ], [ 1, %if.end28 ], [ 1, %if.else ], [ 1, %if.end36 ], [ 1, %if.end40 ], [ 0, %land.lhs.true98.i ], [ 0, %land.lhs.true6.i ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true75.i ], [ 0, %land.lhs.true70.i ], [ 0, %land.lhs.true46.i ], [ 0, %land.lhs.true52.i ], [ 0, %entry ], [ 0, %land.lhs.true27.i ], [ 0, %land.lhs.true21.i ], [ 0, %if.end14 ], [ 0, %land.lhs.true33.i ], [ 0, %for.inc.i55 ]
   ret i32 %retval.0
 }
 
@@ -18287,7 +18480,7 @@ for.cond:                                         ; preds = %if.end
 if.end:                                           ; preds = %entry, %for.cond
   %call.i9 = phi i32 [ %call.i, %for.cond ], [ %call.i6, %entry ]
   %i.08 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
-  %call1 = tail call i32 @stbtt__matches(ptr noundef %font_collection, i32 noundef %call.i9, ptr noundef %name_utf8, i32 noundef %flags), !range !11
+  %call1 = tail call i32 @stbtt__matches(ptr noundef %font_collection, i32 noundef %call.i9, ptr noundef %name_utf8, i32 noundef %flags), !range !14
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %for.cond, label %return
 
@@ -18306,81 +18499,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @stbtt_GetNumberOfFonts(ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
 entry:
-  %call.i = tail call i32 @stbtt__isfont(ptr noundef %data), !range !11
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-if.end.i:                                         ; preds = %entry
-  %0 = load i8, ptr %data, align 1
-  %cmp.i = icmp eq i8 %0, 116
-  br i1 %cmp.i, label %land.lhs.true.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 1
-  %1 = load i8, ptr %arrayidx3.i, align 1
-  %cmp6.i = icmp eq i8 %1, 116
-  br i1 %cmp6.i, label %land.lhs.true8.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
-  %arrayidx9.i = getelementptr inbounds i8, ptr %data, i64 2
-  %2 = load i8, ptr %arrayidx9.i, align 1
-  %cmp12.i = icmp eq i8 %2, 99
-  br i1 %cmp12.i, label %land.lhs.true14.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-land.lhs.true14.i:                                ; preds = %land.lhs.true8.i
-  %arrayidx15.i = getelementptr inbounds i8, ptr %data, i64 3
-  %3 = load i8, ptr %arrayidx15.i, align 1
-  %cmp18.i = icmp eq i8 %3, 102
-  br i1 %cmp18.i, label %if.then20.i, label %stbtt_GetNumberOfFonts_internal.exit
-
-if.then20.i:                                      ; preds = %land.lhs.true14.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 4
-  %4 = load i8, ptr %add.ptr.i, align 1
-  %conv.i.i = zext i8 %4 to i32
-  %shl.i.i = shl nuw i32 %conv.i.i, 24
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %data, i64 5
-  %5 = load i8, ptr %arrayidx1.i.i, align 1
-  %conv2.i.i = zext i8 %5 to i32
-  %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 16
-  %add.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %data, i64 6
-  %6 = load i8, ptr %arrayidx4.i.i, align 1
-  %conv5.i.i = zext i8 %6 to i32
-  %shl6.i.i = shl nuw nsw i32 %conv5.i.i, 8
-  %add7.i.i = or disjoint i32 %add.i.i, %shl6.i.i
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %data, i64 7
-  %7 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %7 to i32
-  %add10.i.i = or disjoint i32 %add7.i.i, %conv9.i.i
-  switch i32 %add10.i.i, label %stbtt_GetNumberOfFonts_internal.exit [
-    i32 65536, label %if.then28.i
-    i32 131072, label %if.then28.i
-  ]
-
-if.then28.i:                                      ; preds = %if.then20.i, %if.then20.i
-  %add.ptr29.i = getelementptr inbounds i8, ptr %data, i64 8
-  %8 = load i8, ptr %add.ptr29.i, align 1
-  %conv.i21.i = zext i8 %8 to i32
-  %shl.i22.i = shl nuw i32 %conv.i21.i, 24
-  %arrayidx1.i23.i = getelementptr inbounds i8, ptr %data, i64 9
-  %9 = load i8, ptr %arrayidx1.i23.i, align 1
-  %conv2.i24.i = zext i8 %9 to i32
-  %shl3.i25.i = shl nuw nsw i32 %conv2.i24.i, 16
-  %add.i26.i = or disjoint i32 %shl3.i25.i, %shl.i22.i
-  %arrayidx4.i27.i = getelementptr inbounds i8, ptr %data, i64 10
-  %10 = load i8, ptr %arrayidx4.i27.i, align 1
-  %conv5.i28.i = zext i8 %10 to i32
-  %shl6.i29.i = shl nuw nsw i32 %conv5.i28.i, 8
-  %add7.i30.i = or disjoint i32 %add.i26.i, %shl6.i29.i
-  %arrayidx8.i31.i = getelementptr inbounds i8, ptr %data, i64 11
-  %11 = load i8, ptr %arrayidx8.i31.i, align 1
-  %conv9.i32.i = zext i8 %11 to i32
-  %add10.i33.i = or disjoint i32 %add7.i30.i, %conv9.i32.i
-  br label %stbtt_GetNumberOfFonts_internal.exit
-
-stbtt_GetNumberOfFonts_internal.exit:             ; preds = %entry, %if.end.i, %land.lhs.true.i, %land.lhs.true8.i, %land.lhs.true14.i, %if.then20.i, %if.then28.i
-  %retval.0.i = phi i32 [ %add10.i33.i, %if.then28.i ], [ 1, %entry ], [ 0, %land.lhs.true14.i ], [ 0, %land.lhs.true8.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i ], [ 0, %if.then20.i ]
-  ret i32 %retval.0.i
+  %call = tail call i32 @stbtt_GetNumberOfFonts_internal(ptr noundef %data)
+  ret i32 %call
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
@@ -18399,7 +18519,7 @@ for.cond.i:                                       ; preds = %if.end.i
 if.end.i:                                         ; preds = %entry, %for.cond.i
   %call.i9.i = phi i32 [ %call.i.i, %for.cond.i ], [ %call.i6.i, %entry ]
   %i.08.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %call1.i = tail call i32 @stbtt__matches(ptr noundef %fontdata, i32 noundef %call.i9.i, ptr noundef %name, i32 noundef %flags), !range !11
+  %call1.i = tail call i32 @stbtt__matches(ptr noundef %fontdata, i32 noundef %call.i9.i, ptr noundef %name, i32 noundef %flags), !range !14
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %for.cond.i, label %stbtt_FindMatchingFont_internal.exit
 
@@ -18523,10 +18643,10 @@ attributes #35 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!14 = !{i32 0, i32 2}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}

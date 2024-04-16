@@ -3490,7 +3490,7 @@ define internal fastcc noundef i32 @context_struct_to_string(ptr noundef %0, ptr
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %21, label %14
+  br i1 %10, label %20, label %14
 
 .thread:                                          ; preds = %4
   store ptr null, ptr %2, align 8
@@ -3498,11 +3498,11 @@ define internal fastcc noundef i32 @context_struct_to_string(ptr noundef %0, ptr
   %11 = getelementptr inbounds i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %21, label %15
+  br i1 %13, label %20, label %15
 
 14:                                               ; preds = %7
   store i32 %9, ptr %3, align 4
-  br label %20
+  br label %85
 
 15:                                               ; preds = %.thread
   store i32 %12, ptr %3, align 4
@@ -3511,94 +3511,92 @@ define internal fastcc noundef i32 @context_struct_to_string(ptr noundef %0, ptr
   %18 = tail call noalias ptr @kstrdup(ptr noundef %17, i32 noundef 2080) #17
   store ptr %18, ptr %2, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %86, label %20
+  %spec.select = select i1 %19, i32 -12, i32 0
+  br label %85
 
-20:                                               ; preds = %14, %15
-  br label %86
+20:                                               ; preds = %.thread, %7
+  %21 = load i32, ptr %1, align 8
+  %22 = add i32 %21, -1
+  %23 = getelementptr i8, ptr %0, i64 232
+  %24 = load ptr, ptr %23, align 8
+  %25 = zext i32 %22 to i64
+  %26 = getelementptr ptr, ptr %24, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call i64 @strlen(ptr noundef %27) #17
+  %29 = trunc i64 %28 to i32
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %3, align 4
+  %31 = getelementptr inbounds i8, ptr %1, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, -1
+  %34 = getelementptr i8, ptr %0, i64 216
+  %35 = load ptr, ptr %34, align 8
+  %36 = zext i32 %33 to i64
+  %37 = getelementptr ptr, ptr %35, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call i64 @strlen(ptr noundef %38) #17
+  %40 = trunc i64 %39 to i32
+  %41 = add i32 %29, 2
+  %42 = add i32 %41, %40
+  store i32 %42, ptr %3, align 4
+  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = add i32 %44, -1
+  %46 = getelementptr i8, ptr %0, i64 224
+  %47 = load ptr, ptr %46, align 8
+  %48 = zext i32 %45 to i64
+  %49 = getelementptr ptr, ptr %47, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call i64 @strlen(ptr noundef %50) #17
+  %52 = trunc i64 %51 to i32
+  %53 = add i32 %42, 1
+  %54 = add i32 %53, %52
+  store i32 %54, ptr %3, align 4
+  %55 = tail call i32 @mls_compute_context_len(ptr noundef %0, ptr noundef %1) #17
+  %56 = load i32, ptr %3, align 4
+  %57 = add i32 %56, %55
+  store i32 %57, ptr %3, align 4
+  br i1 %6, label %85, label %58
 
-21:                                               ; preds = %.thread, %7
-  %22 = load i32, ptr %1, align 8
-  %23 = add i32 %22, -1
-  %24 = getelementptr i8, ptr %0, i64 232
-  %25 = load ptr, ptr %24, align 8
-  %26 = zext i32 %23 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call i64 @strlen(ptr noundef %28) #17
-  %30 = trunc i64 %29 to i32
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %3, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, -1
-  %35 = getelementptr i8, ptr %0, i64 216
-  %36 = load ptr, ptr %35, align 8
-  %37 = zext i32 %34 to i64
-  %38 = getelementptr ptr, ptr %36, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i64 @strlen(ptr noundef %39) #17
-  %41 = trunc i64 %40 to i32
-  %42 = add i32 %30, 2
-  %43 = add i32 %42, %41
-  store i32 %43, ptr %3, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = add i32 %45, -1
-  %47 = getelementptr i8, ptr %0, i64 224
-  %48 = load ptr, ptr %47, align 8
-  %49 = zext i32 %46 to i64
-  %50 = getelementptr ptr, ptr %48, i64 %49
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call i64 @strlen(ptr noundef %51) #17
-  %53 = trunc i64 %52 to i32
-  %54 = add i32 %43, 1
-  %55 = add i32 %54, %53
-  store i32 %55, ptr %3, align 4
-  %56 = tail call i32 @mls_compute_context_len(ptr noundef %0, ptr noundef %1) #17
-  %57 = load i32, ptr %3, align 4
-  %58 = add i32 %57, %56
-  store i32 %58, ptr %3, align 4
-  br i1 %6, label %86, label %59
+58:                                               ; preds = %20
+  %59 = zext i32 %57 to i64
+  %60 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %59, i32 noundef 2080) #21
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %85, label %62
 
-59:                                               ; preds = %21
-  %60 = zext i32 %58 to i64
-  %61 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %60, i32 noundef 2080) #21
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %86, label %63
-
-63:                                               ; preds = %59
-  store ptr %61, ptr %2, align 8
-  %64 = load i32, ptr %1, align 8
-  %65 = add i32 %64, -1
-  %66 = load ptr, ptr %24, align 8
-  %67 = zext i32 %65 to i64
-  %68 = getelementptr ptr, ptr %66, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i32, ptr %32, align 4
-  %71 = add i32 %70, -1
-  %72 = load ptr, ptr %35, align 8
-  %73 = zext i32 %71 to i64
-  %74 = getelementptr ptr, ptr %72, i64 %73
-  %75 = load ptr, ptr %74, align 8
-  %76 = load i32, ptr %44, align 8
-  %77 = add i32 %76, -1
-  %78 = load ptr, ptr %47, align 8
-  %79 = zext i32 %77 to i64
-  %80 = getelementptr ptr, ptr %78, i64 %79
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef %69, ptr noundef %75, ptr noundef %81) #17
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr i8, ptr %61, i64 %83
-  store ptr %84, ptr %5, align 8
+62:                                               ; preds = %58
+  store ptr %60, ptr %2, align 8
+  %63 = load i32, ptr %1, align 8
+  %64 = add i32 %63, -1
+  %65 = load ptr, ptr %23, align 8
+  %66 = zext i32 %64 to i64
+  %67 = getelementptr ptr, ptr %65, i64 %66
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i32, ptr %31, align 4
+  %70 = add i32 %69, -1
+  %71 = load ptr, ptr %34, align 8
+  %72 = zext i32 %70 to i64
+  %73 = getelementptr ptr, ptr %71, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %75 = load i32, ptr %43, align 8
+  %76 = add i32 %75, -1
+  %77 = load ptr, ptr %46, align 8
+  %78 = zext i32 %76 to i64
+  %79 = getelementptr ptr, ptr %77, i64 %78
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef %68, ptr noundef %74, ptr noundef %80) #17
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr i8, ptr %60, i64 %82
+  store ptr %83, ptr %5, align 8
   call void @mls_sid_to_context(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5) #17
-  %85 = load ptr, ptr %5, align 8
-  store i8 0, ptr %85, align 1
-  br label %86
+  %84 = load ptr, ptr %5, align 8
+  store i8 0, ptr %84, align 1
+  br label %85
 
-86:                                               ; preds = %63, %59, %21, %20, %15
-  %87 = phi i32 [ 0, %20 ], [ 0, %63 ], [ -12, %15 ], [ 0, %21 ], [ -12, %59 ]
+85:                                               ; preds = %14, %15, %62, %58, %20
+  %86 = phi i32 [ 0, %62 ], [ 0, %20 ], [ -12, %58 ], [ 0, %14 ], [ %spec.select, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  ret i32 %87
+  ret i32 %86
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

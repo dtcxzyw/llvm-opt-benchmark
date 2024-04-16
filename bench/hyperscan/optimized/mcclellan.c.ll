@@ -1342,7 +1342,7 @@ if.then16.i:                                      ; preds = %if.end12.i
   %add.ptr7.i643 = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i642
   %10 = load i8, ptr %alphaShift.i644, align 4
   %conv8.i645 = zext i8 %10 to i32
-  %11 = trunc i32 %s.i151.1 to i16
+  %11 = trunc nuw i32 %s.i151.1 to i16
   %invariant.gep = getelementptr i8, ptr %add.ptr2.i636, i64 4
   br label %while.cond.i647
 
@@ -1810,7 +1810,7 @@ if.then84.i:                                      ; preds = %if.end75.i
   %add.ptr7.i725 = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i724
   %69 = load i8, ptr %alphaShift.i726, align 4
   %conv8.i727 = zext i8 %69 to i32
-  %70 = trunc i32 %s.i151.3 to i16
+  %70 = trunc nuw i32 %s.i151.3 to i16
   %s.addr.i698.sroa.0.0.extract.trunc1315 = and i16 %70, 16383
   %invariant.gep1673 = getelementptr i8, ptr %add.ptr2.i718, i64 4
   br label %while.cond.i729
@@ -2332,7 +2332,7 @@ if.then16.i453:                                   ; preds = %if.end12.i252
   %add.ptr7.i516 = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i
   %136 = load i8, ptr %alphaShift.i, align 4
   %conv8.i = zext i8 %136 to i32
-  %137 = trunc i32 %s.i218.1 to i16
+  %137 = trunc nuw i32 %s.i218.1 to i16
   %invariant.gep1691 = getelementptr i8, ptr %add.ptr2.i512, i64 4
   br label %while.cond.i
 
@@ -2850,7 +2850,7 @@ if.then84.i366:                                   ; preds = %if.end75.i275
   %add.ptr7.i561 = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i560
   %199 = load i8, ptr %alphaShift.i562, align 4
   %conv8.i563 = zext i8 %199 to i32
-  %200 = trunc i32 %s.i218.3 to i16
+  %200 = trunc nuw i32 %s.i218.3 to i16
   %s.addr.i534.sroa.0.0.extract.trunc1095 = and i16 %200, 16383
   %invariant.gep1709 = getelementptr i8, ptr %add.ptr2.i554, i64 4
   br label %while.cond.i565
@@ -3592,7 +3592,7 @@ if.then16.i.i:                                    ; preds = %if.end12.i.i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i.i
   %32 = load i8, ptr %alphaShift.i.i, align 4
   %conv8.i.i = zext i8 %32 to i32
-  %33 = trunc i32 %s.i.1.i to i16
+  %33 = trunc nuw i32 %s.i.1.i to i16
   %invariant.gep.i = getelementptr i8, ptr %add.ptr2.i23.i, i64 4
   br label %while.cond.i.i
 
@@ -4133,7 +4133,7 @@ if.then84.i.i:                                    ; preds = %if.end75.i.i
   %add.ptr7.i70.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i69.i
   %97 = load i8, ptr %alphaShift.i.i, align 4
   %conv8.i72.i = zext i8 %97 to i32
-  %98 = trunc i32 %s.i.3.i to i16
+  %98 = trunc nuw i32 %s.i.3.i to i16
   %s.addr.i43.sroa.0.0.extract.trunc569.i = and i16 %98, 16383
   %invariant.gep84.i = getelementptr i8, ptr %add.ptr2.i63.i, i64 4
   br label %while.cond.i74.i
@@ -4645,7 +4645,7 @@ if.then109.i:                                     ; preds = %land.lhs.true101.i
   store i32 0, ptr %arrayidx117.i, align 8
   %location123.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom116.i, i32 1
   store i64 %end, ptr %location123.i, align 8
-  %conv124.i = trunc i32 %s.i.1 to i16
+  %conv124.i = trunc nuw i32 %s.i.1 to i16
   %160 = load ptr, ptr %state.i, align 8
   store i16 %conv124.i, ptr %160, align 2
   br label %nfaExecMcClellan16_Q2i.exit
@@ -4677,7 +4677,7 @@ if.end145.i:                                      ; preds = %sw.bb.i
   br label %sw.epilog.i.sink.split
 
 sw.bb147.i:                                       ; preds = %if.end134.i
-  %conv148.i = trunc i32 %s.i.1 to i16
+  %conv148.i = trunc nuw i32 %s.i.1 to i16
   %163 = load ptr, ptr %state.i, align 8
   store i16 %conv148.i, ptr %163, align 2
   %164 = load i32, ptr %cur.i48, align 8
@@ -5679,7 +5679,7 @@ if.then16.i.i:                                    ; preds = %if.end12.i.i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i.i
   %32 = load i8, ptr %alphaShift.i.i, align 4
   %conv8.i.i = zext i8 %32 to i32
-  %33 = trunc nsw i32 %s.i.1.i to i16
+  %33 = trunc nuw nsw i32 %s.i.1.i to i16
   %invariant.gep.i = getelementptr i8, ptr %add.ptr2.i23.i, i64 4
   br label %while.cond.i.i
 
@@ -6136,7 +6136,7 @@ if.then84.i.i:                                    ; preds = %if.end75.i.i
   %add.ptr7.i70.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i69.i
   %91 = load i8, ptr %alphaShift.i.i, align 4
   %conv8.i72.i = zext i8 %91 to i32
-  %92 = trunc i32 %s.i.3.i to i16
+  %92 = trunc nuw i32 %s.i.3.i to i16
   %s.addr.i43.sroa.0.0.extract.trunc569.i = and i16 %92, 16383
   %invariant.gep53.i = getelementptr i8, ptr %add.ptr2.i63.i, i64 4
   br label %while.cond.i74.i
@@ -6603,7 +6603,7 @@ if.then109.i:                                     ; preds = %land.lhs.true101.i
   store i32 0, ptr %arrayidx117.i, align 8
   %location123.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i47, i64 0, i64 %idxprom116.i, i32 1
   store i64 %end, ptr %location123.i, align 8
-  %conv124.i = trunc i32 %s.i.1.ph to i16
+  %conv124.i = trunc nuw i32 %s.i.1.ph to i16
   %150 = load ptr, ptr %state.i, align 8
   store i16 %conv124.i, ptr %150, align 2
   br label %nfaExecMcClellan16_Q2i.exit
@@ -6635,7 +6635,7 @@ if.end145.i:                                      ; preds = %sw.bb.i
   br label %sw.epilog.i.sink.split
 
 sw.bb147.i:                                       ; preds = %if.end134.i
-  %conv148.i = trunc i32 %s.i.1.ph to i16
+  %conv148.i = trunc nuw i32 %s.i.1.ph to i16
   %153 = load ptr, ptr %state.i, align 8
   store i16 %conv148.i, ptr %153, align 2
   %154 = load i32, ptr %cur.i48, align 8
@@ -7047,8 +7047,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %cmp4.i.i = icmp eq i32 %51, %report
   br i1 %cmp4.i.i, label %return, label %for.cond.i.i
 
-return:                                           ; preds = %for.cond.i.i, %for.body.i.i, %if.end.i.i, %if.end.i134, %land.lhs.true, %if.end.i.thread, %if.end.i, %nfaExecMcClellan8_Q2i.exit
-  %retval.0 = phi i8 [ 0, %nfaExecMcClellan8_Q2i.exit ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ 1, %land.lhs.true ], [ 1, %if.end.i134 ], [ 1, %if.end.i.i ], [ %conv156.i, %for.cond.i.i ], [ 2, %for.body.i.i ]
+return:                                           ; preds = %for.body.i.i, %for.cond.i.i, %if.end.i.thread, %if.end.i, %land.lhs.true, %if.end.i134, %if.end.i.i, %nfaExecMcClellan8_Q2i.exit
+  %retval.0 = phi i8 [ 0, %nfaExecMcClellan8_Q2i.exit ], [ 1, %land.lhs.true ], [ 1, %if.end.i134 ], [ 1, %if.end.i.i ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ %conv156.i, %for.cond.i.i ], [ 2, %for.body.i.i ]
   ret i8 %retval.0
 }
 
@@ -7191,11 +7191,11 @@ if.end11.i:                                       ; preds = %if.end.i.thread153,
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %if.end11.i
-  %.pre.pre197 = phi i32 [ %inc.i, %if.end11.i ], [ %.pre.pre197.be, %while.body.i.backedge ]
+  %.pre.pre196 = phi i32 [ %inc.i, %if.end11.i ], [ %.pre.pre196.be, %while.body.i.backedge ]
   %s.i.0 = phi i32 [ %conv.i, %if.end11.i ], [ %s.i.0.be, %while.body.i.backedge ]
   %cur_buf.i.0 = phi ptr [ %cond.i, %if.end11.i ], [ %cur_buf.i.1, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %20, %if.end11.i ], [ %local_ep.i.0, %while.body.i.backedge ]
-  %idxprom38.i = zext i32 %.pre.pre197 to i64
+  %idxprom38.i = zext i32 %.pre.pre196 to i64
   %location40.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i51, i64 0, i64 %idxprom38.i, i32 1
   %21 = load i64, ptr %location40.i, align 8
   %cmp51.i = icmp slt i64 %sp.i.0, 0
@@ -7260,7 +7260,7 @@ if.then16.i.i:                                    ; preds = %if.end12.i.i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i.i
   %30 = load i8, ptr %alphaShift.i.i, align 4
   %conv8.i.i = zext i8 %30 to i32
-  %31 = trunc nsw i32 %s.i.1.i to i16
+  %31 = trunc nuw nsw i32 %s.i.1.i to i16
   %invariant.gep.i = getelementptr i8, ptr %add.ptr2.i23.i, i64 4
   %s.addr.i16.sroa.0.032.i = and i16 %31, 16383
   %cmp.i2733.i = icmp ult ptr %c.i.1.i, %min_accel_offset.i.0.i
@@ -7376,7 +7376,7 @@ while.end.i350.i:                                 ; preds = %if.end42.i461.i, %i
   store <2 x i64> zeroinitializer, ptr %a.i757.i, align 16
   %conv.i759.i = zext nneg i16 %49 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %a.i757.i, ptr nonnull align 1 %sym.i310.0.lcssa.i, i64 %conv.i759.i, i1 false)
-  %a.i757.i.0.a.i757.i.0.a.i757.i.0.a.i757.0.a.i757.0.a.i757.0.712183.i161200246 = load <16 x i8>, ptr %a.i757.i, align 16
+  %a.i757.i.0.a.i757.i.0.a.i757.i.0.a.i757.0.a.i757.0.a.i757.0.712183.i160199245 = load <16 x i8>, ptr %a.i757.i, align 16
   %conv63.i362.i = zext nneg i32 %cond58.i359.i to i64
   %cmp64.i36329.not.i = icmp eq i32 %len_c.i305.0.lcssa.i, 0
   br i1 %cmp64.i36329.not.i, label %for.end73.i364.i, label %for.body66.i439.i
@@ -7397,8 +7397,8 @@ for.body66.i439.i:                                ; preds = %while.end.i350.i, %
 for.end73.i364.i:                                 ; preds = %for.body66.i439.i, %while.end.i350.i
   store <2 x i64> zeroinitializer, ptr %a.i.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %a.i.i, ptr nonnull align 16 %tmp.i311.i, i64 %conv63.i362.i, i1 false)
-  %a.i.i.0.a.i.i.0.a.i.i.0.a.i.0.a.i.0.a.i.0.713284.i162201247 = load <16 x i8>, ptr %a.i.i, align 16
-  %cmp.i735.i = icmp eq <16 x i8> %a.i757.i.0.a.i757.i.0.a.i757.i.0.a.i757.0.a.i757.0.a.i757.0.712183.i161200246, %a.i.i.0.a.i.i.0.a.i.i.0.a.i.0.a.i.0.a.i.0.713284.i162201247
+  %a.i.i.0.a.i.i.0.a.i.i.0.a.i.0.a.i.0.a.i.0.713284.i161200246 = load <16 x i8>, ptr %a.i.i, align 16
+  %cmp.i735.i = icmp eq <16 x i8> %a.i757.i.0.a.i757.i.0.a.i757.i.0.a.i757.0.a.i757.0.a.i757.0.712183.i160199245, %a.i.i.0.a.i.i.0.a.i.i.0.a.i.0.a.i.0.a.i.0.713284.i161200246
   %52 = bitcast <16 x i1> %cmp.i735.i to i16
   %53 = zext i16 %52 to i32
   %not80.i368.i = xor i32 %53, -1
@@ -7719,7 +7719,7 @@ if.then84.i.i:                                    ; preds = %if.end75.i.i
   %add.ptr7.i70.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext6.i69.i
   %92 = load i8, ptr %alphaShift.i.i, align 4
   %conv8.i72.i = zext i8 %92 to i32
-  %93 = trunc i32 %s.i.3.i to i16
+  %93 = trunc nuw i32 %s.i.3.i to i16
   %invariant.gep64.i = getelementptr i8, ptr %add.ptr2.i63.i, i64 4
   br label %while.cond.i74.i
 
@@ -7837,7 +7837,7 @@ while.end.i.i:                                    ; preds = %if.end42.i277.i, %i
   store <2 x i64> zeroinitializer, ptr %a.i767.i, align 16
   %conv.i769.i = zext nneg i16 %111 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %a.i767.i, ptr nonnull align 1 %sym.i.0.lcssa.i, i64 %conv.i769.i, i1 false)
-  %a.i767.i.0.a.i767.i.0.a.i767.i.0.a.i767.0.a.i767.0.a.i767.0.708386.i163202248 = load <16 x i8>, ptr %a.i767.i, align 16
+  %a.i767.i.0.a.i767.i.0.a.i767.i.0.a.i767.0.a.i767.0.a.i767.0.708386.i162201247 = load <16 x i8>, ptr %a.i767.i, align 16
   %conv63.i.i = zext nneg i32 %cond58.i.i to i64
   %cmp64.i61.not.i = icmp eq i32 %len_c.i.0.lcssa.i, 0
   br i1 %cmp64.i61.not.i, label %for.end73.i.i, label %for.body66.i.i
@@ -7858,8 +7858,8 @@ for.body66.i.i:                                   ; preds = %while.end.i.i, %for
 for.end73.i.i:                                    ; preds = %for.body66.i.i, %while.end.i.i
   store <2 x i64> zeroinitializer, ptr %a.i762.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %a.i762.i, ptr nonnull align 16 %tmp.i.i, i64 %conv63.i.i, i1 false)
-  %a.i762.i.0.a.i762.i.0.a.i762.i.0.a.i762.0.a.i762.0.a.i762.0.709487.i164203249 = load <16 x i8>, ptr %a.i762.i, align 16
-  %cmp.i743.i = icmp eq <16 x i8> %a.i767.i.0.a.i767.i.0.a.i767.i.0.a.i767.0.a.i767.0.a.i767.0.708386.i163202248, %a.i762.i.0.a.i762.i.0.a.i762.i.0.a.i762.0.a.i762.0.a.i762.0.709487.i164203249
+  %a.i762.i.0.a.i762.i.0.a.i762.i.0.a.i762.0.a.i762.0.a.i762.0.709487.i163202248 = load <16 x i8>, ptr %a.i762.i, align 16
+  %cmp.i743.i = icmp eq <16 x i8> %a.i767.i.0.a.i767.i.0.a.i767.i.0.a.i767.0.a.i767.0.a.i767.0.708386.i162201247, %a.i762.i.0.a.i762.i.0.a.i762.i.0.a.i762.0.a.i762.0.a.i762.0.709487.i163202248
   %114 = bitcast <16 x i1> %cmp.i743.i to i16
   %115 = zext i16 %114 to i32
   %not80.i.i = xor i32 %115, -1
@@ -8127,7 +8127,7 @@ if.end137.i.i:                                    ; preds = %do.body9.i.i, %if.e
   br label %mcclellanExec16_i_nm.exit
 
 mcclellanExec16_i_nm.exit:                        ; preds = %while.body.i, %if.end137.i.i
-  %.pre.pre = phi i32 [ %.pre.pre197, %while.body.i ], [ %.pre.pre.pre, %if.end137.i.i ]
+  %.pre.pre = phi i32 [ %.pre.pre196, %while.body.i ], [ %.pre.pre.pre, %if.end137.i.i ]
   %s.i.1 = phi i32 [ %s.i.0, %while.body.i ], [ %and133.i.i, %if.end137.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a.i767.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %a.i762.i)
@@ -8174,12 +8174,12 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %sw.epilog.i, %mcclellanExec16_i_nm.exit
-  %.pre.pre197.be = phi i32 [ %inc156.i, %sw.epilog.i ], [ %.pre.pre, %mcclellanExec16_i_nm.exit ]
+  %.pre.pre196.be = phi i32 [ %inc156.i, %sw.epilog.i ], [ %.pre.pre, %mcclellanExec16_i_nm.exit ]
   %s.i.0.be = phi i32 [ %s.i.2, %sw.epilog.i ], [ %s.i.1, %mcclellanExec16_i_nm.exit ]
   br label %while.body.i
 
 nfaExecMcClellan16_Q2i.exit:                      ; preds = %if.end134.i
-  %conv148.i = trunc i32 %s.i.1 to i16
+  %conv148.i = trunc nuw i32 %s.i.1 to i16
   %149 = load ptr, ptr %state.i, align 8
   store i16 %conv148.i, ptr %149, align 2
   %150 = load i32, ptr %cur.i52, align 8
@@ -8236,8 +8236,8 @@ for.body.i.i144:                                  ; preds = %for.cond.i.i, %for.
   %cmp4.i.i = icmp eq i32 %157, %report
   br i1 %cmp4.i.i, label %return, label %for.cond.i.i
 
-return:                                           ; preds = %for.cond.i.i, %for.body.i.i144, %if.end.i.i, %cond.false.i, %land.lhs.true.i, %if.end.i.thread, %if.end.i, %nfaExecMcClellan16_Q2i.exit
-  %retval.0 = phi i8 [ 0, %nfaExecMcClellan16_Q2i.exit ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ 1, %land.lhs.true.i ], [ 1, %cond.false.i ], [ 1, %if.end.i.i ], [ %conv154.i, %for.cond.i.i ], [ 2, %for.body.i.i144 ]
+return:                                           ; preds = %for.body.i.i144, %for.cond.i.i, %if.end.i.thread, %if.end.i, %land.lhs.true.i, %cond.false.i, %if.end.i.i, %nfaExecMcClellan16_Q2i.exit
+  %retval.0 = phi i8 [ 0, %nfaExecMcClellan16_Q2i.exit ], [ 1, %land.lhs.true.i ], [ 1, %cond.false.i ], [ 1, %if.end.i.i ], [ 0, %if.end.i ], [ 0, %if.end.i.thread ], [ %conv154.i, %for.cond.i.i ], [ 2, %for.body.i.i144 ]
   ret i8 %retval.0
 }
 
@@ -8925,7 +8925,7 @@ if.then16.i305:                                   ; preds = %if.end12.i104
   %add.ptr7.i = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext6.i
   %12 = load i8, ptr %alphaShift.i, align 4
   %conv8.i = zext i8 %12 to i32
-  %13 = trunc i32 %s.i70.1 to i16
+  %13 = trunc nuw i32 %s.i70.1 to i16
   %invariant.gep = getelementptr i8, ptr %add.ptr2.i361, i64 4
   br label %while.cond.i
 
@@ -9415,7 +9415,7 @@ if.then84.i218:                                   ; preds = %if.end75.i127
   %add.ptr7.i408 = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext6.i407
   %72 = load i8, ptr %alphaShift.i409, align 4
   %conv8.i410 = zext i8 %72 to i32
-  %73 = trunc i32 %s.i70.3 to i16
+  %73 = trunc nuw i32 %s.i70.3 to i16
   %s.addr.i381.sroa.0.0.extract.trunc1041 = and i16 %73, 16383
   %invariant.gep1573 = getelementptr i8, ptr %add.ptr2.i401, i64 4
   br label %while.cond.i412
@@ -9906,7 +9906,7 @@ if.then16.i:                                      ; preds = %if.end12.i
   %add.ptr7.i490 = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext6.i489
   %134 = load i8, ptr %alphaShift.i491, align 4
   %conv8.i492 = zext i8 %134 to i32
-  %135 = trunc i32 %s.i.1 to i16
+  %135 = trunc nuw i32 %s.i.1 to i16
   %invariant.gep1589 = getelementptr i8, ptr %add.ptr2.i483, i64 4
   br label %while.cond.i494
 
@@ -10446,7 +10446,7 @@ if.then84.i:                                      ; preds = %if.end75.i
   %add.ptr7.i572 = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext6.i571
   %198 = load i8, ptr %alphaShift.i573, align 4
   %conv8.i574 = zext i8 %198 to i32
-  %199 = trunc i32 %s.i.3 to i16
+  %199 = trunc nuw i32 %s.i.3 to i16
   %s.addr.i545.sroa.0.0.extract.trunc1261 = and i16 %199, 16383
   %invariant.gep1607 = getelementptr i8, ptr %add.ptr2.i565, i64 4
   br label %while.cond.i576

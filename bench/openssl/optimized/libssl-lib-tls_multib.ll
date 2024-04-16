@@ -42,42 +42,42 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true10.i
   %4 = load i32, ptr %version.i, align 4
   %5 = and i32 %4, -2
   %switch.i = icmp eq i32 %5, 770
-  br i1 %switch.i, label %land.lhs.true19.i, label %lor.lhs.false17.i
+  br i1 %switch.i, label %tls_is_multiblock_capable.exit, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %land.lhs.true11.i
   %isdtls.i = getelementptr inbounds i8, ptr %rl, i64 16
   %6 = load i32, ptr %isdtls.i, align 8
   %tobool18.not.i = icmp eq i32 %6, 0
-  br i1 %tobool18.not.i, label %if.end5, label %land.lhs.true19.i
+  br i1 %tobool18.not.i, label %if.end5, label %tls_is_multiblock_capable.exit
 
-land.lhs.true19.i:                                ; preds = %lor.lhs.false17.i, %land.lhs.true11.i
+tls_is_multiblock_capable.exit:                   ; preds = %land.lhs.true11.i, %lor.lhs.false17.i
   %enc_ctx.i = getelementptr inbounds i8, ptr %rl, i64 4128
   %7 = load ptr, ptr %enc_ctx.i, align 8
   %call.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %7) #3
   %call20.i = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %call.i) #3
-  %and.i = and i64 %call20.i, 4194304
-  %cmp21.not.i = icmp eq i64 %and.i, 0
-  br i1 %cmp21.not.i, label %if.end5, label %if.then
+  %8 = and i64 %call20.i, 4194304
+  %tobool.not = icmp eq i64 %8, 0
+  br i1 %tobool.not, label %if.end5, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true19.i
-  %8 = load i64, ptr %preffrag, align 8
-  %and = and i64 %8, 4095
+if.then:                                          ; preds = %tls_is_multiblock_capable.exit
+  %9 = load i64, ptr %preffrag, align 8
+  %and = and i64 %9, 4095
   %cmp = icmp eq i64 %and, 0
   br i1 %cmp, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %if.then
-  %sub = add i64 %8, -512
+  %sub = add i64 %9, -512
   store i64 %sub, ptr %preffrag, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then1, %if.then
-  %9 = phi i64 [ %sub, %if.then1 ], [ %8, %if.then ]
-  %mul = shl i64 %9, 3
+  %10 = phi i64 [ %sub, %if.then1 ], [ %9, %if.then ]
+  %mul = shl i64 %10, 3
   %cmp2.not = icmp ugt i64 %mul, %len
   %. = select i1 %cmp2.not, i64 4, i64 8
   br label %return
 
-if.end5:                                          ; preds = %entry, %land.lhs.true4.i, %land.lhs.true7.i, %land.lhs.true10.i, %lor.lhs.false17.i, %land.lhs.true19.i
+if.end5:                                          ; preds = %entry, %land.lhs.true4.i, %land.lhs.true7.i, %land.lhs.true10.i, %lor.lhs.false17.i, %tls_is_multiblock_capable.exit
   %call6 = tail call i64 @tls_get_max_records_default(ptr noundef %rl, i8 noundef zeroext %type, i64 noundef %len, i64 noundef %maxfrag, ptr noundef nonnull %preffrag) #3
   br label %return
 
@@ -89,7 +89,7 @@ return:                                           ; preds = %if.end, %if.end5
 declare i64 @tls_get_max_records_default(ptr noundef, i8 noundef zeroext, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_write_records_multiblock(ptr noundef %rl, ptr noundef %templates, i64 noundef %numtempl) local_unnamed_addr #0 {
+define i32 @tls_write_records_multiblock(ptr noundef %rl, ptr noundef %templates, i64 noundef %numtempl) local_unnamed_addr #0 {
 entry:
   %aad.i = alloca [13 x i8], align 8
   %mb_param.i = alloca %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, align 8
@@ -168,52 +168,52 @@ land.lhs.true11.i.i:                              ; preds = %land.lhs.true10.i.i
   %12 = load i32, ptr %version.i.i, align 4
   %13 = and i32 %12, -2
   %switch.i.i = icmp eq i32 %13, 770
-  br i1 %switch.i.i, label %land.lhs.true19.i.i, label %lor.lhs.false17.i.i
+  br i1 %switch.i.i, label %tls_is_multiblock_capable.exit.i, label %lor.lhs.false17.i.i
 
 lor.lhs.false17.i.i:                              ; preds = %land.lhs.true11.i.i
   %isdtls.i.i = getelementptr inbounds i8, ptr %rl, i64 16
   %14 = load i32, ptr %isdtls.i.i, align 8
   %tobool18.not.i.i = icmp eq i32 %14, 0
-  br i1 %tobool18.not.i.i, label %if.then2, label %land.lhs.true19.i.i
+  br i1 %tobool18.not.i.i, label %if.then2, label %tls_is_multiblock_capable.exit.i
 
-land.lhs.true19.i.i:                              ; preds = %lor.lhs.false17.i.i, %land.lhs.true11.i.i
+tls_is_multiblock_capable.exit.i:                 ; preds = %lor.lhs.false17.i.i, %land.lhs.true11.i.i
   %enc_ctx.i.i = getelementptr inbounds i8, ptr %rl, i64 4128
   %15 = load ptr, ptr %enc_ctx.i.i, align 8
   %call.i.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %15) #3
   %call20.i.i = tail call i64 @EVP_CIPHER_get_flags(ptr noundef %call.i.i) #3
-  %and.i.i = and i64 %call20.i.i, 4194304
-  %cmp21.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp21.not.i.i, label %if.then2, label %if.end33.i
+  %16 = and i64 %call20.i.i, 4194304
+  %tobool.not.i = icmp eq i64 %16, 0
+  br i1 %tobool.not.i, label %if.then2, label %if.end33.i
 
-if.end33.i:                                       ; preds = %land.lhs.true19.i.i
-  %16 = load ptr, ptr %enc_ctx.i.i, align 8
-  %17 = load i64, ptr %buflen27.i, align 8
-  %conv36.i = trunc i64 %17 to i32
-  %call37.i = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %16, i32 noundef 28, i32 noundef %conv36.i, ptr noundef null) #3
+if.end33.i:                                       ; preds = %tls_is_multiblock_capable.exit.i
+  %17 = load ptr, ptr %enc_ctx.i.i, align 8
+  %18 = load i64, ptr %buflen27.i, align 8
+  %conv36.i = trunc i64 %18 to i32
+  %call37.i = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %17, i32 noundef 28, i32 noundef %conv36.i, ptr noundef null) #3
   %conv38.i = sext i32 %call37.i to i64
-  %mul39.i = mul i64 %conv38.i, %numtempl
+  %mul39.i = mul nsw i64 %conv38.i, %numtempl
   %call40.i = tail call i32 @tls_setup_write_buffer(ptr noundef nonnull %rl, i64 noundef 1, i64 noundef %mul39.i, i64 noundef %mul39.i) #3
   %tobool41.not.i = icmp eq i32 %call40.i, 0
   br i1 %tobool41.not.i, label %tls_write_records_multiblock_int.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end33.i
   %wbuf.i = getelementptr inbounds i8, ptr %rl, i64 96
-  %conv45.i = trunc i64 %numtempl to i32
+  %conv45.i = trunc nuw i64 %numtempl to i32
   %interleave.i = getelementptr inbounds i8, ptr %mb_param.i, i64 24
   store i32 %conv45.i, ptr %interleave.i, align 8
   %sequence.i = getelementptr inbounds i8, ptr %rl, i64 4096
-  %18 = load i64, ptr %sequence.i, align 8
-  store i64 %18, ptr %aad.i, align 8
-  %19 = load i8, ptr %templates, align 8
+  %19 = load i64, ptr %sequence.i, align 8
+  store i64 %19, ptr %aad.i, align 8
+  %20 = load i8, ptr %templates, align 8
   %arrayidx49.i = getelementptr inbounds i8, ptr %aad.i, i64 8
-  store i8 %19, ptr %arrayidx49.i, align 8
+  store i8 %20, ptr %arrayidx49.i, align 8
   %version.i = getelementptr inbounds i8, ptr %templates, i64 4
-  %20 = load i32, ptr %version.i, align 4
-  %shr.i = lshr i32 %20, 8
+  %21 = load i32, ptr %version.i, align 4
+  %shr.i = lshr i32 %21, 8
   %conv51.i = trunc i32 %shr.i to i8
   %arrayidx52.i = getelementptr inbounds i8, ptr %aad.i, i64 9
   store i8 %conv51.i, ptr %arrayidx52.i, align 1
-  %conv55.i = trunc i32 %20 to i8
+  %conv55.i = trunc i32 %21 to i8
   %arrayidx56.i = getelementptr inbounds i8, ptr %aad.i, i64 10
   store i8 %conv55.i, ptr %arrayidx56.i, align 2
   %arrayidx57.i = getelementptr inbounds i8, ptr %aad.i, i64 11
@@ -225,39 +225,39 @@ if.end43.i:                                       ; preds = %if.end33.i
   store ptr %aad.i, ptr %inp.i, align 8
   %len.i = getelementptr inbounds i8, ptr %mb_param.i, i64 16
   store i64 %mul.i, ptr %len.i, align 8
-  %21 = load ptr, ptr %enc_ctx.i.i, align 8
-  %call61.i = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %21, i32 noundef 25, i32 noundef 32, ptr noundef nonnull %mb_param.i) #3
+  %22 = load ptr, ptr %enc_ctx.i.i, align 8
+  %call61.i = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %22, i32 noundef 25, i32 noundef 32, ptr noundef nonnull %mb_param.i) #3
   %conv62.i = sext i32 %call61.i to i64
   %cmp63.i = icmp slt i32 %call61.i, 1
   br i1 %cmp63.i, label %tls_write_records_multiblock_int.exit.sink.split, label %lor.lhs.false65.i
 
 lor.lhs.false65.i:                                ; preds = %if.end43.i
   %len66.i = getelementptr inbounds i8, ptr %rl, i64 112
-  %22 = load i64, ptr %len66.i, align 8
-  %cmp67.i = icmp ult i64 %22, %conv62.i
+  %23 = load i64, ptr %len66.i, align 8
+  %cmp67.i = icmp ult i64 %23, %conv62.i
   br i1 %cmp67.i, label %tls_write_records_multiblock_int.exit.sink.split, label %if.end70.i
 
 if.end70.i:                                       ; preds = %lor.lhs.false65.i
-  %23 = load ptr, ptr %wbuf.i, align 8
-  store ptr %23, ptr %mb_param.i, align 8
+  %24 = load ptr, ptr %wbuf.i, align 8
+  store ptr %24, ptr %mb_param.i, align 8
   %buf74.i = getelementptr inbounds i8, ptr %templates, i64 8
-  %24 = load ptr, ptr %buf74.i, align 8
-  store ptr %24, ptr %inp.i, align 8
+  %25 = load ptr, ptr %buf74.i, align 8
+  store ptr %25, ptr %inp.i, align 8
   store i64 %mul.i, ptr %len.i, align 8
-  %25 = load ptr, ptr %enc_ctx.i.i, align 8
-  %call78.i = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %25, i32 noundef 26, i32 noundef 32, ptr noundef nonnull %mb_param.i) #3
+  %26 = load ptr, ptr %enc_ctx.i.i, align 8
+  %call78.i = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %26, i32 noundef 26, i32 noundef 32, ptr noundef nonnull %mb_param.i) #3
   %cmp79.i = icmp slt i32 %call78.i, 1
   br i1 %cmp79.i, label %tls_write_records_multiblock_int.exit.sink.split, label %if.end82.i
 
 if.end82.i:                                       ; preds = %if.end70.i
-  %26 = load i32, ptr %interleave.i, align 8
+  %27 = load i32, ptr %interleave.i, align 8
   %arrayidx85.i = getelementptr inbounds i8, ptr %rl, i64 4103
-  %27 = load i8, ptr %arrayidx85.i, align 1
-  %28 = trunc i32 %26 to i8
-  %conv87.i = add i8 %27, %28
+  %28 = load i8, ptr %arrayidx85.i, align 1
+  %29 = trunc i32 %27 to i8
+  %conv87.i = add i8 %28, %29
   store i8 %conv87.i, ptr %arrayidx85.i, align 1
   %conv90.i = zext i8 %conv87.i to i32
-  %cmp92.i = icmp ugt i32 %26, %conv90.i
+  %cmp92.i = icmp ugt i32 %27, %conv90.i
   br i1 %cmp92.i, label %land.rhs.i, label %if.end
 
 land.rhs.i:                                       ; preds = %if.end82.i, %land.rhs.i
@@ -265,8 +265,8 @@ land.rhs.i:                                       ; preds = %if.end82.i, %land.r
   %dec.i = add nsw i32 %j.0.i, -1
   %idxprom.i = zext nneg i32 %j.0.i to i64
   %arrayidx98.i = getelementptr inbounds [8 x i8], ptr %sequence.i, i64 0, i64 %idxprom.i
-  %29 = load i8, ptr %arrayidx98.i, align 1
-  %inc99.i = add i8 %29, 1
+  %30 = load i8, ptr %arrayidx98.i, align 1
+  %inc99.i = add i8 %30, 1
   store i8 %inc99.i, ptr %arrayidx98.i, align 1
   %cmp101.i = icmp eq i8 %inc99.i, 0
   %cmp95.i = icmp ne i32 %j.0.i, 0
@@ -292,20 +292,18 @@ if.end:                                           ; preds = %land.rhs.i, %if.end
   store i64 %conv62.i, ptr %left.i, align 8
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %aad.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %mb_param.i)
-  br label %if.end6
+  br label %return
 
-if.then2:                                         ; preds = %for.body.i, %lor.lhs.false.i, %lor.lhs.false14.i, %land.lhs.true19.i.i, %lor.lhs.false17.i.i, %land.lhs.true10.i.i, %land.lhs.true7.i.i, %land.lhs.true4.i.i, %for.end.i, %entry
+if.then2:                                         ; preds = %for.body.i, %lor.lhs.false.i, %lor.lhs.false14.i, %for.end.i, %land.lhs.true4.i.i, %land.lhs.true7.i.i, %land.lhs.true10.i.i, %lor.lhs.false17.i.i, %tls_is_multiblock_capable.exit.i, %entry
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %aad.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %mb_param.i)
   %call3 = tail call i32 @tls_write_records_default(ptr noundef %rl, ptr noundef %templates, i64 noundef %numtempl) #3
-  %tobool.not = icmp eq i32 %call3, 0
-  br i1 %tobool.not, label %return, label %if.end6
-
-if.end6:                                          ; preds = %if.end, %if.then2
+  %tobool.not = icmp ne i32 %call3, 0
+  %spec.select = zext i1 %tobool.not to i32
   br label %return
 
-return:                                           ; preds = %tls_write_records_multiblock_int.exit, %if.then2, %if.end6
-  %retval.0 = phi i32 [ 1, %if.end6 ], [ 0, %tls_write_records_multiblock_int.exit ], [ 0, %if.then2 ]
+return:                                           ; preds = %if.end, %tls_write_records_multiblock_int.exit, %if.then2
+  %retval.0 = phi i32 [ 0, %tls_write_records_multiblock_int.exit ], [ 1, %if.end ], [ %spec.select, %if.then2 ]
   ret i32 %retval.0
 }
 

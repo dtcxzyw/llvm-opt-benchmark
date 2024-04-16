@@ -224,7 +224,7 @@ if.end110:                                        ; preds = %if.then106
   %seq.i = getelementptr inbounds i8, ptr %s.val108, i64 328
   %28 = load i16, ptr %seq.i, align 8
   %29 = lshr i16 %28, 8
-  %conv13.i = trunc i16 %29 to i8
+  %conv13.i = trunc nuw i16 %29 to i8
   store i8 %conv13.i, ptr %add.ptr.i, align 1
   %30 = load i16, ptr %seq.i, align 8
   %conv18.i = trunc i16 %30 to i8
@@ -345,7 +345,7 @@ if.then172:                                       ; preds = %land.lhs.true169
   %seq = getelementptr inbounds i8, ptr %41, i64 328
   %51 = load i16, ptr %seq, align 8
   %52 = lshr i16 %51, 8
-  %conv190 = trunc i16 %52 to i8
+  %conv190 = trunc nuw i16 %52 to i8
   store i8 %conv190, ptr %add.ptr, align 1
   %53 = load i16, ptr %seq, align 8
   %conv195 = trunc i16 %53 to i8
@@ -1157,7 +1157,7 @@ if.end10:                                         ; preds = %if.end3
   %seq = getelementptr inbounds i8, ptr %0, i64 392
   %101 = load i16, ptr %seq, align 8
   %102 = lshr i16 %101, 8
-  %conv22 = trunc i16 %102 to i8
+  %conv22 = trunc nuw i16 %102 to i8
   store i8 %conv22, ptr %add.ptr, align 1
   %103 = load i16, ptr %seq, align 8
   %conv27 = trunc i16 %103 to i8
@@ -1419,7 +1419,7 @@ entry:
   %seq64be = alloca [8 x i8], align 8
   store i64 0, ptr %seq64be, align 8
   %0 = lshr i16 %seq, 8
-  %conv1 = trunc i16 %0 to i8
+  %conv1 = trunc nuw i16 %0 to i8
   %arrayidx = getelementptr inbounds i8, ptr %seq64be, i64 6
   store i8 %conv1, ptr %arrayidx, align 2
   %conv2 = trunc i16 %seq to i8
@@ -1935,19 +1935,15 @@ if.end10:                                         ; preds = %if.end
   %init_off = getelementptr inbounds i8, ptr %s, i64 264
   store i64 0, ptr %init_off, align 8
   %cmp12.not = icmp eq i32 %htype, 3
-  br i1 %cmp12.not, label %if.end21, label %if.then14
+  br i1 %cmp12.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.end10.thread, %if.end10
   %cond = zext i1 %cmp.not to i32
   %call17 = call i32 @dtls1_buffer_message(ptr noundef nonnull %s, i32 noundef %cond), !range !7
-  %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %return, label %if.end21
-
-if.end21:                                         ; preds = %if.then14, %if.end10
   br label %return
 
-return:                                           ; preds = %if.then14, %land.lhs.true, %lor.lhs.false, %if.end21
-  %retval.0 = phi i32 [ 1, %if.end21 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %if.then14 ]
+return:                                           ; preds = %if.then14, %if.end10, %land.lhs.true, %lor.lhs.false
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 1, %if.end10 ], [ %call17, %if.then14 ]
   ret i32 %retval.0
 }
 
@@ -1987,7 +1983,7 @@ if.end7:                                          ; preds = %if.end
   %seq = getelementptr inbounds i8, ptr %msg_hdr, i64 16
   %4 = load i16, ptr %seq, align 8
   %5 = lshr i16 %4, 8
-  %conv8 = trunc i16 %5 to i8
+  %conv8 = trunc nuw i16 %5 to i8
   %arrayidx = getelementptr inbounds i8, ptr %seq64be, i64 6
   store i8 %conv8, ptr %arrayidx, align 2
   %conv10 = trunc i16 %4 to i8

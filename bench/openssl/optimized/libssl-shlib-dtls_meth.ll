@@ -595,36 +595,34 @@ if.then67.i:                                      ; preds = %land.lhs.true62.i
   %82 = load ptr, ptr %macbuf.i, align 8
   %cmp76.i = icmp eq ptr %82, null
   %or.cond.i125 = select i1 %cmp72.i, i1 true, i1 %cmp76.i
-  br i1 %or.cond.i125, label %if.then94.i, label %lor.lhs.false78.i
+  br i1 %or.cond.i125, label %if.then94.i, label %if.end85.i
 
-lor.lhs.false78.i:                                ; preds = %if.then67.i
+if.end85.i:                                       ; preds = %if.then67.i
   %call81.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %md.i, ptr noundef nonnull %82, i64 noundef %mac_size.1.i) #7
-  %cmp82.not.i = icmp eq i32 %call81.i, 0
-  br i1 %cmp82.not.i, label %if.end85.i, label %if.then94.i
-
-if.end85.i:                                       ; preds = %lor.lhs.false78.i
+  %cmp82.not.i = icmp ne i32 %call81.i, 0
   %83 = load i64, ptr %length, align 8
   %add.i126 = add nuw nsw i64 %mac_size.1.i, 17408
   %cmp87.i = icmp ugt i64 %83, %add.i126
-  br i1 %cmp87.i, label %if.then94.i, label %if.end97.i
+  %or.cond66.i = select i1 %cmp87.i, i1 true, i1 %cmp82.not.i
+  br i1 %or.cond66.i, label %if.then94.i, label %if.end97.i
 
-if.then94.i:                                      ; preds = %if.end85.i, %lor.lhs.false78.i, %if.then67.i
+if.then94.i:                                      ; preds = %if.end85.i, %if.then67.i
   store i64 0, ptr %length, align 8
   store i64 0, ptr %packet_length, align 8
   br label %end.i
 
 if.end97thread-pre-split.i:                       ; preds = %land.lhs.true62.i, %land.lhs.true59.i, %if.end55.i
-  %.pre66.pr.i = load i64, ptr %length, align 8
+  %.pre67.pr.i = load i64, ptr %length, align 8
   br label %if.end97.i
 
 if.end97.i:                                       ; preds = %if.end97thread-pre-split.i, %if.end85.i
-  %.pre66.i = phi i64 [ %.pre66.pr.i, %if.end97thread-pre-split.i ], [ %83, %if.end85.i ]
+  %.pre67.i = phi i64 [ %.pre67.pr.i, %if.end97thread-pre-split.i ], [ %83, %if.end85.i ]
   %84 = load ptr, ptr %compctx.i, align 8
   %cmp98.not.i = icmp eq ptr %84, null
   br i1 %cmp98.not.i, label %if.end110.i, label %if.then100.i
 
 if.then100.i:                                     ; preds = %if.end97.i
-  %cmp102.i = icmp ugt i64 %.pre66.i, 17408
+  %cmp102.i = icmp ugt i64 %.pre67.i, 17408
   br i1 %cmp102.i, label %if.then104.i, label %if.end105.i
 
 if.then104.i:                                     ; preds = %if.then100.i
@@ -649,7 +647,7 @@ if.then108.i:                                     ; preds = %if.end105.i
   br label %end.i
 
 if.end110.i:                                      ; preds = %if.end105.if.end110_crit_edge.i, %if.end97.i
-  %85 = phi i64 [ %.pre.i, %if.end105.if.end110_crit_edge.i ], [ %.pre66.i, %if.end97.i ]
+  %85 = phi i64 [ %.pre.i, %if.end105.if.end110_crit_edge.i ], [ %.pre67.i, %if.end97.i ]
   %86 = load i32, ptr %max_frag_len, align 4
   %conv112.i = zext i32 %86 to i64
   %cmp113.i = icmp ugt i64 %85, %conv112.i

@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bufferevent_ops_pair = external constant %struct.bufferevent_ops, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @be_socket_enable(ptr noundef %bufev, i16 noundef signext %event) #0 {
+define internal i32 @be_socket_enable(ptr noundef %bufev, i16 noundef signext %event) #0 {
 entry:
   %conv5 = zext i16 %event to i32
   %and = and i32 %conv5, 2
@@ -32,25 +32,23 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %and3 = and i32 %conv5, 4
   %tobool4.not = icmp eq i32 %and3, 0
-  br i1 %tobool4.not, label %if.end10, label %land.lhs.true5
+  br i1 %tobool4.not, label %return, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
   %ev_write = getelementptr inbounds i8, ptr %bufev, i64 136
   %timeout_write = getelementptr inbounds i8, ptr %bufev, i64 352
   %call6 = tail call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #10
   %cmp7 = icmp eq i32 %call6, -1
-  br i1 %cmp7, label %return, label %if.end10
-
-if.end10:                                         ; preds = %land.lhs.true5, %if.end
+  %spec.select = sext i1 %cmp7 to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true5, %land.lhs.true, %if.end10
-  %retval.0 = phi i32 [ 0, %if.end10 ], [ -1, %land.lhs.true ], [ -1, %land.lhs.true5 ]
+return:                                           ; preds = %land.lhs.true5, %if.end, %land.lhs.true
+  %retval.0 = phi i32 [ -1, %land.lhs.true ], [ 0, %if.end ], [ %spec.select, %land.lhs.true5 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @be_socket_disable(ptr noundef %bufev, i16 noundef signext %event) #0 {
+define internal i32 @be_socket_disable(ptr noundef %bufev, i16 noundef signext %event) #0 {
 entry:
   %conv4 = zext i16 %event to i32
   %and = and i32 %conv4, 2
@@ -66,26 +64,24 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %if.then, %entry
   %and5 = and i32 %conv4, 4
   %tobool6.not = icmp eq i32 %and5, 0
-  br i1 %tobool6.not, label %if.end14, label %land.lhs.true
+  br i1 %tobool6.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
   %connecting = getelementptr inbounds i8, ptr %bufev, i64 384
   %bf.load = load i8, ptr %connecting, align 8
   %0 = and i8 %bf.load, 8
   %tobool7.not = icmp eq i8 %0, 0
-  br i1 %tobool7.not, label %if.then8, label %if.end14
+  br i1 %tobool7.not, label %if.then8, label %return
 
 if.then8:                                         ; preds = %land.lhs.true
   %ev_write = getelementptr inbounds i8, ptr %bufev, i64 136
   %call9 = tail call i32 @event_del(ptr noundef nonnull %ev_write) #10
   %cmp10 = icmp eq i32 %call9, -1
-  br i1 %cmp10, label %return, label %if.end14
-
-if.end14:                                         ; preds = %if.then8, %land.lhs.true, %if.end3
+  %spec.select = sext i1 %cmp10 to i32
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %if.end14
-  %retval.0 = phi i32 [ 0, %if.end14 ], [ -1, %if.then ], [ -1, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.end3, %land.lhs.true, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ 0, %land.lhs.true ], [ 0, %if.end3 ], [ %spec.select, %if.then8 ]
   ret i32 %retval.0
 }
 
@@ -613,12 +609,12 @@ if.then9:                                         ; preds = %if.end7
   br i1 %cmp11, label %done, label %if.end15
 
 if.then9.thread:                                  ; preds = %if.end
-  %call1018 = call i32 @evutil_socket_connect_(ptr noundef nonnull %fd, ptr noundef nonnull %sa, i32 noundef %socklen) #10
-  %cmp1119 = icmp slt i32 %call1018, 0
-  br i1 %cmp1119, label %if.then30, label %if.end15
+  %call1016 = call i32 @evutil_socket_connect_(ptr noundef nonnull %fd, ptr noundef nonnull %sa, i32 noundef %socklen) #10
+  %cmp1117 = icmp slt i32 %call1016, 0
+  br i1 %cmp1117, label %if.then30, label %if.end15
 
 if.end15:                                         ; preds = %if.then9.thread, %if.then9
-  %r.0 = phi i32 [ %call10, %if.then9 ], [ %call1018, %if.then9.thread ]
+  %r.0 = phi i32 [ %call10, %if.then9 ], [ %call1016, %if.then9.thread ]
   %1 = load i32, ptr %fd, align 4
   %call16 = call i32 @bufferevent_setfd(ptr noundef %bev, i32 noundef %1) #10
   %cmp17 = icmp eq i32 %r.0, 0
@@ -628,8 +624,8 @@ if.then19:                                        ; preds = %if.end15.thread, %i
   %ev_write.i = getelementptr inbounds i8, ptr %bev, i64 136
   %timeout_write.i = getelementptr inbounds i8, ptr %bev, i64 352
   %call6.i = call i32 @bufferevent_add_event_(ptr noundef nonnull %ev_write.i, ptr noundef nonnull %timeout_write.i) #10
-  %cmp7.i = icmp eq i32 %call6.i, -1
-  br i1 %cmp7.i, label %done, label %if.then22
+  %cmp7.i.not = icmp eq i32 %call6.i, -1
+  br i1 %cmp7.i.not, label %done, label %if.then22
 
 if.then22:                                        ; preds = %if.then19
   %connecting = getelementptr inbounds i8, ptr %bev, i64 384
@@ -660,8 +656,8 @@ if.then30:                                        ; preds = %if.then9.thread
   %call31 = call i32 @evutil_closesocket(i32 noundef %4) #10
   br label %done
 
-done:                                             ; preds = %if.then9, %if.then15.i, %if.else, %if.then19, %if.then30, %if.end, %if.then, %if.then22
-  %result.0 = phi i32 [ -1, %if.end ], [ -1, %if.then30 ], [ 0, %if.then22 ], [ -1, %if.then ], [ -1, %if.then19 ], [ 0, %if.else ], [ 0, %if.then15.i ], [ -1, %if.then9 ]
+done:                                             ; preds = %if.then9, %if.then15.i, %if.else, %if.then30, %if.then19, %if.end, %if.then, %if.then22
+  %result.0 = phi i32 [ -1, %if.end ], [ -1, %if.then30 ], [ -1, %if.then19 ], [ 0, %if.then22 ], [ -1, %if.then ], [ 0, %if.else ], [ 0, %if.then15.i ], [ -1, %if.then9 ]
   %call33 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %bev) #10
   ret i32 %result.0
 }

@@ -144,7 +144,7 @@ if.end13:                                         ; preds = %for.body6, %for.end
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_a2i_ipaddress(i32 noundef %idx) #0 {
+define internal i32 @test_a2i_ipaddress(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [17 x %struct.IP_TESTDATA], ptr @a2i_ipaddress_tests, i64 0, i64 %idxprom
@@ -167,13 +167,13 @@ if.then4:                                         ; preds = %if.then
 if.else:                                          ; preds = %entry
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 94, ptr noundef nonnull @.str.5, ptr noundef %call) #2
   %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %if.then20, label %lor.lhs.false
+  br i1 %tobool9.not, label %if.end22, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
   %call10 = tail call i32 @ASN1_STRING_length(ptr noundef %call) #2
   %call11 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 95, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %call10, i32 noundef %0) #2
   %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %if.then20, label %lor.lhs.false13
+  br i1 %tobool12.not, label %if.end22, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false
   %call14 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %call) #2
@@ -181,14 +181,12 @@ lor.lhs.false13:                                  ; preds = %lor.lhs.false
   %data = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %data, align 8
   %call18 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 97, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %call14, i64 noundef %conv, ptr noundef %2, i64 noundef %conv) #2
-  %tobool19.not = icmp eq i32 %call18, 0
-  br i1 %tobool19.not, label %if.then20, label %if.end22
-
-if.then20:                                        ; preds = %lor.lhs.false13, %lor.lhs.false, %if.else
+  %tobool19.not = icmp ne i32 %call18, 0
+  %spec.select = zext i1 %tobool19.not to i32
   br label %if.end22
 
-if.end22:                                         ; preds = %lor.lhs.false13, %if.then20, %if.then, %if.then4
-  %good.0 = phi i32 [ 1, %if.then ], [ 0, %if.then4 ], [ 1, %lor.lhs.false13 ], [ 0, %if.then20 ]
+if.end22:                                         ; preds = %lor.lhs.false13, %if.else, %lor.lhs.false, %if.then, %if.then4
+  %good.0 = phi i32 [ 1, %if.then ], [ 0, %if.then4 ], [ 0, %lor.lhs.false ], [ 0, %if.else ], [ %spec.select, %lor.lhs.false13 ]
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %call) #2
   ret i32 %good.0
 }

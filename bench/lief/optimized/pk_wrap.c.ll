@@ -605,7 +605,7 @@ define internal i32 @rsa_alt_sign_wrap(ptr nocapture noundef readonly %0, i32 no
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %0, align 8
-  %23 = trunc i64 %3 to i32
+  %23 = trunc nuw i64 %3 to i32
   %24 = tail call i32 %21(ptr noundef %22, ptr noundef %7, ptr noundef %8, i32 noundef %1, i32 noundef %23, ptr noundef %2, ptr noundef %4) #10
   br label %25
 
@@ -668,20 +668,20 @@ rsa_alt_sign_wrap.exit:                           ; preds = %12
 21:                                               ; preds = %rsa_alt_sign_wrap.exit
   %22 = call i64 @mbedtls_rsa_get_len(ptr noundef %0) #10
   %23 = icmp ugt i64 %22, %15
-  br i1 %23, label %rsa_verify_wrap.exit.thread, label %24
+  br i1 %23, label %rsa_verify_wrap.exit, label %24
 
 24:                                               ; preds = %21
   %25 = call i32 @mbedtls_rsa_pkcs1_verify(ptr noundef %0, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %6, ptr noundef nonnull %5) #10
-  %.not.i = icmp ne i32 %25, 0
-  %26 = icmp ult i64 %22, %15
-  %or.cond = or i1 %26, %.not.i
-  br i1 %or.cond, label %rsa_verify_wrap.exit.thread, label %rsa_verify_wrap.exit
+  %.not.i = icmp eq i32 %25, 0
+  br i1 %.not.i, label %26, label %rsa_verify_wrap.exit
 
-rsa_verify_wrap.exit.thread:                      ; preds = %21, %24
+26:                                               ; preds = %24
+  %27 = icmp ult i64 %22, %15
+  %spec.select = select i1 %27, i32 -16896, i32 0
   br label %rsa_verify_wrap.exit
 
-rsa_verify_wrap.exit:                             ; preds = %24, %12, %rsa_verify_wrap.exit.thread, %rsa_alt_sign_wrap.exit, %4
-  %.0 = phi i32 [ -16896, %4 ], [ %20, %rsa_alt_sign_wrap.exit ], [ -16896, %rsa_verify_wrap.exit.thread ], [ -16000, %12 ], [ 0, %24 ]
+rsa_verify_wrap.exit:                             ; preds = %26, %24, %21, %12, %rsa_alt_sign_wrap.exit, %4
+  %.0 = phi i32 [ -16896, %4 ], [ %20, %rsa_alt_sign_wrap.exit ], [ -16000, %12 ], [ -16896, %21 ], [ -16896, %24 ], [ %spec.select, %26 ]
   ret i32 %.0
 }
 

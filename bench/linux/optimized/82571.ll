@@ -41,33 +41,28 @@ define dso_local noundef zeroext i1 @e1000_check_phy_82574(ptr noundef %0) local
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, i32 noundef 21, ptr noundef nonnull %3) #5
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %20
+  %8 = load i16, ptr %3, align 2
+  %9 = icmp eq i16 %8, -1
+  %or.cond = select i1 %7, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %18
 
-8:                                                ; preds = %1
-  %9 = load i16, ptr %3, align 2
-  %10 = icmp eq i16 %9, -1
-  br i1 %10, label %11, label %19
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %4, align 8
+  %12 = call i32 %11(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %2) #5
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %18
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %4, align 8
-  %13 = call i32 %12(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %2) #5
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %20
+14:                                               ; preds = %10
+  %15 = load i16, ptr %2, align 2
+  %16 = and i16 %15, 255
+  %17 = icmp eq i16 %16, 255
+  br label %18
 
-15:                                               ; preds = %11
-  %16 = load i16, ptr %2, align 2
-  %17 = and i16 %16, 255
-  %18 = icmp eq i16 %17, 255
-  br i1 %18, label %20, label %19
-
-19:                                               ; preds = %15, %8
-  br label %20
-
-20:                                               ; preds = %19, %15, %11, %1
-  %21 = phi i1 [ false, %19 ], [ false, %1 ], [ false, %11 ], [ true, %15 ]
+18:                                               ; preds = %14, %10, %1
+  %19 = phi i1 [ false, %1 ], [ false, %10 ], [ %17, %14 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #5
-  ret i1 %21
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -317,7 +312,7 @@ define internal i32 @e1000_get_variants_82571(ptr noundef %0) #0 align 16 {
   %107 = add nuw nsw i16 %106, 6
   %108 = zext nneg i16 %107 to i32
   %109 = shl nuw nsw i32 1, %108
-  %110 = trunc i32 %109 to i16
+  %110 = trunc nuw nsw i32 %109 to i16
   %111 = getelementptr inbounds i8, ptr %0, i64 2600
   store i16 %110, ptr %111, align 8
   br label %112

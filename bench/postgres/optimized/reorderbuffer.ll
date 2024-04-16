@@ -748,23 +748,23 @@ thread-pre-split:                                 ; preds = %.sink.split.i, %106
   %128 = getelementptr i8, ptr %.val.i.i, i64 280
   %.val.val.i.i = load i8, ptr %128, align 8
   %129 = trunc i8 %.val.val.i.i to i1
-  br i1 %129, label %130, label %ReorderBufferProcessPartialChange.exit
+  br i1 %129, label %ReorderBufferCanStartStreaming.exit.i, label %ReorderBufferProcessPartialChange.exit
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %122, i64 16
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 40
-  %134 = load i64, ptr %133, align 8
-  %135 = tail call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %124, i64 noundef %134) #17
-  br i1 %135, label %ReorderBufferProcessPartialChange.exit, label %ReorderBufferCanStartStreaming.exit.i
+ReorderBufferCanStartStreaming.exit.i:            ; preds = %127
+  %130 = getelementptr inbounds i8, ptr %122, i64 16
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 40
+  %133 = load i64, ptr %132, align 8
+  %134 = tail call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %124, i64 noundef %133) #17
+  br i1 %134, label %ReorderBufferProcessPartialChange.exit, label %135
 
-ReorderBufferCanStartStreaming.exit.i:            ; preds = %130
+135:                                              ; preds = %ReorderBufferCanStartStreaming.exit.i
   %136 = load i32, ptr %..i34, align 8
   %137 = and i32 %136, 32
   %.not27.i35 = icmp eq i32 %137, 0
   br i1 %.not27.i35, label %138, label %ReorderBufferProcessPartialChange.exit
 
-138:                                              ; preds = %ReorderBufferCanStartStreaming.exit.i
+138:                                              ; preds = %135
   %139 = load i32, ptr %7, align 8
   %140 = and i32 %139, 4
   %.not28.i = icmp eq i32 %140, 0
@@ -777,7 +777,7 @@ ReorderBufferCanStartStreaming.exit.i:            ; preds = %130
   tail call fastcc void @ReorderBufferStreamTXN(ptr noundef nonnull %0, ptr noundef nonnull %..i34)
   br label %ReorderBufferProcessPartialChange.exit
 
-ReorderBufferProcessPartialChange.exit:           ; preds = %ReorderBufferChangeMemoryUpdate.exit, %121, %127, %130, %ReorderBufferCanStartStreaming.exit.i, %138, %142
+ReorderBufferProcessPartialChange.exit:           ; preds = %ReorderBufferChangeMemoryUpdate.exit, %121, %127, %ReorderBufferCanStartStreaming.exit.i, %135, %138, %142
   %143 = load i32, ptr @debug_logical_replication_streaming, align 4
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %145, label %152
@@ -825,27 +825,27 @@ ReorderBufferProcessPartialChange.exit:           ; preds = %ReorderBufferChange
   %170 = getelementptr i8, ptr %.val.i.i37, i64 280
   %.val.val.i.i38 = load i8, ptr %170, align 8
   %171 = trunc i8 %.val.val.i.i38 to i1
-  br i1 %171, label %172, label %ReorderBufferCanStartStreaming.exit.thread.i
+  br i1 %171, label %ReorderBufferCanStartStreaming.exit.i40, label %ReorderBufferCanStartStreaming.exit.thread.i
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %164, i64 16
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 40
-  %176 = load i64, ptr %175, align 8
-  %177 = call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %166, i64 noundef %176) #17
-  br i1 %177, label %ReorderBufferCanStartStreaming.exit.thread.i, label %ReorderBufferCanStartStreaming.exit.i40
+ReorderBufferCanStartStreaming.exit.i40:          ; preds = %169
+  %172 = getelementptr inbounds i8, ptr %164, i64 16
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 40
+  %175 = load i64, ptr %174, align 8
+  %176 = call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %166, i64 noundef %175) #17
+  br i1 %176, label %ReorderBufferCanStartStreaming.exit.thread.i, label %177
 
-ReorderBufferCanStartStreaming.exit.i40:          ; preds = %172
+177:                                              ; preds = %ReorderBufferCanStartStreaming.exit.i40
   %178 = load ptr, ptr %155, align 8
   %.not.i.i = icmp eq ptr %178, null
   %.not182327.i.i = icmp eq ptr %178, %154
   %.not1823.i.i = select i1 %.not.i.i, i1 true, i1 %.not182327.i.i
   br i1 %.not1823.i.i, label %ReorderBufferCanStartStreaming.exit.thread.i, label %.lr.ph.i.outer.i
 
-.lr.ph.i.outer.i:                                 ; preds = %ReorderBufferCanStartStreaming.exit.i40, %186
-  %.sroa.0.026.i.ph.i = phi ptr [ %188, %186 ], [ %178, %ReorderBufferCanStartStreaming.exit.i40 ]
-  %.025.i.ph.i = phi i64 [ %.1.i.i, %186 ], [ 0, %ReorderBufferCanStartStreaming.exit.i40 ]
-  %.01424.i.ph.i = phi ptr [ %.115.i.i, %186 ], [ null, %ReorderBufferCanStartStreaming.exit.i40 ]
+.lr.ph.i.outer.i:                                 ; preds = %177, %186
+  %.sroa.0.026.i.ph.i = phi ptr [ %188, %186 ], [ %178, %177 ]
+  %.025.i.ph.i = phi i64 [ %.1.i.i, %186 ], [ 0, %177 ]
+  %.01424.i.ph.i = phi ptr [ %.115.i.i, %186 ], [ null, %177 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i, %.lr.ph.i.outer.i
@@ -884,8 +884,8 @@ ReorderBufferCanStartStreaming.exit.i40:          ; preds = %172
 .thread.i:                                        ; preds = %182
   %189 = getelementptr inbounds i8, ptr %.sroa.0.026.i.i, i64 8
   %190 = load ptr, ptr %189, align 8
-  %.not18.i23.i = icmp eq ptr %190, %154
-  br i1 %.not18.i23.i, label %ReorderBufferCanStartStreaming.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !7
+  %.not18.i24.i = icmp eq ptr %190, %154
+  br i1 %.not18.i24.i, label %ReorderBufferCanStartStreaming.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !7
 
 ReorderBufferLargestStreamableTopTXN.exit.i:      ; preds = %186
   %.not14.i = icmp eq ptr %.115.i.i, null
@@ -895,7 +895,7 @@ ReorderBufferLargestStreamableTopTXN.exit.i:      ; preds = %186
   call fastcc void @ReorderBufferStreamTXN(ptr noundef %0, ptr noundef nonnull %.115.i.i)
   br label %.backedge
 
-ReorderBufferCanStartStreaming.exit.thread.i:     ; preds = %.thread.i, %ReorderBufferLargestStreamableTopTXN.exit.i, %ReorderBufferCanStartStreaming.exit.i40, %172, %169, %.critedge.i
+ReorderBufferCanStartStreaming.exit.thread.i:     ; preds = %.thread.i, %ReorderBufferLargestStreamableTopTXN.exit.i, %177, %ReorderBufferCanStartStreaming.exit.i40, %169, %.critedge.i
   %.val.i39 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @hash_seq_init(ptr noundef nonnull %6, ptr noundef %.val.i39) #17
@@ -903,9 +903,9 @@ ReorderBufferCanStartStreaming.exit.thread.i:     ; preds = %.thread.i, %Reorder
   %.not1.i.i = icmp eq ptr %192, null
   br i1 %.not1.i.i, label %ReorderBufferLargestTXN.exit.i, label %.lr.ph.i15.i
 
-.lr.ph.i15.i:                                     ; preds = %ReorderBufferCanStartStreaming.exit.thread.i, %203
-  %193 = phi ptr [ %204, %203 ], [ %192, %ReorderBufferCanStartStreaming.exit.thread.i ]
-  %.02.i.i = phi ptr [ %.1.i16.i, %203 ], [ null, %ReorderBufferCanStartStreaming.exit.thread.i ]
+.lr.ph.i15.i:                                     ; preds = %ReorderBufferCanStartStreaming.exit.thread.i, %202
+  %193 = phi ptr [ %203, %202 ], [ %192, %ReorderBufferCanStartStreaming.exit.thread.i ]
+  %.02.i.i = phi ptr [ %.1.i17.i, %202 ], [ null, %ReorderBufferCanStartStreaming.exit.thread.i ]
   %194 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8
   %.not8.i.i = icmp eq ptr %.02.i.i, null
@@ -917,19 +917,17 @@ ReorderBufferCanStartStreaming.exit.thread.i:     ; preds = %.thread.i, %Reorder
   %199 = getelementptr inbounds i8, ptr %.02.i.i, i64 272
   %200 = load i64, ptr %199, align 8
   %201 = icmp ugt i64 %198, %200
-  br i1 %201, label %202, label %203
+  %spec.select.i16.i = select i1 %201, ptr %195, ptr %.02.i.i
+  br label %202
 
 202:                                              ; preds = %196, %.lr.ph.i15.i
-  br label %203
+  %.1.i17.i = phi ptr [ %195, %.lr.ph.i15.i ], [ %spec.select.i16.i, %196 ]
+  %203 = call ptr @hash_seq_search(ptr noundef nonnull %6) #17
+  %.not.i18.i = icmp eq ptr %203, null
+  br i1 %.not.i18.i, label %ReorderBufferLargestTXN.exit.i, label %.lr.ph.i15.i, !llvm.loop !8
 
-203:                                              ; preds = %202, %196
-  %.1.i16.i = phi ptr [ %195, %202 ], [ %.02.i.i, %196 ]
-  %204 = call ptr @hash_seq_search(ptr noundef nonnull %6) #17
-  %.not.i17.i = icmp eq ptr %204, null
-  br i1 %.not.i17.i, label %ReorderBufferLargestTXN.exit.i, label %.lr.ph.i15.i, !llvm.loop !8
-
-ReorderBufferLargestTXN.exit.i:                   ; preds = %203, %ReorderBufferCanStartStreaming.exit.thread.i
-  %.0.lcssa.i.i = phi ptr [ null, %ReorderBufferCanStartStreaming.exit.thread.i ], [ %.1.i16.i, %203 ]
+ReorderBufferLargestTXN.exit.i:                   ; preds = %202, %ReorderBufferCanStartStreaming.exit.thread.i
+  %.0.lcssa.i.i = phi ptr [ null, %ReorderBufferCanStartStreaming.exit.thread.i ], [ %.1.i17.i, %202 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call fastcc void @ReorderBufferSerializeTXN(ptr noundef nonnull %0, ptr noundef %.0.lcssa.i.i)
   br label %.backedge
@@ -6271,7 +6269,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0,
   %46 = load ptr, ptr @MyReplicationSlot, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 24
   %48 = lshr i64 %45, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = trunc i64 %45 to i32
   %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %47, i32 noundef %44, i32 noundef %49, i32 noundef %50) #17
   %52 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 1089) #17
@@ -6805,7 +6803,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr nocapture noundef %0
   %54 = load ptr, ptr @MyReplicationSlot, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 24
   %56 = lshr i64 %53, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = trunc i64 %53 to i32
   %59 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %55, i32 noundef %51, i32 noundef %57, i32 noundef %58) #17
   %60 = call i32 @PathNameOpenFile(ptr noundef nonnull %7, i32 noundef 0) #17
@@ -7452,7 +7450,7 @@ define internal fastcc void @ReorderBufferRestoreCleanup(ptr nocapture noundef r
   %17 = load ptr, ptr @MyReplicationSlot, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = lshr i64 %16, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   %21 = trunc i64 %16 to i32
   %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %18, i32 noundef %13, i32 noundef %20, i32 noundef %21) #17
   %23 = call i32 @unlink(ptr noundef nonnull %2) #17

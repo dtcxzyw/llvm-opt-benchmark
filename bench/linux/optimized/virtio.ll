@@ -892,24 +892,24 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   %80 = load ptr, ptr %79, align 8
   %81 = tail call i32 %80(ptr noundef %2) #8
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %.thread
+  br i1 %82, label %83, label %134
 
 83:                                               ; preds = %77
   %84 = getelementptr inbounds i8, ptr %4, i64 184
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %100, label %87
+  br i1 %86, label %.thread, label %87
 
 87:                                               ; preds = %83
   %88 = load i64, ptr %62, align 8
   %89 = tail call i32 %85(ptr noundef %2) #8
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %.thread
+  br i1 %90, label %91, label %134
 
 91:                                               ; preds = %87
   %92 = load i64, ptr %62, align 8
   %93 = icmp eq i64 %88, %92
-  br i1 %93, label %100, label %94
+  br i1 %93, label %.thread, label %94
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %6, align 8
@@ -917,71 +917,71 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   %97 = load ptr, ptr %96, align 8
   %98 = tail call i32 %97(ptr noundef %2) #8
   %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %.thread
+  br i1 %99, label %.thread, label %134
 
-100:                                              ; preds = %94, %91, %83
-  %101 = tail call fastcc i32 @virtio_features_ok(ptr noundef %2), !range !16
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %.thread
+.thread:                                          ; preds = %94, %91, %83
+  %100 = tail call fastcc i32 @virtio_features_ok(ptr noundef %2), !range !16
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %134
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 136
-  %106 = load ptr, ptr %105, align 8
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %111, label %108
+102:                                              ; preds = %.thread
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 136
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %110, label %107
 
-108:                                              ; preds = %103
-  %109 = tail call i32 %106(ptr noundef %2) #8
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %.thread
+107:                                              ; preds = %102
+  %108 = tail call i32 %105(ptr noundef %2) #8
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %134
 
-111:                                              ; preds = %108, %103
-  %112 = getelementptr inbounds i8, ptr %4, i64 192
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call i32 %113(ptr noundef %2) #8
-  %115 = icmp eq i32 %114, 0
-  %116 = load ptr, ptr %6, align 8
-  br i1 %115, label %117, label %130
+110:                                              ; preds = %107, %102
+  %111 = getelementptr inbounds i8, ptr %4, i64 192
+  %112 = load ptr, ptr %111, align 8
+  %113 = tail call i32 %112(ptr noundef %2) #8
+  %114 = icmp eq i32 %113, 0
+  %115 = load ptr, ptr %6, align 8
+  br i1 %114, label %116, label %129
 
-117:                                              ; preds = %111
-  %118 = getelementptr inbounds i8, ptr %116, i64 24
-  %119 = load ptr, ptr %118, align 8
-  %120 = tail call zeroext i8 %119(ptr noundef %2) #8
-  %121 = and i8 %120, 4
-  %122 = icmp eq i8 %121, 0
-  br i1 %122, label %123, label %124
+116:                                              ; preds = %110
+  %117 = getelementptr inbounds i8, ptr %115, i64 24
+  %118 = load ptr, ptr %117, align 8
+  %119 = tail call zeroext i8 %118(ptr noundef %2) #8
+  %120 = and i8 %119, 4
+  %121 = icmp eq i8 %120, 0
+  br i1 %121, label %122, label %123
 
-123:                                              ; preds = %117
+122:                                              ; preds = %116
   tail call fastcc void @virtio_device_ready(ptr noundef %2)
-  br label %124
+  br label %123
 
-124:                                              ; preds = %123, %117
-  %125 = getelementptr inbounds i8, ptr %4, i64 200
-  %126 = load ptr, ptr %125, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %129, label %128
+123:                                              ; preds = %122, %116
+  %124 = getelementptr inbounds i8, ptr %4, i64 200
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %128, label %127
 
-128:                                              ; preds = %124
-  tail call void %126(ptr noundef %2) #8
-  br label %129
+127:                                              ; preds = %123
+  tail call void %125(ptr noundef %2) #8
+  br label %128
 
-129:                                              ; preds = %128, %124
+128:                                              ; preds = %127, %123
   tail call fastcc void @virtio_config_enable(ptr noundef %2)
   br label %144
 
-130:                                              ; preds = %111
-  %131 = getelementptr inbounds i8, ptr %116, i64 144
-  %132 = load ptr, ptr %131, align 8
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %.thread, label %134
+129:                                              ; preds = %110
+  %130 = getelementptr inbounds i8, ptr %115, i64 144
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %134, label %133
 
-134:                                              ; preds = %130
-  tail call void %132(ptr noundef %2) #8
-  br label %.thread
+133:                                              ; preds = %129
+  tail call void %131(ptr noundef %2) #8
+  br label %134
 
-.thread:                                          ; preds = %94, %87, %134, %130, %108, %100, %77
-  %135 = phi i32 [ %81, %77 ], [ %101, %100 ], [ %109, %108 ], [ %114, %134 ], [ %114, %130 ], [ %98, %94 ], [ %89, %87 ]
+134:                                              ; preds = %87, %94, %133, %129, %107, %.thread, %77
+  %135 = phi i32 [ %81, %77 ], [ %100, %.thread ], [ %108, %107 ], [ %113, %133 ], [ %113, %129 ], [ %89, %87 ], [ %98, %94 ]
   %136 = tail call i32 @__SCT__might_resched() #8
   %137 = load ptr, ptr %6, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 32
@@ -993,8 +993,8 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   tail call void %139(ptr noundef %2, i8 noundef zeroext %143) #8
   br label %144
 
-144:                                              ; preds = %.thread, %129
-  %145 = phi i32 [ %135, %.thread ], [ 0, %129 ]
+144:                                              ; preds = %134, %128
+  %145 = phi i32 [ %135, %134 ], [ 0, %128 ]
   ret i32 %145
 }
 

@@ -157,7 +157,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %past_i.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %and.demorgan.i, %for.body.i ]
   %ret.018.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add5.i, %for.body.i ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %xor.i.i.i = xor i32 %sub, %4
   %sub.i.i.i.i = add i32 %xor.i.i.i, -1
   %and.i.i.i.i = and i32 %sub.i.i.i.i, %not.i.i.i.i
@@ -1451,7 +1451,7 @@ if.end:                                           ; preds = %entry
 
 for.cond:                                         ; preds = %for.body, %if.end
   %indvars.iv = phi i64 [ %6, %for.body ], [ %4, %if.end ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %cmp5 = icmp sgt i32 %5, 0
   br i1 %cmp5, label %for.body, label %return
 
@@ -1518,7 +1518,7 @@ for.cond.preheader:                               ; preds = %if.end22
 for.cond:                                         ; preds = %for.cond.preheader, %if.end35
   %indvars.iv = phi i64 [ %4, %for.cond.preheader ], [ %5, %if.end35 ]
   %5 = add nsw i64 %indvars.iv, -1
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %cmp29 = icmp sgt i32 %6, 0
   br i1 %cmp29, label %for.body, label %return
 
@@ -1838,19 +1838,17 @@ return:                                           ; preds = %if.then8.i, %if.end
 define void @BN_set_negative(ptr nocapture noundef %a, i32 noundef %b) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq i32 %b, 0
-  br i1 %tobool.not, label %if.else, label %land.lhs.true
+  br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %top.i = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top.i, align 8
-  %cmp.i.not = icmp eq i32 %0, 0
-  br i1 %cmp.i.not, label %if.else, label %if.end
-
-if.else:                                          ; preds = %land.lhs.true, %entry
+  %cmp.i.not = icmp ne i32 %0, 0
+  %spec.select = zext i1 %cmp.i.not to i32
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %if.else
-  %.sink = phi i32 [ 0, %if.else ], [ 1, %land.lhs.true ]
+if.end:                                           ; preds = %land.lhs.true, %entry
+  %.sink = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true ]
   %neg2 = getelementptr inbounds i8, ptr %a, i64 16
   store i32 %.sink, ptr %neg2, align 8
   ret void
@@ -2021,7 +2019,7 @@ entry:
   %top2 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i32, ptr %top2, align 8
   %xor = xor i32 %1, %0
-  %2 = trunc i64 %sub1 to i32
+  %2 = trunc nsw i64 %sub1 to i32
   %3 = and i32 %xor, %2
   %conv7 = xor i32 %3, %0
   store i32 %conv7, ptr %top, align 8
@@ -2384,7 +2382,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and = sext i1 %narrow to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %and) #18, !srcloc !18
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.next to i32
   %and.i.i = and i32 %6, %7
   %not.i.i = xor i32 %and, -1
   %8 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #18, !srcloc !18

@@ -484,8 +484,8 @@ if.then.i.i.i21:                                  ; preds = %invoke.cont.i19
   call void @_ZdlPv(ptr noundef nonnull %24) #10
   br label %cleanup35
 
-cleanup35:                                        ; preds = %invoke.cont3, %invoke.cont3.thread, %invoke.cont.i19, %if.then.i.i.i21, %if.then.i.i.i10, %invoke.cont.i, %invoke.cont, %invoke.cont1
-  %retval.1 = phi i1 [ false, %invoke.cont1 ], [ false, %invoke.cont ], [ false, %invoke.cont.i ], [ false, %if.then.i.i.i10 ], [ true, %if.then.i.i.i21 ], [ true, %invoke.cont.i19 ], [ true, %invoke.cont3.thread ], [ true, %invoke.cont3 ]
+cleanup35:                                        ; preds = %if.then.i.i.i21, %invoke.cont.i19, %if.then.i.i.i10, %invoke.cont.i, %invoke.cont3.thread, %invoke.cont3, %invoke.cont, %invoke.cont1
+  %retval.1 = phi i1 [ false, %invoke.cont1 ], [ false, %invoke.cont ], [ true, %invoke.cont3 ], [ true, %invoke.cont3.thread ], [ false, %invoke.cont.i ], [ false, %if.then.i.i.i10 ], [ true, %invoke.cont.i19 ], [ true, %if.then.i.i.i21 ]
   call void @_ZN3net10SpdyFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(259) %framer) #9
   ret i1 %retval.1
 
@@ -995,7 +995,7 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
 _ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit.thread: ; preds = %for.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  br label %if.end90
+  br label %return
 
 _ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit: ; preds = %for.end
   %second.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
@@ -1004,7 +1004,7 @@ _ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit: ; preds = %
   %list_.i.i.i31 = getelementptr inbounds i8, ptr %headers, i64 56
   %cmp.i.i32.not = icmp eq ptr %57, %list_.i.i.i31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  br i1 %cmp.i.i32.not, label %if.end90, label %if.then58
+  br i1 %cmp.i.i32.not, label %return, label %if.then58
 
 if.then58:                                        ; preds = %_ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp60, ptr noundef nonnull @.str)
@@ -1097,20 +1097,14 @@ invoke.cont.i:                                    ; preds = %invoke.cont62, %inv
   %cmp.i33.not.lcssa75 = phi i1 [ %cmp.i33.not.lcssa.ph, %invoke.contthread-pre-split.i ], [ %cmp.i33.not.lcssa.ph, %cleanup ], [ true, %invoke.cont62 ]
   %72 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre72, %cleanup ], [ %66, %invoke.cont62 ]
   %tobool.not.i.i.i = icmp eq ptr %72, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i36
+  br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i36
 
 if.then.i.i.i36:                                  ; preds = %invoke.cont.i
   call void @_ZdlPv(ptr noundef nonnull %72) #10
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i36
-  br i1 %cmp.i33.not.lcssa75, label %if.end90, label %return
-
-if.end90:                                         ; preds = %_ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit.thread, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %_ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit
   br label %return
 
-return:                                           ; preds = %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit, %for.body, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %if.end90
-  %retval.1 = phi i1 [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %if.end90 ], [ false, %for.body ], [ false, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit ]
+return:                                           ; preds = %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit, %for.body, %if.then.i.i.i36, %invoke.cont.i, %_ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit.thread, %_ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit
+  %retval.1 = phi i1 [ true, %_ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit ], [ true, %_ZN4base11ContainsKeyIN3net15SpdyHeaderBlockEA15_cEEbRKT_RKT0_.exit.thread ], [ %cmp.i33.not.lcssa75, %invoke.cont.i ], [ %cmp.i33.not.lcssa75, %if.then.i.i.i36 ], [ false, %for.body ], [ false, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %lpad75, %lpad61, %lpad35, %lpad33, %lpad
@@ -1181,7 +1175,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %__begin1.sroa.11.042 = phi ptr [ %2, %for.body.lr.ph ], [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit ]
   %__begin1.sroa.8.041 = phi ptr [ %3, %for.body.lr.ph ], [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit ]
   %__begin1.sroa.0.040 = phi ptr [ %0, %for.body.lr.ph ], [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit ]
-  %tobool = trunc i8 %found_final_byte_offset.043 to i1
+  %tobool = trunc nuw i8 %found_final_byte_offset.043 to i1
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
@@ -1385,7 +1379,7 @@ lpad:                                             ; preds = %if.end27
   resume { ptr, i32 } %40
 
 for.end.loopexit:                                 ; preds = %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
-  %41 = trunc i8 %found_final_byte_offset.1 to i1
+  %41 = trunc nuw i8 %found_final_byte_offset.1 to i1
   br label %return
 
 return:                                           ; preds = %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit, %if.end, %lor.lhs.false, %entry, %for.end.loopexit

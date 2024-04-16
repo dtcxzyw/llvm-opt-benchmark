@@ -91,7 +91,7 @@ Abc_Tt6CheckOutDec.exit:                          ; preds = %32, %4, %26, %28, %
   br i1 %53, label %.critedge.split.loop.exit2.i, label %49, !llvm.loop !4
 
 .critedge.split.loop.exit2.i:                     ; preds = %50
-  %54 = trunc i64 %indvars.iv.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Acb_ObjWhatFanin.exit
 
 Acb_ObjWhatFanin.exit:                            ; preds = %49, %.critedge.split.loop.exit2.i
@@ -111,256 +111,254 @@ Acb_ObjWhatFanin.exit:                            ; preds = %49, %.critedge.spli
   br i1 %59, label %Acb_ObjWhatFanin.exit79, label %55, !llvm.loop !4
 
 Acb_ObjWhatFanin.exit79:                          ; preds = %56
-  %60 = trunc i64 %indvars.iv.i74 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv.i74 to i32
   %61 = icmp eq i32 %60, -1
-  br i1 %61, label %Acb_ObjWhatFanin.exit79.thread, label %62
+  %spec.select86 = select i1 %61, i32 %48, i32 %60
+  br label %Acb_ObjWhatFanin.exit79.thread
 
 Acb_ObjWhatFanin.exit79.thread:                   ; preds = %55, %Acb_ObjWhatFanin.exit79
-  br label %62
-
-62:                                               ; preds = %Acb_ObjWhatFanin.exit79.thread, %Acb_ObjWhatFanin.exit79
-  %.0 = phi i32 [ %48, %Acb_ObjWhatFanin.exit79.thread ], [ %60, %Acb_ObjWhatFanin.exit79 ]
-  %63 = sext i32 %.0.i71 to i64
-  %64 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %63
-  %65 = load i64, ptr %64, align 8
-  %66 = and i64 %65, %11
-  %67 = shl nuw i32 1, %.0.i71
-  %68 = zext nneg i32 %67 to i64
-  %69 = shl i64 %66, %68
-  %70 = or i64 %69, %66
-  %71 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %63
-  %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, %11
-  %74 = lshr i64 %73, %68
-  %75 = or i64 %74, %73
-  switch i32 %.0.i, label %103 [
-    i32 0, label %76
-    i32 1, label %81
-    i32 2, label %87
-    i32 3, label %93
-    i32 4, label %98
+  %.0 = phi i32 [ %spec.select86, %Acb_ObjWhatFanin.exit79 ], [ %48, %55 ]
+  %62 = sext i32 %.0.i71 to i64
+  %63 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %62
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, %11
+  %66 = shl nuw i32 1, %.0.i71
+  %67 = zext nneg i32 %66 to i64
+  %68 = shl i64 %65, %67
+  %69 = or i64 %68, %65
+  %70 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %62
+  %71 = load i64, ptr %70, align 8
+  %72 = and i64 %71, %11
+  %73 = lshr i64 %72, %67
+  %74 = or i64 %73, %72
+  switch i32 %.0.i, label %102 [
+    i32 0, label %75
+    i32 1, label %80
+    i32 2, label %86
+    i32 3, label %92
+    i32 4, label %97
   ]
 
-76:                                               ; preds = %62
-  %77 = sext i32 %.0 to i64
-  %78 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %77
-  %79 = load i64, ptr %78, align 8
-  %80 = and i64 %79, %72
-  br label %103
+75:                                               ; preds = %Acb_ObjWhatFanin.exit79.thread
+  %76 = sext i32 %.0 to i64
+  %77 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %76
+  %78 = load i64, ptr %77, align 8
+  %79 = and i64 %78, %71
+  br label %102
 
-81:                                               ; preds = %62
-  %82 = sext i32 %.0 to i64
-  %83 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = xor i64 %84, -1
-  %86 = and i64 %72, %85
-  br label %103
+80:                                               ; preds = %Acb_ObjWhatFanin.exit79.thread
+  %81 = sext i32 %.0 to i64
+  %82 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %81
+  %83 = load i64, ptr %82, align 8
+  %84 = xor i64 %83, -1
+  %85 = and i64 %71, %84
+  br label %102
 
-87:                                               ; preds = %62
-  %88 = sext i32 %.0 to i64
-  %89 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %88
-  %90 = load i64, ptr %89, align 8
-  %91 = xor i64 %90, -1
-  %92 = or i64 %72, %91
-  br label %103
+86:                                               ; preds = %Acb_ObjWhatFanin.exit79.thread
+  %87 = sext i32 %.0 to i64
+  %88 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %87
+  %89 = load i64, ptr %88, align 8
+  %90 = xor i64 %89, -1
+  %91 = or i64 %71, %90
+  br label %102
 
-93:                                               ; preds = %62
-  %94 = sext i32 %.0 to i64
-  %95 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %94
-  %96 = load i64, ptr %95, align 8
-  %97 = or i64 %96, %72
-  br label %103
+92:                                               ; preds = %Acb_ObjWhatFanin.exit79.thread
+  %93 = sext i32 %.0 to i64
+  %94 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %93
+  %95 = load i64, ptr %94, align 8
+  %96 = or i64 %95, %71
+  br label %102
 
-98:                                               ; preds = %62
-  %99 = sext i32 %.0 to i64
-  %100 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %99
-  %101 = load i64, ptr %100, align 8
-  %102 = xor i64 %101, %72
-  br label %103
+97:                                               ; preds = %Acb_ObjWhatFanin.exit79.thread
+  %98 = sext i32 %.0 to i64
+  %99 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %98
+  %100 = load i64, ptr %99, align 8
+  %101 = xor i64 %100, %71
+  br label %102
 
-103:                                              ; preds = %62, %81, %93, %98, %87, %76
-  %.055 = phi i64 [ %80, %76 ], [ %86, %81 ], [ %92, %87 ], [ %97, %93 ], [ %102, %98 ], [ undef, %62 ]
-  %104 = xor i64 %.055, -1
-  %105 = and i64 %70, %104
-  %106 = and i64 %.055, %75
-  %107 = or i64 %105, %106
-  %108 = icmp slt i32 %2, 5
-  br i1 %108, label %.lr.ph.i, label %Abc_Tt6RemoveVar.exit
+102:                                              ; preds = %Acb_ObjWhatFanin.exit79.thread, %80, %92, %97, %86, %75
+  %.055 = phi i64 [ %79, %75 ], [ %85, %80 ], [ %91, %86 ], [ %96, %92 ], [ %101, %97 ], [ undef, %Acb_ObjWhatFanin.exit79.thread ]
+  %103 = xor i64 %.055, -1
+  %104 = and i64 %69, %103
+  %105 = and i64 %.055, %74
+  %106 = or i64 %104, %105
+  %107 = icmp slt i32 %2, 5
+  br i1 %107, label %.lr.ph.i, label %Abc_Tt6RemoveVar.exit
 
-.lr.ph.i:                                         ; preds = %103, %.lr.ph.i
-  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.lr.ph.i ], [ %12, %103 ]
-  %.045.i = phi i64 [ %124, %.lr.ph.i ], [ %.083, %103 ]
+.lr.ph.i:                                         ; preds = %102, %.lr.ph.i
+  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.lr.ph.i ], [ %12, %102 ]
+  %.045.i = phi i64 [ %123, %.lr.ph.i ], [ %.083, %102 ]
   %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i80, 1
-  %109 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.i80
-  %110 = load i64, ptr %109, align 8
-  %111 = and i64 %110, %.045.i
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
-  %113 = load i64, ptr %112, align 8
-  %114 = and i64 %113, %.045.i
-  %115 = trunc i64 %indvars.iv.i80 to i32
-  %116 = shl nuw nsw i32 1, %115
-  %117 = zext nneg i32 %116 to i64
-  %118 = shl i64 %114, %117
-  %119 = or i64 %118, %111
-  %120 = getelementptr inbounds i8, ptr %109, i64 16
-  %121 = load i64, ptr %120, align 8
-  %122 = and i64 %121, %.045.i
-  %123 = lshr i64 %122, %117
-  %124 = or i64 %119, %123
-  %125 = and i64 %indvars.iv.next.i81, 4294967295
-  %exitcond.not.i82 = icmp eq i64 %125, 5
+  %108 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.i80
+  %109 = load i64, ptr %108, align 8
+  %110 = and i64 %109, %.045.i
+  %111 = getelementptr inbounds i8, ptr %108, i64 8
+  %112 = load i64, ptr %111, align 8
+  %113 = and i64 %112, %.045.i
+  %114 = trunc nsw i64 %indvars.iv.i80 to i32
+  %115 = shl nuw nsw i32 1, %114
+  %116 = zext nneg i32 %115 to i64
+  %117 = shl i64 %113, %116
+  %118 = or i64 %117, %110
+  %119 = getelementptr inbounds i8, ptr %108, i64 16
+  %120 = load i64, ptr %119, align 8
+  %121 = and i64 %120, %.045.i
+  %122 = lshr i64 %121, %116
+  %123 = or i64 %118, %122
+  %124 = and i64 %indvars.iv.next.i81, 4294967295
+  %exitcond.not.i82 = icmp eq i64 %124, 5
   br i1 %exitcond.not.i82, label %Abc_Tt6RemoveVar.exit, label %.lr.ph.i, !llvm.loop !6
 
-Abc_Tt6RemoveVar.exit:                            ; preds = %.lr.ph.i, %103
-  %.04.lcssa.i = phi i64 [ %.083, %103 ], [ %124, %.lr.ph.i ]
+Abc_Tt6RemoveVar.exit:                            ; preds = %.lr.ph.i, %102
+  %.04.lcssa.i = phi i64 [ %.083, %102 ], [ %123, %.lr.ph.i ]
   store i64 %.04.lcssa.i, ptr %7, align 8
   %.val70 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds i64, ptr %.val70, i64 %9
-  store i64 %107, ptr %126, align 8
-  %127 = getelementptr i8, ptr %0, i64 440
-  %.val.i = load ptr, ptr %127, align 8
-  %128 = sext i32 %43 to i64
-  %129 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.i, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = icmp sgt i32 %131, 0
-  br i1 %132, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %125 = getelementptr inbounds i64, ptr %.val70, i64 %9
+  store i64 %106, ptr %125, align 8
+  %126 = getelementptr i8, ptr %0, i64 440
+  %.val.i = load ptr, ptr %126, align 8
+  %127 = sext i32 %43 to i64
+  %128 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.i, i64 %127
+  %129 = getelementptr inbounds i8, ptr %128, i64 4
+  %130 = load i32, ptr %129, align 4
+  %131 = icmp sgt i32 %130, 0
+  br i1 %131, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %Abc_Tt6RemoveVar.exit
-  %133 = getelementptr inbounds i8, ptr %129, i64 8
-  %134 = load ptr, ptr %133, align 8
-  %wide.trip.count.i.i = zext nneg i32 %131 to i64
-  br label %135
+  %132 = getelementptr inbounds i8, ptr %128, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %wide.trip.count.i.i = zext nneg i32 %130 to i64
+  br label %134
 
-135:                                              ; preds = %139, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %139 ]
-  %136 = getelementptr inbounds i32, ptr %134, i64 %indvars.iv.i.i
-  %137 = load i32, ptr %136, align 4
-  %138 = icmp eq i32 %137, %1
-  br i1 %138, label %._crit_edge.loopexit.i.i, label %139
+134:                                              ; preds = %138, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %138 ]
+  %135 = getelementptr inbounds i32, ptr %133, i64 %indvars.iv.i.i
+  %136 = load i32, ptr %135, align 4
+  %137 = icmp eq i32 %136, %1
+  br i1 %137, label %._crit_edge.loopexit.i.i, label %138
 
-139:                                              ; preds = %135
+138:                                              ; preds = %134
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_IntRemove.exit.i, label %135, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %Vec_IntRemove.exit.i, label %134, !llvm.loop !7
 
-._crit_edge.loopexit.i.i:                         ; preds = %135
-  %140 = trunc i64 %indvars.iv.i.i to i32
+._crit_edge.loopexit.i.i:                         ; preds = %134
+  %139 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %Abc_Tt6RemoveVar.exit
-  %.0.lcssa.i.i = phi i32 [ 0, %Abc_Tt6RemoveVar.exit ], [ %140, %._crit_edge.loopexit.i.i ]
-  %141 = icmp eq i32 %.0.lcssa.i.i, %131
-  br i1 %141, label %Vec_IntRemove.exit.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %Abc_Tt6RemoveVar.exit ], [ %139, %._crit_edge.loopexit.i.i ]
+  %140 = icmp eq i32 %.0.lcssa.i.i, %130
+  br i1 %140, label %Vec_IntRemove.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i
   %.126.i.i = add nuw nsw i32 %.0.lcssa.i.i, 1
-  %142 = icmp slt i32 %.126.i.i, %131
-  br i1 %142, label %.lr.ph29.i.i, label %._crit_edge30.i.i
+  %141 = icmp slt i32 %.126.i.i, %130
+  br i1 %141, label %.lr.ph29.i.i, label %._crit_edge30.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i
-  %143 = getelementptr inbounds i8, ptr %129, i64 8
-  %144 = zext i32 %.126.i.i to i64
-  br label %145
+  %142 = getelementptr inbounds i8, ptr %128, i64 8
+  %143 = zext i32 %.126.i.i to i64
+  br label %144
 
-145:                                              ; preds = %145, %.lr.ph29.i.i
-  %indvars.iv34.i.i = phi i64 [ %144, %.lr.ph29.i.i ], [ %indvars.iv.next35.i.i, %145 ]
-  %.1.in27.i.i = phi i32 [ %.0.lcssa.i.i, %.lr.ph29.i.i ], [ %154, %145 ]
-  %146 = load ptr, ptr %143, align 8
-  %147 = getelementptr inbounds i32, ptr %146, i64 %indvars.iv34.i.i
-  %148 = load i32, ptr %147, align 4
-  %149 = zext nneg i32 %.1.in27.i.i to i64
-  %150 = getelementptr inbounds i32, ptr %146, i64 %149
-  store i32 %148, ptr %150, align 4
+144:                                              ; preds = %144, %.lr.ph29.i.i
+  %indvars.iv34.i.i = phi i64 [ %143, %.lr.ph29.i.i ], [ %indvars.iv.next35.i.i, %144 ]
+  %.1.in27.i.i = phi i32 [ %.0.lcssa.i.i, %.lr.ph29.i.i ], [ %153, %144 ]
+  %145 = load ptr, ptr %142, align 8
+  %146 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv34.i.i
+  %147 = load i32, ptr %146, align 4
+  %148 = zext nneg i32 %.1.in27.i.i to i64
+  %149 = getelementptr inbounds i32, ptr %145, i64 %148
+  store i32 %147, ptr %149, align 4
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
-  %151 = load i32, ptr %130, align 4
-  %152 = trunc i64 %indvars.iv.next35.i.i to i32
-  %153 = icmp sgt i32 %151, %152
-  %154 = trunc i64 %indvars.iv34.i.i to i32
-  br i1 %153, label %145, label %._crit_edge30.i.i, !llvm.loop !8
+  %150 = load i32, ptr %129, align 4
+  %151 = trunc nuw i64 %indvars.iv.next35.i.i to i32
+  %152 = icmp sgt i32 %150, %151
+  %153 = trunc nuw i64 %indvars.iv34.i.i to i32
+  br i1 %152, label %144, label %._crit_edge30.i.i, !llvm.loop !8
 
-._crit_edge30.i.i:                                ; preds = %145, %.preheader.i.i
-  %.lcssa.i.i = phi i32 [ %131, %.preheader.i.i ], [ %151, %145 ]
-  %155 = add nsw i32 %.lcssa.i.i, -1
-  store i32 %155, ptr %130, align 4
+._crit_edge30.i.i:                                ; preds = %144, %.preheader.i.i
+  %.lcssa.i.i = phi i32 [ %130, %.preheader.i.i ], [ %150, %144 ]
+  %154 = add nsw i32 %.lcssa.i.i, -1
+  store i32 %154, ptr %129, align 4
   br label %Vec_IntRemove.exit.i
 
-Vec_IntRemove.exit.i:                             ; preds = %139, %._crit_edge30.i.i, %._crit_edge.i.i
+Vec_IntRemove.exit.i:                             ; preds = %138, %._crit_edge30.i.i, %._crit_edge.i.i
   %.val5.i = load ptr, ptr %35, align 8
   %.val6.i = load ptr, ptr %36, align 8
-  %156 = getelementptr inbounds i32, ptr %.val5.i, i64 %6
-  %157 = load i32, ptr %156, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i32, ptr %.val6.i, i64 %158
-  %160 = load i32, ptr %159, align 4
-  %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %160, i32 0)
+  %155 = getelementptr inbounds i32, ptr %.val5.i, i64 %6
+  %156 = load i32, ptr %155, align 4
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds i32, ptr %.val6.i, i64 %157
+  %159 = load i32, ptr %158, align 4
+  %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %159, i32 0)
   %wide.trip.count.i.i.i = zext nneg i32 %smax.i.i.i to i64
-  br label %161
+  br label %160
 
-161:                                              ; preds = %162, %Vec_IntRemove.exit.i
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %162 ], [ 0, %Vec_IntRemove.exit.i ]
+160:                                              ; preds = %161, %Vec_IntRemove.exit.i
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %161 ], [ 0, %Vec_IntRemove.exit.i ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %Acb_ObjWhatFanin.exit.i.i, label %162
+  br i1 %exitcond.not.i.i.i, label %Acb_ObjWhatFanin.exit.i.i, label %161
 
-162:                                              ; preds = %161
+161:                                              ; preds = %160
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %163 = getelementptr inbounds i32, ptr %159, i64 %indvars.iv.next.i.i.i
-  %164 = load i32, ptr %163, align 4
-  %165 = icmp eq i32 %164, %43
-  br i1 %165, label %.critedge.split.loop.exit2.i.i.i, label %161, !llvm.loop !4
+  %162 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv.next.i.i.i
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp eq i32 %163, %43
+  br i1 %164, label %.critedge.split.loop.exit2.i.i.i, label %160, !llvm.loop !4
 
-.critedge.split.loop.exit2.i.i.i:                 ; preds = %162
-  %166 = trunc i64 %indvars.iv.i.i.i to i32
+.critedge.split.loop.exit2.i.i.i:                 ; preds = %161
+  %165 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %Acb_ObjWhatFanin.exit.i.i
 
-Acb_ObjWhatFanin.exit.i.i:                        ; preds = %161, %.critedge.split.loop.exit2.i.i.i
-  %.0.i.i.i = phi i32 [ %166, %.critedge.split.loop.exit2.i.i.i ], [ -1, %161 ]
-  %167 = add nsw i32 %160, -1
-  store i32 %167, ptr %159, align 4
-  %invariant.gep.i.i.i = getelementptr i8, ptr %159, i64 8
-  %168 = icmp sgt i32 %167, %.0.i.i.i
-  br i1 %168, label %.lr.ph.preheader.i.i.i, label %.._crit_edge_crit_edge.i.i.i
+Acb_ObjWhatFanin.exit.i.i:                        ; preds = %160, %.critedge.split.loop.exit2.i.i.i
+  %.0.i.i.i = phi i32 [ %165, %.critedge.split.loop.exit2.i.i.i ], [ -1, %160 ]
+  %166 = add nsw i32 %159, -1
+  store i32 %166, ptr %158, align 4
+  %invariant.gep.i.i.i = getelementptr i8, ptr %158, i64 8
+  %167 = icmp sgt i32 %166, %.0.i.i.i
+  br i1 %167, label %.lr.ph.preheader.i.i.i, label %.._crit_edge_crit_edge.i.i.i
 
 .._crit_edge_crit_edge.i.i.i:                     ; preds = %Acb_ObjWhatFanin.exit.i.i
-  %.pre.i.i.i = sext i32 %167 to i64
+  %.pre.i.i.i = sext i32 %166 to i64
   br label %Acb_ObjRemoveFaninFanoutOne.exit
 
 .lr.ph.preheader.i.i.i:                           ; preds = %Acb_ObjWhatFanin.exit.i.i
-  %169 = sext i32 %.0.i.i.i to i64
+  %168 = sext i32 %.0.i.i.i to i64
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i12.i.i = phi i64 [ %169, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i13.i.i, %.lr.ph.i.i.i ]
+  %indvars.iv.i12.i.i = phi i64 [ %168, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i13.i.i, %.lr.ph.i.i.i ]
   %gep.i.i.i = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i12.i.i
-  %170 = load i32, ptr %gep.i.i.i, align 4
+  %169 = load i32, ptr %gep.i.i.i, align 4
   %indvars.iv.next.i13.i.i = add nsw i64 %indvars.iv.i12.i.i, 1
-  %171 = getelementptr inbounds i32, ptr %159, i64 %indvars.iv.next.i13.i.i
-  store i32 %170, ptr %171, align 4
-  %172 = load i32, ptr %159, align 4
-  %173 = sext i32 %172 to i64
-  %174 = icmp slt i64 %indvars.iv.next.i13.i.i, %173
-  br i1 %174, label %.lr.ph.i.i.i, label %Acb_ObjRemoveFaninFanoutOne.exit, !llvm.loop !9
+  %170 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv.next.i13.i.i
+  store i32 %169, ptr %170, align 4
+  %171 = load i32, ptr %158, align 4
+  %172 = sext i32 %171 to i64
+  %173 = icmp slt i64 %indvars.iv.next.i13.i.i, %172
+  br i1 %173, label %.lr.ph.i.i.i, label %Acb_ObjRemoveFaninFanoutOne.exit, !llvm.loop !9
 
 Acb_ObjRemoveFaninFanoutOne.exit:                 ; preds = %.lr.ph.i.i.i, %.._crit_edge_crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %.._crit_edge_crit_edge.i.i.i ], [ %173, %.lr.ph.i.i.i ]
-  %175 = getelementptr i32, ptr %159, i64 %.pre-phi.i.i.i
-  %176 = getelementptr i8, ptr %175, i64 4
-  store i32 -1, ptr %176, align 4
+  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %.._crit_edge_crit_edge.i.i.i ], [ %172, %.lr.ph.i.i.i ]
+  %174 = getelementptr i32, ptr %158, i64 %.pre-phi.i.i.i
+  %175 = getelementptr i8, ptr %174, i64 4
+  store i32 -1, ptr %175, align 4
   %.val67 = load ptr, ptr %35, align 8
   %.val68 = load ptr, ptr %36, align 8
-  %177 = getelementptr inbounds i32, ptr %.val67, i64 %9
-  %178 = load i32, ptr %177, align 4
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %.val68, i64 %179
-  %181 = load i32, ptr %180, align 4
-  %182 = icmp eq i32 %.0, %181
-  br i1 %182, label %183, label %184
+  %176 = getelementptr inbounds i32, ptr %.val67, i64 %9
+  %177 = load i32, ptr %176, align 4
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds i32, ptr %.val68, i64 %178
+  %180 = load i32, ptr %179, align 4
+  %181 = icmp eq i32 %.0, %180
+  br i1 %181, label %182, label %183
 
-183:                                              ; preds = %Acb_ObjRemoveFaninFanoutOne.exit
+182:                                              ; preds = %Acb_ObjRemoveFaninFanoutOne.exit
   tail call fastcc void @Acb_ObjAddFaninFanoutOne(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %43)
-  br label %184
+  br label %183
 
-184:                                              ; preds = %183, %Acb_ObjRemoveFaninFanoutOne.exit
+183:                                              ; preds = %182, %Acb_ObjRemoveFaninFanoutOne.exit
   ret void
 }
 
@@ -490,7 +488,7 @@ define void @Acb_ObjPushToFanin(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %23, label %.critedge.split.loop.exit2.i, label %19, !llvm.loop !4
 
 .critedge.split.loop.exit2.i:                     ; preds = %20
-  %24 = trunc i64 %indvars.iv.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Acb_ObjWhatFanin.exit
 
 Acb_ObjWhatFanin.exit:                            ; preds = %19, %.critedge.split.loop.exit2.i
@@ -617,240 +615,238 @@ Abc_TtCheckDsdAnd.exit:                           ; preds = %81, %.sink.split.i
   br i1 %100, label %Acb_ObjWhatFanin.exit72, label %96, !llvm.loop !4
 
 Acb_ObjWhatFanin.exit72:                          ; preds = %97
-  %101 = trunc i64 %indvars.iv.i67 to i32
+  %101 = trunc nuw nsw i64 %indvars.iv.i67 to i32
   %102 = icmp eq i32 %101, -1
-  br i1 %102, label %Acb_ObjWhatFanin.exit72.thread, label %103
+  %spec.select = select i1 %102, i32 %95, i32 %101
+  br label %Acb_ObjWhatFanin.exit72.thread
 
 Acb_ObjWhatFanin.exit72.thread:                   ; preds = %96, %Acb_ObjWhatFanin.exit72
-  br label %103
-
-103:                                              ; preds = %Acb_ObjWhatFanin.exit72.thread, %Acb_ObjWhatFanin.exit72
-  %.0 = phi i32 [ %95, %Acb_ObjWhatFanin.exit72.thread ], [ %101, %Acb_ObjWhatFanin.exit72 ]
-  switch i32 %.0.i64, label %131 [
-    i32 0, label %104
-    i32 1, label %109
-    i32 2, label %115
-    i32 3, label %121
-    i32 4, label %126
+  %.0 = phi i32 [ %spec.select, %Acb_ObjWhatFanin.exit72 ], [ %95, %96 ]
+  switch i32 %.0.i64, label %130 [
+    i32 0, label %103
+    i32 1, label %108
+    i32 2, label %114
+    i32 3, label %120
+    i32 4, label %125
   ]
 
-104:                                              ; preds = %103
-  %105 = sext i32 %.0 to i64
-  %106 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %105
-  %107 = load i64, ptr %106, align 8
-  %108 = and i64 %107, %11
-  br label %131
+103:                                              ; preds = %Acb_ObjWhatFanin.exit72.thread
+  %104 = sext i32 %.0 to i64
+  %105 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %104
+  %106 = load i64, ptr %105, align 8
+  %107 = and i64 %106, %11
+  br label %130
 
-109:                                              ; preds = %103
-  %110 = xor i64 %11, -1
-  %111 = sext i32 %.0 to i64
-  %112 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %111
-  %113 = load i64, ptr %112, align 8
-  %114 = and i64 %113, %110
-  br label %131
+108:                                              ; preds = %Acb_ObjWhatFanin.exit72.thread
+  %109 = xor i64 %11, -1
+  %110 = sext i32 %.0 to i64
+  %111 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %110
+  %112 = load i64, ptr %111, align 8
+  %113 = and i64 %112, %109
+  br label %130
 
-115:                                              ; preds = %103
-  %116 = sext i32 %.0 to i64
-  %117 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %116
-  %118 = load i64, ptr %117, align 8
-  %119 = xor i64 %118, -1
-  %120 = and i64 %11, %119
-  br label %131
+114:                                              ; preds = %Acb_ObjWhatFanin.exit72.thread
+  %115 = sext i32 %.0 to i64
+  %116 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %115
+  %117 = load i64, ptr %116, align 8
+  %118 = xor i64 %117, -1
+  %119 = and i64 %11, %118
+  br label %130
 
-121:                                              ; preds = %103
-  %122 = sext i32 %.0 to i64
-  %123 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %122
-  %124 = load i64, ptr %123, align 8
-  %.demorgan = or i64 %124, %11
-  %125 = xor i64 %.demorgan, -1
-  br label %131
+120:                                              ; preds = %Acb_ObjWhatFanin.exit72.thread
+  %121 = sext i32 %.0 to i64
+  %122 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %121
+  %123 = load i64, ptr %122, align 8
+  %.demorgan = or i64 %123, %11
+  %124 = xor i64 %.demorgan, -1
+  br label %130
 
-126:                                              ; preds = %103
-  %127 = sext i32 %.0 to i64
-  %128 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %127
-  %129 = load i64, ptr %128, align 8
-  %130 = xor i64 %129, %11
-  br label %131
+125:                                              ; preds = %Acb_ObjWhatFanin.exit72.thread
+  %126 = sext i32 %.0 to i64
+  %127 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %126
+  %128 = load i64, ptr %127, align 8
+  %129 = xor i64 %128, %11
+  br label %130
 
-131:                                              ; preds = %103, %109, %121, %126, %115, %104
-  %.048 = phi i64 [ %108, %104 ], [ %114, %109 ], [ %120, %115 ], [ %125, %121 ], [ %130, %126 ], [ 0, %103 ]
-  %132 = icmp slt i32 %2, 5
-  br i1 %132, label %.lr.ph.i, label %Abc_Tt6RemoveVar.exit
+130:                                              ; preds = %Acb_ObjWhatFanin.exit72.thread, %108, %120, %125, %114, %103
+  %.048 = phi i64 [ %107, %103 ], [ %113, %108 ], [ %119, %114 ], [ %124, %120 ], [ %129, %125 ], [ 0, %Acb_ObjWhatFanin.exit72.thread ]
+  %131 = icmp slt i32 %2, 5
+  br i1 %131, label %.lr.ph.i, label %Abc_Tt6RemoveVar.exit
 
-.lr.ph.i:                                         ; preds = %131, %.lr.ph.i
-  %indvars.iv.i73 = phi i64 [ %indvars.iv.next.i74, %.lr.ph.i ], [ %38, %131 ]
-  %.045.i = phi i64 [ %148, %.lr.ph.i ], [ %.076, %131 ]
+.lr.ph.i:                                         ; preds = %130, %.lr.ph.i
+  %indvars.iv.i73 = phi i64 [ %indvars.iv.next.i74, %.lr.ph.i ], [ %38, %130 ]
+  %.045.i = phi i64 [ %147, %.lr.ph.i ], [ %.076, %130 ]
   %indvars.iv.next.i74 = add nsw i64 %indvars.iv.i73, 1
-  %133 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.i73
-  %134 = load i64, ptr %133, align 8
-  %135 = and i64 %134, %.045.i
-  %136 = getelementptr inbounds i8, ptr %133, i64 8
-  %137 = load i64, ptr %136, align 8
-  %138 = and i64 %137, %.045.i
-  %139 = trunc i64 %indvars.iv.i73 to i32
-  %140 = shl nuw nsw i32 1, %139
-  %141 = zext nneg i32 %140 to i64
-  %142 = shl i64 %138, %141
-  %143 = or i64 %142, %135
-  %144 = getelementptr inbounds i8, ptr %133, i64 16
-  %145 = load i64, ptr %144, align 8
-  %146 = and i64 %145, %.045.i
-  %147 = lshr i64 %146, %141
-  %148 = or i64 %143, %147
-  %149 = and i64 %indvars.iv.next.i74, 4294967295
-  %exitcond.not.i75 = icmp eq i64 %149, 5
+  %132 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.i73
+  %133 = load i64, ptr %132, align 8
+  %134 = and i64 %133, %.045.i
+  %135 = getelementptr inbounds i8, ptr %132, i64 8
+  %136 = load i64, ptr %135, align 8
+  %137 = and i64 %136, %.045.i
+  %138 = trunc nsw i64 %indvars.iv.i73 to i32
+  %139 = shl nuw nsw i32 1, %138
+  %140 = zext nneg i32 %139 to i64
+  %141 = shl i64 %137, %140
+  %142 = or i64 %141, %134
+  %143 = getelementptr inbounds i8, ptr %132, i64 16
+  %144 = load i64, ptr %143, align 8
+  %145 = and i64 %144, %.045.i
+  %146 = lshr i64 %145, %140
+  %147 = or i64 %142, %146
+  %148 = and i64 %indvars.iv.next.i74, 4294967295
+  %exitcond.not.i75 = icmp eq i64 %148, 5
   br i1 %exitcond.not.i75, label %Abc_Tt6RemoveVar.exit, label %.lr.ph.i, !llvm.loop !6
 
-Abc_Tt6RemoveVar.exit:                            ; preds = %.lr.ph.i, %131
-  %.04.lcssa.i = phi i64 [ %.076, %131 ], [ %148, %.lr.ph.i ]
+Abc_Tt6RemoveVar.exit:                            ; preds = %.lr.ph.i, %130
+  %.04.lcssa.i = phi i64 [ %.076, %130 ], [ %147, %.lr.ph.i ]
   store i64 %.04.lcssa.i, ptr %7, align 8
   %.val62 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds i64, ptr %.val62, i64 %9
-  store i64 %.048, ptr %150, align 8
-  %151 = getelementptr i8, ptr %0, i64 440
-  %.val.i = load ptr, ptr %151, align 8
-  %152 = sext i32 %90 to i64
-  %153 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.i, i64 %152
-  %154 = getelementptr inbounds i8, ptr %153, i64 4
-  %155 = load i32, ptr %154, align 4
-  %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %149 = getelementptr inbounds i64, ptr %.val62, i64 %9
+  store i64 %.048, ptr %149, align 8
+  %150 = getelementptr i8, ptr %0, i64 440
+  %.val.i = load ptr, ptr %150, align 8
+  %151 = sext i32 %90 to i64
+  %152 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.i, i64 %151
+  %153 = getelementptr inbounds i8, ptr %152, i64 4
+  %154 = load i32, ptr %153, align 4
+  %155 = icmp sgt i32 %154, 0
+  br i1 %155, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %Abc_Tt6RemoveVar.exit
-  %157 = getelementptr inbounds i8, ptr %153, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %wide.trip.count.i.i = zext nneg i32 %155 to i64
-  br label %159
+  %156 = getelementptr inbounds i8, ptr %152, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %wide.trip.count.i.i = zext nneg i32 %154 to i64
+  br label %158
 
-159:                                              ; preds = %163, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %163 ]
-  %160 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv.i.i
-  %161 = load i32, ptr %160, align 4
-  %162 = icmp eq i32 %161, %1
-  br i1 %162, label %._crit_edge.loopexit.i.i, label %163
+158:                                              ; preds = %162, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %162 ]
+  %159 = getelementptr inbounds i32, ptr %157, i64 %indvars.iv.i.i
+  %160 = load i32, ptr %159, align 4
+  %161 = icmp eq i32 %160, %1
+  br i1 %161, label %._crit_edge.loopexit.i.i, label %162
 
-163:                                              ; preds = %159
+162:                                              ; preds = %158
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_IntRemove.exit.i, label %159, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %Vec_IntRemove.exit.i, label %158, !llvm.loop !7
 
-._crit_edge.loopexit.i.i:                         ; preds = %159
-  %164 = trunc i64 %indvars.iv.i.i to i32
+._crit_edge.loopexit.i.i:                         ; preds = %158
+  %163 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %Abc_Tt6RemoveVar.exit
-  %.0.lcssa.i.i = phi i32 [ 0, %Abc_Tt6RemoveVar.exit ], [ %164, %._crit_edge.loopexit.i.i ]
-  %165 = icmp eq i32 %.0.lcssa.i.i, %155
-  br i1 %165, label %Vec_IntRemove.exit.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %Abc_Tt6RemoveVar.exit ], [ %163, %._crit_edge.loopexit.i.i ]
+  %164 = icmp eq i32 %.0.lcssa.i.i, %154
+  br i1 %164, label %Vec_IntRemove.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i
   %.126.i.i = add nuw nsw i32 %.0.lcssa.i.i, 1
-  %166 = icmp slt i32 %.126.i.i, %155
-  br i1 %166, label %.lr.ph29.i.i, label %._crit_edge30.i.i
+  %165 = icmp slt i32 %.126.i.i, %154
+  br i1 %165, label %.lr.ph29.i.i, label %._crit_edge30.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i
-  %167 = getelementptr inbounds i8, ptr %153, i64 8
-  %168 = zext i32 %.126.i.i to i64
-  br label %169
+  %166 = getelementptr inbounds i8, ptr %152, i64 8
+  %167 = zext i32 %.126.i.i to i64
+  br label %168
 
-169:                                              ; preds = %169, %.lr.ph29.i.i
-  %indvars.iv34.i.i = phi i64 [ %168, %.lr.ph29.i.i ], [ %indvars.iv.next35.i.i, %169 ]
-  %.1.in27.i.i = phi i32 [ %.0.lcssa.i.i, %.lr.ph29.i.i ], [ %178, %169 ]
-  %170 = load ptr, ptr %167, align 8
-  %171 = getelementptr inbounds i32, ptr %170, i64 %indvars.iv34.i.i
-  %172 = load i32, ptr %171, align 4
-  %173 = zext nneg i32 %.1.in27.i.i to i64
-  %174 = getelementptr inbounds i32, ptr %170, i64 %173
-  store i32 %172, ptr %174, align 4
+168:                                              ; preds = %168, %.lr.ph29.i.i
+  %indvars.iv34.i.i = phi i64 [ %167, %.lr.ph29.i.i ], [ %indvars.iv.next35.i.i, %168 ]
+  %.1.in27.i.i = phi i32 [ %.0.lcssa.i.i, %.lr.ph29.i.i ], [ %177, %168 ]
+  %169 = load ptr, ptr %166, align 8
+  %170 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv34.i.i
+  %171 = load i32, ptr %170, align 4
+  %172 = zext nneg i32 %.1.in27.i.i to i64
+  %173 = getelementptr inbounds i32, ptr %169, i64 %172
+  store i32 %171, ptr %173, align 4
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
-  %175 = load i32, ptr %154, align 4
-  %176 = trunc i64 %indvars.iv.next35.i.i to i32
-  %177 = icmp sgt i32 %175, %176
-  %178 = trunc i64 %indvars.iv34.i.i to i32
-  br i1 %177, label %169, label %._crit_edge30.i.i, !llvm.loop !8
+  %174 = load i32, ptr %153, align 4
+  %175 = trunc nuw i64 %indvars.iv.next35.i.i to i32
+  %176 = icmp sgt i32 %174, %175
+  %177 = trunc nuw i64 %indvars.iv34.i.i to i32
+  br i1 %176, label %168, label %._crit_edge30.i.i, !llvm.loop !8
 
-._crit_edge30.i.i:                                ; preds = %169, %.preheader.i.i
-  %.lcssa.i.i = phi i32 [ %155, %.preheader.i.i ], [ %175, %169 ]
-  %179 = add nsw i32 %.lcssa.i.i, -1
-  store i32 %179, ptr %154, align 4
+._crit_edge30.i.i:                                ; preds = %168, %.preheader.i.i
+  %.lcssa.i.i = phi i32 [ %154, %.preheader.i.i ], [ %174, %168 ]
+  %178 = add nsw i32 %.lcssa.i.i, -1
+  store i32 %178, ptr %153, align 4
   br label %Vec_IntRemove.exit.i
 
-Vec_IntRemove.exit.i:                             ; preds = %163, %._crit_edge30.i.i, %._crit_edge.i.i
+Vec_IntRemove.exit.i:                             ; preds = %162, %._crit_edge30.i.i, %._crit_edge.i.i
   %.val5.i = load ptr, ptr %12, align 8
   %.val6.i = load ptr, ptr %13, align 8
-  %180 = getelementptr inbounds i32, ptr %.val5.i, i64 %6
-  %181 = load i32, ptr %180, align 4
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i32, ptr %.val6.i, i64 %182
-  %184 = load i32, ptr %183, align 4
-  %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %184, i32 0)
+  %179 = getelementptr inbounds i32, ptr %.val5.i, i64 %6
+  %180 = load i32, ptr %179, align 4
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds i32, ptr %.val6.i, i64 %181
+  %183 = load i32, ptr %182, align 4
+  %smax.i.i.i = tail call i32 @llvm.smax.i32(i32 %183, i32 0)
   %wide.trip.count.i.i.i = zext nneg i32 %smax.i.i.i to i64
-  br label %185
+  br label %184
 
-185:                                              ; preds = %186, %Vec_IntRemove.exit.i
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %186 ], [ 0, %Vec_IntRemove.exit.i ]
+184:                                              ; preds = %185, %Vec_IntRemove.exit.i
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %185 ], [ 0, %Vec_IntRemove.exit.i ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %Acb_ObjWhatFanin.exit.i.i, label %186
+  br i1 %exitcond.not.i.i.i, label %Acb_ObjWhatFanin.exit.i.i, label %185
 
-186:                                              ; preds = %185
+185:                                              ; preds = %184
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %187 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv.next.i.i.i
-  %188 = load i32, ptr %187, align 4
-  %189 = icmp eq i32 %188, %90
-  br i1 %189, label %.critedge.split.loop.exit2.i.i.i, label %185, !llvm.loop !4
+  %186 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv.next.i.i.i
+  %187 = load i32, ptr %186, align 4
+  %188 = icmp eq i32 %187, %90
+  br i1 %188, label %.critedge.split.loop.exit2.i.i.i, label %184, !llvm.loop !4
 
-.critedge.split.loop.exit2.i.i.i:                 ; preds = %186
-  %190 = trunc i64 %indvars.iv.i.i.i to i32
+.critedge.split.loop.exit2.i.i.i:                 ; preds = %185
+  %189 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %Acb_ObjWhatFanin.exit.i.i
 
-Acb_ObjWhatFanin.exit.i.i:                        ; preds = %185, %.critedge.split.loop.exit2.i.i.i
-  %.0.i.i.i = phi i32 [ %190, %.critedge.split.loop.exit2.i.i.i ], [ -1, %185 ]
-  %191 = add nsw i32 %184, -1
-  store i32 %191, ptr %183, align 4
-  %invariant.gep.i.i.i = getelementptr i8, ptr %183, i64 8
-  %192 = icmp sgt i32 %191, %.0.i.i.i
-  br i1 %192, label %.lr.ph.preheader.i.i.i, label %.._crit_edge_crit_edge.i.i.i
+Acb_ObjWhatFanin.exit.i.i:                        ; preds = %184, %.critedge.split.loop.exit2.i.i.i
+  %.0.i.i.i = phi i32 [ %189, %.critedge.split.loop.exit2.i.i.i ], [ -1, %184 ]
+  %190 = add nsw i32 %183, -1
+  store i32 %190, ptr %182, align 4
+  %invariant.gep.i.i.i = getelementptr i8, ptr %182, i64 8
+  %191 = icmp sgt i32 %190, %.0.i.i.i
+  br i1 %191, label %.lr.ph.preheader.i.i.i, label %.._crit_edge_crit_edge.i.i.i
 
 .._crit_edge_crit_edge.i.i.i:                     ; preds = %Acb_ObjWhatFanin.exit.i.i
-  %.pre.i.i.i = sext i32 %191 to i64
+  %.pre.i.i.i = sext i32 %190 to i64
   br label %Acb_ObjRemoveFaninFanoutOne.exit
 
 .lr.ph.preheader.i.i.i:                           ; preds = %Acb_ObjWhatFanin.exit.i.i
-  %193 = sext i32 %.0.i.i.i to i64
+  %192 = sext i32 %.0.i.i.i to i64
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i12.i.i = phi i64 [ %193, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i13.i.i, %.lr.ph.i.i.i ]
+  %indvars.iv.i12.i.i = phi i64 [ %192, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i13.i.i, %.lr.ph.i.i.i ]
   %gep.i.i.i = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i12.i.i
-  %194 = load i32, ptr %gep.i.i.i, align 4
+  %193 = load i32, ptr %gep.i.i.i, align 4
   %indvars.iv.next.i13.i.i = add nsw i64 %indvars.iv.i12.i.i, 1
-  %195 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv.next.i13.i.i
-  store i32 %194, ptr %195, align 4
-  %196 = load i32, ptr %183, align 4
-  %197 = sext i32 %196 to i64
-  %198 = icmp slt i64 %indvars.iv.next.i13.i.i, %197
-  br i1 %198, label %.lr.ph.i.i.i, label %Acb_ObjRemoveFaninFanoutOne.exit, !llvm.loop !9
+  %194 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv.next.i13.i.i
+  store i32 %193, ptr %194, align 4
+  %195 = load i32, ptr %182, align 4
+  %196 = sext i32 %195 to i64
+  %197 = icmp slt i64 %indvars.iv.next.i13.i.i, %196
+  br i1 %197, label %.lr.ph.i.i.i, label %Acb_ObjRemoveFaninFanoutOne.exit, !llvm.loop !9
 
 Acb_ObjRemoveFaninFanoutOne.exit:                 ; preds = %.lr.ph.i.i.i, %.._crit_edge_crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %.._crit_edge_crit_edge.i.i.i ], [ %197, %.lr.ph.i.i.i ]
-  %199 = getelementptr i32, ptr %183, i64 %.pre-phi.i.i.i
-  %200 = getelementptr i8, ptr %199, i64 4
-  store i32 -1, ptr %200, align 4
+  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %.._crit_edge_crit_edge.i.i.i ], [ %196, %.lr.ph.i.i.i ]
+  %198 = getelementptr i32, ptr %182, i64 %.pre-phi.i.i.i
+  %199 = getelementptr i8, ptr %198, i64 4
+  store i32 -1, ptr %199, align 4
   %.val58 = load ptr, ptr %12, align 8
   %.val59 = load ptr, ptr %13, align 8
-  %201 = getelementptr inbounds i32, ptr %.val58, i64 %9
-  %202 = load i32, ptr %201, align 4
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i32, ptr %.val59, i64 %203
-  %205 = load i32, ptr %204, align 4
-  %206 = icmp eq i32 %.0, %205
-  br i1 %206, label %207, label %208
+  %200 = getelementptr inbounds i32, ptr %.val58, i64 %9
+  %201 = load i32, ptr %200, align 4
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds i32, ptr %.val59, i64 %202
+  %204 = load i32, ptr %203, align 4
+  %205 = icmp eq i32 %.0, %204
+  br i1 %205, label %206, label %207
 
-207:                                              ; preds = %Acb_ObjRemoveFaninFanoutOne.exit
+206:                                              ; preds = %Acb_ObjRemoveFaninFanoutOne.exit
   tail call fastcc void @Acb_ObjAddFaninFanoutOne(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %90)
-  br label %208
+  br label %207
 
-208:                                              ; preds = %207, %Acb_ObjRemoveFaninFanoutOne.exit
+207:                                              ; preds = %206, %Acb_ObjRemoveFaninFanoutOne.exit
   ret void
 }
 
@@ -881,7 +877,7 @@ define noundef i32 @Acb_ObjSuppMin_int(ptr nocapture noundef readonly %0, i32 no
 
 15:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = shl nuw i32 1, %16
   %18 = zext nneg i32 %17 to i64
   %19 = lshr i64 %6, %18
@@ -951,7 +947,7 @@ Acb_ObjDeleteFaninIndex.exit:                     ; preds = %.lr.ph.i, %.._crit_
   br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %45, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %45
-  %50 = trunc i64 %indvars.iv.i29 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i29 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %Acb_ObjDeleteFaninIndex.exit
@@ -980,9 +976,9 @@ Acb_ObjDeleteFaninIndex.exit:                     ; preds = %.lr.ph.i, %.._crit_
   store i32 %58, ptr %60, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %61 = load i32, ptr %40, align 4
-  %62 = trunc i64 %indvars.iv.next35.i to i32
+  %62 = trunc nuw i64 %indvars.iv.next35.i to i32
   %63 = icmp sgt i32 %61, %62
-  %64 = trunc i64 %indvars.iv34.i to i32
+  %64 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %63, label %55, label %._crit_edge30.i, !llvm.loop !8
 
 ._crit_edge30.i:                                  ; preds = %55, %.preheader.i
@@ -1005,7 +1001,7 @@ Vec_IntRemove.exit:                               ; preds = %49, %._crit_edge.i,
   %70 = getelementptr inbounds i8, ptr %67, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, %.045.i
-  %73 = trunc i64 %indvars.iv.i34 to i32
+  %73 = trunc nsw i64 %indvars.iv.i34 to i32
   %74 = shl nuw nsw i32 1, %73
   %75 = zext nneg i32 %74 to i64
   %76 = shl i64 %72, %75
@@ -1094,7 +1090,7 @@ define void @Acb_ObjRemoveDup(ptr nocapture noundef readonly %0, i32 noundef %1,
   %43 = getelementptr inbounds i8, ptr %40, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, %.045.i
-  %46 = trunc i64 %indvars.iv.i to i32
+  %46 = trunc nsw i64 %indvars.iv.i to i32
   %47 = shl nuw nsw i32 1, %46
   %48 = zext nneg i32 %47 to i64
   %49 = shl i64 %45, %48
@@ -1183,7 +1179,7 @@ Acb_ObjDeleteFaninIndex.exit:                     ; preds = %.lr.ph.i32, %.._cri
   br i1 %exitcond.not.i38, label %Vec_IntRemove.exit.preheader, label %87, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %87
-  %92 = trunc i64 %indvars.iv.i36 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.i36 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %Acb_ObjDeleteFaninIndex.exit
@@ -1212,9 +1208,9 @@ Acb_ObjDeleteFaninIndex.exit:                     ; preds = %.lr.ph.i32, %.._cri
   store i32 %100, ptr %102, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %103 = load i32, ptr %82, align 4
-  %104 = trunc i64 %indvars.iv.next35.i to i32
+  %104 = trunc nuw i64 %indvars.iv.next35.i to i32
   %105 = icmp sgt i32 %103, %104
-  %106 = trunc i64 %indvars.iv34.i to i32
+  %106 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %105, label %97, label %._crit_edge30.i, !llvm.loop !8
 
 ._crit_edge30.i:                                  ; preds = %97, %.preheader.i
@@ -1280,8 +1276,8 @@ define noundef i32 @Acb_ObjRemoveDupFanins_int(ptr nocapture noundef readonly %0
   br i1 %.not, label %18, label %13, !llvm.loop !14
 
 18:                                               ; preds = %14
-  %19 = trunc i64 %indvars.iv29 to i32
-  %20 = trunc i64 %indvars.iv26 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv29 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv26 to i32
   tail call void @Acb_ObjRemoveDup(ptr noundef %0, i32 noundef %1, i32 noundef %19, i32 noundef %20)
   br label %.loopexit20
 
@@ -1337,8 +1333,8 @@ define void @Acb_ObjRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not.i, label %Acb_ObjRemoveDupFanins_int.exit, label %15, !llvm.loop !14
 
 Acb_ObjRemoveDupFanins_int.exit:                  ; preds = %16
-  %20 = trunc i64 %indvars.iv29.i to i32
-  %21 = trunc i64 %indvars.iv26.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv29.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv26.i to i32
   tail call void @Acb_ObjRemoveDup(ptr noundef %0, i32 noundef %1, i32 noundef %20, i32 noundef %21)
   %.val.i = load ptr, ptr %3, align 8
   %.val19.i = load ptr, ptr %4, align 8
@@ -1442,7 +1438,7 @@ Acb_ObjFindNodeFanout.exit:                       ; preds = %18
   br i1 %37, label %.critedge.split.loop.exit2.i, label %33, !llvm.loop !4
 
 .critedge.split.loop.exit2.i:                     ; preds = %34
-  %38 = trunc i64 %indvars.iv.i33 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   br label %Acb_ObjWhatFanin.exit
 
 Acb_ObjWhatFanin.exit:                            ; preds = %33, %.critedge.split.loop.exit2.i
@@ -1464,7 +1460,7 @@ Acb_ObjWhatFanin.exit:                            ; preds = %33, %.critedge.spli
   br i1 %exitcond.not.i.i, label %Vec_IntRemove.exit.i, label %41, !llvm.loop !7
 
 ._crit_edge.loopexit.i.i:                         ; preds = %41
-  %46 = trunc i64 %indvars.iv.i.i to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %47 = icmp eq i32 %.val16.i89, %46
   br i1 %47, label %Vec_IntRemove.exit.i, label %.preheader.i.i
 
@@ -1488,7 +1484,7 @@ Acb_ObjWhatFanin.exit:                            ; preds = %33, %.critedge.spli
   store i32 %53, ptr %55, align 4
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
   %56 = load i32, ptr %16, align 4
-  %57 = trunc i64 %indvars.iv.next35.i.i to i32
+  %57 = trunc nuw i64 %indvars.iv.next35.i.i to i32
   %58 = icmp sgt i32 %56, %57
   br i1 %58, label %50, label %._crit_edge30.i.i, !llvm.loop !8
 
@@ -1528,7 +1524,7 @@ Vec_IntRemove.exit.i:                             ; preds = %45, %._crit_edge30.
   br i1 %66, label %.critedge.split.loop.exit2.i.i.i, label %62, !llvm.loop !4
 
 .critedge.split.loop.exit2.i.i.i:                 ; preds = %63
-  %67 = trunc i64 %indvars.iv.i.i.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %Acb_ObjWhatFanin.exit.i.i
 
 Acb_ObjWhatFanin.exit.i.i:                        ; preds = %62, %.critedge.split.loop.exit2.i.i.i
@@ -1604,7 +1600,7 @@ Acb_ObjRemoveFaninFanoutOne.exit:                 ; preds = %.lr.ph.i.i.i, %.._c
   %100 = getelementptr inbounds i8, ptr %97, i64 8
   %101 = load i64, ptr %100, align 8
   %102 = and i64 %101, %.045.i
-  %103 = trunc i64 %indvars.iv.i39 to i32
+  %103 = trunc nsw i64 %indvars.iv.i39 to i32
   %104 = shl nuw nsw i32 1, %103
   %105 = zext nneg i32 %104 to i64
   %106 = shl i64 %102, %105
@@ -1648,7 +1644,7 @@ Abc_Tt6RemoveVar.exit:                            ; preds = %Abc_Tt6RemoveVar.ex
 
 123:                                              ; preds = %122
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
-  %124 = trunc i64 %indvars.iv.i45 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv.i45 to i32
   %125 = shl nuw i32 1, %124
   %126 = zext nneg i32 %125 to i64
   %127 = lshr i64 %116, %126
@@ -1717,7 +1713,7 @@ Acb_ObjDeleteFaninIndex.exit.i:                   ; preds = %.lr.ph.i.i63, %.._c
   br i1 %exitcond.not.i.i61, label %Vec_IntRemove.exit.i54, label %152, !llvm.loop !7
 
 ._crit_edge.loopexit.i.i62:                       ; preds = %152
-  %157 = trunc i64 %indvars.iv.i29.i to i32
+  %157 = trunc nuw nsw i64 %indvars.iv.i29.i to i32
   br label %._crit_edge.i.i48
 
 ._crit_edge.i.i48:                                ; preds = %._crit_edge.loopexit.i.i62, %Acb_ObjDeleteFaninIndex.exit.i
@@ -1746,9 +1742,9 @@ Acb_ObjDeleteFaninIndex.exit.i:                   ; preds = %.lr.ph.i.i63, %.._c
   store i32 %165, ptr %167, align 4
   %indvars.iv.next35.i.i59 = add nuw nsw i64 %indvars.iv34.i.i57, 1
   %168 = load i32, ptr %147, align 4
-  %169 = trunc i64 %indvars.iv.next35.i.i59 to i32
+  %169 = trunc nuw i64 %indvars.iv.next35.i.i59 to i32
   %170 = icmp sgt i32 %168, %169
-  %171 = trunc i64 %indvars.iv34.i.i57 to i32
+  %171 = trunc nuw i64 %indvars.iv34.i.i57 to i32
   br i1 %170, label %162, label %._crit_edge30.i.i52, !llvm.loop !8
 
 ._crit_edge30.i.i52:                              ; preds = %162, %.preheader.i.i50
@@ -1771,7 +1767,7 @@ Vec_IntRemove.exit.i54:                           ; preds = %156, %._crit_edge30
   %177 = getelementptr inbounds i8, ptr %174, i64 8
   %178 = load i64, ptr %177, align 8
   %179 = and i64 %178, %.045.i.i
-  %180 = trunc i64 %indvars.iv.i34.i to i32
+  %180 = trunc nsw i64 %indvars.iv.i34.i to i32
   %181 = shl nuw nsw i32 1, %180
   %182 = zext nneg i32 %181 to i64
   %183 = shl i64 %179, %182
@@ -1914,7 +1910,7 @@ Acb_ObjFindNodeFanout.exit:                       ; preds = %16
   br i1 %51, label %.critedge.split.loop.exit2.i, label %47, !llvm.loop !4
 
 .critedge.split.loop.exit2.i:                     ; preds = %48
-  %52 = trunc i64 %indvars.iv.i55 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.i55 to i32
   br label %Acb_ObjWhatFanin.exit
 
 Acb_ObjWhatFanin.exit:                            ; preds = %47, %.critedge.split.loop.exit2.i
@@ -1982,8 +1978,8 @@ Acb_ObjWhatFanin.exit:                            ; preds = %47, %.critedge.spli
   br i1 %.not.i.i, label %Acb_ObjRemoveDupFanins_int.exit.i, label %76, !llvm.loop !14
 
 Acb_ObjRemoveDupFanins_int.exit.i:                ; preds = %77
-  %81 = trunc i64 %indvars.iv29.i.i to i32
-  %82 = trunc i64 %indvars.iv26.i.i to i32
+  %81 = trunc nuw nsw i64 %indvars.iv29.i.i to i32
+  %82 = trunc nuw nsw i64 %indvars.iv26.i.i to i32
   %.val.i69 = load ptr, ptr %3, align 8
   %83 = getelementptr inbounds i64, ptr %.val.i69, i64 %41
   %84 = load i64, ptr %83, align 8
@@ -2032,7 +2028,7 @@ Acb_ObjRemoveDupFanins_int.exit.i:                ; preds = %77
   %119 = getelementptr inbounds i8, ptr %116, i64 8
   %120 = load i64, ptr %119, align 8
   %121 = and i64 %120, %.045.i.i
-  %122 = trunc i64 %indvars.iv.i.i85 to i32
+  %122 = trunc nsw i64 %indvars.iv.i.i85 to i32
   %123 = shl nuw nsw i32 1, %122
   %124 = zext nneg i32 %123 to i64
   %125 = shl i64 %121, %124
@@ -2118,7 +2114,7 @@ Acb_ObjDeleteFaninIndex.exit.i:                   ; preds = %.lr.ph.i32.i, %.._c
   br i1 %exitcond.not.i38.i, label %Vec_IntRemove.exit.i76.preheader, label %160, !llvm.loop !7
 
 ._crit_edge.loopexit.i.i83:                       ; preds = %160
-  %165 = trunc i64 %indvars.iv.i36.i to i32
+  %165 = trunc nuw nsw i64 %indvars.iv.i36.i to i32
   br label %._crit_edge.i.i70
 
 ._crit_edge.i.i70:                                ; preds = %._crit_edge.loopexit.i.i83, %Acb_ObjDeleteFaninIndex.exit.i
@@ -2147,9 +2143,9 @@ Acb_ObjDeleteFaninIndex.exit.i:                   ; preds = %.lr.ph.i32.i, %.._c
   store i32 %173, ptr %175, align 4
   %indvars.iv.next35.i.i81 = add nuw nsw i64 %indvars.iv34.i.i79, 1
   %176 = load i32, ptr %155, align 4
-  %177 = trunc i64 %indvars.iv.next35.i.i81 to i32
+  %177 = trunc nuw i64 %indvars.iv.next35.i.i81 to i32
   %178 = icmp sgt i32 %176, %177
-  %179 = trunc i64 %indvars.iv34.i.i79 to i32
+  %179 = trunc nuw i64 %indvars.iv34.i.i79 to i32
   br i1 %178, label %170, label %._crit_edge30.i.i74, !llvm.loop !8
 
 ._crit_edge30.i.i74:                              ; preds = %170, %.preheader.i.i72
@@ -2183,7 +2179,7 @@ Vec_IntRemove.exit.i76:                           ; preds = %Vec_IntRemove.exit.
 
 189:                                              ; preds = %188
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i91, 1
-  %190 = trunc i64 %indvars.iv.i91 to i32
+  %190 = trunc nuw nsw i64 %indvars.iv.i91 to i32
   %191 = shl nuw i32 1, %190
   %192 = zext nneg i32 %191 to i64
   %193 = lshr i64 %182, %192
@@ -2252,7 +2248,7 @@ Acb_ObjDeleteFaninIndex.exit.i97:                 ; preds = %.lr.ph.i.i118, %.._
   br i1 %exitcond.not.i.i116, label %Vec_IntRemove.exit.i106, label %218, !llvm.loop !7
 
 ._crit_edge.loopexit.i.i117:                      ; preds = %218
-  %223 = trunc i64 %indvars.iv.i29.i to i32
+  %223 = trunc nuw nsw i64 %indvars.iv.i29.i to i32
   br label %._crit_edge.i.i100
 
 ._crit_edge.i.i100:                               ; preds = %._crit_edge.loopexit.i.i117, %Acb_ObjDeleteFaninIndex.exit.i97
@@ -2281,9 +2277,9 @@ Acb_ObjDeleteFaninIndex.exit.i97:                 ; preds = %.lr.ph.i.i118, %.._
   store i32 %231, ptr %233, align 4
   %indvars.iv.next35.i.i114 = add nuw nsw i64 %indvars.iv34.i.i112, 1
   %234 = load i32, ptr %213, align 4
-  %235 = trunc i64 %indvars.iv.next35.i.i114 to i32
+  %235 = trunc nuw i64 %indvars.iv.next35.i.i114 to i32
   %236 = icmp sgt i32 %234, %235
-  %237 = trunc i64 %indvars.iv34.i.i112 to i32
+  %237 = trunc nuw i64 %indvars.iv34.i.i112 to i32
   br i1 %236, label %228, label %._crit_edge30.i.i104, !llvm.loop !8
 
 ._crit_edge30.i.i104:                             ; preds = %228, %.preheader.i.i102
@@ -2306,7 +2302,7 @@ Vec_IntRemove.exit.i106:                          ; preds = %222, %._crit_edge30
   %243 = getelementptr inbounds i8, ptr %240, i64 8
   %244 = load i64, ptr %243, align 8
   %245 = and i64 %244, %.045.i.i110
-  %246 = trunc i64 %indvars.iv.i34.i to i32
+  %246 = trunc nsw i64 %indvars.iv.i34.i to i32
   %247 = shl nuw nsw i32 1, %246
   %248 = zext nneg i32 %247 to i64
   %249 = shl i64 %245, %248
@@ -2393,7 +2389,7 @@ Acb_ObjRemoveFaninFanout.exit.thread:             ; preds = %263
   br i1 %exitcond.not.i.i68, label %Vec_IntRemove.exit.i, label %281, !llvm.loop !7
 
 ._crit_edge.loopexit.i.i:                         ; preds = %281
-  %286 = trunc i64 %indvars.iv.i.i66 to i32
+  %286 = trunc nuw nsw i64 %indvars.iv.i.i66 to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.i62
@@ -2422,9 +2418,9 @@ Acb_ObjRemoveFaninFanout.exit.thread:             ; preds = %263
   store i32 %294, ptr %296, align 4
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
   %297 = load i32, ptr %276, align 4
-  %298 = trunc i64 %indvars.iv.next35.i.i to i32
+  %298 = trunc nuw i64 %indvars.iv.next35.i.i to i32
   %299 = icmp sgt i32 %297, %298
-  %300 = trunc i64 %indvars.iv34.i.i to i32
+  %300 = trunc nuw i64 %indvars.iv34.i.i to i32
   br i1 %299, label %291, label %._crit_edge30.i.i, !llvm.loop !8
 
 ._crit_edge30.i.i:                                ; preds = %291, %.preheader.i.i
@@ -2543,7 +2539,7 @@ define internal fastcc void @Acb_ObjPatchFanin(ptr nocapture noundef readonly %0
   br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %30, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %30
-  %35 = trunc i64 %indvars.iv.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %21
@@ -2572,9 +2568,9 @@ define internal fastcc void @Acb_ObjPatchFanin(ptr nocapture noundef readonly %0
   store i32 %43, ptr %45, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %46 = load i32, ptr %25, align 4
-  %47 = trunc i64 %indvars.iv.next35.i to i32
+  %47 = trunc nuw i64 %indvars.iv.next35.i to i32
   %48 = icmp sgt i32 %46, %47
-  %49 = trunc i64 %indvars.iv34.i to i32
+  %49 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %48, label %40, label %._crit_edge30.i, !llvm.loop !8
 
 ._crit_edge30.i:                                  ; preds = %40, %.preheader.i
@@ -2712,7 +2708,7 @@ define noundef i32 @Acb_ObjPushToFanins(ptr nocapture noundef readonly %0, i32 n
 
 .lr.ph.i:                                         ; preds = %25
   %31 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = shl nuw i32 1, %32
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
@@ -2731,7 +2727,7 @@ define noundef i32 @Acb_ObjPushToFanins(ptr nocapture noundef readonly %0, i32 n
   %40 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %39
-  %43 = trunc i64 %indvars.iv.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   %44 = shl nuw i32 1, %43
   %45 = zext nneg i32 %44 to i64
   %46 = shl i64 %42, %45
@@ -2832,7 +2828,7 @@ Acb_ObjFindFaninPushableIndex.exit.thread:        ; preds = %Abc_TtCheckDsdAnd.e
   %98 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i63
   %99 = load i64, ptr %98, align 8
   %100 = and i64 %99, %96
-  %101 = trunc i64 %indvars.iv.i63 to i32
+  %101 = trunc nuw nsw i64 %indvars.iv.i63 to i32
   %102 = shl nuw i32 1, %101
   %103 = zext nneg i32 %102 to i64
   %104 = shl i64 %100, %103
@@ -2939,7 +2935,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   br i1 %.not61, label %32, label %34
 
 32:                                               ; preds = %26
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Acb_ObjRemoveConst(ptr noundef nonnull %0, i32 noundef %33)
   %.val75.pre = load i32, ptr %4, align 4
   br label %34
@@ -2987,7 +2983,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   br i1 %.not58, label %51, label %53
 
 51:                                               ; preds = %45
-  %52 = trunc i64 %indvars.iv112 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv112 to i32
   tail call void @Acb_ObjRemoveBufInv(ptr noundef nonnull %0, i32 noundef %52)
   %.val76.pre = load i32, ptr %4, align 4
   br label %53
@@ -3030,7 +3026,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   br i1 %.not54, label %.preheader.preheader, label %76
 
 .preheader.preheader:                             ; preds = %59
-  %65 = trunc i64 %indvars.iv115 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -3176,7 +3172,7 @@ Acb_NtkCleanObjFanout.exit:                       ; preds = %1, %14
   br i1 %38, label %.lr.ph.i.preheader, label %Acb_ObjAddFaninFanout.exit
 
 .lr.ph.i.preheader:                               ; preds = %32
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %Vec_IntPush.exit.i
@@ -3306,7 +3302,7 @@ define void @Acb_NtkPushLogic2(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !33
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %7
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit.split.loop.exit, %3

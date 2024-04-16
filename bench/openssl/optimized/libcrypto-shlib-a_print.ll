@@ -179,7 +179,7 @@ return:                                           ; preds = %lor.lhs.false12, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
+define i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef readonly %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [80 x i8], align 16
   %cmp = icmp eq ptr %v, null
@@ -190,7 +190,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %v, align 8
   %cmp122 = icmp sgt i32 %1, 0
-  br i1 %cmp122, label %for.body, label %if.end46
+  br i1 %cmp122, label %for.body, label %return
 
 for.body:                                         ; preds = %if.end, %for.inc
   %2 = phi i32 [ %4, %for.inc ], [ %1, %if.end ]
@@ -241,18 +241,16 @@ for.inc:                                          ; preds = %if.then30.for.inc_c
 
 for.end:                                          ; preds = %for.inc
   %cmp37 = icmp sgt i32 %n.1, 0
-  br i1 %cmp37, label %if.then39, label %if.end46
+  br i1 %cmp37, label %if.then39, label %return
 
 if.then39:                                        ; preds = %for.end
   %call41 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef %n.1) #4
-  %cmp42 = icmp slt i32 %call41, 1
-  br i1 %cmp42, label %return, label %if.end46
-
-if.end46:                                         ; preds = %if.end, %if.then39, %for.end
+  %cmp42 = icmp sgt i32 %call41, 0
+  %spec.select = zext i1 %cmp42 to i32
   br label %return
 
-return:                                           ; preds = %if.then30, %if.then39, %entry, %if.end46
-  %retval.0 = phi i32 [ 1, %if.end46 ], [ 0, %entry ], [ 0, %if.then39 ], [ 0, %if.then30 ]
+return:                                           ; preds = %if.then30, %if.end, %if.then39, %for.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %for.end ], [ %spec.select, %if.then39 ], [ 1, %if.end ], [ 0, %if.then30 ]
   ret i32 %retval.0
 }
 

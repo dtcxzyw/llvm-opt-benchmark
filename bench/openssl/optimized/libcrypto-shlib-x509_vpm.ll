@@ -445,7 +445,7 @@ lor.lhs.false171:                                 ; preds = %lor.lhs.false154.th
   %ip = getelementptr inbounds i8, ptr %src, i64 96
   %44 = load ptr, ptr %ip, align 8
   %cmp172.not = icmp eq ptr %44, null
-  br i1 %cmp172.not, label %if.end186, label %land.lhs.true174
+  br i1 %cmp172.not, label %return, label %land.lhs.true174
 
 land.lhs.true174:                                 ; preds = %lor.lhs.false171
   br i1 %cmp14.not, label %lor.lhs.false176, label %if.then180
@@ -454,21 +454,17 @@ lor.lhs.false176:                                 ; preds = %land.lhs.true174
   %ip177 = getelementptr inbounds i8, ptr %dest, i64 96
   %45 = load ptr, ptr %ip177, align 8
   %cmp178 = icmp eq ptr %45, null
-  br i1 %cmp178, label %if.then180, label %if.end186
+  br i1 %cmp178, label %if.then180, label %return
 
 if.then180:                                       ; preds = %if.end169.if.then180_crit_edge, %lor.lhs.false176, %land.lhs.true174
   %46 = phi ptr [ %.pre108, %if.end169.if.then180_crit_edge ], [ %44, %lor.lhs.false176 ], [ %44, %land.lhs.true174 ]
   %iplen = getelementptr inbounds i8, ptr %src, i64 104
   %47 = load i64, ptr %iplen, align 8
   %call182 = tail call i32 @X509_VERIFY_PARAM_set1_ip(ptr noundef nonnull %dest, ptr noundef %46, i64 noundef %47), !range !4
-  %tobool183.not = icmp eq i32 %call182, 0
-  br i1 %tobool183.not, label %return, label %if.end186
-
-if.end186:                                        ; preds = %if.then180, %lor.lhs.false176, %lor.lhs.false171
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %if.then101.thread, %if.then180, %if.then139, %if.then101, %if.end7, %entry, %if.end186
-  %retval.0 = phi i32 [ 1, %if.end186 ], [ 1, %entry ], [ 1, %if.end7 ], [ 0, %if.then101 ], [ 0, %if.then139 ], [ 0, %if.then180 ], [ 0, %if.then101.thread ], [ 0, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %if.then101.thread, %if.then180, %lor.lhs.false171, %lor.lhs.false176, %if.then139, %if.then101, %if.end7, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.end7 ], [ 0, %if.then101 ], [ 0, %if.then139 ], [ 1, %lor.lhs.false176 ], [ 1, %lor.lhs.false171 ], [ %call182, %if.then180 ], [ 0, %if.then101.thread ], [ 0, %if.end.i.i ]
   ret i32 %retval.0
 }
 

@@ -475,7 +475,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
   %27 = or disjoint i32 %26, 1
   %28 = sext i32 %27 to i64
   %29 = getelementptr i32, ptr %5, i64 %28
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %30, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -499,7 +499,7 @@ define internal fastcc void @rankSort(i32 noundef %0, ptr nocapture noundef %1) 
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr %struct._pivot_field, ptr %1, i64 %36, i32 2
-  %38 = trunc i64 %indvars.iv40 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv40 to i32
   store i32 %38, ptr %37, align 8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
@@ -540,7 +540,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   %25 = getelementptr i32, ptr %20, i64 %24
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %26, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -905,126 +905,124 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
 
 24:                                               ; preds = %pivotFieldCompare.exit
   %25 = icmp sgt i32 %.0.i.fr, 0
-  br i1 %25, label %.thread, label %26
+  %spec.select = select i1 %25, i64 40, i64 32
+  br label %.thread
 
-.thread:                                          ; preds = %21, %24
-  br label %26
-
-26:                                               ; preds = %24, %.thread
-  %27 = phi i64 [ 40, %.thread ], [ 32, %24 ]
-  %28 = getelementptr i8, ptr %4, i64 %27
-  tail call fastcc void @avlInsertNode(ptr noundef nonnull %0, ptr noundef %28, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr i8, ptr %29, i64 32
-  %.val.i = load ptr, ptr %30, align 8
-  %31 = getelementptr i8, ptr %29, i64 40
-  %.val18.i = load ptr, ptr %31, align 8
-  %32 = getelementptr i8, ptr %.val.i, i64 24
-  %.val.val.i = load i32, ptr %32, align 8
-  %33 = getelementptr i8, ptr %.val18.i, i64 24
-  %.val18.val.i = load i32, ptr %33, align 8
-  %34 = sub i32 %.val.val.i, %.val18.val.i
-  %.off.i = add i32 %34, 1
+.thread:                                          ; preds = %24, %21
+  %26 = phi i64 [ 40, %21 ], [ %spec.select, %24 ]
+  %27 = getelementptr i8, ptr %4, i64 %26
+  tail call fastcc void @avlInsertNode(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
+  %28 = load ptr, ptr %1, align 8
+  %29 = getelementptr i8, ptr %28, i64 32
+  %.val.i = load ptr, ptr %29, align 8
+  %30 = getelementptr i8, ptr %28, i64 40
+  %.val18.i = load ptr, ptr %30, align 8
+  %31 = getelementptr i8, ptr %.val.i, i64 24
+  %.val.val.i = load i32, ptr %31, align 8
+  %32 = getelementptr i8, ptr %.val18.i, i64 24
+  %.val18.val.i = load i32, ptr %32, align 8
+  %33 = sub i32 %.val.val.i, %.val18.val.i
+  %.off.i = add i32 %33, 1
   %.not.i19 = icmp ult i32 %.off.i, 3
-  br i1 %.not.i19, label %82, label %35
+  br i1 %.not.i19, label %81, label %34
 
-35:                                               ; preds = %26
-  %36 = sdiv i32 %34, 2
-  %37 = sub nsw i32 1, %36
-  %38 = sdiv i32 %37, 2
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr [2 x ptr], ptr %30, i64 0, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr i8, ptr %41, i64 32
-  %.val19.i = load ptr, ptr %42, align 8
-  %43 = getelementptr i8, ptr %41, i64 40
-  %.val20.i = load ptr, ptr %43, align 8
-  %44 = getelementptr i8, ptr %.val19.i, i64 24
-  %.val19.val.i = load i32, ptr %44, align 8
-  %45 = getelementptr i8, ptr %.val20.i, i64 24
-  %.val20.val.i = load i32, ptr %45, align 8
-  %46 = sub i32 %.val19.val.i, %.val20.val.i
-  %47 = sub nsw i32 0, %36
-  %48 = icmp eq i32 %46, %47
-  br i1 %48, label %49, label %._crit_edge.i
+34:                                               ; preds = %.thread
+  %35 = sdiv i32 %33, 2
+  %36 = sub nsw i32 1, %35
+  %37 = sdiv i32 %36, 2
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr [2 x ptr], ptr %29, i64 0, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr i8, ptr %40, i64 32
+  %.val19.i = load ptr, ptr %41, align 8
+  %42 = getelementptr i8, ptr %40, i64 40
+  %.val20.i = load ptr, ptr %42, align 8
+  %43 = getelementptr i8, ptr %.val19.i, i64 24
+  %.val19.val.i = load i32, ptr %43, align 8
+  %44 = getelementptr i8, ptr %.val20.i, i64 24
+  %.val20.val.i = load i32, ptr %44, align 8
+  %45 = sub i32 %.val19.val.i, %.val20.val.i
+  %46 = sub nsw i32 0, %35
+  %47 = icmp eq i32 %45, %46
+  br i1 %47, label %48, label %._crit_edge.i
 
-49:                                               ; preds = %35
-  %.not15.i = icmp ult i32 %36, 3
-  %50 = zext i1 %.not15.i to i64
-  %51 = getelementptr [2 x ptr], ptr %42, i64 0, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %40, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+48:                                               ; preds = %34
+  %.not15.i = icmp ult i32 %35, 3
+  %49 = zext i1 %.not15.i to i64
+  %50 = getelementptr [2 x ptr], ptr %41, i64 0, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %39, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 32
   %.not.i.i = xor i1 %.not15.i, true
-  %54 = zext i1 %.not.i.i to i64
-  %55 = getelementptr [2 x ptr], ptr %53, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %51, align 8
-  %57 = load ptr, ptr %42, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
-  %59 = load i32, ptr %58, align 8
-  %60 = load ptr, ptr %43, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
-  %62 = load i32, ptr %61, align 8
-  %..i.i.i = tail call i32 @llvm.smax.i32(i32 %59, i32 %62)
-  %63 = add i32 %..i.i.i, 1
-  %64 = getelementptr inbounds i8, ptr %41, i64 24
-  store i32 %63, ptr %64, align 8
-  store ptr %41, ptr %55, align 8
+  %53 = zext i1 %.not.i.i to i64
+  %54 = getelementptr [2 x ptr], ptr %52, i64 0, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %50, align 8
+  %56 = load ptr, ptr %41, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %58 = load i32, ptr %57, align 8
+  %59 = load ptr, ptr %42, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %61 = load i32, ptr %60, align 8
+  %..i.i.i = tail call i32 @llvm.smax.i32(i32 %58, i32 %61)
+  %62 = add i32 %..i.i.i, 1
+  %63 = getelementptr inbounds i8, ptr %40, i64 24
+  store i32 %62, ptr %63, align 8
+  store ptr %40, ptr %54, align 8
   %.pre.i = load ptr, ptr %1, align 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
-  %.phi.trans.insert24.i = getelementptr [2 x ptr], ptr %.phi.trans.insert.i, i64 0, i64 %39
+  %.phi.trans.insert24.i = getelementptr [2 x ptr], ptr %.phi.trans.insert.i, i64 0, i64 %38
   %.pre25.i = load ptr, ptr %.phi.trans.insert24.i, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %35, %49
-  %65 = phi ptr [ %.pre25.i, %49 ], [ %41, %35 ]
-  %66 = phi ptr [ %.pre.i, %49 ], [ %29, %35 ]
-  %67 = getelementptr inbounds i8, ptr %66, i64 32
-  %68 = getelementptr [2 x ptr], ptr %67, i64 0, i64 %39
-  store ptr %65, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 32
-  %.not.i21.i = icmp ult i32 %36, 3
-  %70 = zext i1 %.not.i21.i to i64
-  %71 = getelementptr [2 x ptr], ptr %69, i64 0, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  store ptr %72, ptr %68, align 8
-  %73 = load ptr, ptr %67, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
-  %75 = load i32, ptr %74, align 8
-  %76 = getelementptr i8, ptr %66, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
-  %79 = load i32, ptr %78, align 8
-  %..i.i22.i = tail call i32 @llvm.smax.i32(i32 %75, i32 %79)
-  %80 = add i32 %..i.i22.i, 1
-  %81 = getelementptr inbounds i8, ptr %66, i64 24
-  store i32 %80, ptr %81, align 8
-  store ptr %66, ptr %71, align 8
-  br label %82
+._crit_edge.i:                                    ; preds = %34, %48
+  %64 = phi ptr [ %.pre25.i, %48 ], [ %40, %34 ]
+  %65 = phi ptr [ %.pre.i, %48 ], [ %28, %34 ]
+  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %67 = getelementptr [2 x ptr], ptr %66, i64 0, i64 %38
+  store ptr %64, ptr %1, align 8
+  %68 = getelementptr inbounds i8, ptr %64, i64 32
+  %.not.i21.i = icmp ult i32 %35, 3
+  %69 = zext i1 %.not.i21.i to i64
+  %70 = getelementptr [2 x ptr], ptr %68, i64 0, i64 %69
+  %71 = load ptr, ptr %70, align 8
+  store ptr %71, ptr %67, align 8
+  %72 = load ptr, ptr %66, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 24
+  %74 = load i32, ptr %73, align 8
+  %75 = getelementptr i8, ptr %65, i64 40
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %78 = load i32, ptr %77, align 8
+  %..i.i22.i = tail call i32 @llvm.smax.i32(i32 %74, i32 %78)
+  %79 = add i32 %..i.i22.i, 1
+  %80 = getelementptr inbounds i8, ptr %65, i64 24
+  store i32 %79, ptr %80, align 8
+  store ptr %65, ptr %70, align 8
+  br label %81
 
-82:                                               ; preds = %._crit_edge.i, %26
-  %.0.i20 = phi ptr [ %65, %._crit_edge.i ], [ %29, %26 ]
-  %83 = load ptr, ptr %5, align 8
-  %.not17.i = icmp eq ptr %.0.i20, %83
-  br i1 %.not17.i, label %avlAdjustBalance.exit, label %84
+81:                                               ; preds = %._crit_edge.i, %.thread
+  %.0.i20 = phi ptr [ %64, %._crit_edge.i ], [ %28, %.thread ]
+  %82 = load ptr, ptr %5, align 8
+  %.not17.i = icmp eq ptr %.0.i20, %82
+  br i1 %.not17.i, label %avlAdjustBalance.exit, label %83
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %.0.i20, i64 32
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
-  %88 = load i32, ptr %87, align 8
-  %89 = getelementptr i8, ptr %.0.i20, i64 40
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 24
-  %92 = load i32, ptr %91, align 8
-  %..i.i = tail call i32 @llvm.smax.i32(i32 %88, i32 %92)
-  %93 = add i32 %..i.i, 1
-  %94 = getelementptr inbounds i8, ptr %.0.i20, i64 24
-  store i32 %93, ptr %94, align 8
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds i8, ptr %.0.i20, i64 32
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 24
+  %87 = load i32, ptr %86, align 8
+  %88 = getelementptr i8, ptr %.0.i20, i64 40
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 24
+  %91 = load i32, ptr %90, align 8
+  %..i.i = tail call i32 @llvm.smax.i32(i32 %87, i32 %91)
+  %92 = add i32 %..i.i, 1
+  %93 = getelementptr inbounds i8, ptr %.0.i20, i64 24
+  store i32 %92, ptr %93, align 8
   br label %avlAdjustBalance.exit
 
-avlAdjustBalance.exit:                            ; preds = %84, %82, %pivotFieldCompare.exit, %8
+avlAdjustBalance.exit:                            ; preds = %83, %81, %pivotFieldCompare.exit, %8
   ret void
 }
 

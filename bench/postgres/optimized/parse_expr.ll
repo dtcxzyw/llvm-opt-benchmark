@@ -1357,19 +1357,19 @@ define internal fastcc ptr @transformAExprOp(ptr noundef %0, ptr nocapture nound
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr @Transform_null_equals, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %exprIsNullConstant.exit67
+  br i1 %8, label %9, label %list_length.exit.thread
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %exprIsNullConstant.exit67, label %list_length.exit
+  br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %9
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %exprIsNullConstant.exit67
+  br i1 %14, label %15, label %list_length.exit.thread
 
 15:                                               ; preds = %list_length.exit
   %16 = getelementptr i8, ptr %11, i64 16
@@ -1379,149 +1379,147 @@ list_length.exit:                                 ; preds = %9
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(2) @.str.63) #11
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %exprIsNullConstant.exit67
+  br i1 %21, label %22, label %list_length.exit.thread
 
 22:                                               ; preds = %15
   %.not.i64 = icmp eq ptr %4, null
-  br i1 %.not.i64, label %exprIsNullConstant.exit, label %23
+  br i1 %.not.i64, label %exprIsNullConstant.exit.thread, label %23
 
 23:                                               ; preds = %22
   %24 = load i32, ptr %4, align 4
   %25 = icmp eq i32 %24, 64
-  br i1 %25, label %26, label %exprIsNullConstant.exit
+  br i1 %25, label %exprIsNullConstant.exit, label %exprIsNullConstant.exit.thread
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
-  %28 = load i8, ptr %27, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %exprIsNullConstant.exit.thread.thread, label %exprIsNullConstant.exit
+exprIsNullConstant.exit:                          ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %27 = load i8, ptr %26, align 8
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %.thread78, label %exprIsNullConstant.exit.thread
 
-exprIsNullConstant.exit:                          ; preds = %26, %23, %22
+exprIsNullConstant.exit.thread:                   ; preds = %22, %23, %exprIsNullConstant.exit
   %.not.i65 = icmp eq ptr %6, null
-  br i1 %.not.i65, label %exprIsNullConstant.exit67, label %30
+  br i1 %.not.i65, label %list_length.exit.thread, label %29
 
-30:                                               ; preds = %exprIsNullConstant.exit
-  %31 = load i32, ptr %6, align 4
-  %32 = icmp eq i32 %31, 64
-  br i1 %32, label %33, label %exprIsNullConstant.exit67
+29:                                               ; preds = %exprIsNullConstant.exit.thread
+  %30 = load i32, ptr %6, align 4
+  %31 = icmp eq i32 %30, 64
+  br i1 %31, label %exprIsNullConstant.exit67, label %list_length.exit.thread
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
-  %35 = load i8, ptr %34, align 8
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %exprIsNullConstant.exit.thread, label %exprIsNullConstant.exit67
+exprIsNullConstant.exit67:                        ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = load i8, ptr %32, align 8
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %list_length.exit.thread
 
-exprIsNullConstant.exit.thread:                   ; preds = %33
+35:                                               ; preds = %exprIsNullConstant.exit67
   %.pre = load i32, ptr %4, align 4
-  %37 = icmp eq i32 %.pre, 32
-  br i1 %37, label %.critedge, label %exprIsNullConstant.exit.thread.thread
+  %36 = icmp eq i32 %.pre, 32
+  br i1 %36, label %.critedge, label %.thread78
 
-exprIsNullConstant.exit.thread.thread:            ; preds = %26, %exprIsNullConstant.exit.thread
-  %38 = phi i32 [ %.pre, %exprIsNullConstant.exit.thread ], [ 64, %26 ]
-  %39 = load i32, ptr %6, align 4
-  %40 = icmp eq i32 %39, 32
-  br i1 %40, label %exprIsNullConstant.exit67.thread74, label %41
+.thread78:                                        ; preds = %exprIsNullConstant.exit, %35
+  %37 = phi i32 [ %.pre, %35 ], [ 64, %exprIsNullConstant.exit ]
+  %38 = load i32, ptr %6, align 4
+  %39 = icmp eq i32 %38, 32
+  br i1 %39, label %.thread, label %40
 
-41:                                               ; preds = %exprIsNullConstant.exit.thread.thread
-  %42 = tail call noundef ptr @palloc0(i64 noundef 32) #9
-  store i32 45, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
-  store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 24
-  store i32 %45, ptr %46, align 8
-  %47 = load i32, ptr %4, align 4
-  %48 = icmp eq i32 %47, 64
-  br i1 %48, label %49, label %exprIsNullConstant.exit70
+40:                                               ; preds = %.thread78
+  %41 = tail call noundef ptr @palloc0(i64 noundef 32) #9
+  store i32 45, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  store i32 0, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %44 = load i32, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %41, i64 24
+  store i32 %44, ptr %45, align 8
+  %46 = load i32, ptr %4, align 4
+  %47 = icmp eq i32 %46, 64
+  br i1 %47, label %exprIsNullConstant.exit70, label %exprIsNullConstant.exit70.thread
 
-49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %4, i64 24
-  %51 = load i8, ptr %50, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %exprIsNullConstant.exit70
+exprIsNullConstant.exit70:                        ; preds = %40
+  %48 = getelementptr inbounds i8, ptr %4, i64 24
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  %spec.select = select i1 %50, ptr %6, ptr %4
+  br label %exprIsNullConstant.exit70.thread
 
-exprIsNullConstant.exit70:                        ; preds = %49, %41
-  br label %53
+exprIsNullConstant.exit70.thread:                 ; preds = %exprIsNullConstant.exit70, %40
+  %.sink = phi ptr [ %4, %40 ], [ %spec.select, %exprIsNullConstant.exit70 ]
+  %51 = getelementptr inbounds i8, ptr %41, i64 8
+  store ptr %.sink, ptr %51, align 8
+  %52 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef nonnull %41)
+  br label %92
 
-53:                                               ; preds = %49, %exprIsNullConstant.exit70
-  %.sink = phi ptr [ %4, %exprIsNullConstant.exit70 ], [ %6, %49 ]
-  %54 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %.sink, ptr %54, align 8
-  %55 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef nonnull %42)
-  br label %95
-
-exprIsNullConstant.exit67:                        ; preds = %9, %33, %30, %exprIsNullConstant.exit, %15, %list_length.exit, %2
+list_length.exit.thread:                          ; preds = %exprIsNullConstant.exit.thread, %29, %9, %exprIsNullConstant.exit67, %15, %list_length.exit, %2
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.critedge, label %exprIsNullConstant.exit67.exprIsNullConstant.exit67.thread74_crit_edge
+  br i1 %.not, label %.critedge, label %list_length.exit.thread..thread_crit_edge
 
-exprIsNullConstant.exit67.exprIsNullConstant.exit67.thread74_crit_edge: ; preds = %exprIsNullConstant.exit67
-  %.pre76 = load i32, ptr %4, align 4
-  br label %exprIsNullConstant.exit67.thread74
+list_length.exit.thread..thread_crit_edge:        ; preds = %list_length.exit.thread
+  %.pre77 = load i32, ptr %4, align 4
+  br label %.thread
 
-exprIsNullConstant.exit67.thread74:               ; preds = %exprIsNullConstant.exit67.exprIsNullConstant.exit67.thread74_crit_edge, %exprIsNullConstant.exit.thread.thread
-  %56 = phi i32 [ %.pre76, %exprIsNullConstant.exit67.exprIsNullConstant.exit67.thread74_crit_edge ], [ %38, %exprIsNullConstant.exit.thread.thread ]
-  %57 = icmp eq i32 %56, 34
-  %58 = icmp ne ptr %6, null
-  %or.cond = select i1 %57, i1 %58, i1 false
-  br i1 %or.cond, label %59, label %.critedge
+.thread:                                          ; preds = %list_length.exit.thread..thread_crit_edge, %.thread78
+  %53 = phi i32 [ %.pre77, %list_length.exit.thread..thread_crit_edge ], [ %37, %.thread78 ]
+  %54 = icmp eq i32 %53, 34
+  %55 = icmp ne ptr %6, null
+  %or.cond = select i1 %54, i1 %55, i1 false
+  br i1 %or.cond, label %56, label %.critedge
 
-59:                                               ; preds = %exprIsNullConstant.exit67.thread74
-  %60 = load i32, ptr %6, align 4
-  switch i32 %60, label %.critedge [
-    i32 20, label %61
-    i32 34, label %74
+56:                                               ; preds = %.thread
+  %57 = load i32, ptr %6, align 4
+  switch i32 %57, label %.critedge [
+    i32 20, label %58
+    i32 34, label %71
   ]
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %6, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, 4
-  br i1 %64, label %65, label %.critedge
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds i8, ptr %6, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp eq i32 %60, 4
+  br i1 %61, label %62, label %.critedge
 
-65:                                               ; preds = %61
-  store i32 3, ptr %62, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %4, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 32
-  %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 %71, ptr %72, align 8
+62:                                               ; preds = %58
+  store i32 3, ptr %59, align 4
+  %63 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %4, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %65, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 32
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 %68, ptr %69, align 8
+  %70 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef nonnull %6)
+  br label %92
+
+71:                                               ; preds = %56
+  %72 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef nonnull %4)
   %73 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef nonnull %6)
-  br label %95
+  %74 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %72, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %73, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %1, i64 32
+  %81 = load i32, ptr %80, align 8
+  %82 = tail call fastcc ptr @make_row_comparison_op(ptr noundef %0, ptr noundef %75, ptr noundef %77, ptr noundef %79, i32 noundef %81)
+  br label %92
 
-74:                                               ; preds = %59
-  %75 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef nonnull %4)
-  %76 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef nonnull %6)
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %75, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %76, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 32
-  %84 = load i32, ptr %83, align 8
-  %85 = tail call fastcc ptr @make_row_comparison_op(ptr noundef %0, ptr noundef %78, ptr noundef %80, ptr noundef %82, i32 noundef %84)
-  br label %95
+.critedge:                                        ; preds = %56, %58, %35, %.thread, %list_length.exit.thread
+  %83 = getelementptr inbounds i8, ptr %0, i64 176
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
+  %86 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %6)
+  %87 = getelementptr inbounds i8, ptr %1, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %1, i64 32
+  %90 = load i32, ptr %89, align 8
+  %91 = tail call ptr @make_op(ptr noundef %0, ptr noundef %88, ptr noundef %85, ptr noundef %86, ptr noundef %84, i32 noundef %90) #9
+  br label %92
 
-.critedge:                                        ; preds = %59, %61, %exprIsNullConstant.exit.thread, %exprIsNullConstant.exit67.thread74, %exprIsNullConstant.exit67
-  %86 = getelementptr inbounds i8, ptr %0, i64 176
-  %87 = load ptr, ptr %86, align 8
-  %88 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
-  %89 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %6)
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 32
-  %93 = load i32, ptr %92, align 8
-  %94 = tail call ptr @make_op(ptr noundef %0, ptr noundef %91, ptr noundef %88, ptr noundef %89, ptr noundef %87, i32 noundef %93) #9
-  br label %95
-
-95:                                               ; preds = %65, %.critedge, %74, %53
-  %.0 = phi ptr [ %73, %65 ], [ %85, %74 ], [ %94, %.critedge ], [ %55, %53 ]
+92:                                               ; preds = %62, %.critedge, %71, %exprIsNullConstant.exit70.thread
+  %.0 = phi ptr [ %70, %62 ], [ %82, %71 ], [ %91, %.critedge ], [ %52, %exprIsNullConstant.exit70.thread ]
   ret ptr %.0
 }
 
@@ -1564,222 +1562,222 @@ define internal fastcc ptr @transformAExprDistinct(ptr noundef %0, ptr nocapture
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %exprIsNullConstant.exit, label %7
+  br i1 %.not.i, label %exprIsNullConstant.exit.thread, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %6, align 4
   %9 = icmp eq i32 %8, 64
-  br i1 %9, label %10, label %exprIsNullConstant.exit
+  br i1 %9, label %exprIsNullConstant.exit, label %exprIsNullConstant.exit.thread
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
-  %12 = load i8, ptr %11, align 8
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %make_nulltest_from_distinct.exit, label %exprIsNullConstant.exit
+exprIsNullConstant.exit:                          ; preds = %7
+  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = load i8, ptr %10, align 8
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %make_nulltest_from_distinct.exit, label %exprIsNullConstant.exit.thread
 
-make_nulltest_from_distinct.exit:                 ; preds = %10
-  %14 = tail call noundef ptr @palloc0(i64 noundef 32) #9
-  store i32 45, ptr %14, align 4
-  %15 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp ne i32 %18, 4
-  %spec.select = zext i1 %19 to i32
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
-  store i32 %spec.select, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 20
-  store i8 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
-  %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %14, i64 24
-  store i32 %23, ptr %24, align 8
-  br label %114
+make_nulltest_from_distinct.exit:                 ; preds = %exprIsNullConstant.exit
+  %13 = tail call noundef ptr @palloc0(i64 noundef 32) #9
+  store i32 45, ptr %13, align 4
+  %14 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
+  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp ne i32 %17, 4
+  %spec.select = zext i1 %18 to i32
+  %19 = getelementptr inbounds i8, ptr %13, i64 16
+  store i32 %spec.select, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %13, i64 20
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %13, i64 24
+  store i32 %22, ptr %23, align 8
+  br label %112
 
-exprIsNullConstant.exit:                          ; preds = %10, %7, %2
+exprIsNullConstant.exit.thread:                   ; preds = %2, %7, %exprIsNullConstant.exit
   %.not.i38 = icmp eq ptr %4, null
-  br i1 %.not.i38, label %exprIsNullConstant.exit40, label %25
+  br i1 %.not.i38, label %exprIsNullConstant.exit40.thread, label %24
 
-25:                                               ; preds = %exprIsNullConstant.exit
-  %26 = load i32, ptr %4, align 4
-  %27 = icmp eq i32 %26, 64
-  br i1 %27, label %28, label %exprIsNullConstant.exit40
+24:                                               ; preds = %exprIsNullConstant.exit.thread
+  %25 = load i32, ptr %4, align 4
+  %26 = icmp eq i32 %25, 64
+  br i1 %26, label %exprIsNullConstant.exit40, label %exprIsNullConstant.exit40.thread
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %4, i64 24
-  %30 = load i8, ptr %29, align 8
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %make_nulltest_from_distinct.exit41, label %exprIsNullConstant.exit40
+exprIsNullConstant.exit40:                        ; preds = %24
+  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %28 = load i8, ptr %27, align 8
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %make_nulltest_from_distinct.exit41, label %exprIsNullConstant.exit40.thread
 
-make_nulltest_from_distinct.exit41:               ; preds = %28
-  %32 = tail call noundef ptr @palloc0(i64 noundef 32) #9
-  store i32 45, ptr %32, align 4
-  %33 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %6)
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp ne i32 %36, 4
-  %spec.select47 = zext i1 %37 to i32
-  %38 = getelementptr inbounds i8, ptr %32, i64 16
-  store i32 %spec.select47, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 20
-  store i8 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
-  %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %32, i64 24
-  store i32 %41, ptr %42, align 8
-  br label %114
+make_nulltest_from_distinct.exit41:               ; preds = %exprIsNullConstant.exit40
+  %30 = tail call noundef ptr @palloc0(i64 noundef 32) #9
+  store i32 45, ptr %30, align 4
+  %31 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %6)
+  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp ne i32 %34, 4
+  %spec.select47 = zext i1 %35 to i32
+  %36 = getelementptr inbounds i8, ptr %30, i64 16
+  store i32 %spec.select47, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %30, i64 20
+  store i8 0, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %30, i64 24
+  store i32 %39, ptr %40, align 8
+  br label %112
 
-exprIsNullConstant.exit40:                        ; preds = %28, %25, %exprIsNullConstant.exit
-  %43 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
-  %44 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %6)
-  %.not = icmp eq ptr %43, null
-  br i1 %.not, label %100, label %45
+exprIsNullConstant.exit40.thread:                 ; preds = %exprIsNullConstant.exit.thread, %24, %exprIsNullConstant.exit40
+  %41 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %4)
+  %42 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %6)
+  %.not = icmp eq ptr %41, null
+  br i1 %.not, label %98, label %43
 
-45:                                               ; preds = %exprIsNullConstant.exit40
-  %46 = load i32, ptr %43, align 4
-  %47 = icmp eq i32 %46, 34
-  %48 = icmp ne ptr %44, null
-  %or.cond = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond, label %49, label %100
+43:                                               ; preds = %exprIsNullConstant.exit40.thread
+  %44 = load i32, ptr %41, align 4
+  %45 = icmp eq i32 %44, 34
+  %46 = icmp ne ptr %42, null
+  %or.cond = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond, label %47, label %98
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %44, align 4
-  %51 = icmp eq i32 %50, 34
-  br i1 %51, label %52, label %100
+47:                                               ; preds = %43
+  %48 = load i32, ptr %42, align 4
+  %49 = icmp eq i32 %48, 34
+  br i1 %49, label %50, label %98
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 32
-  %56 = load i32, ptr %55, align 8
-  %57 = getelementptr i8, ptr %43, i64 8
-  %.val = load ptr, ptr %57, align 8
-  %58 = getelementptr i8, ptr %44, i64 8
-  %.val37 = load ptr, ptr %58, align 8
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %54 = load i32, ptr %53, align 8
+  %55 = getelementptr i8, ptr %41, i64 8
+  %.val = load ptr, ptr %55, align 8
+  %56 = getelementptr i8, ptr %42, i64 8
+  %.val37 = load ptr, ptr %56, align 8
   %.not.i.i = icmp eq ptr %.val, null
   br i1 %.not.i.i, label %list_length.exit.thread.i, label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %.val, i64 4
-  %60 = load i32, ptr %59, align 4
+list_length.exit.i:                               ; preds = %50
+  %57 = getelementptr inbounds i8, ptr %.val, i64 4
+  %58 = load i32, ptr %57, align 4
   %.not.i39.i = icmp eq ptr %.val37, null
   br i1 %.not.i39.i, label %list_length.exit40.i, label %list_length.exit40.thread.i
 
-list_length.exit.thread.i:                        ; preds = %52
+list_length.exit.thread.i:                        ; preds = %50
   %.not.i3914.i = icmp eq ptr %.val37, null
   br i1 %.not.i3914.i, label %.thread.thread.i, label %list_length.exit40.thread.thread.i
 
 list_length.exit40.i:                             ; preds = %list_length.exit.i
-  %.not.i43 = icmp eq i32 %60, 0
-  br i1 %.not.i43, label %.thread.thread.i, label %67
+  %.not.i43 = icmp eq i32 %58, 0
+  br i1 %.not.i43, label %.thread.thread.i, label %65
 
 list_length.exit40.thread.i:                      ; preds = %list_length.exit.i
-  %61 = getelementptr inbounds i8, ptr %.val37, i64 4
-  %62 = load i32, ptr %61, align 4
-  %.not12.i = icmp eq i32 %60, %62
-  br i1 %.not12.i, label %.preheader.split.split.preheader.i, label %67
+  %59 = getelementptr inbounds i8, ptr %.val37, i64 4
+  %60 = load i32, ptr %59, align 4
+  %.not12.i = icmp eq i32 %58, %60
+  br i1 %.not12.i, label %.preheader.split.split.preheader.i, label %65
 
 list_length.exit40.thread.thread.i:               ; preds = %list_length.exit.thread.i
-  %63 = getelementptr inbounds i8, ptr %.val37, i64 4
-  %64 = load i32, ptr %63, align 4
-  %.not1217.i = icmp eq i32 %64, 0
-  br i1 %.not1217.i, label %.thread.thread.i, label %67
+  %61 = getelementptr inbounds i8, ptr %.val37, i64 4
+  %62 = load i32, ptr %61, align 4
+  %.not1217.i = icmp eq i32 %62, 0
+  br i1 %.not1217.i, label %.thread.thread.i, label %65
 
 .preheader.split.split.preheader.i:               ; preds = %list_length.exit40.thread.i
-  %65 = getelementptr inbounds i8, ptr %.val, i64 16
-  %66 = getelementptr inbounds i8, ptr %.val37, i64 16
+  %63 = getelementptr inbounds i8, ptr %.val, i64 16
+  %64 = getelementptr inbounds i8, ptr %.val37, i64 16
   br label %.preheader.split.split.i
 
-67:                                               ; preds = %list_length.exit40.thread.thread.i, %list_length.exit40.thread.i, %list_length.exit40.i
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %68)
-  %69 = tail call i32 @errcode(i32 noundef 16801924) #9
-  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64) #9
-  %71 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %56) #9
+65:                                               ; preds = %list_length.exit40.thread.thread.i, %list_length.exit40.thread.i, %list_length.exit40.i
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %66)
+  %67 = tail call i32 @errcode(i32 noundef 16801924) #9
+  %68 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64) #9
+  %69 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %54) #9
   tail call void @errfinish(ptr noundef nonnull @.str.41, i32 noundef 2977, ptr noundef nonnull @__func__.make_row_distinct_op) #9
   unreachable
 
-.preheader.split.split.i:                         ; preds = %97, %.preheader.split.split.preheader.i
-  %72 = phi i32 [ %60, %.preheader.split.split.preheader.i ], [ %.pre, %97 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.split.split.preheader.i ], [ %indvars.iv.next.i, %97 ]
-  %.0.i42 = phi ptr [ null, %.preheader.split.split.preheader.i ], [ %.1.i, %97 ]
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.i, %73
-  br i1 %74, label %75, label %78
+.preheader.split.split.i:                         ; preds = %95, %.preheader.split.split.preheader.i
+  %70 = phi i32 [ %58, %.preheader.split.split.preheader.i ], [ %.pre, %95 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.split.split.preheader.i ], [ %indvars.iv.next.i, %95 ]
+  %.0.i42 = phi ptr [ null, %.preheader.split.split.preheader.i ], [ %.1.i, %95 ]
+  %71 = sext i32 %70 to i64
+  %72 = icmp slt i64 %indvars.iv.i, %71
+  br i1 %72, label %73, label %76
 
-75:                                               ; preds = %.preheader.split.split.i
-  %76 = load ptr, ptr %65, align 8
-  %77 = getelementptr %union.ListCell, ptr %76, i64 %indvars.iv.i
-  br label %78
+73:                                               ; preds = %.preheader.split.split.i
+  %74 = load ptr, ptr %63, align 8
+  %75 = getelementptr %union.ListCell, ptr %74, i64 %indvars.iv.i
+  br label %76
 
-78:                                               ; preds = %75, %.preheader.split.split.i
-  %79 = phi ptr [ %77, %75 ], [ null, %.preheader.split.split.i ]
-  %80 = load i32, ptr %61, align 4
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.i, %81
-  br i1 %82, label %83, label %.thread.i
+76:                                               ; preds = %73, %.preheader.split.split.i
+  %77 = phi ptr [ %75, %73 ], [ null, %.preheader.split.split.i ]
+  %78 = load i32, ptr %59, align 4
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.i, %79
+  br i1 %80, label %81, label %.thread.i
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %66, align 8
-  %85 = getelementptr %union.ListCell, ptr %84, i64 %indvars.iv.i
-  %86 = icmp ne ptr %79, null
-  %87 = icmp ne ptr %85, null
-  %88 = select i1 %86, i1 %87, i1 false
-  br i1 %88, label %89, label %.thread.i
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %64, align 8
+  %83 = getelementptr %union.ListCell, ptr %82, i64 %indvars.iv.i
+  %84 = icmp ne ptr %77, null
+  %85 = icmp ne ptr %83, null
+  %86 = select i1 %84, i1 %85, i1 false
+  br i1 %86, label %87, label %.thread.i
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %79, align 8
-  %91 = load ptr, ptr %85, align 8
-  %92 = tail call fastcc ptr @make_distinct_op(ptr noundef %0, ptr noundef %54, ptr noundef %90, ptr noundef %91, i32 noundef %56)
-  %93 = icmp eq ptr %.0.i42, null
-  br i1 %93, label %97, label %94
+87:                                               ; preds = %81
+  %88 = load ptr, ptr %77, align 8
+  %89 = load ptr, ptr %83, align 8
+  %90 = tail call fastcc ptr @make_distinct_op(ptr noundef %0, ptr noundef %52, ptr noundef %88, ptr noundef %89, i32 noundef %54)
+  %91 = icmp eq ptr %.0.i42, null
+  br i1 %91, label %95, label %92
 
-94:                                               ; preds = %89
-  %95 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %.0.i42, ptr %92) #9
-  %96 = tail call ptr @makeBoolExpr(i32 noundef 1, ptr noundef %95, i32 noundef %56) #9
-  br label %97
+92:                                               ; preds = %87
+  %93 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %.0.i42, ptr %90) #9
+  %94 = tail call ptr @makeBoolExpr(i32 noundef 1, ptr noundef %93, i32 noundef %54) #9
+  br label %95
 
-97:                                               ; preds = %94, %89
-  %.1.i = phi ptr [ %96, %94 ], [ %92, %89 ]
+95:                                               ; preds = %92, %87
+  %.1.i = phi ptr [ %94, %92 ], [ %90, %87 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.pre = load i32, ptr %59, align 4
+  %.pre = load i32, ptr %57, align 4
   br label %.preheader.split.split.i, !llvm.loop !5
 
-.thread.i:                                        ; preds = %83, %78
-  %98 = icmp eq ptr %.0.i42, null
-  br i1 %98, label %.thread.thread.i, label %make_row_distinct_op.exit
+.thread.i:                                        ; preds = %81, %76
+  %96 = icmp eq ptr %.0.i42, null
+  br i1 %96, label %.thread.thread.i, label %make_row_distinct_op.exit
 
 .thread.thread.i:                                 ; preds = %.thread.i, %list_length.exit40.thread.thread.i, %list_length.exit40.i, %list_length.exit.thread.i
-  %99 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #9
+  %97 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #9
   br label %make_row_distinct_op.exit
 
-100:                                              ; preds = %49, %45, %exprIsNullConstant.exit40
-  %101 = getelementptr inbounds i8, ptr %1, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 32
-  %104 = load i32, ptr %103, align 8
-  %105 = tail call fastcc ptr @make_distinct_op(ptr noundef %0, ptr noundef %102, ptr noundef %43, ptr noundef %44, i32 noundef %104)
+98:                                               ; preds = %47, %43, %exprIsNullConstant.exit40.thread
+  %99 = getelementptr inbounds i8, ptr %1, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %1, i64 32
+  %102 = load i32, ptr %101, align 8
+  %103 = tail call fastcc ptr @make_distinct_op(ptr noundef %0, ptr noundef %100, ptr noundef %41, ptr noundef %42, i32 noundef %102)
   br label %make_row_distinct_op.exit
 
-make_row_distinct_op.exit:                        ; preds = %.thread.thread.i, %.thread.i, %100
-  %.034 = phi ptr [ %105, %100 ], [ %99, %.thread.thread.i ], [ %.0.i42, %.thread.i ]
-  %106 = getelementptr inbounds i8, ptr %1, i64 4
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp eq i32 %107, 4
-  br i1 %108, label %109, label %114
+make_row_distinct_op.exit:                        ; preds = %.thread.thread.i, %.thread.i, %98
+  %.034 = phi ptr [ %103, %98 ], [ %97, %.thread.thread.i ], [ %.0.i42, %.thread.i ]
+  %104 = getelementptr inbounds i8, ptr %1, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, 4
+  br i1 %106, label %107, label %112
 
-109:                                              ; preds = %make_row_distinct_op.exit
-  %110 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %.034) #9
-  %111 = getelementptr inbounds i8, ptr %1, i64 32
-  %112 = load i32, ptr %111, align 8
-  %113 = tail call ptr @makeBoolExpr(i32 noundef 2, ptr noundef %110, i32 noundef %112) #9
-  br label %114
+107:                                              ; preds = %make_row_distinct_op.exit
+  %108 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %.034) #9
+  %109 = getelementptr inbounds i8, ptr %1, i64 32
+  %110 = load i32, ptr %109, align 8
+  %111 = tail call ptr @makeBoolExpr(i32 noundef 2, ptr noundef %108, i32 noundef %110) #9
+  br label %112
 
-114:                                              ; preds = %make_row_distinct_op.exit, %109, %make_nulltest_from_distinct.exit41, %make_nulltest_from_distinct.exit
-  %.0 = phi ptr [ %14, %make_nulltest_from_distinct.exit ], [ %32, %make_nulltest_from_distinct.exit41 ], [ %113, %109 ], [ %.034, %make_row_distinct_op.exit ]
+112:                                              ; preds = %make_row_distinct_op.exit, %107, %make_nulltest_from_distinct.exit41, %make_nulltest_from_distinct.exit
+  %.0 = phi ptr [ %13, %make_nulltest_from_distinct.exit ], [ %30, %make_nulltest_from_distinct.exit41 ], [ %111, %107 ], [ %.034, %make_row_distinct_op.exit ]
   ret ptr %.0
 }
 
@@ -2524,7 +2522,7 @@ define internal fastcc noundef ptr @transformSubLink(ptr noundef %0, ptr noundef
   br i1 %5, label %switch.hole_check, label %13
 
 switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 -1025, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %13
@@ -5384,8 +5382,8 @@ switch.lookup:                                    ; preds = %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
-.thread:                                          ; preds = %3, %1, %switch.lookup
-  %.08 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.140, %1 ], [ @.str.140, %3 ]
+.thread:                                          ; preds = %switch.lookup, %1, %3
+  %.08 = phi ptr [ @.str.140, %3 ], [ @.str.140, %1 ], [ %switch.load, %switch.lookup ]
   tail call void @namestrcpy(ptr noundef %2, ptr noundef nonnull %.08) #9
   %15 = ptrtoint ptr %2 to i64
   %16 = tail call ptr @makeConst(i32 noundef 19, i32 noundef -1, i32 noundef 0, i32 noundef 64, i64 noundef %15, i1 noundef zeroext false, i1 noundef zeroext false) #9

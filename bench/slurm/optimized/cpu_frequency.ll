@@ -273,7 +273,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 .lr.ph58:                                         ; preds = %59, %.loopexit
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.loopexit ], [ 0, %59 ]
-  %61 = trunc i64 %indvars.iv68 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv68 to i32
   %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.5, i32 noundef %61) #11
   %63 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.6)
   %64 = icmp eq ptr %63, null
@@ -529,7 +529,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %190, label %.preheader.i, label %199
 
 .preheader.i:                                     ; preds = %.lr.ph.i
-  %191 = trunc i64 %indvars.iv.i to i32
+  %191 = trunc nuw nsw i64 %indvars.iv.i to i32
   %192 = and i64 %indvars.iv.i, 4294967295
   %.not36.i = icmp ult i64 %indvars.iv49.i, %192
   br i1 %.not36.i, label %.loopexit.i, label %.lr.ph38.preheader.i
@@ -1430,7 +1430,7 @@ switch.early.test:                                ; preds = %.thread, %15
   br i1 %.not52, label %133, label %131
 
 131:                                              ; preds = %.lr.ph
-  %132 = trunc i64 %indvars.iv to i32
+  %132 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @_cpu_freq_setup_data(ptr noundef %0, i32 noundef %132)
   br label %133
 
@@ -1539,13 +1539,13 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
 
 .thread21.i:                                      ; preds = %20
   store i32 1, ptr @_cpu_freq_current_state.freq_file, align 4
-  br label %24
-
-24:                                               ; preds = %.thread21.i, %18
   br label %25
 
-25:                                               ; preds = %24, %.thread.i, %18
-  %.str.103.sink.i = phi ptr [ @.str.103, %24 ], [ @.str.102, %18 ], [ @.str.102, %.thread.i ]
+24:                                               ; preds = %18
+  br label %25
+
+25:                                               ; preds = %24, %.thread21.i, %.thread.i, %18
+  %.str.103.sink.i = phi ptr [ @.str.102, %18 ], [ @.str.102, %.thread.i ], [ @.str.103, %.thread21.i ], [ @.str.103, %24 ]
   %26 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %1, ptr noundef nonnull %.str.103.sink.i)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %_cpu_freq_current_state.exit.thread, label %28
@@ -1921,7 +1921,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %36 = getelementptr inbounds i8, ptr %31, i64 324
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %31, i64 260
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.44, i32 noundef %39, i32 noundef %33, i32 noundef %35, i32 noundef %37, ptr noundef nonnull %38) #11
   %.pre = load ptr, ptr @cpufreq, align 8
   br label %40
@@ -1938,7 +1938,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %46 = getelementptr inbounds i8, ptr %42, i64 308
   %47 = load i32, ptr %46, align 4
   %48 = icmp ugt i32 %47, %44
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %48, label %50, label %._crit_edge93
 
 50:                                               ; preds = %45
@@ -1986,7 +1986,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %74 = getelementptr inbounds i8, ptr %70, i64 308
   %75 = load i32, ptr %74, align 4
   %76 = icmp ult i32 %75, %72
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %76, label %78, label %._crit_edge94
 
 78:                                               ; preds = %73
@@ -2034,7 +2034,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %102 = getelementptr inbounds i8, ptr %98, i64 260
   %103 = call i32 @xstrcmp(ptr noundef nonnull %102, ptr noundef nonnull @.str.15) #11
   %.not77 = icmp eq i32 %103, 0
-  %.pre96 = trunc i64 %indvars.iv to i32
+  %.pre96 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not77, label %._crit_edge95, label %104
 
 104:                                              ; preds = %101
@@ -2062,7 +2062,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %.not78, label %120, label %116
 
 116:                                              ; preds = %112
-  %117 = trunc i64 %indvars.iv to i32
+  %117 = trunc nuw nsw i64 %indvars.iv to i32
   %118 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %117, ptr noundef nonnull %114), !range !21
   %119 = icmp eq i32 %118, -1
   br i1 %119, label %146, label %120
@@ -2097,7 +2097,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 139:                                              ; preds = %138
   %140 = load ptr, ptr @cpufreq, align 8
   %141 = getelementptr inbounds %struct.cpu_freq_data, ptr %140, i64 %indvars.iv, i32 5
-  %142 = trunc i64 %indvars.iv to i32
+  %142 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.48, i32 noundef %142, ptr noundef nonnull %2, ptr noundef nonnull %141) #11
   br label %146
 
@@ -2105,7 +2105,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %137, label %144, label %146
 
 144:                                              ; preds = %143
-  %145 = trunc i64 %indvars.iv to i32
+  %145 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.49, i32 noundef %145, ptr noundef nonnull %2) #11
   br label %146
 
@@ -2386,7 +2386,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %.139 = phi i16 [ -1, %140 ], [ %.038, %136 ], [ %.038, %._crit_edge70.i ]
   %.237 = phi i16 [ -1, %140 ], [ %.136, %136 ], [ %.136, %._crit_edge70.i ]
   %.348.i = phi i32 [ %137, %140 ], [ %138, %136 ], [ %134, %._crit_edge70.i ]
-  %142 = trunc i32 %.348.i to i16
+  %142 = trunc nuw i32 %.348.i to i16
   br label %_cpu_freq_next_cpu.exit
 
 _cpu_freq_next_cpu.exit:                          ; preds = %.lr.ph.i, %.lr.ph77.i, %141
@@ -2895,7 +2895,7 @@ define void @cpu_freq_reset(ptr nocapture noundef readonly %0) local_unnamed_add
 
 38:                                               ; preds = %33, %28
   %39 = load ptr, ptr @slurmd_spooldir, align 8
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.112, ptr noundef %39, i32 noundef %40) #11
   %42 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 384) #11
   %43 = icmp slt i32 %42, 0

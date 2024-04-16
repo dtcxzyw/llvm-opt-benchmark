@@ -593,7 +593,7 @@ define internal i32 @ethnl_set_coalesce(ptr nocapture noundef readonly %0, ptr n
   %.val = load ptr, ptr %0, align 8
   %4 = call fastcc i32 @__ethnl_set_coalesce(ptr %.val, ptr noundef %1, ptr noundef nonnull %3)
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %15, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %4, 0
@@ -603,18 +603,16 @@ define internal i32 @ethnl_set_coalesce(ptr nocapture noundef readonly %0, ptr n
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %6
-  %.val2 = load ptr, ptr %0, align 8
-  %12 = call fastcc i32 @__ethnl_set_coalesce(ptr %.val2, ptr noundef %1, ptr noundef nonnull %3)
+  %.val1 = load ptr, ptr %0, align 8
+  %12 = call fastcc i32 @__ethnl_set_coalesce(ptr %.val1, ptr noundef %1, ptr noundef nonnull %3)
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %15, label %14
+  %spec.select = select i1 %13, i32 %12, i32 %4
+  br label %14
 
-14:                                               ; preds = %11, %6
-  br label %15
-
-15:                                               ; preds = %14, %11, %2
-  %16 = phi i32 [ %4, %14 ], [ %4, %2 ], [ %12, %11 ]
+14:                                               ; preds = %11, %6, %2
+  %15 = phi i32 [ %4, %2 ], [ %4, %6 ], [ %spec.select, %11 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
-  ret i32 %16
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -640,7 +638,7 @@ define internal fastcc zeroext i1 @coalesce_put_bool(ptr noundef %0, i16 noundef
   %9 = add nuw nsw i64 %8, 4294967294
   %10 = and i64 %9, 4294967295
   %11 = shl nuw nsw i64 1, %10
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = and i32 %12, %3
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %20, label %15

@@ -410,7 +410,7 @@ define dso_local i64 @XLogInsertRecord(ptr noundef readonly %0, i64 noundef %1, 
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr @doPageWrites, align 1
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %13 = getelementptr inbounds i8, ptr %10, i64 17
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
@@ -440,7 +440,7 @@ define dso_local i64 @XLogInsertRecord(ptr noundef readonly %0, i64 noundef %1, 
 
 26:                                               ; preds = %21
   %27 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %28 = trunc i8 %27 to i1
+  %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %RecoveryInProgress.exit.i, label %XLogInsertAllowed.exit.thread
 
 RecoveryInProgress.exit.i:                        ; preds = %26
@@ -841,7 +841,7 @@ ReserveXLogSwitch.exit:                           ; preds = %XLogBytePosToEndRec
   %240 = tail call fastcc ptr @GetXLogBuffer(i64 noundef %232, i32 noundef %37)
   %241 = and i64 %232, 8191
   %242 = icmp eq i64 %241, 0
-  %243 = trunc i64 %241 to i32
+  %243 = trunc nuw nsw i64 %241 to i32
   %244 = sub nuw nsw i32 8192, %243
   %245 = select i1 %242, i32 0, i32 %244
   %.not108.i = icmp eq ptr %0, null
@@ -963,7 +963,7 @@ WALInsertLockUpdateInsertingAt.exit.i.i:          ; preds = %297, %294
   %308 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
   tail call void @llvm.assume(i1 %308)
   %309 = lshr i64 %255, 32
-  %310 = trunc i64 %309 to i32
+  %310 = trunc nuw i64 %309 to i32
   %311 = trunc i64 %255 to i32
   %312 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.102, i32 noundef %310, i32 noundef %311) #26
   tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 1684, ptr noundef nonnull @__func__.GetXLogBuffer) #26
@@ -1004,7 +1004,7 @@ GetXLogBuffer.exit.i:                             ; preds = %314, %259
   %.2.i = getelementptr i8, ptr %.0.i.i64, i64 %.285.v.i
   %331 = and i64 %.285.i, 8191
   %332 = icmp eq i64 %331, 0
-  %333 = trunc i64 %331 to i32
+  %333 = trunc nuw nsw i64 %331 to i32
   %334 = sub nuw nsw i32 8192, %333
   %335 = select i1 %332, i32 0, i32 %334
   %336 = icmp sgt i32 %253, %335
@@ -1275,7 +1275,7 @@ define dso_local zeroext i1 @XLogInsertAllowed() local_unnamed_addr #1 {
 
 5:                                                ; preds = %0
   %6 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %7 = trunc i8 %6 to i1
+  %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %RecoveryInProgress.exit, label %RecoveryInProgress.exit.thread
 
 RecoveryInProgress.exit:                          ; preds = %5
@@ -1438,7 +1438,7 @@ define dso_local void @XLogFlush(i64 noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %RecoveryInProgress.exit.i, label %XLogInsertAllowed.exit.thread
 
 RecoveryInProgress.exit.i:                        ; preds = %7
@@ -1554,7 +1554,7 @@ XLogInsertAllowed.exit.thread22:                  ; preds = %RecoveryInProgress.
   %61 = add i32 %60, -1
   store volatile i32 %61, ptr @CritSectionCount, align 4
   %62 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %63 = trunc i8 %62 to i1
+  %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %RecoveryInProgress.exit
 
 64:                                               ; preds = %.loopexit
@@ -1592,11 +1592,11 @@ WalSndWakeupProcessRequests.exit:                 ; preds = %RecoveryInProgress.
   %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #25
   tail call void @llvm.assume(i1 %80)
   %81 = lshr i64 %0, 32
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw i64 %81 to i32
   %83 = trunc i64 %0 to i32
   %84 = load i64, ptr getelementptr inbounds (%struct.XLogwrtResult, ptr @LogwrtResult, i64 0, i32 1), align 8
   %85 = lshr i64 %84, 32
-  %86 = trunc i64 %85 to i32
+  %86 = trunc nuw i64 %85 to i32
   %87 = trunc i64 %84 to i32
   %88 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %82, i32 noundef %83, i32 noundef %86, i32 noundef %87) #26
   tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2895, ptr noundef nonnull @__func__.XLogFlush) #26
@@ -1609,7 +1609,7 @@ WalSndWakeupProcessRequests.exit:                 ; preds = %RecoveryInProgress.
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @WALReadFromBuffers(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   %.pre = load ptr, ptr @XLogCtl, align 8
   br i1 %6, label %RecoveryInProgress.exit, label %RecoveryInProgress.exit.thread
 
@@ -1698,7 +1698,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %4, %RecoveryInProgr
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define dso_local zeroext i1 @RecoveryInProgress() local_unnamed_addr #1 {
   %1 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %2 = trunc i8 %1 to i1
+  %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %9
 
 3:                                                ; preds = %0
@@ -1850,7 +1850,7 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
   %16 = load ptr, ptr @XLogCtl, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 440
   store i8 0, ptr %17, align 8
-  br label %37
+  br label %.critedge
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %10, i64 321
@@ -1861,12 +1861,12 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
   %22 = load ptr, ptr @XLogCtl, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 440
   store i8 0, ptr %23, align 8
-  br i1 %21, label %.critedge, label %24
+  br i1 %21, label %33, label %24
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @WalWriterFlushAfter, align 4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.critedge, label %27
+  br i1 %26, label %33, label %27
 
 27:                                               ; preds = %24
   %28 = lshr i64 %0, 13
@@ -1875,20 +1875,20 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
   %31 = sub nsw i64 %28, %30
   %32 = trunc i64 %31 to i32
   %.not13 = icmp sgt i32 %25, %32
-  br i1 %.not13, label %37, label %.critedge
+  br i1 %.not13, label %.critedge, label %33
 
-.critedge:                                        ; preds = %24, %27, %18
-  %33 = load ptr, ptr @ProcGlobal, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 112
-  %35 = load ptr, ptr %34, align 8
-  %.not14 = icmp eq ptr %35, null
-  br i1 %.not14, label %37, label %36
+33:                                               ; preds = %27, %18, %24
+  %34 = load ptr, ptr @ProcGlobal, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 112
+  %36 = load ptr, ptr %35, align 8
+  %.not14 = icmp eq ptr %36, null
+  br i1 %.not14, label %.critedge, label %37
 
-36:                                               ; preds = %.critedge
-  tail call void @SetLatch(ptr noundef nonnull %35) #26
-  br label %37
+37:                                               ; preds = %33
+  tail call void @SetLatch(ptr noundef nonnull %36) #26
+  br label %.critedge
 
-37:                                               ; preds = %15, %27, %36, %.critedge
+.critedge:                                        ; preds = %15, %27, %37, %33
   ret void
 }
 
@@ -1976,10 +1976,10 @@ define internal fastcc void @UpdateMinRecoveryPoint(i64 noundef %0, i1 noundef z
 
 28:                                               ; preds = %26
   %29 = lshr i64 %0, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = trunc i64 %0 to i32
   %32 = lshr i64 %24, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = trunc i64 %24 to i32
   %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.103, i32 noundef %30, i32 noundef %31, i32 noundef %33, i32 noundef %34) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2706, ptr noundef nonnull @__func__.UpdateMinRecoveryPoint) #26
@@ -2005,7 +2005,7 @@ define internal fastcc void @UpdateMinRecoveryPoint(i64 noundef %0, i1 noundef z
 
 46:                                               ; preds = %41
   %47 = lshr i64 %24, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = trunc i64 %24 to i32
   %50 = load i32, ptr %3, align 4
   %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.104, i32 noundef %48, i32 noundef %49, i32 noundef %50) #26
@@ -2097,10 +2097,10 @@ XLogBytePosToEndRecPtr.exit:                      ; preds = %21, %30, %32
 
 43:                                               ; preds = %41
   %44 = lshr i64 %0, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = trunc i64 %0 to i32
   %47 = lshr i64 %39, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = trunc i64 %39 to i32
   %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.106, i32 noundef %45, i32 noundef %46, i32 noundef %48, i32 noundef %49) #26
   tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 1526, ptr noundef nonnull @__func__.WaitXLogInsertionsToFinish) #26
@@ -2110,9 +2110,9 @@ XLogBytePosToEndRecPtr.exit:                      ; preds = %21, %30, %32
   %.0 = phi i64 [ %0, %XLogBytePosToEndRecPtr.exit ], [ %39, %41 ], [ %39, %43 ]
   br label %52
 
-52:                                               ; preds = %51, %64
-  %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %64 ]
-  %.01927 = phi i64 [ %39, %51 ], [ %65, %64 ]
+52:                                               ; preds = %51, %63
+  %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %63 ]
+  %.01927 = phi i64 [ %39, %51 ], [ %64, %63 ]
   store i64 0, ptr %2, align 8
   br label %53
 
@@ -2137,19 +2137,17 @@ XLogBytePosToEndRecPtr.exit:                      ; preds = %21, %30, %32
 .loopexit:                                        ; preds = %59
   %.not25.not = icmp eq i64 %.fr, 0
   %62 = call i64 @llvm.umin.i64(i64 %.fr, i64 %.01927)
-  br i1 %.not25.not, label %63, label %64
+  %spec.select = select i1 %.not25.not, i64 %.01927, i64 %62
+  br label %63
 
-63:                                               ; preds = %.loopexit.thread, %.loopexit
-  br label %64
-
-64:                                               ; preds = %.loopexit, %63
-  %65 = phi i64 [ %.01927, %63 ], [ %62, %.loopexit ]
+63:                                               ; preds = %.loopexit, %.loopexit.thread
+  %64 = phi i64 [ %.01927, %.loopexit.thread ], [ %spec.select, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %66, label %52, !llvm.loop !26
+  br i1 %exitcond.not, label %65, label %52, !llvm.loop !26
 
-66:                                               ; preds = %64
-  ret i64 %65
+65:                                               ; preds = %63
+  ret i64 %64
 }
 
 declare zeroext i1 @LWLockAcquireOrWait(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -2204,10 +2202,10 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   call void @llvm.assume(i1 %31)
   %32 = load i64, ptr @LogwrtResult, align 8
   %33 = lshr i64 %32, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = trunc i64 %32 to i32
   %36 = lshr i64 %29, 32
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw i64 %36 to i32
   %38 = trunc i64 %29 to i32
   %39 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.107, i32 noundef %34, i32 noundef %35, i32 noundef %37, i32 noundef %38) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2328, ptr noundef nonnull @__func__.XLogWrite) #26
@@ -2621,7 +2619,7 @@ GetRedoRecPtr.exit:                               ; preds = %163, %171
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @XLogBackgroundFlush() local_unnamed_addr #0 {
   %1 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %2 = trunc i8 %1 to i1
+  %2 = trunc nuw i8 %1 to i1
   %.pre = load ptr, ptr @XLogCtl, align 8
   br i1 %2, label %RecoveryInProgress.exit, label %RecoveryInProgress.exit.thread
 
@@ -2766,7 +2764,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
   %82 = add i32 %81, -1
   store volatile i32 %82, ptr @CritSectionCount, align 4
   %83 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %84 = trunc i8 %83 to i1
+  %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %85, label %RecoveryInProgress.exit30
 
 85:                                               ; preds = %78
@@ -3069,7 +3067,7 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @XLogNeedsFlush(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %3 = trunc i8 %2 to i1
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %RecoveryInProgress.exit, label %RecoveryInProgress.exit.thread
 
 RecoveryInProgress.exit:                          ; preds = %1
@@ -3246,7 +3244,7 @@ define internal fastcc i32 @XLogFileInitInternal(i64 noundef %0, i32 noundef %1,
   %10 = udiv i64 %0, %9
   %11 = trunc i64 %10 to i32
   %12 = urem i64 %0, %9
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %3, i64 noundef 1024, ptr noundef nonnull @.str.116, i32 noundef %1, i32 noundef %11, i32 noundef %13) #26
   store i8 0, ptr %2, align 1
   %15 = load i32, ptr @wal_sync_method, align 4
@@ -3468,7 +3466,7 @@ define dso_local i32 @XLogFileOpen(i64 noundef %0, i32 noundef %1) local_unnamed
   %7 = udiv i64 %0, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %0, %6
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.116, i32 noundef %1, i32 noundef %8, i32 noundef %10) #26
   %12 = load i32, ptr @wal_sync_method, align 4
   %13 = load i32, ptr @io_direct_flags, align 4
@@ -3576,7 +3574,7 @@ define internal fastcc void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 no
   %7 = udiv i64 %2, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %2, %6
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %0, i64 noundef 64, ptr noundef nonnull @.str.117, i32 noundef %1, i32 noundef %8, i32 noundef %10) #26
   ret void
 }
@@ -3693,7 +3691,7 @@ define dso_local void @RemoveNonParentXlogFiles(i64 noundef %0, i32 noundef %1) 
   %12 = udiv i64 %8, %11
   %13 = trunc i64 %12 to i32
   %14 = urem i64 %8, %11
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.117, i32 noundef %1, i32 noundef %13, i32 noundef %15) #26
   %17 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #26
   br i1 %17, label %18, label %20
@@ -4096,7 +4094,7 @@ define dso_local ptr @show_archive_command() local_unnamed_addr #8 {
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define dso_local noundef nonnull ptr @show_in_hot_standby() local_unnamed_addr #1 {
   %1 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %2 = trunc i8 %1 to i1
+  %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %RecoveryInProgress.exit, label %RecoveryInProgress.exit.thread
 
 RecoveryInProgress.exit:                          ; preds = %0
@@ -5814,7 +5812,7 @@ RemoveTempXlogFiles.exit:                         ; preds = %.backedge.i, %175
   %371 = udiv i64 %363, %370
   %372 = trunc i64 %371 to i32
   %373 = urem i64 %363, %370
-  %374 = trunc i64 %373 to i32
+  %374 = trunc nuw i64 %373 to i32
   %375 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.116, i32 noundef %302, i32 noundef %372, i32 noundef %374) #26
   %376 = call i32 @OpenTransientFile(ptr noundef nonnull %11, i32 noundef 0) #26
   %377 = icmp slt i32 %376, 0
@@ -6017,7 +6015,7 @@ XLogInitNewTimeline.exit:                         ; preds = %XLogFileCopy.exit.i
   %471 = udiv i64 %364, %470
   %472 = trunc i64 %471 to i32
   %473 = urem i64 %364, %470
-  %474 = trunc i64 %473 to i32
+  %474 = trunc nuw i64 %473 to i32
   %475 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 64, ptr noundef nonnull @.str.117, i32 noundef %355, i32 noundef %472, i32 noundef %474) #26
   call void @XLogArchiveCleanup(ptr noundef nonnull %14) #26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
@@ -6311,7 +6309,7 @@ FullTransactionIdRetreat.exit:                    ; preds = %PreallocXlogFiles.e
 650:                                              ; preds = %648
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %651 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %652 = trunc i8 %651 to i1
+  %652 = trunc nuw i8 %651 to i1
   br i1 %652, label %RecoveryInProgress.exit.i, label %RecoveryInProgress.exit.thread.i
 
 RecoveryInProgress.exit.i:                        ; preds = %650
@@ -6339,7 +6337,7 @@ RecoveryInProgress.exit.thread.i:                 ; preds = %RecoveryInProgress.
   %663 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #25
   call void @llvm.assume(i1 %663)
   %664 = lshr i64 %306, 32
-  %665 = trunc i64 %664 to i32
+  %665 = trunc nuw i64 %664 to i32
   %666 = trunc i64 %306 to i32
   %667 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.191, i32 noundef %665, i32 noundef %666) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7292, ptr noundef nonnull @__func__.CreateOverwriteContrecordRecord) #26
@@ -6400,7 +6398,7 @@ GetXLogInsertRecPtr.exit.i:                       ; preds = %687, %685
   %700 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #25
   call void @llvm.assume(i1 %700)
   %701 = lshr i64 %698, 32
-  %702 = trunc i64 %701 to i32
+  %702 = trunc nuw i64 %701 to i32
   %703 = trunc i64 %698 to i32
   %704 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.192, i32 noundef %702, i32 noundef %703) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7303, ptr noundef nonnull @__func__.CreateOverwriteContrecordRecord) #26
@@ -6485,7 +6483,7 @@ WALInsertLockRelease.exit.i:                      ; preds = %731, %730
   call void @llvm.assume(i1 %742)
   %743 = load i64, ptr @ProcLastRecPtr, align 8
   %744 = lshr i64 %743, 32
-  %745 = trunc i64 %744 to i32
+  %745 = trunc nuw i64 %744 to i32
   %746 = trunc i64 %743 to i32
   %747 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.193, i32 noundef %745, i32 noundef %746) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7333, ptr noundef nonnull @__func__.CreateOverwriteContrecordRecord) #26
@@ -6524,7 +6522,7 @@ CreateOverwriteContrecordRecord.exit:             ; preds = %WALInsertLockReleas
 762:                                              ; preds = %760
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %763 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %764 = trunc i8 %763 to i1
+  %764 = trunc nuw i8 %763 to i1
   br i1 %764, label %RecoveryInProgress.exit.i.i, label %RecoveryInProgress.exit.thread.i.i
 
 RecoveryInProgress.exit.i.i:                      ; preds = %762
@@ -6798,7 +6796,7 @@ XLogReportParameters.exit:                        ; preds = %837, %864
   %909 = udiv i64 %907, %908
   %910 = trunc i64 %909 to i32
   %911 = urem i64 %907, %908
-  %912 = trunc i64 %911 to i32
+  %912 = trunc nuw i64 %911 to i32
   %913 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull @.str.117, i32 noundef %302, i32 noundef %910, i32 noundef %912) #26
   %914 = call zeroext i1 @XLogArchiveIsReadyOrDone(ptr noundef nonnull %1) #26
   br i1 %914, label %CleanupAfterArchiveRecovery.exit, label %915
@@ -6810,7 +6808,7 @@ XLogReportParameters.exit:                        ; preds = %837, %864
   %919 = udiv i64 %907, %918
   %920 = trunc i64 %919 to i32
   %921 = urem i64 %907, %918
-  %922 = trunc i64 %921 to i32
+  %922 = trunc nuw i64 %921 to i32
   %923 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.116, i32 noundef %302, i32 noundef %920, i32 noundef %922) #26
   %924 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.169, ptr noundef nonnull %1) #26
   %925 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.169, ptr noundef nonnull %2) #26
@@ -7022,7 +7020,7 @@ define dso_local void @UpdateFullPageWrites() local_unnamed_addr #0 {
 
 8:                                                ; preds = %0
   %9 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %RecoveryInProgress.exit
 
 11:                                               ; preds = %8
@@ -7416,7 +7414,7 @@ define dso_local void @ShutdownXLOG(i32 noundef %0, i64 noundef %1) local_unname
   tail call void @WalSndInitStopping() #26
   tail call void @WalSndWaitStopping() #26
   %11 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %RecoveryInProgress.exit, label %RecoveryInProgress.exit.thread
 
 RecoveryInProgress.exit:                          ; preds = %10
@@ -7491,7 +7489,7 @@ define dso_local noundef zeroext i1 @CreateRestartPoint(i32 noundef %0) local_un
   %22 = getelementptr inbounds i8, ptr %21, i64 440
   store i8 0, ptr %22, align 8
   %23 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %24 = trunc i8 %23 to i1
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %RecoveryInProgress.exit, label %RecoveryInProgress.exit.thread
 
 RecoveryInProgress.exit:                          ; preds = %14
@@ -7528,7 +7526,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %14, %RecoveryInProg
 
 40:                                               ; preds = %38
   %41 = lshr i64 %.sroa.0.0.copyload, 32
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw i64 %41 to i32
   %43 = trunc i64 %.sroa.0.0.copyload to i32
   %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63, i32 noundef %42, i32 noundef %43) #26
   tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7483, ptr noundef nonnull @__func__.CreateRestartPoint) #26
@@ -7766,7 +7764,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   %168 = phi i64 [ %.pre75, %162 ], [ %160, %153 ]
   %169 = add i64 %168, -1
   %170 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %171 = trunc i8 %170 to i1
+  %171 = trunc nuw i8 %170 to i1
   %.pre76 = load ptr, ptr @XLogCtl, align 8
   br i1 %171, label %RecoveryInProgress.exit69, label %RecoveryInProgress.exit69.thread
 
@@ -7867,7 +7865,7 @@ update_checkpoint_display.exit71:                 ; preds = %214, %215
 
 221:                                              ; preds = %update_checkpoint_display.exit71
   %222 = lshr i64 %.sroa.0.0.copyload, 32
-  %223 = trunc i64 %222 to i32
+  %223 = trunc nuw i64 %222 to i32
   %224 = trunc i64 %.sroa.0.0.copyload to i32
   %225 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65, i32 noundef %223, i32 noundef %224) #26
   %.not60 = icmp eq i64 %216, 0
@@ -7928,7 +7926,7 @@ define dso_local void @CreateCheckPoint(i32 noundef %0) local_unnamed_addr #0 {
   %10 = and i32 %0, 3
   %.not86 = icmp ne i32 %10, 0
   %11 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %RecoveryInProgress.exit, label %RecoveryInProgress.exit.thread
 
 RecoveryInProgress.exit.thread:                   ; preds = %1
@@ -8552,7 +8550,7 @@ PreallocXlogFiles.exit:                           ; preds = %320, %326, %344, %3
 
 350:                                              ; preds = %PreallocXlogFiles.exit, %315
   %351 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %352 = trunc i8 %351 to i1
+  %352 = trunc nuw i8 %351 to i1
   br i1 %352, label %RecoveryInProgress.exit112, label %RecoveryInProgress.exit112.thread
 
 RecoveryInProgress.exit112:                       ; preds = %350
@@ -8766,7 +8764,7 @@ define internal fastcc void @RemoveOldXlogFiles(i64 noundef %0, i64 noundef %1, 
   %36 = udiv i64 %0, %35
   %37 = trunc i64 %36 to i32
   %38 = urem i64 %0, %35
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.117, i32 noundef 0, i32 noundef %37, i32 noundef %39) #26
   %41 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #26
   br i1 %41, label %42, label %44
@@ -8942,20 +8940,20 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   %42 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 8), align 4
   %43 = sdiv i64 %5, 1000
   %44 = srem i64 %5, 1000
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nsw i64 %44 to i32
   %46 = sdiv i64 %8, 1000
   %47 = srem i64 %8, 1000
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nsw i64 %47 to i32
   %49 = sdiv i64 %18, 1000
   %50 = srem i64 %18, 1000
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nsw i64 %50 to i32
   %52 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 9), align 8
   %53 = udiv i64 %20, 1000000
   %54 = urem i64 %21, 1000
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   %56 = udiv i64 %.0, 1000
   %57 = urem i64 %.0, 1000
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = load double, ptr @PrevCheckPointDistance, align 8
   %60 = fmul double %59, 0x3F50000000000000
   %61 = fptosi double %60 to i32
@@ -8966,12 +8964,12 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   %66 = getelementptr inbounds i8, ptr %65, i64 32
   %67 = load i64, ptr %66, align 8
   %68 = lshr i64 %67, 32
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw i64 %68 to i32
   %70 = trunc i64 %67 to i32
   %71 = getelementptr inbounds i8, ptr %65, i64 40
   %72 = load i64, ptr %71, align 8
   %73 = lshr i64 %72, 32
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw i64 %73 to i32
   %75 = trunc i64 %72 to i32
   %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.188, i32 noundef %34, double noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %45, i64 noundef %46, i32 noundef %48, i64 noundef %49, i32 noundef %51, i32 noundef %52, i64 noundef %53, i32 noundef %55, i64 noundef %56, i32 noundef %58, i32 noundef %61, i32 noundef %64, i32 noundef %69, i32 noundef %70, i32 noundef %74, i32 noundef %75) #26
   br label %.sink.split
@@ -8991,20 +8989,20 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   %87 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 8), align 4
   %88 = sdiv i64 %5, 1000
   %89 = srem i64 %5, 1000
-  %90 = trunc i64 %89 to i32
+  %90 = trunc nsw i64 %89 to i32
   %91 = sdiv i64 %8, 1000
   %92 = srem i64 %8, 1000
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nsw i64 %92 to i32
   %94 = sdiv i64 %18, 1000
   %95 = srem i64 %18, 1000
-  %96 = trunc i64 %95 to i32
+  %96 = trunc nsw i64 %95 to i32
   %97 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i64 0, i32 9), align 8
   %98 = udiv i64 %20, 1000000
   %99 = urem i64 %21, 1000
-  %100 = trunc i64 %99 to i32
+  %100 = trunc nuw nsw i64 %99 to i32
   %101 = udiv i64 %.0, 1000
   %102 = urem i64 %.0, 1000
-  %103 = trunc i64 %102 to i32
+  %103 = trunc nuw nsw i64 %102 to i32
   %104 = load double, ptr @PrevCheckPointDistance, align 8
   %105 = fmul double %104, 0x3F50000000000000
   %106 = fptosi double %105 to i32
@@ -9015,12 +9013,12 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   %111 = getelementptr inbounds i8, ptr %110, i64 32
   %112 = load i64, ptr %111, align 8
   %113 = lshr i64 %112, 32
-  %114 = trunc i64 %113 to i32
+  %114 = trunc nuw i64 %113 to i32
   %115 = trunc i64 %112 to i32
   %116 = getelementptr inbounds i8, ptr %110, i64 40
   %117 = load i64, ptr %116, align 8
   %118 = lshr i64 %117, 32
-  %119 = trunc i64 %118 to i32
+  %119 = trunc nuw i64 %118 to i32
   %120 = trunc i64 %117 to i32
   %121 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.189, i32 noundef %79, double noundef %84, i32 noundef %85, i32 noundef %86, i32 noundef %87, i64 noundef %88, i32 noundef %90, i64 noundef %91, i32 noundef %93, i64 noundef %94, i32 noundef %96, i32 noundef %97, i64 noundef %98, i32 noundef %100, i64 noundef %101, i32 noundef %103, i32 noundef %106, i32 noundef %109, i32 noundef %114, i32 noundef %115, i32 noundef %119, i32 noundef %120) #26
   br label %.sink.split
@@ -9184,7 +9182,7 @@ define dso_local i64 @XLogRestorePoint(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %1
   %9 = lshr i64 %6, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = trunc i64 %6 to i32
   %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.68, ptr noundef %0, i32 noundef %10, i32 noundef %11) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7932, ptr noundef nonnull @__func__.XLogRestorePoint) #26
@@ -9761,7 +9759,7 @@ define internal fastcc void @RecoveryRestartPoint(ptr nocapture noundef readonly
 6:                                                ; preds = %4
   %7 = load i64, ptr %0, align 8
   %8 = lshr i64 %7, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %7 to i32
   %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.194, i32 noundef %9, i32 noundef %10) #26
   tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7403, ptr noundef nonnull @__func__.RecoveryRestartPoint) #26
@@ -9927,8 +9925,8 @@ define dso_local void @issue_xlog_fsync(i32 noundef %0, i64 noundef %1, i32 noun
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [64 x i8], align 16
   %7 = load i8, ptr @enableFsync, align 1
-  %.fr21 = freeze i8 %7
-  %8 = trunc i8 %.fr21 to i1
+  %.fr = freeze i8 %7
+  %8 = trunc i8 %.fr to i1
   br i1 %8, label %switch.early.test, label %52
 
 switch.early.test:                                ; preds = %3
@@ -9950,12 +9948,12 @@ switch.early.test:                                ; preds = %3
   %.neg = mul i64 %15, -1000000000
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8
-  %.neg22 = sub i64 %.neg, %17
+  %.neg23 = sub i64 %.neg, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %18
 
 18:                                               ; preds = %10, %13
-  %.sroa.06.0.neg23 = phi i64 [ %.neg22, %13 ], [ 0, %10 ]
+  %.sroa.06.0.neg24 = phi i64 [ %.neg23, %13 ], [ 0, %10 ]
   %19 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772234, ptr %19, align 4
   %20 = load i32, ptr @wal_sync_method, align 4
@@ -9968,8 +9966,8 @@ switch.early.test:                                ; preds = %3
 
 21:                                               ; preds = %18
   %22 = call i32 @pg_fsync_no_writethrough(i32 noundef %0) #26
-  %.not13 = icmp eq i32 %22, 0
-  br i1 %.not13, label %.thread, label %29
+  %.not15 = icmp eq i32 %22, 0
+  br i1 %.not15, label %.thread, label %29
 
 23:                                               ; preds = %18
   %24 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
@@ -9981,11 +9979,11 @@ switch.early.test:                                ; preds = %3
 
 27:                                               ; preds = %18
   %28 = call i32 @pg_fdatasync(i32 noundef %0) #26
-  %.not12 = icmp eq i32 %28, 0
-  br i1 %.not12, label %.thread, label %29
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %.thread, label %29
 
 29:                                               ; preds = %21, %27
-  %.020 = phi ptr [ @.str.75, %21 ], [ @.str.76, %27 ]
+  %.022 = phi ptr [ @.str.75, %21 ], [ @.str.76, %27 ]
   %30 = tail call ptr @__errno_location() #27
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr @wal_segment_size, align 4
@@ -9994,7 +9992,7 @@ switch.early.test:                                ; preds = %3
   %33 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
   call void @llvm.assume(i1 %33)
   %34 = call i32 @errcode_for_file_access() #26
-  %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.020, ptr noundef nonnull %6) #26
+  %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.022, ptr noundef nonnull %6) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 8580, ptr noundef nonnull @__func__.issue_xlog_fsync) #26
   unreachable
 
@@ -10014,7 +10012,7 @@ switch.early.test:                                ; preds = %3
   %44 = load i64, ptr %43, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %45 = load i64, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 8
-  %46 = add i64 %44, %.sroa.06.0.neg23
+  %46 = add i64 %44, %.sroa.06.0.neg24
   %47 = add i64 %46, %42
   %48 = add i64 %47, %45
   store i64 %48, ptr getelementptr inbounds (%struct.PgStat_PendingWalStats, ptr @PendingWalStats, i64 0, i32 4), align 8
@@ -10042,7 +10040,7 @@ define dso_local void @do_pg_backup_start(ptr nocapture noundef readonly %0, i1 
   %9 = alloca ptr, align 8
   %10 = alloca %struct.StringInfoData, align 8
   %11 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %RecoveryInProgress.exit
 
 13:                                               ; preds = %5
@@ -10553,7 +10551,7 @@ define dso_local void @do_pg_backup_stop(ptr noundef %0, i1 noundef zeroext %1) 
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
   %7 = load i8, ptr @LocalRecoveryInProgress, align 1
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %RecoveryInProgress.exit
 
 9:                                                ; preds = %2
@@ -10717,7 +10715,7 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   %98 = udiv i64 %95, %97
   %99 = trunc i64 %98 to i32
   %100 = urem i64 %95, %97
-  %101 = trunc i64 %100 to i32
+  %101 = trunc nuw i64 %100 to i32
   %102 = add i32 %93, -1
   %103 = trunc i64 %92 to i32
   %104 = and i32 %102, %103
@@ -10838,7 +10836,7 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
   %163 = udiv i64 %159, %162
   %164 = trunc i64 %163 to i32
   %165 = urem i64 %159, %162
-  %166 = trunc i64 %165 to i32
+  %166 = trunc nuw i64 %165 to i32
   %167 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.117, i32 noundef %161, i32 noundef %164, i32 noundef %166) #26
   %168 = getelementptr inbounds i8, ptr %0, i64 1032
   %169 = load i64, ptr %168, align 8
@@ -10850,7 +10848,7 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
   %175 = udiv i64 %172, %174
   %176 = trunc i64 %175 to i32
   %177 = urem i64 %172, %174
-  %178 = trunc i64 %177 to i32
+  %178 = trunc nuw i64 %177 to i32
   %179 = add i32 %170, -1
   %180 = trunc i64 %169 to i32
   %181 = and i32 %179, %180
@@ -11189,7 +11187,7 @@ WALInsertLockUpdateInsertingAt.exit:              ; preds = %41, %44
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
   tail call void @llvm.assume(i1 %55)
   %56 = lshr i64 %0, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = trunc i64 %0 to i32
   %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.102, i32 noundef %57, i32 noundef %58) #26
   tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 1684, ptr noundef nonnull @__func__.GetXLogBuffer) #26
@@ -11242,7 +11240,7 @@ define internal fastcc zeroext i1 @InstallXLogFileSegment(ptr nocapture noundef 
   %12 = udiv i64 %8, %11
   %13 = trunc i64 %12 to i32
   %14 = urem i64 %8, %11
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.116, i32 noundef %4, i32 noundef %13, i32 noundef %15) #26
   %17 = load ptr, ptr @MainLWLockArray, align 8
   %18 = getelementptr i8, ptr %17, i64 1152
@@ -11279,7 +11277,7 @@ define internal fastcc zeroext i1 @InstallXLogFileSegment(ptr nocapture noundef 
   %35 = udiv i64 %31, %34
   %36 = trunc i64 %35 to i32
   %37 = urem i64 %31, %34
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.116, i32 noundef %4, i32 noundef %36, i32 noundef %38) #26
   %40 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %7) #26
   %41 = icmp eq i32 %40, 0

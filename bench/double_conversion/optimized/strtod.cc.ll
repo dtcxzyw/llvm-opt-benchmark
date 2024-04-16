@@ -28,7 +28,7 @@ if.end:                                           ; preds = %entry
   %mul.i = select i1 %cmp.i.i.i, i64 %2, i64 %3
   %add.i = or disjoint i64 %mul.i, 1
   %and.i3.i = lshr i64 %1, 52
-  %4 = trunc i64 %and.i3.i to i32
+  %4 = trunc nuw nsw i64 %and.i3.i to i32
   %conv.i.i = and i32 %4, 2047
   %5 = add nsw i32 %conv.i.i, -1076
   %sub.i = select i1 %cmp.i.i.i, i32 -1075, i32 %5
@@ -291,7 +291,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %18, label %while.body.i.i.i, label %while.end.loopexit.i.i.i, !llvm.loop !4
 
 while.end.loopexit.i.i.i:                         ; preds = %while.body.i.i.i
-  %19 = trunc i64 %indvars.iv.next.i.i.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i.i.i to i32
   br label %_ZN17double_conversionL10ReadUint64ENS_6VectorIKcEEPi.exit.i.i
 
 _ZN17double_conversionL10ReadUint64ENS_6VectorIKcEEPi.exit.i.i: ; preds = %while.end.loopexit.i.i.i, %lor.lhs.false
@@ -635,7 +635,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %arrayidx.i.i.i.le = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
-  %1 = trunc i64 %indvars.iv.i.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %sub.i.i.i = sub nsw i32 %buffer.coerce1, %1
   br label %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i
 
@@ -652,7 +652,7 @@ _ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i: ; preds = %for
 
 for.cond.i.i:                                     ; preds = %for.body.i9.i, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i
   %indvars.iv.i6.i = phi i64 [ %4, %for.body.i9.i ], [ %2, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i ]
-  %3 = trunc i64 %indvars.iv.i6.i to i32
+  %3 = trunc nuw i64 %indvars.iv.i6.i to i32
   %cmp.i.i = icmp sgt i32 %3, 0
   br i1 %cmp.i.i, label %for.body.i9.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i
 
@@ -700,7 +700,7 @@ if.end.i:                                         ; preds = %_ZN17double_convers
   %mul.i.i = select i1 %cmp.i.i.i.i, i64 %8, i64 %9
   %add.i.i1 = or disjoint i64 %mul.i.i, 1
   %and.i3.i.i = lshr i64 %7, 52
-  %10 = trunc i64 %and.i3.i.i to i32
+  %10 = trunc nuw nsw i64 %and.i3.i.i to i32
   %conv.i.i.i = and i32 %10, 2047
   %11 = add nsw i32 %conv.i.i.i, -1076
   %sub.i.i2 = select i1 %cmp.i.i.i.i, i32 -1075, i32 %11
@@ -787,7 +787,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %arrayidx.i.i.i.le = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
-  %1 = trunc i64 %indvars.iv.i.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %sub.i.i.i = sub nsw i32 %buffer.coerce1, %1
   br label %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i
 
@@ -804,7 +804,7 @@ _ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i: ; preds = %for
 
 for.cond.i.i:                                     ; preds = %for.body.i9.i, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i
   %indvars.iv.i6.i = phi i64 [ %4, %for.body.i9.i ], [ %2, %_ZN17double_conversionL16TrimLeadingZerosENS_6VectorIKcEE.exit.i ]
-  %3 = trunc i64 %indvars.iv.i6.i to i32
+  %3 = trunc nuw i64 %indvars.iv.i6.i to i32
   %cmp.i.i = icmp sgt i32 %3, 0
   br i1 %cmp.i.i, label %for.body.i9.i, label %_ZN17double_conversion17TrimTrailingZerosENS_6VectorIKcEE.exit.thread.i
 
@@ -937,7 +937,7 @@ _ZN17double_conversionL18SanitizedDoubletofEd.exit40: ; preds = %if.then.i34, %i
 if.else:                                          ; preds = %_ZN17double_conversionL18SanitizedDoubletofEd.exit40
   %4 = bitcast double %retval.0.i177488 to i64
   %cmp.i41 = icmp eq i64 %4, 9218868437227405312
-  br i1 %cmp.i41, label %if.then2.i55, label %if.end.i42
+  br i1 %cmp.i41, label %if.end11, label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.else
   %cmp3.not.i43 = icmp sgt i64 %4, -1
@@ -958,7 +958,7 @@ if.then.i53:                                      ; preds = %_ZNK17double_conver
   %cmp1.i54 = fcmp ult double %retval.0.i48, 0x47EFFFFFF0000000
   br i1 %cmp1.i54, label %if.end11, label %if.then2.i55
 
-if.then2.i55:                                     ; preds = %if.else, %if.then.i53
+if.then2.i55:                                     ; preds = %if.then.i53
   br label %if.end11
 
 if.else3.i57:                                     ; preds = %land.lhs.true.i44, %_ZNK17double_conversion6Double10NextDoubleEv.exit51
@@ -966,8 +966,8 @@ if.else3.i57:                                     ; preds = %land.lhs.true.i44, 
   %conv4.i58 = fptrunc double %retval.0.i4893 to float
   br label %if.end11
 
-if.end11:                                         ; preds = %if.else3.i57, %if.then2.i55, %if.then.i53, %_ZN17double_conversionL18SanitizedDoubletofEd.exit40
-  %f4.0 = phi float [ %retval.0.i37, %_ZN17double_conversionL18SanitizedDoubletofEd.exit40 ], [ 0x7FF0000000000000, %if.then2.i55 ], [ %conv4.i58, %if.else3.i57 ], [ 0x47EFFFFFE0000000, %if.then.i53 ]
+if.end11:                                         ; preds = %if.else, %if.else3.i57, %if.then2.i55, %if.then.i53, %_ZN17double_conversionL18SanitizedDoubletofEd.exit40
+  %f4.0 = phi float [ %retval.0.i37, %_ZN17double_conversionL18SanitizedDoubletofEd.exit40 ], [ %conv4.i58, %if.else3.i57 ], [ 0x47EFFFFFE0000000, %if.then.i53 ], [ 0x7FF0000000000000, %if.then2.i55 ], [ 0x7FF0000000000000, %if.else ]
   %cmp12 = fcmp oeq float %retval.0.i29, %f4.0
   br i1 %cmp12, label %return, label %if.end14
 

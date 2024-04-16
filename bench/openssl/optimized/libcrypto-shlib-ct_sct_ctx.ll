@@ -183,7 +183,7 @@ declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_delete_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ct_x509_cert_fixup(ptr noundef %cert, ptr noundef %presigner) unnamed_addr #0 {
+define internal fastcc i32 @ct_x509_cert_fixup(ptr noundef %cert, ptr noundef %presigner) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %presigner, null
   br i1 %cmp, label %return, label %if.end
@@ -232,12 +232,11 @@ if.end18:                                         ; preds = %if.end13
   %call19 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %presigner) #3
   %call20 = tail call i32 @X509_set_issuer_name(ptr noundef %cert, ptr noundef %call19) #3
   %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %return, label %if.end23
+  %brmerge = or i1 %cmp14, %tobool21.not
+  %not.tobool21.not = xor i1 %tobool21.not, true
+  br i1 %brmerge, label %return, label %if.then25
 
-if.end23:                                         ; preds = %if.end18
-  br i1 %cmp14, label %if.end40, label %if.then25
-
-if.then25:                                        ; preds = %if.end23
+if.then25:                                        ; preds = %if.end18
   %call26 = tail call ptr @X509_get_ext(ptr noundef nonnull %presigner, i32 noundef %call.i) #3
   %call27 = tail call ptr @X509_get_ext(ptr noundef %cert, i32 noundef %call.i20) #3
   %cmp28 = icmp eq ptr %call26, null
@@ -252,14 +251,12 @@ if.end32:                                         ; preds = %if.then25
 
 lor.lhs.false35:                                  ; preds = %if.end32
   %call36 = tail call i32 @X509_EXTENSION_set_data(ptr noundef nonnull %call27, ptr noundef nonnull %call33) #3
-  %tobool37.not = icmp eq i32 %call36, 0
-  br i1 %tobool37.not, label %return, label %if.end40
-
-if.end40:                                         ; preds = %lor.lhs.false35, %if.end23
+  %tobool37.not = icmp ne i32 %call36, 0
   br label %return
 
-return:                                           ; preds = %if.end32, %lor.lhs.false35, %if.then25, %if.end18, %if.end13, %if.end5, %ct_x509_get_ext.exit26, %entry, %if.end40
-  %retval.0 = phi i32 [ 1, %if.end40 ], [ 1, %entry ], [ 0, %ct_x509_get_ext.exit26 ], [ 0, %if.end5 ], [ 0, %if.end13 ], [ 0, %if.end18 ], [ 0, %if.then25 ], [ 0, %lor.lhs.false35 ], [ 0, %if.end32 ]
+return:                                           ; preds = %if.end18, %lor.lhs.false35, %if.end32, %if.then25, %if.end13, %if.end5, %ct_x509_get_ext.exit26, %entry
+  %retval.0.shrunk = phi i1 [ true, %entry ], [ false, %ct_x509_get_ext.exit26 ], [ false, %if.end5 ], [ false, %if.end13 ], [ %not.tobool21.not, %if.end18 ], [ false, %if.then25 ], [ false, %if.end32 ], [ %tobool37.not, %lor.lhs.false35 ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 

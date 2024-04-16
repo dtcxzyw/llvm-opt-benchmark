@@ -3358,8 +3358,8 @@ _ZNKSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EE12_M_check_lenEmPKc.e
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
-  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 96076792050570581)
+  %cond.i = select i1 %cmp7.i, i64 96076792050570581, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
@@ -3394,10 +3394,10 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !19
 
 lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #23
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #23
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %cond.i19, ptr noundef %__cur.010.i.i.i.i.i)
           to label %invoke.cont3.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
 
@@ -3406,21 +3406,21 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i
           to label %unreachable.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
 
 lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.i.i, %lpad.i.i.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body.thread unwind label %terminate.lpad.i.i.i.i.i
 
 lpad.body.thread:                                 ; preds = %lpad2.i.i.i.i.i
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #23
+  %6 = extractvalue { ptr, i32 } %5, 0
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #23
   br label %if.then
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #24
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #24
   unreachable
 
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
@@ -3445,10 +3445,10 @@ for.inc.i.i.i.i.i30:                              ; preds = %for.body.i.i.i.i.i2
   br i1 %cmp.not.i.i.i.i.i33, label %invoke.cont14, label %for.body.i.i.i.i.i21, !llvm.loop !19
 
 lpad.i.i.i.i.i24:                                 ; preds = %for.body.i.i.i.i.i21
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #23
+  %11 = extractvalue { ptr, i32 } %10, 0
+  %12 = tail call ptr @__cxa_begin_catch(ptr %11) #23
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %__cur.010.i.i.i.i.i22)
           to label %invoke.cont3.i.i.i.i.i28 unwind label %lpad2.i.i.i.i.i25
 
@@ -3457,21 +3457,21 @@ invoke.cont3.i.i.i.i.i28:                         ; preds = %lpad.i.i.i.i.i24
           to label %unreachable.i.i.i.i.i29 unwind label %lpad2.i.i.i.i.i25
 
 lpad2.i.i.i.i.i25:                                ; preds = %invoke.cont3.i.i.i.i.i28, %lpad.i.i.i.i.i24
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %lpad.body.thread48 unwind label %terminate.lpad.i.i.i.i.i26
 
 lpad.body.thread48:                               ; preds = %lpad2.i.i.i.i.i25
-  %15 = extractvalue { ptr, i32 } %14, 0
-  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #23
+  %14 = extractvalue { ptr, i32 } %13, 0
+  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #23
   br label %if.else
 
 terminate.lpad.i.i.i.i.i26:                       ; preds = %lpad2.i.i.i.i.i25
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #24
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
 unreachable.i.i.i.i.i29:                          ; preds = %invoke.cont3.i.i.i.i.i28
@@ -3496,10 +3496,10 @@ _ZNSt12_Vector_baseIN8facebook5velox4exec13TypeSignatureESaIS3_EE13_M_deallocate
   ret void
 
 lpad.body:                                        ; preds = %_ZNSt12_Vector_baseIN8facebook5velox4exec13TypeSignatureESaIS3_EE11_M_allocateEm.exit
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #23
+  %19 = extractvalue { ptr, i32 } %18, 0
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #23
   %tobool.not = icmp eq ptr %cond.i19, null
   br i1 %tobool.not, label %if.then, label %if.else
 
@@ -3513,7 +3513,7 @@ if.else:                                          ; preds = %lpad.body.thread48,
           to label %if.end unwind label %lpad19
 
 lpad19:                                           ; preds = %if.else, %invoke.cont21
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -3531,13 +3531,13 @@ invoke.cont21:                                    ; preds = %if.then.i41, %if.en
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
 terminate.lpad:                                   ; preds = %lpad19
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #24
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #24
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -3714,11 +3714,11 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %add.i.i.i7, i64 1)
   %add.i = add i64 %.sroa.speculated.i, %add.i.i.i7
   %cmp7.i = icmp ult i64 %add.i, %add.i.i.i7
-  %12 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775744)
-  %13 = add nuw nsw i64 %12, 63
-  %sub.i.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %13
-  %14 = lshr i64 %sub.i.i, 3
-  %mul.i.i.i9 = and i64 %14, 1152921504606846968
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775744)
+  %12 = add nuw nsw i64 %spec.select.i, 63
+  %sub.i.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %12
+  %13 = lshr i64 %sub.i.i, 3
+  %mul.i.i.i9 = and i64 %13, 1152921504606846968
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i9) #25
   %sub.ptr.lhs.cast.i.i.i.i.i.i18 = ptrtoint ptr %__position.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i18, %sub.ptr.rhs.cast.i.i.i
@@ -3746,22 +3746,22 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt14_Bit_referen
   %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %15 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %15, %shl.i.i.i.i.i.i.i
+  %14 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i.i = and i64 %14, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i22, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %16 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i21 = or i64 %16, %shl.i5.i.i.i.i.i.i
+  %15 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i21 = or i64 %15, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i22:                          ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i23 = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %17 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i24 = and i64 %17, %not.i.i.i.i.i.i.i23
+  %16 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i24 = and i64 %16, %not.i.i.i.i.i.i.i23
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i22, %if.then.i.i.i.i.i.i.i
@@ -3800,14 +3800,14 @@ _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_
   br i1 %__x, label %if.then.i41, label %if.else.i38
 
 if.then.i41:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
-  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
-  %or.i42 = or i64 %18, %shl.i34
+  %17 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %or.i42 = or i64 %17, %shl.i34
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 if.else.i38:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
   %not.i39 = xor i64 %shl.i34, -1
-  %19 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
-  %and.i40 = and i64 %19, %not.i39
+  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %and.i40 = and i64 %18, %not.i39
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 _ZNSt14_Bit_referenceaSEb.exit43:                 ; preds = %if.then.i41, %if.else.i38
@@ -3831,20 +3831,20 @@ for.body.i.i.i.i.i61:                             ; preds = %_ZNSt14_Bit_referen
   %shl.i.i.i.i.i.i66 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i65
   %sh_prom.i4.i.i.i.i.i = zext nneg i32 %__result.sroa.5.026.i.i.i.i.i63 to i64
   %shl.i5.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i
-  %20 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i67 = and i64 %20, %shl.i.i.i.i.i.i66
+  %19 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i67 = and i64 %19, %shl.i.i.i.i.i.i66
   %tobool.i.not.i.i.i.i.i.i68 = icmp eq i64 %and.i.i.i.i.i.i.i67, 0
   br i1 %tobool.i.not.i.i.i.i.i.i68, label %if.else.i.i.i.i.i.i.i82, label %if.then.i.i.i.i.i.i.i69
 
 if.then.i.i.i.i.i.i.i69:                          ; preds = %for.body.i.i.i.i.i61
-  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
-  %or.i.i.i.i.i.i.i70 = or i64 %21, %shl.i5.i.i.i.i.i
+  %20 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
+  %or.i.i.i.i.i.i.i70 = or i64 %20, %shl.i5.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
 
 if.else.i.i.i.i.i.i.i82:                          ; preds = %for.body.i.i.i.i.i61
   %not.i.i.i.i.i.i.i83 = xor i64 %shl.i5.i.i.i.i.i, -1
-  %22 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
-  %and.i2.i.i.i.i.i.i84 = and i64 %22, %not.i.i.i.i.i.i.i83
+  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
+  %and.i2.i.i.i.i.i.i84 = and i64 %21, %not.i.i.i.i.i.i.i83
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
 
 _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71:    ; preds = %if.else.i.i.i.i.i.i.i82, %if.then.i.i.i.i.i.i.i69
@@ -3869,14 +3869,14 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit: ; preds = %_ZNSt14_Bit
   br label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, %_ZNSt14_Bit_referenceaSEb.exit43
-  %23 = phi ptr [ %11, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %.pre, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
+  %22 = phi ptr [ %11, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %.pre, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
   %__result.sroa.0.0.lcssa.i.i.i.i.i57 = phi ptr [ %__i.sroa.0.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.0.1.i.i.i.i.i78, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
   %__result.sroa.5.0.lcssa.i.i.i.i.i58 = phi i32 [ %__i.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.5.1.i.i.i.i.i79, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
-  %tobool.not.i = icmp eq ptr %23, null
+  %tobool.not.i = icmp eq ptr %22, null
   br i1 %tobool.not.i, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %if.then.i85
 
 if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
@@ -5706,7 +5706,7 @@ if.then3.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i.i:                       ; preds = %if.then3.i.i.i.i.i.i.i, %.noexc69.i.i
   %word.0.i.i.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i.i.i, %.noexc69.i.i ], [ %and.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i ]
   %235 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i.i = trunc i64 %235 to i32
+  %cast.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %235 to i32
   %add.i26.i.i.i.i.i.i.i = or disjoint i32 %233, %cast.i.i.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i.i.i)
           to label %.noexc69.i.i unwind label %lpad16.loopexit.split-lp.loopexit.i.i
@@ -5744,7 +5744,7 @@ while.body.preheader.i40.i.i.i.i.i.i.i:           ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i.i:                     ; preds = %.noexc70.i.i, %while.body.preheader.i40.i.i.i.i.i.i.i
   %word.0.i43.i.i.i.i.i.i.i = phi i64 [ %and6.i47.i.i.i.i.i.i.i, %.noexc70.i.i ], [ %and.i38.i.i.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i.i.i ]
   %237 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i.i = trunc i64 %237 to i32
+  %cast.i44.i.i.i.i.i.i.i = trunc nuw nsw i64 %237 to i32
   %add.i45.i.i.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i.i.i, %cast.i44.i.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i.i.i)
           to label %.noexc70.i.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
@@ -5802,7 +5802,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %.noexc71.i.i, %for.
 while.body.i55.i.i.i.i.i.i.i:                     ; preds = %.noexc72.i.i, %while.body.lr.ph.i.i.i.i.i.i.i.i
   %word.013.i.i.i.i.i.i.i.i = phi i64 [ %238, %while.body.lr.ph.i.i.i.i.i.i.i.i ], [ %and.i58.i.i.i.i.i.i.i, %.noexc72.i.i ]
   %239 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i.i = trunc i64 %239 to i32
+  %cast.i56.i.i.i.i.i.i.i = trunc nuw nsw i64 %239 to i32
   %add10.i.i.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i.i.i, %cast.i56.i.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i.i.i)
           to label %.noexc72.i.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
@@ -5838,7 +5838,7 @@ if.then19.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i.i:                     ; preds = %if.then19.i.i.i.i.i.i.i, %.noexc73.i.i
   %word.0.i71.i.i.i.i.i.i.i = phi i64 [ %and6.i75.i.i.i.i.i.i.i, %.noexc73.i.i ], [ %and.i66.i.i.i.i.i.i.i, %if.then19.i.i.i.i.i.i.i ]
   %241 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i.i = trunc i64 %241 to i32
+  %cast.i72.i.i.i.i.i.i.i = trunc nuw nsw i64 %241 to i32
   %add.i73.i.i.i.i.i.i.i = or disjoint i32 %233, %cast.i72.i.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i.i.i)
           to label %.noexc73.i.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
@@ -6089,7 +6089,7 @@ if.then3.i.i.i.i.i190.i.i:                        ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i.i:                    ; preds = %if.then3.i.i.i.i.i190.i.i, %.noexc2.i.i.i
   %word.0.i.i.i.i.i.i209.i.i = phi i64 [ %and6.i.i.i.i.i.i213.i.i, %.noexc2.i.i.i ], [ %and.i.i.i.i.i.i206.i.i, %if.then3.i.i.i.i.i190.i.i ]
   %270 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i.i = trunc i64 %270 to i32
+  %cast.i.i.i.i.i.i210.i.i = trunc nuw nsw i64 %270 to i32
   %add.i26.i.i.i.i.i211.i.i = or disjoint i32 %268, %cast.i.i.i.i.i.i210.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i26.i.i.i.i.i211.i.i)
           to label %.noexc2.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.i.i.i
@@ -6127,7 +6127,7 @@ while.body.preheader.i40.i.i.i.i.i128.i.i:        ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i.i:                  ; preds = %.noexc3.i.i.i, %while.body.preheader.i40.i.i.i.i.i128.i.i
   %word.0.i43.i.i.i.i.i131.i.i = phi i64 [ %and6.i47.i.i.i.i.i136.i.i, %.noexc3.i.i.i ], [ %and.i38.i.i.i.i.i126.i.i, %while.body.preheader.i40.i.i.i.i.i128.i.i ]
   %272 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i.i = trunc i64 %272 to i32
+  %cast.i44.i.i.i.i.i132.i.i = trunc nuw nsw i64 %272 to i32
   %add.i45.i.i.i.i.i133.i.i = or disjoint i32 %mul.i41.i.i.i.i.i129.i.i, %cast.i44.i.i.i.i.i132.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i45.i.i.i.i.i133.i.i)
           to label %.noexc3.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
@@ -6185,7 +6185,7 @@ for.body.i.i.i.i.i.i176.i.i:                      ; preds = %.noexc4.i.i.i, %for
 while.body.i55.i.i.i.i.i183.i.i:                  ; preds = %.noexc5.i.i.i, %while.body.lr.ph.i.i.i.i.i.i181.i.i
   %word.013.i.i.i.i.i.i184.i.i = phi i64 [ %273, %while.body.lr.ph.i.i.i.i.i.i181.i.i ], [ %and.i58.i.i.i.i.i188.i.i, %.noexc5.i.i.i ]
   %274 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i.i = trunc i64 %274 to i32
+  %cast.i56.i.i.i.i.i185.i.i = trunc nuw nsw i64 %274 to i32
   %add10.i.i.i.i.i.i186.i.i = or disjoint i32 %mul9.i.i.i.i.i.i182.i.i, %cast.i56.i.i.i.i.i185.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i.i, i32 noundef %add10.i.i.i.i.i.i186.i.i)
           to label %.noexc5.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
@@ -6221,7 +6221,7 @@ if.then19.i.i.i.i.i151.i.i:                       ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i.i:                  ; preds = %if.then19.i.i.i.i.i151.i.i, %.noexc6.i.i.i
   %word.0.i71.i.i.i.i.i162.i.i = phi i64 [ %and6.i75.i.i.i.i.i166.i.i, %.noexc6.i.i.i ], [ %and.i66.i.i.i.i.i159.i.i, %if.then19.i.i.i.i.i151.i.i ]
   %276 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i.i = trunc i64 %276 to i32
+  %cast.i72.i.i.i.i.i163.i.i = trunc nuw nsw i64 %276 to i32
   %add.i73.i.i.i.i.i164.i.i = or disjoint i32 %268, %cast.i72.i.i.i.i.i163.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i.i, i32 noundef %add.i73.i.i.i.i.i164.i.i)
           to label %.noexc6.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
@@ -6519,7 +6519,7 @@ if.then3.i.i.i.i.i398.i.i:                        ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i.i:                    ; preds = %if.then3.i.i.i.i.i398.i.i, %.noexc2.i422.i.i
   %word.0.i.i.i.i.i.i417.i.i = phi i64 [ %and6.i.i.i.i.i.i424.i.i, %.noexc2.i422.i.i ], [ %and.i.i.i.i.i.i414.i.i, %if.then3.i.i.i.i.i398.i.i ]
   %308 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i.i = trunc i64 %308 to i32
+  %cast.i.i.i.i.i.i418.i.i = trunc nuw nsw i64 %308 to i32
   %add.i26.i.i.i.i.i419.i.i = or disjoint i32 %306, %cast.i.i.i.i.i.i418.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i26.i.i.i.i.i419.i.i)
           to label %.noexc2.i422.i.i unwind label %lpad.loopexit.split-lp.loopexit.i420.i.i
@@ -6557,7 +6557,7 @@ while.body.preheader.i40.i.i.i.i.i317.i.i:        ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i.i:                  ; preds = %.noexc3.i333.i.i, %while.body.preheader.i40.i.i.i.i.i317.i.i
   %word.0.i43.i.i.i.i.i320.i.i = phi i64 [ %and6.i47.i.i.i.i.i335.i.i, %.noexc3.i333.i.i ], [ %and.i38.i.i.i.i.i315.i.i, %while.body.preheader.i40.i.i.i.i.i317.i.i ]
   %310 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i.i = trunc i64 %310 to i32
+  %cast.i44.i.i.i.i.i321.i.i = trunc nuw nsw i64 %310 to i32
   %add.i45.i.i.i.i.i322.i.i = or disjoint i32 %mul.i41.i.i.i.i.i318.i.i, %cast.i44.i.i.i.i.i321.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i45.i.i.i.i.i322.i.i)
           to label %.noexc3.i333.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i.i
@@ -6615,7 +6615,7 @@ for.body.i.i.i.i.i.i378.i.i:                      ; preds = %.noexc4.i383.i.i, %
 while.body.i55.i.i.i.i.i388.i.i:                  ; preds = %.noexc5.i394.i.i, %while.body.lr.ph.i.i.i.i.i.i386.i.i
   %word.013.i.i.i.i.i.i389.i.i = phi i64 [ %311, %while.body.lr.ph.i.i.i.i.i.i386.i.i ], [ %and.i58.i.i.i.i.i396.i.i, %.noexc5.i394.i.i ]
   %312 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i.i = trunc i64 %312 to i32
+  %cast.i56.i.i.i.i.i390.i.i = trunc nuw nsw i64 %312 to i32
   %add10.i.i.i.i.i.i391.i.i = or disjoint i32 %mul9.i.i.i.i.i.i387.i.i, %cast.i56.i.i.i.i.i390.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i.i, i32 noundef %add10.i.i.i.i.i.i391.i.i)
           to label %.noexc5.i394.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i.i
@@ -6651,7 +6651,7 @@ if.then19.i.i.i.i.i350.i.i:                       ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i.i:                  ; preds = %if.then19.i.i.i.i.i350.i.i, %.noexc6.i366.i.i
   %word.0.i71.i.i.i.i.i361.i.i = phi i64 [ %and6.i75.i.i.i.i.i368.i.i, %.noexc6.i366.i.i ], [ %and.i66.i.i.i.i.i358.i.i, %if.then19.i.i.i.i.i350.i.i ]
   %314 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i.i = trunc i64 %314 to i32
+  %cast.i72.i.i.i.i.i362.i.i = trunc nuw nsw i64 %314 to i32
   %add.i73.i.i.i.i.i363.i.i = or disjoint i32 %306, %cast.i72.i.i.i.i.i362.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE33EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i.i, i32 noundef %add.i73.i.i.i.i.i363.i.i)
           to label %.noexc6.i366.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i.i
@@ -7390,7 +7390,7 @@ if.then3.i.i.i.i.i.i735.i:                        ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i753.i:                    ; preds = %if.then3.i.i.i.i.i.i735.i, %.noexc69.i759.i
   %word.0.i.i.i.i.i.i.i754.i = phi i64 [ %and6.i.i.i.i.i.i.i761.i, %.noexc69.i759.i ], [ %and.i.i.i.i.i.i.i751.i, %if.then3.i.i.i.i.i.i735.i ]
   %403 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i754.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i755.i = trunc i64 %403 to i32
+  %cast.i.i.i.i.i.i.i755.i = trunc nuw nsw i64 %403 to i32
   %add.i26.i.i.i.i.i.i756.i = or disjoint i32 %401, %cast.i.i.i.i.i.i.i755.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i26.i.i.i.i.i.i756.i)
           to label %.noexc69.i759.i unwind label %lpad16.loopexit.split-lp.loopexit.i757.i
@@ -7428,7 +7428,7 @@ while.body.preheader.i40.i.i.i.i.i.i662.i:        ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i664.i:                  ; preds = %.noexc70.i670.i, %while.body.preheader.i40.i.i.i.i.i.i662.i
   %word.0.i43.i.i.i.i.i.i665.i = phi i64 [ %and6.i47.i.i.i.i.i.i672.i, %.noexc70.i670.i ], [ %and.i38.i.i.i.i.i.i660.i, %while.body.preheader.i40.i.i.i.i.i.i662.i ]
   %405 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i665.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i666.i = trunc i64 %405 to i32
+  %cast.i44.i.i.i.i.i.i666.i = trunc nuw nsw i64 %405 to i32
   %add.i45.i.i.i.i.i.i667.i = or disjoint i32 %mul.i41.i.i.i.i.i.i663.i, %cast.i44.i.i.i.i.i.i666.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i45.i.i.i.i.i.i667.i)
           to label %.noexc70.i670.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i668.i
@@ -7486,7 +7486,7 @@ for.body.i.i.i.i.i.i.i715.i:                      ; preds = %.noexc71.i720.i, %f
 while.body.i55.i.i.i.i.i.i725.i:                  ; preds = %.noexc72.i731.i, %while.body.lr.ph.i.i.i.i.i.i.i723.i
   %word.013.i.i.i.i.i.i.i726.i = phi i64 [ %406, %while.body.lr.ph.i.i.i.i.i.i.i723.i ], [ %and.i58.i.i.i.i.i.i733.i, %.noexc72.i731.i ]
   %407 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i726.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i727.i = trunc i64 %407 to i32
+  %cast.i56.i.i.i.i.i.i727.i = trunc nuw nsw i64 %407 to i32
   %add10.i.i.i.i.i.i.i728.i = or disjoint i32 %mul9.i.i.i.i.i.i.i724.i, %cast.i56.i.i.i.i.i.i727.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i639.i, i32 noundef %add10.i.i.i.i.i.i.i728.i)
           to label %.noexc72.i731.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i729.i
@@ -7522,7 +7522,7 @@ if.then19.i.i.i.i.i.i687.i:                       ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i697.i:                  ; preds = %if.then19.i.i.i.i.i.i687.i, %.noexc73.i703.i
   %word.0.i71.i.i.i.i.i.i698.i = phi i64 [ %and6.i75.i.i.i.i.i.i705.i, %.noexc73.i703.i ], [ %and.i66.i.i.i.i.i.i695.i, %if.then19.i.i.i.i.i.i687.i ]
   %409 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i698.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i699.i = trunc i64 %409 to i32
+  %cast.i72.i.i.i.i.i.i699.i = trunc nuw nsw i64 %409 to i32
   %add.i73.i.i.i.i.i.i700.i = or disjoint i32 %401, %cast.i72.i.i.i.i.i.i699.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i638.i, i32 noundef %add.i73.i.i.i.i.i.i700.i)
           to label %.noexc73.i703.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i701.i
@@ -7773,7 +7773,7 @@ if.then3.i.i.i.i.i190.i554.i:                     ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i572.i:                 ; preds = %if.then3.i.i.i.i.i190.i554.i, %.noexc2.i.i578.i
   %word.0.i.i.i.i.i.i209.i573.i = phi i64 [ %and6.i.i.i.i.i.i213.i580.i, %.noexc2.i.i578.i ], [ %and.i.i.i.i.i.i206.i570.i, %if.then3.i.i.i.i.i190.i554.i ]
   %438 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i573.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i574.i = trunc i64 %438 to i32
+  %cast.i.i.i.i.i.i210.i574.i = trunc nuw nsw i64 %438 to i32
   %add.i26.i.i.i.i.i211.i575.i = or disjoint i32 %436, %cast.i.i.i.i.i.i210.i574.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i26.i.i.i.i.i211.i575.i)
           to label %.noexc2.i.i578.i unwind label %lpad.loopexit.split-lp.loopexit.i.i576.i
@@ -7811,7 +7811,7 @@ while.body.preheader.i40.i.i.i.i.i128.i474.i:     ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i476.i:               ; preds = %.noexc3.i.i489.i, %while.body.preheader.i40.i.i.i.i.i128.i474.i
   %word.0.i43.i.i.i.i.i131.i477.i = phi i64 [ %and6.i47.i.i.i.i.i136.i491.i, %.noexc3.i.i489.i ], [ %and.i38.i.i.i.i.i126.i472.i, %while.body.preheader.i40.i.i.i.i.i128.i474.i ]
   %440 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i477.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i478.i = trunc i64 %440 to i32
+  %cast.i44.i.i.i.i.i132.i478.i = trunc nuw nsw i64 %440 to i32
   %add.i45.i.i.i.i.i133.i479.i = or disjoint i32 %mul.i41.i.i.i.i.i129.i475.i, %cast.i44.i.i.i.i.i132.i478.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i45.i.i.i.i.i133.i479.i)
           to label %.noexc3.i.i489.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i480.i
@@ -7869,7 +7869,7 @@ for.body.i.i.i.i.i.i176.i534.i:                   ; preds = %.noexc4.i.i539.i, %
 while.body.i55.i.i.i.i.i183.i544.i:               ; preds = %.noexc5.i.i550.i, %while.body.lr.ph.i.i.i.i.i.i181.i542.i
   %word.013.i.i.i.i.i.i184.i545.i = phi i64 [ %441, %while.body.lr.ph.i.i.i.i.i.i181.i542.i ], [ %and.i58.i.i.i.i.i188.i552.i, %.noexc5.i.i550.i ]
   %442 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i545.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i546.i = trunc i64 %442 to i32
+  %cast.i56.i.i.i.i.i185.i546.i = trunc nuw nsw i64 %442 to i32
   %add10.i.i.i.i.i.i186.i547.i = or disjoint i32 %mul9.i.i.i.i.i.i182.i543.i, %cast.i56.i.i.i.i.i185.i546.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i445.i, i32 noundef %add10.i.i.i.i.i.i186.i547.i)
           to label %.noexc5.i.i550.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i548.i
@@ -7905,7 +7905,7 @@ if.then19.i.i.i.i.i151.i506.i:                    ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i516.i:               ; preds = %if.then19.i.i.i.i.i151.i506.i, %.noexc6.i.i522.i
   %word.0.i71.i.i.i.i.i162.i517.i = phi i64 [ %and6.i75.i.i.i.i.i166.i524.i, %.noexc6.i.i522.i ], [ %and.i66.i.i.i.i.i159.i514.i, %if.then19.i.i.i.i.i151.i506.i ]
   %444 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i517.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i518.i = trunc i64 %444 to i32
+  %cast.i72.i.i.i.i.i163.i518.i = trunc nuw nsw i64 %444 to i32
   %add.i73.i.i.i.i.i164.i519.i = or disjoint i32 %436, %cast.i72.i.i.i.i.i163.i518.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i444.i, i32 noundef %add.i73.i.i.i.i.i164.i519.i)
           to label %.noexc6.i.i522.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i520.i
@@ -8203,7 +8203,7 @@ if.then3.i.i.i.i.i398.i346.i:                     ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i364.i:                 ; preds = %if.then3.i.i.i.i.i398.i346.i, %.noexc2.i422.i370.i
   %word.0.i.i.i.i.i.i417.i365.i = phi i64 [ %and6.i.i.i.i.i.i424.i372.i, %.noexc2.i422.i370.i ], [ %and.i.i.i.i.i.i414.i362.i, %if.then3.i.i.i.i.i398.i346.i ]
   %476 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i365.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i366.i = trunc i64 %476 to i32
+  %cast.i.i.i.i.i.i418.i366.i = trunc nuw nsw i64 %476 to i32
   %add.i26.i.i.i.i.i419.i367.i = or disjoint i32 %474, %cast.i.i.i.i.i.i418.i366.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i26.i.i.i.i.i419.i367.i)
           to label %.noexc2.i422.i370.i unwind label %lpad.loopexit.split-lp.loopexit.i420.i368.i
@@ -8241,7 +8241,7 @@ while.body.preheader.i40.i.i.i.i.i317.i264.i:     ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i266.i:               ; preds = %.noexc3.i333.i281.i, %while.body.preheader.i40.i.i.i.i.i317.i264.i
   %word.0.i43.i.i.i.i.i320.i267.i = phi i64 [ %and6.i47.i.i.i.i.i335.i283.i, %.noexc3.i333.i281.i ], [ %and.i38.i.i.i.i.i315.i262.i, %while.body.preheader.i40.i.i.i.i.i317.i264.i ]
   %478 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i267.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i268.i = trunc i64 %478 to i32
+  %cast.i44.i.i.i.i.i321.i268.i = trunc nuw nsw i64 %478 to i32
   %add.i45.i.i.i.i.i322.i269.i = or disjoint i32 %mul.i41.i.i.i.i.i318.i265.i, %cast.i44.i.i.i.i.i321.i268.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i45.i.i.i.i.i322.i269.i)
           to label %.noexc3.i333.i281.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i270.i
@@ -8299,7 +8299,7 @@ for.body.i.i.i.i.i.i378.i326.i:                   ; preds = %.noexc4.i383.i331.i
 while.body.i55.i.i.i.i.i388.i336.i:               ; preds = %.noexc5.i394.i342.i, %while.body.lr.ph.i.i.i.i.i.i386.i334.i
   %word.013.i.i.i.i.i.i389.i337.i = phi i64 [ %479, %while.body.lr.ph.i.i.i.i.i.i386.i334.i ], [ %and.i58.i.i.i.i.i396.i344.i, %.noexc5.i394.i342.i ]
   %480 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i337.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i338.i = trunc i64 %480 to i32
+  %cast.i56.i.i.i.i.i390.i338.i = trunc nuw nsw i64 %480 to i32
   %add10.i.i.i.i.i.i391.i339.i = or disjoint i32 %mul9.i.i.i.i.i.i387.i335.i, %cast.i56.i.i.i.i.i390.i338.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i152.i, i32 noundef %add10.i.i.i.i.i.i391.i339.i)
           to label %.noexc5.i394.i342.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i340.i
@@ -8335,7 +8335,7 @@ if.then19.i.i.i.i.i350.i298.i:                    ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i308.i:               ; preds = %if.then19.i.i.i.i.i350.i298.i, %.noexc6.i366.i314.i
   %word.0.i71.i.i.i.i.i361.i309.i = phi i64 [ %and6.i75.i.i.i.i.i368.i316.i, %.noexc6.i366.i314.i ], [ %and.i66.i.i.i.i.i358.i306.i, %if.then19.i.i.i.i.i350.i298.i ]
   %482 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i309.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i310.i = trunc i64 %482 to i32
+  %cast.i72.i.i.i.i.i362.i310.i = trunc nuw nsw i64 %482 to i32
   %add.i73.i.i.i.i.i363.i311.i = or disjoint i32 %474, %cast.i72.i.i.i.i.i362.i310.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE35EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i151.i, i32 noundef %add.i73.i.i.i.i.i363.i311.i)
           to label %.noexc6.i366.i314.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i312.i
@@ -8900,7 +8900,7 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
 while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i, %.noexc174
   %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %.noexc174 ], [ %and.i.i.i.i.i.i, %if.then3.i.i.i.i.i ]
   %546 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i = trunc i64 %546 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %546 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %544, %cast.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i)
           to label %.noexc174 unwind label %lpad38.loopexit.split-lp.loopexit
@@ -8938,7 +8938,7 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i:                         ; preds = %.noexc175, %while.body.preheader.i40.i.i.i.i.i
   %word.0.i43.i.i.i.i.i = phi i64 [ %and6.i47.i.i.i.i.i, %.noexc175 ], [ %and.i38.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i ]
   %548 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i = trunc i64 %548 to i32
+  %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %548 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i)
           to label %.noexc175 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -8996,7 +8996,7 @@ for.body.i.i.i.i.i.i165:                          ; preds = %.noexc176, %for.bod
 while.body.i55.i.i.i.i.i:                         ; preds = %.noexc177, %while.body.lr.ph.i.i.i.i.i.i
   %word.013.i.i.i.i.i.i = phi i64 [ %549, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i58.i.i.i.i.i, %.noexc177 ]
   %550 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i = trunc i64 %550 to i32
+  %cast.i56.i.i.i.i.i = trunc nuw nsw i64 %550 to i32
   %add10.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i, %cast.i56.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i)
           to label %.noexc177 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -9032,7 +9032,7 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i7.i.i
 while.body.i70.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i, %.noexc178
   %word.0.i71.i.i.i.i.i = phi i64 [ %and6.i75.i.i.i.i.i, %.noexc178 ], [ %and.i66.i.i.i.i.i, %if.then19.i.i.i.i.i ]
   %552 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i = trunc i64 %552 to i32
+  %cast.i72.i.i.i.i.i = trunc nuw nsw i64 %552 to i32
   %add.i73.i.i.i.i.i = or disjoint i32 %544, %cast.i72.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNKS3_5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_EUlT_T0_E_EEiS7_RKNS2_13DecodedInputsESO_RNS2_12MergeResultsEENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i)
           to label %.noexc178 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -9740,14 +9740,14 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i.i.i: ; preds = %.noexc
   br label %invoke.cont3.i
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i.i355
-  %662 = trunc i64 %indvars.iv.i.i.i352 to i32
+  %662 = trunc nuw nsw i64 %indvars.iv.i.i.i352 to i32
   br label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i: ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i.i.i, %if.then26.i.i.i.i.i359
   %and.i54.sink.i.i.i.i.i = phi i64 [ %and.i54.i.i.i.i.i, %if.then26.i.i.i.i.i359 ], [ %660, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i.i.i ]
   %.sink.i.i.i.i.i = phi i32 [ %657, %if.then26.i.i.i.i.i359 ], [ %662, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i.i.i ]
   %663 = call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i.i.i, i1 true), !range !85
-  %cast.i58.i.i.i.i.i = trunc i64 %663 to i32
+  %cast.i58.i.i.i.i.i = trunc nuw nsw i64 %663 to i32
   %add.i59.i.i.i.i.i = or disjoint i32 %.sink.i.i.i.i.i, %cast.i58.i.i.i.i.i
   store i32 %add.i59.i.i.i.i.i, ptr %begin_.i.i341, align 4, !noalias !113
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i.i.i), !noalias !113
@@ -10760,7 +10760,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17S
 while.body.i.i.i.i.i:                             ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i
   %word.082.i.i.i.i.i = phi i64 [ %796, %while.body.lr.ph.i.i.i.i.i ], [ %and.i.i.i.i.i, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i ]
   %805 = call i64 @llvm.cttz.i64(i64 %word.082.i.i.i.i.i, i1 true), !range !85
-  %cast.i.i.i.i.i = trunc i64 %805 to i32
+  %cast.i.i.i.i.i = trunc nuw nsw i64 %805 to i32
   %add9.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i, %cast.i.i.i.i.i
   %.val11.val.i.i.i.i.i = load ptr, ptr %rawNewOffsets.i, align 8
   %.val11.val12.i.i.i.i.i = load ptr, ptr %rawNewSizes.i, align 8
@@ -10943,14 +10943,14 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i: ; preds = %if.then26.
   br label %invoke.cont147
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i: ; preds = %for.body.i.i.i585
-  %821 = trunc i64 %indvars.iv.i583 to i32
+  %821 = trunc nuw nsw i64 %indvars.iv.i583 to i32
   br label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i, %if.then26.i.i.i
   %and.i54.sink.i.i.i = phi i64 [ %and.i54.i.i.i, %if.then26.i.i.i ], [ %819, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %.sink.i.i.i = phi i32 [ %816, %if.then26.i.i.i ], [ %821, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %822 = call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i, i1 true), !range !85
-  %cast.i58.i.i.i = trunc i64 %822 to i32
+  %cast.i58.i.i.i = trunc nuw nsw i64 %822 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
   store i32 %add.i59.i.i.i, ptr %begin_.i493, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i)
@@ -11192,7 +11192,7 @@ for.body.i.i715:                                  ; preds = %_ZZN8facebook5velox
   br i1 %cmp.not3.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i.i, label %for.body.i.i.i.i.preheader.i.i
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %for.body.i.i715
-  %857 = trunc i64 %indvars.iv.i.i716 to i32
+  %857 = trunc nsw i64 %indvars.iv.i.i716 to i32
   br label %for.body.i.i.i.i.i.i717
 
 for.body.i.i.i.i.i.i717:                          ; preds = %for.body.i.i.i.i.i.i717, %for.body.i.i.i.i.preheader.i.i
@@ -11254,7 +11254,7 @@ while.body.i.i.i.i.i.i704:                        ; preds = %if.then3.i.i.i.i.i6
   %offset.1.i = phi i32 [ %add.i.i.i.i.i.i.i709, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i.i.i.i.i.i ], [ 0, %if.then3.i.i.i.i.i686 ]
   %word.0.i.i.i.i.i.i705 = phi i64 [ %and6.i.i.i.i.i.i711, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i702, %if.then3.i.i.i.i.i686 ]
   %866 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i705, i1 true), !range !85
-  %cast.i.i.i.i.i.i706 = trunc i64 %866 to i32
+  %cast.i.i.i.i.i.i706 = trunc nuw nsw i64 %866 to i32
   %add.i26.i.i.i.i.i707 = or disjoint i32 %864, %cast.i.i.i.i.i.i706
   %idxprom.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i707 to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %826, i64 %idxprom.i.i.i.i.i.i.i
@@ -11308,7 +11308,7 @@ while.body.i42.i.i.i.i.i663:                      ; preds = %_ZZN8facebook5velox
   %offset.2.i = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i661 ], [ %add.i.i61.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i60.i.i.i.i.i ]
   %word.0.i43.i.i.i.i.i664 = phi i64 [ %and.i38.i.i.i.i.i659, %while.body.preheader.i40.i.i.i.i.i661 ], [ %and6.i63.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i60.i.i.i.i.i ]
   %869 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i664, i1 true), !range !85
-  %cast.i44.i.i.i.i.i665 = trunc i64 %869 to i32
+  %cast.i44.i.i.i.i.i665 = trunc nuw nsw i64 %869 to i32
   %add.i45.i.i.i.i.i666 = or disjoint i32 %mul.i41.i.i.i.i.i662, %cast.i44.i.i.i.i.i665
   %idxprom.i.i46.i.i.i.i.i = sext i32 %add.i45.i.i.i.i.i666 to i64
   %arrayidx.i.i47.i.i.i.i.i = getelementptr inbounds i32, ptr %826, i64 %idxprom.i.i46.i.i.i.i.i
@@ -11402,7 +11402,7 @@ while.body.i84.i.i.i.i.i:                         ; preds = %_ZZN8facebook5velox
   %offset.6.i = phi i32 [ %offset.4.i, %while.body.lr.ph.i.i.i.i.i.i685 ], [ %add.i23.i.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i88.i.i.i.i.i ]
   %word.026.i.i.i.i.i.i = phi i64 [ %871, %while.body.lr.ph.i.i.i.i.i.i685 ], [ %and.i90.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i88.i.i.i.i.i ]
   %873 = call i64 @llvm.cttz.i64(i64 %word.026.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i85.i.i.i.i.i = trunc i64 %873 to i32
+  %cast.i85.i.i.i.i.i = trunc nuw nsw i64 %873 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i85.i.i.i.i.i
   %idxprom.i.i86.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i to i64
   %arrayidx.i11.i.i.i.i.i.i = getelementptr inbounds i32, ptr %826, i64 %idxprom.i.i86.i.i.i.i.i
@@ -11456,7 +11456,7 @@ while.body.i102.i.i.i.i.i:                        ; preds = %if.then19.i.i.i.i.i
   %offset.9.i = phi i32 [ %add.i.i121.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i120.i.i.i.i.i ], [ %offset.8.i, %if.then19.i.i.i.i.i674 ]
   %word.0.i103.i.i.i.i.i = phi i64 [ %and6.i123.i.i.i.i.i, %_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction15makeWrapCaptureERKNS0_17SelectivityVectorEiPiPNS0_6memory10MemoryPoolEENKUlT_E_clIiEEDaSB_.exit.i120.i.i.i.i.i ], [ %and.i98.i.i.i.i.i, %if.then19.i.i.i.i.i674 ]
   %876 = call i64 @llvm.cttz.i64(i64 %word.0.i103.i.i.i.i.i, i1 true), !range !85
-  %cast.i104.i.i.i.i.i = trunc i64 %876 to i32
+  %cast.i104.i.i.i.i.i = trunc nuw nsw i64 %876 to i32
   %add.i105.i.i.i.i.i = or disjoint i32 %864, %cast.i104.i.i.i.i.i
   %idxprom.i.i106.i.i.i.i.i = sext i32 %add.i105.i.i.i.i.i to i64
   %arrayidx.i.i107.i.i.i.i.i = getelementptr inbounds i32, ptr %826, i64 %idxprom.i.i106.i.i.i.i.i
@@ -13647,8 +13647,8 @@ _ZNKSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
-  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
@@ -13663,8 +13663,8 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8fac
 _ZNSt12_Vector_baseIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %cond.i17, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
+  %2 = load ptr, ptr %__args, align 8
+  store ptr %2, ptr %add.ptr, align 8
   %vector_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr null, ptr %vector_.i.i.i, align 8
   %call2.i.i.i = invoke noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
@@ -13684,8 +13684,8 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %vector_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %4 = load <2 x i64>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !157, !noalias !154
-  store <2 x i64> %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !154, !noalias !157
+  %3 = load <2 x i64>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !157, !noalias !154
+  store <2 x i64> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !154, !noalias !157
   store ptr null, ptr %vector_3.i.i.i.i.i.i.i, align 8, !alias.scope !157, !noalias !154
   tail call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i) #23, !noalias !154
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
@@ -13705,8 +13705,8 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8face
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %vector_3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 8
-  %5 = load <2 x i64>, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !163, !noalias !160
-  store <2 x i64> %5, ptr %__cur.07.i.i.i20, align 8, !alias.scope !160, !noalias !163
+  %4 = load <2 x i64>, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !163, !noalias !160
+  store <2 x i64> %4, ptr %__cur.07.i.i.i20, align 8, !alias.scope !160, !noalias !163
   store ptr null, ptr %vector_3.i.i.i.i.i.i.i23, align 8, !alias.scope !163, !noalias !160
   tail call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i21) #23, !noalias !160
   %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
@@ -13732,29 +13732,29 @@ _ZNSt12_Vector_baseIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE13_M_deall
   ret void
 
 lpad21:                                           ; preds = %invoke.cont23
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 invoke.cont23:                                    ; preds = %_ZNSt12_Vector_baseIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_M_allocateEm.exit, %invoke.cont.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZNSt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vector_.i.i.i) #23
-  %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #23
+  %7 = extractvalue { ptr, i32 } %6, 0
+  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #23
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #26
   invoke void @__cxa_rethrow() #27
           to label %unreachable unwind label %lpad21
 
 eh.resume:                                        ; preds = %lpad21
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 terminate.lpad:                                   ; preds = %lpad21
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #24
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont23
@@ -14039,8 +14039,8 @@ _ZNKSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteI
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
-  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
@@ -14055,8 +14055,8 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10u
 _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::unique_ptr.125", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load i64, ptr %__args, align 8
-  store i64 %3, ptr %add.ptr, align 8
+  %2 = load i64, ptr %__args, align 8
+  store i64 %2, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %for.body.i.i.i
@@ -14066,8 +14066,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
-  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !174, !noalias !171
-  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !171, !noalias !174
+  %3 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !174, !noalias !171
+  store i64 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !171, !noalias !174
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !174, !noalias !171
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
@@ -14085,8 +14085,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10un
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
-  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !180, !noalias !177
-  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !177, !noalias !180
+  %4 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !180, !noalias !177
+  store i64 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !177, !noalias !180
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !180, !noalias !177
   %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
@@ -14407,7 +14407,7 @@ while.body.preheader.i70:                         ; preds = %if.then3.i
 while.body.i72:                                   ; preds = %_ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorEENKUliE_clEi.exit.i104, %while.body.preheader.i70
   %word.0.i73 = phi i64 [ %and6.i106, %_ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorEENKUliE_clEi.exit.i104 ], [ %and.i68, %while.body.preheader.i70 ]
   %5 = tail call i64 @llvm.cttz.i64(i64 %word.0.i73, i1 true), !range !85
-  %cast.i74 = trunc i64 %5 to i32
+  %cast.i74 = trunc nuw nsw i64 %5 to i32
   %add.i75 = or disjoint i32 %1, %cast.i74
   %6 = load ptr, ptr %nulls_.i.i.i76, align 8
   %tobool.not.i.i.i77 = icmp eq ptr %6, null
@@ -14516,7 +14516,7 @@ while.body.preheader.i14:                         ; preds = %if.then10.i
 while.body.i16:                                   ; preds = %_ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorEENKUliE_clEi.exit.i48, %while.body.preheader.i14
   %word.0.i17 = phi i64 [ %and6.i50, %_ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorEENKUliE_clEi.exit.i48 ], [ %and.i12, %while.body.preheader.i14 ]
   %23 = tail call i64 @llvm.cttz.i64(i64 %word.0.i17, i1 true), !range !85
-  %cast.i18 = trunc i64 %23 to i32
+  %cast.i18 = trunc nuw nsw i64 %23 to i32
   %add.i19 = or disjoint i32 %mul.i15, %cast.i18
   %24 = load ptr, ptr %nulls_.i.i.i20, align 8
   %tobool.not.i.i.i21 = icmp eq ptr %24, null
@@ -14635,7 +14635,7 @@ while.body.preheader.i:                           ; preds = %if.then19.i
 while.body.i:                                     ; preds = %_ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorEENKUliE_clEi.exit.i, %while.body.preheader.i
   %word.0.i = phi i64 [ %and6.i, %_ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorEENKUliE_clEi.exit.i ], [ %and.i, %while.body.preheader.i ]
   %41 = call i64 @llvm.cttz.i64(i64 %word.0.i, i1 true), !range !85
-  %cast.i = trunc i64 %41 to i32
+  %cast.i = trunc nuw nsw i64 %41 to i32
   %add.i5 = or disjoint i32 %1, %cast.i
   %42 = load ptr, ptr %nulls_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %42, null
@@ -14842,7 +14842,7 @@ _ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17Selectivi
 while.body:                                       ; preds = %while.body.lr.ph, %_ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorEENKUliE_clEi.exit50
   %word.055 = phi i64 [ %cond, %while.body.lr.ph ], [ %and, %_ZZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorEENKUliE_clEi.exit50 ]
   %33 = tail call i64 @llvm.cttz.i64(i64 %word.055, i1 true), !range !85
-  %cast = trunc i64 %33 to i32
+  %cast = trunc nuw nsw i64 %33 to i32
   %add10 = or disjoint i32 %mul9, %cast
   %34 = load ptr, ptr %7, align 8
   %nulls_.i.i11 = getelementptr inbounds i8, ptr %34, i64 24
@@ -15854,7 +15854,7 @@ if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.then3.i.i.i.i.i.i, %.noexc69.i
   %word.0.i.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i.i, %.noexc69.i ], [ %and.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i ]
   %62 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i = trunc i64 %62 to i32
+  %cast.i.i.i.i.i.i.i = trunc nuw nsw i64 %62 to i32
   %add.i26.i.i.i.i.i.i = or disjoint i32 %60, %cast.i.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i26.i.i.i.i.i.i)
           to label %.noexc69.i unwind label %lpad16.loopexit.split-lp.loopexit.i
@@ -15892,7 +15892,7 @@ while.body.preheader.i40.i.i.i.i.i.i:             ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i:                       ; preds = %.noexc70.i, %while.body.preheader.i40.i.i.i.i.i.i
   %word.0.i43.i.i.i.i.i.i = phi i64 [ %and6.i47.i.i.i.i.i.i, %.noexc70.i ], [ %and.i38.i.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i.i ]
   %64 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i = trunc i64 %64 to i32
+  %cast.i44.i.i.i.i.i.i = trunc nuw nsw i64 %64 to i32
   %add.i45.i.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i.i, %cast.i44.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i45.i.i.i.i.i.i)
           to label %.noexc70.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -15950,7 +15950,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %.noexc71.i, %for.bo
 while.body.i55.i.i.i.i.i.i:                       ; preds = %.noexc72.i, %while.body.lr.ph.i.i.i.i.i.i.i
   %word.013.i.i.i.i.i.i.i = phi i64 [ %65, %while.body.lr.ph.i.i.i.i.i.i.i ], [ %and.i58.i.i.i.i.i.i, %.noexc72.i ]
   %66 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i = trunc i64 %66 to i32
+  %cast.i56.i.i.i.i.i.i = trunc nuw nsw i64 %66 to i32
   %add10.i.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i.i, %cast.i56.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i.i)
           to label %.noexc72.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -15986,7 +15986,7 @@ if.then19.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i:                       ; preds = %if.then19.i.i.i.i.i.i, %.noexc73.i
   %word.0.i71.i.i.i.i.i.i = phi i64 [ %and6.i75.i.i.i.i.i.i, %.noexc73.i ], [ %and.i66.i.i.i.i.i.i, %if.then19.i.i.i.i.i.i ]
   %68 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i = trunc i64 %68 to i32
+  %cast.i72.i.i.i.i.i.i = trunc nuw nsw i64 %68 to i32
   %add.i73.i.i.i.i.i.i = or disjoint i32 %60, %cast.i72.i.i.i.i.i.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i, i32 noundef %add.i73.i.i.i.i.i.i)
           to label %.noexc73.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -16240,7 +16240,7 @@ if.then3.i.i.i.i.i190.i:                          ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i:                      ; preds = %if.then3.i.i.i.i.i190.i, %.noexc2.i.i
   %word.0.i.i.i.i.i.i209.i = phi i64 [ %and6.i.i.i.i.i.i213.i, %.noexc2.i.i ], [ %and.i.i.i.i.i.i206.i, %if.then3.i.i.i.i.i190.i ]
   %97 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i = trunc i64 %97 to i32
+  %cast.i.i.i.i.i.i210.i = trunc nuw nsw i64 %97 to i32
   %add.i26.i.i.i.i.i211.i = or disjoint i32 %95, %cast.i.i.i.i.i.i210.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i26.i.i.i.i.i211.i)
           to label %.noexc2.i.i unwind label %lpad.loopexit.split-lp.loopexit.i.i
@@ -16278,7 +16278,7 @@ while.body.preheader.i40.i.i.i.i.i128.i:          ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i:                    ; preds = %.noexc3.i.i, %while.body.preheader.i40.i.i.i.i.i128.i
   %word.0.i43.i.i.i.i.i131.i = phi i64 [ %and6.i47.i.i.i.i.i136.i, %.noexc3.i.i ], [ %and.i38.i.i.i.i.i126.i, %while.body.preheader.i40.i.i.i.i.i128.i ]
   %99 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i = trunc i64 %99 to i32
+  %cast.i44.i.i.i.i.i132.i = trunc nuw nsw i64 %99 to i32
   %add.i45.i.i.i.i.i133.i = or disjoint i32 %mul.i41.i.i.i.i.i129.i, %cast.i44.i.i.i.i.i132.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i45.i.i.i.i.i133.i)
           to label %.noexc3.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
@@ -16336,7 +16336,7 @@ for.body.i.i.i.i.i.i176.i:                        ; preds = %.noexc4.i.i, %for.b
 while.body.i55.i.i.i.i.i183.i:                    ; preds = %.noexc5.i.i, %while.body.lr.ph.i.i.i.i.i.i181.i
   %word.013.i.i.i.i.i.i184.i = phi i64 [ %100, %while.body.lr.ph.i.i.i.i.i.i181.i ], [ %and.i58.i.i.i.i.i188.i, %.noexc5.i.i ]
   %101 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i = trunc i64 %101 to i32
+  %cast.i56.i.i.i.i.i185.i = trunc nuw nsw i64 %101 to i32
   %add10.i.i.i.i.i.i186.i = or disjoint i32 %mul9.i.i.i.i.i.i182.i, %cast.i56.i.i.i.i.i185.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i, i32 noundef %add10.i.i.i.i.i.i186.i)
           to label %.noexc5.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
@@ -16372,7 +16372,7 @@ if.then19.i.i.i.i.i151.i:                         ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i:                    ; preds = %if.then19.i.i.i.i.i151.i, %.noexc6.i.i
   %word.0.i71.i.i.i.i.i162.i = phi i64 [ %and6.i75.i.i.i.i.i166.i, %.noexc6.i.i ], [ %and.i66.i.i.i.i.i159.i, %if.then19.i.i.i.i.i151.i ]
   %103 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i = trunc i64 %103 to i32
+  %cast.i72.i.i.i.i.i163.i = trunc nuw nsw i64 %103 to i32
   %add.i73.i.i.i.i.i164.i = or disjoint i32 %95, %cast.i72.i.i.i.i.i163.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i, i32 noundef %add.i73.i.i.i.i.i164.i)
           to label %.noexc6.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
@@ -16673,7 +16673,7 @@ if.then3.i.i.i.i.i398.i:                          ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i:                      ; preds = %if.then3.i.i.i.i.i398.i, %.noexc2.i422.i
   %word.0.i.i.i.i.i.i417.i = phi i64 [ %and6.i.i.i.i.i.i424.i, %.noexc2.i422.i ], [ %and.i.i.i.i.i.i414.i, %if.then3.i.i.i.i.i398.i ]
   %135 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i = trunc i64 %135 to i32
+  %cast.i.i.i.i.i.i418.i = trunc nuw nsw i64 %135 to i32
   %add.i26.i.i.i.i.i419.i = or disjoint i32 %133, %cast.i.i.i.i.i.i418.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i26.i.i.i.i.i419.i)
           to label %.noexc2.i422.i unwind label %lpad.loopexit.split-lp.loopexit.i420.i
@@ -16711,7 +16711,7 @@ while.body.preheader.i40.i.i.i.i.i317.i:          ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i:                    ; preds = %.noexc3.i333.i, %while.body.preheader.i40.i.i.i.i.i317.i
   %word.0.i43.i.i.i.i.i320.i = phi i64 [ %and6.i47.i.i.i.i.i335.i, %.noexc3.i333.i ], [ %and.i38.i.i.i.i.i315.i, %while.body.preheader.i40.i.i.i.i.i317.i ]
   %137 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i = trunc i64 %137 to i32
+  %cast.i44.i.i.i.i.i321.i = trunc nuw nsw i64 %137 to i32
   %add.i45.i.i.i.i.i322.i = or disjoint i32 %mul.i41.i.i.i.i.i318.i, %cast.i44.i.i.i.i.i321.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i45.i.i.i.i.i322.i)
           to label %.noexc3.i333.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i
@@ -16769,7 +16769,7 @@ for.body.i.i.i.i.i.i378.i:                        ; preds = %.noexc4.i383.i, %fo
 while.body.i55.i.i.i.i.i388.i:                    ; preds = %.noexc5.i394.i, %while.body.lr.ph.i.i.i.i.i.i386.i
   %word.013.i.i.i.i.i.i389.i = phi i64 [ %138, %while.body.lr.ph.i.i.i.i.i.i386.i ], [ %and.i58.i.i.i.i.i396.i, %.noexc5.i394.i ]
   %139 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i = trunc i64 %139 to i32
+  %cast.i56.i.i.i.i.i390.i = trunc nuw nsw i64 %139 to i32
   %add10.i.i.i.i.i.i391.i = or disjoint i32 %mul9.i.i.i.i.i.i387.i, %cast.i56.i.i.i.i.i390.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i, i32 noundef %add10.i.i.i.i.i.i391.i)
           to label %.noexc5.i394.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i
@@ -16805,7 +16805,7 @@ if.then19.i.i.i.i.i350.i:                         ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i:                    ; preds = %if.then19.i.i.i.i.i350.i, %.noexc6.i366.i
   %word.0.i71.i.i.i.i.i361.i = phi i64 [ %and6.i75.i.i.i.i.i368.i, %.noexc6.i366.i ], [ %and.i66.i.i.i.i.i358.i, %if.then19.i.i.i.i.i350.i ]
   %141 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i = trunc i64 %141 to i32
+  %cast.i72.i.i.i.i.i362.i = trunc nuw nsw i64 %141 to i32
   %add.i73.i.i.i.i.i363.i = or disjoint i32 %133, %cast.i72.i.i.i.i.i362.i
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE0EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i, i32 noundef %add.i73.i.i.i.i.i363.i)
           to label %.noexc6.i366.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i
@@ -17555,7 +17555,7 @@ if.then3.i.i.i.i.i.i752:                          ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i770:                      ; preds = %if.then3.i.i.i.i.i.i752, %.noexc69.i776
   %word.0.i.i.i.i.i.i.i771 = phi i64 [ %and6.i.i.i.i.i.i.i778, %.noexc69.i776 ], [ %and.i.i.i.i.i.i.i768, %if.then3.i.i.i.i.i.i752 ]
   %236 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i771, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i772 = trunc i64 %236 to i32
+  %cast.i.i.i.i.i.i.i772 = trunc nuw nsw i64 %236 to i32
   %add.i26.i.i.i.i.i.i773 = or disjoint i32 %234, %cast.i.i.i.i.i.i.i772
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i26.i.i.i.i.i.i773)
           to label %.noexc69.i776 unwind label %lpad16.loopexit.split-lp.loopexit.i774
@@ -17593,7 +17593,7 @@ while.body.preheader.i40.i.i.i.i.i.i679:          ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i681:                    ; preds = %.noexc70.i687, %while.body.preheader.i40.i.i.i.i.i.i679
   %word.0.i43.i.i.i.i.i.i682 = phi i64 [ %and6.i47.i.i.i.i.i.i689, %.noexc70.i687 ], [ %and.i38.i.i.i.i.i.i677, %while.body.preheader.i40.i.i.i.i.i.i679 ]
   %238 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i682, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i683 = trunc i64 %238 to i32
+  %cast.i44.i.i.i.i.i.i683 = trunc nuw nsw i64 %238 to i32
   %add.i45.i.i.i.i.i.i684 = or disjoint i32 %mul.i41.i.i.i.i.i.i680, %cast.i44.i.i.i.i.i.i683
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i45.i.i.i.i.i.i684)
           to label %.noexc70.i687 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i685
@@ -17651,7 +17651,7 @@ for.body.i.i.i.i.i.i.i732:                        ; preds = %.noexc71.i737, %for
 while.body.i55.i.i.i.i.i.i742:                    ; preds = %.noexc72.i748, %while.body.lr.ph.i.i.i.i.i.i.i740
   %word.013.i.i.i.i.i.i.i743 = phi i64 [ %239, %while.body.lr.ph.i.i.i.i.i.i.i740 ], [ %and.i58.i.i.i.i.i.i750, %.noexc72.i748 ]
   %240 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i743, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i744 = trunc i64 %240 to i32
+  %cast.i56.i.i.i.i.i.i744 = trunc nuw nsw i64 %240 to i32
   %add10.i.i.i.i.i.i.i745 = or disjoint i32 %mul9.i.i.i.i.i.i.i741, %cast.i56.i.i.i.i.i.i744
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i656, i32 noundef %add10.i.i.i.i.i.i.i745)
           to label %.noexc72.i748 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i746
@@ -17687,7 +17687,7 @@ if.then19.i.i.i.i.i.i704:                         ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i714:                    ; preds = %if.then19.i.i.i.i.i.i704, %.noexc73.i720
   %word.0.i71.i.i.i.i.i.i715 = phi i64 [ %and6.i75.i.i.i.i.i.i722, %.noexc73.i720 ], [ %and.i66.i.i.i.i.i.i712, %if.then19.i.i.i.i.i.i704 ]
   %242 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i715, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i716 = trunc i64 %242 to i32
+  %cast.i72.i.i.i.i.i.i716 = trunc nuw nsw i64 %242 to i32
   %add.i73.i.i.i.i.i.i717 = or disjoint i32 %234, %cast.i72.i.i.i.i.i.i716
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i655, i32 noundef %add.i73.i.i.i.i.i.i717)
           to label %.noexc73.i720 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i718
@@ -17941,7 +17941,7 @@ if.then3.i.i.i.i.i190.i571:                       ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i589:                   ; preds = %if.then3.i.i.i.i.i190.i571, %.noexc2.i.i595
   %word.0.i.i.i.i.i.i209.i590 = phi i64 [ %and6.i.i.i.i.i.i213.i597, %.noexc2.i.i595 ], [ %and.i.i.i.i.i.i206.i587, %if.then3.i.i.i.i.i190.i571 ]
   %271 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i590, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i591 = trunc i64 %271 to i32
+  %cast.i.i.i.i.i.i210.i591 = trunc nuw nsw i64 %271 to i32
   %add.i26.i.i.i.i.i211.i592 = or disjoint i32 %269, %cast.i.i.i.i.i.i210.i591
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i26.i.i.i.i.i211.i592)
           to label %.noexc2.i.i595 unwind label %lpad.loopexit.split-lp.loopexit.i.i593
@@ -17979,7 +17979,7 @@ while.body.preheader.i40.i.i.i.i.i128.i491:       ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i493:                 ; preds = %.noexc3.i.i506, %while.body.preheader.i40.i.i.i.i.i128.i491
   %word.0.i43.i.i.i.i.i131.i494 = phi i64 [ %and6.i47.i.i.i.i.i136.i508, %.noexc3.i.i506 ], [ %and.i38.i.i.i.i.i126.i489, %while.body.preheader.i40.i.i.i.i.i128.i491 ]
   %273 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i494, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i495 = trunc i64 %273 to i32
+  %cast.i44.i.i.i.i.i132.i495 = trunc nuw nsw i64 %273 to i32
   %add.i45.i.i.i.i.i133.i496 = or disjoint i32 %mul.i41.i.i.i.i.i129.i492, %cast.i44.i.i.i.i.i132.i495
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i45.i.i.i.i.i133.i496)
           to label %.noexc3.i.i506 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i497
@@ -18037,7 +18037,7 @@ for.body.i.i.i.i.i.i176.i551:                     ; preds = %.noexc4.i.i556, %fo
 while.body.i55.i.i.i.i.i183.i561:                 ; preds = %.noexc5.i.i567, %while.body.lr.ph.i.i.i.i.i.i181.i559
   %word.013.i.i.i.i.i.i184.i562 = phi i64 [ %274, %while.body.lr.ph.i.i.i.i.i.i181.i559 ], [ %and.i58.i.i.i.i.i188.i569, %.noexc5.i.i567 ]
   %275 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i562, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i563 = trunc i64 %275 to i32
+  %cast.i56.i.i.i.i.i185.i563 = trunc nuw nsw i64 %275 to i32
   %add10.i.i.i.i.i.i186.i564 = or disjoint i32 %mul9.i.i.i.i.i.i182.i560, %cast.i56.i.i.i.i.i185.i563
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i462, i32 noundef %add10.i.i.i.i.i.i186.i564)
           to label %.noexc5.i.i567 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i565
@@ -18073,7 +18073,7 @@ if.then19.i.i.i.i.i151.i523:                      ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i533:                 ; preds = %if.then19.i.i.i.i.i151.i523, %.noexc6.i.i539
   %word.0.i71.i.i.i.i.i162.i534 = phi i64 [ %and6.i75.i.i.i.i.i166.i541, %.noexc6.i.i539 ], [ %and.i66.i.i.i.i.i159.i531, %if.then19.i.i.i.i.i151.i523 ]
   %277 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i534, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i535 = trunc i64 %277 to i32
+  %cast.i72.i.i.i.i.i163.i535 = trunc nuw nsw i64 %277 to i32
   %add.i73.i.i.i.i.i164.i536 = or disjoint i32 %269, %cast.i72.i.i.i.i.i163.i535
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i461, i32 noundef %add.i73.i.i.i.i.i164.i536)
           to label %.noexc6.i.i539 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i537
@@ -18374,7 +18374,7 @@ if.then3.i.i.i.i.i398.i362:                       ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i380:                   ; preds = %if.then3.i.i.i.i.i398.i362, %.noexc2.i422.i386
   %word.0.i.i.i.i.i.i417.i381 = phi i64 [ %and6.i.i.i.i.i.i424.i388, %.noexc2.i422.i386 ], [ %and.i.i.i.i.i.i414.i378, %if.then3.i.i.i.i.i398.i362 ]
   %309 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i381, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i382 = trunc i64 %309 to i32
+  %cast.i.i.i.i.i.i418.i382 = trunc nuw nsw i64 %309 to i32
   %add.i26.i.i.i.i.i419.i383 = or disjoint i32 %307, %cast.i.i.i.i.i.i418.i382
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i26.i.i.i.i.i419.i383)
           to label %.noexc2.i422.i386 unwind label %lpad.loopexit.split-lp.loopexit.i420.i384
@@ -18412,7 +18412,7 @@ while.body.preheader.i40.i.i.i.i.i317.i280:       ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i282:                 ; preds = %.noexc3.i333.i297, %while.body.preheader.i40.i.i.i.i.i317.i280
   %word.0.i43.i.i.i.i.i320.i283 = phi i64 [ %and6.i47.i.i.i.i.i335.i299, %.noexc3.i333.i297 ], [ %and.i38.i.i.i.i.i315.i278, %while.body.preheader.i40.i.i.i.i.i317.i280 ]
   %311 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i283, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i284 = trunc i64 %311 to i32
+  %cast.i44.i.i.i.i.i321.i284 = trunc nuw nsw i64 %311 to i32
   %add.i45.i.i.i.i.i322.i285 = or disjoint i32 %mul.i41.i.i.i.i.i318.i281, %cast.i44.i.i.i.i.i321.i284
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i45.i.i.i.i.i322.i285)
           to label %.noexc3.i333.i297 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i286
@@ -18470,7 +18470,7 @@ for.body.i.i.i.i.i.i378.i342:                     ; preds = %.noexc4.i383.i347, 
 while.body.i55.i.i.i.i.i388.i352:                 ; preds = %.noexc5.i394.i358, %while.body.lr.ph.i.i.i.i.i.i386.i350
   %word.013.i.i.i.i.i.i389.i353 = phi i64 [ %312, %while.body.lr.ph.i.i.i.i.i.i386.i350 ], [ %and.i58.i.i.i.i.i396.i360, %.noexc5.i394.i358 ]
   %313 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i353, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i354 = trunc i64 %313 to i32
+  %cast.i56.i.i.i.i.i390.i354 = trunc nuw nsw i64 %313 to i32
   %add10.i.i.i.i.i.i391.i355 = or disjoint i32 %mul9.i.i.i.i.i.i387.i351, %cast.i56.i.i.i.i.i390.i354
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i168, i32 noundef %add10.i.i.i.i.i.i391.i355)
           to label %.noexc5.i394.i358 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i356
@@ -18506,7 +18506,7 @@ if.then19.i.i.i.i.i350.i314:                      ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i324:                 ; preds = %if.then19.i.i.i.i.i350.i314, %.noexc6.i366.i330
   %word.0.i71.i.i.i.i.i361.i325 = phi i64 [ %and6.i75.i.i.i.i.i368.i332, %.noexc6.i366.i330 ], [ %and.i66.i.i.i.i.i358.i322, %if.then19.i.i.i.i.i350.i314 ]
   %315 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i325, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i326 = trunc i64 %315 to i32
+  %cast.i72.i.i.i.i.i362.i326 = trunc nuw nsw i64 %315 to i32
   %add.i73.i.i.i.i.i363.i327 = or disjoint i32 %307, %cast.i72.i.i.i.i.i362.i326
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE3EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i167, i32 noundef %add.i73.i.i.i.i.i363.i327)
           to label %.noexc6.i366.i330 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i328
@@ -19243,7 +19243,7 @@ if.then3.i.i.i.i.i.i1573:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i1591:                     ; preds = %if.then3.i.i.i.i.i.i1573, %.noexc69.i1597
   %word.0.i.i.i.i.i.i.i1592 = phi i64 [ %and6.i.i.i.i.i.i.i1599, %.noexc69.i1597 ], [ %and.i.i.i.i.i.i.i1589, %if.then3.i.i.i.i.i.i1573 ]
   %410 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i1592, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i1593 = trunc i64 %410 to i32
+  %cast.i.i.i.i.i.i.i1593 = trunc nuw nsw i64 %410 to i32
   %add.i26.i.i.i.i.i.i1594 = or disjoint i32 %408, %cast.i.i.i.i.i.i.i1593
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i26.i.i.i.i.i.i1594)
           to label %.noexc69.i1597 unwind label %lpad16.loopexit.split-lp.loopexit.i1595
@@ -19281,7 +19281,7 @@ while.body.preheader.i40.i.i.i.i.i.i1500:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i1502:                   ; preds = %.noexc70.i1508, %while.body.preheader.i40.i.i.i.i.i.i1500
   %word.0.i43.i.i.i.i.i.i1503 = phi i64 [ %and6.i47.i.i.i.i.i.i1510, %.noexc70.i1508 ], [ %and.i38.i.i.i.i.i.i1498, %while.body.preheader.i40.i.i.i.i.i.i1500 ]
   %412 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i1503, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i1504 = trunc i64 %412 to i32
+  %cast.i44.i.i.i.i.i.i1504 = trunc nuw nsw i64 %412 to i32
   %add.i45.i.i.i.i.i.i1505 = or disjoint i32 %mul.i41.i.i.i.i.i.i1501, %cast.i44.i.i.i.i.i.i1504
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i45.i.i.i.i.i.i1505)
           to label %.noexc70.i1508 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1506
@@ -19339,7 +19339,7 @@ for.body.i.i.i.i.i.i.i1553:                       ; preds = %.noexc71.i1558, %fo
 while.body.i55.i.i.i.i.i.i1563:                   ; preds = %.noexc72.i1569, %while.body.lr.ph.i.i.i.i.i.i.i1561
   %word.013.i.i.i.i.i.i.i1564 = phi i64 [ %413, %while.body.lr.ph.i.i.i.i.i.i.i1561 ], [ %and.i58.i.i.i.i.i.i1571, %.noexc72.i1569 ]
   %414 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i1564, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i1565 = trunc i64 %414 to i32
+  %cast.i56.i.i.i.i.i.i1565 = trunc nuw nsw i64 %414 to i32
   %add10.i.i.i.i.i.i.i1566 = or disjoint i32 %mul9.i.i.i.i.i.i.i1562, %cast.i56.i.i.i.i.i.i1565
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i1477, i32 noundef %add10.i.i.i.i.i.i.i1566)
           to label %.noexc72.i1569 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i1567
@@ -19375,7 +19375,7 @@ if.then19.i.i.i.i.i.i1525:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i1535:                   ; preds = %if.then19.i.i.i.i.i.i1525, %.noexc73.i1541
   %word.0.i71.i.i.i.i.i.i1536 = phi i64 [ %and6.i75.i.i.i.i.i.i1543, %.noexc73.i1541 ], [ %and.i66.i.i.i.i.i.i1533, %if.then19.i.i.i.i.i.i1525 ]
   %416 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i1536, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i1537 = trunc i64 %416 to i32
+  %cast.i72.i.i.i.i.i.i1537 = trunc nuw nsw i64 %416 to i32
   %add.i73.i.i.i.i.i.i1538 = or disjoint i32 %408, %cast.i72.i.i.i.i.i.i1537
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i1476, i32 noundef %add.i73.i.i.i.i.i.i1538)
           to label %.noexc73.i1541 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i1539
@@ -19629,7 +19629,7 @@ if.then3.i.i.i.i.i190.i1392:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i1410:                  ; preds = %if.then3.i.i.i.i.i190.i1392, %.noexc2.i.i1416
   %word.0.i.i.i.i.i.i209.i1411 = phi i64 [ %and6.i.i.i.i.i.i213.i1418, %.noexc2.i.i1416 ], [ %and.i.i.i.i.i.i206.i1408, %if.then3.i.i.i.i.i190.i1392 ]
   %445 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i1411, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i1412 = trunc i64 %445 to i32
+  %cast.i.i.i.i.i.i210.i1412 = trunc nuw nsw i64 %445 to i32
   %add.i26.i.i.i.i.i211.i1413 = or disjoint i32 %443, %cast.i.i.i.i.i.i210.i1412
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i26.i.i.i.i.i211.i1413)
           to label %.noexc2.i.i1416 unwind label %lpad.loopexit.split-lp.loopexit.i.i1414
@@ -19667,7 +19667,7 @@ while.body.preheader.i40.i.i.i.i.i128.i1312:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i1314:                ; preds = %.noexc3.i.i1327, %while.body.preheader.i40.i.i.i.i.i128.i1312
   %word.0.i43.i.i.i.i.i131.i1315 = phi i64 [ %and6.i47.i.i.i.i.i136.i1329, %.noexc3.i.i1327 ], [ %and.i38.i.i.i.i.i126.i1310, %while.body.preheader.i40.i.i.i.i.i128.i1312 ]
   %447 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i1315, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i1316 = trunc i64 %447 to i32
+  %cast.i44.i.i.i.i.i132.i1316 = trunc nuw nsw i64 %447 to i32
   %add.i45.i.i.i.i.i133.i1317 = or disjoint i32 %mul.i41.i.i.i.i.i129.i1313, %cast.i44.i.i.i.i.i132.i1316
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i45.i.i.i.i.i133.i1317)
           to label %.noexc3.i.i1327 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i1318
@@ -19725,7 +19725,7 @@ for.body.i.i.i.i.i.i176.i1372:                    ; preds = %.noexc4.i.i1377, %f
 while.body.i55.i.i.i.i.i183.i1382:                ; preds = %.noexc5.i.i1388, %while.body.lr.ph.i.i.i.i.i.i181.i1380
   %word.013.i.i.i.i.i.i184.i1383 = phi i64 [ %448, %while.body.lr.ph.i.i.i.i.i.i181.i1380 ], [ %and.i58.i.i.i.i.i188.i1390, %.noexc5.i.i1388 ]
   %449 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i1383, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i1384 = trunc i64 %449 to i32
+  %cast.i56.i.i.i.i.i185.i1384 = trunc nuw nsw i64 %449 to i32
   %add10.i.i.i.i.i.i186.i1385 = or disjoint i32 %mul9.i.i.i.i.i.i182.i1381, %cast.i56.i.i.i.i.i185.i1384
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i1283, i32 noundef %add10.i.i.i.i.i.i186.i1385)
           to label %.noexc5.i.i1388 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i1386
@@ -19761,7 +19761,7 @@ if.then19.i.i.i.i.i151.i1344:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i1354:                ; preds = %if.then19.i.i.i.i.i151.i1344, %.noexc6.i.i1360
   %word.0.i71.i.i.i.i.i162.i1355 = phi i64 [ %and6.i75.i.i.i.i.i166.i1362, %.noexc6.i.i1360 ], [ %and.i66.i.i.i.i.i159.i1352, %if.then19.i.i.i.i.i151.i1344 ]
   %451 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i1355, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i1356 = trunc i64 %451 to i32
+  %cast.i72.i.i.i.i.i163.i1356 = trunc nuw nsw i64 %451 to i32
   %add.i73.i.i.i.i.i164.i1357 = or disjoint i32 %443, %cast.i72.i.i.i.i.i163.i1356
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i1282, i32 noundef %add.i73.i.i.i.i.i164.i1357)
           to label %.noexc6.i.i1360 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i1358
@@ -20062,7 +20062,7 @@ if.then3.i.i.i.i.i398.i1183:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i1201:                  ; preds = %if.then3.i.i.i.i.i398.i1183, %.noexc2.i422.i1207
   %word.0.i.i.i.i.i.i417.i1202 = phi i64 [ %and6.i.i.i.i.i.i424.i1209, %.noexc2.i422.i1207 ], [ %and.i.i.i.i.i.i414.i1199, %if.then3.i.i.i.i.i398.i1183 ]
   %483 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i1202, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i1203 = trunc i64 %483 to i32
+  %cast.i.i.i.i.i.i418.i1203 = trunc nuw nsw i64 %483 to i32
   %add.i26.i.i.i.i.i419.i1204 = or disjoint i32 %481, %cast.i.i.i.i.i.i418.i1203
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i26.i.i.i.i.i419.i1204)
           to label %.noexc2.i422.i1207 unwind label %lpad.loopexit.split-lp.loopexit.i420.i1205
@@ -20100,7 +20100,7 @@ while.body.preheader.i40.i.i.i.i.i317.i1101:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i1103:                ; preds = %.noexc3.i333.i1118, %while.body.preheader.i40.i.i.i.i.i317.i1101
   %word.0.i43.i.i.i.i.i320.i1104 = phi i64 [ %and6.i47.i.i.i.i.i335.i1120, %.noexc3.i333.i1118 ], [ %and.i38.i.i.i.i.i315.i1099, %while.body.preheader.i40.i.i.i.i.i317.i1101 ]
   %485 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i1104, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i1105 = trunc i64 %485 to i32
+  %cast.i44.i.i.i.i.i321.i1105 = trunc nuw nsw i64 %485 to i32
   %add.i45.i.i.i.i.i322.i1106 = or disjoint i32 %mul.i41.i.i.i.i.i318.i1102, %cast.i44.i.i.i.i.i321.i1105
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i45.i.i.i.i.i322.i1106)
           to label %.noexc3.i333.i1118 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i1107
@@ -20158,7 +20158,7 @@ for.body.i.i.i.i.i.i378.i1163:                    ; preds = %.noexc4.i383.i1168,
 while.body.i55.i.i.i.i.i388.i1173:                ; preds = %.noexc5.i394.i1179, %while.body.lr.ph.i.i.i.i.i.i386.i1171
   %word.013.i.i.i.i.i.i389.i1174 = phi i64 [ %486, %while.body.lr.ph.i.i.i.i.i.i386.i1171 ], [ %and.i58.i.i.i.i.i396.i1181, %.noexc5.i394.i1179 ]
   %487 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i1174, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i1175 = trunc i64 %487 to i32
+  %cast.i56.i.i.i.i.i390.i1175 = trunc nuw nsw i64 %487 to i32
   %add10.i.i.i.i.i.i391.i1176 = or disjoint i32 %mul9.i.i.i.i.i.i387.i1172, %cast.i56.i.i.i.i.i390.i1175
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i989, i32 noundef %add10.i.i.i.i.i.i391.i1176)
           to label %.noexc5.i394.i1179 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i1177
@@ -20194,7 +20194,7 @@ if.then19.i.i.i.i.i350.i1135:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i1145:                ; preds = %if.then19.i.i.i.i.i350.i1135, %.noexc6.i366.i1151
   %word.0.i71.i.i.i.i.i361.i1146 = phi i64 [ %and6.i75.i.i.i.i.i368.i1153, %.noexc6.i366.i1151 ], [ %and.i66.i.i.i.i.i358.i1143, %if.then19.i.i.i.i.i350.i1135 ]
   %489 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i1146, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i1147 = trunc i64 %489 to i32
+  %cast.i72.i.i.i.i.i362.i1147 = trunc nuw nsw i64 %489 to i32
   %add.i73.i.i.i.i.i363.i1148 = or disjoint i32 %481, %cast.i72.i.i.i.i.i362.i1147
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE1EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i988, i32 noundef %add.i73.i.i.i.i.i363.i1148)
           to label %.noexc6.i366.i1151 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i1149
@@ -20931,7 +20931,7 @@ if.then3.i.i.i.i.i.i2394:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i2412:                     ; preds = %if.then3.i.i.i.i.i.i2394, %.noexc69.i2418
   %word.0.i.i.i.i.i.i.i2413 = phi i64 [ %and6.i.i.i.i.i.i.i2420, %.noexc69.i2418 ], [ %and.i.i.i.i.i.i.i2410, %if.then3.i.i.i.i.i.i2394 ]
   %584 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i2413, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i2414 = trunc i64 %584 to i32
+  %cast.i.i.i.i.i.i.i2414 = trunc nuw nsw i64 %584 to i32
   %add.i26.i.i.i.i.i.i2415 = or disjoint i32 %582, %cast.i.i.i.i.i.i.i2414
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i26.i.i.i.i.i.i2415)
           to label %.noexc69.i2418 unwind label %lpad16.loopexit.split-lp.loopexit.i2416
@@ -20969,7 +20969,7 @@ while.body.preheader.i40.i.i.i.i.i.i2321:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i2323:                   ; preds = %.noexc70.i2329, %while.body.preheader.i40.i.i.i.i.i.i2321
   %word.0.i43.i.i.i.i.i.i2324 = phi i64 [ %and6.i47.i.i.i.i.i.i2331, %.noexc70.i2329 ], [ %and.i38.i.i.i.i.i.i2319, %while.body.preheader.i40.i.i.i.i.i.i2321 ]
   %586 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i2324, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i2325 = trunc i64 %586 to i32
+  %cast.i44.i.i.i.i.i.i2325 = trunc nuw nsw i64 %586 to i32
   %add.i45.i.i.i.i.i.i2326 = or disjoint i32 %mul.i41.i.i.i.i.i.i2322, %cast.i44.i.i.i.i.i.i2325
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i45.i.i.i.i.i.i2326)
           to label %.noexc70.i2329 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2327
@@ -21027,7 +21027,7 @@ for.body.i.i.i.i.i.i.i2374:                       ; preds = %.noexc71.i2379, %fo
 while.body.i55.i.i.i.i.i.i2384:                   ; preds = %.noexc72.i2390, %while.body.lr.ph.i.i.i.i.i.i.i2382
   %word.013.i.i.i.i.i.i.i2385 = phi i64 [ %587, %while.body.lr.ph.i.i.i.i.i.i.i2382 ], [ %and.i58.i.i.i.i.i.i2392, %.noexc72.i2390 ]
   %588 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i2385, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i2386 = trunc i64 %588 to i32
+  %cast.i56.i.i.i.i.i.i2386 = trunc nuw nsw i64 %588 to i32
   %add10.i.i.i.i.i.i.i2387 = or disjoint i32 %mul9.i.i.i.i.i.i.i2383, %cast.i56.i.i.i.i.i.i2386
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i2298, i32 noundef %add10.i.i.i.i.i.i.i2387)
           to label %.noexc72.i2390 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2388
@@ -21063,7 +21063,7 @@ if.then19.i.i.i.i.i.i2346:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i2356:                   ; preds = %if.then19.i.i.i.i.i.i2346, %.noexc73.i2362
   %word.0.i71.i.i.i.i.i.i2357 = phi i64 [ %and6.i75.i.i.i.i.i.i2364, %.noexc73.i2362 ], [ %and.i66.i.i.i.i.i.i2354, %if.then19.i.i.i.i.i.i2346 ]
   %590 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i2357, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i2358 = trunc i64 %590 to i32
+  %cast.i72.i.i.i.i.i.i2358 = trunc nuw nsw i64 %590 to i32
   %add.i73.i.i.i.i.i.i2359 = or disjoint i32 %582, %cast.i72.i.i.i.i.i.i2358
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i2297, i32 noundef %add.i73.i.i.i.i.i.i2359)
           to label %.noexc73.i2362 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i2360
@@ -21317,7 +21317,7 @@ if.then3.i.i.i.i.i190.i2213:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i2231:                  ; preds = %if.then3.i.i.i.i.i190.i2213, %.noexc2.i.i2237
   %word.0.i.i.i.i.i.i209.i2232 = phi i64 [ %and6.i.i.i.i.i.i213.i2239, %.noexc2.i.i2237 ], [ %and.i.i.i.i.i.i206.i2229, %if.then3.i.i.i.i.i190.i2213 ]
   %619 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i2232, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i2233 = trunc i64 %619 to i32
+  %cast.i.i.i.i.i.i210.i2233 = trunc nuw nsw i64 %619 to i32
   %add.i26.i.i.i.i.i211.i2234 = or disjoint i32 %617, %cast.i.i.i.i.i.i210.i2233
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i26.i.i.i.i.i211.i2234)
           to label %.noexc2.i.i2237 unwind label %lpad.loopexit.split-lp.loopexit.i.i2235
@@ -21355,7 +21355,7 @@ while.body.preheader.i40.i.i.i.i.i128.i2133:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i2135:                ; preds = %.noexc3.i.i2148, %while.body.preheader.i40.i.i.i.i.i128.i2133
   %word.0.i43.i.i.i.i.i131.i2136 = phi i64 [ %and6.i47.i.i.i.i.i136.i2150, %.noexc3.i.i2148 ], [ %and.i38.i.i.i.i.i126.i2131, %while.body.preheader.i40.i.i.i.i.i128.i2133 ]
   %621 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i2136, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i2137 = trunc i64 %621 to i32
+  %cast.i44.i.i.i.i.i132.i2137 = trunc nuw nsw i64 %621 to i32
   %add.i45.i.i.i.i.i133.i2138 = or disjoint i32 %mul.i41.i.i.i.i.i129.i2134, %cast.i44.i.i.i.i.i132.i2137
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i45.i.i.i.i.i133.i2138)
           to label %.noexc3.i.i2148 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i2139
@@ -21413,7 +21413,7 @@ for.body.i.i.i.i.i.i176.i2193:                    ; preds = %.noexc4.i.i2198, %f
 while.body.i55.i.i.i.i.i183.i2203:                ; preds = %.noexc5.i.i2209, %while.body.lr.ph.i.i.i.i.i.i181.i2201
   %word.013.i.i.i.i.i.i184.i2204 = phi i64 [ %622, %while.body.lr.ph.i.i.i.i.i.i181.i2201 ], [ %and.i58.i.i.i.i.i188.i2211, %.noexc5.i.i2209 ]
   %623 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i2204, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i2205 = trunc i64 %623 to i32
+  %cast.i56.i.i.i.i.i185.i2205 = trunc nuw nsw i64 %623 to i32
   %add10.i.i.i.i.i.i186.i2206 = or disjoint i32 %mul9.i.i.i.i.i.i182.i2202, %cast.i56.i.i.i.i.i185.i2205
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2104, i32 noundef %add10.i.i.i.i.i.i186.i2206)
           to label %.noexc5.i.i2209 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i2207
@@ -21449,7 +21449,7 @@ if.then19.i.i.i.i.i151.i2165:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i2175:                ; preds = %if.then19.i.i.i.i.i151.i2165, %.noexc6.i.i2181
   %word.0.i71.i.i.i.i.i162.i2176 = phi i64 [ %and6.i75.i.i.i.i.i166.i2183, %.noexc6.i.i2181 ], [ %and.i66.i.i.i.i.i159.i2173, %if.then19.i.i.i.i.i151.i2165 ]
   %625 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i2176, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i2177 = trunc i64 %625 to i32
+  %cast.i72.i.i.i.i.i163.i2177 = trunc nuw nsw i64 %625 to i32
   %add.i73.i.i.i.i.i164.i2178 = or disjoint i32 %617, %cast.i72.i.i.i.i.i163.i2177
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2103, i32 noundef %add.i73.i.i.i.i.i164.i2178)
           to label %.noexc6.i.i2181 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i2179
@@ -21750,7 +21750,7 @@ if.then3.i.i.i.i.i398.i2004:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i2022:                  ; preds = %if.then3.i.i.i.i.i398.i2004, %.noexc2.i422.i2028
   %word.0.i.i.i.i.i.i417.i2023 = phi i64 [ %and6.i.i.i.i.i.i424.i2030, %.noexc2.i422.i2028 ], [ %and.i.i.i.i.i.i414.i2020, %if.then3.i.i.i.i.i398.i2004 ]
   %657 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i2023, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i2024 = trunc i64 %657 to i32
+  %cast.i.i.i.i.i.i418.i2024 = trunc nuw nsw i64 %657 to i32
   %add.i26.i.i.i.i.i419.i2025 = or disjoint i32 %655, %cast.i.i.i.i.i.i418.i2024
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i26.i.i.i.i.i419.i2025)
           to label %.noexc2.i422.i2028 unwind label %lpad.loopexit.split-lp.loopexit.i420.i2026
@@ -21788,7 +21788,7 @@ while.body.preheader.i40.i.i.i.i.i317.i1922:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i1924:                ; preds = %.noexc3.i333.i1939, %while.body.preheader.i40.i.i.i.i.i317.i1922
   %word.0.i43.i.i.i.i.i320.i1925 = phi i64 [ %and6.i47.i.i.i.i.i335.i1941, %.noexc3.i333.i1939 ], [ %and.i38.i.i.i.i.i315.i1920, %while.body.preheader.i40.i.i.i.i.i317.i1922 ]
   %659 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i1925, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i1926 = trunc i64 %659 to i32
+  %cast.i44.i.i.i.i.i321.i1926 = trunc nuw nsw i64 %659 to i32
   %add.i45.i.i.i.i.i322.i1927 = or disjoint i32 %mul.i41.i.i.i.i.i318.i1923, %cast.i44.i.i.i.i.i321.i1926
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i45.i.i.i.i.i322.i1927)
           to label %.noexc3.i333.i1939 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i1928
@@ -21846,7 +21846,7 @@ for.body.i.i.i.i.i.i378.i1984:                    ; preds = %.noexc4.i383.i1989,
 while.body.i55.i.i.i.i.i388.i1994:                ; preds = %.noexc5.i394.i2000, %while.body.lr.ph.i.i.i.i.i.i386.i1992
   %word.013.i.i.i.i.i.i389.i1995 = phi i64 [ %660, %while.body.lr.ph.i.i.i.i.i.i386.i1992 ], [ %and.i58.i.i.i.i.i396.i2002, %.noexc5.i394.i2000 ]
   %661 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i1995, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i1996 = trunc i64 %661 to i32
+  %cast.i56.i.i.i.i.i390.i1996 = trunc nuw nsw i64 %661 to i32
   %add10.i.i.i.i.i.i391.i1997 = or disjoint i32 %mul9.i.i.i.i.i.i387.i1993, %cast.i56.i.i.i.i.i390.i1996
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i1810, i32 noundef %add10.i.i.i.i.i.i391.i1997)
           to label %.noexc5.i394.i2000 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i1998
@@ -21882,7 +21882,7 @@ if.then19.i.i.i.i.i350.i1956:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i1966:                ; preds = %if.then19.i.i.i.i.i350.i1956, %.noexc6.i366.i1972
   %word.0.i71.i.i.i.i.i361.i1967 = phi i64 [ %and6.i75.i.i.i.i.i368.i1974, %.noexc6.i366.i1972 ], [ %and.i66.i.i.i.i.i358.i1964, %if.then19.i.i.i.i.i350.i1956 ]
   %663 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i1967, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i1968 = trunc i64 %663 to i32
+  %cast.i72.i.i.i.i.i362.i1968 = trunc nuw nsw i64 %663 to i32
   %add.i73.i.i.i.i.i363.i1969 = or disjoint i32 %655, %cast.i72.i.i.i.i.i362.i1968
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE2EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i1809, i32 noundef %add.i73.i.i.i.i.i363.i1969)
           to label %.noexc6.i366.i1972 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i1970
@@ -22619,7 +22619,7 @@ if.then3.i.i.i.i.i.i3215:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i3233:                     ; preds = %if.then3.i.i.i.i.i.i3215, %.noexc69.i3239
   %word.0.i.i.i.i.i.i.i3234 = phi i64 [ %and6.i.i.i.i.i.i.i3241, %.noexc69.i3239 ], [ %and.i.i.i.i.i.i.i3231, %if.then3.i.i.i.i.i.i3215 ]
   %758 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i3234, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i3235 = trunc i64 %758 to i32
+  %cast.i.i.i.i.i.i.i3235 = trunc nuw nsw i64 %758 to i32
   %add.i26.i.i.i.i.i.i3236 = or disjoint i32 %756, %cast.i.i.i.i.i.i.i3235
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i26.i.i.i.i.i.i3236)
           to label %.noexc69.i3239 unwind label %lpad16.loopexit.split-lp.loopexit.i3237
@@ -22657,7 +22657,7 @@ while.body.preheader.i40.i.i.i.i.i.i3142:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i3144:                   ; preds = %.noexc70.i3150, %while.body.preheader.i40.i.i.i.i.i.i3142
   %word.0.i43.i.i.i.i.i.i3145 = phi i64 [ %and6.i47.i.i.i.i.i.i3152, %.noexc70.i3150 ], [ %and.i38.i.i.i.i.i.i3140, %while.body.preheader.i40.i.i.i.i.i.i3142 ]
   %760 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i3145, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i3146 = trunc i64 %760 to i32
+  %cast.i44.i.i.i.i.i.i3146 = trunc nuw nsw i64 %760 to i32
   %add.i45.i.i.i.i.i.i3147 = or disjoint i32 %mul.i41.i.i.i.i.i.i3143, %cast.i44.i.i.i.i.i.i3146
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i45.i.i.i.i.i.i3147)
           to label %.noexc70.i3150 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3148
@@ -22715,7 +22715,7 @@ for.body.i.i.i.i.i.i.i3195:                       ; preds = %.noexc71.i3200, %fo
 while.body.i55.i.i.i.i.i.i3205:                   ; preds = %.noexc72.i3211, %while.body.lr.ph.i.i.i.i.i.i.i3203
   %word.013.i.i.i.i.i.i.i3206 = phi i64 [ %761, %while.body.lr.ph.i.i.i.i.i.i.i3203 ], [ %and.i58.i.i.i.i.i.i3213, %.noexc72.i3211 ]
   %762 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i3206, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i3207 = trunc i64 %762 to i32
+  %cast.i56.i.i.i.i.i.i3207 = trunc nuw nsw i64 %762 to i32
   %add10.i.i.i.i.i.i.i3208 = or disjoint i32 %mul9.i.i.i.i.i.i.i3204, %cast.i56.i.i.i.i.i.i3207
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3119, i32 noundef %add10.i.i.i.i.i.i.i3208)
           to label %.noexc72.i3211 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3209
@@ -22751,7 +22751,7 @@ if.then19.i.i.i.i.i.i3167:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i3177:                   ; preds = %if.then19.i.i.i.i.i.i3167, %.noexc73.i3183
   %word.0.i71.i.i.i.i.i.i3178 = phi i64 [ %and6.i75.i.i.i.i.i.i3185, %.noexc73.i3183 ], [ %and.i66.i.i.i.i.i.i3175, %if.then19.i.i.i.i.i.i3167 ]
   %764 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i3178, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i3179 = trunc i64 %764 to i32
+  %cast.i72.i.i.i.i.i.i3179 = trunc nuw nsw i64 %764 to i32
   %add.i73.i.i.i.i.i.i3180 = or disjoint i32 %756, %cast.i72.i.i.i.i.i.i3179
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3118, i32 noundef %add.i73.i.i.i.i.i.i3180)
           to label %.noexc73.i3183 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i3181
@@ -23005,7 +23005,7 @@ if.then3.i.i.i.i.i190.i3034:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i3052:                  ; preds = %if.then3.i.i.i.i.i190.i3034, %.noexc2.i.i3058
   %word.0.i.i.i.i.i.i209.i3053 = phi i64 [ %and6.i.i.i.i.i.i213.i3060, %.noexc2.i.i3058 ], [ %and.i.i.i.i.i.i206.i3050, %if.then3.i.i.i.i.i190.i3034 ]
   %793 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i3053, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i3054 = trunc i64 %793 to i32
+  %cast.i.i.i.i.i.i210.i3054 = trunc nuw nsw i64 %793 to i32
   %add.i26.i.i.i.i.i211.i3055 = or disjoint i32 %791, %cast.i.i.i.i.i.i210.i3054
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i26.i.i.i.i.i211.i3055)
           to label %.noexc2.i.i3058 unwind label %lpad.loopexit.split-lp.loopexit.i.i3056
@@ -23043,7 +23043,7 @@ while.body.preheader.i40.i.i.i.i.i128.i2954:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i2956:                ; preds = %.noexc3.i.i2969, %while.body.preheader.i40.i.i.i.i.i128.i2954
   %word.0.i43.i.i.i.i.i131.i2957 = phi i64 [ %and6.i47.i.i.i.i.i136.i2971, %.noexc3.i.i2969 ], [ %and.i38.i.i.i.i.i126.i2952, %while.body.preheader.i40.i.i.i.i.i128.i2954 ]
   %795 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i2957, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i2958 = trunc i64 %795 to i32
+  %cast.i44.i.i.i.i.i132.i2958 = trunc nuw nsw i64 %795 to i32
   %add.i45.i.i.i.i.i133.i2959 = or disjoint i32 %mul.i41.i.i.i.i.i129.i2955, %cast.i44.i.i.i.i.i132.i2958
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i45.i.i.i.i.i133.i2959)
           to label %.noexc3.i.i2969 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i2960
@@ -23101,7 +23101,7 @@ for.body.i.i.i.i.i.i176.i3014:                    ; preds = %.noexc4.i.i3019, %f
 while.body.i55.i.i.i.i.i183.i3024:                ; preds = %.noexc5.i.i3030, %while.body.lr.ph.i.i.i.i.i.i181.i3022
   %word.013.i.i.i.i.i.i184.i3025 = phi i64 [ %796, %while.body.lr.ph.i.i.i.i.i.i181.i3022 ], [ %and.i58.i.i.i.i.i188.i3032, %.noexc5.i.i3030 ]
   %797 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i3025, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i3026 = trunc i64 %797 to i32
+  %cast.i56.i.i.i.i.i185.i3026 = trunc nuw nsw i64 %797 to i32
   %add10.i.i.i.i.i.i186.i3027 = or disjoint i32 %mul9.i.i.i.i.i.i182.i3023, %cast.i56.i.i.i.i.i185.i3026
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i2925, i32 noundef %add10.i.i.i.i.i.i186.i3027)
           to label %.noexc5.i.i3030 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3028
@@ -23137,7 +23137,7 @@ if.then19.i.i.i.i.i151.i2986:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i2996:                ; preds = %if.then19.i.i.i.i.i151.i2986, %.noexc6.i.i3002
   %word.0.i71.i.i.i.i.i162.i2997 = phi i64 [ %and6.i75.i.i.i.i.i166.i3004, %.noexc6.i.i3002 ], [ %and.i66.i.i.i.i.i159.i2994, %if.then19.i.i.i.i.i151.i2986 ]
   %799 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i2997, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i2998 = trunc i64 %799 to i32
+  %cast.i72.i.i.i.i.i163.i2998 = trunc nuw nsw i64 %799 to i32
   %add.i73.i.i.i.i.i164.i2999 = or disjoint i32 %791, %cast.i72.i.i.i.i.i163.i2998
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i2924, i32 noundef %add.i73.i.i.i.i.i164.i2999)
           to label %.noexc6.i.i3002 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3000
@@ -23438,7 +23438,7 @@ if.then3.i.i.i.i.i398.i2825:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i2843:                  ; preds = %if.then3.i.i.i.i.i398.i2825, %.noexc2.i422.i2849
   %word.0.i.i.i.i.i.i417.i2844 = phi i64 [ %and6.i.i.i.i.i.i424.i2851, %.noexc2.i422.i2849 ], [ %and.i.i.i.i.i.i414.i2841, %if.then3.i.i.i.i.i398.i2825 ]
   %831 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i2844, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i2845 = trunc i64 %831 to i32
+  %cast.i.i.i.i.i.i418.i2845 = trunc nuw nsw i64 %831 to i32
   %add.i26.i.i.i.i.i419.i2846 = or disjoint i32 %829, %cast.i.i.i.i.i.i418.i2845
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i26.i.i.i.i.i419.i2846)
           to label %.noexc2.i422.i2849 unwind label %lpad.loopexit.split-lp.loopexit.i420.i2847
@@ -23476,7 +23476,7 @@ while.body.preheader.i40.i.i.i.i.i317.i2743:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i2745:                ; preds = %.noexc3.i333.i2760, %while.body.preheader.i40.i.i.i.i.i317.i2743
   %word.0.i43.i.i.i.i.i320.i2746 = phi i64 [ %and6.i47.i.i.i.i.i335.i2762, %.noexc3.i333.i2760 ], [ %and.i38.i.i.i.i.i315.i2741, %while.body.preheader.i40.i.i.i.i.i317.i2743 ]
   %833 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i2746, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i2747 = trunc i64 %833 to i32
+  %cast.i44.i.i.i.i.i321.i2747 = trunc nuw nsw i64 %833 to i32
   %add.i45.i.i.i.i.i322.i2748 = or disjoint i32 %mul.i41.i.i.i.i.i318.i2744, %cast.i44.i.i.i.i.i321.i2747
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i45.i.i.i.i.i322.i2748)
           to label %.noexc3.i333.i2760 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i2749
@@ -23534,7 +23534,7 @@ for.body.i.i.i.i.i.i378.i2805:                    ; preds = %.noexc4.i383.i2810,
 while.body.i55.i.i.i.i.i388.i2815:                ; preds = %.noexc5.i394.i2821, %while.body.lr.ph.i.i.i.i.i.i386.i2813
   %word.013.i.i.i.i.i.i389.i2816 = phi i64 [ %834, %while.body.lr.ph.i.i.i.i.i.i386.i2813 ], [ %and.i58.i.i.i.i.i396.i2823, %.noexc5.i394.i2821 ]
   %835 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i2816, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i2817 = trunc i64 %835 to i32
+  %cast.i56.i.i.i.i.i390.i2817 = trunc nuw nsw i64 %835 to i32
   %add10.i.i.i.i.i.i391.i2818 = or disjoint i32 %mul9.i.i.i.i.i.i387.i2814, %cast.i56.i.i.i.i.i390.i2817
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i2631, i32 noundef %add10.i.i.i.i.i.i391.i2818)
           to label %.noexc5.i394.i2821 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i2819
@@ -23570,7 +23570,7 @@ if.then19.i.i.i.i.i350.i2777:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i2787:                ; preds = %if.then19.i.i.i.i.i350.i2777, %.noexc6.i366.i2793
   %word.0.i71.i.i.i.i.i361.i2788 = phi i64 [ %and6.i75.i.i.i.i.i368.i2795, %.noexc6.i366.i2793 ], [ %and.i66.i.i.i.i.i358.i2785, %if.then19.i.i.i.i.i350.i2777 ]
   %837 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i2788, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i2789 = trunc i64 %837 to i32
+  %cast.i72.i.i.i.i.i362.i2789 = trunc nuw nsw i64 %837 to i32
   %add.i73.i.i.i.i.i363.i2790 = or disjoint i32 %829, %cast.i72.i.i.i.i.i362.i2789
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE4EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i2630, i32 noundef %add.i73.i.i.i.i.i363.i2790)
           to label %.noexc6.i366.i2793 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i2791
@@ -24307,7 +24307,7 @@ if.then3.i.i.i.i.i.i4036:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i4054:                     ; preds = %if.then3.i.i.i.i.i.i4036, %.noexc69.i4060
   %word.0.i.i.i.i.i.i.i4055 = phi i64 [ %and6.i.i.i.i.i.i.i4062, %.noexc69.i4060 ], [ %and.i.i.i.i.i.i.i4052, %if.then3.i.i.i.i.i.i4036 ]
   %932 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i4055, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i4056 = trunc i64 %932 to i32
+  %cast.i.i.i.i.i.i.i4056 = trunc nuw nsw i64 %932 to i32
   %add.i26.i.i.i.i.i.i4057 = or disjoint i32 %930, %cast.i.i.i.i.i.i.i4056
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i26.i.i.i.i.i.i4057)
           to label %.noexc69.i4060 unwind label %lpad16.loopexit.split-lp.loopexit.i4058
@@ -24345,7 +24345,7 @@ while.body.preheader.i40.i.i.i.i.i.i3963:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i3965:                   ; preds = %.noexc70.i3971, %while.body.preheader.i40.i.i.i.i.i.i3963
   %word.0.i43.i.i.i.i.i.i3966 = phi i64 [ %and6.i47.i.i.i.i.i.i3973, %.noexc70.i3971 ], [ %and.i38.i.i.i.i.i.i3961, %while.body.preheader.i40.i.i.i.i.i.i3963 ]
   %934 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i3966, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i3967 = trunc i64 %934 to i32
+  %cast.i44.i.i.i.i.i.i3967 = trunc nuw nsw i64 %934 to i32
   %add.i45.i.i.i.i.i.i3968 = or disjoint i32 %mul.i41.i.i.i.i.i.i3964, %cast.i44.i.i.i.i.i.i3967
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i45.i.i.i.i.i.i3968)
           to label %.noexc70.i3971 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i3969
@@ -24403,7 +24403,7 @@ for.body.i.i.i.i.i.i.i4016:                       ; preds = %.noexc71.i4021, %fo
 while.body.i55.i.i.i.i.i.i4026:                   ; preds = %.noexc72.i4032, %while.body.lr.ph.i.i.i.i.i.i.i4024
   %word.013.i.i.i.i.i.i.i4027 = phi i64 [ %935, %while.body.lr.ph.i.i.i.i.i.i.i4024 ], [ %and.i58.i.i.i.i.i.i4034, %.noexc72.i4032 ]
   %936 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i4027, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i4028 = trunc i64 %936 to i32
+  %cast.i56.i.i.i.i.i.i4028 = trunc nuw nsw i64 %936 to i32
   %add10.i.i.i.i.i.i.i4029 = or disjoint i32 %mul9.i.i.i.i.i.i.i4025, %cast.i56.i.i.i.i.i.i4028
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i3940, i32 noundef %add10.i.i.i.i.i.i.i4029)
           to label %.noexc72.i4032 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4030
@@ -24439,7 +24439,7 @@ if.then19.i.i.i.i.i.i3988:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i3998:                   ; preds = %if.then19.i.i.i.i.i.i3988, %.noexc73.i4004
   %word.0.i71.i.i.i.i.i.i3999 = phi i64 [ %and6.i75.i.i.i.i.i.i4006, %.noexc73.i4004 ], [ %and.i66.i.i.i.i.i.i3996, %if.then19.i.i.i.i.i.i3988 ]
   %938 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i3999, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i4000 = trunc i64 %938 to i32
+  %cast.i72.i.i.i.i.i.i4000 = trunc nuw nsw i64 %938 to i32
   %add.i73.i.i.i.i.i.i4001 = or disjoint i32 %930, %cast.i72.i.i.i.i.i.i4000
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i3939, i32 noundef %add.i73.i.i.i.i.i.i4001)
           to label %.noexc73.i4004 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i4002
@@ -24693,7 +24693,7 @@ if.then3.i.i.i.i.i190.i3855:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i3873:                  ; preds = %if.then3.i.i.i.i.i190.i3855, %.noexc2.i.i3879
   %word.0.i.i.i.i.i.i209.i3874 = phi i64 [ %and6.i.i.i.i.i.i213.i3881, %.noexc2.i.i3879 ], [ %and.i.i.i.i.i.i206.i3871, %if.then3.i.i.i.i.i190.i3855 ]
   %967 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i3874, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i3875 = trunc i64 %967 to i32
+  %cast.i.i.i.i.i.i210.i3875 = trunc nuw nsw i64 %967 to i32
   %add.i26.i.i.i.i.i211.i3876 = or disjoint i32 %965, %cast.i.i.i.i.i.i210.i3875
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i26.i.i.i.i.i211.i3876)
           to label %.noexc2.i.i3879 unwind label %lpad.loopexit.split-lp.loopexit.i.i3877
@@ -24731,7 +24731,7 @@ while.body.preheader.i40.i.i.i.i.i128.i3775:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i3777:                ; preds = %.noexc3.i.i3790, %while.body.preheader.i40.i.i.i.i.i128.i3775
   %word.0.i43.i.i.i.i.i131.i3778 = phi i64 [ %and6.i47.i.i.i.i.i136.i3792, %.noexc3.i.i3790 ], [ %and.i38.i.i.i.i.i126.i3773, %while.body.preheader.i40.i.i.i.i.i128.i3775 ]
   %969 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i3778, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i3779 = trunc i64 %969 to i32
+  %cast.i44.i.i.i.i.i132.i3779 = trunc nuw nsw i64 %969 to i32
   %add.i45.i.i.i.i.i133.i3780 = or disjoint i32 %mul.i41.i.i.i.i.i129.i3776, %cast.i44.i.i.i.i.i132.i3779
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i45.i.i.i.i.i133.i3780)
           to label %.noexc3.i.i3790 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i3781
@@ -24789,7 +24789,7 @@ for.body.i.i.i.i.i.i176.i3835:                    ; preds = %.noexc4.i.i3840, %f
 while.body.i55.i.i.i.i.i183.i3845:                ; preds = %.noexc5.i.i3851, %while.body.lr.ph.i.i.i.i.i.i181.i3843
   %word.013.i.i.i.i.i.i184.i3846 = phi i64 [ %970, %while.body.lr.ph.i.i.i.i.i.i181.i3843 ], [ %and.i58.i.i.i.i.i188.i3853, %.noexc5.i.i3851 ]
   %971 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i3846, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i3847 = trunc i64 %971 to i32
+  %cast.i56.i.i.i.i.i185.i3847 = trunc nuw nsw i64 %971 to i32
   %add10.i.i.i.i.i.i186.i3848 = or disjoint i32 %mul9.i.i.i.i.i.i182.i3844, %cast.i56.i.i.i.i.i185.i3847
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i3746, i32 noundef %add10.i.i.i.i.i.i186.i3848)
           to label %.noexc5.i.i3851 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3849
@@ -24825,7 +24825,7 @@ if.then19.i.i.i.i.i151.i3807:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i3817:                ; preds = %if.then19.i.i.i.i.i151.i3807, %.noexc6.i.i3823
   %word.0.i71.i.i.i.i.i162.i3818 = phi i64 [ %and6.i75.i.i.i.i.i166.i3825, %.noexc6.i.i3823 ], [ %and.i66.i.i.i.i.i159.i3815, %if.then19.i.i.i.i.i151.i3807 ]
   %973 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i3818, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i3819 = trunc i64 %973 to i32
+  %cast.i72.i.i.i.i.i163.i3819 = trunc nuw nsw i64 %973 to i32
   %add.i73.i.i.i.i.i164.i3820 = or disjoint i32 %965, %cast.i72.i.i.i.i.i163.i3819
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i3745, i32 noundef %add.i73.i.i.i.i.i164.i3820)
           to label %.noexc6.i.i3823 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i3821
@@ -25126,7 +25126,7 @@ if.then3.i.i.i.i.i398.i3646:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i3664:                  ; preds = %if.then3.i.i.i.i.i398.i3646, %.noexc2.i422.i3670
   %word.0.i.i.i.i.i.i417.i3665 = phi i64 [ %and6.i.i.i.i.i.i424.i3672, %.noexc2.i422.i3670 ], [ %and.i.i.i.i.i.i414.i3662, %if.then3.i.i.i.i.i398.i3646 ]
   %1005 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i3665, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i3666 = trunc i64 %1005 to i32
+  %cast.i.i.i.i.i.i418.i3666 = trunc nuw nsw i64 %1005 to i32
   %add.i26.i.i.i.i.i419.i3667 = or disjoint i32 %1003, %cast.i.i.i.i.i.i418.i3666
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i26.i.i.i.i.i419.i3667)
           to label %.noexc2.i422.i3670 unwind label %lpad.loopexit.split-lp.loopexit.i420.i3668
@@ -25164,7 +25164,7 @@ while.body.preheader.i40.i.i.i.i.i317.i3564:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i3566:                ; preds = %.noexc3.i333.i3581, %while.body.preheader.i40.i.i.i.i.i317.i3564
   %word.0.i43.i.i.i.i.i320.i3567 = phi i64 [ %and6.i47.i.i.i.i.i335.i3583, %.noexc3.i333.i3581 ], [ %and.i38.i.i.i.i.i315.i3562, %while.body.preheader.i40.i.i.i.i.i317.i3564 ]
   %1007 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i3567, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i3568 = trunc i64 %1007 to i32
+  %cast.i44.i.i.i.i.i321.i3568 = trunc nuw nsw i64 %1007 to i32
   %add.i45.i.i.i.i.i322.i3569 = or disjoint i32 %mul.i41.i.i.i.i.i318.i3565, %cast.i44.i.i.i.i.i321.i3568
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i45.i.i.i.i.i322.i3569)
           to label %.noexc3.i333.i3581 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i3570
@@ -25222,7 +25222,7 @@ for.body.i.i.i.i.i.i378.i3626:                    ; preds = %.noexc4.i383.i3631,
 while.body.i55.i.i.i.i.i388.i3636:                ; preds = %.noexc5.i394.i3642, %while.body.lr.ph.i.i.i.i.i.i386.i3634
   %word.013.i.i.i.i.i.i389.i3637 = phi i64 [ %1008, %while.body.lr.ph.i.i.i.i.i.i386.i3634 ], [ %and.i58.i.i.i.i.i396.i3644, %.noexc5.i394.i3642 ]
   %1009 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i3637, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i3638 = trunc i64 %1009 to i32
+  %cast.i56.i.i.i.i.i390.i3638 = trunc nuw nsw i64 %1009 to i32
   %add10.i.i.i.i.i.i391.i3639 = or disjoint i32 %mul9.i.i.i.i.i.i387.i3635, %cast.i56.i.i.i.i.i390.i3638
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i3452, i32 noundef %add10.i.i.i.i.i.i391.i3639)
           to label %.noexc5.i394.i3642 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i3640
@@ -25258,7 +25258,7 @@ if.then19.i.i.i.i.i350.i3598:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i3608:                ; preds = %if.then19.i.i.i.i.i350.i3598, %.noexc6.i366.i3614
   %word.0.i71.i.i.i.i.i361.i3609 = phi i64 [ %and6.i75.i.i.i.i.i368.i3616, %.noexc6.i366.i3614 ], [ %and.i66.i.i.i.i.i358.i3606, %if.then19.i.i.i.i.i350.i3598 ]
   %1011 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i3609, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i3610 = trunc i64 %1011 to i32
+  %cast.i72.i.i.i.i.i362.i3610 = trunc nuw nsw i64 %1011 to i32
   %add.i73.i.i.i.i.i363.i3611 = or disjoint i32 %1003, %cast.i72.i.i.i.i.i362.i3610
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE10EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i3451, i32 noundef %add.i73.i.i.i.i.i363.i3611)
           to label %.noexc6.i366.i3614 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i3612
@@ -25995,7 +25995,7 @@ if.then3.i.i.i.i.i.i4857:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i4875:                     ; preds = %if.then3.i.i.i.i.i.i4857, %.noexc69.i4881
   %word.0.i.i.i.i.i.i.i4876 = phi i64 [ %and6.i.i.i.i.i.i.i4883, %.noexc69.i4881 ], [ %and.i.i.i.i.i.i.i4873, %if.then3.i.i.i.i.i.i4857 ]
   %1106 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i4876, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i4877 = trunc i64 %1106 to i32
+  %cast.i.i.i.i.i.i.i4877 = trunc nuw nsw i64 %1106 to i32
   %add.i26.i.i.i.i.i.i4878 = or disjoint i32 %1104, %cast.i.i.i.i.i.i.i4877
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i26.i.i.i.i.i.i4878)
           to label %.noexc69.i4881 unwind label %lpad16.loopexit.split-lp.loopexit.i4879
@@ -26033,7 +26033,7 @@ while.body.preheader.i40.i.i.i.i.i.i4784:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i4786:                   ; preds = %.noexc70.i4792, %while.body.preheader.i40.i.i.i.i.i.i4784
   %word.0.i43.i.i.i.i.i.i4787 = phi i64 [ %and6.i47.i.i.i.i.i.i4794, %.noexc70.i4792 ], [ %and.i38.i.i.i.i.i.i4782, %while.body.preheader.i40.i.i.i.i.i.i4784 ]
   %1108 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i4787, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i4788 = trunc i64 %1108 to i32
+  %cast.i44.i.i.i.i.i.i4788 = trunc nuw nsw i64 %1108 to i32
   %add.i45.i.i.i.i.i.i4789 = or disjoint i32 %mul.i41.i.i.i.i.i.i4785, %cast.i44.i.i.i.i.i.i4788
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i45.i.i.i.i.i.i4789)
           to label %.noexc70.i4792 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4790
@@ -26091,7 +26091,7 @@ for.body.i.i.i.i.i.i.i4837:                       ; preds = %.noexc71.i4842, %fo
 while.body.i55.i.i.i.i.i.i4847:                   ; preds = %.noexc72.i4853, %while.body.lr.ph.i.i.i.i.i.i.i4845
   %word.013.i.i.i.i.i.i.i4848 = phi i64 [ %1109, %while.body.lr.ph.i.i.i.i.i.i.i4845 ], [ %and.i58.i.i.i.i.i.i4855, %.noexc72.i4853 ]
   %1110 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i4848, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i4849 = trunc i64 %1110 to i32
+  %cast.i56.i.i.i.i.i.i4849 = trunc nuw nsw i64 %1110 to i32
   %add10.i.i.i.i.i.i.i4850 = or disjoint i32 %mul9.i.i.i.i.i.i.i4846, %cast.i56.i.i.i.i.i.i4849
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i4761, i32 noundef %add10.i.i.i.i.i.i.i4850)
           to label %.noexc72.i4853 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i4851
@@ -26127,7 +26127,7 @@ if.then19.i.i.i.i.i.i4809:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i4819:                   ; preds = %if.then19.i.i.i.i.i.i4809, %.noexc73.i4825
   %word.0.i71.i.i.i.i.i.i4820 = phi i64 [ %and6.i75.i.i.i.i.i.i4827, %.noexc73.i4825 ], [ %and.i66.i.i.i.i.i.i4817, %if.then19.i.i.i.i.i.i4809 ]
   %1112 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i4820, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i4821 = trunc i64 %1112 to i32
+  %cast.i72.i.i.i.i.i.i4821 = trunc nuw nsw i64 %1112 to i32
   %add.i73.i.i.i.i.i.i4822 = or disjoint i32 %1104, %cast.i72.i.i.i.i.i.i4821
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i4760, i32 noundef %add.i73.i.i.i.i.i.i4822)
           to label %.noexc73.i4825 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i4823
@@ -26381,7 +26381,7 @@ if.then3.i.i.i.i.i190.i4676:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i4694:                  ; preds = %if.then3.i.i.i.i.i190.i4676, %.noexc2.i.i4700
   %word.0.i.i.i.i.i.i209.i4695 = phi i64 [ %and6.i.i.i.i.i.i213.i4702, %.noexc2.i.i4700 ], [ %and.i.i.i.i.i.i206.i4692, %if.then3.i.i.i.i.i190.i4676 ]
   %1141 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i4695, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i4696 = trunc i64 %1141 to i32
+  %cast.i.i.i.i.i.i210.i4696 = trunc nuw nsw i64 %1141 to i32
   %add.i26.i.i.i.i.i211.i4697 = or disjoint i32 %1139, %cast.i.i.i.i.i.i210.i4696
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i26.i.i.i.i.i211.i4697)
           to label %.noexc2.i.i4700 unwind label %lpad.loopexit.split-lp.loopexit.i.i4698
@@ -26419,7 +26419,7 @@ while.body.preheader.i40.i.i.i.i.i128.i4596:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i4598:                ; preds = %.noexc3.i.i4611, %while.body.preheader.i40.i.i.i.i.i128.i4596
   %word.0.i43.i.i.i.i.i131.i4599 = phi i64 [ %and6.i47.i.i.i.i.i136.i4613, %.noexc3.i.i4611 ], [ %and.i38.i.i.i.i.i126.i4594, %while.body.preheader.i40.i.i.i.i.i128.i4596 ]
   %1143 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i4599, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i4600 = trunc i64 %1143 to i32
+  %cast.i44.i.i.i.i.i132.i4600 = trunc nuw nsw i64 %1143 to i32
   %add.i45.i.i.i.i.i133.i4601 = or disjoint i32 %mul.i41.i.i.i.i.i129.i4597, %cast.i44.i.i.i.i.i132.i4600
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i45.i.i.i.i.i133.i4601)
           to label %.noexc3.i.i4611 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i4602
@@ -26477,7 +26477,7 @@ for.body.i.i.i.i.i.i176.i4656:                    ; preds = %.noexc4.i.i4661, %f
 while.body.i55.i.i.i.i.i183.i4666:                ; preds = %.noexc5.i.i4672, %while.body.lr.ph.i.i.i.i.i.i181.i4664
   %word.013.i.i.i.i.i.i184.i4667 = phi i64 [ %1144, %while.body.lr.ph.i.i.i.i.i.i181.i4664 ], [ %and.i58.i.i.i.i.i188.i4674, %.noexc5.i.i4672 ]
   %1145 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i4667, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i4668 = trunc i64 %1145 to i32
+  %cast.i56.i.i.i.i.i185.i4668 = trunc nuw nsw i64 %1145 to i32
   %add10.i.i.i.i.i.i186.i4669 = or disjoint i32 %mul9.i.i.i.i.i.i182.i4665, %cast.i56.i.i.i.i.i185.i4668
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i4567, i32 noundef %add10.i.i.i.i.i.i186.i4669)
           to label %.noexc5.i.i4672 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i4670
@@ -26513,7 +26513,7 @@ if.then19.i.i.i.i.i151.i4628:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i4638:                ; preds = %if.then19.i.i.i.i.i151.i4628, %.noexc6.i.i4644
   %word.0.i71.i.i.i.i.i162.i4639 = phi i64 [ %and6.i75.i.i.i.i.i166.i4646, %.noexc6.i.i4644 ], [ %and.i66.i.i.i.i.i159.i4636, %if.then19.i.i.i.i.i151.i4628 ]
   %1147 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i4639, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i4640 = trunc i64 %1147 to i32
+  %cast.i72.i.i.i.i.i163.i4640 = trunc nuw nsw i64 %1147 to i32
   %add.i73.i.i.i.i.i164.i4641 = or disjoint i32 %1139, %cast.i72.i.i.i.i.i163.i4640
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i4566, i32 noundef %add.i73.i.i.i.i.i164.i4641)
           to label %.noexc6.i.i4644 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i4642
@@ -26814,7 +26814,7 @@ if.then3.i.i.i.i.i398.i4467:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i4485:                  ; preds = %if.then3.i.i.i.i.i398.i4467, %.noexc2.i422.i4491
   %word.0.i.i.i.i.i.i417.i4486 = phi i64 [ %and6.i.i.i.i.i.i424.i4493, %.noexc2.i422.i4491 ], [ %and.i.i.i.i.i.i414.i4483, %if.then3.i.i.i.i.i398.i4467 ]
   %1179 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i4486, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i4487 = trunc i64 %1179 to i32
+  %cast.i.i.i.i.i.i418.i4487 = trunc nuw nsw i64 %1179 to i32
   %add.i26.i.i.i.i.i419.i4488 = or disjoint i32 %1177, %cast.i.i.i.i.i.i418.i4487
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i26.i.i.i.i.i419.i4488)
           to label %.noexc2.i422.i4491 unwind label %lpad.loopexit.split-lp.loopexit.i420.i4489
@@ -26852,7 +26852,7 @@ while.body.preheader.i40.i.i.i.i.i317.i4385:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i4387:                ; preds = %.noexc3.i333.i4402, %while.body.preheader.i40.i.i.i.i.i317.i4385
   %word.0.i43.i.i.i.i.i320.i4388 = phi i64 [ %and6.i47.i.i.i.i.i335.i4404, %.noexc3.i333.i4402 ], [ %and.i38.i.i.i.i.i315.i4383, %while.body.preheader.i40.i.i.i.i.i317.i4385 ]
   %1181 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i4388, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i4389 = trunc i64 %1181 to i32
+  %cast.i44.i.i.i.i.i321.i4389 = trunc nuw nsw i64 %1181 to i32
   %add.i45.i.i.i.i.i322.i4390 = or disjoint i32 %mul.i41.i.i.i.i.i318.i4386, %cast.i44.i.i.i.i.i321.i4389
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i45.i.i.i.i.i322.i4390)
           to label %.noexc3.i333.i4402 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i4391
@@ -26910,7 +26910,7 @@ for.body.i.i.i.i.i.i378.i4447:                    ; preds = %.noexc4.i383.i4452,
 while.body.i55.i.i.i.i.i388.i4457:                ; preds = %.noexc5.i394.i4463, %while.body.lr.ph.i.i.i.i.i.i386.i4455
   %word.013.i.i.i.i.i.i389.i4458 = phi i64 [ %1182, %while.body.lr.ph.i.i.i.i.i.i386.i4455 ], [ %and.i58.i.i.i.i.i396.i4465, %.noexc5.i394.i4463 ]
   %1183 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i4458, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i4459 = trunc i64 %1183 to i32
+  %cast.i56.i.i.i.i.i390.i4459 = trunc nuw nsw i64 %1183 to i32
   %add10.i.i.i.i.i.i391.i4460 = or disjoint i32 %mul9.i.i.i.i.i.i387.i4456, %cast.i56.i.i.i.i.i390.i4459
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i4273, i32 noundef %add10.i.i.i.i.i.i391.i4460)
           to label %.noexc5.i394.i4463 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i4461
@@ -26946,7 +26946,7 @@ if.then19.i.i.i.i.i350.i4419:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i4429:                ; preds = %if.then19.i.i.i.i.i350.i4419, %.noexc6.i366.i4435
   %word.0.i71.i.i.i.i.i361.i4430 = phi i64 [ %and6.i75.i.i.i.i.i368.i4437, %.noexc6.i366.i4435 ], [ %and.i66.i.i.i.i.i358.i4427, %if.then19.i.i.i.i.i350.i4419 ]
   %1185 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i4430, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i4431 = trunc i64 %1185 to i32
+  %cast.i72.i.i.i.i.i362.i4431 = trunc nuw nsw i64 %1185 to i32
   %add.i73.i.i.i.i.i363.i4432 = or disjoint i32 %1177, %cast.i72.i.i.i.i.i362.i4431
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE5EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i4272, i32 noundef %add.i73.i.i.i.i.i363.i4432)
           to label %.noexc6.i366.i4435 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i4433
@@ -27683,7 +27683,7 @@ if.then3.i.i.i.i.i.i5678:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i5696:                     ; preds = %if.then3.i.i.i.i.i.i5678, %.noexc69.i5702
   %word.0.i.i.i.i.i.i.i5697 = phi i64 [ %and6.i.i.i.i.i.i.i5704, %.noexc69.i5702 ], [ %and.i.i.i.i.i.i.i5694, %if.then3.i.i.i.i.i.i5678 ]
   %1280 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i5697, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i5698 = trunc i64 %1280 to i32
+  %cast.i.i.i.i.i.i.i5698 = trunc nuw nsw i64 %1280 to i32
   %add.i26.i.i.i.i.i.i5699 = or disjoint i32 %1278, %cast.i.i.i.i.i.i.i5698
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i26.i.i.i.i.i.i5699)
           to label %.noexc69.i5702 unwind label %lpad16.loopexit.split-lp.loopexit.i5700
@@ -27721,7 +27721,7 @@ while.body.preheader.i40.i.i.i.i.i.i5605:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i5607:                   ; preds = %.noexc70.i5613, %while.body.preheader.i40.i.i.i.i.i.i5605
   %word.0.i43.i.i.i.i.i.i5608 = phi i64 [ %and6.i47.i.i.i.i.i.i5615, %.noexc70.i5613 ], [ %and.i38.i.i.i.i.i.i5603, %while.body.preheader.i40.i.i.i.i.i.i5605 ]
   %1282 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i5608, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i5609 = trunc i64 %1282 to i32
+  %cast.i44.i.i.i.i.i.i5609 = trunc nuw nsw i64 %1282 to i32
   %add.i45.i.i.i.i.i.i5610 = or disjoint i32 %mul.i41.i.i.i.i.i.i5606, %cast.i44.i.i.i.i.i.i5609
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i45.i.i.i.i.i.i5610)
           to label %.noexc70.i5613 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5611
@@ -27779,7 +27779,7 @@ for.body.i.i.i.i.i.i.i5658:                       ; preds = %.noexc71.i5663, %fo
 while.body.i55.i.i.i.i.i.i5668:                   ; preds = %.noexc72.i5674, %while.body.lr.ph.i.i.i.i.i.i.i5666
   %word.013.i.i.i.i.i.i.i5669 = phi i64 [ %1283, %while.body.lr.ph.i.i.i.i.i.i.i5666 ], [ %and.i58.i.i.i.i.i.i5676, %.noexc72.i5674 ]
   %1284 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i5669, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i5670 = trunc i64 %1284 to i32
+  %cast.i56.i.i.i.i.i.i5670 = trunc nuw nsw i64 %1284 to i32
   %add10.i.i.i.i.i.i.i5671 = or disjoint i32 %mul9.i.i.i.i.i.i.i5667, %cast.i56.i.i.i.i.i.i5670
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i5582, i32 noundef %add10.i.i.i.i.i.i.i5671)
           to label %.noexc72.i5674 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i5672
@@ -27815,7 +27815,7 @@ if.then19.i.i.i.i.i.i5630:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i5640:                   ; preds = %if.then19.i.i.i.i.i.i5630, %.noexc73.i5646
   %word.0.i71.i.i.i.i.i.i5641 = phi i64 [ %and6.i75.i.i.i.i.i.i5648, %.noexc73.i5646 ], [ %and.i66.i.i.i.i.i.i5638, %if.then19.i.i.i.i.i.i5630 ]
   %1286 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i5641, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i5642 = trunc i64 %1286 to i32
+  %cast.i72.i.i.i.i.i.i5642 = trunc nuw nsw i64 %1286 to i32
   %add.i73.i.i.i.i.i.i5643 = or disjoint i32 %1278, %cast.i72.i.i.i.i.i.i5642
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i5581, i32 noundef %add.i73.i.i.i.i.i.i5643)
           to label %.noexc73.i5646 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i5644
@@ -28069,7 +28069,7 @@ if.then3.i.i.i.i.i190.i5497:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i5515:                  ; preds = %if.then3.i.i.i.i.i190.i5497, %.noexc2.i.i5521
   %word.0.i.i.i.i.i.i209.i5516 = phi i64 [ %and6.i.i.i.i.i.i213.i5523, %.noexc2.i.i5521 ], [ %and.i.i.i.i.i.i206.i5513, %if.then3.i.i.i.i.i190.i5497 ]
   %1315 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i5516, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i5517 = trunc i64 %1315 to i32
+  %cast.i.i.i.i.i.i210.i5517 = trunc nuw nsw i64 %1315 to i32
   %add.i26.i.i.i.i.i211.i5518 = or disjoint i32 %1313, %cast.i.i.i.i.i.i210.i5517
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i26.i.i.i.i.i211.i5518)
           to label %.noexc2.i.i5521 unwind label %lpad.loopexit.split-lp.loopexit.i.i5519
@@ -28107,7 +28107,7 @@ while.body.preheader.i40.i.i.i.i.i128.i5417:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i5419:                ; preds = %.noexc3.i.i5432, %while.body.preheader.i40.i.i.i.i.i128.i5417
   %word.0.i43.i.i.i.i.i131.i5420 = phi i64 [ %and6.i47.i.i.i.i.i136.i5434, %.noexc3.i.i5432 ], [ %and.i38.i.i.i.i.i126.i5415, %while.body.preheader.i40.i.i.i.i.i128.i5417 ]
   %1317 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i5420, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i5421 = trunc i64 %1317 to i32
+  %cast.i44.i.i.i.i.i132.i5421 = trunc nuw nsw i64 %1317 to i32
   %add.i45.i.i.i.i.i133.i5422 = or disjoint i32 %mul.i41.i.i.i.i.i129.i5418, %cast.i44.i.i.i.i.i132.i5421
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i45.i.i.i.i.i133.i5422)
           to label %.noexc3.i.i5432 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i5423
@@ -28165,7 +28165,7 @@ for.body.i.i.i.i.i.i176.i5477:                    ; preds = %.noexc4.i.i5482, %f
 while.body.i55.i.i.i.i.i183.i5487:                ; preds = %.noexc5.i.i5493, %while.body.lr.ph.i.i.i.i.i.i181.i5485
   %word.013.i.i.i.i.i.i184.i5488 = phi i64 [ %1318, %while.body.lr.ph.i.i.i.i.i.i181.i5485 ], [ %and.i58.i.i.i.i.i188.i5495, %.noexc5.i.i5493 ]
   %1319 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i5488, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i5489 = trunc i64 %1319 to i32
+  %cast.i56.i.i.i.i.i185.i5489 = trunc nuw nsw i64 %1319 to i32
   %add10.i.i.i.i.i.i186.i5490 = or disjoint i32 %mul9.i.i.i.i.i.i182.i5486, %cast.i56.i.i.i.i.i185.i5489
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i5388, i32 noundef %add10.i.i.i.i.i.i186.i5490)
           to label %.noexc5.i.i5493 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i5491
@@ -28201,7 +28201,7 @@ if.then19.i.i.i.i.i151.i5449:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i5459:                ; preds = %if.then19.i.i.i.i.i151.i5449, %.noexc6.i.i5465
   %word.0.i71.i.i.i.i.i162.i5460 = phi i64 [ %and6.i75.i.i.i.i.i166.i5467, %.noexc6.i.i5465 ], [ %and.i66.i.i.i.i.i159.i5457, %if.then19.i.i.i.i.i151.i5449 ]
   %1321 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i5460, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i5461 = trunc i64 %1321 to i32
+  %cast.i72.i.i.i.i.i163.i5461 = trunc nuw nsw i64 %1321 to i32
   %add.i73.i.i.i.i.i164.i5462 = or disjoint i32 %1313, %cast.i72.i.i.i.i.i163.i5461
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i5387, i32 noundef %add.i73.i.i.i.i.i164.i5462)
           to label %.noexc6.i.i5465 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i5463
@@ -28502,7 +28502,7 @@ if.then3.i.i.i.i.i398.i5288:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i5306:                  ; preds = %if.then3.i.i.i.i.i398.i5288, %.noexc2.i422.i5312
   %word.0.i.i.i.i.i.i417.i5307 = phi i64 [ %and6.i.i.i.i.i.i424.i5314, %.noexc2.i422.i5312 ], [ %and.i.i.i.i.i.i414.i5304, %if.then3.i.i.i.i.i398.i5288 ]
   %1353 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i5307, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i5308 = trunc i64 %1353 to i32
+  %cast.i.i.i.i.i.i418.i5308 = trunc nuw nsw i64 %1353 to i32
   %add.i26.i.i.i.i.i419.i5309 = or disjoint i32 %1351, %cast.i.i.i.i.i.i418.i5308
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i26.i.i.i.i.i419.i5309)
           to label %.noexc2.i422.i5312 unwind label %lpad.loopexit.split-lp.loopexit.i420.i5310
@@ -28540,7 +28540,7 @@ while.body.preheader.i40.i.i.i.i.i317.i5206:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i5208:                ; preds = %.noexc3.i333.i5223, %while.body.preheader.i40.i.i.i.i.i317.i5206
   %word.0.i43.i.i.i.i.i320.i5209 = phi i64 [ %and6.i47.i.i.i.i.i335.i5225, %.noexc3.i333.i5223 ], [ %and.i38.i.i.i.i.i315.i5204, %while.body.preheader.i40.i.i.i.i.i317.i5206 ]
   %1355 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i5209, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i5210 = trunc i64 %1355 to i32
+  %cast.i44.i.i.i.i.i321.i5210 = trunc nuw nsw i64 %1355 to i32
   %add.i45.i.i.i.i.i322.i5211 = or disjoint i32 %mul.i41.i.i.i.i.i318.i5207, %cast.i44.i.i.i.i.i321.i5210
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i45.i.i.i.i.i322.i5211)
           to label %.noexc3.i333.i5223 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i5212
@@ -28598,7 +28598,7 @@ for.body.i.i.i.i.i.i378.i5268:                    ; preds = %.noexc4.i383.i5273,
 while.body.i55.i.i.i.i.i388.i5278:                ; preds = %.noexc5.i394.i5284, %while.body.lr.ph.i.i.i.i.i.i386.i5276
   %word.013.i.i.i.i.i.i389.i5279 = phi i64 [ %1356, %while.body.lr.ph.i.i.i.i.i.i386.i5276 ], [ %and.i58.i.i.i.i.i396.i5286, %.noexc5.i394.i5284 ]
   %1357 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i5279, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i5280 = trunc i64 %1357 to i32
+  %cast.i56.i.i.i.i.i390.i5280 = trunc nuw nsw i64 %1357 to i32
   %add10.i.i.i.i.i.i391.i5281 = or disjoint i32 %mul9.i.i.i.i.i.i387.i5277, %cast.i56.i.i.i.i.i390.i5280
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5094, i32 noundef %add10.i.i.i.i.i.i391.i5281)
           to label %.noexc5.i394.i5284 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i5282
@@ -28634,7 +28634,7 @@ if.then19.i.i.i.i.i350.i5240:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i5250:                ; preds = %if.then19.i.i.i.i.i350.i5240, %.noexc6.i366.i5256
   %word.0.i71.i.i.i.i.i361.i5251 = phi i64 [ %and6.i75.i.i.i.i.i368.i5258, %.noexc6.i366.i5256 ], [ %and.i66.i.i.i.i.i358.i5248, %if.then19.i.i.i.i.i350.i5240 ]
   %1359 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i5251, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i5252 = trunc i64 %1359 to i32
+  %cast.i72.i.i.i.i.i362.i5252 = trunc nuw nsw i64 %1359 to i32
   %add.i73.i.i.i.i.i363.i5253 = or disjoint i32 %1351, %cast.i72.i.i.i.i.i362.i5252
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE6EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5093, i32 noundef %add.i73.i.i.i.i.i363.i5253)
           to label %.noexc6.i366.i5256 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i5254
@@ -29371,7 +29371,7 @@ if.then3.i.i.i.i.i.i6499:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i6517:                     ; preds = %if.then3.i.i.i.i.i.i6499, %.noexc69.i6523
   %word.0.i.i.i.i.i.i.i6518 = phi i64 [ %and6.i.i.i.i.i.i.i6525, %.noexc69.i6523 ], [ %and.i.i.i.i.i.i.i6515, %if.then3.i.i.i.i.i.i6499 ]
   %1454 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i6518, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i6519 = trunc i64 %1454 to i32
+  %cast.i.i.i.i.i.i.i6519 = trunc nuw nsw i64 %1454 to i32
   %add.i26.i.i.i.i.i.i6520 = or disjoint i32 %1452, %cast.i.i.i.i.i.i.i6519
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i26.i.i.i.i.i.i6520)
           to label %.noexc69.i6523 unwind label %lpad16.loopexit.split-lp.loopexit.i6521
@@ -29409,7 +29409,7 @@ while.body.preheader.i40.i.i.i.i.i.i6426:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i6428:                   ; preds = %.noexc70.i6434, %while.body.preheader.i40.i.i.i.i.i.i6426
   %word.0.i43.i.i.i.i.i.i6429 = phi i64 [ %and6.i47.i.i.i.i.i.i6436, %.noexc70.i6434 ], [ %and.i38.i.i.i.i.i.i6424, %while.body.preheader.i40.i.i.i.i.i.i6426 ]
   %1456 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i6429, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i6430 = trunc i64 %1456 to i32
+  %cast.i44.i.i.i.i.i.i6430 = trunc nuw nsw i64 %1456 to i32
   %add.i45.i.i.i.i.i.i6431 = or disjoint i32 %mul.i41.i.i.i.i.i.i6427, %cast.i44.i.i.i.i.i.i6430
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i45.i.i.i.i.i.i6431)
           to label %.noexc70.i6434 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6432
@@ -29467,7 +29467,7 @@ for.body.i.i.i.i.i.i.i6479:                       ; preds = %.noexc71.i6484, %fo
 while.body.i55.i.i.i.i.i.i6489:                   ; preds = %.noexc72.i6495, %while.body.lr.ph.i.i.i.i.i.i.i6487
   %word.013.i.i.i.i.i.i.i6490 = phi i64 [ %1457, %while.body.lr.ph.i.i.i.i.i.i.i6487 ], [ %and.i58.i.i.i.i.i.i6497, %.noexc72.i6495 ]
   %1458 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i6490, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i6491 = trunc i64 %1458 to i32
+  %cast.i56.i.i.i.i.i.i6491 = trunc nuw nsw i64 %1458 to i32
   %add10.i.i.i.i.i.i.i6492 = or disjoint i32 %mul9.i.i.i.i.i.i.i6488, %cast.i56.i.i.i.i.i.i6491
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i6403, i32 noundef %add10.i.i.i.i.i.i.i6492)
           to label %.noexc72.i6495 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i6493
@@ -29503,7 +29503,7 @@ if.then19.i.i.i.i.i.i6451:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i6461:                   ; preds = %if.then19.i.i.i.i.i.i6451, %.noexc73.i6467
   %word.0.i71.i.i.i.i.i.i6462 = phi i64 [ %and6.i75.i.i.i.i.i.i6469, %.noexc73.i6467 ], [ %and.i66.i.i.i.i.i.i6459, %if.then19.i.i.i.i.i.i6451 ]
   %1460 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i6462, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i6463 = trunc i64 %1460 to i32
+  %cast.i72.i.i.i.i.i.i6463 = trunc nuw nsw i64 %1460 to i32
   %add.i73.i.i.i.i.i.i6464 = or disjoint i32 %1452, %cast.i72.i.i.i.i.i.i6463
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i6402, i32 noundef %add.i73.i.i.i.i.i.i6464)
           to label %.noexc73.i6467 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i6465
@@ -29757,7 +29757,7 @@ if.then3.i.i.i.i.i190.i6318:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i6336:                  ; preds = %if.then3.i.i.i.i.i190.i6318, %.noexc2.i.i6342
   %word.0.i.i.i.i.i.i209.i6337 = phi i64 [ %and6.i.i.i.i.i.i213.i6344, %.noexc2.i.i6342 ], [ %and.i.i.i.i.i.i206.i6334, %if.then3.i.i.i.i.i190.i6318 ]
   %1489 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i6337, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i6338 = trunc i64 %1489 to i32
+  %cast.i.i.i.i.i.i210.i6338 = trunc nuw nsw i64 %1489 to i32
   %add.i26.i.i.i.i.i211.i6339 = or disjoint i32 %1487, %cast.i.i.i.i.i.i210.i6338
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i26.i.i.i.i.i211.i6339)
           to label %.noexc2.i.i6342 unwind label %lpad.loopexit.split-lp.loopexit.i.i6340
@@ -29795,7 +29795,7 @@ while.body.preheader.i40.i.i.i.i.i128.i6238:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i6240:                ; preds = %.noexc3.i.i6253, %while.body.preheader.i40.i.i.i.i.i128.i6238
   %word.0.i43.i.i.i.i.i131.i6241 = phi i64 [ %and6.i47.i.i.i.i.i136.i6255, %.noexc3.i.i6253 ], [ %and.i38.i.i.i.i.i126.i6236, %while.body.preheader.i40.i.i.i.i.i128.i6238 ]
   %1491 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i6241, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i6242 = trunc i64 %1491 to i32
+  %cast.i44.i.i.i.i.i132.i6242 = trunc nuw nsw i64 %1491 to i32
   %add.i45.i.i.i.i.i133.i6243 = or disjoint i32 %mul.i41.i.i.i.i.i129.i6239, %cast.i44.i.i.i.i.i132.i6242
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i45.i.i.i.i.i133.i6243)
           to label %.noexc3.i.i6253 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i6244
@@ -29853,7 +29853,7 @@ for.body.i.i.i.i.i.i176.i6298:                    ; preds = %.noexc4.i.i6303, %f
 while.body.i55.i.i.i.i.i183.i6308:                ; preds = %.noexc5.i.i6314, %while.body.lr.ph.i.i.i.i.i.i181.i6306
   %word.013.i.i.i.i.i.i184.i6309 = phi i64 [ %1492, %while.body.lr.ph.i.i.i.i.i.i181.i6306 ], [ %and.i58.i.i.i.i.i188.i6316, %.noexc5.i.i6314 ]
   %1493 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i6309, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i6310 = trunc i64 %1493 to i32
+  %cast.i56.i.i.i.i.i185.i6310 = trunc nuw nsw i64 %1493 to i32
   %add10.i.i.i.i.i.i186.i6311 = or disjoint i32 %mul9.i.i.i.i.i.i182.i6307, %cast.i56.i.i.i.i.i185.i6310
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i6209, i32 noundef %add10.i.i.i.i.i.i186.i6311)
           to label %.noexc5.i.i6314 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i6312
@@ -29889,7 +29889,7 @@ if.then19.i.i.i.i.i151.i6270:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i6280:                ; preds = %if.then19.i.i.i.i.i151.i6270, %.noexc6.i.i6286
   %word.0.i71.i.i.i.i.i162.i6281 = phi i64 [ %and6.i75.i.i.i.i.i166.i6288, %.noexc6.i.i6286 ], [ %and.i66.i.i.i.i.i159.i6278, %if.then19.i.i.i.i.i151.i6270 ]
   %1495 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i6281, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i6282 = trunc i64 %1495 to i32
+  %cast.i72.i.i.i.i.i163.i6282 = trunc nuw nsw i64 %1495 to i32
   %add.i73.i.i.i.i.i164.i6283 = or disjoint i32 %1487, %cast.i72.i.i.i.i.i163.i6282
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i6208, i32 noundef %add.i73.i.i.i.i.i164.i6283)
           to label %.noexc6.i.i6286 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i6284
@@ -30190,7 +30190,7 @@ if.then3.i.i.i.i.i398.i6109:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i6127:                  ; preds = %if.then3.i.i.i.i.i398.i6109, %.noexc2.i422.i6133
   %word.0.i.i.i.i.i.i417.i6128 = phi i64 [ %and6.i.i.i.i.i.i424.i6135, %.noexc2.i422.i6133 ], [ %and.i.i.i.i.i.i414.i6125, %if.then3.i.i.i.i.i398.i6109 ]
   %1527 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i6128, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i6129 = trunc i64 %1527 to i32
+  %cast.i.i.i.i.i.i418.i6129 = trunc nuw nsw i64 %1527 to i32
   %add.i26.i.i.i.i.i419.i6130 = or disjoint i32 %1525, %cast.i.i.i.i.i.i418.i6129
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i26.i.i.i.i.i419.i6130)
           to label %.noexc2.i422.i6133 unwind label %lpad.loopexit.split-lp.loopexit.i420.i6131
@@ -30228,7 +30228,7 @@ while.body.preheader.i40.i.i.i.i.i317.i6027:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i6029:                ; preds = %.noexc3.i333.i6044, %while.body.preheader.i40.i.i.i.i.i317.i6027
   %word.0.i43.i.i.i.i.i320.i6030 = phi i64 [ %and6.i47.i.i.i.i.i335.i6046, %.noexc3.i333.i6044 ], [ %and.i38.i.i.i.i.i315.i6025, %while.body.preheader.i40.i.i.i.i.i317.i6027 ]
   %1529 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i6030, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i6031 = trunc i64 %1529 to i32
+  %cast.i44.i.i.i.i.i321.i6031 = trunc nuw nsw i64 %1529 to i32
   %add.i45.i.i.i.i.i322.i6032 = or disjoint i32 %mul.i41.i.i.i.i.i318.i6028, %cast.i44.i.i.i.i.i321.i6031
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i45.i.i.i.i.i322.i6032)
           to label %.noexc3.i333.i6044 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i6033
@@ -30286,7 +30286,7 @@ for.body.i.i.i.i.i.i378.i6089:                    ; preds = %.noexc4.i383.i6094,
 while.body.i55.i.i.i.i.i388.i6099:                ; preds = %.noexc5.i394.i6105, %while.body.lr.ph.i.i.i.i.i.i386.i6097
   %word.013.i.i.i.i.i.i389.i6100 = phi i64 [ %1530, %while.body.lr.ph.i.i.i.i.i.i386.i6097 ], [ %and.i58.i.i.i.i.i396.i6107, %.noexc5.i394.i6105 ]
   %1531 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i6100, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i6101 = trunc i64 %1531 to i32
+  %cast.i56.i.i.i.i.i390.i6101 = trunc nuw nsw i64 %1531 to i32
   %add10.i.i.i.i.i.i391.i6102 = or disjoint i32 %mul9.i.i.i.i.i.i387.i6098, %cast.i56.i.i.i.i.i390.i6101
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i5915, i32 noundef %add10.i.i.i.i.i.i391.i6102)
           to label %.noexc5.i394.i6105 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i6103
@@ -30322,7 +30322,7 @@ if.then19.i.i.i.i.i350.i6061:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i6071:                ; preds = %if.then19.i.i.i.i.i350.i6061, %.noexc6.i366.i6077
   %word.0.i71.i.i.i.i.i361.i6072 = phi i64 [ %and6.i75.i.i.i.i.i368.i6079, %.noexc6.i366.i6077 ], [ %and.i66.i.i.i.i.i358.i6069, %if.then19.i.i.i.i.i350.i6061 ]
   %1533 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i6072, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i6073 = trunc i64 %1533 to i32
+  %cast.i72.i.i.i.i.i362.i6073 = trunc nuw nsw i64 %1533 to i32
   %add.i73.i.i.i.i.i363.i6074 = or disjoint i32 %1525, %cast.i72.i.i.i.i.i362.i6073
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE7EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i5914, i32 noundef %add.i73.i.i.i.i.i363.i6074)
           to label %.noexc6.i366.i6077 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i6075
@@ -31059,7 +31059,7 @@ if.then3.i.i.i.i.i.i7320:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i7338:                     ; preds = %if.then3.i.i.i.i.i.i7320, %.noexc69.i7344
   %word.0.i.i.i.i.i.i.i7339 = phi i64 [ %and6.i.i.i.i.i.i.i7346, %.noexc69.i7344 ], [ %and.i.i.i.i.i.i.i7336, %if.then3.i.i.i.i.i.i7320 ]
   %1628 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i7339, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i7340 = trunc i64 %1628 to i32
+  %cast.i.i.i.i.i.i.i7340 = trunc nuw nsw i64 %1628 to i32
   %add.i26.i.i.i.i.i.i7341 = or disjoint i32 %1626, %cast.i.i.i.i.i.i.i7340
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i26.i.i.i.i.i.i7341)
           to label %.noexc69.i7344 unwind label %lpad16.loopexit.split-lp.loopexit.i7342
@@ -31097,7 +31097,7 @@ while.body.preheader.i40.i.i.i.i.i.i7247:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i7249:                   ; preds = %.noexc70.i7255, %while.body.preheader.i40.i.i.i.i.i.i7247
   %word.0.i43.i.i.i.i.i.i7250 = phi i64 [ %and6.i47.i.i.i.i.i.i7257, %.noexc70.i7255 ], [ %and.i38.i.i.i.i.i.i7245, %while.body.preheader.i40.i.i.i.i.i.i7247 ]
   %1630 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i7250, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i7251 = trunc i64 %1630 to i32
+  %cast.i44.i.i.i.i.i.i7251 = trunc nuw nsw i64 %1630 to i32
   %add.i45.i.i.i.i.i.i7252 = or disjoint i32 %mul.i41.i.i.i.i.i.i7248, %cast.i44.i.i.i.i.i.i7251
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i45.i.i.i.i.i.i7252)
           to label %.noexc70.i7255 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7253
@@ -31155,7 +31155,7 @@ for.body.i.i.i.i.i.i.i7300:                       ; preds = %.noexc71.i7305, %fo
 while.body.i55.i.i.i.i.i.i7310:                   ; preds = %.noexc72.i7316, %while.body.lr.ph.i.i.i.i.i.i.i7308
   %word.013.i.i.i.i.i.i.i7311 = phi i64 [ %1631, %while.body.lr.ph.i.i.i.i.i.i.i7308 ], [ %and.i58.i.i.i.i.i.i7318, %.noexc72.i7316 ]
   %1632 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i7311, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i7312 = trunc i64 %1632 to i32
+  %cast.i56.i.i.i.i.i.i7312 = trunc nuw nsw i64 %1632 to i32
   %add10.i.i.i.i.i.i.i7313 = or disjoint i32 %mul9.i.i.i.i.i.i.i7309, %cast.i56.i.i.i.i.i.i7312
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i7224, i32 noundef %add10.i.i.i.i.i.i.i7313)
           to label %.noexc72.i7316 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i7314
@@ -31191,7 +31191,7 @@ if.then19.i.i.i.i.i.i7272:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i7282:                   ; preds = %if.then19.i.i.i.i.i.i7272, %.noexc73.i7288
   %word.0.i71.i.i.i.i.i.i7283 = phi i64 [ %and6.i75.i.i.i.i.i.i7290, %.noexc73.i7288 ], [ %and.i66.i.i.i.i.i.i7280, %if.then19.i.i.i.i.i.i7272 ]
   %1634 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i7283, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i7284 = trunc i64 %1634 to i32
+  %cast.i72.i.i.i.i.i.i7284 = trunc nuw nsw i64 %1634 to i32
   %add.i73.i.i.i.i.i.i7285 = or disjoint i32 %1626, %cast.i72.i.i.i.i.i.i7284
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i7223, i32 noundef %add.i73.i.i.i.i.i.i7285)
           to label %.noexc73.i7288 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i7286
@@ -31445,7 +31445,7 @@ if.then3.i.i.i.i.i190.i7139:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i7157:                  ; preds = %if.then3.i.i.i.i.i190.i7139, %.noexc2.i.i7163
   %word.0.i.i.i.i.i.i209.i7158 = phi i64 [ %and6.i.i.i.i.i.i213.i7165, %.noexc2.i.i7163 ], [ %and.i.i.i.i.i.i206.i7155, %if.then3.i.i.i.i.i190.i7139 ]
   %1663 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i7158, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i7159 = trunc i64 %1663 to i32
+  %cast.i.i.i.i.i.i210.i7159 = trunc nuw nsw i64 %1663 to i32
   %add.i26.i.i.i.i.i211.i7160 = or disjoint i32 %1661, %cast.i.i.i.i.i.i210.i7159
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i26.i.i.i.i.i211.i7160)
           to label %.noexc2.i.i7163 unwind label %lpad.loopexit.split-lp.loopexit.i.i7161
@@ -31483,7 +31483,7 @@ while.body.preheader.i40.i.i.i.i.i128.i7059:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i7061:                ; preds = %.noexc3.i.i7074, %while.body.preheader.i40.i.i.i.i.i128.i7059
   %word.0.i43.i.i.i.i.i131.i7062 = phi i64 [ %and6.i47.i.i.i.i.i136.i7076, %.noexc3.i.i7074 ], [ %and.i38.i.i.i.i.i126.i7057, %while.body.preheader.i40.i.i.i.i.i128.i7059 ]
   %1665 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i7062, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i7063 = trunc i64 %1665 to i32
+  %cast.i44.i.i.i.i.i132.i7063 = trunc nuw nsw i64 %1665 to i32
   %add.i45.i.i.i.i.i133.i7064 = or disjoint i32 %mul.i41.i.i.i.i.i129.i7060, %cast.i44.i.i.i.i.i132.i7063
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i45.i.i.i.i.i133.i7064)
           to label %.noexc3.i.i7074 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i7065
@@ -31541,7 +31541,7 @@ for.body.i.i.i.i.i.i176.i7119:                    ; preds = %.noexc4.i.i7124, %f
 while.body.i55.i.i.i.i.i183.i7129:                ; preds = %.noexc5.i.i7135, %while.body.lr.ph.i.i.i.i.i.i181.i7127
   %word.013.i.i.i.i.i.i184.i7130 = phi i64 [ %1666, %while.body.lr.ph.i.i.i.i.i.i181.i7127 ], [ %and.i58.i.i.i.i.i188.i7137, %.noexc5.i.i7135 ]
   %1667 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i7130, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i7131 = trunc i64 %1667 to i32
+  %cast.i56.i.i.i.i.i185.i7131 = trunc nuw nsw i64 %1667 to i32
   %add10.i.i.i.i.i.i186.i7132 = or disjoint i32 %mul9.i.i.i.i.i.i182.i7128, %cast.i56.i.i.i.i.i185.i7131
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7030, i32 noundef %add10.i.i.i.i.i.i186.i7132)
           to label %.noexc5.i.i7135 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7133
@@ -31577,7 +31577,7 @@ if.then19.i.i.i.i.i151.i7091:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i7101:                ; preds = %if.then19.i.i.i.i.i151.i7091, %.noexc6.i.i7107
   %word.0.i71.i.i.i.i.i162.i7102 = phi i64 [ %and6.i75.i.i.i.i.i166.i7109, %.noexc6.i.i7107 ], [ %and.i66.i.i.i.i.i159.i7099, %if.then19.i.i.i.i.i151.i7091 ]
   %1669 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i7102, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i7103 = trunc i64 %1669 to i32
+  %cast.i72.i.i.i.i.i163.i7103 = trunc nuw nsw i64 %1669 to i32
   %add.i73.i.i.i.i.i164.i7104 = or disjoint i32 %1661, %cast.i72.i.i.i.i.i163.i7103
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7029, i32 noundef %add.i73.i.i.i.i.i164.i7104)
           to label %.noexc6.i.i7107 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7105
@@ -31878,7 +31878,7 @@ if.then3.i.i.i.i.i398.i6930:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i6948:                  ; preds = %if.then3.i.i.i.i.i398.i6930, %.noexc2.i422.i6954
   %word.0.i.i.i.i.i.i417.i6949 = phi i64 [ %and6.i.i.i.i.i.i424.i6956, %.noexc2.i422.i6954 ], [ %and.i.i.i.i.i.i414.i6946, %if.then3.i.i.i.i.i398.i6930 ]
   %1701 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i6949, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i6950 = trunc i64 %1701 to i32
+  %cast.i.i.i.i.i.i418.i6950 = trunc nuw nsw i64 %1701 to i32
   %add.i26.i.i.i.i.i419.i6951 = or disjoint i32 %1699, %cast.i.i.i.i.i.i418.i6950
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i26.i.i.i.i.i419.i6951)
           to label %.noexc2.i422.i6954 unwind label %lpad.loopexit.split-lp.loopexit.i420.i6952
@@ -31916,7 +31916,7 @@ while.body.preheader.i40.i.i.i.i.i317.i6848:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i6850:                ; preds = %.noexc3.i333.i6865, %while.body.preheader.i40.i.i.i.i.i317.i6848
   %word.0.i43.i.i.i.i.i320.i6851 = phi i64 [ %and6.i47.i.i.i.i.i335.i6867, %.noexc3.i333.i6865 ], [ %and.i38.i.i.i.i.i315.i6846, %while.body.preheader.i40.i.i.i.i.i317.i6848 ]
   %1703 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i6851, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i6852 = trunc i64 %1703 to i32
+  %cast.i44.i.i.i.i.i321.i6852 = trunc nuw nsw i64 %1703 to i32
   %add.i45.i.i.i.i.i322.i6853 = or disjoint i32 %mul.i41.i.i.i.i.i318.i6849, %cast.i44.i.i.i.i.i321.i6852
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i45.i.i.i.i.i322.i6853)
           to label %.noexc3.i333.i6865 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i6854
@@ -31974,7 +31974,7 @@ for.body.i.i.i.i.i.i378.i6910:                    ; preds = %.noexc4.i383.i6915,
 while.body.i55.i.i.i.i.i388.i6920:                ; preds = %.noexc5.i394.i6926, %while.body.lr.ph.i.i.i.i.i.i386.i6918
   %word.013.i.i.i.i.i.i389.i6921 = phi i64 [ %1704, %while.body.lr.ph.i.i.i.i.i.i386.i6918 ], [ %and.i58.i.i.i.i.i396.i6928, %.noexc5.i394.i6926 ]
   %1705 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i6921, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i6922 = trunc i64 %1705 to i32
+  %cast.i56.i.i.i.i.i390.i6922 = trunc nuw nsw i64 %1705 to i32
   %add10.i.i.i.i.i.i391.i6923 = or disjoint i32 %mul9.i.i.i.i.i.i387.i6919, %cast.i56.i.i.i.i.i390.i6922
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i6736, i32 noundef %add10.i.i.i.i.i.i391.i6923)
           to label %.noexc5.i394.i6926 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i6924
@@ -32010,7 +32010,7 @@ if.then19.i.i.i.i.i350.i6882:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i6892:                ; preds = %if.then19.i.i.i.i.i350.i6882, %.noexc6.i366.i6898
   %word.0.i71.i.i.i.i.i361.i6893 = phi i64 [ %and6.i75.i.i.i.i.i368.i6900, %.noexc6.i366.i6898 ], [ %and.i66.i.i.i.i.i358.i6890, %if.then19.i.i.i.i.i350.i6882 ]
   %1707 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i6893, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i6894 = trunc i64 %1707 to i32
+  %cast.i72.i.i.i.i.i362.i6894 = trunc nuw nsw i64 %1707 to i32
   %add.i73.i.i.i.i.i363.i6895 = or disjoint i32 %1699, %cast.i72.i.i.i.i.i362.i6894
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE8EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i6735, i32 noundef %add.i73.i.i.i.i.i363.i6895)
           to label %.noexc6.i366.i6898 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i6896
@@ -32747,7 +32747,7 @@ if.then3.i.i.i.i.i.i8141:                         ; preds = %if.end.i.i.i4.i.i.i
 while.body.i.i.i.i.i.i.i8159:                     ; preds = %if.then3.i.i.i.i.i.i8141, %.noexc69.i8165
   %word.0.i.i.i.i.i.i.i8160 = phi i64 [ %and6.i.i.i.i.i.i.i8167, %.noexc69.i8165 ], [ %and.i.i.i.i.i.i.i8157, %if.then3.i.i.i.i.i.i8141 ]
   %1802 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i.i8160, i1 true), !range !85
-  %cast.i.i.i.i.i.i.i8161 = trunc i64 %1802 to i32
+  %cast.i.i.i.i.i.i.i8161 = trunc nuw nsw i64 %1802 to i32
   %add.i26.i.i.i.i.i.i8162 = or disjoint i32 %1800, %cast.i.i.i.i.i.i.i8161
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i26.i.i.i.i.i.i8162)
           to label %.noexc69.i8165 unwind label %lpad16.loopexit.split-lp.loopexit.i8163
@@ -32785,7 +32785,7 @@ while.body.preheader.i40.i.i.i.i.i.i8068:         ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i.i8070:                   ; preds = %.noexc70.i8076, %while.body.preheader.i40.i.i.i.i.i.i8068
   %word.0.i43.i.i.i.i.i.i8071 = phi i64 [ %and6.i47.i.i.i.i.i.i8078, %.noexc70.i8076 ], [ %and.i38.i.i.i.i.i.i8066, %while.body.preheader.i40.i.i.i.i.i.i8068 ]
   %1804 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i.i8071, i1 true), !range !85
-  %cast.i44.i.i.i.i.i.i8072 = trunc i64 %1804 to i32
+  %cast.i44.i.i.i.i.i.i8072 = trunc nuw nsw i64 %1804 to i32
   %add.i45.i.i.i.i.i.i8073 = or disjoint i32 %mul.i41.i.i.i.i.i.i8069, %cast.i44.i.i.i.i.i.i8072
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i45.i.i.i.i.i.i8073)
           to label %.noexc70.i8076 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i8074
@@ -32843,7 +32843,7 @@ for.body.i.i.i.i.i.i.i8121:                       ; preds = %.noexc71.i8126, %fo
 while.body.i55.i.i.i.i.i.i8131:                   ; preds = %.noexc72.i8137, %while.body.lr.ph.i.i.i.i.i.i.i8129
   %word.013.i.i.i.i.i.i.i8132 = phi i64 [ %1805, %while.body.lr.ph.i.i.i.i.i.i.i8129 ], [ %and.i58.i.i.i.i.i.i8139, %.noexc72.i8137 ]
   %1806 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i.i8132, i1 true), !range !85
-  %cast.i56.i.i.i.i.i.i8133 = trunc i64 %1806 to i32
+  %cast.i56.i.i.i.i.i.i8133 = trunc nuw nsw i64 %1806 to i32
   %add10.i.i.i.i.i.i.i8134 = or disjoint i32 %mul9.i.i.i.i.i.i.i8130, %cast.i56.i.i.i.i.i.i8133
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i.i8045, i32 noundef %add10.i.i.i.i.i.i.i8134)
           to label %.noexc72.i8137 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i8135
@@ -32879,7 +32879,7 @@ if.then19.i.i.i.i.i.i8093:                        ; preds = %for.end.i.i.i7.i.i.
 while.body.i70.i.i.i.i.i.i8103:                   ; preds = %if.then19.i.i.i.i.i.i8093, %.noexc73.i8109
   %word.0.i71.i.i.i.i.i.i8104 = phi i64 [ %and6.i75.i.i.i.i.i.i8111, %.noexc73.i8109 ], [ %and.i66.i.i.i.i.i.i8101, %if.then19.i.i.i.i.i.i8093 ]
   %1808 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i.i8104, i1 true), !range !85
-  %cast.i72.i.i.i.i.i.i8105 = trunc i64 %1808 to i32
+  %cast.i72.i.i.i.i.i.i8105 = trunc nuw nsw i64 %1808 to i32
   %add.i73.i.i.i.i.i.i8106 = or disjoint i32 %1800, %cast.i72.i.i.i.i.i.i8105
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction9mergeKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E_EEiS9_SC_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i8044, i32 noundef %add.i73.i.i.i.i.i.i8106)
           to label %.noexc73.i8109 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit.i8107
@@ -33133,7 +33133,7 @@ if.then3.i.i.i.i.i190.i7960:                      ; preds = %if.end.i.i.i4.i.i10
 while.body.i.i.i.i.i.i208.i7978:                  ; preds = %if.then3.i.i.i.i.i190.i7960, %.noexc2.i.i7984
   %word.0.i.i.i.i.i.i209.i7979 = phi i64 [ %and6.i.i.i.i.i.i213.i7986, %.noexc2.i.i7984 ], [ %and.i.i.i.i.i.i206.i7976, %if.then3.i.i.i.i.i190.i7960 ]
   %1837 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i209.i7979, i1 true), !range !85
-  %cast.i.i.i.i.i.i210.i7980 = trunc i64 %1837 to i32
+  %cast.i.i.i.i.i.i210.i7980 = trunc nuw nsw i64 %1837 to i32
   %add.i26.i.i.i.i.i211.i7981 = or disjoint i32 %1835, %cast.i.i.i.i.i.i210.i7980
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i26.i.i.i.i.i211.i7981)
           to label %.noexc2.i.i7984 unwind label %lpad.loopexit.split-lp.loopexit.i.i7982
@@ -33171,7 +33171,7 @@ while.body.preheader.i40.i.i.i.i.i128.i7880:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i130.i7882:                ; preds = %.noexc3.i.i7895, %while.body.preheader.i40.i.i.i.i.i128.i7880
   %word.0.i43.i.i.i.i.i131.i7883 = phi i64 [ %and6.i47.i.i.i.i.i136.i7897, %.noexc3.i.i7895 ], [ %and.i38.i.i.i.i.i126.i7878, %while.body.preheader.i40.i.i.i.i.i128.i7880 ]
   %1839 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i131.i7883, i1 true), !range !85
-  %cast.i44.i.i.i.i.i132.i7884 = trunc i64 %1839 to i32
+  %cast.i44.i.i.i.i.i132.i7884 = trunc nuw nsw i64 %1839 to i32
   %add.i45.i.i.i.i.i133.i7885 = or disjoint i32 %mul.i41.i.i.i.i.i129.i7881, %cast.i44.i.i.i.i.i132.i7884
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i45.i.i.i.i.i133.i7885)
           to label %.noexc3.i.i7895 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i7886
@@ -33229,7 +33229,7 @@ for.body.i.i.i.i.i.i176.i7940:                    ; preds = %.noexc4.i.i7945, %f
 while.body.i55.i.i.i.i.i183.i7950:                ; preds = %.noexc5.i.i7956, %while.body.lr.ph.i.i.i.i.i.i181.i7948
   %word.013.i.i.i.i.i.i184.i7951 = phi i64 [ %1840, %while.body.lr.ph.i.i.i.i.i.i181.i7948 ], [ %and.i58.i.i.i.i.i188.i7958, %.noexc5.i.i7956 ]
   %1841 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i184.i7951, i1 true), !range !85
-  %cast.i56.i.i.i.i.i185.i7952 = trunc i64 %1841 to i32
+  %cast.i56.i.i.i.i.i185.i7952 = trunc nuw nsw i64 %1841 to i32
   %add10.i.i.i.i.i.i186.i7953 = or disjoint i32 %mul9.i.i.i.i.i.i182.i7949, %cast.i56.i.i.i.i.i185.i7952
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i102.i7851, i32 noundef %add10.i.i.i.i.i.i186.i7953)
           to label %.noexc5.i.i7956 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7954
@@ -33265,7 +33265,7 @@ if.then19.i.i.i.i.i151.i7912:                     ; preds = %for.end.i.i.i7.i.i1
 while.body.i70.i.i.i.i.i161.i7922:                ; preds = %if.then19.i.i.i.i.i151.i7912, %.noexc6.i.i7928
   %word.0.i71.i.i.i.i.i162.i7923 = phi i64 [ %and6.i75.i.i.i.i.i166.i7930, %.noexc6.i.i7928 ], [ %and.i66.i.i.i.i.i159.i7920, %if.then19.i.i.i.i.i151.i7912 ]
   %1843 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i162.i7923, i1 true), !range !85
-  %cast.i72.i.i.i.i.i163.i7924 = trunc i64 %1843 to i32
+  %cast.i72.i.i.i.i.i163.i7924 = trunc nuw nsw i64 %1843 to i32
   %add.i73.i.i.i.i.i164.i7925 = or disjoint i32 %1835, %cast.i72.i.i.i.i.i163.i7924
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E0_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i101.i7850, i32 noundef %add.i73.i.i.i.i.i164.i7925)
           to label %.noexc6.i.i7928 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i7926
@@ -33566,7 +33566,7 @@ if.then3.i.i.i.i.i398.i7751:                      ; preds = %if.end.i.i.i4.i.i29
 while.body.i.i.i.i.i.i416.i7769:                  ; preds = %if.then3.i.i.i.i.i398.i7751, %.noexc2.i422.i7775
   %word.0.i.i.i.i.i.i417.i7770 = phi i64 [ %and6.i.i.i.i.i.i424.i7777, %.noexc2.i422.i7775 ], [ %and.i.i.i.i.i.i414.i7767, %if.then3.i.i.i.i.i398.i7751 ]
   %1875 = call i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i417.i7770, i1 true), !range !85
-  %cast.i.i.i.i.i.i418.i7771 = trunc i64 %1875 to i32
+  %cast.i.i.i.i.i.i418.i7771 = trunc nuw nsw i64 %1875 to i32
   %add.i26.i.i.i.i.i419.i7772 = or disjoint i32 %1873, %cast.i.i.i.i.i.i418.i7771
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i26.i.i.i.i.i419.i7772)
           to label %.noexc2.i422.i7775 unwind label %lpad.loopexit.split-lp.loopexit.i420.i7773
@@ -33604,7 +33604,7 @@ while.body.preheader.i40.i.i.i.i.i317.i7669:      ; preds = %if.then10.i.i.i.i.i
 while.body.i42.i.i.i.i.i319.i7671:                ; preds = %.noexc3.i333.i7686, %while.body.preheader.i40.i.i.i.i.i317.i7669
   %word.0.i43.i.i.i.i.i320.i7672 = phi i64 [ %and6.i47.i.i.i.i.i335.i7688, %.noexc3.i333.i7686 ], [ %and.i38.i.i.i.i.i315.i7667, %while.body.preheader.i40.i.i.i.i.i317.i7669 ]
   %1877 = call i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i320.i7672, i1 true), !range !85
-  %cast.i44.i.i.i.i.i321.i7673 = trunc i64 %1877 to i32
+  %cast.i44.i.i.i.i.i321.i7673 = trunc nuw nsw i64 %1877 to i32
   %add.i45.i.i.i.i.i322.i7674 = or disjoint i32 %mul.i41.i.i.i.i.i318.i7670, %cast.i44.i.i.i.i.i321.i7673
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i45.i.i.i.i.i322.i7674)
           to label %.noexc3.i333.i7686 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i323.i7675
@@ -33662,7 +33662,7 @@ for.body.i.i.i.i.i.i378.i7731:                    ; preds = %.noexc4.i383.i7736,
 while.body.i55.i.i.i.i.i388.i7741:                ; preds = %.noexc5.i394.i7747, %while.body.lr.ph.i.i.i.i.i.i386.i7739
   %word.013.i.i.i.i.i.i389.i7742 = phi i64 [ %1878, %while.body.lr.ph.i.i.i.i.i.i386.i7739 ], [ %and.i58.i.i.i.i.i396.i7749, %.noexc5.i394.i7747 ]
   %1879 = call i64 @llvm.cttz.i64(i64 %word.013.i.i.i.i.i.i389.i7742, i1 true), !range !85
-  %cast.i56.i.i.i.i.i390.i7743 = trunc i64 %1879 to i32
+  %cast.i56.i.i.i.i.i390.i7743 = trunc nuw nsw i64 %1879 to i32
   %add10.i.i.i.i.i.i391.i7744 = or disjoint i32 %mul9.i.i.i.i.i.i387.i7740, %cast.i56.i.i.i.i.i390.i7743
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i288.i7557, i32 noundef %add10.i.i.i.i.i.i391.i7744)
           to label %.noexc5.i394.i7747 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i392.i7745
@@ -33698,7 +33698,7 @@ if.then19.i.i.i.i.i350.i7703:                     ; preds = %for.end.i.i.i7.i.i3
 while.body.i70.i.i.i.i.i360.i7713:                ; preds = %if.then19.i.i.i.i.i350.i7703, %.noexc6.i366.i7719
   %word.0.i71.i.i.i.i.i361.i7714 = phi i64 [ %and6.i75.i.i.i.i.i368.i7721, %.noexc6.i366.i7719 ], [ %and.i66.i.i.i.i.i358.i7711, %if.then19.i.i.i.i.i350.i7703 ]
   %1881 = call i64 @llvm.cttz.i64(i64 %word.0.i71.i.i.i.i.i361.i7714, i1 true), !range !85
-  %cast.i72.i.i.i.i.i362.i7715 = trunc i64 %1881 to i32
+  %cast.i72.i.i.i.i.i362.i7715 = trunc nuw nsw i64 %1881 to i32
   %add.i73.i.i.i.i.i363.i7716 = or disjoint i32 %1873, %cast.i72.i.i.i.i.i362.i7715
   invoke fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction16mergeDecodedKeysIZNS3_21mergeScalarNoNullKeysILNS0_8TypeKindE9EEEiRKNS0_17SelectivityVectorERKNS2_13DecodedInputsERNS2_12MergeResultsEEUlT_T0_E1_EEiS9_SC_RNS0_13DecodedVectorESJ_SF_SE_ENKUliE_clEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i287.i7556, i32 noundef %add.i73.i.i.i.i.i363.i7716)
           to label %.noexc6.i366.i7719 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i364.i7717
@@ -35060,8 +35060,8 @@ if.then.i:                                        ; preds = %if.else
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
   %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
-  %mul.i.i.i = shl nuw nsw i64 %5, 2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
+  %mul.i.i.i = shl nuw nsw i64 %spec.select.i, 2
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i32 0, ptr %add.ptr, align 4
@@ -35070,9 +35070,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
 
 if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 4
-  %6 = shl nuw nsw i64 %__n, 2
-  %7 = add nsw i64 %6, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
+  %5 = shl nuw nsw i64 %__n, 2
+  %6 = add nsw i64 %5, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %6, i1 false)
   br label %try.cont
 
 try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
@@ -35095,7 +35095,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit33: ; preds = %_ZNSt6vectorIi
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds i32, ptr %call5.i.i.i, i64 %5
+  %add.ptr40 = getelementptr inbounds i32, ptr %call5.i.i.i, i64 %spec.select.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -53302,14 +53302,14 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i: ; preds = %if.then26.
   br label %_ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i: ; preds = %for.body.i.i.i
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i, %if.then26.i.i.i
   %and.i54.sink.i.i.i = phi i64 [ %and.i54.i.i.i, %if.then26.i.i.i ], [ %12, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %.sink.i.i.i = phi i32 [ %9, %if.then26.i.i.i ], [ %14, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %15 = tail call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i, i1 true), !range !85
-  %cast.i58.i.i.i = trunc i64 %15 to i32
+  %cast.i58.i.i.i = trunc nuw nsw i64 %15 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
   store i32 %add.i59.i.i.i, ptr %begin_, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i)
@@ -53609,8 +53609,8 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %if.else42
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %__n)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %7 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
-  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %7
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %spec.select.i
   %sub.ptr.lhs.cast49 = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub51 = sub i64 %sub.ptr.lhs.cast49, %sub.ptr.rhs.cast.i.i
   %cmp.not.i = icmp eq i64 %cond.i, 0
@@ -53625,12 +53625,12 @@ if.end.i.i.i.i.i65:                               ; preds = %cond.true.i, %_ZNKS
   %cond.i63 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i63, i64 %sub.ptr.sub51
   %add.ptr.i.i.i.i.i66 = getelementptr inbounds i64, ptr %add.ptr54, i64 %__n
-  %8 = load i64, ptr %__x, align 8
+  %7 = load i64, ptr %__x, align 8
   br label %for.body.i.i.i.i.i.i.i67
 
 for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.i.i67, %if.end.i.i.i.i.i65
   %__first.addr.04.i.i.i.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i69, %for.body.i.i.i.i.i.i.i67 ], [ %add.ptr54, %if.end.i.i.i.i.i65 ]
-  store i64 %8, ptr %__first.addr.04.i.i.i.i.i.i.i68, align 8
+  store i64 %7, ptr %__first.addr.04.i.i.i.i.i.i.i68, align 8
   %incdec.ptr.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i68, i64 8
   %cmp.not.i.i.i.i.i.i.i70 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i69, %add.ptr.i.i.i.i.i66
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !449
@@ -53737,14 +53737,14 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i: ; preds = %if.then26.
   br label %_ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i: ; preds = %for.body.i.i.i
-  %12 = trunc i64 %indvars.iv.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i, %if.then26.i.i.i
   %and.i54.sink.i.i.i = phi i64 [ %and.i54.i.i.i, %if.then26.i.i.i ], [ %10, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %.sink.i.i.i = phi i32 [ %7, %if.then26.i.i.i ], [ %12, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %13 = tail call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i, i1 true), !range !85
-  %cast.i58.i.i.i = trunc i64 %13 to i32
+  %cast.i58.i.i.i = trunc nuw nsw i64 %13 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
   store i32 %add.i59.i.i.i, ptr %begin_, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i)
@@ -53808,7 +53808,7 @@ while.body.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.body.preheader, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit
   %word.0 = phi i64 [ %and6, %_ZZNK8facebook5velox9functions12_GLOBAL__N_118MapZipWithFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit ], [ %and, %while.body.preheader ]
   %9 = tail call i64 @llvm.cttz.i64(i64 %word.0, i1 true), !range !85
-  %cast = trunc i64 %9 to i32
+  %cast = trunc nuw nsw i64 %9 to i32
   %add = or disjoint i32 %mul, %cast
   %.val = load ptr, ptr %7, align 8
   %.val8 = load ptr, ptr %8, align 8
@@ -53976,7 +53976,7 @@ if.then3:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then3
   %add.i26 = or i32 %end, 63
   %9 = tail call i64 @llvm.ctlz.i64(i64 %and.i, i1 true), !range !85
-  %cast.i = trunc i64 %9 to i32
+  %cast.i = trunc nuw nsw i64 %9 to i32
   %sub.i27 = sub nuw nsw i32 %add.i26, %cast.i
   br label %return.sink.split
 
@@ -54008,7 +54008,7 @@ if.then11:                                        ; preds = %if.end9
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42: ; preds = %if.then11
   %add.i39 = or i32 %end, 63
   %17 = tail call i64 @llvm.ctlz.i64(i64 %and.i35, i1 true), !range !85
-  %cast.i40 = trunc i64 %17 to i32
+  %cast.i40 = trunc nuw nsw i64 %17 to i32
   %sub.i41 = sub nuw nsw i32 %add.i39, %cast.i40
   br label %return.sink.split
 
@@ -54039,7 +54039,7 @@ for.body:                                         ; preds = %for.cond
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread: ; preds = %for.body
   %25 = tail call i64 @llvm.ctlz.i64(i64 %cond.i46, i1 true), !range !85
-  %cast.i50 = trunc i64 %25 to i32
+  %cast.i50 = trunc nuw nsw i64 %25 to i32
   %26 = xor i32 %cast.i50, -1
   %sub.i51 = add i32 %i.0.in, %26
   br label %return.sink.split
@@ -54076,7 +54076,7 @@ if.then.i64:                                      ; preds = %if.then27
   %mul.i65 = shl nsw i32 %div28, 6
   %add.i66 = or disjoint i32 %mul.i65, 63
   %34 = tail call i64 @llvm.ctlz.i64(i64 %and.i62, i1 true), !range !85
-  %cast.i67 = trunc i64 %34 to i32
+  %cast.i67 = trunc nuw nsw i64 %34 to i32
   %sub.i68 = sub nuw nsw i32 %add.i66, %cast.i67
   br label %return.sink.split
 
@@ -54259,7 +54259,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -54270,13 +54270,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #23
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -56235,7 +56233,7 @@ cond.true.i.i:                                    ; preds = %_ZNK8facebook5velox
   %idxprom.i.i.i = zext nneg i32 %div2.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
-  %6 = trunc i32 %shl.i.i.i to i8
+  %6 = trunc nuw i32 %shl.i.i.i to i8
   %conv1.i.i.i = or i8 %5, %6
   store i8 %conv1.i.i.i, ptr %arrayidx.i.i.i, align 1
   br label %return

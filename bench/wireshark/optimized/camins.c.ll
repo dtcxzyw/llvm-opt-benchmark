@@ -392,7 +392,7 @@ find_next_pkt_info.exit:                          ; preds = %process_timestamp.e
   %90 = getelementptr i8, ptr %89, i64 1
   store i8 %.sink.i, ptr %90, align 1
   %91 = lshr i16 %.us-phi94.sink, 8
-  %92 = trunc i16 %91 to i8
+  %92 = trunc nuw i16 %91 to i8
   %93 = getelementptr i8, ptr %89, i64 2
   store i8 %92, ptr %93, align 1
   %94 = trunc i16 %.us-phi94.sink to i8
@@ -516,7 +516,7 @@ read_packet_data.exit.thread:                     ; preds = %83, %.split.us.i
   br label %155
 
 .loopexit.i:                                      ; preds = %.lr.ph.split.i, %process_timestamp.exit.i42, %.lr.ph.split.us.i, %process_timestamp.exit.us.i, %.preheader.i, %.split.us.i
-  %.027.i.in = phi i16 [ %.us-phi38.i, %.split.us.i ], [ 0, %.preheader.i ], [ %.035.us.i, %.lr.ph.split.us.i ], [ %.1.us.i, %process_timestamp.exit.us.i ], [ %.035.i, %.lr.ph.split.i ], [ %.1.i, %process_timestamp.exit.i42 ]
+  %.027.i.in = phi i16 [ %.us-phi38.i, %.split.us.i ], [ 0, %.preheader.i ], [ %.1.us.i, %process_timestamp.exit.us.i ], [ %.035.us.i, %.lr.ph.split.us.i ], [ %.1.i, %process_timestamp.exit.i42 ], [ %.035.i, %.lr.ph.split.i ]
   %.027.i = zext i16 %.027.i.in to i32
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   %138 = add nuw nsw i32 %.027.i, 4
@@ -539,7 +539,7 @@ read_packet_data.exit.thread:                     ; preds = %83, %.split.us.i
   store i64 %146, ptr %147, align 8
   %148 = load i64, ptr %3, align 8
   %149 = urem i64 %148, 1000000
-  %150 = trunc i64 %149 to i32
+  %150 = trunc nuw nsw i64 %149 to i32
   %151 = mul nuw nsw i32 %150, 1000
   %152 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %151, ptr %152, align 8

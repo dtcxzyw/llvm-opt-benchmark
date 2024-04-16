@@ -1167,10 +1167,10 @@ define dso_local i32 @intel_plane_atomic_check_with_state(ptr nocapture noundef 
   %384 = load i32, ptr %383, align 4
   %385 = sub i32 %382, %384
   %386 = ashr i32 %385, 16
-  %.lhs.trunc = trunc i32 %380 to i16
+  %.lhs.trunc = trunc nsw i32 %380 to i16
   %387 = sdiv i16 %.lhs.trunc, 2
   %.sext = sext i16 %387 to i32
-  %.lhs.trunc21 = trunc i32 %386 to i16
+  %.lhs.trunc21 = trunc nsw i32 %386 to i16
   %388 = sdiv i16 %.lhs.trunc21, 2
   %.sext22 = sext i16 %388 to i32
   %389 = getelementptr inbounds i8, ptr %358, i64 72
@@ -3083,14 +3083,14 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
   %40 = getelementptr %struct.__drm_crtcs_state, ptr %36, i64 %39, i32 3
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %107, label %43
+  br i1 %42, label %.thread22, label %43
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds i8, ptr %41, i64 10
   %45 = load i8, ptr %44, align 2
   %46 = and i8 %45, 14
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %107, label %48
+  br i1 %47, label %.thread22, label %48
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds i8, ptr %31, i64 248
@@ -3098,7 +3098,7 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
   %51 = getelementptr inbounds i8, ptr %1, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread24, label %54
+  br i1 %53, label %.thread26, label %54
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds i8, ptr %52, i64 56
@@ -3124,14 +3124,14 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %71, label %96
 
-.thread24:                                        ; preds = %48
+.thread26:                                        ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store ptr null, ptr %3, align 8, !annotation !56
   %67 = call i32 @dma_resv_get_singleton(ptr noundef %50, i32 noundef 1, ptr noundef nonnull %3) #17
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.thread26, label %.thread20
+  br i1 %68, label %.thread28, label %.thread20
 
-.thread26:                                        ; preds = %.thread24
+.thread28:                                        ; preds = %.thread26
   %69 = load ptr, ptr %3, align 8
   %70 = icmp ne ptr %69, null
   br label %80
@@ -3152,9 +3152,9 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
   call void @dma_fence_chain_init(ptr noundef nonnull %76, ptr noundef nonnull %52, ptr noundef %79, i64 noundef 1) #17
   br label %84
 
-80:                                               ; preds = %.thread26, %71
-  %81 = phi i1 [ %70, %.thread26 ], [ %73, %71 ]
-  %82 = phi ptr [ %69, %.thread26 ], [ %72, %71 ]
+80:                                               ; preds = %.thread28, %71
+  %81 = phi i1 [ %70, %.thread28 ], [ %73, %71 ]
+  %82 = phi ptr [ %69, %.thread28 ], [ %72, %71 ]
   %83 = select i1 %81, ptr %82, ptr %52
   br label %84
 
@@ -3162,7 +3162,7 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
   %85 = phi ptr [ %76, %78 ], [ %83, %80 ]
   %86 = load ptr, ptr %51, align 8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %.thread21, label %88
+  br i1 %87, label %.thread24, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %86, i64 56
@@ -3172,21 +3172,21 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
 
 92:                                               ; preds = %88
   %93 = icmp sgt i32 %90, 0
-  br i1 %93, label %.thread21, label %94, !prof !6
+  br i1 %93, label %.thread24, label %94, !prof !6
 
 94:                                               ; preds = %92
   call void @refcount_warn_saturate(ptr noundef %89, i32 noundef 3) #17
-  br label %.thread21
+  br label %.thread24
 
 95:                                               ; preds = %88
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !58
   call void @dma_fence_release(ptr noundef %89) #17
-  br label %.thread21
+  br label %.thread24
 
-.thread21:                                        ; preds = %84, %95, %94, %92
+.thread24:                                        ; preds = %84, %95, %94, %92
   store ptr %85, ptr %51, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  br label %107
+  br i1 %24, label %123, label %108
 
 96:                                               ; preds = %64
   br i1 %53, label %.thread20, label %.thread18
@@ -3211,24 +3211,25 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
   call void @dma_fence_release(ptr noundef %98) #17
   br label %.thread20
 
-.thread20:                                        ; preds = %.thread24, %101, %103, %104, %96
-  %105 = phi i32 [ %65, %96 ], [ %97, %104 ], [ %97, %103 ], [ %97, %101 ], [ %67, %.thread24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  %106 = icmp slt i32 %105, 0
-  %brmerge = select i1 %106, i1 true, i1 %24
-  %.mux = call i32 @llvm.smin.i32(i32 %105, i32 0)
-  br i1 %brmerge, label %.thread23, label %108
+.thread22:                                        ; preds = %43, %33
+  br i1 %24, label %123, label %108
 
-107:                                              ; preds = %.thread21, %43, %33
-  br i1 %24, label %.thread23, label %108
+.thread20:                                        ; preds = %.thread26, %101, %103, %96, %104
+  %105 = phi i32 [ %65, %96 ], [ %97, %104 ], [ %97, %103 ], [ %97, %101 ], [ %67, %.thread26 ]
+  %.fr = freeze i32 %105
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  %106 = icmp slt i32 %.fr, 0
+  %107 = select i1 %106, i1 true, i1 %24
+  %. = call i32 @llvm.smin.i32(i32 %.fr, i32 0)
+  br i1 %107, label %123, label %108
 
 .thread:                                          ; preds = %23, %29
-  br i1 %24, label %.thread23, label %108
+  br i1 %24, label %123, label %108
 
-108:                                              ; preds = %.thread20, %.thread, %107
+108:                                              ; preds = %.thread20, %.thread24, %.thread22, %.thread
   %109 = call i32 @intel_plane_pin_fb(ptr noundef %1) #17
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %.thread23
+  br i1 %110, label %111, label %123
 
 111:                                              ; preds = %108
   %112 = call i32 @drm_gem_plane_helper_prepare_fb(ptr noundef %0, ptr noundef %1) #17
@@ -3250,16 +3251,16 @@ define internal i32 @intel_prepare_plane_fb(ptr noundef %0, ptr noundef %1) #0 a
 
 121:                                              ; preds = %118, %114
   call void @intel_display_rps_mark_interactive(ptr noundef %7, ptr noundef %6, i1 noundef zeroext true) #17
-  br label %.thread23
+  br label %123
 
 122:                                              ; preds = %111
   call void @intel_plane_unpin_fb(ptr noundef %1) #17
-  br label %.thread23
+  br label %123
 
-.thread23:                                        ; preds = %.thread20, %122, %121, %108, %.thread, %107
-  %123 = phi i32 [ %112, %122 ], [ 0, %121 ], [ 0, %107 ], [ 0, %.thread ], [ %109, %108 ], [ %.mux, %.thread20 ]
+123:                                              ; preds = %.thread20, %.thread24, %.thread22, %122, %121, %108, %.thread
+  %124 = phi i32 [ %112, %122 ], [ 0, %121 ], [ 0, %.thread ], [ %109, %108 ], [ 0, %.thread22 ], [ 0, %.thread24 ], [ %., %.thread20 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  ret i32 %123
+  ret i32 %124
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

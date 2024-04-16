@@ -901,17 +901,17 @@ declare ptr @slurmdb_qos_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @slurmdb_associations_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 132
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %19, label %5
+  br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 132
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %4, %7
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %18
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 40
@@ -923,121 +923,116 @@ define noundef i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr nocaptu
 
 ._crit_edge:                                      ; preds = %9
   %14 = icmp ne ptr %13, null
-  %.not6276 = xor i1 %.not58, %14
-  br i1 %.not6276, label %16, label %56
+  %.not6277 = xor i1 %.not58, %14
+  br i1 %.not6277, label %16, label %54
 
 15:                                               ; preds = %9
   %.not59 = icmp eq ptr %13, null
-  br i1 %.not59, label %18, label %56
+  br label %54
 
 16:                                               ; preds = %._crit_edge
   %17 = tail call i32 @xstrcasecmp(ptr noundef nonnull %11, ptr noundef %13) #6
   %.not63 = icmp eq i32 %17, 0
-  br i1 %.not63, label %18, label %56
+  br label %54
 
-18:                                               ; preds = %16, %15
-  br label %56
+18:                                               ; preds = %2, %5
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %.not34 = icmp eq ptr %20, null
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8
+  br i1 %.not34, label %24, label %._crit_edge65
 
-19:                                               ; preds = %2, %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %.not34 = icmp eq ptr %21, null
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8
-  br i1 %.not34, label %25, label %._crit_edge64
+._crit_edge65:                                    ; preds = %18
+  %23 = icmp ne ptr %22, null
+  %.not3878 = xor i1 %.not34, %23
+  br i1 %.not3878, label %25, label %54
 
-._crit_edge64:                                    ; preds = %19
-  %24 = icmp ne ptr %23, null
-  %.not3877 = xor i1 %.not34, %24
-  br i1 %.not3877, label %26, label %56
+24:                                               ; preds = %18
+  %.not35 = icmp eq ptr %22, null
+  br i1 %.not35, label %27, label %54
 
-25:                                               ; preds = %19
-  %.not35 = icmp eq ptr %23, null
-  br i1 %.not35, label %28, label %56
+25:                                               ; preds = %._crit_edge65
+  %26 = tail call i32 @xstrcasecmp(ptr noundef nonnull %20, ptr noundef %22) #6
+  %.not39 = icmp eq i32 %26, 0
+  br i1 %.not39, label %27, label %54
 
-26:                                               ; preds = %._crit_edge64
-  %27 = tail call i32 @xstrcasecmp(ptr noundef nonnull %21, ptr noundef %23) #6
-  %.not39 = icmp eq i32 %27, 0
-  br i1 %.not39, label %28, label %56
+27:                                               ; preds = %24, %25
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = load ptr, ptr %28, align 8
+  %.not40 = icmp eq ptr %29, null
+  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %31 = load ptr, ptr %30, align 8
+  br i1 %.not40, label %33, label %._crit_edge68
 
-28:                                               ; preds = %25, %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8
-  %.not40 = icmp eq ptr %30, null
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
-  %32 = load ptr, ptr %31, align 8
-  br i1 %.not40, label %34, label %._crit_edge67
+._crit_edge68:                                    ; preds = %27
+  %32 = icmp ne ptr %31, null
+  %.not4479 = xor i1 %.not40, %32
+  br i1 %.not4479, label %34, label %54
 
-._crit_edge67:                                    ; preds = %28
-  %33 = icmp ne ptr %32, null
-  %.not4478 = xor i1 %.not40, %33
-  br i1 %.not4478, label %35, label %56
+33:                                               ; preds = %27
+  %.not41 = icmp eq ptr %31, null
+  br i1 %.not41, label %36, label %54
 
-34:                                               ; preds = %28
-  %.not41 = icmp eq ptr %32, null
-  br i1 %.not41, label %37, label %56
+34:                                               ; preds = %._crit_edge68
+  %35 = tail call i32 @xstrcasecmp(ptr noundef nonnull %29, ptr noundef %31) #6
+  %.not45 = icmp eq i32 %35, 0
+  br i1 %.not45, label %36, label %54
 
-35:                                               ; preds = %._crit_edge67
-  %36 = tail call i32 @xstrcasecmp(ptr noundef nonnull %30, ptr noundef %32) #6
-  %.not45 = icmp eq i32 %36, 0
-  br i1 %.not45, label %37, label %56
+36:                                               ; preds = %33, %34
+  %37 = getelementptr inbounds i8, ptr %0, i64 272
+  %38 = load ptr, ptr %37, align 8
+  %.not46 = icmp eq ptr %38, null
+  %39 = getelementptr inbounds i8, ptr %1, i64 272
+  %40 = load ptr, ptr %39, align 8
+  br i1 %.not46, label %42, label %._crit_edge71
 
-37:                                               ; preds = %34, %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 272
-  %39 = load ptr, ptr %38, align 8
-  %.not46 = icmp eq ptr %39, null
-  %40 = getelementptr inbounds i8, ptr %1, i64 272
-  %41 = load ptr, ptr %40, align 8
-  br i1 %.not46, label %43, label %._crit_edge70
+._crit_edge71:                                    ; preds = %36
+  %41 = icmp ne ptr %40, null
+  %.not5080 = xor i1 %.not46, %41
+  br i1 %.not5080, label %43, label %54
 
-._crit_edge70:                                    ; preds = %37
-  %42 = icmp ne ptr %41, null
-  %.not5079 = xor i1 %.not46, %42
-  br i1 %.not5079, label %44, label %56
+42:                                               ; preds = %36
+  %.not47 = icmp eq ptr %40, null
+  br i1 %.not47, label %45, label %54
 
-43:                                               ; preds = %37
-  %.not47 = icmp eq ptr %41, null
-  br i1 %.not47, label %46, label %56
+43:                                               ; preds = %._crit_edge71
+  %44 = tail call i32 @xstrcasecmp(ptr noundef nonnull %38, ptr noundef %40) #6
+  %.not51 = icmp eq i32 %44, 0
+  br i1 %.not51, label %45, label %54
 
-44:                                               ; preds = %._crit_edge70
-  %45 = tail call i32 @xstrcasecmp(ptr noundef nonnull %39, ptr noundef %41) #6
-  %.not51 = icmp eq i32 %45, 0
-  br i1 %.not51, label %46, label %56
+45:                                               ; preds = %42, %43
+  %46 = getelementptr inbounds i8, ptr %0, i64 320
+  %47 = load ptr, ptr %46, align 8
+  %.not52 = icmp eq ptr %47, null
+  %48 = getelementptr inbounds i8, ptr %1, i64 320
+  %49 = load ptr, ptr %48, align 8
+  br i1 %.not52, label %51, label %._crit_edge74
 
-46:                                               ; preds = %43, %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 320
-  %48 = load ptr, ptr %47, align 8
-  %.not52 = icmp eq ptr %48, null
-  %49 = getelementptr inbounds i8, ptr %1, i64 320
-  %50 = load ptr, ptr %49, align 8
-  br i1 %.not52, label %52, label %._crit_edge73
+._crit_edge74:                                    ; preds = %45
+  %50 = icmp ne ptr %49, null
+  %.not5681 = xor i1 %.not52, %50
+  br i1 %.not5681, label %52, label %54
 
-._crit_edge73:                                    ; preds = %46
-  %51 = icmp ne ptr %50, null
-  %.not5680 = xor i1 %.not52, %51
-  br i1 %.not5680, label %53, label %56
+51:                                               ; preds = %45
+  %.not53 = icmp eq ptr %49, null
+  br label %54
 
-52:                                               ; preds = %46
-  %.not53 = icmp eq ptr %50, null
-  br i1 %.not53, label %55, label %56
+52:                                               ; preds = %._crit_edge74
+  %53 = tail call i32 @xstrcasecmp(ptr noundef nonnull %47, ptr noundef %49) #6
+  %.not57 = icmp eq i32 %53, 0
+  br label %54
 
-53:                                               ; preds = %._crit_edge73
-  %54 = tail call i32 @xstrcasecmp(ptr noundef nonnull %48, ptr noundef %50) #6
-  %.not57 = icmp eq i32 %54, 0
-  br i1 %.not57, label %55, label %56
-
-55:                                               ; preds = %53, %52
-  br label %56
-
-56:                                               ; preds = %52, %43, %34, %25, %15, %._crit_edge73, %._crit_edge70, %._crit_edge67, %._crit_edge64, %._crit_edge, %53, %44, %35, %26, %16, %55, %18
-  %.0 = phi i32 [ 1, %18 ], [ 1, %55 ], [ 0, %16 ], [ 0, %26 ], [ 0, %35 ], [ 0, %44 ], [ 0, %53 ], [ 0, %._crit_edge ], [ 0, %._crit_edge64 ], [ 0, %._crit_edge67 ], [ 0, %._crit_edge70 ], [ 0, %._crit_edge73 ], [ 0, %15 ], [ 0, %25 ], [ 0, %34 ], [ 0, %43 ], [ 0, %52 ]
+54:                                               ; preds = %51, %15, %42, %33, %24, %._crit_edge74, %._crit_edge71, %._crit_edge68, %._crit_edge65, %._crit_edge, %52, %16, %43, %34, %25
+  %.0.shrunk = phi i1 [ false, %25 ], [ false, %34 ], [ false, %43 ], [ %.not63, %16 ], [ %.not57, %52 ], [ false, %._crit_edge ], [ false, %._crit_edge65 ], [ false, %._crit_edge68 ], [ false, %._crit_edge71 ], [ false, %._crit_edge74 ], [ %.not59, %15 ], [ false, %24 ], [ false, %33 ], [ false, %42 ], [ %.not53, %51 ]
+  %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
 
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #6
   %4 = icmp sgt i32 %3, 8
   br i1 %4, label %5, label %18
@@ -1087,14 +1082,14 @@ define noundef i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, ptr noca
   %33 = getelementptr inbounds i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not29 = icmp eq ptr %34, null
-  br i1 %.not29, label %62, label %35
+  br i1 %.not29, label %61, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @xstrcasecmp(ptr noundef nonnull %34, ptr noundef %37) #6
   %.not30 = icmp eq i32 %38, 0
-  br i1 %.not30, label %62, label %39
+  br i1 %.not30, label %61, label %39
 
 39:                                               ; preds = %35, %28, %21, %18
   %40 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1114,7 +1109,7 @@ define noundef i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, ptr noca
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @xstrcasecmp(ptr noundef %46, ptr noundef %48) #6
   %.not33 = icmp eq i32 %49, 0
-  br i1 %.not33, label %62, label %._crit_edge
+  br i1 %.not33, label %61, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %44
   %.pre = load ptr, ptr %40, align 8
@@ -1135,13 +1130,11 @@ define noundef i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, ptr noca
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @xstrcasecmp(ptr noundef %57, ptr noundef %59) #6
   %.not35 = icmp eq i32 %60, 0
-  br i1 %.not35, label %62, label %61
+  %spec.select = zext i1 %.not35 to i32
+  br label %61
 
-61:                                               ; preds = %55, %50
-  br label %62
-
-62:                                               ; preds = %55, %44, %32, %35, %61
-  %.0 = phi i32 [ 0, %61 ], [ 1, %35 ], [ 1, %32 ], [ 1, %44 ], [ 1, %55 ]
+61:                                               ; preds = %55, %50, %44, %32, %35
+  %.0 = phi i32 [ 1, %35 ], [ 1, %32 ], [ 1, %44 ], [ 0, %50 ], [ %spec.select, %55 ]
   ret i32 %.0
 }
 

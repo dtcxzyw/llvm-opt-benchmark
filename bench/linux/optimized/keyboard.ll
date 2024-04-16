@@ -336,7 +336,7 @@ define dso_local void @vt_set_leds_compute_shiftstate() local_unnamed_addr #0 al
   %13 = getelementptr i16, ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = lshr i16 %14, 8
-  %16 = trunc i16 %15 to i8
+  %16 = trunc nuw i16 %15 to i8
   %17 = xor i8 %16, -16
   switch i8 %17, label %30 [
     i8 7, label %18
@@ -391,7 +391,7 @@ define internal fastcc void @do_compute_shiftstate() unnamed_addr #0 align 16 {
   %7 = getelementptr i16, ptr %5, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = lshr i16 %8, 8
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw i16 %9 to i8
   %11 = xor i8 %10, -16
   switch i8 %11, label %24 [
     i8 7, label %12
@@ -433,7 +433,7 @@ define dso_local void @setledstate(ptr nocapture noundef %0, i32 noundef %1) loc
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = trunc i32 %1 to i8
+  %6 = trunc nuw nsw i32 %1 to i8
   store i8 %6, ptr @ledioctl, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 1
@@ -488,7 +488,7 @@ define dso_local void @vt_set_led_state(i32 noundef %0, i32 noundef %1) local_un
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = trunc i32 %1 to i8
+  %8 = trunc nuw nsw i32 %1 to i8
   store i8 %8, ptr @ledioctl, align 1
   %9 = getelementptr inbounds i8, ptr %4, i64 2
   %10 = load i8, ptr %9, align 1
@@ -955,7 +955,7 @@ define dso_local noundef i32 @vt_do_kdskbmode(i32 noundef %0, i32 noundef %1) lo
   %17 = getelementptr i16, ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = lshr i16 %18, 8
-  %20 = trunc i16 %19 to i8
+  %20 = trunc nuw i16 %19 to i8
   %21 = xor i8 %20, -16
   switch i8 %21, label %34 [
     i8 7, label %22
@@ -1006,7 +1006,7 @@ define dso_local noundef i32 @vt_do_kdskbmode(i32 noundef %0, i32 noundef %1) lo
   %51 = getelementptr i16, ptr %49, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = lshr i16 %52, 8
-  %54 = trunc i16 %53 to i8
+  %54 = trunc nuw i16 %53 to i8
   %55 = xor i8 %54, -16
   switch i8 %55, label %68 [
     i8 7, label %56
@@ -1417,7 +1417,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
   %13 = zext i8 %12 to i64
   %14 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 256, i64 %13) #18, !srcloc !25
   %15 = and i64 %14, %13
-  %16 = trunc i64 %15 to i8
+  %16 = trunc nuw i64 %15 to i8
   switch i32 %0, label %.thread [
     i32 19272, label %17
     i32 19273, label %38
@@ -1573,7 +1573,7 @@ define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef 
 
 29:                                               ; preds = %26
   %30 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @led_lock) #18
-  %31 = trunc i64 %2 to i8
+  %31 = trunc nuw i64 %2 to i8
   %32 = getelementptr inbounds i8, ptr %6, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = shl nuw i8 %31, 1
@@ -2753,7 +2753,7 @@ define internal void @kbd_event(ptr nocapture noundef readonly %0, i32 noundef %
 512:                                              ; preds = %509
   %513 = select i1 %511, i32 128, i32 0
   %514 = or disjoint i32 %513, %2
-  %515 = trunc i32 %514 to i8
+  %515 = trunc nuw i32 %514 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   store i8 %515, ptr %11, align 1
@@ -2860,7 +2860,7 @@ define internal void @kbd_event(ptr nocapture noundef readonly %0, i32 noundef %
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @tty_flip_buffer_push(ptr noundef %139) #18
   %568 = lshr i32 %2, 7
-  %569 = trunc i32 %568 to i8
+  %569 = trunc nuw nsw i32 %568 to i8
   %570 = or disjoint i8 %569, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
@@ -3057,7 +3057,7 @@ define internal void @kbd_event(ptr nocapture noundef readonly %0, i32 noundef %
   %675 = getelementptr i16, ptr %673, i64 %674
   %676 = load i16, ptr %675, align 2
   %677 = lshr i16 %676, 8
-  %678 = trunc i16 %677 to i8
+  %678 = trunc nuw i16 %677 to i8
   %679 = xor i8 %678, -16
   switch i8 %679, label %692 [
     i8 7, label %680
@@ -3104,7 +3104,7 @@ do_compute_shiftstate.exit:                       ; preds = %692, %667
   br i1 %704, label %.thread43, label %772
 
 .thread43:                                        ; preds = %702
-  %705 = trunc i32 %2 to i16
+  %705 = trunc nuw nsw i32 %2 to i16
   %706 = add nuw nsw i16 %705, 16
   %707 = or i16 %706, -512
   br label %719
@@ -3131,7 +3131,7 @@ do_compute_shiftstate.exit:                       ; preds = %692, %667
 719:                                              ; preds = %.thread43, %708
   %720 = phi i16 [ %707, %.thread43 ], [ %710, %708 ]
   %721 = lshr i16 %720, 8
-  %722 = trunc i16 %721 to i8
+  %722 = trunc nuw i16 %721 to i8
   %723 = add nsw i8 %722, 16
   %724 = icmp eq i8 %723, 11
   br i1 %724, label %725, label %739
@@ -3241,7 +3241,7 @@ define internal noundef zeroext i1 @kbd_match(ptr nocapture readnone %0, ptr nou
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 262144
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %19
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %2
   %8 = load volatile i64, ptr %3, align 8
@@ -3253,19 +3253,16 @@ define internal noundef zeroext i1 @kbd_match(ptr nocapture readnone %0, ptr nou
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   %13 = tail call i64 @_find_next_bit(ptr noundef %12, i64 noundef 256, i64 noundef 0) #18
   %14 = icmp ult i64 %13, 256
-  br i1 %14, label %19, label %15
+  br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
   %16 = tail call i64 @_find_next_bit(ptr noundef %12, i64 noundef 507, i64 noundef 497) #18
   %17 = icmp ult i64 %16, 507
-  br i1 %17, label %19, label %18
+  br label %18
 
-18:                                               ; preds = %15, %7
-  br label %19
-
-19:                                               ; preds = %18, %15, %11, %2
-  %20 = phi i1 [ false, %18 ], [ true, %2 ], [ true, %11 ], [ true, %15 ]
-  ret i1 %20
+18:                                               ; preds = %15, %7, %11, %2
+  %19 = phi i1 [ true, %2 ], [ true, %11 ], [ false, %7 ], [ %17, %15 ]
+  ret i1 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3639,7 +3636,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
   br i1 %23, label %24, label %50
 
 24:                                               ; preds = %2
-  %25 = trunc i32 %1 to i8
+  %25 = trunc nuw nsw i32 %1 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
   store i8 %25, ptr %21, align 1
@@ -3696,7 +3693,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 52:                                               ; preds = %50
   %53 = lshr i32 %1, 6
-  %54 = trunc i32 %53 to i8
+  %54 = trunc nuw nsw i32 %53 to i8
   %55 = or disjoint i8 %54, -64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
@@ -3812,7 +3809,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 113:                                              ; preds = %108
   %114 = lshr i32 %1, 12
-  %115 = trunc i32 %114 to i8
+  %115 = trunc nuw nsw i32 %114 to i8
   %116 = or disjoint i8 %115, -32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
@@ -3973,7 +3970,7 @@ define internal fastcc void @to_utf8(ptr noundef %0, i32 noundef %1) unnamed_add
 
 196:                                              ; preds = %194
   %197 = lshr i32 %1, 18
-  %198 = trunc i32 %197 to i8
+  %198 = trunc nuw nsw i32 %197 to i8
   %199 = or disjoint i8 %198, -16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -5227,7 +5224,7 @@ define internal void @fn_null(ptr nocapture readnone %0) #0 align 16 {
   %8 = getelementptr i16, ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = lshr i16 %9, 8
-  %11 = trunc i16 %10 to i8
+  %11 = trunc nuw i16 %10 to i8
   %12 = xor i8 %11, -16
   switch i8 %12, label %25 [
     i8 7, label %13

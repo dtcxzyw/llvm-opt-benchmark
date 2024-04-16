@@ -340,7 +340,7 @@ define internal void @led_timer_function(ptr noundef %0) #0 align 16 {
   %50 = phi i64 [ 0, %47 ], [ %46, %39 ]
   %51 = phi ptr [ %7, %47 ], [ %3, %39 ]
   %52 = load i64, ptr %51, align 8
-  %53 = trunc i64 %50 to i32
+  %53 = trunc nsw i64 %50 to i32
   %54 = getelementptr i8, ptr %0, i64 -124
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 @llvm.umin.i32(i32 %55, i32 %53)
@@ -1206,20 +1206,18 @@ define dso_local noundef i32 @led_init_default_state_get(ptr noundef %0) #0 alig
   %6 = load ptr, ptr %2, align 8
   %7 = call i32 @strcmp(ptr noundef %6, ptr noundef nonnull dereferenceable(5) @.str.21) #11
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %13, label %9
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
   %10 = call i32 @strcmp(ptr noundef %6, ptr noundef nonnull dereferenceable(3) @.str.22) #11
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %13, label %12
+  %spec.select = zext i1 %11 to i32
+  br label %12
 
-12:                                               ; preds = %9, %1
-  br label %13
-
-13:                                               ; preds = %12, %9, %5
-  %14 = phi i32 [ 0, %12 ], [ 2, %5 ], [ 1, %9 ]
+12:                                               ; preds = %9, %1, %5
+  %13 = phi i32 [ 2, %5 ], [ 0, %1 ], [ %spec.select, %9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  ret i32 %14
+  ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid

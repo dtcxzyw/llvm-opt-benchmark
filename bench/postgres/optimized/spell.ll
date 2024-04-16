@@ -2396,7 +2396,7 @@ compact_palloc0.exit.._crit_edge122_crit_edge:    ; preds = %compact_palloc0.exi
   br i1 %.not101, label %68, label %63
 
 63:                                               ; preds = %62
-  %64 = trunc i64 %indvars.iv125 to i32
+  %64 = trunc nsw i64 %indvars.iv125 to i32
   %65 = tail call fastcc ptr @mkSPNode(ptr noundef nonnull %0, i32 noundef %.082120, i32 noundef %64, i32 noundef %44)
   %66 = getelementptr inbounds i8, ptr %.083119, i64 8
   store ptr %65, ptr %66, align 8
@@ -3146,7 +3146,7 @@ compact_palloc0.exit:                             ; preds = %54, %64
   br i1 %.not130, label %127, label %100
 
 100:                                              ; preds = %99
-  %101 = trunc i64 %indvars.iv163 to i32
+  %101 = trunc nsw i64 %indvars.iv163 to i32
   %102 = tail call fastcc ptr @mkANode(ptr noundef nonnull %0, i32 noundef %.0106151, i32 noundef %101, i32 noundef %80, i32 noundef %4)
   %103 = getelementptr inbounds i8, ptr %.0110150, i64 16
   store ptr %102, ptr %103, align 8
@@ -3923,7 +3923,7 @@ define internal fastcc noundef ptr @NormalizeSubWord(ptr nocapture noundef reado
   br label %49
 
 FindAffixes.exit.loopexit:                        ; preds = %63
-  %70 = trunc i64 %indvars.iv.next59.i to i32
+  %70 = trunc nsw i64 %indvars.iv.next59.i to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %FindAffixes.exit.loopexit
@@ -4202,7 +4202,7 @@ FindAffixes.exit.thread:                          ; preds = %._crit_edge, %38, %
   br i1 %.not45.i128, label %FindAffixes.exit129.thread, label %.preheader.split.i, !llvm.loop !45
 
 FindAffixes.exit129.loopexit:                     ; preds = %191
-  %199 = trunc i64 %indvars.iv.next.i to i32
+  %199 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %.lr.ph301
 
 .lr.ph301:                                        ; preds = %161, %FindAffixes.exit129.loopexit
@@ -4459,7 +4459,7 @@ FindWord.exit148.thread:                          ; preds = %.preheader.i131, %2
   br label %296
 
 FindAffixes.exit173.loopexit:                     ; preds = %310
-  %317 = trunc i64 %indvars.iv.next59.i170 to i32
+  %317 = trunc nsw i64 %indvars.iv.next59.i170 to i32
   br label %.lr.ph286
 
 .lr.ph286:                                        ; preds = %282, %FindAffixes.exit173.loopexit
@@ -5831,7 +5831,7 @@ IsAffixFlagInUse.exit:                            ; preds = %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @CheckAffix(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %8, label %12
 
@@ -5840,7 +5840,7 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 2
   %.not58 = icmp eq i32 %11, 0
-  br i1 %.not58, label %._crit_edge, label %92
+  br i1 %.not58, label %._crit_edge, label %91
 
 12:                                               ; preds = %6
   %13 = and i32 %3, 2
@@ -5855,7 +5855,7 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
   %18 = and i32 %16, 5
   %or.cond.not = icmp eq i32 %18, 1
   %or.cond = or i1 %.not56, %or.cond.not
-  br i1 %or.cond, label %92, label %._crit_edge
+  br i1 %or.cond, label %91, label %._crit_edge
 
 19:                                               ; preds = %12
   %20 = and i32 %3, 4
@@ -5867,7 +5867,7 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 72
   %or.cond65 = icmp eq i32 %24, 8
-  br i1 %or.cond65, label %._crit_edge, label %92
+  br i1 %or.cond65, label %._crit_edge, label %91
 
 25:                                               ; preds = %19
   %26 = and i32 %3, 8
@@ -5882,7 +5882,7 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
   %29 = and i32 %.pre, 17
   %or.cond67 = icmp eq i32 %29, 0
   %or.cond68 = or i1 %.not54, %or.cond67
-  br i1 %or.cond68, label %92, label %._crit_edge
+  br i1 %or.cond68, label %91, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25, %27, %14, %21, %8
   %30 = phi i32 [ %.pre, %27 ], [ %16, %14 ], [ %23, %21 ], [ %10, %8 ], [ %.pre, %25 ]
@@ -5935,7 +5935,7 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
   %60 = and i32 %59, 16383
   %61 = zext nneg i32 %60 to i64
   %.not61 = icmp ugt i64 %58, %61
-  br i1 %.not61, label %62, label %92
+  br i1 %.not61, label %62, label %91
 
 62:                                               ; preds = %._crit_edge69, %52
   %63 = phi ptr [ %.pre71, %._crit_edge69 ], [ %56, %52 ]
@@ -5952,7 +5952,7 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
   %72 = load i32, ptr %31, align 8
   %73 = and i32 %72, 256
   %.not63 = icmp eq i32 %73, 0
-  br i1 %.not63, label %74, label %92
+  br i1 %.not63, label %74, label %91
 
 74:                                               ; preds = %71
   %75 = and i32 %72, 512
@@ -5962,7 +5962,8 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %2, i64 32
   %78 = tail call zeroext i1 @RS_execute(ptr noundef nonnull %77, ptr noundef %4) #15
-  br i1 %78, label %92, label %91
+  %spec.select = select i1 %78, ptr %4, ptr null
+  br label %91
 
 79:                                               ; preds = %74
   %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
@@ -5978,13 +5979,11 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
   %89 = tail call i32 @pg_regexec(ptr noundef %88, ptr noundef %84, i64 noundef %86, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i32 noundef 0) #15
   %90 = icmp eq i32 %89, 0
   tail call void @pfree(ptr noundef %84) #15
-  br i1 %90, label %92, label %91
+  %. = select i1 %90, ptr %4, ptr null
+  br label %91
 
-91:                                               ; preds = %79, %76
-  br label %92
-
-92:                                               ; preds = %79, %76, %71, %52, %27, %21, %14, %8, %91
-  %.0 = phi ptr [ null, %91 ], [ null, %8 ], [ null, %14 ], [ null, %21 ], [ null, %27 ], [ null, %52 ], [ %4, %71 ], [ %4, %76 ], [ %4, %79 ]
+91:                                               ; preds = %79, %76, %71, %52, %27, %21, %14, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %21 ], [ null, %27 ], [ null, %52 ], [ %4, %71 ], [ %spec.select, %76 ], [ %., %79 ]
   ret ptr %.0
 }
 

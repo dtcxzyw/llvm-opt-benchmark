@@ -3412,19 +3412,17 @@ land.lhs.true:                                    ; preds = %if.then
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
   %tobool8.not = icmp eq ptr %in_tok, null
-  br i1 %tobool8.not, label %if.else14, label %land.lhs.true9
+  br i1 %tobool8.not, label %if.end16.sink.split, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %if.else
   %value10 = getelementptr inbounds i8, ptr %in_tok, i64 24
   %4 = load ptr, ptr %value10, align 8
   %tobool11.not = icmp eq ptr %4, null
-  br i1 %tobool11.not, label %if.else14, label %if.end16.sink.split
-
-if.else14:                                        ; preds = %land.lhs.true9, %if.else
+  %spec.select = select i1 %tobool11.not, ptr @.str.31, ptr %4
   br label %if.end16.sink.split
 
-if.end16.sink.split:                              ; preds = %land.lhs.true9, %if.else14
-  %.sink = phi ptr [ @.str.31, %if.else14 ], [ %4, %land.lhs.true9 ]
+if.end16.sink.split:                              ; preds = %land.lhs.true9, %if.else
+  %.sink = phi ptr [ @.str.31, %if.else ], [ %spec.select, %land.lhs.true9 ]
   %call = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #16
   br label %if.end16
 

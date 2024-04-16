@@ -2516,7 +2516,7 @@ if.then136:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -3330,7 +3330,7 @@ if.end376:                                        ; preds = %for.cond.i537, %inv
   %and.i.i.i.i629 = and i64 %369, 144115188075855871
   %370 = inttoptr i64 %and.i.i.i.i629 to ptr
   %shr.i.i.i.i630 = lshr i64 %369, 57
-  %conv.i.i.i.i631 = trunc i64 %shr.i.i.i.i630 to i32
+  %conv.i.i.i.i631 = trunc nuw nsw i64 %shr.i.i.i.i630 to i32
   %sub.i.i.i632 = add nsw i32 %conv.i.i.i.i631, -1
   %call3.i.i.i633 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %370, i32 noundef %sub.i.i.i632)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -3397,7 +3397,7 @@ if.end433:                                        ; preds = %if.end433.sink.spli
   %and.i.i.i669 = and i64 %373, 144115188075855871
   %374 = inttoptr i64 %and.i.i.i669 to ptr
   %shr.i.i.i = lshr i64 %373, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %374, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -3428,7 +3428,7 @@ invoke.cont441:                                   ; preds = %if.end433
   %and.i.i.i679 = and i64 %376, 144115188075855871
   %380 = inttoptr i64 %and.i.i.i679 to ptr
   %shr.i.i.i680 = lshr i64 %376, 57
-  %conv.i.i.i681 = trunc i64 %shr.i.i.i680 to i32
+  %conv.i.i.i681 = trunc nuw nsw i64 %shr.i.i.i680 to i32
   %sub.i.i682 = add nsw i32 %conv.i.i.i681, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %380, i32 noundef %sub.i.i682)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp445677)
@@ -6265,33 +6265,32 @@ entry:
   %cmp4 = fcmp olt float %1, 0x3FE70A3D80000000
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   %.pre = extractelement <2 x float> %from.coerce0, i64 1
-  br i1 %or.cond, label %entry.if.end15_crit_edge, label %if.else
-
-entry.if.end15_crit_edge:                         ; preds = %entry
-  %.pre132 = extractelement <2 x float> %to.coerce0, i64 1
-  br label %if.end15
+  br i1 %or.cond, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %entry
   %2 = tail call noundef float @llvm.fabs.f32(float %.pre)
   %cmp6 = fcmp olt float %2, 0x3FE70A3D80000000
+  br i1 %cmp6, label %land.lhs.true7, label %if.end15
+
+land.lhs.true7:                                   ; preds = %if.else
   %to.sroa.0.4.vec.extract = extractelement <2 x float> %to.coerce0, i64 1
-  %3 = tail call float @llvm.fabs.f32(float %to.sroa.0.4.vec.extract)
+  %3 = tail call noundef float @llvm.fabs.f32(float %to.sroa.0.4.vec.extract)
   %cmp10 = fcmp olt float %3, 0x3FE70A3D80000000
-  %or.cond123 = select i1 %cmp6, i1 %cmp10, i1 false
-  %spec.select = select i1 %or.cond123, float 1.000000e+00, float 0.000000e+00
-  %spec.select124 = select i1 %or.cond123, float 0.000000e+00, float 1.000000e+00
+  br i1 %cmp10, label %if.end15, label %if.else13
+
+if.else13:                                        ; preds = %land.lhs.true7
   br label %if.end15
 
-if.end15:                                         ; preds = %entry.if.end15_crit_edge, %if.else
-  %c.sroa.0.4.vec.extract.i22.pre-phi = phi float [ %.pre132, %entry.if.end15_crit_edge ], [ %to.sroa.0.4.vec.extract, %if.else ]
-  %refl.sroa.0.0 = phi float [ 1.000000e+00, %entry.if.end15_crit_edge ], [ 0.000000e+00, %if.else ]
-  %refl.sroa.6.0 = phi float [ 0.000000e+00, %entry.if.end15_crit_edge ], [ %spec.select, %if.else ]
-  %refl.sroa.12.0 = phi float [ 0.000000e+00, %entry.if.end15_crit_edge ], [ %spec.select124, %if.else ]
+if.end15:                                         ; preds = %entry, %if.else, %land.lhs.true7, %if.else13
+  %refl.sroa.0.0 = phi float [ 0.000000e+00, %if.else ], [ 0.000000e+00, %land.lhs.true7 ], [ 0.000000e+00, %if.else13 ], [ 1.000000e+00, %entry ]
+  %refl.sroa.6.0 = phi float [ 0.000000e+00, %if.else ], [ 1.000000e+00, %land.lhs.true7 ], [ 0.000000e+00, %if.else13 ], [ 0.000000e+00, %entry ]
+  %refl.sroa.12.0 = phi float [ 1.000000e+00, %if.else ], [ 0.000000e+00, %land.lhs.true7 ], [ 1.000000e+00, %if.else13 ], [ 0.000000e+00, %entry ]
   %sub.i = fsub float %refl.sroa.0.0, %from.sroa.0.0.vec.extract
   %sub4.i = fsub float %refl.sroa.6.0, %.pre
   %sub6.i = fsub float %refl.sroa.12.0, %from.coerce1
   %sub.i20 = fsub float %refl.sroa.0.0, %to.sroa.0.0.vec.extract
-  %sub4.i23 = fsub float %refl.sroa.6.0, %c.sroa.0.4.vec.extract.i22.pre-phi
+  %c.sroa.0.4.vec.extract.i22 = extractelement <2 x float> %to.coerce0, i64 1
+  %sub4.i23 = fsub float %refl.sroa.6.0, %c.sroa.0.4.vec.extract.i22
   %sub6.i25 = fsub float %refl.sroa.12.0, %to.coerce1
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %r)
   %mul.i = fmul float %sub.i, %sub.i
@@ -6317,13 +6316,13 @@ if.end15:                                         ; preds = %entry.if.end15_crit
   br label %for.cond22.preheader
 
 for.cond22.preheader:                             ; preds = %if.end15, %for.inc61
-  %indvars.iv128 = phi i64 [ 0, %if.end15 ], [ %indvars.iv.next129, %for.inc61 ]
-  %4 = trunc i64 %indvars.iv128 to i32
+  %indvars.iv126 = phi i64 [ 0, %if.end15 ], [ %indvars.iv.next127, %for.inc61 ]
+  %4 = trunc nuw nsw i64 %indvars.iv126 to i32
   br label %for.body24
 
 for.body24:                                       ; preds = %for.cond22.preheader, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97
   %indvars.iv = phi i64 [ 0, %for.cond22.preheader ], [ %indvars.iv.next, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97 ]
-  %cmp25 = icmp eq i64 %indvars.iv128, %indvars.iv
+  %cmp25 = icmp eq i64 %indvars.iv126, %indvars.iv
   %conv = uitofp i1 %cmp25 to float
   switch i32 %4, label %if.end4.i [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
@@ -6339,7 +6338,7 @@ if.end4.i:                                        ; preds = %for.body24
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %for.body24, %if.then3.i, %if.end4.i
   %retval.0.i.sroa.speculated = phi float [ %sub4.i, %if.then3.i ], [ %sub6.i, %if.end4.i ], [ %sub.i, %for.body24 ]
   %mul = fmul float %div, %retval.0.i.sroa.speculated
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %5, label %if.end4.i35 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit37
     i32 1, label %if.then3.i32
@@ -6422,9 +6421,9 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97:        ; preds = %_ZN4pbrt6Tuple3INS_
   br i1 %exitcond.not, label %for.inc61, label %for.body24, !llvm.loop !63
 
 for.inc61:                                        ; preds = %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit97
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 3
-  br i1 %exitcond131.not, label %for.end63, label %for.cond22.preheader, !llvm.loop !64
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond129.not = icmp eq i64 %indvars.iv.next127, 3
+  br i1 %exitcond129.not, label %for.end63, label %for.cond22.preheader, !llvm.loop !64
 
 for.end63:                                        ; preds = %for.inc61
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp64)
@@ -6432,12 +6431,12 @@ for.end63:                                        ; preds = %for.inc61
 
 for.cond1.preheader.i:                            ; preds = %for.inc9.i, %for.end63
   %indvars.iv11.i = phi i64 [ 0, %for.end63 ], [ %indvars.iv.next12.i, %for.inc9.i ]
-  %7 = trunc i64 %indvars.iv11.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv11.i to i32
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.body3.i, %for.cond1.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %indvars.iv.next.i, %for.body3.i ]
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i = call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %r, i32 noundef %8)
   %9 = extractvalue { ptr, i64 } %call.i, 0
   %arrayidx.i.i = getelementptr inbounds float, ptr %9, i64 %indvars.iv11.i
@@ -6732,7 +6731,7 @@ sw.bb:                                            ; preds = %if.end
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp9.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i = lshr i64 %agg.tmp9.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i = trunc i64 %p.sroa.2.0.extract.shift.i to i32
+  %p.sroa.2.0.extract.trunc.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i to i32
   %nStored.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %nStored.i.i.i, align 8
   %conv.i.i = trunc i64 %1 to i32
@@ -6750,7 +6749,7 @@ sw.bb:                                            ; preds = %if.end
   %and.i.i.i = and i64 %5, 144115188075855871
   %6 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %for.body.i.i.i.i.i.preheader
     i32 2, label %sw.bb3.i.i.i
@@ -6779,7 +6778,7 @@ sw.bb14:                                          ; preds = %if.end
   %agg.tmp15.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i4 = trunc i64 %agg.tmp15.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i5 = lshr i64 %agg.tmp15.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i6 = trunc i64 %p.sroa.2.0.extract.shift.i5 to i32
+  %p.sroa.2.0.extract.trunc.i6 = trunc nuw i64 %p.sroa.2.0.extract.shift.i5 to i32
   %nStored.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i64, ptr %nStored.i.i.i7, align 8
   %conv.i.i8 = trunc i64 %9 to i32
@@ -6829,7 +6828,7 @@ sw.bb22:                                          ; preds = %if.end
   %agg.tmp23.sroa.0.0.copyload = load i64, ptr %p, align 8
   %p.sroa.0.0.extract.trunc.i18 = trunc i64 %agg.tmp23.sroa.0.0.copyload to i32
   %p.sroa.2.0.extract.shift.i19 = lshr i64 %agg.tmp23.sroa.0.0.copyload, 32
-  %p.sroa.2.0.extract.trunc.i20 = trunc i64 %p.sroa.2.0.extract.shift.i19 to i32
+  %p.sroa.2.0.extract.trunc.i20 = trunc nuw i64 %p.sroa.2.0.extract.shift.i19 to i32
   %nStored.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load i64, ptr %nStored.i.i.i21, align 8
   %conv.i.i22 = trunc i64 %17 to i32
@@ -6865,11 +6864,11 @@ entry:
   %wrapMode.sroa.2 = alloca i32, align 4
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.9.0.extract.shift = lshr i64 %resolution.coerce, 32
-  %resolution.sroa.9.0.extract.trunc = trunc i64 %resolution.sroa.9.0.extract.shift to i32
+  %resolution.sroa.9.0.extract.trunc = trunc nuw i64 %resolution.sroa.9.0.extract.shift to i32
   %wrapMode.sroa.0.0.extract.trunc = trunc i64 %wrapMode.coerce to i32
   store i32 %wrapMode.sroa.0.0.extract.trunc, ptr %wrapMode.sroa.0, align 8
   %wrapMode.sroa.2.0.extract.shift = lshr i64 %wrapMode.coerce, 32
-  %wrapMode.sroa.2.0.extract.trunc = trunc i64 %wrapMode.sroa.2.0.extract.shift to i32
+  %wrapMode.sroa.2.0.extract.trunc = trunc nuw i64 %wrapMode.sroa.2.0.extract.shift to i32
   store i32 %wrapMode.sroa.2.0.extract.trunc, ptr %wrapMode.sroa.2, align 4
   %0 = and i64 %wrapMode.coerce, 4294967295
   %cmp = icmp eq i64 %0, 3
@@ -7248,7 +7247,7 @@ if.then5:                                         ; preds = %entry
   %and.i.i.i.i = and i64 %4, 144115188075855871
   %5 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %4, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_NS_10TexCoord2DENS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEET0_OS4_PKvi(ptr nonnull sret(%"struct.pbrt::TexCoord2D") align 4 %c.i, ptr noundef nonnull align 8 dereferenceable(8) %map.i.i, ptr noundef %5, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp2.i)
@@ -11473,7 +11472,7 @@ if.then136:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -12287,7 +12286,7 @@ if.end367:                                        ; preds = %for.cond.i537, %inv
   %and.i.i.i.i629 = and i64 %369, 144115188075855871
   %370 = inttoptr i64 %and.i.i.i.i629 to ptr
   %shr.i.i.i.i630 = lshr i64 %369, 57
-  %conv.i.i.i.i631 = trunc i64 %shr.i.i.i.i630 to i32
+  %conv.i.i.i.i631 = trunc nuw nsw i64 %shr.i.i.i.i630 to i32
   %sub.i.i.i632 = add nsw i32 %conv.i.i.i.i631, -1
   %call3.i.i.i633 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %370, i32 noundef %sub.i.i.i632)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -12354,7 +12353,7 @@ if.end419:                                        ; preds = %if.end419.sink.spli
   %and.i.i.i669 = and i64 %373, 144115188075855871
   %374 = inttoptr i64 %and.i.i.i669 to ptr
   %shr.i.i.i = lshr i64 %373, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %374, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -12385,7 +12384,7 @@ invoke.cont426:                                   ; preds = %if.end419
   %and.i.i.i679 = and i64 %376, 144115188075855871
   %380 = inttoptr i64 %and.i.i.i679 to ptr
   %shr.i.i.i680 = lshr i64 %376, 57
-  %conv.i.i.i681 = trunc i64 %shr.i.i.i680 to i32
+  %conv.i.i.i681 = trunc nuw nsw i64 %shr.i.i.i680 to i32
   %sub.i.i682 = add nsw i32 %conv.i.i.i681, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %380, i32 noundef %sub.i.i682)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp430677)
@@ -14274,7 +14273,7 @@ if.then136:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -15088,7 +15087,7 @@ if.end368:                                        ; preds = %for.cond.i537, %inv
   %and.i.i.i.i629 = and i64 %369, 144115188075855871
   %370 = inttoptr i64 %and.i.i.i.i629 to ptr
   %shr.i.i.i.i630 = lshr i64 %369, 57
-  %conv.i.i.i.i631 = trunc i64 %shr.i.i.i.i630 to i32
+  %conv.i.i.i.i631 = trunc nuw nsw i64 %shr.i.i.i.i630 to i32
   %sub.i.i.i632 = add nsw i32 %conv.i.i.i.i631, -1
   %call3.i.i.i633 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %370, i32 noundef %sub.i.i.i632)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -15155,7 +15154,7 @@ if.end420:                                        ; preds = %if.end420.sink.spli
   %and.i.i.i669 = and i64 %373, 144115188075855871
   %374 = inttoptr i64 %and.i.i.i669 to ptr
   %shr.i.i.i = lshr i64 %373, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %374, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -15186,7 +15185,7 @@ invoke.cont427:                                   ; preds = %if.end420
   %and.i.i.i679 = and i64 %376, 144115188075855871
   %380 = inttoptr i64 %and.i.i.i679 to ptr
   %shr.i.i.i680 = lshr i64 %376, 57
-  %conv.i.i.i681 = trunc i64 %shr.i.i.i680 to i32
+  %conv.i.i.i681 = trunc nuw nsw i64 %shr.i.i.i680 to i32
   %sub.i.i682 = add nsw i32 %conv.i.i.i681, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %380, i32 noundef %sub.i.i682)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp431677)
@@ -16851,7 +16850,7 @@ if.then136:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -17665,7 +17664,7 @@ if.end367:                                        ; preds = %for.cond.i537, %inv
   %and.i.i.i.i629 = and i64 %369, 144115188075855871
   %370 = inttoptr i64 %and.i.i.i.i629 to ptr
   %shr.i.i.i.i630 = lshr i64 %369, 57
-  %conv.i.i.i.i631 = trunc i64 %shr.i.i.i.i630 to i32
+  %conv.i.i.i.i631 = trunc nuw nsw i64 %shr.i.i.i.i630 to i32
   %sub.i.i.i632 = add nsw i32 %conv.i.i.i.i631, -1
   %call3.i.i.i633 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %370, i32 noundef %sub.i.i.i632)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -17732,7 +17731,7 @@ if.end419:                                        ; preds = %if.end419.sink.spli
   %and.i.i.i669 = and i64 %373, 144115188075855871
   %374 = inttoptr i64 %and.i.i.i669 to ptr
   %shr.i.i.i = lshr i64 %373, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %374, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -17763,7 +17762,7 @@ invoke.cont426:                                   ; preds = %if.end419
   %and.i.i.i679 = and i64 %376, 144115188075855871
   %380 = inttoptr i64 %and.i.i.i679 to ptr
   %shr.i.i.i680 = lshr i64 %376, 57
-  %conv.i.i.i681 = trunc i64 %shr.i.i.i680 to i32
+  %conv.i.i.i681 = trunc nuw nsw i64 %shr.i.i.i680 to i32
   %sub.i.i682 = add nsw i32 %conv.i.i.i681, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %380, i32 noundef %sub.i.i682)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp430677)
@@ -19360,7 +19359,7 @@ if.then137:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -20379,7 +20378,7 @@ if.end369:                                        ; preds = %for.cond.i584, %_ZN
   %and.i.i.i.i676 = and i64 %416, 144115188075855871
   %417 = inttoptr i64 %and.i.i.i.i676 to ptr
   %shr.i.i.i.i677 = lshr i64 %416, 57
-  %conv.i.i.i.i678 = trunc i64 %shr.i.i.i.i677 to i32
+  %conv.i.i.i.i678 = trunc nuw nsw i64 %shr.i.i.i.i677 to i32
   %sub.i.i.i679 = add nsw i32 %conv.i.i.i.i678, -1
   %call3.i.i.i680 = invoke noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %417, i32 noundef %sub.i.i.i679)
           to label %invoke.cont370 unwind label %lpad
@@ -20446,7 +20445,7 @@ if.end421:                                        ; preds = %if.end421.sink.spli
   %and.i.i.i716 = and i64 %424, 144115188075855871
   %425 = inttoptr i64 %and.i.i.i716 to ptr
   %shr.i.i.i = lshr i64 %424, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %425, i32 noundef %sub.i.i)
           to label %invoke.cont423 unwind label %lpad
@@ -20480,7 +20479,7 @@ invoke.cont428:                                   ; preds = %invoke.cont423
   %and.i.i.i726 = and i64 %427, 144115188075855871
   %431 = inttoptr i64 %and.i.i.i726 to ptr
   %shr.i.i.i727 = lshr i64 %427, 57
-  %conv.i.i.i728 = trunc i64 %shr.i.i.i727 to i32
+  %conv.i.i.i728 = trunc nuw nsw i64 %shr.i.i.i727 to i32
   %sub.i.i729 = add nsw i32 %conv.i.i.i728, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %431, i32 noundef %sub.i.i729)
           to label %invoke.cont438 unwind label %lpad427
@@ -20972,7 +20971,7 @@ if.then.i:                                        ; preds = %if.then9
   %and.i.i.i.i.i = and i64 %5, 144115188075855871
   %6 = inttoptr i64 %and.i.i.i.i.i to ptr
   %shr.i.i.i.i.i = lshr i64 %5, 57
-  %conv.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i to i32
   %sub.i.i.i.i = add nsw i32 %conv.i.i.i.i.i, -1
   %call3.i.i.i.i = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i.i.i, ptr noundef %6, i32 noundef %sub.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i.i.i)
@@ -21026,7 +21025,7 @@ if.then.i24:                                      ; preds = %_ZN4pbrt21BasicText
   %and.i.i.i.i.i26 = and i64 %11, 144115188075855871
   %12 = inttoptr i64 %and.i.i.i.i.i26 to ptr
   %shr.i.i.i.i.i27 = lshr i64 %11, 57
-  %conv.i.i.i.i.i28 = trunc i64 %shr.i.i.i.i.i27 to i32
+  %conv.i.i.i.i.i28 = trunc nuw nsw i64 %shr.i.i.i.i.i27 to i32
   %sub.i.i.i.i29 = add nsw i32 %conv.i.i.i.i.i28, -1
   %call3.i.i.i.i30 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i.i.i10, ptr noundef %12, i32 noundef %sub.i.i.i.i29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i.i.i10)
@@ -21095,7 +21094,7 @@ if.then.i52:                                      ; preds = %if.else
   %and.i.i.i.i.i54 = and i64 %23, 144115188075855871
   %24 = inttoptr i64 %and.i.i.i.i.i54 to ptr
   %shr.i.i.i.i.i55 = lshr i64 %23, 57
-  %conv.i.i.i.i.i56 = trunc i64 %shr.i.i.i.i.i55 to i32
+  %conv.i.i.i.i.i56 = trunc nuw nsw i64 %shr.i.i.i.i.i55 to i32
   %sub.i.i.i.i57 = add nsw i32 %conv.i.i.i.i.i56, -1
   %call3.i.i.i.i58 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i.i.i38, ptr noundef %24, i32 noundef %sub.i.i.i.i57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i.i.i38)
@@ -24852,7 +24851,7 @@ if.then137:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -25871,7 +25870,7 @@ if.end368:                                        ; preds = %for.cond.i584, %_ZN
   %and.i.i.i.i676 = and i64 %416, 144115188075855871
   %417 = inttoptr i64 %and.i.i.i.i676 to ptr
   %shr.i.i.i.i677 = lshr i64 %416, 57
-  %conv.i.i.i.i678 = trunc i64 %shr.i.i.i.i677 to i32
+  %conv.i.i.i.i678 = trunc nuw nsw i64 %shr.i.i.i.i677 to i32
   %sub.i.i.i679 = add nsw i32 %conv.i.i.i.i678, -1
   %call3.i.i.i680 = invoke noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %417, i32 noundef %sub.i.i.i679)
           to label %invoke.cont369 unwind label %lpad
@@ -25938,7 +25937,7 @@ if.end420:                                        ; preds = %if.end420.sink.spli
   %and.i.i.i716 = and i64 %424, 144115188075855871
   %425 = inttoptr i64 %and.i.i.i716 to ptr
   %shr.i.i.i = lshr i64 %424, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %425, i32 noundef %sub.i.i)
           to label %invoke.cont422 unwind label %lpad
@@ -25972,7 +25971,7 @@ invoke.cont427:                                   ; preds = %invoke.cont422
   %and.i.i.i726 = and i64 %427, 144115188075855871
   %431 = inttoptr i64 %and.i.i.i726 to ptr
   %shr.i.i.i727 = lshr i64 %427, 57
-  %conv.i.i.i728 = trunc i64 %shr.i.i.i727 to i32
+  %conv.i.i.i728 = trunc nuw nsw i64 %shr.i.i.i727 to i32
   %sub.i.i729 = add nsw i32 %conv.i.i.i728, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %431, i32 noundef %sub.i.i729)
           to label %invoke.cont437 unwind label %lpad426
@@ -27931,7 +27930,7 @@ if.then139:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -28743,7 +28742,7 @@ if.end371:                                        ; preds = %for.cond.i537, %inv
   %and.i.i.i.i629 = and i64 %369, 144115188075855871
   %370 = inttoptr i64 %and.i.i.i.i629 to ptr
   %shr.i.i.i.i630 = lshr i64 %369, 57
-  %conv.i.i.i.i631 = trunc i64 %shr.i.i.i.i630 to i32
+  %conv.i.i.i.i631 = trunc nuw nsw i64 %shr.i.i.i.i630 to i32
   %sub.i.i.i632 = add nsw i32 %conv.i.i.i.i631, -1
   %call3.i.i.i633 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %370, i32 noundef %sub.i.i.i632)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -28810,7 +28809,7 @@ if.end423:                                        ; preds = %if.end423.sink.spli
   %and.i.i.i669 = and i64 %373, 144115188075855871
   %374 = inttoptr i64 %and.i.i.i669 to ptr
   %shr.i.i.i = lshr i64 %373, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %374, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -28841,7 +28840,7 @@ invoke.cont430:                                   ; preds = %if.end423
   %and.i.i.i679 = and i64 %376, 144115188075855871
   %380 = inttoptr i64 %and.i.i.i679 to ptr
   %shr.i.i.i680 = lshr i64 %376, 57
-  %conv.i.i.i681 = trunc i64 %shr.i.i.i680 to i32
+  %conv.i.i.i681 = trunc nuw nsw i64 %shr.i.i.i680 to i32
   %sub.i.i682 = add nsw i32 %conv.i.i.i681, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %380, i32 noundef %sub.i.i682)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp434677)
@@ -29209,7 +29208,7 @@ entry:
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %1, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i, ptr noundef %2, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lambda.addr.i)
@@ -30856,7 +30855,7 @@ if.then139:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -31668,7 +31667,7 @@ if.end370:                                        ; preds = %for.cond.i537, %inv
   %and.i.i.i.i629 = and i64 %369, 144115188075855871
   %370 = inttoptr i64 %and.i.i.i.i629 to ptr
   %shr.i.i.i.i630 = lshr i64 %369, 57
-  %conv.i.i.i.i631 = trunc i64 %shr.i.i.i.i630 to i32
+  %conv.i.i.i.i631 = trunc nuw nsw i64 %shr.i.i.i.i630 to i32
   %sub.i.i.i632 = add nsw i32 %conv.i.i.i.i631, -1
   %call3.i.i.i633 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %370, i32 noundef %sub.i.i.i632)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -31735,7 +31734,7 @@ if.end422:                                        ; preds = %if.end422.sink.spli
   %and.i.i.i669 = and i64 %373, 144115188075855871
   %374 = inttoptr i64 %and.i.i.i669 to ptr
   %shr.i.i.i = lshr i64 %373, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %374, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -31766,7 +31765,7 @@ invoke.cont429:                                   ; preds = %if.end422
   %and.i.i.i679 = and i64 %376, 144115188075855871
   %380 = inttoptr i64 %and.i.i.i679 to ptr
   %shr.i.i.i680 = lshr i64 %376, 57
-  %conv.i.i.i681 = trunc i64 %shr.i.i.i680 to i32
+  %conv.i.i.i681 = trunc nuw nsw i64 %shr.i.i.i680 to i32
   %sub.i.i682 = add nsw i32 %conv.i.i.i681, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %380, i32 noundef %sub.i.i682)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp433677)
@@ -32134,7 +32133,7 @@ entry:
   %and.i.i.i = and i64 %1, 144115188075855871
   %2 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %1, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i, ptr noundef %2, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lambda.addr.i)
@@ -33379,7 +33378,7 @@ if.then.i.i:                                      ; preds = %if.end117
   %and.i.i.i.i.i.i = and i64 %164, 144115188075855871
   %165 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %shr.i.i.i.i.i.i = lshr i64 %164, 57
-  %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i to i32
   %sub.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i.i, -1
   %call3.i.i.i.i.i = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i.i.i.i, ptr noundef %165, i32 noundef %sub.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i.i.i.i)
@@ -33569,7 +33568,7 @@ if.then141:                                       ; preds = %land.lhs.true
   %and.i.i.i.i306 = and i64 %201, 144115188075855871
   %202 = inttoptr i64 %and.i.i.i.i306 to ptr
   %shr.i.i.i.i = lshr i64 %201, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %202, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -34346,7 +34345,7 @@ if.end373:                                        ; preds = %for.cond.i521, %inv
   %and.i.i.i.i614 = and i64 %356, 144115188075855871
   %357 = inttoptr i64 %and.i.i.i.i614 to ptr
   %shr.i.i.i.i615 = lshr i64 %356, 57
-  %conv.i.i.i.i616 = trunc i64 %shr.i.i.i.i615 to i32
+  %conv.i.i.i.i616 = trunc nuw nsw i64 %shr.i.i.i.i615 to i32
   %sub.i.i.i617 = add nsw i32 %conv.i.i.i.i616, -1
   %call3.i.i.i618 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %357, i32 noundef %sub.i.i.i617)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -34413,7 +34412,7 @@ if.end425:                                        ; preds = %if.end425.sink.spli
   %and.i.i.i654 = and i64 %360, 144115188075855871
   %361 = inttoptr i64 %and.i.i.i654 to ptr
   %shr.i.i.i = lshr i64 %360, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %361, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -34444,7 +34443,7 @@ invoke.cont432:                                   ; preds = %if.end425
   %and.i.i.i664 = and i64 %363, 144115188075855871
   %367 = inttoptr i64 %and.i.i.i664 to ptr
   %shr.i.i.i665 = lshr i64 %363, 57
-  %conv.i.i.i666 = trunc i64 %shr.i.i.i665 to i32
+  %conv.i.i.i666 = trunc nuw nsw i64 %shr.i.i.i665 to i32
   %sub.i.i667 = add nsw i32 %conv.i.i.i666, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %367, i32 noundef %sub.i.i667)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp436662)
@@ -34999,7 +34998,7 @@ invoke.cont26:                                    ; preds = %_ZNK4pbrt15SampledS
 cleanup:                                          ; preds = %invoke.cont26, %if.then23
   %set.i1161 = phi ptr [ %set.i1155, %invoke.cont26 ], [ %set.i1162, %if.then23 ]
   %21 = phi i8 [ 0, %invoke.cont26 ], [ %20, %if.then23 ]
-  %tobool.i.i41 = trunc i8 %21 to i1
+  %tobool.i.i41 = trunc nuw i8 %21 to i1
   %spec.store.select = select i1 %tobool.i.i41, i8 0, i8 %21
   store i8 %spec.store.select, ptr %set.i1161, align 4
   br label %return
@@ -36170,7 +36169,7 @@ if.then141:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %192, 144115188075855871
   %193 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %192, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %193, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -36947,7 +36946,7 @@ if.end372:                                        ; preds = %for.cond.i520, %inv
   %and.i.i.i.i614 = and i64 %347, 144115188075855871
   %348 = inttoptr i64 %and.i.i.i.i614 to ptr
   %shr.i.i.i.i615 = lshr i64 %347, 57
-  %conv.i.i.i.i616 = trunc i64 %shr.i.i.i.i615 to i32
+  %conv.i.i.i.i616 = trunc nuw nsw i64 %shr.i.i.i.i615 to i32
   %sub.i.i.i617 = add nsw i32 %conv.i.i.i.i616, -1
   %call3.i.i.i618 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %348, i32 noundef %sub.i.i.i617)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -37014,7 +37013,7 @@ if.end424:                                        ; preds = %if.end424.sink.spli
   %and.i.i.i654 = and i64 %351, 144115188075855871
   %352 = inttoptr i64 %and.i.i.i654 to ptr
   %shr.i.i.i = lshr i64 %351, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %352, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -37045,7 +37044,7 @@ invoke.cont431:                                   ; preds = %if.end424
   %and.i.i.i664 = and i64 %354, 144115188075855871
   %358 = inttoptr i64 %and.i.i.i664 to ptr
   %shr.i.i.i665 = lshr i64 %354, 57
-  %conv.i.i.i666 = trunc i64 %shr.i.i.i665 to i32
+  %conv.i.i.i666 = trunc nuw nsw i64 %shr.i.i.i665 to i32
   %sub.i.i667 = add nsw i32 %conv.i.i.i666, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %358, i32 noundef %sub.i.i667)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp435662)
@@ -38638,7 +38637,7 @@ if.then137:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %187, 144115188075855871
   %188 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %187, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %188, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -39465,7 +39464,7 @@ if.end369:                                        ; preds = %for.cond.i517, %inv
   %and.i.i.i.i610 = and i64 %348, 144115188075855871
   %349 = inttoptr i64 %and.i.i.i.i610 to ptr
   %shr.i.i.i.i611 = lshr i64 %348, 57
-  %conv.i.i.i.i612 = trunc i64 %shr.i.i.i.i611 to i32
+  %conv.i.i.i.i612 = trunc nuw nsw i64 %shr.i.i.i.i611 to i32
   %sub.i.i.i613 = add nsw i32 %conv.i.i.i.i612, -1
   %call3.i.i.i614 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %349, i32 noundef %sub.i.i.i613)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -39532,7 +39531,7 @@ if.end421:                                        ; preds = %if.end421.sink.spli
   %and.i.i.i650 = and i64 %352, 144115188075855871
   %353 = inttoptr i64 %and.i.i.i650 to ptr
   %shr.i.i.i = lshr i64 %352, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %353, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -39563,7 +39562,7 @@ invoke.cont428:                                   ; preds = %if.end421
   %and.i.i.i660 = and i64 %355, 144115188075855871
   %359 = inttoptr i64 %and.i.i.i660 to ptr
   %shr.i.i.i661 = lshr i64 %355, 57
-  %conv.i.i.i662 = trunc i64 %shr.i.i.i661 to i32
+  %conv.i.i.i662 = trunc nuw nsw i64 %shr.i.i.i661 to i32
   %sub.i.i663 = add nsw i32 %conv.i.i.i662, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %359, i32 noundef %sub.i.i663)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp432658)
@@ -39975,7 +39974,7 @@ if.then.i:                                        ; preds = %entry
   %and.i.i.i.i.i = and i64 %3, 144115188075855871
   %4 = inttoptr i64 %and.i.i.i.i.i to ptr
   %shr.i.i.i.i.i = lshr i64 %3, 57
-  %conv.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i to i32
   %sub.i.i.i.i = add nsw i32 %conv.i.i.i.i.i, -1
   %call3.i.i.i.i = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i.i.i, ptr noundef %4, i32 noundef %sub.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i.i.i)
@@ -40088,7 +40087,7 @@ if.then.i23:                                      ; preds = %_ZN4pbrt5ClampIiiEE
   %and.i.i.i.i.i25 = and i64 %19, 144115188075855871
   %20 = inttoptr i64 %and.i.i.i.i.i25 to ptr
   %shr.i.i.i.i.i26 = lshr i64 %19, 57
-  %conv.i.i.i.i.i27 = trunc i64 %shr.i.i.i.i.i26 to i32
+  %conv.i.i.i.i.i27 = trunc nuw nsw i64 %shr.i.i.i.i.i26 to i32
   %sub.i.i.i.i28 = add nsw i32 %conv.i.i.i.i.i27, -1
   %call3.i.i.i.i29 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i.i.i9, ptr noundef %20, i32 noundef %sub.i.i.i.i28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i.i.i9)
@@ -42010,7 +42009,7 @@ if.then137:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %200, 144115188075855871
   %201 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %200, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %201, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -42837,7 +42836,7 @@ if.end368:                                        ; preds = %for.cond.i529, %inv
   %and.i.i.i.i623 = and i64 %361, 144115188075855871
   %362 = inttoptr i64 %and.i.i.i.i623 to ptr
   %shr.i.i.i.i624 = lshr i64 %361, 57
-  %conv.i.i.i.i625 = trunc i64 %shr.i.i.i.i624 to i32
+  %conv.i.i.i.i625 = trunc nuw nsw i64 %shr.i.i.i.i624 to i32
   %sub.i.i.i626 = add nsw i32 %conv.i.i.i.i625, -1
   %call3.i.i.i627 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %362, i32 noundef %sub.i.i.i626)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -42904,7 +42903,7 @@ if.end420:                                        ; preds = %if.end420.sink.spli
   %and.i.i.i663 = and i64 %365, 144115188075855871
   %366 = inttoptr i64 %and.i.i.i663 to ptr
   %shr.i.i.i = lshr i64 %365, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %366, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -42935,7 +42934,7 @@ invoke.cont427:                                   ; preds = %if.end420
   %and.i.i.i673 = and i64 %368, 144115188075855871
   %372 = inttoptr i64 %and.i.i.i673 to ptr
   %shr.i.i.i674 = lshr i64 %368, 57
-  %conv.i.i.i675 = trunc i64 %shr.i.i.i674 to i32
+  %conv.i.i.i675 = trunc nuw nsw i64 %shr.i.i.i674 to i32
   %sub.i.i676 = add nsw i32 %conv.i.i.i675, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %372, i32 noundef %sub.i.i676)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp431671)
@@ -44296,7 +44295,7 @@ if.then137:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %109, 144115188075855871
   %110 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %109, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %110, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -45217,7 +45216,7 @@ if.end369:                                        ; preds = %for.cond.i584, %_ZN
   %and.i.i.i.i676 = and i64 %296, 144115188075855871
   %297 = inttoptr i64 %and.i.i.i.i676 to ptr
   %shr.i.i.i.i677 = lshr i64 %296, 57
-  %conv.i.i.i.i678 = trunc i64 %shr.i.i.i.i677 to i32
+  %conv.i.i.i.i678 = trunc nuw nsw i64 %shr.i.i.i.i677 to i32
   %sub.i.i.i679 = add nsw i32 %conv.i.i.i.i678, -1
   %call3.i.i.i680 = invoke noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %297, i32 noundef %sub.i.i.i679)
           to label %invoke.cont370 unwind label %lpad
@@ -45284,7 +45283,7 @@ if.end421:                                        ; preds = %if.end421.sink.spli
   %and.i.i.i716 = and i64 %304, 144115188075855871
   %305 = inttoptr i64 %and.i.i.i716 to ptr
   %shr.i.i.i = lshr i64 %304, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %305, i32 noundef %sub.i.i)
           to label %invoke.cont423 unwind label %lpad
@@ -45318,7 +45317,7 @@ invoke.cont428:                                   ; preds = %invoke.cont423
   %and.i.i.i726 = and i64 %307, 144115188075855871
   %311 = inttoptr i64 %and.i.i.i726 to ptr
   %shr.i.i.i727 = lshr i64 %307, 57
-  %conv.i.i.i728 = trunc i64 %shr.i.i.i727 to i32
+  %conv.i.i.i728 = trunc nuw nsw i64 %shr.i.i.i727 to i32
   %sub.i.i729 = add nsw i32 %conv.i.i.i728, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %311, i32 noundef %sub.i.i729)
           to label %invoke.cont438 unwind label %lpad427
@@ -45803,7 +45802,7 @@ if.then.i:                                        ; preds = %if.then
   %and.i.i.i.i.i = and i64 %7, 144115188075855871
   %8 = inttoptr i64 %and.i.i.i.i.i to ptr
   %shr.i.i.i.i.i = lshr i64 %7, 57
-  %conv.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i to i32
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i to i32
   %sub.i.i.i.i = add nsw i32 %conv.i.i.i.i.i, -1
   %call3.i.i.i.i = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i.i.i, ptr noundef %8, i32 noundef %sub.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i.i.i)
@@ -45889,7 +45888,7 @@ if.then.i34:                                      ; preds = %if.then34
   %and.i.i.i.i.i36 = and i64 %15, 144115188075855871
   %16 = inttoptr i64 %and.i.i.i.i.i36 to ptr
   %shr.i.i.i.i.i37 = lshr i64 %15, 57
-  %conv.i.i.i.i.i38 = trunc i64 %shr.i.i.i.i.i37 to i32
+  %conv.i.i.i.i.i38 = trunc nuw nsw i64 %shr.i.i.i.i.i37 to i32
   %sub.i.i.i.i39 = add nsw i32 %conv.i.i.i.i.i38, -1
   %call3.i.i.i.i40 = call { <2 x float>, <2 x float> } @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum6SampleERKNS_18SampledWavelengthsEEUlT_E_NS_15SampledSpectrumENS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS6_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %samp.i.i.i20, ptr noundef %16, i32 noundef %sub.i.i.i.i39)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %samp.i.i.i20)
@@ -47190,7 +47189,7 @@ if.then137:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %109, 144115188075855871
   %110 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %109, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %110, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -48111,7 +48110,7 @@ if.end368:                                        ; preds = %for.cond.i584, %_ZN
   %and.i.i.i.i676 = and i64 %296, 144115188075855871
   %297 = inttoptr i64 %and.i.i.i.i676 to ptr
   %shr.i.i.i.i677 = lshr i64 %296, 57
-  %conv.i.i.i.i678 = trunc i64 %shr.i.i.i.i677 to i32
+  %conv.i.i.i.i678 = trunc nuw nsw i64 %shr.i.i.i.i677 to i32
   %sub.i.i.i679 = add nsw i32 %conv.i.i.i.i678, -1
   %call3.i.i.i680 = invoke noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %297, i32 noundef %sub.i.i.i679)
           to label %invoke.cont369 unwind label %lpad
@@ -48178,7 +48177,7 @@ if.end420:                                        ; preds = %if.end420.sink.spli
   %and.i.i.i716 = and i64 %304, 144115188075855871
   %305 = inttoptr i64 %and.i.i.i716 to ptr
   %shr.i.i.i = lshr i64 %304, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %305, i32 noundef %sub.i.i)
           to label %invoke.cont422 unwind label %lpad
@@ -48212,7 +48211,7 @@ invoke.cont427:                                   ; preds = %invoke.cont422
   %and.i.i.i726 = and i64 %307, 144115188075855871
   %311 = inttoptr i64 %and.i.i.i726 to ptr
   %shr.i.i.i727 = lshr i64 %307, 57
-  %conv.i.i.i728 = trunc i64 %shr.i.i.i727 to i32
+  %conv.i.i.i728 = trunc nuw nsw i64 %shr.i.i.i727 to i32
   %sub.i.i729 = add nsw i32 %conv.i.i.i728, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %311, i32 noundef %sub.i.i729)
           to label %invoke.cont437 unwind label %lpad426
@@ -50063,7 +50062,7 @@ if.then137:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %181, 144115188075855871
   %182 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %181, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %182, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -50989,7 +50988,7 @@ if.end369:                                        ; preds = %for.cond.i585, %_ZN
   %and.i.i.i.i677 = and i64 %368, 144115188075855871
   %369 = inttoptr i64 %and.i.i.i.i677 to ptr
   %shr.i.i.i.i678 = lshr i64 %368, 57
-  %conv.i.i.i.i679 = trunc i64 %shr.i.i.i.i678 to i32
+  %conv.i.i.i.i679 = trunc nuw nsw i64 %shr.i.i.i.i678 to i32
   %sub.i.i.i680 = add nsw i32 %conv.i.i.i.i679, -1
   %call3.i.i.i681 = invoke noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %369, i32 noundef %sub.i.i.i680)
           to label %invoke.cont370 unwind label %lpad
@@ -51056,7 +51055,7 @@ if.end421:                                        ; preds = %if.end421.sink.spli
   %and.i.i.i717 = and i64 %376, 144115188075855871
   %377 = inttoptr i64 %and.i.i.i717 to ptr
   %shr.i.i.i = lshr i64 %376, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %377, i32 noundef %sub.i.i)
           to label %invoke.cont423 unwind label %lpad
@@ -51090,7 +51089,7 @@ invoke.cont428:                                   ; preds = %invoke.cont423
   %and.i.i.i727 = and i64 %379, 144115188075855871
   %383 = inttoptr i64 %and.i.i.i727 to ptr
   %shr.i.i.i728 = lshr i64 %379, 57
-  %conv.i.i.i729 = trunc i64 %shr.i.i.i728 to i32
+  %conv.i.i.i729 = trunc nuw nsw i64 %shr.i.i.i728 to i32
   %sub.i.i730 = add nsw i32 %conv.i.i.i729, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %383, i32 noundef %sub.i.i730)
           to label %invoke.cont438 unwind label %lpad427
@@ -52641,7 +52640,7 @@ if.then137:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %181, 144115188075855871
   %182 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %181, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %182, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -53567,7 +53566,7 @@ if.end368:                                        ; preds = %for.cond.i585, %_ZN
   %and.i.i.i.i677 = and i64 %368, 144115188075855871
   %369 = inttoptr i64 %and.i.i.i.i677 to ptr
   %shr.i.i.i.i678 = lshr i64 %368, 57
-  %conv.i.i.i.i679 = trunc i64 %shr.i.i.i.i678 to i32
+  %conv.i.i.i.i679 = trunc nuw nsw i64 %shr.i.i.i.i678 to i32
   %sub.i.i.i680 = add nsw i32 %conv.i.i.i.i679, -1
   %call3.i.i.i681 = invoke noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %369, i32 noundef %sub.i.i.i680)
           to label %invoke.cont369 unwind label %lpad
@@ -53634,7 +53633,7 @@ if.end420:                                        ; preds = %if.end420.sink.spli
   %and.i.i.i717 = and i64 %376, 144115188075855871
   %377 = inttoptr i64 %and.i.i.i717 to ptr
   %shr.i.i.i = lshr i64 %376, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %377, i32 noundef %sub.i.i)
           to label %invoke.cont422 unwind label %lpad
@@ -53668,7 +53667,7 @@ invoke.cont427:                                   ; preds = %invoke.cont422
   %and.i.i.i727 = and i64 %379, 144115188075855871
   %383 = inttoptr i64 %and.i.i.i727 to ptr
   %shr.i.i.i728 = lshr i64 %379, 57
-  %conv.i.i.i729 = trunc i64 %shr.i.i.i728 to i32
+  %conv.i.i.i729 = trunc nuw nsw i64 %shr.i.i.i728 to i32
   %sub.i.i730 = add nsw i32 %conv.i.i.i729, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %383, i32 noundef %sub.i.i730)
           to label %invoke.cont437 unwind label %lpad426
@@ -55392,7 +55391,7 @@ if.then138:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %201, 144115188075855871
   %202 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %201, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %202, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -56013,7 +56012,7 @@ invoke.cont317:                                   ; preds = %invoke.cont291
   %336 = load i64, ptr %uv.i296, align 8
   %agg.tmp313.sroa.0.sroa.0.0.extract.trunc = trunc i64 %336 to i32
   %agg.tmp313.sroa.0.sroa.2.0.extract.shift = lshr i64 %336, 32
-  %agg.tmp313.sroa.0.sroa.2.0.extract.trunc = trunc i64 %agg.tmp313.sroa.0.sroa.2.0.extract.shift to i32
+  %agg.tmp313.sroa.0.sroa.2.0.extract.trunc = trunc nuw i64 %agg.tmp313.sroa.0.sroa.2.0.extract.shift to i32
   %337 = load i32, ptr %depth, align 8
   %mediumInterface = getelementptr inbounds i8, ptr %w, i64 240
   %338 = load i64, ptr %mediumInterface, align 8
@@ -56384,7 +56383,7 @@ if.end370:                                        ; preds = %for.cond.i544, %inv
   %and.i.i.i.i637 = and i64 %419, 144115188075855871
   %420 = inttoptr i64 %and.i.i.i.i637 to ptr
   %shr.i.i.i.i638 = lshr i64 %419, 57
-  %conv.i.i.i.i639 = trunc i64 %shr.i.i.i.i638 to i32
+  %conv.i.i.i.i639 = trunc nuw nsw i64 %shr.i.i.i.i638 to i32
   %sub.i.i.i640 = add nsw i32 %conv.i.i.i.i639, -1
   %call3.i.i.i641 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %420, i32 noundef %sub.i.i.i640)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -56451,7 +56450,7 @@ if.end422:                                        ; preds = %if.end422.sink.spli
   %and.i.i.i677 = and i64 %423, 144115188075855871
   %424 = inttoptr i64 %and.i.i.i677 to ptr
   %shr.i.i.i = lshr i64 %423, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %424, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -56482,7 +56481,7 @@ invoke.cont429:                                   ; preds = %if.end422
   %and.i.i.i687 = and i64 %426, 144115188075855871
   %430 = inttoptr i64 %and.i.i.i687 to ptr
   %shr.i.i.i688 = lshr i64 %426, 57
-  %conv.i.i.i689 = trunc i64 %shr.i.i.i688 to i32
+  %conv.i.i.i689 = trunc nuw nsw i64 %shr.i.i.i688 to i32
   %sub.i.i690 = add nsw i32 %conv.i.i.i689, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %430, i32 noundef %sub.i.i690)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp433685)
@@ -58011,7 +58010,7 @@ if.then138:                                       ; preds = %land.lhs.true
   %and.i.i.i.i = and i64 %201, 144115188075855871
   %202 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %201, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %202, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -58632,7 +58631,7 @@ invoke.cont316:                                   ; preds = %invoke.cont291
   %336 = load i64, ptr %uv.i296, align 8
   %agg.tmp312.sroa.0.sroa.0.0.extract.trunc = trunc i64 %336 to i32
   %agg.tmp312.sroa.0.sroa.2.0.extract.shift = lshr i64 %336, 32
-  %agg.tmp312.sroa.0.sroa.2.0.extract.trunc = trunc i64 %agg.tmp312.sroa.0.sroa.2.0.extract.shift to i32
+  %agg.tmp312.sroa.0.sroa.2.0.extract.trunc = trunc nuw i64 %agg.tmp312.sroa.0.sroa.2.0.extract.shift to i32
   %337 = load i32, ptr %depth, align 8
   %mediumInterface = getelementptr inbounds i8, ptr %w, i64 240
   %338 = load i64, ptr %mediumInterface, align 8
@@ -59003,7 +59002,7 @@ if.end369:                                        ; preds = %for.cond.i544, %inv
   %and.i.i.i.i637 = and i64 %419, 144115188075855871
   %420 = inttoptr i64 %and.i.i.i.i637 to ptr
   %shr.i.i.i.i638 = lshr i64 %419, 57
-  %conv.i.i.i.i639 = trunc i64 %shr.i.i.i.i638 to i32
+  %conv.i.i.i.i639 = trunc nuw nsw i64 %shr.i.i.i.i638 to i32
   %sub.i.i.i640 = add nsw i32 %conv.i.i.i.i639, -1
   %call3.i.i.i641 = call noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %420, i32 noundef %sub.i.i.i640)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i)
@@ -59070,7 +59069,7 @@ if.end421:                                        ; preds = %if.end421.sink.spli
   %and.i.i.i677 = and i64 %423, 144115188075855871
   %424 = inttoptr i64 %and.i.i.i677 to ptr
   %shr.i.i.i = lshr i64 %423, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %424, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.addr.i)
@@ -59101,7 +59100,7 @@ invoke.cont428:                                   ; preds = %if.end421
   %and.i.i.i687 = and i64 %426, 144115188075855871
   %430 = inttoptr i64 %and.i.i.i687 to ptr
   %shr.i.i.i688 = lshr i64 %426, 57
-  %conv.i.i.i689 = trunc i64 %shr.i.i.i688 to i32
+  %conv.i.i.i689 = trunc nuw nsw i64 %shr.i.i.i688 to i32
   %sub.i.i690 = add nsw i32 %conv.i.i.i689, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %430, i32 noundef %sub.i.i690)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp432685)
@@ -60542,7 +60541,7 @@ if.end117:                                        ; preds = %if.else.if.end117_c
   %and.i.i.i.i = and i64 %156, 144115188075855871
   %157 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %156, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i.i, ptr noundef %157, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lambda.addr.i.i)
@@ -60706,7 +60705,7 @@ if.then139:                                       ; preds = %land.lhs.true
   %and.i.i.i.i308 = and i64 %186, 144115188075855871
   %187 = inttoptr i64 %and.i.i.i.i308 to ptr
   %shr.i.i.i.i309 = lshr i64 %186, 57
-  %conv.i.i.i.i310 = trunc i64 %shr.i.i.i.i309 to i32
+  %conv.i.i.i.i310 = trunc nuw nsw i64 %shr.i.i.i.i309 to i32
   %sub.i.i.i311 = add nsw i32 %conv.i.i.i.i310, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %187, i32 noundef %sub.i.i.i311)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -61570,7 +61569,7 @@ if.end371:                                        ; preds = %for.cond.i551, %_ZN
   %and.i.i.i.i644 = and i64 %364, 144115188075855871
   %365 = inttoptr i64 %and.i.i.i.i644 to ptr
   %shr.i.i.i.i645 = lshr i64 %364, 57
-  %conv.i.i.i.i646 = trunc i64 %shr.i.i.i.i645 to i32
+  %conv.i.i.i.i646 = trunc nuw nsw i64 %shr.i.i.i.i645 to i32
   %sub.i.i.i647 = add nsw i32 %conv.i.i.i.i646, -1
   %call3.i.i.i648649 = invoke noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %365, i32 noundef %sub.i.i.i647)
           to label %invoke.cont372 unwind label %lpad
@@ -61637,7 +61636,7 @@ if.end423:                                        ; preds = %if.end423.sink.spli
   %and.i.i.i685 = and i64 %372, 144115188075855871
   %373 = inttoptr i64 %and.i.i.i685 to ptr
   %shr.i.i.i = lshr i64 %372, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %373, i32 noundef %sub.i.i)
           to label %invoke.cont425 unwind label %lpad
@@ -61671,7 +61670,7 @@ invoke.cont430:                                   ; preds = %invoke.cont425
   %and.i.i.i695 = and i64 %375, 144115188075855871
   %379 = inttoptr i64 %and.i.i.i695 to ptr
   %shr.i.i.i696 = lshr i64 %375, 57
-  %conv.i.i.i697 = trunc i64 %shr.i.i.i696 to i32
+  %conv.i.i.i697 = trunc nuw nsw i64 %shr.i.i.i696 to i32
   %sub.i.i698 = add nsw i32 %conv.i.i.i697, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %379, i32 noundef %sub.i.i698)
           to label %invoke.cont440 unwind label %lpad429
@@ -63106,7 +63105,7 @@ if.end117:                                        ; preds = %if.else.if.end117_c
   %and.i.i.i.i = and i64 %156, 144115188075855871
   %157 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %156, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %call3.i.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i.i, ptr noundef %157, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lambda.addr.i.i)
@@ -63270,7 +63269,7 @@ if.then139:                                       ; preds = %land.lhs.true
   %and.i.i.i.i308 = and i64 %186, 144115188075855871
   %187 = inttoptr i64 %and.i.i.i.i308 to ptr
   %shr.i.i.i.i309 = lshr i64 %186, 57
-  %conv.i.i.i.i310 = trunc i64 %shr.i.i.i.i309 to i32
+  %conv.i.i.i.i310 = trunc nuw nsw i64 %shr.i.i.i.i309 to i32
   %sub.i.i.i311 = add nsw i32 %conv.i.i.i.i310, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4BxDF10RegularizeEvEUlT_E_vNS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_Pvi(ptr noundef nonnull align 1 dereferenceable(1) %regularize.i.i, ptr noundef %187, i32 noundef %sub.i.i.i311)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %regularize.i.i)
@@ -64134,7 +64133,7 @@ if.end370:                                        ; preds = %for.cond.i551, %_ZN
   %and.i.i.i.i644 = and i64 %364, 144115188075855871
   %365 = inttoptr i64 %and.i.i.i.i644 to ptr
   %shr.i.i.i.i645 = lshr i64 %364, 57
-  %conv.i.i.i.i646 = trunc i64 %shr.i.i.i.i645 to i32
+  %conv.i.i.i.i646 = trunc nuw nsw i64 %shr.i.i.i.i645 to i32
   %sub.i.i.i647 = add nsw i32 %conv.i.i.i.i646, -1
   %call3.i.i.i648649 = invoke noundef i32 @_ZN4pbrt6detail8DispatchIRZNKS_4BxDF5FlagsEvEUlT_E_NS_9BxDFFlagsENS_23DiffuseTransmissionBxDFENS_11DiffuseBxDFENS_17CoatedDiffuseBxDFENS_19CoatedConductorBxDFENS_14DielectricBxDFENS_18ThinDielectricBxDFENS_8HairBxDFENS_12MeasuredBxDFEJNS_13ConductorBxDFENS_21NormalizedFresnelBxDFEEvEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %flags.i.i, ptr noundef %365, i32 noundef %sub.i.i.i647)
           to label %invoke.cont371 unwind label %lpad
@@ -64201,7 +64200,7 @@ if.end422:                                        ; preds = %if.end422.sink.spli
   %and.i.i.i685 = and i64 %372, 144115188075855871
   %373 = inttoptr i64 %and.i.i.i685 to ptr
   %shr.i.i.i = lshr i64 %372, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_12LightSampler6SampleERKNS_18LightSampleContextEfEUlT_E_N4pstd8optionalINS_12SampledLightEEENS_19UniformLightSamplerENS_17PowerLightSamplerENS_22ExhaustiveLightSamplerENS_15BVHLightSamplerEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.113") align 8 %sampledLight, ptr noundef nonnull align 8 dereferenceable(16) %s.i, ptr noundef %373, i32 noundef %sub.i.i)
           to label %invoke.cont424 unwind label %lpad
@@ -64235,7 +64234,7 @@ invoke.cont429:                                   ; preds = %invoke.cont424
   %and.i.i.i695 = and i64 %375, 144115188075855871
   %379 = inttoptr i64 %and.i.i.i695 to ptr
   %shr.i.i.i696 = lshr i64 %375, 57
-  %conv.i.i.i697 = trunc i64 %shr.i.i.i696 to i32
+  %conv.i.i.i697 = trunc nuw nsw i64 %shr.i.i.i696 to i32
   %sub.i.i698 = add nsw i32 %conv.i.i.i697, -1
   invoke void @_ZN4pbrt6detail8DispatchIRZNKS_5Light8SampleLiENS_18LightSampleContextENS_6Point2IfEENS_18SampledWavelengthsEbEUlT_E_N4pstd8optionalINS_13LightLiSampleEEENS_10PointLightENS_12DistantLightENS_15ProjectionLightENS_16GoniometricLightENS_9SpotLightENS_16DiffuseAreaLightENS_20UniformInfiniteLightENS_18ImageInfiniteLightEJNS_24PortalImageInfiniteLightEEvEET0_OS7_PKvi(ptr nonnull sret(%"class.pstd::optional.116") align 8 %ls, ptr noundef nonnull align 8 dereferenceable(32) %sample.i, ptr noundef %379, i32 noundef %sub.i.i698)
           to label %invoke.cont439 unwind label %lpad428

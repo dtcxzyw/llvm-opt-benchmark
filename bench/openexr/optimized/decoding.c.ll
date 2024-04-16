@@ -180,8 +180,8 @@ if.end25:                                         ; preds = %lor.lhs.false18
   %channel_count = getelementptr inbounds i8, ptr %decode, i64 8
   %12 = load i16, ptr %channel_count, align 8
   %conv31 = sext i16 %12 to i32
-  %cmp32158 = icmp sgt i16 %12, 0
-  br i1 %cmp32158, label %for.body.lr.ph, label %for.end
+  %cmp32159 = icmp sgt i16 %12, 0
+  br i1 %cmp32159, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end25
   %13 = load ptr, ptr %decode, align 8
@@ -190,19 +190,19 @@ for.body.lr.ph:                                   ; preds = %if.end25
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %chanstofill.0171 = phi i32 [ 0, %for.body.lr.ph ], [ %chanstofill.1, %for.inc ]
-  %interleaveptr.0170 = phi ptr [ null, %for.body.lr.ph ], [ %interleaveptr.2, %for.inc ]
-  %sameoutinc.0169 = phi i32 [ 0, %for.body.lr.ph ], [ %sameoutinc.1, %for.inc ]
-  %simplineoff.0168 = phi i32 [ 0, %for.body.lr.ph ], [ %simplineoff.2, %for.inc ]
-  %simpinterleaverev.0167 = phi i32 [ 0, %for.body.lr.ph ], [ %simpinterleaverev.3, %for.inc ]
-  %simpinterleave.0166 = phi i32 [ 0, %for.body.lr.ph ], [ %simpinterleave.3, %for.inc ]
-  %hastypechange.0165 = phi i32 [ 0, %for.body.lr.ph ], [ %hastypechange.2, %for.inc ]
-  %hassampling.0164 = phi i32 [ 0, %for.body.lr.ph ], [ %hassampling.2, %for.inc ]
-  %sameoutbpc.0163 = phi i32 [ 0, %for.body.lr.ph ], [ %sameoutbpc.2, %for.inc ]
-  %samebpc.0162 = phi i32 [ 0, %for.body.lr.ph ], [ %samebpc.2, %for.inc ]
-  %sameouttype.0161 = phi i32 [ -2, %for.body.lr.ph ], [ %sameouttype.2, %for.inc ]
-  %sametype.0160 = phi i32 [ -2, %for.body.lr.ph ], [ %sametype.2, %for.inc ]
-  %chanstounpack.0159 = phi i32 [ 0, %for.body.lr.ph ], [ %chanstounpack.2, %for.inc ]
+  %chanstofill.0172 = phi i32 [ 0, %for.body.lr.ph ], [ %chanstofill.1, %for.inc ]
+  %interleaveptr.0171 = phi ptr [ null, %for.body.lr.ph ], [ %interleaveptr.2, %for.inc ]
+  %sameoutinc.0170 = phi i32 [ 0, %for.body.lr.ph ], [ %sameoutinc.1, %for.inc ]
+  %simplineoff.0169 = phi i32 [ 0, %for.body.lr.ph ], [ %simplineoff.2, %for.inc ]
+  %simpinterleaverev.0168 = phi i32 [ 0, %for.body.lr.ph ], [ %simpinterleaverev.3, %for.inc ]
+  %simpinterleave.0167 = phi i32 [ 0, %for.body.lr.ph ], [ %simpinterleave.3, %for.inc ]
+  %hastypechange.0166 = phi i32 [ 0, %for.body.lr.ph ], [ %hastypechange.2, %for.inc ]
+  %hassampling.0165 = phi i32 [ 0, %for.body.lr.ph ], [ %hassampling.2, %for.inc ]
+  %sameoutbpc.0164 = phi i32 [ 0, %for.body.lr.ph ], [ %sameoutbpc.2, %for.inc ]
+  %samebpc.0163 = phi i32 [ 0, %for.body.lr.ph ], [ %samebpc.2, %for.inc ]
+  %sameouttype.0162 = phi i32 [ -2, %for.body.lr.ph ], [ %sameouttype.2, %for.inc ]
+  %sametype.0161 = phi i32 [ -2, %for.body.lr.ph ], [ %sametype.2, %for.inc ]
+  %chanstounpack.0160 = phi i32 [ 0, %for.body.lr.ph ], [ %chanstounpack.2, %for.inc ]
   %add.ptr = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %13, i64 %indvars.iv
   %height = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %14 = load i32, ptr %height, align 8
@@ -225,7 +225,7 @@ if.end39:                                         ; preds = %lor.lhs.false36
   ]
 
 if.then47:                                        ; preds = %if.end39
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %print_error48 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %19 = load ptr, ptr %print_error48, align 8
   %20 = load ptr, ptr %add.ptr, align 8
@@ -240,7 +240,7 @@ if.end52:                                         ; preds = %if.end39, %if.end39
   br i1 %switch, label %if.end72, label %if.then66
 
 if.then66:                                        ; preds = %if.end52
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %print_error67 = getelementptr inbounds i8, ptr %ctxt, i64 72
   %23 = load ptr, ptr %print_error67, align 8
   %24 = load ptr, ptr %add.ptr, align 8
@@ -248,110 +248,108 @@ if.then66:                                        ; preds = %if.end52
   br label %return
 
 if.end72:                                         ; preds = %if.end52
-  %cmp73 = icmp eq i32 %sametype.0160, -2
+  %cmp73 = icmp eq i32 %sametype.0161, -2
   %data_type = getelementptr inbounds i8, ptr %add.ptr, i64 26
   %25 = load i16, ptr %data_type, align 2
   %conv76 = zext i16 %25 to i32
-  %cmp79.not = icmp eq i32 %sametype.0160, %conv76
-  %spec.store.select = select i1 %cmp79.not, i32 %sametype.0160, i32 -1
+  %cmp79.not = icmp eq i32 %sametype.0161, %conv76
+  %spec.store.select = select i1 %cmp79.not, i32 %sametype.0161, i32 -1
   %sametype.1 = select i1 %cmp73, i32 %conv76, i32 %spec.store.select
-  %cmp84 = icmp eq i32 %sameouttype.0161, -2
-  %cmp92.not = icmp eq i32 %sameouttype.0161, %conv53
-  %spec.store.select1 = select i1 %cmp92.not, i32 %sameouttype.0161, i32 -1
+  %cmp84 = icmp eq i32 %sameouttype.0162, -2
+  %cmp92.not = icmp eq i32 %sameouttype.0162, %conv53
+  %spec.store.select1 = select i1 %cmp92.not, i32 %sameouttype.0162, i32 -1
   %sameouttype.1 = select i1 %cmp84, i32 %conv53, i32 %spec.store.select1
-  %cmp97 = icmp eq i32 %samebpc.0162, 0
+  %cmp97 = icmp eq i32 %samebpc.0163, 0
   %bytes_per_element = getelementptr inbounds i8, ptr %add.ptr, i64 25
   %26 = load i8, ptr %bytes_per_element, align 1
   %conv100 = sext i8 %26 to i32
-  %cmp104.not = icmp eq i32 %samebpc.0162, %conv100
-  %spec.store.select2 = select i1 %cmp104.not, i32 %samebpc.0162, i32 -1
+  %cmp104.not = icmp eq i32 %samebpc.0163, %conv100
+  %spec.store.select2 = select i1 %cmp104.not, i32 %samebpc.0163, i32 -1
   %samebpc.1 = select i1 %cmp97, i32 %conv100, i32 %spec.store.select2
-  %cmp109 = icmp eq i32 %sameoutbpc.0163, 0
-  %cmp117.not = icmp eq i32 %sameoutbpc.0163, %conv40
-  %spec.store.select3 = select i1 %cmp117.not, i32 %sameoutbpc.0163, i32 -1
+  %cmp109 = icmp eq i32 %sameoutbpc.0164, 0
+  %cmp117.not = icmp eq i32 %sameoutbpc.0164, %conv40
+  %spec.store.select3 = select i1 %cmp117.not, i32 %sameoutbpc.0164, i32 -1
   %sameoutbpc.1 = select i1 %cmp109, i32 %conv40, i32 %spec.store.select3
   %x_samples = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %27 = load i32, ptr %x_samples, align 8
   %cmp122.not = icmp eq i32 %27, 1
-  br i1 %cmp122.not, label %lor.lhs.false124, label %if.then127
+  br i1 %cmp122.not, label %lor.lhs.false124, label %if.end128
 
 lor.lhs.false124:                                 ; preds = %if.end72
   %y_samples = getelementptr inbounds i8, ptr %add.ptr, i64 20
   %28 = load i32, ptr %y_samples, align 4
   %cmp125.not = icmp eq i32 %28, 1
-  br i1 %cmp125.not, label %if.end128, label %if.then127
-
-if.then127:                                       ; preds = %lor.lhs.false124, %if.end72
+  %spec.select127 = select i1 %cmp125.not, i32 %hassampling.0165, i32 1
   br label %if.end128
 
-if.end128:                                        ; preds = %if.then127, %lor.lhs.false124
-  %hassampling.1 = phi i32 [ 1, %if.then127 ], [ %hassampling.0164, %lor.lhs.false124 ]
-  %inc = add nsw i32 %chanstofill.0171, 1
+if.end128:                                        ; preds = %lor.lhs.false124, %if.end72
+  %hassampling.1 = phi i32 [ 1, %if.end72 ], [ %spec.select127, %lor.lhs.false124 ]
+  %inc = add nsw i32 %chanstofill.0172, 1
   %user_pixel_stride = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %29 = load i32, ptr %user_pixel_stride, align 8
   %conv130 = sext i8 %26 to i32
   %cmp131.not = icmp ne i32 %29, %conv130
   %inc134 = zext i1 %cmp131.not to i32
-  %spec.select122 = add nsw i32 %chanstounpack.0159, %inc134
+  %spec.select122 = add nsw i32 %chanstounpack.0160, %inc134
   %cmp140.not = icmp ne i16 %21, %25
   %inc143 = zext i1 %cmp140.not to i32
-  %hastypechange.1 = add nsw i32 %hastypechange.0165, %inc143
-  %cmp145 = icmp eq i32 %simplineoff.0168, 0
+  %hastypechange.1 = add nsw i32 %hastypechange.0166, %inc143
+  %cmp145 = icmp eq i32 %simplineoff.0169, 0
   %user_line_stride = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %30 = load i32, ptr %user_line_stride, align 4
-  %cmp150.not = icmp eq i32 %simplineoff.0168, %30
-  %spec.store.select4 = select i1 %cmp150.not, i32 %simplineoff.0168, i32 -1
+  %cmp150.not = icmp eq i32 %simplineoff.0169, %30
+  %spec.store.select4 = select i1 %cmp150.not, i32 %simplineoff.0169, i32 -1
   %simplineoff.1 = select i1 %cmp145, i32 %30, i32 %spec.store.select4
-  %cmp155 = icmp eq i32 %simpinterleave.0166, 0
+  %cmp155 = icmp eq i32 %simpinterleave.0167, 0
   br i1 %cmp155, label %if.end191, label %if.else160
 
 if.else160:                                       ; preds = %if.end128
-  %cmp161 = icmp sgt i32 %simpinterleave.0166, 0
-  %31 = trunc i64 %indvars.iv to i32
+  %cmp161 = icmp sgt i32 %simpinterleave.0167, 0
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %mul = mul nsw i32 %31, %conv40
   %idx.ext166 = sext i32 %mul to i64
-  %add.ptr167 = getelementptr inbounds i8, ptr %interleaveptr.0170, i64 %idx.ext166
+  %add.ptr167 = getelementptr inbounds i8, ptr %interleaveptr.0171, i64 %idx.ext166
   %cmp168.not = icmp eq ptr %16, %add.ptr167
-  %spec.select123 = select i1 %cmp168.not, i32 %simpinterleave.0166, i32 -1
-  %simpinterleave.1 = select i1 %cmp161, i32 %spec.select123, i32 %simpinterleave.0166
-  %cmp172 = icmp sgt i32 %simpinterleaverev.0167, 0
+  %spec.select123 = select i1 %cmp168.not, i32 %simpinterleave.0167, i32 -1
+  %simpinterleave.1 = select i1 %cmp161, i32 %spec.select123, i32 %simpinterleave.0167
+  %cmp172 = icmp sgt i32 %simpinterleaverev.0168, 0
   %idx.neg = sub nsw i64 0, %idx.ext166
-  %add.ptr179 = getelementptr inbounds i8, ptr %interleaveptr.0170, i64 %idx.neg
+  %add.ptr179 = getelementptr inbounds i8, ptr %interleaveptr.0171, i64 %idx.neg
   %cmp180.not = icmp eq ptr %16, %add.ptr179
-  %spec.select124 = select i1 %cmp180.not, i32 %simpinterleaverev.0167, i32 -1
-  %simpinterleaverev.1 = select i1 %cmp172, i32 %spec.select124, i32 %simpinterleaverev.0167
+  %spec.select124 = select i1 %cmp180.not, i32 %simpinterleaverev.0168, i32 -1
+  %simpinterleaverev.1 = select i1 %cmp172, i32 %spec.select124, i32 %simpinterleaverev.0168
   %cmp184 = icmp slt i32 %simpinterleave.1, 0
   %cmp187 = icmp slt i32 %simpinterleaverev.1, 0
   %or.cond = select i1 %cmp184, i1 %cmp187, i1 false
-  %spec.select125 = select i1 %or.cond, ptr null, ptr %interleaveptr.0170
+  %spec.select125 = select i1 %or.cond, ptr null, ptr %interleaveptr.0171
   br label %if.end191
 
 if.end191:                                        ; preds = %if.end128, %if.else160
   %simpinterleave.2 = phi i32 [ %simpinterleave.1, %if.else160 ], [ %29, %if.end128 ]
   %simpinterleaverev.2 = phi i32 [ %simpinterleaverev.1, %if.else160 ], [ %29, %if.end128 ]
   %interleaveptr.1 = phi ptr [ %spec.select125, %if.else160 ], [ %16, %if.end128 ]
-  %cmp192 = icmp eq i32 %sameoutinc.0169, 0
+  %cmp192 = icmp eq i32 %sameoutinc.0170, 0
   br i1 %cmp192, label %for.inc, label %if.else196
 
 if.else196:                                       ; preds = %if.end191
-  %cmp198.not = icmp eq i32 %sameoutinc.0169, %29
-  %spec.store.select5 = select i1 %cmp198.not, i32 %sameoutinc.0169, i32 -1
+  %cmp198.not = icmp eq i32 %sameoutinc.0170, %29
+  %spec.store.select5 = select i1 %cmp198.not, i32 %sameoutinc.0170, i32 -1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end191, %if.else196, %for.body, %lor.lhs.false36
-  %chanstounpack.2 = phi i32 [ %chanstounpack.0159, %for.body ], [ %spec.select122, %if.else196 ], [ %chanstounpack.0159, %lor.lhs.false36 ], [ %spec.select122, %if.end191 ]
-  %sametype.2 = phi i32 [ %sametype.0160, %for.body ], [ %sametype.1, %if.else196 ], [ %sametype.0160, %lor.lhs.false36 ], [ %sametype.1, %if.end191 ]
-  %sameouttype.2 = phi i32 [ %sameouttype.0161, %for.body ], [ %sameouttype.1, %if.else196 ], [ %sameouttype.0161, %lor.lhs.false36 ], [ %sameouttype.1, %if.end191 ]
-  %samebpc.2 = phi i32 [ %samebpc.0162, %for.body ], [ %samebpc.1, %if.else196 ], [ %samebpc.0162, %lor.lhs.false36 ], [ %samebpc.1, %if.end191 ]
-  %sameoutbpc.2 = phi i32 [ %sameoutbpc.0163, %for.body ], [ %sameoutbpc.1, %if.else196 ], [ %sameoutbpc.0163, %lor.lhs.false36 ], [ %sameoutbpc.1, %if.end191 ]
-  %hassampling.2 = phi i32 [ %hassampling.0164, %for.body ], [ %hassampling.1, %if.else196 ], [ %hassampling.0164, %lor.lhs.false36 ], [ %hassampling.1, %if.end191 ]
-  %hastypechange.2 = phi i32 [ %hastypechange.0165, %for.body ], [ %hastypechange.1, %if.else196 ], [ %hastypechange.0165, %lor.lhs.false36 ], [ %hastypechange.1, %if.end191 ]
-  %simpinterleave.3 = phi i32 [ %simpinterleave.0166, %for.body ], [ %simpinterleave.2, %if.else196 ], [ %simpinterleave.0166, %lor.lhs.false36 ], [ %simpinterleave.2, %if.end191 ]
-  %simpinterleaverev.3 = phi i32 [ %simpinterleaverev.0167, %for.body ], [ %simpinterleaverev.2, %if.else196 ], [ %simpinterleaverev.0167, %lor.lhs.false36 ], [ %simpinterleaverev.2, %if.end191 ]
-  %simplineoff.2 = phi i32 [ %simplineoff.0168, %for.body ], [ %simplineoff.1, %if.else196 ], [ %simplineoff.0168, %lor.lhs.false36 ], [ %simplineoff.1, %if.end191 ]
-  %sameoutinc.1 = phi i32 [ %sameoutinc.0169, %for.body ], [ %spec.store.select5, %if.else196 ], [ %sameoutinc.0169, %lor.lhs.false36 ], [ %29, %if.end191 ]
-  %interleaveptr.2 = phi ptr [ %interleaveptr.0170, %for.body ], [ %interleaveptr.1, %if.else196 ], [ %interleaveptr.0170, %lor.lhs.false36 ], [ %interleaveptr.1, %if.end191 ]
-  %chanstofill.1 = phi i32 [ %chanstofill.0171, %for.body ], [ %inc, %if.else196 ], [ %chanstofill.0171, %lor.lhs.false36 ], [ %inc, %if.end191 ]
+  %chanstounpack.2 = phi i32 [ %chanstounpack.0160, %for.body ], [ %spec.select122, %if.else196 ], [ %chanstounpack.0160, %lor.lhs.false36 ], [ %spec.select122, %if.end191 ]
+  %sametype.2 = phi i32 [ %sametype.0161, %for.body ], [ %sametype.1, %if.else196 ], [ %sametype.0161, %lor.lhs.false36 ], [ %sametype.1, %if.end191 ]
+  %sameouttype.2 = phi i32 [ %sameouttype.0162, %for.body ], [ %sameouttype.1, %if.else196 ], [ %sameouttype.0162, %lor.lhs.false36 ], [ %sameouttype.1, %if.end191 ]
+  %samebpc.2 = phi i32 [ %samebpc.0163, %for.body ], [ %samebpc.1, %if.else196 ], [ %samebpc.0163, %lor.lhs.false36 ], [ %samebpc.1, %if.end191 ]
+  %sameoutbpc.2 = phi i32 [ %sameoutbpc.0164, %for.body ], [ %sameoutbpc.1, %if.else196 ], [ %sameoutbpc.0164, %lor.lhs.false36 ], [ %sameoutbpc.1, %if.end191 ]
+  %hassampling.2 = phi i32 [ %hassampling.0165, %for.body ], [ %hassampling.1, %if.else196 ], [ %hassampling.0165, %lor.lhs.false36 ], [ %hassampling.1, %if.end191 ]
+  %hastypechange.2 = phi i32 [ %hastypechange.0166, %for.body ], [ %hastypechange.1, %if.else196 ], [ %hastypechange.0166, %lor.lhs.false36 ], [ %hastypechange.1, %if.end191 ]
+  %simpinterleave.3 = phi i32 [ %simpinterleave.0167, %for.body ], [ %simpinterleave.2, %if.else196 ], [ %simpinterleave.0167, %lor.lhs.false36 ], [ %simpinterleave.2, %if.end191 ]
+  %simpinterleaverev.3 = phi i32 [ %simpinterleaverev.0168, %for.body ], [ %simpinterleaverev.2, %if.else196 ], [ %simpinterleaverev.0168, %lor.lhs.false36 ], [ %simpinterleaverev.2, %if.end191 ]
+  %simplineoff.2 = phi i32 [ %simplineoff.0169, %for.body ], [ %simplineoff.1, %if.else196 ], [ %simplineoff.0169, %lor.lhs.false36 ], [ %simplineoff.1, %if.end191 ]
+  %sameoutinc.1 = phi i32 [ %sameoutinc.0170, %for.body ], [ %spec.store.select5, %if.else196 ], [ %sameoutinc.0170, %lor.lhs.false36 ], [ %29, %if.end191 ]
+  %interleaveptr.2 = phi ptr [ %interleaveptr.0171, %for.body ], [ %interleaveptr.1, %if.else196 ], [ %interleaveptr.0171, %lor.lhs.false36 ], [ %interleaveptr.1, %if.end191 ]
+  %chanstofill.1 = phi i32 [ %chanstofill.0172, %for.body ], [ %inc, %if.else196 ], [ %chanstofill.0172, %lor.lhs.false36 ], [ %inc, %if.end191 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -496,7 +494,7 @@ for.cond19.preheader:                             ; preds = %for.cond19.preheade
 for.body23.lr.ph:                                 ; preds = %for.cond19.preheader
   %11 = trunc i64 %indvars.iv49 to i32
   %12 = add i32 %8, %11
-  %13 = trunc i64 %indvars.iv49 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv49 to i32
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.inc

@@ -124,7 +124,7 @@ do.end7:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %do.end7
   %ref.tmp.sroa.33.0.extract.shift = lshr i64 %call16, 32
-  %ref.tmp.sroa.33.0.extract.trunc = trunc i64 %ref.tmp.sroa.33.0.extract.shift to i32
+  %ref.tmp.sroa.33.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.33.0.extract.shift to i32
   store i32 %ref.tmp.sroa.33.0.extract.trunc, ptr %val, align 4
   switch i32 %ref.tmp.sroa.33.0.extract.trunc, label %if.end24 [
     i32 1, label %return
@@ -389,8 +389,8 @@ if.then:                                          ; preds = %entry
   %switch.select6 = select i1 %switch.selectcmp5, i64 1, i64 %switch.select
   br label %return
 
-return:                                           ; preds = %entry, %if.then
-  %retval.sroa.0.0 = phi i64 [ %switch.select6, %if.then ], [ 0, %entry ]
+return:                                           ; preds = %if.then, %entry
+  %retval.sroa.0.0 = phi i64 [ 0, %entry ], [ %switch.select6, %if.then ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -584,7 +584,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -1209,7 +1209,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

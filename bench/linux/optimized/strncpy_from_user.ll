@@ -13,13 +13,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_strncpy_from
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @strncpy_from_user(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp slt i64 %2, 1
-  br i1 %4, label %.thread7, label %5, !prof !5
+  br i1 %4, label %58, label %5, !prof !5
 
 5:                                                ; preds = %3
   %6 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #2, !srcloc !6
   %7 = ptrtoint ptr %1 to i64
   %8 = icmp ugt i64 %6, %7
-  br i1 %8, label %9, label %.thread7, !prof !7
+  br i1 %8, label %9, label %58, !prof !7
 
 9:                                                ; preds = %5
   %10 = sub i64 %6, %7
@@ -28,7 +28,7 @@ define dso_local i64 @strncpy_from_user(ptr nocapture noundef writeonly %0, ptr 
   %13 = icmp sgt i64 %12, -1
   %14 = icmp uge i64 %12, %7
   %15 = and i1 %13, %14
-  br i1 %15, label %16, label %.thread7, !prof !7
+  br i1 %15, label %16, label %58, !prof !7
 
 16:                                               ; preds = %9
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !8
@@ -62,7 +62,7 @@ define dso_local i64 @strncpy_from_user(ptr nocapture noundef writeonly %0, ptr 
   %34 = mul i64 %31, 283686952306184
   %35 = lshr i64 %34, 56
   %36 = add i64 %35, %19
-  br label %.loopexit8
+  br label %.loopexit
 
 37:                                               ; preds = %22
   %38 = getelementptr i8, ptr %0, i64 %19
@@ -74,12 +74,12 @@ define dso_local i64 @strncpy_from_user(ptr nocapture noundef writeonly %0, ptr 
 
 ._crit_edge.preheader:                            ; preds = %37, %.lr.ph, %16
   %.ph = phi i64 [ 0, %16 ], [ %39, %37 ], [ %19, %.lr.ph ]
-  %.ph42 = phi i64 [ %11, %16 ], [ %40, %37 ], [ %18, %.lr.ph ]
+  %.ph36 = phi i64 [ %11, %16 ], [ %40, %37 ], [ %18, %.lr.ph ]
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %48
   %42 = phi i64 [ %52, %48 ], [ %.ph, %._crit_edge.preheader ]
-  %43 = phi i64 [ %54, %48 ], [ %.ph42, %._crit_edge.preheader ]
+  %43 = phi i64 [ %54, %48 ], [ %.ph36, %._crit_edge.preheader ]
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %55, label %45
 
@@ -96,23 +96,21 @@ define dso_local i64 @strncpy_from_user(ptr nocapture noundef writeonly %0, ptr 
   %52 = add i64 %42, %51
   %53 = sext i1 %50 to i64
   %54 = add nsw i64 %43, %53
-  br i1 %50, label %._crit_edge, label %.loopexit8, !llvm.loop !15
+  br i1 %50, label %._crit_edge, label %.loopexit, !llvm.loop !15
 
 55:                                               ; preds = %._crit_edge
   %56 = icmp ult i64 %42, %2
-  br i1 %56, label %.loopexit, label %.loopexit8
+  %spec.select = select i1 %56, i64 -14, i64 %42
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %55
-  br label %.loopexit8
-
-.loopexit8:                                       ; preds = %48, %55, %.loopexit, %.thread
-  %57 = phi i64 [ -14, %.loopexit ], [ %42, %55 ], [ %36, %.thread ], [ %42, %48 ]
+.loopexit:                                        ; preds = %45, %48, %.thread, %55
+  %57 = phi i64 [ %spec.select, %55 ], [ %36, %.thread ], [ -14, %45 ], [ %42, %48 ]
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !16
-  br label %.thread7
+  br label %58
 
-.thread7:                                         ; preds = %5, %9, %.loopexit8, %3
-  %58 = phi i64 [ %57, %.loopexit8 ], [ 0, %3 ], [ -14, %9 ], [ -14, %5 ]
-  ret i64 %58
+58:                                               ; preds = %9, %.loopexit, %5, %3
+  %59 = phi i64 [ 0, %3 ], [ -14, %5 ], [ %57, %.loopexit ], [ -14, %9 ]
+  ret i64 %59
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [35 x i8] c"error while reading standard input\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cmd_main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local i32 @cmd_main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   tail call void @trace2_cmd_name_fl(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.1) #10
   switch i32 %argc, label %sw.default [
@@ -224,21 +224,21 @@ do.body.i:                                        ; preds = %do.body.backedge.i,
   %c.1.i = phi i32 [ %c.076.i, %if.then15.i ], [ %call.i49.i, %do.body.backedge.i ]
   %28 = load i64, ptr @subst_from_stdin.bufmax, align 8
   %cmp16.not.i = icmp ult i64 %27, %28
-  %.pre87.i = load ptr, ptr @subst_from_stdin.buffer, align 8
+  %.pre90.i = load ptr, ptr @subst_from_stdin.buffer, align 8
   br i1 %cmp16.not.i, label %if.end19.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %do.body.i
   %mul.i = shl i64 %28, 1
   %add.i = add i64 %mul.i, 10
   store i64 %add.i, ptr @subst_from_stdin.bufmax, align 8
-  %call18.i = tail call ptr @xrealloc(ptr noundef %.pre87.i, i64 noundef %add.i) #10
+  %call18.i = tail call ptr @xrealloc(ptr noundef %.pre90.i, i64 noundef %add.i) #10
   store ptr %call18.i, ptr @subst_from_stdin.buffer, align 8
-  %.pre88.i = load i64, ptr @subst_from_stdin.buflen, align 8
+  %.pre91.i = load i64, ptr @subst_from_stdin.buflen, align 8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then17.i, %do.body.i
-  %29 = phi i64 [ %.pre88.i, %if.then17.i ], [ %27, %do.body.i ]
-  %30 = phi ptr [ %call18.i, %if.then17.i ], [ %.pre87.i, %do.body.i ]
+  %29 = phi i64 [ %.pre91.i, %if.then17.i ], [ %27, %do.body.i ]
+  %30 = phi ptr [ %call18.i, %if.then17.i ], [ %.pre90.i, %do.body.i ]
   %conv.i = trunc i32 %c.1.i to i8
   %inc.i = add i64 %29, 1
   store i64 %inc.i, ptr @subst_from_stdin.buflen, align 8
@@ -267,8 +267,8 @@ do_getc.exit56.i:                                 ; preds = %if.then2.i54.i, %if
   %or.cond5.i = icmp ult i32 %35, 10
   %or.cond32.i = or i1 %or.cond5.i, %or.cond31.i
   %cmp38.i = icmp eq i32 %call.i49.i, 95
-  %or.cond92.i = or i1 %cmp38.i, %or.cond32.i
-  br i1 %or.cond92.i, label %do.body.backedge.i, label %do.end.i
+  %or.cond95.i = or i1 %cmp38.i, %or.cond32.i
+  br i1 %or.cond95.i, label %do.body.backedge.i, label %do.end.i
 
 do.body.backedge.i:                               ; preds = %do_getc.exit56.i
   %.pre.i6 = load i64, ptr @subst_from_stdin.buflen, align 8
@@ -301,32 +301,32 @@ if.then48.i:                                      ; preds = %if.then.i60.i, %if.
   %38 = load i64, ptr @subst_from_stdin.buflen, align 8
   %39 = load i64, ptr @subst_from_stdin.bufmax, align 8
   %cmp49.not.i = icmp ult i64 %38, %39
-  %.pre89.i = load ptr, ptr @subst_from_stdin.buffer, align 8
+  %.pre92.i = load ptr, ptr @subst_from_stdin.buffer, align 8
   br i1 %cmp49.not.i, label %if.end55.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %if.then48.i
   %mul52.i = shl i64 %39, 1
   %add53.i = add i64 %mul52.i, 10
   store i64 %add53.i, ptr @subst_from_stdin.bufmax, align 8
-  %call54.i = tail call ptr @xrealloc(ptr noundef %.pre89.i, i64 noundef %add53.i) #10
+  %call54.i = tail call ptr @xrealloc(ptr noundef %.pre92.i, i64 noundef %add53.i) #10
   store ptr %call54.i, ptr @subst_from_stdin.buffer, align 8
-  %.pre90.i = load i64, ptr @subst_from_stdin.buflen, align 8
+  %.pre93.i = load i64, ptr @subst_from_stdin.buflen, align 8
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.then51.i, %if.then48.i
-  %40 = phi i64 [ %.pre90.i, %if.then51.i ], [ %38, %if.then48.i ]
-  %41 = phi ptr [ %call54.i, %if.then51.i ], [ %.pre89.i, %if.then48.i ]
+  %40 = phi i64 [ %.pre93.i, %if.then51.i ], [ %38, %if.then48.i ]
+  %41 = phi ptr [ %call54.i, %if.then51.i ], [ %.pre92.i, %if.then48.i ]
   %arrayidx56.i = getelementptr inbounds i8, ptr %41, i64 %40
   store i8 0, ptr %arrayidx56.i, align 1
   %42 = load i64, ptr getelementptr inbounds (%struct.string_list_ty, ptr @variables_set, i64 0, i32 1), align 8
   switch i64 %42, label %while.body.lr.ph.i.i [
     i64 0, label %if.else71.i
-    i64 1, label %if.end55.if.then11.i_crit_edge.i
+    i64 1, label %if.end55.sorted_string_list_member.exit_crit_edge.i
   ]
 
-if.end55.if.then11.i_crit_edge.i:                 ; preds = %if.end55.i
-  %.pre91.i = load ptr, ptr @variables_set, align 8
-  br label %if.then11.i.i
+if.end55.sorted_string_list_member.exit_crit_edge.i: ; preds = %if.end55.i
+  %.pre94.i = load ptr, ptr @variables_set, align 8
+  br label %sorted_string_list_member.exit.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end55.i
   %43 = load ptr, ptr @variables_set, align 8
@@ -361,18 +361,18 @@ if.end9.i.i:                                      ; preds = %if.else7.i.i, %whil
 
 while.end.i.i:                                    ; preds = %if.end9.i.i
   %cmp10.i.i = icmp ugt i64 %j2.1.i.i, %j1.1.i.i
-  br i1 %cmp10.i.i, label %if.then11.i.i, label %if.else71.i
+  br i1 %cmp10.i.i, label %sorted_string_list_member.exit.i, label %if.else71.i
 
-if.then11.i.i:                                    ; preds = %while.end.i.i, %if.end55.if.then11.i_crit_edge.i
-  %45 = phi ptr [ %43, %while.end.i.i ], [ %.pre91.i, %if.end55.if.then11.i_crit_edge.i ]
-  %j1.0.lcssa11.i.i = phi i64 [ %j1.1.i.i, %while.end.i.i ], [ 0, %if.end55.if.then11.i_crit_edge.i ]
+sorted_string_list_member.exit.i:                 ; preds = %while.end.i.i, %if.end55.sorted_string_list_member.exit_crit_edge.i
+  %45 = phi ptr [ %43, %while.end.i.i ], [ %.pre94.i, %if.end55.sorted_string_list_member.exit_crit_edge.i ]
+  %j1.0.lcssa11.i.i = phi i64 [ %j1.1.i.i, %while.end.i.i ], [ 0, %if.end55.sorted_string_list_member.exit_crit_edge.i ]
   %arrayidx13.i.i = getelementptr inbounds ptr, ptr %45, i64 %j1.0.lcssa11.i.i
   %46 = load ptr, ptr %arrayidx13.i.i, align 8
   %call14.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %41) #12
-  %cmp15.i.i = icmp eq i32 %call14.i.i, 0
-  br i1 %cmp15.i.i, label %if.then65.critedge.i, label %if.else71.i
+  %cmp15.i.not.i = icmp eq i32 %call14.i.i, 0
+  br i1 %cmp15.i.not.i, label %if.then65.critedge.i, label %if.else71.i
 
-if.then65.critedge.i:                             ; preds = %if.else.i.i, %if.then11.i.i
+if.then65.critedge.i:                             ; preds = %if.else.i.i, %sorted_string_list_member.exit.i
   %call66.i = tail call ptr @getenv(ptr noundef %41) #10
   %tobool67.not.i = icmp eq ptr %call66.i, null
   br i1 %tobool67.not.i, label %for.cond.i.backedge, label %if.then68.i
@@ -383,15 +383,15 @@ if.then68.i:                                      ; preds = %if.then65.critedge.
   br label %for.cond.i.backedge
 
 if.else71.thread.i:                               ; preds = %if.then.i57.i, %if.else.i
-  %call7284.i = tail call i32 @putchar(i32 noundef 36)
+  %call7287.i = tail call i32 @putchar(i32 noundef 36)
   %call75.c.i = tail call i32 @putchar(i32 noundef 123)
   %48 = load ptr, ptr @subst_from_stdin.buffer, align 8
   %49 = load i64, ptr @subst_from_stdin.buflen, align 8
   %50 = load ptr, ptr @stdout, align 8
-  %call77.c94.i = tail call i64 @fwrite(ptr noundef %48, i64 noundef %49, i64 noundef 1, ptr noundef %50)
+  %call77.c97.i = tail call i64 @fwrite(ptr noundef %48, i64 noundef %49, i64 noundef 1, ptr noundef %50)
   br label %for.cond.i.backedge
 
-if.else71.i:                                      ; preds = %if.then11.i.i, %while.end.i.i, %if.end55.i
+if.else71.i:                                      ; preds = %sorted_string_list_member.exit.i, %while.end.i.i, %if.end55.i
   %call72.i = tail call i32 @putchar(i32 noundef 36)
   br i1 %cmp4.not.not6974.i, label %if.then74.i, label %if.end92.critedge.i
 
@@ -550,18 +550,16 @@ if.then16:                                        ; preds = %lor.lhs.false, %sw.
 if.end18:                                         ; preds = %lor.lhs.false
   %call19 = tail call i32 @fclose(ptr noundef %.pre)
   %tobool20.not = icmp eq i32 %call19, 0
-  br i1 %tobool20.not, label %if.end23, label %land.lhs.true
+  br i1 %tobool20.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end18
   %75 = load i32, ptr %call11, align 4
-  %cmp.not = icmp eq i32 %75, 9
-  br i1 %cmp.not, label %if.end23, label %return
-
-if.end23:                                         ; preds = %land.lhs.true, %if.end18
+  %cmp.not = icmp ne i32 %75, 9
+  %spec.select = zext i1 %cmp.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end23, %if.then16
-  %retval.0 = phi i32 [ 1, %if.then16 ], [ 0, %if.end23 ], [ 1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end18, %if.then16
+  %retval.0 = phi i32 [ 1, %if.then16 ], [ 0, %if.end18 ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

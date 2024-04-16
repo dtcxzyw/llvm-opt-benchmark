@@ -2828,9 +2828,9 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.t
   %and3.i.i = and i64 %m_old.addr.0.i.i, %conv.i.i
   %tobool.not.i.i17 = icmp eq i64 %and3.i.i, 0
   %shl.i.i = shl i64 %m_old.addr.0.i.i, 1
-  br i1 %tobool.not.i.i17, label %for.cond.i.i, label %for.end.i.i, !llvm.loop !17
+  br i1 %tobool.not.i.i17, label %for.cond.i.i, label %invoke.cont6, !llvm.loop !17
 
-for.end.i.i:                                      ; preds = %for.cond.i.i
+invoke.cont6:                                     ; preds = %for.cond.i.i
   %sub.i.i = add i64 %shl.i.i, 4294967295
   %and5.i.i = and i64 %sub.i.i, %conv.i.i
   %or.i.i.i.i = or i64 %and5.i.i, 1
@@ -2844,9 +2844,10 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %17 to ptr
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
   %18 = load atomic i64, ptr %node_list.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %18 to ptr
-  %cmp.i.i.i18 = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
-  %spec.select = select i1 %cmp.i.i.i18, i32 1, i32 2
+  %.fr = freeze i64 %18
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %.fr to ptr
+  %cmp.i.i.i18.not = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
+  %spec.select = select i1 %cmp.i.i.i18.not, i32 1, i32 2
   br label %cleanup
 
 if.end9:                                          ; preds = %land.rhs.i, %invoke.cont4
@@ -2988,11 +2989,11 @@ invoke.cont27:                                    ; preds = %if.else.i, %if.then
   %34 = load atomic i64, ptr %my_mask acquire, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %for.end.i.i, %if.then.i, %if.then, %invoke.cont20, %invoke.cont14, %if.end9, %invoke.cont27
-  %tobool.not63 = phi i1 [ true, %if.end9 ], [ true, %invoke.cont14 ], [ true, %invoke.cont20 ], [ true, %invoke.cont27 ], [ false, %if.then ], [ false, %if.then.i ], [ false, %for.end.i.i ]
-  %n.0.lcssa.i62 = phi ptr [ %n.0.lcssa.i61, %if.end9 ], [ %n.0.lcssa.i61, %invoke.cont14 ], [ %n.0.lcssa.i61, %invoke.cont20 ], [ %n.0.lcssa.i61, %invoke.cont27 ], [ null, %if.then ], [ null, %if.then.i ], [ null, %for.end.i.i ]
-  %m.2 = phi i64 [ %m.0, %if.end9 ], [ %m.0, %invoke.cont14 ], [ %m.0, %invoke.cont20 ], [ %34, %invoke.cont27 ], [ %m.0, %if.then ], [ %13, %if.then.i ], [ %13, %for.end.i.i ]
-  %cleanup.dest.slot.0 = phi i32 [ 4, %if.end9 ], [ 0, %invoke.cont14 ], [ 0, %invoke.cont20 ], [ 2, %invoke.cont27 ], [ 1, %if.then ], [ 1, %if.then.i ], [ %spec.select, %for.end.i.i ]
+cleanup:                                          ; preds = %invoke.cont6, %if.then.i, %if.then, %invoke.cont20, %invoke.cont14, %if.end9, %invoke.cont27
+  %tobool.not63 = phi i1 [ true, %if.end9 ], [ true, %invoke.cont14 ], [ true, %invoke.cont20 ], [ true, %invoke.cont27 ], [ false, %if.then ], [ false, %if.then.i ], [ false, %invoke.cont6 ]
+  %n.0.lcssa.i62 = phi ptr [ %n.0.lcssa.i61, %if.end9 ], [ %n.0.lcssa.i61, %invoke.cont14 ], [ %n.0.lcssa.i61, %invoke.cont20 ], [ %n.0.lcssa.i61, %invoke.cont27 ], [ null, %if.then ], [ null, %if.then.i ], [ null, %invoke.cont6 ]
+  %m.2 = phi i64 [ %m.0, %if.end9 ], [ %m.0, %invoke.cont14 ], [ %m.0, %invoke.cont20 ], [ %34, %invoke.cont27 ], [ %m.0, %if.then ], [ %13, %if.then.i ], [ %13, %invoke.cont6 ]
+  %cleanup.dest.slot.0 = phi i32 [ 4, %if.end9 ], [ 0, %invoke.cont14 ], [ 0, %invoke.cont20 ], [ 2, %invoke.cont27 ], [ 1, %if.then ], [ 1, %if.then.i ], [ %spec.select, %invoke.cont6 ]
   %35 = load ptr, ptr %b, align 8
   %tobool.not.i.i48 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i48, label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55, label %if.then.i.i49
@@ -3335,7 +3336,7 @@ invoke.cont8:                                     ; preds = %_ZN3tbb6detail2d219
   br i1 %cmp, label %if.then, label %if.else30
 
 if.then:                                          ; preds = %invoke.cont8
-  %tobool.i = trunc i8 %b_old.sroa.10.2 to i1
+  %tobool.i = trunc nuw i8 %b_old.sroa.10.2 to i1
   br i1 %tobool.i, label %if.end18, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -3392,7 +3393,7 @@ invoke.cont8.backedge:                            ; preds = %if.end32, %restart.
 
 if.then.i.i26:                                    ; preds = %if.end32, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit
   %b_old.sroa.10.5 = phi i8 [ %b_old.sroa.10.0, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ], [ %b_old.sroa.10.4, %if.end32 ]
-  %tobool.i.i.i28 = trunc i8 %b_old.sroa.10.5 to i1
+  %tobool.i.i.i28 = trunc nuw i8 %b_old.sroa.10.5 to i1
   br i1 %tobool.i.i.i28, label %if.then.i.i.i31, label %if.else.i.i.i29
 
 if.then.i.i.i31:                                  ; preds = %restart.loopexit, %if.then.i.i26
@@ -3638,9 +3639,9 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.t
   %and3.i.i = and i64 %m_old.addr.0.i.i, %1
   %tobool.not.i.i17 = icmp eq i64 %and3.i.i, 0
   %shl.i.i = shl i64 %m_old.addr.0.i.i, 1
-  br i1 %tobool.not.i.i17, label %for.cond.i.i, label %for.end.i.i, !llvm.loop !17
+  br i1 %tobool.not.i.i17, label %for.cond.i.i, label %invoke.cont, !llvm.loop !17
 
-for.end.i.i:                                      ; preds = %for.cond.i.i
+invoke.cont:                                      ; preds = %for.cond.i.i
   %sub.i.i = add i64 %shl.i.i, -1
   %and5.i.i = and i64 %sub.i.i, %1
   %or.i.i.i.i = or i64 %and5.i.i, 1
@@ -3655,11 +3656,11 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
   %18 = load atomic i64, ptr %node_list.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %18 to ptr
-  %cmp.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
-  br i1 %cmp.i.i.i, label %if.end, label %cleanup
+  %cmp.i.i.i.not = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
+  br i1 %cmp.i.i.i.not, label %if.end, label %cleanup
 
-if.end:                                           ; preds = %if.then.i, %for.end.i.i, %if.then
-  %mask.1.ph = phi i64 [ %mask.0, %if.then ], [ %13, %for.end.i.i ], [ %13, %if.then.i ]
+if.end:                                           ; preds = %if.then.i, %if.then, %invoke.cont
+  %mask.152 = phi i64 [ %13, %invoke.cont ], [ %13, %if.then.i ], [ %mask.0, %if.then ]
   %19 = load ptr, ptr %my_node, align 8
   %tobool.not.i = icmp eq ptr %19, null
   br i1 %tobool.not.i, label %cleanup, label %if.then.i24
@@ -3698,9 +3699,9 @@ if.end16:                                         ; preds = %if.else, %if.then10
   %27 = atomicrmw sub ptr %my_size, i64 1 seq_cst, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i, %if.end, %for.end.i.i, %if.end16
-  %mask.2 = phi i64 [ %mask.0, %if.end16 ], [ %13, %for.end.i.i ], [ %mask.1.ph, %if.end ], [ %mask.1.ph, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i ]
-  %cleanup.dest.slot.0 = phi i32 [ 2, %if.end16 ], [ 3, %for.end.i.i ], [ 1, %if.end ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i ]
+cleanup:                                          ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i, %if.end, %invoke.cont, %if.end16
+  %mask.2 = phi i64 [ %13, %invoke.cont ], [ %mask.0, %if.end16 ], [ %mask.152, %if.end ], [ %mask.152, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 3, %invoke.cont ], [ 2, %if.end16 ], [ 1, %if.end ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i ]
   %28 = load ptr, ptr %b, align 8
   %tobool.not.i.i28 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i28, label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35, label %if.then.i.i29
@@ -4044,9 +4045,9 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.t
   %and3.i.i = and i64 %m_old.addr.0.i.i, %conv.i.i
   %tobool.not.i.i64 = icmp eq i64 %and3.i.i, 0
   %shl.i.i = shl i64 %m_old.addr.0.i.i, 1
-  br i1 %tobool.not.i.i64, label %for.cond.i.i, label %for.end.i.i, !llvm.loop !17
+  br i1 %tobool.not.i.i64, label %for.cond.i.i, label %invoke.cont28, !llvm.loop !17
 
-for.end.i.i:                                      ; preds = %for.cond.i.i
+invoke.cont28:                                    ; preds = %for.cond.i.i
   %sub.i.i = add i64 %shl.i.i, 4294967295
   %and5.i.i = and i64 %sub.i.i, %conv.i.i
   %or.i.i.i.i = or i64 %and5.i.i, 1
@@ -4061,11 +4062,11 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
   %33 = load atomic i64, ptr %node_list.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %33 to ptr
-  %cmp.i.i.i65 = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
-  br i1 %cmp.i.i.i65, label %if.end31, label %cleanup
+  %cmp.i.i.i65.not = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
+  br i1 %cmp.i.i.i65.not, label %if.end31, label %cleanup
 
-if.end31:                                         ; preds = %if.then.i62, %for.end.i.i, %while.end
-  %m.1.ph = phi i64 [ %m.0, %while.end ], [ %28, %for.end.i.i ], [ %28, %if.then.i62 ]
+if.end31:                                         ; preds = %if.then.i62, %while.end, %invoke.cont28
+  %m.1126 = phi i64 [ %28, %invoke.cont28 ], [ %28, %if.then.i62 ], [ %m.0, %while.end ]
   %34 = load ptr, ptr %my_b.i, align 8
   %35 = atomicrmw add ptr %my_size.i, i64 1 seq_cst, align 8
   %36 = add i64 %35, 1
@@ -4075,11 +4076,11 @@ if.end31:                                         ; preds = %if.then.i62, %for.e
   store ptr %atomic-temp.i.0.i.i.i69, ptr %tmp_n.addr.1, align 8
   %38 = ptrtoint ptr %tmp_n.addr.1 to i64
   store atomic i64 %38, ptr %node_list.i.i68 monotonic, align 8
-  %cmp.not.i70 = icmp ult i64 %36, %m.1.ph
+  %cmp.not.i70 = icmp ult i64 %36, %m.1126
   br i1 %cmp.not.i70, label %exists, label %if.then.i71
 
 if.then.i71:                                      ; preds = %if.end31
-  %add.i = add i64 %m.1.ph, 1
+  %add.i = add i64 %m.1126, 1
   %39 = call noundef i64 @llvm.ctlz.i64(i64 %add.i, i1 true), !range !18
   %xor.i.i.i = xor i64 %39, 63
   %arrayidx.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i
@@ -4094,7 +4095,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i71
   br label %exists
 
 exists:                                           ; preds = %land.rhs.i, %land.lhs.true.i, %if.then.i71, %if.end31, %if.then16, %if.then.i, %invoke.cont
-  %m.2 = phi i64 [ %m.0, %invoke.cont ], [ %m.0, %if.then.i ], [ %m.0, %if.then16 ], [ %m.1.ph, %if.end31 ], [ %m.1.ph, %if.then.i71 ], [ %m.1.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.i ]
+  %m.2 = phi i64 [ %m.0, %invoke.cont ], [ %m.0, %if.then.i ], [ %m.0, %if.then16 ], [ %m.1126, %if.end31 ], [ %m.1126, %if.then.i71 ], [ %m.1126, %land.lhs.true.i ], [ %m.0, %land.rhs.i ]
   %return_value.0 = phi i1 [ false, %invoke.cont ], [ false, %if.then.i ], [ false, %if.then16 ], [ true, %if.end31 ], [ true, %if.then.i71 ], [ true, %land.lhs.true.i ], [ false, %land.rhs.i ]
   %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.0, %invoke.cont ], [ %tmp_n.addr.1, %if.then.i ], [ %tmp_n.addr.1, %if.then16 ], [ null, %if.end31 ], [ null, %if.then.i71 ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.0, %land.rhs.i ]
   %grow_segment.1 = phi i64 [ %grow_segment.0, %invoke.cont ], [ %grow_segment.0, %if.then.i ], [ %grow_segment.0, %if.then16 ], [ 0, %if.end31 ], [ 0, %if.then.i71 ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %land.rhs.i ]
@@ -4214,13 +4215,13 @@ invoke.cont52:                                    ; preds = %if.else.i, %if.then
   %57 = load atomic i64, ptr %my_mask acquire, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont46, %invoke.cont40, %for.end.i.i, %exists, %invoke.cont52
-  %m.3 = phi i64 [ %m.2, %exists ], [ %m.2, %invoke.cont40 ], [ %m.2, %invoke.cont46 ], [ %57, %invoke.cont52 ], [ %28, %for.end.i.i ]
-  %return_value.1 = phi i1 [ %return_value.0, %exists ], [ %return_value.0, %invoke.cont40 ], [ %return_value.0, %invoke.cont46 ], [ %return_value.0, %invoke.cont52 ], [ false, %for.end.i.i ]
-  %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.2, %invoke.cont40 ], [ %tmp_n.addr.2, %invoke.cont46 ], [ %tmp_n.addr.2, %invoke.cont52 ], [ %tmp_n.addr.1, %for.end.i.i ]
-  %grow_segment.2 = phi i64 [ %grow_segment.1, %exists ], [ %grow_segment.1, %invoke.cont40 ], [ %grow_segment.1, %invoke.cont46 ], [ %grow_segment.1, %invoke.cont52 ], [ %grow_segment.0, %for.end.i.i ]
-  %n.2 = phi ptr [ %n.1, %exists ], [ %n.1, %invoke.cont40 ], [ %n.1, %invoke.cont46 ], [ %n.1, %invoke.cont52 ], [ %n.0.lcssa, %for.end.i.i ]
-  %cleanup.dest.slot.0 = phi i32 [ 6, %exists ], [ 0, %invoke.cont40 ], [ 0, %invoke.cont46 ], [ 2, %invoke.cont52 ], [ 2, %for.end.i.i ]
+cleanup:                                          ; preds = %invoke.cont46, %invoke.cont40, %exists, %invoke.cont28, %invoke.cont52
+  %m.3 = phi i64 [ %28, %invoke.cont28 ], [ %m.2, %exists ], [ %m.2, %invoke.cont40 ], [ %m.2, %invoke.cont46 ], [ %57, %invoke.cont52 ]
+  %return_value.1 = phi i1 [ false, %invoke.cont28 ], [ %return_value.0, %exists ], [ %return_value.0, %invoke.cont40 ], [ %return_value.0, %invoke.cont46 ], [ %return_value.0, %invoke.cont52 ]
+  %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.1, %invoke.cont28 ], [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.2, %invoke.cont40 ], [ %tmp_n.addr.2, %invoke.cont46 ], [ %tmp_n.addr.2, %invoke.cont52 ]
+  %grow_segment.2 = phi i64 [ %grow_segment.0, %invoke.cont28 ], [ %grow_segment.1, %exists ], [ %grow_segment.1, %invoke.cont40 ], [ %grow_segment.1, %invoke.cont46 ], [ %grow_segment.1, %invoke.cont52 ]
+  %n.2 = phi ptr [ %n.0.lcssa, %invoke.cont28 ], [ %n.1, %exists ], [ %n.1, %invoke.cont40 ], [ %n.1, %invoke.cont46 ], [ %n.1, %invoke.cont52 ]
+  %cleanup.dest.slot.0 = phi i32 [ 2, %invoke.cont28 ], [ 6, %exists ], [ 0, %invoke.cont40 ], [ 0, %invoke.cont46 ], [ 2, %invoke.cont52 ]
   %58 = load ptr, ptr %b, align 8
   %tobool.not.i.i102 = icmp eq ptr %58, null
   br i1 %tobool.not.i.i102, label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109, label %if.then.i.i103

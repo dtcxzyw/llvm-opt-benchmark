@@ -2657,7 +2657,7 @@ initialize_enterprises.exit:                      ; preds = %142, %146, %149
   %210 = getelementptr inbounds i8, ptr %209, i64 16
   store ptr null, ptr %210, align 8
   store i64 %indvars.iv.next.i.i, ptr %209, align 8
-  %211 = trunc i64 %indvars.iv.next.i.i to i32
+  %211 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   %212 = tail call i32 @ws_ipv4_get_subnet_mask(i32 noundef %211) #20
   %213 = shl i32 %212, 24
   %214 = tail call i32 @ws_ipv4_get_subnet_mask(i32 noundef %211) #20
@@ -3704,15 +3704,13 @@ define hidden nonnull ptr @get_manuf_name(ptr noundef %0, i64 noundef %1) local_
   %6 = load i8, ptr %3, align 1
   %7 = and i8 %6, 2
   %.not5 = icmp eq i8 %7, 0
-  br i1 %.not5, label %8, label %9
+  %spec.select = select i1 %.not5, i64 4, i64 13
+  br label %8
 
 8:                                                ; preds = %5, %2
-  br label %9
-
-9:                                                ; preds = %5, %8
-  %.sink = phi i64 [ 4, %8 ], [ 13, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %.sink
-  ret ptr %10
+  %.sink = phi i64 [ 4, %2 ], [ %spec.select, %5 ]
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.sink
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3805,21 +3803,19 @@ define nonnull ptr @tvb_get_manuf_name(ptr noundef %0, i32 noundef %1) local_unn
   %5 = call fastcc ptr @manuf_name_lookup(ptr noundef nonnull %3)
   %6 = load i32, ptr @gbl_resolv_flags, align 4
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %10, label %7
+  br i1 %.not.i, label %get_manuf_name.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %5, align 1
   %9 = and i8 %8, 2
   %.not5.i = icmp eq i8 %9, 0
-  br i1 %.not5.i, label %10, label %get_manuf_name.exit
-
-10:                                               ; preds = %7, %2
+  %spec.select.i = select i1 %.not5.i, i64 4, i64 13
   br label %get_manuf_name.exit
 
-get_manuf_name.exit:                              ; preds = %7, %10
-  %.sink.i = phi i64 [ 4, %10 ], [ 13, %7 ]
-  %11 = getelementptr inbounds i8, ptr %5, i64 %.sink.i
-  ret ptr %11
+get_manuf_name.exit:                              ; preds = %2, %7
+  %.sink.i = phi i64 [ 4, %2 ], [ %spec.select.i, %7 ]
+  %10 = getelementptr inbounds i8, ptr %5, i64 %.sink.i
+  ret ptr %10
 }
 
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -4459,7 +4455,7 @@ define hidden noundef i32 @str_to_eth(ptr noundef %0, ptr nocapture noundef writ
   br i1 %or.cond68.i, label %parse_ether_address.exit.thread, label %17
 
 17:                                               ; preds = %12
-  %18 = trunc i64 %13 to i8
+  %18 = trunc nuw i64 %13 to i8
   %19 = getelementptr [6 x i8], ptr %4, i64 0, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1
   %20 = load i8, ptr %14, align 1
@@ -4536,7 +4532,7 @@ define internal fastcc noundef i32 @parse_ether_address(ptr noundef %0, ptr noca
   br i1 %or.cond68, label %.loopexit, label %18
 
 18:                                               ; preds = %13
-  %19 = trunc i64 %14 to i8
+  %19 = trunc nuw i64 %14 to i8
   %20 = getelementptr [6 x i8], ptr %1, i64 0, i64 %indvars.iv
   store i8 %19, ptr %20, align 1
   %21 = load i8, ptr %15, align 1
@@ -4587,7 +4583,7 @@ define internal fastcc noundef i32 @parse_ether_address(ptr noundef %0, ptr noca
   br i1 %or.cond.old, label %.loopexit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %36, %42
-  %43 = trunc i64 %31 to i32
+  %43 = trunc nuw nsw i64 %31 to i32
   store i32 %43, ptr %2, align 4
   %44 = icmp ugt i64 %31, 7
   %45 = add i64 %31, 34359738360
@@ -4618,7 +4614,7 @@ define internal fastcc noundef i32 @parse_ether_address(ptr noundef %0, ptr noca
   br label %.loopexit
 
 62:                                               ; preds = %18
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %63, label %.loopexit [
     i32 2, label %64
     i32 5, label %66

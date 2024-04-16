@@ -1421,7 +1421,7 @@ for.body:                                         ; preds = %_ZNK6vectorIjLb0EjE
   %27 = load ptr, ptr %m_var2level89, align 8
   %idxprom.i54 = zext i32 %26 to i64
   %arrayidx.i55 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i54
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   store i32 %28, ptr %arrayidx.i55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !8
@@ -3204,7 +3204,7 @@ _ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.e
 
 for.body:                                         ; preds = %_ZNK6vectorIPN2dd6solver8equationELb0EjE4sizeEv.exit
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %4 = trunc i64 %indvars.iv48 to i32
+  %4 = trunc nuw i64 %indvars.iv48 to i32
   br label %for.cond2
 
 for.cond2:                                        ; preds = %for.inc35, %for.body
@@ -3240,7 +3240,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call13, i32 noundef %4)
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull @.str.6)
-  %10 = trunc i64 %indvars.iv45 to i32
+  %10 = trunc nuw i64 %indvars.iv45 to i32
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call15, i32 noundef %10)
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef nonnull @.str.6)
   %11 = load ptr, ptr %m_to_simplify, align 8
@@ -4478,19 +4478,17 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   %tobool.not = icmp eq ptr %eq.015, null
-  br i1 %tobool.not, label %if.then12, label %lor.lhs.false
+  br i1 %tobool.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %14 = load ptr, ptr %this, align 8
   %m_poly.i1.i = getelementptr inbounds i8, ptr %eq.015, i64 8
   %call3.i = tail call noundef zeroext i1 @_ZN2dd11pdd_manager5lm_ltERKNS_3pddES3_(ptr noundef nonnull align 8 dereferenceable(952) %14, ptr noundef nonnull align 8 dereferenceable(16) %m_poly.i, ptr noundef nonnull align 8 dereferenceable(16) %m_poly.i1.i)
-  br i1 %call3.i, label %if.then12, label %for.inc
-
-if.then12:                                        ; preds = %lor.lhs.false, %if.then
+  %spec.select = select i1 %call3.i, ptr %7, ptr %eq.015
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then12, %lor.lhs.false
-  %eq.1 = phi ptr [ %7, %if.then12 ], [ %eq.015, %lor.lhs.false ], [ %eq.015, %land.lhs.true ], [ %eq.015, %for.body ]
+for.inc:                                          ; preds = %lor.lhs.false, %if.then, %for.body, %land.lhs.true
+  %eq.1 = phi ptr [ %eq.015, %land.lhs.true ], [ %eq.015, %for.body ], [ %7, %if.then ], [ %spec.select, %lor.lhs.false ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.014, i64 8
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp5.not, label %for.end, label %for.body

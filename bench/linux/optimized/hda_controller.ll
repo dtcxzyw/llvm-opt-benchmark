@@ -1003,7 +1003,7 @@ define dso_local i32 @snd_hda_attach_pcm_stream(ptr noundef %0, ptr noundef %1, 
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %4, align 8
-  %71 = trunc i64 %65 to i32
+  %71 = trunc nuw nsw i64 %65 to i32
   call void @snd_pcm_set_ops(ptr noundef %70, i32 noundef %71, ptr noundef nonnull @azx_pcm_ops) #14
   br label %72
 
@@ -1364,11 +1364,11 @@ define dso_local i32 @azx_bus_init(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %40 = getelementptr inbounds i8, ptr %0, i64 1424
   %41 = load i32, ptr %40, align 8
   %42 = lshr i32 %41, 21
-  %43 = trunc i32 %42 to i16
+  %43 = trunc nuw nsw i32 %42 to i16
   %44 = and i16 %43, 128
   %spec.select = or i16 %36, %44
   %45 = lshr i32 %41, 18
-  %46 = trunc i32 %45 to i16
+  %46 = trunc nuw nsw i32 %45 to i16
   %47 = and i16 %46, 32
   %48 = or i16 %spec.select, %47
   %49 = or i16 %48, 4
@@ -1620,8 +1620,8 @@ define dso_local noundef i32 @azx_init_streams(ptr noundef %0) #1 align 16 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1424
   br label %10
 
-10:                                               ; preds = %36, %6
-  %11 = phi i32 [ 0, %6 ], [ %.pre-phi, %36 ]
+10:                                               ; preds = %35, %6
+  %11 = phi i32 [ 0, %6 ], [ %.pre-phi, %35 ]
   %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(296) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 296) #17
   %14 = icmp eq ptr %13, null
@@ -1637,43 +1637,41 @@ define dso_local noundef i32 @azx_init_streams(ptr noundef %0) #1 align 16 {
   %20 = load i32, ptr %8, align 4
   %21 = add i32 %20, %17
   %22 = icmp sgt i32 %21, %16
-  br i1 %22, label %24, label %23
+  %spec.select = zext i1 %22 to i32
+  br label %23
 
 23:                                               ; preds = %19, %15
-  br label %24
+  %24 = phi i32 [ 0, %15 ], [ %spec.select, %19 ]
+  %25 = load i32, ptr %9, align 8
+  %26 = and i32 %25, 1073741824
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %33, label %28
 
-24:                                               ; preds = %23, %19
-  %25 = phi i32 [ 0, %23 ], [ 1, %19 ]
-  %26 = load i32, ptr %9, align 8
-  %27 = and i32 %26, 1073741824
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %34, label %29
-
-29:                                               ; preds = %24
-  %30 = zext nneg i32 %25 to i64
-  %31 = getelementptr [2 x i32], ptr %2, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 4
+28:                                               ; preds = %23
+  %29 = zext nneg i32 %24 to i64
+  %30 = getelementptr [2 x i32], ptr %2, i64 0, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %30, align 4
   %.pre = add nuw nsw i32 %11, 1
-  br label %36
+  br label %35
 
-34:                                               ; preds = %24
-  %35 = add nuw nsw i32 %11, 1
-  br label %36
+33:                                               ; preds = %23
+  %34 = add nuw nsw i32 %11, 1
+  br label %35
 
-36:                                               ; preds = %34, %29
-  %.pre-phi = phi i32 [ %35, %34 ], [ %.pre, %29 ]
-  %37 = phi i32 [ %35, %34 ], [ %33, %29 ]
-  tail call void @snd_hdac_stream_init(ptr noundef %0, ptr noundef nonnull %13, i32 noundef %11, i32 noundef %25, i32 noundef %37) #14
-  %38 = load i32, ptr %3, align 4
-  %39 = icmp slt i32 %.pre-phi, %38
-  br i1 %39, label %10, label %.loopexit, !llvm.loop !42
+35:                                               ; preds = %33, %28
+  %.pre-phi = phi i32 [ %34, %33 ], [ %.pre, %28 ]
+  %36 = phi i32 [ %34, %33 ], [ %32, %28 ]
+  tail call void @snd_hdac_stream_init(ptr noundef %0, ptr noundef nonnull %13, i32 noundef %11, i32 noundef %24, i32 noundef %36) #14
+  %37 = load i32, ptr %3, align 4
+  %38 = icmp slt i32 %.pre-phi, %37
+  br i1 %38, label %10, label %.loopexit, !llvm.loop !42
 
-.loopexit:                                        ; preds = %36, %10, %1
-  %40 = phi i32 [ 0, %1 ], [ -12, %10 ], [ 0, %36 ]
+.loopexit:                                        ; preds = %35, %10, %1
+  %39 = phi i32 [ 0, %1 ], [ -12, %10 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
-  ret i32 %40
+  ret i32 %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

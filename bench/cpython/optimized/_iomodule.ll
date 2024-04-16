@@ -1197,18 +1197,14 @@ do.body149:                                       ; preds = %if.then140, %do.bod
   %PyTextIOWrapper_Type = getelementptr inbounds i8, ptr %mod.val, i64 120
   %15 = load ptr, ptr %PyTextIOWrapper_Type, align 8
   %tobool150.not = icmp eq ptr %15, null
-  br i1 %tobool150.not, label %do.end159, label %if.then151
+  br i1 %tobool150.not, label %return, label %if.then151
 
 if.then151:                                       ; preds = %do.body149
   %call154 = tail call i32 %visit(ptr noundef nonnull %15, ptr noundef %arg) #5
-  %tobool155.not = icmp eq i32 %call154, 0
-  br i1 %tobool155.not, label %do.end159, label %return
-
-do.end159:                                        ; preds = %do.body149, %if.then151
   br label %return
 
-return:                                           ; preds = %if.then151, %if.then140, %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end159
-  %retval.0 = phi i32 [ 0, %do.end159 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ], [ %call143, %if.then140 ], [ %call154, %if.then151 ]
+return:                                           ; preds = %if.then151, %do.body149, %if.then140, %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ], [ %call143, %if.then140 ], [ 0, %do.body149 ], [ %call154, %if.then151 ]
   ret i32 %retval.0
 }
 

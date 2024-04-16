@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prolog0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal i32 @prolog0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return.sink.split
@@ -73,7 +73,9 @@ sw.bb8:                                           ; preds = %entry
   %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
   %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_DOCTYPE) #5
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end.i, label %return.sink.split
+  %spec.select = select i1 %tobool.not, ptr @error, ptr @doctype0
+  %spec.select14 = select i1 %tobool.not, i32 -1, i32 3
+  br label %return.sink.split
 
 sw.bb10:                                          ; preds = %entry
   br label %return.sink.split
@@ -84,14 +86,11 @@ sw.epilog:                                        ; preds = %entry
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+  br i1 %or.cond.i, label %return, label %return.sink.split
 
-if.end.i:                                         ; preds = %sw.bb8, %sw.epilog
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %sw.bb8, %entry, %sw.bb1, %sw.bb3, %sw.bb5, %sw.bb10, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @error, %sw.bb10 ], [ @prolog1, %sw.bb5 ], [ @prolog1, %sw.bb3 ], [ @prolog1, %sw.bb1 ], [ @prolog1, %entry ], [ @doctype0, %sw.bb8 ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 2, %sw.bb10 ], [ 56, %sw.bb5 ], [ 55, %sw.bb3 ], [ 1, %sw.bb1 ], [ 0, %entry ], [ 3, %sw.bb8 ]
+return.sink.split:                                ; preds = %sw.bb8, %sw.epilog, %entry, %sw.bb1, %sw.bb3, %sw.bb5, %sw.bb10
+  %error.sink = phi ptr [ @error, %sw.bb10 ], [ @prolog1, %sw.bb5 ], [ @prolog1, %sw.bb3 ], [ @prolog1, %sw.bb1 ], [ @prolog1, %entry ], [ @error, %sw.epilog ], [ %spec.select, %sw.bb8 ]
+  %retval.0.ph = phi i32 [ 2, %sw.bb10 ], [ 56, %sw.bb5 ], [ 55, %sw.bb3 ], [ 1, %sw.bb1 ], [ 0, %entry ], [ -1, %sw.epilog ], [ %spec.select14, %sw.bb8 ]
   store ptr %error.sink, ptr %state, align 8
   br label %return
 
@@ -217,7 +216,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @doctype1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal i32 @doctype1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -240,7 +239,9 @@ if.end:                                           ; preds = %sw.bb4
   %1 = load ptr, ptr %nameMatchesAscii, align 8
   %call7 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
   %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.end.i, label %return.sink.split
+  %spec.select = select i1 %tobool8.not, ptr @error, ptr @doctype2
+  %spec.select15 = select i1 %tobool8.not, i32 -1, i32 3
+  br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
   %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
@@ -248,14 +249,11 @@ sw.epilog:                                        ; preds = %entry
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+  br i1 %or.cond.i, label %return, label %return.sink.split
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end, %sw.bb4, %entry, %sw.bb2, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @prolog2, %sw.bb2 ], [ @internalSubset, %entry ], [ @doctype3, %sw.bb4 ], [ @doctype2, %if.end ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 8, %sw.bb2 ], [ 7, %entry ], [ 3, %sw.bb4 ], [ 3, %if.end ]
+return.sink.split:                                ; preds = %if.end, %sw.epilog, %sw.bb4, %entry, %sw.bb2
+  %error.sink = phi ptr [ @prolog2, %sw.bb2 ], [ @internalSubset, %entry ], [ @doctype3, %sw.bb4 ], [ @error, %sw.epilog ], [ %spec.select, %if.end ]
+  %retval.0.ph = phi i32 [ 8, %sw.bb2 ], [ 7, %entry ], [ 3, %sw.bb4 ], [ -1, %sw.epilog ], [ %spec.select15, %if.end ]
   store ptr %error.sink, ptr %state, align 8
   br label %return
 
@@ -906,7 +904,7 @@ return:                                           ; preds = %sw.bb5, %entry, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @condSect0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal i32 @condSect0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -924,7 +922,9 @@ if.end:                                           ; preds = %sw.bb1
   %1 = load ptr, ptr %nameMatchesAscii, align 8
   %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_IGNORE) #5
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.end.i, label %return.sink.split
+  %spec.select = select i1 %tobool4.not, ptr @error, ptr @condSect2
+  %spec.select13 = sext i1 %tobool4.not to i32
+  br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
   %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
@@ -932,14 +932,11 @@ sw.epilog:                                        ; preds = %entry
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+  br i1 %or.cond.i, label %return, label %return.sink.split
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end, %sw.bb1, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @condSect1, %sw.bb1 ], [ @condSect2, %if.end ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 0, %sw.bb1 ], [ 0, %if.end ]
+return.sink.split:                                ; preds = %if.end, %sw.epilog, %sw.bb1
+  %error.sink = phi ptr [ @condSect1, %sw.bb1 ], [ @error, %sw.epilog ], [ %spec.select, %if.end ]
+  %retval.0.ph = phi i32 [ 0, %sw.bb1 ], [ -1, %sw.epilog ], [ %spec.select13, %if.end ]
   store ptr %error.sink, ptr %state, align 8
   br label %return
 
@@ -1063,7 +1060,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @entity5(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal i32 @entity5(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1083,7 +1080,9 @@ sw.bb2:                                           ; preds = %entry
   %1 = load ptr, ptr %nameMatchesAscii, align 8
   %call = tail call i32 %1(ptr noundef %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_NDATA) #5
   %tobool3.not = icmp eq i32 %call, 0
-  br i1 %tobool3.not, label %if.end.i, label %return.sink.split
+  %spec.select = select i1 %tobool3.not, ptr @error, ptr @entity6
+  %spec.select10 = select i1 %tobool3.not, i32 -1, i32 11
+  br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
   %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
@@ -1091,14 +1090,11 @@ sw.epilog:                                        ; preds = %entry
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+  br i1 %or.cond.i, label %return, label %return.sink.split
 
-if.end.i:                                         ; preds = %sw.bb2, %sw.epilog
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %sw.bb2, %sw.bb1, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ %cond, %sw.bb1 ], [ @entity6, %sw.bb2 ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 15, %sw.bb1 ], [ 11, %sw.bb2 ]
+return.sink.split:                                ; preds = %sw.bb2, %sw.epilog, %sw.bb1
+  %error.sink = phi ptr [ %cond, %sw.bb1 ], [ @error, %sw.epilog ], [ %spec.select, %sw.bb2 ]
+  %retval.0.ph = phi i32 [ 15, %sw.bb1 ], [ -1, %sw.epilog ], [ %spec.select10, %sw.bb2 ]
   store ptr %error.sink, ptr %state, align 8
   br label %return
 
@@ -1197,7 +1193,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   store ptr @attlist8, ptr %state, align 8
   %add = add nuw nsw i32 %2, 23
   br label %return
@@ -1239,7 +1235,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @attlist8(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal i32 @attlist8(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1274,7 +1270,9 @@ if.end10:                                         ; preds = %if.end
   %add.ptr14 = getelementptr i8, ptr %ptr, i64 %idx.ext13
   %call15 = tail call i32 %4(ptr noundef nonnull %enc, ptr noundef %add.ptr14, ptr noundef %end, ptr noundef nonnull @KW_FIXED) #5
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %if.end.i, label %return.sink.split
+  %spec.select = select i1 %tobool16.not, ptr @error, ptr @attlist9
+  %spec.select22 = select i1 %tobool16.not, i32 -1, i32 33
+  br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
   %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
@@ -1282,14 +1280,11 @@ sw.epilog:                                        ; preds = %entry
   %tobool.i = icmp eq i32 %6, 0
   %cmp.i = icmp eq i32 %tok, 28
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+  br i1 %or.cond.i, label %return, label %return.sink.split
 
-if.end.i:                                         ; preds = %if.end10, %sw.epilog
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %entry, %if.end10, %if.end, %sw.bb1, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @attlist1, %sw.bb1 ], [ @attlist1, %if.end ], [ @attlist9, %if.end10 ], [ @attlist1, %entry ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 35, %sw.bb1 ], [ 36, %if.end ], [ 33, %if.end10 ], [ 37, %entry ]
+return.sink.split:                                ; preds = %if.end10, %sw.epilog, %entry, %if.end, %sw.bb1
+  %error.sink = phi ptr [ @attlist1, %sw.bb1 ], [ @attlist1, %if.end ], [ @attlist1, %entry ], [ @error, %sw.epilog ], [ %spec.select, %if.end10 ]
+  %retval.0.ph = phi i32 [ 35, %sw.bb1 ], [ 36, %if.end ], [ 37, %entry ], [ -1, %sw.epilog ], [ %spec.select22, %if.end10 ]
   store ptr %error.sink, ptr %state, align 8
   br label %return
 
@@ -1528,7 +1523,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @element2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal i32 @element2(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1550,7 +1545,9 @@ sw.bb1:                                           ; preds = %entry
   %add.ptr = getelementptr i8, ptr %ptr, i64 %idx.ext
   %call = tail call i32 %0(ptr noundef %enc, ptr noundef %add.ptr, ptr noundef %end, ptr noundef nonnull @KW_PCDATA) #5
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end.i, label %return.sink.split
+  %spec.select = select i1 %tobool.not, ptr @error, ptr @element3
+  %spec.select15 = select i1 %tobool.not, i32 -1, i32 43
+  br label %return.sink.split
 
 sw.bb2:                                           ; preds = %entry
   %level = getelementptr inbounds i8, ptr %state, i64 8
@@ -1572,14 +1569,11 @@ sw.epilog:                                        ; preds = %entry
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+  br i1 %or.cond.i, label %return, label %return.sink.split
 
-if.end.i:                                         ; preds = %sw.bb1, %sw.epilog
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %entry, %entry, %sw.bb1, %sw.bb2, %sw.bb6, %sw.bb8, %sw.bb10, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @element7, %sw.bb10 ], [ @element7, %sw.bb8 ], [ @element7, %sw.bb6 ], [ @element6, %sw.bb2 ], [ @element3, %sw.bb1 ], [ @element7, %entry ], [ @element7, %entry ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 54, %sw.bb10 ], [ 52, %sw.bb8 ], [ 53, %sw.bb6 ], [ 44, %sw.bb2 ], [ 43, %sw.bb1 ], [ 51, %entry ], [ 51, %entry ]
+return.sink.split:                                ; preds = %sw.bb1, %sw.epilog, %entry, %entry, %sw.bb2, %sw.bb6, %sw.bb8, %sw.bb10
+  %error.sink = phi ptr [ @element7, %sw.bb10 ], [ @element7, %sw.bb8 ], [ @element7, %sw.bb6 ], [ @element6, %sw.bb2 ], [ @element7, %entry ], [ @element7, %entry ], [ @error, %sw.epilog ], [ %spec.select, %sw.bb1 ]
+  %retval.0.ph = phi i32 [ 54, %sw.bb10 ], [ 52, %sw.bb8 ], [ 53, %sw.bb6 ], [ 44, %sw.bb2 ], [ 51, %entry ], [ 51, %entry ], [ -1, %sw.epilog ], [ %spec.select15, %sw.bb1 ]
   store ptr %error.sink, ptr %state, align 8
   br label %return
 
@@ -1843,7 +1837,7 @@ return:                                           ; preds = %if.end.i, %sw.epilo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @notation1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal i32 @notation1(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   switch i32 %tok, label %sw.epilog [
     i32 15, label %return
@@ -1861,7 +1855,9 @@ if.end:                                           ; preds = %sw.bb1
   %1 = load ptr, ptr %nameMatchesAscii, align 8
   %call3 = tail call i32 %1(ptr noundef nonnull %enc, ptr noundef %ptr, ptr noundef %end, ptr noundef nonnull @KW_PUBLIC) #5
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.end.i, label %return.sink.split
+  %spec.select = select i1 %tobool4.not, ptr @error, ptr @notation2
+  %spec.select13 = select i1 %tobool4.not, i32 -1, i32 17
+  br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
   %documentEntity.i = getelementptr inbounds i8, ptr %state, i64 20
@@ -1869,14 +1865,11 @@ sw.epilog:                                        ; preds = %entry
   %tobool.i = icmp eq i32 %2, 0
   %cmp.i = icmp eq i32 %tok, 28
   %or.cond.i = and i1 %cmp.i, %tobool.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+  br i1 %or.cond.i, label %return, label %return.sink.split
 
-if.end.i:                                         ; preds = %if.end, %sw.epilog
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.end, %sw.bb1, %if.end.i
-  %error.sink = phi ptr [ @error, %if.end.i ], [ @notation3, %sw.bb1 ], [ @notation2, %if.end ]
-  %retval.0.ph = phi i32 [ -1, %if.end.i ], [ 17, %sw.bb1 ], [ 17, %if.end ]
+return.sink.split:                                ; preds = %if.end, %sw.epilog, %sw.bb1
+  %error.sink = phi ptr [ @notation3, %sw.bb1 ], [ @error, %sw.epilog ], [ %spec.select, %if.end ]
+  %retval.0.ph = phi i32 [ 17, %sw.bb1 ], [ -1, %sw.epilog ], [ %spec.select13, %if.end ]
   store ptr %error.sink, ptr %state, align 8
   br label %return
 

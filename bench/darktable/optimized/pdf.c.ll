@@ -344,7 +344,7 @@ define noundef i32 @write_image(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %165 = icmp eq i64 %164, 0
   %166 = select i1 %165, i64 16, i64 %164
   %167 = sub nsw i64 %162, %166
-  %168 = trunc i64 %167 to i32
+  %168 = trunc nsw i64 %167 to i32
   %169 = mul nsw i64 %167, 6
   %170 = shl nsw i64 %167, 3
   br label %171
@@ -1105,167 +1105,165 @@ define internal fastcc void @_set_paper_size(ptr noundef %0, ptr noundef %1) unn
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 1, !tbaa !18
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %10
+  %spec.select = select i1 %8, ptr @.str.62, ptr %1
+  br label %9
 
 9:                                                ; preds = %6, %2
-  br label %10
+  %10 = phi ptr [ @.str.62, %2 ], [ %spec.select, %6 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 352
+  %12 = load ptr, ptr %11, align 8, !tbaa !58
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !77
+  %15 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %14, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @size_toggle_callback, ptr noundef nonnull %0) #16
+  %16 = load ptr, ptr %13, align 8, !tbaa !77
+  %17 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %16) #16
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %19, label %.loopexit
 
-10:                                               ; preds = %9, %6
-  %11 = phi ptr [ %1, %6 ], [ @.str.62, %9 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 352
-  %13 = load ptr, ptr %12, align 8, !tbaa !58
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !77
-  %16 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %15, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @size_toggle_callback, ptr noundef nonnull %0) #16
-  %17 = load ptr, ptr %14, align 8, !tbaa !77
-  %18 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %17) #16
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %.loopexit
+19:                                               ; preds = %9
+  %20 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.62) #20
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %.loopexit, label %22
 
-20:                                               ; preds = %10
-  %21 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.62) #20
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.loopexit, label %23
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %13, align 8, !tbaa !77
+  %24 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %23, i32 noundef 0) #16
+  %25 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef %24) #20
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.loopexit, label %27
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %14, align 8, !tbaa !77
-  %25 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %24, i32 noundef 0) #16
-  %26 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef %25) #20
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.loopexit, label %28
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %13, align 8, !tbaa !77
+  %29 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %28) #16
+  %30 = icmp sgt i32 %29, 1
+  br i1 %30, label %31, label %.loopexit
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %14, align 8, !tbaa !77
-  %30 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %29) #16
-  %31 = icmp sgt i32 %30, 1
-  br i1 %31, label %32, label %.loopexit
+31:                                               ; preds = %27
+  %32 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.63) #20
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %.loopexit, label %34
 
-32:                                               ; preds = %28
-  %33 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.63) #20
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.loopexit, label %35
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %13, align 8, !tbaa !77
+  %36 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %35, i32 noundef 1) #16
+  %37 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef %36) #20
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %.loopexit, label %39
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %14, align 8, !tbaa !77
-  %37 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %36, i32 noundef 1) #16
-  %38 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef %37) #20
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.loopexit, label %40
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %13, align 8, !tbaa !77
+  %41 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %40) #16
+  %42 = icmp sgt i32 %41, 2
+  br i1 %42, label %43, label %.loopexit
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %14, align 8, !tbaa !77
-  %42 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %41) #16
-  %43 = icmp sgt i32 %42, 2
-  br i1 %43, label %44, label %.loopexit
+43:                                               ; preds = %39
+  %44 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.64) #20
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %.loopexit, label %46
 
-44:                                               ; preds = %40
-  %45 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.64) #20
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit, label %47
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %13, align 8, !tbaa !77
+  %48 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %47, i32 noundef 2) #16
+  %49 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef %48) #20
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.loopexit, label %51
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %14, align 8, !tbaa !77
-  %49 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %48, i32 noundef 2) #16
-  %50 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef %49) #20
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.loopexit, label %52
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %13, align 8, !tbaa !77
+  %53 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %52) #16
+  %54 = icmp sgt i32 %53, 3
+  br i1 %54, label %55, label %.loopexit
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %14, align 8, !tbaa !77
-  %54 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %53) #16
-  %55 = icmp sgt i32 %54, 3
-  br i1 %55, label %56, label %.loopexit
+55:                                               ; preds = %51
+  %56 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.65) #20
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %.loopexit, label %58
 
-56:                                               ; preds = %52
-  %57 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.65) #20
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.loopexit, label %59
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %13, align 8, !tbaa !77
+  %60 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %59, i32 noundef 3) #16
+  %61 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef %60) #20
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %.loopexit, label %63
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %14, align 8, !tbaa !77
-  %61 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %60, i32 noundef 3) #16
-  %62 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef %61) #20
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.loopexit, label %64
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %13, align 8, !tbaa !77
+  %65 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %64) #16
+  %66 = icmp sgt i32 %65, 4
+  br i1 %66, label %.preheader, label %.loopexit
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %14, align 8, !tbaa !77
-  %66 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %65) #16
-  %67 = icmp sgt i32 %66, 4
-  br i1 %67, label %.preheader, label %.loopexit
+.preheader:                                       ; preds = %63, %73
+  %67 = phi i64 [ %74, %73 ], [ 4, %63 ]
+  %68 = trunc i64 %67 to i32
+  %69 = load ptr, ptr %13, align 8, !tbaa !77
+  %70 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %69, i32 noundef %68) #16
+  %71 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef %70) #20
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %.loopexit, label %73
 
-.preheader:                                       ; preds = %64, %74
-  %68 = phi i64 [ %75, %74 ], [ 4, %64 ]
-  %69 = trunc i64 %68 to i32
-  %70 = load ptr, ptr %14, align 8, !tbaa !77
-  %71 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %70, i32 noundef %69) #16
-  %72 = tail call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef %71) #20
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.loopexit, label %74
+73:                                               ; preds = %.preheader
+  %74 = add nuw nsw i64 %67, 1
+  %75 = load ptr, ptr %13, align 8, !tbaa !77
+  %76 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %75) #16
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %74, %77
+  br i1 %78, label %.preheader, label %79, !llvm.loop !89
 
-74:                                               ; preds = %.preheader
-  %75 = add nuw nsw i64 %68, 1
-  %76 = load ptr, ptr %14, align 8, !tbaa !77
-  %77 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %76) #16
-  %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %75, %78
-  br i1 %79, label %.preheader, label %80, !llvm.loop !89
-
-80:                                               ; preds = %74
-  %81 = trunc i64 %75 to i32
+79:                                               ; preds = %73
+  %80 = trunc i64 %74 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %80, %64, %59, %56, %52, %47, %44, %40, %35, %32, %28, %23, %20, %10
-  %82 = phi i32 [ 0, %10 ], [ 0, %20 ], [ 0, %23 ], [ 1, %28 ], [ 1, %32 ], [ 1, %35 ], [ 2, %40 ], [ 2, %44 ], [ 2, %47 ], [ 3, %52 ], [ 3, %56 ], [ 3, %59 ], [ 4, %64 ], [ %81, %80 ], [ %69, %.preheader ]
-  %83 = load ptr, ptr %14, align 8, !tbaa !77
-  %84 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %83) #16
-  %85 = icmp slt i32 %82, %84
-  br i1 %85, label %86, label %88
+.loopexit:                                        ; preds = %.preheader, %79, %63, %58, %55, %51, %46, %43, %39, %34, %31, %27, %22, %19, %9
+  %81 = phi i32 [ 0, %9 ], [ 0, %19 ], [ 0, %22 ], [ 1, %27 ], [ 1, %31 ], [ 1, %34 ], [ 2, %39 ], [ 2, %43 ], [ 2, %46 ], [ 3, %51 ], [ 3, %55 ], [ 3, %58 ], [ 4, %63 ], [ %80, %79 ], [ %68, %.preheader ]
+  %82 = load ptr, ptr %13, align 8, !tbaa !77
+  %83 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %82) #16
+  %84 = icmp slt i32 %81, %83
+  br i1 %84, label %85, label %87
 
-86:                                               ; preds = %.loopexit
-  %87 = load ptr, ptr %14, align 8, !tbaa !77
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %87, i32 noundef %82) #16
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.11, ptr noundef nonnull %11) #16
-  br label %103
+85:                                               ; preds = %.loopexit
+  %86 = load ptr, ptr %13, align 8, !tbaa !77
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %86, i32 noundef %81) #16
+  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.11, ptr noundef nonnull %10) #16
+  br label %102
 
-88:                                               ; preds = %.loopexit
+87:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
-  %89 = call i32 @dt_pdf_parse_paper_size(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %94, label %91
+  %88 = call i32 @dt_pdf_parse_paper_size(ptr noundef nonnull %10, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %93, label %90
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %14, align 8, !tbaa !77
-  call void @dt_bauhaus_combobox_add(ptr noundef %92, ptr noundef nonnull %11) #16
-  %93 = load ptr, ptr %14, align 8, !tbaa !77
-  call void @dt_bauhaus_combobox_set(ptr noundef %93, i32 noundef %82) #16
-  call void @dt_conf_set_string(ptr noundef nonnull @.str.11, ptr noundef nonnull %11) #16
-  br label %102
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %13, align 8, !tbaa !77
+  call void @dt_bauhaus_combobox_add(ptr noundef %91, ptr noundef nonnull %10) #16
+  %92 = load ptr, ptr %13, align 8, !tbaa !77
+  call void @dt_bauhaus_combobox_set(ptr noundef %92, i32 noundef %81) #16
+  call void @dt_conf_set_string(ptr noundef nonnull @.str.11, ptr noundef nonnull %10) #16
+  br label %101
 
-94:                                               ; preds = %88
-  %95 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #16
-  call void (ptr, ...) @dt_control_log(ptr noundef %95) #16
-  %96 = call ptr @dt_conf_get_string(ptr noundef nonnull @.str.11) #16
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %102, label %98
+93:                                               ; preds = %87
+  %94 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #16
+  call void (ptr, ...) @dt_control_log(ptr noundef %94) #16
+  %95 = call ptr @dt_conf_get_string(ptr noundef nonnull @.str.11) #16
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %101, label %97
 
-98:                                               ; preds = %94
-  %99 = call i32 @dt_pdf_parse_paper_size(ptr noundef nonnull %96, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
-  %100 = icmp eq i32 %99, 0
-  %101 = select i1 %100, ptr @.str.62, ptr %96
-  call fastcc void @_set_paper_size(ptr noundef %0, ptr noundef nonnull %101)
-  call void @g_free(ptr noundef nonnull %96) #16
-  br label %102
+97:                                               ; preds = %93
+  %98 = call i32 @dt_pdf_parse_paper_size(ptr noundef nonnull %95, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+  %99 = icmp eq i32 %98, 0
+  %100 = select i1 %99, ptr @.str.62, ptr %95
+  call fastcc void @_set_paper_size(ptr noundef %0, ptr noundef nonnull %100)
+  call void @g_free(ptr noundef nonnull %95) #16
+  br label %101
 
-102:                                              ; preds = %98, %94, %91
+101:                                              ; preds = %97, %93, %90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
-  br label %103
+  br label %102
 
-103:                                              ; preds = %102, %86
-  %104 = load ptr, ptr %14, align 8, !tbaa !77
-  %105 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %104, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @size_toggle_callback, ptr noundef %0) #16
+102:                                              ; preds = %101, %85
+  %103 = load ptr, ptr %13, align 8, !tbaa !77
+  %104 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %103, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @size_toggle_callback, ptr noundef %0) #16
   ret void
 }
 

@@ -623,10 +623,10 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
   %spec.store.select.i121.i = select i1 %160, ptr %14, ptr %159
   %161 = shl nuw nsw i64 %158, 3
   %162 = lshr i64 %.sroa.0152.1.i, %161
-  %.sroa.0.0251.i = zext i16 %84 to i64
-  %.sroa.61.2252.i = and i32 %.sroa.61.1.i, 7
-  %.sroa.0140.0253.i = zext i16 %62 to i64
-  %.sroa.0146.0254.i = zext i16 %39 to i64
+  %.sroa.0.0250.i = zext i16 %84 to i64
+  %.sroa.61.2251.i = and i32 %.sroa.61.1.i, 7
+  %.sroa.0140.0252.i = zext i16 %62 to i64
+  %.sroa.0146.0253.i = zext i16 %39 to i64
   %163 = icmp ugt i64 %9, 1
   br i1 %163, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -635,18 +635,18 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %327, %.lr.ph.preheader.i
-  %.sroa.0146.0261.i = phi i64 [ %.sroa.0146.0.i, %327 ], [ %.sroa.0146.0254.i, %.lr.ph.preheader.i ]
-  %.sroa.0140.0260.i = phi i64 [ %.sroa.0140.0.i, %327 ], [ %.sroa.0140.0253.i, %.lr.ph.preheader.i ]
-  %.sroa.61.2259.i = phi i32 [ %.sroa.61.2.i, %327 ], [ %.sroa.61.2252.i, %.lr.ph.preheader.i ]
-  %.sroa.0.0258.i = phi i64 [ %.sroa.0.0.i, %327 ], [ %.sroa.0.0251.i, %.lr.ph.preheader.i ]
-  %.097257.i = phi i64 [ %334, %327 ], [ %164, %.lr.ph.preheader.i ]
-  %.sroa.124.2256.i = phi ptr [ %spec.store.select.i134.i, %327 ], [ %spec.store.select.i121.i, %.lr.ph.preheader.i ]
-  %.sroa.0152.2255.i = phi i64 [ %333, %327 ], [ %162, %.lr.ph.preheader.i ]
-  %165 = getelementptr inbounds i8, ptr %7, i64 %.097257.i
+  %.sroa.0146.0260.i = phi i64 [ %.sroa.0146.0.i, %327 ], [ %.sroa.0146.0253.i, %.lr.ph.preheader.i ]
+  %.sroa.0140.0259.i = phi i64 [ %.sroa.0140.0.i, %327 ], [ %.sroa.0140.0252.i, %.lr.ph.preheader.i ]
+  %.sroa.61.2258.i = phi i32 [ %.sroa.61.2.i, %327 ], [ %.sroa.61.2251.i, %.lr.ph.preheader.i ]
+  %.sroa.0.0257.i = phi i64 [ %.sroa.0.0.i, %327 ], [ %.sroa.0.0250.i, %.lr.ph.preheader.i ]
+  %.097256.i = phi i64 [ %334, %327 ], [ %164, %.lr.ph.preheader.i ]
+  %.sroa.124.2255.i = phi ptr [ %spec.store.select.i134.i, %327 ], [ %spec.store.select.i121.i, %.lr.ph.preheader.i ]
+  %.sroa.0152.2254.i = phi i64 [ %333, %327 ], [ %162, %.lr.ph.preheader.i ]
+  %165 = getelementptr inbounds i8, ptr %7, i64 %.097256.i
   %166 = load i8, ptr %165, align 1
-  %167 = getelementptr inbounds i8, ptr %5, i64 %.097257.i
+  %167 = getelementptr inbounds i8, ptr %5, i64 %.097256.i
   %168 = load i8, ptr %167, align 1
-  %169 = getelementptr inbounds i8, ptr %3, i64 %.097257.i
+  %169 = getelementptr inbounds i8, ptr %3, i64 %.097256.i
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %166 to i64
   %172 = getelementptr inbounds [36 x i8], ptr @LL_bits, i64 0, i64 %171
@@ -663,17 +663,17 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
   %.sroa.2.0..sroa_idx.i123.i = getelementptr inbounds i8, ptr %181, i64 4
   %.sroa.2.0.copyload.i124.i = load i32, ptr %.sroa.2.0..sroa_idx.i123.i, align 4
   %182 = zext i32 %.sroa.2.0.copyload.i124.i to i64
-  %183 = add nuw nsw i64 %.sroa.0140.0260.i, %182
+  %183 = add nuw nsw i64 %.sroa.0140.0259.i, %182
   %184 = lshr i64 %183, 16
-  %185 = trunc i64 %184 to i32
+  %185 = trunc nuw nsw i64 %184 to i32
   %186 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %184
   %187 = load i32, ptr %186, align 4
   %188 = zext i32 %187 to i64
-  %189 = and i64 %.sroa.0140.0260.i, %188
-  %190 = zext nneg i32 %.sroa.61.2259.i to i64
+  %189 = and i64 %.sroa.0140.0259.i, %188
+  %190 = zext nneg i32 %.sroa.61.2258.i to i64
   %191 = shl nuw nsw i64 %189, %190
-  %192 = add nuw nsw i32 %.sroa.61.2259.i, %185
-  %193 = lshr i64 %.sroa.0140.0260.i, %184
+  %192 = add nuw nsw i32 %.sroa.61.2258.i, %185
+  %193 = lshr i64 %.sroa.0140.0259.i, %184
   %194 = sext i32 %.sroa.0.0.copyload.i122.i to i64
   %195 = getelementptr i16, ptr %44, i64 %193
   %196 = getelementptr i16, ptr %195, i64 %194
@@ -683,17 +683,17 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
   %.sroa.2.0..sroa_idx.i126.i = getelementptr inbounds i8, ptr %198, i64 4
   %.sroa.2.0.copyload.i127.i = load i32, ptr %.sroa.2.0..sroa_idx.i126.i, align 4
   %199 = zext i32 %.sroa.2.0.copyload.i127.i to i64
-  %200 = add nuw nsw i64 %.sroa.0146.0261.i, %199
+  %200 = add nuw nsw i64 %.sroa.0146.0260.i, %199
   %201 = lshr i64 %200, 16
-  %202 = trunc i64 %201 to i32
+  %202 = trunc nuw nsw i64 %201 to i32
   %203 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %201
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
-  %206 = and i64 %.sroa.0146.0261.i, %205
+  %206 = and i64 %.sroa.0146.0260.i, %205
   %207 = zext nneg i32 %192 to i64
   %208 = shl i64 %206, %207
   %209 = add nuw nsw i32 %192, %202
-  %210 = lshr i64 %.sroa.0146.0261.i, %201
+  %210 = lshr i64 %.sroa.0146.0260.i, %201
   %211 = sext i32 %.sroa.0.0.copyload.i125.i to i64
   %212 = getelementptr i16, ptr %21, i64 %210
   %213 = getelementptr i16, ptr %212, i64 %211
@@ -703,20 +703,20 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
   %.sroa.2.0..sroa_idx.i129.i = getelementptr inbounds i8, ptr %215, i64 4
   %.sroa.2.0.copyload.i130.i = load i32, ptr %.sroa.2.0..sroa_idx.i129.i, align 4
   %216 = zext i32 %.sroa.2.0.copyload.i130.i to i64
-  %217 = add nuw nsw i64 %.sroa.0.0258.i, %216
+  %217 = add nuw nsw i64 %.sroa.0.0257.i, %216
   %218 = lshr i64 %217, 16
-  %219 = trunc i64 %218 to i32
+  %219 = trunc nuw nsw i64 %218 to i32
   %220 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %218
   %221 = load i32, ptr %220, align 4
   %222 = zext i32 %221 to i64
-  %223 = and i64 %.sroa.0.0258.i, %222
+  %223 = and i64 %.sroa.0.0257.i, %222
   %224 = zext nneg i32 %209 to i64
   %225 = shl i64 %223, %224
-  %226 = or i64 %191, %.sroa.0152.2255.i
+  %226 = or i64 %191, %.sroa.0152.2254.i
   %227 = or i64 %226, %208
   %228 = or i64 %227, %225
   %229 = add nuw nsw i32 %209, %219
-  %230 = lshr i64 %.sroa.0.0258.i, %218
+  %230 = lshr i64 %.sroa.0.0257.i, %218
   %231 = sext i32 %.sroa.0.0.copyload.i128.i to i64
   %232 = getelementptr i16, ptr %66, i64 %230
   %233 = getelementptr i16, ptr %232, i64 %231
@@ -729,8 +729,8 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
 238:                                              ; preds = %.lr.ph.i
   %239 = lshr i32 %229, 3
   %240 = zext nneg i32 %239 to i64
-  store i64 %228, ptr %.sroa.124.2256.i, align 1
-  %241 = getelementptr inbounds i8, ptr %.sroa.124.2256.i, i64 %240
+  store i64 %228, ptr %.sroa.124.2255.i, align 1
+  %241 = getelementptr inbounds i8, ptr %.sroa.124.2255.i, i64 %240
   %242 = icmp ugt ptr %241, %14
   %spec.store.select.i131.i = select i1 %242, ptr %14, ptr %241
   %243 = and i32 %229, 7
@@ -741,8 +741,8 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
 246:                                              ; preds = %238, %.lr.ph.i
   %.sroa.0152.3.i = phi i64 [ %245, %238 ], [ %228, %.lr.ph.i ]
   %.sroa.61.3.i = phi i32 [ %243, %238 ], [ %229, %.lr.ph.i ]
-  %.sroa.124.3.i = phi ptr [ %spec.store.select.i131.i, %238 ], [ %.sroa.124.2256.i, %.lr.ph.i ]
-  %247 = getelementptr inbounds %struct.seqDef_s, ptr %8, i64 %.097257.i
+  %.sroa.124.3.i = phi ptr [ %spec.store.select.i131.i, %238 ], [ %.sroa.124.2255.i, %.lr.ph.i ]
+  %247 = getelementptr inbounds %struct.seqDef_s, ptr %8, i64 %.097256.i
   %248 = getelementptr inbounds i8, ptr %247, i64 4
   %249 = load i16, ptr %248, align 4
   %250 = zext i8 %173 to i64
@@ -862,7 +862,7 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
   %spec.store.select.i134.i = select i1 %331, ptr %14, ptr %330
   %332 = shl nuw nsw i64 %329, 3
   %333 = lshr i64 %.sroa.0152.6.i, %332
-  %334 = add i64 %.097257.i, -1
+  %334 = add i64 %.097256.i, -1
   %.sroa.0.0.i = zext i16 %234 to i64
   %.sroa.61.2.i = and i32 %.sroa.61.6.i, 7
   %.sroa.0140.0.i = zext i16 %197 to i64
@@ -873,10 +873,10 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
 ._crit_edge.i:                                    ; preds = %327, %156
   %.sroa.0152.2.lcssa.i = phi i64 [ %162, %156 ], [ %333, %327 ]
   %.sroa.124.2.lcssa.i = phi ptr [ %spec.store.select.i121.i, %156 ], [ %spec.store.select.i134.i, %327 ]
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0251.i, %156 ], [ %.sroa.0.0.i, %327 ]
-  %.sroa.61.2.lcssa.i = phi i32 [ %.sroa.61.2252.i, %156 ], [ %.sroa.61.2.i, %327 ]
-  %.sroa.0140.0.lcssa.i = phi i64 [ %.sroa.0140.0253.i, %156 ], [ %.sroa.0140.0.i, %327 ]
-  %.sroa.0146.0.lcssa.i = phi i64 [ %.sroa.0146.0254.i, %156 ], [ %.sroa.0146.0.i, %327 ]
+  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0250.i, %156 ], [ %.sroa.0.0.i, %327 ]
+  %.sroa.61.2.lcssa.i = phi i32 [ %.sroa.61.2251.i, %156 ], [ %.sroa.61.2.i, %327 ]
+  %.sroa.0140.0.lcssa.i = phi i64 [ %.sroa.0140.0252.i, %156 ], [ %.sroa.0140.0.i, %327 ]
+  %.sroa.0146.0.lcssa.i = phi i64 [ %.sroa.0146.0253.i, %156 ], [ %.sroa.0146.0.i, %327 ]
   %336 = zext i16 %.val.i.i.i to i64
   %337 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %336
   %338 = load i32, ptr %337, align 4
@@ -942,7 +942,7 @@ define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %
   %391 = icmp ugt ptr %390, %14
   %spec.store.select.i.i137.i = select i1 %391, ptr %14, ptr %390
   %.not.i.i = icmp ult ptr %spec.store.select.i.i137.i, %14
-  br i1 %.not.i.i, label %BIT_closeCStream.exit.i, label %BIT_closeCStream.exit.thread.i
+  br i1 %.not.i.i, label %BIT_closeCStream.exit.i, label %ZSTD_encodeSequences_default.exit
 
 BIT_closeCStream.exit.i:                          ; preds = %._crit_edge.i
   %392 = and i32 %387, 7
@@ -951,16 +951,14 @@ BIT_closeCStream.exit.i:                          ; preds = %._crit_edge.i
   %395 = icmp ne i32 %392, 0
   %396 = zext i1 %395 to i64
   %397 = add i64 %393, %396
-  %.fr250.i = freeze i64 %397
-  %398 = sub i64 %.fr250.i, %394
-  %399 = icmp eq i64 %398, 0
-  br i1 %399, label %BIT_closeCStream.exit.thread.i, label %ZSTD_encodeSequences_default.exit
-
-BIT_closeCStream.exit.thread.i:                   ; preds = %BIT_closeCStream.exit.i, %._crit_edge.i
+  %.fr.i = freeze i64 %397
+  %398 = sub i64 %.fr.i, %394
+  %399 = icmp eq i64 %.fr.i, %394
+  %spec.select.i = select i1 %399, i64 -70, i64 %398
   br label %ZSTD_encodeSequences_default.exit
 
-ZSTD_encodeSequences_default.exit:                ; preds = %12, %BIT_closeCStream.exit.i, %BIT_closeCStream.exit.thread.i
-  %.0.i = phi i64 [ -70, %12 ], [ -70, %BIT_closeCStream.exit.thread.i ], [ %398, %BIT_closeCStream.exit.i ]
+ZSTD_encodeSequences_default.exit:                ; preds = %12, %._crit_edge.i, %BIT_closeCStream.exit.i
+  %.0.i = phi i64 [ -70, %12 ], [ -70, %._crit_edge.i ], [ %spec.select.i, %BIT_closeCStream.exit.i ]
   ret i64 %.0.i
 }
 

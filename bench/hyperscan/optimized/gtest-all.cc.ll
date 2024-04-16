@@ -15203,7 +15203,7 @@ if.end:                                           ; preds = %entry
 if.then7:                                         ; preds = %if.end
   %arrayidx = getelementptr inbounds i8, ptr %str, i64 1
   store i8 0, ptr %arrayidx, align 1
-  %conv = trunc i32 %code_point to i8
+  %conv = trunc nuw nsw i32 %code_point to i8
   store i8 %conv, ptr %str, align 1
   br label %if.end51
 
@@ -15220,7 +15220,7 @@ if.then10:                                        ; preds = %if.else
   %conv12 = or disjoint i8 %24, -128
   %arrayidx13 = getelementptr inbounds i8, ptr %str, i64 1
   store i8 %conv12, ptr %arrayidx13, align 1
-  %25 = trunc i32 %shr.i to i8
+  %25 = trunc nuw nsw i32 %shr.i to i8
   %conv15 = or disjoint i8 %25, -64
   store i8 %conv15, ptr %str, align 1
   br label %if.end51
@@ -15244,7 +15244,7 @@ if.then19:                                        ; preds = %if.else17
   store i8 %conv23, ptr %arrayidx24, align 1
   %arrayidx28 = getelementptr inbounds i8, ptr %str, i64 1
   store i8 %conv27, ptr %arrayidx28, align 1
-  %30 = trunc i32 %shr.i99 to i8
+  %30 = trunc nuw i32 %shr.i99 to i8
   %conv30 = or disjoint i8 %30, -32
   store i8 %conv30, ptr %str, align 1
   br label %if.end51
@@ -15262,7 +15262,7 @@ if.else32:                                        ; preds = %if.else17
   %conv44 = or disjoint i8 %32, -128
   %arrayidx45 = getelementptr inbounds i8, ptr %str, i64 1
   store i8 %conv44, ptr %arrayidx45, align 1
-  %33 = trunc i32 %shr.i105 to i8
+  %33 = trunc nuw nsw i32 %shr.i105 to i8
   %conv47 = or disjoint i8 %33, -16
   store i8 %conv47, ptr %str, align 1
   br label %if.end51
@@ -23664,7 +23664,7 @@ define hidden void @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i3
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %args) #49
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load atomic i8, ptr @_ZGVZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKczE13in_color_mode acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !5
@@ -23718,13 +23718,10 @@ _ZN7testing8internal16GetAnsiColorCodeENS0_10GTestColorE.exit: ; preds = %switch
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN7testing8internal16GetAnsiColorCodeENS0_10GTestColorE.exit, %if.then
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %args) #49
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #27
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
@@ -23734,9 +23731,6 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #27
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #18
@@ -26902,7 +26896,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EE9push_backERKS2_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN7testing8internal17TestEventRepeater7ReleaseEPNS_17TestEventListenerE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readnone %listener) local_unnamed_addr #28 align 2 {
+define hidden noundef ptr @_ZN7testing8internal17TestEventRepeater7ReleaseEPNS_17TestEventListenerE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readnone %listener) local_unnamed_addr #27 align 2 {
 entry:
   %listeners_ = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -27553,7 +27547,7 @@ if.end:                                           ; preds = %invoke.cont
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #29
+declare void @exit(i32 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing8internal24XmlUnitTestResultPrinter18OnTestIterationEndERKNS_8UnitTestEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %unit_test, i32 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -32797,7 +32791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573: ; preds = %if
   %sub.ptr.div.i.i1078 = sdiv exact i64 %sub.ptr.sub.i.i1077, 112
   %conv.i1079 = trunc i64 %sub.ptr.div.i.i1078 to i32
   %cmp1371080 = icmp sgt i32 %conv.i1079, 0
-  br i1 %cmp1371080, label %if.end.i617.lr.ph, label %if.then217
+  br i1 %cmp1371080, label %if.end.i617.lr.ph, label %if.else.invoke
 
 if.end.i617.lr.ph:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573
   %92 = getelementptr inbounds i8, ptr %ref.tmp155, i64 16
@@ -32820,7 +32814,9 @@ if.end.i617.lr.ph:                                ; preds = %_ZNSt7__cxx1112basi
 
 for.cond.cleanup:                                 ; preds = %if.end212
   %100 = icmp eq i32 %failures.1, 0
-  br i1 %100, label %if.then217, label %if.else.invoke
+  %spec.select = select i1 %100, ptr @.str.200, ptr @.str.201
+  %spec.select1 = select i1 %100, i64 4, i64 16
+  br label %if.else.invoke
 
 lpad83:                                           ; preds = %if.end71
   %101 = landingpad { ptr, i32 }
@@ -33763,17 +33759,14 @@ if.end212:                                        ; preds = %_ZNSt7__cxx1112basi
   %cmp137 = icmp slt i64 %indvars.iv.next, %216
   br i1 %cmp137, label %if.end.i617, label %for.cond.cleanup, !llvm.loop !382
 
-if.then217:                                       ; preds = %for.cond.cleanup, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573
-  br label %if.else.invoke
-
 lpad218:                                          ; preds = %if.else.invoke
   %217 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup225
 
-if.else.invoke:                                   ; preds = %if.then217, %for.cond.cleanup
-  %218 = phi ptr [ @.str.200, %if.then217 ], [ @.str.201, %for.cond.cleanup ]
-  %219 = phi i64 [ 4, %if.then217 ], [ 16, %for.cond.cleanup ]
+if.else.invoke:                                   ; preds = %for.cond.cleanup, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573
+  %218 = phi ptr [ @.str.200, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573 ], [ %spec.select, %for.cond.cleanup ]
+  %219 = phi i64 [ 4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573 ], [ %spec.select1, %for.cond.cleanup ]
   %220 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %218, i64 noundef %219)
           to label %if.end223 unwind label %lpad218
 
@@ -36093,7 +36086,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #30
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #29
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -36654,7 +36647,7 @@ _ZN7testing8internal17TestEventRepeater6AppendEPNS_17TestEventListenerE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN7testing18TestEventListeners7ReleaseEPNS_17TestEventListenerE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readnone %listener) local_unnamed_addr #28 align 2 {
+define hidden noundef ptr @_ZN7testing18TestEventListeners7ReleaseEPNS_17TestEventListenerE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef readnone %listener) local_unnamed_addr #27 align 2 {
 entry:
   %default_result_printer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %default_result_printer_, align 8
@@ -37030,7 +37023,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7testing18TestEventListeners23SuppressEventForwardingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #31 align 2 {
+define hidden void @_ZN7testing18TestEventListeners23SuppressEventForwardingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #30 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %forwarding_enabled_.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -39713,7 +39706,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7testing8internal12UnitTestImpl32SuppressTestEventsIfInSubprocessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(401) %this) local_unnamed_addr #31 align 2 {
+define hidden void @_ZN7testing8internal12UnitTestImpl32SuppressTestEventsIfInSubprocessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(401) %this) local_unnamed_addr #30 align 2 {
 entry:
   %internal_run_death_test_flag_ = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %internal_run_death_test_flag_, align 8
@@ -41901,7 +41894,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(401) %this) local_unnamed_addr #28 align 2 {
+define hidden void @_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(401) %this) local_unnamed_addr #27 align 2 {
 entry:
   %test_cases_ = getelementptr inbounds i8, ptr %this, i64 128
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 136
@@ -42665,7 +42658,7 @@ if.end:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN7testing8internal10SkipPrefixEPKcPS2_(ptr nocapture noundef readonly %prefix, ptr nocapture noundef %pstr) local_unnamed_addr #32 {
+define hidden noundef zeroext i1 @_ZN7testing8internal10SkipPrefixEPKcPS2_(ptr nocapture noundef readonly %prefix, ptr nocapture noundef %pstr) local_unnamed_addr #31 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #50
   %0 = load ptr, ptr %pstr, align 8
@@ -44439,7 +44432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN7testing8internal14DeathTestAbortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %message) local_unnamed_addr #33 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7testing8internal14DeathTestAbortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %message) local_unnamed_addr #32 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
@@ -44504,7 +44497,7 @@ entry:
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #34
+declare void @_exit(i32 noundef) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing8internal23GetLastErrnoDescriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -44575,7 +44568,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #35
+declare ptr @__errno_location() local_unnamed_addr #34
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing8internal9DeathTestC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -44713,7 +44706,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN7testing8internal9DeathTest11LastMessageEv() local_unnamed_addr #36 align 2 {
+define hidden noundef ptr @_ZN7testing8internal9DeathTest11LastMessageEv() local_unnamed_addr #35 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN7testing8internal9DeathTest24last_death_test_message_B5cxx11E, align 8
   ret ptr %0
@@ -45836,7 +45829,7 @@ ehcleanup103:                                     ; preds = %ehcleanup89, %ehcle
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN7testing8internal13DeathTestImpl5AbortENS0_9DeathTest11AbortReasonE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, i32 noundef %reason) unnamed_addr #33 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7testing8internal13DeathTestImpl5AbortENS0_9DeathTest11AbortReasonE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, i32 noundef %reason) unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
 do.body:
   %__dnew.i.i = alloca i64, align 8
   %status_ch = alloca i8, align 1
@@ -62748,7 +62741,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %if.th
 declare void @regfree(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #37
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN7testing8internal2RE9FullMatchEPKcRKS1_(ptr noundef %str, ptr noundef nonnull align 8 dereferenceable(144) %re) local_unnamed_addr #3 align 2 {
@@ -63601,7 +63594,7 @@ if.end:                                           ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8internal18GetInjectableArgvsB5cxx11Ev() local_unnamed_addr #36 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8internal18GetInjectableArgvsB5cxx11Ev() local_unnamed_addr #35 {
 entry:
   %0 = load ptr, ptr @_ZN7testing8internalL21g_injected_test_argvsB5cxx11E, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -63610,7 +63603,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #38
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #37
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7testing8internalL12FlagToEnvVarB5cxx11EPKc(ptr noalias align 8 %agg.result, ptr noundef %flag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -65244,7 +65237,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %9, %7
   %spec.select6.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -65281,7 +65274,7 @@ if.then.i.i.i.i250:                               ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %7, %11
   %spec.select6.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i.i.i.i250, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -65498,7 +65491,7 @@ if.then.i.i.i.i.i295:                             ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i296 = sub i64 %35, %34
   %spec.select6.i.i.i.i.i.i297 = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i296, i64 -2147483648)
   %retval.07.i.i.i.i.i.i298 = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i297, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i299 = trunc i64 %retval.07.i.i.i.i.i.i298 to i32
+  %retval.0.i12.i.i.i.i.i299 = trunc nsw i64 %retval.07.i.i.i.i.i.i298 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i266
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i266: ; preds = %if.then.i.i.i.i.i295, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i262
@@ -65535,7 +65528,7 @@ if.then.i.i.i.i290:                               ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i291 = sub i64 %34, %37
   %spec.select6.i.i.i.i.i292 = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i291, i64 -2147483648)
   %retval.07.i.i.i.i.i293 = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i292, i64 2147483647)
-  %retval.0.i12.i.i.i.i294 = trunc i64 %retval.07.i.i.i.i.i293 to i32
+  %retval.0.i12.i.i.i.i294 = trunc nsw i64 %retval.07.i.i.i.i.i293 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i285
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i285: ; preds = %if.then.i.i.i.i290, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i281
@@ -66521,13 +66514,13 @@ entry:
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #29
+declare void @abort() local_unnamed_addr #28
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #34
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #33
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #34
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SC_SB_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -66671,7 +66664,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #39
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #38
 
 ; Function Attrs: nounwind
 declare i32 @isatty(i32 noundef) local_unnamed_addr #1
@@ -70456,7 +70449,7 @@ if.end:                                           ; preds = %invoke.cont4, %entr
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #40
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #39
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7testing8internal17StreamingListener20AbstractSocketWriter6SendLnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %message) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -70597,15 +70590,15 @@ declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly)
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #40
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #39
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #41
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #40
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #41
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #40
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__result) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -70855,7 +70848,7 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #1
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @getpagesize() local_unnamed_addr #35
+declare i32 @getpagesize() local_unnamed_addr #34
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
@@ -70864,7 +70857,7 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 declare i32 @clone(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef i32 @_ZN7testing8internalL22ExecDeathTestChildMainEPv(ptr nocapture noundef readonly %child_arg) #33 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZN7testing8internalL22ExecDeathTestChildMainEPv(ptr nocapture noundef readonly %child_arg) #32 personality ptr @__gxx_personality_v0 {
 do.body:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -72638,7 +72631,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #42
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #41
 
 ; Function Attrs: nounwind
 declare i32 @dup(i32 noundef) local_unnamed_addr #1
@@ -72795,7 +72788,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #34
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #33
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #1
@@ -72806,7 +72799,7 @@ declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) u
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #34
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #33
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -72815,7 +72808,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSo
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #34
+declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #33
 
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
@@ -74871,7 +74864,7 @@ sw.bb38:                                          ; preds = %if.end36, %for.end.
   %_M_string_length.i.i.i104 = getelementptr inbounds i8, ptr %__first.sroa.0.2, i64 8
   %35 = load i64, ptr %_M_string_length.i.i.i104, align 8
   %cmp.i.i106 = icmp eq i64 %35, %34
-  br i1 %cmp.i.i106, label %land.rhs.i.i107, label %if.end43
+  br i1 %cmp.i.i106, label %land.rhs.i.i107, label %cleanup
 
 land.rhs.i.i107:                                  ; preds = %sw.bb38
   %cmp.i.i.i108 = icmp eq i64 %34, 0
@@ -74882,9 +74875,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   %37 = load ptr, ptr %__first.sroa.0.2, align 8
   %bcmp.i.i110 = tail call i32 @bcmp(ptr %37, ptr %36, i64 %34)
   %38 = icmp eq i32 %bcmp.i.i110, 0
-  br i1 %38, label %cleanup, label %if.end43
-
-if.end43:                                         ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit111, %sw.bb38
+  %spec.select = select i1 %38, ptr %__first.sroa.0.2, ptr %__last.coerce
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit40:               ; preds = %if.end10.us
@@ -74903,8 +74894,8 @@ cleanup.loopexit26.split.loop.exit34:             ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i79.le = getelementptr inbounds i8, ptr %__first.sroa.0.0137, i64 32
   br label %cleanup
 
-cleanup:                                          ; preds = %land.rhs.i.i, %for.body.us, %cleanup.loopexit26.split.loop.exit, %cleanup.loopexit26.split.loop.exit32, %cleanup.loopexit26.split.loop.exit34, %cleanup.loopexit.split.loop.exit40, %land.rhs.i.i76.us, %land.rhs.i.i58.us, %if.end43, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit111, %land.rhs.i.i107, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit102, %land.rhs.i.i98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit93, %land.rhs.i.i89, %for.end
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit93 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit102 ], [ %__first.sroa.0.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit111 ], [ %__last.coerce, %if.end43 ], [ %__last.coerce, %for.end ], [ %__first.sroa.0.0.lcssa, %land.rhs.i.i89 ], [ %__first.sroa.0.1, %land.rhs.i.i98 ], [ %__first.sroa.0.2, %land.rhs.i.i107 ], [ %incdec.ptr.i72.us, %land.rhs.i.i76.us ], [ %incdec.ptr.i.us, %land.rhs.i.i58.us ], [ %incdec.ptr.i63.us.le, %cleanup.loopexit.split.loop.exit40 ], [ %incdec.ptr.i721315.le, %cleanup.loopexit26.split.loop.exit ], [ %incdec.ptr.i63.le, %cleanup.loopexit26.split.loop.exit32 ], [ %incdec.ptr.i79.le, %cleanup.loopexit26.split.loop.exit34 ], [ %__first.sroa.0.0137.us, %for.body.us ], [ %__first.sroa.0.0137, %land.rhs.i.i ]
+cleanup:                                          ; preds = %land.rhs.i.i, %for.body.us, %cleanup.loopexit26.split.loop.exit, %cleanup.loopexit26.split.loop.exit32, %cleanup.loopexit26.split.loop.exit34, %cleanup.loopexit.split.loop.exit40, %land.rhs.i.i76.us, %land.rhs.i.i58.us, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit111, %sw.bb38, %land.rhs.i.i107, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit102, %land.rhs.i.i98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit93, %land.rhs.i.i89, %for.end
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit93 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit102 ], [ %__last.coerce, %for.end ], [ %__first.sroa.0.0.lcssa, %land.rhs.i.i89 ], [ %__first.sroa.0.1, %land.rhs.i.i98 ], [ %__first.sroa.0.2, %land.rhs.i.i107 ], [ %__last.coerce, %sw.bb38 ], [ %spec.select, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit111 ], [ %incdec.ptr.i72.us, %land.rhs.i.i76.us ], [ %incdec.ptr.i.us, %land.rhs.i.i58.us ], [ %incdec.ptr.i63.us.le, %cleanup.loopexit.split.loop.exit40 ], [ %incdec.ptr.i721315.le, %cleanup.loopexit26.split.loop.exit ], [ %incdec.ptr.i63.le, %cleanup.loopexit26.split.loop.exit32 ], [ %incdec.ptr.i79.le, %cleanup.loopexit26.split.loop.exit34 ], [ %__first.sroa.0.0137.us, %for.body.us ], [ %__first.sroa.0.0137, %land.rhs.i.i ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated
 }
 
@@ -74912,7 +74903,7 @@ cleanup:                                          ; preds = %land.rhs.i.i, %for.
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #43
+declare i32 @llvm.eh.typeid.for(ptr) #42
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr noalias align 8 %agg.result, ptr noundef %description, ptr noundef %location) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -75362,7 +75353,7 @@ sw.bb37:                                          ; preds = %if.end35, %for.end
   %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i92, %if.end35 ]
   %19 = load ptr, ptr %__first.sroa.0.2, align 8
   %cmp.not.i.i93 = icmp eq ptr %19, null
-  br i1 %cmp.not.i.i93, label %if.end42, label %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit98
+  br i1 %cmp.not.i.i93, label %cleanup, label %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit98
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit98: ; preds = %sw.bb37
   %name_.i.i.i95 = getelementptr inbounds i8, ptr %19, i64 8
@@ -75370,9 +75361,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__no
   %21 = load ptr, ptr %__pred, align 8
   %call3.i.i96 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21) #50
   %cmp4.i.i97 = icmp eq i32 %call3.i.i96, 0
-  br i1 %cmp4.i.i97, label %cleanup, label %if.end42
-
-if.end42:                                         ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit98, %sw.bb37
+  %spec.select = select i1 %cmp4.i.i97, ptr %__first.sroa.0.2, ptr %__last.coerce
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit:                 ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit59
@@ -75387,8 +75376,8 @@ cleanup.loopexit.split.loop.exit21:               ; preds = %_ZN9__gnu_cxx5__ops
   %incdec.ptr.i67.le = getelementptr inbounds i8, ptr %__first.sroa.0.0120, i64 24
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit19, %cleanup.loopexit.split.loop.exit21, %if.end42, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit98, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit91, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit84, %for.end
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit84 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit91 ], [ %__first.sroa.0.2, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit98 ], [ %__last.coerce, %if.end42 ], [ %__last.coerce, %for.end ], [ %incdec.ptr.i.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr.i60.le, %cleanup.loopexit.split.loop.exit19 ], [ %incdec.ptr.i67.le, %cleanup.loopexit.split.loop.exit21 ], [ %__first.sroa.0.0120, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit ]
+cleanup:                                          ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit19, %cleanup.loopexit.split.loop.exit21, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit98, %sw.bb37, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit91, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit84, %for.end
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit84 ], [ %__first.sroa.0.1, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit91 ], [ %__last.coerce, %for.end ], [ %__last.coerce, %sw.bb37 ], [ %spec.select, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit98 ], [ %incdec.ptr.i.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr.i60.le, %cleanup.loopexit.split.loop.exit19 ], [ %incdec.ptr.i67.le, %cleanup.loopexit.split.loop.exit21 ], [ %__first.sroa.0.0120, %_ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal14TestCaseNameIsEEclINS_17__normal_iteratorIPPNS2_8TestCaseESt6vectorIS9_SaIS9_EEEEEEbT_.exit ]
   ret ptr %retval.sroa.0.0.in.sroa.speculated
 }
 
@@ -75722,7 +75711,7 @@ _ZN7testing7MessageD2Ev.exit10:                   ; preds = %lpad, %_ZNSt7__cxx1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #38
+declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #37
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
@@ -75791,7 +75780,7 @@ sw.default:                                       ; preds = %entry
   br i1 %1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.default
-  %conv = trunc i32 %c to i8
+  %conv = trunc nuw i32 %c to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__c.addr.i)
   store i8 %conv, ptr %__c.addr.i, align 1
   %vtable.i = load ptr, ptr %os, align 8
@@ -75989,7 +75978,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -76050,7 +76039,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i = sub i64 %0, %2
   %spec.select6.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i = trunc i64 %retval.07.i.i.i.i to i32
+  %retval.0.i12.i.i.i = trunc nsw i64 %retval.07.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %if.then.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -76102,7 +76091,7 @@ if.then.i.i.i36:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i37 = sub i64 %6, %5
   %spec.select6.i.i.i.i38 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i37, i64 -2147483648)
   %retval.07.i.i.i.i39 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i38, i64 2147483647)
-  %retval.0.i12.i.i.i40 = trunc i64 %retval.07.i.i.i.i39 to i32
+  %retval.0.i12.i.i.i40 = trunc nsw i64 %retval.07.i.i.i.i39 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit41
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit41: ; preds = %if.then.i.i.i36, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i31
@@ -76207,7 +76196,7 @@ unreachable:                                      ; preds = %lpad
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_gtest_all.cc() #44 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_gtest_all.cc() #43 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %env_var.i.i151 = alloca %"class.std::__cxx11::basic_string", align 8
   %__dnew.i.i.i132 = alloca i64, align 8
@@ -76790,7 +76779,7 @@ __cxx_global_var_init.247.exit:                   ; preds = %if.then.i.i.i.i160,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #45
+declare void @llvm.assume(i1 noundef) #44
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
@@ -76805,7 +76794,7 @@ declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #46
+declare void @llvm.experimental.noalias.scope.decl(metadata) #45
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
@@ -76814,7 +76803,7 @@ declare i64 @llvm.umax.i64(i64, i64) #20
 declare float @llvm.fabs.f32(float) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #47
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #46
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #20
@@ -76823,7 +76812,13 @@ declare i64 @llvm.smax.i64(i64, i64) #20
 declare i64 @llvm.smin.i64(i64, i64) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare ptr @llvm.load.relative.i64(ptr, i64) #48
+declare ptr @llvm.load.relative.i64(ptr, i64) #47
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #48
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #48
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -76852,28 +76847,28 @@ attributes #23 = { inlinehint mustprogress uwtable "frame-pointer"="all" "min-le
 attributes #24 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #26 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #31 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #42 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #43 = { nofree nosync nounwind memory(none) }
-attributes #44 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #45 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #46 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #47 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #48 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #41 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #42 = { nofree nosync nounwind memory(none) }
+attributes #43 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #44 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #45 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #46 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #47 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
+attributes #48 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #49 = { nounwind }
 attributes #50 = { nounwind willreturn memory(read) }
 attributes #51 = { builtin nounwind }

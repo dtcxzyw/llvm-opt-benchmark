@@ -335,7 +335,7 @@ define internal fastcc noundef i32 @color_filters_get(ptr nocapture noundef writ
 
 7:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 1, %2 ], [ %indvars.iv.next.i, %7 ]
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   %9 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %8) #15
   %10 = add nsw i64 %indvars.iv.i, -1
   %11 = getelementptr ptr, ptr %4, i64 %10
@@ -677,7 +677,7 @@ define i32 @color_filters_use_hfid(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @find_hfid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -693,13 +693,12 @@ define internal noundef i32 @find_hfid(ptr nocapture noundef readonly %0, ptr no
 
 10:                                               ; preds = %7
   %11 = tail call zeroext i1 @dfilter_interested_in_field(ptr noundef nonnull %9, i32 noundef %4) #15
-  br i1 %11, label %13, label %12
+  %not. = xor i1 %11, true
+  %spec.select = sext i1 %not. to i32
+  br label %12
 
-12:                                               ; preds = %10, %7, %2
-  br label %13
-
-13:                                               ; preds = %10, %12
-  %.0 = phi i32 [ -1, %12 ], [ 0, %10 ]
+12:                                               ; preds = %10, %2, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ %spec.select, %10 ]
   ret i32 %.0
 }
 
@@ -723,7 +722,7 @@ define i32 @color_filters_use_proto(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @find_proto(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 28
@@ -739,13 +738,12 @@ define internal noundef i32 @find_proto(ptr nocapture noundef readonly %0, ptr n
 
 10:                                               ; preds = %7
   %11 = tail call zeroext i1 @dfilter_interested_in_proto(ptr noundef nonnull %9, i32 noundef %4) #15
-  br i1 %11, label %13, label %12
+  %not. = xor i1 %11, true
+  %spec.select = sext i1 %not. to i32
+  br label %12
 
-12:                                               ; preds = %10, %7, %2
-  br label %13
-
-13:                                               ; preds = %10, %12
-  %.0 = phi i32 [ -1, %12 ], [ 0, %10 ]
+12:                                               ; preds = %10, %2, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ %spec.select, %10 ]
   ret i32 %.0
 }
 

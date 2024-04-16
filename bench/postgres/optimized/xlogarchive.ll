@@ -106,7 +106,7 @@ define dso_local noundef zeroext i1 @RestoreArchivedFile(ptr noundef %0, ptr nou
   %41 = udiv i64 %38, %40
   %42 = trunc i64 %41 to i32
   %43 = urem i64 %38, %40
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   %45 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull @.str.18, i32 noundef %39, i32 noundef %42, i32 noundef %44) #10
   br label %48
 
@@ -296,7 +296,7 @@ define dso_local void @ExecuteRecoveryCommand(ptr noundef %0, ptr noundef %1, i1
   %14 = udiv i64 %11, %13
   %15 = trunc i64 %14 to i32
   %16 = urem i64 %11, %13
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.18, i32 noundef %12, i32 noundef %15, i32 noundef %17) #10
   %19 = call ptr (ptr, ptr, ptr, ...) @replace_percent_placeholders(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %5) #10
   %20 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #10
@@ -539,7 +539,7 @@ define dso_local void @XLogArchiveNotifySeg(i64 noundef %0, i32 noundef %1) loca
   %7 = udiv i64 %0, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %0, %6
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %8, i32 noundef %10) #10
   call void @XLogArchiveNotify(ptr noundef nonnull %3)
   ret void
@@ -592,25 +592,25 @@ define dso_local noundef zeroext i1 @XLogArchiveCheckDone(ptr noundef %0) local_
 declare i32 @GetRecoveryState() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @XLogArchiveIsBusy(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @XLogArchiveIsBusy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
   %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef %0, ptr noundef nonnull @.str.17) #10
   %5 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %23, label %7
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %1
   %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef %0, ptr noundef nonnull @.str.13) #10
   %9 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %23, label %11
+  br i1 %10, label %22, label %11
 
 11:                                               ; preds = %7
   %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef %0, ptr noundef nonnull @.str.17) #10
   %13 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %23, label %15
+  br i1 %14, label %22, label %15
 
 15:                                               ; preds = %11
   %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef %0) #10
@@ -621,14 +621,11 @@ define dso_local noundef zeroext i1 @XLogArchiveIsBusy(ptr noundef %0) local_unn
 18:                                               ; preds = %15
   %19 = tail call ptr @__errno_location() #11
   %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, 2
-  br i1 %21, label %23, label %22
+  %21 = icmp ne i32 %20, 2
+  br label %22
 
-22:                                               ; preds = %18, %15
-  br label %23
-
-23:                                               ; preds = %18, %11, %7, %1, %22
-  %.0 = phi i1 [ true, %22 ], [ false, %1 ], [ true, %7 ], [ false, %11 ], [ false, %18 ]
+22:                                               ; preds = %18, %15, %11, %7, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %7 ], [ false, %11 ], [ true, %15 ], [ %21, %18 ]
   ret i1 %.0
 }
 

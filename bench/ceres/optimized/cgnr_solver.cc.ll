@@ -3532,12 +3532,12 @@ _ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit: ; preds 
   %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull @.str.26)
           to label %.loopexit173 unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %.invoke277, %.invoke276, %.invoke, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit125, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit134, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit145, %75, %78, %85, %92, %94, %_ZN5ceres8internal4CopyERKNS0_10CudaVectorERS1_PNS0_11ContextImplEi.exit, %97, %108, %110, %114, %125, %126, %.noexc150, %133, %.thread, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit162, %148
+.loopexit:                                        ; preds = %.invoke277, %.invoke276, %.invoke, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit125, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit134, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit145, %75, %78, %85, %92, %94, %_ZN5ceres8internal4CopyERKNS0_10CudaVectorERS1_PNS0_11ContextImplEi.exit, %97, %108, %110, %114, %125, %126, %.noexc150, %133, %.thread, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit162, %147
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.invoke279, %.invoke278, %7, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit109, %55, %81, %90, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit140, %106, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166, %152, %26, %29, %32, %41, %49, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit, %58, %62, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit122, %99, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit138, %146
+.loopexit.split-lp:                               ; preds = %.invoke279, %.invoke278, %7, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit109, %55, %81, %90, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit140, %106, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166, %151, %26, %29, %32, %41, %49, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit, %58, %62, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit122, %99, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit138, %145
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -3645,12 +3645,17 @@ _ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit: ; preds 
   %72 = load double, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %1, i64 4
   %74 = load i32, ptr %73, align 4
+  %spec.select = select i1 %39, ptr %3, ptr %17
+  %spec.select282 = select i1 %39, ptr %17, ptr %3
+  %brmerge283 = or i1 %39, %40
+  %.mux284 = select i1 %39, ptr %3, ptr %17
+  %.mux285 = select i1 %39, ptr %17, ptr %3
   br label %75
 
-75:                                               ; preds = %153, %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit
-  %storemerge = phi i32 [ 1, %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit ], [ %154, %153 ]
-  %.099 = phi double [ %65, %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit ], [ %139, %153 ]
-  %.098 = phi double [ 1.000000e+00, %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit ], [ %79, %153 ]
+75:                                               ; preds = %152, %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit
+  %storemerge = phi i32 [ 1, %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit ], [ %153, %152 ]
+  %.099 = phi double [ %65, %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit ], [ %138, %152 ]
+  %.098 = phi double [ 1.000000e+00, %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit ], [ %79, %152 ]
   store i32 %storemerge, ptr %22, align 8
   invoke void @_ZN5ceres8internal10CudaVector7SetZeroEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
           to label %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit125 unwind label %.loopexit
@@ -3799,7 +3804,7 @@ _ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit145: ; pre
 
 125:                                              ; preds = %124
   invoke void @_ZN5ceres8internal10CudaVector5AxpbyEdRKS1_d(ptr noundef nonnull align 8 dereferenceable(48) %17, double noundef 1.000000e+00, ptr noundef nonnull align 8 dereferenceable(48) %3, double noundef -1.000000e+00)
-          to label %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread169 unwind label %.loopexit
+          to label %.invoke277 unwind label %.loopexit
 
 126:                                              ; preds = %124
   %127 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5ceres8internal10CudaVectoraSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %21)
@@ -3828,83 +3833,74 @@ _ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit15
           to label %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit162 unwind label %.loopexit
 
 _ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread: ; preds = %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152
-  br i1 %39, label %.invoke277, label %136
-
-_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread169: ; preds = %125
-  br i1 %39, label %.invoke277, label %.thread170
+  br i1 %brmerge283, label %.invoke277, label %.thread
 
 _ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread: ; preds = %.noexc150
   br i1 %39, label %.invoke277, label %.thread
 
-.invoke277:                                       ; preds = %.thread, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread169, %.thread170
-  %134 = phi ptr [ %17, %.thread170 ], [ %3, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread169 ], [ %3, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread ], [ %3, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread ], [ %21, %.thread ]
-  %135 = phi ptr [ %3, %.thread170 ], [ %17, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread169 ], [ %17, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread ], [ %17, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread ], [ %3, %.thread ]
+.invoke277:                                       ; preds = %125, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread, %.thread, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread
+  %134 = phi ptr [ %3, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread ], [ %.mux284, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread ], [ %21, %.thread ], [ %spec.select, %125 ]
+  %135 = phi ptr [ %17, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread ], [ %.mux285, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread ], [ %3, %.thread ], [ %spec.select282, %125 ]
   invoke void @_ZN5ceres8internal10CudaVector5AxpbyEdRKS1_d(ptr noundef nonnull align 8 dereferenceable(48) %134, double noundef 1.000000e+00, ptr noundef nonnull align 8 dereferenceable(48) %135, double noundef 1.000000e+00)
           to label %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit162 unwind label %.loopexit
 
-136:                                              ; preds = %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread
-  br i1 %40, label %.thread170, label %.thread
-
-.thread170:                                       ; preds = %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread169, %136
-  br label %.invoke277
-
-.thread:                                          ; preds = %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread, %136
-  %137 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5ceres8internal10CudaVectoraSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %17)
+.thread:                                          ; preds = %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread, %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit152.thread.thread
+  %136 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5ceres8internal10CudaVectoraSERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %.invoke277 unwind label %.loopexit
 
 _ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit162: ; preds = %.invoke277, %133
-  %138 = invoke noundef double @_ZNK5ceres8internal10CudaVector3DotERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %21)
+  %137 = invoke noundef double @_ZNK5ceres8internal10CudaVector3DotERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %21)
           to label %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit164 unwind label %.loopexit
 
 _ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit164: ; preds = %_ZN5ceres8internal5AxpbyEdRKNS0_10CudaVectorEdS3_RS1_PNS0_11ContextImplEi.exit162
-  %139 = fneg double %138
-  %140 = load i32, ptr %22, align 8
-  %141 = sitofp i32 %140 to double
-  %142 = fsub double %139, %.099
-  %143 = fmul double %142, %141
-  %144 = fdiv double %143, %139
-  %145 = fcmp uge double %144, %72
-  %.not = icmp slt i32 %140, %52
-  %or.cond108 = or i1 %.not, %145
-  br i1 %or.cond108, label %148, label %146
+  %138 = fneg double %137
+  %139 = load i32, ptr %22, align 8
+  %140 = sitofp i32 %139 to double
+  %141 = fsub double %138, %.099
+  %142 = fmul double %141, %140
+  %143 = fdiv double %142, %138
+  %144 = fcmp uge double %143, %72
+  %.not = icmp slt i32 %139, %52
+  %or.cond108 = or i1 %.not, %144
+  br i1 %or.cond108, label %147, label %145
 
-146:                                              ; preds = %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit164
+145:                                              ; preds = %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit164
   store i32 0, ptr %23, align 4
-  %147 = invoke noundef double @_ZNK5ceres8internal10CudaVector4NormEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
+  %146 = invoke noundef double @_ZNK5ceres8internal10CudaVector4NormEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166 unwind label %.loopexit.split-lp
 
-_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166: ; preds = %146
-  invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str.32, i32 noundef %140, double noundef %144, double noundef %72, double noundef %147)
+_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166: ; preds = %145
+  invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str.32, i32 noundef %139, double noundef %143, double noundef %72, double noundef %146)
           to label %.loopexit173.sink.split unwind label %.loopexit.split-lp
 
-148:                                              ; preds = %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit164
-  %149 = invoke noundef double @_ZNK5ceres8internal10CudaVector4NormEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
+147:                                              ; preds = %_ZN5ceres8internal3DotERKNS0_10CudaVectorES3_PNS0_11ContextImplEi.exit164
+  %148 = invoke noundef double @_ZNK5ceres8internal10CudaVector4NormEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit168 unwind label %.loopexit
 
-_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit168: ; preds = %148
-  %150 = fcmp ugt double %149, %35
-  %151 = load i32, ptr %22, align 8
-  %.not106 = icmp slt i32 %151, %52
-  %or.cond209 = select i1 %150, i1 true, i1 %.not106
-  br i1 %or.cond209, label %153, label %152
+_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit168: ; preds = %147
+  %149 = fcmp ugt double %148, %35
+  %150 = load i32, ptr %22, align 8
+  %.not106 = icmp slt i32 %150, %52
+  %or.cond209 = select i1 %149, i1 true, i1 %.not106
+  br i1 %or.cond209, label %152, label %151
 
-152:                                              ; preds = %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit168
+151:                                              ; preds = %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit168
   store i32 0, ptr %23, align 4
-  invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.33, i32 noundef %151, double noundef %149, double noundef %35)
+  invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.33, i32 noundef %150, double noundef %148, double noundef %35)
           to label %.loopexit173.sink.split unwind label %.loopexit.split-lp
 
-153:                                              ; preds = %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit168
-  %.not107 = icmp slt i32 %151, %74
-  %154 = add nsw i32 %151, 1
+152:                                              ; preds = %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit168
+  %.not107 = icmp slt i32 %150, %74
+  %153 = add nsw i32 %150, 1
   br i1 %.not107, label %75, label %.loopexit173, !llvm.loop !104
 
-.loopexit173.sink.split:                          ; preds = %152, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166, %106, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit140, %90, %81, %55
-  %.sink280 = phi ptr [ %8, %55 ], [ %9, %81 ], [ %10, %90 ], [ %11, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit140 ], [ %12, %106 ], [ %13, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166 ], [ %14, %152 ]
-  %155 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %.sink280) #24
+.loopexit173.sink.split:                          ; preds = %151, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166, %106, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit140, %90, %81, %55
+  %.sink280 = phi ptr [ %8, %55 ], [ %9, %81 ], [ %10, %90 ], [ %11, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit140 ], [ %12, %106 ], [ %13, %_ZN5ceres8internal4NormERKNS0_10CudaVectorEPNS0_11ContextImplEi.exit166 ], [ %14, %151 ]
+  %154 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %.sink280) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink280) #24
   br label %.loopexit173
 
-.loopexit173:                                     ; preds = %153, %.loopexit173.sink.split, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit
+.loopexit173:                                     ; preds = %152, %.loopexit173.sink.split, %_ZN5ceres8internal7SetZeroERNS0_10CudaVectorEPNS0_11ContextImplEi.exit
   ret void
 }
 
@@ -5609,7 +5605,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
+  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5620,19 +5616,17 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8i
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %10, 42
-  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
+  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
-  br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
+  %spec.select = select i1 %12, ptr %3, ptr null
+  br label %_ZNKSt9type_infoeqERKS_.exit.thread
 
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %5, %_ZNKSt9type_infoeqERKS_.exit
-  br label %_ZNKSt9type_infoeqERKS_.exit.thread8
-
-_ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %2
-  %.0 = phi ptr [ %3, %2 ], [ %3, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ]
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %9, %5, %2
+  %.0 = phi ptr [ %3, %2 ], [ %3, %5 ], [ null, %9 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %.0
 }
 

@@ -621,7 +621,7 @@ if.end23:                                         ; preds = %if.end19
   %div3738 = lshr i64 %1, 18
   %conv38 = trunc i64 %div3738 to i32
   %shr40 = lshr exact i64 %cl_size.042, 9
-  %conv41 = trunc i64 %shr40 to i32
+  %conv41 = trunc nuw nsw i64 %shr40 to i32
   %div4739 = lshr exact i64 %1, 9
   %5 = getelementptr inbounds i8, ptr %tmp, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(448) %5, i8 0, i64 448, i1 false)
@@ -757,7 +757,7 @@ declare i32 @bdrv_has_zero_init_1(ptr noundef) #1
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @parallels_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #2 {
+define internal i32 @parallels_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #2 {
 entry:
   %cmp = icmp ult i32 %buf_size, 64
   br i1 %cmp, label %return, label %if.end
@@ -770,19 +770,17 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %bcmp3 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %buf, ptr noundef nonnull dereferenceable(16) @.str.10, i64 16)
   %tobool5.not = icmp eq i32 %bcmp3, 0
-  br i1 %tobool5.not, label %land.lhs.true, label %if.end10
+  br i1 %tobool5.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end
   %version = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load i32, ptr %version, align 1
   %cmp7 = icmp eq i32 %0, 2
-  br i1 %cmp7, label %return, label %if.end10
-
-if.end10:                                         ; preds = %land.lhs.true, %lor.lhs.false
+  %spec.select = select i1 %cmp7, i32 100, i32 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %if.end10
-  %retval.0 = phi i32 [ 0, %if.end10 ], [ 0, %entry ], [ 100, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %lor.lhs.false, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -2444,7 +2442,7 @@ if.end16.us:                                      ; preds = %for.body.us
 
 if.then8.us:                                      ; preds = %for.body.us
   %9 = load ptr, ptr @stderr, align 8
-  %10 = trunc i64 %indvars.iv33 to i32
+  %10 = trunc nuw i64 %indvars.iv33 to i32
   %call9.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.43, ptr noundef nonnull %cond, i32 noundef %10) #18
   %11 = load i32, ptr %res, align 8
   %inc10.us = add i32 %11, 1
@@ -2488,7 +2486,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then8:                                         ; preds = %for.body
   %18 = load ptr, ptr @stderr, align 8
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw i64 %indvars.iv to i32
   %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.43, ptr noundef nonnull %cond, i32 noundef %19) #18
   %20 = load i32, ptr %res, align 8
   %inc10 = add i32 %20, 1
@@ -2755,7 +2753,7 @@ mark_used.exit.us:                                ; preds = %if.end.i.us
 
 if.end24.us:                                      ; preds = %if.end.i.us
   %15 = load ptr, ptr @stderr, align 8
-  %16 = trunc i64 %indvars.iv162 to i32
+  %16 = trunc nuw i64 %indvars.iv162 to i32
   %call26.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.46, ptr noundef nonnull %cond, i32 noundef %16) #18
   %17 = load i32, ptr %res, align 8
   %inc27.us = add i32 %17, 1
@@ -2817,7 +2815,7 @@ if.else:                                          ; preds = %if.end15, %if.end15
 
 if.end24:                                         ; preds = %if.end.i
   %24 = load ptr, ptr @stderr, align 8
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw i64 %indvars.iv to i32
   %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.46, ptr noundef nonnull %cond, i32 noundef %25) #18
   %26 = load i32, ptr %res, align 8
   %inc27 = add i32 %26, 1

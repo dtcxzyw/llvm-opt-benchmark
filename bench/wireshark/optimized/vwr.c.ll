@@ -340,7 +340,7 @@ vwr_get_fpga_version.exit.thread:                 ; preds = %8, %.thread140.i
 vwr_get_fpga_version.exit.thread33:               ; preds = %decode_msg.exit.thread.i, %39
   call void @g_free(ptr noundef %12) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %155
+  br label %258
 
 vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, %50, %152
   %.0101.i = phi i32 [ %..i, %45 ], [ %.121.i, %50 ], [ %142, %.thread140.i ], [ %.174.i, %152 ]
@@ -350,7 +350,7 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, 
     i32 0, label %155
   ]
 
-155:                                              ; preds = %vwr_get_fpga_version.exit.thread33, %vwr_get_fpga_version.exit
+155:                                              ; preds = %vwr_get_fpga_version.exit
   br label %258
 
 156:                                              ; preds = %vwr_get_fpga_version.exit
@@ -359,7 +359,7 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, 
   store ptr %157, ptr %158, align 8
   %159 = getelementptr inbounds i8, ptr %157, i64 176
   store i32 %.0101.i, ptr %159, align 4
-  %160 = trunc i32 %.0101.i to i16
+  %160 = trunc nuw nsw i32 %.0101.i to i16
   switch i16 %160, label %setup_defaults.exit [
     i16 1, label %161
     i16 5, label %186
@@ -586,8 +586,8 @@ setup_defaults.exit:                              ; preds = %156, %161, %186, %1
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #9
   br label %258
 
-258:                                              ; preds = %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %257, %155
-  %.0 = phi i32 [ 0, %155 ], [ 1, %257 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ]
+258:                                              ; preds = %vwr_get_fpga_version.exit.thread33, %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %257, %155
+  %.0 = phi i32 [ 1, %257 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ], [ 0, %vwr_get_fpga_version.exit.thread33 ], [ 0, %155 ]
   ret i32 %.0
 }
 
@@ -1137,7 +1137,7 @@ get_ofdm_rate.exit.i:                             ; preds = %73, %switch.lookup,
   br i1 %195, label %196, label %237
 
 196:                                              ; preds = %.lr.ph.i.i
-  %197 = trunc i64 %indvars.iv.i.i to i32
+  %197 = trunc nsw i64 %indvars.iv.i.i to i32
   %198 = add i32 %197, 15
   %199 = icmp slt i32 %198, %190
   br i1 %199, label %200, label %219
@@ -1263,7 +1263,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %269 = getelementptr i8, ptr %267, i64 4
   store i8 %268, ptr %269, align 1
   %270 = lshr i16 %95, 8
-  %271 = trunc i16 %270 to i8
+  %271 = trunc nuw i16 %270 to i8
   %272 = getelementptr i8, ptr %267, i64 5
   store i8 %271, ptr %272, align 1
   %273 = getelementptr i8, ptr %267, i64 6
@@ -1301,7 +1301,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %293 = getelementptr i8, ptr %267, i64 20
   store i8 %292, ptr %293, align 1
   %294 = lshr i64 %.0371.i, 24
-  %295 = trunc i64 %294 to i8
+  %295 = trunc nuw i64 %294 to i8
   %296 = getelementptr i8, ptr %267, i64 21
   store i8 %295, ptr %296, align 1
   %297 = trunc i64 %186 to i8
@@ -1328,7 +1328,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %313 = getelementptr i8, ptr %267, i64 27
   store i8 %312, ptr %313, align 1
   %314 = lshr i64 %186, 48
-  %315 = trunc i64 %314 to i8
+  %315 = trunc nuw nsw i64 %314 to i8
   %316 = getelementptr i8, ptr %267, i64 28
   store i8 %315, ptr %316, align 1
   %317 = getelementptr i8, ptr %267, i64 29
@@ -1357,7 +1357,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %334 = getelementptr i8, ptr %267, i64 35
   store i8 %333, ptr %334, align 1
   %335 = lshr i64 %189, 48
-  %336 = trunc i64 %335 to i8
+  %336 = trunc nuw nsw i64 %335 to i8
   %337 = getelementptr i8, ptr %267, i64 36
   store i8 %336, ptr %337, align 1
   %338 = getelementptr i8, ptr %267, i64 37
@@ -1402,7 +1402,7 @@ get_signature_ts.exit.i:                          ; preds = %240, %find_signatur
   %365 = getelementptr i8, ptr %267, i64 48
   store i8 %364, ptr %365, align 1
   %366 = lshr i16 %363, 8
-  %367 = trunc i16 %366 to i8
+  %367 = trunc nuw i16 %366 to i8
   %368 = getelementptr i8, ptr %267, i64 49
   store i8 %367, ptr %368, align 1
   %369 = getelementptr i8, ptr %267, i64 50
@@ -1939,7 +1939,7 @@ get_legacy_rate.exit.i:                           ; preds = %625, %623, %621, %6
   br i1 %729, label %730, label %771
 
 730:                                              ; preds = %.lr.ph.i.i56
-  %731 = trunc i64 %indvars.iv.i.i57 to i32
+  %731 = trunc nsw i64 %indvars.iv.i.i57 to i32
   %732 = add i32 %731, 15
   %733 = icmp slt i32 %732, %722
   br i1 %733, label %734, label %753
@@ -2134,7 +2134,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %843 = getelementptr i8, ptr %811, i64 20
   store i8 %842, ptr %843, align 1
   %844 = lshr i64 %.0422.i, 24
-  %845 = trunc i64 %844 to i8
+  %845 = trunc nuw i64 %844 to i8
   %846 = getelementptr i8, ptr %811, i64 21
   store i8 %845, ptr %846, align 1
   %847 = trunc i64 %717 to i8
@@ -2161,7 +2161,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %863 = getelementptr i8, ptr %811, i64 27
   store i8 %862, ptr %863, align 1
   %864 = lshr i64 %717, 48
-  %865 = trunc i64 %864 to i8
+  %865 = trunc nuw nsw i64 %864 to i8
   %866 = getelementptr i8, ptr %811, i64 28
   store i8 %865, ptr %866, align 1
   %867 = getelementptr i8, ptr %811, i64 29
@@ -2190,7 +2190,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %884 = getelementptr i8, ptr %811, i64 35
   store i8 %883, ptr %884, align 1
   %885 = lshr i64 %720, 48
-  %886 = trunc i64 %885 to i8
+  %886 = trunc nuw nsw i64 %885 to i8
   %887 = getelementptr i8, ptr %811, i64 36
   store i8 %886, ptr %887, align 1
   %888 = getelementptr i8, ptr %811, i64 37
@@ -2227,7 +2227,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %909 = getelementptr i8, ptr %811, i64 44
   store i8 %908, ptr %909, align 1
   %910 = lshr i16 %.3418.i, 8
-  %911 = trunc i16 %910 to i8
+  %911 = trunc nuw nsw i16 %910 to i8
   %912 = getelementptr i8, ptr %811, i64 45
   store i8 %911, ptr %912, align 1
   %913 = getelementptr i8, ptr %811, i64 46
@@ -2240,7 +2240,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %918 = getelementptr i8, ptr %811, i64 48
   store i8 %917, ptr %918, align 1
   %919 = lshr i16 %916, 8
-  %920 = trunc i16 %919 to i8
+  %920 = trunc nuw i16 %919 to i8
   %921 = getelementptr i8, ptr %811, i64 49
   store i8 %920, ptr %921, align 1
   %922 = getelementptr i8, ptr %811, i64 50
@@ -2318,7 +2318,7 @@ get_signature_ts.exit.i47:                        ; preds = %778, %776, %find_si
   %959 = getelementptr i8, ptr %811, i64 60
   store i8 %958, ptr %959, align 1
   %960 = lshr i16 %.0425.i, 8
-  %961 = trunc i16 %960 to i8
+  %961 = trunc nuw i16 %960 to i8
   %962 = getelementptr i8, ptr %811, i64 61
   store i8 %961, ptr %962, align 1
   %963 = getelementptr i8, ptr %811, i64 62
@@ -2887,7 +2887,7 @@ get_legacy_rate.exit.i71:                         ; preds = %1211, %1209, %1207,
   br i1 %1321, label %1322, label %1363
 
 1322:                                             ; preds = %.lr.ph.i.i81
-  %1323 = trunc i64 %indvars.iv.i.i82 to i32
+  %1323 = trunc nsw i64 %indvars.iv.i.i82 to i32
   %1324 = add i32 %1323, 15
   %1325 = icmp slt i32 %1324, %1314
   br i1 %1325, label %1326, label %1345
@@ -3089,7 +3089,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1431 = getelementptr i8, ptr %1406, i64 10
   store i8 %1430, ptr %1431, align 1
   %1432 = lshr i64 %.0710.i, 24
-  %1433 = trunc i64 %1432 to i8
+  %1433 = trunc nuw i64 %1432 to i8
   %1434 = getelementptr i8, ptr %1406, i64 11
   store i8 %1433, ptr %1434, align 1
   %1435 = trunc i64 %1307 to i8
@@ -3116,7 +3116,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1451 = getelementptr i8, ptr %1406, i64 17
   store i8 %1450, ptr %1451, align 1
   %1452 = lshr i64 %1307, 48
-  %1453 = trunc i64 %1452 to i8
+  %1453 = trunc nuw nsw i64 %1452 to i8
   %1454 = getelementptr i8, ptr %1406, i64 18
   store i8 %1453, ptr %1454, align 1
   %1455 = getelementptr i8, ptr %1406, i64 19
@@ -3145,7 +3145,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1472 = getelementptr i8, ptr %1406, i64 25
   store i8 %1471, ptr %1472, align 1
   %1473 = lshr i64 %1310, 48
-  %1474 = trunc i64 %1473 to i8
+  %1474 = trunc nuw nsw i64 %1473 to i8
   %1475 = getelementptr i8, ptr %1406, i64 26
   store i8 %1474, ptr %1475, align 1
   %1476 = getelementptr i8, ptr %1406, i64 27
@@ -3586,7 +3586,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   br i1 %exitcond1124.not.i, label %1681, label %.preheader.i, !llvm.loop !21
 
 1681:                                             ; preds = %1680
-  %1682 = trunc i64 %indvars.iv.next1120.i to i32
+  %1682 = trunc nuw nsw i64 %indvars.iv.next1120.i to i32
   br i1 %975, label %vwr_read_s3_W_rec.exit, label %.thread904.i
 
 .thread904.i:                                     ; preds = %1681, %1419
@@ -3631,7 +3631,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1699 = getelementptr i8, ptr %.0681843868939.i, i64 %1698
   store i8 %1697, ptr %1699, align 1
   %1700 = lshr i16 %.0693842869938.i, 8
-  %1701 = trunc i16 %1700 to i8
+  %1701 = trunc nuw i16 %1700 to i8
   %1702 = getelementptr i8, ptr %1699, i64 1
   store i8 %1701, ptr %1702, align 1
   %1703 = add i32 %.19940.i, 6
@@ -3676,7 +3676,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1735 = add i32 %.19940.i, 13
   %1736 = and i32 %.1700839873937.i, 255
   %1737 = icmp eq i32 %1736, 1
-  br i1 %1737, label %1738, label %1739
+  br i1 %1737, label %1738, label %1740
 
 1738:                                             ; preds = %.thread904.i
   switch i32 %5, label %1739 [
@@ -3684,11 +3684,11 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
     i32 0, label %1740
   ]
 
-1739:                                             ; preds = %1738, %.thread904.i
+1739:                                             ; preds = %1738
   br label %1740
 
-1740:                                             ; preds = %1739, %1738, %1738
-  %.sink1134.i = phi i8 [ 0, %1739 ], [ %.1706837877935.i, %1738 ], [ %.1706837877935.i, %1738 ]
+1740:                                             ; preds = %1739, %1738, %1738, %.thread904.i
+  %.sink1134.i = phi i8 [ %.1706837877935.i, %1738 ], [ %.1706837877935.i, %1738 ], [ 0, %.thread904.i ], [ 0, %1739 ]
   %1741 = sext i32 %1735 to i64
   %1742 = getelementptr i8, ptr %.0681843868939.i, i64 %1741
   store i8 %.sink1134.i, ptr %1742, align 1
@@ -3750,7 +3750,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1785 = getelementptr i8, ptr %1782, i64 1
   store i8 %1784, ptr %1785, align 1
   %1786 = lshr i32 %.0714832887930.i, 16
-  %1787 = trunc i32 %1786 to i8
+  %1787 = trunc nuw i32 %1786 to i8
   %1788 = getelementptr i8, ptr %1782, i64 2
   store i8 %1787, ptr %1788, align 1
   %1789 = add i32 %.19940.i, 42
@@ -3798,7 +3798,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   store i8 %1812, ptr %1814, align 1
   %1815 = getelementptr i8, ptr %.0681843868939.i, i64 %1813
   %1816 = lshr i16 %.0720829893927.i, 8
-  %1817 = trunc i16 %1816 to i8
+  %1817 = trunc nuw i16 %1816 to i8
   %1818 = getelementptr i8, ptr %1815, i64 1
   store i8 %1817, ptr %1818, align 1
   %1819 = add i32 %.19940.i, 50
@@ -3819,7 +3819,7 @@ get_signature_ts.exit.i76:                        ; preds = %1368, %1366, %find_
   %1830 = getelementptr i8, ptr %1824, i64 2
   store i8 %1829, ptr %1830, align 1
   %1831 = lshr i32 %.0719830891928.i, 24
-  %1832 = trunc i32 %1831 to i8
+  %1832 = trunc nuw i32 %1831 to i8
   %1833 = getelementptr i8, ptr %1824, i64 3
   store i8 %1832, ptr %1833, align 1
   %1834 = add i32 %.19940.i, 55
@@ -4150,7 +4150,7 @@ vwr_read_s3_W_rec.exit:                           ; preds = %978, %1001, %1008, 
   br i1 %2079, label %2080, label %2121
 
 2080:                                             ; preds = %.lr.ph.i.i112
-  %2081 = trunc i64 %indvars.iv.i.i113 to i32
+  %2081 = trunc nsw i64 %indvars.iv.i.i113 to i32
   %2082 = add i32 %2081, 15
   %2083 = icmp slt i32 %2082, %1
   br i1 %2083, label %2084, label %2103
@@ -4260,7 +4260,7 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
 2144:                                             ; preds = %2139
   %2145 = sub nsw i64 %.0352.i, %2008
   %2146 = icmp ugt i64 %2145, 268435456
-  %2147 = trunc i64 %2145 to i32
+  %2147 = trunc nuw nsw i64 %2145 to i32
   %spec.select376.i = select i1 %2146, i32 0, i32 %2147
   br label %2148
 
@@ -4308,7 +4308,7 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
   %2173 = getelementptr i8, ptr %2165, i64 10
   store i8 %2172, ptr %2173, align 1
   %2174 = lshr i16 %1877, 8
-  %2175 = trunc i16 %2174 to i8
+  %2175 = trunc nuw i16 %2174 to i8
   %2176 = getelementptr i8, ptr %2165, i64 11
   store i8 %2175, ptr %2176, align 1
   %2177 = getelementptr i8, ptr %2165, i64 12
@@ -4326,7 +4326,7 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
   %2184 = lshr i32 %.0357.i, 16
   %2185 = trunc i32 %2184 to i8
   %2186 = lshr i32 %.0357.i, 24
-  %2187 = trunc i32 %2186 to i8
+  %2187 = trunc nuw i32 %2186 to i8
   br label %2188
 
 2188:                                             ; preds = %2180, %2148
@@ -4354,7 +4354,7 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
   %2200 = getelementptr i8, ptr %2165, i64 20
   store i8 %2199, ptr %2200, align 1
   %2201 = lshr i64 %.0352.i, 24
-  %2202 = trunc i64 %2201 to i8
+  %2202 = trunc nuw i64 %2201 to i8
   %2203 = getelementptr i8, ptr %2165, i64 21
   store i8 %2202, ptr %2203, align 1
   %2204 = trunc i64 %2051 to i8
@@ -4381,7 +4381,7 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
   %2220 = getelementptr i8, ptr %2165, i64 27
   store i8 %2219, ptr %2220, align 1
   %2221 = lshr i64 %2051, 48
-  %2222 = trunc i64 %2221 to i8
+  %2222 = trunc nuw nsw i64 %2221 to i8
   %2223 = getelementptr i8, ptr %2165, i64 28
   store i8 %2222, ptr %2223, align 1
   %2224 = getelementptr i8, ptr %2165, i64 29
@@ -4410,7 +4410,7 @@ get_signature_ts.exit.i105:                       ; preds = %2129, %2127, %find_
   %2241 = getelementptr i8, ptr %2165, i64 35
   store i8 %2240, ptr %2241, align 1
   %2242 = lshr i64 %2054, 48
-  %2243 = trunc i64 %2242 to i8
+  %2243 = trunc nuw nsw i64 %2242 to i8
   %2244 = getelementptr i8, ptr %2165, i64 36
   store i8 %2243, ptr %2244, align 1
   %2245 = getelementptr i8, ptr %2165, i64 37

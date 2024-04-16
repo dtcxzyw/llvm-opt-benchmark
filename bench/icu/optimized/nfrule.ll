@@ -146,7 +146,7 @@ invoke.cont3:                                     ; preds = %invoke.cont3.prehea
   %cond.i = select i1 %cmp.i.i, i32 %9, i32 %shr.i.i
   %10 = sext i32 %cond.i to i64
   %cmp5 = icmp slt i64 %indvars.iv.next, %10
-  %11 = trunc i64 %indvars.iv.next to i32
+  %11 = trunc nsw i64 %indvars.iv.next to i32
   br i1 %cmp5, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %invoke.cont3
@@ -299,7 +299,7 @@ if.end60:                                         ; preds = %invoke.cont48, %if.
   br i1 %exitcond.not, label %while.end62, label %while.body29, !llvm.loop !6
 
 while.end62.loopexit.split.loop.exit:             ; preds = %if.else, %if.else
-  %37 = trunc i64 %indvars.iv322 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv322 to i32
   br label %while.end62
 
 while.end62:                                      ; preds = %if.end60, %while.end62.loopexit.split.loop.exit, %while.cond27.preheader
@@ -381,12 +381,12 @@ if.end103:                                        ; preds = %invoke.cont90, %if.
   %retval.0.i.i139263 = phi i16 [ %45, %if.then78 ], [ %retval.0.i.i139264270, %invoke.cont90 ]
   %val.3 = phi i32 [ %add83, %if.then78 ], [ %val.2308, %invoke.cont90 ]
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
-  %49 = trunc i64 %indvars.iv.next326 to i32
+  %49 = trunc nuw i64 %indvars.iv.next326 to i32
   %cmp69 = icmp sgt i32 %cond.i89, %49
   br i1 %cmp69, label %while.body70, label %while.end105, !llvm.loop !7
 
 while.end105.split.loop.exit358:                  ; preds = %if.else84
-  %50 = trunc i64 %indvars.iv325 to i32
+  %50 = trunc nuw i64 %indvars.iv325 to i32
   br label %while.end105
 
 while.end105:                                     ; preds = %if.end103, %while.end105.split.loop.exit358
@@ -479,7 +479,7 @@ while.body121.lr.ph:                              ; preds = %invoke.cont118.preh
 while.body121:                                    ; preds = %while.body121.lr.ph, %if.then130
   %indvars.iv328 = phi i64 [ %60, %while.body121.lr.ph ], [ %indvars.iv.next329, %if.then130 ]
   %61 = phi i16 [ %exponent127.promoted, %while.body121.lr.ph ], [ %dec, %if.then130 ]
-  %62 = trunc i64 %indvars.iv328 to i32
+  %62 = trunc nsw i64 %indvars.iv328 to i32
   %cmp.i.i161 = icmp ugt i32 %cond.i155, %62
   br i1 %cmp.i.i161, label %invoke.cont122, label %cleanup
 
@@ -1855,48 +1855,40 @@ land.lhs.true11:                                  ; preds = %if.then.i, %_ZNK6ic
   %14 = load ptr, ptr %sub112, align 8
   %tobool.not.i6 = icmp eq ptr %13, null
   %tobool3.not.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i6, label %if.else.i9, label %if.then.i7
+  %brmerge.i = or i1 %tobool.not.i6, %tobool3.not.i
+  br i1 %brmerge.i, label %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit, label %if.then2.i
 
-if.then.i7:                                       ; preds = %land.lhs.true11
-  br i1 %tobool3.not.i, label %land.end, label %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit
-
-if.else.i9:                                       ; preds = %land.lhs.true11
-  br i1 %tobool3.not.i, label %land.rhs, label %land.end
-
-_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit: ; preds = %if.then.i7
+if.then2.i:                                       ; preds = %land.lhs.true11
   %vtable.i = load ptr, ptr %13, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %15 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
   br i1 %call.i, label %land.rhs, label %land.end
 
-land.rhs:                                         ; preds = %if.else.i9, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit
+_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit: ; preds = %land.lhs.true11
+  %tobool3.not.mux.i = and i1 %tobool.not.i6, %tobool3.not.i
+  br i1 %tobool3.not.mux.i, label %land.rhs, label %land.end
+
+land.rhs:                                         ; preds = %if.then2.i, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit
   %sub2 = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %sub2, align 8
   %sub214 = getelementptr inbounds i8, ptr %rhs, i64 88
   %17 = load ptr, ptr %sub214, align 8
-  %tobool.not.i10 = icmp eq ptr %16, null
-  %tobool3.not.i11 = icmp eq ptr %17, null
-  br i1 %tobool.not.i10, label %if.else.i20, label %if.then.i12
+  %tobool.not.i8 = icmp eq ptr %16, null
+  %tobool3.not.i9 = icmp eq ptr %17, null
+  %brmerge.i10 = or i1 %tobool.not.i8, %tobool3.not.i9
+  %tobool3.not.mux.i11 = and i1 %tobool.not.i8, %tobool3.not.i9
+  br i1 %brmerge.i10, label %land.end, label %if.then2.i12
 
-if.then.i12:                                      ; preds = %land.rhs
-  br i1 %tobool3.not.i11, label %if.end6.i19, label %if.then2.i13
-
-if.then2.i13:                                     ; preds = %if.then.i12
-  %vtable.i14 = load ptr, ptr %16, align 8
-  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
-  %18 = load ptr, ptr %vfn.i15, align 8
-  %call.i16 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+if.then2.i12:                                     ; preds = %land.rhs
+  %vtable.i13 = load ptr, ptr %16, align 8
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 24
+  %18 = load ptr, ptr %vfn.i14, align 8
+  %call.i15 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
   br label %land.end
 
-if.else.i20:                                      ; preds = %land.rhs
-  br i1 %tobool3.not.i11, label %land.end, label %if.end6.i19
-
-if.end6.i19:                                      ; preds = %if.else.i20, %if.then.i12
-  br label %land.end
-
-land.end:                                         ; preds = %if.end6.i19, %if.else.i20, %if.then2.i13, %if.else.i9, %if.then.i7, %if.else.i, %if.then.i, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit, %land.lhs.true5, %land.lhs.true, %entry
-  %19 = phi i1 [ false, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit ], [ false, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.else.i ], [ false, %if.then.i7 ], [ false, %if.else.i9 ], [ %call.i16, %if.then2.i13 ], [ false, %if.end6.i19 ], [ true, %if.else.i20 ]
+land.end:                                         ; preds = %if.then2.i, %if.then2.i12, %land.rhs, %if.else.i, %if.then.i, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit, %land.lhs.true5, %land.lhs.true, %entry
+  %19 = phi i1 [ false, %_ZN6icu_75L23util_equalSubstitutionsEPKNS_14NFSubstitutionES2_.exit ], [ false, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.else.i ], [ %call.i15, %if.then2.i12 ], [ %tobool3.not.mux.i11, %land.rhs ], [ false, %if.then2.i ]
   ret i1 %19
 }
 

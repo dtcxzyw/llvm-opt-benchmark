@@ -865,20 +865,18 @@ define dso_local noundef i32 @onigenc_not_support_get_ctype_code_range(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #6 {
+define dso_local i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #6 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 10
-  br i1 %7, label %9, label %8
+  %spec.select = zext i1 %7 to i32
+  br label %8
 
 8:                                                ; preds = %5, %3
-  br label %9
-
-9:                                                ; preds = %5, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %5 ]
   ret i32 %.0
 }
 
@@ -924,7 +922,7 @@ define dso_local noundef i32 @onigenc_single_byte_code_to_mbc(i32 noundef %0, pt
   unreachable
 
 7:                                                ; preds = %3
-  %8 = trunc i32 %0 to i8
+  %8 = trunc nuw i32 %0 to i8
   store i8 %8, ptr %1, align 1
   ret i32 1
 }
@@ -1244,7 +1242,7 @@ onigenc_mbclen.exit:                              ; preds = %38, %33, %23, %17
   %44 = ptrtoint ptr %2 to i64
   %45 = sub i64 %43, %44
   %.not21 = icmp eq i64 %45, %42
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nsw i64 %45 to i32
   %.018 = select i1 %.not21, i32 %46, i32 -400
   ret i32 %.018
 }
@@ -1256,7 +1254,7 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
 
 .thread:                                          ; preds = %3
   %4 = lshr i32 %1, 24
-  %5 = trunc i32 %4 to i8
+  %5 = trunc nuw i32 %4 to i8
   %6 = getelementptr i8, ptr %2, i64 1
   store i8 %5, ptr %2, align 1
   br label %8
@@ -1345,7 +1343,7 @@ onigenc_mbclen.exit:                              ; preds = %47, %42, %32, %26
   %53 = ptrtoint ptr %2 to i64
   %54 = sub i64 %52, %53
   %.not35 = icmp eq i64 %54, %51
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   %.028 = select i1 %.not35, i32 %55, i32 -400
   ret i32 %.028
 }

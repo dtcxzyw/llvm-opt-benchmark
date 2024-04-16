@@ -73,7 +73,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %4
   %6 = getelementptr inbounds [30 x i32], ptr @bin_elements, i64 0, i64 %indvars.iv
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   br label %8
 
 8:                                                ; preds = %.lr.ph, %._crit_edge308
@@ -105,7 +105,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not262, label %._crit_edge308, label %23
 
 23:                                               ; preds = %14
-  %24 = trunc i64 %17 to i32
+  %24 = trunc nuw nsw i64 %17 to i32
   %25 = lshr i32 %20, 16
   %26 = and i32 %25, 511
   %27 = sub nsw i32 %24, %26
@@ -178,7 +178,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not259, label %71, label %61
 
 61:                                               ; preds = %52
-  %62 = trunc i64 %55 to i32
+  %62 = trunc nuw nsw i64 %55 to i32
   %63 = lshr i32 %58, 16
   %64 = and i32 %63, 511
   %65 = sub nsw i32 %62, %64
@@ -1010,7 +1010,7 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
   br label %19
 
 11:                                               ; preds = %4
-  %12 = trunc i64 %1 to i32
+  %12 = trunc nuw i64 %1 to i32
   %13 = add nsw i32 %12, -1
   %14 = tail call i32 @llvm.ctlz.i32(i32 %13, i1 true), !range !4
   %15 = sub nuw nsw i32 29, %14
@@ -1077,7 +1077,7 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
 
 53:                                               ; preds = %53, %.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %53 ]
-  %54 = trunc i64 %indvars.iv.i to i32
+  %54 = trunc nuw i64 %indvars.iv.i to i32
   %55 = shl i32 %54, 16
   %56 = or i32 %.0, %55
   %57 = or i32 %56, -1073741824
@@ -1122,7 +1122,7 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
 77:                                               ; preds = %75
   %78 = add nuw nsw i64 %1, 4095
   %79 = lshr i64 %78, 12
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw nsw i64 %79 to i32
   %81 = tail call fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %80)
   %82 = getelementptr inbounds i8, ptr %0, i64 16
   %83 = load i64, ptr %82, align 8
@@ -1163,7 +1163,7 @@ define void @_zend_mm_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %9 = and i64 %3, -2097152
   %10 = inttoptr i64 %9 to ptr
   %11 = lshr i64 %4, 12
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = getelementptr inbounds i8, ptr %10, i64 520
   %14 = getelementptr inbounds [512 x i32], ptr %13, i64 0, i64 %11
   %15 = load i32, ptr %14, align 4
@@ -1243,7 +1243,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %14 = and i64 %4, -2097152
   %15 = inttoptr i64 %14 to ptr
   %16 = lshr i64 %5, 12
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = getelementptr inbounds i8, ptr %15, i64 520
   %19 = getelementptr inbounds [512 x i32], ptr %18, i64 0, i64 %16
   %20 = load i32, ptr %19, align 4
@@ -1362,7 +1362,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %93
 
 85:                                               ; preds = %77
-  %86 = trunc i64 %2 to i32
+  %86 = trunc nuw i64 %2 to i32
   %87 = add nsw i32 %86, -1
   %88 = tail call i32 @llvm.ctlz.i32(i32 %87, i1 true), !range !4
   %89 = sub nuw nsw i32 29, %88
@@ -1426,7 +1426,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 
 124:                                              ; preds = %124, %.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %124 ]
-  %125 = trunc i64 %indvars.iv.i to i32
+  %125 = trunc nuw i64 %indvars.iv.i to i32
   %126 = shl i32 %125, 16
   %127 = or i32 %.0321, %126
   %128 = or i32 %127, -1073741824
@@ -1501,7 +1501,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
 159:                                              ; preds = %155
   %160 = icmp ult i64 %157, %153
   %161 = lshr i64 %156, 12
-  %162 = trunc i64 %161 to i32
+  %162 = trunc nuw i64 %161 to i32
   br i1 %160, label %163, label %231
 
 163:                                              ; preds = %159
@@ -1808,7 +1808,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %15 = and i64 %5, -2097152
   %16 = inttoptr i64 %15 to ptr
   %17 = lshr i64 %6, 12
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = getelementptr inbounds i8, ptr %16, i64 520
   %20 = getelementptr inbounds [512 x i32], ptr %19, i64 0, i64 %17
   %21 = load i32, ptr %20, align 4
@@ -1928,7 +1928,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br label %95
 
 87:                                               ; preds = %79
-  %88 = trunc i64 %2 to i32
+  %88 = trunc nuw i64 %2 to i32
   %89 = add nsw i32 %88, -1
   %90 = tail call i32 @llvm.ctlz.i32(i32 %89, i1 true), !range !4
   %91 = sub nuw nsw i32 29, %90
@@ -1992,7 +1992,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
 
 126:                                              ; preds = %126, %.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %126 ]
-  %127 = trunc i64 %indvars.iv.i to i32
+  %127 = trunc nuw i64 %indvars.iv.i to i32
   %128 = shl i32 %127, 16
   %129 = or i32 %.0321, %128
   %130 = or i32 %129, -1073741824
@@ -2068,7 +2068,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
 162:                                              ; preds = %158
   %163 = icmp ult i64 %160, %156
   %164 = lshr i64 %159, 12
-  %165 = trunc i64 %164 to i32
+  %165 = trunc nuw i64 %164 to i32
   br i1 %163, label %166, label %234
 
 166:                                              ; preds = %162
@@ -2459,17 +2459,17 @@ define zeroext i1 @is_zend_mm() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
+define zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @alloc_globals.0, align 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %15, label %4
+  br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @tracked_malloc
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %4
   %9 = ptrtoint ptr %0 to i64
@@ -2477,58 +2477,55 @@ define noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %2, i64 384
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #35
-  %.not29 = icmp eq ptr %13, null
-  br i1 %.not29, label %14, label %.loopexit
-
-14:                                               ; preds = %8, %4
+  %.not29 = icmp ne ptr %13, null
   br label %.loopexit
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %2, i64 312
-  %17 = load ptr, ptr %16, align 8
-  %.not23 = icmp eq ptr %17, null
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds i8, ptr %2, i64 312
+  %16 = load ptr, ptr %15, align 8
+  %.not23 = icmp eq ptr %16, null
   br i1 %.not23, label %.loopexit33, label %.preheader31
 
-.preheader31:                                     ; preds = %15, %20
-  %.016 = phi ptr [ %22, %20 ], [ %17, %15 ]
+.preheader31:                                     ; preds = %14, %19
+  %.016 = phi ptr [ %21, %19 ], [ %16, %14 ]
   %.not24 = icmp ule ptr %.016, %0
-  %18 = getelementptr inbounds i8, ptr %.016, i64 2097152
-  %19 = icmp ugt ptr %18, %0
-  %or.cond = select i1 %.not24, i1 %19, i1 false
-  br i1 %or.cond, label %.loopexit, label %20
+  %17 = getelementptr inbounds i8, ptr %.016, i64 2097152
+  %18 = icmp ugt ptr %17, %0
+  %or.cond = select i1 %.not24, i1 %18, i1 false
+  br i1 %or.cond, label %.loopexit, label %19
 
-20:                                               ; preds = %.preheader31
-  %21 = getelementptr inbounds i8, ptr %.016, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %.not25 = icmp eq ptr %22, %17
+19:                                               ; preds = %.preheader31
+  %20 = getelementptr inbounds i8, ptr %.016, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %.not25 = icmp eq ptr %21, %16
   br i1 %.not25, label %.loopexit33, label %.preheader31
 
-.loopexit33:                                      ; preds = %20, %15
-  %23 = getelementptr inbounds i8, ptr %2, i64 304
-  %24 = load ptr, ptr %23, align 8
-  %.not26 = icmp eq ptr %24, null
+.loopexit33:                                      ; preds = %19, %14
+  %22 = getelementptr inbounds i8, ptr %2, i64 304
+  %23 = load ptr, ptr %22, align 8
+  %.not26 = icmp eq ptr %23, null
   br i1 %.not26, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit33, %30
-  %.0 = phi ptr [ %32, %30 ], [ %24, %.loopexit33 ]
+.preheader:                                       ; preds = %.loopexit33, %29
+  %.0 = phi ptr [ %31, %29 ], [ %23, %.loopexit33 ]
   %.not27 = icmp ugt ptr %.0, %0
-  br i1 %.not27, label %30, label %25
+  br i1 %.not27, label %29, label %24
 
-25:                                               ; preds = %.preheader
-  %26 = getelementptr inbounds i8, ptr %.0, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.0, i64 %27
-  %29 = icmp ugt ptr %28, %0
-  br i1 %29, label %.loopexit, label %30
+24:                                               ; preds = %.preheader
+  %25 = getelementptr inbounds i8, ptr %.0, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %.0, i64 %26
+  %28 = icmp ugt ptr %27, %0
+  br i1 %28, label %.loopexit, label %29
 
-30:                                               ; preds = %25, %.preheader
-  %31 = getelementptr inbounds i8, ptr %.0, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %.not28 = icmp eq ptr %32, %24
+29:                                               ; preds = %24, %.preheader
+  %30 = getelementptr inbounds i8, ptr %.0, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %.not28 = icmp eq ptr %31, %23
   br i1 %.not28, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader31, %30, %25, %.loopexit33, %8, %14
-  %.017 = phi i1 [ false, %14 ], [ true, %8 ], [ false, %.loopexit33 ], [ false, %30 ], [ true, %25 ], [ true, %.preheader31 ]
+.loopexit:                                        ; preds = %.preheader31, %29, %24, %8, %.loopexit33, %4
+  %.017 = phi i1 [ false, %4 ], [ false, %.loopexit33 ], [ %.not29, %8 ], [ false, %29 ], [ true, %24 ], [ true, %.preheader31 ]
   ret i1 %.017
 }
 
@@ -3688,7 +3685,7 @@ define noalias ptr @_emalloc_320() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741808
   %34 = add i32 %26, %31
@@ -3775,7 +3772,7 @@ define noalias ptr @_emalloc_384() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741807
   %34 = add i32 %26, %31
@@ -4000,7 +3997,7 @@ define noalias ptr @_emalloc_640() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741804
   %34 = add i32 %26, %31
@@ -4087,7 +4084,7 @@ define noalias ptr @_emalloc_768() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741803
   %34 = add i32 %26, %31
@@ -4324,7 +4321,7 @@ define noalias ptr @_emalloc_1280() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741800
   %34 = add i32 %26, %31
@@ -4411,7 +4408,7 @@ define noalias ptr @_emalloc_1536() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741799
   %34 = add i32 %26, %31
@@ -4498,7 +4495,7 @@ define noalias ptr @_emalloc_1792() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741798
   %34 = add i32 %26, %31
@@ -4585,7 +4582,7 @@ define noalias ptr @_emalloc_2048() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741797
   %34 = add i32 %26, %31
@@ -4672,7 +4669,7 @@ define noalias ptr @_emalloc_2560() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741796
   %34 = add i32 %26, %31
@@ -4759,7 +4756,7 @@ define noalias ptr @_emalloc_3072() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %20
   %indvars.iv.i = phi i64 [ 1, %20 ], [ %indvars.iv.next.i, %30 ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 16
   %33 = or i32 %32, -1073741795
   %34 = add i32 %26, %31
@@ -6363,7 +6360,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   %22 = and i64 %17, -2097152
   %23 = inttoptr i64 %22 to ptr
   %24 = lshr i64 %18, 12
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = getelementptr inbounds i8, ptr %23, i64 520
   %27 = getelementptr inbounds [512 x i32], ptr %26, i64 0, i64 %24
   %28 = load i32, ptr %27, align 4
@@ -6494,7 +6491,7 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
   br label %25
 
 17:                                               ; preds = %10
-  %18 = trunc i64 %0 to i32
+  %18 = trunc nuw i64 %0 to i32
   %19 = add nsw i32 %18, -1
   %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !4
   %21 = sub nuw nsw i32 29, %20
@@ -6561,7 +6558,7 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
 
 59:                                               ; preds = %59, %.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %59 ]
-  %60 = trunc i64 %indvars.iv.i to i32
+  %60 = trunc nuw i64 %indvars.iv.i to i32
   %61 = shl i32 %60, 16
   %62 = or i32 %.0, %61
   %63 = or i32 %62, -1073741824
@@ -6606,7 +6603,7 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
 83:                                               ; preds = %81
   %84 = add nuw nsw i64 %0, 4095
   %85 = lshr i64 %84, 12
-  %86 = trunc i64 %85 to i32
+  %86 = trunc nuw nsw i64 %85 to i32
   %87 = tail call fastcc ptr @zend_mm_alloc_pages(ptr noundef nonnull %2, i32 noundef %86)
   %88 = getelementptr inbounds i8, ptr %2, i64 16
   %89 = load i64, ptr %88, align 8
@@ -6659,7 +6656,7 @@ define void @_efree(ptr noundef %0) local_unnamed_addr #0 {
   %14 = and i64 %8, -2097152
   %15 = inttoptr i64 %14 to ptr
   %16 = lshr i64 %9, 12
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = getelementptr inbounds i8, ptr %15, i64 520
   %19 = getelementptr inbounds [512 x i32], ptr %18, i64 0, i64 %16
   %20 = load i32, ptr %19, align 4
@@ -6751,7 +6748,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %20 = and i64 %10, -2097152
   %21 = inttoptr i64 %20 to ptr
   %22 = lshr i64 %11, 12
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = getelementptr inbounds i8, ptr %21, i64 520
   %25 = getelementptr inbounds [512 x i32], ptr %24, i64 0, i64 %22
   %26 = load i32, ptr %25, align 4
@@ -6870,7 +6867,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br label %99
 
 91:                                               ; preds = %83
-  %92 = trunc i64 %1 to i32
+  %92 = trunc nuw i64 %1 to i32
   %93 = add nsw i32 %92, -1
   %94 = tail call i32 @llvm.ctlz.i32(i32 %93, i1 true), !range !4
   %95 = sub nuw nsw i32 29, %94
@@ -6948,7 +6945,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 132:                                              ; preds = %128
   %133 = icmp ult i64 %130, %126
   %134 = lshr i64 %129, 12
-  %135 = trunc i64 %134 to i32
+  %135 = trunc nuw i64 %134 to i32
   br i1 %133, label %136, label %204
 
 136:                                              ; preds = %132
@@ -7267,7 +7264,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %21 = and i64 %11, -2097152
   %22 = inttoptr i64 %21 to ptr
   %23 = lshr i64 %12, 12
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = getelementptr inbounds i8, ptr %22, i64 520
   %26 = getelementptr inbounds [512 x i32], ptr %25, i64 0, i64 %23
   %27 = load i32, ptr %26, align 4
@@ -7387,7 +7384,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br label %101
 
 93:                                               ; preds = %85
-  %94 = trunc i64 %1 to i32
+  %94 = trunc nuw i64 %1 to i32
   %95 = add nsw i32 %94, -1
   %96 = tail call i32 @llvm.ctlz.i32(i32 %95, i1 true), !range !4
   %97 = sub nuw nsw i32 29, %96
@@ -7466,7 +7463,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 135:                                              ; preds = %131
   %136 = icmp ult i64 %133, %129
   %137 = lshr i64 %132, 12
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nuw i64 %137 to i32
   br i1 %136, label %139, label %207
 
 139:                                              ; preds = %135
@@ -8886,7 +8883,7 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
   br label %23
 
 15:                                               ; preds = %8
-  %16 = trunc i64 %2 to i32
+  %16 = trunc nuw i64 %2 to i32
   %17 = add nsw i32 %16, -1
   %18 = tail call i32 @llvm.ctlz.i32(i32 %17, i1 true), !range !4
   %19 = sub nuw nsw i32 29, %18
@@ -8951,7 +8948,7 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
 
 55:                                               ; preds = %55, %.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %55 ]
-  %56 = trunc i64 %indvars.iv.i to i32
+  %56 = trunc nuw i64 %indvars.iv.i to i32
   %57 = shl i32 %56, 16
   %58 = or i32 %.0, %57
   %59 = or i32 %58, -1073741824
@@ -8996,7 +8993,7 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
 79:                                               ; preds = %77
   %80 = add nuw nsw i64 %2, 4095
   %81 = lshr i64 %80, 12
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw nsw i64 %81 to i32
   %83 = tail call fastcc ptr @zend_mm_alloc_pages(ptr noundef nonnull %0, i32 noundef %82)
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load i64, ptr %84, align 8
@@ -9032,7 +9029,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %76, %36, %34, %89, 
   %97 = and i64 %91, -2097152
   %98 = inttoptr i64 %97 to ptr
   %99 = lshr i64 %92, 12
-  %100 = trunc i64 %99 to i32
+  %100 = trunc nuw nsw i64 %99 to i32
   %101 = getelementptr inbounds i8, ptr %98, i64 520
   %102 = getelementptr inbounds [512 x i32], ptr %101, i64 0, i64 %99
   %103 = load i32, ptr %102, align 4
@@ -9157,7 +9154,7 @@ define internal fastcc ptr @zend_mm_alloc_small_slow(ptr noundef %0, i32 noundef
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   %23 = shl i32 %22, 16
   %24 = or i32 %23, %1
   %25 = or i32 %24, -1073741824
@@ -9255,7 +9252,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %.1.lcssa = phi i32 [ %.0170, %16 ], [ %18, %22 ]
   %26 = xor i64 %.1172.lcssa, -1
   %27 = tail call i64 @llvm.cttz.i64(i64 %26, i1 true), !range !7
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %29 = add i32 %.1.lcssa, %28
   %30 = add nuw i64 %.1172.lcssa, 1
   %31 = and i64 %30, %.1172.lcssa
@@ -9303,7 +9300,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %.2173.lcssa = phi i64 [ %31, %._crit_edge ], [ %45, %43 ]
   %.2.lcssa = phi i32 [ %.1.lcssa, %._crit_edge ], [ %33, %43 ]
   %47 = tail call i64 @llvm.cttz.i64(i64 %.2173.lcssa, i1 true), !range !7
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = sub i32 %.2.lcssa, %29
   %50 = add i32 %49, %48
   %.not = icmp ult i32 %50, %1

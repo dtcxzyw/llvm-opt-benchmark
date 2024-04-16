@@ -2192,8 +2192,9 @@ if.then28:                                        ; preds = %if.end16
   store i32 0, ptr %field_value_length_, align 8
   %call.i = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #23
   store ptr %call.i, ptr %field_value_.i, align 8
-  %cmp30 = icmp eq ptr %call.i, null
-  br i1 %cmp30, label %return, label %if.end55
+  %cmp30 = icmp ne ptr %call.i, null
+  %spec.select7 = zext i1 %cmp30 to i8
+  br label %return
 
 if.else:                                          ; preds = %if.end16
   %4 = xor i32 %conv10, -1
@@ -2212,13 +2213,10 @@ if.end47:                                         ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i6, ptr nonnull align 1 %incdec.ptr, i64 %conv41, i1 false)
   %arrayidx54 = getelementptr inbounds i8, ptr %call.i.i6, i64 %conv41
   store i8 0, ptr %arrayidx54, align 1
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.then28, %if.end47
   br label %return
 
-return:                                           ; preds = %if.else, %if.then28, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %if.end55
-  %.sink = phi i8 [ 1, %if.end55 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 0, %if.then28 ], [ 0, %if.else ]
+return:                                           ; preds = %if.then28, %if.end47, %if.else, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
+  %.sink = phi i8 [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 0, %if.else ], [ 1, %if.end47 ], [ %spec.select7, %if.then28 ]
   %is_valid_56 = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink, ptr %is_valid_56, align 8
   ret void
@@ -2383,7 +2381,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit: ; preds = %_ZN4FLA
   %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
   %is_valid_36.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink.i, ptr %is_valid_36.i, align 8
-  %7 = trunc i8 %.sink.i to i1
+  %7 = trunc nuw i8 %.sink.i to i1
   br label %return
 
 return:                                           ; preds = %if.then3, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, %if.then
@@ -2584,7 +2582,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit: ; preds = %_ZN4FLA
   %.sink.i = phi i8 [ 1, %if.end.i ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i ]
   %is_valid_36.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %.sink.i, ptr %is_valid_36.i, align 8
-  %7 = trunc i8 %.sink.i to i1
+  %7 = trunc nuw i8 %.sink.i to i1
   br label %return
 
 return:                                           ; preds = %if.then3, %_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv.exit, %if.then

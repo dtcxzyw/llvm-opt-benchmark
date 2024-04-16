@@ -1356,7 +1356,7 @@ define internal i32 @afs_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @afs_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @afs_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -1384,13 +1384,11 @@ define internal noundef i32 @afs_equal(ptr nocapture noundef readonly %0, ptr no
   %21 = getelementptr inbounds i8, ptr %1, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
-  br i1 %23, label %25, label %24
+  %spec.select = zext i1 %23 to i32
+  br label %24
 
-24:                                               ; preds = %18, %12, %6, %2
-  br label %25
-
-25:                                               ; preds = %18, %24
-  %.0 = phi i32 [ 0, %24 ], [ 1, %18 ]
+24:                                               ; preds = %18, %2, %6, %12
+  %.0 = phi i32 [ 0, %12 ], [ 0, %6 ], [ 0, %2 ], [ %spec.select, %18 ]
   ret i32 %.0
 }
 
@@ -3335,7 +3333,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
   br i1 %or.cond, label %33, label %42
 
 33:                                               ; preds = %.preheader
-  %34 = trunc i32 %30 to i8
+  %34 = trunc nuw i32 %30 to i8
   %35 = add nuw nsw i8 %34, 97
   %36 = getelementptr i8, ptr %27, i64 6
   store i8 %35, ptr %36, align 1
@@ -3425,7 +3423,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
   br i1 %or.cond3, label %89, label %98
 
 89:                                               ; preds = %.preheader133
-  %90 = trunc i32 %86 to i8
+  %90 = trunc nuw i32 %86 to i8
   %91 = add nuw nsw i8 %90, 97
   %92 = getelementptr i8, ptr %83, i64 6
   store i8 %91, ptr %92, align 1
@@ -3513,7 +3511,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
   br i1 %or.cond5, label %136, label %145
 
 136:                                              ; preds = %.preheader135
-  %137 = trunc i32 %133 to i8
+  %137 = trunc nuw i32 %133 to i8
   %138 = add nuw nsw i8 %137, 97
   %139 = getelementptr i8, ptr %130, i64 6
   store i8 %138, ptr %139, align 1

@@ -165,19 +165,17 @@ if.end48.i:                                       ; preds = %if.end44.i
 
 if.end52.i:                                       ; preds = %if.end48.i
   %cmp53.not.i = icmp eq ptr %label.0.i, null
-  br i1 %cmp53.not.i, label %if.end57.i, label %land.lhs.true.i
+  br i1 %cmp53.not.i, label %err.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end52.i
   %call54.i = call i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr noundef nonnull %call.i, ptr noundef nonnull %label.0.i, i32 noundef %labellen.0.i) #4
   %cmp55.i = icmp slt i32 %call54.i, 1
-  br i1 %cmp55.i, label %err.i, label %if.end57.i
-
-if.end57.i:                                       ; preds = %land.lhs.true.i, %if.end52.i
+  %spec.select.i = select i1 %cmp55.i, i32 -1, i32 1
   br label %err.i
 
-err.i:                                            ; preds = %if.end57.i, %land.lhs.true.i, %if.end48.i, %if.end44.i, %if.end40.i, %if.then32.i, %if.then29.i, %if.end18.i, %if.end14.i, %if.then13.i
-  %retval.0.i21.i = phi ptr [ null, %if.then13.i ], [ %call1.i.i, %if.end14.i ], [ %call1.i.i, %if.end18.i ], [ %call1.i.i, %if.then29.i ], [ %call1.i.i, %if.then32.i ], [ %call1.i.i, %if.end40.i ], [ %call1.i.i, %if.end44.i ], [ %call1.i.i, %if.end48.i ], [ %call1.i.i, %land.lhs.true.i ], [ %call1.i.i, %if.end57.i ]
-  %rv.0.i = phi i32 [ -1, %if.then13.i ], [ -1, %if.end14.i ], [ -1, %if.end18.i ], [ -1, %if.then29.i ], [ -1, %if.then32.i ], [ -1, %if.end40.i ], [ -1, %if.end44.i ], [ -1, %if.end48.i ], [ -1, %land.lhs.true.i ], [ 1, %if.end57.i ]
+err.i:                                            ; preds = %land.lhs.true.i, %if.end52.i, %if.end48.i, %if.end44.i, %if.end40.i, %if.then32.i, %if.then29.i, %if.end18.i, %if.end14.i, %if.then13.i
+  %retval.0.i21.i = phi ptr [ null, %if.then13.i ], [ %call1.i.i, %if.end14.i ], [ %call1.i.i, %if.end18.i ], [ %call1.i.i, %if.then29.i ], [ %call1.i.i, %if.then32.i ], [ %call1.i.i, %if.end40.i ], [ %call1.i.i, %if.end44.i ], [ %call1.i.i, %if.end48.i ], [ %call1.i.i, %if.end52.i ], [ %call1.i.i, %land.lhs.true.i ]
+  %rv.0.i = phi i32 [ -1, %if.then13.i ], [ -1, %if.end14.i ], [ -1, %if.end18.i ], [ -1, %if.then29.i ], [ -1, %if.then32.i ], [ -1, %if.end40.i ], [ -1, %if.end44.i ], [ -1, %if.end48.i ], [ 1, %if.end52.i ], [ %spec.select.i, %land.lhs.true.i ]
   call void @RSA_OAEP_PARAMS_free(ptr noundef %retval.0.i21.i) #4
   br label %rsa_cms_decrypt.exit
 

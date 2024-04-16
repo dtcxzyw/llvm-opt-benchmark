@@ -1653,7 +1653,7 @@ define internal noundef i32 @rpc_pipe_poll(ptr noundef %0, ptr noundef %1) #0 al
   %15 = getelementptr inbounds i8, ptr %4, i64 608
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %26, label %18
+  br i1 %17, label %25, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %0, i64 200
@@ -1664,15 +1664,13 @@ define internal noundef i32 @rpc_pipe_poll(ptr noundef %0, ptr noundef %1) #0 al
 22:                                               ; preds = %18
   %23 = load volatile ptr, ptr %16, align 8
   %24 = icmp eq ptr %23, %16
-  br i1 %24, label %26, label %25
+  %spec.select = select i1 %24, i32 260, i32 325
+  br label %25
 
-25:                                               ; preds = %22, %18
-  br label %26
-
-26:                                               ; preds = %25, %22, %13
-  %27 = phi i32 [ 325, %25 ], [ 260, %22 ], [ 284, %13 ]
+25:                                               ; preds = %22, %18, %13
+  %26 = phi i32 [ 284, %13 ], [ 325, %18 ], [ %spec.select, %22 ]
   tail call void @up_write(ptr noundef %14) #14
-  ret i32 %27
+  ret i32 %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

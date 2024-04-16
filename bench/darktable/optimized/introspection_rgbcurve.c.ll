@@ -1858,7 +1858,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %188, label %.loopexit17.loopexit, label %.preheader16, !llvm.loop !103
 
 .loopexit17.loopexit:                             ; preds = %.preheader16
-  %189 = trunc i64 %indvars.iv.next to i8
+  %189 = trunc nuw i64 %indvars.iv.next to i8
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %.loopexit17.loopexit, %175
@@ -1964,7 +1964,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %252, label %.loopexit13.loopexit, label %.preheader12, !llvm.loop !106
 
 .loopexit13.loopexit:                             ; preds = %.preheader12
-  %253 = trunc i64 %indvars.iv.next38 to i8
+  %253 = trunc nuw i64 %indvars.iv.next38 to i8
   br label %.loopexit13
 
 .loopexit13:                                      ; preds = %.loopexit13.loopexit, %239
@@ -2132,7 +2132,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %367, label %.loopexit9.loopexit, label %.preheader8, !llvm.loop !109
 
 .loopexit9.loopexit:                              ; preds = %.preheader8
-  %368 = trunc i64 %indvars.iv.next42 to i8
+  %368 = trunc nuw i64 %indvars.iv.next42 to i8
   br label %.loopexit9
 
 .loopexit9:                                       ; preds = %.loopexit9.loopexit, %354
@@ -2524,7 +2524,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   br i1 %119, label %.loopexit36.loopexit, label %.preheader35, !llvm.loop !115
 
 .loopexit36.loopexit:                             ; preds = %.preheader35
-  %120 = trunc i64 %indvars.iv.next to i8
+  %120 = trunc nuw i64 %indvars.iv.next to i8
   br label %.loopexit36
 
 .loopexit36:                                      ; preds = %.loopexit36.loopexit, %106
@@ -5267,7 +5267,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %64, label %.loopexit15.loopexit, label %.preheader14, !llvm.loop !188
 
 .loopexit15.loopexit:                             ; preds = %.preheader14
-  %65 = trunc i64 %indvars.iv.next to i8
+  %65 = trunc nuw i64 %indvars.iv.next to i8
   br label %.loopexit15
 
 .loopexit15:                                      ; preds = %.loopexit15.loopexit, %51
@@ -5373,7 +5373,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %128, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !190
 
 .loopexit11.loopexit:                             ; preds = %.preheader10
-  %129 = trunc i64 %indvars.iv.next36 to i8
+  %129 = trunc nuw i64 %indvars.iv.next36 to i8
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %115
@@ -5541,7 +5541,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %243, label %.loopexit7.loopexit, label %.preheader6, !llvm.loop !193
 
 .loopexit7.loopexit:                              ; preds = %.preheader6
-  %244 = trunc i64 %indvars.iv.next40 to i8
+  %244 = trunc nuw i64 %indvars.iv.next40 to i8
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.loopexit7.loopexit, %230
@@ -8466,7 +8466,7 @@ define internal fastcc void @_move_point_internal(ptr noundef %0, ptr noundef %1
   %47 = load float, ptr %46, align 4, !tbaa !37
   %48 = fsub reassoc nsz arcp contract afn float %28, %47
   %49 = fcmp reassoc nsz arcp contract afn ugt float %48, 0x3F647AE140000000
-  br i1 %49, label %50, label %60
+  br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %43, %36
   %51 = add nsw i32 %41, -1
@@ -8482,54 +8482,64 @@ define internal fastcc void @_move_point_internal(ptr noundef %0, ptr noundef %1
   %59 = fcmp reassoc nsz arcp contract afn ugt float %58, 0x3F647AE140000000
   br i1 %59, label %61, label %60
 
-60:                                               ; preds = %53, %43
+60:                                               ; preds = %53
   br label %61
 
 61:                                               ; preds = %60, %53, %50
-  %62 = phi i1 [ true, %60 ], [ false, %53 ], [ false, %50 ]
-  br i1 %42, label %63, label %69
+  %62 = phi i1 [ false, %53 ], [ false, %50 ], [ true, %60 ]
+  br i1 %42, label %..thread_crit_edge, label %66
 
-63:                                               ; preds = %61
-  %64 = zext nneg i32 %38 to i64
-  %65 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %13, i64 %64
-  %66 = getelementptr i8, ptr %65, i64 -8
-  %67 = load float, ptr %66, align 4, !tbaa !37
-  %68 = fcmp reassoc nsz arcp contract afn ult float %67, %28
-  br i1 %68, label %69, label %88
+..thread_crit_edge:                               ; preds = %61
+  %.phi.trans.insert = zext nneg i32 %38 to i64
+  %.phi.trans.insert3 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %13, i64 %.phi.trans.insert
+  %.phi.trans.insert4 = getelementptr i8, ptr %.phi.trans.insert3, i64 -8
+  %.pre = load float, ptr %.phi.trans.insert4, align 4, !tbaa !37
+  br label %.thread
 
-69:                                               ; preds = %63, %61
-  %70 = add nsw i32 %41, -1
-  %71 = icmp sgt i32 %70, %38
-  br i1 %71, label %72, label %79
+.thread:                                          ; preds = %..thread_crit_edge, %43
+  %63 = phi float [ %.pre, %..thread_crit_edge ], [ %47, %43 ]
+  %64 = phi i1 [ %62, %..thread_crit_edge ], [ true, %43 ]
+  %65 = fcmp reassoc nsz arcp contract afn ult float %63, %28
+  br i1 %65, label %.thread._crit_edge, label %85
 
-72:                                               ; preds = %69
-  %73 = sext i32 %38 to i64
-  %74 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %13, i64 %73
-  %75 = getelementptr i8, ptr %74, i64 8
-  %76 = load float, ptr %75, align 4, !tbaa !37
-  %77 = fcmp reassoc nsz arcp contract afn ole float %76, %28
-  %78 = or i1 %62, %77
-  br i1 %78, label %88, label %82
+.thread._crit_edge:                               ; preds = %.thread
+  %.pre5 = add nsw i32 %41, -1
+  br label %66
 
-79:                                               ; preds = %69
-  br i1 %62, label %88, label %80
+66:                                               ; preds = %.thread._crit_edge, %61
+  %.pre-phi6 = phi i32 [ %.pre5, %.thread._crit_edge ], [ %51, %61 ]
+  %67 = phi i1 [ %64, %.thread._crit_edge ], [ %62, %61 ]
+  %68 = icmp sgt i32 %.pre-phi6, %38
+  br i1 %68, label %69, label %76
 
-80:                                               ; preds = %79
-  %81 = sext i32 %38 to i64
-  br label %82
+69:                                               ; preds = %66
+  %70 = sext i32 %38 to i64
+  %71 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %13, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 8
+  %73 = load float, ptr %72, align 4, !tbaa !37
+  %74 = fcmp reassoc nsz arcp contract afn ole float %73, %28
+  %75 = or i1 %67, %74
+  br i1 %75, label %85, label %79
 
-82:                                               ; preds = %80, %72
-  %83 = phi i64 [ %81, %80 ], [ %73, %72 ]
-  %84 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %13, i64 %83
-  store float %28, ptr %84, align 4, !tbaa !37
-  %85 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %13, i64 %83, i32 1
-  store float %37, ptr %85, align 4, !tbaa !19
-  %86 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !67
-  %87 = getelementptr inbounds %struct._GtkWidget, ptr %1, i64 %12
-  tail call void @dt_dev_add_history_item_target(ptr noundef %86, ptr noundef nonnull %0, i32 noundef 1, ptr noundef %87) #24
-  br label %88
+76:                                               ; preds = %66
+  br i1 %67, label %85, label %77
 
-88:                                               ; preds = %82, %79, %72, %63
+77:                                               ; preds = %76
+  %78 = sext i32 %38 to i64
+  br label %79
+
+79:                                               ; preds = %77, %69
+  %80 = phi i64 [ %78, %77 ], [ %70, %69 ]
+  %81 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %13, i64 %80
+  store float %28, ptr %81, align 4, !tbaa !37
+  %82 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %13, i64 %80, i32 1
+  store float %37, ptr %82, align 4, !tbaa !19
+  %83 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !67
+  %84 = getelementptr inbounds %struct._GtkWidget, ptr %1, i64 %12
+  tail call void @dt_dev_add_history_item_target(ptr noundef %83, ptr noundef nonnull %0, i32 noundef 1, ptr noundef %84) #24
+  br label %85
+
+85:                                               ; preds = %79, %76, %69, %.thread
   ret void
 }
 

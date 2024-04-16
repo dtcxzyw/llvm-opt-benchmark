@@ -1873,7 +1873,7 @@ _ZN2qe9max_level5mergeERKS0_.exit:                ; preds = %if.then.i.i.i52, %i
   %28 = load i64, ptr %m_value.i, align 8
   %lvl.sroa.0.0.extract.trunc = trunc i64 %28 to i32
   %lvl.sroa.5.0.extract.shift = lshr i64 %28, 32
-  %lvl.sroa.5.0.extract.trunc = trunc i64 %lvl.sroa.5.0.extract.shift to i32
+  %lvl.sroa.5.0.extract.trunc = trunc nuw i64 %lvl.sroa.5.0.extract.shift to i32
   br label %if.end14
 
 if.end14:                                         ; preds = %for.body.i.i.i30, %for.inc36.i.i.i41, %for.body20.i.i.i38, %for.cond18.preheader.i.i.i36, %_ZN2qe9max_level5mergeERKS0_.exit
@@ -1999,7 +1999,7 @@ if.then29:                                        ; preds = %if.then.i.i.i96, %i
   %41 = load i64, ptr %m_value.i95, align 8
   %lvl.sroa.0.0.extract.trunc177 = trunc i64 %41 to i32
   %lvl.sroa.5.0.extract.shift178 = lshr i64 %41, 32
-  %lvl.sroa.5.0.extract.trunc179 = trunc i64 %lvl.sroa.5.0.extract.shift178 to i32
+  %lvl.sroa.5.0.extract.trunc179 = trunc nuw i64 %lvl.sroa.5.0.extract.shift178 to i32
   %cmp.i.i.i101 = icmp eq i32 %lvl0.sroa.0.1226, -1
   br i1 %cmp.i.i.i101, label %_ZN2qe9max_level5mergeERjj.exit.i106, label %if.end.i.i.i102
 
@@ -2994,7 +2994,7 @@ land.rhs:                                         ; preds = %if.then.i.i.i, %if.
   %8 = load i64, ptr %m_value.i, align 8
   %lvl1.sroa.0.0.extract.trunc = trunc i64 %8 to i32
   %lvl1.sroa.3.0.extract.shift = lshr i64 %8, 32
-  %lvl1.sroa.3.0.extract.trunc = trunc i64 %lvl1.sroa.3.0.extract.shift to i32
+  %lvl1.sroa.3.0.extract.trunc = trunc nuw i64 %lvl1.sroa.3.0.extract.shift to i32
   %cmp.i.i = icmp eq i32 %lvl1.sroa.0.0.extract.trunc, -1
   br i1 %cmp.i.i, label %_ZNK2qe9max_level3maxEv.exit, label %if.end.i.i
 
@@ -4322,7 +4322,7 @@ invoke.cont42:                                    ; preds = %if.then.i.i.i97, %i
   %61 = load i32, ptr %level, align 4
   %cmp.i.i.i122 = icmp eq i32 %61, -1
   %62 = lshr i64 %59, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   br i1 %cmp.i.i.i122, label %_ZN2qe9max_level5mergeERjj.exit.i127, label %if.end.i.i.i123
 
 if.end.i.i.i123:                                  ; preds = %invoke.cont42
@@ -4684,7 +4684,7 @@ invoke.cont100:                                   ; preds = %_ZN7obj_refI3app11a
   store i64 %call101, ptr %l99, align 8
   %109 = trunc i64 %call101 to i32
   %110 = lshr i64 %call101, 32
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw i64 %110 to i32
   invoke void @_ZN2qe8pred_abs8add_predEP3appS2_(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %104, ptr noundef nonnull %20)
           to label %invoke.cont104 unwind label %lpad7.loopexit.split-lp.loopexit
 
@@ -4856,7 +4856,7 @@ land.rhs.i264:                                    ; preds = %if.then.i.i.i.i273,
   %133 = load i64, ptr %m_value.i.i265, align 8
   %lvl1.sroa.0.0.extract.trunc.i = trunc i64 %133 to i32
   %lvl1.sroa.3.0.extract.shift.i = lshr i64 %133, 32
-  %lvl1.sroa.3.0.extract.trunc.i = trunc i64 %lvl1.sroa.3.0.extract.shift.i to i32
+  %lvl1.sroa.3.0.extract.trunc.i = trunc nuw i64 %lvl1.sroa.3.0.extract.shift.i to i32
   %cmp.i.i.i266 = icmp eq i32 %lvl1.sroa.0.0.extract.trunc.i, -1
   br i1 %cmp.i.i.i266, label %invoke.cont122, label %if.end.i.i.i267
 
@@ -8331,7 +8331,7 @@ _ZNK6vectorI10ref_vectorI3app11ast_managerELb1EjE4sizeEv.exit: ; preds = %for.co
 
 for.body20:                                       ; preds = %_ZNK6vectorI10ref_vectorI3app11ast_managerELb1EjE4sizeEv.exit
   %call21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
-  %13 = trunc i64 %indvars.iv64 to i32
+  %13 = trunc nuw i64 %indvars.iv64 to i32
   %call22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call21, i32 noundef %13)
   %call23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call22, ptr noundef nonnull @.str.7)
   br label %for.cond24
@@ -8642,7 +8642,7 @@ if.then:                                          ; preds = %if.then.i.i.i, %if.
   %19 = load i64, ptr %m_value.i, align 8
   %lvl.sroa.0.0.extract.trunc = trunc i64 %19 to i32
   %lvl.sroa.4.0.extract.shift = lshr i64 %19, 32
-  %lvl.sroa.4.0.extract.trunc = trunc i64 %lvl.sroa.4.0.extract.shift to i32
+  %lvl.sroa.4.0.extract.trunc = trunc nuw i64 %lvl.sroa.4.0.extract.shift to i32
   %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
   %cmp.not.i = icmp eq i32 %lvl.sroa.0.0.extract.trunc, -1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i14
@@ -9345,10 +9345,12 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit28:       ; preds = %_ZN7obj_refI4expr11
   br i1 %or.cond, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit28
-  %cmp.i32 = icmp ne ptr %10, %6
+  %cmp.i32 = icmp eq ptr %10, %6
+  br i1 %cmp.i32, label %land.lhs.true27, label %if.end
+
+land.lhs.true27:                                  ; preds = %lor.lhs.false
   %cmp.i34 = icmp ne ptr %9, %7
-  %or.cond76.not = select i1 %cmp.i32, i1 true, i1 %cmp.i34
-  %spec.select = select i1 %or.cond76.not, i1 %valid.062, i1 false
+  %spec.select = select i1 %cmp.i34, i1 %valid.062, i1 false
   br label %if.end
 
 lpad6:                                            ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %for.body
@@ -9358,8 +9360,8 @@ lpad6:                                            ; preds = %_ZN7obj_refI4expr11
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %val_a) #19
   resume { ptr, i32 } %11
 
-if.end:                                           ; preds = %lor.lhs.false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit28
-  %valid.1 = phi i1 [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit28 ], [ %spec.select, %lor.lhs.false ]
+if.end:                                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit28, %lor.lhs.false, %land.lhs.true27
+  %valid.1 = phi i1 [ %spec.select, %land.lhs.true27 ], [ %valid.062, %lor.lhs.false ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit28 ]
   %tobool.not.i.i35 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i35, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit43, label %if.then.i.i.i36
 

@@ -2683,7 +2683,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
           to label %invoke.cont12 unwind label %lpad9
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %call15 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %call.i10, i32 noundef %7, ptr noundef %call13)
           to label %invoke.cont14 unwind label %lpad9
 
@@ -4668,7 +4668,7 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %31 = load ptr, ptr %m_elems.i, align 8
   %m_find.i.i.i = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load ptr, ptr %m_find.i.i.i, align 8
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw i64 %indvars.iv to i32
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %for.body51
@@ -4826,7 +4826,7 @@ if.end82:                                         ; preds = %.noexc.i.i3.i84, %.
   br i1 %tobool83.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end82
-  %tobool84 = trunc i8 %change.2167 to i1
+  %tobool84 = trunc nuw i8 %change.2167 to i1
   br i1 %tobool84, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
@@ -5018,7 +5018,7 @@ invoke.cont97:                                    ; preds = %invoke.cont96, %_ZN
   br i1 %tobool100.not, label %if.end104, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont97
-  %tobool101 = trunc i8 %change.2.lcssa to i1
+  %tobool101 = trunc nuw i8 %change.2.lcssa to i1
   br i1 %tobool101, label %if.then102, label %if.end104
 
 if.then102:                                       ; preds = %land.lhs.true
@@ -5178,14 +5178,11 @@ invoke.cont:                                      ; preds = %_ZNK7datalog15vecto
 
 invoke.cont12:                                    ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i)
-  br i1 %call.i21, label %if.then14, label %if.end19
+  br i1 %call.i21, label %if.then14, label %cleanup
 
 if.then14:                                        ; preds = %invoke.cont12
   %call16 = invoke noundef zeroext i1 @_ZNK12old_interval8containsERK8rational(ptr noundef nonnull align 8 dereferenceable(112) %arrayidx.i.i16, ptr noundef nonnull align 8 dereferenceable(32) %v)
-          to label %invoke.cont15 unwind label %lpad
-
-invoke.cont15:                                    ; preds = %if.then14
-  br i1 %call16, label %if.end19, label %cleanup
+          to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont, %if.then14
   %15 = landingpad { ptr, i32 }
@@ -5193,11 +5190,8 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #20
   resume { ptr, i32 } %15
 
-if.end19:                                         ; preds = %invoke.cont12, %invoke.cont15
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont15, %if.end19
-  %switch = phi i1 [ true, %if.end19 ], [ false, %invoke.cont15 ]
+cleanup:                                          ; preds = %if.then14, %invoke.cont12
+  %switch = phi i1 [ true, %invoke.cont12 ], [ %call16, %if.then14 ]
   %16 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(16) %v)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -5441,7 +5435,7 @@ for.body:                                         ; preds = %_ZNK6vectorIP4sortL
   %7 = load ptr, ptr %m_eqs.i, align 8
   %m_find.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %m_find.i.i, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %for.body
@@ -8044,7 +8038,7 @@ for.body:                                         ; preds = %_ZNK6vectorI12old_i
   %5 = load ptr, ptr %m_eqs.i, align 8
   %m_find.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %m_find.i.i, align 8
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %for.body
@@ -9949,7 +9943,7 @@ if.end7.i:                                        ; preds = %land.lhs.true.i, %f
   %14 = load ptr, ptr %result, align 8
   %arrayidx.i15.i = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i
   %15 = load ptr, ptr %arrayidx.i15.i, align 8
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw i64 %indvars.iv.i to i32
   %sub.i = sub i32 %16, %ofs.021.i
   %idxprom.i16.i = zext i32 %sub.i to i64
   %arrayidx.i17.i = getelementptr inbounds ptr, ptr %14, i64 %idxprom.i16.i
@@ -10341,13 +10335,13 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   br i1 %cmp31, label %if.then32, label %if.else34
 
 if.then32:                                        ; preds = %for.body28
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw i64 %indvars.iv to i32
   store i32 %33, ptr %arrayidx.i55, align 4
   br label %for.inc38
 
 if.else34:                                        ; preds = %for.body28
   %34 = load ptr, ptr %m_eqs.i60, align 8
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN10union_findI22union_find_default_ctxS0_E5mergeEjj(ptr noundef nonnull align 8 dereferenceable(56) %34, i32 noundef %32, i32 noundef %35)
           to label %for.inc38 unwind label %lpad2.loopexit
 
@@ -11226,13 +11220,13 @@ for.body56:                                       ; preds = %_ZNK6vectorI12old_i
   br i1 %cmp59, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body56
-  %64 = trunc i64 %indvars.iv151 to i32
+  %64 = trunc nuw i64 %indvars.iv151 to i32
   store i32 %64, ptr %arrayidx.i115, align 4
   br label %for.inc63
 
 if.else:                                          ; preds = %for.body56
   %65 = load ptr, ptr %m_eqs.i.i56, align 8
-  %66 = trunc i64 %indvars.iv151 to i32
+  %66 = trunc nuw i64 %indvars.iv151 to i32
   invoke void @_ZN10union_findI22union_find_default_ctxS0_E5mergeEjj(ptr noundef nonnull align 8 dereferenceable(56) %65, i32 noundef %63, i32 noundef %66)
           to label %for.inc63 unwind label %lpad2.loopexit.split-lp.loopexit
 

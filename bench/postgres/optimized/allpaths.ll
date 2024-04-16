@@ -128,7 +128,7 @@ set_base_rel_consider_startup.exit:               ; preds = %24, %2, %.lr.ph.i
   br label %52
 
 52:                                               ; preds = %51, %43
-  %53 = trunc i64 %indvars.iv.i22 to i32
+  %53 = trunc nuw i64 %indvars.iv.i22 to i32
   call fastcc void @set_rel_size(ptr noundef nonnull %0, ptr noundef nonnull %38, i32 noundef %53, ptr noundef %46)
   %.pre.i = load i32, ptr %28, align 8
   br label %54
@@ -219,7 +219,7 @@ set_base_rel_sizes.exit:                          ; preds = %54
   %94 = load ptr, ptr %83, align 8
   %95 = getelementptr ptr, ptr %94, i64 %indvars.iv.i26
   %96 = load ptr, ptr %95, align 8
-  %97 = trunc i64 %indvars.iv.i26 to i32
+  %97 = trunc nuw i64 %indvars.iv.i26 to i32
   call fastcc void @set_rel_pathlist(ptr noundef nonnull %0, ptr noundef nonnull %88, i32 noundef %97, ptr noundef %96)
   %.pre.i29 = load i32, ptr %28, align 8
   br label %98
@@ -1350,7 +1350,7 @@ accumulate_append_subpath.exit141.i:              ; preds = %438, %434, %430, %a
   %.0163.lcssa219.i = phi ptr [ %.0163.lcssa.i, %._crit_edge.i ], [ null, %list_length.exit121.thread.i ], [ null, %list_length.exit121.thread196.i ], [ null, %.critedge118.i ], [ %341, %accumulate_append_subpath.exit141.us.i ]
   %441 = call ptr @create_append_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0163.lcssa219.i, ptr noundef null, ptr noundef %273, ptr noundef null, i32 noundef 0, i1 noundef zeroext false, double noundef -1.000000e+00) #9
   call void @add_path(ptr noundef %1, ptr noundef %441) #9
-  %442 = trunc i8 %.099.lcssa222.i to i1
+  %442 = trunc nuw i8 %.099.lcssa222.i to i1
   br i1 %442, label %443, label %445
 
 443:                                              ; preds = %._crit_edge.thread.i
@@ -1373,7 +1373,7 @@ accumulate_append_subpath.exit141.i:              ; preds = %438, %434, %430, %a
   %.0163.lcssa223.i = phi ptr [ null, %list_length.exit121.thread.i ], [ %.0163.lcssa.i, %._crit_edge.i ]
   %449 = call ptr @create_merge_append_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0163.lcssa223.i, ptr noundef %273, ptr noundef null) #9
   call void @add_path(ptr noundef %1, ptr noundef %449) #9
-  %450 = trunc i8 %.099.lcssa226.i to i1
+  %450 = trunc nuw i8 %.099.lcssa226.i to i1
   br i1 %450, label %451, label %453
 
 451:                                              ; preds = %448
@@ -3999,17 +3999,17 @@ declare void @set_baserel_size_estimates(ptr noundef, ptr noundef) local_unnamed
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %185
+  br i1 %.not, label %6, label %compare_tlist_datatypes.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   %.not26 = icmp eq ptr %8, null
-  br i1 %.not26, label %9, label %185
+  br i1 %.not26, label %9, label %compare_tlist_datatypes.exit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 136
@@ -4021,7 +4021,7 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %13 = getelementptr inbounds i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8
   %.not28 = icmp eq ptr %14, null
-  br i1 %.not28, label %15, label %185
+  br i1 %.not28, label %15, label %compare_tlist_datatypes.exit
 
 15:                                               ; preds = %12, %9
   %16 = getelementptr inbounds i8, ptr %0, i64 176
@@ -4218,10 +4218,10 @@ check_output_expressions.exit:                    ; preds = %targetIsInAllPartit
 
 129:                                              ; preds = %128
   %130 = tail call fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef nonnull %127, ptr noundef nonnull %0, ptr noundef %2)
-  br i1 %130, label %compare_tlist_datatypes.exit, label %185
+  br label %compare_tlist_datatypes.exit
 
 131:                                              ; preds = %check_output_expressions.exit
-  br i1 %.not31, label %132, label %185
+  br i1 %.not31, label %132, label %compare_tlist_datatypes.exit
 
 132:                                              ; preds = %131
   %133 = getelementptr inbounds i8, ptr %1, i64 224
@@ -4325,11 +4325,8 @@ list_head.exit.i:                                 ; preds = %139, %132
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3808, ptr noundef nonnull @__func__.compare_tlist_datatypes) #9
   unreachable
 
-compare_tlist_datatypes.exit:                     ; preds = %._crit_edge.i, %128, %129
-  br label %185
-
-185:                                              ; preds = %131, %129, %12, %3, %6, %compare_tlist_datatypes.exit
-  %.0 = phi i1 [ true, %compare_tlist_datatypes.exit ], [ false, %6 ], [ false, %3 ], [ false, %12 ], [ false, %129 ], [ false, %131 ]
+compare_tlist_datatypes.exit:                     ; preds = %._crit_edge.i, %129, %128, %131, %12, %3, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %3 ], [ false, %12 ], [ false, %131 ], [ true, %128 ], [ %130, %129 ], [ true, %._crit_edge.i ]
   ret i1 %.0
 }
 
@@ -4409,7 +4406,7 @@ declare ptr @make_tlist_from_pathtarget(ptr noundef) local_unnamed_addr #1
 declare ptr @create_subqueryscan_path(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @recurse_pushdown_safe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @recurse_pushdown_safe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %26, %3

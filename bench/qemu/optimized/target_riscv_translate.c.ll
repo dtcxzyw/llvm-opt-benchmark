@@ -5104,7 +5104,7 @@ entry:
   store i8 %conv, ptr %sew, align 2
   %10 = shl i32 %1, 22
   %shr.i65 = ashr i32 %10, 29
-  %conv16 = trunc i32 %shr.i65 to i8
+  %conv16 = trunc nsw i32 %shr.i65 to i8
   %lmul = getelementptr inbounds i8, ptr %dcbase, i64 137
   store i8 %conv16, ptr %lmul, align 1
   %11 = and i32 %1, 1048576
@@ -82692,7 +82692,7 @@ entry:
   %add = add i64 %0, 4
   %1 = xor i64 %sub, %add
   %cmp2 = icmp ult i64 %1, 4096
-  br i1 %cmp2, label %if.then, label %if.else
+  br i1 %cmp2, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
   %2 = getelementptr i8, ptr %ctx, i64 144
@@ -82710,13 +82710,11 @@ if.then:                                          ; preds = %entry
   %5 = select i1 %3, i1 %4, i1 false
   %6 = icmp eq i32 %call1.i17, 1081102355
   %7 = select i1 %5, i1 %6, i1 false
-  br i1 %7, label %if.end15, label %if.else
-
-if.else:                                          ; preds = %entry, %if.then
+  %spec.select = select i1 %7, i32 16, i32 3
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then, %if.else
-  %.sink = phi i32 [ 3, %if.else ], [ 16, %if.then ]
+if.end15:                                         ; preds = %if.then, %entry
+  %.sink = phi i32 [ 3, %entry ], [ %spec.select, %if.then ]
   tail call fastcc void @generate_exception(ptr noundef nonnull %ctx, i32 noundef %.sink)
   ret void
 }
@@ -88371,7 +88369,7 @@ for.end.loopexit55.i:                             ; preds = %for.body.us31.i
 
 vext_check_ld_index.exit:                         ; preds = %for.inc.us.i, %land.end.i, %for.body.lr.ph.split.split.i, %for.end.loopexit53.i, %for.end.loopexit55.i
   %ret.0.lcssa.i = phi i8 [ %frombool.i, %land.end.i ], [ %ret.2.us26.i, %for.end.loopexit53.i ], [ %frombool77.us45.i, %for.end.loopexit55.i ], [ %frombool.i, %for.body.lr.ph.split.split.i ], [ %ret.2.us.i, %for.inc.us.i ]
-  %tobool79.i = trunc i8 %ret.0.lcssa.i to i1
+  %tobool79.i = trunc nuw i8 %ret.0.lcssa.i to i1
   br label %land.end
 
 land.end:                                         ; preds = %vext_check_ld_index.exit, %land.lhs.true, %entry
@@ -118956,7 +118954,7 @@ dest_gpr.exit:                                    ; preds = %if.then.i, %if.end.
 
 for.body:                                         ; preds = %dest_gpr.exit, %for.inc
   %indvars.iv = phi i64 [ 27, %dest_gpr.exit ], [ %indvars.iv.next, %for.inc ]
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw i32 1, %10
   %and15 = and i32 %shl, %switch.load
   %tobool16.not = icmp eq i32 %and15, 0
@@ -119109,7 +119107,7 @@ dest_gpr.exit:                                    ; preds = %if.then.i, %if.end.
 
 for.body:                                         ; preds = %dest_gpr.exit, %for.inc
   %indvars.iv = phi i64 [ 27, %dest_gpr.exit ], [ %indvars.iv.next, %for.inc ]
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw i32 1, %12
   %and17 = and i32 %shl, %switch.load
   %tobool18.not = icmp eq i32 %and17, 0

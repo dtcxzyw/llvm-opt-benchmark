@@ -18,14 +18,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @BIO_printf(ptr noundef %bio, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %call = call i32 @BIO_vprintf(ptr noundef %bio, ptr noundef %format, ptr noundef nonnull %args)
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_vprintf(ptr noundef %bio, ptr nocapture noundef readonly %format, ptr noundef %args) local_unnamed_addr #0 {
@@ -68,9 +65,6 @@ return:                                           ; preds = %if.then2, %if.else,
   %retval.0 = phi i32 [ -1, %if.then ], [ %call3, %if.then2 ], [ %call6, %if.else ]
   ret i32 %retval.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @_dopr(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %maxlen, ptr nocapture noundef writeonly %retlen, ptr nocapture noundef writeonly %truncated, ptr nocapture noundef readonly %format, ptr noundef %args) unnamed_addr #0 {
@@ -1862,9 +1856,9 @@ return:                                           ; preds = %if.else.i198, %if.t
   ret i32 %retval.0
 }
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_snprintf(ptr noundef %buf, i64 noundef %n, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
@@ -1874,7 +1868,7 @@ entry:
   %retlen.i = alloca i64, align 8
   %truncated.i = alloca i32, align 4
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retlen.i)
@@ -1895,7 +1889,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retlen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %truncated.i)
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret i32 %retval.0.i
 }
 
@@ -2014,7 +2008,7 @@ return:                                           ; preds = %return.sink.split, 
   ret i32 %retval.0
 }
 
-declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @fmtint(ptr nocapture noundef %sbuffer, ptr noundef %buffer, ptr nocapture noundef %currlen, ptr nocapture noundef %maxlen, i64 noundef %value, i32 noundef %base, i32 noundef %min, i32 noundef %max, i32 noundef %flags) unnamed_addr #0 {
@@ -2077,8 +2071,8 @@ do.body:                                          ; preds = %do.body, %if.end14
 do.end:                                           ; preds = %do.body
   %tobool16.not = icmp eq i32 %and15, 0
   %prefix.1 = select i1 %tobool16.not, ptr @.str.1, ptr %spec.select69
-  %2 = trunc i64 %indvars.iv to i32
-  %3 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.next to i32
   %cmp36 = icmp eq i32 %3, 26
   %spec.select68 = select i1 %cmp36, i32 %2, i32 %3
   %idxprom40 = zext i32 %spec.select68 to i64
@@ -2166,7 +2160,7 @@ while.cond113.preheader:                          ; preds = %if.end109, %while.e
 
 while.cond113:                                    ; preds = %while.cond113.preheader, %while.body116
   %indvars.iv89 = phi i64 [ %10, %while.body116 ], [ %idxprom40, %while.cond113.preheader ]
-  %9 = trunc i64 %indvars.iv89 to i32
+  %9 = trunc nuw i64 %indvars.iv89 to i32
   %cmp114 = icmp sgt i32 %9, 0
   br i1 %cmp114, label %while.body116, label %while.cond126.preheader
 
@@ -2239,14 +2233,12 @@ if.else18:                                        ; preds = %if.else15
   %cmp19 = icmp eq i32 %spec.store.select, 0
   %cmp20 = fcmp oge double %fvalue, 1.000000e+01
   %or.cond = and i1 %cmp20, %cmp19
-  br i1 %or.cond, label %if.then32, label %lor.lhs.false
+  %.mux = zext i1 %or.cond to i32
+  br i1 %cmp19, label %if.then32, label %while.body.i
 
-lor.lhs.false:                                    ; preds = %if.else18
-  br i1 %cmp19, label %if.else25, label %while.body.i
-
-while.body.i:                                     ; preds = %lor.lhs.false, %while.body.i
-  %result.05.i = phi double [ %mul.i, %while.body.i ], [ 1.000000e+00, %lor.lhs.false ]
-  %in_exp.addr.04.i = phi i32 [ %dec.i, %while.body.i ], [ %spec.store.select, %lor.lhs.false ]
+while.body.i:                                     ; preds = %if.else18, %while.body.i
+  %result.05.i = phi double [ %mul.i, %while.body.i ], [ 1.000000e+00, %if.else18 ]
+  %in_exp.addr.04.i = phi i32 [ %dec.i, %while.body.i ], [ %spec.store.select, %if.else18 ]
   %mul.i = fmul double %result.05.i, 1.000000e+01
   %dec.i = add nsw i32 %in_exp.addr.04.i, -1
   %tobool.not.i = icmp eq i32 %dec.i, 0
@@ -2256,16 +2248,16 @@ pow_10.exit:                                      ; preds = %while.body.i
   %cmp23 = fcmp ugt double %mul.i, %fvalue
   br i1 %cmp23, label %if.else25, label %if.end30
 
-if.else25:                                        ; preds = %pow_10.exit, %lor.lhs.false
+if.else25:                                        ; preds = %pow_10.exit
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end10, %pow_10.exit, %if.else25
-  %realstyle.0 = phi i32 [ 0, %if.else25 ], [ 1, %pow_10.exit ], [ %style, %if.end10 ]
+  %realstyle.0 = phi i32 [ 1, %pow_10.exit ], [ 0, %if.else25 ], [ %style, %if.end10 ]
   %cmp31.not = icmp eq i32 %style, 0
   br i1 %cmp31.not, label %if.end62, label %if.then32
 
-if.then32:                                        ; preds = %if.then12, %if.else15, %if.else18, %if.end30
-  %realstyle.0196 = phi i32 [ %realstyle.0, %if.end30 ], [ 1, %if.else18 ], [ 1, %if.else15 ], [ 0, %if.then12 ]
+if.then32:                                        ; preds = %if.else18, %if.then12, %if.else15, %if.end30
+  %realstyle.0196 = phi i32 [ %realstyle.0, %if.end30 ], [ %.mux, %if.else18 ], [ 1, %if.else15 ], [ 0, %if.then12 ]
   %cmp33 = fcmp une double %fvalue, 0.000000e+00
   br i1 %cmp33, label %while.cond.preheader, label %if.end40
 
@@ -2404,8 +2396,8 @@ do.body:                                          ; preds = %do.body, %pow_10.ex
 
 do.end:                                           ; preds = %do.body
   %fracpart.0 = sub i64 %intpart.0.i193, %sub85
-  %4 = trunc i64 %indvars.iv to i32
-  %5 = trunc i64 %indvars.iv.next to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.next to i32
   %cmp94 = icmp eq i32 %5, 20
   %spec.select166 = select i1 %cmp94, i32 %4, i32 %5
   %idxprom99 = zext nneg i32 %spec.select166 to i64
@@ -2421,7 +2413,7 @@ while.cond101.outer.us.preheader:                 ; preds = %do.end
 while.cond101.outer.us:                           ; preds = %while.cond101.outer.us.preheader, %if.then114.us
   %indvars.iv297 = phi i64 [ %6, %while.cond101.outer.us.preheader ], [ %indvars.iv.next298, %if.then114.us ]
   %fracpart.1.ph.us = phi i64 [ %fracpart.0, %while.cond101.outer.us.preheader ], [ %div116.us, %if.then114.us ]
-  %7 = trunc i64 %indvars.iv297 to i32
+  %7 = trunc nuw i64 %indvars.iv297 to i32
   %cmp102232.us = icmp sgt i32 %7, 0
   br i1 %cmp102232.us, label %while.body104.us246, label %while.end128
 
@@ -2507,7 +2499,7 @@ do.end157:                                        ; preds = %do.body142
   br i1 %cmp151, label %return.sink.split, label %if.end162
 
 if.end162:                                        ; preds = %do.end157
-  %13 = trunc i64 %indvars.iv.next301 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.next301 to i32
   %cmp163 = icmp eq i64 %indvars.iv300, 0
   br i1 %cmp163, label %if.then165, label %if.end170
 
@@ -2600,7 +2592,7 @@ if.end239:                                        ; preds = %while.cond213, %if.
 
 while.cond240:                                    ; preds = %while.body243, %if.end239
   %indvars.iv303 = phi i64 [ %18, %while.body243 ], [ %idxprom99, %if.end239 ]
-  %17 = trunc i64 %indvars.iv303 to i32
+  %17 = trunc nuw i64 %indvars.iv303 to i32
   %cmp241 = icmp sgt i32 %17, 0
   br i1 %cmp241, label %while.body243, label %while.end252
 
@@ -2723,17 +2715,23 @@ return:                                           ; preds = %while.body227, %whi
   ret i32 %retval.0
 }
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
-declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
-declare i64 @OPENSSL_strnlen(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @OPENSSL_strnlen(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
@@ -2751,10 +2749,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }

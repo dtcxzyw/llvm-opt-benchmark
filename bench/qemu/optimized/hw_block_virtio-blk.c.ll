@@ -389,7 +389,7 @@ if.end21:                                         ; preds = %if.end15
 sw.bb:                                            ; preds = %if.end21
   %and35 = and i32 %out.val, 1
   %tobool36.not = icmp eq i32 %and35, 0
-  %frombool = trunc i32 %and35 to i8
+  %frombool = trunc nuw nsw i32 %and35 to i8
   %sector = getelementptr inbounds i8, ptr %req, i64 144
   %sector.val = load i64, ptr %sector, align 1
   %sector_num = getelementptr inbounds i8, ptr %req, i64 56
@@ -890,7 +890,7 @@ if.end:                                           ; preds = %entry
 if.end2:                                          ; preds = %if.end
   %logical_block_size = getelementptr inbounds i8, ptr %dev, i64 552
   %1 = load i32, ptr %logical_block_size, align 8
-  %rem.lhs.trunc = trunc i64 %size to i32
+  %rem.lhs.trunc = trunc nuw i64 %size to i32
   %rem7 = urem i32 %rem.lhs.trunc, %1
   %tobool5.not = icmp eq i32 %rem7, 0
   br i1 %tobool5.not, label %if.end7, label %return
@@ -1489,7 +1489,7 @@ entry:
   %sector = getelementptr inbounds i8, ptr %req, i64 144
   %sector.val = load i64, ptr %sector, align 1
   %shl = shl i64 %sector.val, 9
-  %conv = trunc i64 %out_num to i32
+  %conv = trunc nuw i64 %out_num to i32
   %call2 = tail call i64 @iov_size(ptr noundef %out_iov, i32 noundef %conv) #14
   %shr = ashr exact i64 %shl, 9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1970,7 +1970,7 @@ do.body:                                          ; preds = %for.body
   unreachable
 
 switch.lookup:                                    ; preds = %for.body
-  %switch.idx.cast = trunc i32 %switch.tableidx to i8
+  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 1
   store i8 %switch.offset, ptr %z_type, align 8
   %state = getelementptr %struct.BlockZoneDescriptor, ptr %18, i64 %j.046, i32 5
@@ -1983,7 +1983,7 @@ do.body49:                                        ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %switch.lookup
-  %switch.maskindex = trunc i32 %24 to i16
+  %switch.maskindex = trunc nuw i32 %24 to i16
   %switch.shifted = lshr i16 -8161, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup51, label %do.body49
@@ -2421,7 +2421,7 @@ for.body17:                                       ; preds = %for.body17.preheade
   %mr_next = getelementptr inbounds i8, ptr %12, i64 208
   store ptr %11, ptr %mr_next, align 8
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
-  %13 = trunc i64 %indvars.iv55 to i32
+  %13 = trunc nsw i64 %indvars.iv55 to i32
   %lftr.wideiv = trunc i64 %indvars.iv.next56 to i32
   %exitcond58.not = icmp eq i32 %add15, %lftr.wideiv
   br i1 %exitcond58.not, label %for.end34, label %for.body17, !llvm.loop !16
@@ -3149,19 +3149,17 @@ if.then45:                                        ; preds = %get_physical_block_
   %discard_granularity46 = getelementptr inbounds i8, ptr %call.i, i64 568
   %20 = load i32, ptr %discard_granularity46, align 8
   %cmp47 = icmp eq i32 %20, -1
-  br i1 %cmp47, label %if.then51, label %lor.lhs.false
+  br i1 %cmp47, label %if.end52, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then45
   %report_discard_granularity = getelementptr inbounds i8, ptr %call.i, i64 649
   %21 = load i8, ptr %report_discard_granularity, align 1
   %tobool50 = trunc i8 %21 to i1
-  br i1 %tobool50, label %if.end52, label %if.then51
-
-if.then51:                                        ; preds = %lor.lhs.false, %if.then45
+  %spec.select = select i1 %tobool50, i32 %20, i32 %1
   br label %if.end52
 
-if.end52:                                         ; preds = %if.then51, %lor.lhs.false
-  %discard_granularity.0 = phi i32 [ %1, %if.then51 ], [ %20, %lor.lhs.false ]
+if.end52:                                         ; preds = %lor.lhs.false, %if.then45
+  %discard_granularity.0 = phi i32 [ %1, %if.then45 ], [ %spec.select, %lor.lhs.false ]
   %max_discard_sectors54 = getelementptr inbounds i8, ptr %call.i, i64 652
   %22 = load i32, ptr %max_discard_sectors54, align 4
   %blkcfg.36.blkcfg.36.blkcfg.36.max_discard_sectors.sroa_idx = getelementptr inbounds i8, ptr %blkcfg, i64 36

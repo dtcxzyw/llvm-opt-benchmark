@@ -13217,7 +13217,7 @@ invoke.cont8.i.preheader:                         ; preds = %if.end.i.i.i.i.i25.
 
 invoke.cont8.i:                                   ; preds = %invoke.cont8.i.preheader, %invoke.cont10.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %invoke.cont10.i ], [ 0, %invoke.cont8.i.preheader ]
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw i64 %indvars.iv.i to i32
   %mul.i.i.i = shl nuw nsw i64 %indvars.iv.i, 2
   %idx.ext.i.i.i = and i64 %mul.i.i.i, 4294967292
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idx.ext.i.i.i
@@ -17269,29 +17269,27 @@ _ZNK10reflection5Field15default_integerEv.exit:   ; preds = %_ZNK11flatbuffers5T
   %14 = load i64, ptr %add.ptr.i.i30, align 8
   %.fr = freeze i64 %14
   %tobool.not = icmp eq i64 %.fr, 0
-  br i1 %tobool.not, label %_ZNK10reflection5Field15default_integerEv.exit.thread, label %15
+  %spec.select = select i1 %tobool.not, ptr @.str.11, ptr @.str.24
+  br label %_ZNK10reflection5Field15default_integerEv.exit.thread
 
-_ZNK10reflection5Field15default_integerEv.exit.thread: ; preds = %if.then6, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i25, %_ZNK10reflection5Field15default_integerEv.exit
-  br label %15
-
-15:                                               ; preds = %_ZNK10reflection5Field15default_integerEv.exit, %_ZNK10reflection5Field15default_integerEv.exit.thread
-  %16 = phi ptr [ @.str.11, %_ZNK10reflection5Field15default_integerEv.exit.thread ], [ @.str.24, %_ZNK10reflection5Field15default_integerEv.exit ]
+_ZNK10reflection5Field15default_integerEv.exit.thread: ; preds = %_ZNK10reflection5Field15default_integerEv.exit, %if.then6, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i25
+  %15 = phi ptr [ @.str.11, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i25 ], [ @.str.11, %if.then6 ], [ %spec.select, %_ZNK10reflection5Field15default_integerEv.exit ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   %call.i31 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
 
-call.i.noexc:                                     ; preds = %15
+call.i.noexc:                                     ; preds = %_ZNK10reflection5Field15default_integerEv.exit.thread
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #21
-  %add.ptr.i = getelementptr inbounds i8, ptr %16, i64 %call.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %16, ptr noundef nonnull %add.ptr.i)
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #21
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %call.i.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %15, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
   br label %lpad.body
@@ -17300,20 +17298,20 @@ invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   br label %return
 
-lpad:                                             ; preds = %call.i.noexc, %15
-  %18 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %call.i.noexc, %_ZNK10reflection5Field15default_integerEv.exit.thread
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %lpad ], [ %17, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %lpad ], [ %16, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   br label %common.resume
 
 if.end8:                                          ; preds = %if.end
-  %19 = add nsw i32 %8, -1
-  %20 = icmp ult i32 %19, 12
-  br i1 %20, label %if.then10, label %if.end12
+  %18 = add nsw i32 %8, -1
+  %19 = icmp ult i32 %18, 12
+  br i1 %19, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
   %cmp.i.i.i35 = icmp ugt i16 %1, 12
@@ -17321,18 +17319,18 @@ if.then10:                                        ; preds = %if.end8
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i37: ; preds = %if.then10
   %add.ptr.i.i.i38 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 12
-  %21 = load i16, ptr %add.ptr.i.i.i38, align 2
-  %tobool.not.i.i39 = icmp eq i16 %21, 0
+  %20 = load i16, ptr %add.ptr.i.i.i38, align 2
+  %tobool.not.i.i39 = icmp eq i16 %20, 0
   br i1 %tobool.not.i.i39, label %_ZNK10reflection5Field15default_integerEv.exit43, label %cond.true.i.i40
 
 cond.true.i.i40:                                  ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i37
-  %idx.ext.i.i41 = zext i16 %21 to i64
+  %idx.ext.i.i41 = zext i16 %20 to i64
   %add.ptr.i.i42 = getelementptr inbounds i8, ptr %field, i64 %idx.ext.i.i41
-  %22 = load i64, ptr %add.ptr.i.i42, align 8
+  %21 = load i64, ptr %add.ptr.i.i42, align 8
   br label %_ZNK10reflection5Field15default_integerEv.exit43
 
 _ZNK10reflection5Field15default_integerEv.exit43: ; preds = %if.then10, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i37, %cond.true.i.i40
-  %cond.i.i36 = phi i64 [ %22, %cond.true.i.i40 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i37 ], [ 0, %if.then10 ]
+  %cond.i.i36 = phi i64 [ %21, %cond.true.i.i40 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i37 ], [ 0, %if.then10 ]
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i), !noalias !158
   %add.ptr.i44 = getelementptr inbounds i8, ptr %ss.i, i64 16
@@ -17344,11 +17342,11 @@ invoke.cont.i:                                    ; preds = %_ZNK10reflection5Fi
           to label %_ZN11flatbuffers11NumToStringIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit unwind label %lpad.i45
 
 common.resume:                                    ; preds = %lpad.body, %lpad14.body, %lpad.i45
-  %common.resume.op = phi { ptr, i32 } [ %23, %lpad.i45 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body52, %lpad14.body ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i45 ], [ %eh.lpad-body, %lpad.body ], [ %eh.lpad-body52, %lpad14.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i45:                                         ; preds = %invoke.cont.i, %_ZNK10reflection5Field15default_integerEv.exit43
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i) #21
   br label %common.resume
@@ -17372,7 +17370,7 @@ call.i46.noexc:                                   ; preds = %if.end12
           to label %invoke.cont15 unwind label %lpad.i49
 
 lpad.i49:                                         ; preds = %.noexc51
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
   br label %lpad14.body
@@ -17382,12 +17380,12 @@ invoke.cont15:                                    ; preds = %.noexc51
   br label %return
 
 lpad14:                                           ; preds = %call.i46.noexc, %if.end12
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %lpad14.body
 
 lpad14.body:                                      ; preds = %lpad.i49, %lpad14
-  %eh.lpad-body52 = phi { ptr, i32 } [ %25, %lpad14 ], [ %24, %lpad.i49 ]
+  %eh.lpad-body52 = phi { ptr, i32 } [ %24, %lpad14 ], [ %23, %lpad.i49 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #21
   br label %common.resume
 

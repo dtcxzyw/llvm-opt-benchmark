@@ -270,8 +270,8 @@ land.lhs.true67.i.i:                              ; preds = %if.end52.i.i
   br i1 %cmp68.old.not.i.i, label %if.end82.i.i, label %land.lhs.true67.land.lhs.true70_crit_edge.i.i
 
 land.lhs.true67.land.lhs.true70_crit_edge.i.i:    ; preds = %land.lhs.true67.i.i
-  %.pre96.i.i = tail call ptr @__ctype_b_loc() #15
-  %.pre.i = load ptr, ptr %.pre96.i.i, align 8
+  %.pre97.i.i = tail call ptr @__ctype_b_loc() #15
+  %.pre.i = load ptr, ptr %.pre97.i.i, align 8
   br label %land.lhs.true70.i.i
 
 land.lhs.true70.i.i:                              ; preds = %land.lhs.true67.land.lhs.true70_crit_edge.i.i, %land.lhs.true58.i.i
@@ -294,10 +294,10 @@ if.end82.i.i:                                     ; preds = %land.lhs.true70.i.i
 
 if.end82.land.lhs.true85_crit_edge.i.i:           ; preds = %if.end82.i.i
   %.pre.i.i = tail call ptr @__ctype_b_loc() #15
-  %.pre94.i.i = and i32 %c.0.i.i, 255
-  %.pre95.i.i = zext nneg i32 %.pre94.i.i to i64
+  %.pre95.i.i = and i32 %c.0.i.i, 255
+  %.pre96.i.i = zext nneg i32 %.pre95.i.i to i64
   %.pre179.i = load ptr, ptr %.pre.i.i, align 8
-  %arrayidx89.i.phi.trans.insert.i = getelementptr inbounds i16, ptr %.pre179.i, i64 %.pre95.i.i
+  %arrayidx89.i.phi.trans.insert.i = getelementptr inbounds i16, ptr %.pre179.i, i64 %.pre96.i.i
   %.pre180.i = load i16, ptr %arrayidx89.i.phi.trans.insert.i, align 2
   %.pre182.i = and i16 %.pre180.i, 8
   br label %land.lhs.true85.i.i
@@ -305,14 +305,14 @@ if.end82.land.lhs.true85_crit_edge.i.i:           ; preds = %if.end82.i.i
 land.lhs.true85.i.i:                              ; preds = %if.end82.land.lhs.true85_crit_edge.i.i, %land.lhs.true58.i.i
   %.pre-phi.i = phi i16 [ %.pre182.i, %if.end82.land.lhs.true85_crit_edge.i.i ], [ %26, %land.lhs.true58.i.i ]
   %30 = phi ptr [ %.pre179.i, %if.end82.land.lhs.true85_crit_edge.i.i ], [ %24, %land.lhs.true58.i.i ]
-  %flagch.290.i.i = phi i32 [ %flagch.2.i.i, %if.end82.land.lhs.true85_crit_edge.i.i ], [ %flagch.1.i.i, %land.lhs.true58.i.i ]
+  %flagch.291.i.i = phi i32 [ %flagch.2.i.i, %if.end82.land.lhs.true85_crit_edge.i.i ], [ %flagch.1.i.i, %land.lhs.true58.i.i ]
   %tobool92.i.i = icmp ne i16 %.pre-phi.i, 0
   %cmp94.i.i = icmp eq i32 %c.0.i.i, 95
   %or.cond5.i.i = select i1 %tobool92.i.i, i1 true, i1 %cmp94.i.i
   br i1 %or.cond5.i.i, label %land.lhs.true96.i.i, label %if.end114.i.i
 
 land.lhs.true96.i.i:                              ; preds = %land.lhs.true85.i.i
-  %cmp97.i.i = icmp eq i32 %flagch.290.i.i, 130
+  %cmp97.i.i = icmp eq i32 %flagch.291.i.i, 130
   br i1 %cmp97.i.i, label %if.then120.i.i, label %lor.lhs.false99.i.i
 
 lor.lhs.false99.i.i:                              ; preds = %land.lhs.true96.i.i
@@ -328,17 +328,18 @@ land.lhs.true102.i.i:                             ; preds = %lor.lhs.false99.i.i
   %tobool109.i.i = icmp ne i16 %32, 0
   %cmp111.i.i = icmp eq i32 %cond10.i.i, 95
   %or.cond7.i.i = select i1 %tobool109.i.i, i1 true, i1 %cmp111.i.i
-  br i1 %or.cond7.i.i, label %if.end114.i.i, label %if.then120.i.i
+  %spec.select85.i.i = select i1 %or.cond7.i.i, i32 %flagch.291.i.i, i32 134
+  br label %if.end114.i.i
 
 if.end114.i.i:                                    ; preds = %land.lhs.true102.i.i, %lor.lhs.false99.i.i, %land.lhs.true85.i.i, %if.end82.i.i, %lor.lhs.false55.i.i
-  %flagch.3.i.i = phi i32 [ %flagch.290.i.i, %land.lhs.true102.i.i ], [ %flagch.290.i.i, %lor.lhs.false99.i.i ], [ %flagch.290.i.i, %land.lhs.true85.i.i ], [ %flagch.2.i.i, %if.end82.i.i ], [ %flagch.1.i.i, %lor.lhs.false55.i.i ]
+  %flagch.3.i.i = phi i32 [ %flagch.291.i.i, %lor.lhs.false99.i.i ], [ %flagch.291.i.i, %land.lhs.true85.i.i ], [ %flagch.2.i.i, %if.end82.i.i ], [ %spec.select85.i.i, %land.lhs.true102.i.i ], [ %flagch.1.i.i, %lor.lhs.false55.i.i ]
   %33 = add i32 %flagch.3.i.i, -133
   %or.cond9.i.i = icmp ult i32 %33, 2
   br i1 %or.cond9.i.i, label %if.then120.i.i, label %if.end123.i.i
 
-if.then120.i.i:                                   ; preds = %if.end114.i.i, %land.lhs.true102.i.i, %land.lhs.true96.i.i
-  %flagch.393.i.i = phi i32 [ %flagch.3.i.i, %if.end114.i.i ], [ 134, %land.lhs.true96.i.i ], [ 134, %land.lhs.true102.i.i ]
-  %call122.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.2.i.i, i32 noundef %flagch.393.i.i, i64 noundef %st.2.i.i)
+if.then120.i.i:                                   ; preds = %if.end114.i.i, %land.lhs.true96.i.i
+  %flagch.394.i.i = phi i32 [ %flagch.3.i.i, %if.end114.i.i ], [ 134, %land.lhs.true96.i.i ]
+  %call122.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.2.i.i, i32 noundef %flagch.394.i.i, i64 noundef %st.2.i.i)
   br label %if.end123.i.i
 
 if.end123.i.i:                                    ; preds = %if.then120.i.i, %if.end114.i.i
@@ -849,8 +850,8 @@ land.lhs.true74.i.i:                              ; preds = %if.end58.i.i
   br i1 %cmp75.old.not.i.i, label %if.end89.i.i, label %land.lhs.true74.land.lhs.true77_crit_edge.i.i
 
 land.lhs.true74.land.lhs.true77_crit_edge.i.i:    ; preds = %land.lhs.true74.i.i
-  %.pre105.i.i = tail call ptr @__ctype_b_loc() #15
-  %.pre.i87 = load ptr, ptr %.pre105.i.i, align 8
+  %.pre106.i.i = tail call ptr @__ctype_b_loc() #15
+  %.pre.i87 = load ptr, ptr %.pre106.i.i, align 8
   br label %land.lhs.true77.i.i
 
 land.lhs.true77.i.i:                              ; preds = %land.lhs.true74.land.lhs.true77_crit_edge.i.i, %land.lhs.true64.i.i
@@ -873,10 +874,10 @@ if.end89.i.i:                                     ; preds = %land.lhs.true77.i.i
 
 if.end89.land.lhs.true92_crit_edge.i.i:           ; preds = %if.end89.i.i
   %.pre.i.i86 = tail call ptr @__ctype_b_loc() #15
-  %.pre103.i.i = and i32 %c.0.i.i59, 255
-  %.pre104.i.i = zext nneg i32 %.pre103.i.i to i64
+  %.pre104.i.i = and i32 %c.0.i.i59, 255
+  %.pre105.i.i = zext nneg i32 %.pre104.i.i to i64
   %.pre198.i = load ptr, ptr %.pre.i.i86, align 8
-  %arrayidx96.i.phi.trans.insert.i = getelementptr inbounds i16, ptr %.pre198.i, i64 %.pre104.i.i
+  %arrayidx96.i.phi.trans.insert.i = getelementptr inbounds i16, ptr %.pre198.i, i64 %.pre105.i.i
   %.pre199.i = load i16, ptr %arrayidx96.i.phi.trans.insert.i, align 2
   %.pre201.i = and i16 %.pre199.i, 8
   br label %land.lhs.true92.i.i
@@ -884,14 +885,14 @@ if.end89.land.lhs.true92_crit_edge.i.i:           ; preds = %if.end89.i.i
 land.lhs.true92.i.i:                              ; preds = %if.end89.land.lhs.true92_crit_edge.i.i, %land.lhs.true64.i.i
   %.pre-phi.i68 = phi i16 [ %.pre201.i, %if.end89.land.lhs.true92_crit_edge.i.i ], [ %93, %land.lhs.true64.i.i ]
   %97 = phi ptr [ %.pre198.i, %if.end89.land.lhs.true92_crit_edge.i.i ], [ %91, %land.lhs.true64.i.i ]
-  %flagch.299.i.i = phi i32 [ %flagch.2.i.i85, %if.end89.land.lhs.true92_crit_edge.i.i ], [ %flagch.1.i.i64, %land.lhs.true64.i.i ]
+  %flagch.2100.i.i = phi i32 [ %flagch.2.i.i85, %if.end89.land.lhs.true92_crit_edge.i.i ], [ %flagch.1.i.i64, %land.lhs.true64.i.i ]
   %tobool99.i.i = icmp ne i16 %.pre-phi.i68, 0
   %cmp101.i.i = icmp eq i32 %c.0.i.i59, 95
   %or.cond5.i.i69 = select i1 %tobool99.i.i, i1 true, i1 %cmp101.i.i
   br i1 %or.cond5.i.i69, label %land.lhs.true103.i.i, label %if.end121.i.i
 
 land.lhs.true103.i.i:                             ; preds = %land.lhs.true92.i.i
-  %cmp104.i.i = icmp eq i32 %flagch.299.i.i, 130
+  %cmp104.i.i = icmp eq i32 %flagch.2100.i.i, 130
   br i1 %cmp104.i.i, label %if.then127.i.i, label %lor.lhs.false106.i.i
 
 lor.lhs.false106.i.i:                             ; preds = %land.lhs.true103.i.i
@@ -907,18 +908,19 @@ land.lhs.true109.i.i:                             ; preds = %lor.lhs.false106.i.
   %tobool116.i.i = icmp ne i16 %99, 0
   %cmp118.i.i = icmp eq i32 %cond13.i.i, 95
   %or.cond7.i.i83 = select i1 %tobool116.i.i, i1 true, i1 %cmp118.i.i
-  br i1 %or.cond7.i.i83, label %if.end121.i.i, label %if.then127.i.i
+  %spec.select94.i.i = select i1 %or.cond7.i.i83, i32 %flagch.2100.i.i, i32 134
+  br label %if.end121.i.i
 
 if.end121.i.i:                                    ; preds = %land.lhs.true109.i.i, %lor.lhs.false106.i.i, %land.lhs.true92.i.i, %if.end89.i.i, %lor.lhs.false61.i.i
-  %flagch.3.i.i70 = phi i32 [ %flagch.299.i.i, %land.lhs.true109.i.i ], [ %flagch.299.i.i, %lor.lhs.false106.i.i ], [ %flagch.299.i.i, %land.lhs.true92.i.i ], [ %flagch.2.i.i85, %if.end89.i.i ], [ %flagch.1.i.i64, %lor.lhs.false61.i.i ]
+  %flagch.3.i.i70 = phi i32 [ %flagch.2100.i.i, %lor.lhs.false106.i.i ], [ %flagch.2100.i.i, %land.lhs.true92.i.i ], [ %flagch.2.i.i85, %if.end89.i.i ], [ %spec.select94.i.i, %land.lhs.true109.i.i ], [ %flagch.1.i.i64, %lor.lhs.false61.i.i ]
   %100 = add i32 %flagch.3.i.i70, -133
   %or.cond9.i.i71 = icmp ult i32 %100, 2
   br i1 %or.cond9.i.i71, label %if.then127.i.i, label %if.end130.i.i
 
-if.then127.i.i:                                   ; preds = %if.end121.i.i, %land.lhs.true109.i.i, %land.lhs.true103.i.i
-  %flagch.3102.i.i = phi i32 [ %flagch.3.i.i70, %if.end121.i.i ], [ 134, %land.lhs.true103.i.i ], [ 134, %land.lhs.true109.i.i ]
+if.then127.i.i:                                   ; preds = %if.end121.i.i, %land.lhs.true103.i.i
+  %flagch.3103.i.i = phi i32 [ %flagch.3.i.i70, %if.end121.i.i ], [ 134, %land.lhs.true103.i.i ]
   %101 = load ptr, ptr %mv.i12, align 8
-  %call129.i.i = call fastcc ptr @lstep(ptr noundef %101, i64 noundef %add.i14, i64 noundef %62, ptr noundef %70, i32 noundef %flagch.3102.i.i, ptr noundef %70)
+  %call129.i.i = call fastcc ptr @lstep(ptr noundef %101, i64 noundef %add.i14, i64 noundef %62, ptr noundef %70, i32 noundef %flagch.3103.i.i, ptr noundef %70)
   br label %if.end130.i.i
 
 if.end130.i.i:                                    ; preds = %if.then127.i.i, %if.end121.i.i
@@ -1318,11 +1320,11 @@ land.lhs.true63:                                  ; preds = %if.end48
   br i1 %cmp64.old.not, label %if.end78, label %land.lhs.true63.land.lhs.true66_crit_edge
 
 land.lhs.true63.land.lhs.true66_crit_edge:        ; preds = %land.lhs.true63
-  %.pre91 = tail call ptr @__ctype_b_loc() #15
+  %.pre92 = tail call ptr @__ctype_b_loc() #15
   br label %land.lhs.true66
 
 land.lhs.true66:                                  ; preds = %land.lhs.true63.land.lhs.true66_crit_edge, %land.lhs.true54
-  %call67.pre-phi = phi ptr [ %.pre91, %land.lhs.true63.land.lhs.true66_crit_edge ], [ %call55, %land.lhs.true54 ]
+  %call67.pre-phi = phi ptr [ %.pre92, %land.lhs.true63.land.lhs.true66_crit_edge ], [ %call55, %land.lhs.true54 ]
   %15 = load ptr, ptr %call67.pre-phi, align 8
   %and68 = and i32 %cond10, 255
   %idxprom69 = zext nneg i32 %and68 to i64
@@ -1342,14 +1344,14 @@ if.end78:                                         ; preds = %land.lhs.true66, %l
 
 if.end78.land.lhs.true81_crit_edge:               ; preds = %if.end78
   %.pre = tail call ptr @__ctype_b_loc() #15
-  %.pre89 = and i32 %c.0, 255
-  %.pre90 = zext nneg i32 %.pre89 to i64
+  %.pre90 = and i32 %c.0, 255
+  %.pre91 = zext nneg i32 %.pre90 to i64
   br label %land.lhs.true81
 
 land.lhs.true81:                                  ; preds = %if.end78.land.lhs.true81_crit_edge, %land.lhs.true54
-  %idxprom84.pre-phi = phi i64 [ %.pre90, %if.end78.land.lhs.true81_crit_edge ], [ %idxprom, %land.lhs.true54 ]
+  %idxprom84.pre-phi = phi i64 [ %.pre91, %if.end78.land.lhs.true81_crit_edge ], [ %idxprom, %land.lhs.true54 ]
   %call82.pre-phi = phi ptr [ %.pre, %if.end78.land.lhs.true81_crit_edge ], [ %call55, %land.lhs.true54 ]
-  %flagch.285 = phi i32 [ %flagch.2, %if.end78.land.lhs.true81_crit_edge ], [ %flagch.1, %land.lhs.true54 ]
+  %flagch.286 = phi i32 [ %flagch.2, %if.end78.land.lhs.true81_crit_edge ], [ %flagch.1, %land.lhs.true54 ]
   %18 = load ptr, ptr %call82.pre-phi, align 8
   %arrayidx85 = getelementptr inbounds i16, ptr %18, i64 %idxprom84.pre-phi
   %19 = load i16, ptr %arrayidx85, align 2
@@ -1360,7 +1362,7 @@ land.lhs.true81:                                  ; preds = %if.end78.land.lhs.t
   br i1 %or.cond5, label %land.lhs.true92, label %if.end110
 
 land.lhs.true92:                                  ; preds = %land.lhs.true81
-  %cmp93 = icmp eq i32 %flagch.285, 130
+  %cmp93 = icmp eq i32 %flagch.286, 130
   br i1 %cmp93, label %if.then116, label %lor.lhs.false95
 
 lor.lhs.false95:                                  ; preds = %land.lhs.true92
@@ -1376,17 +1378,18 @@ land.lhs.true98:                                  ; preds = %lor.lhs.false95
   %tobool105 = icmp ne i16 %22, 0
   %cmp107 = icmp eq i32 %cond10, 95
   %or.cond7 = select i1 %tobool105, i1 true, i1 %cmp107
-  br i1 %or.cond7, label %if.end110, label %if.then116
+  %spec.select80 = select i1 %or.cond7, i32 %flagch.286, i32 134
+  br label %if.end110
 
-if.end110:                                        ; preds = %lor.lhs.false51, %land.lhs.true81, %land.lhs.true98, %lor.lhs.false95, %if.end78
-  %flagch.3 = phi i32 [ %flagch.285, %land.lhs.true98 ], [ %flagch.285, %lor.lhs.false95 ], [ %flagch.285, %land.lhs.true81 ], [ %flagch.2, %if.end78 ], [ %flagch.1, %lor.lhs.false51 ]
+if.end110:                                        ; preds = %lor.lhs.false51, %land.lhs.true98, %land.lhs.true81, %lor.lhs.false95, %if.end78
+  %flagch.3 = phi i32 [ %flagch.286, %lor.lhs.false95 ], [ %flagch.286, %land.lhs.true81 ], [ %flagch.2, %if.end78 ], [ %spec.select80, %land.lhs.true98 ], [ %flagch.1, %lor.lhs.false51 ]
   %23 = add i32 %flagch.3, -133
   %or.cond9 = icmp ult i32 %23, 2
   br i1 %or.cond9, label %if.then116, label %if.end119
 
-if.then116:                                       ; preds = %land.lhs.true98, %land.lhs.true92, %if.end110
-  %flagch.388 = phi i32 [ %flagch.3, %if.end110 ], [ 134, %land.lhs.true92 ], [ 134, %land.lhs.true98 ]
-  %call118 = tail call fastcc i64 @sstep(ptr noundef %3, i64 noundef %startst, i64 noundef %stopst, i64 noundef %st.2, i32 noundef %flagch.388, i64 noundef %st.2)
+if.then116:                                       ; preds = %land.lhs.true92, %if.end110
+  %flagch.389 = phi i32 [ %flagch.3, %if.end110 ], [ 134, %land.lhs.true92 ]
+  %call118 = tail call fastcc i64 @sstep(ptr noundef %3, i64 noundef %startst, i64 noundef %stopst, i64 noundef %st.2, i32 noundef %flagch.389, i64 noundef %st.2)
   br label %if.end119
 
 if.end119:                                        ; preds = %if.end110, %if.then116
@@ -2484,11 +2487,11 @@ land.lhs.true31:                                  ; preds = %if.end
   br i1 %tobool34.not, label %land.lhs.true31.if.then35_crit_edge, label %if.end40
 
 land.lhs.true31.if.then35_crit_edge:              ; preds = %land.lhs.true31
-  %.pre96 = load ptr, ptr %m, align 8
+  %.pre97 = load ptr, ptr %m, align 8
   br label %if.then35
 
 if.then35:                                        ; preds = %land.lhs.true31.if.then35_crit_edge, %land.lhs.true23
-  %18 = phi ptr [ %.pre96, %land.lhs.true31.if.then35_crit_edge ], [ %15, %land.lhs.true23 ]
+  %18 = phi ptr [ %.pre97, %land.lhs.true31.if.then35_crit_edge ], [ %15, %land.lhs.true23 ]
   %neol = getelementptr inbounds i8, ptr %18, i64 80
   %19 = load i32, ptr %neol, align 8
   %add = add nsw i32 %19, %i.0
@@ -2536,11 +2539,11 @@ land.lhs.true65:                                  ; preds = %if.end49
   br i1 %cmp66.old.not, label %if.end80, label %land.lhs.true65.land.lhs.true68_crit_edge
 
 land.lhs.true65.land.lhs.true68_crit_edge:        ; preds = %land.lhs.true65
-  %.pre100 = tail call ptr @__ctype_b_loc() #15
+  %.pre101 = tail call ptr @__ctype_b_loc() #15
   br label %land.lhs.true68
 
 land.lhs.true68:                                  ; preds = %land.lhs.true65.land.lhs.true68_crit_edge, %land.lhs.true55
-  %call69.pre-phi = phi ptr [ %.pre100, %land.lhs.true65.land.lhs.true68_crit_edge ], [ %call56, %land.lhs.true55 ]
+  %call69.pre-phi = phi ptr [ %.pre101, %land.lhs.true65.land.lhs.true68_crit_edge ], [ %call56, %land.lhs.true55 ]
   %24 = load ptr, ptr %call69.pre-phi, align 8
   %and70 = and i32 %cond11, 255
   %idxprom71 = zext nneg i32 %and70 to i64
@@ -2559,15 +2562,15 @@ if.end80:                                         ; preds = %land.lhs.true68, %l
   br i1 %cmp81.not, label %if.end112, label %if.end80.land.lhs.true83_crit_edge
 
 if.end80.land.lhs.true83_crit_edge:               ; preds = %if.end80
-  %.pre97 = tail call ptr @__ctype_b_loc() #15
-  %.pre98 = and i32 %c.0, 255
-  %.pre99 = zext nneg i32 %.pre98 to i64
+  %.pre98 = tail call ptr @__ctype_b_loc() #15
+  %.pre99 = and i32 %c.0, 255
+  %.pre100 = zext nneg i32 %.pre99 to i64
   br label %land.lhs.true83
 
 land.lhs.true83:                                  ; preds = %if.end80.land.lhs.true83_crit_edge, %land.lhs.true55
-  %idxprom86.pre-phi = phi i64 [ %.pre99, %if.end80.land.lhs.true83_crit_edge ], [ %idxprom, %land.lhs.true55 ]
-  %call84.pre-phi = phi ptr [ %.pre97, %if.end80.land.lhs.true83_crit_edge ], [ %call56, %land.lhs.true55 ]
-  %flagch.292 = phi i32 [ %flagch.2, %if.end80.land.lhs.true83_crit_edge ], [ %flagch.1, %land.lhs.true55 ]
+  %idxprom86.pre-phi = phi i64 [ %.pre100, %if.end80.land.lhs.true83_crit_edge ], [ %idxprom, %land.lhs.true55 ]
+  %call84.pre-phi = phi ptr [ %.pre98, %if.end80.land.lhs.true83_crit_edge ], [ %call56, %land.lhs.true55 ]
+  %flagch.293 = phi i32 [ %flagch.2, %if.end80.land.lhs.true83_crit_edge ], [ %flagch.1, %land.lhs.true55 ]
   %27 = load ptr, ptr %call84.pre-phi, align 8
   %arrayidx87 = getelementptr inbounds i16, ptr %27, i64 %idxprom86.pre-phi
   %28 = load i16, ptr %arrayidx87, align 2
@@ -2578,7 +2581,7 @@ land.lhs.true83:                                  ; preds = %if.end80.land.lhs.t
   br i1 %or.cond5, label %land.lhs.true94, label %if.end112
 
 land.lhs.true94:                                  ; preds = %land.lhs.true83
-  %cmp95 = icmp eq i32 %flagch.292, 130
+  %cmp95 = icmp eq i32 %flagch.293, 130
   br i1 %cmp95, label %if.then118, label %lor.lhs.false97
 
 lor.lhs.false97:                                  ; preds = %land.lhs.true94
@@ -2594,18 +2597,19 @@ land.lhs.true100:                                 ; preds = %lor.lhs.false97
   %tobool107 = icmp ne i16 %31, 0
   %cmp109 = icmp eq i32 %cond11, 95
   %or.cond7 = select i1 %tobool107, i1 true, i1 %cmp109
-  br i1 %or.cond7, label %if.end112, label %if.then118
+  %spec.select87 = select i1 %or.cond7, i32 %flagch.293, i32 134
+  br label %if.end112
 
-if.end112:                                        ; preds = %lor.lhs.false52, %land.lhs.true83, %land.lhs.true100, %lor.lhs.false97, %if.end80
-  %flagch.3 = phi i32 [ %flagch.292, %land.lhs.true100 ], [ %flagch.292, %lor.lhs.false97 ], [ %flagch.292, %land.lhs.true83 ], [ %flagch.2, %if.end80 ], [ %flagch.1, %lor.lhs.false52 ]
+if.end112:                                        ; preds = %lor.lhs.false52, %land.lhs.true100, %land.lhs.true83, %lor.lhs.false97, %if.end80
+  %flagch.3 = phi i32 [ %flagch.293, %lor.lhs.false97 ], [ %flagch.293, %land.lhs.true83 ], [ %flagch.2, %if.end80 ], [ %spec.select87, %land.lhs.true100 ], [ %flagch.1, %lor.lhs.false52 ]
   %32 = add i32 %flagch.3, -133
   %or.cond9 = icmp ult i32 %32, 2
   br i1 %or.cond9, label %if.then118, label %if.end121
 
-if.then118:                                       ; preds = %land.lhs.true100, %land.lhs.true94, %if.end112
-  %flagch.395 = phi i32 [ %flagch.3, %if.end112 ], [ 134, %land.lhs.true94 ], [ 134, %land.lhs.true100 ]
+if.then118:                                       ; preds = %land.lhs.true94, %if.end112
+  %flagch.396 = phi i32 [ %flagch.3, %if.end112 ], [ 134, %land.lhs.true94 ]
   %33 = load ptr, ptr %m, align 8
-  %call120 = tail call fastcc ptr @lstep(ptr noundef %33, i64 noundef %startst, i64 noundef %stopst, ptr noundef %0, i32 noundef %flagch.395, ptr noundef %0)
+  %call120 = tail call fastcc ptr @lstep(ptr noundef %33, i64 noundef %startst, i64 noundef %stopst, ptr noundef %0, i32 noundef %flagch.396, ptr noundef %0)
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end112, %if.then118

@@ -1073,8 +1073,8 @@ define internal fastcc noundef i32 @find_cap(i32 noundef %0, i32 noundef %1, i32
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %.preheader, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %18, %.preheader, %.thread, %10, %3
-  %25 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %17, %.thread ], [ 0, %.preheader ], [ 0, %18 ]
+.loopexit:                                        ; preds = %.preheader, %18, %.thread, %10, %3
+  %25 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %17, %.thread ], [ 0, %18 ], [ 0, %.preheader ]
   ret i32 %25
 }
 
@@ -1335,15 +1335,15 @@ define internal fastcc i32 @dbgp_control_msg(i32 noundef %0, i32 noundef %1, i32
 
 11:                                               ; preds = %6
   store i64 0, ptr %7, align 8, !annotation !5
-  %12 = trunc i32 %1 to i8
+  %12 = trunc nuw i32 %1 to i8
   store i8 %12, ptr %7, align 8
-  %13 = trunc i32 %2 to i8
+  %13 = trunc nuw nsw i32 %2 to i8
   %14 = getelementptr inbounds i8, ptr %7, i64 1
   store i8 %13, ptr %14, align 1
-  %15 = trunc i32 %3 to i16
+  %15 = trunc nuw nsw i32 %3 to i16
   %16 = getelementptr inbounds i8, ptr %7, i64 2
   store i16 %15, ptr %16, align 2
-  %17 = trunc i32 %5 to i16
+  %17 = trunc nuw nsw i32 %5 to i16
   %18 = getelementptr inbounds i8, ptr %7, i64 6
   store i16 %17, ptr %18, align 2
   %19 = load ptr, ptr @ehci_debug, align 8

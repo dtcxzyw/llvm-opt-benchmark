@@ -219,23 +219,20 @@ if.end5.i:                                        ; preds = %if.then3.i, %if.end
   %conv.i = zext i1 %.b9.i to i32
   %call10.i = tail call ptr @history_get(i32 noundef %conv.i) #14
   %tobool11.not.i = icmp eq ptr %call10.i, null
-  br i1 %tobool11.not.i, label %if.else18.i, label %land.lhs.true.i
+  br i1 %tobool11.not.i, label %if.end19.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
   %3 = load ptr, ptr %call10.i, align 8
   %tobool12.not.i = icmp eq ptr %3, null
-  br i1 %tobool12.not.i, label %if.else18.i, label %land.lhs.true13.i
+  br i1 %tobool12.not.i, label %if.end19.i, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %land.lhs.true.i
   %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(2) @.str.51) #13
   %tobool16.not.i = icmp eq i32 %call15.i, 0
-  br i1 %tobool16.not.i, label %if.else18.i, label %if.end19.i
-
-if.else18.i:                                      ; preds = %land.lhs.true13.i, %land.lhs.true.i, %if.end5.i
   br label %if.end19.i
 
-if.end19.i:                                       ; preds = %if.else18.i, %land.lhs.true13.i
-  %storemerge.i = phi i1 [ true, %if.else18.i ], [ false, %land.lhs.true13.i ]
+if.end19.i:                                       ; preds = %land.lhs.true13.i, %land.lhs.true.i, %if.end5.i
+  %storemerge.i = phi i1 [ true, %land.lhs.true.i ], [ true, %if.end5.i ], [ %tobool16.not.i, %land.lhs.true13.i ]
   store i1 %storemerge.i, ptr @libedit_append_replace_history_offset, align 1
   tail call void @clear_history() #14
   tail call void @using_history() #14
@@ -610,18 +607,14 @@ do.body50:                                        ; preds = %if.then41, %do.body
   %endidx = getelementptr inbounds i8, ptr %call.i, i64 40
   %5 = load ptr, ptr %endidx, align 8
   %tobool51.not = icmp eq ptr %5, null
-  br i1 %tobool51.not, label %do.end60, label %if.then52
+  br i1 %tobool51.not, label %return, label %if.then52
 
 if.then52:                                        ; preds = %do.body50
   %call55 = tail call i32 %visit(ptr noundef nonnull %5, ptr noundef %arg) #14
-  %tobool56.not = icmp eq i32 %call55, 0
-  br i1 %tobool56.not, label %do.end60, label %return
-
-do.end60:                                         ; preds = %do.body50, %if.then52
   br label %return
 
-return:                                           ; preds = %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end60
-  %retval.0 = phi i32 [ 0, %do.end60 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ]
+return:                                           ; preds = %if.then52, %do.body50, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ 0, %do.body50 ], [ %call55, %if.then52 ]
   ret i32 %retval.0
 }
 

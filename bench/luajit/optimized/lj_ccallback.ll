@@ -17,10 +17,10 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp ult i64 %sub.ptr.sub, 4096
-  br i1 %cmp, label %if.then, label %if.end7
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %sub.ptr.sub to i32
+  %conv = trunc nuw nsw i64 %sub.ptr.sub to i32
   %sub.i = add nsw i32 %conv, -8
   %div.i = udiv i32 %sub.i, 145
   %rem.i = urem i32 %sub.i, 145
@@ -33,13 +33,11 @@ if.then:                                          ; preds = %entry
   %add = add nuw i32 %mul1, 8
   %add2 = add i32 %add, %mul
   %cmp4 = icmp eq i32 %add2, %conv
-  br i1 %cmp4, label %return, label %if.end7
-
-if.end7:                                          ; preds = %if.then, %entry
+  %spec.select = select i1 %cmp4, i32 %add.i, i32 -1
   br label %return
 
-return:                                           ; preds = %if.then, %if.end7
-  %retval.0 = phi i32 [ -1, %if.end7 ], [ %add.i, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ %spec.select, %if.then ]
   ret i32 %retval.0
 }
 
@@ -694,7 +692,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %incdec.ptr7.i.i.i = getelementptr inbounds i8, ptr %p.026.i.i.i, i64 4
   %shr.i.i.i = lshr i32 %slot.027.i.i.i, 8
-  %conv8.i.i.i = trunc i32 %shr.i.i.i to i8
+  %conv8.i.i.i = trunc nuw nsw i32 %shr.i.i.i to i8
   %incdec.ptr9.i.i.i = getelementptr inbounds i8, ptr %p.026.i.i.i, i64 5
   store i8 %conv8.i.i.i, ptr %incdec.ptr7.i.i.i, align 1
   %incdec.ptr10.i.i.i = getelementptr inbounds i8, ptr %p.026.i.i.i, i64 6
@@ -715,7 +713,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   br label %for.inc.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
-  %and.tr.i.i.i = trunc i32 %and.i.i.i to i8
+  %and.tr.i.i.i = trunc nuw nsw i32 %and.i.i.i to i8
   %24 = shl nuw nsw i8 %and.tr.i.i.i, 2
   %25 = xor i8 %24, 124
   %conv21.i.i.i = add nsw i8 %25, -2
@@ -754,7 +752,7 @@ if.end17.i:                                       ; preds = %callback_mcode_new.
   br label %callback_slot_new.exit
 
 found.loopexit.i:                                 ; preds = %for.body.i
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw i64 %indvars.iv.i to i32
   %.pre.i = and i64 %indvars.iv.i, 4294967295
   br label %callback_slot_new.exit
 

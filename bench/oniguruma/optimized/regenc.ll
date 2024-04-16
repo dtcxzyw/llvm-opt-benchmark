@@ -935,20 +935,18 @@ define noundef i32 @onigenc_not_support_get_ctype_code_range(i32 noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #11 {
+define i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #11 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 10
-  br i1 %6, label %8, label %7
+  %spec.select = zext i1 %6 to i32
+  br label %7
 
 7:                                                ; preds = %4, %2
-  br label %8
-
-8:                                                ; preds = %4, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %4 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %4 ]
   ret i32 %.0
 }
 
@@ -1149,7 +1147,7 @@ define i32 @onigenc_mb2_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
   %16 = ptrtoint ptr %2 to i64
   %17 = sub i64 %15, %16
   %.not14 = icmp eq i64 %17, %14
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nsw i64 %17 to i32
   %.012 = select i1 %.not14, i32 %18, i32 -400
   ret i32 %.012
 }
@@ -1161,7 +1159,7 @@ define i32 @onigenc_mb4_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
 
 .thread:                                          ; preds = %3
   %4 = lshr i32 %1, 24
-  %5 = trunc i32 %4 to i8
+  %5 = trunc nuw i32 %4 to i8
   %6 = getelementptr inbounds i8, ptr %2, i64 1
   store i8 %5, ptr %2, align 1
   br label %8
@@ -1205,7 +1203,7 @@ define i32 @onigenc_mb4_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
   %25 = ptrtoint ptr %2 to i64
   %26 = sub i64 %24, %25
   %.not28 = icmp eq i64 %26, %23
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nsw i64 %26 to i32
   %.022 = select i1 %.not28, i32 %27, i32 -400
   ret i32 %.022
 }

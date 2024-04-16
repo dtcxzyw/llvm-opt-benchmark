@@ -834,16 +834,17 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then16.i.i.i.i.i
   %dst_conn_id.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 112
   %10 = load i8, ptr %dst_conn_id.i.i.i.i.i, align 1
   %cmp.not.i.not.i.i.i.i.i = icmp eq i8 %9, %10
-  br i1 %cmp.not.i.not.i.i.i.i.i, label %ossl_quic_conn_id_eq.exit.i.i.i.i.i, label %malformed.i.i.i.i
+  br i1 %cmp.not.i.not.i.i.i.i.i, label %qrx_validate_hdr_early.exit.i.i.i.i, label %malformed.i.i.i.i
 
-ossl_quic_conn_id_eq.exit.i.i.i.i.i:              ; preds = %lor.lhs.false.i.i.i.i.i
+qrx_validate_hdr_early.exit.i.i.i.i:              ; preds = %lor.lhs.false.i.i.i.i.i
   %id8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 113
   %conv11.i.i.i.i.i.i = zext nneg i8 %9 to i64
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %first_dcid.sroa.gep.i.i.i, ptr nonnull %id8.i.i.i.i.i.i, i64 %conv11.i.i.i.i.i.i)
-  %cmp12.i.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br i1 %cmp12.i.not.i.i.i.i.i, label %if.end26.i.i.i.i, label %malformed.i.i.i.i
+  %bcmp.i.fr.i.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i
+  %cmp12.i.not.i.not.i.i.i.i = icmp eq i32 %bcmp.i.fr.i.i.i.i.i, 0
+  br i1 %cmp12.i.not.i.not.i.i.i.i, label %if.end26.i.i.i.i, label %malformed.i.i.i.i
 
-if.end26.i.i.i.i:                                 ; preds = %ossl_quic_conn_id_eq.exit.i.i.i.i.i, %if.end7.i.i.i.i.i
+if.end26.i.i.i.i:                                 ; preds = %qrx_validate_hdr_early.exit.i.i.i.i, %if.end7.i.i.i.i.i
   %switch.selectcmp.i.not.i.i.i.i = icmp eq i32 %.pre.i.i.i.i, 4
   br i1 %switch.selectcmp.i.not.i.i.i.i, label %if.then30.i.i.i.i, label %if.end52.i.i.i.i
 
@@ -1234,14 +1235,14 @@ if.end68.i.i:                                     ; preds = %for.end.i.i
   br i1 %cmp73.not.i.i, label %if.end76.i.i, label %qrx_decrypt_pkt_body.exit.thread.i
 
 if.end76.i.i:                                     ; preds = %if.end68.i.i
-  %conv77.i.i = trunc i64 %sub.ptr.sub110.i.i.i.i to i32
+  %conv77.i.i = trunc nuw nsw i64 %sub.ptr.sub110.i.i.i.i to i32
   %call78.i.i = call i32 @EVP_CipherUpdate(ptr noundef %56, ptr noundef null, ptr noundef nonnull %l.i.i, ptr noundef %pkt.val73.i.i.i.i, i32 noundef %conv77.i.i) #12
   %cmp79.not.i.i = icmp eq i32 %call78.i.i, 1
   br i1 %cmp79.not.i.i, label %if.end82.i.i, label %qrx_decrypt_pkt_body.exit.thread.i
 
 if.end82.i.i:                                     ; preds = %if.end76.i.i
   %60 = load i32, ptr %tag_len.i.i, align 4
-  %61 = trunc i64 %44 to i32
+  %61 = trunc nuw i64 %44 to i32
   %conv86.i.i = sub i32 %61, %60
   %call87.i.i = call i32 @EVP_CipherUpdate(ptr noundef %56, ptr noundef nonnull %add.ptr.i.i.i.i, ptr noundef nonnull %l.i.i, ptr noundef %43, i32 noundef %conv86.i.i) #12
   %cmp88.not.i.i = icmp eq i32 %call87.i.i, 1
@@ -1387,7 +1388,7 @@ if.end.i120.i.i.i.i:                              ; preds = %cannot_decrypt.i.i.
   store i64 %sub.i.i.i.i.i.i, ptr %remaining.i.i.i.i, align 8
   br label %qrx_process_pkt.exit.i.i.i
 
-malformed.i.i.i.i:                                ; preds = %if.end132.i.i.i.i, %qrx_decrypt_pkt_body.exit.thread.i, %qrx_validate_hdr.exit.i, %if.end85.i.i.i.i, %if.then81.i.i.i.i, %if.end.i96.i.i.i.i, %qrx_determine_enc_level.exit.i.i.i.i, %if.then30.i.i.i.i, %ossl_quic_conn_id_eq.exit.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.then16.i.i.i.i.i, %land.lhs.true9.i.i.i.i.i, %if.end.i82.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end18.i.i.i.i
+malformed.i.i.i.i:                                ; preds = %if.end132.i.i.i.i, %qrx_decrypt_pkt_body.exit.thread.i, %qrx_validate_hdr.exit.i, %if.end85.i.i.i.i, %if.then81.i.i.i.i, %if.end.i96.i.i.i.i, %qrx_determine_enc_level.exit.i.i.i.i, %if.then30.i.i.i.i, %qrx_validate_hdr_early.exit.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.then16.i.i.i.i.i, %land.lhs.true9.i.i.i.i.i, %if.end.i82.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.end18.i.i.i.i
   %cmp185.not.i.i.i.i = icmp eq ptr %.pre23.i.i.i, null
   %.pre22.i.i.i = load ptr, ptr %pkt.i.i.i, align 8
   br i1 %cmp185.not.i.i.i.i, label %PACKET_forward.exit140.i.i.i.i, label %if.then187.i.i.i.i
@@ -1790,7 +1791,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare ptr @ossl_qrl_enc_level_set_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrx_key_update_timeout(ptr noundef %qrx, i32 noundef %normal) local_unnamed_addr #0 {
+define i32 @ossl_qrx_key_update_timeout(ptr noundef %qrx, i32 noundef %normal) local_unnamed_addr #0 {
 entry:
   %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef 3, i32 noundef 1) #12
@@ -1810,23 +1811,21 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
   %tobool7.not = icmp eq i32 %normal, 0
-  br i1 %tobool7.not, label %if.end18, label %land.lhs.true8
+  br i1 %tobool7.not, label %return, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.end6
   %1 = load i8, ptr %state, align 8
   %cmp11 = icmp eq i8 %1, 3
-  br i1 %cmp11, label %land.lhs.true13, label %if.end18
+  br i1 %cmp11, label %land.lhs.true13, label %return
 
 land.lhs.true13:                                  ; preds = %land.lhs.true8
   %call15 = tail call i32 @ossl_qrl_enc_level_set_key_cooldown_done(ptr noundef nonnull %el_set, i32 noundef 3) #12
-  %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %return, label %if.end18
-
-if.end18:                                         ; preds = %land.lhs.true13, %land.lhs.true8, %if.end6
+  %tobool16.not = icmp ne i32 %call15, 0
+  %spec.select = zext i1 %tobool16.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true13, %land.lhs.true, %entry, %if.end18
-  %retval.0 = phi i32 [ 1, %if.end18 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true13 ]
+return:                                           ; preds = %land.lhs.true13, %if.end6, %land.lhs.true8, %land.lhs.true, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %land.lhs.true ], [ 1, %land.lhs.true8 ], [ 1, %if.end6 ], [ %spec.select, %land.lhs.true13 ]
   ret i32 %retval.0
 }
 
@@ -2246,7 +2245,7 @@ declare i32 @ossl_qrl_enc_level_set_have_el(ptr noundef, i32 noundef) local_unna
 declare i32 @ossl_quic_hdr_protector_decrypt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @qrx_validate_hdr_late(ptr nocapture noundef readonly %qrx, ptr nocapture noundef readonly %rxe) unnamed_addr #0 {
+define internal fastcc i32 @qrx_validate_hdr_late(ptr nocapture noundef readonly %qrx, ptr nocapture noundef readonly %rxe) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %rxe, i64 104
   %rxe.val = load i32, ptr %0, align 8
@@ -2266,7 +2265,7 @@ rxe_determine_pn_space.exit:                      ; preds = %entry, %switch.look
   %validation_cb = getelementptr inbounds i8, ptr %qrx, i64 1024
   %3 = load ptr, ptr %validation_cb, align 8
   %cmp.not = icmp eq ptr %3, null
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %rxe_determine_pn_space.exit
   %pn = getelementptr inbounds i8, ptr %rxe, i64 192
@@ -2274,14 +2273,12 @@ land.lhs.true:                                    ; preds = %rxe_determine_pn_sp
   %validation_cb_arg = getelementptr inbounds i8, ptr %qrx, i64 1032
   %5 = load ptr, ptr %validation_cb_arg, align 8
   %call2 = tail call i32 %3(i64 noundef %4, i32 noundef %retval.0.i2.i, ptr noundef %5) #12
-  %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %rxe_determine_pn_space.exit
+  %tobool.not = icmp ne i32 %call2, 0
+  %spec.select = zext i1 %tobool.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %rxe_determine_pn_space.exit
+  %retval.0 = phi i32 [ 1, %rxe_determine_pn_space.exit ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

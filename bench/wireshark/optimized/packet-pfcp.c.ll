@@ -6370,7 +6370,7 @@ define internal void @dissect_pfcp_f_seid(ptr noundef %0, ptr noundef %1, ptr no
 
 13:                                               ; preds = %7
   %14 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_encoding_error, ptr noundef %0, i32 noundef 0, i32 noundef 1) #12
-  br label %157
+  br label %155
 
 15:                                               ; preds = %7
   %16 = load i32, ptr @hf_pfcp_seid, align 4
@@ -6435,14 +6435,14 @@ define internal void @dissect_pfcp_f_seid(ptr noundef %0, ptr noundef %1, ptr no
   %.1 = phi i32 [ %48, %37 ], [ %.0, %34 ]
   %50 = load i32, ptr @g_pfcp_session, align 4
   %.not71 = icmp eq i32 %50, 0
-  br i1 %.not71, label %152, label %51
+  br i1 %.not71, label %150, label %51
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @pfcp_session_table, align 8
   %53 = getelementptr inbounds i8, ptr %1, i64 20
   %54 = call ptr @g_hash_table_lookup(ptr noundef %52, ptr noundef nonnull %53) #12
   %.not72 = icmp eq ptr %54, null
-  br i1 %.not72, label %55, label %152
+  br i1 %.not72, label %55, label %150
 
 55:                                               ; preds = %51
   %56 = load i64, ptr %9, align 8
@@ -6478,7 +6478,7 @@ pfcp_seid_exists.exit.thread:                     ; preds = %55, %pfcp_seid_exis
 
 70:                                               ; preds = %pfcp_seid_exists.exit.thread, %pfcp_seid_exists.exit
   %.not74 = icmp eq ptr %.068, null
-  br i1 %.not74, label %111, label %71
+  br i1 %.not74, label %110, label %71
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds i8, ptr %6, i64 8
@@ -6491,7 +6491,7 @@ pfcp_seid_exists.exit.thread:                     ; preds = %55, %pfcp_seid_exis
   %.06878.sroa.5.0.copyload = load ptr, ptr %.06878.sroa.5.0..068.sroa_idx, align 1
   %74 = call ptr @wmem_list_head(ptr noundef %73) #12
   %.not8.i = icmp eq ptr %74, null
-  br i1 %.not8.i, label %.loopexit98, label %.lr.ph.i79
+  br i1 %.not8.i, label %pfcp_ip_exists.exit.thread, label %.lr.ph.i79
 
 .lr.ph.i79:                                       ; preds = %71
   %75 = icmp eq i32 %.06878.sroa.4.0.copyload.fr, 0
@@ -6499,7 +6499,7 @@ pfcp_seid_exists.exit.thread:                     ; preds = %55, %pfcp_seid_exis
   br i1 %75, label %.lr.ph.i79.split.us, label %.lr.ph.i79.split
 
 .lr.ph.i79.split.us:                              ; preds = %.lr.ph.i79, %addresses_equal.exit.i.us
-  %.067.i.us = phi ptr [ %84, %addresses_equal.exit.i.us ], [ %74, %.lr.ph.i79 ]
+  %.067.i.us = phi ptr [ %83, %addresses_equal.exit.i.us ], [ %74, %.lr.ph.i79 ]
   %77 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.067.i.us) #12
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, %.06878.sroa.0.0.copyload
@@ -6508,16 +6508,18 @@ pfcp_seid_exists.exit.thread:                     ; preds = %55, %pfcp_seid_exis
 80:                                               ; preds = %.lr.ph.i79.split.us
   %81 = getelementptr inbounds i8, ptr %77, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %pfcp_ip_exists.exit, label %addresses_equal.exit.i.us
+  %.not105 = icmp eq i32 %82, 0
+  br label %addresses_equal.exit.i.us
 
 addresses_equal.exit.i.us:                        ; preds = %80, %.lr.ph.i79.split.us
-  %84 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.067.i.us) #12
-  %.not.i.us = icmp eq ptr %84, null
-  br i1 %.not.i.us, label %.loopexit98, label %.lr.ph.i79.split.us, !llvm.loop !14
+  %.0.i.shrunk.i.us = phi i1 [ %.not105, %80 ], [ false, %.lr.ph.i79.split.us ]
+  %83 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.067.i.us) #12
+  %84 = icmp eq ptr %83, null
+  %.not11.i80.us = select i1 %.0.i.shrunk.i.us, i1 true, i1 %84
+  br i1 %.not11.i80.us, label %pfcp_ip_exists.exit, label %.lr.ph.i79.split.us, !llvm.loop !14
 
 .lr.ph.i79.split:                                 ; preds = %.lr.ph.i79, %addresses_equal.exit.i
-  %.067.i = phi ptr [ %96, %addresses_equal.exit.i ], [ %74, %.lr.ph.i79 ]
+  %.067.i = phi ptr [ %95, %addresses_equal.exit.i ], [ %74, %.lr.ph.i79 ]
   %85 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.067.i) #12
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, %.06878.sroa.0.0.copyload
@@ -6526,160 +6528,164 @@ addresses_equal.exit.i.us:                        ; preds = %80, %.lr.ph.i79.spl
 88:                                               ; preds = %.lr.ph.i79.split
   %89 = getelementptr inbounds i8, ptr %85, i64 4
   %90 = load i32, ptr %89, align 4
-  %91 = icmp eq i32 %90, %.06878.sroa.4.0.copyload.fr
-  br i1 %91, label %92, label %addresses_equal.exit.i
+  %.not104 = icmp eq i32 %90, %.06878.sroa.4.0.copyload.fr
+  br i1 %.not104, label %91, label %addresses_equal.exit.i
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %85, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %bcmp.i.i = call i32 @bcmp(ptr %94, ptr %.06878.sroa.5.0.copyload, i64 %76)
-  %95 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %95, label %pfcp_ip_exists.exit, label %addresses_equal.exit.i
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %85, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %bcmp.i.i = call i32 @bcmp(ptr %93, ptr %.06878.sroa.5.0.copyload, i64 %76)
+  %94 = icmp eq i32 %bcmp.i.i, 0
+  br label %addresses_equal.exit.i
 
-addresses_equal.exit.i:                           ; preds = %92, %88, %.lr.ph.i79.split
-  %96 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.067.i) #12
-  %.not.i = icmp eq ptr %96, null
-  br i1 %.not.i, label %.loopexit98, label %.lr.ph.i79.split, !llvm.loop !14
+addresses_equal.exit.i:                           ; preds = %91, %88, %.lr.ph.i79.split
+  %.0.i.shrunk.i = phi i1 [ false, %88 ], [ false, %.lr.ph.i79.split ], [ %94, %91 ]
+  %95 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.067.i) #12
+  %96 = icmp eq ptr %95, null
+  %.not11.i80 = select i1 %.0.i.shrunk.i, i1 true, i1 %96
+  br i1 %.not11.i80, label %pfcp_ip_exists.exit, label %.lr.ph.i79.split, !llvm.loop !14
 
-pfcp_ip_exists.exit:                              ; preds = %92, %80
-  %.us-phi = phi ptr [ %.067.i.us, %80 ], [ %.067.i, %92 ]
-  %97 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.us-phi) #12
-  br label %111
+pfcp_ip_exists.exit:                              ; preds = %addresses_equal.exit.i, %addresses_equal.exit.i.us
+  %.us-phi = phi i1 [ %.0.i.shrunk.i.us, %addresses_equal.exit.i.us ], [ %.0.i.shrunk.i, %addresses_equal.exit.i ]
+  br i1 %.us-phi, label %110, label %pfcp_ip_exists.exit.thread
 
-.loopexit98:                                      ; preds = %addresses_equal.exit.i, %addresses_equal.exit.i.us, %71
-  %98 = load ptr, ptr %18, align 8
-  %99 = getelementptr inbounds i8, ptr %6, i64 24
-  %100 = load i32, ptr %.068, align 8
-  %101 = load i32, ptr %.06878.sroa.4.0..068.sroa_idx, align 4
-  %102 = load ptr, ptr %.06878.sroa.5.0..068.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
-  store i32 %100, ptr %99, align 8
-  %103 = icmp eq i32 %101, 0
-  br i1 %103, label %copy_address_wmem.exit, label %104
+pfcp_ip_exists.exit.thread:                       ; preds = %71, %pfcp_ip_exists.exit
+  %97 = load ptr, ptr %18, align 8
+  %98 = getelementptr inbounds i8, ptr %6, i64 24
+  %99 = load i32, ptr %.068, align 8
+  %100 = load i32, ptr %.06878.sroa.4.0..068.sroa_idx, align 4
+  %101 = load ptr, ptr %.06878.sroa.5.0..068.sroa_idx, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
+  store i32 %99, ptr %98, align 8
+  %102 = icmp eq i32 %100, 0
+  br i1 %102, label %copy_address_wmem.exit, label %103
 
-104:                                              ; preds = %.loopexit98
-  %105 = sext i32 %101 to i64
-  %106 = call noalias ptr @wmem_memdup(ptr noundef %98, ptr noundef %102, i64 noundef %105) #12
-  %107 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %106, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %6, i64 28
-  store i32 %101, ptr %109, align 4
+103:                                              ; preds = %pfcp_ip_exists.exit.thread
+  %104 = sext i32 %100 to i64
+  %105 = call noalias ptr @wmem_memdup(ptr noundef %97, ptr noundef %101, i64 noundef %104) #12
+  %106 = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %105, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %105, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %6, i64 28
+  store i32 %100, ptr %108, align 4
   br label %copy_address_wmem.exit
 
-copy_address_wmem.exit:                           ; preds = %.loopexit98, %104
-  %110 = load ptr, ptr %72, align 8
-  call void @wmem_list_prepend(ptr noundef %110, ptr noundef nonnull %.068) #12
-  br label %111
+copy_address_wmem.exit:                           ; preds = %pfcp_ip_exists.exit.thread, %103
+  %109 = load ptr, ptr %72, align 8
+  call void @wmem_list_prepend(ptr noundef %109, ptr noundef nonnull %.068) #12
+  br label %110
 
-111:                                              ; preds = %pfcp_ip_exists.exit, %copy_address_wmem.exit, %70
+110:                                              ; preds = %copy_address_wmem.exit, %pfcp_ip_exists.exit, %70
   %.not76 = icmp eq ptr %.069, null
-  br i1 %.not76, label %152, label %112
+  br i1 %.not76, label %150, label %111
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %6, i64 8
-  %114 = load ptr, ptr %113, align 8
-  %.06981.sroa.0.0.copyload = load i32, ptr %.069, align 1
-  %.06981.sroa.4.0..069.sroa_idx = getelementptr inbounds i8, ptr %.069, i64 4
-  %.06981.sroa.4.0.copyload = load i32, ptr %.06981.sroa.4.0..069.sroa_idx, align 1
-  %.06981.sroa.4.0.copyload.fr = freeze i32 %.06981.sroa.4.0.copyload
-  %.06981.sroa.5.0..069.sroa_idx = getelementptr inbounds i8, ptr %.069, i64 8
-  %.06981.sroa.5.0.copyload = load ptr, ptr %.06981.sroa.5.0..069.sroa_idx, align 1
-  %115 = call ptr @wmem_list_head(ptr noundef %114) #12
-  %.not8.i82 = icmp eq ptr %115, null
-  br i1 %.not8.i82, label %.loopexit, label %.lr.ph.i83
+111:                                              ; preds = %110
+  %112 = getelementptr inbounds i8, ptr %6, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %.06982.sroa.0.0.copyload = load i32, ptr %.069, align 1
+  %.06982.sroa.4.0..069.sroa_idx = getelementptr inbounds i8, ptr %.069, i64 4
+  %.06982.sroa.4.0.copyload = load i32, ptr %.06982.sroa.4.0..069.sroa_idx, align 1
+  %.06982.sroa.4.0.copyload.fr = freeze i32 %.06982.sroa.4.0.copyload
+  %.06982.sroa.5.0..069.sroa_idx = getelementptr inbounds i8, ptr %.069, i64 8
+  %.06982.sroa.5.0.copyload = load ptr, ptr %.06982.sroa.5.0..069.sroa_idx, align 1
+  %114 = call ptr @wmem_list_head(ptr noundef %113) #12
+  %.not8.i83 = icmp eq ptr %114, null
+  br i1 %.not8.i83, label %pfcp_ip_exists.exit94.thread, label %.lr.ph.i84
 
-.lr.ph.i83:                                       ; preds = %112
-  %116 = icmp eq i32 %.06981.sroa.4.0.copyload.fr, 0
-  %117 = sext i32 %.06981.sroa.4.0.copyload.fr to i64
-  br i1 %116, label %.lr.ph.i83.split.us, label %.lr.ph.i83.split
+.lr.ph.i84:                                       ; preds = %111
+  %115 = icmp eq i32 %.06982.sroa.4.0.copyload.fr, 0
+  %116 = sext i32 %.06982.sroa.4.0.copyload.fr to i64
+  br i1 %115, label %.lr.ph.i84.split.us, label %.lr.ph.i84.split
 
-.lr.ph.i83.split.us:                              ; preds = %.lr.ph.i83, %addresses_equal.exit.i85.us
-  %.067.i84.us = phi ptr [ %125, %addresses_equal.exit.i85.us ], [ %115, %.lr.ph.i83 ]
-  %118 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.067.i84.us) #12
-  %119 = load i32, ptr %118, align 8
-  %120 = icmp eq i32 %119, %.06981.sroa.0.0.copyload
-  br i1 %120, label %121, label %addresses_equal.exit.i85.us
+.lr.ph.i84.split.us:                              ; preds = %.lr.ph.i84, %addresses_equal.exit.i86.us
+  %.067.i85.us = phi ptr [ %123, %addresses_equal.exit.i86.us ], [ %114, %.lr.ph.i84 ]
+  %117 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.067.i85.us) #12
+  %118 = load i32, ptr %117, align 8
+  %119 = icmp eq i32 %118, %.06982.sroa.0.0.copyload
+  br i1 %119, label %120, label %addresses_equal.exit.i86.us
 
-121:                                              ; preds = %.lr.ph.i83.split.us
-  %122 = getelementptr inbounds i8, ptr %118, i64 4
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %pfcp_ip_exists.exit90, label %addresses_equal.exit.i85.us
+120:                                              ; preds = %.lr.ph.i84.split.us
+  %121 = getelementptr inbounds i8, ptr %117, i64 4
+  %122 = load i32, ptr %121, align 4
+  %.not107 = icmp eq i32 %122, 0
+  br label %addresses_equal.exit.i86.us
 
-addresses_equal.exit.i85.us:                      ; preds = %121, %.lr.ph.i83.split.us
-  %125 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.067.i84.us) #12
-  %.not.i86.us = icmp eq ptr %125, null
-  br i1 %.not.i86.us, label %.loopexit, label %.lr.ph.i83.split.us, !llvm.loop !14
+addresses_equal.exit.i86.us:                      ; preds = %120, %.lr.ph.i84.split.us
+  %.0.i.shrunk.i87.us = phi i1 [ %.not107, %120 ], [ false, %.lr.ph.i84.split.us ]
+  %123 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.067.i85.us) #12
+  %124 = icmp eq ptr %123, null
+  %.not11.i89.us = select i1 %.0.i.shrunk.i87.us, i1 true, i1 %124
+  br i1 %.not11.i89.us, label %pfcp_ip_exists.exit94, label %.lr.ph.i84.split.us, !llvm.loop !14
 
-.lr.ph.i83.split:                                 ; preds = %.lr.ph.i83, %addresses_equal.exit.i85
-  %.067.i84 = phi ptr [ %137, %addresses_equal.exit.i85 ], [ %115, %.lr.ph.i83 ]
-  %126 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.067.i84) #12
-  %127 = load i32, ptr %126, align 8
-  %128 = icmp eq i32 %127, %.06981.sroa.0.0.copyload
-  br i1 %128, label %129, label %addresses_equal.exit.i85
+.lr.ph.i84.split:                                 ; preds = %.lr.ph.i84, %addresses_equal.exit.i86
+  %.067.i85 = phi ptr [ %135, %addresses_equal.exit.i86 ], [ %114, %.lr.ph.i84 ]
+  %125 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.067.i85) #12
+  %126 = load i32, ptr %125, align 8
+  %127 = icmp eq i32 %126, %.06982.sroa.0.0.copyload
+  br i1 %127, label %128, label %addresses_equal.exit.i86
 
-129:                                              ; preds = %.lr.ph.i83.split
-  %130 = getelementptr inbounds i8, ptr %126, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = icmp eq i32 %131, %.06981.sroa.4.0.copyload.fr
-  br i1 %132, label %133, label %addresses_equal.exit.i85
+128:                                              ; preds = %.lr.ph.i84.split
+  %129 = getelementptr inbounds i8, ptr %125, i64 4
+  %130 = load i32, ptr %129, align 4
+  %.not106 = icmp eq i32 %130, %.06982.sroa.4.0.copyload.fr
+  br i1 %.not106, label %131, label %addresses_equal.exit.i86
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %126, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %bcmp.i.i88 = call i32 @bcmp(ptr %135, ptr %.06981.sroa.5.0.copyload, i64 %117)
-  %136 = icmp eq i32 %bcmp.i.i88, 0
-  br i1 %136, label %pfcp_ip_exists.exit90, label %addresses_equal.exit.i85
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds i8, ptr %125, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %bcmp.i.i93 = call i32 @bcmp(ptr %133, ptr %.06982.sroa.5.0.copyload, i64 %116)
+  %134 = icmp eq i32 %bcmp.i.i93, 0
+  br label %addresses_equal.exit.i86
 
-addresses_equal.exit.i85:                         ; preds = %133, %129, %.lr.ph.i83.split
-  %137 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.067.i84) #12
-  %.not.i86 = icmp eq ptr %137, null
-  br i1 %.not.i86, label %.loopexit, label %.lr.ph.i83.split, !llvm.loop !14
+addresses_equal.exit.i86:                         ; preds = %131, %128, %.lr.ph.i84.split
+  %.0.i.shrunk.i87 = phi i1 [ false, %128 ], [ false, %.lr.ph.i84.split ], [ %134, %131 ]
+  %135 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.067.i85) #12
+  %136 = icmp eq ptr %135, null
+  %.not11.i89 = select i1 %.0.i.shrunk.i87, i1 true, i1 %136
+  br i1 %.not11.i89, label %pfcp_ip_exists.exit94, label %.lr.ph.i84.split, !llvm.loop !14
 
-pfcp_ip_exists.exit90:                            ; preds = %133, %121
-  %.us-phi102 = phi ptr [ %.067.i84.us, %121 ], [ %.067.i84, %133 ]
-  %138 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.us-phi102) #12
-  br label %152
+pfcp_ip_exists.exit94:                            ; preds = %addresses_equal.exit.i86, %addresses_equal.exit.i86.us
+  %.us-phi102 = phi i1 [ %.0.i.shrunk.i87.us, %addresses_equal.exit.i86.us ], [ %.0.i.shrunk.i87, %addresses_equal.exit.i86 ]
+  br i1 %.us-phi102, label %150, label %pfcp_ip_exists.exit94.thread
 
-.loopexit:                                        ; preds = %addresses_equal.exit.i85, %addresses_equal.exit.i85.us, %112
-  %139 = load ptr, ptr %18, align 8
-  %140 = getelementptr inbounds i8, ptr %6, i64 24
-  %141 = load i32, ptr %.069, align 8
-  %142 = load i32, ptr %.06981.sroa.4.0..069.sroa_idx, align 4
-  %143 = load ptr, ptr %.06981.sroa.5.0..069.sroa_idx, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
-  store i32 %141, ptr %140, align 8
-  %144 = icmp eq i32 %142, 0
-  br i1 %144, label %copy_address_wmem.exit91, label %145
+pfcp_ip_exists.exit94.thread:                     ; preds = %111, %pfcp_ip_exists.exit94
+  %137 = load ptr, ptr %18, align 8
+  %138 = getelementptr inbounds i8, ptr %6, i64 24
+  %139 = load i32, ptr %.069, align 8
+  %140 = load i32, ptr %.06982.sroa.4.0..069.sroa_idx, align 4
+  %141 = load ptr, ptr %.06982.sroa.5.0..069.sroa_idx, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, i8 0, i64 24, i1 false)
+  store i32 %139, ptr %138, align 8
+  %142 = icmp eq i32 %140, 0
+  br i1 %142, label %copy_address_wmem.exit95, label %143
 
-145:                                              ; preds = %.loopexit
-  %146 = sext i32 %142 to i64
-  %147 = call noalias ptr @wmem_memdup(ptr noundef %139, ptr noundef %143, i64 noundef %146) #12
-  %148 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %147, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %6, i64 28
-  store i32 %142, ptr %150, align 4
-  br label %copy_address_wmem.exit91
+143:                                              ; preds = %pfcp_ip_exists.exit94.thread
+  %144 = sext i32 %140 to i64
+  %145 = call noalias ptr @wmem_memdup(ptr noundef %137, ptr noundef %141, i64 noundef %144) #12
+  %146 = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %145, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %145, ptr %147, align 8
+  %148 = getelementptr inbounds i8, ptr %6, i64 28
+  store i32 %140, ptr %148, align 4
+  br label %copy_address_wmem.exit95
 
-copy_address_wmem.exit91:                         ; preds = %.loopexit, %145
-  %151 = load ptr, ptr %113, align 8
-  call void @wmem_list_prepend(ptr noundef %151, ptr noundef nonnull %.069) #12
-  br label %152
+copy_address_wmem.exit95:                         ; preds = %pfcp_ip_exists.exit94.thread, %143
+  %149 = load ptr, ptr %112, align 8
+  call void @wmem_list_prepend(ptr noundef %149, ptr noundef nonnull %.069) #12
+  br label %150
 
-152:                                              ; preds = %pfcp_ip_exists.exit90, %51, %copy_address_wmem.exit91, %111, %49
-  %153 = zext i16 %4 to i32
-  %154 = icmp slt i32 %.1, %153
-  br i1 %154, label %155, label %157
+150:                                              ; preds = %51, %copy_address_wmem.exit95, %pfcp_ip_exists.exit94, %110, %49
+  %151 = zext i16 %4 to i32
+  %152 = icmp slt i32 %.1, %151
+  br i1 %152, label %153, label %155
 
-155:                                              ; preds = %152
-  %156 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef %.1, i32 noundef -1) #12
-  br label %157
+153:                                              ; preds = %150
+  %154 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_data_not_decoded, ptr noundef %0, i32 noundef %.1, i32 noundef -1) #12
+  br label %155
 
-157:                                              ; preds = %155, %152, %13
+155:                                              ; preds = %153, %150, %13
   ret void
 }
 
@@ -8590,11 +8596,11 @@ define internal void @dissect_pfcp_user_plane_ip_resource_infomation(ptr noundef
   br i1 %.not41, label %41, label %34
 
 34:                                               ; preds = %31
-  %35 = trunc i32 %.2 to i16
+  %35 = trunc nuw nsw i32 %.2 to i16
   %36 = sub i16 %4, %35
   %37 = shl i64 %32, 57
   %sext = ashr i64 %37, 63
-  %38 = trunc i64 %sext to i16
+  %38 = trunc nsw i64 %sext to i16
   %spec.select = add i16 %36, %38
   %39 = zext i16 %spec.select to i32
   %40 = call fastcc i32 @decode_pfcp_network_instance(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.2, i32 noundef %39)
@@ -13411,7 +13417,7 @@ define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %19
   %21 = lshr i64 %.06794, 56
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %23 = shl nuw i32 %.07291, 1
   %24 = add nuw nsw i32 %23, 40
   br label %25

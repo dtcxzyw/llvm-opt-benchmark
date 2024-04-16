@@ -659,7 +659,7 @@ return:                                           ; preds = %entry, %end
 declare i32 @ossl_cmp_ctx_set1_validatedSrvCert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_msg_check_update(ptr noundef %ctx, ptr noundef %msg, ptr noundef readonly %cb, i32 noundef %cb_arg) local_unnamed_addr #0 {
+define i32 @ossl_cmp_msg_check_update(ptr noundef %ctx, ptr noundef %msg, ptr noundef readonly %cb, i32 noundef %cb_arg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %ctx, null
   %cmp1 = icmp ne ptr %msg, null
@@ -844,11 +844,11 @@ if.end94:                                         ; preds = %if.end89
 if.end100:                                        ; preds = %if.end94
   %call101 = tail call i32 @ossl_cmp_hdr_get_protection_nid(ptr noundef nonnull %call) #2
   %cmp102 = icmp eq i32 %call101, 782
-  br i1 %cmp102, label %if.then104, label %if.end115
+  br i1 %cmp102, label %if.then104, label %return
 
 if.then104:                                       ; preds = %if.end100
   %call105 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %msg) #2
-  switch i32 %call105, label %if.end115 [
+  switch i32 %call105, label %return [
     i32 1, label %sw.bb
     i32 3, label %sw.bb
     i32 8, label %sw.bb
@@ -859,7 +859,7 @@ sw.bb:                                            ; preds = %if.then104, %if.the
   %trusted = getelementptr inbounds i8, ptr %ctx, i64 168
   %20 = load ptr, ptr %trusted, align 8
   %cmp106.not = icmp eq ptr %20, null
-  br i1 %cmp106.not, label %if.end115, label %if.then108
+  br i1 %cmp106.not, label %return, label %if.then108
 
 if.then108:                                       ; preds = %sw.bb
   %body = getelementptr inbounds i8, ptr %msg, i64 8
@@ -868,14 +868,12 @@ if.then108:                                       ; preds = %sw.bb
   %22 = load ptr, ptr %value, align 8
   %23 = load ptr, ptr %22, align 8
   %call110 = tail call i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef nonnull %20, ptr noundef %23, i32 noundef 0) #2
-  %tobool111.not = icmp eq i32 %call110, 0
-  br i1 %tobool111.not, label %return, label %if.end115
-
-if.end115:                                        ; preds = %if.then108, %sw.bb, %if.then104, %if.end100
+  %tobool111.not = icmp ne i32 %call110, 0
+  %spec.select = zext i1 %tobool111.not to i32
   br label %return
 
-return:                                           ; preds = %entry, %if.then108, %if.end94, %if.end89, %land.lhs.true84, %if.end76, %if.end71, %if.end30, %if.end18, %land.rhs, %if.end115, %if.then70, %if.then65, %if.then55, %if.then47, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then65 ], [ 0, %if.then70 ], [ 1, %if.end115 ], [ 0, %if.then47 ], [ 0, %if.then55 ], [ 0, %land.rhs ], [ 0, %if.end18 ], [ 0, %if.end30 ], [ 0, %if.end71 ], [ 0, %if.end76 ], [ 0, %land.lhs.true84 ], [ 0, %if.end89 ], [ 0, %if.end94 ], [ 0, %if.then108 ], [ 0, %entry ]
+return:                                           ; preds = %if.then108, %entry, %if.end100, %if.then104, %sw.bb, %if.end94, %if.end89, %land.lhs.true84, %if.end76, %if.end71, %if.end30, %if.end18, %land.rhs, %if.then70, %if.then65, %if.then55, %if.then47, %if.then7
+  %retval.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then65 ], [ 0, %if.then70 ], [ 0, %if.then47 ], [ 0, %if.then55 ], [ 0, %land.rhs ], [ 0, %if.end18 ], [ 0, %if.end30 ], [ 0, %if.end71 ], [ 0, %if.end76 ], [ 0, %land.lhs.true84 ], [ 0, %if.end89 ], [ 0, %if.end94 ], [ 1, %sw.bb ], [ 1, %if.then104 ], [ 1, %if.end100 ], [ 0, %entry ], [ %spec.select, %if.then108 ]
   ret i32 %retval.0
 }
 
@@ -999,7 +997,7 @@ declare i32 @OSSL_CMP_CTX_set1_transactionID(ptr noundef, ptr noundef) local_unn
 declare i32 @ossl_cmp_ctx_set1_recipNonce(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_verify_popo(ptr nocapture noundef readonly %ctx, ptr noundef readonly %msg, i32 noundef %acceptRAVerified) local_unnamed_addr #0 {
+define i32 @ossl_cmp_verify_popo(ptr nocapture noundef readonly %ctx, ptr noundef readonly %msg, i32 noundef %acceptRAVerified) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %msg, null
   br i1 %cmp.not, label %return, label %land.rhs
@@ -1028,7 +1026,7 @@ sw.bb:                                            ; preds = %if.end
   %4 = load ptr, ptr %propq, align 8
   %call6 = tail call i32 @X509_REQ_verify_ex(ptr noundef %2, ptr noundef %call, ptr noundef %3, ptr noundef %4) #2
   %cmp7 = icmp slt i32 %call6, 1
-  br i1 %cmp7, label %if.then9, label %sw.epilog
+  br i1 %cmp7, label %if.then9, label %return
 
 if.then9:                                         ; preds = %sw.bb
   tail call void @ERR_new() #2
@@ -1043,8 +1041,9 @@ sw.bb11:                                          ; preds = %if.end, %if.end, %i
   %propq15 = getelementptr inbounds i8, ptr %ctx, i64 8
   %7 = load ptr, ptr %propq15, align 8
   %call16 = tail call i32 @OSSL_CRMF_MSGS_verify_popo(ptr noundef %5, i32 noundef 0, i32 noundef %acceptRAVerified, ptr noundef %6, ptr noundef %7) #2
-  %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %return, label %sw.epilog
+  %tobool17.not = icmp ne i32 %call16, 0
+  %spec.select = zext i1 %tobool17.not to i32
+  br label %return
 
 sw.default:                                       ; preds = %if.end
   tail call void @ERR_new() #2
@@ -1052,11 +1051,8 @@ sw.default:                                       ; preds = %if.end
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 146, ptr noundef null) #2
   br label %return
 
-sw.epilog:                                        ; preds = %sw.bb11, %sw.bb
-  br label %return
-
-return:                                           ; preds = %entry, %sw.bb11, %land.rhs, %sw.epilog, %sw.default, %if.then9
-  %retval.0 = phi i32 [ 0, %sw.default ], [ 1, %sw.epilog ], [ 0, %if.then9 ], [ 0, %land.rhs ], [ 0, %sw.bb11 ], [ 0, %entry ]
+return:                                           ; preds = %sw.bb11, %entry, %sw.bb, %land.rhs, %sw.default, %if.then9
+  %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %if.then9 ], [ 0, %land.rhs ], [ 1, %sw.bb ], [ 0, %entry ], [ %spec.select, %sw.bb11 ]
   ret i32 %retval.0
 }
 

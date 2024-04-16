@@ -1970,7 +1970,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define hidden i32 @nghttp2_nv_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %namelen = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i64, ptr %namelen, align 8
@@ -2024,7 +2024,7 @@ lor.lhs.false27:                                  ; preds = %if.end25
 
 if.then30:                                        ; preds = %lor.lhs.false27, %if.end25
   %cmp32 = icmp eq i64 %2, 0
-  br i1 %cmp32, label %if.end49, label %if.else34
+  br i1 %cmp32, label %return, label %if.else34
 
 if.else34:                                        ; preds = %if.then30
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 973, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_nv_equal) #19
@@ -2033,13 +2033,11 @@ if.else34:                                        ; preds = %if.then30
 if.else41:                                        ; preds = %lor.lhs.false27
   %bcmp21 = tail call i32 @bcmp(ptr nonnull %6, ptr nonnull %7, i64 %2)
   %cmp46.not = icmp eq i32 %bcmp21, 0
-  br i1 %cmp46.not, label %if.end49, label %return
-
-if.end49:                                         ; preds = %if.then30, %if.else41
+  %spec.select = zext i1 %cmp46.not to i32
   br label %return
 
-return:                                           ; preds = %if.else41, %if.else18, %entry, %lor.lhs.false, %if.end49
-  %retval.0 = phi i32 [ 1, %if.end49 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.else18 ], [ 0, %if.else41 ]
+return:                                           ; preds = %if.then30, %if.else41, %if.else18, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.else18 ], [ %spec.select, %if.else41 ], [ 1, %if.then30 ]
   ret i32 %retval.0
 }
 

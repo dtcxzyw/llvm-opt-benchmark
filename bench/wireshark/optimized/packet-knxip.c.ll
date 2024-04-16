@@ -610,7 +610,7 @@ define hidden void @proto_register_knxip() local_unnamed_addr #0 {
 10:                                               ; preds = %0, %10
   %indvars.iv18 = phi i64 [ 1, %0 ], [ %indvars.iv.next19, %10 ]
   %11 = tail call ptr @wmem_epan_scope() #9
-  %12 = trunc i64 %indvars.iv18 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv18 to i32
   %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %11, ptr noundef nonnull @.str.129, i32 noundef %12) #9
   %14 = tail call ptr @wmem_epan_scope() #9
   %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.130, i32 noundef %12) #9
@@ -863,7 +863,7 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
 47:                                               ; preds = %45
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %.0124, ptr noundef nonnull @.str.222) #9
   %48 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0124, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.227, i32 noundef %13) #9
-  %49 = trunc i32 %13 to i8
+  %49 = trunc nuw i32 %13 to i8
   br label %53
 
 50:                                               ; preds = %45
@@ -2449,20 +2449,20 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not120.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  switch i8 %spec.select.i.i, label %143 [
-    i8 1, label %146
-    i8 0, label %.thread139.i.i
-  ]
+  %.not121.i.i = icmp eq i8 %spec.select.i.i, 1
+  br i1 %.not121.i.i, label %146, label %143
 
-.thread139.i.i:                                   ; preds = %._crit_edge.i.i, %.thread.i.i
-  br label %143
+143:                                              ; preds = %._crit_edge.i.i
+  %.not122.i.i = icmp eq i8 %spec.select.i.i, 0
+  %spec.select143.i.i = select i1 %.not122.i.i, ptr @.str.349, ptr @.str.348
+  br label %.thread139.i.i
 
-143:                                              ; preds = %.thread139.i.i, %._crit_edge.i.i
-  %144 = phi ptr [ @.str.349, %.thread139.i.i ], [ @.str.348, %._crit_edge.i.i ]
+.thread139.i.i:                                   ; preds = %143, %.thread.i.i
+  %144 = phi ptr [ @.str.349, %.thread.i.i ], [ %spec.select143.i.i, %143 ]
   %145 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %97, ptr noundef nonnull @ei_knxip_warning, ptr noundef nonnull %144) #9
   br label %146
 
-146:                                              ; preds = %143, %._crit_edge.i.i
+146:                                              ; preds = %.thread139.i.i, %._crit_edge.i.i
   %147 = add i32 %47, 3
   %.not123.i.i = icmp eq i8 %.0.i, 3
   br i1 %.not123.i.i, label %.thread131.i.i, label %148
@@ -5352,7 +5352,7 @@ define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, 
   %10 = zext i8 %9 to i32
   %11 = lshr i32 %10, %3
   %12 = and i32 %11, 1
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, 48
   %15 = icmp slt i32 %3, 4
   %16 = zext i1 %15 to i32

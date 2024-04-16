@@ -1924,7 +1924,7 @@ for.inc.i.i257:                                   ; preds = %for.body.i85.i
   br i1 %exitcond.not.i.i258, label %sched_backend_prio.exit.i, label %for.body.i85.i, !llvm.loop !12
 
 return.loopexit.split.loop.exit9.i.i259:          ; preds = %for.body.i85.i
-  %94 = trunc i64 %indvars.iv.i86.i to i32
+  %94 = trunc nuw nsw i64 %indvars.iv.i86.i to i32
   br label %sched_backend_prio.exit.i
 
 sched_backend_prio.exit.i:                        ; preds = %for.inc.i.i257, %return.loopexit.split.loop.exit9.i.i259, %if.then19.i
@@ -2065,7 +2065,7 @@ for.inc.i284:                                     ; preds = %for.body.i280
   br i1 %exitcond.not.i286, label %sched_allocr_prio.exit, label %for.body.i280, !llvm.loop !16
 
 return.loopexit.split.loop.exit9.i:               ; preds = %for.body.i280
-  %117 = trunc i64 %indvars.iv.i281 to i32
+  %117 = trunc nuw nsw i64 %indvars.iv.i281 to i32
   br label %sched_allocr_prio.exit
 
 sched_allocr_prio.exit:                           ; preds = %for.inc.i284, %if.then84, %return.loopexit.split.loop.exit9.i
@@ -2268,7 +2268,7 @@ if.end194:                                        ; preds = %for.body187
 
 if.then202:                                       ; preds = %if.end194
   %i_end = getelementptr inbounds [256 x %struct.ggml_backend_sched_split], ptr %splits171, i64 0, i64 %.pre541, i32 2
-  %161 = trunc i64 %indvars.iv515 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv515 to i32
   store i32 %161, ptr %i_end, align 4
   %cmp207 = icmp slt i32 %cur_split.0455, 255
   br i1 %cmp207, label %do.end, label %if.then209
@@ -2553,7 +2553,7 @@ if.end.i368.us:                                   ; preds = %get_allocr_backend.
 
 cond.end369.us:                                   ; preds = %if.end.i368.us, %get_allocr_backend.exit366.us
   %cond370.us = phi ptr [ %call.i369.us, %if.end.i368.us ], [ @.str.5, %get_allocr_backend.exit366.us ]
-  %211 = trunc i64 %indvars.iv522 to i32
+  %211 = trunc nuw nsw i64 %indvars.iv522 to i32
   %call371.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.40, ptr noundef nonnull %name358547, ptr noundef nonnull @.str.5, i32 noundef %211, ptr noundef nonnull %name362.us, ptr noundef %cond370.us) #21
   br label %for.inc373.us
 
@@ -2640,7 +2640,7 @@ if.end.i368:                                      ; preds = %get_allocr_backend.
 
 cond.end369:                                      ; preds = %if.end.i368, %get_allocr_backend.exit366, %cond.end
   %cond370 = phi ptr [ @.str.5, %cond.end ], [ %call.i369, %if.end.i368 ], [ @.str.5, %get_allocr_backend.exit366 ]
-  %228 = trunc i64 %indvars.iv518 to i32
+  %228 = trunc nuw nsw i64 %indvars.iv518 to i32
   %call371 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.40, ptr noundef nonnull %name333, ptr noundef %cond, i32 noundef %228, ptr noundef nonnull %name362, ptr noundef %cond370) #21
   br label %for.inc373
 
@@ -3221,7 +3221,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !12
 
 sched_backend_prio.exit:                          ; preds = %for.body.i
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %or.cond = icmp ugt i32 %0, %2
   br i1 %or.cond, label %do.end, label %if.then
 
@@ -3661,19 +3661,17 @@ if.then10:                                        ; preds = %do.end7
 if.end12:                                         ; preds = %do.end7
   %6 = load ptr, ptr %data, align 8
   %tobool14.not = icmp eq ptr %6, null
-  br i1 %tobool14.not, label %cond.false, label %land.lhs.true15
+  br i1 %tobool14.not, label %cond.end, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.end12
   %view_src = getelementptr inbounds i8, ptr %src, i64 264
   %7 = load ptr, ptr %view_src, align 8
   %tobool16.not = icmp eq ptr %7, null
-  br i1 %tobool16.not, label %cond.end, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true15, %if.end12
+  %spec.select = select i1 %tobool16.not, ptr %ctx_allocated, ptr %ctx_unallocated
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true15, %cond.false
-  %cond = phi ptr [ %ctx_unallocated, %cond.false ], [ %ctx_allocated, %land.lhs.true15 ]
+cond.end:                                         ; preds = %land.lhs.true15, %if.end12
+  %cond = phi ptr [ %ctx_unallocated, %if.end12 ], [ %spec.select, %land.lhs.true15 ]
   %call.i = tail call ptr @ggml_dup_tensor(ptr noundef %cond, ptr noundef nonnull %src) #19
   %nb.i = getelementptr inbounds i8, ptr %src, i64 48
   %nb1.i = getelementptr inbounds i8, ptr %call.i, i64 48
@@ -3864,7 +3862,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load ptr, ptr %arrayidx4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %g1v, ptr noundef nonnull %graph, i32 noundef %6, i32 noundef %indvars) #19
   call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %g2v, ptr noundef %0, i32 noundef %6, i32 noundef %indvars) #19
   %7 = load ptr, ptr %graph_compute.i, align 8

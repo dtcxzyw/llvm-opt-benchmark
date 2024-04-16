@@ -882,7 +882,7 @@ define internal noundef i32 @serio_bus_match(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @serio_uevent(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %47, label %4
+  br i1 %3, label %45, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 -143
@@ -890,7 +890,7 @@ define internal i32 @serio_uevent(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %7 = zext i8 %6 to i32
   %8 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %7) #10
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %47
+  br i1 %9, label %10, label %45
 
 10:                                               ; preds = %4
   %11 = getelementptr i8, ptr %0, i64 -140
@@ -898,7 +898,7 @@ define internal i32 @serio_uevent(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %13 = zext i8 %12 to i32
   %14 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.28, i32 noundef %13) #10
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %47
+  br i1 %15, label %16, label %45
 
 16:                                               ; preds = %10
   %17 = getelementptr i8, ptr %0, i64 -141
@@ -906,7 +906,7 @@ define internal i32 @serio_uevent(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %19 = zext i8 %18 to i32
   %20 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %19) #10
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %47
+  br i1 %21, label %22, label %45
 
 22:                                               ; preds = %16
   %23 = getelementptr i8, ptr %0, i64 -142
@@ -914,7 +914,7 @@ define internal i32 @serio_uevent(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %25 = zext i8 %24 to i32
   %26 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %25) #10
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %47
+  br i1 %27, label %28, label %45
 
 28:                                               ; preds = %22
   %29 = load i8, ptr %5, align 1
@@ -927,25 +927,21 @@ define internal i32 @serio_uevent(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %36 = zext i8 %35 to i32
   %37 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef %36) #10
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %47
+  br i1 %38, label %39, label %45
 
 39:                                               ; preds = %28
   %40 = getelementptr i8, ptr %0, i64 -272
   %41 = load i8, ptr %40, align 8
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %46, label %43
+  br i1 %42, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef %40) #10
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %47
+  br label %45
 
-46:                                               ; preds = %43, %39
-  br label %47
-
-47:                                               ; preds = %46, %43, %28, %22, %16, %10, %4, %2
-  %48 = phi i32 [ 0, %46 ], [ %44, %43 ], [ %37, %28 ], [ %26, %22 ], [ %20, %16 ], [ %14, %10 ], [ %8, %4 ], [ -19, %2 ]
-  ret i32 %48
+45:                                               ; preds = %43, %39, %28, %22, %16, %10, %4, %2
+  %46 = phi i32 [ %37, %28 ], [ %26, %22 ], [ %20, %16 ], [ %14, %10 ], [ %8, %4 ], [ -19, %2 ], [ 0, %39 ], [ %44, %43 ]
+  ret i32 %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1150,7 +1146,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr nocapture readnone %1, ptr
 
 8:                                                ; preds = %4
   %9 = sext i32 %6 to i64
-  br label %206
+  br label %205
 
 10:                                               ; preds = %4
   %11 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull @.str.17, i64 noundef %3) #10
@@ -1341,7 +1337,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr nocapture readnone %1, ptr
 
 .thread22:                                        ; preds = %104
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
-  br label %206
+  br label %205
 
 107:                                              ; preds = %104
   %108 = getelementptr i8, ptr %0, i64 -64
@@ -1525,14 +1521,12 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr nocapture readnone %1, ptr
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
   %203 = icmp eq i32 %.fr, 0
   %204 = sext i32 %.fr to i64
-  br i1 %203, label %205, label %206
+  %spec.select = select i1 %203, i64 %3, i64 %204
+  br label %205
 
-205:                                              ; preds = %.thread, %.loopexit31
-  br label %206
-
-206:                                              ; preds = %205, %.loopexit31, %.thread22, %8
-  %207 = phi i64 [ %9, %8 ], [ %3, %205 ], [ %204, %.loopexit31 ], [ -22, %.thread22 ]
-  ret i64 %207
+205:                                              ; preds = %.loopexit31, %.thread22, %.thread, %8
+  %206 = phi i64 [ %9, %8 ], [ -22, %.thread22 ], [ %3, %.thread ], [ %spec.select, %.loopexit31 ]
+  ret i64 %206
 }
 
 ; Function Attrs: null_pointer_is_valid

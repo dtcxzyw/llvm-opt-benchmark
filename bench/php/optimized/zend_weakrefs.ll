@@ -1482,10 +1482,10 @@ define internal i32 @zend_weakmap_has_dimension(ptr noundef %0, ptr nocapture no
 
 21:                                               ; preds = %13
   %.not35 = icmp eq i32 %2, 0
-  br i1 %.not35, label %60, label %.preheader
+  br i1 %.not35, label %59, label %.preheader
 
-.preheader:                                       ; preds = %21, %57
-  %.0 = phi ptr [ %59, %57 ], [ %20, %21 ]
+.preheader:                                       ; preds = %21, %56
+  %.0 = phi ptr [ %58, %56 ], [ %20, %21 ]
   %22 = getelementptr inbounds i8, ptr %.0, i64 8
   %23 = load i8, ptr %22, align 8
   switch i8 %23, label %.loopexit.loopexit [
@@ -1493,10 +1493,10 @@ define internal i32 @zend_weakmap_has_dimension(ptr noundef %0, ptr nocapture no
     i8 4, label %24
     i8 5, label %26
     i8 6, label %30
-    i8 7, label %40
-    i8 8, label %44
-    i8 9, label %53
-    i8 10, label %57
+    i8 7, label %39
+    i8 8, label %43
+    i8 9, label %52
+    i8 10, label %56
   ]
 
 24:                                               ; preds = %.preheader
@@ -1517,7 +1517,7 @@ define internal i32 @zend_weakmap_has_dimension(ptr noundef %0, ptr nocapture no
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp ugt i64 %33, 1
-  br i1 %34, label %39, label %35
+  br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %30
   %.not38 = icmp eq i64 %33, 0
@@ -1526,55 +1526,52 @@ define internal i32 @zend_weakmap_has_dimension(ptr noundef %0, ptr nocapture no
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %31, i64 24
   %38 = load i8, ptr %37, align 8
-  %.not39 = icmp eq i8 %38, 48
-  br i1 %.not39, label %.loopexit, label %39
-
-39:                                               ; preds = %36, %30
+  %.not39 = icmp ne i8 %38, 48
   br label %.loopexit
 
-40:                                               ; preds = %.preheader
-  %41 = load ptr, ptr %.0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 28
-  %43 = load i32, ptr %42, align 4
-  %.not37 = icmp ne i32 %43, 0
+39:                                               ; preds = %.preheader
+  %40 = load ptr, ptr %.0, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 28
+  %42 = load i32, ptr %41, align 4
+  %.not37 = icmp ne i32 %42, 0
   br label %.loopexit
 
-44:                                               ; preds = %.preheader
-  %45 = load ptr, ptr %.0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 136
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, @zend_std_cast_object_tostring
-  br i1 %50, label %.loopexit, label %51
+43:                                               ; preds = %.preheader
+  %44 = load ptr, ptr %.0, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 136
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, @zend_std_cast_object_tostring
+  br i1 %49, label %.loopexit, label %50
 
-51:                                               ; preds = %44
-  %52 = tail call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.0) #8
+50:                                               ; preds = %43
+  %51 = tail call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.0) #8
   br label %.loopexit
 
-53:                                               ; preds = %.preheader
-  %54 = load ptr, ptr %.0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %56 = load i64, ptr %55, align 8
-  %.not36 = icmp ne i64 %56, 0
+52:                                               ; preds = %.preheader
+  %53 = load ptr, ptr %.0, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8
+  %.not36 = icmp ne i64 %55, 0
   br label %.loopexit
 
-57:                                               ; preds = %.preheader
-  %58 = load ptr, ptr %.0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+56:                                               ; preds = %.preheader
+  %57 = load ptr, ptr %.0, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
   br label %.preheader
 
-60:                                               ; preds = %21
-  %61 = getelementptr inbounds i8, ptr %20, i64 8
-  %62 = load i8, ptr %61, align 8
-  %63 = icmp ne i8 %62, 1
+59:                                               ; preds = %21
+  %60 = getelementptr inbounds i8, ptr %20, i64 8
+  %61 = load i8, ptr %60, align 8
+  %62 = icmp ne i8 %61, 1
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.preheader
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit, %53, %40, %24, %29, %26, %39, %36, %35, %51, %44, %13, %60, %12
-  %.030.shrunk = phi i1 [ false, %12 ], [ %63, %60 ], [ false, %13 ], [ %52, %51 ], [ true, %39 ], [ false, %36 ], [ false, %35 ], [ true, %29 ], [ false, %26 ], [ %.not40, %24 ], [ %.not37, %40 ], [ true, %44 ], [ %.not36, %53 ], [ false, %.loopexit.loopexit ], [ true, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit, %36, %52, %39, %24, %29, %26, %35, %50, %30, %43, %13, %59, %12
+  %.030.shrunk = phi i1 [ false, %12 ], [ %62, %59 ], [ false, %13 ], [ %51, %50 ], [ false, %35 ], [ true, %29 ], [ false, %26 ], [ %.not40, %24 ], [ true, %30 ], [ %.not37, %39 ], [ true, %43 ], [ %.not36, %52 ], [ %.not39, %36 ], [ false, %.loopexit.loopexit ], [ true, %.preheader ]
   %.030 = zext i1 %.030.shrunk to i32
   ret i32 %.030
 }

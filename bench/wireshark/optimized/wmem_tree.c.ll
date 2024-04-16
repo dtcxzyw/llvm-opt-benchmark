@@ -2023,23 +2023,27 @@ wmem_tree_lookup32_array_helper.exit:             ; preds = %9, %wmem_tree_looku
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %.critedge, %3
+  %.tr = phi ptr [ %0, %3 ], [ %29, %.critedge ]
+  %4 = getelementptr inbounds i8, ptr %.tr, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
-6:                                                ; preds = %3
+6:                                                ; preds = %tailrecurse
   %7 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
-  br i1 %7, label %33, label %8
+  br i1 %7, label %30, label %8
 
-8:                                                ; preds = %6, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+8:                                                ; preds = %6, %tailrecurse
+  %9 = getelementptr inbounds i8, ptr %.tr, i64 44
   %10 = load i8, ptr %9, align 4
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds i8, ptr %.tr, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -2047,38 +2051,31 @@ define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr nocapture
   br i1 %.not.i, label %.critedge, label %wmem_tree_foreach.exit
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 45
+  %18 = getelementptr inbounds i8, ptr %.tr, i64 45
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds i8, ptr %.tr, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds i8, ptr %.tr, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 %1(ptr noundef %23, ptr noundef %25, ptr noundef %2) #9
-  br i1 %26, label %33, label %.critedge
+  br i1 %26, label %30, label %.critedge
 
 wmem_tree_foreach.exit:                           ; preds = %12
   %27 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %16, ptr noundef %1, ptr noundef %2)
-  br i1 %27, label %33, label %.critedge
+  br i1 %27, label %30, label %.critedge
 
 .critedge:                                        ; preds = %12, %21, %17, %wmem_tree_foreach.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds i8, ptr %.tr, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not23 = icmp eq ptr %29, null
-  br i1 %.not23, label %32, label %30
+  br i1 %.not23, label %30, label %tailrecurse
 
-30:                                               ; preds = %.critedge
-  %31 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %29, ptr noundef %1, ptr noundef %2)
-  br i1 %31, label %33, label %32
-
-32:                                               ; preds = %30, %.critedge
-  br label %33
-
-33:                                               ; preds = %21, %30, %wmem_tree_foreach.exit, %6, %32
-  %.019 = phi i1 [ false, %32 ], [ true, %6 ], [ true, %wmem_tree_foreach.exit ], [ true, %30 ], [ true, %21 ]
+30:                                               ; preds = %21, %.critedge, %wmem_tree_foreach.exit, %6
+  %.019 = phi i1 [ true, %6 ], [ true, %wmem_tree_foreach.exit ], [ false, %.critedge ], [ true, %21 ]
   ret i1 %.019
 }
 

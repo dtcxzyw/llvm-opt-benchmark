@@ -186,8 +186,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   %3 = insertelement <8 x i8> poison, i8 %2, i64 0
   %4 = insertelement <8 x i8> %3, i8 %0, i64 1
   %5 = shufflevector <8 x i8> %4, <8 x i8> poison, <8 x i32> <i32 0, i32 1, i32 1, i32 1, i32 0, i32 0, i32 0, i32 0>
-  %.fr4792 = freeze <8 x i8> %5
-  %6 = icmp eq <8 x i8> %.fr4792, <i8 24, i8 35, i8 26, i8 34, i8 36, i8 32, i8 30, i8 38>
+  %.fr4793 = freeze <8 x i8> %5
+  %6 = icmp eq <8 x i8> %.fr4793, <i8 24, i8 35, i8 26, i8 34, i8 36, i8 32, i8 30, i8 38>
   %7 = bitcast <8 x i1> %6 to i8
   %.not = icmp eq i8 %7, 0
   %url_mark.0 = select i1 %.not, ptr null, ptr %data
@@ -220,35 +220,35 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %p.02913 = phi ptr [ %data, %for.body.lr.ph ], [ %incdec.ptr3655, %for.inc ]
-  %state.02912 = phi i8 [ %0, %for.body.lr.ph ], [ %state.4, %for.inc ]
-  %data_or_header_data_start.02911 = phi ptr [ %data, %for.body.lr.ph ], [ %data_or_header_data_start.1, %for.inc ]
-  %body_mark.02910 = phi ptr [ null, %for.body.lr.ph ], [ %body_mark.6, %for.inc ]
-  %reason_mark.12909 = phi ptr [ %reason_mark.0, %for.body.lr.ph ], [ %reason_mark.3, %for.inc ]
-  %url_mark.12908 = phi ptr [ %url_mark.0, %for.body.lr.ph ], [ %url_mark.11, %for.inc ]
-  %header_value_mark.12907 = phi ptr [ %header_value_mark.0, %for.body.lr.ph ], [ %header_value_mark.5, %for.inc ]
-  %header_field_mark.12906 = phi ptr [ %spec.select, %for.body.lr.ph ], [ %header_field_mark.3, %for.inc ]
-  %9 = load i8, ptr %p.02913, align 1
-  %.fr1542 = freeze i8 %9
+  %p.02914 = phi ptr [ %data, %for.body.lr.ph ], [ %incdec.ptr3655, %for.inc ]
+  %state.02913 = phi i8 [ %0, %for.body.lr.ph ], [ %state.4, %for.inc ]
+  %data_or_header_data_start.02912 = phi ptr [ %data, %for.body.lr.ph ], [ %data_or_header_data_start.1, %for.inc ]
+  %body_mark.02911 = phi ptr [ null, %for.body.lr.ph ], [ %body_mark.6, %for.inc ]
+  %reason_mark.12910 = phi ptr [ %reason_mark.0, %for.body.lr.ph ], [ %reason_mark.3, %for.inc ]
+  %url_mark.12909 = phi ptr [ %url_mark.0, %for.body.lr.ph ], [ %url_mark.11, %for.inc ]
+  %header_value_mark.12908 = phi ptr [ %header_value_mark.0, %for.body.lr.ph ], [ %header_value_mark.5, %for.inc ]
+  %header_field_mark.12907 = phi ptr [ %spec.select, %for.body.lr.ph ], [ %header_field_mark.3, %for.inc ]
+  %9 = load i8, ptr %p.02914, align 1
+  %.fr1543 = freeze i8 %9
   br label %reexecute_byte
 
 reexecute_byte:                                   ; preds = %reexecute_byte.backedge, %for.body
-  %header_value_mark.2 = phi ptr [ %header_value_mark.12907, %for.body ], [ %header_value_mark.2.be, %reexecute_byte.backedge ]
-  %url_mark.2 = phi ptr [ %url_mark.12908, %for.body ], [ %url_mark.2.be, %reexecute_byte.backedge ]
-  %body_mark.1 = phi ptr [ %body_mark.02910, %for.body ], [ %body_mark.1.be, %reexecute_byte.backedge ]
-  %state.1 = phi i8 [ %state.02912, %for.body ], [ %state.1.be, %reexecute_byte.backedge ]
-  %p.1 = phi ptr [ %p.02913, %for.body ], [ %p.1.be, %reexecute_byte.backedge ]
-  %ch.0 = phi i8 [ %.fr1542, %for.body ], [ %ch.0.be, %reexecute_byte.backedge ]
+  %header_value_mark.2 = phi ptr [ %header_value_mark.12908, %for.body ], [ %header_value_mark.2.be, %reexecute_byte.backedge ]
+  %url_mark.2 = phi ptr [ %url_mark.12909, %for.body ], [ %url_mark.2.be, %reexecute_byte.backedge ]
+  %body_mark.1 = phi ptr [ %body_mark.02911, %for.body ], [ %body_mark.1.be, %reexecute_byte.backedge ]
+  %state.1 = phi i8 [ %state.02913, %for.body ], [ %state.1.be, %reexecute_byte.backedge ]
+  %p.1 = phi ptr [ %p.02914, %for.body ], [ %p.1.be, %reexecute_byte.backedge ]
+  %ch.0 = phi i8 [ %.fr1543, %for.body ], [ %ch.0.be, %reexecute_byte.backedge ]
   switch i8 %state.1, label %do.body3648 [
     i8 2, label %sw.bb94
     i8 3, label %sw.bb125
     i8 4, label %sw.bb136
     i8 5, label %sw.bb158
     i8 6, label %sw.bb190
-    i8 7, label %for.inc.loopexit1544
-    i8 8, label %for.inc.loopexit2960
-    i8 9, label %for.inc.loopexit3595
-    i8 10, label %for.inc.loopexit4193
+    i8 7, label %for.inc.loopexit1545
+    i8 8, label %for.inc.loopexit2961
+    i8 9, label %for.inc.loopexit3596
+    i8 10, label %for.inc.loopexit4194
     i8 11, label %sw.bb209
     i8 12, label %sw.bb225
     i8 13, label %sw.bb261
@@ -256,7 +256,7 @@ reexecute_byte:                                   ; preds = %reexecute_byte.back
     i8 15, label %sw.bb317
     i8 16, label %sw.bb338
     i8 18, label %do.body380
-    i8 19, label %for.inc.loopexit4793
+    i8 19, label %for.inc.loopexit4794
     i8 20, label %sw.bb454
     i8 21, label %sw.bb486
     i8 22, label %sw.bb546
@@ -306,8 +306,8 @@ reexecute_byte:                                   ; preds = %reexecute_byte.back
 
 sw.bb94:                                          ; preds = %reexecute_byte
   switch i8 %ch.0, label %if.end101 [
-    i8 13, label %for.inc.loopexit4793
-    i8 10, label %for.inc.loopexit4793
+    i8 13, label %for.inc.loopexit4794
+    i8 10, label %for.inc.loopexit4794
   ]
 
 if.end101:                                        ; preds = %sw.bb94
@@ -341,7 +341,7 @@ sw.bb125:                                         ; preds = %reexecute_byte
   store i8 %bf.clear127, ptr %parser, align 8
   store i64 -1, ptr %content_length3323, align 8
   %cmp130 = icmp eq i8 %ch.0, 72
-  br i1 %cmp130, label %for.inc.loopexit4793, label %if.else
+  br i1 %cmp130, label %for.inc.loopexit4794, label %if.else
 
 if.else:                                          ; preds = %sw.bb125
   store i8 0, ptr %parser, align 8
@@ -377,8 +377,8 @@ if.end153:                                        ; preds = %sw.bb136
 
 sw.bb158:                                         ; preds = %reexecute_byte
   switch i8 %ch.0, label %if.end165 [
-    i8 13, label %for.inc.loopexit4793
-    i8 10, label %for.inc.loopexit4793
+    i8 13, label %for.inc.loopexit4794
+    i8 10, label %for.inc.loopexit4794
   ]
 
 if.end165:                                        ; preds = %sw.bb158
@@ -586,8 +586,8 @@ do.body372:                                       ; preds = %if.end357
   br label %error
 
 do.body380:                                       ; preds = %reexecute_byte
-  %tobool.not = icmp eq ptr %reason_mark.12909, null
-  %spec.select1511 = select i1 %tobool.not, ptr %p.1, ptr %reason_mark.12909
+  %tobool.not = icmp eq ptr %reason_mark.12910, null
+  %spec.select1511 = select i1 %tobool.not, ptr %p.1, ptr %reason_mark.12910
   switch i8 %ch.0, label %for.inc [
     i8 13, label %if.then386
     i8 10, label %if.then420
@@ -621,8 +621,8 @@ if.end403:                                        ; preds = %do.body397, %if.the
   br i1 %cmp408.not, label %for.inc, label %if.then409
 
 if.then409:                                       ; preds = %if.end403
-  %reass.sub2959 = sub i64 %sub.ptr.lhs.cast391, %sub.ptr.rhs.cast3074
-  %add413 = add i64 %reass.sub2959, 1
+  %reass.sub2960 = sub i64 %sub.ptr.lhs.cast391, %sub.ptr.rhs.cast3074
+  %add413 = add i64 %reass.sub2960, 1
   br label %return
 
 if.then420:                                       ; preds = %do.body380
@@ -653,14 +653,14 @@ if.end438:                                        ; preds = %do.body432, %if.the
   br i1 %cmp443.not, label %for.inc, label %if.then444
 
 if.then444:                                       ; preds = %if.end438
-  %reass.sub2958 = sub i64 %sub.ptr.lhs.cast426, %sub.ptr.rhs.cast3074
-  %add448 = add i64 %reass.sub2958, 1
+  %reass.sub2959 = sub i64 %sub.ptr.lhs.cast426, %sub.ptr.rhs.cast3074
+  %add448 = add i64 %reass.sub2959, 1
   br label %return
 
 sw.bb454:                                         ; preds = %reexecute_byte
   switch i8 %ch.0, label %if.end461 [
-    i8 13, label %for.inc.loopexit4793
-    i8 10, label %for.inc.loopexit4793
+    i8 13, label %for.inc.loopexit4794
+    i8 10, label %for.inc.loopexit4794
   ]
 
 if.end461:                                        ; preds = %sw.bb454
@@ -796,20 +796,20 @@ if.end556:                                        ; preds = %sw.bb546
   %arrayidx = getelementptr inbounds [24 x ptr], ptr @_ZN8proxygenL14method_stringsE, i64 0, i64 %idxprom
   %26 = load ptr, ptr %arrayidx, align 8
   %cmp559 = icmp eq i8 %ch.0, 32
-  %.pre3580 = load i8, ptr %index2896, align 1
-  %idxprom562 = zext i8 %.pre3580 to i64
+  %.pre3581 = load i8, ptr %index2896, align 1
+  %idxprom562 = zext i8 %.pre3581 to i64
   %arrayidx563 = getelementptr inbounds i8, ptr %26, i64 %idxprom562
   %27 = load i8, ptr %arrayidx563, align 1
   %cmp565 = icmp eq i8 %27, 0
-  %or.cond4192 = select i1 %cmp559, i1 %cmp565, i1 false
-  br i1 %or.cond4192, label %if.end711, label %if.else567
+  %or.cond4193 = select i1 %cmp559, i1 %cmp565, i1 false
+  br i1 %or.cond4193, label %if.end711, label %if.else567
 
 if.else567:                                       ; preds = %if.end556
   %cmp573 = icmp eq i8 %ch.0, %27
   br i1 %cmp573, label %if.end711, label %if.else575
 
 if.else575:                                       ; preds = %if.else567
-  %cmp648 = icmp eq i8 %.pre3580, 1
+  %cmp648 = icmp eq i8 %.pre3581, 1
   switch i8 %25, label %if.else645 [
     i8 5, label %if.then579
     i8 10, label %if.then604
@@ -821,7 +821,7 @@ if.then579:                                       ; preds = %if.else575
   br i1 %or.cond23, label %if.end711.sink.split, label %if.else588
 
 if.else588:                                       ; preds = %if.then579
-  %cmp591 = icmp eq i8 %.pre3580, 2
+  %cmp591 = icmp eq i8 %.pre3581, 2
   %cmp594 = icmp eq i8 %ch.0, 80
   %or.cond24 = select i1 %cmp591, i1 %cmp594, i1 false
   br i1 %or.cond24, label %if.end711.sink.split, label %error.loopexit
@@ -842,7 +842,7 @@ if.else622:                                       ; preds = %if.else613
   br i1 %or.cond27, label %if.end711.sink.split, label %if.else631
 
 if.else631:                                       ; preds = %if.else622
-  %cmp634 = icmp eq i8 %.pre3580, 2
+  %cmp634 = icmp eq i8 %.pre3581, 2
   %cmp637 = icmp eq i8 %ch.0, 65
   %or.cond28 = select i1 %cmp634, i1 %cmp637, i1 false
   br i1 %or.cond28, label %if.end711.sink.split, label %error.loopexit
@@ -866,7 +866,7 @@ if.then666:                                       ; preds = %if.then653
   br label %if.end711.sink.split
 
 if.else672:                                       ; preds = %if.else645
-  switch i8 %.pre3580, label %do.body699 [
+  switch i8 %.pre3581, label %do.body699 [
     i8 2, label %land.lhs.true676
     i8 4, label %land.lhs.true689
   ]
@@ -897,13 +897,13 @@ if.end711.sink.split:                             ; preds = %land.lhs.true689, %
 
 if.end711:                                        ; preds = %if.end711.sink.split, %if.end556, %if.else567
   %state.2 = phi i8 [ 22, %if.else567 ], [ 23, %if.end556 ], [ 22, %if.end711.sink.split ]
-  %inc = add i8 %.pre3580, 1
+  %inc = add i8 %.pre3581, 1
   store i8 %inc, ptr %index2896, align 1
   br label %for.inc
 
 sw.bb713:                                         ; preds = %reexecute_byte
   %cmp715 = icmp eq i8 %ch.0, 32
-  br i1 %cmp715, label %for.inc.loopexit4793, label %if.end717
+  br i1 %cmp715, label %for.inc.loopexit4794, label %if.end717
 
 if.end717:                                        ; preds = %sw.bb713
   %28 = load i8, ptr %method3064, align 2
@@ -990,14 +990,14 @@ sw.bb821:                                         ; preds = %reexecute_byte
   %or.cond1520 = icmp ult i8 %34, 26
   %35 = add i8 %ch.0, -48
   %or.cond33 = icmp ult i8 %35, 10
-  %or.cond1543 = select i1 %or.cond1520, i1 true, i1 %or.cond33
-  br i1 %or.cond1543, label %for.inc.loopexit4793, label %switch.early.test
+  %or.cond1544 = select i1 %or.cond1520, i1 true, i1 %or.cond33
+  br i1 %or.cond1544, label %for.inc.loopexit4794, label %switch.early.test
 
 switch.early.test:                                ; preds = %sw.bb821
   switch i8 %ch.0, label %reexecute_byte.backedge [
-    i8 95, label %for.inc.loopexit4793
-    i8 46, label %for.inc.loopexit4793
-    i8 45, label %for.inc.loopexit4793
+    i8 95, label %for.inc.loopexit4794
+    i8 46, label %for.inc.loopexit4794
+    i8 45, label %for.inc.loopexit4794
   ]
 
 sw.bb850:                                         ; preds = %reexecute_byte
@@ -1022,9 +1022,9 @@ lor.lhs.false868:                                 ; preds = %lor.lhs.false856
 
 if.end872:                                        ; preds = %land.lhs.true862
   %cmp874 = icmp eq i8 %ch.0, 93
-  br i1 %cmp874, label %if.then875, label %do.body877
+  br i1 %cmp874, label %for.inc, label %do.body877
 
-if.then875:                                       ; preds = %lor.lhs.false868, %if.end872
+if.then875:                                       ; preds = %lor.lhs.false868
   br label %for.inc
 
 do.body877:                                       ; preds = %lor.lhs.false868, %if.end872
@@ -1073,8 +1073,8 @@ if.end904:                                        ; preds = %do.body898, %if.the
   br i1 %cmp909.not, label %for.inc, label %if.then910
 
 if.then910:                                       ; preds = %if.end904
-  %reass.sub2957 = sub i64 %sub.ptr.lhs.cast892, %sub.ptr.rhs.cast3074
-  %add914 = add i64 %reass.sub2957, 1
+  %reass.sub2958 = sub i64 %sub.ptr.lhs.cast892, %sub.ptr.rhs.cast3074
+  %add914 = add i64 %reass.sub2958, 1
   br label %return
 
 sw.bb918:                                         ; preds = %sw.bb883
@@ -1127,8 +1127,8 @@ if.end955:                                        ; preds = %do.body949, %if.the
   br i1 %cmp960.not, label %for.inc, label %if.then961
 
 if.then961:                                       ; preds = %if.end955
-  %reass.sub2956 = sub i64 %sub.ptr.lhs.cast943, %sub.ptr.rhs.cast3074
-  %add965 = add i64 %reass.sub2956, 1
+  %reass.sub2957 = sub i64 %sub.ptr.lhs.cast943, %sub.ptr.rhs.cast3074
+  %add965 = add i64 %reass.sub2957, 1
   br label %return
 
 sw.bb969:                                         ; preds = %if.end934
@@ -1148,15 +1148,15 @@ sw.bb978:                                         ; preds = %reexecute_byte
   %cmp983.not = icmp ne i8 %40, 0
   %tobool987.not = icmp slt i8 %ch.0, 0
   %or.cond1521 = and i1 %tobool1507.not, %tobool987.not
-  %or.cond2921 = select i1 %cmp983.not, i1 true, i1 %or.cond1521
-  br i1 %or.cond2921, label %for.inc.loopexit4793, label %if.end993
+  %or.cond2922 = select i1 %cmp983.not, i1 true, i1 %or.cond1521
+  br i1 %or.cond2922, label %for.inc.loopexit4794, label %if.end993
 
 if.end993:                                        ; preds = %sw.bb978
   switch i8 %ch.0, label %do.body1098 [
     i8 32, label %sw.bb995
     i8 13, label %sw.bb1027
     i8 10, label %sw.bb1061
-    i8 63, label %for.inc.loopexit4793
+    i8 63, label %for.inc.loopexit4794
     i8 35, label %for.inc
   ]
 
@@ -1188,8 +1188,8 @@ if.end1013:                                       ; preds = %do.body1007, %if.th
   br i1 %cmp1018.not, label %for.inc, label %if.then1019
 
 if.then1019:                                      ; preds = %if.end1013
-  %reass.sub2955 = sub i64 %sub.ptr.lhs.cast1001, %sub.ptr.rhs.cast3074
-  %add1023 = add i64 %reass.sub2955, 1
+  %reass.sub2956 = sub i64 %sub.ptr.lhs.cast1001, %sub.ptr.rhs.cast3074
+  %add1023 = add i64 %reass.sub2956, 1
   br label %return
 
 sw.bb1027:                                        ; preds = %if.end993
@@ -1222,8 +1222,8 @@ if.end1047:                                       ; preds = %do.body1041, %if.th
   br i1 %cmp1052.not, label %for.inc, label %if.then1053
 
 if.then1053:                                      ; preds = %if.end1047
-  %reass.sub2954 = sub i64 %sub.ptr.lhs.cast1035, %sub.ptr.rhs.cast3074
-  %add1057 = add i64 %reass.sub2954, 1
+  %reass.sub2955 = sub i64 %sub.ptr.lhs.cast1035, %sub.ptr.rhs.cast3074
+  %add1057 = add i64 %reass.sub2955, 1
   br label %return
 
 sw.bb1061:                                        ; preds = %if.end993
@@ -1256,8 +1256,8 @@ if.end1081:                                       ; preds = %do.body1075, %if.th
   br i1 %cmp1086.not, label %reexecute_byte.backedge, label %if.then1087
 
 if.then1087:                                      ; preds = %if.end1081
-  %reass.sub2953 = sub i64 %sub.ptr.lhs.cast1069, %sub.ptr.rhs.cast3074
-  %add1091 = add i64 %reass.sub2953, 1
+  %reass.sub2954 = sub i64 %sub.ptr.lhs.cast1069, %sub.ptr.rhs.cast3074
+  %add1091 = add i64 %reass.sub2954, 1
   br label %return
 
 do.body1098:                                      ; preds = %if.end993
@@ -1274,12 +1274,12 @@ sw.bb1105:                                        ; preds = %reexecute_byte
   %cmp1112.not = icmp ne i8 %44, 0
   %tobool1116.not = icmp slt i8 %ch.0, 0
   %or.cond1522 = and i1 %tobool1507.not, %tobool1116.not
-  %or.cond2922 = select i1 %cmp1112.not, i1 true, i1 %or.cond1522
-  br i1 %or.cond2922, label %for.inc.loopexit4793, label %if.end1122
+  %or.cond2923 = select i1 %cmp1112.not, i1 true, i1 %or.cond1522
+  br i1 %or.cond2923, label %for.inc.loopexit4794, label %if.end1122
 
 if.end1122:                                       ; preds = %sw.bb1105
   switch i8 %ch.0, label %do.body1227 [
-    i8 63, label %for.inc.loopexit4793
+    i8 63, label %for.inc.loopexit4794
     i8 32, label %sw.bb1125
     i8 13, label %sw.bb1157
     i8 10, label %sw.bb1191
@@ -1314,8 +1314,8 @@ if.end1143:                                       ; preds = %do.body1137, %if.th
   br i1 %cmp1148.not, label %for.inc, label %if.then1149
 
 if.then1149:                                      ; preds = %if.end1143
-  %reass.sub2952 = sub i64 %sub.ptr.lhs.cast1131, %sub.ptr.rhs.cast3074
-  %add1153 = add i64 %reass.sub2952, 1
+  %reass.sub2953 = sub i64 %sub.ptr.lhs.cast1131, %sub.ptr.rhs.cast3074
+  %add1153 = add i64 %reass.sub2953, 1
   br label %return
 
 sw.bb1157:                                        ; preds = %if.end1122
@@ -1348,8 +1348,8 @@ if.end1177:                                       ; preds = %do.body1171, %if.th
   br i1 %cmp1182.not, label %for.inc, label %if.then1183
 
 if.then1183:                                      ; preds = %if.end1177
-  %reass.sub2951 = sub i64 %sub.ptr.lhs.cast1165, %sub.ptr.rhs.cast3074
-  %add1187 = add i64 %reass.sub2951, 1
+  %reass.sub2952 = sub i64 %sub.ptr.lhs.cast1165, %sub.ptr.rhs.cast3074
+  %add1187 = add i64 %reass.sub2952, 1
   br label %return
 
 sw.bb1191:                                        ; preds = %if.end1122
@@ -1382,8 +1382,8 @@ if.end1211:                                       ; preds = %do.body1205, %if.th
   br i1 %cmp1216.not, label %reexecute_byte.backedge, label %if.then1217
 
 if.then1217:                                      ; preds = %if.end1211
-  %reass.sub2950 = sub i64 %sub.ptr.lhs.cast1199, %sub.ptr.rhs.cast3074
-  %add1221 = add i64 %reass.sub2950, 1
+  %reass.sub2951 = sub i64 %sub.ptr.lhs.cast1199, %sub.ptr.rhs.cast3074
+  %add1221 = add i64 %reass.sub2951, 1
   br label %return
 
 do.body1227:                                      ; preds = %if.end1122
@@ -1400,12 +1400,12 @@ sw.bb1234:                                        ; preds = %reexecute_byte
   %cmp1241.not = icmp ne i8 %48, 0
   %tobool1245.not = icmp slt i8 %ch.0, 0
   %or.cond1523 = and i1 %tobool1507.not, %tobool1245.not
-  %or.cond2923 = select i1 %cmp1241.not, i1 true, i1 %or.cond1523
-  br i1 %or.cond2923, label %for.inc.loopexit4793, label %if.end1251
+  %or.cond2924 = select i1 %cmp1241.not, i1 true, i1 %or.cond1523
+  br i1 %or.cond2924, label %for.inc.loopexit4794, label %if.end1251
 
 if.end1251:                                       ; preds = %sw.bb1234
   switch i8 %ch.0, label %do.body1356 [
-    i8 63, label %for.inc.loopexit4793
+    i8 63, label %for.inc.loopexit4794
     i8 32, label %sw.bb1254
     i8 13, label %sw.bb1286
     i8 10, label %sw.bb1320
@@ -1440,8 +1440,8 @@ if.end1272:                                       ; preds = %do.body1266, %if.th
   br i1 %cmp1277.not, label %for.inc, label %if.then1278
 
 if.then1278:                                      ; preds = %if.end1272
-  %reass.sub2949 = sub i64 %sub.ptr.lhs.cast1260, %sub.ptr.rhs.cast3074
-  %add1282 = add i64 %reass.sub2949, 1
+  %reass.sub2950 = sub i64 %sub.ptr.lhs.cast1260, %sub.ptr.rhs.cast3074
+  %add1282 = add i64 %reass.sub2950, 1
   br label %return
 
 sw.bb1286:                                        ; preds = %if.end1251
@@ -1474,8 +1474,8 @@ if.end1306:                                       ; preds = %do.body1300, %if.th
   br i1 %cmp1311.not, label %for.inc, label %if.then1312
 
 if.then1312:                                      ; preds = %if.end1306
-  %reass.sub2948 = sub i64 %sub.ptr.lhs.cast1294, %sub.ptr.rhs.cast3074
-  %add1316 = add i64 %reass.sub2948, 1
+  %reass.sub2949 = sub i64 %sub.ptr.lhs.cast1294, %sub.ptr.rhs.cast3074
+  %add1316 = add i64 %reass.sub2949, 1
   br label %return
 
 sw.bb1320:                                        ; preds = %if.end1251
@@ -1508,8 +1508,8 @@ if.end1340:                                       ; preds = %do.body1334, %if.th
   br i1 %cmp1345.not, label %reexecute_byte.backedge, label %if.then1346
 
 if.then1346:                                      ; preds = %if.end1340
-  %reass.sub2947 = sub i64 %sub.ptr.lhs.cast1328, %sub.ptr.rhs.cast3074
-  %add1350 = add i64 %reass.sub2947, 1
+  %reass.sub2948 = sub i64 %sub.ptr.lhs.cast1328, %sub.ptr.rhs.cast3074
+  %add1350 = add i64 %reass.sub2948, 1
   br label %return
 
 do.body1356:                                      ; preds = %if.end1251
@@ -1526,8 +1526,8 @@ sw.bb1363:                                        ; preds = %reexecute_byte
   %cmp1370.not = icmp ne i8 %52, 0
   %tobool1374.not = icmp slt i8 %ch.0, 0
   %or.cond1524 = and i1 %tobool1507.not, %tobool1374.not
-  %or.cond2924 = select i1 %cmp1370.not, i1 true, i1 %or.cond1524
-  br i1 %or.cond2924, label %for.inc.loopexit4793, label %if.end1380
+  %or.cond2925 = select i1 %cmp1370.not, i1 true, i1 %or.cond1524
+  br i1 %or.cond2925, label %for.inc.loopexit4794, label %if.end1380
 
 if.end1380:                                       ; preds = %sw.bb1363
   switch i8 %ch.0, label %do.body1485 [
@@ -1535,7 +1535,7 @@ if.end1380:                                       ; preds = %sw.bb1363
     i8 13, label %sw.bb1414
     i8 10, label %sw.bb1448
     i8 63, label %for.inc
-    i8 35, label %for.inc.loopexit4793
+    i8 35, label %for.inc.loopexit4794
   ]
 
 sw.bb1382:                                        ; preds = %if.end1380
@@ -1566,8 +1566,8 @@ if.end1400:                                       ; preds = %do.body1394, %if.th
   br i1 %cmp1405.not, label %for.inc, label %if.then1406
 
 if.then1406:                                      ; preds = %if.end1400
-  %reass.sub2946 = sub i64 %sub.ptr.lhs.cast1388, %sub.ptr.rhs.cast3074
-  %add1410 = add i64 %reass.sub2946, 1
+  %reass.sub2947 = sub i64 %sub.ptr.lhs.cast1388, %sub.ptr.rhs.cast3074
+  %add1410 = add i64 %reass.sub2947, 1
   br label %return
 
 sw.bb1414:                                        ; preds = %if.end1380
@@ -1600,8 +1600,8 @@ if.end1434:                                       ; preds = %do.body1428, %if.th
   br i1 %cmp1439.not, label %for.inc, label %if.then1440
 
 if.then1440:                                      ; preds = %if.end1434
-  %reass.sub2945 = sub i64 %sub.ptr.lhs.cast1422, %sub.ptr.rhs.cast3074
-  %add1444 = add i64 %reass.sub2945, 1
+  %reass.sub2946 = sub i64 %sub.ptr.lhs.cast1422, %sub.ptr.rhs.cast3074
+  %add1444 = add i64 %reass.sub2946, 1
   br label %return
 
 sw.bb1448:                                        ; preds = %if.end1380
@@ -1634,8 +1634,8 @@ if.end1468:                                       ; preds = %do.body1462, %if.th
   br i1 %cmp1473.not, label %reexecute_byte.backedge, label %if.then1474
 
 if.then1474:                                      ; preds = %if.end1468
-  %reass.sub2944 = sub i64 %sub.ptr.lhs.cast1456, %sub.ptr.rhs.cast3074
-  %add1478 = add i64 %reass.sub2944, 1
+  %reass.sub2945 = sub i64 %sub.ptr.lhs.cast1456, %sub.ptr.rhs.cast3074
+  %add1478 = add i64 %reass.sub2945, 1
   br label %return
 
 do.body1485:                                      ; preds = %if.end1380
@@ -1652,16 +1652,16 @@ sw.bb1492:                                        ; preds = %reexecute_byte
   %cmp1499.not = icmp ne i8 %56, 0
   %tobool1503.not = icmp slt i8 %ch.0, 0
   %or.cond1525 = and i1 %tobool1507.not, %tobool1503.not
-  %or.cond2925 = select i1 %cmp1499.not, i1 true, i1 %or.cond1525
-  br i1 %or.cond2925, label %for.inc.loopexit4793, label %if.end1509
+  %or.cond2926 = select i1 %cmp1499.not, i1 true, i1 %or.cond1525
+  br i1 %or.cond2926, label %for.inc.loopexit4794, label %if.end1509
 
 if.end1509:                                       ; preds = %sw.bb1492
   switch i8 %ch.0, label %do.body1613 [
     i8 32, label %sw.bb1511
     i8 13, label %sw.bb1543
     i8 10, label %sw.bb1577
-    i8 63, label %for.inc.loopexit4793
-    i8 35, label %for.inc.loopexit4793
+    i8 63, label %for.inc.loopexit4794
+    i8 35, label %for.inc.loopexit4794
   ]
 
 sw.bb1511:                                        ; preds = %if.end1509
@@ -1692,8 +1692,8 @@ if.end1529:                                       ; preds = %do.body1523, %if.th
   br i1 %cmp1534.not, label %for.inc, label %if.then1535
 
 if.then1535:                                      ; preds = %if.end1529
-  %reass.sub2943 = sub i64 %sub.ptr.lhs.cast1517, %sub.ptr.rhs.cast3074
-  %add1539 = add i64 %reass.sub2943, 1
+  %reass.sub2944 = sub i64 %sub.ptr.lhs.cast1517, %sub.ptr.rhs.cast3074
+  %add1539 = add i64 %reass.sub2944, 1
   br label %return
 
 sw.bb1543:                                        ; preds = %if.end1509
@@ -1726,8 +1726,8 @@ if.end1563:                                       ; preds = %do.body1557, %if.th
   br i1 %cmp1568.not, label %for.inc, label %if.then1569
 
 if.then1569:                                      ; preds = %if.end1563
-  %reass.sub2942 = sub i64 %sub.ptr.lhs.cast1551, %sub.ptr.rhs.cast3074
-  %add1573 = add i64 %reass.sub2942, 1
+  %reass.sub2943 = sub i64 %sub.ptr.lhs.cast1551, %sub.ptr.rhs.cast3074
+  %add1573 = add i64 %reass.sub2943, 1
   br label %return
 
 sw.bb1577:                                        ; preds = %if.end1509
@@ -1760,8 +1760,8 @@ if.end1597:                                       ; preds = %do.body1591, %if.th
   br i1 %cmp1602.not, label %reexecute_byte.backedge, label %if.then1603
 
 if.then1603:                                      ; preds = %if.end1597
-  %reass.sub2941 = sub i64 %sub.ptr.lhs.cast1585, %sub.ptr.rhs.cast3074
-  %add1607 = add i64 %reass.sub2941, 1
+  %reass.sub2942 = sub i64 %sub.ptr.lhs.cast1585, %sub.ptr.rhs.cast3074
+  %add1607 = add i64 %reass.sub2942, 1
   br label %return
 
 do.body1613:                                      ; preds = %if.end1509
@@ -1876,25 +1876,23 @@ sw.bb1711:                                        ; preds = %reexecute_byte
 if.then1714:                                      ; preds = %sw.bb1711
   %64 = load i16, ptr %http_major1729, align 8
   %cmp1717 = icmp eq i16 %64, 0
-  br i1 %cmp1717, label %land.lhs.true1718, label %if.else1723
+  br i1 %cmp1717, label %land.lhs.true1718, label %for.inc
 
 land.lhs.true1718:                                ; preds = %if.then1714
   %65 = load i16, ptr %http_minor1733, align 2
   %cmp1721 = icmp eq i16 %65, 9
-  br i1 %cmp1721, label %for.inc, label %if.else1723
-
-if.else1723:                                      ; preds = %land.lhs.true1718, %if.then1714
+  %spec.select1531 = select i1 %cmp1721, i8 60, i8 49
   br label %for.inc
 
 if.then1728:                                      ; preds = %sw.bb1711
   %66 = load i16, ptr %http_major1729, align 8
   %cmp1731 = icmp eq i16 %66, 0
-  br i1 %cmp1731, label %land.lhs.true1732, label %for.inc.loopexit4793
+  br i1 %cmp1731, label %land.lhs.true1732, label %for.inc.loopexit4794
 
 land.lhs.true1732:                                ; preds = %if.then1728
   %67 = load i16, ptr %http_minor1733, align 2
   %cmp1735 = icmp eq i16 %67, 9
-  br i1 %cmp1735, label %reexecute_byte.backedge, label %for.inc.loopexit4793
+  br i1 %cmp1735, label %reexecute_byte.backedge, label %for.inc.loopexit4794
 
 if.end1739:                                       ; preds = %sw.bb1711
   %68 = add i8 %ch.0, -48
@@ -1937,7 +1935,7 @@ do.body1778:                                      ; preds = %sw.bb1774
 
 sw.bb1785:                                        ; preds = %reexecute_byte
   switch i8 %ch.0, label %if.end1793 [
-    i8 13, label %for.inc.loopexit4793
+    i8 13, label %for.inc.loopexit4794
     i8 10, label %reexecute_byte.backedge
   ]
 
@@ -1956,8 +1954,8 @@ do.body1798:                                      ; preds = %if.end1793
   br label %error
 
 do.body1805:                                      ; preds = %if.end1793
-  %tobool1806.not = icmp eq ptr %header_field_mark.12906, null
-  %spec.select1526 = select i1 %tobool1806.not, ptr %p.1, ptr %header_field_mark.12906
+  %tobool1806.not = icmp eq ptr %header_field_mark.12907, null
+  %spec.select1526 = select i1 %tobool1806.not, ptr %p.1, ptr %header_field_mark.12907
   store i8 0, ptr %index2896, align 1
   switch i8 %70, label %sw.default1817 [
     i8 99, label %sw.bb1812
@@ -2203,7 +2201,7 @@ notatoken:                                        ; preds = %do.body1920, %do.bo
 
 if.then2010:                                      ; preds = %notatoken
   %sub.ptr.lhs.cast2011 = ptrtoint ptr %p.2 to i64
-  %sub.ptr.rhs.cast2012 = ptrtoint ptr %header_field_mark.12906 to i64
+  %sub.ptr.rhs.cast2012 = ptrtoint ptr %header_field_mark.12907 to i64
   %sub.ptr.sub2013 = sub i64 %sub.ptr.lhs.cast2011, %sub.ptr.rhs.cast2012
   %cmp2014 = icmp sgt i64 %sub.ptr.sub2013, 1
   br i1 %cmp2014, label %land.lhs.true2015, label %do.body2031
@@ -2223,12 +2221,12 @@ do.body2024:                                      ; preds = %land.lhs.true2015
 
 do.body2031:                                      ; preds = %if.then2010, %land.lhs.true2015
   store i8 52, ptr %state1, align 1
-  %tobool2033.not = icmp eq ptr %header_field_mark.12906, null
+  %tobool2033.not = icmp eq ptr %header_field_mark.12907, null
   br i1 %tobool2033.not, label %for.inc, label %if.then2034
 
 if.then2034:                                      ; preds = %do.body2031
   %102 = load ptr, ptr %on_header_field, align 8
-  %call2038 = tail call noundef i32 %102(ptr noundef nonnull %parser, ptr noundef nonnull %header_field_mark.12906, i64 noundef %sub.ptr.sub2013)
+  %call2038 = tail call noundef i32 %102(ptr noundef nonnull %parser, ptr noundef nonnull %header_field_mark.12907, i64 noundef %sub.ptr.sub2013)
   %cmp2039.not = icmp eq i32 %call2038, 0
   %bf.load2049.pre = load i8, ptr %http_errno, align 1
   br i1 %cmp2039.not, label %if.end2047, label %do.body2041
@@ -2246,8 +2244,8 @@ if.end2047:                                       ; preds = %do.body2041, %if.th
   br i1 %cmp2052.not, label %for.inc, label %if.then2053
 
 if.then2053:                                      ; preds = %if.end2047
-  %reass.sub2940 = sub i64 %sub.ptr.lhs.cast2011, %sub.ptr.rhs.cast3074
-  %add2057 = add i64 %reass.sub2940, 1
+  %reass.sub2941 = sub i64 %sub.ptr.lhs.cast2011, %sub.ptr.rhs.cast3074
+  %add2057 = add i64 %reass.sub2941, 1
   br label %return
 
 do.body2062:                                      ; preds = %notatoken
@@ -2273,7 +2271,7 @@ do.body2076:                                      ; preds = %sw.bb2068
   ]
 
 do.body2076.if.end2200_crit_edge:                 ; preds = %do.body2076
-  %.pre3594 = load i8, ptr %header_state2290, align 2
+  %.pre3595 = load i8, ptr %header_state2290, align 2
   br label %if.end2200
 
 if.then2087:                                      ; preds = %do.body2076, %do.body2076
@@ -2334,8 +2332,8 @@ if.end2151:                                       ; preds = %do.body2145, %if.th
   br i1 %cmp2156.not, label %for.inc, label %if.then2157
 
 if.then2157:                                      ; preds = %if.end2151
-  %reass.sub2939 = sub i64 %sub.ptr.lhs.cast2139, %sub.ptr.rhs.cast3074
-  %add2161 = add i64 %reass.sub2939, 1
+  %reass.sub2940 = sub i64 %sub.ptr.lhs.cast2139, %sub.ptr.rhs.cast3074
+  %add2161 = add i64 %reass.sub2940, 1
   br label %return
 
 if.then2168:                                      ; preds = %if.end2130
@@ -2366,12 +2364,12 @@ if.end2186:                                       ; preds = %do.body2180, %if.th
   br i1 %cmp2191.not, label %for.inc, label %if.then2192
 
 if.then2192:                                      ; preds = %if.end2186
-  %reass.sub2938 = sub i64 %sub.ptr.lhs.cast2174, %sub.ptr.rhs.cast3074
-  %add2196 = add i64 %reass.sub2938, 1
+  %reass.sub2939 = sub i64 %sub.ptr.lhs.cast2174, %sub.ptr.rhs.cast3074
+  %add2196 = add i64 %reass.sub2939, 1
   br label %return
 
 if.end2200:                                       ; preds = %do.body2076.if.end2200_crit_edge, %if.end2130
-  %108 = phi i8 [ %.pre3594, %do.body2076.if.end2200_crit_edge ], [ %103, %if.end2130 ]
+  %108 = phi i8 [ %.pre3595, %do.body2076.if.end2200_crit_edge ], [ %103, %if.end2130 ]
   switch i8 %108, label %sw.default2241 [
     i8 8, label %sw.bb2206
     i8 7, label %sw.bb2215
@@ -2467,8 +2465,8 @@ if.end2272:                                       ; preds = %do.body2266, %if.th
   br i1 %cmp2277.not, label %for.inc, label %if.then2278
 
 if.then2278:                                      ; preds = %if.end2272
-  %reass.sub2937 = sub i64 %sub.ptr.lhs.cast2260, %sub.ptr.rhs.cast3074
-  %add2282 = add i64 %reass.sub2937, 1
+  %reass.sub2938 = sub i64 %sub.ptr.lhs.cast2260, %sub.ptr.rhs.cast3074
+  %add2282 = add i64 %reass.sub2938, 1
   br label %return
 
 land.lhs.true2289:                                ; preds = %cr_or_lf_or_qt
@@ -2511,11 +2509,11 @@ lor.lhs.false2333:                                ; preds = %cr_or_lf_or_qt
   %cmp2335 = icmp ugt i8 %ch.2, 31
   %cmp2338 = icmp ne i8 %ch.2, 127
   %or.cond60 = and i1 %cmp2335, %cmp2338
-  %.pre3558 = load i8, ptr %header_state2290, align 2
+  %.pre3559 = load i8, ptr %header_state2290, align 2
   br i1 %or.cond60, label %if.end2350, label %land.lhs.true2339
 
 land.lhs.true2339:                                ; preds = %lor.lhs.false2333
-  %cmp2342.not = icmp eq i8 %.pre3558, 2
+  %cmp2342.not = icmp eq i8 %.pre3559, 2
   br i1 %cmp2342.not, label %sw.bb2851, label %do.body2344
 
 do.body2344:                                      ; preds = %land.lhs.true2339
@@ -2526,7 +2524,7 @@ do.body2344:                                      ; preds = %land.lhs.true2339
   br label %error
 
 if.end2350:                                       ; preds = %cr_or_lf_or_qt.if.end2350_crit_edge, %lor.lhs.false2333
-  %115 = phi i8 [ %.pre, %cr_or_lf_or_qt.if.end2350_crit_edge ], [ %.pre3558, %lor.lhs.false2333 ]
+  %115 = phi i8 [ %.pre, %cr_or_lf_or_qt.if.end2350_crit_edge ], [ %.pre3559, %lor.lhs.false2333 ]
   switch i8 %115, label %sw.default2927 [
     i8 0, label %sw.bb2353
     i8 1, label %sw.bb2839
@@ -3042,13 +3040,13 @@ lor.end:                                          ; preds = %if.end3058
   %139 = load i8, ptr %method3064, align 2
   %.fr = freeze i8 %139
   %cmp3066 = icmp eq i8 %.fr, 5
-  %spec.select1538 = select i1 %cmp3066, i8 -128, i8 0
+  %spec.select1539 = select i1 %cmp3066, i8 -128, i8 0
   br label %lor.end.thread
 
 lor.end.thread:                                   ; preds = %if.end3058, %lor.end
-  %140 = phi i8 [ %spec.select1538, %lor.end ], [ -128, %if.end3058 ]
-  %bf.load30681535 = load i8, ptr %http_errno, align 1
-  %bf.clear3071 = and i8 %bf.load30681535, 127
+  %140 = phi i8 [ %spec.select1539, %lor.end ], [ -128, %if.end3058 ]
+  %bf.load30681536 = load i8, ptr %http_errno, align 1
+  %bf.clear3071 = and i8 %bf.load30681536, 127
   %bf.set3072 = or disjoint i8 %bf.clear3071, %140
   store i8 %bf.set3072, ptr %http_errno, align 1
   %sub.ptr.lhs.cast3073 = ptrtoint ptr %p.1 to i64
@@ -3108,8 +3106,8 @@ land.lhs.true3131:                                ; preds = %lor.end3126
   %cmp3134 = icmp ne i8 %145, 5
   %tobool3140 = icmp sgt i8 %bf.load3118, -1
   %146 = and i1 %tobool3140, %cmp3134
-  %or.cond1539 = select i1 %146, i1 %144, i1 false
-  br i1 %or.cond1539, label %if.else3220, label %if.then3143
+  %or.cond1540 = select i1 %146, i1 %144, i1 false
+  br i1 %or.cond1540, label %if.else3220, label %if.then3143
 
 if.then3143:                                      ; preds = %land.lhs.true3131
   %bf.clear3145 = and i8 %bf.load3118, 3
@@ -3136,15 +3134,15 @@ if.end3162:                                       ; preds = %do.body3156, %if.th
 
 if.then3168:                                      ; preds = %if.end3162
   %sub.ptr.lhs.cast3169 = ptrtoint ptr %p.1 to i64
-  %reass.sub2932 = sub i64 %sub.ptr.lhs.cast3169, %sub.ptr.rhs.cast3074
-  %add3172 = add i64 %reass.sub2932, 1
+  %reass.sub2933 = sub i64 %sub.ptr.lhs.cast3169, %sub.ptr.rhs.cast3074
+  %add3172 = add i64 %reass.sub2933, 1
   br label %return
 
 do.body3175:                                      ; preds = %if.end3162
   store i8 %conv3149, ptr %state1, align 1
   %sub.ptr.lhs.cast3177 = ptrtoint ptr %p.1 to i64
-  %reass.sub2933 = sub i64 %sub.ptr.lhs.cast3177, %sub.ptr.rhs.cast3074
-  %add3180 = add i64 %reass.sub2933, 1
+  %reass.sub2934 = sub i64 %sub.ptr.lhs.cast3177, %sub.ptr.rhs.cast3074
+  %add3180 = add i64 %reass.sub2934, 1
   br label %return
 
 if.end3182:                                       ; preds = %lor.end3126
@@ -3176,8 +3174,8 @@ if.end3207:                                       ; preds = %do.body3201, %if.th
 
 if.then3213:                                      ; preds = %if.end3207
   %sub.ptr.lhs.cast3214 = ptrtoint ptr %p.1 to i64
-  %reass.sub2934 = sub i64 %sub.ptr.lhs.cast3214, %sub.ptr.rhs.cast3074
-  %add3217 = add i64 %reass.sub2934, 1
+  %reass.sub2935 = sub i64 %sub.ptr.lhs.cast3214, %sub.ptr.rhs.cast3074
+  %add3217 = add i64 %reass.sub2935, 1
   br label %return
 
 if.else3220:                                      ; preds = %land.lhs.true3131, %if.end3182
@@ -3213,8 +3211,8 @@ if.end3249:                                       ; preds = %do.body3243, %if.th
 
 if.then3255:                                      ; preds = %if.end3249
   %sub.ptr.lhs.cast3256 = ptrtoint ptr %p.1 to i64
-  %reass.sub2936 = sub i64 %sub.ptr.lhs.cast3256, %sub.ptr.rhs.cast3074
-  %add3259 = add i64 %reass.sub2936, 1
+  %reass.sub2937 = sub i64 %sub.ptr.lhs.cast3256, %sub.ptr.rhs.cast3074
+  %add3259 = add i64 %reass.sub2937, 1
   br label %return
 
 if.else3262:                                      ; preds = %if.else3227
@@ -3228,13 +3226,13 @@ if.else3266:                                      ; preds = %if.else3262
 
 lor.lhs.false3272:                                ; preds = %if.else3266
   %151 = load i16, ptr %status_code3267, align 4
-  %.fr1540 = freeze i16 %151
-  %152 = add i16 %.fr1540, -100
+  %.fr1541 = freeze i16 %151
+  %152 = add i16 %.fr1541, -100
   %or.cond248 = icmp ult i16 %152, 100
   br i1 %or.cond248, label %if.then3284, label %switch.early.test1528
 
 switch.early.test1528:                            ; preds = %lor.lhs.false3272
-  switch i16 %.fr1540, label %for.inc [
+  switch i16 %.fr1541, label %for.inc [
     i16 304, label %if.then3284
     i16 204, label %if.then3284
   ]
@@ -3262,8 +3260,8 @@ if.end3303:                                       ; preds = %do.body3297, %if.th
 
 if.then3309:                                      ; preds = %if.end3303
   %sub.ptr.lhs.cast3310 = ptrtoint ptr %p.1 to i64
-  %reass.sub2935 = sub i64 %sub.ptr.lhs.cast3310, %sub.ptr.rhs.cast3074
-  %add3313 = add i64 %reass.sub2935, 1
+  %reass.sub2936 = sub i64 %sub.ptr.lhs.cast3310, %sub.ptr.rhs.cast3074
+  %add3313 = add i64 %reass.sub2936, 1
   br label %return
 
 sw.bb3322:                                        ; preds = %reexecute_byte
@@ -3278,7 +3276,7 @@ sw.bb3322:                                        ; preds = %reexecute_byte
   %sub3342 = add i64 %.sub.ptr.sub3327, -1
   %add.ptr3343 = getelementptr inbounds i8, ptr %p.1, i64 %sub3342
   %cmp3345.not = icmp sgt i64 %154, %sub.ptr.sub3327
-  br i1 %cmp3345.not, label %for.inc.loopexit4793, label %if.then3346
+  br i1 %cmp3345.not, label %for.inc.loopexit4794, label %if.then3346
 
 if.then3346:                                      ; preds = %sw.bb3322
   store i8 67, ptr %state1, align 1
@@ -3298,8 +3296,8 @@ if.then3350:                                      ; preds = %if.then3346
   %155 = load ptr, ptr %on_body, align 8
   %sub.ptr.lhs.cast3351 = ptrtoint ptr %add.ptr3343 to i64
   %sub.ptr.rhs.cast3352 = ptrtoint ptr %body_mark.2 to i64
-  %reass.sub2931 = sub i64 %sub.ptr.lhs.cast3351, %sub.ptr.rhs.cast3352
-  %add3354 = add i64 %reass.sub2931, 1
+  %reass.sub2932 = sub i64 %sub.ptr.lhs.cast3351, %sub.ptr.rhs.cast3352
+  %add3354 = add i64 %reass.sub2932, 1
   %call3355 = tail call noundef i32 %155(ptr noundef nonnull %parser, ptr noundef nonnull %body_mark.2, i64 noundef %add3354)
   %cmp3356.not = icmp eq i32 %call3355, 0
   %bf.load3366.pre = load i8, ptr %http_errno, align 1
@@ -3353,8 +3351,8 @@ if.end3406:                                       ; preds = %sw.bb3386, %do.body
 
 if.then3412:                                      ; preds = %if.end3406
   %sub.ptr.lhs.cast3413 = ptrtoint ptr %p.1 to i64
-  %reass.sub2929 = sub i64 %sub.ptr.lhs.cast3413, %sub.ptr.rhs.cast3074
-  %add3416 = add i64 %reass.sub2929, 1
+  %reass.sub2930 = sub i64 %sub.ptr.lhs.cast3413, %sub.ptr.rhs.cast3074
+  %add3416 = add i64 %reass.sub2930, 1
   br label %return
 
 do.end3418:                                       ; preds = %if.end3406
@@ -3364,8 +3362,8 @@ do.end3418:                                       ; preds = %if.end3406
 do.body3424:                                      ; preds = %do.end3418
   store i8 %conv3392, ptr %state1, align 1
   %sub.ptr.lhs.cast3426 = ptrtoint ptr %p.1 to i64
-  %reass.sub2930 = sub i64 %sub.ptr.lhs.cast3426, %sub.ptr.rhs.cast3074
-  %add3429 = add i64 %reass.sub2930, 1
+  %reass.sub2931 = sub i64 %sub.ptr.lhs.cast3426, %sub.ptr.rhs.cast3074
+  %add3429 = add i64 %reass.sub2931, 1
   br label %return
 
 sw.bb3432:                                        ; preds = %reexecute_byte
@@ -3467,8 +3465,8 @@ if.end3518:                                       ; preds = %do.body3512, %if.th
 
 if.then3524:                                      ; preds = %if.end3518
   %sub.ptr.lhs.cast3525 = ptrtoint ptr %p.1 to i64
-  %reass.sub2928 = sub i64 %sub.ptr.lhs.cast3525, %sub.ptr.rhs.cast3074
-  %add3528 = add i64 %reass.sub2928, 1
+  %reass.sub2929 = sub i64 %sub.ptr.lhs.cast3525, %sub.ptr.rhs.cast3074
+  %add3528 = add i64 %reass.sub2929, 1
   br label %return
 
 if.else3531:                                      ; preds = %sw.bb3493
@@ -3493,8 +3491,8 @@ if.end3544:                                       ; preds = %do.body3538, %if.el
 
 if.then3550:                                      ; preds = %if.end3544
   %sub.ptr.lhs.cast3551 = ptrtoint ptr %p.1 to i64
-  %reass.sub2927 = sub i64 %sub.ptr.lhs.cast3551, %sub.ptr.rhs.cast3074
-  %add3554 = add i64 %reass.sub2927, 1
+  %reass.sub2928 = sub i64 %sub.ptr.lhs.cast3551, %sub.ptr.rhs.cast3074
+  %add3554 = add i64 %reass.sub2928, 1
   br label %return
 
 sw.bb3558:                                        ; preds = %reexecute_byte
@@ -3509,7 +3507,7 @@ sw.bb3558:                                        ; preds = %reexecute_byte
   %sub3582 = add i64 %.sub.ptr.sub3564, -1
   %add.ptr3583 = getelementptr inbounds i8, ptr %p.1, i64 %sub3582
   %cmp3585.not = icmp sgt i64 %163, %sub.ptr.sub3564
-  %spec.select1531 = select i1 %cmp3585.not, i8 62, i8 63
+  %spec.select1532 = select i1 %cmp3585.not, i8 62, i8 63
   br label %for.inc
 
 sw.bb3588:                                        ; preds = %reexecute_byte
@@ -3540,8 +3538,8 @@ if.end3606:                                       ; preds = %do.body3600, %if.th
   br i1 %cmp3611.not, label %for.inc, label %if.then3612
 
 if.then3612:                                      ; preds = %if.end3606
-  %reass.sub2926 = sub i64 %sub.ptr.lhs.cast3594, %sub.ptr.rhs.cast3074
-  %add3616 = add i64 %reass.sub2926, 1
+  %reass.sub2927 = sub i64 %sub.ptr.lhs.cast3594, %sub.ptr.rhs.cast3074
+  %add3616 = add i64 %reass.sub2927, 1
   br label %return
 
 sw.bb3620:                                        ; preds = %reexecute_byte
@@ -3578,33 +3576,33 @@ do.body3648:                                      ; preds = %reexecute_byte
   store i8 %bf.set3652, ptr %http_errno, align 1
   br label %error
 
-for.inc.loopexit1544:                             ; preds = %reexecute_byte
+for.inc.loopexit1545:                             ; preds = %reexecute_byte
   br label %for.inc
 
-for.inc.loopexit2960:                             ; preds = %reexecute_byte
+for.inc.loopexit2961:                             ; preds = %reexecute_byte
   br label %for.inc
 
-for.inc.loopexit3595:                             ; preds = %reexecute_byte
+for.inc.loopexit3596:                             ; preds = %reexecute_byte
   br label %for.inc
 
-for.inc.loopexit4193:                             ; preds = %reexecute_byte
+for.inc.loopexit4194:                             ; preds = %reexecute_byte
   br label %for.inc
 
-for.inc.loopexit4793:                             ; preds = %reexecute_byte, %sw.bb3322, %if.end1509, %if.end1509, %sw.bb1492, %if.end1380, %if.end1251, %sw.bb1234, %if.end1122, %sw.bb978, %sw.bb713, %sw.bb94, %sw.bb94, %sw.bb125, %sw.bb158, %sw.bb158, %sw.bb454, %sw.bb454, %sw.bb821, %switch.early.test, %switch.early.test, %switch.early.test, %if.end993, %sw.bb1105, %sw.bb1363, %land.lhs.true1732, %if.then1728, %sw.bb1785
+for.inc.loopexit4794:                             ; preds = %reexecute_byte, %sw.bb3322, %if.end1509, %if.end1509, %sw.bb1492, %if.end1380, %if.end1251, %sw.bb1234, %if.end1122, %sw.bb978, %sw.bb713, %sw.bb94, %sw.bb94, %sw.bb125, %sw.bb158, %sw.bb158, %sw.bb454, %sw.bb454, %sw.bb821, %switch.early.test, %switch.early.test, %switch.early.test, %if.end993, %sw.bb1105, %sw.bb1363, %land.lhs.true1732, %if.then1728, %sw.bb1785
   %body_mark.6.ph = phi ptr [ %body_mark.1, %sw.bb1785 ], [ %body_mark.1, %if.then1728 ], [ %body_mark.1, %land.lhs.true1732 ], [ %body_mark.1, %sw.bb1363 ], [ %body_mark.1, %sw.bb1105 ], [ %body_mark.1, %if.end993 ], [ %body_mark.1, %switch.early.test ], [ %body_mark.1, %switch.early.test ], [ %body_mark.1, %switch.early.test ], [ %body_mark.1, %sw.bb821 ], [ %body_mark.1, %sw.bb454 ], [ %body_mark.1, %sw.bb158 ], [ %body_mark.1, %sw.bb158 ], [ %body_mark.1, %sw.bb94 ], [ %body_mark.1, %sw.bb125 ], [ %body_mark.1, %sw.bb94 ], [ %body_mark.1, %sw.bb454 ], [ %body_mark.1, %sw.bb713 ], [ %body_mark.1, %sw.bb978 ], [ %body_mark.1, %if.end1122 ], [ %body_mark.1, %sw.bb1234 ], [ %body_mark.1, %if.end1251 ], [ %body_mark.1, %if.end1380 ], [ %body_mark.1, %sw.bb1492 ], [ %body_mark.1, %if.end1509 ], [ %body_mark.1, %if.end1509 ], [ %body_mark.2, %sw.bb3322 ], [ %body_mark.1, %reexecute_byte ]
   %state.4.ph = phi i8 [ 60, %sw.bb1785 ], [ 50, %if.then1728 ], [ 50, %land.lhs.true1732 ], [ 39, %sw.bb1363 ], [ 37, %sw.bb1105 ], [ 36, %if.end993 ], [ 31, %switch.early.test ], [ 31, %switch.early.test ], [ 31, %switch.early.test ], [ 31, %sw.bb821 ], [ 20, %sw.bb454 ], [ 5, %sw.bb158 ], [ 5, %sw.bb158 ], [ 2, %sw.bb94 ], [ 4, %sw.bb125 ], [ 2, %sw.bb94 ], [ 20, %sw.bb454 ], [ 23, %sw.bb713 ], [ 35, %sw.bb978 ], [ 36, %if.end1122 ], [ 37, %sw.bb1234 ], [ 37, %if.end1251 ], [ 38, %if.end1380 ], [ 39, %sw.bb1492 ], [ 39, %if.end1509 ], [ 39, %if.end1509 ], [ 65, %sw.bb3322 ], [ 50, %reexecute_byte ]
-  %p.4.ph4794 = phi ptr [ %p.1, %sw.bb1785 ], [ %p.1, %if.then1728 ], [ %p.1, %land.lhs.true1732 ], [ %p.1, %sw.bb1363 ], [ %p.1, %sw.bb1105 ], [ %p.1, %if.end993 ], [ %p.1, %switch.early.test ], [ %p.1, %switch.early.test ], [ %p.1, %switch.early.test ], [ %p.1, %sw.bb821 ], [ %p.1, %sw.bb454 ], [ %p.1, %sw.bb158 ], [ %p.1, %sw.bb158 ], [ %p.1, %sw.bb94 ], [ %p.1, %sw.bb125 ], [ %p.1, %sw.bb94 ], [ %p.1, %sw.bb454 ], [ %p.1, %sw.bb713 ], [ %p.1, %sw.bb978 ], [ %p.1, %if.end1122 ], [ %p.1, %sw.bb1234 ], [ %p.1, %if.end1251 ], [ %p.1, %if.end1380 ], [ %p.1, %sw.bb1492 ], [ %p.1, %if.end1509 ], [ %p.1, %if.end1509 ], [ %add.ptr3343, %sw.bb3322 ], [ %p.1, %reexecute_byte ]
+  %p.4.ph4795 = phi ptr [ %p.1, %sw.bb1785 ], [ %p.1, %if.then1728 ], [ %p.1, %land.lhs.true1732 ], [ %p.1, %sw.bb1363 ], [ %p.1, %sw.bb1105 ], [ %p.1, %if.end993 ], [ %p.1, %switch.early.test ], [ %p.1, %switch.early.test ], [ %p.1, %switch.early.test ], [ %p.1, %sw.bb821 ], [ %p.1, %sw.bb454 ], [ %p.1, %sw.bb158 ], [ %p.1, %sw.bb158 ], [ %p.1, %sw.bb94 ], [ %p.1, %sw.bb125 ], [ %p.1, %sw.bb94 ], [ %p.1, %sw.bb454 ], [ %p.1, %sw.bb713 ], [ %p.1, %sw.bb978 ], [ %p.1, %if.end1122 ], [ %p.1, %sw.bb1234 ], [ %p.1, %if.end1251 ], [ %p.1, %if.end1380 ], [ %p.1, %sw.bb1492 ], [ %p.1, %if.end1509 ], [ %p.1, %if.end1509 ], [ %add.ptr3343, %sw.bb3322 ], [ %p.1, %reexecute_byte ]
   br label %for.inc
 
-for.inc:                                          ; preds = %do.body2806, %do.body2675, %lor.lhs.false2697, %lor.lhs.false2828, %if.else2706, %if.end1380, %if.end1251, %if.end1122, %if.end993, %reexecute_byte, %for.inc.loopexit4793, %for.inc.loopexit4193, %if.end508, %for.inc.loopexit3595, %for.inc.loopexit2960, %for.inc.loopexit1544, %sw.bb3558, %sw.bb3488, %if.end3606, %if.then3456, %if.then3456, %sw.bb3447, %switch.early.test1528, %if.else3262, %if.else3220, %sw.bb2839, %if.end2272, %if.end2186, %if.end2151, %sw.bb2068, %sw.bb2068, %if.end2047, %sw.bb1774, %land.lhs.true1718, %sw.bb1654, %if.end1563, %if.end1529, %if.end1434, %if.end1400, %if.end1306, %if.end1272, %if.end1177, %if.end1143, %if.end1047, %if.end1013, %if.end955, %if.end934, %if.end904, %sw.bb883, %lor.lhs.false868, %if.else794, %sw.bb790, %if.end777, %sw.bb764, %sw.bb512, %sw.bb516, %sw.bb518, %sw.bb520, %sw.bb522, %sw.bb524, %sw.bb526, %sw.bb528, %sw.bb530, %sw.bb532, %sw.bb534, %sw.bb536, %if.end438, %do.body380, %if.end403, %if.then344, %sw.bb278, %sw.bb225, %sw.bb190, %if.end222, %if.end274, %if.end334, %if.end711, %do.body734, %do.body752, %sw.bb789, %if.then875, %sw.bb1632, %sw.bb1633, %sw.bb1634, %sw.bb1635, %if.end1649, %if.end1706, %do.body3379, %if.end3444, %if.end3482, %if.end153, %if.then139, %if.end241, %if.end295, %if.then323, %sw.bb348, %sw.bb347, %if.end357, %if.then386, %if.then420, %sw.bb850, %land.lhs.true862, %sw.bb887, %sw.bb918, %sw.bb886, %sw.bb927, %sw.bb937, %sw.bb969, %sw.bb1027, %sw.bb995, %sw.bb1157, %sw.bb1125, %sw.bb1286, %sw.bb1254, %sw.bb1414, %sw.bb1382, %sw.bb1543, %sw.bb1511, %sw.bb1620, %sw.bb1622, %if.end1671, %if.else1723, %if.end1752, %sw.default1817, %sw.bb1815, %sw.bb1813, %sw.bb1812, %if.then1824, %sw.bb1999, %if.then2002, %if.then1989, %if.then1995, %if.else1991, %if.then1966, %if.then1972, %if.else1968, %if.then1943, %if.then1949, %if.else1945, %do.body1889, %do.body1920, %if.else1897, %do.body2031, %if.then2133, %if.then2168, %if.then2218, %if.else2220, %sw.default2241, %if.end2236, %sw.bb2206, %if.then2254, %sw.bb2921, %if.then2924, %if.then2911, %if.then2917, %if.else2913, %sw.bb2860, %if.then2842, %if.then2847, %sw.default2927, %if.end2887, %sw.bb2851, %if.end2969, %sw.epilog2950, %if.end3004, %if.end3303, %if.end3249, %if.end3207, %do.end3418, %if.end3544, %if.end3518, %sw.bb3588, %if.end3634
-  %header_field_mark.3 = phi ptr [ %header_field_mark.12906, %if.end3634 ], [ %header_field_mark.12906, %sw.bb3588 ], [ %header_field_mark.12906, %if.end3518 ], [ %header_field_mark.12906, %if.end3544 ], [ %header_field_mark.12906, %if.end3482 ], [ %header_field_mark.12906, %if.end3444 ], [ %header_field_mark.12906, %do.end3418 ], [ %header_field_mark.12906, %do.body3379 ], [ %header_field_mark.12906, %if.end3207 ], [ %header_field_mark.12906, %if.end3249 ], [ %header_field_mark.12906, %if.end3303 ], [ %header_field_mark.12906, %if.end3004 ], [ %header_field_mark.12906, %if.end2969 ], [ %header_field_mark.12906, %sw.epilog2950 ], [ %header_field_mark.12906, %if.then2254 ], [ %header_field_mark.12906, %sw.default2927 ], [ %header_field_mark.12906, %if.then2924 ], [ %header_field_mark.12906, %sw.bb2921 ], [ %header_field_mark.12906, %if.then2911 ], [ %header_field_mark.12906, %if.then2917 ], [ %header_field_mark.12906, %if.else2913 ], [ %header_field_mark.12906, %sw.bb2860 ], [ %header_field_mark.12906, %if.end2887 ], [ %header_field_mark.12906, %sw.bb2851 ], [ %header_field_mark.12906, %if.then2842 ], [ %header_field_mark.12906, %if.then2847 ], [ %header_field_mark.12906, %sw.bb2068 ], [ %header_field_mark.12906, %if.then2133 ], [ %header_field_mark.12906, %if.then2168 ], [ %header_field_mark.12906, %sw.default2241 ], [ %header_field_mark.12906, %if.end2236 ], [ %header_field_mark.12906, %if.then2218 ], [ %header_field_mark.12906, %if.else2220 ], [ %header_field_mark.12906, %sw.bb2206 ], [ %header_field_mark.12906, %if.then1824 ], [ %header_field_mark.12906, %if.then2002 ], [ %header_field_mark.12906, %sw.bb1999 ], [ %header_field_mark.12906, %if.then1989 ], [ %header_field_mark.12906, %if.then1995 ], [ %header_field_mark.12906, %if.else1991 ], [ %header_field_mark.12906, %if.then1966 ], [ %header_field_mark.12906, %if.then1972 ], [ %header_field_mark.12906, %if.else1968 ], [ %header_field_mark.12906, %if.then1943 ], [ %header_field_mark.12906, %if.then1949 ], [ %header_field_mark.12906, %if.else1945 ], [ %header_field_mark.12906, %do.body1889 ], [ null, %do.body2031 ], [ %header_field_mark.12906, %do.body1920 ], [ %header_field_mark.12906, %if.else1897 ], [ %spec.select1526, %sw.default1817 ], [ %spec.select1526, %sw.bb1815 ], [ %spec.select1526, %sw.bb1813 ], [ %spec.select1526, %sw.bb1812 ], [ %header_field_mark.12906, %if.else1723 ], [ %header_field_mark.12906, %if.end1752 ], [ %header_field_mark.12906, %if.end1706 ], [ %header_field_mark.12906, %if.end1671 ], [ %header_field_mark.12906, %if.end1649 ], [ %header_field_mark.12906, %sw.bb1635 ], [ %header_field_mark.12906, %sw.bb1634 ], [ %header_field_mark.12906, %sw.bb1633 ], [ %header_field_mark.12906, %sw.bb1632 ], [ %header_field_mark.12906, %sw.bb1620 ], [ %header_field_mark.12906, %sw.bb1622 ], [ %header_field_mark.12906, %sw.bb1543 ], [ %header_field_mark.12906, %sw.bb1511 ], [ %header_field_mark.12906, %sw.bb1414 ], [ %header_field_mark.12906, %sw.bb1382 ], [ %header_field_mark.12906, %sw.bb1286 ], [ %header_field_mark.12906, %sw.bb1254 ], [ %header_field_mark.12906, %sw.bb1157 ], [ %header_field_mark.12906, %sw.bb1125 ], [ %header_field_mark.12906, %sw.bb1027 ], [ %header_field_mark.12906, %sw.bb995 ], [ %header_field_mark.12906, %sw.bb927 ], [ %header_field_mark.12906, %sw.bb969 ], [ %header_field_mark.12906, %sw.bb937 ], [ %header_field_mark.12906, %sw.bb918 ], [ %header_field_mark.12906, %sw.bb887 ], [ %header_field_mark.12906, %sw.bb886 ], [ %header_field_mark.12906, %sw.bb850 ], [ %header_field_mark.12906, %land.lhs.true862 ], [ %header_field_mark.12906, %if.then875 ], [ %header_field_mark.12906, %lor.lhs.false868 ], [ %header_field_mark.12906, %sw.bb789 ], [ %header_field_mark.12906, %do.body734 ], [ %header_field_mark.12906, %do.body752 ], [ %header_field_mark.12906, %if.end711 ], [ %header_field_mark.12906, %if.then386 ], [ %header_field_mark.12906, %if.then420 ], [ %header_field_mark.12906, %if.end357 ], [ %header_field_mark.12906, %sw.bb348 ], [ %header_field_mark.12906, %sw.bb347 ], [ %header_field_mark.12906, %if.end334 ], [ %header_field_mark.12906, %if.then323 ], [ %header_field_mark.12906, %if.end295 ], [ %header_field_mark.12906, %if.end274 ], [ %header_field_mark.12906, %if.end241 ], [ %header_field_mark.12906, %if.end222 ], [ %header_field_mark.12906, %if.then139 ], [ %header_field_mark.12906, %if.end153 ], [ %header_field_mark.12906, %sw.bb190 ], [ %header_field_mark.12906, %sw.bb225 ], [ %header_field_mark.12906, %sw.bb278 ], [ %header_field_mark.12906, %if.then344 ], [ %header_field_mark.12906, %if.end403 ], [ %header_field_mark.12906, %do.body380 ], [ %header_field_mark.12906, %if.end438 ], [ %header_field_mark.12906, %sw.bb536 ], [ %header_field_mark.12906, %sw.bb534 ], [ %header_field_mark.12906, %sw.bb532 ], [ %header_field_mark.12906, %sw.bb530 ], [ %header_field_mark.12906, %sw.bb528 ], [ %header_field_mark.12906, %sw.bb526 ], [ %header_field_mark.12906, %sw.bb524 ], [ %header_field_mark.12906, %sw.bb522 ], [ %header_field_mark.12906, %sw.bb520 ], [ %header_field_mark.12906, %sw.bb518 ], [ %header_field_mark.12906, %sw.bb516 ], [ %header_field_mark.12906, %sw.bb512 ], [ %header_field_mark.12906, %sw.bb764 ], [ %header_field_mark.12906, %if.end777 ], [ %header_field_mark.12906, %sw.bb790 ], [ %header_field_mark.12906, %if.else794 ], [ %header_field_mark.12906, %sw.bb883 ], [ %header_field_mark.12906, %if.end904 ], [ %header_field_mark.12906, %if.end934 ], [ %header_field_mark.12906, %if.end955 ], [ %header_field_mark.12906, %if.end1013 ], [ %header_field_mark.12906, %if.end1047 ], [ %header_field_mark.12906, %if.end1143 ], [ %header_field_mark.12906, %if.end1177 ], [ %header_field_mark.12906, %if.end1272 ], [ %header_field_mark.12906, %if.end1306 ], [ %header_field_mark.12906, %if.end1400 ], [ %header_field_mark.12906, %if.end1434 ], [ %header_field_mark.12906, %if.end1529 ], [ %header_field_mark.12906, %if.end1563 ], [ %header_field_mark.12906, %sw.bb1654 ], [ %header_field_mark.12906, %land.lhs.true1718 ], [ %header_field_mark.12906, %sw.bb1774 ], [ null, %if.end2047 ], [ %header_field_mark.12906, %sw.bb2068 ], [ %header_field_mark.12906, %if.end2151 ], [ %header_field_mark.12906, %if.end2186 ], [ %header_field_mark.12906, %if.end2272 ], [ %header_field_mark.12906, %sw.bb2839 ], [ %header_field_mark.12906, %if.else3220 ], [ %header_field_mark.12906, %if.else3262 ], [ %header_field_mark.12906, %switch.early.test1528 ], [ %header_field_mark.12906, %sw.bb3447 ], [ %header_field_mark.12906, %if.then3456 ], [ %header_field_mark.12906, %if.then3456 ], [ %header_field_mark.12906, %sw.bb3488 ], [ %header_field_mark.12906, %if.end3606 ], [ %header_field_mark.12906, %sw.bb3558 ], [ %header_field_mark.12906, %for.inc.loopexit1544 ], [ %header_field_mark.12906, %if.end508 ], [ %header_field_mark.12906, %for.inc.loopexit2960 ], [ %header_field_mark.12906, %for.inc.loopexit3595 ], [ %header_field_mark.12906, %for.inc.loopexit4793 ], [ %header_field_mark.12906, %reexecute_byte ], [ %header_field_mark.12906, %if.end993 ], [ %header_field_mark.12906, %if.end1122 ], [ %header_field_mark.12906, %if.end1251 ], [ %header_field_mark.12906, %if.end1380 ], [ %header_field_mark.12906, %for.inc.loopexit4193 ], [ %header_field_mark.12906, %if.else2706 ], [ %header_field_mark.12906, %lor.lhs.false2828 ], [ %header_field_mark.12906, %lor.lhs.false2697 ], [ %header_field_mark.12906, %do.body2675 ], [ %header_field_mark.12906, %do.body2806 ]
-  %header_value_mark.5 = phi ptr [ %header_value_mark.2, %if.end3634 ], [ %header_value_mark.2, %sw.bb3588 ], [ %header_value_mark.2, %if.end3518 ], [ %header_value_mark.2, %if.end3544 ], [ %header_value_mark.2, %if.end3482 ], [ %header_value_mark.2, %if.end3444 ], [ %header_value_mark.2, %do.end3418 ], [ %header_value_mark.2, %do.body3379 ], [ %header_value_mark.2, %if.end3207 ], [ %header_value_mark.2, %if.end3249 ], [ %header_value_mark.2, %if.end3303 ], [ %header_value_mark.2, %if.end3004 ], [ %header_value_mark.2, %if.end2969 ], [ %header_value_mark.2, %sw.epilog2950 ], [ null, %if.then2254 ], [ %header_value_mark.2, %sw.default2927 ], [ %header_value_mark.2, %if.then2924 ], [ %header_value_mark.2, %sw.bb2921 ], [ %header_value_mark.2, %if.then2911 ], [ %header_value_mark.2, %if.then2917 ], [ %header_value_mark.2, %if.else2913 ], [ %header_value_mark.2, %sw.bb2860 ], [ %header_value_mark.2, %if.end2887 ], [ %header_value_mark.2, %sw.bb2851 ], [ %header_value_mark.2, %if.then2842 ], [ %header_value_mark.2, %if.then2847 ], [ %header_value_mark.2, %sw.bb2068 ], [ null, %if.then2133 ], [ null, %if.then2168 ], [ %spec.select1527, %sw.default2241 ], [ %spec.select1527, %if.end2236 ], [ %spec.select1527, %if.then2218 ], [ %spec.select1527, %if.else2220 ], [ %spec.select1527, %sw.bb2206 ], [ %header_value_mark.2, %if.then1824 ], [ %header_value_mark.2, %if.then2002 ], [ %header_value_mark.2, %sw.bb1999 ], [ %header_value_mark.2, %if.then1989 ], [ %header_value_mark.2, %if.then1995 ], [ %header_value_mark.2, %if.else1991 ], [ %header_value_mark.2, %if.then1966 ], [ %header_value_mark.2, %if.then1972 ], [ %header_value_mark.2, %if.else1968 ], [ %header_value_mark.2, %if.then1943 ], [ %header_value_mark.2, %if.then1949 ], [ %header_value_mark.2, %if.else1945 ], [ %header_value_mark.2, %do.body1889 ], [ %header_value_mark.2, %do.body2031 ], [ %header_value_mark.2, %do.body1920 ], [ %header_value_mark.2, %if.else1897 ], [ %header_value_mark.2, %sw.default1817 ], [ %header_value_mark.2, %sw.bb1815 ], [ %header_value_mark.2, %sw.bb1813 ], [ %header_value_mark.2, %sw.bb1812 ], [ %header_value_mark.2, %if.else1723 ], [ %header_value_mark.2, %if.end1752 ], [ %header_value_mark.2, %if.end1706 ], [ %header_value_mark.2, %if.end1671 ], [ %header_value_mark.2, %if.end1649 ], [ %header_value_mark.2, %sw.bb1635 ], [ %header_value_mark.2, %sw.bb1634 ], [ %header_value_mark.2, %sw.bb1633 ], [ %header_value_mark.2, %sw.bb1632 ], [ %header_value_mark.2, %sw.bb1620 ], [ %header_value_mark.2, %sw.bb1622 ], [ %header_value_mark.2, %sw.bb1543 ], [ %header_value_mark.2, %sw.bb1511 ], [ %header_value_mark.2, %sw.bb1414 ], [ %header_value_mark.2, %sw.bb1382 ], [ %header_value_mark.2, %sw.bb1286 ], [ %header_value_mark.2, %sw.bb1254 ], [ %header_value_mark.2, %sw.bb1157 ], [ %header_value_mark.2, %sw.bb1125 ], [ %header_value_mark.2, %sw.bb1027 ], [ %header_value_mark.2, %sw.bb995 ], [ %header_value_mark.2, %sw.bb927 ], [ %header_value_mark.2, %sw.bb969 ], [ %header_value_mark.2, %sw.bb937 ], [ %header_value_mark.2, %sw.bb918 ], [ %header_value_mark.2, %sw.bb887 ], [ %header_value_mark.2, %sw.bb886 ], [ %header_value_mark.2, %sw.bb850 ], [ %header_value_mark.2, %land.lhs.true862 ], [ %header_value_mark.2, %if.then875 ], [ %header_value_mark.2, %lor.lhs.false868 ], [ %header_value_mark.2, %sw.bb789 ], [ %header_value_mark.2, %do.body734 ], [ %header_value_mark.2, %do.body752 ], [ %header_value_mark.2, %if.end711 ], [ %header_value_mark.2, %if.then386 ], [ %header_value_mark.2, %if.then420 ], [ %header_value_mark.2, %if.end357 ], [ %header_value_mark.2, %sw.bb348 ], [ %header_value_mark.2, %sw.bb347 ], [ %header_value_mark.2, %if.end334 ], [ %header_value_mark.2, %if.then323 ], [ %header_value_mark.2, %if.end295 ], [ %header_value_mark.2, %if.end274 ], [ %header_value_mark.2, %if.end241 ], [ %header_value_mark.2, %if.end222 ], [ %header_value_mark.2, %if.then139 ], [ %header_value_mark.2, %if.end153 ], [ %header_value_mark.2, %sw.bb190 ], [ %header_value_mark.2, %sw.bb225 ], [ %header_value_mark.2, %sw.bb278 ], [ %header_value_mark.2, %if.then344 ], [ %header_value_mark.2, %if.end403 ], [ %header_value_mark.2, %do.body380 ], [ %header_value_mark.2, %if.end438 ], [ %header_value_mark.2, %sw.bb536 ], [ %header_value_mark.2, %sw.bb534 ], [ %header_value_mark.2, %sw.bb532 ], [ %header_value_mark.2, %sw.bb530 ], [ %header_value_mark.2, %sw.bb528 ], [ %header_value_mark.2, %sw.bb526 ], [ %header_value_mark.2, %sw.bb524 ], [ %header_value_mark.2, %sw.bb522 ], [ %header_value_mark.2, %sw.bb520 ], [ %header_value_mark.2, %sw.bb518 ], [ %header_value_mark.2, %sw.bb516 ], [ %header_value_mark.2, %sw.bb512 ], [ %header_value_mark.2, %sw.bb764 ], [ %header_value_mark.2, %if.end777 ], [ %header_value_mark.2, %sw.bb790 ], [ %header_value_mark.2, %if.else794 ], [ %header_value_mark.2, %sw.bb883 ], [ %header_value_mark.2, %if.end904 ], [ %header_value_mark.2, %if.end934 ], [ %header_value_mark.2, %if.end955 ], [ %header_value_mark.2, %if.end1013 ], [ %header_value_mark.2, %if.end1047 ], [ %header_value_mark.2, %if.end1143 ], [ %header_value_mark.2, %if.end1177 ], [ %header_value_mark.2, %if.end1272 ], [ %header_value_mark.2, %if.end1306 ], [ %header_value_mark.2, %if.end1400 ], [ %header_value_mark.2, %if.end1434 ], [ %header_value_mark.2, %if.end1529 ], [ %header_value_mark.2, %if.end1563 ], [ %header_value_mark.2, %sw.bb1654 ], [ %header_value_mark.2, %land.lhs.true1718 ], [ %header_value_mark.2, %sw.bb1774 ], [ %header_value_mark.2, %if.end2047 ], [ %header_value_mark.2, %sw.bb2068 ], [ null, %if.end2151 ], [ null, %if.end2186 ], [ null, %if.end2272 ], [ %header_value_mark.2, %sw.bb2839 ], [ %header_value_mark.2, %if.else3220 ], [ %header_value_mark.2, %if.else3262 ], [ %header_value_mark.2, %switch.early.test1528 ], [ %header_value_mark.2, %sw.bb3447 ], [ %header_value_mark.2, %if.then3456 ], [ %header_value_mark.2, %if.then3456 ], [ %header_value_mark.2, %sw.bb3488 ], [ %header_value_mark.2, %if.end3606 ], [ %header_value_mark.2, %sw.bb3558 ], [ %header_value_mark.2, %for.inc.loopexit1544 ], [ %header_value_mark.2, %if.end508 ], [ %header_value_mark.2, %for.inc.loopexit2960 ], [ %header_value_mark.2, %for.inc.loopexit3595 ], [ %header_value_mark.2, %for.inc.loopexit4793 ], [ %header_value_mark.2, %reexecute_byte ], [ %header_value_mark.2, %if.end993 ], [ %header_value_mark.2, %if.end1122 ], [ %header_value_mark.2, %if.end1251 ], [ %header_value_mark.2, %if.end1380 ], [ %header_value_mark.2, %for.inc.loopexit4193 ], [ %header_value_mark.2, %if.else2706 ], [ %header_value_mark.2, %lor.lhs.false2828 ], [ %header_value_mark.2, %lor.lhs.false2697 ], [ %header_value_mark.2, %do.body2675 ], [ %header_value_mark.2, %do.body2806 ]
-  %url_mark.11 = phi ptr [ %url_mark.2, %if.end3634 ], [ %url_mark.2, %sw.bb3588 ], [ %url_mark.2, %if.end3518 ], [ %url_mark.2, %if.end3544 ], [ %url_mark.2, %if.end3482 ], [ %url_mark.2, %if.end3444 ], [ %url_mark.2, %do.end3418 ], [ %url_mark.2, %do.body3379 ], [ %url_mark.2, %if.end3207 ], [ %url_mark.2, %if.end3249 ], [ %url_mark.2, %if.end3303 ], [ %url_mark.2, %if.end3004 ], [ %url_mark.2, %if.end2969 ], [ %url_mark.2, %sw.epilog2950 ], [ %url_mark.2, %if.then2254 ], [ %url_mark.2, %sw.default2927 ], [ %url_mark.2, %if.then2924 ], [ %url_mark.2, %sw.bb2921 ], [ %url_mark.2, %if.then2911 ], [ %url_mark.2, %if.then2917 ], [ %url_mark.2, %if.else2913 ], [ %url_mark.2, %sw.bb2860 ], [ %url_mark.2, %if.end2887 ], [ %url_mark.2, %sw.bb2851 ], [ %url_mark.2, %if.then2842 ], [ %url_mark.2, %if.then2847 ], [ %url_mark.2, %sw.bb2068 ], [ %url_mark.2, %if.then2133 ], [ %url_mark.2, %if.then2168 ], [ %url_mark.2, %sw.default2241 ], [ %url_mark.2, %if.end2236 ], [ %url_mark.2, %if.then2218 ], [ %url_mark.2, %if.else2220 ], [ %url_mark.2, %sw.bb2206 ], [ %url_mark.2, %if.then1824 ], [ %url_mark.2, %if.then2002 ], [ %url_mark.2, %sw.bb1999 ], [ %url_mark.2, %if.then1989 ], [ %url_mark.2, %if.then1995 ], [ %url_mark.2, %if.else1991 ], [ %url_mark.2, %if.then1966 ], [ %url_mark.2, %if.then1972 ], [ %url_mark.2, %if.else1968 ], [ %url_mark.2, %if.then1943 ], [ %url_mark.2, %if.then1949 ], [ %url_mark.2, %if.else1945 ], [ %url_mark.2, %do.body1889 ], [ %url_mark.2, %do.body2031 ], [ %url_mark.2, %do.body1920 ], [ %url_mark.2, %if.else1897 ], [ %url_mark.2, %sw.default1817 ], [ %url_mark.2, %sw.bb1815 ], [ %url_mark.2, %sw.bb1813 ], [ %url_mark.2, %sw.bb1812 ], [ %url_mark.2, %if.else1723 ], [ %url_mark.2, %if.end1752 ], [ %url_mark.2, %if.end1706 ], [ %url_mark.2, %if.end1671 ], [ %url_mark.2, %if.end1649 ], [ %url_mark.2, %sw.bb1635 ], [ %url_mark.2, %sw.bb1634 ], [ %url_mark.2, %sw.bb1633 ], [ %url_mark.2, %sw.bb1632 ], [ %url_mark.2, %sw.bb1620 ], [ %url_mark.2, %sw.bb1622 ], [ null, %sw.bb1543 ], [ null, %sw.bb1511 ], [ null, %sw.bb1414 ], [ null, %sw.bb1382 ], [ null, %sw.bb1286 ], [ null, %sw.bb1254 ], [ null, %sw.bb1157 ], [ null, %sw.bb1125 ], [ null, %sw.bb1027 ], [ null, %sw.bb995 ], [ %url_mark.2, %sw.bb927 ], [ %url_mark.2, %sw.bb969 ], [ null, %sw.bb937 ], [ %url_mark.2, %sw.bb918 ], [ null, %sw.bb887 ], [ %url_mark.2, %sw.bb886 ], [ %url_mark.2, %sw.bb850 ], [ %url_mark.2, %land.lhs.true862 ], [ %url_mark.2, %if.then875 ], [ %url_mark.2, %lor.lhs.false868 ], [ %url_mark.2, %sw.bb789 ], [ %spec.select1514, %do.body734 ], [ %spec.select1516, %do.body752 ], [ %url_mark.2, %if.end711 ], [ %url_mark.2, %if.then386 ], [ %url_mark.2, %if.then420 ], [ %url_mark.2, %if.end357 ], [ %url_mark.2, %sw.bb348 ], [ %url_mark.2, %sw.bb347 ], [ %url_mark.2, %if.end334 ], [ %url_mark.2, %if.then323 ], [ %url_mark.2, %if.end295 ], [ %url_mark.2, %if.end274 ], [ %url_mark.2, %if.end241 ], [ %url_mark.2, %if.end222 ], [ %url_mark.2, %if.then139 ], [ %url_mark.2, %if.end153 ], [ %url_mark.2, %sw.bb190 ], [ %url_mark.2, %sw.bb225 ], [ %url_mark.2, %sw.bb278 ], [ %url_mark.2, %if.then344 ], [ %url_mark.2, %if.end403 ], [ %url_mark.2, %do.body380 ], [ %url_mark.2, %if.end438 ], [ %url_mark.2, %sw.bb536 ], [ %url_mark.2, %sw.bb534 ], [ %url_mark.2, %sw.bb532 ], [ %url_mark.2, %sw.bb530 ], [ %url_mark.2, %sw.bb528 ], [ %url_mark.2, %sw.bb526 ], [ %url_mark.2, %sw.bb524 ], [ %url_mark.2, %sw.bb522 ], [ %url_mark.2, %sw.bb520 ], [ %url_mark.2, %sw.bb518 ], [ %url_mark.2, %sw.bb516 ], [ %url_mark.2, %sw.bb512 ], [ %url_mark.2, %sw.bb764 ], [ %url_mark.2, %if.end777 ], [ %url_mark.2, %sw.bb790 ], [ %url_mark.2, %if.else794 ], [ %url_mark.2, %sw.bb883 ], [ null, %if.end904 ], [ %url_mark.2, %if.end934 ], [ null, %if.end955 ], [ null, %if.end1013 ], [ null, %if.end1047 ], [ null, %if.end1143 ], [ null, %if.end1177 ], [ null, %if.end1272 ], [ null, %if.end1306 ], [ null, %if.end1400 ], [ null, %if.end1434 ], [ null, %if.end1529 ], [ null, %if.end1563 ], [ %url_mark.2, %sw.bb1654 ], [ %url_mark.2, %land.lhs.true1718 ], [ %url_mark.2, %sw.bb1774 ], [ %url_mark.2, %if.end2047 ], [ %url_mark.2, %sw.bb2068 ], [ %url_mark.2, %if.end2151 ], [ %url_mark.2, %if.end2186 ], [ %url_mark.2, %if.end2272 ], [ %url_mark.2, %sw.bb2839 ], [ %url_mark.2, %if.else3220 ], [ %url_mark.2, %if.else3262 ], [ %url_mark.2, %switch.early.test1528 ], [ %url_mark.2, %sw.bb3447 ], [ %url_mark.2, %if.then3456 ], [ %url_mark.2, %if.then3456 ], [ %url_mark.2, %sw.bb3488 ], [ %url_mark.2, %if.end3606 ], [ %url_mark.2, %sw.bb3558 ], [ %url_mark.2, %for.inc.loopexit1544 ], [ %url_mark.2, %if.end508 ], [ %url_mark.2, %for.inc.loopexit2960 ], [ %url_mark.2, %for.inc.loopexit3595 ], [ %url_mark.2, %for.inc.loopexit4793 ], [ %url_mark.2, %reexecute_byte ], [ %url_mark.2, %if.end993 ], [ %url_mark.2, %if.end1122 ], [ %url_mark.2, %if.end1251 ], [ %url_mark.2, %if.end1380 ], [ %url_mark.2, %for.inc.loopexit4193 ], [ %url_mark.2, %if.else2706 ], [ %url_mark.2, %lor.lhs.false2828 ], [ %url_mark.2, %lor.lhs.false2697 ], [ %url_mark.2, %do.body2675 ], [ %url_mark.2, %do.body2806 ]
-  %reason_mark.3 = phi ptr [ %reason_mark.12909, %if.end3634 ], [ %reason_mark.12909, %sw.bb3588 ], [ %reason_mark.12909, %if.end3518 ], [ %reason_mark.12909, %if.end3544 ], [ %reason_mark.12909, %if.end3482 ], [ %reason_mark.12909, %if.end3444 ], [ %reason_mark.12909, %do.end3418 ], [ %reason_mark.12909, %do.body3379 ], [ %reason_mark.12909, %if.end3207 ], [ %reason_mark.12909, %if.end3249 ], [ %reason_mark.12909, %if.end3303 ], [ %reason_mark.12909, %if.end3004 ], [ %reason_mark.12909, %if.end2969 ], [ %reason_mark.12909, %sw.epilog2950 ], [ %reason_mark.12909, %if.then2254 ], [ %reason_mark.12909, %sw.default2927 ], [ %reason_mark.12909, %if.then2924 ], [ %reason_mark.12909, %sw.bb2921 ], [ %reason_mark.12909, %if.then2911 ], [ %reason_mark.12909, %if.then2917 ], [ %reason_mark.12909, %if.else2913 ], [ %reason_mark.12909, %sw.bb2860 ], [ %reason_mark.12909, %if.end2887 ], [ %reason_mark.12909, %sw.bb2851 ], [ %reason_mark.12909, %if.then2842 ], [ %reason_mark.12909, %if.then2847 ], [ %reason_mark.12909, %sw.bb2068 ], [ %reason_mark.12909, %if.then2133 ], [ %reason_mark.12909, %if.then2168 ], [ %reason_mark.12909, %sw.default2241 ], [ %reason_mark.12909, %if.end2236 ], [ %reason_mark.12909, %if.then2218 ], [ %reason_mark.12909, %if.else2220 ], [ %reason_mark.12909, %sw.bb2206 ], [ %reason_mark.12909, %if.then1824 ], [ %reason_mark.12909, %if.then2002 ], [ %reason_mark.12909, %sw.bb1999 ], [ %reason_mark.12909, %if.then1989 ], [ %reason_mark.12909, %if.then1995 ], [ %reason_mark.12909, %if.else1991 ], [ %reason_mark.12909, %if.then1966 ], [ %reason_mark.12909, %if.then1972 ], [ %reason_mark.12909, %if.else1968 ], [ %reason_mark.12909, %if.then1943 ], [ %reason_mark.12909, %if.then1949 ], [ %reason_mark.12909, %if.else1945 ], [ %reason_mark.12909, %do.body1889 ], [ %reason_mark.12909, %do.body2031 ], [ %reason_mark.12909, %do.body1920 ], [ %reason_mark.12909, %if.else1897 ], [ %reason_mark.12909, %sw.default1817 ], [ %reason_mark.12909, %sw.bb1815 ], [ %reason_mark.12909, %sw.bb1813 ], [ %reason_mark.12909, %sw.bb1812 ], [ %reason_mark.12909, %if.else1723 ], [ %reason_mark.12909, %if.end1752 ], [ %reason_mark.12909, %if.end1706 ], [ %reason_mark.12909, %if.end1671 ], [ %reason_mark.12909, %if.end1649 ], [ %reason_mark.12909, %sw.bb1635 ], [ %reason_mark.12909, %sw.bb1634 ], [ %reason_mark.12909, %sw.bb1633 ], [ %reason_mark.12909, %sw.bb1632 ], [ %reason_mark.12909, %sw.bb1620 ], [ %reason_mark.12909, %sw.bb1622 ], [ %reason_mark.12909, %sw.bb1543 ], [ %reason_mark.12909, %sw.bb1511 ], [ %reason_mark.12909, %sw.bb1414 ], [ %reason_mark.12909, %sw.bb1382 ], [ %reason_mark.12909, %sw.bb1286 ], [ %reason_mark.12909, %sw.bb1254 ], [ %reason_mark.12909, %sw.bb1157 ], [ %reason_mark.12909, %sw.bb1125 ], [ %reason_mark.12909, %sw.bb1027 ], [ %reason_mark.12909, %sw.bb995 ], [ %reason_mark.12909, %sw.bb927 ], [ %reason_mark.12909, %sw.bb969 ], [ %reason_mark.12909, %sw.bb937 ], [ %reason_mark.12909, %sw.bb918 ], [ %reason_mark.12909, %sw.bb887 ], [ %reason_mark.12909, %sw.bb886 ], [ %reason_mark.12909, %sw.bb850 ], [ %reason_mark.12909, %land.lhs.true862 ], [ %reason_mark.12909, %if.then875 ], [ %reason_mark.12909, %lor.lhs.false868 ], [ %reason_mark.12909, %sw.bb789 ], [ %reason_mark.12909, %do.body734 ], [ %reason_mark.12909, %do.body752 ], [ %reason_mark.12909, %if.end711 ], [ null, %if.then386 ], [ null, %if.then420 ], [ %reason_mark.12909, %if.end357 ], [ %reason_mark.12909, %sw.bb348 ], [ %reason_mark.12909, %sw.bb347 ], [ %reason_mark.12909, %if.end334 ], [ %reason_mark.12909, %if.then323 ], [ %reason_mark.12909, %if.end295 ], [ %reason_mark.12909, %if.end274 ], [ %reason_mark.12909, %if.end241 ], [ %reason_mark.12909, %if.end222 ], [ %reason_mark.12909, %if.then139 ], [ %reason_mark.12909, %if.end153 ], [ %reason_mark.12909, %sw.bb190 ], [ %reason_mark.12909, %sw.bb225 ], [ %reason_mark.12909, %sw.bb278 ], [ %reason_mark.12909, %if.then344 ], [ null, %if.end403 ], [ %spec.select1511, %do.body380 ], [ null, %if.end438 ], [ %reason_mark.12909, %sw.bb536 ], [ %reason_mark.12909, %sw.bb534 ], [ %reason_mark.12909, %sw.bb532 ], [ %reason_mark.12909, %sw.bb530 ], [ %reason_mark.12909, %sw.bb528 ], [ %reason_mark.12909, %sw.bb526 ], [ %reason_mark.12909, %sw.bb524 ], [ %reason_mark.12909, %sw.bb522 ], [ %reason_mark.12909, %sw.bb520 ], [ %reason_mark.12909, %sw.bb518 ], [ %reason_mark.12909, %sw.bb516 ], [ %reason_mark.12909, %sw.bb512 ], [ %reason_mark.12909, %sw.bb764 ], [ %reason_mark.12909, %if.end777 ], [ %reason_mark.12909, %sw.bb790 ], [ %reason_mark.12909, %if.else794 ], [ %reason_mark.12909, %sw.bb883 ], [ %reason_mark.12909, %if.end904 ], [ %reason_mark.12909, %if.end934 ], [ %reason_mark.12909, %if.end955 ], [ %reason_mark.12909, %if.end1013 ], [ %reason_mark.12909, %if.end1047 ], [ %reason_mark.12909, %if.end1143 ], [ %reason_mark.12909, %if.end1177 ], [ %reason_mark.12909, %if.end1272 ], [ %reason_mark.12909, %if.end1306 ], [ %reason_mark.12909, %if.end1400 ], [ %reason_mark.12909, %if.end1434 ], [ %reason_mark.12909, %if.end1529 ], [ %reason_mark.12909, %if.end1563 ], [ %reason_mark.12909, %sw.bb1654 ], [ %reason_mark.12909, %land.lhs.true1718 ], [ %reason_mark.12909, %sw.bb1774 ], [ %reason_mark.12909, %if.end2047 ], [ %reason_mark.12909, %sw.bb2068 ], [ %reason_mark.12909, %if.end2151 ], [ %reason_mark.12909, %if.end2186 ], [ %reason_mark.12909, %if.end2272 ], [ %reason_mark.12909, %sw.bb2839 ], [ %reason_mark.12909, %if.else3220 ], [ %reason_mark.12909, %if.else3262 ], [ %reason_mark.12909, %switch.early.test1528 ], [ %reason_mark.12909, %sw.bb3447 ], [ %reason_mark.12909, %if.then3456 ], [ %reason_mark.12909, %if.then3456 ], [ %reason_mark.12909, %sw.bb3488 ], [ %reason_mark.12909, %if.end3606 ], [ %reason_mark.12909, %sw.bb3558 ], [ %reason_mark.12909, %for.inc.loopexit1544 ], [ %reason_mark.12909, %if.end508 ], [ %reason_mark.12909, %for.inc.loopexit2960 ], [ %reason_mark.12909, %for.inc.loopexit3595 ], [ %reason_mark.12909, %for.inc.loopexit4793 ], [ %reason_mark.12909, %reexecute_byte ], [ %reason_mark.12909, %if.end993 ], [ %reason_mark.12909, %if.end1122 ], [ %reason_mark.12909, %if.end1251 ], [ %reason_mark.12909, %if.end1380 ], [ %reason_mark.12909, %for.inc.loopexit4193 ], [ %reason_mark.12909, %if.else2706 ], [ %reason_mark.12909, %lor.lhs.false2828 ], [ %reason_mark.12909, %lor.lhs.false2697 ], [ %reason_mark.12909, %do.body2675 ], [ %reason_mark.12909, %do.body2806 ]
-  %body_mark.6 = phi ptr [ %body_mark.1, %if.end3634 ], [ null, %sw.bb3588 ], [ %body_mark.1, %if.end3518 ], [ %body_mark.1, %if.end3544 ], [ %body_mark.1, %if.end3482 ], [ %body_mark.1, %if.end3444 ], [ %body_mark.1, %do.end3418 ], [ %spec.select1529, %do.body3379 ], [ %body_mark.1, %if.end3207 ], [ %body_mark.1, %if.end3249 ], [ %body_mark.1, %if.end3303 ], [ %body_mark.1, %if.end3004 ], [ %body_mark.1, %if.end2969 ], [ %body_mark.1, %sw.epilog2950 ], [ %body_mark.1, %if.then2254 ], [ %body_mark.1, %sw.default2927 ], [ %body_mark.1, %if.then2924 ], [ %body_mark.1, %sw.bb2921 ], [ %body_mark.1, %if.then2911 ], [ %body_mark.1, %if.then2917 ], [ %body_mark.1, %if.else2913 ], [ %body_mark.1, %sw.bb2860 ], [ %body_mark.1, %if.end2887 ], [ %body_mark.1, %sw.bb2851 ], [ %body_mark.1, %if.then2842 ], [ %body_mark.1, %if.then2847 ], [ %body_mark.1, %sw.bb2068 ], [ %body_mark.1, %if.then2133 ], [ %body_mark.1, %if.then2168 ], [ %body_mark.1, %sw.default2241 ], [ %body_mark.1, %if.end2236 ], [ %body_mark.1, %if.then2218 ], [ %body_mark.1, %if.else2220 ], [ %body_mark.1, %sw.bb2206 ], [ %body_mark.1, %if.then1824 ], [ %body_mark.1, %if.then2002 ], [ %body_mark.1, %sw.bb1999 ], [ %body_mark.1, %if.then1989 ], [ %body_mark.1, %if.then1995 ], [ %body_mark.1, %if.else1991 ], [ %body_mark.1, %if.then1966 ], [ %body_mark.1, %if.then1972 ], [ %body_mark.1, %if.else1968 ], [ %body_mark.1, %if.then1943 ], [ %body_mark.1, %if.then1949 ], [ %body_mark.1, %if.else1945 ], [ %body_mark.1, %do.body1889 ], [ %body_mark.1, %do.body2031 ], [ %body_mark.1, %do.body1920 ], [ %body_mark.1, %if.else1897 ], [ %body_mark.1, %sw.default1817 ], [ %body_mark.1, %sw.bb1815 ], [ %body_mark.1, %sw.bb1813 ], [ %body_mark.1, %sw.bb1812 ], [ %body_mark.1, %if.else1723 ], [ %body_mark.1, %if.end1752 ], [ %body_mark.1, %if.end1706 ], [ %body_mark.1, %if.end1671 ], [ %body_mark.1, %if.end1649 ], [ %body_mark.1, %sw.bb1635 ], [ %body_mark.1, %sw.bb1634 ], [ %body_mark.1, %sw.bb1633 ], [ %body_mark.1, %sw.bb1632 ], [ %body_mark.1, %sw.bb1620 ], [ %body_mark.1, %sw.bb1622 ], [ %body_mark.1, %sw.bb1543 ], [ %body_mark.1, %sw.bb1511 ], [ %body_mark.1, %sw.bb1414 ], [ %body_mark.1, %sw.bb1382 ], [ %body_mark.1, %sw.bb1286 ], [ %body_mark.1, %sw.bb1254 ], [ %body_mark.1, %sw.bb1157 ], [ %body_mark.1, %sw.bb1125 ], [ %body_mark.1, %sw.bb1027 ], [ %body_mark.1, %sw.bb995 ], [ %body_mark.1, %sw.bb927 ], [ %body_mark.1, %sw.bb969 ], [ %body_mark.1, %sw.bb937 ], [ %body_mark.1, %sw.bb918 ], [ %body_mark.1, %sw.bb887 ], [ %body_mark.1, %sw.bb886 ], [ %body_mark.1, %sw.bb850 ], [ %body_mark.1, %land.lhs.true862 ], [ %body_mark.1, %if.then875 ], [ %body_mark.1, %lor.lhs.false868 ], [ %body_mark.1, %sw.bb789 ], [ %body_mark.1, %do.body734 ], [ %body_mark.1, %do.body752 ], [ %body_mark.1, %if.end711 ], [ %body_mark.1, %if.then386 ], [ %body_mark.1, %if.then420 ], [ %body_mark.1, %if.end357 ], [ %body_mark.1, %sw.bb348 ], [ %body_mark.1, %sw.bb347 ], [ %body_mark.1, %if.end334 ], [ %body_mark.1, %if.then323 ], [ %body_mark.1, %if.end295 ], [ %body_mark.1, %if.end274 ], [ %body_mark.1, %if.end241 ], [ %body_mark.1, %if.end222 ], [ %body_mark.1, %if.then139 ], [ %body_mark.1, %if.end153 ], [ %body_mark.1, %sw.bb190 ], [ %body_mark.1, %sw.bb225 ], [ %body_mark.1, %sw.bb278 ], [ %body_mark.1, %if.then344 ], [ %body_mark.1, %if.end403 ], [ %body_mark.1, %do.body380 ], [ %body_mark.1, %if.end438 ], [ %body_mark.1, %sw.bb536 ], [ %body_mark.1, %sw.bb534 ], [ %body_mark.1, %sw.bb532 ], [ %body_mark.1, %sw.bb530 ], [ %body_mark.1, %sw.bb528 ], [ %body_mark.1, %sw.bb526 ], [ %body_mark.1, %sw.bb524 ], [ %body_mark.1, %sw.bb522 ], [ %body_mark.1, %sw.bb520 ], [ %body_mark.1, %sw.bb518 ], [ %body_mark.1, %sw.bb516 ], [ %body_mark.1, %sw.bb512 ], [ %body_mark.1, %sw.bb764 ], [ %body_mark.1, %if.end777 ], [ %body_mark.1, %sw.bb790 ], [ %body_mark.1, %if.else794 ], [ %body_mark.1, %sw.bb883 ], [ %body_mark.1, %if.end904 ], [ %body_mark.1, %if.end934 ], [ %body_mark.1, %if.end955 ], [ %body_mark.1, %if.end1013 ], [ %body_mark.1, %if.end1047 ], [ %body_mark.1, %if.end1143 ], [ %body_mark.1, %if.end1177 ], [ %body_mark.1, %if.end1272 ], [ %body_mark.1, %if.end1306 ], [ %body_mark.1, %if.end1400 ], [ %body_mark.1, %if.end1434 ], [ %body_mark.1, %if.end1529 ], [ %body_mark.1, %if.end1563 ], [ %body_mark.1, %sw.bb1654 ], [ %body_mark.1, %land.lhs.true1718 ], [ %body_mark.1, %sw.bb1774 ], [ %body_mark.1, %if.end2047 ], [ %body_mark.1, %sw.bb2068 ], [ %body_mark.1, %if.end2151 ], [ %body_mark.1, %if.end2186 ], [ %body_mark.1, %if.end2272 ], [ %body_mark.1, %sw.bb2839 ], [ %body_mark.1, %if.else3220 ], [ %body_mark.1, %if.else3262 ], [ %body_mark.1, %switch.early.test1528 ], [ %body_mark.1, %sw.bb3447 ], [ %body_mark.1, %if.then3456 ], [ %body_mark.1, %if.then3456 ], [ %body_mark.1, %sw.bb3488 ], [ null, %if.end3606 ], [ %body_mark.5, %sw.bb3558 ], [ %body_mark.1, %for.inc.loopexit1544 ], [ %body_mark.1, %if.end508 ], [ %body_mark.1, %for.inc.loopexit2960 ], [ %body_mark.1, %for.inc.loopexit3595 ], [ %body_mark.6.ph, %for.inc.loopexit4793 ], [ %body_mark.1, %reexecute_byte ], [ %body_mark.1, %if.end993 ], [ %body_mark.1, %if.end1122 ], [ %body_mark.1, %if.end1251 ], [ %body_mark.1, %if.end1380 ], [ %body_mark.1, %for.inc.loopexit4193 ], [ %body_mark.1, %if.else2706 ], [ %body_mark.1, %lor.lhs.false2828 ], [ %body_mark.1, %lor.lhs.false2697 ], [ %body_mark.1, %do.body2675 ], [ %body_mark.1, %do.body2806 ]
-  %data_or_header_data_start.1 = phi ptr [ %p.1, %if.end3634 ], [ %data_or_header_data_start.02911, %sw.bb3588 ], [ %data_or_header_data_start.02911, %if.end3518 ], [ %data_or_header_data_start.02911, %if.end3544 ], [ %data_or_header_data_start.02911, %if.end3482 ], [ %data_or_header_data_start.02911, %if.end3444 ], [ %p.1, %do.end3418 ], [ %data_or_header_data_start.02911, %do.body3379 ], [ %p.1, %if.end3207 ], [ %p.1, %if.end3249 ], [ %p.1, %if.end3303 ], [ %data_or_header_data_start.02911, %if.end3004 ], [ %data_or_header_data_start.02911, %if.end2969 ], [ %data_or_header_data_start.02911, %sw.epilog2950 ], [ %data_or_header_data_start.02911, %if.then2254 ], [ %data_or_header_data_start.02911, %sw.default2927 ], [ %data_or_header_data_start.02911, %if.then2924 ], [ %data_or_header_data_start.02911, %sw.bb2921 ], [ %data_or_header_data_start.02911, %if.then2911 ], [ %data_or_header_data_start.02911, %if.then2917 ], [ %data_or_header_data_start.02911, %if.else2913 ], [ %data_or_header_data_start.02911, %sw.bb2860 ], [ %data_or_header_data_start.02911, %if.end2887 ], [ %data_or_header_data_start.02911, %sw.bb2851 ], [ %data_or_header_data_start.02911, %if.then2842 ], [ %data_or_header_data_start.02911, %if.then2847 ], [ %data_or_header_data_start.02911, %sw.bb2068 ], [ %data_or_header_data_start.02911, %if.then2133 ], [ %data_or_header_data_start.02911, %if.then2168 ], [ %data_or_header_data_start.02911, %sw.default2241 ], [ %data_or_header_data_start.02911, %if.end2236 ], [ %data_or_header_data_start.02911, %if.then2218 ], [ %data_or_header_data_start.02911, %if.else2220 ], [ %data_or_header_data_start.02911, %sw.bb2206 ], [ %data_or_header_data_start.02911, %if.then1824 ], [ %data_or_header_data_start.02911, %if.then2002 ], [ %data_or_header_data_start.02911, %sw.bb1999 ], [ %data_or_header_data_start.02911, %if.then1989 ], [ %data_or_header_data_start.02911, %if.then1995 ], [ %data_or_header_data_start.02911, %if.else1991 ], [ %data_or_header_data_start.02911, %if.then1966 ], [ %data_or_header_data_start.02911, %if.then1972 ], [ %data_or_header_data_start.02911, %if.else1968 ], [ %data_or_header_data_start.02911, %if.then1943 ], [ %data_or_header_data_start.02911, %if.then1949 ], [ %data_or_header_data_start.02911, %if.else1945 ], [ %data_or_header_data_start.02911, %do.body1889 ], [ %data_or_header_data_start.02911, %do.body2031 ], [ %data_or_header_data_start.02911, %do.body1920 ], [ %data_or_header_data_start.02911, %if.else1897 ], [ %data_or_header_data_start.02911, %sw.default1817 ], [ %data_or_header_data_start.02911, %sw.bb1815 ], [ %data_or_header_data_start.02911, %sw.bb1813 ], [ %data_or_header_data_start.02911, %sw.bb1812 ], [ %data_or_header_data_start.02911, %if.else1723 ], [ %data_or_header_data_start.02911, %if.end1752 ], [ %data_or_header_data_start.02911, %if.end1706 ], [ %data_or_header_data_start.02911, %if.end1671 ], [ %data_or_header_data_start.02911, %if.end1649 ], [ %data_or_header_data_start.02911, %sw.bb1635 ], [ %data_or_header_data_start.02911, %sw.bb1634 ], [ %data_or_header_data_start.02911, %sw.bb1633 ], [ %data_or_header_data_start.02911, %sw.bb1632 ], [ %data_or_header_data_start.02911, %sw.bb1620 ], [ %data_or_header_data_start.02911, %sw.bb1622 ], [ %data_or_header_data_start.02911, %sw.bb1543 ], [ %data_or_header_data_start.02911, %sw.bb1511 ], [ %data_or_header_data_start.02911, %sw.bb1414 ], [ %data_or_header_data_start.02911, %sw.bb1382 ], [ %data_or_header_data_start.02911, %sw.bb1286 ], [ %data_or_header_data_start.02911, %sw.bb1254 ], [ %data_or_header_data_start.02911, %sw.bb1157 ], [ %data_or_header_data_start.02911, %sw.bb1125 ], [ %data_or_header_data_start.02911, %sw.bb1027 ], [ %data_or_header_data_start.02911, %sw.bb995 ], [ %data_or_header_data_start.02911, %sw.bb927 ], [ %data_or_header_data_start.02911, %sw.bb969 ], [ %data_or_header_data_start.02911, %sw.bb937 ], [ %data_or_header_data_start.02911, %sw.bb918 ], [ %data_or_header_data_start.02911, %sw.bb887 ], [ %data_or_header_data_start.02911, %sw.bb886 ], [ %data_or_header_data_start.02911, %sw.bb850 ], [ %data_or_header_data_start.02911, %land.lhs.true862 ], [ %data_or_header_data_start.02911, %if.then875 ], [ %data_or_header_data_start.02911, %lor.lhs.false868 ], [ %data_or_header_data_start.02911, %sw.bb789 ], [ %data_or_header_data_start.02911, %do.body734 ], [ %data_or_header_data_start.02911, %do.body752 ], [ %data_or_header_data_start.02911, %if.end711 ], [ %data_or_header_data_start.02911, %if.then386 ], [ %data_or_header_data_start.02911, %if.then420 ], [ %data_or_header_data_start.02911, %if.end357 ], [ %data_or_header_data_start.02911, %sw.bb348 ], [ %data_or_header_data_start.02911, %sw.bb347 ], [ %data_or_header_data_start.02911, %if.end334 ], [ %data_or_header_data_start.02911, %if.then323 ], [ %data_or_header_data_start.02911, %if.end295 ], [ %data_or_header_data_start.02911, %if.end274 ], [ %data_or_header_data_start.02911, %if.end241 ], [ %data_or_header_data_start.02911, %if.end222 ], [ %data_or_header_data_start.02911, %if.then139 ], [ %data_or_header_data_start.02911, %if.end153 ], [ %data_or_header_data_start.02911, %sw.bb190 ], [ %data_or_header_data_start.02911, %sw.bb225 ], [ %data_or_header_data_start.02911, %sw.bb278 ], [ %data_or_header_data_start.02911, %if.then344 ], [ %data_or_header_data_start.02911, %if.end403 ], [ %data_or_header_data_start.02911, %do.body380 ], [ %data_or_header_data_start.02911, %if.end438 ], [ %data_or_header_data_start.02911, %sw.bb536 ], [ %data_or_header_data_start.02911, %sw.bb534 ], [ %data_or_header_data_start.02911, %sw.bb532 ], [ %data_or_header_data_start.02911, %sw.bb530 ], [ %data_or_header_data_start.02911, %sw.bb528 ], [ %data_or_header_data_start.02911, %sw.bb526 ], [ %data_or_header_data_start.02911, %sw.bb524 ], [ %data_or_header_data_start.02911, %sw.bb522 ], [ %data_or_header_data_start.02911, %sw.bb520 ], [ %data_or_header_data_start.02911, %sw.bb518 ], [ %data_or_header_data_start.02911, %sw.bb516 ], [ %data_or_header_data_start.02911, %sw.bb512 ], [ %data_or_header_data_start.02911, %sw.bb764 ], [ %data_or_header_data_start.02911, %if.end777 ], [ %data_or_header_data_start.02911, %sw.bb790 ], [ %data_or_header_data_start.02911, %if.else794 ], [ %data_or_header_data_start.02911, %sw.bb883 ], [ %data_or_header_data_start.02911, %if.end904 ], [ %data_or_header_data_start.02911, %if.end934 ], [ %data_or_header_data_start.02911, %if.end955 ], [ %data_or_header_data_start.02911, %if.end1013 ], [ %data_or_header_data_start.02911, %if.end1047 ], [ %data_or_header_data_start.02911, %if.end1143 ], [ %data_or_header_data_start.02911, %if.end1177 ], [ %data_or_header_data_start.02911, %if.end1272 ], [ %data_or_header_data_start.02911, %if.end1306 ], [ %data_or_header_data_start.02911, %if.end1400 ], [ %data_or_header_data_start.02911, %if.end1434 ], [ %data_or_header_data_start.02911, %if.end1529 ], [ %data_or_header_data_start.02911, %if.end1563 ], [ %data_or_header_data_start.02911, %sw.bb1654 ], [ %data_or_header_data_start.02911, %land.lhs.true1718 ], [ %data_or_header_data_start.02911, %sw.bb1774 ], [ %data_or_header_data_start.02911, %if.end2047 ], [ %data_or_header_data_start.02911, %sw.bb2068 ], [ %data_or_header_data_start.02911, %if.end2151 ], [ %data_or_header_data_start.02911, %if.end2186 ], [ %data_or_header_data_start.02911, %if.end2272 ], [ %data_or_header_data_start.02911, %sw.bb2839 ], [ %p.1, %if.else3220 ], [ %p.1, %if.else3262 ], [ %p.1, %switch.early.test1528 ], [ %data_or_header_data_start.02911, %sw.bb3447 ], [ %data_or_header_data_start.02911, %if.then3456 ], [ %data_or_header_data_start.02911, %if.then3456 ], [ %data_or_header_data_start.02911, %sw.bb3488 ], [ %data_or_header_data_start.02911, %if.end3606 ], [ %data_or_header_data_start.02911, %sw.bb3558 ], [ %data_or_header_data_start.02911, %for.inc.loopexit1544 ], [ %data_or_header_data_start.02911, %if.end508 ], [ %data_or_header_data_start.02911, %for.inc.loopexit2960 ], [ %data_or_header_data_start.02911, %for.inc.loopexit3595 ], [ %data_or_header_data_start.02911, %for.inc.loopexit4793 ], [ %data_or_header_data_start.02911, %reexecute_byte ], [ %data_or_header_data_start.02911, %if.end993 ], [ %data_or_header_data_start.02911, %if.end1122 ], [ %data_or_header_data_start.02911, %if.end1251 ], [ %data_or_header_data_start.02911, %if.end1380 ], [ %data_or_header_data_start.02911, %for.inc.loopexit4193 ], [ %data_or_header_data_start.02911, %if.else2706 ], [ %data_or_header_data_start.02911, %lor.lhs.false2828 ], [ %data_or_header_data_start.02911, %lor.lhs.false2697 ], [ %data_or_header_data_start.02911, %do.body2675 ], [ %data_or_header_data_start.02911, %do.body2806 ]
-  %state.4 = phi i8 [ 56, %if.end3634 ], [ 64, %sw.bb3588 ], [ 50, %if.end3518 ], [ 62, %if.end3544 ], [ 57, %if.end3482 ], [ 57, %if.end3444 ], [ %conv3392, %do.end3418 ], [ 66, %do.body3379 ], [ %conv3194, %if.end3207 ], [ %conv3236, %if.end3249 ], [ %conv3290, %if.end3303 ], [ 52, %if.end3004 ], [ 53, %if.end2969 ], [ 54, %sw.epilog2950 ], [ 55, %if.then2254 ], [ 53, %sw.default2927 ], [ 53, %if.then2924 ], [ 53, %sw.bb2921 ], [ 53, %if.then2911 ], [ 53, %if.then2917 ], [ 53, %if.else2913 ], [ 53, %sw.bb2860 ], [ 53, %if.end2887 ], [ 53, %sw.bb2851 ], [ 53, %if.then2842 ], [ 53, %if.then2847 ], [ 52, %sw.bb2068 ], [ 55, %if.then2133 ], [ 50, %if.then2168 ], [ 53, %sw.default2241 ], [ 53, %if.end2236 ], [ 53, %if.then2218 ], [ 53, %if.else2220 ], [ 53, %sw.bb2206 ], [ 51, %if.then1824 ], [ 51, %if.then2002 ], [ 51, %sw.bb1999 ], [ 51, %if.then1989 ], [ 51, %if.then1995 ], [ 51, %if.else1991 ], [ 51, %if.then1966 ], [ 51, %if.then1972 ], [ 51, %if.else1968 ], [ 51, %if.then1943 ], [ 51, %if.then1949 ], [ 51, %if.else1945 ], [ 51, %do.body1889 ], [ 52, %do.body2031 ], [ 51, %do.body1920 ], [ 51, %if.else1897 ], [ 51, %sw.default1817 ], [ 51, %sw.bb1815 ], [ 51, %sw.bb1813 ], [ 51, %sw.bb1812 ], [ 49, %if.else1723 ], [ 48, %if.end1752 ], [ 48, %if.end1706 ], [ 46, %if.end1671 ], [ 46, %if.end1649 ], [ 45, %sw.bb1635 ], [ 44, %sw.bb1634 ], [ 43, %sw.bb1633 ], [ 42, %sw.bb1632 ], [ 40, %sw.bb1620 ], [ 41, %sw.bb1622 ], [ 60, %sw.bb1543 ], [ 40, %sw.bb1511 ], [ 60, %sw.bb1414 ], [ 40, %sw.bb1382 ], [ 60, %sw.bb1286 ], [ 40, %sw.bb1254 ], [ 60, %sw.bb1157 ], [ 40, %sw.bb1125 ], [ 60, %sw.bb1027 ], [ 40, %sw.bb995 ], [ 34, %sw.bb927 ], [ 36, %sw.bb969 ], [ 40, %sw.bb937 ], [ 36, %sw.bb918 ], [ 40, %sw.bb887 ], [ 35, %sw.bb886 ], [ 32, %sw.bb850 ], [ 32, %land.lhs.true862 ], [ 33, %if.then875 ], [ 32, %lor.lhs.false868 ], [ 30, %sw.bb789 ], [ 35, %do.body734 ], [ 24, %do.body752 ], [ %state.2, %if.end711 ], [ 19, %if.then386 ], [ 50, %if.then420 ], [ 16, %if.end357 ], [ 50, %sw.bb348 ], [ 19, %sw.bb347 ], [ 16, %if.end334 ], [ 15, %if.then323 ], [ 14, %if.end295 ], [ 14, %if.end274 ], [ 12, %if.end241 ], [ 12, %if.end222 ], [ 8, %if.then139 ], [ 22, %if.end153 ], [ 7, %sw.bb190 ], [ 13, %sw.bb225 ], [ 15, %sw.bb278 ], [ 18, %if.then344 ], [ 19, %if.end403 ], [ 18, %do.body380 ], [ 50, %if.end438 ], [ 22, %sw.bb536 ], [ 22, %sw.bb534 ], [ 22, %sw.bb532 ], [ 22, %sw.bb530 ], [ 22, %sw.bb528 ], [ 22, %sw.bb526 ], [ 22, %sw.bb524 ], [ 22, %sw.bb522 ], [ 22, %sw.bb520 ], [ 22, %sw.bb518 ], [ 22, %sw.bb516 ], [ 22, %sw.bb512 ], [ 24, %sw.bb764 ], [ 25, %if.end777 ], [ 32, %sw.bb790 ], [ 31, %if.else794 ], [ 34, %sw.bb883 ], [ 40, %if.end904 ], [ 35, %if.end934 ], [ 40, %if.end955 ], [ 40, %if.end1013 ], [ 60, %if.end1047 ], [ 40, %if.end1143 ], [ 60, %if.end1177 ], [ 40, %if.end1272 ], [ 60, %if.end1306 ], [ 40, %if.end1400 ], [ 60, %if.end1434 ], [ 40, %if.end1529 ], [ 60, %if.end1563 ], [ 47, %sw.bb1654 ], [ 60, %land.lhs.true1718 ], [ 50, %sw.bb1774 ], [ 52, %if.end2047 ], [ 52, %sw.bb2068 ], [ 55, %if.end2151 ], [ 50, %if.end2186 ], [ 55, %if.end2272 ], [ 53, %sw.bb2839 ], [ 56, %if.else3220 ], [ 65, %if.else3262 ], [ 66, %switch.early.test1528 ], [ 59, %sw.bb3447 ], [ 58, %if.then3456 ], [ 58, %if.then3456 ], [ %spec.select1530, %sw.bb3488 ], [ 64, %if.end3606 ], [ %spec.select1531, %sw.bb3558 ], [ 8, %for.inc.loopexit1544 ], [ 22, %if.end508 ], [ 9, %for.inc.loopexit2960 ], [ 10, %for.inc.loopexit3595 ], [ %state.4.ph, %for.inc.loopexit4793 ], [ 26, %reexecute_byte ], [ 39, %if.end1380 ], [ 38, %if.end1251 ], [ 38, %if.end1122 ], [ 38, %if.end993 ], [ 11, %for.inc.loopexit4193 ], [ 53, %if.else2706 ], [ 53, %lor.lhs.false2828 ], [ 53, %lor.lhs.false2697 ], [ 53, %do.body2675 ], [ 53, %do.body2806 ]
-  %p.4 = phi ptr [ %p.1, %if.end3634 ], [ %p.1, %sw.bb3588 ], [ %p.1, %if.end3518 ], [ %p.1, %if.end3544 ], [ %p.1, %if.end3482 ], [ %p.1, %if.end3444 ], [ %p.1, %do.end3418 ], [ %add.ptr3385, %do.body3379 ], [ %p.1, %if.end3207 ], [ %p.1, %if.end3249 ], [ %p.1, %if.end3303 ], [ %p.1, %if.end3004 ], [ %p.1, %if.end2969 ], [ %p.1, %sw.epilog2950 ], [ %p.3, %if.then2254 ], [ %p.3, %sw.default2927 ], [ %p.3, %if.then2924 ], [ %p.3, %sw.bb2921 ], [ %p.3, %if.then2911 ], [ %p.3, %if.then2917 ], [ %p.3, %if.else2913 ], [ %p.3, %sw.bb2860 ], [ %p.3, %if.end2887 ], [ %p.3, %sw.bb2851 ], [ %p.3, %if.then2842 ], [ %p.3, %if.then2847 ], [ %p.1, %sw.bb2068 ], [ %p.1, %if.then2133 ], [ %p.1, %if.then2168 ], [ %p.1, %sw.default2241 ], [ %p.1, %if.end2236 ], [ %p.1, %if.then2218 ], [ %p.1, %if.else2220 ], [ %p.1, %sw.bb2206 ], [ %p.1, %if.then1824 ], [ %p.1, %if.then2002 ], [ %p.1, %sw.bb1999 ], [ %p.1, %if.then1989 ], [ %p.1, %if.then1995 ], [ %p.1, %if.else1991 ], [ %p.1, %if.then1966 ], [ %p.1, %if.then1972 ], [ %p.1, %if.else1968 ], [ %p.1, %if.then1943 ], [ %p.1, %if.then1949 ], [ %p.1, %if.else1945 ], [ %incdec.ptr1890, %do.body1889 ], [ %p.2, %do.body2031 ], [ %incdec.ptr1921, %do.body1920 ], [ %p.1, %if.else1897 ], [ %p.1, %sw.default1817 ], [ %p.1, %sw.bb1815 ], [ %p.1, %sw.bb1813 ], [ %p.1, %sw.bb1812 ], [ %p.1, %if.else1723 ], [ %p.1, %if.end1752 ], [ %p.1, %if.end1706 ], [ %p.1, %if.end1671 ], [ %p.1, %if.end1649 ], [ %p.1, %sw.bb1635 ], [ %p.1, %sw.bb1634 ], [ %p.1, %sw.bb1633 ], [ %p.1, %sw.bb1632 ], [ %p.1, %sw.bb1620 ], [ %p.1, %sw.bb1622 ], [ %p.1, %sw.bb1543 ], [ %p.1, %sw.bb1511 ], [ %p.1, %sw.bb1414 ], [ %p.1, %sw.bb1382 ], [ %p.1, %sw.bb1286 ], [ %p.1, %sw.bb1254 ], [ %p.1, %sw.bb1157 ], [ %p.1, %sw.bb1125 ], [ %p.1, %sw.bb1027 ], [ %p.1, %sw.bb995 ], [ %p.1, %sw.bb927 ], [ %p.1, %sw.bb969 ], [ %p.1, %sw.bb937 ], [ %p.1, %sw.bb918 ], [ %p.1, %sw.bb887 ], [ %p.1, %sw.bb886 ], [ %p.1, %sw.bb850 ], [ %p.1, %land.lhs.true862 ], [ %p.1, %if.then875 ], [ %p.1, %lor.lhs.false868 ], [ %p.1, %sw.bb789 ], [ %p.1, %do.body734 ], [ %p.1, %do.body752 ], [ %p.1, %if.end711 ], [ %p.1, %if.then386 ], [ %p.1, %if.then420 ], [ %p.1, %if.end357 ], [ %p.1, %sw.bb348 ], [ %p.1, %sw.bb347 ], [ %p.1, %if.end334 ], [ %p.1, %if.then323 ], [ %p.1, %if.end295 ], [ %p.1, %if.end274 ], [ %p.1, %if.end241 ], [ %p.1, %if.end222 ], [ %p.1, %if.then139 ], [ %p.1, %if.end153 ], [ %p.1, %sw.bb190 ], [ %p.1, %sw.bb225 ], [ %p.1, %sw.bb278 ], [ %p.1, %if.then344 ], [ %p.1, %if.end403 ], [ %p.1, %do.body380 ], [ %p.1, %if.end438 ], [ %p.1, %sw.bb536 ], [ %p.1, %sw.bb534 ], [ %p.1, %sw.bb532 ], [ %p.1, %sw.bb530 ], [ %p.1, %sw.bb528 ], [ %p.1, %sw.bb526 ], [ %p.1, %sw.bb524 ], [ %p.1, %sw.bb522 ], [ %p.1, %sw.bb520 ], [ %p.1, %sw.bb518 ], [ %p.1, %sw.bb516 ], [ %p.1, %sw.bb512 ], [ %p.1, %sw.bb764 ], [ %p.1, %if.end777 ], [ %p.1, %sw.bb790 ], [ %p.1, %if.else794 ], [ %p.1, %sw.bb883 ], [ %p.1, %if.end904 ], [ %p.1, %if.end934 ], [ %p.1, %if.end955 ], [ %p.1, %if.end1013 ], [ %p.1, %if.end1047 ], [ %p.1, %if.end1143 ], [ %p.1, %if.end1177 ], [ %p.1, %if.end1272 ], [ %p.1, %if.end1306 ], [ %p.1, %if.end1400 ], [ %p.1, %if.end1434 ], [ %p.1, %if.end1529 ], [ %p.1, %if.end1563 ], [ %p.1, %sw.bb1654 ], [ %p.1, %land.lhs.true1718 ], [ %p.1, %sw.bb1774 ], [ %p.2, %if.end2047 ], [ %p.1, %sw.bb2068 ], [ %p.1, %if.end2151 ], [ %p.1, %if.end2186 ], [ %p.3, %if.end2272 ], [ %p.3, %sw.bb2839 ], [ %p.1, %if.else3220 ], [ %p.1, %if.else3262 ], [ %p.1, %switch.early.test1528 ], [ %p.1, %sw.bb3447 ], [ %p.1, %if.then3456 ], [ %p.1, %if.then3456 ], [ %p.1, %sw.bb3488 ], [ %p.1, %if.end3606 ], [ %add.ptr3583, %sw.bb3558 ], [ %p.1, %for.inc.loopexit1544 ], [ %p.1, %if.end508 ], [ %p.1, %for.inc.loopexit2960 ], [ %p.1, %for.inc.loopexit3595 ], [ %p.4.ph4794, %for.inc.loopexit4793 ], [ %p.1, %reexecute_byte ], [ %p.1, %if.end993 ], [ %p.1, %if.end1122 ], [ %p.1, %if.end1251 ], [ %p.1, %if.end1380 ], [ %p.1, %for.inc.loopexit4193 ], [ %incdec.ptr2807, %do.body2806 ], [ %incdec.ptr2676, %do.body2675 ], [ %incdec.ptr2676, %lor.lhs.false2697 ], [ %incdec.ptr2807, %lor.lhs.false2828 ], [ %p.3, %if.else2706 ]
+for.inc:                                          ; preds = %do.body2806, %do.body2675, %lor.lhs.false2697, %lor.lhs.false2828, %if.else2706, %if.end1380, %if.end1251, %if.end1122, %if.end993, %reexecute_byte, %for.inc.loopexit4794, %for.inc.loopexit4194, %if.end508, %for.inc.loopexit3596, %for.inc.loopexit2961, %for.inc.loopexit1545, %sw.bb3558, %land.lhs.true1718, %sw.bb3488, %if.end3606, %if.then3456, %if.then3456, %sw.bb3447, %switch.early.test1528, %if.else3262, %if.else3220, %sw.bb2839, %if.end2272, %if.end2186, %if.end2151, %sw.bb2068, %sw.bb2068, %if.end2047, %sw.bb1774, %if.then1714, %sw.bb1654, %if.end1563, %if.end1529, %if.end1434, %if.end1400, %if.end1306, %if.end1272, %if.end1177, %if.end1143, %if.end1047, %if.end1013, %if.end955, %if.end934, %if.end904, %sw.bb883, %if.end872, %lor.lhs.false868, %if.else794, %sw.bb790, %if.end777, %sw.bb764, %sw.bb512, %sw.bb516, %sw.bb518, %sw.bb520, %sw.bb522, %sw.bb524, %sw.bb526, %sw.bb528, %sw.bb530, %sw.bb532, %sw.bb534, %sw.bb536, %if.end438, %do.body380, %if.end403, %if.then344, %sw.bb278, %sw.bb225, %sw.bb190, %if.end222, %if.end274, %if.end334, %if.end711, %do.body734, %do.body752, %sw.bb789, %if.then875, %sw.bb1632, %sw.bb1633, %sw.bb1634, %sw.bb1635, %if.end1649, %if.end1706, %do.body3379, %if.end3444, %if.end3482, %if.end153, %if.then139, %if.end241, %if.end295, %if.then323, %sw.bb348, %sw.bb347, %if.end357, %if.then386, %if.then420, %sw.bb850, %land.lhs.true862, %sw.bb887, %sw.bb918, %sw.bb886, %sw.bb927, %sw.bb937, %sw.bb969, %sw.bb1027, %sw.bb995, %sw.bb1157, %sw.bb1125, %sw.bb1286, %sw.bb1254, %sw.bb1414, %sw.bb1382, %sw.bb1543, %sw.bb1511, %sw.bb1620, %sw.bb1622, %if.end1671, %if.end1752, %sw.default1817, %sw.bb1815, %sw.bb1813, %sw.bb1812, %if.then1824, %sw.bb1999, %if.then2002, %if.then1989, %if.then1995, %if.else1991, %if.then1966, %if.then1972, %if.else1968, %if.then1943, %if.then1949, %if.else1945, %do.body1889, %do.body1920, %if.else1897, %do.body2031, %if.then2133, %if.then2168, %if.then2218, %if.else2220, %sw.default2241, %if.end2236, %sw.bb2206, %if.then2254, %sw.bb2921, %if.then2924, %if.then2911, %if.then2917, %if.else2913, %sw.bb2860, %if.then2842, %if.then2847, %sw.default2927, %if.end2887, %sw.bb2851, %if.end2969, %sw.epilog2950, %if.end3004, %if.end3303, %if.end3249, %if.end3207, %do.end3418, %if.end3544, %if.end3518, %sw.bb3588, %if.end3634
+  %header_field_mark.3 = phi ptr [ %header_field_mark.12907, %if.end3634 ], [ %header_field_mark.12907, %sw.bb3588 ], [ %header_field_mark.12907, %if.end3518 ], [ %header_field_mark.12907, %if.end3544 ], [ %header_field_mark.12907, %if.end3482 ], [ %header_field_mark.12907, %if.end3444 ], [ %header_field_mark.12907, %do.end3418 ], [ %header_field_mark.12907, %do.body3379 ], [ %header_field_mark.12907, %if.end3207 ], [ %header_field_mark.12907, %if.end3249 ], [ %header_field_mark.12907, %if.end3303 ], [ %header_field_mark.12907, %if.end3004 ], [ %header_field_mark.12907, %if.end2969 ], [ %header_field_mark.12907, %sw.epilog2950 ], [ %header_field_mark.12907, %if.then2254 ], [ %header_field_mark.12907, %sw.default2927 ], [ %header_field_mark.12907, %if.then2924 ], [ %header_field_mark.12907, %sw.bb2921 ], [ %header_field_mark.12907, %if.then2911 ], [ %header_field_mark.12907, %if.then2917 ], [ %header_field_mark.12907, %if.else2913 ], [ %header_field_mark.12907, %sw.bb2860 ], [ %header_field_mark.12907, %if.end2887 ], [ %header_field_mark.12907, %sw.bb2851 ], [ %header_field_mark.12907, %if.then2842 ], [ %header_field_mark.12907, %if.then2847 ], [ %header_field_mark.12907, %sw.bb2068 ], [ %header_field_mark.12907, %if.then2133 ], [ %header_field_mark.12907, %if.then2168 ], [ %header_field_mark.12907, %sw.default2241 ], [ %header_field_mark.12907, %if.end2236 ], [ %header_field_mark.12907, %if.then2218 ], [ %header_field_mark.12907, %if.else2220 ], [ %header_field_mark.12907, %sw.bb2206 ], [ %header_field_mark.12907, %if.then1824 ], [ %header_field_mark.12907, %if.then2002 ], [ %header_field_mark.12907, %sw.bb1999 ], [ %header_field_mark.12907, %if.then1989 ], [ %header_field_mark.12907, %if.then1995 ], [ %header_field_mark.12907, %if.else1991 ], [ %header_field_mark.12907, %if.then1966 ], [ %header_field_mark.12907, %if.then1972 ], [ %header_field_mark.12907, %if.else1968 ], [ %header_field_mark.12907, %if.then1943 ], [ %header_field_mark.12907, %if.then1949 ], [ %header_field_mark.12907, %if.else1945 ], [ %header_field_mark.12907, %do.body1889 ], [ null, %do.body2031 ], [ %header_field_mark.12907, %do.body1920 ], [ %header_field_mark.12907, %if.else1897 ], [ %spec.select1526, %sw.default1817 ], [ %spec.select1526, %sw.bb1815 ], [ %spec.select1526, %sw.bb1813 ], [ %spec.select1526, %sw.bb1812 ], [ %header_field_mark.12907, %if.end1752 ], [ %header_field_mark.12907, %if.end1706 ], [ %header_field_mark.12907, %if.end1671 ], [ %header_field_mark.12907, %if.end1649 ], [ %header_field_mark.12907, %sw.bb1635 ], [ %header_field_mark.12907, %sw.bb1634 ], [ %header_field_mark.12907, %sw.bb1633 ], [ %header_field_mark.12907, %sw.bb1632 ], [ %header_field_mark.12907, %sw.bb1620 ], [ %header_field_mark.12907, %sw.bb1622 ], [ %header_field_mark.12907, %sw.bb1543 ], [ %header_field_mark.12907, %sw.bb1511 ], [ %header_field_mark.12907, %sw.bb1414 ], [ %header_field_mark.12907, %sw.bb1382 ], [ %header_field_mark.12907, %sw.bb1286 ], [ %header_field_mark.12907, %sw.bb1254 ], [ %header_field_mark.12907, %sw.bb1157 ], [ %header_field_mark.12907, %sw.bb1125 ], [ %header_field_mark.12907, %sw.bb1027 ], [ %header_field_mark.12907, %sw.bb995 ], [ %header_field_mark.12907, %sw.bb927 ], [ %header_field_mark.12907, %sw.bb969 ], [ %header_field_mark.12907, %sw.bb937 ], [ %header_field_mark.12907, %sw.bb918 ], [ %header_field_mark.12907, %sw.bb887 ], [ %header_field_mark.12907, %sw.bb886 ], [ %header_field_mark.12907, %sw.bb850 ], [ %header_field_mark.12907, %land.lhs.true862 ], [ %header_field_mark.12907, %lor.lhs.false868 ], [ %header_field_mark.12907, %sw.bb789 ], [ %header_field_mark.12907, %do.body734 ], [ %header_field_mark.12907, %do.body752 ], [ %header_field_mark.12907, %if.end711 ], [ %header_field_mark.12907, %if.then386 ], [ %header_field_mark.12907, %if.then420 ], [ %header_field_mark.12907, %if.end357 ], [ %header_field_mark.12907, %sw.bb348 ], [ %header_field_mark.12907, %sw.bb347 ], [ %header_field_mark.12907, %if.end334 ], [ %header_field_mark.12907, %if.then323 ], [ %header_field_mark.12907, %if.end295 ], [ %header_field_mark.12907, %if.end274 ], [ %header_field_mark.12907, %if.end241 ], [ %header_field_mark.12907, %if.end222 ], [ %header_field_mark.12907, %if.then139 ], [ %header_field_mark.12907, %if.end153 ], [ %header_field_mark.12907, %sw.bb190 ], [ %header_field_mark.12907, %sw.bb225 ], [ %header_field_mark.12907, %sw.bb278 ], [ %header_field_mark.12907, %if.then344 ], [ %header_field_mark.12907, %if.end403 ], [ %header_field_mark.12907, %do.body380 ], [ %header_field_mark.12907, %if.end438 ], [ %header_field_mark.12907, %sw.bb536 ], [ %header_field_mark.12907, %sw.bb534 ], [ %header_field_mark.12907, %sw.bb532 ], [ %header_field_mark.12907, %sw.bb530 ], [ %header_field_mark.12907, %sw.bb528 ], [ %header_field_mark.12907, %sw.bb526 ], [ %header_field_mark.12907, %sw.bb524 ], [ %header_field_mark.12907, %sw.bb522 ], [ %header_field_mark.12907, %sw.bb520 ], [ %header_field_mark.12907, %sw.bb518 ], [ %header_field_mark.12907, %sw.bb516 ], [ %header_field_mark.12907, %sw.bb512 ], [ %header_field_mark.12907, %sw.bb764 ], [ %header_field_mark.12907, %if.end777 ], [ %header_field_mark.12907, %sw.bb790 ], [ %header_field_mark.12907, %if.else794 ], [ %header_field_mark.12907, %if.end872 ], [ %header_field_mark.12907, %if.then875 ], [ %header_field_mark.12907, %sw.bb883 ], [ %header_field_mark.12907, %if.end904 ], [ %header_field_mark.12907, %if.end934 ], [ %header_field_mark.12907, %if.end955 ], [ %header_field_mark.12907, %if.end1013 ], [ %header_field_mark.12907, %if.end1047 ], [ %header_field_mark.12907, %if.end1143 ], [ %header_field_mark.12907, %if.end1177 ], [ %header_field_mark.12907, %if.end1272 ], [ %header_field_mark.12907, %if.end1306 ], [ %header_field_mark.12907, %if.end1400 ], [ %header_field_mark.12907, %if.end1434 ], [ %header_field_mark.12907, %if.end1529 ], [ %header_field_mark.12907, %if.end1563 ], [ %header_field_mark.12907, %sw.bb1654 ], [ %header_field_mark.12907, %if.then1714 ], [ %header_field_mark.12907, %sw.bb1774 ], [ null, %if.end2047 ], [ %header_field_mark.12907, %sw.bb2068 ], [ %header_field_mark.12907, %if.end2151 ], [ %header_field_mark.12907, %if.end2186 ], [ %header_field_mark.12907, %if.end2272 ], [ %header_field_mark.12907, %sw.bb2839 ], [ %header_field_mark.12907, %if.else3220 ], [ %header_field_mark.12907, %if.else3262 ], [ %header_field_mark.12907, %switch.early.test1528 ], [ %header_field_mark.12907, %sw.bb3447 ], [ %header_field_mark.12907, %if.then3456 ], [ %header_field_mark.12907, %if.then3456 ], [ %header_field_mark.12907, %sw.bb3488 ], [ %header_field_mark.12907, %if.end3606 ], [ %header_field_mark.12907, %land.lhs.true1718 ], [ %header_field_mark.12907, %sw.bb3558 ], [ %header_field_mark.12907, %for.inc.loopexit1545 ], [ %header_field_mark.12907, %if.end508 ], [ %header_field_mark.12907, %for.inc.loopexit2961 ], [ %header_field_mark.12907, %for.inc.loopexit3596 ], [ %header_field_mark.12907, %for.inc.loopexit4794 ], [ %header_field_mark.12907, %reexecute_byte ], [ %header_field_mark.12907, %if.end993 ], [ %header_field_mark.12907, %if.end1122 ], [ %header_field_mark.12907, %if.end1251 ], [ %header_field_mark.12907, %if.end1380 ], [ %header_field_mark.12907, %for.inc.loopexit4194 ], [ %header_field_mark.12907, %if.else2706 ], [ %header_field_mark.12907, %lor.lhs.false2828 ], [ %header_field_mark.12907, %lor.lhs.false2697 ], [ %header_field_mark.12907, %do.body2675 ], [ %header_field_mark.12907, %do.body2806 ]
+  %header_value_mark.5 = phi ptr [ %header_value_mark.2, %if.end3634 ], [ %header_value_mark.2, %sw.bb3588 ], [ %header_value_mark.2, %if.end3518 ], [ %header_value_mark.2, %if.end3544 ], [ %header_value_mark.2, %if.end3482 ], [ %header_value_mark.2, %if.end3444 ], [ %header_value_mark.2, %do.end3418 ], [ %header_value_mark.2, %do.body3379 ], [ %header_value_mark.2, %if.end3207 ], [ %header_value_mark.2, %if.end3249 ], [ %header_value_mark.2, %if.end3303 ], [ %header_value_mark.2, %if.end3004 ], [ %header_value_mark.2, %if.end2969 ], [ %header_value_mark.2, %sw.epilog2950 ], [ null, %if.then2254 ], [ %header_value_mark.2, %sw.default2927 ], [ %header_value_mark.2, %if.then2924 ], [ %header_value_mark.2, %sw.bb2921 ], [ %header_value_mark.2, %if.then2911 ], [ %header_value_mark.2, %if.then2917 ], [ %header_value_mark.2, %if.else2913 ], [ %header_value_mark.2, %sw.bb2860 ], [ %header_value_mark.2, %if.end2887 ], [ %header_value_mark.2, %sw.bb2851 ], [ %header_value_mark.2, %if.then2842 ], [ %header_value_mark.2, %if.then2847 ], [ %header_value_mark.2, %sw.bb2068 ], [ null, %if.then2133 ], [ null, %if.then2168 ], [ %spec.select1527, %sw.default2241 ], [ %spec.select1527, %if.end2236 ], [ %spec.select1527, %if.then2218 ], [ %spec.select1527, %if.else2220 ], [ %spec.select1527, %sw.bb2206 ], [ %header_value_mark.2, %if.then1824 ], [ %header_value_mark.2, %if.then2002 ], [ %header_value_mark.2, %sw.bb1999 ], [ %header_value_mark.2, %if.then1989 ], [ %header_value_mark.2, %if.then1995 ], [ %header_value_mark.2, %if.else1991 ], [ %header_value_mark.2, %if.then1966 ], [ %header_value_mark.2, %if.then1972 ], [ %header_value_mark.2, %if.else1968 ], [ %header_value_mark.2, %if.then1943 ], [ %header_value_mark.2, %if.then1949 ], [ %header_value_mark.2, %if.else1945 ], [ %header_value_mark.2, %do.body1889 ], [ %header_value_mark.2, %do.body2031 ], [ %header_value_mark.2, %do.body1920 ], [ %header_value_mark.2, %if.else1897 ], [ %header_value_mark.2, %sw.default1817 ], [ %header_value_mark.2, %sw.bb1815 ], [ %header_value_mark.2, %sw.bb1813 ], [ %header_value_mark.2, %sw.bb1812 ], [ %header_value_mark.2, %if.end1752 ], [ %header_value_mark.2, %if.end1706 ], [ %header_value_mark.2, %if.end1671 ], [ %header_value_mark.2, %if.end1649 ], [ %header_value_mark.2, %sw.bb1635 ], [ %header_value_mark.2, %sw.bb1634 ], [ %header_value_mark.2, %sw.bb1633 ], [ %header_value_mark.2, %sw.bb1632 ], [ %header_value_mark.2, %sw.bb1620 ], [ %header_value_mark.2, %sw.bb1622 ], [ %header_value_mark.2, %sw.bb1543 ], [ %header_value_mark.2, %sw.bb1511 ], [ %header_value_mark.2, %sw.bb1414 ], [ %header_value_mark.2, %sw.bb1382 ], [ %header_value_mark.2, %sw.bb1286 ], [ %header_value_mark.2, %sw.bb1254 ], [ %header_value_mark.2, %sw.bb1157 ], [ %header_value_mark.2, %sw.bb1125 ], [ %header_value_mark.2, %sw.bb1027 ], [ %header_value_mark.2, %sw.bb995 ], [ %header_value_mark.2, %sw.bb927 ], [ %header_value_mark.2, %sw.bb969 ], [ %header_value_mark.2, %sw.bb937 ], [ %header_value_mark.2, %sw.bb918 ], [ %header_value_mark.2, %sw.bb887 ], [ %header_value_mark.2, %sw.bb886 ], [ %header_value_mark.2, %sw.bb850 ], [ %header_value_mark.2, %land.lhs.true862 ], [ %header_value_mark.2, %lor.lhs.false868 ], [ %header_value_mark.2, %sw.bb789 ], [ %header_value_mark.2, %do.body734 ], [ %header_value_mark.2, %do.body752 ], [ %header_value_mark.2, %if.end711 ], [ %header_value_mark.2, %if.then386 ], [ %header_value_mark.2, %if.then420 ], [ %header_value_mark.2, %if.end357 ], [ %header_value_mark.2, %sw.bb348 ], [ %header_value_mark.2, %sw.bb347 ], [ %header_value_mark.2, %if.end334 ], [ %header_value_mark.2, %if.then323 ], [ %header_value_mark.2, %if.end295 ], [ %header_value_mark.2, %if.end274 ], [ %header_value_mark.2, %if.end241 ], [ %header_value_mark.2, %if.end222 ], [ %header_value_mark.2, %if.then139 ], [ %header_value_mark.2, %if.end153 ], [ %header_value_mark.2, %sw.bb190 ], [ %header_value_mark.2, %sw.bb225 ], [ %header_value_mark.2, %sw.bb278 ], [ %header_value_mark.2, %if.then344 ], [ %header_value_mark.2, %if.end403 ], [ %header_value_mark.2, %do.body380 ], [ %header_value_mark.2, %if.end438 ], [ %header_value_mark.2, %sw.bb536 ], [ %header_value_mark.2, %sw.bb534 ], [ %header_value_mark.2, %sw.bb532 ], [ %header_value_mark.2, %sw.bb530 ], [ %header_value_mark.2, %sw.bb528 ], [ %header_value_mark.2, %sw.bb526 ], [ %header_value_mark.2, %sw.bb524 ], [ %header_value_mark.2, %sw.bb522 ], [ %header_value_mark.2, %sw.bb520 ], [ %header_value_mark.2, %sw.bb518 ], [ %header_value_mark.2, %sw.bb516 ], [ %header_value_mark.2, %sw.bb512 ], [ %header_value_mark.2, %sw.bb764 ], [ %header_value_mark.2, %if.end777 ], [ %header_value_mark.2, %sw.bb790 ], [ %header_value_mark.2, %if.else794 ], [ %header_value_mark.2, %if.end872 ], [ %header_value_mark.2, %if.then875 ], [ %header_value_mark.2, %sw.bb883 ], [ %header_value_mark.2, %if.end904 ], [ %header_value_mark.2, %if.end934 ], [ %header_value_mark.2, %if.end955 ], [ %header_value_mark.2, %if.end1013 ], [ %header_value_mark.2, %if.end1047 ], [ %header_value_mark.2, %if.end1143 ], [ %header_value_mark.2, %if.end1177 ], [ %header_value_mark.2, %if.end1272 ], [ %header_value_mark.2, %if.end1306 ], [ %header_value_mark.2, %if.end1400 ], [ %header_value_mark.2, %if.end1434 ], [ %header_value_mark.2, %if.end1529 ], [ %header_value_mark.2, %if.end1563 ], [ %header_value_mark.2, %sw.bb1654 ], [ %header_value_mark.2, %if.then1714 ], [ %header_value_mark.2, %sw.bb1774 ], [ %header_value_mark.2, %if.end2047 ], [ %header_value_mark.2, %sw.bb2068 ], [ null, %if.end2151 ], [ null, %if.end2186 ], [ null, %if.end2272 ], [ %header_value_mark.2, %sw.bb2839 ], [ %header_value_mark.2, %if.else3220 ], [ %header_value_mark.2, %if.else3262 ], [ %header_value_mark.2, %switch.early.test1528 ], [ %header_value_mark.2, %sw.bb3447 ], [ %header_value_mark.2, %if.then3456 ], [ %header_value_mark.2, %if.then3456 ], [ %header_value_mark.2, %sw.bb3488 ], [ %header_value_mark.2, %if.end3606 ], [ %header_value_mark.2, %land.lhs.true1718 ], [ %header_value_mark.2, %sw.bb3558 ], [ %header_value_mark.2, %for.inc.loopexit1545 ], [ %header_value_mark.2, %if.end508 ], [ %header_value_mark.2, %for.inc.loopexit2961 ], [ %header_value_mark.2, %for.inc.loopexit3596 ], [ %header_value_mark.2, %for.inc.loopexit4794 ], [ %header_value_mark.2, %reexecute_byte ], [ %header_value_mark.2, %if.end993 ], [ %header_value_mark.2, %if.end1122 ], [ %header_value_mark.2, %if.end1251 ], [ %header_value_mark.2, %if.end1380 ], [ %header_value_mark.2, %for.inc.loopexit4194 ], [ %header_value_mark.2, %if.else2706 ], [ %header_value_mark.2, %lor.lhs.false2828 ], [ %header_value_mark.2, %lor.lhs.false2697 ], [ %header_value_mark.2, %do.body2675 ], [ %header_value_mark.2, %do.body2806 ]
+  %url_mark.11 = phi ptr [ %url_mark.2, %if.end3634 ], [ %url_mark.2, %sw.bb3588 ], [ %url_mark.2, %if.end3518 ], [ %url_mark.2, %if.end3544 ], [ %url_mark.2, %if.end3482 ], [ %url_mark.2, %if.end3444 ], [ %url_mark.2, %do.end3418 ], [ %url_mark.2, %do.body3379 ], [ %url_mark.2, %if.end3207 ], [ %url_mark.2, %if.end3249 ], [ %url_mark.2, %if.end3303 ], [ %url_mark.2, %if.end3004 ], [ %url_mark.2, %if.end2969 ], [ %url_mark.2, %sw.epilog2950 ], [ %url_mark.2, %if.then2254 ], [ %url_mark.2, %sw.default2927 ], [ %url_mark.2, %if.then2924 ], [ %url_mark.2, %sw.bb2921 ], [ %url_mark.2, %if.then2911 ], [ %url_mark.2, %if.then2917 ], [ %url_mark.2, %if.else2913 ], [ %url_mark.2, %sw.bb2860 ], [ %url_mark.2, %if.end2887 ], [ %url_mark.2, %sw.bb2851 ], [ %url_mark.2, %if.then2842 ], [ %url_mark.2, %if.then2847 ], [ %url_mark.2, %sw.bb2068 ], [ %url_mark.2, %if.then2133 ], [ %url_mark.2, %if.then2168 ], [ %url_mark.2, %sw.default2241 ], [ %url_mark.2, %if.end2236 ], [ %url_mark.2, %if.then2218 ], [ %url_mark.2, %if.else2220 ], [ %url_mark.2, %sw.bb2206 ], [ %url_mark.2, %if.then1824 ], [ %url_mark.2, %if.then2002 ], [ %url_mark.2, %sw.bb1999 ], [ %url_mark.2, %if.then1989 ], [ %url_mark.2, %if.then1995 ], [ %url_mark.2, %if.else1991 ], [ %url_mark.2, %if.then1966 ], [ %url_mark.2, %if.then1972 ], [ %url_mark.2, %if.else1968 ], [ %url_mark.2, %if.then1943 ], [ %url_mark.2, %if.then1949 ], [ %url_mark.2, %if.else1945 ], [ %url_mark.2, %do.body1889 ], [ %url_mark.2, %do.body2031 ], [ %url_mark.2, %do.body1920 ], [ %url_mark.2, %if.else1897 ], [ %url_mark.2, %sw.default1817 ], [ %url_mark.2, %sw.bb1815 ], [ %url_mark.2, %sw.bb1813 ], [ %url_mark.2, %sw.bb1812 ], [ %url_mark.2, %if.end1752 ], [ %url_mark.2, %if.end1706 ], [ %url_mark.2, %if.end1671 ], [ %url_mark.2, %if.end1649 ], [ %url_mark.2, %sw.bb1635 ], [ %url_mark.2, %sw.bb1634 ], [ %url_mark.2, %sw.bb1633 ], [ %url_mark.2, %sw.bb1632 ], [ %url_mark.2, %sw.bb1620 ], [ %url_mark.2, %sw.bb1622 ], [ null, %sw.bb1543 ], [ null, %sw.bb1511 ], [ null, %sw.bb1414 ], [ null, %sw.bb1382 ], [ null, %sw.bb1286 ], [ null, %sw.bb1254 ], [ null, %sw.bb1157 ], [ null, %sw.bb1125 ], [ null, %sw.bb1027 ], [ null, %sw.bb995 ], [ %url_mark.2, %sw.bb927 ], [ %url_mark.2, %sw.bb969 ], [ null, %sw.bb937 ], [ %url_mark.2, %sw.bb918 ], [ null, %sw.bb887 ], [ %url_mark.2, %sw.bb886 ], [ %url_mark.2, %sw.bb850 ], [ %url_mark.2, %land.lhs.true862 ], [ %url_mark.2, %lor.lhs.false868 ], [ %url_mark.2, %sw.bb789 ], [ %spec.select1514, %do.body734 ], [ %spec.select1516, %do.body752 ], [ %url_mark.2, %if.end711 ], [ %url_mark.2, %if.then386 ], [ %url_mark.2, %if.then420 ], [ %url_mark.2, %if.end357 ], [ %url_mark.2, %sw.bb348 ], [ %url_mark.2, %sw.bb347 ], [ %url_mark.2, %if.end334 ], [ %url_mark.2, %if.then323 ], [ %url_mark.2, %if.end295 ], [ %url_mark.2, %if.end274 ], [ %url_mark.2, %if.end241 ], [ %url_mark.2, %if.end222 ], [ %url_mark.2, %if.then139 ], [ %url_mark.2, %if.end153 ], [ %url_mark.2, %sw.bb190 ], [ %url_mark.2, %sw.bb225 ], [ %url_mark.2, %sw.bb278 ], [ %url_mark.2, %if.then344 ], [ %url_mark.2, %if.end403 ], [ %url_mark.2, %do.body380 ], [ %url_mark.2, %if.end438 ], [ %url_mark.2, %sw.bb536 ], [ %url_mark.2, %sw.bb534 ], [ %url_mark.2, %sw.bb532 ], [ %url_mark.2, %sw.bb530 ], [ %url_mark.2, %sw.bb528 ], [ %url_mark.2, %sw.bb526 ], [ %url_mark.2, %sw.bb524 ], [ %url_mark.2, %sw.bb522 ], [ %url_mark.2, %sw.bb520 ], [ %url_mark.2, %sw.bb518 ], [ %url_mark.2, %sw.bb516 ], [ %url_mark.2, %sw.bb512 ], [ %url_mark.2, %sw.bb764 ], [ %url_mark.2, %if.end777 ], [ %url_mark.2, %sw.bb790 ], [ %url_mark.2, %if.else794 ], [ %url_mark.2, %if.end872 ], [ %url_mark.2, %if.then875 ], [ %url_mark.2, %sw.bb883 ], [ null, %if.end904 ], [ %url_mark.2, %if.end934 ], [ null, %if.end955 ], [ null, %if.end1013 ], [ null, %if.end1047 ], [ null, %if.end1143 ], [ null, %if.end1177 ], [ null, %if.end1272 ], [ null, %if.end1306 ], [ null, %if.end1400 ], [ null, %if.end1434 ], [ null, %if.end1529 ], [ null, %if.end1563 ], [ %url_mark.2, %sw.bb1654 ], [ %url_mark.2, %if.then1714 ], [ %url_mark.2, %sw.bb1774 ], [ %url_mark.2, %if.end2047 ], [ %url_mark.2, %sw.bb2068 ], [ %url_mark.2, %if.end2151 ], [ %url_mark.2, %if.end2186 ], [ %url_mark.2, %if.end2272 ], [ %url_mark.2, %sw.bb2839 ], [ %url_mark.2, %if.else3220 ], [ %url_mark.2, %if.else3262 ], [ %url_mark.2, %switch.early.test1528 ], [ %url_mark.2, %sw.bb3447 ], [ %url_mark.2, %if.then3456 ], [ %url_mark.2, %if.then3456 ], [ %url_mark.2, %sw.bb3488 ], [ %url_mark.2, %if.end3606 ], [ %url_mark.2, %land.lhs.true1718 ], [ %url_mark.2, %sw.bb3558 ], [ %url_mark.2, %for.inc.loopexit1545 ], [ %url_mark.2, %if.end508 ], [ %url_mark.2, %for.inc.loopexit2961 ], [ %url_mark.2, %for.inc.loopexit3596 ], [ %url_mark.2, %for.inc.loopexit4794 ], [ %url_mark.2, %reexecute_byte ], [ %url_mark.2, %if.end993 ], [ %url_mark.2, %if.end1122 ], [ %url_mark.2, %if.end1251 ], [ %url_mark.2, %if.end1380 ], [ %url_mark.2, %for.inc.loopexit4194 ], [ %url_mark.2, %if.else2706 ], [ %url_mark.2, %lor.lhs.false2828 ], [ %url_mark.2, %lor.lhs.false2697 ], [ %url_mark.2, %do.body2675 ], [ %url_mark.2, %do.body2806 ]
+  %reason_mark.3 = phi ptr [ %reason_mark.12910, %if.end3634 ], [ %reason_mark.12910, %sw.bb3588 ], [ %reason_mark.12910, %if.end3518 ], [ %reason_mark.12910, %if.end3544 ], [ %reason_mark.12910, %if.end3482 ], [ %reason_mark.12910, %if.end3444 ], [ %reason_mark.12910, %do.end3418 ], [ %reason_mark.12910, %do.body3379 ], [ %reason_mark.12910, %if.end3207 ], [ %reason_mark.12910, %if.end3249 ], [ %reason_mark.12910, %if.end3303 ], [ %reason_mark.12910, %if.end3004 ], [ %reason_mark.12910, %if.end2969 ], [ %reason_mark.12910, %sw.epilog2950 ], [ %reason_mark.12910, %if.then2254 ], [ %reason_mark.12910, %sw.default2927 ], [ %reason_mark.12910, %if.then2924 ], [ %reason_mark.12910, %sw.bb2921 ], [ %reason_mark.12910, %if.then2911 ], [ %reason_mark.12910, %if.then2917 ], [ %reason_mark.12910, %if.else2913 ], [ %reason_mark.12910, %sw.bb2860 ], [ %reason_mark.12910, %if.end2887 ], [ %reason_mark.12910, %sw.bb2851 ], [ %reason_mark.12910, %if.then2842 ], [ %reason_mark.12910, %if.then2847 ], [ %reason_mark.12910, %sw.bb2068 ], [ %reason_mark.12910, %if.then2133 ], [ %reason_mark.12910, %if.then2168 ], [ %reason_mark.12910, %sw.default2241 ], [ %reason_mark.12910, %if.end2236 ], [ %reason_mark.12910, %if.then2218 ], [ %reason_mark.12910, %if.else2220 ], [ %reason_mark.12910, %sw.bb2206 ], [ %reason_mark.12910, %if.then1824 ], [ %reason_mark.12910, %if.then2002 ], [ %reason_mark.12910, %sw.bb1999 ], [ %reason_mark.12910, %if.then1989 ], [ %reason_mark.12910, %if.then1995 ], [ %reason_mark.12910, %if.else1991 ], [ %reason_mark.12910, %if.then1966 ], [ %reason_mark.12910, %if.then1972 ], [ %reason_mark.12910, %if.else1968 ], [ %reason_mark.12910, %if.then1943 ], [ %reason_mark.12910, %if.then1949 ], [ %reason_mark.12910, %if.else1945 ], [ %reason_mark.12910, %do.body1889 ], [ %reason_mark.12910, %do.body2031 ], [ %reason_mark.12910, %do.body1920 ], [ %reason_mark.12910, %if.else1897 ], [ %reason_mark.12910, %sw.default1817 ], [ %reason_mark.12910, %sw.bb1815 ], [ %reason_mark.12910, %sw.bb1813 ], [ %reason_mark.12910, %sw.bb1812 ], [ %reason_mark.12910, %if.end1752 ], [ %reason_mark.12910, %if.end1706 ], [ %reason_mark.12910, %if.end1671 ], [ %reason_mark.12910, %if.end1649 ], [ %reason_mark.12910, %sw.bb1635 ], [ %reason_mark.12910, %sw.bb1634 ], [ %reason_mark.12910, %sw.bb1633 ], [ %reason_mark.12910, %sw.bb1632 ], [ %reason_mark.12910, %sw.bb1620 ], [ %reason_mark.12910, %sw.bb1622 ], [ %reason_mark.12910, %sw.bb1543 ], [ %reason_mark.12910, %sw.bb1511 ], [ %reason_mark.12910, %sw.bb1414 ], [ %reason_mark.12910, %sw.bb1382 ], [ %reason_mark.12910, %sw.bb1286 ], [ %reason_mark.12910, %sw.bb1254 ], [ %reason_mark.12910, %sw.bb1157 ], [ %reason_mark.12910, %sw.bb1125 ], [ %reason_mark.12910, %sw.bb1027 ], [ %reason_mark.12910, %sw.bb995 ], [ %reason_mark.12910, %sw.bb927 ], [ %reason_mark.12910, %sw.bb969 ], [ %reason_mark.12910, %sw.bb937 ], [ %reason_mark.12910, %sw.bb918 ], [ %reason_mark.12910, %sw.bb887 ], [ %reason_mark.12910, %sw.bb886 ], [ %reason_mark.12910, %sw.bb850 ], [ %reason_mark.12910, %land.lhs.true862 ], [ %reason_mark.12910, %lor.lhs.false868 ], [ %reason_mark.12910, %sw.bb789 ], [ %reason_mark.12910, %do.body734 ], [ %reason_mark.12910, %do.body752 ], [ %reason_mark.12910, %if.end711 ], [ null, %if.then386 ], [ null, %if.then420 ], [ %reason_mark.12910, %if.end357 ], [ %reason_mark.12910, %sw.bb348 ], [ %reason_mark.12910, %sw.bb347 ], [ %reason_mark.12910, %if.end334 ], [ %reason_mark.12910, %if.then323 ], [ %reason_mark.12910, %if.end295 ], [ %reason_mark.12910, %if.end274 ], [ %reason_mark.12910, %if.end241 ], [ %reason_mark.12910, %if.end222 ], [ %reason_mark.12910, %if.then139 ], [ %reason_mark.12910, %if.end153 ], [ %reason_mark.12910, %sw.bb190 ], [ %reason_mark.12910, %sw.bb225 ], [ %reason_mark.12910, %sw.bb278 ], [ %reason_mark.12910, %if.then344 ], [ null, %if.end403 ], [ %spec.select1511, %do.body380 ], [ null, %if.end438 ], [ %reason_mark.12910, %sw.bb536 ], [ %reason_mark.12910, %sw.bb534 ], [ %reason_mark.12910, %sw.bb532 ], [ %reason_mark.12910, %sw.bb530 ], [ %reason_mark.12910, %sw.bb528 ], [ %reason_mark.12910, %sw.bb526 ], [ %reason_mark.12910, %sw.bb524 ], [ %reason_mark.12910, %sw.bb522 ], [ %reason_mark.12910, %sw.bb520 ], [ %reason_mark.12910, %sw.bb518 ], [ %reason_mark.12910, %sw.bb516 ], [ %reason_mark.12910, %sw.bb512 ], [ %reason_mark.12910, %sw.bb764 ], [ %reason_mark.12910, %if.end777 ], [ %reason_mark.12910, %sw.bb790 ], [ %reason_mark.12910, %if.else794 ], [ %reason_mark.12910, %if.end872 ], [ %reason_mark.12910, %if.then875 ], [ %reason_mark.12910, %sw.bb883 ], [ %reason_mark.12910, %if.end904 ], [ %reason_mark.12910, %if.end934 ], [ %reason_mark.12910, %if.end955 ], [ %reason_mark.12910, %if.end1013 ], [ %reason_mark.12910, %if.end1047 ], [ %reason_mark.12910, %if.end1143 ], [ %reason_mark.12910, %if.end1177 ], [ %reason_mark.12910, %if.end1272 ], [ %reason_mark.12910, %if.end1306 ], [ %reason_mark.12910, %if.end1400 ], [ %reason_mark.12910, %if.end1434 ], [ %reason_mark.12910, %if.end1529 ], [ %reason_mark.12910, %if.end1563 ], [ %reason_mark.12910, %sw.bb1654 ], [ %reason_mark.12910, %if.then1714 ], [ %reason_mark.12910, %sw.bb1774 ], [ %reason_mark.12910, %if.end2047 ], [ %reason_mark.12910, %sw.bb2068 ], [ %reason_mark.12910, %if.end2151 ], [ %reason_mark.12910, %if.end2186 ], [ %reason_mark.12910, %if.end2272 ], [ %reason_mark.12910, %sw.bb2839 ], [ %reason_mark.12910, %if.else3220 ], [ %reason_mark.12910, %if.else3262 ], [ %reason_mark.12910, %switch.early.test1528 ], [ %reason_mark.12910, %sw.bb3447 ], [ %reason_mark.12910, %if.then3456 ], [ %reason_mark.12910, %if.then3456 ], [ %reason_mark.12910, %sw.bb3488 ], [ %reason_mark.12910, %if.end3606 ], [ %reason_mark.12910, %land.lhs.true1718 ], [ %reason_mark.12910, %sw.bb3558 ], [ %reason_mark.12910, %for.inc.loopexit1545 ], [ %reason_mark.12910, %if.end508 ], [ %reason_mark.12910, %for.inc.loopexit2961 ], [ %reason_mark.12910, %for.inc.loopexit3596 ], [ %reason_mark.12910, %for.inc.loopexit4794 ], [ %reason_mark.12910, %reexecute_byte ], [ %reason_mark.12910, %if.end993 ], [ %reason_mark.12910, %if.end1122 ], [ %reason_mark.12910, %if.end1251 ], [ %reason_mark.12910, %if.end1380 ], [ %reason_mark.12910, %for.inc.loopexit4194 ], [ %reason_mark.12910, %if.else2706 ], [ %reason_mark.12910, %lor.lhs.false2828 ], [ %reason_mark.12910, %lor.lhs.false2697 ], [ %reason_mark.12910, %do.body2675 ], [ %reason_mark.12910, %do.body2806 ]
+  %body_mark.6 = phi ptr [ %body_mark.1, %if.end3634 ], [ null, %sw.bb3588 ], [ %body_mark.1, %if.end3518 ], [ %body_mark.1, %if.end3544 ], [ %body_mark.1, %if.end3482 ], [ %body_mark.1, %if.end3444 ], [ %body_mark.1, %do.end3418 ], [ %spec.select1529, %do.body3379 ], [ %body_mark.1, %if.end3207 ], [ %body_mark.1, %if.end3249 ], [ %body_mark.1, %if.end3303 ], [ %body_mark.1, %if.end3004 ], [ %body_mark.1, %if.end2969 ], [ %body_mark.1, %sw.epilog2950 ], [ %body_mark.1, %if.then2254 ], [ %body_mark.1, %sw.default2927 ], [ %body_mark.1, %if.then2924 ], [ %body_mark.1, %sw.bb2921 ], [ %body_mark.1, %if.then2911 ], [ %body_mark.1, %if.then2917 ], [ %body_mark.1, %if.else2913 ], [ %body_mark.1, %sw.bb2860 ], [ %body_mark.1, %if.end2887 ], [ %body_mark.1, %sw.bb2851 ], [ %body_mark.1, %if.then2842 ], [ %body_mark.1, %if.then2847 ], [ %body_mark.1, %sw.bb2068 ], [ %body_mark.1, %if.then2133 ], [ %body_mark.1, %if.then2168 ], [ %body_mark.1, %sw.default2241 ], [ %body_mark.1, %if.end2236 ], [ %body_mark.1, %if.then2218 ], [ %body_mark.1, %if.else2220 ], [ %body_mark.1, %sw.bb2206 ], [ %body_mark.1, %if.then1824 ], [ %body_mark.1, %if.then2002 ], [ %body_mark.1, %sw.bb1999 ], [ %body_mark.1, %if.then1989 ], [ %body_mark.1, %if.then1995 ], [ %body_mark.1, %if.else1991 ], [ %body_mark.1, %if.then1966 ], [ %body_mark.1, %if.then1972 ], [ %body_mark.1, %if.else1968 ], [ %body_mark.1, %if.then1943 ], [ %body_mark.1, %if.then1949 ], [ %body_mark.1, %if.else1945 ], [ %body_mark.1, %do.body1889 ], [ %body_mark.1, %do.body2031 ], [ %body_mark.1, %do.body1920 ], [ %body_mark.1, %if.else1897 ], [ %body_mark.1, %sw.default1817 ], [ %body_mark.1, %sw.bb1815 ], [ %body_mark.1, %sw.bb1813 ], [ %body_mark.1, %sw.bb1812 ], [ %body_mark.1, %if.end1752 ], [ %body_mark.1, %if.end1706 ], [ %body_mark.1, %if.end1671 ], [ %body_mark.1, %if.end1649 ], [ %body_mark.1, %sw.bb1635 ], [ %body_mark.1, %sw.bb1634 ], [ %body_mark.1, %sw.bb1633 ], [ %body_mark.1, %sw.bb1632 ], [ %body_mark.1, %sw.bb1620 ], [ %body_mark.1, %sw.bb1622 ], [ %body_mark.1, %sw.bb1543 ], [ %body_mark.1, %sw.bb1511 ], [ %body_mark.1, %sw.bb1414 ], [ %body_mark.1, %sw.bb1382 ], [ %body_mark.1, %sw.bb1286 ], [ %body_mark.1, %sw.bb1254 ], [ %body_mark.1, %sw.bb1157 ], [ %body_mark.1, %sw.bb1125 ], [ %body_mark.1, %sw.bb1027 ], [ %body_mark.1, %sw.bb995 ], [ %body_mark.1, %sw.bb927 ], [ %body_mark.1, %sw.bb969 ], [ %body_mark.1, %sw.bb937 ], [ %body_mark.1, %sw.bb918 ], [ %body_mark.1, %sw.bb887 ], [ %body_mark.1, %sw.bb886 ], [ %body_mark.1, %sw.bb850 ], [ %body_mark.1, %land.lhs.true862 ], [ %body_mark.1, %lor.lhs.false868 ], [ %body_mark.1, %sw.bb789 ], [ %body_mark.1, %do.body734 ], [ %body_mark.1, %do.body752 ], [ %body_mark.1, %if.end711 ], [ %body_mark.1, %if.then386 ], [ %body_mark.1, %if.then420 ], [ %body_mark.1, %if.end357 ], [ %body_mark.1, %sw.bb348 ], [ %body_mark.1, %sw.bb347 ], [ %body_mark.1, %if.end334 ], [ %body_mark.1, %if.then323 ], [ %body_mark.1, %if.end295 ], [ %body_mark.1, %if.end274 ], [ %body_mark.1, %if.end241 ], [ %body_mark.1, %if.end222 ], [ %body_mark.1, %if.then139 ], [ %body_mark.1, %if.end153 ], [ %body_mark.1, %sw.bb190 ], [ %body_mark.1, %sw.bb225 ], [ %body_mark.1, %sw.bb278 ], [ %body_mark.1, %if.then344 ], [ %body_mark.1, %if.end403 ], [ %body_mark.1, %do.body380 ], [ %body_mark.1, %if.end438 ], [ %body_mark.1, %sw.bb536 ], [ %body_mark.1, %sw.bb534 ], [ %body_mark.1, %sw.bb532 ], [ %body_mark.1, %sw.bb530 ], [ %body_mark.1, %sw.bb528 ], [ %body_mark.1, %sw.bb526 ], [ %body_mark.1, %sw.bb524 ], [ %body_mark.1, %sw.bb522 ], [ %body_mark.1, %sw.bb520 ], [ %body_mark.1, %sw.bb518 ], [ %body_mark.1, %sw.bb516 ], [ %body_mark.1, %sw.bb512 ], [ %body_mark.1, %sw.bb764 ], [ %body_mark.1, %if.end777 ], [ %body_mark.1, %sw.bb790 ], [ %body_mark.1, %if.else794 ], [ %body_mark.1, %if.end872 ], [ %body_mark.1, %if.then875 ], [ %body_mark.1, %sw.bb883 ], [ %body_mark.1, %if.end904 ], [ %body_mark.1, %if.end934 ], [ %body_mark.1, %if.end955 ], [ %body_mark.1, %if.end1013 ], [ %body_mark.1, %if.end1047 ], [ %body_mark.1, %if.end1143 ], [ %body_mark.1, %if.end1177 ], [ %body_mark.1, %if.end1272 ], [ %body_mark.1, %if.end1306 ], [ %body_mark.1, %if.end1400 ], [ %body_mark.1, %if.end1434 ], [ %body_mark.1, %if.end1529 ], [ %body_mark.1, %if.end1563 ], [ %body_mark.1, %sw.bb1654 ], [ %body_mark.1, %if.then1714 ], [ %body_mark.1, %sw.bb1774 ], [ %body_mark.1, %if.end2047 ], [ %body_mark.1, %sw.bb2068 ], [ %body_mark.1, %if.end2151 ], [ %body_mark.1, %if.end2186 ], [ %body_mark.1, %if.end2272 ], [ %body_mark.1, %sw.bb2839 ], [ %body_mark.1, %if.else3220 ], [ %body_mark.1, %if.else3262 ], [ %body_mark.1, %switch.early.test1528 ], [ %body_mark.1, %sw.bb3447 ], [ %body_mark.1, %if.then3456 ], [ %body_mark.1, %if.then3456 ], [ %body_mark.1, %sw.bb3488 ], [ null, %if.end3606 ], [ %body_mark.1, %land.lhs.true1718 ], [ %body_mark.5, %sw.bb3558 ], [ %body_mark.1, %for.inc.loopexit1545 ], [ %body_mark.1, %if.end508 ], [ %body_mark.1, %for.inc.loopexit2961 ], [ %body_mark.1, %for.inc.loopexit3596 ], [ %body_mark.6.ph, %for.inc.loopexit4794 ], [ %body_mark.1, %reexecute_byte ], [ %body_mark.1, %if.end993 ], [ %body_mark.1, %if.end1122 ], [ %body_mark.1, %if.end1251 ], [ %body_mark.1, %if.end1380 ], [ %body_mark.1, %for.inc.loopexit4194 ], [ %body_mark.1, %if.else2706 ], [ %body_mark.1, %lor.lhs.false2828 ], [ %body_mark.1, %lor.lhs.false2697 ], [ %body_mark.1, %do.body2675 ], [ %body_mark.1, %do.body2806 ]
+  %data_or_header_data_start.1 = phi ptr [ %p.1, %if.end3634 ], [ %data_or_header_data_start.02912, %sw.bb3588 ], [ %data_or_header_data_start.02912, %if.end3518 ], [ %data_or_header_data_start.02912, %if.end3544 ], [ %data_or_header_data_start.02912, %if.end3482 ], [ %data_or_header_data_start.02912, %if.end3444 ], [ %p.1, %do.end3418 ], [ %data_or_header_data_start.02912, %do.body3379 ], [ %p.1, %if.end3207 ], [ %p.1, %if.end3249 ], [ %p.1, %if.end3303 ], [ %data_or_header_data_start.02912, %if.end3004 ], [ %data_or_header_data_start.02912, %if.end2969 ], [ %data_or_header_data_start.02912, %sw.epilog2950 ], [ %data_or_header_data_start.02912, %if.then2254 ], [ %data_or_header_data_start.02912, %sw.default2927 ], [ %data_or_header_data_start.02912, %if.then2924 ], [ %data_or_header_data_start.02912, %sw.bb2921 ], [ %data_or_header_data_start.02912, %if.then2911 ], [ %data_or_header_data_start.02912, %if.then2917 ], [ %data_or_header_data_start.02912, %if.else2913 ], [ %data_or_header_data_start.02912, %sw.bb2860 ], [ %data_or_header_data_start.02912, %if.end2887 ], [ %data_or_header_data_start.02912, %sw.bb2851 ], [ %data_or_header_data_start.02912, %if.then2842 ], [ %data_or_header_data_start.02912, %if.then2847 ], [ %data_or_header_data_start.02912, %sw.bb2068 ], [ %data_or_header_data_start.02912, %if.then2133 ], [ %data_or_header_data_start.02912, %if.then2168 ], [ %data_or_header_data_start.02912, %sw.default2241 ], [ %data_or_header_data_start.02912, %if.end2236 ], [ %data_or_header_data_start.02912, %if.then2218 ], [ %data_or_header_data_start.02912, %if.else2220 ], [ %data_or_header_data_start.02912, %sw.bb2206 ], [ %data_or_header_data_start.02912, %if.then1824 ], [ %data_or_header_data_start.02912, %if.then2002 ], [ %data_or_header_data_start.02912, %sw.bb1999 ], [ %data_or_header_data_start.02912, %if.then1989 ], [ %data_or_header_data_start.02912, %if.then1995 ], [ %data_or_header_data_start.02912, %if.else1991 ], [ %data_or_header_data_start.02912, %if.then1966 ], [ %data_or_header_data_start.02912, %if.then1972 ], [ %data_or_header_data_start.02912, %if.else1968 ], [ %data_or_header_data_start.02912, %if.then1943 ], [ %data_or_header_data_start.02912, %if.then1949 ], [ %data_or_header_data_start.02912, %if.else1945 ], [ %data_or_header_data_start.02912, %do.body1889 ], [ %data_or_header_data_start.02912, %do.body2031 ], [ %data_or_header_data_start.02912, %do.body1920 ], [ %data_or_header_data_start.02912, %if.else1897 ], [ %data_or_header_data_start.02912, %sw.default1817 ], [ %data_or_header_data_start.02912, %sw.bb1815 ], [ %data_or_header_data_start.02912, %sw.bb1813 ], [ %data_or_header_data_start.02912, %sw.bb1812 ], [ %data_or_header_data_start.02912, %if.end1752 ], [ %data_or_header_data_start.02912, %if.end1706 ], [ %data_or_header_data_start.02912, %if.end1671 ], [ %data_or_header_data_start.02912, %if.end1649 ], [ %data_or_header_data_start.02912, %sw.bb1635 ], [ %data_or_header_data_start.02912, %sw.bb1634 ], [ %data_or_header_data_start.02912, %sw.bb1633 ], [ %data_or_header_data_start.02912, %sw.bb1632 ], [ %data_or_header_data_start.02912, %sw.bb1620 ], [ %data_or_header_data_start.02912, %sw.bb1622 ], [ %data_or_header_data_start.02912, %sw.bb1543 ], [ %data_or_header_data_start.02912, %sw.bb1511 ], [ %data_or_header_data_start.02912, %sw.bb1414 ], [ %data_or_header_data_start.02912, %sw.bb1382 ], [ %data_or_header_data_start.02912, %sw.bb1286 ], [ %data_or_header_data_start.02912, %sw.bb1254 ], [ %data_or_header_data_start.02912, %sw.bb1157 ], [ %data_or_header_data_start.02912, %sw.bb1125 ], [ %data_or_header_data_start.02912, %sw.bb1027 ], [ %data_or_header_data_start.02912, %sw.bb995 ], [ %data_or_header_data_start.02912, %sw.bb927 ], [ %data_or_header_data_start.02912, %sw.bb969 ], [ %data_or_header_data_start.02912, %sw.bb937 ], [ %data_or_header_data_start.02912, %sw.bb918 ], [ %data_or_header_data_start.02912, %sw.bb887 ], [ %data_or_header_data_start.02912, %sw.bb886 ], [ %data_or_header_data_start.02912, %sw.bb850 ], [ %data_or_header_data_start.02912, %land.lhs.true862 ], [ %data_or_header_data_start.02912, %lor.lhs.false868 ], [ %data_or_header_data_start.02912, %sw.bb789 ], [ %data_or_header_data_start.02912, %do.body734 ], [ %data_or_header_data_start.02912, %do.body752 ], [ %data_or_header_data_start.02912, %if.end711 ], [ %data_or_header_data_start.02912, %if.then386 ], [ %data_or_header_data_start.02912, %if.then420 ], [ %data_or_header_data_start.02912, %if.end357 ], [ %data_or_header_data_start.02912, %sw.bb348 ], [ %data_or_header_data_start.02912, %sw.bb347 ], [ %data_or_header_data_start.02912, %if.end334 ], [ %data_or_header_data_start.02912, %if.then323 ], [ %data_or_header_data_start.02912, %if.end295 ], [ %data_or_header_data_start.02912, %if.end274 ], [ %data_or_header_data_start.02912, %if.end241 ], [ %data_or_header_data_start.02912, %if.end222 ], [ %data_or_header_data_start.02912, %if.then139 ], [ %data_or_header_data_start.02912, %if.end153 ], [ %data_or_header_data_start.02912, %sw.bb190 ], [ %data_or_header_data_start.02912, %sw.bb225 ], [ %data_or_header_data_start.02912, %sw.bb278 ], [ %data_or_header_data_start.02912, %if.then344 ], [ %data_or_header_data_start.02912, %if.end403 ], [ %data_or_header_data_start.02912, %do.body380 ], [ %data_or_header_data_start.02912, %if.end438 ], [ %data_or_header_data_start.02912, %sw.bb536 ], [ %data_or_header_data_start.02912, %sw.bb534 ], [ %data_or_header_data_start.02912, %sw.bb532 ], [ %data_or_header_data_start.02912, %sw.bb530 ], [ %data_or_header_data_start.02912, %sw.bb528 ], [ %data_or_header_data_start.02912, %sw.bb526 ], [ %data_or_header_data_start.02912, %sw.bb524 ], [ %data_or_header_data_start.02912, %sw.bb522 ], [ %data_or_header_data_start.02912, %sw.bb520 ], [ %data_or_header_data_start.02912, %sw.bb518 ], [ %data_or_header_data_start.02912, %sw.bb516 ], [ %data_or_header_data_start.02912, %sw.bb512 ], [ %data_or_header_data_start.02912, %sw.bb764 ], [ %data_or_header_data_start.02912, %if.end777 ], [ %data_or_header_data_start.02912, %sw.bb790 ], [ %data_or_header_data_start.02912, %if.else794 ], [ %data_or_header_data_start.02912, %if.end872 ], [ %data_or_header_data_start.02912, %if.then875 ], [ %data_or_header_data_start.02912, %sw.bb883 ], [ %data_or_header_data_start.02912, %if.end904 ], [ %data_or_header_data_start.02912, %if.end934 ], [ %data_or_header_data_start.02912, %if.end955 ], [ %data_or_header_data_start.02912, %if.end1013 ], [ %data_or_header_data_start.02912, %if.end1047 ], [ %data_or_header_data_start.02912, %if.end1143 ], [ %data_or_header_data_start.02912, %if.end1177 ], [ %data_or_header_data_start.02912, %if.end1272 ], [ %data_or_header_data_start.02912, %if.end1306 ], [ %data_or_header_data_start.02912, %if.end1400 ], [ %data_or_header_data_start.02912, %if.end1434 ], [ %data_or_header_data_start.02912, %if.end1529 ], [ %data_or_header_data_start.02912, %if.end1563 ], [ %data_or_header_data_start.02912, %sw.bb1654 ], [ %data_or_header_data_start.02912, %if.then1714 ], [ %data_or_header_data_start.02912, %sw.bb1774 ], [ %data_or_header_data_start.02912, %if.end2047 ], [ %data_or_header_data_start.02912, %sw.bb2068 ], [ %data_or_header_data_start.02912, %if.end2151 ], [ %data_or_header_data_start.02912, %if.end2186 ], [ %data_or_header_data_start.02912, %if.end2272 ], [ %data_or_header_data_start.02912, %sw.bb2839 ], [ %p.1, %if.else3220 ], [ %p.1, %if.else3262 ], [ %p.1, %switch.early.test1528 ], [ %data_or_header_data_start.02912, %sw.bb3447 ], [ %data_or_header_data_start.02912, %if.then3456 ], [ %data_or_header_data_start.02912, %if.then3456 ], [ %data_or_header_data_start.02912, %sw.bb3488 ], [ %data_or_header_data_start.02912, %if.end3606 ], [ %data_or_header_data_start.02912, %land.lhs.true1718 ], [ %data_or_header_data_start.02912, %sw.bb3558 ], [ %data_or_header_data_start.02912, %for.inc.loopexit1545 ], [ %data_or_header_data_start.02912, %if.end508 ], [ %data_or_header_data_start.02912, %for.inc.loopexit2961 ], [ %data_or_header_data_start.02912, %for.inc.loopexit3596 ], [ %data_or_header_data_start.02912, %for.inc.loopexit4794 ], [ %data_or_header_data_start.02912, %reexecute_byte ], [ %data_or_header_data_start.02912, %if.end993 ], [ %data_or_header_data_start.02912, %if.end1122 ], [ %data_or_header_data_start.02912, %if.end1251 ], [ %data_or_header_data_start.02912, %if.end1380 ], [ %data_or_header_data_start.02912, %for.inc.loopexit4194 ], [ %data_or_header_data_start.02912, %if.else2706 ], [ %data_or_header_data_start.02912, %lor.lhs.false2828 ], [ %data_or_header_data_start.02912, %lor.lhs.false2697 ], [ %data_or_header_data_start.02912, %do.body2675 ], [ %data_or_header_data_start.02912, %do.body2806 ]
+  %state.4 = phi i8 [ 56, %if.end3634 ], [ 64, %sw.bb3588 ], [ 50, %if.end3518 ], [ 62, %if.end3544 ], [ 57, %if.end3482 ], [ 57, %if.end3444 ], [ %conv3392, %do.end3418 ], [ 66, %do.body3379 ], [ %conv3194, %if.end3207 ], [ %conv3236, %if.end3249 ], [ %conv3290, %if.end3303 ], [ 52, %if.end3004 ], [ 53, %if.end2969 ], [ 54, %sw.epilog2950 ], [ 55, %if.then2254 ], [ 53, %sw.default2927 ], [ 53, %if.then2924 ], [ 53, %sw.bb2921 ], [ 53, %if.then2911 ], [ 53, %if.then2917 ], [ 53, %if.else2913 ], [ 53, %sw.bb2860 ], [ 53, %if.end2887 ], [ 53, %sw.bb2851 ], [ 53, %if.then2842 ], [ 53, %if.then2847 ], [ 52, %sw.bb2068 ], [ 55, %if.then2133 ], [ 50, %if.then2168 ], [ 53, %sw.default2241 ], [ 53, %if.end2236 ], [ 53, %if.then2218 ], [ 53, %if.else2220 ], [ 53, %sw.bb2206 ], [ 51, %if.then1824 ], [ 51, %if.then2002 ], [ 51, %sw.bb1999 ], [ 51, %if.then1989 ], [ 51, %if.then1995 ], [ 51, %if.else1991 ], [ 51, %if.then1966 ], [ 51, %if.then1972 ], [ 51, %if.else1968 ], [ 51, %if.then1943 ], [ 51, %if.then1949 ], [ 51, %if.else1945 ], [ 51, %do.body1889 ], [ 52, %do.body2031 ], [ 51, %do.body1920 ], [ 51, %if.else1897 ], [ 51, %sw.default1817 ], [ 51, %sw.bb1815 ], [ 51, %sw.bb1813 ], [ 51, %sw.bb1812 ], [ 48, %if.end1752 ], [ 48, %if.end1706 ], [ 46, %if.end1671 ], [ 46, %if.end1649 ], [ 45, %sw.bb1635 ], [ 44, %sw.bb1634 ], [ 43, %sw.bb1633 ], [ 42, %sw.bb1632 ], [ 40, %sw.bb1620 ], [ 41, %sw.bb1622 ], [ 60, %sw.bb1543 ], [ 40, %sw.bb1511 ], [ 60, %sw.bb1414 ], [ 40, %sw.bb1382 ], [ 60, %sw.bb1286 ], [ 40, %sw.bb1254 ], [ 60, %sw.bb1157 ], [ 40, %sw.bb1125 ], [ 60, %sw.bb1027 ], [ 40, %sw.bb995 ], [ 34, %sw.bb927 ], [ 36, %sw.bb969 ], [ 40, %sw.bb937 ], [ 36, %sw.bb918 ], [ 40, %sw.bb887 ], [ 35, %sw.bb886 ], [ 32, %sw.bb850 ], [ 32, %land.lhs.true862 ], [ 32, %lor.lhs.false868 ], [ 30, %sw.bb789 ], [ 35, %do.body734 ], [ 24, %do.body752 ], [ %state.2, %if.end711 ], [ 19, %if.then386 ], [ 50, %if.then420 ], [ 16, %if.end357 ], [ 50, %sw.bb348 ], [ 19, %sw.bb347 ], [ 16, %if.end334 ], [ 15, %if.then323 ], [ 14, %if.end295 ], [ 14, %if.end274 ], [ 12, %if.end241 ], [ 12, %if.end222 ], [ 8, %if.then139 ], [ 22, %if.end153 ], [ 7, %sw.bb190 ], [ 13, %sw.bb225 ], [ 15, %sw.bb278 ], [ 18, %if.then344 ], [ 19, %if.end403 ], [ 18, %do.body380 ], [ 50, %if.end438 ], [ 22, %sw.bb536 ], [ 22, %sw.bb534 ], [ 22, %sw.bb532 ], [ 22, %sw.bb530 ], [ 22, %sw.bb528 ], [ 22, %sw.bb526 ], [ 22, %sw.bb524 ], [ 22, %sw.bb522 ], [ 22, %sw.bb520 ], [ 22, %sw.bb518 ], [ 22, %sw.bb516 ], [ 22, %sw.bb512 ], [ 24, %sw.bb764 ], [ 25, %if.end777 ], [ 32, %sw.bb790 ], [ 31, %if.else794 ], [ 33, %if.end872 ], [ 33, %if.then875 ], [ 34, %sw.bb883 ], [ 40, %if.end904 ], [ 35, %if.end934 ], [ 40, %if.end955 ], [ 40, %if.end1013 ], [ 60, %if.end1047 ], [ 40, %if.end1143 ], [ 60, %if.end1177 ], [ 40, %if.end1272 ], [ 60, %if.end1306 ], [ 40, %if.end1400 ], [ 60, %if.end1434 ], [ 40, %if.end1529 ], [ 60, %if.end1563 ], [ 47, %sw.bb1654 ], [ 49, %if.then1714 ], [ 50, %sw.bb1774 ], [ 52, %if.end2047 ], [ 52, %sw.bb2068 ], [ 55, %if.end2151 ], [ 50, %if.end2186 ], [ 55, %if.end2272 ], [ 53, %sw.bb2839 ], [ 56, %if.else3220 ], [ 65, %if.else3262 ], [ 66, %switch.early.test1528 ], [ 59, %sw.bb3447 ], [ 58, %if.then3456 ], [ 58, %if.then3456 ], [ %spec.select1530, %sw.bb3488 ], [ 64, %if.end3606 ], [ %spec.select1531, %land.lhs.true1718 ], [ %spec.select1532, %sw.bb3558 ], [ 8, %for.inc.loopexit1545 ], [ 22, %if.end508 ], [ 9, %for.inc.loopexit2961 ], [ 10, %for.inc.loopexit3596 ], [ %state.4.ph, %for.inc.loopexit4794 ], [ 26, %reexecute_byte ], [ 39, %if.end1380 ], [ 38, %if.end1251 ], [ 38, %if.end1122 ], [ 38, %if.end993 ], [ 11, %for.inc.loopexit4194 ], [ 53, %if.else2706 ], [ 53, %lor.lhs.false2828 ], [ 53, %lor.lhs.false2697 ], [ 53, %do.body2675 ], [ 53, %do.body2806 ]
+  %p.4 = phi ptr [ %p.1, %if.end3634 ], [ %p.1, %sw.bb3588 ], [ %p.1, %if.end3518 ], [ %p.1, %if.end3544 ], [ %p.1, %if.end3482 ], [ %p.1, %if.end3444 ], [ %p.1, %do.end3418 ], [ %add.ptr3385, %do.body3379 ], [ %p.1, %if.end3207 ], [ %p.1, %if.end3249 ], [ %p.1, %if.end3303 ], [ %p.1, %if.end3004 ], [ %p.1, %if.end2969 ], [ %p.1, %sw.epilog2950 ], [ %p.3, %if.then2254 ], [ %p.3, %sw.default2927 ], [ %p.3, %if.then2924 ], [ %p.3, %sw.bb2921 ], [ %p.3, %if.then2911 ], [ %p.3, %if.then2917 ], [ %p.3, %if.else2913 ], [ %p.3, %sw.bb2860 ], [ %p.3, %if.end2887 ], [ %p.3, %sw.bb2851 ], [ %p.3, %if.then2842 ], [ %p.3, %if.then2847 ], [ %p.1, %sw.bb2068 ], [ %p.1, %if.then2133 ], [ %p.1, %if.then2168 ], [ %p.1, %sw.default2241 ], [ %p.1, %if.end2236 ], [ %p.1, %if.then2218 ], [ %p.1, %if.else2220 ], [ %p.1, %sw.bb2206 ], [ %p.1, %if.then1824 ], [ %p.1, %if.then2002 ], [ %p.1, %sw.bb1999 ], [ %p.1, %if.then1989 ], [ %p.1, %if.then1995 ], [ %p.1, %if.else1991 ], [ %p.1, %if.then1966 ], [ %p.1, %if.then1972 ], [ %p.1, %if.else1968 ], [ %p.1, %if.then1943 ], [ %p.1, %if.then1949 ], [ %p.1, %if.else1945 ], [ %incdec.ptr1890, %do.body1889 ], [ %p.2, %do.body2031 ], [ %incdec.ptr1921, %do.body1920 ], [ %p.1, %if.else1897 ], [ %p.1, %sw.default1817 ], [ %p.1, %sw.bb1815 ], [ %p.1, %sw.bb1813 ], [ %p.1, %sw.bb1812 ], [ %p.1, %if.end1752 ], [ %p.1, %if.end1706 ], [ %p.1, %if.end1671 ], [ %p.1, %if.end1649 ], [ %p.1, %sw.bb1635 ], [ %p.1, %sw.bb1634 ], [ %p.1, %sw.bb1633 ], [ %p.1, %sw.bb1632 ], [ %p.1, %sw.bb1620 ], [ %p.1, %sw.bb1622 ], [ %p.1, %sw.bb1543 ], [ %p.1, %sw.bb1511 ], [ %p.1, %sw.bb1414 ], [ %p.1, %sw.bb1382 ], [ %p.1, %sw.bb1286 ], [ %p.1, %sw.bb1254 ], [ %p.1, %sw.bb1157 ], [ %p.1, %sw.bb1125 ], [ %p.1, %sw.bb1027 ], [ %p.1, %sw.bb995 ], [ %p.1, %sw.bb927 ], [ %p.1, %sw.bb969 ], [ %p.1, %sw.bb937 ], [ %p.1, %sw.bb918 ], [ %p.1, %sw.bb887 ], [ %p.1, %sw.bb886 ], [ %p.1, %sw.bb850 ], [ %p.1, %land.lhs.true862 ], [ %p.1, %lor.lhs.false868 ], [ %p.1, %sw.bb789 ], [ %p.1, %do.body734 ], [ %p.1, %do.body752 ], [ %p.1, %if.end711 ], [ %p.1, %if.then386 ], [ %p.1, %if.then420 ], [ %p.1, %if.end357 ], [ %p.1, %sw.bb348 ], [ %p.1, %sw.bb347 ], [ %p.1, %if.end334 ], [ %p.1, %if.then323 ], [ %p.1, %if.end295 ], [ %p.1, %if.end274 ], [ %p.1, %if.end241 ], [ %p.1, %if.end222 ], [ %p.1, %if.then139 ], [ %p.1, %if.end153 ], [ %p.1, %sw.bb190 ], [ %p.1, %sw.bb225 ], [ %p.1, %sw.bb278 ], [ %p.1, %if.then344 ], [ %p.1, %if.end403 ], [ %p.1, %do.body380 ], [ %p.1, %if.end438 ], [ %p.1, %sw.bb536 ], [ %p.1, %sw.bb534 ], [ %p.1, %sw.bb532 ], [ %p.1, %sw.bb530 ], [ %p.1, %sw.bb528 ], [ %p.1, %sw.bb526 ], [ %p.1, %sw.bb524 ], [ %p.1, %sw.bb522 ], [ %p.1, %sw.bb520 ], [ %p.1, %sw.bb518 ], [ %p.1, %sw.bb516 ], [ %p.1, %sw.bb512 ], [ %p.1, %sw.bb764 ], [ %p.1, %if.end777 ], [ %p.1, %sw.bb790 ], [ %p.1, %if.else794 ], [ %p.1, %if.end872 ], [ %p.1, %if.then875 ], [ %p.1, %sw.bb883 ], [ %p.1, %if.end904 ], [ %p.1, %if.end934 ], [ %p.1, %if.end955 ], [ %p.1, %if.end1013 ], [ %p.1, %if.end1047 ], [ %p.1, %if.end1143 ], [ %p.1, %if.end1177 ], [ %p.1, %if.end1272 ], [ %p.1, %if.end1306 ], [ %p.1, %if.end1400 ], [ %p.1, %if.end1434 ], [ %p.1, %if.end1529 ], [ %p.1, %if.end1563 ], [ %p.1, %sw.bb1654 ], [ %p.1, %if.then1714 ], [ %p.1, %sw.bb1774 ], [ %p.2, %if.end2047 ], [ %p.1, %sw.bb2068 ], [ %p.1, %if.end2151 ], [ %p.1, %if.end2186 ], [ %p.3, %if.end2272 ], [ %p.3, %sw.bb2839 ], [ %p.1, %if.else3220 ], [ %p.1, %if.else3262 ], [ %p.1, %switch.early.test1528 ], [ %p.1, %sw.bb3447 ], [ %p.1, %if.then3456 ], [ %p.1, %if.then3456 ], [ %p.1, %sw.bb3488 ], [ %p.1, %if.end3606 ], [ %p.1, %land.lhs.true1718 ], [ %add.ptr3583, %sw.bb3558 ], [ %p.1, %for.inc.loopexit1545 ], [ %p.1, %if.end508 ], [ %p.1, %for.inc.loopexit2961 ], [ %p.1, %for.inc.loopexit3596 ], [ %p.4.ph4795, %for.inc.loopexit4794 ], [ %p.1, %reexecute_byte ], [ %p.1, %if.end993 ], [ %p.1, %if.end1122 ], [ %p.1, %if.end1251 ], [ %p.1, %if.end1380 ], [ %p.1, %for.inc.loopexit4194 ], [ %incdec.ptr2807, %do.body2806 ], [ %incdec.ptr2676, %do.body2675 ], [ %incdec.ptr2676, %lor.lhs.false2697 ], [ %incdec.ptr2807, %lor.lhs.false2828 ], [ %p.3, %if.else2706 ]
   %incdec.ptr3655 = getelementptr inbounds i8, ptr %p.4, i64 1
   %cmp92.not = icmp eq ptr %incdec.ptr3655, %add.ptr
   br i1 %cmp92.not, label %for.end, label %for.body, !llvm.loop !4
@@ -3917,8 +3915,8 @@ if.end12.i:                                       ; preds = %for.body
 
 sw.bb.i:                                          ; preds = %if.end12.i
   switch i8 %2, label %if.end19.i [
-    i8 47, label %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52
-    i8 42, label %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52
+    i8 47, label %sw.epilog
+    i8 42, label %sw.epilog
   ]
 
 if.end19.i:                                       ; preds = %sw.bb.i
@@ -3948,13 +3946,13 @@ sw.bb54.i:                                        ; preds = %if.end12.i
 sw.bb59.i:                                        ; preds = %if.end12.i
   switch i8 %2, label %if.end76.i [
     i8 64, label %return
-    i8 47, label %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52
+    i8 47, label %sw.epilog
     i8 63, label %for.inc
   ]
 
 sw.bb64.i:                                        ; preds = %if.end12.i, %if.end12.i
   switch i8 %2, label %if.end76.i [
-    i8 47, label %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52
+    i8 47, label %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread49
     i8 63, label %for.inc
     i8 64, label %sw.epilog
   ]
@@ -3999,7 +3997,7 @@ sw.bb153.i:                                       ; preds = %if.end12.i
   %tobool.i = icmp sgt i8 %2, -1
   %or.cond24.i = or i1 %tobool212.i, %tobool.i
   %or.cond = and i1 %cmp155.not.i, %or.cond24.i
-  br i1 %or.cond, label %if.end161.i, label %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52
+  br i1 %or.cond, label %if.end161.i, label %sw.epilog
 
 if.end161.i:                                      ; preds = %sw.bb153.i
   %switch.selectcmp.i = icmp eq i8 %2, 35
@@ -4055,7 +4053,7 @@ if.end214.i:                                      ; preds = %sw.bb201.i
     i8 35, label %sw.epilog
   ]
 
-_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52: ; preds = %sw.bb.i, %sw.bb.i, %sw.bb153.i, %sw.bb64.i, %sw.bb59.i
+_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread49: ; preds = %sw.bb64.i
   br label %sw.epilog
 
 _ZN8proxygenL14parse_url_charENS_5stateEci.exit:  ; preds = %if.end196.i, %if.end178.i, %if.end161.i
@@ -4070,10 +4068,10 @@ _ZN8proxygenL14parse_url_charENS_5stateEci.exit:  ; preds = %if.end196.i, %if.en
 sw.bb6:                                           ; preds = %_ZN8proxygenL14parse_url_charENS_5stateEci.exit
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN8proxygenL14parse_url_charENS_5stateEci.exit, %if.end214.i, %if.end214.i, %if.end76.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %sw.bb31.i, %if.end19.i, %if.end178.i, %sw.bb165.i, %if.end196.i, %sw.bb201.i, %sw.bb183.i, %sw.bb64.i, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52, %sw.bb6
-  %retval.0.i42 = phi i32 [ 35, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52 ], [ 37, %sw.bb6 ], [ 29, %sw.bb64.i ], [ 39, %sw.bb183.i ], [ 39, %sw.bb201.i ], [ 39, %if.end196.i ], [ 39, %if.end214.i ], [ 37, %sw.bb165.i ], [ 37, %if.end178.i ], [ 24, %if.end19.i ], [ 24, %sw.bb31.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %if.end76.i ], [ 39, %if.end214.i ], [ %retval.0.i, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ]
-  %uf.0 = phi i32 [ 3, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52 ], [ 4, %sw.bb6 ], [ 1, %sw.bb64.i ], [ 5, %sw.bb183.i ], [ 5, %sw.bb201.i ], [ 5, %if.end196.i ], [ 5, %if.end214.i ], [ 4, %sw.bb165.i ], [ 4, %if.end178.i ], [ 0, %if.end19.i ], [ 0, %sw.bb31.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %if.end76.i ], [ 5, %if.end214.i ], [ 3, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ]
-  %found_at.2 = phi i32 [ %found_at.078, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread52 ], [ %found_at.078, %sw.bb6 ], [ 1, %sw.bb64.i ], [ %found_at.078, %sw.bb183.i ], [ %found_at.078, %sw.bb201.i ], [ %found_at.078, %if.end196.i ], [ %found_at.078, %if.end214.i ], [ %found_at.078, %sw.bb165.i ], [ %found_at.078, %if.end178.i ], [ %found_at.078, %if.end19.i ], [ %found_at.078, %sw.bb31.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %if.end76.i ], [ %found_at.078, %if.end214.i ], [ %found_at.078, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ]
+sw.epilog:                                        ; preds = %_ZN8proxygenL14parse_url_charENS_5stateEci.exit, %if.end214.i, %if.end214.i, %if.end76.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %sw.bb31.i, %if.end19.i, %if.end178.i, %sw.bb165.i, %sw.bb59.i, %sw.bb153.i, %sw.bb.i, %sw.bb.i, %if.end196.i, %sw.bb201.i, %sw.bb183.i, %sw.bb64.i, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread49, %sw.bb6
+  %retval.0.i42 = phi i32 [ 37, %sw.bb6 ], [ 29, %sw.bb64.i ], [ 39, %sw.bb183.i ], [ 39, %sw.bb201.i ], [ 39, %if.end196.i ], [ 39, %if.end214.i ], [ 35, %sw.bb.i ], [ 35, %sw.bb.i ], [ 35, %sw.bb153.i ], [ 35, %sw.bb59.i ], [ 35, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread49 ], [ 37, %sw.bb165.i ], [ 37, %if.end178.i ], [ 24, %if.end19.i ], [ 24, %sw.bb31.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %switch.early.test.i ], [ 28, %if.end76.i ], [ 39, %if.end214.i ], [ %retval.0.i, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ]
+  %uf.0 = phi i32 [ 4, %sw.bb6 ], [ 1, %sw.bb64.i ], [ 5, %sw.bb183.i ], [ 5, %sw.bb201.i ], [ 5, %if.end196.i ], [ 5, %if.end214.i ], [ 3, %sw.bb.i ], [ 3, %sw.bb.i ], [ 3, %sw.bb153.i ], [ 3, %sw.bb59.i ], [ 3, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread49 ], [ 4, %sw.bb165.i ], [ 4, %if.end178.i ], [ 0, %if.end19.i ], [ 0, %sw.bb31.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %if.end76.i ], [ 5, %if.end214.i ], [ 3, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ]
+  %found_at.2 = phi i32 [ %found_at.078, %sw.bb6 ], [ 1, %sw.bb64.i ], [ %found_at.078, %sw.bb183.i ], [ %found_at.078, %sw.bb201.i ], [ %found_at.078, %if.end196.i ], [ %found_at.078, %if.end214.i ], [ %found_at.078, %sw.bb.i ], [ %found_at.078, %sw.bb.i ], [ %found_at.078, %sw.bb153.i ], [ %found_at.078, %sw.bb59.i ], [ %found_at.078, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit.thread49 ], [ %found_at.078, %sw.bb165.i ], [ %found_at.078, %if.end178.i ], [ %found_at.078, %if.end19.i ], [ %found_at.078, %sw.bb31.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %switch.early.test.i ], [ %found_at.078, %if.end76.i ], [ %found_at.078, %if.end214.i ], [ %found_at.078, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ]
   %cmp8 = icmp eq i32 %uf.0, %old_uf.076
   br i1 %cmp8, label %if.then, label %if.end
 
@@ -4095,7 +4093,7 @@ if.end:                                           ; preds = %sw.epilog
   %len16 = getelementptr inbounds i8, ptr %arrayidx12, i64 2
   store i16 1, ptr %len16, align 2
   %shl = shl nuw nsw i32 1, %uf.0
-  %12 = trunc i32 %shl to i16
+  %12 = trunc nuw nsw i32 %shl to i16
   %conv19 = or i16 %1, %12
   store i16 %conv19, ptr %u, align 2
   br label %for.inc
@@ -4336,9 +4334,9 @@ if.end76.i37:                                     ; preds = %if.then61.i, %sw.bb
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end76.i37, %if.end54.i, %if.end34.i, %if.end20.i, %sw.bb135.i.i, %sw.bb130.i.i, %switch.early.test81.i.i, %sw.bb68.i.i, %sw.bb.i.i
-  %36 = phi i16 [ %34, %if.end76.i37 ], [ %31, %if.end54.i ], [ %19, %if.end34.i ], [ %19, %if.end20.i ], [ %19, %sw.bb135.i.i ], [ %19, %sw.bb68.i.i ], [ %19, %sw.bb.i.i ], [ %19, %sw.bb130.i.i ], [ %19, %switch.early.test81.i.i ]
-  %37 = phi i16 [ %20, %if.end76.i37 ], [ %20, %if.end54.i ], [ %inc38.i, %if.end34.i ], [ %inc.i, %if.end20.i ], [ %20, %sw.bb135.i.i ], [ %20, %sw.bb68.i.i ], [ %20, %sw.bb.i.i ], [ %20, %sw.bb130.i.i ], [ %20, %switch.early.test81.i.i ]
-  %retval.0.i35.i = phi i32 [ 3, %if.end76.i37 ], [ 10, %if.end54.i ], [ 7, %if.end34.i ], [ 6, %if.end20.i ], [ 8, %sw.bb135.i.i ], [ 5, %sw.bb68.i.i ], [ 4, %sw.bb.i.i ], [ 9, %sw.bb130.i.i ], [ 9, %switch.early.test81.i.i ]
+  %36 = phi i16 [ %34, %if.end76.i37 ], [ %31, %if.end54.i ], [ %19, %if.end34.i ], [ %19, %if.end20.i ], [ %19, %sw.bb135.i.i ], [ %19, %sw.bb130.i.i ], [ %19, %sw.bb68.i.i ], [ %19, %sw.bb.i.i ], [ %19, %switch.early.test81.i.i ]
+  %37 = phi i16 [ %20, %if.end76.i37 ], [ %20, %if.end54.i ], [ %inc38.i, %if.end34.i ], [ %inc.i, %if.end20.i ], [ %20, %sw.bb135.i.i ], [ %20, %sw.bb130.i.i ], [ %20, %sw.bb68.i.i ], [ %20, %sw.bb.i.i ], [ %20, %switch.early.test81.i.i ]
+  %retval.0.i35.i = phi i32 [ 3, %if.end76.i37 ], [ 10, %if.end54.i ], [ 7, %if.end34.i ], [ 6, %if.end20.i ], [ 8, %sw.bb135.i.i ], [ 9, %sw.bb130.i.i ], [ 5, %sw.bb68.i.i ], [ 4, %sw.bb.i.i ], [ 9, %switch.early.test81.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.054.i, i64 1
   %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr12.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
@@ -4396,7 +4394,7 @@ for.body59:                                       ; preds = %if.then40, %for.con
   br i1 %cmp62, label %return, label %for.cond57
 
 for.end67.loopexit:                               ; preds = %for.cond57
-  %45 = trunc i64 %add to i16
+  %45 = trunc nuw i64 %add to i16
   br label %for.end67
 
 for.end67:                                        ; preds = %for.end67.loopexit, %if.then40
@@ -4405,7 +4403,7 @@ for.end67:                                        ; preds = %for.end67.loopexit,
   br label %return
 
 switch.hole_check:                                ; preds = %for.end.i
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -81, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %return, label %if.end29

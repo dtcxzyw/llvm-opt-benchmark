@@ -636,7 +636,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %call = call i32 @BIO_vsnprintf(ptr noundef nonnull %hugebuf, i64 noundef 2048, ptr noundef nonnull %format, ptr noundef nonnull %args) #3
   %cmp19 = icmp sgt i32 %call, 0
   br i1 %cmp19, label %if.then20, label %if.end24
@@ -652,7 +652,7 @@ if.then20:                                        ; preds = %if.end7
 
 if.end24:                                         ; preds = %if.then20, %if.end7
   %res.0 = phi i32 [ %call23, %if.then20 ], [ 0, %if.end7 ]
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   br label %return
 
 return:                                           ; preds = %if.end4, %if.end, %entry, %lor.lhs.false, %if.end24
@@ -1076,13 +1076,7 @@ return:                                           ; preds = %if.end, %if.then
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 declare i32 @BIO_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @OSSL_CMP_CTX_set_log_cb(ptr noundef writeonly %ctx, ptr noundef %cb) local_unnamed_addr #0 {
@@ -2078,15 +2072,13 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %tobool.not = icmp eq i32 %priv, 0
-  br i1 %tobool.not, label %cond.false, label %land.lhs.true
+  br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
   %newPkey_priv = getelementptr inbounds i8, ptr %ctx, i64 344
   %1 = load i32, ptr %newPkey_priv, align 8
   %tobool3.not = icmp eq i32 %1, 0
-  br i1 %tobool3.not, label %return, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true, %if.then2
+  %spec.select = select i1 %tobool3.not, ptr null, ptr %0
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -2108,8 +2100,8 @@ if.end14:                                         ; preds = %if.end5
   %3 = load ptr, ptr %pkey, align 8
   br label %return
 
-return:                                           ; preds = %cond.false10, %if.then7, %cond.false, %land.lhs.true, %if.end14, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %3, %if.end14 ], [ %0, %cond.false ], [ null, %land.lhs.true ], [ %call, %cond.false10 ], [ null, %if.then7 ]
+return:                                           ; preds = %land.lhs.true, %if.then2, %cond.false10, %if.then7, %if.end14, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %3, %if.end14 ], [ %call, %cond.false10 ], [ null, %if.then7 ], [ %0, %if.then2 ], [ %spec.select, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -2855,6 +2847,12 @@ declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -5582,7 +5582,7 @@ if.then.i15:                                      ; preds = %ulong_arg.exit.i
   unreachable
 
 option_cat_blob_fd.exit:                          ; preds = %ulong_arg.exit.i
-  %conv.i = trunc i64 %call.i.i to i32
+  %conv.i = trunc nuw nsw i64 %call.i.i to i32
   store i32 %conv.i, ptr @cat_blob_fd, align 4
   br label %for.inc
 
@@ -11471,7 +11471,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_one_feature(ptr noundef %feature, i32 noundef %from_stream) unnamed_addr #0 {
+define internal fastcc i32 @parse_one_feature(ptr noundef %feature, i32 noundef %from_stream) unnamed_addr #0 {
 entry:
   %scevgep = getelementptr i8, ptr %feature, i64 12
   br label %do.body.i
@@ -11522,7 +11522,7 @@ if.else12.i:                                      ; preds = %if.else8.i
 option_date_format.exit:                          ; preds = %if.then, %if.else.i, %if.else4.i, %if.else8.i
   %.sink.i = phi i32 [ 1, %if.then ], [ 2, %if.else.i ], [ 3, %if.else4.i ], [ 4, %if.else8.i ]
   store i32 %.sink.i, ptr @whenspec, align 4
-  br label %if.end61
+  br label %return
 
 do.body.i21:                                      ; preds = %do.body.i21.preheader, %do.cond.i25
   %str.addr.0.i22 = phi ptr [ %incdec.ptr.i26, %do.cond.i25 ], [ %feature, %do.body.i21.preheader ]
@@ -11556,7 +11556,7 @@ if.then.i31:                                      ; preds = %if.then2
 
 check_unsafe_feature.exit:                        ; preds = %if.then2
   tail call fastcc void @option_import_marks(ptr noundef %scevgep112, i32 noundef %from_stream, i32 noundef 0)
-  br label %if.end61
+  br label %return
 
 do.body.i33:                                      ; preds = %do.body.i33.preheader, %do.cond.i37
   %str.addr.0.i34 = phi ptr [ %incdec.ptr.i38, %do.cond.i37 ], [ %feature, %do.body.i33.preheader ]
@@ -11586,7 +11586,7 @@ if.then.i46:                                      ; preds = %if.then5
 
 check_unsafe_feature.exit48:                      ; preds = %if.then5
   tail call fastcc void @option_import_marks(ptr noundef %scevgep114, i32 noundef %from_stream, i32 noundef 1)
-  br label %if.end61
+  br label %return
 
 do.body.i49:                                      ; preds = %do.cond.i37, %do.cond.i53
   %str.addr.0.i50 = phi ptr [ %incdec.ptr.i54, %do.cond.i53 ], [ %feature, %do.cond.i37 ]
@@ -11635,12 +11635,12 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
 option_export_marks.exit:                         ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %call3.i.i, %if.end.i.i ]
   store ptr %retval.0.i.i, ptr @export_marks_file, align 8
-  br label %if.end61
+  br label %return
 
 if.else9:                                         ; preds = %do.cond.i53
   %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(6) @.str.12) #23
   %tobool.not = icmp eq i32 %call10, 0
-  br i1 %tobool.not, label %if.end61, label %do.body.i65.preheader
+  br i1 %tobool.not, label %return, label %do.body.i65.preheader
 
 do.body.i65.preheader:                            ; preds = %if.else9
   %scevgep118 = getelementptr i8, ptr %feature, i64 22
@@ -11667,7 +11667,7 @@ do.body.i75.preheader:                            ; preds = %do.cond.i69
 
 if.then14:                                        ; preds = %do.body.i65
   tail call fastcc void @option_rewrite_submodules(ptr noundef %scevgep118, ptr noundef nonnull @sub_marks_to)
-  br label %if.end61
+  br label %return
 
 do.body.i75:                                      ; preds = %do.body.i75.preheader, %do.cond.i79
   %str.addr.0.i76 = phi ptr [ %incdec.ptr.i80, %do.cond.i79 ], [ %feature, %do.body.i75.preheader ]
@@ -11686,17 +11686,17 @@ do.cond.i79:                                      ; preds = %do.body.i75
 
 if.then17:                                        ; preds = %do.body.i75
   tail call fastcc void @option_rewrite_submodules(ptr noundef %scevgep120, ptr noundef nonnull @sub_marks_from)
-  br label %if.end61
+  br label %return
 
 if.else18:                                        ; preds = %do.cond.i79
   %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(9) @.str.200) #23
   %tobool20.not = icmp eq i32 %call19, 0
-  br i1 %tobool20.not, label %if.end61, label %if.else22
+  br i1 %tobool20.not, label %return, label %if.else22
 
 if.else22:                                        ; preds = %if.else18
   %call23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(9) @.str.201) #23
   %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %if.end61, label %if.else26
+  br i1 %tobool24.not, label %return, label %if.else26
 
 if.else26:                                        ; preds = %if.else22
   %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(15) @.str.202) #23
@@ -11705,7 +11705,7 @@ if.else26:                                        ; preds = %if.else22
 
 if.then29:                                        ; preds = %if.else26
   store i1 true, ptr @relative_marks_paths, align 4
-  br label %if.end61
+  br label %return
 
 if.else30:                                        ; preds = %if.else26
   %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(18) @.str.203) #23
@@ -11714,7 +11714,7 @@ if.else30:                                        ; preds = %if.else26
 
 if.then33:                                        ; preds = %if.else30
   store i1 false, ptr @relative_marks_paths, align 4
-  br label %if.end61
+  br label %return
 
 if.else34:                                        ; preds = %if.else30
   %call35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(5) @.str.11) #23
@@ -11723,7 +11723,7 @@ if.else34:                                        ; preds = %if.else30
 
 if.then37:                                        ; preds = %if.else34
   store i1 true, ptr @require_explicit_termination, align 4
-  br label %if.end61
+  br label %return
 
 if.else38:                                        ; preds = %if.else34
   %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(6) @.str.204) #23
@@ -11732,23 +11732,21 @@ if.else38:                                        ; preds = %if.else34
 
 if.then41:                                        ; preds = %if.else38
   store i1 true, ptr @force_update, align 4
-  br label %if.end61
+  br label %return
 
 if.else42:                                        ; preds = %if.else38
   %call43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(6) @.str.205) #23
   %tobool44.not = icmp eq i32 %call43, 0
-  br i1 %tobool44.not, label %if.end61, label %lor.lhs.false
+  br i1 %tobool44.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else42
   %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %feature, ptr noundef nonnull dereferenceable(3) @.str.206) #23
   %tobool46.not = icmp eq i32 %call45, 0
-  br i1 %tobool46.not, label %if.end61, label %return
-
-if.end61:                                         ; preds = %check_unsafe_feature.exit, %option_export_marks.exit, %if.then14, %if.else18, %if.then29, %if.then37, %lor.lhs.false, %if.else42, %if.then41, %if.then33, %if.else22, %if.then17, %if.else9, %check_unsafe_feature.exit48, %option_date_format.exit
+  %spec.select = zext i1 %tobool46.not to i32
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %if.end61
-  %retval.0 = phi i32 [ 1, %if.end61 ], [ 0, %lor.lhs.false ]
+return:                                           ; preds = %lor.lhs.false, %option_date_format.exit, %check_unsafe_feature.exit48, %if.else9, %if.then17, %if.else22, %if.then33, %if.then41, %if.else42, %if.then37, %if.then29, %if.else18, %if.then14, %option_export_marks.exit, %check_unsafe_feature.exit
+  %retval.0 = phi i32 [ 1, %check_unsafe_feature.exit ], [ 1, %option_export_marks.exit ], [ 1, %if.then14 ], [ 1, %if.else18 ], [ 1, %if.then29 ], [ 1, %if.then37 ], [ 1, %if.else42 ], [ 1, %if.then41 ], [ 1, %if.then33 ], [ 1, %if.else22 ], [ 1, %if.then17 ], [ 1, %if.else9 ], [ 1, %check_unsafe_feature.exit48 ], [ 1, %option_date_format.exit ], [ %spec.select, %lor.lhs.false ]
   ret i32 %retval.0
 }
 
@@ -12215,7 +12213,7 @@ declare ptr @string_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_one_option(ptr noundef %option) unnamed_addr #0 {
+define internal fastcc i32 @parse_one_option(ptr noundef %option) unnamed_addr #0 {
 entry:
   %endptr.i.i33 = alloca ptr, align 8
   %endptr.i.i = alloca ptr, align 8
@@ -12270,7 +12268,7 @@ if.then5:                                         ; preds = %if.else
 if.end7:                                          ; preds = %if.else, %if.then5, %if.then3
   %4 = phi i64 [ %2, %if.else ], [ 1048576, %if.then5 ], [ %mul, %if.then3 ]
   store i64 %4, ptr @max_packsize, align 8
-  br label %if.end45
+  br label %return
 
 do.body.i1:                                       ; preds = %do.body.i1.preheader, %do.cond.i5
   %str.addr.0.i2 = phi ptr [ %incdec.ptr.i6, %do.cond.i5 ], [ %option, %do.body.i1.preheader ]
@@ -12299,7 +12297,7 @@ if.then10:                                        ; preds = %do.body.i1
 if.end15:                                         ; preds = %if.then10
   %7 = load i64, ptr %v11, align 8
   store i64 %7, ptr @big_file_threshold, align 8
-  br label %if.end45
+  br label %return
 
 do.body.i11:                                      ; preds = %do.body.i11.preheader, %do.cond.i15
   %str.addr.0.i12 = phi ptr [ %incdec.ptr.i16, %do.cond.i15 ], [ %option, %do.body.i11.preheader ]
@@ -12345,7 +12343,7 @@ ulong_arg.exit.i:                                 ; preds = %lor.lhs.false2.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
   store i64 %call.i.i, ptr @max_depth, align 8
   %cmp.i21 = icmp ugt i64 %call.i.i, 8191
-  br i1 %cmp.i21, label %if.then.i22, label %if.end45
+  br i1 %cmp.i21, label %if.then.i22, label %return
 
 if.then.i22:                                      ; preds = %ulong_arg.exit.i
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.231, i32 noundef 8191) #24
@@ -12394,7 +12392,7 @@ if.then.i.i37:                                    ; preds = %lor.lhs.false2.i.i4
 option_active_branches.exit:                      ; preds = %lor.lhs.false2.i.i40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i33)
   store i64 %call.i.i34, ptr @max_active_branches, align 8
-  br label %if.end45
+  br label %return
 
 do.body.i43:                                      ; preds = %do.body.i43.preheader, %do.cond.i47
   %str.addr.0.i44 = phi ptr [ %incdec.ptr.i48, %do.cond.i47 ], [ %option, %do.body.i43.preheader ]
@@ -12426,7 +12424,7 @@ option_export_pack_edges.exit:                    ; preds = %if.then24, %if.then
   %call2.i = tail call ptr @xfopen(ptr noundef %call.i, ptr noundef nonnull @.str.234) #25
   store ptr %call2.i, ptr @pack_edges, align 8
   tail call void @free(ptr noundef %call.i) #25
-  br label %if.end45
+  br label %return
 
 if.else25:                                        ; preds = %do.cond.i47
   %call26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %option, ptr noundef nonnull dereferenceable(6) @.str.227) #23
@@ -12435,7 +12433,7 @@ if.else25:                                        ; preds = %do.cond.i47
 
 if.then28:                                        ; preds = %if.else25
   store i1 true, ptr @show_stats, align 4
-  br label %if.end45
+  br label %return
 
 if.else29:                                        ; preds = %if.else25
   %call30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %option, ptr noundef nonnull dereferenceable(6) @.str.228) #23
@@ -12444,18 +12442,16 @@ if.else29:                                        ; preds = %if.else25
 
 if.then32:                                        ; preds = %if.else29
   store i1 false, ptr @show_stats, align 4
-  br label %if.end45
+  br label %return
 
 if.else33:                                        ; preds = %if.else29
   %call34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %option, ptr noundef nonnull dereferenceable(22) @.str.229) #23
   %tobool35.not = icmp eq i32 %call34, 0
-  br i1 %tobool35.not, label %if.end45, label %return
-
-if.end45:                                         ; preds = %ulong_arg.exit.i, %if.end15, %option_active_branches.exit, %if.then28, %if.else33, %if.then32, %option_export_pack_edges.exit, %if.end7
+  %spec.select = zext i1 %tobool35.not to i32
   br label %return
 
-return:                                           ; preds = %if.else33, %if.then10, %if.then, %if.end45
-  %retval.0 = phi i32 [ 1, %if.end45 ], [ 0, %if.then ], [ 0, %if.then10 ], [ 0, %if.else33 ]
+return:                                           ; preds = %ulong_arg.exit.i, %if.else33, %if.end7, %option_export_pack_edges.exit, %if.then32, %if.then28, %option_active_branches.exit, %if.end15, %if.then10, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then10 ], [ 1, %if.end15 ], [ 1, %option_active_branches.exit ], [ 1, %if.then28 ], [ 1, %if.then32 ], [ 1, %option_export_pack_edges.exit ], [ 1, %if.end7 ], [ %spec.select, %if.else33 ], [ 1, %ulong_arg.exit.i ]
   ret i32 %retval.0
 }
 

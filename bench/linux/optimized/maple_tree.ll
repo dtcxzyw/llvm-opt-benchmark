@@ -2490,7 +2490,7 @@ define internal fastcc void @mas_wr_store_entry(ptr noundef %0) unnamed_addr #4 
 .preheader.i:                                     ; preds = %73, %82
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %82 ], [ %78, %73 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %87 = trunc i64 %indvars.iv.next.i to i8
+  %87 = trunc nuw i64 %indvars.iv.next.i to i8
   store i8 %87, ptr %67, align 4
   %88 = load i8, ptr %69, align 1
   %89 = zext i8 %88 to i64
@@ -3074,7 +3074,7 @@ define dso_local void @mas_destroy(ptr nocapture noundef %0) #1 align 16 {
 
 86:                                               ; preds = %80
   %87 = call fastcc i32 @mas_ascend(ptr noundef nonnull %3), !range !23
-  %88 = trunc i64 %85 to i8
+  %88 = trunc nuw nsw i64 %85 to i8
   %89 = add nsw i8 %88, -1
   store i8 %89, ptr %71, align 1
   %90 = load ptr, ptr %68, align 8
@@ -3174,7 +3174,7 @@ define dso_local void @mas_destroy(ptr nocapture noundef %0) #1 align 16 {
   br label %145
 
 141:                                              ; preds = %137
-  %142 = trunc i64 %138 to i32
+  %142 = trunc nuw i64 %138 to i32
   %143 = xor i32 %142, 3
   %144 = getelementptr inbounds i8, ptr %131, i64 12
   store i32 %143, ptr %144, align 4
@@ -3564,7 +3564,7 @@ define dso_local void @mas_destroy(ptr nocapture noundef %0) #1 align 16 {
   %375 = icmp eq i64 %374, 0
   %376 = select i1 %375, i64 2, i64 3, !prof !12
   %377 = lshr i64 %373, %376
-  %378 = trunc i64 %377 to i8
+  %378 = trunc nuw nsw i64 %377 to i8
   br label %379
 
 379:                                              ; preds = %372, %358
@@ -3810,7 +3810,7 @@ define dso_local void @mas_destroy(ptr nocapture noundef %0) #1 align 16 {
   %514 = icmp eq i64 %513, 0
   %515 = select i1 %514, i64 2, i64 3, !prof !12
   %516 = lshr i64 %512, %515
-  %517 = trunc i64 %516 to i32
+  %517 = trunc nuw nsw i64 %516 to i32
   br label %518
 
 518:                                              ; preds = %511, %489
@@ -4135,7 +4135,7 @@ default.unreachable91:                            ; preds = %591
   br label %.thread69
 
 .thread69:                                        ; preds = %712, %700
-  %717 = phi i64 [ %spec.select85, %712 ], [ 8, %700 ]
+  %717 = phi i64 [ 8, %700 ], [ %spec.select85, %712 ]
   %718 = getelementptr inbounds i8, ptr %707, i64 %717
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !60
   %719 = getelementptr ptr, ptr %718, i64 %705
@@ -4618,7 +4618,7 @@ define dso_local i32 @mas_preallocate(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %exitcond.not, label %.loopexit41, label %108, !llvm.loop !43
 
 115:                                              ; preds = %108
-  %116 = trunc i64 %109 to i8
+  %116 = trunc nuw i64 %109 to i8
   br label %120
 
 .loopexit41:                                      ; preds = %113, %89
@@ -5043,7 +5043,7 @@ define internal fastcc noundef zeroext i1 @mas_wr_walk(ptr nocapture noundef %0)
 
 80:                                               ; preds = %73
   %81 = getelementptr i64, ptr %70, i64 %74
-  %82 = trunc i64 %74 to i8
+  %82 = trunc nuw i64 %74 to i8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %78, %80, %60, %.thread.i
@@ -5307,7 +5307,7 @@ define internal fastcc ptr @mtree_range_walk(ptr nocapture noundef %0) unnamed_a
   br i1 %54, label %.loopexit, label %.preheader, !llvm.loop !76
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
-  %55 = trunc i64 %indvars.iv to i8
+  %55 = trunc nuw i64 %indvars.iv to i8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %.loopexit.loopexit.split.loop.exit, %.thread.thread, %46
@@ -9713,7 +9713,7 @@ define internal fastcc noundef i32 @mas_ascend(ptr nocapture noundef %0) unnamed
   %34 = and i64 %8, 252
   %35 = select i1 %20, i64 2, i64 3, !prof !12
   %36 = lshr i64 %34, %35
-  %37 = trunc i64 %36 to i8
+  %37 = trunc nuw nsw i64 %36 to i8
   %38 = getelementptr inbounds i8, ptr %0, i64 61
   store i8 %37, ptr %38, align 1
   %39 = or i64 %33, %14
@@ -9815,7 +9815,7 @@ define internal fastcc noundef i32 @mas_ascend(ptr nocapture noundef %0) unnamed
   %104 = icmp eq i64 %103, 0
   %105 = select i1 %104, i64 2, i64 3, !prof !12
   %106 = lshr i64 %102, %105
-  %107 = trunc i64 %106 to i32
+  %107 = trunc nuw nsw i64 %106 to i32
   br label %108
 
 108:                                              ; preds = %101, %95
@@ -10932,7 +10932,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr nocapture noundef readonl
   br i1 %569, label %570, label %583
 
 570:                                              ; preds = %563
-  %571 = trunc i32 %279 to i8
+  %571 = trunc nuw nsw i32 %279 to i8
   %572 = zext i8 %564 to i64
   %573 = add nuw nsw i64 %572, 1
   %574 = getelementptr [4 x i8], ptr @mt_pivots, i64 0, i64 %573
@@ -11014,7 +11014,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr nocapture noundef readonl
   store ptr %4, ptr %2, align 8
   %615 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %5, ptr %615, align 8
-  %616 = trunc i32 %50 to i8
+  %616 = trunc nuw nsw i32 %50 to i8
   %617 = add nuw nsw i8 %616, 1
   call fastcc void @mas_spanning_rebalance(ptr noundef %14, ptr noundef nonnull %2, i8 noundef zeroext %617)
   br label %618
@@ -12087,7 +12087,7 @@ define internal fastcc void @mas_wr_modify(ptr noundef %0) unnamed_addr #4 align
   br label %.thread78
 
 .thread78:                                        ; preds = %520, %508
-  %525 = phi i64 [ %spec.select, %520 ], [ 8, %508 ]
+  %525 = phi i64 [ 8, %508 ], [ %spec.select, %520 ]
   %526 = getelementptr inbounds i8, ptr %515, i64 %525
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !60
   %527 = getelementptr ptr, ptr %526, i64 %513
@@ -12369,7 +12369,7 @@ mas_free.exit:                                    ; preds = %597, %592, %581, %5
   br i1 %679, label %680, label %965
 
 680:                                              ; preds = %673
-  %681 = trunc i32 %678 to i8
+  %681 = trunc nuw nsw i32 %678 to i8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false), !annotation !13
   %682 = add nuw i8 %656, 1
@@ -12548,7 +12548,7 @@ mas_free.exit:                                    ; preds = %597, %592, %581, %5
 
 784:                                              ; preds = %778
   %785 = call fastcc i32 @mas_ascend(ptr noundef nonnull %9), !range !23
-  %786 = trunc i64 %783 to i8
+  %786 = trunc nuw nsw i64 %783 to i8
   %787 = add nsw i8 %786, -1
   store i8 %787, ptr %696, align 1
   %788 = load ptr, ptr %690, align 8
@@ -12781,7 +12781,7 @@ mas_free.exit:                                    ; preds = %597, %592, %581, %5
 
 .thread83:                                        ; preds = %912, %917
   %920 = phi i32 [ %918, %917 ], [ %899, %912 ]
-  %921 = trunc i32 %920 to i8
+  %921 = trunc nuw i32 %920 to i8
   %922 = icmp ugt i8 %896, %921
   %923 = and i32 %920, 255
   %924 = zext nneg i32 %923 to i64
@@ -12996,7 +12996,7 @@ mas_free.exit:                                    ; preds = %597, %592, %581, %5
   %1027 = load i32, ptr %1026, align 4
   %1028 = lshr i32 %1027, 2
   %1029 = and i32 %1028, 31
-  %1030 = trunc i32 %1029 to i8
+  %1030 = trunc nuw nsw i32 %1029 to i8
   %1031 = getelementptr inbounds i8, ptr %652, i64 60
   store i8 %1030, ptr %1031, align 4
   %1032 = shl nuw nsw i32 %1029, 1
@@ -13443,7 +13443,7 @@ mas_free.exit:                                    ; preds = %597, %592, %581, %5
   br i1 %1283, label %1285, label %1274, !llvm.loop !141
 
 1285:                                             ; preds = %1279
-  %1286 = trunc i64 %1280 to i32
+  %1286 = trunc nuw nsw i64 %1280 to i32
   br label %.loopexit3.i
 
 .loopexit3.i:                                     ; preds = %1274, %1285
@@ -13752,7 +13752,7 @@ mas_free.exit:                                    ; preds = %597, %592, %581, %5
   br i1 %1473, label %1475, label %1464, !llvm.loop !141
 
 1475:                                             ; preds = %1469
-  %1476 = trunc i64 %1470 to i32
+  %1476 = trunc nuw nsw i64 %1470 to i32
   br label %.loopexit3.i62
 
 .loopexit3.i62:                                   ; preds = %1464, %1475
@@ -13897,7 +13897,7 @@ mab_mas_cp.exit68:                                ; preds = %1513, %.loopexit.i6
   br label %.thread112
 
 .thread112:                                       ; preds = %1572, %1560
-  %1577 = phi i64 [ %spec.select115, %1572 ], [ 8, %1560 ]
+  %1577 = phi i64 [ 8, %1560 ], [ %spec.select115, %1572 ]
   %1578 = getelementptr inbounds i8, ptr %1567, i64 %1577
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !60
   %1579 = getelementptr ptr, ptr %1578, i64 %1565
@@ -14228,7 +14228,7 @@ define internal fastcc void @mas_root_expand(ptr nocapture noundef %0, ptr nound
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr ptr, ptr %77, i64 %104
   store volatile ptr %1, ptr %105, align 8
-  %106 = trunc i32 %103 to i8
+  %106 = trunc nuw nsw i32 %103 to i8
   %107 = getelementptr inbounds i8, ptr %0, i64 61
   store i8 %106, ptr %107, align 1
   %108 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14243,7 +14243,7 @@ define internal fastcc void @mas_root_expand(ptr nocapture noundef %0, ptr nound
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr i64, ptr %76, i64 %114
   store i64 -1, ptr %115, align 8
-  %.pre = trunc i32 %113 to i8
+  %.pre = trunc nuw nsw i32 %113 to i8
   br label %116
 
 116:                                              ; preds = %112, %102
@@ -14366,7 +14366,7 @@ define internal fastcc void @mas_store_b_node(ptr nocapture noundef %0, ptr noca
 
 .thread:                                          ; preds = %50, %55
   %58 = phi i32 [ %56, %55 ], [ %36, %50 ]
-  %59 = trunc i32 %58 to i8
+  %59 = trunc nuw i32 %58 to i8
   %60 = icmp ugt i8 %33, %59
   %61 = getelementptr inbounds i8, ptr %4, i64 40
   %62 = and i32 %58, 255
@@ -14739,7 +14739,7 @@ define internal fastcc void @mas_mab_cp(ptr nocapture noundef readonly %0, i8 no
 .thread:                                          ; preds = %63, %70
   %74 = phi i32 [ %72, %70 ], [ %48, %63 ]
   %75 = phi i32 [ %71, %70 ], [ %39, %63 ]
-  %76 = trunc i32 %75 to i8
+  %76 = trunc nuw i32 %75 to i8
   %77 = icmp ugt i8 %36, %76
   %78 = getelementptr inbounds i8, ptr %0, i64 40
   %79 = and i32 %75, 255
@@ -15528,7 +15528,7 @@ define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, pt
 
 .thread55:                                        ; preds = %435, %440
   %443 = phi i32 [ %441, %440 ], [ %421, %435 ]
-  %444 = trunc i32 %443 to i8
+  %444 = trunc nuw i32 %443 to i8
   %445 = icmp ugt i8 %418, %444
   %446 = getelementptr inbounds i8, ptr %391, i64 40
   %447 = and i32 %443, 255
@@ -16095,7 +16095,7 @@ define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, pt
   br i1 %804, label %806, label %795, !llvm.loop !141
 
 806:                                              ; preds = %800
-  %807 = trunc i64 %801 to i32
+  %807 = trunc nuw nsw i64 %801 to i32
   br label %.loopexit3.i
 
 .loopexit3.i:                                     ; preds = %795, %806
@@ -16911,7 +16911,7 @@ define internal fastcc void @mast_spanning_rebalance(ptr nocapture noundef reado
 
 .thread19:                                        ; preds = %327, %332
   %335 = phi i32 [ %333, %332 ], [ %313, %327 ]
-  %336 = trunc i32 %335 to i8
+  %336 = trunc nuw i32 %335 to i8
   %337 = icmp ugt i8 %310, %336
   %338 = getelementptr inbounds i8, ptr %288, i64 40
   %339 = and i32 %335, 255
@@ -17168,7 +17168,7 @@ define internal fastcc void @mast_ascend(ptr nocapture noundef readonly %0) unna
   br i1 %exitcond.not, label %.loopexit22, label %79, !llvm.loop !74
 
 86:                                               ; preds = %79
-  %87 = trunc i64 %80 to i8
+  %87 = trunc nuw i64 %80 to i8
   br label %.loopexit22
 
 .loopexit22:                                      ; preds = %84, %.thread16, %86, %67
@@ -17283,7 +17283,7 @@ define internal fastcc void @mast_ascend(ptr nocapture noundef readonly %0) unna
   br i1 %exitcond29.not, label %.loopexit, label %151, !llvm.loop !74
 
 158:                                              ; preds = %151
-  %159 = trunc i64 %152 to i8
+  %159 = trunc nuw i64 %152 to i8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %156, %.thread21, %158, %139
@@ -17395,7 +17395,7 @@ define internal fastcc void @mab_mas_cp(ptr nocapture noundef readonly %0, i8 no
   br i1 %62, label %64, label %50, !llvm.loop !141
 
 64:                                               ; preds = %57
-  %65 = trunc i64 %58 to i32
+  %65 = trunc nuw nsw i64 %58 to i32
   br label %.loopexit3
 
 .loopexit3:                                       ; preds = %50, %64
@@ -17560,7 +17560,7 @@ define internal fastcc void @mas_wmb_replace(ptr nocapture noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %50, %38
-  %55 = phi i64 [ %spec.select, %50 ], [ 8, %38 ]
+  %55 = phi i64 [ 8, %38 ], [ %spec.select, %50 ]
   %56 = getelementptr inbounds i8, ptr %45, i64 %55
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !60
   %57 = getelementptr ptr, ptr %56, i64 %43
@@ -17798,7 +17798,7 @@ define internal fastcc void @mas_wmb_replace(ptr nocapture noundef %0, ptr nound
   br i1 %190, label %.loopexit36, label %97, !llvm.loop !156
 
 .loopexit33:                                      ; preds = %.thread10.i, %.preheader.i
-  %191 = trunc i64 %99 to i32
+  %191 = trunc nuw nsw i64 %99 to i32
   br label %.loopexit36
 
 .loopexit36:                                      ; preds = %178, %..loopexit36_crit_edge, %.loopexit33
@@ -18874,7 +18874,7 @@ define internal fastcc i32 @mab_calc_split(ptr nocapture noundef %0, ptr nocaptu
 
 112:                                              ; preds = %108
   %113 = tail call fastcc i32 @mab_no_null_split(ptr noundef %1, i8 noundef zeroext %83, i8 noundef zeroext %13), !range !171
-  %114 = trunc i32 %113 to i8
+  %114 = trunc nuw i32 %113 to i8
   store i8 %114, ptr %2, align 1
   br label %115
 
@@ -19274,7 +19274,7 @@ define internal fastcc void @mas_update_gap(ptr nocapture noundef readonly %0) u
   br i1 %46, label %.preheader.preheader, label %.loopexit6
 
 .preheader.preheader:                             ; preds = %52
-  %53 = trunc i64 %40 to i8
+  %53 = trunc nuw nsw i64 %40 to i8
   br label %.preheader
 
 .loopexit6:                                       ; preds = %133, %52
@@ -19396,7 +19396,7 @@ define internal fastcc void @mas_update_gap(ptr nocapture noundef readonly %0) u
   %129 = icmp eq i64 %128, 0
   %130 = select i1 %129, i64 2, i64 3, !prof !12
   %131 = lshr i64 %127, %130
-  %132 = trunc i64 %131 to i8
+  %132 = trunc nuw nsw i64 %131 to i8
   br label %133
 
 133:                                              ; preds = %126, %120
@@ -20041,7 +20041,7 @@ define internal fastcc noundef zeroext i1 @mas_next_sibling(ptr nocapture nounde
   %28 = icmp eq i64 %27, 0
   %29 = select i1 %28, i64 2, i64 3, !prof !12
   %30 = lshr i64 %26, %29
-  %31 = trunc i64 %30 to i8
+  %31 = trunc nuw nsw i64 %30 to i8
   br label %32
 
 32:                                               ; preds = %25, %15
@@ -20494,7 +20494,7 @@ define internal fastcc void @mas_split_final_node(ptr nocapture noundef readonly
   br i1 %191, label %193, label %182, !llvm.loop !141
 
 193:                                              ; preds = %187
-  %194 = trunc i64 %188 to i32
+  %194 = trunc nuw nsw i64 %188 to i32
   br label %.loopexit3.i
 
 .loopexit3.i:                                     ; preds = %182, %193
@@ -20624,7 +20624,7 @@ define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %
 
 34:                                               ; preds = %28
   %35 = call fastcc i32 @mas_ascend(ptr noundef nonnull %5), !range !23
-  %36 = trunc i64 %33 to i8
+  %36 = trunc nuw nsw i64 %33 to i8
   %37 = add nsw i8 %36, -1
   store i8 %37, ptr %14, align 1
   %38 = load ptr, ptr %10, align 8
@@ -20889,7 +20889,7 @@ define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %
 
 .thread14:                                        ; preds = %190, %195
   %198 = phi i32 [ %196, %195 ], [ %177, %190 ]
-  %199 = trunc i32 %198 to i8
+  %199 = trunc nuw i32 %198 to i8
   %200 = icmp ugt i8 %174, %199
   %201 = and i32 %198, 255
   %202 = zext nneg i32 %201 to i64
@@ -21163,7 +21163,7 @@ define internal fastcc void @mast_split_data(ptr nocapture noundef readonly %0, 
   br i1 %56, label %58, label %47, !llvm.loop !141
 
 58:                                               ; preds = %52
-  %59 = trunc i64 %53 to i32
+  %59 = trunc nuw nsw i64 %53 to i32
   br label %.loopexit3.i
 
 .loopexit3.i:                                     ; preds = %47, %58
@@ -21295,7 +21295,7 @@ mab_mas_cp.exit:                                  ; preds = %99, %.loopexit.i
   %146 = icmp eq i64 %145, 0
   %147 = select i1 %146, i64 2, i64 3, !prof !12
   %148 = lshr i64 %144, %147
-  %149 = trunc i64 %148 to i8
+  %149 = trunc nuw nsw i64 %148 to i8
   br label %150
 
 150:                                              ; preds = %143, %128
@@ -21397,7 +21397,7 @@ define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, 
   %35 = icmp eq i64 %34, 0
   %36 = select i1 %35, i64 2, i64 3, !prof !12
   %37 = lshr i64 %33, %36
-  %38 = trunc i64 %37 to i8
+  %38 = trunc nuw nsw i64 %37 to i8
   br label %39
 
 39:                                               ; preds = %32, %22
@@ -21484,7 +21484,7 @@ define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, 
 
 .thread:                                          ; preds = %82, %87
   %90 = phi i32 [ %88, %87 ], [ %68, %82 ]
-  %91 = trunc i32 %90 to i8
+  %91 = trunc nuw i32 %90 to i8
   %92 = icmp ugt i8 %65, %91
   %93 = getelementptr inbounds i8, ptr %1, i64 40
   %94 = and i32 %90, 255

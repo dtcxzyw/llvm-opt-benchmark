@@ -1014,18 +1014,14 @@ do.body16:                                        ; preds = %if.then7, %do.body5
   %en_longindex = getelementptr inbounds i8, ptr %en, i64 40
   %2 = load ptr, ptr %en_longindex, align 8
   %tobool17.not = icmp eq ptr %2, null
-  br i1 %tobool17.not, label %do.end26, label %if.then18
+  br i1 %tobool17.not, label %return, label %if.then18
 
 if.then18:                                        ; preds = %do.body16
   %call21 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #3
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %do.end26, label %return
-
-do.end26:                                         ; preds = %do.body16, %if.then18
   br label %return
 
-return:                                           ; preds = %if.then18, %if.then7, %if.then, %do.end26
-  %retval.0 = phi i32 [ 0, %do.end26 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ]
+return:                                           ; preds = %if.then18, %do.body16, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ 0, %do.body16 ], [ %call21, %if.then18 ]
   ret i32 %retval.0
 }
 
@@ -1382,37 +1378,37 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add15 = add i64 %kwargs.val, %args.val
-  %ob_item20 = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item17 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %2 = add i64 %args.val, -1
-  %or.cond1 = icmp ult i64 %2, 2
+  %3 = icmp ult i64 %2, 2
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
-  br i1 %or.cond1, label %if.end, label %cond.end15
+  br i1 %3, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
-  %ob_item23 = phi ptr [ %ob_item20, %cond.end.thread ], [ %ob_item, %cond.end ]
-  %add21 = phi i64 [ %add15, %cond.end.thread ], [ %args.val, %cond.end ]
-  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item23, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @enum_new._parser, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #3
+  %ob_item20 = phi ptr [ %ob_item17, %cond.end.thread ], [ %ob_item, %cond.end ]
+  %add18 = phi i64 [ %add15, %cond.end.thread ], [ %args.val, %cond.end ]
+  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item20, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @enum_new._parser, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #3
   %tobool17.not = icmp eq ptr %call14, null
   br i1 %tobool17.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %cond.end, %cond.end15
-  %cond1628 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
-  %add2227 = phi i64 [ %add21, %cond.end15 ], [ %args.val, %cond.end ]
-  %3 = load ptr, ptr %cond1628, align 8
-  %tobool18.not = icmp eq i64 %add2227, 1
+  %cond1625 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
+  %add1924 = phi i64 [ %add18, %cond.end15 ], [ %args.val, %cond.end ]
+  %4 = load ptr, ptr %cond1625, align 8
+  %tobool18.not = icmp eq i64 %add1924, 1
   br i1 %tobool18.not, label %skip_optional_pos, label %if.end20
 
 if.end20:                                         ; preds = %if.end
-  %arrayidx21 = getelementptr i8, ptr %cond1628, i64 8
-  %4 = load ptr, ptr %arrayidx21, align 8
+  %arrayidx21 = getelementptr i8, ptr %cond1625, i64 8
+  %5 = load ptr, ptr %arrayidx21, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end, %if.end20
-  %start.0 = phi ptr [ %4, %if.end20 ], [ null, %if.end ]
-  %call22 = call fastcc ptr @enum_new_impl(ptr noundef %type, ptr noundef %3, ptr noundef %start.0)
+  %start.0 = phi ptr [ %5, %if.end20 ], [ null, %if.end ]
+  %call22 = call fastcc ptr @enum_new_impl(ptr noundef %type, ptr noundef %4, ptr noundef %start.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end15, %skip_optional_pos
@@ -1595,18 +1591,14 @@ entry:
   %seq = getelementptr inbounds i8, ptr %ro, i64 24
   %0 = load ptr, ptr %seq, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #3
-  %tobool2.not = icmp eq i32 %call, 0
-  br i1 %tobool2.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 

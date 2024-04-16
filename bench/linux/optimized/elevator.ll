@@ -516,14 +516,14 @@ define dso_local i32 @elv_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %128
+  br i1 %9, label %10, label %127
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 409600
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %128
+  br i1 %14, label %15, label %127
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %0, i64 88
@@ -558,13 +558,13 @@ define dso_local i32 @elv_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %16, align 8
   store ptr %36, ptr %1, align 8
-  br label %128
+  br label %127
 
 37:                                               ; preds = %31, %29, %19, %15
   %38 = load volatile i64, ptr %6, align 8
   %39 = and i64 %38, 512
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %128
+  br i1 %40, label %41, label %127
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %2, i64 32
@@ -687,32 +687,30 @@ elv_rqhash_find.exit:                             ; preds = %86
   %113 = load i32, ptr %100, align 8
   %114 = and i32 %113, 255
   %115 = icmp eq i32 %114, 3
-  br i1 %115, label %116, label %121
+  br i1 %115, label %116, label %127
 
 116:                                              ; preds = %112
   %117 = load ptr, ptr %54, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 224
   %119 = load i16, ptr %118, align 8
   %120 = icmp ugt i16 %119, 1
-  br i1 %120, label %128, label %121
-
-121:                                              ; preds = %116, %112
-  br label %128
+  %spec.select = select i1 %120, i32 3, i32 2
+  br label %127
 
 elv_rqhash_find.exit.thread:                      ; preds = %95, %41, %110, %elv_rqhash_find.exit
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 64
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %128, label %126
+  %121 = load ptr, ptr %5, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 64
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %127, label %125
 
-126:                                              ; preds = %elv_rqhash_find.exit.thread
-  %127 = tail call i32 %124(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
-  br label %128
+125:                                              ; preds = %elv_rqhash_find.exit.thread
+  %126 = tail call i32 %123(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
+  br label %127
 
-128:                                              ; preds = %126, %elv_rqhash_find.exit.thread, %121, %116, %37, %35, %10, %3
-  %129 = phi i32 [ %127, %126 ], [ %33, %35 ], [ 0, %10 ], [ 0, %3 ], [ 0, %37 ], [ 0, %elv_rqhash_find.exit.thread ], [ 2, %121 ], [ 3, %116 ]
-  ret i32 %129
+127:                                              ; preds = %116, %112, %125, %elv_rqhash_find.exit.thread, %37, %35, %10, %3
+  %128 = phi i32 [ %126, %125 ], [ %33, %35 ], [ 0, %10 ], [ 0, %3 ], [ 0, %37 ], [ 0, %elv_rqhash_find.exit.thread ], [ 2, %112 ], [ %spec.select, %116 ]
+  ret i32 %128
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1778,7 +1776,7 @@ define dso_local noundef i64 @elv_iosched_store(ptr noundef %0, ptr noundef %1, 
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread7, label %8
+  br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 792
@@ -1791,7 +1789,7 @@ define dso_local noundef i64 @elv_iosched_store(ptr noundef %0, ptr noundef %1, 
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 64
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.thread7
+  br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %12, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !40
@@ -1801,7 +1799,7 @@ define dso_local noundef i64 @elv_iosched_store(ptr noundef %0, ptr noundef %1, 
   %21 = load volatile i64, ptr %20, align 8
   %22 = and i64 %21, 4194304
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.thread7, label %24
+  br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %17
   %25 = call i32 @strncmp(ptr noundef %19, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #13
@@ -1849,7 +1847,7 @@ define dso_local noundef i64 @elv_iosched_store(ptr noundef %0, ptr noundef %1, 
   %50 = call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.18, ptr noundef %19) #13
   %51 = call fastcc ptr @elevator_find_get(ptr noundef %0, ptr noundef %19)
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread7, label %53
+  br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %46, %49
   %54 = phi ptr [ %47, %46 ], [ %51, %49 ]
@@ -1860,13 +1858,11 @@ define dso_local noundef i64 @elv_iosched_store(ptr noundef %0, ptr noundef %1, 
   call void @module_put(ptr noundef %57) #13
   %58 = icmp eq i32 %.fr, 0
   %59 = sext i32 %.fr to i64
-  br i1 %58, label %.thread, label %.thread7
+  %spec.select = select i1 %58, i64 %2, i64 %59
+  br label %.thread
 
-.thread:                                          ; preds = %33, %43, %30, %31, %53
-  br label %.thread7
-
-.thread7:                                         ; preds = %49, %17, %.thread, %53, %12, %3
-  %60 = phi i64 [ %2, %3 ], [ %2, %12 ], [ %2, %.thread ], [ %59, %53 ], [ -22, %49 ], [ -2, %17 ]
+.thread:                                          ; preds = %49, %17, %53, %33, %43, %30, %31, %12, %3
+  %60 = phi i64 [ %2, %3 ], [ %2, %12 ], [ %2, %31 ], [ %2, %30 ], [ %2, %43 ], [ %2, %33 ], [ %spec.select, %53 ], [ -22, %49 ], [ -2, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   ret i64 %60
 }
@@ -2147,21 +2143,19 @@ define internal fastcc ptr @elevator_find_get(ptr nocapture noundef readonly %0,
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, %25
   %29 = icmp eq i32 %28, %25
-  br i1 %29, label %30, label %34
+  br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %23
   %31 = getelementptr i8, ptr %5, i64 -48
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i1 @try_module_get(ptr noundef %32) #13
-  br i1 %33, label %.thread, label %34
-
-34:                                               ; preds = %30, %23
+  %spec.select = select i1 %33, ptr %21, ptr null
   br label %.thread
 
-.thread:                                          ; preds = %17, %2, %34, %30, %20
-  %35 = phi ptr [ %21, %30 ], [ null, %34 ], [ null, %20 ], [ null, %2 ], [ null, %17 ]
+.thread:                                          ; preds = %17, %2, %30, %23, %20
+  %34 = phi ptr [ null, %20 ], [ null, %23 ], [ %spec.select, %30 ], [ null, %2 ], [ null, %17 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @elv_list_lock) #13
-  ret ptr %35
+  ret ptr %34
 }
 
 ; Function Attrs: null_pointer_is_valid

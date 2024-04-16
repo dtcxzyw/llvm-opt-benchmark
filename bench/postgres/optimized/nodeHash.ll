@@ -1397,7 +1397,7 @@ tailrecurse:                                      ; preds = %67, %9
   %36 = udiv i64 %.079, %17
   %37 = udiv i64 %36, 50
   %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 2147483647)
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   store i32 %39, ptr %8, align 4
   %.not = icmp ult i64 %36, 50
   br i1 %.not, label %44, label %40
@@ -1459,7 +1459,7 @@ tailrecurse:                                      ; preds = %67, %9
 77:                                               ; preds = %68, %70
   %.080 = phi i64 [ %.0.i87, %70 ], [ 1, %68 ]
   %78 = tail call i64 @llvm.umin.i64(i64 %.080, i64 %49)
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw nsw i64 %78 to i32
   %80 = tail call i32 @llvm.ctpop.i32(i32 %79), !range !16
   %81 = icmp ult i32 %80, 2
   %82 = tail call i32 @llvm.ctlz.i32(i32 %79, i1 true), !range !16
@@ -1599,7 +1599,7 @@ define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr nocapture noun
 54:                                               ; preds = %._crit_edge, %31
   store ptr %43, ptr %33, align 8
   %55 = load i32, ptr %24, align 8
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   %57 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.6, i32 noundef %56, i32 noundef %55) #16
   %58 = getelementptr i8, ptr %43, i64 96
   %59 = load i32, ptr %8, align 8
@@ -4008,12 +4008,12 @@ define internal fastcc void @ExecParallelHashIncreaseNumBatches(ptr noundef %0) 
   %6 = getelementptr inbounds i8, ptr %5, i64 116
   %7 = tail call i32 @BarrierPhase(ptr noundef nonnull %6) #16
   %8 = srem i32 %7, 5
-  switch i32 %8, label %421 [
+  switch i32 %8, label %420 [
     i32 0, label %9
     i32 1, label %137
     i32 2, label %139
     i32 3, label %361
-    i32 4, label %419
+    i32 4, label %418
   ]
 
 9:                                                ; preds = %1
@@ -4590,7 +4590,7 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i107, %ExecP
 
 361:                                              ; preds = %ExecParallelHashMergeCounters.exit, %1
   %362 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217749) #16
-  br i1 %362, label %363, label %419
+  br i1 %362, label %363, label %418
 
 363:                                              ; preds = %361
   call fastcc void @ExecParallelHashEnsureBatchAccessors(ptr noundef nonnull %0)
@@ -4652,7 +4652,7 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i107, %ExecP
 
 400:                                              ; preds = %395, %389
   %401 = load i32, ptr %388, align 4
-  %402 = trunc i64 %indvars.iv146 to i32
+  %402 = trunc nuw nsw i64 %indvars.iv146 to i32
   %403 = srem i32 %402, %401
   %404 = getelementptr inbounds i8, ptr %391, i64 72
   %405 = load i64, ptr %404, align 8
@@ -4675,29 +4675,26 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i107, %ExecP
 ._crit_edge138:                                   ; preds = %412
   %413 = icmp sgt i32 %384, 1073741822
   %or.cond = or i1 %.1, %413
-  %brmerge = select i1 %or.cond, i1 true, i1 %.190
-  %.mux = select i1 %or.cond, i32 3, i32 2
-  br i1 %brmerge, label %414, label %.thread
+  %spec.select156 = select i1 %.190, i32 2, i32 0
+  %spec.select157 = select i1 %or.cond, i32 3, i32 %spec.select156
+  br label %.thread
 
 .thread:                                          ; preds = %._crit_edge138, %363
-  br label %414
+  %.sink = phi i32 [ 0, %363 ], [ %spec.select157, %._crit_edge138 ]
+  %414 = getelementptr inbounds i8, ptr %5, i64 28
+  store i32 %.sink, ptr %414, align 4
+  %415 = load ptr, ptr %365, align 8
+  %416 = getelementptr inbounds i8, ptr %5, i64 8
+  %417 = load i64, ptr %416, align 8
+  call void @dsa_free(ptr noundef %415, i64 noundef %417) #16
+  store i64 0, ptr %416, align 8
+  br label %418
 
-414:                                              ; preds = %._crit_edge138, %.thread
-  %.sink = phi i32 [ 0, %.thread ], [ %.mux, %._crit_edge138 ]
-  %415 = getelementptr inbounds i8, ptr %5, i64 28
-  store i32 %.sink, ptr %415, align 4
-  %416 = load ptr, ptr %365, align 8
-  %417 = getelementptr inbounds i8, ptr %5, i64 8
-  %418 = load i64, ptr %417, align 8
-  call void @dsa_free(ptr noundef %416, i64 noundef %418) #16
-  store i64 0, ptr %417, align 8
-  br label %419
+418:                                              ; preds = %361, %.thread, %1
+  %419 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217751) #16
+  br label %420
 
-419:                                              ; preds = %361, %414, %1
-  %420 = call zeroext i1 @BarrierArriveAndWait(ptr noundef nonnull %6, i32 noundef 134217751) #16
-  br label %421
-
-421:                                              ; preds = %419, %1
+420:                                              ; preds = %418, %1
   ret void
 }
 

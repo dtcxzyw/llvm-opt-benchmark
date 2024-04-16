@@ -191,7 +191,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %27, %43
 .lr.ph:                                           ; preds = %_ZNK9Stockfish8Position3keyEv.exit, %.lr.ph
   %.035 = phi i64 [ %61, %.lr.ph ], [ %57, %_ZNK9Stockfish8Position3keyEv.exit ]
   %58 = call i64 @llvm.cttz.i64(i64 %.035, i1 true), !range !8
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw nsw i64 %58 to i32
   %60 = add i64 %.035, -1
   %61 = and i64 %60, %.035
   call void @_ZN9Stockfish3UCI6squareB5cxx11ENS_6SquareE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %59) #18
@@ -318,7 +318,7 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   br label %29
 
 .critedge:                                        ; preds = %10
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nsw i64 %indvars.iv to i32
   %.not11 = icmp eq i32 %.0833, 0
   br i1 %.not11, label %.thread, label %19
 
@@ -745,12 +745,12 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %96
-  %111 = trunc i64 %indvars.iv60 to i32
+  %111 = trunc nsw i64 %indvars.iv60 to i32
   %.pre = select i1 %.not30, i32 56, i32 0
   br label %.loopexit
 
 .loopexit.loopexit58:                             ; preds = %102
-  %112 = trunc i64 %indvars.iv to i32
+  %112 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit58, %.loopexit.loopexit, %108
@@ -762,7 +762,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %116 = load i64, ptr %81, align 8
   %117 = and i64 %116, %115
   %118 = call i64 @llvm.cttz.i64(i64 %117, i1 true), !range !8
-  %119 = trunc i64 %118 to i32
+  %119 = trunc nuw nsw i64 %118 to i32
   %120 = icmp sgt i32 %.2, %119
   %121 = select i1 %120, i32 5, i32 10
   %122 = select i1 %.not30, i32 12, i32 3
@@ -1187,7 +1187,7 @@ define dso_local void @_ZN9Stockfish8Position18set_castling_rightENS_5ColorENS_6
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, %7
   %11 = tail call i64 @llvm.cttz.i64(i64 %10, i1 true), !range !8
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = icmp slt i32 %12, %2
   %14 = select i1 %13, i32 5, i32 10
   %15 = icmp eq i32 %1, 0
@@ -2118,7 +2118,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
 
 111:                                              ; preds = %113
   %indvars.iv.next = add nsw i64 %indvars.iv, %85
-  %112 = trunc i64 %indvars.iv.next to i32
+  %112 = trunc nsw i64 %indvars.iv.next to i32
   %.not34 = icmp eq i32 %112, %7
   br i1 %.not34, label %._crit_edge, label %113, !llvm.loop !51
 
@@ -2335,7 +2335,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4M
   %13 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not = icmp ult i16 %1, 16384
-  br i1 %.not, label %110, label %15
+  br i1 %.not, label %108, label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %0, i64 848
@@ -2343,7 +2343,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4M
   %18 = getelementptr inbounds i8, ptr %17, i64 48
   %19 = load i64, ptr %18, align 16
   %.not47 = icmp eq i64 %19, 0
-  br i1 %.not47, label %65, label %20
+  br i1 %.not47, label %64, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %3, i64 2048
@@ -2378,13 +2378,13 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4M
   %37 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %38, %1
-  br i1 %39, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95, label %40
+  br i1 %39, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit96, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
   %42 = load i16, ptr %41, align 2
   %43 = icmp eq i16 %42, %1
-  br i1 %43, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97, label %44
+  br i1 %43, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit98, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 32
@@ -2401,7 +2401,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4M
   %.pre-phi56.i.i.i.i = phi i64 [ %.pre55.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %25, %20 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %3, %20 ]
   %48 = ashr exact i64 %.pre-phi56.i.i.i.i, 3
-  switch i64 %48, label %60 [
+  switch i64 %48, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit [
     i64 3, label %49
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i
@@ -2430,354 +2430,350 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4M
   %.2.i.i.i.i = phi ptr [ %57, %56 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %58 = load i16, ptr %.2.i.i.i.i, align 2
   %59 = icmp eq i16 %58, %1
-  br i1 %59, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit, label %60
-
-60:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %59, ptr %.2.i.i.i.i, ptr %22
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit
 
 _ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit: ; preds = %32
-  %61 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+  %60 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95: ; preds = %36
-  %62 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit96: ; preds = %36
+  %61 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97: ; preds = %40
-  %63 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit98: ; preds = %40
+  %62 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit: ; preds = %29, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97, %49, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %60
-  %.028.i.i.i.i = phi ptr [ %22, %60 ], [ %.029.lcssa.i.i.i.i, %49 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %61, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %62, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95 ], [ %63, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97 ], [ %.02946.i.i.i.i, %29 ]
-  %64 = icmp ne ptr %.028.i.i.i.i, %22
-  br label %265
+_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit: ; preds = %29, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit96, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit98, %._crit_edge.i.i.i.i, %49, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %49 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %22, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %60, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %61, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit96 ], [ %62, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit98 ], [ %.02946.i.i.i.i, %29 ]
+  %63 = icmp ne ptr %.028.i.i.i.i, %22
+  br label %263
 
-65:                                               ; preds = %15
-  %66 = getelementptr inbounds i8, ptr %4, i64 2048
-  %67 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4) #18
-  store ptr %67, ptr %66, align 8
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %4 to i64
-  %70 = sub i64 %68, %69
-  %71 = ashr i64 %70, 5
-  %72 = icmp sgt i64 %71, 0
-  br i1 %72, label %.lr.ph.i.i.i.i56, label %._crit_edge.i.i.i.i48
+64:                                               ; preds = %15
+  %65 = getelementptr inbounds i8, ptr %4, i64 2048
+  %66 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull %4) #18
+  store ptr %66, ptr %65, align 8
+  %67 = ptrtoint ptr %66 to i64
+  %68 = ptrtoint ptr %4 to i64
+  %69 = sub i64 %67, %68
+  %70 = ashr i64 %69, 5
+  %71 = icmp sgt i64 %70, 0
+  br i1 %71, label %.lr.ph.i.i.i.i57, label %._crit_edge.i.i.i.i48
 
-.lr.ph.i.i.i.i56:                                 ; preds = %65
-  %73 = and i64 %70, -32
-  %scevgep.i.i.i.i57 = getelementptr i8, ptr %4, i64 %73
-  br label %74
+.lr.ph.i.i.i.i57:                                 ; preds = %64
+  %72 = and i64 %69, -32
+  %scevgep.i.i.i.i58 = getelementptr i8, ptr %4, i64 %72
+  br label %73
 
-74:                                               ; preds = %89, %.lr.ph.i.i.i.i56
-  %.047.i.i.i.i58 = phi i64 [ %71, %.lr.ph.i.i.i.i56 ], [ %91, %89 ]
-  %.02946.i.i.i.i59 = phi ptr [ %4, %.lr.ph.i.i.i.i56 ], [ %90, %89 ]
-  %75 = load i16, ptr %.02946.i.i.i.i59, align 2
-  %76 = icmp eq i16 %75, %1
-  br i1 %76, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, label %77
+73:                                               ; preds = %88, %.lr.ph.i.i.i.i57
+  %.047.i.i.i.i59 = phi i64 [ %70, %.lr.ph.i.i.i.i57 ], [ %90, %88 ]
+  %.02946.i.i.i.i60 = phi ptr [ %4, %.lr.ph.i.i.i.i57 ], [ %89, %88 ]
+  %74 = load i16, ptr %.02946.i.i.i.i60, align 2
+  %75 = icmp eq i16 %74, %1
+  br i1 %75, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, label %76
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %.02946.i.i.i.i59, i64 8
-  %79 = load i16, ptr %78, align 2
-  %80 = icmp eq i16 %79, %1
-  br i1 %80, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, label %81
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %.02946.i.i.i.i60, i64 8
+  %78 = load i16, ptr %77, align 2
+  %79 = icmp eq i16 %78, %1
+  br i1 %79, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, label %80
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %.02946.i.i.i.i59, i64 16
-  %83 = load i16, ptr %82, align 2
-  %84 = icmp eq i16 %83, %1
-  br i1 %84, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103, label %85
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds i8, ptr %.02946.i.i.i.i60, i64 16
+  %82 = load i16, ptr %81, align 2
+  %83 = icmp eq i16 %82, %1
+  br i1 %83, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit104, label %84
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %.02946.i.i.i.i59, i64 24
-  %87 = load i16, ptr %86, align 2
-  %88 = icmp eq i16 %87, %1
-  br i1 %88, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105, label %89
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds i8, ptr %.02946.i.i.i.i60, i64 24
+  %86 = load i16, ptr %85, align 2
+  %87 = icmp eq i16 %86, %1
+  br i1 %87, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit106, label %88
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %.02946.i.i.i.i59, i64 32
-  %91 = add nsw i64 %.047.i.i.i.i58, -1
-  %92 = icmp sgt i64 %.047.i.i.i.i58, 1
-  br i1 %92, label %74, label %._crit_edge.loopexit.i.i.i.i60, !llvm.loop !52
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds i8, ptr %.02946.i.i.i.i60, i64 32
+  %90 = add nsw i64 %.047.i.i.i.i59, -1
+  %91 = icmp sgt i64 %.047.i.i.i.i59, 1
+  br i1 %91, label %73, label %._crit_edge.loopexit.i.i.i.i61, !llvm.loop !52
 
-._crit_edge.loopexit.i.i.i.i60:                   ; preds = %89
-  %.pre54.i.i.i.i61 = ptrtoint ptr %scevgep.i.i.i.i57 to i64
-  %.pre55.i.i.i.i62 = sub i64 %68, %.pre54.i.i.i.i61
+._crit_edge.loopexit.i.i.i.i61:                   ; preds = %88
+  %.pre54.i.i.i.i62 = ptrtoint ptr %scevgep.i.i.i.i58 to i64
+  %.pre55.i.i.i.i63 = sub i64 %67, %.pre54.i.i.i.i62
   br label %._crit_edge.i.i.i.i48
 
-._crit_edge.i.i.i.i48:                            ; preds = %._crit_edge.loopexit.i.i.i.i60, %65
-  %.pre-phi56.i.i.i.i49 = phi i64 [ %.pre55.i.i.i.i62, %._crit_edge.loopexit.i.i.i.i60 ], [ %70, %65 ]
-  %.029.lcssa.i.i.i.i50 = phi ptr [ %scevgep.i.i.i.i57, %._crit_edge.loopexit.i.i.i.i60 ], [ %4, %65 ]
-  %93 = ashr exact i64 %.pre-phi56.i.i.i.i49, 3
-  switch i64 %93, label %105 [
-    i64 3, label %94
-    i64 2, label %._crit_edge._crit_edge.i.i.i.i54
+._crit_edge.i.i.i.i48:                            ; preds = %._crit_edge.loopexit.i.i.i.i61, %64
+  %.pre-phi56.i.i.i.i49 = phi i64 [ %.pre55.i.i.i.i63, %._crit_edge.loopexit.i.i.i.i61 ], [ %69, %64 ]
+  %.029.lcssa.i.i.i.i50 = phi ptr [ %scevgep.i.i.i.i58, %._crit_edge.loopexit.i.i.i.i61 ], [ %4, %64 ]
+  %92 = ashr exact i64 %.pre-phi56.i.i.i.i49, 3
+  switch i64 %92, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit [
+    i64 3, label %93
+    i64 2, label %._crit_edge._crit_edge.i.i.i.i55
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i51
   ]
 
-94:                                               ; preds = %._crit_edge.i.i.i.i48
-  %95 = load i16, ptr %.029.lcssa.i.i.i.i50, align 2
-  %96 = icmp eq i16 %95, %1
-  br i1 %96, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, label %97
+93:                                               ; preds = %._crit_edge.i.i.i.i48
+  %94 = load i16, ptr %.029.lcssa.i.i.i.i50, align 2
+  %95 = icmp eq i16 %94, %1
+  br i1 %95, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, label %96
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i50, i64 8
-  br label %._crit_edge._crit_edge.i.i.i.i54
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i50, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i55
 
-._crit_edge._crit_edge.i.i.i.i54:                 ; preds = %97, %._crit_edge.i.i.i.i48
-  %.1.i.i.i.i55 = phi ptr [ %98, %97 ], [ %.029.lcssa.i.i.i.i50, %._crit_edge.i.i.i.i48 ]
-  %99 = load i16, ptr %.1.i.i.i.i55, align 2
-  %100 = icmp eq i16 %99, %1
-  br i1 %100, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, label %101
+._crit_edge._crit_edge.i.i.i.i55:                 ; preds = %96, %._crit_edge.i.i.i.i48
+  %.1.i.i.i.i56 = phi ptr [ %97, %96 ], [ %.029.lcssa.i.i.i.i50, %._crit_edge.i.i.i.i48 ]
+  %98 = load i16, ptr %.1.i.i.i.i56, align 2
+  %99 = icmp eq i16 %98, %1
+  br i1 %99, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, label %100
 
-101:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i54
-  %102 = getelementptr inbounds i8, ptr %.1.i.i.i.i55, i64 8
+100:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i55
+  %101 = getelementptr inbounds i8, ptr %.1.i.i.i.i56, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i51
 
-._crit_edge._crit_edge52.i.i.i.i51:               ; preds = %101, %._crit_edge.i.i.i.i48
-  %.2.i.i.i.i52 = phi ptr [ %102, %101 ], [ %.029.lcssa.i.i.i.i50, %._crit_edge.i.i.i.i48 ]
-  %103 = load i16, ptr %.2.i.i.i.i52, align 2
-  %104 = icmp eq i16 %103, %1
-  br i1 %104, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, label %105
-
-105:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i51, %._crit_edge.i.i.i.i48
+._crit_edge._crit_edge52.i.i.i.i51:               ; preds = %100, %._crit_edge.i.i.i.i48
+  %.2.i.i.i.i52 = phi ptr [ %101, %100 ], [ %.029.lcssa.i.i.i.i50, %._crit_edge.i.i.i.i48 ]
+  %102 = load i16, ptr %.2.i.i.i.i52, align 2
+  %103 = icmp eq i16 %102, %1
+  %spec.select.i.i.i.i53 = select i1 %103, ptr %.2.i.i.i.i52, ptr %66
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit: ; preds = %77
-  %106 = getelementptr inbounds i8, ptr %.02946.i.i.i.i59, i64 8
+_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit: ; preds = %76
+  %104 = getelementptr inbounds i8, ptr %.02946.i.i.i.i60, i64 8
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103: ; preds = %81
-  %107 = getelementptr inbounds i8, ptr %.02946.i.i.i.i59, i64 16
+_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit104: ; preds = %80
+  %105 = getelementptr inbounds i8, ptr %.02946.i.i.i.i60, i64 16
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105: ; preds = %85
-  %108 = getelementptr inbounds i8, ptr %.02946.i.i.i.i59, i64 24
+_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit106: ; preds = %84
+  %106 = getelementptr inbounds i8, ptr %.02946.i.i.i.i60, i64 24
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105, %94, %._crit_edge._crit_edge.i.i.i.i54, %._crit_edge._crit_edge52.i.i.i.i51, %105
-  %.028.i.i.i.i53 = phi ptr [ %67, %105 ], [ %.029.lcssa.i.i.i.i50, %94 ], [ %.1.i.i.i.i55, %._crit_edge._crit_edge.i.i.i.i54 ], [ %.2.i.i.i.i52, %._crit_edge._crit_edge52.i.i.i.i51 ], [ %106, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %107, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103 ], [ %108, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105 ], [ %.02946.i.i.i.i59, %74 ]
-  %109 = icmp ne ptr %.028.i.i.i.i53, %67
-  br label %265
+_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %73, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit104, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit106, %._crit_edge.i.i.i.i48, %93, %._crit_edge._crit_edge.i.i.i.i55, %._crit_edge._crit_edge52.i.i.i.i51
+  %.028.i.i.i.i54 = phi ptr [ %.029.lcssa.i.i.i.i50, %93 ], [ %.1.i.i.i.i56, %._crit_edge._crit_edge.i.i.i.i55 ], [ %66, %._crit_edge.i.i.i.i48 ], [ %spec.select.i.i.i.i53, %._crit_edge._crit_edge52.i.i.i.i51 ], [ %104, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %105, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit104 ], [ %106, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit106 ], [ %.02946.i.i.i.i60, %73 ]
+  %107 = icmp ne ptr %.028.i.i.i.i54, %66
+  br label %263
 
-110:                                              ; preds = %2
-  %111 = icmp ne i32 %14, 0
-  %112 = ashr i32 %14, 3
-  %.not38 = icmp eq i32 %112, %6
-  %or.cond = select i1 %111, i1 %.not38, i1 false
-  br i1 %or.cond, label %113, label %265
+108:                                              ; preds = %2
+  %109 = icmp ne i32 %14, 0
+  %110 = ashr i32 %14, 3
+  %.not38 = icmp eq i32 %110, %6
+  %or.cond = select i1 %109, i1 %.not38, i1 false
+  br i1 %or.cond, label %111, label %263
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %0, i64 320
-  %115 = zext i32 %6 to i64
-  %116 = getelementptr inbounds [2 x i64], ptr %114, i64 0, i64 %115
-  %117 = load i64, ptr %116, align 8
-  %118 = zext nneg i16 %10 to i64
-  %119 = shl nuw i64 1, %118
-  %120 = and i64 %117, %119
-  %.not39 = icmp eq i64 %120, 0
-  br i1 %.not39, label %121, label %265
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds i8, ptr %0, i64 320
+  %113 = zext i32 %6 to i64
+  %114 = getelementptr inbounds [2 x i64], ptr %112, i64 0, i64 %113
+  %115 = load i64, ptr %114, align 8
+  %116 = zext nneg i16 %10 to i64
+  %117 = shl nuw i64 1, %116
+  %118 = and i64 %115, %117
+  %.not39 = icmp eq i64 %118, 0
+  br i1 %.not39, label %119, label %263
 
-121:                                              ; preds = %113
-  %122 = and i32 %14, 7
-  %123 = icmp eq i32 %122, 1
-  br i1 %123, label %124, label %163
+119:                                              ; preds = %111
+  %120 = and i32 %14, 7
+  %121 = icmp eq i32 %120, 1
+  br i1 %121, label %122, label %161
 
-124:                                              ; preds = %121
-  %125 = and i64 %119, -72057594037927681
-  %.not41 = icmp eq i64 %125, 0
-  br i1 %.not41, label %126, label %265
+122:                                              ; preds = %119
+  %123 = and i64 %117, -72057594037927681
+  %.not41 = icmp eq i64 %123, 0
+  br i1 %.not41, label %124, label %263
 
-126:                                              ; preds = %124
-  %127 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %115, i64 %12
-  %128 = load i64, ptr %127, align 8
-  %129 = xor i32 %6, 1
-  %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds [2 x i64], ptr %114, i64 0, i64 %130
-  %132 = load i64, ptr %131, align 8
-  %133 = and i64 %128, %132
-  %134 = and i64 %133, %119
-  %.not42 = icmp eq i64 %134, 0
-  br i1 %.not42, label %135, label %235
+124:                                              ; preds = %122
+  %125 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 %113, i64 %12
+  %126 = load i64, ptr %125, align 8
+  %127 = xor i32 %6, 1
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr inbounds [2 x i64], ptr %112, i64 0, i64 %128
+  %130 = load i64, ptr %129, align 8
+  %131 = and i64 %126, %130
+  %132 = and i64 %131, %117
+  %.not42 = icmp eq i64 %132, 0
+  br i1 %.not42, label %133, label %233
 
-135:                                              ; preds = %126
-  %136 = icmp eq i32 %6, 0
-  %137 = select i1 %136, i32 8, i32 -8
-  %138 = add nsw i32 %137, %9
-  %139 = icmp eq i32 %138, %11
-  br i1 %139, label %140, label %144
+133:                                              ; preds = %124
+  %134 = icmp eq i32 %6, 0
+  %135 = select i1 %134, i32 8, i32 -8
+  %136 = add nsw i32 %135, %9
+  %137 = icmp eq i32 %136, %11
+  br i1 %137, label %138, label %142
 
-140:                                              ; preds = %135
-  %141 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %118
-  %142 = load i32, ptr %141, align 4
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %235, label %144
+138:                                              ; preds = %133
+  %139 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %116
+  %140 = load i32, ptr %139, align 4
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %233, label %142
 
-144:                                              ; preds = %140, %135
-  %145 = shl nsw i32 %137, 1
-  %146 = add nsw i32 %145, %9
-  %147 = icmp eq i32 %146, %11
-  br i1 %147, label %148, label %265
+142:                                              ; preds = %138, %133
+  %143 = shl nsw i32 %135, 1
+  %144 = add nsw i32 %143, %9
+  %145 = icmp eq i32 %144, %11
+  br i1 %145, label %146, label %263
 
-148:                                              ; preds = %144
-  %149 = lshr i32 %9, 3
-  %150 = mul nsw i32 %6, 7
-  %151 = xor i32 %150, %149
-  %152 = icmp eq i32 %151, 1
-  br i1 %152, label %153, label %265
+146:                                              ; preds = %142
+  %147 = lshr i32 %9, 3
+  %148 = mul nsw i32 %6, 7
+  %149 = xor i32 %148, %147
+  %150 = icmp eq i32 %149, 1
+  br i1 %150, label %151, label %263
 
-153:                                              ; preds = %148
-  %154 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %118
-  %155 = load i32, ptr %154, align 4
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %265
+151:                                              ; preds = %146
+  %152 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %116
+  %153 = load i32, ptr %152, align 4
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %155, label %263
 
-157:                                              ; preds = %153
-  %158 = sub nsw i32 %11, %137
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %159
-  %161 = load i32, ptr %160, align 4
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %235, label %265
+155:                                              ; preds = %151
+  %156 = sub nsw i32 %11, %135
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %157
+  %159 = load i32, ptr %158, align 4
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %233, label %263
 
-163:                                              ; preds = %121
-  %164 = getelementptr inbounds i8, ptr %0, i64 256
-  %165 = load i64, ptr %164, align 8
-  switch i32 %122, label %230 [
-    i32 3, label %166
-    i32 4, label %182
-    i32 5, label %198
+161:                                              ; preds = %119
+  %162 = getelementptr inbounds i8, ptr %0, i64 256
+  %163 = load i64, ptr %162, align 8
+  switch i32 %120, label %228 [
+    i32 3, label %164
+    i32 4, label %180
+    i32 5, label %196
   ]
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
-  %168 = getelementptr inbounds i8, ptr %167, i64 16
-  %169 = load ptr, ptr %168, align 16
-  %170 = load i64, ptr %167, align 16
-  %171 = and i64 %170, %165
-  %172 = getelementptr inbounds i8, ptr %167, i64 8
-  %173 = load i64, ptr %172, align 8
-  %174 = mul i64 %171, %173
-  %175 = getelementptr inbounds i8, ptr %167, i64 24
-  %176 = load i32, ptr %175, align 8
-  %177 = zext nneg i32 %176 to i64
-  %178 = lshr i64 %174, %177
-  %179 = and i64 %178, 4294967295
-  %180 = getelementptr inbounds i64, ptr %169, i64 %179
-  %181 = load i64, ptr %180, align 8
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
+  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %167 = load ptr, ptr %166, align 16
+  %168 = load i64, ptr %165, align 16
+  %169 = and i64 %168, %163
+  %170 = getelementptr inbounds i8, ptr %165, i64 8
+  %171 = load i64, ptr %170, align 8
+  %172 = mul i64 %169, %171
+  %173 = getelementptr inbounds i8, ptr %165, i64 24
+  %174 = load i32, ptr %173, align 8
+  %175 = zext nneg i32 %174 to i64
+  %176 = lshr i64 %172, %175
+  %177 = and i64 %176, 4294967295
+  %178 = getelementptr inbounds i64, ptr %167, i64 %177
+  %179 = load i64, ptr %178, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-182:                                              ; preds = %163
-  %183 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
-  %184 = getelementptr inbounds i8, ptr %183, i64 16
-  %185 = load ptr, ptr %184, align 16
-  %186 = load i64, ptr %183, align 16
-  %187 = and i64 %186, %165
-  %188 = getelementptr inbounds i8, ptr %183, i64 8
-  %189 = load i64, ptr %188, align 8
-  %190 = mul i64 %187, %189
-  %191 = getelementptr inbounds i8, ptr %183, i64 24
-  %192 = load i32, ptr %191, align 8
-  %193 = zext nneg i32 %192 to i64
-  %194 = lshr i64 %190, %193
-  %195 = and i64 %194, 4294967295
-  %196 = getelementptr inbounds i64, ptr %185, i64 %195
-  %197 = load i64, ptr %196, align 8
+180:                                              ; preds = %161
+  %181 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
+  %182 = getelementptr inbounds i8, ptr %181, i64 16
+  %183 = load ptr, ptr %182, align 16
+  %184 = load i64, ptr %181, align 16
+  %185 = and i64 %184, %163
+  %186 = getelementptr inbounds i8, ptr %181, i64 8
+  %187 = load i64, ptr %186, align 8
+  %188 = mul i64 %185, %187
+  %189 = getelementptr inbounds i8, ptr %181, i64 24
+  %190 = load i32, ptr %189, align 8
+  %191 = zext nneg i32 %190 to i64
+  %192 = lshr i64 %188, %191
+  %193 = and i64 %192, 4294967295
+  %194 = getelementptr inbounds i64, ptr %183, i64 %193
+  %195 = load i64, ptr %194, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-198:                                              ; preds = %163
-  %199 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
-  %200 = getelementptr inbounds i8, ptr %199, i64 16
-  %201 = load ptr, ptr %200, align 16
-  %202 = load i64, ptr %199, align 16
-  %203 = and i64 %202, %165
-  %204 = getelementptr inbounds i8, ptr %199, i64 8
-  %205 = load i64, ptr %204, align 8
-  %206 = mul i64 %203, %205
-  %207 = getelementptr inbounds i8, ptr %199, i64 24
-  %208 = load i32, ptr %207, align 8
-  %209 = zext nneg i32 %208 to i64
-  %210 = lshr i64 %206, %209
-  %211 = and i64 %210, 4294967295
-  %212 = getelementptr inbounds i64, ptr %201, i64 %211
-  %213 = load i64, ptr %212, align 8
-  %214 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
-  %215 = getelementptr inbounds i8, ptr %214, i64 16
-  %216 = load ptr, ptr %215, align 16
-  %217 = load i64, ptr %214, align 16
-  %218 = and i64 %217, %165
-  %219 = getelementptr inbounds i8, ptr %214, i64 8
-  %220 = load i64, ptr %219, align 8
-  %221 = mul i64 %218, %220
-  %222 = getelementptr inbounds i8, ptr %214, i64 24
-  %223 = load i32, ptr %222, align 8
-  %224 = zext nneg i32 %223 to i64
-  %225 = lshr i64 %221, %224
-  %226 = and i64 %225, 4294967295
-  %227 = getelementptr inbounds i64, ptr %216, i64 %226
-  %228 = load i64, ptr %227, align 8
-  %229 = or i64 %228, %213
+196:                                              ; preds = %161
+  %197 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %12
+  %198 = getelementptr inbounds i8, ptr %197, i64 16
+  %199 = load ptr, ptr %198, align 16
+  %200 = load i64, ptr %197, align 16
+  %201 = and i64 %200, %163
+  %202 = getelementptr inbounds i8, ptr %197, i64 8
+  %203 = load i64, ptr %202, align 8
+  %204 = mul i64 %201, %203
+  %205 = getelementptr inbounds i8, ptr %197, i64 24
+  %206 = load i32, ptr %205, align 8
+  %207 = zext nneg i32 %206 to i64
+  %208 = lshr i64 %204, %207
+  %209 = and i64 %208, 4294967295
+  %210 = getelementptr inbounds i64, ptr %199, i64 %209
+  %211 = load i64, ptr %210, align 8
+  %212 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %12
+  %213 = getelementptr inbounds i8, ptr %212, i64 16
+  %214 = load ptr, ptr %213, align 16
+  %215 = load i64, ptr %212, align 16
+  %216 = and i64 %215, %163
+  %217 = getelementptr inbounds i8, ptr %212, i64 8
+  %218 = load i64, ptr %217, align 8
+  %219 = mul i64 %216, %218
+  %220 = getelementptr inbounds i8, ptr %212, i64 24
+  %221 = load i32, ptr %220, align 8
+  %222 = zext nneg i32 %221 to i64
+  %223 = lshr i64 %219, %222
+  %224 = and i64 %223, 4294967295
+  %225 = getelementptr inbounds i64, ptr %214, i64 %224
+  %226 = load i64, ptr %225, align 8
+  %227 = or i64 %226, %211
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-230:                                              ; preds = %163
-  %231 = zext nneg i32 %122 to i64
-  %232 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %231, i64 %12
-  %233 = load i64, ptr %232, align 8
+228:                                              ; preds = %161
+  %229 = zext nneg i32 %120 to i64
+  %230 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %229, i64 %12
+  %231 = load i64, ptr %230, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %166, %182, %198, %230
-  %.0.i = phi i64 [ %233, %230 ], [ %229, %198 ], [ %197, %182 ], [ %181, %166 ]
-  %234 = and i64 %.0.i, %119
-  %.not40 = icmp eq i64 %234, 0
-  br i1 %.not40, label %265, label %235
+_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %164, %180, %196, %228
+  %.0.i = phi i64 [ %231, %228 ], [ %227, %196 ], [ %195, %180 ], [ %179, %164 ]
+  %232 = and i64 %.0.i, %117
+  %.not40 = icmp eq i64 %232, 0
+  br i1 %.not40, label %263, label %233
 
-235:                                              ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %126, %140, %157
-  %236 = getelementptr inbounds i8, ptr %0, i64 848
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 48
-  %239 = load i64, ptr %238, align 16
-  %.not43 = icmp eq i64 %239, 0
-  br i1 %.not43, label %264, label %240
+233:                                              ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %124, %138, %155
+  %234 = getelementptr inbounds i8, ptr %0, i64 848
+  %235 = load ptr, ptr %234, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 48
+  %237 = load i64, ptr %236, align 16
+  %.not43 = icmp eq i64 %237, 0
+  br i1 %.not43, label %262, label %238
 
-240:                                              ; preds = %235
-  %.not44 = icmp eq i32 %122, 6
-  br i1 %.not44, label %253, label %241
+238:                                              ; preds = %233
+  %.not44 = icmp eq i32 %120, 6
+  br i1 %.not44, label %251, label %239
 
-241:                                              ; preds = %240
-  %242 = tail call i64 @llvm.ctpop.i64(i64 %239), !range !8
-  %243 = icmp ugt i64 %242, 1
-  br i1 %243, label %265, label %244
+239:                                              ; preds = %238
+  %240 = tail call i64 @llvm.ctpop.i64(i64 %237), !range !8
+  %241 = icmp ugt i64 %240, 1
+  br i1 %241, label %263, label %242
 
-244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %0, i64 304
-  %246 = load i64, ptr %245, align 8
-  %247 = and i64 %246, %117
-  %248 = tail call i64 @llvm.cttz.i64(i64 %247, i1 true), !range !8
-  %249 = tail call i64 @llvm.cttz.i64(i64 %239, i1 true), !range !8
-  %250 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %248, i64 %249
-  %251 = load i64, ptr %250, align 8
-  %252 = and i64 %251, %119
-  %.not46 = icmp eq i64 %252, 0
-  br i1 %.not46, label %265, label %264
+242:                                              ; preds = %239
+  %243 = getelementptr inbounds i8, ptr %0, i64 304
+  %244 = load i64, ptr %243, align 8
+  %245 = and i64 %244, %115
+  %246 = tail call i64 @llvm.cttz.i64(i64 %245, i1 true), !range !8
+  %247 = tail call i64 @llvm.cttz.i64(i64 %237, i1 true), !range !8
+  %248 = getelementptr inbounds [64 x [64 x i64]], ptr @_ZN9Stockfish9BetweenBBE, i64 0, i64 %246, i64 %247
+  %249 = load i64, ptr %248, align 8
+  %250 = and i64 %249, %117
+  %.not46 = icmp eq i64 %250, 0
+  br i1 %.not46, label %263, label %262
 
-253:                                              ; preds = %240
-  %254 = getelementptr inbounds i8, ptr %0, i64 256
-  %255 = load i64, ptr %254, align 8
-  %256 = shl nuw i64 1, %12
-  %257 = xor i64 %255, %256
-  %258 = tail call noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %11, i64 noundef %257)
-  %259 = xor i32 %6, 1
-  %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds [2 x i64], ptr %114, i64 0, i64 %260
-  %262 = load i64, ptr %261, align 8
-  %263 = and i64 %262, %258
-  %.not45 = icmp eq i64 %263, 0
-  br i1 %.not45, label %264, label %265
+251:                                              ; preds = %238
+  %252 = getelementptr inbounds i8, ptr %0, i64 256
+  %253 = load i64, ptr %252, align 8
+  %254 = shl nuw i64 1, %12
+  %255 = xor i64 %253, %254
+  %256 = tail call noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %11, i64 noundef %255)
+  %257 = xor i32 %6, 1
+  %258 = zext i32 %257 to i64
+  %259 = getelementptr inbounds [2 x i64], ptr %112, i64 0, i64 %258
+  %260 = load i64, ptr %259, align 8
+  %261 = and i64 %260, %256
+  %.not45 = icmp eq i64 %261, 0
+  br i1 %.not45, label %262, label %263
 
-264:                                              ; preds = %244, %253, %235
-  br label %265
+262:                                              ; preds = %242, %251, %233
+  br label %263
 
-265:                                              ; preds = %253, %244, %241, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %144, %148, %153, %157, %124, %113, %110, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, %264
-  %.0 = phi i1 [ true, %264 ], [ %64, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit ], [ %109, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit ], [ false, %110 ], [ false, %113 ], [ false, %124 ], [ false, %157 ], [ false, %153 ], [ false, %148 ], [ false, %144 ], [ false, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ false, %241 ], [ false, %244 ], [ false, %253 ]
+263:                                              ; preds = %251, %242, %239, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %142, %146, %151, %155, %122, %111, %108, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, %262
+  %.0 = phi i1 [ true, %262 ], [ %63, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit ], [ %107, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit ], [ false, %108 ], [ false, %111 ], [ false, %122 ], [ false, %155 ], [ false, %151 ], [ false, %146 ], [ false, %142 ], [ false, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ false, %239 ], [ false, %242 ], [ false, %251 ]
   ret i1 %.0
 }
 
@@ -4254,7 +4250,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %40, %56
   %68 = zext i64 %66 to i128
   %69 = mul nuw i128 %68, %67
   %70 = lshr i128 %69, 64
-  %71 = trunc i128 %70 to i64
+  %71 = trunc nuw i128 %70 to i64
   %72 = getelementptr inbounds %"struct.Stockfish::TranspositionTable::Cluster", ptr %65, i64 %71
   tail call void @_ZN9Stockfish8prefetchEPv(ptr noundef %72) #18
   %73 = load ptr, ptr %4, align 8

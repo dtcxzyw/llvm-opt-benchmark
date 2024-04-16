@@ -455,7 +455,7 @@ for.cond5.preheader.i:                            ; preds = %for.body.i14, %for.
   %cmp396.i = phi i1 [ %cmp3.i, %for.inc79.i ], [ false, %for.body.i14 ]
   %i1.095.i = phi i64 [ %inc80.i, %for.inc79.i ], [ 0, %for.body.i14 ]
   %arrayidx9.i = getelementptr inbounds [8 x i64], ptr @__const._ZL20TestZeroCopyBioPairsv.kLengths, i64 0, i64 %i1.095.i
-  %conv50.i = trunc i64 %i1.095.i to i32
+  %conv50.i = trunc nuw nsw i64 %i1.095.i to i32
   br label %for.body7.i
 
 for.cond5.i:                                      ; preds = %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit75.i
@@ -684,12 +684,12 @@ if.end64.i:                                       ; preds = %if.end54.i
 cleanup.sink.split.i:                             ; preds = %if.end64.i, %if.end54.i, %invoke.cont45.i
   %.str.22.sink.i = phi ptr [ @.str.20, %invoke.cont45.i ], [ @.str.21, %if.end54.i ], [ @.str.22, %if.end64.i ]
   %64 = load ptr, ptr @stderr, align 8
-  %conv71.i = trunc i64 %j.094.i to i32
+  %conv71.i = trunc nuw nsw i64 %j.094.i to i32
   %call73.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull %.str.22.sink.i, i32 noundef %conv50.i, i32 noundef %conv71.i) #17
   br label %cleanup.i25
 
 cleanup.i25:                                      ; preds = %cleanup.sink.split.i, %if.end64.i, %invoke.cont11.i
-  %cleanup.dest.slot.0.i = phi i1 [ false, %invoke.cont11.i ], [ true, %if.end64.i ], [ false, %cleanup.sink.split.i ]
+  %switch.i = phi i1 [ false, %invoke.cont11.i ], [ true, %if.end64.i ], [ false, %cleanup.sink.split.i ]
   %cmp.not.i.i = icmp eq ptr %34, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.i28, label %if.then.i.i26
 
@@ -722,7 +722,7 @@ terminate.lpad.i73.i:                             ; preds = %if.then.i72.i
 
 _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit75.i: ; preds = %if.then.i72.i, %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit.i28
   store ptr null, ptr %bio1_scoper.i, align 8
-  br i1 %cleanup.dest.slot.0.i, label %for.cond5.i, label %_ZL20TestZeroCopyBioPairsv.exit
+  br i1 %switch.i, label %for.cond5.i, label %_ZL20TestZeroCopyBioPairsv.exit
 
 for.inc79.i:                                      ; preds = %for.cond5.i
   %inc80.i = add nuw nsw i64 %i1.095.i, 1
@@ -962,7 +962,7 @@ entry:
   %bio = alloca %"class.std::unique_ptr", align 8
   %out = alloca ptr, align 8
   %out_len = alloca i64, align 8
-  %conv = trunc i64 %data_len to i32
+  %conv = trunc nuw nsw i64 %data_len to i32
   %call = tail call ptr @BIO_new_mem_buf(ptr noundef %data, i32 noundef %conv)
   store ptr %call, ptr %bio, align 8
   %call2 = invoke i32 @BIO_read_asn1(ptr noundef %call, ptr noundef nonnull %out, ptr noundef nonnull %out_len, i64 noundef %max_len)
@@ -970,11 +970,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  br i1 %tobool.not, label %cleanup.thread, label %if.end
 
-if.then:                                          ; preds = %invoke.cont
+cleanup.thread:                                   ; preds = %invoke.cont
   store ptr null, ptr %out, align 8
-  %not.should_succeed = xor i1 %should_succeed, true
+  %not.cmp6.not.not8 = xor i1 %should_succeed, true
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 lpad:                                             ; preds = %entry
@@ -1008,28 +1008,26 @@ cleanup:                                          ; preds = %lor.lhs.false, %if.
 
 if.then.i:                                        ; preds = %cleanup
   call void @free(ptr noundef nonnull %.pr) #16
-  %.pre = load ptr, ptr %bio, align 8
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %if.then, %cleanup, %if.then.i
-  %4 = phi ptr [ %call, %cleanup ], [ %.pre, %if.then.i ], [ %call, %if.then ]
-  %retval.010 = phi i1 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i ], [ %not.should_succeed, %if.then ]
-  %cmp.not.i5 = icmp eq ptr %4, null
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %cleanup.thread, %cleanup, %if.then.i
+  %retval.011 = phi i1 [ %not.cmp6.not.not8, %cleanup.thread ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i ]
+  %cmp.not.i5 = icmp eq ptr %call, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
-  invoke void @BIO_vfree(ptr noundef nonnull %4)
+  invoke void @BIO_vfree(ptr noundef nonnull %call)
           to label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i6
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #19
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #19
   unreachable
 
 _ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %if.then.i6
-  ret i1 %retval.010
+  ret i1 %retval.011
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

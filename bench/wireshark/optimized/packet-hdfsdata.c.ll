@@ -167,26 +167,26 @@ define internal i32 @dissect_hdfsdata(ptr noundef %0, ptr noundef %1, ptr nounde
 
 20:                                               ; preds = %17, %13
   %.041 = phi i32 [ %19, %17 ], [ 0, %13 ]
-  br i1 %14, label %42, label %21
+  br i1 %14, label %41, label %21
 
 21:                                               ; preds = %20
   %22 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %.not = icmp eq i32 %22, 4
-  br i1 %.not, label %39, label %23
+  br i1 %.not, label %38, label %23
 
 23:                                               ; preds = %21
   %24 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %25 = icmp ugt i32 %24, 35
   %26 = icmp eq i32 %.041, 81
   %or.cond = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond, label %39, label %27
+  br i1 %or.cond, label %38, label %27
 
 27:                                               ; preds = %23
   %28 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %29 = icmp ugt i32 %28, 34
   %30 = icmp eq i32 %.041, 80
   %or.cond5 = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond5, label %39, label %31
+  br i1 %or.cond5, label %38, label %31
 
 31:                                               ; preds = %27
   %32 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
@@ -200,59 +200,57 @@ define internal i32 @dissect_hdfsdata(ptr noundef %0, ptr noundef %1, ptr nounde
 
 36:                                               ; preds = %34
   %37 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #2
-  %.not44 = icmp eq i32 %37, 0
-  br i1 %.not44, label %39, label %38
+  %.not44 = icmp ne i32 %37, 0
+  %spec.select46 = zext i1 %.not44 to i32
+  br label %38
 
-38:                                               ; preds = %36, %34, %31
-  br label %39
+38:                                               ; preds = %36, %31, %34, %27, %23, %21
+  %.042.ph = phi i32 [ %spec.select46, %36 ], [ 1, %31 ], [ 1, %34 ], [ 0, %21 ], [ 0, %27 ], [ 0, %23 ]
+  %39 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %40 = icmp eq i32 %39, 8
+  br i1 %40, label %41, label %43
 
-39:                                               ; preds = %27, %23, %38, %36, %21
-  %.042.ph = phi i32 [ 0, %21 ], [ 0, %36 ], [ 1, %38 ], [ 0, %27 ], [ 0, %23 ]
-  %40 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %41 = icmp eq i32 %40, 8
-  br i1 %41, label %42, label %44
+41:                                               ; preds = %20, %38
+  %.04249 = phi i32 [ %.042.ph, %38 ], [ 0, %20 ]
+  %42 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  br label %59
 
-42:                                               ; preds = %20, %39
-  %.04248 = phi i32 [ %.042.ph, %39 ], [ 0, %20 ]
-  %43 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  br label %60
+43:                                               ; preds = %38
+  %44 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %45 = icmp eq i32 %44, 15
+  br i1 %45, label %59, label %46
 
-44:                                               ; preds = %39
-  %45 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %46 = icmp eq i32 %45, 15
-  br i1 %46, label %60, label %47
+46:                                               ; preds = %43
+  %47 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %48 = icmp ugt i32 %47, 35
+  %49 = icmp eq i32 %.041, 81
+  %or.cond8 = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond8, label %50, label %55
 
-47:                                               ; preds = %44
-  %48 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %49 = icmp ugt i32 %48, 35
-  %50 = icmp eq i32 %.041, 81
-  %or.cond8 = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond8, label %51, label %56
+50:                                               ; preds = %46
+  %51 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %52 = icmp eq i32 %51, 2
+  br i1 %52, label %53, label %59
 
-51:                                               ; preds = %47
-  %52 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %53 = icmp eq i32 %52, 2
-  br i1 %53, label %54, label %60
+53:                                               ; preds = %50
+  %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
+  %.not45 = icmp eq i16 %54, 0
+  br i1 %.not45, label %55, label %59
 
-54:                                               ; preds = %51
-  %55 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
-  %.not45 = icmp eq i16 %55, 0
-  br i1 %.not45, label %56, label %60
-
-56:                                               ; preds = %54, %47
-  %57 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %58 = icmp ugt i32 %57, 34
-  %59 = icmp eq i32 %.041, 80
-  %or.cond11 = select i1 %58, i1 %59, i1 false
+55:                                               ; preds = %53, %46
+  %56 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %57 = icmp ugt i32 %56, 34
+  %58 = icmp eq i32 %.041, 80
+  %or.cond11 = select i1 %57, i1 %58, i1 false
   %spec.select = select i1 %or.cond11, i32 7, i32 0
-  br label %60
+  br label %59
 
-60:                                               ; preds = %56, %44, %51, %54, %42
-  %.04247 = phi i32 [ %.04248, %42 ], [ %.042.ph, %54 ], [ %.042.ph, %51 ], [ %.042.ph, %44 ], [ %.042.ph, %56 ]
-  %.0 = phi i32 [ %43, %42 ], [ 19, %54 ], [ 19, %51 ], [ 19, %44 ], [ %spec.select, %56 ]
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.04247, i32 noundef %.0, ptr noundef nonnull @get_hdfsdata_message_len, ptr noundef nonnull @dissect_hdfsdata_message, ptr noundef %3) #2
-  %61 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %61
+59:                                               ; preds = %55, %43, %50, %53, %41
+  %.04248 = phi i32 [ %.04249, %41 ], [ %.042.ph, %53 ], [ %.042.ph, %50 ], [ %.042.ph, %43 ], [ %.042.ph, %55 ]
+  %.0 = phi i32 [ %42, %41 ], [ 19, %53 ], [ 19, %50 ], [ 19, %43 ], [ %spec.select, %55 ]
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.04248, i32 noundef %.0, ptr noundef nonnull @get_hdfsdata_message_len, ptr noundef nonnull @dissect_hdfsdata_message, ptr noundef %3) #2
+  %60 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %60
 }
 
 ; Function Attrs: nounwind uwtable

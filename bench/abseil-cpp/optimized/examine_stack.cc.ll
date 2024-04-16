@@ -214,17 +214,15 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %_Z
   %sub.i.us = add i64 %1, -1
   %2 = inttoptr i64 %sub.i.us to ptr
   %call.i21.us = call noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef %2, ptr noundef nonnull %tmp.i, i32 noundef 1024)
-  br i1 %call.i21.us, label %if.then.i.us, label %lor.lhs.false.i.us
+  br i1 %call.i21.us, label %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us, label %lor.lhs.false.i.us
 
 lor.lhs.false.i.us:                               ; preds = %for.body.us
   %call2.i.us = call noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef %0, ptr noundef nonnull %tmp.i, i32 noundef 1024)
-  br i1 %call2.i.us, label %if.then.i.us, label %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us
-
-if.then.i.us:                                     ; preds = %lor.lhs.false.i.us, %for.body.us
+  %spec.select.i.us = select i1 %call2.i.us, ptr %tmp.i, ptr @.str.3
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us
 
-_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us: ; preds = %if.then.i.us, %lor.lhs.false.i.us
-  %symbol.0.i.us = phi ptr [ %tmp.i, %if.then.i.us ], [ @.str.3, %lor.lhs.false.i.us ]
+_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us: ; preds = %lor.lhs.false.i.us, %for.body.us
+  %symbol.0.i.us = phi ptr [ %tmp.i, %for.body.us ], [ %spec.select.i.us, %lor.lhs.false.i.us ]
   %call5.i.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef %0, ptr noundef nonnull %symbol.0.i.us) #8
   call void %writer(ptr noundef nonnull %buf.i, ptr noundef %writer_arg)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %tmp.i)

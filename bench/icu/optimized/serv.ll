@@ -446,8 +446,8 @@ lpad:                                             ; preds = %land.rhs.i, %if.the
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %temp) #15
   resume { ptr, i32 } %11
 
-return.sink.split:                                ; preds = %if.then5, %if.else.i, %if.then.i, %invoke.cont3
-  %retval.1.ph = phi ptr [ null, %invoke.cont3 ], [ null, %if.then.i ], [ null, %if.else.i ], [ %call9, %if.then5 ]
+return.sink.split:                                ; preds = %if.then.i, %invoke.cont3, %if.else.i, %if.then5
+  %retval.1.ph = phi ptr [ %call9, %if.then5 ], [ null, %if.else.i ], [ null, %invoke.cont3 ], [ null, %if.then.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %temp) #15
   br label %return
 
@@ -2079,7 +2079,7 @@ delete.notnull35:                                 ; preds = %invoke.cont15
   br label %cleanup40
 
 cleanup40:                                        ; preds = %while.cond.preheader, %cleanup.thread, %invoke.cont, %delete.notnull35, %if.then5
-  %cleanup.dest.slot.1 = phi i1 [ false, %if.then5 ], [ true, %delete.notnull35 ], [ true, %invoke.cont ], [ false, %cleanup.thread ], [ true, %while.cond.preheader ]
+  %switch = phi i1 [ false, %if.then5 ], [ true, %delete.notnull35 ], [ true, %invoke.cont ], [ false, %cleanup.thread ], [ true, %while.cond.preheader ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZN6icu_75L4lockE)
           to label %_ZN6icu_755MutexD2Ev.exit unwind label %terminate.lpad.i
 
@@ -2091,7 +2091,7 @@ terminate.lpad.i:                                 ; preds = %cleanup40
   unreachable
 
 _ZN6icu_755MutexD2Ev.exit:                        ; preds = %cleanup40
-  br i1 %cleanup.dest.slot.1, label %cleanup.cont42, label %return
+  br i1 %switch, label %cleanup.cont42, label %return
 
 cleanup.cont42:                                   ; preds = %_ZN6icu_755MutexD2Ev.exit
   call void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %result)
@@ -2372,7 +2372,7 @@ cleanup:                                          ; preds = %invoke.cont40
   br label %while.cond
 
 cleanup54:                                        ; preds = %invoke.cont28, %cleanup.thread, %if.end, %invoke.cont12, %if.then25
-  %cleanup.dest.slot.1 = phi i1 [ false, %if.then25 ], [ false, %invoke.cont12 ], [ true, %if.end ], [ false, %cleanup.thread ], [ true, %invoke.cont28 ]
+  %switch = phi i1 [ false, %if.then25 ], [ false, %invoke.cont12 ], [ true, %if.end ], [ false, %cleanup.thread ], [ true, %invoke.cont28 ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZN6icu_75L4lockE)
           to label %_ZN6icu_755MutexD2Ev.exit unwind label %terminate.lpad.i
 
@@ -2384,7 +2384,7 @@ terminate.lpad.i:                                 ; preds = %cleanup54
   unreachable
 
 _ZN6icu_755MutexD2Ev.exit:                        ; preds = %cleanup54
-  br i1 %cleanup.dest.slot.1, label %if.end56, label %return
+  br i1 %switch, label %if.end56, label %return
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad20.body, %lpad32.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body42, %lpad32.body ], [ %eh.lpad-body, %lpad20.body ], [ %lpad.loopexit65, %lpad.loopexit ], [ %lpad.loopexit.split-lp66, %lpad.loopexit.split-lp ]
@@ -3252,7 +3252,7 @@ entry:
   ret i8 %conv
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
@@ -3363,7 +3363,7 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }

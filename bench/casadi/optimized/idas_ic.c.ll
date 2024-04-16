@@ -1006,9 +1006,9 @@ IDANewtonIC.exit.i:                               ; preds = %553, %.preheader86.
   store i64 %576, ptr %189, align 8
   br label %IDANlsIC.exit.thread324
 
-.loopexit356:                                     ; preds = %258, %.loopexit.i, %IDANewtonIC.exit.i, %275, %553, %298, %337, %411, %423, %450, %498, %479
-  %.not279 = phi i1 [ false, %479 ], [ false, %498 ], [ false, %450 ], [ false, %423 ], [ false, %411 ], [ false, %337 ], [ false, %298 ], [ false, %258 ], [ true, %.loopexit.i ], [ true, %IDANewtonIC.exit.i ], [ false, %275 ], [ false, %553 ]
-  %.0.i.ph = phi i32 [ 1, %479 ], [ 1, %411 ], [ 1, %423 ], [ 1, %450 ], [ 3, %498 ], [ 2, %337 ], [ 1, %298 ], [ 1, %258 ], [ 5, %.loopexit.i ], [ 5, %IDANewtonIC.exit.i ], [ 1, %275 ], [ 4, %553 ]
+.loopexit356:                                     ; preds = %258, %IDANewtonIC.exit.i, %.loopexit.i, %275, %553, %298, %337, %411, %423, %450, %498, %479
+  %.not279 = phi i1 [ false, %479 ], [ false, %498 ], [ false, %450 ], [ false, %423 ], [ false, %411 ], [ false, %337 ], [ false, %298 ], [ false, %258 ], [ true, %IDANewtonIC.exit.i ], [ true, %.loopexit.i ], [ false, %275 ], [ false, %553 ]
+  %.0.i.ph = phi i32 [ 1, %479 ], [ 1, %411 ], [ 1, %423 ], [ 1, %450 ], [ 3, %498 ], [ 2, %337 ], [ 1, %298 ], [ 1, %258 ], [ 5, %IDANewtonIC.exit.i ], [ 5, %.loopexit.i ], [ 1, %275 ], [ 4, %553 ]
   %577 = load i64, ptr %189, align 8
   %578 = add nsw i64 %577, 1
   store i64 %578, ptr %189, align 8

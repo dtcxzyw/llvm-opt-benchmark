@@ -772,7 +772,7 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr nocapture noundef %0,
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %58
-  %66 = trunc i64 %63 to i32
+  %66 = trunc nuw i64 %63 to i32
   store i32 %66, ptr %60, align 4
   %67 = load ptr, ptr %46, align 8
   %68 = getelementptr i8, ptr %46, i64 8
@@ -848,7 +848,7 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr nocapture noundef %0,
   %113 = sub i32 %112, %126
   %114 = zext i32 %113 to i64
   %115 = tail call i64 @llvm.umin.i64(i64 %127, i64 %114)
-  %116 = trunc i64 %115 to i32
+  %116 = trunc nuw i64 %115 to i32
   %117 = load i64, ptr %213, align 8
   %118 = and i64 %117, 3
   %119 = or disjoint i64 %118, %226
@@ -1924,8 +1924,8 @@ define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr nocapture 
   store i32 %66, ptr %2, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %45, %.thread, %10, %5, %1, %51
-  %67 = phi i1 [ true, %51 ], [ true, %1 ], [ false, %5 ], [ false, %10 ], [ false, %.thread ], [ false, %45 ]
+.critedge:                                        ; preds = %45, %.thread, %10, %5, %51, %1
+  %67 = phi i1 [ true, %1 ], [ true, %51 ], [ false, %5 ], [ false, %10 ], [ false, %.thread ], [ false, %45 ]
   ret i1 %67
 }
 
@@ -2736,7 +2736,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr noc
 134:                                              ; preds = %128
   %135 = getelementptr inbounds i8, ptr %122, i64 12
   %136 = load i32, ptr %135, align 4
-  %137 = trunc i64 %120 to i32
+  %137 = trunc nuw i64 %120 to i32
   %138 = add i32 %136, %137
   %139 = sub nsw i64 %125, %120
   %140 = tail call i64 @llvm.umin.i64(i64 %116, i64 %139)
@@ -2878,7 +2878,7 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr noc
   unreachable
 
 238:                                              ; preds = %232
-  %239 = trunc i64 %210 to i32
+  %239 = trunc nuw nsw i64 %210 to i32
   %240 = trunc i64 %211 to i32
   %241 = load i64, ptr %212, align 8
   %242 = and i64 %241, 3

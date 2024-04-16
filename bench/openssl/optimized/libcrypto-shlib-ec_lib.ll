@@ -1612,18 +1612,18 @@ lor.lhs.false43:                                  ; preds = %lor.lhs.false40.cri
 lor.lhs.false46:                                  ; preds = %lor.lhs.false43
   %call47 = tail call i32 @BN_cmp(ptr noundef %call23, ptr noundef nonnull %call26) #9
   %cmp48.not = icmp eq i32 %call47, 0
-  br i1 %cmp48.not, label %lor.lhs.false52, label %return.sink.split
+  br i1 %cmp48.not, label %lor.lhs.false52.critedge, label %return.sink.split
 
-lor.lhs.false52:                                  ; preds = %lor.lhs.false46
+lor.lhs.false52.critedge:                         ; preds = %lor.lhs.false46
   %generator.i = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load ptr, ptr %generator.i, align 8
   %generator.i49 = getelementptr inbounds i8, ptr %b, i64 8
   %12 = load ptr, ptr %generator.i49, align 8
   %call55 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %a, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %ctx.addr.056)
   %cmp56.not = icmp eq i32 %call55, 0
-  br i1 %cmp56.not, label %if.then60, label %return.sink.split
+  br i1 %cmp56.not, label %if.then60.critedge, label %return.sink.split
 
-if.then60:                                        ; preds = %lor.lhs.false52
+if.then60.critedge:                               ; preds = %lor.lhs.false52.critedge
   %order.i = getelementptr inbounds i8, ptr %a, i64 16
   %13 = load ptr, ptr %order.i, align 8
   %order.i50 = getelementptr inbounds i8, ptr %b, i64 16
@@ -1633,7 +1633,7 @@ if.then60:                                        ; preds = %lor.lhs.false52
   %or.cond = select i1 %cmp63, i1 true, i1 %cmp65
   br i1 %or.cond, label %return.sink.split, label %if.end67
 
-if.end67:                                         ; preds = %if.then60
+if.end67:                                         ; preds = %if.then60.critedge
   %call68 = tail call i32 @BN_cmp(ptr noundef nonnull %13, ptr noundef nonnull %14) #9
   %cmp69.not = icmp eq i32 %call68, 0
   br i1 %cmp69.not, label %if.end71, label %return.sink.split
@@ -1658,8 +1658,8 @@ land.lhs.true79:                                  ; preds = %land.lhs.true76
   %spec.select = zext i1 %cmp81.not to i32
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end71, %land.lhs.true76, %if.then60, %if.end67, %lor.lhs.false40.critedge, %lor.lhs.false43, %lor.lhs.false46, %lor.lhs.false, %if.end29, %lor.lhs.false52, %land.lhs.true79, %if.end20
-  %retval.0.ph = phi i32 [ -1, %if.end20 ], [ 0, %if.end71 ], [ 0, %land.lhs.true76 ], [ -1, %if.then60 ], [ 1, %if.end67 ], [ %spec.select, %land.lhs.true79 ], [ 1, %lor.lhs.false40.critedge ], [ 1, %lor.lhs.false43 ], [ 1, %lor.lhs.false46 ], [ 1, %lor.lhs.false ], [ 1, %if.end29 ], [ 1, %lor.lhs.false52 ]
+return.sink.split:                                ; preds = %if.end71, %land.lhs.true76, %lor.lhs.false40.critedge, %lor.lhs.false43, %if.end29, %if.then60.critedge, %if.end67, %lor.lhs.false, %lor.lhs.false46, %lor.lhs.false52.critedge, %land.lhs.true79, %if.end20
+  %retval.0.ph = phi i32 [ -1, %if.end20 ], [ 0, %if.end71 ], [ 0, %land.lhs.true76 ], [ 1, %lor.lhs.false40.critedge ], [ 1, %lor.lhs.false43 ], [ 1, %if.end29 ], [ -1, %if.then60.critedge ], [ 1, %if.end67 ], [ %spec.select, %land.lhs.true79 ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false46 ], [ 1, %lor.lhs.false52.critedge ]
   tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.056) #9
   tail call void @BN_CTX_free(ptr noundef %ctx_new.055) #9
   br label %return

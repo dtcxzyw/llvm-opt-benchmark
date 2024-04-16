@@ -74,8 +74,7 @@ if.end.i:                                         ; preds = %cond.false
 
 if.end.thread.i:                                  ; preds = %land.lhs.true.i
   %call416.i = tail call ptr @extent_alloc_mmap(ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit) #6
-  %cmp5.not17.i = icmp eq ptr %call416.i, null
-  br i1 %cmp5.not17.i, label %if.end, label %if.then
+  br label %cond.end
 
 if.end7.i12:                                      ; preds = %if.end.i
   %cmp8.i = icmp eq i32 %2, 2
@@ -83,16 +82,20 @@ if.end7.i12:                                      ; preds = %if.end.i
 
 land.lhs.true9.i:                                 ; preds = %if.end7.i12
   %call10.i = tail call ptr @extent_alloc_dss(ptr noundef %tsdn, ptr noundef nonnull %1, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit) #6
-  %cmp11.not.i = icmp eq ptr %call10.i, null
-  br i1 %cmp11.not.i, label %if.end, label %if.then
+  br label %cond.end
 
-if.then:                                          ; preds = %entry.split, %land.lhs.true.i, %if.end.i, %land.lhs.true9.i, %if.end.thread.i
-  %phi.call.ph = phi ptr [ %call416.i, %if.end.thread.i ], [ %call10.i, %land.lhs.true9.i ], [ %call4.i9, %if.end.i ], [ %call.i, %land.lhs.true.i ], [ %call4.i, %entry.split ]
-  tail call void @pages_set_thp_state(ptr noundef nonnull %phi.call.ph, i64 noundef %size) #6
+cond.end:                                         ; preds = %land.lhs.true9.i, %if.end.thread.i
+  %phi.call = phi ptr [ %call10.i, %land.lhs.true9.i ], [ %call416.i, %if.end.thread.i ]
+  %tobool.not = icmp eq ptr %phi.call, null
+  br i1 %tobool.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %if.end.i, %land.lhs.true.i, %entry.split, %cond.end
+  %phi.call16 = phi ptr [ %phi.call, %cond.end ], [ %call4.i9, %if.end.i ], [ %call.i, %land.lhs.true.i ], [ %call4.i, %entry.split ]
+  tail call void @pages_set_thp_state(ptr noundef nonnull %phi.call16, i64 noundef %size) #6
   br label %if.end
 
-if.end:                                           ; preds = %if.end.thread.i, %if.end7.i12, %land.lhs.true9.i, %entry.split, %if.then
-  %phi.call17 = phi ptr [ %phi.call.ph, %if.then ], [ null, %entry.split ], [ null, %land.lhs.true9.i ], [ null, %if.end7.i12 ], [ null, %if.end.thread.i ]
+if.end:                                           ; preds = %entry.split, %if.end7.i12, %if.then, %cond.end
+  %phi.call17 = phi ptr [ %phi.call16, %if.then ], [ null, %cond.end ], [ null, %if.end7.i12 ], [ null, %entry.split ]
   ret ptr %phi.call17
 }
 

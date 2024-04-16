@@ -177,17 +177,17 @@ define dso_local noundef zeroext i1 @refcount_dec_not_one(ptr noundef %0) #0 ali
   %12 = icmp ult i8 %11, 2
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i8 %11, 0
-  br i1 %13, label %14, label %.thread.loopexit, !prof !43
+  br i1 %13, label %14, label %.thread, !prof !43
 
 14:                                               ; preds = %8
   %15 = extractvalue { i8, i32 } %10, 1
   br label %3, !llvm.loop !44
 
-.thread.loopexit:                                 ; preds = %3, %8
+.thread.loopexit:                                 ; preds = %3
   br label %.thread
 
-.thread:                                          ; preds = %3, %.thread.loopexit, %7, %5
-  %16 = phi i1 [ true, %5 ], [ true, %7 ], [ true, %.thread.loopexit ], [ false, %3 ]
+.thread:                                          ; preds = %8, %3, %.thread.loopexit, %7, %5
+  %16 = phi i1 [ true, %5 ], [ true, %7 ], [ false, %3 ], [ true, %8 ], [ true, %.thread.loopexit ]
   ret i1 %16
 }
 

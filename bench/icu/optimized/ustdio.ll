@@ -503,7 +503,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %uc to i16
+  %conv = trunc nuw i32 %uc to i16
   store i16 %conv, ptr %buf, align 2
   br label %if.end16
 
@@ -513,7 +513,7 @@ if.else:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.else
   %shr = lshr i32 %uc, 10
-  %0 = trunc i32 %shr to i16
+  %0 = trunc nuw i32 %shr to i16
   %conv5 = add nuw nsw i16 %0, -10304
   store i16 %conv5, ptr %buf, align 2
   %1 = trunc i32 %uc to i16
@@ -1036,16 +1036,14 @@ if.else:                                          ; preds = %lor.lhs.false
 if.then8:                                         ; preds = %if.else
   %conv11 = or i32 %ch, 56320
   %cmp13.not = icmp eq i32 %conv11, %conv
-  br i1 %cmp13.not, label %lor.lhs.false14, label %if.then21
+  br i1 %cmp13.not, label %lor.lhs.false14, label %if.end30
 
 lor.lhs.false14:                                  ; preds = %if.then8
   %incdec.ptr16 = getelementptr inbounds i8, ptr %0, i64 -4
   store ptr %incdec.ptr16, ptr %str1, align 8
   %3 = load i16, ptr %incdec.ptr16, align 2
   %cmp20.not = icmp eq i16 %3, -10250
-  br i1 %cmp20.not, label %if.end30, label %if.then21
-
-if.then21:                                        ; preds = %lor.lhs.false14, %if.then8
+  %spec.select = select i1 %cmp20.not, i32 %ch, i32 65535
   br label %if.end30
 
 if.else22:                                        ; preds = %if.else
@@ -1053,8 +1051,8 @@ if.else22:                                        ; preds = %if.else
   %spec.store.select = select i1 %cmp26.not, i32 %ch, i32 65535
   br label %if.end30
 
-if.end30:                                         ; preds = %entry, %lor.lhs.false, %if.else22, %if.then21, %lor.lhs.false14
-  %ch.addr.0 = phi i32 [ 65535, %if.then21 ], [ %ch, %lor.lhs.false14 ], [ %spec.store.select, %if.else22 ], [ 65535, %lor.lhs.false ], [ 65535, %entry ]
+if.end30:                                         ; preds = %lor.lhs.false14, %if.then8, %entry, %lor.lhs.false, %if.else22
+  %ch.addr.0 = phi i32 [ %spec.store.select, %if.else22 ], [ 65535, %lor.lhs.false ], [ 65535, %entry ], [ 65535, %if.then8 ], [ %spec.select, %lor.lhs.false14 ]
   ret i32 %ch.addr.0
 }
 

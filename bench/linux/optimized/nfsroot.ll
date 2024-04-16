@@ -203,7 +203,7 @@ define internal fastcc noundef i32 @root_nfs_parse_options(ptr noundef %0, ptr n
 10:                                               ; preds = %7
   %11 = call i64 @strscpy(ptr noundef %1, ptr noundef %4, i64 noundef 1025) #11
   %12 = icmp eq i64 %11, -7
-  br i1 %12, label %23, label %13
+  br i1 %12, label %22, label %13
 
 13:                                               ; preds = %10, %7, %2
   %14 = load ptr, ptr %3, align 8
@@ -217,15 +217,13 @@ define internal fastcc noundef i32 @root_nfs_parse_options(ptr noundef %0, ptr n
 
 19:                                               ; preds = %16
   %20 = call fastcc i32 @root_nfs_cat(ptr noundef nonnull %14) #13, !range !5
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+  %21 = icmp ne i32 %20, 0
+  %spec.select = sext i1 %21 to i32
+  br label %22
 
-22:                                               ; preds = %19, %16, %13
-  br label %23
-
-23:                                               ; preds = %22, %19, %10
-  %24 = phi i32 [ 0, %22 ], [ -1, %10 ], [ -1, %19 ]
-  ret i32 %24
+22:                                               ; preds = %19, %13, %16, %10
+  %23 = phi i32 [ -1, %10 ], [ 0, %16 ], [ 0, %13 ], [ %spec.select, %19 ]
+  ret i32 %23
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

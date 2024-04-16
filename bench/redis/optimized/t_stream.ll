@@ -3537,7 +3537,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
+define dso_local i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
 entry:
   %length = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %length, align 8
@@ -3620,19 +3620,17 @@ land.lhs.true:                                    ; preds = %if.else.i10
 
 if.else.i22:                                      ; preds = %if.else6.i12, %land.lhs.true
   %cmp4.i23 = icmp ult i64 %1, %end_id.sroa.0.0
-  br i1 %cmp4.i23, label %streamCompareID.exit32.thread, label %if.else6.i24
+  br i1 %cmp4.i23, label %return, label %if.else6.i24
 
 if.else6.i24:                                     ; preds = %if.else.i22
   %seq.i25 = getelementptr inbounds i8, ptr %s, i64 56
   %7 = load i64, ptr %seq.i25, align 8
-  %cmp8.i27 = icmp ugt i64 %7, %end_id.sroa.3.0
-  br i1 %cmp8.i27, label %return, label %streamCompareID.exit32.thread
-
-streamCompareID.exit32.thread:                    ; preds = %if.else.i22, %if.else6.i24
+  %cmp8.i27 = icmp ule i64 %7, %end_id.sroa.3.0
+  %spec.select = zext i1 %cmp8.i27 to i32
   br label %return
 
-return:                                           ; preds = %if.else6.i, %if.end, %if.end14, %if.else6.i12, %land.lhs.true, %if.else6.i24, %streamCompareID.exit32.thread, %entry, %streamIDEqZero.exit
-  %retval.0 = phi i32 [ 0, %streamIDEqZero.exit ], [ 0, %entry ], [ 1, %streamCompareID.exit32.thread ], [ 0, %if.else6.i24 ], [ 0, %land.lhs.true ], [ 0, %if.else6.i12 ], [ 0, %if.end14 ], [ 0, %if.end ], [ 0, %if.else6.i ]
+return:                                           ; preds = %if.else6.i24, %if.else6.i, %if.end, %land.lhs.true, %if.else.i22, %if.else6.i12, %if.end14, %entry, %streamIDEqZero.exit
+  %retval.0 = phi i32 [ 0, %streamIDEqZero.exit ], [ 0, %entry ], [ 0, %if.end14 ], [ 0, %if.else6.i12 ], [ 0, %land.lhs.true ], [ 1, %if.else.i22 ], [ 0, %if.end ], [ 0, %if.else6.i ], [ %spec.select, %if.else6.i24 ]
   ret i32 %retval.0
 }
 
@@ -3703,7 +3701,7 @@ if.else6.i12.i:                                   ; preds = %if.else.i10.i
   %cmp8.i15.i = icmp ugt i64 %start_id.sroa.3.0.copyload.i, %8
   br i1 %cmp8.i15.i, label %if.then2, label %if.else5
 
-if.then2:                                         ; preds = %streamIDEqZero.exit.i, %land.lhs.true, %if.else6.i12.i, %if.end8.i, %if.end.i, %if.else6.i.i
+if.then2:                                         ; preds = %streamIDEqZero.exit.i, %land.lhs.true, %if.end8.i, %if.else6.i12.i, %if.end.i, %if.else6.i.i
   %sub = sub nsw i64 %0, %1
   br label %if.then16
 
@@ -4265,7 +4263,7 @@ if.else6.i12.i:                                   ; preds = %if.else.i10.i
   %cmp8.i15.i = icmp ugt i64 %start_id.sroa.3.0.copyload.i, %11
   br i1 %cmp8.i15.i, label %if.then18, label %if.else
 
-if.then18:                                        ; preds = %streamIDEqZero.exit.i, %land.lhs.true15, %if.else6.i12.i, %if.end5.i, %if.end.i, %if.else6.i.i
+if.then18:                                        ; preds = %streamIDEqZero.exit.i, %land.lhs.true15, %if.end5.i, %if.else6.i12.i, %if.end.i, %if.else6.i.i
   %inc = add nuw nsw i64 %4, 1
   br label %if.end25.sink.split
 
@@ -5905,7 +5903,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %11 = load ptr, ptr %ptr, align 8
   %call35 = call i32 @strcasecmp(ptr noundef %11, ptr noundef nonnull @.str.27) #18
   %cmp36 = icmp eq i32 %call35, 0
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = sub i32 %12, %8
   %cmp38 = icmp slt i32 %13, -1
   %or.cond = and i1 %cmp38, %cmp36
@@ -5931,7 +5929,7 @@ if.then48:                                        ; preds = %if.end46
 if.end49:                                         ; preds = %if.then48, %if.end46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = load i32, ptr %argc, align 8
-  %18 = trunc i64 %indvars.iv.next to i32
+  %18 = trunc nuw i64 %indvars.iv.next to i32
   %cmp30 = icmp sgt i32 %17, %18
   br i1 %cmp30, label %for.body, label %if.end52, !llvm.loop !33
 
@@ -6306,7 +6304,7 @@ for.body197.lr.ph:                                ; preds = %for.cond194.prehead
 
 for.body111:                                      ; preds = %for.body111.lr.ph, %for.inc190
   %indvars.iv = phi i64 [ %26, %for.body111.lr.ph ], [ %indvars.iv.next, %for.inc190 ]
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nsw i64 %indvars.iv to i32
   %sub113 = sub i32 %29, %add106
   %30 = load ptr, ptr %argv, align 8
   %31 = sub nsw i64 %indvars.iv, %27
@@ -6794,7 +6792,7 @@ if.then327:                                       ; preds = %if.then324
 
 for.body333:                                      ; preds = %for.body333.lr.ph, %for.inc348
   %indvars.iv327 = phi i64 [ 0, %for.body333.lr.ph ], [ %indvars.iv.next328, %for.inc348 ]
-  %104 = trunc i64 %indvars.iv327 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv327 to i32
   %add335 = add i32 %add106, %104
   %105 = load ptr, ptr %argv, align 8
   %idxprom337 = sext i32 %add335 to i64
@@ -8050,7 +8048,7 @@ if.end42:                                         ; preds = %if.else.i, %if.else
   %18 = phi i64 [ %15, %if.else.i ], [ %15, %if.else33 ], [ %5, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %19 = load i32, ptr %argc, align 8
-  %20 = trunc i64 %indvars.iv.next to i32
+  %20 = trunc nuw i64 %indvars.iv.next to i32
   %cmp1 = icmp sgt i32 %19, %20
   br i1 %cmp1, label %while.body, label %while.end.loopexit, !llvm.loop !40
 
@@ -10069,7 +10067,7 @@ if.then123:                                       ; preds = %if.end121
   br i1 %cmp125, label %while.cond88, label %if.end128, !llvm.loop !49
 
 if.end128:                                        ; preds = %if.then123, %if.end121
-  %73 = trunc i64 %indvars.iv to i32
+  %73 = trunc nsw i64 %indvars.iv to i32
   %consumer129 = getelementptr inbounds i8, ptr %45, i64 16
   %74 = load ptr, ptr %consumer129, align 8
   %cmp130.not = icmp eq ptr %74, %consumer.0
@@ -10230,7 +10228,7 @@ createObjectFromStreamID.exit125:                 ; preds = %if.end164, %sw.bb.i
   br label %while.cond88.outer, !llvm.loop !49
 
 while.end175:                                     ; preds = %while.cond88, %land.rhs
-  %99 = trunc i64 %indvars.iv to i32
+  %99 = trunc nsw i64 %indvars.iv to i32
   %call176 = call i32 @raxNext(ptr noundef nonnull %ri) #16
   %call177 = call i32 @raxEOF(ptr noundef nonnull %ri) #16
   %tobool178.not = icmp eq i32 %call177, 0

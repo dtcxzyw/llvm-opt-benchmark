@@ -394,7 +394,7 @@ Abc_TtCountOnesVecMask.exit180:                   ; preds = %Abc_TtCountOnes2.ex
   %192 = sub i32 32000, %140
   %193 = add nuw i32 %164, %191
   %194 = sub i32 32000, %193
-  %195 = trunc i64 %indvars.iv to i32
+  %195 = trunc nuw nsw i64 %indvars.iv to i32
   %196 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %195)
   %197 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   %198 = sitofp i32 %192 to double
@@ -1725,7 +1725,7 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %75 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %59, i64 %74, i32 1
   %76 = load i32, ptr %75, align 4
   %77 = lshr i64 %.val177, 61
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw nsw i64 %77 to i32
   %79 = and i32 %78, 1
   %80 = xor i32 %76, %79
   %81 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %12, i32 noundef %71, i32 noundef %80) #18
@@ -1777,7 +1777,7 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %106 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %90, i64 %105, i32 1
   %107 = load i32, ptr %106, align 4
   %108 = lshr i64 %.val178, 61
-  %109 = trunc i64 %108 to i32
+  %109 = trunc nuw nsw i64 %108 to i32
   %110 = and i32 %109, 1
   %111 = xor i32 %107, %110
   %112 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %12, i32 noundef %102, i32 noundef %111) #18
@@ -1919,7 +1919,7 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val135 = load ptr, ptr %7, align 8
   %181 = getelementptr i8, ptr %.val135, i64 4
   %.val135.val = load i32, ptr %181, align 4
-  %182 = trunc i64 %indvars.iv.next248 to i32
+  %182 = trunc nuw i64 %indvars.iv.next248 to i32
   %183 = icmp sgt i32 %.val135.val, %182
   br i1 %183, label %.lr.ph220, label %.loopexit, !llvm.loop !26
 
@@ -1950,7 +1950,7 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val134 = load ptr, ptr %7, align 8
   %197 = getelementptr i8, ptr %.val134, i64 4
   %.val134.val = load i32, ptr %197, align 4
-  %198 = trunc i64 %indvars.iv.next245 to i32
+  %198 = trunc nuw i64 %indvars.iv.next245 to i32
   %199 = icmp sgt i32 %.val134.val, %198
   br i1 %199, label %.lr.ph215, label %.loopexit, !llvm.loop !27
 
@@ -1994,7 +1994,7 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val133 = load ptr, ptr %7, align 8
   %227 = getelementptr i8, ptr %.val133, i64 4
   %.val133.val = load i32, ptr %227, align 4
-  %228 = trunc i64 %indvars.iv.next251 to i32
+  %228 = trunc nuw i64 %indvars.iv.next251 to i32
   %229 = icmp sgt i32 %.val133.val, %228
   br i1 %229, label %.lr.ph225, label %.loopexit, !llvm.loop !28
 
@@ -2149,13 +2149,11 @@ Abc_Clock.exit13:                                 ; preds = %Abc_Clock.exit, %28
   %36 = sitofp i64 %35 to double
   %37 = fdiv double %36, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, double noundef %37)
-  br i1 %22, label %39, label %38
+  %spec.select = select i1 %22, ptr %20, ptr null
+  br label %38
 
 38:                                               ; preds = %Abc_Clock.exit13, %1
-  br label %39
-
-39:                                               ; preds = %Abc_Clock.exit13, %38
-  %.0 = phi ptr [ null, %38 ], [ %20, %Abc_Clock.exit13 ]
+  %.0 = phi ptr [ null, %1 ], [ %spec.select, %Abc_Clock.exit13 ]
   ret ptr %.0
 }
 
@@ -2337,7 +2335,7 @@ Vec_IntStartFull.exit59:                          ; preds = %Vec_IntAlloc.exit.t
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i32, ptr %.val38, i64 %43
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %45, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = icmp ult i64 %indvars.iv.next, %32
@@ -2378,7 +2376,7 @@ Vec_IntStartFull.exit59:                          ; preds = %Vec_IntAlloc.exit.t
   %64 = getelementptr inbounds i32, ptr %.val46, i64 %52
   %65 = load i32, ptr %64, align 4
   %66 = tail call ptr @Abc_NamStr(ptr noundef %.val45.val, i32 noundef %65) #18
-  %67 = trunc i64 %indvars.iv69 to i32
+  %67 = trunc nuw nsw i64 %indvars.iv69 to i32
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef %66, i32 noundef %67)
   br label %.critedge
 
@@ -2555,7 +2553,7 @@ define noundef i32 @Acb_NtkCheckPiOrder(ptr nocapture noundef %0, ptr nocapture 
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %9
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   tail call void @Acb_NtkUpdateCiOrder(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %.loopexit
@@ -3610,7 +3608,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3629,7 +3627,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -3640,22 +3638,22 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
 
 declare i32 @Abc_NamObjNumMax(ptr noundef) local_unnamed_addr #1
 
 declare i32 @Abc_NamStrFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @Abc_NamDeref(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15

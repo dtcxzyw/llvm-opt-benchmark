@@ -603,7 +603,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ngsniffer_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal i32 @ngsniffer_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca [2 x i8], align 2
   %8 = alloca [4 x i8], align 2
   %9 = alloca %struct.rec_header, align 2
@@ -623,7 +623,7 @@ define internal noundef i32 @ngsniffer_read(ptr nocapture noundef readonly %0, p
   %16 = getelementptr inbounds i8, ptr %9, i64 2
   br label %18
 
-._crit_edge:                                      ; preds = %41, %6
+._crit_edge:                                      ; preds = %40, %6
   %17 = load i32, ptr %3, align 4
   %.not13.i = icmp eq i32 %17, 0
   br i1 %.not13.i, label %.thread60, label %read_rec_header.exit.thread
@@ -631,9 +631,9 @@ define internal noundef i32 @ngsniffer_read(ptr nocapture noundef readonly %0, p
 .thread60:                                        ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %36
+  br label %35
 
-18:                                               ; preds = %.lr.ph, %41
+18:                                               ; preds = %.lr.ph, %40
   %19 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 4, i32 noundef 0, ptr noundef %3, ptr noundef %4), !range !5
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %20, label %24
@@ -657,11 +657,11 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %23, %
   %.val.i = load i16, ptr %8, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  switch i16 %.val16.i, label %37 [
+  switch i16 %.val16.i, label %36 [
     i16 4, label %25
     i16 8, label %25
     i16 12, label %25
-    i16 3, label %32
+    i16 3, label %31
   ]
 
 25:                                               ; preds = %24, %24, %24
@@ -674,51 +674,49 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %23, %
 27:                                               ; preds = %25
   %28 = load i32, ptr %10, align 4
   %.not27 = icmp eq i32 %28, 0
-  br i1 %.not27, label %31, label %29
+  br i1 %.not27, label %.loopexit34, label %29
 
 29:                                               ; preds = %27
   %30 = call fastcc i32 @ng_skip_bytes_seq(ptr noundef %0, i32 noundef %28, ptr noundef %3, ptr noundef %4)
-  %.not28 = icmp eq i32 %30, 0
-  br i1 %.not28, label %.loopexit34, label %31
-
-31:                                               ; preds = %29, %27
+  %.not28 = icmp ne i32 %30, 0
+  %spec.select = zext i1 %.not28 to i32
   br label %.loopexit34
 
-32:                                               ; preds = %24
+31:                                               ; preds = %24
   %.not24 = icmp eq i16 %.val.i, 0
-  br i1 %.not24, label %36, label %33
+  br i1 %.not24, label %35, label %32
 
-33:                                               ; preds = %32
-  %34 = zext i16 %.val.i to i32
-  %35 = call fastcc i32 @ng_skip_bytes_seq(ptr noundef %0, i32 noundef %34, ptr noundef %3, ptr noundef %4)
-  %.not25 = icmp eq i32 %35, 0
-  br i1 %.not25, label %.loopexit34, label %36
+32:                                               ; preds = %31
+  %33 = zext i16 %.val.i to i32
+  %34 = call fastcc i32 @ng_skip_bytes_seq(ptr noundef %0, i32 noundef %33, ptr noundef %3, ptr noundef %4)
+  %.not25 = icmp eq i32 %34, 0
+  br i1 %.not25, label %.loopexit34, label %35
 
-36:                                               ; preds = %.thread60, %33, %32
+35:                                               ; preds = %.thread60, %32, %31
   store i32 0, ptr %3, align 4
   br label %.loopexit34
 
-37:                                               ; preds = %24
+36:                                               ; preds = %24
   %.not29 = icmp eq i16 %.val.i, 0
-  br i1 %.not29, label %41, label %38
+  br i1 %.not29, label %40, label %37
 
-38:                                               ; preds = %37
-  %39 = zext i16 %.val.i to i32
-  %40 = call fastcc i32 @ng_skip_bytes_seq(ptr noundef %0, i32 noundef %39, ptr noundef %3, ptr noundef %4)
-  %.not30 = icmp eq i32 %40, 0
-  br i1 %.not30, label %.loopexit34, label %41
+37:                                               ; preds = %36
+  %38 = zext i16 %.val.i to i32
+  %39 = call fastcc i32 @ng_skip_bytes_seq(ptr noundef %0, i32 noundef %38, ptr noundef %3, ptr noundef %4)
+  %.not30 = icmp eq i32 %39, 0
+  br i1 %.not30, label %.loopexit34, label %40
 
-41:                                               ; preds = %37, %38
-  %42 = load i64, ptr %13, align 8
-  store i64 %42, ptr %5, align 8
+40:                                               ; preds = %36, %37
+  %41 = load i64, ptr %13, align 8
+  store i64 %41, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %43 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 0, ptr noundef %3, ptr noundef %4), !range !5
-  %.not.i = icmp eq i32 %43, 0
+  %42 = call fastcc i32 @ng_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 0, ptr noundef %3, ptr noundef %4), !range !5
+  %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %._crit_edge, label %18
 
-.loopexit34:                                      ; preds = %38, %read_rec_header.exit.thread, %33, %29, %25, %36, %31
-  %.0 = phi i32 [ 0, %36 ], [ 1, %31 ], [ 0, %25 ], [ 0, %29 ], [ 0, %33 ], [ 0, %read_rec_header.exit.thread ], [ 0, %38 ]
+.loopexit34:                                      ; preds = %37, %read_rec_header.exit.thread, %29, %32, %27, %25, %35
+  %.0 = phi i32 [ 0, %35 ], [ 0, %25 ], [ 1, %27 ], [ 0, %32 ], [ %spec.select, %29 ], [ 0, %read_rec_header.exit.thread ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -1762,21 +1760,21 @@ ng_read_bytes.exit142:                            ; preds = %326
   %347 = getelementptr i8, ptr %.val129, i64 %.val130
   switch i32 %345, label %fix_pseudo_header.exit [
     i32 -1, label %348
-    i32 13, label %386
+    i32 13, label %384
   ]
 
 348:                                              ; preds = %ng_read_bytes.exit142
   %349 = icmp eq i16 %.094, 0
-  br i1 %349, label %381, label %350
+  br i1 %349, label %infer_pkt_encap.exit.i, label %350
 
 350:                                              ; preds = %348
   %351 = load i8, ptr %347, align 1
   %352 = icmp eq i8 %351, -1
-  br i1 %352, label %381, label %353
+  br i1 %352, label %infer_pkt_encap.exit.i, label %353
 
 353:                                              ; preds = %350
   %.not.i.i = icmp eq i16 %.094, 1
-  br i1 %.not.i.i, label %380, label %354
+  br i1 %.not.i.i, label %fix_pseudo_header.exit, label %354
 
 354:                                              ; preds = %353
   switch i8 %351, label %.lr.ph.i.i.preheader [
@@ -1789,19 +1787,19 @@ ng_read_bytes.exit142:                            ; preds = %326
   %356 = getelementptr i8, ptr %347, i64 1
   %357 = load i8, ptr %356, align 1
   %358 = icmp eq i8 %357, 3
-  br i1 %358, label %381, label %.lr.ph.i.i.preheader
+  br i1 %358, label %infer_pkt_encap.exit.i, label %.lr.ph.i.i.preheader
 
 359:                                              ; preds = %354
   %360 = getelementptr i8, ptr %347, i64 1
   %361 = load i8, ptr %360, align 1
   %362 = icmp eq i8 %361, 0
-  br i1 %362, label %381, label %.lr.ph.i.i.preheader
+  br i1 %362, label %infer_pkt_encap.exit.i, label %.lr.ph.i.i.preheader
 
 363:                                              ; preds = %354
   %364 = getelementptr i8, ptr %347, i64 1
   %365 = load i8, ptr %364, align 1
   %366 = icmp eq i8 %365, 0
-  br i1 %366, label %381, label %.lr.ph.i.i.preheader
+  br i1 %366, label %infer_pkt_encap.exit.i, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %363, %359, %355, %354
   br label %.lr.ph.i.i
@@ -1820,7 +1818,7 @@ ng_read_bytes.exit142:                            ; preds = %326
   br i1 %exitcond.not.i.i, label %fix_pseudo_header.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %372 = trunc i64 %indvars.iv.i.i to i32
+  %372 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %373 = add nsw i32 %319, -1
   %.not22.i.i = icmp sgt i32 %373, %372
   br i1 %.not22.i.i, label %374, label %fix_pseudo_header.exit
@@ -1831,89 +1829,87 @@ ng_read_bytes.exit142:                            ; preds = %326
   %377 = getelementptr i8, ptr %376, i64 1
   %378 = load i8, ptr %377, align 1
   %379 = icmp eq i8 %378, 3
-  br i1 %379, label %fix_pseudo_header.exit, label %380
-
-380:                                              ; preds = %374, %353
+  %spec.select.i145 = select i1 %379, i32 27, i32 12
   br label %fix_pseudo_header.exit
 
-381:                                              ; preds = %363, %359, %355, %350, %348
-  %.019.i.ph.i = phi i32 [ 40, %359 ], [ 40, %363 ], [ 35, %355 ], [ 19, %350 ], [ 19, %348 ]
-  %382 = load i8, ptr %346, align 8
-  %383 = icmp eq i8 %382, 0
-  br i1 %383, label %384, label %385
+infer_pkt_encap.exit.i:                           ; preds = %363, %359, %355, %350, %348
+  %.019.i.i = phi i32 [ 19, %348 ], [ 19, %350 ], [ 35, %355 ], [ 40, %363 ], [ 40, %359 ]
+  %380 = load i8, ptr %346, align 8
+  %381 = icmp eq i8 %380, 0
+  br i1 %381, label %382, label %383
 
-384:                                              ; preds = %381
+382:                                              ; preds = %infer_pkt_encap.exit.i
   store i32 1, ptr %346, align 8
   br label %fix_pseudo_header.exit
 
-385:                                              ; preds = %381
+383:                                              ; preds = %infer_pkt_encap.exit.i
   store i32 0, ptr %346, align 8
   br label %fix_pseudo_header.exit
 
-386:                                              ; preds = %ng_read_bytes.exit142
-  %387 = getelementptr inbounds i8, ptr %4, i64 85
-  %388 = load i8, ptr %387, align 1
-  %389 = icmp eq i8 %388, 3
-  %390 = icmp ugt i16 %.094, 1
-  %or.cond.i143 = and i1 %390, %389
-  br i1 %or.cond.i143, label %391, label %fix_pseudo_header.exit
+384:                                              ; preds = %ng_read_bytes.exit142
+  %385 = getelementptr inbounds i8, ptr %4, i64 85
+  %386 = load i8, ptr %385, align 1
+  %387 = icmp eq i8 %386, 3
+  %388 = icmp ugt i16 %.094, 1
+  %or.cond.i143 = and i1 %388, %387
+  br i1 %or.cond.i143, label %389, label %fix_pseudo_header.exit
 
-391:                                              ; preds = %386
-  %392 = load i8, ptr %347, align 1
-  %393 = icmp eq i8 %392, -1
-  br i1 %393, label %394, label %400
+389:                                              ; preds = %384
+  %390 = load i8, ptr %347, align 1
+  %391 = icmp eq i8 %390, -1
+  br i1 %391, label %392, label %398
 
-394:                                              ; preds = %391
-  %395 = getelementptr i8, ptr %347, i64 1
-  %396 = load i8, ptr %395, align 1
-  %397 = icmp eq i8 %396, 0
-  br i1 %397, label %398, label %400
+392:                                              ; preds = %389
+  %393 = getelementptr i8, ptr %347, i64 1
+  %394 = load i8, ptr %393, align 1
+  %395 = icmp eq i8 %394, 0
+  br i1 %395, label %396, label %398
 
-398:                                              ; preds = %394
+396:                                              ; preds = %392
+  %397 = getelementptr inbounds i8, ptr %4, i64 86
+  store i8 1, ptr %397, align 2
+  br label %fix_pseudo_header.exit
+
+398:                                              ; preds = %392, %389
   %399 = getelementptr inbounds i8, ptr %4, i64 86
-  store i8 1, ptr %399, align 2
+  %400 = load i8, ptr %399, align 2
+  %401 = icmp eq i8 %400, 1
+  br i1 %401, label %402, label %fix_pseudo_header.exit
+
+402:                                              ; preds = %398
+  store i8 2, ptr %399, align 2
   br label %fix_pseudo_header.exit
 
-400:                                              ; preds = %394, %391
-  %401 = getelementptr inbounds i8, ptr %4, i64 86
-  %402 = load i8, ptr %401, align 2
-  %403 = icmp eq i8 %402, 1
-  br i1 %403, label %404, label %fix_pseudo_header.exit
-
-404:                                              ; preds = %400
-  store i8 2, ptr %401, align 2
-  br label %fix_pseudo_header.exit
-
-fix_pseudo_header.exit:                           ; preds = %371, %ng_read_bytes.exit142, %.critedge.i.i, %374, %380, %384, %385, %386, %398, %400, %404
-  %.0.i144 = phi i32 [ %345, %ng_read_bytes.exit142 ], [ 13, %398 ], [ 13, %404 ], [ 13, %400 ], [ 13, %386 ], [ %.019.i.ph.i, %384 ], [ %.019.i.ph.i, %385 ], [ 12, %380 ], [ 12, %.critedge.i.i ], [ 27, %374 ], [ 12, %371 ]
-  %405 = getelementptr inbounds i8, ptr %4, i64 72
-  store i32 %.0.i144, ptr %405, align 8
-  %406 = zext i8 %.093 to i64
-  %407 = shl nuw nsw i64 %406, 32
-  %408 = zext i16 %.096 to i64
-  %409 = shl nuw nsw i64 %408, 16
-  %410 = or disjoint i64 %407, %409
-  %411 = zext i16 %.091 to i64
-  %412 = or disjoint i64 %410, %411
-  %413 = getelementptr inbounds i8, ptr %19, i64 12
-  %414 = load i32, ptr %413, align 4
-  %415 = zext i32 %414 to i64
-  %416 = mul i64 %412, %415
-  %417 = udiv i64 %416, 1000000000000
-  %.neg = mul i64 %417, -1000000000000
-  %418 = add i64 %.neg, %416
-  %419 = zext i8 %.092 to i64
-  %420 = mul nuw nsw i64 %419, 86400
-  %421 = getelementptr inbounds i8, ptr %19, i64 16
-  %422 = load i64, ptr %421, align 8
-  %423 = add i64 %422, %420
-  %424 = add i64 %423, %417
-  %425 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %424, ptr %425, align 8
-  %426 = udiv i64 %418, 1000
-  %427 = trunc i64 %426 to i32
-  %428 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %427, ptr %428, align 8
+fix_pseudo_header.exit:                           ; preds = %371, %ng_read_bytes.exit142, %353, %.critedge.i.i, %374, %382, %383, %384, %396, %398, %402
+  %.0.i144 = phi i32 [ %345, %ng_read_bytes.exit142 ], [ 13, %396 ], [ 13, %402 ], [ 13, %398 ], [ 13, %384 ], [ %.019.i.i, %382 ], [ %.019.i.i, %383 ], [ 12, %353 ], [ 12, %.critedge.i.i ], [ %spec.select.i145, %374 ], [ 12, %371 ]
+  %403 = getelementptr inbounds i8, ptr %4, i64 72
+  store i32 %.0.i144, ptr %403, align 8
+  %404 = zext i8 %.093 to i64
+  %405 = shl nuw nsw i64 %404, 32
+  %406 = zext i16 %.096 to i64
+  %407 = shl nuw nsw i64 %406, 16
+  %408 = or disjoint i64 %405, %407
+  %409 = zext i16 %.091 to i64
+  %410 = or disjoint i64 %408, %409
+  %411 = getelementptr inbounds i8, ptr %19, i64 12
+  %412 = load i32, ptr %411, align 4
+  %413 = zext i32 %412 to i64
+  %414 = mul i64 %410, %413
+  %415 = udiv i64 %414, 1000000000000
+  %.neg = mul i64 %415, -1000000000000
+  %416 = add i64 %.neg, %414
+  %417 = zext i8 %.092 to i64
+  %418 = mul nuw nsw i64 %417, 86400
+  %419 = getelementptr inbounds i8, ptr %19, i64 16
+  %420 = load i64, ptr %419, align 8
+  %421 = add i64 %420, %418
+  %422 = add i64 %421, %415
+  %423 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %422, ptr %423, align 8
+  %424 = udiv i64 %416, 1000
+  %425 = trunc i64 %424 to i32
+  %426 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %425, ptr %426, align 8
   br label %ng_read_bytes.exit.thread
 
 ng_read_bytes.exit.thread:                        ; preds = %340, %343, %283, %286, %135, %138, %33, %36, %fix_pseudo_header.exit, %321, %279, %131, %119, %29, %25

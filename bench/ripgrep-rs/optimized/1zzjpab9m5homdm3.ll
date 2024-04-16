@@ -855,7 +855,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !38, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %6 = load i32, ptr %5, align 8, !range !138, !alias.scope !135, !noalias !139, !noundef !4
-  %trunc.i = trunc i32 %6 to i1
+  %trunc.i = trunc nuw i32 %6 to i1
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = getelementptr inbounds i8, ptr %5, i64 4
   br i1 %trunc.i, label %11, label %9
@@ -2177,7 +2177,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !361, !noalias !358
   %12 = trunc i32 %1 to i8
@@ -2189,7 +2189,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !361, !noalias !358
   %19 = lshr i32 %1, 6
@@ -2260,7 +2260,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit
 
 .critedge.i:                                      ; preds = %2
-  %58 = trunc i32 %1 to i8
+  %58 = trunc nuw i32 %1 to i8
   %59 = getelementptr inbounds i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !374, !noundef !4
   %61 = load i64, ptr %0, align 8, !alias.scope !374, !noundef !4
@@ -3071,7 +3071,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 82:                                               ; preds = %77
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw nsw i64 %83 to i32
   %switch = icmp ult i32 %84, 41
   tail call void @llvm.assume(i1 %switch)
   switch i32 %84, label %149 [
@@ -3497,7 +3497,7 @@ default.unreachable5:                             ; preds = %tailrecurse
   %4 = getelementptr inbounds i8, ptr %.tr, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp eq i64 %5, 1
-  br i1 %6, label %tailrecurse.backedge, label %.loopexit.loopexit
+  br i1 %6, label %tailrecurse.backedge, label %.loopexit
 
 7:                                                ; preds = %tailrecurse
   br label %tailrecurse.backedge
@@ -3511,11 +3511,11 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse, %7
 9:                                                ; preds = %tailrecurse
   br label %tailrecurse.backedge
 
-.loopexit.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %3
+.loopexit.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %.loopexit.loopexit
-  %.0.shrunk = phi i1 [ false, %.loopexit.loopexit ], [ true, %tailrecurse ]
+.loopexit:                                        ; preds = %3, %tailrecurse, %.loopexit.loopexit
+  %.0.shrunk = phi i1 [ true, %tailrecurse ], [ false, %3 ], [ false, %.loopexit.loopexit ]
   ret i1 %.0.shrunk
 }
 
@@ -4226,7 +4226,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noca
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 24
   %16 = load i64, ptr %15, align 8
-  %trunc.i = trunc i64 %12 to i1
+  %trunc.i = trunc nuw i64 %12 to i1
   %17 = inttoptr i64 %16 to ptr
   br i1 %trunc.i, label %20, label %18
 
@@ -4947,11 +4947,11 @@ tailrecurse.i:                                    ; preds = %tailrecurse.backedg
     i64 1, label %9
     i64 2, label %tailrecurse.backedge.i
     i64 3, label %11
-    i64 4, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
+    i64 4, label %.loopexit.loopexit.i
     i64 5, label %.critedge
-    i64 6, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
-    i64 7, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
-    i64 8, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
+    i64 6, label %.loopexit.loopexit.i
+    i64 7, label %.loopexit.loopexit.i
+    i64 8, label %.loopexit.loopexit.i
   ]
 
 default.unreachable:                              ; preds = %tailrecurse.i
@@ -4961,7 +4961,7 @@ default.unreachable:                              ; preds = %tailrecurse.i
   %6 = getelementptr inbounds i8, ptr %.tr.i, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = icmp eq i64 %7, 1
-  br i1 %8, label %tailrecurse.backedge.i, label %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
+  br i1 %8, label %tailrecurse.backedge.i, label %.loopexit.loopexit.i
 
 9:                                                ; preds = %tailrecurse.i
   br label %tailrecurse.backedge.i
@@ -4975,7 +4975,7 @@ tailrecurse.backedge.i:                           ; preds = %11, %9, %5, %tailre
 11:                                               ; preds = %tailrecurse.i
   br label %tailrecurse.backedge.i
 
-_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit:  ; preds = %5, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
+.loopexit.loopexit.i:                             ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4984,7 +4984,7 @@ _ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit:  ; preds = %5, %tailrecurse.i, 
   %15 = icmp eq i64 %13, %14
   br i1 %15, label %16, label %21
 
-16:                                               ; preds = %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
+16:                                               ; preds = %.loopexit.loopexit.i
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hfcd4898c1b952c2bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13)
           to label %._crit_edge.i.i unwind label %17, !noalias !631
 
@@ -5004,8 +5004,8 @@ _ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit:  ; preds = %5, %tailrecurse.i, 
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #29
   unreachable
 
-21:                                               ; preds = %._crit_edge.i.i, %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit
-  %22 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %13, %_ZN6ignore5Error5is_io17h0ea59c09bdae053fE.exit ]
+21:                                               ; preds = %._crit_edge.i.i, %.loopexit.loopexit.i
+  %22 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %13, %.loopexit.loopexit.i ]
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !626, !noalias !631, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds { i64, [6 x i64] }, ptr %24, i64 %22

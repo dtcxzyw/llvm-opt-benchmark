@@ -35,14 +35,14 @@ aes_xts_newctx.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_xts_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal i32 @aes_xts_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @aes_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1), !range !4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_xts_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal i32 @aes_xts_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @aes_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0), !range !4
   ret i32 %call
@@ -223,7 +223,7 @@ declare i32 @ossl_cipher_generic_get_ctx_params(ptr noundef, ptr noundef) #1
 declare ptr @ossl_cipher_generic_gettable_ctx_params(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_xts_set_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal i32 @aes_xts_set_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
 entry:
   %keylen = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -232,7 +232,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.1) #4
   %cmp1.not = icmp eq ptr %call, null
-  br i1 %cmp1.not, label %if.end10, label %if.then2
+  br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %call3 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call, ptr noundef nonnull %keylen) #4
@@ -250,13 +250,11 @@ if.end5:                                          ; preds = %if.then2
   %keylen6 = getelementptr inbounds i8, ptr %vctx, i64 72
   %1 = load i64, ptr %keylen6, align 8
   %cmp7.not = icmp eq i64 %0, %1
-  br i1 %cmp7.not, label %if.end10, label %return
-
-if.end10:                                         ; preds = %if.end5, %if.end
+  %spec.select = zext i1 %cmp7.not to i32
   br label %return
 
-return:                                           ; preds = %if.end5, %entry, %if.end10, %if.then4
-  %retval.0 = phi i32 [ 1, %if.end10 ], [ 0, %if.then4 ], [ 1, %entry ], [ 0, %if.end5 ]
+return:                                           ; preds = %if.end5, %if.end, %entry, %if.then4
+  %retval.0 = phi i32 [ 0, %if.then4 ], [ 1, %entry ], [ 1, %if.end ], [ %spec.select, %if.end5 ]
   ret i32 %retval.0
 }
 
@@ -296,7 +294,7 @@ declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef,
 declare ptr @ossl_prov_cipher_hw_aes_xts(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @aes_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc i32 @aes_xts_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %keylen.i = alloca i64, align 8
   %call = tail call i32 @ossl_prov_is_running() #4
@@ -305,7 +303,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
-  %0 = trunc i32 %enc to i8
+  %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.value = shl i8 %0, 1
   %bf.shl = and i8 %bf.value, 2
@@ -372,7 +370,7 @@ if.end22:                                         ; preds = %if.end17, %if.end7
 if.end.i:                                         ; preds = %if.end22
   %call.i14 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.1) #4
   %cmp1.not.i = icmp eq ptr %call.i14, null
-  br i1 %cmp1.not.i, label %if.end10.i, label %if.then2.i
+  br i1 %cmp1.not.i, label %aes_xts_set_ctx_params.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call.i14, ptr noundef nonnull %keylen.i) #4
@@ -390,13 +388,11 @@ if.end5.i:                                        ; preds = %if.then2.i
   %keylen6.i = getelementptr inbounds i8, ptr %vctx, i64 72
   %6 = load i64, ptr %keylen6.i, align 8
   %cmp7.not.i = icmp eq i64 %5, %6
-  br i1 %cmp7.not.i, label %if.end10.i, label %aes_xts_set_ctx_params.exit
-
-if.end10.i:                                       ; preds = %if.end5.i, %if.end.i
+  %spec.select.i = zext i1 %cmp7.not.i to i32
   br label %aes_xts_set_ctx_params.exit
 
-aes_xts_set_ctx_params.exit:                      ; preds = %if.end22, %if.then4.i, %if.end5.i, %if.end10.i
-  %retval.0.i15 = phi i32 [ 1, %if.end10.i ], [ 0, %if.then4.i ], [ 1, %if.end22 ], [ 0, %if.end5.i ]
+aes_xts_set_ctx_params.exit:                      ; preds = %if.end22, %if.end.i, %if.then4.i, %if.end5.i
+  %retval.0.i15 = phi i32 [ 0, %if.then4.i ], [ 1, %if.end22 ], [ 1, %if.end.i ], [ %spec.select.i, %if.end5.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keylen.i)
   br label %return
 

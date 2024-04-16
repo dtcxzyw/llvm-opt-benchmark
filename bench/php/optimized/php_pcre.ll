@@ -1083,7 +1083,7 @@ define ptr @php_pcre_create_match_data(i32 noundef %0, ptr noundef %1) local_unn
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i8, ptr @mdata_used, align 1
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
@@ -1271,7 +1271,7 @@ define void @php_pcre_match_impl(ptr nocapture noundef readonly %0, ptr noundef 
   %.0440 = phi ptr [ %67, %66 ], [ null, %63 ], [ null, %58 ]
   store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
   %71 = load i8, ptr @mdata_used, align 1
-  %72 = trunc i8 %71 to i1
+  %72 = trunc nuw i8 %71 to i1
   %73 = icmp ugt i32 %61, 32
   %or.cond6.not = select i1 %72, i1 true, i1 %73
   br i1 %or.cond6.not, label %76, label %74
@@ -1690,7 +1690,7 @@ free_subpats_table.exit524:                       ; preds = %170, %157
   %250 = load ptr, ptr %249, align 8
   %251 = call ptr @zend_hash_next_index_insert_new(ptr noundef %250, ptr noundef nonnull %12) #23
   %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
-  %252 = trunc i64 %indvars.iv.next648 to i32
+  %252 = trunc nsw i64 %indvars.iv.next648 to i32
   %253 = icmp ugt i32 %61, %252
   br i1 %253, label %.preheader539.split.us.split.us, label %.loopexit540
 
@@ -1701,7 +1701,7 @@ free_subpats_table.exit524:                       ; preds = %170, %157
   %255 = load ptr, ptr %254, align 8
   %256 = call ptr @zend_hash_next_index_insert_new(ptr noundef %255, ptr noundef nonnull %11) #23
   %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
-  %257 = trunc i64 %indvars.iv.next645 to i32
+  %257 = trunc nsw i64 %indvars.iv.next645 to i32
   %258 = icmp ugt i32 %61, %257
   br i1 %258, label %.preheader539.split.us.split, label %.loopexit540
 
@@ -1711,7 +1711,7 @@ free_subpats_table.exit524:                       ; preds = %170, %157
   %260 = load ptr, ptr %259, align 8
   call fastcc void @add_offset_pair(ptr noundef %260, ptr noundef null, i64 noundef -1, i64 noundef -1, ptr noundef null, i64 noundef %.0449)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %261 = trunc i64 %indvars.iv.next to i32
+  %261 = trunc nsw i64 %indvars.iv.next to i32
   %262 = icmp ugt i32 %61, %261
   br i1 %262, label %.preheader539.split, label %.loopexit540
 
@@ -1729,7 +1729,7 @@ free_subpats_table.exit524:                       ; preds = %170, %157
   br label %.loopexit540
 
 270:                                              ; preds = %175
-  %271 = trunc i64 %indvars.iv.next651 to i32
+  %271 = trunc nsw i64 %indvars.iv.next651 to i32
   %272 = call ptr @php_pcre2_get_mark(ptr noundef %.0456) #23
   call fastcc void @populate_subpat_array(ptr noundef nonnull %.0433, ptr noundef nonnull %16, ptr noundef nonnull %105, ptr noundef %.0440, i32 noundef %61, i32 noundef %.3, ptr noundef %272, i64 noundef %5)
   br label %.loopexit547
@@ -1752,7 +1752,7 @@ free_subpats_table.exit524:                       ; preds = %170, %157
   br i1 %4, label %151, label %.loopexit547.loopexit
 
 282:                                              ; preds = %276
-  %283 = trunc i64 %indvars.iv.next651 to i32
+  %283 = trunc nsw i64 %indvars.iv.next651 to i32
   %284 = icmp eq i32 %279, -1
   br i1 %284, label %285, label %.loopexit548
 
@@ -1801,7 +1801,7 @@ free_subpats_table.exit524:                       ; preds = %170, %157
   br label %.loopexit547
 
 .loopexit546.loopexit:                            ; preds = %.loopexit540
-  %302 = trunc i64 %indvars.iv.next651 to i32
+  %302 = trunc nsw i64 %indvars.iv.next651 to i32
   br label %.loopexit546
 
 .loopexit546:                                     ; preds = %.loopexit546.loopexit, %299
@@ -1841,7 +1841,7 @@ free_subpats_table.exit524:                       ; preds = %170, %157
   br i1 %319, label %146, label %._crit_edge
 
 .loopexit547.loopexit:                            ; preds = %281
-  %320 = trunc i64 %indvars.iv.next651 to i32
+  %320 = trunc nsw i64 %indvars.iv.next651 to i32
   br label %.loopexit547
 
 .loopexit547:                                     ; preds = %.loopexit546, %285, %.loopexit547.loopexit, %._crit_edge, %309, %.loopexit548, %270
@@ -2417,7 +2417,7 @@ define internal fastcc void @populate_subpat_array(ptr noundef %0, ptr nocapture
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @add_offset_pair(ptr noundef %15, ptr noundef null, i64 noundef -1, i64 noundef -1, ptr noundef %30, i64 noundef 1)
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
-  %31 = trunc i64 %indvars.iv.next323 to i32
+  %31 = trunc nsw i64 %indvars.iv.next323 to i32
   %32 = icmp ult i32 %31, %4
   br i1 %32, label %.lr.ph294, label %.loopexit
 
@@ -2554,7 +2554,7 @@ add_named.exit:                                   ; preds = %82, %77, %79, %71
 95:                                               ; preds = %93, %90
   %96 = call ptr @zend_hash_next_index_insert_new(ptr noundef %15, ptr noundef nonnull %12) #23
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
-  %97 = trunc i64 %indvars.iv.next331 to i32
+  %97 = trunc nsw i64 %indvars.iv.next331 to i32
   %98 = icmp ult i32 %97, %4
   br i1 %98, label %90, label %.loopexit
 
@@ -3080,7 +3080,7 @@ define ptr @php_pcre_replace_impl(ptr nocapture noundef readonly %0, ptr noundef
   %10 = add i32 %9, 1
   store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
   %11 = load i8, ptr @mdata_used, align 1
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %13 = icmp ugt i32 %10, 32
   %or.cond.not = select i1 %12, i1 true, i1 %13
   br i1 %or.cond.not, label %16, label %14
@@ -5395,7 +5395,7 @@ define void @php_pcre_split_impl(ptr nocapture noundef readonly %0, ptr noundef 
 18:                                               ; preds = %5, %5, %16
   %.0361 = phi i64 [ -1, %5 ], [ %3, %16 ], [ -1, %5 ]
   %19 = load i8, ptr @mdata_used, align 1
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   %21 = icmp ugt i32 %15, 32
   %or.cond.not = select i1 %20, i1 true, i1 %21
   br i1 %or.cond.not, label %24, label %22
@@ -6245,7 +6245,7 @@ define void @php_pcre_grep_impl(ptr nocapture noundef readonly %0, ptr nocapture
   store i32 775, ptr %9, align 8
   store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
   %10 = load i8, ptr @mdata_used, align 1
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   %12 = add i32 %7, -32
   %13 = icmp ult i32 %12, -33
   %or.cond.not = select i1 %11, i1 true, i1 %13
@@ -7485,7 +7485,7 @@ define internal fastcc ptr @php_pcre_replace_func_impl(ptr nocapture noundef rea
   %.0501 = phi ptr [ %18, %17 ], [ null, %9 ]
   store i32 0, ptr getelementptr inbounds (%struct._zend_pcre_globals, ptr @pcre_globals, i64 0, i32 5), align 4
   %20 = load i8, ptr @mdata_used, align 1
-  %21 = trunc i8 %20 to i1
+  %21 = trunc nuw i8 %20 to i1
   %22 = and i8 %20, 1
   %23 = icmp ugt i32 %14, 32
   %or.cond.not = select i1 %21, i1 true, i1 %23
@@ -8217,7 +8217,7 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %4 = tail call ptr @php_pcre2_general_context_create(ptr noundef nonnull @php_pcre_malloc, ptr noundef nonnull @php_pcre_free, ptr noundef null) #23
   store ptr %4, ptr @gctx, align 8
   %.not2 = icmp eq ptr %4, null
-  br i1 %.not2, label %30, label %5
+  br i1 %.not2, label %29, label %5
 
 5:                                                ; preds = %3, %1
   %6 = phi ptr [ %4, %3 ], [ %2, %1 ]
@@ -8229,7 +8229,7 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %9 = tail call ptr @php_pcre2_compile_context_create(ptr noundef nonnull %6) #23
   store ptr %9, ptr @cctx, align 8
   %.not4 = icmp eq ptr %9, null
-  br i1 %.not4, label %30, label %10
+  br i1 %.not4, label %29, label %10
 
 10:                                               ; preds = %8, %5
   %11 = phi ptr [ %9, %8 ], [ %7, %5 ]
@@ -8243,7 +8243,7 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %16 = tail call ptr @php_pcre2_match_context_create(ptr noundef %15) #23
   store ptr %16, ptr @mctx, align 8
   %.not6 = icmp eq ptr %16, null
-  br i1 %.not6, label %30, label %17
+  br i1 %.not6, label %29, label %17
 
 17:                                               ; preds = %14, %10
   %18 = icmp eq i8 %0, 0
@@ -8257,7 +8257,7 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %23 = tail call ptr @php_pcre2_jit_stack_create(i64 noundef 32768, i64 noundef 196608, ptr noundef %22) #23
   store ptr %23, ptr @jit_stack, align 8
   %.not7 = icmp eq ptr %23, null
-  br i1 %.not7, label %30, label %24
+  br i1 %.not7, label %29, label %24
 
 24:                                               ; preds = %21, %17
   %25 = load ptr, ptr @mdata, align 8
@@ -8268,14 +8268,11 @@ define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_
   %27 = load ptr, ptr @gctx, align 8
   %28 = tail call ptr @php_pcre2_match_data_create(i32 noundef 32, ptr noundef %27) #23
   store ptr %28, ptr @mdata, align 8
-  %.not9 = icmp eq ptr %28, null
-  br i1 %.not9, label %30, label %29
+  %.not9 = icmp ne ptr %28, null
+  br label %29
 
-29:                                               ; preds = %26, %24
-  br label %30
-
-30:                                               ; preds = %26, %21, %14, %8, %3, %29
-  %.sink = phi i1 [ true, %29 ], [ false, %3 ], [ false, %8 ], [ false, %14 ], [ false, %21 ], [ false, %26 ]
+29:                                               ; preds = %26, %24, %21, %14, %8, %3
+  %.sink = phi i1 [ false, %3 ], [ false, %8 ], [ false, %14 ], [ false, %21 ], [ true, %24 ], [ %.not9, %26 ]
   store i1 %.sink, ptr @pcre2_init_ok, align 1
   ret void
 }

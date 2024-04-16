@@ -234,7 +234,7 @@ if.then.i:                                        ; preds = %entry
   %num_values.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %num_values.i.i, align 4
   %cmp.not17.i.i = icmp eq i32 %2, 0
-  br i1 %cmp.not17.i.i, label %if.end24.thread.i.i, label %while.body.lr.ph.i.i
+  br i1 %cmp.not17.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then.i
   %add.i.i = add i32 %2, %1
@@ -290,14 +290,12 @@ if.then14.i.i:                                    ; preds = %while.end.i.i
 if.end24.i.i:                                     ; preds = %while.end.i.i
   %cmp25.not.i.i = icmp eq i32 %best_pos.1.fr.i.i, -1
   %sub29.i.i = sub i32 %best_pos.1.fr.i.i, %1
-  br i1 %cmp25.not.i.i, label %if.end24.thread.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i
-
-if.end24.thread.i.i:                              ; preds = %if.end24.i.i, %if.then.i
+  %spec.select.i.i = select i1 %cmp25.not.i.i, i32 %2, i32 %sub29.i.i
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i: ; preds = %if.end24.thread.i.i, %if.end24.i.i, %if.then14.i.i
-  %storemerge15.i.i = phi i32 [ %sub.i.i, %if.then14.i.i ], [ %2, %if.end24.thread.i.i ], [ %sub29.i.i, %if.end24.i.i ]
-  %retval.0.i.i = phi i32 [ 0, %if.then14.i.i ], [ -30989, %if.end24.thread.i.i ], [ -30989, %if.end24.i.i ]
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i: ; preds = %if.end24.i.i, %if.then14.i.i, %if.then.i
+  %storemerge15.i.i = phi i32 [ %sub.i.i, %if.then14.i.i ], [ 0, %if.then.i ], [ %spec.select.i.i, %if.end24.i.i ]
+  %retval.0.i.i = phi i32 [ 0, %if.then14.i.i ], [ -30989, %if.then.i ], [ -30989, %if.end24.i.i ]
   store i32 %storemerge15.i.i, ptr %idx, align 4
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
 
@@ -478,7 +476,7 @@ if.else.i:                                        ; preds = %entry
   %.pre = load ptr, ptr %n, align 8
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %while.end.i.i, %if.then14.i.i, %if.then.i, %if.else.i
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %if.then.i, %if.then14.i.i, %while.end.i.i, %if.else.i
   %7 = phi ptr [ %.pre, %if.else.i ], [ %6, %if.then14.i.i ], [ null, %if.then.i ], [ null, %while.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp_index.i)
   ret ptr %7

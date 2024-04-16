@@ -377,7 +377,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i.i74 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
   %31 = load ptr, ptr %arrayidx.i.i74, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw i64 %indvars.iv to i32
   %call7 = tail call noundef i32 @_ZNK3euf13th_euf_solver18get_representativeEi(ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %33)
   %34 = load ptr, ptr %m_parents, align 8
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
@@ -935,7 +935,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %13 = load ptr, ptr %arrayidx.i.i24, align 8
   %m_root.i = getelementptr inbounds i8, ptr %13, i64 64
   %14 = load ptr, ptr %m_root.i, align 8
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i = call noundef i32 @_ZNK3euf13th_euf_solver18get_representativeEi(ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %15)
   %16 = zext i32 %call.i to i64
   %cmp.i = icmp eq i64 %indvars.iv, %16
@@ -4391,7 +4391,7 @@ _ZN5array6solver11get_defaultEi.exit28:           ; preds = %_ZN5array6solver11g
   %tobool = icmp ne ptr %17, null
   %tobool6 = icmp ne ptr %25, null
   %or.cond = and i1 %tobool, %tobool6
-  br i1 %or.cond, label %land.lhs.true7, label %if.end13
+  br i1 %or.cond, label %land.lhs.true7, label %return
 
 land.lhs.true7:                                   ; preds = %_ZN5array6solver11get_defaultEi.exit28
   %m_root.i = getelementptr inbounds i8, ptr %17, i64 64
@@ -4399,17 +4399,14 @@ land.lhs.true7:                                   ; preds = %_ZN5array6solver11g
   %m_root.i29 = getelementptr inbounds i8, ptr %25, i64 64
   %27 = load ptr, ptr %m_root.i29, align 8
   %cmp.not = icmp eq ptr %26, %27
-  br i1 %cmp.not, label %if.end13, label %land.lhs.true10
+  br i1 %cmp.not, label %return, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
   %call11 = tail call noundef zeroext i1 @_ZN5array6solver16has_large_domainEP4expr(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %2)
-  br i1 %call11, label %return, label %if.end13
-
-if.end13:                                         ; preds = %land.lhs.true10, %land.lhs.true7, %_ZN5array6solver11get_defaultEi.exit28
   br label %return
 
-return:                                           ; preds = %entry, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %land.lhs.true10, %_ZNK17array_recognizers8is_arrayEP4expr.exit, %if.end13
-  %retval.0 = phi i1 [ false, %if.end13 ], [ true, %_ZNK17array_recognizers8is_arrayEP4expr.exit ], [ true, %land.lhs.true10 ], [ true, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ true, %entry ]
+return:                                           ; preds = %entry, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %land.lhs.true10, %_ZN5array6solver11get_defaultEi.exit28, %land.lhs.true7, %_ZNK17array_recognizers8is_arrayEP4expr.exit
+  %retval.0 = phi i1 [ true, %_ZNK17array_recognizers8is_arrayEP4expr.exit ], [ false, %land.lhs.true7 ], [ false, %_ZN5array6solver11get_defaultEi.exit28 ], [ %call11, %land.lhs.true10 ], [ true, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ true, %entry ]
   ret i1 %retval.0
 }
 

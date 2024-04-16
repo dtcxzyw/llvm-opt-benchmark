@@ -183,7 +183,7 @@ define noundef i32 @Cudd_DumpBlif(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %.not89.us, label %50, label %46
 
 46:                                               ; preds = %.lr.ph103.split.us
-  %47 = trunc i64 %indvars.iv114 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv114 to i32
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef %47) #9
   %49 = icmp eq i32 %48, -1
   br i1 %49, label %.loopexit, label %50
@@ -195,7 +195,7 @@ define noundef i32 @Cudd_DumpBlif(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 51:                                               ; preds = %41
   tail call void @free(ptr noundef nonnull %13) #9
-  br label %81
+  br label %.thread
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph103 ]
@@ -270,18 +270,16 @@ define noundef i32 @Cudd_DumpBlif(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 78:                                               ; preds = %75
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.7) #9
-  %80 = icmp eq i32 %79, -1
-  br i1 %80, label %.thread, label %81
-
-.thread:                                          ; preds = %.lr.ph106.split, %.lr.ph106.split.us, %18, %._crit_edge104, %._crit_edge107, %75, %78
-  br label %81
+  %80 = icmp ne i32 %79, -1
+  %spec.select = zext i1 %80 to i32
+  br label %.thread
 
 .loopexit:                                        ; preds = %54, %46, %._crit_edge
   tail call void @free(ptr noundef nonnull %13) #9
-  br label %81
+  br label %.thread
 
-81:                                               ; preds = %.thread, %.loopexit, %78, %51
-  %.076 = phi i32 [ 0, %51 ], [ 1, %78 ], [ 0, %.loopexit ], [ 0, %.thread ]
+.thread:                                          ; preds = %.lr.ph106.split, %.lr.ph106.split.us, %78, %75, %._crit_edge107, %._crit_edge104, %18, %.loopexit, %51
+  %.076 = phi i32 [ 0, %51 ], [ 0, %.loopexit ], [ 0, %18 ], [ 0, %._crit_edge104 ], [ 0, %._crit_edge107 ], [ 0, %75 ], [ %spec.select, %78 ], [ 0, %.lr.ph106.split.us ], [ 0, %.lr.ph106.split ]
   ret i32 %.076
 }
 
@@ -333,7 +331,7 @@ define noundef i32 @Cudd_DumpBlifBody(ptr noundef %0, i32 noundef %1, ptr nocapt
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = udiv i64 %15, 40
-  %17 = trunc i64 %indvars.iv60 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv60 to i32
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, i64 noundef %16, i32 noundef %17) #9
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %.sink.split, label %21
@@ -759,7 +757,7 @@ define i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   br i1 %102, label %110, label %113
 
 110:                                              ; preds = %109
-  %111 = trunc i64 %indvars.iv372 to i32
+  %111 = trunc nuw nsw i64 %indvars.iv372 to i32
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.23, i32 noundef %111) #9
   br label %117
 
@@ -967,7 +965,7 @@ define i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   br i1 %188, label %193, label %196
 
 193:                                              ; preds = %192
-  %194 = trunc i64 %indvars.iv392 to i32
+  %194 = trunc nuw nsw i64 %indvars.iv392 to i32
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.23, i32 noundef %194) #9
   br label %200
 
@@ -1261,7 +1259,7 @@ define noundef i32 @Cudd_DumpDaVinci(ptr noundef %0, i32 noundef %1, ptr nocaptu
   br i1 %40, label %45, label %48
 
 45:                                               ; preds = %44
-  %46 = trunc i64 %indvars.iv98 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv98 to i32
   %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.41, i32 noundef %46, i32 noundef %46) #9
   br label %52
 
@@ -1634,7 +1632,7 @@ define noundef i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %92, label %103, label %106
 
 103:                                              ; preds = %102
-  %104 = trunc i64 %indvars.iv210 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv210 to i32
   %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.52, i32 noundef %104) #9
   br label %110
 
@@ -1871,7 +1869,7 @@ define noundef i32 @Cudd_DumpFactoredForm(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %8, label %15, label %18
 
 15:                                               ; preds = %14
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.52, i32 noundef %16) #9
   br label %22
 
@@ -1958,7 +1956,7 @@ define noundef i32 @Cudd_DumpFactoredForm(ptr noundef %0, i32 noundef %1, ptr no
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc noundef i32 @ddDoDumpFactoredForm(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 {
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %81, label %6
+  br i1 %5, label %80, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1995,7 +1993,7 @@ define internal fastcc noundef i32 @ddDoDumpFactoredForm(ptr noundef %0, ptr nou
 25:                                               ; preds = %23, %18
   %.0 = phi i32 [ %22, %18 ], [ %24, %23 ]
   %26 = icmp eq i32 %.0, -1
-  br i1 %26, label %81, label %._crit_edge
+  br i1 %26, label %80, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25
   %.pre = load ptr, ptr %14, align 8
@@ -2011,17 +2009,17 @@ define internal fastcc noundef i32 @ddDoDumpFactoredForm(ptr noundef %0, ptr nou
   %30 = select i1 %.not74, ptr @.str.12, ptr @.str.51
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.83, ptr noundef nonnull %30) #9
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %81, label %33
+  br i1 %32, label %80, label %33
 
 33:                                               ; preds = %29
   %34 = tail call fastcc i32 @ddDoDumpFactoredForm(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %2, ptr noundef %3), !range !8
   %.not75.not = icmp eq i32 %34, 0
-  br i1 %.not75.not, label %81, label %35
+  br i1 %.not75.not, label %80, label %35
 
 35:                                               ; preds = %33
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.61) #9
   %37 = icmp eq i32 %36, -1
-  br i1 %37, label %81, label %._crit_edge82
+  br i1 %37, label %80, label %._crit_edge82
 
 ._crit_edge82:                                    ; preds = %35
   %.pre83 = load ptr, ptr %14, align 8
@@ -2033,17 +2031,17 @@ define internal fastcc noundef i32 @ddDoDumpFactoredForm(ptr noundef %0, ptr nou
   %41 = xor i64 %40, 1
   %42 = inttoptr i64 %41 to ptr
   %43 = icmp eq ptr %10, %42
-  br i1 %43, label %81, label %44
+  br i1 %43, label %80, label %44
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %11, align 8
   %46 = icmp eq ptr %10, %45
-  br i1 %46, label %81, label %47
+  br i1 %46, label %80, label %47
 
 47:                                               ; preds = %44
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.84) #9
   %49 = icmp eq i32 %48, -1
-  br i1 %49, label %81, label %50
+  br i1 %49, label %80, label %50
 
 50:                                               ; preds = %47, %6
   %51 = ptrtoint ptr %10 to i64
@@ -2073,7 +2071,7 @@ define internal fastcc noundef i32 @ddDoDumpFactoredForm(ptr noundef %0, ptr nou
 65:                                               ; preds = %63, %58
   %.1 = phi i32 [ %62, %58 ], [ %64, %63 ]
   %66 = icmp eq i32 %.1, -1
-  br i1 %66, label %81, label %._crit_edge84
+  br i1 %66, label %80, label %._crit_edge84
 
 ._crit_edge84:                                    ; preds = %65
   %.pre85 = load ptr, ptr %54, align 8
@@ -2092,23 +2090,21 @@ define internal fastcc noundef i32 @ddDoDumpFactoredForm(ptr noundef %0, ptr nou
   %72 = select i1 %.not80, ptr @.str.12, ptr @.str.88
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.87, ptr noundef nonnull %70, ptr noundef nonnull %72) #9
   %74 = icmp eq i32 %73, -1
-  br i1 %74, label %81, label %75
+  br i1 %74, label %80, label %75
 
 75:                                               ; preds = %69
   %76 = tail call fastcc i32 @ddDoDumpFactoredForm(ptr noundef nonnull %0, ptr noundef %53, ptr noundef %2, ptr noundef %3), !range !8
   %.not81.not = icmp eq i32 %76, 0
-  br i1 %.not81.not, label %81, label %77
+  br i1 %.not81.not, label %80, label %77
 
 77:                                               ; preds = %75
   %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.61) #9
-  %79 = icmp eq i32 %78, -1
-  br i1 %79, label %81, label %80
+  %79 = icmp ne i32 %78, -1
+  %spec.select = zext i1 %79 to i32
+  br label %80
 
-80:                                               ; preds = %77, %67
-  br label %81
-
-81:                                               ; preds = %77, %75, %69, %65, %47, %38, %44, %35, %33, %29, %25, %4, %80
-  %.060 = phi i32 [ 1, %80 ], [ 0, %4 ], [ 0, %25 ], [ 0, %29 ], [ 0, %33 ], [ 0, %35 ], [ 1, %44 ], [ 1, %38 ], [ 0, %47 ], [ 0, %65 ], [ 0, %69 ], [ 0, %75 ], [ 0, %77 ]
+80:                                               ; preds = %77, %67, %75, %69, %65, %47, %38, %44, %35, %33, %29, %25, %4
+  %.060 = phi i32 [ 0, %4 ], [ 0, %25 ], [ 0, %29 ], [ 0, %33 ], [ 0, %35 ], [ 1, %44 ], [ 1, %38 ], [ 0, %47 ], [ 0, %65 ], [ 0, %69 ], [ 0, %75 ], [ 1, %67 ], [ %spec.select, %77 ]
   ret i32 %.060
 }
 

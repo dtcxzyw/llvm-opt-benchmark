@@ -374,7 +374,7 @@ for.body.i:                                       ; preds = %for.cond.loopexit.i
   %conv.i.i = zext i32 %mul.i.i to i64
   %sub.i.i = add nuw nsw i64 %conv.i.i, 511
   %div2.i.i = lshr i64 %sub.i.i, 9
-  %25 = trunc i64 %div2.i.i to i32
+  %25 = trunc nuw nsw i64 %div2.i.i to i32
   %26 = add nuw nsw i32 %25, 7
   %conv6.i.i = and i32 %26, 33554424
   %cmp42.not.i = icmp eq i32 %24, 4000
@@ -438,7 +438,7 @@ for.body77.i:                                     ; preds = %if.end72.i, %for.in
   %conv.i55.i = zext i32 %mul.i54.i to i64
   %sub.i56.i = add nuw nsw i64 %conv.i55.i, 511
   %div2.i57.i = lshr i64 %sub.i56.i, 9
-  %31 = trunc i64 %div2.i57.i to i32
+  %31 = trunc nuw nsw i64 %div2.i57.i to i32
   %32 = add nuw nsw i32 %31, 7
   %conv6.i58.i = and i32 %32, 33554424
   %cmp85.i = icmp ugt i32 %add.i, %29
@@ -1042,7 +1042,7 @@ if.then182:                                       ; preds = %if.end175
 
 if.end183:                                        ; preds = %if.end175
   %cond189 = call i64 @llvm.umax.i64(i64 %div179, i64 1000)
-  %conv190 = trunc i64 %cond189 to i32
+  %conv190 = trunc nuw i64 %cond189 to i32
   %master_key_iterations = getelementptr inbounds i8, ptr %call, i64 164
   store i32 %conv190, ptr %master_key_iterations, align 4
   %14 = load i32, ptr %master_key_len, align 4
@@ -1059,7 +1059,7 @@ if.end208:                                        ; preds = %if.end183
   %conv.i134 = zext i32 %mul.i to i64
   %sub.i = add nuw nsw i64 %conv.i134, 511
   %div2.i = lshr i64 %sub.i, 9
-  %15 = trunc i64 %div2.i to i32
+  %15 = trunc nuw nsw i64 %div2.i to i32
   %16 = add nuw nsw i32 %15, 7
   %conv6.i = and i32 %16, 33554424
   %key_slots = getelementptr inbounds i8, ptr %call, i64 208
@@ -1069,7 +1069,7 @@ for.body:                                         ; preds = %if.end208, %for.bod
   %i.0152 = phi i64 [ 0, %if.end208 ], [ %inc, %for.body ]
   %arrayidx = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots, i64 0, i64 %i.0152
   store i32 57005, ptr %arrayidx, align 4
-  %17 = trunc i64 %i.0152 to i32
+  %17 = trunc nuw i64 %i.0152 to i32
   %18 = mul nuw nsw i32 %conv6.i, %17
   %conv216 = add nuw nsw i32 %18, 8
   %key_offset_sector = getelementptr inbounds i8, ptr %arrayidx, i64 40
@@ -1237,7 +1237,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then24.i, label %for.body.i.i, !llvm.loop !18
 
 qcrypto_block_luks_find_free_keyslot.exit.i:      ; preds = %for.body.i.i
-  %conv.le.i.i = trunc i64 %i.06.i.i to i32
+  %conv.le.i.i = trunc nuw nsw i64 %i.06.i.i to i32
   %cmp22.i = icmp eq i32 %conv.le.i.i, -1
   br i1 %cmp22.i, label %if.then24.i, label %if.end26.i
 
@@ -1490,7 +1490,7 @@ for.end.i:                                        ; preds = %for.inc.i
   %slots_to_erase_bitmap.val.i = load i64, ptr %slots_to_erase_bitmap.i, align 8
   %and6.i.i = and i64 %slots_to_erase_bitmap.val.i, 255
   %26 = call i64 @llvm.ctpop.i64(i64 %and6.i.i), !range !21
-  %conv72.i = trunc i64 %26 to i32
+  %conv72.i = trunc nuw nsw i64 %26 to i32
   %cmp73.i = icmp eq i32 %conv72.i, 0
   br i1 %cmp73.i, label %if.then75.i, label %if.end76.i
 
@@ -1537,7 +1537,7 @@ for.body87.i:                                     ; preds = %for.body87.i.prehea
   br i1 %tobool89.not.i, label %for.inc97.i, label %if.end91.i
 
 if.end91.i:                                       ; preds = %for.body87.i
-  %conv92.i = trunc i64 %i.177.i to i32
+  %conv92.i = trunc nuw nsw i64 %i.177.i to i32
   %call93.i = call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv92.i, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp), !range !17
   %tobool94.not.i = icmp eq i32 %call93.i, 0
   br i1 %tobool94.not.i, label %for.inc97.i, label %if.then95.i
@@ -1742,27 +1742,24 @@ if.end5:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @qcrypto_block_luks_has_format(ptr nocapture noundef readonly %buf, i64 noundef %buf_size) #2 {
+define internal zeroext i1 @qcrypto_block_luks_has_format(ptr nocapture noundef readonly %buf, i64 noundef %buf_size) #2 {
 entry:
   %cmp = icmp ugt i64 %buf_size, 7
-  br i1 %cmp, label %land.lhs.true, label %if.else
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @qcrypto_block_luks_magic, i64 6)
   %cmp1 = icmp eq i32 %bcmp, 0
-  br i1 %cmp1, label %land.lhs.true2, label %if.else
+  br i1 %cmp1, label %land.lhs.true2, label %return
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
   %version = getelementptr inbounds i8, ptr %buf, i64 6
   %0 = load i16, ptr %version, align 2
   %cmp4 = icmp eq i16 %0, 256
-  br i1 %cmp4, label %return, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true2, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %land.lhs.true2, %if.else
-  %retval.0 = phi i1 [ false, %if.else ], [ true, %land.lhs.true2 ]
+return:                                           ; preds = %land.lhs.true2, %entry, %land.lhs.true
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %cmp4, %land.lhs.true2 ]
   ret i1 %retval.0
 }
 
@@ -2118,7 +2115,7 @@ if.then24:                                        ; preds = %if.end19
 
 if.end25:                                         ; preds = %if.end19
   %cond = call i64 @llvm.umax.i64(i64 %div21, i64 1000)
-  %conv28 = trunc i64 %cond to i32
+  %conv28 = trunc nuw i64 %cond to i32
   %iterations = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 %conv28, ptr %iterations, align 4
   %6 = load i32, ptr %master_key_len, align 4

@@ -136,7 +136,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_PciMemoryRange(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_PciMemoryRegion_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_PciMemoryRegion_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -169,18 +169,15 @@ if.then11:                                        ; preds = %if.end9
 if.end15:                                         ; preds = %if.then11, %if.end9
   %has_mem_type_64 = getelementptr inbounds i8, ptr %obj, i64 34
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_mem_type_64) #4
-  br i1 %call16, label %if.then17, label %if.end21
+  br i1 %call16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end15
   %mem_type_64 = getelementptr inbounds i8, ptr %obj, i64 35
   %call18 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %mem_type_64, ptr noundef %errp) #4
-  br i1 %call18, label %if.end21, label %return
-
-if.end21:                                         ; preds = %if.then17, %if.end15
   br label %return
 
-return:                                           ; preds = %if.then17, %if.then11, %if.end6, %if.end3, %if.end, %entry, %if.end21
-  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ false, %if.end6 ], [ false, %if.then11 ], [ false, %if.then17 ]
+return:                                           ; preds = %if.then17, %if.end15, %if.then11, %if.end6, %if.end3, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ false, %if.end6 ], [ false, %if.then11 ], [ true, %if.end15 ], [ %call18, %if.then17 ]
   ret i1 %retval.0
 }
 
@@ -448,18 +445,15 @@ entry:
 if.end:                                           ; preds = %entry
   %has_devices = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %has_devices) #4
-  br i1 %call1, label %if.then2, label %if.end6
+  br i1 %call1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   %devices = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_PciDeviceInfoList(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %devices, ptr noundef %errp)
-  br i1 %call3, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %entry, %if.end6
-  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.then2 ]
+return:                                           ; preds = %if.then2, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call3, %if.then2 ]
   ret i1 %retval.0
 }
 
@@ -476,9 +470,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -488,28 +482,28 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_type_PciBusInfo(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call.i, label %if.end.i, label %out_obj.thread16
+  br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
   %has_devices.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %has_devices.i) #4
-  br i1 %call1.i, label %if.then2.i, label %out_obj
+  br i1 %call1.i, label %visit_type_PciBridgeInfo_members.exit, label %out_obj
 
-if.then2.i:                                       ; preds = %if.end.i
+visit_type_PciBridgeInfo_members.exit:            ; preds = %if.end.i
   %devices.i = getelementptr inbounds i8, ptr %0, i64 16
   %call3.i = tail call zeroext i1 @visit_type_PciDeviceInfoList(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %devices.i, ptr noundef %errp)
-  br i1 %call3.i, label %out_obj, label %out_obj.thread16
+  br i1 %call3.i, label %out_obj, label %out_obj.thread
 
-out_obj.thread16:                                 ; preds = %if.then2.i, %if.end5
+out_obj.thread:                                   ; preds = %visit_type_PciBridgeInfo_members.exit, %if.end5
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end.i, %if.then2.i
+out_obj:                                          ; preds = %if.end.i, %visit_type_PciBridgeInfo_members.exit
   %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -519,8 +513,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
@@ -625,7 +619,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_PciDeviceClass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_PciDeviceId_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_PciDeviceId_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -648,18 +642,15 @@ if.then5:                                         ; preds = %if.end3
 if.end9:                                          ; preds = %if.then5, %if.end3
   %has_subsystem_vendor = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_subsystem_vendor) #4
-  br i1 %call10, label %if.then11, label %if.end15
+  br i1 %call10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end9
   %subsystem_vendor = getelementptr inbounds i8, ptr %obj, i64 40
   %call12 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %subsystem_vendor, ptr noundef %errp) #4
-  br i1 %call12, label %if.end15, label %return
-
-if.end15:                                         ; preds = %if.then11, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then11, %if.then5, %if.end, %entry, %if.end15
-  %retval.0 = phi i1 [ true, %if.end15 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ], [ false, %if.then11 ]
+return:                                           ; preds = %if.then11, %if.end9, %if.then5, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ], [ true, %if.end9 ], [ %call12, %if.then11 ]
   ret i1 %retval.0
 }
 

@@ -33,28 +33,26 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call3 = tail call ptr @setlocale(i32 noundef 5, ptr noundef null) #9
   %tobool4.not = icmp eq ptr %call3, null
-  br i1 %tobool4.not, label %if.end15, label %land.lhs.true5
+  br i1 %tobool4.not, label %return, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
   %1 = load i8, ptr %call3, align 1
   %tobool7.not = icmp eq i8 %1, 0
-  br i1 %tobool7.not, label %if.end15, label %land.lhs.true8
+  br i1 %tobool7.not, label %return, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
   %call9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3, ptr noundef nonnull dereferenceable(2) @.str.1) #10
   %tobool10.not = icmp eq i32 %call9, 0
-  br i1 %tobool10.not, label %if.end15, label %land.lhs.true11
+  br i1 %tobool10.not, label %return, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
   %call12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3, ptr noundef nonnull dereferenceable(6) @.str.2) #10
   %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %if.end15, label %return
-
-if.end15:                                         ; preds = %land.lhs.true11, %land.lhs.true8, %land.lhs.true5, %if.end
+  %spec.select = select i1 %tobool13.not, ptr null, ptr %call3
   br label %return
 
-return:                                           ; preds = %land.lhs.true11, %land.lhs.true, %if.end15
-  %retval.0 = phi ptr [ null, %if.end15 ], [ %call, %land.lhs.true ], [ %call3, %land.lhs.true11 ]
+return:                                           ; preds = %land.lhs.true11, %if.end, %land.lhs.true5, %land.lhs.true8, %land.lhs.true
+  %retval.0 = phi ptr [ %call, %land.lhs.true ], [ null, %land.lhs.true8 ], [ null, %land.lhs.true5 ], [ null, %if.end ], [ %spec.select, %land.lhs.true11 ]
   ret ptr %retval.0
 }
 
@@ -181,20 +179,20 @@ define internal noundef i32 @test_vsnprintf(ptr nocapture readnone %fmt, ...) un
 entry:
   %buf = alloca [26 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call i32 @vsnprintf(ptr noundef nonnull %buf, i64 noundef 26, ptr noundef nonnull @.str.7, ptr noundef nonnull %ap) #9
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %call
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -203,8 +201,8 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 

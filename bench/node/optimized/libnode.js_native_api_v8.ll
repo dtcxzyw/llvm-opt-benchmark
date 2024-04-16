@@ -2422,8 +2422,8 @@ _ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i: ; pr
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 144115188075855871)
-  %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855871, i64 %4
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 144115188075855871)
+  %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855871, i64 %spec.select.i.i
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 
@@ -3265,7 +3265,7 @@ if.then83:                                        ; preds = %_ZN2v810MaybeLocalI
 
 cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %6 = lshr i16 %call80, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   %8 = and i8 %7, 1
   store i8 %8, ptr %result, align 1
   %call92 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -3562,7 +3562,7 @@ do.end82:                                         ; preds = %_ZN2v810MaybeLocalI
 
 if.then84:                                        ; preds = %do.end82
   %6 = lshr i16 %call73, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   %8 = and i8 %7, 1
   store i8 %8, ptr %result, align 1
   br label %if.end87
@@ -3718,7 +3718,7 @@ if.then95:                                        ; preds = %do.end78
 
 cond.true.i:                                      ; preds = %do.end78
   %6 = lshr i16 %call92, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   %8 = and i8 %7, 1
   store i8 %8, ptr %result, align 1
   %call104 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -4030,7 +4030,7 @@ if.then110:                                       ; preds = %_ZN2v810MaybeLocalI
 
 cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %7 = lshr i16 %call107, 8
-  %8 = trunc i16 %7 to i8
+  %8 = trunc nuw i16 %7 to i8
   %9 = and i8 %8, 1
   store i8 %9, ptr %result, align 1
   %call119 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -4472,7 +4472,7 @@ if.then68:                                        ; preds = %_ZN2v810MaybeLocalI
 
 cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %6 = lshr i16 %call65, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   %8 = and i8 %7, 1
   store i8 %8, ptr %result, align 1
   %call77 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -4763,7 +4763,7 @@ do.end67:                                         ; preds = %_ZN2v810MaybeLocalI
 
 if.then69:                                        ; preds = %do.end67
   %6 = lshr i16 %call58, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   %8 = and i8 %7, 1
   store i8 %8, ptr %result, align 1
   br label %if.end72
@@ -6698,7 +6698,7 @@ do.end14:                                         ; preds = %do.body8
 do.end38:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %conv = trunc i64 %word_count to i32
+  %conv = trunc nuw nsw i64 %word_count to i32
   %call42 = call ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %sign_bit, i32 noundef %conv, ptr noundef nonnull %words) #24
   %cmp.i.i = icmp eq ptr %call42, null
   br i1 %cmp.i.i, label %if.then49, label %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
@@ -9220,7 +9220,7 @@ if.then29:                                        ; preds = %do.body26
 do.end32:                                         ; preds = %do.body26
   %call38 = tail call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #24
   %ref.tmp33.sroa.29.0.extract.shift = lshr i64 %call38, 32
-  %ref.tmp33.sroa.29.0.extract.trunc = trunc i64 %ref.tmp33.sroa.29.0.extract.shift to i32
+  %ref.tmp33.sroa.29.0.extract.trunc = trunc nuw i64 %ref.tmp33.sroa.29.0.extract.shift to i32
   %tobool.i = trunc i64 %call38 to i1
   br i1 %tobool.i, label %if.end40, label %if.then.i
 
@@ -9318,7 +9318,7 @@ if.then29:                                        ; preds = %do.body26
 do.end32:                                         ; preds = %do.body26
   %call38 = tail call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #24
   %ref.tmp33.sroa.29.0.extract.shift = lshr i64 %call38, 32
-  %ref.tmp33.sroa.29.0.extract.trunc = trunc i64 %ref.tmp33.sroa.29.0.extract.shift to i32
+  %ref.tmp33.sroa.29.0.extract.trunc = trunc nuw i64 %ref.tmp33.sroa.29.0.extract.shift to i32
   %tobool.i = trunc i64 %call38 to i1
   br i1 %tobool.i, label %if.end40, label %if.then.i
 
@@ -12795,7 +12795,7 @@ if.end72:                                         ; preds = %_ZN2v810MaybeLocalI
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %if.end72
   %6 = lshr i16 %call86, 8
-  %7 = trunc i16 %6 to i8
+  %7 = trunc nuw i16 %6 to i8
   %frombool = and i8 %7, 1
   store i8 %frombool, ptr %result, align 1
   %call95 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -15935,7 +15935,7 @@ entry:
   %2 = load i64, ptr %arrayidx.i, align 8
   %and.i.i = and i64 %2, 3
   %cmp.i.i = icmp eq i64 %and.i.i, 1
-  br i1 %cmp.i.i, label %if.end.i, label %if.then
+  br i1 %cmp.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
   %sub.i18.i = add nsw i64 %2, -1
@@ -15945,7 +15945,7 @@ if.end.i:                                         ; preds = %entry
   %5 = inttoptr i64 %sub.i.i to ptr
   %6 = load i16, ptr %5, align 2
   %cmp.i.not = icmp eq i16 %6, 131
-  br i1 %cmp.i.not, label %if.end5.i, label %if.then
+  br i1 %cmp.i.not, label %if.end5.i, label %return
 
 if.end5.i:                                        ; preds = %if.end.i
   %sub.i.i41 = add i64 %2, 39
@@ -15953,13 +15953,11 @@ if.end5.i:                                        ; preds = %if.end.i
   %8 = load i64, ptr %7, align 8
   %shr.i.mask = and i64 %8, -4294967296
   %cmp7.i.not = icmp eq i64 %shr.i.mask, 21474836480
-  br i1 %cmp7.i.not, label %return, label %if.then
-
-if.then:                                          ; preds = %entry, %if.end.i, %if.end5.i
+  %spec.select = select i1 %cmp7.i.not, ptr null, ptr %arrayidx.i
   br label %return
 
-return:                                           ; preds = %if.end5.i, %if.then
-  %retval.0 = phi ptr [ %arrayidx.i, %if.then ], [ null, %if.end5.i ]
+return:                                           ; preds = %if.end5.i, %if.end.i, %entry
+  %retval.0 = phi ptr [ %arrayidx.i, %entry ], [ %arrayidx.i, %if.end.i ], [ %spec.select, %if.end5.i ]
   ret ptr %retval.0
 }
 

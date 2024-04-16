@@ -3631,7 +3631,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %7
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %if.end
-  %conv.i.i = trunc i64 %add12.i.i to i32
+  %conv.i.i = trunc nuw i64 %add12.i.i to i32
   store i32 %conv.i.i, ptr %id, align 4
   %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load ptr, ptr %_M_last.i, align 8
@@ -3887,7 +3887,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.2.i.i, %for
   %add.ptr.i97 = getelementptr inbounds i8, ptr %19, i64 %dec130
   %20 = load i8, ptr %add.ptr.i97, align 1
   %conv27 = zext i8 %20 to i32
-  %conv140 = trunc i64 %add.i.i to i32
+  %conv140 = trunc nuw nsw i64 %add.i.i to i32
   %and141 = and i32 %conv25, %conv140
   %cmp28.not142 = icmp eq i32 %and141, %conv27
   br i1 %cmp28.not142, label %if.end.i.i.preheader, label %invoke.cont36
@@ -4934,7 +4934,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 
 invoke.cont4:                                     ; preds = %_ZN3ue211ue2_literalD2Ev.exit
   %literals = getelementptr inbounds i8, ptr %this, i64 104
-  %conv.i.i = trunc i64 %add12.i.i.i to i32
+  %conv.i.i = trunc nuw i64 %add12.i.i.i to i32
   store i32 %conv.i.i, ptr %distinctiveness.i, align 8
   %call9 = invoke i64 @_ZN3ue214RoseLiteralMap6insertERKNS_15rose_literal_idE(ptr noundef nonnull align 8 dereferenceable(136) %literals, ptr noundef nonnull align 8 dereferenceable(124) %key)
           to label %invoke.cont12 unwind label %lpad7
@@ -7607,19 +7607,16 @@ if.end17:                                         ; preds = %lor.lhs.false
   %8 = load ptr, ptr %cc, align 8
   %9 = load i8, ptr %8, align 8, !range !219, !noundef !125
   %tobool20.not = icmp eq i8 %9, 0
-  br i1 %tobool20.not, label %if.end24, label %land.lhs.true
+  br i1 %tobool20.not, label %cleanup25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end17
   %source.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 32
   %10 = load ptr, ptr %source.i.i, align 8
   %call.i = tail call fastcc noundef zeroext i1 @_ZN3ue2L9isInTableERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEENS_18rose_literal_tableE(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nonnull %10, i32 noundef 2)
-  br i1 %call.i, label %if.end24, label %cleanup25
-
-if.end24:                                         ; preds = %land.lhs.true, %if.end17
   br label %cleanup25
 
-cleanup25:                                        ; preds = %if.end24, %land.lhs.true, %lor.lhs.false, %if.end10, %_ZNK3ue211LeftEngInfocvbEv.exit, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZNK3ue211LeftEngInfocvbEv.exit ], [ false, %lor.lhs.false ], [ false, %if.end10 ], [ true, %if.end24 ], [ false, %land.lhs.true ], [ false, %if.end ]
+cleanup25:                                        ; preds = %land.lhs.true, %if.end17, %lor.lhs.false, %if.end10, %_ZNK3ue211LeftEngInfocvbEv.exit, %if.end, %entry
+  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZNK3ue211LeftEngInfocvbEv.exit ], [ false, %lor.lhs.false ], [ false, %if.end10 ], [ false, %if.end ], [ true, %if.end17 ], [ %call.i, %land.lhs.true ]
   ret i1 %retval.1
 }
 

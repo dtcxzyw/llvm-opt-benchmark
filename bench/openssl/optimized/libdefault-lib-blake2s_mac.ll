@@ -119,7 +119,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 blake2_setkey.exit:                               ; preds = %if.end.i, %if.then4.i
   %params.i = getelementptr inbounds i8, ptr %vmacctx, i64 128
-  %conv.i = trunc i64 %keylen to i8
+  %conv.i = trunc nuw nsw i64 %keylen to i8
   tail call void @ossl_blake2s_param_set_key_length(ptr noundef nonnull %params.i, i8 noundef zeroext %conv.i) #5
   br label %if.end13
 
@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @blake2_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
+define internal i32 @blake2_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #5
   %cmp.not = icmp eq ptr %call, null
@@ -205,18 +205,16 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call3 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.2) #5
   %cmp4.not = icmp eq ptr %call3, null
-  br i1 %cmp4.not, label %if.end9, label %land.lhs.true5
+  br i1 %cmp4.not, label %return, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
   %call6 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call3, i64 noundef 64) #5
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %return, label %if.end9
-
-if.end9:                                          ; preds = %land.lhs.true5, %if.end
+  %tobool7.not = icmp ne i32 %call6, 0
+  %spec.select = zext i1 %tobool7.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true5, %land.lhs.true, %if.end9
-  %retval.0 = phi i32 [ 1, %if.end9 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true5 ]
+return:                                           ; preds = %land.lhs.true5, %if.end, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 1, %if.end ], [ %spec.select, %land.lhs.true5 ]
   ret i32 %retval.0
 }
 
@@ -255,7 +253,7 @@ if.then7:                                         ; preds = %if.then2
 
 if.end8:                                          ; preds = %if.then2
   %params9 = getelementptr inbounds i8, ptr %vmacctx, i64 128
-  %conv = trunc i64 %0 to i8
+  %conv = trunc nuw nsw i64 %0 to i8
   call void @ossl_blake2s_param_set_digest_length(ptr noundef nonnull %params9, i8 noundef zeroext %conv) #5
   br label %if.end10
 
@@ -293,7 +291,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 blake2_setkey.exit:                               ; preds = %if.end.i, %if.then4.i
   %params.i = getelementptr inbounds i8, ptr %vmacctx, i64 128
-  %conv.i = trunc i64 %3 to i8
+  %conv.i = trunc nuw nsw i64 %3 to i8
   call void @ossl_blake2s_param_set_key_length(ptr noundef nonnull %params.i, i8 noundef zeroext %conv.i) #5
   br label %if.end17
 

@@ -169,7 +169,7 @@ if.then12:                                        ; preds = %if.else
   %conv3.i = zext nneg i32 %and.i to i64
   %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 320), align 8
   %tobool.not.i = icmp eq i32 %6, 0
-  br i1 %tobool.not.i, label %cond.end.thread.i, label %cond.end.i
+  br i1 %tobool.not.i, label %LFUDecrAndReturn.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then12
   %shr.i = lshr i32 %bf.load.i60, 16
@@ -187,13 +187,11 @@ cond.end.i:                                       ; preds = %if.then12
   %tobool5.not.i = icmp ult i64 %retval.0.i.i, %conv4.i
   %cond10.i = call i64 @llvm.usub.sat.i64(i64 %conv3.i, i64 %div.i)
   %cond.fr.i = freeze i1 %tobool5.not.i
-  br i1 %cond.fr.i, label %cond.end.thread.i, label %LFUDecrAndReturn.exit
-
-cond.end.thread.i:                                ; preds = %cond.end.i, %if.then12
+  %spec.select.i = select i1 %cond.fr.i, i64 %conv3.i, i64 %cond10.i
   br label %LFUDecrAndReturn.exit
 
-LFUDecrAndReturn.exit:                            ; preds = %cond.end.i, %cond.end.thread.i
-  %8 = phi i64 [ %conv3.i, %cond.end.thread.i ], [ %cond10.i, %cond.end.i ]
+LFUDecrAndReturn.exit:                            ; preds = %if.then12, %cond.end.i
+  %8 = phi i64 [ %conv3.i, %if.then12 ], [ %spec.select.i, %cond.end.i ]
   %sub = sub nuw nsw i64 255, %8
   br label %if.end22
 
@@ -236,7 +234,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %if.else46, label %land.lhs.true, !llvm.loop !7
 
 while.end:                                        ; preds = %land.lhs.true, %land.rhs
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp32 = icmp eq i32 %12, 0
   br i1 %cmp32, label %land.lhs.true33, label %land.lhs.true40
 
@@ -457,14 +455,12 @@ cond.end:                                         ; preds = %entry
   %tobool5.not = icmp ult i64 %retval.0.i, %conv4
   %cond10 = tail call i64 @llvm.usub.sat.i64(i64 %conv3, i64 %div)
   %cond.fr = freeze i1 %tobool5.not
-  br i1 %cond.fr, label %cond.end.thread, label %2
+  %spec.select = select i1 %cond.fr, i64 %conv3, i64 %cond10
+  br label %cond.end.thread
 
-cond.end.thread:                                  ; preds = %entry, %cond.end
-  br label %2
-
-2:                                                ; preds = %cond.end, %cond.end.thread
-  %3 = phi i64 [ %conv3, %cond.end.thread ], [ %cond10, %cond.end ]
-  ret i64 %3
+cond.end.thread:                                  ; preds = %cond.end, %entry
+  %2 = phi i64 [ %conv3, %entry ], [ %spec.select, %cond.end ]
+  ret i64 %2
 }
 
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -960,7 +956,7 @@ if.end37.us:                                      ; preds = %for.body.us
   %add.us = add i64 %call33.us, %total_keys.0223.us
   %call38.us = tail call i32 @dbNonEmptySlots(ptr noundef %add.ptr.us, i32 noundef %cond) #14
   %expires.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
-  %21 = trunc i64 %indvars.iv243 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv243 to i32
   br label %while.cond39.us.us
 
 for.inc.us:                                       ; preds = %while.cond39.us.us, %while.body41.us.us, %for.body.us
@@ -1010,7 +1006,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end37:                                         ; preds = %for.body
   %add = add i64 %call33, %total_keys.0223
   %call38 = tail call i32 @dbNonEmptySlots(ptr noundef %add.ptr, i32 noundef %cond) #14
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.cond39
 
 while.cond39:                                     ; preds = %while.body41, %if.end37
@@ -1374,7 +1370,7 @@ if.end241:                                        ; preds = %if.then236, %if.the
 
 land.rhs.lr.ph:                                   ; preds = %if.end241
   %cond259 = tail call i64 @llvm.umin.i64(i64 %retval.0.i104, i64 1000)
-  %conv260 = trunc i64 %cond259 to i32
+  %conv260 = trunc nuw nsw i64 %cond259 to i32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end253

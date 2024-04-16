@@ -446,7 +446,7 @@ declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509v3_asid_is_canonical(ptr noundef readonly %asid) local_unnamed_addr #1 {
+define i32 @X509v3_asid_is_canonical(ptr noundef readonly %asid) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -469,7 +469,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ASIdentifierChoice_is_canonical(ptr noundef readonly %choice) unnamed_addr #1 {
+define internal fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef readonly %choice) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %choice, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -486,9 +486,9 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %1 = load ptr, ptr %u, align 8
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %cmp6 = icmp eq i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %for.cond
+  br i1 %cmp6, label %return, label %for.cond
 
-if.then7:                                         ; preds = %lor.lhs.false, %lor.lhs.false4
+if.then7:                                         ; preds = %lor.lhs.false
   br label %return
 
 for.cond:                                         ; preds = %lor.lhs.false4, %if.end49
@@ -622,12 +622,12 @@ for.end:                                          ; preds = %for.cond
   %15 = load ptr, ptr %u, align 8
   %call61 = tail call ptr @OPENSSL_sk_value(ptr noundef %15, i32 noundef %sub57) #5
   %cmp64.not = icmp eq ptr %call61, null
-  br i1 %cmp64.not, label %if.end76, label %land.lhs.true65
+  br i1 %cmp64.not, label %done, label %land.lhs.true65
 
 land.lhs.true65:                                  ; preds = %for.end
   %16 = load i32, ptr %call61, align 8
   %cmp67 = icmp eq i32 %16, 1
-  br i1 %cmp67, label %lor.lhs.false71, label %if.end76
+  br i1 %cmp67, label %lor.lhs.false71, label %done
 
 lor.lhs.false71:                                  ; preds = %land.lhs.true65
   %u7.i35 = getelementptr inbounds i8, ptr %call61, i64 8
@@ -636,27 +636,25 @@ lor.lhs.false71:                                  ; preds = %land.lhs.true65
   %max10.i36 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %max10.i36, align 8
   %call72 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %18, ptr noundef %19) #5
-  %cmp73 = icmp sgt i32 %call72, 0
-  br i1 %cmp73, label %done, label %if.end76
-
-if.end76:                                         ; preds = %lor.lhs.false71, %land.lhs.true65, %for.end
+  %cmp73 = icmp slt i32 %call72, 1
+  %spec.select = zext i1 %cmp73 to i32
   br label %done
 
-done:                                             ; preds = %if.end.i22, %lor.lhs.false20, %if.end.i, %for.body, %if.end49, %if.end24, %lor.lhs.false27, %lor.lhs.false30, %lor.lhs.false71, %if.end76, %if.then48, %if.then44
-  %ret.0 = phi i32 [ 0, %if.then44 ], [ 0, %if.then48 ], [ 0, %lor.lhs.false71 ], [ 1, %if.end76 ], [ 0, %lor.lhs.false30 ], [ 0, %lor.lhs.false27 ], [ 0, %if.end24 ], [ 0, %if.end49 ], [ 0, %for.body ], [ 0, %if.end.i ], [ 0, %lor.lhs.false20 ], [ 0, %if.end.i22 ]
-  %bn.3 = phi ptr [ %bn.2, %if.then44 ], [ %bn.1, %if.then48 ], [ %bn.0, %lor.lhs.false71 ], [ %bn.0, %if.end76 ], [ %bn.0, %if.end.i22 ], [ %bn.0, %lor.lhs.false20 ], [ %bn.0, %if.end.i ], [ %bn.0, %for.body ], [ %bn.1, %if.end49 ], [ %bn.0, %if.end24 ], [ %bn.0, %lor.lhs.false27 ], [ %bn.0, %lor.lhs.false30 ]
-  %a_max_plus_one.1 = phi ptr [ %a_max_plus_one.0, %if.then44 ], [ %a_max_plus_one.0, %if.then48 ], [ %a_max_plus_one.0, %lor.lhs.false71 ], [ %a_max_plus_one.0, %if.end76 ], [ %a_max_plus_one.0, %if.end.i22 ], [ %a_max_plus_one.0, %lor.lhs.false20 ], [ %a_max_plus_one.0, %if.end.i ], [ %a_max_plus_one.0, %for.body ], [ %call46, %if.end49 ], [ %a_max_plus_one.0, %if.end24 ], [ %a_max_plus_one.0, %lor.lhs.false27 ], [ %a_max_plus_one.0, %lor.lhs.false30 ]
+done:                                             ; preds = %if.end.i22, %lor.lhs.false20, %if.end.i, %for.body, %if.end49, %if.end24, %lor.lhs.false27, %lor.lhs.false30, %lor.lhs.false71, %for.end, %land.lhs.true65, %if.then48, %if.then44
+  %ret.0 = phi i32 [ 0, %if.then44 ], [ 0, %if.then48 ], [ 1, %land.lhs.true65 ], [ 1, %for.end ], [ %spec.select, %lor.lhs.false71 ], [ 0, %lor.lhs.false30 ], [ 0, %lor.lhs.false27 ], [ 0, %if.end24 ], [ 0, %if.end49 ], [ 0, %for.body ], [ 0, %if.end.i ], [ 0, %lor.lhs.false20 ], [ 0, %if.end.i22 ]
+  %bn.3 = phi ptr [ %bn.2, %if.then44 ], [ %bn.1, %if.then48 ], [ %bn.0, %land.lhs.true65 ], [ %bn.0, %for.end ], [ %bn.0, %lor.lhs.false71 ], [ %bn.0, %if.end.i22 ], [ %bn.0, %lor.lhs.false20 ], [ %bn.0, %if.end.i ], [ %bn.0, %for.body ], [ %bn.1, %if.end49 ], [ %bn.0, %if.end24 ], [ %bn.0, %lor.lhs.false27 ], [ %bn.0, %lor.lhs.false30 ]
+  %a_max_plus_one.1 = phi ptr [ %a_max_plus_one.0, %if.then44 ], [ %a_max_plus_one.0, %if.then48 ], [ %a_max_plus_one.0, %land.lhs.true65 ], [ %a_max_plus_one.0, %for.end ], [ %a_max_plus_one.0, %lor.lhs.false71 ], [ %a_max_plus_one.0, %if.end.i22 ], [ %a_max_plus_one.0, %lor.lhs.false20 ], [ %a_max_plus_one.0, %if.end.i ], [ %a_max_plus_one.0, %for.body ], [ %call46, %if.end49 ], [ %a_max_plus_one.0, %if.end24 ], [ %a_max_plus_one.0, %lor.lhs.false27 ], [ %a_max_plus_one.0, %lor.lhs.false30 ]
   tail call void @ASN1_INTEGER_free(ptr noundef %a_max_plus_one.1) #5
   tail call void @BN_free(ptr noundef %bn.3) #5
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %entry, %done, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then7 ], [ %ret.0, %done ], [ 1, %lor.lhs.false ], [ 1, %entry ]
+return:                                           ; preds = %lor.lhs.false4, %lor.lhs.false, %entry, %done, %if.then7
+  %retval.0 = phi i32 [ %ret.0, %done ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 0, %lor.lhs.false4 ], [ 0, %if.then7 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509v3_asid_canonize(ptr noundef readonly %asid) local_unnamed_addr #1 {
+define i32 @X509v3_asid_canonize(ptr noundef readonly %asid) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -679,7 +677,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ASIdentifierChoice_canonize(ptr noundef %choice) unnamed_addr #1 {
+define internal fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %choice) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %choice, null
   br i1 %cmp, label %return, label %lor.lhs.false

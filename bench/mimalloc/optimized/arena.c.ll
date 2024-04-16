@@ -112,12 +112,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %cond.i.i = select i1 %cmp.i.i, i32 112, i32 %sub.i.i
   %conv.i.i = zext nneg i32 %cond.i.i to i64
   %cmp7.i = icmp ugt i64 %1, %conv.i.i
-  br i1 %cmp7.i, label %if.then9.i, label %if.end23.thread
-
-if.then9.i:                                       ; preds = %if.then5.i
-  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef %tld) #12
-  %cmp13.not.i = icmp eq ptr %call12.i, null
-  br i1 %cmp13.not.i, label %if.end23.thread, label %return
+  br i1 %cmp7.i, label %mi_arena_try_alloc.exit, label %if.end23.thread
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.035.i, 1
@@ -138,8 +133,8 @@ for.end.i:                                        ; preds = %for.cond.i
 
 for.cond33.i:                                     ; preds = %for.body36.i
   %inc47.i = add nuw i64 %i32.036.i, 1
-  %exitcond40.not.i = icmp eq i64 %inc47.i, %1
-  br i1 %exitcond40.not.i, label %if.end, label %for.body36.i, !llvm.loop !6
+  %exitcond39.not.i = icmp eq i64 %inc47.i, %1
+  br i1 %exitcond39.not.i, label %if.end, label %for.body36.i, !llvm.loop !6
 
 for.body36.i:                                     ; preds = %for.end.i, %for.cond33.i
   %i32.036.i = phi i64 [ %inc47.i, %for.cond33.i ], [ 0, %for.end.i ]
@@ -149,7 +144,12 @@ for.body36.i:                                     ; preds = %for.end.i, %for.con
   %cmp42.not.i = icmp eq ptr %call41.i, null
   br i1 %cmp42.not.i, label %for.cond33.i, label %return
 
-if.end:                                           ; preds = %for.cond33.i, %for.end.i, %if.then
+mi_arena_try_alloc.exit:                          ; preds = %if.then5.i
+  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef %tld) #12
+  %cmp7.not = icmp eq ptr %call12.i, null
+  br i1 %cmp7.not, label %if.end23.thread, label %return
+
+if.end:                                           ; preds = %for.cond33.i, %if.then, %for.end.i
   %cmp10 = icmp eq i32 %req_arena_id, 0
   br i1 %cmp10, label %if.then11, label %if.end23.thread
 
@@ -205,15 +205,15 @@ if.then14:                                        ; preds = %mi_arena_reserve.ex
   %cmp18.not = icmp eq ptr %call17, null
   br i1 %cmp18.not, label %if.end23, label %return
 
-if.end23.thread:                                  ; preds = %if.then9.i, %if.then5.i, %if.end
-  %call2456 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 17) #11
+if.end23.thread:                                  ; preds = %mi_arena_try_alloc.exit, %if.then5.i, %if.end
+  %call2461 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 17) #11
   br label %if.then27
 
 if.end23:                                         ; preds = %if.end10.i, %if.end6.i, %if.end.i39, %if.then11, %if.then14, %mi_arena_reserve.exit, %_mi_os_numa_node.exit
   %call24 = call zeroext i1 @mi_option_is_enabled(i32 noundef 17) #11
   %cmp26.not = icmp ne i32 %req_arena_id, 0
-  %or.cond49.not = or i1 %cmp26.not, %call24
-  br i1 %or.cond49.not, label %if.then27, label %if.end29
+  %or.cond54.not = or i1 %cmp26.not, %call24
+  br i1 %or.cond54.not, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %if.end23.thread, %if.end23
   %call28 = tail call ptr @__errno_location() #13
@@ -233,8 +233,8 @@ if.else:                                          ; preds = %if.end29
   %call38 = call ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr noundef %memid, ptr noundef %4) #11
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body36.i, %if.then9.i, %if.then14, %if.else, %if.then31, %if.then27
-  %retval.0 = phi ptr [ null, %if.then27 ], [ %call34, %if.then31 ], [ %call38, %if.else ], [ %call17, %if.then14 ], [ %call12.i, %if.then9.i ], [ %call41.i, %for.body36.i ], [ %call24.i, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body36.i, %if.then14, %mi_arena_try_alloc.exit, %if.else, %if.then31, %if.then27
+  %retval.0 = phi ptr [ null, %if.then27 ], [ %call34, %if.then31 ], [ %call38, %if.else ], [ %call12.i, %mi_arena_try_alloc.exit ], [ %call17, %if.then14 ], [ %call41.i, %for.body36.i ], [ %call24.i, %for.body.i ]
   ret ptr %retval.0
 }
 
@@ -1213,7 +1213,7 @@ if.then2.i:                                       ; preds = %if.end.thread.i, %i
   br label %return
 
 if.end5.i:                                        ; preds = %if.end.i
-  %conv.i.i = trunc i64 %5 to i32
+  %conv.i.i = trunc nuw i64 %5 to i32
   %add.i.i = add nuw nsw i32 %conv.i.i, 1
   store i32 %add.i.i, ptr %call1.i, align 8
   %arrayidx.i = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %5
@@ -1222,7 +1222,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br label %return
 
 if.then8.i:                                       ; preds = %if.end.thread.i
-  %conv.i13.i = trunc i64 %6 to i32
+  %conv.i13.i = trunc nuw i64 %6 to i32
   %add.i14.i = add nuw nsw i32 %conv.i13.i, 1
   store i32 %add.i14.i, ptr %call1.i, align 8
   %arrayidx15.i = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %6
@@ -1420,7 +1420,7 @@ if.else.i:                                        ; preds = %if.then8
 _mi_os_numa_node_count.exit:                      ; preds = %if.then8, %if.else.i
   %retval.0.i = phi i64 [ %call.i, %if.else.i ], [ %0, %if.then8 ]
   %rem = urem i64 %conv, %retval.0.i
-  %conv9 = trunc i64 %rem to i32
+  %conv9 = trunc nuw nsw i64 %rem to i32
   br label %if.end10
 
 if.end10:                                         ; preds = %_mi_os_numa_node_count.exit, %if.end3

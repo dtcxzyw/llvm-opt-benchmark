@@ -382,19 +382,19 @@ define ptr @Mio_LibraryReadGateByName(ptr nocapture noundef readonly %0, ptr nou
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @st__lookup(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %23, label %8
+  br i1 %.not, label %22, label %8
 
 8:                                                ; preds = %3
   %9 = icmp eq ptr %2, null
   %10 = load ptr, ptr %4, align 8
-  br i1 %9, label %23, label %11
+  br i1 %9, label %22, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %10, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %2) #14
   %.not8 = icmp eq i32 %14, 0
-  br i1 %.not8, label %23, label %15
+  br i1 %.not8, label %22, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %10, i64 56
@@ -407,13 +407,11 @@ define ptr @Mio_LibraryReadGateByName(ptr nocapture noundef readonly %0, ptr nou
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %2) #14
   %.not10 = icmp eq i32 %21, 0
-  br i1 %.not10, label %23, label %22
+  %spec.select = select i1 %.not10, ptr %17, ptr null
+  br label %22
 
-22:                                               ; preds = %18, %15
-  br label %23
-
-23:                                               ; preds = %8, %18, %11, %3, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %3 ], [ %10, %11 ], [ %17, %18 ], [ %10, %8 ]
+22:                                               ; preds = %8, %18, %15, %11, %3
+  %.0 = phi ptr [ null, %3 ], [ %10, %11 ], [ null, %15 ], [ %spec.select, %18 ], [ %10, %8 ]
   ret ptr %.0
 }
 

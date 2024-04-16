@@ -835,7 +835,7 @@ define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, pt
   unreachable
 
 20:                                               ; preds = %14
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %18, i64 12
@@ -846,7 +846,7 @@ define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, pt
   %28 = getelementptr inbounds i8, ptr %18, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %22, i32 noundef %24, i32 noundef %27, i32 noundef 0, ptr noundef %29, ptr noundef nonnull %4)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret ptr %30
 }
 
@@ -886,7 +886,7 @@ define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr nocapture
   unreachable
 
 21:                                               ; preds = %15
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %22 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %19, i64 12
@@ -895,12 +895,9 @@ define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr nocapture
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 4
   %29 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %23, i32 noundef %25, i32 noundef %28, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %5)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   ret ptr %29
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
@@ -1201,26 +1198,21 @@ proto_item_set_generated.exit92:                  ; preds = %proto_item_set_gene
   %157 = getelementptr inbounds i8, ptr %1, i64 32
   %158 = load ptr, ptr %157, align 8
   %.not80 = icmp eq ptr %158, null
-  br i1 %.not80, label %159, label %160
+  %spec.select = select i1 %.not80, ptr null, ptr %1
+  br label %159
 
 159:                                              ; preds = %156, %143
-  br label %160
-
-160:                                              ; preds = %156, %159
-  %.sink98 = phi ptr [ null, %159 ], [ %1, %156 ]
-  %161 = getelementptr inbounds i8, ptr %146, i64 32
-  store ptr %.sink98, ptr %161, align 8
-  %162 = load i32, ptr @expert_tap, align 4
-  call void @tap_queue_packet(i32 noundef %162, ptr noundef nonnull %.068, ptr noundef nonnull %146) #12
+  %.sink98 = phi ptr [ null, %143 ], [ %spec.select, %156 ]
+  %160 = getelementptr inbounds i8, ptr %146, i64 32
+  store ptr %.sink98, ptr %160, align 8
+  %161 = load i32, ptr @expert_tap, align 4
+  call void @tap_queue_packet(i32 noundef %161, ptr noundef nonnull %.068, ptr noundef nonnull %146) #12
   br label %.thread
 
-.thread:                                          ; preds = %12, %proto_item_set_generated.exit92, %18, %20, %160
-  %.0 = phi ptr [ %96, %160 ], [ null, %20 ], [ null, %18 ], [ %96, %proto_item_set_generated.exit92 ], [ null, %12 ]
+.thread:                                          ; preds = %12, %proto_item_set_generated.exit92, %18, %20, %159
+  %.0 = phi ptr [ %96, %159 ], [ null, %20 ], [ null, %18 ], [ %96, %proto_item_set_generated.exit92 ], [ null, %12 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @proto_tree_add_expert(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -1271,7 +1263,7 @@ define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr 
   %26 = getelementptr inbounds i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr (ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_text_internal(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef %.0, ptr noundef nonnull @.str.64, ptr noundef %27) #12
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %29 = getelementptr inbounds i8, ptr %21, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 12
@@ -1281,7 +1273,7 @@ define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr 
   %35 = load i32, ptr %34, align 4
   %36 = load ptr, ptr %26, align 8
   %37 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %35, i32 noundef 0, ptr noundef %36, ptr noundef nonnull %7)
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %.not33 = icmp eq i32 %5, -1
   br i1 %.not33, label %39, label %38
 
@@ -1333,10 +1325,10 @@ define noundef ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1,
   %26 = icmp slt i32 %25, 0
   %spec.select = tail call i32 @llvm.smin.i32(i32 %25, i32 %5)
   %.0 = select i1 %26, i32 0, i32 %spec.select
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %27 = call ptr @proto_tree_add_text_valist_internal(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef %.0, ptr noundef %6, ptr noundef nonnull %8) #12
-  call void @llvm.va_end(ptr nonnull %8)
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %28 = getelementptr inbounds i8, ptr %22, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %22, i64 12
@@ -1345,7 +1337,7 @@ define noundef ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1,
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 4
   %35 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %34, i32 noundef 1, ptr noundef %6, ptr noundef nonnull %8)
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %.not33 = icmp eq i32 %5, -1
   br i1 %.not33, label %37, label %36
 
@@ -1368,7 +1360,7 @@ declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1377,7 +1369,7 @@ declare ptr @g_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1418,6 +1410,12 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 declare ptr @proto_tree_add_text_internal(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
@@ -1432,9 +1430,9 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }

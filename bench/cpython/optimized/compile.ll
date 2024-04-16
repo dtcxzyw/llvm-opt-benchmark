@@ -5975,7 +5975,7 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
 if.then18:                                        ; preds = %for.body13
   %idxprom19 = zext nneg i32 %9 to i64
   %arrayidx20 = getelementptr i32, ptr %call1, i64 %idxprom19
-  %10 = trunc i64 %indvars.iv45 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv45 to i32
   store i32 %10, ptr %arrayidx20, align 4
   %.pre = load i32, ptr %s_labelmap_size, align 8
   br label %for.inc22
@@ -6444,7 +6444,7 @@ define internal fastcc noundef i32 @compiler_body(ptr noundef %c, i64 %loc.coerc
 entry:
   %loc.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.3.0.extract.shift = lshr i64 %loc.coerce0, 32
-  %loc.sroa.3.0.extract.trunc = trunc i64 %loc.sroa.3.0.extract.shift to i32
+  %loc.sroa.3.0.extract.trunc = trunc nuw i64 %loc.sroa.3.0.extract.shift to i32
   %u = getelementptr inbounds i8, ptr %c, i64 64
   %0 = load ptr, ptr %u, align 8
   %u_scope_type = getelementptr inbounds i8, ptr %0, i64 8
@@ -8107,7 +8107,7 @@ if.then.i.i:                                      ; preds = %if.end9.i
 if.then21.i.i:                                    ; preds = %if.then.i.i
   %loc.sroa.11.8.extract.trunc.i.i = trunc i64 %loc.sroa.11.0.i.i to i32
   %loc.sroa.11.12.extract.shift.i.i = lshr i64 %loc.sroa.11.0.i.i, 32
-  %loc.sroa.11.12.extract.trunc.i.i = trunc i64 %loc.sroa.11.12.extract.shift.i.i to i32
+  %loc.sroa.11.12.extract.trunc.i.i = trunc nuw i64 %loc.sroa.11.12.extract.shift.i.i to i32
   %cond31.i.i = tail call i32 @llvm.smax.i32(i32 %loc.sroa.11.8.extract.trunc.i.i, i32 %loc.sroa.11.12.extract.trunc.i.i)
   %loc.sroa.11.12.insert.ext.i.i = zext i32 %cond31.i.i to i64
   %loc.sroa.11.12.insert.shift.i.i = shl nuw i64 %loc.sroa.11.12.insert.ext.i.i, 32
@@ -8431,7 +8431,7 @@ if.then21.i540.i:                                 ; preds = %sw.bb120.i
   %loc.sroa.11.0.i537.i = select i1 %cmp4.not.i533.i, i64 -1, i64 %loc.sroa.11.8.insert.insert.i536.i
   %loc.sroa.11.8.extract.trunc.i541.i = trunc i64 %loc.sroa.11.0.i537.i to i32
   %loc.sroa.11.12.extract.shift.i542.i = lshr i64 %loc.sroa.11.0.i537.i, 32
-  %loc.sroa.11.12.extract.trunc.i543.i = trunc i64 %loc.sroa.11.12.extract.shift.i542.i to i32
+  %loc.sroa.11.12.extract.trunc.i543.i = trunc nuw i64 %loc.sroa.11.12.extract.shift.i542.i to i32
   %cond31.i544.i = tail call i32 @llvm.smax.i32(i32 %loc.sroa.11.8.extract.trunc.i541.i, i32 %loc.sroa.11.12.extract.trunc.i543.i)
   %loc.sroa.11.12.insert.ext.i545.i = zext i32 %cond31.i544.i to i64
   %loc.sroa.11.12.insert.shift.i546.i = shl nuw i64 %loc.sroa.11.12.insert.ext.i545.i, 32
@@ -10765,7 +10765,7 @@ for.end.i569:                                     ; preds = %_Py_NewRef.exit.i, 
   %ff_location.i = getelementptr inbounds i8, ptr %c, i64 20
   %572 = load i64, ptr %ff_location.i, align 4
   %loc2.sroa.1.0.extract.shift.i.i = lshr i64 %572, 32
-  %loc2.sroa.1.0.extract.trunc.i.i = trunc i64 %loc2.sroa.1.0.extract.shift.i.i to i32
+  %loc2.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %loc2.sroa.1.0.extract.shift.i.i to i32
   %cmp.i99.i = icmp sgt i32 %571, %loc2.sroa.1.0.extract.trunc.i.i
   br i1 %cmp.i99.i, label %land.lhs.true.i603, label %location_is_after.exit.i
 
@@ -10774,7 +10774,7 @@ location_is_after.exit.i:                         ; preds = %for.end.i569
   %574 = load i64, ptr %573, align 4
   %575 = load i32, ptr %col_offset8.i555, align 4
   %loc2.sroa.4.8.extract.shift.i.i = lshr i64 %574, 32
-  %loc2.sroa.4.8.extract.trunc.i.i = trunc i64 %loc2.sroa.4.8.extract.shift.i.i to i32
+  %loc2.sroa.4.8.extract.trunc.i.i = trunc nuw i64 %loc2.sroa.4.8.extract.shift.i.i to i32
   %cmp3.i.i570 = icmp eq i32 %571, %loc2.sroa.1.0.extract.trunc.i.i
   %cmp4.i.i = icmp sgt i32 %575, %loc2.sroa.4.8.extract.trunc.i.i
   %576 = select i1 %cmp3.i.i570, i1 %cmp4.i.i, i1 false
@@ -11791,7 +11791,7 @@ for.end164.i:                                     ; preds = %cond.end148.i
   br label %return
 
 return:                                           ; preds = %for.body.i753, %for.body152.i, %if.end175.i, %if.end156.i, %for.inc.i493, %if.end47.i, %if.then37.i535, %compiler_import_as.exit.i, %instr_sequence_next_inst.exit.i.i60.i.i, %if.end34.i.i, %while.end.i.i, %while.body.preheader.i.i, %if.then24.i492, %if.end17.i487, %if.end.i484, %for.body.i480, %codegen_addop_noarg.exit.i.i, %instr_sequence_next_inst.exit.i.i45.i.i, %if.end24.i.i, %instr_sequence_next_inst.exit.i.i.i.i520, %if.end19.i.i, %if.end7.i.i, %for.body.i380, %for.body84.i, %for.body.i334, %for.body117.i, %for.body.i299, %for.body120.i, %if.end48, %for.cond32, %instr_sequence_next_inst.exit.i.i, %if.then38, %cond.end, %for.body, %for.body.i771, %if.end44.i.thread1092, %for.cond32.preheader, %sw.bb140, %instr_sequence_next_inst.exit.i.i651, %if.end97, %instr_sequence_next_inst.exit.i.i394, %if.end44.i.thread, %entry, %codegen_addop_i.exit404, %codegen_addop_noarg.exit, %for.end164.i, %if.end114.i, %if.end105.i, %for.end.i743, %if.end82.i, %if.end76.i735, %if.end72.i, %if.end67.i731, %if.end61.i, %if.end54.i, %if.end41.i724, %if.end35.i, %if.end31.i718, %if.end23.i716, %if.end15.i, %if.end10.i, %if.then9.i, %compiler_push_fblock.exit966.thread, %codegen_addop_noarg.exit60.i, %instr_sequence_next_inst.exit.i.i50.i, %if.end26.i, %if.end22.i622, %codegen_addop_noarg.exit44.i, %instr_sequence_next_inst.exit.i.i34.i, %if.then15.i, %codegen_addop_noarg.exit.i645, %instr_sequence_next_inst.exit.i.i19.i, %if.end6.i, %instr_sequence_next_inst.exit.i.i.i637, %if.end.i629, %if.then.i626, %codegen_addop_noarg.exit.i, %instr_sequence_next_inst.exit.i.i.i578, %for.end197.i, %if.end148.i, %if.then133.i, %if.else.i597, %if.then78.i, %if.then1.i220.i, %if.end.i217.i, %if.then73.i, %Py_DECREF.exit231.i, %Py_DECREF.exit240.i, %if.then1.i247.i, %if.end.i244.i, %if.then13.i, %cond.end.i546, %if.then1.i49.i.i, %if.end.i46.i.i, %if.then15.i.i532, %cond.end.i468, %sw.bb122, %_PyCompile_InstructionSequence_UseLabel.exit.i, %if.end119.i, %instr_sequence_next_inst.exit.i.i60.i, %if.end96.i, %instr_sequence_next_inst.exit.i.i45.i, %if.end80.i, %if.then74.i, %instr_sequence_next_inst.exit.i.i.i436, %if.end56.i430, %if.end40.i, %if.end36.i, %if.end33.i423, %if.then.i449, %if.else.i418, %if.then.i415, %if.else.i410, %if.then.i407, %if.end97.i372, %if.end60.i367, %if.then52.i366, %if.end14.i, %if.then4.i, %sw.bb69, %if.end130.i, %if.end90.i, %for.end.i324, %if.end55.i, %if.end41.i, %if.end24.i312, %if.end16.i, %if.end8.i, %if.end.i308, %sw.bb67, %compiler_push_fblock.exit811.thread, %for.end132.i, %if.end97.i, %if.end89.i291, %for.end.i288, %if.end65.i282, %if.end58.i, %if.end51.i277, %if.end44.i274, %if.end38.i271, %if.end34.i269, %if.end20.i, %if.end12.i, %if.end.i262, %sw.bb65, %compiler_push_fblock.exit.thread, %codegen_addop_noarg.exit.i.i.i, %instr_sequence_next_inst.exit.i.i.i.i.i, %if.end.i.i.i205, %if.then4.i.i, %if.end.i165.i, %land.lhs.true98.i, %sw.epilog.i201, %sw.default.i253, %lor.lhs.false87.i, %instr_sequence_next_inst.exit.i.i.i152.i, %if.end.i132.i, %land.lhs.true82.i, %instr_sequence_next_inst.exit.i.i.i.i216, %if.end.i128.i, %land.lhs.true71.i, %forbidden_name.exit125.thread.i, %Py_DECREF.exit.i242, %if.then1.i109.i, %if.end.i106.i, %if.then55.i, %if.end44.i234, %if.end38.i232, %if.else.i250, %if.then26.i231, %forbidden_name.exit.thread.i, %if.end.i200, %if.then.i197, %sw.epilog193.i, %sw.bb188.i, %if.end180.i, %if.end174.i, %if.else168.i, %if.end161.i, %if.end155.i, %if.end149.i, %if.then143.i, %if.end128.i, %instr_sequence_next_inst.exit.i.i564.i, %update_start_location_to_match_attr.exit558.i, %instr_sequence_next_inst.exit.i.i.i.i154, %switch.lookup, %sw.default.i.i, %sw.epilog.i, %sw.default.i, %sw.bb83.i, %if.end75.i, %instr_sequence_next_inst.exit.i.i513.i, %if.end69.i, %instr_sequence_next_inst.exit.i.i497.i, %if.end63.i, %if.else.i165, %if.end51.i, %if.end45.i, %instr_sequence_next_inst.exit.i.i481.i, %if.end39.i, %instr_sequence_next_inst.exit.i.i465.i, %if.end33.i169, %if.then27.i166, %sw.bb18.i, %update_start_location_to_match_attr.exit.i, %instr_sequence_next_inst.exit.i.i.i182, %if.end.i172, %sw.bb.i, %if.end76.i, %instr_sequence_next_inst.exit.i.i164.i, %if.end68.i, %instr_sequence_next_inst.exit.i.i.i, %Py_DECREF.exit.i102, %if.then1.i88.i, %if.end.i85.i, %if.then61.i, %if.then52.i, %if.then48.i108, %if.then46.i, %if.end34.i, %if.else.i99, %if.then26.i, %if.then21.i, %if.then1.i106.i, %if.end.i103.i, %if.then16.i, %if.then.i, %if.end151.i, %if.end146.i, %if.else.i, %if.end129.i, %Py_DECREF.exit.i, %if.then1.i165.i, %if.end.i162.i, %if.then121.i, %if.end112.i, %if.then111.i, %if.then103.i, %if.then85.i, %if.then69.i, %if.then64.i, %if.then58.i, %if.then50.i, %if.then48.i, %if.then42.i, %if.then37.i, %if.then1.i183.i, %if.end.i180.i, %if.then32.i, %_Py_NewRef.exit, %if.then87, %if.then76, %cond.end24, %sw.bb183, %sw.bb181, %sw.bb179, %compiler_continue.exit, %compiler_break.exit, %compiler_match_inner.exit, %compiler_return.exit, %sw.bb
-  %retval.0 = phi i32 [ %call182, %sw.bb181 ], [ %call180, %sw.bb179 ], [ %retval.0.i693, %compiler_continue.exit ], [ %retval.0.i675, %compiler_break.exit ], [ %call184, %sw.bb183 ], [ %retval.0.i845, %compiler_match_inner.exit ], [ %retval.0.i123, %compiler_return.exit ], [ %call, %sw.bb ], [ -1, %cond.end24 ], [ -1, %if.then76 ], [ -1, %if.then87 ], [ -1, %if.then37.i ], [ -1, %if.then42.i ], [ -1, %if.then58.i ], [ -1, %if.then64.i ], [ -1, %if.then69.i ], [ -1, %if.then85.i ], [ -1, %if.then103.i ], [ -1, %if.then111.i ], [ -1, %_Py_NewRef.exit ], [ -1, %if.then32.i ], [ -1, %if.then1.i183.i ], [ -1, %if.end.i180.i ], [ -1, %if.then50.i ], [ -1, %if.then48.i ], [ -1, %if.end112.i ], [ -1, %if.then121.i ], [ -1, %if.then1.i165.i ], [ -1, %if.end.i162.i ], [ -1, %Py_DECREF.exit.i ], [ -1, %if.end129.i ], [ -1, %if.else.i ], [ -1, %if.end146.i ], [ %..i, %if.end151.i ], [ -1, %if.then21.i ], [ -1, %if.then26.i ], [ -1, %if.then.i ], [ -1, %if.then16.i ], [ -1, %if.then1.i106.i ], [ -1, %if.end.i103.i ], [ -1, %if.else.i99 ], [ -1, %if.end34.i ], [ -1, %if.then48.i108 ], [ -1, %if.then46.i ], [ -1, %if.then52.i ], [ -1, %if.then61.i ], [ -1, %if.then1.i88.i ], [ -1, %if.end.i85.i ], [ %..i100, %if.end76.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i ], [ -1, %Py_DECREF.exit.i102 ], [ -1, %instr_sequence_next_inst.exit.i.i164.i ], [ -1, %if.end68.i ], [ -1, %sw.default.i ], [ %call191.i, %sw.bb188.i ], [ 0, %sw.epilog193.i ], [ -1, %sw.bb.i ], [ -1, %update_start_location_to_match_attr.exit.i ], [ -1, %sw.bb18.i ], [ -1, %if.then27.i166 ], [ -1, %if.end45.i ], [ -1, %if.end51.i ], [ -1, %if.else.i165 ], [ -1, %if.end75.i ], [ -1, %sw.bb83.i ], [ -1, %sw.epilog.i ], [ -1, %if.end128.i ], [ -1, %if.then143.i ], [ -1, %if.end149.i ], [ -1, %if.end155.i ], [ -1, %if.end161.i ], [ -1, %if.else168.i ], [ -1, %if.end174.i ], [ -1, %if.end180.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i182 ], [ -1, %if.end.i172 ], [ -1, %instr_sequence_next_inst.exit.i.i465.i ], [ -1, %if.end33.i169 ], [ -1, %instr_sequence_next_inst.exit.i.i481.i ], [ -1, %if.end39.i ], [ -1, %instr_sequence_next_inst.exit.i.i497.i ], [ -1, %if.end63.i ], [ -1, %instr_sequence_next_inst.exit.i.i513.i ], [ -1, %if.end69.i ], [ -1, %sw.default.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i154 ], [ -1, %switch.lookup ], [ -1, %instr_sequence_next_inst.exit.i.i564.i ], [ -1, %update_start_location_to_match_attr.exit558.i ], [ -1, %sw.default.i253 ], [ -1, %if.then.i197 ], [ -1, %if.end.i200 ], [ -1, %if.then26.i231 ], [ -1, %if.else.i250 ], [ -1, %if.end38.i232 ], [ -1, %if.end44.i234 ], [ -1, %if.then55.i ], [ -1, %if.then1.i109.i ], [ -1, %if.end.i106.i ], [ -1, %Py_DECREF.exit.i242 ], [ -1, %lor.lhs.false87.i ], [ -1, %forbidden_name.exit.thread.i ], [ -1, %forbidden_name.exit125.thread.i ], [ 0, %codegen_addop_noarg.exit.i.i.i ], [ 0, %if.end.i165.i ], [ 0, %land.lhs.true98.i ], [ 0, %sw.epilog.i201 ], [ -1, %land.lhs.true71.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i216 ], [ -1, %if.end.i128.i ], [ -1, %land.lhs.true82.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i152.i ], [ -1, %if.end.i132.i ], [ -1, %if.then4.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i.i ], [ -1, %if.end.i.i.i205 ], [ -1, %sw.bb65 ], [ -1, %if.end.i262 ], [ -1, %if.end12.i ], [ -1, %if.end20.i ], [ -1, %if.end34.i269 ], [ -1, %if.end38.i271 ], [ -1, %if.end44.i274 ], [ -1, %if.end51.i277 ], [ -1, %if.end58.i ], [ -1, %if.end65.i282 ], [ -1, %for.end.i288 ], [ -1, %if.end89.i291 ], [ -1, %if.end97.i ], [ %..i295, %for.end132.i ], [ -1, %compiler_push_fblock.exit.thread ], [ -1, %sw.bb67 ], [ -1, %if.end.i308 ], [ -1, %if.end8.i ], [ -1, %if.end16.i ], [ -1, %if.end24.i312 ], [ -1, %if.end41.i ], [ -1, %if.end55.i ], [ -1, %for.end.i324 ], [ -1, %if.end90.i ], [ %..i332, %if.end130.i ], [ -1, %compiler_push_fblock.exit811.thread ], [ -1, %sw.bb69 ], [ -1, %if.then4.i ], [ -1, %if.end14.i ], [ -1, %if.then52.i366 ], [ -1, %if.end60.i367 ], [ %..i376, %if.end97.i372 ], [ %call.i408, %if.then.i407 ], [ %call6.i, %if.else.i410 ], [ %call.i416, %if.then.i415 ], [ %call6.i419, %if.else.i418 ], [ -1, %if.then.i449 ], [ 0, %if.end33.i423 ], [ -1, %if.end36.i ], [ -1, %if.end40.i ], [ -1, %if.then74.i ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit.i ], [ -1, %if.end119.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i436 ], [ -1, %if.end56.i430 ], [ -1, %instr_sequence_next_inst.exit.i.i45.i ], [ -1, %if.end80.i ], [ -1, %instr_sequence_next_inst.exit.i.i60.i ], [ -1, %if.end96.i ], [ -1, %if.then15.i.i532 ], [ -1, %if.then1.i49.i.i ], [ -1, %if.end.i46.i.i ], [ 0, %cond.end.i468 ], [ 0, %sw.bb122 ], [ -1, %Py_DECREF.exit231.i ], [ -1, %cond.end.i546 ], [ -1, %if.then13.i ], [ -1, %if.then1.i247.i ], [ -1, %if.end.i244.i ], [ -1, %Py_DECREF.exit240.i ], [ -1, %if.then73.i ], [ -1, %if.then1.i220.i ], [ -1, %if.end.i217.i ], [ -1, %if.then78.i ], [ -1, %if.else.i597 ], [ -1, %if.then133.i ], [ %..i593, %if.end148.i ], [ 0, %codegen_addop_noarg.exit.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i578 ], [ -1, %for.end197.i ], [ -1, %if.then.i626 ], [ -1, %if.end22.i622 ], [ 0, %codegen_addop_noarg.exit.i645 ], [ -1, %instr_sequence_next_inst.exit.i.i19.i ], [ -1, %if.end6.i ], [ 0, %codegen_addop_noarg.exit44.i ], [ -1, %instr_sequence_next_inst.exit.i.i34.i ], [ -1, %if.then15.i ], [ 0, %codegen_addop_noarg.exit60.i ], [ -1, %instr_sequence_next_inst.exit.i.i50.i ], [ -1, %if.end26.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i637 ], [ -1, %if.end.i629 ], [ -1, %if.then9.i ], [ -1, %if.end10.i ], [ -1, %if.end15.i ], [ -1, %if.end23.i716 ], [ -1, %if.end31.i718 ], [ -1, %if.end35.i ], [ -1, %if.end41.i724 ], [ -1, %if.end54.i ], [ -1, %if.end61.i ], [ -1, %if.end67.i731 ], [ -1, %if.end72.i ], [ -1, %if.end76.i735 ], [ -1, %if.end82.i ], [ -1, %for.end.i743 ], [ -1, %if.end105.i ], [ -1, %if.end114.i ], [ %..i752, %for.end164.i ], [ -1, %compiler_push_fblock.exit966.thread ], [ 0, %codegen_addop_noarg.exit ], [ 0, %codegen_addop_i.exit404 ], [ 0, %entry ], [ -1, %if.end44.i.thread ], [ -1, %instr_sequence_next_inst.exit.i.i394 ], [ -1, %if.end97 ], [ -1, %instr_sequence_next_inst.exit.i.i651 ], [ -1, %sw.bb140 ], [ 0, %for.cond32.preheader ], [ -1, %if.end44.i.thread1092 ], [ -1, %for.body.i771 ], [ 0, %cond.end ], [ -1, %for.body ], [ -1, %if.end48 ], [ 0, %for.cond32 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then38 ], [ -1, %for.body120.i ], [ -1, %for.body.i299 ], [ -1, %for.body117.i ], [ -1, %for.body.i334 ], [ -1, %for.body84.i ], [ -1, %for.body.i380 ], [ -1, %if.end7.i.i ], [ -1, %if.end19.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i520 ], [ -1, %if.end24.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i45.i.i ], [ -1, %codegen_addop_noarg.exit.i.i ], [ -1, %while.body.preheader.i.i ], [ -1, %if.end34.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i60.i.i ], [ -1, %while.end.i.i ], [ -1, %if.then24.i492 ], [ 0, %for.inc.i493 ], [ -1, %if.end47.i ], [ -1, %if.then37.i535 ], [ -1, %compiler_import_as.exit.i ], [ -1, %if.end17.i487 ], [ -1, %if.end.i484 ], [ -1, %for.body.i480 ], [ -1, %if.end156.i ], [ -1, %if.end175.i ], [ -1, %for.body152.i ], [ -1, %for.body.i753 ]
+  %retval.0 = phi i32 [ %call182, %sw.bb181 ], [ %call180, %sw.bb179 ], [ %retval.0.i693, %compiler_continue.exit ], [ %retval.0.i675, %compiler_break.exit ], [ %call184, %sw.bb183 ], [ %retval.0.i845, %compiler_match_inner.exit ], [ %retval.0.i123, %compiler_return.exit ], [ %call, %sw.bb ], [ -1, %cond.end24 ], [ -1, %if.then76 ], [ -1, %if.then87 ], [ -1, %if.then37.i ], [ -1, %if.then42.i ], [ -1, %if.then58.i ], [ -1, %if.then64.i ], [ -1, %if.then69.i ], [ -1, %if.then85.i ], [ -1, %if.then103.i ], [ -1, %if.then111.i ], [ -1, %_Py_NewRef.exit ], [ -1, %if.then32.i ], [ -1, %if.then1.i183.i ], [ -1, %if.end.i180.i ], [ -1, %if.then50.i ], [ -1, %if.then48.i ], [ -1, %if.end112.i ], [ -1, %if.then121.i ], [ -1, %if.then1.i165.i ], [ -1, %if.end.i162.i ], [ -1, %Py_DECREF.exit.i ], [ -1, %if.end129.i ], [ -1, %if.else.i ], [ -1, %if.end146.i ], [ %..i, %if.end151.i ], [ -1, %if.then21.i ], [ -1, %if.then26.i ], [ -1, %if.then.i ], [ -1, %if.then16.i ], [ -1, %if.then1.i106.i ], [ -1, %if.end.i103.i ], [ -1, %if.else.i99 ], [ -1, %if.end34.i ], [ -1, %if.then48.i108 ], [ -1, %if.then46.i ], [ -1, %if.then52.i ], [ -1, %if.then61.i ], [ -1, %if.then1.i88.i ], [ -1, %if.end.i85.i ], [ %..i100, %if.end76.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i ], [ -1, %Py_DECREF.exit.i102 ], [ -1, %instr_sequence_next_inst.exit.i.i164.i ], [ -1, %if.end68.i ], [ -1, %sw.default.i ], [ %call191.i, %sw.bb188.i ], [ 0, %sw.epilog193.i ], [ -1, %sw.bb.i ], [ -1, %update_start_location_to_match_attr.exit.i ], [ -1, %sw.bb18.i ], [ -1, %if.then27.i166 ], [ -1, %if.end45.i ], [ -1, %if.end51.i ], [ -1, %if.else.i165 ], [ -1, %if.end75.i ], [ -1, %sw.bb83.i ], [ -1, %sw.epilog.i ], [ -1, %if.end128.i ], [ -1, %if.then143.i ], [ -1, %if.end149.i ], [ -1, %if.end155.i ], [ -1, %if.end161.i ], [ -1, %if.else168.i ], [ -1, %if.end174.i ], [ -1, %if.end180.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i182 ], [ -1, %if.end.i172 ], [ -1, %instr_sequence_next_inst.exit.i.i465.i ], [ -1, %if.end33.i169 ], [ -1, %instr_sequence_next_inst.exit.i.i481.i ], [ -1, %if.end39.i ], [ -1, %instr_sequence_next_inst.exit.i.i497.i ], [ -1, %if.end63.i ], [ -1, %instr_sequence_next_inst.exit.i.i513.i ], [ -1, %if.end69.i ], [ -1, %sw.default.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i154 ], [ -1, %switch.lookup ], [ -1, %instr_sequence_next_inst.exit.i.i564.i ], [ -1, %update_start_location_to_match_attr.exit558.i ], [ -1, %sw.default.i253 ], [ -1, %if.then.i197 ], [ -1, %if.end.i200 ], [ -1, %if.then26.i231 ], [ -1, %if.else.i250 ], [ -1, %if.end38.i232 ], [ -1, %if.end44.i234 ], [ -1, %if.then55.i ], [ -1, %if.then1.i109.i ], [ -1, %if.end.i106.i ], [ -1, %Py_DECREF.exit.i242 ], [ -1, %lor.lhs.false87.i ], [ 0, %sw.epilog.i201 ], [ -1, %forbidden_name.exit.thread.i ], [ -1, %forbidden_name.exit125.thread.i ], [ 0, %land.lhs.true98.i ], [ 0, %if.end.i165.i ], [ 0, %codegen_addop_noarg.exit.i.i.i ], [ -1, %if.then4.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i.i ], [ -1, %if.end.i.i.i205 ], [ -1, %land.lhs.true71.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i216 ], [ -1, %if.end.i128.i ], [ -1, %land.lhs.true82.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i152.i ], [ -1, %if.end.i132.i ], [ -1, %sw.bb65 ], [ -1, %if.end.i262 ], [ -1, %if.end12.i ], [ -1, %if.end20.i ], [ -1, %if.end34.i269 ], [ -1, %if.end38.i271 ], [ -1, %if.end44.i274 ], [ -1, %if.end51.i277 ], [ -1, %if.end58.i ], [ -1, %if.end65.i282 ], [ -1, %for.end.i288 ], [ -1, %if.end89.i291 ], [ -1, %if.end97.i ], [ %..i295, %for.end132.i ], [ -1, %compiler_push_fblock.exit.thread ], [ -1, %sw.bb67 ], [ -1, %if.end.i308 ], [ -1, %if.end8.i ], [ -1, %if.end16.i ], [ -1, %if.end24.i312 ], [ -1, %if.end41.i ], [ -1, %if.end55.i ], [ -1, %for.end.i324 ], [ -1, %if.end90.i ], [ %..i332, %if.end130.i ], [ -1, %compiler_push_fblock.exit811.thread ], [ -1, %sw.bb69 ], [ -1, %if.then4.i ], [ -1, %if.end14.i ], [ -1, %if.then52.i366 ], [ -1, %if.end60.i367 ], [ %..i376, %if.end97.i372 ], [ %call.i408, %if.then.i407 ], [ %call6.i, %if.else.i410 ], [ %call.i416, %if.then.i415 ], [ %call6.i419, %if.else.i418 ], [ -1, %if.then.i449 ], [ 0, %if.end33.i423 ], [ -1, %if.end36.i ], [ -1, %if.end40.i ], [ -1, %if.then74.i ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit.i ], [ -1, %if.end119.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i436 ], [ -1, %if.end56.i430 ], [ -1, %instr_sequence_next_inst.exit.i.i45.i ], [ -1, %if.end80.i ], [ -1, %instr_sequence_next_inst.exit.i.i60.i ], [ -1, %if.end96.i ], [ -1, %if.then15.i.i532 ], [ -1, %if.then1.i49.i.i ], [ -1, %if.end.i46.i.i ], [ 0, %cond.end.i468 ], [ 0, %sw.bb122 ], [ -1, %Py_DECREF.exit231.i ], [ -1, %cond.end.i546 ], [ -1, %if.then13.i ], [ -1, %if.then1.i247.i ], [ -1, %if.end.i244.i ], [ -1, %Py_DECREF.exit240.i ], [ -1, %if.then73.i ], [ -1, %if.then1.i220.i ], [ -1, %if.end.i217.i ], [ -1, %if.then78.i ], [ -1, %if.else.i597 ], [ -1, %if.then133.i ], [ %..i593, %if.end148.i ], [ 0, %codegen_addop_noarg.exit.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i578 ], [ -1, %for.end197.i ], [ -1, %if.then.i626 ], [ -1, %if.end22.i622 ], [ 0, %codegen_addop_noarg.exit.i645 ], [ -1, %instr_sequence_next_inst.exit.i.i19.i ], [ -1, %if.end6.i ], [ 0, %codegen_addop_noarg.exit44.i ], [ -1, %instr_sequence_next_inst.exit.i.i34.i ], [ -1, %if.then15.i ], [ 0, %codegen_addop_noarg.exit60.i ], [ -1, %instr_sequence_next_inst.exit.i.i50.i ], [ -1, %if.end26.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i637 ], [ -1, %if.end.i629 ], [ -1, %if.then9.i ], [ -1, %if.end10.i ], [ -1, %if.end15.i ], [ -1, %if.end23.i716 ], [ -1, %if.end31.i718 ], [ -1, %if.end35.i ], [ -1, %if.end41.i724 ], [ -1, %if.end54.i ], [ -1, %if.end61.i ], [ -1, %if.end67.i731 ], [ -1, %if.end72.i ], [ -1, %if.end76.i735 ], [ -1, %if.end82.i ], [ -1, %for.end.i743 ], [ -1, %if.end105.i ], [ -1, %if.end114.i ], [ %..i752, %for.end164.i ], [ -1, %compiler_push_fblock.exit966.thread ], [ 0, %codegen_addop_noarg.exit ], [ 0, %codegen_addop_i.exit404 ], [ 0, %entry ], [ -1, %if.end44.i.thread ], [ -1, %instr_sequence_next_inst.exit.i.i394 ], [ -1, %if.end97 ], [ -1, %instr_sequence_next_inst.exit.i.i651 ], [ -1, %sw.bb140 ], [ 0, %for.cond32.preheader ], [ -1, %if.end44.i.thread1092 ], [ -1, %for.body.i771 ], [ 0, %cond.end ], [ -1, %for.body ], [ -1, %if.end48 ], [ 0, %for.cond32 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then38 ], [ -1, %for.body120.i ], [ -1, %for.body.i299 ], [ -1, %for.body117.i ], [ -1, %for.body.i334 ], [ -1, %for.body84.i ], [ -1, %for.body.i380 ], [ -1, %if.end7.i.i ], [ -1, %if.end19.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i.i520 ], [ -1, %if.end24.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i45.i.i ], [ -1, %codegen_addop_noarg.exit.i.i ], [ -1, %while.body.preheader.i.i ], [ -1, %if.end34.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i60.i.i ], [ -1, %while.end.i.i ], [ -1, %if.then24.i492 ], [ 0, %for.inc.i493 ], [ -1, %if.end47.i ], [ -1, %if.then37.i535 ], [ -1, %compiler_import_as.exit.i ], [ -1, %if.end17.i487 ], [ -1, %if.end.i484 ], [ -1, %for.body.i480 ], [ -1, %if.end156.i ], [ -1, %if.end175.i ], [ -1, %for.body152.i ], [ -1, %for.body.i753 ]
   ret i32 %retval.0
 }
 
@@ -15348,8 +15348,8 @@ for.body.i:                                       ; preds = %cond.end.i14
 sw.epilog342.i:                                   ; preds = %codegen_addop_i.exit, %sw.bb302.i, %if.end291.i, %sw.bb273.i, %if.end260.i, %sw.bb204.i, %if.end195.i, %if.end149.i, %if.end114.i, %if.else64.i, %if.end57.i, %if.then41.i, %if.end26.i, %if.end8.i, %entry
   br label %compiler_visit_expr1.exit
 
-compiler_visit_expr1.exit:                        ; preds = %for.cond.i.i, %cond.end6.i.i, %for.body.i, %cond.end.i14, %for.cond.i.i49, %cond.end6.i.i58, %for.body.i76, %cond.end.i73, %if.end41.i198, %instr_sequence_next_inst.exit.i.i161.i, %for.body.i195, %for.body66.i, %if.end79.i, %instr_sequence_next_inst.exit.i.i291.i, %if.end72.i, %instr_sequence_next_inst.exit.i.i276.i, %if.end66.i, %instr_sequence_next_inst.exit.i.i261.i, %if.end60.i, %instr_sequence_next_inst.exit.i.i245.i, %if.end46.i, %instr_sequence_next_inst.exit.i.i229.i, %if.end40.i, %instr_sequence_next_inst.exit.i.i.i307, %if.end52.i, %for.body.i299, %if.then61.i, %instr_sequence_next_inst.exit.i.i166.i, %if.end43.i, %instr_sequence_next_inst.exit.i.i150.i, %if.then26.i, %instr_sequence_next_inst.exit.i.i134.i, %if.then16.i, %instr_sequence_next_inst.exit.i.i.i392, %if.then53.i, %if.end34.i405, %if.then11.i, %if.end33.i590, %instr_sequence_next_inst.exit.i.i111.i, %if.end26.i586, %instr_sequence_next_inst.exit.i.i96.i, %if.end20.i, %instr_sequence_next_inst.exit.i.i81.i, %if.end14.i562, %instr_sequence_next_inst.exit.i.i.i572, %for.body.i557, %cond.end.i.i.thread, %cond.end.i.i45.thread, %if.then75.i, %if.else.i286.thread, %for.cond.i.i.preheader, %for.cond.i.i49.preheader, %if.end325.i, %instr_sequence_next_inst.exit.i.i, %sw.epilog.i, %instr_sequence_next_inst.exit.i.i105.i, %if.else.i, %instr_sequence_next_inst.exit.i.i89.i, %if.then35.i, %instr_sequence_next_inst.exit.i.i.i, %if.else.i142, %instr_sequence_next_inst.exit.i.i71.i, %if.end26.i139, %instr_sequence_next_inst.exit.i.i56.i, %sw.epilog.i111, %instr_sequence_next_inst.exit.i.i.i127, %if.then79.i, %instr_sequence_next_inst.exit.i.i193.i, %for.end.i, %instr_sequence_next_inst.exit.i.i177.i, %if.end19.i, %instr_sequence_next_inst.exit.i.i.i183, %if.end18.i, %instr_sequence_next_inst.exit.i.i.i232, %if.then94.i, %instr_sequence_next_inst.exit.i.i198.i, %codegen_addop_i.exit192.i, %if.then83.i, %instr_sequence_next_inst.exit.i.i182.i, %if.end29.i, %if.end22.i422, %instr_sequence_next_inst.exit.i.i.i428, %if.then8.i.i, %if.then.i.i, %if.end.i, %instr_sequence_next_inst.exit.i.i600, %if.then10.i, %cond.end.i.i, %if.then10.i22, %cond.end.i.i45, %if.else47.i, %if.then27.i, %if.end16.i, %check_index.exit.i, %check_subscripter.exit.i, %codegen_addop_noarg.exit115.i, %codegen_addop_noarg.exit99.i, %codegen_addop_noarg.exit.i, %if.then19.i, %sw.default.i144, %sw.bb215.i, %codegen_addop_noarg.exit81.i, %codegen_addop_noarg.exit.i140, %if.then1.i113.i, %if.end.i110.i, %if.then102.i, %Py_DECREF.exit124.i, %if.then1.i131.i, %if.end.i128.i, %if.then12.i, %codegen_addop_i.exit203.i, %codegen_addop_i.exit187.i, %if.then1.i.i, %if.end.i.i160, %if.end103.i, %if.else87.i, %if.end34.i, %if.end12.i, %check_caller.exit.i, %sw.bb202.i, %maybe_optimize_method_call.exit.i.thread, %if.end166.i.i, %if.else185.i.i, %if.end143.i297, %if.end135.i, %if.end129.i, %if.end123.i, %if.end116.i, %if.end109.i, %if.end101.i, %if.end93.i, %for.end.i294, %if.else.i286, %if.end19.i329, %if.then14.i, %if.end.i276, %sw.bb200.i, %codegen_addop_i.exit208.i, %if.end92.i, %if.end36.i, %if.end17.i419, %if.end8.i416, %if.end.i414, %sw.bb78.i, %if.end41.i445, %_PyCompile_InstructionSequence_UseLabel.exit37.i, %if.then1.i.i490, %if.end.i.i487, %if.end69.i, %if.then1.i76.i, %if.end.i73.i, %if.then68.i, %if.end62.i485, %if.then59.i, %if.then44.i, %compiler_add_const.exit.i, %if.end9.i, %sw.bb76.i, %for.end.i533, %sw.bb14.i, %if.end45.i536, %_PyCompile_InstructionSequence_UseLabel.exit.i547, %sw.bb.i, %if.end8.i, %sw.bb16.i, %if.end21.i, %if.end26.i, %sw.bb32.i, %if.then41.i, %if.then51.i, %if.end57.i, %if.else64.i, %sw.bb82.i, %sw.bb84.i, %sw.bb86.i, %sw.bb88.i, %sw.bb90.i, %if.then95.i, %if.then101.i, %if.else108.i, %if.end114.i, %if.then124.i, %if.then129.i, %if.end131.i, %if.end137.i, %if.end143.i, %if.end149.i, %if.then164.i, %if.then174.i, %if.end177.i, %if.end183.i, %if.end189.i, %if.end195.i, %sw.bb204.i, %if.then223.i, %cond.end.i, %if.end246.i, %if.end254.i, %sw.bb273.i, %sw.bb284.i, %if.end291.i, %sw.bb302.i, %sw.bb318.i, %sw.default.i, %sw.bb321.i, %sw.bb333.i, %sw.epilog342.i
-  %retval.0.i = phi i32 [ 0, %sw.epilog342.i ], [ %call337.i, %sw.bb333.i ], [ -1, %sw.bb318.i ], [ -1, %sw.default.i ], [ -1, %if.then174.i ], [ -1, %if.then164.i ], [ -1, %if.then129.i ], [ -1, %if.then124.i ], [ -1, %if.then95.i ], [ %call.i334, %sw.bb90.i ], [ %call.i337, %sw.bb88.i ], [ %call.i340, %sw.bb86.i ], [ %call.i343, %sw.bb84.i ], [ %call.i352, %sw.bb82.i ], [ -1, %sw.bb.i ], [ -1, %if.end8.i ], [ -1, %sw.bb16.i ], [ -1, %if.end21.i ], [ -1, %if.end26.i ], [ -1, %sw.bb32.i ], [ -1, %if.then41.i ], [ -1, %if.then51.i ], [ -1, %if.end57.i ], [ -1, %if.else64.i ], [ -1, %if.then101.i ], [ -1, %if.else108.i ], [ -1, %if.end114.i ], [ -1, %if.end131.i ], [ -1, %if.end137.i ], [ -1, %if.end143.i ], [ -1, %if.end149.i ], [ -1, %if.end177.i ], [ -1, %if.end183.i ], [ -1, %if.end189.i ], [ -1, %if.end195.i ], [ -1, %sw.bb204.i ], [ -1, %if.then223.i ], [ -1, %cond.end.i ], [ %..i, %if.end246.i ], [ -1, %if.end254.i ], [ -1, %sw.bb273.i ], [ -1, %sw.bb284.i ], [ -1, %if.end291.i ], [ -1, %sw.bb302.i ], [ -1, %sw.bb321.i ], [ -1, %sw.bb14.i ], [ -1, %for.end.i533 ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit.i547 ], [ -1, %if.end45.i536 ], [ -1, %if.then44.i ], [ -1, %if.then59.i ], [ -1, %sw.bb76.i ], [ -1, %if.end9.i ], [ -1, %compiler_add_const.exit.i ], [ -1, %if.end62.i485 ], [ -1, %if.then68.i ], [ -1, %if.then1.i76.i ], [ -1, %if.end.i73.i ], [ 0, %if.end69.i ], [ 0, %if.then1.i.i490 ], [ 0, %if.end.i.i487 ], [ -1, %sw.bb78.i ], [ -1, %if.end.i414 ], [ -1, %if.end8.i416 ], [ -1, %if.end17.i419 ], [ -1, %if.end36.i ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit37.i ], [ -1, %if.end41.i445 ], [ %.mux, %if.then75.i ], [ 0, %codegen_addop_i.exit208.i ], [ 0, %if.end92.i ], [ 0, %if.end143.i297 ], [ -1, %sw.bb200.i ], [ -1, %if.end.i276 ], [ -1, %if.then14.i ], [ -1, %if.end19.i329 ], [ -1, %if.else.i286 ], [ -1, %for.end.i294 ], [ -1, %if.end93.i ], [ -1, %if.end101.i ], [ -1, %if.end109.i ], [ -1, %if.end116.i ], [ -1, %if.end123.i ], [ -1, %if.end129.i ], [ -1, %if.end135.i ], [ %call46.i, %if.end34.i ], [ -1, %sw.bb202.i ], [ -1, %check_caller.exit.i ], [ -1, %if.end12.i ], [ -1, %maybe_optimize_method_call.exit.i.thread ], [ 0, %if.end166.i.i ], [ 0, %if.else185.i.i ], [ -1, %if.then12.i ], [ -1, %if.then1.i131.i ], [ -1, %if.end.i128.i ], [ -1, %Py_DECREF.exit124.i ], [ -1, %if.then102.i ], [ -1, %if.then1.i113.i ], [ -1, %if.end.i110.i ], [ 0, %codegen_addop_i.exit203.i ], [ 0, %codegen_addop_i.exit187.i ], [ 0, %if.then1.i.i ], [ 0, %if.end.i.i160 ], [ 0, %if.end103.i ], [ 0, %if.else87.i ], [ -1, %sw.default.i144 ], [ -1, %sw.bb215.i ], [ -1, %if.then19.i ], [ 0, %codegen_addop_noarg.exit81.i ], [ 0, %codegen_addop_noarg.exit.i140 ], [ -1, %check_subscripter.exit.i ], [ -1, %check_index.exit.i ], [ -1, %if.end16.i ], [ -1, %if.then27.i ], [ -1, %if.else47.i ], [ 0, %codegen_addop_noarg.exit115.i ], [ 0, %codegen_addop_noarg.exit99.i ], [ 0, %codegen_addop_noarg.exit.i ], [ %call11.i31, %if.then10.i22 ], [ -1, %cond.end.i.i45 ], [ %call11.i, %if.then10.i ], [ -1, %cond.end.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i600 ], [ -1, %if.end.i ], [ -1, %if.then.i.i ], [ -1, %if.then8.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i428 ], [ -1, %if.end22.i422 ], [ -1, %if.end29.i ], [ -1, %instr_sequence_next_inst.exit.i.i182.i ], [ -1, %if.then83.i ], [ 0, %codegen_addop_i.exit192.i ], [ -1, %instr_sequence_next_inst.exit.i.i198.i ], [ -1, %if.then94.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i232 ], [ -1, %if.end18.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i183 ], [ -1, %if.end19.i ], [ -1, %instr_sequence_next_inst.exit.i.i177.i ], [ -1, %for.end.i ], [ -1, %instr_sequence_next_inst.exit.i.i193.i ], [ -1, %if.then79.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i127 ], [ -1, %sw.epilog.i111 ], [ -1, %instr_sequence_next_inst.exit.i.i56.i ], [ -1, %if.end26.i139 ], [ -1, %instr_sequence_next_inst.exit.i.i71.i ], [ -1, %if.else.i142 ], [ -1, %instr_sequence_next_inst.exit.i.i.i ], [ -1, %if.then35.i ], [ -1, %instr_sequence_next_inst.exit.i.i89.i ], [ -1, %if.else.i ], [ -1, %instr_sequence_next_inst.exit.i.i105.i ], [ -1, %sw.epilog.i ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.end325.i ], [ 0, %for.cond.i.i49.preheader ], [ 0, %for.cond.i.i.preheader ], [ -1, %if.else.i286.thread ], [ %spec.select, %cond.end.i.i45.thread ], [ %spec.select839, %cond.end.i.i.thread ], [ -1, %for.body.i557 ], [ -1, %instr_sequence_next_inst.exit.i.i.i572 ], [ -1, %if.end14.i562 ], [ -1, %instr_sequence_next_inst.exit.i.i81.i ], [ -1, %if.end20.i ], [ -1, %instr_sequence_next_inst.exit.i.i96.i ], [ -1, %if.end26.i586 ], [ -1, %instr_sequence_next_inst.exit.i.i111.i ], [ -1, %if.end33.i590 ], [ -1, %if.then11.i ], [ -1, %if.end34.i405 ], [ -1, %if.then53.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i392 ], [ -1, %if.then16.i ], [ -1, %instr_sequence_next_inst.exit.i.i134.i ], [ -1, %if.then26.i ], [ -1, %instr_sequence_next_inst.exit.i.i150.i ], [ -1, %if.end43.i ], [ -1, %instr_sequence_next_inst.exit.i.i166.i ], [ -1, %if.then61.i ], [ -1, %for.body.i299 ], [ -1, %if.end52.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i307 ], [ -1, %if.end40.i ], [ -1, %instr_sequence_next_inst.exit.i.i229.i ], [ -1, %if.end46.i ], [ -1, %instr_sequence_next_inst.exit.i.i245.i ], [ -1, %if.end60.i ], [ -1, %instr_sequence_next_inst.exit.i.i261.i ], [ -1, %if.end66.i ], [ -1, %instr_sequence_next_inst.exit.i.i276.i ], [ -1, %if.end72.i ], [ -1, %instr_sequence_next_inst.exit.i.i291.i ], [ -1, %if.end79.i ], [ -1, %for.body66.i ], [ -1, %for.body.i195 ], [ -1, %instr_sequence_next_inst.exit.i.i161.i ], [ -1, %if.end41.i198 ], [ 0, %cond.end.i73 ], [ -1, %for.body.i76 ], [ 0, %for.cond.i.i49 ], [ -1, %cond.end6.i.i58 ], [ 0, %cond.end.i14 ], [ -1, %for.body.i ], [ 0, %for.cond.i.i ], [ -1, %cond.end6.i.i ]
+compiler_visit_expr1.exit:                        ; preds = %for.cond.i.i, %cond.end6.i.i, %for.body.i, %cond.end.i14, %for.cond.i.i49, %cond.end6.i.i58, %for.body.i76, %cond.end.i73, %if.end41.i198, %instr_sequence_next_inst.exit.i.i161.i, %for.body.i195, %for.body66.i, %if.end79.i, %instr_sequence_next_inst.exit.i.i291.i, %if.end72.i, %instr_sequence_next_inst.exit.i.i276.i, %if.end66.i, %instr_sequence_next_inst.exit.i.i261.i, %if.end60.i, %instr_sequence_next_inst.exit.i.i245.i, %if.end46.i, %instr_sequence_next_inst.exit.i.i229.i, %if.end40.i, %instr_sequence_next_inst.exit.i.i.i307, %if.end52.i, %for.body.i299, %if.then61.i, %instr_sequence_next_inst.exit.i.i166.i, %if.end43.i, %instr_sequence_next_inst.exit.i.i150.i, %if.then26.i, %instr_sequence_next_inst.exit.i.i134.i, %if.then16.i, %instr_sequence_next_inst.exit.i.i.i392, %if.then53.i, %if.end34.i405, %if.then11.i, %if.end33.i590, %instr_sequence_next_inst.exit.i.i111.i, %if.end26.i586, %instr_sequence_next_inst.exit.i.i96.i, %if.end20.i, %instr_sequence_next_inst.exit.i.i81.i, %if.end14.i562, %instr_sequence_next_inst.exit.i.i.i572, %for.body.i557, %cond.end.i.i.thread, %cond.end.i.i45.thread, %if.then75.i, %if.else.i286.thread, %for.cond.i.i.preheader, %for.cond.i.i49.preheader, %if.end325.i, %instr_sequence_next_inst.exit.i.i, %sw.epilog.i, %instr_sequence_next_inst.exit.i.i105.i, %if.else.i, %instr_sequence_next_inst.exit.i.i89.i, %if.then35.i, %instr_sequence_next_inst.exit.i.i.i, %if.else.i142, %instr_sequence_next_inst.exit.i.i71.i, %if.end26.i139, %instr_sequence_next_inst.exit.i.i56.i, %sw.epilog.i111, %instr_sequence_next_inst.exit.i.i.i127, %if.then79.i, %instr_sequence_next_inst.exit.i.i193.i, %for.end.i, %instr_sequence_next_inst.exit.i.i177.i, %if.end19.i, %instr_sequence_next_inst.exit.i.i.i183, %if.end18.i, %instr_sequence_next_inst.exit.i.i.i232, %codegen_addop_i.exit192.i, %if.then83.i, %instr_sequence_next_inst.exit.i.i182.i, %if.end29.i, %if.end22.i422, %instr_sequence_next_inst.exit.i.i.i428, %if.then8.i.i, %if.then.i.i, %if.end.i, %instr_sequence_next_inst.exit.i.i600, %if.then10.i, %cond.end.i.i, %if.then10.i22, %cond.end.i.i45, %if.else47.i, %if.then27.i, %if.end16.i, %check_index.exit.i, %check_subscripter.exit.i, %codegen_addop_noarg.exit115.i, %codegen_addop_noarg.exit99.i, %codegen_addop_noarg.exit.i, %if.then19.i, %sw.default.i144, %sw.bb215.i, %codegen_addop_noarg.exit81.i, %codegen_addop_noarg.exit.i140, %if.then1.i113.i, %if.end.i110.i, %if.then102.i, %Py_DECREF.exit124.i, %if.then1.i131.i, %if.end.i128.i, %if.then12.i, %codegen_addop_i.exit203.i, %codegen_addop_i.exit187.i, %if.then1.i.i, %if.end.i.i160, %if.end103.i, %if.else87.i, %if.end34.i, %if.end12.i, %check_caller.exit.i, %sw.bb202.i, %maybe_optimize_method_call.exit.i.thread, %if.end166.i.i, %if.else185.i.i, %if.end143.i297, %if.end135.i, %if.end129.i, %if.end123.i, %if.end116.i, %if.end109.i, %if.end101.i, %if.end93.i, %for.end.i294, %if.else.i286, %if.end19.i329, %if.then14.i, %if.end.i276, %sw.bb200.i, %if.end92.i, %if.then94.i, %instr_sequence_next_inst.exit.i.i198.i, %codegen_addop_i.exit208.i, %if.end36.i, %if.end17.i419, %if.end8.i416, %if.end.i414, %sw.bb78.i, %if.end41.i445, %_PyCompile_InstructionSequence_UseLabel.exit37.i, %if.then1.i.i490, %if.end.i.i487, %if.end69.i, %if.then1.i76.i, %if.end.i73.i, %if.then68.i, %if.end62.i485, %if.then59.i, %if.then44.i, %compiler_add_const.exit.i, %if.end9.i, %sw.bb76.i, %for.end.i533, %sw.bb14.i, %if.end45.i536, %_PyCompile_InstructionSequence_UseLabel.exit.i547, %sw.bb.i, %if.end8.i, %sw.bb16.i, %if.end21.i, %if.end26.i, %sw.bb32.i, %if.then41.i, %if.then51.i, %if.end57.i, %if.else64.i, %sw.bb82.i, %sw.bb84.i, %sw.bb86.i, %sw.bb88.i, %sw.bb90.i, %if.then95.i, %if.then101.i, %if.else108.i, %if.end114.i, %if.then124.i, %if.then129.i, %if.end131.i, %if.end137.i, %if.end143.i, %if.end149.i, %if.then164.i, %if.then174.i, %if.end177.i, %if.end183.i, %if.end189.i, %if.end195.i, %sw.bb204.i, %if.then223.i, %cond.end.i, %if.end246.i, %if.end254.i, %sw.bb273.i, %sw.bb284.i, %if.end291.i, %sw.bb302.i, %sw.bb318.i, %sw.default.i, %sw.bb321.i, %sw.bb333.i, %sw.epilog342.i
+  %retval.0.i = phi i32 [ 0, %sw.epilog342.i ], [ %call337.i, %sw.bb333.i ], [ -1, %sw.bb318.i ], [ -1, %sw.default.i ], [ -1, %if.then174.i ], [ -1, %if.then164.i ], [ -1, %if.then129.i ], [ -1, %if.then124.i ], [ -1, %if.then95.i ], [ %call.i334, %sw.bb90.i ], [ %call.i337, %sw.bb88.i ], [ %call.i340, %sw.bb86.i ], [ %call.i343, %sw.bb84.i ], [ %call.i352, %sw.bb82.i ], [ -1, %sw.bb.i ], [ -1, %if.end8.i ], [ -1, %sw.bb16.i ], [ -1, %if.end21.i ], [ -1, %if.end26.i ], [ -1, %sw.bb32.i ], [ -1, %if.then41.i ], [ -1, %if.then51.i ], [ -1, %if.end57.i ], [ -1, %if.else64.i ], [ -1, %if.then101.i ], [ -1, %if.else108.i ], [ -1, %if.end114.i ], [ -1, %if.end131.i ], [ -1, %if.end137.i ], [ -1, %if.end143.i ], [ -1, %if.end149.i ], [ -1, %if.end177.i ], [ -1, %if.end183.i ], [ -1, %if.end189.i ], [ -1, %if.end195.i ], [ -1, %sw.bb204.i ], [ -1, %if.then223.i ], [ -1, %cond.end.i ], [ %..i, %if.end246.i ], [ -1, %if.end254.i ], [ -1, %sw.bb273.i ], [ -1, %sw.bb284.i ], [ -1, %if.end291.i ], [ -1, %sw.bb302.i ], [ -1, %sw.bb321.i ], [ -1, %sw.bb14.i ], [ -1, %for.end.i533 ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit.i547 ], [ -1, %if.end45.i536 ], [ -1, %if.then44.i ], [ -1, %if.then59.i ], [ -1, %sw.bb76.i ], [ -1, %if.end9.i ], [ -1, %compiler_add_const.exit.i ], [ -1, %if.end62.i485 ], [ -1, %if.then68.i ], [ -1, %if.then1.i76.i ], [ -1, %if.end.i73.i ], [ 0, %if.end69.i ], [ 0, %if.then1.i.i490 ], [ 0, %if.end.i.i487 ], [ -1, %sw.bb78.i ], [ -1, %if.end.i414 ], [ -1, %if.end8.i416 ], [ -1, %if.end17.i419 ], [ -1, %if.end36.i ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit37.i ], [ -1, %if.end41.i445 ], [ %.mux, %if.then75.i ], [ 0, %if.end92.i ], [ 0, %codegen_addop_i.exit208.i ], [ -1, %instr_sequence_next_inst.exit.i.i198.i ], [ -1, %if.then94.i ], [ 0, %if.end143.i297 ], [ -1, %sw.bb200.i ], [ -1, %if.end.i276 ], [ -1, %if.then14.i ], [ -1, %if.end19.i329 ], [ -1, %if.else.i286 ], [ -1, %for.end.i294 ], [ -1, %if.end93.i ], [ -1, %if.end101.i ], [ -1, %if.end109.i ], [ -1, %if.end116.i ], [ -1, %if.end123.i ], [ -1, %if.end129.i ], [ -1, %if.end135.i ], [ %call46.i, %if.end34.i ], [ -1, %sw.bb202.i ], [ -1, %check_caller.exit.i ], [ -1, %if.end12.i ], [ -1, %maybe_optimize_method_call.exit.i.thread ], [ 0, %if.end166.i.i ], [ 0, %if.else185.i.i ], [ -1, %if.then12.i ], [ -1, %if.then1.i131.i ], [ -1, %if.end.i128.i ], [ -1, %Py_DECREF.exit124.i ], [ -1, %if.then102.i ], [ -1, %if.then1.i113.i ], [ -1, %if.end.i110.i ], [ 0, %codegen_addop_i.exit203.i ], [ 0, %codegen_addop_i.exit187.i ], [ 0, %if.then1.i.i ], [ 0, %if.end.i.i160 ], [ 0, %if.end103.i ], [ 0, %if.else87.i ], [ -1, %sw.default.i144 ], [ -1, %sw.bb215.i ], [ -1, %if.then19.i ], [ 0, %codegen_addop_noarg.exit81.i ], [ 0, %codegen_addop_noarg.exit.i140 ], [ -1, %check_subscripter.exit.i ], [ -1, %check_index.exit.i ], [ -1, %if.end16.i ], [ -1, %if.then27.i ], [ -1, %if.else47.i ], [ 0, %codegen_addop_noarg.exit115.i ], [ 0, %codegen_addop_noarg.exit99.i ], [ 0, %codegen_addop_noarg.exit.i ], [ %call11.i31, %if.then10.i22 ], [ -1, %cond.end.i.i45 ], [ %call11.i, %if.then10.i ], [ -1, %cond.end.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i600 ], [ -1, %if.end.i ], [ -1, %if.then.i.i ], [ -1, %if.then8.i.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i428 ], [ -1, %if.end22.i422 ], [ -1, %if.end29.i ], [ -1, %instr_sequence_next_inst.exit.i.i182.i ], [ -1, %if.then83.i ], [ 0, %codegen_addop_i.exit192.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i232 ], [ -1, %if.end18.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i183 ], [ -1, %if.end19.i ], [ -1, %instr_sequence_next_inst.exit.i.i177.i ], [ -1, %for.end.i ], [ -1, %instr_sequence_next_inst.exit.i.i193.i ], [ -1, %if.then79.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i127 ], [ -1, %sw.epilog.i111 ], [ -1, %instr_sequence_next_inst.exit.i.i56.i ], [ -1, %if.end26.i139 ], [ -1, %instr_sequence_next_inst.exit.i.i71.i ], [ -1, %if.else.i142 ], [ -1, %instr_sequence_next_inst.exit.i.i.i ], [ -1, %if.then35.i ], [ -1, %instr_sequence_next_inst.exit.i.i89.i ], [ -1, %if.else.i ], [ -1, %instr_sequence_next_inst.exit.i.i105.i ], [ -1, %sw.epilog.i ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.end325.i ], [ 0, %for.cond.i.i49.preheader ], [ 0, %for.cond.i.i.preheader ], [ -1, %if.else.i286.thread ], [ %spec.select, %cond.end.i.i45.thread ], [ %spec.select839, %cond.end.i.i.thread ], [ -1, %for.body.i557 ], [ -1, %instr_sequence_next_inst.exit.i.i.i572 ], [ -1, %if.end14.i562 ], [ -1, %instr_sequence_next_inst.exit.i.i81.i ], [ -1, %if.end20.i ], [ -1, %instr_sequence_next_inst.exit.i.i96.i ], [ -1, %if.end26.i586 ], [ -1, %instr_sequence_next_inst.exit.i.i111.i ], [ -1, %if.end33.i590 ], [ -1, %if.then11.i ], [ -1, %if.end34.i405 ], [ -1, %if.then53.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i392 ], [ -1, %if.then16.i ], [ -1, %instr_sequence_next_inst.exit.i.i134.i ], [ -1, %if.then26.i ], [ -1, %instr_sequence_next_inst.exit.i.i150.i ], [ -1, %if.end43.i ], [ -1, %instr_sequence_next_inst.exit.i.i166.i ], [ -1, %if.then61.i ], [ -1, %for.body.i299 ], [ -1, %if.end52.i ], [ -1, %instr_sequence_next_inst.exit.i.i.i307 ], [ -1, %if.end40.i ], [ -1, %instr_sequence_next_inst.exit.i.i229.i ], [ -1, %if.end46.i ], [ -1, %instr_sequence_next_inst.exit.i.i245.i ], [ -1, %if.end60.i ], [ -1, %instr_sequence_next_inst.exit.i.i261.i ], [ -1, %if.end66.i ], [ -1, %instr_sequence_next_inst.exit.i.i276.i ], [ -1, %if.end72.i ], [ -1, %instr_sequence_next_inst.exit.i.i291.i ], [ -1, %if.end79.i ], [ -1, %for.body66.i ], [ -1, %for.body.i195 ], [ -1, %instr_sequence_next_inst.exit.i.i161.i ], [ -1, %if.end41.i198 ], [ 0, %cond.end.i73 ], [ -1, %for.body.i76 ], [ 0, %for.cond.i.i49 ], [ -1, %cond.end6.i.i58 ], [ 0, %cond.end.i14 ], [ -1, %for.body.i ], [ 0, %for.cond.i.i ], [ -1, %cond.end6.i.i ]
   ret i32 %retval.0.i
 }
 
@@ -16967,10 +16967,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %loc.sroa.6.8.extract.shift = lshr i64 %loc.coerce1, 32
-  %loc.sroa.6.8.extract.trunc = trunc i64 %loc.sroa.6.8.extract.shift to i32
+  %loc.sroa.6.8.extract.trunc = trunc nuw i64 %loc.sroa.6.8.extract.shift to i32
   %loc.sroa.4.8.extract.trunc = trunc i64 %loc.coerce1 to i32
   %loc.sroa.3.0.extract.shift = lshr i64 %loc.coerce0, 32
-  %loc.sroa.3.0.extract.trunc = trunc i64 %loc.sroa.3.0.extract.shift to i32
+  %loc.sroa.3.0.extract.trunc = trunc nuw i64 %loc.sroa.3.0.extract.shift to i32
   %loc.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %0 = load ptr, ptr %c, align 8
   %call3 = call ptr @PyErr_ProgramTextObject(ptr noundef %0, i32 noundef %loc.sroa.0.0.extract.trunc) #11
@@ -17236,7 +17236,7 @@ if.end46:                                         ; preds = %if.end13.i, %if.end
   br i1 %cmp41, label %if.then48, label %if.end90
 
 if.then48:                                        ; preds = %if.end46
-  %25 = trunc i64 %retval.0.i285 to i32
+  %25 = trunc nuw nsw i64 %retval.0.i285 to i32
   %spec.select = and i32 %25, 1
   %26 = lshr i32 %25, 1
   %num_typeparam_args.1 = add nuw nsw i32 %26, %spec.select
@@ -18720,7 +18720,7 @@ if.then.i:                                        ; preds = %if.end5
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end9, label %return.sink.split
 
-if.end9:                                          ; preds = %if.then.i, %if.end5
+if.end9:                                          ; preds = %if.end5, %if.then.i
   %kwonlyargs = getelementptr inbounds i8, ptr %args, i64 24
   %13 = load ptr, ptr %kwonlyargs, align 8
   %cmp.not.i42 = icmp eq ptr %13, null
@@ -18772,22 +18772,22 @@ if.then.i74:                                      ; preds = %if.end13
 return.sink.split:                                ; preds = %if.then.i.i, %if.then.i.i19, %if.then.i.i52, %if.then.i74, %if.then.i
   %21 = phi <4 x i32> [ %11, %if.then.i ], [ %19, %if.then.i74 ], [ %16, %if.then.i.i52 ], [ %8, %if.then.i.i19 ], [ %3, %if.then.i.i ]
   %22 = extractelement <4 x i32> %21, i64 3
-  %.compoundliteral.sroa.5.8.insert.ext.i82 = zext i32 %22 to i64
-  %.compoundliteral.sroa.5.8.insert.shift.i83 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i82, 32
+  %.compoundliteral.sroa.5.8.insert.ext.i81 = zext i32 %22 to i64
+  %.compoundliteral.sroa.5.8.insert.shift.i82 = shl nuw i64 %.compoundliteral.sroa.5.8.insert.ext.i81, 32
   %23 = extractelement <4 x i32> %21, i64 1
-  %.compoundliteral.sroa.3.8.insert.ext.i84 = zext i32 %23 to i64
-  %.compoundliteral.sroa.3.8.insert.insert.i85 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i83, %.compoundliteral.sroa.3.8.insert.ext.i84
+  %.compoundliteral.sroa.3.8.insert.ext.i83 = zext i32 %23 to i64
+  %.compoundliteral.sroa.3.8.insert.insert.i84 = or disjoint i64 %.compoundliteral.sroa.5.8.insert.shift.i82, %.compoundliteral.sroa.3.8.insert.ext.i83
   %24 = extractelement <4 x i32> %21, i64 2
-  %.compoundliteral.sroa.2.0.insert.ext.i86 = zext i32 %24 to i64
-  %.compoundliteral.sroa.2.0.insert.shift.i87 = shl nuw i64 %.compoundliteral.sroa.2.0.insert.ext.i86, 32
+  %.compoundliteral.sroa.2.0.insert.ext.i85 = zext i32 %24 to i64
+  %.compoundliteral.sroa.2.0.insert.shift.i86 = shl nuw i64 %.compoundliteral.sroa.2.0.insert.ext.i85, 32
   %25 = extractelement <4 x i32> %21, i64 0
-  %.compoundliteral.sroa.0.0.insert.ext.i88 = zext i32 %25 to i64
-  %.compoundliteral.sroa.0.0.insert.insert.i89 = or disjoint i64 %.compoundliteral.sroa.2.0.insert.shift.i87, %.compoundliteral.sroa.0.0.insert.ext.i88
-  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i89, i64 %.compoundliteral.sroa.3.8.insert.insert.i85, ptr noundef nonnull @.str.332)
+  %.compoundliteral.sroa.0.0.insert.ext.i87 = zext i32 %25 to i64
+  %.compoundliteral.sroa.0.0.insert.insert.i88 = or disjoint i64 %.compoundliteral.sroa.2.0.insert.shift.i86, %.compoundliteral.sroa.0.0.insert.ext.i87
+  tail call void (ptr, i64, i64, ptr, ...) @compiler_error(ptr noundef %c, i64 %.compoundliteral.sroa.0.0.insert.insert.i88, i64 %.compoundliteral.sroa.3.8.insert.insert.i84, ptr noundef nonnull @.str.332)
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end13, %if.then.i74
-  %retval.0 = phi i32 [ 0, %if.then.i74 ], [ 0, %if.end13 ], [ -1, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.then.i74, %if.end13
+  %retval.0 = phi i32 [ 0, %if.end13 ], [ 0, %if.then.i74 ], [ -1, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -19598,8 +19598,8 @@ codegen_addop_i.exit154:                          ; preds = %instr_sequence_next
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i152, align 4
   br label %return
 
-return:                                           ; preds = %if.end20, %instr_sequence_next_inst.exit.i.i, %for.body, %if.then84, %instr_sequence_next_inst.exit.i.i144, %if.then73, %instr_sequence_next_inst.exit.i.i128, %if.then62, %instr_sequence_next_inst.exit.i.i112, %if.then51, %instr_sequence_next_inst.exit.i.i96, %if.end42, %instr_sequence_next_inst.exit.i.i81, %for.end, %instr_sequence_next_inst.exit.i.i65, %if.end81, %codegen_addop_i.exit154, %if.end36, %if.end.i, %if.then1.i, %if.end16
-  %retval.0 = phi i32 [ -1, %if.end16 ], [ -1, %if.then1.i ], [ -1, %if.end.i ], [ -1, %if.end36 ], [ 0, %codegen_addop_i.exit154 ], [ 0, %if.end81 ], [ -1, %instr_sequence_next_inst.exit.i.i65 ], [ -1, %for.end ], [ -1, %instr_sequence_next_inst.exit.i.i81 ], [ -1, %if.end42 ], [ -1, %instr_sequence_next_inst.exit.i.i96 ], [ -1, %if.then51 ], [ -1, %instr_sequence_next_inst.exit.i.i112 ], [ -1, %if.then62 ], [ -1, %instr_sequence_next_inst.exit.i.i128 ], [ -1, %if.then73 ], [ -1, %instr_sequence_next_inst.exit.i.i144 ], [ -1, %if.then84 ], [ -1, %if.end20 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ %call1, %for.body ]
+return:                                           ; preds = %if.end20, %instr_sequence_next_inst.exit.i.i, %for.body, %if.then73, %instr_sequence_next_inst.exit.i.i128, %if.then62, %instr_sequence_next_inst.exit.i.i112, %if.then51, %instr_sequence_next_inst.exit.i.i96, %if.end42, %instr_sequence_next_inst.exit.i.i81, %for.end, %instr_sequence_next_inst.exit.i.i65, %codegen_addop_i.exit154, %instr_sequence_next_inst.exit.i.i144, %if.then84, %if.end81, %if.end36, %if.end.i, %if.then1.i, %if.end16
+  %retval.0 = phi i32 [ -1, %if.end16 ], [ -1, %if.then1.i ], [ -1, %if.end.i ], [ -1, %if.end36 ], [ 0, %if.end81 ], [ 0, %codegen_addop_i.exit154 ], [ -1, %instr_sequence_next_inst.exit.i.i144 ], [ -1, %if.then84 ], [ -1, %instr_sequence_next_inst.exit.i.i65 ], [ -1, %for.end ], [ -1, %instr_sequence_next_inst.exit.i.i81 ], [ -1, %if.end42 ], [ -1, %instr_sequence_next_inst.exit.i.i96 ], [ -1, %if.then51 ], [ -1, %instr_sequence_next_inst.exit.i.i112 ], [ -1, %if.then62 ], [ -1, %instr_sequence_next_inst.exit.i.i128 ], [ -1, %if.then73 ], [ -1, %if.end20 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ %call1, %for.body ]
   ret i32 %retval.0
 }
 
@@ -20259,7 +20259,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(44) %arrayidx4.i, i64 44, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp1.not.i = icmp eq i64 %indvars.iv.i, 0
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %cmp1.not.i, label %for.end.i, label %for.body.i, !llvm.loop !83
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
@@ -21594,12 +21594,12 @@ return:                                           ; preds = %return.sink.split, 
 define internal fastcc noundef i32 @starunpack_helper(ptr noundef %c, i64 %loc.coerce0, i64 %loc.coerce1, ptr noundef readonly %elts, i32 noundef %pushed, i32 noundef %build, i32 noundef %add, i32 noundef %extend, i32 noundef %tuple) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %elts, null
-  br i1 %cmp, label %if.end60.thread298, label %cond.end
+  br i1 %cmp, label %if.end60.thread299, label %cond.end
 
-if.end60.thread298:                               ; preds = %entry
-  %conv61300 = zext nneg i32 %pushed to i64
-  %cmp63302 = icmp ugt i32 %pushed, 30
-  br i1 %cmp63302, label %if.then123, label %for.end98
+if.end60.thread299:                               ; preds = %entry
+  %conv61301 = zext nneg i32 %pushed to i64
+  %cmp63303 = icmp ugt i32 %pushed, 30
+  br i1 %cmp63303, label %if.then123, label %for.end98
 
 cond.end:                                         ; preds = %entry
   %0 = load i64, ptr %elts, align 8
@@ -21609,23 +21609,23 @@ cond.end:                                         ; preds = %entry
 land.lhs.true:                                    ; preds = %cond.end
   %typed_elements.i = getelementptr inbounds i8, ptr %elts, i64 16
   %1 = load ptr, ptr %typed_elements.i, align 8
-  %cmp1.i262 = icmp eq ptr %1, null
-  br i1 %cmp1.i262, label %if.end60.thread, label %lor.lhs.false.i.preheader
+  %cmp1.i263 = icmp eq ptr %1, null
+  br i1 %cmp1.i263, label %if.end60.thread, label %lor.lhs.false.i.preheader
 
 lor.lhs.false.i.preheader:                        ; preds = %land.lhs.true
   %2 = load i32, ptr %1, align 8
-  %cmp2.not.i317 = icmp eq i32 %2, 20
-  br i1 %cmp2.not.i317, label %for.cond.i, label %if.end60
+  %cmp2.not.i318 = icmp eq i32 %2, 20
+  br i1 %cmp2.not.i318, label %for.cond.i, label %if.end60
 
 if.end60.thread:                                  ; preds = %land.lhs.true
-  %conv61282 = zext nneg i32 %pushed to i64
-  %add62283 = add nuw i64 %0, %conv61282
-  %cmp63284 = icmp sgt i64 %add62283, 30
+  %conv61283 = zext nneg i32 %pushed to i64
+  %add62284 = add nuw i64 %0, %conv61283
+  %cmp63285 = icmp sgt i64 %add62284, 30
   br label %for.body69.lr.ph
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i.preheader, %lor.lhs.false.i
-  %i.05.i264318 = phi i64 [ %inc.i, %lor.lhs.false.i ], [ 0, %lor.lhs.false.i.preheader ]
-  %inc.i = add nuw nsw i64 %i.05.i264318, 1
+  %i.05.i265319 = phi i64 [ %inc.i, %lor.lhs.false.i ], [ 0, %lor.lhs.false.i.preheader ]
+  %inc.i = add nuw nsw i64 %i.05.i265319, 1
   %exitcond.i = icmp eq i64 %inc.i, %0
   br i1 %exitcond.i, label %are_all_items_const.exit, label %for.body.i, !llvm.loop !93
 
@@ -21641,8 +21641,8 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %cmp2.not.i, label %for.cond.i, label %are_all_items_const.exit, !llvm.loop !93
 
 are_all_items_const.exit:                         ; preds = %for.cond.i, %for.body.i, %lor.lhs.false.i
-  %cmp.i106.not.le = icmp slt i64 %inc.i, %0
-  br i1 %cmp.i106.not.le, label %if.end60, label %if.then
+  %cmp.i107.not.le = icmp slt i64 %inc.i, %0
+  br i1 %cmp.i107.not.le, label %if.end60, label %if.then
 
 if.then:                                          ; preds = %are_all_items_const.exit
   %call2 = tail call ptr @PyTuple_New(i64 noundef %0) #11
@@ -21655,8 +21655,8 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_Py_NewRef.exit
-  %i.0268 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_Py_NewRef.exit ]
-  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.0268
+  %i.0269 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_Py_NewRef.exit ]
+  %arrayidx = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.0269
   %5 = load ptr, ptr %arrayidx, align 8
   %v = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %v, align 8
@@ -21670,9 +21670,9 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
-  %arrayidx.i107 = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.0268
-  store ptr %6, ptr %arrayidx.i107, align 8
-  %inc = add nuw nsw i64 %i.0268, 1
+  %arrayidx.i108 = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.0269
+  store ptr %6, ptr %arrayidx.i108, align 8
+  %inc = add nuw nsw i64 %i.0269, 1
   %exitcond.not = icmp eq i64 %inc, %smax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !94
 
@@ -21708,17 +21708,17 @@ if.then1.i235:                                    ; preds = %if.end.i232
   br label %return
 
 if.end16:                                         ; preds = %if.end12
-  br i1 %cmp.i239.not, label %if.end.i223, label %if.end59
+  br i1 %cmp.i239.not, label %if.end.i223, label %return
 
 if.end.i223:                                      ; preds = %if.end16
   %dec.i224 = add i64 %10, -1
   store i64 %dec.i224, ptr %call2, align 8
   %cmp.i225 = icmp eq i64 %dec.i224, 0
-  br i1 %cmp.i225, label %if.then1.i226, label %if.end59
+  br i1 %cmp.i225, label %if.then1.i226, label %return
 
 if.then1.i226:                                    ; preds = %if.end.i223
   tail call void @_Py_Dealloc(ptr noundef nonnull %call2) #11
-  br label %if.end59
+  br label %return
 
 if.else:                                          ; preds = %for.end
   %cmp17 = icmp eq i32 %add, 105
@@ -21762,8 +21762,8 @@ instr_sequence_next_inst.exit.i.i:                ; preds = %if.end23
   %16 = load i32, ptr %s_used.i.i.i, align 4
   %inc.i.i.i = add i32 %16, 1
   store i32 %inc.i.i.i, ptr %s_used.i.i.i, align 4
-  %cmp.i.i108 = icmp eq i32 %16, -1
-  br i1 %cmp.i.i108, label %return, label %if.end34
+  %cmp.i.i109 = icmp eq i32 %16, -1
+  br i1 %cmp.i.i109, label %return, label %if.end34
 
 if.end34:                                         ; preds = %instr_sequence_next_inst.exit.i.i
   %17 = load ptr, ptr %u_instr_sequence, align 8
@@ -21815,248 +21815,246 @@ if.then1.i:                                       ; preds = %if.end.i
 Py_DECREF.exit:                                   ; preds = %if.end41, %if.then1.i, %if.end.i
   %22 = load ptr, ptr %u24, align 8
   %u_instr_sequence43 = getelementptr inbounds i8, ptr %22, i64 24
-  %s_used.i.i.i110 = getelementptr inbounds i8, ptr %22, i64 36
-  %23 = load i32, ptr %s_used.i.i.i110, align 4
-  %add.i.i.i111 = add i32 %23, 1
-  %s_allocated.i.i.i112 = getelementptr inbounds i8, ptr %22, i64 32
-  %call.i.i.i113 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i111, ptr noundef nonnull %u_instr_sequence43, ptr noundef nonnull %s_allocated.i.i.i112, i32 noundef 100, i64 noundef 44), !range !5
-  %cmp.i.i.i114 = icmp eq i32 %call.i.i.i113, -1
-  br i1 %cmp.i.i.i114, label %return, label %instr_sequence_next_inst.exit.i.i115
+  %s_used.i.i.i111 = getelementptr inbounds i8, ptr %22, i64 36
+  %23 = load i32, ptr %s_used.i.i.i111, align 4
+  %add.i.i.i112 = add i32 %23, 1
+  %s_allocated.i.i.i113 = getelementptr inbounds i8, ptr %22, i64 32
+  %call.i.i.i114 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i112, ptr noundef nonnull %u_instr_sequence43, ptr noundef nonnull %s_allocated.i.i.i113, i32 noundef 100, i64 noundef 44), !range !5
+  %cmp.i.i.i115 = icmp eq i32 %call.i.i.i114, -1
+  br i1 %cmp.i.i.i115, label %return, label %instr_sequence_next_inst.exit.i.i116
 
-instr_sequence_next_inst.exit.i.i115:             ; preds = %Py_DECREF.exit
-  %24 = load i32, ptr %s_used.i.i.i110, align 4
-  %inc.i.i.i116 = add i32 %24, 1
-  store i32 %inc.i.i.i116, ptr %s_used.i.i.i110, align 4
-  %cmp.i.i117 = icmp eq i32 %24, -1
-  br i1 %cmp.i.i117, label %return, label %if.end48
+instr_sequence_next_inst.exit.i.i116:             ; preds = %Py_DECREF.exit
+  %24 = load i32, ptr %s_used.i.i.i111, align 4
+  %inc.i.i.i117 = add i32 %24, 1
+  store i32 %inc.i.i.i117, ptr %s_used.i.i.i111, align 4
+  %cmp.i.i118 = icmp eq i32 %24, -1
+  br i1 %cmp.i.i118, label %return, label %if.end48
 
-if.end48:                                         ; preds = %instr_sequence_next_inst.exit.i.i115
+if.end48:                                         ; preds = %instr_sequence_next_inst.exit.i.i116
   %25 = load ptr, ptr %u_instr_sequence43, align 8
-  %idxprom.i.i119 = sext i32 %24 to i64
-  %arrayidx.i.i120 = getelementptr %struct._PyCompile_Instruction, ptr %25, i64 %idxprom.i.i119
-  store i32 %extend, ptr %arrayidx.i.i120, align 4
-  %i_oparg.i.i121 = getelementptr inbounds i8, ptr %arrayidx.i.i120, i64 4
-  store i32 1, ptr %i_oparg.i.i121, align 4
-  %i_loc.i.i122 = getelementptr inbounds i8, ptr %arrayidx.i.i120, i64 8
-  store i64 %loc.coerce0, ptr %i_loc.i.i122, align 4
-  %loc.sroa.2.0.i_loc.sroa_idx.i.i123 = getelementptr inbounds i8, ptr %arrayidx.i.i120, i64 16
-  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i123, align 4
-  br i1 %tobool, label %if.end59, label %if.then50
+  %idxprom.i.i120 = sext i32 %24 to i64
+  %arrayidx.i.i121 = getelementptr %struct._PyCompile_Instruction, ptr %25, i64 %idxprom.i.i120
+  store i32 %extend, ptr %arrayidx.i.i121, align 4
+  %i_oparg.i.i122 = getelementptr inbounds i8, ptr %arrayidx.i.i121, i64 4
+  store i32 1, ptr %i_oparg.i.i122, align 4
+  %i_loc.i.i123 = getelementptr inbounds i8, ptr %arrayidx.i.i121, i64 8
+  store i64 %loc.coerce0, ptr %i_loc.i.i123, align 4
+  %loc.sroa.2.0.i_loc.sroa_idx.i.i124 = getelementptr inbounds i8, ptr %arrayidx.i.i121, i64 16
+  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i124, align 4
+  br i1 %tobool, label %return, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
   %26 = load ptr, ptr %u24, align 8
   %u_instr_sequence52 = getelementptr inbounds i8, ptr %26, i64 24
   %call53 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence52, i32 noundef 55, i64 noundef 6, i64 %loc.coerce0, i64 %loc.coerce1), !range !5
   %cmp54 = icmp eq i32 %call53, -1
-  br i1 %cmp54, label %return, label %if.end59
-
-if.end59:                                         ; preds = %if.end48, %if.then50, %if.end.i223, %if.then1.i226, %if.end16
+  %spec.select = sext i1 %cmp54 to i32
   br label %return
 
 if.end60:                                         ; preds = %lor.lhs.false.i.preheader, %are_all_items_const.exit, %cond.end
   %conv61 = zext nneg i32 %pushed to i64
   %add62 = add i64 %0, %conv61
   %cmp63 = icmp sgt i64 %add62, 30
-  %cmp67269 = icmp sgt i64 %0, 0
-  br i1 %cmp67269, label %for.body69.lr.ph, label %for.end78
+  %cmp67270 = icmp sgt i64 %0, 0
+  br i1 %cmp67270, label %for.body69.lr.ph, label %for.end78
 
 for.body69.lr.ph:                                 ; preds = %if.end60.thread, %if.end60
-  %cmp63292 = phi i1 [ %cmp63284, %if.end60.thread ], [ %cmp63, %if.end60 ]
-  %add62291 = phi i64 [ %add62283, %if.end60.thread ], [ %add62, %if.end60 ]
+  %cmp63293 = phi i1 [ %cmp63285, %if.end60.thread ], [ %cmp63, %if.end60 ]
+  %add62292 = phi i64 [ %add62284, %if.end60.thread ], [ %add62, %if.end60 ]
   %typed_elements70 = getelementptr inbounds i8, ptr %elts, i64 16
   br label %for.body69
 
 for.cond66:                                       ; preds = %for.body69
-  %inc77 = add nuw nsw i64 %i65.0270, 1
-  %exitcond278.not = icmp eq i64 %inc77, %0
-  br i1 %exitcond278.not, label %for.end78, label %for.body69, !llvm.loop !95
+  %inc77 = add nuw nsw i64 %i65.0271, 1
+  %exitcond279.not = icmp eq i64 %inc77, %0
+  br i1 %exitcond279.not, label %for.end78, label %for.body69, !llvm.loop !95
 
 for.body69:                                       ; preds = %for.body69.lr.ph, %for.cond66
-  %i65.0270 = phi i64 [ 0, %for.body69.lr.ph ], [ %inc77, %for.cond66 ]
-  %arrayidx71 = getelementptr [1 x ptr], ptr %typed_elements70, i64 0, i64 %i65.0270
+  %i65.0271 = phi i64 [ 0, %for.body69.lr.ph ], [ %inc77, %for.cond66 ]
+  %arrayidx71 = getelementptr [1 x ptr], ptr %typed_elements70, i64 0, i64 %i65.0271
   %27 = load ptr, ptr %arrayidx71, align 8
   %28 = load i32, ptr %27, align 8
   %cmp72 = icmp eq i32 %28, 23
   br i1 %cmp72, label %if.end121, label %for.cond66
 
 for.end78:                                        ; preds = %for.cond66, %if.end60
-  %cmp67269294 = phi i1 [ false, %if.end60 ], [ true, %for.cond66 ]
-  %cmp63293 = phi i1 [ %cmp63, %if.end60 ], [ %cmp63292, %for.cond66 ]
-  %add62290 = phi i64 [ %add62, %if.end60 ], [ %add62291, %for.cond66 ]
-  br i1 %cmp63293, label %if.then123, label %for.cond84.preheader
+  %cmp67270295 = phi i1 [ false, %if.end60 ], [ true, %for.cond66 ]
+  %cmp63294 = phi i1 [ %cmp63, %if.end60 ], [ %cmp63293, %for.cond66 ]
+  %add62291 = phi i64 [ %add62, %if.end60 ], [ %add62292, %for.cond66 ]
+  br i1 %cmp63294, label %if.then123, label %for.cond84.preheader
 
 for.cond84.preheader:                             ; preds = %for.end78
-  br i1 %cmp67269294, label %for.body87.lr.ph, label %for.end98
+  br i1 %cmp67270295, label %for.body87.lr.ph, label %for.end98
 
 for.body87.lr.ph:                                 ; preds = %for.cond84.preheader
   %typed_elements89 = getelementptr inbounds i8, ptr %elts, i64 16
   br label %for.body87
 
 for.cond84:                                       ; preds = %for.body87
-  %inc97 = add nuw nsw i64 %i83.0272, 1
-  %exitcond279.not = icmp eq i64 %inc97, %0
-  br i1 %exitcond279.not, label %for.end98, label %for.body87, !llvm.loop !96
+  %inc97 = add nuw nsw i64 %i83.0273, 1
+  %exitcond280.not = icmp eq i64 %inc97, %0
+  br i1 %exitcond280.not, label %for.end98, label %for.body87, !llvm.loop !96
 
 for.body87:                                       ; preds = %for.body87.lr.ph, %for.cond84
-  %i83.0272 = phi i64 [ 0, %for.body87.lr.ph ], [ %inc97, %for.cond84 ]
-  %arrayidx90 = getelementptr [1 x ptr], ptr %typed_elements89, i64 0, i64 %i83.0272
+  %i83.0273 = phi i64 [ 0, %for.body87.lr.ph ], [ %inc97, %for.cond84 ]
+  %arrayidx90 = getelementptr [1 x ptr], ptr %typed_elements89, i64 0, i64 %i83.0273
   %29 = load ptr, ptr %arrayidx90, align 8
   %call91 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %29), !range !5
   %cmp92 = icmp eq i32 %call91, -1
   br i1 %cmp92, label %return, label %for.cond84
 
-for.end98:                                        ; preds = %for.cond84, %if.end60.thread298, %for.cond84.preheader
-  %add62290305310 = phi i64 [ %add62290, %for.cond84.preheader ], [ %conv61300, %if.end60.thread298 ], [ %add62290, %for.cond84 ]
+for.end98:                                        ; preds = %for.cond84, %if.end60.thread299, %for.cond84.preheader
+  %add62291306311 = phi i64 [ %add62291, %for.cond84.preheader ], [ %conv61301, %if.end60.thread299 ], [ %add62291, %for.cond84 ]
   %tobool99.not = icmp eq i32 %tuple, 0
   %u111 = getelementptr inbounds i8, ptr %c, i64 64
   %30 = load ptr, ptr %u111, align 8
   %u_instr_sequence112 = getelementptr inbounds i8, ptr %30, i64 24
-  %conv.i142 = trunc i64 %add62290305310 to i32
-  %s_used.i.i.i143 = getelementptr inbounds i8, ptr %30, i64 36
-  %31 = load i32, ptr %s_used.i.i.i143, align 4
-  %add.i.i.i144 = add i32 %31, 1
-  %s_allocated.i.i.i145 = getelementptr inbounds i8, ptr %30, i64 32
-  %call.i.i.i146 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i144, ptr noundef nonnull %u_instr_sequence112, ptr noundef nonnull %s_allocated.i.i.i145, i32 noundef 100, i64 noundef 44), !range !5
-  %cmp.i.i.i147 = icmp eq i32 %call.i.i.i146, -1
+  %conv.i143 = trunc i64 %add62291306311 to i32
+  %s_used.i.i.i144 = getelementptr inbounds i8, ptr %30, i64 36
+  %31 = load i32, ptr %s_used.i.i.i144, align 4
+  %add.i.i.i145 = add i32 %31, 1
+  %s_allocated.i.i.i146 = getelementptr inbounds i8, ptr %30, i64 32
+  %call.i.i.i147 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i145, ptr noundef nonnull %u_instr_sequence112, ptr noundef nonnull %s_allocated.i.i.i146, i32 noundef 100, i64 noundef 44), !range !5
+  %cmp.i.i.i148 = icmp eq i32 %call.i.i.i147, -1
   br i1 %tobool99.not, label %if.else110, label %if.then100
 
 if.then100:                                       ; preds = %for.end98
-  br i1 %cmp.i.i.i147, label %return, label %instr_sequence_next_inst.exit.i.i131
+  br i1 %cmp.i.i.i148, label %return, label %instr_sequence_next_inst.exit.i.i132
 
-instr_sequence_next_inst.exit.i.i131:             ; preds = %if.then100
-  %32 = load i32, ptr %s_used.i.i.i143, align 4
-  %inc.i.i.i132 = add i32 %32, 1
-  store i32 %inc.i.i.i132, ptr %s_used.i.i.i143, align 4
-  %cmp.i.i133 = icmp eq i32 %32, -1
-  br i1 %cmp.i.i133, label %return, label %codegen_addop_i.exit141
+instr_sequence_next_inst.exit.i.i132:             ; preds = %if.then100
+  %32 = load i32, ptr %s_used.i.i.i144, align 4
+  %inc.i.i.i133 = add i32 %32, 1
+  store i32 %inc.i.i.i133, ptr %s_used.i.i.i144, align 4
+  %cmp.i.i134 = icmp eq i32 %32, -1
+  br i1 %cmp.i.i134, label %return, label %codegen_addop_i.exit142
 
-codegen_addop_i.exit141:                          ; preds = %instr_sequence_next_inst.exit.i.i131
+codegen_addop_i.exit142:                          ; preds = %instr_sequence_next_inst.exit.i.i132
   %33 = load ptr, ptr %u_instr_sequence112, align 8
-  %idxprom.i.i135 = sext i32 %32 to i64
-  %arrayidx.i.i136 = getelementptr %struct._PyCompile_Instruction, ptr %33, i64 %idxprom.i.i135
-  store i32 52, ptr %arrayidx.i.i136, align 4
-  %i_oparg.i.i137 = getelementptr inbounds i8, ptr %arrayidx.i.i136, i64 4
-  store i32 %conv.i142, ptr %i_oparg.i.i137, align 4
-  %i_loc.i.i138 = getelementptr inbounds i8, ptr %arrayidx.i.i136, i64 8
-  store i64 %loc.coerce0, ptr %i_loc.i.i138, align 4
-  %loc.sroa.2.0.i_loc.sroa_idx.i.i139 = getelementptr inbounds i8, ptr %arrayidx.i.i136, i64 16
-  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i139, align 4
+  %idxprom.i.i136 = sext i32 %32 to i64
+  %arrayidx.i.i137 = getelementptr %struct._PyCompile_Instruction, ptr %33, i64 %idxprom.i.i136
+  store i32 52, ptr %arrayidx.i.i137, align 4
+  %i_oparg.i.i138 = getelementptr inbounds i8, ptr %arrayidx.i.i137, i64 4
+  store i32 %conv.i143, ptr %i_oparg.i.i138, align 4
+  %i_loc.i.i139 = getelementptr inbounds i8, ptr %arrayidx.i.i137, i64 8
+  store i64 %loc.coerce0, ptr %i_loc.i.i139, align 4
+  %loc.sroa.2.0.i_loc.sroa_idx.i.i140 = getelementptr inbounds i8, ptr %arrayidx.i.i137, i64 16
+  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i140, align 4
   br label %return
 
 if.else110:                                       ; preds = %for.end98
-  br i1 %cmp.i.i.i147, label %return, label %instr_sequence_next_inst.exit.i.i148
+  br i1 %cmp.i.i.i148, label %return, label %instr_sequence_next_inst.exit.i.i149
 
-instr_sequence_next_inst.exit.i.i148:             ; preds = %if.else110
-  %34 = load i32, ptr %s_used.i.i.i143, align 4
-  %inc.i.i.i149 = add i32 %34, 1
-  store i32 %inc.i.i.i149, ptr %s_used.i.i.i143, align 4
-  %cmp.i.i150 = icmp eq i32 %34, -1
-  br i1 %cmp.i.i150, label %return, label %codegen_addop_i.exit158
+instr_sequence_next_inst.exit.i.i149:             ; preds = %if.else110
+  %34 = load i32, ptr %s_used.i.i.i144, align 4
+  %inc.i.i.i150 = add i32 %34, 1
+  store i32 %inc.i.i.i150, ptr %s_used.i.i.i144, align 4
+  %cmp.i.i151 = icmp eq i32 %34, -1
+  br i1 %cmp.i.i151, label %return, label %codegen_addop_i.exit159
 
-codegen_addop_i.exit158:                          ; preds = %instr_sequence_next_inst.exit.i.i148
+codegen_addop_i.exit159:                          ; preds = %instr_sequence_next_inst.exit.i.i149
   %35 = load ptr, ptr %u_instr_sequence112, align 8
-  %idxprom.i.i152 = sext i32 %34 to i64
-  %arrayidx.i.i153 = getelementptr %struct._PyCompile_Instruction, ptr %35, i64 %idxprom.i.i152
-  store i32 %build, ptr %arrayidx.i.i153, align 4
-  %i_oparg.i.i154 = getelementptr inbounds i8, ptr %arrayidx.i.i153, i64 4
-  store i32 %conv.i142, ptr %i_oparg.i.i154, align 4
-  %i_loc.i.i155 = getelementptr inbounds i8, ptr %arrayidx.i.i153, i64 8
-  store i64 %loc.coerce0, ptr %i_loc.i.i155, align 4
-  %loc.sroa.2.0.i_loc.sroa_idx.i.i156 = getelementptr inbounds i8, ptr %arrayidx.i.i153, i64 16
-  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i156, align 4
+  %idxprom.i.i153 = sext i32 %34 to i64
+  %arrayidx.i.i154 = getelementptr %struct._PyCompile_Instruction, ptr %35, i64 %idxprom.i.i153
+  store i32 %build, ptr %arrayidx.i.i154, align 4
+  %i_oparg.i.i155 = getelementptr inbounds i8, ptr %arrayidx.i.i154, i64 4
+  store i32 %conv.i143, ptr %i_oparg.i.i155, align 4
+  %i_loc.i.i156 = getelementptr inbounds i8, ptr %arrayidx.i.i154, i64 8
+  store i64 %loc.coerce0, ptr %i_loc.i.i156, align 4
+  %loc.sroa.2.0.i_loc.sroa_idx.i.i157 = getelementptr inbounds i8, ptr %arrayidx.i.i154, i64 16
+  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i157, align 4
   br label %return
 
 if.end121:                                        ; preds = %for.body69
-  br i1 %cmp63292, label %if.then123, label %for.body137.lr.ph
+  br i1 %cmp63293, label %if.then123, label %for.body137.lr.ph
 
-if.then123:                                       ; preds = %if.end60.thread298, %for.end78, %if.end121
-  %cmp67269297 = phi i1 [ %cmp67269294, %for.end78 ], [ true, %if.end121 ], [ false, %if.end60.thread298 ]
-  %cond242289 = phi i64 [ %0, %for.end78 ], [ %0, %if.end121 ], [ 0, %if.end60.thread298 ]
+if.then123:                                       ; preds = %if.end60.thread299, %for.end78, %if.end121
+  %cmp67270298 = phi i1 [ %cmp67270295, %for.end78 ], [ true, %if.end121 ], [ false, %if.end60.thread299 ]
+  %cond243290 = phi i64 [ %0, %for.end78 ], [ %0, %if.end121 ], [ 0, %if.end60.thread299 ]
   %u124 = getelementptr inbounds i8, ptr %c, i64 64
   %36 = load ptr, ptr %u124, align 8
   %u_instr_sequence125 = getelementptr inbounds i8, ptr %36, i64 24
-  %s_used.i.i.i159 = getelementptr inbounds i8, ptr %36, i64 36
-  %37 = load i32, ptr %s_used.i.i.i159, align 4
-  %add.i.i.i160 = add i32 %37, 1
-  %s_allocated.i.i.i161 = getelementptr inbounds i8, ptr %36, i64 32
-  %call.i.i.i162 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i160, ptr noundef nonnull %u_instr_sequence125, ptr noundef nonnull %s_allocated.i.i.i161, i32 noundef 100, i64 noundef 44), !range !5
-  %cmp.i.i.i163 = icmp eq i32 %call.i.i.i162, -1
-  br i1 %cmp.i.i.i163, label %return, label %instr_sequence_next_inst.exit.i.i164
+  %s_used.i.i.i160 = getelementptr inbounds i8, ptr %36, i64 36
+  %37 = load i32, ptr %s_used.i.i.i160, align 4
+  %add.i.i.i161 = add i32 %37, 1
+  %s_allocated.i.i.i162 = getelementptr inbounds i8, ptr %36, i64 32
+  %call.i.i.i163 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i161, ptr noundef nonnull %u_instr_sequence125, ptr noundef nonnull %s_allocated.i.i.i162, i32 noundef 100, i64 noundef 44), !range !5
+  %cmp.i.i.i164 = icmp eq i32 %call.i.i.i163, -1
+  br i1 %cmp.i.i.i164, label %return, label %instr_sequence_next_inst.exit.i.i165
 
-instr_sequence_next_inst.exit.i.i164:             ; preds = %if.then123
-  %38 = load i32, ptr %s_used.i.i.i159, align 4
-  %inc.i.i.i165 = add i32 %38, 1
-  store i32 %inc.i.i.i165, ptr %s_used.i.i.i159, align 4
-  %cmp.i.i166 = icmp eq i32 %38, -1
-  br i1 %cmp.i.i166, label %return, label %codegen_addop_i.exit174
+instr_sequence_next_inst.exit.i.i165:             ; preds = %if.then123
+  %38 = load i32, ptr %s_used.i.i.i160, align 4
+  %inc.i.i.i166 = add i32 %38, 1
+  store i32 %inc.i.i.i166, ptr %s_used.i.i.i160, align 4
+  %cmp.i.i167 = icmp eq i32 %38, -1
+  br i1 %cmp.i.i167, label %return, label %codegen_addop_i.exit175
 
-codegen_addop_i.exit174:                          ; preds = %instr_sequence_next_inst.exit.i.i164
+codegen_addop_i.exit175:                          ; preds = %instr_sequence_next_inst.exit.i.i165
   %39 = load ptr, ptr %u_instr_sequence125, align 8
-  %idxprom.i.i168 = sext i32 %38 to i64
-  %arrayidx.i.i169 = getelementptr %struct._PyCompile_Instruction, ptr %39, i64 %idxprom.i.i168
-  store i32 %build, ptr %arrayidx.i.i169, align 4
-  %i_oparg.i.i170 = getelementptr inbounds i8, ptr %arrayidx.i.i169, i64 4
-  store i32 %pushed, ptr %i_oparg.i.i170, align 4
-  %i_loc.i.i171 = getelementptr inbounds i8, ptr %arrayidx.i.i169, i64 8
-  store i64 %loc.coerce0, ptr %i_loc.i.i171, align 4
-  %loc.sroa.2.0.i_loc.sroa_idx.i.i172 = getelementptr inbounds i8, ptr %arrayidx.i.i169, i64 16
-  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i172, align 4
-  br i1 %cmp67269297, label %for.body137.lr.ph, label %for.end191
+  %idxprom.i.i169 = sext i32 %38 to i64
+  %arrayidx.i.i170 = getelementptr %struct._PyCompile_Instruction, ptr %39, i64 %idxprom.i.i169
+  store i32 %build, ptr %arrayidx.i.i170, align 4
+  %i_oparg.i.i171 = getelementptr inbounds i8, ptr %arrayidx.i.i170, i64 4
+  store i32 %pushed, ptr %i_oparg.i.i171, align 4
+  %i_loc.i.i172 = getelementptr inbounds i8, ptr %arrayidx.i.i170, i64 8
+  store i64 %loc.coerce0, ptr %i_loc.i.i172, align 4
+  %loc.sroa.2.0.i_loc.sroa_idx.i.i173 = getelementptr inbounds i8, ptr %arrayidx.i.i170, i64 16
+  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i173, align 4
+  br i1 %cmp67270298, label %for.body137.lr.ph, label %for.end191
 
-for.body137.lr.ph:                                ; preds = %if.end121, %codegen_addop_i.exit174
-  %sequence_built.0312 = phi i32 [ 1, %codegen_addop_i.exit174 ], [ 0, %if.end121 ]
-  %cond242288311 = phi i64 [ %cond242289, %codegen_addop_i.exit174 ], [ %0, %if.end121 ]
+for.body137.lr.ph:                                ; preds = %if.end121, %codegen_addop_i.exit175
+  %sequence_built.0313 = phi i32 [ 1, %codegen_addop_i.exit175 ], [ 0, %if.end121 ]
+  %cond243289312 = phi i64 [ %cond243290, %codegen_addop_i.exit175 ], [ %0, %if.end121 ]
   %typed_elements139 = getelementptr inbounds i8, ptr %elts, i64 16
   %u180 = getelementptr inbounds i8, ptr %c, i64 64
   br label %for.body137
 
 for.body137:                                      ; preds = %for.body137.lr.ph, %for.inc189
-  %i133.0275 = phi i64 [ 0, %for.body137.lr.ph ], [ %inc190, %for.inc189 ]
-  %sequence_built.1274 = phi i32 [ %sequence_built.0312, %for.body137.lr.ph ], [ %sequence_built.3, %for.inc189 ]
-  %arrayidx140 = getelementptr [1 x ptr], ptr %typed_elements139, i64 0, i64 %i133.0275
+  %i133.0276 = phi i64 [ 0, %for.body137.lr.ph ], [ %inc190, %for.inc189 ]
+  %sequence_built.1275 = phi i32 [ %sequence_built.0313, %for.body137.lr.ph ], [ %sequence_built.3, %for.inc189 ]
+  %arrayidx140 = getelementptr [1 x ptr], ptr %typed_elements139, i64 0, i64 %i133.0276
   %40 = load ptr, ptr %arrayidx140, align 8
   %41 = load i32, ptr %40, align 8
   %cmp142 = icmp eq i32 %41, 23
   br i1 %cmp142, label %if.then144, label %if.else172
 
 if.then144:                                       ; preds = %for.body137
-  %cmp145 = icmp eq i32 %sequence_built.1274, 0
+  %cmp145 = icmp eq i32 %sequence_built.1275, 0
   br i1 %cmp145, label %if.then147, label %if.end157
 
 if.then147:                                       ; preds = %if.then144
   %42 = load ptr, ptr %u180, align 8
   %u_instr_sequence149 = getelementptr inbounds i8, ptr %42, i64 24
-  %43 = trunc i64 %i133.0275 to i32
-  %conv.i175 = add i32 %43, %pushed
-  %s_used.i.i.i176 = getelementptr inbounds i8, ptr %42, i64 36
-  %44 = load i32, ptr %s_used.i.i.i176, align 4
-  %add.i.i.i177 = add i32 %44, 1
-  %s_allocated.i.i.i178 = getelementptr inbounds i8, ptr %42, i64 32
-  %call.i.i.i179 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i177, ptr noundef nonnull %u_instr_sequence149, ptr noundef nonnull %s_allocated.i.i.i178, i32 noundef 100, i64 noundef 44), !range !5
-  %cmp.i.i.i180 = icmp eq i32 %call.i.i.i179, -1
-  br i1 %cmp.i.i.i180, label %return, label %instr_sequence_next_inst.exit.i.i181
+  %43 = trunc i64 %i133.0276 to i32
+  %conv.i176 = add i32 %43, %pushed
+  %s_used.i.i.i177 = getelementptr inbounds i8, ptr %42, i64 36
+  %44 = load i32, ptr %s_used.i.i.i177, align 4
+  %add.i.i.i178 = add i32 %44, 1
+  %s_allocated.i.i.i179 = getelementptr inbounds i8, ptr %42, i64 32
+  %call.i.i.i180 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i178, ptr noundef nonnull %u_instr_sequence149, ptr noundef nonnull %s_allocated.i.i.i179, i32 noundef 100, i64 noundef 44), !range !5
+  %cmp.i.i.i181 = icmp eq i32 %call.i.i.i180, -1
+  br i1 %cmp.i.i.i181, label %return, label %instr_sequence_next_inst.exit.i.i182
 
-instr_sequence_next_inst.exit.i.i181:             ; preds = %if.then147
-  %45 = load i32, ptr %s_used.i.i.i176, align 4
-  %inc.i.i.i182 = add i32 %45, 1
-  store i32 %inc.i.i.i182, ptr %s_used.i.i.i176, align 4
-  %cmp.i.i183 = icmp eq i32 %45, -1
-  br i1 %cmp.i.i183, label %return, label %codegen_addop_i.exit191
+instr_sequence_next_inst.exit.i.i182:             ; preds = %if.then147
+  %45 = load i32, ptr %s_used.i.i.i177, align 4
+  %inc.i.i.i183 = add i32 %45, 1
+  store i32 %inc.i.i.i183, ptr %s_used.i.i.i177, align 4
+  %cmp.i.i184 = icmp eq i32 %45, -1
+  br i1 %cmp.i.i184, label %return, label %codegen_addop_i.exit192
 
-codegen_addop_i.exit191:                          ; preds = %instr_sequence_next_inst.exit.i.i181
+codegen_addop_i.exit192:                          ; preds = %instr_sequence_next_inst.exit.i.i182
   %46 = load ptr, ptr %u_instr_sequence149, align 8
-  %idxprom.i.i185 = sext i32 %45 to i64
-  %arrayidx.i.i186 = getelementptr %struct._PyCompile_Instruction, ptr %46, i64 %idxprom.i.i185
-  store i32 %build, ptr %arrayidx.i.i186, align 4
-  %i_oparg.i.i187 = getelementptr inbounds i8, ptr %arrayidx.i.i186, i64 4
-  store i32 %conv.i175, ptr %i_oparg.i.i187, align 4
-  %i_loc.i.i188 = getelementptr inbounds i8, ptr %arrayidx.i.i186, i64 8
-  store i64 %loc.coerce0, ptr %i_loc.i.i188, align 4
-  %loc.sroa.2.0.i_loc.sroa_idx.i.i189 = getelementptr inbounds i8, ptr %arrayidx.i.i186, i64 16
-  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i189, align 4
+  %idxprom.i.i186 = sext i32 %45 to i64
+  %arrayidx.i.i187 = getelementptr %struct._PyCompile_Instruction, ptr %46, i64 %idxprom.i.i186
+  store i32 %build, ptr %arrayidx.i.i187, align 4
+  %i_oparg.i.i188 = getelementptr inbounds i8, ptr %arrayidx.i.i187, i64 4
+  store i32 %conv.i176, ptr %i_oparg.i.i188, align 4
+  %i_loc.i.i189 = getelementptr inbounds i8, ptr %arrayidx.i.i187, i64 8
+  store i64 %loc.coerce0, ptr %i_loc.i.i189, align 4
+  %loc.sroa.2.0.i_loc.sroa_idx.i.i190 = getelementptr inbounds i8, ptr %arrayidx.i.i187, i64 16
+  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i190, align 4
   br label %if.end157
 
-if.end157:                                        ; preds = %codegen_addop_i.exit191, %if.then144
+if.end157:                                        ; preds = %codegen_addop_i.exit192, %if.then144
   %v158 = getelementptr inbounds i8, ptr %40, i64 8
   %47 = load ptr, ptr %v158, align 8
   %call160 = tail call fastcc i32 @compiler_visit_expr(ptr noundef %c, ptr noundef %47), !range !5
@@ -22066,26 +22064,26 @@ if.end157:                                        ; preds = %codegen_addop_i.exi
 if.end164:                                        ; preds = %if.end157
   %48 = load ptr, ptr %u180, align 8
   %u_instr_sequence166 = getelementptr inbounds i8, ptr %48, i64 24
-  %s_used.i.i.i192 = getelementptr inbounds i8, ptr %48, i64 36
-  %49 = load i32, ptr %s_used.i.i.i192, align 4
-  %add.i.i.i193 = add i32 %49, 1
-  %s_allocated.i.i.i194 = getelementptr inbounds i8, ptr %48, i64 32
-  %call.i.i.i195 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i193, ptr noundef nonnull %u_instr_sequence166, ptr noundef nonnull %s_allocated.i.i.i194, i32 noundef 100, i64 noundef 44), !range !5
-  %cmp.i.i.i196 = icmp eq i32 %call.i.i.i195, -1
-  br i1 %cmp.i.i.i196, label %return, label %instr_sequence_next_inst.exit.i.i197
+  %s_used.i.i.i193 = getelementptr inbounds i8, ptr %48, i64 36
+  %49 = load i32, ptr %s_used.i.i.i193, align 4
+  %add.i.i.i194 = add i32 %49, 1
+  %s_allocated.i.i.i195 = getelementptr inbounds i8, ptr %48, i64 32
+  %call.i.i.i196 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i194, ptr noundef nonnull %u_instr_sequence166, ptr noundef nonnull %s_allocated.i.i.i195, i32 noundef 100, i64 noundef 44), !range !5
+  %cmp.i.i.i197 = icmp eq i32 %call.i.i.i196, -1
+  br i1 %cmp.i.i.i197, label %return, label %instr_sequence_next_inst.exit.i.i198
 
-instr_sequence_next_inst.exit.i.i197:             ; preds = %if.end164
-  %50 = load i32, ptr %s_used.i.i.i192, align 4
-  %inc.i.i.i198 = add i32 %50, 1
-  store i32 %inc.i.i.i198, ptr %s_used.i.i.i192, align 4
-  %cmp.i.i199 = icmp eq i32 %50, -1
-  br i1 %cmp.i.i199, label %return, label %codegen_addop_i.exit207
+instr_sequence_next_inst.exit.i.i198:             ; preds = %if.end164
+  %50 = load i32, ptr %s_used.i.i.i193, align 4
+  %inc.i.i.i199 = add i32 %50, 1
+  store i32 %inc.i.i.i199, ptr %s_used.i.i.i193, align 4
+  %cmp.i.i200 = icmp eq i32 %50, -1
+  br i1 %cmp.i.i200, label %return, label %codegen_addop_i.exit208
 
-codegen_addop_i.exit207:                          ; preds = %instr_sequence_next_inst.exit.i.i197
+codegen_addop_i.exit208:                          ; preds = %instr_sequence_next_inst.exit.i.i198
   %51 = load ptr, ptr %u_instr_sequence166, align 8
-  %idxprom.i.i201 = sext i32 %50 to i64
-  %arrayidx.i.i202 = getelementptr %struct._PyCompile_Instruction, ptr %51, i64 %idxprom.i.i201
-  store i32 %extend, ptr %arrayidx.i.i202, align 4
+  %idxprom.i.i202 = sext i32 %50 to i64
+  %arrayidx.i.i203 = getelementptr %struct._PyCompile_Instruction, ptr %51, i64 %idxprom.i.i202
+  store i32 %extend, ptr %arrayidx.i.i203, align 4
   br label %for.inc189.sink.split
 
 if.else172:                                       ; preds = %for.body137
@@ -22094,51 +22092,51 @@ if.else172:                                       ; preds = %for.body137
   br i1 %cmp174, label %return, label %if.end177
 
 if.end177:                                        ; preds = %if.else172
-  %tobool178.not = icmp eq i32 %sequence_built.1274, 0
+  %tobool178.not = icmp eq i32 %sequence_built.1275, 0
   br i1 %tobool178.not, label %for.inc189, label %if.then179
 
 if.then179:                                       ; preds = %if.end177
   %52 = load ptr, ptr %u180, align 8
   %u_instr_sequence181 = getelementptr inbounds i8, ptr %52, i64 24
-  %s_used.i.i.i208 = getelementptr inbounds i8, ptr %52, i64 36
-  %53 = load i32, ptr %s_used.i.i.i208, align 4
-  %add.i.i.i209 = add i32 %53, 1
-  %s_allocated.i.i.i210 = getelementptr inbounds i8, ptr %52, i64 32
-  %call.i.i.i211 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i209, ptr noundef nonnull %u_instr_sequence181, ptr noundef nonnull %s_allocated.i.i.i210, i32 noundef 100, i64 noundef 44), !range !5
-  %cmp.i.i.i212 = icmp eq i32 %call.i.i.i211, -1
-  br i1 %cmp.i.i.i212, label %return, label %instr_sequence_next_inst.exit.i.i213
+  %s_used.i.i.i209 = getelementptr inbounds i8, ptr %52, i64 36
+  %53 = load i32, ptr %s_used.i.i.i209, align 4
+  %add.i.i.i210 = add i32 %53, 1
+  %s_allocated.i.i.i211 = getelementptr inbounds i8, ptr %52, i64 32
+  %call.i.i.i212 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i210, ptr noundef nonnull %u_instr_sequence181, ptr noundef nonnull %s_allocated.i.i.i211, i32 noundef 100, i64 noundef 44), !range !5
+  %cmp.i.i.i213 = icmp eq i32 %call.i.i.i212, -1
+  br i1 %cmp.i.i.i213, label %return, label %instr_sequence_next_inst.exit.i.i214
 
-instr_sequence_next_inst.exit.i.i213:             ; preds = %if.then179
-  %54 = load i32, ptr %s_used.i.i.i208, align 4
-  %inc.i.i.i214 = add i32 %54, 1
-  store i32 %inc.i.i.i214, ptr %s_used.i.i.i208, align 4
-  %cmp.i.i215 = icmp eq i32 %54, -1
-  br i1 %cmp.i.i215, label %return, label %codegen_addop_i.exit223
+instr_sequence_next_inst.exit.i.i214:             ; preds = %if.then179
+  %54 = load i32, ptr %s_used.i.i.i209, align 4
+  %inc.i.i.i215 = add i32 %54, 1
+  store i32 %inc.i.i.i215, ptr %s_used.i.i.i209, align 4
+  %cmp.i.i216 = icmp eq i32 %54, -1
+  br i1 %cmp.i.i216, label %return, label %codegen_addop_i.exit224
 
-codegen_addop_i.exit223:                          ; preds = %instr_sequence_next_inst.exit.i.i213
+codegen_addop_i.exit224:                          ; preds = %instr_sequence_next_inst.exit.i.i214
   %55 = load ptr, ptr %u_instr_sequence181, align 8
-  %idxprom.i.i217 = sext i32 %54 to i64
-  %arrayidx.i.i218 = getelementptr %struct._PyCompile_Instruction, ptr %55, i64 %idxprom.i.i217
-  store i32 %add, ptr %arrayidx.i.i218, align 4
+  %idxprom.i.i218 = sext i32 %54 to i64
+  %arrayidx.i.i219 = getelementptr %struct._PyCompile_Instruction, ptr %55, i64 %idxprom.i.i218
+  store i32 %add, ptr %arrayidx.i.i219, align 4
   br label %for.inc189.sink.split
 
-for.inc189.sink.split:                            ; preds = %codegen_addop_i.exit207, %codegen_addop_i.exit223
-  %arrayidx.i.i218.sink315 = phi ptr [ %arrayidx.i.i218, %codegen_addop_i.exit223 ], [ %arrayidx.i.i202, %codegen_addop_i.exit207 ]
-  %i_oparg.i.i219 = getelementptr inbounds i8, ptr %arrayidx.i.i218.sink315, i64 4
-  store i32 1, ptr %i_oparg.i.i219, align 4
-  %i_loc.i.i220 = getelementptr inbounds i8, ptr %arrayidx.i.i218.sink315, i64 8
-  store i64 %loc.coerce0, ptr %i_loc.i.i220, align 4
-  %loc.sroa.2.0.i_loc.sroa_idx.i.i221 = getelementptr inbounds i8, ptr %arrayidx.i.i218.sink315, i64 16
-  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i221, align 4
+for.inc189.sink.split:                            ; preds = %codegen_addop_i.exit208, %codegen_addop_i.exit224
+  %arrayidx.i.i219.sink316 = phi ptr [ %arrayidx.i.i219, %codegen_addop_i.exit224 ], [ %arrayidx.i.i203, %codegen_addop_i.exit208 ]
+  %i_oparg.i.i220 = getelementptr inbounds i8, ptr %arrayidx.i.i219.sink316, i64 4
+  store i32 1, ptr %i_oparg.i.i220, align 4
+  %i_loc.i.i221 = getelementptr inbounds i8, ptr %arrayidx.i.i219.sink316, i64 8
+  store i64 %loc.coerce0, ptr %i_loc.i.i221, align 4
+  %loc.sroa.2.0.i_loc.sroa_idx.i.i222 = getelementptr inbounds i8, ptr %arrayidx.i.i219.sink316, i64 16
+  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i222, align 4
   br label %for.inc189
 
 for.inc189:                                       ; preds = %for.inc189.sink.split, %if.end177
   %sequence_built.3 = phi i32 [ 0, %if.end177 ], [ 1, %for.inc189.sink.split ]
-  %inc190 = add nuw nsw i64 %i133.0275, 1
-  %exitcond280.not = icmp eq i64 %inc190, %cond242288311
-  br i1 %exitcond280.not, label %for.end191, label %for.body137, !llvm.loop !97
+  %inc190 = add nuw nsw i64 %i133.0276, 1
+  %exitcond281.not = icmp eq i64 %inc190, %cond243289312
+  br i1 %exitcond281.not, label %for.end191, label %for.body137, !llvm.loop !97
 
-for.end191:                                       ; preds = %for.inc189, %codegen_addop_i.exit174
+for.end191:                                       ; preds = %for.inc189, %codegen_addop_i.exit175
   %tobool192.not = icmp eq i32 %tuple, 0
   br i1 %tobool192.not, label %return, label %if.then193
 
@@ -22146,36 +22144,36 @@ if.then193:                                       ; preds = %for.end191
   %u194 = getelementptr inbounds i8, ptr %c, i64 64
   %56 = load ptr, ptr %u194, align 8
   %u_instr_sequence195 = getelementptr inbounds i8, ptr %56, i64 24
-  %s_used.i.i.i224 = getelementptr inbounds i8, ptr %56, i64 36
-  %57 = load i32, ptr %s_used.i.i.i224, align 4
-  %add.i.i.i225 = add i32 %57, 1
-  %s_allocated.i.i.i226 = getelementptr inbounds i8, ptr %56, i64 32
-  %call.i.i.i227 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i225, ptr noundef nonnull %u_instr_sequence195, ptr noundef nonnull %s_allocated.i.i.i226, i32 noundef 100, i64 noundef 44), !range !5
-  %cmp.i.i.i228 = icmp eq i32 %call.i.i.i227, -1
-  br i1 %cmp.i.i.i228, label %return, label %instr_sequence_next_inst.exit.i.i229
+  %s_used.i.i.i225 = getelementptr inbounds i8, ptr %56, i64 36
+  %57 = load i32, ptr %s_used.i.i.i225, align 4
+  %add.i.i.i226 = add i32 %57, 1
+  %s_allocated.i.i.i227 = getelementptr inbounds i8, ptr %56, i64 32
+  %call.i.i.i228 = tail call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %add.i.i.i226, ptr noundef nonnull %u_instr_sequence195, ptr noundef nonnull %s_allocated.i.i.i227, i32 noundef 100, i64 noundef 44), !range !5
+  %cmp.i.i.i229 = icmp eq i32 %call.i.i.i228, -1
+  br i1 %cmp.i.i.i229, label %return, label %instr_sequence_next_inst.exit.i.i230
 
-instr_sequence_next_inst.exit.i.i229:             ; preds = %if.then193
-  %58 = load i32, ptr %s_used.i.i.i224, align 4
-  %inc.i.i.i230 = add i32 %58, 1
-  store i32 %inc.i.i.i230, ptr %s_used.i.i.i224, align 4
-  %cmp.i.i231 = icmp eq i32 %58, -1
-  br i1 %cmp.i.i231, label %return, label %codegen_addop_i.exit239
+instr_sequence_next_inst.exit.i.i230:             ; preds = %if.then193
+  %58 = load i32, ptr %s_used.i.i.i225, align 4
+  %inc.i.i.i231 = add i32 %58, 1
+  store i32 %inc.i.i.i231, ptr %s_used.i.i.i225, align 4
+  %cmp.i.i232 = icmp eq i32 %58, -1
+  br i1 %cmp.i.i232, label %return, label %codegen_addop_i.exit240
 
-codegen_addop_i.exit239:                          ; preds = %instr_sequence_next_inst.exit.i.i229
+codegen_addop_i.exit240:                          ; preds = %instr_sequence_next_inst.exit.i.i230
   %59 = load ptr, ptr %u_instr_sequence195, align 8
-  %idxprom.i.i233 = sext i32 %58 to i64
-  %arrayidx.i.i234 = getelementptr %struct._PyCompile_Instruction, ptr %59, i64 %idxprom.i.i233
-  store i32 55, ptr %arrayidx.i.i234, align 4
-  %i_oparg.i.i235 = getelementptr inbounds i8, ptr %arrayidx.i.i234, i64 4
-  store i32 6, ptr %i_oparg.i.i235, align 4
-  %i_loc.i.i236 = getelementptr inbounds i8, ptr %arrayidx.i.i234, i64 8
-  store i64 %loc.coerce0, ptr %i_loc.i.i236, align 4
-  %loc.sroa.2.0.i_loc.sroa_idx.i.i237 = getelementptr inbounds i8, ptr %arrayidx.i.i234, i64 16
-  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i237, align 4
+  %idxprom.i.i234 = sext i32 %58 to i64
+  %arrayidx.i.i235 = getelementptr %struct._PyCompile_Instruction, ptr %59, i64 %idxprom.i.i234
+  store i32 55, ptr %arrayidx.i.i235, align 4
+  %i_oparg.i.i236 = getelementptr inbounds i8, ptr %arrayidx.i.i235, i64 4
+  store i32 6, ptr %i_oparg.i.i236, align 4
+  %i_loc.i.i237 = getelementptr inbounds i8, ptr %arrayidx.i.i235, i64 8
+  store i64 %loc.coerce0, ptr %i_loc.i.i237, align 4
+  %loc.sroa.2.0.i_loc.sroa_idx.i.i238 = getelementptr inbounds i8, ptr %arrayidx.i.i235, i64 16
+  store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i238, align 4
   br label %return
 
-return:                                           ; preds = %for.body87, %if.then179, %instr_sequence_next_inst.exit.i.i213, %if.end164, %instr_sequence_next_inst.exit.i.i197, %if.then147, %instr_sequence_next_inst.exit.i.i181, %if.else172, %if.end157, %if.then193, %instr_sequence_next_inst.exit.i.i229, %if.then123, %instr_sequence_next_inst.exit.i.i164, %if.else110, %instr_sequence_next_inst.exit.i.i148, %if.then100, %instr_sequence_next_inst.exit.i.i131, %Py_DECREF.exit, %instr_sequence_next_inst.exit.i.i115, %if.end23, %instr_sequence_next_inst.exit.i.i, %for.end191, %codegen_addop_i.exit239, %codegen_addop_i.exit141, %codegen_addop_i.exit158, %if.then50, %if.end.i205, %if.then1.i208, %if.then40, %do.end, %if.end.i232, %if.then1.i235, %if.then15, %if.then, %if.end59
-  %retval.0 = phi i32 [ 0, %if.end59 ], [ -1, %if.then ], [ -1, %if.then15 ], [ -1, %if.then1.i235 ], [ -1, %if.end.i232 ], [ -1, %do.end ], [ -1, %if.then40 ], [ -1, %if.then1.i208 ], [ -1, %if.end.i205 ], [ -1, %if.then50 ], [ 0, %codegen_addop_i.exit158 ], [ 0, %codegen_addop_i.exit141 ], [ 0, %codegen_addop_i.exit239 ], [ 0, %for.end191 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.end23 ], [ -1, %instr_sequence_next_inst.exit.i.i115 ], [ -1, %Py_DECREF.exit ], [ -1, %instr_sequence_next_inst.exit.i.i131 ], [ -1, %if.then100 ], [ -1, %instr_sequence_next_inst.exit.i.i148 ], [ -1, %if.else110 ], [ -1, %instr_sequence_next_inst.exit.i.i164 ], [ -1, %if.then123 ], [ -1, %instr_sequence_next_inst.exit.i.i229 ], [ -1, %if.then193 ], [ -1, %if.end157 ], [ -1, %if.else172 ], [ -1, %instr_sequence_next_inst.exit.i.i181 ], [ -1, %if.then147 ], [ -1, %instr_sequence_next_inst.exit.i.i197 ], [ -1, %if.end164 ], [ -1, %instr_sequence_next_inst.exit.i.i213 ], [ -1, %if.then179 ], [ -1, %for.body87 ]
+return:                                           ; preds = %for.body87, %if.then179, %instr_sequence_next_inst.exit.i.i214, %if.end164, %instr_sequence_next_inst.exit.i.i198, %if.then147, %instr_sequence_next_inst.exit.i.i182, %if.else172, %if.end157, %if.then123, %instr_sequence_next_inst.exit.i.i165, %if.else110, %instr_sequence_next_inst.exit.i.i149, %if.then100, %instr_sequence_next_inst.exit.i.i132, %Py_DECREF.exit, %instr_sequence_next_inst.exit.i.i116, %if.end23, %instr_sequence_next_inst.exit.i.i, %codegen_addop_i.exit240, %instr_sequence_next_inst.exit.i.i230, %if.then193, %codegen_addop_i.exit142, %codegen_addop_i.exit159, %if.then50, %for.end191, %if.end16, %if.then1.i226, %if.end.i223, %if.end48, %if.end.i205, %if.then1.i208, %if.then40, %do.end, %if.end.i232, %if.then1.i235, %if.then15, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then15 ], [ -1, %if.then1.i235 ], [ -1, %if.end.i232 ], [ -1, %do.end ], [ -1, %if.then40 ], [ -1, %if.then1.i208 ], [ -1, %if.end.i205 ], [ 0, %if.end48 ], [ 0, %if.end.i223 ], [ 0, %if.then1.i226 ], [ 0, %if.end16 ], [ 0, %for.end191 ], [ %spec.select, %if.then50 ], [ 0, %codegen_addop_i.exit159 ], [ 0, %codegen_addop_i.exit142 ], [ 0, %codegen_addop_i.exit240 ], [ -1, %instr_sequence_next_inst.exit.i.i230 ], [ -1, %if.then193 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.end23 ], [ -1, %instr_sequence_next_inst.exit.i.i116 ], [ -1, %Py_DECREF.exit ], [ -1, %instr_sequence_next_inst.exit.i.i132 ], [ -1, %if.then100 ], [ -1, %instr_sequence_next_inst.exit.i.i149 ], [ -1, %if.else110 ], [ -1, %instr_sequence_next_inst.exit.i.i165 ], [ -1, %if.then123 ], [ -1, %if.end157 ], [ -1, %if.else172 ], [ -1, %instr_sequence_next_inst.exit.i.i182 ], [ -1, %if.then147 ], [ -1, %instr_sequence_next_inst.exit.i.i198 ], [ -1, %if.end164 ], [ -1, %instr_sequence_next_inst.exit.i.i214 ], [ -1, %if.then179 ], [ -1, %for.body87 ]
   ret i32 %retval.0
 }
 
@@ -22486,8 +22484,8 @@ codegen_addop_i.exit102:                          ; preds = %instr_sequence_next
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i100, align 4
   br label %return
 
-return:                                           ; preds = %for.body, %for.body53, %if.end63, %instr_sequence_next_inst.exit.i.i75.us, %if.end69.us, %if.end63.us, %for.body53.us, %for.end.thread, %if.then84, %instr_sequence_next_inst.exit.i.i92, %if.then41, %instr_sequence_next_inst.exit.i.i59, %for.end82, %codegen_addop_i.exit102, %codegen_addop_i.exit, %instr_sequence_next_inst.exit.i.i, %Py_DECREF.exit, %if.end.i96, %if.then1.i99, %if.then31, %for.end
-  %retval.0 = phi i32 [ -1, %for.end ], [ -1, %if.then31 ], [ -1, %if.then1.i99 ], [ -1, %if.end.i96 ], [ 0, %codegen_addop_i.exit ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %Py_DECREF.exit ], [ 0, %codegen_addop_i.exit102 ], [ 0, %for.end82 ], [ -1, %instr_sequence_next_inst.exit.i.i59 ], [ -1, %if.then41 ], [ -1, %instr_sequence_next_inst.exit.i.i92 ], [ -1, %if.then84 ], [ -1, %for.end.thread ], [ -1, %for.body53.us ], [ -1, %if.end63.us ], [ -1, %if.end69.us ], [ -1, %instr_sequence_next_inst.exit.i.i75.us ], [ -1, %if.end63 ], [ -1, %for.body53 ], [ -1, %for.body ]
+return:                                           ; preds = %for.body, %for.body53, %if.end63, %instr_sequence_next_inst.exit.i.i75.us, %if.end69.us, %if.end63.us, %for.body53.us, %for.end.thread, %if.then41, %instr_sequence_next_inst.exit.i.i59, %codegen_addop_i.exit102, %instr_sequence_next_inst.exit.i.i92, %if.then84, %codegen_addop_i.exit, %instr_sequence_next_inst.exit.i.i, %Py_DECREF.exit, %for.end82, %if.end.i96, %if.then1.i99, %if.then31, %for.end
+  %retval.0 = phi i32 [ -1, %for.end ], [ -1, %if.then31 ], [ -1, %if.then1.i99 ], [ -1, %if.end.i96 ], [ 0, %for.end82 ], [ 0, %codegen_addop_i.exit ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %Py_DECREF.exit ], [ 0, %codegen_addop_i.exit102 ], [ -1, %instr_sequence_next_inst.exit.i.i92 ], [ -1, %if.then84 ], [ -1, %instr_sequence_next_inst.exit.i.i59 ], [ -1, %if.then41 ], [ -1, %for.end.thread ], [ -1, %for.body53.us ], [ -1, %if.end63.us ], [ -1, %if.end69.us ], [ -1, %instr_sequence_next_inst.exit.i.i75.us ], [ -1, %if.end63 ], [ -1, %for.body53 ], [ -1, %for.body ]
   ret i32 %retval.0
 }
 
@@ -23196,7 +23194,7 @@ if.end181:                                        ; preds = %instr_sequence_next
   store <2 x i64> %103, ptr %i_loc.i.i318, align 4
   %107 = load ptr, ptr %fb_datum147, align 8
   %tobool183.not = icmp eq ptr %107, null
-  br i1 %tobool183.not, label %if.end204, label %if.then184
+  br i1 %tobool183.not, label %return, label %if.then184
 
 if.then184:                                       ; preds = %if.end181
   %c_const_cache185 = getelementptr inbounds i8, ptr %c, i64 56
@@ -23222,9 +23220,7 @@ if.end197:                                        ; preds = %if.end191
   %117 = load i64, ptr %97, align 4
   %call199 = tail call fastcc i32 @compiler_nameop(ptr noundef nonnull %c, i64 %116, i64 %117, ptr noundef %115, i32 noundef 3), !range !5
   %cmp200 = icmp eq i32 %call199, -1
-  br i1 %cmp200, label %return, label %if.end204
-
-if.end204:                                        ; preds = %if.end197, %if.end181
+  %spec.select = sext i1 %cmp200 to i32
   br label %return
 
 sw.bb205:                                         ; preds = %entry
@@ -23296,8 +23292,8 @@ codegen_addop_noarg.exit353:                      ; preds = %instr_sequence_next
 sw.epilog:                                        ; preds = %entry
   unreachable
 
-return:                                           ; preds = %for.body, %if.then207, %instr_sequence_next_inst.exit.i.i327, %if.end174, %instr_sequence_next_inst.exit.i.i311, %if.end167, %instr_sequence_next_inst.exit.i.i295, %if.then159, %instr_sequence_next_inst.exit.i.i279, %if.then149, %instr_sequence_next_inst.exit.i.i263, %if.end138, %instr_sequence_next_inst.exit.i.i247, %if.then119, %instr_sequence_next_inst.exit.i.i231, %if.then102, %instr_sequence_next_inst.exit.i.i215, %sw.bb85, %instr_sequence_next_inst.exit.i.i199, %if.end70, %instr_sequence_next_inst.exit.i.i183, %if.then62, %instr_sequence_next_inst.exit.i.i167, %if.end53, %instr_sequence_next_inst.exit.i.i151, %if.then45, %instr_sequence_next_inst.exit.i.i135, %sw.bb17, %instr_sequence_next_inst.exit.i.i118, %if.then, %instr_sequence_next_inst.exit.i.i, %codegen_addop_noarg.exit353, %instr_sequence_next_inst.exit.i.i343, %if.end215, %compiler_push_fblock.exit.thread, %codegen_addop_noarg.exit112, %instr_sequence_next_inst.exit.i.i102, %sw.bb10, %codegen_addop_noarg.exit, %instr_sequence_next_inst.exit.i.i87, %if.end3, %if.end197, %if.end191, %if.then184, %if.end132, %if.end126, %if.end110, %if.end77, %entry, %entry, %entry, %entry, %if.end204, %if.end145, %if.end42
-  %retval.0 = phi i32 [ 0, %if.end204 ], [ 0, %if.end145 ], [ 0, %if.end42 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ %.80, %if.end77 ], [ -1, %if.end110 ], [ -1, %if.end126 ], [ -1, %if.end132 ], [ -1, %if.then184 ], [ -1, %if.end191 ], [ -1, %if.end197 ], [ 0, %codegen_addop_noarg.exit ], [ -1, %instr_sequence_next_inst.exit.i.i87 ], [ -1, %if.end3 ], [ 0, %codegen_addop_noarg.exit112 ], [ -1, %instr_sequence_next_inst.exit.i.i102 ], [ -1, %sw.bb10 ], [ -1, %compiler_push_fblock.exit.thread ], [ 0, %codegen_addop_noarg.exit353 ], [ -1, %instr_sequence_next_inst.exit.i.i343 ], [ -1, %if.end215 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then ], [ -1, %instr_sequence_next_inst.exit.i.i118 ], [ -1, %sw.bb17 ], [ -1, %instr_sequence_next_inst.exit.i.i135 ], [ -1, %if.then45 ], [ -1, %instr_sequence_next_inst.exit.i.i151 ], [ -1, %if.end53 ], [ -1, %instr_sequence_next_inst.exit.i.i167 ], [ -1, %if.then62 ], [ -1, %instr_sequence_next_inst.exit.i.i183 ], [ -1, %if.end70 ], [ -1, %instr_sequence_next_inst.exit.i.i199 ], [ -1, %sw.bb85 ], [ -1, %instr_sequence_next_inst.exit.i.i215 ], [ -1, %if.then102 ], [ -1, %instr_sequence_next_inst.exit.i.i231 ], [ -1, %if.then119 ], [ -1, %instr_sequence_next_inst.exit.i.i247 ], [ -1, %if.end138 ], [ -1, %instr_sequence_next_inst.exit.i.i263 ], [ -1, %if.then149 ], [ -1, %instr_sequence_next_inst.exit.i.i279 ], [ -1, %if.then159 ], [ -1, %instr_sequence_next_inst.exit.i.i295 ], [ -1, %if.end167 ], [ -1, %instr_sequence_next_inst.exit.i.i311 ], [ -1, %if.end174 ], [ -1, %instr_sequence_next_inst.exit.i.i327 ], [ -1, %if.then207 ], [ -1, %for.body ]
+return:                                           ; preds = %for.body, %if.then207, %instr_sequence_next_inst.exit.i.i327, %if.end174, %instr_sequence_next_inst.exit.i.i311, %if.end167, %instr_sequence_next_inst.exit.i.i295, %if.then159, %instr_sequence_next_inst.exit.i.i279, %if.then149, %instr_sequence_next_inst.exit.i.i263, %if.end138, %instr_sequence_next_inst.exit.i.i247, %if.then119, %instr_sequence_next_inst.exit.i.i231, %if.then102, %instr_sequence_next_inst.exit.i.i215, %sw.bb85, %instr_sequence_next_inst.exit.i.i199, %if.end70, %instr_sequence_next_inst.exit.i.i183, %if.then62, %instr_sequence_next_inst.exit.i.i167, %if.end53, %instr_sequence_next_inst.exit.i.i151, %if.then45, %instr_sequence_next_inst.exit.i.i135, %sw.bb17, %instr_sequence_next_inst.exit.i.i118, %if.then, %instr_sequence_next_inst.exit.i.i, %codegen_addop_noarg.exit353, %instr_sequence_next_inst.exit.i.i343, %if.end215, %compiler_push_fblock.exit.thread, %codegen_addop_noarg.exit112, %instr_sequence_next_inst.exit.i.i102, %sw.bb10, %codegen_addop_noarg.exit, %instr_sequence_next_inst.exit.i.i87, %if.end3, %if.end197, %if.end181, %if.end191, %if.then184, %if.end132, %if.end126, %if.end110, %if.end77, %entry, %entry, %entry, %entry, %if.end145, %if.end42
+  %retval.0 = phi i32 [ 0, %if.end145 ], [ 0, %if.end42 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ %.80, %if.end77 ], [ -1, %if.end110 ], [ -1, %if.end126 ], [ -1, %if.end132 ], [ -1, %if.then184 ], [ -1, %if.end191 ], [ 0, %if.end181 ], [ %spec.select, %if.end197 ], [ 0, %codegen_addop_noarg.exit ], [ -1, %instr_sequence_next_inst.exit.i.i87 ], [ -1, %if.end3 ], [ 0, %codegen_addop_noarg.exit112 ], [ -1, %instr_sequence_next_inst.exit.i.i102 ], [ -1, %sw.bb10 ], [ -1, %compiler_push_fblock.exit.thread ], [ 0, %codegen_addop_noarg.exit353 ], [ -1, %instr_sequence_next_inst.exit.i.i343 ], [ -1, %if.end215 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then ], [ -1, %instr_sequence_next_inst.exit.i.i118 ], [ -1, %sw.bb17 ], [ -1, %instr_sequence_next_inst.exit.i.i135 ], [ -1, %if.then45 ], [ -1, %instr_sequence_next_inst.exit.i.i151 ], [ -1, %if.end53 ], [ -1, %instr_sequence_next_inst.exit.i.i167 ], [ -1, %if.then62 ], [ -1, %instr_sequence_next_inst.exit.i.i183 ], [ -1, %if.end70 ], [ -1, %instr_sequence_next_inst.exit.i.i199 ], [ -1, %sw.bb85 ], [ -1, %instr_sequence_next_inst.exit.i.i215 ], [ -1, %if.then102 ], [ -1, %instr_sequence_next_inst.exit.i.i231 ], [ -1, %if.then119 ], [ -1, %instr_sequence_next_inst.exit.i.i247 ], [ -1, %if.end138 ], [ -1, %instr_sequence_next_inst.exit.i.i263 ], [ -1, %if.then149 ], [ -1, %instr_sequence_next_inst.exit.i.i279 ], [ -1, %if.then159 ], [ -1, %instr_sequence_next_inst.exit.i.i295 ], [ -1, %if.end167 ], [ -1, %instr_sequence_next_inst.exit.i.i311 ], [ -1, %if.end174 ], [ -1, %instr_sequence_next_inst.exit.i.i327 ], [ -1, %if.then207 ], [ -1, %for.body ]
   ret i32 %retval.0
 }
 
@@ -23649,7 +23645,7 @@ define internal fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %lo
 entry:
   %loc.sroa.0.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.0.sroa.7.0.extract.shift = lshr i64 %loc.coerce0, 32
-  %loc.sroa.0.sroa.7.0.extract.trunc = trunc i64 %loc.sroa.0.sroa.7.0.extract.shift to i32
+  %loc.sroa.0.sroa.7.0.extract.trunc = trunc nuw i64 %loc.sroa.0.sroa.7.0.extract.shift to i32
   %end_lineno = getelementptr inbounds i8, ptr %attr, i64 40
   %0 = load i32, ptr %end_lineno, align 8
   %cmp.not = icmp eq i32 %0, %loc.sroa.0.sroa.0.0.extract.trunc
@@ -23676,7 +23672,7 @@ if.then:                                          ; preds = %entry
 if.then21:                                        ; preds = %if.then
   %loc.sroa.11.8.extract.trunc = trunc i64 %loc.sroa.11.0 to i32
   %loc.sroa.11.12.extract.shift = lshr i64 %loc.sroa.11.0, 32
-  %loc.sroa.11.12.extract.trunc = trunc i64 %loc.sroa.11.12.extract.shift to i32
+  %loc.sroa.11.12.extract.trunc = trunc nuw i64 %loc.sroa.11.12.extract.shift to i32
   %cond31 = tail call i32 @llvm.smax.i32(i32 %loc.sroa.11.8.extract.trunc, i32 %loc.sroa.11.12.extract.trunc)
   %loc.sroa.11.12.insert.ext = zext i32 %cond31 to i64
   %loc.sroa.11.12.insert.shift = shl nuw i64 %loc.sroa.11.12.insert.ext, 32
@@ -24231,8 +24227,8 @@ return.sink.split:                                ; preds = %instr_sequence_next
   store <2 x i64> %41, ptr %i_loc.i.i.i115, align 4
   br label %return
 
-return:                                           ; preds = %for.body, %for.cond, %return.sink.split, %sw.bb21, %cond.end, %if.end.i55, %instr_sequence_next_inst.exit.i.i.i75, %land.lhs.true14, %if.end.i22, %instr_sequence_next_inst.exit.i.i.i42, %land.lhs.true5, %if.end.i, %instr_sequence_next_inst.exit.i.i.i, %land.lhs.true, %instr_sequence_next_inst.exit.i.i.i108, %if.end.i88, %sw.default, %if.end11
-  %retval.0 = phi i32 [ 0, %if.end11 ], [ -1, %sw.default ], [ -1, %instr_sequence_next_inst.exit.i.i.i108 ], [ -1, %if.end.i88 ], [ -1, %land.lhs.true ], [ -1, %instr_sequence_next_inst.exit.i.i.i ], [ -1, %if.end.i ], [ -1, %land.lhs.true5 ], [ -1, %instr_sequence_next_inst.exit.i.i.i42 ], [ -1, %if.end.i22 ], [ -1, %land.lhs.true14 ], [ -1, %instr_sequence_next_inst.exit.i.i.i75 ], [ -1, %if.end.i55 ], [ 0, %cond.end ], [ 0, %sw.bb21 ], [ 0, %return.sink.split ], [ -1, %for.body ], [ 0, %for.cond ]
+return:                                           ; preds = %for.body, %for.cond, %return.sink.split, %sw.bb21, %cond.end, %if.end.i22, %instr_sequence_next_inst.exit.i.i.i42, %land.lhs.true5, %if.end.i, %instr_sequence_next_inst.exit.i.i.i, %land.lhs.true, %instr_sequence_next_inst.exit.i.i.i108, %if.end.i88, %sw.default, %land.lhs.true14, %instr_sequence_next_inst.exit.i.i.i75, %if.end.i55, %if.end11
+  %retval.0 = phi i32 [ 0, %if.end11 ], [ -1, %land.lhs.true14 ], [ -1, %instr_sequence_next_inst.exit.i.i.i75 ], [ -1, %if.end.i55 ], [ -1, %sw.default ], [ -1, %instr_sequence_next_inst.exit.i.i.i108 ], [ -1, %if.end.i88 ], [ -1, %land.lhs.true ], [ -1, %instr_sequence_next_inst.exit.i.i.i ], [ -1, %if.end.i ], [ -1, %land.lhs.true5 ], [ -1, %instr_sequence_next_inst.exit.i.i.i42 ], [ -1, %if.end.i22 ], [ 0, %cond.end ], [ 0, %sw.bb21 ], [ 0, %return.sink.split ], [ -1, %for.body ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -24918,8 +24914,8 @@ codegen_addop_j.exit247:                          ; preds = %instr_sequence_next
   store i64 %.compoundliteral398.sroa.3.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i245, align 4
   br label %return
 
-return:                                           ; preds = %if.end230, %instr_sequence_next_inst.exit.i.i203, %if.end214, %instr_sequence_next_inst.exit.i.i188, %if.end180, %instr_sequence_next_inst.exit.i.i172, %if.end169, %instr_sequence_next_inst.exit.i.i157, %if.end196, %for.body161, %for.body, %if.end379, %instr_sequence_next_inst.exit.i.i221, %if.end89, %instr_sequence_next_inst.exit.i.i, %if.then46, %codegen_addop_j.exit247, %instr_sequence_next_inst.exit.i.i237, %if.end395, %if.end41, %_PyCompile_InstructionSequence_UseLabel.exit, %sw.epilog, %if.end365, %if.then356, %if.end338, %if.end330, %if.end322, %if.end312, %if.end293, %if.end277, %if.end259, %for.end250, %if.end150, %if.end141, %if.then136, %if.end112, %if.end105, %if.end97, %if.end82, %if.end75, %if.end65, %sw.bb56, %for.end, %if.then18
-  %retval.0 = phi i32 [ -1, %if.then18 ], [ -1, %for.end ], [ -1, %sw.bb56 ], [ -1, %if.end65 ], [ -1, %if.end75 ], [ -1, %if.end82 ], [ -1, %if.end97 ], [ -1, %if.end105 ], [ %., %if.end112 ], [ -1, %if.then136 ], [ -1, %if.end141 ], [ -1, %if.end150 ], [ -1, %for.end250 ], [ -1, %if.end259 ], [ -1, %if.end277 ], [ -1, %if.end293 ], [ -1, %if.end312 ], [ -1, %if.end322 ], [ -1, %if.end330 ], [ -1, %if.end338 ], [ -1, %if.then356 ], [ %.144, %if.end365 ], [ -1, %sw.epilog ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit ], [ 0, %if.end41 ], [ 0, %codegen_addop_j.exit247 ], [ -1, %instr_sequence_next_inst.exit.i.i237 ], [ -1, %if.end395 ], [ -1, %if.then46 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.end89 ], [ -1, %instr_sequence_next_inst.exit.i.i221 ], [ -1, %if.end379 ], [ -1, %for.body ], [ -1, %for.body161 ], [ -1, %if.end196 ], [ -1, %instr_sequence_next_inst.exit.i.i157 ], [ -1, %if.end169 ], [ -1, %instr_sequence_next_inst.exit.i.i172 ], [ -1, %if.end180 ], [ -1, %instr_sequence_next_inst.exit.i.i188 ], [ -1, %if.end214 ], [ -1, %instr_sequence_next_inst.exit.i.i203 ], [ -1, %if.end230 ]
+return:                                           ; preds = %if.end230, %instr_sequence_next_inst.exit.i.i203, %if.end214, %instr_sequence_next_inst.exit.i.i188, %if.end180, %instr_sequence_next_inst.exit.i.i172, %if.end169, %instr_sequence_next_inst.exit.i.i157, %if.end196, %for.body161, %for.body, %if.end379, %instr_sequence_next_inst.exit.i.i221, %if.end89, %instr_sequence_next_inst.exit.i.i, %codegen_addop_j.exit247, %instr_sequence_next_inst.exit.i.i237, %if.end395, %_PyCompile_InstructionSequence_UseLabel.exit, %if.then46, %sw.epilog, %if.end365, %if.then356, %if.end338, %if.end330, %if.end322, %if.end312, %if.end293, %if.end277, %if.end259, %for.end250, %if.end150, %if.end141, %if.then136, %if.end112, %if.end105, %if.end97, %if.end82, %if.end75, %if.end65, %sw.bb56, %if.end41, %for.end, %if.then18
+  %retval.0 = phi i32 [ -1, %if.then18 ], [ -1, %for.end ], [ 0, %if.end41 ], [ -1, %sw.bb56 ], [ -1, %if.end65 ], [ -1, %if.end75 ], [ -1, %if.end82 ], [ -1, %if.end97 ], [ -1, %if.end105 ], [ %., %if.end112 ], [ -1, %if.then136 ], [ -1, %if.end141 ], [ -1, %if.end150 ], [ -1, %for.end250 ], [ -1, %if.end259 ], [ -1, %if.end277 ], [ -1, %if.end293 ], [ -1, %if.end312 ], [ -1, %if.end322 ], [ -1, %if.end330 ], [ -1, %if.end338 ], [ -1, %if.then356 ], [ %.144, %if.end365 ], [ -1, %sw.epilog ], [ 0, %_PyCompile_InstructionSequence_UseLabel.exit ], [ -1, %if.then46 ], [ 0, %codegen_addop_j.exit247 ], [ -1, %instr_sequence_next_inst.exit.i.i237 ], [ -1, %if.end395 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.end89 ], [ -1, %instr_sequence_next_inst.exit.i.i221 ], [ -1, %if.end379 ], [ -1, %for.body ], [ -1, %for.body161 ], [ -1, %if.end196 ], [ -1, %instr_sequence_next_inst.exit.i.i157 ], [ -1, %if.end169 ], [ -1, %instr_sequence_next_inst.exit.i.i172 ], [ -1, %if.end180 ], [ -1, %instr_sequence_next_inst.exit.i.i188 ], [ -1, %if.end214 ], [ -1, %instr_sequence_next_inst.exit.i.i203 ], [ -1, %if.end230 ]
   ret i32 %retval.0
 }
 
@@ -32243,8 +32239,8 @@ codegen_addop_i.exit176:                          ; preds = %instr_sequence_next
   store i64 %loc.sroa.7.8.insert.insert55, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i174, align 4
   br label %return
 
-return:                                           ; preds = %for.body, %for.body65, %if.end74, %instr_sequence_next_inst.exit.i.i149.us, %if.end83.us, %if.end74.us, %for.body65.us, %if.end61.thread218, %if.then98, %instr_sequence_next_inst.exit.i.i166, %if.then53, %instr_sequence_next_inst.exit.i.i133, %for.end96, %codegen_addop_i.exit176, %codegen_addop_i.exit, %instr_sequence_next_inst.exit.i.i, %Py_DECREF.exit, %if.end.i110, %if.then1.i113, %if.then43, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ -1, %if.then43 ], [ -1, %if.then1.i113 ], [ -1, %if.end.i110 ], [ 0, %codegen_addop_i.exit ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %Py_DECREF.exit ], [ 0, %codegen_addop_i.exit176 ], [ 0, %for.end96 ], [ -1, %instr_sequence_next_inst.exit.i.i133 ], [ -1, %if.then53 ], [ -1, %instr_sequence_next_inst.exit.i.i166 ], [ -1, %if.then98 ], [ 0, %if.end61.thread218 ], [ -1, %for.body65.us ], [ -1, %if.end74.us ], [ -1, %if.end83.us ], [ -1, %instr_sequence_next_inst.exit.i.i149.us ], [ -1, %if.end74 ], [ -1, %for.body65 ], [ -1, %for.body ]
+return:                                           ; preds = %for.body, %for.body65, %if.end74, %instr_sequence_next_inst.exit.i.i149.us, %if.end83.us, %if.end74.us, %for.body65.us, %if.end61.thread218, %if.then53, %instr_sequence_next_inst.exit.i.i133, %codegen_addop_i.exit176, %instr_sequence_next_inst.exit.i.i166, %if.then98, %codegen_addop_i.exit, %instr_sequence_next_inst.exit.i.i, %Py_DECREF.exit, %for.end96, %if.end.i110, %if.then1.i113, %if.then43, %for.end
+  %retval.0 = phi i32 [ 0, %for.end ], [ -1, %if.then43 ], [ -1, %if.then1.i113 ], [ -1, %if.end.i110 ], [ 0, %for.end96 ], [ 0, %codegen_addop_i.exit ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %Py_DECREF.exit ], [ 0, %codegen_addop_i.exit176 ], [ -1, %instr_sequence_next_inst.exit.i.i166 ], [ -1, %if.then98 ], [ -1, %instr_sequence_next_inst.exit.i.i133 ], [ -1, %if.then53 ], [ 0, %if.end61.thread218 ], [ -1, %for.body65.us ], [ -1, %if.end74.us ], [ -1, %if.end83.us ], [ -1, %instr_sequence_next_inst.exit.i.i149.us ], [ -1, %if.end74 ], [ -1, %for.body65 ], [ -1, %for.body ]
   ret i32 %retval.0
 }
 
@@ -32728,7 +32724,7 @@ push_inlined_comprehension_state.exit.thread.sink.split: ; preds = %if.end.i189.
   call void @_Py_Dealloc(ptr noundef nonnull %spec.select.i) #11
   br label %push_inlined_comprehension_state.exit.thread
 
-push_inlined_comprehension_state.exit.thread:     ; preds = %if.then15.i, %if.then22.i, %if.then33.i, %if.end41.i, %if.then74.i, %if.then100.i, %if.end108.i, %if.then122.i, %if.else.i302, %if.end140.i, %push_inlined_comprehension_state.exit.thread.sink.split, %if.then89.i, %if.end.i198.i, %if.then95.i, %if.end.i189.i, %if.end158.i, %if.end165.i, %instr_sequence_next_inst.exit.i.i.i, %if.then150.i, %instr_sequence_next_inst.exit.i.i75.i, %if.end175.i
+push_inlined_comprehension_state.exit.thread:     ; preds = %if.then15.i, %if.then22.i, %if.then33.i, %if.end41.i, %if.then74.i, %if.then100.i, %if.end108.i, %if.then122.i, %if.else.i302, %if.end140.i, %push_inlined_comprehension_state.exit.thread.sink.split, %if.then89.i, %if.end.i198.i, %if.then95.i, %if.end.i189.i, %if.end158.i, %if.end165.i, %instr_sequence_next_inst.exit.i.i75.i, %if.end175.i, %instr_sequence_next_inst.exit.i.i.i, %if.then150.i
   %inline_state.sroa.0.4.ph = phi ptr [ %inline_state.sroa.0.0, %if.then95.i ], [ %inline_state.sroa.0.0, %if.end.i189.i ], [ %inline_state.sroa.0.0, %if.then89.i ], [ %inline_state.sroa.0.0, %if.end.i198.i ], [ %inline_state.sroa.0.2, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.0.2, %if.end175.i ], [ %inline_state.sroa.0.2, %if.end165.i ], [ %inline_state.sroa.0.2, %if.end158.i ], [ %inline_state.sroa.0.2, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.0.2, %if.then150.i ], [ %inline_state.sroa.0.0, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.0.0, %if.then15.i ], [ %inline_state.sroa.0.0, %if.then22.i ], [ %inline_state.sroa.0.0, %if.then33.i ], [ %inline_state.sroa.0.0, %if.end41.i ], [ null, %if.then100.i ], [ %inline_state.sroa.0.1, %if.end108.i ], [ %inline_state.sroa.0.1, %if.then122.i ], [ %inline_state.sroa.0.1, %if.end140.i ], [ %inline_state.sroa.0.1, %if.else.i302 ], [ %inline_state.sroa.0.0, %if.then74.i ]
   %inline_state.sroa.7.5.ph = phi ptr [ %inline_state.sroa.7.1, %if.then95.i ], [ %inline_state.sroa.7.1, %if.end.i189.i ], [ %inline_state.sroa.7.1, %if.then89.i ], [ %inline_state.sroa.7.1, %if.end.i198.i ], [ %inline_state.sroa.7.3, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.7.3, %if.end175.i ], [ %inline_state.sroa.7.3, %if.end165.i ], [ %inline_state.sroa.7.3, %if.end158.i ], [ %inline_state.sroa.7.3, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.7.3, %if.then150.i ], [ %inline_state.sroa.7.1, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.7.0, %if.then15.i ], [ %inline_state.sroa.7.0, %if.then22.i ], [ %inline_state.sroa.7.0, %if.then33.i ], [ %inline_state.sroa.7.0, %if.end41.i ], [ %inline_state.sroa.7.2, %if.then100.i ], [ %inline_state.sroa.7.2, %if.end108.i ], [ %inline_state.sroa.7.2, %if.then122.i ], [ %inline_state.sroa.7.2, %if.end140.i ], [ %inline_state.sroa.7.2, %if.else.i302 ], [ null, %if.then74.i ]
   %inline_state.sroa.11.5.ph = phi ptr [ %inline_state.sroa.11.2, %if.then95.i ], [ %inline_state.sroa.11.2, %if.end.i189.i ], [ %inline_state.sroa.11.2, %if.then89.i ], [ %inline_state.sroa.11.2, %if.end.i198.i ], [ %inline_state.sroa.11.3, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.11.3, %if.end175.i ], [ %inline_state.sroa.11.3, %if.end165.i ], [ %inline_state.sroa.11.3, %if.end158.i ], [ %inline_state.sroa.11.3, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.11.3, %if.then150.i ], [ %inline_state.sroa.11.2, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.11.0, %if.then15.i ], [ %inline_state.sroa.11.0, %if.then22.i ], [ null, %if.then33.i ], [ %inline_state.sroa.11.1, %if.end41.i ], [ %inline_state.sroa.11.2, %if.then100.i ], [ %inline_state.sroa.11.2, %if.end108.i ], [ %inline_state.sroa.11.2, %if.then122.i ], [ %inline_state.sroa.11.2, %if.end140.i ], [ %inline_state.sroa.11.2, %if.else.i302 ], [ %inline_state.sroa.11.2, %if.then74.i ]
@@ -33388,13 +33384,13 @@ if.end134:                                        ; preds = %do.end130
   %160 = load ptr, ptr %u, align 8
   %u_instr_sequence136 = getelementptr inbounds i8, ptr %160, i64 24
   %call137 = call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence136, i32 noundef 53, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145), !range !5
-  %cmp138 = icmp eq i32 %call137, -1
-  br i1 %cmp138, label %return, label %if.end140
+  %cmp138 = icmp ne i32 %call137, -1
+  %brmerge.not = and i1 %or.cond, %cmp138
+  %not.cmp138 = xor i1 %cmp138, true
+  %.mux = sext i1 %not.cmp138 to i32
+  br i1 %brmerge.not, label %if.then144, label %return
 
-if.end140:                                        ; preds = %if.end134
-  br i1 %or.cond, label %if.then144, label %if.end160
-
-if.then144:                                       ; preds = %if.end140
+if.then144:                                       ; preds = %if.end134
   %161 = load ptr, ptr %u, align 8
   %u_instr_sequence146 = getelementptr inbounds i8, ptr %161, i64 24
   %call147 = call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence146, i32 noundef 73, i64 noundef 0, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145), !range !5
@@ -33412,9 +33408,7 @@ if.end150:                                        ; preds = %if.then144
 if.end155:                                        ; preds = %if.end150
   %call156 = call fastcc i32 @compiler_add_yield_from(ptr noundef nonnull %c, i64 %loc.sroa.0.0.insert.insert37, i64 %loc.sroa.17.8.insert.insert145, i32 noundef 1), !range !5
   %cmp157 = icmp eq i32 %call156, -1
-  br i1 %cmp157, label %return, label %if.end160
-
-if.end160:                                        ; preds = %if.end155, %if.end140
+  %spec.select = sext i1 %cmp157 to i32
   br label %return
 
 error_in_scope:                                   ; preds = %compiler_comprehension_generator.exit, %if.then39
@@ -33519,8 +33513,8 @@ if.then1.i.i407:                                  ; preds = %if.end.i.i404
   call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.11.7486493) #11
   br label %return
 
-return:                                           ; preds = %land.end, %if.then53, %instr_sequence_next_inst.exit.i.i312, %if.then43, %instr_sequence_next_inst.exit.i.i, %if.then1.i.i407, %if.end.i.i404, %if.then.i401, %Py_XDECREF.exit399, %pop_inlined_comprehension_state.exit.thread473, %pop_inlined_comprehension_state.exit.thread470, %if.end155, %if.end150, %if.then144, %if.end134, %if.then74, %if.end160
-  %retval.0 = phi i32 [ 0, %if.end160 ], [ -1, %if.then74 ], [ -1, %if.end134 ], [ -1, %if.then144 ], [ -1, %if.end150 ], [ -1, %if.end155 ], [ 0, %pop_inlined_comprehension_state.exit.thread470 ], [ 0, %pop_inlined_comprehension_state.exit.thread473 ], [ -1, %Py_XDECREF.exit399 ], [ -1, %if.then.i401 ], [ -1, %if.end.i.i404 ], [ -1, %if.then1.i.i407 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then43 ], [ -1, %instr_sequence_next_inst.exit.i.i312 ], [ -1, %if.then53 ], [ -1, %land.end ]
+return:                                           ; preds = %land.end, %if.then53, %instr_sequence_next_inst.exit.i.i312, %if.then43, %instr_sequence_next_inst.exit.i.i, %if.then1.i.i407, %if.end.i.i404, %if.then.i401, %Py_XDECREF.exit399, %pop_inlined_comprehension_state.exit.thread473, %pop_inlined_comprehension_state.exit.thread470, %if.end155, %if.end134, %if.end150, %if.then144, %if.then74
+  %retval.0 = phi i32 [ -1, %if.then74 ], [ %.mux, %if.end134 ], [ -1, %if.then144 ], [ -1, %if.end150 ], [ %spec.select, %if.end155 ], [ 0, %pop_inlined_comprehension_state.exit.thread470 ], [ 0, %pop_inlined_comprehension_state.exit.thread473 ], [ -1, %Py_XDECREF.exit399 ], [ -1, %if.then.i401 ], [ -1, %if.end.i.i404 ], [ -1, %if.then1.i.i407 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then43 ], [ -1, %instr_sequence_next_inst.exit.i.i312 ], [ -1, %if.then53 ], [ -1, %land.end ]
   ret i32 %retval.0
 }
 
@@ -34544,7 +34538,7 @@ if.end221:                                        ; preds = %for.body.i222, %for
   %idxprom6.i218 = sext i32 %inc.i174 to i64
   %arrayidx7.i219 = getelementptr i32, ptr %62, i64 %idxprom6.i218
   store i32 %61, ptr %arrayidx7.i219, align 4
-  br i1 %cmp66246, label %if.end249, label %if.then225
+  br i1 %cmp66246, label %return, label %if.then225
 
 if.then225:                                       ; preds = %if.end221
   %63 = load ptr, ptr %u, align 8
@@ -34573,13 +34567,11 @@ if.end241:                                        ; preds = %if.end233
   %u_instr_sequence243 = getelementptr inbounds i8, ptr %65, i64 24
   %call244 = tail call fastcc i32 @codegen_addop_noarg(ptr noundef nonnull %u_instr_sequence243, i32 noundef 11, i64 -1, i64 -1), !range !5
   %cmp245 = icmp eq i32 %call244, -1
-  br i1 %cmp245, label %return, label %if.end249
-
-if.end249:                                        ; preds = %if.end241, %if.end221
+  %spec.select = sext i1 %cmp245 to i32
   br label %return
 
-return:                                           ; preds = %for.body, %if.end213, %if.end74, %instr_sequence_next_inst.exit.i.i197, %if.then67, %if.end55, %instr_sequence_next_inst.exit.i.i182, %if.then19, %instr_sequence_next_inst.exit.i.i, %if.end241, %if.end233, %if.then225, %if.end193, %if.end188, %sw.bb183, %if.end173, %sw.bb168, %if.end159, %sw.bb154, %if.end146, %if.end141, %sw.bb136, %compiler_comprehension_generator.exit, %if.end82, %if.then50, %if.then41, %if.end8, %if.end, %entry, %if.end249
-  %retval.0 = phi i32 [ 0, %if.end249 ], [ -1, %entry ], [ -1, %if.end ], [ -1, %if.end8 ], [ -1, %if.then41 ], [ -1, %if.then50 ], [ -1, %if.end82 ], [ -1, %compiler_comprehension_generator.exit ], [ -1, %sw.bb136 ], [ -1, %if.end141 ], [ -1, %if.end146 ], [ -1, %sw.bb154 ], [ -1, %if.end159 ], [ -1, %sw.bb168 ], [ -1, %if.end173 ], [ -1, %sw.bb183 ], [ -1, %if.end188 ], [ -1, %if.end193 ], [ -1, %if.then225 ], [ -1, %if.end233 ], [ -1, %if.end241 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then19 ], [ -1, %instr_sequence_next_inst.exit.i.i182 ], [ -1, %if.end55 ], [ -1, %if.then67 ], [ -1, %instr_sequence_next_inst.exit.i.i197 ], [ -1, %if.end74 ], [ -1, %if.end213 ], [ -1, %for.body ]
+return:                                           ; preds = %for.body, %if.end213, %if.end74, %instr_sequence_next_inst.exit.i.i197, %if.then67, %if.end55, %instr_sequence_next_inst.exit.i.i182, %if.then19, %instr_sequence_next_inst.exit.i.i, %if.end241, %if.end221, %if.end233, %if.then225, %if.end193, %if.end188, %sw.bb183, %if.end173, %sw.bb168, %if.end159, %sw.bb154, %if.end146, %if.end141, %sw.bb136, %compiler_comprehension_generator.exit, %if.end82, %if.then50, %if.then41, %if.end8, %if.end, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ -1, %if.end8 ], [ -1, %if.then41 ], [ -1, %if.then50 ], [ -1, %if.end82 ], [ -1, %compiler_comprehension_generator.exit ], [ -1, %sw.bb136 ], [ -1, %if.end141 ], [ -1, %if.end146 ], [ -1, %sw.bb154 ], [ -1, %if.end159 ], [ -1, %sw.bb168 ], [ -1, %if.end173 ], [ -1, %sw.bb183 ], [ -1, %if.end188 ], [ -1, %if.end193 ], [ -1, %if.then225 ], [ -1, %if.end233 ], [ 0, %if.end221 ], [ %spec.select, %if.end241 ], [ -1, %instr_sequence_next_inst.exit.i.i ], [ -1, %if.then19 ], [ -1, %instr_sequence_next_inst.exit.i.i182 ], [ -1, %if.end55 ], [ -1, %if.then67 ], [ -1, %instr_sequence_next_inst.exit.i.i197 ], [ -1, %if.end74 ], [ -1, %if.end213 ], [ -1, %for.body ]
   ret i32 %retval.0
 }
 
@@ -34786,8 +34778,8 @@ codegen_addop_i.exit39:                           ; preds = %instr_sequence_next
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i37, align 4
   br label %return
 
-return:                                           ; preds = %for.inc.thread, %if.end, %instr_sequence_next_inst.exit.i.i, %if.then20, %instr_sequence_next_inst.exit.i.i29, %for.end, %codegen_addop_i.exit39, %if.then15, %if.then6
-  %retval.0 = phi i32 [ -1, %if.then15 ], [ -1, %if.then6 ], [ 0, %codegen_addop_i.exit39 ], [ 0, %for.end ], [ -1, %instr_sequence_next_inst.exit.i.i29 ], [ -1, %if.then20 ], [ 0, %for.inc.thread ], [ -1, %if.end ], [ -1, %instr_sequence_next_inst.exit.i.i ]
+return:                                           ; preds = %for.inc.thread, %if.end, %instr_sequence_next_inst.exit.i.i, %codegen_addop_i.exit39, %instr_sequence_next_inst.exit.i.i29, %if.then20, %for.end, %if.then15, %if.then6
+  %retval.0 = phi i32 [ -1, %if.then15 ], [ -1, %if.then6 ], [ 0, %for.end ], [ 0, %codegen_addop_i.exit39 ], [ -1, %instr_sequence_next_inst.exit.i.i29 ], [ -1, %if.then20 ], [ 0, %for.inc.thread ], [ -1, %if.end ], [ -1, %instr_sequence_next_inst.exit.i.i ]
   ret i32 %retval.0
 }
 

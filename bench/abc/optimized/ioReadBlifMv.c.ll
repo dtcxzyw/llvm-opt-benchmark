@@ -1313,7 +1313,7 @@ Vec_PtrPush.exit213.i:                            ; preds = %457, %Vec_PtrGrow.e
   br i1 %exitcond.not.i.i, label %Io_MvGetLine.exit.i, label %548, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i:         ; preds = %548
-  %553 = trunc i64 %indvars.iv.i.i to i32
+  %553 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %Io_MvGetLine.exit.i
 
 Io_MvGetLine.exit.i:                              ; preds = %552, %.critedge.loopexit.split.loop.exit14.i.i, %542
@@ -1424,7 +1424,7 @@ Io_MvSplitIntoTokens.exit.i.i:                    ; preds = %580, %577
   br i1 %exitcond.not.i.i.i, label %Io_MvParseLineModel.exit.i, label %594, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i.i:       ; preds = %594
-  %599 = trunc i64 %indvars.iv.i.i.i to i32
+  %599 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %Io_MvParseLineModel.exit.i
 
 600:                                              ; preds = %Io_MvSplitIntoTokens.exit.i.i
@@ -1518,7 +1518,7 @@ Io_MvParseLineModel.exit.i:                       ; preds = %598, %.critedge.loo
   br i1 %exitcond.not.i.i117, label %Io_MvGetLine.exit.i110, label %638, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i118:      ; preds = %638
-  %643 = trunc i64 %indvars.iv.i.i115 to i32
+  %643 = trunc nuw nsw i64 %indvars.iv.i.i115 to i32
   br label %Io_MvGetLine.exit.i110
 
 Io_MvGetLine.exit.i110:                           ; preds = %642, %.critedge.loopexit.split.loop.exit14.i.i118, %631
@@ -2090,8 +2090,8 @@ Io_MvParseLineConstrs.exit.i:                     ; preds = %.lr.ph.i99.i, %Io_M
   br i1 %.not29.i.i, label %866, label %863, !llvm.loop !22
 
 866:                                              ; preds = %863
-  %867 = trunc i64 %indvars.iv.i104.i to i32
-  %868 = trunc i64 %indvars.iv5.i.i to i32
+  %867 = trunc nuw nsw i64 %indvars.iv.i104.i to i32
+  %868 = trunc nsw i64 %indvars.iv5.i.i to i32
   %869 = sub i64 %indvars.iv5.i.i, %indvars.iv.i104.i
   %sext20.i.i = shl i64 %869, 32
   %870 = ashr exact i64 %sext20.i.i, 32
@@ -2325,7 +2325,7 @@ Io_MvSplitIntoTokensAndClear.exit.i.i:            ; preds = %951
   br i1 %exitcond.not.i.i.i160, label %Io_MvGetLine.exit.i.i, label %967, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i.i161:    ; preds = %967
-  %972 = trunc i64 %indvars.iv.i.i.i158 to i32
+  %972 = trunc nuw nsw i64 %indvars.iv.i.i.i158 to i32
   br label %Io_MvGetLine.exit.i.i
 
 Io_MvGetLine.exit.i.i:                            ; preds = %971, %.critedge.loopexit.split.loop.exit14.i.i.i161, %959
@@ -2371,7 +2371,7 @@ Io_MvGetLine.exit.i.i:                            ; preds = %971, %.critedge.loo
   br i1 %exitcond.not.i119.i.i, label %Io_MvGetLine.exit121.i.i, label %988, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i120.i.i:    ; preds = %988
-  %993 = trunc i64 %indvars.iv.i117.i.i to i32
+  %993 = trunc nuw nsw i64 %indvars.iv.i117.i.i to i32
   br label %Io_MvGetLine.exit121.i.i
 
 Io_MvGetLine.exit121.i.i:                         ; preds = %992, %.critedge.loopexit.split.loop.exit14.i120.i.i, %980
@@ -2422,7 +2422,7 @@ Io_MvGetLine.exit121.i.i:                         ; preds = %992, %.critedge.loo
   br i1 %exitcond.not.i129.i.i, label %Io_MvGetLine.exit131.i.i, label %1010, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i130.i.i:    ; preds = %1010
-  %1015 = trunc i64 %indvars.iv.i127.i.i to i32
+  %1015 = trunc nuw nsw i64 %indvars.iv.i127.i.i to i32
   br label %Io_MvGetLine.exit131.i.i
 
 Io_MvGetLine.exit131.i.i:                         ; preds = %1014, %.critedge.loopexit.split.loop.exit14.i130.i.i, %1002
@@ -2633,7 +2633,7 @@ Abc_ObjSetMvVar.exit.i.i:                         ; preds = %1073, %1059, %.crit
   br i1 %exitcond.not.i140.i.i, label %Io_MvGetLine.exit142.i.i, label %1106, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i141.i.i:    ; preds = %1106
-  %1111 = trunc i64 %indvars.iv.i138.i.i to i32
+  %1111 = trunc nuw nsw i64 %indvars.iv.i138.i.i to i32
   br label %Io_MvGetLine.exit142.i.i
 
 Io_MvGetLine.exit142.i.i:                         ; preds = %1110, %.critedge.loopexit.split.loop.exit14.i141.i.i, %1097
@@ -2694,7 +2694,7 @@ Io_MvParseLineMv.exit.i:                          ; preds = %.loopexit.i.i165, %
   br i1 %exitcond.not.i233.i, label %Io_MvGetLine.exit.i140, label %1132, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i143:      ; preds = %1132
-  %1137 = trunc i64 %indvars.iv.i231.i to i32
+  %1137 = trunc nuw nsw i64 %indvars.iv.i231.i to i32
   br label %Io_MvGetLine.exit.i140
 
 Io_MvGetLine.exit.i140:                           ; preds = %1136, %.critedge.loopexit.split.loop.exit14.i.i143, %1125
@@ -2816,7 +2816,7 @@ Io_MvSplitIntoTokens.exit.i.i137:                 ; preds = %1174, %1164
   br i1 %exitcond.not.i254.i, label %.critedge.thread.i.i, label %.lr.ph.i251.i, !llvm.loop !32
 
 .critedge.i255.i:                                 ; preds = %1185
-  %1190 = trunc i64 %indvars.iv.i252.i to i32
+  %1190 = trunc nuw nsw i64 %indvars.iv.i252.i to i32
   %1191 = icmp eq i32 %.val72.i.i, %1190
   br i1 %1191, label %.critedge.thread.i.i, label %.lr.ph114.i.i
 
@@ -2853,7 +2853,7 @@ Io_MvSplitIntoTokens.exit.i.i137:                 ; preds = %1174, %1164
   br i1 %exitcond.not.i.i248.i, label %Io_MvGetLine.exit.i242.i, label %1200, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i249.i:    ; preds = %1200
-  %1205 = trunc i64 %indvars.iv.i.i246.i to i32
+  %1205 = trunc nuw nsw i64 %indvars.iv.i.i246.i to i32
   br label %Io_MvGetLine.exit.i242.i
 
 Io_MvGetLine.exit.i242.i:                         ; preds = %1204, %.critedge.loopexit.split.loop.exit14.i.i249.i, %.critedge.thread.i.i
@@ -2881,7 +2881,7 @@ Io_MvGetLine.exit.i242.i:                         ; preds = %1204, %.critedge.lo
   br i1 %exitcond134.not.i.i, label %.critedge2.thread.i.i, label %.lr.ph114.i.i, !llvm.loop !33
 
 .critedge2.loopexit.i.i:                          ; preds = %1211
-  %1216 = trunc i64 %indvars.iv130.i.i to i32
+  %1216 = trunc nuw nsw i64 %indvars.iv130.i.i to i32
   br label %.critedge2.i.i
 
 .critedge2.i.i:                                   ; preds = %.critedge2.loopexit.i.i, %.critedge.thread142.i.i
@@ -2920,7 +2920,7 @@ Io_MvGetLine.exit.i242.i:                         ; preds = %1204, %.critedge.lo
   br i1 %exitcond.not.i87.i.i, label %Io_MvGetLine.exit89.i.i, label %1225, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i88.i.i:     ; preds = %1225
-  %1230 = trunc i64 %indvars.iv.i85.i.i to i32
+  %1230 = trunc nuw nsw i64 %indvars.iv.i85.i.i to i32
   br label %Io_MvGetLine.exit89.i.i
 
 Io_MvGetLine.exit89.i.i:                          ; preds = %1229, %.critedge.loopexit.split.loop.exit14.i88.i.i, %.critedge2.thread.i.i
@@ -2935,7 +2935,7 @@ Io_MvGetLine.exit89.i.i:                          ; preds = %1229, %.critedge.lo
   %1236 = tail call ptr @Io_ReadCreateLatch(ptr noundef %1235, ptr noundef nonnull %1234, ptr noundef nonnull %1233) #20
   %.val.i238.i = load i32, ptr %1179, align 4
   %1237 = icmp sgt i32 %.val.i238.i, 0
-  br i1 %1237, label %.lr.ph121.i.i, label %.loopexit.i239.i
+  br i1 %1237, label %.lr.ph121.i.i, label %Io_MvParseLineFlop.exit.i
 
 .lr.ph121.i.i:                                    ; preds = %1232
   %.val73.i.i = load ptr, ptr %1177, align 8
@@ -2945,7 +2945,7 @@ Io_MvGetLine.exit89.i.i:                          ; preds = %1229, %.critedge.lo
 1238:                                             ; preds = %1239
   %indvars.iv.next136.i.i = add nuw nsw i64 %indvars.iv135.i.i, 1
   %exitcond139.not.i.i = icmp eq i64 %indvars.iv.next136.i.i, %wide.trip.count138.i.i
-  br i1 %exitcond139.not.i.i, label %.loopexit.i239.i, label %1239, !llvm.loop !34
+  br i1 %exitcond139.not.i.i, label %Io_MvParseLineFlop.exit.i, label %1239, !llvm.loop !34
 
 1239:                                             ; preds = %1238, %.lr.ph121.i.i
   %indvars.iv135.i.i = phi i64 [ 0, %.lr.ph121.i.i ], [ %indvars.iv.next136.i.i, %1238 ]
@@ -2993,7 +2993,7 @@ Io_MvGetLine.exit89.i.i:                          ; preds = %1229, %.critedge.lo
   br i1 %exitcond.not.i97.i.i, label %Io_MvGetLine.exit99.i.i, label %1254, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i98.i.i:     ; preds = %1254
-  %1259 = trunc i64 %indvars.iv.i95.i.i to i32
+  %1259 = trunc nuw nsw i64 %indvars.iv.i95.i.i to i32
   br label %Io_MvGetLine.exit99.i.i
 
 Io_MvGetLine.exit99.i.i:                          ; preds = %1258, %.critedge.loopexit.split.loop.exit14.i98.i.i, %1246
@@ -3004,11 +3004,11 @@ Io_MvGetLine.exit99.i.i:                          ; preds = %1258, %.critedge.lo
 1261:                                             ; preds = %1243
   br label %Io_MvParseLineFlop.exit.i
 
-.loopexit.i239.i:                                 ; preds = %1238, %1243, %1232
+.loopexit.i239.i:                                 ; preds = %1243
   br label %Io_MvParseLineFlop.exit.i
 
-Io_MvParseLineFlop.exit.i:                        ; preds = %.loopexit.i239.i, %1261, %1243
-  %.sink.i138 = phi ptr [ inttoptr (i64 3 to ptr), %.loopexit.i239.i ], [ inttoptr (i64 2 to ptr), %1261 ], [ inttoptr (i64 1 to ptr), %1243 ]
+Io_MvParseLineFlop.exit.i:                        ; preds = %1238, %.loopexit.i239.i, %1261, %1243, %1232
+  %.sink.i138 = phi ptr [ inttoptr (i64 2 to ptr), %1261 ], [ inttoptr (i64 1 to ptr), %1243 ], [ inttoptr (i64 3 to ptr), %1232 ], [ inttoptr (i64 3 to ptr), %.loopexit.i239.i ], [ inttoptr (i64 3 to ptr), %1238 ]
   %1262 = getelementptr inbounds i8, ptr %1236, i64 56
   store ptr %.sink.i138, ptr %1262, align 8
   %indvars.iv.next972.i = add nuw nsw i64 %indvars.iv971.i, 1
@@ -3093,7 +3093,7 @@ Io_MvSplitIntoTokens.exit.i261.i:                 ; preds = %1277, %1267
   br i1 %exitcond.not.i.i273.i, label %Io_MvGetLine.exit.i267.i, label %1292, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i274.i:    ; preds = %1292
-  %1297 = trunc i64 %indvars.iv.i.i271.i to i32
+  %1297 = trunc nuw nsw i64 %indvars.iv.i.i271.i to i32
   br label %Io_MvGetLine.exit.i267.i
 
 Io_MvGetLine.exit.i267.i:                         ; preds = %1296, %.critedge.loopexit.split.loop.exit14.i.i274.i, %1284
@@ -3150,7 +3150,7 @@ Io_MvGetLine.exit.i267.i:                         ; preds = %1296, %.critedge.lo
   br i1 %exitcond.not.i60.i.i, label %Io_MvGetLine.exit62.i.i, label %1319, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i61.i.i:     ; preds = %1319
-  %1324 = trunc i64 %indvars.iv.i58.i.i to i32
+  %1324 = trunc nuw nsw i64 %indvars.iv.i58.i.i to i32
   br label %Io_MvGetLine.exit62.i.i
 
 Io_MvGetLine.exit62.i.i:                          ; preds = %1323, %.critedge.loopexit.split.loop.exit14.i61.i.i, %1313
@@ -3162,7 +3162,7 @@ Io_MvGetLine.exit62.i.i:                          ; preds = %1323, %.critedge.lo
 1326:                                             ; preds = %Io_MvGetLine.exit62.i.i, %1311
   %.val.i264.i = phi i32 [ %.val.pr.i.i, %Io_MvGetLine.exit62.i.i ], [ %.val42.i.i, %1311 ]
   %1327 = icmp sgt i32 %.val.i264.i, 3
-  br i1 %1327, label %1328, label %.thread76.i.i
+  br i1 %1327, label %1328, label %.critedge4.i134
 
 1328:                                             ; preds = %1326
   %.val51.i.i = load ptr, ptr %1280, align 8
@@ -3203,7 +3203,7 @@ Io_MvGetLine.exit62.i.i:                          ; preds = %1323, %.critedge.lo
   br i1 %exitcond.not.i70.i.i, label %Io_MvGetLine.exit72.i.i, label %1342, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i71.i.i:     ; preds = %1342
-  %1347 = trunc i64 %indvars.iv.i68.i.i to i32
+  %1347 = trunc nuw nsw i64 %indvars.iv.i68.i.i to i32
   br label %Io_MvGetLine.exit72.i.i
 
 Io_MvGetLine.exit72.i.i:                          ; preds = %1346, %.critedge.loopexit.split.loop.exit14.i71.i.i, %1334
@@ -3222,7 +3222,7 @@ Io_MvGetLine.exit72.i.i:                          ; preds = %1346, %.critedge.lo
 1352:                                             ; preds = %1351
   br label %.critedge4.i134
 
-.thread76.i.i:                                    ; preds = %1351, %1326
+.thread76.i.i:                                    ; preds = %1351
   br label %.critedge4.i134
 
 1353:                                             ; preds = %1299
@@ -3240,9 +3240,9 @@ Io_MvGetLine.exit72.i.i:                          ; preds = %1346, %.critedge.lo
   %1364 = tail call ptr @Io_ReadCreateLatch(ptr noundef %1360, ptr noundef %1362, ptr noundef %1363) #20
   br label %.critedge4.i134
 
-.critedge4.i134:                                  ; preds = %1353, %.thread76.i.i, %1352, %1351, %1303
-  %.sink1282.i = phi ptr [ %1308, %1352 ], [ %1308, %.thread76.i.i ], [ %1364, %1353 ], [ %1308, %1303 ], [ %1308, %1351 ]
-  %.sink1280.i = phi ptr [ inttoptr (i64 2 to ptr), %1352 ], [ inttoptr (i64 3 to ptr), %.thread76.i.i ], [ inttoptr (i64 1 to ptr), %1353 ], [ inttoptr (i64 1 to ptr), %1303 ], [ inttoptr (i64 1 to ptr), %1351 ]
+.critedge4.i134:                                  ; preds = %1353, %.thread76.i.i, %1352, %1351, %1326, %1303
+  %.sink1282.i = phi ptr [ %1308, %1352 ], [ %1364, %1353 ], [ %1308, %1303 ], [ %1308, %1351 ], [ %1308, %1326 ], [ %1308, %.thread76.i.i ]
+  %.sink1280.i = phi ptr [ inttoptr (i64 2 to ptr), %1352 ], [ inttoptr (i64 1 to ptr), %1353 ], [ inttoptr (i64 1 to ptr), %1303 ], [ inttoptr (i64 1 to ptr), %1351 ], [ inttoptr (i64 3 to ptr), %1326 ], [ inttoptr (i64 3 to ptr), %.thread76.i.i ]
   %1365 = getelementptr inbounds i8, ptr %.sink1282.i, i64 56
   store ptr %.sink1280.i, ptr %1365, align 8
   %indvars.iv.next975.i = add nuw nsw i64 %indvars.iv974.i, 1
@@ -3417,7 +3417,7 @@ Io_MvSplitIntoTokens.exit.i280.i:                 ; preds = %1417, %1407
   br i1 %exitcond.not.i.i.i.i, label %Io_MvGetLine.exit.i.i.i, label %1434, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i.i.i:     ; preds = %1434
-  %1439 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %1439 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   br label %Io_MvGetLine.exit.i.i.i
 
 Io_MvGetLine.exit.i.i.i:                          ; preds = %1438, %.critedge.loopexit.split.loop.exit14.i.i.i.i, %1426
@@ -3460,7 +3460,7 @@ Io_MvGetLine.exit.i.i.i:                          ; preds = %1438, %.critedge.lo
   br i1 %exitcond.not.i111.i.i.i, label %Io_MvGetLine.exit113.i.i.i, label %1453, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i112.i.i.i:  ; preds = %1453
-  %1458 = trunc i64 %indvars.iv.i109.i.i.i to i32
+  %1458 = trunc nuw nsw i64 %indvars.iv.i109.i.i.i to i32
   br label %Io_MvGetLine.exit113.i.i.i
 
 Io_MvGetLine.exit113.i.i.i:                       ; preds = %1457, %.critedge.loopexit.split.loop.exit14.i112.i.i.i, %1445
@@ -3505,7 +3505,7 @@ Io_MvGetLine.exit113.i.i.i:                       ; preds = %1457, %.critedge.lo
   br i1 %exitcond.not.i121.i.i.i, label %Io_MvGetLine.exit123.i.i.i, label %1474, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i122.i.i.i:  ; preds = %1474
-  %1479 = trunc i64 %indvars.iv.i119.i.i.i to i32
+  %1479 = trunc nuw nsw i64 %indvars.iv.i119.i.i.i to i32
   br label %Io_MvGetLine.exit123.i.i.i
 
 Io_MvGetLine.exit123.i.i.i:                       ; preds = %1478, %.critedge.loopexit.split.loop.exit14.i122.i.i.i, %1466
@@ -3635,7 +3635,7 @@ Io_MvGetLine.exit123.i.i.i:                       ; preds = %1478, %.critedge.lo
   br i1 %exitcond.not.i131.i.i.i, label %Io_MvGetLine.exit133.i.i.i, label %1539, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i132.i.i.i:  ; preds = %1539
-  %1544 = trunc i64 %indvars.iv.i129.i.i.i to i32
+  %1544 = trunc nuw nsw i64 %indvars.iv.i129.i.i.i to i32
   br label %Io_MvGetLine.exit133.i.i.i
 
 Io_MvGetLine.exit133.i.i.i:                       ; preds = %1543, %.critedge.loopexit.split.loop.exit14.i132.i.i.i, %1531
@@ -3724,7 +3724,7 @@ Io_ReadBlifCleanName.exit._crit_edge.i.i.i:       ; preds = %Io_ReadBlifCleanNam
   br i1 %exitcond.not.i146.i.i.i, label %Io_MvGetLine.exit148.i.i.i, label %1577, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i147.i.i.i:  ; preds = %1577
-  %1582 = trunc i64 %indvars.iv.i144.i.i.i to i32
+  %1582 = trunc nuw nsw i64 %indvars.iv.i144.i.i.i to i32
   br label %Io_MvGetLine.exit148.i.i.i
 
 Io_MvGetLine.exit148.i.i.i:                       ; preds = %1581, %.critedge.loopexit.split.loop.exit14.i147.i.i.i, %1569
@@ -3833,7 +3833,7 @@ Io_MvGetLine.exit148.i.i.i:                       ; preds = %1581, %.critedge.lo
   br i1 %exitcond.not.i.i290.i, label %Io_MvGetLine.exit.i286.i, label %1639, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i291.i:    ; preds = %1639
-  %1644 = trunc i64 %indvars.iv.i38.i.i to i32
+  %1644 = trunc nuw nsw i64 %indvars.iv.i38.i.i to i32
   br label %Io_MvGetLine.exit.i286.i
 
 Io_MvGetLine.exit.i286.i:                         ; preds = %1643, %.critedge.loopexit.split.loop.exit14.i.i291.i, %1631
@@ -3949,7 +3949,7 @@ Io_MvSplitIntoTokens.exit.i.i.i:                  ; preds = %1665, %1646
   br i1 %exitcond.not.i.i49.i.i, label %Io_MvGetLine.exit.i43.i.i, label %1689, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i50.i.i:   ; preds = %1689
-  %1694 = trunc i64 %indvars.iv.i.i47.i.i to i32
+  %1694 = trunc nuw nsw i64 %indvars.iv.i.i47.i.i to i32
   br label %Io_MvGetLine.exit.i43.i.i
 
 Io_MvGetLine.exit.i43.i.i:                        ; preds = %1693, %.critedge.loopexit.split.loop.exit14.i.i50.i.i, %1681
@@ -4009,7 +4009,7 @@ Io_MvGetLine.exit.i43.i.i:                        ; preds = %1693, %.critedge.lo
   br i1 %exitcond.not.i111.i87.i.i, label %Io_MvGetLine.exit113.i80.i.i, label %1718, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i112.i88.i.i: ; preds = %1718
-  %1723 = trunc i64 %indvars.iv.i109.i85.i.i to i32
+  %1723 = trunc nuw nsw i64 %indvars.iv.i109.i85.i.i to i32
   br label %Io_MvGetLine.exit113.i80.i.i
 
 Io_MvGetLine.exit113.i80.i.i:                     ; preds = %1722, %.critedge.loopexit.split.loop.exit14.i112.i88.i.i, %1710
@@ -4072,7 +4072,7 @@ Io_MvGetLine.exit113.i80.i.i:                     ; preds = %1722, %.critedge.lo
   br i1 %exitcond.not.i121.i63.i.i, label %Io_MvGetLine.exit123.i56.i.i, label %1745, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i122.i64.i.i: ; preds = %1745
-  %1750 = trunc i64 %indvars.iv.i119.i61.i.i to i32
+  %1750 = trunc nuw nsw i64 %indvars.iv.i119.i61.i.i to i32
   br label %Io_MvGetLine.exit123.i56.i.i
 
 Io_MvGetLine.exit123.i56.i.i:                     ; preds = %1749, %.critedge.loopexit.split.loop.exit14.i122.i64.i.i, %1737
@@ -4124,7 +4124,7 @@ Io_MvGetLine.exit123.i56.i.i:                     ; preds = %1749, %.critedge.lo
   br i1 %exitcond.not.i131.i73.i.i, label %Io_MvGetLine.exit133.i66.i.i, label %1765, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i132.i74.i.i: ; preds = %1765
-  %1770 = trunc i64 %indvars.iv.i129.i71.i.i to i32
+  %1770 = trunc nuw nsw i64 %indvars.iv.i129.i71.i.i to i32
   br label %Io_MvGetLine.exit133.i66.i.i
 
 Io_MvGetLine.exit133.i66.i.i:                     ; preds = %1769, %.critedge.loopexit.split.loop.exit14.i132.i74.i.i, %1757
@@ -4173,7 +4173,7 @@ Io_MvGetLine.exit133.i66.i.i:                     ; preds = %1769, %.critedge.lo
   br i1 %exitcond.not.i141.i.i.i, label %Io_MvGetLine.exit143.i.i.i, label %1787, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i142.i.i.i:  ; preds = %1787
-  %1792 = trunc i64 %indvars.iv.i139.i.i.i to i32
+  %1792 = trunc nuw nsw i64 %indvars.iv.i139.i.i.i to i32
   br label %Io_MvGetLine.exit143.i.i.i
 
 Io_MvGetLine.exit143.i.i.i:                       ; preds = %1791, %.critedge.loopexit.split.loop.exit14.i142.i.i.i, %1779
@@ -4551,7 +4551,7 @@ Io_MvSplitIntoTokens.exit.i300.i:                 ; preds = %1931, %1921
   br i1 %exitcond.not.i.i312.i, label %Io_MvGetLine.exit.i305.i, label %1945, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i313.i:    ; preds = %1945
-  %1950 = trunc i64 %indvars.iv.i.i310.i to i32
+  %1950 = trunc nuw nsw i64 %indvars.iv.i.i310.i to i32
   br label %Io_MvGetLine.exit.i305.i
 
 Io_MvGetLine.exit.i305.i:                         ; preds = %1949, %.critedge.loopexit.split.loop.exit14.i.i313.i, %1935
@@ -4600,7 +4600,7 @@ Io_MvGetLine.exit.i305.i:                         ; preds = %1949, %.critedge.lo
   br i1 %exitcond.not.i46.i.i, label %Io_MvGetLine.exit48.i.i, label %1968, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i47.i.i:     ; preds = %1968
-  %1973 = trunc i64 %indvars.iv.i44.i.i to i32
+  %1973 = trunc nuw nsw i64 %indvars.iv.i44.i.i to i32
   br label %Io_MvGetLine.exit48.i.i
 
 Io_MvGetLine.exit48.i.i:                          ; preds = %1972, %.critedge.loopexit.split.loop.exit14.i47.i.i, %1960
@@ -4653,7 +4653,7 @@ Io_MvGetLine.exit48.i.i:                          ; preds = %1972, %.critedge.lo
   br i1 %exitcond.not.i56.i.i, label %Io_MvGetLine.exit58.i.i, label %1995, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i57.i.i:     ; preds = %1995
-  %2000 = trunc i64 %indvars.iv.i54.i.i to i32
+  %2000 = trunc nuw nsw i64 %indvars.iv.i54.i.i to i32
   br label %Io_MvGetLine.exit58.i.i
 
 Io_MvGetLine.exit58.i.i:                          ; preds = %1999, %.critedge.loopexit.split.loop.exit14.i57.i.i, %1987
@@ -4695,7 +4695,7 @@ Io_MvGetLine.exit58.i.i:                          ; preds = %1999, %.critedge.lo
   br i1 %exitcond.not.i66.i.i, label %Io_MvGetLine.exit68.i.i, label %2013, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i67.i.i:     ; preds = %2013
-  %2018 = trunc i64 %indvars.iv.i64.i.i to i32
+  %2018 = trunc nuw nsw i64 %indvars.iv.i64.i.i to i32
   br label %Io_MvGetLine.exit68.i.i
 
 Io_MvGetLine.exit68.i.i:                          ; preds = %2017, %.critedge.loopexit.split.loop.exit14.i67.i.i, %2005
@@ -4846,7 +4846,7 @@ Io_MvSplitIntoTokensAndClear.exit.i325.i:         ; preds = %2049
   br i1 %exitcond.not.i.i350.i, label %Io_MvParseLineSubckt.exit.i, label %2074, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i351.i:    ; preds = %2074
-  %2079 = trunc i64 %indvars.iv.i.i348.i to i32
+  %2079 = trunc nuw nsw i64 %indvars.iv.i.i348.i to i32
   br label %Io_MvParseLineSubckt.exit.i
 
 2080:                                             ; preds = %.loopexit131.i.i
@@ -4935,7 +4935,7 @@ Io_MvSplitIntoTokensAndClear.exit.i325.i:         ; preds = %2049
   %indvars.iv.i340.i = phi i64 [ %indvars.iv.next.i341.i, %2118 ], [ 0, %2107 ]
   %2119 = add i64 %indvars.iv.i340.i, %.097142.i.i
   %2120 = urem i64 %2119, %2101
-  %2121 = trunc i64 %2120 to i32
+  %2121 = trunc nuw i64 %2120 to i32
   %2122 = shl nuw nsw i32 %2121, 1
   %2123 = zext nneg i32 %2122 to i64
   %2124 = getelementptr inbounds ptr, ptr %2085, i64 %2123
@@ -5293,7 +5293,7 @@ Vec_IntAlloc.exit.i.i:                            ; preds = %2267, %Io_MvSplitIn
   br i1 %exitcond.not.i.i374.i, label %Io_MvGetLine.exit.i368.i, label %2287, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i375.i:    ; preds = %2287
-  %2292 = trunc i64 %indvars.iv.i.i372.i to i32
+  %2292 = trunc nuw nsw i64 %indvars.iv.i.i372.i to i32
   br label %Io_MvGetLine.exit.i368.i
 
 Io_MvGetLine.exit.i368.i:                         ; preds = %2291, %.critedge.loopexit.split.loop.exit14.i.i375.i, %2279
@@ -5370,7 +5370,7 @@ Io_MvGetLine.exit.i368.i:                         ; preds = %2291, %.critedge.lo
   br i1 %exitcond.not.i61.i.i, label %Io_MvGetLine.exit63.i.i, label %2323, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i62.i.i:     ; preds = %2323
-  %2328 = trunc i64 %indvars.iv.i59.i.i to i32
+  %2328 = trunc nuw nsw i64 %indvars.iv.i59.i.i to i32
   br label %Io_MvGetLine.exit63.i.i
 
 Io_MvGetLine.exit63.i.i:                          ; preds = %2327, %.critedge.loopexit.split.loop.exit14.i62.i.i, %2315
@@ -5819,7 +5819,7 @@ Io_MvParse.exit:                                  ; preds = %.lr.ph690.i, %.lr.p
 
 2546:                                             ; preds = %2549, %2539
   %indvars.iv.i170 = phi i64 [ %2550, %2549 ], [ %2545, %2539 ]
-  %2547 = trunc i64 %indvars.iv.i170 to i32
+  %2547 = trunc nuw i64 %indvars.iv.i170 to i32
   %2548 = icmp sgt i32 %2547, 0
   br i1 %2548, label %2549, label %2555
 
@@ -6483,7 +6483,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %9, %7
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %13 = call i32 (...) @Abc_FrameIsBridgeMode() #20
   %.not9 = icmp eq i32 %13, 0
   br i1 %.not9, label %20, label %14
@@ -6502,7 +6502,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %20, %14
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %2, %22
@@ -6546,9 +6546,6 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -6556,9 +6553,6 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
@@ -6857,7 +6851,7 @@ Io_MvFindArrow.exit:                              ; preds = %13
   br i1 %exitcond.not.i, label %Io_MvGetLine.exit, label %27, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i:           ; preds = %27
-  %32 = trunc i64 %indvars.iv.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Io_MvGetLine.exit
 
 Io_MvGetLine.exit:                                ; preds = %31, %20, %.critedge.loopexit.split.loop.exit14.i
@@ -7006,7 +7000,7 @@ Io_MvSplitIntoTokensMv.exit:                      ; preds = %60
   br i1 %exitcond.not.i101, label %Io_MvGetLine.exit103, label %83, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i102:        ; preds = %83
-  %88 = trunc i64 %indvars.iv.i99 to i32
+  %88 = trunc nuw nsw i64 %indvars.iv.i99 to i32
   br label %Io_MvGetLine.exit103
 
 Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge.loopexit.split.loop.exit14.i102
@@ -7072,7 +7066,7 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
 117:                                              ; preds = %.preheader115, %264
   %indvars.iv171 = phi i64 [ 0, %.preheader115 ], [ %indvars.iv.next172, %264 ]
   %.val.i104 = load i32, ptr %39, align 4
-  %118 = trunc i64 %indvars.iv171 to i32
+  %118 = trunc nuw nsw i64 %indvars.iv171 to i32
   %119 = sub i32 %118, %.273
   %120 = add i32 %119, %.val.i104
   %.val42.i = load ptr, ptr %51, align 8
@@ -7116,7 +7110,7 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
   br i1 %exitcond.not.i.i, label %Io_MvGetLine.exit.i, label %136, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i.i:         ; preds = %136
-  %141 = trunc i64 %indvars.iv.i.i to i32
+  %141 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %Io_MvGetLine.exit.i
 
 Io_MvGetLine.exit.i:                              ; preds = %140, %.critedge.loopexit.split.loop.exit14.i.i, %128
@@ -7169,7 +7163,7 @@ Io_MvGetLine.exit.i:                              ; preds = %140, %.critedge.loo
   br i1 %exitcond.not.i51.i, label %Io_MvGetLine.exit53.i, label %162, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i52.i:       ; preds = %162
-  %167 = trunc i64 %indvars.iv.i49.i to i32
+  %167 = trunc nuw nsw i64 %indvars.iv.i49.i to i32
   br label %Io_MvGetLine.exit53.i
 
 Io_MvGetLine.exit53.i:                            ; preds = %166, %.critedge.loopexit.split.loop.exit14.i52.i, %154
@@ -7273,13 +7267,13 @@ Vec_StrPush.exit.i.i:                             ; preds = %Vec_StrGrow.exit.i.
   %211 = getelementptr ptr, ptr %.val44.us.i.i, i64 %indvars.iv64.i.i
   %212 = getelementptr ptr, ptr %211, i64 %indvars.iv67.i.i
   %213 = load ptr, ptr %212, align 8
-  %214 = trunc i64 %indvars.iv64.i.i to i32
+  %214 = trunc nuw nsw i64 %indvars.iv64.i.i to i32
   %215 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef %0, ptr noundef %.040.i, ptr noundef %213, ptr noundef %177, i32 noundef %214), !range !38
   %.not42.us.i.i = icmp eq i32 %215, 0
   br i1 %.not42.us.i.i, label %Io_MvParseTableMv.exit.thread.i, label %206
 
 ._crit_edge.us.i.i:                               ; preds = %206
-  %216 = trunc i64 %indvars.iv67.i.i to i32
+  %216 = trunc nsw i64 %indvars.iv67.i.i to i32
   %217 = add i32 %204, %216
   %.val43.us.i.i = load ptr, ptr %65, align 8
   %218 = sext i32 %217 to i64
@@ -7291,7 +7285,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %Vec_StrGrow.exit.i.
 
 .preheader.i.i:                                   ; preds = %.preheader.lr.ph.i.i, %228
   %indvars.iv.i54.i = phi i64 [ %indvars.iv.next.i55.i, %228 ], [ %205, %.preheader.lr.ph.i.i ]
-  %222 = trunc i64 %indvars.iv.i54.i to i32
+  %222 = trunc nsw i64 %indvars.iv.i54.i to i32
   %223 = add i32 %204, %222
   %.val43.i.i = load ptr, ptr %65, align 8
   %224 = sext i32 %223 to i64
@@ -7409,7 +7403,7 @@ declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed
 declare void @Abc_GenOneHotIntervals(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #12
 
 declare ptr @Abc_NtkFindOrCreateNet(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -7883,7 +7877,7 @@ define internal fastcc noundef i32 @Io_MvParseLiteralMv(ptr nocapture noundef re
   br i1 %exitcond.not.i, label %Io_MvGetLine.exit, label %36, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i:           ; preds = %36
-  %41 = trunc i64 %indvars.iv.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Io_MvGetLine.exit
 
 Io_MvGetLine.exit:                                ; preds = %40, %27, %.critedge.loopexit.split.loop.exit14.i
@@ -8261,7 +8255,7 @@ Io_MvCharIsMvSymb.exit102.thread:                 ; preds = %.preheader123, %.pr
   br i1 %exitcond.not, label %._crit_edge.thread, label %196, !llvm.loop !74
 
 ._crit_edge.loopexit:                             ; preds = %196
-  %201 = trunc i64 %indvars.iv to i32
+  %201 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Io_MvCharIsMvSymb.exit102.thread
@@ -8300,7 +8294,7 @@ Io_MvCharIsMvSymb.exit102.thread:                 ; preds = %.preheader123, %.pr
   br i1 %exitcond.not.i110, label %Io_MvGetLine.exit112, label %211, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit14.i111:        ; preds = %211
-  %216 = trunc i64 %indvars.iv.i108 to i32
+  %216 = trunc nuw nsw i64 %indvars.iv.i108 to i32
   br label %Io_MvGetLine.exit112
 
 Io_MvGetLine.exit112:                             ; preds = %215, %._crit_edge.thread, %.critedge.loopexit.split.loop.exit14.i111
@@ -8494,6 +8488,12 @@ declare ptr @Abc_DesFindModelByName(ptr noundef, ptr noundef) local_unnamed_addr
 
 declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
 
@@ -8530,8 +8530,8 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

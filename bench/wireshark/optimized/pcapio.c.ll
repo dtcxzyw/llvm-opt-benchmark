@@ -247,7 +247,7 @@ define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr nocaptur
   br i1 %or.cond.i, label %21, label %pcapng_count_string_option.exit
 
 21:                                               ; preds = %18
-  %22 = trunc i64 %19 to i32
+  %22 = trunc nuw i64 %19 to i32
   %23 = add nuw nsw i32 %22, 3
   %24 = and i32 %23, 65532
   %25 = add nuw nsw i32 %24, 4
@@ -272,7 +272,7 @@ pcapng_count_string_option.exit:                  ; preds = %15, %18, %21
   br i1 %or.cond.i58, label %30, label %pcapng_count_string_option.exit60
 
 30:                                               ; preds = %27
-  %31 = trunc i64 %28 to i32
+  %31 = trunc nuw i64 %28 to i32
   %32 = add nuw nsw i32 %31, 3
   %33 = and i32 %32, 65532
   %34 = add nuw nsw i32 %33, 4
@@ -291,7 +291,7 @@ pcapng_count_string_option.exit60:                ; preds = %.loopexit79, %27, %
   br i1 %or.cond.i62, label %39, label %pcapng_count_string_option.exit64
 
 39:                                               ; preds = %36
-  %40 = trunc i64 %37 to i32
+  %40 = trunc nuw i64 %37 to i32
   %41 = add nuw nsw i32 %40, 3
   %42 = and i32 %41, 65532
   %43 = add nuw nsw i32 %42, 4
@@ -310,7 +310,7 @@ pcapng_count_string_option.exit64:                ; preds = %pcapng_count_string
   br i1 %or.cond.i66, label %48, label %pcapng_count_string_option.exit68
 
 48:                                               ; preds = %45
-  %49 = trunc i64 %46 to i32
+  %49 = trunc nuw i64 %46 to i32
   %50 = add nuw nsw i32 %49, 3
   %51 = and i32 %50, 65532
   %52 = add nuw nsw i32 %51, 4
@@ -463,17 +463,17 @@ define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nocapt
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   %8 = icmp eq ptr %2, null
-  br i1 %8, label %44, label %9
+  br i1 %8, label %write_to_file.exit30, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %11 = add i64 %10, -1
   %or.cond = icmp ult i64 %11, 65534
-  br i1 %or.cond, label %12, label %44
+  br i1 %or.cond, label %12, label %write_to_file.exit30
 
 12:                                               ; preds = %9
   store i16 %1, ptr %6, align 2
-  %13 = trunc i64 %10 to i16
+  %13 = trunc nuw i64 %10 to i16
   %14 = getelementptr inbounds i8, ptr %6, i64 2
   store i16 %13, ptr %14, align 2
   %15 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef %0)
@@ -493,7 +493,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nocapt
 write_to_file.exit:                               ; preds = %16, %18
   %storemerge.i = phi i32 [ %20, %18 ], [ 0, %16 ]
   store i32 %storemerge.i, ptr %4, align 4
-  br label %44
+  br label %write_to_file.exit30
 
 21:                                               ; preds = %12
   %22 = load i64, ptr %3, align 8
@@ -516,7 +516,7 @@ write_to_file.exit:                               ; preds = %16, %18
 write_to_file.exit26:                             ; preds = %25, %27
   %storemerge.i25 = phi i32 [ %29, %27 ], [ 0, %25 ]
   store i32 %storemerge.i25, ptr %4, align 4
-  br label %44
+  br label %write_to_file.exit30
 
 30:                                               ; preds = %21
   %31 = load i64, ptr %3, align 8
@@ -524,37 +524,37 @@ write_to_file.exit26:                             ; preds = %25, %27
   store i64 %32, ptr %3, align 8
   %33 = and i64 %10, 3
   %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %44, label %34
+  br i1 %.not, label %write_to_file.exit30, label %34
 
 34:                                               ; preds = %30
   %35 = sub nuw nsw i64 4, %33
   %36 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef %35, i64 noundef 1, ptr noundef %0)
   %.not.i27 = icmp eq i64 %36, 1
-  br i1 %.not.i27, label %write_to_file.exit30.thread, label %37
+  br i1 %.not.i27, label %43, label %37
 
 37:                                               ; preds = %34
   %38 = tail call i32 @ferror(ptr noundef %0) #6
   %.not9.i28 = icmp eq i32 %38, 0
-  br i1 %.not9.i28, label %write_to_file.exit30, label %39
+  br i1 %.not9.i28, label %42, label %39
 
 39:                                               ; preds = %37
   %40 = tail call ptr @__errno_location() #7
   %41 = load i32, ptr %40, align 4
-  br label %write_to_file.exit30
+  br label %42
 
-write_to_file.exit30.thread:                      ; preds = %34
-  %42 = load i64, ptr %3, align 8
-  %43 = add i64 %42, %35
-  store i64 %43, ptr %3, align 8
-  br label %44
-
-write_to_file.exit30:                             ; preds = %37, %39
+42:                                               ; preds = %39, %37
   %storemerge.i29 = phi i32 [ %41, %39 ], [ 0, %37 ]
   store i32 %storemerge.i29, ptr %4, align 4
-  br label %44
+  br label %write_to_file.exit30
 
-44:                                               ; preds = %9, %30, %write_to_file.exit30.thread, %write_to_file.exit30, %write_to_file.exit26, %write_to_file.exit, %5
-  %.0 = phi i1 [ true, %5 ], [ false, %write_to_file.exit ], [ false, %write_to_file.exit26 ], [ false, %write_to_file.exit30 ], [ true, %write_to_file.exit30.thread ], [ true, %30 ], [ true, %9 ]
+43:                                               ; preds = %34
+  %44 = load i64, ptr %3, align 8
+  %45 = add i64 %44, %35
+  store i64 %45, ptr %3, align 8
+  br label %write_to_file.exit30
+
+write_to_file.exit30:                             ; preds = %43, %42, %write_to_file.exit26, %write_to_file.exit, %9, %30, %5
+  %.0 = phi i1 [ true, %5 ], [ false, %write_to_file.exit ], [ false, %write_to_file.exit26 ], [ true, %30 ], [ true, %9 ], [ false, %42 ], [ true, %43 ]
   ret i1 %.0
 }
 
@@ -579,7 +579,7 @@ define hidden noundef zeroext i1 @pcapng_write_interface_description_block(ptr n
   br i1 %or.cond.i, label %23, label %pcapng_count_string_option.exit
 
 23:                                               ; preds = %20
-  %24 = trunc i64 %21 to i32
+  %24 = trunc nuw i64 %21 to i32
   %25 = add nuw nsw i32 %24, 3
   %26 = and i32 %25, 65532
   %27 = add nuw nsw i32 %26, 4
@@ -597,7 +597,7 @@ pcapng_count_string_option.exit:                  ; preds = %13, %20, %23
   br i1 %or.cond.i107, label %31, label %pcapng_count_string_option.exit109
 
 31:                                               ; preds = %28
-  %32 = trunc i64 %29 to i32
+  %32 = trunc nuw i64 %29 to i32
   %33 = add nuw nsw i32 %32, 3
   %34 = and i32 %33, 65532
   %35 = add nuw nsw i32 %34, 4
@@ -616,7 +616,7 @@ pcapng_count_string_option.exit109:               ; preds = %pcapng_count_string
   br i1 %or.cond.i111, label %40, label %pcapng_count_string_option.exit113
 
 40:                                               ; preds = %37
-  %41 = trunc i64 %38 to i32
+  %41 = trunc nuw i64 %38 to i32
   %42 = add nuw nsw i32 %41, 3
   %43 = and i32 %42, 65532
   %44 = add nuw nsw i32 %43, 4
@@ -641,7 +641,7 @@ pcapng_count_string_option.exit113:               ; preds = %pcapng_count_string
   br i1 %or.cond, label %51, label %57
 
 51:                                               ; preds = %48
-  %52 = trunc i64 %49 to i32
+  %52 = trunc nuw i64 %49 to i32
   %53 = add nuw nsw i32 %52, 4
   %54 = and i32 %53, 65532
   %55 = add nuw nsw i32 %.1, 4
@@ -660,7 +660,7 @@ pcapng_count_string_option.exit113:               ; preds = %pcapng_count_string
   br i1 %or.cond.i115, label %61, label %pcapng_count_string_option.exit117
 
 61:                                               ; preds = %58
-  %62 = trunc i64 %59 to i32
+  %62 = trunc nuw i64 %59 to i32
   %63 = add nuw nsw i32 %62, 3
   %64 = and i32 %63, 65532
   %65 = add nuw nsw i32 %64, 4
@@ -679,7 +679,7 @@ pcapng_count_string_option.exit117:               ; preds = %57, %58, %61
   br i1 %or.cond.i119, label %70, label %pcapng_count_string_option.exit121
 
 70:                                               ; preds = %67
-  %71 = trunc i64 %68 to i32
+  %71 = trunc nuw i64 %68 to i32
   %72 = add nuw nsw i32 %71, 3
   %73 = and i32 %72, 65532
   %74 = add nuw nsw i32 %73, 4
@@ -817,7 +817,7 @@ write_to_file.exit130:                            ; preds = %114, %116
 
 129:                                              ; preds = %126
   store i16 11, ptr %17, align 2
-  %130 = trunc i64 %127 to i16
+  %130 = trunc nuw i64 %127 to i16
   %131 = add nuw i16 %130, 1
   %132 = getelementptr inbounds i8, ptr %17, i64 2
   store i16 %131, ptr %132, align 2
@@ -900,7 +900,7 @@ define hidden noundef zeroext i1 @pcapng_write_enhanced_packet_block(ptr nocaptu
   br i1 %or.cond.i, label %25, label %pcapng_count_string_option.exit
 
 25:                                               ; preds = %22
-  %26 = trunc i64 %23 to i32
+  %26 = trunc nuw i64 %23 to i32
   %27 = add nuw nsw i32 %26, 3
   %28 = and i32 %27, 65532
   %29 = add nuw nsw i32 %28, 4
@@ -926,7 +926,7 @@ pcapng_count_string_option.exit:                  ; preds = %12, %22, %25
   %38 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %6, ptr %38, align 4
   %39 = lshr i64 %36, 32
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   %41 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 %40, ptr %41, align 4
   %42 = trunc i64 %36 to i32
@@ -985,7 +985,7 @@ write_to_file.exit75:                             ; preds = %57, %59
   store i64 %64, ptr %10, align 8
   %65 = and i32 %4, 3
   %.not67.not = icmp eq i32 %65, 0
-  %66 = trunc i32 %65 to i8
+  %66 = trunc nuw nsw i32 %65 to i8
   %67 = sub nuw nsw i8 4, %66
   %or.cond = and i1 %.not.i, %.not
   %or.cond3 = select i1 %or.cond, i1 %.not66, i1 false
@@ -1152,7 +1152,7 @@ define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr no
   br i1 %or.cond.i, label %30, label %pcapng_count_string_option.exit
 
 30:                                               ; preds = %27
-  %31 = trunc i64 %28 to i32
+  %31 = trunc nuw i64 %28 to i32
   %32 = add nuw nsw i32 %31, 3
   %33 = and i32 %32, 65532
   %34 = add nuw nsw i32 %33, 4
@@ -1177,7 +1177,7 @@ pcapng_count_string_option.exit:                  ; preds = %9, %27, %30
   %41 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %1, ptr %41, align 4
   %42 = lshr i64 %25, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = getelementptr inbounds i8, ptr %12, i64 12
   store i32 %43, ptr %44, align 4
   %45 = trunc i64 %25 to i32
@@ -1217,7 +1217,7 @@ write_to_file.exit:                               ; preds = %48, %50
   %59 = getelementptr inbounds i8, ptr %14, i64 2
   store i16 8, ptr %59, align 2
   %60 = lshr i64 %4, 32
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw i64 %60 to i32
   store i32 %61, ptr %16, align 4
   %62 = trunc i64 %4 to i32
   store i32 %62, ptr %17, align 4
@@ -1300,7 +1300,7 @@ write_to_file.exit86:                             ; preds = %82, %84
   %91 = getelementptr inbounds i8, ptr %14, i64 2
   store i16 8, ptr %91, align 2
   %92 = lshr i64 %5, 32
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nuw i64 %92 to i32
   store i32 %93, ptr %18, align 4
   %94 = trunc i64 %5 to i32
   store i32 %94, ptr %19, align 4

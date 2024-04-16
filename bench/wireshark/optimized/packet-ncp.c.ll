@@ -2103,7 +2103,7 @@ define internal i32 @mncp_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @mncp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @mncp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -2123,13 +2123,11 @@ define internal noundef i32 @mncp_equal(ptr nocapture noundef readonly %0, ptr n
   %15 = getelementptr inbounds i8, ptr %1, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = icmp eq i8 %14, %16
-  br i1 %17, label %19, label %18
+  %spec.select = zext i1 %17 to i32
+  br label %18
 
-18:                                               ; preds = %12, %6, %2
-  br label %19
-
-19:                                               ; preds = %12, %18
-  %.0 = phi i32 [ 0, %18 ], [ 1, %12 ]
+18:                                               ; preds = %12, %2, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 

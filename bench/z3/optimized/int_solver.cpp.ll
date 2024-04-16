@@ -513,7 +513,7 @@ _ZNK2lp10lar_solver12column_countEv.exit.i.i:     ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp.i.i16, label %for.body.i.i, label %if.then18
 
 for.body.i.i:                                     ; preds = %_ZNK2lp10lar_solver12column_countEv.exit.i.i
-  %34 = trunc i64 %indvars.iv.i.i to i32
+  %34 = trunc nuw i64 %indvars.iv.i.i to i32
   %call2.i.i17 = call noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %30, i32 noundef %34)
   br i1 %call2.i.i17, label %land.lhs.true.i.i, label %for.inc.i.i
 
@@ -666,7 +666,7 @@ _ZNK2lp10lar_solver12column_countEv.exit.i:       ; preds = %if.end.i.i.i.i, %fo
   br i1 %cmp.i, label %for.body.i, label %_ZNK2lp10lar_solver11has_inf_intEv.exit
 
 for.body.i:                                       ; preds = %_ZNK2lp10lar_solver12column_countEv.exit.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw i64 %indvars.iv.i to i32
   %call2.i = tail call noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %0, i32 noundef %4)
   br i1 %call2.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -2567,7 +2567,7 @@ if.end103:                                        ; preds = %invoke.cont100, %in
   %78 = load i32, ptr %y.i122, align 8
   %cmp.i.i.i.i1.i = icmp eq i32 %78, 0
   %or.cond = select i1 %77, i1 %cmp.i.i.i.i1.i, i1 false
-  br i1 %or.cond, label %land.lhs.true106, label %if.end110
+  br i1 %or.cond, label %land.lhs.true106, label %cleanup
 
 land.lhs.true106:                                 ; preds = %if.end103
   %bf.load.i.i.i.i.i.i125 = load i8, ptr %m_kind.i.i.i.i.i.i124, align 4
@@ -2576,16 +2576,16 @@ land.lhs.true106:                                 ; preds = %if.end103
   %79 = load i32, ptr %m_den.i.i.i123, align 8
   %cmp.i.i.i.i.i128 = icmp eq i32 %79, 1
   %80 = select i1 %cmp.i.i.i.i.i.i127, i1 %cmp.i.i.i.i.i128, i1 false
-  %81 = load i32, ptr %y.i130, align 8
-  %cmp.i.i.i.i1.i131 = icmp eq i32 %81, 0
-  %or.cond184 = select i1 %80, i1 %cmp.i.i.i.i1.i131, i1 false
-  br i1 %or.cond184, label %if.end110, label %cleanup
+  br i1 %80, label %invoke.cont107, label %cleanup
 
-if.end110:                                        ; preds = %land.lhs.true106, %if.end103
+invoke.cont107:                                   ; preds = %land.lhs.true106
+  %81 = load i32, ptr %y.i130, align 8
+  %.fr = freeze i32 %81
+  %cmp.i.i.i.i1.i131 = icmp ne i32 %.fr, 0
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true106, %invoke.cont100, %invoke.cont89, %if.end110
-  %switch = phi i1 [ true, %if.end110 ], [ false, %invoke.cont89 ], [ false, %invoke.cont100 ], [ false, %land.lhs.true106 ]
+cleanup:                                          ; preds = %invoke.cont107, %land.lhs.true106, %if.end103, %invoke.cont100, %invoke.cont89
+  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont89 ], [ true, %invoke.cont100 ], [ false, %if.end103 ], [ true, %land.lhs.true106 ], [ %cmp.i.i.i.i1.i131, %invoke.cont107 ]
   %82 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(16) %y.i130)
           to label %.noexc.i.i135 unwind label %terminate.lpad.i.i134
@@ -2650,7 +2650,7 @@ terminate.lpad.i1.i147:                           ; preds = %.noexc.i2.i148, %_Z
   unreachable
 
 _ZN2lp12numeric_pairI8rationalED2Ev.exit150:      ; preds = %.noexc.i2.i148
-  br i1 %switch, label %for.cond, label %return
+  br i1 %cleanup.dest.slot.0, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end58, %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE16column_container3endEv.exit
   %94 = load ptr, ptr %lra, align 8
@@ -4123,7 +4123,7 @@ _ZNK2lp10lar_solver12column_countEv.exit.i.i:     ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp.i.i, label %for.body.i.i, label %return
 
 for.body.i.i:                                     ; preds = %_ZNK2lp10lar_solver12column_countEv.exit.i.i
-  %4 = trunc i64 %indvars.iv.i.i to i32
+  %4 = trunc nuw i64 %indvars.iv.i.i to i32
   %call2.i.i = tail call noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %0, i32 noundef %4)
   br i1 %call2.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
@@ -5346,7 +5346,7 @@ for.inc50:                                        ; preds = %for.body.i.i, %if.e
   br i1 %cmp43.not, label %for.end52, label %for.body44
 
 for.end52:                                        ; preds = %for.inc50
-  %tobool = trunc i8 %has_large.1 to i1
+  %tobool = trunc nuw i8 %has_large.1 to i1
   br i1 %tobool, label %if.then53, label %if.end85
 
 if.then53:                                        ; preds = %for.end52
@@ -5584,7 +5584,7 @@ _ZNK2lp10lar_solver12column_countEv.exit.i.i:     ; preds = %if.end.i.i.i.i.i148
   br i1 %cmp.i.i151, label %for.body.i.i152, label %cleanup
 
 for.body.i.i152:                                  ; preds = %_ZNK2lp10lar_solver12column_countEv.exit.i.i
-  %112 = trunc i64 %indvars.iv.i.i to i32
+  %112 = trunc nuw i64 %indvars.iv.i.i to i32
   %call2.i.i156 = invoke noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %108, i32 noundef %112)
           to label %call2.i.i.noexc unwind label %lpad.loopexit
 
@@ -5616,7 +5616,7 @@ for.inc.i.i153:                                   ; preds = %_ZNK2lp10lar_solver
 
 if.end99:                                         ; preds = %_ZNK2lp10lar_solver19column_value_is_intEj.exit.i.i, %land.lhs.true.i.i
   %brmerge166 = or i8 %has_small.0.lcssa223, %has_large.0.lcssa222
-  %brmerge = trunc i8 %brmerge166 to i1
+  %brmerge = trunc nuw i8 %brmerge166 to i1
   br i1 %brmerge, label %cleanup, label %if.end103
 
 if.end103:                                        ; preds = %if.end99
@@ -5736,7 +5736,7 @@ for.cond7.preheader:                              ; preds = %for.inc, %entry, %_
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %this, align 8
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %call2.i.i = tail call noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %3, i32 noundef %4)
   br i1 %call2.i.i, label %land.rhs, label %for.inc
 
@@ -11822,7 +11822,7 @@ invoke.cont133:                                   ; preds = %land.lhs.true132
   %add.i.i.i = add i32 %mul.i.i.i, 2531011
   store i32 %add.i.i.i, ptr %m_rand.i.i, align 4
   %shr.i.i.i = lshr i32 %add.i.i.i, 16
-  %118 = trunc i32 %shr.i.i.i to i16
+  %118 = trunc nuw i32 %shr.i.i.i to i16
   %rem.lhs.trunc = and i16 %118, 32767
   %rem291 = urem i16 %rem.lhs.trunc, 3
   %cmp135.not = icmp eq i16 %rem291, 0
@@ -11845,7 +11845,7 @@ invoke.cont140:                                   ; preds = %land.lhs.true139
   %add.i.i.i238 = add i32 %mul.i.i.i237, 2531011
   store i32 %add.i.i.i238, ptr %m_rand.i.i236, align 4
   %shr.i.i.i239 = lshr i32 %add.i.i.i238, 16
-  %121 = trunc i32 %shr.i.i.i239 to i16
+  %121 = trunc nuw i32 %shr.i.i.i239 to i16
   %rem142.lhs.trunc = and i16 %121, 32767
   %rem142290 = urem i16 %rem142.lhs.trunc, 3
   %cmp143.not = icmp eq i16 %rem142290, 0

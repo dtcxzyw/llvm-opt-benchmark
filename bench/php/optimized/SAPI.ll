@@ -648,7 +648,7 @@ declare i64 @php_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 define void @sapi_activate_headers_only() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 10), align 2
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %20, label %3
+  br i1 %2, label %19, label %3
 
 3:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 10), align 2
@@ -668,40 +668,38 @@ define void @sapi_activate_headers_only() local_unnamed_addr #0 {
 5:                                                ; preds = %3
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.10) #19
   %.not3 = icmp eq i32 %6, 0
-  br i1 %.not3, label %8, label %7
+  %spec.select = zext i1 %.not3 to i8
+  br label %7
 
 7:                                                ; preds = %5, %3
-  br label %8
-
-8:                                                ; preds = %5, %7
-  %storemerge = phi i8 [ 0, %7 ], [ 1, %5 ]
+  %storemerge = phi i8 [ 0, %3 ], [ %spec.select, %5 ]
   store i8 %storemerge, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 8), align 8
-  %9 = load ptr, ptr @sapi_globals, align 8
-  %.not4 = icmp eq ptr %9, null
-  br i1 %.not4, label %16, label %10
+  %8 = load ptr, ptr @sapi_globals, align 8
+  %.not4 = icmp eq ptr %8, null
+  br i1 %.not4, label %15, label %9
 
-10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 15), align 8
-  %12 = tail call ptr %11() #18
-  store ptr %12, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 2), align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 4), align 8
-  %.not5 = icmp eq ptr %13, null
-  br i1 %.not5, label %16, label %14
+9:                                                ; preds = %7
+  %10 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 15), align 8
+  %11 = tail call ptr %10() #18
+  store ptr %11, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 2), align 8
+  %12 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 4), align 8
+  %.not5 = icmp eq ptr %12, null
+  br i1 %.not5, label %15, label %13
 
-14:                                               ; preds = %10
-  %15 = tail call i32 %13() #18
-  br label %16
+13:                                               ; preds = %9
+  %14 = tail call i32 %12() #18
+  br label %15
 
-16:                                               ; preds = %10, %14, %8
-  %17 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 35), align 8
-  %.not6 = icmp eq ptr %17, null
-  br i1 %.not6, label %20, label %18
+15:                                               ; preds = %9, %13, %7
+  %16 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 35), align 8
+  %.not6 = icmp eq ptr %16, null
+  br i1 %.not6, label %19, label %17
 
-18:                                               ; preds = %16
-  %19 = tail call i32 %17() #18
-  br label %20
+17:                                               ; preds = %15
+  %18 = tail call i32 %16() #18
+  br label %19
 
-20:                                               ; preds = %0, %18, %16
+19:                                               ; preds = %0, %17, %15
   ret void
 }
 
@@ -732,69 +730,67 @@ define void @sapi_activate() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.10) #19
   %.not7 = icmp eq i32 %3, 0
-  br i1 %.not7, label %5, label %4
+  %spec.select = zext i1 %.not7 to i8
+  br label %4
 
 4:                                                ; preds = %2, %0
-  br label %5
-
-5:                                                ; preds = %2, %4
-  %storemerge = phi i8 [ 0, %4 ], [ 1, %2 ]
+  %storemerge = phi i8 [ 0, %0 ], [ %spec.select, %2 ]
   store i8 %storemerge, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 8), align 8
   store ptr null, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 9), align 8
   store i8 0, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 17, i32 1), i8 0, i64 80, i1 false)
-  %6 = load ptr, ptr @sapi_globals, align 8
-  %.not8 = icmp eq ptr %6, null
-  br i1 %.not8, label %20, label %7
+  %5 = load ptr, ptr @sapi_globals, align 8
+  %.not8 = icmp eq ptr %5, null
+  br i1 %.not8, label %19, label %6
 
-7:                                                ; preds = %5
-  %8 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 53), align 4
-  %9 = trunc i8 %8 to i1
-  %10 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 7), align 8
-  %11 = icmp ne ptr %10, null
-  %or.cond = select i1 %9, i1 %11, i1 false
-  %12 = icmp ne ptr %1, null
-  %or.cond3 = and i1 %12, %or.cond
-  br i1 %or.cond3, label %13, label %16
+6:                                                ; preds = %4
+  %7 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 53), align 4
+  %8 = trunc i8 %7 to i1
+  %9 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 7), align 8
+  %10 = icmp ne ptr %9, null
+  %or.cond = select i1 %8, i1 %10, i1 false
+  %11 = icmp ne ptr %1, null
+  %or.cond3 = and i1 %11, %or.cond
+  br i1 %or.cond3, label %12, label %15
 
-13:                                               ; preds = %7
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.11) #19
-  %.not9 = icmp eq i32 %14, 0
-  br i1 %.not9, label %15, label %16
+12:                                               ; preds = %6
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.11) #19
+  %.not9 = icmp eq i32 %13, 0
+  br i1 %.not9, label %14, label %15
 
-15:                                               ; preds = %13
+14:                                               ; preds = %12
   tail call void @sapi_read_post_data()
-  br label %17
+  br label %16
 
-16:                                               ; preds = %13, %7
+15:                                               ; preds = %12, %6
   store ptr null, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 12), align 8
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %15
-  %18 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 15), align 8
-  %19 = tail call ptr %18() #18
-  store ptr %19, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 2), align 8
-  br label %20
+16:                                               ; preds = %15, %14
+  %17 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 15), align 8
+  %18 = tail call ptr %17() #18
+  store ptr %18, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 1, i32 2), align 8
+  br label %19
 
-20:                                               ; preds = %17, %5
-  %21 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 4), align 8
-  %.not10 = icmp eq ptr %21, null
-  br i1 %.not10, label %24, label %22
+19:                                               ; preds = %16, %4
+  %20 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 4), align 8
+  %.not10 = icmp eq ptr %20, null
+  br i1 %.not10, label %23, label %21
 
-22:                                               ; preds = %20
-  %23 = tail call i32 %21() #18
-  br label %24
+21:                                               ; preds = %19
+  %22 = tail call i32 %20() #18
+  br label %23
 
-24:                                               ; preds = %22, %20
-  %25 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 35), align 8
-  %.not11 = icmp eq ptr %25, null
-  br i1 %.not11, label %28, label %26
+23:                                               ; preds = %21, %19
+  %24 = load ptr, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @sapi_module, i64 0, i32 35), align 8
+  %.not11 = icmp eq ptr %24, null
+  br i1 %.not11, label %27, label %25
 
-26:                                               ; preds = %24
-  %27 = tail call i32 %25() #18
-  br label %28
+25:                                               ; preds = %23
+  %26 = tail call i32 %24() #18
+  br label %27
 
-28:                                               ; preds = %26, %24
+27:                                               ; preds = %25, %23
   ret void
 }
 

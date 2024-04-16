@@ -589,17 +589,16 @@ define internal i32 @dissect_spnego_T_negTokenInit(i1 noundef zeroext %0, ptr no
   %13 = getelementptr inbounds i8, ptr %8, i64 284
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 1024
-  br i1 %15, label %16, label %.critedge
+  %spec.select = select i1 %15, ptr @ett_spnego_NegTokenInit2, ptr @ett_spnego_NegTokenInit
+  %spec.select15 = select i1 %15, ptr @NegTokenInit2_sequence, ptr @NegTokenInit_sequence
+  br label %.critedge
 
-.critedge:                                        ; preds = %6, %12
-  br label %16
-
-16:                                               ; preds = %12, %.critedge
-  %ett_spnego_NegTokenInit.sink = phi ptr [ @ett_spnego_NegTokenInit, %.critedge ], [ @ett_spnego_NegTokenInit2, %12 ]
-  %NegTokenInit_sequence.sink = phi ptr [ @NegTokenInit_sequence, %.critedge ], [ @NegTokenInit2_sequence, %12 ]
-  %17 = load i32, ptr %ett_spnego_NegTokenInit.sink, align 4
-  %18 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %NegTokenInit_sequence.sink, i32 noundef %5, i32 noundef %17) #6
-  ret i32 %18
+.critedge:                                        ; preds = %12, %6
+  %ett_spnego_NegTokenInit.sink = phi ptr [ @ett_spnego_NegTokenInit, %6 ], [ %spec.select, %12 ]
+  %NegTokenInit_sequence.sink = phi ptr [ @NegTokenInit_sequence, %6 ], [ %spec.select15, %12 ]
+  %16 = load i32, ptr %ett_spnego_NegTokenInit.sink, align 4
+  %17 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %NegTokenInit_sequence.sink, i32 noundef %5, i32 noundef %16) #6
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1234,7 +1233,7 @@ arcfour_mic_key.exit.i:                           ; preds = %135, %133, %130
 
 .preheader.i.i.i:                                 ; preds = %156
   %.not21.i.i.i = icmp eq i8 %158, 0
-  br i1 %.not21.i.i.i, label %.thread65.i.i, label %.lr.ph.i.i.i
+  br i1 %.not21.i.i.i, label %.thread64.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %163
   %.020.i.i.i = phi i32 [ %164, %163 ], [ %159, %.preheader.i.i.i ]
@@ -1247,9 +1246,9 @@ arcfour_mic_key.exit.i:                           ; preds = %135, %133, %130
   %164 = add nsw i32 %.020.i.i.i, -1
   %165 = getelementptr i8, ptr %.01519.i.i.i, i64 -1
   %166 = icmp sgt i32 %.020.i.i.i, 1
-  br i1 %166, label %.lr.ph.i.i.i, label %.thread65.i.i, !llvm.loop !6
+  br i1 %166, label %.lr.ph.i.i.i, label %.thread64.i.i, !llvm.loop !6
 
-.thread65.i.i:                                    ; preds = %163, %.preheader.i.i.i
+.thread64.i.i:                                    ; preds = %163, %.preheader.i.i.i
   %167 = sub i32 %91, %159
   %168 = load ptr, ptr %61, align 8
   %169 = call ptr @tvb_get_ptr(ptr noundef %168, i32 noundef 0, i32 noundef 8) #6
@@ -1264,7 +1263,7 @@ decrypt_arcfour.exit.thread.sink.split.i:         ; preds = %141, %116
   call void @gcry_cipher_close(ptr noundef %.sink.i) #6
   br label %decrypt_arcfour.exit.thread.i
 
-decrypt_arcfour.exit.thread.i:                    ; preds = %.lr.ph.i.i.i, %decrypt_arcfour.exit.thread.sink.split.i, %.thread65.i.i, %156, %139, %120, %arcfour_mic_key.exit.i.i, %98, %94
+decrypt_arcfour.exit.thread.i:                    ; preds = %.lr.ph.i.i.i, %decrypt_arcfour.exit.thread.sink.split.i, %.thread64.i.i, %156, %139, %120, %arcfour_mic_key.exit.i.i, %98, %94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -1273,8 +1272,8 @@ decrypt_arcfour.exit.thread.i:                    ; preds = %.lr.ph.i.i.i, %decr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   br label %181
 
-decrypt_arcfour.exit.i:                           ; preds = %.thread65.i.i, %153
-  %.046.i.i = phi i32 [ %91, %153 ], [ %167, %.thread65.i.i ]
+decrypt_arcfour.exit.i:                           ; preds = %.thread64.i.i, %153
+  %.046.i.i = phi i32 [ %91, %153 ], [ %167, %.thread64.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)

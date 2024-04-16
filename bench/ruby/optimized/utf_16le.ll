@@ -29,7 +29,7 @@ define internal i32 @utf16le_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr noc
   %6 = sub i64 %4, %5
   %7 = trunc i64 %6 to i32
   %8 = icmp slt i32 %7, 2
-  br i1 %8, label %28, label %9
+  br i1 %8, label %27, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 1
@@ -37,7 +37,7 @@ define internal i32 @utf16le_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr noc
   %12 = zext i8 %11 to i32
   %13 = and i32 %12, 248
   %14 = icmp eq i32 %13, 216
-  br i1 %14, label %15, label %28
+  br i1 %14, label %15, label %27
 
 15:                                               ; preds = %9
   %16 = and i32 %12, 220
@@ -50,25 +50,23 @@ define internal i32 @utf16le_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr noc
 
 20:                                               ; preds = %18
   %21 = add nuw nsw i32 %7, -5
-  br label %28
+  br label %27
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %0, i64 3
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, -4
   %26 = icmp eq i8 %25, -36
-  br i1 %26, label %28, label %27
+  %spec.select = select i1 %26, i32 4, i32 -1
+  br label %27
 
-27:                                               ; preds = %22, %15
-  br label %28
-
-28:                                               ; preds = %22, %9, %3, %27, %20
-  %.0 = phi i32 [ %21, %20 ], [ -1, %27 ], [ -2, %3 ], [ 2, %9 ], [ 4, %22 ]
+27:                                               ; preds = %22, %15, %9, %3, %20
+  %.0 = phi i32 [ %21, %20 ], [ -2, %3 ], [ 2, %9 ], [ -1, %15 ], [ %spec.select, %22 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @utf16le_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal i32 @utf16le_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = icmp ult ptr %4, %1
   br i1 %5, label %6, label %12
@@ -81,13 +79,11 @@ define internal noundef i32 @utf16le_is_mbc_newline(ptr noundef readonly %0, ptr
 9:                                                ; preds = %6
   %10 = load i8, ptr %4, align 1
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %13, label %12
+  %spec.select = zext i1 %11 to i32
+  br label %12
 
-12:                                               ; preds = %6, %9, %3
-  br label %13
-
-13:                                               ; preds = %9, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %9 ]
+12:                                               ; preds = %9, %3, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 

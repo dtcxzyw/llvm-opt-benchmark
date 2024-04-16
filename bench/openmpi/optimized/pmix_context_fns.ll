@@ -66,7 +66,7 @@ define noundef i32 @pmix_util_check_context_app(ptr nocapture noundef %0, ptr no
 9:                                                ; preds = %3
   %10 = tail call noalias ptr @pmix_path_findv(ptr noundef %4, i32 noundef 1, ptr noundef %2, ptr noundef %1) #7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %16, label %12
+  br i1 %11, label %15, label %12
 
 12:                                               ; preds = %9
   tail call void @free(ptr noundef %4) #7
@@ -76,13 +76,11 @@ define noundef i32 @pmix_util_check_context_app(ptr nocapture noundef %0, ptr no
 13:                                               ; preds = %3
   %14 = tail call i32 @access(ptr noundef %4, i32 noundef 1) #7
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %16
+  %spec.select = select i1 %.not, i32 0, i32 -73
+  br label %15
 
-15:                                               ; preds = %13, %12
-  br label %16
-
-16:                                               ; preds = %13, %9, %15
-  %.0 = phi i32 [ 0, %15 ], [ -190, %9 ], [ -73, %13 ]
+15:                                               ; preds = %13, %12, %9
+  %.0 = phi i32 [ -190, %9 ], [ 0, %12 ], [ %spec.select, %13 ]
   ret i32 %.0
 }
 

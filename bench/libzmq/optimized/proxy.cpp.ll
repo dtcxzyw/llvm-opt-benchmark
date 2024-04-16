@@ -161,8 +161,8 @@ if.end70:                                         ; preds = %new.cont23, %new.co
 lor.lhs.false75:                                  ; preds = %if.end70
   %cmp76 = icmp ne ptr %poller_send_blocked.0, null
   %cmp78 = icmp ne ptr %poller_both_blocked.0, null
-  %or.cond2.not369 = and i1 %cmp76, %cmp78
-  %brmerge = or i1 %cmp24.not, %or.cond2.not369
+  %or.cond2.not374 = and i1 %cmp76, %cmp78
+  %brmerge = or i1 %cmp24.not, %or.cond2.not374
   br i1 %brmerge, label %if.end99, label %delete.notnull
 
 do.body:                                          ; preds = %if.end70
@@ -1191,13 +1191,13 @@ if.end706:                                        ; preds = %do.end675, %if.end4
   br label %while.body
 
 while.body:                                       ; preds = %if.end706, %if.end997
-  %poller_wait.0402 = phi ptr [ %call2, %if.end706 ], [ %poller_wait.3, %if.end997 ]
-  %frontend_in.0401 = phi i8 [ 0, %if.end706 ], [ %frontend_in.4, %if.end997 ]
-  %frontend_out.0400 = phi i8 [ 0, %if.end706 ], [ %frontend_out.4, %if.end997 ]
-  %backend_in.0399 = phi i8 [ 0, %if.end706 ], [ %backend_in.4, %if.end997 ]
-  %backend_out.0398 = phi i8 [ 0, %if.end706 ], [ %backend_out.4, %if.end997 ]
-  %state.0397 = phi i32 [ 0, %if.end706 ], [ %state.1.lcssa, %if.end997 ]
-  %call708 = call noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 dereferenceable(56) %poller_wait.0402, ptr noundef nonnull %events, i32 noundef %nevents.0, i64 noundef -1)
+  %poller_wait.0412 = phi ptr [ %call2, %if.end706 ], [ %poller_wait.3, %if.end997 ]
+  %frontend_in.0411 = phi i8 [ 0, %if.end706 ], [ %frontend_in.4, %if.end997 ]
+  %frontend_out.0410 = phi i8 [ 0, %if.end706 ], [ %frontend_out.4, %if.end997 ]
+  %backend_in.0409 = phi i8 [ 0, %if.end706 ], [ %backend_in.4, %if.end997 ]
+  %backend_out.0408 = phi i8 [ 0, %if.end706 ], [ %backend_out.4, %if.end997 ]
+  %state.0407 = phi i32 [ 0, %if.end706 ], [ %state.1.lcssa, %if.end997 ]
+  %call708 = call noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 dereferenceable(56) %poller_wait.0412, ptr noundef nonnull %events, i32 noundef %nevents.0, i64 noundef -1)
   %cmp709 = icmp slt i32 %call708, 0
   br i1 %cmp709, label %land.lhs.true710, label %do.end743
 
@@ -1263,8 +1263,8 @@ land.lhs.true747:                                 ; preds = %do.end743
   br i1 %cmp749, label %for.end, label %delete.notnull757
 
 do.body752:                                       ; preds = %do.end743
-  %cmp781381.not = icmp eq i32 %call745, 0
-  br i1 %cmp781381.not, label %for.end, label %for.body.lr.ph
+  %cmp781391.not = icmp eq i32 %call745, 0
+  br i1 %cmp781391.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.body752
   %21 = load <2 x i64>, ptr %recv.i, align 16
@@ -1278,12 +1278,12 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
-  %indvars.iv405 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next406, %for.inc.us ]
-  %frontend_in.1386.us = phi i8 [ %frontend_in.0401, %for.body.us.preheader ], [ %frontend_in.2.us, %for.inc.us ]
-  %frontend_out.1385.us = phi i8 [ %frontend_out.0400, %for.body.us.preheader ], [ %frontend_out.2.us, %for.inc.us ]
-  %backend_in.1384.us = phi i8 [ %backend_in.0399, %for.body.us.preheader ], [ %backend_in.2.us, %for.inc.us ]
-  %backend_out.1383.us = phi i8 [ %backend_out.0398, %for.body.us.preheader ], [ %backend_out.2.us, %for.inc.us ]
-  %arrayidx818.us = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv405
+  %indvars.iv415 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next416, %for.inc.us ]
+  %frontend_in.1396.us = phi i8 [ %frontend_in.0411, %for.body.us.preheader ], [ %frontend_in.2.us, %for.inc.us ]
+  %frontend_out.1395.us = phi i8 [ %frontend_out.0410, %for.body.us.preheader ], [ %frontend_out.2.us, %for.inc.us ]
+  %backend_in.1394.us = phi i8 [ %backend_in.0409, %for.body.us.preheader ], [ %backend_in.2.us, %for.inc.us ]
+  %backend_out.1393.us = phi i8 [ %backend_out.0408, %for.body.us.preheader ], [ %backend_out.2.us, %for.inc.us ]
+  %arrayidx818.us = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv415
   %25 = load ptr, ptr %arrayidx818.us, align 16
   %cmp820.us = icmp eq ptr %25, %frontend_
   br i1 %cmp820.us, label %if.then821.us, label %if.else833.us
@@ -1307,12 +1307,12 @@ if.then821.us:                                    ; preds = %for.body.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then821.us, %if.then838.us, %if.else833.us
-  %backend_out.2.us = phi i8 [ %backend_out.1383.us, %if.then821.us ], [ %28, %if.then838.us ], [ %backend_out.1383.us, %if.else833.us ]
-  %backend_in.2.us = phi i8 [ %backend_in.1384.us, %if.then821.us ], [ %27, %if.then838.us ], [ %backend_in.1384.us, %if.else833.us ]
-  %frontend_out.2.us = phi i8 [ %31, %if.then821.us ], [ %frontend_out.1385.us, %if.then838.us ], [ %frontend_out.1385.us, %if.else833.us ]
-  %frontend_in.2.us = phi i8 [ %30, %if.then821.us ], [ %frontend_in.1386.us, %if.then838.us ], [ %frontend_in.1386.us, %if.else833.us ]
-  %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next406, %wide.trip.count
+  %backend_out.2.us = phi i8 [ %backend_out.1393.us, %if.then821.us ], [ %28, %if.then838.us ], [ %backend_out.1393.us, %if.else833.us ]
+  %backend_in.2.us = phi i8 [ %backend_in.1394.us, %if.then821.us ], [ %27, %if.then838.us ], [ %backend_in.1394.us, %if.else833.us ]
+  %frontend_out.2.us = phi i8 [ %31, %if.then821.us ], [ %frontend_out.1395.us, %if.then838.us ], [ %frontend_out.1395.us, %if.else833.us ]
+  %frontend_in.2.us = phi i8 [ %30, %if.then821.us ], [ %frontend_in.1396.us, %if.then838.us ], [ %frontend_in.1396.us, %if.else833.us ]
+  %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next416, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !4
 
 delete.notnull757:                                ; preds = %land.lhs.true747
@@ -1361,12 +1361,12 @@ do.end777:                                        ; preds = %delete.end773, %del
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
-  %rc.2387 = phi i32 [ %rc.3, %for.inc ], [ %call745, %for.body.lr.ph ]
-  %frontend_in.1386 = phi i8 [ %frontend_in.2, %for.inc ], [ %frontend_in.0401, %for.body.lr.ph ]
-  %frontend_out.1385 = phi i8 [ %frontend_out.2, %for.inc ], [ %frontend_out.0400, %for.body.lr.ph ]
-  %backend_in.1384 = phi i8 [ %backend_in.2, %for.inc ], [ %backend_in.0399, %for.body.lr.ph ]
-  %backend_out.1383 = phi i8 [ %backend_out.2, %for.inc ], [ %backend_out.0398, %for.body.lr.ph ]
-  %state.1382 = phi i32 [ %state.4, %for.inc ], [ %state.0397, %for.body.lr.ph ]
+  %rc.2397 = phi i32 [ %rc.3, %for.inc ], [ %call745, %for.body.lr.ph ]
+  %frontend_in.1396 = phi i8 [ %frontend_in.2, %for.inc ], [ %frontend_in.0411, %for.body.lr.ph ]
+  %frontend_out.1395 = phi i8 [ %frontend_out.2, %for.inc ], [ %frontend_out.0410, %for.body.lr.ph ]
+  %backend_in.1394 = phi i8 [ %backend_in.2, %for.inc ], [ %backend_in.0409, %for.body.lr.ph ]
+  %backend_out.1393 = phi i8 [ %backend_out.2, %for.inc ], [ %backend_out.0408, %for.body.lr.ph ]
+  %state.1392 = phi i32 [ %state.4, %for.inc ], [ %state.0407, %for.body.lr.ph ]
   %arrayidx = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv
   %32 = load ptr, ptr %arrayidx, align 16
   %cmp784 = icmp eq ptr %32, %control_
@@ -1379,12 +1379,12 @@ if.then785:                                       ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
   %call.i352 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %cmsg.i)
   %cmp.not.i353 = icmp eq i32 %call.i352, 0
-  br i1 %cmp.not.i353, label %if.end.i, label %delete.notnull792
+  br i1 %cmp.not.i353, label %if.end.i, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread
 
 if.end.i:                                         ; preds = %if.then785
   %call1.i354 = call noundef i32 @_ZN3zmq13socket_base_t4recvEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %control_, ptr noundef nonnull %cmsg.i, i32 noundef 1)
   %cmp2.i = icmp slt i32 %call1.i354, 0
-  br i1 %cmp2.i, label %delete.notnull792, label %if.end4.i
+  br i1 %cmp2.i, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i355 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %cmsg.i)
@@ -1411,7 +1411,7 @@ if.then10.i:                                      ; preds = %land.lhs.true.i
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %ind.028.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363, label %for.body.i, !llvm.loop !6
 
 for.body.i:                                       ; preds = %for.cond.i, %if.then10.i
   %ind.028.i = phi i64 [ 0, %if.then10.i ], [ %inc.i, %for.cond.i ]
@@ -1424,7 +1424,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.the
   %cond.i = select i1 %cmp38.not.i, i32 0, i32 2
   %call39.i = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %control_, ptr noundef nonnull %cmsg.i, i32 noundef %cond.i)
   %cmp40.i = icmp slt i32 %call39.i, 0
-  br i1 %cmp40.i, label %delete.notnull792, label %for.cond.i
+  br i1 %cmp40.i, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread, label %for.cond.i
 
 land.lhs.true45.i:                                ; preds = %if.end4.i
   %bcmp26.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call5.i355, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
@@ -1446,32 +1446,39 @@ if.end62.sink.split.i:                            ; preds = %land.lhs.true56.i, 
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.end62.sink.split.i, %land.lhs.true56.i, %land.lhs.true50.i, %land.lhs.true45.i, %land.lhs.true.i, %if.end4.i
-  %state.2 = phi i32 [ %state.1382, %if.end4.i ], [ %.sink.i, %if.end62.sink.split.i ], [ %state.1382, %land.lhs.true56.i ], [ %state.1382, %land.lhs.true50.i ], [ %state.1382, %land.lhs.true45.i ], [ %state.1382, %land.lhs.true.i ]
+  %state.2 = phi i32 [ %state.1392, %if.end4.i ], [ %.sink.i, %if.end62.sink.split.i ], [ %state.1392, %land.lhs.true56.i ], [ %state.1392, %land.lhs.true50.i ], [ %state.1392, %land.lhs.true45.i ], [ %state.1392, %land.lhs.true.i ]
   store i64 4, ptr %sz.i, align 8
   %call63.i = call i32 @zmq_getsockopt(ptr noundef nonnull %control_, i32 noundef 16, ptr noundef nonnull %type.i, ptr noundef nonnull %sz.i)
   %34 = load i32, ptr %type.i, align 4
   %cmp64.i = icmp eq i32 %34, 4
-  br i1 %cmp64.i, label %if.then65.i, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit
+  br i1 %cmp64.i, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363
 
-if.then65.i:                                      ; preds = %if.end62.i
-  %call66.i = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %cmsg.i, i64 noundef 0)
-  %call67.i = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %control_, ptr noundef nonnull %cmsg.i, i32 noundef 0)
-  %cmp68.i = icmp slt i32 %call67.i, 0
-  br i1 %cmp68.i, label %delete.notnull792, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit
+_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread: ; preds = %if.then785, %if.end.i, %for.body.i
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %cmsg.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %stat_vals.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
+  br label %delete.notnull792
 
-_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ; preds = %for.cond.i, %if.end62.i, %if.then65.i
-  %state.3 = phi i32 [ %state.2, %if.then65.i ], [ %state.2, %if.end62.i ], [ %state.1382, %for.cond.i ]
+_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363: ; preds = %for.cond.i, %if.end62.i
+  %state.3.ph = phi i32 [ %state.2, %if.end62.i ], [ %state.1392, %for.cond.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %cmsg.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %stat_vals.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
   br label %for.inc
 
-delete.notnull792:                                ; preds = %if.then785, %if.end.i, %if.then65.i, %for.body.i
+_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ; preds = %if.end62.i
+  %call66.i = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %cmsg.i, i64 noundef 0)
+  %call67.i = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %control_, ptr noundef nonnull %cmsg.i, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %cmsg.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %stat_vals.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
+  %cmp788 = icmp slt i32 %call67.i, 0
+  br i1 %cmp788, label %delete.notnull792, label %for.inc
+
+delete.notnull792:                                ; preds = %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1) #11
   call void @_ZdlPv(ptr noundef %call1) #12
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %call2) #11
@@ -1537,24 +1544,24 @@ if.then838:                                       ; preds = %if.else833
   %40 = lshr i8 %39, 1
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit, %if.then821, %if.then838, %if.else833
-  %state.4 = phi i32 [ %state.1382, %if.then821 ], [ %state.1382, %if.then838 ], [ %state.1382, %if.else833 ], [ %state.3, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %backend_out.2 = phi i8 [ %backend_out.1383, %if.then821 ], [ %40, %if.then838 ], [ %backend_out.1383, %if.else833 ], [ %backend_out.1383, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %backend_in.2 = phi i8 [ %backend_in.1384, %if.then821 ], [ %39, %if.then838 ], [ %backend_in.1384, %if.else833 ], [ %backend_in.1384, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %frontend_out.2 = phi i8 [ %37, %if.then821 ], [ %frontend_out.1385, %if.then838 ], [ %frontend_out.1385, %if.else833 ], [ %frontend_out.1385, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %frontend_in.2 = phi i8 [ %36, %if.then821 ], [ %frontend_in.1386, %if.then838 ], [ %frontend_in.1386, %if.else833 ], [ %frontend_in.1386, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %rc.3 = phi i32 [ %rc.2387, %if.then821 ], [ %rc.2387, %if.then838 ], [ %rc.2387, %if.else833 ], [ 0, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+for.inc:                                          ; preds = %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363, %if.then821, %if.then838, %if.else833, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit
+  %state.4 = phi i32 [ %state.1392, %if.then821 ], [ %state.1392, %if.then838 ], [ %state.1392, %if.else833 ], [ %state.2, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ], [ %state.3.ph, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363 ]
+  %backend_out.2 = phi i8 [ %backend_out.1393, %if.then821 ], [ %40, %if.then838 ], [ %backend_out.1393, %if.else833 ], [ %backend_out.1393, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ], [ %backend_out.1393, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363 ]
+  %backend_in.2 = phi i8 [ %backend_in.1394, %if.then821 ], [ %39, %if.then838 ], [ %backend_in.1394, %if.else833 ], [ %backend_in.1394, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ], [ %backend_in.1394, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363 ]
+  %frontend_out.2 = phi i8 [ %37, %if.then821 ], [ %frontend_out.1395, %if.then838 ], [ %frontend_out.1395, %if.else833 ], [ %frontend_out.1395, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ], [ %frontend_out.1395, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363 ]
+  %frontend_in.2 = phi i8 [ %36, %if.then821 ], [ %frontend_in.1396, %if.then838 ], [ %frontend_in.1396, %if.else833 ], [ %frontend_in.1396, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ], [ %frontend_in.1396, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363 ]
+  %rc.3 = phi i32 [ %rc.2397, %if.then821 ], [ %rc.2397, %if.then838 ], [ %rc.2397, %if.else833 ], [ 0, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ], [ 0, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread363 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = sext i32 %rc.3 to i64
   %cmp781 = icmp slt i64 %indvars.iv.next, %41
   br i1 %cmp781, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %land.lhs.true747, %do.body752
-  %state.1.lcssa = phi i32 [ %state.0397, %do.body752 ], [ %state.0397, %land.lhs.true747 ], [ %state.0397, %for.inc.us ], [ %state.4, %for.inc ]
-  %backend_out.1.lcssa = phi i8 [ %backend_out.0398, %do.body752 ], [ %backend_out.0398, %land.lhs.true747 ], [ %backend_out.2.us, %for.inc.us ], [ %backend_out.2, %for.inc ]
-  %backend_in.1.lcssa = phi i8 [ %backend_in.0399, %do.body752 ], [ %backend_in.0399, %land.lhs.true747 ], [ %backend_in.2.us, %for.inc.us ], [ %backend_in.2, %for.inc ]
-  %frontend_out.1.lcssa = phi i8 [ %frontend_out.0400, %do.body752 ], [ %frontend_out.0400, %land.lhs.true747 ], [ %frontend_out.2.us, %for.inc.us ], [ %frontend_out.2, %for.inc ]
-  %frontend_in.1.lcssa = phi i8 [ %frontend_in.0401, %do.body752 ], [ %frontend_in.0401, %land.lhs.true747 ], [ %frontend_in.2.us, %for.inc.us ], [ %frontend_in.2, %for.inc ]
+  %state.1.lcssa = phi i32 [ %state.0407, %do.body752 ], [ %state.0407, %land.lhs.true747 ], [ %state.0407, %for.inc.us ], [ %state.4, %for.inc ]
+  %backend_out.1.lcssa = phi i8 [ %backend_out.0408, %do.body752 ], [ %backend_out.0408, %land.lhs.true747 ], [ %backend_out.2.us, %for.inc.us ], [ %backend_out.2, %for.inc ]
+  %backend_in.1.lcssa = phi i8 [ %backend_in.0409, %do.body752 ], [ %backend_in.0409, %land.lhs.true747 ], [ %backend_in.2.us, %for.inc.us ], [ %backend_in.2, %for.inc ]
+  %frontend_out.1.lcssa = phi i8 [ %frontend_out.0410, %do.body752 ], [ %frontend_out.0410, %land.lhs.true747 ], [ %frontend_out.2.us, %for.inc.us ], [ %frontend_out.2, %for.inc ]
+  %frontend_in.1.lcssa = phi i8 [ %frontend_in.0411, %do.body752 ], [ %frontend_in.0411, %land.lhs.true747 ], [ %frontend_in.2.us, %for.inc.us ], [ %frontend_in.2, %for.inc ]
   %cmp856 = icmp eq i32 %state.1.lcssa, 0
   br i1 %cmp856, label %if.then857, label %if.end997
 
@@ -1677,48 +1684,48 @@ if.end935:                                        ; preds = %if.end895, %land.lh
   br i1 %or.cond333, label %if.then939.thread, label %if.else967
 
 if.then939:                                       ; preds = %if.then899
-  %cmp940.not = icmp eq ptr %poller_wait.0402, %call2
+  %cmp940.not = icmp eq ptr %poller_wait.0412, %call2
   br i1 %cmp940.not, label %if.end997, label %if.then941
 
 if.then939.thread:                                ; preds = %if.end935
-  %cmp940.not412 = icmp eq ptr %poller_wait.0402, %call2
-  br i1 %cmp940.not412, label %if.end997, label %if.then943.thread
+  %cmp940.not422 = icmp eq ptr %poller_wait.0412, %call2
+  br i1 %cmp940.not422, label %if.end997, label %if.then943.thread
 
 if.then941:                                       ; preds = %if.then939
   br i1 %or.cond333, label %if.then943, label %if.then955
 
 if.then943:                                       ; preds = %if.then941
-  %cmp944 = icmp eq ptr %poller_wait.0402, %poller_both_blocked.0
+  %cmp944 = icmp eq ptr %poller_wait.0412, %poller_both_blocked.0
   br i1 %cmp944, label %if.then955, label %if.else946
 
 if.then943.thread:                                ; preds = %if.then939.thread
-  %cmp944435 = icmp eq ptr %poller_wait.0402, %poller_both_blocked.0
-  br i1 %cmp944435, label %if.end997, label %if.else946.thread
+  %cmp944445 = icmp eq ptr %poller_wait.0412, %poller_both_blocked.0
+  br i1 %cmp944445, label %if.end997, label %if.else946.thread
 
 if.else946.thread:                                ; preds = %if.then943.thread
-  %cmp947442 = icmp eq ptr %poller_wait.0402, %call13
-  %cmp949443 = icmp eq ptr %poller_wait.0402, %poller_frontend_only.0
-  %or.cond329444 = or i1 %cmp947442, %cmp949443
-  %spec.select334445 = select i1 %or.cond329444, ptr %call2, ptr %poller_wait.0402
+  %cmp947452 = icmp eq ptr %poller_wait.0412, %call13
+  %cmp949453 = icmp eq ptr %poller_wait.0412, %poller_frontend_only.0
+  %or.cond329454 = or i1 %cmp947452, %cmp949453
+  %spec.select334455 = select i1 %or.cond329454, ptr %call2, ptr %poller_wait.0412
   br label %if.end997
 
 if.else946:                                       ; preds = %if.then943
-  %cmp947 = icmp eq ptr %poller_wait.0402, %call13
-  %cmp949 = icmp eq ptr %poller_wait.0402, %poller_frontend_only.0
+  %cmp947 = icmp eq ptr %poller_wait.0412, %call13
+  %cmp949 = icmp eq ptr %poller_wait.0412, %poller_frontend_only.0
   %or.cond329 = or i1 %cmp947, %cmp949
-  %spec.select334 = select i1 %or.cond329, ptr %call2, ptr %poller_wait.0402
+  %spec.select334 = select i1 %or.cond329, ptr %call2, ptr %poller_wait.0412
   br label %if.then955
 
 if.then955:                                       ; preds = %if.then943, %if.else946, %if.then941
-  %poller_wait.1431 = phi ptr [ %spec.select334, %if.else946 ], [ %poller_wait.0402, %if.then941 ], [ %poller_send_blocked.0, %if.then943 ]
-  %cmp956 = icmp eq ptr %poller_wait.1431, %poller_both_blocked.0
+  %poller_wait.1441 = phi ptr [ %spec.select334, %if.else946 ], [ %poller_wait.0412, %if.then941 ], [ %poller_send_blocked.0, %if.then943 ]
+  %cmp956 = icmp eq ptr %poller_wait.1441, %poller_both_blocked.0
   br i1 %cmp956, label %if.end997, label %if.else958
 
 if.else958:                                       ; preds = %if.then955
-  %cmp959 = icmp eq ptr %poller_wait.1431, %poller_send_blocked.0
-  %cmp961 = icmp eq ptr %poller_wait.1431, %poller_backend_only.0
+  %cmp959 = icmp eq ptr %poller_wait.1441, %poller_send_blocked.0
+  %cmp961 = icmp eq ptr %poller_wait.1441, %poller_backend_only.0
   %or.cond330 = or i1 %cmp959, %cmp961
-  %spec.select335 = select i1 %or.cond330, ptr %call2, ptr %poller_wait.1431
+  %spec.select335 = select i1 %or.cond330, ptr %call2, ptr %poller_wait.1441
   br label %if.end997
 
 if.else967:                                       ; preds = %if.end935
@@ -1730,16 +1737,16 @@ if.then969:                                       ; preds = %if.else967
   br i1 %tobool970, label %if.end981, label %if.else972
 
 if.else972:                                       ; preds = %if.then969
-  %cmp973 = icmp eq ptr %poller_wait.0402, %poller_send_blocked.0
+  %cmp973 = icmp eq ptr %poller_wait.0412, %poller_send_blocked.0
   br i1 %cmp973, label %if.end981, label %if.else975
 
 if.else975:                                       ; preds = %if.else972
-  %cmp976 = icmp eq ptr %poller_wait.0402, %call2
-  %spec.select331 = select i1 %cmp976, ptr %call13, ptr %poller_wait.0402
+  %cmp976 = icmp eq ptr %poller_wait.0412, %call2
+  %spec.select331 = select i1 %cmp976, ptr %call13, ptr %poller_wait.0412
   br label %if.end981
 
 if.end981:                                        ; preds = %if.else975, %if.else972, %if.then969, %if.else967
-  %poller_wait.2 = phi ptr [ %poller_wait.0402, %if.else967 ], [ %poller_backend_only.0, %if.then969 ], [ %poller_both_blocked.0, %if.else972 ], [ %spec.select331, %if.else975 ]
+  %poller_wait.2 = phi ptr [ %poller_wait.0412, %if.else967 ], [ %poller_backend_only.0, %if.then969 ], [ %poller_both_blocked.0, %if.else972 ], [ %spec.select331, %if.else975 ]
   br i1 %tobool896, label %if.then983, label %if.end997
 
 if.then983:                                       ; preds = %if.end981
@@ -1760,7 +1767,7 @@ if.end997:                                        ; preds = %if.then943.thread, 
   %backend_in.4 = phi i8 [ 0, %if.then939 ], [ %backend_in.1.lcssa, %if.end981 ], [ %backend_in.1.lcssa, %for.end ], [ 0, %if.then955 ], [ %backend_in.1.lcssa, %if.then983 ], [ %backend_in.1.lcssa, %if.else986 ], [ %backend_in.1.lcssa, %if.else989 ], [ 0, %if.else958 ], [ %backend_in.1.lcssa, %if.then939.thread ], [ %backend_in.1.lcssa, %if.else946.thread ], [ %backend_in.1.lcssa, %if.then943.thread ]
   %frontend_out.4 = phi i8 [ 0, %if.then939 ], [ %frontend_out.1.lcssa, %if.end981 ], [ %frontend_out.1.lcssa, %for.end ], [ 0, %if.then955 ], [ %frontend_out.1.lcssa, %if.then983 ], [ %frontend_out.1.lcssa, %if.else986 ], [ %frontend_out.1.lcssa, %if.else989 ], [ 0, %if.else958 ], [ %frontend_out.1.lcssa, %if.then939.thread ], [ %frontend_out.1.lcssa, %if.else946.thread ], [ %frontend_out.1.lcssa, %if.then943.thread ]
   %frontend_in.4 = phi i8 [ %frontend_in.3, %if.then939 ], [ %frontend_in.3, %if.end981 ], [ %frontend_in.1.lcssa, %for.end ], [ %frontend_in.3, %if.then955 ], [ %frontend_in.3, %if.then983 ], [ %frontend_in.3, %if.else986 ], [ %frontend_in.3, %if.else989 ], [ %frontend_in.3, %if.else958 ], [ %frontend_in.3, %if.then939.thread ], [ %frontend_in.3, %if.else946.thread ], [ %frontend_in.3, %if.then943.thread ]
-  %poller_wait.3 = phi ptr [ %call2, %if.then939 ], [ %poller_wait.2, %if.end981 ], [ %poller_wait.0402, %for.end ], [ %call13, %if.then955 ], [ %poller_frontend_only.0, %if.then983 ], [ %poller_both_blocked.0, %if.else986 ], [ %spec.select332, %if.else989 ], [ %spec.select335, %if.else958 ], [ %call2, %if.then939.thread ], [ %spec.select334445, %if.else946.thread ], [ %poller_send_blocked.0, %if.then943.thread ]
+  %poller_wait.3 = phi ptr [ %call2, %if.then939 ], [ %poller_wait.2, %if.end981 ], [ %poller_wait.0412, %for.end ], [ %call13, %if.then955 ], [ %poller_frontend_only.0, %if.then983 ], [ %poller_both_blocked.0, %if.else986 ], [ %spec.select332, %if.else989 ], [ %spec.select335, %if.else958 ], [ %call2, %if.then939.thread ], [ %spec.select334455, %if.else946.thread ], [ %poller_send_blocked.0, %if.then943.thread ]
   %cmp707.not = icmp eq i32 %state.1.lcssa, 2
   br i1 %cmp707.not, label %delete.notnull1000, label %while.body, !llvm.loop !8
 
@@ -1881,7 +1888,7 @@ entry:
   br i1 %tobool.not.i, label %while.body.preheader.us, label %while.body.preheader
 
 while.body.preheader.us:                          ; preds = %entry, %for.inc.split.us.us
-  %i.019.us = phi i32 [ %inc.us, %for.inc.split.us.us ], [ 0, %entry ]
+  %i.022.us = phi i32 [ %inc.us, %for.inc.split.us.us ], [ 0, %entry ]
   br label %while.body.us.us
 
 while.body.us.us:                                 ; preds = %if.end20.us.us, %while.body.preheader.us
@@ -1917,12 +1924,12 @@ if.end20.us.us:                                   ; preds = %if.end12.us.us
   br i1 %cmp25.us.us, label %for.inc.split.us.us, label %while.body.us.us, !llvm.loop !9
 
 for.inc.split.us.us:                              ; preds = %if.end20.us.us
-  %inc.us = add nuw nsw i32 %i.019.us, 1
-  %exitcond30.not = icmp eq i32 %inc.us, 1000
-  br i1 %exitcond30.not, label %return, label %while.body.preheader.us, !llvm.loop !10
+  %inc.us = add nuw nsw i32 %i.022.us, 1
+  %exitcond33.not = icmp eq i32 %inc.us, 1000
+  br i1 %exitcond33.not, label %return, label %while.body.preheader.us, !llvm.loop !10
 
 while.body.preheader:                             ; preds = %entry, %for.inc.split
-  %i.019 = phi i32 [ %inc, %for.inc.split ], [ 0, %entry ]
+  %i.022 = phi i32 [ %inc, %for.inc.split ], [ 0, %entry ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end20
@@ -1931,7 +1938,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp1, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %while.body, %while.body.us.us
-  %.us-phi = phi i32 [ %i.019.us, %while.body.us.us ], [ %i.019, %while.body ]
+  %.us-phi = phi i32 [ %i.022.us, %while.body.us.us ], [ %i.022, %while.body ]
   %call2 = tail call ptr @__errno_location() #13
   %7 = load i32, ptr %call2, align 4
   %cmp3 = icmp ne i32 %7, 11
@@ -1961,21 +1968,21 @@ if.end12:                                         ; preds = %if.end6
 if.end.i:                                         ; preds = %if.end12
   %call2.i = call noundef i32 @_ZN3zmq5msg_t4copyERS0_(ptr noundef nonnull align 8 dereferenceable(64) %ctrl.i, ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp3.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp3.i, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %if.end5.i
+  br i1 %cmp3.i, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit
 
-if.end5.i:                                        ; preds = %if.end.i
-  %tobool6.not.i = icmp eq i32 %11, 0
-  %cond.i = select i1 %tobool6.not.i, i32 0, i32 2
-  %call7.i = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %capture_, ptr noundef nonnull %ctrl.i, i32 noundef %cond.i)
-  %cmp8.i = icmp slt i32 %call7.i, 0
-  br i1 %cmp8.i, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %if.end16
-
-_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread: ; preds = %if.end12, %if.end.i, %if.end5.i
+_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread: ; preds = %if.end12, %if.end.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ctrl.i)
   br label %return
 
-if.end16:                                         ; preds = %if.end5.i
+_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit: ; preds = %if.end.i
+  %tobool6.not.i = icmp eq i32 %11, 0
+  %cond.i = select i1 %tobool6.not.i, i32 0, i32 2
+  %call7.i = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %capture_, ptr noundef nonnull %ctrl.i, i32 noundef %cond.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ctrl.i)
+  %cmp14 = icmp slt i32 %call7.i, 0
+  br i1 %cmp14, label %return, label %if.end16
+
+if.end16:                                         ; preds = %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit
   %12 = load i32, ptr %more, align 4
   %tobool.not = icmp eq i32 %12, 0
   %cond = select i1 %tobool.not, i32 0, i32 2
@@ -1992,12 +1999,12 @@ if.end20:                                         ; preds = %if.end16
   br i1 %cmp25, label %for.inc.split, label %while.body, !llvm.loop !9
 
 for.inc.split:                                    ; preds = %if.end20
-  %inc = add nuw nsw i32 %i.019, 1
+  %inc = add nuw nsw i32 %i.022, 1
   %exitcond.not = icmp eq i32 %inc, 1000
   br i1 %exitcond.not, label %return, label %while.body.preheader, !llvm.loop !10
 
-return:                                           ; preds = %for.inc.split, %if.end6, %if.end16, %for.inc.split.us.us, %if.end6.us.us, %if.end12.us.us, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, %if.then
-  %retval.0 = phi i32 [ %., %if.then ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread ], [ -1, %if.end12.us.us ], [ -1, %if.end6.us.us ], [ 0, %for.inc.split.us.us ], [ -1, %if.end16 ], [ -1, %if.end6 ], [ 0, %for.inc.split ]
+return:                                           ; preds = %for.inc.split, %if.end6, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit, %if.end16, %for.inc.split.us.us, %if.end6.us.us, %if.end12.us.us, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, %if.then
+  %retval.0 = phi i32 [ %., %if.then ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread ], [ -1, %if.end12.us.us ], [ -1, %if.end6.us.us ], [ 0, %for.inc.split.us.us ], [ -1, %if.end16 ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit ], [ -1, %if.end6 ], [ 0, %for.inc.split ]
   ret i32 %retval.0
 }
 

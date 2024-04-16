@@ -555,17 +555,16 @@ define dso_local i32 @snd_hdac_get_active_channels(i32 noundef %0) #4 align 16 {
 10:                                               ; preds = %2
   %11 = trunc i64 %3 to i32
   %12 = icmp ugt i32 %11, 49
-  br i1 %12, label %.thread, label %13
+  %13 = shl i64 %3, 32
+  %14 = ashr exact i64 %13, 32
+  %15 = select i1 %12, i64 0, i64 %14
+  br label %.thread
 
 .thread:                                          ; preds = %7, %10
-  br label %13
-
-13:                                               ; preds = %10, %.thread
-  %14 = phi i64 [ 0, %.thread ], [ %3, %10 ]
-  %15 = and i64 %14, 4294967295
-  %16 = getelementptr [50 x %struct.hdac_cea_channel_speaker_allocation], ptr @channel_allocations, i64 0, i64 %15, i32 2
-  %17 = load i32, ptr %16, align 4
-  ret i32 %17
+  %16 = phi i64 [ %15, %10 ], [ 0, %7 ]
+  %17 = getelementptr [50 x %struct.hdac_cea_channel_speaker_allocation], ptr @channel_allocations, i64 0, i64 %16, i32 2
+  %18 = load i32, ptr %17, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: none, inaccessiblemem: none)

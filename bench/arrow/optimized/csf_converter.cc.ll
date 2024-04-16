@@ -857,7 +857,8 @@ sw.bb25.i.i.i.i.i.i:                              ; preds = %if.end23.i.i.i.i.i.
   %__first.addr.2.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ %incdec.ptr24.i.i.i.i.i.i, %if.end23.i.i.i.i.i.i ]
   %74 = load i8, ptr %__first.addr.2.i.i.i.i.i.i, align 1
   %cmp.i759.not.i = icmp eq i8 %74, 0
-  br i1 %cmp.i759.not.i, label %if.end187.i, label %invoke.cont103.i
+  %spec.select.i.i.i.i.i.i = select i1 %cmp.i759.not.i, ptr %add.ptr102.i, ptr %__first.addr.2.i.i.i.i.i.i
+  br label %invoke.cont103.i
 
 invoke.cont103.i.loopexit.split.loop.exit:        ; preds = %if.end7.i.i.i.i.i.i
   %incdec.ptr8.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i.i.i, i64 3
@@ -872,7 +873,7 @@ invoke.cont103.i.loopexit.split.loop.exit225:     ; preds = %if.end.i.i.i.i.i.i
   br label %invoke.cont103.i
 
 invoke.cont103.i:                                 ; preds = %for.body.i.i.i.i.i.i, %invoke.cont103.i.loopexit.split.loop.exit, %invoke.cont103.i.loopexit.split.loop.exit223, %invoke.cont103.i.loopexit.split.loop.exit225, %sw.bb25.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i ], [ %incdec.ptr8.i.i.i.i.i.i.le, %invoke.cont103.i.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.i.i.le, %invoke.cont103.i.loopexit.split.loop.exit223 ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont103.i.loopexit.split.loop.exit225 ], [ %__first.addr.049.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i ], [ %incdec.ptr8.i.i.i.i.i.i.le, %invoke.cont103.i.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.i.i.le, %invoke.cont103.i.loopexit.split.loop.exit223 ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont103.i.loopexit.split.loop.exit225 ], [ %__first.addr.049.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %cmp.i.i202.not.i = icmp eq ptr %retval.0.i.i.i.i.i.i, %add.ptr102.i
   br i1 %cmp.i.i202.not.i, label %if.end187.i, label %if.then105.i
 
@@ -1101,11 +1102,11 @@ _ZNSt6vectorIlSaIlEEaSERKS1_.exit.i:              ; preds = %if.then.i.i.i.i.i.i
   %add.ptr72.i.i = getelementptr inbounds i8, ptr %previous_coord.sroa.0.3.i, i64 %sub.ptr.sub.i.i.i.i
   br label %if.end187.i
 
-if.end187.i:                                      ; preds = %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i, %invoke.cont103.i, %sw.bb25.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %previous_coord.sroa.0.4.i = phi ptr [ %previous_coord.sroa.0.3.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.0.2852.i, %invoke.cont103.i ], [ %previous_coord.sroa.0.2852.i, %for.end.i.i.i.i.i.i ], [ %previous_coord.sroa.0.2852.i, %sw.bb25.i.i.i.i.i.i ]
-  %previous_coord.sroa.10.1.i = phi ptr [ %add.ptr72.i.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.10.0853.i, %invoke.cont103.i ], [ %previous_coord.sroa.10.0853.i, %for.end.i.i.i.i.i.i ], [ %previous_coord.sroa.10.0853.i, %sw.bb25.i.i.i.i.i.i ]
-  %previous_coord.sroa.16.3.i = phi ptr [ %previous_coord.sroa.16.2.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.16.1855.i, %invoke.cont103.i ], [ %previous_coord.sroa.16.1855.i, %for.end.i.i.i.i.i.i ], [ %previous_coord.sroa.16.1855.i, %sw.bb25.i.i.i.i.i.i ]
-  %values.1.i = phi ptr [ %add.ptr109.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %values.0858.i, %invoke.cont103.i ], [ %values.0858.i, %for.end.i.i.i.i.i.i ], [ %values.0858.i, %sw.bb25.i.i.i.i.i.i ]
+if.end187.i:                                      ; preds = %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i, %invoke.cont103.i, %for.end.i.i.i.i.i.i
+  %previous_coord.sroa.0.4.i = phi ptr [ %previous_coord.sroa.0.3.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.0.2852.i, %invoke.cont103.i ], [ %previous_coord.sroa.0.2852.i, %for.end.i.i.i.i.i.i ]
+  %previous_coord.sroa.10.1.i = phi ptr [ %add.ptr72.i.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.10.0853.i, %invoke.cont103.i ], [ %previous_coord.sroa.10.0853.i, %for.end.i.i.i.i.i.i ]
+  %previous_coord.sroa.16.3.i = phi ptr [ %previous_coord.sroa.16.2.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.16.1855.i, %invoke.cont103.i ], [ %previous_coord.sroa.16.1855.i, %for.end.i.i.i.i.i.i ]
+  %values.1.i = phi ptr [ %add.ptr109.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %values.0858.i, %invoke.cont103.i ], [ %values.0858.i, %for.end.i.i.i.i.i.i ]
   %100 = load ptr, ptr %_M_finish.i.i392.i, align 8
   %101 = load ptr, ptr %shape_.i199.i, align 8
   %sub.ptr.lhs.cast.i.i393.i = ptrtoint ptr %100 to i64
@@ -7401,7 +7402,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -7412,13 +7413,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #15
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

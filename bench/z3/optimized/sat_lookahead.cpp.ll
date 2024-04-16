@@ -9496,7 +9496,7 @@ for.body6.lr.ph:                                  ; preds = %_ZNK6vectorIS_IN3sa
 
 for.body6.us:                                     ; preds = %for.body6.lr.ph, %for.inc45.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %for.inc45.us ], [ 0, %for.body6.lr.ph ]
-  %7 = trunc i64 %indvars.iv53 to i32
+  %7 = trunc nuw i64 %indvars.iv53 to i32
   %xor.i.us = xor i32 %7, 1
   %8 = load ptr, ptr %this, align 8
   %shr.i.us = lshr i64 %indvars.iv53, 1
@@ -9565,7 +9565,7 @@ for.inc43.us.us:                                  ; preds = %if.then37.us.us, %l
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %for.inc45
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc45 ], [ 0, %for.body6.lr.ph ]
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw i64 %indvars.iv to i32
   %xor.i = xor i32 %20, 1
   %21 = load ptr, ptr %this, align 8
   %shr.i = lshr i64 %indvars.iv, 1
@@ -13304,7 +13304,7 @@ for.body46.lr.ph:                                 ; preds = %for.cond44.preheade
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc41
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc41 ]
   %4 = load ptr, ptr %this, align 8
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %shr.i = lshr i64 %indvars.iv, 1
   %m_eliminated.i = getelementptr inbounds i8, ptr %4, i64 3480
   %6 = load ptr, ptr %m_eliminated.i, align 8
@@ -13524,7 +13524,7 @@ for.body132.lr.ph:                                ; preds = %for.cond130.prehead
 for.body46:                                       ; preds = %for.body46.lr.ph, %for.inc126
   %indvars.iv395 = phi i64 [ 0, %for.body46.lr.ph ], [ %indvars.iv.next396, %for.inc126 ]
   %51 = load i32, ptr %m_level.i105, align 8
-  %52 = trunc i64 %indvars.iv395 to i32
+  %52 = trunc nuw i64 %indvars.iv395 to i32
   %shr.i.i.i.i107 = lshr i64 %indvars.iv395, 1
   %53 = load ptr, ptr %m_stamp.i.i.i106, align 8
   %idxprom.i.i.i.i108 = and i64 %shr.i.i.i.i107, 2147483647
@@ -16036,8 +16036,8 @@ land.lhs.true:                                    ; preds = %lor.lhs.false21
   %cmp24 = icmp eq i32 %rem.i, 0
   br i1 %cmp24, label %if.end28, label %for.inc
 
-if.end28:                                         ; preds = %_ZNK3sat9lookahead8mix_diffEdd.exit, %land.lhs.true
-  %count.2 = phi i32 [ %inc, %land.lhs.true ], [ 1, %_ZNK3sat9lookahead8mix_diffEdd.exit ]
+if.end28:                                         ; preds = %land.lhs.true, %_ZNK3sat9lookahead8mix_diffEdd.exit
+  %count.2 = phi i32 [ 1, %_ZNK3sat9lookahead8mix_diffEdd.exit ], [ %inc, %land.lhs.true ]
   %cmp29 = fcmp olt double %9, %10
   br i1 %cmp29, label %for.inc, label %cond.false
 
@@ -17338,7 +17338,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false21.i
   br i1 %cmp24.i, label %if.end28.i, label %for.inc.i
 
 if.end28.i:                                       ; preds = %land.lhs.true.i, %_ZNK3sat9lookahead8mix_diffEdd.exit.i
-  %count.2.i = phi i32 [ %inc.i37, %land.lhs.true.i ], [ 1, %_ZNK3sat9lookahead8mix_diffEdd.exit.i ]
+  %count.2.i = phi i32 [ 1, %_ZNK3sat9lookahead8mix_diffEdd.exit.i ], [ %inc.i37, %land.lhs.true.i ]
   %cmp29.i = fcmp olt double %22, %23
   br i1 %cmp29.i, label %for.inc.i, label %cond.false.i
 
@@ -17862,7 +17862,7 @@ for.body50:                                       ; preds = %_ZN6vectorIN3sat9lo
   %17 = load i64, ptr %__begin244.077, align 4
   %b.sroa.0.0.extract.trunc = trunc i64 %17 to i32
   %b.sroa.2.0.extract.shift = lshr i64 %17, 32
-  %b.sroa.2.0.extract.trunc = trunc i64 %b.sroa.2.0.extract.shift to i32
+  %b.sroa.2.0.extract.trunc = trunc nuw i64 %b.sroa.2.0.extract.shift to i32
   %cmp53 = icmp ugt i32 %shl.i, %b.sroa.0.0.extract.trunc
   %cmp56 = icmp ugt i32 %shl.i, %b.sroa.2.0.extract.trunc
   %or.cond = and i1 %cmp53, %cmp56
@@ -17893,7 +17893,7 @@ for.body84:                                       ; preds = %_ZN6vectorIN3sat9lo
   %21 = load i64, ptr %__begin278.081, align 4
   %b85.sroa.0.0.extract.trunc = trunc i64 %21 to i32
   %b85.sroa.2.0.extract.shift = lshr i64 %21, 32
-  %b85.sroa.2.0.extract.trunc = trunc i64 %b85.sroa.2.0.extract.shift to i32
+  %b85.sroa.2.0.extract.trunc = trunc nuw i64 %b85.sroa.2.0.extract.shift to i32
   %cmp89 = icmp ugt i32 %shl.i, %b85.sroa.0.0.extract.trunc
   %cmp94 = icmp ugt i32 %shl.i, %b85.sroa.2.0.extract.trunc
   %or.cond68 = and i1 %cmp89, %cmp94
@@ -19704,7 +19704,7 @@ if.then.i:                                        ; preds = %if.then
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 if.else.i:                                        ; preds = %if.then
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %7 = and i32 %6, 1
   %tobool.i.not.i = icmp eq i32 %7, 0
   %cond.i = select i1 %tobool.i.not.i, ptr @.str.75, ptr @.str.74
@@ -19818,7 +19818,7 @@ _ZNK6vectorIN3sat9lookahead6binaryELb0EjE3endEv.exit: ; preds = %for.body
   br i1 %cmp9.not67, label %for.inc30, label %for.body10.lr.ph
 
 for.body10.lr.ph:                                 ; preds = %_ZNK6vectorIN3sat9lookahead6binaryELb0EjE3endEv.exit
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   %9 = and i32 %8, 1
   %tobool.i.not.i = icmp eq i32 %9, 0
   %cond.i = select i1 %tobool.i.not.i, ptr @.str.75, ptr @.str.74
@@ -21472,7 +21472,7 @@ invoke.cont84:                                    ; preds = %invoke.cont84.lr.ph
 
 invoke.cont94:                                    ; preds = %invoke.cont84
   %26 = load ptr, ptr %this, align 8
-  %27 = trunc i64 %indvars.iv492 to i32
+  %27 = trunc nuw i64 %indvars.iv492 to i32
   %shr.i = lshr i64 %indvars.iv492, 1
   %m_eliminated.i = getelementptr inbounds i8, ptr %26, i64 3480
   %28 = load ptr, ptr %m_eliminated.i, align 8
@@ -23510,7 +23510,7 @@ if.then.i:                                        ; preds = %invoke.cont20
           to label %invoke.cont23 unwind label %lpad
 
 if.else.i:                                        ; preds = %invoke.cont20
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   %15 = and i32 %14, 1
   %tobool.i.not.i = icmp eq i32 %15, 0
   %cond.i = select i1 %tobool.i.not.i, ptr @.str.75, ptr @.str.74

@@ -98,85 +98,83 @@ define internal ptr @proc_keys_start(ptr nocapture readnone %0, ptr nocapture no
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread7, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %25
-  %10 = phi ptr [ %29, %25 ], [ %8, %6 ]
-  %11 = phi ptr [ %27, %25 ], [ null, %6 ]
+.lr.ph:                                           ; preds = %6, %24
+  %10 = phi ptr [ %28, %24 ], [ %8, %6 ]
+  %11 = phi ptr [ %26, %24 ], [ null, %6 ]
   %12 = getelementptr i8, ptr %10, i64 -8
   %13 = getelementptr i8, ptr %10, i64 -4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, %7
-  br i1 %15, label %16, label %23
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %.lr.ph
   %17 = icmp eq ptr %11, null
-  br i1 %17, label %22, label %18
+  br i1 %17, label %24, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %11, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, %14
-  br i1 %21, label %22, label %25
+  %spec.select = select i1 %21, ptr %12, ptr %11
+  br label %24
 
-22:                                               ; preds = %18, %16
-  br label %25
+22:                                               ; preds = %.lr.ph
+  %23 = icmp slt i32 %14, %7
+  br i1 %23, label %24, label %.thread
 
-23:                                               ; preds = %.lr.ph
-  %24 = icmp slt i32 %14, %7
-  br i1 %24, label %25, label %.thread
+24:                                               ; preds = %22, %16, %18
+  %25 = phi i64 [ 8, %22 ], [ 16, %16 ], [ 16, %18 ]
+  %26 = phi ptr [ %11, %22 ], [ %12, %16 ], [ %spec.select, %18 ]
+  %27 = getelementptr inbounds i8, ptr %10, i64 %25
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.thread, label %.lr.ph
 
-25:                                               ; preds = %18, %22, %23
-  %26 = phi i64 [ 16, %22 ], [ 16, %18 ], [ 8, %23 ]
-  %27 = phi ptr [ %12, %22 ], [ %11, %18 ], [ %11, %23 ]
-  %28 = getelementptr inbounds i8, ptr %10, i64 %26
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread, label %.lr.ph
+.thread:                                          ; preds = %24, %22
+  %30 = phi ptr [ %26, %24 ], [ %12, %22 ]
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %.thread7, label %32
 
-.thread:                                          ; preds = %25, %23
-  %31 = phi ptr [ %27, %25 ], [ %12, %23 ]
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread7, label %33
+32:                                               ; preds = %.thread
+  %33 = getelementptr inbounds i8, ptr %30, i64 72
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %36, -1
+  br i1 %37, label %.preheader, label %.thread8
 
-33:                                               ; preds = %.thread
-  %34 = getelementptr inbounds i8, ptr %31, i64 72
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 72
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp eq i32 %37, -1
-  br i1 %38, label %.preheader, label %.thread8
+38:                                               ; preds = %.preheader
+  %39 = getelementptr i8, ptr %47, i64 -8
+  %40 = getelementptr i8, ptr %47, i64 64
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 72
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %.preheader, label %49, !llvm.loop !5
 
-39:                                               ; preds = %.preheader
-  %40 = getelementptr i8, ptr %48, i64 -8
-  %41 = getelementptr i8, ptr %48, i64 64
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 72
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %44, -1
-  br i1 %45, label %.preheader, label %50, !llvm.loop !5
+.preheader:                                       ; preds = %32, %38
+  %45 = phi ptr [ %39, %38 ], [ %30, %32 ]
+  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = tail call ptr @rb_next(ptr noundef %46) #8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %.thread7, label %38
 
-.preheader:                                       ; preds = %33, %39
-  %46 = phi ptr [ %40, %39 ], [ %31, %33 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  %48 = tail call ptr @rb_next(ptr noundef %47) #8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread7, label %39
+49:                                               ; preds = %38
+  %50 = icmp eq ptr %39, null
+  br i1 %50, label %.thread7, label %.thread8
 
-50:                                               ; preds = %39
-  %51 = icmp eq ptr %40, null
-  br i1 %51, label %.thread7, label %.thread8
-
-.thread8:                                         ; preds = %33, %50
-  %52 = phi ptr [ %40, %50 ], [ %31, %33 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = sext i32 %54 to i64
-  store i64 %55, ptr %1, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 8
+.thread8:                                         ; preds = %32, %49
+  %51 = phi ptr [ %39, %49 ], [ %30, %32 ]
+  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = sext i32 %53 to i64
+  store i64 %54, ptr %1, align 8
+  %55 = getelementptr inbounds i8, ptr %51, i64 8
   br label %.thread7
 
-.thread7:                                         ; preds = %.preheader, %6, %.thread, %.thread8, %50, %2
-  %57 = phi ptr [ %56, %.thread8 ], [ null, %2 ], [ null, %50 ], [ null, %.thread ], [ null, %6 ], [ null, %.preheader ]
-  ret ptr %57
+.thread7:                                         ; preds = %.preheader, %6, %.thread, %.thread8, %49, %2
+  %56 = phi ptr [ %55, %.thread8 ], [ null, %2 ], [ null, %49 ], [ null, %.thread ], [ null, %6 ], [ null, %.preheader ]
+  ret ptr %56
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -317,7 +315,7 @@ define internal noundef i32 @proc_keys_show(ptr noundef %0, ptr noundef %1) #4 a
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %52
-  %.lhs.trunc = trunc i64 %48 to i16
+  %.lhs.trunc = trunc nuw i64 %48 to i16
   %55 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %55 to i64
   %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.7, i64 noundef %.zext) #8
@@ -328,7 +326,7 @@ define internal noundef i32 @proc_keys_show(ptr noundef %0, ptr noundef %1) #4 a
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %57
-  %.lhs.trunc5 = trunc i64 %48 to i32
+  %.lhs.trunc5 = trunc nuw i64 %48 to i32
   %60 = udiv i32 %.lhs.trunc5, 3600
   %.zext6 = zext nneg i32 %60 to i64
   %61 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.8, i64 noundef %.zext6) #8
@@ -339,7 +337,7 @@ define internal noundef i32 @proc_keys_show(ptr noundef %0, ptr noundef %1) #4 a
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %62
-  %.lhs.trunc7 = trunc i64 %48 to i32
+  %.lhs.trunc7 = trunc nuw i64 %48 to i32
   %65 = udiv i32 %.lhs.trunc7, 86400
   %.zext8 = zext nneg i32 %65 to i64
   %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, i64 noundef %.zext8) #8

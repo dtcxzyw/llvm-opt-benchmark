@@ -134,7 +134,7 @@ entry:
   %conv11 = sext i16 %0 to i32
   %conv14 = sext i16 %2 to i32
   %add15 = add nsw i32 %conv14, 1
-  %tr.sh.diff = trunc i48 %1 to i32
+  %tr.sh.diff = trunc nuw i48 %1 to i32
   %conv17 = ashr i32 %tr.sh.diff, 16
   invoke void @_ZN5NoiseC1EPK11NoiseParamsijjj(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef %np_cave1, i32 noundef %seed, i32 noundef %conv11, i32 noundef %add15, i32 noundef %conv17)
           to label %invoke.cont unwind label %lpad
@@ -227,7 +227,7 @@ entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %0 = trunc i48 %nmin.coerce to i32
   %nmin.sroa.8.0.extract.shift = lshr i48 %nmin.coerce, 32
-  %nmin.sroa.8.0.extract.trunc = trunc i48 %nmin.sroa.8.0.extract.shift to i16
+  %nmin.sroa.8.0.extract.trunc = trunc nuw i48 %nmin.sroa.8.0.extract.shift to i16
   %nmax.sroa.2.0.extract.shift = lshr i48 %nmax.coerce, 16
   %nmax.sroa.2.0.extract.trunc = trunc i48 %nmax.sroa.2.0.extract.shift to i16
   %noise_cave1 = getelementptr inbounds i8, ptr %this, i64 40
@@ -249,7 +249,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %4 = load ptr, ptr %vfn, align 8
   %call16 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(44) %3)
-  %tr.sh.diff = trunc i48 %nmax.sroa.2.0.extract.shift to i32
+  %tr.sh.diff = trunc nuw i48 %nmax.sroa.2.0.extract.shift to i32
   %conv20 = ashr i32 %tr.sh.diff, 16
   %conv18305 = sext i16 %nmin.sroa.8.0.extract.trunc to i32
   %cmp.not306 = icmp slt i32 %conv20, %conv18305
@@ -602,23 +602,21 @@ if.else176:                                       ; preds = %lor.lhs.false133, %
   %c_top178 = getelementptr inbounds i8, ptr %biome.1, i64 136
   %61 = load i16, ptr %c_top178, align 8, !tbaa !107
   %cmp180 = icmp eq i16 %29, %61
-  br i1 %cmp180, label %if.then186, label %lor.lhs.false181
+  br i1 %cmp180, label %cleanup, label %lor.lhs.false181
 
 lor.lhs.false181:                                 ; preds = %if.else176
   %c_filler183 = getelementptr inbounds i8, ptr %biome.1, i64 138
   %62 = load i16, ptr %c_filler183, align 2, !tbaa !105
   %cmp185 = icmp eq i16 %29, %62
-  br i1 %cmp185, label %if.then186, label %cleanup
-
-if.then186:                                       ; preds = %lor.lhs.false181, %if.else176
+  %spec.select = select i1 %cmp185, i8 1, i8 %is_top_filler_above.0290
   br label %cleanup
 
-cleanup:                                          ; preds = %if.then186, %lor.lhs.false181, %if.then165, %if.else161, %if.then155, %if.then143, %if.then139, %if.then116, %if.then111, %if.end93, %lor.lhs.false88, %lor.lhs.false, %if.end
-  %is_top_filler_above.3 = phi i8 [ 0, %lor.lhs.false88 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %if.end93 ], [ 1, %if.then143 ], [ 1, %if.then155 ], [ 1, %if.then165 ], [ 0, %if.then116 ], [ 0, %if.then111 ], [ %is_top_filler_above.0290, %if.then139 ], [ %is_top_filler_above.0290, %if.else161 ], [ 1, %if.then186 ], [ %is_top_filler_above.0290, %lor.lhs.false181 ]
-  %is_under_tunnel.2 = phi i8 [ %is_under_tunnel.0293, %lor.lhs.false88 ], [ %is_under_tunnel.0293, %lor.lhs.false ], [ %is_under_tunnel.0293, %if.end ], [ %is_under_tunnel.0293, %if.end93 ], [ %is_under_tunnel.0293, %if.then143 ], [ %is_under_tunnel.0293, %if.then155 ], [ %is_under_tunnel.0293, %if.then165 ], [ 1, %if.then116 ], [ 1, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ %is_under_tunnel.0293, %if.then186 ], [ %is_under_tunnel.0293, %lor.lhs.false181 ]
-  %is_under_river.2 = phi i8 [ %is_under_river.0294, %lor.lhs.false88 ], [ %is_under_river.0294, %lor.lhs.false ], [ %is_under_river.0294, %if.end ], [ 1, %if.end93 ], [ %is_under_river.0294, %if.then143 ], [ %is_under_river.0294, %if.then155 ], [ %is_under_river.0294, %if.then165 ], [ %is_under_river.0294, %if.then116 ], [ %is_under_river.0294, %if.then111 ], [ 0, %if.then139 ], [ %is_under_river.0294, %if.else161 ], [ %is_under_river.0294, %if.then186 ], [ %is_under_river.0294, %lor.lhs.false181 ]
-  %column_is_open.2 = phi i8 [ 1, %lor.lhs.false88 ], [ 1, %lor.lhs.false ], [ 1, %if.end ], [ 1, %if.end93 ], [ %column_is_open.0295, %if.then143 ], [ %column_is_open.0295, %if.then155 ], [ %column_is_open.0295, %if.then165 ], [ %column_is_open.0295, %if.then116 ], [ %column_is_open.0295, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ 0, %if.then186 ], [ 0, %lor.lhs.false181 ]
-  %nplaced.2 = phi i16 [ %nplaced.0296, %lor.lhs.false88 ], [ %nplaced.0296, %lor.lhs.false ], [ %nplaced.0296, %if.end ], [ %nplaced.0296, %if.end93 ], [ %inc148, %if.then143 ], [ %inc160, %if.then155 ], [ %inc171, %if.then165 ], [ %nplaced.0296, %if.then116 ], [ %nplaced.0296, %if.then111 ], [ %nplaced.0296, %if.then139 ], [ %nplaced.0296, %if.else161 ], [ %nplaced.0296, %if.then186 ], [ %nplaced.0296, %lor.lhs.false181 ]
+cleanup:                                          ; preds = %lor.lhs.false181, %if.else176, %if.then165, %if.else161, %if.then155, %if.then143, %if.then139, %if.then116, %if.then111, %if.end93, %lor.lhs.false88, %lor.lhs.false, %if.end
+  %is_top_filler_above.3 = phi i8 [ 0, %lor.lhs.false88 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %if.end93 ], [ 1, %if.then143 ], [ 1, %if.then155 ], [ 1, %if.then165 ], [ 0, %if.then116 ], [ 0, %if.then111 ], [ %is_top_filler_above.0290, %if.then139 ], [ %is_top_filler_above.0290, %if.else161 ], [ 1, %if.else176 ], [ %spec.select, %lor.lhs.false181 ]
+  %is_under_tunnel.2 = phi i8 [ %is_under_tunnel.0293, %lor.lhs.false88 ], [ %is_under_tunnel.0293, %lor.lhs.false ], [ %is_under_tunnel.0293, %if.end ], [ %is_under_tunnel.0293, %if.end93 ], [ %is_under_tunnel.0293, %if.then143 ], [ %is_under_tunnel.0293, %if.then155 ], [ %is_under_tunnel.0293, %if.then165 ], [ 1, %if.then116 ], [ 1, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ %is_under_tunnel.0293, %if.else176 ], [ %is_under_tunnel.0293, %lor.lhs.false181 ]
+  %is_under_river.2 = phi i8 [ %is_under_river.0294, %lor.lhs.false88 ], [ %is_under_river.0294, %lor.lhs.false ], [ %is_under_river.0294, %if.end ], [ 1, %if.end93 ], [ %is_under_river.0294, %if.then143 ], [ %is_under_river.0294, %if.then155 ], [ %is_under_river.0294, %if.then165 ], [ %is_under_river.0294, %if.then116 ], [ %is_under_river.0294, %if.then111 ], [ 0, %if.then139 ], [ %is_under_river.0294, %if.else161 ], [ %is_under_river.0294, %if.else176 ], [ %is_under_river.0294, %lor.lhs.false181 ]
+  %column_is_open.2 = phi i8 [ 1, %lor.lhs.false88 ], [ 1, %lor.lhs.false ], [ 1, %if.end ], [ 1, %if.end93 ], [ %column_is_open.0295, %if.then143 ], [ %column_is_open.0295, %if.then155 ], [ %column_is_open.0295, %if.then165 ], [ %column_is_open.0295, %if.then116 ], [ %column_is_open.0295, %if.then111 ], [ 0, %if.then139 ], [ 0, %if.else161 ], [ 0, %if.else176 ], [ 0, %lor.lhs.false181 ]
+  %nplaced.2 = phi i16 [ %nplaced.0296, %lor.lhs.false88 ], [ %nplaced.0296, %lor.lhs.false ], [ %nplaced.0296, %if.end ], [ %nplaced.0296, %if.end93 ], [ %inc148, %if.then143 ], [ %inc160, %if.then155 ], [ %inc171, %if.then165 ], [ %nplaced.0296, %if.then116 ], [ %nplaced.0296, %if.then111 ], [ %nplaced.0296, %if.then139 ], [ %nplaced.0296, %if.else161 ], [ %nplaced.0296, %if.else176 ], [ %nplaced.0296, %lor.lhs.false181 ]
   %dec = add i16 %y.0299, -1
   %63 = load i16, ptr %m_ystride, align 4, !tbaa !17
   %conv191 = zext i16 %63 to i32
@@ -664,7 +662,7 @@ entry:
   %conv11 = sext i16 %0 to i32
   %conv14 = sext i16 %2 to i32
   %add15 = add nsw i32 %conv14, 1
-  %tr.sh.diff = trunc i48 %1 to i32
+  %tr.sh.diff = trunc nuw i48 %1 to i32
   %conv17 = ashr i32 %tr.sh.diff, 16
   invoke void @_ZN5NoiseC1EPK11NoiseParamsijjj(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef %np_cavern, i32 noundef %seed, i32 noundef %conv11, i32 noundef %add15, i32 noundef %conv17)
           to label %invoke.cont unwind label %lpad
@@ -922,7 +920,7 @@ entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %0 = trunc i48 %nmin.coerce to i32
   %nmin.sroa.7.0.extract.shift = lshr i48 %nmin.coerce, 32
-  %nmin.sroa.7.0.extract.trunc = trunc i48 %nmin.sroa.7.0.extract.shift to i16
+  %nmin.sroa.7.0.extract.trunc = trunc nuw i48 %nmin.sroa.7.0.extract.shift to i16
   %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i32
   %nmax.sroa.2.0.extract.shift = lshr i48 %nmax.coerce, 16
   %nmax.sroa.2.0.extract.trunc = trunc i48 %nmax.sroa.2.0.extract.shift to i16
@@ -1012,7 +1010,7 @@ middle.block:                                     ; preds = %vector.body
 for.cond.cleanup:                                 ; preds = %for.body, %middle.block, %entry
   %m_area = getelementptr inbounds i8, ptr %vm, i64 8
   %m_cache_extent.i = getelementptr inbounds i8, ptr %vm, i64 20
-  %tr.sh.diff = trunc i48 %nmax.sroa.2.0.extract.shift to i32
+  %tr.sh.diff = trunc nuw i48 %nmax.sroa.2.0.extract.shift to i32
   %conv30 = ashr i32 %tr.sh.diff, 16
   %conv28160 = sext i16 %nmin.sroa.7.0.extract.trunc to i32
   %cmp31.not161 = icmp slt i32 %conv30, %conv28160
@@ -1421,10 +1419,10 @@ define dso_local void @_ZN15CavesRandomWalk8makeCaveEP8MMVManipN3irr4core8vector
 entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %nmin.sroa.3.0.extract.shift = lshr i48 %nmin.coerce, 16
-  %nmin.sroa.3.0.extract.trunc = trunc i48 %nmin.sroa.3.0.extract.shift to i32
+  %nmin.sroa.3.0.extract.trunc = trunc nuw i48 %nmin.sroa.3.0.extract.shift to i32
   %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i16
   %nmax.sroa.3.0.extract.shift = lshr i48 %nmax.coerce, 16
-  %nmax.sroa.3.0.extract.trunc = trunc i48 %nmax.sroa.3.0.extract.shift to i32
+  %nmax.sroa.3.0.extract.trunc = trunc nuw i48 %nmax.sroa.3.0.extract.shift to i32
   %frombool = zext i1 %is_large_cave to i8
   store ptr %vm, ptr %this, align 8, !tbaa !141
   %ps4 = getelementptr inbounds i8, ptr %this, i64 136
@@ -1450,7 +1448,7 @@ entry:
   %add.i.i = add i32 %mul.i.i, 12345
   store i32 %add.i.i, ptr %ps, align 4, !tbaa !147
   %div.i.i = sdiv i32 %add.i.i, 65536
-  %1 = trunc i32 %div.i.i to i16
+  %1 = trunc nsw i32 %div.i.i to i16
   %rem.lhs.trunc.i = and i16 %1, 32767
   %rem49.i = urem i16 %rem.lhs.trunc.i, 1000
   %narrow567 = add nuw nsw i16 %rem49.i, 1
@@ -1467,9 +1465,9 @@ entry:
   %3 = trunc i48 %nmax.sroa.3.0.extract.shift to i16
   %4 = trunc i48 %nmin.sroa.3.0.extract.shift to i16
   %5 = lshr i48 %nmax.coerce, 32
-  %6 = trunc i48 %5 to i16
+  %6 = trunc nuw i48 %5 to i16
   %7 = lshr i48 %nmin.coerce, 32
-  %8 = trunc i48 %7 to i16
+  %8 = trunc nuw i48 %7 to i16
   br i1 %cmp, label %land.lhs.true, label %if.end47
 
 land.lhs.true:                                    ; preds = %entry
@@ -1533,7 +1531,7 @@ if.end47:                                         ; preds = %if.then44, %if.then
   %mul.i.i415 = mul i32 %17, 1103515245
   %add.i.i416 = add i32 %mul.i.i415, 12345
   %div.i.i417 = sdiv i32 %add.i.i416, 65536
-  %18 = trunc i32 %div.i.i417 to i16
+  %18 = trunc nsw i32 %div.i.i417 to i16
   %rem.lhs.trunc.i418 = and i16 %18, 32767
   %rem49.i419 = urem i16 %rem.lhs.trunc.i418, 14
   %narrow568 = add nuw nsw i16 %rem49.i419, 1
@@ -1545,7 +1543,7 @@ if.end47:                                         ; preds = %if.then44, %if.then
   br i1 %tobool50.not, label %if.else, label %if.then51
 
 if.then51:                                        ; preds = %if.end47
-  %20 = trunc i32 %div.i.i445 to i16
+  %20 = trunc nsw i32 %div.i.i445 to i16
   %rem.lhs.trunc.i425 = and i16 %20, 32767
   %rem49.i426 = urem i16 %rem.lhs.trunc.i425, 3
   %narrow569 = add nuw nsw i16 %rem49.i426, 2
@@ -1569,7 +1567,7 @@ if.then51:                                        ; preds = %if.end47
   %add.i.i437 = add i32 %mul.i.i436, 12345
   store i32 %add.i.i437, ptr %ps, align 4, !tbaa !147
   %div.i.i438 = sdiv i32 %add.i.i437, 65536
-  %22 = trunc i32 %div.i.i438 to i16
+  %22 = trunc nsw i32 %div.i.i438 to i16
   %rem.lhs.trunc.i439 = and i16 %22, 32767
   %rem49.i440 = urem i16 %rem.lhs.trunc.i439, 17
   %narrow570 = add nuw nsw i16 %rem49.i440, 8
@@ -1600,7 +1598,7 @@ if.else:                                          ; preds = %if.end47
   %add.i.i458 = add i32 %mul.i.i457, 12345
   store i32 %add.i.i458, ptr %ps, align 4, !tbaa !147
   %div.i.i459 = sdiv i32 %add.i.i458, 65536
-  %24 = trunc i32 %div.i.i459 to i16
+  %24 = trunc nsw i32 %div.i.i459 to i16
   %rem.lhs.trunc.i460 = and i16 %24, 32767
   %rem49.i461 = urem i16 %rem.lhs.trunc.i460, 5
   %narrow571 = add nuw nsw i16 %rem49.i461, 2
@@ -1709,7 +1707,7 @@ if.then159:                                       ; preds = %if.then148
   %conv167 = zext i16 %sub8.i549 to i32
   %51 = add nuw nsw i32 %conv167, %div163
   %sub168 = sub nsw i32 %48, %51
-  %52 = trunc i32 %48 to i16
+  %52 = trunc nsw i32 %48 to i16
   %53 = sub i16 %50, %sub8.i549
   %conv179 = add i16 %53, %52
   store i16 %conv179, ptr %route_y_max, align 2, !tbaa !161
@@ -1973,9 +1971,9 @@ if.end26:                                         ; preds = %if.end
   %add.i = add i32 %mul.i, 12345
   store i32 %add.i, ptr %this, align 4, !tbaa !147
   %div.i = sdiv i32 %add.i, 65536
-  %11 = trunc i32 %div.i to i16
+  %11 = trunc nsw i32 %div.i to i16
   %rem.lhs.trunc = and i16 %11, 32767
-  %12 = trunc i32 %sub to i16
+  %12 = trunc nuw nsw i32 %sub to i16
   %rem.rhs.trunc = add nuw nsw i16 %12, 1
   %rem49 = urem i16 %rem.lhs.trunc, %rem.rhs.trunc
   %rem.zext = zext nneg i16 %rem49 to i32
@@ -2008,7 +2006,7 @@ if.then:                                          ; preds = %entry
   %mul.i = mul i32 %2, 1103515245
   %add.i = add i32 %mul.i, 12345
   %div.i = sdiv i32 %add.i, 65536
-  %3 = trunc i32 %div.i to i16
+  %3 = trunc nsw i32 %div.i to i16
   %rem.lhs.trunc = and i16 %3, 32767
   %rem460 = urem i16 %rem.lhs.trunc, 20
   %rem.zext = zext nneg i16 %rem460 to i32
@@ -2023,7 +2021,7 @@ if.then:                                          ; preds = %entry
   %5 = insertelement <2 x i32> poison, i32 %add.i257, i64 0
   %6 = insertelement <2 x i32> %5, i32 %add.i253, i64 1
   %7 = sdiv <2 x i32> %6, <i32 65536, i32 65536>
-  %8 = trunc <2 x i32> %7 to <2 x i16>
+  %8 = trunc nsw <2 x i32> %7 to <2 x i16>
   %9 = and <2 x i16> %8, <i16 32767, i16 32767>
   %10 = urem <2 x i16> %9, <i16 20, i16 20>
   %11 = zext nneg <2 x i16> %10 to <2 x i32>
@@ -2034,7 +2032,7 @@ if.then:                                          ; preds = %entry
   %add.i.i = add i32 %mul.i.i, 12345
   store i32 %add.i.i, ptr %1, align 4, !tbaa !147
   %div.i.i = sdiv i32 %add.i.i, 65536
-  %15 = trunc i32 %div.i.i to i16
+  %15 = trunc nsw i32 %div.i.i to i16
   %rem.lhs.trunc.i = and i16 %15, 32767
   %rem49.i = urem i16 %rem.lhs.trunc.i, 11
   %conv19 = uitofp i16 %rem49.i to float
@@ -2094,7 +2092,7 @@ land.lhs.true45:                                  ; preds = %if.end42
   %add.i.i270 = add i32 %mul.i.i269, 12345
   store i32 %add.i.i270, ptr %.pre469, align 4, !tbaa !147
   %div.i.i271 = sdiv i32 %add.i.i270, 65536
-  %28 = trunc i32 %div.i.i271 to i16
+  %28 = trunc nsw i32 %div.i.i271 to i16
   %rem.lhs.trunc.i272 = and i16 %28, 32767
   %rem49.i273 = urem i16 %rem.lhs.trunc.i272, 13
   %cmp = icmp eq i16 %rem49.i273, 0
@@ -2462,7 +2460,7 @@ entry:
   %mul.i.i = mul i32 %9, 1103515245
   %add.i.i = add i32 %mul.i.i, 12345
   %div.i.i = sdiv i32 %add.i.i, 65536
-  %10 = trunc i32 %div.i.i to i16
+  %10 = trunc nsw i32 %div.i.i to i16
   %rem.lhs.trunc.i = and i16 %10, 32767
   %rem49.i = urem i16 %rem.lhs.trunc.i, 21
   %rem.zext.i = zext nneg i16 %rem49.i to i32
@@ -2473,7 +2471,7 @@ entry:
   %add.i.i335 = add i32 %mul.i.i334, 12345
   store i32 %add.i.i335, ptr %8, align 4, !tbaa !147
   %div.i.i336 = sdiv i32 %add.i.i335, 65536
-  %12 = trunc i32 %div.i.i336 to i16
+  %12 = trunc nsw i32 %div.i.i336 to i16
   %rem.lhs.trunc.i337 = and i16 %12, 32767
   %rem49.i338 = urem i16 %rem.lhs.trunc.i337, 21
   %rem.zext.i339 = zext nneg i16 %rem49.i338 to i32
@@ -2509,7 +2507,7 @@ if.else:                                          ; preds = %if.then
   %18 = load i32, ptr %seed, align 8, !tbaa !134
   %call32 = tail call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef %17, float noundef %conv27, float noundef %conv29, float noundef %conv31, i32 noundef %18)
   %cmp = fcmp nsz olt float %call32, 0x3FD99999A0000000
-  br i1 %cmp, label %land.lhs.true, label %cond.false
+  br i1 %cmp, label %land.lhs.true, label %cond.end
 
 land.lhs.true:                                    ; preds = %if.else
   %Y33 = getelementptr inbounds i8, ptr %this, i64 88
@@ -2519,13 +2517,11 @@ land.lhs.true:                                    ; preds = %if.else
   %20 = load i32, ptr %water_level, align 4, !tbaa !135
   %sub = add nsw i32 %20, -256
   %cmp35 = icmp sgt i32 %sub, %conv34
-  br i1 %cmp35, label %cond.end, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true, %if.else
+  %spec.select1 = select i1 %cmp35, ptr %lavanode, ptr %waternode
   br label %cond.end
 
-cond.end:                                         ; preds = %cond.false, %land.lhs.true
-  %cond-lvalue = phi ptr [ %waternode, %cond.false ], [ %lavanode, %land.lhs.true ]
+cond.end:                                         ; preds = %land.lhs.true, %if.else
+  %cond-lvalue = phi ptr [ %waternode, %if.else ], [ %spec.select1, %land.lhs.true ]
   %21 = load i32, ptr %cond-lvalue, align 4, !tbaa.struct !101
   %liquidnode.sroa.0.0.extract.trunc = trunc i32 %21 to i16
   %liquidnode.sroa.7.0.extract.shift = and i32 %21, -16777216
@@ -2548,7 +2544,7 @@ if.then45:                                        ; preds = %if.end36
   %mul.i.i347 = mul i32 %26, 1103515245
   %add.i.i348 = add i32 %mul.i.i347, 12345
   %div.i.i349 = sdiv i32 %add.i.i348, 65536
-  %27 = trunc i32 %div.i.i349 to i16
+  %27 = trunc nsw i32 %div.i.i349 to i16
   %rem.lhs.trunc.i350 = and i16 %27, 32767
   %rem49.i351 = urem i16 %rem.lhs.trunc.i350, 3
   %add28.i353 = add nsw i16 %24, -1
@@ -2557,7 +2553,7 @@ if.then45:                                        ; preds = %if.end36
   %add.i.i355 = add i32 %mul.i.i354, 12345
   store i32 %add.i.i355, ptr %25, align 4, !tbaa !147
   %div.i.i356 = sdiv i32 %add.i.i355, 65536
-  %28 = trunc i32 %div.i.i356 to i16
+  %28 = trunc nsw i32 %div.i.i356 to i16
   %rem.lhs.trunc.i357 = and i16 %28, 32767
   %rem49.i358 = urem i16 %rem.lhs.trunc.i357, 3
   %add28.i360 = add i16 %conv43, -1
@@ -2579,7 +2575,7 @@ land.rhs:                                         ; preds = %if.end56
   %add.i.i362 = add i32 %mul.i.i361, 12345
   store i32 %add.i.i362, ptr %30, align 4, !tbaa !147
   %div.i.i363 = sdiv i32 %add.i.i362, 65536
-  %32 = trunc i32 %div.i.i363 to i16
+  %32 = trunc nsw i32 %div.i.i363 to i16
   %rem.lhs.trunc.i364 = and i16 %32, 32767
   %rem49.i365 = urem i16 %rem.lhs.trunc.i364, 3
   %cmp60 = icmp eq i16 %rem49.i365, 2
@@ -3103,10 +3099,10 @@ define dso_local void @_ZN7CavesV68makeCaveEP8MMVManipN3irr4core8vector3dIsEES5_
 entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %nmin.sroa.3.0.extract.shift = lshr i48 %nmin.coerce, 16
-  %nmin.sroa.3.0.extract.trunc = trunc i48 %nmin.sroa.3.0.extract.shift to i32
+  %nmin.sroa.3.0.extract.trunc = trunc nuw i48 %nmin.sroa.3.0.extract.shift to i32
   %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i16
   %nmax.sroa.3.0.extract.shift = lshr i48 %nmax.coerce, 16
-  %nmax.sroa.3.0.extract.trunc = trunc i48 %nmax.sroa.3.0.extract.shift to i32
+  %nmax.sroa.3.0.extract.trunc = trunc nuw i48 %nmax.sroa.3.0.extract.shift to i32
   %frombool = zext i1 %is_large_cave to i8
   store ptr %vm, ptr %this, align 8, !tbaa !191
   %ps4 = getelementptr inbounds i8, ptr %this, i64 24
@@ -3135,7 +3131,7 @@ entry:
   %mul.i.i = mul i32 %0, 1103515245
   %add.i.i = add i32 %mul.i.i, 12345
   %div.i.i = sdiv i32 %add.i.i, 65536
-  %1 = trunc i32 %div.i.i to i16
+  %1 = trunc nsw i32 %div.i.i to i16
   %rem.lhs.trunc.i = and i16 %1, 32767
   %rem49.i = urem i16 %rem.lhs.trunc.i, 5
   %narrow468 = add nuw nsw i16 %rem49.i, 2
@@ -3144,7 +3140,7 @@ entry:
   %mul.i.i344 = mul i32 %add.i.i, 1103515245
   %add.i.i345 = add i32 %mul.i.i344, 12345
   %div.i.i346 = sdiv i32 %add.i.i345, 65536
-  %2 = trunc i32 %div.i.i346 to i16
+  %2 = trunc nsw i32 %div.i.i346 to i16
   %rem.lhs.trunc.i347 = and i16 %2, 32767
   %rem49.i348 = urem i16 %rem.lhs.trunc.i347, 14
   %narrow469 = add nuw nsw i16 %rem49.i348, 1
@@ -3154,7 +3150,7 @@ entry:
   br i1 %is_large_cave, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %3 = trunc i32 %div.i.i353 to i16
+  %3 = trunc nsw i32 %div.i.i353 to i16
   %rem.lhs.trunc.i354 = and i16 %3, 32767
   %rem49.i355 = urem i16 %rem.lhs.trunc.i354, 3
   %narrow470 = add nuw nsw i16 %rem49.i355, 2
@@ -3177,7 +3173,7 @@ if.then:                                          ; preds = %entry
   %add.i.i366 = add i32 %mul.i.i365, 12345
   store i32 %add.i.i366, ptr %ps, align 4, !tbaa !147
   %div.i.i367 = sdiv i32 %add.i.i366, 65536
-  %5 = trunc i32 %div.i.i367 to i16
+  %5 = trunc nsw i32 %div.i.i367 to i16
   %rem.lhs.trunc.i368 = and i16 %5, 32767
   %rem49.i369 = urem i16 %rem.lhs.trunc.i368, 17
   %narrow471 = add nuw nsw i16 %rem49.i369, 8
@@ -3311,7 +3307,7 @@ if.then116:                                       ; preds = %if.then106
   %conv124 = zext i16 %19 to i32
   %27 = add nuw nsw i32 %conv124, %div120
   %sub125 = sub nsw i32 %25, %27
-  %28 = trunc i32 %25 to i16
+  %28 = trunc nsw i32 %25 to i16
   %29 = sub i16 %26, %19
   %conv136 = add i16 %29, %28
   store i16 %conv136, ptr %route_y_max, align 2, !tbaa !204
@@ -3482,7 +3478,7 @@ if.then:                                          ; preds = %entry
   %mul.i = mul i32 %2, 1103515245
   %add.i = add i32 %mul.i, 12345
   %div.i = sdiv i32 %add.i, 65536
-  %3 = trunc i32 %div.i to i16
+  %3 = trunc nsw i32 %div.i to i16
   %rem.lhs.trunc = and i16 %3, 32767
   %rem452 = urem i16 %rem.lhs.trunc, 20
   %rem.zext = zext nneg i16 %rem452 to i32
@@ -3497,7 +3493,7 @@ if.then:                                          ; preds = %entry
   %5 = insertelement <2 x i32> poison, i32 %add.i253, i64 0
   %6 = insertelement <2 x i32> %5, i32 %add.i249, i64 1
   %7 = sdiv <2 x i32> %6, <i32 65536, i32 65536>
-  %8 = trunc <2 x i32> %7 to <2 x i16>
+  %8 = trunc nsw <2 x i32> %7 to <2 x i16>
   %9 = and <2 x i16> %8, <i16 32767, i16 32767>
   %10 = urem <2 x i16> %9, <i16 20, i16 20>
   %11 = zext nneg <2 x i16> %10 to <2 x i32>
@@ -3508,7 +3504,7 @@ if.then:                                          ; preds = %entry
   %add.i.i = add i32 %mul.i.i, 12345
   store i32 %add.i.i, ptr %1, align 4, !tbaa !147
   %div.i.i = sdiv i32 %add.i.i, 65536
-  %15 = trunc i32 %div.i.i to i16
+  %15 = trunc nsw i32 %div.i.i to i16
   %rem.lhs.trunc.i = and i16 %15, 32767
   %rem49.i = urem i16 %rem.lhs.trunc.i, 11
   %conv19 = uitofp i16 %rem49.i to float
@@ -3593,7 +3589,7 @@ land.lhs.true78:                                  ; preds = %if.end42
   %add.i.i278 = add i32 %mul.i.i277, 12345
   store i32 %add.i.i278, ptr %28, align 4, !tbaa !147
   %div.i.i279 = sdiv i32 %add.i.i278, 65536
-  %31 = trunc i32 %div.i.i279 to i16
+  %31 = trunc nsw i32 %div.i.i279 to i16
   %rem.lhs.trunc.i280 = and i16 %31, 32767
   %rem49.i281 = urem i16 %rem.lhs.trunc.i280, 13
   %cmp = icmp eq i16 %rem49.i281, 0
@@ -3707,7 +3703,7 @@ _ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit.thread446: ; p
   br i1 %cmp146449, label %land.rhs.thread450, label %land.end
 
 land.rhs.thread450:                               ; preds = %_ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit.thread446
-  %52 = trunc i48 %retval.sroa.2.0.insert.shift.i322 to i32
+  %52 = trunc nuw i48 %retval.sroa.2.0.insert.shift.i322 to i32
   %conv148451 = ashr exact i32 %52, 16
   br label %if.end.i362
 
@@ -3728,7 +3724,7 @@ _ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit.thread: ; pred
   br i1 %cmp146441, label %land.lhs.true.i331, label %land.end
 
 land.lhs.true.i331:                               ; preds = %_ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit.thread, %_ZN7CavesV623getSurfaceFromHeightmapEN3irr4core8vector3dIsEE.exit
-  %55 = trunc i48 %44 to i32
+  %55 = trunc nuw i48 %44 to i32
   %conv148444 = ashr i32 %55, 16
   %conv.i334 = sext i16 %add13.i318 to i32
   %conv3.i336 = sext i16 %46 to i32
@@ -3925,7 +3921,7 @@ entry:
   %mul.i.i = mul i32 %7, 1103515245
   %add.i.i = add i32 %mul.i.i, 12345
   %div.i.i = sdiv i32 %add.i.i, 65536
-  %8 = trunc i32 %div.i.i to i16
+  %8 = trunc nsw i32 %div.i.i to i16
   %rem.lhs.trunc.i = and i16 %8, 32767
   %rem49.i = urem i16 %rem.lhs.trunc.i, 21
   %rem.zext.i = zext nneg i16 %rem49.i to i32
@@ -3936,7 +3932,7 @@ entry:
   %add.i.i288 = add i32 %mul.i.i287, 12345
   store i32 %add.i.i288, ptr %6, align 4, !tbaa !147
   %div.i.i289 = sdiv i32 %add.i.i288, 65536
-  %10 = trunc i32 %div.i.i289 to i16
+  %10 = trunc nsw i32 %div.i.i289 to i16
   %rem.lhs.trunc.i290 = and i16 %10, 32767
   %rem49.i291 = urem i16 %rem.lhs.trunc.i290, 21
   %rem.zext.i292 = zext nneg i16 %rem49.i291 to i32
@@ -3956,7 +3952,7 @@ if.then:                                          ; preds = %entry
   %mul.i.i296 = mul i32 %add.i.i288, 1103515245
   %add.i.i297 = add i32 %mul.i.i296, 12345
   %div.i.i298 = sdiv i32 %add.i.i297, 65536
-  %14 = trunc i32 %div.i.i298 to i16
+  %14 = trunc nsw i32 %div.i.i298 to i16
   %rem.lhs.trunc.i299 = and i16 %14, 32767
   %rem49.i300 = urem i16 %rem.lhs.trunc.i299, 3
   %add28.i302 = add nsw i16 %13, -1
@@ -3965,7 +3961,7 @@ if.then:                                          ; preds = %entry
   %add.i.i304 = add i32 %mul.i.i303, 12345
   store i32 %add.i.i304, ptr %6, align 4, !tbaa !147
   %div.i.i305 = sdiv i32 %add.i.i304, 65536
-  %15 = trunc i32 %div.i.i305 to i16
+  %15 = trunc nsw i32 %div.i.i305 to i16
   %rem.lhs.trunc.i306 = and i16 %15, 32767
   %rem49.i307 = urem i16 %rem.lhs.trunc.i306, 3
   %add28.i309 = add i16 %conv29, -1

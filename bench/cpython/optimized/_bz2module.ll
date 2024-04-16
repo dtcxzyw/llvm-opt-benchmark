@@ -97,18 +97,14 @@ do.body6:                                         ; preds = %if.then, %entry
   %bz2_decompressor_type = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %bz2_decompressor_type, align 8
   %tobool7.not = icmp eq ptr %1, null
-  br i1 %tobool7.not, label %do.end16, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
   %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #6
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.end16, label %return
-
-do.end16:                                         ; preds = %do.body6, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %do.end16
-  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call2, %if.then ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %do.body6, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ 0, %do.body6 ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 
@@ -438,18 +434,14 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %self.val, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %self.val, ptr noundef %arg) #6
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -642,7 +634,7 @@ for.cond.us.us:                                   ; preds = %if.end, %if.end39.u
 
 if.end15.us.us.thread:                            ; preds = %for.cond.us.us
   %cond.us.us = tail call i64 @llvm.umin.i64(i64 %len.addr.0.us.us, i64 4294967295)
-  %conv.us.us = trunc i64 %cond.us.us to i32
+  %conv.us.us = trunc nuw i64 %cond.us.us to i32
   store i32 %conv.us.us, ptr %avail_in, align 8
   %sub.us.us = sub i64 %len.addr.0.us.us, %cond.us.us
   br label %if.end24.us.us
@@ -680,7 +672,7 @@ for.cond.us29:                                    ; preds = %if.end, %if.end39.u
 
 if.then8.us34:                                    ; preds = %for.cond.us29
   %cond.us35 = tail call i64 @llvm.umin.i64(i64 %len.addr.0.us30, i64 4294967295)
-  %conv.us36 = trunc i64 %cond.us35 to i32
+  %conv.us36 = trunc nuw i64 %cond.us35 to i32
   store i32 %conv.us36, ptr %avail_in, align 8
   %sub.us37 = sub i64 %len.addr.0.us30, %cond.us35
   br label %if.end15.us38
@@ -714,7 +706,7 @@ for.cond:                                         ; preds = %if.end, %if.end45
 
 if.then8:                                         ; preds = %for.cond
   %cond = tail call i64 @llvm.umin.i64(i64 %len.addr.0, i64 4294967295)
-  %conv = trunc i64 %cond to i32
+  %conv = trunc nuw i64 %cond to i32
   store i32 %conv, ptr %avail_in, align 8
   %sub = sub i64 %len.addr.0, %cond
   br label %if.end15
@@ -1354,18 +1346,14 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %self.val3, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %self.val3, ptr noundef %arg) #6
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -1596,7 +1584,7 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %if.end4.i.i.i.i.i
   store i64 %max_length.0, ptr %max_length11.i.i.i.i.i, align 8
   %ob_sval.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
   store ptr %ob_sval.i.i.i.i.i.i, ptr %next_out.i.i.i, align 8
-  %conv.i.i.i.i = trunc i64 %block_size.0.i.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %block_size.0.i.i.i.i.i to i32
   store i32 %conv.i.i.i.i, ptr %avail_out.i.i.i, align 4
   %bzs_avail_in_real.i.i.i = getelementptr inbounds i8, ptr %self, i64 136
   %avail_in.i.i.i = getelementptr inbounds i8, ptr %self, i64 24
@@ -1605,7 +1593,7 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %if.end4.i.i.i.i.i
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.backedge, %OutputBuffer_InitAndGrow.exit.i.i.i
   %26 = load i64, ptr %bzs_avail_in_real.i.i.i, align 8
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
-  %conv.i.i.i = trunc i64 %spec.select.i.i.i to i32
+  %conv.i.i.i = trunc nuw i64 %spec.select.i.i.i to i32
   store i32 %conv.i.i.i, ptr %avail_in.i.i.i, align 8
   %sub.i.i.i = sub i64 %26, %spec.select.i.i.i
   store i64 %sub.i.i.i, ptr %bzs_avail_in_real.i.i.i, align 8

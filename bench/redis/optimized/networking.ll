@@ -1533,36 +1533,39 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %value.i = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %c, i64 704
-  %11 = load i64, ptr %ref_block_pos.i, align 8
   %used.i = getelementptr inbounds i8, ptr %10, i64 32
-  %12 = load i64, ptr %used.i, align 8
-  %cmp11.i = icmp eq i64 %11, %12
-  br i1 %cmp11.i, label %clientHasPendingReplies.exit, label %return
+  %11 = load i64, ptr %used.i, align 8
+  br label %return.sink.split.i
 
 if.else.i:                                        ; preds = %if.end25
   br i1 %cmp1.i, label %lor.rhs.i, label %return
 
 lor.rhs.i:                                        ; preds = %if.else.i
   %reply17.i = getelementptr inbounds i8, ptr %c, i64 176
-  %13 = load ptr, ptr %reply17.i, align 8
-  %len18.i = getelementptr inbounds i8, ptr %13, i64 40
-  %14 = load i64, ptr %len18.i, align 8
-  %tobool19.i.not = icmp eq i64 %14, 0
+  %12 = load ptr, ptr %reply17.i, align 8
+  %len18.i = getelementptr inbounds i8, ptr %12, i64 40
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %lor.rhs.i, %land.lhs.true.i
+  %.sink11.i = phi i64 [ %11, %land.lhs.true.i ], [ 0, %lor.rhs.i ]
+  %.sink.in.i = phi ptr [ %ref_block_pos.i, %land.lhs.true.i ], [ %len18.i, %lor.rhs.i ]
+  %.sink.i = load i64, ptr %.sink.in.i, align 8
+  %cmp11.i.not = icmp eq i64 %.sink.i, %.sink11.i
   br label %clientHasPendingReplies.exit
 
-clientHasPendingReplies.exit:                     ; preds = %cond.end.i, %land.lhs.true.i, %lor.rhs.i
-  %retval.0.i = phi i1 [ true, %cond.end.i ], [ true, %land.lhs.true.i ], [ %tobool19.i.not, %lor.rhs.i ]
-  %15 = load i32, ptr @io_threads_op, align 4
-  %cmp = icmp eq i32 %15, 0
-  %or.cond = select i1 %retval.0.i, i1 %cmp, i1 false
+clientHasPendingReplies.exit:                     ; preds = %cond.end.i, %return.sink.split.i
+  %retval.0.shrunk.i = phi i1 [ true, %cond.end.i ], [ %cmp11.i.not, %return.sink.split.i ]
+  %13 = load i32, ptr @io_threads_op, align 4
+  %cmp = icmp eq i32 %13, 0
+  %or.cond = select i1 %retval.0.shrunk.i, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then28, label %return
 
 if.then28:                                        ; preds = %clientHasPendingReplies.exit
   tail call void @putClientInPendingWriteQueue(ptr noundef nonnull %c)
   br label %return
 
-return:                                           ; preds = %if.end.i, %land.lhs.true.i, %if.else.i, %clientHasPendingReplies.exit, %if.then28, %if.end22, %if.end5, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end ], [ -1, %if.end5 ], [ -1, %if.end22 ], [ 0, %if.then28 ], [ 0, %clientHasPendingReplies.exit ], [ 0, %if.else.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i ]
+return:                                           ; preds = %if.else.i, %if.end.i, %clientHasPendingReplies.exit, %if.then28, %if.end22, %if.end5, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end ], [ -1, %if.end5 ], [ -1, %if.end22 ], [ 0, %if.then28 ], [ 0, %clientHasPendingReplies.exit ], [ 0, %if.end.i ], [ 0, %if.else.i ]
   ret i32 %retval.0
 }
 
@@ -1605,36 +1608,36 @@ if.end:                                           ; preds = %cond.end
   %tail = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %tail, align 8
   %cmp9 = icmp eq ptr %7, %5
-  br i1 %cmp9, label %land.lhs.true, label %if.end14
+  br i1 %cmp9, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
   %value = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %value, align 8
   %ref_block_pos = getelementptr inbounds i8, ptr %c, i64 704
-  %9 = load i64, ptr %ref_block_pos, align 8
   %used = getelementptr inbounds i8, ptr %8, i64 32
-  %10 = load i64, ptr %used, align 8
-  %cmp11 = icmp eq i64 %9, %10
-  br i1 %cmp11, label %return, label %if.end14
-
-if.end14:                                         ; preds = %land.lhs.true, %if.end
-  br label %return
+  %9 = load i64, ptr %used, align 8
+  br label %return.sink.split
 
 if.else:                                          ; preds = %entry
   br i1 %cmp1, label %lor.rhs, label %return
 
 lor.rhs:                                          ; preds = %if.else
   %reply17 = getelementptr inbounds i8, ptr %c, i64 176
-  %11 = load ptr, ptr %reply17, align 8
-  %len18 = getelementptr inbounds i8, ptr %11, i64 40
-  %12 = load i64, ptr %len18, align 8
-  %tobool19 = icmp ne i64 %12, 0
-  %13 = zext i1 %tobool19 to i32
+  %10 = load ptr, ptr %reply17, align 8
+  %len18 = getelementptr inbounds i8, ptr %10, i64 40
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %lor.rhs, %land.lhs.true
+  %.sink11 = phi i64 [ %9, %land.lhs.true ], [ 0, %lor.rhs ]
+  %.sink.in = phi ptr [ %ref_block_pos, %land.lhs.true ], [ %len18, %lor.rhs ]
+  %.sink = load i64, ptr %.sink.in, align 8
+  %cmp11 = icmp ne i64 %.sink, %.sink11
+  %11 = zext i1 %cmp11 to i32
   br label %return
 
-return:                                           ; preds = %if.else, %lor.rhs, %land.lhs.true, %cond.end, %if.end14
-  %retval.0 = phi i32 [ 1, %if.end14 ], [ 0, %cond.end ], [ 0, %land.lhs.true ], [ 1, %if.else ], [ %13, %lor.rhs ]
-  ret i32 %retval.0
+return:                                           ; preds = %return.sink.split, %if.else, %if.end, %cond.end
+  %retval.0.shrunk = phi i32 [ 0, %cond.end ], [ 1, %if.end ], [ 1, %if.else ], [ %11, %return.sink.split ]
+  ret i32 %retval.0.shrunk
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -2471,7 +2474,7 @@ cond.end55:                                       ; preds = %.thread59.thread, %
   br i1 %cmp57, label %do.end, label %if.end60
 
 if.end60:                                         ; preds = %cond.end55
-  %conv61 = trunc i64 %spec.store.select to i32
+  %conv61 = trunc nuw nsw i64 %spec.store.select to i32
   %tobool62.not = icmp eq ptr %cond56, null
   %cond66 = select i1 %tobool62.not, ptr @.str.3, ptr %cond56
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %conv61, ptr noundef %s, ptr noundef nonnull %cond66) #26
@@ -7396,7 +7399,7 @@ if.end33:                                         ; preds = %land.lhs.true, %lan
   br i1 %tobool.not65, label %while.end.loopexit92, label %land.lhs.true.lr.ph, !llvm.loop !19
 
 while.end.loopexit:                               ; preds = %if.then30
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.loopexit92:                             ; preds = %land.lhs.true.lr.ph, %if.end33
@@ -7543,23 +7546,26 @@ if.end.i:                                         ; preds = %cond.end.i
 land.lhs.true.i:                                  ; preds = %if.end.i
   %value.i = getelementptr inbounds i8, ptr %6, i64 16
   %9 = load ptr, ptr %value.i, align 8
-  %10 = load i64, ptr %ref_block_pos.i, align 8
   %used.i = getelementptr inbounds i8, ptr %9, i64 32
-  %11 = load i64, ptr %used.i, align 8
-  %cmp11.i = icmp eq i64 %10, %11
-  br i1 %cmp11.i, label %while.end, label %while.body
+  %10 = load i64, ptr %used.i, align 8
+  br label %clientHasPendingReplies.exit
 
 if.else.i:                                        ; preds = %while.cond
-  br i1 %cmp1.i, label %clientHasPendingReplies.exit, label %while.body
+  br i1 %cmp1.i, label %lor.rhs.i, label %while.body
 
-clientHasPendingReplies.exit:                     ; preds = %if.else.i
-  %12 = load ptr, ptr %reply17.i, align 8
-  %len18.i = getelementptr inbounds i8, ptr %12, i64 40
-  %13 = load i64, ptr %len18.i, align 8
-  %tobool19.i.not = icmp eq i64 %13, 0
-  br i1 %tobool19.i.not, label %while.end, label %while.body
+lor.rhs.i:                                        ; preds = %if.else.i
+  %11 = load ptr, ptr %reply17.i, align 8
+  %len18.i = getelementptr inbounds i8, ptr %11, i64 40
+  br label %clientHasPendingReplies.exit
 
-while.body:                                       ; preds = %if.end.i, %land.lhs.true.i, %if.else.i, %clientHasPendingReplies.exit
+clientHasPendingReplies.exit:                     ; preds = %land.lhs.true.i, %lor.rhs.i
+  %.sink11.i = phi i64 [ %10, %land.lhs.true.i ], [ 0, %lor.rhs.i ]
+  %.sink.in.i = phi ptr [ %ref_block_pos.i, %land.lhs.true.i ], [ %len18.i, %lor.rhs.i ]
+  %.sink.i = load i64, ptr %.sink.in.i, align 8
+  %cmp11.i.not = icmp eq i64 %.sink.i, %.sink11.i
+  br i1 %cmp11.i.not, label %while.end, label %while.body
+
+while.body:                                       ; preds = %if.else.i, %if.end.i, %clientHasPendingReplies.exit
   %call1 = call i32 @_writeToClient(ptr noundef nonnull %c, ptr noundef nonnull %nwritten)
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %while.body.while.end_crit_edge, label %if.end
@@ -7569,166 +7575,169 @@ while.body.while.end_crit_edge:                   ; preds = %while.body
   br label %while.end
 
 if.end:                                           ; preds = %while.body
-  %14 = load i64, ptr %nwritten, align 8
-  %add = add nsw i64 %14, %totwritten.0
+  %12 = load i64, ptr %nwritten, align 8
+  %add = add nsw i64 %12, %totwritten.0
   %cmp2 = icmp sgt i64 %add, 65536
   br i1 %cmp2, label %land.lhs.true, label %while.cond.backedge
 
 land.lhs.true:                                    ; preds = %if.end
-  %15 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
-  %cmp3 = icmp eq i64 %15, 0
+  %13 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  %cmp3 = icmp eq i64 %13, 0
   br i1 %cmp3, label %land.lhs.true6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %call4 = tail call i64 @zmalloc_used_memory() #26
-  %16 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
-  %cmp5 = icmp ult i64 %call4, %16
+  %14 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  %cmp5 = icmp ult i64 %call4, %14
   br i1 %cmp5, label %land.lhs.true6, label %while.cond.backedge
 
 land.lhs.true6:                                   ; preds = %lor.lhs.false, %land.lhs.true
-  %17 = load i64, ptr %flags.i.i, align 8
-  %and = and i64 %17, 1
+  %15 = load i64, ptr %flags.i.i, align 8
+  %and = and i64 %15, 1
   %tobool7.not = icmp eq i64 %and, 0
   br i1 %tobool7.not, label %while.end, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %land.lhs.true6, %lor.lhs.false, %if.end
   br label %while.cond, !llvm.loop !21
 
-while.end:                                        ; preds = %land.lhs.true.i, %cond.end.i, %land.lhs.true6, %clientHasPendingReplies.exit, %while.body.while.end_crit_edge
-  %18 = phi i64 [ %.pre, %while.body.while.end_crit_edge ], [ %17, %land.lhs.true6 ], [ %1, %clientHasPendingReplies.exit ], [ %1, %cond.end.i ], [ %1, %land.lhs.true.i ]
-  %totwritten.1 = phi i64 [ %totwritten.0, %while.body.while.end_crit_edge ], [ %add, %land.lhs.true6 ], [ %totwritten.0, %clientHasPendingReplies.exit ], [ %totwritten.0, %cond.end.i ], [ %totwritten.0, %land.lhs.true.i ]
-  %19 = and i64 %18, 7
-  %or.cond = icmp eq i64 %19, 1
+while.end:                                        ; preds = %cond.end.i, %land.lhs.true6, %clientHasPendingReplies.exit, %while.body.while.end_crit_edge
+  %16 = phi i64 [ %.pre, %while.body.while.end_crit_edge ], [ %15, %land.lhs.true6 ], [ %1, %clientHasPendingReplies.exit ], [ %1, %cond.end.i ]
+  %totwritten.1 = phi i64 [ %totwritten.0, %while.body.while.end_crit_edge ], [ %add, %land.lhs.true6 ], [ %totwritten.0, %clientHasPendingReplies.exit ], [ %totwritten.0, %cond.end.i ]
+  %17 = and i64 %16, 7
+  %or.cond = icmp eq i64 %17, 1
   %. = select i1 %or.cond, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 127), ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 125)
-  %20 = atomicrmw add ptr %., i64 %totwritten.1 monotonic, align 8
-  %21 = load i64, ptr %nwritten, align 8
-  %cmp18 = icmp eq i64 %21, -1
+  %18 = atomicrmw add ptr %., i64 %totwritten.1 monotonic, align 8
+  %19 = load i64, ptr %nwritten, align 8
+  %cmp18 = icmp eq i64 %19, -1
   br i1 %cmp18, label %if.then19, label %if.end29
 
 if.then19:                                        ; preds = %while.end
   %conn = getelementptr inbounds i8, ptr %c, i64 16
-  %22 = load ptr, ptr %conn, align 8
-  %23 = getelementptr i8, ptr %22, i64 8
-  %.val = load i32, ptr %23, align 8
+  %20 = load ptr, ptr %conn, align 8
+  %21 = getelementptr i8, ptr %20, i64 8
+  %.val = load i32, ptr %21, align 8
   %cmp21.not = icmp eq i32 %.val, 3
   br i1 %cmp21.not, label %if.end29, label %do.body
 
 do.body:                                          ; preds = %if.then19
-  %24 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
-  %cmp23 = icmp sgt i32 %24, 1
+  %22 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %cmp23 = icmp sgt i32 %22, 1
   br i1 %cmp23, label %do.end, label %if.end25
 
 if.end25:                                         ; preds = %do.body
-  %25 = load ptr, ptr %22, align 8
-  %get_last_error.i = getelementptr inbounds i8, ptr %25, i64 168
-  %26 = load ptr, ptr %get_last_error.i, align 8
-  %call.i = tail call ptr %26(ptr noundef nonnull %22) #26
+  %23 = load ptr, ptr %20, align 8
+  %get_last_error.i = getelementptr inbounds i8, ptr %23, i64 168
+  %24 = load ptr, ptr %get_last_error.i, align 8
+  %call.i = tail call ptr %24(ptr noundef nonnull %20) #26
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.57, ptr noundef %call.i) #26
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.end25
-  %27 = load i64, ptr %flags.i.i, align 8
-  %28 = and i64 %27, 1280
-  %or.cond.i23 = icmp eq i64 %28, 0
-  br i1 %or.cond.i23, label %if.end.i24, label %return
+  %25 = load i64, ptr %flags.i.i, align 8
+  %26 = and i64 %25, 1280
+  %or.cond.i22 = icmp eq i64 %26, 0
+  br i1 %or.cond.i22, label %if.end.i23, label %return
 
-if.end.i24:                                       ; preds = %do.end
-  %or.i = or disjoint i64 %27, 1024
+if.end.i23:                                       ; preds = %do.end
+  %or.i = or disjoint i64 %25, 1024
   store i64 %or.i, ptr %flags.i.i, align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
-  %cmp.i = icmp eq i32 %29, 1
+  %27 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
+  %cmp.i = icmp eq i32 %27, 1
   br i1 %cmp.i, label %if.then5.i, label %if.end6.i
 
-if.then5.i:                                       ; preds = %if.end.i24
-  %30 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
-  %call.i25 = tail call ptr @listAddNodeTail(ptr noundef %30, ptr noundef nonnull %c) #26
+if.then5.i:                                       ; preds = %if.end.i23
+  %28 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
+  %call.i24 = tail call ptr @listAddNodeTail(ptr noundef %28, ptr noundef nonnull %c) #26
   br label %return
 
-if.end6.i:                                        ; preds = %if.end.i24
+if.end6.i:                                        ; preds = %if.end.i23
   %call7.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
-  %31 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
-  %call8.i = tail call ptr @listAddNodeTail(ptr noundef %31, ptr noundef nonnull %c) #26
+  %29 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
+  %call8.i = tail call ptr @listAddNodeTail(ptr noundef %29, ptr noundef nonnull %c) #26
   %call9.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
   br label %return
 
 if.end29:                                         ; preds = %if.then19, %while.end
   %cmp30 = icmp sgt i64 %totwritten.1, 0
-  %.pre85 = load i64, ptr %flags.i.i, align 8
-  %and33 = and i64 %.pre85, 2
+  %.pre84 = load i64, ptr %flags.i.i, align 8
+  %and33 = and i64 %.pre84, 2
   %tobool34.not = icmp eq i64 %and33, 0
-  %or.cond89 = select i1 %cmp30, i1 %tobool34.not, i1 false
-  br i1 %or.cond89, label %if.then35, label %if.end37
+  %or.cond88 = select i1 %cmp30, i1 %tobool34.not, i1 false
+  br i1 %or.cond88, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %if.end29
   %atomic-load = load atomic i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 349) seq_cst, align 8
   %lastinteraction = getelementptr inbounds i8, ptr %c, i64 240
   store i64 %atomic-load, ptr %lastinteraction, align 8
-  %.pre84 = load i64, ptr %flags.i.i, align 8
+  %.pre83 = load i64, ptr %flags.i.i, align 8
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then35, %if.end29
-  %32 = phi i64 [ %.pre84, %if.then35 ], [ %.pre85, %if.end29 ]
-  %33 = and i64 %32, 7
-  %or.cond.i27 = icmp eq i64 %33, 1
-  %34 = load i32, ptr %bufpos.i, align 8
-  %cmp1.i29 = icmp eq i32 %34, 0
-  br i1 %or.cond.i27, label %if.then.i36, label %if.else.i30
+  %30 = phi i64 [ %.pre83, %if.then35 ], [ %.pre84, %if.end29 ]
+  %31 = and i64 %30, 7
+  %or.cond.i26 = icmp eq i64 %31, 1
+  %32 = load i32, ptr %bufpos.i, align 8
+  %cmp1.i28 = icmp eq i32 %32, 0
+  br i1 %or.cond.i26, label %if.then.i39, label %if.else.i29
 
-if.then.i36:                                      ; preds = %if.end37
-  br i1 %cmp1.i29, label %land.rhs.i38, label %cond.false.i37
+if.then.i39:                                      ; preds = %if.end37
+  br i1 %cmp1.i28, label %land.rhs.i41, label %cond.false.i40
 
-land.rhs.i38:                                     ; preds = %if.then.i36
-  %35 = load ptr, ptr %reply17.i, align 8
-  %len.i40 = getelementptr inbounds i8, ptr %35, i64 40
-  %36 = load i64, ptr %len.i40, align 8
-  %cmp2.i41 = icmp eq i64 %36, 0
-  br i1 %cmp2.i41, label %cond.end.i42, label %cond.false.i37
+land.rhs.i41:                                     ; preds = %if.then.i39
+  %33 = load ptr, ptr %reply17.i, align 8
+  %len.i43 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = load i64, ptr %len.i43, align 8
+  %cmp2.i44 = icmp eq i64 %34, 0
+  br i1 %cmp2.i44, label %cond.end.i45, label %cond.false.i40
 
-cond.false.i37:                                   ; preds = %land.rhs.i38, %if.then.i36
+cond.false.i40:                                   ; preds = %land.rhs.i41, %if.then.i39
   tail call void @_serverAssert(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.1, i32 noundef 1246) #26
   tail call void @abort() #27
   unreachable
 
-cond.end.i42:                                     ; preds = %land.rhs.i38
-  %37 = load ptr, ptr %ref_repl_buf_node.i, align 8
-  %cmp4.i44 = icmp eq ptr %37, null
-  br i1 %cmp4.i44, label %if.then40, label %if.end.i45
+cond.end.i45:                                     ; preds = %land.rhs.i41
+  %35 = load ptr, ptr %ref_repl_buf_node.i, align 8
+  %cmp4.i47 = icmp eq ptr %35, null
+  br i1 %cmp4.i47, label %if.then40, label %if.end.i48
 
-if.end.i45:                                       ; preds = %cond.end.i42
-  %38 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 280), align 8
-  %tail.i46 = getelementptr inbounds i8, ptr %38, i64 8
-  %39 = load ptr, ptr %tail.i46, align 8
-  %cmp9.i47 = icmp eq ptr %39, %37
-  br i1 %cmp9.i47, label %land.lhs.true.i49, label %if.end54
+if.end.i48:                                       ; preds = %cond.end.i45
+  %36 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 280), align 8
+  %tail.i49 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = load ptr, ptr %tail.i49, align 8
+  %cmp9.i50 = icmp eq ptr %37, %35
+  br i1 %cmp9.i50, label %land.lhs.true.i51, label %if.end54
 
-land.lhs.true.i49:                                ; preds = %if.end.i45
-  %value.i50 = getelementptr inbounds i8, ptr %37, i64 16
-  %40 = load ptr, ptr %value.i50, align 8
-  %41 = load i64, ptr %ref_block_pos.i, align 8
-  %used.i52 = getelementptr inbounds i8, ptr %40, i64 32
-  %42 = load i64, ptr %used.i52, align 8
-  %cmp11.i53 = icmp eq i64 %41, %42
-  br i1 %cmp11.i53, label %if.then40, label %if.end54
+land.lhs.true.i51:                                ; preds = %if.end.i48
+  %value.i52 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %value.i52, align 8
+  %used.i54 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = load i64, ptr %used.i54, align 8
+  br label %clientHasPendingReplies.exit55
 
-if.else.i30:                                      ; preds = %if.end37
-  br i1 %cmp1.i29, label %clientHasPendingReplies.exit54, label %if.end54
+if.else.i29:                                      ; preds = %if.end37
+  br i1 %cmp1.i28, label %lor.rhs.i31, label %if.end54
 
-clientHasPendingReplies.exit54:                   ; preds = %if.else.i30
-  %43 = load ptr, ptr %reply17.i, align 8
-  %len18.i34 = getelementptr inbounds i8, ptr %43, i64 40
-  %44 = load i64, ptr %len18.i34, align 8
-  %tobool19.i35.not = icmp eq i64 %44, 0
-  br i1 %tobool19.i35.not, label %if.then40, label %if.end54
+lor.rhs.i31:                                      ; preds = %if.else.i29
+  %40 = load ptr, ptr %reply17.i, align 8
+  %len18.i33 = getelementptr inbounds i8, ptr %40, i64 40
+  br label %clientHasPendingReplies.exit55
 
-if.then40:                                        ; preds = %land.lhs.true.i49, %cond.end.i42, %clientHasPendingReplies.exit54
+clientHasPendingReplies.exit55:                   ; preds = %land.lhs.true.i51, %lor.rhs.i31
+  %.sink11.i35 = phi i64 [ %39, %land.lhs.true.i51 ], [ 0, %lor.rhs.i31 ]
+  %.sink.in.i36 = phi ptr [ %ref_block_pos.i, %land.lhs.true.i51 ], [ %len18.i33, %lor.rhs.i31 ]
+  %.sink.i37 = load i64, ptr %.sink.in.i36, align 8
+  %cmp11.i38.not = icmp eq i64 %.sink.i37, %.sink11.i35
+  br i1 %cmp11.i38.not, label %if.then40, label %if.end54
+
+if.then40:                                        ; preds = %cond.end.i45, %clientHasPendingReplies.exit55
   %sentlen = getelementptr inbounds i8, ptr %c, i64 200
   store i64 0, ptr %sentlen, align 8
   %tobool41.not = icmp eq i32 %handler_installed, 0
   br i1 %tobool41.not, label %if.end48, label %if.then42
 
 if.then42:                                        ; preds = %if.then40
-  %45 = load i32, ptr @io_threads_op, align 4
-  %cmp43 = icmp eq i32 %45, 0
+  %41 = load i32, ptr @io_threads_op, align 4
+  %cmp43 = icmp eq i32 %41, 0
   br i1 %cmp43, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then42
@@ -7738,55 +7747,55 @@ cond.false:                                       ; preds = %if.then42
 
 cond.end:                                         ; preds = %if.then42
   %conn46 = getelementptr inbounds i8, ptr %c, i64 16
-  %46 = load ptr, ptr %conn46, align 8
-  %47 = load ptr, ptr %46, align 8
-  %set_write_handler.i = getelementptr inbounds i8, ptr %47, i64 152
-  %48 = load ptr, ptr %set_write_handler.i, align 8
-  %call.i55 = tail call i32 %48(ptr noundef nonnull %46, ptr noundef null, i32 noundef 0) #26
-  %.pre86 = load i64, ptr %flags.i.i, align 8
+  %42 = load ptr, ptr %conn46, align 8
+  %43 = load ptr, ptr %42, align 8
+  %set_write_handler.i = getelementptr inbounds i8, ptr %43, i64 152
+  %44 = load ptr, ptr %set_write_handler.i, align 8
+  %call.i56 = tail call i32 %44(ptr noundef nonnull %42, ptr noundef null, i32 noundef 0) #26
+  %.pre85 = load i64, ptr %flags.i.i, align 8
   br label %if.end48
 
 if.end48:                                         ; preds = %cond.end, %if.then40
-  %49 = phi i64 [ %.pre86, %cond.end ], [ %32, %if.then40 ]
-  %and50 = and i64 %49, 64
+  %45 = phi i64 [ %.pre85, %cond.end ], [ %30, %if.then40 ]
+  %and50 = and i64 %45, 64
   %tobool51.not = icmp eq i64 %and50, 0
   br i1 %tobool51.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end48
-  %50 = and i64 %49, 1280
-  %or.cond.i57 = icmp eq i64 %50, 0
-  br i1 %or.cond.i57, label %if.end.i58, label %return
+  %46 = and i64 %45, 1280
+  %or.cond.i58 = icmp eq i64 %46, 0
+  br i1 %or.cond.i58, label %if.end.i59, label %return
 
-if.end.i58:                                       ; preds = %if.then52
-  %or.i59 = or disjoint i64 %49, 1024
-  store i64 %or.i59, ptr %flags.i.i, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
-  %cmp.i60 = icmp eq i32 %51, 1
-  br i1 %cmp.i60, label %if.then5.i65, label %if.end6.i61
+if.end.i59:                                       ; preds = %if.then52
+  %or.i60 = or disjoint i64 %45, 1024
+  store i64 %or.i60, ptr %flags.i.i, align 8
+  %47 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
+  %cmp.i61 = icmp eq i32 %47, 1
+  br i1 %cmp.i61, label %if.then5.i66, label %if.end6.i62
 
-if.then5.i65:                                     ; preds = %if.end.i58
-  %52 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
-  %call.i66 = tail call ptr @listAddNodeTail(ptr noundef %52, ptr noundef nonnull %c) #26
+if.then5.i66:                                     ; preds = %if.end.i59
+  %48 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
+  %call.i67 = tail call ptr @listAddNodeTail(ptr noundef %48, ptr noundef nonnull %c) #26
   br label %return
 
-if.end6.i61:                                      ; preds = %if.end.i58
-  %call7.i62 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
-  %53 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
-  %call8.i63 = tail call ptr @listAddNodeTail(ptr noundef %53, ptr noundef nonnull %c) #26
-  %call9.i64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
+if.end6.i62:                                      ; preds = %if.end.i59
+  %call7.i63 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
+  %49 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
+  %call8.i64 = tail call ptr @listAddNodeTail(ptr noundef %49, ptr noundef nonnull %c) #26
+  %call9.i65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
   br label %return
 
-if.end54:                                         ; preds = %if.end.i45, %land.lhs.true.i49, %if.else.i30, %if.end48, %clientHasPendingReplies.exit54
-  %54 = load i32, ptr @io_threads_op, align 4
-  %cmp55 = icmp eq i32 %54, 0
+if.end54:                                         ; preds = %if.else.i29, %if.end.i48, %if.end48, %clientHasPendingReplies.exit55
+  %50 = load i32, ptr @io_threads_op, align 4
+  %cmp55 = icmp eq i32 %50, 0
   br i1 %cmp55, label %if.then57, label %return
 
 if.then57:                                        ; preds = %if.end54
   %call58 = tail call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %c) #26
   br label %return
 
-return:                                           ; preds = %if.end6.i61, %if.then5.i65, %if.then52, %if.end6.i, %if.then5.i, %do.end, %if.end54, %if.then57
-  %retval.0 = phi i32 [ 0, %if.then57 ], [ 0, %if.end54 ], [ -1, %do.end ], [ -1, %if.then5.i ], [ -1, %if.end6.i ], [ -1, %if.then52 ], [ -1, %if.then5.i65 ], [ -1, %if.end6.i61 ]
+return:                                           ; preds = %if.end6.i62, %if.then5.i66, %if.then52, %if.end6.i, %if.then5.i, %do.end, %if.end54, %if.then57
+  %retval.0 = phi i32 [ 0, %if.then57 ], [ 0, %if.end54 ], [ -1, %do.end ], [ -1, %if.then5.i ], [ -1, %if.end6.i ], [ -1, %if.then52 ], [ -1, %if.then5.i66 ], [ -1, %if.end6.i62 ]
   ret i32 %retval.0
 }
 
@@ -7802,20 +7811,20 @@ entry:
   %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #26
-  %call17 = call ptr @listNext(ptr noundef nonnull %li) #26
-  %tobool.not18 = icmp eq ptr %call17, null
-  br i1 %tobool.not18, label %while.end, label %while.body
+  %call16 = call ptr @listNext(ptr noundef nonnull %li) #26
+  %tobool.not17 = icmp eq ptr %call16, null
+  br i1 %tobool.not17, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.cond.backedge
-  %call19 = phi ptr [ %call, %while.cond.backedge ], [ %call17, %entry ]
-  %value = getelementptr inbounds i8, ptr %call19, i64 16
+  %call18 = phi ptr [ %call, %while.cond.backedge ], [ %call16, %entry ]
+  %value = getelementptr inbounds i8, ptr %call18, i64 16
   %2 = load ptr, ptr %value, align 8
   %flags = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %flags, align 8
   %and = and i64 %3, -2097153
   store i64 %and, ptr %flags, align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
-  call void @listUnlinkNode(ptr noundef %4, ptr noundef nonnull %call19) #26
+  call void @listUnlinkNode(ptr noundef %4, ptr noundef nonnull %call18) #26
   %5 = load i64, ptr %flags, align 8
   %6 = and i64 %5, 268436480
   %or.cond = icmp eq i64 %6, 0
@@ -7868,65 +7877,68 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %value.i = getelementptr inbounds i8, ptr %12, i64 16
   %15 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %2, i64 704
-  %16 = load i64, ptr %ref_block_pos.i, align 8
   %used.i = getelementptr inbounds i8, ptr %15, i64 32
-  %17 = load i64, ptr %used.i, align 8
-  %cmp11.i = icmp eq i64 %16, %17
-  br i1 %cmp11.i, label %while.cond.backedge, label %if.then15
+  %16 = load i64, ptr %used.i, align 8
+  br label %clientHasPendingReplies.exit
 
 if.else.i:                                        ; preds = %if.end12
-  br i1 %cmp1.i, label %clientHasPendingReplies.exit, label %if.then15
+  br i1 %cmp1.i, label %lor.rhs.i, label %if.then15
 
-clientHasPendingReplies.exit:                     ; preds = %if.else.i
+lor.rhs.i:                                        ; preds = %if.else.i
   %reply17.i = getelementptr inbounds i8, ptr %2, i64 176
-  %18 = load ptr, ptr %reply17.i, align 8
-  %len18.i = getelementptr inbounds i8, ptr %18, i64 40
-  %19 = load i64, ptr %len18.i, align 8
-  %tobool19.i.not = icmp eq i64 %19, 0
-  br i1 %tobool19.i.not, label %while.cond.backedge, label %if.then15
+  %17 = load ptr, ptr %reply17.i, align 8
+  %len18.i = getelementptr inbounds i8, ptr %17, i64 40
+  br label %clientHasPendingReplies.exit
 
-if.then15:                                        ; preds = %if.end.i, %land.lhs.true.i, %if.else.i, %clientHasPendingReplies.exit
-  %20 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
-  %cmp.i = icmp eq i32 %20, 1
-  %21 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 186), align 4
-  %cmp1.i7 = icmp eq i32 %21, 1
+clientHasPendingReplies.exit:                     ; preds = %land.lhs.true.i, %lor.rhs.i
+  %.sink11.i = phi i64 [ %16, %land.lhs.true.i ], [ 0, %lor.rhs.i ]
+  %.sink.in.i = phi ptr [ %ref_block_pos.i, %land.lhs.true.i ], [ %len18.i, %lor.rhs.i ]
+  %.sink.i = load i64, ptr %.sink.in.i, align 8
+  %cmp11.i.not = icmp eq i64 %.sink.i, %.sink11.i
+  br i1 %cmp11.i.not, label %while.cond.backedge, label %if.then15
+
+if.then15:                                        ; preds = %if.else.i, %if.end.i, %clientHasPendingReplies.exit
+  %18 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
+  %cmp.i = icmp eq i32 %18, 1
+  %19 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 186), align 4
+  %cmp1.i7 = icmp eq i32 %19, 1
   %or.cond.i8 = select i1 %cmp.i, i1 %cmp1.i7, i1 false
   %spec.store.select.i = zext i1 %or.cond.i8 to i32
   %conn.i = getelementptr inbounds i8, ptr %2, i64 16
-  %22 = load ptr, ptr %conn.i, align 8
-  %23 = load ptr, ptr %22, align 8
-  %set_write_handler.i.i = getelementptr inbounds i8, ptr %23, i64 152
-  %24 = load ptr, ptr %set_write_handler.i.i, align 8
-  %call.i.i = call i32 %24(ptr noundef nonnull %22, ptr noundef nonnull @sendReplyToClient, i32 noundef %spec.store.select.i) #26
+  %20 = load ptr, ptr %conn.i, align 8
+  %21 = load ptr, ptr %20, align 8
+  %set_write_handler.i.i = getelementptr inbounds i8, ptr %21, i64 152
+  %22 = load ptr, ptr %set_write_handler.i.i, align 8
+  %call.i.i = call i32 %22(ptr noundef nonnull %20, ptr noundef nonnull @sendReplyToClient, i32 noundef %spec.store.select.i) #26
   %cmp2.i9 = icmp eq i32 %call.i.i, -1
   br i1 %cmp2.i9, label %if.then3.i, label %while.cond.backedge
 
 if.then3.i:                                       ; preds = %if.then15
-  %25 = load i64, ptr %flags, align 8
-  %26 = and i64 %25, 1280
-  %or.cond.i.i = icmp eq i64 %26, 0
+  %23 = load i64, ptr %flags, align 8
+  %24 = and i64 %23, 1280
+  %or.cond.i.i = icmp eq i64 %24, 0
   br i1 %or.cond.i.i, label %if.end.i.i, label %while.cond.backedge
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %or.i.i = or disjoint i64 %25, 1024
+  %or.i.i = or disjoint i64 %23, 1024
   store i64 %or.i.i, ptr %flags, align 8
-  %27 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
-  %cmp.i.i = icmp eq i32 %27, 1
+  %25 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
+  %cmp.i.i = icmp eq i32 %25, 1
   br i1 %cmp.i.i, label %if.then5.i.i, label %if.end6.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %28 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
-  %call.i2.i = call ptr @listAddNodeTail(ptr noundef %28, ptr noundef nonnull %2) #26
+  %26 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
+  %call.i2.i = call ptr @listAddNodeTail(ptr noundef %26, ptr noundef nonnull %2) #26
   br label %while.cond.backedge
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %call7.i.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
-  %29 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
-  %call8.i.i = call ptr @listAddNodeTail(ptr noundef %29, ptr noundef nonnull %2) #26
+  %27 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
+  %call8.i.i = call ptr @listAddNodeTail(ptr noundef %27, ptr noundef nonnull %2) #26
   %call9.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %clientHasPendingReplies.exit, %if.then15, %if.then3.i, %if.then5.i.i, %if.end6.i.i, %cond.end.i, %land.lhs.true.i, %while.body, %if.end8
+while.cond.backedge:                              ; preds = %clientHasPendingReplies.exit, %if.then15, %if.then3.i, %if.then5.i.i, %if.end6.i.i, %cond.end.i, %while.body, %if.end8
   %call = call ptr @listNext(ptr noundef nonnull %li) #26
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !22
@@ -8667,7 +8679,7 @@ if.end323:                                        ; preds = %if.else12.i374, %if
   %addr.1 = phi ptr [ %addr.0507, %if.end200 ], [ %59, %if.then235 ], [ %addr.0507, %if.then250 ], [ %addr.0507, %if.then265 ], [ %addr.0507, %if.then296 ], [ %addr.0507, %if.else305 ], [ %addr.0507, %if.then210 ], [ %addr.0507, %if.else.i365 ], [ %addr.0507, %if.else4.i368 ], [ %addr.0507, %if.else8.i371 ], [ %addr.0507, %if.else12.i374 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %71 = load i32, ptr %argc, align 8
-  %72 = trunc i64 %indvars.iv.next to i32
+  %72 = trunc nuw i64 %indvars.iv.next to i32
   %cmp180 = icmp sgt i32 %71, %72
   br i1 %cmp180, label %while.body, label %if.end327, !llvm.loop !24
 
@@ -9685,10 +9697,10 @@ if.end670:                                        ; preds = %if.then664
 
 if.then674:                                       ; preds = %if.end670
   %and676 = lshr i64 %150, 33
-  %151 = trunc i64 %and676 to i32
+  %151 = trunc nuw nsw i64 %and676 to i32
   %lnot.ext = and i32 %151, 1
   %and665.lobit = lshr exact i64 %and665, 33
-  %lnot.ext684 = trunc i64 %and665.lobit to i32
+  %lnot.ext684 = trunc nuw nsw i64 %and665.lobit to i32
   %cmp685.not = icmp eq i32 %lnot.ext, %lnot.ext684
   br i1 %cmp685.not, label %if.end689, label %if.then687
 
@@ -10178,51 +10190,57 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %value.i = getelementptr inbounds i8, ptr %9, i64 16
   %12 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %c, i64 704
-  %13 = load i64, ptr %ref_block_pos.i, align 8
   %used.i = getelementptr inbounds i8, ptr %12, i64 32
-  %14 = load i64, ptr %used.i, align 8
-  %cmp11.i = icmp eq i64 %13, %14
-  br i1 %cmp11.i, label %if.end10, label %if.then8
+  %13 = load i64, ptr %used.i, align 8
+  br label %clientHasPendingReplies.exit
 
 if.else.i:                                        ; preds = %if.then4
-  br i1 %cmp1.i, label %clientHasPendingReplies.exit, label %if.then8
+  br i1 %cmp1.i, label %lor.rhs.i, label %if.then8
 
-clientHasPendingReplies.exit:                     ; preds = %if.else.i
+lor.rhs.i:                                        ; preds = %if.else.i
   %reply17.i = getelementptr inbounds i8, ptr %c, i64 176
-  %15 = load ptr, ptr %reply17.i, align 8
-  %len18.i = getelementptr inbounds i8, ptr %15, i64 40
-  %16 = load i64, ptr %len18.i, align 8
-  %tobool19.i.not = icmp eq i64 %16, 0
-  br i1 %tobool19.i.not, label %if.end10, label %if.then8
+  %14 = load ptr, ptr %reply17.i, align 8
+  %len18.i = getelementptr inbounds i8, ptr %14, i64 40
+  br label %clientHasPendingReplies.exit
 
-if.then8:                                         ; preds = %if.end.i, %land.lhs.true.i, %if.else.i, %clientHasPendingReplies.exit
+clientHasPendingReplies.exit:                     ; preds = %land.lhs.true.i, %lor.rhs.i
+  %.sink11.i = phi i64 [ %13, %land.lhs.true.i ], [ 0, %lor.rhs.i ]
+  %.sink.in.i = phi ptr [ %ref_block_pos.i, %land.lhs.true.i ], [ %len18.i, %lor.rhs.i ]
+  %.sink.i = load i64, ptr %.sink.in.i, align 8
+  %cmp11.i = icmp ne i64 %.sink.i, %.sink11.i
   %and.i = and i64 %4, 2097152
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %land.lhs.true.i7, label %if.end10
+  %or.cond = and i1 %tobool.not.i, %cmp11.i
+  br i1 %or.cond, label %land.lhs.true.i7, label %if.end10
 
-land.lhs.true.i7:                                 ; preds = %if.then8
+if.then8:                                         ; preds = %if.else.i, %if.end.i
+  %and.i.old = and i64 %4, 2097152
+  %tobool.not.i.old = icmp eq i64 %and.i.old, 0
+  br i1 %tobool.not.i.old, label %land.lhs.true.i7, label %if.end10
+
+land.lhs.true.i7:                                 ; preds = %clientHasPendingReplies.exit, %if.then8
   %replstate.i = getelementptr inbounds i8, ptr %c, i64 260
-  %17 = load i32, ptr %replstate.i, align 4
-  switch i32 %17, label %if.end10 [
+  %15 = load i32, ptr %replstate.i, align 4
+  switch i32 %15, label %if.end10 [
     i32 0, label %if.then.i8
     i32 9, label %land.lhs.true3.i
   ]
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i7
   %repl_start_cmd_stream_on_ack.i = getelementptr inbounds i8, ptr %c, i64 264
-  %18 = load i32, ptr %repl_start_cmd_stream_on_ack.i, align 8
-  %tobool4.not.i = icmp eq i32 %18, 0
+  %16 = load i32, ptr %repl_start_cmd_stream_on_ack.i, align 8
+  %tobool4.not.i = icmp eq i32 %16, 0
   br i1 %tobool4.not.i, label %if.then.i8, label %if.end10
 
 if.then.i8:                                       ; preds = %land.lhs.true3.i, %land.lhs.true.i7
   %or.i = or disjoint i64 %4, 2097152
   store i64 %or.i, ptr %flags, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
+  %17 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
   %clients_pending_write_node.i = getelementptr inbounds i8, ptr %c, i64 712
-  tail call void @listLinkNodeHead(ptr noundef %19, ptr noundef nonnull %clients_pending_write_node.i) #26
+  tail call void @listLinkNodeHead(ptr noundef %17, ptr noundef nonnull %clients_pending_write_node.i) #26
   br label %if.end10
 
-if.end10:                                         ; preds = %land.lhs.true.i, %cond.end.i, %if.then.i8, %land.lhs.true3.i, %land.lhs.true.i7, %if.then8, %if.then, %clientHasPendingReplies.exit, %entry
+if.end10:                                         ; preds = %cond.end.i, %if.then.i8, %land.lhs.true3.i, %land.lhs.true.i7, %if.then8, %if.then, %clientHasPendingReplies.exit, %entry
   ret void
 }
 
@@ -14056,12 +14074,12 @@ entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 59), align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #26
-  %call13 = call ptr @listNext(ptr noundef nonnull %li) #26
-  %tobool.not14 = icmp eq ptr %call13, null
-  br i1 %tobool.not14, label %while.end, label %while.body
+  %call12 = call ptr @listNext(ptr noundef nonnull %li) #26
+  %tobool.not13 = icmp eq ptr %call12, null
+  br i1 %tobool.not13, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end
-  %call15 = phi ptr [ %call, %if.end ], [ %call13, %entry ]
+  %call15 = phi ptr [ %call, %if.end ], [ %call12, %entry ]
   %value = getelementptr inbounds i8, ptr %call15, i64 16
   %1 = load ptr, ptr %value, align 8
   %conn = getelementptr inbounds i8, ptr %1, i64 16
@@ -14140,28 +14158,31 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %value.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %1, i64 704
-  %17 = load i64, ptr %ref_block_pos.i, align 8
   %used.i = getelementptr inbounds i8, ptr %16, i64 32
-  %18 = load i64, ptr %used.i, align 8
-  %cmp11.i = icmp eq i64 %17, %18
-  br i1 %cmp11.i, label %if.end, label %if.then
+  %17 = load i64, ptr %used.i, align 8
+  br label %clientHasPendingReplies.exit
 
 if.else.i:                                        ; preds = %land.lhs.true11
-  br i1 %cmp1.i, label %clientHasPendingReplies.exit, label %if.then
+  br i1 %cmp1.i, label %lor.rhs.i, label %if.then
 
-clientHasPendingReplies.exit:                     ; preds = %if.else.i
+lor.rhs.i:                                        ; preds = %if.else.i
   %reply17.i = getelementptr inbounds i8, ptr %1, i64 176
-  %19 = load ptr, ptr %reply17.i, align 8
-  %len18.i = getelementptr inbounds i8, ptr %19, i64 40
-  %20 = load i64, ptr %len18.i, align 8
-  %tobool19.i.not = icmp eq i64 %20, 0
-  br i1 %tobool19.i.not, label %if.end, label %if.then
+  %18 = load ptr, ptr %reply17.i, align 8
+  %len18.i = getelementptr inbounds i8, ptr %18, i64 40
+  br label %clientHasPendingReplies.exit
 
-if.then:                                          ; preds = %if.end.i, %land.lhs.true.i, %if.else.i, %clientHasPendingReplies.exit
+clientHasPendingReplies.exit:                     ; preds = %land.lhs.true.i, %lor.rhs.i
+  %.sink11.i = phi i64 [ %17, %land.lhs.true.i ], [ 0, %lor.rhs.i ]
+  %.sink.in.i = phi ptr [ %ref_block_pos.i, %land.lhs.true.i ], [ %len18.i, %lor.rhs.i ]
+  %.sink.i = load i64, ptr %.sink.in.i, align 8
+  %cmp11.i.not = icmp eq i64 %.sink.i, %.sink11.i
+  br i1 %cmp11.i.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %if.else.i, %if.end.i, %clientHasPendingReplies.exit
   %call14 = call i32 @writeToClient(ptr noundef nonnull %1, i32 noundef 0), !range !5
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true.i, %cond.end.i, %if.then, %clientHasPendingReplies.exit, %land.lhs.true9, %land.lhs.true, %lor.end
+if.end:                                           ; preds = %cond.end.i, %if.then, %clientHasPendingReplies.exit, %land.lhs.true9, %land.lhs.true, %lor.end
   %call = call ptr @listNext(ptr noundef nonnull %li) #26
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !38
@@ -14722,22 +14743,22 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   call void @listRewind(ptr noundef nonnull %2, ptr noundef nonnull %li) #26
-  %call41 = call ptr @listNext(ptr noundef nonnull %li) #26
-  %tobool5.not42 = icmp eq ptr %call41, null
-  br i1 %tobool5.not42, label %while.end, label %while.body
+  %call39 = call ptr @listNext(ptr noundef nonnull %li) #26
+  %tobool5.not40 = icmp eq ptr %call39, null
+  br i1 %tobool5.not40, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end4, %while.body
-  %call44 = phi ptr [ %call, %while.body ], [ %call41, %if.end4 ]
-  %item_id.043 = phi i32 [ %inc, %while.body ], [ 0, %if.end4 ]
-  %value = getelementptr inbounds i8, ptr %call44, i64 16
+  %call42 = phi ptr [ %call, %while.body ], [ %call39, %if.end4 ]
+  %item_id.041 = phi i32 [ %inc, %while.body ], [ 0, %if.end4 ]
+  %value = getelementptr inbounds i8, ptr %call42, i64 16
   %4 = load ptr, ptr %value, align 8
   %5 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
-  %rem = srem i32 %item_id.043, %5
+  %rem = srem i32 %item_id.041, %5
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [128 x ptr], ptr @io_threads_list, i64 0, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
   %call6 = call ptr @listAddNodeTail(ptr noundef %6, ptr noundef %4) #26
-  %inc = add nuw nsw i32 %item_id.043, 1
+  %inc = add nuw nsw i32 %item_id.041, 1
   %call = call ptr @listNext(ptr noundef nonnull %li) #26
   %tobool5.not = icmp eq ptr %call, null
   br i1 %tobool5.not, label %while.end, label %while.body, !llvm.loop !48
@@ -14745,8 +14766,8 @@ while.body:                                       ; preds = %if.end4, %while.bod
 while.end:                                        ; preds = %while.body, %if.end4
   store i32 1, ptr @io_threads_op, align 4
   %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
-  %cmp745 = icmp sgt i32 %7, 1
-  br i1 %cmp745, label %for.body.preheader, label %for.end
+  %cmp743 = icmp sgt i32 %7, 1
+  br i1 %cmp743, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %while.end
   %8 = zext nneg i32 %7 to i64
@@ -14769,13 +14790,13 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %while.end
   %11 = load ptr, ptr @io_threads_list, align 16
   call void @listRewind(ptr noundef %11, ptr noundef nonnull %li) #26
-  %call1647 = call ptr @listNext(ptr noundef nonnull %li) #26
-  %tobool17.not48 = icmp eq ptr %call1647, null
-  br i1 %tobool17.not48, label %while.end21, label %while.body18
+  %call1645 = call ptr @listNext(ptr noundef nonnull %li) #26
+  %tobool17.not46 = icmp eq ptr %call1645, null
+  br i1 %tobool17.not46, label %while.end21, label %while.body18
 
 while.body18:                                     ; preds = %for.end, %while.body18
-  %call1649 = phi ptr [ %call16, %while.body18 ], [ %call1647, %for.end ]
-  %value20 = getelementptr inbounds i8, ptr %call1649, i64 16
+  %call1647 = phi ptr [ %call16, %while.body18 ], [ %call1645, %for.end ]
+  %value20 = getelementptr inbounds i8, ptr %call1647, i64 16
   %12 = load ptr, ptr %value20, align 8
   %conn = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %conn, align 8
@@ -14793,19 +14814,19 @@ while.end21:                                      ; preds = %while.body18, %for.
 
 while.body23:                                     ; preds = %while.end21, %for.end32
   %17 = phi i32 [ %19, %for.end32 ], [ %15, %while.end21 ]
-  %cmp2650 = icmp sgt i32 %17, 1
-  br i1 %cmp2650, label %for.body28, label %while.end37
+  %cmp2648 = icmp sgt i32 %17, 1
+  br i1 %cmp2648, label %for.body28, label %while.end37
 
 for.body28:                                       ; preds = %while.body23, %for.body28
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %for.body28 ], [ 1, %while.body23 ]
-  %pending.051 = phi i64 [ %add, %for.body28 ], [ 0, %while.body23 ]
-  %arrayidx.i22 = getelementptr inbounds [128 x %struct.threads_pending], ptr @io_threads_pending, i64 0, i64 %indvars.iv56
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %for.body28 ], [ 1, %while.body23 ]
+  %pending.049 = phi i64 [ %add, %for.body28 ], [ 0, %while.body23 ]
+  %arrayidx.i22 = getelementptr inbounds [128 x %struct.threads_pending], ptr @io_threads_pending, i64 0, i64 %indvars.iv54
   %18 = load atomic i64, ptr %arrayidx.i22 seq_cst, align 64
-  %add = add i64 %18, %pending.051
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %add = add i64 %18, %pending.049
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %19 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
   %20 = sext i32 %19 to i64
-  %cmp26 = icmp slt i64 %indvars.iv.next57, %20
+  %cmp26 = icmp slt i64 %indvars.iv.next55, %20
   br i1 %cmp26, label %for.body28, label %for.end32, !llvm.loop !51
 
 for.end32:                                        ; preds = %for.body28
@@ -14815,13 +14836,13 @@ for.end32:                                        ; preds = %for.body28
 while.end37:                                      ; preds = %while.body23, %for.end32, %while.end21
   store i32 0, ptr @io_threads_op, align 4
   %21 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 58), align 8
-  %len3953 = getelementptr inbounds i8, ptr %21, i64 40
-  %22 = load i64, ptr %len3953, align 8
-  %tobool40.not54 = icmp eq i64 %22, 0
-  br i1 %tobool40.not54, label %while.end67, label %while.body41
+  %len3951 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = load i64, ptr %len3951, align 8
+  %tobool40.not52 = icmp eq i64 %22, 0
+  br i1 %tobool40.not52, label %while.end67, label %while.body41
 
 while.body41:                                     ; preds = %while.end37, %while.cond38.backedge
-  %23 = phi ptr [ %44, %while.cond38.backedge ], [ %21, %while.end37 ]
+  %23 = phi ptr [ %42, %while.cond38.backedge ], [ %21, %while.end37 ]
   %24 = load ptr, ptr %23, align 8
   %value43 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %value43, align 8
@@ -14844,8 +14865,8 @@ cond.end:                                         ; preds = %while.body41
   %cmp.not.i = icmp ne i32 %27, 0
   %and.i = and i64 %26, 1024
   %tobool1.not.i = icmp eq i64 %and.i, 0
-  %or.cond40 = or i1 %tobool1.not.i, %cmp.not.i
-  br i1 %or.cond40, label %if.end53, label %beforeNextClient.exit
+  %or.cond38 = or i1 %tobool1.not.i, %cmp.not.i
+  br i1 %or.cond38, label %if.end53, label %beforeNextClient.exit
 
 beforeNextClient.exit:                            ; preds = %cond.end
   call void @freeClient(ptr noundef nonnull %25)
@@ -14898,63 +14919,66 @@ if.end.i:                                         ; preds = %cond.end.i
   %tail.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %tail.i, align 8
   %cmp9.i = icmp eq ptr %35, %33
-  br i1 %cmp9.i, label %land.lhs.true.i25, label %land.lhs.true.i30
+  br i1 %cmp9.i, label %land.lhs.true.i24, label %land.lhs.true.i29
 
-land.lhs.true.i25:                                ; preds = %if.end.i
+land.lhs.true.i24:                                ; preds = %if.end.i
   %value.i = getelementptr inbounds i8, ptr %33, i64 16
   %36 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %25, i64 704
-  %37 = load i64, ptr %ref_block_pos.i, align 8
   %used.i = getelementptr inbounds i8, ptr %36, i64 32
-  %38 = load i64, ptr %used.i, align 8
-  %cmp11.i = icmp eq i64 %37, %38
-  br i1 %cmp11.i, label %while.cond38.backedge, label %land.lhs.true.i30
+  %37 = load i64, ptr %used.i, align 8
+  br label %clientHasPendingReplies.exit
 
 if.else.i:                                        ; preds = %land.lhs.true
-  br i1 %cmp1.i, label %clientHasPendingReplies.exit, label %land.lhs.true.i30
+  br i1 %cmp1.i, label %lor.rhs.i, label %land.lhs.true.i29
 
-clientHasPendingReplies.exit:                     ; preds = %if.else.i
+lor.rhs.i:                                        ; preds = %if.else.i
   %reply17.i = getelementptr inbounds i8, ptr %25, i64 176
-  %39 = load ptr, ptr %reply17.i, align 8
-  %len18.i = getelementptr inbounds i8, ptr %39, i64 40
-  %40 = load i64, ptr %len18.i, align 8
-  %tobool19.i.not = icmp eq i64 %40, 0
-  br i1 %tobool19.i.not, label %while.cond38.backedge, label %land.lhs.true.i30
+  %38 = load ptr, ptr %reply17.i, align 8
+  %len18.i = getelementptr inbounds i8, ptr %38, i64 40
+  br label %clientHasPendingReplies.exit
 
-land.lhs.true.i30:                                ; preds = %if.end.i, %land.lhs.true.i25, %if.else.i, %clientHasPendingReplies.exit
+clientHasPendingReplies.exit:                     ; preds = %land.lhs.true.i24, %lor.rhs.i
+  %.sink11.i = phi i64 [ %37, %land.lhs.true.i24 ], [ 0, %lor.rhs.i ]
+  %.sink.in.i = phi ptr [ %ref_block_pos.i, %land.lhs.true.i24 ], [ %len18.i, %lor.rhs.i ]
+  %.sink.i = load i64, ptr %.sink.in.i, align 8
+  %cmp11.i.not = icmp eq i64 %.sink.i, %.sink11.i
+  br i1 %cmp11.i.not, label %while.cond38.backedge, label %land.lhs.true.i29
+
+land.lhs.true.i29:                                ; preds = %if.else.i, %if.end.i, %clientHasPendingReplies.exit
   %replstate.i = getelementptr inbounds i8, ptr %25, i64 260
-  %41 = load i32, ptr %replstate.i, align 4
-  switch i32 %41, label %while.cond38.backedge [
-    i32 0, label %if.then.i31
+  %39 = load i32, ptr %replstate.i, align 4
+  switch i32 %39, label %while.cond38.backedge [
+    i32 0, label %if.then.i30
     i32 9, label %land.lhs.true3.i
   ]
 
-land.lhs.true3.i:                                 ; preds = %land.lhs.true.i30
+land.lhs.true3.i:                                 ; preds = %land.lhs.true.i29
   %repl_start_cmd_stream_on_ack.i = getelementptr inbounds i8, ptr %25, i64 264
-  %42 = load i32, ptr %repl_start_cmd_stream_on_ack.i, align 8
-  %tobool4.not.i = icmp eq i32 %42, 0
-  br i1 %tobool4.not.i, label %if.then.i31, label %while.cond38.backedge
+  %40 = load i32, ptr %repl_start_cmd_stream_on_ack.i, align 8
+  %tobool4.not.i = icmp eq i32 %40, 0
+  br i1 %tobool4.not.i, label %if.then.i30, label %while.cond38.backedge
 
-if.then.i31:                                      ; preds = %land.lhs.true3.i, %land.lhs.true.i30
+if.then.i30:                                      ; preds = %land.lhs.true3.i, %land.lhs.true.i29
   %or.i = or disjoint i64 %28, 2097152
   store i64 %or.i, ptr %flags, align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
+  %41 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
   %clients_pending_write_node.i = getelementptr inbounds i8, ptr %25, i64 712
-  call void @listLinkNodeHead(ptr noundef %43, ptr noundef nonnull %clients_pending_write_node.i) #26
+  call void @listLinkNodeHead(ptr noundef %41, ptr noundef nonnull %clients_pending_write_node.i) #26
   br label %while.cond38.backedge
 
-while.cond38.backedge:                            ; preds = %if.end59, %clientHasPendingReplies.exit, %land.lhs.true.i30, %land.lhs.true3.i, %if.then.i31, %cond.end.i, %land.lhs.true.i25, %if.end53, %beforeNextClient.exit
-  %44 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 58), align 8
-  %len39 = getelementptr inbounds i8, ptr %44, i64 40
-  %45 = load i64, ptr %len39, align 8
-  %tobool40.not = icmp eq i64 %45, 0
+while.cond38.backedge:                            ; preds = %if.end59, %clientHasPendingReplies.exit, %land.lhs.true.i29, %land.lhs.true3.i, %if.then.i30, %cond.end.i, %if.end53, %beforeNextClient.exit
+  %42 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 58), align 8
+  %len39 = getelementptr inbounds i8, ptr %42, i64 40
+  %43 = load i64, ptr %len39, align 8
+  %tobool40.not = icmp eq i64 %43, 0
   br i1 %tobool40.not, label %while.end67, label %while.body41, !llvm.loop !54
 
 while.end67:                                      ; preds = %while.cond38.backedge, %while.end37
   %sext = shl i64 %3, 32
   %conv68 = ashr exact i64 %sext, 32
-  %46 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 142), align 8
-  %add69 = add nsw i64 %46, %conv68
+  %44 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 142), align 8
+  %add69 = add nsw i64 %44, %conv68
   store i64 %add69, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 142), align 8
   br label %return
 
@@ -15108,18 +15132,18 @@ startThreadedIO.exit:                             ; preds = %startThreadedIO.exi
 if.end9:                                          ; preds = %startThreadedIO.exit, %if.end6
   %10 = phi ptr [ %.pre, %startThreadedIO.exit ], [ %0, %if.end6 ]
   call void @listRewind(ptr noundef %10, ptr noundef nonnull %li) #26
-  %call105154 = call ptr @listNext(ptr noundef nonnull %li) #26
-  %tobool11.not5255 = icmp eq ptr %call105154, null
-  br i1 %tobool11.not5255, label %while.end, label %while.body.lr.ph
+  %call104952 = call ptr @listNext(ptr noundef nonnull %li) #26
+  %tobool11.not5053 = icmp eq ptr %call104952, null
+  br i1 %tobool11.not5053, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end9, %if.end22
-  %call105157 = phi ptr [ %call1051, %if.end22 ], [ %call105154, %if.end9 ]
-  %item_id.0.ph56 = phi i32 [ %inc, %if.end22 ], [ 0, %if.end9 ]
+  %call104955 = phi ptr [ %call1049, %if.end22 ], [ %call104952, %if.end9 ]
+  %item_id.0.ph54 = phi i32 [ %inc, %if.end22 ], [ 0, %if.end9 ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %call1053 = phi ptr [ %call105157, %while.body.lr.ph ], [ %call10, %while.cond.backedge ]
-  %value = getelementptr inbounds i8, ptr %call1053, i64 16
+  %call1051 = phi ptr [ %call104955, %while.body.lr.ph ], [ %call10, %while.cond.backedge ]
+  %value = getelementptr inbounds i8, ptr %call1051, i64 16
   %11 = load ptr, ptr %value, align 8
   %flags = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %flags, align 8
@@ -15131,7 +15155,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then15:                                        ; preds = %while.body
   %13 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
-  call void @listUnlinkNode(ptr noundef %13, ptr noundef nonnull %call1053) #26
+  call void @listUnlinkNode(ptr noundef %13, ptr noundef nonnull %call1051) #26
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then15, %if.then20
@@ -15151,21 +15175,21 @@ if.then20:                                        ; preds = %if.end16
 
 if.end22:                                         ; preds = %if.end16
   %16 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
-  %rem = srem i32 %item_id.0.ph56, %16
+  %rem = srem i32 %item_id.0.ph54, %16
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [128 x ptr], ptr @io_threads_list, i64 0, i64 %idxprom
   %17 = load ptr, ptr %arrayidx, align 8
   %call23 = call ptr @listAddNodeTail(ptr noundef %17, ptr noundef nonnull %11) #26
-  %inc = add nuw nsw i32 %item_id.0.ph56, 1
-  %call1051 = call ptr @listNext(ptr noundef nonnull %li) #26
-  %tobool11.not52 = icmp eq ptr %call1051, null
-  br i1 %tobool11.not52, label %while.end, label %while.body.lr.ph, !llvm.loop !55
+  %inc = add nuw nsw i32 %item_id.0.ph54, 1
+  %call1049 = call ptr @listNext(ptr noundef nonnull %li) #26
+  %tobool11.not50 = icmp eq ptr %call1049, null
+  br i1 %tobool11.not50, label %while.end, label %while.body.lr.ph, !llvm.loop !55
 
 while.end:                                        ; preds = %if.end22, %while.cond.backedge, %if.end9
   store i32 2, ptr @io_threads_op, align 4
   %18 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
-  %cmp2458 = icmp sgt i32 %18, 1
-  br i1 %cmp2458, label %for.body.preheader, label %for.end
+  %cmp2456 = icmp sgt i32 %18, 1
+  br i1 %cmp2456, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %while.end
   %19 = zext nneg i32 %18 to i64
@@ -15188,13 +15212,13 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %while.end
   %22 = load ptr, ptr @io_threads_list, align 16
   call void @listRewind(ptr noundef %22, ptr noundef nonnull %li) #26
-  %call3360 = call ptr @listNext(ptr noundef nonnull %li) #26
-  %tobool34.not61 = icmp eq ptr %call3360, null
-  br i1 %tobool34.not61, label %while.end39, label %while.body35
+  %call3358 = call ptr @listNext(ptr noundef nonnull %li) #26
+  %tobool34.not59 = icmp eq ptr %call3358, null
+  br i1 %tobool34.not59, label %while.end39, label %while.body35
 
 while.body35:                                     ; preds = %for.end, %while.body35
-  %call3362 = phi ptr [ %call33, %while.body35 ], [ %call3360, %for.end ]
-  %value37 = getelementptr inbounds i8, ptr %call3362, i64 16
+  %call3360 = phi ptr [ %call33, %while.body35 ], [ %call3358, %for.end ]
+  %value37 = getelementptr inbounds i8, ptr %call3360, i64 16
   %23 = load ptr, ptr %value37, align 8
   %call38 = call i32 @writeToClient(ptr noundef %23, i32 noundef 0), !range !5
   %call33 = call ptr @listNext(ptr noundef nonnull %li) #26
@@ -15210,19 +15234,19 @@ while.end39:                                      ; preds = %while.body35, %for.
 
 while.body41:                                     ; preds = %while.end39, %for.end50
   %27 = phi i32 [ %29, %for.end50 ], [ %25, %while.end39 ]
-  %cmp4463 = icmp sgt i32 %27, 1
-  br i1 %cmp4463, label %for.body46, label %while.end55
+  %cmp4461 = icmp sgt i32 %27, 1
+  br i1 %cmp4461, label %for.body46, label %while.end55
 
 for.body46:                                       ; preds = %while.body41, %for.body46
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %for.body46 ], [ 1, %while.body41 ]
-  %pending.064 = phi i64 [ %add, %for.body46 ], [ 0, %while.body41 ]
-  %arrayidx.i27 = getelementptr inbounds [128 x %struct.threads_pending], ptr @io_threads_pending, i64 0, i64 %indvars.iv74
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.body46 ], [ 1, %while.body41 ]
+  %pending.062 = phi i64 [ %add, %for.body46 ], [ 0, %while.body41 ]
+  %arrayidx.i27 = getelementptr inbounds [128 x %struct.threads_pending], ptr @io_threads_pending, i64 0, i64 %indvars.iv72
   %28 = load atomic i64, ptr %arrayidx.i27 seq_cst, align 64
-  %add = add i64 %28, %pending.064
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %add = add i64 %28, %pending.062
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %29 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
   %30 = sext i32 %29 to i64
-  %cmp44 = icmp slt i64 %indvars.iv.next75, %30
+  %cmp44 = icmp slt i64 %indvars.iv.next73, %30
   br i1 %cmp44, label %for.body46, label %for.end50, !llvm.loop !58
 
 for.end50:                                        ; preds = %for.body46
@@ -15233,20 +15257,20 @@ while.end55:                                      ; preds = %while.body41, %for.
   store i32 0, ptr @io_threads_op, align 4
   %31 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
   call void @listRewind(ptr noundef %31, ptr noundef nonnull %li) #26
-  %call5766 = call ptr @listNext(ptr noundef nonnull %li) #26
-  %tobool58.not67 = icmp eq ptr %call5766, null
-  br i1 %tobool58.not67, label %while.cond68.preheader, label %while.body59
+  %call5764 = call ptr @listNext(ptr noundef nonnull %li) #26
+  %tobool58.not65 = icmp eq ptr %call5764, null
+  br i1 %tobool58.not65, label %while.cond68.preheader, label %while.body59
 
 while.cond68.preheader:                           ; preds = %if.end66, %while.end55
   %32 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
-  %len6969 = getelementptr inbounds i8, ptr %32, i64 40
-  %33 = load i64, ptr %len6969, align 8
-  %cmp70.not70 = icmp eq i64 %33, 0
-  br i1 %cmp70.not70, label %while.end73, label %while.body72
+  %len6967 = getelementptr inbounds i8, ptr %32, i64 40
+  %33 = load i64, ptr %len6967, align 8
+  %cmp70.not68 = icmp eq i64 %33, 0
+  br i1 %cmp70.not68, label %while.end73, label %while.body72
 
 while.body59:                                     ; preds = %while.end55, %if.end66
-  %call5768 = phi ptr [ %call57, %if.end66 ], [ %call5766, %while.end55 ]
-  %value61 = getelementptr inbounds i8, ptr %call5768, i64 16
+  %call5766 = phi ptr [ %call57, %if.end66 ], [ %call5764, %while.end55 ]
+  %value61 = getelementptr inbounds i8, ptr %call5766, i64 16
   %34 = load ptr, ptr %value61, align 8
   %call62 = call i32 @updateClientMemUsageAndBucket(ptr noundef %34) #26
   %flags.i.i = getelementptr inbounds i8, ptr %34, i64 8
@@ -15259,17 +15283,17 @@ while.body59:                                     ; preds = %while.end55, %if.en
   br i1 %or.cond.i28, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body59
-  br i1 %cmp1.i, label %land.rhs.i, label %cond.false.i30
+  br i1 %cmp1.i, label %land.rhs.i, label %cond.false.i29
 
 land.rhs.i:                                       ; preds = %if.then.i
   %reply.i = getelementptr inbounds i8, ptr %34, i64 176
   %38 = load ptr, ptr %reply.i, align 8
-  %len.i31 = getelementptr inbounds i8, ptr %38, i64 40
-  %39 = load i64, ptr %len.i31, align 8
-  %cmp2.i32 = icmp eq i64 %39, 0
-  br i1 %cmp2.i32, label %cond.end.i, label %cond.false.i30
+  %len.i30 = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = load i64, ptr %len.i30, align 8
+  %cmp2.i31 = icmp eq i64 %39, 0
+  br i1 %cmp2.i31, label %cond.end.i, label %cond.false.i29
 
-cond.false.i30:                                   ; preds = %land.rhs.i, %if.then.i
+cond.false.i29:                                   ; preds = %land.rhs.i, %if.then.i
   call void @_serverAssert(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.1, i32 noundef 1246) #26
   call void @abort() #27
   unreachable
@@ -15278,97 +15302,100 @@ cond.end.i:                                       ; preds = %land.rhs.i
   %ref_repl_buf_node.i = getelementptr inbounds i8, ptr %34, i64 696
   %40 = load ptr, ptr %ref_repl_buf_node.i, align 8
   %cmp4.i = icmp eq ptr %40, null
-  br i1 %cmp4.i, label %if.end66, label %if.end.i33
+  br i1 %cmp4.i, label %if.end66, label %if.end.i32
 
-if.end.i33:                                       ; preds = %cond.end.i
+if.end.i32:                                       ; preds = %cond.end.i
   %41 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 280), align 8
   %tail.i = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %tail.i, align 8
   %cmp9.i = icmp eq ptr %42, %40
   br i1 %cmp9.i, label %land.lhs.true.i, label %if.then65
 
-land.lhs.true.i:                                  ; preds = %if.end.i33
+land.lhs.true.i:                                  ; preds = %if.end.i32
   %value.i = getelementptr inbounds i8, ptr %40, i64 16
   %43 = load ptr, ptr %value.i, align 8
   %ref_block_pos.i = getelementptr inbounds i8, ptr %34, i64 704
-  %44 = load i64, ptr %ref_block_pos.i, align 8
   %used.i = getelementptr inbounds i8, ptr %43, i64 32
-  %45 = load i64, ptr %used.i, align 8
-  %cmp11.i = icmp eq i64 %44, %45
-  br i1 %cmp11.i, label %if.end66, label %if.then65
+  %44 = load i64, ptr %used.i, align 8
+  br label %clientHasPendingReplies.exit
 
 if.else.i:                                        ; preds = %while.body59
-  br i1 %cmp1.i, label %clientHasPendingReplies.exit, label %if.then65
+  br i1 %cmp1.i, label %lor.rhs.i, label %if.then65
 
-clientHasPendingReplies.exit:                     ; preds = %if.else.i
+lor.rhs.i:                                        ; preds = %if.else.i
   %reply17.i = getelementptr inbounds i8, ptr %34, i64 176
-  %46 = load ptr, ptr %reply17.i, align 8
-  %len18.i = getelementptr inbounds i8, ptr %46, i64 40
-  %47 = load i64, ptr %len18.i, align 8
-  %tobool19.i.not = icmp eq i64 %47, 0
-  br i1 %tobool19.i.not, label %if.end66, label %if.then65
+  %45 = load ptr, ptr %reply17.i, align 8
+  %len18.i = getelementptr inbounds i8, ptr %45, i64 40
+  br label %clientHasPendingReplies.exit
 
-if.then65:                                        ; preds = %if.end.i33, %land.lhs.true.i, %if.else.i, %clientHasPendingReplies.exit
-  %48 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
-  %cmp.i34 = icmp eq i32 %48, 1
-  %49 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 186), align 4
-  %cmp1.i35 = icmp eq i32 %49, 1
-  %or.cond.i36 = select i1 %cmp.i34, i1 %cmp1.i35, i1 false
-  %spec.store.select.i = zext i1 %or.cond.i36 to i32
+clientHasPendingReplies.exit:                     ; preds = %land.lhs.true.i, %lor.rhs.i
+  %.sink11.i = phi i64 [ %44, %land.lhs.true.i ], [ 0, %lor.rhs.i ]
+  %.sink.in.i = phi ptr [ %ref_block_pos.i, %land.lhs.true.i ], [ %len18.i, %lor.rhs.i ]
+  %.sink.i = load i64, ptr %.sink.in.i, align 8
+  %cmp11.i.not = icmp eq i64 %.sink.i, %.sink11.i
+  br i1 %cmp11.i.not, label %if.end66, label %if.then65
+
+if.then65:                                        ; preds = %if.else.i, %if.end.i32, %clientHasPendingReplies.exit
+  %46 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
+  %cmp.i33 = icmp eq i32 %46, 1
+  %47 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 186), align 4
+  %cmp1.i34 = icmp eq i32 %47, 1
+  %or.cond.i35 = select i1 %cmp.i33, i1 %cmp1.i34, i1 false
+  %spec.store.select.i = zext i1 %or.cond.i35 to i32
   %conn.i = getelementptr inbounds i8, ptr %34, i64 16
-  %50 = load ptr, ptr %conn.i, align 8
-  %51 = load ptr, ptr %50, align 8
-  %set_write_handler.i.i = getelementptr inbounds i8, ptr %51, i64 152
-  %52 = load ptr, ptr %set_write_handler.i.i, align 8
-  %call.i.i37 = call i32 %52(ptr noundef nonnull %50, ptr noundef nonnull @sendReplyToClient, i32 noundef %spec.store.select.i) #26
-  %cmp2.i38 = icmp eq i32 %call.i.i37, -1
-  br i1 %cmp2.i38, label %if.then3.i, label %if.end66
+  %48 = load ptr, ptr %conn.i, align 8
+  %49 = load ptr, ptr %48, align 8
+  %set_write_handler.i.i = getelementptr inbounds i8, ptr %49, i64 152
+  %50 = load ptr, ptr %set_write_handler.i.i, align 8
+  %call.i.i36 = call i32 %50(ptr noundef nonnull %48, ptr noundef nonnull @sendReplyToClient, i32 noundef %spec.store.select.i) #26
+  %cmp2.i37 = icmp eq i32 %call.i.i36, -1
+  br i1 %cmp2.i37, label %if.then3.i, label %if.end66
 
 if.then3.i:                                       ; preds = %if.then65
-  %53 = load i64, ptr %flags.i.i, align 8
-  %54 = and i64 %53, 1280
-  %or.cond.i.i = icmp eq i64 %54, 0
+  %51 = load i64, ptr %flags.i.i, align 8
+  %52 = and i64 %51, 1280
+  %or.cond.i.i = icmp eq i64 %52, 0
   br i1 %or.cond.i.i, label %if.end.i.i, label %if.end66
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %or.i.i = or disjoint i64 %53, 1024
+  %or.i.i = or disjoint i64 %51, 1024
   store i64 %or.i.i, ptr %flags.i.i, align 8
-  %55 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
-  %cmp.i.i40 = icmp eq i32 %55, 1
-  br i1 %cmp.i.i40, label %if.then5.i.i, label %if.end6.i.i
+  %53 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 74), align 4
+  %cmp.i.i39 = icmp eq i32 %53, 1
+  br i1 %cmp.i.i39, label %if.then5.i.i, label %if.end6.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %56 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
-  %call.i2.i = call ptr @listAddNodeTail(ptr noundef %56, ptr noundef nonnull %34) #26
+  %54 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
+  %call.i2.i = call ptr @listAddNodeTail(ptr noundef %54, ptr noundef nonnull %34) #26
   br label %if.end66
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %call7.i.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
-  %57 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
-  %call8.i.i = call ptr @listAddNodeTail(ptr noundef %57, ptr noundef nonnull %34) #26
+  %55 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 56), align 8
+  %call8.i.i = call ptr @listAddNodeTail(ptr noundef %55, ptr noundef nonnull %34) #26
   %call9.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @freeClientAsync.async_free_queue_mutex) #26
   br label %if.end66
 
-if.end66:                                         ; preds = %land.lhs.true.i, %cond.end.i, %if.end6.i.i, %if.then5.i.i, %if.then3.i, %if.then65, %clientHasPendingReplies.exit
+if.end66:                                         ; preds = %cond.end.i, %if.end6.i.i, %if.then5.i.i, %if.then3.i, %if.then65, %clientHasPendingReplies.exit
   %call57 = call ptr @listNext(ptr noundef nonnull %li) #26
   %tobool58.not = icmp eq ptr %call57, null
   br i1 %tobool58.not, label %while.cond68.preheader, label %while.body59, !llvm.loop !60
 
 while.body72:                                     ; preds = %while.cond68.preheader, %while.body72
-  %58 = phi ptr [ %60, %while.body72 ], [ %32, %while.cond68.preheader ]
-  %59 = load ptr, ptr %58, align 8
-  call void @listUnlinkNode(ptr noundef nonnull %58, ptr noundef %59) #26
-  %60 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
-  %len69 = getelementptr inbounds i8, ptr %60, i64 40
-  %61 = load i64, ptr %len69, align 8
-  %cmp70.not = icmp eq i64 %61, 0
+  %56 = phi ptr [ %58, %while.body72 ], [ %32, %while.cond68.preheader ]
+  %57 = load ptr, ptr %56, align 8
+  call void @listUnlinkNode(ptr noundef nonnull %56, ptr noundef %57) #26
+  %58 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
+  %len69 = getelementptr inbounds i8, ptr %58, i64 40
+  %59 = load i64, ptr %len69, align 8
+  %cmp70.not = icmp eq i64 %59, 0
   br i1 %cmp70.not, label %while.end73, label %while.body72, !llvm.loop !61
 
 while.end73:                                      ; preds = %while.body72, %while.cond68.preheader
   %sext = shl i64 %1, 32
   %conv74 = ashr exact i64 %sext, 32
-  %62 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 143), align 8
-  %add75 = add nsw i64 %62, %conv74
+  %60 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 143), align 8
+  %add75 = add nsw i64 %60, %conv74
   store i64 %add75, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 143), align 8
   br label %return
 

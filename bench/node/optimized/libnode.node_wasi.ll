@@ -1924,7 +1924,7 @@ if.then.i815:                                     ; preds = %do.end113
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit816: ; preds = %if.then.i815, %do.end113
   %call135 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call121, ptr %call2.i) #24
   %ref.tmp114.sroa.275.0.extract.shift = lshr i64 %call135, 32
-  %ref.tmp114.sroa.275.0.extract.trunc = trunc i64 %ref.tmp114.sroa.275.0.extract.shift to i32
+  %ref.tmp114.sroa.275.0.extract.trunc = trunc nuw i64 %ref.tmp114.sroa.275.0.extract.shift to i32
   %tobool.i = trunc i64 %call135 to i1
   br i1 %tobool.i, label %_ZNO2v85MaybeIiE8FromJustEv.exit840, label %if.then.i839
 
@@ -1946,7 +1946,7 @@ if.then.i807:                                     ; preds = %_ZNO2v85MaybeIiE8Fr
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit808: ; preds = %if.then.i807, %_ZNO2v85MaybeIiE8FromJustEv.exit840
   %call159 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call145, ptr %call2.i) #24
   %ref.tmp137.sroa.276.0.extract.shift = lshr i64 %call159, 32
-  %ref.tmp137.sroa.276.0.extract.trunc = trunc i64 %ref.tmp137.sroa.276.0.extract.shift to i32
+  %ref.tmp137.sroa.276.0.extract.trunc = trunc nuw i64 %ref.tmp137.sroa.276.0.extract.shift to i32
   %tobool.i1619 = trunc i64 %call159 to i1
   br i1 %tobool.i1619, label %_ZNO2v85MaybeIiE8FromJustEv.exit831, label %if.then.i830
 
@@ -1968,7 +1968,7 @@ if.then.i799:                                     ; preds = %_ZNO2v85MaybeIiE8Fr
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit800: ; preds = %if.then.i799, %_ZNO2v85MaybeIiE8FromJustEv.exit831
   %call183 = call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call169, ptr %call2.i) #24
   %ref.tmp161.sroa.277.0.extract.shift = lshr i64 %call183, 32
-  %ref.tmp161.sroa.277.0.extract.trunc = trunc i64 %ref.tmp161.sroa.277.0.extract.shift to i32
+  %ref.tmp161.sroa.277.0.extract.trunc = trunc nuw i64 %ref.tmp161.sroa.277.0.extract.shift to i32
   %tobool.i1622 = trunc i64 %call183 to i1
   br i1 %tobool.i1622, label %_ZNO2v85MaybeIiE8FromJustEv.exit, label %if.then.i822
 
@@ -2004,7 +2004,7 @@ for.body.lr.ph:                                   ; preds = %_ZNO2v85MaybeIiE8Fr
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node9Utf8ValueD2Ev.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN4node9Utf8ValueD2Ev.exit ]
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nuw i64 %indvars.iv to i32
   %call196 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i577.sroa.0.0, ptr %call2.i, i32 noundef %55) #24
   %cmp.i.i1008 = icmp eq ptr %call196, null
   br i1 %cmp.i.i1008, label %if.then.i791, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit792
@@ -2110,7 +2110,7 @@ for.body256.lr.ph:                                ; preds = %_ZNK2v820FunctionCa
 
 for.body256:                                      ; preds = %for.body256.lr.ph, %_ZN4node9Utf8ValueD2Ev.exit100
   %indvars.iv134 = phi i64 [ 0, %for.body256.lr.ph ], [ %indvars.iv.next135, %_ZN4node9Utf8ValueD2Ev.exit100 ]
-  %75 = trunc i64 %indvars.iv134 to i32
+  %75 = trunc nuw i64 %indvars.iv134 to i32
   %call263 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i541.sroa.0.0, ptr %call2.i, i32 noundef %75) #24
   %cmp.i.i1013 = icmp eq ptr %call263, null
   br i1 %cmp.i.i1013, label %if.then.i783, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit784
@@ -5659,7 +5659,7 @@ if.end.i.i:                                       ; preds = %entry
   %1 = load i8, ptr %add.ptr.i.i, align 1
   %2 = and i8 %1, 3
   %cmp.i.i = icmp eq i8 %2, 2
-  br i1 %cmp.i.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %if.end.i
+  br i1 %cmp.i.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %entry
   %pointer_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -5672,20 +5672,18 @@ if.end4.i:                                        ; preds = %if.end.i
   %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
   %tobool.i = trunc i8 %4 to i1
-  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
+  br i1 %tobool.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %if.end4.i
   %is_detached.i = getelementptr inbounds i8, ptr %call5.i, i64 9
   %5 = load i8, ptr %is_detached.i, align 1
   %.fr = freeze i8 %5
   %tobool6.i = trunc i8 %.fr to i1
-  br i1 %tobool6.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
-
-_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread: ; preds = %if.end4.i, %if.end.i.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
+  %spec.select = select i1 %tobool6.i, i8 2, i8 0
   br label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3
 
-_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
-  %6 = phi i8 [ 2, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread ], [ 0, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ], [ 0, %if.end.i ]
+_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, %if.end4.i, %if.end.i.i, %if.end.i
+  %6 = phi i8 [ 0, %if.end.i ], [ 2, %if.end.i.i ], [ 2, %if.end4.i ], [ %spec.select, %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit ]
   ret i8 %6
 }
 
@@ -24399,7 +24397,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -25031,7 +25029,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -28156,7 +28154,7 @@ if.end16.i:                                       ; preds = %if.end12.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
   %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
-  %conv = trunc i64 %__val.lobit to i32
+  %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
@@ -28211,7 +28209,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

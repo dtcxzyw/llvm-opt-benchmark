@@ -631,7 +631,7 @@ define internal i32 @pci_xr17v35x_setup(ptr nocapture noundef readonly %0, ptr n
   %59 = getelementptr i8, ptr %55, i64 11
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 -128, ptr elementtype(i8) %59) #10, !srcloc !11
   %60 = icmp eq i32 %3, 0
-  br i1 %60, label %61, label %86
+  br i1 %60, label %61, label %85
 
 61:                                               ; preds = %52
   %62 = getelementptr inbounds i8, ptr %1, i64 60
@@ -641,46 +641,44 @@ define internal i32 @pci_xr17v35x_setup(ptr nocapture noundef readonly %0, ptr n
 
 65:                                               ; preds = %61
   %66 = load i16, ptr %19, align 8
-  %67 = icmp eq i16 %66, 4958
-  br i1 %67, label %68, label %69
+  %67 = icmp ne i16 %66, 4958
+  %spec.select = sext i1 %67 to i8
+  br label %68
 
 68:                                               ; preds = %65, %61
-  br label %69
-
-69:                                               ; preds = %68, %65
-  %70 = phi i8 [ 0, %68 ], [ -1, %65 ]
-  %71 = getelementptr i8, ptr %55, i64 143
+  %69 = phi i8 [ 0, %61 ], [ %spec.select, %65 ]
+  %70 = getelementptr i8, ptr %55, i64 143
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %70) #10, !srcloc !11
+  %71 = getelementptr i8, ptr %55, i64 144
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %71) #10, !srcloc !11
-  %72 = getelementptr i8, ptr %55, i64 144
+  %72 = getelementptr i8, ptr %55, i64 145
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %72) #10, !srcloc !11
-  %73 = getelementptr i8, ptr %55, i64 145
+  %73 = getelementptr i8, ptr %55, i64 146
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %73) #10, !srcloc !11
-  %74 = getelementptr i8, ptr %55, i64 146
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %74) #10, !srcloc !11
-  %75 = getelementptr i8, ptr %55, i64 147
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %70, ptr elementtype(i8) %75) #10, !srcloc !11
-  %76 = getelementptr i8, ptr %55, i64 148
+  %74 = getelementptr i8, ptr %55, i64 147
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %69, ptr elementtype(i8) %74) #10, !srcloc !11
+  %75 = getelementptr i8, ptr %55, i64 148
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %75) #10, !srcloc !11
+  %76 = getelementptr i8, ptr %55, i64 149
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %76) #10, !srcloc !11
-  %77 = getelementptr i8, ptr %55, i64 149
+  %77 = getelementptr i8, ptr %55, i64 150
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %77) #10, !srcloc !11
-  %78 = getelementptr i8, ptr %55, i64 150
+  %78 = getelementptr i8, ptr %55, i64 151
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %78) #10, !srcloc !11
-  %79 = getelementptr i8, ptr %55, i64 151
+  %79 = getelementptr i8, ptr %55, i64 152
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %79) #10, !srcloc !11
-  %80 = getelementptr i8, ptr %55, i64 152
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %80) #10, !srcloc !11
-  %81 = getelementptr i8, ptr %55, i64 153
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %70, ptr elementtype(i8) %81) #10, !srcloc !11
-  %82 = getelementptr i8, ptr %55, i64 154
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %82) #10, !srcloc !11
-  %83 = getelementptr inbounds i8, ptr %11, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 %84(ptr noundef %1, ptr noundef %2) #10
-  br label %86
+  %80 = getelementptr i8, ptr %55, i64 153
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %69, ptr elementtype(i8) %80) #10, !srcloc !11
+  %81 = getelementptr i8, ptr %55, i64 154
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %81) #10, !srcloc !11
+  %82 = getelementptr inbounds i8, ptr %11, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call i32 %83(ptr noundef %1, ptr noundef %2) #10
+  br label %85
 
-86:                                               ; preds = %69, %52
-  %87 = phi i32 [ %85, %69 ], [ 0, %52 ]
-  ret i32 %87
+85:                                               ; preds = %68, %52
+  %86 = phi i32 [ %84, %68 ], [ 0, %52 ]
+  ret i32 %86
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -720,7 +718,7 @@ define internal noundef i32 @sealevel_rs485_config(ptr nocapture noundef readonl
   %9 = getelementptr i8, ptr %5, i64 8
   %10 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9) #10, !srcloc !5
   %11 = and i8 %10, -33
-  %12 = trunc i32 %7 to i8
+  %12 = trunc nuw nsw i32 %7 to i8
   %13 = shl nuw nsw i8 %12, 5
   %14 = or disjoint i8 %13, %11
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, ptr elementtype(i8) %9) #10, !srcloc !11
@@ -802,7 +800,7 @@ define internal noundef i32 @iot2040_rs485_config(ptr nocapture noundef readonly
   %34 = getelementptr i8, ptr %33, i64 8
   %35 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34) #10, !srcloc !5
   %36 = and i8 %35, -33
-  %37 = trunc i32 %31 to i8
+  %37 = trunc nuw nsw i32 %31 to i8
   %38 = shl nuw nsw i8 %37, 5
   %39 = or disjoint i8 %36, %38
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %39, ptr elementtype(i8) %34) #10, !srcloc !11
@@ -863,7 +861,7 @@ define internal noundef i32 @generic_rs485_config(ptr nocapture noundef readonly
   %9 = getelementptr i8, ptr %8, i64 8
   %10 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9) #10, !srcloc !5
   %11 = and i8 %10, -33
-  %12 = trunc i32 %5 to i8
+  %12 = trunc nuw nsw i32 %5 to i8
   %13 = shl nuw nsw i8 %12, 5
   %14 = or disjoint i8 %11, %13
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, ptr elementtype(i8) %9) #10, !srcloc !11

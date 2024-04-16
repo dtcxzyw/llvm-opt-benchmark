@@ -3124,7 +3124,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #1 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %cmp = icmp eq i64 %col_offset, -5
   %add = add nsw i64 %col_offset, 1
   %cond = select i1 %cmp, i64 -5, i64 %add
@@ -3132,7 +3132,7 @@ entry:
   %add4 = add nsw i64 %end_col_offset, 1
   %cond6 = select i1 %cmp1, i64 -5, i64 %add4
   %call = call ptr @_PyPegen_raise_error_known_location(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %cond, i64 noundef %end_lineno, i64 noundef %cond6, ptr noundef %errmsg, ptr noundef nonnull %va) #8
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
@@ -3354,14 +3354,14 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.cond.preheader
-  %cmp1 = phi i1 [ false, %for.cond.preheader ], [ true, %for.body ]
+  %cmp1.not = phi i1 [ false, %for.cond.preheader ], [ true, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ 1, %for.body ]
   %1 = load ptr, ptr %v, align 8
   %arrayidx = getelementptr [2 x ptr], ptr @__const._PyPegen_check_legacy_stmt.candidates, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %1, ptr noundef %2) #8
   %cmp2 = icmp eq i32 %call, 0
-  %brmerge = or i1 %cmp2, %cmp1
+  %brmerge = or i1 %cmp2, %cmp1.not
   br i1 %brmerge, label %return.loopexit, label %for.body
 
 return.loopexit:                                  ; preds = %for.body
@@ -3976,9 +3976,9 @@ if.end:                                           ; preds = %if.end.lr.ph, %sw.b
     i32 26, label %do.body11
     i32 23, label %sw.bb41
     i32 16, label %sw.bb47
-    i32 24, label %return.loopexit158
-    i32 22, label %return.loopexit158
-    i32 21, label %return.loopexit158
+    i32 24, label %return.loopexit159
+    i32 22, label %return.loopexit159
+    i32 21, label %return.loopexit159
   ]
 
 do.body:                                          ; preds = %if.end, %if.end.lr.ph.split.us
@@ -4037,7 +4037,7 @@ sw.bb41:                                          ; preds = %if.end
   %v45 = getelementptr inbounds i8, ptr %e.tr41, i64 8
   %8 = load ptr, ptr %v45, align 8
   %cmp = icmp eq ptr %8, null
-  br i1 %cmp, label %return.loopexit158, label %if.end
+  br i1 %cmp, label %return, label %if.end
 
 sw.bb47:                                          ; preds = %if.end
   %cmp48 = icmp eq i32 %targets_type.tr.ph66, 2
@@ -4060,11 +4060,11 @@ if.then54:                                        ; preds = %if.then49
 return.loopexit28.loopexit82:                     ; preds = %if.end.lr.ph.split.us, %if.end.lr.ph.split.us, %if.end.lr.ph.split.us
   br label %return
 
-return.loopexit158:                               ; preds = %if.end, %if.end, %if.end, %sw.bb41
+return.loopexit159:                               ; preds = %if.end, %if.end, %if.end
   br label %return
 
-return:                                           ; preds = %if.then54, %sw.bb47, %if.then49, %for.body26, %for.cond24, %for.body, %for.cond, %if.end, %return.loopexit158, %do.body11, %do.body, %if.end.lr.ph.split.us, %entry, %return.loopexit28.loopexit82, %cond.end21, %cond.end
-  %retval.0 = phi ptr [ null, %cond.end ], [ null, %cond.end21 ], [ null, %entry ], [ null, %return.loopexit28.loopexit82 ], [ %e.tr.ph65, %if.end.lr.ph.split.us ], [ null, %do.body ], [ null, %do.body11 ], [ null, %return.loopexit158 ], [ %e.tr41, %if.end ], [ %call, %for.body ], [ null, %for.cond ], [ %call33, %for.body26 ], [ null, %for.cond24 ], [ null, %if.then54 ], [ null, %if.then49 ], [ %e.tr41, %sw.bb47 ]
+return:                                           ; preds = %if.then54, %sw.bb47, %if.then49, %sw.bb41, %for.body26, %for.cond24, %for.body, %for.cond, %if.end, %return.loopexit159, %do.body11, %do.body, %if.end.lr.ph.split.us, %entry, %return.loopexit28.loopexit82, %cond.end21, %cond.end
+  %retval.0 = phi ptr [ null, %cond.end ], [ null, %cond.end21 ], [ null, %entry ], [ null, %return.loopexit28.loopexit82 ], [ %e.tr.ph65, %if.end.lr.ph.split.us ], [ null, %do.body ], [ null, %do.body11 ], [ %e.tr41, %if.end ], [ %call, %for.body ], [ null, %for.cond ], [ %call33, %for.body26 ], [ null, %for.cond24 ], [ null, %sw.bb41 ], [ null, %return.loopexit159 ], [ null, %if.then54 ], [ null, %if.then49 ], [ %e.tr41, %sw.bb47 ]
   ret ptr %retval.0
 }
 
@@ -5395,18 +5395,18 @@ declare ptr @_PyAST_Attribute(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 
 declare ptr @_PyAST_Starred(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @_PyPegen_raise_error_known_location(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

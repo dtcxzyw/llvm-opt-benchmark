@@ -484,60 +484,50 @@ if.end16.i:                                       ; preds = %if.then14.i, %if.en
   store ptr %add.ptr32.i, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 5), align 8
   %add33.i = add i32 %9, %add30.i
   %cmp34.not.i = icmp eq i32 %10, 0
-  br i1 %cmp34.not.i, label %if.end42.thread.i, label %land.lhs.true.i6
+  br i1 %cmp34.not.i, label %if.end42.i, label %land.lhs.true.i6
 
 land.lhs.true.i6:                                 ; preds = %if.end16.i
   %idx.ext35.i = zext i32 %add33.i to i64
   %add.ptr36.i = getelementptr inbounds i16, ptr %call2.i4, i64 %idx.ext35.i
   %13 = load i16, ptr %add.ptr36.i, align 2
-  %.fr.i = freeze i16 %13
-  %cmp38.i = icmp ult i16 %.fr.i, 2
-  br i1 %cmp38.i, label %if.end42.i, label %if.end42.thread.i
+  %cmp38.i = icmp ult i16 %13, 2
+  %spec.select.i = select i1 %cmp38.i, ptr %add.ptr36.i, ptr @_ZL19defaultTableOptions
+  br label %if.end42.i
 
-if.end42.thread.i:                                ; preds = %land.lhs.true.i6, %if.end16.i
-  store ptr @_ZL19defaultTableOptions, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 6), align 8
-  %add4344.i = add i32 %10, %add33.i
-  %idx.ext4445.i = zext i32 %add4344.i to i64
-  %add.ptr4546.i = getelementptr inbounds i16, ptr %call2.i4, i64 %idx.ext4445.i
-  store ptr %add.ptr4546.i, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 7), align 8
-  br label %14
-
-if.end42.i:                                       ; preds = %land.lhs.true.i6
-  store ptr %add.ptr36.i, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 6), align 8
+if.end42.i:                                       ; preds = %land.lhs.true.i6, %if.end16.i
+  %storemerge.i = phi ptr [ @_ZL19defaultTableOptions, %if.end16.i ], [ %spec.select.i, %land.lhs.true.i6 ]
+  store ptr %storemerge.i, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 6), align 8
   %add43.i = add i32 %10, %add33.i
   %idx.ext44.i = zext i32 %add43.i to i64
   %add.ptr45.i = getelementptr inbounds i16, ptr %call2.i4, i64 %idx.ext44.i
   store ptr %add.ptr45.i, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 7), align 8
   %add46.i = add i32 %11, %add43.i
-  %cmp49.i = icmp eq i16 %.fr.i, 0
+  %14 = load i16, ptr %storemerge.i, align 2
+  %cmp49.i = icmp eq i16 %14, 0
   %idx.ext50.i = zext i32 %add46.i to i64
   %add.ptr51.i = getelementptr inbounds i16, ptr %call2.i4, i64 %idx.ext50.i
-  %spec.select.i = select i1 %cmp49.i, ptr %add.ptr45.i, ptr %add.ptr51.i
-  br label %14
-
-14:                                               ; preds = %if.end42.i, %if.end42.thread.i
-  %15 = phi ptr [ %add.ptr4546.i, %if.end42.thread.i ], [ %spec.select.i, %if.end42.i ]
-  store ptr %15, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 8), align 8
+  %cond.i = select i1 %cmp49.i, ptr %add.ptr45.i, ptr %add.ptr51.i
+  store ptr %cond.i, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i64 0, i32 8), align 8
   br label %_ZL13initAliasDataR10UErrorCode.exit
 
-_ZL13initAliasDataR10UErrorCode.exit:             ; preds = %if.then4.i, %if.then3.i, %14
-  %16 = load i32, ptr %pErrorCode, align 4
-  store i32 %16, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL18gAliasDataInitOnce, i64 0, i32 1), align 4
+_ZL13initAliasDataR10UErrorCode.exit:             ; preds = %if.then4.i, %if.then3.i, %if.end42.i
+  %15 = load i32, ptr %pErrorCode, align 4
+  store i32 %15, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL18gAliasDataInitOnce, i64 0, i32 1), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL18gAliasDataInitOnce)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %17 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL18gAliasDataInitOnce, i64 0, i32 1), align 4
-  %cmp.i9.i = icmp slt i32 %17, 1
+  %16 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZL18gAliasDataInitOnce, i64 0, i32 1), align 4
+  %cmp.i9.i = icmp slt i32 %16, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i
-  store i32 %17, ptr %pErrorCode, align 4
+  store i32 %16, ptr %pErrorCode, align 4
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %entry, %_ZL13initAliasDataR10UErrorCode.exit, %if.else.i, %if.then8.i
-  %18 = load i32, ptr %pErrorCode, align 4
-  %cmp.i = icmp slt i32 %18, 1
+  %17 = load i32, ptr %pErrorCode, align 4
+  %cmp.i = icmp slt i32 %17, 1
   %conv.i = zext i1 %cmp.i to i8
   ret i8 %conv.i
 }
@@ -861,7 +851,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %_ZL12getTagNumberPKc.exit, !llvm.loop !16
 
 return.loopexit.split.loop.exit8.i:               ; preds = %for.body.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZL12getTagNumberPKc.exit
 
 _ZL12getTagNumberPKc.exit:                        ; preds = %for.inc.i, %entry, %return.loopexit.split.loop.exit8.i
@@ -961,7 +951,7 @@ for.inc.i20:                                      ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i17, !llvm.loop !17
 
 if.then22:                                        ; preds = %land.lhs.true.i
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw i64 %indvars.iv to i32
   %24 = urem i32 %23, %10
   %add26 = add i32 %24, %mul
   %idxprom27 = zext i32 %add26 to i64
@@ -1328,7 +1318,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZL12getTagNumberPKc.exit.i, !llvm.loop !16
 
 return.loopexit.split.loop.exit8.i.i:             ; preds = %for.body.i.i
-  %8 = trunc i64 %indvars.iv.i.i to i32
+  %8 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %_ZL12getTagNumberPKc.exit.i
 
 _ZL12getTagNumberPKc.exit.i:                      ; preds = %for.inc.i.i, %return.loopexit.split.loop.exit8.i.i, %if.then
@@ -1452,7 +1442,7 @@ for.inc.i38.i:                                    ; preds = %land.lhs.true.i33.i
   br i1 %exitcond.not.i40.i, label %for.inc.i, label %for.body.i29.i, !llvm.loop !17
 
 if.then23.i:                                      ; preds = %land.lhs.true.i33.i
-  %24 = trunc i64 %indvars.iv.i to i32
+  %24 = trunc nuw i64 %indvars.iv.i to i32
   %sub24.i = sub i32 %24, %mul.i
   br label %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit
 

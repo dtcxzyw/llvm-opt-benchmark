@@ -1054,20 +1054,18 @@ if.then3.i:                                       ; preds = %if.end.i
   %c_streams4.i = getelementptr inbounds i8, ptr %h, i64 120
   %0 = load ptr, ptr %c_streams4.i, align 8
   store ptr %0, ptr %c_streams.i, align 8
-  br label %if.end12.i
+  br label %helper_local_init.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @stream_info_hash, ptr noundef nonnull @stream_info_cmp) #14
   store ptr %call.i.i, ptr %c_streams.i, align 8
   %call8.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 835, ptr noundef nonnull @.str.153, ptr noundef %call.i.i) #14
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %helper_local_init.exit, label %if.end12.i
-
-if.end12.i:                                       ; preds = %if.else.i, %if.then3.i
+  %tobool9.not.i = icmp ne i32 %call8.i, 0
+  %spec.select.i = zext i1 %tobool9.not.i to i32
   br label %helper_local_init.exit
 
-helper_local_init.exit:                           ; preds = %entry, %if.else.i, %if.end12.i
-  %retval.0.i = phi i32 [ 1, %if.end12.i ], [ 0, %entry ], [ 0, %if.else.i ]
+helper_local_init.exit:                           ; preds = %entry, %if.then3.i, %if.else.i
+  %retval.0.i = phi i32 [ 0, %entry ], [ 1, %if.then3.i ], [ %spec.select.i, %if.else.i ]
   %call4 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1018, ptr noundef nonnull @.str.60, i32 noundef %retval.0.i) #14
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %out, label %for.cond.preheader

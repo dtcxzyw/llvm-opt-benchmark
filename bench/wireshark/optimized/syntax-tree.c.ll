@@ -663,7 +663,7 @@ stnode_type_id.exit:                              ; preds = %2
   %10 = load ptr, ptr %5, align 8
   %11 = tail call noalias ptr @g_strdup(ptr noundef %10) #13
   store ptr %11, ptr %8, align 8
-  br label %44
+  br label %45
 
 stnode_type_id.exit20.thread:                     ; preds = %stnode_type_id.exit, %4, %2
   %12 = getelementptr inbounds i8, ptr %.pre, i64 32
@@ -688,13 +688,13 @@ stnode_type_id.exit20.thread:                     ; preds = %stnode_type_id.exit
 22:                                               ; preds = %21
   %23 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %stnode_type_id.exit18.thread.thread.i, label %stnode_type_id.exit.i
+  br i1 %.not.i.i, label %stnode_type_name.exit.i, label %stnode_type_id.exit.i
 
 stnode_type_id.exit.i:                            ; preds = %22
   %24 = load i32, ptr %23, align 8
-  switch i32 %24, label %stnode_type_id.exit18.thread.thread.i [
-    i32 1, label %41
-    i32 14, label %41
+  switch i32 %24, label %38 [
+    i32 1, label %42
+    i32 14, label %42
     i32 0, label %stnode_type_name.exit.i
     i32 15, label %37
     i32 3, label %25
@@ -750,32 +750,32 @@ stnode_type_id.exit.i:                            ; preds = %22
 37:                                               ; preds = %stnode_type_id.exit.i
   br label %stnode_type_name.exit.i
 
-stnode_type_id.exit18.thread.thread.i:            ; preds = %stnode_type_id.exit.i, %22
+38:                                               ; preds = %stnode_type_id.exit.i
   br label %stnode_type_name.exit.i
 
-stnode_type_name.exit.i:                          ; preds = %stnode_type_id.exit18.thread.thread.i, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %stnode_type_id.exit.i
-  %.0.i.i.i = phi ptr [ @.str.16, %stnode_type_id.exit18.thread.thread.i ], [ @.str.15, %37 ], [ @.str.13, %36 ], [ @.str.12, %35 ], [ @.str.11, %34 ], [ @.str.10, %33 ], [ @.str.9, %32 ], [ @.str.8, %31 ], [ @.str.7, %30 ], [ @.str.6, %29 ], [ @.str.5, %28 ], [ @.str.4, %27 ], [ @.str.3, %26 ], [ @.str.2, %25 ], [ @.str, %stnode_type_id.exit.i ]
-  %38 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i.i, ptr noundef %.013.i) #13
+stnode_type_name.exit.i:                          ; preds = %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %stnode_type_id.exit.i, %22
+  %.0.i.i.i = phi ptr [ @.str.15, %37 ], [ @.str.13, %36 ], [ @.str.12, %35 ], [ @.str.11, %34 ], [ @.str.10, %33 ], [ @.str.9, %32 ], [ @.str.8, %31 ], [ @.str.7, %30 ], [ @.str.6, %29 ], [ @.str.5, %28 ], [ @.str.4, %27 ], [ @.str.3, %26 ], [ @.str.2, %25 ], [ @.str.16, %38 ], [ @.str.16, %22 ], [ @.str, %stnode_type_id.exit.i ]
+  %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i.i, ptr noundef %.013.i) #13
   tail call void @g_free(ptr noundef %.013.i) #13
-  br label %41
+  br label %42
 
 _node_tostr.exit:                                 ; preds = %21
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8
-  tail call void @g_free(ptr noundef %40) #13
-  store ptr %.013.i, ptr %39, align 8
-  br label %44
+  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = load ptr, ptr %40, align 8
+  tail call void @g_free(ptr noundef %41) #13
+  store ptr %.013.i, ptr %40, align 8
+  br label %45
 
-41:                                               ; preds = %stnode_type_id.exit.i, %stnode_type_id.exit.i, %stnode_type_name.exit.i
-  %.014.i.ph = phi ptr [ %.013.i, %stnode_type_id.exit.i ], [ %.013.i, %stnode_type_id.exit.i ], [ %38, %stnode_type_name.exit.i ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8
-  tail call void @g_free(ptr noundef %43) #13
-  store ptr %.014.i.ph, ptr %42, align 8
-  br label %44
+42:                                               ; preds = %stnode_type_id.exit.i, %stnode_type_id.exit.i, %stnode_type_name.exit.i
+  %.014.i.ph = phi ptr [ %.013.i, %stnode_type_id.exit.i ], [ %.013.i, %stnode_type_id.exit.i ], [ %39, %stnode_type_name.exit.i ]
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = load ptr, ptr %43, align 8
+  tail call void @g_free(ptr noundef %44) #13
+  store ptr %.014.i.ph, ptr %43, align 8
+  br label %45
 
-44:                                               ; preds = %_node_tostr.exit, %41, %7
-  %.0 = phi ptr [ %11, %7 ], [ %.014.i.ph, %41 ], [ %.013.i, %_node_tostr.exit ]
+45:                                               ; preds = %_node_tostr.exit, %42, %7
+  %.0 = phi ptr [ %11, %7 ], [ %.014.i.ph, %42 ], [ %.013.i, %_node_tostr.exit ]
   ret ptr %.0
 }
 

@@ -2277,7 +2277,7 @@ lor.lhs.false8.i:                                 ; preds = %if.end6.i
   br i1 %or.cond.i.i, label %land.rhs.i.i.i, label %if.else.i.i
 
 land.rhs.i.i.i:                                   ; preds = %lor.lhs.false8.i
-  %rem1.i.i.lhs.trunc.i = trunc i32 %year to i16
+  %rem1.i.i.lhs.trunc.i = trunc nuw i32 %year to i16
   %rem1.i.i8.i = urem i16 %rem1.i.i.lhs.trunc.i, 100
   %cmp2.not.i.i.i = icmp ne i16 %rem1.i.i8.i, 0
   %rem3.i.i9.i = urem i16 %rem1.i.i.lhs.trunc.i, 400
@@ -2312,13 +2312,13 @@ if.then3:                                         ; preds = %if.end
   %hashcode.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i64 -1, ptr %hashcode.i, align 8
   %and.i = lshr i32 %year, 8
-  %conv.i = trunc i32 %and.i to i8
+  %conv.i = trunc nuw i32 %and.i to i8
   %data.i = getelementptr inbounds i8, ptr %call1, i64 25
   store i8 %conv.i, ptr %data.i, align 1
   %conv2.i = trunc i32 %year to i8
   %arrayidx4.i = getelementptr i8, ptr %call1, i64 26
   store i8 %conv2.i, ptr %arrayidx4.i, align 1
-  %conv5.i = trunc i32 %month to i8
+  %conv5.i = trunc nuw i32 %month to i8
   %arrayidx7.i = getelementptr i8, ptr %call1, i64 27
   store i8 %conv5.i, ptr %arrayidx7.i, align 1
   %conv8.i = trunc i32 %day to i8
@@ -2397,17 +2397,17 @@ if.then13:                                        ; preds = %if.end8
   store i8 %conv1, ptr %hastzinfo, align 8
   %hashcode = getelementptr inbounds i8, ptr %call10, i64 16
   store i64 -1, ptr %hashcode, align 8
-  %conv14 = trunc i32 %hour to i8
+  %conv14 = trunc nuw i32 %hour to i8
   %data = getelementptr inbounds i8, ptr %call10, i64 25
   store i8 %conv14, ptr %data, align 1
-  %conv15 = trunc i32 %minute to i8
+  %conv15 = trunc nuw i32 %minute to i8
   %arrayidx17 = getelementptr i8, ptr %call10, i64 26
   store i8 %conv15, ptr %arrayidx17, align 1
-  %conv18 = trunc i32 %second to i8
+  %conv18 = trunc nuw i32 %second to i8
   %arrayidx20 = getelementptr i8, ptr %call10, i64 27
   store i8 %conv18, ptr %arrayidx20, align 1
   %and = lshr i32 %usecond, 16
-  %conv21 = trunc i32 %and to i8
+  %conv21 = trunc nuw i32 %and to i8
   %arrayidx23 = getelementptr i8, ptr %call10, i64 28
   store i8 %conv21, ptr %arrayidx23, align 1
   %and24 = lshr i32 %usecond, 8
@@ -2435,7 +2435,7 @@ _Py_NewRef.exit:                                  ; preds = %if.then33, %if.end.
   br label %if.end36
 
 if.end36:                                         ; preds = %_Py_NewRef.exit, %if.then13
-  %conv37 = trunc i32 %fold to i8
+  %conv37 = trunc nuw i32 %fold to i8
   %fold38 = getelementptr inbounds i8, ptr %call10, i64 31
   store i8 %conv37, ptr %fold38, align 1
   br label %return
@@ -2481,7 +2481,7 @@ lor.lhs.false8.i:                                 ; preds = %if.end6.i
   br i1 %or.cond.i.i, label %land.rhs.i.i.i, label %if.else.i.i
 
 land.rhs.i.i.i:                                   ; preds = %lor.lhs.false8.i
-  %rem1.i.i.lhs.trunc.i = trunc i32 %year to i16
+  %rem1.i.i.lhs.trunc.i = trunc nuw i32 %year to i16
   %rem1.i.i8.i = urem i16 %rem1.i.i.lhs.trunc.i, 100
   %cmp2.not.i.i.i = icmp ne i16 %rem1.i.i8.i, 0
   %rem3.i.i9.i = urem i16 %rem1.i.i.lhs.trunc.i, 400
@@ -2568,29 +2568,29 @@ if.then18:                                        ; preds = %if.end13
   %hashcode.i = getelementptr inbounds i8, ptr %call15, i64 16
   store i64 -1, ptr %hashcode.i, align 8
   %and.i = lshr i32 %year, 8
-  %conv.i = trunc i32 %and.i to i8
+  %conv.i = trunc nuw i32 %and.i to i8
   %data.i = getelementptr inbounds i8, ptr %call15, i64 25
   store i8 %conv.i, ptr %data.i, align 1
   %conv2.i = trunc i32 %year to i8
   %arrayidx4.i = getelementptr i8, ptr %call15, i64 26
   store i8 %conv2.i, ptr %arrayidx4.i, align 1
-  %conv5.i = trunc i32 %month to i8
+  %conv5.i = trunc nuw i32 %month to i8
   %arrayidx7.i = getelementptr i8, ptr %call15, i64 27
   store i8 %conv5.i, ptr %arrayidx7.i, align 1
   %conv8.i = trunc i32 %day to i8
   %arrayidx10.i = getelementptr i8, ptr %call15, i64 28
   store i8 %conv8.i, ptr %arrayidx10.i, align 1
-  %conv19 = trunc i32 %hour to i8
+  %conv19 = trunc nuw i32 %hour to i8
   %arrayidx = getelementptr i8, ptr %call15, i64 29
   store i8 %conv19, ptr %arrayidx, align 1
-  %conv20 = trunc i32 %minute to i8
+  %conv20 = trunc nuw i32 %minute to i8
   %arrayidx22 = getelementptr i8, ptr %call15, i64 30
   store i8 %conv20, ptr %arrayidx22, align 1
-  %conv23 = trunc i32 %second to i8
+  %conv23 = trunc nuw i32 %second to i8
   %arrayidx25 = getelementptr i8, ptr %call15, i64 31
   store i8 %conv23, ptr %arrayidx25, align 1
   %and = lshr i32 %usecond, 16
-  %conv26 = trunc i32 %and to i8
+  %conv26 = trunc nuw i32 %and to i8
   %arrayidx28 = getelementptr i8, ptr %call15, i64 32
   store i8 %conv26, ptr %arrayidx28, align 1
   %and29 = lshr i32 %usecond, 8
@@ -2618,7 +2618,7 @@ _Py_NewRef.exit:                                  ; preds = %if.then38, %if.end.
   br label %if.end41
 
 if.end41:                                         ; preds = %_Py_NewRef.exit, %if.then18
-  %conv42 = trunc i32 %fold to i8
+  %conv42 = trunc nuw i32 %fold to i8
   %fold43 = getelementptr inbounds i8, ptr %call15, i64 35
   store i8 %conv42, ptr %fold43, align 1
   br label %return
@@ -4072,12 +4072,10 @@ if.else15.i:                                      ; preds = %if.else8.i
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %8 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i47.i = icmp sgt i32 %1, 2
-  br i1 %cmp.i.i47.i, label %land.lhs.true.i.i.i, label %ymd_to_ord.exit.i
+  %or.cond.i.i.i = and i1 %cmp.i.i47.i, %cmp.i.i.i
+  br i1 %or.cond.i.i.i, label %land.rhs.i.i.i.i, label %ymd_to_ord.exit.i
 
-land.lhs.true.i.i.i:                              ; preds = %if.else15.i
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i.i, label %is_leap.exit.thread.i.i.i
-
-land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
+land.rhs.i.i.i.i:                                 ; preds = %if.else15.i
   %rem1.i.i.i.i = urem i32 %0, 100
   %cmp2.not.i.i.i.i = icmp eq i32 %rem1.i.i.i.i, 0
   br i1 %cmp2.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -4089,14 +4087,12 @@ is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
 is_leap.exit.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %rem3.i.i.i.i = urem i32 %0, 400
   %cmp4.i.not.i.i.i = icmp eq i32 %rem3.i.i.i.i, 0
-  %inc.i.i.i = add i32 %8, 1
-  br i1 %cmp4.i.not.i.i.i, label %ymd_to_ord.exit.i, label %is_leap.exit.thread.i.i.i
-
-is_leap.exit.thread.i.i.i:                        ; preds = %is_leap.exit.i.i.i, %land.lhs.true.i.i.i
+  %inc.i.i.i = zext i1 %cmp4.i.not.i.i.i to i32
+  %spec.select.i.i.i = add i32 %8, %inc.i.i.i
   br label %ymd_to_ord.exit.i
 
-ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread.i.i.i, %is_leap.exit.i.i.i, %is_leap.exit.thread6.i.i.i, %if.else15.i
-  %days.0.i.i.i = phi i32 [ %8, %if.else15.i ], [ %8, %is_leap.exit.thread.i.i.i ], [ %inc.i.i.i, %is_leap.exit.i.i.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ]
+ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.i.i.i, %is_leap.exit.thread6.i.i.i, %if.else15.i
+  %days.0.i.i.i = phi i32 [ %8, %if.else15.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ], [ %spec.select.i.i.i, %is_leap.exit.i.i.i ]
   %sub.i.i.i = add i32 %0, -1
   %mul.i.i.i = mul i32 %sub.i.i.i, 365
   %div.i.i.i = sdiv i32 %sub.i.i.i, 4
@@ -4144,7 +4140,7 @@ entry:
   %rem2 = srem i32 %rem, 36524
   %div3 = sdiv i32 %rem2, 1461
   %rem4 = srem i32 %rem2, 1461
-  %div5.lhs.trunc = trunc i32 %rem4 to i16
+  %div5.lhs.trunc = trunc nsw i32 %rem4 to i16
   %div530 = sdiv i16 %div5.lhs.trunc, 365
   %div5.sext = sext i16 %div530 to i32
   %rem631 = srem i16 %div5.lhs.trunc, 365
@@ -5715,15 +5711,13 @@ if.then8:                                         ; preds = %if.then5, %PyObject
   %arrayidx.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i.i = icmp ugt i8 %4, 2
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %ymd_to_ord.exit
-
-land.lhs.true.i.i:                                ; preds = %if.then8
   %rem.i.i.i = and i32 %conv11, 3
   %cmp.i.i.i = icmp eq i32 %rem.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %is_leap.exit.thread.i.i
+  %or.cond.i.i = and i1 %cmp.i.i, %cmp.i.i.i
+  br i1 %or.cond.i.i, label %land.rhs.i.i.i, label %ymd_to_ord.exit
 
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i
-  %rem1.i.i.i.lhs.trunc = trunc i32 %or to i16
+land.rhs.i.i.i:                                   ; preds = %if.then8
+  %rem1.i.i.i.lhs.trunc = trunc nuw i32 %or to i16
   %rem1.i.i.i80 = urem i16 %rem1.i.i.i.lhs.trunc, 100
   %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i80, 0
   br i1 %cmp2.not.i.i.i, label %is_leap.exit.i.i, label %is_leap.exit.thread6.i.i
@@ -5735,14 +5729,12 @@ is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
 is_leap.exit.i.i:                                 ; preds = %land.rhs.i.i.i
   %rem3.i.i.i81 = urem i16 %rem1.i.i.i.lhs.trunc, 400
   %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i81, 0
-  %inc.i.i = add i32 %6, 1
-  br i1 %cmp4.i.not.i.i, label %ymd_to_ord.exit, label %is_leap.exit.thread.i.i
-
-is_leap.exit.thread.i.i:                          ; preds = %is_leap.exit.i.i, %land.lhs.true.i.i
+  %inc.i.i = zext i1 %cmp4.i.not.i.i to i32
+  %spec.select.i.i = add i32 %6, %inc.i.i
   br label %ymd_to_ord.exit
 
-ymd_to_ord.exit:                                  ; preds = %if.then8, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i, %is_leap.exit.thread.i.i
-  %days.0.i.i = phi i32 [ %6, %if.then8 ], [ %6, %is_leap.exit.thread.i.i ], [ %inc.i.i, %is_leap.exit.i.i ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ]
+ymd_to_ord.exit:                                  ; preds = %if.then8, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i
+  %days.0.i.i = phi i32 [ %6, %if.then8 ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ], [ %spec.select.i.i, %is_leap.exit.i.i ]
   %sub.i.i = add nsw i32 %or, -1
   %div.i.i = sdiv i32 %sub.i.i, 4
   %div1.neg.i.i = sdiv i32 %sub.i.i, -100
@@ -5764,50 +5756,46 @@ ymd_to_ord.exit:                                  ; preds = %if.then8, %is_leap.
   %arrayidx.i.i37 = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i36
   %11 = load i32, ptr %arrayidx.i.i37, align 4
   %cmp.i.i38 = icmp ugt i8 %9, 2
-  br i1 %cmp.i.i38, label %land.lhs.true.i.i50, label %ymd_to_ord.exit63
+  %rem.i.i.i39 = and i32 %conv25, 3
+  %cmp.i.i.i40 = icmp eq i32 %rem.i.i.i39, 0
+  %or.cond.i.i41 = and i1 %cmp.i.i38, %cmp.i.i.i40
+  br i1 %or.cond.i.i41, label %land.rhs.i.i.i53, label %ymd_to_ord.exit63
 
-land.lhs.true.i.i50:                              ; preds = %ymd_to_ord.exit
-  %rem.i.i.i51 = and i32 %conv25, 3
-  %cmp.i.i.i52 = icmp eq i32 %rem.i.i.i51, 0
-  br i1 %cmp.i.i.i52, label %land.rhs.i.i.i54, label %is_leap.exit.thread.i.i53
+land.rhs.i.i.i53:                                 ; preds = %ymd_to_ord.exit
+  %rem1.i.i.i54.lhs.trunc = trunc nuw i32 %or26 to i16
+  %rem1.i.i.i5482 = urem i16 %rem1.i.i.i54.lhs.trunc, 100
+  %cmp2.not.i.i.i55 = icmp eq i16 %rem1.i.i.i5482, 0
+  br i1 %cmp2.not.i.i.i55, label %is_leap.exit.i.i58, label %is_leap.exit.thread6.i.i56
 
-land.rhs.i.i.i54:                                 ; preds = %land.lhs.true.i.i50
-  %rem1.i.i.i55.lhs.trunc = trunc i32 %or26 to i16
-  %rem1.i.i.i5582 = urem i16 %rem1.i.i.i55.lhs.trunc, 100
-  %cmp2.not.i.i.i56 = icmp eq i16 %rem1.i.i.i5582, 0
-  br i1 %cmp2.not.i.i.i56, label %is_leap.exit.i.i59, label %is_leap.exit.thread6.i.i57
-
-is_leap.exit.thread6.i.i57:                       ; preds = %land.rhs.i.i.i54
-  %inc9.i.i58 = add i32 %11, 1
+is_leap.exit.thread6.i.i56:                       ; preds = %land.rhs.i.i.i53
+  %inc9.i.i57 = add i32 %11, 1
   br label %ymd_to_ord.exit63
 
-is_leap.exit.i.i59:                               ; preds = %land.rhs.i.i.i54
-  %rem3.i.i.i6083 = urem i16 %rem1.i.i.i55.lhs.trunc, 400
-  %cmp4.i.not.i.i61 = icmp eq i16 %rem3.i.i.i6083, 0
-  %inc.i.i62 = add i32 %11, 1
-  br i1 %cmp4.i.not.i.i61, label %ymd_to_ord.exit63, label %is_leap.exit.thread.i.i53
-
-is_leap.exit.thread.i.i53:                        ; preds = %is_leap.exit.i.i59, %land.lhs.true.i.i50
+is_leap.exit.i.i58:                               ; preds = %land.rhs.i.i.i53
+  %rem3.i.i.i5983 = urem i16 %rem1.i.i.i54.lhs.trunc, 400
+  %cmp4.i.not.i.i60 = icmp eq i16 %rem3.i.i.i5983, 0
+  %inc.i.i61 = zext i1 %cmp4.i.not.i.i60 to i32
+  %spec.select.i.i62 = add i32 %11, %inc.i.i61
   br label %ymd_to_ord.exit63
 
-ymd_to_ord.exit63:                                ; preds = %ymd_to_ord.exit, %is_leap.exit.thread6.i.i57, %is_leap.exit.i.i59, %is_leap.exit.thread.i.i53
-  %days.0.i.i39 = phi i32 [ %11, %ymd_to_ord.exit ], [ %11, %is_leap.exit.thread.i.i53 ], [ %inc.i.i62, %is_leap.exit.i.i59 ], [ %inc9.i.i58, %is_leap.exit.thread6.i.i57 ]
-  %sub.i.i40 = add nsw i32 %or26, -1
-  %div.i.i42.neg86 = sdiv i32 %sub.i.i40, -4
-  %div1.neg.i.i44.neg85 = sdiv i32 %sub.i.i40, 100
-  %div3.i.i46.neg84 = sdiv i32 %sub.i.i40, -400
+ymd_to_ord.exit63:                                ; preds = %ymd_to_ord.exit, %is_leap.exit.thread6.i.i56, %is_leap.exit.i.i58
+  %days.0.i.i42 = phi i32 [ %11, %ymd_to_ord.exit ], [ %inc9.i.i57, %is_leap.exit.thread6.i.i56 ], [ %spec.select.i.i62, %is_leap.exit.i.i58 ]
+  %sub.i.i43 = add nsw i32 %or26, -1
+  %div.i.i45.neg86 = sdiv i32 %sub.i.i43, -4
+  %div1.neg.i.i47.neg85 = sdiv i32 %sub.i.i43, 100
+  %div3.i.i49.neg84 = sdiv i32 %sub.i.i43, -400
   %12 = sub nsw i32 %or, %or26
   %reass.mul = mul nsw i32 %12, 365
-  %sub2.i.i45.neg = add nuw nsw i32 %div.i.i, %conv17
-  %add4.i.i47.neg = add nsw i32 %sub2.i.i45.neg, %div1.neg.i.i
-  %add.i48.neg = add nsw i32 %add4.i.i47.neg, %div3.i.i
-  %add2.i49.neg = add i32 %add.i48.neg, %days.0.i.i
-  %add.i.i = sub i32 %add2.i49.neg, %conv32
-  %sub2.i.i = add i32 %add.i.i, %div.i.i42.neg86
-  %add4.i.i = add i32 %sub2.i.i, %div1.neg.i.i44.neg85
-  %add.i = add i32 %add4.i.i, %div3.i.i46.neg84
+  %sub2.i.i48.neg = add nuw nsw i32 %div.i.i, %conv17
+  %add4.i.i50.neg = add nsw i32 %sub2.i.i48.neg, %div1.neg.i.i
+  %add.i51.neg = add nsw i32 %add4.i.i50.neg, %div3.i.i
+  %add2.i52.neg = add i32 %add.i51.neg, %days.0.i.i
+  %add.i.i = sub i32 %add2.i52.neg, %conv32
+  %sub2.i.i = add i32 %add.i.i, %div.i.i45.neg86
+  %add4.i.i = add i32 %sub2.i.i, %div1.neg.i.i47.neg85
+  %add.i = add i32 %add4.i.i, %div3.i.i49.neg84
   %add2.i = add i32 %add.i, %reass.mul
-  %sub = sub i32 %add2.i, %days.0.i.i39
+  %sub = sub i32 %add2.i, %days.0.i.i42
   %13 = add i32 %sub, 999999999
   %or.cond.i7.i = icmp ult i32 %13, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
@@ -6217,15 +6205,13 @@ entry:
   %arrayidx.i.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i8 %2, 2
-  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %format_ctime.exit
-
-land.lhs.true.i.i.i.i:                            ; preds = %entry
   %rem.i.i.i.i.i = and i32 %conv3.i, 3
   %cmp.i.i.i.i.i = icmp eq i32 %rem.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %is_leap.exit.thread.i.i.i.i
+  %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i, %cmp.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %land.rhs.i.i.i.i.i, label %format_ctime.exit
 
-land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i
-  %rem1.i.i.i.i.lhs.trunc.i = trunc i32 %or.i to i16
+land.rhs.i.i.i.i.i:                               ; preds = %entry
+  %rem1.i.i.i.i.lhs.trunc.i = trunc nuw i32 %or.i to i16
   %rem1.i.i.i.i8.i = urem i16 %rem1.i.i.i.i.lhs.trunc.i, 100
   %cmp2.not.i.i.i.i.i = icmp eq i16 %rem1.i.i.i.i8.i, 0
   br i1 %cmp2.not.i.i.i.i.i, label %is_leap.exit.i.i.i.i, label %is_leap.exit.thread6.i.i.i.i
@@ -6237,14 +6223,12 @@ is_leap.exit.thread6.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i.i
 is_leap.exit.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %rem3.i.i.i.i9.i = urem i16 %rem1.i.i.i.i.lhs.trunc.i, 400
   %cmp4.i.not.i.i.i.i = icmp eq i16 %rem3.i.i.i.i9.i, 0
-  %inc.i.i.i.i = add i32 %4, 1
-  br i1 %cmp4.i.not.i.i.i.i, label %format_ctime.exit, label %is_leap.exit.thread.i.i.i.i
-
-is_leap.exit.thread.i.i.i.i:                      ; preds = %is_leap.exit.i.i.i.i, %land.lhs.true.i.i.i.i
+  %inc.i.i.i.i = zext i1 %cmp4.i.not.i.i.i.i to i32
+  %spec.select.i.i.i.i = add i32 %4, %inc.i.i.i.i
   br label %format_ctime.exit
 
-format_ctime.exit:                                ; preds = %entry, %is_leap.exit.thread6.i.i.i.i, %is_leap.exit.i.i.i.i, %is_leap.exit.thread.i.i.i.i
-  %days.0.i.i.i.i = phi i32 [ %4, %entry ], [ %4, %is_leap.exit.thread.i.i.i.i ], [ %inc.i.i.i.i, %is_leap.exit.i.i.i.i ], [ %inc9.i.i.i.i, %is_leap.exit.thread6.i.i.i.i ]
+format_ctime.exit:                                ; preds = %entry, %is_leap.exit.thread6.i.i.i.i, %is_leap.exit.i.i.i.i
+  %days.0.i.i.i.i = phi i32 [ %4, %entry ], [ %inc9.i.i.i.i, %is_leap.exit.thread6.i.i.i.i ], [ %spec.select.i.i.i.i, %is_leap.exit.i.i.i.i ]
   %conv9.i = zext i8 %3 to i32
   %sub.i.i.i.i = add nsw i32 %or.i, -1
   %mul.i.i.i.i = mul nsw i32 %sub.i.i.i.i, 365
@@ -6398,15 +6382,13 @@ entry:
   %arrayidx.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i.i = icmp ugt i8 %2, 2
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %ymd_to_ord.exit
-
-land.lhs.true.i.i:                                ; preds = %entry
   %rem.i.i.i = and i32 %conv3, 3
   %cmp.i.i.i = icmp eq i32 %rem.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %is_leap.exit.thread.i.i
+  %or.cond.i.i = and i1 %cmp.i.i, %cmp.i.i.i
+  br i1 %or.cond.i.i, label %land.rhs.i.i.i, label %ymd_to_ord.exit
 
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i
-  %rem1.i.i.i.lhs.trunc = trunc i32 %or to i16
+land.rhs.i.i.i:                                   ; preds = %entry
+  %rem1.i.i.i.lhs.trunc = trunc nuw i32 %or to i16
   %rem1.i.i.i61 = urem i16 %rem1.i.i.i.lhs.trunc, 100
   %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i61, 0
   br i1 %cmp2.not.i.i.i, label %is_leap.exit.i.i, label %is_leap.exit.thread6.i.i
@@ -6418,14 +6400,12 @@ is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
 is_leap.exit.i.i:                                 ; preds = %land.rhs.i.i.i
   %rem3.i.i.i62 = urem i16 %rem1.i.i.i.lhs.trunc, 400
   %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i62, 0
-  %inc.i.i = add i32 %4, 1
-  br i1 %cmp4.i.not.i.i, label %ymd_to_ord.exit, label %is_leap.exit.thread.i.i
-
-is_leap.exit.thread.i.i:                          ; preds = %is_leap.exit.i.i, %land.lhs.true.i.i
+  %inc.i.i = zext i1 %cmp4.i.not.i.i to i32
+  %spec.select.i.i = add i32 %4, %inc.i.i
   br label %ymd_to_ord.exit
 
-ymd_to_ord.exit:                                  ; preds = %entry, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i, %is_leap.exit.thread.i.i
-  %days.0.i.i = phi i32 [ %4, %entry ], [ %4, %is_leap.exit.thread.i.i ], [ %inc.i.i, %is_leap.exit.i.i ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ]
+ymd_to_ord.exit:                                  ; preds = %entry, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i
+  %days.0.i.i = phi i32 [ %4, %entry ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ], [ %spec.select.i.i, %is_leap.exit.i.i ]
   %add.i18 = add nsw i32 %add4.i.i.i, %conv9
   %add2.i = add i32 %add.i18, %days.0.i.i
   %sub = sub i32 %add2.i, %spec.select.i
@@ -6475,7 +6455,7 @@ land.lhs.true:                                    ; preds = %if.else
   %mul.i.i.i45 = mul nuw nsw i32 %or, 365
   %div.i.i.i46636469 = lshr i32 %or, 2
   %add.i.i.i47 = add nuw nsw i32 %mul.i.i.i45, %div.i.i.i46636469
-  %div1.neg.i.i.i4865.lhs.trunc = trunc i32 %or to i16
+  %div1.neg.i.i.i4865.lhs.trunc = trunc nuw i32 %or to i16
   %div1.neg.i.i.i486566 = udiv i16 %div1.neg.i.i.i4865.lhs.trunc, 100
   %div1.neg.i.i.i4865.zext = zext nneg i16 %div1.neg.i.i.i486566 to i32
   %sub2.i.i.i49 = sub nsw i32 %add.i.i.i47, %div1.neg.i.i.i4865.zext
@@ -6565,15 +6545,13 @@ entry:
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i.i = icmp ugt i8 %2, 2
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %weekday.exit
-
-land.lhs.true.i.i.i:                              ; preds = %entry
   %rem.i.i.i.i = and i32 %conv3, 3
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %is_leap.exit.thread.i.i.i
+  %or.cond.i.i.i = and i1 %cmp.i.i.i, %cmp.i.i.i.i
+  br i1 %or.cond.i.i.i, label %land.rhs.i.i.i.i, label %weekday.exit
 
-land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
-  %rem1.i.i.i.i.lhs.trunc = trunc i32 %or to i16
+land.rhs.i.i.i.i:                                 ; preds = %entry
+  %rem1.i.i.i.i.lhs.trunc = trunc nuw i32 %or to i16
   %rem1.i.i.i.i4 = urem i16 %rem1.i.i.i.i.lhs.trunc, 100
   %cmp2.not.i.i.i.i = icmp eq i16 %rem1.i.i.i.i4, 0
   br i1 %cmp2.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -6585,14 +6563,12 @@ is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
 is_leap.exit.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %rem3.i.i.i.i5 = urem i16 %rem1.i.i.i.i.lhs.trunc, 400
   %cmp4.i.not.i.i.i = icmp eq i16 %rem3.i.i.i.i5, 0
-  %inc.i.i.i = add i32 %4, 1
-  br i1 %cmp4.i.not.i.i.i, label %weekday.exit, label %is_leap.exit.thread.i.i.i
-
-is_leap.exit.thread.i.i.i:                        ; preds = %is_leap.exit.i.i.i, %land.lhs.true.i.i.i
+  %inc.i.i.i = zext i1 %cmp4.i.not.i.i.i to i32
+  %spec.select.i.i.i = add i32 %4, %inc.i.i.i
   br label %weekday.exit
 
-weekday.exit:                                     ; preds = %entry, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i, %is_leap.exit.thread.i.i.i
-  %days.0.i.i.i = phi i32 [ %4, %entry ], [ %4, %is_leap.exit.thread.i.i.i ], [ %inc.i.i.i, %is_leap.exit.i.i.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ]
+weekday.exit:                                     ; preds = %entry, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i
+  %days.0.i.i.i = phi i32 [ %4, %entry ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ], [ %spec.select.i.i.i, %is_leap.exit.i.i.i ]
   %conv9 = zext i8 %3 to i32
   %sub.i.i.i = add nsw i32 %or, -1
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, 365
@@ -6631,15 +6607,13 @@ entry:
   %arrayidx.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i.i = icmp ugt i8 %2, 2
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %ymd_to_ord.exit
-
-land.lhs.true.i.i:                                ; preds = %entry
   %rem.i.i.i = and i32 %conv3, 3
   %cmp.i.i.i = icmp eq i32 %rem.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %is_leap.exit.thread.i.i
+  %or.cond.i.i = and i1 %cmp.i.i, %cmp.i.i.i
+  br i1 %or.cond.i.i, label %land.rhs.i.i.i, label %ymd_to_ord.exit
 
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i
-  %rem1.i.i.i.lhs.trunc = trunc i32 %or to i16
+land.rhs.i.i.i:                                   ; preds = %entry
+  %rem1.i.i.i.lhs.trunc = trunc nuw i32 %or to i16
   %rem1.i.i.i4 = urem i16 %rem1.i.i.i.lhs.trunc, 100
   %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i4, 0
   br i1 %cmp2.not.i.i.i, label %is_leap.exit.i.i, label %is_leap.exit.thread6.i.i
@@ -6651,14 +6625,12 @@ is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
 is_leap.exit.i.i:                                 ; preds = %land.rhs.i.i.i
   %rem3.i.i.i5 = urem i16 %rem1.i.i.i.lhs.trunc, 400
   %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i5, 0
-  %inc.i.i = add i32 %4, 1
-  br i1 %cmp4.i.not.i.i, label %ymd_to_ord.exit, label %is_leap.exit.thread.i.i
-
-is_leap.exit.thread.i.i:                          ; preds = %is_leap.exit.i.i, %land.lhs.true.i.i
+  %inc.i.i = zext i1 %cmp4.i.not.i.i to i32
+  %spec.select.i.i = add i32 %4, %inc.i.i
   br label %ymd_to_ord.exit
 
-ymd_to_ord.exit:                                  ; preds = %entry, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i, %is_leap.exit.thread.i.i
-  %days.0.i.i = phi i32 [ %4, %entry ], [ %4, %is_leap.exit.thread.i.i ], [ %inc.i.i, %is_leap.exit.i.i ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ]
+ymd_to_ord.exit:                                  ; preds = %entry, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i
+  %days.0.i.i = phi i32 [ %4, %entry ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ], [ %spec.select.i.i, %is_leap.exit.i.i ]
   %conv9 = zext i8 %3 to i32
   %sub.i.i = add nsw i32 %or, -1
   %mul.i.i = mul nsw i32 %sub.i.i, 365
@@ -6694,15 +6666,13 @@ entry:
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i.i = icmp ugt i8 %2, 2
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %weekday.exit
-
-land.lhs.true.i.i.i:                              ; preds = %entry
   %rem.i.i.i.i = and i32 %conv3, 3
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %is_leap.exit.thread.i.i.i
+  %or.cond.i.i.i = and i1 %cmp.i.i.i, %cmp.i.i.i.i
+  br i1 %or.cond.i.i.i, label %land.rhs.i.i.i.i, label %weekday.exit
 
-land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
-  %rem1.i.i.i.i.lhs.trunc = trunc i32 %or to i16
+land.rhs.i.i.i.i:                                 ; preds = %entry
+  %rem1.i.i.i.i.lhs.trunc = trunc nuw i32 %or to i16
   %rem1.i.i.i.i4 = urem i16 %rem1.i.i.i.i.lhs.trunc, 100
   %cmp2.not.i.i.i.i = icmp eq i16 %rem1.i.i.i.i4, 0
   br i1 %cmp2.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -6714,14 +6684,12 @@ is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
 is_leap.exit.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %rem3.i.i.i.i5 = urem i16 %rem1.i.i.i.i.lhs.trunc, 400
   %cmp4.i.not.i.i.i = icmp eq i16 %rem3.i.i.i.i5, 0
-  %inc.i.i.i = add i32 %4, 1
-  br i1 %cmp4.i.not.i.i.i, label %weekday.exit, label %is_leap.exit.thread.i.i.i
-
-is_leap.exit.thread.i.i.i:                        ; preds = %is_leap.exit.i.i.i, %land.lhs.true.i.i.i
+  %inc.i.i.i = zext i1 %cmp4.i.not.i.i.i to i32
+  %spec.select.i.i.i = add i32 %4, %inc.i.i.i
   br label %weekday.exit
 
-weekday.exit:                                     ; preds = %entry, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i, %is_leap.exit.thread.i.i.i
-  %days.0.i.i.i = phi i32 [ %4, %entry ], [ %4, %is_leap.exit.thread.i.i.i ], [ %inc.i.i.i, %is_leap.exit.i.i.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ]
+weekday.exit:                                     ; preds = %entry, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i
+  %days.0.i.i.i = phi i32 [ %4, %entry ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ], [ %spec.select.i.i.i, %is_leap.exit.i.i.i ]
   %conv9 = zext i8 %3 to i32
   %sub.i.i.i = add nsw i32 %or, -1
   %mul.i.i.i = mul nsw i32 %sub.i.i.i, 365
@@ -7059,8 +7027,8 @@ if.then3:                                         ; preds = %if.then
   ]
 
 land.lhs.true:                                    ; preds = %if.then3
-  %rem.i10 = and i32 %iso_year, 3
-  %cmp.i = icmp eq i32 %rem.i10, 0
+  %rem.i.i.i.i = and i32 %iso_year, 3
+  %cmp.i = icmp eq i32 %rem.i.i.i.i, 0
   br i1 %cmp.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %land.lhs.true
@@ -8019,14 +7987,12 @@ if.end:                                           ; preds = %entry
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %0 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %m, 2
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %weekday.exit
-
-land.lhs.true.i.i.i:                              ; preds = %if.end
   %rem.i.i.i.i = and i32 %y, 3
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %is_leap.exit.thread.i.i.i
+  %or.cond.i.i.i = and i1 %cmp.i.i.i, %cmp.i.i.i.i
+  br i1 %or.cond.i.i.i, label %land.rhs.i.i.i.i, label %weekday.exit
 
-land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
+land.rhs.i.i.i.i:                                 ; preds = %if.end
   %rem1.i.i.i.i = urem i32 %y, 100
   %cmp2.not.i.i.i.i = icmp eq i32 %rem1.i.i.i.i, 0
   br i1 %cmp2.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -8038,14 +8004,12 @@ is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
 is_leap.exit.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %rem3.i.i.i.i = urem i32 %y, 400
   %cmp4.i.not.i.i.i = icmp eq i32 %rem3.i.i.i.i, 0
-  %inc.i.i.i = add i32 %0, 1
-  br i1 %cmp4.i.not.i.i.i, label %weekday.exit, label %is_leap.exit.thread.i.i.i
-
-is_leap.exit.thread.i.i.i:                        ; preds = %is_leap.exit.i.i.i, %land.lhs.true.i.i.i
+  %inc.i.i.i = zext i1 %cmp4.i.not.i.i.i to i32
+  %spec.select.i.i.i = add i32 %0, %inc.i.i.i
   br label %weekday.exit
 
-weekday.exit:                                     ; preds = %if.end, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i, %is_leap.exit.thread.i.i.i
-  %days.0.i.i.i = phi i32 [ %0, %if.end ], [ %0, %is_leap.exit.thread.i.i.i ], [ %inc.i.i.i, %is_leap.exit.i.i.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ]
+weekday.exit:                                     ; preds = %if.end, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i
+  %days.0.i.i.i = phi i32 [ %0, %if.end ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ], [ %spec.select.i.i.i, %is_leap.exit.i.i.i ]
   %sub.i.i.i = add i32 %y, -1
   %mul.i.i.i = mul i32 %sub.i.i.i, 365
   %div.i.i.i = sdiv i32 %sub.i.i.i, 4
@@ -8058,14 +8022,9 @@ weekday.exit:                                     ; preds = %if.end, %is_leap.ex
   %add2.i.i = add i32 %add.i.i, %d
   %add.i = add i32 %add2.i.i, %days.0.i.i.i
   %rem.i = srem i32 %add.i, 7
-  br i1 %cmp.i.i.i, label %land.lhs.true.i, label %days_before_month.exit
+  br i1 %or.cond.i.i.i, label %land.rhs.i.i, label %days_before_month.exit
 
-land.lhs.true.i:                                  ; preds = %weekday.exit
-  %rem.i.i = and i32 %y, 3
-  %cmp.i.i = icmp eq i32 %rem.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %is_leap.exit.thread.i
-
-land.rhs.i.i:                                     ; preds = %land.lhs.true.i
+land.rhs.i.i:                                     ; preds = %weekday.exit
   %rem1.i.i = urem i32 %y, 100
   %cmp2.not.i.i = icmp eq i32 %rem1.i.i, 0
   br i1 %cmp2.not.i.i, label %is_leap.exit.i, label %is_leap.exit.thread6.i
@@ -8077,14 +8036,12 @@ is_leap.exit.thread6.i:                           ; preds = %land.rhs.i.i
 is_leap.exit.i:                                   ; preds = %land.rhs.i.i
   %rem3.i.i = urem i32 %y, 400
   %cmp4.i.not.i = icmp eq i32 %rem3.i.i, 0
-  %inc.i = add i32 %0, 1
-  br i1 %cmp4.i.not.i, label %days_before_month.exit, label %is_leap.exit.thread.i
-
-is_leap.exit.thread.i:                            ; preds = %is_leap.exit.i, %land.lhs.true.i
+  %inc.i = zext i1 %cmp4.i.not.i to i32
+  %spec.select.i = add i32 %0, %inc.i
   br label %days_before_month.exit
 
-days_before_month.exit:                           ; preds = %weekday.exit, %is_leap.exit.thread6.i, %is_leap.exit.i, %is_leap.exit.thread.i
-  %days.0.i = phi i32 [ %0, %weekday.exit ], [ %0, %is_leap.exit.thread.i ], [ %inc.i, %is_leap.exit.i ], [ %inc9.i, %is_leap.exit.thread6.i ]
+days_before_month.exit:                           ; preds = %weekday.exit, %is_leap.exit.thread6.i, %is_leap.exit.i
+  %days.0.i = phi i32 [ %0, %weekday.exit ], [ %inc9.i, %is_leap.exit.thread6.i ], [ %spec.select.i, %is_leap.exit.i ]
   %add = add i32 %days.0.i, %d
   %call3 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef nonnull %call, ptr noundef nonnull @.str.137, i32 noundef %y, i32 noundef %m, i32 noundef %d, i32 noundef %hh, i32 noundef %mm, i32 noundef %ss, i32 noundef %rem.i, i32 noundef %add, i32 noundef %dstflag) #15
   %1 = load i64, ptr %call, align 8
@@ -8523,17 +8480,15 @@ if.else52:                                        ; preds = %if.end45
   %arrayidx.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i
   %24 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i.i53 = icmp ugt i8 %22, 2
-  br i1 %cmp.i.i53, label %land.lhs.true.i.i, label %ymd_to_ord.exit
-
-land.lhs.true.i.i:                                ; preds = %if.else52
   %rem.i.i.i = and i32 %conv59, 3
   %cmp.i.i.i = icmp eq i32 %rem.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %is_leap.exit.thread.i.i
+  %or.cond.i.i = and i1 %cmp.i.i53, %cmp.i.i.i
+  br i1 %or.cond.i.i, label %land.rhs.i.i.i, label %ymd_to_ord.exit
 
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i
-  %rem1.i.i.i.lhs.trunc = trunc i32 %or60 to i16
-  %rem1.i.i.i60 = urem i16 %rem1.i.i.i.lhs.trunc, 100
-  %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i60, 0
+land.rhs.i.i.i:                                   ; preds = %if.else52
+  %rem1.i.i.i.lhs.trunc = trunc nuw i32 %or60 to i16
+  %rem1.i.i.i61 = urem i16 %rem1.i.i.i.lhs.trunc, 100
+  %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i61, 0
   br i1 %cmp2.not.i.i.i, label %is_leap.exit.i.i, label %is_leap.exit.thread6.i.i
 
 is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
@@ -8541,16 +8496,14 @@ is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
   br label %ymd_to_ord.exit
 
 is_leap.exit.i.i:                                 ; preds = %land.rhs.i.i.i
-  %rem3.i.i.i61 = urem i16 %rem1.i.i.i.lhs.trunc, 400
-  %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i61, 0
-  %inc.i.i = add i32 %24, 1
-  br i1 %cmp4.i.not.i.i, label %ymd_to_ord.exit, label %is_leap.exit.thread.i.i
-
-is_leap.exit.thread.i.i:                          ; preds = %is_leap.exit.i.i, %land.lhs.true.i.i
+  %rem3.i.i.i62 = urem i16 %rem1.i.i.i.lhs.trunc, 400
+  %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i62, 0
+  %inc.i.i = zext i1 %cmp4.i.not.i.i to i32
+  %spec.select.i.i = add i32 %24, %inc.i.i
   br label %ymd_to_ord.exit
 
-ymd_to_ord.exit:                                  ; preds = %if.else52, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i, %is_leap.exit.thread.i.i
-  %days.0.i.i = phi i32 [ %24, %if.else52 ], [ %24, %is_leap.exit.thread.i.i ], [ %inc.i.i, %is_leap.exit.i.i ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ]
+ymd_to_ord.exit:                                  ; preds = %if.else52, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i
+  %days.0.i.i = phi i32 [ %24, %if.else52 ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ], [ %spec.select.i.i, %is_leap.exit.i.i ]
   %sub.i.i = add nsw i32 %or60, -1
   %mul.i.i = mul nsw i32 %sub.i.i, 365
   %div.i.i = sdiv i32 %sub.i.i, 4
@@ -8587,52 +8540,52 @@ ymd_to_ord.exit:                                  ; preds = %if.else52, %is_leap
   %30 = load i8, ptr %arrayidx89, align 1
   %conv90 = zext i8 %30 to i32
   %or91 = or disjoint i32 %or87, %conv90
-  %or.cond.i.i = icmp ugt i32 %or91, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i55
+  %or.cond.i.i55 = icmp ugt i32 %or91, 999999
+  br i1 %or.cond.i.i55, label %if.then.i.i.i, label %if.end.i.i56
 
 if.then.i.i.i:                                    ; preds = %ymd_to_ord.exit
-  %div.i.i.i.i62 = udiv i32 %or91, 1000000
-  %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i62, -1000000
+  %div.i.i.i.i63 = udiv i32 %or91, 1000000
+  %mul.i.i.neg.i.i = mul nsw i32 %div.i.i.i.i63, -1000000
   %sub.i.i.i.i = add nsw i32 %mul.i.i.neg.i.i, %or91
   %cmp.i.i.i.i = icmp slt i32 %sub.i.i.i.i, 0
   %add.i.i.i.i = select i1 %cmp.i.i.i.i, i32 1000000, i32 0
   %storemerge.i.i.i.i = add nsw i32 %add.i.i.i.i, %sub.i.i.i.i
   %sub.lobit.i.i.i.i = ashr i32 %sub.i.i.i.i, 31
-  %quo.0.i.i.i.i = add nuw nsw i32 %div.i.i.i.i62, %add78
+  %quo.0.i.i.i.i = add nuw nsw i32 %div.i.i.i.i63, %add78
   %add.i.i.i = add nsw i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
-  br label %if.end.i.i55
+  br label %if.end.i.i56
 
-if.end.i.i55:                                     ; preds = %if.then.i.i.i, %ymd_to_ord.exit
+if.end.i.i56:                                     ; preds = %if.then.i.i.i, %ymd_to_ord.exit
   %seconds.addr.0.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %add78, %ymd_to_ord.exit ]
   %microseconds.addr.0.i = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %or91, %ymd_to_ord.exit ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.0.i, 86399
-  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i56
+  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i57
 
-if.then.i11.i.i:                                  ; preds = %if.end.i.i55
-  %div.i.i12.i.i63 = udiv i32 %seconds.addr.0.i, 86400
-  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i63, -86400
+if.then.i11.i.i:                                  ; preds = %if.end.i.i56
+  %div.i.i12.i.i64 = udiv i32 %seconds.addr.0.i, 86400
+  %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i64, -86400
   %sub.i.i14.i.i = add nsw i32 %mul.i.i13.neg.i.i, %seconds.addr.0.i
   %cmp.i.i15.i.i = icmp slt i32 %sub.i.i14.i.i, 0
   %add.i.i16.i.i = select i1 %cmp.i.i15.i.i, i32 86400, i32 0
   %storemerge.i.i17.i.i = add nsw i32 %add.i.i16.i.i, %sub.i.i14.i.i
   %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
-  %quo.0.i.i19.i.i = add i32 %div.i.i12.i.i63, %add2.i
+  %quo.0.i.i19.i.i = add i32 %div.i.i12.i.i64, %add2.i
   %add.i20.i.i = add i32 %quo.0.i.i19.i.i, %sub.lobit.i.i18.i.i
-  br label %if.end.i56
+  br label %if.end.i57
 
-if.end.i56:                                       ; preds = %if.then.i11.i.i, %if.end.i.i55
-  %days.addr.1.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %add2.i, %if.end.i.i55 ]
-  %seconds.addr.2.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.0.i, %if.end.i.i55 ]
+if.end.i57:                                       ; preds = %if.then.i11.i.i, %if.end.i.i56
+  %days.addr.1.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %add2.i, %if.end.i.i56 ]
+  %seconds.addr.2.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.0.i, %if.end.i.i56 ]
   %31 = add i32 %days.addr.1.i, 999999999
   %or.cond.i7.i = icmp ult i32 %31, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
 
-check_delta_day_range.exit.thread.i:              ; preds = %if.end.i56
+check_delta_day_range.exit.thread.i:              ; preds = %if.end.i57
   %32 = load ptr, ptr @PyExc_OverflowError, align 8
-  %call.i.i57 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.269, i32 noundef %days.addr.1.i, i32 noundef 999999999) #15
+  %call.i.i58 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.269, i32 noundef %days.addr.1.i, i32 noundef 999999999) #15
   br label %if.then95
 
-if.end2.i:                                        ; preds = %if.end.i56
+if.end2.i:                                        ; preds = %if.end.i57
   %33 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
   %call3.i = tail call ptr %33(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
@@ -9740,38 +9693,38 @@ if.then1.i178:                                    ; preds = %if.end.i175
   br label %return
 
 if.end46:                                         ; preds = %_Py_NewRef.exit, %if.then14, %if.then40, %delta_cmp.exit, %if.end34
-  %offset1.0143 = phi ptr [ %call.i.i, %if.then40 ], [ %call.i.i, %delta_cmp.exit ], [ %call.i.i, %if.end34 ], [ @_Py_NoneStruct, %if.then14 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ]
-  %offset2.0142 = phi ptr [ %call.i.i90, %if.then40 ], [ %call.i.i90, %delta_cmp.exit ], [ %call.i.i, %if.end34 ], [ @_Py_NoneStruct, %if.then14 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ]
+  %offset1.0144 = phi ptr [ %call.i.i, %if.then40 ], [ %call.i.i, %delta_cmp.exit ], [ %call.i.i, %if.end34 ], [ @_Py_NoneStruct, %if.then14 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ]
+  %offset2.0143 = phi ptr [ %call.i.i90, %if.then40 ], [ %call.i.i90, %delta_cmp.exit ], [ %call.i.i, %if.end34 ], [ @_Py_NoneStruct, %if.then14 ], [ @_Py_NoneStruct, %_Py_NewRef.exit ]
   %offdiff.0 = phi ptr [ %call41, %if.then40 ], [ null, %delta_cmp.exit ], [ null, %if.end34 ], [ null, %if.then14 ], [ null, %_Py_NewRef.exit ]
-  %28 = load i64, ptr %offset1.0143, align 8
+  %28 = load i64, ptr %offset1.0144, align 8
   %29 = and i64 %28, 2147483648
   %cmp.i241.not = icmp eq i64 %29, 0
   br i1 %cmp.i241.not, label %if.end.i166, label %Py_DECREF.exit171
 
 if.end.i166:                                      ; preds = %if.end46
   %dec.i167 = add i64 %28, -1
-  store i64 %dec.i167, ptr %offset1.0143, align 8
+  store i64 %dec.i167, ptr %offset1.0144, align 8
   %cmp.i168 = icmp eq i64 %dec.i167, 0
   br i1 %cmp.i168, label %if.then1.i169, label %Py_DECREF.exit171
 
 if.then1.i169:                                    ; preds = %if.end.i166
-  tail call void @_Py_Dealloc(ptr noundef nonnull %offset1.0143) #15
+  tail call void @_Py_Dealloc(ptr noundef nonnull %offset1.0144) #15
   br label %Py_DECREF.exit171
 
 Py_DECREF.exit171:                                ; preds = %if.end46, %if.then1.i169, %if.end.i166
-  %30 = load i64, ptr %offset2.0142, align 8
+  %30 = load i64, ptr %offset2.0143, align 8
   %31 = and i64 %30, 2147483648
   %cmp.i245.not = icmp eq i64 %31, 0
   br i1 %cmp.i245.not, label %if.end.i157, label %Py_DECREF.exit162
 
 if.end.i157:                                      ; preds = %Py_DECREF.exit171
   %dec.i158 = add i64 %30, -1
-  store i64 %dec.i158, ptr %offset2.0142, align 8
+  store i64 %dec.i158, ptr %offset2.0143, align 8
   %cmp.i159 = icmp eq i64 %dec.i158, 0
   br i1 %cmp.i159, label %if.then1.i160, label %Py_DECREF.exit162
 
 if.then1.i160:                                    ; preds = %if.end.i157
-  tail call void @_Py_Dealloc(ptr noundef nonnull %offset2.0142) #15
+  tail call void @_Py_Dealloc(ptr noundef nonnull %offset2.0143) #15
   br label %Py_DECREF.exit162
 
 Py_DECREF.exit162:                                ; preds = %Py_DECREF.exit171, %if.then1.i160, %if.end.i157
@@ -9792,17 +9745,15 @@ Py_DECREF.exit162:                                ; preds = %Py_DECREF.exit171, 
   %arrayidx.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i
   %36 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i.i93 = icmp ugt i8 %34, 2
-  br i1 %cmp.i.i93, label %land.lhs.true.i.i, label %ymd_to_ord.exit
-
-land.lhs.true.i.i:                                ; preds = %Py_DECREF.exit162
   %rem.i.i.i = and i32 %conv50, 3
   %cmp.i.i.i = icmp eq i32 %rem.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %is_leap.exit.thread.i.i
+  %or.cond.i.i = and i1 %cmp.i.i93, %cmp.i.i.i
+  br i1 %or.cond.i.i, label %land.rhs.i.i.i, label %ymd_to_ord.exit
 
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i
-  %rem1.i.i.i.lhs.trunc = trunc i32 %or to i16
-  %rem1.i.i.i153 = urem i16 %rem1.i.i.i.lhs.trunc, 100
-  %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i153, 0
+land.rhs.i.i.i:                                   ; preds = %Py_DECREF.exit162
+  %rem1.i.i.i.lhs.trunc = trunc nuw i32 %or to i16
+  %rem1.i.i.i154 = urem i16 %rem1.i.i.i.lhs.trunc, 100
+  %cmp2.not.i.i.i = icmp eq i16 %rem1.i.i.i154, 0
   br i1 %cmp2.not.i.i.i, label %is_leap.exit.i.i, label %is_leap.exit.thread6.i.i
 
 is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
@@ -9810,16 +9761,14 @@ is_leap.exit.thread6.i.i:                         ; preds = %land.rhs.i.i.i
   br label %ymd_to_ord.exit
 
 is_leap.exit.i.i:                                 ; preds = %land.rhs.i.i.i
-  %rem3.i.i.i154 = urem i16 %rem1.i.i.i.lhs.trunc, 400
-  %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i154, 0
-  %inc.i.i = add i32 %36, 1
-  br i1 %cmp4.i.not.i.i, label %ymd_to_ord.exit, label %is_leap.exit.thread.i.i
-
-is_leap.exit.thread.i.i:                          ; preds = %is_leap.exit.i.i, %land.lhs.true.i.i
+  %rem3.i.i.i155 = urem i16 %rem1.i.i.i.lhs.trunc, 400
+  %cmp4.i.not.i.i = icmp eq i16 %rem3.i.i.i155, 0
+  %inc.i.i = zext i1 %cmp4.i.not.i.i to i32
+  %spec.select.i.i = add i32 %36, %inc.i.i
   br label %ymd_to_ord.exit
 
-ymd_to_ord.exit:                                  ; preds = %Py_DECREF.exit162, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i, %is_leap.exit.thread.i.i
-  %days.0.i.i = phi i32 [ %36, %Py_DECREF.exit162 ], [ %36, %is_leap.exit.thread.i.i ], [ %inc.i.i, %is_leap.exit.i.i ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ]
+ymd_to_ord.exit:                                  ; preds = %Py_DECREF.exit162, %is_leap.exit.thread6.i.i, %is_leap.exit.i.i
+  %days.0.i.i = phi i32 [ %36, %Py_DECREF.exit162 ], [ %inc9.i.i, %is_leap.exit.thread6.i.i ], [ %spec.select.i.i, %is_leap.exit.i.i ]
   %sub.i.i = add nsw i32 %or, -1
   %div.i.i = sdiv i32 %sub.i.i, 4
   %div1.neg.i.i = sdiv i32 %sub.i.i, -100
@@ -9841,50 +9790,46 @@ ymd_to_ord.exit:                                  ; preds = %Py_DECREF.exit162, 
   %arrayidx.i.i97 = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i96
   %41 = load i32, ptr %arrayidx.i.i97, align 4
   %cmp.i.i98 = icmp ugt i8 %39, 2
-  br i1 %cmp.i.i98, label %land.lhs.true.i.i110, label %ymd_to_ord.exit123
+  %rem.i.i.i99 = and i32 %conv64, 3
+  %cmp.i.i.i100 = icmp eq i32 %rem.i.i.i99, 0
+  %or.cond.i.i101 = and i1 %cmp.i.i98, %cmp.i.i.i100
+  br i1 %or.cond.i.i101, label %land.rhs.i.i.i113, label %ymd_to_ord.exit123
 
-land.lhs.true.i.i110:                             ; preds = %ymd_to_ord.exit
-  %rem.i.i.i111 = and i32 %conv64, 3
-  %cmp.i.i.i112 = icmp eq i32 %rem.i.i.i111, 0
-  br i1 %cmp.i.i.i112, label %land.rhs.i.i.i114, label %is_leap.exit.thread.i.i113
+land.rhs.i.i.i113:                                ; preds = %ymd_to_ord.exit
+  %rem1.i.i.i114.lhs.trunc = trunc nuw i32 %or65 to i16
+  %rem1.i.i.i114156 = urem i16 %rem1.i.i.i114.lhs.trunc, 100
+  %cmp2.not.i.i.i115 = icmp eq i16 %rem1.i.i.i114156, 0
+  br i1 %cmp2.not.i.i.i115, label %is_leap.exit.i.i118, label %is_leap.exit.thread6.i.i116
 
-land.rhs.i.i.i114:                                ; preds = %land.lhs.true.i.i110
-  %rem1.i.i.i115.lhs.trunc = trunc i32 %or65 to i16
-  %rem1.i.i.i115155 = urem i16 %rem1.i.i.i115.lhs.trunc, 100
-  %cmp2.not.i.i.i116 = icmp eq i16 %rem1.i.i.i115155, 0
-  br i1 %cmp2.not.i.i.i116, label %is_leap.exit.i.i119, label %is_leap.exit.thread6.i.i117
-
-is_leap.exit.thread6.i.i117:                      ; preds = %land.rhs.i.i.i114
-  %inc9.i.i118 = add i32 %41, 1
+is_leap.exit.thread6.i.i116:                      ; preds = %land.rhs.i.i.i113
+  %inc9.i.i117 = add i32 %41, 1
   br label %ymd_to_ord.exit123
 
-is_leap.exit.i.i119:                              ; preds = %land.rhs.i.i.i114
-  %rem3.i.i.i120156 = urem i16 %rem1.i.i.i115.lhs.trunc, 400
-  %cmp4.i.not.i.i121 = icmp eq i16 %rem3.i.i.i120156, 0
-  %inc.i.i122 = add i32 %41, 1
-  br i1 %cmp4.i.not.i.i121, label %ymd_to_ord.exit123, label %is_leap.exit.thread.i.i113
-
-is_leap.exit.thread.i.i113:                       ; preds = %is_leap.exit.i.i119, %land.lhs.true.i.i110
+is_leap.exit.i.i118:                              ; preds = %land.rhs.i.i.i113
+  %rem3.i.i.i119157 = urem i16 %rem1.i.i.i114.lhs.trunc, 400
+  %cmp4.i.not.i.i120 = icmp eq i16 %rem3.i.i.i119157, 0
+  %inc.i.i121 = zext i1 %cmp4.i.not.i.i120 to i32
+  %spec.select.i.i122 = add i32 %41, %inc.i.i121
   br label %ymd_to_ord.exit123
 
-ymd_to_ord.exit123:                               ; preds = %ymd_to_ord.exit, %is_leap.exit.thread6.i.i117, %is_leap.exit.i.i119, %is_leap.exit.thread.i.i113
-  %days.0.i.i99 = phi i32 [ %41, %ymd_to_ord.exit ], [ %41, %is_leap.exit.thread.i.i113 ], [ %inc.i.i122, %is_leap.exit.i.i119 ], [ %inc9.i.i118, %is_leap.exit.thread6.i.i117 ]
-  %sub.i.i100 = add nsw i32 %or65, -1
-  %div.i.i102.neg159 = sdiv i32 %sub.i.i100, -4
-  %div1.neg.i.i104.neg158 = sdiv i32 %sub.i.i100, 100
-  %div3.i.i106.neg157 = sdiv i32 %sub.i.i100, -400
+ymd_to_ord.exit123:                               ; preds = %ymd_to_ord.exit, %is_leap.exit.thread6.i.i116, %is_leap.exit.i.i118
+  %days.0.i.i102 = phi i32 [ %41, %ymd_to_ord.exit ], [ %inc9.i.i117, %is_leap.exit.thread6.i.i116 ], [ %spec.select.i.i122, %is_leap.exit.i.i118 ]
+  %sub.i.i103 = add nsw i32 %or65, -1
+  %div.i.i105.neg160 = sdiv i32 %sub.i.i103, -4
+  %div1.neg.i.i107.neg159 = sdiv i32 %sub.i.i103, 100
+  %div3.i.i109.neg158 = sdiv i32 %sub.i.i103, -400
   %42 = sub nsw i32 %or, %or65
   %reass.mul = mul nsw i32 %42, 365
-  %sub2.i.i105.neg = add nuw nsw i32 %div.i.i, %conv56
-  %add4.i.i107.neg = add nsw i32 %sub2.i.i105.neg, %div1.neg.i.i
-  %add.i108.neg = add nsw i32 %add4.i.i107.neg, %div3.i.i
-  %add2.i109.neg = add i32 %add.i108.neg, %days.0.i.i
-  %add.i.i94 = sub i32 %add2.i109.neg, %conv71
-  %sub2.i.i = add i32 %add.i.i94, %div.i.i102.neg159
-  %add4.i.i = add i32 %sub2.i.i, %div1.neg.i.i104.neg158
-  %add.i95 = add i32 %add4.i.i, %div3.i.i106.neg157
+  %sub2.i.i108.neg = add nuw nsw i32 %div.i.i, %conv56
+  %add4.i.i110.neg = add nsw i32 %sub2.i.i108.neg, %div1.neg.i.i
+  %add.i111.neg = add nsw i32 %add4.i.i110.neg, %div3.i.i
+  %add2.i112.neg = add i32 %add.i111.neg, %days.0.i.i
+  %add.i.i94 = sub i32 %add2.i112.neg, %conv71
+  %sub2.i.i = add i32 %add.i.i94, %div.i.i105.neg160
+  %add4.i.i = add i32 %sub2.i.i, %div1.neg.i.i107.neg159
+  %add.i95 = add i32 %add4.i.i, %div3.i.i109.neg158
   %add2.i = add i32 %add.i95, %reass.mul
-  %sub = sub i32 %add2.i, %days.0.i.i99
+  %sub = sub i32 %add2.i, %days.0.i.i102
   %arrayidx74 = getelementptr i8, ptr %left, i64 29
   %43 = load i8, ptr %arrayidx74, align 1
   %conv75 = zext i8 %43 to i32
@@ -9937,8 +9882,8 @@ ymd_to_ord.exit123:                               ; preds = %ymd_to_ord.exit, %i
   %conv120 = zext i8 %54 to i32
   %or121 = or disjoint i32 %or117, %conv120
   %sub122 = sub nsw i32 %or108, %or121
-  %or.cond.i.i = icmp ugt i32 %sub122, 999999
-  br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.end.i.i125
+  %or.cond.i.i125 = icmp ugt i32 %sub122, 999999
+  br i1 %or.cond.i.i125, label %if.then.i.i.i, label %if.end.i.i126
 
 if.then.i.i.i:                                    ; preds = %ymd_to_ord.exit123
   %div.i.i.i.i = sdiv i32 %sub122, 1000000
@@ -9950,15 +9895,15 @@ if.then.i.i.i:                                    ; preds = %ymd_to_ord.exit123
   %sub.lobit.i.i.i.i = ashr i32 %sub.i.i.i.i, 31
   %quo.0.i.i.i.i = add nsw i32 %div.i.i.i.i, %add95
   %add.i.i.i = add nsw i32 %quo.0.i.i.i.i, %sub.lobit.i.i.i.i
-  br label %if.end.i.i125
+  br label %if.end.i.i126
 
-if.end.i.i125:                                    ; preds = %if.then.i.i.i, %ymd_to_ord.exit123
+if.end.i.i126:                                    ; preds = %if.then.i.i.i, %ymd_to_ord.exit123
   %seconds.addr.0.i = phi i32 [ %add.i.i.i, %if.then.i.i.i ], [ %add95, %ymd_to_ord.exit123 ]
   %microseconds.addr.0.i = phi i32 [ %storemerge.i.i.i.i, %if.then.i.i.i ], [ %sub122, %ymd_to_ord.exit123 ]
   %or.cond7.i.i = icmp ugt i32 %seconds.addr.0.i, 86399
-  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i126
+  br i1 %or.cond7.i.i, label %if.then.i11.i.i, label %if.end.i127
 
-if.then.i11.i.i:                                  ; preds = %if.end.i.i125
+if.then.i11.i.i:                                  ; preds = %if.end.i.i126
   %div.i.i12.i.i = sdiv i32 %seconds.addr.0.i, 86400
   %mul.i.i13.neg.i.i = mul nsw i32 %div.i.i12.i.i, -86400
   %sub.i.i14.i.i = add nsw i32 %mul.i.i13.neg.i.i, %seconds.addr.0.i
@@ -9968,21 +9913,21 @@ if.then.i11.i.i:                                  ; preds = %if.end.i.i125
   %sub.lobit.i.i18.i.i = ashr i32 %sub.i.i14.i.i, 31
   %quo.0.i.i19.i.i = add i32 %div.i.i12.i.i, %sub
   %add.i20.i.i = add i32 %quo.0.i.i19.i.i, %sub.lobit.i.i18.i.i
-  br label %if.end.i126
+  br label %if.end.i127
 
-if.end.i126:                                      ; preds = %if.then.i11.i.i, %if.end.i.i125
-  %days.addr.1.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %sub, %if.end.i.i125 ]
-  %seconds.addr.2.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.0.i, %if.end.i.i125 ]
+if.end.i127:                                      ; preds = %if.then.i11.i.i, %if.end.i.i126
+  %days.addr.1.i = phi i32 [ %add.i20.i.i, %if.then.i11.i.i ], [ %sub, %if.end.i.i126 ]
+  %seconds.addr.2.i = phi i32 [ %storemerge.i.i17.i.i, %if.then.i11.i.i ], [ %seconds.addr.0.i, %if.end.i.i126 ]
   %55 = add i32 %days.addr.1.i, 999999999
   %or.cond.i7.i = icmp ult i32 %55, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
 
-check_delta_day_range.exit.thread.i:              ; preds = %if.end.i126
+check_delta_day_range.exit.thread.i:              ; preds = %if.end.i127
   %56 = load ptr, ptr @PyExc_OverflowError, align 8
-  %call.i.i127 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %56, ptr noundef nonnull @.str.269, i32 noundef %days.addr.1.i, i32 noundef 999999999) #15
+  %call.i.i128 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %56, ptr noundef nonnull @.str.269, i32 noundef %days.addr.1.i, i32 noundef 999999999) #15
   br label %return
 
-if.end2.i:                                        ; preds = %if.end.i126
+if.end2.i:                                        ; preds = %if.end.i127
   %57 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_DeltaType, i64 0, i32 36), align 8
   %call3.i = tail call ptr %57(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
@@ -10035,15 +9980,15 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.else133:                                       ; preds = %PyObject_TypeCheck.exit80
   %right.val = load ptr, ptr %1, align 8
-  %cmp.i.not.i129 = icmp eq ptr %right.val, @PyDateTime_DeltaType
-  br i1 %cmp.i.not.i129, label %if.then136, label %PyObject_TypeCheck.exit134
+  %cmp.i.not.i130 = icmp eq ptr %right.val, @PyDateTime_DeltaType
+  br i1 %cmp.i.not.i130, label %if.then136, label %PyObject_TypeCheck.exit135
 
-PyObject_TypeCheck.exit134:                       ; preds = %if.else133
-  %call2.i131 = tail call i32 @PyType_IsSubtype(ptr noundef %right.val, ptr noundef nonnull @PyDateTime_DeltaType) #15
-  %tobool3.i132.not = icmp eq i32 %call2.i131, 0
-  br i1 %tobool3.i132.not, label %if.then143, label %if.then136
+PyObject_TypeCheck.exit135:                       ; preds = %if.else133
+  %call2.i132 = tail call i32 @PyType_IsSubtype(ptr noundef %right.val, ptr noundef nonnull @PyDateTime_DeltaType) #15
+  %tobool3.i133.not = icmp eq i32 %call2.i132, 0
+  br i1 %tobool3.i133.not, label %if.then143, label %if.then136
 
-if.then136:                                       ; preds = %if.else133, %PyObject_TypeCheck.exit134
+if.then136:                                       ; preds = %if.else133, %PyObject_TypeCheck.exit135
   %call137 = tail call fastcc ptr @add_datetime_timedelta(ptr noundef nonnull %left, ptr noundef nonnull %right, i32 noundef -1)
   br label %if.end140
 
@@ -10052,7 +9997,7 @@ if.end140:                                        ; preds = %if.end.i, %if.then1
   %cmp141 = icmp eq ptr %result.0, @_Py_NotImplementedStruct
   br i1 %cmp141, label %if.then143, label %return
 
-if.then143:                                       ; preds = %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit134, %if.end140
+if.then143:                                       ; preds = %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit135, %if.end140
   %62 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i = add i32 %62, 1
   %cmp.i218 = icmp eq i32 %add.i, 0
@@ -10936,7 +10881,7 @@ if.then19.i:                                      ; preds = %land.lhs.true.i
 
 if.end23.i:                                       ; preds = %if.then19.i
   %cmp24.i = icmp ugt i64 %18, 10
-  br i1 %cmp24.i, label %land.lhs.true26.i, label %if.end30.i
+  br i1 %cmp24.i, label %land.lhs.true26.i, label %_find_isoformat_datetime_separator.exit
 
 land.lhs.true26.i:                                ; preds = %if.end23.i
   %arrayidx27.i = getelementptr i8, ptr %call5, i64 10
@@ -10944,9 +10889,7 @@ land.lhs.true26.i:                                ; preds = %if.end23.i
   %conv.i.i = sext i8 %22 to i32
   %23 = add nsw i32 %conv.i.i, -58
   %cmp.i.i39 = icmp ult i32 %23, -10
-  br i1 %cmp.i.i39, label %if.end30.i, label %_find_isoformat_datetime_separator.exit
-
-if.end30.i:                                       ; preds = %land.lhs.true26.i, %if.end23.i
+  %spec.select.i = select i1 %cmp.i.i39, i64 10, i64 8
   br label %_find_isoformat_datetime_separator.exit
 
 for.body.i35:                                     ; preds = %for.cond.preheader.i, %for.inc.i
@@ -10974,8 +10917,8 @@ if.end48.i:                                       ; preds = %for.end.i
   %..i = select i1 %cmp49.i, i64 7, i64 8
   br label %_find_isoformat_datetime_separator.exit
 
-_find_isoformat_datetime_separator.exit:          ; preds = %if.end11, %if.end.i32, %for.cond.preheader.i, %if.then3.i, %if.then8.i, %if.end12.i, %land.lhs.true.i, %if.then19.i, %land.lhs.true26.i, %if.end30.i, %for.end.i, %if.end48.i
-  %retval.0.i34 = phi i64 [ 10, %if.end30.i ], [ 7, %if.end11 ], [ -1, %if.then8.i ], [ -1, %if.then19.i ], [ 8, %land.lhs.true26.i ], [ 8, %land.lhs.true.i ], [ 8, %if.end12.i ], [ 10, %if.then3.i ], [ %idx.0.lcssa.i, %for.end.i ], [ %..i, %if.end48.i ], [ 8, %if.end.i32 ], [ 7, %for.cond.preheader.i ]
+_find_isoformat_datetime_separator.exit:          ; preds = %if.end11, %if.end.i32, %for.cond.preheader.i, %if.then3.i, %if.then8.i, %if.end12.i, %land.lhs.true.i, %if.then19.i, %if.end23.i, %land.lhs.true26.i, %for.end.i, %if.end48.i
+  %retval.0.i34 = phi i64 [ 7, %if.end11 ], [ -1, %if.then8.i ], [ -1, %if.then19.i ], [ 10, %if.end23.i ], [ 8, %land.lhs.true.i ], [ 8, %if.end12.i ], [ 10, %if.then3.i ], [ %idx.0.lcssa.i, %for.end.i ], [ %..i, %if.end48.i ], [ 8, %if.end.i32 ], [ %spec.select.i, %land.lhs.true26.i ], [ 7, %for.cond.preheader.i ]
   store i32 0, ptr %year, align 4
   store i32 0, ptr %month, align 4
   store i32 0, ptr %day, align 4
@@ -11287,15 +11230,13 @@ entry:
   %arrayidx.i.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i8 %5, 2
-  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %format_ctime.exit
-
-land.lhs.true.i.i.i.i:                            ; preds = %entry
   %rem.i.i.i.i.i = and i32 %conv3.i, 3
   %cmp.i.i.i.i.i = icmp eq i32 %rem.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %is_leap.exit.thread.i.i.i.i
+  %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i, %cmp.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %land.rhs.i.i.i.i.i, label %format_ctime.exit
 
-land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i
-  %rem1.i.i.i.i.lhs.trunc.i = trunc i32 %or.i to i16
+land.rhs.i.i.i.i.i:                               ; preds = %entry
+  %rem1.i.i.i.i.lhs.trunc.i = trunc nuw i32 %or.i to i16
   %rem1.i.i.i.i8.i = urem i16 %rem1.i.i.i.i.lhs.trunc.i, 100
   %cmp2.not.i.i.i.i.i = icmp eq i16 %rem1.i.i.i.i8.i, 0
   br i1 %cmp2.not.i.i.i.i.i, label %is_leap.exit.i.i.i.i, label %is_leap.exit.thread6.i.i.i.i
@@ -11307,14 +11248,12 @@ is_leap.exit.thread6.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i.i
 is_leap.exit.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %rem3.i.i.i.i9.i = urem i16 %rem1.i.i.i.i.lhs.trunc.i, 400
   %cmp4.i.not.i.i.i.i = icmp eq i16 %rem3.i.i.i.i9.i, 0
-  %inc.i.i.i.i = add i32 %7, 1
-  br i1 %cmp4.i.not.i.i.i.i, label %format_ctime.exit, label %is_leap.exit.thread.i.i.i.i
-
-is_leap.exit.thread.i.i.i.i:                      ; preds = %is_leap.exit.i.i.i.i, %land.lhs.true.i.i.i.i
+  %inc.i.i.i.i = zext i1 %cmp4.i.not.i.i.i.i to i32
+  %spec.select.i.i.i.i = add i32 %7, %inc.i.i.i.i
   br label %format_ctime.exit
 
-format_ctime.exit:                                ; preds = %entry, %is_leap.exit.thread6.i.i.i.i, %is_leap.exit.i.i.i.i, %is_leap.exit.thread.i.i.i.i
-  %days.0.i.i.i.i = phi i32 [ %7, %entry ], [ %7, %is_leap.exit.thread.i.i.i.i ], [ %inc.i.i.i.i, %is_leap.exit.i.i.i.i ], [ %inc9.i.i.i.i, %is_leap.exit.thread6.i.i.i.i ]
+format_ctime.exit:                                ; preds = %entry, %is_leap.exit.thread6.i.i.i.i, %is_leap.exit.i.i.i.i
+  %days.0.i.i.i.i = phi i32 [ %7, %entry ], [ %inc9.i.i.i.i, %is_leap.exit.thread6.i.i.i.i ], [ %spec.select.i.i.i.i, %is_leap.exit.i.i.i.i ]
   %conv6 = zext i8 %2 to i32
   %conv3 = zext i8 %1 to i32
   %conv = zext i8 %0 to i32
@@ -12633,15 +12572,13 @@ if.end.i:                                         ; preds = %if.then6
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %8 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %add1, 2
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %utc_to_seconds.exit
-
-land.lhs.true.i.i.i:                              ; preds = %if.end.i
   %rem.i.i.i.i = and i32 %0, 3
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %is_leap.exit.thread.i.i.i
+  %or.cond.i.i.i = and i1 %cmp.i.i.i.i, %cmp.i.i.i
+  br i1 %or.cond.i.i.i, label %land.rhs.i.i.i.i, label %utc_to_seconds.exit
 
-land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
-  %rem1.i.i.i.lhs.trunc.i = trunc i32 %add to i16
+land.rhs.i.i.i.i:                                 ; preds = %if.end.i
+  %rem1.i.i.i.lhs.trunc.i = trunc nuw i32 %add to i16
   %rem1.i.i.i4.i = urem i16 %rem1.i.i.i.lhs.trunc.i, 100
   %cmp2.not.i.i.i.i = icmp eq i16 %rem1.i.i.i4.i, 0
   br i1 %cmp2.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -12653,14 +12590,12 @@ is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
 is_leap.exit.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %rem3.i.i.i5.i = urem i16 %rem1.i.i.i.lhs.trunc.i, 400
   %cmp4.i.not.i.i.i = icmp eq i16 %rem3.i.i.i5.i, 0
-  %inc.i.i.i = add i32 %8, 1
-  br i1 %cmp4.i.not.i.i.i, label %utc_to_seconds.exit, label %is_leap.exit.thread.i.i.i
-
-is_leap.exit.thread.i.i.i:                        ; preds = %is_leap.exit.i.i.i, %land.lhs.true.i.i.i
+  %inc.i.i.i = zext i1 %cmp4.i.not.i.i.i to i32
+  %spec.select.i.i.i = add i32 %8, %inc.i.i.i
   br label %utc_to_seconds.exit
 
-utc_to_seconds.exit:                              ; preds = %if.end.i, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i, %is_leap.exit.thread.i.i.i
-  %days.0.i.i.i = phi i32 [ %8, %if.end.i ], [ %8, %is_leap.exit.thread.i.i.i ], [ %inc.i.i.i, %is_leap.exit.i.i.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ]
+utc_to_seconds.exit:                              ; preds = %if.end.i, %is_leap.exit.thread6.i.i.i, %is_leap.exit.i.i.i
+  %days.0.i.i.i = phi i32 [ %8, %if.end.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ], [ %spec.select.i.i.i, %is_leap.exit.i.i.i ]
   %sub.i.i.i = add nsw i32 %0, 1899
   %mul.i.i.i = mul nuw nsw i32 %sub.i.i.i, 365
   %div.i.i6712.i = lshr i32 %sub.i.i.i, 2
@@ -12770,15 +12705,13 @@ if.end.i:                                         ; preds = %if.end3
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %8 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %add4, 2
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %ymd_to_ord.exit.i
-
-land.lhs.true.i.i.i:                              ; preds = %if.end.i
   %rem.i.i.i.i = and i32 %0, 3
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %is_leap.exit.thread.i.i.i
+  %or.cond.i.i.i = and i1 %cmp.i.i.i.i, %cmp.i.i.i
+  br i1 %or.cond.i.i.i, label %land.rhs.i.i.i.i, label %ymd_to_ord.exit.i
 
-land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
-  %rem1.i.i.i.lhs.trunc.i = trunc i32 %add to i16
+land.rhs.i.i.i.i:                                 ; preds = %if.end.i
+  %rem1.i.i.i.lhs.trunc.i = trunc nuw i32 %add to i16
   %rem1.i.i.i4.i = urem i16 %rem1.i.i.i.lhs.trunc.i, 100
   %cmp2.not.i.i.i.i = icmp eq i16 %rem1.i.i.i4.i, 0
   br i1 %cmp2.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -12790,14 +12723,12 @@ is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
 is_leap.exit.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %rem3.i.i.i5.i = urem i16 %rem1.i.i.i.lhs.trunc.i, 400
   %cmp4.i.not.i.i.i = icmp eq i16 %rem3.i.i.i5.i, 0
-  %inc.i.i.i = add i32 %8, 1
-  br i1 %cmp4.i.not.i.i.i, label %ymd_to_ord.exit.i, label %is_leap.exit.thread.i.i.i
-
-is_leap.exit.thread.i.i.i:                        ; preds = %is_leap.exit.i.i.i, %land.lhs.true.i.i.i
+  %inc.i.i.i = zext i1 %cmp4.i.not.i.i.i to i32
+  %spec.select.i.i.i = add i32 %8, %inc.i.i.i
   br label %ymd_to_ord.exit.i
 
-ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread.i.i.i, %is_leap.exit.i.i.i, %is_leap.exit.thread6.i.i.i, %if.end.i
-  %days.0.i.i.i = phi i32 [ %8, %if.end.i ], [ %8, %is_leap.exit.thread.i.i.i ], [ %inc.i.i.i, %is_leap.exit.i.i.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ]
+ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.i.i.i, %is_leap.exit.thread6.i.i.i, %if.end.i
+  %days.0.i.i.i = phi i32 [ %8, %if.end.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ], [ %spec.select.i.i.i, %is_leap.exit.i.i.i ]
   %sub.i.i.i = add nsw i32 %0, 1899
   %mul.i.i.i = mul nuw nsw i32 %sub.i.i.i, 365
   %div.i.i6712.i = lshr i32 %sub.i.i.i, 2
@@ -13275,15 +13206,13 @@ if.end.i:                                         ; preds = %entry
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %month, 2
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %ymd_to_ord.exit.i
-
-land.lhs.true.i.i.i:                              ; preds = %if.end.i
   %rem.i.i.i.i = and i32 %year, 3
   %cmp.i.i.i.i = icmp eq i32 %rem.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %is_leap.exit.thread.i.i.i
+  %or.cond.i.i.i = and i1 %cmp.i.i.i, %cmp.i.i.i.i
+  br i1 %or.cond.i.i.i, label %land.rhs.i.i.i.i, label %ymd_to_ord.exit.i
 
-land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
-  %rem1.i.i.i.lhs.trunc.i = trunc i32 %year to i16
+land.rhs.i.i.i.i:                                 ; preds = %if.end.i
+  %rem1.i.i.i.lhs.trunc.i = trunc nuw i32 %year to i16
   %rem1.i.i.i4.i = urem i16 %rem1.i.i.i.lhs.trunc.i, 100
   %cmp2.not.i.i.i.i = icmp eq i16 %rem1.i.i.i4.i, 0
   br i1 %cmp2.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -13295,14 +13224,12 @@ is_leap.exit.thread6.i.i.i:                       ; preds = %land.rhs.i.i.i.i
 is_leap.exit.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %rem3.i.i.i5.i = urem i16 %rem1.i.i.i.lhs.trunc.i, 400
   %cmp4.i.not.i.i.i = icmp eq i16 %rem3.i.i.i5.i, 0
-  %inc.i.i.i = add i32 %2, 1
-  br i1 %cmp4.i.not.i.i.i, label %ymd_to_ord.exit.i, label %is_leap.exit.thread.i.i.i
-
-is_leap.exit.thread.i.i.i:                        ; preds = %is_leap.exit.i.i.i, %land.lhs.true.i.i.i
+  %inc.i.i.i = zext i1 %cmp4.i.not.i.i.i to i32
+  %spec.select.i.i.i = add i32 %2, %inc.i.i.i
   br label %ymd_to_ord.exit.i
 
-ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread.i.i.i, %is_leap.exit.i.i.i, %is_leap.exit.thread6.i.i.i, %if.end.i
-  %days.0.i.i.i = phi i32 [ %2, %if.end.i ], [ %2, %is_leap.exit.thread.i.i.i ], [ %inc.i.i.i, %is_leap.exit.i.i.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ]
+ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.i.i.i, %is_leap.exit.thread6.i.i.i, %if.end.i
+  %days.0.i.i.i = phi i32 [ %2, %if.end.i ], [ %inc9.i.i.i, %is_leap.exit.thread6.i.i.i ], [ %spec.select.i.i.i, %is_leap.exit.i.i.i ]
   %sub.i.i.i = add nsw i32 %year, -1
   %mul.i.i.i = mul nuw nsw i32 %sub.i.i.i, 365
   %div.i.i6712.i = lshr i32 %sub.i.i.i, 2

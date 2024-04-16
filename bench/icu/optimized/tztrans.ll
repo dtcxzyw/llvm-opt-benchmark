@@ -359,14 +359,14 @@ if.end8:                                          ; preds = %if.end4
 
 lor.lhs.false:                                    ; preds = %if.end8
   %brmerge = select i1 %cmp9, i1 true, i1 %cmp11
-  br i1 %brmerge, label %if.end41, label %land.lhs.true17
+  br i1 %brmerge, label %return, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %lor.lhs.false
   %vtable20 = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable20, i64 32
   %12 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(80) %11)
-  br i1 %call21, label %if.then22, label %if.end41
+  br i1 %call21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end8, %land.lhs.true17
   %fTo = getelementptr inbounds i8, ptr %this, i64 24
@@ -375,33 +375,106 @@ if.then22:                                        ; preds = %if.end8, %land.lhs.
   %fTo25 = getelementptr inbounds i8, ptr %that, i64 24
   %14 = load ptr, ptr %fTo25, align 8
   %cmp26 = icmp eq ptr %14, null
-  %or.cond12 = select i1 %cmp23, i1 %cmp26, i1 false
-  br i1 %or.cond12, label %return, label %lor.lhs.false27
+  %brmerge17 = select i1 %cmp23, i1 true, i1 %cmp26
+  %.mux.mux = select i1 %cmp23, i1 %cmp26, i1 false
+  br i1 %brmerge17, label %return, label %land.lhs.true33
 
-lor.lhs.false27:                                  ; preds = %if.then22
-  %brmerge16 = select i1 %cmp23, i1 true, i1 %cmp26
-  br i1 %brmerge16, label %if.end41, label %land.lhs.true33
-
-land.lhs.true33:                                  ; preds = %lor.lhs.false27
+land.lhs.true33:                                  ; preds = %if.then22
   %vtable36 = load ptr, ptr %13, align 8
   %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 32
   %15 = load ptr, ptr %vfn37, align 8
   %call38 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(80) %14)
-  br i1 %call38, label %return, label %if.end41
-
-if.end41:                                         ; preds = %lor.lhs.false27, %lor.lhs.false, %land.lhs.true33, %land.lhs.true17
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %land.lhs.true33, %if.then22, %if.end4, %_ZNKSt9type_infoneERKS_.exit, %entry, %if.end41
-  %retval.0 = phi i1 [ false, %if.end41 ], [ true, %entry ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %if.end4 ], [ true, %if.then22 ], [ true, %land.lhs.true33 ], [ false, %if.end.i.i ]
+return:                                           ; preds = %if.then22, %lor.lhs.false, %if.end.i.i, %land.lhs.true33, %land.lhs.true17, %if.end4, %_ZNKSt9type_infoneERKS_.exit, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %if.end4 ], [ %.mux.mux, %if.then22 ], [ false, %land.lhs.true17 ], [ false, %lor.lhs.false ], [ %call38, %land.lhs.true33 ], [ false, %if.end.i.i ]
   ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitionneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitionneERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %that) local_unnamed_addr #1 align 2 {
 entry:
-  %call = tail call noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that)
-  %lnot = xor i1 %call, true
+  %cmp.i = icmp eq ptr %this, %that
+  br i1 %cmp.i, label %_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit, label %typeid.end.i
+
+typeid.end.i:                                     ; preds = %entry
+  %vtable.i = load ptr, ptr %this, align 8
+  %0 = getelementptr inbounds i8, ptr %vtable.i, i64 -8
+  %1 = load ptr, ptr %0, align 8
+  %vtable2.i = load ptr, ptr %that, align 8
+  %2 = getelementptr inbounds i8, ptr %vtable2.i, i64 -8
+  %3 = load ptr, ptr %2, align 8
+  %__name.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = load ptr, ptr %__name.i.i.i, align 8
+  %__name2.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load ptr, ptr %__name2.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %4, %5
+  br i1 %cmp.i.i.i, label %if.end4.i, label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %typeid.end.i
+  %6 = load i8, ptr %4, align 1
+  %cmp4.not.i.i.i = icmp eq i8 %6, 42
+  br i1 %cmp4.not.i.i.i, label %_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit, label %_ZNKSt9type_infoneERKS_.exit.i
+
+_ZNKSt9type_infoneERKS_.exit.i:                   ; preds = %if.end.i.i.i
+  %7 = load i8, ptr %5, align 1
+  %cmp.i.i.i.i = icmp eq i8 %7, 42
+  %cond.idx.i.i.i.i = zext i1 %cmp.i.i.i.i to i64
+  %cond.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i.i
+  %call6.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i.i) #8
+  %cmp7.i.i.not.i = icmp eq i32 %call6.i.i.i, 0
+  br i1 %cmp7.i.i.not.i, label %if.end4.i, label %_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit
+
+if.end4.i:                                        ; preds = %_ZNKSt9type_infoneERKS_.exit.i, %typeid.end.i
+  %fTime.i = getelementptr inbounds i8, ptr %this, i64 8
+  %8 = load double, ptr %fTime.i, align 8
+  %fTime5.i = getelementptr inbounds i8, ptr %that, i64 8
+  %9 = load double, ptr %fTime5.i, align 8
+  %cmp6.i = fcmp une double %8, %9
+  br i1 %cmp6.i, label %_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit, label %if.end8.i
+
+if.end8.i:                                        ; preds = %if.end4.i
+  %fFrom.i = getelementptr inbounds i8, ptr %this, i64 16
+  %10 = load ptr, ptr %fFrom.i, align 8
+  %cmp9.i = icmp eq ptr %10, null
+  %fFrom10.i = getelementptr inbounds i8, ptr %that, i64 16
+  %11 = load ptr, ptr %fFrom10.i, align 8
+  %cmp11.i = icmp eq ptr %11, null
+  %or.cond.i = select i1 %cmp9.i, i1 %cmp11.i, i1 false
+  br i1 %or.cond.i, label %if.then22.i, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.end8.i
+  %brmerge.i = select i1 %cmp9.i, i1 true, i1 %cmp11.i
+  br i1 %brmerge.i, label %_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit, label %land.lhs.true17.i
+
+land.lhs.true17.i:                                ; preds = %lor.lhs.false.i
+  %vtable20.i = load ptr, ptr %10, align 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable20.i, i64 32
+  %12 = load ptr, ptr %vfn.i, align 8
+  %call21.i = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(80) %11)
+  br i1 %call21.i, label %if.then22.i, label %_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit
+
+if.then22.i:                                      ; preds = %land.lhs.true17.i, %if.end8.i
+  %fTo.i = getelementptr inbounds i8, ptr %this, i64 24
+  %13 = load ptr, ptr %fTo.i, align 8
+  %cmp23.i = icmp eq ptr %13, null
+  %fTo25.i = getelementptr inbounds i8, ptr %that, i64 24
+  %14 = load ptr, ptr %fTo25.i, align 8
+  %cmp26.i = icmp eq ptr %14, null
+  %brmerge17.i = select i1 %cmp23.i, i1 true, i1 %cmp26.i
+  %.mux.mux.i = select i1 %cmp23.i, i1 %cmp26.i, i1 false
+  br i1 %brmerge17.i, label %_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit, label %land.lhs.true33.i
+
+land.lhs.true33.i:                                ; preds = %if.then22.i
+  %vtable36.i = load ptr, ptr %13, align 8
+  %vfn37.i = getelementptr inbounds i8, ptr %vtable36.i, i64 32
+  %15 = load ptr, ptr %vfn37.i, align 8
+  %call38.i = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(80) %14)
+  br label %_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit
+
+_ZNK6icu_7518TimeZoneTransitioneqERKS0_.exit:     ; preds = %entry, %if.end.i.i.i, %_ZNKSt9type_infoneERKS_.exit.i, %if.end4.i, %lor.lhs.false.i, %land.lhs.true17.i, %if.then22.i, %land.lhs.true33.i
+  %retval.0.i = phi i1 [ true, %entry ], [ false, %_ZNKSt9type_infoneERKS_.exit.i ], [ false, %if.end4.i ], [ %.mux.mux.i, %if.then22.i ], [ false, %land.lhs.true17.i ], [ false, %lor.lhs.false.i ], [ %call38.i, %land.lhs.true33.i ], [ false, %if.end.i.i.i ]
+  %lnot = xor i1 %retval.0.i, true
   ret i1 %lnot
 }
 

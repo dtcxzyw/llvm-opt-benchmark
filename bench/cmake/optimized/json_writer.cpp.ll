@@ -183,7 +183,7 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11El(ptr dead_on_unwind noali
   %.0 = phi ptr [ %7, %6 ], [ %12, %8 ]
   %.0.i = phi i64 [ -9223372036854775808, %6 ], [ %13, %8 ]
   %9 = urem i64 %.0.i, 10
-  %10 = trunc i64 %9 to i8
+  %10 = trunc nuw nsw i64 %9 to i8
   %11 = or disjoint i8 %10, 48
   %12 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %11, ptr %12, align 1
@@ -205,7 +205,7 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11El(ptr dead_on_unwind noali
   %.1 = phi ptr [ %18, %16 ], [ %23, %19 ]
   %.0.i5 = phi i64 [ %17, %16 ], [ %24, %19 ]
   %20 = urem i64 %.0.i5, 10
-  %21 = trunc i64 %20 to i8
+  %21 = trunc nuw nsw i64 %20 to i8
   %22 = or disjoint i8 %21, 48
   %23 = getelementptr inbounds i8, ptr %.1, i64 -1
   store i8 %22, ptr %23, align 1
@@ -222,7 +222,7 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11El(ptr dead_on_unwind noali
   %.2 = phi ptr [ %26, %25 ], [ %31, %27 ]
   %.0.i8 = phi i64 [ %1, %25 ], [ %32, %27 ]
   %28 = urem i64 %.0.i8, 10
-  %29 = trunc i64 %28 to i8
+  %29 = trunc nuw nsw i64 %28 to i8
   %30 = or disjoint i8 %29, 48
   %31 = getelementptr inbounds i8, ptr %.2, i64 -1
   store i8 %30, ptr %31, align 1
@@ -323,7 +323,7 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11Em(ptr dead_on_unwind noali
   %.0 = phi ptr [ %5, %2 ], [ %10, %6 ]
   %.0.i = phi i64 [ %1, %2 ], [ %11, %6 ]
   %7 = urem i64 %.0.i, 10
-  %8 = trunc i64 %7 to i8
+  %8 = trunc nuw nsw i64 %7 to i8
   %9 = or disjoint i8 %8, 48
   %10 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %9, ptr %10, align 1
@@ -716,9 +716,9 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcmb(ptr de
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %36, %.lr.ph.preheader.i.i.i.i.i.i
-  %.078.i.i.i.i.i.i = phi i64 [ %38, %36 ], [ %19, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.02977.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %1, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.029.val.i.i.i.i.i.i = load i8, ptr %.02977.i.i.i.i.i.i, align 1
+  %.079.i.i.i.i.i.i = phi i64 [ %38, %36 ], [ %19, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.02978.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %1, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.029.val.i.i.i.i.i.i = load i8, ptr %.02978.i.i.i.i.i.i, align 1
   %22 = icmp ult i8 %.029.val.i.i.i.i.i.i, 32
   br i1 %22, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %switch.early.test.i.i.i.i.i.i.i.i
 
@@ -733,7 +733,7 @@ switch.early.test.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %23, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %24
 
 24:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i"
-  %25 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
+  %25 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 1
   %.val.i.i.i.i.i.i = load i8, ptr %25, align 1
   %26 = icmp ult i8 %.val.i.i.i.i.i.i, 32
   br i1 %26, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, label %switch.early.test.i.i33.i.i.i.i.i.i
@@ -749,7 +749,7 @@ switch.early.test.i.i33.i.i.i.i.i.i:              ; preds = %24
   br i1 %27, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit, label %28
 
 28:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit34.i.i.i.i.i.i"
-  %29 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
+  %29 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 2
   %.val30.i.i.i.i.i.i = load i8, ptr %29, align 1
   %30 = icmp ult i8 %.val30.i.i.i.i.i.i, 32
   br i1 %30, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, label %switch.early.test.i.i35.i.i.i.i.i.i
@@ -765,7 +765,7 @@ switch.early.test.i.i35.i.i.i.i.i.i:              ; preds = %28
   br i1 %31, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118, label %32
 
 32:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i"
-  %33 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
+  %33 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 3
   %.val31.i.i.i.i.i.i = load i8, ptr %33, align 1
   %34 = icmp ult i8 %.val31.i.i.i.i.i.i, 32
   br i1 %34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132, label %switch.early.test.i.i37.i.i.i.i.i.i
@@ -781,9 +781,9 @@ switch.early.test.i.i37.i.i.i.i.i.i:              ; preds = %32
   br i1 %35, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, label %36
 
 36:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i"
-  %37 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 4
-  %38 = add nsw i64 %.078.i.i.i.i.i.i, -1
-  %39 = icmp sgt i64 %.078.i.i.i.i.i.i, 1
+  %37 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 4
+  %38 = add nsw i64 %.079.i.i.i.i.i.i, -1
+  %39 = icmp sgt i64 %.079.i.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !9
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %36, %16
@@ -849,50 +849,51 @@ switch.early.test.i.i43.i.i.i.i.i.i:              ; preds = %51
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i": ; preds = %switch.early.test.i.i43.i.i.i.i.i.i
   %53 = icmp slt i8 %.2.val.i.i.i.i.i.i, 0
-  br i1 %53, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread
+  %spec.select.i.i.i.i.i.i = select i1 %53, ptr %.2.i.i.i.i.i.i, ptr %17
+  br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit34.i.i.i.i.i.i"
-  %54 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
+  %54 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 1
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i"
-  %55 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
+  %55 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 2
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i"
-  %56 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
+  %56 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 3
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122: ; preds = %switch.early.test.i.i33.i.i.i.i.i.i, %switch.early.test.i.i33.i.i.i.i.i.i
-  %57 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
+  %57 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 1
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124: ; preds = %24
-  %58 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
+  %58 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 1
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126: ; preds = %switch.early.test.i.i35.i.i.i.i.i.i, %switch.early.test.i.i35.i.i.i.i.i.i
-  %59 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
+  %59 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 2
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128: ; preds = %28
-  %60 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
+  %60 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 2
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130: ; preds = %switch.early.test.i.i37.i.i.i.i.i.i, %switch.early.test.i.i37.i.i.i.i.i.i
-  %61 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
+  %61 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 3
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132: ; preds = %32
-  %62 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
+  %62 = getelementptr inbounds i8, ptr %.02978.i.i.i.i.i.i, i64 3
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
 _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit:  ; preds = %.lr.ph.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i", %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132, %41, %switch.early.test.i.i39.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i", %46, %switch.early.test.i.i41.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i", %51, %switch.early.test.i.i43.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %46 ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %51 ], [ %54, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit ], [ %55, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118 ], [ %56, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120 ], [ %57, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122 ], [ %58, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124 ], [ %59, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126 ], [ %60, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128 ], [ %61, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130 ], [ %62, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132 ], [ %.02977.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i" ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %46 ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %51 ], [ %spec.select.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i" ], [ %54, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit ], [ %55, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118 ], [ %56, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120 ], [ %57, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122 ], [ %58, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124 ], [ %59, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126 ], [ %60, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128 ], [ %61, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit130 ], [ %62, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit132 ], [ %.02978.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i" ], [ %.02978.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02978.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02978.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not73 = icmp eq ptr %.028.i.i.i.i.i.i, %17
   br i1 %.not73, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread, label %77
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   %63 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc41 unwind label %70
@@ -2874,7 +2875,7 @@ _ZN4Json12StyledWriter11writeIndentEv.exit.us:    ; preds = %70, %63
 
 _ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.split: ; preds = %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.split.preheader, %103
   %indvars.iv = phi i64 [ 0, %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.split.preheader ], [ %indvars.iv.next, %103 ]
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw i64 %indvars.iv to i32
   %77 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %76)
   call void @_ZN4Json12StyledWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %77)
   %78 = load ptr, ptr %54, align 8
@@ -3182,7 +3183,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ._crit_edge:                                      ; preds = %21, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
   %.027.in.lcssa = phi i1 [ %7, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ], [ %22, %21 ]
-  br i1 %.027.in.lcssa, label %47, label %25
+  br i1 %.027.in.lcssa, label %46, label %25
 
 25:                                               ; preds = %._crit_edge
   %26 = zext i32 %3 to i64
@@ -3193,11 +3194,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %29 = add i32 %28, 2
   br i1 %13, label %._crit_edge37, label %.lr.ph36
 
-.lr.ph36:                                         ; preds = %25, %36
-  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %25 ]
-  %.02633 = phi i32 [ %43, %36 ], [ %29, %25 ]
-  %.132 = phi i1 [ %37, %36 ], [ false, %25 ]
-  %30 = trunc i64 %indvars.iv to i32
+.lr.ph36:                                         ; preds = %25, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ 0, %25 ]
+  %.02633 = phi i32 [ %42, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %29, %25 ]
+  %.132 = phi i1 [ %36, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ false, %25 ]
+  %30 = trunc nuw i64 %indvars.iv to i32
   %31 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %30)
   %32 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %31, i32 noundef 0)
   br i1 %32, label %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread, label %33
@@ -3208,35 +3209,33 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 _ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit: ; preds = %33
   %35 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %31, i32 noundef 2)
-  br i1 %35, label %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread, label %36
+  %spec.select = select i1 %35, i1 true, i1 %.132
+  br label %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread
 
-_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %.lr.ph36, %33, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit
-  br label %36
-
-36:                                               ; preds = %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread
-  %37 = phi i1 [ true, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.132, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit ]
-  %38 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %30)
-  tail call void @_ZN4Json12StyledWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %38)
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %39, i64 %indvars.iv
-  %41 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #19
-  %42 = trunc i64 %41 to i32
-  %43 = add i32 %.02633, %42
+_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit, %.lr.ph36, %33
+  %36 = phi i1 [ true, %33 ], [ true, %.lr.ph36 ], [ %spec.select, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit ]
+  %37 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %30)
+  tail call void @_ZN4Json12StyledWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %37)
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 %indvars.iv
+  %40 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #19
+  %41 = trunc i64 %40 to i32
+  %42 = add i32 %.02633, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %26
   br i1 %exitcond.not, label %._crit_edge37, label %.lr.ph36, !llvm.loop !22
 
-._crit_edge37:                                    ; preds = %36, %25
-  %.1.lcssa = phi i1 [ false, %25 ], [ %37, %36 ]
-  %.026.lcssa = phi i32 [ %29, %25 ], [ %43, %36 ]
+._crit_edge37:                                    ; preds = %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread, %25
+  %.1.lcssa = phi i1 [ false, %25 ], [ %36, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread ]
+  %.026.lcssa = phi i32 [ %29, %25 ], [ %42, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread ]
   store i8 0, ptr %27, align 8
-  %44 = load i32, ptr %5, align 8
-  %45 = icmp uge i32 %.026.lcssa, %44
-  %46 = select i1 %.1.lcssa, i1 true, i1 %45
-  br label %47
+  %43 = load i32, ptr %5, align 8
+  %44 = icmp uge i32 %.026.lcssa, %43
+  %45 = select i1 %.1.lcssa, i1 true, i1 %44
+  br label %46
 
-47:                                               ; preds = %._crit_edge37, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ %46, %._crit_edge37 ]
+46:                                               ; preds = %._crit_edge37, %._crit_edge
+  %.3 = phi i1 [ true, %._crit_edge ], [ %45, %._crit_edge37 ]
   ret i1 %.3
 }
 
@@ -4582,7 +4581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44: ; 
 
 .split:                                           ; preds = %.split.preheader, %101
   %indvars.iv66 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next67, %101 ]
-  %79 = trunc i64 %indvars.iv66 to i32
+  %79 = trunc nuw i64 %indvars.iv66 to i32
   %80 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %79)
   call void @_ZN4Json18StyledStreamWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %80)
   %81 = load ptr, ptr %0, align 8
@@ -4828,7 +4827,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ._crit_edge:                                      ; preds = %20, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
   %.027.in.lcssa = phi i1 [ %7, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ], [ %21, %20 ]
-  br i1 %.027.in.lcssa, label %50, label %24
+  br i1 %.027.in.lcssa, label %49, label %24
 
 24:                                               ; preds = %._crit_edge
   %25 = zext i32 %3 to i64
@@ -4841,11 +4840,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %30 = add i32 %29, 2
   br i1 %12, label %._crit_edge37, label %.lr.ph36
 
-.lr.ph36:                                         ; preds = %24, %37
-  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %24 ]
-  %.02633 = phi i32 [ %44, %37 ], [ %30, %24 ]
-  %.132 = phi i1 [ %38, %37 ], [ false, %24 ]
-  %31 = trunc i64 %indvars.iv to i32
+.lr.ph36:                                         ; preds = %24, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ 0, %24 ]
+  %.02633 = phi i32 [ %43, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %30, %24 ]
+  %.132 = phi i1 [ %37, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ false, %24 ]
+  %31 = trunc nuw i64 %indvars.iv to i32
   %32 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %31)
   %33 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 0)
   br i1 %33, label %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread, label %34
@@ -4856,41 +4855,39 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 _ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit: ; preds = %34
   %36 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 2)
-  br i1 %36, label %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread, label %37
+  %spec.select = select i1 %36, i1 true, i1 %.132
+  br label %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
 
-_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %.lr.ph36, %34, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit
-  br label %37
-
-37:                                               ; preds = %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
-  %38 = phi i1 [ true, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.132, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit ]
-  %39 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %31)
-  tail call void @_ZN4Json18StyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %39)
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %40, i64 %indvars.iv
-  %42 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #19
-  %43 = trunc i64 %42 to i32
-  %44 = add i32 %.02633, %43
+_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit, %.lr.ph36, %34
+  %37 = phi i1 [ true, %34 ], [ true, %.lr.ph36 ], [ %spec.select, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit ]
+  %38 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %31)
+  tail call void @_ZN4Json18StyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %38)
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %39, i64 %indvars.iv
+  %41 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #19
+  %42 = trunc i64 %41 to i32
+  %43 = add i32 %.02633, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25
   br i1 %exitcond.not, label %._crit_edge37.loopexit, label %.lr.ph36, !llvm.loop !32
 
-._crit_edge37.loopexit:                           ; preds = %37
+._crit_edge37.loopexit:                           ; preds = %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
   %.pre = load i8, ptr %26, align 8
   br label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %24
-  %45 = phi i8 [ %28, %24 ], [ %.pre, %._crit_edge37.loopexit ]
-  %.1.lcssa = phi i1 [ false, %24 ], [ %38, %._crit_edge37.loopexit ]
-  %.026.lcssa = phi i32 [ %30, %24 ], [ %44, %._crit_edge37.loopexit ]
-  %46 = and i8 %45, -2
-  store i8 %46, ptr %26, align 8
-  %47 = load i32, ptr %5, align 8
-  %48 = icmp uge i32 %.026.lcssa, %47
-  %49 = select i1 %.1.lcssa, i1 true, i1 %48
-  br label %50
+  %44 = phi i8 [ %28, %24 ], [ %.pre, %._crit_edge37.loopexit ]
+  %.1.lcssa = phi i1 [ false, %24 ], [ %37, %._crit_edge37.loopexit ]
+  %.026.lcssa = phi i32 [ %30, %24 ], [ %43, %._crit_edge37.loopexit ]
+  %45 = and i8 %44, -2
+  store i8 %45, ptr %26, align 8
+  %46 = load i32, ptr %5, align 8
+  %47 = icmp uge i32 %.026.lcssa, %46
+  %48 = select i1 %.1.lcssa, i1 true, i1 %47
+  br label %49
 
-50:                                               ; preds = %._crit_edge37, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ %49, %._crit_edge37 ]
+49:                                               ; preds = %._crit_edge37, %._crit_edge
+  %.3 = phi i1 [ true, %._crit_edge ], [ %48, %._crit_edge37 ]
   ret i1 %.3
 }
 
@@ -6196,7 +6193,7 @@ _ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.us: ; preds = %77, %75, %.
 
 .split:                                           ; preds = %.split.preheader, %112
   %indvars.iv68 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next69, %112 ]
-  %88 = trunc i64 %indvars.iv68 to i32
+  %88 = trunc nuw i64 %indvars.iv68 to i32
   %89 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %88)
   call void @_ZN4Json23BuiltStyledStreamWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef nonnull align 8 dereferenceable(40) %89)
   %90 = load ptr, ptr %66, align 8
@@ -6478,7 +6475,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ._crit_edge:                                      ; preds = %21, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
   %.027.in.lcssa = phi i1 [ %7, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ], [ %22, %21 ]
-  br i1 %.027.in.lcssa, label %51, label %25
+  br i1 %.027.in.lcssa, label %50, label %25
 
 25:                                               ; preds = %._crit_edge
   %26 = zext i32 %3 to i64
@@ -6491,11 +6488,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %31 = add i32 %30, 2
   br i1 %13, label %._crit_edge37, label %.lr.ph36
 
-.lr.ph36:                                         ; preds = %25, %38
-  %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %25 ]
-  %.02633 = phi i32 [ %45, %38 ], [ %31, %25 ]
-  %.132 = phi i1 [ %39, %38 ], [ false, %25 ]
-  %32 = trunc i64 %indvars.iv to i32
+.lr.ph36:                                         ; preds = %25, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ 0, %25 ]
+  %.02633 = phi i32 [ %44, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %31, %25 ]
+  %.132 = phi i1 [ %38, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ false, %25 ]
+  %32 = trunc nuw i64 %indvars.iv to i32
   %33 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %32)
   %34 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %33, i32 noundef 0)
   br i1 %34, label %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread, label %35
@@ -6506,41 +6503,39 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 _ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit: ; preds = %35
   %37 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %33, i32 noundef 2)
-  br i1 %37, label %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread, label %38
+  %spec.select = select i1 %37, i1 true, i1 %.132
+  br label %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
 
-_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %.lr.ph36, %35, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit
-  br label %38
-
-38:                                               ; preds = %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
-  %39 = phi i1 [ true, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.132, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit ]
-  %40 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %32)
-  tail call void @_ZN4Json23BuiltStyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef nonnull align 8 dereferenceable(40) %40)
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %41, i64 %indvars.iv
-  %43 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #19
-  %44 = trunc i64 %43 to i32
-  %45 = add i32 %.02633, %44
+_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit, %.lr.ph36, %35
+  %38 = phi i1 [ true, %35 ], [ true, %.lr.ph36 ], [ %spec.select, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit ]
+  %39 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %32)
+  tail call void @_ZN4Json23BuiltStyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef nonnull align 8 dereferenceable(40) %39)
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %40, i64 %indvars.iv
+  %42 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #19
+  %43 = trunc i64 %42 to i32
+  %44 = add i32 %.02633, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %26
   br i1 %exitcond.not, label %._crit_edge37.loopexit, label %.lr.ph36, !llvm.loop !38
 
-._crit_edge37.loopexit:                           ; preds = %38
+._crit_edge37.loopexit:                           ; preds = %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
   %.pre = load i8, ptr %27, align 8
   br label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %25
-  %46 = phi i8 [ %29, %25 ], [ %.pre, %._crit_edge37.loopexit ]
-  %.1.lcssa = phi i1 [ false, %25 ], [ %39, %._crit_edge37.loopexit ]
-  %.026.lcssa = phi i32 [ %31, %25 ], [ %45, %._crit_edge37.loopexit ]
-  %47 = and i8 %46, -2
-  store i8 %47, ptr %27, align 8
-  %48 = load i32, ptr %5, align 8
-  %49 = icmp uge i32 %.026.lcssa, %48
-  %50 = select i1 %.1.lcssa, i1 true, i1 %49
-  br label %51
+  %45 = phi i8 [ %29, %25 ], [ %.pre, %._crit_edge37.loopexit ]
+  %.1.lcssa = phi i1 [ false, %25 ], [ %38, %._crit_edge37.loopexit ]
+  %.026.lcssa = phi i32 [ %31, %25 ], [ %44, %._crit_edge37.loopexit ]
+  %46 = and i8 %45, -2
+  store i8 %46, ptr %27, align 8
+  %47 = load i32, ptr %5, align 8
+  %48 = icmp uge i32 %.026.lcssa, %47
+  %49 = select i1 %.1.lcssa, i1 true, i1 %48
+  br label %50
 
-51:                                               ; preds = %._crit_edge37, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ %50, %._crit_edge37 ]
+50:                                               ; preds = %._crit_edge37, %._crit_edge
+  %.3 = phi i1 [ true, %._crit_edge ], [ %49, %._crit_edge37 ]
   ret i1 %.3
 }
 
@@ -8109,109 +8104,109 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   %13 = add nsw i64 %.sroa.speculated.i, %12
   %14 = icmp ult i64 %13, %12
-  %15 = tail call i64 @llvm.umin.i64(i64 %13, i64 288230376151711743)
-  %16 = select i1 %14, i64 288230376151711743, i64 %15
-  %17 = ptrtoint ptr %1 to i64
-  %18 = sub i64 %17, %8
-  %19 = ashr exact i64 %18, 5
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %20
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %13, i64 288230376151711743)
+  %15 = select i1 %14, i64 288230376151711743, i64 %spec.select.i
+  %16 = ptrtoint ptr %1 to i64
+  %17 = sub i64 %16, %8
+  %18 = ashr exact i64 %17, 5
+  %.not.i = icmp eq i64 %15, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit, label %19
 
-20:                                               ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
-  %21 = shl nuw nsw i64 %16, 5
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #24
+19:                                               ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
+  %20 = shl nuw nsw i64 %15, 5
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #24
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %20
-  %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %23, i64 %19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit unwind label %33
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit, %19
+  %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %22, i64 %18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit unwind label %32
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #19
-  %25 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %25, %1
+  %24 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %24, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %26, %.lr.ph.i.i.i ]
-  %27 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
+  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %25, %.lr.ph.i.i.i ]
+  %26 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
   %.not10.i.i.i26 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %29, %.lr.ph.i.i.i27 ], [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %28, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
+  %.012.i.i.i28 = phi ptr [ %28, %.lr.ph.i.i.i27 ], [ %26, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %27, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29) #19
-  %28 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
-  %29 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
-  %.not.i.i.i30 = icmp eq ptr %28, %5
+  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
+  %28 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
+  %.not.i.i.i30 = icmp eq ptr %27, %5
   br i1 %.not.i.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !23
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %27, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %29, %.lr.ph.i.i.i27 ]
+  %.0.lcssa.i.i.i31 = phi ptr [ %26, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %28, %.lr.ph.i.i.i27 ]
   %.not.i33 = icmp eq ptr %6, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %30
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %29
 
-30:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32
+29:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32
   tail call void @_ZdlPv(ptr noundef nonnull %6) #23
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, %30
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %23, ptr %0, align 8
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, %29
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %23, i64 %16
-  store ptr %32, ptr %31, align 8
+  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %22, i64 %15
+  store ptr %31, ptr %30, align 8
   ret void
 
-33:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  %36 = tail call ptr @__cxa_begin_catch(ptr %35) #19
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.thread, label %39
+  %34 = extractvalue { ptr, i32 } %33, 0
+  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #19
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %.thread, label %38
 
-.thread:                                          ; preds = %33
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #19
+.thread:                                          ; preds = %32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #19
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %40 unwind label %41
+          to label %39 unwind label %40
 
-39:                                               ; preds = %33
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #23
+38:                                               ; preds = %32
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #23
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %38, %.thread
   invoke void @__cxa_rethrow() #20
-          to label %44 unwind label %37
+          to label %43 unwind label %36
 
-40:                                               ; preds = %37
-  resume { ptr, i32 } %38
+39:                                               ; preds = %36
+  resume { ptr, i32 } %37
 
-41:                                               ; preds = %37
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %36
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #22
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #22
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+43:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
   unreachable
 }
 

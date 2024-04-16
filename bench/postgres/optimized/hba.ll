@@ -462,11 +462,11 @@ pg_isblank.exit.i:                                ; preds = %71, %67, %67, %67
   ]
 
 pg_isblank.exit44.i:                              ; preds = %.critedge.i, %.critedge.i, %.critedge.i
-  %75 = trunc i8 %.034.i to i1
+  %75 = trunc nuw i8 %.034.i to i1
   br i1 %75, label %.thread51.i, label %.critedge2.i
 
 76:                                               ; preds = %.critedge.i
-  %77 = trunc i8 %.034.i to i1
+  %77 = trunc nuw i8 %.034.i to i1
   %78 = icmp ne i8 %.036.in.i, 35
   %brmerge.i = select i1 %78, i1 true, i1 %77
   br i1 %brmerge.i, label %82, label %.preheader.i
@@ -525,7 +525,7 @@ pg_isblank.exit44.i:                              ; preds = %.critedge.i, %.crit
   br i1 %or.cond138, label %next_token.exit.thread, label %next_field_expand.exit
 
 next_token.exit.thread:                           ; preds = %.critedge2.i
-  %97 = trunc i8 %.0124 to i1
+  %97 = trunc nuw i8 %.0124 to i1
   %98 = icmp slt i32 %95, 2
   %or.cond.not.i = select i1 %97, i1 true, i1 %98
   %.pre240 = load ptr, ptr %7, align 8
@@ -3834,7 +3834,7 @@ define dso_local noundef zeroext i1 @load_hba() local_unnamed_addr #1 {
 ._crit_edge:                                      ; preds = %25, %.lr.ph, %5
   %.023.lcssa = phi i8 [ 1, %5 ], [ 1, %.lr.ph ], [ %.124, %25 ]
   %.022.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph ], [ %.1, %25 ]
-  %29 = trunc i8 %.023.lcssa to i1
+  %29 = trunc nuw i8 %.023.lcssa to i1
   %30 = icmp eq ptr %.022.lcssa, null
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %31, label %37
@@ -3857,7 +3857,7 @@ define dso_local noundef zeroext i1 @load_hba() local_unnamed_addr #1 {
   call void @MemoryContextDelete(ptr noundef %39) #13
   store ptr null, ptr @tokenize_context, align 8
   store ptr %9, ptr @CurrentMemoryContext, align 8
-  %40 = trunc i8 %.2 to i1
+  %40 = trunc nuw i8 %.2 to i1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %37
@@ -4503,8 +4503,8 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge.i
 
-.lr.ph:                                           ; preds = %.lr.ph66.i, %check_ip.exit.i
-  %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i, %check_ip.exit.i ], [ 0, %.lr.ph66.i ]
+.lr.ph:                                           ; preds = %.lr.ph66.i, %check_db.exit.i
+  %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i, %check_db.exit.i ], [ 0, %.lr.ph66.i ]
   %24 = load ptr, ptr %10, align 8
   %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv.i5
   %26 = load ptr, ptr %25, align 8
@@ -4516,10 +4516,10 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %29, label %31, label %32
 
 31:                                               ; preds = %.lr.ph
-  br i1 %.not38.i, label %check_ip.exit.thread.i, label %check_ip.exit.i
+  br i1 %.not38.i, label %116, label %check_db.exit.i
 
 32:                                               ; preds = %.lr.ph
-  br i1 %.not38.i, label %check_ip.exit.i, label %33
+  br i1 %.not38.i, label %check_db.exit.i, label %33
 
 33:                                               ; preds = %32
   %34 = load i8, ptr %12, align 8
@@ -4529,22 +4529,22 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
 36:                                               ; preds = %33
   %.off.i = add i32 %28, -3
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %check_ip.exit.i, label %38
+  br i1 %switch.i, label %check_db.exit.i, label %38
 
 37:                                               ; preds = %33
   switch i32 %28, label %38 [
-    i32 2, label %check_ip.exit.i
-    i32 4, label %check_ip.exit.i
+    i32 2, label %check_db.exit.i
+    i32 4, label %check_db.exit.i
   ]
 
 38:                                               ; preds = %37, %36
   %39 = getelementptr inbounds i8, ptr %26, i64 316
   %40 = load i32, ptr %39, align 4
-  switch i32 %40, label %check_ip.exit.i [
+  switch i32 %40, label %check_db.exit.i [
     i32 0, label %41
-    i32 3, label %check_ip.exit.thread.i
-    i32 1, label %107
-    i32 2, label %107
+    i32 3, label %116
+    i32 1, label %106
+    i32 2, label %106
   ]
 
 41:                                               ; preds = %38
@@ -4607,7 +4607,7 @@ hostname_match.exit.i.i:                          ; preds = %62, %54
 check_hostname.exit.thread49.i:                   ; preds = %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
-  br label %check_ip.exit.thread.i
+  br label %116
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %16, align 8
@@ -4710,77 +4710,77 @@ check_hostname.exit.thread.sink.split.i:          ; preds = %70, %49
 check_hostname.exit.thread.i:                     ; preds = %check_hostname.exit.thread.sink.split.i, %hostname_match.exit.i.i, %58, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
-  br label %check_ip.exit.i
+  br label %check_db.exit.i
 
 check_hostname.exit.thread52.i:                   ; preds = %98, %.thread.i.i
   store i32 -1, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
-  br label %check_ip.exit.i
+  br label %check_db.exit.i
 
 check_hostname.exit.i:                            ; preds = %ipv6eq.exit.i.us.i, %78, %.lr.ph.i.us.i
   call void @freeaddrinfo(ptr noundef nonnull %.03248.i.i) #13
   store i32 1, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
-  br label %check_ip.exit.thread.i
+  br label %116
 
 100:                                              ; preds = %41
   %101 = getelementptr inbounds i8, ptr %26, i64 48
   %102 = load i16, ptr %101, align 2
   %103 = icmp eq i16 %30, %102
-  br i1 %103, label %104, label %check_ip.exit.i
+  br i1 %103, label %check_ip.exit.i, label %check_db.exit.i
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %26, i64 184
-  %106 = call i32 @pg_range_sockaddr(ptr noundef nonnull %11, ptr noundef nonnull %101, ptr noundef nonnull %105) #13
-  %.not.i39.i = icmp eq i32 %106, 0
-  br i1 %.not.i39.i, label %check_ip.exit.i, label %check_ip.exit.thread.i
+check_ip.exit.i:                                  ; preds = %100
+  %104 = getelementptr inbounds i8, ptr %26, i64 184
+  %105 = call i32 @pg_range_sockaddr(ptr noundef nonnull %11, ptr noundef nonnull %101, ptr noundef nonnull %104) #13
+  %.not.i39.not.i = icmp eq i32 %105, 0
+  br i1 %.not.i39.not.i, label %check_db.exit.i, label %116
 
-107:                                              ; preds = %38, %38
+106:                                              ; preds = %38, %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store i32 %40, ptr %2, align 8
   store ptr %11, ptr %13, align 8
   store i8 0, ptr %14, align 8
-  %108 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %108, align 4
-  %109 = call i32 @pg_foreach_ifaddr(ptr noundef nonnull @check_network_callback, ptr noundef nonnull %2) #13
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %check_same_host_or_net.exit.i
+  %107 = tail call ptr @__errno_location() #14
+  store i32 0, ptr %107, align 4
+  %108 = call i32 @pg_foreach_ifaddr(ptr noundef nonnull @check_network_callback, ptr noundef nonnull %2) #13
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %110, label %check_same_host_or_net.exit.i
 
-111:                                              ; preds = %107
-  %112 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %112, label %113, label %check_same_host_or_net.exit.thread.i
+110:                                              ; preds = %106
+  %111 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
+  br i1 %111, label %112, label %check_same_host_or_net.exit.thread.i
 
-113:                                              ; preds = %111
-  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.135) #13
+112:                                              ; preds = %110
+  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.135) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1221, ptr noundef nonnull @__func__.check_same_host_or_net) #13
   br label %check_same_host_or_net.exit.thread.i
 
-check_same_host_or_net.exit.thread.i:             ; preds = %113, %111
+check_same_host_or_net.exit.thread.i:             ; preds = %112, %110
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br label %check_ip.exit.i
+  br label %check_db.exit.i
 
-check_same_host_or_net.exit.i:                    ; preds = %107
-  %115 = load i8, ptr %14, align 8
-  %116 = trunc i8 %115 to i1
+check_same_host_or_net.exit.i:                    ; preds = %106
+  %114 = load i8, ptr %14, align 8
+  %115 = trunc i8 %114 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  br i1 %116, label %check_ip.exit.thread.i, label %check_ip.exit.i
+  br i1 %115, label %116, label %check_db.exit.i
 
-check_ip.exit.thread.i:                           ; preds = %check_same_host_or_net.exit.i, %104, %check_hostname.exit.i, %check_hostname.exit.thread49.i, %38, %31
+116:                                              ; preds = %check_same_host_or_net.exit.i, %check_ip.exit.i, %check_hostname.exit.i, %check_hostname.exit.thread49.i, %38, %31
   %117 = load ptr, ptr %21, align 8
   %118 = load ptr, ptr %5, align 8
   %119 = getelementptr inbounds i8, ptr %26, i64 32
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 4
   %.not.i41.i = icmp eq ptr %120, null
-  br i1 %.not.i41.i, label %check_ip.exit.i, label %.lr.ph.i42.i
+  br i1 %.not.i41.i, label %check_db.exit.i, label %.lr.ph.i42.i
 
-.lr.ph.i42.i:                                     ; preds = %check_ip.exit.thread.i
+.lr.ph.i42.i:                                     ; preds = %116
   %122 = getelementptr inbounds i8, ptr %120, i64 16
   %123 = load i32, ptr %121, align 4
   %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %.lr.ph.i, label %check_ip.exit.i
+  br i1 %124, label %.lr.ph.i, label %check_db.exit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i42.i, %is_member.exit.thread.i.i
   %indvars.iv.i64.i = phi i64 [ %indvars.iv.next.i.i, %is_member.exit.thread.i.i ], [ 0, %.lr.ph.i42.i ]
@@ -4889,23 +4889,23 @@ is_member.exit.thread.i.i:                        ; preds = %182, %170, %165, %i
   %186 = load i32, ptr %121, align 4
   %187 = sext i32 %186 to i64
   %188 = icmp slt i64 %indvars.iv.next.i.i, %187
-  br i1 %188, label %.lr.ph.i, label %check_ip.exit.i
+  br i1 %188, label %.lr.ph.i, label %check_db.exit.i
 
 189:                                              ; preds = %182, %170, %is_member.exit.i.i, %152, %145, %137
   %190 = load ptr, ptr %5, align 8
   %191 = getelementptr inbounds i8, ptr %26, i64 40
   %192 = load ptr, ptr %191, align 8
   %193 = call fastcc zeroext i1 @check_role(ptr noundef %190, i32 noundef %7, ptr noundef %192, i1 noundef zeroext false)
-  br i1 %193, label %check_hba.exit, label %check_ip.exit.i
+  br i1 %193, label %check_hba.exit, label %check_db.exit.i
 
-check_ip.exit.i:                                  ; preds = %is_member.exit.thread.i.i, %189, %.lr.ph.i42.i, %check_ip.exit.thread.i, %check_same_host_or_net.exit.i, %check_same_host_or_net.exit.thread.i, %104, %100, %check_hostname.exit.thread52.i, %check_hostname.exit.thread.i, %38, %37, %37, %36, %32, %31
+check_db.exit.i:                                  ; preds = %is_member.exit.thread.i.i, %189, %.lr.ph.i42.i, %116, %check_same_host_or_net.exit.i, %check_same_host_or_net.exit.thread.i, %check_ip.exit.i, %100, %check_hostname.exit.thread52.i, %check_hostname.exit.thread.i, %38, %37, %37, %36, %32, %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i5, 1
   %194 = load i32, ptr %9, align 4
   %195 = sext i32 %194 to i64
   %196 = icmp slt i64 %indvars.iv.next.i, %195
   br i1 %196, label %.lr.ph, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %check_ip.exit.i, %.lr.ph66.i, %1
+._crit_edge.i:                                    ; preds = %check_db.exit.i, %.lr.ph66.i, %1
   %197 = call ptr @palloc0(i64 noundef 536) #13
   %198 = getelementptr inbounds i8, ptr %197, i64 328
   store i32 1, ptr %198, align 8
@@ -5078,12 +5078,12 @@ define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %32, label %8
+  br i1 %7, label %30, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %2, align 8
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %23
+  br i1 %10, label %11, label %22
 
 11:                                               ; preds = %8
   %12 = load i16, ptr %0, align 2
@@ -5094,38 +5094,33 @@ define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr
   %17 = load i16, ptr %16, align 8
   %18 = load i16, ptr %0, align 2
   %19 = icmp eq i16 %17, %18
-  br i1 %19, label %20, label %22
+  br i1 %19, label %20, label %.sink.split
 
 20:                                               ; preds = %11
   %21 = call i32 @pg_range_sockaddr(ptr noundef nonnull %16, ptr noundef nonnull %0, ptr noundef nonnull %4) #13
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %22, label %.sink.split
-
-22:                                               ; preds = %20, %11
+  %.not.i = icmp ne i32 %21, 0
   br label %.sink.split
 
-23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i16, ptr %25, align 8
-  %27 = load i16, ptr %0, align 2
-  %28 = icmp eq i16 %26, %27
-  br i1 %28, label %29, label %31
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i16, ptr %24, align 8
+  %26 = load i16, ptr %0, align 2
+  %27 = icmp eq i16 %25, %26
+  br i1 %27, label %28, label %.sink.split
 
-29:                                               ; preds = %23
-  %30 = tail call i32 @pg_range_sockaddr(ptr noundef nonnull %25, ptr noundef nonnull %0, ptr noundef %1) #13
-  %.not.i12 = icmp eq i32 %30, 0
-  br i1 %.not.i12, label %31, label %.sink.split
-
-31:                                               ; preds = %29, %23
+28:                                               ; preds = %22
+  %29 = tail call i32 @pg_range_sockaddr(ptr noundef nonnull %24, ptr noundef nonnull %0, ptr noundef %1) #13
+  %.not.i12 = icmp ne i32 %29, 0
   br label %.sink.split
 
-.sink.split:                                      ; preds = %31, %29, %22, %20
-  %.0.i11.sink = phi i8 [ 0, %22 ], [ 1, %20 ], [ 0, %31 ], [ 1, %29 ]
+.sink.split:                                      ; preds = %28, %22, %20, %11
+  %.0.i11.sink.shrunk = phi i1 [ false, %11 ], [ %.not.i, %20 ], [ false, %22 ], [ %.not.i12, %28 ]
+  %.0.i11.sink = zext i1 %.0.i11.sink.shrunk to i8
   store i8 %.0.i11.sink, ptr %5, align 8
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.sink.split, %3
+30:                                               ; preds = %.sink.split, %3
   ret void
 }
 

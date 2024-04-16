@@ -425,7 +425,7 @@ define ptr @php_get_internal_encoding() local_unnamed_addr #2 {
 2:                                                ; preds = %0
   %3 = load i8, ptr %1, align 1
   %.not3 = icmp eq i8 %3, 0
-  br i1 %.not3, label %4, label %9
+  br i1 %.not3, label %4, label %8
 
 4:                                                ; preds = %2, %0
   %5 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 8), align 8
@@ -435,13 +435,11 @@ define ptr @php_get_internal_encoding() local_unnamed_addr #2 {
 6:                                                ; preds = %4
   %7 = load i8, ptr %5, align 1
   %.not5 = icmp eq i8 %7, 0
-  br i1 %.not5, label %8, label %9
+  %spec.select = select i1 %.not5, ptr @.str.1, ptr %5
+  br label %8
 
-8:                                                ; preds = %4, %6
-  br label %9
-
-9:                                                ; preds = %6, %2, %8
-  %.0 = phi ptr [ @.str.1, %8 ], [ %1, %2 ], [ %5, %6 ]
+8:                                                ; preds = %6, %4, %2
+  %.0 = phi ptr [ %1, %2 ], [ @.str.1, %4 ], [ %spec.select, %6 ]
   ret ptr %.0
 }
 
@@ -454,7 +452,7 @@ define ptr @php_get_input_encoding() local_unnamed_addr #2 {
 2:                                                ; preds = %0
   %3 = load i8, ptr %1, align 1
   %.not3 = icmp eq i8 %3, 0
-  br i1 %.not3, label %4, label %9
+  br i1 %.not3, label %4, label %8
 
 4:                                                ; preds = %2, %0
   %5 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 8), align 8
@@ -464,13 +462,11 @@ define ptr @php_get_input_encoding() local_unnamed_addr #2 {
 6:                                                ; preds = %4
   %7 = load i8, ptr %5, align 1
   %.not5 = icmp eq i8 %7, 0
-  br i1 %.not5, label %8, label %9
+  %spec.select = select i1 %.not5, ptr @.str.1, ptr %5
+  br label %8
 
-8:                                                ; preds = %4, %6
-  br label %9
-
-9:                                                ; preds = %6, %2, %8
-  %.0 = phi ptr [ @.str.1, %8 ], [ %1, %2 ], [ %5, %6 ]
+8:                                                ; preds = %6, %4, %2
+  %.0 = phi ptr [ %1, %2 ], [ @.str.1, %4 ], [ %spec.select, %6 ]
   ret ptr %.0
 }
 
@@ -483,7 +479,7 @@ define ptr @php_get_output_encoding() local_unnamed_addr #2 {
 2:                                                ; preds = %0
   %3 = load i8, ptr %1, align 1
   %.not3 = icmp eq i8 %3, 0
-  br i1 %.not3, label %4, label %9
+  br i1 %.not3, label %4, label %8
 
 4:                                                ; preds = %2, %0
   %5 = load ptr, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 8), align 8
@@ -493,13 +489,11 @@ define ptr @php_get_output_encoding() local_unnamed_addr #2 {
 6:                                                ; preds = %4
   %7 = load i8, ptr %5, align 1
   %.not5 = icmp eq i8 %7, 0
-  br i1 %.not5, label %8, label %9
+  %spec.select = select i1 %.not5, ptr @.str.1, ptr %5
+  br label %8
 
-8:                                                ; preds = %4, %6
-  br label %9
-
-9:                                                ; preds = %6, %2, %8
-  %.0 = phi ptr [ @.str.1, %8 ], [ %1, %2 ], [ %5, %6 ]
+8:                                                ; preds = %6, %4, %2
+  %.0 = phi ptr [ %1, %2 ], [ @.str.1, %4 ], [ %spec.select, %6 ]
   ret ptr %.0
 }
 
@@ -549,7 +543,7 @@ define void @php_log_err_with_severity(ptr noundef %0, i32 noundef %1) local_unn
   %13 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 76), align 8
   %14 = add i64 %13, -1
   %or.cond = icmp ult i64 %14, 511
-  %15 = trunc i64 %13 to i32
+  %15 = trunc nuw nsw i64 %13 to i32
   %spec.select = select i1 %or.cond, i32 %15, i32 420
   %16 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %8, i32 noundef 1089, i32 noundef %spec.select) #29
   %.not23 = icmp eq i32 %16, -1
@@ -2337,7 +2331,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
 .critedge:                                        ; preds = %12, %20
   %22 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 7), align 2
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %.critedge5, label %24
+  br i1 %23, label %.critedge3, label %24
 
 24:                                               ; preds = %.critedge
   %25 = load i32, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 56), align 4
@@ -2347,7 +2341,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
 26:                                               ; preds = %24
   %27 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i64 0, i32 58), align 8
   %28 = icmp eq ptr %27, %1
-  br i1 %28, label %.critedge5, label %29
+  br i1 %28, label %.critedge3, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %27, i64 16
@@ -2359,13 +2353,11 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
 
 35:                                               ; preds = %29
   %36 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %27, ptr noundef nonnull %1) #29
-  br i1 %36, label %.critedge5, label %.critedge3
-
-.critedge5:                                       ; preds = %26, %35, %.critedge
+  %not. = xor i1 %36, true
   br label %.critedge3
 
-.critedge3:                                       ; preds = %4, %20, %24, %35, %14, %29, %.critedge5
-  %.0116 = phi i1 [ false, %.critedge5 ], [ true, %29 ], [ true, %14 ], [ true, %35 ], [ true, %24 ], [ true, %20 ], [ true, %4 ]
+.critedge3:                                       ; preds = %35, %4, %.critedge, %26, %20, %24, %14, %29
+  %.0116 = phi i1 [ true, %29 ], [ true, %14 ], [ true, %24 ], [ true, %20 ], [ false, %26 ], [ false, %.critedge ], [ true, %4 ], [ %not., %35 ]
   %37 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 43), align 8
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %39, label %45
@@ -3644,65 +3636,63 @@ define internal void @display_errors_mode(ptr nocapture noundef readonly %0, i32
   %5 = getelementptr inbounds i8, ptr %0, i64 70
   %6 = load i8, ptr %5, align 2
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %8
+  %spec.select = select i1 %.not, i64 40, i64 48
+  br label %7
 
 7:                                                ; preds = %4, %2
-  br label %8
+  %.sink = phi i64 [ 40, %2 ], [ %spec.select, %4 ]
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %.0 = load ptr, ptr %8, align 8
+  %9 = tail call fastcc zeroext i8 @php_get_display_errors_mode(ptr noundef %.0)
+  %10 = load ptr, ptr @sapi_module, align 8
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(4) @.str.80) #28
+  %.not23 = icmp eq i32 %11, 0
+  br i1 %.not23, label %16, label %12
 
-8:                                                ; preds = %4, %7
-  %.sink = phi i64 [ 40, %7 ], [ 48, %4 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %.0 = load ptr, ptr %9, align 8
-  %10 = tail call fastcc zeroext i8 @php_get_display_errors_mode(ptr noundef %.0)
-  %11 = load ptr, ptr @sapi_module, align 8
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(4) @.str.80) #28
-  %.not23 = icmp eq i32 %12, 0
-  br i1 %.not23, label %17, label %13
+12:                                               ; preds = %7
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(4) @.str.81) #28
+  %.not24 = icmp eq i32 %13, 0
+  br i1 %.not24, label %16, label %14
 
-13:                                               ; preds = %8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(4) @.str.81) #28
-  %.not24 = icmp eq i32 %14, 0
-  br i1 %.not24, label %17, label %15
+14:                                               ; preds = %12
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(7) @.str.82) #28
+  %.not25 = icmp eq i32 %15, 0
+  br label %16
 
-15:                                               ; preds = %13
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.82) #28
-  %.not25 = icmp eq i32 %16, 0
-  br label %17
-
-17:                                               ; preds = %15, %13, %8
-  %18 = phi i1 [ true, %13 ], [ true, %8 ], [ %.not25, %15 ]
-  switch i8 %10, label %29 [
-    i8 2, label %19
-    i8 1, label %24
+16:                                               ; preds = %14, %12, %7
+  %17 = phi i1 [ true, %12 ], [ true, %7 ], [ %.not25, %14 ]
+  switch i8 %9, label %28 [
+    i8 2, label %18
+    i8 1, label %23
   ]
 
-19:                                               ; preds = %17
-  br i1 %18, label %20, label %22
+18:                                               ; preds = %16
+  br i1 %17, label %19, label %21
 
-20:                                               ; preds = %19
-  %21 = tail call i64 @php_output_write(ptr noundef nonnull @.str.280, i64 noundef 6) #29
-  br label %31
+19:                                               ; preds = %18
+  %20 = tail call i64 @php_output_write(ptr noundef nonnull @.str.280, i64 noundef 6) #29
+  br label %30
 
-22:                                               ; preds = %19
-  %23 = tail call i64 @php_output_write(ptr noundef nonnull @.str.281, i64 noundef 2) #29
-  br label %31
+21:                                               ; preds = %18
+  %22 = tail call i64 @php_output_write(ptr noundef nonnull @.str.281, i64 noundef 2) #29
+  br label %30
 
-24:                                               ; preds = %17
-  br i1 %18, label %25, label %27
+23:                                               ; preds = %16
+  br i1 %17, label %24, label %26
 
-25:                                               ; preds = %24
-  %26 = tail call i64 @php_output_write(ptr noundef nonnull @.str.282, i64 noundef 6) #29
-  br label %31
+24:                                               ; preds = %23
+  %25 = tail call i64 @php_output_write(ptr noundef nonnull @.str.282, i64 noundef 6) #29
+  br label %30
 
-27:                                               ; preds = %24
-  %28 = tail call i64 @php_output_write(ptr noundef nonnull @.str.281, i64 noundef 2) #29
-  br label %31
+26:                                               ; preds = %23
+  %27 = tail call i64 @php_output_write(ptr noundef nonnull @.str.281, i64 noundef 2) #29
+  br label %30
 
-29:                                               ; preds = %17
-  %30 = tail call i64 @php_output_write(ptr noundef nonnull @.str.283, i64 noundef 3) #29
-  br label %31
+28:                                               ; preds = %16
+  %29 = tail call i64 @php_output_write(ptr noundef nonnull @.str.283, i64 noundef 3) #29
+  br label %30
 
-31:                                               ; preds = %25, %27, %20, %22, %29
+30:                                               ; preds = %24, %26, %19, %21, %28
   ret void
 }
 

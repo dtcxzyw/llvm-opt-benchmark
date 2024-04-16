@@ -1089,15 +1089,15 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %app_data.i)
   %call.i.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #17
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.not.i.i, label %_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit, label %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i
 
-land.lhs.true.i.i:                                ; preds = %entry
+_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i: ; preds = %entry
   %user_data.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %0 = load ptr, ptr %user_data.i.i, align 8
-  %cmp1.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp1.not.i.i, label %_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit, label %if.then.i
+  %cmp.not.i = icmp eq ptr %0, null
+  br i1 %cmp.not.i, label %_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %land.lhs.true.i.i
+if.then.i:                                        ; preds = %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i
   store i8 0, ptr %app_data.i, align 8
   %ssl_.i.i = getelementptr inbounds i8, ptr %app_data.i, i64 8
   store ptr %ssl, ptr %ssl_.i.i, align 8
@@ -1106,7 +1106,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %app_data.i) #17
   br label %_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit
 
-_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i
+_ZN4node4quic13SessionTicket7AppData7CollectEP6ssl_st.exit: ; preds = %entry, %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %app_data.i)
   ret i32 1
 }
@@ -1117,15 +1117,15 @@ entry:
   %app_data = alloca %"class.node::quic::SessionTicket::AppData", align 8
   %call.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #17
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %if.end, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %if.end, label %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit
 
-land.lhs.true.i:                                  ; preds = %entry
+_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit: ; preds = %entry
   %user_data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %user_data.i, align 8
-  %cmp1.not.i = icmp eq ptr %0, null
-  br i1 %cmp1.not.i, label %if.end, label %if.then
+  %cmp.not = icmp eq ptr %0, null
+  br i1 %cmp.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true.i
+if.then:                                          ; preds = %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit
   store i8 0, ptr %app_data, align 8
   %ssl_.i = getelementptr inbounds i8, ptr %app_data, i64 8
   store ptr %ssl, ptr %ssl_.i, align 8
@@ -1134,7 +1134,7 @@ if.then:                                          ; preds = %land.lhs.true.i
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %app_data) #17
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true.i, %entry, %if.then
+if.end:                                           ; preds = %entry, %if.then, %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit
   ret void
 }
 
@@ -1156,15 +1156,15 @@ sw.bb3:                                           ; preds = %entry, %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %app_data.i)
   %call.i.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #17
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.not.i.i, label %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit, label %land.lhs.true.i.i
+  br i1 %cmp.not.i.i, label %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit, label %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i
 
-land.lhs.true.i.i:                                ; preds = %sw.bb3
+_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i: ; preds = %sw.bb3
   %user_data.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %0 = load ptr, ptr %user_data.i.i, align 8
-  %cmp1.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp1.not.i.i, label %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit, label %if.then.i
+  %cmp.not.i = icmp eq ptr %0, null
+  br i1 %cmp.not.i, label %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %land.lhs.true.i.i
+if.then.i:                                        ; preds = %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i
   store i8 0, ptr %app_data.i, align 8
   %ssl_.i.i = getelementptr inbounds i8, ptr %app_data.i, i64 8
   store ptr %ssl, ptr %ssl_.i.i, align 8
@@ -1174,8 +1174,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
   %call1.i = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %app_data.i, i32 noundef 0) #17
   br label %_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit
 
-_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit: ; preds = %sw.bb3, %land.lhs.true.i.i, %if.then.i
-  %retval.0.i = phi i32 [ %call1.i, %if.then.i ], [ 1, %sw.bb3 ], [ 1, %land.lhs.true.i.i ]
+_ZN4node4quic13SessionTicket7AppData7ExtractEP6ssl_st.exit: ; preds = %sw.bb3, %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i, %if.then.i
+  %retval.0.i = phi i32 [ %call1.i, %if.then.i ], [ 1, %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit.i ], [ 1, %sw.bb3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %app_data.i)
   br label %return
 
@@ -1190,15 +1190,15 @@ entry:
   %app_data = alloca %"class.node::quic::SessionTicket::AppData", align 8
   %call.i = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #17
   %cmp.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i, label %return, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %return, label %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit
 
-land.lhs.true.i:                                  ; preds = %entry
+_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit: ; preds = %entry
   %user_data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %user_data.i, align 8
-  %cmp1.not.i = icmp eq ptr %0, null
-  br i1 %cmp1.not.i, label %return, label %if.then
+  %cmp.not = icmp eq ptr %0, null
+  br i1 %cmp.not, label %return, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true.i
+if.then:                                          ; preds = %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit
   store i8 0, ptr %app_data, align 8
   %ssl_.i = getelementptr inbounds i8, ptr %app_data, i64 8
   store ptr %ssl, ptr %ssl_.i, align 8
@@ -1208,8 +1208,8 @@ if.then:                                          ; preds = %land.lhs.true.i
   %call1 = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %app_data, i32 noundef 0) #17
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %entry, %if.then
-  %retval.0 = phi i32 [ %call1, %if.then ], [ 1, %entry ], [ 1, %land.lhs.true.i ]
+return:                                           ; preds = %entry, %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit, %if.then
+  %retval.0 = phi i32 [ %call1, %if.then ], [ 1, %_ZN4node4quic12_GLOBAL__N_116GetAppDataSourceEP6ssl_st.exit ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

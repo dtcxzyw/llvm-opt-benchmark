@@ -589,7 +589,7 @@ if.end55:                                         ; preds = %if.end52
   br i1 %cmp57.not, label %if.end60, label %if.then58
 
 if.then58:                                        ; preds = %if.end55
-  %42 = trunc i64 %indvars.iv254 to i32
+  %42 = trunc nsw i64 %indvars.iv254 to i32
   %43 = lshr i16 %34, 1
   %shr.i81 = zext nneg i16 %43 to i32
   %add = add nsw i32 %42, %shr.i81
@@ -601,7 +601,7 @@ if.end60:                                         ; preds = %if.then58, %if.end5
   br label %CheckAndLoop
 
 sw.bb62:                                          ; preds = %Loop
-  %44 = trunc i64 %indvars.iv254 to i32
+  %44 = trunc nsw i64 %indvars.iv254 to i32
   %45 = and i32 %24, 8
   %tobool64.not = icmp eq i32 %45, 0
   br i1 %tobool64.not, label %if.then65, label %if.end67
@@ -652,7 +652,7 @@ if.end90:                                         ; preds = %sw.bb84
   br i1 %tobool92.not, label %if.then93, label %CheckAndLoop
 
 if.then93:                                        ; preds = %if.end90
-  %56 = trunc i64 %indvars.iv254 to i32
+  %56 = trunc nsw i64 %indvars.iv254 to i32
   %add94 = add nsw i32 %56, 1
   tail call void @_ZN3re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %add94, ptr noundef %p.1.ph)
   br label %CheckAndLoop
@@ -663,7 +663,7 @@ sw.bb97:                                          ; preds = %Loop
   br i1 %tobool99.not, label %if.then100, label %CheckAndLoop
 
 if.then100:                                       ; preds = %sw.bb97
-  %58 = trunc i64 %indvars.iv254 to i32
+  %58 = trunc nsw i64 %indvars.iv254 to i32
   %add101 = add nsw i32 %58, 1
   tail call void @_ZN3re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %add101, ptr noundef %p.1.ph)
   br label %CheckAndLoop
@@ -1081,14 +1081,15 @@ entry:
   %nmatch.addr.0 = select i1 %cmp, i32 %spec.select, i32 %nmatch
   %match.addr.0 = select i1 %cmp, ptr %spec.select8, ptr %match
   call void @_ZN3re28BitStateC1EPNS_4ProgE(ptr noundef nonnull align 8 dereferenceable(116) %b, ptr noundef nonnull %this)
-  %cmp510 = icmp eq i32 %anchor, 1
-  %cmp5 = or i1 %cmp510, %cmp
+  %cmp511 = icmp eq i32 %anchor, 1
+  %cmp5 = or i1 %cmp511, %cmp
   %cmp6 = icmp ne i32 %kind, 0
   %call = invoke noundef zeroext i1 @_ZN3re28BitState6SearchEN4absl7debian211string_viewES3_bbPS3_i(ptr noundef nonnull align 8 dereferenceable(116) %b, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i1 noundef zeroext %cmp5, i1 noundef zeroext %cmp6, ptr noundef %match.addr.0, i32 noundef %nmatch.addr.0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  br i1 %call, label %if.end11, label %cleanup
+  %brmerge.not = and i1 %cmp, %call
+  br i1 %brmerge.not, label %land.lhs.true, label %cleanup
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -1096,24 +1097,18 @@ lpad:                                             ; preds = %entry
   call void @_ZN3re28BitStateD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %b) #19
   resume { ptr, i32 } %0
 
-if.end11:                                         ; preds = %invoke.cont
-  br i1 %cmp, label %land.lhs.true, label %if.end21
-
-land.lhs.true:                                    ; preds = %if.end11
+land.lhs.true:                                    ; preds = %invoke.cont
   %agg.tmp13.sroa.0.0.copyload = load ptr, ptr %spec.select8, align 8
   %spec.select8.sroa.sel.v.sroa.sel.v = select i1 %cmp2, ptr %sp0, ptr %match
   %spec.select8.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select8.sroa.sel.v.sroa.sel.v, i64 8
   %agg.tmp13.sroa.2.0.copyload = load i64, ptr %spec.select8.sroa.sel.v.sroa.sel, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp13.sroa.0.0.copyload, i64 %agg.tmp13.sroa.2.0.copyload
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %cmp19.not = icmp eq ptr %add.ptr.i, %add.ptr.i9
-  br i1 %cmp19.not, label %if.end21, label %cleanup
-
-if.end21:                                         ; preds = %land.lhs.true, %if.end11
+  %add.ptr.i10 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
+  %cmp19.not = icmp eq ptr %add.ptr.i, %add.ptr.i10
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true, %invoke.cont, %if.end21
-  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %invoke.cont ], [ false, %land.lhs.true ]
+cleanup:                                          ; preds = %land.lhs.true, %invoke.cont
+  %retval.0 = phi i1 [ %call, %invoke.cont ], [ %cmp19.not, %land.lhs.true ]
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %b, i64 104
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null

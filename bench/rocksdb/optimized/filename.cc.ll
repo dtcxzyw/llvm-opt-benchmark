@@ -1484,8 +1484,8 @@ if.then36:                                        ; preds = %_ZNK7rocksdb5Slice1
   %call37 = call noundef zeroext i1 @_ZN7rocksdb20ConsumeDecimalNumberEPNS_5SliceEPm(ptr noundef nonnull %rest, ptr noundef nonnull %num)
   %7 = load i64, ptr %size_.i, align 8
   %cmp.i103 = icmp eq i64 %7, 0
-  %or.cond220 = select i1 %call37, i1 %cmp.i103, i1 false
-  br i1 %or.cond220, label %if.end42, label %return
+  %or.cond219 = select i1 %call37, i1 %cmp.i103, i1 false
+  br i1 %or.cond219, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.then36
   store i32 3, ptr %type, align 4
@@ -1510,8 +1510,8 @@ if.then46:                                        ; preds = %_ZNK7rocksdb5Slice1
   %call48 = call noundef zeroext i1 @_ZN7rocksdb20ConsumeDecimalNumberEPNS_5SliceEPm(ptr noundef nonnull %rest, ptr noundef nonnull %num47)
   %9 = load i64, ptr %size_.i, align 8
   %cmp.i117 = icmp eq i64 %9, 0
-  %or.cond221 = select i1 %call48, i1 %cmp.i117, i1 false
-  br i1 %or.cond221, label %if.end53, label %return
+  %or.cond220 = select i1 %call48, i1 %cmp.i117, i1 false
+  br i1 %or.cond220, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.then46
   store i32 7, ptr %type, align 4
@@ -1598,16 +1598,15 @@ if.end72:                                         ; preds = %invoke.cont63, %if.
           to label %invoke.cont73 unwind label %lpad65
 
 invoke.cont73:                                    ; preds = %if.end72
-  br i1 %call74, label %cleanup.thread, label %cleanup
+  br i1 %call74, label %if.end76, label %cleanup
 
-cleanup.thread:                                   ; preds = %invoke.cont73
+if.end76:                                         ; preds = %invoke.cont73
   %17 = load i64, ptr %ts_suffix58, align 8
   store i64 %17, ptr %number, align 8
   store i32 %cond, ptr %type, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %kTempFileNameSuffixWithDot) #19
-  br label %return
+  br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont73
+cleanup:                                          ; preds = %invoke.cont73, %if.end76
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %kTempFileNameSuffixWithDot) #19
   br label %return
 
@@ -1744,8 +1743,8 @@ if.end135:                                        ; preds = %if.then105, %if.the
   store i64 %22, ptr %number, align 8
   br label %return
 
-return:                                           ; preds = %_ZN7rocksdbeqERKNS_5SliceES2_.exit77, %if.else126, %if.else24, %if.then4, %if.then11, %if.end42, %if.end135, %if.end53, %if.then23, %if.end30, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit86, %if.then7, %cleanup.thread, %cleanup, %_ZN7rocksdbeqERKNS_5SliceES2_.exit210, %if.else111, %if.end95, %lor.lhs.false, %if.end91, %if.then81, %if.then46, %if.then36, %if.then27
-  %retval.1 = phi i1 [ false, %cleanup ], [ false, %if.then27 ], [ false, %if.then36 ], [ false, %if.then46 ], [ false, %if.then81 ], [ false, %if.end91 ], [ false, %lor.lhs.false ], [ false, %if.end95 ], [ false, %if.else111 ], [ false, %_ZN7rocksdbeqERKNS_5SliceES2_.exit210 ], [ true, %cleanup.thread ], [ true, %if.then7 ], [ true, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit86 ], [ true, %if.end30 ], [ true, %if.then23 ], [ true, %if.end53 ], [ true, %if.end135 ], [ true, %if.end42 ], [ true, %if.then11 ], [ true, %if.then4 ], [ true, %if.else24 ], [ false, %if.else126 ], [ true, %_ZN7rocksdbeqERKNS_5SliceES2_.exit77 ]
+return:                                           ; preds = %_ZN7rocksdbeqERKNS_5SliceES2_.exit77, %if.else126, %if.else24, %cleanup, %if.then4, %if.then11, %if.end42, %if.end135, %if.end53, %if.then23, %if.end30, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit86, %if.then7, %_ZN7rocksdbeqERKNS_5SliceES2_.exit210, %if.else111, %if.end95, %lor.lhs.false, %if.end91, %if.then81, %if.then46, %if.then36, %if.then27
+  %retval.1 = phi i1 [ false, %if.then27 ], [ false, %if.then36 ], [ false, %if.then46 ], [ false, %if.then81 ], [ false, %if.end91 ], [ false, %lor.lhs.false ], [ false, %if.end95 ], [ false, %if.else111 ], [ false, %_ZN7rocksdbeqERKNS_5SliceES2_.exit210 ], [ true, %if.then7 ], [ true, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit86 ], [ true, %if.end30 ], [ true, %if.then23 ], [ true, %if.end53 ], [ true, %if.end135 ], [ true, %if.end42 ], [ true, %if.then11 ], [ true, %if.then4 ], [ %call74, %cleanup ], [ true, %if.else24 ], [ false, %if.else126 ], [ true, %_ZN7rocksdbeqERKNS_5SliceES2_.exit77 ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %lpad65, %ehcleanup
@@ -3727,8 +3726,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
@@ -3794,10 +3793,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #19
+  %3 = extractvalue { ptr, i32 } %2, 0
+  %4 = tail call ptr @__cxa_begin_catch(ptr %3) #19
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i29
 
@@ -3806,7 +3805,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -3820,13 +3819,13 @@ invoke.cont19:                                    ; preds = %if.then.i29, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 terminate.lpad:                                   ; preds = %lpad17
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #20
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19

@@ -4495,11 +4495,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   br label %18
 
 18:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit"
-  %19 = phi i64 [ %13, %.lr.ph ], [ %149, %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit" ]
-  %.033 = phi i64 [ %2, %.lr.ph ], [ %106, %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit" ]
-  %storemerge32 = phi ptr [ %1, %.lr.ph ], [ %.sroa.016.1.i.i, %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit" ]
-  %20 = icmp eq i64 %.033, 0
-  br i1 %20, label %.split.i.i.i, label %105
+  %19 = phi i64 [ %13, %.lr.ph ], [ %147, %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit" ]
+  %.034 = phi i64 [ %2, %.lr.ph ], [ %104, %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit" ]
+  %storemerge33 = phi ptr [ %1, %.lr.ph ], [ %.sroa.016.1.i.i, %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit" ]
+  %20 = icmp eq i64 %.034, 0
+  br i1 %20, label %.split.i.i.i, label %103
 
 .split.i.i.i:                                     ; preds = %18
   %21 = udiv exact i64 %19, 24
@@ -4515,7 +4515,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   br label %31
 
 31:                                               ; preds = %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", %.split.i.i.i
-  %.0.i.i.i = phi i64 [ %23, %.split.i.i.i ], [ %61, %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i" ]
+  %.0.i.i.i = phi i64 [ %23, %.split.i.i.i ], [ %60, %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i" ]
   %phi.call.i.i.i = getelementptr %class.QModelIndex, ptr %0, i64 %.0.i.i.i
   %.sroa.07.0.copyload.i.i.i = load i32, ptr %phi.call.i.i.i, align 8
   %.sroa.28.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i, i64 4
@@ -4526,8 +4526,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %32 = icmp sgt i64 %25, %.0.i.i.i
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %31, %43
-  %.041.i.i.i.i = phi i64 [ %44, %43 ], [ %.0.i.i.i, %31 ]
+.lr.ph.i.i.i.i:                                   ; preds = %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i"
+  %.041.i.i.i.i = phi i64 [ %43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i" ], [ %.0.i.i.i, %31 ]
   %33 = shl i64 %.041.i.i.i.i, 1
   %34 = add i64 %33, 2
   %35 = getelementptr %class.QModelIndex, ptr %0, i64 %34
@@ -4547,244 +4547,240 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   %42 = icmp slt i32 %.val1.i.i.i.i.i, %.val3.i.i.i.i.i
   %spec.select.i.i.i.i.i.i = select i1 %41, i1 %42, i1 false
   %cond.fr.i.i.i.i = freeze i1 %spec.select.i.i.i.i.i.i
-  br i1 %cond.fr.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i", label %43
+  %spec.select.i.i.i.i = select i1 %cond.fr.i.i.i.i, i64 %36, i64 %34
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i.i.i", %.lr.ph.i.i.i.i
-  br label %43
+  %43 = phi i64 [ %36, %.lr.ph.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i.i.i" ]
+  %44 = getelementptr %class.QModelIndex, ptr %0, i64 %43
+  %45 = getelementptr %class.QModelIndex, ptr %0, i64 %.041.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
+  %46 = icmp slt i64 %43, %25
+  br i1 %46, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !47
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i.i.i"
-  %44 = phi i64 [ %36, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i" ], [ %34, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i.i.i" ]
-  %45 = getelementptr %class.QModelIndex, ptr %0, i64 %44
-  %46 = getelementptr %class.QModelIndex, ptr %0, i64 %.041.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
-  %47 = icmp slt i64 %44, %25
-  br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !47
+._crit_edge.i.i.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i", %31
+  %.0.lcssa.i.i.i.i = phi i64 [ %.0.i.i.i, %31 ], [ %43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i.i.i" ]
+  %47 = icmp eq i64 %.0.lcssa.i.i.i.i, %23
+  %or.cond.i.i.i = select i1 %27, i1 %47, i1 false
+  br i1 %or.cond.i.i.i, label %48, label %49
 
-._crit_edge.i.i.i.i:                              ; preds = %43, %31
-  %.0.lcssa.i.i.i.i = phi i64 [ %.0.i.i.i, %31 ], [ %44, %43 ]
-  %48 = icmp eq i64 %.0.lcssa.i.i.i.i, %23
-  %or.cond.i.i.i = select i1 %27, i1 %48, i1 false
-  br i1 %or.cond.i.i.i, label %49, label %50
-
-49:                                               ; preds = %._crit_edge.i.i.i.i
+48:                                               ; preds = %._crit_edge.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
-  br label %50
+  br label %49
 
-50:                                               ; preds = %49, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %28, %49 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %51 = icmp sgt i64 %.1.i.i.i.i, %.0.i.i.i
-  br i1 %51, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i"
+49:                                               ; preds = %48, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %28, %48 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %50 = icmp sgt i64 %.1.i.i.i.i, %.0.i.i.i
+  br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %50, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i"
-  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i" ], [ %.1.i.i.i.i, %50 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %49, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i"
+  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i" ], [ %.1.i.i.i.i, %49 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %52 = getelementptr %class.QModelIndex, ptr %0, i64 %.0911.i.i.i.i.i
-  %.val.i.i.i.i.i.i = load i32, ptr %52, align 8
-  %53 = icmp slt i32 %.val.i.i.i.i.i.i, %.sroa.07.0.copyload.i.i.i
-  br i1 %53, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i"
+  %51 = getelementptr %class.QModelIndex, ptr %0, i64 %.0911.i.i.i.i.i
+  %.val.i.i.i.i.i.i = load i32, ptr %51, align 8
+  %52 = icmp slt i32 %.val.i.i.i.i.i.i, %.sroa.07.0.copyload.i.i.i
+  br i1 %52, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
-  %54 = getelementptr i8, ptr %52, i64 4
-  %.val2.i.i.i.i.i.i = load i32, ptr %54, align 4
-  %55 = icmp eq i32 %.val.i.i.i.i.i.i, %.sroa.07.0.copyload.i.i.i
-  %56 = icmp slt i32 %.val2.i.i.i.i.i.i, %.sroa.28.0.copyload.i.i.i
-  %spec.select.i.i.i.i.i.i.i = select i1 %55, i1 %56, i1 false
+  %53 = getelementptr i8, ptr %51, i64 4
+  %.val2.i.i.i.i.i.i = load i32, ptr %53, align 4
+  %54 = icmp eq i32 %.val.i.i.i.i.i.i, %.sroa.07.0.copyload.i.i.i
+  %55 = icmp slt i32 %.val2.i.i.i.i.i.i, %.sroa.28.0.copyload.i.i.i
+  %spec.select.i.i.i.i.i.i.i = select i1 %54, i1 %55, i1 false
   br i1 %spec.select.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %57 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
-  %58 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
-  br i1 %58, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", !llvm.loop !48
+  %56 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
+  %57 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
+  br i1 %57, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", !llvm.loop !48
 
-"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i", %50
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.010.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i" ], [ %.0911.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i" ]
-  %59 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store i32 %.sroa.07.0.copyload.i.i.i, ptr %59, align 8
-  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 4
+"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i", %49
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %49 ], [ %.010.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i.i.i" ], [ %.0911.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i.i.i" ]
+  %58 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  store i32 %.sroa.07.0.copyload.i.i.i, ptr %58, align 8
+  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 4
   store i32 %.sroa.28.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 4
-  %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i.i.i)
-  %60 = icmp eq i64 %.0.i.i.i, 0
-  %61 = add nsw i64 %.0.i.i.i, -1
-  br i1 %60, label %.lr.ph.i9.i, label %31, !llvm.loop !49
+  %59 = icmp eq i64 %.0.i.i.i, 0
+  %60 = add nsw i64 %.0.i.i.i, -1
+  br i1 %59, label %.lr.ph.i9.i, label %31, !llvm.loop !49
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit"
-  %.sroa.0.02.i.i = phi ptr [ %62, %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit" ], [ %storemerge32, %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i" ]
-  %62 = getelementptr i8, ptr %.sroa.0.02.i.i, i64 -24
-  %.sroa.06.0.copyload.i = load i32, ptr %62, align 8
+  %.sroa.0.02.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit" ], [ %storemerge33, %"_ZSt13__adjust_heapIN5QListI11QModelIndexE8iteratorExS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_T0_SB_T1_T2_.exit.i.i.i" ]
+  %61 = getelementptr i8, ptr %.sroa.0.02.i.i, i64 -24
+  %.sroa.06.0.copyload.i = load i32, ptr %61, align 8
   %.sroa.27.0..sroa.0.0..sroa_idx.i = getelementptr i8, ptr %.sroa.0.02.i.i, i64 -20
   %.sroa.27.0.copyload.i = load i32, ptr %.sroa.27.0..sroa.0.0..sroa_idx.i, align 4
   %.sroa.38.0..sroa.0.0..sroa_idx.i = getelementptr i8, ptr %.sroa.0.02.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.38.0..sroa.0.0..sroa_idx.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %63 = ptrtoint ptr %62 to i64
-  %64 = sub i64 %63, %11
-  %65 = sdiv exact i64 %64, 24
-  %66 = add nsw i64 %65, -1
-  %67 = sdiv i64 %66, 2
-  %68 = icmp sgt i64 %64, 48
-  br i1 %68, label %.lr.ph.i.i, label %._crit_edge.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  %62 = ptrtoint ptr %61 to i64
+  %63 = sub i64 %62, %11
+  %64 = sdiv exact i64 %63, 24
+  %65 = add nsw i64 %64, -1
+  %66 = sdiv i64 %65, 2
+  %67 = icmp sgt i64 %63, 48
+  br i1 %67, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i9.i, %79
-  %.041.i.i = phi i64 [ %80, %79 ], [ 0, %.lr.ph.i9.i ]
-  %69 = shl i64 %.041.i.i, 1
-  %70 = add i64 %69, 2
-  %71 = getelementptr %class.QModelIndex, ptr %0, i64 %70
-  %72 = or disjoint i64 %69, 1
-  %73 = getelementptr %class.QModelIndex, ptr %0, i64 %72
-  %.val.i.i.i18 = load i32, ptr %71, align 8
-  %.val2.i.i.i19 = load i32, ptr %73, align 8
-  %74 = icmp slt i32 %.val.i.i.i18, %.val2.i.i.i19
-  br i1 %74, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i24", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i20"
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i9.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i25"
+  %.041.i.i = phi i64 [ %78, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i25" ], [ 0, %.lr.ph.i9.i ]
+  %68 = shl i64 %.041.i.i, 1
+  %69 = add i64 %68, 2
+  %70 = getelementptr %class.QModelIndex, ptr %0, i64 %69
+  %71 = or disjoint i64 %68, 1
+  %72 = getelementptr %class.QModelIndex, ptr %0, i64 %71
+  %.val.i.i.i19 = load i32, ptr %70, align 8
+  %.val2.i.i.i20 = load i32, ptr %72, align 8
+  %73 = icmp slt i32 %.val.i.i.i19, %.val2.i.i.i20
+  br i1 %73, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i25", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i21"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i20": ; preds = %.lr.ph.i.i
-  %75 = getelementptr i8, ptr %73, i64 4
-  %.val3.i.i.i21 = load i32, ptr %75, align 4
-  %76 = getelementptr i8, ptr %71, i64 4
-  %.val1.i.i.i22 = load i32, ptr %76, align 4
-  %77 = icmp eq i32 %.val.i.i.i18, %.val2.i.i.i19
-  %78 = icmp slt i32 %.val1.i.i.i22, %.val3.i.i.i21
-  %spec.select.i.i.i.i23 = select i1 %77, i1 %78, i1 false
-  %cond.fr.i.i = freeze i1 %spec.select.i.i.i.i23
-  br i1 %cond.fr.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i24", label %79
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i21": ; preds = %.lr.ph.i.i
+  %74 = getelementptr i8, ptr %72, i64 4
+  %.val3.i.i.i22 = load i32, ptr %74, align 4
+  %75 = getelementptr i8, ptr %70, i64 4
+  %.val1.i.i.i23 = load i32, ptr %75, align 4
+  %76 = icmp eq i32 %.val.i.i.i19, %.val2.i.i.i20
+  %77 = icmp slt i32 %.val1.i.i.i23, %.val3.i.i.i22
+  %spec.select.i.i.i.i24 = select i1 %76, i1 %77, i1 false
+  %cond.fr.i.i = freeze i1 %spec.select.i.i.i.i24
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %71, i64 %69
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i25"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i24": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i20", %.lr.ph.i.i
-  br label %79
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i25": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i21", %.lr.ph.i.i
+  %78 = phi i64 [ %71, %.lr.ph.i.i ], [ %spec.select.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i21" ]
+  %79 = getelementptr %class.QModelIndex, ptr %0, i64 %78
+  %80 = getelementptr %class.QModelIndex, ptr %0, i64 %.041.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false)
+  %81 = icmp slt i64 %78, %66
+  br i1 %81, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !47
 
-79:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i24", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i20"
-  %80 = phi i64 [ %72, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i24" ], [ %70, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i20" ]
-  %81 = getelementptr %class.QModelIndex, ptr %0, i64 %80
-  %82 = getelementptr %class.QModelIndex, ptr %0, i64 %.041.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
-  %83 = icmp slt i64 %80, %67
-  br i1 %83, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !47
+._crit_edge.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i25", %.lr.ph.i9.i
+  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %78, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i25" ]
+  %82 = and i64 %64, 1
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %84, label %93
 
-._crit_edge.i.i:                                  ; preds = %79, %.lr.ph.i9.i
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %80, %79 ]
-  %84 = and i64 %65, 1
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %86, label %95
+84:                                               ; preds = %._crit_edge.i.i
+  %85 = add nsw i64 %64, -2
+  %86 = ashr exact i64 %85, 1
+  %87 = icmp eq i64 %.0.lcssa.i.i, %86
+  br i1 %87, label %88, label %93
 
-86:                                               ; preds = %._crit_edge.i.i
-  %87 = add nsw i64 %65, -2
-  %88 = ashr exact i64 %87, 1
-  %89 = icmp eq i64 %.0.lcssa.i.i, %88
-  br i1 %89, label %90, label %95
+88:                                               ; preds = %84
+  %89 = shl nsw i64 %.0.lcssa.i.i, 1
+  %90 = or disjoint i64 %89, 1
+  %91 = getelementptr %class.QModelIndex, ptr %0, i64 %90
+  %92 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %91, i64 24, i1 false)
+  br label %93
 
-90:                                               ; preds = %86
-  %91 = shl nsw i64 %.0.lcssa.i.i, 1
-  %92 = or disjoint i64 %91, 1
-  %93 = getelementptr %class.QModelIndex, ptr %0, i64 %92
-  %94 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
-  br label %95
+93:                                               ; preds = %88, %84, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %90, %88 ], [ %.0.lcssa.i.i, %84 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %94 = icmp sgt i64 %.1.i.i, 0
+  br i1 %94, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit"
 
-95:                                               ; preds = %90, %86, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %92, %90 ], [ %.0.lcssa.i.i, %86 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %96 = icmp sgt i64 %.1.i.i, 0
-  br i1 %96, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit"
-
-.lr.ph.i.i.i:                                     ; preds = %95, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i"
-  %.010.i.i.i = phi i64 [ %.0911.i.i910.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i" ], [ %.1.i.i, %95 ]
+.lr.ph.i.i.i:                                     ; preds = %93, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i"
+  %.010.i.i.i = phi i64 [ %.0911.i.i910.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i" ], [ %.1.i.i, %93 ]
   %.0911.in.i.i.i = add nsw i64 %.010.i.i.i, -1
   %.0911.i.i910.i = lshr i64 %.0911.in.i.i.i, 1
-  %97 = getelementptr %class.QModelIndex, ptr %0, i64 %.0911.i.i910.i
-  %.val.i.i.i.i = load i32, ptr %97, align 8
-  %98 = icmp slt i32 %.val.i.i.i.i, %.sroa.06.0.copyload.i
-  br i1 %98, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i"
+  %95 = getelementptr %class.QModelIndex, ptr %0, i64 %.0911.i.i910.i
+  %.val.i.i.i.i = load i32, ptr %95, align 8
+  %96 = icmp slt i32 %.val.i.i.i.i, %.sroa.06.0.copyload.i
+  br i1 %96, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i": ; preds = %.lr.ph.i.i.i
-  %99 = getelementptr i8, ptr %97, i64 4
-  %.val2.i.i.i.i = load i32, ptr %99, align 4
-  %100 = icmp eq i32 %.val.i.i.i.i, %.sroa.06.0.copyload.i
-  %101 = icmp slt i32 %.val2.i.i.i.i, %.sroa.27.0.copyload.i
-  %spec.select.i.i.i.i.i = select i1 %100, i1 %101, i1 false
+  %97 = getelementptr i8, ptr %95, i64 4
+  %.val2.i.i.i.i = load i32, ptr %97, align 4
+  %98 = icmp eq i32 %.val.i.i.i.i, %.sroa.06.0.copyload.i
+  %99 = icmp slt i32 %.val2.i.i.i.i, %.sroa.27.0.copyload.i
+  %spec.select.i.i.i.i.i = select i1 %98, i1 %99, i1 false
   br i1 %spec.select.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i", label %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i", %.lr.ph.i.i.i
-  %102 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %97, i64 24, i1 false)
+  %100 = getelementptr %class.QModelIndex, ptr %0, i64 %.010.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
   %.not.i = icmp ult i64 %.0911.in.i.i.i, 2
   br i1 %.not.i, label %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit", label %.lr.ph.i.i.i, !llvm.loop !48
 
-"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i", %95
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %95 ], [ %.010.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i" ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i" ]
-  %103 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i.i
-  store i32 %.sroa.06.0.copyload.i, ptr %103, align 8
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %103, i64 4
+"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i", %93
+  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %93 ], [ %.010.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.i.i.i" ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES7_EEbT_RT0_.exit.thread.i.i.i" ]
+  %101 = getelementptr %class.QModelIndex, ptr %0, i64 %.0.lcssa.i.i.i
+  store i32 %.sroa.06.0.copyload.i, ptr %101, align 8
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 4
   store i32 %.sroa.27.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i.i, align 4
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %103, i64 8
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i)
-  %104 = icmp sgt i64 %64, 24
-  br i1 %104, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit", !llvm.loop !50
+  %102 = icmp sgt i64 %63, 24
+  br i1 %102, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit", !llvm.loop !50
 
-105:                                              ; preds = %18
-  %106 = add i64 %.033, -1
-  %107 = udiv i64 %19, 48
-  %108 = getelementptr %class.QModelIndex, ptr %0, i64 %107
-  %109 = getelementptr i8, ptr %storemerge32, i64 -24
+103:                                              ; preds = %18
+  %104 = add i64 %.034, -1
+  %105 = udiv i64 %19, 48
+  %106 = getelementptr %class.QModelIndex, ptr %0, i64 %105
+  %107 = getelementptr i8, ptr %storemerge33, i64 -24
   %.val.i.i.i = load i32, ptr %15, align 8
-  %.val2.i.i.i = load i32, ptr %108, align 8
-  %110 = icmp slt i32 %.val.i.i.i, %.val2.i.i.i
-  br i1 %110, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i"
+  %.val2.i.i.i = load i32, ptr %106, align 8
+  %108 = icmp slt i32 %.val.i.i.i, %.val2.i.i.i
+  br i1 %108, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i": ; preds = %105
-  %111 = getelementptr i8, ptr %108, i64 4
-  %.val3.i.i.i = load i32, ptr %111, align 4
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i": ; preds = %103
+  %109 = getelementptr i8, ptr %106, i64 4
+  %.val3.i.i.i = load i32, ptr %109, align 4
   %.val1.i.i.i = load i32, ptr %16, align 4
-  %112 = icmp eq i32 %.val.i.i.i, %.val2.i.i.i
-  %113 = icmp slt i32 %.val1.i.i.i, %.val3.i.i.i
-  %spec.select.i.i.i.i = select i1 %112, i1 %113, i1 false
-  br i1 %spec.select.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i", label %124
+  %110 = icmp eq i32 %.val.i.i.i, %.val2.i.i.i
+  %111 = icmp slt i32 %.val1.i.i.i, %.val3.i.i.i
+  %spec.select.i.i.i.i18 = select i1 %110, i1 %111, i1 false
+  br i1 %spec.select.i.i.i.i18, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i", label %122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i", %105
-  %.val2.i27.i.i = load i32, ptr %109, align 8
-  %114 = icmp slt i32 %.val2.i.i.i, %.val2.i27.i.i
-  br i1 %114, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i", %103
+  %.val2.i27.i.i = load i32, ptr %107, align 8
+  %112 = icmp slt i32 %.val2.i.i.i, %.val2.i27.i.i
+  br i1 %112, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i"
-  %115 = getelementptr i8, ptr %storemerge32, i64 -20
-  %.val3.i28.i.i = load i32, ptr %115, align 4
-  %116 = getelementptr i8, ptr %108, i64 4
-  %.val1.i29.i.i = load i32, ptr %116, align 4
-  %117 = icmp eq i32 %.val2.i.i.i, %.val2.i27.i.i
-  %118 = icmp slt i32 %.val1.i29.i.i, %.val3.i28.i.i
-  %spec.select.i.i30.i.i = select i1 %117, i1 %118, i1 false
-  br i1 %spec.select.i.i30.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.thread.i.i", label %119
+  %113 = getelementptr i8, ptr %storemerge33, i64 -20
+  %.val3.i28.i.i = load i32, ptr %113, align 4
+  %114 = getelementptr i8, ptr %106, i64 4
+  %.val1.i29.i.i = load i32, ptr %114, align 4
+  %115 = icmp eq i32 %.val2.i.i.i, %.val2.i27.i.i
+  %116 = icmp slt i32 %.val1.i29.i.i, %.val3.i28.i.i
+  %spec.select.i.i30.i.i = select i1 %115, i1 %116, i1 false
+  br i1 %spec.select.i.i30.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.thread.i.i", label %117
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader"
 
-119:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.i.i"
-  %120 = icmp slt i32 %.val.i.i.i, %.val2.i27.i.i
-  br i1 %120, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.i.i"
+117:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.i.i"
+  %118 = icmp slt i32 %.val.i.i.i, %.val2.i27.i.i
+  br i1 %118, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.i.i": ; preds = %119
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.i.i": ; preds = %117
   %.val1.i35.i.i = load i32, ptr %16, align 4
-  %121 = icmp eq i32 %.val.i.i.i, %.val2.i27.i.i
-  %122 = icmp slt i32 %.val1.i35.i.i, %.val3.i28.i.i
-  %spec.select.i.i36.i.i = select i1 %121, i1 %122, i1 false
-  br i1 %spec.select.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.thread.i.i", label %123
+  %119 = icmp eq i32 %.val.i.i.i, %.val2.i27.i.i
+  %120 = icmp slt i32 %.val1.i35.i.i, %.val3.i28.i.i
+  %spec.select.i.i36.i.i = select i1 %119, i1 %120, i1 false
+  br i1 %spec.select.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.thread.i.i", label %121
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.i.i", %119
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.i.i", %117
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader"
 
-123:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.i.i"
+121:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
@@ -4792,20 +4788,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader"
 
-124:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i"
-  %.val2.i39.i.i = load i32, ptr %109, align 8
-  %125 = icmp slt i32 %.val.i.i.i, %.val2.i39.i.i
-  br i1 %125, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.i.i"
+122:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i.i"
+  %.val2.i39.i.i = load i32, ptr %107, align 8
+  %123 = icmp slt i32 %.val.i.i.i, %.val2.i39.i.i
+  br i1 %123, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.i.i": ; preds = %124
-  %126 = getelementptr i8, ptr %storemerge32, i64 -20
-  %.val3.i40.i.i = load i32, ptr %126, align 4
-  %127 = icmp eq i32 %.val.i.i.i, %.val2.i39.i.i
-  %128 = icmp slt i32 %.val1.i.i.i, %.val3.i40.i.i
-  %spec.select.i.i42.i.i = select i1 %127, i1 %128, i1 false
-  br i1 %spec.select.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.thread.i.i", label %129
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.i.i": ; preds = %122
+  %124 = getelementptr i8, ptr %storemerge33, i64 -20
+  %.val3.i40.i.i = load i32, ptr %124, align 4
+  %125 = icmp eq i32 %.val.i.i.i, %.val2.i39.i.i
+  %126 = icmp slt i32 %.val1.i.i.i, %.val3.i40.i.i
+  %spec.select.i.i42.i.i = select i1 %125, i1 %126, i1 false
+  br i1 %spec.select.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.thread.i.i", label %127
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.i.i", %124
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.i.i", %122
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
@@ -4813,97 +4809,97 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iter
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader"
 
-129:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.i.i"
-  %130 = icmp slt i32 %.val2.i.i.i, %.val2.i39.i.i
-  br i1 %130, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.i.i"
+127:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.i.i"
+  %128 = icmp slt i32 %.val2.i.i.i, %.val2.i39.i.i
+  br i1 %128, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.i.i": ; preds = %129
-  %131 = icmp eq i32 %.val2.i.i.i, %.val2.i39.i.i
-  %132 = icmp slt i32 %.val3.i.i.i, %.val3.i40.i.i
-  %spec.select.i.i48.i.i = select i1 %131, i1 %132, i1 false
-  br i1 %spec.select.i.i48.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.thread.i.i", label %133
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.i.i": ; preds = %127
+  %129 = icmp eq i32 %.val2.i.i.i, %.val2.i39.i.i
+  %130 = icmp slt i32 %.val3.i.i.i, %.val3.i40.i.i
+  %spec.select.i.i48.i.i = select i1 %129, i1 %130, i1 false
+  br i1 %spec.select.i.i48.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.thread.i.i", label %131
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.i.i", %129
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.i.i", %127
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader"
 
-133:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.i.i"
+131:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader": ; preds = %133, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.thread.i.i", %123, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.thread.i.i"
+"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader": ; preds = %131, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit49.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit43.thread.i.i", %121, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit37.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit31.thread.i.i"
   br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader", %146
-  %.sroa.016.0.i.i = phi ptr [ %147, %146 ], [ %15, %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %146 ], [ %storemerge32, %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader", %144
+  %.sroa.016.0.i.i = phi ptr [ %145, %144 ], [ %15, %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %144 ], [ %storemerge33, %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i.preheader" ]
   %.val2.i.i14.i = load i32, ptr %0, align 8
-  br label %134
+  br label %132
 
-134:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i", %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i"
-  %.sroa.016.1.i.i = phi ptr [ %.sroa.016.0.i.i, %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i" ], [ %139, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i" ]
+132:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i", %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i"
+  %.sroa.016.1.i.i = phi ptr [ %.sroa.016.0.i.i, %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i" ], [ %137, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i" ]
   %.val.i.i15.i = load i32, ptr %.sroa.016.1.i.i, align 8
-  %135 = icmp slt i32 %.val.i.i15.i, %.val2.i.i14.i
-  br i1 %135, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i"
+  %133 = icmp slt i32 %.val.i.i15.i, %.val2.i.i14.i
+  br i1 %133, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i": ; preds = %134
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i": ; preds = %132
   %.val3.i.i17.i = load i32, ptr %17, align 4
-  %136 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 4
-  %.val1.i.i18.i = load i32, ptr %136, align 4
-  %137 = icmp eq i32 %.val.i.i15.i, %.val2.i.i14.i
-  %138 = icmp slt i32 %.val1.i.i18.i, %.val3.i.i17.i
-  %spec.select.i.i.i19.i = select i1 %137, i1 %138, i1 false
+  %134 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 4
+  %.val1.i.i18.i = load i32, ptr %134, align 4
+  %135 = icmp eq i32 %.val.i.i15.i, %.val2.i.i14.i
+  %136 = icmp slt i32 %.val1.i.i18.i, %.val3.i.i17.i
+  %spec.select.i.i.i19.i = select i1 %135, i1 %136, i1 false
   br i1 %spec.select.i.i.i19.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i", label %.preheader.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i", %134
-  %139 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 24
-  br label %134, !llvm.loop !51
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i20.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i", %132
+  %137 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 24
+  br label %132, !llvm.loop !51
 
 .preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i", %.preheader.i.i.backedge
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i.backedge ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.i16.i" ]
   %.sroa.0.1.i.i = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -24
   %.val2.i10.i.i = load i32, ptr %.sroa.0.1.i.i, align 8
-  %140 = icmp slt i32 %.val2.i.i14.i, %.val2.i10.i.i
-  br i1 %140, label %.preheader.i.i.backedge, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit14.i.i"
+  %138 = icmp slt i32 %.val2.i.i14.i, %.val2.i10.i.i
+  br i1 %138, label %.preheader.i.i.backedge, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit14.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit14.i.i": ; preds = %.preheader.i.i
-  %141 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -20
-  %.val3.i11.i.i = load i32, ptr %141, align 4
-  %142 = icmp eq i32 %.val2.i.i14.i, %.val2.i10.i.i
-  %143 = icmp slt i32 %.val3.i.i17.i, %.val3.i11.i.i
-  %spec.select.i.i13.i.i = select i1 %142, i1 %143, i1 false
-  br i1 %spec.select.i.i13.i.i, label %.preheader.i.i.backedge, label %144
+  %139 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -20
+  %.val3.i11.i.i = load i32, ptr %139, align 4
+  %140 = icmp eq i32 %.val2.i.i14.i, %.val2.i10.i.i
+  %141 = icmp slt i32 %.val3.i.i17.i, %.val3.i11.i.i
+  %spec.select.i.i13.i.i = select i1 %140, i1 %141, i1 false
+  br i1 %spec.select.i.i13.i.i, label %.preheader.i.i.backedge, label %142
 
 .preheader.i.i.backedge:                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit14.i.i", %.preheader.i.i
   br label %.preheader.i.i, !llvm.loop !52
 
-144:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit14.i.i"
-  %145 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
-  br i1 %145, label %146, label %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit"
+142:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit14.i.i"
+  %143 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
+  br i1 %143, label %144, label %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit"
 
-146:                                              ; preds = %144
+144:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016.1.i.i, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016.1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.1.i.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %147 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 24
+  %145 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 24
   br label %"_ZSt22__move_median_to_firstIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_SA_T0_.exit.i", !llvm.loop !53
 
-"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit": ; preds = %144
-  tail call fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge32, i64 noundef %106)
-  %148 = ptrtoint ptr %.sroa.016.1.i.i to i64
-  %149 = sub i64 %148, %11
-  %150 = icmp sgt i64 %149, 384
-  br i1 %150, label %18, label %"_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit", !llvm.loop !54
+"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit": ; preds = %142
+  tail call fastcc void @"_ZSt16__introsort_loopIN5QListI11QModelIndexE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge33, i64 noundef %104)
+  %146 = ptrtoint ptr %.sroa.016.1.i.i to i64
+  %147 = sub i64 %146, %11
+  %148 = icmp sgt i64 %147, 384
+  br i1 %148, label %18, label %"_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit", !llvm.loop !54
 
 "_ZSt14__partial_sortIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEET_SA_SA_T0_.exit", %"_ZSt10__pop_heapIN5QListI11QModelIndexE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EEEvT_SA_SA_RT0_.exit", %3
   ret void

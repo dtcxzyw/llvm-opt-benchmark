@@ -379,7 +379,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp9, label %if.then11, label %for.inc
 
 if.then11:                                        ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %inc = add nuw nsw i32 %6, 1
   %.pre54 = load i32, ptr %ibuf_len, align 8
   br label %for.end
@@ -394,7 +394,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %9, label %for.body, label %for.end.loopexit, !llvm.loop !6
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then, %if.then11
@@ -506,8 +506,8 @@ sw.bb10:                                          ; preds = %entry
 sw.bb12:                                          ; preds = %entry
   %ibuf_len13 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %ibuf_len13, align 8
-  %cmp14146 = icmp sgt i32 %5, 0
-  br i1 %cmp14146, label %for.body.lr.ph, label %return
+  %cmp14147 = icmp sgt i32 %5, 0
+  br i1 %cmp14147, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %sw.bb12
   %ibuf = getelementptr inbounds i8, ptr %0, i64 8
@@ -521,12 +521,12 @@ for.body.lr.ph:                                   ; preds = %sw.bb12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %ret.0147 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %ret.0148 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %9 = load i8, ptr %gep, align 1
   %cmp18 = icmp eq i8 %9, 10
   %inc = zext i1 %cmp18 to i64
-  %spec.select = add nuw nsw i64 %ret.0147, %inc
+  %spec.select = add nuw nsw i64 %ret.0148, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
@@ -737,8 +737,8 @@ if.end157:                                        ; preds = %sw.bb152
 for.cond165.preheader:                            ; preds = %if.end157
   tail call void @BIO_clear_flags(ptr noundef nonnull %b, i32 noundef 15) #6
   %31 = load i32, ptr %obuf_len158, align 8
-  %cmp167145 = icmp sgt i32 %31, 0
-  br i1 %cmp167145, label %if.then169.lr.ph, label %if.else185
+  %cmp167146 = icmp sgt i32 %31, 0
+  br i1 %cmp167146, label %if.then169.lr.ph, label %if.else185
 
 if.then169.lr.ph:                                 ; preds = %for.cond165.preheader
   %obuf171 = getelementptr inbounds i8, ptr %0, i64 24
@@ -792,17 +792,15 @@ sw.bb192:                                         ; preds = %entry
   %conv194 = sext i32 %40 to i64
   %call195 = tail call i64 @BIO_int_ctrl(ptr noundef %ptr, i32 noundef 117, i64 noundef %conv194, i32 noundef 0) #6
   %cmp196 = icmp slt i64 %call195, 1
-  br i1 %cmp196, label %if.then203, label %lor.lhs.false
+  br i1 %cmp196, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb192
   %obuf_size198 = getelementptr inbounds i8, ptr %0, i64 4
   %41 = load i32, ptr %obuf_size198, align 4
   %conv199 = sext i32 %41 to i64
   %call200 = tail call i64 @BIO_int_ctrl(ptr noundef %ptr, i32 noundef 117, i64 noundef %conv199, i32 noundef 1) #6
-  %cmp201 = icmp slt i64 %call200, 1
-  br i1 %cmp201, label %if.then203, label %return
-
-if.then203:                                       ; preds = %lor.lhs.false, %sw.bb192
+  %cmp201 = icmp sgt i64 %call200, 0
+  %spec.select145 = zext i1 %cmp201 to i64
   br label %return
 
 sw.bb205:                                         ; preds = %entry
@@ -830,8 +828,8 @@ if.end223:                                        ; preds = %sw.default
   %call225 = tail call i64 @BIO_ctrl(ptr noundef nonnull %45, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #6
   br label %return
 
-return:                                           ; preds = %for.body, %sw.bb12, %if.end, %if.end7, %sw.bb10, %if.end67, %if.end149, %if.then161, %if.else185, %sw.bb205, %if.end223, %if.end33, %sw.bb23, %if.end47, %sw.bb37, %if.then137, %if.end133, %if.then203, %lor.lhs.false, %sw.default, %sw.bb152, %sw.bb144, %if.then116, %if.then120, %if.end99, %if.then95, %if.end59, %if.then55, %if.then42, %if.then28, %sw.bb3, %sw.bb, %if.then179
-  %retval.0 = phi i64 [ %conv180, %if.then179 ], [ 0, %sw.bb ], [ 0, %sw.bb3 ], [ 0, %if.then28 ], [ 0, %if.then42 ], [ 0, %if.then55 ], [ 0, %if.end59 ], [ 0, %if.then95 ], [ 0, %if.end99 ], [ 0, %if.then120 ], [ 0, %if.then116 ], [ 0, %sw.bb144 ], [ 0, %sw.bb152 ], [ 0, %sw.default ], [ %call225, %if.end223 ], [ %spec.select144, %sw.bb205 ], [ 0, %if.then203 ], [ 1, %lor.lhs.false ], [ %call163, %if.then161 ], [ %call191, %if.else185 ], [ %call151, %if.end149 ], [ 1, %if.then137 ], [ 1, %if.end133 ], [ 1, %if.end67 ], [ %call49, %if.end47 ], [ %conv39, %sw.bb37 ], [ %call35, %if.end33 ], [ %conv25, %sw.bb23 ], [ %conv, %sw.bb10 ], [ %call9, %if.end7 ], [ %call, %if.end ], [ 0, %sw.bb12 ], [ %spec.select, %for.body ]
+return:                                           ; preds = %for.body, %sw.bb12, %lor.lhs.false, %if.end, %if.end7, %sw.bb10, %if.end67, %if.end149, %if.then161, %if.else185, %sw.bb205, %if.end223, %if.end33, %sw.bb23, %if.end47, %sw.bb37, %if.then137, %if.end133, %sw.bb192, %sw.default, %sw.bb152, %sw.bb144, %if.then116, %if.then120, %if.end99, %if.then95, %if.end59, %if.then55, %if.then42, %if.then28, %sw.bb3, %sw.bb, %if.then179
+  %retval.0 = phi i64 [ %conv180, %if.then179 ], [ 0, %sw.bb ], [ 0, %sw.bb3 ], [ 0, %if.then28 ], [ 0, %if.then42 ], [ 0, %if.then55 ], [ 0, %if.end59 ], [ 0, %if.then95 ], [ 0, %if.end99 ], [ 0, %if.then120 ], [ 0, %if.then116 ], [ 0, %sw.bb144 ], [ 0, %sw.bb152 ], [ 0, %sw.default ], [ %call225, %if.end223 ], [ %spec.select144, %sw.bb205 ], [ %call163, %if.then161 ], [ %call191, %if.else185 ], [ %call151, %if.end149 ], [ 1, %if.then137 ], [ 1, %if.end133 ], [ 1, %if.end67 ], [ %call49, %if.end47 ], [ %conv39, %sw.bb37 ], [ %call35, %if.end33 ], [ %conv25, %sw.bb23 ], [ %conv, %sw.bb10 ], [ %call9, %if.end7 ], [ %call, %if.end ], [ 0, %sw.bb192 ], [ %spec.select145, %lor.lhs.false ], [ 0, %sw.bb12 ], [ %spec.select, %for.body ]
   ret i64 %retval.0
 }
 

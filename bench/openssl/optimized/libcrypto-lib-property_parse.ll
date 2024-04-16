@@ -848,7 +848,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
   %prev_name_idx.028 = phi i32 [ 0, %for.body.lr.ph ], [ %.pre, %if.end ]
   %arrayidx = getelementptr inbounds [1 x %struct.ossl_property_definition_st], ptr %properties, i64 0, i64 %indvars.iv
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i25 = tail call ptr @OPENSSL_sk_value(ptr noundef %sk, i32 noundef %0) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, ptr noundef nonnull align 8 dereferenceable(24) %call.i25, i64 24, i1 false)
   %optional = getelementptr inbounds i8, ptr %arrayidx, i64 12
@@ -1127,7 +1127,7 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp, label %while.body, label %return, !llvm.loop !12
 
 if.end:                                           ; preds = %while.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nsw i64 %indvars.iv to i32
   %5 = load i32, ptr %defn, align 8
   %6 = sext i32 %5 to i64
   %cmp6 = icmp slt i64 %indvars.iv96, %6
@@ -1347,7 +1347,7 @@ if.end53:                                         ; preds = %if.then20, %if.else
   br label %for.cond, !llvm.loop !13
 
 for.end:                                          ; preds = %lor.rhs
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %call, align 8
   %cmp67.not = icmp eq i32 %add, %7
   br i1 %cmp67.not, label %return, label %if.then69
@@ -1372,7 +1372,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_property_parse_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define i32 @ossl_property_parse_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -1387,23 +1387,21 @@ for.body:                                         ; preds = %entry, %for.cond
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @ossl_property_name(ptr noundef %ctx, ptr noundef %0, i32 noundef 1) #9
   %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %err, label %for.cond
+  br i1 %cmp1, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond
   %call2 = tail call i32 @ossl_property_value(ptr noundef %ctx, ptr noundef nonnull @.str.10, i32 noundef 1) #9
   %cmp3.not = icmp eq i32 %call2, 1
-  br i1 %cmp3.not, label %lor.lhs.false, label %err
+  br i1 %cmp3.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %for.end
   %call4 = tail call i32 @ossl_property_value(ptr noundef %ctx, ptr noundef nonnull @.str.11, i32 noundef 1) #9
   %cmp5.not = icmp eq i32 %call4, 2
-  br i1 %cmp5.not, label %return, label %err
-
-err:                                              ; preds = %for.body, %for.end, %lor.lhs.false
+  %spec.select = zext i1 %cmp5.not to i32
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %err
-  %retval.0 = phi i32 [ 0, %err ], [ 1, %lor.lhs.false ]
+return:                                           ; preds = %for.body, %lor.lhs.false, %for.end
+  %retval.0 = phi i32 [ 0, %for.end ], [ %spec.select, %lor.lhs.false ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 

@@ -177,7 +177,7 @@ define dso_local i32 @acpi_ds_create_field(ptr nocapture noundef readonly %0, pt
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %13, align 8
   call void @acpi_ut_prefixed_namespace_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 501, ptr noundef %18, ptr noundef %19, i32 noundef %15) #5
-  br label %57
+  br label %56
 
 20:                                               ; preds = %._crit_edge, %3
   %21 = phi ptr [ %.pre, %._crit_edge ], [ %1, %3 ]
@@ -197,7 +197,7 @@ define dso_local i32 @acpi_ds_create_field(ptr nocapture noundef readonly %0, pt
   %31 = load ptr, ptr %30, align 8
   %32 = call fastcc i32 @acpi_ds_get_field_names(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %31)
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %57
+  br i1 %33, label %34, label %56
 
 34:                                               ; preds = %20
   %35 = load ptr, ptr %6, align 8
@@ -228,15 +228,13 @@ define dso_local i32 @acpi_ds_create_field(ptr nocapture noundef readonly %0, pt
   %53 = getelementptr inbounds i8, ptr %52, i64 64
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %57, label %56
+  %spec.select = select i1 %55, i32 4, i32 0
+  br label %56
 
-56:                                               ; preds = %40, %34
-  br label %57
-
-57:                                               ; preds = %56, %40, %20, %17
-  %58 = phi i32 [ 0, %56 ], [ %15, %17 ], [ %32, %20 ], [ 4, %40 ]
+56:                                               ; preds = %40, %34, %20, %17
+  %57 = phi i32 [ %15, %17 ], [ %32, %20 ], [ 0, %34 ], [ %spec.select, %40 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #5
-  ret i32 %58
+  ret i32 %57
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -290,7 +288,7 @@ define internal fastcc i32 @acpi_ds_get_field_names(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 31:                                               ; preds = %22
-  %32 = trunc i64 %28 to i32
+  %32 = trunc nuw i64 %28 to i32
   store i32 %32, ptr %4, align 4
   br label %105
 

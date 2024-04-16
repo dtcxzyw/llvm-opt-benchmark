@@ -1642,7 +1642,7 @@ define internal fastcc noundef i64 @store_cache_disable(ptr nocapture noundef re
 
 47:                                               ; preds = %36
   %48 = getelementptr inbounds i8, ptr %9, i64 28
-  %49 = trunc i64 %23 to i32
+  %49 = trunc nuw i64 %23 to i32
   br label %50
 
 50:                                               ; preds = %65, %47
@@ -1812,7 +1812,7 @@ define internal zeroext i16 @cache_private_attrs_is_visible(ptr nocapture nounde
   %8 = getelementptr inbounds i8, ptr %5, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %22, label %11
+  br i1 %10, label %21, label %11
 
 11:                                               ; preds = %3
   %12 = icmp eq ptr %1, @dev_attr_subcaches
@@ -1820,7 +1820,7 @@ define internal zeroext i16 @cache_private_attrs_is_visible(ptr nocapture nounde
 
 13:                                               ; preds = %11
   %14 = tail call zeroext i1 @amd_nb_has_feature(i32 noundef 4) #13
-  br i1 %14, label %22, label %15
+  br i1 %14, label %21, label %15
 
 15:                                               ; preds = %13, %11
   %16 = icmp eq ptr %1, @dev_attr_cache_disable_0
@@ -1830,14 +1830,12 @@ define internal zeroext i16 @cache_private_attrs_is_visible(ptr nocapture nounde
 
 19:                                               ; preds = %15
   %20 = tail call zeroext i1 @amd_nb_has_feature(i32 noundef 2) #13
-  br i1 %20, label %22, label %21
+  %spec.select = select i1 %20, i16 %7, i16 0
+  br label %21
 
-21:                                               ; preds = %19, %15
-  br label %22
-
-22:                                               ; preds = %21, %19, %13, %3
-  %23 = phi i16 [ 0, %21 ], [ 0, %3 ], [ %7, %13 ], [ %7, %19 ]
-  ret i16 %23
+21:                                               ; preds = %19, %15, %13, %3
+  %22 = phi i16 [ 0, %3 ], [ %7, %13 ], [ 0, %15 ], [ %spec.select, %19 ]
+  ret i16 %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -1879,13 +1877,13 @@ define internal fastcc void @amd_init_l3_cache(ptr nocapture noundef writeonly %
   %25 = load i32, ptr %3, align 4
   %26 = and i32 %25, 1
   %27 = xor i32 %26, 1
-  %28 = trunc i32 %27 to i8
+  %28 = trunc nuw nsw i32 %27 to i8
   %29 = getelementptr inbounds i8, ptr %14, i64 28
   store i8 %28, ptr %29, align 4
   %30 = lshr i32 %25, 4
   %31 = and i32 %30, 1
   %32 = xor i32 %31, 1
-  %33 = trunc i32 %32 to i8
+  %33 = trunc nuw nsw i32 %32 to i8
   %34 = getelementptr i8, ptr %14, i64 29
   store i8 %33, ptr %34, align 1
   %35 = load i8, ptr @boot_cpu_data, align 8
@@ -1897,13 +1895,13 @@ define internal fastcc void @amd_init_l3_cache(ptr nocapture noundef writeonly %
   %39 = and i32 %38, 1
   %40 = xor i32 %39, 1
   %41 = add nuw nsw i32 %40, %27
-  %42 = trunc i32 %41 to i8
+  %42 = trunc nuw nsw i32 %41 to i8
   store i8 %42, ptr %29, align 4
   %43 = lshr i32 %25, 5
   %44 = and i32 %43, 1
   %45 = xor i32 %44, 1
   %46 = add nuw nsw i32 %32, %45
-  %47 = trunc i32 %46 to i8
+  %47 = trunc nuw nsw i32 %46 to i8
   store i8 %47, ptr %34, align 1
   br label %48
 
@@ -1918,7 +1916,7 @@ define internal fastcc void @amd_init_l3_cache(ptr nocapture noundef writeonly %
   %56 = icmp eq i64 %55, 0
   %57 = zext i1 %56 to i32
   %58 = add nuw nsw i32 %54, %57
-  %59 = trunc i32 %58 to i8
+  %59 = trunc nuw nsw i32 %58 to i8
   %60 = getelementptr i8, ptr %14, i64 30
   store i8 %59, ptr %60, align 2
   %61 = and i64 %51, 4096
@@ -1928,7 +1926,7 @@ define internal fastcc void @amd_init_l3_cache(ptr nocapture noundef writeonly %
   %65 = icmp eq i64 %64, 0
   %66 = zext i1 %65 to i32
   %67 = add nuw nsw i32 %63, %66
-  %68 = trunc i32 %67 to i8
+  %68 = trunc nuw nsw i32 %67 to i8
   %69 = getelementptr i8, ptr %14, i64 31
   store i8 %68, ptr %69, align 1
   %70 = call i32 @llvm.umax.i32(i32 %50, i32 %49)

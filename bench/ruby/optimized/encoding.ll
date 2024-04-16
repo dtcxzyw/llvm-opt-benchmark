@@ -3121,23 +3121,23 @@ rb_enc_from_index.exit:                           ; preds = %4, %10
   %15 = and i32 %3, 16777215
   %16 = icmp sle i32 %6, %15
   %17 = select i1 %14, i1 true, i1 %16
-  br i1 %17, label %rb_enc_from_index.exit100, label %18
+  br i1 %17, label %rb_enc_from_index.exit101, label %18
 
 18:                                               ; preds = %rb_enc_from_index.exit
   %19 = zext nneg i32 %15 to i64
   %20 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %19, i32 1
   %21 = load ptr, ptr %20, align 8
-  br label %rb_enc_from_index.exit100
+  br label %rb_enc_from_index.exit101
 
-rb_enc_from_index.exit100:                        ; preds = %rb_enc_from_index.exit, %18
-  %.05.i.i99 = phi ptr [ %21, %18 ], [ null, %rb_enc_from_index.exit ]
+rb_enc_from_index.exit101:                        ; preds = %rb_enc_from_index.exit, %18
+  %.05.i.i100 = phi ptr [ %21, %18 ], [ null, %rb_enc_from_index.exit ]
   %22 = and i64 %1, 7
   %23 = icmp ne i64 %22, 0
   %24 = icmp eq i64 %1, 0
   %25 = or i1 %24, %23
   br i1 %25, label %.thread, label %26
 
-26:                                               ; preds = %rb_enc_from_index.exit100
+26:                                               ; preds = %rb_enc_from_index.exit101
   %27 = inttoptr i64 %1 to ptr
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 31
@@ -3148,30 +3148,30 @@ rb_enc_from_index.exit100:                        ; preds = %rb_enc_from_index.e
   %32 = getelementptr inbounds i8, ptr %27, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %rb_enc_asciicompat.exit105.thread, label %.thread
+  br i1 %34, label %rb_enc_asciicompat.exit.thread, label %.thread
 
-.thread:                                          ; preds = %rb_enc_from_index.exit100, %26, %31
-  %.not = phi i1 [ true, %26 ], [ false, %31 ], [ true, %rb_enc_from_index.exit100 ]
-  %.0112 = phi i1 [ false, %26 ], [ true, %31 ], [ false, %rb_enc_from_index.exit100 ]
+.thread:                                          ; preds = %rb_enc_from_index.exit101, %26, %31
+  %.not = phi i1 [ true, %26 ], [ false, %31 ], [ true, %rb_enc_from_index.exit101 ]
+  %.0113 = phi i1 [ false, %26 ], [ true, %31 ], [ false, %rb_enc_from_index.exit101 ]
   %35 = and i64 %0, 7
   %36 = icmp ne i64 %35, 0
   %37 = icmp eq i64 %0, 0
   %38 = or i1 %37, %36
-  br i1 %38, label %.thread113, label %39
+  br i1 %38, label %.thread114, label %39
 
 39:                                               ; preds = %.thread
   %40 = inttoptr i64 %0 to ptr
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 31
   %43 = icmp eq i64 %42, 5
-  %or.cond = and i1 %.0112, %43
-  br i1 %or.cond, label %44, label %.thread113
+  %or.cond = and i1 %.0113, %43
+  br i1 %or.cond, label %44, label %.thread114
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %40, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %.thread113
+  br i1 %47, label %48, label %.thread114
 
 48:                                               ; preds = %44
   %49 = getelementptr i8, ptr %.05.i.i, i64 20
@@ -3189,53 +3189,51 @@ rb_enc_asciicompat.exit:                          ; preds = %48
 53:                                               ; preds = %rb_enc_asciicompat.exit
   %54 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %1) #20
   %.not97 = icmp eq i32 %54, 0
-  br i1 %.not97, label %rb_enc_asciicompat.exit.thread, label %rb_enc_asciicompat.exit105.thread
+  %spec.select = select i1 %.not97, ptr %.05.i.i100, ptr %.05.i.i
+  br label %rb_enc_asciicompat.exit.thread
 
-rb_enc_asciicompat.exit.thread:                   ; preds = %48, %53, %rb_enc_asciicompat.exit
-  br label %rb_enc_asciicompat.exit105.thread
-
-.thread113:                                       ; preds = %.thread, %44, %39
-  %.087116 = phi i1 [ true, %44 ], [ %43, %39 ], [ false, %.thread ]
+.thread114:                                       ; preds = %.thread, %44, %39
+  %.087117 = phi i1 [ true, %44 ], [ %43, %39 ], [ false, %.thread ]
   %55 = getelementptr i8, ptr %.05.i.i, i64 20
-  %.val.i101 = load i32, ptr %55, align 4
-  %.not.i102 = icmp eq i32 %.val.i101, 1
-  br i1 %.not.i102, label %rb_enc_asciicompat.exit105, label %rb_enc_asciicompat.exit105.thread
+  %.val.i102 = load i32, ptr %55, align 4
+  %.not.i103 = icmp eq i32 %.val.i102, 1
+  br i1 %.not.i103, label %rb_enc_asciicompat.exit106, label %rb_enc_asciicompat.exit.thread
 
-rb_enc_asciicompat.exit105:                       ; preds = %.thread113
+rb_enc_asciicompat.exit106:                       ; preds = %.thread114
   %56 = getelementptr inbounds i8, ptr %.05.i.i, i64 128
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 16777216
-  %.not3.i104 = icmp eq i32 %58, 0
-  br i1 %.not3.i104, label %59, label %rb_enc_asciicompat.exit105.thread
+  %.not3.i105 = icmp eq i32 %58, 0
+  br i1 %.not3.i105, label %59, label %rb_enc_asciicompat.exit.thread
 
-59:                                               ; preds = %rb_enc_asciicompat.exit105
-  %60 = getelementptr i8, ptr %.05.i.i99, i64 20
-  %.val.i106 = load i32, ptr %60, align 4
-  %.not.i107 = icmp eq i32 %.val.i106, 1
-  br i1 %.not.i107, label %rb_enc_asciicompat.exit110, label %rb_enc_asciicompat.exit105.thread
+59:                                               ; preds = %rb_enc_asciicompat.exit106
+  %60 = getelementptr i8, ptr %.05.i.i100, i64 20
+  %.val.i107 = load i32, ptr %60, align 4
+  %.not.i108 = icmp eq i32 %.val.i107, 1
+  br i1 %.not.i108, label %rb_enc_asciicompat.exit111, label %rb_enc_asciicompat.exit.thread
 
-rb_enc_asciicompat.exit110:                       ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %.05.i.i99, i64 128
+rb_enc_asciicompat.exit111:                       ; preds = %59
+  %61 = getelementptr inbounds i8, ptr %.05.i.i100, i64 128
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 16777216
-  %.not3.i109 = icmp eq i32 %63, 0
-  br i1 %.not3.i109, label %64, label %rb_enc_asciicompat.exit105.thread
+  %.not3.i110 = icmp eq i32 %63, 0
+  br i1 %.not3.i110, label %64, label %rb_enc_asciicompat.exit.thread
 
-64:                                               ; preds = %rb_enc_asciicompat.exit110
+64:                                               ; preds = %rb_enc_asciicompat.exit111
   %65 = icmp ne i32 %3, 2
-  %or.cond3.not = or i1 %65, %.0112
-  br i1 %or.cond3.not, label %66, label %rb_enc_asciicompat.exit105.thread
+  %or.cond3.not = or i1 %65, %.0113
+  br i1 %or.cond3.not, label %66, label %rb_enc_asciicompat.exit.thread
 
 66:                                               ; preds = %64
   %67 = icmp ne i32 %2, 2
-  %or.cond5.not = or i1 %67, %.087116
-  br i1 %or.cond5.not, label %68, label %rb_enc_asciicompat.exit105.thread
+  %or.cond5.not = or i1 %67, %.087117
+  br i1 %or.cond5.not, label %68, label %rb_enc_asciicompat.exit.thread
 
 68:                                               ; preds = %66
-  br i1 %.087116, label %71, label %69
+  br i1 %.087117, label %71, label %69
 
 69:                                               ; preds = %68
-  br i1 %.not, label %.thread120, label %.thread130
+  br i1 %.not, label %rb_enc_asciicompat.exit.thread, label %.thread130
 
 .thread130:                                       ; preds = %69
   %70 = tail call i32 @rb_enc_str_coderange(i64 noundef %1) #20
@@ -3252,25 +3250,23 @@ rb_enc_asciicompat.exit110:                       ; preds = %59
   br i1 %.not96, label %78, label %76
 
 76:                                               ; preds = %73
-  br i1 %75, label %rb_enc_asciicompat.exit105.thread, label %77
+  br i1 %75, label %rb_enc_asciicompat.exit.thread, label %77
 
 77:                                               ; preds = %76
   %cond = icmp eq i32 %74, 1048576
-  br i1 %cond, label %rb_enc_asciicompat.exit105.thread, label %.thread120
+  br i1 %cond, label %rb_enc_asciicompat.exit.thread, label %79
 
 78:                                               ; preds = %73
-  br i1 %75, label %rb_enc_asciicompat.exit105.thread, label %.thread120
+  br i1 %75, label %rb_enc_asciicompat.exit.thread, label %79
 
-79:                                               ; preds = %.thread130, %71
-  %80 = phi i32 [ %70, %.thread130 ], [ %72, %71 ]
+79:                                               ; preds = %.thread130, %77, %78, %71
+  %80 = phi i32 [ %70, %.thread130 ], [ %72, %77 ], [ %72, %78 ], [ %72, %71 ]
   %81 = icmp eq i32 %80, 1048576
-  br i1 %81, label %rb_enc_asciicompat.exit105.thread, label %.thread120
+  %spec.select99 = select i1 %81, ptr %.05.i.i100, ptr null
+  br label %rb_enc_asciicompat.exit.thread
 
-.thread120:                                       ; preds = %78, %77, %79, %69
-  br label %rb_enc_asciicompat.exit105.thread
-
-rb_enc_asciicompat.exit105.thread:                ; preds = %59, %.thread113, %77, %79, %78, %76, %66, %64, %rb_enc_asciicompat.exit105, %rb_enc_asciicompat.exit110, %rb_enc_asciicompat.exit.thread, %53, %31, %.thread120
-  %.088 = phi ptr [ null, %.thread120 ], [ %.05.i.i, %31 ], [ %.05.i.i99, %rb_enc_asciicompat.exit.thread ], [ %.05.i.i, %53 ], [ null, %rb_enc_asciicompat.exit110 ], [ null, %rb_enc_asciicompat.exit105 ], [ %.05.i.i, %64 ], [ %.05.i.i99, %66 ], [ %.05.i.i99, %76 ], [ %.05.i.i, %77 ], [ %.05.i.i, %78 ], [ %.05.i.i99, %79 ], [ null, %.thread113 ], [ null, %59 ]
+rb_enc_asciicompat.exit.thread:                   ; preds = %59, %.thread114, %48, %79, %53, %77, %69, %78, %76, %66, %64, %rb_enc_asciicompat.exit106, %rb_enc_asciicompat.exit111, %rb_enc_asciicompat.exit, %31
+  %.088 = phi ptr [ %.05.i.i, %31 ], [ %.05.i.i100, %rb_enc_asciicompat.exit ], [ null, %rb_enc_asciicompat.exit111 ], [ null, %rb_enc_asciicompat.exit106 ], [ %.05.i.i, %64 ], [ %.05.i.i100, %66 ], [ %.05.i.i100, %76 ], [ %.05.i.i, %77 ], [ %.05.i.i, %78 ], [ null, %69 ], [ %spec.select, %53 ], [ %spec.select99, %79 ], [ %.05.i.i100, %48 ], [ null, %.thread114 ], [ null, %59 ]
   ret ptr %.088
 }
 

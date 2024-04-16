@@ -112,7 +112,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i39, %21
   %32 = trunc i64 %.sroa.310.0.copyload to i32
   %33 = tail call i32 @opal_free_list_init(ptr noundef nonnull @mca_pml_base_recv_requests, i64 noundef %29, i64 noundef %.sroa.412.0.copyload, ptr noundef %27, i64 noundef %.sroa.614.0.copyload, i64 noundef %.sroa.715.0.copyload, i32 noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %.sroa.1119.0.copyload, i32 noundef %.sroa.1322.0.copyload, ptr noundef %.sroa.1220.0.copyload, ptr noundef %.sroa.1424.0.copyload, ptr noundef %.sroa.1525.0.copyload) #2
   %.not34 = icmp eq i32 %33, 0
-  br i1 %.not34, label %34, label %69
+  br i1 %.not34, label %34, label %68
 
 34:                                               ; preds = %opal_obj_run_constructors.exit, %0
   %35 = load ptr, ptr getelementptr inbounds (%struct.mca_vprotocol_base_module_2_0_0_t, ptr @mca_vprotocol, i64 0, i32 25), align 8
@@ -194,14 +194,10 @@ opal_obj_run_constructors.exit51:                 ; preds = %.lr.ph.i48, %55
   %65 = trunc i64 %.sroa.1.0.copyload to i32
   %66 = trunc i64 %.sroa.3.0.copyload to i32
   %67 = tail call i32 @opal_free_list_init(ptr noundef nonnull @mca_pml_base_send_requests, i64 noundef %63, i64 noundef %.sroa.41.0.copyload, ptr noundef %61, i64 noundef %.sroa.6.0.copyload, i64 noundef %.sroa.7.0.copyload, i32 noundef %64, i32 noundef %65, i32 noundef %66, ptr noundef %.sroa.11.0.copyload, i32 noundef %.sroa.135.0.copyload, ptr noundef %.sroa.12.0.copyload, ptr noundef %.sroa.146.0.copyload, ptr noundef %.sroa.15.0.copyload) #2
-  %.not37 = icmp eq i32 %67, 0
-  br i1 %.not37, label %68, label %69
+  br label %68
 
-68:                                               ; preds = %opal_obj_run_constructors.exit51, %34
-  br label %69
-
-69:                                               ; preds = %opal_obj_run_constructors.exit51, %opal_obj_run_constructors.exit, %68
-  %.0 = phi i32 [ 0, %68 ], [ %33, %opal_obj_run_constructors.exit ], [ %67, %opal_obj_run_constructors.exit51 ]
+68:                                               ; preds = %opal_obj_run_constructors.exit51, %34, %opal_obj_run_constructors.exit
+  %.0 = phi i32 [ %33, %opal_obj_run_constructors.exit ], [ 0, %34 ], [ %67, %opal_obj_run_constructors.exit51 ]
   ret i32 %.0
 }
 

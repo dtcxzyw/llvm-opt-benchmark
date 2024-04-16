@@ -361,7 +361,7 @@ define internal noundef i32 @mca_base_var_enum_auto_bool_vfs(ptr nocapture readn
 
 .thread23:                                        ; preds = %22, %19, %16, %13, %10, %37, %34, %31, %28, %25, %40, %45
   %.02225 = phi i64 [ %7, %45 ], [ -1, %40 ], [ 0, %25 ], [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 1, %10 ], [ 1, %13 ], [ 1, %16 ], [ 1, %19 ], [ 1, %22 ]
-  %47 = trunc i64 %.02225 to i32
+  %47 = trunc nsw i64 %.02225 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %43, %.thread23
@@ -538,9 +538,9 @@ define internal noundef i32 @mca_base_var_enum_verbose_vfs(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 {
   %or.cond = icmp ugt i32 %1, 100
-  br i1 %or.cond, label %18, label %.preheader
+  br i1 %or.cond, label %17, label %.preheader
 
 .preheader:                                       ; preds = %3
   %4 = load ptr, ptr getelementptr inbounds ([9 x %struct.mca_base_var_enum_value_t], ptr @verbose_values, i64 0, i64 0, i32 1), align 8
@@ -569,12 +569,12 @@ define internal noundef i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnon
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %.not19 = icmp eq ptr %2, null
-  br i1 %.not19, label %18, label %12
+  br i1 %.not19, label %17, label %12
 
 12:                                               ; preds = %.lr.ph._crit_edge
   %13 = tail call noalias ptr @strdup(ptr noundef nonnull %.lcssa) #16
   store ptr %13, ptr %2, align 8
-  br label %18
+  br label %17
 
 ._crit_edge:                                      ; preds = %.lr.ph28, %.preheader
   %.not18 = icmp eq ptr %2, null
@@ -583,13 +583,11 @@ define internal noundef i32 @mca_base_var_enum_verbose_sfv(ptr nocapture readnon
 14:                                               ; preds = %._crit_edge
   %15 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.20, i32 noundef %1) #16
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %18, label %17
+  %spec.select = select i1 %16, i32 -2, i32 0
+  br label %17
 
-17:                                               ; preds = %14, %._crit_edge
-  br label %18
-
-18:                                               ; preds = %14, %.lr.ph._crit_edge, %12, %3, %17
-  %.014 = phi i32 [ 0, %17 ], [ -18, %3 ], [ 0, %12 ], [ 0, %.lr.ph._crit_edge ], [ -2, %14 ]
+17:                                               ; preds = %14, %._crit_edge, %.lr.ph._crit_edge, %12, %3
+  %.014 = phi i32 [ -18, %3 ], [ 0, %12 ], [ 0, %.lr.ph._crit_edge ], [ 0, %._crit_edge ], [ %spec.select, %14 ]
   ret i32 %.014
 }
 
@@ -721,7 +719,7 @@ opal_obj_new.exit.thread34:                       ; preds = %.lr.ph.i.i, %10
   br i1 %.not, label %22, label %.preheader35, !llvm.loop !10
 
 22:                                               ; preds = %.preheader35
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = getelementptr inbounds i8, ptr %5, i64 72
   store i32 %23, ptr %24, align 8
   %25 = add nuw i64 %indvars.iv, 1
@@ -911,7 +909,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %31
   br i1 %.not, label %41, label %.preheader55, !llvm.loop !13
 
 41:                                               ; preds = %.preheader55
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = getelementptr inbounds i8, ptr %5, i64 72
   store i32 %42, ptr %43, align 8
   %44 = add nuw i64 %indvars.iv, 1
@@ -1601,11 +1599,11 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us, %22
-  %33 = trunc i64 %indvars.iv36 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv36 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit42:                           ; preds = %.lr.ph.split
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit42, %._crit_edge.loopexit, %9
@@ -1659,7 +1657,7 @@ define internal i32 @enum_string_from_value(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond.not, label %._crit_edge.thread, label %12, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %12
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

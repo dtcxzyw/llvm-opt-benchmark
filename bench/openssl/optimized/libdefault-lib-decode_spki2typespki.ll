@@ -143,25 +143,23 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spki2typespki_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal i32 @spki2typespki_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %str = alloca ptr, align 8
   %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   store ptr %propq, ptr %str, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.7) #4
   %cmp.not = icmp eq ptr %call, null
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call1 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %call, ptr noundef nonnull %str, i64 noundef 256) #4
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %tobool.not = icmp ne i32 %call1, 0
+  %spec.select = zext i1 %tobool.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

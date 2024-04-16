@@ -295,7 +295,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @key2any_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal i32 @key2any_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %ciphername = alloca ptr, align 8
   %props = alloca ptr, align 8
@@ -345,19 +345,17 @@ land.lhs.true15:                                  ; preds = %if.end10
 
 if.end22:                                         ; preds = %if.end10, %land.lhs.true15, %entry
   %cmp23.not = icmp eq ptr %call3, null
-  br i1 %cmp23.not, label %if.end30, label %if.then25
+  br i1 %cmp23.not, label %return, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
   %save_parameters = getelementptr inbounds i8, ptr %vctx, i64 8
   %call26 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call3, ptr noundef nonnull %save_parameters) #5
-  %tobool27.not = icmp eq i32 %call26, 0
-  br i1 %tobool27.not, label %return, label %if.end30
-
-if.end30:                                         ; preds = %if.then25, %if.end22
+  %tobool27.not = icmp ne i32 %call26, 0
+  %spec.select = zext i1 %tobool27.not to i32
   br label %return
 
-return:                                           ; preds = %if.then25, %land.lhs.true15, %land.lhs.true, %if.then, %if.end30
-  %retval.0 = phi i32 [ 1, %if.end30 ], [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true15 ], [ 0, %if.then25 ]
+return:                                           ; preds = %if.then25, %if.end22, %land.lhs.true15, %land.lhs.true, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true15 ], [ 1, %if.end22 ], [ %spec.select, %if.then25 ]
   ret i32 %retval.0
 }
 

@@ -3938,7 +3938,7 @@ if.end24.thread:                                  ; preds = %if.end
   %9 = load ptr, ptr %gettables.018, align 8
   store ptr %9, ptr %params, align 16
   store i32 %8, ptr %data_type29, align 8
-  br label %if.else
+  br label %if.end42
 
 land.lhs.true:                                    ; preds = %if.end
   %cmp21 = icmp eq i32 %8, 6
@@ -3952,14 +3952,13 @@ if.end24:                                         ; preds = %land.lhs.true
   store i32 %8, ptr %data_type29, align 8
   %.off = add i32 %8, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %if.end42, label %if.else
-
-if.else:                                          ; preds = %if.end24.thread, %if.end24
+  %spec.select = select i1 %switch, ptr %u, ptr %buf
+  %spec.select22 = select i1 %switch, i64 8, i64 1000
   br label %if.end42
 
-if.end42:                                         ; preds = %if.end24, %if.else
-  %storemerge19 = phi ptr [ %buf, %if.else ], [ %u, %if.end24 ]
-  %storemerge = phi i64 [ 1000, %if.else ], [ 8, %if.end24 ]
+if.end42:                                         ; preds = %if.end24, %if.end24.thread
+  %storemerge19 = phi ptr [ %buf, %if.end24.thread ], [ %spec.select, %if.end24 ]
+  %storemerge = phi i64 [ 1000, %if.end24.thread ], [ %spec.select22, %if.end24 ]
   store ptr %storemerge19, ptr %data39, align 16
   store i64 %storemerge, ptr %data_size41, align 8
   store i64 0, ptr %return_size, align 16

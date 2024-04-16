@@ -3684,13 +3684,13 @@ define dso_local void @xprt_alloc_slot(ptr noundef %0, ptr noundef %1) #0 align 
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %43, i32 2, ptr elementtype(i8) %43) #17, !srcloc !40
   %44 = getelementptr inbounds i8, ptr %0, i64 800
   tail call void @rpc_sleep_on(ptr noundef %44, ptr noundef %1, ptr noundef nonnull @xprt_complete_request_init) #17
-  br label %45
-
-45:                                               ; preds = %42, %.thread
   br label %46
 
-46:                                               ; preds = %45, %.thread
-  %47 = phi i32 [ -11, %45 ], [ -12, %.thread ]
+45:                                               ; preds = %.thread
+  br label %46
+
+46:                                               ; preds = %42, %45, %.thread
+  %47 = phi i32 [ -12, %.thread ], [ -11, %42 ], [ -11, %45 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %47, ptr %48, align 4
   tail call void @_raw_spin_unlock(ptr noundef %3) #17
@@ -4505,14 +4505,12 @@ define dso_local noundef ptr @xprt_get(ptr noundef %0) #0 align 16 {
 
 19:                                               ; preds = %18, %.thread
   %20 = icmp eq i32 %14, 0
-  br i1 %20, label %21, label %22
+  %spec.select = select i1 %20, ptr null, ptr %0
+  br label %21
 
 21:                                               ; preds = %19, %1
-  br label %22
-
-22:                                               ; preds = %21, %19
-  %23 = phi ptr [ null, %21 ], [ %0, %19 ]
-  ret ptr %23
+  %22 = phi ptr [ null, %1 ], [ %spec.select, %19 ]
+  ret ptr %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

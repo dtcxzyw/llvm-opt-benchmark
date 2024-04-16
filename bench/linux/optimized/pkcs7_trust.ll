@@ -17,32 +17,32 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pkcs7_valida
 define dso_local i32 @pkcs7_validate_trust(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.loopexit26, label %.preheader25
+  br i1 %4, label %.loopexit27, label %.preheader26
 
-.preheader25:                                     ; preds = %2, %.preheader25
-  %5 = phi ptr [ %7, %.preheader25 ], [ %3, %2 ]
+.preheader26:                                     ; preds = %2, %.preheader26
+  %5 = phi ptr [ %7, %.preheader26 ], [ %3, %2 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 156
   store i8 0, ptr %6, align 4
   %7 = load ptr, ptr %5, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit26, label %.preheader25, !llvm.loop !5
+  br i1 %8, label %.loopexit27, label %.preheader26, !llvm.loop !5
 
-.loopexit26:                                      ; preds = %.preheader25, %2
+.loopexit27:                                      ; preds = %.preheader26, %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread16, label %.preheader23
+  br i1 %11, label %.thread16, label %.preheader24
 
-.preheader23:                                     ; preds = %.loopexit26, %.thread20
-  %12 = phi ptr [ %90, %.thread20 ], [ %10, %.loopexit26 ]
-  %13 = phi i32 [ %89, %.thread20 ], [ -126, %.loopexit26 ]
+.preheader24:                                     ; preds = %.loopexit27, %.thread18
+  %12 = phi ptr [ %91, %.thread18 ], [ %10, %.loopexit27 ]
+  %13 = phi i32 [ %90, %.thread18 ], [ -126, %.loopexit27 ]
   %14 = getelementptr inbounds i8, ptr %12, i64 64
   %15 = getelementptr inbounds i8, ptr %12, i64 20
   %16 = load i8, ptr %15, align 4, !range !8, !noundef !9
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %.thread21
 
-18:                                               ; preds = %.preheader23
+18:                                               ; preds = %.preheader24
   %19 = getelementptr inbounds i8, ptr %12, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
@@ -64,7 +64,7 @@ define dso_local i32 @pkcs7_validate_trust(ptr nocapture noundef readonly %0, pt
   %29 = getelementptr inbounds i8, ptr %23, i64 157
   %30 = load i8, ptr %29, align 1, !range !8, !noundef !9
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %.thread20, label %.thread15
+  br i1 %31, label %.thread18, label %.thread15
 
 32:                                               ; preds = %.preheader22
   store i8 1, ptr %25, align 4
@@ -84,7 +84,7 @@ define dso_local i32 @pkcs7_validate_trust(ptr nocapture noundef readonly %0, pt
   %42 = getelementptr inbounds i8, ptr %23, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %23
-  br i1 %44, label %.thread20, label %45
+  br i1 %44, label %.thread18, label %45
 
 45:                                               ; preds = %41
   %46 = tail call i32 @__SCT__might_resched() #2
@@ -163,28 +163,28 @@ define dso_local i32 @pkcs7_validate_trust(ptr nocapture noundef readonly %0, pt
   %.in = ptrtoint ptr %.in.in to i64
   %86 = trunc i64 %.in to i32
   switch i32 %86, label %.thread16 [
-    i32 -126, label %.thread20
+    i32 -126, label %.thread18
     i32 -65, label %.thread21
-    i32 0, label %.thread18
+    i32 0, label %89
   ]
 
-.thread21:                                        ; preds = %.preheader23, %85
+.thread21:                                        ; preds = %.preheader24, %85
   %87 = icmp eq i32 %13, -126
   %88 = select i1 %87, i32 -65, i32 %13
-  br label %.thread20
+  br label %.thread18
 
-.thread18:                                        ; preds = %.preheader, %.thread15, %74, %85
-  br label %.thread20
+89:                                               ; preds = %85
+  br label %.thread18
 
-.thread20:                                        ; preds = %41, %28, %.thread18, %.thread21, %85
-  %89 = phi i32 [ 0, %.thread18 ], [ %88, %.thread21 ], [ %13, %85 ], [ %13, %28 ], [ %13, %41 ]
-  %90 = load ptr, ptr %12, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread16, label %.preheader23, !llvm.loop !12
+.thread18:                                        ; preds = %41, %.preheader, %28, %.thread15, %74, %89, %.thread21, %85
+  %90 = phi i32 [ %88, %.thread21 ], [ %13, %85 ], [ 0, %89 ], [ 0, %74 ], [ 0, %.thread15 ], [ %13, %28 ], [ 0, %.preheader ], [ %13, %41 ]
+  %91 = load ptr, ptr %12, align 8
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %.thread16, label %.preheader24, !llvm.loop !12
 
-.thread16:                                        ; preds = %.thread20, %85, %39, %72, %.loopexit26
-  %92 = phi i32 [ -126, %.loopexit26 ], [ %spec.select, %72 ], [ -12, %39 ], [ %89, %.thread20 ], [ %86, %85 ]
-  ret i32 %92
+.thread16:                                        ; preds = %.thread18, %85, %39, %72, %.loopexit27
+  %93 = phi i32 [ -126, %.loopexit27 ], [ %spec.select, %72 ], [ -12, %39 ], [ %90, %.thread18 ], [ %86, %85 ]
+  ret i32 %93
 }
 
 ; Function Attrs: null_pointer_is_valid

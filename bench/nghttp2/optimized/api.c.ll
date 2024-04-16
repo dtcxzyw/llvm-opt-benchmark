@@ -316,7 +316,7 @@ if.end:                                           ; preds = %entry
   %1 = load i8, ptr %finish, align 1
   switch i8 %1, label %sw.default [
     i8 1, label %do.body
-    i8 0, label %sw.bb13
+    i8 0, label %return
     i8 2, label %sw.bb14
   ]
 
@@ -324,20 +324,16 @@ do.body:                                          ; preds = %if.end
   %settings1 = getelementptr inbounds i8, ptr %parser, i64 88
   %2 = load ptr, ptr %settings1, align 8
   %cmp2 = icmp eq ptr %2, null
-  br i1 %cmp2, label %sw.bb13, label %lor.lhs.false
+  br i1 %cmp2, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body
   %on_message_complete = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %on_message_complete, align 8
   %cmp4 = icmp eq ptr %3, null
-  br i1 %cmp4, label %sw.bb13, label %do.end
+  br i1 %cmp4, label %return, label %if.end7
 
-do.end:                                           ; preds = %lor.lhs.false
+if.end7:                                          ; preds = %lor.lhs.false
   %call = tail call i32 %3(ptr noundef nonnull %parser) #9
-  %cmp9.not = icmp eq i32 %call, 0
-  br i1 %cmp9.not, label %sw.bb13, label %return
-
-sw.bb13:                                          ; preds = %do.body, %lor.lhs.false, %do.end, %if.end
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
@@ -349,8 +345,8 @@ sw.default:                                       ; preds = %if.end
   tail call void @abort() #10
   unreachable
 
-return:                                           ; preds = %do.end, %entry, %sw.bb14, %sw.bb13
-  %retval.0 = phi i32 [ 14, %sw.bb14 ], [ 0, %sw.bb13 ], [ 0, %entry ], [ %call, %do.end ]
+return:                                           ; preds = %if.end7, %lor.lhs.false, %do.body, %if.end, %entry, %sw.bb14
+  %retval.0 = phi i32 [ 14, %sw.bb14 ], [ 0, %entry ], [ 0, %if.end ], [ %call, %if.end7 ], [ 0, %lor.lhs.false ], [ 0, %do.body ]
   ret i32 %retval.0
 }
 

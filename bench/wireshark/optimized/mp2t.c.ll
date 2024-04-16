@@ -38,7 +38,7 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %.preheader73
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = load ptr, ptr %0, align 8
   %17 = call i64 @file_seek(ptr noundef %16, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef %1) #6
   %18 = icmp eq i64 %17, -1
@@ -370,7 +370,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mp2t_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal i32 @mp2t_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
@@ -416,20 +416,18 @@ define internal noundef i32 @mp2t_read(ptr nocapture noundef readonly %0, ptr no
   %37 = getelementptr inbounds i8, ptr %8, i64 16
   %38 = load i8, ptr %37, align 8
   %.not16 = icmp eq i8 %38, 0
-  br i1 %.not16, label %43, label %39
+  br i1 %.not16, label %mp2t_read_packet.exit.thread, label %39
 
 39:                                               ; preds = %17
   %40 = zext i8 %38 to i32
   %41 = load ptr, ptr %0, align 8
   %42 = tail call i32 @wtap_read_bytes(ptr noundef %41, ptr noundef null, i32 noundef %40, ptr noundef %3, ptr noundef %4) #6
-  %.not17 = icmp eq i32 %42, 0
-  br i1 %.not17, label %mp2t_read_packet.exit.thread, label %43
-
-43:                                               ; preds = %39, %17
+  %.not17 = icmp ne i32 %42, 0
+  %spec.select = zext i1 %.not17 to i32
   br label %mp2t_read_packet.exit.thread
 
-mp2t_read_packet.exit.thread:                     ; preds = %6, %39, %43
-  %.0 = phi i32 [ 1, %43 ], [ 0, %39 ], [ 0, %6 ]
+mp2t_read_packet.exit.thread:                     ; preds = %6, %39, %17
+  %.0 = phi i32 [ 1, %17 ], [ %spec.select, %39 ], [ 0, %6 ]
   ret i32 %.0
 }
 

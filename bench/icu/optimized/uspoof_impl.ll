@@ -699,8 +699,8 @@ return.sink.split:                                ; preds = %lor.lhs.false20.i, 
   store i32 %.sink.i.sink, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %return.sink.split, %entry, %if.end, %lor.lhs.false20.i
-  %retval.0 = phi ptr [ %sc, %lor.lhs.false20.i ], [ %sc, %if.end ], [ null, %entry ], [ null, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %entry, %lor.lhs.false20.i, %if.end
+  %retval.0 = phi ptr [ %sc, %if.end ], [ %sc, %lor.lhs.false20.i ], [ null, %entry ], [ null, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -817,7 +817,7 @@ return.sink.split.i:                              ; preds = %lor.lhs.false20.i.i
   br label %_ZN6icu_759SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit
 
 _ZN6icu_759SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit: ; preds = %entry, %if.end.i, %lor.lhs.false20.i.i, %return.sink.split.i
-  %retval.0.i = phi ptr [ %sc, %lor.lhs.false20.i.i ], [ %sc, %if.end.i ], [ null, %entry ], [ null, %return.sink.split.i ]
+  %retval.0.i = phi ptr [ %sc, %if.end.i ], [ %sc, %lor.lhs.false20.i.i ], [ null, %entry ], [ null, %return.sink.split.i ]
   ret ptr %retval.0.i
 }
 
@@ -1513,7 +1513,7 @@ if.end39:                                         ; preds = %invoke.cont35
 
 invoke.cont40:                                    ; preds = %if.end39
   %tobool42.not = icmp eq i8 %call41, 0
-  br i1 %tobool42.not, label %land.lhs.true, label %if.end55
+  br i1 %tobool42.not, label %land.lhs.true, label %cleanup
 
 land.lhs.true:                                    ; preds = %invoke.cont40
   %call44 = invoke noundef signext i8 @_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode(ptr noundef nonnull align 4 dereferenceable(28) %resolvedNoLatn, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1521,7 +1521,7 @@ land.lhs.true:                                    ; preds = %invoke.cont40
 
 invoke.cont43:                                    ; preds = %land.lhs.true
   %tobool45.not = icmp eq i8 %call44, 0
-  br i1 %tobool45.not, label %land.lhs.true46, label %if.end55
+  br i1 %tobool45.not, label %land.lhs.true46, label %cleanup
 
 land.lhs.true46:                                  ; preds = %invoke.cont43
   %call48 = invoke noundef signext i8 @_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode(ptr noundef nonnull align 4 dereferenceable(28) %resolvedNoLatn, i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1529,7 +1529,7 @@ land.lhs.true46:                                  ; preds = %invoke.cont43
 
 invoke.cont47:                                    ; preds = %land.lhs.true46
   %tobool49.not = icmp eq i8 %call48, 0
-  br i1 %tobool49.not, label %land.lhs.true50, label %if.end55
+  br i1 %tobool49.not, label %land.lhs.true50, label %cleanup
 
 land.lhs.true50:                                  ; preds = %invoke.cont47
   %call52 = invoke noundef signext i8 @_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode(ptr noundef nonnull align 4 dereferenceable(28) %resolvedNoLatn, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1537,13 +1537,11 @@ land.lhs.true50:                                  ; preds = %invoke.cont47
 
 invoke.cont51:                                    ; preds = %land.lhs.true50
   %tobool53.not = icmp eq i8 %call52, 0
-  br i1 %tobool53.not, label %cleanup, label %if.end55
-
-if.end55:                                         ; preds = %invoke.cont51, %invoke.cont47, %invoke.cont43, %invoke.cont40
+  %spec.select = select i1 %tobool53.not, i32 1073741824, i32 1342177280
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont51, %invoke.cont28, %invoke.cont31, %invoke.cont35, %invoke.cont22, %if.end55
-  %retval.0 = phi i32 [ 1342177280, %if.end55 ], [ 1610612736, %invoke.cont22 ], [ 805306368, %invoke.cont35 ], [ 805306368, %invoke.cont31 ], [ 805306368, %invoke.cont28 ], [ 1073741824, %invoke.cont51 ]
+cleanup:                                          ; preds = %invoke.cont51, %invoke.cont40, %invoke.cont43, %invoke.cont47, %invoke.cont28, %invoke.cont31, %invoke.cont35, %invoke.cont22
+  %retval.0 = phi i32 [ 1610612736, %invoke.cont22 ], [ 805306368, %invoke.cont35 ], [ 805306368, %invoke.cont31 ], [ 805306368, %invoke.cont28 ], [ 1342177280, %invoke.cont47 ], [ 1342177280, %invoke.cont43 ], [ 1342177280, %invoke.cont40 ], [ %spec.select, %invoke.cont51 ]
   call void @_ZN6icu_759ScriptSetD1Ev(ptr noundef nonnull align 4 dereferenceable(28) %resolvedNoLatn) #21
   br label %cleanup56
 
@@ -1663,7 +1661,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %cmp.not = icmp eq i32 %call8, %cp
-  br i1 %cmp.not, label %if.end12, label %land.lhs.true
+  br i1 %cmp.not, label %cleanup, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont7
   switch i32 %call8, label %lor.rhs.i4 [
@@ -1676,11 +1674,11 @@ land.lhs.true:                                    ; preds = %invoke.cont7
 
 lor.rhs.i4:                                       ; preds = %land.lhs.true
   %call.i57 = invoke signext i8 @u_hasBinaryProperty_75(i32 noundef %call8, i32 noundef 27)
-          to label %invoke.cont9 unwind label %lpad
+          to label %call.i5.noexc unwind label %lpad
 
-invoke.cont9:                                     ; preds = %lor.rhs.i4
-  %tobool.i6.not = icmp eq i8 %call.i57, 0
-  br i1 %tobool.i6.not, label %if.end12, label %cleanup
+call.i5.noexc:                                    ; preds = %lor.rhs.i4
+  %tobool.i6 = icmp ne i8 %call.i57, 0
+  br label %cleanup
 
 lpad:                                             ; preds = %lor.rhs.i4, %invoke.cont5, %invoke.cont3, %if.end
   %4 = landingpad { ptr, i32 }
@@ -1688,11 +1686,8 @@ lpad:                                             ; preds = %lor.rhs.i4, %invoke
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skelStr) #21
   resume { ptr, i32 } %4
 
-if.end12:                                         ; preds = %invoke.cont9, %invoke.cont7
-  br label %cleanup
-
-cleanup:                                          ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %invoke.cont9, %if.end12
-  %retval.0 = phi i1 [ false, %if.end12 ], [ true, %invoke.cont9 ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ]
+cleanup:                                          ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true, %call.i5.noexc, %invoke.cont7
+  %retval.0 = phi i1 [ false, %invoke.cont7 ], [ true, %land.lhs.true ], [ %tobool.i6, %call.i5.noexc ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ], [ true, %land.lhs.true ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skelStr) #21
   br label %return
 

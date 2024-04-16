@@ -1812,7 +1812,7 @@ if.end32.i:                                       ; preds = %if.end28.i
   %and33.i = and i64 %conv.i, 512
   %tobool34.not.i = icmp eq i64 %and33.i, 0
   %.str.15..str.433.i = select i1 %tobool34.not.i, ptr @.str.15, ptr @.str.433
-  %..i = trunc i64 %and33.i to i32
+  %..i = trunc nuw nsw i64 %and33.i to i32
   br label %ssl_get_keyex.exit
 
 ssl_get_keyex.exit:                               ; preds = %entry, %if.end.i, %if.end4.i, %if.end8.i, %if.end12.i, %if.end16.i, %if.end20.i, %if.end24.i, %if.end28.i, %if.end32.i
@@ -1843,7 +1843,7 @@ if.end.i28:                                       ; preds = %if.then
 if.end10.i:                                       ; preds = %if.end.i28
   %add.ptr.i = getelementptr inbounds i8, ptr %msg, i64 2
   %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i = trunc i64 %or.i to i32
+  %conv.i.i = trunc nuw nsw i64 %or.i to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.413, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i64 %or.i, 0
   br i1 %cmp7.not.i.i, label %ssl_print_hexbuf.exit, label %for.body.i.i
@@ -1896,7 +1896,7 @@ if.end.i32:                                       ; preds = %sw.bb
 if.end10.i40:                                     ; preds = %if.end.i32
   %add.ptr.i41 = getelementptr inbounds i8, ptr %5, i64 2
   %call.i.i42 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i43 = trunc i64 %or.i37 to i32
+  %conv.i.i43 = trunc nuw nsw i64 %or.i37 to i32
   %call1.i.i44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.414, i32 noundef %conv.i.i43) #3
   %cmp7.not.i.i45 = icmp eq i64 %or.i37, 0
   br i1 %cmp7.not.i.i45, label %if.end11, label %for.body.i.i46
@@ -1933,7 +1933,7 @@ if.end.i60:                                       ; preds = %if.end11
 if.end10.i68:                                     ; preds = %if.end.i60
   %add.ptr.i69 = getelementptr inbounds i8, ptr %add.ptr12.i55, i64 2
   %call.i.i70 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i71 = trunc i64 %or.i65 to i32
+  %conv.i.i71 = trunc nuw nsw i64 %or.i65 to i32
   %call1.i.i72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.415, i32 noundef %conv.i.i71) #3
   %cmp7.not.i.i73 = icmp eq i64 %or.i65, 0
   br i1 %cmp7.not.i.i73, label %ssl_print_hexbuf.exit86, label %for.body.i.i74
@@ -1975,7 +1975,7 @@ if.end.i88:                                       ; preds = %sw.bb17
 if.end10.i96:                                     ; preds = %if.end.i88
   %add.ptr.i97 = getelementptr inbounds i8, ptr %5, i64 2
   %call.i.i98 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i99 = trunc i64 %or.i93 to i32
+  %conv.i.i99 = trunc nuw nsw i64 %or.i93 to i32
   %call1.i.i100 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.416, i32 noundef %conv.i.i99) #3
   %cmp7.not.i.i101 = icmp eq i64 %or.i93, 0
   br i1 %cmp7.not.i.i101, label %if.end22, label %for.body.i.i102
@@ -2012,7 +2012,7 @@ if.end.i116:                                      ; preds = %if.end22
 if.end10.i124:                                    ; preds = %if.end.i116
   %add.ptr.i125 = getelementptr inbounds i8, ptr %add.ptr12.i111, i64 2
   %call.i.i126 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i127 = trunc i64 %or.i121 to i32
+  %conv.i.i127 = trunc nuw nsw i64 %or.i121 to i32
   %call1.i.i128 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.417, i32 noundef %conv.i.i127) #3
   %cmp7.not.i.i129 = icmp eq i64 %or.i121, 0
   br i1 %cmp7.not.i.i129, label %if.end27, label %for.body.i.i130
@@ -2049,7 +2049,7 @@ if.end.i144:                                      ; preds = %if.end27
 if.end10.i152:                                    ; preds = %if.end.i144
   %add.ptr.i153 = getelementptr inbounds i8, ptr %add.ptr12.i139, i64 2
   %call.i.i154 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i155 = trunc i64 %or.i149 to i32
+  %conv.i.i155 = trunc nuw nsw i64 %or.i149 to i32
   %call1.i.i156 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.418, i32 noundef %conv.i.i155) #3
   %cmp7.not.i.i157 = icmp eq i64 %or.i149, 0
   br i1 %cmp7.not.i.i157, label %ssl_print_hexbuf.exit170, label %for.body.i.i158
@@ -2216,7 +2216,7 @@ if.end32.i:                                       ; preds = %if.end28.i
   %and33.i = and i64 %conv.i, 512
   %tobool34.not.i = icmp eq i64 %and33.i, 0
   %.str.15..str.433.i = select i1 %tobool34.not.i, ptr @.str.15, ptr @.str.433
-  %..i = trunc i64 %and33.i to i32
+  %..i = trunc nuw nsw i64 %and33.i to i32
   br label %ssl_get_keyex.exit
 
 ssl_get_keyex.exit:                               ; preds = %entry, %if.end.i, %if.end4.i, %if.end8.i, %if.end12.i, %if.end16.i, %if.end20.i, %if.end24.i, %if.end28.i, %if.end32.i
@@ -2247,7 +2247,7 @@ if.end.i19:                                       ; preds = %if.then
 if.end10.i:                                       ; preds = %if.end.i19
   %add.ptr.i = getelementptr inbounds i8, ptr %msg, i64 2
   %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i = trunc i64 %or.i to i32
+  %conv.i.i = trunc nuw nsw i64 %or.i to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.483, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i64 %or.i, 0
   br i1 %cmp7.not.i.i, label %ssl_print_hexbuf.exit, label %for.body.i.i
@@ -2333,7 +2333,7 @@ if.end.i24:                                       ; preds = %if.else
 if.end10.i32:                                     ; preds = %if.end.i24
   %add.ptr.i33 = getelementptr inbounds i8, ptr %msg.addr.1, i64 2
   %call.i.i34 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i35 = trunc i64 %or.i29 to i32
+  %conv.i.i35 = trunc nuw nsw i64 %or.i29 to i32
   %call1.i.i36 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.484, i32 noundef %conv.i.i35) #3
   %cmp7.not.i.i37 = icmp eq i64 %or.i29, 0
   br i1 %cmp7.not.i.i37, label %ssl_print_hexbuf.exit50, label %for.body.i.i38
@@ -2372,7 +2372,7 @@ if.end.i52:                                       ; preds = %sw.bb19
 if.end10.i60:                                     ; preds = %if.end.i52
   %add.ptr.i61 = getelementptr inbounds i8, ptr %msg.addr.1, i64 2
   %call.i.i62 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i63 = trunc i64 %or.i57 to i32
+  %conv.i.i63 = trunc nuw nsw i64 %or.i57 to i32
   %call1.i.i64 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.485, i32 noundef %conv.i.i63) #3
   %cmp7.not.i.i65 = icmp eq i64 %or.i57, 0
   br i1 %cmp7.not.i.i65, label %ssl_print_hexbuf.exit78, label %for.body.i.i66
@@ -2594,26 +2594,22 @@ if.end40:                                         ; preds = %if.then35
   %14 = load i32, ptr %enc_flags44, align 8
   %and45 = and i32 %14, 8
   %tobool46.not = icmp eq i32 %and45, 0
-  br i1 %tobool46.not, label %land.lhs.true47, label %if.end64
+  br i1 %tobool46.not, label %land.lhs.true47, label %return
 
 land.lhs.true47:                                  ; preds = %if.end40
   %15 = load i32, ptr %12, align 8
   %cmp51 = icmp slt i32 %15, 772
   %cmp57.not = icmp eq i32 %15, 65536
   %or.cond32 = or i1 %cmp51, %cmp57.not
-  br i1 %or.cond32, label %if.end64, label %land.lhs.true59
+  br i1 %or.cond32, label %return, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %land.lhs.true47
   %call61 = call fastcc i32 @ssl_print_extensions(ptr noundef %bio, i32 noundef 8, i32 noundef %server, i8 noundef zeroext 11, ptr noundef nonnull %msg.addr, ptr noundef nonnull %clen), !range !7
-  %tobool62.not = icmp eq i32 %call61, 0
-  br i1 %tobool62.not, label %return, label %if.end64
-
-if.end64:                                         ; preds = %land.lhs.true59, %land.lhs.true47, %if.end40
   br label %return
 
 if.end65:                                         ; preds = %land.lhs.true25, %land.lhs.true30
   %call66 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
-  %conv67 = trunc i64 %or18 to i32
+  %conv67 = trunc nuw nsw i64 %or18 to i32
   %call68 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.490, i32 noundef %conv67) #3
   %cmp69.not53 = icmp eq i64 %or18, 0
   br i1 %cmp69.not53, label %return, label %while.body.lr.ph
@@ -2744,8 +2740,8 @@ if.end99:                                         ; preds = %land.lhs.true94.if.
   %cmp69.not = icmp eq i64 %33, 0
   br i1 %cmp69.not, label %return, label %while.body, !llvm.loop !10
 
-return:                                           ; preds = %land.lhs.true94, %if.end99, %if.end65, %if.end.i, %land.lhs.true8, %ssl_print_certificate.exit.thread, %land.lhs.true59, %if.then35, %if.end12, %if.end, %ssl_print_hexbuf.exit, %if.end64
-  %retval.0 = phi i32 [ 1, %if.end64 ], [ 0, %ssl_print_hexbuf.exit ], [ 0, %if.end ], [ 0, %if.end12 ], [ 0, %if.then35 ], [ 0, %land.lhs.true59 ], [ 0, %ssl_print_certificate.exit.thread ], [ 0, %land.lhs.true8 ], [ 0, %if.end.i ], [ 1, %if.end65 ], [ 0, %land.lhs.true94 ], [ 1, %if.end99 ]
+return:                                           ; preds = %land.lhs.true94, %if.end99, %if.end65, %if.end.i, %land.lhs.true8, %ssl_print_certificate.exit.thread, %land.lhs.true59, %if.end40, %land.lhs.true47, %if.then35, %if.end12, %if.end, %ssl_print_hexbuf.exit
+  %retval.0 = phi i32 [ 0, %ssl_print_hexbuf.exit ], [ 0, %if.end ], [ 0, %if.end12 ], [ 0, %if.then35 ], [ 1, %land.lhs.true47 ], [ 1, %if.end40 ], [ %call61, %land.lhs.true59 ], [ 0, %ssl_print_certificate.exit.thread ], [ 0, %land.lhs.true8 ], [ 0, %if.end.i ], [ 1, %if.end65 ], [ 0, %land.lhs.true94 ], [ 1, %if.end99 ]
   ret i32 %retval.0
 }
 
@@ -2925,7 +2921,7 @@ if.end.i:                                         ; preds = %if.end, %if.end6
 if.end10.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 2
   %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
-  %conv.i.i = trunc i64 %or.i to i32
+  %conv.i.i = trunc nuw nsw i64 %or.i to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.506, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i64 %or.i, 0
   br i1 %cmp7.not.i.i, label %ssl_print_hex.exit.i, label %for.body.i.i
@@ -3406,7 +3402,7 @@ if.end.i23:                                       ; preds = %if.end57
 if.end10.i27:                                     ; preds = %if.end.i23
   %add.ptr.i28 = getelementptr inbounds i8, ptr %14, i64 2
   %call.i.i29 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i.i30 = trunc i64 %or.i to i32
+  %conv.i.i30 = trunc nuw nsw i64 %or.i to i32
   %call1.i.i31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.560, i32 noundef %conv.i.i30) #3
   %cmp7.not.i.i32 = icmp eq i64 %or.i, 0
   br i1 %cmp7.not.i.i32, label %if.end62, label %for.body.i.i33
@@ -3542,7 +3538,7 @@ if.end25:                                         ; preds = %while.body
 
 if.then41:                                        ; preds = %if.end25
   %call43 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.563, i32 noundef %or31, i32 noundef %or37) #3
-  %conv44 = trunc i64 %extslen.081 to i32
+  %conv44 = trunc nuw nsw i64 %extslen.081 to i32
   %call46 = tail call i32 @BIO_dump_indent(ptr noundef %bio, ptr noundef nonnull %msg.080, i32 noundef %conv44, i32 noundef %add49) #3
   br label %return
 
@@ -3572,7 +3568,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 do_ssl_trace_str.exit.i:                          ; preds = %for.inc.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %9, %if.then.i.i ], [ @.str.15, %for.inc.i.i ]
   %call2.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.564, ptr noundef %retval.0.i.i, i32 noundef %or31, i32 noundef %or37) #3
-  %trunc = trunc i32 %or31 to i16
+  %trunc = trunc nuw i32 %or31 to i16
   switch i16 %trunc, label %sw.default.i [
     i16 27, label %sw.bb.i
     i16 1, label %sw.bb11.i
@@ -4049,7 +4045,7 @@ do_ssl_trace_str.exit254.i:                       ; preds = %for.inc.i247.i, %if
   %retval.0.i251.i = phi ptr [ %46, %if.then.i252.i ], [ @.str.15, %for.inc.i247.i ]
   %call225.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.568, ptr noundef %retval.0.i251.i, i32 noundef %or208.i) #3
   %call.i255.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add242.i, i32 noundef 80) #3
-  %conv.i256.i = trunc i64 %or214.i to i32
+  %conv.i256.i = trunc nuw nsw i64 %or214.i to i32
   %call1.i257.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.569, i32 noundef %conv.i256.i) #3
   %cmp7.not.i258.i = icmp eq i64 %or214.i, 0
   br i1 %cmp7.not.i258.i, label %ssl_print_hex.exit267.i, label %for.body.i259.i
@@ -4505,7 +4501,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
 if.end10:                                         ; preds = %if.end6
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %nlen
   %call.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %indent, i32 noundef 80) #3
-  %conv.i = trunc i64 %blen.0 to i32
+  %conv.i = trunc nuw nsw i64 %blen.0 to i32
   %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef %name, i32 noundef %conv.i) #3
   %cmp7.not.i = icmp eq i64 %blen.0, 0
   br i1 %cmp7.not.i, label %ssl_print_hex.exit, label %for.body.i

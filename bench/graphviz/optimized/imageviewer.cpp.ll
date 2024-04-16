@@ -1200,7 +1200,7 @@ define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr nocapture noundef 
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %45, label %8
+  br i1 %7, label %46, label %8
 
 8:                                                ; preds = %2
   call void @_ZN6QImageC1ERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef null)
@@ -1208,12 +1208,12 @@ define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr nocapture noundef 
           to label %10 unwind label %11
 
 10:                                               ; preds = %8
-  br i1 %9, label %.sink.split, label %13
+  br i1 %9, label %44, label %13
 
 11:                                               ; preds = %.noexc11, %.noexc10, %.noexc9, %.noexc8, %.noexc, %21, %40, %_ZN11ImageViewer13updateActionsEv.exit, %17, %13, %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %45
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1276,31 +1276,31 @@ _ZN11ImageViewer13updateActionsEv.exit:           ; preds = %.noexc11
           to label %39 unwind label %11
 
 39:                                               ; preds = %_ZN11ImageViewer13updateActionsEv.exit
-  br i1 %38, label %.sink.split, label %40
+  br i1 %38, label %44, label %40
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %14, align 8
   invoke void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %41)
-          to label %.sink.split unwind label %11
+          to label %44 unwind label %11
 
 42:                                               ; preds = %16
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  br label %44
+  br label %45
 
-44:                                               ; preds = %42, %11
+44:                                               ; preds = %39, %40, %10
+  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
+  %switch = xor i1 %9, true
+  br label %46
+
+45:                                               ; preds = %42, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %43, %42 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
   resume { ptr, i32 } %.pn
 
-.sink.split:                                      ; preds = %10, %40, %39
-  %.1.ph = xor i1 %9, true
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
-  br label %45
-
-45:                                               ; preds = %.sink.split, %2
-  %.1 = phi i1 [ true, %2 ], [ %.1.ph, %.sink.split ]
+46:                                               ; preds = %44, %2
+  %.1 = phi i1 [ true, %2 ], [ %switch, %44 ]
   ret i1 %.1
 }
 
@@ -1376,7 +1376,7 @@ define void @_ZN11ImageViewer10scaleImageEd(ptr nocapture noundef nonnull align 
 11:                                               ; preds = %2
   %.sroa.0.0.extract.trunc = trunc i64 %10 to i32
   %.sroa.2.0.extract.shift = lshr i64 %10, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %12 = sitofp i32 %.sroa.0.0.extract.trunc to double
   %13 = fmul double %7, %12
   %14 = call double @llvm.copysign.f64(double 5.000000e-01, double %13)

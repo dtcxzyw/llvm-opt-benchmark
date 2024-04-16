@@ -1185,7 +1185,7 @@ declare i32 @unpack_step_id_members(ptr noundef, ptr noundef, i16 noundef zeroex
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_list_find_expired_job_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @_list_find_expired_job_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -1196,13 +1196,11 @@ define internal noundef i32 @_list_find_expired_job_state(ptr nocapture noundef 
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %6, %8
-  br i1 %9, label %11, label %10
+  %spec.select = zext i1 %9 to i32
+  br label %10
 
 10:                                               ; preds = %5, %2
-  br label %11
-
-11:                                               ; preds = %5, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %5 ]
   ret i32 %.0
 }
 
@@ -1229,7 +1227,7 @@ define internal i32 @_list_find_expired_cred_state(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_list_find_cred_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal i32 @_list_find_cred_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -1242,13 +1240,11 @@ define internal noundef i32 @_list_find_cred_state(ptr nocapture noundef readonl
   %8 = getelementptr inbounds i8, ptr %1, i64 88
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %7, %9
-  br i1 %10, label %12, label %11
+  %spec.select = zext i1 %10 to i32
+  br label %11
 
 11:                                               ; preds = %6, %2
-  br label %12
-
-12:                                               ; preds = %6, %11
-  %.0 = phi i32 [ 0, %11 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %6 ]
   ret i32 %.0
 }
 

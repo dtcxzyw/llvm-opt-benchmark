@@ -49,7 +49,7 @@ while.body:                                       ; preds = %entry, %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %us.addr.06, i64 2
   %0 = load i16, ptr %us.addr.06, align 2
   %cmp1 = icmp ult i16 %0, 128
-  br i1 %cmp1, label %land.lhs.true, label %if.then
+  br i1 %cmp1, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
   %conv = zext nneg i16 %0 to i32
@@ -61,14 +61,12 @@ land.lhs.true:                                    ; preds = %while.body
   %shl = shl nuw i32 1, %and
   %and4 = and i32 %1, %shl
   %cmp5.not = icmp eq i32 %and4, 0
-  br i1 %cmp5.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true, %while.body
+  %spec.select = select i1 %cmp5.not, i16 0, i16 %0
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %land.lhs.true
-  %u.0 = phi i16 [ %0, %land.lhs.true ], [ 0, %if.then ]
-  %conv6 = trunc i16 %u.0 to i8
+if.end:                                           ; preds = %land.lhs.true, %while.body
+  %u.0 = phi i16 [ 0, %while.body ], [ %spec.select, %land.lhs.true ]
+  %conv6 = trunc nuw i16 %u.0 to i8
   %incdec.ptr7 = getelementptr inbounds i8, ptr %cs.addr.07, i64 1
   store i8 %conv6, ptr %cs.addr.07, align 1
   %dec = add nsw i32 %length.addr.08, -1
@@ -561,22 +559,22 @@ if.then10:                                        ; preds = %if.end8
 if.end12:                                         ; preds = %if.then10, %if.end8
   %localLength.addr.0 = phi i32 [ %call11, %if.then10 ], [ %localLength, %if.end8 ]
   %cond = tail call i32 @llvm.smin.i32(i32 %outLength.addr.0, i32 %localLength.addr.0)
-  %cmp1423 = icmp sgt i32 %cond, 0
-  br i1 %cmp1423, label %while.body, label %while.end
+  %cmp1424 = icmp sgt i32 %cond, 0
+  br i1 %cmp1424, label %while.body, label %while.end
 
 while.cond:                                       ; preds = %if.end36
-  %dec = add nsw i32 %minLength.026, -1
-  %cmp14 = icmp sgt i32 %minLength.026, 1
+  %dec = add nsw i32 %minLength.027, -1
+  %cmp14 = icmp sgt i32 %minLength.027, 1
   br i1 %cmp14, label %while.body, label %while.end, !llvm.loop !13
 
 while.body:                                       ; preds = %if.end12, %while.cond
-  %minLength.026 = phi i32 [ %dec, %while.cond ], [ %cond, %if.end12 ]
-  %localString.addr.025 = phi ptr [ %incdec.ptr24, %while.cond ], [ %localString, %if.end12 ]
-  %outString.addr.024 = phi ptr [ %incdec.ptr, %while.cond ], [ %outString, %if.end12 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %outString.addr.024, i64 1
-  %0 = load i8, ptr %outString.addr.024, align 1
+  %minLength.027 = phi i32 [ %dec, %while.cond ], [ %cond, %if.end12 ]
+  %localString.addr.026 = phi ptr [ %incdec.ptr24, %while.cond ], [ %localString, %if.end12 ]
+  %outString.addr.025 = phi ptr [ %incdec.ptr, %while.cond ], [ %outString, %if.end12 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %outString.addr.025, i64 1
+  %0 = load i8, ptr %outString.addr.025, align 1
   %cmp16 = icmp sgt i8 %0, -1
-  br i1 %cmp16, label %land.lhs.true, label %if.else
+  br i1 %cmp16, label %land.lhs.true, label %if.end23
 
 land.lhs.true:                                    ; preds = %while.body
   %conv15 = zext nneg i8 %0 to i32
@@ -588,17 +586,15 @@ land.lhs.true:                                    ; preds = %while.body
   %shl = shl nuw i32 1, %and
   %and19 = and i32 %1, %shl
   %cmp20.not = icmp eq i32 %and19, 0
-  br i1 %cmp20.not, label %if.else, label %if.end23
-
-if.else:                                          ; preds = %land.lhs.true, %while.body
+  %spec.select = select i1 %cmp20.not, i32 -1, i32 %conv15
   br label %if.end23
 
-if.end23:                                         ; preds = %land.lhs.true, %if.else
-  %c1.0 = phi i32 [ -1, %if.else ], [ %conv15, %land.lhs.true ]
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %localString.addr.025, i64 2
-  %2 = load i16, ptr %localString.addr.025, align 2
+if.end23:                                         ; preds = %land.lhs.true, %while.body
+  %c1.0 = phi i32 [ -1, %while.body ], [ %spec.select, %land.lhs.true ]
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %localString.addr.026, i64 2
+  %2 = load i16, ptr %localString.addr.026, align 2
   %cmp26 = icmp ult i16 %2, 128
-  br i1 %cmp26, label %land.lhs.true27, label %if.then35
+  br i1 %cmp26, label %land.lhs.true27, label %if.end36
 
 land.lhs.true27:                                  ; preds = %if.end23
   %conv25 = zext nneg i16 %2 to i32
@@ -610,13 +606,11 @@ land.lhs.true27:                                  ; preds = %if.end23
   %shl32 = shl nuw i32 1, %and31
   %and33 = and i32 %3, %shl32
   %cmp34.not = icmp eq i32 %and33, 0
-  br i1 %cmp34.not, label %if.then35, label %if.end36
-
-if.then35:                                        ; preds = %land.lhs.true27, %if.end23
+  %spec.select23 = select i1 %cmp34.not, i32 -2, i32 %conv25
   br label %if.end36
 
-if.end36:                                         ; preds = %if.then35, %land.lhs.true27
-  %c2.0 = phi i32 [ %conv25, %land.lhs.true27 ], [ -2, %if.then35 ]
+if.end36:                                         ; preds = %land.lhs.true27, %if.end23
+  %c2.0 = phi i32 [ -2, %if.end23 ], [ %spec.select23, %land.lhs.true27 ]
   %sub = sub nsw i32 %c1.0, %c2.0
   %cmp37.not = icmp eq i32 %sub, 0
   br i1 %cmp37.not, label %while.cond, label %return
@@ -668,20 +662,20 @@ if.then10:                                        ; preds = %if.end8
 if.end12:                                         ; preds = %if.then10, %if.end8
   %localLength.addr.0 = phi i32 [ %call11, %if.then10 ], [ %localLength, %if.end8 ]
   %cond = tail call i32 @llvm.smin.i32(i32 %outLength.addr.0, i32 %localLength.addr.0)
-  %cmp1425 = icmp sgt i32 %cond, 0
-  br i1 %cmp1425, label %while.body, label %while.end
+  %cmp1426 = icmp sgt i32 %cond, 0
+  br i1 %cmp1426, label %while.body, label %while.end
 
 while.cond:                                       ; preds = %if.end42
-  %dec = add nsw i32 %minLength.028, -1
-  %cmp14 = icmp sgt i32 %minLength.028, 1
+  %dec = add nsw i32 %minLength.029, -1
+  %cmp14 = icmp sgt i32 %minLength.029, 1
   br i1 %cmp14, label %while.body, label %while.end, !llvm.loop !14
 
 while.body:                                       ; preds = %if.end12, %while.cond
-  %minLength.028 = phi i32 [ %dec, %while.cond ], [ %cond, %if.end12 ]
-  %localString.addr.027 = phi ptr [ %incdec.ptr30, %while.cond ], [ %localString, %if.end12 ]
-  %outString.addr.026 = phi ptr [ %incdec.ptr, %while.cond ], [ %outString, %if.end12 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %outString.addr.026, i64 1
-  %0 = load i8, ptr %outString.addr.026, align 1
+  %minLength.029 = phi i32 [ %dec, %while.cond ], [ %cond, %if.end12 ]
+  %localString.addr.028 = phi ptr [ %incdec.ptr30, %while.cond ], [ %localString, %if.end12 ]
+  %outString.addr.027 = phi ptr [ %incdec.ptr, %while.cond ], [ %outString, %if.end12 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %outString.addr.027, i64 1
+  %0 = load i8, ptr %outString.addr.027, align 1
   %cmp16 = icmp eq i8 %0, 0
   br i1 %cmp16, label %if.end29, label %if.else
 
@@ -690,7 +684,7 @@ if.else:                                          ; preds = %while.body
   %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZL15asciiFromEbcdic, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %cmp19.not = icmp eq i8 %1, 0
-  br i1 %cmp19.not, label %if.else27, label %land.lhs.true21
+  br i1 %cmp19.not, label %if.end29, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %if.else
   %conv18 = zext i8 %1 to i32
@@ -702,17 +696,15 @@ land.lhs.true21:                                  ; preds = %if.else
   %shl = shl nuw i32 1, %and
   %and24 = and i32 %2, %shl
   %cmp25.not = icmp eq i32 %and24, 0
-  br i1 %cmp25.not, label %if.else27, label %if.end29
-
-if.else27:                                        ; preds = %land.lhs.true21, %if.else
+  %spec.select = select i1 %cmp25.not, i32 -1, i32 %conv18
   br label %if.end29
 
-if.end29:                                         ; preds = %while.body, %if.else27, %land.lhs.true21
-  %c1.0 = phi i32 [ %conv18, %land.lhs.true21 ], [ -1, %if.else27 ], [ 0, %while.body ]
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %localString.addr.027, i64 2
-  %3 = load i16, ptr %localString.addr.027, align 2
+if.end29:                                         ; preds = %land.lhs.true21, %if.else, %while.body
+  %c1.0 = phi i32 [ 0, %while.body ], [ -1, %if.else ], [ %spec.select, %land.lhs.true21 ]
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %localString.addr.028, i64 2
+  %3 = load i16, ptr %localString.addr.028, align 2
   %cmp32 = icmp ult i16 %3, 128
-  br i1 %cmp32, label %land.lhs.true33, label %if.then41
+  br i1 %cmp32, label %land.lhs.true33, label %if.end42
 
 land.lhs.true33:                                  ; preds = %if.end29
   %conv31 = zext nneg i16 %3 to i32
@@ -724,13 +716,11 @@ land.lhs.true33:                                  ; preds = %if.end29
   %shl38 = shl nuw i32 1, %and37
   %and39 = and i32 %4, %shl38
   %cmp40.not = icmp eq i32 %and39, 0
-  br i1 %cmp40.not, label %if.then41, label %if.end42
-
-if.then41:                                        ; preds = %land.lhs.true33, %if.end29
+  %spec.select25 = select i1 %cmp40.not, i32 -2, i32 %conv31
   br label %if.end42
 
-if.end42:                                         ; preds = %if.then41, %land.lhs.true33
-  %c2.0 = phi i32 [ %conv31, %land.lhs.true33 ], [ -2, %if.then41 ]
+if.end42:                                         ; preds = %land.lhs.true33, %if.end29
+  %c2.0 = phi i32 [ -2, %if.end29 ], [ %spec.select25, %land.lhs.true33 ]
   %sub = sub nsw i32 %c1.0, %c2.0
   %cmp43.not = icmp eq i32 %sub, 0
   br i1 %cmp43.not, label %while.cond, label %return

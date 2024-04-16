@@ -40,7 +40,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp8, label %return.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %conv = trunc i64 %ivlen to i32
+  %conv = trunc nuw nsw i64 %ivlen to i32
   %call9 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %call, i32 noundef 9, i32 noundef %conv, ptr noundef null) #5
   %cmp10 = icmp slt i32 %call9, 1
   br i1 %cmp10, label %return.sink.split, label %lor.lhs.false12
@@ -474,23 +474,21 @@ declare i32 @tls_allocate_write_buffers_default(ptr noundef, ptr noundef, i64 no
 declare i32 @tls_initialise_write_packets_default(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i8 @tls13_get_record_type(ptr nocapture noundef readonly %rl, ptr nocapture noundef readonly %template) #2 {
+define internal zeroext i8 @tls13_get_record_type(ptr nocapture noundef readonly %rl, ptr nocapture noundef readonly %template) #2 {
 entry:
   %allow_plain_alerts = getelementptr inbounds i8, ptr %rl, i64 4284
   %0 = load i32, ptr %allow_plain_alerts, align 4
   %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load i8, ptr %template, align 8
   %cmp = icmp eq i8 %1, 21
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %spec.select = select i1 %cmp, i8 21, i8 23
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i8 [ 23, %if.end ], [ 21, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi i8 [ 23, %entry ], [ %spec.select, %land.lhs.true ]
   ret i8 %retval.0
 }
 

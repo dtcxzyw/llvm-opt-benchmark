@@ -1699,7 +1699,7 @@ rb_type.exit.thread.sink.split:                   ; preds = %rb_execarg_addopt_r
   br label %rb_type.exit.thread
 
 switch.hole_check:                                ; preds = %22
-  %switch.maskindex = trunc i64 %23 to i16
+  %switch.maskindex = trunc nuw i64 %23 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %rb_type.exit.thread, label %25
@@ -6005,7 +6005,7 @@ define dso_local i64 @rb_proc_times(i64 %0) #1 {
 
 27:                                               ; preds = %18
   %28 = lshr i64 %26, 60
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = and i32 %29, 7
   %31 = add nsw i32 %30, -3
   %.not7.i = icmp ult i32 %31, 2
@@ -6042,7 +6042,7 @@ rb_float_new_inline.exit:                         ; preds = %32, %36, %38
 
 50:                                               ; preds = %rb_float_new_inline.exit
   %51 = lshr i64 %49, 60
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw nsw i64 %51 to i32
   %53 = and i32 %52, 7
   %54 = add nsw i32 %53, -3
   %.not7.i7 = icmp ult i32 %54, 2
@@ -6078,7 +6078,7 @@ rb_float_new_inline.exit9:                        ; preds = %55, %59, %61
 
 72:                                               ; preds = %rb_float_new_inline.exit9
   %73 = lshr i64 %71, 60
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw nsw i64 %73 to i32
   %75 = and i32 %74, 7
   %76 = add nsw i32 %75, -3
   %.not7.i11 = icmp ult i32 %76, 2
@@ -6115,7 +6115,7 @@ rb_float_new_inline.exit13:                       ; preds = %77, %81, %83
 
 95:                                               ; preds = %rb_float_new_inline.exit13
   %96 = lshr i64 %94, 60
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw nsw i64 %96 to i32
   %98 = and i32 %97, 7
   %99 = add nsw i32 %98, -3
   %.not7.i15 = icmp ult i32 %99, 2
@@ -8036,30 +8036,28 @@ rb_check_arity.exit:                              ; preds = %3
   %12 = getelementptr i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 4
-  br i1 %14, label %15, label %16
+  %spec.select = select i1 %14, i64 %9, i64 %13
+  br label %15
 
 15:                                               ; preds = %11, %rb_check_arity.exit
-  br label %16
+  %.0 = phi i64 [ %9, %rb_check_arity.exit ], [ %spec.select, %11 ]
+  %16 = tail call fastcc i64 @rlimit_resource_value(i64 noundef %9)
+  store i64 %16, ptr %4, align 8
+  %17 = tail call fastcc i64 @rlimit_resource_value(i64 noundef %.0)
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %17, ptr %18, align 8
+  %19 = tail call fastcc i32 @rlimit_resource_type(i64 noundef %7)
+  %20 = call i32 @setrlimit(i32 noundef %19, ptr noundef nonnull %4) #26
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %25
 
-16:                                               ; preds = %15, %11
-  %.0 = phi i64 [ %9, %15 ], [ %13, %11 ]
-  %17 = tail call fastcc i64 @rlimit_resource_value(i64 noundef %9)
-  store i64 %17, ptr %4, align 8
-  %18 = tail call fastcc i64 @rlimit_resource_value(i64 noundef %.0)
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %18, ptr %19, align 8
-  %20 = tail call fastcc i32 @rlimit_resource_type(i64 noundef %7)
-  %21 = call i32 @setrlimit(i32 noundef %20, ptr noundef nonnull %4) #26
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %16
-  %24 = call ptr @rb_errno_ptr() #26
-  %25 = load i32, ptr %24, align 4
-  call void @rb_syserr_fail(i32 noundef %25, ptr noundef nonnull @.str.75) #28
+22:                                               ; preds = %15
+  %23 = call ptr @rb_errno_ptr() #26
+  %24 = load i32, ptr %23, align 4
+  call void @rb_syserr_fail(i32 noundef %24, ptr noundef nonnull @.str.75) #28
   unreachable
 
-26:                                               ; preds = %16
+25:                                               ; preds = %15
   ret i64 4
 }
 
@@ -8818,7 +8816,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %18, %RB_SYMBOL_P.ex
 
 85:                                               ; preds = %79
   %86 = urem i64 %80, 1000000000
-  %87 = trunc i64 %86 to i32
+  %87 = trunc nuw nsw i64 %86 to i32
   %88 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %87, ptr %88, align 8
   %89 = udiv i64 %80, 1000000000
@@ -8897,7 +8895,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %18, %RB_SYMBOL_P.ex
   %132 = urem i64 %129, 1000000000
   %133 = urem i64 %131, 1000000000
   %134 = add nuw nsw i64 %133, %132
-  %135 = trunc i64 %134 to i32
+  %135 = trunc nuw nsw i64 %134 to i32
   %136 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %135, ptr %136, align 8
   %137 = udiv i64 %129, 1000000000
@@ -8940,7 +8938,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %18, %RB_SYMBOL_P.ex
 
 157:                                              ; preds = %150
   %158 = urem i64 %152, 1000000000
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nuw nsw i64 %158 to i32
   %160 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %159, ptr %160, align 8
   %161 = udiv i64 %152, 1000000000
@@ -9216,7 +9214,7 @@ rb_num2int_inline.exit:                           ; preds = %82, %84
 
 113:                                              ; preds = %108
   %114 = lshr i64 %112, 60
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw nsw i64 %114 to i32
   %116 = and i32 %115, 7
   %117 = add nsw i32 %116, -3
   %.not7.i.i = icmp ult i32 %117, 2
@@ -12615,7 +12613,7 @@ reduce_factors.exit.i:                            ; preds = %38, %gcd_timetick_i
 
 63:                                               ; preds = %.lr.ph.split.i
   %64 = lshr i64 %62, 60
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw nsw i64 %64 to i32
   %66 = and i32 %65, 7
   %67 = add nsw i32 %66, -3
   %.not7.i.i = icmp ult i32 %67, 2
@@ -13085,7 +13083,7 @@ reduce_factors.exit:                              ; preds = %gcd_timetick_int.ex
 
 56:                                               ; preds = %.preheader
   %57 = lshr i64 %51, 60
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = and i32 %58, 7
   %60 = add nsw i32 %59, -3
   %.not7.i = icmp ult i32 %60, 2

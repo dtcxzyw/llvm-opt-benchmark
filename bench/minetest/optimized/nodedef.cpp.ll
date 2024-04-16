@@ -5681,7 +5681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %if.
   %tobool22.not = icmp eq i32 %and21, 0
   %has_color = getelementptr inbounds i8, ptr %this, i64 35
   %and21.lobit = lshr exact i32 %and21, 3
-  %frombool23 = trunc i32 %and21.lobit to i8
+  %frombool23 = trunc nuw nsw i32 %and21.lobit to i8
   store i8 %frombool23, ptr %has_color, align 1, !tbaa !202
   %and25 = and i32 %conv11, 16
   %tobool26.not = icmp eq i32 %and25, 0
@@ -14641,8 +14641,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit901: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp284) #34
   %world_aligned_mode = getelementptr inbounds i8, ptr %tsettings, i64 4
   %color = getelementptr inbounds i8, ptr %this, i64 2932
-  %conv319 = trunc i32 %material_type.1 to i8
-  %conv344 = trunc i32 %overlay_material.0 to i8
+  %conv319 = trunc nuw nsw i32 %material_type.1 to i8
+  %conv344 = trunc nuw nsw i32 %overlay_material.0 to i8
   %91 = load i8, ptr %align_style.i, align 8, !tbaa !203
   %92 = load i8, ptr %world_aligned_mode, align 4, !tbaa !215
   %93 = load i8, ptr %drawtype, align 2, !tbaa !265
@@ -15044,7 +15044,7 @@ if.then.i.i925:                                   ; preds = %invoke.cont380
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit929: ; preds = %if.then.i.i925, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i926
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp372) #34
   %special_tiles = getelementptr inbounds i8, ptr %this, i64 720
-  %conv403 = trunc i32 %special_material.0 to i8
+  %conv403 = trunc nuw nsw i32 %special_material.0 to i8
   %layers394 = getelementptr inbounds i8, ptr %this, i64 728
   %agg.tmp401.sroa.0.0.copyload = load i32, ptr %color, align 4, !tbaa !39
   %137 = load i8, ptr %backface_culling.i825, align 16, !tbaa !197, !range !198, !noundef !199
@@ -25315,7 +25315,7 @@ entry:
   %from.sroa.0.0.extract.trunc = trunc i32 %from.coerce to i16
   %to.sroa.0.0.extract.trunc = trunc i32 %to.coerce to i16
   %to.sroa.6222.0.extract.shift = lshr i32 %to.coerce, 24
-  %to.sroa.6222.0.extract.trunc = trunc i32 %to.sroa.6222.0.extract.shift to i8
+  %to.sroa.6222.0.extract.trunc = trunc nuw i32 %to.sroa.6222.0.extract.shift to i8
   %from.sroa.0.0.extract.trunc.mask = and i32 %from.coerce, 65535
   %conv.i.i = zext nneg i32 %from.sroa.0.0.extract.trunc.mask to i64
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -27119,7 +27119,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !509
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !13
@@ -27130,13 +27130,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #34
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

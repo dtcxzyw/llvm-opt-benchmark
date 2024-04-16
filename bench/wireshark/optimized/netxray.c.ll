@@ -955,7 +955,7 @@ define internal fastcc i32 @netxray_process_rec_header(ptr nocapture noundef rea
   %67 = zext i8 %65 to i16
   %68 = mul nuw nsw i16 %67, 100
   %69 = udiv i16 %68, 127
-  %70 = trunc i16 %69 to i8
+  %70 = trunc nuw i16 %69 to i8
   %71 = getelementptr inbounds i8, ptr %2, i64 119
   store i8 %70, ptr %71, align 1
   br label %183
@@ -1293,22 +1293,22 @@ declare void @atm_guess_lane_type(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define internal noundef i32 @netxray_dump_can_write_encap_1_1(i32 noundef %0) #5 {
   %2 = icmp eq i32 %0, -1
-  br i1 %2, label %wtap_encap_to_netxray_1_1_encap.exit, label %.preheader
+  br i1 %2, label %wtap_encap_to_netxray_1_1_encap.exit.thread, label %.preheader
 
 3:                                                ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %.preheader, !llvm.loop !5
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit.thread, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
   %4 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
-  br i1 %6, label %wtap_encap_to_netxray_1_1_encap.exit, label %3
+  br i1 %6, label %wtap_encap_to_netxray_1_1_encap.exit.thread, label %3
 
-wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %3, %.preheader, %1
-  %.0 = phi i32 [ -9, %1 ], [ -8, %3 ], [ 0, %.preheader ]
+wtap_encap_to_netxray_1_1_encap.exit.thread:      ; preds = %.preheader, %3, %1
+  %.0 = phi i32 [ -9, %1 ], [ 0, %.preheader ], [ -8, %3 ]
   ret i32 %.0
 }
 
@@ -1399,7 +1399,7 @@ define internal noundef i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapture noun
   br label %64
 
 28:                                               ; preds = %24
-  %29 = trunc i64 %26 to i32
+  %29 = trunc nuw i64 %26 to i32
   %30 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %29, ptr %30, align 4
   %.pre36 = load i32, ptr %14, align 8
@@ -1423,7 +1423,7 @@ define internal noundef i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapture noun
   %45 = trunc i64 %44 to i32
   store i32 %45, ptr %6, align 4
   %46 = lshr i64 %44, 32
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw i64 %46 to i32
   %48 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %47, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %1, i64 68
@@ -1542,22 +1542,22 @@ declare i64 @wtap_dump_file_tell(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define internal noundef i32 @netxray_dump_can_write_encap_2_0(i32 noundef %0) #5 {
   %2 = icmp eq i32 %0, -1
-  br i1 %2, label %wtap_encap_to_netxray_2_0_encap.exit, label %.preheader
+  br i1 %2, label %wtap_encap_to_netxray_2_0_encap.exit.thread, label %.preheader
 
 3:                                                ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit.thread, label %.preheader, !llvm.loop !7
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
   %4 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
-  br i1 %6, label %wtap_encap_to_netxray_2_0_encap.exit, label %3
+  br i1 %6, label %wtap_encap_to_netxray_2_0_encap.exit.thread, label %3
 
-wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %3, %.preheader, %1
-  %.0 = phi i32 [ -9, %1 ], [ -8, %3 ], [ 0, %.preheader ]
+wtap_encap_to_netxray_2_0_encap.exit.thread:      ; preds = %.preheader, %3, %1
+  %.0 = phi i32 [ -9, %1 ], [ 0, %.preheader ], [ -8, %3 ]
   ret i32 %.0
 }
 
@@ -1649,7 +1649,7 @@ define internal noundef i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapture noun
   br label %112
 
 29:                                               ; preds = %25
-  %30 = trunc i64 %27 to i32
+  %30 = trunc nuw i64 %27 to i32
   %31 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %30, ptr %31, align 4
   %.pre54 = load i32, ptr %7, align 8
@@ -1675,7 +1675,7 @@ define internal noundef i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapture noun
   %47 = trunc i64 %46 to i32
   store i32 %47, ptr %6, align 4
   %48 = lshr i64 %46, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %49, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %1, i64 68

@@ -339,7 +339,7 @@ declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_TYPE_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_ALGOR_copy(ptr noundef %dest, ptr noundef readonly %src) local_unnamed_addr #1 {
+define i32 @X509_ALGOR_copy(ptr noundef %dest, ptr noundef readonly %src) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dest, null
@@ -382,7 +382,7 @@ if.end19:                                         ; preds = %if.then13, %if.end9
   %parameter20 = getelementptr inbounds i8, ptr %src, i64 8
   %3 = load ptr, ptr %parameter20, align 8
   %cmp21.not = icmp eq ptr %3, null
-  br i1 %cmp21.not, label %if.end36, label %if.then22
+  br i1 %cmp21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
   %call23 = tail call ptr @ASN1_TYPE_new() #4
@@ -396,14 +396,12 @@ if.end28:                                         ; preds = %if.then22
   %value = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %value, align 8
   %call32 = tail call i32 @ASN1_TYPE_set1(ptr noundef nonnull %call23, i32 noundef %5, ptr noundef %6) #4
-  %cmp33 = icmp eq i32 %call32, 0
-  br i1 %cmp33, label %return, label %if.end36
-
-if.end36:                                         ; preds = %if.end28, %if.end19
+  %cmp33 = icmp ne i32 %call32, 0
+  %spec.select = zext i1 %cmp33 to i32
   br label %return
 
-return:                                           ; preds = %if.end28, %if.then22, %if.then13, %entry, %if.end36
-  %retval.0 = phi i32 [ 1, %if.end36 ], [ 0, %entry ], [ 0, %if.then13 ], [ 0, %if.then22 ], [ 0, %if.end28 ]
+return:                                           ; preds = %if.end28, %if.end19, %if.then22, %if.then13, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then13 ], [ 0, %if.then22 ], [ 1, %if.end19 ], [ %spec.select, %if.end28 ]
   ret i32 %retval.0
 }
 

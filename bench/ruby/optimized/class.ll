@@ -5375,7 +5375,7 @@ define internal noundef i32 @separate_symbol(i64 noundef %0, i64 noundef %1, i64
 
 RB_SYMBOL_P.exit.thread8:                         ; preds = %7
   %12 = getelementptr i8, ptr %4, i64 8
-  br label %18
+  br label %RB_SYMBOL_P.exit.thread
 
 RB_SYMBOL_P.exit:                                 ; preds = %7
   %13 = inttoptr i64 %0 to ptr
@@ -5383,26 +5383,24 @@ RB_SYMBOL_P.exit:                                 ; preds = %7
   %.fr10 = freeze i64 %14
   %15 = and i64 %.fr10, 31
   %16 = icmp eq i64 %15, 20
-  %17 = getelementptr i8, ptr %4, i64 8
-  br i1 %16, label %RB_SYMBOL_P.exit.thread, label %18
+  %spec.select.idx = select i1 %16, i64 0, i64 8
+  %spec.select = getelementptr i8, ptr %4, i64 %spec.select.idx
+  br label %RB_SYMBOL_P.exit.thread
 
-RB_SYMBOL_P.exit.thread:                          ; preds = %3, %RB_SYMBOL_P.exit
-  br label %18
+RB_SYMBOL_P.exit.thread:                          ; preds = %RB_SYMBOL_P.exit, %3, %RB_SYMBOL_P.exit.thread8
+  %17 = phi ptr [ %12, %RB_SYMBOL_P.exit.thread8 ], [ %4, %3 ], [ %spec.select, %RB_SYMBOL_P.exit ]
+  %18 = load i64, ptr %17, align 8
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %19, label %21
 
-18:                                               ; preds = %RB_SYMBOL_P.exit.thread8, %RB_SYMBOL_P.exit, %RB_SYMBOL_P.exit.thread
-  %19 = phi ptr [ %4, %RB_SYMBOL_P.exit.thread ], [ %17, %RB_SYMBOL_P.exit ], [ %12, %RB_SYMBOL_P.exit.thread8 ]
-  %20 = load i64, ptr %19, align 8
-  %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %21, label %23
+19:                                               ; preds = %RB_SYMBOL_P.exit.thread
+  %20 = tail call i64 @rb_hash_new() #18
+  store i64 %20, ptr %17, align 8
+  br label %21
 
-21:                                               ; preds = %18
-  %22 = tail call i64 @rb_hash_new() #18
-  store i64 %22, ptr %19, align 8
-  br label %23
-
-23:                                               ; preds = %21, %18
-  %24 = phi i64 [ %22, %21 ], [ %20, %18 ]
-  %25 = tail call i64 @rb_hash_aset(i64 noundef %24, i64 noundef %0, i64 noundef %1) #18
+21:                                               ; preds = %19, %RB_SYMBOL_P.exit.thread
+  %22 = phi i64 [ %20, %19 ], [ %18, %RB_SYMBOL_P.exit.thread ]
+  %23 = tail call i64 @rb_hash_aset(i64 noundef %22, i64 noundef %0, i64 noundef %1) #18
   ret i32 0
 }
 
@@ -5537,7 +5535,7 @@ define dso_local i32 @rb_get_kwargs(i64 noundef %0, ptr nocapture noundef nonnul
 .lr.ph103.split.us:                               ; preds = %.lr.ph103, %.lr.ph103.split.us
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph103.split.us ], [ 0, %.lr.ph103 ]
   %.065102.us = phi i32 [ %spec.select85.us, %.lr.ph103.split.us ], [ %.169, %.lr.ph103 ]
-  %46 = trunc i64 %indvars.iv130 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv130 to i32
   %47 = add i32 %46, %2
   %48 = sext i32 %47 to i64
   %49 = getelementptr i64, ptr %1, i64 %48
@@ -5555,7 +5553,7 @@ define dso_local i32 @rb_get_kwargs(i64 noundef %0, ptr nocapture noundef nonnul
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %63
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %63 ], [ 0, %.lr.ph103 ]
   %.065102 = phi i32 [ %spec.select85, %63 ], [ %.169, %.lr.ph103 ]
-  %54 = trunc i64 %indvars.iv125 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv125 to i32
   %55 = add i32 %54, %2
   %56 = sext i32 %55 to i64
   %57 = getelementptr i64, ptr %1, i64 %56

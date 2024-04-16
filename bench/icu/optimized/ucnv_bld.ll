@@ -965,7 +965,7 @@ while.end93:                                      ; preds = %while.cond13, %whil
 declare ptr @ucnv_io_getConverterName_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucnv_createConverter_75(ptr noundef %myUConverter, ptr noundef %converterName, ptr noundef %err) local_unnamed_addr #0 {
+define ptr @ucnv_createConverter_75(ptr noundef %myUConverter, ptr noundef %converterName, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %stackPieces = alloca %struct.UConverterNamePieces, align 4
   %stackArgs = alloca %struct.UConverterLoadArgs, align 8
@@ -973,20 +973,18 @@ entry:
   store i32 40, ptr %stackArgs, align 8
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %if.end6, label %if.then
+  br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call1 = call ptr @ucnv_loadSharedData_75(ptr noundef %converterName, ptr noundef nonnull %stackPieces, ptr noundef nonnull %stackArgs, ptr noundef nonnull %err)
   %call2 = call ptr @ucnv_createConverterFromSharedData_75(ptr noundef %myUConverter, ptr noundef %call1, ptr noundef nonnull %stackArgs, ptr noundef nonnull %err)
   %1 = load i32, ptr %err, align 4
   %cmp.i5 = icmp sgt i32 %1, 0
-  br i1 %cmp.i5, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.then, %entry
+  %spec.select = select i1 %cmp.i5, ptr null, ptr %call2
   br label %return
 
-return:                                           ; preds = %if.then, %if.end6
-  %retval.0 = phi ptr [ null, %if.end6 ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %if.then ]
   ret ptr %retval.0
 }
 
@@ -1545,13 +1543,13 @@ if.end.i3:                                        ; preds = %if.then4.i
   %call3.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #10
   store ptr %call3.i, ptr @_ZL20gAvailableConverters, align 8
   %tobool4.not.i = icmp eq ptr %call3.i, null
-  br i1 %tobool4.not.i, label %if.then5.i, label %ucnv_loadSharedData_75.exit.i
+  br i1 %tobool4.not.i, label %if.then5.i, label %ucnv_createConverter_75.exit.i
 
 if.then5.i:                                       ; preds = %if.end.i3
   store i32 7, ptr %pErrorCode, align 4
   br label %_ZL27initAvailableConvertersListR10UErrorCode.exit
 
-ucnv_loadSharedData_75.exit.i:                    ; preds = %if.end.i3
+ucnv_createConverter_75.exit.i:                   ; preds = %if.end.i3
   store i32 0, ptr %localStatus.i, align 4
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %stackPieces.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %stackArgs.i.i)
@@ -1569,16 +1567,16 @@ ucnv_loadSharedData_75.exit.i:                    ; preds = %if.end.i3
   %call2.i.i = call ptr @ucnv_createConverterFromSharedData_75(ptr noundef nonnull %tempConverter.i, ptr noundef nonnull @_UTF8Data_75, ptr noundef nonnull %stackArgs.i.i, ptr noundef nonnull %localStatus.i)
   %3 = load i32, ptr %localStatus.i, align 4
   %cmp.i5.i.i = icmp sgt i32 %3, 0
-  %spec.select.i = select i1 %cmp.i5.i.i, ptr null, ptr %call2.i.i
+  %spec.select.i.i = select i1 %cmp.i5.i.i, ptr null, ptr %call2.i.i
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %stackPieces.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %stackArgs.i.i)
-  call void @ucnv_close_75(ptr noundef %spec.select.i)
+  call void @ucnv_close_75(ptr noundef %spec.select.i.i)
   store i16 0, ptr @_ZL24gAvailableConverterCount, align 2
   %cmp13.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp13.i, label %for.body.i, label %for.end.i
 
-for.body.i:                                       ; preds = %ucnv_loadSharedData_75.exit.i, %for.inc.i
-  %idx.014.i = phi i32 [ %inc13.i, %for.inc.i ], [ 0, %ucnv_loadSharedData_75.exit.i ]
+for.body.i:                                       ; preds = %ucnv_createConverter_75.exit.i, %for.inc.i
+  %idx.014.i = phi i32 [ %inc13.i, %for.inc.i ], [ 0, %ucnv_createConverter_75.exit.i ]
   store i32 0, ptr %localStatus.i, align 4
   %call8.i = call ptr @uenum_next_75(ptr noundef %call.i, ptr noundef null, ptr noundef nonnull %localStatus.i)
   %call9.i = call signext i8 @ucnv_canCreateConverter_75(ptr noundef %call8.i, ptr noundef nonnull %localStatus.i), !range !11
@@ -1600,7 +1598,7 @@ for.inc.i:                                        ; preds = %if.then11.i, %for.b
   %exitcond.not.i = icmp eq i32 %inc13.i, %call1.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !12
 
-for.end.i:                                        ; preds = %for.inc.i, %ucnv_loadSharedData_75.exit.i
+for.end.i:                                        ; preds = %for.inc.i, %ucnv_createConverter_75.exit.i
   call void @uenum_close_75(ptr noundef %call.i)
   %.pre = load i32, ptr %pErrorCode, align 4
   br label %_ZL27initAvailableConvertersListR10UErrorCode.exit

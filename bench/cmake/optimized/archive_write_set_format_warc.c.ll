@@ -316,7 +316,7 @@ define internal fastcc i64 @_popul_ehdr(ptr noundef %0, ptr nocapture noundef re
   %11 = load i32, ptr %1, align 8
   %12 = add i32 %11, -4
   %or.cond = icmp ult i32 %12, -3
-  br i1 %or.cond, label %78, label %13
+  br i1 %or.cond, label %77, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 8
@@ -329,7 +329,7 @@ define internal fastcc i64 @_popul_ehdr(ptr noundef %0, ptr nocapture noundef re
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %33, label %21
+  br i1 %.not, label %32, label %21
 
 21:                                               ; preds = %13
   %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 58) #16
@@ -346,106 +346,104 @@ define internal fastcc i64 @_popul_ehdr(ptr noundef %0, ptr nocapture noundef re
   %28 = getelementptr inbounds i8, ptr %22, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 47
-  br i1 %30, label %32, label %31
+  %spec.select26 = select i1 %30, ptr @_popul_ehdr._uri, ptr @_popul_ehdr._fil
+  br label %31
 
-31:                                               ; preds = %27, %23, %21
+31:                                               ; preds = %27, %21, %23
+  %.019 = phi ptr [ @_popul_ehdr._fil, %23 ], [ @_popul_ehdr._fil, %21 ], [ %spec.select26, %27 ]
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %.019, ptr noundef nonnull %20) #14
   br label %32
 
-32:                                               ; preds = %27, %31
-  %.019 = phi ptr [ @_popul_ehdr._fil, %31 ], [ @_popul_ehdr._uri, %27 ]
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %.019, ptr noundef nonnull %20) #14
-  br label %33
-
-33:                                               ; preds = %32, %13
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
-  %35 = load i64, ptr %34, align 8
+32:                                               ; preds = %31, %13
+  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = load i64, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %8)
-  store i64 %35, ptr %6, align 8
-  %36 = call ptr @gmtime_r(ptr noundef nonnull %6, ptr noundef nonnull %7) #14
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %xstrftime.exit, label %37
+  store i64 %34, ptr %6, align 8
+  %35 = call ptr @gmtime_r(ptr noundef nonnull %6, ptr noundef nonnull %7) #14
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %xstrftime.exit, label %36
 
-37:                                               ; preds = %33
-  %38 = call i64 @strftime(ptr noundef nonnull %8, i64 noundef 99, ptr noundef nonnull @.str.15, ptr noundef nonnull %36) #14
-  %39 = call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef %38) #14
+36:                                               ; preds = %32
+  %37 = call i64 @strftime(ptr noundef nonnull %8, i64 noundef 99, ptr noundef nonnull @.str.15, ptr noundef nonnull %35) #14
+  %38 = call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef %37) #14
   br label %xstrftime.exit
 
-xstrftime.exit:                                   ; preds = %33, %37
+xstrftime.exit:                                   ; preds = %32, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8)
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
-  %41 = load i64, ptr %40, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = load i64, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5)
-  store i64 %41, ptr %3, align 8
-  %42 = call ptr @gmtime_r(ptr noundef nonnull %3, ptr noundef nonnull %4) #14
-  %.not.i26 = icmp eq ptr %42, null
-  br i1 %.not.i26, label %xstrftime.exit27, label %43
+  store i64 %40, ptr %3, align 8
+  %41 = call ptr @gmtime_r(ptr noundef nonnull %3, ptr noundef nonnull %4) #14
+  %.not.i27 = icmp eq ptr %41, null
+  br i1 %.not.i27, label %xstrftime.exit28, label %42
 
-43:                                               ; preds = %xstrftime.exit
-  %44 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 99, ptr noundef nonnull @.str.16, ptr noundef nonnull %42) #14
-  %45 = call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %44) #14
-  br label %xstrftime.exit27
+42:                                               ; preds = %xstrftime.exit
+  %43 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 99, ptr noundef nonnull @.str.16, ptr noundef nonnull %41) #14
+  %44 = call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %43) #14
+  br label %xstrftime.exit28
 
-xstrftime.exit27:                                 ; preds = %xstrftime.exit, %43
+xstrftime.exit28:                                 ; preds = %xstrftime.exit, %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %67
+  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %66
 
-49:                                               ; preds = %xstrftime.exit27
-  %50 = call i32 @archive_random(ptr noundef nonnull %10, i64 noundef 16) #14
-  %51 = getelementptr inbounds i8, ptr %10, i64 4
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, -61441
-  %54 = or disjoint i32 %53, 16384
-  store i32 %54, ptr %51, align 4
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
-  %56 = load i32, ptr %55, align 4
-  %57 = and i32 %56, 1073741823
-  %58 = or disjoint i32 %57, -2147483648
-  store i32 %58, ptr %55, align 4
-  %59 = load i32, ptr %10, align 4
-  %60 = lshr i32 %52, 16
-  %61 = and i32 %54, 20479
-  %62 = lshr i32 %58, 16
-  %63 = and i32 %56, 65535
-  %64 = getelementptr inbounds i8, ptr %10, i64 12
-  %65 = load i32, ptr %64, align 4
-  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 48, ptr noundef nonnull @.str.17, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63, i32 noundef %65) #14
-  br label %67
+48:                                               ; preds = %xstrftime.exit28
+  %49 = call i32 @archive_random(ptr noundef nonnull %10, i64 noundef 16) #14
+  %50 = getelementptr inbounds i8, ptr %10, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, -61441
+  %53 = or disjoint i32 %52, 16384
+  store i32 %53, ptr %50, align 4
+  %54 = getelementptr inbounds i8, ptr %10, i64 8
+  %55 = load i32, ptr %54, align 4
+  %56 = and i32 %55, 1073741823
+  %57 = or disjoint i32 %56, -2147483648
+  store i32 %57, ptr %54, align 4
+  %58 = load i32, ptr %10, align 4
+  %59 = lshr i32 %51, 16
+  %60 = and i32 %53, 20479
+  %61 = lshr i32 %57, 16
+  %62 = and i32 %55, 65535
+  %63 = getelementptr inbounds i8, ptr %10, i64 12
+  %64 = load i32, ptr %63, align 4
+  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 48, ptr noundef nonnull @.str.17, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %64) #14
+  br label %66
 
-67:                                               ; preds = %49, %xstrftime.exit27
-  %68 = phi ptr [ %9, %49 ], [ %47, %xstrftime.exit27 ]
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %68) #14
-  %69 = getelementptr inbounds i8, ptr %1, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %.not25 = icmp eq ptr %70, null
-  br i1 %.not25, label %72, label %71
+66:                                               ; preds = %48, %xstrftime.exit28
+  %67 = phi ptr [ %9, %48 ], [ %46, %xstrftime.exit28 ]
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %67) #14
+  %68 = getelementptr inbounds i8, ptr %1, i64 40
+  %69 = load ptr, ptr %68, align 8
+  %.not25 = icmp eq ptr %69, null
+  br i1 %.not25, label %71, label %70
 
-71:                                               ; preds = %67
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %70) #14
-  br label %72
+70:                                               ; preds = %66
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %69) #14
+  br label %71
 
-72:                                               ; preds = %71, %67
-  %73 = getelementptr inbounds i8, ptr %1, i64 48
-  %74 = load i64, ptr %73, align 8
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i64 noundef %74) #14
-  %75 = call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i64 noundef 2) #14
-  %76 = load i64, ptr %14, align 8
-  %77 = icmp ugt i64 %76, 511
-  %spec.select = select i1 %77, i64 -1, i64 %76
-  br label %78
+71:                                               ; preds = %70, %66
+  %72 = getelementptr inbounds i8, ptr %1, i64 48
+  %73 = load i64, ptr %72, align 8
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i64 noundef %73) #14
+  %74 = call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i64 noundef 2) #14
+  %75 = load i64, ptr %14, align 8
+  %76 = icmp ugt i64 %75, 511
+  %spec.select = select i1 %76, i64 -1, i64 %75
+  br label %77
 
-78:                                               ; preds = %2, %72
-  %.0 = phi i64 [ %spec.select, %72 ], [ -1, %2 ]
+77:                                               ; preds = %2, %71
+  %.0 = phi i64 [ %spec.select, %71 ], [ -1, %2 ]
   ret i64 %.0
 }
 

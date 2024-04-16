@@ -92,12 +92,12 @@ define ptr @Ver_ParseGetName(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %4, align 8
   %5 = tail call i32 @Ver_StreamIsOkey(ptr noundef %3) #4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %31, label %6
+  br i1 %.not, label %30, label %6
 
 6:                                                ; preds = %1
   %7 = tail call i32 @Ver_ParseSkipComments(ptr noundef nonnull %0), !range !6
   %.not25 = icmp eq i32 %7, 0
-  br i1 %.not25, label %31, label %8
+  br i1 %.not25, label %30, label %8
 
 8:                                                ; preds = %6
   %9 = tail call signext i8 @Ver_StreamScanChar(ptr noundef %3) #4
@@ -149,13 +149,11 @@ define ptr @Ver_ParseGetName(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %26
   %29 = tail call i32 @Ver_ParseSkipComments(ptr noundef %0), !range !6
   %.not28 = icmp eq i32 %29, 0
-  br i1 %.not28, label %31, label %30
+  %spec.select = select i1 %.not28, ptr null, ptr %.024
+  br label %30
 
-30:                                               ; preds = %28, %26
-  br label %31
-
-31:                                               ; preds = %28, %6, %1, %30
-  %.023 = phi ptr [ %.024, %30 ], [ null, %1 ], [ null, %6 ], [ null, %28 ]
+30:                                               ; preds = %28, %26, %6, %1
+  %.023 = phi ptr [ null, %1 ], [ null, %6 ], [ %.024, %26 ], [ %spec.select, %28 ]
   ret ptr %.023
 }
 

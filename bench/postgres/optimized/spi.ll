@@ -229,7 +229,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %51 = load i32, ptr @SPI_result, align 4
   %52 = getelementptr inbounds i8, ptr %39, i64 96
   store i32 %51, ptr %52, align 8
-  %53 = trunc i8 %45 to i1
+  %53 = trunc nuw i8 %45 to i1
   %54 = load ptr, ptr @TopTransactionContext, align 8
   %55 = load ptr, ptr @PortalContext, align 8
   %56 = select i1 %53, ptr %54, ptr %55
@@ -572,7 +572,7 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr @SPI_result, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv12, -1
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nsw i64 %indvars.iv.next to i32
   %22 = icmp eq i64 %indvars.iv12, 0
   %23 = getelementptr %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
   %storemerge = select i1 %22, ptr null, ptr %23
@@ -1109,7 +1109,7 @@ list_length.exit160:                              ; preds = %list_length.exit
   br i1 %125, label %.lr.ph, label %126
 
 126:                                              ; preds = %123
-  %127 = trunc i8 %.1125215339 to i1
+  %127 = trunc nuw i8 %.1125215339 to i1
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %126
@@ -1128,7 +1128,7 @@ list_length.exit160.thread:                       ; preds = %104
   %.2126254 = phi i8 [ %.1125215339, %list_length.exit160.thread ], [ %.1125215339, %list_length.exit160 ], [ %.1125215339, %116 ], [ 1, %129 ], [ %.1125215339, %123 ], [ %.1125215339, %120 ]
   %131 = getelementptr inbounds i8, ptr %111, i64 4
   %132 = getelementptr inbounds i8, ptr %111, i64 16
-  %133 = trunc i8 %.2126254 to i1
+  %133 = trunc nuw i8 %.2126254 to i1
   %.not230 = xor i1 %133, true
   %134 = load i32, ptr %131, align 4
   %135 = icmp sgt i32 %134, 0
@@ -1466,7 +1466,7 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   %.3121 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %.2120, %288 ], [ %.1119205331, %149 ], [ %.1119205331, %151 ], [ %.1119.lcssa, %293 ]
   %.3117 = phi i64 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.2116, %288 ], [ %.1115206330, %149 ], [ %.1115206330, %151 ], [ %.1115.lcssa, %293 ]
   %.3 = phi i32 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.0123, %288 ], [ -8, %149 ], [ -2, %151 ], [ %.1.lcssa, %293 ]
-  %297 = trunc i8 %.3127 to i1
+  %297 = trunc nuw i8 %.3127 to i1
   br i1 %297, label %298, label %299
 
 298:                                              ; preds = %.thread
@@ -2971,11 +2971,11 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly %0, ptr noundef %1, i
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
-  %60 = trunc i64 %indvars.iv70 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv70 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit76:                           ; preds = %.lr.ph.split
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit76, %._crit_edge.loopexit, %20
@@ -3054,7 +3054,7 @@ define dso_local i32 @SPI_fnumber(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = add nuw nsw i32 %16, 1
   br label %27
 
@@ -5005,22 +5005,22 @@ _SPI_find_ENR_by_name.exit.thread.i39:            ; preds = %_SPI_find_ENR_by_na
   %.phi.trans.insert.i41 = getelementptr inbounds i8, ptr %.pre.i40, i64 64
   %.pre14.i42 = load ptr, ptr %.phi.trans.insert.i41, align 8
   %70 = icmp eq ptr %.pre14.i42, null
-  br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i43, label %SPI_register_relation.exit44
+  br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i43, label %74
 
 _SPI_find_ENR_by_name.exit.thread.thread.i43:     ; preds = %_SPI_find_ENR_by_name.exit.thread.i39, %65
   %71 = tail call ptr @create_queryEnv() #15
   %72 = load ptr, ptr @_SPI_current, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 64
   store ptr %71, ptr %73, align 8
-  br label %SPI_register_relation.exit44
+  br label %74
 
-SPI_register_relation.exit44:                     ; preds = %_SPI_find_ENR_by_name.exit.thread.i39, %_SPI_find_ENR_by_name.exit.thread.thread.i43
-  %74 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i43 ], [ %.pre14.i42, %_SPI_find_ENR_by_name.exit.thread.i39 ]
-  tail call void @register_ENR(ptr noundef %74, ptr noundef nonnull %43) #15
+74:                                               ; preds = %_SPI_find_ENR_by_name.exit.thread.thread.i43, %_SPI_find_ENR_by_name.exit.thread.i39
+  %75 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i43 ], [ %.pre14.i42, %_SPI_find_ENR_by_name.exit.thread.i39 ]
+  tail call void @register_ENR(ptr noundef %75, ptr noundef nonnull %43) #15
   br label %SPI_register_relation.exit.thread
 
-SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i36, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %39, %SPI_register_relation.exit44, %1
-  %.0 = phi i32 [ -6, %1 ], [ 17, %SPI_register_relation.exit44 ], [ 17, %39 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i36 ], [ -4, %63 ], [ -6, %42 ]
+SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i36, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %74, %39, %1
+  %.0 = phi i32 [ -6, %1 ], [ 17, %39 ], [ 17, %74 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i36 ], [ -4, %63 ], [ -6, %42 ]
   ret i32 %.0
 }
 

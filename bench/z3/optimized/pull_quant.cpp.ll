@@ -4898,13 +4898,13 @@ if.then32:                                        ; preds = %invoke.cont30
   br i1 %or.cond.not, label %invoke.cont44, label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %if.then32
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %frombool = xor i8 %13, 1
   br label %if.end50
 
 invoke.cont44:                                    ; preds = %if.then32
   %cmp.i87 = icmp eq i32 %12, 0
-  %14 = trunc i8 %forall_children.0289 to i1
+  %14 = trunc nuw i8 %forall_children.0289 to i1
   %15 = xor i1 %cmp.i87, %14
   br i1 %15, label %cleanup, label %if.end50
 
@@ -5095,7 +5095,8 @@ sw.bb26.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.i.i.i ]
   %42 = load ptr, ptr %__first.addr.2.i.i.i, align 8
   %cmp.i.i31.i.i.i = icmp eq ptr %42, %32
-  br i1 %cmp.i.i31.i.i.i, label %invoke.cont80, label %if.else94
+  %spec.select.i.i.i = select i1 %cmp.i.i31.i.i.i, ptr %__first.addr.2.i.i.i, ptr %add.ptr.i101
+  br label %invoke.cont80
 
 invoke.cont80.loopexit.split.loop.exit:           ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 8
@@ -5110,7 +5111,7 @@ invoke.cont80.loopexit.split.loop.exit317:        ; preds = %if.end7.i.i.i
   br label %invoke.cont80
 
 invoke.cont80:                                    ; preds = %for.body.i.i.i, %invoke.cont80.loopexit.split.loop.exit, %invoke.cont80.loopexit.split.loop.exit315, %invoke.cont80.loopexit.split.loop.exit317, %sw.bb.i.i.i, %sw.bb21.i.i.i, %sw.bb26.i.i.i
-  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb26.i.i.i ], [ %incdec.ptr.i.i.i.le, %invoke.cont80.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %invoke.cont80.loopexit.split.loop.exit315 ], [ %incdec.ptr8.i.i.i.le, %invoke.cont80.loopexit.split.loop.exit317 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %spec.select.i.i.i, %sw.bb26.i.i.i ], [ %incdec.ptr.i.i.i.le, %invoke.cont80.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %invoke.cont80.loopexit.split.loop.exit315 ], [ %incdec.ptr8.i.i.i.le, %invoke.cont80.loopexit.split.loop.exit317 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
   %cmp82.not = icmp eq ptr %retval.0.i.i.i, %add.ptr.i101
   br i1 %cmp82.not, label %if.else94, label %if.then83
 
@@ -5188,7 +5189,7 @@ _ZN6bufferI6symbolLb1ELj16EE9push_backEOS0_.exit: ; preds = %entry.if.end_crit_e
   store i64 %50, ptr %add.ptr.i134, align 8
   br label %if.end96
 
-if.else94:                                        ; preds = %sw.bb26.i.i.i, %for.end.i.i.i, %invoke.cont80
+if.else94:                                        ; preds = %for.end.i.i.i, %invoke.cont80
   %51 = load i32, ptr %m_capacity.i, align 4
   %cmp.not.i143 = icmp ult i32 %34, %51
   br i1 %cmp.not.i143, label %_ZN6bufferI6symbolLb1ELj16EE9push_backERKS0_.exit, label %if.then.i144

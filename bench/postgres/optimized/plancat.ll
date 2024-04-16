@@ -376,7 +376,7 @@ define dso_local void @get_relation_info(ptr noundef %0, i32 noundef %1, i1 noun
   %212 = getelementptr i32, ptr %211, i64 %indvars.iv373
   store i32 %210, ptr %212, align 4
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
-  %213 = trunc i64 %indvars.iv.next374 to i32
+  %213 = trunc nuw nsw i64 %indvars.iv.next374 to i32
   %214 = call zeroext i1 @index_can_return(ptr noundef %140, i32 noundef %213) #10
   %215 = load ptr, ptr %200, align 8
   %216 = getelementptr i8, ptr %215, i64 %indvars.iv373
@@ -3156,7 +3156,7 @@ define dso_local noundef zeroext i1 @has_unique_index(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @has_row_triggers(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @has_row_triggers(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3187,79 +3187,70 @@ define dso_local noundef zeroext i1 @has_row_triggers(ptr nocapture noundef read
   %22 = tail call ptr @table_open(i32 noundef %21, i32 noundef 0) #10
   %23 = getelementptr inbounds i8, ptr %22, i64 104
   %24 = load ptr, ptr %23, align 8
-  switch i32 %2, label %55 [
+  switch i32 %2, label %52 [
     i32 3, label %25
-    i32 2, label %35
-    i32 4, label %45
-    i32 5, label %58
+    i32 2, label %34
+    i32 4, label %43
+    i32 5, label %55
   ]
 
 25:                                               ; preds = %18
   %.not23 = icmp eq ptr %24, null
-  br i1 %.not23, label %58, label %26
+  br i1 %.not23, label %55, label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %24, i64 13
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
-  br i1 %29, label %34, label %30
+  br i1 %29, label %55, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %24, i64 12
   %32 = load i8, ptr %31, align 4
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %58
+  br label %55
 
-34:                                               ; preds = %30, %26
-  br label %58
-
-35:                                               ; preds = %18
+34:                                               ; preds = %18
   %.not22 = icmp eq ptr %24, null
-  br i1 %.not22, label %58, label %36
+  br i1 %.not22, label %55, label %35
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %24, i64 18
-  %38 = load i8, ptr %37, align 2
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %44, label %40
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds i8, ptr %24, i64 18
+  %37 = load i8, ptr %36, align 2
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %55, label %39
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %24, i64 17
-  %42 = load i8, ptr %41, align 1
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %58
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %24, i64 17
+  %41 = load i8, ptr %40, align 1
+  %42 = trunc i8 %41 to i1
+  br label %55
 
-44:                                               ; preds = %40, %36
-  br label %58
-
-45:                                               ; preds = %18
+43:                                               ; preds = %18
   %.not21 = icmp eq ptr %24, null
-  br i1 %.not21, label %58, label %46
+  br i1 %.not21, label %55, label %44
 
-46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %24, i64 23
-  %48 = load i8, ptr %47, align 1
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %54, label %50
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds i8, ptr %24, i64 23
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %55, label %48
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %24, i64 22
-  %52 = load i8, ptr %51, align 2
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %58
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %24, i64 22
+  %50 = load i8, ptr %49, align 2
+  %51 = trunc i8 %50 to i1
+  br label %55
 
-54:                                               ; preds = %50, %46
-  br label %58
-
-55:                                               ; preds = %18
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %2) #10
+52:                                               ; preds = %18
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %53)
+  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2250, ptr noundef nonnull @__func__.has_row_triggers) #10
   unreachable
 
-58:                                               ; preds = %18, %45, %50, %54, %35, %40, %44, %25, %30, %34
-  %.0 = phi i1 [ true, %54 ], [ false, %50 ], [ false, %45 ], [ true, %44 ], [ false, %40 ], [ false, %35 ], [ true, %34 ], [ false, %30 ], [ false, %25 ], [ false, %18 ]
+55:                                               ; preds = %48, %39, %30, %18, %44, %35, %26, %43, %34, %25
+  %.0 = phi i1 [ false, %43 ], [ false, %34 ], [ false, %25 ], [ true, %26 ], [ true, %35 ], [ true, %44 ], [ false, %18 ], [ %33, %30 ], [ %42, %39 ], [ %51, %48 ]
   tail call void @table_close(ptr noundef nonnull %22, i32 noundef 0) #10
   ret i1 %.0
 }

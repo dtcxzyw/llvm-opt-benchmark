@@ -1091,7 +1091,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %if.end11, label %for.body, !llvm.loop !6
 
 if.end11:                                         ; preds = %for.inc, %if.then
-  br i1 %check_descendants, label %for.body17.lr.ph, label %if.end98
+  br i1 %check_descendants, label %for.body17.lr.ph, label %return
 
 for.body17.lr.ph:                                 ; preds = %if.end11
   %map_.i = getelementptr inbounds i8, ptr %it, i64 24
@@ -1343,13 +1343,13 @@ for.inc81:                                        ; preds = %for.cond57, %if.the
   br i1 %cmp16.not, label %if.end85, label %for.body17, !llvm.loop !8
 
 if.end85:                                         ; preds = %for.inc81, %entry
-  br i1 %check_descendants, label %land.lhs.true87, label %if.end98
+  br i1 %check_descendants, label %land.lhs.true87, label %return
 
 land.lhs.true87:                                  ; preds = %if.end85
   %extensions_offset_.i.i = getelementptr inbounds i8, ptr %call2, i64 40
   %32 = load i32, ptr %extensions_offset_.i.i, align 8
   %cmp.i.i82.not = icmp eq i32 %32, -1
-  br i1 %cmp.i.i82.not, label %if.end98, label %if.then89
+  br i1 %cmp.i.i82.not, label %return, label %if.then89
 
 if.then89:                                        ; preds = %land.lhs.true87
   %call90 = call noundef ptr @_ZN6google8protobuf14MessageFactory17generated_factoryEv()
@@ -1359,13 +1359,10 @@ if.then89:                                        ; preds = %land.lhs.true87
   %call93 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %call90, ptr noundef nonnull %1)
   %call94 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8protobuf10Reflection15GetExtensionSetERKNS0_7MessageE(ptr noundef nonnull align 8 dereferenceable(112) %call2, ptr noundef nonnull align 8 dereferenceable(16) %message)
   %call95 = call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %call94, ptr noundef %call93)
-  br i1 %call95, label %if.end98, label %return
-
-if.end98:                                         ; preds = %if.end11, %if.then89, %land.lhs.true87, %if.end85
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.then70, %_ZN6google8protobuf11MapIteratorD2Ev.exit76, %for.body59, %if.then89, %if.end98
-  %retval.3 = phi i1 [ true, %if.end98 ], [ false, %if.then89 ], [ false, %for.body59 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %if.then70 ], [ false, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.then70, %_ZN6google8protobuf11MapIteratorD2Ev.exit76, %for.body59, %if.then89, %if.end85, %land.lhs.true87, %if.end11
+  %retval.3 = phi i1 [ true, %if.end11 ], [ true, %land.lhs.true87 ], [ true, %if.end85 ], [ %call95, %if.then89 ], [ false, %for.body59 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %if.then70 ], [ false, %land.lhs.true ]
   ret i1 %retval.3
 }
 
@@ -3376,8 +3373,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5

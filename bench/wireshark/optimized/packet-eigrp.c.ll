@@ -1798,8 +1798,8 @@ define internal fastcc void @dissect_eigrp_services(ptr noundef %0, ptr noundef 
   %13 = getelementptr inbounds i8, ptr %3, i64 408
   br label %14
 
-14:                                               ; preds = %.lr.ph, %78
-  %.090 = phi i32 [ 0, %.lr.ph ], [ %79, %78 ]
+14:                                               ; preds = %.lr.ph, %77
+  %.090 = phi i32 [ 0, %.lr.ph ], [ %78, %77 ]
   %15 = call zeroext i16 @tvb_get_ntohs(ptr noundef %10, i32 noundef %.090) #6
   %16 = load ptr, ptr %6, align 8
   %17 = icmp eq i32 %.090, 0
@@ -1865,7 +1865,7 @@ define internal fastcc void @dissect_eigrp_services(ptr noundef %0, ptr noundef 
   %64 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %63, ptr noundef %10, i32 noundef %62, i32 noundef 4, i32 noundef 0) #6
   %65 = add i32 %.090, 50
   %.not = icmp eq i16 %35, 0
-  br i1 %.not, label %78, label %66
+  br i1 %.not, label %77, label %66
 
 66:                                               ; preds = %61
   %67 = call ptr @tvb_new_subset_length(ptr noundef %10, i32 noundef %65, i32 noundef %36) #6
@@ -1874,29 +1874,27 @@ define internal fastcc void @dissect_eigrp_services(ptr noundef %0, ptr noundef 
   %70 = call ptr @tvb_get_string_enc(ptr noundef %68, ptr noundef %67, i32 noundef 0, i32 noundef %69, i32 noundef 0) #6
   %71 = call ptr @strtok(ptr noundef %70, ptr noundef nonnull @.str.422) #6
   %.not89 = icmp eq ptr %71, null
-  br i1 %.not89, label %75, label %72
+  br i1 %.not89, label %.sink.split, label %72
 
 72:                                               ; preds = %66
   %73 = load i8, ptr %71, align 1
   %74 = icmp eq i8 %73, 60
-  br i1 %74, label %.sink.split, label %75
-
-75:                                               ; preds = %72, %66
+  %spec.select = select i1 %74, ptr @.str.423, ptr @.str.424
   br label %.sink.split
 
-.sink.split:                                      ; preds = %72, %75
-  %.str.423.sink = phi ptr [ @.str.424, %75 ], [ @.str.423, %72 ]
-  %76 = load ptr, ptr @media_type_table, align 8
-  %77 = call i32 @dissector_try_string(ptr noundef %76, ptr noundef nonnull %.str.423.sink, ptr noundef %67, ptr noundef nonnull %3, ptr noundef %9, ptr noundef null) #6
-  br label %78
+.sink.split:                                      ; preds = %72, %66
+  %.str.423.sink = phi ptr [ @.str.424, %66 ], [ %spec.select, %72 ]
+  %75 = load ptr, ptr @media_type_table, align 8
+  %76 = call i32 @dissector_try_string(ptr noundef %75, ptr noundef nonnull %.str.423.sink, ptr noundef %67, ptr noundef nonnull %3, ptr noundef %9, ptr noundef null) #6
+  br label %77
 
-78:                                               ; preds = %.sink.split, %61
-  %79 = add i32 %65, %36
-  %80 = call i32 @tvb_reported_length_remaining(ptr noundef %10, i32 noundef %79) #6
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %14, label %._crit_edge, !llvm.loop !12
+77:                                               ; preds = %.sink.split, %61
+  %78 = add i32 %65, %36
+  %79 = call i32 @tvb_reported_length_remaining(ptr noundef %10, i32 noundef %78) #6
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %14, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %78, %5
+._crit_edge:                                      ; preds = %77, %5
   ret void
 }
 

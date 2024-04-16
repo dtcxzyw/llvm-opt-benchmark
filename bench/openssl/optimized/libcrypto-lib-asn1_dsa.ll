@@ -51,7 +51,7 @@ return:                                           ; preds = %if.end11, %land.lhs
 declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_encode_der_integer(ptr noundef %pkt, ptr noundef %n) local_unnamed_addr #0 {
+define i32 @ossl_encode_der_integer(ptr noundef %pkt, ptr noundef %n) local_unnamed_addr #0 {
 entry:
   %bnbytes = alloca ptr, align 8
   %call = tail call i32 @BN_is_negative(ptr noundef %n) #3
@@ -115,18 +115,16 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false9
 if.end16:                                         ; preds = %lor.lhs.false12
   %0 = load ptr, ptr %bnbytes, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end24, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end16
   %call19 = call i32 @BN_bn2binpad(ptr noundef %n, ptr noundef nonnull %0, i32 noundef %add) #3
   %cmp21.not = icmp eq i32 %call19, %add
-  br i1 %cmp21.not, label %if.end24, label %return
-
-if.end24:                                         ; preds = %land.lhs.true, %if.end16
+  %spec.select = zext i1 %cmp21.not to i32
   br label %return
 
-return:                                           ; preds = %if.end11.i, %land.lhs.true.i, %if.then2.i, %lor.lhs.false.i, %land.lhs.true, %if.end, %lor.lhs.false, %lor.lhs.false9, %lor.lhs.false12, %entry, %if.end24
-  %retval.0 = phi i32 [ 1, %if.end24 ], [ 0, %entry ], [ 0, %lor.lhs.false12 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false.i ], [ 0, %if.then2.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end11.i ]
+return:                                           ; preds = %if.end11.i, %land.lhs.true.i, %if.then2.i, %lor.lhs.false.i, %land.lhs.true, %if.end16, %if.end, %lor.lhs.false, %lor.lhs.false9, %lor.lhs.false12, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false12 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 1, %if.end16 ], [ %spec.select, %land.lhs.true ], [ 0, %lor.lhs.false.i ], [ 0, %if.then2.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end11.i ]
   ret i32 %retval.0
 }
 
@@ -472,7 +470,7 @@ lor.lhs.false16:                                  ; preds = %if.end9
   br i1 %cmp18, label %return, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false16, %if.end9
-  %conv = trunc i64 %contpkt.sroa.5.0 to i32
+  %conv = trunc nuw nsw i64 %contpkt.sroa.5.0 to i32
   %call24 = tail call ptr @BN_bin2bn(ptr noundef nonnull %contpkt.sroa.0.0, i32 noundef %conv, ptr noundef %n) #3
   %cmp25 = icmp ne ptr %call24, null
   %. = zext i1 %cmp25 to i32

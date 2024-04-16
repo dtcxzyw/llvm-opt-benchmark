@@ -2871,53 +2871,50 @@ declare zeroext i1 @expression_tree_walker_impl(ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @contain_outer_selfref_walker(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %27, label %4
+  br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
-  switch i32 %5, label %25 [
+  switch i32 %5, label %24 [
     i32 93, label %6
-    i32 59, label %19
+    i32 59, label %18
   ]
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 6
-  br i1 %9, label %10, label %18
+  br i1 %9, label %10, label %26
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 140
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %18
+  br i1 %13, label %14, label %26
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 136
   %16 = load i32, ptr %15, align 8
   %17 = load i32, ptr %1, align 4
-  %.not = icmp ult i32 %16, %17
-  br i1 %.not, label %18, label %27
+  %.not = icmp uge i32 %16, %17
+  br label %26
 
-18:                                               ; preds = %14, %10, %6
-  br label %27
+18:                                               ; preds = %4
+  %19 = load i32, ptr %1, align 4
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %1, align 4
+  %21 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_outer_selfref_walker, ptr noundef nonnull %1, i32 noundef 16) #10
+  %22 = load i32, ptr %1, align 4
+  %23 = add i32 %22, -1
+  store i32 %23, ptr %1, align 4
+  br label %26
 
-19:                                               ; preds = %4
-  %20 = load i32, ptr %1, align 4
-  %21 = add i32 %20, 1
-  store i32 %21, ptr %1, align 4
-  %22 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_outer_selfref_walker, ptr noundef nonnull %1, i32 noundef 16) #10
-  %23 = load i32, ptr %1, align 4
-  %24 = add i32 %23, -1
-  store i32 %24, ptr %1, align 4
-  br label %27
+24:                                               ; preds = %4
+  %25 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_outer_selfref_walker, ptr noundef %1) #10
+  br label %26
 
-25:                                               ; preds = %4
-  %26 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_outer_selfref_walker, ptr noundef %1) #10
-  br label %27
-
-27:                                               ; preds = %14, %2, %25, %19, %18
-  %.0 = phi i1 [ false, %18 ], [ %22, %19 ], [ %26, %25 ], [ false, %2 ], [ true, %14 ]
+26:                                               ; preds = %14, %6, %10, %2, %24, %18
+  %.0 = phi i1 [ %21, %18 ], [ %25, %24 ], [ false, %2 ], [ false, %10 ], [ false, %6 ], [ %.not, %14 ]
   ret i1 %.0
 }
 
@@ -3640,13 +3637,13 @@ declare ptr @list_copy(ptr noundef) local_unnamed_addr #1
 declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @testexpr_is_hashable(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @testexpr_is_hashable(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %test_opexpr_is_hashable.exit.thread, label %3
+  br i1 %.not, label %test_opexpr_is_hashable.exit, label %3
 
 3:                                                ; preds = %2
   %4 = load i32, ptr %0, align 4
-  switch i32 %4, label %test_opexpr_is_hashable.exit.thread [
+  switch i32 %4, label %test_opexpr_is_hashable.exit [
     i32 15, label %5
     i32 19, label %.split
   ]
@@ -3657,110 +3654,108 @@ define internal fastcc noundef zeroext i1 @testexpr_is_hashable(ptr noundef read
   %7 = getelementptr i8, ptr %0, i64 32
   %.val8.i = load ptr, ptr %7, align 8
   %8 = tail call fastcc zeroext i1 @hash_ok_operator(i32 %.val7.i, ptr %.val8.i)
-  br i1 %8, label %9, label %test_opexpr_is_hashable.exit.thread
+  br i1 %8, label %9, label %test_opexpr_is_hashable.exit
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %test_opexpr_is_hashable.exit.thread, label %list_length.exit.i
+  br i1 %.not.i.i, label %test_opexpr_is_hashable.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %.not.i21 = icmp eq i32 %12, 2
-  br i1 %.not.i21, label %13, label %test_opexpr_is_hashable.exit.thread
+  br i1 %.not.i21, label %13, label %test_opexpr_is_hashable.exit
 
 13:                                               ; preds = %list_length.exit.i
   %14 = getelementptr i8, ptr %10, i64 16
   %.val6.i = load ptr, ptr %14, align 8
   %15 = load ptr, ptr %.val6.i, align 8
   %16 = tail call zeroext i1 @contain_exec_param(ptr noundef %15, ptr noundef %1) #10
-  br i1 %16, label %test_opexpr_is_hashable.exit.thread, label %test_opexpr_is_hashable.exit
+  br i1 %16, label %test_opexpr_is_hashable.exit, label %17
 
-test_opexpr_is_hashable.exit:                     ; preds = %13
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr i8, ptr %17, i64 16
-  %.val.i = load ptr, ptr %18, align 8
-  %19 = getelementptr i8, ptr %.val.i, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call zeroext i1 @contain_var_clause(ptr noundef %20) #10
-  br i1 %21, label %test_opexpr_is_hashable.exit.thread, label %.thread
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr i8, ptr %18, i64 16
+  %.val.i = load ptr, ptr %19, align 8
+  %20 = getelementptr i8, ptr %.val.i, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call zeroext i1 @contain_var_clause(ptr noundef %21) #10
+  %not..i = xor i1 %22, true
+  br label %test_opexpr_is_hashable.exit
 
 .split:                                           ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %test_opexpr_is_hashable.exit.thread
+  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %test_opexpr_is_hashable.exit
 
-25:                                               ; preds = %.split
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
-  %.not19 = icmp eq ptr %27, null
-  br i1 %.not19, label %.thread, label %.lr.ph.split
+26:                                               ; preds = %.split
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %.not19 = icmp eq ptr %28, null
+  br i1 %.not19, label %test_opexpr_is_hashable.exit, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %25
-  %30 = load i32, ptr %28, align 4
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph58, label %.thread
+.lr.ph.split:                                     ; preds = %26
+  %31 = load i32, ptr %29, align 4
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph57, label %test_opexpr_is_hashable.exit
 
-32:                                               ; preds = %test_opexpr_is_hashable.exit31
+33:                                               ; preds = %test_opexpr_is_hashable.exit31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load i32, ptr %28, align 4
-  %34 = sext i32 %33 to i64
-  %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph58, label %.thread
+  %34 = load i32, ptr %29, align 4
+  %35 = sext i32 %34 to i64
+  %36 = icmp slt i64 %indvars.iv.next, %35
+  br i1 %36, label %.lr.ph57, label %test_opexpr_is_hashable.exit
 
-.lr.ph58:                                         ; preds = %.lr.ph.split, %32
-  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph.split ]
-  %36 = load ptr, ptr %29, align 8
-  %37 = getelementptr %union.ListCell, ptr %36, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp eq i32 %39, 15
-  br i1 %40, label %41, label %.thread
+.lr.ph57:                                         ; preds = %.lr.ph.split, %33
+  %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph.split ]
+  %37 = load ptr, ptr %30, align 8
+  %38 = getelementptr %union.ListCell, ptr %37, i64 %indvars.iv
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp eq i32 %40, 15
+  br i1 %41, label %42, label %test_opexpr_is_hashable.exit
 
-41:                                               ; preds = %.lr.ph58
-  %42 = getelementptr i8, ptr %38, i64 4
-  %.val7.i22 = load i32, ptr %42, align 4
-  %43 = getelementptr i8, ptr %38, i64 32
-  %.val8.i23 = load ptr, ptr %43, align 8
-  %44 = tail call fastcc zeroext i1 @hash_ok_operator(i32 %.val7.i22, ptr %.val8.i23)
-  br i1 %44, label %45, label %.thread
+42:                                               ; preds = %.lr.ph57
+  %43 = getelementptr i8, ptr %39, i64 4
+  %.val7.i22 = load i32, ptr %43, align 4
+  %44 = getelementptr i8, ptr %39, i64 32
+  %.val8.i23 = load ptr, ptr %44, align 8
+  %45 = tail call fastcc zeroext i1 @hash_ok_operator(i32 %.val7.i22, ptr %.val8.i23)
+  br i1 %45, label %46, label %test_opexpr_is_hashable.exit
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %43, align 8
-  %.not.i.i25 = icmp eq ptr %46, null
-  br i1 %.not.i.i25, label %.thread, label %list_length.exit.i26
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %44, align 8
+  %.not.i.i25 = icmp eq ptr %47, null
+  br i1 %.not.i.i25, label %test_opexpr_is_hashable.exit, label %list_length.exit.i26
 
-list_length.exit.i26:                             ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
-  %48 = load i32, ptr %47, align 4
-  %.not.i27 = icmp eq i32 %48, 2
-  br i1 %.not.i27, label %49, label %.thread
+list_length.exit.i26:                             ; preds = %46
+  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = load i32, ptr %48, align 4
+  %.not.i27 = icmp eq i32 %49, 2
+  br i1 %.not.i27, label %50, label %test_opexpr_is_hashable.exit
 
-49:                                               ; preds = %list_length.exit.i26
-  %50 = getelementptr i8, ptr %46, i64 16
-  %.val6.i28 = load ptr, ptr %50, align 8
-  %51 = load ptr, ptr %.val6.i28, align 8
-  %52 = tail call zeroext i1 @contain_exec_param(ptr noundef %51, ptr noundef %1) #10
-  br i1 %52, label %.thread, label %test_opexpr_is_hashable.exit31
+50:                                               ; preds = %list_length.exit.i26
+  %51 = getelementptr i8, ptr %47, i64 16
+  %.val6.i28 = load ptr, ptr %51, align 8
+  %52 = load ptr, ptr %.val6.i28, align 8
+  %53 = tail call zeroext i1 @contain_exec_param(ptr noundef %52, ptr noundef %1) #10
+  br i1 %53, label %test_opexpr_is_hashable.exit, label %test_opexpr_is_hashable.exit31
 
-test_opexpr_is_hashable.exit31:                   ; preds = %49
-  %53 = load ptr, ptr %43, align 8
-  %54 = getelementptr i8, ptr %53, i64 16
-  %.val.i29 = load ptr, ptr %54, align 8
-  %55 = getelementptr i8, ptr %.val.i29, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call zeroext i1 @contain_var_clause(ptr noundef %56) #10
-  br i1 %57, label %.thread, label %32
+test_opexpr_is_hashable.exit31:                   ; preds = %50
+  %54 = load ptr, ptr %44, align 8
+  %55 = getelementptr i8, ptr %54, i64 16
+  %.val.i29 = load ptr, ptr %55, align 8
+  %56 = getelementptr i8, ptr %.val.i29, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call zeroext i1 @contain_var_clause(ptr noundef %57) #10
+  br i1 %58, label %test_opexpr_is_hashable.exit, label %33
 
-test_opexpr_is_hashable.exit.thread:              ; preds = %3, %2, %9, %13, %list_length.exit.i, %5, %.split, %test_opexpr_is_hashable.exit
-  br label %.thread
-
-.thread:                                          ; preds = %.lr.ph58, %test_opexpr_is_hashable.exit31, %32, %41, %list_length.exit.i26, %49, %45, %25, %.lr.ph.split, %test_opexpr_is_hashable.exit, %test_opexpr_is_hashable.exit.thread
-  %.0 = phi i1 [ false, %test_opexpr_is_hashable.exit.thread ], [ true, %test_opexpr_is_hashable.exit ], [ true, %25 ], [ true, %.lr.ph.split ], [ false, %.lr.ph58 ], [ false, %test_opexpr_is_hashable.exit31 ], [ true, %32 ], [ false, %41 ], [ false, %list_length.exit.i26 ], [ false, %49 ], [ false, %45 ]
+test_opexpr_is_hashable.exit:                     ; preds = %.lr.ph57, %test_opexpr_is_hashable.exit31, %33, %42, %list_length.exit.i26, %50, %46, %26, %.lr.ph.split, %3, %2, %17, %13, %list_length.exit.i, %9, %5, %.split
+  %.0 = phi i1 [ false, %.split ], [ false, %5 ], [ false, %list_length.exit.i ], [ false, %13 ], [ %not..i, %17 ], [ false, %9 ], [ false, %2 ], [ false, %3 ], [ true, %26 ], [ true, %.lr.ph.split ], [ false, %.lr.ph57 ], [ false, %test_opexpr_is_hashable.exit31 ], [ true, %33 ], [ false, %42 ], [ false, %list_length.exit.i26 ], [ false, %50 ], [ false, %46 ]
   ret i1 %.0
 }
 

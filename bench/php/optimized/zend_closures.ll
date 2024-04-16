@@ -604,7 +604,7 @@ define hidden void @zim_Closure_bind(ptr noundef %0, ptr noundef %1) #0 {
   %14 = getelementptr inbounds i8, ptr %0, i64 88
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 8
-  br i1 %16, label %17, label %28
+  br i1 %16, label %17, label %.critedge157
 
 17:                                               ; preds = %11
   %.not = icmp eq ptr %13, null
@@ -619,90 +619,90 @@ define hidden void @zim_Closure_bind(ptr noundef %0, ptr noundef %1) #0 {
 
 23:                                               ; preds = %18
   %24 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %21, ptr noundef nonnull %13) #13
-  br i1 %24, label %.critedge, label %thread-pre-split
+  br i1 %24, label %.critedge, label %.critedge157thread-pre-split
 
-.critedge:                                        ; preds = %17, %23, %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
-  %27 = load i8, ptr %26, align 8
-  switch i8 %27, label %.thread187 [
+.critedge157thread-pre-split:                     ; preds = %23
+  %.pr = load ptr, ptr @zend_ce_closure, align 8
+  br label %.critedge157
+
+.critedge157:                                     ; preds = %.critedge157thread-pre-split, %11
+  %25 = phi ptr [ %.pr, %.critedge157thread-pre-split ], [ %13, %11 ]
+  %.not154 = icmp eq ptr %25, null
+  br i1 %.not154, label %.thread187, label %26
+
+26:                                               ; preds = %.critedge157
+  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  br label %.thread187
+
+.critedge:                                        ; preds = %23, %18, %17
+  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = load i8, ptr %31, align 8
+  switch i8 %32, label %.thread187 [
     i8 8, label %.critedge2.thread
     i8 1, label %.critedge2.thread.fold.split
   ]
-
-thread-pre-split:                                 ; preds = %23
-  %.pr = load ptr, ptr @zend_ce_closure, align 8
-  br label %28
-
-28:                                               ; preds = %thread-pre-split, %11
-  %29 = phi ptr [ %.pr, %thread-pre-split ], [ %13, %11 ]
-  %.not154 = icmp eq ptr %29, null
-  br i1 %.not154, label %.thread187, label %30
-
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
-  br label %.thread187
 
 .critedge2.thread.fold.split:                     ; preds = %.critedge
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.critedge, %.critedge2.thread.fold.split
-  %.1145162 = phi ptr [ %25, %.critedge ], [ null, %.critedge2.thread.fold.split ]
-  %34 = icmp eq i32 %8, 2
-  br i1 %34, label %.thread205, label %35
+  %.1145162 = phi ptr [ %30, %.critedge ], [ null, %.critedge2.thread.fold.split ]
+  %33 = icmp eq i32 %8, 2
+  br i1 %33, label %.thread205, label %34
 
-35:                                               ; preds = %.critedge2.thread
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
-  %37 = getelementptr inbounds i8, ptr %0, i64 120
-  %38 = load i8, ptr %37, align 8
-  switch i8 %38, label %43 [
+34:                                               ; preds = %.critedge2.thread
+  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds i8, ptr %0, i64 120
+  %37 = load i8, ptr %36, align 8
+  switch i8 %37, label %42 [
     i8 8, label %.critedge4
-    i8 6, label %40
-    i8 1, label %42
+    i8 6, label %39
+    i8 1, label %41
   ]
 
-.critedge4:                                       ; preds = %35
-  %39 = load ptr, ptr %36, align 8
+.critedge4:                                       ; preds = %34
+  %38 = load ptr, ptr %35, align 8
   store ptr null, ptr %3, align 8
   br label %.thread205
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %36, align 8
-  br label %42
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %35, align 8
+  br label %41
 
-42:                                               ; preds = %35, %40
-  %storemerge = phi ptr [ %41, %40 ], [ null, %35 ]
+41:                                               ; preds = %34, %39
+  %storemerge = phi ptr [ %40, %39 ], [ null, %34 ]
   store ptr %storemerge, ptr %3, align 8
   br label %.thread205
 
-43:                                               ; preds = %35
-  %44 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %36, ptr noundef nonnull %3, i32 noundef 3) #13
-  %.fr = freeze i1 %44
+42:                                               ; preds = %34
+  %43 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %35, ptr noundef nonnull %3, i32 noundef 3) #13
+  %.fr = freeze i1 %43
   br i1 %.fr, label %..thread205_crit_edge, label %.thread187
 
-..thread205_crit_edge:                            ; preds = %43
+..thread205_crit_edge:                            ; preds = %42
   %.pre = load ptr, ptr %3, align 8
   br label %.thread205
 
-.thread187:                                       ; preds = %43, %.critedge, %28, %30, %10
-  %.0201 = phi i32 [ 9, %28 ], [ 3, %30 ], [ 1, %10 ], [ 9, %.critedge ], [ 9, %43 ]
-  %.0132200 = phi ptr [ null, %28 ], [ %33, %30 ], [ null, %10 ], [ null, %.critedge ], [ null, %43 ]
-  %.0133199 = phi i32 [ 18, %28 ], [ 0, %30 ], [ 0, %10 ], [ 19, %.critedge ], [ 33, %43 ]
-  %.0134198 = phi ptr [ %12, %28 ], [ %12, %30 ], [ null, %10 ], [ %25, %.critedge ], [ %36, %43 ]
-  %.0135197 = phi i32 [ 1, %28 ], [ 1, %30 ], [ 0, %10 ], [ 2, %.critedge ], [ 3, %43 ]
+.thread187:                                       ; preds = %42, %.critedge, %.critedge157, %26, %10
+  %.0201 = phi i32 [ 9, %.critedge157 ], [ 3, %26 ], [ 1, %10 ], [ 9, %.critedge ], [ 9, %42 ]
+  %.0132200 = phi ptr [ null, %.critedge157 ], [ %29, %26 ], [ null, %10 ], [ null, %.critedge ], [ null, %42 ]
+  %.0133199 = phi i32 [ 18, %.critedge157 ], [ 0, %26 ], [ 0, %10 ], [ 19, %.critedge ], [ 33, %42 ]
+  %.0134198 = phi ptr [ %12, %.critedge157 ], [ %12, %26 ], [ null, %10 ], [ %30, %.critedge ], [ %35, %42 ]
+  %.0135197 = phi i32 [ 1, %.critedge157 ], [ 1, %26 ], [ 0, %10 ], [ 2, %.critedge ], [ 3, %42 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0201, i32 noundef %.0135197, ptr noundef %.0132200, i32 noundef %.0133199, ptr noundef %.0134198) #13
-  br label %46
+  br label %45
 
-.thread205:                                       ; preds = %..thread205_crit_edge, %42, %.critedge4, %.critedge2.thread
-  %45 = phi ptr [ %6, %.critedge2.thread ], [ %storemerge, %42 ], [ null, %.critedge4 ], [ %.pre, %..thread205_crit_edge ]
-  %.1.ph = phi ptr [ null, %.critedge2.thread ], [ null, %42 ], [ %39, %.critedge4 ], [ null, %..thread205_crit_edge ]
+.thread205:                                       ; preds = %..thread205_crit_edge, %41, %.critedge4, %.critedge2.thread
+  %44 = phi ptr [ %6, %.critedge2.thread ], [ %storemerge, %41 ], [ null, %.critedge4 ], [ %.pre, %..thread205_crit_edge ]
+  %.1.ph = phi ptr [ null, %.critedge2.thread ], [ null, %41 ], [ %38, %.critedge4 ], [ null, %..thread205_crit_edge ]
   %.2.val = load ptr, ptr %12, align 8
-  call fastcc void @do_closure_bind(ptr noundef %1, ptr %.2.val, ptr noundef %.1145162, ptr noundef %.1.ph, ptr noundef %45)
-  br label %46
+  call fastcc void @do_closure_bind(ptr noundef %1, ptr %.2.val, ptr noundef %.1145162, ptr noundef %.1.ph, ptr noundef %44)
+  br label %45
 
-46:                                               ; preds = %.thread205, %.thread187
+45:                                               ; preds = %.thread205, %.thread187
   ret void
 }
 
@@ -1496,7 +1496,7 @@ define internal i32 @zend_closure_compare(ptr noundef %0, ptr noundef %1) #0 {
   %59 = getelementptr inbounds i8, ptr %14, i64 64
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %58, %60
-  br i1 %61, label %.critedge, label %62
+  br i1 %61, label %.critedge2, label %62
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds i8, ptr %58, i64 16
@@ -1508,13 +1508,12 @@ define internal i32 @zend_closure_compare(ptr noundef %0, ptr noundef %1) #0 {
 
 68:                                               ; preds = %62
   %69 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %58, ptr noundef nonnull %60) #13
-  br i1 %69, label %.critedge, label %.critedge2
-
-.critedge:                                        ; preds = %56, %68
+  %not. = xor i1 %69, true
+  %spec.select = zext i1 %not. to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %68, %62, %51, %48, %43, %40, %31, %21, %26, %.critedge, %19
-  %.0 = phi i32 [ %20, %19 ], [ 0, %.critedge ], [ 1, %26 ], [ 1, %21 ], [ 1, %31 ], [ 1, %40 ], [ 1, %43 ], [ 1, %48 ], [ 1, %51 ], [ 1, %62 ], [ 1, %68 ]
+.critedge2:                                       ; preds = %68, %56, %62, %51, %48, %43, %40, %31, %21, %26, %19
+  %.0 = phi i32 [ %20, %19 ], [ 1, %26 ], [ 1, %21 ], [ 1, %31 ], [ 1, %40 ], [ 1, %43 ], [ 1, %48 ], [ 1, %51 ], [ 1, %62 ], [ 0, %56 ], [ %spec.select, %68 ]
   ret i32 %.0
 }
 

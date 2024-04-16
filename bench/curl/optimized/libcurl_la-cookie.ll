@@ -869,7 +869,7 @@ if.then398:                                       ; preds = %while.cond379
   br label %do.body16
 
 do.end402:                                        ; preds = %while.cond379
-  %tobool403 = trunc i8 %badcookie.1 to i1
+  %tobool403 = trunc nuw i8 %badcookie.1 to i1
   br i1 %tobool403, label %if.end417, label %land.lhs.true404
 
 land.lhs.true404:                                 ; preds = %do.end402
@@ -889,7 +889,7 @@ if.then409:                                       ; preds = %land.lhs.true404
 
 if.end417:                                        ; preds = %if.then409, %land.lhs.true404, %do.end402
   %badcookie.3 = phi i8 [ %badcookie.1, %do.end402 ], [ %badcookie.1, %land.lhs.true404 ], [ %spec.select380, %if.then409 ]
-  %tobool418 = trunc i8 %badcookie.3 to i1
+  %tobool418 = trunc nuw i8 %badcookie.3 to i1
   br i1 %tobool418, label %if.end453, label %land.lhs.true419
 
 land.lhs.true419:                                 ; preds = %if.end417
@@ -939,7 +939,7 @@ if.then442:                                       ; preds = %if.then433
 
 if.end453:                                        ; preds = %if.then442, %if.end431, %land.lhs.true419, %if.end417
   %badcookie.4 = phi i8 [ %badcookie.3, %if.end417 ], [ %badcookie.3, %if.end431 ], [ %badcookie.3, %land.lhs.true419 ], [ %spec.select381, %if.then442 ]
-  %tobool454 = trunc i8 %badcookie.4 to i1
+  %tobool454 = trunc nuw i8 %badcookie.4 to i1
   br i1 %tobool454, label %if.then459, label %lor.lhs.false456
 
 lor.lhs.false456:                                 ; preds = %if.end453
@@ -1239,7 +1239,7 @@ for.inc:                                          ; preds = %sw.bb491, %sw.bb596
   %call604 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef nonnull %tok_buf) #12
   %inc605 = add nsw i32 %fields.2, 1
   %tobool487 = icmp eq ptr %call604, null
-  %tobool489 = trunc i8 %badcookie.9 to i1
+  %tobool489 = trunc nuw i8 %badcookie.9 to i1
   %.not = select i1 %tobool487, i1 true, i1 %tobool489
   br i1 %.not, label %for.end, label %for.body, !llvm.loop !15
 
@@ -1260,7 +1260,7 @@ if.then608:                                       ; preds = %for.end
 if.end617:                                        ; preds = %if.then608, %for.end
   %badcookie.10 = phi i8 [ %badcookie.9, %for.end ], [ %.badcookie.5, %if.then608 ]
   %fields.3 = phi i32 [ %inc605, %for.end ], [ %., %if.then608 ]
-  %tobool618 = trunc i8 %badcookie.10 to i1
+  %tobool618 = trunc nuw i8 %badcookie.10 to i1
   %cmp620 = icmp ne i32 %fields.3, 7
   %tobool624 = select i1 %tobool618, i1 true, i1 %cmp620
   br i1 %tobool624, label %if.then625, label %if.end627
@@ -1596,7 +1596,7 @@ land.lhs.true855:                                 ; preds = %if.then830
 
 if.end860:                                        ; preds = %land.lhs.true833, %land.lhs.true855, %land.lhs.true841, %if.then836
   %replace_old.1 = phi i8 [ %replace_old.0510, %if.then836 ], [ %spec.select389, %land.lhs.true841 ], [ %spec.select390, %land.lhs.true855 ], [ %replace_old.0510, %land.lhs.true833 ]
-  %tobool861 = trunc i8 %replace_old.1 to i1
+  %tobool861 = trunc nuw i8 %replace_old.1 to i1
   br i1 %tobool861, label %if.then862, label %if.end887
 
 if.then862:                                       ; preds = %if.end860
@@ -1631,7 +1631,7 @@ if.else874:                                       ; preds = %land.lhs.true868.if
 
 if.end887:                                        ; preds = %if.else874, %if.end860
   %replace_old.2 = phi i8 [ %replace_old.1, %if.end860 ], [ %spec.select391, %if.else874 ]
-  %tobool888 = trunc i8 %replace_old.2 to i1
+  %tobool888 = trunc nuw i8 %replace_old.2 to i1
   br i1 %tobool888, label %land.lhs.true890, label %if.end902
 
 land.lhs.true890:                                 ; preds = %if.end887
@@ -1658,7 +1658,7 @@ if.end902:                                        ; preds = %land.lhs.true868, %
   br i1 %tobool740.not, label %while.end903, label %while.body741, !llvm.loop !16
 
 while.end903:                                     ; preds = %if.end902
-  %140 = trunc i8 %replace_old.3 to i1
+  %140 = trunc nuw i8 %replace_old.3 to i1
   %tobool904.not = icmp eq ptr %replace_co.1, null
   br i1 %tobool904.not, label %if.end915, label %if.then905
 
@@ -2037,7 +2037,7 @@ declare i32 @psl_is_cookie_domain_acceptable(ptr noundef, ptr noundef, ptr nound
 declare void @Curl_psl_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @bad_domain(ptr noundef %domain, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc zeroext i1 @bad_domain(ptr noundef %domain, i64 noundef %len) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 9
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -2050,21 +2050,18 @@ land.lhs.true:                                    ; preds = %entry
 if.else:                                          ; preds = %land.lhs.true, %entry
   %call1 = tail call ptr @memchr(ptr noundef %domain, i32 noundef 46, i64 noundef %len) #13
   %tobool2.not = icmp eq ptr %call1, null
-  br i1 %tobool2.not, label %if.end7, label %if.then3
+  br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.else
   %sub.ptr.lhs.cast = ptrtoint ptr %call1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %domain to i64
   %sub.ptr.sub.neg = add i64 %sub.ptr.rhs.cast, %len
   %sub = sub i64 %sub.ptr.sub.neg, %sub.ptr.lhs.cast
-  %cmp4 = icmp ugt i64 %sub, 1
-  br i1 %cmp4, label %return, label %if.end7
-
-if.end7:                                          ; preds = %if.else, %if.then3
+  %cmp4 = icmp ult i64 %sub, 2
   br label %return
 
-return:                                           ; preds = %if.then3, %land.lhs.true, %if.end7
-  %retval.0 = phi i1 [ true, %if.end7 ], [ false, %land.lhs.true ], [ false, %if.then3 ]
+return:                                           ; preds = %if.then3, %if.else, %land.lhs.true
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ true, %if.else ], [ %cmp4, %if.then3 ]
   ret i1 %retval.0
 }
 
@@ -3153,7 +3150,7 @@ for.end41.i:                                      ; preds = %if.end37.i, %for.en
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %for.end41.i, %if.end7.i
-  %tobool43.i = trunc i8 %use_stdout.0.i to i1
+  %tobool43.i = trunc nuw i8 %use_stdout.0.i to i1
   br i1 %tobool43.i, label %if.end42.if.end52_crit_edge.i, label %if.then44.i
 
 if.end42.if.end52_crit_edge.i:                    ; preds = %if.end42.i
@@ -3192,7 +3189,7 @@ error53.i:                                        ; preds = %if.then49.i, %if.th
   br i1 %tobool54.not.i, label %cookie_output.exit, label %land.lhs.true55.i
 
 land.lhs.true55.i:                                ; preds = %error53.i
-  %tobool56.i = trunc i8 %use_stdout.1.i to i1
+  %tobool56.i = trunc nuw i8 %use_stdout.1.i to i1
   br i1 %tobool56.i, label %cookie_output.exit, label %if.then57.i
 
 if.then57.i:                                      ; preds = %land.lhs.true55.i

@@ -622,7 +622,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11cha
 define dso_local ptr @_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call ptr @_ZNK13cmPropertyMap16GetPropertyValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %13
+  br i1 %.not, label %4, label %12
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 120
@@ -634,14 +634,10 @@ define dso_local ptr @_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
   %11 = tail call ptr @_ZNK10cmMakefile11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(3520) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext true)
-  %.not7 = icmp eq ptr %11, null
-  br i1 %.not7, label %12, label %13
+  br label %12
 
-12:                                               ; preds = %9, %4
-  br label %13
-
-13:                                               ; preds = %2, %9, %12
-  %.sroa.05.0 = phi ptr [ %11, %9 ], [ null, %12 ], [ %3, %2 ]
+12:                                               ; preds = %2, %9, %4
+  %.sroa.05.0 = phi ptr [ null, %4 ], [ %11, %9 ], [ %3, %2 ]
   ret ptr %.sroa.05.0
 }
 
@@ -657,32 +653,32 @@ declare ptr @_ZNK10cmMakefile11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char
 define dso_local noundef zeroext i1 @_ZNK6cmTest17GetPropertyAsBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call ptr @_ZNK13cmPropertyMap16GetPropertyValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %4, label %12
+  br i1 %.not.i, label %4, label %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZNK10cmMakefile8GetStateEv(ptr noundef nonnull align 8 dereferenceable(3520) %6)
   %8 = tail call noundef zeroext i1 @_ZNK7cmState17IsPropertyChainedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmProperty9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(705) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 5)
-  br i1 %8, label %9, label %_Z6cmIsOn7cmValue.exit
+  br i1 %8, label %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_Z6cmIsOn7cmValue.exit
 
-9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8
-  %11 = tail call ptr @_ZNK10cmMakefile11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(3520) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext true)
-  %.not7.i = icmp eq ptr %11, null
-  br i1 %.not7.i, label %_Z6cmIsOn7cmValue.exit, label %12
+_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %4
+  %9 = load ptr, ptr %5, align 8
+  %10 = tail call ptr @_ZNK10cmMakefile11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(3520) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext true)
+  %.not.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i, label %_Z6cmIsOn7cmValue.exit, label %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread4
 
-12:                                               ; preds = %9, %2
-  %.sroa.05.0.i.ph = phi ptr [ %3, %2 ], [ %11, %9 ]
-  %13 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.0.i.ph) #14
-  %14 = extractvalue { i64, ptr } %13, 0
-  %15 = extractvalue { i64, ptr } %13, 1
-  %16 = tail call noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt11char_traitsIcEE(i64 %14, ptr %15) #14
+_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread4: ; preds = %2, %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.sroa.05.0.i7 = phi ptr [ %10, %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %3, %2 ]
+  %11 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.0.i7) #14
+  %12 = extractvalue { i64, ptr } %11, 0
+  %13 = extractvalue { i64, ptr } %11, 1
+  %14 = tail call noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt11char_traitsIcEE(i64 %12, ptr %13) #14
   br label %_Z6cmIsOn7cmValue.exit
 
-_Z6cmIsOn7cmValue.exit:                           ; preds = %9, %4, %12
-  %17 = phi i1 [ %16, %12 ], [ false, %4 ], [ false, %9 ]
-  ret i1 %17
+_Z6cmIsOn7cmValue.exit:                           ; preds = %4, %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread4
+  %15 = phi i1 [ false, %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %14, %_ZNK6cmTest11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread4 ], [ false, %4 ]
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress uwtable

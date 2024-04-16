@@ -136,7 +136,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 
 44:                                               ; preds = %42
   %45 = icmp slt i32 %.0155277, 0
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %45, i32 %46, i32 %.0155277
   br label %53
 
@@ -1802,7 +1802,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i, %29
   %.1108227.i = phi i8 [ %.1108.i, %.loopexit.i ], [ %.0107.i, %29 ]
-  %40 = trunc i8 %.1108227.i to i1
+  %40 = trunc nuw i8 %.1108227.i to i1
   br i1 %40, label %.thread.i, label %41
 
 41:                                               ; preds = %.loopexit.thread.i
@@ -1813,7 +1813,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   %.1237.i = phi i1 [ %.1.i, %.loopexit.i ], [ %.0106.i, %36 ]
   %.1108236.i = phi i8 [ %.1108.i, %.loopexit.i ], [ %.0107.i, %36 ]
   %.0110147235.i = phi i32 [ %38, %.loopexit.i ], [ %33, %36 ]
-  %.pre.i = trunc i8 %.1108236.i to i1
+  %.pre.i = trunc nuw i8 %.1108236.i to i1
   br i1 %.pre.i, label %.thread.i, label %149
 
 .thread.i:                                        ; preds = %.loopexit.thread231.i, %.loopexit.thread.i
@@ -1841,7 +1841,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
 
 51:                                               ; preds = %.lr.ph170.i
   %indvars.iv.next204.i = add nuw nsw i64 %indvars.iv203.i, 1
-  %52 = trunc i64 %indvars.iv.next204.i to i32
+  %52 = trunc nuw i64 %indvars.iv.next204.i to i32
   %53 = icmp slt i32 %52, %31
   %indvars.iv.next207.i = add i32 %indvars.iv206.i, 1
   %indvars.iv.next213.i = add i32 %indvars.iv212.i, 1
@@ -1853,7 +1853,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
 
 54:                                               ; preds = %.lr.ph170.i
   %55 = getelementptr inbounds i8, ptr %.0111.i, i64 %indvars.iv203.i
-  %56 = trunc i64 %indvars.iv203.i to i32
+  %56 = trunc nuw i64 %indvars.iv203.i to i32
   store i8 0, ptr %55, align 1
   %57 = zext nneg i32 %42 to i64
   %58 = getelementptr inbounds i8, ptr %.0111.i, i64 %57
@@ -1878,7 +1878,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
 
 68:                                               ; preds = %.lr.ph175.i
   %indvars.iv.next210.i = add nuw nsw i64 %indvars.iv209.i, 1
-  %69 = trunc i64 %indvars.iv.next210.i to i32
+  %69 = trunc nuw i64 %indvars.iv.next210.i to i32
   %70 = icmp slt i32 %69, %31
   %indvars.iv.next216.i = add nsw i64 %indvars.iv215.i, 1
   br i1 %70, label %.lr.ph175.i, label %._crit_edge176.i, !llvm.loop !20
@@ -1889,7 +1889,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
 
 71:                                               ; preds = %.lr.ph175.i
   %72 = getelementptr inbounds i8, ptr %.0111.i, i64 %indvars.iv209.i
-  %73 = trunc i64 %indvars.iv209.i to i32
+  %73 = trunc nuw i64 %indvars.iv209.i to i32
   store i8 0, ptr %72, align 1
   %74 = add nuw nsw i32 %73, 1
   %75 = icmp slt i32 %74, %31
@@ -2009,7 +2009,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   %120 = ashr exact i64 %sext.i.i, 32
   %121 = getelementptr inbounds i8, ptr %106, i64 %120
   %122 = icmp ult ptr %.034.lcssa.i.i, %121
-  br i1 %122, label %123, label %135
+  br i1 %122, label %123, label %regex_parse_value_ranges.exit.i
 
 123:                                              ; preds = %._crit_edge.i.i
   %124 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_preg_base_framework, i64 0, i32 11), align 4
@@ -2039,11 +2039,11 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %134, ptr noundef nonnull @.str.10, i32 noundef 755) #18
   br label %regex_parse_value_ranges.exit.i
 
-135:                                              ; preds = %131, %._crit_edge.i.i
+135:                                              ; preds = %131
   br label %regex_parse_value_ranges.exit.i
 
-regex_parse_value_ranges.exit.i:                  ; preds = %113, %135, %133, %131, %115
-  %.0.i.i = phi i32 [ 0, %135 ], [ %114, %115 ], [ %132, %131 ], [ %132, %133 ], [ %114, %113 ]
+regex_parse_value_ranges.exit.i:                  ; preds = %113, %135, %133, %131, %._crit_edge.i.i, %115
+  %.0.i.i = phi i32 [ %114, %115 ], [ %132, %131 ], [ %132, %133 ], [ 0, %._crit_edge.i.i ], [ 0, %135 ], [ %114, %113 ]
   %.not136.i = icmp eq ptr %.0109.i, null
   br i1 %.not136.i, label %137, label %136
 

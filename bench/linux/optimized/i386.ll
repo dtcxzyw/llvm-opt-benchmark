@@ -89,13 +89,13 @@ define dso_local i64 @pcibios_align_resource(ptr nocapture noundef readonly %0, 
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 256
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %27, label %10
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @pci_probe, align 4
   %12 = and i32 %11, 32768
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %23, label %14
+  br i1 %13, label %21, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 16
@@ -104,33 +104,32 @@ define dso_local i64 @pcibios_align_resource(ptr nocapture noundef readonly %0, 
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 4
   %20 = icmp eq i16 %19, 0
-  %21 = and i64 %5, 768
-  %22 = icmp eq i64 %21, 0
-  %or.cond = select i1 %20, i1 true, i1 %22
-  br i1 %or.cond, label %.thread, label %24
+  br label %21
 
-23:                                               ; preds = %10
-  %.old = and i64 %5, 768
-  %.old1 = icmp eq i64 %.old, 0
-  br i1 %.old1, label %.thread, label %24
+21:                                               ; preds = %14, %10
+  %22 = phi i1 [ false, %10 ], [ %20, %14 ]
+  %23 = and i64 %5, 768
+  %24 = icmp eq i64 %23, 0
+  %25 = select i1 %22, i1 true, i1 %24
+  br i1 %25, label %34, label %26
 
-24:                                               ; preds = %14, %23
-  %25 = add i64 %5, 1023
-  %26 = and i64 %25, -1024
-  br label %.thread
+26:                                               ; preds = %21
+  %27 = add i64 %5, 1023
+  %28 = and i64 %27, -1024
+  br label %34
 
-27:                                               ; preds = %4
-  %28 = and i64 %7, 512
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.thread, label %30
+29:                                               ; preds = %4
+  %30 = and i64 %7, 512
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %34, label %32
 
-30:                                               ; preds = %27
-  %31 = tail call i64 @llvm.umax.i64(i64 %5, i64 1048576)
-  br label %.thread
+32:                                               ; preds = %29
+  %33 = tail call i64 @llvm.umax.i64(i64 %5, i64 1048576)
+  br label %34
 
-.thread:                                          ; preds = %14, %30, %27, %24, %23
-  %32 = phi i64 [ %5, %23 ], [ %26, %24 ], [ %31, %30 ], [ %5, %27 ], [ %5, %14 ]
-  ret i64 %32
+34:                                               ; preds = %32, %29, %26, %21
+  %35 = phi i64 [ %5, %21 ], [ %28, %26 ], [ %33, %32 ], [ %5, %29 ]
+  ret i64 %35
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

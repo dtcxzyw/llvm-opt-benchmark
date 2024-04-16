@@ -4095,7 +4095,7 @@ define zeroext i1 @CheckCollisionCircleRec(<2 x float> %0, float noundef %1, <2 
 declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly %4) local_unnamed_addr #13 {
+define zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, ptr noundef writeonly %4) local_unnamed_addr #13 {
   %6 = extractelement <2 x float> %1, i64 1
   %7 = extractelement <2 x float> %1, i64 0
   %8 = extractelement <2 x float> %0, i64 1
@@ -4189,23 +4189,28 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
 77:                                               ; preds = %73
   %78 = tail call float @llvm.minnum.f32(float %12, float %10)
   %79 = extractelement <2 x float> %43, i64 1
-  %80 = fcmp olt float %79, %78
+  %80 = fcmp uge float %79, %78
   %81 = tail call float @llvm.maxnum.f32(float %12, float %10)
-  %82 = fcmp ogt float %79, %81
-  %or.cond129 = select i1 %80, i1 true, i1 %82
-  br i1 %or.cond129, label %.thread, label %83
+  %82 = fcmp ule float %79, %81
+  %or.cond129.not = select i1 %80, i1 %82, i1 false
+  %spec.select = zext i1 %or.cond129.not to i8
+  br label %83
 
 83:                                               ; preds = %77, %73
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.thread, label %84
+  %.0 = phi i8 [ 1, %73 ], [ %spec.select, %77 ]
+  %84 = trunc nuw i8 %.0 to i1
+  %85 = icmp ne ptr %4, null
+  %or.cond = and i1 %85, %84
+  br i1 %or.cond, label %86, label %.thread
 
-84:                                               ; preds = %83
+86:                                               ; preds = %83
   store <2 x float> %43, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %77, %67, %57, %47, %83, %84, %5
-  %.1 = phi i1 [ true, %84 ], [ true, %83 ], [ false, %5 ], [ false, %47 ], [ false, %57 ], [ false, %67 ], [ false, %77 ]
-  ret i1 %.1
+.thread:                                          ; preds = %47, %57, %67, %83, %86, %5
+  %.1 = phi i8 [ %.0, %86 ], [ %.0, %83 ], [ 0, %5 ], [ 0, %67 ], [ 0, %57 ], [ 0, %47 ]
+  %87 = trunc nuw i8 %.1 to i1
+  ret i1 %87
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

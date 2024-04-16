@@ -892,19 +892,19 @@ define internal noundef zeroext i1 @bd_may_claim(ptr noundef readonly %0, ptr no
 
 11:                                               ; preds = %3
   %12 = icmp eq ptr %9, %1
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %26
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %2
-  br i1 %16, label %27, label %17, !prof !6
+  br i1 %16, label %26, label %17, !prof !6
 
 17:                                               ; preds = %13
   tail call void asm sideeffect "470: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 470b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 470) #12, !srcloc !13
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 478, i32 2307, i64 12) #12, !srcloc !14
   tail call void asm sideeffect "471: nop\0A\09.pushsection .discard.instr_end\0A\09.long 471b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 471) #12, !srcloc !15
-  br label %27
+  br label %26
 
 18:                                               ; preds = %3
   %19 = icmp eq ptr %7, %0
@@ -916,14 +916,11 @@ define internal noundef zeroext i1 @bd_may_claim(ptr noundef readonly %0, ptr no
   %23 = icmp eq ptr %22, null
   %24 = icmp eq ptr %22, @bd_may_claim
   %25 = or i1 %23, %24
-  br i1 %25, label %26, label %27
+  br label %26
 
-26:                                               ; preds = %20, %18
-  br label %27
-
-27:                                               ; preds = %26, %20, %17, %13, %11
-  %28 = phi i1 [ true, %26 ], [ false, %11 ], [ false, %20 ], [ false, %17 ], [ true, %13 ]
-  ret i1 %28
+26:                                               ; preds = %20, %18, %17, %13, %11
+  %27 = phi i1 [ false, %11 ], [ false, %17 ], [ true, %13 ], [ true, %18 ], [ %25, %20 ]
+  ret i1 %27
 }
 
 ; Function Attrs: null_pointer_is_valid

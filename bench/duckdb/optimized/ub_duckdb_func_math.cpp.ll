@@ -10078,7 +10078,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
   br label %if.end97
 
 if.else79:                                        ; preds = %if.else
-  %conv80 = trunc i32 %call56 to i8
+  %conv80 = trunc nuw i32 %call56 to i8
   %physical_type_.i205 = getelementptr inbounds i8, ptr %call1, i64 49
   %45 = load i8, ptr %physical_type_.i205, align 1, !tbaa !61
   %function93 = getelementptr inbounds i8, ptr %bound_function, i64 176
@@ -30884,7 +30884,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !363
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !20
@@ -30895,13 +30895,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -98788,7 +98786,7 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %result, i1 noundef zeroext false)
   %5 = load i32, ptr %2, align 4, !tbaa !383
   %.lobit = lshr i32 %5, 31
-  %frombool6 = trunc i32 %.lobit to i8
+  %frombool6 = trunc nuw nsw i32 %.lobit to i8
   store i8 %frombool6, ptr %1, align 1, !tbaa !1128
   br label %sw.epilog
 
@@ -99098,8 +99096,8 @@ vector.body143:                                   ; preds = %vector.body143, %ve
   %19 = getelementptr inbounds i8, ptr %result_data, i64 %offset.idx145
   %20 = lshr <4 x i32> %wide.load146, <i32 31, i32 31, i32 31, i32 31>
   %21 = lshr <4 x i32> %wide.load147, <i32 31, i32 31, i32 31, i32 31>
-  %22 = trunc <4 x i32> %20 to <4 x i8>
-  %23 = trunc <4 x i32> %21 to <4 x i8>
+  %22 = trunc nuw nsw <4 x i32> %20 to <4 x i8>
+  %23 = trunc nuw nsw <4 x i32> %21 to <4 x i8>
   %24 = getelementptr inbounds i8, ptr %19, i64 4
   store <4 x i8> %22, ptr %19, align 1, !tbaa !1128
   store <4 x i8> %23, ptr %24, align 1, !tbaa !1128
@@ -99122,7 +99120,7 @@ for.body10.us:                                    ; preds = %for.body10.us.prehe
   %26 = load i32, ptr %arrayidx.us, align 4, !tbaa !383
   %arrayidx12.us = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1110.us
   %.lobit.us = lshr i32 %26, 31
-  %frombool13.us = trunc i32 %.lobit.us to i8
+  %frombool13.us = trunc nuw nsw i32 %.lobit.us to i8
   store i8 %frombool13.us, ptr %arrayidx12.us, align 1, !tbaa !1128
   %inc.us = add nuw i64 %base_idx.1110.us, 1
   %exitcond124.not = icmp eq i64 %inc.us, %cond.i.us
@@ -99173,8 +99171,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %31 = getelementptr inbounds i8, ptr %result_data, i64 %offset.idx
   %32 = lshr <4 x i32> %wide.load, <i32 31, i32 31, i32 31, i32 31>
   %33 = lshr <4 x i32> %wide.load133, <i32 31, i32 31, i32 31, i32 31>
-  %34 = trunc <4 x i32> %32 to <4 x i8>
-  %35 = trunc <4 x i32> %33 to <4 x i8>
+  %34 = trunc nuw nsw <4 x i32> %32 to <4 x i8>
+  %35 = trunc nuw nsw <4 x i32> %33 to <4 x i8>
   %36 = getelementptr inbounds i8, ptr %31, i64 4
   store <4 x i8> %34, ptr %31, align 1, !tbaa !1128
   store <4 x i8> %35, ptr %36, align 1, !tbaa !1128
@@ -99208,7 +99206,7 @@ if.then22.prol:                                   ; preds = %for.body20.prol
   %39 = load i32, ptr %arrayidx23.prol, align 4, !tbaa !383
   %arrayidx25.prol = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.0116
   %.lobit105.prol = lshr i32 %39, 31
-  %frombool26.prol = trunc i32 %.lobit105.prol to i8
+  %frombool26.prol = trunc nuw nsw i32 %.lobit105.prol to i8
   store i8 %frombool26.prol, ptr %arrayidx25.prol, align 1, !tbaa !1128
   br label %for.body20.prol.loopexit
 
@@ -99223,7 +99221,7 @@ for.body10:                                       ; preds = %for.body10.preheade
   %41 = load i32, ptr %arrayidx, align 4, !tbaa !383
   %arrayidx12 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1110
   %.lobit = lshr i32 %41, 31
-  %frombool13 = trunc i32 %.lobit to i8
+  %frombool13 = trunc nuw nsw i32 %.lobit to i8
   store i8 %frombool13, ptr %arrayidx12, align 1, !tbaa !1128
   %inc = add nuw i64 %base_idx.1110, 1
   %exitcond.not = icmp eq i64 %inc, %cond.i
@@ -99242,7 +99240,7 @@ if.then22:                                        ; preds = %for.body20
   %42 = load i32, ptr %arrayidx23, align 4, !tbaa !383
   %arrayidx25 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.2112
   %.lobit105 = lshr i32 %42, 31
-  %frombool26 = trunc i32 %.lobit105 to i8
+  %frombool26 = trunc nuw nsw i32 %.lobit105 to i8
   store i8 %frombool26, ptr %arrayidx25, align 1, !tbaa !1128
   br label %for.inc28
 
@@ -99259,7 +99257,7 @@ if.then22.1:                                      ; preds = %for.inc28
   %43 = load i32, ptr %arrayidx23.1, align 4, !tbaa !383
   %arrayidx25.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc29
   %.lobit105.1 = lshr i32 %43, 31
-  %frombool26.1 = trunc i32 %.lobit105.1 to i8
+  %frombool26.1 = trunc nuw nsw i32 %.lobit105.1 to i8
   store i8 %frombool26.1, ptr %arrayidx25.1, align 1, !tbaa !1128
   br label %for.inc28.1
 
@@ -99307,8 +99305,8 @@ vector.body157:                                   ; preds = %vector.body157, %ve
   %48 = getelementptr inbounds i8, ptr %result_data, i64 %index158
   %49 = lshr <4 x i32> %wide.load159, <i32 31, i32 31, i32 31, i32 31>
   %50 = lshr <4 x i32> %wide.load160, <i32 31, i32 31, i32 31, i32 31>
-  %51 = trunc <4 x i32> %49 to <4 x i8>
-  %52 = trunc <4 x i32> %50 to <4 x i8>
+  %51 = trunc nuw nsw <4 x i32> %49 to <4 x i8>
+  %52 = trunc nuw nsw <4 x i32> %50 to <4 x i8>
   %53 = getelementptr inbounds i8, ptr %48, i64 4
   store <4 x i8> %51, ptr %48, align 1, !tbaa !1128
   store <4 x i8> %52, ptr %53, align 1, !tbaa !1128
@@ -99330,7 +99328,7 @@ for.body45:                                       ; preds = %for.body45.preheade
   %55 = load i32, ptr %arrayidx46, align 4, !tbaa !383
   %arrayidx48 = getelementptr inbounds i8, ptr %result_data, i64 %i.0118
   %.lobit106 = lshr i32 %55, 31
-  %frombool49 = trunc i32 %.lobit106 to i8
+  %frombool49 = trunc nuw nsw i32 %.lobit106 to i8
   store i8 %frombool49, ptr %arrayidx48, align 1, !tbaa !1128
   %inc51 = add nuw i64 %i.0118, 1
   %exitcond126.not = icmp eq i64 %inc51, %count
@@ -99393,7 +99391,7 @@ if.then3.us:                                      ; preds = %_ZNK6duckdb21Templa
   %6 = load i32, ptr %arrayidx.us, align 4, !tbaa !383
   %arrayidx5.us = getelementptr inbounds i8, ptr %result_data, i64 %i.063.us
   %.lobit.us = lshr i32 %6, 31
-  %frombool6.us = trunc i32 %.lobit.us to i8
+  %frombool6.us = trunc nuw nsw i32 %.lobit.us to i8
   store i8 %frombool6.us, ptr %arrayidx5.us, align 1, !tbaa !1128
   br label %if.end.us
 
@@ -99451,7 +99449,7 @@ if.then3:                                         ; preds = %_ZNK6duckdb21Templa
   %14 = load i32, ptr %arrayidx, align 4, !tbaa !383
   %arrayidx5 = getelementptr inbounds i8, ptr %result_data, i64 %i.063
   %.lobit = lshr i32 %14, 31
-  %frombool6 = trunc i32 %.lobit to i8
+  %frombool6 = trunc nuw nsw i32 %.lobit to i8
   store i8 %frombool6, ptr %arrayidx5, align 1, !tbaa !1128
   br label %if.end
 
@@ -99528,8 +99526,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %24 = getelementptr inbounds i8, ptr %result_data, i64 %index
   %25 = lshr <4 x i32> %wide.load, <i32 31, i32 31, i32 31, i32 31>
   %26 = lshr <4 x i32> %wide.load78, <i32 31, i32 31, i32 31, i32 31>
-  %27 = trunc <4 x i32> %25 to <4 x i8>
-  %28 = trunc <4 x i32> %26 to <4 x i8>
+  %27 = trunc nuw nsw <4 x i32> %25 to <4 x i8>
+  %28 = trunc nuw nsw <4 x i32> %26 to <4 x i8>
   %29 = getelementptr inbounds i8, ptr %24, i64 4
   store <4 x i8> %27, ptr %24, align 1, !tbaa !1128
   store <4 x i8> %28, ptr %29, align 1, !tbaa !1128
@@ -99551,7 +99549,7 @@ for.body14.us:                                    ; preds = %for.body14.us.prehe
   %31 = load i32, ptr %arrayidx17.us, align 4, !tbaa !383
   %arrayidx19.us = getelementptr inbounds i8, ptr %result_data, i64 %i10.065.us
   %.lobit60.us = lshr i32 %31, 31
-  %frombool20.us = trunc i32 %.lobit60.us to i8
+  %frombool20.us = trunc nuw nsw i32 %.lobit60.us to i8
   store i8 %frombool20.us, ptr %arrayidx19.us, align 1, !tbaa !1128
   %inc22.us = add nuw i64 %i10.065.us, 1
   %exitcond71.not = icmp eq i64 %inc22.us, %count
@@ -99566,7 +99564,7 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %33 = load i32, ptr %arrayidx17, align 4, !tbaa !383
   %arrayidx19 = getelementptr inbounds i8, ptr %result_data, i64 %i10.065
   %.lobit60 = lshr i32 %33, 31
-  %frombool20 = trunc i32 %.lobit60 to i8
+  %frombool20 = trunc nuw nsw i32 %.lobit60 to i8
   store i8 %frombool20, ptr %arrayidx19, align 1, !tbaa !1128
   %inc22 = or disjoint i64 %i10.065, 1
   %arrayidx.i56.1 = getelementptr inbounds i32, ptr %20, i64 %inc22
@@ -99576,7 +99574,7 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %35 = load i32, ptr %arrayidx17.1, align 4, !tbaa !383
   %arrayidx19.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc22
   %.lobit60.1 = lshr i32 %35, 31
-  %frombool20.1 = trunc i32 %.lobit60.1 to i8
+  %frombool20.1 = trunc nuw nsw i32 %.lobit60.1 to i8
   store i8 %frombool20.1, ptr %arrayidx19.1, align 1, !tbaa !1128
   %inc22.1 = or disjoint i64 %i10.065, 2
   %arrayidx.i56.2 = getelementptr inbounds i32, ptr %20, i64 %inc22.1
@@ -99586,7 +99584,7 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %37 = load i32, ptr %arrayidx17.2, align 4, !tbaa !383
   %arrayidx19.2 = getelementptr inbounds i8, ptr %result_data, i64 %inc22.1
   %.lobit60.2 = lshr i32 %37, 31
-  %frombool20.2 = trunc i32 %.lobit60.2 to i8
+  %frombool20.2 = trunc nuw nsw i32 %.lobit60.2 to i8
   store i8 %frombool20.2, ptr %arrayidx19.2, align 1, !tbaa !1128
   %inc22.2 = or disjoint i64 %i10.065, 3
   %arrayidx.i56.3 = getelementptr inbounds i32, ptr %20, i64 %inc22.2
@@ -99596,7 +99594,7 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %39 = load i32, ptr %arrayidx17.3, align 4, !tbaa !383
   %arrayidx19.3 = getelementptr inbounds i8, ptr %result_data, i64 %inc22.2
   %.lobit60.3 = lshr i32 %39, 31
-  %frombool20.3 = trunc i32 %.lobit60.3 to i8
+  %frombool20.3 = trunc nuw nsw i32 %.lobit60.3 to i8
   store i8 %frombool20.3, ptr %arrayidx19.3, align 1, !tbaa !1128
   %inc22.3 = add nuw i64 %i10.065, 4
   %niter.ncmp.3 = icmp eq i64 %inc22.3, %unroll_iter
@@ -99617,7 +99615,7 @@ for.body14.epil:                                  ; preds = %if.end24.loopexit80
   %41 = load i32, ptr %arrayidx17.epil, align 4, !tbaa !383
   %arrayidx19.epil = getelementptr inbounds i8, ptr %result_data, i64 %i10.065.epil
   %.lobit60.epil = lshr i32 %41, 31
-  %frombool20.epil = trunc i32 %.lobit60.epil to i8
+  %frombool20.epil = trunc nuw nsw i32 %.lobit60.epil to i8
   store i8 %frombool20.epil, ptr %arrayidx19.epil, align 1, !tbaa !1128
   %inc22.epil = add nuw nsw i64 %i10.065.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -99663,7 +99661,7 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %result, i1 noundef zeroext false)
   %5 = load i64, ptr %2, align 8, !tbaa !312
   %.lobit = lshr i64 %5, 63
-  %frombool6 = trunc i64 %.lobit to i8
+  %frombool6 = trunc nuw nsw i64 %.lobit to i8
   store i8 %frombool6, ptr %1, align 1, !tbaa !1128
   br label %sw.epilog
 
@@ -99967,7 +99965,7 @@ for.body10.us.prol:                               ; preds = %for.body10.us.prehe
   %17 = load i64, ptr %arrayidx.us.prol, align 8, !tbaa !312
   %arrayidx12.us.prol = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1110.us.prol
   %.lobit.us.prol = lshr i64 %17, 63
-  %frombool13.us.prol = trunc i64 %.lobit.us.prol to i8
+  %frombool13.us.prol = trunc nuw nsw i64 %.lobit.us.prol to i8
   store i8 %frombool13.us.prol, ptr %arrayidx12.us.prol, align 1, !tbaa !1128
   %inc.us.prol = add nuw i64 %base_idx.1110.us.prol, 1
   %prol.iter141.next = add nuw nsw i64 %prol.iter141, 1
@@ -99986,28 +99984,28 @@ for.body10.us:                                    ; preds = %for.body10.us.prol.
   %20 = load i64, ptr %arrayidx.us, align 8, !tbaa !312
   %arrayidx12.us = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1110.us
   %.lobit.us = lshr i64 %20, 63
-  %frombool13.us = trunc i64 %.lobit.us to i8
+  %frombool13.us = trunc nuw nsw i64 %.lobit.us to i8
   store i8 %frombool13.us, ptr %arrayidx12.us, align 1, !tbaa !1128
   %inc.us = add nuw i64 %base_idx.1110.us, 1
   %arrayidx.us.1 = getelementptr inbounds double, ptr %ldata, i64 %inc.us
   %21 = load i64, ptr %arrayidx.us.1, align 8, !tbaa !312
   %arrayidx12.us.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc.us
   %.lobit.us.1 = lshr i64 %21, 63
-  %frombool13.us.1 = trunc i64 %.lobit.us.1 to i8
+  %frombool13.us.1 = trunc nuw nsw i64 %.lobit.us.1 to i8
   store i8 %frombool13.us.1, ptr %arrayidx12.us.1, align 1, !tbaa !1128
   %inc.us.1 = add nuw i64 %base_idx.1110.us, 2
   %arrayidx.us.2 = getelementptr inbounds double, ptr %ldata, i64 %inc.us.1
   %22 = load i64, ptr %arrayidx.us.2, align 8, !tbaa !312
   %arrayidx12.us.2 = getelementptr inbounds i8, ptr %result_data, i64 %inc.us.1
   %.lobit.us.2 = lshr i64 %22, 63
-  %frombool13.us.2 = trunc i64 %.lobit.us.2 to i8
+  %frombool13.us.2 = trunc nuw nsw i64 %.lobit.us.2 to i8
   store i8 %frombool13.us.2, ptr %arrayidx12.us.2, align 1, !tbaa !1128
   %inc.us.2 = add nuw i64 %base_idx.1110.us, 3
   %arrayidx.us.3 = getelementptr inbounds double, ptr %ldata, i64 %inc.us.2
   %23 = load i64, ptr %arrayidx.us.3, align 8, !tbaa !312
   %arrayidx12.us.3 = getelementptr inbounds i8, ptr %result_data, i64 %inc.us.2
   %.lobit.us.3 = lshr i64 %23, 63
-  %frombool13.us.3 = trunc i64 %.lobit.us.3 to i8
+  %frombool13.us.3 = trunc nuw nsw i64 %.lobit.us.3 to i8
   store i8 %frombool13.us.3, ptr %arrayidx12.us.3, align 1, !tbaa !1128
   %inc.us.3 = add nuw i64 %base_idx.1110.us, 4
   %exitcond124.not.3 = icmp eq i64 %inc.us.3, %cond.i.us
@@ -100048,7 +100046,7 @@ for.body10.prol:                                  ; preds = %for.body10.preheade
   %26 = load i64, ptr %arrayidx.prol, align 8, !tbaa !312
   %arrayidx12.prol = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1110.prol
   %.lobit.prol = lshr i64 %26, 63
-  %frombool13.prol = trunc i64 %.lobit.prol to i8
+  %frombool13.prol = trunc nuw nsw i64 %.lobit.prol to i8
   store i8 %frombool13.prol, ptr %arrayidx12.prol, align 1, !tbaa !1128
   %inc.prol = add nuw i64 %base_idx.1110.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -100082,7 +100080,7 @@ if.then22.prol:                                   ; preds = %for.body20.prol
   %30 = load i64, ptr %arrayidx23.prol, align 8, !tbaa !312
   %arrayidx25.prol = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.0116
   %.lobit105.prol = lshr i64 %30, 63
-  %frombool26.prol = trunc i64 %.lobit105.prol to i8
+  %frombool26.prol = trunc nuw nsw i64 %.lobit105.prol to i8
   store i8 %frombool26.prol, ptr %arrayidx25.prol, align 1, !tbaa !1128
   br label %for.body20.prol.loopexit
 
@@ -100097,28 +100095,28 @@ for.body10:                                       ; preds = %for.body10.prol.loo
   %32 = load i64, ptr %arrayidx, align 8, !tbaa !312
   %arrayidx12 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1110
   %.lobit = lshr i64 %32, 63
-  %frombool13 = trunc i64 %.lobit to i8
+  %frombool13 = trunc nuw nsw i64 %.lobit to i8
   store i8 %frombool13, ptr %arrayidx12, align 1, !tbaa !1128
   %inc = add nuw i64 %base_idx.1110, 1
   %arrayidx.1 = getelementptr inbounds double, ptr %ldata, i64 %inc
   %33 = load i64, ptr %arrayidx.1, align 8, !tbaa !312
   %arrayidx12.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc
   %.lobit.1 = lshr i64 %33, 63
-  %frombool13.1 = trunc i64 %.lobit.1 to i8
+  %frombool13.1 = trunc nuw nsw i64 %.lobit.1 to i8
   store i8 %frombool13.1, ptr %arrayidx12.1, align 1, !tbaa !1128
   %inc.1 = add nuw i64 %base_idx.1110, 2
   %arrayidx.2 = getelementptr inbounds double, ptr %ldata, i64 %inc.1
   %34 = load i64, ptr %arrayidx.2, align 8, !tbaa !312
   %arrayidx12.2 = getelementptr inbounds i8, ptr %result_data, i64 %inc.1
   %.lobit.2 = lshr i64 %34, 63
-  %frombool13.2 = trunc i64 %.lobit.2 to i8
+  %frombool13.2 = trunc nuw nsw i64 %.lobit.2 to i8
   store i8 %frombool13.2, ptr %arrayidx12.2, align 1, !tbaa !1128
   %inc.2 = add nuw i64 %base_idx.1110, 3
   %arrayidx.3 = getelementptr inbounds double, ptr %ldata, i64 %inc.2
   %35 = load i64, ptr %arrayidx.3, align 8, !tbaa !312
   %arrayidx12.3 = getelementptr inbounds i8, ptr %result_data, i64 %inc.2
   %.lobit.3 = lshr i64 %35, 63
-  %frombool13.3 = trunc i64 %.lobit.3 to i8
+  %frombool13.3 = trunc nuw nsw i64 %.lobit.3 to i8
   store i8 %frombool13.3, ptr %arrayidx12.3, align 1, !tbaa !1128
   %inc.3 = add nuw i64 %base_idx.1110, 4
   %exitcond.not.3 = icmp eq i64 %inc.3, %cond.i
@@ -100137,7 +100135,7 @@ if.then22:                                        ; preds = %for.body20
   %36 = load i64, ptr %arrayidx23, align 8, !tbaa !312
   %arrayidx25 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.2112
   %.lobit105 = lshr i64 %36, 63
-  %frombool26 = trunc i64 %.lobit105 to i8
+  %frombool26 = trunc nuw nsw i64 %.lobit105 to i8
   store i8 %frombool26, ptr %arrayidx25, align 1, !tbaa !1128
   br label %for.inc28
 
@@ -100154,7 +100152,7 @@ if.then22.1:                                      ; preds = %for.inc28
   %37 = load i64, ptr %arrayidx23.1, align 8, !tbaa !312
   %arrayidx25.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc29
   %.lobit105.1 = lshr i64 %37, 63
-  %frombool26.1 = trunc i64 %.lobit105.1 to i8
+  %frombool26.1 = trunc nuw nsw i64 %.lobit105.1 to i8
   store i8 %frombool26.1, ptr %arrayidx25.1, align 1, !tbaa !1128
   br label %for.inc28.1
 
@@ -100200,28 +100198,28 @@ for.body45:                                       ; preds = %for.body45, %for.bo
   %41 = load i64, ptr %arrayidx46, align 8, !tbaa !312
   %arrayidx48 = getelementptr inbounds i8, ptr %result_data, i64 %i.0118
   %.lobit106 = lshr i64 %41, 63
-  %frombool49 = trunc i64 %.lobit106 to i8
+  %frombool49 = trunc nuw nsw i64 %.lobit106 to i8
   store i8 %frombool49, ptr %arrayidx48, align 1, !tbaa !1128
   %inc51 = or disjoint i64 %i.0118, 1
   %arrayidx46.1 = getelementptr inbounds double, ptr %ldata, i64 %inc51
   %42 = load i64, ptr %arrayidx46.1, align 8, !tbaa !312
   %arrayidx48.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc51
   %.lobit106.1 = lshr i64 %42, 63
-  %frombool49.1 = trunc i64 %.lobit106.1 to i8
+  %frombool49.1 = trunc nuw nsw i64 %.lobit106.1 to i8
   store i8 %frombool49.1, ptr %arrayidx48.1, align 1, !tbaa !1128
   %inc51.1 = or disjoint i64 %i.0118, 2
   %arrayidx46.2 = getelementptr inbounds double, ptr %ldata, i64 %inc51.1
   %43 = load i64, ptr %arrayidx46.2, align 8, !tbaa !312
   %arrayidx48.2 = getelementptr inbounds i8, ptr %result_data, i64 %inc51.1
   %.lobit106.2 = lshr i64 %43, 63
-  %frombool49.2 = trunc i64 %.lobit106.2 to i8
+  %frombool49.2 = trunc nuw nsw i64 %.lobit106.2 to i8
   store i8 %frombool49.2, ptr %arrayidx48.2, align 1, !tbaa !1128
   %inc51.2 = or disjoint i64 %i.0118, 3
   %arrayidx46.3 = getelementptr inbounds double, ptr %ldata, i64 %inc51.2
   %44 = load i64, ptr %arrayidx46.3, align 8, !tbaa !312
   %arrayidx48.3 = getelementptr inbounds i8, ptr %result_data, i64 %inc51.2
   %.lobit106.3 = lshr i64 %44, 63
-  %frombool49.3 = trunc i64 %.lobit106.3 to i8
+  %frombool49.3 = trunc nuw nsw i64 %.lobit106.3 to i8
   store i8 %frombool49.3, ptr %arrayidx48.3, align 1, !tbaa !1128
   %inc51.3 = add nuw i64 %i.0118, 4
   %niter.ncmp.3 = icmp eq i64 %inc51.3, %unroll_iter
@@ -100239,7 +100237,7 @@ for.body45.epil:                                  ; preds = %if.end54.loopexit.u
   %45 = load i64, ptr %arrayidx46.epil, align 8, !tbaa !312
   %arrayidx48.epil = getelementptr inbounds i8, ptr %result_data, i64 %i.0118.epil
   %.lobit106.epil = lshr i64 %45, 63
-  %frombool49.epil = trunc i64 %.lobit106.epil to i8
+  %frombool49.epil = trunc nuw nsw i64 %.lobit106.epil to i8
   store i8 %frombool49.epil, ptr %arrayidx48.epil, align 1, !tbaa !1128
   %inc51.epil = add nuw nsw i64 %i.0118.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -100303,7 +100301,7 @@ if.then3.us:                                      ; preds = %_ZNK6duckdb21Templa
   %6 = load i64, ptr %arrayidx.us, align 8, !tbaa !312
   %arrayidx5.us = getelementptr inbounds i8, ptr %result_data, i64 %i.063.us
   %.lobit.us = lshr i64 %6, 63
-  %frombool6.us = trunc i64 %.lobit.us to i8
+  %frombool6.us = trunc nuw nsw i64 %.lobit.us to i8
   store i8 %frombool6.us, ptr %arrayidx5.us, align 1, !tbaa !1128
   br label %if.end.us
 
@@ -100361,7 +100359,7 @@ if.then3:                                         ; preds = %_ZNK6duckdb21Templa
   %14 = load i64, ptr %arrayidx, align 8, !tbaa !312
   %arrayidx5 = getelementptr inbounds i8, ptr %result_data, i64 %i.063
   %.lobit = lshr i64 %14, 63
-  %frombool6 = trunc i64 %.lobit to i8
+  %frombool6 = trunc nuw nsw i64 %.lobit to i8
   store i8 %frombool6, ptr %arrayidx5, align 1, !tbaa !1128
   br label %if.end
 
@@ -100434,28 +100432,28 @@ for.body14.us:                                    ; preds = %for.body14.us, %for
   %22 = load i64, ptr %arrayidx17.us, align 8, !tbaa !312
   %arrayidx19.us = getelementptr inbounds i8, ptr %result_data, i64 %i10.065.us
   %.lobit60.us = lshr i64 %22, 63
-  %frombool20.us = trunc i64 %.lobit60.us to i8
+  %frombool20.us = trunc nuw nsw i64 %.lobit60.us to i8
   store i8 %frombool20.us, ptr %arrayidx19.us, align 1, !tbaa !1128
   %inc22.us = or disjoint i64 %i10.065.us, 1
   %arrayidx17.us.1 = getelementptr inbounds double, ptr %ldata, i64 %inc22.us
   %23 = load i64, ptr %arrayidx17.us.1, align 8, !tbaa !312
   %arrayidx19.us.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc22.us
   %.lobit60.us.1 = lshr i64 %23, 63
-  %frombool20.us.1 = trunc i64 %.lobit60.us.1 to i8
+  %frombool20.us.1 = trunc nuw nsw i64 %.lobit60.us.1 to i8
   store i8 %frombool20.us.1, ptr %arrayidx19.us.1, align 1, !tbaa !1128
   %inc22.us.1 = or disjoint i64 %i10.065.us, 2
   %arrayidx17.us.2 = getelementptr inbounds double, ptr %ldata, i64 %inc22.us.1
   %24 = load i64, ptr %arrayidx17.us.2, align 8, !tbaa !312
   %arrayidx19.us.2 = getelementptr inbounds i8, ptr %result_data, i64 %inc22.us.1
   %.lobit60.us.2 = lshr i64 %24, 63
-  %frombool20.us.2 = trunc i64 %.lobit60.us.2 to i8
+  %frombool20.us.2 = trunc nuw nsw i64 %.lobit60.us.2 to i8
   store i8 %frombool20.us.2, ptr %arrayidx19.us.2, align 1, !tbaa !1128
   %inc22.us.2 = or disjoint i64 %i10.065.us, 3
   %arrayidx17.us.3 = getelementptr inbounds double, ptr %ldata, i64 %inc22.us.2
   %25 = load i64, ptr %arrayidx17.us.3, align 8, !tbaa !312
   %arrayidx19.us.3 = getelementptr inbounds i8, ptr %result_data, i64 %inc22.us.2
   %.lobit60.us.3 = lshr i64 %25, 63
-  %frombool20.us.3 = trunc i64 %.lobit60.us.3 to i8
+  %frombool20.us.3 = trunc nuw nsw i64 %.lobit60.us.3 to i8
   store i8 %frombool20.us.3, ptr %arrayidx19.us.3, align 1, !tbaa !1128
   %inc22.us.3 = add nuw i64 %i10.065.us, 4
   %niter85.ncmp.3 = icmp eq i64 %inc22.us.3, %unroll_iter84
@@ -100470,7 +100468,7 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %27 = load i64, ptr %arrayidx17, align 8, !tbaa !312
   %arrayidx19 = getelementptr inbounds i8, ptr %result_data, i64 %i10.065
   %.lobit60 = lshr i64 %27, 63
-  %frombool20 = trunc i64 %.lobit60 to i8
+  %frombool20 = trunc nuw nsw i64 %.lobit60 to i8
   store i8 %frombool20, ptr %arrayidx19, align 1, !tbaa !1128
   %inc22 = or disjoint i64 %i10.065, 1
   %arrayidx.i56.1 = getelementptr inbounds i32, ptr %20, i64 %inc22
@@ -100480,7 +100478,7 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %29 = load i64, ptr %arrayidx17.1, align 8, !tbaa !312
   %arrayidx19.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc22
   %.lobit60.1 = lshr i64 %29, 63
-  %frombool20.1 = trunc i64 %.lobit60.1 to i8
+  %frombool20.1 = trunc nuw nsw i64 %.lobit60.1 to i8
   store i8 %frombool20.1, ptr %arrayidx19.1, align 1, !tbaa !1128
   %inc22.1 = or disjoint i64 %i10.065, 2
   %arrayidx.i56.2 = getelementptr inbounds i32, ptr %20, i64 %inc22.1
@@ -100490,7 +100488,7 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %31 = load i64, ptr %arrayidx17.2, align 8, !tbaa !312
   %arrayidx19.2 = getelementptr inbounds i8, ptr %result_data, i64 %inc22.1
   %.lobit60.2 = lshr i64 %31, 63
-  %frombool20.2 = trunc i64 %.lobit60.2 to i8
+  %frombool20.2 = trunc nuw nsw i64 %.lobit60.2 to i8
   store i8 %frombool20.2, ptr %arrayidx19.2, align 1, !tbaa !1128
   %inc22.2 = or disjoint i64 %i10.065, 3
   %arrayidx.i56.3 = getelementptr inbounds i32, ptr %20, i64 %inc22.2
@@ -100500,7 +100498,7 @@ for.body14:                                       ; preds = %for.body14, %for.bo
   %33 = load i64, ptr %arrayidx17.3, align 8, !tbaa !312
   %arrayidx19.3 = getelementptr inbounds i8, ptr %result_data, i64 %inc22.2
   %.lobit60.3 = lshr i64 %33, 63
-  %frombool20.3 = trunc i64 %.lobit60.3 to i8
+  %frombool20.3 = trunc nuw nsw i64 %.lobit60.3 to i8
   store i8 %frombool20.3, ptr %arrayidx19.3, align 1, !tbaa !1128
   %inc22.3 = add nuw i64 %i10.065, 4
   %niter.ncmp.3 = icmp eq i64 %inc22.3, %unroll_iter
@@ -100518,7 +100516,7 @@ for.body14.us.epil:                               ; preds = %if.end24.loopexit.u
   %34 = load i64, ptr %arrayidx17.us.epil, align 8, !tbaa !312
   %arrayidx19.us.epil = getelementptr inbounds i8, ptr %result_data, i64 %i10.065.us.epil
   %.lobit60.us.epil = lshr i64 %34, 63
-  %frombool20.us.epil = trunc i64 %.lobit60.us.epil to i8
+  %frombool20.us.epil = trunc nuw nsw i64 %.lobit60.us.epil to i8
   store i8 %frombool20.us.epil, ptr %arrayidx19.us.epil, align 1, !tbaa !1128
   %inc22.us.epil = add nuw nsw i64 %i10.065.us.epil, 1
   %epil.iter82.next = add nuw nsw i64 %epil.iter82, 1
@@ -100540,7 +100538,7 @@ for.body14.epil:                                  ; preds = %if.end24.loopexit78
   %36 = load i64, ptr %arrayidx17.epil, align 8, !tbaa !312
   %arrayidx19.epil = getelementptr inbounds i8, ptr %result_data, i64 %i10.065.epil
   %.lobit60.epil = lshr i64 %36, 63
-  %frombool20.epil = trunc i64 %.lobit60.epil to i8
+  %frombool20.epil = trunc nuw nsw i64 %.lobit60.epil to i8
   store i8 %frombool20.epil, ptr %arrayidx19.epil, align 1, !tbaa !1128
   %inc22.epil = add nuw nsw i64 %i10.065.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1

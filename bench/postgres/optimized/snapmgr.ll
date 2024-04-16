@@ -2652,7 +2652,7 @@ define dso_local zeroext i1 @ThereAreNoPriorRegisteredSnapshots() local_unnamed_
 define dso_local zeroext i1 @HaveRegisteredOrActiveSnapshot() local_unnamed_addr #5 {
   %1 = load ptr, ptr @ActiveSnapshot, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %2, label %11
+  br i1 %.not, label %2, label %10
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @CatalogSnapshot, align 8
@@ -2664,14 +2664,11 @@ define dso_local zeroext i1 @HaveRegisteredOrActiveSnapshot() local_unnamed_addr
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %11, label %10
+  %9 = icmp ne ptr %8, null
+  br label %10
 
-10:                                               ; preds = %7, %2
-  br label %11
-
-11:                                               ; preds = %7, %0, %10
-  %.0 = phi i1 [ %6, %10 ], [ true, %0 ], [ false, %7 ]
+10:                                               ; preds = %7, %2, %0
+  %.0 = phi i1 [ true, %0 ], [ %6, %2 ], [ %9, %7 ]
   ret i1 %.0
 }
 
@@ -2932,7 +2929,7 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nocap
   br label %.lr.ph.i
 
 .preheader.loopexit.i:                            ; preds = %48
-  %27 = trunc i64 %indvars.iv.next.i to i32
+  %27 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %18
@@ -3016,7 +3013,7 @@ pg_lfind32.exit:                                  ; preds = %50, %.pg_lfind32.ex
   br label %.lr.ph.i25
 
 .preheader.loopexit.i34:                          ; preds = %85
-  %64 = trunc i64 %indvars.iv.next.i33 to i32
+  %64 = trunc nuw i64 %indvars.iv.next.i33 to i32
   br label %.preheader.i35
 
 .preheader.i35:                                   ; preds = %.preheader.loopexit.i34, %pg_lfind32.exit
@@ -3097,7 +3094,7 @@ pg_lfind32.exit:                                  ; preds = %50, %.pg_lfind32.ex
   br label %.lr.ph.i46
 
 .preheader.loopexit.i55:                          ; preds = %125
-  %104 = trunc i64 %indvars.iv.next.i54 to i32
+  %104 = trunc nuw i64 %indvars.iv.next.i54 to i32
   br label %.preheader.i56
 
 .preheader.i56:                                   ; preds = %.preheader.loopexit.i55, %95

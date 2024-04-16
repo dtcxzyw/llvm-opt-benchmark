@@ -597,20 +597,20 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.not.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i, label %cond.end, label %land.rhs.i.i
+  br i1 %cmp.i.not.i.i, label %cond.end, label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
 
-land.rhs.i.i:                                     ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
+_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
   %6 = load i32, ptr %5, align 4, !noalias !30
   %cmp.i2.i.i = icmp sgt i32 %6, %tag
   br i1 %cmp.i2.i.i, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %land.rhs.i.i
+cond.false:                                       ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
   %second = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %second, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %entry, %land.rhs.i.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i, %cond.false
-  %cond = phi ptr [ %7, %cond.false ], [ null, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i ], [ null, %land.rhs.i.i ], [ null, %entry ]
+cond.end:                                         ; preds = %entry, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit, %cond.false
+  %cond = phi ptr [ %7, %cond.false ], [ null, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit ], [ null, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i ], [ null, %entry ]
   ret ptr %cond
 }
 
@@ -782,22 +782,22 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.not.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i, label %cond.end, label %land.rhs.i.i
+  br i1 %cmp.i.not.i.i, label %cond.end, label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
 
-land.rhs.i.i:                                     ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
+_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
   %6 = load i32, ptr %5, align 4, !noalias !63
   %cmp.i2.i.i = icmp sgt i32 %6, %tag
   br i1 %cmp.i2.i.i, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %land.rhs.i.i
+cond.false:                                       ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
   %second = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %second, align 8
   %name = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %name, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %entry, %land.rhs.i.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i, %cond.false
-  %cond = phi ptr [ %8, %cond.false ], [ null, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i ], [ null, %land.rhs.i.i ], [ null, %entry ]
+cond.end:                                         ; preds = %entry, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit, %cond.false
+  %cond = phi ptr [ %8, %cond.false ], [ null, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit ], [ null, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i ], [ null, %entry ]
   ret ptr %cond
 }
 
@@ -829,22 +829,22 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.not.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i, label %cond.end, label %land.rhs.i.i
+  br i1 %cmp.i.not.i.i, label %cond.end, label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
 
-land.rhs.i.i:                                     ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
+_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
   %6 = load i32, ptr %5, align 4, !noalias !73
   %cmp.i2.i.i = icmp sgt i32 %6, %tag
   br i1 %cmp.i2.i.i, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %land.rhs.i.i
+cond.false:                                       ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
   %second = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %second, align 8
   %tifftype = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load i32, ptr %tifftype, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %entry, %land.rhs.i.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i, %cond.false
-  %cond = phi i32 [ %8, %cond.false ], [ 0, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i ], [ 0, %land.rhs.i.i ], [ 0, %entry ]
+cond.end:                                         ; preds = %entry, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit, %cond.false
+  %cond = phi i32 [ %8, %cond.false ], [ 0, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit ], [ 0, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i ], [ 0, %entry ]
   ret i32 %cond
 }
 
@@ -876,22 +876,22 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.not.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i, label %cond.end, label %land.rhs.i.i
+  br i1 %cmp.i.not.i.i, label %cond.end, label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
 
-land.rhs.i.i:                                     ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
+_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i
   %6 = load i32, ptr %5, align 4, !noalias !83
   %cmp.i2.i.i = icmp sgt i32 %6, %tag
   br i1 %cmp.i2.i.i, label %cond.end, label %cond.false
 
-cond.false:                                       ; preds = %land.rhs.i.i
+cond.false:                                       ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit
   %second = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %second, align 8
   %tiffcount = getelementptr inbounds i8, ptr %7, i64 20
   %8 = load i32, ptr %tiffcount, align 4
   br label %cond.end
 
-cond.end:                                         ; preds = %entry, %land.rhs.i.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i, %cond.false
-  %cond = phi i32 [ %8, %cond.false ], [ 0, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i ], [ 0, %land.rhs.i.i ], [ 0, %entry ]
+cond.end:                                         ; preds = %entry, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit, %cond.false
+  %cond = phi i32 [ %8, %cond.false ], [ 0, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit ], [ 0, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i ], [ 0, %entry ]
   ret i32 %cond
 }
 
@@ -1041,23 +1041,23 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN18OpenImageIO_v2_6_010tag_lookupENS_17basic_string_viewIcSt11char_traitsIcEEEi(ptr nocapture noundef readonly %domain, i32 noundef %tag) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i30 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp.i22 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
+  %agg.tmp.i29 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
+  %agg.tmp.i21 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %0 = load ptr, ptr %domain, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %domain, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
   switch i64 %1, label %if.else8 [
-    i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-    i64 3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17
+    i64 4, label %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit
+    i64 3, label %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit20
   ]
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
+_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit: ; preds = %entry
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %cmp6.not.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.not.i.i, label %if.then, label %if.else8
 
-if.then:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+if.then:                                          ; preds = %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %2 = load atomic i8, ptr @_ZGVZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %2, 0
@@ -1080,9 +1080,9 @@ invoke.cont2.i:                                   ; preds = %init.i
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T) #30
   br label %_ZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEv.exit
 
-common.resume:                                    ; preds = %lpad.i36, %lpad.i28, %lpad.i
-  %_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T.sink = phi ptr [ @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, %lpad.i36 ], [ @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, %lpad.i28 ], [ @_ZGVZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i36 ], [ %9, %lpad.i28 ], [ %5, %lpad.i ]
+common.resume:                                    ; preds = %lpad.i35, %lpad.i27, %lpad.i
+  %_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T.sink = phi ptr [ @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, %lpad.i35 ], [ @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, %lpad.i27 ], [ @_ZGVZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i35 ], [ %9, %lpad.i27 ], [ %5, %lpad.i ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T.sink) #30
   resume { ptr, i32 } %common.resume.op
 
@@ -1095,73 +1095,73 @@ _ZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEv.exit: ; preds = %if.then, %init.c
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   br label %cond.true
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17: ; preds = %entry
+_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit20: ; preds = %entry
   %bcmp.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
   %cmp6.not.i.i19 = icmp eq i32 %bcmp.i18, 0
   br i1 %cmp6.not.i.i19, label %if.then6, label %if.else8
 
-if.then6:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i22)
+if.then6:                                         ; preds = %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i21)
   %6 = load atomic i8, ptr @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T acquire, align 8
-  %guard.uninitialized.i23 = icmp eq i8 %6, 0
-  br i1 %guard.uninitialized.i23, label %init.check.i24, label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, !prof !106
+  %guard.uninitialized.i22 = icmp eq i8 %6, 0
+  br i1 %guard.uninitialized.i22, label %init.check.i23, label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, !prof !106
 
-init.check.i24:                                   ; preds = %if.then6
+init.check.i23:                                   ; preds = %if.then6
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T) #30
-  %tobool.not.i25 = icmp eq i32 %7, 0
-  br i1 %tobool.not.i25, label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, label %init.i26
+  %tobool.not.i24 = icmp eq i32 %7, 0
+  br i1 %tobool.not.i24, label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, label %init.i25
 
-init.i26:                                         ; preds = %init.check.i24
-  store ptr @.str.1, ptr %agg.tmp.i22, align 8
-  %m_len.i.i27 = getelementptr inbounds i8, ptr %agg.tmp.i22, i64 8
-  store i64 3, ptr %m_len.i.i27, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_03pvt6TagMapC1ENS_17basic_string_viewIcSt11char_traitsIcEEENS_4spanIKNS_7TagInfoELln1EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, ptr noundef nonnull %agg.tmp.i22, ptr nonnull @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 32)
-          to label %invoke.cont2.i29 unwind label %lpad.i28
+init.i25:                                         ; preds = %init.check.i23
+  store ptr @.str.1, ptr %agg.tmp.i21, align 8
+  %m_len.i.i26 = getelementptr inbounds i8, ptr %agg.tmp.i21, i64 8
+  store i64 3, ptr %m_len.i.i26, align 8
+  invoke void @_ZN18OpenImageIO_v2_6_03pvt6TagMapC1ENS_17basic_string_viewIcSt11char_traitsIcEEENS_4spanIKNS_7TagInfoELln1EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, ptr noundef nonnull %agg.tmp.i21, ptr nonnull @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 32)
+          to label %invoke.cont2.i28 unwind label %lpad.i27
 
-invoke.cont2.i29:                                 ; preds = %init.i26
+invoke.cont2.i28:                                 ; preds = %init.i25
   %8 = call i32 @__cxa_atexit(ptr nonnull @_ZN18OpenImageIO_v2_6_03pvt6TagMapD1Ev, ptr nonnull @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, ptr nonnull @__dso_handle) #30
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T) #30
   br label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit
 
-lpad.i28:                                         ; preds = %init.i26
+lpad.i27:                                         ; preds = %init.i25
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit: ; preds = %if.then6, %init.check.i24, %invoke.cont2.i29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i22)
+_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit: ; preds = %if.then6, %init.check.i23, %invoke.cont2.i28
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i21)
   br label %cond.true
 
-if.else8:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i30)
+if.else8:                                         ; preds = %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit, %entry, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i29)
   %10 = load atomic i8, ptr @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T acquire, align 8
-  %guard.uninitialized.i31 = icmp eq i8 %10, 0
-  br i1 %guard.uninitialized.i31, label %init.check.i32, label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, !prof !106
+  %guard.uninitialized.i30 = icmp eq i8 %10, 0
+  br i1 %guard.uninitialized.i30, label %init.check.i31, label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, !prof !106
 
-init.check.i32:                                   ; preds = %if.else8
+init.check.i31:                                   ; preds = %if.else8
   %11 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T) #30
-  %tobool.not.i33 = icmp eq i32 %11, 0
-  br i1 %tobool.not.i33, label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, label %init.i34
+  %tobool.not.i32 = icmp eq i32 %11, 0
+  br i1 %tobool.not.i32, label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, label %init.i33
 
-init.i34:                                         ; preds = %init.check.i32
-  store ptr @.str.24, ptr %agg.tmp.i30, align 8
-  %m_len.i.i35 = getelementptr inbounds i8, ptr %agg.tmp.i30, i64 8
-  store i64 4, ptr %m_len.i.i35, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_03pvt6TagMapC1ENS_17basic_string_viewIcSt11char_traitsIcEEENS_4spanIKNS_7TagInfoELln1EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, ptr noundef nonnull %agg.tmp.i30, ptr nonnull @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 21)
-          to label %invoke.cont2.i37 unwind label %lpad.i36
+init.i33:                                         ; preds = %init.check.i31
+  store ptr @.str.24, ptr %agg.tmp.i29, align 8
+  %m_len.i.i34 = getelementptr inbounds i8, ptr %agg.tmp.i29, i64 8
+  store i64 4, ptr %m_len.i.i34, align 8
+  invoke void @_ZN18OpenImageIO_v2_6_03pvt6TagMapC1ENS_17basic_string_viewIcSt11char_traitsIcEEENS_4spanIKNS_7TagInfoELln1EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, ptr noundef nonnull %agg.tmp.i29, ptr nonnull @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 21)
+          to label %invoke.cont2.i36 unwind label %lpad.i35
 
-invoke.cont2.i37:                                 ; preds = %init.i34
+invoke.cont2.i36:                                 ; preds = %init.i33
   %12 = call i32 @__cxa_atexit(ptr nonnull @_ZN18OpenImageIO_v2_6_03pvt6TagMapD1Ev, ptr nonnull @_ZZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, ptr nonnull @__dso_handle) #30
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T) #30
   br label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit
 
-lpad.i36:                                         ; preds = %init.i34
+lpad.i35:                                         ; preds = %init.i33
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit: ; preds = %if.else8, %init.check.i32, %invoke.cont2.i37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i30)
+_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit: ; preds = %if.else8, %init.check.i31, %invoke.cont2.i36
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i29)
   br label %cond.true
 
 cond.true:                                        ; preds = %_ZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEv.exit, %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit
@@ -1191,21 +1191,21 @@ while.body.i.i.i.i.i:                             ; preds = %cond.true, %while.b
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.not.i.i.i = icmp eq ptr %19, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit, label %land.rhs.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit, label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i
 
-land.rhs.i.i.i:                                   ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
+_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
   %20 = load i32, ptr %19, align 4, !noalias !116
   %cmp.i2.i.i.i = icmp sgt i32 %20, %tag
   br i1 %cmp.i2.i.i.i, label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit, label %cond.false.i
 
-cond.false.i:                                     ; preds = %land.rhs.i.i.i
+cond.false.i:                                     ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i
   %second.i = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %second.i, align 8
   br label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit
 
-_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit:  ; preds = %cond.true, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i, %land.rhs.i.i.i, %cond.false.i
-  %cond.i38 = phi ptr [ %21, %cond.false.i ], [ null, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i ], [ null, %land.rhs.i.i.i ], [ null, %cond.true ]
-  ret ptr %cond.i38
+_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit:  ; preds = %cond.true, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i, %cond.false.i
+  %cond.i37 = phi ptr [ %21, %cond.false.i ], [ null, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i ], [ null, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i ], [ null, %cond.true ]
+  ret ptr %cond.i37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1316,24 +1316,24 @@ lpad:                                             ; preds = %init
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN18OpenImageIO_v2_6_010tag_lookupENS_17basic_string_viewIcSt11char_traitsIcEEES3_(ptr nocapture noundef readonly %domain, ptr nocapture noundef readonly %tag) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i30 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp.i22 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
+  %agg.tmp.i29 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
+  %agg.tmp.i21 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp11 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %0 = load ptr, ptr %domain, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %domain, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
   switch i64 %1, label %if.else8 [
-    i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-    i64 3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17
+    i64 4, label %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit
+    i64 3, label %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit20
   ]
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
+_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit: ; preds = %entry
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %cmp6.not.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.not.i.i, label %if.then, label %if.else8
 
-if.then:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+if.then:                                          ; preds = %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %2 = load atomic i8, ptr @_ZGVZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %2, 0
@@ -1356,9 +1356,9 @@ invoke.cont2.i:                                   ; preds = %init.i
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T) #30
   br label %_ZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEv.exit
 
-common.resume:                                    ; preds = %lpad.i36, %lpad.i28, %lpad.i
-  %_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T.sink = phi ptr [ @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, %lpad.i36 ], [ @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, %lpad.i28 ], [ @_ZGVZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i36 ], [ %9, %lpad.i28 ], [ %5, %lpad.i ]
+common.resume:                                    ; preds = %lpad.i35, %lpad.i27, %lpad.i
+  %_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T.sink = phi ptr [ @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, %lpad.i35 ], [ @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, %lpad.i27 ], [ @_ZGVZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i35 ], [ %9, %lpad.i27 ], [ %5, %lpad.i ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T.sink) #30
   resume { ptr, i32 } %common.resume.op
 
@@ -1371,83 +1371,83 @@ _ZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEv.exit: ; preds = %if.then, %init.c
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   br label %cond.true
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17: ; preds = %entry
+_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit20: ; preds = %entry
   %bcmp.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
   %cmp6.not.i.i19 = icmp eq i32 %bcmp.i18, 0
   br i1 %cmp6.not.i.i19, label %if.then6, label %if.else8
 
-if.then6:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i22)
+if.then6:                                         ; preds = %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i21)
   %6 = load atomic i8, ptr @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T acquire, align 8
-  %guard.uninitialized.i23 = icmp eq i8 %6, 0
-  br i1 %guard.uninitialized.i23, label %init.check.i24, label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, !prof !106
+  %guard.uninitialized.i22 = icmp eq i8 %6, 0
+  br i1 %guard.uninitialized.i22, label %init.check.i23, label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, !prof !106
 
-init.check.i24:                                   ; preds = %if.then6
+init.check.i23:                                   ; preds = %if.then6
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T) #30
-  %tobool.not.i25 = icmp eq i32 %7, 0
-  br i1 %tobool.not.i25, label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, label %init.i26
+  %tobool.not.i24 = icmp eq i32 %7, 0
+  br i1 %tobool.not.i24, label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, label %init.i25
 
-init.i26:                                         ; preds = %init.check.i24
-  store ptr @.str.1, ptr %agg.tmp.i22, align 8
-  %m_len.i.i27 = getelementptr inbounds i8, ptr %agg.tmp.i22, i64 8
-  store i64 3, ptr %m_len.i.i27, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_03pvt6TagMapC1ENS_17basic_string_viewIcSt11char_traitsIcEEENS_4spanIKNS_7TagInfoELln1EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, ptr noundef nonnull %agg.tmp.i22, ptr nonnull @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 32)
-          to label %invoke.cont2.i29 unwind label %lpad.i28
+init.i25:                                         ; preds = %init.check.i23
+  store ptr @.str.1, ptr %agg.tmp.i21, align 8
+  %m_len.i.i26 = getelementptr inbounds i8, ptr %agg.tmp.i21, i64 8
+  store i64 3, ptr %m_len.i.i26, align 8
+  invoke void @_ZN18OpenImageIO_v2_6_03pvt6TagMapC1ENS_17basic_string_viewIcSt11char_traitsIcEEENS_4spanIKNS_7TagInfoELln1EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, ptr noundef nonnull %agg.tmp.i21, ptr nonnull @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, i64 32)
+          to label %invoke.cont2.i28 unwind label %lpad.i27
 
-invoke.cont2.i29:                                 ; preds = %init.i26
+invoke.cont2.i28:                                 ; preds = %init.i25
   %8 = call i32 @__cxa_atexit(ptr nonnull @_ZN18OpenImageIO_v2_6_03pvt6TagMapD1Ev, ptr nonnull @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, ptr nonnull @__dso_handle) #30
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T) #30
   br label %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit
 
-lpad.i28:                                         ; preds = %init.i26
+lpad.i27:                                         ; preds = %init.i25
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit: ; preds = %if.then6, %init.check.i24, %invoke.cont2.i29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i22)
+_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit: ; preds = %if.then6, %init.check.i23, %invoke.cont2.i28
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i21)
   br label %cond.true
 
-if.else8:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i30)
+if.else8:                                         ; preds = %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit, %entry, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i29)
   %10 = load atomic i8, ptr @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T acquire, align 8
-  %guard.uninitialized.i31 = icmp eq i8 %10, 0
-  br i1 %guard.uninitialized.i31, label %init.check.i32, label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, !prof !106
+  %guard.uninitialized.i30 = icmp eq i8 %10, 0
+  br i1 %guard.uninitialized.i30, label %init.check.i31, label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, !prof !106
 
-init.check.i32:                                   ; preds = %if.else8
+init.check.i31:                                   ; preds = %if.else8
   %11 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T) #30
-  %tobool.not.i33 = icmp eq i32 %11, 0
-  br i1 %tobool.not.i33, label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, label %init.i34
+  %tobool.not.i32 = icmp eq i32 %11, 0
+  br i1 %tobool.not.i32, label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, label %init.i33
 
-init.i34:                                         ; preds = %init.check.i32
-  store ptr @.str.24, ptr %agg.tmp.i30, align 8
-  %m_len.i.i35 = getelementptr inbounds i8, ptr %agg.tmp.i30, i64 8
-  store i64 4, ptr %m_len.i.i35, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_03pvt6TagMapC1ENS_17basic_string_viewIcSt11char_traitsIcEEENS_4spanIKNS_7TagInfoELln1EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, ptr noundef nonnull %agg.tmp.i30, ptr nonnull @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 21)
-          to label %invoke.cont2.i37 unwind label %lpad.i36
+init.i33:                                         ; preds = %init.check.i31
+  store ptr @.str.24, ptr %agg.tmp.i29, align 8
+  %m_len.i.i34 = getelementptr inbounds i8, ptr %agg.tmp.i29, i64 8
+  store i64 4, ptr %m_len.i.i34, align 8
+  invoke void @_ZN18OpenImageIO_v2_6_03pvt6TagMapC1ENS_17basic_string_viewIcSt11char_traitsIcEEENS_4spanIKNS_7TagInfoELln1EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, ptr noundef nonnull %agg.tmp.i29, ptr nonnull @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, i64 21)
+          to label %invoke.cont2.i36 unwind label %lpad.i35
 
-invoke.cont2.i37:                                 ; preds = %init.i34
+invoke.cont2.i36:                                 ; preds = %init.i33
   %12 = call i32 @__cxa_atexit(ptr nonnull @_ZN18OpenImageIO_v2_6_03pvt6TagMapD1Ev, ptr nonnull @_ZZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, ptr nonnull @__dso_handle) #30
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T) #30
   br label %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit
 
-lpad.i36:                                         ; preds = %init.i34
+lpad.i35:                                         ; preds = %init.i33
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit: ; preds = %if.else8, %init.check.i32, %invoke.cont2.i37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i30)
+_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit: ; preds = %if.else8, %init.check.i31, %invoke.cont2.i36
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i29)
   br label %cond.true
 
 cond.true:                                        ; preds = %_ZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEv.exit, %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit, %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit
   %tm.0 = phi ptr [ @_ZZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T, %_ZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEv.exit ], [ @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T, %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit ], [ @_ZZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEvE1T, %_ZN18OpenImageIO_v2_6_03pvt15tiff_tagmap_refEv.exit ]
   %14 = load ptr, ptr %tag, align 8
   store ptr %14, ptr %agg.tmp11, align 8
-  %m_len.i38 = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
-  %m_len.i.i39 = getelementptr inbounds i8, ptr %tag, i64 8
-  %15 = load i64, ptr %m_len.i.i39, align 8
-  store i64 %15, ptr %m_len.i38, align 8
+  %m_len.i37 = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
+  %m_len.i.i38 = getelementptr inbounds i8, ptr %tag, i64 8
+  %15 = load i64, ptr %m_len.i.i38, align 8
+  store i64 %15, ptr %m_len.i37, align 8
   %call12 = call noundef ptr @_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %tm.0, ptr noundef nonnull %agg.tmp11)
   ret ptr %call12
 }
@@ -1806,15 +1806,15 @@ if.end:                                           ; preds = %_ZN18OpenImageIO_v2
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %4 = load i64, ptr %m_len.i.i, align 8
   %cmp.i = icmp eq i64 %4, 5
-  br i1 %cmp.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %if.else
+  br i1 %cmp.i, label %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit, label %if.else
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %if.end
+_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit: ; preds = %if.end
   %5 = load ptr, ptr %agg.tmp, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %5, ptr noundef nonnull dereferenceable(5) @.str.157, i64 5)
   %cmp6.not.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.not.i.i, label %if.then5, label %if.else
 
-if.then5:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+if.then5:                                         ; preds = %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit
   %6 = getelementptr inbounds i8, ptr %offsets_seen, i64 8
   store i32 0, ptr %6, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %offsets_seen, i64 16
@@ -1892,7 +1892,7 @@ _ZNSt6vectorImSaImEED2Ev.exit15:                  ; preds = %_ZNSt6vectorImSaImE
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %offsets_seen) #30
   resume { ptr, i32 } %lpad.phi
 
-if.else:                                          ; preds = %if.end, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+if.else:                                          ; preds = %if.end, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit
   %tdir_offset15 = getelementptr inbounds i8, ptr %dir, i64 8
   %13 = load i32, ptr %tdir_offset15, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
@@ -2008,27 +2008,28 @@ entry:
   %0 = load ptr, ptr %tablename, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %tablename, i64 8
   %1 = load i64, ptr %m_len.i.i, align 8
-  switch i64 %1, label %if.end6 [
-    i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-    i64 3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15
+  switch i64 %1, label %return [
+    i64 4, label %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit
+    i64 3, label %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit18
   ]
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
+_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit: ; preds = %entry
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %cmp6.not.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp6.not.i.i, label %return, label %if.end6
-
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15: ; preds = %entry
-  %bcmp.i16 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
-  %cmp6.not.i.i17 = icmp eq i32 %bcmp.i16, 0
-  br i1 %cmp6.not.i.i17, label %return, label %if.end6
-
-if.end6:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15
+  %spec.select28 = select i1 %cmp6.not.i.i, ptr @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE
+  %spec.select29 = select i1 %cmp6.not.i.i, i64 104, i64 21
   br label %return
 
-return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %if.end6
-  %retval.sroa.0.0 = phi ptr [ @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, %if.end6 ], [ @_ZN18OpenImageIO_v2_6_0L14exif_tag_tableE, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15 ]
-  %retval.sroa.4.0 = phi i64 [ 21, %if.end6 ], [ 104, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15 ]
+_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit18: ; preds = %entry
+  %bcmp.i16 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
+  %cmp6.not.i.i17 = icmp eq i32 %bcmp.i16, 0
+  %spec.select = select i1 %cmp6.not.i.i17, ptr @_ZN18OpenImageIO_v2_6_0L13gps_tag_tableE, ptr @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE
+  %spec.select27 = select i1 %cmp6.not.i.i17, i64 32, i64 21
+  br label %return
+
+return:                                           ; preds = %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit, %entry, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit18
+  %retval.sroa.0.0 = phi ptr [ %spec.select, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit18 ], [ @_ZN18OpenImageIO_v2_6_0L14tiff_tag_tableE, %entry ], [ %spec.select28, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit ]
+  %retval.sroa.4.0 = phi i64 [ %spec.select27, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit18 ], [ 21, %entry ], [ %spec.select29, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2415,14 +2416,14 @@ while.body.i.i.i.i.i:                             ; preds = %if.else112, %while.
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.not.i.i.i = icmp eq ptr %42, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %if.end138, label %land.rhs.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %if.end138, label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i
 
-land.rhs.i.i.i:                                   ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
+_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
   %43 = load i32, ptr %42, align 4, !noalias !131
   %cmp.i2.i.i.i = icmp sgt i32 %43, %conv
   br i1 %cmp.i2.i.i.i, label %if.end138, label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit
 
-_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit:  ; preds = %land.rhs.i.i.i
+_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit:  ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i
   %second.i = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %second.i, align 8
   %tobool116.not = icmp eq ptr %44, null
@@ -2471,7 +2472,7 @@ if.then129:                                       ; preds = %if.else127
   call fastcc void @_ZN18OpenImageIO_v2_6_0L21add_exif_item_to_specERNS_9ImageSpecEPKcPK12TIFFDirEntryNS_4spanIKhLln1EEEbi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %48, ptr noundef nonnull %dir, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swab, i32 noundef %offset_adjustment)
   br label %if.end138
 
-if.end138:                                        ; preds = %for.body102, %for.body, %if.end85, %if.else112, %land.rhs.i.i.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i, %_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit, %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit, %if.then123, %if.then129, %if.else127, %_ZNSt3setImSt4lessImESaImEE4findERKm.exit111, %if.then65, %_ZNSt3setImSt4lessImESaImEE6insertEOm.exit, %_ZNSt3setImSt4lessImESaImEE4findERKm.exit, %if.then20, %entry
+if.end138:                                        ; preds = %for.body102, %for.body, %if.end85, %if.else112, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i, %_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit, %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit, %if.then123, %if.then129, %if.else127, %_ZNSt3setImSt4lessImESaImEE4findERKm.exit111, %if.then65, %_ZNSt3setImSt4lessImESaImEE6insertEOm.exit, %_ZNSt3setImSt4lessImESaImEE4findERKm.exit, %if.then20, %entry
   ret void
 }
 
@@ -2729,8 +2730,8 @@ _ZNKSt6vectorI12TIFFDirEntrySaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %23 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 768614336404564650)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 768614336404564650, i64 %23
+  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 768614336404564650)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 768614336404564650, i64 %spec.select.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseI12TIFFDirEntrySaIS0_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -2854,7 +2855,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 
 if.end33:                                         ; preds = %if.end, %if.end
   %head.sroa.2161.0.extract.shift = lshr i64 %6, 32
-  %head.sroa.2161.0.extract.trunc = trunc i64 %head.sroa.2161.0.extract.shift to i32
+  %head.sroa.2161.0.extract.trunc = trunc nuw i64 %head.sroa.2161.0.extract.shift to i32
   %cmp37 = icmp ne i16 %head.sroa.0.0.extract.trunc, 18761
   %7 = tail call i32 @llvm.bswap.i32(i32 %head.sroa.2161.0.extract.trunc)
   %spec.select = select i1 %cmp37, i32 %7, i32 %head.sroa.2161.0.extract.trunc
@@ -4016,22 +4017,22 @@ while.body.i.i.i.i.i:                             ; preds = %if.end, %while.body
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i: ; preds = %while.body.i.i.i.i.i
   %cmp.i.not.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %while.body.i.i.i.i.i65.preheader, label %land.rhs.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %while.body.i.i.i.i.i65.preheader, label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i
 
-land.rhs.i.i.i:                                   ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
+_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
   %5 = load i32, ptr %4, align 4, !noalias !153
   %cmp.i2.i.i.i = icmp sgt i32 %5, %tag
   br i1 %cmp.i2.i.i.i, label %while.body.i.i.i.i.i65.preheader, label %cond.false.i
 
-cond.false.i:                                     ; preds = %land.rhs.i.i.i
+cond.false.i:                                     ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i
   %second.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %second.i, align 8
   %tifftype.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i32, ptr %tifftype.i, align 8
   br label %while.body.i.i.i.i.i65.preheader
 
-while.body.i.i.i.i.i65.preheader:                 ; preds = %cond.false.i, %land.rhs.i.i.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
-  %cond.i = phi i32 [ %7, %cond.false.i ], [ 0, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i ], [ 0, %land.rhs.i.i.i ]
+while.body.i.i.i.i.i65.preheader:                 ; preds = %cond.false.i, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i
+  %cond.i = phi i32 [ %7, %cond.false.i ], [ 0, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i ], [ 0, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i ]
   br label %while.body.i.i.i.i.i65
 
 while.body.i.i.i.i.i65:                           ; preds = %while.body.i.i.i.i.i65.preheader, %while.body.i.i.i.i.i65
@@ -4051,22 +4052,22 @@ while.body.i.i.i.i.i65:                           ; preds = %while.body.i.i.i.i.
 
 _ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i75: ; preds = %while.body.i.i.i.i.i65
   %cmp.i.not.i.i.i76 = icmp eq ptr %10, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i76, label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap9tiffcountEi.exit, label %land.rhs.i.i.i77
+  br i1 %cmp.i.not.i.i.i76, label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap9tiffcountEi.exit, label %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i77
 
-land.rhs.i.i.i77:                                 ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i75
+_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i77: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i75
   %11 = load i32, ptr %10, align 4, !noalias !163
   %cmp.i2.i.i.i78 = icmp sgt i32 %11, %tag
   br i1 %cmp.i2.i.i.i78, label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap9tiffcountEi.exit, label %cond.false.i79
 
-cond.false.i79:                                   ; preds = %land.rhs.i.i.i77
+cond.false.i79:                                   ; preds = %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i77
   %second.i80 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %second.i80, align 8
   %tiffcount.i = getelementptr inbounds i8, ptr %12, i64 20
   %13 = load i32, ptr %tiffcount.i, align 4
   br label %_ZNK18OpenImageIO_v2_6_03pvt6TagMap9tiffcountEi.exit
 
-_ZNK18OpenImageIO_v2_6_03pvt6TagMap9tiffcountEi.exit: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i75, %land.rhs.i.i.i77, %cond.false.i79
-  %cond.i81 = phi i32 [ %13, %cond.false.i79 ], [ 0, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i75 ], [ 0, %land.rhs.i.i.i77 ]
+_ZNK18OpenImageIO_v2_6_03pvt6TagMap9tiffcountEi.exit: ; preds = %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i75, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i77, %cond.false.i79
+  %cond.i81 = phi i32 [ %13, %cond.false.i79 ], [ 0, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i77 ], [ 0, %_ZN5boost9container3dtl9flat_treeINS1_4pairIiPKN18OpenImageIO_v2_6_07TagInfoEEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS8_EEE11lower_boundERKi.exit.i.i.i75 ]
   %conv = sext i32 %cond.i81 to i64
   %m_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %14 = load i8, ptr %m_type.i, align 8, !noalias !4
@@ -6950,8 +6951,8 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %if.else50
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i57, i64 %sub.ptr.sub.i.i)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.sub.i.i57
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.sub.i.i57
-  %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775807)
-  %cond.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %5
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775807)
+  %cond.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %spec.select.i
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit, label %cond.true.i
 
@@ -7102,8 +7103,8 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit:    ; preds = %if.else50
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i57, i64 %sub.ptr.sub.i.i)
   %add.i = add i64 %.sroa.speculated.i, %sub.ptr.sub.i.i57
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.sub.i.i57
-  %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775807)
-  %cond.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %5
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 9223372036854775807)
+  %cond.i = select i1 %cmp7.i, i64 9223372036854775807, i64 %spec.select.i
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit, label %cond.true.i
 

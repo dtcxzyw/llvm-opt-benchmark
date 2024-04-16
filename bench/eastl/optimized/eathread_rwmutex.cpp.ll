@@ -393,7 +393,7 @@ declare noundef zeroext i1 @_ZN2EA6Thread9Condition6SignalEb(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN2EA6Thread7RWMutex12GetLockCountENS1_8LockTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i32 noundef %lockType) local_unnamed_addr #5 align 2 {
 entry:
-  switch i32 %lockType, label %if.end6 [
+  switch i32 %lockType, label %return [
     i32 1, label %if.then
     i32 2, label %land.lhs.true
   ]
@@ -406,14 +406,12 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %entry
   %mThreadIdWriter = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mThreadIdWriter, align 8
-  %cmp4.not = icmp eq i64 %1, 0
-  br i1 %cmp4.not, label %if.end6, label %return
-
-if.end6:                                          ; preds = %entry, %land.lhs.true
+  %cmp4.not = icmp ne i64 %1, 0
+  %spec.select = zext i1 %cmp4.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end6, %if.then
-  %retval.0 = phi i32 [ %0, %if.then ], [ 0, %if.end6 ], [ 1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry, %if.then
+  %retval.0 = phi i32 [ %0, %if.then ], [ 0, %entry ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

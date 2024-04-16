@@ -109,7 +109,7 @@ define internal i32 @tsinfo_fill_reply(ptr noundef %0, ptr nocapture noundef rea
 12:                                               ; preds = %3
   %13 = tail call i32 @ethnl_put_bitset32(ptr noundef %0, i32 noundef 2, ptr noundef %9, ptr noundef null, i32 noundef 17, ptr noundef nonnull @sof_timestamping_names, i1 noundef zeroext %8) #3
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %37, label %15
+  br i1 %14, label %36, label %15
 
 15:                                               ; preds = %12, %3
   %16 = getelementptr inbounds i8, ptr %2, i64 20
@@ -120,7 +120,7 @@ define internal i32 @tsinfo_fill_reply(ptr noundef %0, ptr nocapture noundef rea
 19:                                               ; preds = %15
   %20 = tail call i32 @ethnl_put_bitset32(ptr noundef %0, i32 noundef 3, ptr noundef %16, ptr noundef null, i32 noundef 4, ptr noundef nonnull @ts_tx_type_names, i1 noundef zeroext %8) #3
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %37, label %22
+  br i1 %21, label %36, label %22
 
 22:                                               ; preds = %19, %15
   %23 = getelementptr inbounds i8, ptr %2, i64 36
@@ -131,7 +131,7 @@ define internal i32 @tsinfo_fill_reply(ptr noundef %0, ptr nocapture noundef rea
 26:                                               ; preds = %22
   %27 = tail call i32 @ethnl_put_bitset32(ptr noundef %0, i32 noundef 4, ptr noundef %23, ptr noundef null, i32 noundef 16, ptr noundef nonnull @ts_rx_filter_names, i1 noundef zeroext %8) #3
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %37, label %29
+  br i1 %28, label %36, label %29
 
 29:                                               ; preds = %26, %22
   %30 = getelementptr inbounds i8, ptr %2, i64 16
@@ -145,14 +145,12 @@ define internal i32 @tsinfo_fill_reply(ptr noundef %0, ptr nocapture noundef rea
   %34 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %4) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %37
+  %spec.select = select i1 %35, i32 0, i32 -90
+  br label %36
 
-36:                                               ; preds = %33, %29
-  br label %37
-
-37:                                               ; preds = %36, %33, %26, %19, %12
-  %38 = phi i32 [ 0, %36 ], [ %13, %12 ], [ %20, %19 ], [ %27, %26 ], [ -90, %33 ]
-  ret i32 %38
+36:                                               ; preds = %33, %29, %26, %19, %12
+  %37 = phi i32 [ %13, %12 ], [ %20, %19 ], [ %27, %26 ], [ 0, %29 ], [ %spec.select, %33 ]
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

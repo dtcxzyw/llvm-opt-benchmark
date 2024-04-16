@@ -92,7 +92,7 @@ define internal i32 @group_signal_handler(i32 noundef %0, ptr nocapture noundef 
 21:                                               ; preds = %18, %15
   %22 = tail call i32 @nxsig_tcbdispatch(ptr noundef nonnull %3, ptr noundef %.pre51) #3
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %59, label %24
+  br i1 %23, label %58, label %24
 
 24:                                               ; preds = %21
   store ptr %3, ptr %16, align 8
@@ -105,7 +105,7 @@ define internal i32 @group_signal_handler(i32 noundef %0, ptr nocapture noundef 
 27:                                               ; preds = %24
   %28 = load i8, ptr %.pre50, align 8
   %.not43 = icmp eq i8 %28, 17
-  br i1 %.not43, label %29, label %59
+  br i1 %.not43, label %29, label %58
 
 29:                                               ; preds = %24, %27, %18, %8
   %30 = phi ptr [ %.pre50, %24 ], [ %.pre50, %27 ], [ %.pre51, %18 ], [ %.pre51, %8 ]
@@ -152,19 +152,17 @@ define internal i32 @group_signal_handler(i32 noundef %0, ptr nocapture noundef 
   %53 = load ptr, ptr %1, align 8
   %54 = tail call i32 @nxsig_tcbdispatch(ptr noundef nonnull %3, ptr noundef %53) #3
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %59, label %56
+  br i1 %55, label %58, label %56
 
 56:                                               ; preds = %52
   store ptr %3, ptr %36, align 8
   %57 = load ptr, ptr %39, align 8
-  %.not49 = icmp eq ptr %57, null
-  br i1 %.not49, label %58, label %59
+  %.not49 = icmp ne ptr %57, null
+  %spec.select = zext i1 %.not49 to i32
+  br label %58
 
-58:                                               ; preds = %29, %35, %38, %56, %45, %2
-  br label %59
-
-59:                                               ; preds = %56, %52, %27, %21, %58
-  %.0 = phi i32 [ 0, %58 ], [ %22, %21 ], [ 1, %27 ], [ %54, %52 ], [ 1, %56 ]
+58:                                               ; preds = %56, %2, %45, %38, %35, %29, %52, %27, %21
+  %.0 = phi i32 [ %22, %21 ], [ 1, %27 ], [ %54, %52 ], [ 0, %29 ], [ 0, %35 ], [ 0, %38 ], [ 0, %45 ], [ 0, %2 ], [ %spec.select, %56 ]
   ret i32 %.0
 }
 

@@ -328,18 +328,14 @@ entry:
   %0 = getelementptr i8, ptr %s, i64 8
   %s.val = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %s.val, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %s.val, ptr noundef %arg) #11
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -780,7 +776,7 @@ if.end79:                                         ; preds = %do.body52, %do.body
 
 if.then82.thread:                                 ; preds = %land.rhs73, %land.rhs73.us, %land.lhs.true45.thread
   store i32 4, ptr %call33, align 4
-  br label %if.then95
+  br label %return
 
 if.then82:                                        ; preds = %land.lhs.true45, %if.end79
   %err.028 = phi i32 [ %.us-phi42, %if.end79 ], [ %9, %land.lhs.true45 ]
@@ -791,7 +787,7 @@ if.then82:                                        ; preds = %land.lhs.true45, %i
     i32 4, label %if.then95
   ]
 
-if.then95:                                        ; preds = %if.then82.thread, %if.then82
+if.then95:                                        ; preds = %if.then82
   br label %return
 
 if.else96:                                        ; preds = %if.then82
@@ -809,8 +805,8 @@ if.end98:                                         ; preds = %do.end, %if.end79
   store i64 %call101, ptr %last_tid102, align 8
   br label %return
 
-return:                                           ; preds = %if.then82, %if.then82, %if.then6, %if.end98, %if.else96, %if.then95, %if.then19, %if.then
-  %retval.0 = phi ptr [ @_Py_TrueStruct, %if.then ], [ null, %if.then19 ], [ null, %if.then95 ], [ %call97, %if.else96 ], [ @_Py_TrueStruct, %if.end98 ], [ null, %if.then6 ], [ @_Py_FalseStruct, %if.then82 ], [ @_Py_FalseStruct, %if.then82 ]
+return:                                           ; preds = %if.then82.thread, %if.then82, %if.then82, %if.then6, %if.end98, %if.else96, %if.then95, %if.then19, %if.then
+  %retval.0 = phi ptr [ @_Py_TrueStruct, %if.then ], [ null, %if.then19 ], [ %call97, %if.else96 ], [ @_Py_TrueStruct, %if.end98 ], [ null, %if.then6 ], [ @_Py_FalseStruct, %if.then82 ], [ @_Py_FalseStruct, %if.then82 ], [ null, %if.then82.thread ], [ null, %if.then95 ]
   ret ptr %retval.0
 }
 

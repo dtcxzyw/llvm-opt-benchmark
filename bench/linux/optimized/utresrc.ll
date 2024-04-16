@@ -27,7 +27,7 @@ define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef %0, ptr noundef %1,
   store i8 0, ptr %6, align 1, !annotation !5
   %11 = getelementptr i8, ptr %1, i64 %2
   %12 = icmp ugt ptr %11, %1
-  br i1 %12, label %13, label %.loopexit9
+  br i1 %12, label %13, label %.loopexit8
 
 13:                                               ; preds = %10
   %14 = icmp ne ptr %3, null
@@ -69,14 +69,14 @@ define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef %0, ptr noundef %1,
   %37 = load i8, ptr %16, align 1
   %38 = and i8 %37, -8
   %39 = icmp eq i8 %38, 120
-  br i1 %39, label %.split14.us, label %40
+  br i1 %39, label %.split13.us, label %40
 
 40:                                               ; preds = %36
   %41 = zext nneg i32 %32 to i64
   %42 = getelementptr i8, ptr %16, i64 %41
   %43 = add i32 %32, %15
   %44 = icmp ult ptr %42, %11
-  br i1 %44, label %.split.us, label %.loopexit9, !llvm.loop !7
+  br i1 %44, label %.split.us, label %.loopexit8, !llvm.loop !7
 
 .split:                                           ; preds = %13, %68
   %45 = phi i32 [ %73, %68 ], [ 0, %13 ]
@@ -105,18 +105,18 @@ define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef %0, ptr noundef %1,
   %60 = phi i16 [ %54, %52 ], [ %57, %55 ]
   %61 = and i8 %50, -8
   %62 = icmp eq i8 %61, 120
-  br i1 %62, label %.split14.us, label %68
+  br i1 %62, label %.split13.us, label %68
 
-.split14.us:                                      ; preds = %58, %36
-  %.us-phi15 = phi ptr [ %16, %36 ], [ %46, %58 ]
-  %63 = getelementptr i8, ptr %.us-phi15, i64 1
+.split13.us:                                      ; preds = %58, %36
+  %.us-phi14 = phi ptr [ %16, %36 ], [ %46, %58 ]
+  %63 = getelementptr i8, ptr %.us-phi14, i64 1
   %64 = icmp uge ptr %63, %11
   %65 = or i1 %14, %64
   %66 = select i1 %64, i32 12316, i32 0
   br i1 %65, label %.loopexit, label %67
 
-67:                                               ; preds = %.split14.us
-  store ptr %.us-phi15, ptr %4, align 8
+67:                                               ; preds = %.split13.us
+  store ptr %.us-phi14, ptr %4, align 8
   br label %.loopexit
 
 68:                                               ; preds = %58
@@ -126,28 +126,26 @@ define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef %0, ptr noundef %1,
   %72 = getelementptr i8, ptr %46, i64 %71
   %73 = add i32 %70, %45
   %74 = icmp ult ptr %72, %11
-  br i1 %74, label %.split, label %.loopexit9, !llvm.loop !7
+  br i1 %74, label %.split, label %.loopexit8, !llvm.loop !7
 
-.loopexit9:                                       ; preds = %68, %40, %10
+.loopexit8:                                       ; preds = %68, %40, %10
   %75 = phi i32 [ 0, %10 ], [ %43, %40 ], [ %73, %68 ]
   %76 = icmp eq ptr %3, null
-  br i1 %76, label %82, label %77
+  br i1 %76, label %.loopexit, label %77
 
-77:                                               ; preds = %.loopexit9
+77:                                               ; preds = %.loopexit8
   %78 = call i32 @acpi_ut_validate_resource(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !6
   %79 = load i8, ptr %6, align 1
   %80 = call i32 %3(ptr noundef nonnull %7, i32 noundef 2, i32 noundef %75, i8 noundef zeroext %79, ptr noundef %4) #5
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %.loopexit
-
-82:                                               ; preds = %77, %.loopexit9
+  %spec.select = select i1 %81, i32 12316, i32 %80
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.split, %28, %.split.us, %82, %77, %67, %.split14.us, %5
-  %83 = phi i32 [ 12316, %82 ], [ 12316, %5 ], [ %66, %.split14.us ], [ 0, %67 ], [ %80, %77 ], [ %34, %28 ], [ %17, %.split.us ], [ %47, %.split ]
+.loopexit:                                        ; preds = %.split, %28, %.split.us, %77, %.loopexit8, %67, %.split13.us, %5
+  %82 = phi i32 [ 12316, %5 ], [ %66, %.split13.us ], [ 0, %67 ], [ 12316, %.loopexit8 ], [ %spec.select, %77 ], [ %34, %28 ], [ %17, %.split.us ], [ %47, %.split ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
-  ret i32 %83
+  ret i32 %82
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -348,7 +346,7 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [
     i32 0, label %5
-    i32 1, label %.thread4
+    i32 1, label %.thread5
   ]
 
 5:                                                ; preds = %2
@@ -362,7 +360,7 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 %9
   %13 = icmp ugt ptr %12, %11
-  br i1 %13, label %.preheader, label %.thread4
+  br i1 %13, label %.preheader, label %.thread5
 
 .preheader:                                       ; preds = %8, %77
   %14 = phi ptr [ %80, %77 ], [ %11, %8 ]
@@ -372,7 +370,7 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
 
 17:                                               ; preds = %.preheader
   %18 = icmp ugt i8 %15, -108
-  br i1 %18, label %.thread4, label %.thread
+  br i1 %18, label %.thread5, label %.thread
 
 19:                                               ; preds = %.preheader
   %20 = lshr i8 %15, 3
@@ -380,7 +378,7 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
   %22 = lshr i64 604175, %21
   %23 = and i64 %22, 1
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %33, label %.thread4
+  br i1 %24, label %33, label %.thread5
 
 .thread:                                          ; preds = %17
   %25 = add i8 %15, -112
@@ -388,7 +386,7 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
   %27 = lshr i64 604175, %26
   %28 = and i64 %27, 1
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %.thread4
+  br i1 %29, label %30, label %.thread5
 
 30:                                               ; preds = %.thread
   %31 = getelementptr i8, ptr %14, i64 1
@@ -407,7 +405,7 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
   %40 = getelementptr [36 x i8], ptr @acpi_gbl_resource_aml_sizes, i64 0, i64 %37
   %41 = load i8, ptr %40, align 1
   %42 = load i8, ptr %39, align 1
-  switch i8 %42, label %.thread4 [
+  switch i8 %42, label %.thread5 [
     i8 1, label %43
     i8 2, label %46
     i8 3, label %49
@@ -416,12 +414,12 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
 43:                                               ; preds = %36
   %44 = zext i8 %41 to i16
   %45 = icmp eq i16 %38, %44
-  br i1 %45, label %56, label %.thread4
+  br i1 %45, label %56, label %.thread5
 
 46:                                               ; preds = %36
   %47 = zext i8 %41 to i16
   %48 = icmp ult i16 %38, %47
-  br i1 %48, label %.thread4, label %56
+  br i1 %48, label %.thread5, label %56
 
 49:                                               ; preds = %36
   %50 = zext i16 %38 to i32
@@ -430,7 +428,7 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
   %53 = add nsw i32 %51, -1
   %54 = icmp sgt i32 %53, %50
   %55 = select i1 %52, i1 true, i1 %54
-  br i1 %55, label %.thread4, label %56
+  br i1 %55, label %.thread5, label %56
 
 56:                                               ; preds = %49, %46, %43
   %57 = icmp eq i8 %15, -114
@@ -441,12 +439,12 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
   %60 = load i8, ptr %59, align 1
   %61 = add i8 %60, -1
   %62 = icmp ult i8 %61, 4
-  br i1 %62, label %.thread5, label %.thread4
+  br i1 %62, label %.thread7, label %.thread5
 
 63:                                               ; preds = %56
-  br i1 %16, label %66, label %.thread5
+  br i1 %16, label %66, label %.thread7
 
-.thread5:                                         ; preds = %58, %63
+.thread7:                                         ; preds = %58, %63
   %64 = getelementptr i8, ptr %14, i64 1
   %65 = load i16, ptr %64, align 2
   br label %69
@@ -456,9 +454,9 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
   %68 = zext nneg i8 %67 to i16
   br label %69
 
-69:                                               ; preds = %66, %.thread5
-  %70 = phi i64 [ 3, %.thread5 ], [ 1, %66 ]
-  %71 = phi i16 [ %65, %.thread5 ], [ %68, %66 ]
+69:                                               ; preds = %66, %.thread7
+  %70 = phi i64 [ 3, %.thread7 ], [ 1, %66 ]
+  %71 = phi i16 [ %65, %.thread7 ], [ %68, %66 ]
   %72 = and i8 %15, -8
   %73 = icmp eq i8 %72, 120
   br i1 %73, label %74, label %77
@@ -466,22 +464,22 @@ define dso_local noundef i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef
 74:                                               ; preds = %69
   %75 = getelementptr i8, ptr %14, i64 1
   %76 = icmp ult ptr %75, %12
-  br i1 %76, label %82, label %.thread4
+  br i1 %76, label %82, label %.thread5
 
 77:                                               ; preds = %69
   %78 = zext i16 %71 to i64
   %79 = add nuw nsw i64 %70, %78
   %80 = getelementptr i8, ptr %14, i64 %79
   %81 = icmp ult ptr %80, %12
-  br i1 %81, label %.preheader, label %.thread4, !llvm.loop !7
+  br i1 %81, label %.preheader, label %.thread5, !llvm.loop !7
 
 82:                                               ; preds = %74, %5
   %83 = phi ptr [ %7, %5 ], [ %14, %74 ]
   store ptr %83, ptr %1, align 8
-  br label %.thread4
+  br label %.thread5
 
-.thread4:                                         ; preds = %.thread, %43, %46, %49, %17, %19, %36, %58, %77, %82, %74, %8, %2
-  %84 = phi i32 [ 12316, %74 ], [ 12316, %8 ], [ 12316, %2 ], [ 0, %82 ], [ 12311, %58 ], [ 12311, %36 ], [ 12311, %19 ], [ 12311, %17 ], [ 12319, %49 ], [ 12319, %46 ], [ 12319, %43 ], [ 12311, %.thread ], [ 12316, %77 ]
+.thread5:                                         ; preds = %.thread, %43, %46, %49, %17, %19, %36, %77, %58, %82, %74, %8, %2
+  %84 = phi i32 [ 12316, %74 ], [ 12316, %8 ], [ 12316, %2 ], [ 0, %82 ], [ 12311, %36 ], [ 12311, %19 ], [ 12311, %17 ], [ 12319, %49 ], [ 12319, %46 ], [ 12319, %43 ], [ 12311, %.thread ], [ 12316, %77 ], [ 12311, %58 ]
   ret i32 %84
 }
 

@@ -609,7 +609,7 @@ define hidden i32 @psa_driver_wrapper_aead_verify(ptr noundef %0, ptr noundef %1
   %8 = alloca i64, align 8
   %9 = load i32, ptr %0, align 8
   %cond = icmp eq i32 %9, 1
-  br i1 %cond, label %10, label %25
+  br i1 %cond, label %10, label %24
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 40
@@ -620,7 +620,7 @@ define hidden i32 @psa_driver_wrapper_aead_verify(ptr noundef %0, ptr noundef %1
 14:                                               ; preds = %10
   %15 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %15, %5
-  br i1 %.not, label %16, label %24
+  br i1 %.not, label %16, label %mbedtls_psa_safer_memcmp.exit.thread
 
 16:                                               ; preds = %14
   %.not.i = icmp eq i64 %5, 0
@@ -634,24 +634,23 @@ define hidden i32 @psa_driver_wrapper_aead_verify(ptr noundef %0, ptr noundef %1
   %19 = getelementptr inbounds i8, ptr %7, i64 %.089.i
   %20 = load i8, ptr %19, align 1
   %21 = xor i8 %20, %18
-  %22 = or i8 %21, %.010.i
+  %.fr17 = freeze i8 %21
+  %22 = or i8 %.fr17, %.010.i
   %23 = add nuw i64 %.089.i, 1
   %exitcond.not.i = icmp eq i64 %23, %5
   br i1 %exitcond.not.i, label %mbedtls_psa_safer_memcmp.exit, label %.lr.ph.i, !llvm.loop !4
 
 mbedtls_psa_safer_memcmp.exit:                    ; preds = %.lr.ph.i
   %.not13 = icmp eq i8 %22, 0
-  br i1 %.not13, label %mbedtls_psa_safer_memcmp.exit.thread, label %24
-
-24:                                               ; preds = %mbedtls_psa_safer_memcmp.exit, %14
+  %spec.select = select i1 %.not13, i32 0, i32 -149
   br label %mbedtls_psa_safer_memcmp.exit.thread
 
-mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %16, %mbedtls_psa_safer_memcmp.exit, %24, %10
-  %.0 = phi i32 [ -149, %24 ], [ 0, %mbedtls_psa_safer_memcmp.exit ], [ %12, %10 ], [ 0, %16 ]
+mbedtls_psa_safer_memcmp.exit.thread:             ; preds = %mbedtls_psa_safer_memcmp.exit, %16, %14, %10
+  %.0 = phi i32 [ %12, %10 ], [ -149, %14 ], [ 0, %16 ], [ %spec.select, %mbedtls_psa_safer_memcmp.exit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 16) #5
-  br label %25
+  br label %24
 
-25:                                               ; preds = %6, %mbedtls_psa_safer_memcmp.exit.thread
+24:                                               ; preds = %6, %mbedtls_psa_safer_memcmp.exit.thread
   %.010 = phi i32 [ %.0, %mbedtls_psa_safer_memcmp.exit.thread ], [ -135, %6 ]
   ret i32 %.010
 }

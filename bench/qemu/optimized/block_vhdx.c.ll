@@ -765,7 +765,7 @@ vhdx_region_register.exit.i75:                    ; preds = %if.then.i27.i, %if.
   br i1 %cmp34.i, label %if.then36.i, label %if.end39.i
 
 if.then36.i:                                      ; preds = %vhdx_region_register.exit.i75
-  %tobool.i = trunc i8 %bat_rt_found.042.i to i1
+  %tobool.i = trunc nuw i8 %bat_rt_found.042.i to i1
   br i1 %tobool.i, label %vhdx_open_region_tables.exit.thread, label %for.inc.sink.split.i
 
 if.end39.i:                                       ; preds = %vhdx_region_register.exit.i75
@@ -774,7 +774,7 @@ if.end39.i:                                       ; preds = %vhdx_region_registe
   br i1 %cmp42.i, label %if.then44.i, label %if.end48.i
 
 if.then44.i:                                      ; preds = %if.end39.i
-  %tobool45.i = trunc i8 %metadata_rt_found.043.i to i1
+  %tobool45.i = trunc nuw i8 %metadata_rt_found.043.i to i1
   br i1 %tobool45.i, label %vhdx_open_region_tables.exit.thread, label %for.inc.sink.split.i
 
 if.end48.i:                                       ; preds = %if.end39.i
@@ -799,8 +799,8 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   br i1 %cmp19.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.inc.i
-  %26 = trunc i8 %bat_rt_found.1.i to i1
-  %27 = trunc i8 %metadata_rt_found.1.i to i1
+  %26 = trunc nuw i8 %bat_rt_found.1.i to i1
+  %27 = trunc nuw i8 %metadata_rt_found.1.i to i1
   %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %if.end24, label %vhdx_open_region_tables.exit.thread
 
@@ -1087,7 +1087,7 @@ if.end28:                                         ; preds = %if.end274.i
   %sectors_per_block_bits.i.i = getelementptr inbounds i8, ptr %0, i64 400
   store i32 %75, ptr %sectors_per_block_bits.i.i, align 8
   %76 = call i64 @llvm.cttz.i64(i64 %div253.i, i1 true), !range !11
-  %cast.i.i.i = trunc i64 %76 to i32
+  %cast.i.i.i = trunc nuw nsw i64 %76 to i32
   %chunk_ratio_bits.i.i = getelementptr inbounds i8, ptr %0, i64 432
   store i32 %cast.i.i.i, ptr %chunk_ratio_bits.i.i, align 8
   %77 = call i32 @llvm.cttz.i32(i32 %69, i1 false), !range !9
@@ -1280,7 +1280,7 @@ if.then8:                                         ; preds = %if.else5
   br label %return
 
 if.end9:                                          ; preds = %if.else5
-  %conv = trunc i64 %3 to i32
+  %conv = trunc nuw i64 %3 to i32
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end3, %if.end9
@@ -1622,21 +1622,19 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @vhdx_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #6 {
+define internal i32 @vhdx_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #6 {
 entry:
   %cmp = icmp sgt i32 %buf_size, 7
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %buf, ptr noundef nonnull dereferenceable(8) @.str.24, i64 8)
   %tobool.not = icmp eq i32 %bcmp, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %spec.select = select i1 %tobool.not, i32 100, i32 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 100, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -1865,7 +1863,7 @@ if.end.i41:                                       ; preds = %sw.bb4
   br i1 %cmp2.i, label %exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i41
-  %tobool.i43 = trunc i8 %use_zero_buffers.0 to i1
+  %tobool.i43 = trunc nuw i8 %use_zero_buffers.0 to i1
   br i1 %tobool.i43, label %if.then6.i, label %if.end15.i
 
 if.then6.i:                                       ; preds = %if.end5.i
@@ -2432,7 +2430,7 @@ if.end:                                           ; preds = %entry
   %sectors_per_block_bits.i = getelementptr inbounds i8, ptr %call, i64 400
   store i32 %1, ptr %sectors_per_block_bits.i, align 8
   %2 = tail call i64 @llvm.cttz.i64(i64 %div, i1 false), !range !11
-  %cast.i.i = trunc i64 %2 to i32
+  %cast.i.i = trunc nuw nsw i64 %2 to i32
   %chunk_ratio_bits.i = getelementptr inbounds i8, ptr %call, i64 432
   store i32 %cast.i.i, ptr %chunk_ratio_bits.i, align 8
   %3 = tail call i32 @llvm.cttz.i32(i32 %block_size, i1 false), !range !9

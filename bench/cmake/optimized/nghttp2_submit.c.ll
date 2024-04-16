@@ -811,7 +811,7 @@ define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr
   %7 = getelementptr inbounds i8, ptr %0, i64 2844
   %8 = load i8, ptr %7, align 4
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %27
+  br i1 %.not, label %9, label %26
 
 9:                                                ; preds = %6
   %.not20 = icmp eq ptr %1, null
@@ -833,66 +833,62 @@ define dso_local i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef %1, ptr
   %17 = load i32, ptr %1, align 4
   %.sink7.i = load i32, ptr %16, align 4
   %.not24 = icmp eq i32 %.sink7.i, %17
-  br i1 %.not24, label %27, label %18
+  br i1 %.not24, label %26, label %18
 
 18:                                               ; preds = %9, %10, %12, %15
   %.017 = phi ptr [ %1, %15 ], [ null, %12 ], [ null, %10 ], [ null, %9 ]
   %19 = icmp eq ptr %4, null
-  br i1 %19, label %24, label %20
+  br i1 %19, label %set_request_flags.exit, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %set_request_flags.exit
-
-24:                                               ; preds = %20, %18
+  %spec.select6.i = zext i1 %23 to i8
   br label %set_request_flags.exit
 
-set_request_flags.exit:                           ; preds = %20, %24
-  %.0.i = phi i8 [ 1, %24 ], [ 0, %20 ]
+set_request_flags.exit:                           ; preds = %18, %20
+  %.0.i = phi i8 [ 1, %18 ], [ %spec.select6.i, %20 ]
   %.not.i = icmp eq ptr %.017, null
-  %25 = or disjoint i8 %.0.i, 32
-  %spec.select.i = select i1 %.not.i, i8 %.0.i, i8 %25
-  %26 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %spec.select.i, i32 noundef -1, ptr noundef %.017, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5)
-  br label %27
+  %24 = or disjoint i8 %.0.i, 32
+  %spec.select.i = select i1 %.not.i, i8 %.0.i, i8 %24
+  %25 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %spec.select.i, i32 noundef -1, ptr noundef %.017, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %26
 
-27:                                               ; preds = %15, %6, %set_request_flags.exit
-  %.0 = phi i32 [ %26, %set_request_flags.exit ], [ -505, %6 ], [ -501, %15 ]
+26:                                               ; preds = %15, %6, %set_request_flags.exit
+  %.0 = phi i32 [ %25, %set_request_flags.exit ], [ -505, %6 ], [ -501, %15 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %1, 1
-  br i1 %6, label %18, label %7
+  br i1 %6, label %17, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 2844
   %9 = load i8, ptr %8, align 4
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %18, label %10
+  br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %4, null
-  br i1 %11, label %16, label %12
+  br i1 %11, label %set_response_flags.exit, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %set_response_flags.exit
-
-16:                                               ; preds = %12, %10
+  %spec.select.i = zext i1 %15 to i8
   br label %set_response_flags.exit
 
-set_response_flags.exit:                          ; preds = %12, %16
-  %.0.i = phi i8 [ 1, %16 ], [ 0, %12 ]
-  %17 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i, i32 noundef %1, ptr noundef null, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef null)
-  br label %18
+set_response_flags.exit:                          ; preds = %10, %12
+  %.0.i = phi i8 [ 1, %10 ], [ %spec.select.i, %12 ]
+  %16 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef nonnull %0, i8 noundef zeroext %.0.i, i32 noundef %1, ptr noundef null, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef null)
+  br label %17
 
-18:                                               ; preds = %7, %5, %set_response_flags.exit
-  %.0 = phi i32 [ %17, %set_response_flags.exit ], [ -501, %5 ], [ -505, %7 ]
+17:                                               ; preds = %7, %5, %set_response_flags.exit
+  %.0 = phi i32 [ %16, %set_response_flags.exit ], [ -501, %5 ], [ -505, %7 ]
   ret i32 %.0
 }
 

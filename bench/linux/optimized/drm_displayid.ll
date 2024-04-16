@@ -28,7 +28,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread16, label %8
+  br i1 %7, label %.thread20, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 20
@@ -67,7 +67,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   %29 = sext i32 %28 to i64
   %30 = add nsw i64 %29, 3
   %31 = icmp ugt i64 %30, %15
-  br i1 %31, label %.thread16, label %32
+  br i1 %31, label %.thread20, label %32
 
 32:                                               ; preds = %25
   %33 = getelementptr i8, ptr %6, i64 %29
@@ -77,10 +77,10 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   %37 = add nsw i64 %30, %36
   %38 = icmp ugt i64 %37, %15
   %39 = icmp eq ptr %33, null
-  %or.cond21 = or i1 %39, %38
-  br i1 %or.cond21, label %.thread16, label %.loopexit
+  %or.cond27 = or i1 %39, %38
+  br i1 %or.cond27, label %.thread20, label %.loopexit
 
-.thread16:                                        ; preds = %32, %25, %4
+.thread20:                                        ; preds = %32, %25, %4
   %40 = getelementptr inbounds i8, ptr %0, i64 16
   %41 = getelementptr inbounds i8, ptr %0, i64 20
   %42 = getelementptr inbounds i8, ptr %0, i64 24
@@ -89,19 +89,19 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   %45 = icmp eq ptr %6, null
   br label %46
 
-46:                                               ; preds = %116, %.thread16
-  %47 = phi i1 [ false, %116 ], [ %45, %.thread16 ]
+46:                                               ; preds = %select.unfold26, %.thread20
+  %47 = phi i1 [ false, %select.unfold26 ], [ %45, %.thread20 ]
   %48 = load ptr, ptr %0, align 8
   %49 = tail call ptr @drm_find_edid_extension(ptr noundef %48, i32 noundef 112, ptr noundef %42) #6
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread19, label %51
+  br i1 %50, label %.thread24, label %51
 
 51:                                               ; preds = %46
   store i32 127, ptr %40, align 4
   store i32 1, ptr %41, align 4
   %52 = getelementptr i8, ptr %49, i64 1
   %53 = icmp ugt ptr %52, inttoptr (i64 -4096 to ptr)
-  br i1 %53, label %.thread19, label %54
+  br i1 %53, label %.thread24, label %54
 
 54:                                               ; preds = %51
   %55 = load i8, ptr %52, align 1
@@ -118,7 +118,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %56, i32 noundef %59, i32 noundef %62, i32 noundef %65) #6
   %66 = load i8, ptr %57, align 1
   %67 = icmp ugt i8 %66, 121
-  br i1 %67, label %.thread19, label %68
+  br i1 %67, label %.thread24, label %68
 
 68:                                               ; preds = %54
   %69 = add nuw nsw i8 %66, 5
@@ -142,12 +142,12 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
 81:                                               ; preds = %79
   %82 = zext i8 %76 to i32
   %83 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %82) #7
-  br label %.thread19
+  br label %.thread24
 
 84:                                               ; preds = %79
-  br i1 %53, label %.thread19, label %85
+  br i1 %53, label %.thread24, label %85
 
-.thread19:                                        ; preds = %51, %46, %84, %54, %81
+.thread24:                                        ; preds = %51, %46, %84, %54, %81
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.loopexit
 
@@ -185,7 +185,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   %105 = add nsw i64 %104, 3
   %106 = sext i32 %91 to i64
   %107 = icmp ugt i64 %105, %106
-  br i1 %107, label %115, label %108
+  br i1 %107, label %select.unfold26, label %108
 
 108:                                              ; preds = %103
   %109 = getelementptr i8, ptr %49, i64 %104
@@ -194,19 +194,17 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   %112 = zext i8 %111 to i64
   %113 = add nsw i64 %105, %112
   %114 = icmp ugt i64 %113, %106
-  br i1 %114, label %115, label %116
+  %spec.select = select i1 %114, ptr null, ptr %109
+  br label %select.unfold26
 
-115:                                              ; preds = %108, %103
-  br label %116
+select.unfold26:                                  ; preds = %108, %103
+  %115 = phi ptr [ null, %103 ], [ %spec.select, %108 ]
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %46, label %.loopexit, !llvm.loop !12
 
-116:                                              ; preds = %108, %115
-  %117 = phi ptr [ null, %115 ], [ %109, %108 ]
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %46, label %.loopexit, !llvm.loop !12
-
-.loopexit:                                        ; preds = %116, %32, %.thread19, %.thread, %1
-  %119 = phi ptr [ null, %.thread ], [ null, %1 ], [ null, %.thread19 ], [ %33, %32 ], [ %117, %116 ]
-  ret ptr %119
+.loopexit:                                        ; preds = %select.unfold26, %32, %.thread24, %.thread, %1
+  %117 = phi ptr [ null, %.thread ], [ null, %1 ], [ null, %.thread24 ], [ %33, %32 ], [ %115, %select.unfold26 ]
+  ret ptr %117
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)

@@ -282,14 +282,12 @@ define dso_local noundef ptr @xprt_switch_get(ptr noundef %0) local_unnamed_addr
 
 20:                                               ; preds = %19, %.thread
   %21 = icmp eq i32 %15, 0
-  br i1 %21, label %22, label %23
+  %spec.select = select i1 %21, ptr null, ptr %0
+  br label %22
 
 22:                                               ; preds = %20, %1
-  br label %23
-
-23:                                               ; preds = %22, %20
-  %24 = phi ptr [ null, %22 ], [ %0, %20 ]
-  ret ptr %24
+  %23 = phi ptr [ null, %1 ], [ %spec.select, %20 ]
+  ret ptr %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -575,17 +573,15 @@ define dso_local void @xprt_iter_init(ptr noundef %0, ptr noundef %1) local_unna
 
 21:                                               ; preds = %20, %.thread
   %22 = icmp eq i32 %16, 0
-  br i1 %22, label %23, label %24
+  %spec.select = select i1 %22, ptr null, ptr %1
+  br label %23
 
 23:                                               ; preds = %21, %2
-  br label %24
-
-24:                                               ; preds = %23, %21
-  %25 = phi ptr [ null, %23 ], [ %1, %21 ]
+  %24 = phi ptr [ null, %2 ], [ %spec.select, %21 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
-  store volatile ptr %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  store volatile ptr %24, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -628,19 +624,17 @@ define dso_local void @xprt_iter_init_listall(ptr noundef %0, ptr noundef %1) lo
 
 21:                                               ; preds = %20, %.thread
   %22 = icmp eq i32 %16, 0
-  br i1 %22, label %23, label %24
+  %spec.select = select i1 %22, ptr null, ptr %1
+  br label %23
 
 23:                                               ; preds = %21, %2
-  br label %24
-
-24:                                               ; preds = %23, %21
-  %25 = phi ptr [ null, %23 ], [ %1, %21 ]
+  %24 = phi ptr [ null, %2 ], [ %spec.select, %21 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
-  store volatile ptr %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr @rpc_xprt_iter_listall, ptr %27, align 8
+  store volatile ptr %24, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @rpc_xprt_iter_listall, ptr %26, align 8
   ret void
 }
 
@@ -683,19 +677,17 @@ define dso_local void @xprt_iter_init_listoffline(ptr noundef %0, ptr noundef %1
 
 21:                                               ; preds = %20, %.thread
   %22 = icmp eq i32 %16, 0
-  br i1 %22, label %23, label %24
+  %spec.select = select i1 %22, ptr null, ptr %1
+  br label %23
 
 23:                                               ; preds = %21, %2
-  br label %24
-
-24:                                               ; preds = %23, %21
-  %25 = phi ptr [ null, %23 ], [ %1, %21 ]
+  %24 = phi ptr [ null, %2 ], [ %spec.select, %21 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
-  store volatile ptr %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr @rpc_xprt_iter_listoffline, ptr %27, align 8
+  store volatile ptr %24, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @rpc_xprt_iter_listoffline, ptr %26, align 8
   ret void
 }
 

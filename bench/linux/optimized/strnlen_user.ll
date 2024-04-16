@@ -13,13 +13,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_strnlen_user
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @strnlen_user(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = icmp slt i64 %1, 1
-  br i1 %3, label %.thread6, label %4, !prof !5
+  br i1 %3, label %59, label %4, !prof !5
 
 4:                                                ; preds = %2
   %5 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #2, !srcloc !6
   %6 = ptrtoint ptr %0 to i64
   %7 = icmp ugt i64 %5, %6
-  br i1 %7, label %8, label %.thread6, !prof !7
+  br i1 %7, label %8, label %59, !prof !7
 
 8:                                                ; preds = %4
   %9 = sub i64 %5, %6
@@ -28,7 +28,7 @@ define dso_local i64 @strnlen_user(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %12 = icmp sgt i64 %11, -1
   %13 = icmp uge i64 %11, %6
   %14 = and i1 %12, %13
-  br i1 %14, label %15, label %.thread6, !prof !7
+  br i1 %14, label %15, label %59, !prof !7
 
 15:                                               ; preds = %8
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !8
@@ -37,11 +37,7 @@ define dso_local i64 @strnlen_user(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %17 = sub nsw i64 0, %16
   %18 = getelementptr i8, ptr %0, i64 %17
   %19 = callbr i64 asm sideeffect "\0A1:\09movq $1,$0\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "=r,*m,!i,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.__large_struct) %18) #2
-          to label %20 [label %.thread7], !srcloc !10
-
-.thread7:                                         ; preds = %15
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !11
-  br label %.thread6
+          to label %20 [label %.loopexit], !srcloc !10
 
 20:                                               ; preds = %15
   %21 = shl nuw nsw i64 %16, 3
@@ -86,7 +82,7 @@ define dso_local i64 @strnlen_user(ptr noundef %0, i64 noundef %1) #0 align 16 {
 43:                                               ; preds = %.lr.ph
   %44 = getelementptr i8, ptr %18, i64 %41
   %45 = callbr i64 asm sideeffect "\0A1:\09movq $1,$0\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "=r,*m,!i,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(%struct.__large_struct) %44) #2
-          to label %46 [label %.loopexit], !srcloc !12
+          to label %46 [label %.loopexit], !srcloc !11
 
 46:                                               ; preds = %43
   %47 = add i64 %40, -8
@@ -104,14 +100,14 @@ define dso_local i64 @strnlen_user(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %57 = select i1 %55, i64 0, i64 %56
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %53, %.thread
-  %58 = phi i64 [ %57, %53 ], [ %38, %.thread ], [ 0, %43 ]
-  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !11
-  br label %.thread6
+.loopexit:                                        ; preds = %43, %.thread, %53, %15
+  %58 = phi i64 [ 0, %15 ], [ %57, %53 ], [ %38, %.thread ], [ 0, %43 ]
+  tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !12
+  br label %59
 
-.thread6:                                         ; preds = %4, %8, %.loopexit, %.thread7, %2
-  %59 = phi i64 [ %58, %.loopexit ], [ 0, %2 ], [ 0, %.thread7 ], [ 0, %8 ], [ 0, %4 ]
-  ret i64 %59
+59:                                               ; preds = %8, %.loopexit, %4, %2
+  %60 = phi i64 [ 0, %2 ], [ 0, %4 ], [ %58, %.loopexit ], [ 0, %8 ]
+  ret i64 %60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -134,5 +130,5 @@ attributes #2 = { nounwind }
 !8 = !{i64 2150710397, i64 2150710425, i64 2150710431, i64 2150710447, i64 2150710463, i64 2150710490, i64 2150710804, i64 2150710147, i64 2150710810, i64 2150710858, i64 2150710922, i64 2150710986, i64 2150711043, i64 2150710228, i64 2150710253, i64 2150711250, i64 2150711386, i64 2150711311, i64 2150711400, i64 2150710345}
 !9 = !{i64 2151231934, i64 2151231962, i64 2151231968, i64 2151231984, i64 2151232000, i64 2151232027, i64 2151232341, i64 2151231698, i64 2151232347, i64 2151232395, i64 2151232459, i64 2151232523, i64 2151232580, i64 2151231779, i64 2151231804, i64 2151232787, i64 2151232909, i64 2151232848, i64 2151232923, i64 2151231896}
 !10 = !{i64 2153860856, i64 2153860876, i64 2153860912, i64 2153860956, i64 2153860979, i64 2153861011, i64 2153861044, i64 2153861069}
-!11 = !{i64 2150708730, i64 2150708758, i64 2150708764, i64 2150708780, i64 2150708796, i64 2150708823, i64 2150709137, i64 2150708480, i64 2150709143, i64 2150709191, i64 2150709255, i64 2150709319, i64 2150709376, i64 2150708561, i64 2150708586, i64 2150709583, i64 2150709719, i64 2150709644, i64 2150709733, i64 2150708678}
-!12 = !{i64 2153867993, i64 2153868013, i64 2153868049, i64 2153868093, i64 2153868116, i64 2153868148, i64 2153868181, i64 2153868206}
+!11 = !{i64 2153867993, i64 2153868013, i64 2153868049, i64 2153868093, i64 2153868116, i64 2153868148, i64 2153868181, i64 2153868206}
+!12 = !{i64 2150708730, i64 2150708758, i64 2150708764, i64 2150708780, i64 2150708796, i64 2150708823, i64 2150709137, i64 2150708480, i64 2150709143, i64 2150709191, i64 2150709255, i64 2150709319, i64 2150709376, i64 2150708561, i64 2150708586, i64 2150709583, i64 2150709719, i64 2150709644, i64 2150709733, i64 2150708678}

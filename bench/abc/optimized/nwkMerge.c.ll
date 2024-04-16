@@ -393,7 +393,7 @@ define void @Nwk_ManGraphPrepare(ptr nocapture noundef %0) local_unnamed_addr #0
   %48 = load i32, ptr %38, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i32, ptr %47, i64 %49
-  %51 = trunc i64 %indvars.iv149 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv149 to i32
   store i32 %51, ptr %50, align 4
   %.pre165 = load i32, ptr %0, align 8
   br label %52
@@ -517,7 +517,7 @@ define void @Nwk_ManGraphPrepare(ptr nocapture noundef %0) local_unnamed_addr #0
   %113 = load ptr, ptr %96, align 8
   %114 = getelementptr inbounds ptr, ptr %113, i64 %indvars.iv155
   %115 = load ptr, ptr %114, align 8
-  %116 = trunc i64 %indvars.iv155 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv155 to i32
   store i32 %116, ptr %115, align 4
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %117 = load i32, ptr %38, align 4
@@ -881,7 +881,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %61, ptr %33, align 4
   %62 = sext i32 %60 to i64
   %63 = getelementptr inbounds i32, ptr %59, i64 %62
-  %64 = trunc i64 %indvars.iv48 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv48 to i32
   store i32 %64, ptr %63, align 4
   %65 = load ptr, ptr %2, align 8
   %66 = load i32, ptr %28, align 4
@@ -1355,7 +1355,7 @@ Nwk_ManGraphListInsert.exit:                      ; preds = %Nwk_ManGraphListAdd
   br label %Nwk_ManGraphVertexRemoveEdge.exit
 
 ._crit_edge.loopexit.i:                           ; preds = %193
-  %199 = trunc i64 %indvars.iv.i to i32
+  %199 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.critedge2
@@ -1852,7 +1852,7 @@ Nwk_ManGraphListInsert.exit149:                   ; preds = %Nwk_ManGraphListAdd
   br label %Nwk_ManGraphVertexRemoveEdge.exit162
 
 ._crit_edge.loopexit.i161:                        ; preds = %442
-  %448 = trunc i64 %indvars.iv.i157 to i32
+  %448 = trunc nuw nsw i64 %indvars.iv.i157 to i32
   br label %._crit_edge.i150
 
 ._crit_edge.i150:                                 ; preds = %._crit_edge.loopexit.i161, %.critedge6
@@ -2545,9 +2545,9 @@ define ptr @Nwk_ManGraphListFindMinEdge(ptr nocapture noundef readonly %0, ptr n
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.01011 = phi ptr [ null, %.lr.ph ], [ %.1, %23 ]
+9:                                                ; preds = %.lr.ph, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
+  %.01011 = phi ptr [ null, %.lr.ph ], [ %.1, %22 ]
   %10 = getelementptr inbounds [0 x i32], ptr %8, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
@@ -2562,19 +2562,17 @@ define ptr @Nwk_ManGraphListFindMinEdge(ptr nocapture noundef readonly %0, ptr n
   %19 = getelementptr inbounds i8, ptr %14, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %18, %20
-  br i1 %21, label %22, label %23
+  %spec.select = select i1 %21, ptr %14, ptr %.01011
+  br label %22
 
 22:                                               ; preds = %16, %9
-  br label %23
-
-23:                                               ; preds = %16, %22
-  %.1 = phi ptr [ %14, %22 ], [ %.01011, %16 ]
+  %.1 = phi ptr [ %14, %9 ], [ %spec.select, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !26
 
-.critedge:                                        ; preds = %23, %2
-  %.010.lcssa = phi ptr [ null, %2 ], [ %.1, %23 ]
+.critedge:                                        ; preds = %22, %2
+  %.010.lcssa = phi ptr [ null, %2 ], [ %.1, %22 ]
   ret ptr %.010.lcssa
 }
 
@@ -2779,9 +2777,9 @@ Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34,
   %wide.trip.count.i32 = zext nneg i32 %42 to i64
   br label %45
 
-45:                                               ; preds = %59, %.lr.ph.i31
-  %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i34, %59 ]
-  %.01011.i = phi ptr [ null, %.lr.ph.i31 ], [ %.1.i, %59 ]
+45:                                               ; preds = %58, %.lr.ph.i31
+  %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i34, %58 ]
+  %.01011.i = phi ptr [ null, %.lr.ph.i31 ], [ %.1.i, %58 ]
   %46 = getelementptr inbounds [0 x i32], ptr %44, i64 0, i64 %indvars.iv.i33
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
@@ -2796,13 +2794,11 @@ Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34,
   %55 = getelementptr inbounds i8, ptr %50, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %54, %56
-  br i1 %57, label %58, label %59
+  %spec.select.i = select i1 %57, ptr %50, ptr %.01011.i
+  br label %58
 
 58:                                               ; preds = %52, %45
-  br label %59
-
-59:                                               ; preds = %58, %52
-  %.1.i = phi ptr [ %50, %58 ], [ %.01011.i, %52 ]
+  %.1.i = phi ptr [ %50, %45 ], [ %spec.select.i, %52 ]
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i32
   br i1 %exitcond.not.i35, label %.loopexit, label %45, !llvm.loop !26
@@ -2812,12 +2808,12 @@ Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34,
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 17
   br i1 %exitcond50.not, label %.loopexit.thread, label %.critedge.preheader.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %59, %Nwk_ManGraphListFindMin.exit
-  %.010.lcssa.i = phi ptr [ null, %Nwk_ManGraphListFindMin.exit ], [ %.1.i, %59 ]
+.loopexit:                                        ; preds = %58, %Nwk_ManGraphListFindMin.exit
+  %.010.lcssa.i = phi ptr [ null, %Nwk_ManGraphListFindMin.exit ], [ %.1.i, %58 ]
   tail call void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef nonnull %.3.i, ptr noundef %.010.lcssa.i)
-  %60 = and i64 %indvars.iv47, 4294967295
-  %61 = icmp eq i64 %60, 17
-  br i1 %61, label %.loopexit.thread, label %.backedge.backedge
+  %59 = and i64 %indvars.iv47, 4294967295
+  %60 = icmp eq i64 %59, 17
+  br i1 %60, label %.loopexit.thread, label %.backedge.backedge
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
   tail call void @Nwk_ManGraphSortPairs(ptr noundef %0)
@@ -3067,7 +3063,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #19
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #19
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3086,7 +3082,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4563,19 +4559,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #4
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
@@ -4603,8 +4599,8 @@ attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem
 attributes #11 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind allocsize(0,1) }

@@ -495,7 +495,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i32 %add.i.i, ptr %46, align 4
   %shr.i.i = lshr i32 %add.i.i, 16
   %and.i.i52 = and i32 %shr.i.i, 32767
-  %49 = trunc i64 %indvars.iv.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   %rem4.i = urem i32 %and.i.i52, %49
   %arrayidx.i53 = getelementptr inbounds %"class.sat::literal", ptr %44, i64 %indvars.iv.next.i
   %idxprom1.i = zext nneg i32 %rem4.i to i64
@@ -823,7 +823,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   store i32 %add.i.i.i, ptr %85, align 4
   %shr.i.i.i = lshr i32 %add.i.i.i, 16
   %and.i.i.i106 = and i32 %shr.i.i.i, 32767
-  %88 = trunc i64 %indvars.iv.i.i to i32
+  %88 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %rem4.i.i = urem i32 %and.i.i.i106, %88
   %arrayidx.i5.i = getelementptr inbounds %"class.sat::literal", ptr %83, i64 %indvars.iv.next.i.i
   %idxprom1.i.i = zext nneg i32 %rem4.i.i to i64
@@ -1181,7 +1181,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i32 %add.i.i, ptr %5, align 4
   %shr.i.i = lshr i32 %add.i.i, 16
   %and.i.i = and i32 %shr.i.i, 32767
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   %rem4.i = urem i32 %and.i.i, %8
   %arrayidx.i5 = getelementptr inbounds %"class.sat::literal", ptr %3, i64 %indvars.iv.next.i
   %idxprom1.i = zext nneg i32 %rem4.i to i64
@@ -1245,7 +1245,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   store i32 %add.i.i.i, ptr %5, align 4
   %shr.i.i.i = lshr i32 %add.i.i.i, 16
   %and.i.i.i = and i32 %shr.i.i.i, 32767
-  %8 = trunc i64 %indvars.iv.i.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %rem4.i.i = urem i32 %and.i.i.i, %8
   %arrayidx.i5.i = getelementptr inbounds %"class.sat::literal", ptr %3, i64 %indvars.iv.next.i.i
   %idxprom1.i.i = zext nneg i32 %rem4.i.i to i64
@@ -1642,7 +1642,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %39 = load ptr, ptr %m_root, align 8
   %arrayidx.i132 = getelementptr inbounds %"class.sat::literal", ptr %39, i64 %indvars.iv
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw i64 %indvars.iv to i32
   store i32 %40, ptr %arrayidx.i132, align 4
   %41 = load ptr, ptr %m_parent, align 8
   %arrayidx.i134 = getelementptr inbounds %"class.sat::literal", ptr %41, i64 %indvars.iv
@@ -1758,7 +1758,7 @@ while.body.i145:                                  ; preds = %while.body.i145, %w
   store i32 %add.i.i, ptr %52, align 4
   %shr.i.i = lshr i32 %add.i.i, 16
   %and.i.i = and i32 %shr.i.i, 32767
-  %55 = trunc i64 %indvars.iv.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   %rem4.i = urem i32 %and.i.i, %55
   %arrayidx.i146 = getelementptr inbounds %"struct.sat::big::pframe", ptr %.pre, i64 %indvars.iv.next.i
   %idxprom1.i = zext nneg i32 %rem4.i to i64
@@ -3118,7 +3118,7 @@ if.then.i:                                        ; preds = %if.then
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 if.else.i:                                        ; preds = %if.then
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %7 = and i32 %6, 1
   %tobool.i.not.i = icmp eq i32 %7, 0
   %cond.i = select i1 %tobool.i.not.i, ptr @.str.12, ptr @.str.11
@@ -4264,7 +4264,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.sub15.pre-phi = phi i64 [ %.pre77, %for.end.loopexit ], [ %sub.ptr.sub, %entry ]
   %__first.addr.0.lcssa = phi ptr [ %scevgep, %for.end.loopexit ], [ %__first, %entry ]
   %sub.ptr.div16 = ashr exact i64 %sub.ptr.sub15.pre-phi, 4
-  switch i64 %sub.ptr.div16, label %sw.default [
+  switch i64 %sub.ptr.div16, label %return [
     i64 3, label %sw.bb
     i64 2, label %for.end.sw.bb21_crit_edge
     i64 1, label %for.end.sw.bb26_crit_edge
@@ -4324,9 +4324,7 @@ sw.bb26:                                          ; preds = %for.end.sw.bb26_cri
   %28 = load i32, ptr %m_val2.i.i47, align 8
   %cmp4.i.i49 = icmp eq i32 %28, %25
   %29 = select i1 %cmp.i.i46, i1 %cmp4.i.i49, i1 false
-  br i1 %29, label %return, label %sw.default
-
-sw.default:                                       ; preds = %sw.bb26, %for.end
+  %spec.select = select i1 %29, ptr %__first.addr.2, ptr %__last
   br label %return
 
 return.loopexit.split.loop.exit:                  ; preds = %if.end
@@ -4341,8 +4339,8 @@ return.loopexit.split.loop.exit80:                ; preds = %if.end7
   %incdec.ptr8.le = getelementptr inbounds i8, ptr %__first.addr.067, i64 48
   br label %return
 
-return:                                           ; preds = %for.body, %return.loopexit.split.loop.exit, %return.loopexit.split.loop.exit78, %return.loopexit.split.loop.exit80, %sw.bb26, %sw.bb21, %sw.bb, %sw.default
-  %retval.0 = phi ptr [ %__last, %sw.default ], [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %incdec.ptr.le, %return.loopexit.split.loop.exit ], [ %incdec.ptr4.le, %return.loopexit.split.loop.exit78 ], [ %incdec.ptr8.le, %return.loopexit.split.loop.exit80 ], [ %__first.addr.067, %for.body ]
+return:                                           ; preds = %for.body, %return.loopexit.split.loop.exit, %return.loopexit.split.loop.exit78, %return.loopexit.split.loop.exit80, %sw.bb26, %for.end, %sw.bb21, %sw.bb
+  %retval.0 = phi ptr [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__last, %for.end ], [ %spec.select, %sw.bb26 ], [ %incdec.ptr.le, %return.loopexit.split.loop.exit ], [ %incdec.ptr4.le, %return.loopexit.split.loop.exit78 ], [ %incdec.ptr8.le, %return.loopexit.split.loop.exit80 ], [ %__first.addr.067, %for.body ]
   ret ptr %retval.0
 }
 

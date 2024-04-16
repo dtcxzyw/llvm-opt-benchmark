@@ -1899,43 +1899,43 @@ lor.lhs.false21:                                  ; preds = %land.lhs.true18
   %sub2.sink.i23 = select i1 %cmp.i19, double %sub.i22, double %sub2.i21
   %17 = tail call double @llvm.fabs.f64(double %sub2.sink.i23)
   %different.0.in.i24 = fcmp ogt double %17, 0x3EB0C6F7A0B5ED8D
-  br i1 %different.0.in.i24, label %return, label %if.end25
+  %18 = fcmp uno float %conv.i14, %conv.i12
+  %brmerge42 = or i1 %18, %different.0.in.i24
+  %.mux.mux = xor i1 %different.0.in.i24, true
+  br i1 %brmerge42, label %return, label %land.lhs.true29
 
-if.end25:                                         ; preds = %if.end15, %lor.lhs.false21
-  %brmerge41 = fcmp uno float %conv.i12, %conv.i14
-  br i1 %brmerge41, label %if.end36, label %land.lhs.true29
+if.end25:                                         ; preds = %if.end15
+  %brmerge43 = fcmp uno float %conv.i12, %conv.i14
+  br i1 %brmerge43, label %return, label %land.lhs.true29
 
-land.lhs.true29:                                  ; preds = %if.end25
-  %18 = tail call double @llvm.fabs.f64(double %7)
-  %cmp.i29 = fcmp olt double %18, 1.000000e-03
+land.lhs.true29:                                  ; preds = %if.end25, %lor.lhs.false21
+  %19 = tail call double @llvm.fabs.f64(double %7)
+  %cmp.i29 = fcmp olt double %19, 1.000000e-03
   %div.i30 = fdiv double %9, %7
   %sub2.i31 = fsub double 1.000000e+00, %div.i30
   %sub.i32 = fsub double %7, %9
   %sub2.sink.i33 = select i1 %cmp.i29, double %sub.i32, double %sub2.i31
-  %19 = tail call double @llvm.fabs.f64(double %sub2.sink.i33)
-  %different.0.in.i34 = fcmp ogt double %19, 0x3EB0C6F7A0B5ED8D
+  %20 = tail call double @llvm.fabs.f64(double %sub2.sink.i33)
+  %different.0.in.i34 = fcmp ogt double %20, 0x3EB0C6F7A0B5ED8D
   br i1 %different.0.in.i34, label %return, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %land.lhs.true29
   %m_maxOutValue = getelementptr inbounds i8, ptr %this, i64 192
-  %20 = load double, ptr %m_maxOutValue, align 8
+  %21 = load double, ptr %m_maxOutValue, align 8
   %m_maxOutValue33 = getelementptr inbounds i8, ptr %other, i64 192
-  %21 = load double, ptr %m_maxOutValue33, align 8
-  %22 = tail call double @llvm.fabs.f64(double %20)
-  %cmp.i35 = fcmp olt double %22, 1.000000e-03
-  %div.i36 = fdiv double %21, %20
+  %22 = load double, ptr %m_maxOutValue33, align 8
+  %23 = tail call double @llvm.fabs.f64(double %21)
+  %cmp.i35 = fcmp olt double %23, 1.000000e-03
+  %div.i36 = fdiv double %22, %21
   %sub2.i37 = fsub double 1.000000e+00, %div.i36
-  %sub.i38 = fsub double %20, %21
+  %sub.i38 = fsub double %21, %22
   %sub2.sink.i39 = select i1 %cmp.i35, double %sub.i38, double %sub2.i37
-  %23 = tail call double @llvm.fabs.f64(double %sub2.sink.i39)
-  %different.0.in.i40 = fcmp ogt double %23, 0x3EB0C6F7A0B5ED8D
-  br i1 %different.0.in.i40, label %return, label %if.end36
-
-if.end36:                                         ; preds = %if.end25, %lor.lhs.false32
+  %24 = tail call double @llvm.fabs.f64(double %sub2.sink.i39)
+  %different.0.in.i40 = fcmp ule double %24, 0x3EB0C6F7A0B5ED8D
   br label %return
 
-return:                                           ; preds = %land.lhs.true29, %lor.lhs.false32, %land.lhs.true18, %lor.lhs.false21, %if.end4, %lor.lhs.false, %if.end, %entry, %if.end36
-  %retval.0 = phi i1 [ true, %if.end36 ], [ false, %entry ], [ false, %if.end ], [ false, %lor.lhs.false ], [ false, %if.end4 ], [ false, %lor.lhs.false21 ], [ false, %land.lhs.true18 ], [ false, %lor.lhs.false32 ], [ false, %land.lhs.true29 ]
+return:                                           ; preds = %if.end25, %lor.lhs.false21, %lor.lhs.false32, %land.lhs.true29, %land.lhs.true18, %if.end4, %lor.lhs.false, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %lor.lhs.false ], [ false, %if.end4 ], [ %.mux.mux, %lor.lhs.false21 ], [ false, %land.lhs.true18 ], [ false, %land.lhs.true29 ], [ true, %if.end25 ], [ %different.0.in.i40, %lor.lhs.false32 ]
   ret i1 %retval.0
 }
 
@@ -2228,7 +2228,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -2239,13 +2239,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #17
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -2295,7 +2293,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -2306,13 +2304,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #17
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

@@ -139,23 +139,21 @@ if.end9.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   br i1 %11, label %if.else24.i.i.i, label %if.then15.i.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.end9.i.i.i, %lor.lhs.false.i.i.i
-  %command.0.ph26.i.i.i = phi ptr [ @.str.28, %if.end9.i.i.i ], [ @.str.29, %lor.lhs.false.i.i.i ]
+  %command.0.ph27.i.i.i = phi ptr [ @.str.28, %if.end9.i.i.i ], [ @.str.29, %lor.lhs.false.i.i.i ]
   %proto.i.i.i = getelementptr inbounds i8, ptr %6, i64 856
   %custom.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %12 = load ptr, ptr %custom.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool16.not.i.i.i, label %cond.false.i.i.i, label %land.lhs.true.i.i.i
+  br i1 %tobool16.not.i.i.i, label %cond.end.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then15.i.i.i
   %13 = load i8, ptr %12, align 1
   %cmp20.not.i.i.i = icmp eq i8 %13, 0
-  br i1 %cmp20.not.i.i.i, label %cond.false.i.i.i, label %cond.end.i.i.i
-
-cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i, %if.then15.i.i.i
+  %spec.select.i.i.i = select i1 %cmp20.not.i.i.i, ptr %command.0.ph27.i.i.i, ptr %12
   br label %cond.end.i.i.i
 
-cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %land.lhs.true.i.i.i
-  %cond.i.i.i = phi ptr [ %command.0.ph26.i.i.i, %cond.false.i.i.i ], [ %12, %land.lhs.true.i.i.i ]
+cond.end.i.i.i:                                   ; preds = %land.lhs.true.i.i.i, %if.then15.i.i.i
+  %cond.i.i.i = phi ptr [ %command.0.ph27.i.i.i, %if.then15.i.i.i ], [ %spec.select.i.i.i, %land.lhs.true.i.i.i ]
   %call.i.i.i = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto.i.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull %8) #7
   br label %if.end41.i.i.i
 
@@ -164,18 +162,16 @@ if.else24.i.i.i:                                  ; preds = %if.end9.i.i.i, %if.
   %custom27.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %14 = load ptr, ptr %custom27.i.i.i, align 8
   %tobool28.not.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool28.not.i.i.i, label %cond.false37.i.i.i, label %land.lhs.true29.i.i.i
+  br i1 %tobool28.not.i.i.i, label %cond.end38.i.i.i, label %land.lhs.true29.i.i.i
 
 land.lhs.true29.i.i.i:                            ; preds = %if.else24.i.i.i
   %15 = load i8, ptr %14, align 1
   %cmp33.not.i.i.i = icmp eq i8 %15, 0
-  br i1 %cmp33.not.i.i.i, label %cond.false37.i.i.i, label %cond.end38.i.i.i
-
-cond.false37.i.i.i:                               ; preds = %land.lhs.true29.i.i.i, %if.else24.i.i.i
+  %spec.select20.i.i.i = select i1 %cmp33.not.i.i.i, ptr @.str.28, ptr %14
   br label %cond.end38.i.i.i
 
-cond.end38.i.i.i:                                 ; preds = %cond.false37.i.i.i, %land.lhs.true29.i.i.i
-  %cond39.i.i.i = phi ptr [ @.str.28, %cond.false37.i.i.i ], [ %14, %land.lhs.true29.i.i.i ]
+cond.end38.i.i.i:                                 ; preds = %land.lhs.true29.i.i.i, %if.else24.i.i.i
+  %cond39.i.i.i = phi ptr [ @.str.28, %if.else24.i.i.i ], [ %spec.select20.i.i.i, %land.lhs.true29.i.i.i ]
   %call40.i.i.i = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto25.i.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %cond39.i.i.i) #7
   br label %if.end41.i.i.i
 
@@ -1331,14 +1327,12 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then2:                                         ; preds = %if.end
   %cmp3.not = icmp eq i64 %len, 0
-  br i1 %cmp3.not, label %if.else, label %land.lhs.true4
+  br i1 %cmp3.not, label %return.sink.split, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.then2
   %1 = load i8, ptr %line, align 1
   %cmp5 = icmp eq i8 %1, 46
-  br i1 %cmp5, label %return.sink.split, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true4, %if.then2
+  %spec.select = select i1 %cmp5, i32 43, i32 42
   br label %return.sink.split
 
 if.end9:                                          ; preds = %if.end
@@ -1359,8 +1353,8 @@ land.lhs.true19:                                  ; preds = %land.lhs.true12, %i
   %cmp22 = icmp eq i8 %2, 43
   br i1 %cmp22, label %return.sink.split, label %return
 
-return.sink.split:                                ; preds = %land.lhs.true19, %land.lhs.true12, %if.else, %land.lhs.true4, %land.lhs.true
-  %.sink = phi i32 [ 45, %land.lhs.true ], [ 42, %if.else ], [ 43, %land.lhs.true4 ], [ 43, %land.lhs.true12 ], [ 42, %land.lhs.true19 ]
+return.sink.split:                                ; preds = %land.lhs.true19, %land.lhs.true12, %if.then2, %land.lhs.true4, %land.lhs.true
+  %.sink = phi i32 [ 45, %land.lhs.true ], [ 42, %if.then2 ], [ %spec.select, %land.lhs.true4 ], [ 43, %land.lhs.true12 ], [ 42, %land.lhs.true19 ]
   store i32 %.sink, ptr %resp, align 4
   br label %return
 

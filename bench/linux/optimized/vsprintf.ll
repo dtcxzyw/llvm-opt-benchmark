@@ -440,7 +440,7 @@ define dso_local i32 @num_to_str(ptr nocapture noundef writeonly %0, i32 noundef
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = trunc i64 %2 to i8
+  %8 = trunc nuw nsw i64 %2 to i8
   %9 = or disjoint i8 %8, 48
   store i8 %9, ptr %5, align 2
   br label %16
@@ -538,7 +538,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) un
   %14 = getelementptr i8, ptr %0, i64 2
   %15 = mul nuw nsw i64 %8, 42949673
   %16 = lshr i64 %15, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = mul nuw nsw i64 %16, 4294967196
   %19 = add nuw nsw i64 %18, %8
   %20 = and i64 %19, 4294967295
@@ -577,7 +577,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) un
   %47 = getelementptr i8, ptr %0, i64 10
   %48 = mul nuw nsw i64 %41, 42949673
   %49 = lshr i64 %48, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw nsw i64 %49 to i32
   %51 = mul nuw nsw i64 %49, 4294967196
   %52 = add nuw nsw i64 %51, %41
   %53 = and i64 %52, 4294967295
@@ -604,7 +604,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) un
 .thread:                                          ; preds = %2, %37, %4
   %69 = phi i64 [ %39, %37 ], [ %6, %4 ], [ %1, %2 ]
   %70 = phi ptr [ %68, %37 ], [ %35, %4 ], [ %0, %2 ]
-  %71 = trunc i64 %69 to i32
+  %71 = trunc nuw nsw i64 %69 to i32
   %72 = icmp ult i32 %71, 100
   br i1 %72, label %put_dec_trunc8.exit, label %73
 
@@ -612,7 +612,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) un
   %74 = and i64 %69, 4294967295
   %75 = mul nuw nsw i64 %74, 42949673
   %76 = lshr i64 %75, 32
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw nsw i64 %76 to i32
   %78 = mul nuw nsw i64 %76, 4294967196
   %79 = add nuw nsw i64 %78, %69
   %80 = and i64 %79, 4294967295
@@ -626,7 +626,7 @@ define internal fastcc ptr @put_dec(ptr noundef writeonly %0, i64 noundef %1) un
 85:                                               ; preds = %73
   %86 = mul nuw nsw i64 %76, 42949673
   %87 = lshr i64 %86, 32
-  %88 = trunc i64 %87 to i32
+  %88 = trunc nuw nsw i64 %87 to i32
   %89 = mul nuw nsw i64 %87, 4294967196
   %90 = add nuw nsw i64 %89, %76
   %91 = and i64 %90, 4294967295
@@ -831,7 +831,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   store i64 %55, ptr %5, align 8
   %56 = shl nuw i64 %53, 32
   %57 = ashr exact i64 %56, 40
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nsw i64 %57 to i32
   %59 = icmp eq i32 %51, %58
   %60 = load i1, ptr @set_field_width.__already_done, align 1
   %61 = select i1 %59, i1 true, i1 %60
@@ -889,7 +889,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   %89 = or disjoint i64 %87, %88
   store i64 %89, ptr %5, align 8
   %90 = ashr exact i64 %87, 48
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nsw i64 %90 to i32
   %92 = icmp eq i32 %84, %91
   %93 = load i1, ptr @set_precision.__already_done, align 1
   %94 = select i1 %92, i1 true, i1 %93
@@ -933,7 +933,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   store i64 %113, ptr %5, align 8
   %114 = shl nuw i64 %110, 40
   %115 = ashr exact i64 %114, 40
-  %116 = trunc i64 %115 to i32
+  %116 = trunc nsw i64 %115 to i32
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %.preheader25, label %.loopexit26
 
@@ -960,7 +960,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   store i64 %130, ptr %5, align 8
   %131 = shl nuw i64 %127, 40
   %132 = ashr exact i64 %131, 40
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nsw i64 %132 to i32
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %.preheader25, label %.loopexit26, !llvm.loop !28
 
@@ -1009,7 +1009,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   store i64 %161, ptr %5, align 8
   %162 = shl nuw i64 %158, 40
   %163 = ashr exact i64 %162, 40
-  %164 = trunc i64 %163 to i32
+  %164 = trunc nsw i64 %163 to i32
   %165 = icmp sgt i32 %164, 0
   br i1 %165, label %.preheader, label %.loopexit
 
@@ -1036,7 +1036,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   store i64 %178, ptr %5, align 8
   %179 = shl nuw i64 %175, 40
   %180 = ashr exact i64 %179, 40
-  %181 = trunc i64 %180 to i32
+  %181 = trunc nsw i64 %180 to i32
   %182 = icmp sgt i32 %181, 0
   br i1 %182, label %.preheader, label %.loopexit, !llvm.loop !29
 
@@ -1863,7 +1863,7 @@ define internal fastcc ptr @string(ptr noundef %0, ptr noundef %1, ptr noundef r
   %17 = or disjoint i64 %16, 4503599627370496
   %18 = select i1 %15, i64 %17, i64 %3
   %19 = ashr i64 %18, 48
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nsw i64 %19 to i32
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.thread, label %.lr.ph
 
@@ -1897,7 +1897,7 @@ define internal fastcc ptr @string(ptr noundef %0, ptr noundef %1, ptr noundef r
   %.lcssa14 = phi i32 [ 0, %13 ], [ %22, %.lr.ph ], [ %20, %32 ]
   %36 = shl i64 %18, 32
   %37 = ashr i64 %36, 40
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nsw i64 %37 to i32
   %39 = icmp slt i32 %.lcssa14, %38
   br i1 %39, label %40, label %widen_string.exit9, !prof !13
 
@@ -1968,7 +1968,7 @@ define internal fastcc ptr @string(ptr noundef %0, ptr noundef %1, ptr noundef r
   br i1 %76, label %widen_string.exit9, label %.preheader.i, !llvm.loop !38
 
 widen_string.exit.thread:                         ; preds = %4
-  %77 = trunc i64 %12 to i32
+  %77 = trunc nsw i64 %12 to i32
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.thread10, label %.lr.ph20
 
@@ -2002,7 +2002,7 @@ widen_string.exit.thread:                         ; preds = %4
   %.lcssa11 = phi i32 [ 0, %widen_string.exit.thread ], [ %79, %.lr.ph20 ], [ %77, %89 ]
   %93 = shl i64 %3, 32
   %94 = ashr i64 %93, 40
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nsw i64 %94 to i32
   %96 = icmp slt i32 %.lcssa11, %95
   br i1 %96, label %97, label %widen_string.exit9, !prof !13
 
@@ -2178,7 +2178,7 @@ define internal fastcc ptr @pointer(ptr nocapture noundef readonly %0, ptr nound
 
 42:                                               ; preds = %40, %38, %36, %29, %26
   %43 = ashr i64 %4, 48
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nsw i64 %43 to i32
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.thread.i, label %.lr.ph.i
 
@@ -2212,7 +2212,7 @@ define internal fastcc ptr @pointer(ptr nocapture noundef readonly %0, ptr nound
   %.lcssa3.i = phi i32 [ 0, %42 ], [ %44, %56 ], [ %46, %.lr.ph.i ]
   %60 = shl i64 %4, 32
   %61 = ashr i64 %60, 40
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nsw i64 %61 to i32
   %63 = icmp slt i32 %.lcssa3.i, %62
   br i1 %63, label %64, label %symbol_string.exit, !prof !13
 
@@ -2309,7 +2309,7 @@ symbol_string.exit:                               ; preds = %98, %.thread.i, %91
   %117 = or disjoint i64 %116, 4503599627370496
   %118 = select i1 %115, i64 %117, i64 %4
   %119 = ashr i64 %118, 48
-  %120 = trunc i64 %119 to i32
+  %120 = trunc nsw i64 %119 to i32
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %.thread.i12, label %.lr.ph.i10
 
@@ -2343,7 +2343,7 @@ symbol_string.exit:                               ; preds = %98, %.thread.i, %91
   %.lcssa52.i = phi i32 [ 0, %112 ], [ %120, %132 ], [ %122, %.lr.ph.i10 ]
   %136 = shl i64 %118, 32
   %137 = ashr i64 %136, 40
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nsw i64 %137 to i32
   %139 = icmp slt i32 %.lcssa52.i, %138
   br i1 %139, label %140, label %resource_string.exit, !prof !13
 
@@ -3087,7 +3087,7 @@ widen_string.exit44.i:                            ; preds = %505, %widen_string.
   store i8 93, ptr %539, align 1
   store i8 0, ptr %540, align 1
   %541 = ashr i64 %4, 48
-  %542 = trunc i64 %541 to i32
+  %542 = trunc nsw i64 %541 to i32
   %543 = icmp eq i32 %542, 0
   br i1 %543, label %.thread1.i, label %.lr.ph58.i
 
@@ -3121,7 +3121,7 @@ widen_string.exit44.i:                            ; preds = %505, %widen_string.
   %.lcssa19.i = phi i32 [ 0, %widen_string.exit44.i ], [ %542, %554 ], [ %544, %.lr.ph58.i ]
   %558 = shl i64 %4, 32
   %559 = ashr i64 %558, 40
-  %560 = trunc i64 %559 to i32
+  %560 = trunc nsw i64 %559 to i32
   %561 = icmp slt i32 %.lcssa19.i, %560
   br i1 %561, label %562, label %resource_string.exit, !prof !13
 
@@ -3199,7 +3199,7 @@ resource_string.exit:                             ; preds = %174, %596, %.thread
 600:                                              ; preds = %5
   %601 = shl i64 %4, 32
   %602 = ashr i64 %601, 40
-  %603 = trunc i64 %602 to i32
+  %603 = trunc nsw i64 %602 to i32
   %604 = icmp eq i32 %603, 0
   br i1 %604, label %hex_string.exit, label %605
 
@@ -3221,7 +3221,7 @@ resource_string.exit:                             ; preds = %174, %596, %.thread
   %618 = or disjoint i64 %617, 4503599627370496
   %619 = select i1 %616, i64 %618, i64 %4
   %620 = ashr i64 %619, 48
-  %621 = trunc i64 %620 to i32
+  %621 = trunc nsw i64 %620 to i32
   %622 = icmp eq i32 %621, 0
   br i1 %622, label %.thread.i19, label %.lr.ph.i17
 
@@ -3255,7 +3255,7 @@ resource_string.exit:                             ; preds = %174, %596, %.thread
   %.lcssa9.i = phi i32 [ 0, %613 ], [ %621, %633 ], [ %623, %.lr.ph.i17 ]
   %637 = shl i64 %619, 32
   %638 = ashr i64 %637, 40
-  %639 = trunc i64 %638 to i32
+  %639 = trunc nsw i64 %638 to i32
   %640 = icmp slt i32 %.lcssa9.i, %639
   br i1 %640, label %641, label %hex_string.exit, !prof !13
 
@@ -3480,7 +3480,7 @@ widen_string.exit.thread.i24:                     ; preds = %605
   %767 = or disjoint i64 %766, 4503599627370496
   %768 = select i1 %765, i64 %767, i64 %4
   %769 = ashr i64 %768, 48
-  %770 = trunc i64 %769 to i32
+  %770 = trunc nsw i64 %769 to i32
   %771 = icmp eq i32 %770, 0
   br i1 %771, label %.thread.i28, label %.lr.ph.i26
 
@@ -3514,7 +3514,7 @@ widen_string.exit.thread.i24:                     ; preds = %605
   %.lcssa16.i = phi i32 [ 0, %762 ], [ %770, %782 ], [ %772, %.lr.ph.i26 ]
   %786 = shl i64 %768, 32
   %787 = ashr i64 %786, 40
-  %788 = trunc i64 %787 to i32
+  %788 = trunc nsw i64 %787 to i32
   %789 = icmp slt i32 %.lcssa16.i, %788
   br i1 %789, label %790, label %mac_address_string.exit, !prof !13
 
@@ -3674,7 +3674,7 @@ widen_string.exit.thread.i33:                     ; preds = %754
   %.us-phi.i = phi ptr [ %878, %877 ], [ %853, %852 ]
   store i8 0, ptr %.us-phi.i, align 1
   %881 = ashr i64 %4, 48
-  %882 = trunc i64 %881 to i32
+  %882 = trunc nsw i64 %881 to i32
   %883 = icmp eq i32 %882, 0
   br i1 %883, label %.thread11.i, label %.lr.ph24.i
 
@@ -3708,7 +3708,7 @@ widen_string.exit.thread.i33:                     ; preds = %754
   %.lcssa12.i = phi i32 [ 0, %.split23.us.i ], [ %882, %894 ], [ %884, %.lr.ph24.i ]
   %898 = shl i64 %4, 32
   %899 = ashr i64 %898, 40
-  %900 = trunc i64 %899 to i32
+  %900 = trunc nsw i64 %899 to i32
   %901 = icmp slt i32 %.lcssa12.i, %900
   br i1 %901, label %902, label %mac_address_string.exit, !prof !13
 
@@ -3801,7 +3801,7 @@ mac_address_string.exit:                          ; preds = %824, %936, %.thread
   %953 = or disjoint i64 %952, 4503599627370496
   %954 = select i1 %951, i64 %953, i64 %4
   %955 = ashr i64 %954, 48
-  %956 = trunc i64 %955 to i32
+  %956 = trunc nsw i64 %955 to i32
   %957 = icmp eq i32 %956, 0
   br i1 %957, label %.thread.i40, label %.lr.ph.i38
 
@@ -3835,7 +3835,7 @@ mac_address_string.exit:                          ; preds = %824, %936, %.thread
   %.lcssa65.i = phi i32 [ 0, %948 ], [ %956, %968 ], [ %958, %.lr.ph.i38 ]
   %972 = shl i64 %954, 32
   %973 = ashr i64 %972, 40
-  %974 = trunc i64 %973 to i32
+  %974 = trunc nsw i64 %973 to i32
   %975 = icmp slt i32 %.lcssa65.i, %974
   br i1 %975, label %976, label %hex_string.exit, !prof !13
 
@@ -3990,7 +3990,7 @@ ip6_string.exit.i.i:                              ; preds = %1059
 
 1063:                                             ; preds = %ip6_string.exit.i.i, %1021
   %1064 = ashr i64 %4, 48
-  %1065 = trunc i64 %1064 to i32
+  %1065 = trunc nsw i64 %1064 to i32
   %1066 = icmp eq i32 %1065, 0
   br i1 %1066, label %.thread.i.i, label %.lr.ph.i.i
 
@@ -4024,7 +4024,7 @@ ip6_string.exit.i.i:                              ; preds = %1059
   %.lcssa2.i.i = phi i32 [ 0, %1063 ], [ %1067, %.lr.ph.i.i ], [ %1065, %1077 ]
   %1081 = shl i64 %4, 32
   %1082 = ashr i64 %1081, 40
-  %1083 = trunc i64 %1082 to i32
+  %1083 = trunc nsw i64 %1082 to i32
   %1084 = icmp slt i32 %.lcssa2.i.i, %1083
   br i1 %1084, label %1085, label %ip6_addr_string.exit.i, !prof !13
 
@@ -4106,7 +4106,7 @@ ip6_addr_string.exit.i:                           ; preds = %1119, %1112, %.thre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !5
   %1125 = call fastcc ptr @ip4_string(ptr noundef nonnull %12, ptr noundef %3, i8 %18, i8 %.val7.i)
   %1126 = ashr i64 %4, 48
-  %1127 = trunc i64 %1126 to i32
+  %1127 = trunc nsw i64 %1126 to i32
   %1128 = icmp eq i32 %1127, 0
   br i1 %1128, label %.thread.i10.i, label %.lr.ph.i8.i
 
@@ -4140,7 +4140,7 @@ ip6_addr_string.exit.i:                           ; preds = %1119, %1112, %.thre
   %.lcssa1.i.i = phi i32 [ 0, %1123 ], [ %1129, %.lr.ph.i8.i ], [ %1127, %1139 ]
   %1143 = shl i64 %4, 32
   %1144 = ashr i64 %1143, 40
-  %1145 = trunc i64 %1144 to i32
+  %1145 = trunc nsw i64 %1144 to i32
   %1146 = icmp slt i32 %.lcssa1.i.i, %1145
   br i1 %1146, label %1147, label %ip4_addr_string.exit.i, !prof !13
 
@@ -4294,7 +4294,7 @@ ip4_addr_string.exit.i:                           ; preds = %1181, %1174, %.thre
   %1229 = phi ptr [ %1227, %1221 ], [ %1220, %1217 ], [ %1197, %.thread.i23.i ]
   store i8 0, ptr %1229, align 1
   %1230 = ashr i64 %4, 48
-  %1231 = trunc i64 %1230 to i32
+  %1231 = trunc nsw i64 %1230 to i32
   %1232 = icmp eq i32 %1231, 0
   br i1 %1232, label %.thread3.i.i, label %.lr.ph.i17.i
 
@@ -4328,7 +4328,7 @@ ip4_addr_string.exit.i:                           ; preds = %1181, %1174, %.thre
   %.lcssa4.i.i = phi i32 [ 0, %1228 ], [ %1233, %.lr.ph.i17.i ], [ %1231, %1243 ]
   %1247 = shl i64 %4, 32
   %1248 = ashr i64 %1247, 40
-  %1249 = trunc i64 %1248 to i32
+  %1249 = trunc nsw i64 %1248 to i32
   %1250 = icmp slt i32 %.lcssa4.i.i, %1249
   br i1 %1250, label %1251, label %ip4_addr_string_sa.exit.i, !prof !13
 
@@ -4667,7 +4667,7 @@ ip6_string.exit.i34.i:                            ; preds = %.preheader.split.us
   %1464 = phi ptr [ %1462, %1457 ], [ %1456, %1455 ]
   store i8 0, ptr %1464, align 1
   %1465 = ashr i64 %4, 48
-  %1466 = trunc i64 %1465 to i32
+  %1466 = trunc nsw i64 %1465 to i32
   %1467 = icmp eq i32 %1466, 0
   br i1 %1467, label %.thread.i26.i, label %.lr.ph.i24.i
 
@@ -4701,7 +4701,7 @@ ip6_string.exit.i34.i:                            ; preds = %.preheader.split.us
   %.lcssa4.i28.i = phi i32 [ 0, %1463 ], [ %1468, %.lr.ph.i24.i ], [ %1466, %1478 ]
   %1482 = shl i64 %4, 32
   %1483 = ashr i64 %1482, 40
-  %1484 = trunc i64 %1483 to i32
+  %1484 = trunc nsw i64 %1483 to i32
   %1485 = icmp slt i32 %.lcssa4.i28.i, %1484
   br i1 %1485, label %1486, label %ip6_addr_string_sa.exit.i, !prof !13
 
@@ -4784,7 +4784,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
   %1529 = or disjoint i64 %1528, 4503599627370496
   %1530 = select i1 %1527, i64 %1529, i64 %4
   %1531 = ashr i64 %1530, 48
-  %1532 = trunc i64 %1531 to i32
+  %1532 = trunc nsw i64 %1531 to i32
   br label %1533
 
 1533:                                             ; preds = %1550, %1524
@@ -4826,7 +4826,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
   %1556 = phi i32 [ %1552, %1550 ], [ %1536, %1533 ]
   %1557 = shl i64 %1530, 32
   %1558 = ashr i64 %1557, 40
-  %1559 = trunc i64 %1558 to i32
+  %1559 = trunc nsw i64 %1558 to i32
   %1560 = icmp slt i32 %1556, %1559
   br i1 %1560, label %1561, label %hex_string.exit, !prof !13
 
@@ -4904,7 +4904,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
   %1603 = or disjoint i64 %1602, 4503599627370496
   %1604 = select i1 %1601, i64 %1603, i64 %4
   %1605 = ashr i64 %1604, 48
-  %1606 = trunc i64 %1605 to i32
+  %1606 = trunc nsw i64 %1605 to i32
   %1607 = icmp eq i32 %1606, 0
   br i1 %1607, label %.thread45.i, label %.lr.ph71.preheader.i
 
@@ -4943,7 +4943,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
   %.lcssa48.i = phi i32 [ 0, %1598 ], [ %1606, %1620 ], [ %1610, %.lr.ph71.i ]
   %1624 = shl i64 %1604, 32
   %1625 = ashr i64 %1624, 40
-  %1626 = trunc i64 %1625 to i32
+  %1626 = trunc nsw i64 %1625 to i32
   %1627 = icmp slt i32 %.lcssa48.i, %1626
   br i1 %1627, label %1628, label %hex_string.exit, !prof !13
 
@@ -5016,7 +5016,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
 1665:                                             ; preds = %5
   %1666 = shl i64 %4, 32
   %1667 = ashr i64 %1666, 40
-  %1668 = trunc i64 %1667 to i32
+  %1668 = trunc nsw i64 %1667 to i32
   %1669 = icmp eq i32 %1668, 0
   br i1 %1669, label %hex_string.exit, label %1670
 
@@ -5038,7 +5038,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
   %1683 = or disjoint i64 %1682, 4503599627370496
   %1684 = select i1 %1681, i64 %1683, i64 %4
   %1685 = ashr i64 %1684, 48
-  %1686 = trunc i64 %1685 to i32
+  %1686 = trunc nsw i64 %1685 to i32
   %1687 = icmp eq i32 %1686, 0
   br i1 %1687, label %.thread.i49, label %.lr.ph.i47
 
@@ -5072,7 +5072,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
   %.lcssa6.i = phi i32 [ 0, %1678 ], [ %1686, %1698 ], [ %1688, %.lr.ph.i47 ]
   %1702 = shl i64 %1684, 32
   %1703 = ashr i64 %1702, 40
-  %1704 = trunc i64 %1703 to i32
+  %1704 = trunc nsw i64 %1703 to i32
   %1705 = icmp slt i32 %.lcssa6.i, %1704
   br i1 %1705, label %1706, label %hex_string.exit, !prof !13
 
@@ -5217,7 +5217,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
   %1782 = or disjoint i64 %1781, 4503599627370496
   %1783 = select i1 %1780, i64 %1782, i64 %4
   %1784 = ashr i64 %1783, 48
-  %1785 = trunc i64 %1784 to i32
+  %1785 = trunc nsw i64 %1784 to i32
   %1786 = icmp eq i32 %1785, 0
   br i1 %1786, label %.thread.i57, label %.lr.ph.i55
 
@@ -5251,7 +5251,7 @@ ip6_addr_string_sa.exit.i:                        ; preds = %1520, %1513, %.thre
   %.lcssa16.i59 = phi i32 [ 0, %1777 ], [ %1785, %1797 ], [ %1787, %.lr.ph.i55 ]
   %1801 = shl i64 %1783, 32
   %1802 = ashr i64 %1801, 40
-  %1803 = trunc i64 %1802 to i32
+  %1803 = trunc nsw i64 %1802 to i32
   %1804 = icmp slt i32 %.lcssa16.i59, %1803
   br i1 %1804, label %1805, label %uuid_string.exit, !prof !13
 
@@ -5387,7 +5387,7 @@ widen_string.exit.thread.i64:                     ; preds = %1769
 1876:                                             ; preds = %1872
   store i8 0, ptr %1873, align 1
   %1877 = ashr i64 %4, 48
-  %1878 = trunc i64 %1877 to i32
+  %1878 = trunc nsw i64 %1877 to i32
   %1879 = icmp eq i32 %1878, 0
   br i1 %1879, label %.thread11.i65, label %.lr.ph22.i
 
@@ -5421,7 +5421,7 @@ widen_string.exit.thread.i64:                     ; preds = %1769
   %.lcssa12.i67 = phi i32 [ 0, %1876 ], [ %1878, %1890 ], [ %1880, %.lr.ph22.i ]
   %1894 = shl i64 %4, 32
   %1895 = ashr i64 %1894, 40
-  %1896 = trunc i64 %1895 to i32
+  %1896 = trunc nsw i64 %1895 to i32
   %1897 = icmp slt i32 %.lcssa12.i67, %1896
   br i1 %1897, label %1898, label %uuid_string.exit, !prof !13
 
@@ -5516,7 +5516,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %1949 = or disjoint i64 %1948, 4503599627370496
   %1950 = select i1 %1947, i64 %1949, i64 %4
   %1951 = ashr i64 %1950, 48
-  %1952 = trunc i64 %1951 to i32
+  %1952 = trunc nsw i64 %1951 to i32
   %1953 = icmp eq i32 %1952, 0
   br i1 %1953, label %.thread, label %.lr.ph
 
@@ -5554,7 +5554,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
 .thread179:                                       ; preds = %1936
   %1969 = getelementptr inbounds i8, ptr %3, i64 8
   %1970 = load ptr, ptr %1969, align 8
-  call void @llvm.va_copy(ptr nonnull %17, ptr %1970)
+  call void @llvm.va_copy.p0(ptr nonnull %17, ptr %1970)
   %1971 = icmp ult ptr %1, %2
   %1972 = ptrtoint ptr %2 to i64
   %1973 = ptrtoint ptr %1 to i64
@@ -5564,7 +5564,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %1977 = call i32 @vsnprintf(ptr noundef %1, i64 noundef %1975, ptr noundef %1976, ptr noundef nonnull %17) #16
   %1978 = sext i32 %1977 to i64
   %1979 = getelementptr i8, ptr %1, i64 %1978
-  call void @llvm.va_end(ptr nonnull %17)
+  call void @llvm.va_end.p0(ptr nonnull %17)
   br label %1980
 
 1980:                                             ; preds = %.thread, %.thread179
@@ -5604,7 +5604,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %2002 = or disjoint i64 %2001, 4503599627370496
   %2003 = select i1 %2000, i64 %2002, i64 %1997
   %2004 = ashr i64 %2003, 48
-  %2005 = trunc i64 %2004 to i32
+  %2005 = trunc nsw i64 %2004 to i32
   br label %2006
 
 2006:                                             ; preds = %2023, %1990
@@ -5646,7 +5646,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %2029 = phi i32 [ %2025, %2023 ], [ %2009, %2006 ]
   %2030 = shl i64 %2003, 32
   %2031 = ashr i64 %2030, 40
-  %2032 = trunc i64 %2031 to i32
+  %2032 = trunc nsw i64 %2031 to i32
   %2033 = icmp slt i32 %2029, %2032
   br i1 %2033, label %2034, label %hex_string.exit, !prof !13
 
@@ -5722,7 +5722,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %2074 = getelementptr inbounds i8, ptr %2073, i64 1784
   %2075 = load ptr, ptr %2074, align 8
   %2076 = tail call zeroext i1 @has_capability_noaudit(ptr noundef %2073, i32 noundef 34) #16
-  br i1 %2076, label %2077, label %2089
+  br i1 %2076, label %2077, label %widen_string.exit.thread.i77
 
 2077:                                             ; preds = %2071
   %2078 = getelementptr inbounds i8, ptr %2075, i64 24
@@ -5730,7 +5730,7 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %2080 = load i32, ptr %2078, align 8
   %2081 = load i32, ptr %2079, align 8
   %2082 = icmp eq i32 %2080, %2081
-  br i1 %2082, label %2083, label %2089
+  br i1 %2082, label %2083, label %widen_string.exit.thread.i77
 
 2083:                                             ; preds = %2077
   %2084 = getelementptr inbounds i8, ptr %2075, i64 28
@@ -5738,24 +5738,22 @@ uuid_string.exit:                                 ; preds = %1839, %1932, %.thre
   %2086 = load i32, ptr %2084, align 4
   %2087 = load i32, ptr %2085, align 4
   %2088 = icmp eq i32 %2086, %2087
-  br i1 %2088, label %widen_string.exit.thread.i77, label %2089
-
-2089:                                             ; preds = %2083, %2077, %2071
+  %2089 = ptrtoint ptr %3 to i64
+  %2090 = select i1 %2088, i64 %2089, i64 0
   br label %widen_string.exit.thread.i77
 
-widen_string.exit.thread.i77:                     ; preds = %2089, %2083, %1982
-  %2090 = phi ptr [ null, %1982 ], [ null, %2089 ], [ %3, %2083 ]
-  %2091 = and i64 %4, -280512904036353
-  %2092 = or disjoint i64 %2091, 17729624997888
-  %2093 = shl i64 %4, 32
-  %2094 = ashr i64 %2093, 40
-  %2095 = and i64 %2094, 4294967295
-  %2096 = icmp eq i64 %2095, 4294967295
-  %2097 = and i64 %2092, -262856293482241
-  %2098 = or disjoint i64 %2097, 68719480832
-  %2099 = select i1 %2096, i64 %2098, i64 %2092
-  %2100 = ptrtoint ptr %2090 to i64
-  %2101 = tail call fastcc ptr @number(ptr noundef %1, ptr noundef %2, i64 noundef %2100, i64 %2099)
+widen_string.exit.thread.i77:                     ; preds = %2083, %2077, %2071, %1982
+  %2091 = phi i64 [ 0, %1982 ], [ %2090, %2083 ], [ 0, %2071 ], [ 0, %2077 ]
+  %2092 = and i64 %4, -280512904036353
+  %2093 = or disjoint i64 %2092, 17729624997888
+  %2094 = shl i64 %4, 32
+  %2095 = ashr i64 %2094, 40
+  %2096 = and i64 %2095, 4294967295
+  %2097 = icmp eq i64 %2096, 4294967295
+  %2098 = and i64 %2093, -262856293482241
+  %2099 = or disjoint i64 %2098, 68719480832
+  %2100 = select i1 %2097, i64 %2099, i64 %2093
+  %2101 = tail call fastcc ptr @number(ptr noundef %1, ptr noundef %2, i64 noundef %2091, i64 %2100)
   br label %hex_string.exit
 
 2102:                                             ; preds = %5
@@ -5776,7 +5774,7 @@ widen_string.exit.thread.i77:                     ; preds = %2089, %2083, %1982
   %2115 = or disjoint i64 %2114, 4503599627370496
   %2116 = select i1 %2113, i64 %2115, i64 %4
   %2117 = ashr i64 %2116, 48
-  %2118 = trunc i64 %2117 to i32
+  %2118 = trunc nsw i64 %2117 to i32
   %2119 = icmp eq i32 %2118, 0
   br i1 %2119, label %.thread.i80, label %.lr.ph.i78
 
@@ -5810,7 +5808,7 @@ widen_string.exit.thread.i77:                     ; preds = %2089, %2083, %1982
   %.lcssa11.i = phi i32 [ 0, %2110 ], [ %2118, %2130 ], [ %2120, %.lr.ph.i78 ]
   %2134 = shl i64 %2116, 32
   %2135 = ashr i64 %2134, 40
-  %2136 = trunc i64 %2135 to i32
+  %2136 = trunc nsw i64 %2135 to i32
   %2137 = icmp slt i32 %.lcssa11.i, %2136
   br i1 %2137, label %2138, label %hex_string.exit, !prof !13
 
@@ -5899,7 +5897,7 @@ widen_string.exit.thread.i86:                     ; preds = %2102
   %2186 = or disjoint i64 %2185, 4503599627370496
   %2187 = select i1 %2184, i64 %2186, i64 %4
   %2188 = ashr i64 %2187, 48
-  %2189 = trunc i64 %2188 to i32
+  %2189 = trunc nsw i64 %2188 to i32
   br label %2190
 
 2190:                                             ; preds = %2207, %2181
@@ -5941,7 +5939,7 @@ widen_string.exit.thread.i86:                     ; preds = %2102
   %2213 = phi i32 [ %2209, %2207 ], [ %2193, %2190 ]
   %2214 = shl i64 %2187, 32
   %2215 = ashr i64 %2214, 40
-  %2216 = trunc i64 %2215 to i32
+  %2216 = trunc nsw i64 %2215 to i32
   %2217 = icmp slt i32 %2213, %2216
   br i1 %2217, label %2218, label %hex_string.exit, !prof !13
 
@@ -6033,7 +6031,7 @@ widen_string.exit.thread.i86:                     ; preds = %2102
   %2268 = or disjoint i64 %2267, 4503599627370496
   %2269 = select i1 %2266, i64 %2268, i64 %4
   %2270 = ashr i64 %2269, 48
-  %2271 = trunc i64 %2270 to i32
+  %2271 = trunc nsw i64 %2270 to i32
   br label %2272
 
 2272:                                             ; preds = %2289, %2263
@@ -6075,7 +6073,7 @@ widen_string.exit.thread.i86:                     ; preds = %2102
   %2295 = phi i32 [ %2291, %2289 ], [ %2275, %2272 ]
   %2296 = shl i64 %2269, 32
   %2297 = ashr i64 %2296, 40
-  %2298 = trunc i64 %2297 to i32
+  %2298 = trunc nsw i64 %2297 to i32
   %2299 = icmp slt i32 %2295, %2298
   br i1 %2299, label %2300, label %fourcc_string.exit, !prof !13
 
@@ -6163,7 +6161,7 @@ widen_string.exit.thread.i86:                     ; preds = %2102
   %2350 = or disjoint i64 %2349, 4503599627370496
   %2351 = select i1 %2348, i64 %2350, i64 %4
   %2352 = ashr i64 %2351, 48
-  %2353 = trunc i64 %2352 to i32
+  %2353 = trunc nsw i64 %2352 to i32
   %2354 = icmp eq i32 %2353, 0
   br i1 %2354, label %.thread.i94, label %.lr.ph.i92
 
@@ -6197,7 +6195,7 @@ widen_string.exit.thread.i86:                     ; preds = %2102
   %.lcssa14.i = phi i32 [ 0, %2345 ], [ %2353, %2365 ], [ %2355, %.lr.ph.i92 ]
   %2369 = shl i64 %2351, 32
   %2370 = ashr i64 %2369, 40
-  %2371 = trunc i64 %2370 to i32
+  %2371 = trunc nsw i64 %2370 to i32
   %2372 = icmp slt i32 %.lcssa14.i, %2371
   br i1 %2372, label %2373, label %fourcc_string.exit, !prof !13
 
@@ -6292,7 +6290,7 @@ widen_string.exit11.thread.i:                     ; preds = %2337
 
 2426:                                             ; preds = %2419, %2412
   %2427 = phi i32 [ 46, %2412 ], [ %2425, %2419 ]
-  %2428 = trunc i32 %2427 to i8
+  %2428 = trunc nuw nsw i32 %2427 to i8
   %2429 = getelementptr i8, ptr %2413, i64 1
   store i8 %2428, ptr %2413, align 1
   %2430 = add nuw nsw i32 %2414, 1
@@ -6343,7 +6341,7 @@ fourcc_string.exit:                               ; preds = %2334, %2407, %2293,
   %2460 = or disjoint i64 %2459, 4503599627370496
   %2461 = select i1 %2458, i64 %2460, i64 %4
   %2462 = ashr i64 %2461, 48
-  %2463 = trunc i64 %2462 to i32
+  %2463 = trunc nsw i64 %2462 to i32
   %2464 = icmp eq i32 %2463, 0
   br i1 %2464, label %.thread.i97, label %.lr.ph.i95
 
@@ -6377,7 +6375,7 @@ fourcc_string.exit:                               ; preds = %2334, %2407, %2293,
   %.lcssa3.i99 = phi i32 [ 0, %2455 ], [ %2463, %2475 ], [ %2465, %.lr.ph.i95 ]
   %2479 = shl i64 %2461, 32
   %2480 = ashr i64 %2479, 40
-  %2481 = trunc i64 %2480 to i32
+  %2481 = trunc nsw i64 %2480 to i32
   %2482 = icmp slt i32 %.lcssa3.i99, %2481
   br i1 %2482, label %2483, label %hex_string.exit, !prof !13
 
@@ -6522,7 +6520,7 @@ widen_string.exit.thread.i105:                    ; preds = %2447
   %2562 = or disjoint i64 %2561, 4503599627370496
   %2563 = select i1 %2560, i64 %2562, i64 %4
   %2564 = ashr i64 %2563, 48
-  %2565 = trunc i64 %2564 to i32
+  %2565 = trunc nsw i64 %2564 to i32
   br label %2566
 
 2566:                                             ; preds = %2583, %2557
@@ -6564,7 +6562,7 @@ widen_string.exit.thread.i105:                    ; preds = %2447
   %2589 = phi i32 [ %2585, %2583 ], [ %2569, %2566 ]
   %2590 = shl i64 %2563, 32
   %2591 = ashr i64 %2590, 40
-  %2592 = trunc i64 %2591 to i32
+  %2592 = trunc nsw i64 %2591 to i32
   %2593 = icmp slt i32 %2589, %2592
   br i1 %2593, label %2594, label %hex_string.exit, !prof !13
 
@@ -6642,7 +6640,7 @@ widen_string.exit.thread.i105:                    ; preds = %2447
   %2636 = or disjoint i64 %2635, 4503599627370496
   %2637 = select i1 %2634, i64 %2636, i64 %4
   %2638 = ashr i64 %2637, 48
-  %2639 = trunc i64 %2638 to i32
+  %2639 = trunc nsw i64 %2638 to i32
   br label %2640
 
 2640:                                             ; preds = %2657, %2631
@@ -6684,7 +6682,7 @@ widen_string.exit.thread.i105:                    ; preds = %2447
   %2663 = phi i32 [ %2659, %2657 ], [ %2643, %2640 ]
   %2664 = shl i64 %2637, 32
   %2665 = ashr i64 %2664, 40
-  %2666 = trunc i64 %2665 to i32
+  %2666 = trunc nsw i64 %2665 to i32
   %2667 = icmp slt i32 %2663, %2666
   br i1 %2667, label %2668, label %hex_string.exit, !prof !13
 
@@ -6772,7 +6770,7 @@ widen_string.exit.thread.i105:                    ; preds = %2447
   %2718 = or disjoint i64 %2717, 4503599627370496
   %2719 = select i1 %2716, i64 %2718, i64 %4
   %2720 = ashr i64 %2719, 48
-  %2721 = trunc i64 %2720 to i32
+  %2721 = trunc nsw i64 %2720 to i32
   %2722 = icmp eq i32 %2721, 0
   br i1 %2722, label %.thread.i118, label %.lr.ph.i116
 
@@ -6806,7 +6804,7 @@ widen_string.exit.thread.i105:                    ; preds = %2447
   %.lcssa3.i120 = phi i32 [ 0, %2713 ], [ %2721, %2733 ], [ %2723, %.lr.ph.i116 ]
   %2737 = shl i64 %2719, 32
   %2738 = ashr i64 %2737, 40
-  %2739 = trunc i64 %2738 to i32
+  %2739 = trunc nsw i64 %2738 to i32
   %2740 = icmp slt i32 %.lcssa3.i120, %2739
   br i1 %2740, label %2741, label %hex_string.exit, !prof !13
 
@@ -6902,7 +6900,7 @@ widen_string.exit.thread.i126:                    ; preds = %2705
   %2795 = or disjoint i64 %2794, 4503599627370496
   %2796 = select i1 %2793, i64 %2795, i64 %4
   %2797 = ashr i64 %2796, 48
-  %2798 = trunc i64 %2797 to i32
+  %2798 = trunc nsw i64 %2797 to i32
   %2799 = icmp eq i32 %2798, 0
   br i1 %2799, label %.thread.i130, label %.lr.ph.i128
 
@@ -6936,7 +6934,7 @@ widen_string.exit.thread.i126:                    ; preds = %2705
   %.lcssa4.i131 = phi i32 [ 0, %2790 ], [ %2798, %2810 ], [ %2800, %.lr.ph.i128 ]
   %2814 = shl i64 %2796, 32
   %2815 = ashr i64 %2814, 40
-  %2816 = trunc i64 %2815 to i32
+  %2816 = trunc nsw i64 %2815 to i32
   %2817 = icmp slt i32 %.lcssa4.i131, %2816
   br i1 %2817, label %2818, label %hex_string.exit, !prof !13
 
@@ -7065,7 +7063,7 @@ widen_string.exit.thread.i137:                    ; preds = %2782
   %2893 = or disjoint i64 %2892, 4503599627370496
   %2894 = select i1 %2891, i64 %2893, i64 %4
   %2895 = ashr i64 %2894, 48
-  %2896 = trunc i64 %2895 to i32
+  %2896 = trunc nsw i64 %2895 to i32
   %2897 = icmp eq i32 %2896, 0
   br i1 %2897, label %.thread.i140, label %.lr.ph.i138
 
@@ -7099,7 +7097,7 @@ widen_string.exit.thread.i137:                    ; preds = %2782
   %.lcssa57.i = phi i32 [ 0, %2888 ], [ %2896, %2908 ], [ %2898, %.lr.ph.i138 ]
   %2912 = shl i64 %2894, 32
   %2913 = ashr i64 %2912, 40
-  %2914 = trunc i64 %2913 to i32
+  %2914 = trunc nsw i64 %2913 to i32
   %2915 = icmp slt i32 %.lcssa57.i, %2914
   br i1 %2915, label %2916, label %hex_string.exit, !prof !13
 
@@ -7419,7 +7417,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %3090 = or disjoint i64 %3089, 4503599627370496
   %3091 = select i1 %3088, i64 %3090, i64 %4
   %3092 = ashr i64 %3091, 48
-  %3093 = trunc i64 %3092 to i32
+  %3093 = trunc nsw i64 %3092 to i32
   br label %3094
 
 3094:                                             ; preds = %3111, %3085
@@ -7461,7 +7459,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %3117 = phi i32 [ %3113, %3111 ], [ %3097, %3094 ]
   %3118 = shl i64 %3091, 32
   %3119 = ashr i64 %3118, 40
-  %3120 = trunc i64 %3119 to i32
+  %3120 = trunc nsw i64 %3119 to i32
   %3121 = icmp slt i32 %3117, %3120
   br i1 %3121, label %3122, label %hex_string.exit, !prof !13
 
@@ -7598,7 +7596,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %3198 = or disjoint i64 %3197, 4503599627370496
   %3199 = select i1 %3196, i64 %3198, i64 %4
   %3200 = ashr i64 %3199, 48
-  %3201 = trunc i64 %3200 to i32
+  %3201 = trunc nsw i64 %3200 to i32
   br i1 %3193, label %.preheader.i156, label %.preheader2.i150
 
 .preheader2.i150:                                 ; preds = %3191, %3218
@@ -7640,7 +7638,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %3224 = phi i32 [ %3220, %3218 ], [ %3204, %.preheader2.i150 ]
   %3225 = shl i64 %3199, 32
   %3226 = ashr i64 %3225, 40
-  %3227 = trunc i64 %3226 to i32
+  %3227 = trunc nsw i64 %3226 to i32
   %3228 = icmp slt i32 %3224, %3227
   br i1 %3228, label %3229, label %hex_string.exit, !prof !13
 
@@ -7749,7 +7747,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %3288 = phi i32 [ %3284, %3282 ], [ %3268, %.preheader.i156 ]
   %3289 = shl i64 %3199, 32
   %3290 = ashr i64 %3289, 40
-  %3291 = trunc i64 %3290 to i32
+  %3291 = trunc nsw i64 %3290 to i32
   %3292 = icmp slt i32 %3288, %3291
   br i1 %3292, label %3293, label %hex_string.exit, !prof !13
 
@@ -7834,7 +7832,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %3340 = or disjoint i64 %3339, 4503599627370496
   %3341 = select i1 %3338, i64 %3340, i64 %4
   %3342 = ashr i64 %3341, 48
-  %3343 = trunc i64 %3342 to i32
+  %3343 = trunc nsw i64 %3342 to i32
   br label %3344
 
 3344:                                             ; preds = %3361, %3335
@@ -7876,7 +7874,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %3367 = phi i32 [ %3363, %3361 ], [ %3347, %3344 ]
   %3368 = shl i64 %3341, 32
   %3369 = ashr i64 %3368, 40
-  %3370 = trunc i64 %3369 to i32
+  %3370 = trunc nsw i64 %3369 to i32
   %3371 = icmp slt i32 %3367, %3370
   br i1 %3371, label %3372, label %hex_string.exit, !prof !13
 
@@ -7964,7 +7962,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %3422 = or disjoint i64 %3421, 4503599627370496
   %3423 = select i1 %3420, i64 %3422, i64 %4
   %3424 = ashr i64 %3423, 48
-  %3425 = trunc i64 %3424 to i32
+  %3425 = trunc nsw i64 %3424 to i32
   %3426 = icmp eq i32 %3425, 0
   br i1 %3426, label %.thread.i164, label %.lr.ph.i162
 
@@ -7998,7 +7996,7 @@ widen_string.exit.thread.i145:                    ; preds = %2880
   %.lcssa19.i166 = phi i32 [ 0, %3417 ], [ %3425, %3437 ], [ %3427, %.lr.ph.i162 ]
   %3441 = shl i64 %3423, 32
   %3442 = ashr i64 %3441, 40
-  %3443 = trunc i64 %3442 to i32
+  %3443 = trunc nsw i64 %3442 to i32
   %3444 = icmp slt i32 %.lcssa19.i166, %3443
   br i1 %3444, label %3445, label %hex_string.exit, !prof !13
 
@@ -8115,7 +8113,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3496, %3488, %3485
   %3508 = trunc i64 %3507 to i32
   %3509 = shl i64 %4, 32
   %3510 = ashr i64 %3509, 40
-  %3511 = trunc i64 %3510 to i32
+  %3511 = trunc nsw i64 %3510 to i32
   %3512 = icmp sgt i32 %3511, %3508
   br i1 %3512, label %3513, label %hex_string.exit, !prof !13
 
@@ -8207,7 +8205,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3496, %3488, %3485
   %3557 = or disjoint i64 %3556, 4503599627370496
   %3558 = select i1 %3555, i64 %3557, i64 %4
   %3559 = ashr i64 %3558, 48
-  %3560 = trunc i64 %3559 to i32
+  %3560 = trunc nsw i64 %3559 to i32
   br label %3561
 
 3561:                                             ; preds = %3578, %3552
@@ -8249,7 +8247,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3496, %3488, %3485
   %3584 = phi i32 [ %3580, %3578 ], [ %3564, %3561 ]
   %3585 = shl i64 %3558, 32
   %3586 = ashr i64 %3585, 40
-  %3587 = trunc i64 %3586 to i32
+  %3587 = trunc nsw i64 %3586 to i32
   %3588 = icmp slt i32 %3584, %3587
   br i1 %3588, label %3589, label %hex_string.exit, !prof !13
 
@@ -8363,7 +8361,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3496, %3488, %3485
   %3655 = or disjoint i64 %3654, 4503599627370496
   %3656 = select i1 %3653, i64 %3655, i64 %4
   %3657 = ashr i64 %3656, 48
-  %3658 = trunc i64 %3657 to i32
+  %3658 = trunc nsw i64 %3657 to i32
   br label %3659
 
 3659:                                             ; preds = %3676, %3650
@@ -8405,7 +8403,7 @@ fwnode_full_name_string.exit.i:                   ; preds = %3496, %3488, %3485
   %3682 = phi i32 [ %3678, %3676 ], [ %3662, %3659 ]
   %3683 = shl i64 %3656, 32
   %3684 = ashr i64 %3683, 40
-  %3685 = trunc i64 %3684 to i32
+  %3685 = trunc nsw i64 %3684 to i32
   %3686 = icmp slt i32 %3682, %3685
   br i1 %3686, label %3687, label %hex_string.exit, !prof !13
 
@@ -8489,7 +8487,7 @@ define internal fastcc ptr @number(ptr noundef writeonly %0, ptr noundef readnon
   %5 = alloca [24 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
   %6 = lshr i64 %3, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %8 = and i32 %7, 64
   %9 = icmp ne i32 %8, 0
   %10 = and i64 %3, 280375465082880
@@ -8498,9 +8496,9 @@ define internal fastcc ptr @number(ptr noundef writeonly %0, ptr noundef readnon
   %13 = icmp ne i64 %2, 0
   %14 = shl i64 %3, 32
   %15 = ashr i64 %14, 40
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nsw i64 %15 to i32
   %17 = ashr i64 %3, 48
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nsw i64 %17 to i32
   %19 = trunc i64 %6 to i8
   %20 = and i8 %19, 32
   %21 = and i32 %7, 2
@@ -8508,7 +8506,7 @@ define internal fastcc ptr @number(ptr noundef writeonly %0, ptr noundef readnon
   %23 = and i64 %3, -68719476737
   %24 = select i1 %22, i64 %3, i64 %23
   %25 = lshr i64 %24, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = and i32 %26, 1
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %44, label %29
@@ -8565,7 +8563,7 @@ define internal fastcc ptr @number(ptr noundef writeonly %0, ptr noundef readnon
   %58 = phi i32 [ %53, %52 ], [ %48, %44 ], [ %56, %54 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !5
   %59 = lshr i64 %24, 40
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw nsw i64 %59 to i32
   %61 = and i32 %60, 255
   %62 = and i64 %59, 255
   %63 = icmp ult i64 %45, %62
@@ -8830,25 +8828,19 @@ define dso_local i32 @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, .
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #16
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
   ret i32 %5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @scnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) #0 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %13, label %6, !prof !13
 
@@ -8865,7 +8857,7 @@ define dso_local i32 @scnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
 
 13:                                               ; preds = %10, %6, %3
   %14 = phi i32 [ %12, %10 ], [ 0, %3 ], [ %7, %6 ]
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
   ret i32 %14
 }
@@ -8881,9 +8873,9 @@ define dso_local i32 @sprintf(ptr noundef %0, ptr noundef %1, ...) #0 align 16 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @vsnprintf(ptr noundef %0, i64 noundef 2147483647, ptr noundef %1, ptr noundef nonnull %3) #16
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
   ret i32 %4
 }
@@ -8976,7 +8968,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   store i64 %47, ptr %5, align 8
   %48 = shl nuw i64 %45, 32
   %49 = ashr exact i64 %48, 40
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nsw i64 %49 to i32
   %51 = icmp eq i32 %36, %50
   %52 = load i1, ptr @set_field_width.__already_done, align 1
   %53 = select i1 %51, i1 true, i1 %52
@@ -9118,7 +9110,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 129:                                              ; preds = %125
   %130 = load i64, ptr %126, align 8
   %131 = lshr i64 %130, 32
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nuw i64 %131 to i32
   %133 = trunc i64 %130 to i32
   store i32 %133, ptr %114, align 4
   %134 = getelementptr i8, ptr %114, i64 4
@@ -9165,7 +9157,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 160:                                              ; preds = %156
   %161 = load i64, ptr %157, align 8
   %162 = lshr i64 %161, 32
-  %163 = trunc i64 %162 to i32
+  %163 = trunc nuw i64 %162 to i32
   %164 = trunc i64 %161 to i32
   store i32 %164, ptr %145, align 4
   %165 = getelementptr i8, ptr %145, i64 4
@@ -9254,7 +9246,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 215:                                              ; preds = %211
   %216 = load i64, ptr %212, align 8
   %217 = lshr i64 %216, 32
-  %218 = trunc i64 %217 to i32
+  %218 = trunc nuw i64 %217 to i32
   %219 = trunc i64 %216 to i32
   store i32 %219, ptr %200, align 4
   %220 = getelementptr i8, ptr %200, i64 4
@@ -9293,7 +9285,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 240:                                              ; preds = %236
   %241 = load i64, ptr %237, align 8
   %242 = lshr i64 %241, 32
-  %243 = trunc i64 %242 to i32
+  %243 = trunc nuw i64 %242 to i32
   %244 = trunc i64 %241 to i32
   store i32 %244, ptr %225, align 4
   %245 = getelementptr i8, ptr %225, i64 4
@@ -9332,7 +9324,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 265:                                              ; preds = %261
   %266 = load i64, ptr %262, align 8
   %267 = lshr i64 %266, 32
-  %268 = trunc i64 %267 to i32
+  %268 = trunc nuw i64 %267 to i32
   %269 = trunc i64 %266 to i32
   store i32 %269, ptr %250, align 4
   %270 = getelementptr i8, ptr %250, i64 4
@@ -9371,7 +9363,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 290:                                              ; preds = %286
   %291 = load i64, ptr %287, align 8
   %292 = lshr i64 %291, 32
-  %293 = trunc i64 %292 to i32
+  %293 = trunc nuw i64 %292 to i32
   %294 = trunc i64 %291 to i32
   store i32 %294, ptr %275, align 4
   %295 = getelementptr i8, ptr %275, i64 4
@@ -9505,7 +9497,7 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
@@ -9595,7 +9587,7 @@ define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   store i64 %47, ptr %5, align 8
   %48 = shl nuw i64 %45, 32
   %49 = ashr exact i64 %48, 40
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nsw i64 %49 to i32
   %51 = icmp eq i32 %42, %50
   %52 = load i1, ptr @set_field_width.__already_done, align 1
   %53 = select i1 %51, i1 true, i1 %52
@@ -9638,7 +9630,7 @@ define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   %74 = or disjoint i64 %72, %73
   store i64 %74, ptr %5, align 8
   %75 = ashr exact i64 %72, 48
-  %76 = trunc i64 %75 to i32
+  %76 = trunc nsw i64 %75 to i32
   %77 = icmp eq i32 %68, %76
   %78 = load i1, ptr @set_precision.__already_done, align 1
   %79 = select i1 %77, i1 true, i1 %78
@@ -9682,7 +9674,7 @@ define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   store i64 %98, ptr %5, align 8
   %99 = shl nuw i64 %95, 40
   %100 = ashr exact i64 %99, 40
-  %101 = trunc i64 %100 to i32
+  %101 = trunc nsw i64 %100 to i32
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.preheader10, label %.loopexit11
 
@@ -9709,7 +9701,7 @@ define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   store i64 %115, ptr %5, align 8
   %116 = shl nuw i64 %112, 40
   %117 = ashr exact i64 %116, 40
-  %118 = trunc i64 %117 to i32
+  %118 = trunc nsw i64 %117 to i32
   %119 = icmp sgt i32 %118, 0
   br i1 %119, label %.preheader10, label %.loopexit11, !llvm.loop !67
 
@@ -9738,7 +9730,7 @@ define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   store i64 %134, ptr %5, align 8
   %135 = shl nuw i64 %131, 40
   %136 = ashr exact i64 %135, 40
-  %137 = trunc i64 %136 to i32
+  %137 = trunc nsw i64 %136 to i32
   %138 = icmp sgt i32 %137, 0
   br i1 %138, label %.preheader, label %.loopexit
 
@@ -9765,7 +9757,7 @@ define dso_local i32 @bstr_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
   store i64 %151, ptr %5, align 8
   %152 = shl nuw i64 %148, 40
   %153 = ashr exact i64 %152, 40
-  %154 = trunc i64 %153 to i32
+  %154 = trunc nsw i64 %153 to i32
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %.preheader, label %.loopexit, !llvm.loop !68
 
@@ -9985,9 +9977,9 @@ define dso_local i32 @bprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ..
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
   ret i32 %5
 }
@@ -10887,25 +10879,25 @@ simple_strntoull.exit:                            ; preds = %310, %317
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @skip_spaces(ptr noundef) local_unnamed_addr #11
+declare dso_local ptr @skip_spaces(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @sscanf(ptr noundef %0, ptr noundef %1, ...) #0 align 16 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @vsscanf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
   ret i32 %4
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @_parse_integer_fixup_radix(ptr noundef, ptr noundef) local_unnamed_addr #11
+declare dso_local ptr @_parse_integer_fixup_radix(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @_parse_integer_limit(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i32 @_parse_integer_limit(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @fill_ptr_key(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2) #0 align 16 {
@@ -10916,22 +10908,22 @@ define internal noundef i32 @fill_ptr_key(ptr nocapture readnone %0, i64 %1, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @execute_with_initialized_rng(ptr noundef) local_unnamed_addr #11
+declare dso_local i32 @execute_with_initialized_rng(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @siphash_1u64(i64 noundef, ptr noundef) local_unnamed_addr #11
+declare dso_local i64 @siphash_1u64(i64 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #11
+declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc ptr @widen_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 %3) unnamed_addr #12 align 16 {
+define internal fastcc ptr @widen_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 %3) unnamed_addr #11 align 16 {
   %5 = shl i64 %3, 32
   %6 = ashr i64 %5, 40
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nsw i64 %6 to i32
   %8 = icmp sgt i32 %7, %1
   br i1 %8, label %9, label %.loopexit, !prof !13
 
@@ -11013,7 +11005,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define internal fastcc ptr @bitmap_list_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 16 {
   %5 = shl i64 %3, 32
   %6 = ashr i64 %5, 40
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nsw i64 %6 to i32
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %9 = icmp eq ptr %2, null
   %10 = icmp ult ptr %2, inttoptr (i64 4096 to ptr)
@@ -11032,7 +11024,7 @@ define internal fastcc ptr @bitmap_list_string(ptr noundef %0, ptr noundef %1, p
   %21 = or disjoint i64 %20, 4503599627370496
   %22 = select i1 %19, i64 %21, i64 %3
   %23 = ashr i64 %22, 48
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nsw i64 %23 to i32
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.thread, label %.lr.ph
 
@@ -11066,7 +11058,7 @@ define internal fastcc ptr @bitmap_list_string(ptr noundef %0, ptr noundef %1, p
   %.lcssa6 = phi i32 [ 0, %16 ], [ %26, %.lr.ph ], [ %24, %36 ]
   %40 = shl i64 %22, 32
   %41 = ashr i64 %40, 40
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nsw i64 %41 to i32
   %43 = icmp slt i32 %.lcssa6, %42
   br i1 %43, label %44, label %widen_string.exit, !prof !13
 
@@ -11232,7 +11224,7 @@ define internal fastcc ptr @bitmap_string(ptr noundef %0, ptr noundef %1, ptr no
   %17 = or disjoint i64 %16, 4503599627370496
   %18 = select i1 %15, i64 %17, i64 %3
   %19 = ashr i64 %18, 48
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nsw i64 %19 to i32
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.thread, label %.lr.ph
 
@@ -11266,7 +11258,7 @@ define internal fastcc ptr @bitmap_string(ptr noundef %0, ptr noundef %1, ptr no
   %.lcssa6 = phi i32 [ 0, %12 ], [ %22, %.lr.ph ], [ %20, %32 ]
   %36 = shl i64 %18, 32
   %37 = ashr i64 %36, 40
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nsw i64 %37 to i32
   %39 = icmp slt i32 %.lcssa6, %38
   br i1 %39, label %40, label %widen_string.exit, !prof !13
 
@@ -11339,7 +11331,7 @@ define internal fastcc ptr @bitmap_string(ptr noundef %0, ptr noundef %1, ptr no
 widen_string.exit.thread:                         ; preds = %4
   %77 = shl i64 %3, 32
   %78 = ashr i64 %77, 40
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nsw i64 %78 to i32
   %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %81 = add nuw nsw i32 %80, 31
   %82 = and i32 %81, 2147483616
@@ -11425,13 +11417,13 @@ define internal fastcc ptr @dentry_name(ptr noundef %0, ptr noundef %1, ptr noun
   %18 = select i1 %15, i64 %17, i64 %3
   %.fr = freeze i64 %18
   %19 = ashr i64 %.fr, 48
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nsw i64 %19 to i32
   %21 = zext nneg i32 %10 to i64
   %22 = add nsw i32 %20, -1
   %23 = icmp eq i32 %20, 0
   %24 = shl i64 %.fr, 32
   %25 = ashr i64 %24, 40
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nsw i64 %25 to i32
   %27 = and i64 %.fr, 8589934592
   %28 = icmp eq i64 %27, 0
   %29 = ptrtoint ptr %1 to i64
@@ -11646,7 +11638,7 @@ widen_string.exit.thread:                         ; preds = %.split
 
 ._crit_edge:                                      ; preds = %4, %.split27.us, %131, %.split22.us
   %137 = phi i32 [ %136, %.split27.us ], [ %129, %131 ], [ 0, %.split22.us ], [ -1, %4 ]
-  %138 = trunc i64 %12 to i32
+  %138 = trunc nsw i64 %12 to i32
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %.loopexit, label %140
 
@@ -11700,7 +11692,7 @@ widen_string.exit.thread:                         ; preds = %.split
   tail call void @__rcu_read_unlock() #16
   %171 = shl i64 %3, 32
   %172 = ashr i64 %171, 40
-  %173 = trunc i64 %172 to i32
+  %173 = trunc nsw i64 %172 to i32
   %174 = icmp slt i32 %170, %173
   br i1 %174, label %175, label %widen_string.exit16, !prof !13
 
@@ -11847,7 +11839,7 @@ define internal fastcc ptr @default_pointer(ptr noundef %0, ptr noundef %1, ptr 
   %41 = or disjoint i64 %40, 4503599627370496
   %42 = select i1 %39, i64 %41, i64 %3
   %43 = ashr i64 %42, 48
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nsw i64 %43 to i32
   br label %45
 
 45:                                               ; preds = %62, %36
@@ -11988,7 +11980,7 @@ define internal fastcc ptr @err_ptr(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %4
   %10 = ashr i64 %3, 48
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.thread, label %.lr.ph
 
@@ -12022,7 +12014,7 @@ define internal fastcc ptr @err_ptr(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.lcssa3 = phi i32 [ 0, %9 ], [ %13, %.lr.ph ], [ %11, %23 ]
   %27 = shl i64 %3, 32
   %28 = ashr i64 %27, 40
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nsw i64 %28 to i32
   %30 = icmp slt i32 %.lcssa3, %29
   br i1 %30, label %31, label %widen_string.exit, !prof !13
 
@@ -12106,28 +12098,28 @@ widen_string.exit:                                ; preds = %65, %58, %.thread, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sprint_backtrace_build_id(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i32 @sprint_backtrace_build_id(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sprint_backtrace(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i32 @sprint_backtrace(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sprint_symbol_build_id(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i32 @sprint_symbol_build_id(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sprint_symbol(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i32 @sprint_symbol(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @sprint_symbol_no_offset(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i32 @sprint_symbol_no_offset(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i64 @_find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #12 align 16 {
+define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #11 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [8 x i8], align 8
   %5 = alloca %struct.in6_addr, align 4
@@ -12352,7 +12344,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %151 = zext i8 %147 to i64
   %152 = mul nuw nsw i64 %151, 42949673
   %153 = lshr i64 %152, 32
-  %154 = trunc i64 %153 to i32
+  %154 = trunc nuw nsw i64 %153 to i32
   %155 = mul nsw i32 %154, -100
   %156 = add nsw i32 %155, %148
   %157 = zext i32 %156 to i64
@@ -12415,10 +12407,10 @@ ip4_string.specialized.1.exit:                    ; preds = %.loopexit.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #13
+declare i16 @llvm.bswap.i16(i16) #12
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef ptr @ip4_string(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i8 %.0.val, i8 %.2.val) unnamed_addr #12 align 16 {
+define internal fastcc noundef ptr @ip4_string(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i8 %.0.val, i8 %.2.val) unnamed_addr #11 align 16 {
   %3 = alloca [4 x i8], align 4
   %.0.val.fr = freeze i8 %.0.val
   %4 = icmp eq i8 %.0.val.fr, 105
@@ -12456,7 +12448,7 @@ define internal fastcc noundef ptr @ip4_string(ptr noundef writeonly %0, ptr noc
   %22 = zext i8 %18 to i64
   %23 = mul nuw nsw i64 %22, 42949673
   %24 = lshr i64 %23, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = mul nsw i32 %25, -100
   %27 = add nsw i32 %26, %19
   %28 = zext i32 %27 to i64
@@ -12522,7 +12514,7 @@ put_dec_trunc8.exit.us:                           ; preds = %21, %.split.us
   %63 = zext i8 %59 to i64
   %64 = mul nuw nsw i64 %63, 42949673
   %65 = lshr i64 %64, 32
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw nsw i64 %65 to i32
   %67 = mul nsw i32 %66, -100
   %68 = add nsw i32 %67, %60
   %69 = zext i32 %68 to i64
@@ -12596,25 +12588,22 @@ put_dec_trunc8.exit:                              ; preds = %62, %.split
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #13
+declare i32 @llvm.bswap.i32(i32) #12
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @string_escape_mem(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
+declare dso_local i32 @string_escape_mem(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @has_capability_noaudit(ptr noundef, i32 noundef) local_unnamed_addr #11
+declare dso_local zeroext i1 @has_capability_noaudit(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #14
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_lock() local_unnamed_addr #11
+declare dso_local void @__rcu_read_lock() local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_unlock() local_unnamed_addr #11
+declare dso_local void @__rcu_read_unlock() local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal fastcc ptr @rtc_str(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 %3, ptr nocapture noundef readonly %4) unnamed_addr #8 align 16 {
@@ -12635,7 +12624,7 @@ define internal fastcc ptr @rtc_str(ptr noundef %0, ptr noundef %1, ptr noundef 
   %18 = or disjoint i64 %17, 4503599627370496
   %19 = select i1 %16, i64 %18, i64 %3
   %20 = ashr i64 %19, 48
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nsw i64 %20 to i32
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread, label %.lr.ph
 
@@ -12669,7 +12658,7 @@ define internal fastcc ptr @rtc_str(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.lcssa10 = phi i32 [ 0, %13 ], [ %23, %.lr.ph ], [ %21, %33 ]
   %37 = shl i64 %19, 32
   %38 = ashr i64 %37, 40
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nsw i64 %38 to i32
   %40 = icmp slt i32 %.lcssa10, %39
   br i1 %40, label %41, label %.thread6, !prof !13
 
@@ -12875,40 +12864,49 @@ time_str.exit:                                    ; preds = %131, %138
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @time64_to_tm(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
+declare dso_local void @time64_to_tm(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @fwnode_get_name(ptr noundef) local_unnamed_addr #11
+declare dso_local ptr @fwnode_get_name(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @fwnode_count_parents(ptr noundef) local_unnamed_addr #11
+declare dso_local i32 @fwnode_count_parents(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @fwnode_get_nth_parent(ptr noundef, i32 noundef) local_unnamed_addr #11
+declare dso_local ptr @fwnode_get_nth_parent(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @fwnode_get_name_prefix(ptr noundef) local_unnamed_addr #11
+declare dso_local ptr @fwnode_get_name_prefix(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @fwnode_handle_put(ptr noundef) local_unnamed_addr #11
+declare dso_local void @fwnode_handle_put(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @errname(i32 noundef) local_unnamed_addr #11
+declare dso_local ptr @errname(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__bitmap_complement(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
+declare dso_local void @__bitmap_complement(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #15
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -12919,13 +12917,13 @@ attributes #5 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsiz
 attributes #6 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nounwind }
 attributes #17 = { cold nounwind }
 attributes #18 = { nounwind memory(read) }

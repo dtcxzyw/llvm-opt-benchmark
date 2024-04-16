@@ -580,7 +580,7 @@ define internal i32 @addidata_apci7800_setup(ptr nocapture noundef readonly %0, 
   %35 = phi i32 [ %8, %10 ], [ %17, %16 ], [ %27, %26 ], [ %31, %30 ]
   %36 = phi i32 [ %13, %10 ], [ %21, %16 ], [ %29, %26 ], [ %33, %30 ]
   %37 = add i32 %36, %6
-  %38 = trunc i32 %35 to i8
+  %38 = trunc nuw nsw i32 %35 to i8
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %0, align 8
@@ -1290,7 +1290,7 @@ define internal i32 @pci_ni8430_setup(ptr nocapture noundef readonly %0, ptr noc
   %25 = or i8 %24, 8
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %25, ptr elementtype(i8) %23) #14, !srcloc !19
   tail call void @iounmap(ptr noundef nonnull %16) #14
-  %26 = trunc i32 %13 to i8
+  %26 = trunc nuw nsw i32 %13 to i8
   %27 = getelementptr inbounds i8, ptr %1, i64 16
   %28 = load i32, ptr %27, align 4
   %29 = load ptr, ptr %0, align 8
@@ -1761,53 +1761,47 @@ define internal noundef i32 @pci_plx9050_init(ptr noundef %0) #0 align 16 {
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20) #16
-  br label %47
+  br label %43
 
 21:                                               ; preds = %1
   %22 = getelementptr inbounds i8, ptr %0, i64 60
   %23 = load i16, ptr %22, align 4
   %24 = icmp eq i16 %23, 5332
-  br i1 %24, label %29, label %25
+  br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   %27 = load i16, ptr %26, align 8
   %28 = icmp eq i16 %27, -10163
-  br i1 %28, label %29, label %30
+  %spec.select = select i1 %28, i8 67, i8 65
+  %29 = icmp eq i16 %23, 4277
+  br i1 %29, label %30, label %.thread
 
-29:                                               ; preds = %25, %21
-  br label %30
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %0, i64 62
+  %32 = load i16, ptr %31, align 2
+  %33 = icmp eq i16 %32, 4202
+  %34 = select i1 %33, i8 91, i8 %spec.select
+  br label %.thread
 
-30:                                               ; preds = %29, %25
-  %31 = phi i8 [ 67, %29 ], [ 65, %25 ]
-  %32 = icmp eq i16 %23, 4277
-  br i1 %32, label %33, label %38
+.thread:                                          ; preds = %21, %30, %25
+  %35 = phi i8 [ %spec.select, %25 ], [ %34, %30 ], [ 67, %21 ]
+  %36 = load i64, ptr %2, align 8
+  %37 = tail call ptr @ioremap(i64 noundef %36, i64 noundef 128) #14
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %43, label %39
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 62
-  %35 = load i16, ptr %34, align 2
-  %36 = icmp eq i16 %35, 4202
-  %37 = select i1 %36, i8 91, i8 %31
-  br label %38
+39:                                               ; preds = %.thread
+  %40 = zext nneg i8 %35 to i32
+  %41 = getelementptr i8, ptr %37, i64 76
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %40, ptr elementtype(i32) %41) #14, !srcloc !17
+  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #14, !srcloc !16
+  tail call void @iounmap(ptr noundef nonnull %37) #14
+  br label %43
 
-38:                                               ; preds = %33, %30
-  %39 = phi i8 [ %31, %30 ], [ %37, %33 ]
-  %40 = load i64, ptr %2, align 8
-  %41 = tail call ptr @ioremap(i64 noundef %40, i64 noundef 128) #14
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %47, label %43
-
-43:                                               ; preds = %38
-  %44 = zext nneg i8 %39 to i32
-  %45 = getelementptr i8, ptr %41, i64 76
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %45) #14, !srcloc !17
-  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #14, !srcloc !16
-  tail call void @iounmap(ptr noundef nonnull %41) #14
-  br label %47
-
-47:                                               ; preds = %43, %38, %7
-  %48 = phi i32 [ 0, %7 ], [ 0, %43 ], [ -12, %38 ]
-  ret i32 %48
+43:                                               ; preds = %39, %.thread, %7
+  %44 = phi i32 [ 0, %7 ], [ 0, %39 ], [ -12, %.thread ]
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1991,7 +1985,7 @@ define internal noundef i32 @pci_siig_init(ptr noundef %0) #0 align 16 {
 define internal i32 @pci_siig_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = load i32, ptr %1, align 4
   %6 = and i32 %5, 7
-  %7 = add i32 %6, %3
+  %7 = add nsw i32 %6, %3
   %8 = icmp sgt i32 %3, 3
   %9 = shl i32 %3, 3
   %10 = add i32 %9, -32
@@ -2925,7 +2919,7 @@ define internal i32 @pci_fintek_init(ptr noundef %0) #0 align 16 {
   %52 = or disjoint i32 %50, 1
   %53 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %52, i8 noundef zeroext 51) #14
   %54 = or disjoint i32 %50, 4
-  %55 = trunc i64 %49 to i8
+  %55 = trunc nuw i64 %49 to i8
   %56 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %54, i8 noundef zeroext %55) #14
   %57 = or disjoint i32 %50, 5
   %58 = lshr i64 %45, 8
@@ -2958,7 +2952,7 @@ define internal i32 @pci_fintek_init(ptr noundef %0) #0 align 16 {
   %82 = or disjoint i32 %80, 1
   %83 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %82, i8 noundef zeroext 51) #14
   %84 = or disjoint i32 %80, 4
-  %85 = trunc i64 %79 to i8
+  %85 = trunc nuw i64 %79 to i8
   %86 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %84, i8 noundef zeroext %85) #14
   %87 = or disjoint i32 %80, 5
   %88 = lshr i64 %75, 8
@@ -3337,7 +3331,7 @@ define internal i32 @pci_oxsemi_tornado_get_divisor(ptr nocapture noundef readon
   %20 = lshr i32 %18, 16
   %21 = trunc i32 %20 to i8
   %22 = lshr i32 %18, 20
-  %23 = trunc i32 %22 to i16
+  %23 = trunc nuw nsw i32 %22 to i16
   %24 = and i16 %23, 511
   %25 = and i32 %18, 528482304
   %26 = icmp eq i32 %25, 0
@@ -3915,7 +3909,7 @@ define internal fastcc noundef i32 @serial_pci_guess_board(ptr nocapture noundef
   %23 = trunc i64 %14 to i32
   %24 = select i1 %22, i32 %23, i32 %15
   %25 = lshr exact i64 %20, 8
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %27 = add i32 %16, %26
   %28 = select i1 %21, i32 %15, i32 %24
   %29 = trunc i64 %19 to i32

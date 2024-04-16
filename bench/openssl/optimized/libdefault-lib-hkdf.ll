@@ -578,7 +578,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_tls1_3_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal i32 @kdf_tls1_3_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %params, null
   br i1 %cmp, label %return, label %if.end
@@ -639,18 +639,16 @@ if.end25:                                         ; preds = %if.then18, %if.end1
   store ptr null, ptr %data, align 8
   %call27 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.14) #7
   %cmp28.not = icmp eq ptr %call27, null
-  br i1 %cmp28.not, label %if.end34, label %land.lhs.true
+  br i1 %cmp28.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end25
   %call31 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %call27, ptr noundef nonnull %data, i64 noundef 0, ptr noundef nonnull %data_len) #7
-  %tobool32.not = icmp eq i32 %call31, 0
-  br i1 %tobool32.not, label %return, label %if.end34
-
-if.end34:                                         ; preds = %land.lhs.true, %if.end25
+  %tobool32.not = icmp ne i32 %call31, 0
+  %spec.select = zext i1 %tobool32.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.then18, %if.then8, %if.end, %entry, %if.end34, %if.then4
-  %retval.0 = phi i32 [ 0, %if.then4 ], [ 1, %if.end34 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then8 ], [ 0, %if.then18 ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end25, %if.then18, %if.then8, %if.end, %entry, %if.then4
+  %retval.0 = phi i32 [ 0, %if.then4 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then8 ], [ 0, %if.then18 ], [ 1, %if.end25 ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -826,7 +824,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @HMAC_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hkdf_common_set_ctx_params(ptr noundef %ctx, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc i32 @hkdf_common_set_ctx_params(ptr noundef %ctx, ptr noundef %params) unnamed_addr #0 {
 entry:
   %n = alloca i32, align 4
   %0 = load ptr, ptr %ctx, align 8
@@ -919,19 +917,19 @@ if.then44:                                        ; preds = %if.end41
 if.end52:                                         ; preds = %if.then44, %if.end41
   %call53 = call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.6) #7
   %cmp54.not = icmp eq ptr %call53, null
-  br i1 %cmp54.not, label %if.end68, label %if.then55
+  br i1 %cmp54.not, label %return, label %if.then55
 
 if.then55:                                        ; preds = %if.end52
   %data_size = getelementptr inbounds i8, ptr %call53, i64 24
   %8 = load i64, ptr %data_size, align 8
   %cmp56.not = icmp eq i64 %8, 0
-  br i1 %cmp56.not, label %if.end68, label %land.lhs.true57
+  br i1 %cmp56.not, label %return, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.then55
   %data58 = getelementptr inbounds i8, ptr %call53, i64 16
   %9 = load ptr, ptr %data58, align 8
   %cmp59.not = icmp eq ptr %9, null
-  br i1 %cmp59.not, label %if.end68, label %if.then60
+  br i1 %cmp59.not, label %return, label %if.then60
 
 if.then60:                                        ; preds = %land.lhs.true57
   %salt = getelementptr inbounds i8, ptr %ctx, i64 40
@@ -940,14 +938,12 @@ if.then60:                                        ; preds = %land.lhs.true57
   store ptr null, ptr %salt, align 8
   %salt_len = getelementptr inbounds i8, ptr %ctx, i64 48
   %call63 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %call53, ptr noundef nonnull %salt, i64 noundef 0, ptr noundef nonnull %salt_len) #7
-  %tobool64.not = icmp eq i32 %call63, 0
-  br i1 %tobool64.not, label %return, label %if.end68
-
-if.end68:                                         ; preds = %if.then55, %land.lhs.true57, %if.then60, %if.end52
+  %tobool64.not = icmp ne i32 %call63, 0
+  %spec.select = zext i1 %tobool64.not to i32
   br label %return
 
-return:                                           ; preds = %if.then60, %if.then44, %entry, %if.end68, %if.else38, %if.then35, %if.else23
-  %retval.0 = phi i32 [ 1, %if.end68 ], [ 0, %if.else23 ], [ 0, %if.then35 ], [ 0, %if.else38 ], [ 0, %entry ], [ 0, %if.then44 ], [ 0, %if.then60 ]
+return:                                           ; preds = %if.then60, %if.end52, %land.lhs.true57, %if.then55, %if.then44, %entry, %if.else38, %if.then35, %if.else23
+  %retval.0 = phi i32 [ 0, %if.else23 ], [ 0, %if.then35 ], [ 0, %if.else38 ], [ 0, %entry ], [ 0, %if.then44 ], [ 1, %if.then55 ], [ 1, %land.lhs.true57 ], [ 1, %if.end52 ], [ %spec.select, %if.then60 ]
   ret i32 %retval.0
 }
 

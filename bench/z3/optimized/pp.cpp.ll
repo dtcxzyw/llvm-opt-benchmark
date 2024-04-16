@@ -819,7 +819,7 @@ entry:
   %m_info.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_info.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i, label %sw.default, label %_ZNK3app13get_decl_kindEv.exit
+  br i1 %cmp.i.i, label %return, label %_ZNK3app13get_decl_kindEv.exit
 
 _ZNK3app13get_decl_kindEv.exit:                   ; preds = %entry
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
@@ -837,8 +837,8 @@ for.cond.preheader:                               ; preds = %_ZNK3app13get_decl_
   %m_args.i10 = getelementptr inbounds i8, ptr %f, i64 32
   %m_num_args.i = getelementptr inbounds i8, ptr %f, i64 24
   %3 = load i32, ptr %m_num_args.i, align 8
-  %cmp53.not = icmp eq i32 %3, 0
-  br i1 %cmp53.not, label %return, label %for.body
+  %cmp58.not = icmp eq i32 %3, 0
+  br i1 %cmp58.not, label %return, label %for.body
 
 sw.bb:                                            ; preds = %_ZNK3app13get_decl_kindEv.exit
   %m_parameters.i.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -866,8 +866,8 @@ sw.bb7:                                           ; preds = %_ZNK3app13get_decl_
   %m_args.i = getelementptr inbounds i8, ptr %f, i64 32
   %6 = load ptr, ptr %m_args.i, align 8
   %call10 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %6)
-  %retval.sroa.0.0.extract.trunc32 = trunc i64 %call10 to i32
-  %retval.sroa.10.0.extract.shift44 = and i64 %call10, -1099511627776
+  %retval.sroa.0.0.extract.trunc37 = trunc i64 %call10 to i32
+  %retval.sroa.10.0.extract.shift49 = and i64 %call10, -1099511627776
   br label %return
 
 for.cond:                                         ; preds = %for.body
@@ -879,31 +879,31 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
-  %r.054 = phi i32 [ %add, %for.cond ], [ 0, %for.cond.preheader ]
+  %r.059 = phi i32 [ %add, %for.cond ], [ 0, %for.cond.preheader ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i10, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx.i, align 8
   %call15 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %9)
   %pair.sroa.0.0.extract.trunc = trunc i64 %call15 to i32
-  %add = add i32 %r.054, %pair.sroa.0.0.extract.trunc
+  %add = add i32 %r.059, %pair.sroa.0.0.extract.trunc
   %10 = and i64 %call15, 4294967296
   %tobool.not = icmp eq i64 %10, 0
   br i1 %tobool.not, label %for.cond, label %return
 
 sw.bb20:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %m_args.i19 = getelementptr inbounds i8, ptr %f, i64 32
-  %11 = load ptr, ptr %m_args.i19, align 8
+  %m_args.i21 = getelementptr inbounds i8, ptr %f, i64 32
+  %11 = load ptr, ptr %m_args.i21, align 8
   %call23 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %11)
-  %retval.sroa.0.0.extract.trunc35 = trunc i64 %call23 to i32
-  %retval.sroa.10.0.extract.shift50 = and i64 %call23, -1099511627776
+  %retval.sroa.0.0.extract.trunc40 = trunc i64 %call23 to i32
+  %retval.sroa.10.0.extract.shift55 = and i64 %call23, -1099511627776
   br label %return
 
-sw.default:                                       ; preds = %entry, %_ZNK3app13get_decl_kindEv.exit
+sw.default:                                       ; preds = %_ZNK3app13get_decl_kindEv.exit
   br label %return
 
-return:                                           ; preds = %for.body, %for.cond, %for.cond.preheader, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %sw.default, %sw.bb20, %sw.bb7, %_ZNK9parameter10get_symbolEv.exit
-  %retval.sroa.0.0 = phi i32 [ 0, %sw.default ], [ %retval.sroa.0.0.extract.trunc35, %sw.bb20 ], [ %retval.sroa.0.0.extract.trunc32, %sw.bb7 ], [ %call4, %_ZNK9parameter10get_symbolEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %for.cond.preheader ], [ %add, %for.cond ], [ %add, %for.body ]
-  %retval.sroa.8.0 = phi i64 [ 0, %sw.default ], [ %call23, %sw.bb20 ], [ %call10, %sw.bb7 ], [ 0, %_ZNK9parameter10get_symbolEv.exit ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %for.cond.preheader ], [ 4294967296, %for.body ], [ 0, %for.cond ]
-  %retval.sroa.10.sroa.0.0 = phi i64 [ 0, %sw.default ], [ %retval.sroa.10.0.extract.shift50, %sw.bb20 ], [ %retval.sroa.10.0.extract.shift44, %sw.bb7 ], [ 0, %_ZNK9parameter10get_symbolEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %for.cond.preheader ], [ 0, %for.cond ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %for.cond, %for.cond.preheader, %entry, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %sw.default, %sw.bb20, %sw.bb7, %_ZNK9parameter10get_symbolEv.exit
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.extract.trunc40, %sw.bb20 ], [ %retval.sroa.0.0.extract.trunc37, %sw.bb7 ], [ %call4, %_ZNK9parameter10get_symbolEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %sw.default ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ %add, %for.cond ], [ %add, %for.body ]
+  %retval.sroa.8.0 = phi i64 [ %call23, %sw.bb20 ], [ %call10, %sw.bb7 ], [ 0, %_ZNK9parameter10get_symbolEv.exit ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %sw.default ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ 4294967296, %for.body ], [ 0, %for.cond ]
+  %retval.sroa.10.sroa.0.0 = phi i64 [ %retval.sroa.10.0.extract.shift55, %sw.bb20 ], [ %retval.sroa.10.0.extract.shift49, %sw.bb7 ], [ 0, %_ZNK9parameter10get_symbolEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %sw.default ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ 0, %for.cond ], [ 0, %for.body ]
   %retval.sroa.8.0.insert.ext = and i64 %retval.sroa.8.0, 1095216660480
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.8.0.insert.insert = or disjoint i64 %retval.sroa.8.0.insert.ext, %retval.sroa.0.0.insert.ext

@@ -211,7 +211,7 @@ define internal noundef i32 @i915_component_master_match(ptr nocapture noundef r
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @pci_bus_type
-  br i1 %6, label %7, label %46
+  br i1 %6, label %7, label %45
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8
@@ -227,11 +227,11 @@ define internal noundef i32 @i915_component_master_match(ptr nocapture noundef r
   %16 = icmp eq i32 %15, 0
   %17 = icmp eq i32 %1, 1
   %18 = and i1 %17, %16
-  br i1 %18, label %21, label %46
+  br i1 %18, label %21, label %45
 
 19:                                               ; preds = %7
   %20 = icmp eq i32 %1, 1
-  br i1 %20, label %21, label %46
+  br i1 %20, label %21, label %45
 
 21:                                               ; preds = %19, %14
   %22 = getelementptr i8, ptr %0, i64 -168
@@ -239,7 +239,7 @@ define internal noundef i32 @i915_component_master_match(ptr nocapture noundef r
   %24 = getelementptr i8, ptr %8, i64 -168
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %23, %25
-  br i1 %26, label %46, label %27
+  br i1 %26, label %45, label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %23, i64 16
@@ -247,7 +247,7 @@ define internal noundef i32 @i915_component_master_match(ptr nocapture noundef r
   %30 = getelementptr inbounds i8, ptr %25, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %29, %31
-  br i1 %32, label %46, label %33
+  br i1 %32, label %45, label %33
 
 33:                                               ; preds = %27
   %34 = icmp ne ptr %29, null
@@ -265,14 +265,12 @@ define internal noundef i32 @i915_component_master_match(ptr nocapture noundef r
   %42 = getelementptr inbounds i8, ptr %31, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %39, %43
-  br i1 %44, label %46, label %45
+  %spec.select = zext i1 %44 to i32
+  br label %45
 
-45:                                               ; preds = %41, %37, %33
-  br label %46
-
-46:                                               ; preds = %45, %41, %27, %21, %19, %14, %3
-  %47 = phi i32 [ 0, %3 ], [ 1, %21 ], [ 1, %27 ], [ 1, %41 ], [ 0, %45 ], [ 0, %19 ], [ 0, %14 ]
-  ret i32 %47
+45:                                               ; preds = %41, %33, %37, %27, %21, %19, %14, %3
+  %46 = phi i32 [ 0, %3 ], [ 1, %21 ], [ 1, %27 ], [ 0, %19 ], [ 0, %14 ], [ 0, %37 ], [ 0, %33 ], [ %spec.select, %41 ]
+  ret i32 %46
 }
 
 ; Function Attrs: null_pointer_is_valid

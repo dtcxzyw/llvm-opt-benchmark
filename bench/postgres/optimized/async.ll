@@ -323,9 +323,9 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
   %46 = add nuw nsw i64 %21, 6
   %47 = add nuw nsw i64 %46, %25
   %48 = tail call ptr @palloc(i64 noundef %47) #16
-  %49 = trunc i64 %21 to i16
+  %49 = trunc nuw nsw i64 %21 to i16
   store i16 %49, ptr %48, align 2
-  %50 = trunc i64 %25 to i16
+  %50 = trunc nuw nsw i64 %25 to i16
   %51 = getelementptr inbounds i8, ptr %48, i64 2
   store i16 %50, ptr %51, align 2
   %52 = getelementptr inbounds i8, ptr %48, i64 4
@@ -367,7 +367,7 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
   %74 = getelementptr inbounds i8, ptr %69, i64 24
   store ptr %73, ptr %74, align 8
   store ptr %69, ptr @pendingNotifies, align 8
-  br label %107
+  br label %108
 
 75:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -375,73 +375,80 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly %1) loc
   %76 = getelementptr inbounds i8, ptr %62, i64 16
   %77 = load ptr, ptr %76, align 8
   %.not.i = icmp eq ptr %77, null
-  br i1 %.not.i, label %80, label %78
+  br i1 %.not.i, label %78, label %AsyncExistsPendingNotify.exit
 
 78:                                               ; preds = %75
-  %79 = call ptr @hash_search(ptr noundef nonnull %77, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #16
-  %.not17.i = icmp eq ptr %79, null
-  br i1 %.not17.i, label %.loopexit40, label %.loopexit
+  %79 = getelementptr inbounds i8, ptr %62, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %.not15.i = icmp eq ptr %80, null
+  br i1 %.not15.i, label %AsyncExistsPendingNotify.exit.thread, label %.lr.ph.i
 
-80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %62, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %.not15.i = icmp eq ptr %82, null
-  br i1 %.not15.i, label %.loopexit40, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %.lr.ph28.i, label %AsyncExistsPendingNotify.exit.thread
 
-.lr.ph.i:                                         ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph23.i, label %.loopexit40
+.lr.ph28.i:                                       ; preds = %.lr.ph.i
+  %84 = getelementptr inbounds i8, ptr %80, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i16, ptr %48, align 2
+  %87 = zext i16 %86 to i64
+  %88 = add nuw nsw i64 %87, 2
+  %wide.trip.count.i = zext nneg i32 %82 to i64
+  br label %89
 
-.lr.ph23.i:                                       ; preds = %.lr.ph.i
-  %86 = getelementptr inbounds i8, ptr %82, i64 16
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i16, ptr %48, align 2
-  %89 = zext i16 %88 to i64
-  %90 = add nuw nsw i64 %89, 2
-  %wide.trip.count.i = zext nneg i32 %84 to i64
-  br label %91
+89:                                               ; preds = %104, %.lr.ph28.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph28.i ], [ %indvars.iv.next.i, %104 ]
+  %90 = getelementptr %union.ListCell, ptr %85, i64 %indvars.iv.i
+  %91 = load ptr, ptr %90, align 8
+  %92 = load i16, ptr %91, align 2
+  %93 = icmp eq i16 %86, %92
+  br i1 %93, label %94, label %104
 
-91:                                               ; preds = %106, %.lr.ph23.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next.i, %106 ]
-  %92 = getelementptr %union.ListCell, ptr %87, i64 %indvars.iv.i
-  %93 = load ptr, ptr %92, align 8
-  %94 = load i16, ptr %93, align 2
-  %95 = icmp eq i16 %88, %94
-  br i1 %95, label %96, label %106
+94:                                               ; preds = %89
+  %95 = load i16, ptr %51, align 2
+  %96 = getelementptr inbounds i8, ptr %91, i64 2
+  %97 = load i16, ptr %96, align 2
+  %98 = icmp eq i16 %95, %97
+  br i1 %98, label %99, label %104
 
-96:                                               ; preds = %91
-  %97 = load i16, ptr %51, align 2
-  %98 = getelementptr inbounds i8, ptr %93, i64 2
-  %99 = load i16, ptr %98, align 2
-  %100 = icmp eq i16 %97, %99
-  br i1 %100, label %101, label %106
+99:                                               ; preds = %94
+  %100 = zext i16 %95 to i64
+  %101 = getelementptr inbounds i8, ptr %91, i64 4
+  %102 = add nuw nsw i64 %88, %100
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %101, i64 %102)
+  %103 = icmp eq i32 %bcmp.i, 0
+  br i1 %103, label %AsyncExistsPendingNotify.exit.thread40, label %104
 
-101:                                              ; preds = %96
-  %102 = zext i16 %97 to i64
-  %103 = getelementptr inbounds i8, ptr %93, i64 4
-  %104 = add nuw nsw i64 %90, %102
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %103, i64 %104)
-  %105 = icmp eq i32 %bcmp.i, 0
-  br i1 %105, label %.loopexit, label %106
+AsyncExistsPendingNotify.exit.thread40:           ; preds = %99
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %106
 
-106:                                              ; preds = %101, %96, %91
+104:                                              ; preds = %99, %94, %89
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit40, label %91
+  br i1 %exitcond.not.i, label %AsyncExistsPendingNotify.exit.thread, label %89
 
-.loopexit:                                        ; preds = %101, %78
+AsyncExistsPendingNotify.exit.thread:             ; preds = %104, %78, %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %107
+
+AsyncExistsPendingNotify.exit:                    ; preds = %75
+  %105 = call ptr @hash_search(ptr noundef nonnull %77, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #16
+  %.not17.i.not = icmp eq ptr %105, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br i1 %.not17.i.not, label %107, label %106
+
+106:                                              ; preds = %AsyncExistsPendingNotify.exit.thread40, %AsyncExistsPendingNotify.exit
   call void @pfree(ptr noundef nonnull %48) #16
-  br label %107
+  br label %108
 
-.loopexit40:                                      ; preds = %106, %.lr.ph.i, %80, %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+107:                                              ; preds = %AsyncExistsPendingNotify.exit.thread, %AsyncExistsPendingNotify.exit
   call fastcc void @AddEventToPendingNotifies(ptr noundef nonnull %48)
-  br label %107
+  br label %108
 
-107:                                              ; preds = %67, %.loopexit40, %.loopexit
+108:                                              ; preds = %67, %107, %106
   store ptr %45, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -1244,7 +1251,7 @@ asyncQueueFillWarning.exit:                       ; preds = %108, %asyncQueueUsa
   %200 = load i16, ptr %199, align 2
   %201 = zext i16 %200 to i64
   %202 = add nuw nsw i64 %201, %198
-  %203 = trunc i64 %202 to i32
+  %203 = trunc nuw nsw i64 %202 to i32
   %204 = add nuw nsw i32 %203, 21
   %205 = and i32 %204, 262140
   store i32 %205, ptr %1, align 4
@@ -1504,7 +1511,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   br i1 %63, label %.split.i, label %66
 
 .split.i:                                         ; preds = %59
-  %64 = trunc i64 %indvars.iv.i to i32
+  %64 = trunc nuw nsw i64 %indvars.iv.i to i32
   %65 = tail call ptr @list_delete_nth_cell(ptr noundef nonnull %53, i32 noundef %64) #16
   store ptr %65, ptr @listenChannels, align 8
   tail call void @pfree(ptr noundef %61) #16
@@ -2047,96 +2054,100 @@ define dso_local void @AtSubCommit_Notify() local_unnamed_addr #0 {
   %42 = getelementptr inbounds i8, ptr %40, i64 16
   %43 = load i32, ptr %41, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph32, label %._crit_edge
+  br i1 %44, label %.lr.ph34, label %._crit_edge
 
-.lr.ph32:                                         ; preds = %.lr.ph, %84
-  %indvars.iv31 = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.lr.ph ]
+.lr.ph34:                                         ; preds = %.lr.ph, %84
+  %indvars.iv33 = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr %union.ListCell, ptr %45, i64 %indvars.iv31
+  %46 = getelementptr %union.ListCell, ptr %45, i64 %indvars.iv33
   %47 = load ptr, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr %47, ptr %1, align 8
   %48 = load ptr, ptr @pendingNotifies, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread.i, label %50
+  br i1 %49, label %AsyncExistsPendingNotify.exit.thread, label %50
 
-50:                                               ; preds = %.lr.ph32
+50:                                               ; preds = %.lr.ph34
   %51 = getelementptr inbounds i8, ptr %48, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %55, label %53
+  br i1 %.not.i, label %53, label %AsyncExistsPendingNotify.exit
 
 53:                                               ; preds = %50
-  %54 = call ptr @hash_search(ptr noundef nonnull %52, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #16
-  %.not17.i = icmp eq ptr %54, null
-  br i1 %.not17.i, label %.thread.i, label %AsyncExistsPendingNotify.exit.thread
+  %54 = getelementptr inbounds i8, ptr %48, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %.not15.i = icmp eq ptr %55, null
+  br i1 %.not15.i, label %AsyncExistsPendingNotify.exit.thread, label %.lr.ph.i
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %48, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %.not15.i = icmp eq ptr %57, null
-  br i1 %.not15.i, label %.thread.i, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds i8, ptr %47, i64 2
+  %59 = getelementptr inbounds i8, ptr %47, i64 4
+  %60 = icmp sgt i32 %57, 0
+  br i1 %60, label %.lr.ph28.i, label %AsyncExistsPendingNotify.exit.thread
 
-.lr.ph.i:                                         ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %47, i64 2
-  %61 = getelementptr inbounds i8, ptr %47, i64 4
-  %62 = icmp sgt i32 %59, 0
-  br i1 %62, label %.lr.ph23.i, label %.thread.i
+.lr.ph28.i:                                       ; preds = %.lr.ph.i
+  %61 = getelementptr inbounds i8, ptr %55, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i16, ptr %47, align 2
+  %64 = zext i16 %63 to i64
+  %65 = add nuw nsw i64 %64, 2
+  %wide.trip.count.i = zext nneg i32 %57 to i64
+  br label %66
 
-.lr.ph23.i:                                       ; preds = %.lr.ph.i
-  %63 = getelementptr inbounds i8, ptr %57, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i16, ptr %47, align 2
-  %66 = zext i16 %65 to i64
-  %67 = add nuw nsw i64 %66, 2
-  %wide.trip.count.i = zext nneg i32 %59 to i64
-  br label %68
+66:                                               ; preds = %81, %.lr.ph28.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph28.i ], [ %indvars.iv.next.i, %81 ]
+  %67 = getelementptr %union.ListCell, ptr %62, i64 %indvars.iv.i
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i16, ptr %68, align 2
+  %70 = icmp eq i16 %63, %69
+  br i1 %70, label %71, label %81
 
-68:                                               ; preds = %83, %.lr.ph23.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next.i, %83 ]
-  %69 = getelementptr %union.ListCell, ptr %64, i64 %indvars.iv.i
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i16, ptr %70, align 2
-  %72 = icmp eq i16 %65, %71
-  br i1 %72, label %73, label %83
+71:                                               ; preds = %66
+  %72 = load i16, ptr %58, align 2
+  %73 = getelementptr inbounds i8, ptr %68, i64 2
+  %74 = load i16, ptr %73, align 2
+  %75 = icmp eq i16 %72, %74
+  br i1 %75, label %76, label %81
 
-73:                                               ; preds = %68
-  %74 = load i16, ptr %60, align 2
-  %75 = getelementptr inbounds i8, ptr %70, i64 2
-  %76 = load i16, ptr %75, align 2
-  %77 = icmp eq i16 %74, %76
-  br i1 %77, label %78, label %83
+76:                                               ; preds = %71
+  %77 = zext i16 %72 to i64
+  %78 = getelementptr inbounds i8, ptr %68, i64 4
+  %79 = add nuw nsw i64 %65, %77
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %78, i64 %79)
+  %80 = icmp eq i32 %bcmp.i, 0
+  br i1 %80, label %AsyncExistsPendingNotify.exit.thread28, label %81
 
-78:                                               ; preds = %73
-  %79 = zext i16 %74 to i64
-  %80 = getelementptr inbounds i8, ptr %70, i64 4
-  %81 = add nuw nsw i64 %67, %79
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %80, i64 %81)
-  %82 = icmp eq i32 %bcmp.i, 0
-  br i1 %82, label %AsyncExistsPendingNotify.exit.thread, label %83
-
-83:                                               ; preds = %78, %73, %68
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread.i, label %68
-
-AsyncExistsPendingNotify.exit.thread:             ; preds = %78, %53
+AsyncExistsPendingNotify.exit.thread28:           ; preds = %76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %84
 
-.thread.i:                                        ; preds = %83, %53, %55, %.lr.ph.i, %.lr.ph32
+81:                                               ; preds = %76, %71, %66
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %AsyncExistsPendingNotify.exit.thread, label %66
+
+AsyncExistsPendingNotify.exit.thread:             ; preds = %81, %.lr.ph34, %53, %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  br label %83
+
+AsyncExistsPendingNotify.exit:                    ; preds = %50
+  %82 = call ptr @hash_search(ptr noundef nonnull %52, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #16
+  %.not17.i.not = icmp eq ptr %82, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  br i1 %.not17.i.not, label %83, label %84
+
+83:                                               ; preds = %AsyncExistsPendingNotify.exit.thread, %AsyncExistsPendingNotify.exit
   call fastcc void @AddEventToPendingNotifies(ptr noundef %47)
   br label %84
 
-84:                                               ; preds = %AsyncExistsPendingNotify.exit.thread, %.thread.i
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv31, 1
+84:                                               ; preds = %AsyncExistsPendingNotify.exit.thread28, %AsyncExistsPendingNotify.exit, %83
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv33, 1
   %85 = load i32, ptr %41, align 4
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph32, label %._crit_edge
+  br i1 %87, label %.lr.ph34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %84, %.lr.ph, %38
   call void @pfree(ptr noundef nonnull %25) #16
@@ -2773,7 +2784,7 @@ define internal i32 @notification_hash(ptr nocapture noundef readonly %0, i64 %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @notification_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #10 {
+define internal i32 @notification_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #10 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load i16, ptr %4, align 2
@@ -2797,14 +2808,12 @@ define internal noundef i32 @notification_match(ptr nocapture noundef readonly %
   %20 = add nuw nsw i64 %7, 2
   %21 = add nuw nsw i64 %20, %17
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19, i64 %21)
-  %22 = icmp eq i32 %bcmp, 0
-  br i1 %22, label %24, label %23
+  %22 = icmp ne i32 %bcmp, 0
+  %spec.select = zext i1 %22 to i32
+  br label %23
 
-23:                                               ; preds = %16, %10, %3
-  br label %24
-
-24:                                               ; preds = %16, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %16 ]
+23:                                               ; preds = %16, %3, %10
+  %.0 = phi i32 [ 1, %10 ], [ 1, %3 ], [ %spec.select, %16 ]
   ret i32 %.0
 }
 

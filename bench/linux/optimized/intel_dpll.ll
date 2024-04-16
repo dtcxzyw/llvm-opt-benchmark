@@ -597,7 +597,7 @@ define dso_local void @chv_crtc_clock_get(ptr nocapture noundef readonly %0, ptr
   %51 = add nuw nsw i64 %48, %50
   %52 = zext nneg i32 %46 to i64
   %53 = udiv i64 %51, %52
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   br label %55
 
 55:                                               ; preds = %34, %12
@@ -706,13 +706,13 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
 
 49:                                               ; preds = %.preheader
   %50 = udiv i64 %47, 200000
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = shl nuw nsw i32 %51, 1
   %53 = zext nneg i32 %52 to i64
   %54 = mul nuw nsw i64 %53, 100000
   %55 = add nuw nsw i64 %54, 2097152
   %56 = lshr i64 %55, 22
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %58 = icmp eq i32 %43, 0
   br i1 %58, label %67, label %59
 
@@ -2419,7 +2419,7 @@ define internal i32 @ilk_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #2 a
   %12 = getelementptr inbounds i8, ptr %11, i64 860
   %13 = load i8, ptr %12, align 4, !range !24, !noundef !25
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %187, label %15
+  br i1 %14, label %186, label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %11, i64 872
@@ -2476,7 +2476,7 @@ define internal i32 @ilk_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #2 a
   %48 = load i32, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %11, i64 884
   %50 = tail call fastcc zeroext i1 @g4x_find_best_dpll(ptr noundef nonnull %41, ptr noundef %11, i32 noundef %48, i32 noundef %42, ptr noundef %49)
-  br i1 %50, label %51, label %187
+  br i1 %50, label %51, label %186
 
 51:                                               ; preds = %46, %40
   %52 = getelementptr inbounds i8, ptr %11, i64 884
@@ -2538,7 +2538,7 @@ define internal i32 @ilk_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #2 a
   %96 = load i32, ptr %16, align 8
   %97 = and i32 %96, 16
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %112, label %99
+  br i1 %98, label %111, label %99
 
 99:                                               ; preds = %91
   %100 = tail call zeroext i1 @intel_panel_use_ssc(ptr noundef %95) #11
@@ -2548,123 +2548,121 @@ define internal i32 @ilk_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #2 a
   %102 = getelementptr inbounds i8, ptr %95, i64 6820
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 100000
-  br i1 %104, label %111, label %105
+  br i1 %104, label %116, label %105
 
 105:                                              ; preds = %101, %99
   %106 = getelementptr inbounds i8, ptr %95, i64 8112
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, 1
-  br i1 %108, label %109, label %117
+  br i1 %108, label %109, label %116
 
 109:                                              ; preds = %105
   %110 = tail call zeroext i1 @intel_is_dual_link_lvds(ptr noundef %95) #11
-  br i1 %110, label %111, label %117
+  %spec.select = select i1 %110, i32 25, i32 21
+  br label %116
 
-111:                                              ; preds = %109, %101
-  br label %117
+111:                                              ; preds = %91
+  %112 = getelementptr inbounds i8, ptr %11, i64 881
+  %113 = load i8, ptr %112, align 1, !range !24, !noundef !25
+  %114 = icmp eq i8 %113, 0
+  %115 = select i1 %114, i32 21, i32 20
+  br label %116
 
-112:                                              ; preds = %91
-  %113 = getelementptr inbounds i8, ptr %11, i64 881
-  %114 = load i8, ptr %113, align 1, !range !24, !noundef !25
-  %115 = icmp eq i8 %114, 0
-  %116 = select i1 %115, i32 21, i32 20
-  br label %117
-
-117:                                              ; preds = %112, %111, %109, %105
-  %118 = phi i32 [ 25, %111 ], [ 21, %109 ], [ 21, %105 ], [ %116, %112 ]
-  %119 = load i32, ptr %52, align 4
-  %120 = shl i32 %119, 16
-  %121 = load i32, ptr %53, align 4
-  %122 = shl i32 %121, 8
-  %123 = or i32 %122, %120
-  %124 = load i32, ptr %56, align 4
-  %125 = or i32 %123, %124
-  %126 = load i32, ptr %60, align 4
-  %127 = mul i32 %119, %118
-  %128 = icmp slt i32 %126, %127
-  %129 = or i32 %125, 12582912
-  %130 = select i1 %128, i32 %129, i32 %125
-  %131 = getelementptr inbounds i8, ptr %11, i64 936
-  store i32 %130, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %11, i64 940
-  store i32 %130, ptr %132, align 4
-  %133 = load i32, ptr %16, align 8
-  %134 = zext i32 %133 to i64
-  %135 = and i64 %134, 16
-  %136 = icmp eq i64 %135, 0
-  %137 = select i1 %136, i32 67108864, i32 134217728
-  %138 = getelementptr inbounds i8, ptr %11, i64 1452
-  %139 = load i32, ptr %138, align 4
-  %140 = shl i32 %139, 9
-  %141 = add i32 %140, -512
-  %142 = or i32 %137, %141
-  %143 = and i64 %134, 72
-  %144 = icmp eq i64 %143, 0
-  %145 = or i32 %142, 1073741824
-  %146 = and i32 %133, 2432
-  %147 = icmp eq i32 %146, 0
-  %148 = select i1 %147, i1 %144, i1 false
-  %149 = select i1 %148, i32 %142, i32 %145
-  %150 = getelementptr inbounds i8, ptr %95, i64 2638
-  %151 = load i8, ptr %150, align 2
-  %152 = zext i8 %151 to i32
-  %153 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %152) #13, !srcloc !47
-  %154 = icmp eq i32 %153, 3
-  %155 = and i64 %134, 2
-  %156 = icmp eq i64 %155, 0
-  %157 = select i1 %156, i32 %149, i32 %145
-  %158 = select i1 %154, i32 %157, i32 %149
-  %159 = load i32, ptr %61, align 4
-  %160 = add i32 %159, -1
-  %161 = shl i32 65537, %160
-  %162 = or i32 %158, %161
-  %163 = load i32, ptr %63, align 4
-  switch i32 %163, label %168 [
-    i32 5, label %164
-    i32 7, label %166
+116:                                              ; preds = %109, %101, %111, %105
+  %117 = phi i32 [ 21, %105 ], [ %115, %111 ], [ 25, %101 ], [ %spec.select, %109 ]
+  %118 = load i32, ptr %52, align 4
+  %119 = shl i32 %118, 16
+  %120 = load i32, ptr %53, align 4
+  %121 = shl i32 %120, 8
+  %122 = or i32 %121, %119
+  %123 = load i32, ptr %56, align 4
+  %124 = or i32 %122, %123
+  %125 = load i32, ptr %60, align 4
+  %126 = mul i32 %118, %117
+  %127 = icmp slt i32 %125, %126
+  %128 = or i32 %124, 12582912
+  %129 = select i1 %127, i32 %128, i32 %124
+  %130 = getelementptr inbounds i8, ptr %11, i64 936
+  store i32 %129, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %11, i64 940
+  store i32 %129, ptr %131, align 4
+  %132 = load i32, ptr %16, align 8
+  %133 = zext i32 %132 to i64
+  %134 = and i64 %133, 16
+  %135 = icmp eq i64 %134, 0
+  %136 = select i1 %135, i32 67108864, i32 134217728
+  %137 = getelementptr inbounds i8, ptr %11, i64 1452
+  %138 = load i32, ptr %137, align 4
+  %139 = shl i32 %138, 9
+  %140 = add i32 %139, -512
+  %141 = or i32 %136, %140
+  %142 = and i64 %133, 72
+  %143 = icmp eq i64 %142, 0
+  %144 = or i32 %141, 1073741824
+  %145 = and i32 %132, 2432
+  %146 = icmp eq i32 %145, 0
+  %147 = select i1 %146, i1 %143, i1 false
+  %148 = select i1 %147, i32 %141, i32 %144
+  %149 = getelementptr inbounds i8, ptr %95, i64 2638
+  %150 = load i8, ptr %149, align 2
+  %151 = zext i8 %150 to i32
+  %152 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %151) #13, !srcloc !47
+  %153 = icmp eq i32 %152, 3
+  %154 = and i64 %133, 2
+  %155 = icmp eq i64 %154, 0
+  %156 = select i1 %155, i32 %148, i32 %144
+  %157 = select i1 %153, i32 %156, i32 %148
+  %158 = load i32, ptr %61, align 4
+  %159 = add i32 %158, -1
+  %160 = shl i32 65537, %159
+  %161 = or i32 %157, %160
+  %162 = load i32, ptr %63, align 4
+  switch i32 %162, label %167 [
+    i32 5, label %163
+    i32 7, label %165
   ]
 
-164:                                              ; preds = %117
-  %165 = or i32 %162, 16777216
-  br label %168
+163:                                              ; preds = %116
+  %164 = or i32 %161, 16777216
+  br label %167
 
-166:                                              ; preds = %117
-  %167 = or i32 %162, 16777216
-  br label %168
+165:                                              ; preds = %116
+  %166 = or i32 %161, 16777216
+  br label %167
 
-168:                                              ; preds = %166, %164, %117
-  %169 = phi i32 [ %167, %166 ], [ %165, %164 ], [ %162, %117 ]
-  %170 = and i32 %133, 16
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %176, label %172
+167:                                              ; preds = %165, %163, %116
+  %168 = phi i32 [ %166, %165 ], [ %164, %163 ], [ %161, %116 ]
+  %169 = and i32 %132, 16
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %175, label %171
 
-172:                                              ; preds = %168
-  %173 = tail call zeroext i1 @intel_panel_use_ssc(ptr noundef %95) #11
-  %174 = or i32 %169, 24576
-  %175 = select i1 %173, i32 %174, i32 %169
-  br label %176
+171:                                              ; preds = %167
+  %172 = tail call zeroext i1 @intel_panel_use_ssc(ptr noundef %95) #11
+  %173 = or i32 %168, 24576
+  %174 = select i1 %172, i32 %173, i32 %168
+  br label %175
 
-176:                                              ; preds = %172, %168
-  %177 = phi i32 [ %169, %168 ], [ %175, %172 ]
-  %178 = or i32 %177, -2147483648
-  %179 = getelementptr inbounds i8, ptr %11, i64 928
-  store i32 %178, ptr %179, align 8
-  %180 = tail call i32 @intel_compute_shared_dplls(ptr noundef %0, ptr noundef %1, ptr noundef null) #11
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %182, label %187
+175:                                              ; preds = %171, %167
+  %176 = phi i32 [ %168, %167 ], [ %174, %171 ]
+  %177 = or i32 %176, -2147483648
+  %178 = getelementptr inbounds i8, ptr %11, i64 928
+  store i32 %177, ptr %178, align 8
+  %179 = tail call i32 @intel_compute_shared_dplls(ptr noundef %0, ptr noundef %1, ptr noundef null) #11
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %186
 
-182:                                              ; preds = %176
-  %183 = load i32, ptr %93, align 4
-  %184 = getelementptr inbounds i8, ptr %11, i64 1448
-  store i32 %183, ptr %184, align 8
-  %185 = tail call i32 @intel_crtc_dotclock(ptr noundef %11) #11
-  %186 = getelementptr inbounds i8, ptr %11, i64 636
-  store i32 %185, ptr %186, align 4
-  br label %187
+181:                                              ; preds = %175
+  %182 = load i32, ptr %93, align 4
+  %183 = getelementptr inbounds i8, ptr %11, i64 1448
+  store i32 %182, ptr %183, align 8
+  %184 = tail call i32 @intel_crtc_dotclock(ptr noundef %11) #11
+  %185 = getelementptr inbounds i8, ptr %11, i64 636
+  store i32 %184, ptr %185, align 4
+  br label %186
 
-187:                                              ; preds = %182, %176, %46, %2
-  %188 = phi i32 [ 0, %182 ], [ 0, %2 ], [ -22, %46 ], [ %180, %176 ]
-  ret i32 %188
+186:                                              ; preds = %181, %175, %46, %2
+  %187 = phi i32 [ 0, %181 ], [ 0, %2 ], [ -22, %46 ], [ %179, %175 ]
+  ret i32 %187
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

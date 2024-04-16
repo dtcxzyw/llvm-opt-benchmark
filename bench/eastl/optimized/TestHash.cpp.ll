@@ -1960,7 +1960,7 @@ if.then:                                          ; preds = %_ZN5eastl11ht_dista
 
 while.cond.preheader.lr.ph.i:                     ; preds = %if.then
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %conv.i = trunc i64 %bRehash.sroa.21.0.extract.shift to i32
+  %conv.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift to i32
   %.pre.i = load ptr, ptr %mpBucketArray.i, align 8
   br label %while.cond.preheader.i
 
@@ -2215,7 +2215,7 @@ if.then:                                          ; preds = %entry
 
 while.cond.preheader.lr.ph.i:                     ; preds = %if.then
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %conv.i = trunc i64 %bRehash.sroa.21.0.extract.shift to i32
+  %conv.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift to i32
   %.pre.i = load ptr, ptr %mpBucketArray.i, align 8
   br label %while.cond.preheader.i
 
@@ -4373,7 +4373,7 @@ if.then.if.end_crit_edge:                         ; preds = %if.then
 
 if.then9:                                         ; preds = %if.then
   %bRehash.sroa.24.0.extract.shift = lshr i64 %call7, 32
-  %bRehash.sroa.24.0.extract.trunc = trunc i64 %bRehash.sroa.24.0.extract.shift to i32
+  %bRehash.sroa.24.0.extract.trunc = trunc nuw i64 %bRehash.sroa.24.0.extract.shift to i32
   %rem.i1.i18 = urem i32 %c, %bRehash.sroa.24.0.extract.trunc
   %conv11 = zext i32 %rem.i1.i18 to i64
   %add.i.i = shl nuw nsw i64 %bRehash.sroa.24.0.extract.shift, 3
@@ -4506,7 +4506,7 @@ if.then:                                          ; preds = %entry
 
 while.cond.preheader.lr.ph.i:                     ; preds = %if.then
   %mpBucketArray.i = getelementptr inbounds i8, ptr %this, i64 8
-  %conv.i = trunc i64 %bRehash.sroa.211.0.extract.shift to i32
+  %conv.i = trunc nuw i64 %bRehash.sroa.211.0.extract.shift to i32
   %.pre.i = load ptr, ptr %mpBucketArray.i, align 8
   br label %while.cond.preheader.i
 
@@ -15220,7 +15220,7 @@ for.body419:                                      ; preds = %for.body419.prehead
   %indvars.iv11209 = phi i64 [ %indvars.iv.next11210, %for.inc442 ], [ 0, %for.body419.preheader ]
   %363 = load i64, ptr %mnBucketCount.i.i.i1346, align 8
   %conv.i1400 = trunc i64 %363 to i32
-  %364 = trunc i64 %indvars.iv11209 to i32
+  %364 = trunc nuw nsw i64 %indvars.iv11209 to i32
   %rem.i1.i.i = urem i32 %364, %conv.i1400
   %conv3.i = zext nneg i32 %rem.i1.i.i to i64
   %365 = load ptr, ptr %344, align 8
@@ -15403,7 +15403,7 @@ for.body5.i:                                      ; preds = %_ZN5eastl9hashtable
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc16.i ], [ 0, %_ZN5eastl9hashtableIiiNS_9allocatorENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE6insertERKi.exit.i ]
   %391 = load i64, ptr %mnBucketCount.i.i.i1452, align 8
   %conv.i.i = trunc i64 %391 to i32
-  %392 = trunc i64 %indvars.iv.i to i32
+  %392 = trunc nuw nsw i64 %indvars.iv.i to i32
   %rem.i1.i.i.i = urem i32 %392, %conv.i.i
   %conv2.i.i = zext nneg i32 %rem.i1.i.i.i to i64
   %393 = load ptr, ptr %382, align 8
@@ -18573,7 +18573,7 @@ if.then.i9936:                                    ; preds = %for.inc.i.i9933, %f
   store i8 %765, ptr %call.i.i.i.i9942, align 1, !noalias !557
   %767 = getelementptr i8, ptr %call.i.i.i.i9942, i64 %add.i.i.i.i9940
   %result.0.i.i.i = getelementptr i8, ptr %767, i64 16
-  %768 = trunc i64 %indvars.iv11213 to i32
+  %768 = trunc nuw nsw i64 %indvars.iv11213 to i32
   store i32 %768, ptr %result.0.i.i.i, align 4, !noalias !557
   %mpNext.i16.i = getelementptr i8, ptr %767, i64 24
   store ptr null, ptr %mpNext.i16.i, align 8, !noalias !557
@@ -18732,7 +18732,7 @@ if.then.i9962:                                    ; preds = %for.inc.i.i9959, %i
   store i8 %799, ptr %call.i.i.i.i9968, align 1, !noalias !566
   %801 = getelementptr i8, ptr %call.i.i.i.i9968, i64 %add.i.i.i.i9966
   %result.0.i.i.i9969 = getelementptr i8, ptr %801, i64 16
-  %802 = trunc i64 %792 to i32
+  %802 = trunc nuw nsw i64 %792 to i32
   store i32 %802, ptr %result.0.i.i.i9969, align 4, !noalias !566
   %mpNext.i16.i9970 = getelementptr i8, ptr %801, i64 24
   store ptr null, ptr %mpNext.i16.i9970, align 8, !noalias !566
@@ -22796,7 +22796,7 @@ _ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev.ex
 
 for.body1143:                                     ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev.exit5020, %for.inc1148
   %indvars.iv11220 = phi i64 [ 0, %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev.exit5020 ], [ %indvars.iv.next11221, %for.inc1148 ]
-  %1291 = trunc i64 %indvars.iv11220 to i32
+  %1291 = trunc nuw nsw i64 %indvars.iv11220 to i32
   store i32 %1291, ptr %vt, align 8
   store i32 %1291, ptr %second.i, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !601)
@@ -24177,7 +24177,7 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev.exit553
 
 for.body1424:                                     ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev.exit5538, %for.inc1431
   %indvars.iv11234 = phi i64 [ 0, %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EED2Ev.exit5538 ], [ %indvars.iv.next11235, %for.inc1431 ]
-  %1474 = trunc i64 %indvars.iv11234 to i32
+  %1474 = trunc nuw nsw i64 %indvars.iv11234 to i32
   store i32 %1474, ptr %vt1427, align 32
   store i32 %1474, ptr %second.i5544, align 32
   call void @llvm.experimental.noalias.scope.decl(metadata !688)
@@ -25596,7 +25596,7 @@ invoke.cont1701:                                  ; preds = %for.cond1698.prehea
   call void @llvm.experimental.noalias.scope.decl(metadata !772)
   call void @llvm.experimental.noalias.scope.decl(metadata !775)
   %1668 = load i64, ptr %mnBucketCount.i.i.i6105, align 8, !noalias !778
-  %rem.i.i.i.i.i.i6167.lhs.trunc = trunc i64 %rem.i6164 to i32
+  %rem.i.i.i.i.i.i6167.lhs.trunc = trunc nuw nsw i64 %rem.i6164 to i32
   %rem.i.i.i.i.i.i6167.rhs.trunc = trunc i64 %1668 to i32
   %rem.i.i.i.i.i.i616710407 = urem i32 %rem.i.i.i.i.i.i6167.lhs.trunc, %rem.i.i.i.i.i.i6167.rhs.trunc
   %rem.i.i.i.i.i.i6167.zext = zext nneg i32 %rem.i.i.i.i.i.i616710407 to i64
@@ -27693,7 +27693,7 @@ invoke.cont1887:                                  ; preds = %for.cond1884.prehea
   call void @llvm.experimental.noalias.scope.decl(metadata !829)
   call void @llvm.experimental.noalias.scope.decl(metadata !832)
   %1963 = load i64, ptr %mnBucketCount.i.i.i7160, align 8, !noalias !835
-  %rem.i.i.i.i.i.i7224.lhs.trunc = trunc i64 %rem.i7220 to i32
+  %rem.i.i.i.i.i.i7224.lhs.trunc = trunc nuw nsw i64 %rem.i7220 to i32
   %rem.i.i.i.i.i.i7224.rhs.trunc = trunc i64 %1963 to i32
   %rem.i.i.i.i.i.i722411409 = urem i32 %rem.i.i.i.i.i.i7224.lhs.trunc, %rem.i.i.i.i.i.i7224.rhs.trunc
   %rem.i.i.i.i.i.i7224.zext = zext nneg i32 %rem.i.i.i.i.i.i722411409 to i64
@@ -31868,7 +31868,7 @@ if.then.if.end_crit_edge.i.i.i:                   ; preds = %call.i.i.i18.i.i.i.
 
 if.then9.i.i.i:                                   ; preds = %call.i.i.i18.i.i.i.noexc
   %bRehash.sroa.24.0.extract.shift.i.i.i = lshr i64 %call7.i.i.i9489, 32
-  %rem.i.i21.i.i.i.rhs.trunc = trunc i64 %bRehash.sroa.24.0.extract.shift.i.i.i to i32
+  %rem.i.i21.i.i.i.rhs.trunc = trunc nuw i64 %bRehash.sroa.24.0.extract.shift.i.i.i to i32
   %rem.i.i21.i.i.i11411 = urem i32 -1824619851, %rem.i.i21.i.i.i.rhs.trunc
   %rem.i.i21.i.i.i.zext = zext i32 %rem.i.i21.i.i.i11411 to i64
   %add.i.i.i.i.i = shl nuw nsw i64 %bRehash.sroa.24.0.extract.shift.i.i.i, 3
@@ -50046,7 +50046,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
 
 if.else.i.i.i:                                    ; preds = %entry
-  %3 = trunc i64 %sub.ptr.sub.i.i to i8
+  %3 = trunc nuw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i5.i = sub nuw nsw i8 23, %3
   store i8 %conv.i.i.i5.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
@@ -52051,10 +52051,10 @@ if.then9:                                         ; preds = %if.else
   %retval.0.i.i = select i1 %tobool.i.i, i64 %and.i.i.i, i64 23
   %cmp4.i = icmp ult i64 %retval.0.i.i, %n
   %8 = lshr i64 %7, 56
-  %9 = trunc i64 %8 to i8
-  br i1 %cmp4.i, label %if.then5.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
+  %9 = trunc nuw i64 %8 to i8
+  br i1 %cmp4.i, label %if.then.i.i, label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
 
-if.then5.i:                                       ; preds = %if.then9
+if.then.i.i:                                      ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
   tail call void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i.i.i)
@@ -52062,9 +52062,9 @@ if.then5.i:                                       ; preds = %if.then9
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
 
-_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i: ; preds = %if.then5.i, %if.then9
-  %10 = phi i64 [ %.pre23.i, %if.then5.i ], [ %1, %if.then9 ]
-  %11 = phi i8 [ %.pre.i, %if.then5.i ], [ %9, %if.then9 ]
+_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i: ; preds = %if.then.i.i, %if.then9
+  %10 = phi i64 [ %.pre23.i, %if.then.i.i ], [ %1, %if.then9 ]
+  %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i23 = getelementptr inbounds i8, ptr %12, i64 %10
@@ -52173,7 +52173,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc i64 %n.addr.0 to i8
+  %11 = trunc nuw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds i8, ptr %this, i64 %n.addr.0
@@ -52268,7 +52268,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %bRehash.sroa.21.0.extract.shift = lshr i64 %call, 32
-  %bRehash.sroa.21.0.extract.trunc = trunc i64 %bRehash.sroa.21.0.extract.shift to i32
+  %bRehash.sroa.21.0.extract.trunc = trunc nuw i64 %bRehash.sroa.21.0.extract.shift to i32
   %rem.i1.i = urem i32 %c, %bRehash.sroa.21.0.extract.trunc
   %conv4 = zext i32 %rem.i1.i to i64
   %add.i.i = shl nuw nsw i64 %bRehash.sroa.21.0.extract.shift, 3
@@ -52389,7 +52389,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %bRehash.sroa.21.0.extract.shift = lshr i64 %call, 32
-  %bRehash.sroa.21.0.extract.trunc = trunc i64 %bRehash.sroa.21.0.extract.shift to i32
+  %bRehash.sroa.21.0.extract.trunc = trunc nuw i64 %bRehash.sroa.21.0.extract.shift to i32
   %rem.i1.i = urem i32 %c, %bRehash.sroa.21.0.extract.trunc
   %conv4 = zext i32 %rem.i1.i to i64
   %add.i.i = shl nuw nsw i64 %bRehash.sroa.21.0.extract.shift, 3
@@ -57082,7 +57082,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %bRehash.sroa.21.0.extract.shift = lshr i64 %call, 32
-  %bRehash.sroa.21.0.extract.trunc = trunc i64 %bRehash.sroa.21.0.extract.shift to i32
+  %bRehash.sroa.21.0.extract.trunc = trunc nuw i64 %bRehash.sroa.21.0.extract.shift to i32
   %rem.i1.i = urem i32 %c, %bRehash.sroa.21.0.extract.trunc
   %conv4 = zext i32 %rem.i1.i to i64
   %add.i.i = shl nuw nsw i64 %bRehash.sroa.21.0.extract.shift, 3
@@ -60872,7 +60872,7 @@ if.then.i.i.i:                                    ; preds = %if.then4
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then4
-  %13 = trunc i64 %sub.ptr.sub.i.i to i8
+  %13 = trunc nuw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i5.i = sub nuw nsw i8 23, %13
   store i8 %conv.i.i.i5.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
@@ -60951,7 +60951,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else
   br label %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.else
-  %24 = trunc i64 %sub.ptr.sub.i.i.i to i8
+  %24 = trunc nuw i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 23, %24
   store i8 %conv.i.i.i5.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i16, align 1
   br label %_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
@@ -64162,7 +64162,7 @@ _ZNK5eastl14hash_code_baseINS_12basic_stringIc17CountingAllocatorEENS_4pairIKS3_
   %mnBucketCount = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i64, ptr %mnBucketCount, align 8
   %conv = trunc i64 %11 to i32
-  %rem.i.i.lhs.trunc = trunc i64 %result.0.lcssa.i.i to i32
+  %rem.i.i.lhs.trunc = trunc nuw i64 %result.0.lcssa.i.i to i32
   %rem.i.i18 = urem i32 %rem.i.i.lhs.trunc, %conv
   %conv6 = zext i32 %rem.i.i18 to i64
   %mpBucketArray = getelementptr inbounds i8, ptr %this, i64 8
@@ -64451,7 +64451,7 @@ _ZNK5eastl14hash_code_baseINS_12basic_stringIc17CountingAllocatorEENS_4pairIKS3_
   %mnBucketCount = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i64, ptr %mnBucketCount, align 8
   %conv = trunc i64 %11 to i32
-  %rem.i.i.lhs.trunc = trunc i64 %result.0.lcssa.i.i to i32
+  %rem.i.i.lhs.trunc = trunc nuw i64 %result.0.lcssa.i.i to i32
   %rem.i.i18 = urem i32 %rem.i.i.lhs.trunc, %conv
   %conv9 = zext i32 %rem.i.i18 to i64
   %mpBucketArray = getelementptr inbounds i8, ptr %this, i64 8
@@ -64741,7 +64741,7 @@ if.end16:                                         ; preds = %if.then12, %while.e
   %sub.i.i.i8.i.i.i24 = sub nsw i64 23, %conv.i.i.i7.i.i.i23
   %cond.i.i9.i.i.i25 = select i1 %tobool.i.i.i5.i.i.i21, i64 %12, i64 %sub.i.i.i8.i.i.i24
   %cmp.i.i.i26 = icmp eq i64 %cond.i.i.i.i.i19, %cond.i.i9.i.i.i25
-  br i1 %cmp.i.i.i26, label %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32, label %if.end21
+  br i1 %cmp.i.i.i26, label %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32, label %return
 
 _ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32: ; preds = %if.end16
   %mValue17 = getelementptr inbounds i8, ptr %pLowerBound.1, i64 32
@@ -64751,14 +64751,13 @@ _ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocat
   %spec.select.i.i14.i.i.i29 = select i1 %tobool.i.i.i5.i.i.i21, ptr %14, ptr %key
   %bcmp.i.i.i30 = tail call i32 @bcmp(ptr %spec.select.i.i.i.i.i28, ptr %spec.select.i.i14.i.i.i29, i64 %cond.i.i.i.i.i19)
   %cmp6.i.i.i31 = icmp eq i32 %bcmp.i.i.i30, 0
-  br i1 %cmp6.i.i.i31, label %return, label %if.end21
-
-if.end21:                                         ; preds = %if.end16, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32
+  %spec.select43 = zext i1 %cmp6.i.i.i31 to i8
+  %spec.select44 = select i1 %cmp6.i.i.i31, ptr %pLowerBound.0.lcssa42, ptr %pLowerBound.1
   br label %return
 
-return:                                           ; preds = %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32, %if.then7, %if.end21
-  %.sink = phi i8 [ 0, %if.end21 ], [ 1, %if.then7 ], [ 1, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32 ]
-  %retval.0 = phi ptr [ %pLowerBound.1, %if.end21 ], [ %pLowerBound.0.lcssa41, %if.then7 ], [ %pLowerBound.0.lcssa42, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32 ]
+return:                                           ; preds = %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32, %if.end16, %if.then7
+  %.sink = phi i8 [ 1, %if.then7 ], [ 0, %if.end16 ], [ %spec.select43, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32 ]
+  %retval.0 = phi ptr [ %pLowerBound.0.lcssa41, %if.then7 ], [ %pLowerBound.1, %if.end16 ], [ %spec.select44, %_ZN5eastl19rb_base_compare_eboINS_8equal_toINS_12basic_stringIc17CountingAllocatorEEEELb1EE7compareIS4_EEbRKT_SA_.exit32 ]
   store i8 %.sink, ptr %canInsert, align 1
   ret ptr %retval.0
 }

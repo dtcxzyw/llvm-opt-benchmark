@@ -106,7 +106,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 for.cond9.preheader:                              ; preds = %invoke.cont7, %for.inc28
   %indvars.iv17 = phi i64 [ 0, %invoke.cont7 ], [ %indvars.iv.next18, %for.inc28 ]
-  %2 = trunc i64 %indvars.iv17 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv17 to i32
   br label %for.body11
 
 for.body11:                                       ; preds = %for.cond9.preheader, %invoke.cont22
@@ -115,7 +115,7 @@ for.body11:                                       ; preds = %for.cond9.preheader
   %vtable13 = load ptr, ptr %3, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 32
   %4 = load ptr, ptr %vfn14, align 8
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %call16 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %2, i32 noundef %5)
           to label %invoke.cont15 unwind label %lpad2.loopexit
 
@@ -670,9 +670,9 @@ if.then.i:
   %m_pool.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %m_pool.i, align 8
   %cmp.not.i = icmp ugt ptr %11, %manifold
-  br i1 %cmp.not.i, label %if.else, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %if.else, label %_ZN15btPoolAllocator8validPtrEPv.exit
 
-land.lhs.true.i:                                  ; preds = %if.then.i
+_ZN15btPoolAllocator8validPtrEPv.exit:            ; preds = %if.then.i
   %m_maxElements.i = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load i32, ptr %m_maxElements.i, align 4
   %13 = load i32, ptr %10, align 8
@@ -682,7 +682,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   %cmp3.i = icmp ugt ptr %add.ptr.i, %manifold
   br i1 %cmp3.i, label %_ZN15btPoolAllocator10freeMemoryEPv.exit, label %if.else
 
-_ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %land.lhs.true.i
+_ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %_ZN15btPoolAllocator8validPtrEPv.exit
   %m_firstFree.i = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load ptr, ptr %m_firstFree.i, align 8
   store ptr %14, ptr %manifold, align 8
@@ -693,7 +693,7 @@ _ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %land.lhs.true.i
   store i32 %inc.i, ptr %m_freeCount.i, align 8
   br label %if.end
 
-if.else:                                          ; preds = %land.lhs.true.i, %if.then.i
+if.else:                                          ; preds = %if.then.i, %_ZN15btPoolAllocator8validPtrEPv.exit
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %manifold)
   br label %if.end
 
@@ -794,26 +794,23 @@ _ZNK17btCollisionObject16checkCollideWithEPKS_.exit: ; preds = %if.else
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(372) %body0, ptr noundef %body1)
-  br i1 %call.i, label %lor.lhs.false, label %if.then5
+  br i1 %call.i, label %lor.lhs.false, label %if.end6
 
 lor.lhs.false:                                    ; preds = %if.else, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
   %m_checkCollideWith.i8 = getelementptr inbounds i8, ptr %body1, i64 312
   %4 = load i32, ptr %m_checkCollideWith.i8, align 8
   %tobool.not.i9 = icmp eq i32 %4, 0
-  br i1 %tobool.not.i9, label %if.end6, label %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit15
+  br i1 %tobool.not.i9, label %if.end6, label %if.then.i10
 
-_ZNK17btCollisionObject16checkCollideWithEPKS_.exit15: ; preds = %lor.lhs.false
+if.then.i10:                                      ; preds = %lor.lhs.false
   %vtable.i11 = load ptr, ptr %body1, align 8
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 24
   %5 = load ptr, ptr %vfn.i12, align 8
   %call.i13 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(372) %body1, ptr noundef nonnull %body0)
-  br i1 %call.i13, label %if.end6, label %if.then5
-
-if.then5:                                         ; preds = %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit15, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
   br label %if.end6
 
-if.end6:                                          ; preds = %lor.lhs.false, %land.lhs.true, %land.lhs.true, %land.lhs.true, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit15, %if.then5
-  %needsCollision.0 = phi i1 [ true, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit15 ], [ false, %if.then5 ], [ false, %land.lhs.true ], [ false, %land.lhs.true ], [ false, %land.lhs.true ], [ true, %lor.lhs.false ]
+if.end6:                                          ; preds = %if.then.i10, %lor.lhs.false, %land.lhs.true, %land.lhs.true, %land.lhs.true, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit
+  %needsCollision.0 = phi i1 [ false, %_ZNK17btCollisionObject16checkCollideWithEPKS_.exit ], [ false, %land.lhs.true ], [ false, %land.lhs.true ], [ false, %land.lhs.true ], [ %call.i13, %if.then.i10 ], [ true, %lor.lhs.false ]
   ret i1 %needsCollision.0
 }
 
@@ -899,9 +896,9 @@ if.then.i:                                        ; preds = %entry
   %m_pool.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_pool.i, align 8
   %cmp.not.i = icmp ugt ptr %1, %ptr
-  br i1 %cmp.not.i, label %if.else, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %if.else, label %_ZN15btPoolAllocator8validPtrEPv.exit
 
-land.lhs.true.i:                                  ; preds = %if.then.i
+_ZN15btPoolAllocator8validPtrEPv.exit:            ; preds = %if.then.i
   %m_maxElements.i = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %m_maxElements.i, align 4
   %3 = load i32, ptr %0, align 8
@@ -911,7 +908,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   %cmp3.i = icmp ugt ptr %add.ptr.i, %ptr
   br i1 %cmp3.i, label %_ZN15btPoolAllocator10freeMemoryEPv.exit, label %if.else
 
-_ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %land.lhs.true.i
+_ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %_ZN15btPoolAllocator8validPtrEPv.exit
   %m_firstFree.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %m_firstFree.i, align 8
   store ptr %4, ptr %ptr, align 8
@@ -922,7 +919,7 @@ _ZN15btPoolAllocator10freeMemoryEPv.exit:         ; preds = %land.lhs.true.i
   store i32 %inc.i, ptr %m_freeCount.i, align 8
   br label %if.end
 
-if.else:                                          ; preds = %land.lhs.true.i, %if.then.i, %entry
+if.else:                                          ; preds = %entry, %if.then.i, %_ZN15btPoolAllocator8validPtrEPv.exit
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %ptr)
   br label %if.end
 

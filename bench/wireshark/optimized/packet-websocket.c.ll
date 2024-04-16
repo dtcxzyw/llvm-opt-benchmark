@@ -365,23 +365,23 @@ switch.early.test.i:                              ; preds = %11
 15:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %11
   %16 = add i8 %.fr1.i, -65
   %or.cond.i = icmp ult i8 %16, 26
-  br i1 %or.cond.i, label %17, label %test_websocket.exit
+  br i1 %or.cond.i, label %test_websocket.exit, label %test_websocket.exit.thread11
 
-17:                                               ; preds = %15
-  %18 = and i8 %9, -33
-  %19 = add i8 %18, -65
-  %or.cond46.i = icmp ult i8 %19, 26
-  br i1 %or.cond46.i, label %test_websocket.exit.thread, label %test_websocket.exit
+test_websocket.exit:                              ; preds = %15
+  %17 = and i8 %9, -33
+  %18 = add i8 %17, -65
+  %or.cond46.i = icmp ult i8 %18, 26
+  br i1 %or.cond46.i, label %test_websocket.exit.thread, label %test_websocket.exit.thread11
 
-test_websocket.exit:                              ; preds = %17, %15
-  %20 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
-  %21 = load ptr, ptr @websocket_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %20, ptr noundef %21) #6
+test_websocket.exit.thread11:                     ; preds = %15, %test_websocket.exit
+  %19 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
+  %20 = load ptr, ptr @websocket_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef nonnull %19, ptr noundef %20) #6
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @get_websocket_frame_length, ptr noundef nonnull @dissect_websocket_frame, ptr noundef %3) #6
   br label %test_websocket.exit.thread
 
-test_websocket.exit.thread:                       ; preds = %17, %switch.early.test.i, %7, %4, %test_websocket.exit
-  %.0 = phi i32 [ 1, %test_websocket.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %switch.early.test.i ], [ 0, %17 ]
+test_websocket.exit.thread:                       ; preds = %switch.early.test.i, %7, %4, %test_websocket.exit, %test_websocket.exit.thread11
+  %.0 = phi i32 [ 1, %test_websocket.exit.thread11 ], [ 0, %test_websocket.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %switch.early.test.i ]
   ret i32 %.0
 }
 

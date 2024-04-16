@@ -75,7 +75,7 @@ define i32 @mca_coll_han_component_name_to_id(ptr noundef readonly %0) local_unn
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !4
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %1
@@ -136,7 +136,7 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
   br i1 %exitcond.not.i, label %mca_coll_han_component_name_to_id.exit.thread, label %.preheader.i, !llvm.loop !4
 
 mca_coll_han_component_name_to_id.exit:           ; preds = %.preheader.i
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %30 = icmp slt i32 %29, 0
   %31 = icmp eq ptr %20, null
   %.not39 = icmp eq ptr %20, %1
@@ -412,7 +412,7 @@ define internal fastcc i32 @get_algorithm(i32 noundef %0, i64 noundef %1, ptr no
   %.not20 = icmp eq i32 %14, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %.not20, label %15, label %25
+  br i1 %.not20, label %15, label %23
 
 15:                                               ; preds = %4
   %16 = getelementptr i8, ptr %2, i64 248
@@ -423,35 +423,32 @@ define internal fastcc i32 @get_algorithm(i32 noundef %0, i64 noundef %1, ptr no
   %.val.val = load i32, ptr %18, align 8
   %19 = call fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32 %.val.val, i32 %.val18)
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %24, label %20
+  br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %19, i64 28
   %22 = load i32, ptr %21, align 4
-  %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %25, label %24
+  %spec.select = call i32 @llvm.smax.i32(i32 %22, i32 0)
+  br label %23
 
-24:                                               ; preds = %20, %15
-  br label %25
+23:                                               ; preds = %20, %15, %4
+  %.0 = phi i32 [ %10, %4 ], [ 0, %15 ], [ %spec.select, %20 ]
+  %24 = icmp eq i32 %.val19, 0
+  br i1 %24, label %25, label %32
 
-25:                                               ; preds = %20, %24, %4
-  %.0 = phi i32 [ %10, %4 ], [ 0, %24 ], [ %22, %20 ]
-  %26 = icmp eq i32 %.val19, 0
-  br i1 %26, label %27, label %34
+25:                                               ; preds = %23
+  %26 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %27 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %26) #8
+  br i1 %27, label %28, label %32
 
-27:                                               ; preds = %25
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
-  %29 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %28) #8
-  br i1 %29, label %30, label %34
+28:                                               ; preds = %25
+  %29 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %30 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
+  %31 = call ptr @mca_coll_han_algorithm_id_to_name(i32 noundef %0, i32 noundef %.0) #8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %29, ptr noundef nonnull @.str.25, ptr noundef %30, i64 noundef %1, i32 noundef %.0, ptr noundef %31) #8
+  br label %32
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
-  %32 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %0) #8
-  %33 = call ptr @mca_coll_han_algorithm_id_to_name(i32 noundef %0, i32 noundef %.0) #8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %31, ptr noundef nonnull @.str.25, ptr noundef %32, i64 noundef %1, i32 noundef %.0, ptr noundef %33) #8
-  br label %34
-
-34:                                               ; preds = %30, %27, %25
+32:                                               ; preds = %28, %25, %23
   ret i32 %.0
 }
 
@@ -1400,7 +1397,7 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
 
 6:                                                ; preds = %9, %2
   %indvars.iv = phi i64 [ %10, %9 ], [ %5, %2 ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %.thread
 
@@ -1431,7 +1428,7 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
 
 24:                                               ; preds = %27, %19
   %indvars.iv20 = phi i64 [ %28, %27 ], [ %23, %19 ]
-  %25 = trunc i64 %indvars.iv20 to i32
+  %25 = trunc nuw i64 %indvars.iv20 to i32
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %.thread3
 
@@ -1465,7 +1462,7 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
 
 45:                                               ; preds = %48, %40
   %indvars.iv24 = phi i64 [ %49, %48 ], [ %44, %40 ]
-  %46 = trunc i64 %indvars.iv24 to i32
+  %46 = trunc nuw i64 %indvars.iv24 to i32
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %.thread6
 
@@ -1499,7 +1496,7 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
 
 65:                                               ; preds = %68, %60
   %indvars.iv28 = phi i64 [ %69, %68 ], [ %64, %60 ]
-  %66 = trunc i64 %indvars.iv28 to i32
+  %66 = trunc nuw i64 %indvars.iv28 to i32
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %68, label %.thread9
 
@@ -1564,6 +1561,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

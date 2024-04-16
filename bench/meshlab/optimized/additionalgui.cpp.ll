@@ -789,7 +789,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br i1 %.not30, label %_ZN5QListIP7QActionE9push_backERKS1_.exit, label %64
 
 64:                                               ; preds = %55
-  %65 = trunc i8 %.088 to i1
+  %65 = trunc nuw i8 %.088 to i1
   br i1 %65, label %66, label %92
 
 66:                                               ; preds = %64
@@ -968,7 +968,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %145, %144 ]
   %148 = load ptr, ptr %.2.i.i.i.i.i, align 8
   %149 = icmp eq ptr %148, %147
-  br i1 %149, label %.loopexit73, label %.thread
+  %spec.select.i.i.i.i.i = select i1 %149, ptr %.2.i.i.i.i.i, ptr %106
+  br label %.loopexit73
 
 .loopexit73.loopexit.split.loop.exit:             ; preds = %125
   %150 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
@@ -983,11 +984,11 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %114, %.loopexit73.loopexit.split.loop.exit, %.loopexit73.loopexit.split.loop.exit104, %.loopexit73.loopexit.split.loop.exit106, %146, %140, %134
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %134 ], [ %.1.i.i.i.i.i, %140 ], [ %.2.i.i.i.i.i, %146 ], [ %150, %.loopexit73.loopexit.split.loop.exit ], [ %151, %.loopexit73.loopexit.split.loop.exit104 ], [ %152, %.loopexit73.loopexit.split.loop.exit106 ], [ %.02946.i.i.i.i.i, %114 ]
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %134 ], [ %.1.i.i.i.i.i, %140 ], [ %spec.select.i.i.i.i.i, %146 ], [ %150, %.loopexit73.loopexit.split.loop.exit ], [ %151, %.loopexit73.loopexit.split.loop.exit104 ], [ %152, %.loopexit73.loopexit.split.loop.exit106 ], [ %.02946.i.i.i.i.i, %114 ]
   %.not72 = icmp eq ptr %.028.i.i.i.i.i, %106
   br i1 %.not72, label %.thread, label %_ZN5QListIP7QActionE9push_backERKS1_.exit
 
-.thread:                                          ; preds = %146, %._crit_edge.i.i.i.i.i, %.loopexit73, %95
+.thread:                                          ; preds = %._crit_edge.i.i.i.i.i, %.loopexit73, %95
   invoke void @_ZN5QListIP7QActionE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZN5QListIP7QActionE9push_backERKS1_.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -1011,7 +1012,7 @@ _ZN5QListIP7QActionE9push_backERKS1_.exit:        ; preds = %.thread, %55, %.loo
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.pre100 = phi ptr [ @_ZN9QListData11shared_nullE, %2 ], [ %.pre100.pre, %._crit_edge.loopexit ]
   %.0.lcssa = phi i8 [ %23, %2 ], [ %.2, %._crit_edge.loopexit ]
-  %161 = trunc i8 %.0.lcssa to i1
+  %161 = trunc nuw i8 %.0.lcssa to i1
   br i1 %161, label %321, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge

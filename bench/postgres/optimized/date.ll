@@ -5516,7 +5516,7 @@ define dso_local i64 @timetz_smaller(ptr nocapture noundef readonly %0) local_un
   %14 = mul nsw i64 %13, 1000000
   %15 = add i64 %14, %.val8
   %16 = icmp sgt i64 %12, %15
-  br i1 %16, label %timetz_cmp_internal.exit.thread, label %17
+  br i1 %16, label %timetz_cmp_internal.exit.thread12, label %17
 
 17:                                               ; preds = %1
   %18 = icmp slt i64 %12, %15
@@ -5524,19 +5524,18 @@ define dso_local i64 @timetz_smaller(ptr nocapture noundef readonly %0) local_un
 
 19:                                               ; preds = %17
   %20 = icmp sgt i32 %.val7, %.val9
-  br i1 %20, label %timetz_cmp_internal.exit.thread, label %timetz_cmp_internal.exit
+  br i1 %20, label %timetz_cmp_internal.exit.thread12, label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %19
   %21 = icmp slt i32 %.val7, %.val9
   %cond.fr = freeze i1 %21
-  br i1 %cond.fr, label %timetz_cmp_internal.exit.thread12, label %timetz_cmp_internal.exit.thread
+  %spec.select = select i1 %cond.fr, ptr %4, ptr %7
+  %22 = ptrtoint ptr %spec.select to i64
+  br label %timetz_cmp_internal.exit.thread12
 
-timetz_cmp_internal.exit.thread12:                ; preds = %17, %timetz_cmp_internal.exit
-  br label %timetz_cmp_internal.exit.thread
-
-timetz_cmp_internal.exit.thread:                  ; preds = %19, %1, %timetz_cmp_internal.exit, %timetz_cmp_internal.exit.thread12
-  %22 = phi i64 [ %3, %timetz_cmp_internal.exit.thread12 ], [ %6, %timetz_cmp_internal.exit ], [ %6, %1 ], [ %6, %19 ]
-  ret i64 %22
+timetz_cmp_internal.exit.thread12:                ; preds = %timetz_cmp_internal.exit, %19, %1, %17
+  %23 = phi i64 [ %3, %17 ], [ %6, %1 ], [ %6, %19 ], [ %22, %timetz_cmp_internal.exit ]
+  ret i64 %23
 }
 
 ; Function Attrs: nounwind uwtable

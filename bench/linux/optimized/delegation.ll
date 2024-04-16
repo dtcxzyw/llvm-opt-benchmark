@@ -71,14 +71,12 @@ define dso_local ptr @nfs4_get_valid_delegation(ptr noundef %0) local_unnamed_ad
   %11 = load volatile i64, ptr %6, align 8
   %12 = and i64 %11, 16
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %15, label %14
+  %spec.select = select i1 %13, ptr %3, ptr null
+  br label %14
 
-14:                                               ; preds = %10, %5, %1
-  br label %15
-
-15:                                               ; preds = %14, %10
-  %16 = phi ptr [ null, %14 ], [ %3, %10 ]
-  ret ptr %16
+14:                                               ; preds = %10, %1, %5
+  %15 = phi ptr [ null, %5 ], [ null, %1 ], [ %spec.select, %10 ]
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -93,7 +91,7 @@ define dso_local noundef i32 @nfs4_have_delegation(ptr noundef %0, i32 noundef %
   %3 = getelementptr i8, ptr %0, i64 -72
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %22, label %6
+  br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
   %7 = and i32 %1, 3
@@ -101,29 +99,29 @@ define dso_local noundef i32 @nfs4_have_delegation(ptr noundef %0, i32 noundef %
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, %7
   %11 = icmp eq i32 %10, %7
-  br i1 %11, label %12, label %22
+  br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %4, i64 80
   %14 = load volatile i64, ptr %13, align 8
   %15 = and i64 %14, 32
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %12
   %18 = load volatile i64, ptr %13, align 8
   %19 = and i64 %18, 16
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %22
+  br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %17
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i32 8, ptr elementtype(i8) %13) #12, !srcloc !6
-  br label %22
+  br label %.thread
 
-22:                                               ; preds = %17, %12, %6, %2, %21
-  %23 = phi i32 [ 1, %21 ], [ 0, %2 ], [ 0, %6 ], [ 0, %12 ], [ 0, %17 ]
+.thread:                                          ; preds = %2, %6, %12, %21, %17
+  %22 = phi i32 [ 0, %17 ], [ 1, %21 ], [ 0, %12 ], [ 0, %6 ], [ 0, %2 ]
   tail call void @__rcu_read_unlock() #12
-  ret i32 %23
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -153,15 +151,13 @@ define dso_local noundef i32 @nfs4_check_delegation(ptr noundef %0, i32 noundef 
   %18 = load volatile i64, ptr %13, align 8
   %19 = and i64 %18, 16
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %22, label %21
+  %spec.select = zext i1 %20 to i32
+  br label %21
 
-21:                                               ; preds = %17, %12, %6, %2
-  br label %22
-
-22:                                               ; preds = %21, %17
-  %23 = phi i32 [ 0, %21 ], [ 1, %17 ]
+21:                                               ; preds = %17, %2, %6, %12
+  %22 = phi i32 [ 0, %12 ], [ 0, %6 ], [ 0, %2 ], [ %spec.select, %17 ]
   tail call void @__rcu_read_unlock() #12
-  ret i32 %23
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -811,13 +807,13 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr no
   %26 = icmp ult i8 %25, 2
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i8 %25, 0
-  br i1 %27, label %28, label %.thread13
+  br i1 %27, label %28, label %.thread14
 
 28:                                               ; preds = %24
   %29 = load volatile i64, ptr %20, align 8
   %30 = and i64 %29, 4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.thread12, label %32
+  br i1 %31, label %.thread13, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %18, i64 92
@@ -825,60 +821,58 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr no
   %34 = getelementptr inbounds i8, ptr %18, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread14, label %37
+  br i1 %36, label %.thread15, label %37
 
-.thread14:                                        ; preds = %32
+.thread15:                                        ; preds = %32
   tail call void @_raw_spin_unlock(ptr noundef %33) #12
-  br label %.thread12
+  br label %.thread13
 
 37:                                               ; preds = %32
   %38 = getelementptr i8, ptr %35, i64 -120
   %39 = load volatile ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %38
   tail call void @_raw_spin_unlock(ptr noundef %33) #12
-  br i1 %40, label %.thread13, label %.thread12
+  br i1 %40, label %.thread14, label %.thread13
 
-.thread13:                                        ; preds = %24, %37
+.thread14:                                        ; preds = %24, %37
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %20, i32 -5, ptr elementtype(i8) %20) #12, !srcloc !8
-  br label %.thread12
+  br label %.thread13
 
-.thread12:                                        ; preds = %28, %.thread14, %.thread13, %37
-  %41 = phi i1 [ false, %.thread13 ], [ true, %37 ], [ true, %.thread14 ], [ true, %28 ]
+.thread13:                                        ; preds = %28, %.thread15, %.thread14, %37
+  %41 = phi i1 [ false, %.thread14 ], [ true, %37 ], [ true, %.thread15 ], [ true, %28 ]
   %42 = load volatile i64, ptr %20, align 8
   %43 = and i64 %42, 16
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %.thread15
+  br i1 %44, label %45, label %.thread16
 
-45:                                               ; preds = %.thread12
+45:                                               ; preds = %.thread13
   %46 = load volatile i64, ptr %20, align 8
   %47 = and i64 %46, 256
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %.thread15
+  br i1 %48, label %49, label %.thread16
 
 49:                                               ; preds = %45
   %50 = load volatile i64, ptr %20, align 8
   %51 = and i64 %50, 32
   %52 = icmp ne i64 %51, 0
-  %or.cond = or i1 %52, %41
-  br i1 %or.cond, label %.thread15, label %63
+  %53 = or i1 %52, %41
+  br i1 %53, label %.thread16, label %63
 
-.thread15:                                        ; preds = %49, %45, %.thread12
-  %53 = icmp eq ptr %18, null
-  br i1 %53, label %62, label %54
+.thread16:                                        ; preds = %.thread13, %45, %49
+  %54 = icmp eq ptr %18, null
+  br i1 %54, label %97, label %55
 
-54:                                               ; preds = %.thread15
-  %55 = load volatile i64, ptr %20, align 8
-  %56 = and i64 %55, 32
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %62
+55:                                               ; preds = %.thread16
+  %56 = load volatile i64, ptr %20, align 8
+  %57 = and i64 %56, 32
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %59, label %97
 
-58:                                               ; preds = %54
-  %59 = load volatile i64, ptr %20, align 8
-  %60 = and i64 %59, 16
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %97, label %62
-
-62:                                               ; preds = %58, %54, %.thread15
+59:                                               ; preds = %55
+  %60 = load volatile i64, ptr %20, align 8
+  %61 = and i64 %60, 16
+  %62 = icmp eq i64 %61, 0
+  %spec.select1 = select i1 %62, ptr %18, ptr %19
   br label %97
 
 63:                                               ; preds = %49
@@ -891,22 +885,22 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr no
   %67 = getelementptr inbounds i8, ptr %19, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.thread16, label %70
+  br i1 %69, label %.thread17, label %70
 
 70:                                               ; preds = %65
   %71 = tail call ptr @igrab(ptr noundef nonnull %68) #12
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %.thread16, label %74
+  br i1 %72, label %.thread17, label %74
 
-.thread16:                                        ; preds = %65, %70
+.thread17:                                        ; preds = %65, %70
   %73 = getelementptr inbounds i8, ptr %19, i64 80
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %73, i32 128, ptr elementtype(i8) %73) #12, !srcloc !6
   br label %74
 
-74:                                               ; preds = %.thread16, %70
-  %75 = phi ptr [ %6, %70 ], [ null, %.thread16 ]
-  %76 = phi ptr [ %71, %70 ], [ %6, %.thread16 ]
-  %77 = phi ptr [ %19, %70 ], [ %5, %.thread16 ]
+74:                                               ; preds = %.thread17, %70
+  %75 = phi ptr [ %6, %70 ], [ null, %.thread17 ]
+  %76 = phi ptr [ %71, %70 ], [ %6, %.thread17 ]
+  %77 = phi ptr [ %19, %70 ], [ %5, %.thread17 ]
   tail call void @_raw_spin_unlock(ptr noundef %66) #12
   br label %78
 
@@ -919,14 +913,14 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr no
   %83 = getelementptr inbounds i8, ptr %18, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread17, label %86
+  br i1 %85, label %.thread18, label %86
 
 86:                                               ; preds = %78
   %87 = tail call ptr @igrab(ptr noundef nonnull %84) #12
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %.thread17, label %89
+  br i1 %88, label %.thread18, label %89
 
-.thread17:                                        ; preds = %78, %86
+.thread18:                                        ; preds = %78, %86
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %20, i32 128, ptr elementtype(i8) %20) #12, !srcloc !6
   tail call void @_raw_spin_unlock(ptr noundef %82) #12
   tail call void @__rcu_read_unlock() #12
@@ -943,19 +937,19 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr no
   tail call void @iput(ptr noundef nonnull %87) #12
   %93 = tail call i32 @__SCT__cond_resched() #12
   %94 = icmp eq i32 %92, 0
-  br i1 %94, label %.backedge, label %.thread19
+  br i1 %94, label %.backedge, label %.thread22
 
-.backedge:                                        ; preds = %89, %.thread17
+.backedge:                                        ; preds = %89, %.thread18
   br label %4
 
-.thread19:                                        ; preds = %89
+.thread22:                                        ; preds = %89
   %95 = load ptr, ptr %0, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 320
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %96, i32 32, ptr elementtype(i8) %96) #12, !srcloc !6
   br label %100
 
-97:                                               ; preds = %.preheader, %58, %62
-  %.ph = phi ptr [ %19, %62 ], [ %18, %58 ], [ %19, %.preheader ]
+97:                                               ; preds = %.preheader, %55, %.thread16, %59
+  %.ph = phi ptr [ %spec.select1, %59 ], [ %19, %.thread16 ], [ %19, %55 ], [ %19, %.preheader ]
   %98 = load volatile ptr, ptr %18, align 8
   %99 = icmp eq ptr %98, %3
   br i1 %99, label %.loopexit, label %.preheader, !llvm.loop !38
@@ -964,9 +958,9 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr no
   tail call void @__rcu_read_unlock() #12
   br label %100
 
-100:                                              ; preds = %.loopexit, %.thread19
-  %101 = phi i32 [ 0, %.loopexit ], [ %92, %.thread19 ]
-  %102 = phi ptr [ %6, %.loopexit ], [ %80, %.thread19 ]
+100:                                              ; preds = %.loopexit, %.thread22
+  %101 = phi i32 [ 0, %.loopexit ], [ %92, %.thread22 ]
+  %102 = phi ptr [ %6, %.loopexit ], [ %80, %.thread22 ]
   tail call void @iput(ptr noundef %102) #12
   ret i32 %101
 }
@@ -1476,20 +1470,20 @@ define dso_local void @nfs4_inode_return_delegation_on_close(ptr noundef %0) loc
   %27 = getelementptr inbounds i8, ptr %5, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread5, label %30
+  br i1 %29, label %.thread6, label %30
 
 30:                                               ; preds = %25
   %31 = getelementptr i8, ptr %0, i64 -120
   %32 = load volatile ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %31
-  br i1 %33, label %34, label %.thread5
+  br i1 %33, label %34, label %.thread6
 
 34:                                               ; preds = %30
   %35 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, i64 4, ptr elementtype(i64) %8) #12, !srcloc !24
   %36 = icmp ult i8 %35, 2
   tail call void @llvm.assume(i1 %36)
   %37 = icmp eq i8 %35, 0
-  br i1 %37, label %38, label %.thread5
+  br i1 %37, label %38, label %.thread6
 
 38:                                               ; preds = %34
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %8, i32 -5, ptr elementtype(i8) %8) #12, !srcloc !8
@@ -1509,7 +1503,7 @@ define dso_local void @nfs4_inode_return_delegation_on_close(ptr noundef %0) loc
   tail call void @refcount_warn_saturate(ptr noundef %39, i32 noundef %47) #12
   br label %48
 
-.thread5:                                         ; preds = %34, %30, %25
+.thread6:                                         ; preds = %34, %30, %25
   tail call void @_raw_spin_unlock(ptr noundef %26) #12
   br label %.thread
 
@@ -1518,8 +1512,8 @@ define dso_local void @nfs4_inode_return_delegation_on_close(ptr noundef %0) loc
   tail call void @nfs_clear_verifier_delegated(ptr noundef nonnull %0) #12
   br label %.thread
 
-.thread:                                          ; preds = %12, %7, %3, %.thread5, %48, %20
-  %49 = phi ptr [ %5, %48 ], [ null, %20 ], [ null, %.thread5 ], [ null, %3 ], [ null, %7 ], [ null, %12 ]
+.thread:                                          ; preds = %12, %3, %7, %.thread6, %48, %20
+  %49 = phi ptr [ %5, %48 ], [ null, %20 ], [ null, %.thread6 ], [ null, %7 ], [ null, %3 ], [ null, %12 ]
   tail call void @__rcu_read_unlock() #12
   %50 = tail call fastcc i32 @nfs_end_delegation_return(ptr noundef nonnull %0, ptr noundef %49, i32 noundef 0)
   br label %51
@@ -2044,7 +2038,7 @@ define dso_local noundef i32 @nfs_async_inode_return_delegation(ptr noundef %0, 
   tail call void @nfs4_schedule_state_manager(ptr noundef %7) #12
   br label %51
 
-.thread:                                          ; preds = %16, %11, %2, %22
+.thread:                                          ; preds = %16, %2, %11, %22
   tail call void @__rcu_read_unlock() #12
   br label %51
 
@@ -2810,7 +2804,7 @@ define dso_local noundef zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %0
   %5 = getelementptr i8, ptr %0, i64 -72
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %39, label %8
+  br i1 %7, label %38, label %8
 
 8:                                                ; preds = %4
   %9 = and i32 %1, 3
@@ -2820,20 +2814,20 @@ define dso_local noundef zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %0
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, %9
   %14 = icmp eq i32 %13, %9
-  br i1 %14, label %15, label %37
+  br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %6, i64 80
   %17 = load volatile i64, ptr %16, align 8
   %18 = and i64 %17, 32
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %37
+  br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %15
   %21 = load volatile i64, ptr %16, align 8
   %22 = and i64 %21, 16
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %37
+  br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %6, i64 32
@@ -2844,7 +2838,7 @@ define dso_local noundef zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %0
   store i32 %27, ptr %28, align 4
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %16, i32 8, ptr elementtype(i8) %16) #12, !srcloc !6
   %29 = icmp eq ptr %3, null
-  br i1 %29, label %37, label %30
+  br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %6, i64 16
@@ -2860,17 +2854,17 @@ define dso_local noundef zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %0
 
 36:                                               ; preds = %34, %30
   store ptr %32, ptr %3, align 8
-  br label %37
+  br label %.thread
 
-37:                                               ; preds = %20, %15, %8, %36, %24
-  %38 = phi i1 [ true, %36 ], [ true, %24 ], [ false, %8 ], [ false, %15 ], [ false, %20 ]
+.thread:                                          ; preds = %8, %15, %36, %24, %20
+  %37 = phi i1 [ true, %36 ], [ true, %24 ], [ false, %20 ], [ false, %15 ], [ false, %8 ]
   tail call void @_raw_spin_unlock(ptr noundef %10) #12
-  br label %39
+  br label %38
 
-39:                                               ; preds = %37, %4
-  %40 = phi i1 [ %38, %37 ], [ false, %4 ]
+38:                                               ; preds = %.thread, %4
+  %39 = phi i1 [ %37, %.thread ], [ false, %4 ]
   tail call void @__rcu_read_unlock() #12
-  ret i1 %40
+  ret i1 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

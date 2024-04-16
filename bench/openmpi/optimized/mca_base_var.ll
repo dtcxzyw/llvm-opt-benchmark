@@ -1459,7 +1459,7 @@ define internal fastcc void @read_files(ptr noundef %0, ptr noundef %1, i8 nound
 
 17:                                               ; preds = %20, %.lr.ph
   %indvars.iv.i = phi i64 [ %21, %20 ], [ %16, %.lr.ph ]
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw i64 %indvars.iv.i to i32
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %append_filename_to_list.exit
 
@@ -2269,7 +2269,7 @@ define i32 @mca_base_var_set_value(i32 noundef %0, ptr noundef %1, i64 noundef %
 
 46:                                               ; preds = %49, %39
   %indvars.iv.i = phi i64 [ %50, %49 ], [ %45, %39 ]
-  %47 = trunc i64 %indvars.iv.i to i32
+  %47 = trunc nuw i64 %indvars.iv.i to i32
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %append_filename_to_list.exit
 
@@ -3157,7 +3157,7 @@ define internal fastcc i32 @var_value_string(ptr nocapture noundef readonly %0, 
 
 11:                                               ; preds = %7
   %12 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.109) #22
-  br label %87
+  br label %.thread
 
 13:                                               ; preds = %7, %2
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3178,14 +3178,14 @@ define internal fastcc i32 @var_value_string(ptr nocapture noundef readonly %0, 
 mca_base_var_get_value.exit.thread:               ; preds = %13, %17
   %.0.i.ph = phi i32 [ -13, %17 ], [ %16, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %87
+  br label %.thread
 
 mca_base_var_get_value.exit:                      ; preds = %17
   %22 = getelementptr inbounds i8, ptr %18, i64 152
   %23 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %87, label %25
+  br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %mca_base_var_get_value.exit
   %26 = getelementptr inbounds i8, ptr %0, i64 136
@@ -3286,10 +3286,8 @@ mca_base_var_get_value.exit:                      ; preds = %17
   %.0 = phi i32 [ %72, %70 ], [ %69, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ]
   %.0.fr = freeze i32 %.0
   %74 = icmp slt i32 %.0.fr, 0
-  br i1 %74, label %.thread, label %87
-
-.thread:                                          ; preds = %31, %73
-  br label %87
+  %spec.select43 = select i1 %74, i32 -2, i32 0
+  br label %.thread
 
 75:                                               ; preds = %25
   %76 = icmp eq i32 %30, 7
@@ -3302,15 +3300,15 @@ mca_base_var_get_value.exit:                      ; preds = %17
   %81 = and i8 %80, 1
   %82 = zext nneg i8 %81 to i32
   %83 = call i32 %78(ptr noundef nonnull %27, i32 noundef %82, ptr noundef %1) #22
-  br label %87
+  br label %.thread
 
 84:                                               ; preds = %75
   %85 = load i32, ptr %23, align 8
   %86 = call i32 %78(ptr noundef nonnull %27, i32 noundef %85, ptr noundef %1) #22
-  br label %87
+  br label %.thread
 
-87:                                               ; preds = %.thread, %73, %mca_base_var_get_value.exit.thread, %84, %79, %mca_base_var_get_value.exit, %11
-  %.031 = phi i32 [ 0, %11 ], [ 0, %mca_base_var_get_value.exit ], [ %83, %79 ], [ %86, %84 ], [ %.0.i.ph, %mca_base_var_get_value.exit.thread ], [ -2, %.thread ], [ 0, %73 ]
+.thread:                                          ; preds = %73, %31, %mca_base_var_get_value.exit.thread, %84, %79, %mca_base_var_get_value.exit, %11
+  %.031 = phi i32 [ 0, %11 ], [ 0, %mca_base_var_get_value.exit ], [ %83, %79 ], [ %86, %84 ], [ %.0.i.ph, %mca_base_var_get_value.exit.thread ], [ -2, %31 ], [ %spec.select43, %73 ]
   ret i32 %.031
 }
 
@@ -5065,7 +5063,7 @@ define internal fastcc noundef i32 @var_set_initial(ptr nocapture noundef %0, pt
 
 58:                                               ; preds = %61, %51
   %indvars.iv.i.i = phi i64 [ %62, %61 ], [ %57, %51 ]
-  %59 = trunc i64 %indvars.iv.i.i to i32
+  %59 = trunc nuw i64 %indvars.iv.i.i to i32
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %61, label %append_filename_to_list.exit.i
 
@@ -5529,17 +5527,17 @@ int_from_string.exit:                             ; preds = %16
   %80 = load ptr, ptr %6, align 8
   %81 = tail call double @strtod(ptr nocapture noundef %1, ptr noundef null) #22
   store double %81, ptr %80, align 8
-  br label %83
+  br label %84
 
 82:                                               ; preds = %2, %2
   tail call fastcc void @var_set_string(ptr noundef nonnull %0, ptr noundef %1)
-  br label %83
-
-83:                                               ; preds = %82, %79, %2
   br label %84
 
-84:                                               ; preds = %2, %.thread68, %65, %69, %73, %75, %71, %67, %62, %59, %44, %54, %83
-  %.0 = phi i32 [ 0, %83 ], [ -18, %54 ], [ -18, %44 ], [ 0, %59 ], [ 0, %62 ], [ 0, %67 ], [ 0, %71 ], [ 0, %75 ], [ 0, %73 ], [ 0, %69 ], [ 0, %65 ], [ 0, %.thread68 ], [ -1, %2 ]
+83:                                               ; preds = %2
+  br label %84
+
+84:                                               ; preds = %79, %82, %2, %.thread68, %65, %69, %73, %75, %71, %67, %62, %59, %44, %54, %83
+  %.0 = phi i32 [ -18, %54 ], [ -18, %44 ], [ 0, %59 ], [ 0, %62 ], [ 0, %67 ], [ 0, %71 ], [ 0, %75 ], [ 0, %73 ], [ 0, %69 ], [ 0, %65 ], [ 0, %.thread68 ], [ -1, %2 ], [ 0, %82 ], [ 0, %79 ], [ 0, %83 ]
   ret i32 %.0
 }
 

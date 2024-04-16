@@ -1201,7 +1201,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 define dso_local noundef i32 @PyErr_WarnFormat(ptr noundef %category, i64 noundef %stack_level, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call.i = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #7
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %_PyErr_WarnFormatV.exit, label %if.end.i
@@ -1249,21 +1249,15 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 _PyErr_WarnFormatV.exit:                          ; preds = %entry, %warn_unicode.exit.i, %if.end.i.i, %if.then1.i.i
   %retval.0.i = phi i32 [ -1, %entry ], [ %retval.0.i.i, %warn_unicode.exit.i ], [ %retval.0.i.i, %if.then1.i.i ], [ %retval.0.i.i, %if.end.i.i ]
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 %retval.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @PyErr_ResourceWarning(ptr noundef %source, i64 noundef %stack_level, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %0 = load ptr, ptr @PyExc_ResourceWarning, align 8
   %call.i = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -1312,7 +1306,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 _PyErr_WarnFormatV.exit:                          ; preds = %entry, %warn_unicode.exit.i, %if.end.i.i, %if.then1.i.i
   %retval.0.i = phi i32 [ -1, %entry ], [ %retval.0.i.i, %warn_unicode.exit.i ], [ %retval.0.i.i, %if.then1.i.i ], [ %retval.0.i.i, %if.end.i.i ]
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 %retval.0.i
 }
 
@@ -2511,7 +2505,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then2, %if.end
   %module.0 = phi ptr [ %call3, %if.then2 ], [ null, %if.end ]
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call9 = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #7
   %cmp10.not = icmp eq ptr %call9, null
   br i1 %cmp10.not, label %exit, label %if.then11
@@ -2572,7 +2566,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 exit:                                             ; preds = %if.end7, %Py_DECREF.exit30, %if.then17, %if.then1.i, %if.end.i, %get_current_tstate.exit.thread
   %ret.0 = phi i32 [ -1, %Py_DECREF.exit30 ], [ -1, %if.end7 ], [ 0, %if.then17 ], [ 0, %if.then1.i ], [ 0, %if.end.i ], [ -1, %get_current_tstate.exit.thread ]
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %cmp.not.i = icmp eq ptr %module.0, null
   br i1 %cmp.not.i, label %if.then.i19, label %if.then.i
 
@@ -2642,7 +2636,7 @@ declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 define internal noundef i32 @_PyErr_WarnFormat(ptr noundef %source, ptr noundef %category, i64 %stack_level, ptr noundef %format, ...) unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call.i = call ptr @PyUnicode_FromFormatV(ptr noundef %format, ptr noundef nonnull %vargs) #7
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %_PyErr_WarnFormatV.exit, label %if.end.i
@@ -2690,7 +2684,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 _PyErr_WarnFormatV.exit:                          ; preds = %entry, %warn_unicode.exit.i, %if.end.i.i, %if.then1.i.i
   %retval.0.i = phi i32 [ -1, %entry ], [ %retval.0.i.i, %warn_unicode.exit.i ], [ %retval.0.i.i, %if.then1.i.i ], [ %retval.0.i.i, %if.end.i.i ]
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret i32 %retval.0.i
 }
 
@@ -2967,21 +2961,21 @@ if.end.i10:                                       ; preds = %if.end.i9
 if.then1.i12:                                     ; preds = %if.end.i10
   %4 = getelementptr i8, ptr %skip_file_prefixes, i64 16
   %skip_file_prefixes.val.i = load i64, ptr %4, align 8
-  %cmp3121.i = icmp sgt i64 %skip_file_prefixes.val.i, 0
-  br i1 %cmp3121.i, label %for.body.lr.ph.i, label %if.end11.i
+  %cmp3119.i = icmp sgt i64 %skip_file_prefixes.val.i, 0
+  br i1 %cmp3119.i, label %for.body.lr.ph.i, label %if.end11.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then1.i12
   %ob_item.i = getelementptr inbounds i8, ptr %skip_file_prefixes, i64 24
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %idx.0122.i, 1
+  %inc.i = add nuw nsw i64 %idx.0120.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %skip_file_prefixes.val.i
   br i1 %exitcond.not.i, label %if.end11.i, label %for.body.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %idx.0122.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %idx.0122.i
+  %idx.0120.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %idx.0120.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %.val.i = load ptr, ptr %6, align 8
@@ -3028,7 +3022,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 
 get_frame_filename.exit.i.i:                      ; preds = %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.end.i60.i
   %cmp1.i.i = icmp eq ptr %11, null
-  br i1 %cmp1.i.i, label %is_internal_frame.exit.i, label %if.end3.i.i
+  br i1 %cmp1.i.i, label %while.cond20.preheader.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %get_frame_filename.exit.i.i
   %14 = getelementptr i8, ptr %11, i64 8
@@ -3037,35 +3031,35 @@ if.end3.i.i:                                      ; preds = %get_frame_filename.
   %call.val.i.i.i = load i64, ptr %15, align 8
   %16 = and i64 %call.val.i.i.i, 268435456
   %tobool.not.i.i.i = icmp eq i64 %16, 0
-  br i1 %tobool.not.i.i.i, label %is_internal_frame.exit.i, label %if.end.i.i.i
+  br i1 %tobool.not.i.i.i, label %while.cond20.preheader.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end3.i.i
   %call2.i.i.i = tail call i32 @PyUnicode_Contains(ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 407)) #7
-  %or.cond.i = icmp slt i32 %call2.i.i.i, 1
-  br i1 %or.cond.i, label %is_internal_frame.exit.i, label %if.then5.i.i.i
+  %or.cond.i.i.i = icmp slt i32 %call2.i.i.i, 1
+  br i1 %or.cond.i.i.i, label %while.cond20.preheader.i, label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
   %call6.i.i.i = tail call i32 @PyUnicode_Contains(ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 180)) #7
-  %or.cond115.i = icmp slt i32 %call6.i.i.i, 1
-  br i1 %or.cond115.i, label %is_internal_frame.exit.i, label %if.then16.i
+  %spec.select.i.i.i = icmp sgt i32 %call6.i.i.i, 0
+  br i1 %spec.select.i.i.i, label %if.then16.i, label %while.cond20.preheader.i
 
-is_internal_frame.exit.i:                         ; preds = %if.then5.i.i.i, %if.end.i.i.i, %if.end3.i.i, %get_frame_filename.exit.i.i
-  %cmp22123.not.i = icmp eq i64 %stack_level, 1
-  br i1 %cmp22123.not.i, label %if.else33.i, label %while.body26.lr.ph.i
+while.cond20.preheader.i:                         ; preds = %if.then5.i.i.i, %if.end.i.i.i, %if.end3.i.i, %get_frame_filename.exit.i.i
+  %cmp22121.not.i = icmp eq i64 %stack_level, 1
+  br i1 %cmp22121.not.i, label %if.else33.i, label %while.body26.lr.ph.i
 
-while.body26.lr.ph.i:                             ; preds = %is_internal_frame.exit.i
+while.body26.lr.ph.i:                             ; preds = %while.cond20.preheader.i
   %17 = getelementptr i8, ptr %skip_file_prefixes, i64 16
   %ob_item.i.i.i = getelementptr inbounds i8, ptr %skip_file_prefixes, i64 24
   br i1 %tobool.not.i, label %while.body26.us.i, label %while.body26.i
 
-while.body26.us.i:                                ; preds = %while.body26.lr.ph.i, %next_external_frame.exit.loopexit116.us.i
-  %stack_level.addr.1126.us.i = phi i64 [ %dec21.us.i, %next_external_frame.exit.loopexit116.us.i ], [ %stack_level, %while.body26.lr.ph.i ]
-  %f.1125.us.i = phi ptr [ %call.us.i.us.i, %next_external_frame.exit.loopexit116.us.i ], [ %call13.i, %while.body26.lr.ph.i ]
-  %dec21.us.i = add nsw i64 %stack_level.addr.1126.us.i, -1
+while.body26.us.i:                                ; preds = %while.body26.lr.ph.i, %next_external_frame.exit.loopexit114.us.i
+  %stack_level.addr.1124.us.i = phi i64 [ %dec21.us.i, %next_external_frame.exit.loopexit114.us.i ], [ %stack_level, %while.body26.lr.ph.i ]
+  %f.1123.us.i = phi ptr [ %call.us.i.us.i, %next_external_frame.exit.loopexit114.us.i ], [ %call13.i, %while.body26.lr.ph.i ]
+  %dec21.us.i = add nsw i64 %stack_level.addr.1124.us.i, -1
   br label %do.body.us.i.us.i
 
-do.body.us.i.us.i:                                ; preds = %if.then5.i.us.i.us.i, %while.body26.us.i
-  %frame.addr.0.us.i.us.i = phi ptr [ %call.us.i.us.i, %if.then5.i.us.i.us.i ], [ %f.1125.us.i, %while.body26.us.i ]
+do.body.us.i.us.i:                                ; preds = %is_internal_filename.exit.us.i.us.i, %while.body26.us.i
+  %frame.addr.0.us.i.us.i = phi ptr [ %call.us.i.us.i, %is_internal_filename.exit.us.i.us.i ], [ %f.1123.us.i, %while.body26.us.i ]
   %call.us.i.us.i = tail call ptr @PyFrame_GetBack(ptr noundef nonnull %frame.addr.0.us.i.us.i) #7
   %18 = load i64, ptr %frame.addr.0.us.i.us.i, align 8
   %19 = and i64 %18, 2147483648
@@ -3107,7 +3101,7 @@ if.then1.i.i.us.i.us.i:                           ; preds = %if.end.i.i.us.i.us.
 
 get_frame_filename.exit.us.i.us.i:                ; preds = %if.then1.i.i.us.i.us.i, %if.end.i.i.us.i.us.i, %land.lhs.true.us.i.us.i
   %tobool.not.us.i.us.i = icmp eq ptr %20, null
-  br i1 %tobool.not.us.i.us.i, label %next_external_frame.exit.loopexit116.us.i, label %land.rhs.us.i.us.i
+  br i1 %tobool.not.us.i.us.i, label %next_external_frame.exit.loopexit114.us.i, label %land.rhs.us.i.us.i
 
 land.rhs.us.i.us.i:                               ; preds = %get_frame_filename.exit.us.i.us.i
   %23 = getelementptr i8, ptr %20, i64 8
@@ -3116,63 +3110,63 @@ land.rhs.us.i.us.i:                               ; preds = %get_frame_filename.
   %call.val.i.us.i.us.i = load i64, ptr %24, align 8
   %25 = and i64 %call.val.i.us.i.us.i, 268435456
   %tobool.not.i.us.i.us.i = icmp eq i64 %25, 0
-  br i1 %tobool.not.i.us.i.us.i, label %next_external_frame.exit.loopexit116.us.i, label %if.end.i9.us.i.us.i
+  br i1 %tobool.not.i.us.i.us.i, label %next_external_frame.exit.loopexit114.us.i, label %if.end.i9.us.i.us.i
 
 if.end.i9.us.i.us.i:                              ; preds = %land.rhs.us.i.us.i
   %call2.i.us.i.us.i = tail call i32 @PyUnicode_Contains(ptr noundef nonnull %20, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 407)) #7
-  %or.cond.us.i.us.i = icmp slt i32 %call2.i.us.i.us.i, 1
-  br i1 %or.cond.us.i.us.i, label %next_external_frame.exit.loopexit116.us.i, label %if.then5.i.us.i.us.i
+  %or.cond.i.us.i.us.i = icmp slt i32 %call2.i.us.i.us.i, 1
+  br i1 %or.cond.i.us.i.us.i, label %next_external_frame.exit.loopexit114.us.i, label %is_internal_filename.exit.us.i.us.i
 
-if.then5.i.us.i.us.i:                             ; preds = %if.end.i9.us.i.us.i
+is_internal_filename.exit.us.i.us.i:              ; preds = %if.end.i9.us.i.us.i
   %call6.i.us.i.us.i = tail call i32 @PyUnicode_Contains(ptr noundef nonnull %20, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 180)) #7
-  %or.cond19.us.i.us.i = icmp slt i32 %call6.i.us.i.us.i, 1
-  br i1 %or.cond19.us.i.us.i, label %next_external_frame.exit.loopexit116.us.i, label %do.body.us.i.us.i
+  %spec.select.i.us.i.us.i = icmp sgt i32 %call6.i.us.i.us.i, 0
+  br i1 %spec.select.i.us.i.us.i, label %do.body.us.i.us.i, label %next_external_frame.exit.loopexit114.us.i
 
-next_external_frame.exit.loopexit116.us.i:        ; preds = %if.then5.i.us.i.us.i, %if.end.i9.us.i.us.i, %land.rhs.us.i.us.i, %get_frame_filename.exit.us.i.us.i
-  %cmp22.us.i = icmp sgt i64 %stack_level.addr.1126.us.i, 2
+next_external_frame.exit.loopexit114.us.i:        ; preds = %is_internal_filename.exit.us.i.us.i, %if.end.i9.us.i.us.i, %land.rhs.us.i.us.i, %get_frame_filename.exit.us.i.us.i
+  %cmp22.us.i = icmp sgt i64 %stack_level.addr.1124.us.i, 2
   br i1 %cmp22.us.i, label %while.body26.us.i, label %if.else33.i, !llvm.loop !10
 
 if.then16.i:                                      ; preds = %if.then5.i.i.i, %if.end11.i
-  %dec127.i = add i64 %stack_level, -1
-  %cmp17128.i = icmp sgt i64 %dec127.i, 0
-  %cmp18129.i = icmp ne ptr %call13.i, null
-  %26 = select i1 %cmp17128.i, i1 %cmp18129.i, i1 false
+  %dec125.i = add i64 %stack_level, -1
+  %cmp17126.i = icmp sgt i64 %dec125.i, 0
+  %cmp18127.i = icmp ne ptr %call13.i, null
+  %26 = select i1 %cmp17126.i, i1 %cmp18127.i, i1 false
   br i1 %26, label %while.body.i, label %if.end29.i
 
 while.body.i:                                     ; preds = %if.then16.i, %do.end.i
-  %dec131.i = phi i64 [ %dec.i15, %do.end.i ], [ %dec127.i, %if.then16.i ]
-  %f.0130.i = phi ptr [ %call19.i, %do.end.i ], [ %call13.i, %if.then16.i ]
-  %call19.i = tail call ptr @PyFrame_GetBack(ptr noundef nonnull %f.0130.i) #7
-  %27 = load i64, ptr %f.0130.i, align 8
+  %dec129.i = phi i64 [ %dec.i15, %do.end.i ], [ %dec125.i, %if.then16.i ]
+  %f.0128.i = phi ptr [ %call19.i, %do.end.i ], [ %call13.i, %if.then16.i ]
+  %call19.i = tail call ptr @PyFrame_GetBack(ptr noundef nonnull %f.0128.i) #7
+  %27 = load i64, ptr %f.0128.i, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i106.not.i = icmp eq i64 %28, 0
   br i1 %cmp.i106.not.i, label %if.end.i87.i, label %do.end.i
 
 if.end.i87.i:                                     ; preds = %while.body.i
   %dec.i88.i = add i64 %27, -1
-  store i64 %dec.i88.i, ptr %f.0130.i, align 8
+  store i64 %dec.i88.i, ptr %f.0128.i, align 8
   %cmp.i89.i = icmp eq i64 %dec.i88.i, 0
   br i1 %cmp.i89.i, label %if.then1.i90.i, label %do.end.i
 
 if.then1.i90.i:                                   ; preds = %if.end.i87.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %f.0130.i) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %f.0128.i) #7
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then1.i90.i, %if.end.i87.i, %while.body.i
-  %dec.i15 = add nsw i64 %dec131.i, -1
-  %cmp17.i = icmp sgt i64 %dec131.i, 1
+  %dec.i15 = add nsw i64 %dec129.i, -1
+  %cmp17.i = icmp sgt i64 %dec129.i, 1
   %cmp18.i = icmp ne ptr %call19.i, null
   %29 = select i1 %cmp17.i, i1 %cmp18.i, i1 false
   br i1 %29, label %while.body.i, label %if.end29.i, !llvm.loop !11
 
 while.body26.i:                                   ; preds = %while.body26.lr.ph.i, %next_external_frame.exit.i
-  %stack_level.addr.1126.i = phi i64 [ %dec21.i, %next_external_frame.exit.i ], [ %stack_level, %while.body26.lr.ph.i ]
-  %f.1125.i = phi ptr [ %call.i.i, %next_external_frame.exit.i ], [ %call13.i, %while.body26.lr.ph.i ]
-  %dec21.i = add nsw i64 %stack_level.addr.1126.i, -1
+  %stack_level.addr.1124.i = phi i64 [ %dec21.i, %next_external_frame.exit.i ], [ %stack_level, %while.body26.lr.ph.i ]
+  %f.1123.i = phi ptr [ %call.i.i, %next_external_frame.exit.i ], [ %call13.i, %while.body26.lr.ph.i ]
+  %dec21.i = add nsw i64 %stack_level.addr.1124.i, -1
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i.backedge, %while.body26.i
-  %frame.addr.0.i.i = phi ptr [ %f.1125.i, %while.body26.i ], [ %call.i.i, %do.body.i.i.backedge ]
+  %frame.addr.0.i.i = phi ptr [ %f.1123.i, %while.body26.i ], [ %call.i.i, %do.body.i.i.backedge ]
   %call.i.i = tail call ptr @PyFrame_GetBack(ptr noundef nonnull %frame.addr.0.i.i) #7
   %30 = load i64, ptr %frame.addr.0.i.i, align 8
   %31 = and i64 %30, 2147483648
@@ -3194,65 +3188,65 @@ do.cond.i.i:                                      ; preds = %if.then1.i.i.i, %if
   br i1 %cmp.not.i.i, label %if.then31.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %do.cond.i.i
-  %call.i.i63.i = tail call ptr @PyFrame_GetCode(ptr noundef nonnull %call.i.i) #7
-  %co_filename.i.i64.i = getelementptr inbounds i8, ptr %call.i.i63.i, i64 112
-  %32 = load ptr, ptr %co_filename.i.i64.i, align 8
-  %33 = load i64, ptr %call.i.i63.i, align 8
+  %call.i.i62.i = tail call ptr @PyFrame_GetCode(ptr noundef nonnull %call.i.i) #7
+  %co_filename.i.i63.i = getelementptr inbounds i8, ptr %call.i.i62.i, i64 112
+  %32 = load ptr, ptr %co_filename.i.i63.i, align 8
+  %33 = load i64, ptr %call.i.i62.i, align 8
   %34 = and i64 %33, 2147483648
-  %cmp.i2.not.i.i65.i = icmp eq i64 %34, 0
-  br i1 %cmp.i2.not.i.i65.i, label %if.end.i.i.i73.i, label %get_frame_filename.exit.i66.i
+  %cmp.i2.not.i.i64.i = icmp eq i64 %34, 0
+  br i1 %cmp.i2.not.i.i64.i, label %if.end.i.i.i73.i, label %get_frame_filename.exit.i65.i
 
 if.end.i.i.i73.i:                                 ; preds = %land.lhs.true.i.i
   %dec.i.i.i74.i = add i64 %33, -1
-  store i64 %dec.i.i.i74.i, ptr %call.i.i63.i, align 8
+  store i64 %dec.i.i.i74.i, ptr %call.i.i62.i, align 8
   %cmp.i.i.i75.i = icmp eq i64 %dec.i.i.i74.i, 0
-  br i1 %cmp.i.i.i75.i, label %if.then1.i.i.i76.i, label %get_frame_filename.exit.i66.i
+  br i1 %cmp.i.i.i75.i, label %if.then1.i.i.i76.i, label %get_frame_filename.exit.i65.i
 
 if.then1.i.i.i76.i:                               ; preds = %if.end.i.i.i73.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call.i.i63.i) #7
-  br label %get_frame_filename.exit.i66.i
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call.i.i62.i) #7
+  br label %get_frame_filename.exit.i65.i
 
-get_frame_filename.exit.i66.i:                    ; preds = %if.then1.i.i.i76.i, %if.end.i.i.i73.i, %land.lhs.true.i.i
+get_frame_filename.exit.i65.i:                    ; preds = %if.then1.i.i.i76.i, %if.end.i.i.i73.i, %land.lhs.true.i.i
   %tobool.not.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i, label %next_external_frame.exit.i, label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %get_frame_filename.exit.i66.i
+land.rhs.i.i:                                     ; preds = %get_frame_filename.exit.i65.i
   %35 = getelementptr i8, ptr %32, i64 8
-  %filename.val.i.i67.i = load ptr, ptr %35, align 8
-  %36 = getelementptr i8, ptr %filename.val.i.i67.i, i64 168
-  %call.val.i.i68.i = load i64, ptr %36, align 8
-  %37 = and i64 %call.val.i.i68.i, 268435456
-  %tobool.not.i.i69.i = icmp eq i64 %37, 0
-  br i1 %tobool.not.i.i69.i, label %lor.rhs.i.i, label %if.end.i9.i.i
+  %filename.val.i.i66.i = load ptr, ptr %35, align 8
+  %36 = getelementptr i8, ptr %filename.val.i.i66.i, i64 168
+  %call.val.i.i67.i = load i64, ptr %36, align 8
+  %37 = and i64 %call.val.i.i67.i, 268435456
+  %tobool.not.i.i68.i = icmp eq i64 %37, 0
+  br i1 %tobool.not.i.i68.i, label %lor.rhs.i.i, label %if.end.i9.i.i
 
 if.end.i9.i.i:                                    ; preds = %land.rhs.i.i
-  %call2.i.i70.i = tail call i32 @PyUnicode_Contains(ptr noundef nonnull %32, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 407)) #7
-  %or.cond.i.i = icmp slt i32 %call2.i.i70.i, 1
-  br i1 %or.cond.i.i, label %lor.rhs.i.i, label %if.then5.i.i71.i
+  %call2.i.i69.i = tail call i32 @PyUnicode_Contains(ptr noundef nonnull %32, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 407)) #7
+  %or.cond.i.i70.i = icmp slt i32 %call2.i.i69.i, 1
+  br i1 %or.cond.i.i70.i, label %lor.rhs.i.i, label %is_internal_filename.exit.i.i
 
-if.then5.i.i71.i:                                 ; preds = %if.end.i9.i.i
-  %call6.i.i72.i = tail call i32 @PyUnicode_Contains(ptr noundef nonnull %32, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 180)) #7
-  %or.cond19.i.i = icmp slt i32 %call6.i.i72.i, 1
-  br i1 %or.cond19.i.i, label %lor.rhs.i.i, label %do.body.i.i.backedge
+is_internal_filename.exit.i.i:                    ; preds = %if.end.i9.i.i
+  %call6.i.i71.i = tail call i32 @PyUnicode_Contains(ptr noundef nonnull %32, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 180)) #7
+  %spec.select.i.i72.i = icmp sgt i32 %call6.i.i71.i, 0
+  br i1 %spec.select.i.i72.i, label %do.body.i.i.backedge, label %lor.rhs.i.i
 
-do.body.i.i.backedge:                             ; preds = %for.body.i.i.i, %if.then5.i.i71.i
+do.body.i.i.backedge:                             ; preds = %for.body.i.i.i, %is_internal_filename.exit.i.i
   br label %do.body.i.i
 
-lor.rhs.i.i:                                      ; preds = %if.then5.i.i71.i, %if.end.i9.i.i, %land.rhs.i.i
-  %filename.val.i12.i.i = load ptr, ptr %35, align 8
-  %38 = getelementptr i8, ptr %filename.val.i12.i.i, i64 168
-  %call.val.i13.i.i = load i64, ptr %38, align 8
-  %39 = and i64 %call.val.i13.i.i, 268435456
+lor.rhs.i.i:                                      ; preds = %is_internal_filename.exit.i.i, %if.end.i9.i.i, %land.rhs.i.i
+  %filename.val.i11.i.i = load ptr, ptr %35, align 8
+  %38 = getelementptr i8, ptr %filename.val.i11.i.i, i64 168
+  %call.val.i12.i.i = load i64, ptr %38, align 8
+  %39 = and i64 %call.val.i12.i.i, 268435456
   %tobool2.not.i.i.i = icmp eq i64 %39, 0
-  br i1 %tobool2.not.i.i.i, label %next_external_frame.exit.i, label %if.end.i14.i.i
+  br i1 %tobool2.not.i.i.i, label %next_external_frame.exit.i, label %if.end.i13.i.i
 
-if.end.i14.i.i:                                   ; preds = %lor.rhs.i.i
+if.end.i13.i.i:                                   ; preds = %lor.rhs.i.i
   %skip_file_prefixes.val.i.i.i = load i64, ptr %17, align 8
-  %cmp7.i15.i.i = icmp sgt i64 %skip_file_prefixes.val.i.i.i, 0
-  br i1 %cmp7.i15.i.i, label %for.body.i.i.i, label %next_external_frame.exit.i
+  %cmp7.i.i.i = icmp sgt i64 %skip_file_prefixes.val.i.i.i, 0
+  br i1 %cmp7.i.i.i, label %for.body.i.i.i, label %next_external_frame.exit.i
 
-for.body.i.i.i:                                   ; preds = %if.end.i14.i.i, %if.end8.i.i.i
-  %idx.08.i.i.i = phi i64 [ %inc.i.i.i, %if.end8.i.i.i ], [ 0, %if.end.i14.i.i ]
+for.body.i.i.i:                                   ; preds = %if.end.i13.i.i, %if.end8.i.i.i
+  %idx.08.i.i.i = phi i64 [ %inc.i.i.i, %if.end8.i.i.i ], [ 0, %if.end.i13.i.i ]
   %arrayidx.i.i.i = getelementptr [1 x ptr], ptr %ob_item.i.i.i, i64 0, i64 %idx.08.i.i.i
   %40 = load ptr, ptr %arrayidx.i.i.i, align 8
   %call5.i.i.i = tail call i64 @PyUnicode_Tailmatch(ptr noundef nonnull %32, ptr noundef %40, i64 noundef 0, i64 noundef -1, i32 noundef -1) #7
@@ -3263,11 +3257,11 @@ if.end8.i.i.i:                                    ; preds = %for.body.i.i.i
   %cmp9.i.i.i = icmp slt i64 %call5.i.i.i, 0
   %inc.i.i.i = add nuw nsw i64 %idx.08.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %skip_file_prefixes.val.i.i.i
-  %or.cond.i.i.i = select i1 %cmp9.i.i.i, i1 true, i1 %exitcond.not.i.i.i
-  br i1 %or.cond.i.i.i, label %next_external_frame.exit.i, label %for.body.i.i.i, !llvm.loop !13
+  %or.cond.i15.i.i = select i1 %cmp9.i.i.i, i1 true, i1 %exitcond.not.i.i.i
+  br i1 %or.cond.i15.i.i, label %next_external_frame.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
-next_external_frame.exit.i:                       ; preds = %if.end.i14.i.i, %lor.rhs.i.i, %get_frame_filename.exit.i66.i, %if.end8.i.i.i
-  %cmp22.i = icmp sgt i64 %stack_level.addr.1126.i, 2
+next_external_frame.exit.i:                       ; preds = %if.end.i13.i.i, %lor.rhs.i.i, %get_frame_filename.exit.i65.i, %if.end8.i.i.i
+  %cmp22.i = icmp sgt i64 %stack_level.addr.1124.i, 2
   br i1 %cmp22.i, label %while.body26.i, label %if.end29.i, !llvm.loop !10
 
 if.end29.i:                                       ; preds = %next_external_frame.exit.i, %do.end.i, %if.then16.i
@@ -3281,9 +3275,9 @@ if.then31.i:                                      ; preds = %do.cond.i.i, %do.co
   %call32.i = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.5) #7
   br label %if.end38.i
 
-if.else33.i:                                      ; preds = %next_external_frame.exit.loopexit116.us.i, %if.end29.i, %is_internal_frame.exit.i
-  %f.2154.i = phi ptr [ %f.2.i, %if.end29.i ], [ %call13.i, %is_internal_frame.exit.i ], [ %call.us.i.us.i, %next_external_frame.exit.loopexit116.us.i ]
-  %f_frame.i = getelementptr inbounds i8, ptr %f.2154.i, i64 24
+if.else33.i:                                      ; preds = %next_external_frame.exit.loopexit114.us.i, %if.end29.i, %while.cond20.preheader.i
+  %f.2152.i = phi ptr [ %f.2.i, %if.end29.i ], [ %call13.i, %while.cond20.preheader.i ], [ %call.us.i.us.i, %next_external_frame.exit.loopexit114.us.i ]
+  %f_frame.i = getelementptr inbounds i8, ptr %f.2152.i, i64 24
   %42 = load ptr, ptr %f_frame.i, align 8
   %f_globals.i = getelementptr inbounds i8, ptr %42, i64 24
   %43 = load ptr, ptr %f_globals.i, align 8
@@ -3300,20 +3294,20 @@ if.end.i.i80.i:                                   ; preds = %if.else33.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i80.i, %if.else33.i
-  %call37.i = tail call i32 @PyFrame_GetLineNumber(ptr noundef nonnull %f.2154.i) #7
-  %46 = load i64, ptr %f.2154.i, align 8
+  %call37.i = tail call i32 @PyFrame_GetLineNumber(ptr noundef nonnull %f.2152.i) #7
+  %46 = load i64, ptr %f.2152.i, align 8
   %47 = and i64 %46, 2147483648
   %cmp.i109.not.i = icmp eq i64 %47, 0
   br i1 %cmp.i109.not.i, label %if.end.i78.i, label %if.end38.i
 
 if.end.i78.i:                                     ; preds = %_Py_NewRef.exit.i
   %dec.i79.i = add i64 %46, -1
-  store i64 %dec.i79.i, ptr %f.2154.i, align 8
+  store i64 %dec.i79.i, ptr %f.2152.i, align 8
   %cmp.i80.i = icmp eq i64 %dec.i79.i, 0
   br i1 %cmp.i80.i, label %if.then1.i81.i, label %if.end38.i
 
 if.then1.i81.i:                                   ; preds = %if.end.i78.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %f.2154.i) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %f.2152.i) #7
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then1.i81.i, %if.end.i78.i, %_Py_NewRef.exit.i, %if.then31.i
@@ -3532,7 +3526,7 @@ declare i64 @PyUnicode_Tailmatch(ptr noundef, ptr noundef, i64 noundef, i64 noun
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4924,6 +4918,12 @@ return:                                           ; preds = %get_current_interp.
 
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
+
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
@@ -4938,8 +4938,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

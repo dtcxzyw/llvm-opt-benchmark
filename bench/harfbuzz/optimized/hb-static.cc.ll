@@ -1116,7 +1116,7 @@ for.cond19.preheader:                             ; preds = %if.end15
 for.body21:                                       ; preds = %for.cond19.preheader, %for.body21
   %indvars.iv = phi i64 [ 0, %for.cond19.preheader ], [ %indvars.iv.next, %for.body21 ]
   %30 = load ptr, ptr %arrayZ, align 8
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %sub, %31
   %idxprom = zext i32 %add to i64
   %arrayidx = getelementptr inbounds %struct.contour_point_t, ptr %30, i64 %idxprom
@@ -2397,7 +2397,7 @@ for.cond170.preheader:                            ; preds = %land.lhs.true167
 
 for.body172:                                      ; preds = %for.cond170.preheader, %_ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit352
   %indvars.iv = phi i64 [ 0, %for.cond170.preheader ], [ %indvars.iv.next, %_ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit352 ]
-  %122 = trunc i64 %indvars.iv to i32
+  %122 = trunc nuw nsw i64 %indvars.iv to i32
   %add175 = add i32 %sub174, %122
   %cmp.not.i.i338 = icmp ugt i32 %retval.sroa.3.0.i325.in730, %add175
   br i1 %cmp.not.i.i338, label %if.end.i.i341, label %if.then.i.i339
@@ -4567,7 +4567,7 @@ if.end.i381:                                      ; preds = %if.then293, %_ZN11h
   %end_points.sroa.14.2 = phi ptr [ %call.i.i.i394, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i ], [ %end_points.sroa.14.1885, %if.end.i.i379 ], [ %end_points.sroa.14.1885, %if.then293 ]
   %idxprom.i = zext i32 %end_points.sroa.8.1884 to i64
   %arrayidx.i383 = getelementptr inbounds i32, ptr %end_points.sroa.14.2, i64 %idxprom.i
-  %118 = trunc i64 %indvars.iv1005 to i32
+  %118 = trunc nuw i64 %indvars.iv1005 to i32
   store i32 %118, ptr %arrayidx.i383, align 4
   br label %for.inc296
 
@@ -4640,7 +4640,7 @@ for.cond330:                                      ; preds = %for.cond364, %for.e
 for.cond332:                                      ; preds = %for.cond332.backedge, %for.cond330
   %j.1 = phi i32 [ %j.0, %for.cond330 ], [ %cond.i408, %for.cond332.backedge ]
   %cmp.not.i406 = icmp ult i32 %j.1, %119
-  %add.i407 = add i32 %j.1, 1
+  %add.i407 = add nuw i32 %j.1, 1
   %cond.i408 = select i1 %cmp.not.i406, i32 %add.i407, i32 %start_point.0896
   %idxprom335 = zext i32 %j.1 to i64
   %flag337 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %idxprom335, i32 2
@@ -4662,7 +4662,7 @@ for.cond348:                                      ; preds = %land.lhs.true339, %
   %125 = phi i8 [ %.be, %for.cond348.backedge ], [ 1, %land.lhs.true339 ]
   %j.2 = phi i32 [ %cond.i411, %for.cond348.backedge ], [ %j.1, %land.lhs.true339 ]
   %cmp.not.i409 = icmp ult i32 %j.2, %119
-  %add.i410 = add i32 %j.2, 1
+  %add.i410 = add nuw i32 %j.2, 1
   %cond.i411 = select i1 %cmp.not.i409, i32 %add.i410, i32 %start_point.0896
   %tobool354.not = icmp eq i8 %125, 0
   %idxprom357 = zext i32 %cond.i411 to i64
@@ -4693,7 +4693,7 @@ for.cond364:                                      ; preds = %for.cond364.prehead
   %unref_count.2 = phi i32 [ %dec, %_ZN2OT4gvar13accelerator_t11infer_deltaE10hb_array_tI15contour_point_tES4_jjjMS3_f.exit455 ], [ %unref_count.1, %for.cond364.preheader ]
   %i331.0 = phi i32 [ %cond.i414, %_ZN2OT4gvar13accelerator_t11infer_deltaE10hb_array_tI15contour_point_tES4_jjjMS3_f.exit455 ], [ %j.1, %for.cond364.preheader ]
   %cmp.not.i412 = icmp ult i32 %i331.0, %119
-  %add.i413 = add i32 %i331.0, 1
+  %add.i413 = add nuw i32 %i331.0, 1
   %cond.i414 = select i1 %cmp.not.i412, i32 %add.i413, i32 %start_point.0896
   %cmp366 = icmp eq i32 %cond.i414, %cond.i411
   br i1 %cmp366, label %for.cond330, label %if.end368, !llvm.loop !44
@@ -7800,7 +7800,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.end.us
   %indvars.iv84 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next85, %for.end.us ]
-  %37 = trunc i64 %indvars.iv84 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv84 to i32
   %mul29.us = mul i32 %add.i.i64, %37
   %idx.ext.i.i.us = zext i32 %mul29.us to i64
   %add.ptr.i.i.us = getelementptr inbounds %"struct.OT::HBFixed", ptr %add.ptr.i.i.i, i64 %idx.ext.i.i.us
@@ -7823,7 +7823,7 @@ for.body33.us:                                    ; preds = %for.body.us, %for.i
 
 if.then36.us:                                     ; preds = %for.body33.us
   %cmp37.us = icmp eq i32 %idx1.074.us, -1
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %cmp37.us, label %for.inc.us, label %if.else.us
 
 if.else.us:                                       ; preds = %if.then36.us
@@ -8129,8 +8129,8 @@ land.end.sink.split:                              ; preds = %cond.false, %cond.t
   %cmp7.i.i.i56 = icmp sgt i32 %sub.i.i.i, 0
   br label %land.end
 
-land.end:                                         ; preds = %land.end.sink.split, %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_7HBFixedINS1_7IntTypeIsLj2EEELj14EEEEEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit, %lor.lhs.false.i, %land.lhs.true.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true5, %cond.false, %cond.true, %land.lhs.true, %entry
-  %29 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ false, %cond.true ], [ false, %cond.false ], [ false, %land.lhs.true5 ], [ false, %land.rhs.i.i.i.i.i ], [ false, %land.lhs.true.i.i.i.i.i.i ], [ false, %lor.lhs.false.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_7HBFixedINS1_7IntTypeIsLj2EEELj14EEEEEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit ], [ %cmp7.i.i.i56, %land.end.sink.split ]
+land.end:                                         ; preds = %land.end.sink.split, %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_7HBFixedINS1_7IntTypeIsLj2EEELj14EEEEEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit, %land.rhs.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %lor.lhs.false.i, %land.lhs.true5, %cond.false, %cond.true, %land.lhs.true, %entry
+  %29 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ false, %cond.true ], [ false, %cond.false ], [ false, %land.lhs.true5 ], [ false, %lor.lhs.false.i ], [ false, %land.lhs.true.i.i.i.i.i.i ], [ false, %land.rhs.i.i.i.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_7HBFixedINS1_7IntTypeIsLj2EEELj14EEEEEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit ], [ %cmp7.i.i.i56, %land.end.sink.split ]
   ret i1 %29
 }
 

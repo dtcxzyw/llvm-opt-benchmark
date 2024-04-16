@@ -135,18 +135,18 @@ declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_getnameinfo_all(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %getnameinfo_unix.exit, label %8
+  br i1 %.not, label %35, label %8
 
 8:                                                ; preds = %7
   %9 = load i16, ptr %0, align 8
   %10 = icmp eq i16 %9, 1
-  br i1 %10, label %11, label %getnameinfo_unix.exit
+  br i1 %10, label %11, label %35
 
 11:                                               ; preds = %8
   %12 = icmp eq ptr %2, null
   %13 = icmp eq ptr %4, null
   %or.cond.i = and i1 %12, %13
-  br i1 %or.cond.i, label %getnameinfo_unix.exit.thread33, label %14
+  br i1 %or.cond.i, label %getnameinfo_unix.exit.thread, label %14
 
 14:                                               ; preds = %11
   br i1 %12, label %19, label %15
@@ -154,15 +154,17 @@ define dso_local i32 @pg_getnameinfo_all(ptr noundef %0, i32 noundef %1, ptr nou
 15:                                               ; preds = %14
   %16 = sext i32 %3 to i64
   %17 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef %16, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
-  %18 = icmp sgt i32 %17, -1
-  %.not29.i = icmp slt i32 %17, %3
-  %or.cond33.i = and i1 %18, %.not29.i
-  br i1 %or.cond33.i, label %19, label %getnameinfo_unix.exit.thread.thread39
+  %18 = icmp slt i32 %17, 0
+  %.not29.i = icmp sge i32 %17, %3
+  %or.cond33.not36.i = or i1 %18, %.not29.i
+  %brmerge.i = or i1 %13, %or.cond33.not36.i
+  %.mux.i = select i1 %or.cond33.not36.i, i32 -10, i32 0
+  br i1 %brmerge.i, label %getnameinfo_unix.exit, label %20
 
-19:                                               ; preds = %15, %14
-  br i1 %13, label %getnameinfo_unix.exit.thread33, label %20
+19:                                               ; preds = %14
+  br i1 %13, label %getnameinfo_unix.exit.thread, label %20
 
-20:                                               ; preds = %19
+20:                                               ; preds = %19, %15
   %21 = getelementptr inbounds i8, ptr %0, i64 2
   %22 = load i8, ptr %21, align 2
   %23 = icmp eq i8 %22, 0
@@ -189,41 +191,39 @@ define dso_local i32 @pg_getnameinfo_all(ptr noundef %0, i32 noundef %1, ptr nou
   %34 = icmp sgt i32 %.0.i, -1
   %.not32.i = icmp slt i32 %.0.i, %5
   %or.cond34.i = and i1 %34, %.not32.i
-  br i1 %or.cond34.i, label %getnameinfo_unix.exit.thread33, label %getnameinfo_unix.exit.thread
+  br i1 %or.cond34.i, label %getnameinfo_unix.exit.thread, label %getnameinfo_unix.exit.thread33
 
-getnameinfo_unix.exit:                            ; preds = %7, %8
-  %35 = tail call i32 @getnameinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #11
-  %.not26 = icmp eq i32 %35, 0
-  br i1 %.not26, label %getnameinfo_unix.exit.thread33, label %getnameinfo_unix.exit.thread
+35:                                               ; preds = %8, %7
+  %36 = tail call i32 @getnameinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #11
+  br label %getnameinfo_unix.exit
 
-getnameinfo_unix.exit.thread:                     ; preds = %33, %getnameinfo_unix.exit
-  %.031 = phi i32 [ %35, %getnameinfo_unix.exit ], [ -10, %33 ]
+getnameinfo_unix.exit:                            ; preds = %15, %35
+  %.0 = phi i32 [ %36, %35 ], [ %.mux.i, %15 ]
+  %.not26 = icmp eq i32 %.0, 0
+  br i1 %.not26, label %getnameinfo_unix.exit.thread, label %getnameinfo_unix.exit.thread33
+
+getnameinfo_unix.exit.thread33:                   ; preds = %33, %getnameinfo_unix.exit
+  %.036 = phi i32 [ %.0, %getnameinfo_unix.exit ], [ -10, %33 ]
   %.not27 = icmp eq ptr %2, null
-  br i1 %.not27, label %37, label %getnameinfo_unix.exit.thread.getnameinfo_unix.exit.thread.thread39_crit_edge
+  br i1 %.not27, label %40, label %37
 
-getnameinfo_unix.exit.thread.getnameinfo_unix.exit.thread.thread39_crit_edge: ; preds = %getnameinfo_unix.exit.thread
-  %.pre = sext i32 %3 to i64
-  br label %getnameinfo_unix.exit.thread.thread39
+37:                                               ; preds = %getnameinfo_unix.exit.thread33
+  %38 = sext i32 %3 to i64
+  %39 = tail call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) @.str, i64 noundef %38) #11
+  br label %40
 
-getnameinfo_unix.exit.thread.thread39:            ; preds = %getnameinfo_unix.exit.thread.getnameinfo_unix.exit.thread.thread39_crit_edge, %15
-  %.pre-phi = phi i64 [ %.pre, %getnameinfo_unix.exit.thread.getnameinfo_unix.exit.thread.thread39_crit_edge ], [ %16, %15 ]
-  %.03142 = phi i32 [ %.031, %getnameinfo_unix.exit.thread.getnameinfo_unix.exit.thread.thread39_crit_edge ], [ -10, %15 ]
-  %36 = tail call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) @.str, i64 noundef %.pre-phi) #11
-  br label %37
-
-37:                                               ; preds = %getnameinfo_unix.exit.thread.thread39, %getnameinfo_unix.exit.thread
-  %.03138 = phi i32 [ %.03142, %getnameinfo_unix.exit.thread.thread39 ], [ %.031, %getnameinfo_unix.exit.thread ]
+40:                                               ; preds = %37, %getnameinfo_unix.exit.thread33
   %.not28 = icmp eq ptr %4, null
-  br i1 %.not28, label %getnameinfo_unix.exit.thread33, label %38
+  br i1 %.not28, label %getnameinfo_unix.exit.thread, label %41
 
-38:                                               ; preds = %37
-  %39 = sext i32 %5 to i64
-  %40 = tail call i64 @strlcpy(ptr noundef nonnull %4, ptr noundef nonnull dereferenceable(1) @.str, i64 noundef %39) #11
-  br label %getnameinfo_unix.exit.thread33
+41:                                               ; preds = %40
+  %42 = sext i32 %5 to i64
+  %43 = tail call i64 @strlcpy(ptr noundef nonnull %4, ptr noundef nonnull dereferenceable(1) @.str, i64 noundef %42) #11
+  br label %getnameinfo_unix.exit.thread
 
-getnameinfo_unix.exit.thread33:                   ; preds = %11, %33, %19, %37, %38, %getnameinfo_unix.exit
-  %.032 = phi i32 [ %.03138, %37 ], [ %.03138, %38 ], [ 0, %getnameinfo_unix.exit ], [ 0, %19 ], [ 0, %33 ], [ -4, %11 ]
-  ret i32 %.032
+getnameinfo_unix.exit.thread:                     ; preds = %11, %33, %19, %40, %41, %getnameinfo_unix.exit
+  %.031 = phi i32 [ %.036, %40 ], [ %.036, %41 ], [ 0, %getnameinfo_unix.exit ], [ 0, %19 ], [ 0, %33 ], [ -4, %11 ]
+  ret i32 %.031
 }
 
 declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

@@ -143,7 +143,7 @@ ossl_quic_txfc_consume_credit_local.exit:         ; preds = %entry, %if.then3.i
   store i64 %add.i, ptr %swm.i.i, align 8
   %2 = load ptr, ptr %txfc, align 8
   %cmp.not = icmp eq ptr %2, null
-  br i1 %cmp.not, label %if.end4, label %if.then
+  br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %ossl_quic_txfc_consume_credit_local.exit
   %cwm.i.i4 = getelementptr inbounds i8, ptr %2, i64 16
@@ -166,13 +166,11 @@ ossl_quic_txfc_consume_credit_local.exit16:       ; preds = %if.then, %if.then3.
   %cmp.i11.not = icmp ult i64 %sub.i.i6, %num_bytes
   %add.i13 = add i64 %spec.select8.i7, %4
   store i64 %add.i13, ptr %swm.i.i5, align 8
-  br i1 %cmp.i11.not, label %return, label %if.end4
-
-if.end4:                                          ; preds = %ossl_quic_txfc_consume_credit_local.exit16, %ossl_quic_txfc_consume_credit_local.exit
+  %spec.select = select i1 %cmp.i11.not, i32 0, i32 %spec.select.i
   br label %return
 
-return:                                           ; preds = %ossl_quic_txfc_consume_credit_local.exit16, %if.end4
-  %retval.0 = phi i32 [ %spec.select.i, %if.end4 ], [ 0, %ossl_quic_txfc_consume_credit_local.exit16 ]
+return:                                           ; preds = %ossl_quic_txfc_consume_credit_local.exit16, %ossl_quic_txfc_consume_credit_local.exit
+  %retval.0 = phi i32 [ %spec.select.i, %ossl_quic_txfc_consume_credit_local.exit ], [ %spec.select, %ossl_quic_txfc_consume_credit_local.exit16 ]
   ret i32 %retval.0
 }
 
@@ -524,7 +522,7 @@ if.end.i:                                         ; preds = %rxfc_cwm_bump_desir
   %esrwm.i.i.i = getelementptr inbounds i8, ptr %rxfc, i64 24
   %15 = load i64, ptr %esrwm.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %add, %15
-  br i1 %cmp.i.i.i, label %rxfc_should_bump_window_size.exit.thread.i.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %rxfc_adjust_window_size.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i
   %sub.i.i.i = sub i64 %add, %15
@@ -548,61 +546,60 @@ safe_muldiv_time.exit.thread.i.i.i.i:             ; preds = %if.end.i.i.i
 if.end4.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   %spec.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %retval.sroa.0.0.i.i.i.i)
   %spec.select20.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %19, i64 %retval.sroa.0.0.i.i.i.i)
-  %div9.i.i.i.i.i = udiv i64 %spec.select20.i.i.i.i.i, %sub.i.i.i
   %rem.i.i.i.i.i = urem i64 %spec.select20.i.i.i.i.i, %sub.i.i.i
-  %23 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %div9.i.i.i.i.i, i64 %spec.select.i.i.i.i.i)
+  %23 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %rem.i.i.i.i.i, i64 %spec.select.i.i.i.i.i)
   %24 = extractvalue { i64, i1 } %23, 1
-  br i1 %24, label %cond.true.i.i.i.i, label %safe_mul_time.exit32.i.i.i.i.i
+  %div9.i.i.i.i.i = udiv i64 %spec.select20.i.i.i.i.i, %sub.i.i.i
+  %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %div9.i.i.i.i.i, i64 %spec.select.i.i.i.i.i)
+  %26 = extractvalue { i64, i1 } %25, 1
+  br i1 %26, label %rxfc_should_bump_window_size.exit.i.i, label %safe_mul_time.exit32.i.i.i.i.i
 
 safe_mul_time.exit32.i.i.i.i.i:                   ; preds = %if.end4.i.i.i.i.i
-  %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %rem.i.i.i.i.i, i64 %spec.select.i.i.i.i.i)
-  %26 = extractvalue { i64, i1 } %25, 1
   %mul.i25.i.i.i.i.i = mul i64 %rem.i.i.i.i.i, %spec.select.i.i.i.i.i
-  %27 = extractvalue { i64, i1 } %25, 0
-  %retval.0.i22.i.i.i.i.i = select i1 %26, i64 %mul.i25.i.i.i.i.i, i64 %27
-  %28 = extractvalue { i64, i1 } %23, 0
+  %27 = extractvalue { i64, i1 } %23, 0
+  %retval.0.i22.i.i.i.i.i = select i1 %24, i64 %mul.i25.i.i.i.i.i, i64 %27
+  %28 = extractvalue { i64, i1 } %25, 0
   %div11.i.i.i.i.i = udiv i64 %retval.0.i22.i.i.i.i.i, %sub.i.i.i
   %29 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %28, i64 %div11.i.i.i.i.i)
   %30 = extractvalue { i64, i1 } %29, 1
-  %31 = extractvalue { i64, i1 } %29, 0
-  %32 = select i1 %30, i1 true, i1 %26
-  br i1 %32, label %cond.true.i.i.i.i, label %rxfc_should_bump_window_size.exit.i.i
+  br i1 %30, label %rxfc_should_bump_window_size.exit.i.i, label %safe_muldiv_time.exit.i.i.i.i
 
-cond.true.i.i.i.i:                                ; preds = %safe_mul_time.exit32.i.i.i.i.i, %if.end4.i.i.i.i.i
+safe_muldiv_time.exit.i.i.i.i:                    ; preds = %safe_mul_time.exit32.i.i.i.i.i
+  %31 = extractvalue { i64, i1 } %29, 0
+  %spec.select.i.i.i.i = select i1 %24, i64 0, i64 %31
   br label %rxfc_should_bump_window_size.exit.i.i
 
-rxfc_should_bump_window_size.exit.i.i:            ; preds = %cond.true.i.i.i.i, %safe_mul_time.exit32.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i
-  %retval.sroa.0.0.i7.i.i.i = phi i64 [ 0, %cond.true.i.i.i.i ], [ %div.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i ], [ %31, %safe_mul_time.exit32.i.i.i.i.i ]
-  %33 = icmp ugt i64 %rtt.coerce, 4611686018427387903
-  %34 = shl nuw i64 %rtt.coerce, 2
-  %retval.sroa.0.0.i8.i.i.i = select i1 %33, i64 -1, i64 %34
+rxfc_should_bump_window_size.exit.i.i:            ; preds = %safe_muldiv_time.exit.i.i.i.i, %safe_mul_time.exit32.i.i.i.i.i, %if.end4.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i
+  %retval.sroa.0.0.i7.i.i.i = phi i64 [ %div.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i ], [ 0, %safe_mul_time.exit32.i.i.i.i.i ], [ 0, %if.end4.i.i.i.i.i ], [ %spec.select.i.i.i.i, %safe_muldiv_time.exit.i.i.i.i ]
+  %32 = icmp ugt i64 %rtt.coerce, 4611686018427387903
+  %33 = shl nuw i64 %rtt.coerce, 2
+  %retval.sroa.0.0.i8.i.i.i = select i1 %32, i64 -1, i64 %33
   %cmp5.i.i.i.i = icmp uge i64 %retval.sroa.0.0.i7.i.i.i, %retval.sroa.0.0.i8.i.i.i
-  %mul.i.i = shl i64 %6, 1
   %cond.fr.i.i = freeze i1 %cmp5.i.i.i.i
-  br i1 %cond.fr.i.i, label %rxfc_should_bump_window_size.exit.thread.i.i, label %rxfc_adjust_window_size.exit.i
-
-rxfc_should_bump_window_size.exit.thread.i.i:     ; preds = %rxfc_should_bump_window_size.exit.i.i, %if.end.i
+  %not.cond.fr.i.i = xor i1 %cond.fr.i.i, true
+  %mul.i.i = zext i1 %not.cond.fr.i.i to i64
+  %spec.select.i.i = shl i64 %6, %mul.i.i
   br label %rxfc_adjust_window_size.exit.i
 
-rxfc_adjust_window_size.exit.i:                   ; preds = %rxfc_should_bump_window_size.exit.thread.i.i, %rxfc_should_bump_window_size.exit.i.i
-  %35 = phi i64 [ %6, %rxfc_should_bump_window_size.exit.thread.i.i ], [ %mul.i.i, %rxfc_should_bump_window_size.exit.i.i ]
-  %new_window_size.1.i.i = tail call i64 @llvm.umax.i64(i64 %35, i64 %min_window_size)
+rxfc_adjust_window_size.exit.i:                   ; preds = %rxfc_should_bump_window_size.exit.i.i, %if.end.i
+  %34 = phi i64 [ %6, %if.end.i ], [ %spec.select.i.i, %rxfc_should_bump_window_size.exit.i.i ]
+  %new_window_size.1.i.i = tail call i64 @llvm.umax.i64(i64 %34, i64 %min_window_size)
   %max_window_size.i.i = getelementptr inbounds i8, ptr %rxfc, i64 48
-  %36 = load i64, ptr %max_window_size.i.i, align 8
-  %new_window_size.2.i.i = tail call i64 @llvm.umin.i64(i64 %new_window_size.1.i.i, i64 %36)
+  %35 = load i64, ptr %max_window_size.i.i, align 8
+  %new_window_size.2.i.i = tail call i64 @llvm.umin.i64(i64 %new_window_size.1.i.i, i64 %35)
   store i64 %new_window_size.2.i.i, ptr %cur_window_size.i.i, align 8
   %now.i.i.i = getelementptr inbounds i8, ptr %rxfc, i64 64
-  %37 = load ptr, ptr %now.i.i.i, align 8
+  %36 = load ptr, ptr %now.i.i.i, align 8
   %now_arg.i11.i.i = getelementptr inbounds i8, ptr %rxfc, i64 72
-  %38 = load ptr, ptr %now_arg.i11.i.i, align 8
-  %call.i12.i.i = tail call i64 %37(ptr noundef %38) #9
+  %37 = load ptr, ptr %now_arg.i11.i.i, align 8
+  %call.i12.i.i = tail call i64 %36(ptr noundef %37) #9
   store i64 %call.i12.i.i, ptr %epoch_start, align 8
-  %39 = load i64, ptr %rwm, align 8
-  store i64 %39, ptr %esrwm.i.i.i, align 8
-  %40 = load i64, ptr %cur_window_size.i.i, align 8
-  %add.i = add i64 %40, %39
-  %41 = load i64, ptr %rxfc, align 8
-  %cmp.i = icmp ugt i64 %add.i, %41
+  %38 = load i64, ptr %rwm, align 8
+  store i64 %38, ptr %esrwm.i.i.i, align 8
+  %39 = load i64, ptr %cur_window_size.i.i, align 8
+  %add.i = add i64 %39, %38
+  %40 = load i64, ptr %rxfc, align 8
+  %cmp.i = icmp ugt i64 %add.i, %40
   br i1 %cmp.i, label %if.then2.i, label %rxfc_update_cwm.exit
 
 if.then2.i:                                       ; preds = %rxfc_adjust_window_size.exit.i

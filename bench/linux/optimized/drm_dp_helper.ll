@@ -457,7 +457,7 @@ define dso_local zeroext i8 @drm_dp_get_adjust_request_voltage(ptr nocapture nou
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = lshr i32 %10, %5
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw i32 %11 to i8
   %13 = and i8 %12, 3
   ret i8 %13
 }
@@ -489,7 +489,7 @@ define dso_local zeroext i8 @drm_dp_get_adjust_tx_ffe_preset(ptr nocapture nound
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = lshr i32 %10, %5
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw i32 %11 to i8
   %13 = and i8 %12, 15
   ret i8 %13
 }
@@ -1280,7 +1280,7 @@ declare dso_local i64 @drm_dp_mst_dpcd_write(ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_dp_dpcd_read_link_status(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 514, ptr noundef %1, i64 noundef 6), !range !12
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nsw i64 %3 to i32
   ret i32 %4
 }
 
@@ -1291,7 +1291,7 @@ define dso_local i32 @drm_dp_dpcd_read_phy_link_status(ptr noundef %0, i32 nound
 
 5:                                                ; preds = %3
   %6 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 514, ptr noundef %2, i64 noundef 6), !range !12
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nsw i64 %6 to i32
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %25, label %9
 
@@ -1309,7 +1309,7 @@ define dso_local i32 @drm_dp_dpcd_read_phy_link_status(ptr noundef %0, i32 nound
   %13 = mul i32 %1, 80
   %14 = add i32 %13, 983008
   %15 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef %14, ptr noundef %2, i64 noundef 5), !range !12
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nsw i64 %15 to i32
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %25, label %18
 
@@ -1576,7 +1576,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 define dso_local i32 @drm_dp_read_dpcd_caps(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = alloca [15 x i8], align 1
   %4 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 0, ptr noundef %1, i64 noundef 15), !range !12
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nsw i64 %4 to i32
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %64, label %7
 
@@ -1599,7 +1599,7 @@ define dso_local i32 @drm_dp_read_dpcd_caps(ptr noundef %0, ptr noundef %1) #3 a
 
 16:                                               ; preds = %12
   %17 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 8704, ptr noundef nonnull %3, i64 noundef 15), !range !12
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nsw i64 %17 to i32
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %52, label %20
 
@@ -1714,7 +1714,7 @@ define dso_local i32 @drm_dp_read_downstream_info(ptr noundef %0, ptr nocapture 
   %22 = select i1 %16, i8 %14, i8 %21
   %23 = zext nneg i8 %22 to i64
   %24 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 128, ptr noundef %2, i64 noundef %23), !range !12
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nsw i64 %24 to i32
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %40, label %27
 
@@ -2169,7 +2169,7 @@ declare dso_local ptr @drm_display_mode_from_cea_vic(ptr noundef, i8 noundef zer
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_dp_downstream_id(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 1283, ptr noundef %1, i64 noundef 6), !range !12
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nsw i64 %3 to i32
   ret i32 %4
 }
 
@@ -2231,7 +2231,7 @@ define dso_local void @drm_dp_downstream_debug(ptr noundef %0, ptr nocapture nou
   %27 = call i64 @drm_dp_dpcd_read(ptr noundef %4, i32 noundef 1283, ptr noundef nonnull %6, i64 noundef 6), !range !12
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %6) #17
   %28 = call i64 @drm_dp_dpcd_read(ptr noundef %4, i32 noundef 1289, ptr noundef nonnull %7, i64 noundef 1), !range !12
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nsw i64 %28 to i32
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %36
 
@@ -2245,7 +2245,7 @@ define dso_local void @drm_dp_downstream_debug(ptr noundef %0, ptr nocapture nou
 
 36:                                               ; preds = %31, %25
   %37 = call i64 @drm_dp_dpcd_read(ptr noundef %4, i32 noundef 1290, ptr noundef nonnull %7, i64 noundef 2), !range !12
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nsw i64 %37 to i32
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %46
 
@@ -2600,7 +2600,7 @@ define dso_local i32 @drm_dp_read_sink_count(ptr noundef %0) #3 align 16 {
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #17
   store i8 0, ptr %2, align 1, !annotation !11
   %3 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 512, ptr noundef nonnull %2, i64 noundef 1), !range !12
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nsw i64 %3 to i32
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %15, label %6
 
@@ -2686,7 +2686,7 @@ define internal void @drm_dp_aux_crc_work(ptr noundef %0) #3 align 16 {
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
   store i8 0, ptr %3, align 1, !annotation !11
   %26 = call i64 @drm_dp_dpcd_read(ptr noundef %6, i32 noundef 624, ptr noundef nonnull %3, i64 noundef 1), !range !12
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nsw i64 %26 to i32
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %drm_dp_aux_get_crc.exit, label %29
 
@@ -2704,7 +2704,7 @@ define internal void @drm_dp_aux_crc_work(ptr noundef %0) #3 align 16 {
 
 34:                                               ; preds = %33, %29
   %35 = call i64 @drm_dp_dpcd_read(ptr noundef %6, i32 noundef 582, ptr noundef nonnull %3, i64 noundef 1), !range !12
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nsw i64 %35 to i32
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %drm_dp_aux_get_crc.exit, label %38
 
@@ -2722,7 +2722,7 @@ drm_dp_aux_get_crc.exit.thread:                   ; preds = %38
 43:                                               ; preds = %38
   store i8 %40, ptr %20, align 8
   %44 = call i64 @drm_dp_dpcd_read(ptr noundef %6, i32 noundef 576, ptr noundef nonnull %4, i64 noundef 6), !range !12
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nsw i64 %44 to i32
   %46 = call i32 @llvm.smin.i32(i32 %45, i32 0)
   br label %drm_dp_aux_get_crc.exit
 
@@ -2737,7 +2737,7 @@ drm_dp_aux_get_crc.exit:                          ; preds = %25, %34, %43
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #17
   store i8 0, ptr %2, align 1, !annotation !11
   %50 = call i64 @drm_dp_dpcd_read(ptr noundef %6, i32 noundef 624, ptr noundef nonnull %2, i64 noundef 1), !range !12
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nsw i64 %50 to i32
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %drm_dp_aux_get_crc.exit4, label %53
 
@@ -2755,7 +2755,7 @@ drm_dp_aux_get_crc.exit:                          ; preds = %25, %34, %43
 
 58:                                               ; preds = %57, %53
   %59 = call i64 @drm_dp_dpcd_read(ptr noundef %6, i32 noundef 582, ptr noundef nonnull %2, i64 noundef 1), !range !12
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nsw i64 %59 to i32
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %drm_dp_aux_get_crc.exit4, label %62
 
@@ -2769,7 +2769,7 @@ drm_dp_aux_get_crc.exit:                          ; preds = %25, %34, %43
 67:                                               ; preds = %62
   store i8 %64, ptr %20, align 8
   %68 = call i64 @drm_dp_dpcd_read(ptr noundef %6, i32 noundef 576, ptr noundef nonnull %4, i64 noundef 6), !range !12
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nsw i64 %68 to i32
   %70 = call i32 @llvm.smin.i32(i32 %69, i32 0)
   br label %drm_dp_aux_get_crc.exit4
 
@@ -2983,7 +2983,7 @@ define dso_local i32 @drm_dp_start_crc(ptr noundef %0, ptr noundef %1) #3 align 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
   store i8 0, ptr %4, align 1, !annotation !11
   %5 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 624, ptr noundef nonnull %4, i64 noundef 1), !range !12
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %20, label %8
 
@@ -2994,7 +2994,7 @@ define dso_local i32 @drm_dp_start_crc(ptr noundef %0, ptr noundef %1) #3 align 
   store i8 %10, ptr %3, align 1
   %11 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 624, ptr noundef nonnull %3, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nsw i64 %11 to i32
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %20, label %14
 
@@ -3021,7 +3021,7 @@ define dso_local i32 @drm_dp_stop_crc(ptr noundef %0) #3 align 16 {
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
   store i8 0, ptr %3, align 1, !annotation !11
   %4 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 624, ptr noundef nonnull %3, i64 noundef 1), !range !12
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nsw i64 %4 to i32
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %17, label %7
 
@@ -3032,7 +3032,7 @@ define dso_local i32 @drm_dp_stop_crc(ptr noundef %0) #3 align 16 {
   store i8 %9, ptr %2, align 1
   %10 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 624, ptr noundef nonnull %2, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %17, label %13
 
@@ -3057,7 +3057,7 @@ define dso_local i32 @drm_dp_read_desc(ptr noundef %0, ptr noundef %1, i1 nounde
   %4 = alloca [6 x i8], align 1
   %5 = select i1 %2, i32 1280, i32 1024
   %6 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef %5, ptr noundef %1, i64 noundef 12), !range !12
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nsw i64 %6 to i32
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %62, label %9
 
@@ -3366,7 +3366,7 @@ define dso_local i32 @drm_dp_read_lttpr_common_caps(ptr noundef %0, ptr nocaptur
   %11 = add i32 %10, 983040
   %12 = getelementptr i8, ptr %2, i64 %9
   %13 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef %11, ptr noundef %12, i64 noundef %7), !range !12
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nsw i64 %13 to i32
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %23, label %16
 
@@ -3403,11 +3403,11 @@ define dso_local i32 @drm_dp_read_lttpr_phy_caps(ptr noundef %0, ptr nocapture n
 
 11:                                               ; preds = %22, %4
   %12 = phi i64 [ 0, %4 ], [ %23, %22 ]
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = add i32 %6, %13
   %15 = getelementptr i8, ptr %3, i64 %12
   %16 = tail call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef %14, ptr noundef %15, i64 noundef %10), !range !12
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nsw i64 %16 to i32
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %25, label %19
 
@@ -3521,7 +3521,7 @@ define dso_local i32 @drm_dp_get_phy_test_pattern(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
   store i8 0, ptr %4, align 1, !annotation !11
   %5 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 537, ptr noundef nonnull %3, i64 noundef 1), !range !12
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %45, label %8
 
@@ -3548,7 +3548,7 @@ define dso_local i32 @drm_dp_get_phy_test_pattern(ptr noundef %0, ptr noundef %1
   %16 = phi i32 [ %14, %12 ], [ 2000000, %11 ], [ 1350000, %10 ], [ 1000000, %8 ]
   store i32 %16, ptr %1, align 4
   %17 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 544, ptr noundef nonnull %4, i64 noundef 1), !range !12
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nsw i64 %17 to i32
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %45, label %20
 
@@ -3568,7 +3568,7 @@ define dso_local i32 @drm_dp_get_phy_test_pattern(ptr noundef %0, ptr noundef %1
 27:                                               ; preds = %25, %20
   %28 = getelementptr inbounds i8, ptr %1, i64 5
   %29 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 584, ptr noundef %28, i64 noundef 1), !range !12
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %45, label %32
 
@@ -3582,14 +3582,14 @@ define dso_local i32 @drm_dp_get_phy_test_pattern(ptr noundef %0, ptr noundef %1
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   %36 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 592, ptr noundef %35, i64 noundef 10), !range !12
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nsw i64 %36 to i32
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %45, label %44
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds i8, ptr %1, i64 6
   %41 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 586, ptr noundef %40, i64 noundef 2), !range !12
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nsw i64 %41 to i32
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %45, label %44
 
@@ -3616,7 +3616,7 @@ define dso_local i32 @drm_dp_set_phy_test_pattern(ptr noundef %0, ptr nocapture 
   %10 = getelementptr inbounds i8, ptr %1, i64 4
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %.loopexit3, label %.preheader
+  br i1 %12, label %.loopexit, label %.preheader
 
 13:                                               ; preds = %3
   %14 = shl i8 %7, 2
@@ -3625,34 +3625,31 @@ define dso_local i32 @drm_dp_set_phy_test_pattern(ptr noundef %0, ptr nocapture 
   store i8 %15, ptr %5, align 1
   %16 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 258, ptr noundef nonnull %5, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %17 = trunc i64 %16 to i32
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %.loopexit, label %.loopexit3
-
-19:                                               ; preds = %.preheader
-  %20 = add nuw nsw i32 %24, 1
-  %21 = load i8, ptr %10, align 4
-  %22 = zext i8 %21 to i32
-  %23 = icmp ult i32 %20, %22
-  br i1 %23, label %.preheader, label %.loopexit3, !llvm.loop !48
-
-.preheader:                                       ; preds = %9, %19
-  %24 = phi i32 [ %20, %19 ], [ 0, %9 ]
-  %25 = add nuw nsw i32 %24, 267
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %7, ptr %4, align 1
-  %26 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %4, i64 noundef 1), !range !12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %27 = trunc i64 %26 to i32
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %.loopexit, label %19
-
-.loopexit3:                                       ; preds = %19, %13, %9
+  %17 = trunc nsw i64 %16 to i32
+  %spec.select = call i32 @llvm.smin.i32(i32 %17, i32 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit3, %13
-  %29 = phi i32 [ 0, %.loopexit3 ], [ %17, %13 ], [ %27, %.preheader ]
-  ret i32 %29
+18:                                               ; preds = %.preheader
+  %19 = add nuw nsw i32 %23, 1
+  %20 = load i8, ptr %10, align 4
+  %21 = zext i8 %20 to i32
+  %22 = icmp ult i32 %19, %21
+  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !48
+
+.preheader:                                       ; preds = %9, %18
+  %23 = phi i32 [ %19, %18 ], [ 0, %9 ]
+  %24 = add nuw nsw i32 %23, 267
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  store i8 %7, ptr %4, align 1
+  %25 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %4, i64 noundef 1), !range !12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  %26 = trunc nsw i64 %25 to i32
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %.loopexit, label %18
+
+.loopexit:                                        ; preds = %18, %.preheader, %13, %9
+  %28 = phi i32 [ 0, %9 ], [ %spec.select, %13 ], [ 0, %18 ], [ %26, %.preheader ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3923,7 +3920,7 @@ define dso_local i32 @drm_dp_pcon_frl_prepare(ptr noundef %0, i1 noundef zeroext
   store i8 %4, ptr %3, align 1
   %5 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %3, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   ret i32 %6
 }
 
@@ -3950,7 +3947,7 @@ define dso_local i32 @drm_dp_pcon_frl_configure_1(ptr noundef %0, i32 noundef %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
   store i8 0, ptr %5, align 1, !annotation !11
   %6 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %5, i64 noundef 1), !range !12
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nsw i64 %6 to i32
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %32, label %9
 
@@ -4007,7 +4004,7 @@ define dso_local i32 @drm_dp_pcon_frl_configure_1(ptr noundef %0, i32 noundef %1
   store i8 %28, ptr %4, align 1
   %29 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %4, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   %31 = call i32 @llvm.smin.i32(i32 %30, i32 0)
   br label %32
 
@@ -4029,7 +4026,7 @@ define dso_local i32 @drm_dp_pcon_frl_configure_2(ptr noundef %0, i32 noundef %1
   store i8 %9, ptr %4, align 1
   %10 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12379, ptr noundef nonnull %4, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   %12 = call i32 @llvm.smin.i32(i32 %11, i32 0)
   ret i32 %12
 }
@@ -4041,7 +4038,7 @@ define dso_local i32 @drm_dp_pcon_reset_frl_config(ptr noundef %0) #3 align 16 {
   store i8 0, ptr %2, align 1
   %3 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %2, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nsw i64 %3 to i32
   %5 = call i32 @llvm.smin.i32(i32 %4, i32 0)
   ret i32 %5
 }
@@ -4053,7 +4050,7 @@ define dso_local i32 @drm_dp_pcon_frl_enable(ptr noundef %0) #3 align 16 {
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
   store i8 0, ptr %3, align 1
   %4 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %3, i64 noundef 1), !range !12
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nsw i64 %4 to i32
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %26, label %7
 
@@ -4087,7 +4084,7 @@ define dso_local i32 @drm_dp_pcon_frl_enable(ptr noundef %0) #3 align 16 {
   store i8 %22, ptr %2, align 1
   %23 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %2, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nsw i64 %23 to i32
   %25 = call i32 @llvm.smin.i32(i32 %24, i32 0)
   br label %26
 
@@ -4119,7 +4116,7 @@ define dso_local i32 @drm_dp_pcon_hdmi_link_mode(ptr noundef %0, ptr noundef wri
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
   store i8 0, ptr %3, align 1, !annotation !11
   %4 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12342, ptr noundef nonnull %3, i64 noundef 1), !range !12
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nsw i64 %4 to i32
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %17, label %7
 
@@ -4320,7 +4317,7 @@ define dso_local i32 @drm_dp_pcon_pps_default(ptr noundef %0) #3 align 16 {
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
   store i8 0, ptr %3, align 1, !annotation !11
   %4 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12370, ptr noundef nonnull %3, i64 noundef 1), !range !12
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nsw i64 %4 to i32
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %14, label %7
 
@@ -4333,7 +4330,7 @@ define dso_local i32 @drm_dp_pcon_pps_default(ptr noundef %0) #3 align 16 {
   store i8 %10, ptr %2, align 1
   %11 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12370, ptr noundef nonnull %2, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nsw i64 %11 to i32
   %13 = call i32 @llvm.smin.i32(i32 %12, i32 0)
   br label %14
 
@@ -4350,7 +4347,7 @@ define dso_local i32 @drm_dp_pcon_pps_override_buf(ptr noundef %0, ptr noundef %
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
   %6 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12544, ptr noundef nonnull %5, i64 noundef 128), !range !12
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nsw i64 %6 to i32
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %22, label %9
 
@@ -4358,7 +4355,7 @@ define dso_local i32 @drm_dp_pcon_pps_override_buf(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
   store i8 0, ptr %4, align 1, !annotation !11
   %10 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12370, ptr noundef nonnull %4, i64 noundef 1), !range !12
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %20, label %13
 
@@ -4371,7 +4368,7 @@ define dso_local i32 @drm_dp_pcon_pps_override_buf(ptr noundef %0, ptr noundef %
   store i8 %16, ptr %3, align 1
   %17 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12370, ptr noundef nonnull %3, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nsw i64 %17 to i32
   %19 = call i32 @llvm.smin.i32(i32 %18, i32 0)
   br label %20
 
@@ -4390,21 +4387,21 @@ define dso_local i32 @drm_dp_pcon_pps_override_param(ptr noundef %0, ptr noundef
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = tail call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12672, ptr noundef %1, i64 noundef 2), !range !12
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %31, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %1, i64 2
   %10 = tail call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12674, ptr noundef %9, i64 noundef 2), !range !12
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %31, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr i8, ptr %1, i64 4
   %15 = tail call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12676, ptr noundef %14, i64 noundef 2), !range !12
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nsw i64 %15 to i32
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %31, label %18
 
@@ -4412,7 +4409,7 @@ define dso_local i32 @drm_dp_pcon_pps_override_param(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
   store i8 0, ptr %4, align 1, !annotation !11
   %19 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12370, ptr noundef nonnull %4, i64 noundef 1), !range !12
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nsw i64 %19 to i32
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %29, label %22
 
@@ -4425,7 +4422,7 @@ define dso_local i32 @drm_dp_pcon_pps_override_param(ptr noundef %0, ptr noundef
   store i8 %25, ptr %3, align 1
   %26 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12370, ptr noundef nonnull %3, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nsw i64 %26 to i32
   %28 = call i32 @llvm.smin.i32(i32 %27, i32 0)
   br label %29
 
@@ -4446,7 +4443,7 @@ define dso_local i32 @drm_dp_pcon_convert_rgb_to_ycbcr(ptr noundef %0, i8 nounde
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
   store i8 0, ptr %4, align 1, !annotation !11
   %5 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12370, ptr noundef nonnull %4, i64 noundef 1), !range !12
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %18, label %8
 
@@ -4462,7 +4459,7 @@ define dso_local i32 @drm_dp_pcon_convert_rgb_to_ycbcr(ptr noundef %0, i8 nounde
   store i8 %14, ptr %3, align 1
   %15 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12370, ptr noundef nonnull %3, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nsw i64 %15 to i32
   %17 = call i32 @llvm.smin.i32(i32 %16, i32 0)
   br label %18
 
@@ -4500,7 +4497,7 @@ define dso_local i32 @drm_edp_backlight_set_level(ptr noundef %0, ptr nocapture 
   %.sink = trunc i16 %.sink.in to i8
   store i8 %.sink, ptr %4, align 2
   %17 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 1826, ptr noundef nonnull %4, i64 noundef 2), !range !12
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nsw i64 %17 to i32
   %19 = and i64 %17, 4294967295
   %20 = icmp eq i64 %19, 2
   br i1 %20, label %33, label %21
@@ -4549,7 +4546,7 @@ define dso_local i32 @drm_edp_backlight_enable(ptr noundef %0, ptr nocapture nou
   store i8 %12, ptr %7, align 1
   %15 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 1828, ptr noundef nonnull %7, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nsw i64 %15 to i32
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %28, label %18
 
@@ -4581,7 +4578,7 @@ define dso_local i32 @drm_edp_backlight_enable(ptr noundef %0, ptr nocapture nou
   store i8 %30, ptr %6, align 1
   %33 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 1832, ptr noundef nonnull %6, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nsw i64 %33 to i32
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %46, label %36
 
@@ -4612,7 +4609,7 @@ define dso_local i32 @drm_edp_backlight_enable(ptr noundef %0, ptr nocapture nou
   store i8 %49, ptr %5, align 1
   %50 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 1825, ptr noundef nonnull %5, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nsw i64 %50 to i32
   %52 = icmp eq i32 %51, 1
   br i1 %52, label %65, label %53
 
@@ -4660,7 +4657,7 @@ define dso_local i32 @drm_edp_backlight_enable(ptr noundef %0, ptr nocapture nou
   %.sink = trunc i16 %.sink.in to i8
   store i8 %.sink, ptr %4, align 2
   %77 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 1826, ptr noundef nonnull %4, i64 noundef 2), !range !12
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nsw i64 %77 to i32
   %79 = and i64 %77, 4294967295
   %80 = icmp eq i64 %79, 2
   br i1 %80, label %._crit_edge, label %81
@@ -4713,7 +4710,7 @@ define internal fastcc i32 @drm_edp_backlight_set_enable(ptr noundef %0, i8 %.4.
 7:                                                ; preds = %2
   store i8 0, ptr %4, align 1, !annotation !11
   %8 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 1824, ptr noundef nonnull %4, i64 noundef 1), !range !12
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nsw i64 %8 to i32
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %23, label %11
 
@@ -4746,7 +4743,7 @@ define internal fastcc i32 @drm_edp_backlight_set_enable(ptr noundef %0, i8 %.4.
   store i8 %27, ptr %3, align 1
   %28 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 1824, ptr noundef nonnull %3, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nsw i64 %28 to i32
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %43, label %31
 
@@ -4877,7 +4874,7 @@ define dso_local i32 @drm_edp_backlight_init(ptr noundef %0, ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #17
   store i8 0, ptr %12, align 1, !annotation !11
   %56 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 1828, ptr noundef nonnull %10, i64 noundef 1), !range !12
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nsw i64 %56 to i32
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %66, label %59
 
@@ -4911,7 +4908,7 @@ define dso_local i32 @drm_edp_backlight_init(ptr noundef %0, ptr nocapture nound
   %78 = add nuw nsw i32 %77, 27000000
   %79 = udiv i32 %78, %76
   %80 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 1829, ptr noundef nonnull %11, i64 noundef 1), !range !12
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nsw i64 %80 to i32
   %82 = icmp eq i32 %81, 1
   br i1 %82, label %93, label %83
 
@@ -4934,7 +4931,7 @@ define dso_local i32 @drm_edp_backlight_init(ptr noundef %0, ptr nocapture nound
 
 93:                                               ; preds = %75
   %94 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 1830, ptr noundef nonnull %12, i64 noundef 1), !range !12
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nsw i64 %94 to i32
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %107, label %97
 
@@ -5031,7 +5028,7 @@ define dso_local i32 @drm_edp_backlight_init(ptr noundef %0, ptr nocapture nound
 
 155:                                              ; preds = %152, %.preheader._crit_edge
   %156 = phi i8 [ %153, %152 ], [ %137, %.preheader._crit_edge ]
-  %157 = trunc i32 %147 to i8
+  %157 = trunc nuw i32 %147 to i8
   br label %158
 
 158:                                              ; preds = %155, %125
@@ -5042,7 +5039,7 @@ define dso_local i32 @drm_edp_backlight_init(ptr noundef %0, ptr nocapture nound
   store i8 %159, ptr %9, align 1
   %161 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 1828, ptr noundef nonnull %9, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  %162 = trunc i64 %161 to i32
+  %162 = trunc nsw i64 %161 to i32
   %163 = icmp eq i32 %162, 1
   br i1 %163, label %174, label %164
 
@@ -5113,7 +5110,7 @@ define dso_local i32 @drm_edp_backlight_init(ptr noundef %0, ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #17
   store i8 0, ptr %8, align 1, !annotation !11
   %198 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 1825, ptr noundef nonnull %8, i64 noundef 1), !range !12
-  %199 = trunc i64 %198 to i32
+  %199 = trunc nsw i64 %198 to i32
   %200 = icmp eq i32 %199, 1
   br i1 %200, label %211, label %201
 
@@ -5153,7 +5150,7 @@ define dso_local i32 @drm_edp_backlight_init(ptr noundef %0, ptr nocapture nound
   %222 = zext nneg i8 %221 to i32
   %223 = zext nneg i8 %221 to i64
   %224 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 1826, ptr noundef nonnull %7, i64 noundef %223), !range !12
-  %225 = trunc i64 %224 to i32
+  %225 = trunc nsw i64 %224 to i32
   %226 = icmp eq i32 %225, %222
   br i1 %226, label %237, label %227
 
@@ -5292,7 +5289,7 @@ define dso_local i32 @drm_panel_dp_aux_backlight(ptr noundef %0, ptr noundef %1)
 14:                                               ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, i8 0, i64 3, i1 false), !annotation !11
   %15 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %1, i32 noundef 1792, ptr noundef nonnull %6, i64 noundef 3), !range !12
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nsw i64 %15 to i32
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %50, label %18
 
@@ -6168,7 +6165,7 @@ define internal i32 @dp_aux_backlight_update_status(ptr nocapture noundef readon
   %.sink = trunc i16 %.sink.in to i8
   store i8 %.sink, ptr %2, align 2
   %47 = call i64 @drm_dp_dpcd_write(ptr noundef %30, i32 noundef 1826, ptr noundef nonnull %2, i64 noundef 2), !range !12
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nsw i64 %47 to i32
   %49 = and i64 %47, 4294967295
   %50 = icmp eq i64 %49, 2
   br i1 %50, label %63, label %51

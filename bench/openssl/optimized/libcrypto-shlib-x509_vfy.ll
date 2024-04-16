@@ -550,14 +550,14 @@ land.lhs.true.i.i:                                ; preds = %if.then11.i
   %error_depth.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 0, ptr %error_depth.i.i.i, align 4
   %cmp2.not.i.i.i = icmp eq ptr %12, null
-  br i1 %cmp2.not.i.i.i, label %cond.false.i.i.i, label %verify_cb_cert.exit.i.i
+  br i1 %cmp2.not.i.i.i, label %cond.false.i.i.i, label %check_leaf_suiteb.exit.i
 
 cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i
   %21 = load ptr, ptr %chain, align 8
   %call3.i.i.i = tail call ptr @OPENSSL_sk_value(ptr noundef %21, i32 noundef 0) #10
-  br label %verify_cb_cert.exit.i.i
+  br label %check_leaf_suiteb.exit.i
 
-verify_cb_cert.exit.i.i:                          ; preds = %cond.false.i.i.i, %land.lhs.true.i.i
+check_leaf_suiteb.exit.i:                         ; preds = %cond.false.i.i.i, %land.lhs.true.i.i
   %cond.i.i.i = phi ptr [ %call3.i.i.i, %cond.false.i.i.i ], [ %12, %land.lhs.true.i.i ]
   %current_cert.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 184
   store ptr %cond.i.i.i, ptr %current_cert.i.i.i, align 8
@@ -566,10 +566,10 @@ verify_cb_cert.exit.i.i:                          ; preds = %cond.false.i.i.i, %
   %verify_cb.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %22 = load ptr, ptr %verify_cb.i.i.i, align 8
   %call7.i.i.i = tail call i32 %22(i32 noundef 0, ptr noundef nonnull %ctx) #10
-  %cmp2.i.i = icmp eq i32 %call7.i.i.i, 0
-  br i1 %cmp2.i.i, label %land.lhs.true26, label %if.end15.i
+  %cmp2.i.not.i = icmp eq i32 %call7.i.i.i, 0
+  br i1 %cmp2.i.not.i, label %land.lhs.true26, label %if.end15.i
 
-if.end15.i:                                       ; preds = %verify_cb_cert.exit.i.i, %if.then11.i
+if.end15.i:                                       ; preds = %check_leaf_suiteb.exit.i, %if.then11.i
   %flags.i = getelementptr inbounds i8, ptr %13, i64 56
   %23 = load i64, ptr %flags.i, align 8
   %and16.i = and i64 %23, 1
@@ -616,14 +616,14 @@ land.lhs.true.i33.i:                              ; preds = %if.then31.i
   %error_depth.i.i34.i = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 0, ptr %error_depth.i.i34.i, align 4
   %cmp2.not.i.i35.i = icmp eq ptr %12, null
-  br i1 %cmp2.not.i.i35.i, label %cond.false.i.i45.i, label %verify_cb_cert.exit.i36.i
+  br i1 %cmp2.not.i.i35.i, label %cond.false.i.i45.i, label %check_leaf_suiteb.exit48.i
 
 cond.false.i.i45.i:                               ; preds = %land.lhs.true.i33.i
   %27 = load ptr, ptr %chain, align 8
   %call3.i.i47.i = tail call ptr @OPENSSL_sk_value(ptr noundef %27, i32 noundef 0) #10
-  br label %verify_cb_cert.exit.i36.i
+  br label %check_leaf_suiteb.exit48.i
 
-verify_cb_cert.exit.i36.i:                        ; preds = %cond.false.i.i45.i, %land.lhs.true.i33.i
+check_leaf_suiteb.exit48.i:                       ; preds = %cond.false.i.i45.i, %land.lhs.true.i33.i
   %cond.i.i37.i = phi ptr [ %call3.i.i47.i, %cond.false.i.i45.i ], [ %12, %land.lhs.true.i33.i ]
   %current_cert.i.i38.i = getelementptr inbounds i8, ptr %ctx, i64 184
   store ptr %cond.i.i37.i, ptr %current_cert.i.i38.i, align 8
@@ -632,10 +632,10 @@ verify_cb_cert.exit.i36.i:                        ; preds = %cond.false.i.i45.i,
   %verify_cb.i.i40.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %28 = load ptr, ptr %verify_cb.i.i40.i, align 8
   %call7.i.i41.i = tail call i32 %28(i32 noundef 0, ptr noundef nonnull %ctx) #10
-  %cmp2.i42.i = icmp eq i32 %call7.i.i41.i, 0
-  br i1 %cmp2.i42.i, label %land.lhs.true26, label %if.end35.i
+  %cmp2.i42.not.i = icmp eq i32 %call7.i.i41.i, 0
+  br i1 %cmp2.i42.not.i, label %land.lhs.true26, label %if.end35.i
 
-if.end35.i:                                       ; preds = %verify_cb_cert.exit.i36.i, %if.then31.i
+if.end35.i:                                       ; preds = %check_leaf_suiteb.exit48.i, %if.then31.i
   %error_depth.i.i = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 0, ptr %error_depth.i.i, align 4
   %cmp2.not.i.i = icmp eq ptr %12, null
@@ -670,8 +670,8 @@ cond.end:                                         ; preds = %if.end37.i, %verify
   %cmp25 = icmp slt i32 %cond, 1
   br i1 %cmp25, label %land.lhs.true26, label %return
 
-land.lhs.true26:                                  ; preds = %verify_cb_cert.exit.i36.i, %verify_cb_cert.exit.i.i, %land.lhs.true18.i, %land.lhs.true7.i, %if.then26.i, %cond.end
-  %cond36 = phi i32 [ %cond, %cond.end ], [ 0, %verify_cb_cert.exit.i36.i ], [ 0, %verify_cb_cert.exit.i.i ], [ 0, %land.lhs.true18.i ], [ -1, %land.lhs.true7.i ], [ -1, %if.then26.i ]
+land.lhs.true26:                                  ; preds = %check_leaf_suiteb.exit48.i, %land.lhs.true18.i, %check_leaf_suiteb.exit.i, %land.lhs.true7.i, %if.then26.i, %cond.end
+  %cond36 = phi i32 [ %cond, %cond.end ], [ 0, %check_leaf_suiteb.exit48.i ], [ 0, %land.lhs.true18.i ], [ 0, %check_leaf_suiteb.exit.i ], [ -1, %land.lhs.true7.i ], [ -1, %if.then26.i ]
   %error27 = getelementptr inbounds i8, ptr %ctx, i64 176
   %31 = load i32, ptr %error27, align 8
   %cmp28 = icmp eq i32 %31, 0
@@ -718,7 +718,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_x509_check_cert_time(ptr noundef %ctx, ptr noundef %x, i32 noundef %depth) local_unnamed_addr #0 {
+define i32 @ossl_x509_check_cert_time(ptr noundef %ctx, ptr noundef %x, i32 noundef %depth) local_unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %param, align 8
@@ -850,36 +850,18 @@ if.else.i42:                                      ; preds = %land.lhs.true34
 if.end.i43:                                       ; preds = %if.else.i42, %if.then.i54
   %depth.addr.0.i44 = phi i32 [ %8, %if.then.i54 ], [ %depth, %if.else.i42 ]
   %cmp2.not.i45 = icmp eq ptr %x, null
-  br i1 %cmp2.not.i45, label %cond.false.i51, label %verify_cb_cert.exit55
-
-cond.false.i51:                                   ; preds = %if.end.i43
-  %chain.i52 = getelementptr inbounds i8, ptr %ctx, i64 152
-  %9 = load ptr, ptr %chain.i52, align 8
-  %call3.i53 = tail call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %depth.addr.0.i44) #10
-  br label %verify_cb_cert.exit55
-
-verify_cb_cert.exit55:                            ; preds = %if.end.i43, %cond.false.i51
-  %cond.i46 = phi ptr [ %call3.i53, %cond.false.i51 ], [ %x, %if.end.i43 ]
-  %current_cert.i47 = getelementptr inbounds i8, ptr %ctx, i64 184
-  store ptr %cond.i46, ptr %current_cert.i47, align 8
-  %error.i48 = getelementptr inbounds i8, ptr %ctx, i64 176
-  store i32 14, ptr %error.i48, align 8
-  %verify_cb.i49 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %10 = load ptr, ptr %verify_cb.i49, align 8
-  %call7.i50 = tail call i32 %10(i32 noundef 0, ptr noundef nonnull %ctx) #10
-  %cmp36 = icmp eq i32 %call7.i50, 0
-  br i1 %cmp36, label %return, label %if.end44
+  br i1 %cmp2.not.i45, label %return.sink.split.sink.split, label %return.sink.split
 
 if.end38:                                         ; preds = %if.end32
   %cmp39 = icmp slt i32 %call27, 0
-  br i1 %cmp39, label %land.lhs.true40, label %if.end44
+  br i1 %cmp39, label %land.lhs.true40, label %return
 
 land.lhs.true40:                                  ; preds = %if.end38
   %error_depth.i57 = getelementptr inbounds i8, ptr %ctx, i64 172
   br i1 %cmp11, label %if.then.i70, label %if.else.i58
 
 if.then.i70:                                      ; preds = %land.lhs.true40
-  %11 = load i32, ptr %error_depth.i57, align 4
+  %9 = load i32, ptr %error_depth.i57, align 4
   br label %if.end.i59
 
 if.else.i58:                                      ; preds = %land.lhs.true40
@@ -887,34 +869,35 @@ if.else.i58:                                      ; preds = %land.lhs.true40
   br label %if.end.i59
 
 if.end.i59:                                       ; preds = %if.else.i58, %if.then.i70
-  %depth.addr.0.i60 = phi i32 [ %11, %if.then.i70 ], [ %depth, %if.else.i58 ]
+  %depth.addr.0.i60 = phi i32 [ %9, %if.then.i70 ], [ %depth, %if.else.i58 ]
   %cmp2.not.i61 = icmp eq ptr %x, null
-  br i1 %cmp2.not.i61, label %cond.false.i67, label %verify_cb_cert.exit71
+  br i1 %cmp2.not.i61, label %return.sink.split.sink.split, label %return.sink.split
 
-cond.false.i67:                                   ; preds = %if.end.i59
+return.sink.split.sink.split:                     ; preds = %if.end.i59, %if.end.i43
+  %depth.addr.0.i60.sink = phi i32 [ %depth.addr.0.i44, %if.end.i43 ], [ %depth.addr.0.i60, %if.end.i59 ]
+  %.sink.ph = phi i32 [ 14, %if.end.i43 ], [ 10, %if.end.i59 ]
   %chain.i68 = getelementptr inbounds i8, ptr %ctx, i64 152
-  %12 = load ptr, ptr %chain.i68, align 8
-  %call3.i69 = tail call ptr @OPENSSL_sk_value(ptr noundef %12, i32 noundef %depth.addr.0.i60) #10
-  br label %verify_cb_cert.exit71
+  %10 = load ptr, ptr %chain.i68, align 8
+  %call3.i69 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %depth.addr.0.i60.sink) #10
+  br label %return.sink.split
 
-verify_cb_cert.exit71:                            ; preds = %if.end.i59, %cond.false.i67
-  %cond.i62 = phi ptr [ %call3.i69, %cond.false.i67 ], [ %x, %if.end.i59 ]
-  %current_cert.i63 = getelementptr inbounds i8, ptr %ctx, i64 184
-  store ptr %cond.i62, ptr %current_cert.i63, align 8
-  %error.i64 = getelementptr inbounds i8, ptr %ctx, i64 176
-  store i32 10, ptr %error.i64, align 8
-  %verify_cb.i65 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %13 = load ptr, ptr %verify_cb.i65, align 8
-  %call7.i66 = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %ctx) #10
-  %cmp42 = icmp eq i32 %call7.i66, 0
-  br i1 %cmp42, label %return, label %if.end44
-
-if.end44:                                         ; preds = %verify_cb_cert.exit55, %verify_cb_cert.exit71, %if.end38
+return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end.i59, %if.end.i43
+  %cond.i46.sink = phi ptr [ %x, %if.end.i43 ], [ %x, %if.end.i59 ], [ %call3.i69, %return.sink.split.sink.split ]
+  %.sink = phi i32 [ 14, %if.end.i43 ], [ 10, %if.end.i59 ], [ %.sink.ph, %return.sink.split.sink.split ]
+  %current_cert.i47 = getelementptr inbounds i8, ptr %ctx, i64 184
+  store ptr %cond.i46.sink, ptr %current_cert.i47, align 8
+  %error.i48 = getelementptr inbounds i8, ptr %ctx, i64 176
+  store i32 %.sink, ptr %error.i48, align 8
+  %verify_cb.i49 = getelementptr inbounds i8, ptr %ctx, i64 56
+  %11 = load ptr, ptr %verify_cb.i49, align 8
+  %call7.i50 = tail call i32 %11(i32 noundef 0, ptr noundef nonnull %ctx) #10
+  %cmp36 = icmp ne i32 %call7.i50, 0
+  %12 = zext i1 %cmp36 to i32
   br label %return
 
-return:                                           ; preds = %verify_cb_cert.exit71, %verify_cb_cert.exit55, %if.end25, %verify_cb_cert.exit39, %verify_cb_cert.exit, %if.end8, %if.else, %if.end44
-  %retval.0 = phi i32 [ 1, %if.end44 ], [ 1, %if.else ], [ 0, %if.end8 ], [ 0, %verify_cb_cert.exit ], [ 0, %verify_cb_cert.exit39 ], [ 0, %if.end25 ], [ 0, %verify_cb_cert.exit55 ], [ 0, %verify_cb_cert.exit71 ]
-  ret i32 %retval.0
+return:                                           ; preds = %return.sink.split, %if.end38, %if.end25, %verify_cb_cert.exit39, %verify_cb_cert.exit, %if.end8, %if.else
+  %retval.0.shrunk = phi i32 [ 1, %if.else ], [ 0, %if.end8 ], [ 0, %verify_cb_cert.exit ], [ 0, %verify_cb_cert.exit39 ], [ 0, %if.end25 ], [ 1, %if.end38 ], [ %12, %return.sink.split ]
+  ret i32 %retval.0.shrunk
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1137,7 +1120,7 @@ declare i32 @ASN1_TIME_diff(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_cmp_timeframe(ptr noundef %vpm, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
+define i32 @X509_cmp_timeframe(ptr noundef %vpm, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
 entry:
   %ref_time = alloca i64, align 8
   %cmp = icmp eq ptr %vpm, null
@@ -1171,18 +1154,16 @@ land.lhs.true:                                    ; preds = %if.end6
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end6
   %cmp12.not = icmp eq ptr %start, null
-  br i1 %cmp12.not, label %if.end17, label %land.lhs.true13
+  br i1 %cmp12.not, label %return, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %if.end11
   %call14 = call i32 @X509_cmp_time(ptr noundef nonnull %start, ptr noundef %time.0), !range !7
   %cmp15 = icmp sgt i32 %call14, 0
-  br i1 %cmp15, label %return, label %if.end17
-
-if.end17:                                         ; preds = %land.lhs.true13, %if.end11
+  %spec.select = sext i1 %cmp15 to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true13, %land.lhs.true, %if.else, %if.end17
-  %retval.0 = phi i32 [ 0, %if.end17 ], [ 0, %if.else ], [ 1, %land.lhs.true ], [ -1, %land.lhs.true13 ]
+return:                                           ; preds = %land.lhs.true13, %if.end11, %land.lhs.true, %if.else
+  %retval.0 = phi i32 [ 0, %if.else ], [ 1, %land.lhs.true ], [ 0, %if.end11 ], [ %spec.select, %land.lhs.true13 ]
   ret i32 %retval.0
 }
 
@@ -2944,7 +2925,7 @@ return:                                           ; preds = %check_cert.exit, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @check_crl(ptr noundef %ctx, ptr noundef %crl) #0 {
+define internal i32 @check_crl(ptr noundef %ctx, ptr noundef %crl) #0 {
 entry:
   %crl_ctx.i = alloca %struct.x509_store_ctx_st, align 8
   %error_depth = getelementptr inbounds i8, ptr %ctx, i64 172
@@ -3200,23 +3181,14 @@ land.lhs.true62:                                  ; preds = %if.end58
 if.end66:                                         ; preds = %land.lhs.true62, %if.end58
   %call67 = call ptr @X509_get0_pubkey(ptr noundef nonnull %issuer.064) #10
   %cond = icmp eq ptr %call67, null
-  br i1 %cond, label %land.lhs.true69, label %if.then75
-
-land.lhs.true69:                                  ; preds = %if.end66
-  %error.i53 = getelementptr inbounds i8, ptr %ctx, i64 176
-  store i32 6, ptr %error.i53, align 8
-  %verify_cb.i54 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %33 = load ptr, ptr %verify_cb.i54, align 8
-  %call.i55 = call i32 %33(i32 noundef 0, ptr noundef nonnull %ctx) #10
-  %tobool71.not = icmp eq i32 %call.i55, 0
-  br i1 %tobool71.not, label %return, label %if.end90
+  br i1 %cond, label %return.sink.split, label %if.then75
 
 if.then75:                                        ; preds = %if.end66
   %param = getelementptr inbounds i8, ptr %ctx, i64 32
-  %34 = load ptr, ptr %param, align 8
-  %flags = getelementptr inbounds i8, ptr %34, i64 24
-  %35 = load i64, ptr %flags, align 8
-  %call76 = call i32 @X509_CRL_check_suiteb(ptr noundef nonnull %crl, ptr noundef nonnull %call67, i64 noundef %35) #10
+  %33 = load ptr, ptr %param, align 8
+  %flags = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = load i64, ptr %flags, align 8
+  %call76 = call i32 @X509_CRL_check_suiteb(ptr noundef nonnull %crl, ptr noundef nonnull %call67, i64 noundef %34) #10
   %cmp77.not = icmp eq i32 %call76, 0
   br i1 %cmp77.not, label %if.end82, label %land.lhs.true78
 
@@ -3224,35 +3196,34 @@ land.lhs.true78:                                  ; preds = %if.then75
   %error.i56 = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 %call76, ptr %error.i56, align 8
   %verify_cb.i57 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %36 = load ptr, ptr %verify_cb.i57, align 8
-  %call.i58 = call i32 %36(i32 noundef 0, ptr noundef nonnull %ctx) #10
+  %35 = load ptr, ptr %verify_cb.i57, align 8
+  %call.i58 = call i32 %35(i32 noundef 0, ptr noundef nonnull %ctx) #10
   %tobool80.not = icmp eq i32 %call.i58, 0
   br i1 %tobool80.not, label %return, label %if.end82
 
 if.end82:                                         ; preds = %land.lhs.true78, %if.then75
   %call83 = call i32 @X509_CRL_verify(ptr noundef nonnull %crl, ptr noundef nonnull %call67) #10
   %cmp84 = icmp slt i32 %call83, 1
-  br i1 %cmp84, label %land.lhs.true85, label %if.end90
+  br i1 %cmp84, label %return.sink.split, label %return
 
-land.lhs.true85:                                  ; preds = %if.end82
-  %error.i59 = getelementptr inbounds i8, ptr %ctx, i64 176
-  store i32 8, ptr %error.i59, align 8
-  %verify_cb.i60 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %37 = load ptr, ptr %verify_cb.i60, align 8
-  %call.i61 = call i32 %37(i32 noundef 0, ptr noundef nonnull %ctx) #10
-  %tobool87.not = icmp eq i32 %call.i61, 0
-  br i1 %tobool87.not, label %return, label %if.end90
-
-if.end90:                                         ; preds = %land.lhs.true69, %if.end82, %land.lhs.true85
+return.sink.split:                                ; preds = %if.end82, %if.end66
+  %.sink = phi i32 [ 6, %if.end66 ], [ 8, %if.end82 ]
+  %error.i53 = getelementptr inbounds i8, ptr %ctx, i64 176
+  store i32 %.sink, ptr %error.i53, align 8
+  %verify_cb.i54 = getelementptr inbounds i8, ptr %ctx, i64 56
+  %36 = load ptr, ptr %verify_cb.i54, align 8
+  %call.i55 = call i32 %36(i32 noundef 0, ptr noundef nonnull %ctx) #10
+  %tobool71.not = icmp ne i32 %call.i55, 0
+  %37 = zext i1 %tobool71.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true85, %land.lhs.true78, %land.lhs.true69, %land.lhs.true62, %land.lhs.true53, %land.lhs.true46, %land.lhs.true34, %land.lhs.true27, %if.end17, %land.lhs.true, %if.end90
-  %retval.0 = phi i32 [ 1, %if.end90 ], [ 0, %land.lhs.true ], [ 1, %if.end17 ], [ 0, %land.lhs.true27 ], [ 0, %land.lhs.true34 ], [ 0, %land.lhs.true46 ], [ 0, %land.lhs.true53 ], [ 0, %land.lhs.true62 ], [ 0, %land.lhs.true69 ], [ 0, %land.lhs.true78 ], [ 0, %land.lhs.true85 ]
-  ret i32 %retval.0
+return:                                           ; preds = %return.sink.split, %if.end82, %land.lhs.true78, %land.lhs.true62, %land.lhs.true53, %land.lhs.true46, %land.lhs.true34, %land.lhs.true27, %if.end17, %land.lhs.true
+  %retval.0.shrunk = phi i32 [ 0, %land.lhs.true ], [ 1, %if.end17 ], [ 0, %land.lhs.true27 ], [ 0, %land.lhs.true34 ], [ 0, %land.lhs.true46 ], [ 0, %land.lhs.true53 ], [ 0, %land.lhs.true62 ], [ 0, %land.lhs.true78 ], [ 1, %if.end82 ], [ %37, %return.sink.split ]
+  ret i32 %retval.0.shrunk
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cert_crl(ptr noundef %ctx, ptr noundef %crl, ptr noundef %x) #0 {
+define internal i32 @cert_crl(ptr noundef %ctx, ptr noundef %crl, ptr noundef %x) #0 {
 entry:
   %rev = alloca ptr, align 8
   %param = getelementptr inbounds i8, ptr %ctx, i64 32
@@ -3282,7 +3253,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 if.end:                                           ; preds = %land.lhs.true4, %land.lhs.true, %entry
   %call5 = call i32 @X509_CRL_get0_by_cert(ptr noundef %crl, ptr noundef nonnull %rev, ptr noundef %x) #10
   %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %if.end15, label %if.then7
+  br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   %4 = load ptr, ptr %rev, align 8
@@ -3297,14 +3268,12 @@ if.end10:                                         ; preds = %if.then7
   %verify_cb.i5 = getelementptr inbounds i8, ptr %ctx, i64 56
   %6 = load ptr, ptr %verify_cb.i5, align 8
   %call.i6 = call i32 %6(i32 noundef 0, ptr noundef nonnull %ctx) #10
-  %tobool12.not = icmp eq i32 %call.i6, 0
-  br i1 %tobool12.not, label %return, label %if.end15
-
-if.end15:                                         ; preds = %if.end10, %if.end
+  %tobool12.not = icmp ne i32 %call.i6, 0
+  %spec.select = zext i1 %tobool12.not to i32
   br label %return
 
-return:                                           ; preds = %if.end10, %if.then7, %land.lhs.true4, %if.end15
-  %retval.0 = phi i32 [ 1, %if.end15 ], [ 0, %land.lhs.true4 ], [ 2, %if.then7 ], [ 0, %if.end10 ]
+return:                                           ; preds = %if.end10, %if.end, %if.then7, %land.lhs.true4
+  %retval.0 = phi i32 [ 0, %land.lhs.true4 ], [ 2, %if.then7 ], [ 1, %if.end ], [ %spec.select, %if.end10 ]
   ret i32 %retval.0
 }
 
@@ -3361,9 +3330,9 @@ if.end16:                                         ; preds = %if.then12, %if.end6
 
 for.cond.preheader:                               ; preds = %if.end16
   %9 = load ptr, ptr %chain7, align 8
-  %call2531 = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #10
-  %cmp2632 = icmp sgt i32 %call2531, 0
-  br i1 %cmp2632, label %for.body.lr.ph, label %if.then46
+  %call2532 = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #10
+  %cmp2633 = icmp sgt i32 %call2532, 0
+  br i1 %cmp2633, label %for.body.lr.ph, label %if.then46
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %error_depth.i = getelementptr inbounds i8, ptr %ctx, i64 172
@@ -3373,19 +3342,19 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %cbcalled.034 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
-  %i.033 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %cbcalled.035 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
+  %i.034 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %10 = load ptr, ptr %chain7, align 8
-  %call30 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %i.033) #10
+  %call30 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %i.034) #10
   %ex_flags = getelementptr inbounds i8, ptr %call30, i64 232
   %11 = load i32, ptr %ex_flags, align 8
   %and = and i32 %11, 2048
   %cmp31.not = icmp eq i32 %and, 0
-  %spec.select = select i1 %cmp31.not, i32 %cbcalled.034, i32 1
+  %spec.select = select i1 %cmp31.not, i32 %cbcalled.035, i32 1
   br i1 %cmp31.not, label %for.inc, label %verify_cb_cert.exit
 
 verify_cb_cert.exit:                              ; preds = %for.body
-  store i32 %i.033, ptr %error_depth.i, align 4
+  store i32 %i.034, ptr %error_depth.i, align 4
   store ptr %call30, ptr %current_cert.i, align 8
   store i32 42, ptr %error.i, align 8
   %12 = load ptr, ptr %verify_cb.i, align 8
@@ -3394,7 +3363,7 @@ verify_cb_cert.exit:                              ; preds = %for.body
   br i1 %cmp41, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %verify_cb_cert.exit
-  %inc = add nuw nsw i32 %i.033, 1
+  %inc = add nuw nsw i32 %i.034, 1
   %13 = load ptr, ptr %chain7, align 8
   %call25 = tail call i32 @OPENSSL_sk_num(ptr noundef %13) #10
   %cmp26 = icmp slt i32 %inc, %call25
@@ -3432,7 +3401,7 @@ if.end57:                                         ; preds = %if.end16
   %17 = load i64, ptr %flags59, align 8
   %and60 = and i64 %17, 2048
   %cmp61.not = icmp eq i64 %and60, 0
-  br i1 %cmp61.not, label %if.end70, label %if.then63
+  br i1 %cmp61.not, label %return, label %if.then63
 
 if.then63:                                        ; preds = %if.end57
   %current_cert64 = getelementptr inbounds i8, ptr %ctx, i64 184
@@ -3440,24 +3409,22 @@ if.then63:                                        ; preds = %if.end57
   %verify_cb65 = getelementptr inbounds i8, ptr %ctx, i64 56
   %18 = load ptr, ptr %verify_cb65, align 8
   %call66 = tail call i32 %18(i32 noundef 2, ptr noundef nonnull %ctx) #10
-  %tobool67.not = icmp eq i32 %call66, 0
-  br i1 %tobool67.not, label %return, label %if.end70
-
-if.end70:                                         ; preds = %if.then63, %if.end57
+  %tobool67.not = icmp ne i32 %call66, 0
+  %spec.select30 = zext i1 %tobool67.not to i32
   br label %return
 
 memerr:                                           ; preds = %if.end16, %land.lhs.true
-  %.sink38 = phi i32 [ 1713, %land.lhs.true ], [ 1722, %if.end16 ]
+  %.sink39 = phi i32 [ 1713, %land.lhs.true ], [ 1722, %if.end16 ]
   %.sink = phi i32 [ 524303, %land.lhs.true ], [ 524299, %if.end16 ]
   tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink38, ptr noundef nonnull @__func__.check_policy) #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink39, ptr noundef nonnull @__func__.check_policy) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #10
   %error71 = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 17, ptr %error71, align 8
   br label %return
 
-return:                                           ; preds = %verify_cb_cert.exit, %if.then63, %for.end, %entry, %memerr, %if.end70, %if.then56, %if.then51, %if.then46
-  %retval.0 = phi i32 [ -1, %memerr ], [ 0, %if.then46 ], [ %call52, %if.then51 ], [ 0, %if.then56 ], [ 1, %if.end70 ], [ 1, %entry ], [ 1, %for.end ], [ 0, %if.then63 ], [ 0, %verify_cb_cert.exit ]
+return:                                           ; preds = %verify_cb_cert.exit, %if.then63, %if.end57, %for.end, %entry, %memerr, %if.then56, %if.then51, %if.then46
+  %retval.0 = phi i32 [ -1, %memerr ], [ 0, %if.then46 ], [ %call52, %if.then51 ], [ 0, %if.then56 ], [ 1, %entry ], [ 1, %for.end ], [ 1, %if.end57 ], [ %spec.select30, %if.then63 ], [ 0, %verify_cb_cert.exit ]
   ret i32 %retval.0
 }
 
@@ -5619,21 +5586,19 @@ if.end34.i75:                                     ; preds = %if.end30.i
   %call36.i = call ptr @X509_NAME_ENTRY_get_object(ptr noundef %call35.i76) #10
   %call37.i = call i32 @OBJ_obj2nid(ptr noundef %call36.i) #10
   %cmp38.not.i = icmp eq i32 %call37.i, 13
-  br i1 %cmp38.not.i, label %lor.lhs.false.i77, label %if.then41.i
+  br i1 %cmp38.not.i, label %lor.lhs.false.i77, label %proxy_name_done.i
 
 lor.lhs.false.i77:                                ; preds = %if.end34.i75
   %call39.i = call i32 @X509_NAME_cmp(ptr noundef nonnull %call31.i, ptr noundef %call12.i) #10
   %cmp40.not.i = icmp eq i32 %call39.i, 0
-  br i1 %cmp40.not.i, label %proxy_name_done.i, label %if.then41.i
-
-if.then41.i:                                      ; preds = %lor.lhs.false.i77, %if.end34.i75
+  %spec.select = select i1 %cmp40.not.i, i32 0, i32 72
   br label %proxy_name_done.i
 
-proxy_name_done.i:                                ; preds = %if.then41.i, %lor.lhs.false.i77
-  %cmp43.not.i = phi i1 [ false, %if.then41.i ], [ true, %lor.lhs.false.i77 ]
-  %err.0.i = phi i32 [ 72, %if.then41.i ], [ 0, %lor.lhs.false.i77 ]
+proxy_name_done.i:                                ; preds = %lor.lhs.false.i77, %if.end34.i75
+  %err.0.i = phi i32 [ 72, %if.end34.i75 ], [ %spec.select, %lor.lhs.false.i77 ]
   call void @X509_NAME_ENTRY_free(ptr noundef %call35.i76) #10
   call void @X509_NAME_free(ptr noundef nonnull %call31.i) #10
+  %cmp43.not.i = icmp eq i32 %err.0.i, 0
   br i1 %cmp43.not.i, label %if.end49.i, label %verify_cb_cert.exit.i68
 
 verify_cb_cert.exit.i68:                          ; preds = %proxy_name_done.i, %if.end22.i, %if.end17.i, %if.then10.i
@@ -6012,7 +5977,7 @@ return:                                           ; preds = %dane_i2d.exit.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_id(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc i32 @check_id(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %param, align 8
@@ -6128,14 +6093,14 @@ if.end15:                                         ; preds = %check_id_error.exit
   %ip = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load ptr, ptr %ip, align 8
   %cmp16.not = icmp eq ptr %14, null
-  br i1 %cmp16.not, label %if.end26, label %land.lhs.true17
+  br i1 %cmp16.not, label %return, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %if.end15
   %iplen = getelementptr inbounds i8, ptr %0, i64 104
   %15 = load i64, ptr %iplen, align 8
   %call19 = tail call i32 @X509_check_ip(ptr noundef %1, ptr noundef nonnull %14, i64 noundef %15, i32 noundef 0) #10
   %cmp20 = icmp slt i32 %call19, 1
-  br i1 %cmp20, label %if.then21, label %if.end26
+  br i1 %cmp20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %land.lhs.true17
   %16 = load ptr, ptr %cert, align 8
@@ -6159,14 +6124,12 @@ check_id_error.exit38:                            ; preds = %if.then21, %cond.fa
   %verify_cb.i.i33 = getelementptr inbounds i8, ptr %ctx, i64 56
   %18 = load ptr, ptr %verify_cb.i.i33, align 8
   %call7.i.i34 = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %ctx) #10
-  %tobool23.not = icmp eq i32 %call7.i.i34, 0
-  br i1 %tobool23.not, label %return, label %if.end26
-
-if.end26:                                         ; preds = %check_id_error.exit38, %land.lhs.true17, %if.end15
+  %tobool23.not = icmp ne i32 %call7.i.i34, 0
+  %spec.select = zext i1 %tobool23.not to i32
   br label %return
 
-return:                                           ; preds = %check_id_error.exit38, %check_id_error.exit26, %check_id_error.exit, %if.end26
-  %retval.0 = phi i32 [ 1, %if.end26 ], [ 0, %check_id_error.exit ], [ 0, %check_id_error.exit26 ], [ 0, %check_id_error.exit38 ]
+return:                                           ; preds = %check_id_error.exit38, %if.end15, %land.lhs.true17, %check_id_error.exit26, %check_id_error.exit
+  %retval.0 = phi i32 [ 0, %check_id_error.exit ], [ 0, %check_id_error.exit26 ], [ 1, %land.lhs.true17 ], [ 1, %if.end15 ], [ %spec.select, %check_id_error.exit38 ]
   ret i32 %retval.0
 }
 
@@ -6698,7 +6661,7 @@ if.end:                                           ; preds = %get_crl_score.exit
   %cmp7 = icmp eq i32 %retval.0.i, %best_score.061
   %cmp8 = icmp ne ptr %best_crl.064, null
   %or.cond1 = select i1 %cmp7, i1 %cmp8, i1 false
-  br i1 %or.cond1, label %if.then9, label %if.end21
+  br i1 %or.cond1, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %if.end
   %call10 = call ptr @X509_CRL_get0_lastUpdate(ptr noundef nonnull %best_crl.064) #10
@@ -6715,15 +6678,15 @@ if.end15:                                         ; preds = %if.then9
   %or.cond2 = select i1 %cmp16, i1 %cmp18, i1 false
   br i1 %or.cond2, label %for.inc, label %if.end21
 
-if.end21:                                         ; preds = %if.end15, %if.end
+if.end21:                                         ; preds = %if.end15
   br label %for.inc
 
-for.inc:                                          ; preds = %if.then50.i, %crl_akid_check.exit.i, %if.then25.i, %if.else16.i, %if.then11.i, %if.then3.i, %for.body, %if.end15, %if.then9, %get_crl_score.exit, %if.end21
-  %crl_issuer.246 = phi ptr [ %crl_issuer.1, %get_crl_score.exit ], [ %crl_issuer.1, %if.then9 ], [ %crl_issuer.1, %if.end15 ], [ %crl_issuer.1, %if.end21 ], [ %crl_issuer.060, %for.body ], [ %crl_issuer.060, %if.then11.i ], [ %crl_issuer.060, %if.else16.i ], [ %crl_issuer.060, %if.then3.i ], [ %crl_issuer.060, %if.then25.i ], [ %crl_issuer.1, %if.then50.i ], [ %crl_issuer.1, %crl_akid_check.exit.i ]
-  %best_score.1 = phi i32 [ %best_score.061, %get_crl_score.exit ], [ %best_score.061, %if.then9 ], [ %best_score.061, %if.end15 ], [ %retval.0.i, %if.end21 ], [ %best_score.061, %for.body ], [ %best_score.061, %if.then11.i ], [ %best_score.061, %if.else16.i ], [ %best_score.061, %if.then3.i ], [ %best_score.061, %if.then25.i ], [ %best_score.061, %if.then50.i ], [ %best_score.061, %crl_akid_check.exit.i ]
-  %best_reasons.1 = phi i32 [ %best_reasons.062, %get_crl_score.exit ], [ %best_reasons.062, %if.then9 ], [ %best_reasons.062, %if.end15 ], [ %reasons.0, %if.end21 ], [ %best_reasons.062, %for.body ], [ %best_reasons.062, %if.then11.i ], [ %best_reasons.062, %if.else16.i ], [ %best_reasons.062, %if.then3.i ], [ %best_reasons.062, %if.then25.i ], [ %best_reasons.062, %if.then50.i ], [ %best_reasons.062, %crl_akid_check.exit.i ]
-  %best_crl.1 = phi ptr [ %best_crl.064, %get_crl_score.exit ], [ %best_crl.064, %if.then9 ], [ %best_crl.064, %if.end15 ], [ %call3, %if.end21 ], [ %best_crl.064, %for.body ], [ %best_crl.064, %if.then11.i ], [ %best_crl.064, %if.else16.i ], [ %best_crl.064, %if.then3.i ], [ %best_crl.064, %if.then25.i ], [ %best_crl.064, %if.then50.i ], [ %best_crl.064, %crl_akid_check.exit.i ]
-  %best_crl_issuer.1 = phi ptr [ %best_crl_issuer.065, %get_crl_score.exit ], [ %best_crl_issuer.065, %if.then9 ], [ %best_crl_issuer.065, %if.end15 ], [ %crl_issuer.1, %if.end21 ], [ %best_crl_issuer.065, %for.body ], [ %best_crl_issuer.065, %if.then11.i ], [ %best_crl_issuer.065, %if.else16.i ], [ %best_crl_issuer.065, %if.then3.i ], [ %best_crl_issuer.065, %if.then25.i ], [ %best_crl_issuer.065, %if.then50.i ], [ %best_crl_issuer.065, %crl_akid_check.exit.i ]
+for.inc:                                          ; preds = %if.then50.i, %crl_akid_check.exit.i, %if.then25.i, %if.else16.i, %if.then11.i, %if.then3.i, %for.body, %if.end, %if.end15, %if.then9, %get_crl_score.exit, %if.end21
+  %crl_issuer.246 = phi ptr [ %crl_issuer.1, %get_crl_score.exit ], [ %crl_issuer.1, %if.then9 ], [ %crl_issuer.1, %if.end15 ], [ %crl_issuer.1, %if.end ], [ %crl_issuer.1, %if.end21 ], [ %crl_issuer.060, %for.body ], [ %crl_issuer.060, %if.then11.i ], [ %crl_issuer.060, %if.else16.i ], [ %crl_issuer.060, %if.then3.i ], [ %crl_issuer.060, %if.then25.i ], [ %crl_issuer.1, %if.then50.i ], [ %crl_issuer.1, %crl_akid_check.exit.i ]
+  %best_score.1 = phi i32 [ %best_score.061, %get_crl_score.exit ], [ %best_score.061, %if.then9 ], [ %best_score.061, %if.end15 ], [ %retval.0.i, %if.end ], [ %best_score.061, %if.end21 ], [ %best_score.061, %for.body ], [ %best_score.061, %if.then11.i ], [ %best_score.061, %if.else16.i ], [ %best_score.061, %if.then3.i ], [ %best_score.061, %if.then25.i ], [ %best_score.061, %if.then50.i ], [ %best_score.061, %crl_akid_check.exit.i ]
+  %best_reasons.1 = phi i32 [ %best_reasons.062, %get_crl_score.exit ], [ %best_reasons.062, %if.then9 ], [ %best_reasons.062, %if.end15 ], [ %reasons.0, %if.end ], [ %reasons.0, %if.end21 ], [ %best_reasons.062, %for.body ], [ %best_reasons.062, %if.then11.i ], [ %best_reasons.062, %if.else16.i ], [ %best_reasons.062, %if.then3.i ], [ %best_reasons.062, %if.then25.i ], [ %best_reasons.062, %if.then50.i ], [ %best_reasons.062, %crl_akid_check.exit.i ]
+  %best_crl.1 = phi ptr [ %best_crl.064, %get_crl_score.exit ], [ %best_crl.064, %if.then9 ], [ %best_crl.064, %if.end15 ], [ %call3, %if.end ], [ %call3, %if.end21 ], [ %best_crl.064, %for.body ], [ %best_crl.064, %if.then11.i ], [ %best_crl.064, %if.else16.i ], [ %best_crl.064, %if.then3.i ], [ %best_crl.064, %if.then25.i ], [ %best_crl.064, %if.then50.i ], [ %best_crl.064, %crl_akid_check.exit.i ]
+  %best_crl_issuer.1 = phi ptr [ %best_crl_issuer.065, %get_crl_score.exit ], [ %best_crl_issuer.065, %if.then9 ], [ %best_crl_issuer.065, %if.end15 ], [ %crl_issuer.1, %if.end ], [ %crl_issuer.1, %if.end21 ], [ %best_crl_issuer.065, %for.body ], [ %best_crl_issuer.065, %if.then11.i ], [ %best_crl_issuer.065, %if.else16.i ], [ %best_crl_issuer.065, %if.then3.i ], [ %best_crl_issuer.065, %if.then25.i ], [ %best_crl_issuer.065, %if.then50.i ], [ %best_crl_issuer.065, %crl_akid_check.exit.i ]
   %inc = add nuw nsw i32 %i.063, 1
   %call1 = call i32 @OPENSSL_sk_num(ptr noundef %crls) #10
   %cmp = icmp slt i32 %inc, %call1
@@ -7052,20 +7015,18 @@ if.then:                                          ; preds = %for.cond.i, %lor.lh
 
 if.end:                                           ; preds = %if.then
   %cmp16 = icmp eq ptr %rv.021, null
-  br i1 %cmp16, label %if.then22, label %lor.lhs.false17
+  br i1 %cmp16, label %for.inc, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %if.end
   %call18 = tail call ptr @X509_get0_notAfter(ptr noundef %call3) #10
   %call19 = tail call ptr @X509_get0_notAfter(ptr noundef nonnull %rv.021) #10
   %call20 = tail call i32 @ASN1_TIME_compare(ptr noundef %call18, ptr noundef %call19) #10
   %cmp21 = icmp sgt i32 %call20, 0
-  br i1 %cmp21, label %if.then22, label %for.inc
-
-if.then22:                                        ; preds = %lor.lhs.false17, %if.end
+  %spec.select = select i1 %cmp21, ptr %call3, ptr %rv.021
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body.i, %for.body, %if.then22, %lor.lhs.false17
-  %rv.1 = phi ptr [ %call3, %if.then22 ], [ %rv.021, %lor.lhs.false17 ], [ %rv.021, %for.body ], [ %rv.021, %for.body.i ]
+for.inc:                                          ; preds = %for.body.i, %lor.lhs.false17, %if.end, %for.body
+  %rv.1 = phi ptr [ %rv.021, %for.body ], [ %call3, %if.end ], [ %spec.select, %lor.lhs.false17 ], [ %rv.021, %for.body.i ]
   %inc = add nuw nsw i32 %i.020, 1
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %sk) #10
   %cmp = icmp slt i32 %inc, %call1

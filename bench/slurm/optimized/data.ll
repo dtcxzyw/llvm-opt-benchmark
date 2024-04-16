@@ -2389,36 +2389,36 @@ data_convert_type.exit:                           ; preds = %28, %30, %32, %34, 
   %42 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %43 = and i64 %42, 256
   %.not10.i = icmp eq i64 %43, 0
-  br i1 %.not10.i, label %60, label %44
+  br i1 %.not10.i, label %_convert_data_force_bool.exit, label %44
 
 44:                                               ; preds = %40
   %45 = tail call i32 @get_log_level() #16
   %46 = icmp sgt i32 %45, 3
-  br i1 %46, label %47, label %60
+  br i1 %46, label %47, label %_convert_data_force_bool.exit
 
 47:                                               ; preds = %44
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.data_set_bool, ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #16
-  br label %60
+  br label %_convert_data_force_bool.exit
 
 48:                                               ; preds = %data_convert_type.exit
   %49 = tail call ptr @data_set_bool(ptr noundef nonnull %0, i1 noundef zeroext false)
-  br label %60
+  br label %_convert_data_force_bool.exit
 
 50:                                               ; preds = %data_convert_type.exit
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   %52 = load double, ptr %51, align 8
   %53 = fcmp une double %52, 0.000000e+00
   %54 = tail call ptr @data_set_bool(ptr noundef nonnull %0, i1 noundef zeroext %53)
-  br label %60
+  br label %_convert_data_force_bool.exit
 
 55:                                               ; preds = %data_convert_type.exit
   %56 = getelementptr inbounds i8, ptr %0, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = icmp ne i64 %57, 0
   %59 = tail call ptr @data_set_bool(ptr noundef nonnull %0, i1 noundef zeroext %58)
-  br label %60
+  br label %_convert_data_force_bool.exit
 
-60:                                               ; preds = %55, %50, %48, %data_convert_type.exit, %40, %44, %47
+60:                                               ; preds = %data_convert_type.exit
   br label %_convert_data_force_bool.exit
 
 61:                                               ; preds = %5
@@ -2465,8 +2465,8 @@ data_convert_type.exit:                           ; preds = %28, %30, %32, %34, 
   %. = select i1 %.not18, i32 7, i32 0
   br label %_convert_data_force_bool.exit
 
-_convert_data_force_bool.exit:                    ; preds = %60, %data_convert_type.exit, %27, %_convert_data_string.exit, %5, %78, %76, %74, %72, %70, %2, %67, %64, %61
-  %.0 = phi i32 [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ 0, %2 ], [ 1, %70 ], [ 4, %72 ], [ 6, %74 ], [ 4, %76 ], [ %., %78 ], [ 0, %5 ], [ 5, %27 ], [ 0, %_convert_data_string.exit ], [ 7, %60 ], [ 0, %data_convert_type.exit ]
+_convert_data_force_bool.exit:                    ; preds = %60, %data_convert_type.exit, %55, %50, %48, %40, %44, %47, %27, %_convert_data_string.exit, %5, %78, %76, %74, %72, %70, %2, %67, %64, %61
+  %.0 = phi i32 [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ 0, %2 ], [ 1, %70 ], [ 4, %72 ], [ 6, %74 ], [ 4, %76 ], [ %., %78 ], [ 0, %5 ], [ 5, %27 ], [ 0, %_convert_data_string.exit ], [ 0, %data_convert_type.exit ], [ 7, %55 ], [ 7, %50 ], [ 7, %48 ], [ 7, %40 ], [ 7, %44 ], [ 7, %47 ], [ 7, %60 ]
   ret i32 %.0
 }
 
@@ -3375,7 +3375,7 @@ data_get_string.exit:                             ; preds = %7, %10
   br label %data_set_int.exit
 
 87:                                               ; preds = %2
-  br i1 %1, label %88, label %96
+  br i1 %1, label %88, label %data_set_int.exit
 
 88:                                               ; preds = %87
   tail call fastcc void @_release(ptr noundef nonnull %0)
@@ -3396,11 +3396,11 @@ data_get_string.exit:                             ; preds = %7, %10
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.data_set_int, ptr noundef nonnull %0, i64 noundef 0) #16
   br label %data_set_int.exit
 
-96:                                               ; preds = %2, %87
+96:                                               ; preds = %2
   br label %data_set_int.exit
 
-data_set_int.exit:                                ; preds = %2, %95, %92, %88, %86, %83, %77, %72, %69, %64, %41, %38, %33, %76, %74, %73, %54, %51, %43, %42, %16, %13, %96
-  %.039 = phi i32 [ 9202, %96 ], [ 9202, %13 ], [ 9202, %16 ], [ 9202, %42 ], [ 9202, %43 ], [ 9202, %51 ], [ 9202, %54 ], [ 9202, %73 ], [ 9202, %74 ], [ 9202, %76 ], [ 0, %2 ], [ 0, %33 ], [ 0, %38 ], [ 0, %41 ], [ 0, %64 ], [ 0, %69 ], [ 0, %72 ], [ 0, %77 ], [ 0, %83 ], [ 0, %86 ], [ 0, %88 ], [ 0, %92 ], [ 0, %95 ]
+data_set_int.exit:                                ; preds = %2, %95, %92, %88, %86, %83, %77, %72, %69, %64, %41, %38, %33, %87, %76, %74, %73, %54, %51, %43, %42, %16, %13, %96
+  %.039 = phi i32 [ 9202, %13 ], [ 9202, %16 ], [ 9202, %42 ], [ 9202, %43 ], [ 9202, %51 ], [ 9202, %54 ], [ 9202, %73 ], [ 9202, %74 ], [ 9202, %76 ], [ 0, %2 ], [ 9202, %87 ], [ 9202, %96 ], [ 0, %33 ], [ 0, %38 ], [ 0, %41 ], [ 0, %64 ], [ 0, %69 ], [ 0, %72 ], [ 0, %77 ], [ 0, %83 ], [ 0, %86 ], [ 0, %88 ], [ 0, %92 ], [ 0, %95 ]
   ret i32 %.039
 }
 

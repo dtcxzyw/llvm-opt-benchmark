@@ -1099,7 +1099,7 @@ define internal fastcc noundef i32 @read_files(ptr noundef %0, ptr noundef %1, i
 
 17:                                               ; preds = %20, %.lr.ph
   %indvars.iv.i = phi i64 [ %21, %20 ], [ %16, %.lr.ph ]
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw i64 %indvars.iv.i to i32
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %append_filename_to_list.exit
 
@@ -1912,7 +1912,7 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
   br i1 %37, label %40, label %69
 
 40:                                               ; preds = %34
-  switch i32 %39, label %.thread [
+  switch i32 %39, label %pmix_mca_base_var_get_value.exit.thread [
     i32 0, label %41
     i32 1, label %44
     i32 2, label %47
@@ -1972,9 +1972,7 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
   %.0 = phi i32 [ %66, %64 ], [ %63, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ]
   %.0.fr = freeze i32 %.0
   %68 = icmp slt i32 %.0.fr, 0
-  br i1 %68, label %.thread, label %pmix_mca_base_var_get_value.exit.thread
-
-.thread:                                          ; preds = %40, %67
+  %spec.select38 = select i1 %68, i32 -29, i32 0
   br label %pmix_mca_base_var_get_value.exit.thread
 
 69:                                               ; preds = %34
@@ -1995,8 +1993,8 @@ pmix_mca_base_var_get_value.exit:                 ; preds = %var_get.exit.thread
   %80 = tail call i32 %72(ptr noundef nonnull %36, i32 noundef %79, ptr noundef %1) #25
   br label %pmix_mca_base_var_get_value.exit.thread
 
-pmix_mca_base_var_get_value.exit.thread:          ; preds = %73, %78, %pmix_pointer_array_get_item.exit.i.i.i, %2, %7, %pmix_pointer_array_get_item.exit.i.i, %20, %var_get.exit.thread27.i, %.thread, %67, %pmix_mca_base_var_get_value.exit
-  %.025 = phi i32 [ 0, %pmix_mca_base_var_get_value.exit ], [ -29, %.thread ], [ 0, %67 ], [ -27, %pmix_pointer_array_get_item.exit.i.i.i ], [ -1, %2 ], [ -27, %7 ], [ -27, %pmix_pointer_array_get_item.exit.i.i ], [ -27, %20 ], [ -46, %var_get.exit.thread27.i ], [ %77, %73 ], [ %80, %78 ]
+pmix_mca_base_var_get_value.exit.thread:          ; preds = %73, %78, %67, %40, %pmix_pointer_array_get_item.exit.i.i.i, %2, %7, %pmix_pointer_array_get_item.exit.i.i, %20, %var_get.exit.thread27.i, %pmix_mca_base_var_get_value.exit
+  %.025 = phi i32 [ 0, %pmix_mca_base_var_get_value.exit ], [ -27, %pmix_pointer_array_get_item.exit.i.i.i ], [ -1, %2 ], [ -27, %7 ], [ -27, %pmix_pointer_array_get_item.exit.i.i ], [ -27, %20 ], [ -46, %var_get.exit.thread27.i ], [ -29, %40 ], [ %spec.select38, %67 ], [ %77, %73 ], [ %80, %78 ]
   ret i32 %.025
 }
 
@@ -4056,7 +4054,7 @@ define internal fastcc i32 @var_set_initial(ptr nocapture noundef %0, ptr nounde
 
 54:                                               ; preds = %57, %47
   %indvars.iv.i.i = phi i64 [ %58, %57 ], [ %53, %47 ]
-  %55 = trunc i64 %indvars.iv.i.i to i32
+  %55 = trunc nuw i64 %indvars.iv.i.i to i32
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %append_filename_to_list.exit.i
 
@@ -4477,7 +4475,7 @@ int_from_string.exit:                             ; preds = %20
 88:                                               ; preds = %2
   %89 = tail call double @strtod(ptr nocapture noundef %1, ptr noundef null) #25
   store double %89, ptr %10, align 8
-  br label %129
+  br label %130
 
 90:                                               ; preds = %2, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -4578,13 +4576,13 @@ thread-pre-split.i:                               ; preds = %104
 var_set_string.exit:                              ; preds = %.lr.ph.i, %93, %96, %104, %111, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %129
-
-129:                                              ; preds = %var_set_string.exit, %88, %2
   br label %130
 
-130:                                              ; preds = %2, %76, %87, %83, %84, %.thread61, %67, %69, %65, %62, %49, %58, %129
-  %.0 = phi i32 [ 0, %129 ], [ -65, %58 ], [ -65, %49 ], [ %.0.i58, %62 ], [ %.0.i58, %65 ], [ %.0.i58, %69 ], [ %.0.i58, %67 ], [ %.0.i58, %.thread61 ], [ -65, %84 ], [ 0, %83 ], [ 0, %87 ], [ 0, %76 ], [ -1, %2 ]
+129:                                              ; preds = %2
+  br label %130
+
+130:                                              ; preds = %88, %var_set_string.exit, %2, %76, %87, %83, %84, %.thread61, %67, %69, %65, %62, %49, %58, %129
+  %.0 = phi i32 [ -65, %58 ], [ -65, %49 ], [ %.0.i58, %62 ], [ %.0.i58, %65 ], [ %.0.i58, %69 ], [ %.0.i58, %67 ], [ %.0.i58, %.thread61 ], [ -65, %84 ], [ 0, %83 ], [ 0, %87 ], [ 0, %76 ], [ -1, %2 ], [ 0, %var_set_string.exit ], [ 0, %88 ], [ 0, %129 ]
   ret i32 %.0
 }
 

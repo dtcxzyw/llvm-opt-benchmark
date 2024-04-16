@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 declare ptr @OCSP_CRLID_it() #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_ocsp_crlid(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal i32 @i2r_ocsp_crlid(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %0 = load ptr, ptr %in, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -36,18 +36,18 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str, i32 noundef %ind, ptr noundef nonnull @.str.1) #5
   %cmp = icmp slt i32 %call, 1
-  br i1 %cmp, label %err, label %if.end
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   %1 = load ptr, ptr %in, align 8
   %call3 = tail call i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef %1) #5
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %err, label %if.end6
+  br i1 %tobool4.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.2, i32 noundef 1) #5
   %cmp8 = icmp slt i32 %call7, 1
-  br i1 %cmp8, label %err, label %if.end11
+  br i1 %cmp8, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end6, %entry
   %crlNum = getelementptr inbounds i8, ptr %in, i64 8
@@ -58,18 +58,18 @@ if.end11:                                         ; preds = %if.end6, %entry
 if.then13:                                        ; preds = %if.end11
   %call14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.3, i32 noundef %ind, ptr noundef nonnull @.str.1) #5
   %cmp15 = icmp slt i32 %call14, 1
-  br i1 %cmp15, label %err, label %if.end17
+  br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.then13
   %3 = load ptr, ptr %crlNum, align 8
   %call19 = tail call i32 @i2a_ASN1_INTEGER(ptr noundef %bp, ptr noundef %3) #5
   %cmp20 = icmp slt i32 %call19, 1
-  br i1 %cmp20, label %err, label %if.end22
+  br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end17
   %call23 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.2, i32 noundef 1) #5
   %cmp24 = icmp slt i32 %call23, 1
-  br i1 %cmp24, label %err, label %if.end27
+  br i1 %cmp24, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end22, %if.end11
   %crlTime = getelementptr inbounds i8, ptr %in, i64 16
@@ -80,24 +80,22 @@ if.end27:                                         ; preds = %if.end22, %if.end11
 if.then29:                                        ; preds = %if.end27
   %call30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.4, i32 noundef %ind, ptr noundef nonnull @.str.1) #5
   %cmp31 = icmp slt i32 %call30, 1
-  br i1 %cmp31, label %err, label %if.end33
+  br i1 %cmp31, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.then29
   %5 = load ptr, ptr %crlTime, align 8
   %call35 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef %5) #5
   %tobool36.not = icmp eq i32 %call35, 0
-  br i1 %tobool36.not, label %err, label %if.end38
+  br i1 %tobool36.not, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.end33
   %call39 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.2, i32 noundef 1) #5
-  %cmp40 = icmp slt i32 %call39, 1
-  br i1 %cmp40, label %err, label %return
-
-err:                                              ; preds = %if.end38, %if.end33, %if.then29, %if.end22, %if.end17, %if.then13, %if.end6, %if.end, %if.then
+  %cmp40 = icmp sgt i32 %call39, 0
+  %spec.select = zext i1 %cmp40 to i32
   br label %return
 
-return:                                           ; preds = %if.end27, %if.end38, %err
-  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end38 ], [ 1, %if.end27 ]
+return:                                           ; preds = %if.end38, %if.then, %if.end, %if.end6, %if.then13, %if.end17, %if.end22, %if.then29, %if.end33, %if.end27
+  %retval.0 = phi i32 [ 1, %if.end27 ], [ 0, %if.end33 ], [ 0, %if.then29 ], [ 0, %if.end22 ], [ 0, %if.end17 ], [ 0, %if.then13 ], [ 0, %if.end6 ], [ 0, %if.end ], [ 0, %if.then ], [ %spec.select, %if.end38 ]
   ret i32 %retval.0
 }
 

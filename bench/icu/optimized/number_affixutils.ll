@@ -313,12 +313,12 @@ entry:
   br label %if.else.i
 
 if.else.i:                                        ; preds = %entry, %if.end29
-  %length.030 = phi i32 [ 0, %entry ], [ %length.1, %if.end29 ]
-  %tag.sroa.9.029 = phi i64 [ 0, %entry ], [ %tag.sroa.9.8.extract.shift, %if.end29 ]
-  %tag.sroa.0.028 = phi i32 [ 0, %entry ], [ %tag.sroa.0.0.extract.trunc, %if.end29 ]
-  %tag.sroa.4.027 = phi i64 [ 0, %entry ], [ %tag.sroa.4.0.extract.shift, %if.end29 ]
-  %tag.sroa.5.026 = phi i32 [ 0, %entry ], [ %tag.sroa.5.8.extract.trunc, %if.end29 ]
-  %cmp2.i = icmp eq i32 %tag.sroa.0.028, 0
+  %length.029 = phi i32 [ 0, %entry ], [ %length.1, %if.end29 ]
+  %tag.sroa.9.028 = phi i64 [ 0, %entry ], [ %tag.sroa.9.8.extract.shift, %if.end29 ]
+  %tag.sroa.0.027 = phi i32 [ 0, %entry ], [ %tag.sroa.0.0.extract.trunc, %if.end29 ]
+  %tag.sroa.4.026 = phi i64 [ 0, %entry ], [ %tag.sroa.4.0.extract.shift, %if.end29 ]
+  %tag.sroa.5.025 = phi i32 [ 0, %entry ], [ %tag.sroa.5.8.extract.trunc, %if.end29 ]
+  %cmp2.i = icmp eq i32 %tag.sroa.0.027, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -332,9 +332,9 @@ if.then3.i:                                       ; preds = %if.else.i
   br i1 %cmp4.i, label %while.body, label %return
 
 if.end5.i:                                        ; preds = %if.else.i
-  switch i32 %tag.sroa.5.026, label %while.body [
+  switch i32 %tag.sroa.5.025, label %while.body [
     i32 2, label %land.lhs.true.i
-    i32 0, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+    i32 0, label %if.else19.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
@@ -345,48 +345,48 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %5 = load i32, ptr %fLength.i19.i, align 4
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %5, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
-  %cmp9.i = icmp eq i32 %tag.sroa.0.028, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.028
+  %cmp9.i = icmp eq i32 %tag.sroa.0.027, %sub.i
+  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.027
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
+  br i1 %or.cond.i, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, label %while.body
 
-_ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %land.lhs.true.i
-  %6 = and i16 %3, 2
-  %tobool.not.i.i.i.i = icmp eq i16 %6, 0
-  %7 = load ptr, ptr %fArray.i.i.i.i, align 8
-  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %7, ptr %fBuffer.i.i.i.i
-  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.028 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %8 = load i16, ptr %arrayidx.i.i.i, align 2
-  %cmp13.i = icmp eq i16 %8, 39
-  br i1 %cmp13.i, label %return, label %while.body
-
-_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %if.end5.i
-  %9 = load i16, ptr %fUnion.i.i16.i, align 8
-  %cmp.i.i17.i = icmp slt i16 %9, 0
-  %10 = ashr i16 %9, 5
-  %shr.i.i18.i = sext i16 %10 to i32
-  %11 = load i32, ptr %fLength.i19.i, align 4
-  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %11, i32 %shr.i.i18.i
-  %cmp22.i = icmp slt i32 %tag.sroa.0.028, %cond.i20.i
+if.else19.i:                                      ; preds = %if.end5.i
+  %6 = load i16, ptr %fUnion.i.i16.i, align 8
+  %cmp.i.i17.i = icmp slt i16 %6, 0
+  %7 = ashr i16 %6, 5
+  %shr.i.i18.i = sext i16 %7 to i32
+  %8 = load i32, ptr %fLength.i19.i, align 4
+  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %8, i32 %shr.i.i18.i
+  %cmp22.i = icmp slt i32 %tag.sroa.0.027, %cond.i20.i
   br i1 %cmp22.i, label %while.body, label %return
 
-while.body:                                       ; preds = %land.lhs.true.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end5.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
-  %tag.sroa.4.0.insert.shift = shl nuw i64 %tag.sroa.4.027, 32
-  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.028 to i64
+_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %land.lhs.true.i
+  %9 = and i16 %3, 2
+  %tobool.not.i.i.i.i = icmp eq i16 %9, 0
+  %10 = load ptr, ptr %fArray.i.i.i.i, align 8
+  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %10, ptr %fBuffer.i.i.i.i
+  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.027 to i64
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
+  %11 = load i16, ptr %arrayidx.i.i.i, align 2
+  %cmp13.i.not = icmp eq i16 %11, 39
+  br i1 %cmp13.i.not, label %return, label %while.body
+
+while.body:                                       ; preds = %if.end5.i, %land.lhs.true.i, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+  %tag.sroa.4.0.insert.shift = shl nuw i64 %tag.sroa.4.026, 32
+  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.027 to i64
   %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.4.0.insert.shift, %tag.sroa.0.0.insert.ext
-  %tag.sroa.9.8.insert.shift = shl nuw i64 %tag.sroa.9.029, 32
-  %tag.sroa.5.8.insert.ext = zext i32 %tag.sroa.5.026 to i64
+  %tag.sroa.9.8.insert.shift = shl nuw i64 %tag.sroa.9.028, 32
+  %tag.sroa.5.8.insert.ext = zext i32 %tag.sroa.5.025 to i64
   %tag.sroa.5.8.insert.insert = or disjoint i64 %tag.sroa.9.8.insert.shift, %tag.sroa.5.8.insert.ext
   %call1 = call { i64, i64 } @_ZN6icu_756number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %tag.sroa.0.0.insert.insert, i64 %tag.sroa.5.8.insert.insert, ptr noundef nonnull align 8 dereferenceable(64) %affixPattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %12 = extractvalue { i64, i64 } %call1, 0
   %13 = extractvalue { i64, i64 } %call1, 1
   %tag.sroa.0.0.extract.trunc = trunc i64 %12 to i32
   %tag.sroa.4.0.extract.shift = lshr i64 %12, 32
-  %tag.sroa.4.0.extract.trunc = trunc i64 %tag.sroa.4.0.extract.shift to i32
+  %tag.sroa.4.0.extract.trunc = trunc nuw i64 %tag.sroa.4.0.extract.shift to i32
   %tag.sroa.5.8.extract.trunc = trunc i64 %13 to i32
   %tag.sroa.9.8.extract.shift = lshr i64 %13, 32
-  %tag.sroa.9.8.extract.trunc = trunc i64 %tag.sroa.9.8.extract.shift to i32
+  %tag.sroa.9.8.extract.trunc = trunc nuw i64 %tag.sroa.9.8.extract.shift to i32
   %14 = load i32, ptr %status, align 4
   %cmp.i18 = icmp slt i32 %14, 1
   br i1 %cmp.i18, label %if.end, label %return
@@ -396,7 +396,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %add = add nsw i32 %length.030, %position
+  %add = add nsw i32 %length.029, %position
   %call6 = call noundef i32 @_ZN6icu_7522FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add, i32 noundef 65533, i8 39, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end29
 
@@ -421,7 +421,7 @@ switch.lookup:                                    ; preds = %if.then10
   %17 = ashr i64 %sext, 32
   %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %17
   %switch.load = load i8, ptr %switch.gep, align 1
-  %add11 = add nsw i32 %length.030, %position
+  %add11 = add nsw i32 %length.029, %position
   %call20 = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add11, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp12, i8 %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont19 unwind label %lpad
 
@@ -436,18 +436,18 @@ lpad:                                             ; preds = %switch.lookup
   resume { ptr, i32 } %18
 
 if.else22:                                        ; preds = %if.else
-  %add23 = add nsw i32 %length.030, %position
+  %add23 = add nsw i32 %length.029, %position
   %call26 = call noundef i32 @_ZN6icu_7522FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add23, i32 noundef %tag.sroa.4.0.extract.trunc, i8 %field.coerce, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end29
 
 if.end29:                                         ; preds = %invoke.cont19, %if.else22, %if.then3
   %call6.pn = phi i32 [ %call6, %if.then3 ], [ %call20, %invoke.cont19 ], [ %call26, %if.else22 ]
-  %length.1 = add nsw i32 %call6.pn, %length.030
+  %length.1 = add nsw i32 %call6.pn, %length.029
   %cmp.i = icmp slt i32 %tag.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i, label %return, label %if.else.i, !llvm.loop !8
 
-return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end29, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %while.body
-  %length.0.lcssa = phi i32 [ %length.030, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ], [ %length.1, %if.end29 ], [ %length.030, %if.then3.i ], [ %length.030, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ %length.030, %while.body ]
+return:                                           ; preds = %if.end29, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %while.body
+  %length.0.lcssa = phi i32 [ %length.1, %if.end29 ], [ %length.029, %if.else19.i ], [ %length.029, %if.then3.i ], [ %length.029, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ %length.029, %while.body ]
   ret i32 %length.0.lcssa
 }
 
@@ -495,7 +495,7 @@ land.lhs.true:                                    ; preds = %if.end5
   %cmp9 = icmp eq i32 %0, %sub
   %cmp.i.i15 = icmp ugt i32 %cond.i14, %0
   %or.cond = and i1 %cmp.i.i15, %cmp9
-  br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %if.else15.thread
+  br i1 %or.cond, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %return
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %land.lhs.true
   %8 = and i16 %5, 2
@@ -507,10 +507,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %land.lhs.true
   %idxprom.i.i = zext nneg i32 %0 to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %idxprom.i.i
   %10 = load i16, ptr %arrayidx.i.i, align 2
-  %cmp13 = icmp eq i16 %10, 39
-  br i1 %cmp13, label %return, label %if.else15.thread
-
-if.else15.thread:                                 ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %land.lhs.true
+  %cmp13 = icmp ne i16 %10, 39
   br label %return
 
 if.else19:                                        ; preds = %if.end5
@@ -525,8 +522,8 @@ if.else19:                                        ; preds = %if.end5
   %cmp22 = icmp slt i32 %0, %cond.i20
   br label %return
 
-return:                                           ; preds = %if.end5, %if.else15.thread, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %entry, %if.else19, %if.then3
-  %retval.0 = phi i1 [ %cmp4, %if.then3 ], [ %cmp22, %if.else19 ], [ false, %entry ], [ false, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ true, %if.else15.thread ], [ true, %if.end5 ]
+return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.end5, %land.lhs.true, %entry, %if.else19, %if.then3
+  %retval.0 = phi i1 [ %cmp4, %if.then3 ], [ %cmp22, %if.else19 ], [ false, %entry ], [ true, %land.lhs.true ], [ %cmp13, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ true, %if.end5 ]
   ret i1 %retval.0
 }
 
@@ -780,12 +777,12 @@ entry:
   br label %if.else.i
 
 if.else.i:                                        ; preds = %entry, %if.end15
-  %length.017 = phi i32 [ 0, %entry ], [ %length.1, %if.end15 ]
-  %tag.sroa.0.016 = phi i32 [ 0, %entry ], [ %tag.sroa.0.0.extract.trunc, %if.end15 ]
-  %tag.sroa.4.015 = phi i64 [ 0, %entry ], [ %tag.sroa.4.0.extract.shift, %if.end15 ]
-  %tag.sroa.5.014 = phi i32 [ 0, %entry ], [ %tag.sroa.5.8.extract.trunc, %if.end15 ]
-  %tag.sroa.9.013 = phi i64 [ 0, %entry ], [ %tag.sroa.9.8.extract.shift, %if.end15 ]
-  %cmp2.i = icmp eq i32 %tag.sroa.0.016, 0
+  %length.016 = phi i32 [ 0, %entry ], [ %length.1, %if.end15 ]
+  %tag.sroa.0.015 = phi i32 [ 0, %entry ], [ %tag.sroa.0.0.extract.trunc, %if.end15 ]
+  %tag.sroa.4.014 = phi i64 [ 0, %entry ], [ %tag.sroa.4.0.extract.shift, %if.end15 ]
+  %tag.sroa.5.013 = phi i32 [ 0, %entry ], [ %tag.sroa.5.8.extract.trunc, %if.end15 ]
+  %tag.sroa.9.012 = phi i64 [ 0, %entry ], [ %tag.sroa.9.8.extract.shift, %if.end15 ]
+  %cmp2.i = icmp eq i32 %tag.sroa.0.015, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -799,9 +796,9 @@ if.then3.i:                                       ; preds = %if.else.i
   br i1 %cmp4.i, label %while.body, label %return
 
 if.end5.i:                                        ; preds = %if.else.i
-  switch i32 %tag.sroa.5.014, label %while.body [
+  switch i32 %tag.sroa.5.013, label %while.body [
     i32 2, label %land.lhs.true.i
-    i32 0, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+    i32 0, label %if.else19.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
@@ -812,37 +809,37 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %5 = load i32, ptr %fLength.i19.i, align 4
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %5, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
-  %cmp9.i = icmp eq i32 %tag.sroa.0.016, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.016
+  %cmp9.i = icmp eq i32 %tag.sroa.0.015, %sub.i
+  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.015
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
+  br i1 %or.cond.i, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, label %while.body
 
-_ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %land.lhs.true.i
-  %6 = and i16 %3, 2
-  %tobool.not.i.i.i.i = icmp eq i16 %6, 0
-  %7 = load ptr, ptr %fArray.i.i.i.i, align 8
-  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %7, ptr %fBuffer.i.i.i.i
-  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.016 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %8 = load i16, ptr %arrayidx.i.i.i, align 2
-  %cmp13.i = icmp eq i16 %8, 39
-  br i1 %cmp13.i, label %return, label %while.body
-
-_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %if.end5.i
-  %9 = load i16, ptr %fUnion.i.i16.i, align 8
-  %cmp.i.i17.i = icmp slt i16 %9, 0
-  %10 = ashr i16 %9, 5
-  %shr.i.i18.i = sext i16 %10 to i32
-  %11 = load i32, ptr %fLength.i19.i, align 4
-  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %11, i32 %shr.i.i18.i
-  %cmp22.i = icmp slt i32 %tag.sroa.0.016, %cond.i20.i
+if.else19.i:                                      ; preds = %if.end5.i
+  %6 = load i16, ptr %fUnion.i.i16.i, align 8
+  %cmp.i.i17.i = icmp slt i16 %6, 0
+  %7 = ashr i16 %6, 5
+  %shr.i.i18.i = sext i16 %7 to i32
+  %8 = load i32, ptr %fLength.i19.i, align 4
+  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %8, i32 %shr.i.i18.i
+  %cmp22.i = icmp slt i32 %tag.sroa.0.015, %cond.i20.i
   br i1 %cmp22.i, label %while.body, label %return
 
-while.body:                                       ; preds = %land.lhs.true.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end5.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
-  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.016 to i64
-  %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.4.015, %tag.sroa.0.0.insert.ext
-  %tag.sroa.9.8.insert.shift = shl nuw i64 %tag.sroa.9.013, 32
-  %tag.sroa.5.8.insert.ext = zext i32 %tag.sroa.5.014 to i64
+_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %land.lhs.true.i
+  %9 = and i16 %3, 2
+  %tobool.not.i.i.i.i = icmp eq i16 %9, 0
+  %10 = load ptr, ptr %fArray.i.i.i.i, align 8
+  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %10, ptr %fBuffer.i.i.i.i
+  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.015 to i64
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
+  %11 = load i16, ptr %arrayidx.i.i.i, align 2
+  %cmp13.i.not = icmp eq i16 %11, 39
+  br i1 %cmp13.i.not, label %return, label %while.body
+
+while.body:                                       ; preds = %if.end5.i, %land.lhs.true.i, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.015 to i64
+  %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.4.014, %tag.sroa.0.0.insert.ext
+  %tag.sroa.9.8.insert.shift = shl nuw i64 %tag.sroa.9.012, 32
+  %tag.sroa.5.8.insert.ext = zext i32 %tag.sroa.5.013 to i64
   %tag.sroa.5.8.insert.insert = or disjoint i64 %tag.sroa.9.8.insert.shift, %tag.sroa.5.8.insert.ext
   %call1 = call { i64, i64 } @_ZN6icu_756number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %tag.sroa.0.0.insert.insert, i64 %tag.sroa.5.8.insert.insert, ptr noundef nonnull align 8 dereferenceable(64) %affixPattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %12 = extractvalue { i64, i64 } %call1, 0
@@ -851,7 +848,7 @@ while.body:                                       ; preds = %land.lhs.true.i, %_
   %tag.sroa.4.0.extract.shift = and i64 %12, -4294967296
   %tag.sroa.5.8.extract.trunc = trunc i64 %13 to i32
   %tag.sroa.9.8.extract.shift = lshr i64 %13, 32
-  %tag.sroa.9.8.extract.trunc = trunc i64 %tag.sroa.9.8.extract.shift to i32
+  %tag.sroa.9.8.extract.trunc = trunc nuw i64 %tag.sroa.9.8.extract.shift to i32
   %14 = load i32, ptr %status, align 4
   %cmp.i8 = icmp slt i32 %14, 1
   br i1 %cmp.i8, label %if.end, label %return
@@ -861,7 +858,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %add = add nsw i32 %length.017, 1
+  %add = add nsw i32 %length.016, 1
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
@@ -879,14 +876,14 @@ invoke.cont:                                      ; preds = %if.else
   %shr.i.i = sext i16 %17 to i32
   %18 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %18, i32 %shr.i.i
-  %add10 = add nsw i32 %cond.i, %length.017
+  %add10 = add nsw i32 %cond.i, %length.016
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp7) #11
   br label %if.end15
 
 if.else11:                                        ; preds = %if.else
   %cmp12 = icmp ult i64 %12, 281474976710656
   %cond = select i1 %cmp12, i32 1, i32 2
-  %add13 = add nsw i32 %cond, %length.017
+  %add13 = add nsw i32 %cond, %length.016
   br label %if.end15
 
 if.end15:                                         ; preds = %invoke.cont, %if.else11, %if.then3
@@ -894,8 +891,8 @@ if.end15:                                         ; preds = %invoke.cont, %if.el
   %cmp.i = icmp slt i32 %tag.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i, label %return, label %if.else.i, !llvm.loop !10
 
-return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end15, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %while.body
-  %length.0.lcssa = phi i32 [ %length.017, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ], [ %length.1, %if.end15 ], [ %length.017, %if.then3.i ], [ %length.017, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ %length.017, %while.body ]
+return:                                           ; preds = %if.end15, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %while.body
+  %length.0.lcssa = phi i32 [ %length.1, %if.end15 ], [ %length.016, %if.else19.i ], [ %length.016, %if.then3.i ], [ %length.016, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ %length.016, %while.body ]
   ret i32 %length.0.lcssa
 }
 
@@ -943,7 +940,7 @@ if.then3.i:                                       ; preds = %if.else.i
 if.end5.i:                                        ; preds = %if.else.i
   switch i32 %tag.sroa.46.0, label %while.body [
     i32 2, label %land.lhs.true.i
-    i32 0, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+    i32 0, label %if.else19.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
@@ -957,30 +954,30 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cmp9.i = icmp eq i32 %tag.sroa.0.0, %sub.i
   %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.0
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
+  br i1 %or.cond.i, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, label %while.body
 
-_ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %land.lhs.true.i
-  %9 = and i16 %6, 2
-  %tobool.not.i.i.i.i = icmp eq i16 %9, 0
-  %10 = load ptr, ptr %fArray.i.i.i.i, align 8
-  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %10, ptr %fBuffer.i.i.i.i
-  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %11 = load i16, ptr %arrayidx.i.i.i, align 2
-  %cmp13.i = icmp eq i16 %11, 39
-  br i1 %cmp13.i, label %return, label %while.body
-
-_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %if.end5.i
-  %12 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i17.i = icmp slt i16 %12, 0
-  %13 = ashr i16 %12, 5
-  %shr.i.i18.i = sext i16 %13 to i32
-  %14 = load i32, ptr %fLength.i, align 4
-  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %14, i32 %shr.i.i18.i
+if.else19.i:                                      ; preds = %if.end5.i
+  %9 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i17.i = icmp slt i16 %9, 0
+  %10 = ashr i16 %9, 5
+  %shr.i.i18.i = sext i16 %10 to i32
+  %11 = load i32, ptr %fLength.i, align 4
+  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %11, i32 %shr.i.i18.i
   %cmp22.i = icmp slt i32 %tag.sroa.0.0, %cond.i20.i
   br i1 %cmp22.i, label %while.body, label %return
 
-while.body:                                       ; preds = %land.lhs.true.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end5.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %land.lhs.true.i
+  %12 = and i16 %6, 2
+  %tobool.not.i.i.i.i = icmp eq i16 %12, 0
+  %13 = load ptr, ptr %fArray.i.i.i.i, align 8
+  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %13, ptr %fBuffer.i.i.i.i
+  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.0 to i64
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
+  %14 = load i16, ptr %arrayidx.i.i.i, align 2
+  %cmp13.i.not = icmp eq i16 %14, 39
+  br i1 %cmp13.i.not, label %return, label %while.body
+
+while.body:                                       ; preds = %if.end5.i, %land.lhs.true.i, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
   %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.0 to i64
   %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.4.0, %tag.sroa.0.0.insert.ext
   %tag.sroa.8.8.insert.shift = shl nuw i64 %tag.sroa.8.0, 32
@@ -994,7 +991,7 @@ while.body:                                       ; preds = %land.lhs.true.i, %_
 if.end5:                                          ; preds = %while.body
   %16 = extractvalue { i64, i64 } %call2, 1
   %tag.sroa.8.8.extract.shift = lshr i64 %16, 32
-  %tag.sroa.8.8.extract.trunc = trunc i64 %tag.sroa.8.8.extract.shift to i32
+  %tag.sroa.8.8.extract.trunc = trunc nuw i64 %tag.sroa.8.8.extract.shift to i32
   %tag.sroa.46.8.extract.trunc = trunc i64 %16 to i32
   %17 = extractvalue { i64, i64 } %call2, 0
   %tag.sroa.0.0.extract.trunc = trunc i64 %17 to i32
@@ -1002,8 +999,8 @@ if.end5:                                          ; preds = %while.body
   %cmp7 = icmp eq i32 %tag.sroa.8.8.extract.trunc, %type
   br i1 %cmp7, label %return, label %while.cond, !llvm.loop !11
 
-return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %while.cond, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %if.end5, %while.body, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ], [ false, %while.cond ], [ false, %if.then3.i ], [ false, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ true, %if.end5 ], [ false, %while.body ]
+return:                                           ; preds = %while.cond, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %if.end5, %while.body, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %while.cond ], [ false, %if.else19.i ], [ false, %if.then3.i ], [ false, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ true, %if.end5 ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1027,11 +1024,11 @@ while.cond.preheader:                             ; preds = %entry
   br label %if.else.i
 
 if.else.i:                                        ; preds = %while.cond.preheader, %if.end13
-  %tag.sroa.8.017 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.8.8.extract.shift, %if.end13 ]
-  %tag.sroa.47.016 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.47.8.extract.trunc, %if.end13 ]
-  %tag.sroa.0.015 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.0.0.extract.trunc, %if.end13 ]
-  %tag.sroa.4.014 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.4.0.extract.shift, %if.end13 ]
-  %cmp2.i = icmp eq i32 %tag.sroa.0.015, 0
+  %tag.sroa.8.016 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.8.8.extract.shift, %if.end13 ]
+  %tag.sroa.47.015 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.47.8.extract.trunc, %if.end13 ]
+  %tag.sroa.0.014 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.0.0.extract.trunc, %if.end13 ]
+  %tag.sroa.4.013 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.4.0.extract.shift, %if.end13 ]
+  %cmp2.i = icmp eq i32 %tag.sroa.0.014, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1045,9 +1042,9 @@ if.then3.i:                                       ; preds = %if.else.i
   br i1 %cmp4.i, label %while.body, label %return
 
 if.end5.i:                                        ; preds = %if.else.i
-  switch i32 %tag.sroa.47.016, label %while.body [
+  switch i32 %tag.sroa.47.015, label %while.body [
     i32 2, label %land.lhs.true.i
-    i32 0, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+    i32 0, label %if.else19.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
@@ -1058,37 +1055,37 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %8 = load i32, ptr %fLength.i, align 4
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %8, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
-  %cmp9.i = icmp eq i32 %tag.sroa.0.015, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.015
+  %cmp9.i = icmp eq i32 %tag.sroa.0.014, %sub.i
+  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.014
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
+  br i1 %or.cond.i, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, label %while.body
 
-_ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %land.lhs.true.i
-  %9 = and i16 %6, 2
-  %tobool.not.i.i.i.i = icmp eq i16 %9, 0
-  %10 = load ptr, ptr %fArray.i.i.i.i, align 8
-  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %10, ptr %fBuffer.i.i.i.i
-  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.015 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %11 = load i16, ptr %arrayidx.i.i.i, align 2
-  %cmp13.i = icmp eq i16 %11, 39
-  br i1 %cmp13.i, label %return, label %while.body
-
-_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %if.end5.i
-  %12 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i17.i = icmp slt i16 %12, 0
-  %13 = ashr i16 %12, 5
-  %shr.i.i18.i = sext i16 %13 to i32
-  %14 = load i32, ptr %fLength.i, align 4
-  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %14, i32 %shr.i.i18.i
-  %cmp22.i = icmp slt i32 %tag.sroa.0.015, %cond.i20.i
+if.else19.i:                                      ; preds = %if.end5.i
+  %9 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i17.i = icmp slt i16 %9, 0
+  %10 = ashr i16 %9, 5
+  %shr.i.i18.i = sext i16 %10 to i32
+  %11 = load i32, ptr %fLength.i, align 4
+  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %11, i32 %shr.i.i18.i
+  %cmp22.i = icmp slt i32 %tag.sroa.0.014, %cond.i20.i
   br i1 %cmp22.i, label %while.body, label %return
 
-while.body:                                       ; preds = %land.lhs.true.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end5.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
-  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.015 to i64
-  %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.4.014, %tag.sroa.0.0.insert.ext
-  %tag.sroa.8.8.insert.shift = shl nuw i64 %tag.sroa.8.017, 32
-  %tag.sroa.47.8.insert.ext = zext i32 %tag.sroa.47.016 to i64
+_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %land.lhs.true.i
+  %12 = and i16 %6, 2
+  %tobool.not.i.i.i.i = icmp eq i16 %12, 0
+  %13 = load ptr, ptr %fArray.i.i.i.i, align 8
+  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %13, ptr %fBuffer.i.i.i.i
+  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.014 to i64
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
+  %14 = load i16, ptr %arrayidx.i.i.i, align 2
+  %cmp13.i.not = icmp eq i16 %14, 39
+  br i1 %cmp13.i.not, label %return, label %while.body
+
+while.body:                                       ; preds = %if.end5.i, %land.lhs.true.i, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.014 to i64
+  %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.4.013, %tag.sroa.0.0.insert.ext
+  %tag.sroa.8.8.insert.shift = shl nuw i64 %tag.sroa.8.016, 32
+  %tag.sroa.47.8.insert.ext = zext i32 %tag.sroa.47.015 to i64
   %tag.sroa.47.8.insert.insert = or disjoint i64 %tag.sroa.8.8.insert.shift, %tag.sroa.47.8.insert.ext
   %call2 = tail call { i64, i64 } @_ZN6icu_756number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %tag.sroa.0.0.insert.insert, i64 %tag.sroa.47.8.insert.insert, ptr noundef nonnull align 8 dereferenceable(64) %affixPattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %15 = extractvalue { i64, i64 } %call2, 0
@@ -1097,7 +1094,7 @@ while.body:                                       ; preds = %land.lhs.true.i, %_
   %tag.sroa.4.0.extract.shift = and i64 %15, -4294967296
   %tag.sroa.47.8.extract.trunc = trunc i64 %16 to i32
   %tag.sroa.8.8.extract.shift = lshr i64 %16, 32
-  %tag.sroa.8.8.extract.trunc = trunc i64 %tag.sroa.8.8.extract.shift to i32
+  %tag.sroa.8.8.extract.trunc = trunc nuw i64 %tag.sroa.8.8.extract.shift to i32
   %17 = load i32, ptr %status, align 4
   %cmp.i5 = icmp slt i32 %17, 1
   br i1 %cmp.i5, label %if.end5, label %return
@@ -1129,8 +1126,8 @@ if.end13:                                         ; preds = %land.rhs, %land.rhs
   %cmp.i = icmp slt i32 %tag.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i, label %return, label %if.else.i, !llvm.loop !12
 
-return:                                           ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end13, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %while.body, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ false, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ], [ false, %if.end13 ], [ false, %if.then3.i ], [ false, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ false, %while.body ]
+return:                                           ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %if.end13, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %while.body, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ false, %if.end13 ], [ false, %if.else19.i ], [ false, %if.then3.i ], [ false, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1162,11 +1159,11 @@ lpad:                                             ; preds = %if.then12, %while.b
   resume { ptr, i32 } %3
 
 if.else.i:                                        ; preds = %while.cond.preheader, %if.end15
-  %tag.sroa.0.017 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.0.0.extract.trunc, %if.end15 ]
-  %tag.sroa.5.016 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.5.0.extract.shift, %if.end15 ]
-  %tag.sroa.59.015 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.59.8.extract.trunc, %if.end15 ]
-  %tag.sroa.9.014 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.9.8.extract.shift, %if.end15 ]
-  %cmp2.i = icmp eq i32 %tag.sroa.0.017, 0
+  %tag.sroa.0.016 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.0.0.extract.trunc, %if.end15 ]
+  %tag.sroa.5.015 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.5.0.extract.shift, %if.end15 ]
+  %tag.sroa.59.014 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.59.8.extract.trunc, %if.end15 ]
+  %tag.sroa.9.013 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.9.8.extract.shift, %if.end15 ]
+  %cmp2.i = icmp eq i32 %tag.sroa.0.016, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1180,9 +1177,9 @@ if.then3.i:                                       ; preds = %if.else.i
   br i1 %cmp4.i, label %while.body, label %nrvo.skipdtor
 
 if.end5.i:                                        ; preds = %if.else.i
-  switch i32 %tag.sroa.59.015, label %while.body [
+  switch i32 %tag.sroa.59.014, label %while.body [
     i32 2, label %land.lhs.true.i
-    i32 0, label %invoke.cont2
+    i32 0, label %if.else19.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
@@ -1193,37 +1190,37 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %9 = load i32, ptr %fLength.i, align 4
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %9, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
-  %cmp9.i = icmp eq i32 %tag.sroa.0.017, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.017
+  %cmp9.i = icmp eq i32 %tag.sroa.0.016, %sub.i
+  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.016
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
+  br i1 %or.cond.i, label %invoke.cont2, label %while.body
 
-_ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %land.lhs.true.i
-  %10 = and i16 %7, 2
-  %tobool.not.i.i.i.i = icmp eq i16 %10, 0
-  %11 = load ptr, ptr %fArray.i.i.i.i, align 8
-  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %11, ptr %fBuffer.i.i.i.i
-  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.017 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %12 = load i16, ptr %arrayidx.i.i.i, align 2
-  %cmp13.i = icmp eq i16 %12, 39
-  br i1 %cmp13.i, label %nrvo.skipdtor, label %while.body
-
-invoke.cont2:                                     ; preds = %if.end5.i
-  %13 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i17.i = icmp slt i16 %13, 0
-  %14 = ashr i16 %13, 5
-  %shr.i.i18.i = sext i16 %14 to i32
-  %15 = load i32, ptr %fLength.i, align 4
-  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %15, i32 %shr.i.i18.i
-  %cmp22.i = icmp slt i32 %tag.sroa.0.017, %cond.i20.i
+if.else19.i:                                      ; preds = %if.end5.i
+  %10 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i17.i = icmp slt i16 %10, 0
+  %11 = ashr i16 %10, 5
+  %shr.i.i18.i = sext i16 %11 to i32
+  %12 = load i32, ptr %fLength.i, align 4
+  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %12, i32 %shr.i.i18.i
+  %cmp22.i = icmp slt i32 %tag.sroa.0.016, %cond.i20.i
   br i1 %cmp22.i, label %while.body, label %nrvo.skipdtor
 
-while.body:                                       ; preds = %land.lhs.true.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end5.i, %if.then3.i, %invoke.cont2
-  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.017 to i64
-  %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.5.016, %tag.sroa.0.0.insert.ext
-  %tag.sroa.9.8.insert.shift = shl nuw i64 %tag.sroa.9.014, 32
-  %tag.sroa.59.8.insert.ext = zext i32 %tag.sroa.59.015 to i64
+invoke.cont2:                                     ; preds = %land.lhs.true.i
+  %13 = and i16 %7, 2
+  %tobool.not.i.i.i.i = icmp eq i16 %13, 0
+  %14 = load ptr, ptr %fArray.i.i.i.i, align 8
+  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %14, ptr %fBuffer.i.i.i.i
+  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.016 to i64
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
+  %15 = load i16, ptr %arrayidx.i.i.i, align 2
+  %cmp13.i.not = icmp eq i16 %15, 39
+  br i1 %cmp13.i.not, label %nrvo.skipdtor, label %while.body
+
+while.body:                                       ; preds = %if.end5.i, %land.lhs.true.i, %if.else19.i, %if.then3.i, %invoke.cont2
+  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.016 to i64
+  %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.5.015, %tag.sroa.0.0.insert.ext
+  %tag.sroa.9.8.insert.shift = shl nuw i64 %tag.sroa.9.013, 32
+  %tag.sroa.59.8.insert.ext = zext i32 %tag.sroa.59.014 to i64
   %tag.sroa.59.8.insert.insert = or disjoint i64 %tag.sroa.9.8.insert.shift, %tag.sroa.59.8.insert.ext
   %call5 = invoke { i64, i64 } @_ZN6icu_756number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %tag.sroa.0.0.insert.insert, i64 %tag.sroa.59.8.insert.insert, ptr noundef nonnull align 8 dereferenceable(64) %affixPattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont4 unwind label %lpad
@@ -1240,7 +1237,7 @@ invoke.cont4:                                     ; preds = %while.body
   br i1 %cmp.i6, label %if.end9, label %nrvo.skipdtor
 
 if.end9:                                          ; preds = %invoke.cont4
-  %tag.sroa.9.8.extract.trunc = trunc i64 %tag.sroa.9.8.extract.shift to i32
+  %tag.sroa.9.8.extract.trunc = trunc nuw i64 %tag.sroa.9.8.extract.shift to i32
   %cmp11 = icmp eq i32 %tag.sroa.9.8.extract.trunc, %type
   br i1 %cmp11, label %if.then12, label %if.end15
 
@@ -1259,7 +1256,7 @@ if.end15:                                         ; preds = %_ZN6icu_7513Unicode
   %cmp.i = icmp slt i32 %tag.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i, label %nrvo.skipdtor, label %if.else.i, !llvm.loop !13
 
-nrvo.skipdtor:                                    ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end15, %if.then3.i, %invoke.cont4, %invoke.cont2, %invoke.cont
+nrvo.skipdtor:                                    ; preds = %if.end15, %if.else19.i, %if.then3.i, %invoke.cont4, %invoke.cont2, %invoke.cont
   ret void
 }
 
@@ -1285,11 +1282,11 @@ while.cond.preheader:                             ; preds = %entry
   br label %if.else.i
 
 if.else.i:                                        ; preds = %while.cond.preheader, %if.end10
-  %tag.sroa.0.013 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.0.0.extract.trunc, %if.end10 ]
-  %tag.sroa.4.012 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.4.0.extract.shift, %if.end10 ]
-  %tag.sroa.5.011 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.5.8.extract.trunc, %if.end10 ]
-  %tag.sroa.9.010 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.9.8.extract.shift, %if.end10 ]
-  %cmp2.i = icmp eq i32 %tag.sroa.0.013, 0
+  %tag.sroa.0.012 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.0.0.extract.trunc, %if.end10 ]
+  %tag.sroa.4.011 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.4.0.extract.shift, %if.end10 ]
+  %tag.sroa.5.010 = phi i32 [ 0, %while.cond.preheader ], [ %tag.sroa.5.8.extract.trunc, %if.end10 ]
+  %tag.sroa.9.09 = phi i64 [ 0, %while.cond.preheader ], [ %tag.sroa.9.8.extract.shift, %if.end10 ]
+  %cmp2.i = icmp eq i32 %tag.sroa.0.012, 0
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1303,9 +1300,9 @@ if.then3.i:                                       ; preds = %if.else.i
   br i1 %cmp4.i, label %while.body, label %return
 
 if.end5.i:                                        ; preds = %if.else.i
-  switch i32 %tag.sroa.5.011, label %while.body [
+  switch i32 %tag.sroa.5.010, label %while.body [
     i32 2, label %land.lhs.true.i
-    i32 0, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+    i32 0, label %if.else19.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
@@ -1316,44 +1313,44 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %8 = load i32, ptr %fLength.i, align 4
   %cond.i14.i = select i1 %cmp.i.i11.i, i32 %8, i32 %shr.i.i12.i
   %sub.i = add nsw i32 %cond.i14.i, -1
-  %cmp9.i = icmp eq i32 %tag.sroa.0.013, %sub.i
-  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.013
+  %cmp9.i = icmp eq i32 %tag.sroa.0.012, %sub.i
+  %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.012
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
+  br i1 %or.cond.i, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, label %while.body
 
-_ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %land.lhs.true.i
-  %9 = and i16 %6, 2
-  %tobool.not.i.i.i.i = icmp eq i16 %9, 0
-  %10 = load ptr, ptr %fArray.i.i.i.i, align 8
-  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %10, ptr %fBuffer.i.i.i.i
-  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.013 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %11 = load i16, ptr %arrayidx.i.i.i, align 2
-  %cmp13.i = icmp eq i16 %11, 39
-  br i1 %cmp13.i, label %return, label %while.body
-
-_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %if.end5.i
-  %12 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i17.i = icmp slt i16 %12, 0
-  %13 = ashr i16 %12, 5
-  %shr.i.i18.i = sext i16 %13 to i32
-  %14 = load i32, ptr %fLength.i, align 4
-  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %14, i32 %shr.i.i18.i
-  %cmp22.i = icmp slt i32 %tag.sroa.0.013, %cond.i20.i
+if.else19.i:                                      ; preds = %if.end5.i
+  %9 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i17.i = icmp slt i16 %9, 0
+  %10 = ashr i16 %9, 5
+  %shr.i.i18.i = sext i16 %10 to i32
+  %11 = load i32, ptr %fLength.i, align 4
+  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %11, i32 %shr.i.i18.i
+  %cmp22.i = icmp slt i32 %tag.sroa.0.012, %cond.i20.i
   br i1 %cmp22.i, label %while.body, label %return
 
-while.body:                                       ; preds = %land.lhs.true.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end5.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
-  %tag.sroa.4.0.insert.shift = shl nuw i64 %tag.sroa.4.012, 32
-  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.013 to i64
+_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %land.lhs.true.i
+  %12 = and i16 %6, 2
+  %tobool.not.i.i.i.i = icmp eq i16 %12, 0
+  %13 = load ptr, ptr %fArray.i.i.i.i, align 8
+  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %13, ptr %fBuffer.i.i.i.i
+  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.012 to i64
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
+  %14 = load i16, ptr %arrayidx.i.i.i, align 2
+  %cmp13.i.not = icmp eq i16 %14, 39
+  br i1 %cmp13.i.not, label %return, label %while.body
+
+while.body:                                       ; preds = %if.end5.i, %land.lhs.true.i, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+  %tag.sroa.4.0.insert.shift = shl nuw i64 %tag.sroa.4.011, 32
+  %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.012 to i64
   %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.4.0.insert.shift, %tag.sroa.0.0.insert.ext
-  %tag.sroa.5.8.insert.ext = zext i32 %tag.sroa.5.011 to i64
-  %tag.sroa.5.8.insert.insert = or disjoint i64 %tag.sroa.9.010, %tag.sroa.5.8.insert.ext
+  %tag.sroa.5.8.insert.ext = zext i32 %tag.sroa.5.010 to i64
+  %tag.sroa.5.8.insert.insert = or disjoint i64 %tag.sroa.9.09, %tag.sroa.5.8.insert.ext
   %call2 = tail call { i64, i64 } @_ZN6icu_756number4impl10AffixUtils9nextTokenENS1_8AffixTagERKNS_13UnicodeStringER10UErrorCode(i64 %tag.sroa.0.0.insert.insert, i64 %tag.sroa.5.8.insert.insert, ptr noundef nonnull align 8 dereferenceable(64) %affixPattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %15 = extractvalue { i64, i64 } %call2, 0
   %16 = extractvalue { i64, i64 } %call2, 1
   %tag.sroa.0.0.extract.trunc = trunc i64 %15 to i32
   %tag.sroa.4.0.extract.shift = lshr i64 %15, 32
-  %tag.sroa.4.0.extract.trunc = trunc i64 %tag.sroa.4.0.extract.shift to i32
+  %tag.sroa.4.0.extract.trunc = trunc nuw i64 %tag.sroa.4.0.extract.shift to i32
   %tag.sroa.5.8.extract.trunc = trunc i64 %16 to i32
   %tag.sroa.9.8.extract.shift = and i64 %16, -4294967296
   %17 = load i32, ptr %status, align 4
@@ -1373,8 +1370,8 @@ if.end10:                                         ; preds = %land.lhs.true, %if.
   %cmp.i = icmp slt i32 %tag.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i, label %return, label %if.else.i, !llvm.loop !14
 
-return:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end10, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %land.lhs.true, %while.body, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i ], [ true, %if.end10 ], [ true, %if.then3.i ], [ true, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ false, %land.lhs.true ], [ false, %while.body ]
+return:                                           ; preds = %if.end10, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %land.lhs.true, %while.body, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ true, %if.end10 ], [ true, %if.else19.i ], [ true, %if.then3.i ], [ true, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit ], [ false, %land.lhs.true ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1424,7 +1421,7 @@ if.then3.i:                                       ; preds = %if.else.i
 if.end5.i:                                        ; preds = %if.else.i
   switch i32 %tag.sroa.5.0, label %while.body [
     i32 2, label %land.lhs.true.i
-    i32 0, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+    i32 0, label %if.else19.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
@@ -1438,30 +1435,30 @@ land.lhs.true.i:                                  ; preds = %if.end5.i
   %cmp9.i = icmp eq i32 %tag.sroa.0.0, %sub.i
   %cmp.i.i15.i = icmp ugt i32 %cond.i14.i, %tag.sroa.0.0
   %or.cond.i = and i1 %cmp.i.i15.i, %cmp9.i
-  br i1 %or.cond.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, label %while.body
+  br i1 %or.cond.i, label %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, label %while.body
 
-_ZNK6icu_7513UnicodeString6charAtEi.exit.i:       ; preds = %land.lhs.true.i
-  %9 = and i16 %6, 2
-  %tobool.not.i.i.i.i = icmp eq i16 %9, 0
-  %10 = load ptr, ptr %fArray.i.i.i.i, align 8
-  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %10, ptr %fBuffer.i.i.i.i
-  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.0 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
-  %11 = load i16, ptr %arrayidx.i.i.i, align 2
-  %cmp13.i = icmp eq i16 %11, 39
-  br i1 %cmp13.i, label %while.end, label %while.body
-
-_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %if.end5.i
-  %12 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i17.i = icmp slt i16 %12, 0
-  %13 = ashr i16 %12, 5
-  %shr.i.i18.i = sext i16 %13 to i32
-  %14 = load i32, ptr %fLength.i, align 4
-  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %14, i32 %shr.i.i18.i
+if.else19.i:                                      ; preds = %if.end5.i
+  %9 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i17.i = icmp slt i16 %9, 0
+  %10 = ashr i16 %9, 5
+  %shr.i.i18.i = sext i16 %10 to i32
+  %11 = load i32, ptr %fLength.i, align 4
+  %cond.i20.i = select i1 %cmp.i.i17.i, i32 %11, i32 %shr.i.i18.i
   %cmp22.i = icmp slt i32 %tag.sroa.0.0, %cond.i20.i
   br i1 %cmp22.i, label %while.body, label %while.end
 
-while.body:                                       ; preds = %land.lhs.true.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %if.end5.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
+_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit: ; preds = %land.lhs.true.i
+  %12 = and i16 %6, 2
+  %tobool.not.i.i.i.i = icmp eq i16 %12, 0
+  %13 = load ptr, ptr %fArray.i.i.i.i, align 8
+  %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %13, ptr %fBuffer.i.i.i.i
+  %idxprom.i.i.i = zext nneg i32 %tag.sroa.0.0 to i64
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
+  %14 = load i16, ptr %arrayidx.i.i.i, align 2
+  %cmp13.i.not = icmp eq i16 %14, 39
+  br i1 %cmp13.i.not, label %while.end, label %while.body
+
+while.body:                                       ; preds = %if.end5.i, %land.lhs.true.i, %if.else19.i, %if.then3.i, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit
   %tag.sroa.4.0.insert.shift = shl nuw i64 %tag.sroa.4.0, 32
   %tag.sroa.0.0.insert.ext = zext nneg i32 %tag.sroa.0.0 to i64
   %tag.sroa.0.0.insert.insert = or disjoint i64 %tag.sroa.4.0.insert.shift, %tag.sroa.0.0.insert.ext
@@ -1476,11 +1473,11 @@ while.body:                                       ; preds = %land.lhs.true.i, %_
 if.end5:                                          ; preds = %while.body
   %16 = extractvalue { i64, i64 } %call2, 1
   %tag.sroa.9.8.extract.shift = lshr i64 %16, 32
-  %tag.sroa.9.8.extract.trunc = trunc i64 %tag.sroa.9.8.extract.shift to i32
+  %tag.sroa.9.8.extract.trunc = trunc nuw i64 %tag.sroa.9.8.extract.shift to i32
   %tag.sroa.5.8.extract.trunc = trunc i64 %16 to i32
   %17 = extractvalue { i64, i64 } %call2, 0
   %tag.sroa.4.0.extract.shift = lshr i64 %17, 32
-  %tag.sroa.4.0.extract.trunc = trunc i64 %tag.sroa.4.0.extract.shift to i32
+  %tag.sroa.4.0.extract.trunc = trunc nuw i64 %tag.sroa.4.0.extract.shift to i32
   %tag.sroa.0.0.extract.trunc = trunc i64 %17 to i32
   %vtable = load ptr, ptr %consumer, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -1490,7 +1487,7 @@ if.end5:                                          ; preds = %while.body
   %cmp.i8 = icmp slt i32 %19, 1
   br i1 %cmp.i8, label %while.cond, label %while.end, !llvm.loop !15
 
-while.end:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit.i, %while.cond, %if.then3.i, %if.end5, %while.body, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %entry
+while.end:                                        ; preds = %while.cond, %if.else19.i, %if.then3.i, %if.end5, %while.body, %_ZN6icu_756number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE.exit, %entry
   ret void
 }
 

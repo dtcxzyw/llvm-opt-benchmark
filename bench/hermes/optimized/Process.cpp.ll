@@ -464,14 +464,15 @@ sw.bb27.i.i.i.i.i.i:                              ; preds = %if.end25.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i97.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i98.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i99.i.i.i.i.i.i)
-  br i1 %34, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end12
+  %spec.select.i.i.i.i.i.i = select i1 %34, ptr %__first.addr.2.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i8
+  br label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit"
 
 "_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit": ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ %incdec.ptr5.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %__first.addr.0112.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ %incdec.ptr5.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %__first.addr.0112.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %cmp.i.i.i.not = icmp eq ptr %retval.0.i.i.i.i.i.i, %add.ptr.i.i.i.i.i8
   br i1 %cmp.i.i.i.not, label %if.end12, label %for.inc
 
-if.end12:                                         ; preds = %sw.bb27.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit"
+if.end12:                                         ; preds = %for.end.i.i.i.i.i.i, %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit"
   %agg.tmp13.sroa.0.0.copyload = load ptr, ptr %Dir, align 8
   %agg.tmp13.sroa.2.0.copyload = load i64, ptr %Length.i40, align 8
   store ptr %add.ptr.i.i.i.i.i.i, ptr %FilePath, align 8

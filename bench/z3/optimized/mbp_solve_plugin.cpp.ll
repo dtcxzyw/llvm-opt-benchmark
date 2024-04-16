@@ -4464,17 +4464,15 @@ if.else:                                          ; preds = %land.rhs.i.i.i, %en
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i)
   %call.i = call noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull %x, ptr noundef nonnull align 8 dereferenceable(32) %a_val, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i)
-  br i1 %call.i, label %land.lhs.true5, label %if.end14
+  br i1 %call.i, label %land.lhs.true5, label %return
 
 land.lhs.true5:                                   ; preds = %if.else
   %8 = load i32, ptr %a_val, align 8
-  %cmp.i.i.i.i = icmp eq i32 %8, 0
-  br i1 %cmp.i.i.i.i, label %if.end14, label %if.then7
+  %cmp.i.i.i.i = icmp ne i32 %8, 0
+  %brmerge.not = and i1 %cmp.i.i.i.i, %is_int
+  br i1 %brmerge.not, label %lor.lhs.false, label %return
 
-if.then7:                                         ; preds = %land.lhs.true5
-  br i1 %is_int, label %lor.lhs.false, label %return
-
-lor.lhs.false:                                    ; preds = %if.then7
+lor.lhs.false:                                    ; preds = %land.lhs.true5
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %a_val, i64 4
   %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
@@ -4492,14 +4490,14 @@ _ZNK8rational6is_oneEv.exit:                      ; preds = %lor.lhs.false
   %10 = load i32, ptr %m_den.i.i, align 8
   %cmp.i.i6.i.i = icmp eq i32 %10, 1
   %11 = select i1 %cmp.i.i.i5.i.i, i1 %cmp.i.i6.i.i, i1 false
-  br i1 %11, label %return, label %if.end14
+  br label %return
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
   %cmp.i.i.i.i13 = icmp eq i32 %8, -1
   %12 = and i1 %cmp.i.i.i.i13, %cmp.i.i.i.i.i
-  br i1 %12, label %_ZNK8rational12is_minus_oneEv.exit, label %if.end14
+  br i1 %12, label %land.rhs.i.i14, label %return
 
-_ZNK8rational12is_minus_oneEv.exit:               ; preds = %lor.lhs.false10
+land.rhs.i.i14:                                   ; preds = %lor.lhs.false10
   %m_den.i.i15 = getelementptr inbounds i8, ptr %a_val, i64 16
   %m_kind.i.i.i2.i.i16 = getelementptr inbounds i8, ptr %a_val, i64 20
   %bf.load.i.i.i3.i.i17 = load i8, ptr %m_kind.i.i.i2.i.i16, align 4
@@ -4508,13 +4506,10 @@ _ZNK8rational12is_minus_oneEv.exit:               ; preds = %lor.lhs.false10
   %13 = load i32, ptr %m_den.i.i15, align 8
   %cmp.i.i6.i.i20 = icmp eq i32 %13, 1
   %14 = select i1 %cmp.i.i.i5.i.i19, i1 %cmp.i.i6.i.i20, i1 false
-  br i1 %14, label %return, label %if.end14
-
-if.end14:                                         ; preds = %_ZNK8rational6is_oneEv.exit, %lor.lhs.false10, %if.else, %land.lhs.true5, %_ZNK8rational12is_minus_oneEv.exit
   br label %return
 
-return:                                           ; preds = %if.then7, %_ZNK8rational6is_oneEv.exit, %_ZNK8rational12is_minus_oneEv.exit, %if.end14, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ false, %if.end14 ], [ true, %_ZNK8rational12is_minus_oneEv.exit ], [ true, %_ZNK8rational6is_oneEv.exit ], [ true, %if.then7 ]
+return:                                           ; preds = %_ZNK8rational6is_oneEv.exit, %land.rhs.i.i14, %lor.lhs.false10, %land.lhs.true5, %if.else, %if.then
+  %retval.0 = phi i1 [ true, %if.then ], [ false, %if.else ], [ %cmp.i.i.i.i, %land.lhs.true5 ], [ false, %lor.lhs.false10 ], [ %14, %land.rhs.i.i14 ], [ %11, %_ZNK8rational6is_oneEv.exit ]
   ret i1 %retval.0
 }
 

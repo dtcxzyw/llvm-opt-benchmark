@@ -50,20 +50,17 @@ land.lhs.true4:                                   ; preds = %if.end
 if.end7:                                          ; preds = %land.lhs.true4, %if.end
   %and.i25 = and i64 %0, 16
   %tobool.i26.not = icmp eq i64 %and.i25, 0
-  br i1 %tobool.i26.not, label %land.lhs.true9, label %if.end12
+  br i1 %tobool.i26.not, label %land.lhs.true9, label %return
 
 land.lhs.true9:                                   ; preds = %if.end7
   %cpu_features.i27 = getelementptr inbounds i8, ptr %code_target, i64 8
   %3 = load i64, ptr %cpu_features.i27, align 8
   %and.i28 = and i64 %3, 16
   %tobool.i29.not = icmp eq i64 %and.i28, 0
-  br i1 %tobool.i29.not, label %if.end12, label %return
-
-if.end12:                                         ; preds = %land.lhs.true9, %if.end7
   br label %return
 
-return:                                           ; preds = %if.end12, %land.lhs.true9, %land.lhs.true4, %land.lhs.true
-  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %land.lhs.true ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true9 ]
+return:                                           ; preds = %land.lhs.true9, %if.end7, %land.lhs.true4, %land.lhs.true
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %land.lhs.true4 ], [ true, %if.end7 ], [ %tobool.i29.not, %land.lhs.true9 ]
   ret i1 %retval.0
 }
 

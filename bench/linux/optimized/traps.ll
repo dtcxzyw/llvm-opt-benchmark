@@ -576,7 +576,7 @@ define dso_local void @exc_general_protection(ptr noundef %0, i64 noundef %1) lo
 
 12:                                               ; preds = %8
   %13 = tail call zeroext i1 @fixup_umip_exception(ptr noundef %0) #18
-  br i1 %13, label %38, label %14
+  br i1 %13, label %37, label %14
 
 14:                                               ; preds = %12, %8, %2
   %15 = load i64, ptr %6, align 8
@@ -586,19 +586,19 @@ define dso_local void @exc_general_protection(ptr noundef %0, i64 noundef %1) lo
 
 18:                                               ; preds = %14
   %19 = tail call fastcc zeroext i1 @fixup_iopl_exception(ptr noundef %0)
-  br i1 %19, label %38, label %20
+  br i1 %19, label %37, label %20
 
 20:                                               ; preds = %18
   %21 = tail call zeroext i1 @fixup_vdso_exception(ptr noundef %0, i32 noundef 13, i64 noundef %1, i64 noundef 0) #18
-  br i1 %21, label %38, label %22
+  br i1 %21, label %37, label %22
 
 22:                                               ; preds = %20
   call fastcc void @gp_user_force_sig_segv(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %3)
-  br label %38
+  br label %37
 
 23:                                               ; preds = %14
   %24 = call fastcc zeroext i1 @gp_try_fixup_and_notify(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %3)
-  br i1 %24, label %38, label %25
+  br i1 %24, label %37, label %25
 
 25:                                               ; preds = %23
   %26 = icmp eq i64 %1, 0
@@ -619,17 +619,15 @@ define dso_local void @exc_general_protection(ptr noundef %0, i64 noundef %1) lo
   %32 = select i1 %31, ptr @.str.25, ptr @.str.26
   %33 = load i64, ptr %4, align 8
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 92, ptr noundef nonnull @.str.24, ptr noundef nonnull %32, i64 noundef %33) #18
-  br i1 %31, label %36, label %35
+  %spec.select = select i1 %31, i64 %33, i64 0
+  br label %35
 
-35:                                               ; preds = %.thread, %30, %27
-  br label %36
+35:                                               ; preds = %30, %27, %.thread
+  %36 = phi i64 [ 0, %.thread ], [ 0, %27 ], [ %spec.select, %30 ]
+  call void @die_addr(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i64 noundef %36) #18
+  br label %37
 
-36:                                               ; preds = %35, %30
-  %37 = phi i64 [ 0, %35 ], [ %33, %30 ]
-  call void @die_addr(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i64 noundef %37) #18
-  br label %38
-
-38:                                               ; preds = %36, %23, %22, %20, %18, %12
+37:                                               ; preds = %35, %23, %22, %20, %18, %12
   %.val1 = load i64, ptr %7, align 8
   call fastcc void @cond_local_irq_disable(i64 %.val1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
@@ -1341,19 +1339,19 @@ define internal fastcc noundef i32 @get_kernel_gp_address(ptr noundef %0, ptr no
   %7 = inttoptr i64 %6 to ptr
   %8 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %3, ptr noundef %7, i64 noundef 15) #18
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %34
+  br i1 %9, label %10, label %33
 
 10:                                               ; preds = %2
   %11 = call i32 @insn_decode(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 15, i32 noundef 2) #18
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %34, label %13
+  br i1 %12, label %33, label %13
 
 13:                                               ; preds = %10
   %14 = call ptr @insn_get_addr_ref(ptr noundef nonnull %4, ptr noundef %0) #18
   %15 = ptrtoint ptr %14 to i64
   store i64 %15, ptr %1, align 8
   %16 = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
-  br i1 %16, label %34, label %17
+  br i1 %16, label %33, label %17
 
 17:                                               ; preds = %13
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #18
@@ -1383,16 +1381,14 @@ define internal fastcc noundef i32 @get_kernel_gp_address(ptr noundef %0, ptr no
 30:                                               ; preds = %29, %22, %22
   %31 = phi i64 [ 140737488355327, %29 ], [ 72057594037927935, %22 ], [ 72057594037927935, %22 ]
   %32 = icmp ugt i64 %28, %31
-  br i1 %32, label %34, label %33
+  %spec.select = select i1 %32, i32 1, i32 2
+  br label %33
 
-33:                                               ; preds = %30, %19
-  br label %34
-
-34:                                               ; preds = %33, %30, %13, %10, %2
-  %35 = phi i32 [ 2, %33 ], [ 0, %2 ], [ 0, %10 ], [ 0, %13 ], [ 1, %30 ]
+33:                                               ; preds = %30, %19, %13, %10, %2
+  %34 = phi i32 [ 0, %2 ], [ 0, %10 ], [ 0, %13 ], [ 2, %19 ], [ %spec.select, %30 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %3) #18
-  ret i32 %35
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid

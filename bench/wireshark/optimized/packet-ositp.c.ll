@@ -654,12 +654,12 @@ define internal fastcc i32 @dissect_ositp_internal(ptr noundef %0, ptr noundef %
 25:                                               ; preds = %22
   %26 = load ptr, ptr %9, align 8
   call void @col_append_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.247) #8
-  br i1 %.not113201, label %27, label %790
+  br i1 %.not113201, label %27, label %.loopexit.thread
 
 27:                                               ; preds = %25
   %28 = call ptr @tvb_new_subset_remaining(ptr noundef %.1110, i32 noundef %.1112) #8
   %29 = call i32 @call_data_dissector(ptr noundef %28, ptr noundef nonnull %1, ptr noundef %2) #8
-  br label %790
+  br label %.loopexit.thread
 
 30:                                               ; preds = %22
   %31 = add nuw i32 %.1112, 1
@@ -2157,13 +2157,11 @@ ositp_decode_DR.exit.thread.thread:               ; preds = %778, %ositp_decode_
   %.2 = phi i32 [ %.1112, %ositp_decode_DR.exit.thread ], [ %.1112, %ositp_decode_DR.exit.thread.thread ], [ %.1112, %ositp_decode_DR.exit.thread.thread178 ], [ %.0106, %788 ]
   %.0104182.fr = freeze i32 %.0104182
   %.not116 = icmp eq i32 %.0104182.fr, 0
-  br i1 %.not116, label %.loopexit.thread, label %790
+  %spec.select = select i1 %.not116, i32 0, i32 %.2
+  br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %4, %.loopexit
-  br label %790
-
-790:                                              ; preds = %.loopexit.thread, %.loopexit, %25, %27
-  %.0108 = phi i32 [ %.0104202, %27 ], [ %.0104202, %25 ], [ 0, %.loopexit.thread ], [ %.2, %.loopexit ]
+.loopexit.thread:                                 ; preds = %.loopexit, %4, %25, %27
+  %.0108 = phi i32 [ %.0104202, %27 ], [ %.0104202, %25 ], [ 0, %4 ], [ %spec.select, %.loopexit ]
   ret i32 %.0108
 }
 

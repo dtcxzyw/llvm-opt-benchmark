@@ -690,69 +690,67 @@ entry:
   %call.i = call noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPS3_S4_(i64 %host.coerce0, ptr %host.coerce1, ptr noundef nonnull %allocated_name.i, ptr noundef nonnull %ignored_port.i)
   %3 = load i64, ptr %allocated_name.i, align 8
   %cmp.i.i = icmp eq i64 %3, 0
-  br i1 %cmp.i.i, label %_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %if.then.i.i
-
-_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %allocated_name.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ignored_port.i)
-  br label %.thread
+  br i1 %cmp.i.i, label %.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_str.i.i = getelementptr inbounds i8, ptr %allocated_name.i, i64 8
   %4 = load ptr, ptr %_M_str.i.i, align 8
   %call.i.i.i = call ptr @memchr(ptr noundef %4, i32 noundef 37, i64 noundef %3) #21
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %tobool.not.i.i, label %_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i
+  br i1 %tobool.not.i.i, label %5, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.not.i = icmp eq i64 %sub.ptr.sub.i.i, -1
-  br i1 %cmp.not.i, label %_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.then3.i
+  br i1 %cmp.not.i, label %5, label %if.then3.i
 
 if.then3.i:                                       ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i
   store i64 %sub.ptr.sub.i.i, ptr %allocated_name.i, align 8
-  br label %_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit
+  br label %5
 
-_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %if.then.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i, %if.then3.i
+5:                                                ; preds = %if.then3.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i, %if.then.i.i
   %agg.tmp6.sroa.0.0.copyload.i = phi i64 [ %3, %if.then.i.i ], [ %sub.ptr.sub.i.i, %if.then3.i ], [ %3, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i ]
   %call7.i = call noundef i32 @_Z25tsi_ssl_peer_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %peer, i64 %agg.tmp6.sroa.0.0.copyload.i, ptr %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %allocated_name.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ignored_port.i)
-  %tobool.not = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not, label %.thread, label %5
-
-5:                                                ; preds = %_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %tobool.not = icmp ne i32 %call7.i, 0
   %6 = load i64, ptr %overridden_target_name, align 8
   %cmp.i = icmp ne i64 %6, 0
   %cmp.i3 = icmp eq i64 %host.coerce0, %target_name.coerce0
   %or.cond = select i1 %cmp.i, i1 %cmp.i3, i1 false
-  br i1 %or.cond, label %land.rhs.i, label %if.end10
+  br i1 %or.cond, label %land.rhs.i, label %if.end7
 
-.thread:                                          ; preds = %_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_Z26grpc_ssl_host_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
+.thread:                                          ; preds = %entry
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %allocated_name.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ignored_port.i)
   %7 = load i64, ptr %overridden_target_name, align 8
-  %cmp.i16 = icmp ne i64 %7, 0
-  %cmp.i317 = icmp eq i64 %host.coerce0, %target_name.coerce0
-  %or.cond18 = select i1 %cmp.i16, i1 %cmp.i317, i1 false
-  br i1 %or.cond18, label %land.rhs.i, label %if.then8
+  %cmp.i18 = icmp ne i64 %7, 0
+  %cmp.i319 = icmp eq i64 %host.coerce0, %target_name.coerce0
+  %or.cond20 = select i1 %cmp.i18, i1 %cmp.i319, i1 false
+  br i1 %or.cond20, label %land.rhs.i, label %if.then8
 
 land.rhs.i:                                       ; preds = %.thread, %5
-  %cmp.not.old20 = phi i1 [ false, %.thread ], [ true, %5 ]
+  %cmp.not21 = phi i1 [ false, %.thread ], [ %tobool.not, %5 ]
   %cmp.i2.i.i = icmp eq i64 %host.coerce0, 0
-  br i1 %cmp.i2.i.i, label %if.end10, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  br i1 %cmp.i2.i.i, label %if.end10, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs.i
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %host.coerce1, ptr %target_name.coerce1, i64 %host.coerce0)
-  %cmp.i.i4 = icmp eq i32 %bcmp.i, 0
-  %or.cond14 = or i1 %cmp.not.old20, %cmp.i.i4
-  br i1 %or.cond14, label %if.end10, label %if.then8
+  %bcmp.i.fr = freeze i32 %bcmp.i
+  %cmp.i.i4 = icmp eq i32 %bcmp.i.fr, 0
+  %or.cond16 = or i1 %cmp.not21, %cmp.i.i4
+  br i1 %or.cond16, label %if.end10, label %if.then8
 
-if.then8:                                         ; preds = %.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+if.end7:                                          ; preds = %5
+  br i1 %tobool.not, label %if.end10, label %if.then8
+
+if.then8:                                         ; preds = %.thread, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, %if.end7
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 182, i32 noundef 2, ptr noundef nonnull @.str.7)
   %8 = load ptr, ptr %peer, align 8
-  %cmp.not.i6 = icmp eq ptr %8, null
-  br i1 %cmp.not.i6, label %_Z26grpc_shallow_peer_destructP8tsi_peer.exit, label %if.then.i
+  %cmp.not.i5 = icmp eq ptr %8, null
+  br i1 %cmp.not.i5, label %_Z26grpc_shallow_peer_destructP8tsi_peer.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
   call void @gpr_free(ptr noundef nonnull %8)
@@ -762,20 +760,20 @@ _Z26grpc_shallow_peer_destructP8tsi_peer.exit:    ; preds = %if.then8, %if.then.
   call void @_ZN4absl12lts_2023080220UnauthenticatedErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 40, ptr nonnull @.str.7)
   br label %return
 
-if.end10:                                         ; preds = %5, %land.rhs.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+if.end10:                                         ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, %land.rhs.i, %if.end7
   %9 = load ptr, ptr %peer, align 8
-  %cmp.not.i7 = icmp eq ptr %9, null
-  br i1 %cmp.not.i7, label %_Z26grpc_shallow_peer_destructP8tsi_peer.exit9, label %if.then.i8
+  %cmp.not.i6 = icmp eq ptr %9, null
+  br i1 %cmp.not.i6, label %_Z26grpc_shallow_peer_destructP8tsi_peer.exit8, label %if.then.i7
 
-if.then.i8:                                       ; preds = %if.end10
+if.then.i7:                                       ; preds = %if.end10
   call void @gpr_free(ptr noundef nonnull %9)
-  br label %_Z26grpc_shallow_peer_destructP8tsi_peer.exit9
+  br label %_Z26grpc_shallow_peer_destructP8tsi_peer.exit8
 
-_Z26grpc_shallow_peer_destructP8tsi_peer.exit9:   ; preds = %if.end10, %if.then.i8
+_Z26grpc_shallow_peer_destructP8tsi_peer.exit8:   ; preds = %if.end10, %if.then.i7
   store i64 0, ptr %agg.result, align 8, !alias.scope !13
   br label %return
 
-return:                                           ; preds = %_Z26grpc_shallow_peer_destructP8tsi_peer.exit9, %_Z26grpc_shallow_peer_destructP8tsi_peer.exit
+return:                                           ; preds = %_Z26grpc_shallow_peer_destructP8tsi_peer.exit8, %_Z26grpc_shallow_peer_destructP8tsi_peer.exit
   ret void
 }
 
@@ -975,7 +973,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit: ; preds = %entr
   %sub.i.i = sub i64 %target_name.coerce0, %other_target_name.coerce0
   %spec.select3.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 -2147483648)
   %retval.04.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i, i64 2147483647)
-  %retval.0.i3.i = trunc i64 %retval.04.i.i to i32
+  %retval.0.i3.i = trunc nsw i64 %retval.04.i.i to i32
   %cmp.not = icmp eq i32 %retval.0.i3.i, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -996,7 +994,7 @@ if.then.i9:                                       ; preds = %_ZNSt11char_traitsI
   %sub.i.i10 = sub i64 %overridden_target_name.coerce0, %agg.tmp1.sroa.0.0.copyload
   %spec.select3.i.i11 = tail call i64 @llvm.smax.i64(i64 %sub.i.i10, i64 -2147483648)
   %retval.04.i.i12 = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i11, i64 2147483647)
-  %retval.0.i3.i13 = trunc i64 %retval.04.i.i12 to i32
+  %retval.0.i3.i13 = trunc nsw i64 %retval.04.i.i12 to i32
   br label %return
 
 return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %if.then.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i4, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit
@@ -2883,8 +2881,8 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i75, i64 %sub.ptr.div.i.i)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i75
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i75
-  %12 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
-  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %12
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %spec.select.i
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit, label %cond.true.i
 
@@ -2914,12 +2912,12 @@ for.body.i.i.i.i86.preheader:                     ; preds = %for.body.i.i.i.i.i7
 for.body.i.i.i.i86:                               ; preds = %for.body.i.i.i.i86.preheader, %for.body.i.i.i.i86
   %__cur.07.i.i.i.i87 = phi ptr [ %incdec.ptr1.i.i.i.i91, %for.body.i.i.i.i86 ], [ %__cur.07.i.i.i.i87.ph, %for.body.i.i.i.i86.preheader ]
   %__first.addr.06.i.i.i.i88 = phi ptr [ %incdec.ptr.i.i.i.i90, %for.body.i.i.i.i86 ], [ %__first, %for.body.i.i.i.i86.preheader ]
-  %13 = load ptr, ptr %__first.addr.06.i.i.i.i88, align 8
+  %12 = load ptr, ptr %__first.addr.06.i.i.i.i88, align 8
   %size.i.i.i.i.i.i89 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i88, i64 8
-  %14 = load i64, ptr %size.i.i.i.i.i.i89, align 8
-  store i64 %14, ptr %__cur.07.i.i.i.i87, align 8
-  %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i87, i64 8
-  store ptr %13, ptr %15, align 8
+  %13 = load i64, ptr %size.i.i.i.i.i.i89, align 8
+  store i64 %13, ptr %__cur.07.i.i.i.i87, align 8
+  %14 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i87, i64 8
+  store ptr %12, ptr %14, align 8
   %incdec.ptr.i.i.i.i90 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i88, i64 16
   %incdec.ptr1.i.i.i.i91 = getelementptr i8, ptr %__cur.07.i.i.i.i87, i64 16
   %cmp.not.i.i.i.i92 = icmp eq ptr %incdec.ptr.i.i.i.i90, %__last

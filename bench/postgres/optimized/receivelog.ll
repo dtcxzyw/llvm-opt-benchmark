@@ -218,8 +218,8 @@ CheckServerVersionForStreaming.exit:              ; preds = %22
   %64 = getelementptr inbounds i8, ptr %4, i64 8
   br label %65
 
-65:                                               ; preds = %545, %54
-  %66 = phi i32 [ %516, %545 ], [ %.pre, %54 ]
+65:                                               ; preds = %544, %54
+  %66 = phi i32 [ %515, %544 ], [ %.pre, %54 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %existsTimeLineHistoryFile.exit.thread, label %existsTimeLineHistoryFile.exit
@@ -236,11 +236,11 @@ existsTimeLineHistoryFile.exit:                   ; preds = %65
   %72 = load ptr, ptr %71, align 8
   %73 = call zeroext i1 %72(ptr noundef nonnull %69, ptr noundef nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
-  %.pre657 = load i32, ptr %56, align 8
+  %.pre658 = load i32, ptr %56, align 8
   br i1 %73, label %148, label %74
 
 74:                                               ; preds = %existsTimeLineHistoryFile.exit
-  %75 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 128, ptr noundef nonnull @.str.9, i32 noundef %.pre657) #11
+  %75 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 128, ptr noundef nonnull @.str.9, i32 noundef %.pre658) #11
   %76 = call ptr @PQexec(ptr noundef %0, ptr noundef nonnull %13) #11
   %77 = call i32 @PQresultStatus(ptr noundef %76) #11
   %.not76 = icmp eq i32 %77, 2
@@ -348,7 +348,7 @@ existsTimeLineHistoryFile.exit:                   ; preds = %65
   %137 = call ptr %136(ptr noundef nonnull %134, ptr noundef nonnull @mark_file_as_archived.tmppath, ptr noundef null, i64 noundef 0) #11
   %138 = icmp eq ptr %137, null
   %139 = load ptr, ptr %57, align 8
-  br i1 %138, label %mark_file_as_archived.exit.i, label %140
+  br i1 %138, label %.sink.split.i.i, label %140
 
 140:                                              ; preds = %132
   %141 = load ptr, ptr %139, align 8
@@ -360,23 +360,23 @@ existsTimeLineHistoryFile.exit:                   ; preds = %65
 
 145:                                              ; preds = %140
   %146 = load ptr, ptr %57, align 8
-  br label %mark_file_as_archived.exit.i
+  br label %.sink.split.i.i
 
-mark_file_as_archived.exit.i:                     ; preds = %145, %132
+.sink.split.i.i:                                  ; preds = %145, %132
   %.sink10.i.i = phi ptr [ %146, %145 ], [ %139, %132 ]
   %.str.27.sink.i.i = phi ptr [ @.str.27, %145 ], [ @.str.26, %132 ]
   %147 = call ptr @GetLastWalMethodError(ptr noundef %.sink10.i.i) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.27.sink.i.i, ptr noundef nonnull @mark_file_as_archived.tmppath, ptr noundef %147) #11
   br label %writeTimeLineHistoryFile.exit
 
-writeTimeLineHistoryFile.exit:                    ; preds = %95, %104, %114, %126, %129, %140, %mark_file_as_archived.exit.i
+writeTimeLineHistoryFile.exit:                    ; preds = %95, %104, %114, %126, %129, %140, %.sink.split.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   call void @PQclear(ptr noundef %76) #11
-  %.pre656 = load i32, ptr %56, align 8
+  %.pre657 = load i32, ptr %56, align 8
   br label %148
 
 148:                                              ; preds = %existsTimeLineHistoryFile.exit.thread, %writeTimeLineHistoryFile.exit, %existsTimeLineHistoryFile.exit
-  %149 = phi i32 [ 1, %existsTimeLineHistoryFile.exit.thread ], [ %.pre656, %writeTimeLineHistoryFile.exit ], [ %.pre657, %existsTimeLineHistoryFile.exit ]
+  %149 = phi i32 [ 1, %existsTimeLineHistoryFile.exit.thread ], [ %.pre657, %writeTimeLineHistoryFile.exit ], [ %.pre658, %existsTimeLineHistoryFile.exit ]
   %150 = load ptr, ptr %59, align 8
   %151 = load i64, ptr %1, align 8
   %152 = call zeroext i1 %150(i64 noundef %151, i32 noundef %149, i1 noundef zeroext false) #11
@@ -385,7 +385,7 @@ writeTimeLineHistoryFile.exit:                    ; preds = %95, %104, %114, %12
 153:                                              ; preds = %148
   %154 = load i64, ptr %1, align 8
   %155 = lshr i64 %154, 32
-  %156 = trunc i64 %155 to i32
+  %156 = trunc nuw i64 %155 to i32
   %157 = trunc i64 %154 to i32
   %158 = load i32, ptr %56, align 8
   %159 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 128, ptr noundef nonnull @.str.13, ptr noundef nonnull %14, i32 noundef %156, i32 noundef %157, i32 noundef %158) #11
@@ -406,16 +406,16 @@ writeTimeLineHistoryFile.exit:                    ; preds = %95, %104, %114, %12
   store i1 false, ptr @still_sending, align 1
   br label %166
 
-thread-pre-split.i:                               ; preds = %CopyStreamReceive.exit, %CopyStreamReceive.exit.thread113
-  %.2106116 = phi ptr [ null, %CopyStreamReceive.exit.thread113 ], [ %.2106, %CopyStreamReceive.exit ]
+thread-pre-split.i:                               ; preds = %CopyStreamReceive.exit, %CopyStreamReceive.exit.thread
+  %.2106113 = phi ptr [ null, %CopyStreamReceive.exit.thread ], [ %.2106, %CopyStreamReceive.exit ]
   %.b.i.pr.i = load i1, ptr @still_sending, align 1
   br label %166
 
 166:                                              ; preds = %thread-pre-split.i, %164
-  %.0104 = phi ptr [ null, %164 ], [ %.2106116, %thread-pre-split.i ]
+  %.0104 = phi ptr [ null, %164 ], [ %.2106113, %thread-pre-split.i ]
   %.b.i.i = phi i1 [ false, %164 ], [ %.b.i.pr.i, %thread-pre-split.i ]
   %.074.i = phi i64 [ -1, %164 ], [ %.377.i.ph, %thread-pre-split.i ]
-  %.073.i = phi i64 [ %165, %164 ], [ %.1.i.ph1095, %thread-pre-split.i ]
+  %.073.i = phi i64 [ %165, %164 ], [ %.1.i.ph1096, %thread-pre-split.i ]
   br i1 %.b.i.i, label %181, label %167
 
 167:                                              ; preds = %166
@@ -548,29 +548,29 @@ CalculateCopyStreamSleeptime.exit.i:              ; preds = %._crit_edge.i.i, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %ProcessKeepaliveMsg.exit.thread.i.outer
 
-ProcessKeepaliveMsg.exit.thread.i.outer:          ; preds = %329, %CalculateCopyStreamSleeptime.exit.i
-  %.1105.ph = phi ptr [ %.2106, %329 ], [ %.0104, %CalculateCopyStreamSleeptime.exit.i ]
-  %.sink.i.ph = phi i64 [ 0, %329 ], [ %.0.i47.i, %CalculateCopyStreamSleeptime.exit.i ]
-  %.377.i.ph = phi i64 [ %330, %329 ], [ %.276.i, %CalculateCopyStreamSleeptime.exit.i ]
-  %.1.i.ph = phi i64 [ %.1.i.ph1095, %329 ], [ %.073.i, %CalculateCopyStreamSleeptime.exit.i ]
-  br label %ProcessKeepaliveMsg.exit.thread.i.outer1092
+ProcessKeepaliveMsg.exit.thread.i.outer:          ; preds = %328, %CalculateCopyStreamSleeptime.exit.i
+  %.1105.ph = phi ptr [ %.2106, %328 ], [ %.0104, %CalculateCopyStreamSleeptime.exit.i ]
+  %.sink.i.ph = phi i64 [ 0, %328 ], [ %.0.i47.i, %CalculateCopyStreamSleeptime.exit.i ]
+  %.377.i.ph = phi i64 [ %329, %328 ], [ %.276.i, %CalculateCopyStreamSleeptime.exit.i ]
+  %.1.i.ph = phi i64 [ %.1.i.ph1096, %328 ], [ %.073.i, %CalculateCopyStreamSleeptime.exit.i ]
+  br label %ProcessKeepaliveMsg.exit.thread.i.outer1093
 
-ProcessKeepaliveMsg.exit.thread.i.outer1092:      ; preds = %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge, %ProcessKeepaliveMsg.exit.thread.i.outer
-  %.1105.ph1093 = phi ptr [ %.1105.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ %.2106, %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge ]
-  %.sink.i.ph1094 = phi i64 [ %.sink.i.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ 0, %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge ]
-  %.1.i.ph1095 = phi i64 [ %.1.i.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ %.1.i.ph1095.be, %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge ]
+ProcessKeepaliveMsg.exit.thread.i.outer1093:      ; preds = %ProcessKeepaliveMsg.exit.thread.i.outer1093.backedge, %ProcessKeepaliveMsg.exit.thread.i.outer
+  %.1105.ph1094 = phi ptr [ %.1105.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ %.2106, %ProcessKeepaliveMsg.exit.thread.i.outer1093.backedge ]
+  %.sink.i.ph1095 = phi i64 [ %.sink.i.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ 0, %ProcessKeepaliveMsg.exit.thread.i.outer1093.backedge ]
+  %.1.i.ph1096 = phi i64 [ %.1.i.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ %.1.i.ph1096.be, %ProcessKeepaliveMsg.exit.thread.i.outer1093.backedge ]
   br label %ProcessKeepaliveMsg.exit.thread.i
 
-ProcessKeepaliveMsg.exit.thread.i:                ; preds = %ProcessKeepaliveMsg.exit.thread.i.backedge, %ProcessKeepaliveMsg.exit.thread.i.outer1092
-  %.1105 = phi ptr [ %.1105.ph1093, %ProcessKeepaliveMsg.exit.thread.i.outer1092 ], [ %.2106, %ProcessKeepaliveMsg.exit.thread.i.backedge ]
-  %.sink.i = phi i64 [ %.sink.i.ph1094, %ProcessKeepaliveMsg.exit.thread.i.outer1092 ], [ 0, %ProcessKeepaliveMsg.exit.thread.i.backedge ]
+ProcessKeepaliveMsg.exit.thread.i:                ; preds = %ProcessKeepaliveMsg.exit.thread.i.backedge, %ProcessKeepaliveMsg.exit.thread.i.outer1093
+  %.1105 = phi ptr [ %.1105.ph1094, %ProcessKeepaliveMsg.exit.thread.i.outer1093 ], [ %.2106, %ProcessKeepaliveMsg.exit.thread.i.backedge ]
+  %.sink.i = phi i64 [ %.sink.i.ph1095, %ProcessKeepaliveMsg.exit.thread.i.outer1093 ], [ 0, %ProcessKeepaliveMsg.exit.thread.i.backedge ]
   %228 = load i32, ptr %62, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   call void @PQfreemem(ptr noundef %.1105) #11
   %229 = call i32 @PQgetCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #11
   %230 = icmp eq i32 %229, 0
-  br i1 %230, label %231, label %279
+  br i1 %230, label %231, label %278
 
 231:                                              ; preds = %ProcessKeepaliveMsg.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
@@ -643,664 +643,664 @@ ProcessKeepaliveMsg.exit.thread.i:                ; preds = %ProcessKeepaliveMsg
 
 269:                                              ; preds = %260
   %.not34.i.i = icmp eq i32 %262, 0
-  br i1 %.not34.i.i, label %CopyStreamPoll.exit.thread.i, label %270
+  br i1 %.not34.i.i, label %CopyStreamPoll.exit.thread.i, label %CopyStreamPoll.exit.i
 
-270:                                              ; preds = %269
-  %271 = load i64, ptr %239, align 8
-  %272 = and i64 %271, %236
-  %.not35.i.i = icmp eq i64 %272, 0
-  br i1 %.not35.i.i, label %CopyStreamPoll.exit.thread.i, label %273
-
-CopyStreamPoll.exit.thread.i:                     ; preds = %270, %269, %268, %264, %242
-  %.0.i.ph.i = phi i32 [ 0, %264 ], [ -1, %268 ], [ -1, %242 ], [ 0, %270 ], [ 0, %269 ]
+CopyStreamPoll.exit.thread.i:                     ; preds = %269, %268, %264, %242
+  %.0.i.ph.i = phi i32 [ 0, %269 ], [ 0, %264 ], [ -1, %268 ], [ -1, %242 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %CopyStreamReceive.exit
 
-273:                                              ; preds = %270
+CopyStreamPoll.exit.i:                            ; preds = %269
+  %270 = load i64, ptr %239, align 8
+  %271 = and i64 %270, %236
+  %.not35.i.not.i = icmp eq i64 %271, 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %274 = call i32 @PQconsumeInput(ptr noundef %0) #11
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %CopyStreamReceive.exit.thread, label %276
+  br i1 %.not35.i.not.i, label %CopyStreamReceive.exit.thread, label %272
 
-276:                                              ; preds = %273
-  %277 = call i32 @PQgetCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #11
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %CopyStreamReceive.exit.thread113, label %279
+272:                                              ; preds = %CopyStreamPoll.exit.i
+  %273 = call i32 @PQconsumeInput(ptr noundef %0) #11
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %CopyStreamReceive.exit.thread115, label %275
 
-CopyStreamReceive.exit.thread113:                 ; preds = %276
+275:                                              ; preds = %272
+  %276 = call i32 @PQgetCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #11
+  %277 = icmp eq i32 %276, 0
+  br i1 %277, label %CopyStreamReceive.exit.thread, label %278
+
+278:                                              ; preds = %275, %ProcessKeepaliveMsg.exit.thread.i
+  %.018.i = phi i32 [ %276, %275 ], [ %229, %ProcessKeepaliveMsg.exit.thread.i ]
+  switch i32 %.018.i, label %280 [
+    i32 -1, label %CopyStreamReceive.exit.thread118
+    i32 -2, label %CopyStreamReceive.exit.thread115
+  ]
+
+CopyStreamReceive.exit.thread118:                 ; preds = %278
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  %279 = call ptr @PQgetResult(ptr noundef %0) #11
+  %.b.i48.i = load i1, ptr @still_sending, align 1
+  br i1 %.b.i48.i, label %HandleEndOfCopyStream.exit.i, label %283
+
+280:                                              ; preds = %278
+  %281 = load ptr, ptr %5, align 8
+  br label %CopyStreamReceive.exit
+
+CopyStreamReceive.exit.thread:                    ; preds = %CopyStreamPoll.exit.i, %275
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %thread-pre-split.i
 
-279:                                              ; preds = %276, %ProcessKeepaliveMsg.exit.thread.i
-  %.018.i = phi i32 [ %277, %276 ], [ %229, %ProcessKeepaliveMsg.exit.thread.i ]
-  switch i32 %.018.i, label %281 [
-    i32 -1, label %CopyStreamReceive.exit.thread117
-    i32 -2, label %CopyStreamReceive.exit.thread
-  ]
-
-CopyStreamReceive.exit.thread117:                 ; preds = %279
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %280 = call ptr @PQgetResult(ptr noundef %0) #11
-  %.b.i48.i = load i1, ptr @still_sending, align 1
-  br i1 %.b.i48.i, label %HandleEndOfCopyStream.exit.i, label %284
-
-281:                                              ; preds = %279
-  %282 = load ptr, ptr %5, align 8
-  br label %CopyStreamReceive.exit
-
-CopyStreamReceive.exit.thread:                    ; preds = %279, %273
-  %.str.36.sink = phi ptr [ @.str.36, %273 ], [ @.str.37, %279 ]
-  %283 = call ptr @PQerrorMessage(ptr noundef %0) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.36.sink, ptr noundef %283) #11
+CopyStreamReceive.exit.thread115:                 ; preds = %278, %272
+  %.str.36.sink = phi ptr [ @.str.36, %272 ], [ @.str.37, %278 ]
+  %282 = call ptr @PQerrorMessage(ptr noundef %0) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.36.sink, ptr noundef %282) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %HandleCopyStream.exit.thread
 
-CopyStreamReceive.exit:                           ; preds = %CopyStreamPoll.exit.thread.i, %281
-  %.2106 = phi ptr [ null, %CopyStreamPoll.exit.thread.i ], [ %282, %281 ]
-  %.0.i93 = phi i32 [ %.0.i.ph.i, %CopyStreamPoll.exit.thread.i ], [ %.018.i, %281 ]
+CopyStreamReceive.exit:                           ; preds = %CopyStreamPoll.exit.thread.i, %280
+  %.2106 = phi ptr [ null, %CopyStreamPoll.exit.thread.i ], [ %281, %280 ]
+  %.0.i93 = phi i32 [ %.0.i.ph.i, %CopyStreamPoll.exit.thread.i ], [ %.018.i, %280 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  switch i32 %.0.i93, label %301 [
+  switch i32 %.0.i93, label %300 [
     i32 0, label %thread-pre-split.i
     i32 -1, label %HandleCopyStream.exit.thread
   ]
 
-284:                                              ; preds = %CopyStreamReceive.exit.thread117
-  %285 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %.1.i.ph1095)
-  br i1 %285, label %287, label %286
+283:                                              ; preds = %CopyStreamReceive.exit.thread118
+  %284 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %.1.i.ph1096)
+  br i1 %284, label %286, label %285
 
-286:                                              ; preds = %284
-  call void @PQclear(ptr noundef %280) #11
+285:                                              ; preds = %283
+  call void @PQclear(ptr noundef %279) #11
   br label %HandleCopyStream.exit.thread
 
-287:                                              ; preds = %284
-  %288 = call i32 @PQresultStatus(ptr noundef %280) #11
-  %289 = icmp eq i32 %288, 4
-  br i1 %289, label %290, label %299
+286:                                              ; preds = %283
+  %287 = call i32 @PQresultStatus(ptr noundef %279) #11
+  %288 = icmp eq i32 %287, 4
+  br i1 %288, label %289, label %298
 
-290:                                              ; preds = %287
-  %291 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef null) #11
-  %292 = icmp slt i32 %291, 1
-  br i1 %292, label %295, label %293
+289:                                              ; preds = %286
+  %290 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef null) #11
+  %291 = icmp slt i32 %290, 1
+  br i1 %291, label %294, label %292
 
-293:                                              ; preds = %290
-  %294 = call i32 @PQflush(ptr noundef %0) #11
-  %.not.i50.i = icmp eq i32 %294, 0
-  br i1 %.not.i50.i, label %297, label %295
+292:                                              ; preds = %289
+  %293 = call i32 @PQflush(ptr noundef %0) #11
+  %.not.i50.i = icmp eq i32 %293, 0
+  br i1 %.not.i50.i, label %296, label %294
 
-295:                                              ; preds = %293, %290
-  %296 = call ptr @PQerrorMessage(ptr noundef %0) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %296) #11
-  call void @PQclear(ptr noundef %280) #11
+294:                                              ; preds = %292, %289
+  %295 = call ptr @PQerrorMessage(ptr noundef %0) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %295) #11
+  call void @PQclear(ptr noundef %279) #11
   br label %HandleCopyStream.exit.thread
 
-297:                                              ; preds = %293
-  %298 = call ptr @PQgetResult(ptr noundef %0) #11
-  br label %299
+296:                                              ; preds = %292
+  %297 = call ptr @PQgetResult(ptr noundef %0) #11
+  br label %298
 
-299:                                              ; preds = %297, %287
-  %.0.i49.i = phi ptr [ %298, %297 ], [ %280, %287 ]
+298:                                              ; preds = %296, %286
+  %.0.i49.i = phi ptr [ %297, %296 ], [ %279, %286 ]
   store i1 true, ptr @still_sending, align 1
   br label %HandleEndOfCopyStream.exit.i
 
-HandleEndOfCopyStream.exit.i:                     ; preds = %299, %CopyStreamReceive.exit.thread117
-  %.1.i.i = phi ptr [ %.0.i49.i, %299 ], [ %280, %CopyStreamReceive.exit.thread117 ]
+HandleEndOfCopyStream.exit.i:                     ; preds = %298, %CopyStreamReceive.exit.thread118
+  %.1.i.i = phi ptr [ %.0.i49.i, %298 ], [ %279, %CopyStreamReceive.exit.thread118 ]
   call void @PQfreemem(ptr noundef null) #11
-  %300 = icmp eq ptr %.1.i.i, null
-  br i1 %300, label %HandleCopyStream.exit.thread, label %HandleCopyStream.exit
+  %299 = icmp eq ptr %.1.i.i, null
+  br i1 %299, label %HandleCopyStream.exit.thread, label %HandleCopyStream.exit
 
-301:                                              ; preds = %CopyStreamReceive.exit
-  %302 = load i8, ptr %.2106, align 1
-  switch i8 %302, label %502 [
-    i8 107, label %303
-    i8 119, label %332
+300:                                              ; preds = %CopyStreamReceive.exit
+  %301 = load i8, ptr %.2106, align 1
+  switch i8 %301, label %501 [
+    i8 107, label %302
+    i8 119, label %331
   ]
 
-303:                                              ; preds = %301
-  %304 = icmp slt i32 %.0.i93, 18
-  br i1 %304, label %305, label %306
+302:                                              ; preds = %300
+  %303 = icmp slt i32 %.0.i93, 18
+  br i1 %303, label %304, label %305
 
-305:                                              ; preds = %303
+304:                                              ; preds = %302
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %.0.i93) #11
   br label %HandleCopyStream.exit.thread
 
-306:                                              ; preds = %303
-  %307 = getelementptr i8, ptr %.2106, i64 17
-  %308 = load i8, ptr %307, align 1
-  %.not.i51.i = icmp eq i8 %308, 0
-  br i1 %.not.i51.i, label %ProcessKeepaliveMsg.exit.thread.i.backedge, label %309
+305:                                              ; preds = %302
+  %306 = getelementptr i8, ptr %.2106, i64 17
+  %307 = load i8, ptr %306, align 1
+  %.not.i51.i = icmp eq i8 %307, 0
+  br i1 %.not.i51.i, label %ProcessKeepaliveMsg.exit.thread.i.backedge, label %308
 
-309:                                              ; preds = %306
+308:                                              ; preds = %305
   %.b21.i.i = load i1, ptr @still_sending, align 1
-  br i1 %.b21.i.i, label %ProcessKeepaliveMsg.exit.thread.i.backedge, label %310
+  br i1 %.b21.i.i, label %ProcessKeepaliveMsg.exit.thread.i.backedge, label %309
+
+309:                                              ; preds = %308
+  %.b22.i.i = load i1, ptr @reportFlushPosition, align 1
+  br i1 %.b22.i.i, label %310, label %328
 
 310:                                              ; preds = %309
-  %.b22.i.i = load i1, ptr @reportFlushPosition, align 1
-  br i1 %.b22.i.i, label %311, label %329
+  %311 = load i64, ptr @lastFlushPosition, align 8
+  %312 = icmp ult i64 %311, %.1.i.ph1096
+  %313 = load ptr, ptr @walfile, align 8
+  %314 = icmp ne ptr %313, null
+  %or.cond.i.i = select i1 %312, i1 %314, i1 false
+  br i1 %or.cond.i.i, label %315, label %328
 
-311:                                              ; preds = %310
-  %312 = load i64, ptr @lastFlushPosition, align 8
-  %313 = icmp ult i64 %312, %.1.i.ph1095
-  %314 = load ptr, ptr @walfile, align 8
-  %315 = icmp ne ptr %314, null
-  %or.cond.i.i = select i1 %313, i1 %315, i1 false
-  br i1 %or.cond.i.i, label %316, label %329
+315:                                              ; preds = %310
+  %316 = load ptr, ptr %57, align 8
+  %317 = load ptr, ptr %316, align 8
+  %318 = getelementptr inbounds i8, ptr %317, i64 48
+  %319 = load ptr, ptr %318, align 8
+  %320 = call i32 %319(ptr noundef nonnull %313) #11
+  %.not23.i.i = icmp eq i32 %320, 0
+  br i1 %.not23.i.i, label %327, label %321
 
-316:                                              ; preds = %311
-  %317 = load ptr, ptr %57, align 8
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 48
-  %320 = load ptr, ptr %319, align 8
-  %321 = call i32 %320(ptr noundef nonnull %314) #11
-  %.not23.i.i = icmp eq i32 %321, 0
-  br i1 %.not23.i.i, label %328, label %322
-
-322:                                              ; preds = %316
-  %323 = load ptr, ptr @walfile, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 16
-  %325 = load ptr, ptr %324, align 8
-  %326 = load ptr, ptr %57, align 8
-  %327 = call ptr @GetLastWalMethodError(ptr noundef %326) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.31, ptr noundef %325, ptr noundef %327) #11
+321:                                              ; preds = %315
+  %322 = load ptr, ptr @walfile, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 16
+  %324 = load ptr, ptr %323, align 8
+  %325 = load ptr, ptr %57, align 8
+  %326 = call ptr @GetLastWalMethodError(ptr noundef %325) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.31, ptr noundef %324, ptr noundef %326) #11
   call void @exit(i32 noundef 1) #13
   unreachable
 
-328:                                              ; preds = %316
-  store i64 %.1.i.ph1095, ptr @lastFlushPosition, align 8
-  br label %329
+327:                                              ; preds = %315
+  store i64 %.1.i.ph1096, ptr @lastFlushPosition, align 8
+  br label %328
 
-329:                                              ; preds = %328, %311, %310
-  %330 = call i64 @feGetCurrentTimestamp() #11
-  %331 = call fastcc zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %.1.i.ph1095, i64 noundef %330)
-  br i1 %331, label %ProcessKeepaliveMsg.exit.thread.i.outer, label %HandleCopyStream.exit.thread, !llvm.loop !5
+328:                                              ; preds = %327, %310, %309
+  %329 = call i64 @feGetCurrentTimestamp() #11
+  %330 = call fastcc zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %.1.i.ph1096, i64 noundef %329)
+  br i1 %330, label %ProcessKeepaliveMsg.exit.thread.i.outer, label %HandleCopyStream.exit.thread, !llvm.loop !5
 
-332:                                              ; preds = %301
+331:                                              ; preds = %300
   %.b58.i.i = load i1, ptr @still_sending, align 1
-  br i1 %.b58.i.i, label %ProcessKeepaliveMsg.exit.thread.i.backedge, label %333
+  br i1 %.b58.i.i, label %ProcessKeepaliveMsg.exit.thread.i.backedge, label %332
 
-ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
+ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %331, %308, %305
   br label %ProcessKeepaliveMsg.exit.thread.i, !llvm.loop !5
 
-333:                                              ; preds = %332
-  %334 = icmp slt i32 %.0.i93, 25
-  br i1 %334, label %335, label %336
+332:                                              ; preds = %331
+  %333 = icmp slt i32 %.0.i93, 25
+  br i1 %333, label %334, label %335
 
-335:                                              ; preds = %333
+334:                                              ; preds = %332
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %.0.i93) #11
   br label %HandleCopyStream.exit.thread
 
-336:                                              ; preds = %333
-  %337 = getelementptr i8, ptr %.2106, i64 1
-  %338 = call i64 @fe_recvint64(ptr noundef %337) #11
-  %339 = load i32, ptr @WalSegSz, align 4
-  %340 = add i32 %339, -1
-  %341 = trunc i64 %338 to i32
-  %342 = and i32 %340, %341
-  %343 = load ptr, ptr @walfile, align 8
-  %344 = icmp eq ptr %343, null
-  br i1 %344, label %345, label %347
+335:                                              ; preds = %332
+  %336 = getelementptr i8, ptr %.2106, i64 1
+  %337 = call i64 @fe_recvint64(ptr noundef %336) #11
+  %338 = load i32, ptr @WalSegSz, align 4
+  %339 = add i32 %338, -1
+  %340 = trunc i64 %337 to i32
+  %341 = and i32 %339, %340
+  %342 = load ptr, ptr @walfile, align 8
+  %343 = icmp eq ptr %342, null
+  br i1 %343, label %344, label %346
 
-345:                                              ; preds = %336
-  %.not59.i.i = icmp eq i32 %342, 0
-  br i1 %.not59.i.i, label %353, label %346
+344:                                              ; preds = %335
+  %.not59.i.i = icmp eq i32 %341, 0
+  br i1 %.not59.i.i, label %352, label %345
 
-346:                                              ; preds = %345
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef %342) #11
+345:                                              ; preds = %344
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef %341) #11
   br label %HandleCopyStream.exit.thread
 
-347:                                              ; preds = %336
-  %348 = getelementptr inbounds i8, ptr %343, i64 8
-  %349 = load i64, ptr %348, align 8
-  %350 = sext i32 %342 to i64
-  %.not.i53.i = icmp eq i64 %349, %350
-  br i1 %.not.i53.i, label %353, label %351
+346:                                              ; preds = %335
+  %347 = getelementptr inbounds i8, ptr %342, i64 8
+  %348 = load i64, ptr %347, align 8
+  %349 = sext i32 %341 to i64
+  %.not.i53.i = icmp eq i64 %348, %349
+  br i1 %.not.i53.i, label %352, label %350
 
-351:                                              ; preds = %347
-  %352 = trunc i64 %349 to i32
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.43, i32 noundef %342, i32 noundef %352) #11
+350:                                              ; preds = %346
+  %351 = trunc i64 %348 to i32
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.43, i32 noundef %341, i32 noundef %351) #11
   br label %HandleCopyStream.exit.thread
 
-353:                                              ; preds = %347, %345
-  %354 = add nsw i32 %.0.i93, -25
-  %.not6092.i.i = icmp eq i32 %354, 0
+352:                                              ; preds = %346, %344
+  %353 = add nsw i32 %.0.i93, -25
+  %.not6092.i.i = icmp eq i32 %353, 0
   br i1 %.not6092.i.i, label %ProcessXLogDataMsg.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %353
-  %355 = getelementptr i8, ptr %.2106, i64 25
-  br label %356
+.lr.ph.i.i:                                       ; preds = %352
+  %354 = getelementptr i8, ptr %.2106, i64 25
+  br label %355
 
-356:                                              ; preds = %488, %.lr.ph.i.i
-  %.2.i = phi i64 [ %338, %.lr.ph.i.i ], [ %467, %488 ]
-  %.04795.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %465, %488 ]
-  %.04894.i.i = phi i32 [ %354, %.lr.ph.i.i ], [ %466, %488 ]
-  %.04993.i.i = phi i32 [ %342, %.lr.ph.i.i ], [ %.1.i55.i, %488 ]
-  %357 = add i32 %.04993.i.i, %.04894.i.i
-  %358 = load i32, ptr @WalSegSz, align 4
-  %359 = icmp sgt i32 %357, %358
-  %360 = sub i32 %358, %.04993.i.i
-  %.0.i54.i = select i1 %359, i32 %360, i32 %.04894.i.i
-  %361 = load ptr, ptr @walfile, align 8
-  %362 = icmp eq ptr %361, null
-  br i1 %362, label %363, label %448
+355:                                              ; preds = %487, %.lr.ph.i.i
+  %.2.i = phi i64 [ %337, %.lr.ph.i.i ], [ %466, %487 ]
+  %.04795.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %464, %487 ]
+  %.04894.i.i = phi i32 [ %353, %.lr.ph.i.i ], [ %465, %487 ]
+  %.04993.i.i = phi i32 [ %341, %.lr.ph.i.i ], [ %.1.i55.i, %487 ]
+  %356 = add i32 %.04993.i.i, %.04894.i.i
+  %357 = load i32, ptr @WalSegSz, align 4
+  %358 = icmp sgt i32 %356, %357
+  %359 = sub i32 %357, %.04993.i.i
+  %.0.i54.i = select i1 %358, i32 %359, i32 %.04894.i.i
+  %360 = load ptr, ptr @walfile, align 8
+  %361 = icmp eq ptr %360, null
+  br i1 %361, label %362, label %447
 
-363:                                              ; preds = %356
+362:                                              ; preds = %355
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
-  %364 = sext i32 %358 to i64
-  %365 = udiv i64 %.2.i, %364
-  %366 = load i32, ptr %56, align 8
-  %367 = udiv i64 4294967296, %364
-  %368 = udiv i64 %365, %367
-  %369 = trunc i64 %368 to i32
-  %370 = urem i64 %365, %367
-  %371 = trunc i64 %370 to i32
-  %372 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.51, i32 noundef %366, i32 noundef %369, i32 noundef %371) #11
-  %373 = load ptr, ptr %57, align 8
-  %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 32
-  %376 = load ptr, ptr %375, align 8
-  %377 = load ptr, ptr %63, align 8
-  %378 = call ptr %376(ptr noundef nonnull %373, ptr noundef nonnull %8, ptr noundef %377) #11
-  %379 = load ptr, ptr %57, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 8
-  %381 = load i32, ptr %380, align 8
-  %382 = icmp eq i32 %381, 0
-  br i1 %382, label %383, label %435
+  %363 = sext i32 %357 to i64
+  %364 = udiv i64 %.2.i, %363
+  %365 = load i32, ptr %56, align 8
+  %366 = udiv i64 4294967296, %363
+  %367 = udiv i64 %364, %366
+  %368 = trunc i64 %367 to i32
+  %369 = urem i64 %364, %366
+  %370 = trunc nuw i64 %369 to i32
+  %371 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.51, i32 noundef %365, i32 noundef %368, i32 noundef %370) #11
+  %372 = load ptr, ptr %57, align 8
+  %373 = load ptr, ptr %372, align 8
+  %374 = getelementptr inbounds i8, ptr %373, i64 32
+  %375 = load ptr, ptr %374, align 8
+  %376 = load ptr, ptr %63, align 8
+  %377 = call ptr %375(ptr noundef nonnull %372, ptr noundef nonnull %8, ptr noundef %376) #11
+  %378 = load ptr, ptr %57, align 8
+  %379 = getelementptr inbounds i8, ptr %378, i64 8
+  %380 = load i32, ptr %379, align 8
+  %381 = icmp eq i32 %380, 0
+  br i1 %381, label %382, label %434
 
-383:                                              ; preds = %363
-  %384 = load ptr, ptr %379, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 16
-  %386 = load ptr, ptr %385, align 8
-  %387 = call zeroext i1 %386(ptr noundef nonnull %379, ptr noundef %378) #11
+382:                                              ; preds = %362
+  %383 = load ptr, ptr %378, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 16
+  %385 = load ptr, ptr %384, align 8
+  %386 = call zeroext i1 %385(ptr noundef nonnull %378, ptr noundef %377) #11
   %.pre52.i.i.i = load ptr, ptr %57, align 8
-  br i1 %387, label %388, label %435
+  br i1 %386, label %387, label %434
 
-388:                                              ; preds = %383
-  %389 = load ptr, ptr %.pre52.i.i.i, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 24
-  %391 = load ptr, ptr %390, align 8
-  %392 = call i64 %391(ptr noundef nonnull %.pre52.i.i.i, ptr noundef %378) #11
-  %393 = icmp slt i64 %392, 0
-  br i1 %393, label %394, label %397
+387:                                              ; preds = %382
+  %388 = load ptr, ptr %.pre52.i.i.i, align 8
+  %389 = getelementptr inbounds i8, ptr %388, i64 24
+  %390 = load ptr, ptr %389, align 8
+  %391 = call i64 %390(ptr noundef nonnull %.pre52.i.i.i, ptr noundef %377) #11
+  %392 = icmp slt i64 %391, 0
+  br i1 %392, label %393, label %396
 
-394:                                              ; preds = %388
-  %395 = load ptr, ptr %57, align 8
-  %396 = call ptr @GetLastWalMethodError(ptr noundef %395) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef %378, ptr noundef %396) #11
+393:                                              ; preds = %387
+  %394 = load ptr, ptr %57, align 8
+  %395 = call ptr @GetLastWalMethodError(ptr noundef %394) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef %377, ptr noundef %395) #11
   br label %open_walfile.exit.thread.i.i
 
-397:                                              ; preds = %388
-  %398 = load i32, ptr @WalSegSz, align 4
-  %399 = sext i32 %398 to i64
-  %400 = icmp eq i64 %392, %399
-  br i1 %400, label %401, label %425
+396:                                              ; preds = %387
+  %397 = load i32, ptr @WalSegSz, align 4
+  %398 = sext i32 %397 to i64
+  %399 = icmp eq i64 %391, %398
+  br i1 %399, label %400, label %424
 
-401:                                              ; preds = %397
-  %402 = load ptr, ptr %57, align 8
+400:                                              ; preds = %396
+  %401 = load ptr, ptr %57, align 8
+  %402 = load ptr, ptr %401, align 8
   %403 = load ptr, ptr %402, align 8
-  %404 = load ptr, ptr %403, align 8
-  %405 = load ptr, ptr %63, align 8
-  %406 = call ptr %404(ptr noundef nonnull %402, ptr noundef nonnull %8, ptr noundef %405, i64 noundef 0) #11
-  %407 = icmp eq ptr %406, null
-  %408 = load ptr, ptr %57, align 8
-  br i1 %407, label %409, label %411
+  %404 = load ptr, ptr %63, align 8
+  %405 = call ptr %403(ptr noundef nonnull %401, ptr noundef nonnull %8, ptr noundef %404, i64 noundef 0) #11
+  %406 = icmp eq ptr %405, null
+  %407 = load ptr, ptr %57, align 8
+  br i1 %406, label %408, label %410
 
-409:                                              ; preds = %401
-  %410 = call ptr @GetLastWalMethodError(ptr noundef %408) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.46, ptr noundef %378, ptr noundef %410) #11
+408:                                              ; preds = %400
+  %409 = call ptr @GetLastWalMethodError(ptr noundef %407) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.46, ptr noundef %377, ptr noundef %409) #11
   br label %open_walfile.exit.thread.i.i
 
-411:                                              ; preds = %401
-  %412 = load ptr, ptr %408, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 48
-  %414 = load ptr, ptr %413, align 8
-  %415 = call i32 %414(ptr noundef nonnull %406) #11
-  %.not50.i.i.i = icmp eq i32 %415, 0
-  br i1 %.not50.i.i.i, label %424, label %416
+410:                                              ; preds = %400
+  %411 = load ptr, ptr %407, align 8
+  %412 = getelementptr inbounds i8, ptr %411, i64 48
+  %413 = load ptr, ptr %412, align 8
+  %414 = call i32 %413(ptr noundef nonnull %405) #11
+  %.not50.i.i.i = icmp eq i32 %414, 0
+  br i1 %.not50.i.i.i, label %423, label %415
 
-416:                                              ; preds = %411
-  %417 = load ptr, ptr %57, align 8
-  %418 = call ptr @GetLastWalMethodError(ptr noundef %417) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %378, ptr noundef %418) #11
-  %419 = load ptr, ptr %57, align 8
-  %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 8
-  %422 = load ptr, ptr %421, align 8
-  %423 = call i32 %422(ptr noundef nonnull %406, i32 noundef 1) #11
+415:                                              ; preds = %410
+  %416 = load ptr, ptr %57, align 8
+  %417 = call ptr @GetLastWalMethodError(ptr noundef %416) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %377, ptr noundef %417) #11
+  %418 = load ptr, ptr %57, align 8
+  %419 = load ptr, ptr %418, align 8
+  %420 = getelementptr inbounds i8, ptr %419, i64 8
+  %421 = load ptr, ptr %420, align 8
+  %422 = call i32 %421(ptr noundef nonnull %405, i32 noundef 1) #11
   call void @exit(i32 noundef 1) #13
   unreachable
 
-424:                                              ; preds = %411
-  store ptr %406, ptr @walfile, align 8
-  call void @pg_free(ptr noundef %378) #11
+423:                                              ; preds = %410
+  store ptr %405, ptr @walfile, align 8
+  call void @pg_free(ptr noundef %377) #11
   %.pre.pre.i.i = load ptr, ptr @walfile, align 8
   br label %open_walfile.exit.i.i
 
-425:                                              ; preds = %397
-  %.not.i.i.i = icmp eq i64 %392, 0
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %426
+424:                                              ; preds = %396
+  %.not.i.i.i = icmp eq i64 %391, 0
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %425
 
-._crit_edge.i.i.i:                                ; preds = %425
+._crit_edge.i.i.i:                                ; preds = %424
   %.pre51.i.i.i = load ptr, ptr %57, align 8
-  br label %435
+  br label %434
 
-426:                                              ; preds = %425
-  %427 = tail call ptr @__errno_location() #14
-  %428 = load i32, ptr %427, align 4
-  %429 = icmp eq i32 %428, 0
-  br i1 %429, label %430, label %431
+425:                                              ; preds = %424
+  %426 = tail call ptr @__errno_location() #14
+  %427 = load i32, ptr %426, align 4
+  %428 = icmp eq i32 %427, 0
+  br i1 %428, label %429, label %430
 
-430:                                              ; preds = %426
-  store i32 28, ptr %427, align 4
+429:                                              ; preds = %425
+  store i32 28, ptr %426, align 4
   %.pre.i.i.i = load i32, ptr @WalSegSz, align 4
-  br label %431
+  br label %430
 
-431:                                              ; preds = %430, %426
-  %432 = phi i32 [ %.pre.i.i.i, %430 ], [ %398, %426 ]
-  %433 = icmp eq i64 %392, 1
-  %434 = select i1 %433, ptr @.str.48, ptr @.str.49
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %434, ptr noundef %378, i64 noundef %392, i32 noundef %432) #11
+430:                                              ; preds = %429, %425
+  %431 = phi i32 [ %.pre.i.i.i, %429 ], [ %397, %425 ]
+  %432 = icmp eq i64 %391, 1
+  %433 = select i1 %432, ptr @.str.48, ptr @.str.49
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %433, ptr noundef %377, i64 noundef %391, i32 noundef %431) #11
   br label %open_walfile.exit.thread.i.i
 
-435:                                              ; preds = %._crit_edge.i.i.i, %383, %363
-  %436 = phi ptr [ %.pre51.i.i.i, %._crit_edge.i.i.i ], [ %.pre52.i.i.i, %383 ], [ %379, %363 ]
+434:                                              ; preds = %._crit_edge.i.i.i, %382, %362
+  %435 = phi ptr [ %.pre51.i.i.i, %._crit_edge.i.i.i ], [ %.pre52.i.i.i, %382 ], [ %378, %362 ]
+  %436 = load ptr, ptr %435, align 8
   %437 = load ptr, ptr %436, align 8
-  %438 = load ptr, ptr %437, align 8
-  %439 = load ptr, ptr %63, align 8
-  %440 = load i32, ptr @WalSegSz, align 4
-  %441 = sext i32 %440 to i64
-  %442 = call ptr %438(ptr noundef nonnull %436, ptr noundef nonnull %8, ptr noundef %439, i64 noundef %441) #11
-  %443 = icmp eq ptr %442, null
-  br i1 %443, label %444, label %447
+  %438 = load ptr, ptr %63, align 8
+  %439 = load i32, ptr @WalSegSz, align 4
+  %440 = sext i32 %439 to i64
+  %441 = call ptr %437(ptr noundef nonnull %435, ptr noundef nonnull %8, ptr noundef %438, i64 noundef %440) #11
+  %442 = icmp eq ptr %441, null
+  br i1 %442, label %443, label %446
 
-444:                                              ; preds = %435
-  %445 = load ptr, ptr %57, align 8
-  %446 = call ptr @GetLastWalMethodError(ptr noundef %445) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.50, ptr noundef %378, ptr noundef %446) #11
+443:                                              ; preds = %434
+  %444 = load ptr, ptr %57, align 8
+  %445 = call ptr @GetLastWalMethodError(ptr noundef %444) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.50, ptr noundef %377, ptr noundef %445) #11
   br label %open_walfile.exit.thread.i.i
 
-447:                                              ; preds = %435
-  call void @pg_free(ptr noundef %378) #11
-  store ptr %442, ptr @walfile, align 8
+446:                                              ; preds = %434
+  call void @pg_free(ptr noundef %377) #11
+  store ptr %441, ptr @walfile, align 8
   br label %open_walfile.exit.i.i
 
-open_walfile.exit.thread.i.i:                     ; preds = %444, %431, %409, %394
-  call void @pg_free(ptr noundef %378) #11
+open_walfile.exit.thread.i.i:                     ; preds = %443, %430, %408, %393
+  call void @pg_free(ptr noundef %377) #11
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
   br label %HandleCopyStream.exit.thread
 
-open_walfile.exit.i.i:                            ; preds = %447, %424
-  %.pre.i57.i = phi ptr [ %.pre.pre.i.i, %424 ], [ %442, %447 ]
+open_walfile.exit.i.i:                            ; preds = %446, %423
+  %.pre.i57.i = phi ptr [ %.pre.pre.i.i, %423 ], [ %441, %446 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
-  br label %448
+  br label %447
 
-448:                                              ; preds = %open_walfile.exit.i.i, %356
-  %449 = phi ptr [ %.pre.i57.i, %open_walfile.exit.i.i ], [ %361, %356 ]
-  %450 = load ptr, ptr %57, align 8
-  %451 = load ptr, ptr %450, align 8
-  %452 = getelementptr inbounds i8, ptr %451, i64 40
-  %453 = load ptr, ptr %452, align 8
-  %454 = sext i32 %.04795.i.i to i64
-  %455 = getelementptr i8, ptr %355, i64 %454
-  %456 = sext i32 %.0.i54.i to i64
-  %457 = call i64 %453(ptr noundef %449, ptr noundef %455, i64 noundef %456) #11
-  %.not61.i.i = icmp eq i64 %457, %456
-  br i1 %.not61.i.i, label %464, label %458
+447:                                              ; preds = %open_walfile.exit.i.i, %355
+  %448 = phi ptr [ %.pre.i57.i, %open_walfile.exit.i.i ], [ %360, %355 ]
+  %449 = load ptr, ptr %57, align 8
+  %450 = load ptr, ptr %449, align 8
+  %451 = getelementptr inbounds i8, ptr %450, i64 40
+  %452 = load ptr, ptr %451, align 8
+  %453 = sext i32 %.04795.i.i to i64
+  %454 = getelementptr i8, ptr %354, i64 %453
+  %455 = sext i32 %.0.i54.i to i64
+  %456 = call i64 %452(ptr noundef %448, ptr noundef %454, i64 noundef %455) #11
+  %.not61.i.i = icmp eq i64 %456, %455
+  br i1 %.not61.i.i, label %463, label %457
 
-458:                                              ; preds = %448
-  %459 = load ptr, ptr @walfile, align 8
-  %460 = getelementptr inbounds i8, ptr %459, i64 16
-  %461 = load ptr, ptr %460, align 8
-  %462 = load ptr, ptr %57, align 8
-  %463 = call ptr @GetLastWalMethodError(ptr noundef %462) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.44, i32 noundef %.0.i54.i, ptr noundef %461, ptr noundef %463) #11
+457:                                              ; preds = %447
+  %458 = load ptr, ptr @walfile, align 8
+  %459 = getelementptr inbounds i8, ptr %458, i64 16
+  %460 = load ptr, ptr %459, align 8
+  %461 = load ptr, ptr %57, align 8
+  %462 = call ptr @GetLastWalMethodError(ptr noundef %461) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.44, i32 noundef %.0.i54.i, ptr noundef %460, ptr noundef %462) #11
   br label %HandleCopyStream.exit.thread
 
-464:                                              ; preds = %448
-  %465 = add i32 %.0.i54.i, %.04795.i.i
-  %466 = sub i32 %.04894.i.i, %.0.i54.i
-  %467 = add i64 %.2.i, %456
-  %468 = add i32 %.0.i54.i, %.04993.i.i
-  %469 = load i32, ptr @WalSegSz, align 4
-  %470 = add i32 %469, -1
-  %471 = sext i32 %470 to i64
-  %472 = and i64 %467, %471
-  %473 = icmp eq i64 %472, 0
-  br i1 %473, label %474, label %488
+463:                                              ; preds = %447
+  %464 = add i32 %.0.i54.i, %.04795.i.i
+  %465 = sub i32 %.04894.i.i, %.0.i54.i
+  %466 = add i64 %.2.i, %455
+  %467 = add i32 %.0.i54.i, %.04993.i.i
+  %468 = load i32, ptr @WalSegSz, align 4
+  %469 = add i32 %468, -1
+  %470 = sext i32 %469 to i64
+  %471 = and i64 %466, %470
+  %472 = icmp eq i64 %471, 0
+  br i1 %472, label %473, label %487
 
-474:                                              ; preds = %464
-  %475 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %467)
-  br i1 %475, label %476, label %HandleCopyStream.exit.thread
+473:                                              ; preds = %463
+  %474 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %466)
+  br i1 %474, label %475, label %HandleCopyStream.exit.thread
 
-476:                                              ; preds = %474
+475:                                              ; preds = %473
   %.b.i56.i = load i1, ptr @still_sending, align 1
-  br i1 %.b.i56.i, label %488, label %477
+  br i1 %.b.i56.i, label %487, label %476
 
-477:                                              ; preds = %476
-  %478 = load ptr, ptr %59, align 8
-  %479 = load i32, ptr %56, align 8
-  %480 = call zeroext i1 %478(i64 noundef %467, i32 noundef %479, i1 noundef zeroext true) #11
-  br i1 %480, label %481, label %488
+476:                                              ; preds = %475
+  %477 = load ptr, ptr %59, align 8
+  %478 = load i32, ptr %56, align 8
+  %479 = call zeroext i1 %477(i64 noundef %466, i32 noundef %478, i1 noundef zeroext true) #11
+  br i1 %479, label %480, label %487
 
-481:                                              ; preds = %477
-  %482 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef null) #11
-  %483 = icmp slt i32 %482, 1
-  br i1 %483, label %486, label %484
+480:                                              ; preds = %476
+  %481 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef null) #11
+  %482 = icmp slt i32 %481, 1
+  br i1 %482, label %485, label %483
 
-484:                                              ; preds = %481
-  %485 = call i32 @PQflush(ptr noundef %0) #11
-  %.not62.i.i = icmp eq i32 %485, 0
-  br i1 %.not62.i.i, label %ProcessKeepaliveMsg.exit.thread.sink.split.i, label %486
+483:                                              ; preds = %480
+  %484 = call i32 @PQflush(ptr noundef %0) #11
+  %.not62.i.i = icmp eq i32 %484, 0
+  br i1 %.not62.i.i, label %ProcessKeepaliveMsg.exit.thread.sink.split.i, label %485
 
-486:                                              ; preds = %484, %481
-  %487 = call ptr @PQerrorMessage(ptr noundef %0) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %487) #11
+485:                                              ; preds = %483, %480
+  %486 = call ptr @PQerrorMessage(ptr noundef %0) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %486) #11
   br label %HandleCopyStream.exit.thread
 
-488:                                              ; preds = %477, %476, %464
-  %.1.i55.i = phi i32 [ 0, %477 ], [ 0, %476 ], [ %468, %464 ]
-  %.not60.i.i = icmp eq i32 %466, 0
-  br i1 %.not60.i.i, label %ProcessXLogDataMsg.exit.i, label %356, !llvm.loop !7
+487:                                              ; preds = %476, %475, %463
+  %.1.i55.i = phi i32 [ 0, %476 ], [ 0, %475 ], [ %467, %463 ]
+  %.not60.i.i = icmp eq i32 %465, 0
+  br i1 %.not60.i.i, label %ProcessXLogDataMsg.exit.i, label %355, !llvm.loop !7
 
-ProcessXLogDataMsg.exit.i:                        ; preds = %488, %353
-  %.3.ph.i = phi i64 [ %338, %353 ], [ %467, %488 ]
+ProcessXLogDataMsg.exit.i:                        ; preds = %487, %352
+  %.3.ph.i = phi i64 [ %337, %352 ], [ %466, %487 ]
   %.b.i58.pr.i = load i1, ptr @still_sending, align 1
-  br i1 %.b.i58.pr.i, label %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge, label %489
+  br i1 %.b.i58.pr.i, label %ProcessKeepaliveMsg.exit.thread.i.outer1093.backedge, label %488
 
-489:                                              ; preds = %ProcessXLogDataMsg.exit.i
-  %490 = load ptr, ptr %59, align 8
-  %491 = load i32, ptr %56, align 8
-  %492 = call zeroext i1 %490(i64 noundef %.3.ph.i, i32 noundef %491, i1 noundef zeroext false) #11
-  br i1 %492, label %493, label %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge
+488:                                              ; preds = %ProcessXLogDataMsg.exit.i
+  %489 = load ptr, ptr %59, align 8
+  %490 = load i32, ptr %56, align 8
+  %491 = call zeroext i1 %489(i64 noundef %.3.ph.i, i32 noundef %490, i1 noundef zeroext false) #11
+  br i1 %491, label %492, label %ProcessKeepaliveMsg.exit.thread.i.outer1093.backedge
 
-493:                                              ; preds = %489
-  %494 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %.3.ph.i)
-  br i1 %494, label %495, label %HandleCopyStream.exit.thread
+492:                                              ; preds = %488
+  %493 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull %1, i64 noundef %.3.ph.i)
+  br i1 %493, label %494, label %HandleCopyStream.exit.thread
 
-495:                                              ; preds = %493
-  %496 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef null) #11
-  %497 = icmp slt i32 %496, 1
-  br i1 %497, label %500, label %498
+494:                                              ; preds = %492
+  %495 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef null) #11
+  %496 = icmp slt i32 %495, 1
+  br i1 %496, label %499, label %497
 
-498:                                              ; preds = %495
-  %499 = call i32 @PQflush(ptr noundef %0) #11
-  %.not.i60.i = icmp eq i32 %499, 0
-  br i1 %.not.i60.i, label %ProcessKeepaliveMsg.exit.thread.sink.split.i, label %500
+497:                                              ; preds = %494
+  %498 = call i32 @PQflush(ptr noundef %0) #11
+  %.not.i60.i = icmp eq i32 %498, 0
+  br i1 %.not.i60.i, label %ProcessKeepaliveMsg.exit.thread.sink.split.i, label %499
 
-500:                                              ; preds = %498, %495
-  %501 = call ptr @PQerrorMessage(ptr noundef %0) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %501) #11
+499:                                              ; preds = %497, %494
+  %500 = call ptr @PQerrorMessage(ptr noundef %0) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %500) #11
   br label %HandleCopyStream.exit.thread
 
-502:                                              ; preds = %301
-  %503 = sext i8 %302 to i32
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, i32 noundef %503) #11
+501:                                              ; preds = %300
+  %502 = sext i8 %301 to i32
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, i32 noundef %502) #11
   br label %HandleCopyStream.exit.thread
 
-ProcessKeepaliveMsg.exit.thread.sink.split.i:     ; preds = %498, %484
-  %.4.ph.i = phi i64 [ %467, %484 ], [ %.3.ph.i, %498 ]
+ProcessKeepaliveMsg.exit.thread.sink.split.i:     ; preds = %497, %483
+  %.4.ph.i = phi i64 [ %466, %483 ], [ %.3.ph.i, %497 ]
   store i1 true, ptr @still_sending, align 1
-  br label %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge
+  br label %ProcessKeepaliveMsg.exit.thread.i.outer1093.backedge
 
-ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge: ; preds = %ProcessKeepaliveMsg.exit.thread.sink.split.i, %489, %ProcessXLogDataMsg.exit.i
-  %.1.i.ph1095.be = phi i64 [ %.3.ph.i, %ProcessXLogDataMsg.exit.i ], [ %.3.ph.i, %489 ], [ %.4.ph.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i ]
-  br label %ProcessKeepaliveMsg.exit.thread.i.outer1092, !llvm.loop !5
+ProcessKeepaliveMsg.exit.thread.i.outer1093.backedge: ; preds = %ProcessKeepaliveMsg.exit.thread.sink.split.i, %488, %ProcessXLogDataMsg.exit.i
+  %.1.i.ph1096.be = phi i64 [ %.3.ph.i, %ProcessXLogDataMsg.exit.i ], [ %.3.ph.i, %488 ], [ %.4.ph.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i ]
+  br label %ProcessKeepaliveMsg.exit.thread.i.outer1093, !llvm.loop !5
 
-HandleCopyStream.exit.thread:                     ; preds = %HandleEndOfCopyStream.exit.i, %171, %202, %210, %493, %CopyStreamReceive.exit, %329, %474, %178, %286, %295, %305, %335, %346, %351, %open_walfile.exit.thread.i.i, %458, %486, %500, %502, %CopyStreamReceive.exit.thread
-  %.3 = phi ptr [ %.2106, %502 ], [ %.2106, %335 ], [ %.2106, %500 ], [ %.2106, %open_walfile.exit.thread.i.i ], [ %.2106, %486 ], [ %.2106, %458 ], [ %.2106, %346 ], [ %.2106, %351 ], [ %.2106, %305 ], [ null, %295 ], [ null, %286 ], [ %.0104, %178 ], [ null, %CopyStreamReceive.exit.thread ], [ %.2106, %474 ], [ %.2106, %329 ], [ %.2106, %CopyStreamReceive.exit ], [ %.2106, %493 ], [ %.0104, %210 ], [ %.0104, %202 ], [ %.0104, %171 ], [ null, %HandleEndOfCopyStream.exit.i ]
+HandleCopyStream.exit.thread:                     ; preds = %HandleEndOfCopyStream.exit.i, %171, %202, %210, %492, %CopyStreamReceive.exit, %328, %473, %178, %285, %294, %304, %334, %345, %350, %open_walfile.exit.thread.i.i, %457, %485, %499, %501, %CopyStreamReceive.exit.thread115
+  %.3 = phi ptr [ %.2106, %501 ], [ %.2106, %334 ], [ %.2106, %499 ], [ %.2106, %open_walfile.exit.thread.i.i ], [ %.2106, %485 ], [ %.2106, %457 ], [ %.2106, %345 ], [ %.2106, %350 ], [ %.2106, %304 ], [ null, %294 ], [ null, %285 ], [ %.0104, %178 ], [ null, %CopyStreamReceive.exit.thread115 ], [ %.2106, %473 ], [ %.2106, %328 ], [ %.2106, %CopyStreamReceive.exit ], [ %.2106, %492 ], [ %.0104, %210 ], [ %.0104, %202 ], [ %.0104, %171 ], [ null, %HandleEndOfCopyStream.exit.i ]
   call void @PQfreemem(ptr noundef %.3) #11
-  br label %560
+  br label %559
 
 HandleCopyStream.exit:                            ; preds = %HandleEndOfCopyStream.exit.i
-  %504 = call i32 @PQresultStatus(ptr noundef nonnull %.1.i.i) #11
-  %505 = icmp eq i32 %504, 2
-  br i1 %505, label %506, label %550
+  %503 = call i32 @PQresultStatus(ptr noundef nonnull %.1.i.i) #11
+  %504 = icmp eq i32 %503, 2
+  br i1 %504, label %505, label %549
 
-506:                                              ; preds = %HandleCopyStream.exit
+505:                                              ; preds = %HandleCopyStream.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %507 = call i32 @PQnfields(ptr noundef nonnull %.1.i.i) #11
-  %508 = icmp slt i32 %507, 2
-  br i1 %508, label %511, label %509
+  %506 = call i32 @PQnfields(ptr noundef nonnull %.1.i.i) #11
+  %507 = icmp slt i32 %506, 2
+  br i1 %507, label %510, label %508
 
-509:                                              ; preds = %506
-  %510 = call i32 @PQntuples(ptr noundef nonnull %.1.i.i) #11
-  %.not.i91 = icmp eq i32 %510, 1
-  br i1 %.not.i91, label %514, label %511
+508:                                              ; preds = %505
+  %509 = call i32 @PQntuples(ptr noundef nonnull %.1.i.i) #11
+  %.not.i91 = icmp eq i32 %509, 1
+  br i1 %.not.i91, label %513, label %510
 
-511:                                              ; preds = %509, %506
-  %512 = call i32 @PQntuples(ptr noundef nonnull %.1.i.i) #11
-  %513 = call i32 @PQnfields(ptr noundef nonnull %.1.i.i) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.28, i32 noundef %512, i32 noundef %513, i32 noundef 1, i32 noundef 2) #11
+510:                                              ; preds = %508, %505
+  %511 = call i32 @PQntuples(ptr noundef nonnull %.1.i.i) #11
+  %512 = call i32 @PQnfields(ptr noundef nonnull %.1.i.i) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.28, i32 noundef %511, i32 noundef %512, i32 noundef 1, i32 noundef 2) #11
   br label %ReadEndOfStreamingResult.exit.thread
 
-514:                                              ; preds = %509
-  %515 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 0) #11
-  %516 = call i32 @atoi(ptr nocapture noundef %515) #12
-  %517 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 1) #11
-  %518 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %517, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  %.not10.i = icmp eq i32 %518, 2
-  br i1 %.not10.i, label %521, label %519
+513:                                              ; preds = %508
+  %514 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 0) #11
+  %515 = call i32 @atoi(ptr nocapture noundef %514) #12
+  %516 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 1) #11
+  %517 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %516, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %.not10.i = icmp eq i32 %517, 2
+  br i1 %.not10.i, label %520, label %518
 
-519:                                              ; preds = %514
-  %520 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 1) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef %520) #11
+518:                                              ; preds = %513
+  %519 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 1) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef %519) #11
   br label %ReadEndOfStreamingResult.exit.thread
 
-ReadEndOfStreamingResult.exit.thread:             ; preds = %511, %519
+ReadEndOfStreamingResult.exit.thread:             ; preds = %510, %518
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @PQclear(ptr noundef nonnull %.1.i.i) #11
-  br label %560
+  br label %559
 
-521:                                              ; preds = %514
-  %522 = load i32, ptr %6, align 4
-  %523 = zext i32 %522 to i64
-  %524 = shl nuw i64 %523, 32
-  %525 = load i32, ptr %7, align 4
-  %526 = zext i32 %525 to i64
-  %527 = or disjoint i64 %524, %526
-  store i64 %527, ptr %1, align 8
+520:                                              ; preds = %513
+  %521 = load i32, ptr %6, align 4
+  %522 = zext i32 %521 to i64
+  %523 = shl nuw i64 %522, 32
+  %524 = load i32, ptr %7, align 4
+  %525 = zext i32 %524 to i64
+  %526 = or disjoint i64 %523, %525
+  store i64 %526, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @PQclear(ptr noundef nonnull %.1.i.i) #11
-  %528 = load i32, ptr %56, align 8
-  %.not80 = icmp ugt i32 %516, %528
-  br i1 %.not80, label %530, label %529
+  %527 = load i32, ptr %56, align 8
+  %.not80 = icmp ugt i32 %515, %527
+  br i1 %.not80, label %529, label %528
 
-529:                                              ; preds = %521
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %516, i32 noundef %528) #11
-  br label %560
+528:                                              ; preds = %520
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %515, i32 noundef %527) #11
+  br label %559
 
-530:                                              ; preds = %521
-  %531 = load i64, ptr %1, align 8
-  %532 = icmp ugt i64 %531, %.1.i.ph1095
-  br i1 %532, label %533, label %540
+529:                                              ; preds = %520
+  %530 = load i64, ptr %1, align 8
+  %531 = icmp ugt i64 %530, %.1.i.ph1096
+  br i1 %531, label %532, label %539
 
-533:                                              ; preds = %530
-  %534 = lshr i64 %.1.i.ph1095, 32
-  %535 = trunc i64 %534 to i32
-  %536 = trunc i64 %.1.i.ph1095 to i32
-  %537 = lshr i64 %531, 32
-  %538 = trunc i64 %537 to i32
-  %539 = trunc i64 %531 to i32
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, i32 noundef %528, i32 noundef %535, i32 noundef %536, i32 noundef %516, i32 noundef %538, i32 noundef %539) #11
-  br label %560
+532:                                              ; preds = %529
+  %533 = lshr i64 %.1.i.ph1096, 32
+  %534 = trunc nuw i64 %533 to i32
+  %535 = trunc i64 %.1.i.ph1096 to i32
+  %536 = lshr i64 %530, 32
+  %537 = trunc nuw i64 %536 to i32
+  %538 = trunc i64 %530 to i32
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, i32 noundef %527, i32 noundef %534, i32 noundef %535, i32 noundef %515, i32 noundef %537, i32 noundef %538) #11
+  br label %559
 
-540:                                              ; preds = %530
-  %541 = call ptr @PQgetResult(ptr noundef %0) #11
-  %542 = call i32 @PQresultStatus(ptr noundef %541) #11
-  %.not81 = icmp eq i32 %542, 1
-  br i1 %.not81, label %545, label %543
+539:                                              ; preds = %529
+  %540 = call ptr @PQgetResult(ptr noundef %0) #11
+  %541 = call i32 @PQresultStatus(ptr noundef %540) #11
+  %.not81 = icmp eq i32 %541, 1
+  br i1 %.not81, label %544, label %542
 
-543:                                              ; preds = %540
-  %544 = call ptr @PQresultErrorMessage(ptr noundef %541) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %544) #11
-  call void @PQclear(ptr noundef %541) #11
-  br label %560
+542:                                              ; preds = %539
+  %543 = call ptr @PQresultErrorMessage(ptr noundef %540) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %543) #11
+  call void @PQclear(ptr noundef %540) #11
+  br label %559
 
-545:                                              ; preds = %540
-  call void @PQclear(ptr noundef %541) #11
-  store i32 %516, ptr %56, align 8
-  %546 = load i64, ptr %1, align 8
-  %547 = load i32, ptr @WalSegSz, align 4
-  %548 = sub i32 0, %547
-  %.not82 = sext i32 %548 to i64
-  %549 = and i64 %546, %.not82
-  store i64 %549, ptr %1, align 8
+544:                                              ; preds = %539
+  call void @PQclear(ptr noundef %540) #11
+  store i32 %515, ptr %56, align 8
+  %545 = load i64, ptr %1, align 8
+  %546 = load i32, ptr @WalSegSz, align 4
+  %547 = sub i32 0, %546
+  %.not82 = sext i32 %547 to i64
+  %548 = and i64 %545, %.not82
+  store i64 %548, ptr %1, align 8
   br label %65
 
-550:                                              ; preds = %HandleCopyStream.exit
-  %551 = call i32 @PQresultStatus(ptr noundef nonnull %.1.i.i) #11
-  %552 = icmp eq i32 %551, 1
-  br i1 %552, label %553, label %558
+549:                                              ; preds = %HandleCopyStream.exit
+  %550 = call i32 @PQresultStatus(ptr noundef nonnull %.1.i.i) #11
+  %551 = icmp eq i32 %550, 1
+  br i1 %551, label %552, label %557
 
-553:                                              ; preds = %550
+552:                                              ; preds = %549
   call void @PQclear(ptr noundef nonnull %.1.i.i) #11
-  %554 = load ptr, ptr %59, align 8
-  %555 = load i32, ptr %56, align 8
-  %556 = call zeroext i1 %554(i64 noundef %.1.i.ph1095, i32 noundef %555, i1 noundef zeroext false) #11
-  br i1 %556, label %CheckServerVersionForStreaming.exit.thread, label %557
+  %553 = load ptr, ptr %59, align 8
+  %554 = load i32, ptr %56, align 8
+  %555 = call zeroext i1 %553(i64 noundef %.1.i.ph1096, i32 noundef %554, i1 noundef zeroext false) #11
+  br i1 %555, label %CheckServerVersionForStreaming.exit.thread, label %556
 
-557:                                              ; preds = %553
+556:                                              ; preds = %552
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.18) #11
-  br label %560
+  br label %559
 
-558:                                              ; preds = %550
-  %559 = call ptr @PQresultErrorMessage(ptr noundef nonnull %.1.i.i) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %559) #11
+557:                                              ; preds = %549
+  %558 = call ptr @PQresultErrorMessage(ptr noundef nonnull %.1.i.i) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %558) #11
   call void @PQclear(ptr noundef nonnull %.1.i.i) #11
-  br label %560
+  br label %559
 
-560:                                              ; preds = %ReadEndOfStreamingResult.exit.thread, %HandleCopyStream.exit.thread, %558, %557, %543, %533, %529
-  %561 = load ptr, ptr @walfile, align 8
-  %.not83 = icmp eq ptr %561, null
-  br i1 %.not83, label %574, label %562
+559:                                              ; preds = %ReadEndOfStreamingResult.exit.thread, %HandleCopyStream.exit.thread, %557, %556, %542, %532, %528
+  %560 = load ptr, ptr @walfile, align 8
+  %.not83 = icmp eq ptr %560, null
+  br i1 %.not83, label %573, label %561
 
-562:                                              ; preds = %560
-  %563 = load ptr, ptr %57, align 8
-  %564 = load ptr, ptr %563, align 8
-  %565 = getelementptr inbounds i8, ptr %564, i64 8
-  %566 = load ptr, ptr %565, align 8
-  %567 = call i32 %566(ptr noundef nonnull %561, i32 noundef 2) #11
-  %.not84 = icmp eq i32 %567, 0
-  br i1 %.not84, label %574, label %568
+561:                                              ; preds = %559
+  %562 = load ptr, ptr %57, align 8
+  %563 = load ptr, ptr %562, align 8
+  %564 = getelementptr inbounds i8, ptr %563, i64 8
+  %565 = load ptr, ptr %564, align 8
+  %566 = call i32 %565(ptr noundef nonnull %560, i32 noundef 2) #11
+  %.not84 = icmp eq i32 %566, 0
+  br i1 %.not84, label %573, label %567
 
-568:                                              ; preds = %562
-  %569 = load ptr, ptr @walfile, align 8
-  %570 = getelementptr inbounds i8, ptr %569, i64 16
-  %571 = load ptr, ptr %570, align 8
-  %572 = load ptr, ptr %57, align 8
-  %573 = call ptr @GetLastWalMethodError(ptr noundef %572) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %571, ptr noundef %573) #11
-  br label %574
+567:                                              ; preds = %561
+  %568 = load ptr, ptr @walfile, align 8
+  %569 = getelementptr inbounds i8, ptr %568, i64 16
+  %570 = load ptr, ptr %569, align 8
+  %571 = load ptr, ptr %57, align 8
+  %572 = call ptr @GetLastWalMethodError(ptr noundef %571) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %570, ptr noundef %572) #11
+  br label %573
 
-574:                                              ; preds = %568, %562, %560
+573:                                              ; preds = %567, %561, %559
   store ptr null, ptr @walfile, align 8
   br label %CheckServerVersionForStreaming.exit.thread
 
-CheckServerVersionForStreaming.exit.thread:       ; preds = %148, %24, %19, %553, %574, %162, %78, %53, %46, %40
-  %.0 = phi i1 [ false, %46 ], [ false, %53 ], [ false, %162 ], [ false, %574 ], [ false, %78 ], [ false, %40 ], [ true, %553 ], [ false, %19 ], [ false, %24 ], [ true, %148 ]
+CheckServerVersionForStreaming.exit.thread:       ; preds = %148, %24, %19, %552, %573, %162, %78, %53, %46, %40
+  %.0 = phi i1 [ false, %46 ], [ false, %53 ], [ false, %162 ], [ false, %573 ], [ false, %78 ], [ false, %40 ], [ true, %552 ], [ false, %19 ], [ false, %24 ], [ true, %148 ]
   ret i1 %.0
 }
 

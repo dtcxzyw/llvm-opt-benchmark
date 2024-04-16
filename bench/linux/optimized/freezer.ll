@@ -43,22 +43,22 @@ define dso_local noundef zeroext i1 @freezing_slow_path(ptr noundef %0) #0 align
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -2147450880
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %23
+  br i1 %5, label %6, label %22
 
 6:                                                ; preds = %1
   %7 = load volatile i64, ptr %0, align 8
   %8 = and i64 %7, 1048576
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %23
+  br i1 %9, label %10, label %22
 
 10:                                               ; preds = %6
   %11 = load i8, ptr @pm_nosig_freezing, align 1, !range !5, !noundef !6
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %23
+  br i1 %12, label %13, label %22
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @cgroup_freezing(ptr noundef %0) #5
-  br i1 %14, label %23, label %15
+  br i1 %14, label %22, label %15
 
 15:                                               ; preds = %13
   %16 = load i8, ptr @pm_freezing, align 1, !range !5, !noundef !6
@@ -69,14 +69,11 @@ define dso_local noundef zeroext i1 @freezing_slow_path(ptr noundef %0) #0 align
   %19 = load i32, ptr %2, align 4
   %20 = and i32 %19, 2097152
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %23, label %22
+  br label %22
 
-22:                                               ; preds = %18, %15
-  br label %23
-
-23:                                               ; preds = %22, %18, %13, %10, %6, %1
-  %24 = phi i1 [ false, %22 ], [ false, %1 ], [ false, %6 ], [ true, %13 ], [ true, %10 ], [ true, %18 ]
-  ret i1 %24
+22:                                               ; preds = %18, %15, %13, %10, %6, %1
+  %23 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %13 ], [ true, %10 ], [ false, %15 ], [ %21, %18 ]
+  ret i1 %23
 }
 
 ; Function Attrs: null_pointer_is_valid

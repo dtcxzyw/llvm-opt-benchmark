@@ -1096,8 +1096,8 @@ define i32 @mca_base_pvar_handle_update(ptr nocapture noundef %0) local_unnamed_
   %4 = getelementptr i8, ptr %3, i64 68
   %.val = load i32, ptr %4, align 4
   %5 = and i32 %.val, 1024
-  %.not115 = icmp eq i32 %5, 0
-  br i1 %.not115, label %6, label %177
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %6, label %.loopexit
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1106,7 +1106,7 @@ define i32 @mca_base_pvar_handle_update(ptr nocapture noundef %0) local_unnamed_
   %10 = and i32 %.val, 256
   %11 = icmp ne i32 %10, 0
   %or.cond = or i1 %11, %9
-  br i1 %or.cond, label %mca_base_pvar_handle_is_running.exit.thread, label %177
+  br i1 %or.cond, label %mca_base_pvar_handle_is_running.exit.thread, label %.loopexit
 
 mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
   %12 = getelementptr i8, ptr %3, i64 48
@@ -1124,7 +1124,7 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %15(ptr noundef nonnull %3, ptr noundef %17, ptr noundef %19) #16
   %.not106 = icmp eq i32 %20, 0
-  br i1 %.not106, label %21, label %177
+  br i1 %.not106, label %21, label %.loopexit
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %2, align 8
@@ -1135,25 +1135,25 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
   %24 = getelementptr inbounds i8, ptr %0, i64 104
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
-  br i1 %switch.i112, label %.preheader, label %.preheader119
+  br i1 %switch.i112, label %.preheader, label %.preheader118
 
-.preheader119:                                    ; preds = %21
+.preheader118:                                    ; preds = %21
   br i1 %26, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader119
+.lr.ph:                                           ; preds = %.preheader118
   %27 = getelementptr inbounds i8, ptr %0, i64 120
   br label %89
 
 .preheader:                                       ; preds = %21
-  br i1 %26, label %.lr.ph122, label %._crit_edge
+  br i1 %26, label %.lr.ph121, label %._crit_edge
 
-.lr.ph122:                                        ; preds = %.preheader
+.lr.ph121:                                        ; preds = %.preheader
   %28 = getelementptr inbounds i8, ptr %0, i64 112
   %29 = getelementptr inbounds i8, ptr %0, i64 120
   br label %30
 
-30:                                               ; preds = %.lr.ph122, %82
-  %indvars.iv124 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next125, %82 ]
+30:                                               ; preds = %.lr.ph121, %82
+  %indvars.iv123 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next124, %82 ]
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 52
   %33 = load i32, ptr %32, align 4
@@ -1166,14 +1166,14 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv124
+  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv123
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %28, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv124
+  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv123
   %40 = load i32, ptr %39, align 4
   %41 = sub i32 %37, %40
   %42 = load ptr, ptr %29, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv124
+  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv123
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %41, %44
   store i32 %45, ptr %43, align 4
@@ -1181,14 +1181,14 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
 
 46:                                               ; preds = %30
   %47 = load ptr, ptr %16, align 8
-  %48 = getelementptr inbounds i64, ptr %47, i64 %indvars.iv124
+  %48 = getelementptr inbounds i64, ptr %47, i64 %indvars.iv123
   %49 = load i64, ptr %48, align 8
   %50 = load ptr, ptr %28, align 8
-  %51 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv124
+  %51 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv123
   %52 = load i64, ptr %51, align 8
   %53 = sub i64 %49, %52
   %54 = load ptr, ptr %29, align 8
-  %55 = getelementptr inbounds i64, ptr %54, i64 %indvars.iv124
+  %55 = getelementptr inbounds i64, ptr %54, i64 %indvars.iv123
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %53, %56
   store i64 %57, ptr %55, align 8
@@ -1196,14 +1196,14 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
 
 58:                                               ; preds = %30
   %59 = load ptr, ptr %16, align 8
-  %60 = getelementptr inbounds i64, ptr %59, i64 %indvars.iv124
+  %60 = getelementptr inbounds i64, ptr %59, i64 %indvars.iv123
   %61 = load i64, ptr %60, align 8
   %62 = load ptr, ptr %28, align 8
-  %63 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv124
+  %63 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv123
   %64 = load i64, ptr %63, align 8
   %65 = sub i64 %61, %64
   %66 = load ptr, ptr %29, align 8
-  %67 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv124
+  %67 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv123
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %65, %68
   store i64 %69, ptr %67, align 8
@@ -1211,24 +1211,24 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
 
 70:                                               ; preds = %30
   %71 = load ptr, ptr %16, align 8
-  %72 = getelementptr inbounds double, ptr %71, i64 %indvars.iv124
+  %72 = getelementptr inbounds double, ptr %71, i64 %indvars.iv123
   %73 = load double, ptr %72, align 8
   %74 = load ptr, ptr %28, align 8
-  %75 = getelementptr inbounds double, ptr %74, i64 %indvars.iv124
+  %75 = getelementptr inbounds double, ptr %74, i64 %indvars.iv123
   %76 = load double, ptr %75, align 8
   %77 = fsub double %73, %76
   %78 = load ptr, ptr %29, align 8
-  %79 = getelementptr inbounds double, ptr %78, i64 %indvars.iv124
+  %79 = getelementptr inbounds double, ptr %78, i64 %indvars.iv123
   %80 = load double, ptr %79, align 8
   %81 = fadd double %77, %80
   store double %81, ptr %79, align 8
   br label %82
 
 82:                                               ; preds = %34, %46, %58, %70, %30
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %83 = load i32, ptr %24, align 8
   %84 = sext i32 %83 to i64
-  %85 = icmp slt i64 %indvars.iv.next125, %84
+  %85 = icmp slt i64 %indvars.iv.next124, %84
   br i1 %85, label %30, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %82, %.preheader
@@ -1363,8 +1363,8 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
   br i1 %167, label %89, label %.loopexit, !llvm.loop !10
 
 168:                                              ; preds = %mca_base_pvar_handle_is_running.exit.thread
-  %.not116 = icmp eq i32 %10, 0
-  br i1 %.not116, label %169, label %.loopexit
+  %.not115 = icmp eq i32 %10, 0
+  br i1 %.not115, label %169, label %.loopexit
 
 169:                                              ; preds = %168
   %170 = getelementptr inbounds i8, ptr %3, i64 72
@@ -1374,14 +1374,10 @@ mca_base_pvar_handle_is_running.exit.thread:      ; preds = %6
   %174 = getelementptr inbounds i8, ptr %0, i64 96
   %175 = load ptr, ptr %174, align 8
   %176 = tail call i32 %171(ptr noundef nonnull %3, ptr noundef %173, ptr noundef %175) #16
-  %.not = icmp eq i32 %176, 0
-  br i1 %.not, label %.loopexit, label %177
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %164, %.preheader119, %168, %169, %._crit_edge
-  br label %177
-
-177:                                              ; preds = %6, %169, %13, %1, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -45, %1 ], [ -1, %13 ], [ %176, %169 ], [ 0, %6 ]
+.loopexit:                                        ; preds = %164, %.preheader118, %6, %169, %._crit_edge, %168, %13, %1
+  %.0 = phi i32 [ -45, %1 ], [ -1, %13 ], [ 0, %168 ], [ 0, %._crit_edge ], [ %176, %169 ], [ 0, %6 ], [ 0, %.preheader118 ], [ 0, %164 ]
   ret i32 %.0
 }
 

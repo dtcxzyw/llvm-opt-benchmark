@@ -992,43 +992,30 @@ entry:
   %arrayidx.i = getelementptr [13 x i32], ptr @DAYS_BEFORE_MONTH, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp.i = icmp ugt i8 %0, 2
-  br i1 %cmp.i, label %land.lhs.true.i, label %ymd_to_ord.exit
-
-land.lhs.true.i:                                  ; preds = %entry
   %rem.i.i = and i32 %year, 3
   %cmp.i.i = icmp eq i32 %rem.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %is_leap_year.exit.thread.i
+  %or.cond.i = and i1 %cmp.i.i, %cmp.i
+  br i1 %or.cond.i, label %land.rhs.i.i, label %ymd_to_ord.exit
 
-land.rhs.i.i:                                     ; preds = %land.lhs.true.i
+land.rhs.i.i:                                     ; preds = %entry
   %rem1.i.i = urem i32 %year, 100
   %cmp2.not.i.i = icmp eq i32 %rem1.i.i, 0
-  br i1 %cmp2.not.i.i, label %is_leap_year.exit.i, label %is_leap_year.exit.thread11.i
-
-is_leap_year.exit.thread11.i:                     ; preds = %land.rhs.i.i
-  %add614.i = add i32 %1, 1
-  br label %land.lhs.true.i34
+  br i1 %cmp2.not.i.i, label %is_leap_year.exit.i, label %land.rhs.i.i37
 
 is_leap_year.exit.i:                              ; preds = %land.rhs.i.i
   %rem3.i.i = urem i32 %year, 400
   %cmp4.i.not.i = icmp eq i32 %rem3.i.i, 0
-  %add6.i = add i32 %1, 1
-  br i1 %cmp4.i.not.i, label %land.lhs.true.i34, label %is_leap_year.exit.thread.i
-
-is_leap_year.exit.thread.i:                       ; preds = %is_leap_year.exit.i, %land.lhs.true.i
-  br label %land.lhs.true.i34
+  %add6.i = zext i1 %cmp4.i.not.i to i32
+  br label %land.rhs.i.i37
 
 ymd_to_ord.exit:                                  ; preds = %entry
   %arrayidx = getelementptr [13 x i32], ptr @DAYS_IN_MONTH, i64 0, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx, align 4
   %cmp = icmp eq i8 %0, 2
-  br i1 %cmp, label %land.lhs.true, label %if.end.thread
+  %brmerge.not = and i1 %cmp.i.i, %cmp
+  br i1 %brmerge.not, label %land.rhs.i, label %if.end.thread
 
-land.lhs.true:                                    ; preds = %ymd_to_ord.exit
-  %rem.i = and i32 %year, 3
-  %cmp.i19 = icmp eq i32 %rem.i, 0
-  br i1 %cmp.i19, label %land.rhs.i, label %is_leap_year.exit.thread
-
-land.rhs.i:                                       ; preds = %land.lhs.true
+land.rhs.i:                                       ; preds = %ymd_to_ord.exit
   %rem1.i = urem i32 %year, 100
   %cmp2.not.i = icmp eq i32 %rem1.i, 0
   br i1 %cmp2.not.i, label %is_leap_year.exit, label %is_leap_year.exit.thread51
@@ -1040,57 +1027,49 @@ is_leap_year.exit.thread51:                       ; preds = %land.rhs.i
 is_leap_year.exit:                                ; preds = %land.rhs.i
   %rem3.i = urem i32 %year, 400
   %cmp4.i.not = icmp eq i32 %rem3.i, 0
-  %conv10 = add i32 %2, 1
-  br i1 %cmp4.i.not, label %if.end.thread, label %is_leap_year.exit.thread
-
-is_leap_year.exit.thread:                         ; preds = %land.lhs.true, %is_leap_year.exit
+  %conv10 = zext i1 %cmp4.i.not to i32
+  %spec.select = add i32 %2, %conv10
   br label %if.end.thread
 
-if.end.thread:                                    ; preds = %is_leap_year.exit.thread, %is_leap_year.exit, %is_leap_year.exit.thread51, %ymd_to_ord.exit
-  %days_in_month.0.ph = phi i32 [ %conv1054, %is_leap_year.exit.thread51 ], [ %conv10, %is_leap_year.exit ], [ %2, %is_leap_year.exit.thread ], [ %2, %ymd_to_ord.exit ]
-  %day62 = getelementptr inbounds i8, ptr %base_self, i64 10
-  %3 = load i8, ptr %day62, align 2
-  %week63 = getelementptr inbounds i8, ptr %base_self, i64 9
-  %4 = load i8, ptr %week63, align 1
+if.end.thread:                                    ; preds = %is_leap_year.exit, %ymd_to_ord.exit, %is_leap_year.exit.thread51
+  %days_in_month.0.ph = phi i32 [ %spec.select, %is_leap_year.exit ], [ %conv1054, %is_leap_year.exit.thread51 ], [ %2, %ymd_to_ord.exit ]
+  %day63 = getelementptr inbounds i8, ptr %base_self, i64 10
+  %3 = load i8, ptr %day63, align 2
+  %week64 = getelementptr inbounds i8, ptr %base_self, i64 9
+  %4 = load i8, ptr %week64, align 1
   br label %ymd_to_ord.exit47
 
-land.lhs.true.i34:                                ; preds = %is_leap_year.exit.thread.i, %is_leap_year.exit.i, %is_leap_year.exit.thread11.i
-  %yearday.0.i.ph = phi i32 [ %add614.i, %is_leap_year.exit.thread11.i ], [ %add6.i, %is_leap_year.exit.i ], [ %1, %is_leap_year.exit.thread.i ]
+land.rhs.i.i37:                                   ; preds = %land.rhs.i.i, %is_leap_year.exit.i
+  %add6.i.sink = phi i32 [ %add6.i, %is_leap_year.exit.i ], [ 1, %land.rhs.i.i ]
+  %spec.select.i = add i32 %1, %add6.i.sink
   %arrayidx57 = getelementptr [13 x i32], ptr @DAYS_IN_MONTH, i64 0, i64 %idxprom.i
   %5 = load i32, ptr %arrayidx57, align 4
   %day = getelementptr inbounds i8, ptr %base_self, i64 10
   %6 = load i8, ptr %day, align 2
   %week = getelementptr inbounds i8, ptr %base_self, i64 9
   %7 = load i8, ptr %week, align 1
-  %rem.i.i35 = and i32 %year, 3
-  %cmp.i.i36 = icmp eq i32 %rem.i.i35, 0
-  br i1 %cmp.i.i36, label %land.rhs.i.i38, label %is_leap_year.exit.thread.i37
+  %rem1.i.i38 = urem i32 %year, 100
+  %cmp2.not.i.i39 = icmp eq i32 %rem1.i.i38, 0
+  br i1 %cmp2.not.i.i39, label %is_leap_year.exit.i42, label %is_leap_year.exit.thread11.i40
 
-land.rhs.i.i38:                                   ; preds = %land.lhs.true.i34
-  %rem1.i.i39 = urem i32 %year, 100
-  %cmp2.not.i.i40 = icmp eq i32 %rem1.i.i39, 0
-  br i1 %cmp2.not.i.i40, label %is_leap_year.exit.i43, label %is_leap_year.exit.thread11.i41
-
-is_leap_year.exit.thread11.i41:                   ; preds = %land.rhs.i.i38
-  %add614.i42 = add i32 %1, 1
+is_leap_year.exit.thread11.i40:                   ; preds = %land.rhs.i.i37
+  %add614.i41 = add i32 %1, 1
   br label %ymd_to_ord.exit47
 
-is_leap_year.exit.i43:                            ; preds = %land.rhs.i.i38
-  %rem3.i.i44 = urem i32 %year, 400
-  %cmp4.i.not.i45 = icmp eq i32 %rem3.i.i44, 0
-  %add6.i46 = add i32 %1, 1
-  br i1 %cmp4.i.not.i45, label %ymd_to_ord.exit47, label %is_leap_year.exit.thread.i37
-
-is_leap_year.exit.thread.i37:                     ; preds = %is_leap_year.exit.i43, %land.lhs.true.i34
+is_leap_year.exit.i42:                            ; preds = %land.rhs.i.i37
+  %rem3.i.i43 = urem i32 %year, 400
+  %cmp4.i.not.i44 = icmp eq i32 %rem3.i.i43, 0
+  %add6.i45 = zext i1 %cmp4.i.not.i44 to i32
+  %spec.select.i46 = add i32 %1, %add6.i45
   br label %ymd_to_ord.exit47
 
-ymd_to_ord.exit47:                                ; preds = %if.end.thread, %is_leap_year.exit.thread11.i41, %is_leap_year.exit.i43, %is_leap_year.exit.thread.i37
-  %8 = phi i8 [ %7, %is_leap_year.exit.thread.i37 ], [ %7, %is_leap_year.exit.i43 ], [ %7, %is_leap_year.exit.thread11.i41 ], [ %4, %if.end.thread ]
-  %9 = phi i8 [ %6, %is_leap_year.exit.thread.i37 ], [ %6, %is_leap_year.exit.i43 ], [ %6, %is_leap_year.exit.thread11.i41 ], [ %3, %if.end.thread ]
-  %days_in_month.065 = phi i32 [ %5, %is_leap_year.exit.thread.i37 ], [ %5, %is_leap_year.exit.i43 ], [ %5, %is_leap_year.exit.thread11.i41 ], [ %days_in_month.0.ph, %if.end.thread ]
-  %yearday.0.i5964 = phi i32 [ %yearday.0.i.ph, %is_leap_year.exit.thread.i37 ], [ %yearday.0.i.ph, %is_leap_year.exit.i43 ], [ %yearday.0.i.ph, %is_leap_year.exit.thread11.i41 ], [ %1, %if.end.thread ]
-  %yearday.0.i23 = phi i32 [ %1, %is_leap_year.exit.thread.i37 ], [ %add6.i46, %is_leap_year.exit.i43 ], [ %add614.i42, %is_leap_year.exit.thread11.i41 ], [ %1, %if.end.thread ]
-  %conv33 = and i32 %days_in_month.065, 255
+ymd_to_ord.exit47:                                ; preds = %if.end.thread, %is_leap_year.exit.thread11.i40, %is_leap_year.exit.i42
+  %8 = phi i8 [ %7, %is_leap_year.exit.thread11.i40 ], [ %7, %is_leap_year.exit.i42 ], [ %4, %if.end.thread ]
+  %9 = phi i8 [ %6, %is_leap_year.exit.thread11.i40 ], [ %6, %is_leap_year.exit.i42 ], [ %3, %if.end.thread ]
+  %days_in_month.066 = phi i32 [ %5, %is_leap_year.exit.thread11.i40 ], [ %5, %is_leap_year.exit.i42 ], [ %days_in_month.0.ph, %if.end.thread ]
+  %yearday.0.i6065 = phi i32 [ %spec.select.i, %is_leap_year.exit.thread11.i40 ], [ %spec.select.i, %is_leap_year.exit.i42 ], [ %1, %if.end.thread ]
+  %yearday.0.i26 = phi i32 [ %add614.i41, %is_leap_year.exit.thread11.i40 ], [ %spec.select.i46, %is_leap_year.exit.i42 ], [ %1, %if.end.thread ]
+  %conv33 = and i32 %days_in_month.066, 255
   %sub.i = add i32 %year, -1
   %mul.i = mul i32 %sub.i, 365
   %div.i = sdiv i32 %sub.i, 4
@@ -1100,12 +1079,12 @@ ymd_to_ord.exit47:                                ; preds = %if.end.thread, %is_
   %div3.i = sdiv i32 %sub.i, 400
   %add4.i = add i32 %sub2.i, %div3.i
   %add8.i = add i32 %add4.i, 7
-  %add = add i32 %add8.i, %yearday.0.i5964
+  %add = add i32 %add8.i, %yearday.0.i6065
   %rem = srem i32 %add, 7
   %add13.neg = xor i32 %rem, -1
   %conv11 = sext i8 %9 to i32
   %sub = add nsw i32 %conv11, %add13.neg
-  %rem14.lhs.trunc = trunc i32 %sub to i16
+  %rem14.lhs.trunc = trunc nsw i32 %sub to i16
   %rem1455 = srem i16 %rem14.lhs.trunc, 7
   %cmp17 = icmp slt i16 %rem1455, 0
   %conv22 = add nsw i16 %rem1455, 7
@@ -1120,9 +1099,9 @@ ymd_to_ord.exit47:                                ; preds = %if.end.thread, %is_
   %sub38 = add i8 %11, -13
   %month_day.1 = select i1 %cmp34, i8 %sub38, i8 %conv31
   %conv43 = sext i8 %month_day.1 to i32
-  %add7.i32 = add i32 %add4.i, -719163
-  %add8.i33 = add i32 %add7.i32, %conv43
-  %sub45 = add i32 %add8.i33, %yearday.0.i23
+  %add7.i35 = add i32 %add4.i, -719163
+  %add8.i36 = add i32 %add7.i35, %conv43
+  %sub45 = add i32 %add8.i36, %yearday.0.i26
   %conv46 = sext i32 %sub45 to i64
   %mul47 = mul nsw i64 %conv46, 86400
   %hour = getelementptr inbounds i8, ptr %base_self, i64 12
@@ -1184,10 +1163,10 @@ if.then17:                                        ; preds = %if.end13
   br label %return
 
 if.end19:                                         ; preds = %if.end13
-  %conv = trunc i32 %month to i8
-  %conv23 = trunc i32 %week to i8
-  %conv25 = trunc i32 %day to i8
-  %conv27 = trunc i32 %hour to i16
+  %conv = trunc nuw nsw i32 %month to i8
+  %conv23 = trunc nuw nsw i32 %week to i8
+  %conv25 = trunc nuw nsw i32 %day to i8
+  %conv27 = trunc nsw i32 %hour to i16
   %conv29 = trunc i32 %minute to i8
   %conv31 = trunc i32 %second to i8
   store ptr @calendarrule_year_to_timestamp, ptr %out, align 8
@@ -1218,6 +1197,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @dayrule_year_to_timestamp(ptr nocapture noundef readonly %base_self, i32 noundef %year) #0 {
 entry:
+  %rem.i.i = and i32 %year, 3
   %day2 = getelementptr inbounds i8, ptr %base_self, i64 10
   %0 = load i16, ptr %day2, align 2
   %julian = getelementptr inbounds i8, ptr %base_self, i64 8
@@ -1225,14 +1205,11 @@ entry:
   %tobool = icmp ne i8 %1, 0
   %cmp = icmp ugt i16 %0, 58
   %or.cond = select i1 %tobool, i1 %cmp, i1 false
-  br i1 %or.cond, label %land.lhs.true6, label %if.end
+  %cmp.i = icmp eq i32 %rem.i.i, 0
+  %or.cond15 = and i1 %cmp.i, %or.cond
+  br i1 %or.cond15, label %land.rhs.i, label %if.end
 
-land.lhs.true6:                                   ; preds = %entry
-  %rem.i = and i32 %year, 3
-  %cmp.i = icmp eq i32 %rem.i, 0
-  br i1 %cmp.i, label %land.rhs.i, label %is_leap_year.exit.thread
-
-land.rhs.i:                                       ; preds = %land.lhs.true6
+land.rhs.i:                                       ; preds = %entry
   %rem1.i = urem i32 %year, 100
   %cmp2.not.i = icmp eq i32 %rem1.i, 0
   br i1 %cmp2.not.i, label %is_leap_year.exit, label %is_leap_year.exit.thread11
@@ -1244,14 +1221,12 @@ is_leap_year.exit.thread11:                       ; preds = %land.rhs.i
 is_leap_year.exit:                                ; preds = %land.rhs.i
   %rem3.i = urem i32 %year, 400
   %cmp4.i.not = icmp eq i32 %rem3.i, 0
-  %add = add i16 %0, 1
-  br i1 %cmp4.i.not, label %if.end, label %is_leap_year.exit.thread
-
-is_leap_year.exit.thread:                         ; preds = %land.lhs.true6, %is_leap_year.exit
+  %add = zext i1 %cmp4.i.not to i16
+  %spec.select = add i16 %0, %add
   br label %if.end
 
-if.end:                                           ; preds = %is_leap_year.exit.thread, %is_leap_year.exit, %is_leap_year.exit.thread11, %entry
-  %day.0 = phi i16 [ %0, %entry ], [ %0, %is_leap_year.exit.thread ], [ %add, %is_leap_year.exit ], [ %add14, %is_leap_year.exit.thread11 ]
+if.end:                                           ; preds = %is_leap_year.exit, %is_leap_year.exit.thread11, %entry
+  %day.0 = phi i16 [ %0, %entry ], [ %add14, %is_leap_year.exit.thread11 ], [ %spec.select, %is_leap_year.exit ]
   %sub.i = add i32 %year, -1
   %mul.i = mul i32 %sub.i, 365
   %div.i = sdiv i32 %sub.i, 4
@@ -1535,18 +1510,14 @@ do.body109:                                       ; preds = %if.then99, %do.body
   %tzname = getelementptr inbounds i8, ptr %call.i, i64 72
   %12 = load ptr, ptr %tzname, align 8
   %tobool111.not = icmp eq ptr %12, null
-  br i1 %tobool111.not, label %do.end121, label %if.then112
+  br i1 %tobool111.not, label %return, label %if.then112
 
 if.then112:                                       ; preds = %do.body109
   %call116 = tail call i32 %visit(ptr noundef nonnull %12, ptr noundef %arg) #9
-  %tobool117.not = icmp eq i32 %call116, 0
-  br i1 %tobool117.not, label %do.end121, label %return
-
-do.end121:                                        ; preds = %do.body109, %if.then112
   br label %return
 
-return:                                           ; preds = %if.then75, %if.then64, %if.then112, %if.then99, %if.then86, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end121
-  %retval.0 = phi i32 [ 0, %do.end121 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call90, %if.then86 ], [ %call103, %if.then99 ], [ %call116, %if.then112 ], [ %call78, %if.then75 ], [ %call67, %if.then64 ]
+return:                                           ; preds = %if.then75, %if.then64, %if.then112, %do.body109, %if.then99, %if.then86, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call90, %if.then86 ], [ %call103, %if.then99 ], [ 0, %do.body109 ], [ %call116, %if.then112 ], [ %call78, %if.then75 ], [ %call67, %if.then64 ]
   ret i32 %retval.0
 }
 
@@ -1834,7 +1805,7 @@ entry:
   %call = tail call ptr @PyCapsule_Import(ptr noundef nonnull @.str.6, i32 noundef 0) #9
   store ptr %call, ptr @PyDateTimeAPI, align 8
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %error, label %if.end
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #9
@@ -1844,33 +1815,33 @@ if.end:                                           ; preds = %entry
   %call2 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @zoneinfo_spec, ptr noundef %1) #9
   store ptr %call2, ptr %call.i, align 8
   %cmp4 = icmp eq ptr %call2, null
-  br i1 %cmp4, label %error, label %if.end6
+  br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
   %call8 = tail call i32 @PyModule_AddObjectRef(ptr noundef %m, ptr noundef nonnull @.str.7, ptr noundef nonnull %call2) #9
   %cmp9 = icmp slt i32 %call8, 0
-  br i1 %cmp9, label %error, label %if.end11
+  br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
   %call12 = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #9
   %_tzpath_find_tzfile = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call12, ptr %_tzpath_find_tzfile, align 8
   %cmp14 = icmp eq ptr %call12, null
-  br i1 %cmp14, label %error, label %if.end16
+  br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
   %call17 = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #9
   %io_open = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call17, ptr %io_open, align 8
   %cmp19 = icmp eq ptr %call17, null
-  br i1 %cmp19, label %error, label %if.end21
+  br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
   %call22 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.12) #9
   %_common_mod = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call22, ptr %_common_mod, align 8
   %cmp24 = icmp eq ptr %call22, null
-  br i1 %cmp24, label %error, label %if.end26
+  br i1 %cmp24, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.end21
   %NO_TTINFO = getelementptr inbounds i8, ptr %call.i, i64 56
@@ -1896,20 +1867,20 @@ _Py_NewRef.exit:                                  ; preds = %if.then28
   br i1 %cmp.i.i17, label %_Py_NewRef.exit19.thread, label %_Py_NewRef.exit19
 
 _Py_NewRef.exit19.thread:                         ; preds = %_Py_NewRef.exit, %_Py_NewRef.exit.thread
-  %dstoff39 = getelementptr inbounds i8, ptr %call.i, i64 64
-  store ptr @_Py_NoneStruct, ptr %dstoff39, align 8
+  %dstoff41 = getelementptr inbounds i8, ptr %call.i, i64 64
+  store ptr @_Py_NoneStruct, ptr %dstoff41, align 8
   br label %_Py_NewRef.exit23
 
 _Py_NewRef.exit19:                                ; preds = %_Py_NewRef.exit
   store i32 %.pre, ptr @_Py_NoneStruct, align 8
-  %.pre35 = add i32 %3, 3
+  %.pre37 = add i32 %3, 3
   %dstoff = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @_Py_NoneStruct, ptr %dstoff, align 8
-  %cmp.i.i21 = icmp eq i32 %.pre35, 0
+  %cmp.i.i21 = icmp eq i32 %.pre37, 0
   br i1 %cmp.i.i21, label %_Py_NewRef.exit23, label %if.end.i.i22
 
 if.end.i.i22:                                     ; preds = %_Py_NewRef.exit19
-  store i32 %.pre35, ptr @_Py_NoneStruct, align 8
+  store i32 %.pre37, ptr @_Py_NoneStruct, align 8
   br label %_Py_NewRef.exit23
 
 _Py_NewRef.exit23:                                ; preds = %_Py_NewRef.exit19.thread, %_Py_NewRef.exit19, %if.end.i.i22
@@ -1922,20 +1893,21 @@ if.end36:                                         ; preds = %_Py_NewRef.exit23, 
   %TIMEDELTA_CACHE.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %call.i24, ptr %TIMEDELTA_CACHE.i, align 8
   %cmp.i = icmp eq ptr %call.i24, null
-  br i1 %cmp.i, label %error, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end36
   %call.i.i = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #9
   %cmp.i.i25 = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i.i25, label %initialize_caches.exit.thread29, label %if.end.i.i26
+  br i1 %cmp.i.i25, label %initialize_caches.exit.thread30, label %if.end.i.i26
 
-initialize_caches.exit.thread29:                  ; preds = %if.end.i
-  %ZONEINFO_WEAK_CACHE.i31 = getelementptr inbounds i8, ptr %call.i, i64 40
-  store ptr null, ptr %ZONEINFO_WEAK_CACHE.i31, align 8
-  br label %error
+initialize_caches.exit.thread30:                  ; preds = %if.end.i
+  %ZONEINFO_WEAK_CACHE.i32 = getelementptr inbounds i8, ptr %call.i, i64 40
+  store ptr null, ptr %ZONEINFO_WEAK_CACHE.i32, align 8
+  br label %return
 
 if.end.i.i26:                                     ; preds = %if.end.i
   %call1.i.i = tail call ptr @PyObject_CallNoArgs(ptr noundef nonnull %call.i.i) #9
+  %call1.i.i.fr = freeze ptr %call1.i.i
   %4 = load i64, ptr %call.i.i, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i3.not.i.i = icmp eq i64 %5, 0
@@ -1953,15 +1925,13 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 initialize_caches.exit:                           ; preds = %if.end.i.i26, %if.end.i.i.i, %if.then1.i.i.i
   %ZONEINFO_WEAK_CACHE.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  store ptr %call1.i.i, ptr %ZONEINFO_WEAK_CACHE.i, align 8
-  %cmp4.i.not = icmp eq ptr %call1.i.i, null
-  br i1 %cmp4.i.not, label %error, label %return
-
-error:                                            ; preds = %if.end36, %initialize_caches.exit.thread29, %initialize_caches.exit, %if.end21, %if.end16, %if.end11, %if.end6, %if.end, %entry
+  store ptr %call1.i.i.fr, ptr %ZONEINFO_WEAK_CACHE.i, align 8
+  %cmp4.i.not = icmp eq ptr %call1.i.i.fr, null
+  %spec.select = sext i1 %cmp4.i.not to i32
   br label %return
 
-return:                                           ; preds = %initialize_caches.exit, %error
-  %retval.0 = phi i32 [ -1, %error ], [ 0, %initialize_caches.exit ]
+return:                                           ; preds = %initialize_caches.exit, %if.end36, %initialize_caches.exit.thread30, %entry, %if.end, %if.end6, %if.end11, %if.end16, %if.end21
+  %retval.0 = phi i32 [ -1, %if.end21 ], [ -1, %if.end16 ], [ -1, %if.end11 ], [ -1, %if.end6 ], [ -1, %if.end ], [ -1, %entry ], [ -1, %initialize_caches.exit.thread30 ], [ -1, %if.end36 ], [ %spec.select, %initialize_caches.exit ]
   ret i32 %retval.0
 }
 
@@ -2794,18 +2764,14 @@ do.body6:                                         ; preds = %if.then, %entry
   %key = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %key, align 8
   %tobool7.not = icmp eq ptr %1, null
-  br i1 %tobool7.not, label %do.end16, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
   %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #9
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.end16, label %return
-
-do.end16:                                         ; preds = %do.body6, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %do.end16
-  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call2, %if.then ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %do.body6, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ 0, %do.body6 ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 
@@ -3072,7 +3038,7 @@ while.body.i:                                     ; preds = %Py_DECREF.exit45.i,
 if.end.i37.i:                                     ; preds = %while.body.i
   %24 = load ptr, ptr %ZONEINFO_STRONG_CACHE.i38.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %24, null
-  br i1 %cmp.not5.i.i.i, label %if.else.i42.i, label %while.body.i.i39.i
+  br i1 %cmp.not5.i.i.i, label %eject_from_strong_cache.exit.i, label %while.body.i.i39.i
 
 while.body.i.i39.i:                               ; preds = %if.end.i37.i, %if.end4.i.i.i
   %node.06.i.i.i = phi ptr [ %26, %if.end4.i.i.i ], [ %24, %if.end.i37.i ]
@@ -3080,7 +3046,7 @@ while.body.i.i39.i:                               ; preds = %if.end.i37.i, %if.e
   %25 = load ptr, ptr %key1.i.i.i, align 8
   %call.i.i.i = call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call148.i, ptr noundef %25, i32 noundef 2) #9
   %cmp2.i.i.i = icmp slt i32 %call.i.i.i, 0
-  br i1 %cmp2.i.i.i, label %if.else.i42.i, label %if.end.i.i.i
+  br i1 %cmp2.i.i.i, label %eject_from_strong_cache.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i39.i
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
@@ -3089,7 +3055,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i39.i
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %26 = load ptr, ptr %node.06.i.i.i, align 8
   %cmp.not.i.i41.i = icmp eq ptr %26, null
-  br i1 %cmp.not.i.i41.i, label %if.else.i42.i, label %while.body.i.i39.i, !llvm.loop !7
+  br i1 %cmp.not.i.i41.i, label %eject_from_strong_cache.exit.i, label %while.body.i.i39.i, !llvm.loop !7
 
 if.then2.i.i:                                     ; preds = %if.end.i.i.i
   %key1.i.i.i.le = getelementptr inbounds i8, ptr %node.06.i.i.i, i64 16
@@ -3170,12 +3136,12 @@ strong_cache_node_free.exit.i.i:                  ; preds = %if.then1.i.i9.i.i.i
   call void @PyMem_Free(ptr noundef nonnull %node.06.i.i.i) #9
   br label %if.end18.i
 
-if.else.i42.i:                                    ; preds = %if.end4.i.i.i, %while.body.i.i39.i, %if.end.i37.i
+eject_from_strong_cache.exit.i:                   ; preds = %if.end4.i.i.i, %while.body.i.i39.i, %if.end.i37.i
   %call3.i.i = call ptr @PyErr_Occurred() #9
-  %tobool.not.i.i = icmp eq ptr %call3.i.i, null
-  br i1 %tobool.not.i.i, label %if.end18.i, label %if.then17.i
+  %tobool.not.i.not.i = icmp eq ptr %call3.i.i, null
+  br i1 %tobool.not.i.not.i, label %if.end18.i, label %if.then17.i
 
-if.then17.i:                                      ; preds = %if.else.i42.i
+if.then17.i:                                      ; preds = %eject_from_strong_cache.exit.i
   %36 = load i64, ptr %call148.i, align 8
   %37 = and i64 %36, 2147483648
   %cmp.i90.not.i = icmp eq i64 %37, 0
@@ -3191,7 +3157,7 @@ if.then1.i61.i:                                   ; preds = %if.end.i58.i
   call void @_Py_Dealloc(ptr noundef nonnull %call148.i) #9
   br label %while.end.i
 
-if.end18.i:                                       ; preds = %if.else.i42.i, %strong_cache_node_free.exit.i.i, %while.body.i
+if.end18.i:                                       ; preds = %eject_from_strong_cache.exit.i, %strong_cache_node_free.exit.i.i, %while.body.i
   %call19.i = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef %retval.0.i.i, ptr noundef nonnull %call6.i, ptr noundef nonnull %call148.i, ptr noundef nonnull @_Py_NoneStruct, ptr noundef null) #9
   %38 = load i64, ptr %call148.i, align 8
   %39 = and i64 %38, 2147483648
@@ -5724,9 +5690,9 @@ if.then5.i.i:                                     ; preds = %if.end.i69.i
   br label %if.then47.sink.split
 
 dayrule_new.exit.i:                               ; preds = %if.end.i69.i
-  %conv.i.i = trunc i32 %julian.0.i to i8
-  %conv11.i.i = trunc i32 %day42.191.i to i16
-  %conv13.i.i = trunc i32 %51 to i16
+  %conv.i.i = trunc nuw nsw i32 %julian.0.i to i8
+  %conv11.i.i = trunc nuw nsw i32 %day42.191.i to i16
+  %conv13.i.i = trunc nsw i32 %51 to i16
   %conv15.i.i = trunc i32 %52 to i8
   %conv17.i.i = trunc i32 %53 to i8
   store ptr @dayrule_year_to_timestamp, ptr %call64.i, align 8
@@ -6563,15 +6529,13 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr [13 x i32], ptr @DAYS_BEFORE_MONTH, i64 0, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 4
   %cmp.i38 = icmp ugt i8 %5, 2
-  br i1 %cmp.i38, label %land.lhs.true.i, label %ymd_to_ord.exit
-
-land.lhs.true.i:                                  ; preds = %if.then
   %rem.i.i = and i32 %conv3, 3
   %cmp.i.i = icmp eq i32 %rem.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %is_leap_year.exit.thread.i
+  %or.cond.i = and i1 %cmp.i38, %cmp.i.i
+  br i1 %or.cond.i, label %land.rhs.i.i, label %ymd_to_ord.exit
 
-land.rhs.i.i:                                     ; preds = %land.lhs.true.i
-  %rem1.i.i.lhs.trunc = trunc i32 %or to i16
+land.rhs.i.i:                                     ; preds = %if.then
+  %rem1.i.i.lhs.trunc = trunc nuw i32 %or to i16
   %rem1.i.i40 = urem i16 %rem1.i.i.lhs.trunc, 100
   %cmp2.not.i.i = icmp eq i16 %rem1.i.i40, 0
   br i1 %cmp2.not.i.i, label %is_leap_year.exit.i, label %is_leap_year.exit.thread11.i
@@ -6583,14 +6547,12 @@ is_leap_year.exit.thread11.i:                     ; preds = %land.rhs.i.i
 is_leap_year.exit.i:                              ; preds = %land.rhs.i.i
   %rem3.i.i41 = urem i16 %rem1.i.i.lhs.trunc, 400
   %cmp4.i.not.i = icmp eq i16 %rem3.i.i41, 0
-  %add6.i = add i32 %10, 1
-  br i1 %cmp4.i.not.i, label %ymd_to_ord.exit, label %is_leap_year.exit.thread.i
-
-is_leap_year.exit.thread.i:                       ; preds = %is_leap_year.exit.i, %land.lhs.true.i
+  %add6.i = zext i1 %cmp4.i.not.i to i32
+  %spec.select.i = add i32 %10, %add6.i
   br label %ymd_to_ord.exit
 
-ymd_to_ord.exit:                                  ; preds = %if.then, %is_leap_year.exit.thread11.i, %is_leap_year.exit.i, %is_leap_year.exit.thread.i
-  %yearday.0.i = phi i32 [ %10, %if.then ], [ %10, %is_leap_year.exit.thread.i ], [ %add6.i, %is_leap_year.exit.i ], [ %add614.i, %is_leap_year.exit.thread11.i ]
+ymd_to_ord.exit:                                  ; preds = %if.then, %is_leap_year.exit.thread11.i, %is_leap_year.exit.i
+  %yearday.0.i = phi i32 [ %10, %if.then ], [ %add614.i, %is_leap_year.exit.thread11.i ], [ %spec.select.i, %is_leap_year.exit.i ]
   %sub.i = add nsw i32 %or, -1
   %div1.neg.i = sdiv i32 %sub.i, -100
   %mul.i = mul nsw i32 %sub.i, 365

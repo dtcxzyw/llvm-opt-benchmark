@@ -253,7 +253,7 @@ invoke.cont15:                                    ; preds = %land.lhs.true13
   br i1 %call16, label %if.then17, label %if.end32
 
 if.then17:                                        ; preds = %invoke.cont15, %invoke.cont9, %invoke.cont
-  %tobool18 = trunc i8 %found.0 to i1
+  %tobool18 = trunc nuw i8 %found.0 to i1
   br i1 %tobool18, label %lor.lhs.false19, label %if.then27
 
 lor.lhs.false19:                                  ; preds = %if.then17
@@ -428,7 +428,7 @@ do.end:                                           ; preds = %if.end32
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %do.end
-  %tobool35 = trunc i8 %found.1 to i1
+  %tobool35 = trunc nuw i8 %found.1 to i1
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
           to label %return unwind label %terminate.lpad.i
 
@@ -567,7 +567,7 @@ invoke.cont15:                                    ; preds = %land.lhs.true13
   br i1 %call16, label %if.then17, label %if.end32
 
 if.then17:                                        ; preds = %invoke.cont15, %invoke.cont9, %invoke.cont
-  %tobool18 = trunc i8 %found.0 to i1
+  %tobool18 = trunc nuw i8 %found.0 to i1
   br i1 %tobool18, label %lor.lhs.false19, label %if.then27
 
 lor.lhs.false19:                                  ; preds = %if.then17
@@ -742,7 +742,7 @@ do.end:                                           ; preds = %if.end32
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %do.end
-  %tobool35 = trunc i8 %found.1 to i1
+  %tobool35 = trunc nuw i8 %found.1 to i1
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
           to label %return unwind label %terminate.lpad.i
 
@@ -1053,20 +1053,14 @@ if.end39:                                         ; preds = %invoke.cont36, %inv
   %m_thr = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load ptr, ptr %m_thr, align 8
   %tobool40.not = icmp eq ptr %15, null
-  br i1 %tobool40.not, label %if.end46, label %land.lhs.true41
+  br i1 %tobool40.not, label %cleanup, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end39
   %call44 = invoke noundef zeroext i1 @_ZN3smt10theory_lra9get_valueEPNS_5enodeER8rational(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull %.then.val.i, ptr noundef nonnull align 8 dereferenceable(32) %val)
-          to label %invoke.cont43 unwind label %lpad
+          to label %cleanup unwind label %lpad
 
-invoke.cont43:                                    ; preds = %land.lhs.true41
-  br i1 %call44, label %cleanup, label %if.end46
-
-if.end46:                                         ; preds = %invoke.cont43, %if.end39
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont43, %invoke.cont36, %invoke.cont21, %if.then6, %if.end46
-  %retval.0 = phi i1 [ false, %if.end46 ], [ %call9, %if.then6 ], [ true, %invoke.cont21 ], [ true, %invoke.cont36 ], [ true, %invoke.cont43 ]
+cleanup:                                          ; preds = %land.lhs.true41, %if.end39, %invoke.cont36, %invoke.cont21, %if.then6
+  %retval.0 = phi i1 [ %call9, %if.then6 ], [ true, %invoke.cont21 ], [ true, %invoke.cont36 ], [ false, %if.end39 ], [ %call44, %land.lhs.true41 ]
   %16 = load ptr, ptr %_val, align 8
   %tobool.not.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i, label %return, label %if.then.i.i.i

@@ -540,21 +540,12 @@ entry:
   %evcb_flags.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i, align 8, !tbaa !28
   %1 = and i16 %0, 8
-  %tobool.not = icmp eq i16 %1, 0
-  br i1 %tobool.not, label %if.end9, label %if.then
-
-if.then:                                          ; preds = %entry
+  %tobool.not = icmp ne i16 %1, 0
   %ev_res.i = getelementptr inbounds i8, ptr %this, i64 70
-  %2 = load i16, ptr %ev_res.i, align 2, !tbaa !37
+  %2 = load i16, ptr %ev_res.i, align 2
   %3 = and i16 %2, 2
-  %tobool7.not = icmp eq i16 %3, 0
-  br i1 %tobool7.not, label %if.end9, label %return
-
-if.end9:                                          ; preds = %if.then, %entry
-  br label %return
-
-return:                                           ; preds = %if.end9, %if.then
-  %retval.0 = phi i1 [ false, %if.end9 ], [ true, %if.then ]
+  %tobool7.not = icmp ne i16 %3, 0
+  %retval.0 = select i1 %tobool.not, i1 %tobool7.not, i1 false
   ret i1 %retval.0
 }
 
@@ -623,4 +614,3 @@ attributes #18 = { builtin nounwind }
 !34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !35, i64 0, !21, i64 8, !17, i64 16}
 !35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !16, i64 0}
 !36 = !{!34, !21, i64 8}
-!37 = !{!12, !18, i64 62}

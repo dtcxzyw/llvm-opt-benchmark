@@ -70,7 +70,7 @@ mul_size_t.exit:                                  ; preds = %entry
 
 if.then:                                          ; preds = %mul_size_t.exit
   tail call fastcc void @squaretrans_pow2(ptr noundef %matrix, i64 noundef %cols)
-  br label %if.end19
+  br label %return
 
 if.else:                                          ; preds = %mul_size_t.exit
   %5 = icmp slt i64 %rows, 0
@@ -101,7 +101,7 @@ if.end:                                           ; preds = %if.then3
   %div24 = lshr i64 %umul.value.i, 1
   %add.ptr = getelementptr i64, ptr %matrix, i64 %div24
   tail call fastcc void @squaretrans_pow2(ptr noundef %add.ptr, i64 noundef %rows)
-  br label %if.end19
+  br label %return
 
 if.else6:                                         ; preds = %mul_size_t.exit30
   %10 = icmp slt i64 %cols, 0
@@ -128,18 +128,14 @@ if.then9:                                         ; preds = %mul_size_t.exit36
   %add.ptr11 = getelementptr i64, ptr %matrix, i64 %div1023
   tail call fastcc void @squaretrans_pow2(ptr noundef %add.ptr11, i64 noundef %cols)
   %call12 = tail call fastcc i32 @swap_halfrows_pow2(ptr noundef %matrix, i64 noundef %cols, i64 noundef %rows, i32 noundef 1), !range !7
-  %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %return, label %if.end19
+  br label %return
 
 if.else16:                                        ; preds = %mul_size_t.exit36
   tail call void @abort() #11
   unreachable
 
-if.end19:                                         ; preds = %if.end, %if.then9, %if.then
-  br label %return
-
-return:                                           ; preds = %if.then9, %if.then3, %if.end19
-  %retval.0 = phi i32 [ 1, %if.end19 ], [ 0, %if.then3 ], [ 0, %if.then9 ]
+return:                                           ; preds = %if.then9, %if.then, %if.end, %if.then3
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ 1, %if.end ], [ 1, %if.then ], [ %call12, %if.then9 ]
   ret i32 %retval.0
 }
 

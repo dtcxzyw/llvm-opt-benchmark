@@ -267,7 +267,7 @@ define internal fastcc ptr @vma_create(ptr noundef %0, ptr noundef %1, ptr nound
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %1, i64 304
   %70 = load ptr, ptr %69, align 8
-  %71 = trunc i64 %66 to i32
+  %71 = trunc nuw i64 %66 to i32
   %72 = getelementptr inbounds i8, ptr %0, i64 664
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 127
@@ -287,7 +287,7 @@ define internal fastcc ptr @vma_create(ptr noundef %0, ptr noundef %1, ptr nound
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %69, align 8
-  %86 = trunc i64 %79 to i32
+  %86 = trunc nuw i64 %79 to i32
   %87 = load i32, ptr %72, align 8
   %88 = and i32 %87, 127
   %89 = and i32 %87, -128
@@ -1360,13 +1360,13 @@ define dso_local noundef zeroext i1 @i915_gem_valid_gtt_space(ptr nocapture noun
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %44, label %9
+  br i1 %8, label %43, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %44, label %13
+  br i1 %12, label %43, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1388,7 +1388,7 @@ define dso_local noundef zeroext i1 @i915_gem_valid_gtt_space(ptr nocapture noun
   %26 = getelementptr i8, ptr %16, i64 112
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %44, label %29
+  br i1 %28, label %43, label %29
 
 29:                                               ; preds = %25, %21, %13
   %30 = load ptr, ptr %14, align 8
@@ -1407,15 +1407,12 @@ define dso_local noundef zeroext i1 @i915_gem_valid_gtt_space(ptr nocapture noun
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %0, i64 144
   %41 = load i64, ptr %40, align 8
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %44, label %43
+  %42 = icmp ne i64 %41, 0
+  br label %43
 
-43:                                               ; preds = %39, %35, %29
-  br label %44
-
-44:                                               ; preds = %43, %39, %25, %9, %2
-  %45 = phi i1 [ true, %43 ], [ true, %9 ], [ false, %25 ], [ false, %39 ], [ true, %2 ]
-  ret i1 %45
+43:                                               ; preds = %39, %29, %35, %25, %9, %2
+  %44 = phi i1 [ true, %9 ], [ false, %25 ], [ true, %2 ], [ true, %35 ], [ true, %29 ], [ %42, %39 ]
+  ret i1 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid

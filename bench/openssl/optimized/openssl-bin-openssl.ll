@@ -84,14 +84,14 @@ if.end.i:                                         ; preds = %entry
 if.then5.i:                                       ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4.i, ptr noundef nonnull dereferenceable(2) @.str.30) #11
   %cmp7.i = icmp eq i32 %call6.i, 0
-  br i1 %cmp7.i, label %if.then8.i, label %lor.lhs.false
+  br i1 %cmp7.i, label %apps_startup.exit, label %lor.lhs.false
 
-if.then8.i:                                       ; preds = %if.then5.i
+apps_startup.exit:                                ; preds = %if.then5.i
   %call9.i = tail call ptr @app_create_libctx() #10
-  %cmp10.i = icmp eq ptr %call9.i, null
-  br i1 %cmp10.i, label %if.then, label %lor.lhs.false
+  %cmp10.i.not = icmp eq ptr %call9.i, null
+  br i1 %cmp10.i.not, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %if.then8.i, %if.then5.i, %if.end.i
+lor.lhs.false:                                    ; preds = %if.end.i, %if.then5.i, %apps_startup.exit
   %.b.i = load i1, ptr @prog_init.prog_inited, align 4
   br i1 %.b.i, label %prog_init.exit, label %if.end.i28
 
@@ -139,8 +139,8 @@ prog_init.exit:                                   ; preds = %for.body7.i, %lor.l
   %cmp = icmp eq ptr %retval.0.i30, null
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %for.end.i, %if.then8.i, %entry, %prog_init.exit
-  %fname.0 = phi ptr [ @.str.1, %prog_init.exit ], [ @.str, %entry ], [ @.str, %if.then8.i ], [ @.str.1, %for.end.i ]
+if.then:                                          ; preds = %for.end.i, %entry, %prog_init.exit, %apps_startup.exit
+  %fname.0 = phi ptr [ @.str, %apps_startup.exit ], [ @.str.1, %prog_init.exit ], [ @.str, %entry ], [ @.str.1, %for.end.i ]
   %5 = load ptr, ptr @bio_err, align 8
   %6 = load ptr, ptr %argv, align 8
   %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef nonnull %fname.0, ptr noundef %6) #10
@@ -149,7 +149,7 @@ if.then:                                          ; preds = %for.end.i, %if.then
   br label %end
 
 if.end:                                           ; preds = %for.cond4.preheader.i, %prog_init.exit
-  %retval.0.i3041 = phi ptr [ %retval.0.i30, %prog_init.exit ], [ %call.i.i, %for.cond4.preheader.i ]
+  %retval.0.i3042 = phi ptr [ %retval.0.i30, %prog_init.exit ], [ %call.i.i, %for.cond4.preheader.i ]
   %8 = load ptr, ptr %argv, align 8
   %call8 = tail call ptr @opt_progname(ptr noundef %8) #10
   %call9 = tail call ptr @CONF_get1_default_config_file() #10
@@ -164,7 +164,7 @@ if.then11:                                        ; preds = %if.end
 if.end12:                                         ; preds = %if.then11, %if.end
   %name = getelementptr inbounds i8, ptr %f, i64 8
   store ptr %call8, ptr %name, align 8
-  %call.i31 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %retval.0.i3041, ptr noundef nonnull %f) #10
+  %call.i31 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %retval.0.i3042, ptr noundef nonnull %f) #10
   %cmp14 = icmp eq ptr %call.i31, null
   br i1 %cmp14, label %if.then15, label %if.end62.thread
 
@@ -216,10 +216,10 @@ lor.rhs44:                                        ; preds = %lor.lhs.false40
   br label %land.end49
 
 land.end49.thread:                                ; preds = %lor.lhs.false40, %lor.lhs.false36, %land.rhs32
-  %dec42 = add nsw i32 %argc, -1
-  %cmp5144 = icmp eq i32 %dec42, 1
-  %or.cond45 = select i1 %cmp5144, i1 true, i1 %.ph
-  %.str.12.mux47 = select i1 %or.cond45, ptr @.str.12, ptr @.str.13
+  %dec43 = add nsw i32 %argc, -1
+  %cmp5145 = icmp eq i32 %dec43, 1
+  %or.cond46 = select i1 %cmp5145, i1 true, i1 %.ph
+  %.str.12.mux48 = select i1 %or.cond46, ptr @.str.12, ptr @.str.13
   br label %if.end62
 
 land.end49:                                       ; preds = %if.then15, %lor.rhs44
@@ -231,49 +231,49 @@ land.end49:                                       ; preds = %if.then15, %lor.rhs
   %or.cond = select i1 %cmp51, i1 true, i1 %10
   %brmerge = select i1 %or.cond, i1 true, i1 %11
   %.str.12.mux = select i1 %or.cond, ptr @.str.12, ptr @.str.13
-  br i1 %brmerge, label %if.end62, label %if.end62.thread64
+  br i1 %brmerge, label %if.end62, label %if.end62.thread65
 
 if.end62:                                         ; preds = %land.end49, %land.end49.thread
-  %incdec.ptr49 = phi ptr [ %incdec.ptr, %land.end49 ], [ %arrayidx17, %land.end49.thread ]
-  %dec48 = phi i32 [ %dec, %land.end49 ], [ %dec42, %land.end49.thread ]
+  %incdec.ptr50 = phi ptr [ %incdec.ptr, %land.end49 ], [ %arrayidx17, %land.end49.thread ]
+  %dec49 = phi i32 [ %dec, %land.end49 ], [ %dec43, %land.end49.thread ]
   %12 = phi i1 [ %11, %land.end49 ], [ true, %land.end49.thread ]
   %13 = phi i1 [ %10, %land.end49 ], [ %.ph, %land.end49.thread ]
-  %cond59 = phi ptr [ %.str.12.mux, %land.end49 ], [ %.str.12.mux47, %land.end49.thread ]
+  %cond59 = phi ptr [ %.str.12.mux, %land.end49 ], [ %.str.12.mux48, %land.end49.thread ]
   %call60 = call ptr @opt_appname(ptr noundef nonnull %cond59) #10
-  %cmp63 = icmp eq i32 %dec48, 0
+  %cmp63 = icmp eq i32 %dec49, 0
   %or.cond1 = select i1 %cmp63, i1 true, i1 %13
   br i1 %or.cond1, label %cond.true66, label %cond.false68
 
-if.end62.thread64:                                ; preds = %land.end49
+if.end62.thread65:                                ; preds = %land.end49
   %14 = load ptr, ptr %incdec.ptr, align 8
-  %call6068 = call ptr @opt_appname(ptr noundef %14) #10
-  %cmp6369 = icmp eq i32 %dec, 0
-  br i1 %cmp6369, label %cond.true66, label %cond.false72
+  %call6069 = call ptr @opt_appname(ptr noundef %14) #10
+  %cmp6370 = icmp eq i32 %dec, 0
+  br i1 %cmp6370, label %cond.true66, label %cond.false72
 
 if.end62.thread:                                  ; preds = %if.end12
   store ptr %call8, ptr %argv, align 8
-  %cmp6354 = icmp eq i32 %argc, 0
-  br i1 %cmp6354, label %cond.true66, label %cond.false72
+  %cmp6355 = icmp eq i32 %argc, 0
+  br i1 %cmp6355, label %cond.true66, label %cond.false72
 
-cond.true66:                                      ; preds = %if.end62.thread64, %if.end62.thread, %if.end62
-  %call67 = call fastcc i32 @do_cmd(ptr noundef nonnull %retval.0.i3041, i32 noundef 1, ptr noundef nonnull @help_argv)
+cond.true66:                                      ; preds = %if.end62.thread65, %if.end62.thread, %if.end62
+  %call67 = call fastcc i32 @do_cmd(ptr noundef nonnull %retval.0.i3042, i32 noundef 1, ptr noundef nonnull @help_argv)
   br label %end
 
 cond.false68:                                     ; preds = %if.end62
   br i1 %12, label %cond.true70, label %cond.false72
 
 cond.true70:                                      ; preds = %cond.false68
-  %call71 = call fastcc i32 @do_cmd(ptr noundef nonnull %retval.0.i3041, i32 noundef 1, ptr noundef nonnull @version_argv)
+  %call71 = call fastcc i32 @do_cmd(ptr noundef nonnull %retval.0.i3042, i32 noundef 1, ptr noundef nonnull @version_argv)
   br label %end
 
-cond.false72:                                     ; preds = %if.end62.thread64, %if.end62.thread, %cond.false68
-  %argv.addr.05663 = phi ptr [ %incdec.ptr49, %cond.false68 ], [ %argv, %if.end62.thread ], [ %incdec.ptr, %if.end62.thread64 ]
-  %argc.addr.05762 = phi i32 [ %dec48, %cond.false68 ], [ %argc, %if.end62.thread ], [ %dec, %if.end62.thread64 ]
-  %call73 = call fastcc i32 @do_cmd(ptr noundef nonnull %retval.0.i3041, i32 noundef %argc.addr.05762, ptr noundef nonnull %argv.addr.05663)
+cond.false72:                                     ; preds = %if.end62.thread65, %if.end62.thread, %cond.false68
+  %argv.addr.05764 = phi ptr [ %incdec.ptr50, %cond.false68 ], [ %argv, %if.end62.thread ], [ %incdec.ptr, %if.end62.thread65 ]
+  %argc.addr.05863 = phi i32 [ %dec49, %cond.false68 ], [ %argc, %if.end62.thread ], [ %dec, %if.end62.thread65 ]
+  %call73 = call fastcc i32 @do_cmd(ptr noundef nonnull %retval.0.i3042, i32 noundef %argc.addr.05863, ptr noundef nonnull %argv.addr.05764)
   br label %end
 
 end:                                              ; preds = %cond.true66, %cond.false72, %cond.true70, %if.then
-  %prog.1 = phi ptr [ null, %if.then ], [ %retval.0.i3041, %cond.true70 ], [ %retval.0.i3041, %cond.false72 ], [ %retval.0.i3041, %cond.true66 ]
+  %prog.1 = phi ptr [ null, %if.then ], [ %retval.0.i3042, %cond.true70 ], [ %retval.0.i3042, %cond.false72 ], [ %retval.0.i3042, %cond.true66 ]
   %ret.0 = phi i32 [ 1, %if.then ], [ %call71, %cond.true70 ], [ %call73, %cond.false72 ], [ %call67, %cond.true66 ]
   %15 = load ptr, ptr @default_config_file, align 8
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.14, i32 noundef 310) #10

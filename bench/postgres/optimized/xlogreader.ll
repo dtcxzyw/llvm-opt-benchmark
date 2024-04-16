@@ -644,7 +644,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   %20 = and i64 %15, -8192
   %21 = and i64 %15, 8191
   %22 = tail call i64 @llvm.umin.i64(i64 %21, i64 8168)
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = add nuw nsw i32 %23, 24
   %25 = tail call fastcc i32 @ReadPageInternal(ptr noundef nonnull %0, i64 noundef %20, i32 noundef %24)
   %26 = icmp eq i32 %25, -2
@@ -693,7 +693,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
 
 52:                                               ; preds = %50
   %53 = lshr i64 %.0206446.i, 32
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw i64 %53 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef %54, i32 noundef %37, i32 noundef %45, i32 noundef %38)
   br label %.thread.i
 
@@ -708,7 +708,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
 
 58:                                               ; preds = %55
   %59 = lshr i64 %.1.i, 32
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw i64 %59 to i32
   %61 = trunc i64 %.1.i to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i32 noundef %60, i32 noundef %61)
   br label %.thread.i
@@ -731,7 +731,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
 
 72:                                               ; preds = %70
   %73 = lshr i64 %.1.i, 32
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw i64 %73 to i32
   %75 = trunc i64 %.1.i to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, i32 noundef %74, i32 noundef %75, i32 noundef 24, i32 noundef %65)
   br label %.thread.i
@@ -804,7 +804,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
 106:                                              ; preds = %XLogReadRecordAlloc.exit.i, %XLogReadRecordAlloc.exit.thread.i
   %107 = phi i1 [ false, %XLogReadRecordAlloc.exit.thread.i ], [ true, %XLogReadRecordAlloc.exit.i ]
   %.0.i273.i = phi ptr [ %.sink46.i.i, %XLogReadRecordAlloc.exit.thread.i ], [ null, %XLogReadRecordAlloc.exit.i ]
-  %108 = trunc i64 %63 to i32
+  %108 = trunc nuw nsw i64 %63 to i32
   %109 = sub nuw nsw i32 8192, %108
   %110 = icmp ugt i32 %65, %109
   br i1 %110, label %111, label %224
@@ -855,7 +855,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
   store i64 %122, ptr %19, align 8
   %136 = and i64 %.0211.i, 8191
   %137 = tail call i64 @llvm.umin.i64(i64 %136, i64 8168)
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nuw nsw i64 %137 to i32
   %139 = add nuw nsw i32 %138, 24
   %140 = tail call fastcc i32 @ReadPageInternal(ptr noundef nonnull %0, i64 noundef %122, i32 noundef %139)
   %141 = icmp eq i32 %140, -2
@@ -868,7 +868,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
 
 144:                                              ; preds = %142
   %145 = lshr i64 %.1.i, 32
-  %146 = trunc i64 %145 to i32
+  %146 = trunc nuw i64 %145 to i32
   %147 = trunc i64 %.1.i to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, i32 noundef %146, i32 noundef %147)
   br label %.thread280.i
@@ -886,7 +886,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
   %154 = zext i32 %.0207.i to i64
   %155 = sub nsw i64 %77, %154
   %156 = lshr i64 %.1.i, 32
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw i64 %156 to i32
   %158 = trunc i64 %.1.i to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, i32 noundef %150, i64 noundef %155, i32 noundef %157, i32 noundef %158)
   br label %.thread280.i
@@ -981,7 +981,7 @@ allocate_recordbuf.exit.i:                        ; preds = %189, %186
 
 ValidXLogRecord.exit.i:                           ; preds = %195
   %209 = lshr i64 %.1.i, 32
-  %210 = trunc i64 %209 to i32
+  %210 = trunc nuw i64 %209 to i32
   %211 = trunc i64 %.1.i to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, i32 noundef %210, i32 noundef %211)
   br label %.thread280.i
@@ -1249,12 +1249,12 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   %21 = udiv i64 %12, %20
   %22 = trunc i64 %21 to i32
   %23 = urem i64 %12, %20
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %19, i32 noundef %22, i32 noundef %24) #15
   %26 = load i16, ptr %2, align 8
   %27 = zext i16 %26 to i32
   %28 = lshr i64 %1, 32
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %27, ptr noundef nonnull %4, i32 noundef %29, i32 noundef %14, i32 noundef %15)
   br label %123
 
@@ -1271,12 +1271,12 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   %37 = udiv i64 %12, %36
   %38 = trunc i64 %37 to i32
   %39 = urem i64 %12, %36
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   %41 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %35, i32 noundef %38, i32 noundef %40) #15
   %42 = load i16, ptr %31, align 2
   %43 = zext i16 %42 to i32
   %44 = lshr i64 %1, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %43, ptr noundef nonnull %5, i32 noundef %45, i32 noundef %14, i32 noundef %15)
   br label %123
 
@@ -1332,12 +1332,12 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   %69 = udiv i64 %12, %68
   %70 = trunc i64 %69 to i32
   %71 = urem i64 %12, %68
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   %73 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %67, i32 noundef %70, i32 noundef %72) #15
   %74 = load i16, ptr %31, align 2
   %75 = zext i16 %74 to i32
   %76 = lshr i64 %1, 32
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw i64 %76 to i32
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %75, ptr noundef nonnull %6, i32 noundef %77, i32 noundef %14, i32 noundef 0)
   br label %123
 
@@ -1354,14 +1354,14 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   %85 = udiv i64 %12, %84
   %86 = trunc i64 %85 to i32
   %87 = urem i64 %12, %84
-  %88 = trunc i64 %87 to i32
+  %88 = trunc nuw i64 %87 to i32
   %89 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %83, i32 noundef %86, i32 noundef %88) #15
   %90 = load i64, ptr %79, align 8
   %91 = lshr i64 %90, 32
-  %92 = trunc i64 %91 to i32
+  %92 = trunc nuw i64 %91 to i32
   %93 = trunc i64 %90 to i32
   %94 = lshr i64 %1, 32
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw i64 %94 to i32
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %92, i32 noundef %93, ptr noundef nonnull %7, i32 noundef %95, i32 noundef %14, i32 noundef %15)
   br label %123
 
@@ -1386,12 +1386,12 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   %110 = udiv i64 %12, %109
   %111 = trunc i64 %110 to i32
   %112 = urem i64 %12, %109
-  %113 = trunc i64 %112 to i32
+  %113 = trunc nuw i64 %112 to i32
   %114 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %108, i32 noundef %111, i32 noundef %113) #15
   %115 = load i32, ptr %101, align 4
   %116 = load i32, ptr %103, align 8
   %117 = lshr i64 %1, 32
-  %118 = trunc i64 %117 to i32
+  %118 = trunc nuw i64 %117 to i32
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %115, i32 noundef %116, ptr noundef nonnull %8, i32 noundef %118, i32 noundef %14, i32 noundef %15)
   br label %123
 
@@ -1657,12 +1657,12 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 
 35:                                               ; preds = %25
   %36 = icmp slt i32 %33, 0
-  br i1 %36, label %68, label %37
+  br i1 %36, label %.sink.split, label %37
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %31, align 8
   %39 = tail call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %27, ptr noundef %38)
-  br i1 %39, label %40, label %68
+  br i1 %39, label %40, label %.sink.split
 
 40:                                               ; preds = %37, %21
   %41 = load ptr, ptr %0, align 8
@@ -1677,7 +1677,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 
 49:                                               ; preds = %40
   %or.cond4 = icmp slt i32 %47, 25
-  br i1 %or.cond4, label %68, label %50
+  br i1 %or.cond4, label %.sink.split, label %50
 
 50:                                               ; preds = %49
   %51 = zext nneg i32 %47 to i64
@@ -1692,7 +1692,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 
 58:                                               ; preds = %50
   %59 = load ptr, ptr %0, align 8
-  %60 = trunc i64 %56 to i32
+  %60 = trunc nuw nsw i64 %56 to i32
   %61 = load i64, ptr %43, align 8
   %62 = tail call i32 %59(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %60, i64 noundef %61, ptr noundef nonnull %52) #15
   %63 = icmp eq i32 %62, -2
@@ -1700,21 +1700,21 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 
 64:                                               ; preds = %58
   %65 = icmp slt i32 %62, 0
-  br i1 %65, label %68, label %66
+  br i1 %65, label %.sink.split, label %66
 
 66:                                               ; preds = %64, %50
   %.063 = phi i32 [ %62, %64 ], [ %47, %50 ]
   %67 = tail call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %52)
   br i1 %67, label %.sink.split, label %68
 
-68:                                               ; preds = %66, %64, %49, %37, %35
+68:                                               ; preds = %66
   br label %.sink.split
 
-.sink.split:                                      ; preds = %66, %68
-  %.sink74 = phi i64 [ 0, %68 ], [ %7, %66 ]
-  %.sink72 = phi i32 [ 0, %68 ], [ %10, %66 ]
-  %.sink = phi i32 [ 0, %68 ], [ %.063, %66 ]
-  %.0.ph = phi i32 [ -1, %68 ], [ %.063, %66 ]
+.sink.split:                                      ; preds = %35, %37, %49, %64, %66, %68
+  %.sink74 = phi i64 [ %7, %66 ], [ 0, %64 ], [ 0, %49 ], [ 0, %37 ], [ 0, %35 ], [ 0, %68 ]
+  %.sink72 = phi i32 [ %10, %66 ], [ 0, %64 ], [ 0, %49 ], [ 0, %37 ], [ 0, %35 ], [ 0, %68 ]
+  %.sink = phi i32 [ %.063, %66 ], [ 0, %64 ], [ 0, %49 ], [ 0, %37 ], [ 0, %35 ], [ 0, %68 ]
+  %.0.ph = phi i32 [ %.063, %66 ], [ -1, %64 ], [ -1, %49 ], [ -1, %37 ], [ -1, %35 ], [ -1, %68 ]
   store i64 %.sink74, ptr %11, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 1232
   store i32 %.sink72, ptr %69, align 8
@@ -1790,7 +1790,7 @@ define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr nocapture nound
   %39 = sub i32 %38, %18
   %40 = zext i32 %39 to i64
   %41 = icmp ugt i64 %.05160, %40
-  %42 = trunc i64 %.05160 to i32
+  %42 = trunc nuw i64 %.05160 to i32
   %.049 = select i1 %41, i32 %39, i32 %42
   %43 = tail call ptr @__errno_location() #16
   store i32 0, ptr %43, align 4
@@ -1960,7 +1960,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %54 = getelementptr inbounds i8, ptr %0, i64 40
   %55 = load i64, ptr %54, align 8
   %56 = lshr i64 %55, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   %58 = trunc i64 %55 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %21, i32 noundef %57, i32 noundef %58)
   br label %277
@@ -2015,7 +2015,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %86 = getelementptr inbounds i8, ptr %0, i64 40
   %87 = load i64, ptr %86, align 8
   %88 = lshr i64 %87, 32
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw i64 %88 to i32
   %90 = trunc i64 %87 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %89, i32 noundef %90)
   br label %277
@@ -2028,7 +2028,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %94 = getelementptr inbounds i8, ptr %0, i64 40
   %95 = load i64, ptr %94, align 8
   %96 = lshr i64 %95, 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   %98 = trunc i64 %95 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %93, i32 noundef %97, i32 noundef %98)
   br label %277
@@ -2127,7 +2127,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %148 = getelementptr inbounds i8, ptr %0, i64 40
   %149 = load i64, ptr %148, align 8
   %150 = lshr i64 %149, 32
-  %151 = trunc i64 %150 to i32
+  %151 = trunc nuw i64 %150 to i32
   %152 = trunc i64 %149 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %146, i32 noundef %147, i32 noundef %138, i32 noundef %151, i32 noundef %152)
   br label %277
@@ -2143,7 +2143,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %157 = getelementptr inbounds i8, ptr %0, i64 40
   %158 = load i64, ptr %157, align 8
   %159 = lshr i64 %158, 32
-  %160 = trunc i64 %159 to i32
+  %160 = trunc nuw i64 %159 to i32
   %161 = trunc i64 %158 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %155, i32 noundef %156, i32 noundef %160, i32 noundef %161)
   br label %277
@@ -2159,7 +2159,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %166 = getelementptr inbounds i8, ptr %0, i64 40
   %167 = load i64, ptr %166, align 8
   %168 = lshr i64 %167, 32
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw i64 %168 to i32
   %170 = trunc i64 %167 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef 8192, i32 noundef %169, i32 noundef %170)
   br label %277
@@ -2175,7 +2175,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %174 = getelementptr inbounds i8, ptr %0, i64 40
   %175 = load i64, ptr %174, align 8
   %176 = lshr i64 %175, 32
-  %177 = trunc i64 %176 to i32
+  %177 = trunc nuw i64 %176 to i32
   %178 = trunc i64 %175 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %99, i32 noundef %177, i32 noundef %178)
   br label %277
@@ -2206,7 +2206,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %189 = getelementptr inbounds i8, ptr %0, i64 40
   %190 = load i64, ptr %189, align 8
   %191 = lshr i64 %190, 32
-  %192 = trunc i64 %191 to i32
+  %192 = trunc nuw i64 %191 to i32
   %193 = trunc i64 %190 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %192, i32 noundef %193)
   br label %277
@@ -2235,7 +2235,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %204 = getelementptr inbounds i8, ptr %0, i64 40
   %205 = load i64, ptr %204, align 8
   %206 = lshr i64 %205, 32
-  %207 = trunc i64 %206 to i32
+  %207 = trunc nuw i64 %206 to i32
   %208 = trunc i64 %205 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %21, i32 noundef %207, i32 noundef %208)
   br label %277
@@ -2368,7 +2368,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %272 = getelementptr inbounds i8, ptr %0, i64 40
   %273 = load i64, ptr %272, align 8
   %274 = lshr i64 %273, 32
-  %275 = trunc i64 %274 to i32
+  %275 = trunc nuw i64 %274 to i32
   %276 = trunc i64 %273 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %275, i32 noundef %276)
   br label %277
@@ -2583,7 +2583,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %19 = getelementptr inbounds i8, ptr %0, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = lshr i64 %20, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = trunc i64 %20 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i32 noundef %22, i32 noundef %23, i32 noundef %6)
   br label %120
@@ -2598,7 +2598,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %29 = getelementptr inbounds i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = lshr i64 %30, 32
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   %33 = trunc i64 %30 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, i32 noundef %32, i32 noundef %33, i32 noundef %6)
   br label %120
@@ -2639,7 +2639,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %56 = getelementptr inbounds i8, ptr %0, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = lshr i64 %57, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   %60 = trunc i64 %57 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @.str.21, i32 noundef %6)
   br label %120
@@ -2650,7 +2650,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %63 = getelementptr inbounds i8, ptr %0, i64 40
   %64 = load i64, ptr %63, align 8
   %65 = lshr i64 %64, 32
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw i64 %65 to i32
   %67 = trunc i64 %64 to i32
   br i1 %.not80, label %69, label %68
 
@@ -2666,7 +2666,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %71 = getelementptr inbounds i8, ptr %0, i64 40
   %72 = load i64, ptr %71, align 8
   %73 = lshr i64 %72, 32
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw i64 %73 to i32
   %75 = trunc i64 %72 to i32
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %74, i32 noundef %75, i32 noundef %6)
   br label %120
@@ -2763,7 +2763,7 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr nocapture n
 
 8:                                                ; preds = %5
   %9 = lshr i64 %1, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = trunc i64 %1 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.28, i32 noundef %10, i32 noundef %11, i32 noundef 24, i32 noundef %6)
   br label %40
@@ -2777,7 +2777,7 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr nocapture n
 15:                                               ; preds = %12
   %16 = zext nneg i8 %14 to i32
   %17 = lshr i64 %1, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = trunc i64 %1 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %16, i32 noundef %18, i32 noundef %19)
   br label %40
@@ -2793,10 +2793,10 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr nocapture n
 
 25:                                               ; preds = %23
   %26 = lshr i64 %22, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = trunc i64 %22 to i32
   %29 = lshr i64 %1, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = trunc i64 %1 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %31)
   br label %40
@@ -2807,10 +2807,10 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr nocapture n
 
 33:                                               ; preds = %32
   %34 = lshr i64 %22, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = trunc i64 %22 to i32
   %37 = lshr i64 %1, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = trunc i64 %1 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %35, i32 noundef %36, i32 noundef %38, i32 noundef %39)
   br label %40
@@ -2838,7 +2838,7 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecord(ptr nocapture noundef
 
 16:                                               ; preds = %3
   %17 = lshr i64 %2, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = trunc i64 %2 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %18, i32 noundef %19)
   br label %20

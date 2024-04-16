@@ -130,43 +130,43 @@ if.end13:                                         ; preds = %_ZNKSt17basic_strin
   %retval.sroa.2.0.url_scheme_.sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 24
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.url_scheme_.sroa_idx.i, align 8
   %cmp.i = icmp eq i64 %retval.sroa.0.0.copyload.i, 5
-  br i1 %cmp.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %if.end35
+  br i1 %cmp.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %if.end35
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %if.end13
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %if.end13
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %retval.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(5) @.str.4, i64 5)
   %cmp.i.i36 = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i36, label %if.then23, label %if.end35
 
-if.then23:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %cmp.not.i.i38 = icmp eq i64 %cond.i2.i29, 0
-  br i1 %cmp.not.i.i38, label %if.end35, label %for.cond.i.i42
+if.then23:                                        ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+  %cmp.not.i.i37 = icmp eq i64 %cond.i2.i29, 0
+  br i1 %cmp.not.i.i37, label %if.end35, label %for.cond.i.i41
 
-for.cond.i.i42:                                   ; preds = %if.then23, %for.body.i.i45
-  %__size.1.i.i43 = phi i64 [ %dec4.i.i46, %for.body.i.i45 ], [ %cond.i2.i29, %if.then23 ]
-  %cmp5.not.i.i44 = icmp eq i64 %__size.1.i.i43, 0
-  br i1 %cmp5.not.i.i44, label %if.end35, label %for.body.i.i45
+for.cond.i.i41:                                   ; preds = %if.then23, %for.body.i.i44
+  %__size.1.i.i42 = phi i64 [ %dec4.i.i45, %for.body.i.i44 ], [ %cond.i2.i29, %if.then23 ]
+  %cmp5.not.i.i43 = icmp eq i64 %__size.1.i.i42, 0
+  br i1 %cmp5.not.i.i43, label %if.end35, label %for.body.i.i44
 
-for.body.i.i45:                                   ; preds = %for.cond.i.i42
-  %dec4.i.i46 = add i64 %__size.1.i.i43, -1
-  %arrayidx.i.i47 = getelementptr inbounds i8, ptr %cond.i.i26, i64 %dec4.i.i46
-  %12 = load i8, ptr %arrayidx.i.i47, align 1
-  %cmp.i.i.i48 = icmp eq i8 %12, 58
-  br i1 %cmp.i.i.i48, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58, label %for.cond.i.i42, !llvm.loop !4
+for.body.i.i44:                                   ; preds = %for.cond.i.i41
+  %dec4.i.i45 = add i64 %__size.1.i.i42, -1
+  %arrayidx.i.i46 = getelementptr inbounds i8, ptr %cond.i.i26, i64 %dec4.i.i45
+  %12 = load i8, ptr %arrayidx.i.i46, align 1
+  %cmp.i.i.i47 = icmp eq i8 %12, 58
+  br i1 %cmp.i.i.i47, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit57, label %for.cond.i.i41, !llvm.loop !4
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58: ; preds = %for.body.i.i45
-  %sub.i52 = sub i64 %cond.i2.i29, %__size.1.i.i43
-  %cmp.i61 = icmp eq i64 %sub.i52, 3
-  br i1 %cmp.i61, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64, label %if.end35
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit57: ; preds = %for.body.i.i44
+  %sub.i51 = sub i64 %cond.i2.i29, %__size.1.i.i42
+  %cmp.i60 = icmp eq i64 %sub.i51, 3
+  br i1 %cmp.i60, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit66, label %if.end35
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58
-  %add.ptr.i54 = getelementptr inbounds i8, ptr %cond.i.i26, i64 %__size.1.i.i43
-  %bcmp.i65 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i54, ptr noundef nonnull dereferenceable(3) @.str.5, i64 3)
-  %cmp.i.i66 = icmp eq i32 %bcmp.i65, 0
-  %spec.select = select i1 %cmp.i.i66, i64 %dec4.i.i46, i64 %cond.i2.i29
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit66: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit57
+  %add.ptr.i53 = getelementptr inbounds i8, ptr %cond.i.i26, i64 %__size.1.i.i42
+  %bcmp.i64 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i53, ptr noundef nonnull dereferenceable(3) @.str.5, i64 3)
+  %cmp.i.i65 = icmp eq i32 %bcmp.i64, 0
+  %spec.select = select i1 %cmp.i.i65, i64 %dec4.i.i45, i64 %cond.i2.i29
   br label %if.end35
 
-if.end35:                                         ; preds = %for.cond.i.i42, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58, %if.then23, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %if.end13
-  %host_and_port.sroa.0.0 = phi i64 [ %cond.i2.i29, %if.end13 ], [ %cond.i2.i29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %if.then23 ], [ %cond.i2.i29, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64 ], [ %cond.i2.i29, %for.cond.i.i42 ]
+if.end35:                                         ; preds = %for.cond.i.i41, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit66, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit57, %if.then23, %if.end13, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+  %host_and_port.sroa.0.0 = phi i64 [ %cond.i2.i29, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %cond.i2.i29, %if.end13 ], [ 0, %if.then23 ], [ %cond.i2.i29, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit57 ], [ %spec.select, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit66 ], [ %cond.i2.i29, %for.cond.i.i41 ]
   store i64 %retval.sroa.0.0.copyload.i, ptr %ref.tmp36, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp36, i64 8
   store ptr %retval.sroa.2.0.copyload.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
@@ -174,11 +174,11 @@ if.end35:                                         ; preds = %for.cond.i.i42, %_Z
   %13 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
   store ptr @.str.6, ptr %13, align 8
   store i64 %host_and_port.sroa.0.0, ptr %ref.tmp39, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i73 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
-  store ptr %cond.i.i26, ptr %pc.sroa.2.0.piece_.sroa_idx.i73, align 8
+  %pc.sroa.2.0.piece_.sroa_idx.i71 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  store ptr %cond.i.i26, ptr %pc.sroa.2.0.piece_.sroa_idx.i71, align 8
   store i64 %service.sroa.0.0, ptr %ref.tmp41, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i74 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
-  store ptr %service.sroa.7.0, ptr %pc.sroa.2.0.piece_.sroa_idx.i74, align 8
+  %pc.sroa.2.0.piece_.sroa_idx.i72 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
+  store ptr %service.sroa.7.0, ptr %pc.sroa.2.0.piece_.sroa_idx.i72, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp41)
   %method_name43 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %method_name.sroa.0.0, ptr %method_name43, align 8

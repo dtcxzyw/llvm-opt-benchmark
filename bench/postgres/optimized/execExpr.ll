@@ -5210,7 +5210,7 @@ list_length.exit.thread:                          ; preds = %._crit_edge
   br i1 %59, label %66, label %60
 
 60:                                               ; preds = %56
-  %61 = trunc i64 %indvars.iv334 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv334 to i32
   %62 = tail call zeroext i1 @bms_is_member(i32 noundef %61, ptr noundef %.0107.lcssa) #9
   br i1 %62, label %66, label %63
 
@@ -7111,7 +7111,7 @@ ExprEvalPushStep.exit263:                         ; preds = %364, %._crit_edge.i
   %389 = getelementptr inbounds i8, ptr %176, i64 12
   %smax = call i32 @llvm.smax.i32(i32 %385, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %390 = trunc i64 %indvars.iv556 to i32
+  %390 = trunc nuw nsw i64 %indvars.iv556 to i32
   br label %391
 
 391:                                              ; preds = %384, %ExecBuildAggTransCall.exit
@@ -7272,7 +7272,7 @@ ExprEvalPushStep.exit49.i:                        ; preds = %445, %._crit_edge.i
   %.sroa.37.0..sroa_idx349 = getelementptr inbounds i8, ptr %455, i64 32
   store ptr %.0.i264, ptr %.sroa.37.0..sroa_idx349, align 8
   %.sroa.41.0..sroa_idx365 = getelementptr inbounds i8, ptr %455, i64 40
-  %456 = trunc i64 %indvars.iv547 to i32
+  %456 = trunc nuw nsw i64 %indvars.iv547 to i32
   store i32 %456, ptr %.sroa.41.0..sroa_idx365, align 8
   %.sroa.45.0..sroa_idx381 = getelementptr inbounds i8, ptr %455, i64 44
   store i32 %390, ptr %.sroa.45.0..sroa_idx381, align 4
@@ -7325,7 +7325,7 @@ ExecBuildAggTransCall.exit:                       ; preds = %ExprEvalPushStep.ex
   %471 = getelementptr inbounds i8, ptr %176, i64 303
   %472 = getelementptr inbounds i8, ptr %176, i64 296
   %473 = getelementptr inbounds i8, ptr %176, i64 12
-  %474 = trunc i64 %indvars.iv556 to i32
+  %474 = trunc nuw nsw i64 %indvars.iv556 to i32
   br label %475
 
 475:                                              ; preds = %.lr.ph507, %ExecBuildAggTransCall.exit281
@@ -8147,7 +8147,7 @@ ExecReadyExpr.exit:                               ; preds = %239, %ExprEvalPushS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   store i8 0, ptr %2, align 1
   %3 = load i64, ptr %0, align 8
@@ -8283,15 +8283,12 @@ define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64
   store i8 1, ptr %72, align 4
   %73 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.1, ptr %73, align 8
-  %74 = icmp eq ptr %.1, @TTSOpsVirtual
+  %74 = icmp ne ptr %.1, @TTSOpsVirtual
   store ptr %.050, ptr %5, align 8
-  br i1 %74, label %76, label %75
+  br label %75
 
 75:                                               ; preds = %69, %71
-  br label %76
-
-76:                                               ; preds = %71, %75
-  %.0 = phi i1 [ true, %75 ], [ false, %71 ]
+  %.0 = phi i1 [ true, %69 ], [ %74, %71 ]
   ret i1 %.0
 }
 
@@ -8523,7 +8520,7 @@ ExprEvalPushStep.exit84:                          ; preds = %57, %._crit_edge.i8
   %108 = getelementptr inbounds i8, ptr %103, i64 30
   store i16 2, ptr %108, align 2
   store i64 4, ptr %8, align 8
-  %109 = trunc i64 %indvars.iv to i32
+  %109 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %109, ptr %22, align 8
   %110 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %79, i64 0, i64 %indvars.iv, i32 2
   %111 = load i32, ptr %110, align 4

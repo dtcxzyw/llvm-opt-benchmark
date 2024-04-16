@@ -8182,11 +8182,11 @@ define void @_ZN17CaptureFilterEdit10paintEventEP11QPaintEvent(ptr noundef nonnu
   %19 = extractvalue { i64, i64 } %17, 0
   %.sroa.013.0.extract.trunc = trunc i64 %19 to i32
   %.sroa.2.0.extract.shift = lshr i64 %19, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %20 = extractvalue { i64, i64 } %17, 1
   %.sroa.4.8.extract.trunc = trunc i64 %20 to i32
   %.sroa.6.8.extract.shift = lshr i64 %20, 32
-  %.sroa.6.8.extract.trunc = trunc i64 %.sroa.6.8.extract.shift to i32
+  %.sroa.6.8.extract.trunc = trunc nuw i64 %.sroa.6.8.extract.shift to i32
   %21 = load ptr, ptr %8, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -8386,7 +8386,7 @@ define void @_ZN17CaptureFilterEdit11resizeEventEP12QResizeEvent(ptr noundef non
   %33 = tail call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %34 = extractvalue { i64, i64 } %33, 0
   %.sroa.138.0.extract.shift = lshr i64 %34, 32
-  %.sroa.138.0.extract.trunc = trunc i64 %.sroa.138.0.extract.shift to i32
+  %.sroa.138.0.extract.trunc = trunc nuw i64 %.sroa.138.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 %32, ptr %4, align 4
   %35 = getelementptr inbounds i8, ptr %4, i64 4
@@ -8397,10 +8397,10 @@ define void @_ZN17CaptureFilterEdit11resizeEventEP12QResizeEvent(ptr noundef non
   %37 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %38 = extractvalue { i64, i64 } %37, 0
   %.sroa.134.0.extract.shift = lshr i64 %38, 32
-  %.sroa.134.0.extract.trunc = trunc i64 %.sroa.134.0.extract.shift to i32
+  %.sroa.134.0.extract.trunc = trunc nuw i64 %.sroa.134.0.extract.shift to i32
   %39 = extractvalue { i64, i64 } %37, 1
   %.sroa.336.8.extract.shift = lshr i64 %39, 32
-  %.sroa.336.8.extract.trunc = trunc i64 %.sroa.336.8.extract.shift to i32
+  %.sroa.336.8.extract.trunc = trunc nuw i64 %.sroa.336.8.extract.shift to i32
   %40 = add i32 %.sroa.336.8.extract.trunc, 1
   %41 = sub i32 %40, %.sroa.134.0.extract.trunc
   call void @_ZN7QWidget16setMinimumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %36, i32 noundef %41)
@@ -8408,10 +8408,10 @@ define void @_ZN17CaptureFilterEdit11resizeEventEP12QResizeEvent(ptr noundef non
   %43 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %44 = extractvalue { i64, i64 } %43, 0
   %.sroa.130.0.extract.shift = lshr i64 %44, 32
-  %.sroa.130.0.extract.trunc = trunc i64 %.sroa.130.0.extract.shift to i32
+  %.sroa.130.0.extract.trunc = trunc nuw i64 %.sroa.130.0.extract.shift to i32
   %45 = extractvalue { i64, i64 } %43, 1
   %.sroa.332.8.extract.shift = lshr i64 %45, 32
-  %.sroa.332.8.extract.trunc = trunc i64 %.sroa.332.8.extract.shift to i32
+  %.sroa.332.8.extract.trunc = trunc nuw i64 %.sroa.332.8.extract.shift to i32
   %46 = add i32 %.sroa.332.8.extract.trunc, 1
   %47 = sub i32 %46, %.sroa.130.0.extract.trunc
   call void @_ZN7QWidget16setMaximumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %42, i32 noundef %47)
@@ -8431,7 +8431,7 @@ define void @_ZN17CaptureFilterEdit11resizeEventEP12QResizeEvent(ptr noundef non
   %55 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %56 = extractvalue { i64, i64 } %55, 0
   %.sroa.124.0.extract.shift = lshr i64 %56, 32
-  %.sroa.124.0.extract.trunc = trunc i64 %.sroa.124.0.extract.shift to i32
+  %.sroa.124.0.extract.trunc = trunc nuw i64 %.sroa.124.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %54, ptr %3, align 4
   %57 = getelementptr inbounds i8, ptr %3, i64 4
@@ -8442,10 +8442,10 @@ define void @_ZN17CaptureFilterEdit11resizeEventEP12QResizeEvent(ptr noundef non
   %59 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %60 = extractvalue { i64, i64 } %59, 0
   %.sroa.120.0.extract.shift = lshr i64 %60, 32
-  %.sroa.120.0.extract.trunc = trunc i64 %.sroa.120.0.extract.shift to i32
+  %.sroa.120.0.extract.trunc = trunc nuw i64 %.sroa.120.0.extract.shift to i32
   %61 = extractvalue { i64, i64 } %59, 1
   %.sroa.322.8.extract.shift = lshr i64 %61, 32
-  %.sroa.322.8.extract.trunc = trunc i64 %.sroa.322.8.extract.shift to i32
+  %.sroa.322.8.extract.trunc = trunc nuw i64 %.sroa.322.8.extract.shift to i32
   %62 = add i32 %.sroa.322.8.extract.trunc, 1
   %63 = sub i32 %62, %.sroa.120.0.extract.trunc
   call void @_ZN7QWidget16setMinimumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %58, i32 noundef %63)
@@ -8453,10 +8453,10 @@ define void @_ZN17CaptureFilterEdit11resizeEventEP12QResizeEvent(ptr noundef non
   %65 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %66 = extractvalue { i64, i64 } %65, 0
   %.sroa.116.0.extract.shift = lshr i64 %66, 32
-  %.sroa.116.0.extract.trunc = trunc i64 %.sroa.116.0.extract.shift to i32
+  %.sroa.116.0.extract.trunc = trunc nuw i64 %.sroa.116.0.extract.shift to i32
   %67 = extractvalue { i64, i64 } %65, 1
   %.sroa.318.8.extract.shift = lshr i64 %67, 32
-  %.sroa.318.8.extract.trunc = trunc i64 %.sroa.318.8.extract.shift to i32
+  %.sroa.318.8.extract.trunc = trunc nuw i64 %.sroa.318.8.extract.shift to i32
   %68 = add i32 %.sroa.318.8.extract.trunc, 1
   %69 = sub i32 %68, %.sroa.116.0.extract.trunc
   call void @_ZN7QWidget16setMaximumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %64, i32 noundef %69)
@@ -8472,10 +8472,10 @@ define void @_ZN17CaptureFilterEdit11resizeEventEP12QResizeEvent(ptr noundef non
   %74 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %75 = extractvalue { i64, i64 } %74, 0
   %.sroa.112.0.extract.shift = lshr i64 %75, 32
-  %.sroa.112.0.extract.trunc = trunc i64 %.sroa.112.0.extract.shift to i32
+  %.sroa.112.0.extract.trunc = trunc nuw i64 %.sroa.112.0.extract.shift to i32
   %76 = extractvalue { i64, i64 } %74, 1
   %.sroa.314.8.extract.shift = lshr i64 %76, 32
-  %.sroa.314.8.extract.trunc = trunc i64 %.sroa.314.8.extract.shift to i32
+  %.sroa.314.8.extract.trunc = trunc nuw i64 %.sroa.314.8.extract.shift to i32
   %77 = add i32 %.sroa.314.8.extract.trunc, 1
   %78 = sub i32 %77, %.sroa.112.0.extract.trunc
   call void @_ZN7QWidget16setMinimumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %72, i32 noundef %78)
@@ -8483,10 +8483,10 @@ define void @_ZN17CaptureFilterEdit11resizeEventEP12QResizeEvent(ptr noundef non
   %80 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %81 = extractvalue { i64, i64 } %80, 0
   %.sroa.1.0.extract.shift = lshr i64 %81, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %82 = extractvalue { i64, i64 } %80, 1
   %.sroa.3.8.extract.shift = lshr i64 %82, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %83 = add i32 %.sroa.3.8.extract.trunc, 1
   %84 = sub i32 %83, %.sroa.1.0.extract.trunc
   call void @_ZN7QWidget16setMaximumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %79, i32 noundef %84)
@@ -11562,7 +11562,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %11, ptr %19, i64 %11, ptr %20, i32 noundef 1) #24
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.loopexit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit.thread
+  br i1 %22, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit.thread: ; preds = %14, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit
   %23 = getelementptr i8, ptr %.sroa.033.050, i64 40
@@ -11576,7 +11576,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   %28 = load ptr, ptr %12, align 8
   %29 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %11, ptr %27, i64 %11, ptr %28, i32 noundef 1) #24
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.loopexit.split.loop.exit41, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit18.thread
+  br i1 %30, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit41, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit18.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit18.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit.thread, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit18
   %31 = getelementptr i8, ptr %.sroa.033.050, i64 64
@@ -11590,7 +11590,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   %36 = load ptr, ptr %12, align 8
   %37 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %11, ptr %35, i64 %11, ptr %36, i32 noundef 1) #24
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.loopexit.split.loop.exit43, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit19.thread
+  br i1 %38, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit43, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit19.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit19.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit18.thread, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit19
   %39 = getelementptr i8, ptr %.sroa.033.050, i64 88
@@ -11604,7 +11604,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   %44 = load ptr, ptr %12, align 8
   %45 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %11, ptr %43, i64 %11, ptr %44, i32 noundef 1) #24
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit.split.loop.exit45, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit20.thread
+  br i1 %46, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit45, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit20.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit20.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit19.thread, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit20
   %47 = getelementptr i8, ptr %.sroa.033.050, i64 96
@@ -11621,7 +11621,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   %.pre-phi61 = phi i64 [ %.pre60, %._crit_edge.loopexit ], [ %6, %3 ]
   %.sroa.033.0.lcssa = phi ptr [ %scevgep, %._crit_edge.loopexit ], [ %0, %3 ]
   %50 = sdiv exact i64 %.pre-phi61, 24
-  switch i64 %50, label %.loopexit [
+  switch i64 %50, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread [
     i64 3, label %51
     i64 2, label %._crit_edge._crit_edge
     i64 1, label %._crit_edge._crit_edge56
@@ -11652,7 +11652,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %53, ptr %58, i64 %53, ptr %60, i32 noundef 1) #24
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.loopexit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21.thread
+  br i1 %62, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21.thread: ; preds = %51, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21
   %63 = getelementptr i8, ptr %.sroa.033.0.lcssa, i64 24
@@ -11673,7 +11673,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %65, ptr %70, i64 %65, ptr %72, i32 noundef 1) #24
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.loopexit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22.thread
+  br i1 %74, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22.thread: ; preds = %64, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22
   %75 = getelementptr i8, ptr %.sroa.033.1, i64 24
@@ -11694,25 +11694,23 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %77, ptr %82, i64 %77, ptr %84, i32 noundef 1) #24
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.loopexit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread
+  %spec.select = select i1 %86, ptr %.sroa.033.2, ptr %1
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread: ; preds = %76, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23
-  br label %.loopexit
-
-.loopexit.split.loop.exit41:                      ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit18
+_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit41: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit18
   %87 = getelementptr i8, ptr %.sroa.033.050, i64 24
-  br label %.loopexit
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread
 
-.loopexit.split.loop.exit43:                      ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit19
+_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit43: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit19
   %88 = getelementptr i8, ptr %.sroa.033.050, i64 48
-  br label %.loopexit
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread
 
-.loopexit.split.loop.exit45:                      ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit20
+_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit45: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit20
   %89 = getelementptr i8, ptr %.sroa.033.050, i64 72
-  br label %.loopexit
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit, %.loopexit.split.loop.exit41, %.loopexit.split.loop.exit43, %.loopexit.split.loop.exit45, %._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21
-  %.sroa.010.0.in.sroa.speculated = phi ptr [ %.sroa.033.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21 ], [ %.sroa.033.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22 ], [ %.sroa.033.2, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23 ], [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread ], [ %1, %._crit_edge ], [ %87, %.loopexit.split.loop.exit41 ], [ %88, %.loopexit.split.loop.exit43 ], [ %89, %.loopexit.split.loop.exit45 ], [ %.sroa.033.050, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit ]
+_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit41, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit43, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit45, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23, %76, %._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21
+  %.sroa.010.0.in.sroa.speculated = phi ptr [ %.sroa.033.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21 ], [ %.sroa.033.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22 ], [ %1, %._crit_edge ], [ %1, %76 ], [ %spec.select, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23 ], [ %87, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit41 ], [ %88, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit43 ], [ %89, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread.loopexit.split.loop.exit45 ], [ %.sroa.033.050, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit ]
   ret ptr %.sroa.010.0.in.sroa.speculated
 }
 

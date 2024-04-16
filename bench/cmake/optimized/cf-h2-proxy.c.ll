@@ -2351,20 +2351,22 @@ define internal i32 @tunnel_recv_callback(ptr nocapture readnone %0, i8 zeroext 
   %10 = getelementptr inbounds i8, ptr %9, i64 288
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, %2
-  br i1 %.not, label %12, label %17
+  br i1 %.not, label %12, label %18
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %9, i64 152
   %14 = call i64 @Curl_bufq_write(ptr noundef nonnull %13, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7) #7
-  %15 = icmp sgt i64 %14, -1
-  %16 = load i32, ptr %7, align 4
-  %.not8 = icmp eq i32 %16, 81
-  %or.cond = select i1 %15, i1 true, i1 %.not8
-  %spec.select = select i1 %or.cond, i32 0, i32 -902
-  br label %17
+  %15 = icmp slt i64 %14, 0
+  br i1 %15, label %16, label %18
 
-17:                                               ; preds = %12, %6
-  %.0 = phi i32 [ -902, %6 ], [ %spec.select, %12 ]
+16:                                               ; preds = %12
+  %17 = load i32, ptr %7, align 4
+  %.not8 = icmp eq i32 %17, 81
+  %spec.select = select i1 %.not8, i32 0, i32 -902
+  br label %18
+
+18:                                               ; preds = %16, %12, %6
+  %.0 = phi i32 [ -902, %6 ], [ 0, %12 ], [ %spec.select, %16 ]
   ret i32 %.0
 }
 

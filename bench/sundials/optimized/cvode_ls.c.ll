@@ -85,7 +85,7 @@ define noundef i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr nou
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 64, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
-  br label %146
+  br label %145
 
 6:                                                ; preds = %3
   %7 = icmp eq ptr %1, null
@@ -93,7 +93,7 @@ define noundef i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr nou
 
 8:                                                ; preds = %6
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -3, i32 noundef 70, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #12
-  br label %146
+  br label %145
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -110,7 +110,7 @@ define noundef i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr nou
 
 18:                                               ; preds = %14, %9
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 79, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #12
-  br label %146
+  br label %145
 
 19:                                               ; preds = %14
   %20 = tail call i32 @SUNLinSolGetType(ptr noundef nonnull %1) #12
@@ -137,7 +137,7 @@ define noundef i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr nou
 
 38:                                               ; preds = %34, %19
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 96, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #12
-  br label %146
+  br label %145
 
 39:                                               ; preds = %34
   %40 = icmp eq i32 %20, 3
@@ -147,7 +147,7 @@ define noundef i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr nou
 
 42:                                               ; preds = %39
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 104, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #12
-  br label %146
+  br label %145
 
 43:                                               ; preds = %39
   br i1 %21, label %44, label %59
@@ -160,7 +160,7 @@ define noundef i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr nou
 
 48:                                               ; preds = %44
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 114, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #12
-  br label %146
+  br label %145
 
 49:                                               ; preds = %44
   %or.cond3 = xor i1 %24, %25
@@ -175,7 +175,7 @@ define noundef i32 @CVodeSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr nou
 
 55:                                               ; preds = %50
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 122, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #12
-  br label %146
+  br label %145
 
 56:                                               ; preds = %50, %49
   %57 = icmp eq ptr %2, null
@@ -189,7 +189,7 @@ switch.early.test:                                ; preds = %56
 
 58:                                               ; preds = %switch.early.test
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 129, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #12
-  br label %146
+  br label %145
 
 59:                                               ; preds = %43
   %60 = icmp eq ptr %2, null
@@ -197,7 +197,7 @@ switch.early.test:                                ; preds = %56
 
 61:                                               ; preds = %59
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 136, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #12
-  br label %146
+  br label %145
 
 62:                                               ; preds = %switch.early.test, %switch.early.test, %56, %59
   %63 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -223,7 +223,7 @@ switch.early.test:                                ; preds = %56
 
 72:                                               ; preds = %67
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 155, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #12
-  br label %146
+  br label %145
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds i8, ptr %calloc, i64 72
@@ -294,7 +294,7 @@ switch.early.test:                                ; preds = %56
 104:                                              ; preds = %102
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 214, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #12
   tail call void @free(ptr noundef nonnull %calloc) #12
-  br label %146
+  br label %145
 
 105:                                              ; preds = %._crit_edge, %73
   %106 = phi ptr [ %.pre, %._crit_edge ], [ %99, %73 ]
@@ -311,7 +311,7 @@ switch.early.test:                                ; preds = %56
 111:                                              ; preds = %109
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 228, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #12
   tail call void @free(ptr noundef nonnull %calloc) #12
-  br label %146
+  br label %145
 
 112:                                              ; preds = %109, %105
   br i1 %41, label %113, label %116
@@ -334,7 +334,7 @@ switch.early.test:                                ; preds = %56
 121:                                              ; preds = %116
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 247, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #12
   tail call void @free(ptr noundef nonnull %calloc) #12
-  br label %146
+  br label %145
 
 122:                                              ; preds = %116
   %123 = load ptr, ptr %27, align 8
@@ -348,7 +348,7 @@ switch.early.test:                                ; preds = %56
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 257, ptr noundef nonnull @__func__.CVodeSetLinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #12
   tail call void @N_VDestroy(ptr noundef nonnull %118) #12
   tail call void @free(ptr noundef nonnull %calloc) #12
-  br label %146
+  br label %145
 
 128:                                              ; preds = %122
   br i1 %21, label %129, label %.thread
@@ -377,21 +377,19 @@ switch.early.test:                                ; preds = %56
   %139 = getelementptr inbounds i8, ptr %0, i64 32
   %140 = load i32, ptr %139, align 8
   %141 = icmp eq i32 %140, 2
-  br i1 %141, label %143, label %142
+  %spec.select = zext i1 %141 to i32
+  br label %142
 
-142:                                              ; preds = %136, %136, %.thread
-  br label %143
+142:                                              ; preds = %.thread, %136, %136
+  %.sink127 = phi i32 [ 0, %136 ], [ 0, %136 ], [ %spec.select, %.thread ]
+  %143 = getelementptr inbounds i8, ptr %calloc, i64 48
+  store i32 %.sink127, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %0, i64 1040
+  store ptr %calloc, ptr %144, align 8
+  br label %145
 
-143:                                              ; preds = %.thread, %142
-  %.sink127 = phi i32 [ 0, %142 ], [ 1, %.thread ]
-  %144 = getelementptr inbounds i8, ptr %calloc, i64 48
-  store i32 %.sink127, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 1040
-  store ptr %calloc, ptr %145, align 8
-  br label %146
-
-146:                                              ; preds = %143, %127, %121, %111, %104, %72, %61, %58, %55, %48, %42, %38, %18, %8, %5
-  %.0 = phi i32 [ -1, %5 ], [ -3, %8 ], [ -3, %18 ], [ -3, %38 ], [ -3, %42 ], [ -3, %48 ], [ -3, %55 ], [ -3, %58 ], [ -4, %72 ], [ -9, %104 ], [ -9, %111 ], [ -4, %121 ], [ -4, %127 ], [ 0, %143 ], [ -3, %61 ]
+145:                                              ; preds = %142, %127, %121, %111, %104, %72, %61, %58, %55, %48, %42, %38, %18, %8, %5
+  %.0 = phi i32 [ -1, %5 ], [ -3, %8 ], [ -3, %18 ], [ -3, %38 ], [ -3, %42 ], [ -3, %48 ], [ -3, %55 ], [ -3, %58 ], [ -4, %72 ], [ -9, %104 ], [ -9, %111 ], [ -4, %121 ], [ -4, %127 ], [ 0, %142 ], [ -3, %61 ]
   ret i32 %.0
 }
 

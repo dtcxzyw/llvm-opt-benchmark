@@ -161,23 +161,15 @@ if.then8:                                         ; preds = %if.then5
 if.else:                                          ; preds = %if.then5.thread, %if.then5
   %rem = and i64 %size, 1073741823
   %cmp12 = icmp eq i64 %rem, 0
-  br i1 %cmp12, label %land.lhs.true13, label %if.else17
-
-land.lhs.true13:                                  ; preds = %if.else
   %.b = load i1, ptr @unix_mmap.mi_huge_pages_available, align 1
-  br i1 %.b, label %if.else17, label %if.end19
-
-if.else17:                                        ; preds = %land.lhs.true13, %if.else
-  br label %if.end19
-
-if.end19:                                         ; preds = %land.lhs.true13, %if.else17
-  %lflags.0 = phi i32 [ 1409548322, %if.else17 ], [ 2013528098, %land.lhs.true13 ]
+  %spec.select43 = select i1 %.b, i32 1409548322, i32 2013528098
+  %lflags.0 = select i1 %cmp12, i32 %spec.select43, i32 1409548322
   store i8 1, ptr %is_large, align 1
   %call24 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %protect_flags, i32 noundef %lflags.0) #10
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %if.end34, label %return
 
-if.end34:                                         ; preds = %if.end19
+if.end34:                                         ; preds = %if.else
   store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
   %call30 = tail call ptr @__errno_location() #9
   %3 = load i32, ptr %call30, align 4
@@ -211,8 +203,8 @@ if.then56:                                        ; preds = %if.then53
   store i8 1, ptr %is_large, align 1
   br label %return
 
-return:                                           ; preds = %if.end19, %land.lhs.true51, %if.then56, %if.then53, %if.then46, %if.end34
-  %retval.0 = phi ptr [ %call33, %if.end34 ], [ %call47, %if.then56 ], [ %call47, %if.then53 ], [ %call47, %land.lhs.true51 ], [ %call47, %if.then46 ], [ %call24, %if.end19 ]
+return:                                           ; preds = %if.else, %land.lhs.true51, %if.then56, %if.then53, %if.then46, %if.end34
+  %retval.0 = phi ptr [ %call33, %if.end34 ], [ %call47, %if.then56 ], [ %call47, %if.then53 ], [ %call47, %land.lhs.true51 ], [ %call47, %if.then46 ], [ %call24, %if.else ]
   ret ptr %retval.0
 }
 
@@ -249,7 +241,7 @@ entry:
 define hidden i32 @_mi_prim_reset(ptr noundef %start, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @_mi_prim_reset.advice monotonic, align 8
-  %conv = trunc i64 %0 to i32
+  %conv = trunc nuw nsw i64 %0 to i32
   %call.i7 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #8
   %cmp.not8 = icmp eq i32 %call.i7, 0
   br i1 %cmp.not8, label %if.end, label %land.rhs.lr.ph
@@ -316,22 +308,14 @@ entry:
   %0 = load atomic i64, ptr @unix_mmap.large_page_try_ok acquire, align 8
   %rem.i = and i64 %size, 1073741823
   %cmp12.i = icmp eq i64 %rem.i, 0
-  br i1 %cmp12.i, label %land.lhs.true13.i, label %if.else17.i
-
-land.lhs.true13.i:                                ; preds = %entry
   %.b.i = load i1, ptr @unix_mmap.mi_huge_pages_available, align 1
-  br i1 %.b.i, label %if.else17.i, label %if.end19.i
-
-if.else17.i:                                      ; preds = %land.lhs.true13.i, %entry
-  br label %if.end19.i
-
-if.end19.i:                                       ; preds = %if.else17.i, %land.lhs.true13.i
-  %lflags.0.i = phi i32 [ 1409548322, %if.else17.i ], [ 2013528098, %land.lhs.true13.i ]
+  %spec.select43.i = select i1 %.b.i, i32 1409548322, i32 2013528098
+  %lflags.0.i = select i1 %cmp12.i, i32 %spec.select43.i, i32 1409548322
   %call24.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef %lflags.0.i) #10
   %cmp25.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.i, label %if.end34.i, label %unix_mmap.exit
 
-if.end34.i:                                       ; preds = %if.end19.i
+if.end34.i:                                       ; preds = %entry
   store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
   %call30.i = tail call ptr @__errno_location() #9
   %1 = load i32, ptr %call30.i, align 4
@@ -339,8 +323,8 @@ if.end34.i:                                       ; preds = %if.end19.i
   %call33.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef 1409548322) #10
   br label %unix_mmap.exit
 
-unix_mmap.exit:                                   ; preds = %if.end19.i, %if.end34.i
-  %retval.0.i = phi ptr [ %call33.i, %if.end34.i ], [ %call24.i, %if.end19.i ]
+unix_mmap.exit:                                   ; preds = %entry, %if.end34.i
+  %retval.0.i = phi ptr [ %call33.i, %if.end34.i ], [ %call24.i, %entry ]
   store ptr %retval.0.i, ptr %addr, align 8
   %cmp = icmp ne ptr %retval.0.i, null
   %2 = icmp ult i32 %numa_node, 64

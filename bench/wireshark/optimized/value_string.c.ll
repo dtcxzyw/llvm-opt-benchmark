@@ -662,7 +662,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %17, ptr %18, align 8
   %.not76 = icmp eq i32 %6, 0
-  br i1 %.not76, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not76, label %.thread61, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %16 ]
@@ -714,13 +714,11 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %35
-  br i1 %or.cond, label %._crit_edge.thread, label %.thread61
-
-._crit_edge.thread:                               ; preds = %16, %._crit_edge
+  %spec.select = select i1 %or.cond, ptr @_try_val_to_str_index, ptr @_try_val_to_str_bsearch
   br label %.thread61
 
-.thread61:                                        ; preds = %._crit_edge, %27, %32, %._crit_edge.thread
-  %_try_val_to_str_index.sink = phi ptr [ @_try_val_to_str_index, %._crit_edge.thread ], [ @_try_val_to_str_linear, %32 ], [ @_try_val_to_str_linear, %27 ], [ @_try_val_to_str_bsearch, %._crit_edge ]
+.thread61:                                        ; preds = %._crit_edge, %16, %27, %32
+  %_try_val_to_str_index.sink = phi ptr [ @_try_val_to_str_linear, %32 ], [ @_try_val_to_str_linear, %27 ], [ @_try_val_to_str_index, %16 ], [ %spec.select, %._crit_edge ]
   store ptr %_try_val_to_str_index.sink, ptr %1, align 8
   %36 = tail call ptr %_try_val_to_str_index.sink(i32 noundef %0, ptr noundef nonnull %1) #11
   ret ptr %36
@@ -1060,7 +1058,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %17, ptr %18, align 8
   %.not76 = icmp eq i32 %6, 0
-  br i1 %.not76, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not76, label %.thread61, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %16 ]
@@ -1089,7 +1087,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.thread
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   %29 = getelementptr inbounds i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 762, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.16, ptr noundef %30, i32 noundef %28, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %.05273, i64 noundef %.05273) #11
@@ -1100,7 +1098,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %31
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw i64 %indvars.iv to i32
   %35 = getelementptr inbounds i8, ptr %1, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 769, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.17, ptr noundef %36, i32 noundef %34, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %17, i64 noundef %17) #11
@@ -1113,13 +1111,11 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %37
-  br i1 %or.cond, label %._crit_edge.thread, label %.thread61
-
-._crit_edge.thread:                               ; preds = %16, %._crit_edge
+  %spec.select = select i1 %or.cond, ptr @_try_val64_to_str_index, ptr @_try_val64_to_str_bsearch
   br label %.thread61
 
-.thread61:                                        ; preds = %._crit_edge, %27, %33, %._crit_edge.thread
-  %_try_val64_to_str_index.sink = phi ptr [ @_try_val64_to_str_index, %._crit_edge.thread ], [ @_try_val64_to_str_linear, %33 ], [ @_try_val64_to_str_linear, %27 ], [ @_try_val64_to_str_bsearch, %._crit_edge ]
+.thread61:                                        ; preds = %._crit_edge, %16, %27, %33
+  %_try_val64_to_str_index.sink = phi ptr [ @_try_val64_to_str_linear, %33 ], [ @_try_val64_to_str_linear, %27 ], [ @_try_val64_to_str_index, %16 ], [ %spec.select, %._crit_edge ]
   store ptr %_try_val64_to_str_index.sink, ptr %1, align 8
   %38 = tail call ptr %_try_val64_to_str_index.sink(i64 noundef %0, ptr noundef nonnull %1) #11
   ret ptr %38

@@ -169,7 +169,7 @@ if.then5:                                         ; preds = %do.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %do.end
-  %1 = trunc i64 %indvars.iv.next to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.next to i32
   ret i32 %1
 }
 
@@ -227,7 +227,7 @@ if.then29.i:                                      ; preds = %if.end22.i
 
 if.end30.i:                                       ; preds = %if.then29.i, %if.end22.i
   %cond3716.i = tail call i64 @llvm.umin.i64(i64 %inc.i, i64 2147483647)
-  %cond37.i = trunc i64 %cond3716.i to i32
+  %cond37.i = trunc nuw nsw i64 %cond3716.i to i32
   br label %decode_tag_internal.exit
 
 decode_tag_internal.exit:                         ; preds = %while.cond.i, %if.then4.i, %entry, %if.end30.i
@@ -1036,7 +1036,7 @@ if.then29.i:                                      ; preds = %if.end22.i
 
 if.end30.i:                                       ; preds = %if.then29.i, %if.end22.i
   %cond3716.i = tail call i64 @llvm.umin.i64(i64 %inc.i, i64 2147483647)
-  %cond37.i = trunc i64 %cond3716.i to i32
+  %cond37.i = trunc nuw nsw i64 %cond3716.i to i32
   br label %decode_tag_internal.exit
 
 decode_tag_internal.exit:                         ; preds = %while.cond.i, %if.then4.i, %entry, %if.end30.i
@@ -1081,7 +1081,7 @@ if.end12.i:                                       ; preds = %if.then4.i, %while.
 
 decode_tag_internal.exit:                         ; preds = %if.end12.i
   %cond3716.i = tail call i64 @llvm.umin.i64(i64 %inc.i, i64 2147483647)
-  %cond37.i = trunc i64 %cond3716.i to i32
+  %cond37.i = trunc nuw nsw i64 %cond3716.i to i32
   %call.i6 = tail call i64 @evbuffer_get_length(ptr noundef %evbuf) #7
   %sub.i = sub i64 %call.i6, %cond3716.i
   %cmp.i = icmp slt i64 %sub.i, 1
@@ -1240,8 +1240,8 @@ decode_int_internal.exit:                         ; preds = %while.body.i6
   store i32 %number.1.i, ptr %plength, align 4
   br label %return
 
-return:                                           ; preds = %while.cond.i, %if.then4.i, %decode_tag_internal.exit, %if.end.i, %lor.lhs.false.i, %if.end5.i, %if.end16.i, %decode_int_internal.exit, %entry
-  %retval.0 = phi i32 [ 0, %decode_int_internal.exit ], [ -1, %entry ], [ -1, %if.end16.i ], [ -1, %if.end5.i ], [ -1, %lor.lhs.false.i ], [ -1, %if.end.i ], [ -1, %decode_tag_internal.exit ], [ -1, %if.then4.i ], [ -1, %while.cond.i ]
+return:                                           ; preds = %while.cond.i, %if.then4.i, %decode_int_internal.exit, %if.end16.i, %if.end5.i, %lor.lhs.false.i, %if.end.i, %decode_tag_internal.exit, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %decode_tag_internal.exit ], [ -1, %if.end.i ], [ -1, %lor.lhs.false.i ], [ -1, %if.end5.i ], [ -1, %if.end16.i ], [ 0, %decode_int_internal.exit ], [ -1, %if.then4.i ], [ -1, %while.cond.i ]
   ret i32 %retval.0
 }
 

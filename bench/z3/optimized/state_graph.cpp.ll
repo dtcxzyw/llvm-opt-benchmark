@@ -1935,27 +1935,26 @@ entry:
   tail call void @_ZN16basic_union_find5mergeEjj(ptr noundef nonnull align 8 dereferenceable(24) %m_state_ufind, i32 noundef %s1, i32 noundef %s2)
   %0 = load ptr, ptr %m_state_ufind, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i.i, label %if.then, label %_ZNK16basic_union_find12get_num_varsEv.exit.i
+  br i1 %cmp.i.i.i, label %if.end, label %_ZNK16basic_union_find12get_num_varsEv.exit.i
 
 _ZNK16basic_union_find12get_num_varsEv.exit.i:    ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i = icmp ugt i32 %1, %s2
-  br i1 %cmp.not.i, label %_ZNK16basic_union_find7is_rootEj.exit, label %if.then
+  br i1 %cmp.not.i, label %_ZNK16basic_union_find7is_rootEj.exit, label %if.end
 
 _ZNK16basic_union_find7is_rootEj.exit:            ; preds = %_ZNK16basic_union_find12get_num_varsEv.exit.i
   %idxprom.i.i = zext i32 %s2 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %cmp3.i = icmp eq i32 %2, %s2
-  br i1 %cmp3.i, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry, %_ZNK16basic_union_find12get_num_varsEv.exit.i, %_ZNK16basic_union_find7is_rootEj.exit
+  %spec.select = select i1 %cmp3.i, i32 %s1, i32 %s2
+  %spec.select150 = select i1 %cmp3.i, i32 %s2, i32 %s1
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %_ZNK16basic_union_find7is_rootEj.exit
-  %s2.addr.0 = phi i32 [ %s1, %if.then ], [ %s2, %_ZNK16basic_union_find7is_rootEj.exit ]
-  %s1.addr.0 = phi i32 [ %s2, %if.then ], [ %s1, %_ZNK16basic_union_find7is_rootEj.exit ]
+if.end:                                           ; preds = %_ZNK16basic_union_find7is_rootEj.exit, %entry, %_ZNK16basic_union_find12get_num_varsEv.exit.i
+  %s2.addr.0 = phi i32 [ %s1, %_ZNK16basic_union_find12get_num_varsEv.exit.i ], [ %s1, %entry ], [ %spec.select, %_ZNK16basic_union_find7is_rootEj.exit ]
+  %s1.addr.0 = phi i32 [ %s2, %_ZNK16basic_union_find12get_num_varsEv.exit.i ], [ %s2, %entry ], [ %spec.select150, %_ZNK16basic_union_find7is_rootEj.exit ]
   %m_targets = getelementptr inbounds i8, ptr %this, i64 88
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %3 = load i32, ptr %m_capacity.i.i.i.i, align 8
@@ -2078,8 +2077,8 @@ _ZNK8uint_set3endEv.exit:                         ; preds = %cond.end.i.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i5)
   %__end1.sroa.1.8.extract.trunc = trunc i64 %.fca.1.load.i12 to i32
   %18 = load i32, ptr %14, align 8
-  %cmp.i.not158 = icmp eq i32 %18, %__end1.sroa.1.8.extract.trunc
-  br i1 %cmp.i.not158, label %for.end, label %for.body.lr.ph
+  %cmp.i.not159 = icmp eq i32 %18, %__end1.sroa.1.8.extract.trunc
+  br i1 %cmp.i.not159, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK8uint_set3endEv.exit
   %m_sources_maybecycle.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -2310,8 +2309,8 @@ _ZNK8uint_set3endEv.exit82:                       ; preds = %cond.end.i.thread.i
   %.fca.1.load.i78 = load i64, ptr %m_index.i3.i73, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i68)
   %__end113.sroa.1.8.extract.trunc = trunc i64 %.fca.1.load.i78 to i32
-  %cmp.i85.not159 = icmp eq i32 %47, %__end113.sroa.1.8.extract.trunc
-  br i1 %cmp.i85.not159, label %for.end21, label %for.body17.lr.ph
+  %cmp.i85.not160 = icmp eq i32 %47, %__end113.sroa.1.8.extract.trunc
+  br i1 %cmp.i85.not160, label %for.end21, label %for.body17.lr.ph
 
 for.body17.lr.ph:                                 ; preds = %_ZNK8uint_set3endEv.exit82
   %m_sources_maybecycle.i87 = getelementptr inbounds i8, ptr %this, i64 112
@@ -2974,7 +2973,7 @@ invoke.cont12:                                    ; preds = %_ZN8uint_set8iterat
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   %__begin2.sroa.2.8.extract.trunc = trunc i64 %.fca.1.load.i to i32
   %__begin2.sroa.12.8.extract.shift = lshr i64 %.fca.1.load.i, 32
-  %__begin2.sroa.12.8.extract.trunc = trunc i64 %__begin2.sroa.12.8.extract.shift to i32
+  %__begin2.sroa.12.8.extract.trunc = trunc nuw i64 %__begin2.sroa.12.8.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i11)
   store ptr %m_value.i.i, ptr %retval.i11, align 8
   %37 = load ptr, ptr %m_value.i.i, align 8
@@ -3892,7 +3891,7 @@ invoke.cont16:                                    ; preds = %_ZN8uint_set8iterat
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   %__begin2.sroa.2.8.extract.trunc = trunc i64 %.fca.1.load.i to i32
   %__begin2.sroa.12.8.extract.shift = lshr i64 %.fca.1.load.i, 32
-  %__begin2.sroa.12.8.extract.trunc = trunc i64 %__begin2.sroa.12.8.extract.shift to i32
+  %__begin2.sroa.12.8.extract.trunc = trunc nuw i64 %__begin2.sroa.12.8.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i11)
   store ptr %m_value.i.i, ptr %retval.i11, align 8
   %37 = load ptr, ptr %m_value.i.i, align 8
@@ -4638,7 +4637,7 @@ invoke.cont18:                                    ; preds = %_ZN8uint_set8iterat
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   %__begin3.sroa.2.8.extract.trunc = trunc i64 %.fca.1.load.i to i32
   %__begin3.sroa.12.8.extract.shift = lshr i64 %.fca.1.load.i, 32
-  %__begin3.sroa.12.8.extract.trunc = trunc i64 %__begin3.sroa.12.8.extract.shift to i32
+  %__begin3.sroa.12.8.extract.trunc = trunc nuw i64 %__begin3.sroa.12.8.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i102)
   store ptr %m_value.i.i, ptr %retval.i102, align 8
   %44 = load ptr, ptr %m_value.i.i, align 8
@@ -5275,7 +5274,7 @@ invoke.cont41:                                    ; preds = %_ZN8uint_set8iterat
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i240)
   %__begin4.sroa.2.8.extract.trunc = trunc i64 %.fca.1.load.i250 to i32
   %__begin4.sroa.12.8.extract.shift = lshr i64 %.fca.1.load.i250, 32
-  %__begin4.sroa.12.8.extract.trunc = trunc i64 %__begin4.sroa.12.8.extract.shift to i32
+  %__begin4.sroa.12.8.extract.trunc = trunc nuw i64 %__begin4.sroa.12.8.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i254)
   store ptr %m_value.i.i233, ptr %retval.i254, align 8
   %100 = load ptr, ptr %m_value.i.i233, align 8

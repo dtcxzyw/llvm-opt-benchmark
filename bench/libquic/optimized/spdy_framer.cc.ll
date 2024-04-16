@@ -3451,16 +3451,14 @@ if.end122.thread65:                               ; preds = %if.then75, %if.then
   %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %52, ptr %previous_state_, align 4
   store i32 6, ptr %state_119, align 8
-  br label %53
-
-if.end122:                                        ; preds = %if.end56
-  br i1 %processed_successfully.0.shrunk, label %53, label %return
-
-53:                                               ; preds = %if.end122.thread65, %if.end122
   br label %return
 
-return:                                           ; preds = %if.end56.thread, %if.end106.thread, %53, %if.end122, %if.then89, %if.then75, %if.else82, %if.then30
-  %retval.0 = phi i64 [ %data_len, %if.then30 ], [ %.sroa.speculated, %if.else82 ], [ %data_len, %if.then75 ], [ %data_len, %if.then89 ], [ %.sroa.speculated, %53 ], [ %data_len, %if.end122 ], [ %data_len, %if.end106.thread ], [ %data_len, %if.end56.thread ]
+if.end122:                                        ; preds = %if.end56
+  %spec.select = select i1 %processed_successfully.0.shrunk, i64 %.sroa.speculated, i64 %data_len
+  br label %return
+
+return:                                           ; preds = %if.end122, %if.end56.thread, %if.end106.thread, %if.end122.thread65, %if.then89, %if.then75, %if.else82, %if.then30
+  %retval.0 = phi i64 [ %data_len, %if.then30 ], [ %.sroa.speculated, %if.else82 ], [ %data_len, %if.then75 ], [ %data_len, %if.then89 ], [ %.sroa.speculated, %if.end122.thread65 ], [ %data_len, %if.end106.thread ], [ %data_len, %if.end56.thread ], [ %spec.select, %if.end122 ]
   ret i64 %retval.0
 }
 
@@ -6742,8 +6740,8 @@ _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_trait
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %8 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %8
+  %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %spec.select.i.i.i.i
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -6892,8 +6890,8 @@ _ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_trait
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %9 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %9
+  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %spec.select.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -6973,8 +6971,8 @@ for.body.i114:                                    ; preds = %for.body.i114, %for
   %indvars.iv.i115 = phi i64 [ 1, %for.end71 ], [ %indvars.iv.next.i120, %for.body.i114 ]
   %n.addr.07.i116 = phi i64 [ %cookie_length.0, %for.end71 ], [ %shr.i119, %for.body.i114 ]
   %conv.i117 = trunc i64 %n.addr.07.i116 to i8
-  %10 = sub nuw nsw i64 4, %indvars.iv.i115
-  %arrayidx.i118 = getelementptr inbounds [4 x i8], ptr %buf.i112, i64 0, i64 %10
+  %8 = sub nuw nsw i64 4, %indvars.iv.i115
+  %arrayidx.i118 = getelementptr inbounds [4 x i8], ptr %buf.i112, i64 0, i64 %8
   store i8 %conv.i117, ptr %arrayidx.i118, align 1
   %shr.i119 = lshr i64 %n.addr.07.i116, 8
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i115, 1
@@ -7039,7 +7037,7 @@ invoke.cont85:                                    ; preds = %if.then81
   br label %if.end123
 
 lpad84:                                           ; preds = %call32.i164.noexc, %call25.i161.noexc, %call24.i160.noexc, %if.end23.i, %if.end14.i, %if.end123, %if.else112, %if.then101, %if.then89, %if.then81
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup127
 
@@ -7058,7 +7056,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
   br label %if.end123
 
 lpad94:                                           ; preds = %invoke.cont93
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #23
   br label %ehcleanup127
@@ -7089,18 +7087,18 @@ invoke.cont110:                                   ; preds = %invoke.cont108
   br label %if.end123
 
 lpad107:                                          ; preds = %invoke.cont106
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad109:                                          ; preds = %invoke.cont108
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp103) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad109, %lpad107
-  %.pn = phi { ptr, i32 } [ %14, %lpad109 ], [ %13, %lpad107 ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad109 ], [ %11, %lpad107 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104) #23
   br label %ehcleanup127
 
@@ -7119,7 +7117,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
   br label %if.end123
 
 lpad117:                                          ; preds = %invoke.cont116
-  %15 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114) #23
   br label %ehcleanup127
@@ -7131,8 +7129,8 @@ if.end123:                                        ; preds = %invoke.cont95, %inv
           to label %invoke.cont125 unwind label %lpad84
 
 invoke.cont125:                                   ; preds = %if.end123
-  %16 = load i32, ptr %clas1.i.i, align 8
-  %cmp.i159 = icmp eq i32 %16, 0
+  %14 = load i32, ptr %clas1.i.i, align 8
+  %cmp.i159 = icmp eq i32 %14, 0
   br i1 %cmp.i159, label %if.end14.i, label %if.end23.i
 
 if.end14.i:                                       ; preds = %invoke.cont125
@@ -7167,7 +7165,7 @@ invoke.cont126:                                   ; preds = %call32.i164.noexc
   br i1 %exitcond.not, label %for.end130, label %for.body77, !llvm.loop !24
 
 ehcleanup127:                                     ; preds = %lpad117, %ehcleanup, %lpad94, %lpad84
-  %.pn35 = phi { ptr, i32 } [ %11, %lpad84 ], [ %12, %lpad94 ], [ %.pn, %ehcleanup ], [ %15, %lpad117 ]
+  %.pn35 = phi { ptr, i32 } [ %9, %lpad84 ], [ %10, %lpad94 ], [ %.pn, %ehcleanup ], [ %13, %lpad117 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cookie) #23
   br label %ehcleanup131
 
@@ -7268,8 +7266,8 @@ for.body.i194:                                    ; preds = %for.body.i194, %if.
   %indvars.iv.i195 = phi i64 [ 1, %if.then197 ], [ %indvars.iv.next.i200, %for.body.i194 ]
   %n.addr.07.i196 = phi i64 [ %call200, %if.then197 ], [ %shr.i199, %for.body.i194 ]
   %conv.i197 = trunc i64 %n.addr.07.i196 to i8
-  %17 = sub nuw nsw i64 4, %indvars.iv.i195
-  %arrayidx.i198 = getelementptr inbounds [4 x i8], ptr %buf.i192, i64 0, i64 %17
+  %15 = sub nuw nsw i64 4, %indvars.iv.i195
+  %arrayidx.i198 = getelementptr inbounds [4 x i8], ptr %buf.i192, i64 0, i64 %15
   store i8 %conv.i197, ptr %arrayidx.i198, align 1
   %shr.i199 = lshr i64 %n.addr.07.i196, 8
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i195, 1

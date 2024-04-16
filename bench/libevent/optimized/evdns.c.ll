@@ -1523,7 +1523,7 @@ define internal void @evdns_log_(i32 noundef %severity, ptr noundef %fmt, ...) u
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %buf = alloca [512 x i8], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load ptr, ptr @evdns_log_fn, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1541,7 +1541,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
 
@@ -2958,32 +2958,30 @@ if.end33:                                         ; preds = %if.then32, %if.end2
 
 if.then36:                                        ; preds = %if.end33
   %tobool38.not = icmp ult i32 %flags, 65536
-  br i1 %tobool38.not, label %2, label %3
+  %spec.select = select i1 %tobool38.not, i32 15, i32 31
+  br label %2
 
-2:                                                ; preds = %if.then36.thread, %if.then36
-  br label %3
-
-3:                                                ; preds = %if.then36, %2
-  %4 = phi i32 [ 15, %2 ], [ 31, %if.then36 ]
+2:                                                ; preds = %if.then36, %if.then36.thread
+  %3 = phi i32 [ 15, %if.then36.thread ], [ %spec.select, %if.then36 ]
   %call41 = tail call ptr @evutil_resolvconf_filename_() #18
-  %call42 = tail call i32 @evdns_base_resolv_conf_parse(ptr noundef nonnull %call1, i32 noundef %4, ptr noundef %call41), !range !26
+  %call42 = tail call i32 @evdns_base_resolv_conf_parse(ptr noundef nonnull %call1, i32 noundef %3, ptr noundef %call41), !range !26
   switch i32 %call42, label %if.then45 [
     i32 6, label %do.body48
     i32 0, label %do.body48
   ]
 
-if.then45:                                        ; preds = %3
+if.then45:                                        ; preds = %2
   tail call fastcc void @evdns_base_free_and_unlock(ptr noundef nonnull %call1, i32 noundef 0)
   br label %return
 
-do.body48:                                        ; preds = %3, %3, %if.end33
-  %5 = load ptr, ptr %lock46, align 8
-  %tobool50.not = icmp eq ptr %5, null
+do.body48:                                        ; preds = %2, %2, %if.end33
+  %4 = load ptr, ptr %lock46, align 8
+  %tobool50.not = icmp eq ptr %4, null
   br i1 %tobool50.not, label %return, label %if.then51
 
 if.then51:                                        ; preds = %do.body48
-  %6 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call53 = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %5) #18
+  %5 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %call53 = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %4) #18
   br label %return
 
 return:                                           ; preds = %if.then51, %do.body48, %if.end, %if.then45, %if.then
@@ -3678,7 +3676,7 @@ if.then17:                                        ; preds = %if.end14
 
 if.end18:                                         ; preds = %if.end14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %call7, i8 0, i64 200, i1 false)
-  %conv20 = trunc i64 %add to i16
+  %conv20 = trunc nuw i64 %add to i16
   %request_size = getelementptr inbounds i8, ptr %call7, i64 8
   store i16 %conv20, ptr %request_size, align 8
   %base21 = getelementptr inbounds i8, ptr %call7, i64 184
@@ -3701,7 +3699,7 @@ if.then25:                                        ; preds = %if.end18
   br i1 %cmp3067.not, label %if.end53, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then25
-  %10 = trunc i64 %call to i32
+  %10 = trunc nuw i64 %call to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -3744,7 +3742,7 @@ if.end53:                                         ; preds = %for.inc, %if.then25
   %bf.load = load i8, ptr %request_appended, align 2
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %request_appended, align 2
-  %conv54 = trunc i32 %type to i16
+  %conv54 = trunc nuw nsw i32 %type to i16
   %cmp.i56 = icmp slt i64 %add5.i, 2
   br i1 %cmp.i56, label %err1, label %if.end.i
 
@@ -3862,7 +3860,7 @@ if.end60:                                         ; preds = %evdns_request_data_
   store i16 %cond5, ptr %trans_id61, align 8
   %tx_count = getelementptr inbounds i8, ptr %call7, i64 20
   store i32 0, ptr %tx_count, align 4
-  %conv62 = trunc i32 %type to i8
+  %conv62 = trunc nuw i32 %type to i8
   %request_type = getelementptr inbounds i8, ptr %call7, i64 10
   store i8 %conv62, ptr %request_type, align 2
   br i1 %cmp, label %cond.true65, label %cond.end68
@@ -8878,7 +8876,7 @@ if.end39.us:                                      ; preds = %if.else.us
   br i1 %cmp42.us, label %return, label %if.end45.us
 
 if.end45.us:                                      ; preds = %if.end39.us
-  %conv50.us = trunc i64 %sub.ptr.sub35.us to i8
+  %conv50.us = trunc nuw nsw i64 %sub.ptr.sub35.us to i8
   %arrayidx52.us = getelementptr inbounds i8, ptr %buf, i64 %j.addr.0.us82
   store i8 %conv50.us, ptr %arrayidx52.us, align 1
   %add.ptr53.us = getelementptr inbounds i8, ptr %buf, i64 %add40.us
@@ -8977,7 +8975,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end3.i, %if.end.i, %if.then24, %if.end22
-  %conv27 = trunc i64 %sub.ptr.sub to i8
+  %conv27 = trunc nuw nsw i64 %sub.ptr.sub to i8
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %.us-phi76
   store i8 %conv27, ptr %arrayidx, align 1
   %add.ptr28 = getelementptr inbounds i8, ptr %buf, i64 %add17
@@ -9019,7 +9017,7 @@ if.end3.i59:                                      ; preds = %if.end.i56
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end3.i59, %if.end.i56, %if.end45
-  %conv50 = trunc i64 %sub.ptr.sub35 to i8
+  %conv50 = trunc nuw nsw i64 %sub.ptr.sub35 to i8
   %arrayidx52 = getelementptr inbounds i8, ptr %buf, i64 %j.addr.0
   store i8 %conv50, ptr %arrayidx52, align 1
   %add.ptr53 = getelementptr inbounds i8, ptr %buf, i64 %add40
@@ -9057,15 +9055,9 @@ declare i32 @bufferevent_write(ptr noundef, ptr noundef, i64 noundef) local_unna
 
 declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare i32 @evutil_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @event_logv_(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
 
 declare void @evconnlistener_free(ptr noundef) local_unnamed_addr #3
 
@@ -10317,22 +10309,20 @@ if.else:                                          ; preds = %if.then10
   br i1 %tobool20.not, label %if.else31, label %if.then21
 
 if.then21:                                        ; preds = %if.else
-  %3 = trunc i32 %and19 to i16
+  %3 = trunc nuw nsw i32 %and19 to i16
   %conv24 = add nsw i16 %3, -1
   %cmp26 = icmp ugt i16 %conv24, 4
   br i1 %cmp26, label %sw.default, label %if.end43
 
 if.else31:                                        ; preds = %if.else
-  br i1 %tobool7, label %land.lhs.true33, label %if.else40
+  br i1 %tobool7, label %land.lhs.true33, label %sw.default
 
 land.lhs.true33:                                  ; preds = %if.else31
   %have_answer34 = getelementptr inbounds i8, ptr %reply, i64 4
   %bf.load35 = load i8, ptr %have_answer34, align 4
   %bf.clear36 = and i8 %bf.load35, 1
   %tobool38.not = icmp eq i8 %bf.clear36, 0
-  br i1 %tobool38.not, label %sw.default, label %if.else40
-
-if.else40:                                        ; preds = %land.lhs.true33, %if.else31
+  %spec.select = select i1 %tobool38.not, i32 70, i32 66
   br label %sw.default
 
 if.end43:                                         ; preds = %if.then21
@@ -10449,9 +10439,9 @@ sw.bb55:                                          ; preds = %if.end43
   call void @evdns_request_timeout_callback(i32 poison, i16 signext poison, ptr noundef %req)
   br label %if.end120
 
-sw.default:                                       ; preds = %land.lhs.true33, %if.then21, %if.else40, %if.then14, %if.end43
-  %error.0151 = phi i32 [ %4, %if.end43 ], [ 70, %land.lhs.true33 ], [ 66, %if.then21 ], [ 66, %if.else40 ], [ 65, %if.then14 ]
-  %retransmit_via_tcp.0149 = phi i1 [ true, %if.end43 ], [ true, %land.lhs.true33 ], [ true, %if.then21 ], [ true, %if.else40 ], [ %cmp, %if.then14 ]
+sw.default:                                       ; preds = %land.lhs.true33, %if.else31, %if.then21, %if.then14, %if.end43
+  %error.0151 = phi i32 [ %4, %if.end43 ], [ 66, %if.else31 ], [ 66, %if.then21 ], [ 65, %if.then14 ], [ %spec.select, %land.lhs.true33 ]
+  %retransmit_via_tcp.0149 = phi i1 [ true, %if.end43 ], [ true, %if.else31 ], [ true, %if.then21 ], [ %cmp, %if.then14 ], [ true, %land.lhs.true33 ]
   %handle59 = getelementptr inbounds i8, ptr %req, i64 192
   %23 = load ptr, ptr %handle59, align 8
   %ns60 = getelementptr inbounds i8, ptr %req, i64 24
@@ -12478,7 +12468,7 @@ declare i64 @event_strlcpy_(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @EVUTIL_ISALPHA_(i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @str_matches_option(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %optionname) unnamed_addr #13 {
+define internal fastcc i32 @str_matches_option(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %optionname) unnamed_addr #12 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %optionname) #20
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s1) #20
@@ -12505,7 +12495,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc i32 @evdns_strtotimeval(ptr noundef %str, ptr nocapture noundef writeonly %out) unnamed_addr #14 {
+define internal fastcc i32 @evdns_strtotimeval(ptr noundef %str, ptr nocapture noundef writeonly %out) unnamed_addr #13 {
 entry:
   %endptr = alloca ptr, align 8
   %call = call double @strtod(ptr noundef %str, ptr noundef nonnull %endptr) #18
@@ -12539,7 +12529,7 @@ return:                                           ; preds = %if.end2, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc i32 @strtoint_clipped(ptr noundef %str, i32 noundef %min, i32 noundef %max) unnamed_addr #14 {
+define internal fastcc i32 @strtoint_clipped(ptr noundef %str, i32 noundef %min, i32 noundef %max) unnamed_addr #13 {
 entry:
   %endptr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
@@ -12570,10 +12560,10 @@ return:                                           ; preds = %if.else3, %if.else,
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #15
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #15
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #14
 
 declare i32 @evutil_read_file_(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -13012,7 +13002,7 @@ return:                                           ; preds = %if.end18.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #15
+declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #9
@@ -13142,6 +13132,12 @@ if.end5:                                          ; preds = %if.then3, %if.end
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
 
@@ -13175,10 +13171,10 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }

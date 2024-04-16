@@ -74,7 +74,7 @@ define dso_local i32 @pci_for_each_dma_alias(ptr noundef %0, ptr nocapture nound
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 8
   %31 = or disjoint i32 %30, %23
-  %32 = trunc i32 %31 to i16
+  %32 = trunc nuw i32 %31 to i16
   %33 = tail call i32 %1(ptr noundef %4, i16 noundef zeroext %32, ptr noundef %2) #6
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.preheader17, label %.loopexit
@@ -96,7 +96,7 @@ define dso_local i32 @pci_for_each_dma_alias(ptr noundef %0, ptr nocapture nound
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 8
   %48 = or disjoint i32 %47, %40
-  %49 = trunc i32 %48 to i16
+  %49 = trunc nuw i32 %48 to i16
   %50 = tail call i32 %1(ptr noundef %4, i16 noundef zeroext %49, ptr noundef %2) #6
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %.preheader17, label %.loopexit, !llvm.loop !6
@@ -564,7 +564,7 @@ define internal noundef i32 @match_pci_dev_by_id(ptr nocapture noundef readonly 
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   %9 = icmp eq i32 %3, %8
-  br i1 %9, label %10, label %47
+  br i1 %9, label %10, label %50
 
 10:                                               ; preds = %5, %2
   %11 = getelementptr inbounds i8, ptr %1, i64 4
@@ -577,7 +577,7 @@ define internal noundef i32 @match_pci_dev_by_id(ptr nocapture noundef readonly 
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   %18 = icmp eq i32 %12, %17
-  br i1 %18, label %19, label %47
+  br i1 %18, label %19, label %50
 
 19:                                               ; preds = %14, %10
   %20 = getelementptr inbounds i8, ptr %1, i64 8
@@ -590,7 +590,7 @@ define internal noundef i32 @match_pci_dev_by_id(ptr nocapture noundef readonly 
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
   %27 = icmp eq i32 %21, %26
-  br i1 %27, label %28, label %47
+  br i1 %27, label %28, label %50
 
 28:                                               ; preds = %23, %19
   %29 = getelementptr inbounds i8, ptr %1, i64 12
@@ -603,7 +603,7 @@ define internal noundef i32 @match_pci_dev_by_id(ptr nocapture noundef readonly 
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = icmp eq i32 %30, %35
-  br i1 %36, label %37, label %47
+  br i1 %36, label %37, label %50
 
 37:                                               ; preds = %32, %28
   %38 = getelementptr inbounds i8, ptr %1, i64 16
@@ -615,15 +615,13 @@ define internal noundef i32 @match_pci_dev_by_id(ptr nocapture noundef readonly 
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %42, %44
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %48, label %47
+  %47 = icmp ne ptr %1, null
+  %48 = and i1 %47, %46
+  %49 = zext i1 %48 to i32
+  br label %50
 
-47:                                               ; preds = %37, %32, %23, %14, %5
-  br label %48
-
-48:                                               ; preds = %47, %37
-  %49 = phi ptr [ null, %47 ], [ %1, %37 ]
-  %50 = icmp ne ptr %49, null
-  %51 = zext i1 %50 to i32
+50:                                               ; preds = %37, %5, %14, %23, %32
+  %51 = phi i32 [ 0, %32 ], [ 0, %23 ], [ 0, %14 ], [ 0, %5 ], [ %49, %37 ]
   ret i32 %51
 }
 

@@ -278,23 +278,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ui_dup_method_data(ptr nocapture readnone %to, ptr nocapture readnone %from, ptr nocapture noundef %pptr, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #0 {
+define internal i32 @ui_dup_method_data(ptr nocapture readnone %to, ptr nocapture readnone %from, ptr nocapture noundef %pptr, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #0 {
 entry:
   %0 = load ptr, ptr %pptr, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end3, label %if.then
+  br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %0, i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 75) #4
   store ptr %call, ptr %pptr, align 8
-  %cmp1.not = icmp eq ptr %call, null
-  br i1 %cmp1.not, label %if.end3, label %return
-
-if.end3:                                          ; preds = %if.then, %entry
+  %cmp1.not = icmp ne ptr %call, null
+  %spec.select = zext i1 %cmp1.not to i32
   br label %return
 
-return:                                           ; preds = %if.then, %if.end3
-  %retval.0 = phi i32 [ 0, %if.end3 ], [ 1, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %if.then ]
   ret i32 %retval.0
 }
 

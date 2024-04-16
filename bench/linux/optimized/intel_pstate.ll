@@ -307,7 +307,7 @@ define internal i32 @intel_pstate_init() #3 section ".init.text" align 16 {
 13:                                               ; preds = %9, %6
   %14 = and i64 %8, 1
   %15 = icmp eq i64 %14, 0
-  %16 = trunc i64 %14 to i8
+  %16 = trunc nuw nsw i64 %14 to i8
   store i8 %16, ptr @hwp_forced, align 1
   br i1 %15, label %19, label %17
 
@@ -739,7 +739,7 @@ define internal void @intel_cpufreq_adjust_perf(i32 noundef %0, i64 noundef %1, 
   store volatile i64 %73, ptr %62, align 8
   %76 = trunc i64 %73 to i32
   %77 = lshr i64 %63, 32
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw i64 %77 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %76, i32 %78) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %80 [label %79], !srcloc !8
@@ -1129,7 +1129,7 @@ define internal fastcc void @set_power_ctl_ee_state(i1 noundef zeroext %0) unnam
   store i32 %10, ptr @power_ctl_ee_state, align 4
   %13 = trunc i64 %12 to i32
   %14 = lshr i64 %6, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 508, i32 %13, i32 %15) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %17 [label %16], !srcloc !8
@@ -1246,7 +1246,7 @@ define internal i32 @core_get_min_pstate(i32 noundef %0) #0 align 16 {
   %3 = call i32 @rdmsrl_on_cpu(i32 noundef %0, i32 noundef 206, ptr noundef nonnull %2) #26
   %4 = load i64, ptr %2, align 8
   %5 = lshr i64 %4, 40
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = and i32 %6, 255
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
   ret i32 %7
@@ -1471,10 +1471,10 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   call void @mutex_lock(ptr noundef nonnull @intel_pstate_limits_lock) #26
   %36 = load ptr, ptr @intel_pstate_driver, align 8
   %37 = icmp eq ptr %36, @intel_pstate
-  br i1 %37, label %38, label %99
+  br i1 %37, label %38, label %100
 
 38:                                               ; preds = %35
-  %39 = trunc i64 %32 to i32
+  %39 = trunc nsw i64 %32 to i32
   %40 = load i32, ptr %6, align 4
   %41 = icmp eq i32 %39, 0
   br i1 %41, label %42, label %46
@@ -1490,7 +1490,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   %48 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 48), align 8
   %49 = and i64 %48, 1024
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %77, label %51
+  br i1 %50, label %78, label %51
 
 51:                                               ; preds = %46
   br i1 %18, label %58, label %52
@@ -1514,11 +1514,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   %62 = getelementptr inbounds i8, ptr %12, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 2
-  br i1 %64, label %.thread9, label %65
-
-.thread9:                                         ; preds = %61
-  call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
-  br label %137
+  br i1 %64, label %134, label %65
 
 65:                                               ; preds = %61, %58
   %66 = getelementptr inbounds i8, ptr %12, i64 312
@@ -1531,125 +1527,123 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   %72 = load i32, ptr %12, align 8
   %73 = call i32 @wrmsrl_on_cpu(i32 noundef %72, i32 noundef 1908, i64 noundef %71) #26
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread6, label %133
+  br i1 %74, label %75, label %134
 
-.thread6:                                         ; preds = %65
-  %75 = trunc i32 %59 to i16
-  %76 = getelementptr inbounds i8, ptr %12, i64 310
-  store i16 %75, ptr %76, align 2
-  br label %.sink.split
+75:                                               ; preds = %65
+  %76 = trunc i32 %59 to i16
+  %77 = getelementptr inbounds i8, ptr %12, i64 310
+  store i16 %76, ptr %77, align 2
+  br label %134
 
-77:                                               ; preds = %46
-  %78 = icmp eq i32 %47, -22
-  %79 = shl i32 %39, 2
-  %80 = add i32 %79, 65532
-  %81 = select i1 %78, i32 %80, i32 %47
-  %82 = load i32, ptr %12, align 8
-  %83 = zext i32 %81 to i64
+78:                                               ; preds = %46
+  %79 = icmp eq i32 %47, -22
+  %80 = shl i32 %39, 2
+  %81 = add i32 %80, 65532
+  %82 = select i1 %79, i32 %81, i32 %47
+  %83 = load i32, ptr %12, align 8
+  %84 = zext i32 %82 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store i64 0, ptr %4, align 8, !annotation !18
-  %84 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
-  %85 = and i64 %84, 34359738368
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %97, label %87
+  %85 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 16), align 8
+  %86 = and i64 %85, 34359738368
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %98, label %88
 
-87:                                               ; preds = %77
-  %88 = call i32 @rdmsrl_on_cpu(i32 noundef %82, i32 noundef 432, ptr noundef nonnull %4) #26
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %97
+88:                                               ; preds = %78
+  %89 = call i32 @rdmsrl_on_cpu(i32 noundef %83, i32 noundef 432, ptr noundef nonnull %4) #26
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %98
 
-90:                                               ; preds = %87
-  %91 = load i64, ptr %4, align 8
-  %92 = and i64 %91, -16
-  %93 = shl i64 %83, 48
-  %94 = ashr exact i64 %93, 48
-  %95 = or i64 %92, %94
-  store i64 %95, ptr %4, align 8
-  %96 = call i32 @wrmsrl_on_cpu(i32 noundef %82, i32 noundef 432, i64 noundef %95) #26
-  br label %97
+91:                                               ; preds = %88
+  %92 = load i64, ptr %4, align 8
+  %93 = and i64 %92, -16
+  %94 = shl i64 %84, 48
+  %95 = ashr exact i64 %94, 48
+  %96 = or i64 %93, %95
+  store i64 %96, ptr %4, align 8
+  %97 = call i32 @wrmsrl_on_cpu(i32 noundef %83, i32 noundef 432, i64 noundef %96) #26
+  br label %98
 
-97:                                               ; preds = %90, %87, %77
-  %98 = phi i32 [ 0, %90 ], [ -6, %77 ], [ %88, %87 ]
+98:                                               ; preds = %91, %88, %78
+  %99 = phi i32 [ 0, %91 ], [ -6, %78 ], [ %89, %88 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
-  br label %133
+  br label %134
 
-99:                                               ; preds = %35
-  br i1 %18, label %._crit_edge, label %100
+100:                                              ; preds = %35
+  br i1 %18, label %._crit_edge, label %101
 
-._crit_edge:                                      ; preds = %99
+._crit_edge:                                      ; preds = %100
   %.pre = load i32, ptr %6, align 4
-  br label %111
+  br label %112
 
-100:                                              ; preds = %99
-  %101 = icmp eq i64 %32, 0
-  br i1 %101, label %105, label %102
+101:                                              ; preds = %100
+  %102 = icmp eq i64 %32, 0
+  br i1 %102, label %106, label %103
 
-102:                                              ; preds = %100
-  %103 = getelementptr [5 x i32], ptr @epp_values, i64 0, i64 %32
-  %104 = load i32, ptr %103, align 4
-  br label %109
+103:                                              ; preds = %101
+  %104 = getelementptr [5 x i32], ptr @epp_values, i64 0, i64 %32
+  %105 = load i32, ptr %104, align 4
+  br label %110
 
-105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %12, i64 308
-  %107 = load i16, ptr %106, align 4
-  %108 = sext i16 %107 to i32
-  br label %109
+106:                                              ; preds = %101
+  %107 = getelementptr inbounds i8, ptr %12, i64 308
+  %108 = load i16, ptr %107, align 4
+  %109 = sext i16 %108 to i32
+  br label %110
 
-109:                                              ; preds = %105, %102
-  %110 = phi i32 [ %104, %102 ], [ %108, %105 ]
-  store i32 %110, ptr %6, align 4
-  br label %111
+110:                                              ; preds = %106, %103
+  %111 = phi i32 [ %105, %103 ], [ %109, %106 ]
+  store i32 %111, ptr %6, align 4
+  br label %112
 
-111:                                              ; preds = %._crit_edge, %109
-  %112 = phi i32 [ %.pre, %._crit_edge ], [ %110, %109 ]
-  %113 = getelementptr inbounds i8, ptr %12, i64 310
-  %114 = load i16, ptr %113, align 2
-  %115 = sext i16 %114 to i32
-  %116 = icmp eq i32 %112, %115
-  br i1 %116, label %.sink.split, label %117
+112:                                              ; preds = %._crit_edge, %110
+  %113 = phi i32 [ %.pre, %._crit_edge ], [ %111, %110 ]
+  %114 = getelementptr inbounds i8, ptr %12, i64 310
+  %115 = load i16, ptr %114, align 2
+  %116 = sext i16 %115 to i32
+  %117 = icmp eq i32 %113, %116
+  br i1 %117, label %.thread, label %118
 
-117:                                              ; preds = %111
-  call void @cpufreq_stop_governor(ptr noundef %0) #26
-  %118 = load i32, ptr %6, align 4
-  %119 = getelementptr inbounds i8, ptr %12, i64 312
-  %120 = load volatile i64, ptr %119, align 8
-  %121 = and i64 %120, -4278190081
-  %122 = zext i32 %118 to i64
-  %123 = shl nuw nsw i64 %122, 24
-  %124 = or i64 %121, %123
-  store volatile i64 %124, ptr %119, align 8
-  %125 = load i32, ptr %12, align 8
-  %126 = call i32 @wrmsrl_on_cpu(i32 noundef %125, i32 noundef 1908, i64 noundef %124) #26
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %130
-
-128:                                              ; preds = %117
-  %129 = trunc i32 %118 to i16
-  store i16 %129, ptr %113, align 2
-  br label %130
-
-130:                                              ; preds = %128, %117
-  %131 = call i32 @cpufreq_start_governor(ptr noundef %0) #26
-  %132 = select i1 %127, i32 %131, i32 %126
-  br label %133
-
-133:                                              ; preds = %65, %97, %130
-  %.in = phi i32 [ %132, %130 ], [ %98, %97 ], [ %73, %65 ]
-  %.in.fr = freeze i32 %.in
-  %134 = sext i32 %.in.fr to i64
+.thread:                                          ; preds = %112
   call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
-  %135 = icmp eq i32 %.in.fr, 0
-  br i1 %135, label %136, label %137
-
-.sink.split:                                      ; preds = %111, %.thread6
-  call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
-  br label %136
-
-136:                                              ; preds = %.sink.split, %133
   br label %137
 
-137:                                              ; preds = %.thread9, %136, %133, %31, %28, %26, %19, %3
-  %138 = phi i64 [ %27, %26 ], [ -22, %3 ], [ %17, %19 ], [ -22, %28 ], [ -11, %31 ], [ %2, %136 ], [ %134, %133 ], [ -16, %.thread9 ]
+118:                                              ; preds = %112
+  call void @cpufreq_stop_governor(ptr noundef %0) #26
+  %119 = load i32, ptr %6, align 4
+  %120 = getelementptr inbounds i8, ptr %12, i64 312
+  %121 = load volatile i64, ptr %120, align 8
+  %122 = and i64 %121, -4278190081
+  %123 = zext i32 %119 to i64
+  %124 = shl nuw nsw i64 %123, 24
+  %125 = or i64 %122, %124
+  store volatile i64 %125, ptr %120, align 8
+  %126 = load i32, ptr %12, align 8
+  %127 = call i32 @wrmsrl_on_cpu(i32 noundef %126, i32 noundef 1908, i64 noundef %125) #26
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %131
+
+129:                                              ; preds = %118
+  %130 = trunc i32 %119 to i16
+  store i16 %130, ptr %114, align 2
+  br label %131
+
+131:                                              ; preds = %129, %118
+  %132 = call i32 @cpufreq_start_governor(ptr noundef %0) #26
+  %133 = select i1 %128, i32 %132, i32 %127
+  br label %134
+
+134:                                              ; preds = %61, %65, %75, %98, %131
+  %.in = phi i32 [ %133, %131 ], [ -16, %61 ], [ %99, %98 ], [ %73, %65 ], [ 0, %75 ]
+  %.in.fr = freeze i32 %.in
+  %135 = sext i32 %.in.fr to i64
+  call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
+  %136 = icmp eq i32 %.in.fr, 0
+  %spec.select = select i1 %136, i64 %2, i64 %135
+  br label %137
+
+137:                                              ; preds = %134, %.thread, %31, %28, %26, %19, %3
+  %138 = phi i64 [ %27, %26 ], [ -22, %3 ], [ %17, %19 ], [ -22, %28 ], [ -11, %31 ], [ %2, %.thread ], [ %spec.select, %134 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %5) #26
   ret i64 %138
@@ -2515,7 +2509,7 @@ define internal noundef i32 @intel_pstate_resume(ptr nocapture noundef readonly 
   store i32 1, ptr @power_ctl_ee_state, align 4
   %18 = trunc i64 %17 to i32
   %19 = lshr i64 %14, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 508, i32 %18, i32 %20) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %35 [label %33], !srcloc !8
@@ -2539,7 +2533,7 @@ define internal noundef i32 @intel_pstate_resume(ptr nocapture noundef readonly 
   store i32 2, ptr @power_ctl_ee_state, align 4
   %30 = trunc i64 %29 to i32
   %31 = lshr i64 %26, 32
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 508, i32 %30, i32 %32) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %35 [label %33], !srcloc !8
@@ -3634,7 +3628,7 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   %42 = and i64 %23, 255
   %43 = add nuw nsw i64 %41, %42
   %44 = lshr i64 %43, 1
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = icmp ult i32 %39, %45
   br i1 %46, label %57, label %47
 
@@ -3644,7 +3638,7 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
-  %51 = trunc i64 %41 to i32
+  %51 = trunc nuw nsw i64 %41 to i32
   br label %57
 
 52:                                               ; preds = %47
@@ -3662,7 +3656,7 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   %61 = or i64 %59, %60
   %62 = trunc i64 %61 to i32
   %63 = lshr i64 %23, 32
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw i64 %63 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %62, i32 %64) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %83 [label %65], !srcloc !8
@@ -3690,7 +3684,7 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   %77 = load i64, ptr %76, align 8
   %78 = trunc i64 %77 to i32
   %79 = lshr i64 %77, 32
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw i64 %79 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %78, i32 %80) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %82 [label %81], !srcloc !8
@@ -3914,7 +3908,7 @@ define internal void @intel_pstate_update_util(ptr noundef %0, i64 noundef %1, i
   %138 = tail call i64 %137(ptr noundef %4, i32 noundef %108) #26
   %139 = trunc i64 %138 to i32
   %140 = lshr i64 %138, 32
-  %141 = trunc i64 %140 to i32
+  %141 = trunc nuw i64 %140 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 409, i32 %139, i32 %141) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %143 [label %142], !srcloc !8
@@ -4808,7 +4802,7 @@ define internal fastcc i32 @intel_cpufreq_update_pstate(ptr nocapture noundef re
 41:                                               ; preds = %40
   %42 = trunc i64 %38 to i32
   %43 = lshr i64 %31, 32
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1908, i32 %42, i32 %44) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %64 [label %45], !srcloc !8
@@ -4834,7 +4828,7 @@ define internal fastcc i32 @intel_cpufreq_update_pstate(ptr nocapture noundef re
   %54 = tail call i64 %53(ptr noundef %9, i32 noundef %22) #26
   %55 = trunc i64 %54 to i32
   %56 = lshr i64 %54, 32
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw i64 %56 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 409, i32 %55, i32 %57) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %64 [label %58], !srcloc !8
@@ -5289,15 +5283,13 @@ define internal fastcc noundef zeroext i1 @intel_pstate_no_acpi_pcch() unnamed_a
 4:                                                ; preds = %0
   %5 = load ptr, ptr %1, align 8
   %6 = call zeroext i1 @acpi_has_method(ptr noundef %5, ptr noundef nonnull @.str.31) #26
-  br i1 %6, label %8, label %7
+  %not. = xor i1 %6, true
+  br label %7
 
 7:                                                ; preds = %4, %0
-  br label %8
-
-8:                                                ; preds = %7, %4
-  %9 = phi i1 [ true, %7 ], [ false, %4 ]
+  %8 = phi i1 [ true, %0 ], [ %not., %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #26
-  ret i1 %9
+  ret i1 %8
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -6301,7 +6293,7 @@ define internal i64 @store_energy_efficiency(ptr nocapture readnone %0, ptr noca
   store i32 %20, ptr @power_ctl_ee_state, align 4
   %23 = trunc i64 %22 to i32
   %24 = lshr i64 %16, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 508, i32 %23, i32 %25) #26, !srcloc !17
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #26
           to label %set_power_ctl_ee_state.exit [label %26], !srcloc !8

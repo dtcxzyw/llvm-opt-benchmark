@@ -2831,7 +2831,7 @@ _ZN7testing15AssertionResultD2Ev.exit41:          ; preds = %if.end35, %_ZNKSt14
   %conv.neg.i.i = sext i1 %cmp.i.i to i64
   %sub.i.i = add nsw i64 %add.i.i, %conv.neg.i.i
   %div9.i.i = lshr i64 %sub.i.i, 2
-  %div2.lhs.trunc.i.i = trunc i64 %sub.i.i to i16
+  %div2.lhs.trunc.i.i = trunc nuw nsw i64 %sub.i.i to i16
   %div213.i.i = udiv i16 %div2.lhs.trunc.i.i, 100
   %div2.zext.i.i = zext nneg i16 %div213.i.i to i64
   %div414.i.i = udiv i16 %div2.lhs.trunc.i.i, 400
@@ -3099,15 +3099,17 @@ if.then16:                                        ; preds = %if.else
 
 land.rhs.i.i:                                     ; preds = %if.then16
   %rem1.i.i = srem i64 %add.i, 100
-  %cmp2.not.i.i = icmp ne i64 %rem1.i.i, 0
+  %cmp2.not.i.i = icmp eq i64 %rem1.i.i, 0
+  br i1 %cmp2.not.i.i, label %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit
+
+_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i: ; preds = %land.rhs.i.i
   %rem3.i.i = srem i64 %add.i, 400
   %cmp4.i.i = icmp eq i64 %rem3.i.i, 0
-  %or.cond.i = or i1 %cmp2.not.i.i, %cmp4.i.i
-  %1 = select i1 %or.cond.i, i64 366, i64 365
+  %1 = select i1 %cmp4.i.i, i64 366, i64 365
   br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit
 
-_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %if.then16, %land.rhs.i.i
-  %conv = phi i64 [ 365, %if.then16 ], [ %1, %land.rhs.i.i ]
+_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %if.then16, %land.rhs.i.i, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i
+  %conv = phi i64 [ 365, %if.then16 ], [ 366, %land.rhs.i.i ], [ %1, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i ]
   %add18 = add nsw i64 %conv, %add7
   br label %if.end23
 
@@ -3127,27 +3129,27 @@ if.then25:                                        ; preds = %if.end23
   %conv1.i59 = zext i1 %cmp.i58 to i64
   %add.i60 = add nsw i64 %ey.1, %conv1.i59
   %rem.i = srem i64 %add.i60, 400
-  %conv2.i = trunc i64 %rem.i to i32
+  %conv2.i = trunc nsw i64 %rem.i to i32
   %cmp3.i = icmp slt i32 %conv2.i, 0
   %add4.i = add nsw i32 %conv2.i, 400
   %cond.i = select i1 %cmp3.i, i32 %add4.i, i32 %conv2.i
-  %cmp.i6189 = icmp eq i32 %cond.i, 0
-  %cmp1.i90 = icmp sgt i32 %cond.i, 300
-  %2 = or i1 %cmp.i6189, %cmp1.i90
-  %conv2891 = select i1 %2, i64 36525, i64 36524
-  %cmp29.not92 = icmp ugt i64 %d.addr.0, %conv2891
-  br i1 %cmp29.not92, label %if.end31, label %for.cond40.preheader
+  %cmp.i6188 = icmp eq i32 %cond.i, 0
+  %cmp1.i89 = icmp sgt i32 %cond.i, 300
+  %2 = or i1 %cmp.i6188, %cmp1.i89
+  %conv2890 = select i1 %2, i64 36525, i64 36524
+  %cmp29.not91 = icmp ugt i64 %d.addr.0, %conv2890
+  br i1 %cmp29.not91, label %if.end31, label %for.cond40.preheader
 
 if.end31:                                         ; preds = %if.then25, %if.end31
-  %conv2896 = phi i64 [ %conv28, %if.end31 ], [ %conv2891, %if.then25 ]
-  %d.addr.195 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
-  %ey.294 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
-  %yi.093 = phi i32 [ %spec.select, %if.end31 ], [ %cond.i, %if.then25 ]
-  %sub33 = sub nuw nsw i64 %d.addr.195, %conv2896
-  %add34 = add nsw i64 %ey.294, 100
-  %cmp36 = icmp sgt i32 %yi.093, 299
+  %conv2895 = phi i64 [ %conv28, %if.end31 ], [ %conv2890, %if.then25 ]
+  %d.addr.194 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
+  %ey.293 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
+  %yi.092 = phi i32 [ %spec.select, %if.end31 ], [ %cond.i, %if.then25 ]
+  %sub33 = sub nuw nsw i64 %d.addr.194, %conv2895
+  %add34 = add nsw i64 %ey.293, 100
+  %cmp36 = icmp sgt i32 %yi.092, 299
   %spec.select.v = select i1 %cmp36, i32 -300, i32 100
-  %spec.select = add nsw i32 %spec.select.v, %yi.093
+  %spec.select = add nsw i32 %spec.select.v, %yi.092
   %cmp.i61 = icmp eq i32 %spec.select, 0
   %cmp1.i = icmp sgt i32 %spec.select, 300
   %3 = or i1 %cmp.i61, %cmp1.i
@@ -3167,13 +3169,13 @@ for.cond40:                                       ; preds = %for.cond40.preheade
   %d.addr.2 = phi i64 [ %sub48, %if.end46 ], [ %d.addr.2.ph, %for.cond40.preheader ]
   %cmp.i63 = icmp eq i32 %yi.2, 0
   %cmp1.i64 = icmp sgt i32 %yi.2, 300
-  %or.cond.i65 = or i1 %cmp.i63, %cmp1.i64
-  br i1 %or.cond.i65, label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, label %lor.rhs.i
+  %or.cond.i = or i1 %cmp.i63, %cmp1.i64
+  br i1 %or.cond.i, label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %for.cond40
   %sub.i = add nsw i32 %yi.2, -1
-  %rem.i66 = srem i32 %sub.i, 100
-  %cmp2.i = icmp slt i32 %rem.i66, 96
+  %rem.i65 = srem i32 %sub.i, 100
+  %cmp2.i = icmp slt i32 %rem.i65, 96
   %4 = select i1 %cmp2.i, i64 1461, i64 1460
   br label %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit
 
@@ -3193,33 +3195,35 @@ if.end46:                                         ; preds = %_ZN4absl13time_inte
 for.cond56:                                       ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, %if.end62
   %ey.4 = phi i64 [ %inc, %if.end62 ], [ %ey.3, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
   %d.addr.3 = phi i64 [ %sub64, %if.end62 ], [ %d.addr.2, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
-  %add.i69 = add i64 %ey.4, %conv1.i59
-  %5 = and i64 %add.i69, 3
-  %cmp.i.i70 = icmp eq i64 %5, 0
-  br i1 %cmp.i.i70, label %land.rhs.i.i71, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
+  %add.i68 = add i64 %ey.4, %conv1.i59
+  %5 = and i64 %add.i68, 3
+  %cmp.i.i69 = icmp eq i64 %5, 0
+  br i1 %cmp.i.i69, label %land.rhs.i.i70, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
 
-land.rhs.i.i71:                                   ; preds = %for.cond56
-  %rem1.i.i72 = srem i64 %add.i69, 100
-  %cmp2.not.i.i73 = icmp ne i64 %rem1.i.i72, 0
-  %rem3.i.i74 = srem i64 %add.i69, 400
+land.rhs.i.i70:                                   ; preds = %for.cond56
+  %rem1.i.i71 = srem i64 %add.i68, 100
+  %cmp2.not.i.i72 = icmp eq i64 %rem1.i.i71, 0
+  br i1 %cmp2.not.i.i72, label %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
+
+_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73: ; preds = %land.rhs.i.i70
+  %rem3.i.i74 = srem i64 %add.i68, 400
   %cmp4.i.i75 = icmp eq i64 %rem3.i.i74, 0
-  %or.cond.i76 = or i1 %cmp2.not.i.i73, %cmp4.i.i75
-  %spec.select.i77 = select i1 %or.cond.i76, i64 366, i64 365
-  br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
+  %spec.select.i76 = select i1 %cmp4.i.i75, i64 366, i64 365
+  br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
 
-_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78: ; preds = %for.cond56, %land.rhs.i.i71
-  %conv59 = phi i64 [ 365, %for.cond56 ], [ %spec.select.i77, %land.rhs.i.i71 ]
+_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77: ; preds = %for.cond56, %land.rhs.i.i70, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73
+  %conv59 = phi i64 [ 365, %for.cond56 ], [ 366, %land.rhs.i.i70 ], [ %spec.select.i76, %_ZN4absl13time_internal4cctz6detail4impl12is_leap_yearEl.exit.i73 ]
   %cmp60.not = icmp ugt i64 %d.addr.3, %conv59
   br i1 %cmp60.not, label %if.end62, label %if.end66
 
-if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
+if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77
   %sub64 = sub nuw nsw i64 %d.addr.3, %conv59
   %inc = add nsw i64 %ey.4, 1
   br label %for.cond56, !llvm.loop !69
 
-if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78, %if.end23
-  %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
-  %d.addr.4 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
+if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77, %if.end23
+  %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77 ]
+  %d.addr.4 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit77 ]
   %cmp67 = icmp ugt i64 %d.addr.4, 28
   br i1 %cmp67, label %for.cond69, label %if.end85
 
@@ -3230,27 +3234,27 @@ for.cond69:                                       ; preds = %if.end66, %if.end75
   %idxprom.i = sext i8 %m.addr.0 to i64
   %arrayidx.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i79 = icmp eq i8 %m.addr.0, 2
+  %cmp.i78 = icmp eq i8 %m.addr.0, 2
   %7 = and i64 %ey.6, 3
-  %cmp.i.i80 = icmp eq i64 %7, 0
-  %or.cond.i81 = and i1 %cmp.i.i80, %cmp.i79
-  br i1 %or.cond.i81, label %land.rhs.i.i84, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
+  %cmp.i.i79 = icmp eq i64 %7, 0
+  %or.cond.i80 = and i1 %cmp.i.i79, %cmp.i78
+  br i1 %or.cond.i80, label %land.rhs.i.i83, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-land.rhs.i.i84:                                   ; preds = %for.cond69
-  %rem1.i.i85 = srem i64 %ey.6, 100
-  %cmp2.not.i.i86 = icmp eq i64 %rem1.i.i85, 0
-  br i1 %cmp2.not.i.i86, label %lor.rhs.i.i, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
+land.rhs.i.i83:                                   ; preds = %for.cond69
+  %rem1.i.i84 = srem i64 %ey.6, 100
+  %cmp2.not.i.i85 = icmp eq i64 %rem1.i.i84, 0
+  br i1 %cmp2.not.i.i85, label %lor.rhs.i.i, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-lor.rhs.i.i:                                      ; preds = %land.rhs.i.i84
-  %rem3.i.i87 = srem i64 %ey.6, 400
-  %cmp4.i.i88 = icmp eq i64 %rem3.i.i87, 0
-  %8 = zext i1 %cmp4.i.i88 to i32
+lor.rhs.i.i:                                      ; preds = %land.rhs.i.i83
+  %rem3.i.i86 = srem i64 %ey.6, 400
+  %cmp4.i.i87 = icmp eq i64 %rem3.i.i86, 0
+  %8 = zext i1 %cmp4.i.i87 to i32
   br label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
-_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %for.cond69, %land.rhs.i.i84, %lor.rhs.i.i
-  %conv1.i82 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i84 ], [ %8, %lor.rhs.i.i ]
-  %add.i83 = add nsw i32 %conv1.i82, %6
-  %conv72 = sext i32 %add.i83 to i64
+_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %for.cond69, %land.rhs.i.i83, %lor.rhs.i.i
+  %conv1.i81 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i83 ], [ %8, %lor.rhs.i.i ]
+  %add.i82 = add nsw i32 %conv1.i81, %6
+  %conv72 = sext i32 %add.i82 to i64
   %cmp73.not = icmp sgt i64 %d.addr.5, %conv72
   br i1 %cmp73.not, label %if.end75, label %if.end85
 
@@ -5110,7 +5114,7 @@ _ZN7testing15AssertionResultD2Ev.exit368:         ; preds = %if.end218, %_ZNKSt1
   %conv.neg.i.i = sext i1 %cmp.i.i369 to i64
   %sub.i.i = add nsw i64 %add.i.i, %conv.neg.i.i
   %div9.i.i = lshr i64 %sub.i.i, 2
-  %div2.lhs.trunc.i.i = trunc i64 %sub.i.i to i16
+  %div2.lhs.trunc.i.i = trunc nuw nsw i64 %sub.i.i to i16
   %div213.i.i = udiv i16 %div2.lhs.trunc.i.i, 100
   %div2.zext.i.i = zext nneg i16 %div213.i.i to i64
   %div414.i.i = udiv i16 %div2.lhs.trunc.i.i, 400
@@ -6639,7 +6643,7 @@ _ZN7testing15AssertionResultD2Ev.exit774:         ; preds = %if.end470, %_ZNKSt1
   %conv.neg.i.i779 = sext i1 %cmp.i.i778 to i64
   %sub.i.i780 = add nsw i64 %add.i.i777, %conv.neg.i.i779
   %div9.i.i781 = lshr i64 %sub.i.i780, 2
-  %div2.lhs.trunc.i.i782 = trunc i64 %sub.i.i780 to i16
+  %div2.lhs.trunc.i.i782 = trunc nuw nsw i64 %sub.i.i780 to i16
   %div213.i.i783 = udiv i16 %div2.lhs.trunc.i.i782, 100
   %div2.zext.i.i784 = zext nneg i16 %div213.i.i783 to i64
   %div414.i.i785 = udiv i16 %div2.lhs.trunc.i.i782, 400
@@ -8210,7 +8214,7 @@ _ZN7testing15AssertionResultD2Ev.exit1228:        ; preds = %if.end751, %_ZNKSt1
   %conv.neg.i.i1233 = sext i1 %cmp.i.i1232 to i64
   %sub.i.i1234 = add nsw i64 %add.i.i1231, %conv.neg.i.i1233
   %div9.i.i1235 = lshr i64 %sub.i.i1234, 2
-  %div2.lhs.trunc.i.i1236 = trunc i64 %sub.i.i1234 to i16
+  %div2.lhs.trunc.i.i1236 = trunc nuw nsw i64 %sub.i.i1234 to i16
   %div213.i.i1237 = udiv i16 %div2.lhs.trunc.i.i1236, 100
   %div2.zext.i.i1238 = zext nneg i16 %div213.i.i1237 to i64
   %div414.i.i1239 = udiv i16 %div2.lhs.trunc.i.i1236, 400
@@ -22261,8 +22265,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
@@ -23963,7 +23967,7 @@ _ZN7testing15AssertionResultD2Ev.exit220:         ; preds = %if.end93, %_ZNKSt14
   %div.i.i.i = sdiv i64 %call, 1000000000
   %rem.i.i.i = srem i64 %call, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %30 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %30, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -51923,7 +51927,7 @@ _ZN7testing15AssertionResultD2Ev.exit1240:        ; preds = %if.end918, %_ZNKSt1
   %conv.neg.i.i = sext i1 %cmp.i.i1241 to i64
   %sub.i.i = add nsw i64 %add.i.i, %conv.neg.i.i
   %div9.i.i = lshr i64 %sub.i.i, 2
-  %div2.lhs.trunc.i.i = trunc i64 %sub.i.i to i16
+  %div2.lhs.trunc.i.i = trunc nuw nsw i64 %sub.i.i to i16
   %div213.i.i = udiv i16 %div2.lhs.trunc.i.i, 100
   %div2.zext.i.i = zext nneg i16 %div213.i.i to i64
   %div414.i.i = udiv i16 %div2.lhs.trunc.i.i, 400
@@ -53686,7 +53690,7 @@ _ZN7testing15AssertionResultD2Ev.exit1701:        ; preds = %if.end1215, %_ZNKSt
   %conv.neg.i.i1706 = sext i1 %cmp.i.i1705 to i64
   %sub.i.i1707 = add nsw i64 %add.i.i1704, %conv.neg.i.i1706
   %div9.i.i1708 = lshr i64 %sub.i.i1707, 2
-  %div2.lhs.trunc.i.i1709 = trunc i64 %sub.i.i1707 to i16
+  %div2.lhs.trunc.i.i1709 = trunc nuw nsw i64 %sub.i.i1707 to i16
   %div213.i.i1710 = udiv i16 %div2.lhs.trunc.i.i1709, 100
   %div2.zext.i.i1711 = zext nneg i16 %div213.i.i1710 to i64
   %div414.i.i1712 = udiv i16 %div2.lhs.trunc.i.i1709, 400

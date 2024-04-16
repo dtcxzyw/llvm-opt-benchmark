@@ -251,7 +251,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_QCryptoBlockOptionsBase(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_QCryptoBlockOptionsQCow_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockOptionsQCow_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_key_secret = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -259,17 +259,14 @@ entry:
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_key_secret, align 1
   %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret) #4
-  br i1 %call, label %if.then, label %if.end5
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #4
-  br i1 %call3, label %if.end5, label %return
-
-if.end5:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end5
-  %retval.0 = phi i1 [ true, %if.end5 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call3, %if.then ]
   ret i1 %retval.0
 }
 
@@ -308,19 +305,22 @@ if.end5:                                          ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_QCryptoBlockOptionsQCow_members.exit, label %visit_type_QCryptoBlockOptionsQCow_members.exit.thread
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_QCryptoBlockOptionsQCow_members.exit.thread: ; preds = %if.end5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
+  br label %out_obj
+
+visit_type_QCryptoBlockOptionsQCow_members.exit:  ; preds = %if.end5
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef %errp) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
+out_obj.thread16:                                 ; preds = %visit_type_QCryptoBlockOptionsQCow_members.exit
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
+out_obj:                                          ; preds = %visit_type_QCryptoBlockOptionsQCow_members.exit, %visit_type_QCryptoBlockOptionsQCow_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -343,7 +343,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_QCryptoBlockOptionsQCow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_QCryptoBlockOptionsLUKS_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockOptionsLUKS_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_key_secret = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -351,17 +351,14 @@ entry:
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_key_secret, align 1
   %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret) #4
-  br i1 %call, label %if.then, label %if.end5
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #4
-  br i1 %call3, label %if.end5, label %return
-
-if.end5:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end5
-  %retval.0 = phi i1 [ true, %if.end5 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call3, %if.then ]
   ret i1 %retval.0
 }
 
@@ -396,19 +393,22 @@ if.end5:                                          ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_QCryptoBlockOptionsLUKS_members.exit, label %visit_type_QCryptoBlockOptionsLUKS_members.exit.thread
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_QCryptoBlockOptionsLUKS_members.exit.thread: ; preds = %if.end5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
+  br label %out_obj
+
+visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %if.end5
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef %errp) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
+out_obj.thread16:                                 ; preds = %visit_type_QCryptoBlockOptionsLUKS_members.exit
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
+out_obj:                                          ; preds = %visit_type_QCryptoBlockOptionsLUKS_members.exit, %visit_type_QCryptoBlockOptionsLUKS_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -431,7 +431,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_QCryptoBlockOptionsLUKS(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_QCryptoBlockCreateOptionsLUKS_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockCreateOptionsLUKS_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i38 = alloca i32, align 4
   %value.i36 = alloca i32, align 4
@@ -445,18 +445,18 @@ entry:
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
-  br i1 %call.i, label %if.then.i, label %if.end
+  br i1 %call.i, label %visit_type_QCryptoBlockOptionsLUKS_members.exit, label %visit_type_QCryptoBlockOptionsLUKS_members.exit.thread
 
-if.then.i:                                        ; preds = %entry
+visit_type_QCryptoBlockOptionsLUKS_members.exit.thread: ; preds = %entry
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
+  br label %if.end
+
+visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %entry
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #4
-  br i1 %call3.i, label %if.end, label %visit_type_QCryptoBlockOptionsLUKS_members.exit
-
-visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
-  br label %return
+  br i1 %call3.i, label %if.end, label %return
 
-if.end:                                           ; preds = %entry, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
+if.end:                                           ; preds = %visit_type_QCryptoBlockOptionsLUKS_members.exit.thread, %visit_type_QCryptoBlockOptionsLUKS_members.exit
   %has_cipher_alg = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %has_cipher_alg) #4
   br i1 %call1, label %if.then2, label %if.end6
@@ -539,18 +539,15 @@ if.then26:                                        ; preds = %if.end24
 if.end30:                                         ; preds = %if.then26, %if.end24
   %has_iter_time = getelementptr inbounds i8, ptr %obj, i64 48
   %call31 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_iter_time) #4
-  br i1 %call31, label %if.then32, label %if.end36
+  br i1 %call31, label %if.then32, label %return
 
 if.then32:                                        ; preds = %if.end30
   %iter_time = getelementptr inbounds i8, ptr %obj, i64 56
   %call33 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %iter_time, ptr noundef %errp) #4
-  br i1 %call33, label %if.end36, label %return
-
-if.end36:                                         ; preds = %if.then32, %if.end30
   br label %return
 
-return:                                           ; preds = %visit_type_QCryptoBlockOptionsLUKS_members.exit, %if.then32, %if.then26, %if.then20, %if.then14, %if.then8, %if.then2, %if.end36
-  %retval.0 = phi i1 [ true, %if.end36 ], [ false, %visit_type_QCryptoBlockOptionsLUKS_members.exit ], [ false, %if.then2 ], [ false, %if.then8 ], [ false, %if.then14 ], [ false, %if.then20 ], [ false, %if.then26 ], [ false, %if.then32 ]
+return:                                           ; preds = %if.then32, %if.end30, %if.then26, %if.then20, %if.then14, %if.then8, %if.then2, %visit_type_QCryptoBlockOptionsLUKS_members.exit
+  %retval.0 = phi i1 [ false, %visit_type_QCryptoBlockOptionsLUKS_members.exit ], [ false, %if.then2 ], [ false, %if.then8 ], [ false, %if.then14 ], [ false, %if.then20 ], [ false, %if.then26 ], [ true, %if.end30 ], [ %call33, %if.then32 ]
   ret i1 %retval.0
 }
 
@@ -610,7 +607,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_QCryptoBlockCreateOptionsLUKS(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_QCryptoBlockOpenOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockOpenOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_key_secret.i8 = alloca i8, align 1
   %has_key_secret.i = alloca i8, align 1
@@ -638,17 +635,14 @@ sw.bb:                                            ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
-  br i1 %call.i, label %if.then.i, label %if.end5.i
+  br i1 %call.i, label %if.then.i, label %visit_type_QCryptoBlockOptionsQCow_members.exit
 
 if.then.i:                                        ; preds = %sw.bb
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u, ptr noundef %errp) #4
-  br i1 %call3.i, label %if.end5.i, label %visit_type_QCryptoBlockOptionsQCow_members.exit
-
-if.end5.i:                                        ; preds = %if.then.i, %sw.bb
   br label %visit_type_QCryptoBlockOptionsQCow_members.exit
 
-visit_type_QCryptoBlockOptionsQCow_members.exit:  ; preds = %if.then.i, %if.end5.i
-  %retval.0.i = phi i1 [ true, %if.end5.i ], [ false, %if.then.i ]
+visit_type_QCryptoBlockOptionsQCow_members.exit:  ; preds = %sw.bb, %if.then.i
+  %retval.0.i = phi i1 [ true, %sw.bb ], [ %call3.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
   br label %return
 
@@ -660,17 +654,14 @@ sw.bb2:                                           ; preds = %if.end
   %frombool.i10 = zext i1 %tobool.i9 to i8
   store i8 %frombool.i10, ptr %has_key_secret.i8, align 1
   %call.i11 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i8) #4
-  br i1 %call.i11, label %if.then.i14, label %if.end5.i12
+  br i1 %call.i11, label %if.then.i13, label %visit_type_QCryptoBlockOptionsLUKS_members.exit
 
-if.then.i14:                                      ; preds = %sw.bb2
-  %call3.i15 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u3, ptr noundef %errp) #4
-  br i1 %call3.i15, label %if.end5.i12, label %visit_type_QCryptoBlockOptionsLUKS_members.exit
-
-if.end5.i12:                                      ; preds = %if.then.i14, %sw.bb2
+if.then.i13:                                      ; preds = %sw.bb2
+  %call3.i14 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u3, ptr noundef %errp) #4
   br label %visit_type_QCryptoBlockOptionsLUKS_members.exit
 
-visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %if.then.i14, %if.end5.i12
-  %retval.0.i13 = phi i1 [ true, %if.end5.i12 ], [ false, %if.then.i14 ]
+visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %sw.bb2, %if.then.i13
+  %retval.0.i12 = phi i1 [ true, %sw.bb2 ], [ %call3.i14, %if.then.i13 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i8)
   br label %return
 
@@ -679,7 +670,7 @@ sw.default:                                       ; preds = %if.end
   unreachable
 
 return:                                           ; preds = %entry, %visit_type_QCryptoBlockOptionsLUKS_members.exit, %visit_type_QCryptoBlockOptionsQCow_members.exit
-  %retval.0 = phi i1 [ %retval.0.i13, %visit_type_QCryptoBlockOptionsLUKS_members.exit ], [ %retval.0.i, %visit_type_QCryptoBlockOptionsQCow_members.exit ], [ false, %entry ]
+  %retval.0 = phi i1 [ %retval.0.i12, %visit_type_QCryptoBlockOptionsLUKS_members.exit ], [ %retval.0.i, %visit_type_QCryptoBlockOptionsQCow_members.exit ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -740,7 +731,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_QCryptoBlockOpenOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_QCryptoBlockCreateOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockCreateOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_key_secret.i = alloca i8, align 1
   %value.i.i = alloca i32, align 4
@@ -767,17 +758,14 @@ sw.bb:                                            ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
-  br i1 %call.i, label %if.then.i, label %if.end5.i
+  br i1 %call.i, label %if.then.i, label %visit_type_QCryptoBlockOptionsQCow_members.exit
 
 if.then.i:                                        ; preds = %sw.bb
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u, ptr noundef %errp) #4
-  br i1 %call3.i, label %if.end5.i, label %visit_type_QCryptoBlockOptionsQCow_members.exit
-
-if.end5.i:                                        ; preds = %if.then.i, %sw.bb
   br label %visit_type_QCryptoBlockOptionsQCow_members.exit
 
-visit_type_QCryptoBlockOptionsQCow_members.exit:  ; preds = %if.then.i, %if.end5.i
-  %retval.0.i = phi i1 [ true, %if.end5.i ], [ false, %if.then.i ]
+visit_type_QCryptoBlockOptionsQCow_members.exit:  ; preds = %sw.bb, %if.then.i
+  %retval.0.i = phi i1 [ true, %sw.bb ], [ %call3.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
   br label %return
 
@@ -1334,7 +1322,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_QCryptoBlockAmendOptionsLUKS_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockAmendOptionsLUKS_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %has_new_secret = alloca i8, align 1
@@ -1402,17 +1390,14 @@ if.then31:                                        ; preds = %if.end29
 
 if.end35:                                         ; preds = %if.then31, %if.end29
   %call36 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_secret) #4
-  br i1 %call36, label %if.then37, label %if.end42
+  br i1 %call36, label %if.then37, label %return
 
 if.then37:                                        ; preds = %if.end35
   %call39 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %secret, ptr noundef %errp) #4
-  br i1 %call39, label %if.end42, label %return
-
-if.end42:                                         ; preds = %if.then37, %if.end35
   br label %return
 
-return:                                           ; preds = %if.then37, %if.then31, %if.then25, %if.then18, %if.then11, %entry, %if.end42
-  %retval.0 = phi i1 [ true, %if.end42 ], [ false, %entry ], [ false, %if.then11 ], [ false, %if.then18 ], [ false, %if.then25 ], [ false, %if.then31 ], [ false, %if.then37 ]
+return:                                           ; preds = %if.then37, %if.end35, %if.then31, %if.then25, %if.then18, %if.then11, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then11 ], [ false, %if.then18 ], [ false, %if.then25 ], [ false, %if.then31 ], [ true, %if.end35 ], [ %call39, %if.then37 ]
   ret i1 %retval.0
 }
 
@@ -1470,7 +1455,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_QCryptoBlockAmendOptionsLUKS(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_QCryptoBlockAmendOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockAmendOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
@@ -1578,7 +1563,7 @@ return:                                           ; preds = %out_obj.thread19, %
 declare void @qapi_free_QCryptoBlockAmendOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_SecretCommonProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_SecretCommonProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %has_keyid = alloca i8, align 1
@@ -1635,17 +1620,14 @@ if.then22:                                        ; preds = %if.end20
 
 if.end27:                                         ; preds = %if.then22, %if.end20
   %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %has_iv) #4
-  br i1 %call28, label %if.then29, label %if.end34
+  br i1 %call28, label %if.then29, label %return
 
 if.then29:                                        ; preds = %if.end27
   %call31 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %iv, ptr noundef %errp) #4
-  br i1 %call31, label %if.end34, label %return
-
-if.end34:                                         ; preds = %if.then29, %if.end27
   br label %return
 
-return:                                           ; preds = %if.then29, %if.then22, %if.then16, %if.then9, %if.then, %if.end34
-  %retval.0 = phi i1 [ true, %if.end34 ], [ false, %if.then ], [ false, %if.then9 ], [ false, %if.then16 ], [ false, %if.then22 ], [ false, %if.then29 ]
+return:                                           ; preds = %if.then29, %if.end27, %if.then22, %if.then16, %if.then9, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then9 ], [ false, %if.then16 ], [ false, %if.then22 ], [ true, %if.end27 ], [ %call31, %if.then29 ]
   ret i1 %retval.0
 }
 
@@ -1707,7 +1689,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_SecretCommonProperties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_SecretProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_SecretProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_data = alloca i8, align 1
   %has_file = alloca i8, align 1
@@ -1734,17 +1716,14 @@ if.then7:                                         ; preds = %if.end
 
 if.end12:                                         ; preds = %if.then7, %if.end
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_file) #4
-  br i1 %call13, label %if.then14, label %if.end19
+  br i1 %call13, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end12
   %call16 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %file, ptr noundef %errp) #4
-  br i1 %call16, label %if.end19, label %return
-
-if.end19:                                         ; preds = %if.then14, %if.end12
   br label %return
 
-return:                                           ; preds = %if.then14, %if.then7, %entry, %if.end19
-  %retval.0 = phi i1 [ true, %if.end19 ], [ false, %entry ], [ false, %if.then7 ], [ false, %if.then14 ]
+return:                                           ; preds = %if.then14, %if.end12, %if.then7, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then7 ], [ true, %if.end12 ], [ %call16, %if.then14 ]
   ret i1 %retval.0
 }
 
@@ -1878,7 +1857,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_SecretKeyringProperties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_TlsCredsProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_TlsCredsProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %has_dir = alloca i8, align 1
@@ -1927,17 +1906,14 @@ if.then17:                                        ; preds = %if.end15
 
 if.end21:                                         ; preds = %if.then17, %if.end15
   %call22 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %has_priority) #4
-  br i1 %call22, label %if.then23, label %if.end28
+  br i1 %call22, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end21
   %call25 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %priority, ptr noundef %errp) #4
-  br i1 %call25, label %if.end28, label %return
-
-if.end28:                                         ; preds = %if.then23, %if.end21
   br label %return
 
-return:                                           ; preds = %if.then23, %if.then17, %if.then10, %if.then, %if.end28
-  %retval.0 = phi i1 [ true, %if.end28 ], [ false, %if.then ], [ false, %if.then10 ], [ false, %if.then17 ], [ false, %if.then23 ]
+return:                                           ; preds = %if.then23, %if.end21, %if.then17, %if.then10, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then10 ], [ false, %if.then17 ], [ true, %if.end21 ], [ %call25, %if.then23 ]
   ret i1 %retval.0
 }
 
@@ -1995,7 +1971,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_TlsCredsProperties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_TlsCredsAnonProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_TlsCredsAnonProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_TlsCredsProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
@@ -2003,7 +1979,7 @@ entry:
 if.end:                                           ; preds = %entry
   %has_loaded = getelementptr inbounds i8, ptr %obj, i64 32
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #4
-  br i1 %call1, label %if.then2, label %if.end12
+  br i1 %call1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   %call3 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #4
@@ -2011,18 +1987,15 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then2
   %call6 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #4
-  br i1 %call6, label %if.end12, label %if.then7
+  br i1 %call6, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
   %loaded = getelementptr inbounds i8, ptr %obj, i64 33
   %call8 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
-  br i1 %call8, label %if.end12, label %return
-
-if.end12:                                         ; preds = %if.end5, %if.then7, %if.end
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then2, %entry, %if.end12
-  %retval.0 = phi i1 [ true, %if.end12 ], [ false, %entry ], [ false, %if.then2 ], [ false, %if.then7 ]
+return:                                           ; preds = %if.then7, %if.end, %if.end5, %if.then2, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then2 ], [ true, %if.end5 ], [ true, %if.end ], [ %call8, %if.then7 ]
   ret i1 %retval.0
 }
 
@@ -2039,9 +2012,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread20, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread20:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -2051,7 +2024,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_type_TlsCredsProperties_members(ptr noundef %v, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call.i, label %if.end.i, label %out_obj.thread16
+  br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
   %has_loaded.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -2060,27 +2033,27 @@ if.end.i:                                         ; preds = %if.end5
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #4
-  br i1 %call3.i, label %out_obj.thread16, label %if.end5.i
+  br i1 %call3.i, label %out_obj.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i
   %call6.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #4
-  br i1 %call6.i, label %out_obj, label %if.then7.i
+  br i1 %call6.i, label %out_obj, label %visit_type_TlsCredsAnonProperties_members.exit
 
-if.then7.i:                                       ; preds = %if.end5.i
+visit_type_TlsCredsAnonProperties_members.exit:   ; preds = %if.end5.i
   %loaded.i = getelementptr inbounds i8, ptr %0, i64 33
   %call8.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded.i, ptr noundef %errp) #4
-  br i1 %call8.i, label %out_obj, label %out_obj.thread16
+  br i1 %call8.i, label %out_obj, label %out_obj.thread
 
-out_obj.thread16:                                 ; preds = %if.then7.i, %if.then2.i, %if.end5
+out_obj.thread:                                   ; preds = %visit_type_TlsCredsAnonProperties_members.exit, %if.end5, %if.then2.i
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end.i, %if.end5.i, %if.then7.i
+out_obj:                                          ; preds = %if.end.i, %if.end5.i, %visit_type_TlsCredsAnonProperties_members.exit
   %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -2090,15 +2063,15 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread20, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread20 ]
   ret i1 %retval.0
 }
 
 declare void @qapi_free_TlsCredsAnonProperties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_TlsCredsPskProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_TlsCredsPskProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_username = alloca i8, align 1
   %username = getelementptr inbounds i8, ptr %obj, i64 40
@@ -2129,17 +2102,14 @@ if.then8:                                         ; preds = %if.end6
 
 if.end13:                                         ; preds = %if.end6, %if.then8, %if.end
   %call14 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %has_username) #4
-  br i1 %call14, label %if.then15, label %if.end20
+  br i1 %call14, label %if.then15, label %return
 
 if.then15:                                        ; preds = %if.end13
   %call17 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %username, ptr noundef %errp) #4
-  br i1 %call17, label %if.end20, label %return
-
-if.end20:                                         ; preds = %if.then15, %if.end13
   br label %return
 
-return:                                           ; preds = %if.then15, %if.then8, %if.then3, %entry, %if.end20
-  %retval.0 = phi i1 [ true, %if.end20 ], [ false, %entry ], [ false, %if.then3 ], [ false, %if.then8 ], [ false, %if.then15 ]
+return:                                           ; preds = %if.then15, %if.end13, %if.then8, %if.then3, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then3 ], [ false, %if.then8 ], [ true, %if.end13 ], [ %call17, %if.then15 ]
   ret i1 %retval.0
 }
 
@@ -2197,7 +2167,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_TlsCredsPskProperties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_TlsCredsX509Properties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_TlsCredsX509Properties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_passwordid = alloca i8, align 1
   %passwordid = getelementptr inbounds i8, ptr %obj, i64 40
@@ -2238,17 +2208,14 @@ if.then15:                                        ; preds = %if.end13
 
 if.end19:                                         ; preds = %if.then15, %if.end13
   %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %has_passwordid) #4
-  br i1 %call20, label %if.then21, label %if.end26
+  br i1 %call20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.end19
   %call23 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %passwordid, ptr noundef %errp) #4
-  br i1 %call23, label %if.end26, label %return
-
-if.end26:                                         ; preds = %if.then21, %if.end19
   br label %return
 
-return:                                           ; preds = %if.then21, %if.then15, %if.then8, %if.then3, %entry, %if.end26
-  %retval.0 = phi i1 [ true, %if.end26 ], [ false, %entry ], [ false, %if.then3 ], [ false, %if.then8 ], [ false, %if.then15 ], [ false, %if.then21 ]
+return:                                           ; preds = %if.then21, %if.end19, %if.then15, %if.then8, %if.then3, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then3 ], [ false, %if.then8 ], [ false, %if.then15 ], [ true, %if.end19 ], [ %call23, %if.then21 ]
   ret i1 %retval.0
 }
 

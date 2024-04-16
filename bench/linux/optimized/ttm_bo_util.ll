@@ -847,7 +847,7 @@ define dso_local i32 @ttm_bo_vmap(ptr nocapture noundef readonly %0, ptr nocaptu
 22:                                               ; preds = %15
   %23 = tail call i32 %20(ptr noundef %7, ptr noundef %5) #6
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %84
+  br i1 %24, label %.thread, label %85
 
 .thread:                                          ; preds = %15, %2, %11, %22
   %25 = getelementptr inbounds i8, ptr %5, i64 40
@@ -887,14 +887,14 @@ define dso_local i32 @ttm_bo_vmap(ptr nocapture noundef readonly %0, ptr nocaptu
 44:                                               ; preds = %42, %40, %38
   %45 = phi ptr [ %39, %38 ], [ %41, %40 ], [ %43, %42 ]
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %84, label %.thread6
+  br i1 %46, label %85, label %.thread6
 
 .thread6:                                         ; preds = %28, %44
   %47 = phi ptr [ %45, %44 ], [ %30, %28 ]
   store ptr %47, ptr %1, align 8
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 1, ptr %48, align 8
-  br label %84
+  br label %85
 
 49:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
@@ -904,7 +904,7 @@ define dso_local i32 @ttm_bo_vmap(ptr nocapture noundef readonly %0, ptr nocaptu
   %52 = load ptr, ptr %6, align 8
   %53 = call i32 @ttm_tt_populate(ptr noundef %52, ptr noundef %51, ptr noundef nonnull %3) #6
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %.thread8
+  br i1 %54, label %55, label %84
 
 55:                                               ; preds = %49
   %56 = load i64, ptr @__default_kernel_pte_mask, align 8
@@ -939,23 +939,22 @@ define dso_local i32 @ttm_bo_vmap(ptr nocapture noundef readonly %0, ptr nocaptu
   %79 = load i32, ptr %78, align 4
   %80 = call ptr @vmap(ptr noundef %77, i32 noundef %79, i64 noundef 0, i64 %76) #6
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %.thread8, label %82
-
-.thread8:                                         ; preds = %49, %73
-  %.ph = phi i32 [ -12, %73 ], [ %53, %49 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
-  br label %84
+  br i1 %81, label %84, label %82
 
 82:                                               ; preds = %73
   store ptr %80, ptr %1, align 8
   %83 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 0, ptr %83, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
   br label %84
 
-84:                                               ; preds = %.thread6, %82, %.thread8, %44, %22
-  %85 = phi i32 [ %23, %22 ], [ -12, %44 ], [ %.ph, %.thread8 ], [ 0, %82 ], [ 0, %.thread6 ]
-  ret i32 %85
+84:                                               ; preds = %82, %73, %49
+  %spec.select = phi i32 [ 0, %82 ], [ %53, %49 ], [ -12, %73 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  br label %85
+
+85:                                               ; preds = %84, %.thread6, %44, %22
+  %86 = phi i32 [ %23, %22 ], [ -12, %44 ], [ 0, %.thread6 ], [ %spec.select, %84 ]
+  ret i32 %86
 }
 
 ; Function Attrs: null_pointer_is_valid

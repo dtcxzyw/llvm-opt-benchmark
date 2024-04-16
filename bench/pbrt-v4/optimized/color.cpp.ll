@@ -221,20 +221,23 @@ if.end:                                           ; preds = %entry
 
 cond.true:                                        ; preds = %if.end
   %cmp16 = fcmp ogt float %rgb.sroa.0.0.vec.extract, %rgb.coerce1
-  br i1 %cmp16, label %_ZN4pbrt3RGBixEi.exit27, label %if.then3.i22
+  br i1 %cmp16, label %if.end4.i25, label %_ZN4pbrt3RGBixEi.exit27
 
 cond.false:                                       ; preds = %if.end
   %cmp19 = fcmp ogt float %rgb.sroa.0.4.vec.extract, %rgb.coerce1
   br i1 %cmp19, label %_ZN4pbrt3RGBixEi.exit27, label %if.then3.i22
 
-if.then3.i22:                                     ; preds = %cond.true, %cond.false
+if.then3.i22:                                     ; preds = %cond.false
   br label %_ZN4pbrt3RGBixEi.exit27
 
-_ZN4pbrt3RGBixEi.exit27:                          ; preds = %cond.true, %cond.false, %if.then3.i22
-  %rgb.coerce1.sink = phi float [ %rgb.sroa.0.0.vec.extract, %if.then3.i22 ], [ %rgb.coerce1, %cond.false ], [ %rgb.sroa.0.4.vec.extract, %cond.true ]
-  %rgb.sroa.0.4.vec.extract.sink = phi float [ %rgb.coerce1, %if.then3.i22 ], [ %rgb.sroa.0.4.vec.extract, %cond.false ], [ %rgb.sroa.0.0.vec.extract, %cond.true ]
-  %cond21254262280 = phi i64 [ 2, %if.then3.i22 ], [ 1, %cond.false ], [ 0, %cond.true ]
-  %retval.0.i24.sroa.speculated = phi float [ %rgb.sroa.0.4.vec.extract, %if.then3.i22 ], [ %rgb.sroa.0.0.vec.extract, %cond.false ], [ %rgb.coerce1, %cond.true ]
+if.end4.i25:                                      ; preds = %cond.true
+  br label %_ZN4pbrt3RGBixEi.exit27
+
+_ZN4pbrt3RGBixEi.exit27:                          ; preds = %cond.true, %cond.false, %if.then3.i22, %if.end4.i25
+  %rgb.coerce1.sink = phi float [ %rgb.sroa.0.4.vec.extract, %if.end4.i25 ], [ %rgb.coerce1, %cond.false ], [ %rgb.sroa.0.0.vec.extract, %cond.true ], [ %rgb.sroa.0.0.vec.extract, %if.then3.i22 ]
+  %rgb.sroa.0.4.vec.extract.sink = phi float [ %rgb.sroa.0.0.vec.extract, %if.end4.i25 ], [ %rgb.sroa.0.4.vec.extract, %cond.false ], [ %rgb.coerce1, %cond.true ], [ %rgb.coerce1, %if.then3.i22 ]
+  %cond21254262280 = phi i64 [ 0, %if.end4.i25 ], [ 1, %cond.false ], [ 2, %cond.true ], [ 2, %if.then3.i22 ]
+  %retval.0.i24.sroa.speculated = phi float [ %rgb.coerce1, %if.end4.i25 ], [ %rgb.sroa.0.0.vec.extract, %cond.false ], [ %rgb.sroa.0.4.vec.extract, %cond.true ], [ %rgb.sroa.0.4.vec.extract, %if.then3.i22 ]
   %mul24288 = fmul float %rgb.coerce1.sink, 6.300000e+01
   %div25289 = fdiv float %mul24288, %rgb.sroa.0.4.vec.extract.sink
   %mul29 = fmul float %retval.0.i24.sroa.speculated, 6.300000e+01
@@ -709,7 +712,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.end:                                           ; preds = %entry
   %shr.i.i = lshr i64 %0, 57
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -977,7 +980,7 @@ for.cond7.preheader.i.i.i:                        ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %call.i.i.i.i.noexc
   %indvars.iv.i.i.i = phi i64 [ 0, %call.i.i.i.i.noexc ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %18 = trunc i64 %indvars.iv.i.i.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %conv.i.i.i = sitofp i32 %18 to float
   %div.i.i.i = fdiv float %conv.i.i.i, 2.550000e+02
   %call.i.i.i2.i = call noundef float @powf(float noundef %div.i.i.i, float noundef %conv) #22
@@ -989,7 +992,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %ca
 
 for.body12.i.i.i:                                 ; preds = %for.body12.i.i.i, %for.cond7.preheader.i.i.i
   %indvars.iv14.i.i.i = phi i64 [ 0, %for.cond7.preheader.i.i.i ], [ %indvars.iv.next15.i.i.i, %for.body12.i.i.i ]
-  %19 = trunc i64 %indvars.iv14.i.i.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv14.i.i.i to i32
   %conv14.i.i.i = sitofp i32 %19 to float
   %div18.i.i.i = fdiv float %conv14.i.i.i, 1.023000e+03
   %call.i9.i.i.i = call noundef float @powf(float noundef %div18.i.i.i, float noundef %div19.i.i.i) #22
@@ -1323,7 +1326,7 @@ for.cond7.preheader:                              ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %conv = sitofp i32 %0 to float
   %div = fdiv float %conv, 2.550000e+02
   %call.i = tail call noundef float @powf(float noundef %div, float noundef %gamma) #22
@@ -1335,7 +1338,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.body12:                                       ; preds = %for.cond7.preheader, %for.body12
   %indvars.iv14 = phi i64 [ 0, %for.cond7.preheader ], [ %indvars.iv.next15, %for.body12 ]
-  %1 = trunc i64 %indvars.iv14 to i32
+  %1 = trunc nuw nsw i64 %indvars.iv14 to i32
   %conv14 = sitofp i32 %1 to float
   %div18 = fdiv float %conv14, 1.023000e+03
   %call.i9 = tail call noundef float @powf(float noundef %div18, float noundef %div19) #22

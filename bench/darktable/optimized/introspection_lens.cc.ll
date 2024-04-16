@@ -1966,7 +1966,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %927 = getelementptr i8, ptr %847, i64 %926
   %928 = getelementptr i8, ptr %927, i64 428
   %929 = icmp ult i32 %900, 16
-  %930 = trunc i64 %918 to i32
+  %930 = trunc nuw nsw i64 %918 to i32
   %931 = shl i32 %930, 2
   %932 = icmp ugt i64 %918, 1073741823
   %933 = shl nuw nsw i64 %918, 4
@@ -2172,7 +2172,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %947, label %1118, label %1095
 
 1095:                                             ; preds = %1093
-  %1096 = trunc i64 %1094 to i32
+  %1096 = trunc nuw nsw i64 %1094 to i32
   %1097 = add i32 %1022, %1096
   %1098 = shl nsw i32 %1097, 2
   %1099 = zext nneg i32 %1098 to i64
@@ -5286,7 +5286,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %53 = getelementptr inbounds i8, ptr %3, i64 216
   store i32 1, ptr %53, align 8, !tbaa !263
   %54 = load i32, ptr %14, align 8, !tbaa !150
-  switch i32 %54, label %1274 [
+  switch i32 %54, label %1272 [
     i32 1, label %55
     i32 0, label %223
   ]
@@ -5489,7 +5489,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %169 = icmp ne i32 %168, 0
   %170 = icmp ne ptr %58, null
   %171 = select i1 %169, i1 %170, i1 false
-  br i1 %171, label %172, label %1294
+  br i1 %171, label %172, label %1292
 
 172:                                              ; preds = %165
   %173 = getelementptr inbounds i8, ptr %3, i64 8
@@ -5498,7 +5498,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %176 = load i32, ptr %175, align 4, !tbaa !105
   %177 = and i32 %176, 4
   %178 = icmp eq i32 %177, 0
-  br i1 %178, label %1294, label %179
+  br i1 %178, label %1292, label %179
 
 179:                                              ; preds = %172
   %180 = getelementptr inbounds i8, ptr %167, i64 112
@@ -5552,7 +5552,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %221 = getelementptr inbounds i8, ptr %58, i64 336
   store i32 %220, ptr %221, align 8, !tbaa !282
   %222 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %215) #31
-  br label %1294
+  br label %1292
 
 223:                                              ; preds = %46
   %224 = load ptr, ptr %13, align 16, !tbaa !79
@@ -5565,7 +5565,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %230 = getelementptr i8, ptr %227, i64 672
   %231 = load i32, ptr %230, align 16, !tbaa !283
   %232 = icmp eq i32 %231, 0
-  br i1 %232, label %1294, label %233
+  br i1 %232, label %1292, label %233
 
 233:                                              ; preds = %223
   %234 = getelementptr inbounds i8, ptr %34, i64 304
@@ -5638,7 +5638,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %280 = fmul reassoc nsz arcp contract afn float %279, 0x3F649539E0000000
   %281 = fadd reassoc nsz arcp contract afn float %280, 5.000000e-01
   %282 = fcmp reassoc nsz arcp contract afn ogt float %252, %281
-  br i1 %282, label %283, label %.preheader64
+  br i1 %282, label %283, label %.preheader61
 
 283:                                              ; preds = %276
   %284 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %278, float %273)
@@ -5650,9 +5650,9 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %288 = phi float [ %286, %283 ], [ %374, %372 ]
   %289 = add nuw nsw i32 %277, 1
   %290 = icmp eq i32 %289, 200
-  br i1 %290, label %.loopexit65, label %276, !llvm.loop !288
+  br i1 %290, label %.loopexit62, label %276, !llvm.loop !288
 
-.preheader64:                                     ; preds = %276, %311
+.preheader61:                                     ; preds = %276, %311
   %291 = phi i64 [ %312, %311 ], [ 1, %276 ]
   %292 = add nsw i64 %291, -1
   %293 = getelementptr inbounds float, ptr %9, i64 %292
@@ -5660,7 +5660,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %295 = fcmp reassoc nsz arcp contract afn ugt float %294, %281
   br i1 %295, label %311, label %296
 
-296:                                              ; preds = %.preheader64
+296:                                              ; preds = %.preheader61
   %297 = getelementptr inbounds float, ptr %9, i64 %291
   %298 = load float, ptr %297, align 4, !tbaa !22
   %299 = fcmp reassoc nsz arcp contract afn ult float %298, %281
@@ -5679,10 +5679,10 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %310 = fadd reassoc nsz arcp contract afn float %309, %304
   br label %314
 
-311:                                              ; preds = %296, %.preheader64
+311:                                              ; preds = %296, %.preheader61
   %312 = add nuw nsw i64 %291, 1
   %313 = icmp eq i64 %312, %254
-  br i1 %313, label %375, label %.preheader64, !llvm.loop !289
+  br i1 %313, label %375, label %.preheader61, !llvm.loop !289
 
 314:                                              ; preds = %375, %300
   %315 = phi float [ %310, %300 ], [ %376, %375 ]
@@ -5799,7 +5799,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %394 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %393, float %265)
   br label %396
 
-.loopexit65:                                      ; preds = %396, %287
+.loopexit62:                                      ; preds = %396, %287
   %395 = phi float [ %288, %287 ], [ %397, %396 ]
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #31
@@ -5810,10 +5810,10 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %397 = phi float [ %394, %391 ], [ %390, %384 ]
   %398 = add nuw nsw i32 %378, 1
   %399 = icmp eq i32 %398, 200
-  br i1 %399, label %.loopexit65, label %377, !llvm.loop !292
+  br i1 %399, label %.loopexit62, label %377, !llvm.loop !292
 
-400:                                              ; preds = %.loopexit65, %248
-  %401 = phi float [ %395, %.loopexit65 ], [ 1.000000e+00, %248 ]
+400:                                              ; preds = %.loopexit62, %248
+  %401 = phi float [ %395, %.loopexit62 ], [ 1.000000e+00, %248 ]
   store float %401, ptr %244, align 4, !tbaa !287
   br label %402
 
@@ -5825,7 +5825,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %407 = getelementptr inbounds i8, ptr %224, i64 236
   %408 = getelementptr inbounds i8, ptr %224, i64 428
   %409 = call fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_iop_lens_params_tfPfS5_PA16_fS5_(ptr noundef nonnull %228, ptr noundef nonnull %34, float noundef %404, ptr noundef nonnull %405, ptr noundef nonnull %406, ptr noundef nonnull %407, ptr noundef nonnull %408)
-  br label %.loopexit67
+  br label %.loopexit64
 
 410:                                              ; preds = %233
   %411 = getelementptr i8, ptr %224, i64 108
@@ -5833,7 +5833,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %413 = getelementptr inbounds i8, ptr %224, i64 236
   %414 = getelementptr inbounds i8, ptr %224, i64 428
   %415 = getelementptr inbounds i8, ptr %227, i64 676
-  switch i32 %231, label %.loopexit69 [
+  switch i32 %231, label %.loopexit66 [
     i32 1, label %424
     i32 2, label %505
     i32 3, label %416
@@ -5853,7 +5853,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 424:                                              ; preds = %410
   %425 = load i32, ptr %415, align 4, !tbaa !57
   %426 = icmp sgt i32 %425, 0
-  br i1 %426, label %427, label %.loopexit69
+  br i1 %426, label %427, label %.loopexit66
 
 427:                                              ; preds = %424
   %428 = add nsw i32 %425, -1
@@ -5955,7 +5955,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   store float %501, ptr %502, align 4, !tbaa !22
   %503 = add nuw nsw i64 %443, 1
   %504 = icmp eq i64 %503, %438
-  br i1 %504, label %.loopexit69, label %441, !llvm.loop !297
+  br i1 %504, label %.loopexit66, label %441, !llvm.loop !297
 
 505:                                              ; preds = %410
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #31
@@ -6091,7 +6091,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #31
-  br label %.loopexit69
+  br label %.loopexit66
 
 598:                                              ; preds = %704, %534
   %599 = phi i64 [ 0, %534 ], [ %705, %704 ]
@@ -6102,9 +6102,9 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   br i1 %603, label %629, label %604
 
 604:                                              ; preds = %598
-  br i1 %544, label %.preheader74, label %.loopexit75
+  br i1 %544, label %.preheader71, label %.loopexit72
 
-.preheader74:                                     ; preds = %604, %614
+.preheader71:                                     ; preds = %604, %614
   %605 = phi i64 [ %615, %614 ], [ 1, %604 ]
   %606 = add nsw i64 %605, -1
   %607 = getelementptr inbounds float, ptr %5, i64 %606
@@ -6112,16 +6112,16 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %609 = fcmp reassoc nsz arcp contract afn ugt float %608, %602
   br i1 %609, label %614, label %610
 
-610:                                              ; preds = %.preheader74
+610:                                              ; preds = %.preheader71
   %611 = getelementptr inbounds float, ptr %5, i64 %605
   %612 = load float, ptr %611, align 4, !tbaa !22
   %613 = fcmp reassoc nsz arcp contract afn ult float %612, %602
   br i1 %613, label %614, label %617
 
-614:                                              ; preds = %610, %.preheader74
+614:                                              ; preds = %610, %.preheader71
   %615 = add nuw nsw i64 %605, 1
   %616 = icmp eq i64 %615, %545
-  br i1 %616, label %.loopexit75, label %.preheader74, !llvm.loop !299
+  br i1 %616, label %.loopexit72, label %.preheader71, !llvm.loop !299
 
 617:                                              ; preds = %610
   %618 = getelementptr inbounds float, ptr %6, i64 %605
@@ -6136,12 +6136,12 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %627 = fadd reassoc nsz arcp contract afn float %626, %621
   br label %629
 
-.loopexit75:                                      ; preds = %614, %604
+.loopexit72:                                      ; preds = %614, %604
   %628 = load float, ptr %546, align 4, !tbaa !22
   br label %629
 
-629:                                              ; preds = %.loopexit75, %617, %598
-  %630 = phi float [ %627, %617 ], [ %628, %.loopexit75 ], [ %538, %598 ]
+629:                                              ; preds = %.loopexit72, %617, %598
+  %630 = phi float [ %627, %617 ], [ %628, %.loopexit72 ], [ %538, %598 ]
   %631 = fdiv reassoc nsz arcp contract afn float %602, %630
   %632 = getelementptr inbounds float, ptr %411, i64 %599
   store float %631, ptr %632, align 4, !tbaa !22
@@ -6172,9 +6172,9 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   br i1 %603, label %695, label %644
 
 644:                                              ; preds = %643
-  br i1 %544, label %.preheader72, label %.loopexit73
+  br i1 %544, label %.preheader69, label %.loopexit70
 
-.preheader72:                                     ; preds = %644, %654
+.preheader69:                                     ; preds = %644, %654
   %645 = phi i64 [ %655, %654 ], [ 1, %644 ]
   %646 = add nsw i64 %645, -1
   %647 = getelementptr inbounds float, ptr %5, i64 %646
@@ -6182,16 +6182,16 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %649 = fcmp reassoc nsz arcp contract afn ugt float %648, %602
   br i1 %649, label %654, label %650
 
-650:                                              ; preds = %.preheader72
+650:                                              ; preds = %.preheader69
   %651 = getelementptr inbounds float, ptr %5, i64 %645
   %652 = load float, ptr %651, align 4, !tbaa !22
   %653 = fcmp reassoc nsz arcp contract afn ult float %652, %602
   br i1 %653, label %654, label %657
 
-654:                                              ; preds = %650, %.preheader72
+654:                                              ; preds = %650, %.preheader69
   %655 = add nuw nsw i64 %645, 1
   %656 = icmp eq i64 %655, %545
-  br i1 %656, label %.loopexit73, label %.preheader72, !llvm.loop !300
+  br i1 %656, label %.loopexit70, label %.preheader69, !llvm.loop !300
 
 657:                                              ; preds = %650
   %658 = getelementptr inbounds float, ptr %7, i64 %645
@@ -6206,15 +6206,15 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %667 = fadd reassoc nsz arcp contract afn float %666, %661
   br label %669
 
-.loopexit73:                                      ; preds = %654, %644
+.loopexit70:                                      ; preds = %654, %644
   %668 = load float, ptr %549, align 4, !tbaa !22
   br label %669
 
-669:                                              ; preds = %.loopexit73, %657
-  %670 = phi float [ %667, %657 ], [ %668, %.loopexit73 ]
-  br i1 %544, label %.preheader70, label %.loopexit71
+669:                                              ; preds = %.loopexit70, %657
+  %670 = phi float [ %667, %657 ], [ %668, %.loopexit70 ]
+  br i1 %544, label %.preheader67, label %.loopexit68
 
-.preheader70:                                     ; preds = %669, %680
+.preheader67:                                     ; preds = %669, %680
   %671 = phi i64 [ %681, %680 ], [ 1, %669 ]
   %672 = add nsw i64 %671, -1
   %673 = getelementptr inbounds float, ptr %5, i64 %672
@@ -6222,16 +6222,16 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %675 = fcmp reassoc nsz arcp contract afn ugt float %674, %602
   br i1 %675, label %680, label %676
 
-676:                                              ; preds = %.preheader70
+676:                                              ; preds = %.preheader67
   %677 = getelementptr inbounds float, ptr %5, i64 %671
   %678 = load float, ptr %677, align 4, !tbaa !22
   %679 = fcmp reassoc nsz arcp contract afn ult float %678, %602
   br i1 %679, label %680, label %683
 
-680:                                              ; preds = %676, %.preheader70
+680:                                              ; preds = %676, %.preheader67
   %681 = add nuw nsw i64 %671, 1
   %682 = icmp eq i64 %681, %545
-  br i1 %682, label %.loopexit71, label %.preheader70, !llvm.loop !301
+  br i1 %682, label %.loopexit68, label %.preheader67, !llvm.loop !301
 
 683:                                              ; preds = %676
   %684 = getelementptr inbounds float, ptr %8, i64 %671
@@ -6246,13 +6246,13 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %693 = fadd reassoc nsz arcp contract afn float %692, %687
   br label %695
 
-.loopexit71:                                      ; preds = %680, %669
+.loopexit68:                                      ; preds = %680, %669
   %694 = load float, ptr %550, align 4, !tbaa !22
   br label %695
 
-695:                                              ; preds = %.loopexit71, %683, %643
-  %696 = phi float [ %670, %683 ], [ %670, %.loopexit71 ], [ %537, %643 ]
-  %697 = phi float [ %693, %683 ], [ %694, %.loopexit71 ], [ %536, %643 ]
+695:                                              ; preds = %.loopexit68, %683, %643
+  %696 = phi float [ %670, %683 ], [ %670, %.loopexit68 ], [ %537, %643 ]
+  %697 = phi float [ %693, %683 ], [ %694, %.loopexit68 ], [ %536, %643 ]
   %698 = fadd reassoc nsz arcp contract afn float %696, 1.000000e+00
   %699 = getelementptr inbounds [16 x float], ptr %413, i64 0, i64 %599
   %700 = fmul reassoc nsz arcp contract afn float %698, %641
@@ -6301,14 +6301,14 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 727:                                              ; preds = %723
   %728 = load i32, ptr %415, align 4, !tbaa !57
   %729 = icmp sgt i32 %728, 0
-  br i1 %729, label %.preheader76, label %758
+  br i1 %729, label %.preheader73, label %758
 
-730:                                              ; preds = %.preheader76
+730:                                              ; preds = %.preheader73
   %731 = icmp eq i32 %753, 1
   br i1 %731, label %756, label %758
 
-.preheader76:                                     ; preds = %727, %.preheader76
-  %732 = phi i64 [ %752, %.preheader76 ], [ 0, %727 ]
+.preheader73:                                     ; preds = %727, %.preheader73
+  %732 = phi i64 [ %752, %.preheader73 ], [ 0, %727 ]
   %733 = getelementptr inbounds [3 x [6 x float]], ptr %420, i64 0, i64 %732
   %734 = load float, ptr %733, align 4, !tbaa !57
   %735 = getelementptr inbounds i8, ptr %733, i64 4
@@ -6333,7 +6333,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %753 = load i32, ptr %415, align 4, !tbaa !57
   %754 = sext i32 %753 to i64
   %755 = icmp slt i64 %752, %754
-  br i1 %755, label %.preheader76, label %730, !llvm.loop !303
+  br i1 %755, label %.preheader73, label %730, !llvm.loop !303
 
 756:                                              ; preds = %730
   %757 = load float, ptr %716, align 4, !tbaa !22
@@ -6374,7 +6374,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 781:                                              ; preds = %765, %761, %758
   %782 = add nuw nsw i64 %708, 1
   %783 = icmp eq i64 %782, 16
-  br i1 %783, label %.loopexit69, label %707, !llvm.loop !304
+  br i1 %783, label %.loopexit66, label %707, !llvm.loop !304
 
 784:                                              ; preds = %410
   %785 = load i32, ptr %415, align 4, !tbaa !57
@@ -6543,7 +6543,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   tail call void @llvm.masked.store.v8f32.p0(<8 x float> %921, ptr %900, i32 4, <8 x i1> %840), !tbaa !22, !alias.scope !305, !noalias !308
   %922 = getelementptr inbounds i8, ptr %224, i64 460
   store <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %922, align 4, !tbaa !22, !alias.scope !305, !noalias !308
-  br label %.loopexit69
+  br label %.loopexit66
 
 923:                                              ; preds = %972, %817
   %924 = phi i64 [ %974, %972 ], [ 0, %817 ]
@@ -6614,9 +6614,9 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   store float 1.000000e+00, ptr %973, align 4, !tbaa !22
   %974 = add nuw nsw i64 %924, 1
   %975 = icmp eq i64 %974, 16
-  br i1 %975, label %.loopexit69, label %923, !llvm.loop !310
+  br i1 %975, label %.loopexit66, label %923, !llvm.loop !310
 
-.loopexit69:                                      ; preds = %972, %781, %500, %828, %597, %424, %410
+.loopexit66:                                      ; preds = %972, %781, %500, %828, %597, %424, %410
   %976 = phi i32 [ 16, %597 ], [ 0, %410 ], [ %425, %424 ], [ 16, %828 ], [ %425, %500 ], [ 16, %781 ], [ 16, %972 ]
   %977 = getelementptr inbounds i8, ptr %227, i64 1484
   %978 = load i32, ptr %977, align 4, !tbaa !311
@@ -6662,9 +6662,9 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %1018 = getelementptr i8, ptr %1017, i64 -4
   br label %1019
 
-1019:                                             ; preds = %1157, %.loopexit69
-  %1020 = phi i32 [ 0, %.loopexit69 ], [ %1159, %1157 ]
-  %1021 = phi float [ 0.000000e+00, %.loopexit69 ], [ %1158, %1157 ]
+1019:                                             ; preds = %1157, %.loopexit66
+  %1020 = phi i32 [ 0, %.loopexit66 ], [ %1159, %1157 ]
+  %1021 = phi float [ 0.000000e+00, %.loopexit66 ], [ %1158, %1157 ]
   %1022 = sitofp i32 %1020 to float
   %1023 = fmul reassoc nsz arcp contract afn float %1004, %1022
   %1024 = fadd reassoc nsz arcp contract afn float %1023, %1002
@@ -6681,7 +6681,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   br label %1157
 
 1033:                                             ; preds = %1019
-  br i1 %1006, label %.preheader68, label %1034
+  br i1 %1006, label %.preheader65, label %1034
 
 1034:                                             ; preds = %1033
   %1035 = load float, ptr %1010, align 4, !tbaa !22
@@ -6692,7 +6692,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %1040 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1038, float %1039)
   br label %1157
 
-.preheader68:                                     ; preds = %1033, %1061
+.preheader65:                                     ; preds = %1033, %1061
   %1041 = phi i64 [ %1062, %1061 ], [ 1, %1033 ]
   %1042 = add nsw i64 %1041, -1
   %1043 = getelementptr inbounds float, ptr %411, i64 %1042
@@ -6700,7 +6700,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %1045 = fcmp reassoc nsz arcp contract afn ugt float %1044, %1024
   br i1 %1045, label %1061, label %1046
 
-1046:                                             ; preds = %.preheader68
+1046:                                             ; preds = %.preheader65
   %1047 = getelementptr inbounds float, ptr %411, i64 %1041
   %1048 = load float, ptr %1047, align 4, !tbaa !22
   %1049 = fcmp reassoc nsz arcp contract afn ult float %1048, %1024
@@ -6719,10 +6719,10 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %1060 = fadd reassoc nsz arcp contract afn float %1059, %1054
   br label %1064
 
-1061:                                             ; preds = %1046, %.preheader68
+1061:                                             ; preds = %1046, %.preheader65
   %1062 = add nuw nsw i64 %1041, 1
   %1063 = icmp eq i64 %1062, %1007
-  br i1 %1063, label %1125, label %.preheader68, !llvm.loop !317
+  br i1 %1063, label %1125, label %.preheader65, !llvm.loop !317
 
 1064:                                             ; preds = %1125, %1050
   %1065 = phi float [ %1060, %1050 ], [ %1126, %1125 ]
@@ -6817,7 +6817,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 
 1127:                                             ; preds = %1157
   %1128 = icmp sgt i32 %976, 0
-  br i1 %1128, label %1129, label %.loopexit67
+  br i1 %1128, label %1129, label %.loopexit64
 
 1129:                                             ; preds = %1127
   %1130 = icmp ult i32 %976, 8
@@ -6854,7 +6854,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 
 1152:                                             ; preds = %1136
   %1153 = icmp eq i64 %1132, %1007
-  br i1 %1153, label %.loopexit67, label %1154
+  br i1 %1153, label %.loopexit64, label %1154
 
 1154:                                             ; preds = %1152, %1129
   %1155 = phi i64 [ 0, %1129 ], [ %1132, %1152 ]
@@ -6887,14 +6887,14 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   store float %1174, ptr %1172, align 4, !tbaa !22
   %1175 = add nuw nsw i64 %1162, 1
   %1176 = icmp eq i64 %1175, %1007
-  br i1 %1176, label %.loopexit67, label %1161, !llvm.loop !322
+  br i1 %1176, label %.loopexit64, label %1161, !llvm.loop !322
 
-.loopexit67:                                      ; preds = %1161, %1152, %1127, %402
+.loopexit64:                                      ; preds = %1161, %1152, %1127, %402
   %1177 = phi i32 [ %409, %402 ], [ %976, %1127 ], [ %976, %1152 ], [ %976, %1161 ]
   store i32 %1177, ptr %229, align 8, !tbaa !171
   br label %1178
 
-1178:                                             ; preds = %.loopexit67, %233
+1178:                                             ; preds = %.loopexit64, %233
   %1179 = getelementptr inbounds i8, ptr %34, i64 328
   %1180 = load float, ptr %1179, align 4, !tbaa !323
   %1181 = getelementptr inbounds i8, ptr %224, i64 96
@@ -6908,7 +6908,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %1188 = icmp ne i32 %1187, 0
   %1189 = icmp ne ptr %226, null
   %1190 = select i1 %1188, i1 %1189, i1 false
-  br i1 %1190, label %1191, label %1294
+  br i1 %1190, label %1191, label %1292
 
 1191:                                             ; preds = %1178
   %1192 = getelementptr inbounds i8, ptr %3, i64 8
@@ -6917,14 +6917,14 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %1195 = load i32, ptr %1194, align 4, !tbaa !105
   %1196 = and i32 %1195, 4
   %1197 = icmp eq i32 %1196, 0
-  br i1 %1197, label %1294, label %1198
+  br i1 %1197, label %1292, label %1198
 
 1198:                                             ; preds = %1191
   %1199 = getelementptr inbounds i8, ptr %0, i64 712
   %1200 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1199) #31
   %1201 = load i32, ptr %229, align 8, !tbaa !171
   %1202 = icmp sgt i32 %1201, 0
-  br i1 %1202, label %1203, label %1252
+  br i1 %1202, label %1203, label %1250
 
 1203:                                             ; preds = %1198
   %1204 = getelementptr inbounds i8, ptr %224, i64 428
@@ -6932,17 +6932,17 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %1206 = zext nneg i32 %1201 to i64
   br label %1211
 
-1207:                                             ; preds = %1248
-  %1208 = icmp ne i32 %1249, 0
+1207:                                             ; preds = %1211
+  %1208 = icmp ne i32 %1247, 0
   %1209 = icmp ne i32 %1241, 0
   %1210 = icmp ne i32 %1239, 0
-  br label %1252
+  br label %1250
 
-1211:                                             ; preds = %1248, %1203
-  %1212 = phi i64 [ 0, %1203 ], [ %1250, %1248 ]
-  %1213 = phi i32 [ 0, %1203 ], [ %1249, %1248 ]
-  %1214 = phi i32 [ 0, %1203 ], [ %1239, %1248 ]
-  %1215 = phi i32 [ 0, %1203 ], [ %1241, %1248 ]
+1211:                                             ; preds = %1211, %1203
+  %1212 = phi i64 [ 0, %1203 ], [ %1248, %1211 ]
+  %1213 = phi i32 [ 0, %1203 ], [ %1247, %1211 ]
+  %1214 = phi i32 [ 0, %1203 ], [ %1239, %1211 ]
+  %1215 = phi i32 [ 0, %1203 ], [ %1241, %1211 ]
   %1216 = getelementptr inbounds [16 x float], ptr %1204, i64 0, i64 %1212
   %1217 = load float, ptr %1216, align 4, !tbaa !22
   %1218 = getelementptr inbounds [3 x [16 x float]], ptr %1205, i64 0, i64 0, i64 %1212
@@ -6970,76 +6970,68 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %1240 = extractelement <2 x i1> %1236, i64 1
   %1241 = select i1 %1240, i32 1, i32 %1215
   %1242 = fcmp reassoc nsz arcp contract afn une float %1219, %1221
-  br i1 %1242, label %1247, label %1243
+  %1243 = fcmp reassoc nsz arcp contract afn une float %1219, %1231
+  %1244 = fcmp reassoc nsz arcp contract afn une float %1221, %1231
+  %1245 = or i1 %1243, %1244
+  %1246 = select i1 %1242, i1 true, i1 %1245
+  %1247 = select i1 %1246, i32 1, i32 %1213
+  %1248 = add nuw nsw i64 %1212, 1
+  %1249 = icmp eq i64 %1248, %1206
+  br i1 %1249, label %1207, label %1211, !llvm.loop !324
 
-1243:                                             ; preds = %1211
-  %1244 = fcmp reassoc nsz arcp contract afn une float %1219, %1231
-  %1245 = fcmp reassoc nsz arcp contract afn une float %1221, %1231
-  %1246 = or i1 %1244, %1245
-  br i1 %1246, label %1247, label %1248
+1250:                                             ; preds = %1207, %1198
+  %1251 = phi i1 [ false, %1198 ], [ %1209, %1207 ]
+  %1252 = phi i1 [ false, %1198 ], [ %1210, %1207 ]
+  %1253 = phi i1 [ false, %1198 ], [ %1208, %1207 ]
+  %1254 = getelementptr inbounds i8, ptr %224, i64 4
+  %1255 = load i32, ptr %1254, align 4, !tbaa !157
+  %1256 = and i32 %1255, 1
+  %1257 = icmp ne i32 %1256, 0
+  %1258 = select i1 %1257, i1 %1253, i1 false
+  %1259 = zext i1 %1258 to i32
+  %1260 = and i32 %1255, 2
+  %1261 = icmp ne i32 %1260, 0
+  %1262 = select i1 %1261, i1 %1251, i1 false
+  %1263 = select i1 %1262, i32 2, i32 0
+  %1264 = or disjoint i32 %1263, %1259
+  %1265 = and i32 %1255, 4
+  %1266 = icmp ne i32 %1265, 0
+  %1267 = select i1 %1266, i1 %1252, i1 false
+  %1268 = select i1 %1267, i32 4, i32 0
+  %1269 = or disjoint i32 %1264, %1268
+  %1270 = getelementptr inbounds i8, ptr %226, i64 336
+  store i32 %1269, ptr %1270, align 8, !tbaa !282
+  %1271 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1199) #31
+  br label %1292
 
-1247:                                             ; preds = %1243, %1211
-  br label %1248
+1272:                                             ; preds = %46
+  %1273 = getelementptr inbounds i8, ptr %0, i64 704
+  %1274 = load ptr, ptr %1273, align 16, !tbaa !91
+  %1275 = load ptr, ptr %38, align 8, !tbaa !156
+  %1276 = load i32, ptr %1275, align 16, !tbaa !279
+  %1277 = icmp ne i32 %1276, 0
+  %1278 = icmp ne ptr %1274, null
+  %1279 = select i1 %1277, i1 %1278, i1 false
+  br i1 %1279, label %1280, label %1292
 
-1248:                                             ; preds = %1247, %1243
-  %1249 = phi i32 [ 1, %1247 ], [ %1213, %1243 ]
-  %1250 = add nuw nsw i64 %1212, 1
-  %1251 = icmp eq i64 %1250, %1206
-  br i1 %1251, label %1207, label %1211, !llvm.loop !324
+1280:                                             ; preds = %1272
+  %1281 = getelementptr inbounds i8, ptr %3, i64 8
+  %1282 = load ptr, ptr %1281, align 8, !tbaa !104
+  %1283 = getelementptr inbounds i8, ptr %1282, i64 620
+  %1284 = load i32, ptr %1283, align 4, !tbaa !105
+  %1285 = and i32 %1284, 4
+  %1286 = icmp eq i32 %1285, 0
+  br i1 %1286, label %1292, label %1287
 
-1252:                                             ; preds = %1207, %1198
-  %1253 = phi i1 [ false, %1198 ], [ %1209, %1207 ]
-  %1254 = phi i1 [ false, %1198 ], [ %1210, %1207 ]
-  %1255 = phi i1 [ false, %1198 ], [ %1208, %1207 ]
-  %1256 = getelementptr inbounds i8, ptr %224, i64 4
-  %1257 = load i32, ptr %1256, align 4, !tbaa !157
-  %1258 = and i32 %1257, 1
-  %1259 = icmp ne i32 %1258, 0
-  %1260 = select i1 %1259, i1 %1255, i1 false
-  %1261 = zext i1 %1260 to i32
-  %1262 = and i32 %1257, 2
-  %1263 = icmp ne i32 %1262, 0
-  %1264 = select i1 %1263, i1 %1253, i1 false
-  %1265 = select i1 %1264, i32 2, i32 0
-  %1266 = or disjoint i32 %1265, %1261
-  %1267 = and i32 %1257, 4
-  %1268 = icmp ne i32 %1267, 0
-  %1269 = select i1 %1268, i1 %1254, i1 false
-  %1270 = select i1 %1269, i32 4, i32 0
-  %1271 = or disjoint i32 %1266, %1270
-  %1272 = getelementptr inbounds i8, ptr %226, i64 336
-  store i32 %1271, ptr %1272, align 8, !tbaa !282
-  %1273 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1199) #31
-  br label %1294
+1287:                                             ; preds = %1280
+  %1288 = getelementptr inbounds i8, ptr %0, i64 712
+  %1289 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1288) #31
+  %1290 = getelementptr inbounds i8, ptr %1274, i64 336
+  store i32 0, ptr %1290, align 8, !tbaa !282
+  %1291 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1288) #31
+  br label %1292
 
-1274:                                             ; preds = %46
-  %1275 = getelementptr inbounds i8, ptr %0, i64 704
-  %1276 = load ptr, ptr %1275, align 16, !tbaa !91
-  %1277 = load ptr, ptr %38, align 8, !tbaa !156
-  %1278 = load i32, ptr %1277, align 16, !tbaa !279
-  %1279 = icmp ne i32 %1278, 0
-  %1280 = icmp ne ptr %1276, null
-  %1281 = select i1 %1279, i1 %1280, i1 false
-  br i1 %1281, label %1282, label %1294
-
-1282:                                             ; preds = %1274
-  %1283 = getelementptr inbounds i8, ptr %3, i64 8
-  %1284 = load ptr, ptr %1283, align 8, !tbaa !104
-  %1285 = getelementptr inbounds i8, ptr %1284, i64 620
-  %1286 = load i32, ptr %1285, align 4, !tbaa !105
-  %1287 = and i32 %1286, 4
-  %1288 = icmp eq i32 %1287, 0
-  br i1 %1288, label %1294, label %1289
-
-1289:                                             ; preds = %1282
-  %1290 = getelementptr inbounds i8, ptr %0, i64 712
-  %1291 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1290) #31
-  %1292 = getelementptr inbounds i8, ptr %1276, i64 336
-  store i32 0, ptr %1292, align 8, !tbaa !282
-  %1293 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1290) #31
-  br label %1294
-
-1294:                                             ; preds = %1289, %1282, %1274, %1252, %1191, %1178, %223, %196, %172, %165
+1292:                                             ; preds = %1287, %1280, %1272, %1250, %1191, %1178, %223, %196, %172, %165
   ret void
 }
 

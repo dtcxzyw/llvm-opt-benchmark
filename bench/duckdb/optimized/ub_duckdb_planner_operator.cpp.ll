@@ -12468,7 +12468,7 @@ if.end:                                           ; preds = %entry
   %cardinality = getelementptr inbounds i8, ptr %this, i64 384
   %2 = load ptr, ptr %cardinality, align 8, !tbaa !442
   %tobool2.not = icmp eq ptr %2, null
-  br i1 %tobool2.not, label %if.end16, label %if.then3
+  br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %node_stats) #26
@@ -12481,7 +12481,7 @@ if.then3:                                         ; preds = %if.end
 
 _ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20.thread: ; preds = %if.then3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %node_stats) #26
-  br label %if.end16
+  br label %return
 
 land.lhs.true:                                    ; preds = %if.then3
   %call7 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_14NodeStatisticsESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %node_stats)
@@ -12517,7 +12517,7 @@ _ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit: ; 
   resume { ptr, i32 } %7
 
 cleanup:                                          ; preds = %invoke.cont11, %invoke.cont
-  %retval.0.ph = phi i64 [ undef, %invoke.cont ], [ %6, %invoke.cont11 ]
+  %spec.select = phi i64 [ 1, %invoke.cont ], [ %6, %invoke.cont11 ]
   %.pr = load ptr, ptr %node_stats, align 8, !tbaa !3
   %cmp.not.i18 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20, label %_ZNKSt14default_deleteIN6duckdb14NodeStatisticsEEclEPS1_.exit.i19
@@ -12528,13 +12528,10 @@ _ZNKSt14default_deleteIN6duckdb14NodeStatisticsEEclEPS1_.exit.i19: ; preds = %cl
 
 _ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20: ; preds = %_ZNKSt14default_deleteIN6duckdb14NodeStatisticsEEclEPS1_.exit.i19, %cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %node_stats) #26
-  br i1 %tobool9.not.not, label %if.end16, label %return
-
-if.end16:                                         ; preds = %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20, %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20.thread, %if.end
   br label %return
 
-return:                                           ; preds = %if.end16, %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20, %if.then
-  %retval.1 = phi i64 [ %1, %if.then ], [ %retval.0.ph, %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20 ], [ 1, %if.end16 ]
+return:                                           ; preds = %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20, %if.end, %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20.thread, %if.then
+  %retval.1 = phi i64 [ %1, %if.then ], [ 1, %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20.thread ], [ 1, %if.end ], [ %spec.select, %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit20 ]
   ret i64 %retval.1
 }
 

@@ -348,7 +348,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw nsw i64 %call to i32
   %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
   %1 = load ptr, ptr %cur_.i, align 8
   %2 = load ptr, ptr %output, align 8
@@ -378,7 +378,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %value.addr.i.0.lcssa.i.i = phi i32 [ %conv, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %shr.i.i.i, %while.body.i.i.i ]
-  %conv1.i.i.i = trunc i32 %value.addr.i.0.lcssa.i.i to i8
+  %conv1.i.i.i = trunc nuw nsw i32 %value.addr.i.0.lcssa.i.i to i8
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   store ptr %incdec.ptr2.i.i.i, ptr %cur_.i, align 8
@@ -388,7 +388,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 
 if.then4:                                         ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %call5 = tail call noundef ptr @_ZNK6google8protobuf11MessageLite31SerializeWithCachedSizesToArrayEPh(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull %call.i)
-  br label %if.end9
+  br label %return
 
 if.else:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %4 = load ptr, ptr %cur_.i, align 8
@@ -402,13 +402,11 @@ if.else:                                          ; preds = %_ZN6google8protobuf
   %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
   %6 = load i8, ptr %had_error_.i.i, align 8
   %tobool.i.i = trunc i8 %6 to i1
-  br i1 %tobool.i.i, label %return, label %if.end9
-
-if.end9:                                          ; preds = %if.else, %if.then4
+  %not.tobool.i.i = xor i1 %tobool.i.i, true
   br label %return
 
-return:                                           ; preds = %if.else, %entry, %if.end9
-  %retval.0 = phi i1 [ true, %if.end9 ], [ false, %entry ], [ false, %if.else ]
+return:                                           ; preds = %if.else, %if.then4, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then4 ], [ %not.tobool.i.i, %if.else ]
   ret i1 %retval.0
 }
 

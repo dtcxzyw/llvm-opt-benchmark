@@ -367,7 +367,7 @@ if.then.i20:                                      ; preds = %if.then15
   %call.i21 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 124) #6
   store ptr %call.i21, ptr %salt, align 8
   %cmp1.i22 = icmp eq ptr %call.i21, null
-  br i1 %cmp1.i22, label %pvk_set_membuf.exit23.thread, label %return
+  br i1 %cmp1.i22, label %9, label %return
 
 if.else.i12:                                      ; preds = %if.then15
   %data.i13 = getelementptr inbounds i8, ptr %call13, i64 16
@@ -378,13 +378,13 @@ if.else.i12:                                      ; preds = %if.then15
 if.then4.i15:                                     ; preds = %if.else.i12
   %call5.i16 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %call13, ptr noundef nonnull %salt, i64 noundef 0, ptr noundef nonnull %salt_len) #6
   %tobool.not.i17 = icmp eq i32 %call5.i16, 0
-  br i1 %tobool.not.i17, label %pvk_set_membuf.exit23.thread, label %return
+  br i1 %tobool.not.i17, label %9, label %return
 
-pvk_set_membuf.exit23.thread:                     ; preds = %if.then.i20, %if.then4.i15
+9:                                                ; preds = %if.then.i20, %if.then4.i15
   br label %return
 
-return:                                           ; preds = %if.then4.i, %if.then.i, %if.end12, %if.then.i20, %if.else.i12, %if.then4.i15, %pvk_set_membuf.exit23.thread, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %pvk_set_membuf.exit23.thread ], [ 1, %if.then4.i15 ], [ 1, %if.else.i12 ], [ 1, %if.then.i20 ], [ 1, %if.end12 ], [ 0, %if.then.i ], [ 0, %if.then4.i ]
+return:                                           ; preds = %if.then4.i, %if.then.i, %9, %if.then.i20, %if.else.i12, %if.then4.i15, %if.end12, %if.end, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 1, %if.end12 ], [ 0, %9 ], [ 1, %if.then.i20 ], [ 1, %if.else.i12 ], [ 1, %if.then4.i15 ], [ 0, %if.then.i ], [ 0, %if.then4.i ]
   ret i32 %retval.0
 }
 

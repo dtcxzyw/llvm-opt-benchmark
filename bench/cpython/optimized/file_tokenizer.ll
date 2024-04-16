@@ -948,7 +948,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare void @_PyTokenizer_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tok_underflow_interactive(ptr noundef %tok) #0 {
+define internal i32 @tok_underflow_interactive(ptr noundef %tok) #0 {
 entry:
   %interactive_underflow = getelementptr inbounds i8, ptr %tok, i64 2836
   %0 = load i32, ptr %interactive_underflow, align 4
@@ -1238,18 +1238,16 @@ if.end96:                                         ; preds = %if.end86
   %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %33 = load i32, ptr %tok_mode_stack_index, align 8
   %tobool97.not = icmp eq i32 %33, 0
-  br i1 %tobool97.not, label %if.end102, label %land.lhs.true98
+  br i1 %tobool97.not, label %return, label %land.lhs.true98
 
 land.lhs.true98:                                  ; preds = %if.end96
   %call99 = tail call i32 @_PyLexer_update_fstring_expr(ptr noundef nonnull %tok, i8 noundef signext 0) #11
-  %tobool100.not = icmp eq i32 %call99, 0
-  br i1 %tobool100.not, label %return, label %if.end102
-
-if.end102:                                        ; preds = %land.lhs.true98, %if.end96
+  %tobool100.not = icmp ne i32 %call99, 0
+  %spec.select = zext i1 %tobool100.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true98, %if.then90, %if.then94, %if.then3, %if.end102, %if.then62, %if.then36, %Py_DECREF.exit111, %if.then18, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 0, %if.then18 ], [ 0, %Py_DECREF.exit111 ], [ 0, %if.then36 ], [ 1, %if.end102 ], [ 0, %if.then62 ], [ 0, %if.then3 ], [ 0, %if.then94 ], [ 0, %if.then90 ], [ 0, %land.lhs.true98 ]
+return:                                           ; preds = %land.lhs.true98, %if.end96, %if.then90, %if.then94, %if.then3, %if.then62, %if.then36, %Py_DECREF.exit111, %if.then18, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ 0, %if.then18 ], [ 0, %Py_DECREF.exit111 ], [ 0, %if.then36 ], [ 0, %if.then62 ], [ 0, %if.then3 ], [ 0, %if.then94 ], [ 0, %if.then90 ], [ 1, %if.end96 ], [ %spec.select, %land.lhs.true98 ]
   ret i32 %retval.0
 }
 

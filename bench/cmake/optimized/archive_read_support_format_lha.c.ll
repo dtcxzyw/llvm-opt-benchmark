@@ -219,7 +219,7 @@ define internal noundef i32 @archive_read_format_lha_read_header(ptr noundef %0,
 
 .preheader16.i:                                   ; preds = %24, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %24 ]
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %17
 
 17:                                               ; preds = %17, %.preheader16.i
@@ -235,7 +235,7 @@ define internal noundef i32 @archive_read_format_lha_read_header(ptr noundef %0,
   br i1 %.not.i, label %24, label %17, !llvm.loop !9
 
 24:                                               ; preds = %17
-  %.0.i = trunc i32 %22 to i16
+  %.0.i = trunc nuw i32 %22 to i16
   %25 = getelementptr inbounds [256 x i16], ptr @crc16tbl, i64 0, i64 %indvars.iv.i
   store i16 %.0.i, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2629,7 +2629,7 @@ lzh_make_fake_table.exit.thread.i.i.i:            ; preds = %539, %._crit_edge29
   br i1 %586, label %587, label %589
 
 587:                                              ; preds = %.preheader.i23.i.i
-  %588 = trunc i64 %indvars.iv.i24.i.i to i32
+  %588 = trunc nsw i64 %indvars.iv.i24.i.i to i32
   store i32 0, ptr %545, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %546, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   store i32 0, ptr %553, align 8
@@ -2787,7 +2787,7 @@ lzh_decode_huffman.exit223.i.i.i:                 ; preds = %657, %655, %.lr.ph.
   br i1 %671, label %681, label %672
 
 672:                                              ; preds = %668
-  %673 = trunc i32 %.0160.i.i.i to i8
+  %673 = trunc nuw i32 %.0160.i.i.i to i8
   %674 = getelementptr inbounds i8, ptr %548, i64 %indvars.iv.i24.i.i
   store i8 %673, ptr %674, align 1
   %indvars.iv.next.i26.i.i = add nsw i64 %indvars.iv.i24.i.i, 1
@@ -2806,7 +2806,7 @@ lzh_decode_huffman.exit223.i.i.i:                 ; preds = %657, %655, %.lr.ph.
   br label %.loopexit250.i.i.i
 
 681:                                              ; preds = %668
-  %682 = trunc i64 %indvars.iv.i24.i.i to i32
+  %682 = trunc nsw i64 %indvars.iv.i24.i.i to i32
   %683 = add nsw i32 %.0160.i.i.i, -253
   br label %684
 
@@ -3068,7 +3068,7 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
   br i1 %814, label %.lr.ph.i18.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !22
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i18.i.i
-  %815 = trunc i64 %indvars.iv.next312.i.i.i to i32
+  %815 = trunc nuw nsw i64 %indvars.iv.next312.i.i.i to i32
   br label %._crit_edge.i16.i.i
 
 ._crit_edge.i16.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i, %803
@@ -3122,7 +3122,7 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
   br label %lzh_decode_blocks.exit.i.i
 
 .loopexit250.loopexit.i.i.i:                      ; preds = %593
-  %838 = trunc i64 %indvars.iv.i24.i.i to i32
+  %838 = trunc nsw i64 %indvars.iv.i24.i.i to i32
   br label %.loopexit250.i.i.i
 
 .loopexit250.i.i.i:                               ; preds = %.loopexit250.loopexit.i.i.i, %830, %824, %772, %689, %675
@@ -3423,7 +3423,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i64 @lha_check_header_format(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc i64 @lha_check_header_format(ptr nocapture noundef readonly %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 5
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %37 [
@@ -3437,8 +3437,8 @@ define internal fastcc noundef i64 @lha_check_header_format(ptr nocapture nounde
     i8 55, label %4
     i8 100, label %4
     i8 115, label %4
-    i8 104, label %39
-    i8 122, label %39
+    i8 104, label %.thread
+    i8 122, label %.thread
     i8 108, label %35
     i8 45, label %36
   ]
@@ -3446,43 +3446,43 @@ define internal fastcc noundef i64 @lha_check_header_format(ptr nocapture nounde
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %39, label %7
+  br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 45
-  br i1 %.not, label %10, label %39
+  br i1 %.not, label %10, label %.thread
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 3
   %12 = load i8, ptr %11, align 1
   %.not20 = icmp eq i8 %12, 108
-  br i1 %.not20, label %13, label %39
+  br i1 %.not20, label %13, label %.thread
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 6
   %15 = load i8, ptr %14, align 1
   %.not21 = icmp eq i8 %15, 45
-  br i1 %.not21, label %16, label %39
+  br i1 %.not21, label %16, label %.thread
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 4
   %18 = load i8, ptr %17, align 1
-  switch i8 %18, label %39 [
+  switch i8 %18, label %.thread [
     i8 104, label %19
     i8 122, label %31
   ]
 
 19:                                               ; preds = %16
   %20 = icmp eq i8 %3, 115
-  br i1 %20, label %39, label %21
+  br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 20
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %39, label %25
+  br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %21
   %26 = icmp ult i8 %23, 4
@@ -3492,38 +3492,36 @@ define internal fastcc noundef i64 @lha_check_header_format(ptr nocapture nounde
   %28 = getelementptr inbounds i8, ptr %0, i64 19
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 32
-  br i1 %30, label %39, label %.thread
-
-.thread:                                          ; preds = %25, %27
-  br label %39
+  %spec.select = select i1 %30, i64 0, i64 4
+  br label %.thread
 
 31:                                               ; preds = %16
   %32 = getelementptr inbounds i8, ptr %0, i64 20
   %33 = load i8, ptr %32, align 1
   %.not22 = icmp eq i8 %33, 0
-  br i1 %.not22, label %34, label %39
+  br i1 %.not22, label %34, label %.thread
 
 34:                                               ; preds = %31
   switch i8 %3, label %38 [
-    i8 115, label %39
-    i8 52, label %39
-    i8 53, label %39
+    i8 115, label %.thread
+    i8 52, label %.thread
+    i8 53, label %.thread
   ]
 
 35:                                               ; preds = %1
-  br label %39
+  br label %.thread
 
 36:                                               ; preds = %1
-  br label %39
+  br label %.thread
 
 37:                                               ; preds = %1
-  br label %39
+  br label %.thread
 
 38:                                               ; preds = %34
-  br label %39
+  br label %.thread
 
-39:                                               ; preds = %16, %.thread, %35, %36, %37, %4, %13, %10, %7, %19, %31, %1, %1, %34, %34, %34, %27, %21, %38
-  %.017 = phi i64 [ 0, %21 ], [ 0, %27 ], [ 0, %34 ], [ 0, %34 ], [ 0, %34 ], [ 4, %37 ], [ 3, %36 ], [ 2, %35 ], [ 4, %4 ], [ 4, %7 ], [ 4, %10 ], [ 4, %13 ], [ 4, %19 ], [ 4, %31 ], [ 1, %1 ], [ 1, %1 ], [ 4, %38 ], [ 4, %.thread ], [ 4, %16 ]
+.thread:                                          ; preds = %27, %16, %25, %35, %36, %37, %4, %13, %10, %7, %19, %31, %1, %1, %34, %34, %34, %21, %38
+  %.017 = phi i64 [ 0, %21 ], [ 0, %34 ], [ 0, %34 ], [ 0, %34 ], [ 4, %37 ], [ 3, %36 ], [ 2, %35 ], [ 4, %4 ], [ 4, %7 ], [ 4, %10 ], [ 4, %13 ], [ 4, %19 ], [ 4, %31 ], [ 1, %1 ], [ 1, %1 ], [ 4, %38 ], [ 4, %25 ], [ %spec.select, %27 ], [ 4, %16 ]
   ret i64 %.017
 }
 
@@ -4694,7 +4692,7 @@ thread-pre-split:                                 ; preds = %15, %12
   %storemerge = phi i32 [ %43, %39 ], [ %21, %thread-pre-split ]
   %.029 = phi i32 [ %42, %39 ], [ %25, %thread-pre-split ]
   store i32 %storemerge, ptr %8, align 8
-  %45 = trunc i32 %.029 to i8
+  %45 = trunc nsw i32 %.029 to i8
   %46 = load ptr, ptr %9, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %47 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv
@@ -4709,11 +4707,11 @@ thread-pre-split:                                 ; preds = %15, %12
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !28
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %29
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit.split.loop.exit49:           ; preds = %15
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %44, %32, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit49, %3
@@ -4742,7 +4740,7 @@ define internal fastcc noundef i32 @lzh_make_huffman_table(ptr nocapture noundef
   %.not216 = icmp eq i32 %9, 0
   %10 = mul nsw i32 %9, %.0193222
   %.1191 = add nsw i32 %10, %.0190223
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %.1189 = select i1 %.not216, i32 %.0188224, i32 %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = lshr i32 %.0193222, 1
@@ -4934,7 +4932,7 @@ define internal fastcc noundef i32 @lzh_make_huffman_table(ptr nocapture noundef
   br i1 %.wide, label %.lr.ph244, label %.loopexit.loopexit, !llvm.loop !33
 
 .loopexit.loopexit:                               ; preds = %.lr.ph244
-  %106 = trunc i64 %104 to i32
+  %106 = trunc nuw i64 %104 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %99, %91
@@ -4960,7 +4958,7 @@ define internal fastcc noundef i32 @lzh_make_huffman_table(ptr nocapture noundef
   br i1 %112, label %110, label %._crit_edge240.loopexit, !llvm.loop !34
 
 ._crit_edge240.loopexit:                          ; preds = %110
-  %113 = trunc i64 %indvars.iv.next276 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv.next276 to i32
   br label %._crit_edge240
 
 ._crit_edge240:                                   ; preds = %._crit_edge240.loopexit, %.preheader

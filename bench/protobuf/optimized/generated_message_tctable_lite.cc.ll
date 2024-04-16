@@ -22646,7 +22646,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i21, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -22809,7 +22809,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i22, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -22953,7 +22953,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i20, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -27947,7 +27947,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %23, ptr %index_of_first_non_null_, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end14, label %land.rhs, !llvm.loop !128
@@ -28029,7 +28029,7 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32
@@ -28345,7 +28345,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %6, ptr %cached_blocks_19.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i22, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %return
 
@@ -28511,7 +28511,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %21, ptr %index_of_first_non_null_, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end14, label %land.rhs, !llvm.loop !133
@@ -28785,7 +28785,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %6, ptr %cached_blocks_19.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i22, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %return
 
@@ -28945,7 +28945,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %21, ptr %index_of_first_non_null_, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end14, label %land.rhs, !llvm.loop !137
@@ -29219,7 +29219,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %6, ptr %cached_blocks_19.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i22, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %return
 
@@ -29298,14 +29298,14 @@ do.body:                                          ; preds = %if.else, %if.then
   br i1 %cmp.i.i, label %land.rhs.i.i, label %if.else
 
 land.rhs.i.i:                                     ; preds = %do.body
-  br i1 %cmp.i2.i.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %cmp.i2.i.i.i, label %return, label %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
+_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit: ; preds = %land.rhs.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr %k.coerce1, i64 %k.coerce0)
   %cmp.i.i.i9 = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i9, label %return, label %if.else
 
-if.else:                                          ; preds = %do.body, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+if.else:                                          ; preds = %do.body, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit
   %9 = load ptr, ptr %node.0, align 8
   %cmp.not = icmp eq ptr %9, null
   br i1 %cmp.not, label %return, label %do.body, !llvm.loop !140
@@ -29321,9 +29321,9 @@ if.then10:                                        ; preds = %if.else8
   %11 = extractvalue { ptr, i32 } %call13, 1
   br label %return
 
-return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i.i, %if.else, %if.else8, %if.then10
-  %retval.sroa.0.0 = phi ptr [ %10, %if.then10 ], [ null, %if.else8 ], [ %node.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %node.0, %land.rhs.i.i ], [ null, %if.else ]
-  %retval.sroa.4.0 = phi i32 [ %11, %if.then10 ], [ %conv3.i.i, %if.else8 ], [ %conv3.i.i, %if.else ], [ %conv3.i.i, %land.rhs.i.i ], [ %conv3.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+return:                                           ; preds = %land.rhs.i.i, %if.else, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit, %if.else8, %if.then10
+  %retval.sroa.0.0 = phi ptr [ %10, %if.then10 ], [ null, %if.else8 ], [ %node.0, %land.rhs.i.i ], [ null, %if.else ], [ %node.0, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit ]
+  %retval.sroa.4.0 = phi i32 [ %11, %if.then10 ], [ %conv3.i.i, %if.else8 ], [ %conv3.i.i, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsIRKS8_RSt17basic_string_viewIcS6_EEEbOT_OT0_.exit ], [ %conv3.i.i, %if.else ], [ %conv3.i.i, %land.rhs.i.i ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.4.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -29433,7 +29433,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = trunc i64 %indvars.iv.next to i32
+  %22 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %22, ptr %index_of_first_non_null_, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end14, label %land.rhs, !llvm.loop !142
@@ -29635,7 +29635,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %6, ptr %cached_blocks_19.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i21, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %return
 
@@ -36894,7 +36894,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i22, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 
@@ -37041,7 +37041,7 @@ for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
   store ptr %add.ptr.i.i21, ptr %cached_blocks_.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i.i, i64 64)
-  %conv17.i.i.i.i = trunc i64 %.sroa.speculated.i.i.i.i to i8
+  %conv17.i.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i.i to i8
   store i8 %conv17.i.i.i.i, ptr %cached_block_length_.i.i.i.i, align 8
   br label %if.end34
 

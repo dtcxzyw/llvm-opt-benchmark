@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [20 x i8] c"No such protocol %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   switch i32 %0, label %85 [
     i32 100, label %4
@@ -54,8 +54,9 @@ define hidden noundef i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %
 
 4:                                                ; preds = %2
   %5 = tail call i32 @decode_as_command_option(ptr noundef %1) #5
-  %.not52 = icmp eq i32 %5, 0
-  br i1 %.not52, label %86, label %.loopexit
+  %.not52 = icmp ne i32 %5, 0
+  %spec.select = zext i1 %.not52 to i32
+  br label %.loopexit
 
 6:                                                ; preds = %2
   tail call void @read_keytab_file(ptr noundef %1) #5
@@ -74,7 +75,7 @@ define hidden noundef i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %
   %11 = sext i8 %9 to i32
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, i32 noundef %11) #5
   tail call void (ptr, ...) @cmdarg_err_cont(ptr noundef nonnull @.str.1) #5
-  br label %86
+  br label %.loopexit
 
 12:                                               ; preds = %2
   %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #6
@@ -96,7 +97,7 @@ define hidden noundef i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %
 
 21:                                               ; preds = %17
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef nonnull %15, i32 noundef 9) #5
-  br label %86
+  br label %.loopexit
 
 22:                                               ; preds = %17, %14
   %.041 = phi i32 [ -1, %14 ], [ %19, %17 ]
@@ -161,11 +162,11 @@ define hidden noundef i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %
 54:                                               ; preds = %53
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef %1) #5
   call void (ptr, ...) @cmdarg_err_cont(ptr noundef nonnull @.str.15) #5
-  br i1 %.not49, label %86, label %55
+  br i1 %.not49, label %.loopexit, label %55
 
 55:                                               ; preds = %54
   store i8 46, ptr %13, align 1
-  br label %86
+  br label %.loopexit
 
 .sink.split:                                      ; preds = %50, %47, %44, %41, %38, %35, %32, %29, %26, %23
   %.sink = phi i32 [ 0, %23 ], [ 1, %26 ], [ 2, %29 ], [ 3, %32 ], [ 4, %35 ], [ 5, %38 ], [ 6, %41 ], [ 7, %44 ], [ 8, %47 ], [ 9, %50 ]
@@ -201,7 +202,7 @@ define hidden noundef i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %
 66:                                               ; preds = %62
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.18, ptr noundef %1) #5
   tail call void (ptr, ...) @cmdarg_err_cont(ptr noundef nonnull @.str.19) #5
-  br label %86
+  br label %.loopexit
 
 67:                                               ; preds = %2
   %68 = load ptr, ptr getelementptr inbounds (%struct.dissect_options_tag, ptr @global_dissect_options, i64 0, i32 3), align 8
@@ -250,11 +251,8 @@ define hidden noundef i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.2, i32 noundef 7, ptr noundef nonnull @.str.21, i64 noundef 184, ptr noundef nonnull @__func__.dissect_opts_handle_opt, ptr noundef nonnull @.str.22) #7
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph, %79, %61, %65, %56, %57, %8, %4, %84, %76, %73, %70, %67, %7, %6
-  br label %86
-
-86:                                               ; preds = %54, %55, %4, %.loopexit, %66, %21, %10
-  %.042 = phi i32 [ 1, %.loopexit ], [ 0, %66 ], [ 0, %21 ], [ 0, %10 ], [ 0, %4 ], [ 0, %55 ], [ 0, %54 ]
+.loopexit:                                        ; preds = %.lr.ph, %79, %4, %6, %7, %67, %70, %73, %76, %84, %8, %57, %56, %65, %61, %54, %55, %66, %21, %10
+  %.042 = phi i32 [ 0, %66 ], [ 0, %21 ], [ 0, %10 ], [ 0, %55 ], [ 0, %54 ], [ 1, %61 ], [ 1, %65 ], [ 1, %56 ], [ 1, %57 ], [ 1, %8 ], [ 1, %84 ], [ 1, %76 ], [ 1, %73 ], [ 1, %70 ], [ 1, %67 ], [ 1, %7 ], [ 1, %6 ], [ %spec.select, %4 ], [ 1, %79 ], [ 1, %.lr.ph ]
   ret i32 %.042
 }
 

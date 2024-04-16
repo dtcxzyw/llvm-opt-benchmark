@@ -1349,7 +1349,7 @@ thrift_get_varint_enc.exit.thread76:              ; preds = %34
   br label %thrift_get_varint_enc.exit.thread
 
 45:                                               ; preds = %37
-  %46 = trunc i64 %38 to i32
+  %46 = trunc nsw i64 %38 to i32
   store i32 %46, ptr %12, align 4
   %47 = load i32, ptr @show_internal_thrift_fields, align 4
   %.not71 = icmp eq i32 %47, 0
@@ -1445,8 +1445,8 @@ thread-pre-split:                                 ; preds = %57, %48, %61, %45
   store i64 %87, ptr %88, align 8
   br label %thrift_get_varint_enc.exit.thread
 
-thrift_get_varint_enc.exit.thread:                ; preds = %31, %34, %27, %83, %86, %72, %52, %21, %65, %40, %thrift_get_varint_enc.exit.thread76
-  %.0 = phi i32 [ -1, %40 ], [ -2, %65 ], [ -2, %thrift_get_varint_enc.exit.thread76 ], [ %.064, %21 ], [ -1, %52 ], [ -1, %72 ], [ %85, %86 ], [ %85, %83 ], [ -1, %27 ], [ -1, %34 ], [ %33, %31 ]
+thrift_get_varint_enc.exit.thread:                ; preds = %31, %34, %27, %thrift_get_varint_enc.exit.thread76, %83, %86, %72, %52, %21, %65, %40
+  %.0 = phi i32 [ -1, %40 ], [ -2, %65 ], [ %.064, %21 ], [ -1, %52 ], [ -1, %72 ], [ %85, %86 ], [ %85, %83 ], [ -2, %thrift_get_varint_enc.exit.thread76 ], [ -1, %27 ], [ -1, %34 ], [ %33, %31 ]
   ret i32 %.0
 }
 
@@ -1768,7 +1768,7 @@ thrift_get_varint_enc.exit.thread120:             ; preds = %84
   br label %thrift_get_varint_enc.exit.thread
 
 94:                                               ; preds = %87
-  %95 = trunc i64 %88 to i32
+  %95 = trunc nuw nsw i64 %88 to i32
   %96 = load i32, ptr @show_internal_thrift_fields, align 4
   %.not116 = icmp eq i32 %96, 0
   br i1 %.not116, label %99, label %97
@@ -1823,8 +1823,8 @@ thrift_get_varint_enc.exit.thread120:             ; preds = %84
   call void @p_set_proto_depth(ptr noundef %1, i32 noundef %114, i32 noundef %16) #7
   br label %thrift_get_varint_enc.exit.thread
 
-thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %81, %84, %78, %34, %32, %113, %90, %thrift_get_varint_enc.exit.thread120, %67, %40
-  %.0 = phi i32 [ -1, %40 ], [ -2, %67 ], [ -2, %90 ], [ %.2.lcssa, %113 ], [ -2, %thrift_get_varint_enc.exit.thread120 ], [ %.096, %32 ], [ -1, %34 ], [ -1, %78 ], [ -1, %84 ], [ %83, %81 ], [ %108, %.lr.ph ]
+thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %81, %84, %78, %thrift_get_varint_enc.exit.thread120, %34, %32, %113, %90, %67, %40
+  %.0 = phi i32 [ -1, %40 ], [ -2, %67 ], [ -2, %90 ], [ %.2.lcssa, %113 ], [ %.096, %32 ], [ -1, %34 ], [ -2, %thrift_get_varint_enc.exit.thread120 ], [ -1, %78 ], [ -1, %84 ], [ %83, %81 ], [ %108, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2155,7 +2155,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
   br label %thrift_get_varint_enc.exit.thread
 
 50:                                               ; preds = %43
-  %51 = trunc i64 %44 to i32
+  %51 = trunc nuw i64 %44 to i32
   %52 = add i32 %39, %.0122
   %53 = getelementptr inbounds i8, ptr %4, i64 48
   %54 = load i32, ptr %53, align 8
@@ -2289,8 +2289,8 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
   store i64 %116, ptr %117, align 8
   br label %thrift_get_varint_enc.exit.thread
 
-thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %37, %40, %34, %114, %115, %100, %102, %90, %92, %66, %31, %64, %55, %46, %thrift_get_varint_enc.exit.thread147
-  %.0 = phi i32 [ -2, %46 ], [ -1, %55 ], [ %52, %64 ], [ -2, %thrift_get_varint_enc.exit.thread147 ], [ -1, %31 ], [ -1, %66 ], [ -2, %92 ], [ -2, %90 ], [ -2, %102 ], [ -2, %100 ], [ %.0123, %115 ], [ %.0123, %114 ], [ -1, %34 ], [ -1, %40 ], [ %39, %37 ], [ %107, %.lr.ph ]
+thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %37, %40, %34, %thrift_get_varint_enc.exit.thread147, %114, %115, %100, %102, %90, %92, %66, %31, %64, %55, %46
+  %.0 = phi i32 [ -2, %46 ], [ -1, %55 ], [ %52, %64 ], [ -1, %31 ], [ -1, %66 ], [ -2, %92 ], [ -2, %90 ], [ -2, %102 ], [ -2, %100 ], [ %.0123, %115 ], [ %.0123, %114 ], [ -2, %thrift_get_varint_enc.exit.thread147 ], [ -1, %34 ], [ -1, %40 ], [ %39, %37 ], [ %107, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -3155,15 +3155,15 @@ define internal noundef i32 @dissect_thrift_heur(ptr noundef %0, ptr noundef %1,
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.037.i) #7
   %22 = and i32 %21, -65288
   %23 = icmp eq i32 %22, -2147418112
-  br i1 %23, label %24, label %42
+  br i1 %23, label %is_thrift_strict_version.exit.i, label %42
 
-24:                                               ; preds = %18
-  %25 = and i32 %21, 7
-  %26 = add nsw i32 %25, -1
-  %or.cond.i.i = icmp ult i32 %26, 4
-  br i1 %or.cond.i.i, label %is_thrift_strict_version.exit.i, label %42
+is_thrift_strict_version.exit.i:                  ; preds = %18
+  %24 = and i32 %21, 7
+  %25 = add nsw i32 %24, -5
+  %or.cond.i.i = icmp ult i32 %25, -4
+  br i1 %or.cond.i.i, label %42, label %26
 
-is_thrift_strict_version.exit.i:                  ; preds = %24
+26:                                               ; preds = %is_thrift_strict_version.exit.i
   %27 = add nuw nsw i32 %.037.i, 4
   %28 = tail call i32 @tvb_get_ntohil(ptr noundef %0, i32 noundef %27) #7
   %29 = add i32 %28, 13
@@ -3171,7 +3171,7 @@ is_thrift_strict_version.exit.i:                  ; preds = %24
   %or.cond.i = select i1 %20, i1 %30, i1 false
   br i1 %or.cond.i, label %42, label %31
 
-31:                                               ; preds = %is_thrift_strict_version.exit.i
+31:                                               ; preds = %26
   %32 = or disjoint i32 %.037.i, 8
   %33 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %32) #7
   %34 = icmp slt i32 %33, %28
@@ -3192,7 +3192,7 @@ test_thrift_strict.exit:                          ; preds = %38
   store i32 -2147362182, ptr %6, align 8
   br label %88
 
-42:                                               ; preds = %4, %14, %is_thrift_strict_version.exit.i, %31, %35, %38, %18, %24
+42:                                               ; preds = %4, %14, %is_thrift_strict_version.exit.i, %26, %31, %35, %38, %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %43 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %44 = icmp ult i32 %43, 5
@@ -3229,16 +3229,16 @@ test_thrift_strict.exit:                          ; preds = %38
   %59 = zext i16 %58 to i32
   %60 = and i32 %59, 65311
   %61 = icmp eq i32 %60, 33281
-  br i1 %61, label %62, label %test_thrift_compact.exit.thread
+  br i1 %61, label %is_thrift_compact_version.exit.i, label %test_thrift_compact.exit.thread
 
-62:                                               ; preds = %56
-  %63 = lshr i32 %59, 5
-  %64 = and i32 %63, 7
-  %65 = add nsw i32 %64, -1
-  %or.cond.i.i17 = icmp ult i32 %65, 4
-  br i1 %or.cond.i.i17, label %is_thrift_compact_version.exit.i, label %test_thrift_compact.exit.thread
+is_thrift_compact_version.exit.i:                 ; preds = %56
+  %62 = lshr i32 %59, 5
+  %63 = and i32 %62, 7
+  %64 = add nsw i32 %63, -5
+  %or.cond.i.i17 = icmp ult i32 %64, -4
+  br i1 %or.cond.i.i17, label %test_thrift_compact.exit.thread, label %65
 
-is_thrift_compact_version.exit.i:                 ; preds = %62
+65:                                               ; preds = %is_thrift_compact_version.exit.i
   %66 = or disjoint i32 %.04859.i, 2
   %67 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %66) #7
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %67, i32 5)
@@ -3246,7 +3246,7 @@ is_thrift_compact_version.exit.i:                 ; preds = %62
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %test_thrift_compact.exit.thread, label %70
 
-70:                                               ; preds = %is_thrift_compact_version.exit.i
+70:                                               ; preds = %65
   %71 = add i32 %68, %66
   %.not57.i = icmp ult i32 %71, %43
   br i1 %.not57.i, label %72, label %test_thrift_compact.exit.thread
@@ -3279,7 +3279,7 @@ is_thrift_compact_version.exit.i:                 ; preds = %62
   %87 = icmp slt i32 %86, 1
   br i1 %87, label %test_thrift_compact.exit.thread, label %test_thrift_compact.exit
 
-test_thrift_compact.exit.thread:                  ; preds = %42, %48, %is_thrift_compact_version.exit.i, %70, %72, %79, %82, %85, %56, %62, %75
+test_thrift_compact.exit.thread:                  ; preds = %42, %48, %is_thrift_compact_version.exit.i, %65, %70, %72, %79, %82, %85, %56, %75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %98
 
@@ -3541,7 +3541,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   %99 = call noalias ptr @wmem_alloc(ptr noundef %98, i64 noundef 8) #7
   %100 = load i64, ptr %9, align 8
   %101 = lshr i64 %100, 56
-  %102 = trunc i64 %101 to i8
+  %102 = trunc nuw i64 %101 to i8
   store i8 %102, ptr %99, align 1
   %103 = lshr i64 %100, 48
   %104 = trunc i64 %103 to i8
@@ -4370,7 +4370,7 @@ thrift_get_varint_enc.exit.thread.i:              ; preds = %104, %101, %96
   br label %dissect_thrift_compact_binary.exit.thread
 
 134:                                              ; preds = %126
-  %135 = trunc i64 %127 to i32
+  %135 = trunc nsw i64 %127 to i32
   %136 = load i32, ptr @hf_thrift_str_len, align 4
   %137 = load i32, ptr %3, align 4
   %138 = call ptr @proto_tree_add_int(ptr noundef %spec.select.i, i32 noundef %136, ptr noundef %0, i32 noundef %137, i32 noundef %103, i32 noundef %135) #7
@@ -4508,7 +4508,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %183, %186, %172
   br label %dissect_thrift_compact_map.exit.thread
 
 210:                                              ; preds = %202
-  %211 = trunc i64 %203 to i32
+  %211 = trunc nuw nsw i64 %203 to i32
   %212 = load i32, ptr @hf_thrift_num_map_item, align 4
   %213 = load i32, ptr %3, align 4
   %214 = call ptr @proto_tree_add_int(ptr noundef %179, i32 noundef %212, ptr noundef %0, i32 noundef %213, i32 noundef %185, i32 noundef %211) #7
@@ -5448,7 +5448,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
   br label %.loopexit
 
 90:                                               ; preds = %82
-  %91 = trunc i64 %83 to i32
+  %91 = trunc nuw nsw i64 %83 to i32
   %92 = call ptr @proto_tree_add_int(ptr noundef %45, i32 noundef %.086, ptr noundef %0, i32 noundef %85, i32 noundef %65, i32 noundef %91) #7
   %93 = load i32, ptr %3, align 4
   %94 = add i32 %93, %65

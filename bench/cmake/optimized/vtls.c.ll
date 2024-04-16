@@ -72,7 +72,7 @@ define dso_local void @Curl_ssl_easy_config_init(ptr nocapture noundef %0) local
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @Curl_ssl_conn_config_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
+define dso_local zeroext i1 @Curl_ssl_conn_config_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %. = select i1 %2, i64 1456, i64 1272
   %.10 = select i1 %2, i64 560, i64 448
   %4 = getelementptr inbounds i8, ptr %0, i64 %.
@@ -82,7 +82,7 @@ define dso_local noundef zeroext i1 @Curl_ssl_conn_config_match(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @match_ssl_primary_config(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @match_ssl_primary_config(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 104
@@ -212,14 +212,11 @@ define internal fastcc noundef zeroext i1 @match_ssl_primary_config(ptr nocaptur
   %94 = getelementptr inbounds i8, ptr %1, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = tail call i32 @curl_strequal(ptr noundef %93, ptr noundef %95) #18
-  %.not40 = icmp eq i32 %96, 0
-  br i1 %.not40, label %97, label %98
+  %.not40 = icmp ne i32 %96, 0
+  br label %97
 
-97:                                               ; preds = %91, %85, %79, %73, %67, %61, %55, %49, %45, %39, %33, %27, %20, %14, %8, %2
-  br label %98
-
-98:                                               ; preds = %91, %97
-  %.0 = phi i1 [ false, %97 ], [ true, %91 ]
+97:                                               ; preds = %91, %2, %8, %14, %20, %27, %33, %39, %45, %49, %55, %61, %67, %73, %79, %85
+  %.0 = phi i1 [ false, %85 ], [ false, %79 ], [ false, %73 ], [ false, %67 ], [ false, %61 ], [ false, %55 ], [ false, %49 ], [ false, %45 ], [ false, %39 ], [ false, %33 ], [ false, %27 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ %.not40, %91 ]
   ret i1 %.0
 }
 
@@ -361,7 +358,7 @@ define dso_local noundef i32 @Curl_ssl_easy_config_complete(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define dso_local i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1272
   %4 = getelementptr inbounds i8, ptr %1, i64 448
   %5 = tail call fastcc zeroext i1 @clone_ssl_primary_config(ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -380,7 +377,7 @@ define dso_local noundef i32 @Curl_ssl_conn_config_init(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @clone_ssl_primary_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @clone_ssl_primary_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 104
@@ -665,19 +662,16 @@ define internal fastcc noundef zeroext i1 @clone_ssl_primary_config(ptr nocaptur
   %155 = tail call ptr %154(ptr noundef nonnull %152) #18
   %156 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr %155, ptr %156, align 8
-  %.not94 = icmp eq ptr %155, null
-  br i1 %.not94, label %blobdup.exit, label %159
+  %.not94 = icmp ne ptr %155, null
+  br label %blobdup.exit
 
 157:                                              ; preds = %150
   %158 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr null, ptr %158, align 8
-  br label %159
-
-159:                                              ; preds = %157, %153
   br label %blobdup.exit
 
-blobdup.exit:                                     ; preds = %68, %51, %34, %153, %144, %135, %126, %117, %108, %99, %90, %83, %159
-  %.0 = phi i1 [ true, %159 ], [ false, %83 ], [ false, %90 ], [ false, %99 ], [ false, %108 ], [ false, %117 ], [ false, %126 ], [ false, %135 ], [ false, %144 ], [ false, %153 ], [ false, %34 ], [ false, %51 ], [ false, %68 ]
+blobdup.exit:                                     ; preds = %68, %51, %34, %153, %157, %144, %135, %126, %117, %108, %99, %90, %83
+  %.0 = phi i1 [ false, %83 ], [ false, %90 ], [ false, %99 ], [ false, %108 ], [ false, %117 ], [ false, %126 ], [ false, %135 ], [ false, %144 ], [ true, %157 ], [ %.not94, %153 ], [ false, %34 ], [ false, %51 ], [ false, %68 ]
   ret i1 %.0
 }
 
@@ -2645,7 +2639,7 @@ Curl_ssl_peer_cleanup.exit69:                     ; preds = %48, %49
 is_ip_address.exit:                               ; preds = %57, %58, %61, %63
   %67 = phi i32 [ 0, %58 ], [ 0, %57 ], [ 1, %61 ], [ %66, %63 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %68 = trunc i32 %67 to i8
+  %68 = trunc nuw nsw i32 %67 to i8
   %69 = load i8, ptr %27, align 8
   %70 = and i8 %69, -2
   %71 = or disjoint i8 %70, %68
@@ -3632,13 +3626,13 @@ define dso_local noundef i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef write
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %.lr.ph35
-  %9 = trunc i64 %6 to i32
+  %9 = trunc nuw i64 %6 to i32
   %10 = add nsw i32 %.0232933, %9
   %11 = icmp sgt i32 %10, 31
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %8
-  %13 = trunc i64 %6 to i8
+  %13 = trunc nuw nsw i64 %6 to i8
   %14 = add nsw i32 %.0232933, 1
   %15 = sext i32 %.0232933 to i64
   %16 = getelementptr inbounds [33 x i8], ptr %0, i64 0, i64 %15
@@ -3739,89 +3733,87 @@ define dso_local noundef i32 @Curl_alpn_set_negotiated(ptr nocapture noundef rea
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
   %12 = icmp eq ptr %11, @Curl_cft_ssl_proxy
-  br i1 %12, label %14, label %13
+  %spec.select = select i1 %12, i64 1149, i64 1148
+  br label %13
 
 13:                                               ; preds = %10, %4
-  br label %14
+  %.sink = phi i64 [ 1148, %4 ], [ %spec.select, %10 ]
+  %14 = getelementptr inbounds i8, ptr %6, i64 %.sink
+  %15 = icmp ne ptr %2, null
+  %16 = icmp ne i64 %3, 0
+  %or.cond = and i1 %15, %16
+  br i1 %or.cond, label %17, label %29
 
-14:                                               ; preds = %10, %13
-  %.sink = phi i64 [ 1148, %13 ], [ 1149, %10 ]
-  %15 = getelementptr inbounds i8, ptr %6, i64 %.sink
-  %16 = icmp ne ptr %2, null
-  %17 = icmp ne i64 %3, 0
-  %or.cond = and i1 %16, %17
-  br i1 %or.cond, label %18, label %30
-
-18:                                               ; preds = %14
-  switch i64 %3, label %21 [
-    i64 8, label %19
-    i64 2, label %20
+17:                                               ; preds = %13
+  switch i64 %3, label %20 [
+    i64 8, label %18
+    i64 2, label %19
   ]
 
-19:                                               ; preds = %18
+18:                                               ; preds = %17
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) @.str.7, ptr noundef nonnull dereferenceable(8) %2, i64 8)
   %.not34 = icmp eq i32 %bcmp, 0
-  br i1 %.not34, label %23, label %21
+  br i1 %.not34, label %22, label %20
 
-20:                                               ; preds = %18
+19:                                               ; preds = %17
   %bcmp35 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.8, ptr noundef nonnull dereferenceable(2) %2, i64 2)
   %.not36 = icmp eq i32 %bcmp35, 0
-  br i1 %.not36, label %23, label %21
+  br i1 %.not36, label %22, label %20
 
-21:                                               ; preds = %19, %18, %20
-  store i8 0, ptr %15, align 1
-  %22 = trunc i64 %3 to i32
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %22, ptr noundef nonnull %2) #18
-  br label %36
+20:                                               ; preds = %18, %17, %19
+  store i8 0, ptr %14, align 1
+  %21 = trunc i64 %3 to i32
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %21, ptr noundef nonnull %2) #18
+  br label %35
 
-23:                                               ; preds = %20, %19
-  %storemerge = phi i8 [ 2, %19 ], [ 3, %20 ]
-  %.0 = phi i32 [ 0, %19 ], [ 1, %20 ]
-  store i8 %storemerge, ptr %15, align 1
+22:                                               ; preds = %19, %18
+  %storemerge = phi i8 [ 2, %18 ], [ 3, %19 ]
+  %.0 = phi i32 [ 0, %18 ], [ 1, %19 ]
+  store i8 %storemerge, ptr %14, align 1
   %.not37 = icmp eq ptr %1, null
-  br i1 %.not37, label %36, label %24
+  br i1 %.not37, label %35, label %23
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 2642
-  %26 = load i64, ptr %25, align 2
-  %27 = and i64 %26, 268435456
-  %.not38 = icmp eq i64 %27, 0
-  br i1 %.not38, label %36, label %28
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds i8, ptr %1, i64 2642
+  %25 = load i64, ptr %24, align 2
+  %26 = and i64 %25, 268435456
+  %.not38 = icmp eq i64 %26, 0
+  br i1 %.not38, label %35, label %27
 
-28:                                               ; preds = %24
-  %29 = trunc i64 %3 to i32
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i32 noundef %29, ptr noundef nonnull %2) #18
-  br label %36
+27:                                               ; preds = %23
+  %28 = trunc i64 %3 to i32
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i32 noundef %28, ptr noundef nonnull %2) #18
+  br label %35
 
-30:                                               ; preds = %14
-  store i8 0, ptr %15, align 1
+29:                                               ; preds = %13
+  store i8 0, ptr %14, align 1
   %.not32 = icmp eq ptr %1, null
-  br i1 %.not32, label %36, label %31
+  br i1 %.not32, label %35, label %30
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 2642
-  %33 = load i64, ptr %32, align 2
-  %34 = and i64 %33, 268435456
-  %.not33 = icmp eq i64 %34, 0
-  br i1 %.not33, label %36, label %35
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %1, i64 2642
+  %32 = load i64, ptr %31, align 2
+  %33 = and i64 %32, 268435456
+  %.not33 = icmp eq i64 %33, 0
+  br i1 %.not33, label %35, label %34
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.11) #18
-  br label %36
+  br label %35
 
-36:                                               ; preds = %23, %24, %28, %30, %31, %35, %21
-  %.1 = phi i32 [ 0, %21 ], [ %.0, %28 ], [ %.0, %24 ], [ %.0, %23 ], [ 0, %35 ], [ 0, %31 ], [ 0, %30 ]
-  %37 = load ptr, ptr %0, align 8
-  %38 = icmp eq ptr %37, @Curl_cft_ssl_proxy
-  br i1 %38, label %41, label %39
+35:                                               ; preds = %22, %23, %27, %29, %30, %34, %20
+  %.1 = phi i32 [ 0, %20 ], [ %.0, %27 ], [ %.0, %23 ], [ %.0, %22 ], [ 0, %34 ], [ 0, %30 ], [ 0, %29 ]
+  %36 = load ptr, ptr %0, align 8
+  %37 = icmp eq ptr %36, @Curl_cft_ssl_proxy
+  br i1 %37, label %40, label %38
 
-39:                                               ; preds = %36
+38:                                               ; preds = %35
   %.not39 = icmp eq i32 %.1, 0
-  %40 = select i1 %.not39, i32 -1, i32 2
-  tail call void @Curl_multiuse_state(ptr noundef %1, i32 noundef %40) #18
-  br label %41
+  %39 = select i1 %.not39, i32 -1, i32 2
+  tail call void @Curl_multiuse_state(ptr noundef %1, i32 noundef %39) #18
+  br label %40
 
-41:                                               ; preds = %39, %36
+40:                                               ; preds = %38, %35
   ret i32 0
 }
 

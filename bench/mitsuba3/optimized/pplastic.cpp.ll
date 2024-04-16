@@ -2597,8 +2597,8 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %spec.select.i = icmp ult i32 %12, 2
   %13 = select i1 %.not, i1 %spec.select.i, i1 false
   %14 = and i32 %8, 2
-  %.not135 = icmp eq i32 %14, 0
-  br i1 %.not135, label %18, label %15
+  %.not136 = icmp eq i32 %14, 0
+  br i1 %.not136, label %18, label %15
 
 15:                                               ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
   %16 = icmp eq i32 %11, -1
@@ -2615,9 +2615,9 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %24 = load float, ptr %23, align 8
   %25 = fcmp contract ogt float %22, 0.000000e+00
   %26 = fcmp contract ogt float %24, 0.000000e+00
-  %.not138.not141 = and i1 %25, %26
+  %.not139.not142 = and i1 %25, %26
   %brmerge = or i1 %13, %19
-  %or.cond.not = select i1 %brmerge, i1 %.not138.not141, i1 false
+  %or.cond.not = select i1 %brmerge, i1 %.not139.not142, i1 false
   br i1 %or.cond.not, label %27, label %.critedge
 
 27:                                               ; preds = %18
@@ -2633,8 +2633,8 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %36 = fmul contract <4 x float> %35, %35
   %shift = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %37 = fadd contract <4 x float> %36, %shift
-  %shift154 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %38 = fadd contract <4 x float> %shift154, %37
+  %shift155 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %38 = fadd contract <4 x float> %shift155, %37
   %39 = extractelement <4 x float> %38, i64 0
   %40 = tail call contract noundef float @llvm.sqrt.f32(float %39)
   %41 = fdiv contract float 1.000000e+00, %40
@@ -2781,38 +2781,36 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %155 = fdiv contract float %149, %154
   %.pre = load <4 x float>, ptr %20, align 16
   %156 = extractelement <4 x float> %150, i64 2
-  %.pre142 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.pre, <4 x float> %151, i8 113)
-  %.pre143 = extractelement <4 x float> %.pre142, i64 0
+  %.pre143 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.pre, <4 x float> %151, i8 113)
+  %.pre144 = extractelement <4 x float> %.pre143, i64 0
   br label %157
 
 157:                                              ; preds = %148, %139
-  %.pre-phi144 = phi float [ %.pre143, %148 ], [ %142, %139 ]
+  %.pre-phi145 = phi float [ %.pre144, %148 ], [ %142, %139 ]
   %158 = phi float [ %156, %148 ], [ %60, %139 ]
   %159 = phi <4 x float> [ %150, %148 ], [ %33, %139 ]
   %160 = phi <4 x float> [ %151, %148 ], [ %44, %139 ]
   %storemerge = phi float [ %155, %148 ], [ %147, %139 ]
-  %161 = fcmp contract ugt float %.pre-phi144, 0.000000e+00
+  %161 = fcmp contract ugt float %.pre-phi145, 0.000000e+00
   br i1 %161, label %162, label %.thread
 
 162:                                              ; preds = %157
   %163 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %159, <4 x float> %160, i8 113)
   %164 = extractelement <4 x float> %163, i64 0
-  %165 = fcmp contract ugt float %164, 0.000000e+00
-  br i1 %165, label %166, label %.thread
+  %165 = fcmp contract ole float %164, 0.000000e+00
+  %spec.select135 = select i1 %165, float 0.000000e+00, float %storemerge
+  br label %.thread
 
 .thread:                                          ; preds = %157, %162
-  br label %166
-
-166:                                              ; preds = %.thread, %162
-  %.0134 = phi float [ 0.000000e+00, %.thread ], [ %storemerge, %162 ]
-  %167 = fmul contract float %spec.select, %.0134
-  %168 = fmul contract float %158, 0x3FD45F3060000000
-  %169 = fmul contract float %30, %168
-  %170 = fadd contract float %167, %169
+  %.0134 = phi float [ 0.000000e+00, %157 ], [ %spec.select135, %162 ]
+  %166 = fmul contract float %spec.select, %.0134
+  %167 = fmul contract float %158, 0x3FD45F3060000000
+  %168 = fmul contract float %30, %167
+  %169 = fadd contract float %166, %168
   br label %.critedge
 
-.critedge:                                        ; preds = %18, %166
-  %.0 = phi float [ %170, %166 ], [ 0.000000e+00, %18 ]
+.critedge:                                        ; preds = %18, %.thread
+  %.0 = phi float [ %169, %.thread ], [ 0.000000e+00, %18 ]
   ret float %.0
 }
 
@@ -9102,11 +9100,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba6VectorIiLm2EEEE4and_IS3_EES3_RKT_.exit.crite
   %.0.copyload.i.i = load i64, ptr %0, align 4
   %.sroa.0270.0.extract.trunc = trunc i64 %.0.copyload.i.i to i32
   %.sroa.2271.0.extract.shift = lshr i64 %.0.copyload.i.i, 32
-  %.sroa.2271.0.extract.trunc = trunc i64 %.sroa.2271.0.extract.shift to i32
+  %.sroa.2271.0.extract.trunc = trunc nuw i64 %.sroa.2271.0.extract.shift to i32
   %1 = trunc i64 %.0.copyload.i.i to i32
   %2 = and i32 %1, 2139095040
   %3 = lshr i64 %.0.copyload.i.i, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = and i32 %4, 2139095040
   %.sroa.0268.0.vec.insert = insertelement <2 x i32> poison, i32 %2, i64 0
   %.sroa.0268.4.vec.insert = insertelement <2 x i32> %.sroa.0268.0.vec.insert, i32 %5, i64 1

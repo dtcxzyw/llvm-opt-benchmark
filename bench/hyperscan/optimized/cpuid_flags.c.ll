@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @known_microarch = internal unnamed_addr constant [29 x %struct.family_id] [%struct.family_id { i32 6, i32 55, i32 4 }, %struct.family_id { i32 6, i32 74, i32 4 }, %struct.family_id { i32 6, i32 76, i32 4 }, %struct.family_id { i32 6, i32 77, i32 4 }, %struct.family_id { i32 6, i32 90, i32 4 }, %struct.family_id { i32 6, i32 93, i32 4 }, %struct.family_id { i32 6, i32 92, i32 8 }, %struct.family_id { i32 6, i32 95, i32 8 }, %struct.family_id { i32 6, i32 60, i32 3 }, %struct.family_id { i32 6, i32 69, i32 3 }, %struct.family_id { i32 6, i32 70, i32 3 }, %struct.family_id { i32 6, i32 63, i32 3 }, %struct.family_id { i32 6, i32 62, i32 2 }, %struct.family_id { i32 6, i32 58, i32 2 }, %struct.family_id { i32 6, i32 42, i32 1 }, %struct.family_id { i32 6, i32 45, i32 1 }, %struct.family_id { i32 6, i32 61, i32 5 }, %struct.family_id { i32 6, i32 71, i32 5 }, %struct.family_id { i32 6, i32 79, i32 5 }, %struct.family_id { i32 6, i32 86, i32 5 }, %struct.family_id { i32 6, i32 78, i32 6 }, %struct.family_id { i32 6, i32 94, i32 6 }, %struct.family_id { i32 6, i32 85, i32 7 }, %struct.family_id { i32 6, i32 142, i32 6 }, %struct.family_id { i32 6, i32 158, i32 6 }, %struct.family_id { i32 6, i32 125, i32 9 }, %struct.family_id { i32 6, i32 126, i32 9 }, %struct.family_id { i32 6, i32 106, i32 10 }, %struct.family_id { i32 6, i32 108, i32 10 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i64 @cpuid_flags() local_unnamed_addr #0 {
+define hidden i64 @cpuid_flags() local_unnamed_addr #0 {
 entry:
   %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #2, !srcloc !5
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %0, 2
@@ -27,20 +27,18 @@ check_avx2.exit:                                  ; preds = %if.end.i
   %3 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #2, !srcloc !5
   %.fr = freeze { i32, i32, i32, i32 } %3
   %asmresult1.i4.i = extractvalue { i32, i32, i32, i32 } %.fr, 1
-  %4 = and i32 %asmresult1.i4.i, 32
-  %tobool.not = icmp eq i32 %4, 0
-  br i1 %tobool.not, label %check_avx2.exit.thread, label %5
+  %4 = lshr i32 %asmresult1.i4.i, 3
+  %5 = and i32 %4, 4
+  %6 = zext nneg i32 %5 to i64
+  br label %check_avx2.exit.thread
 
-check_avx2.exit.thread:                           ; preds = %if.end.i, %entry, %check_avx2.exit
-  br label %5
-
-5:                                                ; preds = %check_avx2.exit, %check_avx2.exit.thread
-  %6 = phi i64 [ 0, %check_avx2.exit.thread ], [ 4, %check_avx2.exit ]
+check_avx2.exit.thread:                           ; preds = %check_avx2.exit, %if.end.i, %entry
+  %and15 = phi i64 [ 0, %entry ], [ 0, %if.end.i ], [ %6, %check_avx2.exit ]
   %and.i7 = and i32 %asmresult2.i.i, 134217728
   %tobool.not.i = icmp eq i32 %and.i7, 0
   br i1 %tobool.not.i, label %check_avx512vbmi.exit.thread, label %if.end.i8
 
-if.end.i8:                                        ; preds = %5
+if.end.i8:                                        ; preds = %check_avx2.exit.thread
   %7 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !6
   %asmresult.i1.i9 = extractvalue { i32, i32 } %7, 0
   %8 = and i32 %asmresult.i1.i9, 224
@@ -62,8 +60,8 @@ if.end5.i20:                                      ; preds = %if.end.i16
   %12 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #2, !srcloc !5
   br label %check_avx512vbmi.exit.thread
 
-check_avx512vbmi.exit.thread:                     ; preds = %if.end5.i20, %5, %if.end.i16
-  ret i64 %6
+check_avx512vbmi.exit.thread:                     ; preds = %if.end5.i20, %check_avx2.exit.thread, %if.end.i16
+  ret i64 %and15
 }
 
 ; Function Attrs: nofree nosync nounwind memory(none) uwtable

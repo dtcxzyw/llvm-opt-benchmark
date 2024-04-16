@@ -1884,7 +1884,7 @@ define dso_local noundef i32 @mei_me_polling_thread(ptr noundef %0) #0 align 16 
 
 64:                                               ; preds = %59, %61
   %65 = phi i64 [ 100, %59 ], [ %63, %61 ]
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw nsw i64 %65 to i32
   %67 = call i64 @__msecs_to_jiffies(i32 noundef %66) #16
   %68 = call i64 @schedule_timeout_interruptible(i64 noundef %67) #16
   %69 = call zeroext i1 @kthread_should_stop() #16
@@ -3232,7 +3232,7 @@ define internal noundef i32 @mei_me_hw_config(ptr noundef %0) #0 align 16 {
 
 33:                                               ; preds = %30, %26, %13, %7
   %34 = lshr i32 %11, 24
-  %35 = trunc i32 %34 to i8
+  %35 = trunc nuw i32 %34 to i8
   %36 = getelementptr inbounds i8, ptr %0, i64 3745
   store i8 %35, ptr %36, align 1
   store i32 0, ptr %2, align 4
@@ -3283,7 +3283,7 @@ define internal noundef i32 @mei_me_hw_config(ptr noundef %0) #0 align 16 {
   %62 = load i32, ptr %2, align 4
   %63 = getelementptr inbounds i8, ptr %0, i64 3744
   %64 = lshr i32 %62, 31
-  %65 = trunc i32 %64 to i8
+  %65 = trunc nuw nsw i32 %64 to i8
   store i8 %65, ptr %63, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 3740
   store i32 0, ptr %66, align 4
@@ -3567,7 +3567,7 @@ define internal noundef zeroext i1 @mei_me_pg_is_enabled(ptr nocapture noundef r
   %28 = getelementptr inbounds i8, ptr %0, i64 3744
   %29 = load i8, ptr %28, align 8, !range !6, !noundef !7
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %40
+  br i1 %30, label %31, label %39
 
 31:                                               ; preds = %27
   %32 = and i32 %5, 64
@@ -3578,15 +3578,12 @@ define internal noundef zeroext i1 @mei_me_pg_is_enabled(ptr nocapture noundef r
   %35 = getelementptr inbounds i8, ptr %0, i64 3322
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 1
-  %38 = icmp eq i16 %37, 0
-  br i1 %38, label %39, label %40
+  %38 = icmp ne i16 %37, 0
+  br label %39
 
-39:                                               ; preds = %34, %31
-  br label %40
-
-40:                                               ; preds = %39, %34, %27
-  %41 = phi i1 [ false, %39 ], [ true, %27 ], [ true, %34 ]
-  ret i1 %41
+39:                                               ; preds = %34, %31, %27
+  %40 = phi i1 [ true, %27 ], [ false, %31 ], [ %38, %34 ]
+  ret i1 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

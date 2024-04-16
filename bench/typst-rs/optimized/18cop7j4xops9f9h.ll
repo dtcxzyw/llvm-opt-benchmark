@@ -102,7 +102,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core3ops8func
   %4 = load i8, ptr %3, align 8, !range !13, !alias.scope !14, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i.i.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i.i.i, label %8 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -153,14 +153,14 @@ define internal fastcc void @_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE(
 
 11:                                               ; preds = %7
   %12 = lshr i32 %1, 6
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %5, align 4, !alias.scope !17
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 15:                                               ; preds = %9
   %16 = lshr i32 %1, 12
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %5, align 4, !alias.scope !17
   %19 = lshr i32 %1, 6
@@ -203,7 +203,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %11, 
   br label %_ZN4ecow7dynamic10DynamicVec4push17h5dfa790286aa0757E.exit
 
 .critedge:                                        ; preds = %2
-  %43 = trunc i32 %1 to i8
+  %43 = trunc nuw i32 %1 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %44 = getelementptr inbounds i8, ptr %0, i64 15
   %45 = load i8, ptr %44, align 1, !alias.scope !20, !noundef !15
@@ -476,7 +476,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
   %8 = load i8, ptr %7, align 8, !range !13, !alias.scope !54, !noundef !15
   %9 = and i8 %8, -2
   %10 = icmp eq i8 %9, -126
-  %11 = add i8 %8, 127
+  %11 = add nsw i8 %8, 127
   %trunc.i.i.i.i = select i1 %10, i8 %11, i8 0
   switch i8 %trunc.i.i.i.i, label %12 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i
@@ -530,7 +530,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %9 = load i8, ptr %8, align 8, !range !13, !alias.scope !58, !noalias !64, !noundef !15
   %10 = and i8 %9, -2
   %11 = icmp eq i8 %10, -126
-  %12 = add i8 %9, 127
+  %12 = add nsw i8 %9, 127
   %trunc.i.i = select i1 %11, i8 %12, i8 0
   switch i8 %trunc.i.i, label %13 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -675,7 +675,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast4Expr15cast_with_space17h37bca45a53400
   %3 = load i8, ptr %2, align 8, !range !13, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -730,7 +730,7 @@ define { i64, ptr } @"_ZN70_$LT$typst_syntax..ast..Expr$u20$as$u20$typst_syntax.
   %3 = load i8, ptr %2, align 8, !range !13, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -1802,7 +1802,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12typst_syntax3ast4Te
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !263, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %8
@@ -1834,7 +1834,7 @@ define noundef i32 @_ZN12typst_syntax3ast6Escape3get17h123714497855709fE(ptr noa
   %4 = load i8, ptr %3, align 8, !range !13, !alias.scope !266, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i, label %8 [
     i8 0, label %9
@@ -1893,13 +1893,13 @@ _ZN8unscanny7Scanner6expect17h78b9bda79922f627E.exit: ; preds = %"_ZN8unscanny75
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @anon.432c17c47d53cdc74afa05871f75f140.45, ptr noundef nonnull dereferenceable(2) %24, i64 2), !alias.scope !275, !noalias !282
   %bcmp.i.i.fr.i.i = freeze i32 %bcmp.i.i.i.i
   %25 = icmp eq i32 %bcmp.i.i.fr.i.i, 0
-  br i1 %25, label %66, label %26
+  br i1 %25, label %67, label %26
 
 26:                                               ; preds = %"_ZN8unscanny78_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$RF$str$GT$7matches17hdcfe78689c5b0692E.exit.i", %_ZN8unscanny7Scanner6expect17h78b9bda79922f627E.exit
   %27 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.sroa.12.0
   %28 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.sroa.3.0.i
   %29 = icmp eq i64 %.sroa.12.0, %.sroa.3.0.i
-  br i1 %29, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread33, label %30
+  br i1 %29, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread, label %30
 
 30:                                               ; preds = %26
   %31 = load i8, ptr %27, align 1, !noalias !285, !noundef !15
@@ -1951,155 +1951,160 @@ _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i: ; preds = %"_ZN91_$LT$core
   %62 = or disjoint i32 %59, %61
   %63 = or disjoint i32 %62, %58
   %.not.i = icmp eq i32 %63, 1114112
-  br i1 %.not.i, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread33, label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i
+  br i1 %.not.i, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread, label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i
 
 _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i: ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i"
   %64 = phi i32 [ %63, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i" ], [ %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i" ]
-  %.fr38 = freeze i32 %64
-  %65 = icmp eq i32 %.fr38, 1114112
-  br i1 %65, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread33, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
+  %.fr = freeze i32 %64
+  %65 = icmp ult i32 %.fr, 2048
+  br i1 %65, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit
 
-_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread33: ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i, %26, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i
+_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit: ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i
+  %66 = icmp eq i32 %.fr, 1114112
+  %spec.select = select i1 %66, i32 0, i32 %.fr
   br label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
 
-66:                                               ; preds = %"_ZN8unscanny78_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$RF$str$GT$7matches17hdcfe78689c5b0692E.exit.i"
-  %67 = or disjoint i64 %.sroa.12.0, 2
-  %68 = icmp eq i64 %.sroa.3.0.i, %67
-  br i1 %68, label %.lr.ph.i.i.preheader, label %.lr.ph.i
+67:                                               ; preds = %"_ZN8unscanny78_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$RF$str$GT$7matches17hdcfe78689c5b0692E.exit.i"
+  %68 = or disjoint i64 %.sroa.12.0, 2
+  %69 = icmp eq i64 %.sroa.3.0.i, %68
+  br i1 %69, label %.lr.ph.i.i.preheader, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %66, %123
-  %69 = phi i64 [ %124, %123 ], [ %67, %66 ]
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %69
-  %71 = sub i64 %.sroa.3.0.i, %69
-  %72 = load i8, ptr %70, align 1, !alias.scope !292, !noalias !295, !noundef !15
-  %73 = icmp sgt i8 %72, -1
-  br i1 %73, label %84, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i17"
+.lr.ph.i:                                         ; preds = %67, %124
+  %70 = phi i64 [ %125, %124 ], [ %68, %67 ]
+  %71 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %70
+  %72 = sub i64 %.sroa.3.0.i, %70
+  %73 = load i8, ptr %71, align 1, !alias.scope !292, !noalias !295, !noundef !15
+  %74 = icmp sgt i8 %73, -1
+  br i1 %74, label %85, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i17"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i17": ; preds = %.lr.ph.i
-  %74 = getelementptr inbounds i8, ptr %70, i64 1
-  %75 = and i8 %72, 31
-  %76 = zext nneg i8 %75 to i32
-  %77 = icmp ne i64 %71, 1
-  call void @llvm.assume(i1 %77)
-  %78 = load i8, ptr %74, align 1, !alias.scope !292, !noalias !295, !noundef !15
-  %79 = shl nuw nsw i32 %76, 6
-  %80 = and i8 %78, 63
-  %81 = zext nneg i8 %80 to i32
-  %82 = or disjoint i32 %79, %81
-  %83 = icmp ugt i8 %72, -33
-  br i1 %83, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18", label %.thread5.i.i
+  %75 = getelementptr inbounds i8, ptr %71, i64 1
+  %76 = and i8 %73, 31
+  %77 = zext nneg i8 %76 to i32
+  %78 = icmp ne i64 %72, 1
+  call void @llvm.assume(i1 %78)
+  %79 = load i8, ptr %75, align 1, !alias.scope !292, !noalias !295, !noundef !15
+  %80 = shl nuw nsw i32 %77, 6
+  %81 = and i8 %79, 63
+  %82 = zext nneg i8 %81 to i32
+  %83 = or disjoint i32 %80, %82
+  %84 = icmp ugt i8 %73, -33
+  br i1 %84, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18", label %.thread5.i.i
 
-84:                                               ; preds = %.lr.ph.i
-  %85 = zext nneg i8 %72 to i32
+85:                                               ; preds = %.lr.ph.i
+  %86 = zext nneg i8 %73 to i32
   br label %.thread5.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i17"
-  %86 = getelementptr inbounds i8, ptr %70, i64 2
-  %87 = icmp ne i64 %71, 2
-  call void @llvm.assume(i1 %87)
-  %88 = load i8, ptr %86, align 1, !alias.scope !292, !noalias !295, !noundef !15
-  %89 = shl nuw nsw i32 %81, 6
-  %90 = and i8 %88, 63
-  %91 = zext nneg i8 %90 to i32
-  %92 = or disjoint i32 %89, %91
-  %93 = shl nuw nsw i32 %76, 12
-  %94 = or disjoint i32 %92, %93
-  %95 = icmp ugt i8 %72, -17
-  br i1 %95, label %96, label %.thread5.i.i
+  %87 = getelementptr inbounds i8, ptr %71, i64 2
+  %88 = icmp ne i64 %72, 2
+  call void @llvm.assume(i1 %88)
+  %89 = load i8, ptr %87, align 1, !alias.scope !292, !noalias !295, !noundef !15
+  %90 = shl nuw nsw i32 %82, 6
+  %91 = and i8 %89, 63
+  %92 = zext nneg i8 %91 to i32
+  %93 = or disjoint i32 %90, %92
+  %94 = shl nuw nsw i32 %77, 12
+  %95 = or disjoint i32 %93, %94
+  %96 = icmp ugt i8 %73, -17
+  br i1 %96, label %97, label %.thread5.i.i
 
-96:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18"
-  %97 = getelementptr inbounds i8, ptr %70, i64 3
-  %98 = icmp ne i64 %71, 3
-  call void @llvm.assume(i1 %98)
-  %99 = load i8, ptr %97, align 1, !alias.scope !292, !noalias !295, !noundef !15
-  %100 = shl nuw nsw i32 %76, 18
-  %101 = and i32 %100, 1835008
-  %102 = shl nuw nsw i32 %92, 6
-  %103 = and i8 %99, 63
-  %104 = zext nneg i8 %103 to i32
-  %105 = or disjoint i32 %102, %104
-  %106 = or disjoint i32 %105, %101
-  %.not.i.i.i19 = icmp eq i32 %106, 1114112
+97:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18"
+  %98 = getelementptr inbounds i8, ptr %71, i64 3
+  %99 = icmp ne i64 %72, 3
+  call void @llvm.assume(i1 %99)
+  %100 = load i8, ptr %98, align 1, !alias.scope !292, !noalias !295, !noundef !15
+  %101 = shl nuw nsw i32 %77, 18
+  %102 = and i32 %101, 1835008
+  %103 = shl nuw nsw i32 %93, 6
+  %104 = and i8 %100, 63
+  %105 = zext nneg i8 %104 to i32
+  %106 = or disjoint i32 %103, %105
+  %107 = or disjoint i32 %106, %102
+  %.not.i.i.i19 = icmp eq i32 %107, 1114112
   br i1 %.not.i.i.i19, label %.thread5.i._crit_edge.i, label %.thread5.i.i
 
-.thread5.i.i:                                     ; preds = %96, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18", %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i17"
-  %.sroa.4.0.i.ph8.i.i = phi i32 [ %106, %96 ], [ %85, %84 ], [ %94, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18" ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i17" ]
-  %107 = add nsw i32 %.sroa.4.0.i.ph8.i.i, -58
-  %.0.i.i.i.i.i.i = icmp ult i32 %107, -10
-  %108 = and i32 %.sroa.4.0.i.ph8.i.i, 2097119
-  %109 = add nsw i32 %108, -71
-  %110 = icmp ult i32 %109, -6
-  %or.cond.i.i = and i1 %.0.i.i.i.i.i.i, %110
-  br i1 %or.cond.i.i, label %.thread5.i._crit_edge.i, label %111
+.thread5.i.i:                                     ; preds = %97, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18", %85, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i17"
+  %.sroa.4.0.i.ph8.i.i = phi i32 [ %107, %97 ], [ %86, %85 ], [ %95, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i18" ], [ %83, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i17" ]
+  %108 = add nsw i32 %.sroa.4.0.i.ph8.i.i, -58
+  %.0.i.i.i.i.i.i = icmp ult i32 %108, -10
+  %109 = and i32 %.sroa.4.0.i.ph8.i.i, 2097119
+  %110 = add nsw i32 %109, -71
+  %111 = icmp ult i32 %110, -6
+  %or.cond.i.i = and i1 %.0.i.i.i.i.i.i, %111
+  br i1 %or.cond.i.i, label %.thread5.i._crit_edge.i, label %112
 
-111:                                              ; preds = %.thread5.i.i
-  %112 = icmp ult i32 %.sroa.4.0.i.ph8.i.i, 128
-  br i1 %112, label %123, label %113
+112:                                              ; preds = %.thread5.i.i
+  %113 = icmp ult i32 %.sroa.4.0.i.ph8.i.i, 128
+  br i1 %113, label %124, label %114
 
-113:                                              ; preds = %111
-  %114 = icmp ult i32 %.sroa.4.0.i.ph8.i.i, 2048
-  br i1 %114, label %123, label %115
+114:                                              ; preds = %112
+  %115 = icmp ult i32 %.sroa.4.0.i.ph8.i.i, 2048
+  br i1 %115, label %124, label %116
 
-115:                                              ; preds = %113
-  %116 = icmp ult i32 %.sroa.4.0.i.ph8.i.i, 65536
-  %..i.i.i.i = select i1 %116, i64 3, i64 4
-  br label %123
+116:                                              ; preds = %114
+  %117 = icmp ult i32 %.sroa.4.0.i.ph8.i.i, 65536
+  %..i.i.i.i = select i1 %117, i64 3, i64 4
+  br label %124
 
-.thread5.i._crit_edge.i:                          ; preds = %123, %.thread5.i.i, %96
-  %.lcssa.i = phi i64 [ %69, %.thread5.i.i ], [ %69, %96 ], [ %.sroa.3.0.i, %123 ]
+.thread5.i._crit_edge.i:                          ; preds = %124, %.thread5.i.i, %97
+  %.lcssa.i = phi i64 [ %70, %.thread5.i.i ], [ %70, %97 ], [ %.sroa.3.0.i, %124 ]
   br i1 %.not.i.i.i, label %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i.preheader:                             ; preds = %66, %.thread5.i._crit_edge.i
-  %.lcssa.i41 = phi i64 [ %.lcssa.i, %.thread5.i._crit_edge.i ], [ %.sroa.3.0.i, %66 ]
-  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %67, i64 %.sroa.3.0.i)
+.lr.ph.i.i.preheader:                             ; preds = %67, %.thread5.i._crit_edge.i
+  %.lcssa.i40 = phi i64 [ %.lcssa.i, %.thread5.i._crit_edge.i ], [ %.sroa.3.0.i, %67 ]
+  %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %68, i64 %.sroa.3.0.i)
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %120
-  %.02.i.i = phi i64 [ %121, %120 ], [ %.0.sroa.speculated.i.i.i, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %121
+  %.02.i.i = phi i64 [ %122, %121 ], [ %.0.sroa.speculated.i.i.i, %.lr.ph.i.i.preheader ]
   %.not.i.i19.i = icmp ult i64 %.02.i.i, %.sroa.3.0.i
   br i1 %.not.i.i19.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", label %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i": ; preds = %.lr.ph.i.i
-  %117 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.02.i.i
-  %118 = load i8, ptr %117, align 1, !alias.scope !300, !noalias !303, !noundef !15
-  %119 = icmp sgt i8 %118, -65
-  br i1 %119, label %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit, label %120
+  %118 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.02.i.i
+  %119 = load i8, ptr %118, align 1, !alias.scope !300, !noalias !303, !noundef !15
+  %120 = icmp sgt i8 %119, -65
+  br i1 %120, label %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit, label %121
 
-120:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i"
-  %121 = add nsw i64 %.02.i.i, -1
-  %122 = icmp eq i64 %121, 0
-  br i1 %122, label %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit, label %.lr.ph.i.i
+121:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i"
+  %122 = add nsw i64 %.02.i.i, -1
+  %123 = icmp eq i64 %122, 0
+  br i1 %123, label %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit, label %.lr.ph.i.i
 
-123:                                              ; preds = %115, %113, %111
-  %.sroa.3.0.i.ph.i = phi i64 [ 2, %113 ], [ %..i.i.i.i, %115 ], [ 1, %111 ]
-  %124 = add i64 %.sroa.3.0.i.ph.i, %69
-  %125 = icmp eq i64 %.sroa.3.0.i, %124
-  br i1 %125, label %.thread5.i._crit_edge.i, label %.lr.ph.i
+124:                                              ; preds = %116, %114, %112
+  %.sroa.3.0.i.ph.i = phi i64 [ 2, %114 ], [ %..i.i.i.i, %116 ], [ 1, %112 ]
+  %125 = add i64 %.sroa.3.0.i.ph.i, %70
+  %126 = icmp eq i64 %.sroa.3.0.i, %125
+  br i1 %126, label %.thread5.i._crit_edge.i, label %.lr.ph.i
 
-_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit: ; preds = %.lr.ph.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %120, %.thread5.i._crit_edge.i
-  %.lcssa.i42 = phi i64 [ %.lcssa.i, %.thread5.i._crit_edge.i ], [ %.lcssa.i41, %120 ], [ %.lcssa.i41, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ %.lcssa.i41, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i64 [ 0, %.thread5.i._crit_edge.i ], [ %.02.i.i, %.lr.ph.i.i ], [ %.02.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ 0, %120 ]
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.0.lcssa.i.i, i64 %.lcssa.i42)
-  %126 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.0.sroa.speculated.i.i
-  %127 = sub i64 %.lcssa.i42, %.0.sroa.speculated.i.i
-  %128 = call i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT$14from_str_radix17h3ad401725cbfa06bE"(ptr noalias noundef nonnull readonly align 1 %126, i64 noundef %127, i32 noundef 16)
-  %.fr = freeze i64 %128
-  %trunc = trunc i64 %.fr to i1
-  br i1 %trunc, label %.thread, label %129
+_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit: ; preds = %.lr.ph.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i", %121, %.thread5.i._crit_edge.i
+  %.lcssa.i41 = phi i64 [ %.lcssa.i, %.thread5.i._crit_edge.i ], [ %.lcssa.i40, %121 ], [ %.lcssa.i40, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ %.lcssa.i40, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi i64 [ 0, %.thread5.i._crit_edge.i ], [ %.02.i.i, %.lr.ph.i.i ], [ %.02.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i" ], [ 0, %121 ]
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.0.lcssa.i.i, i64 %.lcssa.i41)
+  %127 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.0.sroa.speculated.i.i
+  %128 = sub i64 %.lcssa.i41, %.0.sroa.speculated.i.i
+  %129 = call i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT$14from_str_radix17h3ad401725cbfa06bE"(ptr noalias noundef nonnull readonly align 1 %127, i64 noundef %128, i32 noundef 16)
+  %trunc = trunc i64 %129 to i1
+  %.sroa.510.0.extract.shift = lshr i64 %129, 32
+  %.sroa.510.0.extract.trunc = trunc nuw i64 %.sroa.510.0.extract.shift to i32
+  %.sroa.5.0 = select i1 %trunc, i32 undef, i32 %.sroa.510.0.extract.trunc
+  %.sroa.5.0.fr = freeze i32 %.sroa.5.0
+  br i1 %trunc, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread, label %130
 
-_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread: ; preds = %129, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i, %.thread, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread33
-  %.1 = phi i32 [ 0, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread33 ], [ 0, %.thread ], [ %43, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i ], [ %.fr38, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i ], [ %.sroa.510.0.extract.trunc, %129 ]
+_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread: ; preds = %134, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit, %130, %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit, %26, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i
+  %.1 = phi i32 [ %43, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i ], [ %.fr, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i ], [ 0, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i ], [ 0, %26 ], [ 0, %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit ], [ 0, %130 ], [ %spec.select, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit ], [ %spec.select38, %134 ]
   ret i32 %.1
 
-129:                                              ; preds = %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit
-  %.sroa.510.0.extract.shift = lshr i64 %.fr, 32
-  %.sroa.510.0.extract.trunc = trunc i64 %.sroa.510.0.extract.shift to i32
-  %130 = xor i32 %.sroa.510.0.extract.trunc, 55296
-  %131 = add i32 %130, -1114112
-  %132 = icmp ult i32 %131, -1112064
-  br i1 %132, label %.thread, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
+130:                                              ; preds = %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit
+  %131 = xor i32 %.sroa.510.0.extract.trunc, 55296
+  %132 = add i32 %131, -1114112
+  %133 = icmp ult i32 %132, -1112064
+  br i1 %133, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread, label %134
 
-.thread:                                          ; preds = %129, %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit
+134:                                              ; preds = %130
+  %135 = icmp eq i32 %.sroa.5.0.fr, 1114112
+  %spec.select38 = select i1 %135, i32 0, i32 %.sroa.5.0.fr
   br label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
 }
 
@@ -2109,7 +2114,7 @@ define noundef i32 @_ZN12typst_syntax3ast9Shorthand3get17h08c99a9998081aeeE(ptr 
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !304, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %8
@@ -2224,7 +2229,7 @@ define noundef zeroext i1 @_ZN12typst_syntax3ast10SmartQuote6double17h9e52ffdc95
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !349, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %8
@@ -2298,7 +2303,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !370, !noalias !371, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -2360,7 +2365,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !390, !noalias !391, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -2446,7 +2451,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -2510,7 +2515,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit: ; preds = %25, 
   %41 = load i8, ptr %40, align 8, !range !13, !alias.scope !435, !noalias !436, !noundef !15
   %42 = and i8 %41, -2
   %43 = icmp eq i8 %42, -126
-  %44 = add i8 %41, 127
+  %44 = add nsw i8 %41, 127
   %trunc.i.i.i.i.i13 = select i1 %43, i8 %44, i8 0
   switch i8 %trunc.i.i.i.i.i13, label %45 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i18
@@ -2569,7 +2574,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -2631,7 +2636,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit: ; preds = %25, 
   %41 = load i8, ptr %40, align 8, !range !13, !alias.scope !465, !noalias !471, !noundef !15
   %42 = and i8 %41, -2
   %43 = icmp eq i8 %42, -126
-  %44 = add i8 %41, 127
+  %44 = add nsw i8 %41, 127
   %trunc.i.i.i = select i1 %43, i8 %44, i8 0
   switch i8 %trunc.i.i.i, label %45 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -2756,7 +2761,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12typst_syntax3ast7Ra
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !486, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %8
@@ -2787,7 +2792,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12typst_syntax3ast4Li
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !489, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %8
@@ -2824,7 +2829,7 @@ define { ptr, i64 } @_ZN12typst_syntax3ast5Label3get17h5fe44769ac062a9aE(ptr noa
   %9 = load i8, ptr %8, align 8, !range !13, !alias.scope !492, !noundef !15
   %10 = and i8 %9, -2
   %11 = icmp eq i8 %10, -126
-  %12 = add i8 %9, 127
+  %12 = add nsw i8 %9, 127
   %trunc.i = select i1 %11, i8 %12, i8 0
   switch i8 %trunc.i, label %13 [
     i8 0, label %14
@@ -2990,7 +2995,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %17 = load i8, ptr %16, align 8, !range !13, !noundef !15
   %18 = and i8 %17, -2
   %19 = icmp eq i8 %18, -126
-  %20 = add i8 %17, 127
+  %20 = add nsw i8 %17, 127
   %trunc.i.i.i = select i1 %19, i8 %20, i8 0
   switch i8 %trunc.i.i.i, label %21 [
     i8 0, label %"_ZN12typst_syntax3ast3Ref6target28_$u7b$$u7b$closure$u7d$$u7d$17h5e68f23d4d4916b9E.exit.i"
@@ -3154,7 +3159,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !576, !noalias !577, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -3213,7 +3218,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i, label %18 [
     i8 0, label %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17h101d4a52aa935d6fE.exit.i"
@@ -3265,15 +3270,12 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
 
 "_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit": ; preds = %34, %25
   %.05 = phi i64 [ %37, %34 ], [ %33, %25 ]
-  %38 = icmp eq i64 %.05, 0
-  br i1 %38, label %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit.thread", label %39
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.05, i64 1)
+  br label %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit.thread"
 
-"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit.thread": ; preds = %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17h101d4a52aa935d6fE.exit.thread.i", %1, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit, %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit"
-  br label %39
-
-39:                                               ; preds = %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit", %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit.thread"
-  %40 = phi i64 [ 1, %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit.thread" ], [ %.05, %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit" ]
-  ret i64 %40
+"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit.thread": ; preds = %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17h101d4a52aa935d6fE.exit.thread.i", %1, %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit", %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
+  %38 = phi i64 [ 1, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit ], [ %spec.select, %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17hd894d2a5ed0a0b59E.exit" ], [ 1, %1 ], [ 1, %"_ZN12typst_syntax3ast7Heading5depth28_$u7b$$u7b$closure$u7d$$u7d$17h101d4a52aa935d6fE.exit.thread.i" ]
+  ret i64 %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -3305,7 +3307,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !618, !noalias !619, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -3377,7 +3379,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %26 = load i8, ptr %25, align 8, !range !13, !alias.scope !626, !noalias !632, !noundef !15
   %27 = and i8 %26, -2
   %28 = icmp eq i8 %27, -126
-  %29 = add i8 %26, 127
+  %29 = add nsw i8 %26, 127
   %trunc.i.i.i = select i1 %28, i8 %29, i8 0
   switch i8 %trunc.i.i.i, label %30 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -3458,7 +3460,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h22bcc914ec6d9084E.llvm
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !641
   call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h233f5a575f944c14E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %53), !noalias !632
   %54 = load i8, ptr %5, align 8, !range !655, !noalias !637, !noundef !15
-  %trunc.i.i = trunc i8 %54 to i1
+  %trunc.i.i = trunc nuw i8 %54 to i1
   %55 = load i64, ptr %21, align 8, !noalias !637
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !637
   br i1 %trunc.i.i, label %.backedge.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h7efb9c5ab0fa1853E.exit"
@@ -3504,7 +3506,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !671, !noalias !672, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -3566,7 +3568,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !691, !noalias !692, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -3661,7 +3663,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !718, !noalias !719, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -3727,7 +3729,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %.val6.i = load i8, ptr %17, align 8, !range !13, !alias.scope !729, !noundef !15
   %18 = and i8 %.val6.i, -2
   %19 = icmp eq i8 %18, -126
-  %20 = add i8 %.val6.i, 127
+  %20 = add nsw i8 %.val6.i, 127
   %trunc.i.i.i = select i1 %19, i8 %20, i8 0
   switch i8 %trunc.i.i.i, label %21 [
     i8 0, label %"_ZN12typst_syntax3ast8Equation5block28_$u7b$$u7b$closure$u7d$$u7d$17h8bb00fd46441e1fcE.exit"
@@ -3778,7 +3780,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit6: ; preds =
   %.val6.i9 = load i8, ptr %39, align 8, !range !13, !alias.scope !741, !noundef !15
   %40 = and i8 %.val6.i9, -2
   %41 = icmp eq i8 %40, -126
-  %42 = add i8 %.val6.i9, 127
+  %42 = add nsw i8 %.val6.i9, 127
   %trunc.i.i.i10 = select i1 %41, i8 %42, i8 0
   switch i8 %trunc.i.i.i10, label %43 [
     i8 0, label %"_ZN12typst_syntax3ast8Equation5block28_$u7b$$u7b$closure$u7d$$u7d$17h8bb00fd46441e1fcE.exit13"
@@ -3839,7 +3841,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12typst_syntax3ast9Ma
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !750, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %8
@@ -3870,7 +3872,7 @@ define { ptr, i64 } @_ZN12typst_syntax3ast9MathIdent6as_str17h17086966bf54fd8dE(
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !753, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %8
@@ -3914,7 +3916,7 @@ define { ptr, i64 } @"_ZN72_$LT$typst_syntax..ast..MathIdent$u20$as$u20$core..op
   %4 = load i8, ptr %3, align 8, !range !13, !alias.scope !762, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i.i.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i.i.i, label %8 [
     i8 0, label %9
@@ -4026,7 +4028,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !793, !noalias !794, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -4169,7 +4171,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast10MathAttach6bottom17hf2a8f104ef86c6ec
   %15 = load i8, ptr %14, align 8, !range !13, !alias.scope !814, !noalias !817, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i.i.i, label %19 [
     i8 0, label %"_ZN12typst_syntax3ast10MathAttach6bottom28_$u7b$$u7b$closure$u7d$$u7d$17h615548d2bd253228E.exit.i.i.i"
@@ -4255,7 +4257,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast10MathAttach3top17h2fc68119dcec68acE(p
   %15 = load i8, ptr %14, align 8, !range !13, !alias.scope !831, !noalias !834, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i.i.i, label %19 [
     i8 0, label %"_ZN12typst_syntax3ast10MathAttach3top28_$u7b$$u7b$closure$u7d$$u7d$17h71acad05794d9edbE.exit.i.i.i"
@@ -4359,7 +4361,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h825f0d2ee76ba015E.exit: ; preds = %
   %19 = load i8, ptr %18, align 8, !range !13, !alias.scope !858, !noundef !15
   %20 = and i8 %19, -2
   %21 = icmp eq i8 %20, -126
-  %22 = add i8 %19, 127
+  %22 = add nsw i8 %19, 127
   %trunc.i = select i1 %21, i8 %22, i8 0
   switch i8 %trunc.i, label %23 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -4412,7 +4414,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %.val21.i = load i8, ptr %11, align 8, !range !13, !alias.scope !864, !noundef !15
   %12 = and i8 %.val21.i, -2
   %13 = icmp eq i8 %12, -126
-  %14 = add i8 %.val21.i, 127
+  %14 = add nsw i8 %.val21.i, 127
   %trunc.i.i.i.i.i = select i1 %13, i8 %14, i8 0
   switch i8 %trunc.i.i.i.i.i, label %15 [
     i8 0, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h665ac532187424a4E.exit.i"
@@ -4552,7 +4554,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %11 = load i8, ptr %10, align 8, !range !13, !alias.scope !890, !noundef !15
   %12 = and i8 %11, -2
   %13 = icmp eq i8 %12, -126
-  %14 = add i8 %11, 127
+  %14 = add nsw i8 %11, 127
   %trunc.i = select i1 %13, i8 %14, i8 0
   switch i8 %trunc.i, label %15 [
     i8 0, label %16
@@ -4658,7 +4660,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN12typst_syntax3ast5Id
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !910, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %8
@@ -4689,7 +4691,7 @@ define { ptr, i64 } @_ZN12typst_syntax3ast5Ident6as_str17h14c2bb83d13c7cfbE(ptr 
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !913, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i.i, label %7 [
     i8 0, label %8
@@ -4733,7 +4735,7 @@ define { ptr, i64 } @"_ZN68_$LT$typst_syntax..ast..Ident$u20$as$u20$core..ops..d
   %4 = load i8, ptr %3, align 8, !range !13, !alias.scope !921, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i.i.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i.i.i, label %8 [
     i8 0, label %9
@@ -4776,7 +4778,7 @@ define noundef zeroext i1 @_ZN12typst_syntax3ast4Bool3get17h1a8912074dd34213E(pt
   %3 = load i8, ptr %2, align 8, !range !13, !alias.scope !931, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %8
@@ -4828,7 +4830,7 @@ define noundef i64 @_ZN12typst_syntax3ast3Int3get17h14bf9c2b97db0b0cE(ptr noalia
   %4 = load i8, ptr %3, align 8, !range !13, !alias.scope !941, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i, label %8 [
     i8 0, label %9
@@ -4886,7 +4888,7 @@ _ZN12typst_syntax4node10SyntaxNode4text17h0d9372afac3f611fE.exit: ; preds = %1, 
   %.val = load i8, ptr %2, align 8, !range !655, !noundef !15
   %28 = getelementptr inbounds i8, ptr %2, i64 8
   %.val10 = load i64, ptr %28, align 8
-  %trunc.i20 = trunc i8 %.val to i1
+  %trunc.i20 = trunc nuw i8 %.val to i1
   %spec.select.i21 = select i1 %trunc.i20, i64 0, i64 %.val10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret i64 %spec.select.i21
@@ -4922,7 +4924,7 @@ define noundef double @_ZN12typst_syntax3ast5Float3get17h8fdeb0d914b8eac1E(ptr n
   %4 = load i8, ptr %3, align 8, !range !13, !alias.scope !974, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i, label %8 [
     i8 0, label %9
@@ -4958,7 +4960,7 @@ _ZN12typst_syntax4node10SyntaxNode4text17h0d9372afac3f611fE.exit: ; preds = %1, 
   %.val = load i8, ptr %2, align 8, !range !655, !noundef !15
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %.val1 = load double, ptr %22, align 8
-  %trunc.i2 = trunc i8 %.val to i1
+  %trunc.i2 = trunc nuw i8 %.val to i1
   %.0.i3 = select i1 %trunc.i2, double 0.000000e+00, double %.val1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret double %.0.i3
@@ -4972,7 +4974,7 @@ define { double, i8 } @_ZN12typst_syntax3ast7Numeric3get17h38d7140ce0f0485aE(ptr
   %5 = load i8, ptr %4, align 8, !range !13, !alias.scope !980, !noundef !15
   %6 = and i8 %5, -2
   %7 = icmp eq i8 %6, -126
-  %8 = add i8 %5, 127
+  %8 = add nsw i8 %5, 127
   %trunc.i = select i1 %7, i8 %8, i8 0
   switch i8 %trunc.i, label %9 [
     i8 0, label %10
@@ -5134,7 +5136,7 @@ define { double, i8 } @_ZN12typst_syntax3ast7Numeric3get17h38d7140ce0f0485aE(ptr
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit92": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit88", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit80", %61, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit84", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit76", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit72", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit68", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit64", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit"
   %.0 = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit64" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit68" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit72" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit76" ], [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit84" ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit80" ], [ %spec.select119, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit88" ], [ 8, %61 ]
-  %trunc.i53 = trunc i8 %.val to i1
+  %trunc.i53 = trunc nuw i8 %.val to i1
   %.0.i54 = select i1 %trunc.i53, double 0.000000e+00, double %.val49
   %72 = insertvalue { double, i8 } poison, double %.0.i54, 0
   %73 = insertvalue { double, i8 } %72, i8 %.0, 1
@@ -5150,7 +5152,7 @@ define void @_ZN12typst_syntax3ast3Str3get17hcba5772b976dc8e6E(ptr noalias nocap
   %7 = load i8, ptr %6, align 8, !range !13, !alias.scope !1034, !noundef !15
   %8 = and i8 %7, -2
   %9 = icmp eq i8 %8, -126
-  %10 = add i8 %7, 127
+  %10 = add nsw i8 %7, 127
   %trunc.i = select i1 %9, i8 %10, i8 0
   switch i8 %trunc.i, label %11 [
     i8 0, label %12
@@ -5300,7 +5302,7 @@ _ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit.thread: ; pred
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1053
   %.sroa.5.0.extract.trunc.i = trunc i64 %57 to i56
   %.sroa.5.15.extract.shift.i = lshr i64 %57, 56
-  %.sroa.5.15.extract.trunc.i = trunc i64 %.sroa.5.15.extract.shift.i to i8
+  %.sroa.5.15.extract.trunc.i = trunc nuw i64 %.sroa.5.15.extract.shift.i to i8
   store ptr %56, ptr %5, align 8, !alias.scope !1053
   %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i133 = getelementptr inbounds i8, ptr %5, i64 8
   store i56 %.sroa.5.0.extract.trunc.i, ptr %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i133, align 8, !alias.scope !1053
@@ -5756,7 +5758,7 @@ _ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7E.exit65: ; preds = %.loopexit124,
 261:                                              ; preds = %_ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7E.exit65
   %trunc = trunc i64 %260 to i1
   %.sroa.526.0.extract.shift = lshr i64 %260, 32
-  %.sroa.526.0.extract.trunc = trunc i64 %.sroa.526.0.extract.shift to i32
+  %.sroa.526.0.extract.trunc = trunc nuw i64 %.sroa.526.0.extract.shift to i32
   br i1 %trunc, label %.thread110, label %262
 
 262:                                              ; preds = %261
@@ -5847,7 +5849,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !1119, !noalias !1120, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -5934,7 +5936,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !1142, !noalias !1143, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -6040,7 +6042,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %15 = load i8, ptr %14, align 8, !range !13, !alias.scope !1156, !noalias !1162, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i, label %19 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -6170,7 +6172,7 @@ define void @"_ZN75_$LT$typst_syntax..ast..ArrayItem$u20$as$u20$typst_syntax..as
   %4 = load i8, ptr %3, align 8, !range !13, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i, label %8 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -6273,7 +6275,7 @@ define { i64, ptr } @"_ZN74_$LT$typst_syntax..ast..DictItem$u20$as$u20$typst_syn
   %3 = load i8, ptr %2, align 8, !range !13, !noundef !15
   %4 = and i8 %3, -2
   %5 = icmp eq i8 %4, -126
-  %6 = add i8 %3, 127
+  %6 = add nsw i8 %3, 127
   %trunc.i = select i1 %5, i8 %6, i8 0
   switch i8 %trunc.i, label %7 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -6392,7 +6394,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !1223, !noalias !1224, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -6676,7 +6678,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !1286, !noalias !1287, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -6778,7 +6780,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %.val6.i = load i8, ptr %13, align 8, !range !13, !alias.scope !1300, !noalias !1303, !noundef !15
   %14 = and i8 %.val6.i, -2
   %15 = icmp eq i8 %14, -126
-  %16 = add i8 %.val6.i, 127
+  %16 = add nsw i8 %.val6.i, 127
   %trunc.i.i.i = select i1 %15, i8 %16, i8 0
   switch i8 %trunc.i.i.i, label %17 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -6805,16 +6807,16 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i: ; preds = 
 
 "_ZN12typst_syntax3ast5Unary2op28_$u7b$$u7b$closure$u7d$$u7d$17h07956ad1310af75eE.exit.i": ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i, %.lr.ph.i
   %21 = icmp eq ptr %12, %9
-  br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit9", label %.lr.ph.i
+  br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit": ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit9": ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i, %"_ZN12typst_syntax3ast5Unary2op28_$u7b$$u7b$closure$u7d$$u7d$17h07956ad1310af75eE.exit.i"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit9": ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit": ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit9", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit", %1, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
-  %22 = phi i8 [ 0, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit ], [ 0, %1 ], [ 2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit9" ], [ 1, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit": ; preds = %"_ZN12typst_syntax3ast5Unary2op28_$u7b$$u7b$closure$u7d$$u7d$17h07956ad1310af75eE.exit.i", %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit9", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit", %1, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
+  %22 = phi i8 [ 0, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit ], [ 0, %1 ], [ 2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit" ], [ 1, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i ], [ 0, %"_ZN12typst_syntax3ast5Unary2op28_$u7b$$u7b$closure$u7d$$u7d$17h07956ad1310af75eE.exit.i" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hed755cef5f53340eE.exit.loopexit9" ]
   ret i8 %22
 }
 
@@ -6926,7 +6928,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %.val7.i = load i8, ptr %14, align 8, !range !13, !alias.scope !1323, !noalias !1319, !noundef !15
   %15 = and i8 %.val7.i, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %.val7.i, 127
+  %17 = add nsw i8 %.val7.i, 127
   %trunc.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -7347,7 +7349,7 @@ define noundef zeroext i1 @_ZN12typst_syntax3ast4Args14trailing_comma17h38f98990
   %19 = load i8, ptr %18, align 8, !range !13, !alias.scope !1385, !noundef !15
   %20 = and i8 %19, -2
   %21 = icmp eq i8 %20, -126
-  %22 = add i8 %19, 127
+  %22 = add nsw i8 %19, 127
   %trunc.i = select i1 %21, i8 %22, i8 0
   switch i8 %trunc.i, label %23 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -7385,7 +7387,7 @@ define void @"_ZN69_$LT$typst_syntax..ast..Arg$u20$as$u20$typst_syntax..ast..Ast
   %4 = load i8, ptr %3, align 8, !range !13, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i, label %8 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -7512,7 +7514,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %11 = load i8, ptr %10, align 8, !range !13, !alias.scope !1400, !noundef !15
   %12 = and i8 %11, -2
   %13 = icmp eq i8 %12, -126
-  %14 = add i8 %11, 127
+  %14 = add nsw i8 %11, 127
   %trunc.i = select i1 %13, i8 %14, i8 0
   switch i8 %trunc.i, label %15 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -7569,7 +7571,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !1418, !noalias !1419, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -7672,7 +7674,7 @@ define void @"_ZN71_$LT$typst_syntax..ast..Param$u20$as$u20$typst_syntax..ast..A
   %4 = load i8, ptr %3, align 8, !range !13, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i, label %8 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -7852,7 +7854,7 @@ define void @"_ZN73_$LT$typst_syntax..ast..Pattern$u20$as$u20$typst_syntax..ast.
   %4 = load i8, ptr %3, align 8, !range !13, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i, label %8 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -8152,7 +8154,7 @@ define void @"_ZN83_$LT$typst_syntax..ast..DestructuringItem$u20$as$u20$typst_sy
   %4 = load i8, ptr %3, align 8, !range !13, !noundef !15
   %5 = and i8 %4, -2
   %6 = icmp eq i8 %5, -126
-  %7 = add i8 %4, 127
+  %7 = add nsw i8 %4, 127
   %trunc.i = select i1 %6, i8 %7, i8 0
   switch i8 %trunc.i, label %8 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
@@ -8387,7 +8389,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %15 = load i8, ptr %14, align 8, !range !13, !alias.scope !1551, !noalias !1557, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i, label %19 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -8502,7 +8504,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i: ; preds 
   %58 = load i8, ptr %57, align 8, !range !13, !alias.scope !1586, !noalias !1579, !noundef !15
   %59 = and i8 %58, -2
   %60 = icmp eq i8 %59, -126
-  %61 = add i8 %58, 127
+  %61 = add nsw i8 %58, 127
   %trunc.i.i = select i1 %60, i8 %61, i8 0
   switch i8 %trunc.i.i, label %62 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i
@@ -8724,7 +8726,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %15 = load i8, ptr %14, align 8, !range !13, !alias.scope !1622, !noalias !1628, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i, label %19 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -8965,7 +8967,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast7SetRule9condition17h2bb984f33fc160adE
   %15 = load i8, ptr %14, align 8, !range !13, !alias.scope !1673, !noalias !1676, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i.i.i, label %19 [
     i8 0, label %"_ZN12typst_syntax3ast7SetRule9condition28_$u7b$$u7b$closure$u7d$$u7d$17h060218321f2f9113E.exit.i.i.i"
@@ -9067,7 +9069,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast8ShowRule8selector17ha211e1ebeac93450E
   %18 = load i8, ptr %17, align 8, !range !13, !alias.scope !1714, !noalias !1715, !noundef !15
   %19 = and i8 %18, -2
   %20 = icmp eq i8 %19, -126
-  %21 = add i8 %18, 127
+  %21 = add nsw i8 %18, 127
   %trunc.i.i.i.i.i.i.i.i = select i1 %20, i8 %21, i8 0
   switch i8 %trunc.i.i.i.i.i.i.i.i, label %22 [
     i8 0, label %"_ZN12typst_syntax3ast8ShowRule8selector28_$u7b$$u7b$closure$u7d$$u7d$17hd9ad89eb0efa9655E.exit.i.i.i.i.i.i"
@@ -9495,7 +9497,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %15 = load i8, ptr %14, align 8, !range !13, !alias.scope !1794, !noalias !1800, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i, label %19 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -9619,7 +9621,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast7ForLoop8iterable17h54770e8848f8faf0E(
   %15 = load i8, ptr %14, align 8, !range !13, !alias.scope !1825, !noalias !1828, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i.i.i, label %19 [
     i8 0, label %"_ZN12typst_syntax3ast7ForLoop8iterable28_$u7b$$u7b$closure$u7d$$u7d$17h4b6186ffa9d0bd1cE.exit.i.i.i"
@@ -9796,7 +9798,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %17 = load i8, ptr %16, align 8, !range !13, !alias.scope !1855, !noalias !1861, !noundef !15
   %18 = and i8 %17, -2
   %19 = icmp eq i8 %18, -126
-  %20 = add i8 %17, 127
+  %20 = add nsw i8 %17, 127
   %trunc.i.i.i = select i1 %19, i8 %20, i8 0
   switch i8 %trunc.i.i.i, label %21 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i
@@ -9875,7 +9877,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax3ast12M
   %15 = load i8, ptr %14, align 8, !range !13, !noalias !1874, !noundef !15
   %16 = and i8 %15, -2
   %17 = icmp eq i8 %16, -126
-  %18 = add i8 %15, 127
+  %18 = add nsw i8 %15, 127
   %trunc.i.i.i.i.i = select i1 %17, i8 %18, i8 0
   switch i8 %trunc.i.i.i.i.i, label %19 [
     i8 0, label %"_ZN12typst_syntax3ast12ModuleImport8new_name28_$u7b$$u7b$closure$u7d$$u7d$17hd32f09d11738962aE.exit.i.i.i"
@@ -9917,7 +9919,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax3ast12M
   %29 = load i8, ptr %28, align 8, !range !13, !alias.scope !1892, !noalias !1893, !noundef !15
   %30 = and i8 %29, -2
   %31 = icmp eq i8 %30, -126
-  %32 = add i8 %29, 127
+  %32 = add nsw i8 %29, 127
   %trunc.i.i.i.i.i.i.i = select i1 %31, i8 %32, i8 0
   switch i8 %trunc.i.i.i.i.i.i.i, label %33 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i.i.i
@@ -10009,7 +10011,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i: ; preds 
   %17 = load i8, ptr %16, align 8, !range !13, !alias.scope !1919, !noalias !1920, !noundef !15
   %18 = and i8 %17, -2
   %19 = icmp eq i8 %18, -126
-  %20 = add i8 %17, 127
+  %20 = add nsw i8 %17, 127
   %trunc.i.i.i.i.i.i = select i1 %19, i8 %20, i8 0
   switch i8 %trunc.i.i.i.i.i.i, label %21 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i.i
@@ -10083,7 +10085,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i: ; preds 
   %17 = load i8, ptr %16, align 8, !range !13, !alias.scope !1946, !noalias !1947, !noundef !15
   %18 = and i8 %17, -2
   %19 = icmp eq i8 %18, -126
-  %20 = add i8 %17, 127
+  %20 = add nsw i8 %17, 127
   %trunc.i.i.i.i.i.i.i.i.i.i = select i1 %19, i8 %20, i8 0
   switch i8 %trunc.i.i.i.i.i.i.i.i.i.i, label %21 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i.i.i.i.i.i
@@ -10125,7 +10127,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i.i.i.i.i
   %33 = load i8, ptr %32, align 8, !range !13, !alias.scope !1972, !noalias !1973, !noundef !15
   %34 = and i8 %33, -2
   %35 = icmp eq i8 %34, -126
-  %36 = add i8 %33, 127
+  %36 = add nsw i8 %33, 127
   %trunc.i.i.i.i.i.i.i.i.i = select i1 %35, i8 %36, i8 0
   switch i8 %trunc.i.i.i.i.i.i.i.i.i, label %37 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i.i.i.i.i
@@ -10191,7 +10193,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !1994, !noalias !1995, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i
@@ -10254,7 +10256,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %14 = load i8, ptr %13, align 8, !range !13, !alias.scope !2017, !noalias !2018, !noundef !15
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, -126
-  %17 = add i8 %14, 127
+  %17 = add nsw i8 %14, 127
   %trunc.i.i.i.i.i.i.i.i.i = select i1 %16, i8 %17, i8 0
   switch i8 %trunc.i.i.i.i.i.i.i.i.i, label %18 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i.i.i.i.i
@@ -10296,7 +10298,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i.i.i.i.i
   %30 = load i8, ptr %29, align 8, !range !13, !alias.scope !2043, !noalias !2044, !noundef !15
   %31 = and i8 %30, -2
   %32 = icmp eq i8 %31, -126
-  %33 = add i8 %30, 127
+  %33 = add nsw i8 %30, 127
   %trunc.i.i.i.i.i.i.i.i = select i1 %32, i8 %33, i8 0
   switch i8 %trunc.i.i.i.i.i.i.i.i, label %34 [
     i8 0, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.i.i.i.i.i.i.i
@@ -10514,6 +10516,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #28
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

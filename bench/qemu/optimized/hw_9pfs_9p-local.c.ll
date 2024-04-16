@@ -2532,19 +2532,15 @@ if.end22:                                         ; preds = %if.then15, %if.end1
   %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
   %3 = load i64, ptr %fc_rdev, align 8
   %cmp23.not = icmp eq i64 %3, -1
-  br i1 %cmp23.not, label %if.end31, label %if.then24
+  br i1 %cmp23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
   store i64 %3, ptr %tmp_rdev, align 8
   %call27 = call i32 @fsetxattrat_nofollow(i32 noundef %dirfd, ptr noundef %path, ptr noundef nonnull @.str.33, ptr noundef nonnull %tmp_rdev, i64 noundef 8, i32 noundef 0) #15
-  %tobool28.not = icmp eq i32 %call27, 0
-  br i1 %tobool28.not, label %if.end31, label %return
-
-if.end31:                                         ; preds = %if.then24, %if.end22
   br label %return
 
-return:                                           ; preds = %if.then24, %if.then15, %if.then6, %if.then, %if.end31
-  %retval.0 = phi i32 [ 0, %if.end31 ], [ %call2, %if.then ], [ %call9, %if.then6 ], [ %call18, %if.then15 ], [ %call27, %if.then24 ]
+return:                                           ; preds = %if.then24, %if.end22, %if.then15, %if.then6, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call9, %if.then6 ], [ %call18, %if.then15 ], [ 0, %if.end22 ], [ %call27, %if.then24 ]
   ret i32 %retval.0
 }
 

@@ -301,22 +301,16 @@ entry:
 define void @ERR_set_error(i32 noundef %lib, i32 noundef %reason, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load ptr, ptr @c_vset_error, align 8
   %1 = shl i32 %lib, 23
   %2 = and i32 %1, 2139095040
   %3 = and i32 %reason, 8388607
   %or1 = or disjoint i32 %2, %3
   call void %0(ptr noundef null, i32 noundef %or1, ptr noundef %fmt, ptr noundef nonnull %args) #5
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define void @ERR_vset_error(i32 noundef %lib, i32 noundef %reason, ptr noundef %fmt, ptr noundef %args) local_unnamed_addr #0 {
@@ -359,13 +353,13 @@ declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 declare void @ossl_prov_ctx_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @legacy_gettable_params(ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @legacy_gettable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @legacy_param_types
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @legacy_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
+define internal i32 @legacy_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #5
   %cmp.not = icmp eq ptr %call, null
@@ -399,24 +393,22 @@ land.lhs.true11:                                  ; preds = %if.end8
 if.end15:                                         ; preds = %land.lhs.true11, %if.end8
   %call16 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.3) #5
   %cmp17.not = icmp eq ptr %call16, null
-  br i1 %cmp17.not, label %if.end23, label %land.lhs.true18
+  br i1 %cmp17.not, label %return, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end15
   %call19 = tail call i32 @ossl_prov_is_running() #5
   %call20 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call16, i32 noundef %call19) #5
-  %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %return, label %if.end23
-
-if.end23:                                         ; preds = %land.lhs.true18, %if.end15
+  %tobool21.not = icmp ne i32 %call20, 0
+  %spec.select = zext i1 %tobool21.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true18, %land.lhs.true11, %land.lhs.true4, %land.lhs.true, %if.end23
-  %retval.0 = phi i32 [ 1, %if.end23 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true18 ]
+return:                                           ; preds = %land.lhs.true18, %if.end15, %land.lhs.true11, %land.lhs.true4, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 1, %if.end15 ], [ %spec.select, %land.lhs.true18 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @legacy_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #4 {
+define internal noundef ptr @legacy_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #3 {
 entry:
   store i32 0, ptr %no_cache, align 4
   %switch.tableidx = add i32 %operation_id, -1
@@ -442,11 +434,17 @@ declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

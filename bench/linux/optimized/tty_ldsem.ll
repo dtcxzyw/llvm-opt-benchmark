@@ -105,7 +105,7 @@ define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) lo
 
 44:                                               ; preds = %41
   tail call void @_raw_spin_unlock_irq(ptr noundef %9) #5
-  br label %91
+  br label %.thread6
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds i8, ptr %0, i64 32
@@ -153,7 +153,7 @@ define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) lo
 .loopexit:                                        ; preds = %.preheader, %57
   %71 = phi i1 [ %62, %57 ], [ %69, %.preheader ]
   store volatile i32 0, ptr %58, align 8
-  br i1 %71, label %91, label %72
+  br i1 %71, label %.thread6, label %72
 
 72:                                               ; preds = %.loopexit
   call void @_raw_spin_lock_irq(ptr noundef %9) #5
@@ -182,36 +182,31 @@ define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) lo
 
 86:                                               ; preds = %75
   %87 = icmp sgt i32 %84, 0
-  br i1 %87, label %.thread8, label %88, !prof !10
+  br i1 %87, label %.thread6, label %88, !prof !10
 
 88:                                               ; preds = %86
   call void @refcount_warn_saturate(ptr noundef %83, i32 noundef 3) #5
-  br label %.thread8
+  br label %.thread6
 
 89:                                               ; preds = %75
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !17
   call void @__put_task_struct(ptr noundef %82) #5
-  br label %.thread8
+  br label %.thread6
 
 90:                                               ; preds = %72
   call void @_raw_spin_unlock_irq(ptr noundef %9) #5
-  br label %91
+  br label %.thread6
 
-.thread8:                                         ; preds = %89, %88, %86
+.thread6:                                         ; preds = %86, %88, %90, %89, %.loopexit, %44
+  %91 = phi ptr [ %0, %44 ], [ %0, %90 ], [ %0, %.loopexit ], [ null, %89 ], [ null, %88 ], [ null, %86 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
-  br label %94
+  %92 = icmp ne ptr %91, null
+  %spec.select = zext i1 %92 to i32
+  br label %93
 
-91:                                               ; preds = %90, %.loopexit, %44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
-  %92 = icmp eq ptr %0, null
-  br i1 %92, label %94, label %93
-
-93:                                               ; preds = %91, %2
-  br label %94
-
-94:                                               ; preds = %.thread8, %93, %91
-  %95 = phi i32 [ 1, %93 ], [ 0, %91 ], [ 0, %.thread8 ]
-  ret i32 %95
+93:                                               ; preds = %.thread6, %2
+  %94 = phi i32 [ 1, %2 ], [ %spec.select, %.thread6 ]
+  ret i32 %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -368,15 +363,13 @@ define dso_local noundef i32 @ldsem_down_write(ptr noundef %0, i64 noundef %1) l
 62:                                               ; preds = %60, %22
   %63 = phi ptr [ %0, %22 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %66, label %65
+  %64 = icmp ne ptr %63, null
+  %spec.select = zext i1 %64 to i32
+  br label %65
 
 65:                                               ; preds = %62, %2
-  br label %66
-
-66:                                               ; preds = %65, %62
-  %67 = phi i32 [ 1, %65 ], [ 0, %62 ]
-  ret i32 %67
+  %66 = phi i32 [ 1, %2 ], [ %spec.select, %62 ]
+  ret i32 %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

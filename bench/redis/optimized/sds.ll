@@ -4920,7 +4920,7 @@ land.lhs.true21:                                  ; preds = %land.lhs.true
   %14 = add i8 %13, -71
   %15 = icmp ult i8 %14, -6
   %narrow.i.not = and i1 %or.cond.i, %15
-  br i1 %narrow.i.not, label %sw.default, label %land.lhs.true25
+  br i1 %narrow.i.not, label %sw.epilog, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %land.lhs.true21
   %add.ptr26 = getelementptr inbounds i8, ptr %p.2293, i64 3
@@ -4931,14 +4931,14 @@ land.lhs.true25:                                  ; preds = %land.lhs.true21
   %19 = add i8 %18, -71
   %20 = icmp ult i8 %19, -6
   %narrow.i54.not = and i1 %or.cond.i53, %20
-  br i1 %narrow.i54.not, label %sw.default, label %if.then29
+  br i1 %narrow.i54.not, label %sw.epilog, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true25
   %call31 = call i32 @hex_digit_to_int(i8 noundef signext %11), !range !17
   %mul = shl nuw nsw i32 %call31, 4
   %call33 = call i32 @hex_digit_to_int(i8 noundef signext %16), !range !17
   %add = or disjoint i32 %mul, %call33
-  %conv34 = trunc i32 %add to i8
+  %conv34 = trunc nuw i32 %add to i8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %current.2294, i64 -1
   %21 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %21 to i32
@@ -5046,11 +5046,11 @@ sw.bb49:                                          ; preds = %land.lhs.true
 sw.bb50:                                          ; preds = %land.lhs.true
   br label %sw.epilog
 
-sw.default:                                       ; preds = %land.lhs.true, %land.lhs.true21, %land.lhs.true25
+sw.default:                                       ; preds = %land.lhs.true
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %land.lhs.true, %sw.default, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47
-  %c.0 = phi i8 [ %10, %sw.default ], [ 7, %sw.bb50 ], [ 8, %sw.bb49 ], [ 9, %sw.bb48 ], [ 13, %sw.bb47 ], [ 10, %land.lhs.true ]
+sw.epilog:                                        ; preds = %land.lhs.true, %land.lhs.true21, %land.lhs.true25, %sw.default, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47
+  %c.0 = phi i8 [ 7, %sw.bb50 ], [ 8, %sw.bb49 ], [ 9, %sw.bb48 ], [ 13, %sw.bb47 ], [ %10, %sw.default ], [ 120, %land.lhs.true25 ], [ 120, %land.lhs.true21 ], [ 10, %land.lhs.true ]
   %arrayidx.i.i58 = getelementptr inbounds i8, ptr %current.2294, i64 -1
   %28 = load i8, ptr %arrayidx.i.i58, align 1
   %conv.i.i59 = zext i8 %28 to i32

@@ -205,8 +205,8 @@ define i32 @container_p_restore(ptr nocapture noundef readnone %0, i1 noundef ze
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = load i8, ptr @plugin_disabled, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %111, label %7
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %110, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @jc_conf, align 8
@@ -237,7 +237,7 @@ define i32 @container_p_restore(ptr nocapture noundef readnone %0, i1 noundef ze
 
 24:                                               ; preds = %20, %17
   %25 = tail call i32 @umask(i32 noundef %12) #12
-  br label %111
+  br label %110
 
 26:                                               ; preds = %11
   %27 = tail call i32 @mkdirpath(ptr noundef nonnull %15, i32 noundef 493, i1 noundef zeroext true) #12
@@ -259,7 +259,7 @@ define i32 @container_p_restore(ptr nocapture noundef readnone %0, i1 noundef ze
 
 36:                                               ; preds = %31, %28
   %37 = tail call i32 @umask(i32 noundef %12) #12
-  br label %111
+  br label %110
 
 38:                                               ; preds = %26
   %39 = tail call i32 @umask(i32 noundef %12) #12
@@ -289,14 +289,14 @@ define i32 @container_p_restore(ptr nocapture noundef readnone %0, i1 noundef ze
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.container_p_restore, ptr noundef %55) #12
-  br label %111
+  br label %110
 
-.lr.ph:                                           ; preds = %.preheader, %104
-  %57 = phi ptr [ %105, %104 ], [ %51, %.preheader ]
-  %.01428 = phi i32 [ %.1, %104 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %103
+  %57 = phi ptr [ %104, %103 ], [ %51, %.preheader ]
+  %.01428 = phi i32 [ %.1, %103 ], [ 0, %.preheader ]
   %58 = getelementptr inbounds i8, ptr %57, i64 18
   %59 = load i8, ptr %58, align 2
-  switch i8 %59, label %104 [
+  switch i8 %59, label %103 [
     i8 4, label %60
     i8 0, label %60
   ]
@@ -391,37 +391,35 @@ _restore_ns.exit:                                 ; preds = %83, %86, %96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not24 = icmp eq i32 %102, 0
-  br i1 %.not24, label %103, label %104
+  %spec.select = select i1 %.not24, i32 %.01428, i32 -1
+  br label %103
 
-103:                                              ; preds = %_restore_ns.exit.thread, %_restore_ns.exit
-  br label %104
-
-104:                                              ; preds = %103, %_restore_ns.exit, %.lr.ph
-  %.1 = phi i32 [ %.01428, %.lr.ph ], [ %.01428, %103 ], [ -1, %_restore_ns.exit ]
-  %105 = call ptr @readdir(ptr noundef nonnull %50) #12
-  %.not21 = icmp eq ptr %105, null
+103:                                              ; preds = %_restore_ns.exit, %_restore_ns.exit.thread, %.lr.ph
+  %.1 = phi i32 [ %.01428, %.lr.ph ], [ %.01428, %_restore_ns.exit.thread ], [ %spec.select, %_restore_ns.exit ]
+  %104 = call ptr @readdir(ptr noundef nonnull %50) #12
+  %.not21 = icmp eq ptr %104, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %104, %.preheader
-  %.014.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %104 ]
-  %106 = call i32 @closedir(ptr noundef nonnull %50)
+._crit_edge:                                      ; preds = %103, %.preheader
+  %.014.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %103 ]
+  %105 = call i32 @closedir(ptr noundef nonnull %50)
   %.not22 = icmp eq ptr %46, null
-  br i1 %.not22, label %108, label %107
+  br i1 %.not22, label %107, label %106
 
-107:                                              ; preds = %._crit_edge
+106:                                              ; preds = %._crit_edge
   call void @slurm_list_destroy(ptr noundef nonnull %46) #12
-  br label %108
+  br label %107
 
-108:                                              ; preds = %107, %._crit_edge
+107:                                              ; preds = %106, %._crit_edge
   %.not23 = icmp eq i32 %.014.lcssa, 0
-  br i1 %.not23, label %111, label %109
+  br i1 %.not23, label %110, label %108
 
-109:                                              ; preds = %108
-  %110 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.7) #12
-  br label %111
+108:                                              ; preds = %107
+  %109 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.7) #12
+  br label %110
 
-111:                                              ; preds = %108, %109, %2, %52, %36, %24
-  %.0 = phi i32 [ -1, %24 ], [ -1, %36 ], [ -1, %52 ], [ 0, %2 ], [ %.014.lcssa, %109 ], [ 0, %108 ]
+110:                                              ; preds = %107, %108, %2, %52, %36, %24
+  %.0 = phi i32 [ -1, %24 ], [ -1, %36 ], [ -1, %52 ], [ 0, %2 ], [ %.014.lcssa, %108 ], [ 0, %107 ]
   ret i32 %.0
 }
 
@@ -451,7 +449,7 @@ define i32 @container_p_join_external(i32 noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %4 = load i8, ptr @plugin_disabled, align 1
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %21, label %6
 
 6:                                                ; preds = %1
@@ -499,7 +497,7 @@ define noundef i32 @container_p_join(i32 noundef %0, i32 noundef %1) local_unnam
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   %5 = load i8, ptr @plugin_disabled, align 1
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   %7 = icmp eq i32 %0, 0
   %or.cond = or i1 %7, %6
   br i1 %or.cond, label %34, label %8
@@ -576,7 +574,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = load i8, ptr @plugin_disabled, align 1
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %256, label %13
 
 13:                                               ; preds = %2
@@ -1095,7 +1093,7 @@ _create_ns.exit:                                  ; preds = %22, %26, %31, %238,
 ; Function Attrs: nounwind uwtable
 define noundef i32 @container_p_stepd_delete(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @plugin_disabled, align 1
-  %3 = trunc i8 %2 to i1
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1

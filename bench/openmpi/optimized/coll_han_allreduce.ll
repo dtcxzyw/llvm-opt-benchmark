@@ -1912,52 +1912,41 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %173 = load i32, ptr %108, align 4
   %174 = add nsw i32 %173, -1
   %175 = icmp eq i32 %172, %174
-  %.pre144 = load i32, ptr %33, align 8
-  br i1 %175, label %176, label %179
-
-176:                                              ; preds = %171
-  %177 = getelementptr inbounds i8, ptr %0, i64 88
-  %178 = load i32, ptr %177, align 8
-  %.not133 = icmp eq i32 %178, %.pre144
-  br i1 %.not133, label %179, label %180
-
-179:                                              ; preds = %176, %171
-  br label %180
-
-180:                                              ; preds = %176, %179
-  %.5 = phi i32 [ %.pre144, %179 ], [ %178, %176 ]
-  %181 = getelementptr inbounds i8, ptr %0, i64 16
+  %176 = getelementptr inbounds i8, ptr %0, i64 88
+  %spec.select = select i1 %175, ptr %176, ptr %33
+  %.5 = load i32, ptr %spec.select, align 8
+  %177 = getelementptr inbounds i8, ptr %0, i64 16
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %178, i64 328
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 112
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 328
+  %183 = getelementptr inbounds i8, ptr %0, i64 40
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 112
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 40
-  %188 = load ptr, ptr %187, align 8
-  %189 = load ptr, ptr %26, align 8
-  %190 = getelementptr inbounds i8, ptr %0, i64 72
-  %191 = load i32, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %184, i64 120
-  %193 = load ptr, ptr %192, align 8
-  %194 = call i32 %186(ptr noundef %188, i32 noundef %.5, ptr noundef %189, i32 noundef %191, ptr noundef %182, ptr noundef %193) #4
-  %195 = load i8, ptr %35, align 4
-  %196 = trunc i8 %195 to i1
-  %197 = icmp eq i32 %.1, 0
-  %or.cond.not = select i1 %196, i1 true, i1 %197
-  br i1 %or.cond.not, label %202, label %198
+  %185 = load ptr, ptr %26, align 8
+  %186 = getelementptr inbounds i8, ptr %0, i64 72
+  %187 = load i32, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %180, i64 120
+  %189 = load ptr, ptr %188, align 8
+  %190 = call i32 %182(ptr noundef %184, i32 noundef %.5, ptr noundef %185, i32 noundef %187, ptr noundef %178, ptr noundef %189) #4
+  %191 = load i8, ptr %35, align 4
+  %192 = trunc i8 %191 to i1
+  %193 = icmp eq i32 %.1, 0
+  %or.cond.not = select i1 %192, i1 true, i1 %193
+  br i1 %or.cond.not, label %198, label %194
 
-198:                                              ; preds = %180
-  %199 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
-  %200 = zext nneg i32 %.1 to i64
-  %201 = call i32 %199(i64 noundef %200, ptr noundef nonnull %2, ptr noundef null) #4
-  br label %202
+194:                                              ; preds = %171
+  %195 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %196 = zext nneg i32 %.1 to i64
+  %197 = call i32 %195(i64 noundef %196, ptr noundef nonnull %2, ptr noundef null) #4
+  br label %198
 
-202:                                              ; preds = %198, %180
-  %203 = getelementptr inbounds i8, ptr %0, i64 96
-  %204 = load ptr, ptr %203, align 8
-  %205 = load i32, ptr %204, align 4
-  %206 = add nsw i32 %205, 1
-  store i32 %206, ptr %204, align 4
+198:                                              ; preds = %194, %171
+  %199 = getelementptr inbounds i8, ptr %0, i64 96
+  %200 = load ptr, ptr %199, align 8
+  %201 = load i32, ptr %200, align 4
+  %202 = add nsw i32 %201, 1
+  store i32 %202, ptr %200, align 4
   ret i32 0
 }
 

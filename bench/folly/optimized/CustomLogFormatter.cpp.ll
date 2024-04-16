@@ -994,7 +994,7 @@ if.end90:                                         ; preds = %_ZNSt7__cxx1112basi
 while.cond:                                       ; preds = %if.end90, %invoke.cont115
   %idx.0 = phi i64 [ %add120, %invoke.cont115 ], [ 0, %if.end90 ]
   %or.cond464.not = icmp ult i64 %idx.0, %93
-  br i1 %or.cond464.not, label %if.end.i.i, label %if.then103
+  br i1 %or.cond464.not, label %if.end.i.i, label %if.end105
 
 if.end.i.i:                                       ; preds = %while.cond
   %add.ptr.i.i = getelementptr i8, ptr %.fr.i, i64 %idx.0
@@ -1002,7 +1002,7 @@ if.end.i.i:                                       ; preds = %while.cond
   %sub.ptr.sub.i.i16.i = sub i64 %sub.ptr.lhs.cast.i336, %sub.ptr.rhs.cast.i.i15.i
   %call3.i.i = call noundef ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 10, i64 noundef %sub.ptr.sub.i.i16.i) #24
   %cmp.i17.i = icmp eq ptr %call3.i.i, null
-  br i1 %cmp.i17.i, label %if.then103, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
+  br i1 %cmp.i17.i, label %if.end105, label %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
 
 _ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i: ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %call3.i.i to i64
@@ -1011,9 +1011,7 @@ _ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i: ; preds = %if.
   %add.i = add i64 %sub.ptr.sub.i19.i, %idx.0
   %cmp = icmp eq i64 %add.i, -1
   %or.cond = or i1 %cmp6.i, %cmp
-  br i1 %or.cond, label %if.then103, label %if.end105
-
-if.then103:                                       ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i, %if.end.i.i, %while.cond
+  %spec.select = select i1 %or.cond, i64 %93, i64 %add.i
   br label %if.end105
 
 lpad98:                                           ; preds = %if.end90
@@ -1021,8 +1019,8 @@ lpad98:                                           ; preds = %if.end90
           cleanup
   br label %ehcleanup149
 
-if.end105:                                        ; preds = %if.then103, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i
-  %end.0 = phi i64 [ %93, %if.then103 ], [ %add.i, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i ]
+if.end105:                                        ; preds = %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i, %while.cond, %if.end.i.i
+  %end.0 = phi i64 [ %93, %if.end.i.i ], [ %93, %while.cond ], [ %spec.select, %_ZN5folly5qfindIPKcEEmRKNS_5RangeIT_EERKNS5_10value_typeE.exit.i ]
   %cmp.i350 = icmp ult i64 %93, %idx.0
   br i1 %cmp.i350, label %if.then.i, label %invoke.cont107, !prof !75
 
@@ -1529,7 +1527,7 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %_ZNSt11char_traitsI
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
   %sub.i.i.i.i.i.i = sub i64 %sub.ptr.sub.i15.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i
   %sh.diff.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 62
-  %tr.sh.diff.i.i.i.i.i.i = trunc i64 %sh.diff.i.i.i.i.i.i to i32
+  %tr.sh.diff.i.i.i.i.i.i = trunc nuw nsw i64 %sh.diff.i.i.i.i.i.i to i32
   %shl.i.i.i.i.i.i = and i32 %tr.sh.diff.i.i.i.i.i.i, 2
   %sub8.i.i.i.i.i.i = add nsw i32 %shl.i.i.i.i.i.i, -1
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5folly18CustomLogFormatter17parseFormatStringENS2_5RangeIPKcEEE3$_0EclIPKN12_GLOBAL__N_110FormatKeysEKS7_EEbT_RT0_.exit.i.i"
@@ -2711,7 +2709,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !51
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -3592,7 +3590,7 @@ if.then.i167:                                     ; preds = %for.body.i.i.i.i.i,
 
 _ZNR5folly8ExpectedIiNS_14ConversionCodeEEdeEv.exit: ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i165
   %result.sroa.6178.0.extract.shift = lshr i64 %call.i.i.i163, 32
-  %result.sroa.6178.0.extract.trunc = trunc i64 %result.sroa.6178.0.extract.shift to i32
+  %result.sroa.6178.0.extract.trunc = trunc nuw i64 %result.sroa.6178.0.extract.shift to i32
   %cmp55 = icmp slt i64 %call.i.i.i163, 0
   br i1 %cmp55, label %if.then.i172, label %if.end57, !prof !75
 
@@ -4599,7 +4597,7 @@ if.then.i.i2:                                     ; preds = %while.end.i.i
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %24 = lshr i16 %23, 8
-  %conv8.i.i = trunc i16 %24 to i8
+  %conv8.i.i = trunc nuw i16 %24 to i8
   store i8 %conv8.i.i, ptr %outb, align 1, !tbaa !51
   br label %_ZN5folly6detail19to_ascii_with_routeILm10ENS_17to_ascii_alphabetILb0EEEEEmPcPKcm.exit
 
@@ -4666,7 +4664,7 @@ if.then26:                                        ; preds = %if.end8
   %2 = load i8, ptr %fill27, align 8, !tbaa !152
   %cmp29 = icmp eq i8 %2, 0
   %spec.select = select i1 %cmp29, i8 32, i8 %2
-  %3 = trunc i64 %.pre123 to i32
+  %3 = trunc nuw i64 %.pre123 to i32
   %conv34 = sub nsw i32 %0, %3
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %conv34, i32 128)
   %conv37 = sext i32 %.sroa.speculated to i64
@@ -6706,7 +6704,7 @@ _ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_
 
 _ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit.thread2: ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i
   %result.sroa.69.0.extract.shift5 = lshr i64 %call.i.i.i, 32
-  %result.sroa.69.0.extract.trunc6 = trunc i64 %result.sroa.69.0.extract.shift5 to i32
+  %result.sroa.69.0.extract.trunc6 = trunc nuw i64 %result.sroa.69.0.extract.shift5 to i32
   br label %return
 
 if.then.i5:                                       ; preds = %for.body.i.i.i.i.i, %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit.thread

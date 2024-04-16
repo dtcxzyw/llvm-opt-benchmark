@@ -2691,7 +2691,7 @@ lpad65.i:                                         ; preds = %_ZNK6icu_7513Unicod
   br label %ehcleanup209.i
 
 while.end.i:                                      ; preds = %call8.i.i.noexc.i, %if.then.i.i.i, %call.i.i.noexc.i
-  %51 = trunc i64 %indvars.iv139 to i32
+  %51 = trunc nsw i64 %indvars.iv139 to i32
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str.i) #17
   br label %if.end86.i
 
@@ -2873,7 +2873,7 @@ invoke.cont165.i:                                 ; preds = %if.then.i136.i, %ca
   br i1 %exitcond173.not.i, label %for.end179.invoke.i.loopexit, label %for.body158.i, !llvm.loop !18
 
 for.end179.invoke.i.loopexit:                     ; preds = %invoke.cont165.i
-  %60 = trunc i64 %indvars.iv.next143 to i32
+  %60 = trunc nsw i64 %indvars.iv.next143 to i32
   br label %for.end179.invoke.i
 
 for.end179.invoke.i:                              ; preds = %for.end179.invoke.i.loopexit, %for.cond156.preheader.i, %invoke.cont143.i
@@ -3281,7 +3281,7 @@ if.end:                                           ; preds = %_ZL12binarySearchPK
   %17 = load i32, ptr %partialMatchLen, align 4
   %18 = sext i32 %17 to i64
   %cmp2.not = icmp slt i64 %indvars.iv, %18
-  %19 = trunc i64 %indvars.iv.next to i32
+  %19 = trunc nuw i64 %indvars.iv.next to i32
   %.add = select i1 %cmp2.not, i32 %17, i32 %19
   store i32 %.add, ptr %partialMatchLen, align 4
   %cmp4.not = icmp eq i32 %spec.select60.i, -1
@@ -3331,7 +3331,7 @@ if.then.i22:                                      ; preds = %land.lhs.true3.i
   %26 = load i32, ptr %partialMatchLen, align 4
   %..i = tail call i32 @llvm.smax.i32(i32 %26, i32 %23)
   store i32 %..i, ptr %partialMatchLen, align 4
-  %27 = trunc i64 %indvars.iv38.i to i32
+  %27 = trunc nsw i64 %indvars.iv38.i to i32
   store i32 %27, ptr %maxMatchIndex, align 4
   store i32 %23, ptr %maxMatchLen, align 4
   br label %for.inc34.i
@@ -4040,12 +4040,12 @@ entry:
   %fromLength = alloca i32, align 4
   %toLength = alloca i32, align 4
   %cmp.not = icmp eq ptr %ec, null
-  br i1 %cmp.not, label %if.end58, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load i32, ptr %ec, align 4
   %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %if.end58, label %if.then
+  br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   store i32 0, ptr %localStatus, align 4
@@ -4157,13 +4157,11 @@ if.then52:                                        ; preds = %if.end49
 if.end53:                                         ; preds = %if.end49, %if.then52
   %9 = phi i32 [ %7, %if.end49 ], [ %8, %if.then52 ]
   %cmp.i33 = icmp sgt i32 %9, 0
-  br i1 %cmp.i33, label %if.end58, label %return
-
-if.end58:                                         ; preds = %if.end53, %land.lhs.true, %entry
+  %spec.select = select i1 %cmp.i33, i32 0, i32 %currCount.3
   br label %return
 
-return:                                           ; preds = %if.end53, %if.then, %if.end58
-  %retval.0 = phi i32 [ 0, %if.end58 ], [ 0, %if.then ], [ %currCount.3, %if.end53 ]
+return:                                           ; preds = %if.end53, %entry, %land.lhs.true, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ], [ %spec.select, %if.end53 ]
   ret i32 %retval.0
 }
 
@@ -4307,11 +4305,11 @@ if.end65:                                         ; preds = %if.then59, %if.else
   %currIndex.2 = phi i32 [ %currIndex.1, %if.end57 ], [ %currIndex.058, %if.else ], [ %inc60, %if.then59 ]
   call void @ures_close_75(ptr noundef %call29)
   call void @ures_close_75(ptr noundef %call31)
-  %tobool66 = trunc i8 %matchFound.2 to i1
+  %tobool66 = trunc nuw i8 %matchFound.2 to i1
   br i1 %tobool66, label %if.end70.loopexit, label %for.cond
 
 if.end70.loopexit:                                ; preds = %for.cond, %if.end65
-  %7 = trunc i8 %matchFound.2 to i1
+  %7 = trunc nuw i8 %matchFound.2 to i1
   %8 = xor i1 %7, true
   br label %if.end70
 
@@ -5952,7 +5950,7 @@ while.cond:                                       ; preds = %lor.lhs.false, %ent
 
 while.body:                                       ; preds = %while.cond
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %3, ptr %listIdx, align 4
   %arrayidx = getelementptr inbounds [307 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %1, align 4

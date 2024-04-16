@@ -654,7 +654,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h60c1eb0e4a7b8a34E.llvm.
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e4d93a0b2269283E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i64, ptr %0, align 8, !range !113, !noundef !4
-  %trunc = trunc i64 %4 to i1
+  %trunc = trunc nuw i64 %4 to i1
   br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
@@ -678,7 +678,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72e72ac54dbffc00E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i64, ptr %0, align 8, !range !113, !noundef !4
-  %trunc = trunc i64 %4 to i1
+  %trunc = trunc nuw i64 %4 to i1
   br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
@@ -854,14 +854,14 @@ default.unreachable:                              ; preds = %1
   %.val1.i = load i8, ptr %10, align 4, !alias.scope !132
   %11 = and i32 %.val.i, 61440
   %12 = icmp eq i32 %11, 40960
-  %13 = trunc i8 %.val1.i to i1
+  %13 = trunc nuw i8 %.val1.i to i1
   %.0.i.i = select i1 %12, i1 true, i1 %13
   br label %_ZN6ignore4walk13DirEntryInner15path_is_symlink17hf8650aeaaefbef80E.exit
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 52
   %16 = load i8, ptr %15, align 4, !range !135, !alias.scope !132, !noundef !4
-  %17 = trunc i8 %16 to i1
+  %17 = trunc nuw i8 %16 to i1
   br label %_ZN6ignore4walk13DirEntryInner15path_is_symlink17hf8650aeaaefbef80E.exit
 
 _ZN6ignore4walk13DirEntryInner15path_is_symlink17hf8650aeaaefbef80E.exit: ; preds = %1, %3, %8, %14
@@ -967,7 +967,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %.sroa.11.i.i.i)
   %33 = getelementptr inbounds i8, ptr %1, i64 52
   %34 = load i8, ptr %33, align 4, !range !135, !alias.scope !168, !noalias !169, !noundef !4
-  %35 = trunc i8 %34 to i1
+  %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds i8, ptr %1, i64 16
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   br i1 %35, label %46, label %38
@@ -1508,7 +1508,7 @@ define void @_ZN6ignore4walk11WalkBuilder5build17hd27302679e4ec68eE(ptr noalias 
 
 14:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
-  %trunc.i = trunc i64 %12 to i1
+  %trunc.i = trunc nuw i64 %12 to i1
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %.val2.i = load ptr, ptr %15, align 8, !alias.scope !290, !noalias !293, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds i8, ptr %1, i64 48
@@ -2252,7 +2252,7 @@ _ZN6ignore4walk8DirEntry5depth17h6f0844242b5eb2e7E.exit.thread: ; preds = %3
 
 30:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
-  %31 = trunc i8 %27 to i1
+  %31 = trunc nuw i8 %27 to i1
   br i1 %31, label %33, label %28
 
 32:                                               ; preds = %22
@@ -3360,7 +3360,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %55
 .body77:                                          ; preds = %346, %304
   %.020 = phi i8 [ %.121, %304 ], [ %.222, %346 ]
   %.pn = phi { ptr, i32 } [ %305, %304 ], [ %347, %346 ]
-  %303 = trunc i8 %.020 to i1
+  %303 = trunc nuw i8 %.020 to i1
   br i1 %303, label %364, label %91
 
 304:                                              ; preds = %311, %126, %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h0f8869fcb4462758E.exit13.i.i", %.noexc, %97, %336, %322, %318, %314
@@ -3382,7 +3382,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %55
 
 308:                                              ; preds = %306
   %309 = load i8, ptr %80, align 1, !range !135, !noundef !4
-  %310 = trunc i8 %309 to i1
+  %310 = trunc nuw i8 %309 to i1
   br i1 %310, label %311, label %314
 
 311:                                              ; preds = %308
@@ -3546,7 +3546,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %55
   %354 = add i64 %351, 1
   store i64 %354, ptr %41, align 8, !alias.scope !622, !noalias !625
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %26)
-  %355 = trunc i8 %.222 to i1
+  %355 = trunc nuw i8 %.222 to i1
   br i1 %355, label %357, label %356
 
 356:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E.exit", %350
@@ -4359,7 +4359,7 @@ _ZN6ignore4walk8DirEntry5depth17h6f0844242b5eb2e7E.exit: ; preds = %213, %212, %
   %285 = getelementptr inbounds i8, ptr %20, i64 8
   %.sroa.518.sroa.0.0.extract.trunc.i.i = trunc i64 %259 to i32
   %.sroa.518.sroa.6.0.extract.shift.i.i = lshr i64 %259, 32
-  %.sroa.518.sroa.6.0.extract.trunc.i.i = trunc i64 %.sroa.518.sroa.6.0.extract.shift.i.i to i32
+  %.sroa.518.sroa.6.0.extract.trunc.i.i = trunc nuw i64 %.sroa.518.sroa.6.0.extract.shift.i.i to i32
   %286 = getelementptr inbounds i8, ptr %31, i64 8
   %.sroa.292.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 16
   %.sroa.393.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 20
@@ -4389,7 +4389,7 @@ _ZN6ignore4walk8DirEntry5depth17h6f0844242b5eb2e7E.exit: ; preds = %213, %212, %
 
 292:                                              ; preds = %289
   %293 = load i64, ptr %48, align 8, !range !113, !noundef !4
-  %trunc = trunc i64 %293 to i1
+  %trunc = trunc nuw i64 %293 to i1
   br i1 %trunc, label %295, label %294
 
 294:                                              ; preds = %292
@@ -4421,7 +4421,7 @@ _ZN6ignore4walk8DirEntry5depth17h6f0844242b5eb2e7E.exit: ; preds = %213, %212, %
 .noexc.i72:                                       ; preds = %298
   call void @llvm.experimental.noalias.scope.decl(metadata !784)
   %299 = load i32, ptr %22, align 8, !range !787, !alias.scope !784, !noalias !788, !noundef !4
-  %trunc.i.i.i = trunc i32 %299 to i1
+  %trunc.i.i.i = trunc nuw i32 %299 to i1
   br i1 %trunc.i.i.i, label %300, label %315
 
 300:                                              ; preds = %.noexc.i72
@@ -4605,7 +4605,7 @@ _ZN6ignore5Error10with_depth17he529395aef243871E.exit.i: ; preds = %.noexc.i.i79
   %343 = and i32 %316, 61440
   %344 = icmp eq i32 %343, 40960
   %345 = load i8, ptr %263, align 8, !range !135, !alias.scope !770, !noalias !806, !noundef !4
-  %346 = trunc i8 %345 to i1
+  %346 = trunc nuw i8 %345 to i1
   %brmerge.demorgan.i = and i1 %344, %346
   br i1 %brmerge.demorgan.i, label %349, label %347
 
@@ -4706,7 +4706,7 @@ _ZN6ignore5Error10with_depth17he529395aef243871E.exit.i: ; preds = %.noexc.i.i79
 
 .noexc42.i:                                       ; preds = %378
   %381 = load i32, ptr %11, align 8, !range !787, !noalias !860, !noundef !4
-  %trunc.i.i39.i = trunc i32 %381 to i1
+  %trunc.i.i39.i = trunc nuw i32 %381 to i1
   %382 = load ptr, ptr %266, align 8, !noalias !860, !nonnull !4
   %383 = load i32, ptr %267, align 4, !range !864, !noalias !860
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !860
@@ -4821,7 +4821,7 @@ _ZN9same_file4unix6Handle9from_path17hdbb0b2e2f35bce51E.exit.i.i: ; preds = %.no
   %400 = icmp eq ptr %399, null
   %401 = getelementptr inbounds i8, ptr %397, i64 528
   %402 = load i8, ptr %401, align 8, !range !135, !noalias !894, !noundef !4
-  %403 = trunc i8 %402 to i1
+  %403 = trunc nuw i8 %402 to i1
   br i1 %403, label %404, label %418
 
 404:                                              ; preds = %"_ZN4core3ptr38drop_in_place$LT$same_file..Handle$GT$17h97f4353b43a51fc1E.exit68.i.i", %396
@@ -4872,7 +4872,7 @@ _ZN9same_file4unix6Handle9from_path17hdbb0b2e2f35bce51E.exit.i.i: ; preds = %.no
 
 .noexc.i40.i:                                     ; preds = %418
   %423 = load i32, ptr %7, align 8, !range !787, !noalias !910, !noundef !4
-  %trunc.i55.i.i = trunc i32 %423 to i1
+  %trunc.i55.i.i = trunc nuw i32 %423 to i1
   %424 = load ptr, ptr %268, align 8, !noalias !910, !nonnull !4
   %425 = load i32, ptr %269, align 4, !range !864, !noalias !910
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !910
@@ -5203,7 +5203,7 @@ _ZN9same_file4unix6Handle9from_path17hdbb0b2e2f35bce51E.exit57.i.i: ; preds = %4
 
 518:                                              ; preds = %515
   %519 = load i8, ptr %276, align 8, !range !135, !noalias !775, !noundef !4
-  %520 = trunc i8 %519 to i1
+  %520 = trunc nuw i8 %519 to i1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26), !noalias !775
   br i1 %520, label %528, label %513
 
@@ -6285,7 +6285,7 @@ _ZN6ignore4walk8DirEntry4path17hf90bbd6ebabb94b6E.exit: ; preds = %_ZN6ignore4wa
   store i8 1, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !1202
   call void @_ZN3std2fs11OpenOptions5_open17hb8f7674b6534c64eE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17), !noalias !1199
   %18 = load i32, ptr %8, align 8, !range !787, !noalias !1202, !noundef !4
-  %trunc.i = trunc i32 %18 to i1
+  %trunc.i = trunc nuw i32 %18 to i1
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !1202, !nonnull !4
   %21 = getelementptr inbounds i8, ptr %8, i64 4
@@ -6412,15 +6412,15 @@ define noundef zeroext i1 @_ZN6ignore4walk14walkdir_is_dir17h7c5458122e9e18a9E(p
     i16 -24576, label %8
   ]
 
-7:                                                ; preds = %1, %22, %18
-  %.0 = phi i1 [ false, %18 ], [ %.0.i, %22 ], [ true, %1 ]
+7:                                                ; preds = %8, %1, %22, %18
+  %.0 = phi i1 [ %.0.i, %22 ], [ true, %1 ], [ false, %8 ], [ false, %18 ]
   ret i1 %.0
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !4
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %18
+  br i1 %.not, label %11, label %7
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6434,7 +6434,7 @@ define noundef zeroext i1 @_ZN6ignore4walk14walkdir_is_dir17h7c5458122e9e18a9E(p
   %17 = icmp eq i64 %16, 2
   br i1 %17, label %24, label %19
 
-18:                                               ; preds = %1, %8
+18:                                               ; preds = %1
   br label %7
 
 19:                                               ; preds = %11

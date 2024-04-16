@@ -2239,7 +2239,7 @@ define internal void @input_repeat_key(ptr noundef %0) #0 align 16 {
   %50 = zext i32 %48 to i64
   %51 = getelementptr %struct.input_value, ptr %44, i64 %50
   store i16 1, ptr %51, align 4
-  %52 = trunc i32 %32 to i16
+  %52 = trunc nuw i32 %32 to i16
   %53 = getelementptr inbounds i8, ptr %51, i64 2
   store i16 %52, ptr %53, align 2
   %54 = getelementptr inbounds i8, ptr %51, i64 4
@@ -2500,7 +2500,7 @@ define dso_local i32 @input_register_device(ptr noundef %0) #0 align 16 {
 92:                                               ; preds = %76
   %93 = load volatile i64, ptr %77, align 8
   %94 = lshr i64 %93, 52
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw nsw i64 %94 to i32
   %96 = and i32 %95, 2
   br label %97
 
@@ -4923,7 +4923,7 @@ define internal fastcc i32 @input_print_bitmap(ptr nocapture noundef writeonly %
 
 26:                                               ; preds = %13
   %27 = lshr i64 %22, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = icmp eq i32 %28, 0
   %30 = and i1 %12, %29
   br i1 %30, label %34, label %31
@@ -5173,8 +5173,8 @@ define internal i64 @inhibited_store(ptr noundef %0, ptr nocapture readnone %1, 
   %75 = sext i32 %65 to i64
   br label %76
 
-76:                                               ; preds = %.thread, %.thread8, %74, %4
-  %77 = phi i64 [ -22, %4 ], [ %75, %74 ], [ %3, %.thread8 ], [ %3, %.thread ]
+76:                                               ; preds = %74, %.thread8, %.thread, %4
+  %77 = phi i64 [ -22, %4 ], [ %3, %.thread8 ], [ %3, %.thread ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
   ret i64 %77
 }
@@ -5859,7 +5859,7 @@ define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef 
 
 23:                                               ; preds = %12
   %24 = lshr i64 %17, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   %26 = icmp eq i32 %25, 0
   %27 = and i1 %19, %26
   br i1 %27, label %30, label %28

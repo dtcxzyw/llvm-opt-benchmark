@@ -252,7 +252,7 @@ define hidden noundef i32 @is_down_link(ptr nocapture noundef readonly %0) local
   %2 = getelementptr inbounds i8, ptr %0, i64 348
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
-  br i1 %4, label %20, label %5
+  br i1 %4, label %cmp_address.exit.thread, label %5
 
 5:                                                ; preds = %1
   %6 = icmp eq i32 %3, -1
@@ -265,14 +265,14 @@ define hidden noundef i32 @is_down_link(ptr nocapture noundef readonly %0) local
   %10 = getelementptr inbounds i8, ptr %0, i64 208
   %11 = load i32, ptr @bs_address, align 8
   %12 = load i32, ptr %10, align 8
-  %or.cond7.not = icmp eq i32 %11, %12
-  br i1 %or.cond7.not, label %13, label %cmp_address.exit.thread
+  %or.cond8.not = icmp eq i32 %11, %12
+  br i1 %or.cond8.not, label %13, label %cmp_address.exit.thread
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 212
   %15 = load i32, ptr %14, align 4
-  %or.cond8.not = icmp eq i32 %7, %15
-  br i1 %or.cond8.not, label %cmp_address.exit, label %cmp_address.exit.thread
+  %or.cond9.not = icmp eq i32 %7, %15
+  br i1 %or.cond9.not, label %cmp_address.exit, label %cmp_address.exit.thread
 
 cmp_address.exit:                                 ; preds = %13
   %16 = load ptr, ptr getelementptr inbounds (%struct._address, ptr @bs_address, i64 0, i32 2), align 8
@@ -280,14 +280,13 @@ cmp_address.exit:                                 ; preds = %13
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %7 to i64
   %bcmp = tail call i32 @bcmp(ptr %16, ptr %18, i64 %19)
-  %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %20, label %cmp_address.exit.thread
+  %bcmp.fr = freeze i32 %bcmp
+  %.not = icmp eq i32 %bcmp.fr, 0
+  %spec.select = zext i1 %.not to i32
+  br label %cmp_address.exit.thread
 
-cmp_address.exit.thread:                          ; preds = %13, %9, %cmp_address.exit, %5
-  br label %20
-
-20:                                               ; preds = %cmp_address.exit, %1, %cmp_address.exit.thread
-  %.0 = phi i32 [ 0, %cmp_address.exit.thread ], [ 1, %1 ], [ 1, %cmp_address.exit ]
+cmp_address.exit.thread:                          ; preds = %cmp_address.exit, %13, %9, %5, %1
+  %.0 = phi i32 [ 1, %1 ], [ 0, %5 ], [ 0, %9 ], [ 0, %13 ], [ %spec.select, %cmp_address.exit ]
   ret i32 %.0
 }
 

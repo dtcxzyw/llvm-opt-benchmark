@@ -612,7 +612,7 @@ for.body:                                         ; preds = %if.end8, %for.body
   tail call fastcc void @qemu_net_client_setup(ptr noundef %arrayidx, ptr noundef nonnull %info, ptr noundef %5, ptr noundef %model, ptr noundef %name, ptr noundef null, i1 noundef zeroext true)
   %6 = load ptr, ptr %call, align 8
   %queue_index = getelementptr %struct.NetClientState, ptr %6, i64 %indvars.iv, i32 10
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %queue_index, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
@@ -1554,7 +1554,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_can_receive_packet(ptr noundef %nc) local_unnamed_addr #0 {
+define dso_local i32 @qemu_can_receive_packet(ptr noundef %nc) local_unnamed_addr #0 {
 entry:
   %receive_disabled = getelementptr inbounds i8, ptr %nc, i64 320
   %bf.load = load i8, ptr %receive_disabled, align 8
@@ -1567,22 +1567,20 @@ if.else:                                          ; preds = %entry
   %can_receive = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %can_receive, align 8
   %tobool1.not = icmp eq ptr %1, null
-  br i1 %tobool1.not, label %if.end5, label %land.lhs.true
+  br i1 %tobool1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
   %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
-  br i1 %call, label %if.end5, label %return
-
-if.end5:                                          ; preds = %if.else, %land.lhs.true
+  %spec.select = zext i1 %call to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %if.end5
-  %retval.0 = phi i32 [ 1, %if.end5 ], [ 0, %entry ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.else ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qemu_can_send_packet(ptr nocapture noundef readonly %sender) local_unnamed_addr #0 {
+define dso_local i32 @qemu_can_send_packet(ptr nocapture noundef readonly %sender) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @runstate_is_running() #26
   br i1 %call, label %if.end, label %return
@@ -1605,17 +1603,15 @@ if.else.i:                                        ; preds = %if.end3
   %can_receive.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %can_receive.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
-  br i1 %tobool1.not.i, label %if.end5.i, label %land.lhs.true.i
+  br i1 %tobool1.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
   %call.i = tail call zeroext i1 %2(ptr noundef nonnull %0) #26
-  br i1 %call.i, label %if.end5.i, label %return
-
-if.end5.i:                                        ; preds = %land.lhs.true.i, %if.else.i
+  %spec.select.i = zext i1 %call.i to i32
   br label %return
 
-return:                                           ; preds = %if.end5.i, %land.lhs.true.i, %if.end3, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 1, %if.end5.i ], [ 0, %if.end3 ], [ 0, %land.lhs.true.i ]
+return:                                           ; preds = %land.lhs.true.i, %if.else.i, %if.end3, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 0, %if.end3 ], [ 1, %if.else.i ], [ %spec.select.i, %land.lhs.true.i ]
   ret i32 %retval.0
 }
 
@@ -1860,21 +1856,21 @@ if.else.i:                                        ; preds = %entry
   %can_receive.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %can_receive.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
-  br i1 %tobool1.not.i, label %if.end, label %land.lhs.true.i
+  br i1 %tobool1.not.i, label %if.end, label %qemu_can_receive_packet.exit
 
-land.lhs.true.i:                                  ; preds = %if.else.i
+qemu_can_receive_packet.exit:                     ; preds = %if.else.i
   %call.i = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
   br i1 %call.i, label %if.end, label %return
 
-if.end:                                           ; preds = %land.lhs.true.i, %if.else.i
+if.end:                                           ; preds = %if.else.i, %qemu_can_receive_packet.exit
   %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   %2 = load ptr, ptr %incoming_queue, align 8
   %conv = sext i32 %size to i64
   %call1 = tail call i64 @qemu_net_queue_receive(ptr noundef %2, ptr noundef %buf, i64 noundef %conv) #26
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %entry, %if.end
-  %retval.0 = phi i64 [ %call1, %if.end ], [ 0, %entry ], [ 0, %land.lhs.true.i ]
+return:                                           ; preds = %entry, %qemu_can_receive_packet.exit, %if.end
+  %retval.0 = phi i64 [ %call1, %if.end ], [ 0, %qemu_can_receive_packet.exit ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -1894,20 +1890,20 @@ if.else.i:                                        ; preds = %entry
   %can_receive.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %can_receive.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
-  br i1 %tobool1.not.i, label %if.end, label %land.lhs.true.i
+  br i1 %tobool1.not.i, label %if.end, label %qemu_can_receive_packet.exit
 
-land.lhs.true.i:                                  ; preds = %if.else.i
+qemu_can_receive_packet.exit:                     ; preds = %if.else.i
   %call.i = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
   br i1 %call.i, label %if.end, label %return
 
-if.end:                                           ; preds = %land.lhs.true.i, %if.else.i
+if.end:                                           ; preds = %if.else.i, %qemu_can_receive_packet.exit
   %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   %2 = load ptr, ptr %incoming_queue, align 8
   %call1 = tail call i64 @qemu_net_queue_receive_iov(ptr noundef %2, ptr noundef %iov, i32 noundef %iovcnt) #26
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %entry, %if.end
-  %retval.0 = phi i64 [ %call1, %if.end ], [ 0, %entry ], [ 0, %land.lhs.true.i ]
+return:                                           ; preds = %entry, %qemu_can_receive_packet.exit, %if.end
+  %retval.0 = phi i64 [ %call1, %if.end ], [ 0, %qemu_can_receive_packet.exit ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -3242,17 +3238,17 @@ declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_un
 define internal void @net_vm_change_state_handler(ptr nocapture readnone %opaque, i1 noundef zeroext %running, i32 %state) #0 {
 entry:
   %0 = load ptr, ptr @net_clients, align 8
-  %tobool.not16 = icmp eq ptr %0, null
-  br i1 %tobool.not16, label %for.end, label %land.rhs.lr.ph
+  %tobool.not20 = icmp eq ptr %0, null
+  br i1 %tobool.not20, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
   br i1 %running, label %land.rhs.us, label %land.rhs
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %for.inc.us
-  %nc.017.us = phi ptr [ %1, %for.inc.us ], [ %0, %land.rhs.lr.ph ]
-  %next.us = getelementptr inbounds i8, ptr %nc.017.us, i64 16
+  %nc.021.us = phi ptr [ %1, %for.inc.us ], [ %0, %land.rhs.lr.ph ]
+  %next.us = getelementptr inbounds i8, ptr %nc.021.us, i64 16
   %1 = load ptr, ptr %next.us, align 8
-  %peer.us = getelementptr inbounds i8, ptr %nc.017.us, i64 32
+  %peer.us = getelementptr inbounds i8, ptr %nc.021.us, i64 32
   %2 = load ptr, ptr %peer.us, align 8
   %tobool2.not.us = icmp eq ptr %2, null
   br i1 %tobool2.not.us, label %for.inc.us, label %land.lhs.true.us
@@ -3274,18 +3270,18 @@ if.else.i.i.us:                                   ; preds = %if.end.i.us
   %can_receive.i.i.us = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load ptr, ptr %can_receive.i.i.us, align 8
   %tobool1.not.i.i.us = icmp eq ptr %5, null
-  br i1 %tobool1.not.i.i.us, label %if.then4.us, label %land.lhs.true.i.i.us
+  br i1 %tobool1.not.i.i.us, label %if.then4.us, label %qemu_can_send_packet.exit.us
 
-land.lhs.true.i.i.us:                             ; preds = %if.else.i.i.us
+qemu_can_send_packet.exit.us:                     ; preds = %if.else.i.i.us
   %call.i.i.us = tail call zeroext i1 %5(ptr noundef nonnull %3) #26
-  br i1 %call.i.i.us, label %land.lhs.true.i.i.us.if.then4.us_crit_edge, label %for.inc.us
+  br i1 %call.i.i.us, label %qemu_can_send_packet.exit.us.if.then4.us_crit_edge, label %for.inc.us
 
-land.lhs.true.i.i.us.if.then4.us_crit_edge:       ; preds = %land.lhs.true.i.i.us
+qemu_can_send_packet.exit.us.if.then4.us_crit_edge: ; preds = %qemu_can_send_packet.exit.us
   %.pre = load ptr, ptr %peer.us, align 8
   br label %if.then4.us
 
-if.then4.us:                                      ; preds = %land.lhs.true.i.i.us.if.then4.us_crit_edge, %if.else.i.i.us
-  %6 = phi ptr [ %.pre, %land.lhs.true.i.i.us.if.then4.us_crit_edge ], [ %3, %if.else.i.i.us ]
+if.then4.us:                                      ; preds = %qemu_can_send_packet.exit.us.if.then4.us_crit_edge, %if.else.i.i.us
+  %6 = phi ptr [ %.pre, %qemu_can_send_packet.exit.us.if.then4.us_crit_edge ], [ %3, %if.else.i.i.us ]
   %receive_disabled.i.i6.us = getelementptr inbounds i8, ptr %6, i64 320
   %bf.load.i.i7.us = load i8, ptr %receive_disabled.i.i6.us, align 8
   %bf.clear.i.i8.us = and i8 %bf.load.i.i7.us, -2
@@ -3319,19 +3315,19 @@ if.then6.i.i.us:                                  ; preds = %if.end4.i.i.us
   tail call void @qemu_notify_event() #26
   br label %for.inc.us
 
-for.inc.us:                                       ; preds = %if.then6.i.i.us, %if.end4.i.i.us, %land.lhs.true.i.i.us, %if.end.i.us, %land.lhs.true.us, %land.rhs.us
+for.inc.us:                                       ; preds = %if.then6.i.i.us, %if.end4.i.i.us, %qemu_can_send_packet.exit.us, %if.end.i.us, %land.lhs.true.us, %land.rhs.us
   %tobool.not.us = icmp eq ptr %1, null
   br i1 %tobool.not.us, label %for.end, label %land.rhs.us, !llvm.loop !39
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %nc.017 = phi ptr [ %11, %for.inc ], [ %0, %land.rhs.lr.ph ]
-  %next = getelementptr inbounds i8, ptr %nc.017, i64 16
+  %nc.021 = phi ptr [ %11, %for.inc ], [ %0, %land.rhs.lr.ph ]
+  %next = getelementptr inbounds i8, ptr %nc.021, i64 16
   %11 = load ptr, ptr %next, align 8
-  %receive_disabled.i = getelementptr inbounds i8, ptr %nc.017, i64 320
+  %receive_disabled.i = getelementptr inbounds i8, ptr %nc.021, i64 320
   %bf.load.i = load i8, ptr %receive_disabled.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %receive_disabled.i, align 8
-  %peer.i12 = getelementptr inbounds i8, ptr %nc.017, i64 32
+  %peer.i12 = getelementptr inbounds i8, ptr %nc.021, i64 32
   %12 = load ptr, ptr %peer.i12, align 8
   %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %if.end4.i, label %land.lhs.true.i
@@ -3351,7 +3347,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.then.i, %land.lhs.true.i, %land.rhs
-  %incoming_queue.i = getelementptr inbounds i8, ptr %nc.017, i64 40
+  %incoming_queue.i = getelementptr inbounds i8, ptr %nc.021, i64 40
   %15 = load ptr, ptr %incoming_queue.i, align 8
   %call5.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %15) #26
   br i1 %call5.i, label %if.then6.i, label %if.else.i
@@ -4178,7 +4174,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then3, label %for.body.i, !llvm.loop !41
 
 nic_get_free_idx.exit:                            ; preds = %for.body.i
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp1 = icmp eq i32 %2, -1
   %3 = load i32, ptr @nb_nics, align 4
   %cmp2 = icmp sgt i32 %3, 7

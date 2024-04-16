@@ -2961,7 +2961,7 @@ define internal fastcc noundef i64 @__se_sys_newuname(i64 noundef %0) unnamed_ad
   tail call void @up_read(ptr noundef nonnull @uts_sem) #13
   %11 = call i64 @_copy_to_user(ptr noundef %4, ptr noundef nonnull %3, i64 noundef 390) #13
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %52
+  br i1 %12, label %13, label %51
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %4, i64 130
@@ -3021,7 +3021,7 @@ override_release.exit:                            ; preds = %38, %39
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %2) #13
   %42 = and i64 %41, 4294967295
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %override_release.exit.override_release.exit.thread_crit_edge, label %52
+  br i1 %43, label %override_release.exit.override_release.exit.thread_crit_edge, label %51
 
 override_release.exit.override_release.exit.thread_crit_edge: ; preds = %override_release.exit
   %.pre = load i32, ptr %15, align 8
@@ -3037,15 +3037,13 @@ override_release.exit.thread:                     ; preds = %override_release.ex
   %48 = getelementptr inbounds i8, ptr %4, i64 260
   %49 = call i64 @_copy_to_user(ptr noundef %48, ptr noundef nonnull @.str.2, i64 noundef 7) #13
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %52
+  %spec.select = select i1 %50, i64 0, i64 -14
+  br label %51
 
-51:                                               ; preds = %47, %override_release.exit.thread
-  br label %52
-
-52:                                               ; preds = %51, %47, %override_release.exit, %1
-  %53 = phi i64 [ 0, %51 ], [ -14, %1 ], [ -14, %override_release.exit ], [ -14, %47 ]
+51:                                               ; preds = %47, %override_release.exit.thread, %override_release.exit, %1
+  %52 = phi i64 [ -14, %1 ], [ -14, %override_release.exit ], [ 0, %override_release.exit.thread ], [ %spec.select, %47 ]
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3) #13
-  ret i64 %53
+  ret i64 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3072,7 +3070,7 @@ define internal fastcc noundef i64 @__se_sys_uname(i64 noundef %0) unnamed_addr 
   %4 = inttoptr i64 %0 to ptr
   call void @llvm.lifetime.start.p0(i64 325, ptr nonnull %3) #13
   %5 = icmp eq i64 %0, 0
-  br i1 %5, label %54, label %6
+  br i1 %5, label %53, label %6
 
 6:                                                ; preds = %1
   tail call void @down_read(ptr noundef nonnull @uts_sem) #13
@@ -3086,7 +3084,7 @@ define internal fastcc noundef i64 @__se_sys_uname(i64 noundef %0) unnamed_addr 
   tail call void @up_read(ptr noundef nonnull @uts_sem) #13
   %13 = call i64 @_copy_to_user(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 325) #13
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %54
+  br i1 %14, label %15, label %53
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %4, i64 130
@@ -3146,7 +3144,7 @@ override_release.exit:                            ; preds = %40, %41
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %2) #13
   %44 = and i64 %43, 4294967295
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %override_release.exit.override_release.exit.thread_crit_edge, label %54
+  br i1 %45, label %override_release.exit.override_release.exit.thread_crit_edge, label %53
 
 override_release.exit.override_release.exit.thread_crit_edge: ; preds = %override_release.exit
   %.pre = load i32, ptr %17, align 8
@@ -3162,15 +3160,13 @@ override_release.exit.thread:                     ; preds = %override_release.ex
   %50 = getelementptr inbounds i8, ptr %4, i64 260
   %51 = call i64 @_copy_to_user(ptr noundef %50, ptr noundef nonnull @.str.2, i64 noundef 7) #13
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %54
+  %spec.select = select i1 %52, i64 0, i64 -14
+  br label %53
 
-53:                                               ; preds = %49, %override_release.exit.thread
-  br label %54
-
-54:                                               ; preds = %53, %49, %override_release.exit, %6, %1
-  %55 = phi i64 [ 0, %53 ], [ -14, %1 ], [ -14, %6 ], [ -14, %override_release.exit ], [ -14, %49 ]
+53:                                               ; preds = %49, %override_release.exit.thread, %override_release.exit, %6, %1
+  %54 = phi i64 [ -14, %1 ], [ -14, %6 ], [ -14, %override_release.exit ], [ 0, %override_release.exit.thread ], [ %spec.select, %49 ]
   call void @llvm.lifetime.end.p0(i64 325, ptr nonnull %3) #13
-  ret i64 %55
+  ret i64 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3197,7 +3193,7 @@ define internal fastcc noundef i64 @__se_sys_olduname(i64 noundef %0) unnamed_ad
   %4 = inttoptr i64 %0 to ptr
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %3) #13
   %5 = icmp eq i64 %0, 0
-  br i1 %5, label %68, label %6
+  br i1 %5, label %override_release.exit.thread, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3230,7 +3226,7 @@ define internal fastcc noundef i64 @__se_sys_olduname(i64 noundef %0) unnamed_ad
   tail call void @up_read(ptr noundef nonnull @uts_sem) #13
   %27 = call i64 @_copy_to_user(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 45) #13
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %68
+  br i1 %28, label %29, label %override_release.exit.thread
 
 29:                                               ; preds = %6
   %30 = getelementptr inbounds i8, ptr %9, i64 1240
@@ -3243,7 +3239,7 @@ define internal fastcc noundef i64 @__se_sys_olduname(i64 noundef %0) unnamed_ad
   %35 = getelementptr inbounds i8, ptr %4, i64 36
   %36 = call i64 @_copy_to_user(ptr noundef %35, ptr noundef nonnull @.str.2, i64 noundef 7) #13
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %._crit_edge, label %68
+  br i1 %37, label %._crit_edge, label %override_release.exit.thread
 
 ._crit_edge:                                      ; preds = %34
   %.pre = load i32, ptr %30, align 8
@@ -3307,15 +3303,13 @@ override_release.exit:                            ; preds = %62, %63
   %.fr2 = freeze i64 %65
   %66 = and i64 %.fr2, 4294967295
   %67 = icmp eq i64 %66, 0
-  br i1 %67, label %override_release.exit.thread, label %68
+  %spec.select = select i1 %67, i64 0, i64 -14
+  br label %override_release.exit.thread
 
-override_release.exit.thread:                     ; preds = %38, %override_release.exit
-  br label %68
-
-68:                                               ; preds = %override_release.exit.thread, %override_release.exit, %34, %6, %1
-  %69 = phi i64 [ -14, %1 ], [ -14, %6 ], [ -14, %34 ], [ 0, %override_release.exit.thread ], [ -14, %override_release.exit ]
+override_release.exit.thread:                     ; preds = %override_release.exit, %38, %34, %6, %1
+  %68 = phi i64 [ -14, %1 ], [ -14, %6 ], [ -14, %34 ], [ 0, %38 ], [ %spec.select, %override_release.exit ]
   call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %3) #13
-  ret i64 %69
+  ret i64 %68
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3732,10 +3726,10 @@ define dso_local noundef i64 @__ia32_compat_sys_getrlimit(ptr nocapture noundef 
   tail call void @_raw_spin_unlock(ptr noundef %28) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %29 = tail call i64 @llvm.umin.i64(i64 %24, i64 4294967295)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   store i32 %30, ptr %2, align 8
   %31 = tail call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   %33 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %32, ptr %33, align 4
   %34 = call i64 @_copy_to_user(ptr noundef %12, ptr noundef nonnull %2, i64 noundef 8) #13
@@ -3744,8 +3738,8 @@ define dso_local noundef i64 @__ia32_compat_sys_getrlimit(ptr nocapture noundef 
   %spec.select = select i1 %35, i64 0, i64 -14
   br label %36
 
-36:                                               ; preds = %8, %1
-  %37 = phi i64 [ -22, %1 ], [ %spec.select, %8 ]
+36:                                               ; preds = %1, %8
+  %37 = phi i64 [ %spec.select, %8 ], [ -22, %1 ]
   ret i64 %37
 }
 
@@ -3905,7 +3899,7 @@ define dso_local i64 @__ia32_compat_sys_old_getrlimit(ptr nocapture noundef read
   %27 = getelementptr inbounds i8, ptr %26, i64 2056
   tail call void @_raw_spin_unlock(ptr noundef %27) #13
   %28 = tail call i64 @llvm.umin.i64(i64 %23, i64 2147483647)
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = tail call i64 @llvm.read_register.i64(metadata !0)
   %31 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %7, i32 %29, i64 4, i64 %30) #13, !srcloc !32
   %32 = extractvalue { ptr, i64 } %31, 0
@@ -3918,7 +3912,7 @@ define dso_local i64 @__ia32_compat_sys_old_getrlimit(ptr nocapture noundef read
 
 37:                                               ; preds = %10
   %38 = tail call i64 @llvm.umin.i64(i64 %25, i64 2147483647)
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = getelementptr inbounds i8, ptr %7, i64 4
   %41 = tail call i64 @llvm.read_register.i64(metadata !0)
   %42 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %40, i32 %39, i64 4, i64 %41) #13, !srcloc !33
@@ -4780,7 +4774,7 @@ define internal fastcc i64 @__se_sys_prctl(i64 noundef %0, i64 noundef %1, i64 n
   br i1 %16, label %288, label %17
 
 17:                                               ; preds = %15
-  %18 = trunc i64 %1 to i32
+  %18 = trunc nuw nsw i64 %1 to i32
   %19 = getelementptr inbounds i8, ptr %9, i64 1228
   store i32 %18, ptr %19, align 4
   br label %288
@@ -4814,7 +4808,7 @@ define internal fastcc i64 @__se_sys_prctl(i64 noundef %0, i64 noundef %1, i64 n
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %9, i64 1192
   %41 = load ptr, ptr %40, align 8
-  %42 = trunc i64 %1 to i32
+  %42 = trunc nuw nsw i64 %1 to i32
   tail call void @set_dumpable(ptr noundef %41, i32 noundef %42) #13
   br label %288
 
@@ -6155,7 +6149,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   %191 = icmp ugt i64 %190, %185
   br i1 %191, label %.thread, label %192
 
-192:                                              ; preds = %187, %181
+192:                                              ; preds = %181, %187
   switch i32 %0, label %195 [
     i32 5, label %193
     i32 8, label %193
@@ -6183,7 +6177,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   br label %.thread
 
 .thread:                                          ; preds = %159, %187, %169, %195, %193, %84
-  %196 = phi i32 [ -22, %84 ], [ 0, %195 ], [ -14, %193 ], [ -22, %187 ], [ %179, %169 ], [ -22, %159 ]
+  %196 = phi i32 [ -22, %84 ], [ 0, %195 ], [ -14, %193 ], [ %179, %169 ], [ -22, %187 ], [ -22, %159 ]
   tail call void @_raw_spin_unlock(ptr noundef %86) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #13
           to label %198 [label %197], !srcloc !58
@@ -6354,14 +6348,12 @@ define internal fastcc noundef i32 @prctl_get_auxv(ptr noundef %0, i64 noundef %
   %10 = tail call i64 @llvm.umin.i64(i64 %1, i64 416)
   %11 = tail call i64 @_copy_to_user(ptr noundef %0, ptr noundef %9, i64 noundef %10) #13
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %14
+  %spec.select = select i1 %12, i32 416, i32 -14
+  br label %13
 
 13:                                               ; preds = %5, %2
-  br label %14
-
-14:                                               ; preds = %13, %5
-  %15 = phi i32 [ 416, %13 ], [ -14, %5 ]
-  ret i32 %15
+  %14 = phi i32 [ 416, %2 ], [ %spec.select, %5 ]
+  ret i32 %14
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -6459,7 +6451,7 @@ define internal fastcc void @do_sysinfo(ptr noundef %0) unnamed_addr #0 align 16
 43:                                               ; preds = %38
   %44 = add nuw nsw i32 %41, 1
   %45 = lshr i32 %40, 1
-  %46 = shl i64 %39, 1
+  %46 = shl nuw i64 %39, 1
   %47 = icmp slt i64 %39, 0
   br i1 %47, label %.loopexit, label %38, !llvm.loop !61
 

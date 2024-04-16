@@ -557,7 +557,7 @@ define internal i32 @sd_probe(ptr noundef %0) #3 align 16 {
 
 29:                                               ; preds = %25
   %30 = urem i32 %26, 26
-  %31 = trunc i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = add nuw nsw i8 %31, 97
   %33 = getelementptr i8, ptr %27, i64 -1
   store i8 %32, ptr %33, align 1
@@ -1070,7 +1070,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #3 align 16 {
   %114 = lshr i32 %113, 9
   %115 = zext nneg i32 %114 to i64
   %116 = lshr i64 %115, %110
-  %117 = trunc i64 %116 to i32
+  %117 = trunc nuw nsw i64 %116 to i32
   %118 = shl nuw i64 1, %110
   %119 = trunc i64 %118 to i32
   %120 = add i32 %119, -1
@@ -1223,7 +1223,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #3 align 16 {
   br i1 %227, label %228, label %.thread
 
 228:                                              ; preds = %224
-  %229 = trunc i32 %175 to i8
+  %229 = trunc nuw nsw i32 %175 to i8
   %230 = or i8 %223, %229
   %231 = getelementptr inbounds i8, ptr %0, i64 156
   store i16 32, ptr %231, align 4
@@ -1263,7 +1263,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #3 align 16 {
 
 253:                                              ; preds = %.thread
   %254 = or i32 %247, %175
-  %255 = trunc i32 %254 to i8
+  %255 = trunc nuw nsw i32 %254 to i8
   %256 = getelementptr inbounds i8, ptr %0, i64 156
   store i16 16, ptr %256, align 4
   %257 = select i1 %122, i8 -118, i8 -120
@@ -1301,7 +1301,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #3 align 16 {
 
 278:                                              ; preds = %274, %270
   %279 = or i32 %247, %175
-  %280 = trunc i32 %279 to i8
+  %280 = trunc nuw nsw i32 %279 to i8
   %281 = getelementptr inbounds i8, ptr %0, i64 156
   store i16 10, ptr %281, align 4
   %282 = select i1 %122, i8 42, i8 40
@@ -1317,7 +1317,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #3 align 16 {
   %288 = getelementptr i8, ptr %0, i64 166
   %289 = tail call i32 @llvm.bswap.i32(i32 %287)
   store i32 %289, ptr %288, align 1
-  %290 = trunc i32 %169 to i16
+  %290 = trunc nuw i32 %169 to i16
   %291 = getelementptr i8, ptr %0, i64 171
   %292 = tail call i16 @llvm.bswap.i16(i16 %290)
   store i16 %292, ptr %291, align 1
@@ -5063,29 +5063,29 @@ define internal fastcc i32 @sd_pr_out_command(ptr %.16.val.88.val.0.val, i32 %.1
 
 28:                                               ; preds = %5
   %29 = icmp slt i32 %20, 1
-  br i1 %29, label %51, label %.thread
+  br i1 %29, label %50, label %.thread
 
 .thread:                                          ; preds = %23, %27, %28
   %30 = lshr i32 %20, 16
   %31 = trunc i32 %30 to i8
   switch i8 %31, label %34 [
-    i8 20, label %51
-    i8 14, label %51
-    i8 2, label %51
+    i8 20, label %50
+    i8 14, label %50
+    i8 2, label %50
     i8 1, label %32
     i8 15, label %33
   ]
 
 32:                                               ; preds = %.thread
-  br label %51
+  br label %50
 
 33:                                               ; preds = %.thread
-  br label %51
+  br label %50
 
 34:                                               ; preds = %.thread
   %35 = trunc i32 %20 to i8
-  switch i8 %35, label %50 [
-    i8 24, label %51
+  switch i8 %35, label %49 [
+    i8 24, label %50
     i8 2, label %36
   ]
 
@@ -5093,32 +5093,30 @@ define internal fastcc i32 @sd_pr_out_command(ptr %.16.val.88.val.0.val, i32 %.1
   %37 = load i8, ptr %6, align 8
   %38 = and i8 %37, 112
   %39 = icmp eq i8 %38, 112
-  br i1 %39, label %40, label %51
+  %40 = getelementptr inbounds i8, ptr %6, i64 1
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 5
+  %or.cond = select i1 %39, i1 %42, i1 false
+  br i1 %or.cond, label %43, label %50
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %6, i64 1
-  %42 = load i8, ptr %41, align 1
-  %43 = icmp eq i8 %42, 5
-  br i1 %43, label %44, label %50
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds i8, ptr %6, i64 2
+  %45 = load i8, ptr %44, align 2
+  %46 = and i8 %45, -3
+  %47 = icmp eq i8 %46, 36
+  %48 = select i1 %47, i32 -22, i32 2
+  br label %50
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %6, i64 2
-  %46 = load i8, ptr %45, align 2
-  %47 = and i8 %46, -3
-  %48 = icmp eq i8 %47, 36
-  %49 = select i1 %48, i32 -22, i32 2
-  br label %51
+49:                                               ; preds = %34
+  br label %50
 
-50:                                               ; preds = %40, %34
-  br label %51
-
-51:                                               ; preds = %50, %44, %36, %34, %33, %32, %.thread, %.thread, %.thread, %28
-  %52 = phi i32 [ %20, %28 ], [ 2, %50 ], [ 983040, %33 ], [ 65536, %32 ], [ 917504, %.thread ], [ 917504, %.thread ], [ 917504, %.thread ], [ 24, %34 ], [ 2, %36 ], [ %49, %44 ]
+50:                                               ; preds = %49, %43, %36, %34, %33, %32, %.thread, %.thread, %.thread, %28
+  %51 = phi i32 [ %20, %28 ], [ 983040, %33 ], [ 65536, %32 ], [ 917504, %.thread ], [ 917504, %.thread ], [ 917504, %.thread ], [ 24, %34 ], [ 2, %36 ], [ %48, %43 ], [ 2, %49 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  ret i32 %52
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5172,29 +5170,29 @@ define internal fastcc i32 @sd_pr_in_command(ptr %.16.val.88.val.0.val, i32 %.16
 
 21:                                               ; preds = %3
   %22 = icmp slt i32 %13, 1
-  br i1 %22, label %44, label %.thread
+  br i1 %22, label %43, label %.thread
 
 .thread:                                          ; preds = %16, %20, %21
   %23 = lshr i32 %13, 16
   %24 = trunc i32 %23 to i8
   switch i8 %24, label %27 [
-    i8 20, label %44
-    i8 14, label %44
-    i8 2, label %44
+    i8 20, label %43
+    i8 14, label %43
+    i8 2, label %43
     i8 1, label %25
     i8 15, label %26
   ]
 
 25:                                               ; preds = %.thread
-  br label %44
+  br label %43
 
 26:                                               ; preds = %.thread
-  br label %44
+  br label %43
 
 27:                                               ; preds = %.thread
   %28 = trunc i32 %13 to i8
-  switch i8 %28, label %43 [
-    i8 24, label %44
+  switch i8 %28, label %42 [
+    i8 24, label %43
     i8 2, label %29
   ]
 
@@ -5202,31 +5200,29 @@ define internal fastcc i32 @sd_pr_in_command(ptr %.16.val.88.val.0.val, i32 %.16
   %30 = load i8, ptr %4, align 8
   %31 = and i8 %30, 112
   %32 = icmp eq i8 %31, 112
-  br i1 %32, label %33, label %44
+  %33 = getelementptr inbounds i8, ptr %4, i64 1
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 5
+  %or.cond = select i1 %32, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %43
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %4, i64 1
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp eq i8 %35, 5
-  br i1 %36, label %37, label %43
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds i8, ptr %4, i64 2
+  %38 = load i8, ptr %37, align 2
+  %39 = and i8 %38, -3
+  %40 = icmp eq i8 %39, 36
+  %41 = select i1 %40, i32 -22, i32 2
+  br label %43
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %4, i64 2
-  %39 = load i8, ptr %38, align 2
-  %40 = and i8 %39, -3
-  %41 = icmp eq i8 %40, 36
-  %42 = select i1 %41, i32 -22, i32 2
-  br label %44
+42:                                               ; preds = %27
+  br label %43
 
-43:                                               ; preds = %33, %27
-  br label %44
-
-44:                                               ; preds = %43, %37, %29, %27, %26, %25, %.thread, %.thread, %.thread, %21
-  %45 = phi i32 [ %13, %21 ], [ 2, %43 ], [ 983040, %26 ], [ 65536, %25 ], [ 917504, %.thread ], [ 917504, %.thread ], [ 917504, %.thread ], [ 24, %27 ], [ 2, %29 ], [ %42, %37 ]
+43:                                               ; preds = %42, %36, %29, %27, %26, %25, %.thread, %.thread, %.thread, %21
+  %44 = phi i32 [ %13, %21 ], [ 983040, %26 ], [ 65536, %25 ], [ 917504, %.thread ], [ 917504, %.thread ], [ 917504, %.thread ], [ 24, %27 ], [ 2, %29 ], [ %41, %36 ], [ 2, %42 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  ret i32 %45
+  ret i32 %44
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -6602,7 +6598,7 @@ define internal fastcc zeroext i8 @sd_setup_unmap_cmnd(ptr noundef %0) unnamed_a
 
 48:                                               ; preds = %25
   %49 = inttoptr i64 %46 to ptr
-  %50 = trunc i64 %21 to i32
+  %50 = trunc nuw nsw i64 %21 to i32
   %51 = getelementptr inbounds i8, ptr %0, i64 156
   store i16 10, ptr %51, align 4
   %52 = getelementptr inbounds i8, ptr %0, i64 164
@@ -6656,7 +6652,7 @@ define internal fastcc zeroext i8 @sd_setup_write_same16_cmnd(ptr noundef %0, i1
   %20 = lshr i32 %19, 9
   %21 = zext nneg i32 %20 to i64
   %22 = lshr i64 %21, %16
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = load ptr, ptr @sd_page_pool, align 8
   %25 = tail call noalias ptr @mempool_alloc(ptr noundef %24, i32 noundef 2080) #19
   %26 = icmp eq ptr %25, null
@@ -6892,7 +6888,7 @@ define internal fastcc noundef zeroext i8 @sd_setup_protect_cmnd(ptr nocapture n
   %30 = trunc i32 %16 to i8
   %31 = getelementptr inbounds i8, ptr %0, i64 152
   store i8 %30, ptr %31, align 8
-  %32 = trunc i32 %2 to i8
+  %32 = trunc nuw nsw i32 %2 to i8
   %33 = getelementptr inbounds i8, ptr %0, i64 153
   store i8 %32, ptr %33, align 1
   %34 = zext i32 %16 to i64
@@ -6932,7 +6928,7 @@ define internal fastcc noundef zeroext i8 @sd_setup_rw6_cmnd(ptr noundef %0, i1 
   %15 = getelementptr inbounds i8, ptr %0, i64 164
   store i8 %14, ptr %15, align 4
   %16 = lshr i64 %2, 16
-  %17 = trunc i64 %16 to i8
+  %17 = trunc nuw nsw i64 %16 to i8
   %18 = and i8 %17, 31
   %19 = getelementptr i8, ptr %0, i64 165
   store i8 %18, ptr %19, align 1
@@ -6943,7 +6939,7 @@ define internal fastcc noundef zeroext i8 @sd_setup_rw6_cmnd(ptr noundef %0, i1 
   %23 = trunc i64 %2 to i8
   %24 = getelementptr i8, ptr %0, i64 167
   store i8 %23, ptr %24, align 1
-  %25 = trunc i32 %3 to i8
+  %25 = trunc nuw i32 %3 to i8
   %26 = getelementptr i8, ptr %0, i64 168
   store i8 %25, ptr %26, align 4
   %27 = getelementptr i8, ptr %0, i64 169
@@ -7173,7 +7169,7 @@ define internal noundef i64 @cache_type_store(ptr nocapture noundef %0, ptr noca
   %78 = zext i8 %77 to i32
   %79 = or disjoint i32 %29, %78
   %80 = or disjoint i32 %79, %38
-  %81 = trunc i32 %80 to i8
+  %81 = trunc nuw i32 %80 to i8
   store i8 %81, ptr %75, align 1
   %82 = load i8, ptr %74, align 1
   %83 = lshr i8 %82, 7
@@ -7251,7 +7247,7 @@ define internal noundef i64 @allow_restart_show(ptr nocapture noundef readonly %
   %6 = getelementptr inbounds i8, ptr %5, i64 332
   %7 = load i64, ptr %6, align 4
   %8 = lshr i64 %7, 33
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   %10 = and i32 %9, 1
   %11 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.102, i32 noundef %10) #19
   %12 = sext i32 %11 to i64
@@ -7490,7 +7486,7 @@ define internal i64 @protection_type_store(ptr nocapture noundef writeonly %0, p
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = trunc i32 %13 to i8
+  %16 = trunc nuw nsw i32 %13 to i8
   %17 = getelementptr i8, ptr %0, i64 810
   store i8 %16, ptr %17, align 2
   br label %18
@@ -7731,7 +7727,7 @@ define internal i64 @max_write_same_blocks_store(ptr nocapture noundef %0, ptr n
   %28 = load i64, ptr %27, align 4
   %29 = and i64 %28, -16777217
   store i64 %29, ptr %27, align 4
-  %30 = trunc i64 %18 to i32
+  %30 = trunc nuw nsw i64 %18 to i32
   %31 = getelementptr i8, ptr %0, i64 776
   store i32 %30, ptr %31, align 8
   br label %32

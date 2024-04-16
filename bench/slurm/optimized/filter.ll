@@ -32,7 +32,7 @@ define dso_local void @filter_job_list(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_filter_job(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal i32 @_filter_job(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 17), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -41,7 +41,7 @@ define internal noundef i32 @_filter_job(ptr noundef %0, ptr nocapture readnone 
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call ptr @list_find_first(ptr noundef nonnull %3, ptr noundef nonnull @_list_find_job_id, ptr noundef nonnull %5) #3
   %.not7 = icmp eq ptr %6, null
-  br i1 %.not7, label %19, label %7
+  br i1 %.not7, label %18, label %7
 
 7:                                                ; preds = %4, %2
   %8 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 19), align 8
@@ -52,7 +52,7 @@ define internal noundef i32 @_filter_job(ptr noundef %0, ptr nocapture readnone 
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = tail call ptr @list_find_first(ptr noundef nonnull %8, ptr noundef nonnull @_list_find_user, ptr noundef nonnull %10) #3
   %.not9 = icmp eq ptr %11, null
-  br i1 %.not9, label %19, label %12
+  br i1 %.not9, label %18, label %12
 
 12:                                               ; preds = %9, %7
   %13 = load ptr, ptr getelementptr inbounds (%struct.sprio_parameters, ptr @params, i64 0, i32 18), align 8
@@ -64,13 +64,11 @@ define internal noundef i32 @_filter_job(ptr noundef %0, ptr nocapture readnone 
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @list_find_first(ptr noundef nonnull %13, ptr noundef nonnull @_list_find_part, ptr noundef %16) #3
   %.not11 = icmp eq ptr %17, null
-  br i1 %.not11, label %19, label %18
+  %spec.select = zext i1 %.not11 to i32
+  br label %18
 
-18:                                               ; preds = %14, %12
-  br label %19
-
-19:                                               ; preds = %14, %9, %4, %18
-  %.0 = phi i32 [ 0, %18 ], [ 1, %4 ], [ 1, %9 ], [ 1, %14 ]
+18:                                               ; preds = %14, %12, %9, %4
+  %.0 = phi i32 [ 1, %4 ], [ 1, %9 ], [ 0, %12 ], [ %spec.select, %14 ]
   ret i32 %.0
 }
 

@@ -1028,18 +1028,14 @@ do.body5:                                         ; preds = %if.then, %entry
   %tb_frame = getelementptr inbounds i8, ptr %tb, i64 24
   %1 = load ptr, ptr %tb_frame, align 8
   %tobool6.not = icmp eq ptr %1, null
-  br i1 %tobool6.not, label %do.end15, label %if.then7
+  br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %do.body5
   %call10 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #10
-  %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %do.end15, label %return
-
-do.end15:                                         ; preds = %do.body5, %if.then7
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then, %do.end15
-  %retval.0 = phi i32 [ 0, %do.end15 ], [ %call, %if.then ], [ %call10, %if.then7 ]
+return:                                           ; preds = %if.then7, %do.body5, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body5 ], [ %call10, %if.then7 ]
   ret i32 %retval.0
 }
 
@@ -2753,31 +2749,24 @@ if.then55.i:                                      ; preds = %while.end53.i
   %cond.i52.i = select i1 %cmp.i51.not.i, ptr @.str.33, ptr @.str.32
   %call.i53.i = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull %cond.i52.i, i64 noundef %sub.i50.i) #10
   %cmp1.i54.i = icmp eq ptr %call.i53.i, null
-  br i1 %cmp1.i54.i, label %error.thread93.i, label %if.end.i55.i
+  br i1 %cmp1.i54.i, label %return, label %if.end.i55.i
 
 if.end.i55.i:                                     ; preds = %if.then55.i
   %call2.i56.i = call i32 @PyFile_WriteObject(ptr noundef nonnull %call.i53.i, ptr noundef %f, i32 noundef 1) #10
   %30 = load i64, ptr %call.i53.i, align 8
   %31 = and i64 %30, 2147483648
   %cmp.i4.not.i57.i = icmp eq i64 %31, 0
-  br i1 %cmp.i4.not.i57.i, label %if.end.i.i59.i, label %tb_print_line_repeated.exit63.i
+  br i1 %cmp.i4.not.i57.i, label %if.end.i.i59.i, label %tb_printinternal.exit
 
 if.end.i.i59.i:                                   ; preds = %if.end.i55.i
   %dec.i.i60.i = add i64 %30, -1
   store i64 %dec.i.i60.i, ptr %call.i53.i, align 8
   %cmp.i.i61.i = icmp eq i64 %dec.i.i60.i, 0
-  br i1 %cmp.i.i61.i, label %if.then1.i.i62.i, label %tb_print_line_repeated.exit63.i
+  br i1 %cmp.i.i61.i, label %if.then1.i.i62.i, label %tb_printinternal.exit
 
 if.then1.i.i62.i:                                 ; preds = %if.end.i.i59.i
   call void @_Py_Dealloc(ptr noundef nonnull %call.i53.i) #10
-  br label %tb_print_line_repeated.exit63.i
-
-tb_print_line_repeated.exit63.i:                  ; preds = %if.then1.i.i62.i, %if.end.i.i59.i, %if.end.i55.i
-  %cmp57.i = icmp slt i32 %call2.i56.i, 0
-  br i1 %cmp57.i, label %error.thread93.i, label %return
-
-error.thread93.i:                                 ; preds = %tb_print_line_repeated.exit63.i, %if.then55.i
-  br label %return
+  br label %tb_printinternal.exit
 
 error.i:                                          ; preds = %tb_print_line_repeated.exit.i, %if.then25.i
   %cmp.not.i.i = icmp eq ptr %call.i, null
@@ -2799,8 +2788,13 @@ if.then1.i.i68.i:                                 ; preds = %if.end.i.i65.i
   call void @_Py_Dealloc(ptr noundef nonnull %call.i) #10
   br label %return
 
-return:                                           ; preds = %while.cond7.preheader.i, %while.end53.i, %tb_print_line_repeated.exit63.i, %error.thread93.i, %error.i, %if.then.i.i, %if.end.i.i65.i, %if.then1.i.i68.i, %if.end16, %if.else, %entry, %if.then1
-  %retval.0 = phi i32 [ -1, %if.then1 ], [ 0, %entry ], [ 0, %if.else ], [ -1, %if.end16 ], [ 0, %while.cond7.preheader.i ], [ 0, %while.end53.i ], [ 0, %tb_print_line_repeated.exit63.i ], [ -1, %error.thread93.i ], [ -1, %error.i ], [ -1, %if.then.i.i ], [ -1, %if.end.i.i65.i ], [ -1, %if.then1.i.i68.i ]
+tb_printinternal.exit:                            ; preds = %if.end.i55.i, %if.end.i.i59.i, %if.then1.i.i62.i
+  %call2.i56.i.fr = freeze i32 %call2.i56.i
+  %call2.i56.i.fr.lobit = ashr i32 %call2.i56.i.fr, 31
+  br label %return
+
+return:                                           ; preds = %tb_printinternal.exit, %while.cond7.preheader.i, %while.end53.i, %if.then55.i, %if.then1.i.i68.i, %if.end.i.i65.i, %if.then.i.i, %error.i, %if.end16, %if.else, %entry, %if.then1
+  %retval.0 = phi i32 [ -1, %if.then1 ], [ 0, %entry ], [ 0, %if.else ], [ -1, %if.end16 ], [ -1, %error.i ], [ -1, %if.then.i.i ], [ -1, %if.end.i.i65.i ], [ -1, %if.then1.i.i68.i ], [ -1, %if.then55.i ], [ 0, %while.end53.i ], [ 0, %while.cond7.preheader.i ], [ %call2.i56.i.fr.lobit, %tb_printinternal.exit ]
   ret i32 %retval.0
 }
 
@@ -2830,7 +2824,7 @@ do.body:                                          ; preds = %do.body, %entry
   %value.addr.0 = phi i64 [ %value, %entry ], [ %div, %do.body ]
   %incdec.ptr = getelementptr i8, ptr %ptr.0, i64 -1
   %rem = urem i64 %value.addr.0, 10
-  %0 = trunc i64 %rem to i8
+  %0 = trunc nuw nsw i64 %rem to i8
   %conv = or disjoint i8 %0, 48
   store i8 %conv, ptr %incdec.ptr, align 1
   %div = udiv i64 %value.addr.0, 10
@@ -3015,7 +3009,7 @@ PyUnicode_READ.exit:                              ; preds = %if.then.i, %if.then
   br i1 %or.cond1, label %if.then53, label %if.else56
 
 if.then53:                                        ; preds = %PyUnicode_READ.exit
-  %conv54 = trunc i32 %retval.0.i to i8
+  %conv54 = trunc nuw nsw i32 %retval.0.i to i8
   store i8 %conv54, ptr %c, align 1
   %call55 = call i64 @_Py_write_noraise(i32 noundef %fd, ptr noundef nonnull %c, i64 noundef 1) #10
   br label %for.inc74
@@ -3239,7 +3233,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %value.addr.0.i.i = phi i64 [ %conv.i, %if.then12.i ], [ %div.i.i, %do.body.i.i ]
   %incdec.ptr.i.i = getelementptr i8, ptr %ptr.0.i.i, i64 -1
   %rem.i.i = urem i64 %value.addr.0.i.i, 10
-  %7 = trunc i64 %rem.i.i to i8
+  %7 = trunc nuw nsw i64 %rem.i.i to i8
   %conv.i21.i = or disjoint i8 %7, 48
   store i8 %conv.i21.i, ptr %incdec.ptr.i.i, align 1
   %div.i.i = udiv i64 %value.addr.0.i.i, 10

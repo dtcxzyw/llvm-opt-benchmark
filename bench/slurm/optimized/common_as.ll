@@ -294,13 +294,13 @@ define noundef i32 @addto_update_list(ptr noundef %0, i32 noundef %1, ptr nounde
   %59 = getelementptr inbounds i8, ptr %2, i64 248
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, -2
-  br i1 %61, label %62, label %63
+  br i1 %61, label %62, label %.sink.split
 
 62:                                               ; preds = %58
   store i32 -1, ptr %59, align 8
-  br label %63
+  br label %.sink.split
 
-63:                                               ; preds = %58, %62, %17, %17
+63:                                               ; preds = %17, %17
   br label %.sink.split
 
 64:                                               ; preds = %17
@@ -357,13 +357,13 @@ define noundef i32 @addto_update_list(ptr noundef %0, i32 noundef %1, ptr nounde
   %90 = getelementptr inbounds i8, ptr %2, i64 232
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, -2
-  br i1 %92, label %93, label %94
+  br i1 %92, label %93, label %.sink.split
 
 93:                                               ; preds = %89
   store i32 -1, ptr %90, align 8
-  br label %94
+  br label %.sink.split
 
-94:                                               ; preds = %89, %93, %17, %17
+94:                                               ; preds = %17, %17
   br label %.sink.split
 
 95:                                               ; preds = %17, %17, %17
@@ -381,8 +381,8 @@ define noundef i32 @addto_update_list(ptr noundef %0, i32 noundef %1, ptr nounde
   %100 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, i32 noundef %99) #10
   br label %112
 
-.sink.split:                                      ; preds = %17, %17, %17, %17, %17, %22, %63, %94, %95, %96, %97
-  %slurmdb_destroy_res_rec.sink = phi ptr [ @slurmdb_destroy_res_rec, %97 ], [ @xfree_ptr, %96 ], [ @slurmdb_destroy_wckey_rec, %95 ], [ @slurmdb_destroy_qos_rec, %94 ], [ @slurmdb_destroy_assoc_rec, %63 ], [ @slurmdb_destroy_tres_rec, %22 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_user_rec, %17 ]
+.sink.split:                                      ; preds = %93, %89, %62, %58, %17, %17, %17, %17, %17, %22, %63, %94, %95, %96, %97
+  %slurmdb_destroy_res_rec.sink = phi ptr [ @slurmdb_destroy_res_rec, %97 ], [ @xfree_ptr, %96 ], [ @slurmdb_destroy_wckey_rec, %95 ], [ @slurmdb_destroy_tres_rec, %22 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_user_rec, %17 ], [ @slurmdb_destroy_assoc_rec, %58 ], [ @slurmdb_destroy_assoc_rec, %62 ], [ @slurmdb_destroy_assoc_rec, %63 ], [ @slurmdb_destroy_qos_rec, %89 ], [ @slurmdb_destroy_qos_rec, %93 ], [ @slurmdb_destroy_qos_rec, %94 ]
   %101 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_res_rec.sink) #10
   br label %102
 
@@ -456,19 +456,18 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @_sort_update_object_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-.thread7:
-  %2 = load ptr, ptr %0, align 8
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = load i16, ptr %4, align 8
-  %6 = icmp eq i16 %5, 5
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load i16, ptr %7, align 8
-  %.not = icmp ne i16 %8, 5
-  %spec.select = zext i1 %.not to i32
-  %9 = icmp eq i16 %8, 5
-  %spec.select8 = sext i1 %9 to i32
-  %.0 = select i1 %6, i32 %spec.select, i32 %spec.select8
+  %3 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %1, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load i16, ptr %5, align 8
+  %7 = icmp ne i16 %6, 5
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.pre = load i16, ptr %.phi.trans.insert, align 8
+  %8 = icmp eq i16 %.pre, 5
+  %brmerge = select i1 %7, i1 true, i1 %8
+  %narrow = select i1 %7, i1 %8, i1 false
+  %spec.select7 = sext i1 %narrow to i32
+  %.0 = select i1 %brmerge, i32 %spec.select7, i32 1
   ret i32 %.0
 }
 
@@ -1252,7 +1251,7 @@ define ptr @acct_get_db_name() local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %1, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %13, label %.preheader
+  br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %0, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %0 ]
@@ -1281,15 +1280,13 @@ define ptr @acct_get_db_name() local_unnamed_addr #0 {
 12:                                               ; preds = %6, %10
   %.pr = load i8, ptr %7, align 1
   %.not17 = icmp eq i8 %.pr, 0
-  br i1 %.not17, label %.thread, label %13
+  %spec.select = select i1 %.not17, ptr %3, ptr @.str.23
+  br label %.thread
 
-.thread:                                          ; preds = %.preheader, %12
-  br label %13
-
-13:                                               ; preds = %12, %0, %.thread
-  %.str.23.sink = phi ptr [ %3, %.thread ], [ @.str.23, %0 ], [ @.str.23, %12 ]
-  %14 = tail call ptr @xstrdup(ptr noundef nonnull %.str.23.sink) #10
-  ret ptr %14
+.thread:                                          ; preds = %.preheader, %12, %0
+  %.str.23.sink = phi ptr [ @.str.23, %0 ], [ %spec.select, %12 ], [ %3, %.preheader ]
+  %13 = tail call ptr @xstrdup(ptr noundef nonnull %.str.23.sink) #10
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1444,7 +1441,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not70, label %48, label %36
 
 36:                                               ; preds = %31
-  %37 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %35)
+  %37 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %35), !range !15
   %.not71 = icmp eq i64 %37, 0
   br i1 %.not71, label %38, label %40
 
@@ -1470,7 +1467,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not73, label %63, label %51
 
 51:                                               ; preds = %48
-  %52 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %50)
+  %52 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %50), !range !15
   %.not74 = icmp eq i64 %52, 0
   br i1 %.not74, label %53, label %55
 
@@ -1497,7 +1494,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
 
 66:                                               ; preds = %63
   %67 = load i32, ptr %49, align 4
-  %68 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %67)
+  %68 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %67), !range !15
   %.not77 = icmp eq i64 %68, 0
   br i1 %.not77, label %69, label %71
 
@@ -1522,7 +1519,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not79, label %90, label %80
 
 80:                                               ; preds = %77
-  %81 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %79)
+  %81 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %79), !range !15
   %.not80 = icmp eq i64 %81, 0
   br i1 %.not80, label %82, label %84
 
@@ -1547,7 +1544,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not83, label %103, label %93
 
 93:                                               ; preds = %90
-  %94 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %92)
+  %94 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %92), !range !15
   %.not84 = icmp eq i64 %94, 0
   br i1 %.not84, label %95, label %97
 
@@ -1572,7 +1569,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not87, label %116, label %106
 
 106:                                              ; preds = %103
-  %107 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %105)
+  %107 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %105), !range !15
   %.not88 = icmp eq i64 %107, 0
   br i1 %.not88, label %108, label %110
 
@@ -1597,7 +1594,7 @@ define noundef i32 @archive_run_script(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not91, label %129, label %119
 
 119:                                              ; preds = %116
-  %120 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %118)
+  %120 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %118), !range !15
   %.not92 = icmp eq i64 %120, 0
   br i1 %.not92, label %121, label %123
 
@@ -1743,7 +1740,7 @@ define noundef i32 @archive_write_file(ptr nocapture noundef readonly %0, ptr no
   %53 = load ptr, ptr %11, align 8
   %54 = call i32 @access(ptr noundef %53, i32 noundef 0) #10
   %.not10.i = icmp eq i32 %54, 0
-  br i1 %.not10.i, label %.lr.ph.i, label %_make_archive_name.exit, !llvm.loop !15
+  br i1 %.not10.i, label %.lr.ph.i, label %_make_archive_name.exit, !llvm.loop !16
 
 _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   call void @slurm_xfree(ptr noundef nonnull %10) #10
@@ -1838,7 +1835,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %92, %89
-  br label %.lr.ph.split.us, !llvm.loop !16
+  br label %.lr.ph.split.us, !llvm.loop !17
 
 .outer._crit_edge:                                ; preds = %.split.us, %64
   %94 = call i32 @fsync(i32 noundef %60) #10
@@ -1938,5 +1935,6 @@ attributes #12 = { noreturn nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!15 = !{i64 -9223372036854775808, i64 9223372036854775807}
 !16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

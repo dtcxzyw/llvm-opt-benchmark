@@ -361,7 +361,7 @@ declare void @visit_end_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_RockerPortList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_RockerOfDpaFlowKey_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_RockerOfDpaFlowKey_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_eth_src = alloca i8, align 1
   %has_eth_dst = alloca i8, align 1
@@ -467,17 +467,14 @@ if.then58:                                        ; preds = %if.end56
 
 if.end62:                                         ; preds = %if.then58, %if.end56
   %call63 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_ip_dst) #4
-  br i1 %call63, label %if.then64, label %if.end69
+  br i1 %call63, label %if.then64, label %return
 
 if.then64:                                        ; preds = %if.end62
   %call66 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %ip_dst, ptr noundef %errp) #4
-  br i1 %call66, label %if.end69, label %return
-
-if.end69:                                         ; preds = %if.then64, %if.end62
   br label %return
 
-return:                                           ; preds = %if.then64, %if.then58, %if.then52, %if.then45, %if.then38, %if.then32, %if.then26, %if.then20, %if.then14, %if.end, %entry, %if.end69
-  %retval.0 = phi i1 [ true, %if.end69 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then14 ], [ false, %if.then20 ], [ false, %if.then26 ], [ false, %if.then32 ], [ false, %if.then38 ], [ false, %if.then45 ], [ false, %if.then52 ], [ false, %if.then58 ], [ false, %if.then64 ]
+return:                                           ; preds = %if.then64, %if.end62, %if.then58, %if.then52, %if.then45, %if.then38, %if.then32, %if.then26, %if.then20, %if.then14, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.then14 ], [ false, %if.then20 ], [ false, %if.then26 ], [ false, %if.then32 ], [ false, %if.then38 ], [ false, %if.then45 ], [ false, %if.then52 ], [ false, %if.then58 ], [ true, %if.end62 ], [ %call66, %if.then64 ]
   ret i1 %retval.0
 }
 
@@ -541,7 +538,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_RockerOfDpaFlowKey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_RockerOfDpaFlowMask_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_RockerOfDpaFlowMask_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_eth_src = alloca i8, align 1
   %has_eth_dst = alloca i8, align 1
@@ -612,18 +609,15 @@ if.then36:                                        ; preds = %if.end34
 if.end40:                                         ; preds = %if.then36, %if.end34
   %has_ip_tos = getelementptr inbounds i8, ptr %obj, i64 42
   %call41 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_ip_tos) #4
-  br i1 %call41, label %if.then42, label %if.end46
+  br i1 %call41, label %if.then42, label %return
 
 if.then42:                                        ; preds = %if.end40
   %ip_tos = getelementptr inbounds i8, ptr %obj, i64 43
   %call43 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %ip_tos, ptr noundef %errp) #4
-  br i1 %call43, label %if.end46, label %return
-
-if.end46:                                         ; preds = %if.then42, %if.end40
   br label %return
 
-return:                                           ; preds = %if.then42, %if.then36, %if.then29, %if.then22, %if.then16, %if.then10, %if.then, %if.end46
-  %retval.0 = phi i1 [ true, %if.end46 ], [ false, %if.then ], [ false, %if.then10 ], [ false, %if.then16 ], [ false, %if.then22 ], [ false, %if.then29 ], [ false, %if.then36 ], [ false, %if.then42 ]
+return:                                           ; preds = %if.then42, %if.end40, %if.then36, %if.then29, %if.then22, %if.then16, %if.then10, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then10 ], [ false, %if.then16 ], [ false, %if.then22 ], [ false, %if.then29 ], [ false, %if.then36 ], [ true, %if.end40 ], [ %call43, %if.then42 ]
   ret i1 %retval.0
 }
 
@@ -681,7 +675,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_RockerOfDpaFlowMask(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_RockerOfDpaFlowAction_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_RockerOfDpaFlowAction_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef %obj) #4
   br i1 %call, label %if.then, label %if.end3
@@ -734,18 +728,15 @@ if.then23:                                        ; preds = %if.end21
 if.end27:                                         ; preds = %if.then23, %if.end21
   %has_out_pport = getelementptr inbounds i8, ptr %obj, i64 32
   %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %has_out_pport) #4
-  br i1 %call28, label %if.then29, label %if.end33
+  br i1 %call28, label %if.then29, label %return
 
 if.then29:                                        ; preds = %if.end27
   %out_pport = getelementptr inbounds i8, ptr %obj, i64 36
   %call30 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %out_pport, ptr noundef %errp) #4
-  br i1 %call30, label %if.end33, label %return
-
-if.end33:                                         ; preds = %if.then29, %if.end27
   br label %return
 
-return:                                           ; preds = %if.then29, %if.then23, %if.then17, %if.then11, %if.then5, %if.then, %if.end33
-  %retval.0 = phi i1 [ true, %if.end33 ], [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ], [ false, %if.then23 ], [ false, %if.then29 ]
+return:                                           ; preds = %if.then29, %if.end27, %if.then23, %if.then17, %if.then11, %if.then5, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ], [ false, %if.then23 ], [ true, %if.end27 ], [ %call30, %if.then29 ]
   ret i1 %retval.0
 }
 
@@ -907,7 +898,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_RockerOfDpaFlow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_query_rocker_of_dpa_flows_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_query_rocker_of_dpa_flows_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -915,18 +906,15 @@ entry:
 if.end:                                           ; preds = %entry
   %has_tbl_id = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_tbl_id) #4
-  br i1 %call1, label %if.then2, label %if.end6
+  br i1 %call1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   %tbl_id = getelementptr inbounds i8, ptr %obj, i64 12
   %call3 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %tbl_id, ptr noundef %errp) #4
-  br i1 %call3, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %entry, %if.end6
-  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.then2 ]
+return:                                           ; preds = %if.then2, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call3, %if.then2 ]
   ret i1 %retval.0
 }
 
@@ -979,7 +967,7 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_RockerOfDpaFlowList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_RockerOfDpaGroup_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_RockerOfDpaGroup_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_set_eth_src = alloca i8, align 1
   %has_set_eth_dst = alloca i8, align 1
@@ -1100,18 +1088,15 @@ if.then65:                                        ; preds = %if.end63
 if.end70:                                         ; preds = %if.then65, %if.end63
   %has_ttl_check = getelementptr inbounds i8, ptr %obj, i64 72
   %call71 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %has_ttl_check) #4
-  br i1 %call71, label %if.then72, label %if.end76
+  br i1 %call71, label %if.then72, label %return
 
 if.then72:                                        ; preds = %if.end70
   %ttl_check = getelementptr inbounds i8, ptr %obj, i64 73
   %call73 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %ttl_check, ptr noundef %errp) #4
-  br i1 %call73, label %if.end76, label %return
-
-if.end76:                                         ; preds = %if.then72, %if.end70
   br label %return
 
-return:                                           ; preds = %if.then72, %if.then65, %if.then58, %if.then52, %if.then46, %if.then40, %if.then34, %if.then28, %if.then22, %if.then16, %if.then10, %if.end, %entry, %if.end76
-  %retval.0 = phi i1 [ true, %if.end76 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then10 ], [ false, %if.then16 ], [ false, %if.then22 ], [ false, %if.then28 ], [ false, %if.then34 ], [ false, %if.then40 ], [ false, %if.then46 ], [ false, %if.then52 ], [ false, %if.then58 ], [ false, %if.then65 ], [ false, %if.then72 ]
+return:                                           ; preds = %if.then72, %if.end70, %if.then65, %if.then58, %if.then52, %if.then46, %if.then40, %if.then34, %if.then28, %if.then22, %if.then16, %if.then10, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.then10 ], [ false, %if.then16 ], [ false, %if.then22 ], [ false, %if.then28 ], [ false, %if.then34 ], [ false, %if.then40 ], [ false, %if.then46 ], [ false, %if.then52 ], [ false, %if.then58 ], [ false, %if.then65 ], [ true, %if.end70 ], [ %call73, %if.then72 ]
   ret i1 %retval.0
 }
 
@@ -1171,7 +1156,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_RockerOfDpaGroup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_query_rocker_of_dpa_groups_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_query_rocker_of_dpa_groups_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1179,18 +1164,15 @@ entry:
 if.end:                                           ; preds = %entry
   %has_type = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_type) #4
-  br i1 %call1, label %if.then2, label %if.end6
+  br i1 %call1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   %type = getelementptr inbounds i8, ptr %obj, i64 9
   %call3 = tail call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %type, ptr noundef %errp) #4
-  br i1 %call3, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %entry, %if.end6
-  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.then2 ]
+return:                                           ; preds = %if.then2, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call3, %if.then2 ]
   ret i1 %retval.0
 }
 

@@ -2486,7 +2486,7 @@ define internal noundef i32 @_enter_key_pressed(ptr noundef %0, ptr nocapture no
 
 8:                                                ; preds = %3, %3
   tail call void @_new_button_clicked(ptr poison, ptr noundef nonnull %2)
-  br label %44
+  br label %45
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !81
@@ -2495,7 +2495,7 @@ define internal noundef i32 @_enter_key_pressed(ptr noundef %0, ptr nocapture no
   %13 = tail call i64 @gtk_window_get_type() #17
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %13) #16
   tail call void @gtk_window_set_focus(ptr noundef %14, ptr noundef null) #16
-  br label %44
+  br label %45
 
 15:                                               ; preds = %3, %3, %3
   %16 = getelementptr inbounds i8, ptr %5, i64 1040
@@ -2543,11 +2543,11 @@ define internal noundef i32 @_enter_key_pressed(ptr noundef %0, ptr nocapture no
   tail call void @gtk_widget_grab_focus(ptr noundef %43) #16
   br label %45
 
-44:                                               ; preds = %9, %8, %3
+44:                                               ; preds = %3
   br label %45
 
-45:                                               ; preds = %44, %38, %30, %25, %3, %3
-  %46 = phi i32 [ 0, %44 ], [ 1, %25 ], [ 1, %38 ], [ 1, %30 ], [ 1, %3 ], [ 1, %3 ]
+45:                                               ; preds = %8, %9, %44, %38, %30, %25, %3, %3
+  %46 = phi i32 [ 1, %25 ], [ 1, %38 ], [ 1, %30 ], [ 1, %3 ], [ 1, %3 ], [ 0, %9 ], [ 0, %8 ], [ 0, %44 ]
   ret i32 %46
 }
 

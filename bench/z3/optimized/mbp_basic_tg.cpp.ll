@@ -998,7 +998,7 @@ invoke.cont198:                                   ; preds = %if.then197
   %121 = getelementptr i8, ptr %9, i64 %add.ptr.i349.idx
   %add.ptr.i349.ptr = getelementptr i8, ptr %121, i64 32
   %cmp207.not511 = icmp eq i32 %120, 0
-  br i1 %cmp207.not511, label %if.else250, label %for.body208.preheader
+  br i1 %cmp207.not511, label %if.else250.invoke, label %for.body208.preheader
 
 for.body208.preheader:                            ; preds = %invoke.cont198
   %invariant.gep = getelementptr i8, ptr %9, i64 32
@@ -1103,13 +1103,11 @@ for.inc240:                                       ; preds = %for.inc237, %_ZN7ob
   br i1 %cmp207.not, label %for.end242, label %for.body208
 
 for.end242:                                       ; preds = %for.inc240
-  br i1 %eq.4, label %if.else250.invoke, label %if.else250
-
-if.else250:                                       ; preds = %invoke.cont198, %for.end242
+  %spec.select = select i1 %eq.4, i64 864, i64 856
   br label %if.else250.invoke
 
-if.else250.invoke:                                ; preds = %for.end242, %if.else250
-  %.sink560 = phi i64 [ 856, %if.else250 ], [ 864, %for.end242 ]
+if.else250.invoke:                                ; preds = %for.end242, %invoke.cont198
+  %.sink560 = phi i64 [ 856, %invoke.cont198 ], [ %spec.select, %for.end242 ]
   %134 = load ptr, ptr %m_tg, align 8
   %135 = load ptr, ptr %this, align 8
   %m_false.i369 = getelementptr inbounds i8, ptr %135, i64 %.sink560

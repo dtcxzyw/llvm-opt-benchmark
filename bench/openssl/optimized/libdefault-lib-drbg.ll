@@ -222,19 +222,17 @@ if.then42:                                        ; preds = %if.end40
   %reseed_time = getelementptr inbounds i8, ptr %drbg, i64 200
   %13 = load i64, ptr %reseed_time, align 8
   %cmp44 = icmp slt i64 %call43, %13
-  br i1 %cmp44, label %if.then48, label %lor.lhs.false
+  br i1 %cmp44, label %if.end50, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then42
   %sub = sub nsw i64 %call43, %13
   %14 = load i64, ptr %reseed_time_interval, align 8
   %cmp47.not = icmp slt i64 %sub, %14
-  br i1 %cmp47.not, label %if.end50, label %if.then48
-
-if.then48:                                        ; preds = %lor.lhs.false, %if.then42
+  %spec.select40 = select i1 %cmp47.not, i32 %reseed_required.1, i32 1
   br label %if.end50
 
-if.end50:                                         ; preds = %lor.lhs.false, %if.then48, %if.end40
-  %reseed_required.2 = phi i32 [ 1, %if.then48 ], [ %reseed_required.1, %lor.lhs.false ], [ %reseed_required.1, %if.end40 ]
+if.end50:                                         ; preds = %lor.lhs.false, %if.then42, %if.end40
+  %reseed_required.2 = phi i32 [ %reseed_required.1, %if.end40 ], [ 1, %if.then42 ], [ %spec.select40, %lor.lhs.false ]
   %parent = getelementptr inbounds i8, ptr %drbg, i64 48
   %15 = load ptr, ptr %parent, align 8
   %cmp51.not = icmp eq ptr %15, null
@@ -1522,7 +1520,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_drbg_get_ctx_params(ptr nocapture noundef readonly %drbg, ptr noundef %params) local_unnamed_addr #1 {
+define i32 @ossl_drbg_get_ctx_params(ptr nocapture noundef readonly %drbg, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #8
   %cmp.not = icmp eq ptr %call, null
@@ -1646,20 +1644,18 @@ land.lhs.true60:                                  ; preds = %if.end57
 if.end64:                                         ; preds = %land.lhs.true60, %if.end57
   %call65 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.11) #8
   %cmp66.not = icmp eq ptr %call65, null
-  br i1 %cmp66.not, label %if.end71, label %land.lhs.true67
+  br i1 %cmp66.not, label %return, label %land.lhs.true67
 
 land.lhs.true67:                                  ; preds = %if.end64
   %reseed_time_interval = getelementptr inbounds i8, ptr %drbg, i64 208
   %10 = load i64, ptr %reseed_time_interval, align 8
   %call68 = tail call i32 @OSSL_PARAM_set_time_t(ptr noundef nonnull %call65, i64 noundef %10) #8
-  %tobool69.not = icmp eq i32 %call68, 0
-  br i1 %tobool69.not, label %return, label %if.end71
-
-if.end71:                                         ; preds = %land.lhs.true67, %if.end64
+  %tobool69.not = icmp ne i32 %call68, 0
+  %spec.select = zext i1 %tobool69.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true67, %land.lhs.true60, %land.lhs.true53, %land.lhs.true46, %land.lhs.true39, %land.lhs.true32, %land.lhs.true25, %land.lhs.true18, %land.lhs.true11, %land.lhs.true4, %land.lhs.true, %if.end71
-  %retval.0 = phi i32 [ 1, %if.end71 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true18 ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true32 ], [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true46 ], [ 0, %land.lhs.true53 ], [ 0, %land.lhs.true60 ], [ 0, %land.lhs.true67 ]
+return:                                           ; preds = %land.lhs.true67, %if.end64, %land.lhs.true60, %land.lhs.true53, %land.lhs.true46, %land.lhs.true39, %land.lhs.true32, %land.lhs.true25, %land.lhs.true18, %land.lhs.true11, %land.lhs.true4, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true18 ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true32 ], [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true46 ], [ 0, %land.lhs.true53 ], [ 0, %land.lhs.true60 ], [ 1, %if.end64 ], [ %spec.select, %land.lhs.true67 ]
   ret i32 %retval.0
 }
 
@@ -1719,7 +1715,7 @@ return:                                           ; preds = %if.then6, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_drbg_set_ctx_params(ptr noundef %drbg, ptr noundef %params) local_unnamed_addr #1 {
+define i32 @ossl_drbg_set_ctx_params(ptr noundef %drbg, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %params, null
   br i1 %cmp, label %return, label %if.end
@@ -1738,19 +1734,17 @@ land.lhs.true:                                    ; preds = %if.end
 if.end4:                                          ; preds = %land.lhs.true, %if.end
   %call5 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.11) #8
   %cmp6.not = icmp eq ptr %call5, null
-  br i1 %cmp6.not, label %if.end11, label %land.lhs.true7
+  br i1 %cmp6.not, label %return, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %if.end4
   %reseed_time_interval = getelementptr inbounds i8, ptr %drbg, i64 208
   %call8 = tail call i32 @OSSL_PARAM_get_time_t(ptr noundef nonnull %call5, ptr noundef nonnull %reseed_time_interval) #8
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %return, label %if.end11
-
-if.end11:                                         ; preds = %land.lhs.true7, %if.end4
+  %tobool9.not = icmp ne i32 %call8, 0
+  %spec.select = zext i1 %tobool9.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true7, %land.lhs.true, %entry, %if.end11
-  %retval.0 = phi i32 [ 1, %if.end11 ], [ 1, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true7 ]
+return:                                           ; preds = %land.lhs.true7, %if.end4, %land.lhs.true, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %land.lhs.true ], [ 1, %if.end4 ], [ %spec.select, %land.lhs.true7 ]
   ret i32 %retval.0
 }
 

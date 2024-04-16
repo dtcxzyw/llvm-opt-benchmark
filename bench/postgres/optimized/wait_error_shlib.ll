@@ -80,7 +80,7 @@ define noundef zeroext i1 @wait_result_is_signal(i32 noundef %0, i32 noundef %1)
   %5 = icmp sgt i32 %sext, 33554431
   %6 = icmp eq i32 %3, %1
   %or.cond = and i1 %6, %5
-  br i1 %or.cond, label %15, label %7
+  br i1 %or.cond, label %14, label %7
 
 7:                                                ; preds = %2
   %8 = icmp eq i32 %3, 0
@@ -91,13 +91,10 @@ define noundef zeroext i1 @wait_result_is_signal(i32 noundef %0, i32 noundef %1)
   %11 = and i32 %10, 255
   %12 = add i32 %1, 128
   %13 = icmp eq i32 %11, %12
-  br i1 %13, label %15, label %14
+  br label %14
 
-14:                                               ; preds = %9, %7
-  br label %15
-
-15:                                               ; preds = %9, %2, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %2 ], [ true, %9 ]
+14:                                               ; preds = %9, %7, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %7 ], [ %13, %9 ]
   ret i1 %.0
 }
 
@@ -107,7 +104,7 @@ define noundef zeroext i1 @wait_result_is_any_signal(i32 noundef %0, i1 noundef 
   %4 = shl nuw nsw i32 %3, 24
   %sext = add nuw i32 %4, 16777216
   %5 = icmp sgt i32 %sext, 33554431
-  br i1 %5, label %14, label %6
+  br i1 %5, label %13, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %3, 0
@@ -118,13 +115,10 @@ define noundef zeroext i1 @wait_result_is_any_signal(i32 noundef %0, i1 noundef 
   %10 = and i32 %9, 255
   %11 = select i1 %1, i32 125, i32 128
   %12 = icmp ugt i32 %10, %11
-  br i1 %12, label %14, label %13
+  br label %13
 
-13:                                               ; preds = %8, %6
-  br label %14
-
-14:                                               ; preds = %8, %2, %13
-  %.0 = phi i1 [ false, %13 ], [ true, %2 ], [ true, %8 ]
+13:                                               ; preds = %8, %6, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %6 ], [ %12, %8 ]
   ret i1 %.0
 }
 

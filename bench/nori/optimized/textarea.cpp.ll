@@ -604,9 +604,9 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %30
   br label %41
 
 37:                                               ; preds = %33
-  %.sroa.8.0.extract.trunc = trunc i64 %.pre98 to i32
+  %.sroa.8.0.extract.trunc = trunc nuw i64 %.pre98 to i32
   %.sroa.9.0.extract.shift = lshr i64 %34, 32
-  %.sroa.9.0.extract.trunc = trunc i64 %.sroa.9.0.extract.shift to i32
+  %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
   %38 = icmp eq i32 %.sroa.069.0.extract.trunc, %.sroa.0.0.extract.trunc
   %39 = icmp sgt i32 %.sroa.9.0.extract.trunc, %.sroa.8.0.extract.trunc
   %or.cond89 = and i1 %38, %39
@@ -1035,7 +1035,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %57, %"_ZSt11upper_b
   %72 = tail call i64 @_ZNK7nanogui8TextArea17block_to_positionERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(8) %71)
   %.sroa.0171.0.extract.trunc = trunc i64 %72 to i32
   %.sroa.9177.0.extract.shift = lshr i64 %72, 32
-  %.sroa.9177.0.extract.trunc = trunc i64 %.sroa.9177.0.extract.shift to i32
+  %.sroa.9177.0.extract.trunc = trunc nuw i64 %.sroa.9177.0.extract.shift to i32
   %73 = getelementptr inbounds i8, ptr %0, i64 40
   %74 = getelementptr inbounds i8, ptr %0, i64 264
   %75 = load i32, ptr %74, align 8
@@ -1082,7 +1082,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge:     ; preds = %86, %_ZNK7nanogui5A
   %96 = tail call i64 @_ZNK7nanogui8TextArea17block_to_positionERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(8) %95)
   %.sroa.0147.0.extract.trunc = trunc i64 %96 to i32
   %.sroa.9.0.extract.shift = lshr i64 %96, 32
-  %.sroa.9.0.extract.trunc = trunc i64 %.sroa.9.0.extract.shift to i32
+  %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
   %97 = load i32, ptr %74, align 8
   %98 = load i32, ptr %73, align 8
   %99 = add nsw i32 %98, %97
@@ -1091,7 +1091,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge:     ; preds = %86, %_ZNK7nanogui5A
   %102 = add nsw i32 %99, %.sroa.0147.0.extract.trunc
   %103 = add nsw i32 %101, %.sroa.9.0.extract.trunc
   %104 = icmp sgt i32 %103, %82
-  br i1 %104, label %109, label %105
+  br i1 %104, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit66.critedge, label %105
 
 105:                                              ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge
   %106 = icmp eq i32 %103, %82
@@ -1101,15 +1101,15 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge:     ; preds = %86, %_ZNK7nanogui5A
   %108 = icmp sgt i32 %102, %81
   br i1 %108, label %109, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit66.critedge
 
-109:                                              ; preds = %107, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge
+109:                                              ; preds = %107
   br label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit66.critedge
 
-_ZN7nanogui5ArrayIiLm2EEC2Ei.exit66.critedge:     ; preds = %109, %107, %105
-  %.sroa.9.0 = phi i32 [ %82, %109 ], [ %82, %107 ], [ %103, %105 ]
-  %.sroa.0147.0 = phi i32 [ %81, %109 ], [ %102, %107 ], [ %102, %105 ]
-  %.sroa.9177.0 = phi i32 [ %103, %109 ], [ %82, %107 ], [ %82, %105 ]
-  %.sroa.0171.0 = phi i32 [ %102, %109 ], [ %81, %107 ], [ %81, %105 ]
-  %.0 = phi i1 [ true, %109 ], [ false, %107 ], [ false, %105 ]
+_ZN7nanogui5ArrayIiLm2EEC2Ei.exit66.critedge:     ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge, %109, %107, %105
+  %.sroa.9.0 = phi i32 [ %82, %107 ], [ %103, %105 ], [ %82, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge ], [ %82, %109 ]
+  %.sroa.0147.0 = phi i32 [ %102, %107 ], [ %102, %105 ], [ %81, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge ], [ %81, %109 ]
+  %.sroa.9177.0 = phi i32 [ %82, %107 ], [ %82, %105 ], [ %103, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge ], [ %103, %109 ]
+  %.sroa.0171.0 = phi i32 [ %81, %107 ], [ %81, %105 ], [ %102, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge ], [ %102, %109 ]
+  %.0 = phi i1 [ false, %107 ], [ false, %105 ], [ true, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit60.critedge ], [ true, %109 ]
   br label %110
 
 110:                                              ; preds = %110, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit66.critedge
@@ -1625,7 +1625,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
   %70 = fadd float %67, %69
   %71 = fcmp olt float %70, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = trunc i64 %indvars.iv.next to i32
+  %72 = trunc nuw nsw i64 %indvars.iv.next to i32
   %.2 = select i1 %71, i32 %72, i32 %.135
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !19
@@ -1926,85 +1926,85 @@ _ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit: ; preds
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
   %13 = add nsw i64 %.sroa.speculated.i, %12
   %14 = icmp ult i64 %13, %12
-  %15 = tail call i64 @llvm.umin.i64(i64 %13, i64 144115188075855871)
-  %16 = select i1 %14, i64 144115188075855871, i64 %15
-  %17 = ptrtoint ptr %1 to i64
-  %18 = sub i64 %17, %8
-  %19 = ashr exact i64 %18, 6
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit, label %20
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %13, i64 144115188075855871)
+  %15 = select i1 %14, i64 144115188075855871, i64 %spec.select.i
+  %16 = ptrtoint ptr %1 to i64
+  %17 = sub i64 %16, %8
+  %18 = ashr exact i64 %17, 6
+  %.not.i = icmp eq i64 %15, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit, label %19
 
-20:                                               ; preds = %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit
-  %21 = shl nuw nsw i64 %16, 6
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #19
+19:                                               ; preds = %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit
+  %20 = shl nuw nsw i64 %15, 6
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #19
   br label %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit, %20
-  %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %24 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %23, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %24, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26) #15
-  %27 = getelementptr inbounds i8, ptr %24, i64 48
-  %28 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
+_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit, %19
+  %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %23 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %22, i64 %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
+  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25) #15
+  %26 = getelementptr inbounds i8, ptr %23, i64 48
+  %27 = getelementptr inbounds i8, ptr %2, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit ]
+  %.012.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %22, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit ]
+  %.0911.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i, i64 12, i1 false), !alias.scope !21
-  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30) #15
-  %31 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %32 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !alias.scope !21
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #15
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
-  %.not.i.i.i = icmp eq ptr %33, %1
+  %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %29) #15
+  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !alias.scope !21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #15
+  %32 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
+  %33 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
+  %.not.i.i.i = icmp eq ptr %32, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !25
 
 _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
-  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
+  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE11_M_allocateEm.exit ], [ %33, %.lr.ph.i.i.i ]
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
   %.not10.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i17 ], [ %35, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %40, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.012.i.i.i18 = phi ptr [ %40, %.lr.ph.i.i.i17 ], [ %34, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.0911.i.i.i19 = phi ptr [ %39, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(12) %.0911.i.i.i19, i64 12, i1 false), !alias.scope !26
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %37) #15
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !alias.scope !26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #15
-  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 64
-  %41 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 64
-  %.not.i.i.i20 = icmp eq ptr %40, %5
+  %35 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %36) #15
+  %37 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !alias.scope !26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #15
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 64
+  %40 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 64
+  %.not.i.i.i20 = icmp eq ptr %39, %5
   br i1 %.not.i.i.i20, label %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !25
 
 _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %35, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %41, %.lr.ph.i.i.i17 ]
+  %.0.lcssa.i.i.i21 = phi ptr [ %34, %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %40, %.lr.ph.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE13_M_deallocateEPS2_m.exit, label %42
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE13_M_deallocateEPS2_m.exit, label %41
 
-42:                                               ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
+41:                                               ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #16
   br label %_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %42
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %23, ptr %0, align 8
+_ZNSt12_Vector_baseIN7nanogui8TextArea5BlockESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %41
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %44 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %23, i64 %16
-  store ptr %44, ptr %43, align 8
+  %43 = getelementptr inbounds %"struct.nanogui::TextArea::Block", ptr %22, i64 %15
+  store ptr %43, ptr %42, align 8
   ret void
 }
 

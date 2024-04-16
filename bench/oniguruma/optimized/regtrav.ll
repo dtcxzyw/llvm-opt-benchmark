@@ -61,7 +61,7 @@ define internal fastcc i32 @capture_tree_traverse(ptr noundef readonly %0, i32 n
 ._crit_edge:                                      ; preds = %22, %16
   %31 = and i32 %1, 2
   %.not36 = icmp eq i32 %31, 0
-  br i1 %.not36, label %39, label %32
+  br i1 %.not36, label %.loopexit, label %32
 
 32:                                               ; preds = %._crit_edge
   %33 = load i32, ptr %0, align 8
@@ -70,14 +70,10 @@ define internal fastcc i32 @capture_tree_traverse(ptr noundef readonly %0, i32 n
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = tail call i32 %2(i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef %3, i32 noundef 2, ptr noundef %4) #1
-  %.not37 = icmp eq i32 %38, 0
-  br i1 %.not37, label %39, label %.loopexit
-
-39:                                               ; preds = %32, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %32, %9, %5, %39
-  %.030 = phi i32 [ 0, %39 ], [ 0, %5 ], [ %15, %9 ], [ %38, %32 ], [ %30, %26 ]
+.loopexit:                                        ; preds = %26, %32, %._crit_edge, %9, %5
+  %.030 = phi i32 [ 0, %5 ], [ %15, %9 ], [ 0, %._crit_edge ], [ %38, %32 ], [ %30, %26 ]
   ret i32 %.030
 }
 

@@ -5509,7 +5509,7 @@ define internal fastcc void @sleep_forever(ptr noundef %0, i32 noundef %1) unnam
   %5 = and i32 %1, 1
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 1, i32 2
-  %7 = trunc i32 %6 to i8
+  %7 = trunc nuw nsw i32 %6 to i8
   %8 = and i8 %4, -4
   %9 = or disjoint i8 %8, %7
   store i8 %9, ptr %3, align 8
@@ -7517,7 +7517,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #21
 declare void @rb_assert_failure(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @ruby_thread_has_gvl_p() local_unnamed_addr #5 {
+define dso_local i32 @ruby_thread_has_gvl_p() local_unnamed_addr #5 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_native_thread)
   %2 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %2, null
@@ -7527,13 +7527,11 @@ define dso_local noundef i32 @ruby_thread_has_gvl_p() local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %2, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %spec.select = zext i1 %6 to i32
+  br label %7
 
 7:                                                ; preds = %3, %0
-  br label %8
-
-8:                                                ; preds = %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %3 ]
   ret i32 %.0
 }
 
@@ -9659,7 +9657,7 @@ timeout_prepare.exit:                             ; preds = %1, %rb_hrtime_now.e
   %57 = udiv i64 %56, 1000000000
   store i64 %57, ptr %6, align 8
   %58 = urem i64 %56, 1000000000
-  %.lhs.trunc.i = trunc i64 %58 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %58 to i32
   %59 = udiv i32 %.lhs.trunc.i, 1000
   %.zext.i = zext nneg i32 %59 to i64
   store i64 %.zext.i, ptr %29, align 8
@@ -13335,7 +13333,7 @@ rb_num2int_inline.exit:                           ; preds = %5, %7
   %9 = trunc i64 %.0.i to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %9, i32 -3)
   %.07 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 3)
-  %.0 = trunc i32 %.07 to i8
+  %.0 = trunc nsw i32 %.07 to i8
   %10 = getelementptr inbounds i8, ptr %3, i64 241
   store i8 %.0, ptr %10, align 1
   %11 = sext i32 %.07 to i64
@@ -13352,7 +13350,7 @@ define internal i64 @rb_thread_status(i64 noundef %0) #0 {
   %4 = and i8 %.val, 3
   switch i8 %4, label %default.unreachable [
     i8 3, label %5
-    i8 0, label %13
+    i8 0, label %14
     i8 2, label %thread_status_name.exit
     i8 1, label %thread_status_name.exit
   ]
@@ -13363,28 +13361,30 @@ define internal i64 @rb_thread_status(i64 noundef %0) #0 {
   %8 = getelementptr inbounds i8, ptr %7, i64 120
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 4
-  %11 = and i64 %9, 1
-  %12 = icmp ne i64 %11, 0
-  %or.cond = or i1 %10, %12
-  %spec.select = select i1 %or.cond, i64 0, i64 4
-  br label %17
+  br i1 %10, label %18, label %11
 
-13:                                               ; preds = %1
-  %14 = and i8 %.val, 8
-  %.not3.i = icmp eq i8 %14, 0
-  %15 = select i1 %.not3.i, ptr @.str.72, ptr @.str.229
+11:                                               ; preds = %5
+  %12 = shl i64 %9, 2
+  %13 = and i64 %12, 4
+  %spec.select = xor i64 %13, 4
+  br label %18
+
+14:                                               ; preds = %1
+  %15 = and i8 %.val, 8
+  %.not3.i = icmp eq i8 %15, 0
+  %16 = select i1 %.not3.i, ptr @.str.72, ptr @.str.229
   br label %thread_status_name.exit
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-thread_status_name.exit:                          ; preds = %1, %1, %13
-  %.0.i = phi ptr [ %15, %13 ], [ @.str.231, %1 ], [ @.str.231, %1 ]
-  %16 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.i) #20
-  br label %17
+thread_status_name.exit:                          ; preds = %1, %1, %14
+  %.0.i = phi ptr [ %16, %14 ], [ @.str.231, %1 ], [ @.str.231, %1 ]
+  %17 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.i) #20
+  br label %18
 
-17:                                               ; preds = %5, %thread_status_name.exit
-  %.0 = phi i64 [ %16, %thread_status_name.exit ], [ %spec.select, %5 ]
+18:                                               ; preds = %11, %5, %thread_status_name.exit
+  %.0 = phi i64 [ %17, %thread_status_name.exit ], [ 0, %5 ], [ %spec.select, %11 ]
   ret i64 %.0
 }
 
@@ -13733,8 +13733,8 @@ define internal i64 @rb_thread_to_s(i64 noundef %0) #0 {
   switch i8 %6, label %default.unreachable [
     i8 0, label %7
     i8 2, label %10
-    i8 1, label %11
-    i8 3, label %thread_status_name.exit
+    i8 1, label %thread_status_name.exit
+    i8 3, label %11
   ]
 
 7:                                                ; preds = %1
@@ -13753,7 +13753,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 thread_status_name.exit:                          ; preds = %1, %7, %10, %11
-  %.0.i = phi ptr [ @.str.231, %11 ], [ %9, %7 ], [ @.str.230, %10 ], [ @.str.232, %1 ]
+  %.0.i = phi ptr [ @.str.232, %11 ], [ %9, %7 ], [ @.str.231, %1 ], [ @.str.230, %10 ]
   %12 = inttoptr i64 %0 to ptr
   %13 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.236, i64 noundef %3, ptr noundef %12) #20
   %14 = getelementptr inbounds i8, ptr %4, i64 432
@@ -15157,45 +15157,45 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
   %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, 8
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %.critedge
+  br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 256
   %13 = getelementptr inbounds i8, ptr %0, i64 360
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.critedge, label %16
+  br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr i8, ptr %0, i64 280
   %.val = load i32, ptr %17, align 8
   %18 = tail call i32 @rb_ractor_living_thread_num(ptr noundef nonnull %0) #20
   %19 = icmp sgt i32 %18, %.val
-  br i1 %19, label %.critedge, label %20
+  br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %16
   %21 = icmp slt i32 %18, %.val
   br i1 %21, label %22, label %.preheader
 
 .preheader:                                       ; preds = %20
-  %.02342 = load ptr, ptr %12, align 8
-  %.not2843 = icmp eq ptr %.02342, %12
-  br i1 %.not2843, label %.critedge36, label %.lr.ph
+  %.02343 = load ptr, ptr %12, align 8
+  %.not2844 = icmp eq ptr %.02343, %12
+  br i1 %.not2844, label %.critedge37, label %.lr.ph
 
 22:                                               ; preds = %20
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.133) #45
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %50
-  %.02344 = phi ptr [ %.023, %50 ], [ %.02342, %.preheader ]
-  %23 = getelementptr inbounds i8, ptr %.02344, i64 240
+.lr.ph:                                           ; preds = %.preheader, %.critedge
+  %.02345 = phi ptr [ %.023, %.critedge ], [ %.02343, %.preheader ]
+  %23 = getelementptr inbounds i8, ptr %.02345, i64 240
   %24 = load i8, ptr %23, align 8
   %25 = and i8 %24, 3
   %.not29 = icmp eq i8 %25, 2
-  br i1 %.not29, label %26, label %.critedge
+  br i1 %.not29, label %26, label %.loopexit
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %.02344, i64 48
+  %27 = getelementptr inbounds i8, ptr %.02345, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 32
   %30 = load i32, ptr %29, align 8
@@ -15205,13 +15205,13 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
   %34 = and i32 %30, 10
   %35 = and i32 %34, %33
   %.not30 = icmp eq i32 %35, 0
-  br i1 %.not30, label %36, label %.critedge
+  br i1 %.not30, label %36, label %.loopexit
 
 36:                                               ; preds = %26
-  %37 = getelementptr inbounds i8, ptr %.02344, i64 344
+  %37 = getelementptr inbounds i8, ptr %.02345, i64 344
   %38 = load i64, ptr %37, align 8
   %.not31 = icmp eq i64 %38, 0
-  br i1 %.not31, label %50, label %39
+  br i1 %.not31, label %.critedge, label %39
 
 39:                                               ; preds = %36
   %40 = tail call ptr @rb_check_typeddata(i64 noundef %38, ptr noundef nonnull @mutex_data_type) #20
@@ -15220,137 +15220,137 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
   %43 = getelementptr inbounds i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %41, %44
-  br i1 %45, label %.critedge, label %46
+  br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %39
   %.not32 = icmp eq ptr %41, null
-  br i1 %.not32, label %47, label %50
+  br i1 %.not32, label %47, label %.critedge
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %40, i64 16
   %49 = load ptr, ptr %48, align 8
-  %.not41 = icmp eq ptr %49, %48
-  br i1 %.not41, label %50, label %.critedge
+  %.not42 = icmp eq ptr %49, %48
+  br i1 %.not42, label %.critedge, label %.loopexit
 
-50:                                               ; preds = %46, %47, %36
-  %.023 = load ptr, ptr %.02344, align 8
+.critedge:                                        ; preds = %36, %47, %46
+  %.023 = load ptr, ptr %.02345, align 8
   %.not28 = icmp eq ptr %.023, %12
-  br i1 %.not28, label %.critedge36, label %.lr.ph, !llvm.loop !57
+  br i1 %.not28, label %.critedge37, label %.lr.ph, !llvm.loop !57
 
-.critedge36:                                      ; preds = %50, %.preheader
-  %51 = load i64, ptr @rb_eFatal, align 8
-  store i64 %51, ptr %2, align 16
-  %52 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.136, i64 noundef 31) #20
-  %53 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %52, ptr %53, align 8
-  %54 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.137, i64 noundef 4) #20
-  %55 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %0) #20
-  %.val.i37 = load i32, ptr %17, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr i8, ptr %56, i64 48
-  %.val.i.i = load ptr, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 392
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.138, i32 noundef %55, i32 noundef %.val.i37, ptr noundef %.val.i.i, ptr noundef %59) #20
+.critedge37:                                      ; preds = %.critedge, %.preheader
+  %50 = load i64, ptr @rb_eFatal, align 8
+  store i64 %50, ptr %2, align 16
+  %51 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.136, i64 noundef 31) #20
+  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %51, ptr %52, align 8
+  %53 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.137, i64 noundef 4) #20
+  %54 = tail call i32 @rb_ractor_living_thread_num(ptr noundef %0) #20
+  %.val.i38 = load i32, ptr %17, align 8
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr i8, ptr %55, i64 48
+  %.val.i.i = load ptr, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 392
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %51, ptr noundef nonnull @.str.138, i32 noundef %54, i32 noundef %.val.i38, ptr noundef %.val.i.i, ptr noundef %58) #20
   %.02837.i = load ptr, ptr %12, align 8
   %.not38.i = icmp eq ptr %.02837.i, %12
   br i1 %.not38.i, label %debug_deadlock_check.exit, label %.lr.ph41.i
 
-.lr.ph41.i:                                       ; preds = %.critedge36, %._crit_edge.i
-  %.02839.i = phi ptr [ %.028.i, %._crit_edge.i ], [ %.02837.i, %.critedge36 ]
-  %61 = getelementptr inbounds i8, ptr %.02839.i, i64 16
-  %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.02839.i, i64 40
-  %64 = load ptr, ptr %63, align 8
-  %.not31.i = icmp eq ptr %64, null
-  br i1 %.not31.i, label %69, label %65
+.lr.ph41.i:                                       ; preds = %.critedge37, %._crit_edge.i
+  %.02839.i = phi ptr [ %.028.i, %._crit_edge.i ], [ %.02837.i, %.critedge37 ]
+  %60 = getelementptr inbounds i8, ptr %.02839.i, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %.02839.i, i64 40
+  %63 = load ptr, ptr %62, align 8
+  %.not31.i = icmp eq ptr %63, null
+  br i1 %.not31.i, label %68, label %64
 
-65:                                               ; preds = %.lr.ph41.i
-  %66 = getelementptr inbounds i8, ptr %64, i64 16
-  %67 = load i64, ptr %66, align 8
-  %68 = inttoptr i64 %67 to ptr
-  br label %69
+64:                                               ; preds = %.lr.ph41.i
+  %65 = getelementptr inbounds i8, ptr %63, i64 16
+  %66 = load i64, ptr %65, align 8
+  %67 = inttoptr i64 %66 to ptr
+  br label %68
 
-69:                                               ; preds = %65, %.lr.ph41.i
-  %70 = phi ptr [ %68, %65 ], [ @.str.141, %.lr.ph41.i ]
-  %71 = getelementptr inbounds i8, ptr %.02839.i, i64 48
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 32
-  %74 = load i32, ptr %73, align 8
-  %75 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.140, i64 noundef %62, ptr noundef nonnull %.02839.i, ptr noundef %70, i32 noundef %74) #20
-  %76 = getelementptr inbounds i8, ptr %.02839.i, i64 344
-  %77 = load i64, ptr %76, align 8
-  %.not32.i = icmp eq i64 %77, 0
-  br i1 %.not32.i, label %85, label %78
+68:                                               ; preds = %64, %.lr.ph41.i
+  %69 = phi ptr [ %67, %64 ], [ @.str.141, %.lr.ph41.i ]
+  %70 = getelementptr inbounds i8, ptr %.02839.i, i64 48
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %73 = load i32, ptr %72, align 8
+  %74 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %51, ptr noundef nonnull @.str.140, i64 noundef %61, ptr noundef nonnull %.02839.i, ptr noundef %69, i32 noundef %73) #20
+  %75 = getelementptr inbounds i8, ptr %.02839.i, i64 344
+  %76 = load i64, ptr %75, align 8
+  %.not32.i = icmp eq i64 %76, 0
+  br i1 %.not32.i, label %84, label %77
 
-78:                                               ; preds = %69
-  %79 = tail call ptr @rb_check_typeddata(i64 noundef %77, ptr noundef nonnull @mutex_data_type) #20
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 16
-  br label %82
+77:                                               ; preds = %68
+  %78 = tail call ptr @rb_check_typeddata(i64 noundef %76, ptr noundef nonnull @mutex_data_type) #20
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %78, i64 16
+  br label %81
 
-82:                                               ; preds = %82, %78
-  %.pn.in.i.i = phi ptr [ %81, %78 ], [ %.pn.i.i, %82 ]
-  %.0.i.i = phi i64 [ 0, %78 ], [ %83, %82 ]
+81:                                               ; preds = %81, %77
+  %.pn.in.i.i = phi ptr [ %80, %77 ], [ %.pn.i.i, %81 ]
+  %.0.i.i = phi i64 [ 0, %77 ], [ %82, %81 ]
   %.pn.i.i = load ptr, ptr %.pn.in.i.i, align 8
-  %.not.i.i = icmp eq ptr %.pn.i.i, %81
-  %83 = add i64 %.0.i.i, 1
-  br i1 %.not.i.i, label %rb_mutex_num_waiting.exit.i, label %82, !llvm.loop !58
+  %.not.i.i = icmp eq ptr %.pn.i.i, %80
+  %82 = add i64 %.0.i.i, 1
+  br i1 %.not.i.i, label %rb_mutex_num_waiting.exit.i, label %81, !llvm.loop !58
 
-rb_mutex_num_waiting.exit.i:                      ; preds = %82
-  %84 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.142, ptr noundef %80, i64 noundef %.0.i.i) #20
-  br label %85
+rb_mutex_num_waiting.exit.i:                      ; preds = %81
+  %83 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %51, ptr noundef nonnull @.str.142, ptr noundef %79, i64 noundef %.0.i.i) #20
+  br label %84
 
-85:                                               ; preds = %rb_mutex_num_waiting.exit.i, %69
-  %86 = getelementptr inbounds i8, ptr %.02839.i, i64 360
-  %.034.i = load ptr, ptr %86, align 8
+84:                                               ; preds = %rb_mutex_num_waiting.exit.i, %68
+  %85 = getelementptr inbounds i8, ptr %.02839.i, i64 360
+  %.034.i = load ptr, ptr %85, align 8
   %.not3335.i = icmp eq ptr %.034.i, null
   br i1 %.not3335.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %85, %.lr.ph.i
-  %.036.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.034.i, %85 ]
-  %87 = getelementptr inbounds i8, ptr %.036.i, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.143, ptr noundef %88) #20
+.lr.ph.i:                                         ; preds = %84, %.lr.ph.i
+  %.036.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.034.i, %84 ]
+  %86 = getelementptr inbounds i8, ptr %.036.i, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %51, ptr noundef nonnull @.str.143, ptr noundef %87) #20
   %.0.i = load ptr, ptr %.036.i, align 8
   %.not33.i = icmp eq ptr %.0.i, null
   br i1 %.not33.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !59
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %85
-  %90 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.137) #20
-  %91 = load ptr, ptr %71, align 8
-  %92 = tail call i64 @rb_ec_backtrace_str_ary(ptr noundef %91, i64 noundef 0, i64 noundef 0) #20
-  %93 = tail call i64 @rb_ary_join(i64 noundef %92, i64 noundef %54) #20
-  %94 = tail call i64 @rb_str_concat(i64 noundef %52, i64 noundef %93) #20
-  %95 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %52, ptr noundef nonnull @.str.144) #20
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %84
+  %89 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %51, ptr noundef nonnull @.str.137) #20
+  %90 = load ptr, ptr %70, align 8
+  %91 = tail call i64 @rb_ec_backtrace_str_ary(ptr noundef %90, i64 noundef 0, i64 noundef 0) #20
+  %92 = tail call i64 @rb_ary_join(i64 noundef %91, i64 noundef %53) #20
+  %93 = tail call i64 @rb_str_concat(i64 noundef %51, i64 noundef %92) #20
+  %94 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %51, ptr noundef nonnull @.str.144) #20
   %.028.i = load ptr, ptr %.02839.i, align 8
   %.not.i = icmp eq ptr %.028.i, %12
   br i1 %.not.i, label %debug_deadlock_check.exit, label %.lr.ph41.i, !llvm.loop !60
 
-debug_deadlock_check.exit:                        ; preds = %._crit_edge.i, %.critedge36
-  %96 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i38 = icmp eq ptr %96, null
-  br i1 %.not.i.i38, label %97, label %rb_current_ractor.exit
+debug_deadlock_check.exit:                        ; preds = %._crit_edge.i, %.critedge37
+  %95 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i39 = icmp eq ptr %95, null
+  br i1 %.not.i.i39, label %96, label %rb_current_ractor.exit
 
-97:                                               ; preds = %debug_deadlock_check.exit
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr i8, ptr %98, i64 48
-  %.val.i.i40 = load ptr, ptr %99, align 8, !nonnull !35, !noundef !35
-  %100 = getelementptr inbounds i8, ptr %.val.i.i40, i64 24
-  %101 = load ptr, ptr %100, align 8
+96:                                               ; preds = %debug_deadlock_check.exit
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr i8, ptr %97, i64 48
+  %.val.i.i41 = load ptr, ptr %98, align 8, !nonnull !35, !noundef !35
+  %99 = getelementptr inbounds i8, ptr %.val.i.i41, i64 24
+  %100 = load ptr, ptr %99, align 8
   br label %rb_current_ractor.exit
 
-rb_current_ractor.exit:                           ; preds = %debug_deadlock_check.exit, %97
-  %.0.i.i39 = phi ptr [ %96, %debug_deadlock_check.exit ], [ %101, %97 ]
-  %102 = getelementptr inbounds i8, ptr %.0.i.i39, i64 280
-  %103 = load i32, ptr %102, align 8
-  %104 = add i32 %103, -1
-  store i32 %104, ptr %102, align 8
-  %105 = load ptr, ptr %58, align 8
-  call fastcc void @rb_threadptr_raise(ptr noundef %105, i32 noundef 2, ptr noundef nonnull %2)
-  br label %.critedge
+rb_current_ractor.exit:                           ; preds = %debug_deadlock_check.exit, %96
+  %.0.i.i40 = phi ptr [ %95, %debug_deadlock_check.exit ], [ %100, %96 ]
+  %101 = getelementptr inbounds i8, ptr %.0.i.i40, i64 280
+  %102 = load i32, ptr %101, align 8
+  %103 = add i32 %102, -1
+  store i32 %103, ptr %101, align 8
+  %104 = load ptr, ptr %57, align 8
+  call fastcc void @rb_threadptr_raise(ptr noundef %104, i32 noundef 2, ptr noundef nonnull %2)
+  br label %.loopexit
 
-.critedge:                                        ; preds = %.lr.ph, %26, %47, %39, %16, %11, %1, %rb_current_ractor.exit
+.loopexit:                                        ; preds = %39, %.lr.ph, %26, %47, %16, %11, %1, %rb_current_ractor.exit
   ret void
 }
 
@@ -19508,7 +19508,7 @@ define internal noundef i64 @thread_join_sleep(i64 noundef %0) #0 {
   %19 = load i8, ptr %18, align 8
   %20 = and i8 %19, 3
   %21 = icmp eq i8 %20, 3
-  br i1 %21, label %thread_finished.exit.thread, label %thread_finished.exit.us.preheader
+  br i1 %21, label %hrtime_update_expire.exit, label %thread_finished.exit.us.preheader
 
 .thread:                                          ; preds = %16, %12
   %.val.i = load i64, ptr %3, align 8
@@ -19525,7 +19525,7 @@ define internal noundef i64 @thread_join_sleep(i64 noundef %0) #0 {
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 3
   %29 = icmp eq i8 %28, 3
-  br i1 %29, label %thread_finished.exit.thread, label %thread_finished.exit.preheader
+  br i1 %29, label %hrtime_update_expire.exit, label %thread_finished.exit.preheader
 
 thread_finished.exit.preheader:                   ; preds = %.thread
   %30 = getelementptr inbounds i8, ptr %6, i64 264
@@ -19545,8 +19545,8 @@ thread_finished.exit.us.preheader:                ; preds = %17
 
 thread_finished.exit.us:                          ; preds = %thread_finished.exit.us.preheader, %vm_check_ints_blocking.exit.us
   %40 = load i64, ptr %36, align 8
-  %.not39.us = icmp eq i64 %40, 36
-  br i1 %.not39.us, label %41, label %thread_finished.exit.thread
+  %.not40.us = icmp eq i64 %40, 36
+  br i1 %.not40.us, label %41, label %hrtime_update_expire.exit
 
 41:                                               ; preds = %thread_finished.exit.us
   %42 = tail call i64 @rb_fiber_scheduler_current() #20
@@ -19635,12 +19635,12 @@ vm_check_ints_blocking.exit.us:                   ; preds = %84, %79
   %88 = load i8, ptr %18, align 8
   %89 = and i8 %88, 3
   %90 = icmp eq i8 %89, 3
-  br i1 %90, label %thread_finished.exit.thread, label %thread_finished.exit.us, !llvm.loop !77
+  br i1 %90, label %hrtime_update_expire.exit, label %thread_finished.exit.us, !llvm.loop !77
 
 thread_finished.exit:                             ; preds = %thread_finished.exit.preheader, %vm_check_ints_blocking.exit
   %91 = load i64, ptr %30, align 8
-  %.not39 = icmp eq i64 %91, 36
-  br i1 %.not39, label %92, label %thread_finished.exit.thread
+  %.not40 = icmp eq i64 %91, 36
+  br i1 %.not40, label %92, label %hrtime_update_expire.exit
 
 92:                                               ; preds = %thread_finished.exit
   %93 = call i64 @rb_fiber_scheduler_current() #20
@@ -19650,21 +19650,23 @@ thread_finished.exit:                             ; preds = %thread_finished.exi
 .split.us:                                        ; preds = %92, %41
   %94 = phi ptr [ %36, %41 ], [ %30, %92 ]
   %95 = phi ptr [ %18, %41 ], [ %26, %92 ]
-  %.us-phi = phi i64 [ %42, %41 ], [ %93, %92 ]
+  %.us-phi46 = phi i64 [ %42, %41 ], [ %93, %92 ]
   %96 = getelementptr inbounds i8, ptr %6, i64 16
   %97 = load i64, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %4, i64 16
   %99 = load i64, ptr %98, align 8
-  %100 = call i64 @rb_fiber_scheduler_block(i64 noundef %.us-phi, i64 noundef %97, i64 noundef %99) #20
+  %100 = call i64 @rb_fiber_scheduler_block(i64 noundef %.us-phi46, i64 noundef %97, i64 noundef %99) #20
   %101 = load i8, ptr %95, align 8
   %102 = and i8 %101, 3
   %103 = icmp eq i8 %102, 3
-  br i1 %103, label %thread_finished.exit.thread, label %thread_finished.exit28
+  br i1 %103, label %hrtime_update_expire.exit, label %thread_finished.exit28
 
 thread_finished.exit28:                           ; preds = %.split.us
   %104 = load i64, ptr %94, align 8
-  %.not40 = icmp eq i64 %104, 36
-  br i1 %.not40, label %hrtime_update_expire.exit, label %thread_finished.exit.thread
+  %.fr = freeze i64 %104
+  %.not41 = icmp eq i64 %.fr, 36
+  %spec.select = select i1 %.not41, i64 0, i64 20
+  br label %hrtime_update_expire.exit
 
 105:                                              ; preds = %92
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -19768,13 +19770,10 @@ vm_check_ints_blocking.exit:                      ; preds = %137, %148
   %152 = load i8, ptr %26, align 8
   %153 = and i8 %152, 3
   %154 = icmp eq i8 %153, 3
-  br i1 %154, label %thread_finished.exit.thread, label %thread_finished.exit, !llvm.loop !77
+  br i1 %154, label %hrtime_update_expire.exit, label %thread_finished.exit, !llvm.loop !77
 
-thread_finished.exit.thread:                      ; preds = %thread_finished.exit, %vm_check_ints_blocking.exit, %thread_finished.exit.us, %vm_check_ints_blocking.exit.us, %.thread, %17, %.split.us, %thread_finished.exit28
-  br label %hrtime_update_expire.exit
-
-hrtime_update_expire.exit:                        ; preds = %rb_hrtime_now.exit.i, %thread_finished.exit28, %thread_finished.exit.thread
-  %.0 = phi i64 [ 20, %thread_finished.exit.thread ], [ 0, %thread_finished.exit28 ], [ 0, %rb_hrtime_now.exit.i ]
+hrtime_update_expire.exit:                        ; preds = %thread_finished.exit, %rb_hrtime_now.exit.i, %vm_check_ints_blocking.exit, %thread_finished.exit.us, %vm_check_ints_blocking.exit.us, %.thread, %17, %thread_finished.exit28, %.split.us
+  %.0 = phi i64 [ 20, %.split.us ], [ %spec.select, %thread_finished.exit28 ], [ 20, %17 ], [ 20, %.thread ], [ 20, %vm_check_ints_blocking.exit.us ], [ 20, %thread_finished.exit.us ], [ 20, %thread_finished.exit ], [ 0, %rb_hrtime_now.exit.i ], [ 20, %vm_check_ints_blocking.exit ]
   ret i64 %.0
 }
 

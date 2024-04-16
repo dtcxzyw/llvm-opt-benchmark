@@ -665,7 +665,7 @@ define noundef zeroext i1 @_ZNK23InterfaceTreeCacheModel16isAvailableFieldERK11Q
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK23InterfaceTreeCacheModel5flagsERK11QModelIndex(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define i32 @_ZNK23InterfaceTreeCacheModel5flagsERK11QModelIndex(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, -1
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -748,7 +748,7 @@ _ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit: ; pr
 _ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread8: ; preds = %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.i._ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread8_crit_edge, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit
   %44 = phi i64 [ %.pre, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.i._ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread8_crit_edge ], [ %29, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit ]
   %45 = icmp sgt i64 %44, 0
-  br i1 %45, label %46, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread
+  br i1 %45, label %46, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 46:                                               ; preds = %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread8
   %47 = getelementptr inbounds i8, ptr %0, i64 64
@@ -761,7 +761,7 @@ _ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.threa
   %.sroa.015.0.i.i.i = phi ptr [ %49, %46 ], [ %52, %53 ]
   %52 = getelementptr i8, ptr %.sroa.015.0.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %52, %50
-  br i1 %.not.i.i.i, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread, label %53
+  br i1 %.not.i.i.i, label %_ZNK11QModelIndex7isValidEv.exit.thread, label %53
 
 53:                                               ; preds = %51
   %54 = load i32, ptr %52, align 4
@@ -773,13 +773,11 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit: 
   %57 = ptrtoint ptr %48 to i64
   %58 = sub i64 %56, %57
   %.not13 = icmp eq i64 %58, -4
-  br i1 %.not13, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread, label %_ZNK11QModelIndex7isValidEv.exit.thread
-
-_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread: ; preds = %51, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread8, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit
+  %spec.select = select i1 %.not13, i32 35, i32 49
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
-_ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %36, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread.i, %2, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread
-  %.sroa.0.0 = phi i32 [ 35, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread ], [ 33, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit ], [ 49, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit ], [ 0, %2 ], [ 33, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread.i ], [ 33, %36 ]
+_ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %36, %51, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread8, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread.i, %2, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit
+  %.sroa.0.0 = phi i32 [ 33, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit ], [ 0, %2 ], [ 33, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread.i ], [ 35, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread8 ], [ %spec.select, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit ], [ 35, %51 ], [ 33, %36 ]
   ret i32 %.sroa.0.0
 }
 

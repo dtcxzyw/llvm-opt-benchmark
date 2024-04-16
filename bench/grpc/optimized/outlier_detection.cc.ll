@@ -6580,7 +6580,7 @@ if.then143.i.i.i.i:                               ; preds = %if.end140.i.i.i.i
   store i32 98, ptr %range_.i.i.i.i.i.i.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %dist.i.i.i.i.i.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i32
   %call3.i.i.i.i.i122.i.i.i.i = invoke noundef i32 @_ZN4absl12lts_2023080224uniform_int_distributionIiE8GenerateINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_.i.i.i.i, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i)
           to label %invoke.cont144.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i.i
 
@@ -6720,7 +6720,7 @@ if.then243.i.i.i.i:                               ; preds = %if.end235.i.i.i.i
   store i32 98, ptr %range_.i.i.i.i.i.i138.i.i.i.i, align 4
   %retval.sroa.0.0.copyload.i.i.i.i.i139.i.i.i.i = load i64, ptr %dist.i.i.i136.i.i.i.i, align 8
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i141.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i139.i.i.i.i, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i142.i.i.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i141.i.i.i.i to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i142.i.i.i.i = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i141.i.i.i.i to i32
   %call3.i.i.i.i.i144.i.i.i.i = invoke noundef i32 @_ZN4absl12lts_2023080224uniform_int_distributionIiE8GenerateINS0_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %dist.i.i.i136.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_245.i.i.i.i, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i142.i.i.i.i)
           to label %invoke.cont246.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.i.i.i.i
 
@@ -7579,7 +7579,7 @@ _ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURB
 if.end13:                                         ; preds = %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit28, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i32 = trunc i64 %shr.i to i32
+  %conv.i32 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then
@@ -12792,7 +12792,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -12803,13 +12803,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #25
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

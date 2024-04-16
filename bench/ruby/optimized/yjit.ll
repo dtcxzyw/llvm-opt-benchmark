@@ -520,7 +520,7 @@ define hidden i32 @rb_yjit_get_page_size() local_unnamed_addr #0 {
   unreachable
 
 7:                                                ; preds = %4
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw nsw i64 %1 to i32
   ret i32 %8
 }
 
@@ -1664,7 +1664,7 @@ rb_str_eql_internal.exit:                         ; preds = %2, %9, %RSTRING_PTR
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i64 @rb_str_neq_internal(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden i64 @rb_str_neq_internal(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -1672,12 +1672,12 @@ define hidden noundef i64 @rb_str_neq_internal(i64 noundef %0, i64 noundef %1) l
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %5, %8
-  br i1 %.not.i, label %9, label %rb_str_eql_internal.exit.thread
+  br i1 %.not.i, label %9, label %rb_str_eql_internal.exit
 
 9:                                                ; preds = %2
   %10 = tail call i32 @rb_str_comparable(i64 noundef %0, i64 noundef %1) #5
   %.not13.i = icmp eq i32 %10, 0
-  br i1 %.not13.i, label %rb_str_eql_internal.exit.thread, label %11
+  br i1 %.not13.i, label %rb_str_eql_internal.exit, label %11
 
 11:                                               ; preds = %9
   %12 = load i64, ptr %3, align 8, !noalias !29
@@ -1710,13 +1710,11 @@ RSTRING_PTR.exit17.i:                             ; preds = %19, %RSTRING_PTR.ex
 21:                                               ; preds = %RSTRING_PTR.exit17.i
   %bcmp.i = tail call i32 @bcmp(ptr %.sroa.2.0.i.i, ptr %.sroa.2.0.i16.i, i64 %5)
   %22 = icmp eq i32 %bcmp.i, 0
-  br i1 %22, label %rb_str_eql_internal.exit, label %rb_str_eql_internal.exit.thread
-
-rb_str_eql_internal.exit.thread:                  ; preds = %2, %9, %21
+  %spec.select = select i1 %22, i64 0, i64 20
   br label %rb_str_eql_internal.exit
 
-rb_str_eql_internal.exit:                         ; preds = %21, %RSTRING_PTR.exit17.i, %rb_str_eql_internal.exit.thread
-  %23 = phi i64 [ 20, %rb_str_eql_internal.exit.thread ], [ 0, %RSTRING_PTR.exit17.i ], [ 0, %21 ]
+rb_str_eql_internal.exit:                         ; preds = %21, %9, %2, %RSTRING_PTR.exit17.i
+  %23 = phi i64 [ 0, %RSTRING_PTR.exit17.i ], [ 20, %2 ], [ 20, %9 ], [ %spec.select, %21 ]
   ret i64 %23
 }
 
@@ -1944,7 +1942,7 @@ RARRAY_AREF.exit:                                 ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @rb_yjit_splat_varg_checks(ptr noundef readnone %0, i64 noundef %1, ptr noundef readnone %2) local_unnamed_addr #4 {
+define hidden i64 @rb_yjit_splat_varg_checks(ptr noundef readnone %0, i64 noundef %1, ptr noundef readnone %2) local_unnamed_addr #4 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 8192
@@ -1968,7 +1966,7 @@ rb_array_len.exit:                                ; preds = %7, %10
   %14 = getelementptr i8, ptr %2, i64 -112
   %15 = icmp ugt ptr %13, %14
   %or.cond35 = or i1 %or.cond, %15
-  br i1 %or.cond35, label %34, label %16
+  br i1 %or.cond35, label %.critedge, label %16
 
 16:                                               ; preds = %rb_array_len.exit
   %.not = icmp eq i64 %.0.i, 0
@@ -2000,15 +1998,18 @@ RARRAY_AREF.exit:                                 ; preds = %19, %21
 30:                                               ; preds = %RARRAY_AREF.exit
   %31 = inttoptr i64 %25 to ptr
   %32 = load i64, ptr %31, align 8
-  %33 = and i64 %32, 8223
-  %or.cond36.not = icmp eq i64 %33, 8200
-  br i1 %or.cond36.not, label %34, label %.critedge
+  %33 = and i64 %32, 31
+  %34 = icmp eq i64 %33, 8
+  br i1 %34, label %35, label %.critedge
 
-.critedge:                                        ; preds = %RARRAY_AREF.exit, %30, %16
-  br label %34
+35:                                               ; preds = %30
+  %36 = and i64 %32, 8192
+  %.not32 = icmp eq i64 %36, 0
+  %spec.select = select i1 %.not32, i64 20, i64 0
+  br label %.critedge
 
-34:                                               ; preds = %30, %rb_array_len.exit, %.critedge
-  %.030 = phi i64 [ 20, %.critedge ], [ 0, %rb_array_len.exit ], [ 0, %30 ]
+.critedge:                                        ; preds = %35, %16, %30, %RARRAY_AREF.exit, %rb_array_len.exit
+  %.030 = phi i64 [ 0, %rb_array_len.exit ], [ 20, %RARRAY_AREF.exit ], [ 20, %30 ], [ 20, %16 ], [ %spec.select, %35 ]
   ret i64 %.030
 }
 
@@ -2229,7 +2230,7 @@ define hidden zeroext i1 @rb_RB_TYPE_P(i64 noundef %0, i32 noundef %1) local_unn
   br label %RB_SYMBOL_P.exit
 
 switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc i64 %13 to i16
+  %switch.maskindex = trunc nuw i64 %13 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %15

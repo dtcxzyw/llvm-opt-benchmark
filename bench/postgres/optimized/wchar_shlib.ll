@@ -17,7 +17,7 @@ define noundef ptr @unicode_to_utf8(i32 noundef %0, ptr noundef returned writeon
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = trunc i32 %0 to i8
+  %5 = trunc nuw nsw i32 %0 to i8
   store i8 %5, ptr %1, align 1
   br label %50
 
@@ -27,7 +27,7 @@ define noundef ptr @unicode_to_utf8(i32 noundef %0, ptr noundef returned writeon
 
 8:                                                ; preds = %6
   %9 = lshr i32 %0, 6
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %1, align 1
   %12 = trunc i32 %0 to i8
@@ -43,7 +43,7 @@ define noundef ptr @unicode_to_utf8(i32 noundef %0, ptr noundef returned writeon
 
 18:                                               ; preds = %16
   %19 = lshr i32 %0, 12
-  %20 = trunc i32 %19 to i8
+  %20 = trunc nuw i32 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %1, align 1
   %22 = lshr i32 %0, 6
@@ -480,7 +480,7 @@ define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, pt
 
 6:                                                ; preds = %.lr.ph
   %7 = lshr i32 %5, 24
-  %8 = trunc i32 %7 to i8
+  %8 = trunc nuw i32 %7 to i8
   %.not40 = icmp eq i8 %8, 0
   br i1 %.not40, label %19, label %9
 
@@ -1465,7 +1465,7 @@ define internal i32 @pg_wchar2utf_with_len(ptr nocapture noundef readonly %0, pt
   br i1 %7, label %unicode_to_utf8.exit.thread, label %9
 
 unicode_to_utf8.exit.thread:                      ; preds = %6
-  %8 = trunc i32 %5 to i8
+  %8 = trunc nuw nsw i32 %5 to i8
   store i8 %8, ptr %.01416, align 1
   br label %pg_utf_mblen.exit
 
@@ -1475,7 +1475,7 @@ unicode_to_utf8.exit.thread:                      ; preds = %6
 
 11:                                               ; preds = %9
   %12 = lshr i32 %5, 6
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %.01416, align 1
   br label %41
@@ -1486,7 +1486,7 @@ unicode_to_utf8.exit.thread:                      ; preds = %6
 
 17:                                               ; preds = %15
   %18 = lshr i32 %5, 12
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   store i8 %20, ptr %.01416, align 1
   %21 = lshr i32 %5, 6
@@ -2867,11 +2867,11 @@ define internal i32 @pg_gb18030_dsplen(ptr nocapture noundef readonly %0) #1 {
 define internal i32 @pg_gb18030_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %3, -1
-  br i1 %.not, label %27, label %4
+  br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %2
   %5 = icmp sgt i32 %1, 3
-  br i1 %5, label %6, label %20
+  br i1 %5, label %6, label %19
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %0, i64 1
@@ -2882,8 +2882,8 @@ define internal i32 @pg_gb18030_verifychar(ptr nocapture noundef readonly %0, i3
 
 10:                                               ; preds = %6
   switch i8 %3, label %11 [
-    i8 -128, label %19
-    i8 -1, label %19
+    i8 -128, label %26
+    i8 -1, label %26
   ]
 
 11:                                               ; preds = %10
@@ -2891,42 +2891,40 @@ define internal i32 @pg_gb18030_verifychar(ptr nocapture noundef readonly %0, i3
   %13 = load i8, ptr %12, align 1
   %14 = add i8 %13, 1
   %or.cond29 = icmp ult i8 %14, -126
-  br i1 %or.cond29, label %19, label %15
+  br i1 %or.cond29, label %26, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %0, i64 3
   %17 = load i8, ptr %16, align 1
   %18 = add i8 %17, -48
   %or.cond30 = icmp ult i8 %18, 10
-  br i1 %or.cond30, label %27, label %19
+  %spec.select = select i1 %or.cond30, i32 4, i32 -1
+  br label %26
 
-19:                                               ; preds = %10, %10, %15, %11
-  br label %27
+19:                                               ; preds = %4
+  %20 = icmp sgt i32 %1, 1
+  br i1 %20, label %.thread, label %26
 
-20:                                               ; preds = %4
-  %21 = icmp sgt i32 %1, 1
-  br i1 %21, label %.thread, label %27
-
-.thread:                                          ; preds = %6, %20
-  switch i8 %3, label %22 [
-    i8 -1, label %27
-    i8 -128, label %27
+.thread:                                          ; preds = %6, %19
+  switch i8 %3, label %21 [
+    i8 -1, label %26
+    i8 -128, label %26
   ]
 
-22:                                               ; preds = %.thread
-  %23 = getelementptr i8, ptr %0, i64 1
-  %24 = load i8, ptr %23, align 1
-  %25 = add i8 %24, -64
-  %or.cond32 = icmp ult i8 %25, 63
-  br i1 %or.cond32, label %27, label %26
+21:                                               ; preds = %.thread
+  %22 = getelementptr i8, ptr %0, i64 1
+  %23 = load i8, ptr %22, align 1
+  %24 = add i8 %23, -64
+  %or.cond32 = icmp ult i8 %24, 63
+  br i1 %or.cond32, label %26, label %25
 
-26:                                               ; preds = %22
-  %or.cond33 = icmp sgt i8 %24, -2
-  %spec.select = select i1 %or.cond33, i32 -1, i32 2
-  br label %27
+25:                                               ; preds = %21
+  %or.cond33 = icmp sgt i8 %23, -2
+  %spec.select34 = select i1 %or.cond33, i32 -1, i32 2
+  br label %26
 
-27:                                               ; preds = %.thread, %.thread, %26, %20, %22, %15, %2, %19
-  %.0 = phi i32 [ -1, %19 ], [ 1, %2 ], [ 4, %15 ], [ 2, %22 ], [ -1, %.thread ], [ -1, %20 ], [ %spec.select, %26 ], [ -1, %.thread ]
+26:                                               ; preds = %.thread, %.thread, %25, %15, %19, %21, %11, %10, %10, %2
+  %.0 = phi i32 [ 1, %2 ], [ -1, %10 ], [ -1, %10 ], [ -1, %11 ], [ 2, %21 ], [ -1, %.thread ], [ -1, %19 ], [ %spec.select, %15 ], [ %spec.select34, %25 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -2936,9 +2934,9 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %3, label %.lr.ph, label %pg_gb18030_verifychar.exit.thread
 
 .lr.ph:                                           ; preds = %2, %pg_gb18030_verifychar.exit
-  %.01219 = phi ptr [ %28, %pg_gb18030_verifychar.exit ], [ %0, %2 ]
-  %.01317 = phi i32 [ %29, %pg_gb18030_verifychar.exit ], [ %1, %2 ]
-  %4 = load i8, ptr %.01219, align 1
+  %.01220 = phi ptr [ %28, %pg_gb18030_verifychar.exit ], [ %0, %2 ]
+  %.01318 = phi i32 [ %29, %pg_gb18030_verifychar.exit ], [ %1, %2 ]
+  %4 = load i8, ptr %.01220, align 1
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %5, label %7
 
@@ -2947,11 +2945,11 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   br i1 %6, label %pg_gb18030_verifychar.exit.thread, label %pg_gb18030_verifychar.exit
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp ugt i32 %.01317, 3
+  %8 = icmp ugt i32 %.01318, 3
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
-  %10 = getelementptr i8, ptr %.01219, i64 1
+  %10 = getelementptr i8, ptr %.01220, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = add i8 %11, -48
   %or.cond.i = icmp ult i8 %12, 10
@@ -2964,22 +2962,22 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr i8, ptr %.01219, i64 2
+  %15 = getelementptr i8, ptr %.01220, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = add i8 %16, 1
   %or.cond29.i = icmp ult i8 %17, -126
   br i1 %or.cond29.i, label %pg_gb18030_verifychar.exit.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr i8, ptr %.01219, i64 3
+  %19 = getelementptr i8, ptr %.01220, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = add i8 %20, -48
   %or.cond30.i = icmp ult i8 %21, 10
   br i1 %or.cond30.i, label %pg_gb18030_verifychar.exit, label %pg_gb18030_verifychar.exit.thread
 
 22:                                               ; preds = %7
-  %.not16 = icmp eq i32 %.01317, 1
-  br i1 %.not16, label %pg_gb18030_verifychar.exit.thread, label %.thread.i
+  %.not17 = icmp eq i32 %.01318, 1
+  br i1 %.not17, label %pg_gb18030_verifychar.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %22, %9
   switch i8 %4, label %23 [
@@ -2988,7 +2986,7 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   ]
 
 23:                                               ; preds = %.thread.i
-  %24 = getelementptr i8, ptr %.01219, i64 1
+  %24 = getelementptr i8, ptr %.01220, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = add i8 %25, -127
   %or.cond32.i = icmp ult i8 %26, -63
@@ -2996,16 +2994,16 @@ define internal i32 @pg_gb18030_verifystr(ptr noundef %0, i32 noundef %1) #5 {
   %or.cond = and i1 %or.cond33.i, %or.cond32.i
   br i1 %or.cond, label %pg_gb18030_verifychar.exit.thread, label %pg_gb18030_verifychar.exit
 
-pg_gb18030_verifychar.exit:                       ; preds = %23, %18, %5
-  %.0 = phi i32 [ 1, %5 ], [ 4, %18 ], [ 2, %23 ]
+pg_gb18030_verifychar.exit:                       ; preds = %18, %23, %5
+  %.0 = phi i32 [ 1, %5 ], [ 2, %23 ], [ 4, %18 ]
   %27 = zext nneg i32 %.0 to i64
-  %28 = getelementptr i8, ptr %.01219, i64 %27
-  %29 = sub nsw i32 %.01317, %.0
+  %28 = getelementptr i8, ptr %.01220, i64 %27
+  %29 = sub nsw i32 %.01318, %.0
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph, label %pg_gb18030_verifychar.exit.thread, !llvm.loop !34
 
-pg_gb18030_verifychar.exit.thread:                ; preds = %pg_gb18030_verifychar.exit, %5, %.thread.i, %.thread.i, %22, %18, %14, %13, %13, %23, %2
-  %.012.lcssa = phi ptr [ %0, %2 ], [ %.01219, %23 ], [ %.01219, %13 ], [ %.01219, %13 ], [ %.01219, %14 ], [ %.01219, %18 ], [ %.01219, %22 ], [ %.01219, %.thread.i ], [ %.01219, %.thread.i ], [ %.01219, %5 ], [ %28, %pg_gb18030_verifychar.exit ]
+pg_gb18030_verifychar.exit.thread:                ; preds = %pg_gb18030_verifychar.exit, %5, %13, %13, %14, %.thread.i, %.thread.i, %22, %18, %23, %2
+  %.012.lcssa = phi ptr [ %0, %2 ], [ %.01220, %23 ], [ %.01220, %18 ], [ %.01220, %22 ], [ %.01220, %.thread.i ], [ %.01220, %.thread.i ], [ %.01220, %14 ], [ %.01220, %13 ], [ %.01220, %13 ], [ %.01220, %5 ], [ %28, %pg_gb18030_verifychar.exit ]
   %31 = ptrtoint ptr %.012.lcssa to i64
   %32 = ptrtoint ptr %0 to i64
   %33 = sub i64 %31, %32

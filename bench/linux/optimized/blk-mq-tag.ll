@@ -765,15 +765,15 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   br i1 %.not.i, label %bt_tags_for_each.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34
-  %.pre16.i = load i32, ptr %36, align 8
+  %.pre18.i = load i32, ptr %36, align 8
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.i
-  %.1 = phi i32 [ %.0, %.lr.ph.i ], [ %.2, %.loopexit.us.i ]
-  %40 = phi i32 [ %.pre16.i, %.lr.ph.i ], [ %69, %.loopexit.us.i ]
-  %41 = phi i32 [ %39, %.lr.ph.i ], [ %72, %.loopexit.us.i ]
-  %42 = phi i32 [ 0, %.lr.ph.i ], [ %71, %.loopexit.us.i ]
-  %43 = phi i32 [ 0, %.lr.ph.i ], [ %53, %.loopexit.us.i ]
+.lr.ph.split.us.i:                                ; preds = %.loopexit9.us.i, %.lr.ph.i
+  %.1 = phi i32 [ %.0, %.lr.ph.i ], [ %.2, %.loopexit9.us.i ]
+  %40 = phi i32 [ %.pre18.i, %.lr.ph.i ], [ %69, %.loopexit9.us.i ]
+  %41 = phi i32 [ %39, %.lr.ph.i ], [ %72, %.loopexit9.us.i ]
+  %42 = phi i32 [ 0, %.lr.ph.i ], [ %71, %.loopexit9.us.i ]
+  %43 = phi i32 [ 0, %.lr.ph.i ], [ %53, %.loopexit9.us.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !annotation !21
   %44 = add i32 %40, -1
@@ -796,16 +796,16 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   %61 = and i64 %57, %60
   store i64 %61, ptr %3, align 8
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %.loopexit.us.i, label %63
+  br i1 %62, label %.loopexit9.us.i, label %63
 
 63:                                               ; preds = %.lr.ph.split.us.i
   %64 = zext i32 %52 to i64
   %65 = call i64 @_find_next_bit(ptr noundef nonnull %3, i64 noundef %64, i64 noundef 0) #9
   %66 = trunc i64 %65 to i32
   %67 = icmp ugt i32 %52, %66
-  br i1 %67, label %.lr.ph11.us.i, label %.loopexit.us.i
+  br i1 %67, label %.lr.ph13.us.i, label %.loopexit9.us.i
 
-.loopexit.us.i:                                   ; preds = %108, %63, %.lr.ph.split.us.i
+.loopexit9.us.i:                                  ; preds = %108, %63, %.lr.ph.split.us.i
   %.2 = phi i32 [ %.1, %.lr.ph.split.us.i ], [ %.1, %63 ], [ %.5, %108 ]
   %68 = add i32 %42, 1
   %69 = load i32, ptr %36, align 8
@@ -816,7 +816,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   %73 = icmp ult i32 %53, %72
   br i1 %73, label %.lr.ph.split.us.i, label %bt_tags_for_each.exit, !llvm.loop !22
 
-.lr.ph11.us.i:                                    ; preds = %63, %108
+.lr.ph13.us.i:                                    ; preds = %63, %108
   %.3 = phi i32 [ %.5, %108 ], [ %.1, %63 ]
   %74 = phi i32 [ %112, %108 ], [ %66, %63 ]
   %75 = phi i64 [ %111, %108 ], [ %65, %63 ]
@@ -829,19 +829,19 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   %82 = getelementptr ptr, ptr %80, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %.thread6.us.us.thread.i, label %85
+  br i1 %84, label %.loopexit.us.us.thread.i, label %85
 
-85:                                               ; preds = %.lr.ph11.us.i
+85:                                               ; preds = %.lr.ph13.us.i
   %86 = getelementptr inbounds i8, ptr %83, i64 32
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i32 %87, %78
-  br i1 %88, label %89, label %.thread6.us.us.thread.i
+  br i1 %88, label %89, label %.loopexit.us.us.thread.i
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %83, i64 132
   %91 = load volatile i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.thread6.us.us.thread.i, label %.lr.ph.us.us.i, !prof !23
+  br i1 %92, label %.loopexit.us.us.thread.i, label %.lr.ph.us.us.i, !prof !23
 
 .lr.ph.us.us.i:                                   ; preds = %89, %99
   %93 = phi i32 [ %100, %99 ], [ %91, %89 ]
@@ -851,25 +851,25 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr nocapture nounde
   %97 = icmp ult i8 %96, 2
   call void @llvm.assume(i1 %97)
   %98 = icmp eq i8 %96, 0
-  br i1 %98, label %99, label %.thread6.us.us.i, !prof !8
+  br i1 %98, label %99, label %.loopexit.us.us.i, !prof !8
 
 99:                                               ; preds = %.lr.ph.us.us.i
   %100 = extractvalue { i8, i32 } %95, 1
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %.thread6.us.us.thread.i, label %.lr.ph.us.us.i, !prof !25, !llvm.loop !26
+  br i1 %101, label %.loopexit.us.us.thread.i, label %.lr.ph.us.us.i, !prof !25, !llvm.loop !26
 
-.thread6.us.us.thread.i:                          ; preds = %99, %89, %85, %.lr.ph11.us.i
+.loopexit.us.us.thread.i:                         ; preds = %99, %89, %85, %.lr.ph13.us.i
   call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %79) #9
   br label %108
 
-.thread6.us.us.i:                                 ; preds = %.lr.ph.us.us.i
+.loopexit.us.us.i:                                ; preds = %.lr.ph.us.us.i
   call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %79) #9
   %102 = getelementptr inbounds i8, ptr %83, i64 128
   %103 = load volatile i32, ptr %102, align 8
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %.critedge.i, label %blk_mq_tagset_count_completed_rqs.exit
 
-blk_mq_tagset_count_completed_rqs.exit:           ; preds = %.thread6.us.us.i
+blk_mq_tagset_count_completed_rqs.exit:           ; preds = %.loopexit.us.us.i
   %105 = load volatile i32, ptr %102, align 8
   %106 = icmp eq i32 %105, 2
   %107 = zext i1 %106 to i32
@@ -877,21 +877,21 @@ blk_mq_tagset_count_completed_rqs.exit:           ; preds = %.thread6.us.us.i
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %83) #9
   br label %108
 
-.critedge.i:                                      ; preds = %.thread6.us.us.i
+.critedge.i:                                      ; preds = %.loopexit.us.us.i
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %83) #9
   br label %108
 
-108:                                              ; preds = %blk_mq_tagset_count_completed_rqs.exit, %.critedge.i, %.thread6.us.us.thread.i
-  %.5 = phi i32 [ %.3, %.thread6.us.us.thread.i ], [ %.3, %.critedge.i ], [ %spec.select, %blk_mq_tagset_count_completed_rqs.exit ]
+108:                                              ; preds = %blk_mq_tagset_count_completed_rqs.exit, %.critedge.i, %.loopexit.us.us.thread.i
+  %.5 = phi i32 [ %.3, %.loopexit.us.us.thread.i ], [ %.3, %.critedge.i ], [ %spec.select, %blk_mq_tagset_count_completed_rqs.exit ]
   %109 = add i64 %75, 1
   %110 = and i64 %109, 4294967295
   %111 = call i64 @_find_next_bit(ptr noundef nonnull %3, i64 noundef %64, i64 noundef %110) #9
   %112 = trunc i64 %111 to i32
   %113 = icmp ugt i32 %52, %112
-  br i1 %113, label %.lr.ph11.us.i, label %.loopexit.us.i, !llvm.loop !27
+  br i1 %113, label %.lr.ph13.us.i, label %.loopexit9.us.i, !llvm.loop !27
 
-bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34, %29, %25
-  %.7 = phi i32 [ %.0, %25 ], [ %.0, %29 ], [ %.0, %34 ], [ %.2, %.loopexit.us.i ]
+bt_tags_for_each.exit:                            ; preds = %.loopexit9.us.i, %34, %29, %25
+  %.7 = phi i32 [ %.0, %25 ], [ %.0, %29 ], [ %.0, %34 ], [ %.2, %.loopexit9.us.i ]
   %114 = getelementptr inbounds i8, ptr %23, i64 16
   %115 = getelementptr inbounds i8, ptr %23, i64 144
   %116 = load ptr, ptr %115, align 8
@@ -908,15 +908,15 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   br i1 %.not.i4, label %bt_tags_for_each.exit15, label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %118
-  %.pre16.i6 = load i32, ptr %120, align 8
+  %.pre18.i6 = load i32, ptr %120, align 8
   br label %.lr.ph.split.us.i7
 
-.lr.ph.split.us.i7:                               ; preds = %.loopexit.us.i8, %.lr.ph.i5
-  %.8 = phi i32 [ %.7, %.lr.ph.i5 ], [ %.9, %.loopexit.us.i8 ]
-  %124 = phi i32 [ %.pre16.i6, %.lr.ph.i5 ], [ %153, %.loopexit.us.i8 ]
-  %125 = phi i32 [ %123, %.lr.ph.i5 ], [ %156, %.loopexit.us.i8 ]
-  %126 = phi i32 [ 0, %.lr.ph.i5 ], [ %155, %.loopexit.us.i8 ]
-  %127 = phi i32 [ 0, %.lr.ph.i5 ], [ %137, %.loopexit.us.i8 ]
+.lr.ph.split.us.i7:                               ; preds = %.loopexit9.us.i8, %.lr.ph.i5
+  %.8 = phi i32 [ %.7, %.lr.ph.i5 ], [ %.9, %.loopexit9.us.i8 ]
+  %124 = phi i32 [ %.pre18.i6, %.lr.ph.i5 ], [ %153, %.loopexit9.us.i8 ]
+  %125 = phi i32 [ %123, %.lr.ph.i5 ], [ %156, %.loopexit9.us.i8 ]
+  %126 = phi i32 [ 0, %.lr.ph.i5 ], [ %155, %.loopexit9.us.i8 ]
+  %127 = phi i32 [ 0, %.lr.ph.i5 ], [ %137, %.loopexit9.us.i8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i64 0, ptr %2, align 8, !annotation !21
   %128 = add i32 %124, -1
@@ -939,16 +939,16 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   %145 = and i64 %141, %144
   store i64 %145, ptr %2, align 8
   %146 = icmp eq i64 %145, 0
-  br i1 %146, label %.loopexit.us.i8, label %147
+  br i1 %146, label %.loopexit9.us.i8, label %147
 
 147:                                              ; preds = %.lr.ph.split.us.i7
   %148 = zext i32 %136 to i64
   %149 = call i64 @_find_next_bit(ptr noundef nonnull %2, i64 noundef %148, i64 noundef 0) #9
   %150 = trunc i64 %149 to i32
   %151 = icmp ugt i32 %136, %150
-  br i1 %151, label %.lr.ph11.us.i9, label %.loopexit.us.i8
+  br i1 %151, label %.lr.ph13.us.i9, label %.loopexit9.us.i8
 
-.loopexit.us.i8:                                  ; preds = %194, %147, %.lr.ph.split.us.i7
+.loopexit9.us.i8:                                 ; preds = %194, %147, %.lr.ph.split.us.i7
   %.9 = phi i32 [ %.8, %.lr.ph.split.us.i7 ], [ %.8, %147 ], [ %.12, %194 ]
   %152 = add i32 %126, 1
   %153 = load i32, ptr %120, align 8
@@ -959,7 +959,7 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   %157 = icmp ult i32 %137, %156
   br i1 %157, label %.lr.ph.split.us.i7, label %bt_tags_for_each.exit15, !llvm.loop !22
 
-.lr.ph11.us.i9:                                   ; preds = %147, %194
+.lr.ph13.us.i9:                                   ; preds = %147, %194
   %.10 = phi i32 [ %.12, %194 ], [ %.8, %147 ]
   %158 = phi i32 [ %198, %194 ], [ %150, %147 ]
   %159 = phi i64 [ %197, %194 ], [ %149, %147 ]
@@ -974,19 +974,19 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   %168 = getelementptr ptr, ptr %166, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %.thread6.us.us.thread.i10, label %171
+  br i1 %170, label %.loopexit.us.us.thread.i10, label %171
 
-171:                                              ; preds = %.lr.ph11.us.i9
+171:                                              ; preds = %.lr.ph13.us.i9
   %172 = getelementptr inbounds i8, ptr %169, i64 32
   %173 = load i32, ptr %172, align 8
   %174 = icmp eq i32 %173, %164
-  br i1 %174, label %175, label %.thread6.us.us.thread.i10
+  br i1 %174, label %175, label %.loopexit.us.us.thread.i10
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds i8, ptr %169, i64 132
   %177 = load volatile i32, ptr %176, align 4
   %178 = icmp eq i32 %177, 0
-  br i1 %178, label %.thread6.us.us.thread.i10, label %.lr.ph.us.us.i11, !prof !23
+  br i1 %178, label %.loopexit.us.us.thread.i10, label %.lr.ph.us.us.i11, !prof !23
 
 .lr.ph.us.us.i11:                                 ; preds = %175, %185
   %179 = phi i32 [ %186, %185 ], [ %177, %175 ]
@@ -996,25 +996,25 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   %183 = icmp ult i8 %182, 2
   call void @llvm.assume(i1 %183)
   %184 = icmp eq i8 %182, 0
-  br i1 %184, label %185, label %.thread6.us.us.i12, !prof !8
+  br i1 %184, label %185, label %.loopexit.us.us.i12, !prof !8
 
 185:                                              ; preds = %.lr.ph.us.us.i11
   %186 = extractvalue { i8, i32 } %181, 1
   %187 = icmp eq i32 %186, 0
-  br i1 %187, label %.thread6.us.us.thread.i10, label %.lr.ph.us.us.i11, !prof !25, !llvm.loop !26
+  br i1 %187, label %.loopexit.us.us.thread.i10, label %.lr.ph.us.us.i11, !prof !25, !llvm.loop !26
 
-.thread6.us.us.thread.i10:                        ; preds = %185, %175, %171, %.lr.ph11.us.i9
+.loopexit.us.us.thread.i10:                       ; preds = %185, %175, %171, %.lr.ph13.us.i9
   call void @_raw_spin_unlock_irqrestore(ptr noundef %122, i64 noundef %165) #9
   br label %194
 
-.thread6.us.us.i12:                               ; preds = %.lr.ph.us.us.i11
+.loopexit.us.us.i12:                              ; preds = %.lr.ph.us.us.i11
   call void @_raw_spin_unlock_irqrestore(ptr noundef %122, i64 noundef %165) #9
   %188 = getelementptr inbounds i8, ptr %169, i64 128
   %189 = load volatile i32, ptr %188, align 8
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %.critedge.i14, label %blk_mq_tagset_count_completed_rqs.exit16
 
-blk_mq_tagset_count_completed_rqs.exit16:         ; preds = %.thread6.us.us.i12
+blk_mq_tagset_count_completed_rqs.exit16:         ; preds = %.loopexit.us.us.i12
   %191 = load volatile i32, ptr %188, align 8
   %192 = icmp eq i32 %191, 2
   %193 = zext i1 %192 to i32
@@ -1022,21 +1022,21 @@ blk_mq_tagset_count_completed_rqs.exit16:         ; preds = %.thread6.us.us.i12
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %169) #9
   br label %194
 
-.critedge.i14:                                    ; preds = %.thread6.us.us.i12
+.critedge.i14:                                    ; preds = %.loopexit.us.us.i12
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %169) #9
   br label %194
 
-194:                                              ; preds = %blk_mq_tagset_count_completed_rqs.exit16, %.critedge.i14, %.thread6.us.us.thread.i10
-  %.12 = phi i32 [ %.10, %.thread6.us.us.thread.i10 ], [ %.10, %.critedge.i14 ], [ %spec.select21, %blk_mq_tagset_count_completed_rqs.exit16 ]
+194:                                              ; preds = %blk_mq_tagset_count_completed_rqs.exit16, %.critedge.i14, %.loopexit.us.us.thread.i10
+  %.12 = phi i32 [ %.10, %.loopexit.us.us.thread.i10 ], [ %.10, %.critedge.i14 ], [ %spec.select21, %blk_mq_tagset_count_completed_rqs.exit16 ]
   %195 = add i64 %159, 1
   %196 = and i64 %195, 4294967295
   %197 = call i64 @_find_next_bit(ptr noundef nonnull %2, i64 noundef %148, i64 noundef %196) #9
   %198 = trunc i64 %197 to i32
   %199 = icmp ugt i32 %136, %198
-  br i1 %199, label %.lr.ph11.us.i9, label %.loopexit.us.i8, !llvm.loop !27
+  br i1 %199, label %.lr.ph13.us.i9, label %.loopexit9.us.i8, !llvm.loop !27
 
-bt_tags_for_each.exit15:                          ; preds = %.loopexit.us.i8, %118, %bt_tags_for_each.exit, %21, %.thread.split
-  %.14 = phi i32 [ %.0, %.thread.split ], [ %.0, %21 ], [ %.7, %bt_tags_for_each.exit ], [ %.7, %118 ], [ %.9, %.loopexit.us.i8 ]
+bt_tags_for_each.exit15:                          ; preds = %.loopexit9.us.i8, %118, %bt_tags_for_each.exit, %21, %.thread.split
+  %.14 = phi i32 [ %.0, %.thread.split ], [ %.0, %21 ], [ %.7, %bt_tags_for_each.exit ], [ %.7, %118 ], [ %.9, %.loopexit9.us.i8 ]
   %200 = add nuw nsw i64 %19, 1
   %201 = icmp eq i64 %200, %15
   br i1 %201, label %.split.us, label %.thread.splitthread-pre-split, !llvm.loop !28
@@ -1188,17 +1188,17 @@ define internal fastcc void @bt_for_each(ptr noundef readonly %0, ptr noundef re
   %13 = icmp eq ptr %0, null
   %14 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.loopexit10, label %.lr.ph12.preheader
+  br i1 %.not, label %.loopexit11, label %.lr.ph13.preheader
 
-.lr.ph12.preheader:                               ; preds = %6
+.lr.ph13.preheader:                               ; preds = %6
   %.pre = load i32, ptr %9, align 8
-  br label %.lr.ph12
+  br label %.lr.ph13
 
-.lr.ph12:                                         ; preds = %.lr.ph12.preheader, %.loopexit
-  %15 = phi i32 [ %105, %.loopexit ], [ %.pre, %.lr.ph12.preheader ]
-  %16 = phi i32 [ %108, %.loopexit ], [ %14, %.lr.ph12.preheader ]
-  %17 = phi i32 [ %107, %.loopexit ], [ 0, %.lr.ph12.preheader ]
-  %18 = phi i32 [ %28, %.loopexit ], [ 0, %.lr.ph12.preheader ]
+.lr.ph13:                                         ; preds = %.lr.ph13.preheader, %.loopexit
+  %15 = phi i32 [ %105, %.loopexit ], [ %.pre, %.lr.ph13.preheader ]
+  %16 = phi i32 [ %108, %.loopexit ], [ %14, %.lr.ph13.preheader ]
+  %17 = phi i32 [ %107, %.loopexit ], [ 0, %.lr.ph13.preheader ]
+  %18 = phi i32 [ %28, %.loopexit ], [ 0, %.lr.ph13.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   store i64 0, ptr %7, align 8, !annotation !21
   %19 = add i32 %15, -1
@@ -1223,14 +1223,14 @@ define internal fastcc void @bt_for_each(ptr noundef readonly %0, ptr noundef re
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %.loopexit, label %38
 
-38:                                               ; preds = %.lr.ph12
+38:                                               ; preds = %.lr.ph13
   %39 = zext i32 %27 to i64
   %40 = call i64 @_find_next_bit(ptr noundef nonnull %7, i64 noundef %39, i64 noundef 0) #9
   %41 = trunc i64 %40 to i32
   %42 = icmp ugt i32 %27, %41
-  br i1 %42, label %.lr.ph11, label %.loopexit
+  br i1 %42, label %.lr.ph12, label %.loopexit
 
-.lr.ph11:                                         ; preds = %38, %98
+.lr.ph12:                                         ; preds = %38, %98
   %43 = phi i32 [ %102, %98 ], [ %41, %38 ]
   %44 = phi i64 [ %101, %98 ], [ %40, %38 ]
   %45 = load i32, ptr %8, align 4
@@ -1246,14 +1246,14 @@ define internal fastcc void @bt_for_each(ptr noundef readonly %0, ptr noundef re
   %55 = load ptr, ptr %54, align 8
   br i1 %5, label %60, label %56
 
-56:                                               ; preds = %.lr.ph11
+56:                                               ; preds = %.lr.ph12
   %57 = getelementptr inbounds i8, ptr %55, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, %47
   br label %60
 
-60:                                               ; preds = %56, %.lr.ph11
-  %61 = phi i32 [ %47, %.lr.ph11 ], [ %59, %56 ]
+60:                                               ; preds = %56, %.lr.ph12
+  %61 = phi i32 [ %47, %.lr.ph12 ], [ %59, %56 ]
   %62 = getelementptr inbounds i8, ptr %55, i64 176
   %63 = call i64 @_raw_spin_lock_irqsave(ptr noundef %62) #9
   %64 = getelementptr inbounds i8, ptr %55, i64 144
@@ -1262,19 +1262,19 @@ define internal fastcc void @bt_for_each(ptr noundef readonly %0, ptr noundef re
   %67 = getelementptr ptr, ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.thread8, label %70
+  br i1 %69, label %.thread9, label %70
 
 70:                                               ; preds = %60
   %71 = getelementptr inbounds i8, ptr %68, i64 32
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, %61
-  br i1 %73, label %74, label %.thread8
+  br i1 %73, label %74, label %.thread9
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds i8, ptr %68, i64 132
   %76 = load volatile i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.thread8, label %.lr.ph, !prof !23
+  br i1 %77, label %.thread9, label %.lr.ph, !prof !23
 
 .lr.ph:                                           ; preds = %74, %84
   %78 = phi i32 [ %85, %84 ], [ %76, %74 ]
@@ -1289,9 +1289,9 @@ define internal fastcc void @bt_for_each(ptr noundef readonly %0, ptr noundef re
 84:                                               ; preds = %.lr.ph
   %85 = extractvalue { i8, i32 } %80, 1
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.thread8, label %.lr.ph, !prof !25, !llvm.loop !26
+  br i1 %86, label %.thread9, label %.lr.ph, !prof !25, !llvm.loop !26
 
-.thread8:                                         ; preds = %84, %74, %70, %60
+.thread9:                                         ; preds = %84, %74, %70, %60
   call void @_raw_spin_unlock_irqrestore(ptr noundef %62, i64 noundef %63) #9
   br label %98
 
@@ -1313,25 +1313,25 @@ define internal fastcc void @bt_for_each(ptr noundef readonly %0, ptr noundef re
 95:                                               ; preds = %91, %90
   %96 = call zeroext i1 %3(ptr noundef nonnull %68, ptr noundef %4) #9
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %68) #9
-  br i1 %96, label %98, label %.thread9
+  br i1 %96, label %98, label %.thread10
 
-.thread9:                                         ; preds = %95
+.thread10:                                        ; preds = %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  br label %.loopexit10
+  br label %.loopexit11
 
 97:                                               ; preds = %91, %87
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %68) #9
   br label %98
 
-98:                                               ; preds = %.thread8, %97, %95
+98:                                               ; preds = %.thread9, %97, %95
   %99 = add i64 %44, 1
   %100 = and i64 %99, 4294967295
   %101 = call i64 @_find_next_bit(ptr noundef nonnull %7, i64 noundef %39, i64 noundef %100) #9
   %102 = trunc i64 %101 to i32
   %103 = icmp ugt i32 %27, %102
-  br i1 %103, label %.lr.ph11, label %.loopexit, !llvm.loop !27
+  br i1 %103, label %.lr.ph12, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %98, %38, %.lr.ph12
+.loopexit:                                        ; preds = %98, %38, %.lr.ph13
   %104 = add i32 %17, 1
   %105 = load i32, ptr %9, align 8
   %106 = icmp ult i32 %104, %105
@@ -1339,9 +1339,9 @@ define internal fastcc void @bt_for_each(ptr noundef readonly %0, ptr noundef re
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   %108 = load i32, ptr %2, align 8
   %109 = icmp ult i32 %28, %108
-  br i1 %109, label %.lr.ph12, label %.loopexit10, !llvm.loop !22
+  br i1 %109, label %.lr.ph13, label %.loopexit11, !llvm.loop !22
 
-.loopexit10:                                      ; preds = %.loopexit, %6, %.thread9
+.loopexit11:                                      ; preds = %.loopexit, %6, %.thread10
   ret void
 }
 
@@ -1479,7 +1479,7 @@ define dso_local noundef i32 @blk_mq_tag_update_depth(ptr nocapture noundef read
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %7, %2
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %35
 
 9:                                                ; preds = %4
   %10 = load i32, ptr %5, align 8
@@ -1493,38 +1493,38 @@ define dso_local noundef i32 @blk_mq_tag_update_depth(ptr nocapture noundef read
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ult i32 %2, 2049
   %18 = and i1 %17, %3
-  br i1 %18, label %19, label %.thread
+  br i1 %18, label %19, label %35
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %16, i64 84
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %.thread
+  br i1 %23, label %24, label %35
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 340
   %26 = load i32, ptr %25, align 4
   %27 = tail call ptr @blk_mq_alloc_map_and_rqs(ptr noundef %16, i32 noundef %26, i32 noundef %2) #9
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %35, label %29
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %1, align 8
   %31 = load i32, ptr %25, align 4
   tail call void @blk_mq_free_map_and_rqs(ptr noundef %16, ptr noundef %30, i32 noundef %31) #9
   store ptr %27, ptr %1, align 8
-  br label %.thread
+  br label %35
 
 32:                                               ; preds = %9
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = sub i32 %2, %7
   tail call void @sbitmap_queue_resize(ptr noundef %33, i32 noundef %34) #9
-  br label %.thread
+  br label %35
 
-.thread:                                          ; preds = %24, %19, %12, %32, %29, %4
-  %35 = phi i32 [ -22, %4 ], [ 0, %29 ], [ 0, %32 ], [ -12, %24 ], [ 0, %19 ], [ -22, %12 ]
-  ret i32 %35
+35:                                               ; preds = %12, %19, %24, %29, %32, %4
+  %36 = phi i32 [ -22, %4 ], [ 0, %32 ], [ 0, %29 ], [ -22, %12 ], [ 0, %19 ], [ -12, %24 ]
+  ret i32 %36
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1603,7 +1603,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %7 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit8, label %10
+  br i1 %9, label %.loopexit10, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1618,19 +1618,19 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %20 = icmp eq i32 %19, 0
   %21 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %.loopexit8, label %.lr.ph
+  br i1 %.not, label %.loopexit10, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %22 = and i32 %4, 4
   %23 = icmp eq i32 %22, 0
-  %.pre16 = load i32, ptr %12, align 8
+  %.pre18 = load i32, ptr %12, align 8
   br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
-  %24 = phi i32 [ %53, %.loopexit.us ], [ %.pre16, %.lr.ph ]
-  %25 = phi i32 [ %56, %.loopexit.us ], [ %21, %.lr.ph ]
-  %26 = phi i32 [ %55, %.loopexit.us ], [ 0, %.lr.ph ]
-  %27 = phi i32 [ %37, %.loopexit.us ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit9.us
+  %24 = phi i32 [ %53, %.loopexit9.us ], [ %.pre18, %.lr.ph ]
+  %25 = phi i32 [ %56, %.loopexit9.us ], [ %21, %.lr.ph ]
+  %26 = phi i32 [ %55, %.loopexit9.us ], [ 0, %.lr.ph ]
+  %27 = phi i32 [ %37, %.loopexit9.us ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   store i64 0, ptr %6, align 8, !annotation !21
   %28 = add i32 %24, -1
@@ -1653,16 +1653,16 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %45 = and i64 %41, %44
   store i64 %45, ptr %6, align 8
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %.loopexit.us, label %47
+  br i1 %46, label %.loopexit9.us, label %47
 
 47:                                               ; preds = %.lr.ph.split.us
   %48 = zext i32 %36 to i64
   %49 = call i64 @_find_next_bit(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 0) #9
   %50 = trunc i64 %49 to i32
   %51 = icmp ugt i32 %36, %50
-  br i1 %51, label %.lr.ph11.us, label %.loopexit.us
+  br i1 %51, label %.lr.ph13.us, label %.loopexit9.us
 
-.loopexit.us:                                     ; preds = %97, %47, %.lr.ph.split.us
+.loopexit9.us:                                    ; preds = %97, %47, %.lr.ph.split.us
   %52 = add i32 %26, 1
   %53 = load i32, ptr %12, align 8
   %54 = icmp ult i32 %52, %53
@@ -1670,9 +1670,9 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   %56 = load i32, ptr %1, align 8
   %57 = icmp ult i32 %37, %56
-  br i1 %57, label %.lr.ph.split.us, label %.loopexit8, !llvm.loop !22
+  br i1 %57, label %.lr.ph.split.us, label %.loopexit10, !llvm.loop !22
 
-.lr.ph11.us:                                      ; preds = %47, %97
+.lr.ph13.us:                                      ; preds = %47, %97
   %58 = phi i32 [ %101, %97 ], [ %50, %47 ]
   %59 = phi i64 [ %100, %97 ], [ %49, %47 ]
   %60 = load i32, ptr %11, align 4
@@ -1680,32 +1680,32 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %62 = add i32 %61, %58
   br i1 %15, label %63, label %66
 
-63:                                               ; preds = %.lr.ph11.us
+63:                                               ; preds = %.lr.ph13.us
   %64 = load i32, ptr %16, align 4
   %65 = add i32 %64, %62
   br label %66
 
-66:                                               ; preds = %63, %.lr.ph11.us
-  %67 = phi i32 [ %62, %.lr.ph11.us ], [ %65, %63 ]
+66:                                               ; preds = %63, %.lr.ph13.us
+  %67 = phi i32 [ %62, %.lr.ph13.us ], [ %65, %63 ]
   %68 = call i64 @_raw_spin_lock_irqsave(ptr noundef %18) #9
   %69 = load ptr, ptr %7, align 8
   %70 = zext i32 %67 to i64
   %71 = getelementptr ptr, ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread6.us.us.thread, label %74
+  br i1 %73, label %.loopexit.us.us.thread, label %74
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds i8, ptr %72, i64 32
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, %67
-  br i1 %77, label %78, label %.thread6.us.us.thread
+  br i1 %77, label %78, label %.loopexit.us.us.thread
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %72, i64 132
   %80 = load volatile i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.thread6.us.us.thread, label %.lr.ph.us.us, !prof !23
+  br i1 %81, label %.loopexit.us.us.thread, label %.lr.ph.us.us, !prof !23
 
 .lr.ph.us.us:                                     ; preds = %78, %88
   %82 = phi i32 [ %89, %88 ], [ %80, %78 ]
@@ -1715,49 +1715,49 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %86 = icmp ult i8 %85, 2
   call void @llvm.assume(i1 %86)
   %87 = icmp eq i8 %85, 0
-  br i1 %87, label %88, label %.thread6.us.us, !prof !8
+  br i1 %87, label %88, label %.loopexit.us.us, !prof !8
 
 88:                                               ; preds = %.lr.ph.us.us
   %89 = extractvalue { i8, i32 } %84, 1
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %.thread6.us.us.thread, label %.lr.ph.us.us, !prof !25, !llvm.loop !26
+  br i1 %90, label %.loopexit.us.us.thread, label %.lr.ph.us.us, !prof !25, !llvm.loop !26
 
-.thread6.us.us.thread:                            ; preds = %88, %74, %66, %78
+.loopexit.us.us.thread:                           ; preds = %88, %74, %66, %78
   call void @_raw_spin_unlock_irqrestore(ptr noundef %18, i64 noundef %68) #9
   br label %97
 
-.thread6.us.us:                                   ; preds = %.lr.ph.us.us
+.loopexit.us.us:                                  ; preds = %.lr.ph.us.us
   call void @_raw_spin_unlock_irqrestore(ptr noundef %18, i64 noundef %68) #9
   br i1 %20, label %95, label %91
 
-91:                                               ; preds = %.thread6.us.us
+91:                                               ; preds = %.loopexit.us.us
   %92 = getelementptr inbounds i8, ptr %72, i64 128
   %93 = load volatile i32, ptr %92, align 8
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %.critedge, label %95
 
-95:                                               ; preds = %91, %.thread6.us.us
+95:                                               ; preds = %91, %.loopexit.us.us
   %96 = call zeroext i1 %2(ptr noundef nonnull %72, ptr noundef %3) #9
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %72) #9
-  br i1 %96, label %97, label %.thread7
+  br i1 %96, label %97, label %.thread8
 
 .critedge:                                        ; preds = %91
   call void @blk_mq_put_rq_ref(ptr noundef nonnull %72) #9
   br label %97
 
-97:                                               ; preds = %.thread6.us.us.thread, %.critedge, %95
+97:                                               ; preds = %.loopexit.us.us.thread, %.critedge, %95
   %98 = add i64 %59, 1
   %99 = and i64 %98, 4294967295
   %100 = call i64 @_find_next_bit(ptr noundef nonnull %6, i64 noundef %48, i64 noundef %99) #9
   %101 = trunc i64 %100 to i32
   %102 = icmp ugt i32 %36, %101
-  br i1 %102, label %.lr.ph11.us, label %.loopexit.us, !llvm.loop !27
+  br i1 %102, label %.lr.ph13.us, label %.loopexit9.us, !llvm.loop !27
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
-  %103 = phi i32 [ %159, %.loopexit ], [ %.pre16, %.lr.ph ]
-  %104 = phi i32 [ %162, %.loopexit ], [ %21, %.lr.ph ]
-  %105 = phi i32 [ %161, %.loopexit ], [ 0, %.lr.ph ]
-  %106 = phi i32 [ %116, %.loopexit ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit9
+  %103 = phi i32 [ %159, %.loopexit9 ], [ %.pre18, %.lr.ph ]
+  %104 = phi i32 [ %162, %.loopexit9 ], [ %21, %.lr.ph ]
+  %105 = phi i32 [ %161, %.loopexit9 ], [ 0, %.lr.ph ]
+  %106 = phi i32 [ %116, %.loopexit9 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   store i64 0, ptr %6, align 8, !annotation !21
   %107 = add i32 %103, -1
@@ -1780,36 +1780,36 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %124 = and i64 %120, %123
   store i64 %124, ptr %6, align 8
   %125 = icmp eq i64 %124, 0
-  br i1 %125, label %.loopexit, label %126
+  br i1 %125, label %.loopexit9, label %126
 
 126:                                              ; preds = %.lr.ph.split
   %127 = zext i32 %115 to i64
   %128 = call i64 @_find_next_bit(ptr noundef nonnull %6, i64 noundef %127, i64 noundef 0) #9
   %129 = trunc i64 %128 to i32
   %130 = icmp ugt i32 %115, %129
-  br i1 %130, label %.lr.ph11, label %.loopexit
+  br i1 %130, label %.lr.ph13, label %.loopexit9
 
-.lr.ph11:                                         ; preds = %126, %.critedge13
-  %131 = phi i32 [ %156, %.critedge13 ], [ %129, %126 ]
-  %132 = phi i64 [ %155, %.critedge13 ], [ %128, %126 ]
+.lr.ph13:                                         ; preds = %126, %.critedge15
+  %131 = phi i32 [ %156, %.critedge15 ], [ %129, %126 ]
+  %132 = phi i64 [ %155, %.critedge15 ], [ %128, %126 ]
   %133 = load i32, ptr %11, align 4
   %134 = shl i32 %105, %133
   %135 = add i32 %134, %131
   br i1 %15, label %136, label %139
 
-136:                                              ; preds = %.lr.ph11
+136:                                              ; preds = %.lr.ph13
   %137 = load i32, ptr %16, align 4
   %138 = add i32 %137, %135
   br label %139
 
-139:                                              ; preds = %136, %.lr.ph11
-  %140 = phi i32 [ %135, %.lr.ph11 ], [ %138, %136 ]
+139:                                              ; preds = %136, %.lr.ph13
+  %140 = phi i32 [ %135, %.lr.ph13 ], [ %138, %136 ]
   %141 = load ptr, ptr %17, align 8
   %142 = zext i32 %140 to i64
   %143 = getelementptr ptr, ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %.critedge13, label %146
+  br i1 %145, label %.critedge15, label %146
 
 146:                                              ; preds = %139
   br i1 %20, label %151, label %147
@@ -1818,25 +1818,25 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   %148 = getelementptr inbounds i8, ptr %144, i64 128
   %149 = load volatile i32, ptr %148, align 8
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %.critedge13, label %151
+  br i1 %150, label %.critedge15, label %151
 
 151:                                              ; preds = %147, %146
   %152 = call zeroext i1 %2(ptr noundef nonnull %144, ptr noundef %3) #9
-  br i1 %152, label %.critedge13, label %.thread7
+  br i1 %152, label %.critedge15, label %.thread8
 
-.thread7:                                         ; preds = %151, %95
+.thread8:                                         ; preds = %151, %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  br label %.loopexit8
+  br label %.loopexit10
 
-.critedge13:                                      ; preds = %147, %151, %139
+.critedge15:                                      ; preds = %147, %151, %139
   %153 = add i64 %132, 1
   %154 = and i64 %153, 4294967295
   %155 = call i64 @_find_next_bit(ptr noundef nonnull %6, i64 noundef %127, i64 noundef %154) #9
   %156 = trunc i64 %155 to i32
   %157 = icmp ugt i32 %115, %156
-  br i1 %157, label %.lr.ph11, label %.loopexit, !llvm.loop !27
+  br i1 %157, label %.lr.ph13, label %.loopexit9, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.critedge13, %126, %.lr.ph.split
+.loopexit9:                                       ; preds = %.critedge15, %126, %.lr.ph.split
   %158 = add i32 %105, 1
   %159 = load i32, ptr %12, align 8
   %160 = icmp ult i32 %158, %159
@@ -1844,9 +1844,9 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr nocapture noun
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   %162 = load i32, ptr %1, align 8
   %163 = icmp ult i32 %116, %162
-  br i1 %163, label %.lr.ph.split, label %.loopexit8, !llvm.loop !22
+  br i1 %163, label %.lr.ph.split, label %.loopexit10, !llvm.loop !22
 
-.loopexit8:                                       ; preds = %.loopexit, %.loopexit.us, %10, %.thread7, %5
+.loopexit10:                                      ; preds = %.loopexit9, %.loopexit9.us, %10, %.thread8, %5
   ret void
 }
 

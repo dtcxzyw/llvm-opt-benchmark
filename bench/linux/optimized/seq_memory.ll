@@ -201,12 +201,12 @@ define dso_local i32 @snd_seq_expand_var_event(ptr nocapture noundef readonly %0
 
 39:                                               ; preds = %35
   %40 = icmp eq i32 %14, %23
-  br i1 %40, label %67, label %45
+  br i1 %40, label %.thread, label %45
 
 .thread6:                                         ; preds = %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %41 = icmp eq i32 %14, %23
-  br i1 %41, label %67, label %.thread7
+  br i1 %41, label %.thread, label %.thread7
 
 .thread7:                                         ; preds = %.thread6
   %42 = getelementptr i8, ptr %2, i64 %30
@@ -225,7 +225,7 @@ define dso_local i32 @snd_seq_expand_var_event(ptr nocapture noundef readonly %0
   %51 = phi i64 [ %44, %.thread7 ], [ %49, %45 ]
   %52 = phi ptr [ %42, %.thread7 ], [ %47, %45 ]
   call void @llvm.memset.p0.i64(ptr align 1 %52, i8 0, i64 %51, i1 false)
-  br label %67
+  br label %.thread
 
 53:                                               ; preds = %45
   %54 = ptrtoint ptr %47 to i64
@@ -248,14 +248,12 @@ define dso_local i32 @snd_seq_expand_var_event(ptr nocapture noundef readonly %0
 64:                                               ; preds = %59, %53
   %65 = phi i64 [ %62, %59 ], [ %49, %53 ]
   %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %.thread
-
-67:                                               ; preds = %.thread6, %64, %50, %39
+  %spec.select = select i1 %66, i32 %23, i32 -14
   br label %.thread
 
-.thread:                                          ; preds = %5, %.thread4, %67, %64, %35, %22
-  %68 = phi i32 [ %23, %67 ], [ -11, %22 ], [ %37, %35 ], [ -14, %64 ], [ %.ph, %.thread4 ], [ -22, %5 ]
-  ret i32 %68
+.thread:                                          ; preds = %5, %.thread6, %.thread4, %64, %39, %50, %35, %22
+  %67 = phi i32 [ -11, %22 ], [ %37, %35 ], [ %23, %50 ], [ %14, %39 ], [ %spec.select, %64 ], [ %.ph, %.thread4 ], [ %14, %.thread6 ], [ -22, %5 ]
+  ret i32 %67
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -296,7 +294,7 @@ define dso_local i32 @snd_seq_expand_var_event_at(ptr nocapture noundef readonly
   tail call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #12, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 249, i32 2307, i64 12) #12, !srcloc !16
   tail call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #12, !srcloc !17
-  br label %.thread15
+  br label %.thread
 
 21:                                               ; preds = %18
   %22 = zext nneg i32 %1 to i64
@@ -306,7 +304,8 @@ define dso_local i32 @snd_seq_expand_var_event_at(ptr nocapture noundef readonly
   %26 = getelementptr i8, ptr %24, i64 %25
   %27 = tail call i64 @_copy_from_user(ptr noundef %2, ptr noundef %26, i64 noundef %22) #12
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.thread, label %.thread15
+  %spec.select = select i1 %28, i32 %16, i32 -14
+  br label %.thread
 
 29:                                               ; preds = %14
   %.not = icmp eq i32 %12, 0
@@ -371,11 +370,8 @@ define dso_local i32 @snd_seq_expand_var_event_at(ptr nocapture noundef readonly
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %.preheader, label %.thread, !llvm.loop !10
 
-.thread15:                                        ; preds = %21, %20
-  br label %.thread
-
-.thread:                                          ; preds = %63, %29, %21, %43, %38, %4, %.thread15, %9
-  %72 = phi i32 [ 0, %9 ], [ -14, %.thread15 ], [ -22, %4 ], [ %16, %38 ], [ %16, %43 ], [ %16, %21 ], [ %16, %29 ], [ %16, %63 ]
+.thread:                                          ; preds = %63, %29, %21, %20, %43, %38, %4, %9
+  %72 = phi i32 [ 0, %9 ], [ -22, %4 ], [ %16, %38 ], [ %16, %43 ], [ -14, %20 ], [ %spec.select, %21 ], [ %16, %29 ], [ %16, %63 ]
   ret i32 %72
 }
 

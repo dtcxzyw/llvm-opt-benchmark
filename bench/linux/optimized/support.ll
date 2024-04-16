@@ -108,26 +108,24 @@ define dso_local noundef i32 @pnp_is_active(ptr noundef %0) #0 align 16 {
 41:                                               ; preds = %38, %35
   %42 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 2048, i32 noundef 0) #9
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %48, label %44
+  br i1 %43, label %47, label %44
 
 44:                                               ; preds = %41
   %45 = load i64, ptr %42, align 8
-  %46 = icmp eq i64 %45, -1
-  br i1 %46, label %48, label %47
+  %46 = icmp ne i64 %45, -1
+  %spec.select = zext i1 %46 to i32
+  br label %47
 
-47:                                               ; preds = %44, %38, %._crit_edge8, %21, %._crit_edge, %4
-  br label %48
-
-48:                                               ; preds = %47, %44, %41
-  %49 = phi i32 [ 1, %47 ], [ 0, %44 ], [ 0, %41 ]
-  ret i32 %49
+47:                                               ; preds = %44, %4, %._crit_edge, %21, %._crit_edge8, %38, %41
+  %48 = phi i32 [ 0, %41 ], [ 1, %38 ], [ 1, %._crit_edge8 ], [ 1, %21 ], [ 1, %._crit_edge ], [ 1, %4 ], [ %spec.select, %44 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @pnp_eisa_id_to_string(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 16 {
   %3 = tail call i32 @llvm.bswap.i32(i32 %0)
   %4 = lshr i32 %3, 26
-  %5 = trunc i32 %4 to i8
+  %5 = trunc nuw nsw i32 %4 to i8
   %6 = or disjoint i8 %5, 64
   store i8 %6, ptr %1, align 1
   %7 = lshr i32 %3, 21

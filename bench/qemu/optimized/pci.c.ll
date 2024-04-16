@@ -368,7 +368,7 @@ for.cond7.preheader:                              ; preds = %for.inc
   br label %for.body10
 
 for.body:                                         ; preds = %entry, %for.inc
-  %index.0102 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
+  %index.0103 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %qpci_device_set.exit.i
@@ -378,7 +378,7 @@ if.else.i.i:                                      ; preds = %for.body
   unreachable
 
 qpci_device_set.exit.i:                           ; preds = %for.body
-  %add = add nsw i32 %index.0102, %bus
+  %add = add nsw i32 %index.0103, %bus
   %shl = shl i32 %add, 3
   store ptr %qbus, ptr %call.i, align 8
   %devfn2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -393,8 +393,8 @@ if.end:                                           ; preds = %qpci_device_set.exi
   %config_readw.i = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %config_readw.i, align 8
   %3 = load i32, ptr %devfn2.i.i, align 8
-  %call.i52 = tail call zeroext i16 %2(ptr noundef %1, i32 noundef %3, i8 noundef zeroext 10) #11
-  %cmp3 = icmp eq i16 %call.i52, 1540
+  %call.i53 = tail call zeroext i16 %2(ptr noundef %1, i32 noundef %3, i8 noundef zeroext 10) #11
+  %cmp3 = icmp eq i16 %call.i53, 1540
   br i1 %cmp3, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %if.end
@@ -404,124 +404,124 @@ if.then5:                                         ; preds = %if.end
   %6 = load i32, ptr %devfn2.i.i, align 8
   tail call void %5(ptr noundef %4, i32 noundef %6, i8 noundef zeroext 25, i8 noundef zeroext -1) #11
   %7 = load ptr, ptr %call.i, align 8
-  %config_writeb.i54 = getelementptr inbounds i8, ptr %7, i64 104
-  %8 = load ptr, ptr %config_writeb.i54, align 8
+  %config_writeb.i55 = getelementptr inbounds i8, ptr %7, i64 104
+  %8 = load ptr, ptr %config_writeb.i55, align 8
   %9 = load i32, ptr %devfn2.i.i, align 8
   tail call void %8(ptr noundef %7, i32 noundef %9, i8 noundef zeroext 26, i8 noundef zeroext 0) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then5, %qpci_device_set.exit.i
   tail call void @g_free(ptr noundef nonnull %call.i) #11
-  %inc = add nuw nsw i32 %index.0102, 1
+  %inc = add nuw nsw i32 %index.0103, 1
   %exitcond.not = icmp eq i32 %inc, 32
   br i1 %exitcond.not, label %for.cond7.preheader, label %for.body, !llvm.loop !8
 
 for.body10:                                       ; preds = %for.cond7.preheader, %for.inc91
-  %index.1103 = phi i32 [ 0, %for.cond7.preheader ], [ %inc92, %for.inc91 ]
-  %call.i56 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
-  %tobool.not.i.i57 = icmp eq ptr %call.i56, null
-  br i1 %tobool.not.i.i57, label %if.else.i.i65, label %qpci_device_set.exit.i58
+  %index.1104 = phi i32 [ 0, %for.cond7.preheader ], [ %inc92, %for.inc91 ]
+  %call.i57 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
+  %tobool.not.i.i58 = icmp eq ptr %call.i57, null
+  br i1 %tobool.not.i.i58, label %if.else.i.i66, label %qpci_device_set.exit.i59
 
-if.else.i.i65:                                    ; preds = %for.body10
+if.else.i.i66:                                    ; preds = %for.body10
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @__func__.qpci_device_set, ptr noundef nonnull @.str.19) #12
   unreachable
 
-qpci_device_set.exit.i58:                         ; preds = %for.body10
-  %add11 = add nsw i32 %index.1103, %bus
+qpci_device_set.exit.i59:                         ; preds = %for.body10
+  %add11 = add nsw i32 %index.1104, %bus
   %shl12 = shl i32 %add11, 3
-  store ptr %qbus, ptr %call.i56, align 8
-  %devfn2.i.i59 = getelementptr inbounds i8, ptr %call.i56, i64 8
-  store i32 %shl12, ptr %devfn2.i.i59, align 8
+  store ptr %qbus, ptr %call.i57, align 8
+  %devfn2.i.i60 = getelementptr inbounds i8, ptr %call.i57, i64 8
+  store i32 %shl12, ptr %devfn2.i.i60, align 8
   %10 = load ptr, ptr %config_readw.i.i, align 8
-  %call.i.i61 = tail call zeroext i16 %10(ptr noundef %qbus, i32 noundef %shl12, i8 noundef zeroext 0) #11
-  %cmp.i62 = icmp eq i16 %call.i.i61, -1
-  br i1 %cmp.i62, label %for.inc91, label %if.end18
+  %call.i.i62 = tail call zeroext i16 %10(ptr noundef %qbus, i32 noundef %shl12, i8 noundef zeroext 0) #11
+  %cmp.i63 = icmp eq i16 %call.i.i62, -1
+  br i1 %cmp.i63, label %for.inc91, label %if.end18
 
-if.end18:                                         ; preds = %qpci_device_set.exit.i58
-  %11 = load ptr, ptr %call.i56, align 8
-  %config_readw.i67 = getelementptr inbounds i8, ptr %11, i64 88
-  %12 = load ptr, ptr %config_readw.i67, align 8
-  %13 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i69 = tail call zeroext i16 %12(ptr noundef %11, i32 noundef %13, i8 noundef zeroext 10) #11
-  %cmp21.not = icmp eq i16 %call.i69, 1540
+if.end18:                                         ; preds = %qpci_device_set.exit.i59
+  %11 = load ptr, ptr %call.i57, align 8
+  %config_readw.i68 = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = load ptr, ptr %config_readw.i68, align 8
+  %13 = load i32, ptr %devfn2.i.i60, align 8
+  %call.i70 = tail call zeroext i16 %12(ptr noundef %11, i32 noundef %13, i8 noundef zeroext 10) #11
+  %cmp21.not = icmp eq i16 %call.i70, 1540
   br i1 %cmp21.not, label %if.end24, label %for.inc91
 
 if.end24:                                         ; preds = %if.end18
-  %14 = load ptr, ptr %call.i56, align 8
+  %14 = load ptr, ptr %call.i57, align 8
   %config_readb.i = getelementptr inbounds i8, ptr %14, i64 80
   %15 = load ptr, ptr %config_readb.i, align 8
-  %16 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i71 = tail call zeroext i8 %15(ptr noundef %14, i32 noundef %16, i8 noundef zeroext 24) #11
-  %conv26 = zext i8 %call.i71 to i32
+  %16 = load i32, ptr %devfn2.i.i60, align 8
+  %call.i72 = tail call zeroext i8 %15(ptr noundef %14, i32 noundef %16, i8 noundef zeroext 24) #11
+  %conv26 = zext i8 %call.i72 to i32
   %cmp27.not = icmp eq i32 %conv26, %bus
   br i1 %cmp27.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end24
-  %17 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i72 = getelementptr inbounds i8, ptr %17, i64 104
-  %18 = load ptr, ptr %config_writeb.i72, align 8
-  %19 = load i32, ptr %devfn2.i.i59, align 8
+  %17 = load ptr, ptr %call.i57, align 8
+  %config_writeb.i73 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = load ptr, ptr %config_writeb.i73, align 8
+  %19 = load i32, ptr %devfn2.i.i60, align 8
   tail call void %18(ptr noundef %17, i32 noundef %19, i8 noundef zeroext 24, i8 noundef zeroext %conv30) #11
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %if.end24
-  %20 = load ptr, ptr %call.i56, align 8
-  %config_readb.i74 = getelementptr inbounds i8, ptr %20, i64 80
-  %21 = load ptr, ptr %config_readb.i74, align 8
-  %22 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i76 = tail call zeroext i8 %21(ptr noundef %20, i32 noundef %22, i8 noundef zeroext 25) #11
+  %20 = load ptr, ptr %call.i57, align 8
+  %config_readb.i75 = getelementptr inbounds i8, ptr %20, i64 80
+  %21 = load ptr, ptr %config_readb.i75, align 8
+  %22 = load i32, ptr %devfn2.i.i60, align 8
+  %call.i77 = tail call zeroext i8 %21(ptr noundef %20, i32 noundef %22, i8 noundef zeroext 25) #11
   %23 = load i32, ptr %pci_bus, align 4
   %inc33 = add i32 %23, 1
   store i32 %inc33, ptr %pci_bus, align 4
-  %conv34 = zext i8 %call.i76 to i32
+  %conv34 = zext i8 %call.i77 to i32
   %cmp35.not = icmp eq i32 %inc33, %conv34
   br i1 %cmp35.not, label %if.end39, label %if.then37
 
 if.then37:                                        ; preds = %if.end31
   %conv38 = trunc i32 %inc33 to i8
-  %24 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i77 = getelementptr inbounds i8, ptr %24, i64 104
-  %25 = load ptr, ptr %config_writeb.i77, align 8
-  %26 = load i32, ptr %devfn2.i.i59, align 8
+  %24 = load ptr, ptr %call.i57, align 8
+  %config_writeb.i78 = getelementptr inbounds i8, ptr %24, i64 104
+  %25 = load ptr, ptr %config_writeb.i78, align 8
+  %26 = load i32, ptr %devfn2.i.i60, align 8
   tail call void %25(ptr noundef %24, i32 noundef %26, i8 noundef zeroext 25, i8 noundef zeroext %conv38) #11
   %.pre = and i32 %inc33, 255
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then37, %if.end31
   %conv41.pre-phi = phi i32 [ %.pre, %if.then37 ], [ %conv34, %if.end31 ]
-  %secbus.0 = phi i8 [ %conv38, %if.then37 ], [ %call.i76, %if.end31 ]
-  %27 = load ptr, ptr %call.i56, align 8
-  %config_readb.i79 = getelementptr inbounds i8, ptr %27, i64 80
-  %28 = load ptr, ptr %config_readb.i79, align 8
-  %29 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i81 = tail call zeroext i8 %28(ptr noundef %27, i32 noundef %29, i8 noundef zeroext 26) #11
-  %30 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i82 = getelementptr inbounds i8, ptr %30, i64 104
-  %31 = load ptr, ptr %config_writeb.i82, align 8
-  %32 = load i32, ptr %devfn2.i.i59, align 8
+  %secbus.0 = phi i8 [ %conv38, %if.then37 ], [ %call.i77, %if.end31 ]
+  %27 = load ptr, ptr %call.i57, align 8
+  %config_readb.i80 = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = load ptr, ptr %config_readb.i80, align 8
+  %29 = load i32, ptr %devfn2.i.i60, align 8
+  %call.i82 = tail call zeroext i8 %28(ptr noundef %27, i32 noundef %29, i8 noundef zeroext 26) #11
+  %30 = load ptr, ptr %call.i57, align 8
+  %config_writeb.i83 = getelementptr inbounds i8, ptr %30, i64 104
+  %31 = load ptr, ptr %config_writeb.i83, align 8
+  %32 = load i32, ptr %devfn2.i.i60, align 8
   tail call void %31(ptr noundef %30, i32 noundef %32, i8 noundef zeroext 26, i8 noundef zeroext -1) #11
   %shl42 = shl nuw nsw i32 %conv41.pre-phi, 5
   tail call fastcc void @qpci_secondary_buses_rec(ptr noundef nonnull %qbus, i32 noundef %shl42, ptr noundef nonnull %pci_bus)
-  %conv43 = zext i8 %call.i81 to i32
+  %conv43 = zext i8 %call.i82 to i32
   %33 = load i32, ptr %pci_bus, align 4
   %cmp44.not = icmp eq i32 %33, %conv43
   br i1 %cmp44.not, label %if.end90, label %if.then46
 
 if.then46:                                        ; preds = %if.end39
   %conv47 = trunc i32 %33 to i8
-  %34 = load ptr, ptr %call.i56, align 8
-  %config_readw.i.i84 = getelementptr inbounds i8, ptr %34, i64 88
-  %35 = load ptr, ptr %config_readw.i.i84, align 8
-  %36 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i.i85 = tail call zeroext i16 %35(ptr noundef %34, i32 noundef %36, i8 noundef zeroext 0) #11
-  %cmp.not.i = icmp eq i16 %call.i.i85, 6966
+  %34 = load ptr, ptr %call.i57, align 8
+  %config_readw.i.i85 = getelementptr inbounds i8, ptr %34, i64 88
+  %35 = load ptr, ptr %config_readw.i.i85, align 8
+  %36 = load i32, ptr %devfn2.i.i60, align 8
+  %call.i.i86 = tail call zeroext i16 %35(ptr noundef %34, i32 noundef %36, i8 noundef zeroext 0) #11
+  %cmp.not.i = icmp eq i16 %call.i.i86, 6966
   br i1 %cmp.not.i, label %if.end.i, label %if.end88
 
 if.end.i:                                         ; preds = %if.then46
-  %37 = load ptr, ptr %call.i56, align 8
+  %37 = load ptr, ptr %call.i57, align 8
   %config_readw.i11.i = getelementptr inbounds i8, ptr %37, i64 88
   %38 = load ptr, ptr %config_readw.i11.i, align 8
-  %39 = load i32, ptr %devfn2.i.i59, align 8
+  %39 = load i32, ptr %devfn2.i.i60, align 8
   %call.i13.i = tail call zeroext i16 %38(ptr noundef %37, i32 noundef %39, i8 noundef zeroext 2) #11
   switch i16 %call.i13.i, label %if.end88 [
     i16 12, label %do.body.i.preheader
@@ -533,46 +533,46 @@ do.body.i.preheader:                              ; preds = %if.end.i, %if.end.i
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %land.rhs.i
   %cap.0.i = phi i8 [ %addr.1.i.i, %land.rhs.i ], [ 0, %do.body.i.preheader ]
-  %tobool.not.i.i87 = icmp eq i8 %cap.0.i, 0
-  br i1 %tobool.not.i.i87, label %if.else.i.i88, label %if.then.i.i
+  %tobool.not.i.i88 = icmp eq i8 %cap.0.i, 0
+  br i1 %tobool.not.i.i88, label %if.else.i.i89, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.body.i
   %add.i.i = add i8 %cap.0.i, 1
-  %40 = load ptr, ptr %call.i56, align 8
+  %40 = load ptr, ptr %call.i57, align 8
   %config_readb.i.i.i = getelementptr inbounds i8, ptr %40, i64 80
   %41 = load ptr, ptr %config_readb.i.i.i, align 8
-  %42 = load i32, ptr %devfn2.i.i59, align 8
+  %42 = load i32, ptr %devfn2.i.i60, align 8
   %call.i.i.i = tail call zeroext i8 %41(ptr noundef %40, i32 noundef %42, i8 noundef zeroext %add.i.i) #11
   br label %do.body.i.i.preheader
 
-if.else.i.i88:                                    ; preds = %do.body.i
-  %43 = load ptr, ptr %call.i56, align 8
+if.else.i.i89:                                    ; preds = %do.body.i
+  %43 = load ptr, ptr %call.i57, align 8
   %config_readb.i10.i.i = getelementptr inbounds i8, ptr %43, i64 80
   %44 = load ptr, ptr %config_readb.i10.i.i, align 8
-  %45 = load i32, ptr %devfn2.i.i59, align 8
+  %45 = load i32, ptr %devfn2.i.i60, align 8
   %call.i12.i.i = tail call zeroext i8 %44(ptr noundef %43, i32 noundef %45, i8 noundef zeroext 52) #11
   br label %do.body.i.i.preheader
 
-do.body.i.i.preheader:                            ; preds = %if.else.i.i88, %if.then.i.i
-  %addr.1.i.i.ph = phi i8 [ %call.i12.i.i, %if.else.i.i88 ], [ %call.i.i.i, %if.then.i.i ]
+do.body.i.i.preheader:                            ; preds = %if.else.i.i89, %if.then.i.i
+  %addr.1.i.i.ph = phi i8 [ %call.i12.i.i, %if.else.i.i89 ], [ %call.i.i.i, %if.then.i.i ]
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i.preheader, %do.cond.i.i
   %addr.1.i.i = phi i8 [ %call.i18.i.i, %do.cond.i.i ], [ %addr.1.i.i.ph, %do.body.i.i.preheader ]
-  %46 = load ptr, ptr %call.i56, align 8
+  %46 = load ptr, ptr %call.i57, align 8
   %config_readb.i13.i.i = getelementptr inbounds i8, ptr %46, i64 80
   %47 = load ptr, ptr %config_readb.i13.i.i, align 8
-  %48 = load i32, ptr %devfn2.i.i59, align 8
+  %48 = load i32, ptr %devfn2.i.i60, align 8
   %call.i15.i.i = tail call zeroext i8 %47(ptr noundef %46, i32 noundef %48, i8 noundef zeroext %addr.1.i.i) #11
   %cmp.not.i.i = icmp eq i8 %call.i15.i.i, 9
   br i1 %cmp.not.i.i, label %qpci_find_capability.exit.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %add9.i.i = add i8 %addr.1.i.i, 1
-  %49 = load ptr, ptr %call.i56, align 8
+  %49 = load ptr, ptr %call.i57, align 8
   %config_readb.i16.i.i = getelementptr inbounds i8, ptr %49, i64 80
   %50 = load ptr, ptr %config_readb.i16.i.i, align 8
-  %51 = load i32, ptr %devfn2.i.i59, align 8
+  %51 = load i32, ptr %devfn2.i.i60, align 8
   %call.i18.i.i = tail call zeroext i8 %50(ptr noundef %49, i32 noundef %51, i8 noundef zeroext %add9.i.i) #11
   %cmp18.not.i.i = icmp eq i8 %call.i18.i.i, 0
   br i1 %cmp18.not.i.i, label %if.end88, label %do.body.i.i, !llvm.loop !9
@@ -583,79 +583,71 @@ qpci_find_capability.exit.i:                      ; preds = %do.body.i.i
 
 land.rhs.i:                                       ; preds = %qpci_find_capability.exit.i
   %add.i = add i8 %addr.1.i.i, 3
-  %52 = load ptr, ptr %call.i56, align 8
+  %52 = load ptr, ptr %call.i57, align 8
   %config_readb.i.i = getelementptr inbounds i8, ptr %52, i64 80
   %53 = load ptr, ptr %config_readb.i.i, align 8
-  %54 = load i32, ptr %devfn2.i.i59, align 8
+  %54 = load i32, ptr %devfn2.i.i60, align 8
   %call.i15.i = tail call zeroext i8 %53(ptr noundef %52, i32 noundef %54, i8 noundef zeroext %add.i) #11
   %cmp17.not.i = icmp eq i8 %call.i15.i, 1
   br i1 %cmp17.not.i, label %if.then20.i, label %do.body.i, !llvm.loop !10
 
 if.then20.i:                                      ; preds = %land.rhs.i
   %add22.i = add i8 %addr.1.i.i, 2
-  %55 = load ptr, ptr %call.i56, align 8
+  %55 = load ptr, ptr %call.i57, align 8
   %config_readb.i16.i = getelementptr inbounds i8, ptr %55, i64 80
   %56 = load ptr, ptr %config_readb.i16.i, align 8
-  %57 = load i32, ptr %devfn2.i.i59, align 8
+  %57 = load i32, ptr %devfn2.i.i60, align 8
   %call.i18.i = tail call zeroext i8 %56(ptr noundef %55, i32 noundef %57, i8 noundef zeroext %add22.i) #11
   %cmp26.i = icmp ult i8 %call.i18.i, 32
   br i1 %cmp26.i, label %if.end88, label %if.then49
 
 if.then49:                                        ; preds = %if.then20.i
   %add51 = add i8 %addr.1.i.i, 4
-  %58 = load ptr, ptr %call.i56, align 8
+  %58 = load ptr, ptr %call.i57, align 8
   %config_readl.i = getelementptr inbounds i8, ptr %58, i64 96
   %59 = load ptr, ptr %config_readl.i, align 8
-  %60 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i90 = tail call i32 %59(ptr noundef %58, i32 noundef %60, i8 noundef zeroext %add51) #11
-  %cmp54.not = icmp eq i32 %call.i90, -1
+  %60 = load i32, ptr %devfn2.i.i60, align 8
+  %call.i91 = tail call i32 %59(ptr noundef %58, i32 noundef %60, i8 noundef zeroext %add51) #11
+  %cmp54.not = icmp eq i32 %call.i91, -1
   br i1 %cmp54.not, label %if.end88, label %if.then56
 
 if.then56:                                        ; preds = %if.then49
-  %61 = trunc i32 %call.i90 to i8
+  %61 = trunc i32 %call.i91 to i8
   %conv61 = add i8 %secbus.0, %61
   %cmp64 = icmp ult i8 %conv61, %secbus.0
-  br i1 %cmp64, label %if.then74, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then56
   %conv62 = zext i8 %conv61 to i32
-  %conv58 = and i32 %call.i90, 255
+  %conv58 = and i32 %call.i91, 255
   %cmp72 = icmp ugt i32 %conv58, %conv62
-  br i1 %cmp72, label %if.then74, label %if.end75
-
-if.then74:                                        ; preds = %lor.lhs.false, %if.then56
-  br label %if.end75
-
-if.end75:                                         ; preds = %if.then74, %lor.lhs.false
-  %res_bus.0 = phi i8 [ 0, %if.then74 ], [ %61, %lor.lhs.false ]
+  %62 = or i1 %cmp64, %cmp72
+  %res_bus.0 = select i1 %62, i8 0, i8 %61
   %conv77 = zext i8 %res_bus.0 to i32
   %add78 = add nuw nsw i32 %conv41.pre-phi, %conv77
-  %62 = load i32, ptr %pci_bus, align 4
-  %cmp79 = icmp sgt i32 %add78, %62
+  %63 = load i32, ptr %pci_bus, align 4
+  %cmp79 = icmp sgt i32 %add78, %63
   %conv85 = trunc i32 %add78 to i8
   %spec.select = select i1 %cmp79, i8 %conv85, i8 %res_bus.0
   br label %if.end88
 
-if.end88:                                         ; preds = %qpci_find_capability.exit.i, %do.cond.i.i, %if.then20.i, %if.end.i, %if.then46, %if.end75, %if.then49
-  %res_bus.1 = phi i8 [ %conv47, %if.then49 ], [ %spec.select, %if.end75 ], [ %conv47, %if.then46 ], [ %conv47, %if.end.i ], [ %conv47, %if.then20.i ], [ %conv47, %do.cond.i.i ], [ %conv47, %qpci_find_capability.exit.i ]
+if.end88:                                         ; preds = %qpci_find_capability.exit.i, %do.cond.i.i, %if.then20.i, %if.end.i, %if.then46, %if.then56, %if.then49
+  %res_bus.1 = phi i8 [ %conv47, %if.then49 ], [ %spec.select, %if.then56 ], [ %conv47, %if.then46 ], [ %conv47, %if.end.i ], [ %conv47, %if.then20.i ], [ %conv47, %do.cond.i.i ], [ %conv47, %qpci_find_capability.exit.i ]
   %conv89 = zext i8 %res_bus.1 to i32
   store i32 %conv89, ptr %pci_bus, align 4
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end88, %if.end39
-  %subbus.0 = phi i8 [ %res_bus.1, %if.end88 ], [ %call.i81, %if.end39 ]
-  %63 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i91 = getelementptr inbounds i8, ptr %63, i64 104
-  %64 = load ptr, ptr %config_writeb.i91, align 8
-  %65 = load i32, ptr %devfn2.i.i59, align 8
-  tail call void %64(ptr noundef %63, i32 noundef %65, i8 noundef zeroext 26, i8 noundef zeroext %subbus.0) #11
+  %subbus.0 = phi i8 [ %res_bus.1, %if.end88 ], [ %call.i82, %if.end39 ]
+  %64 = load ptr, ptr %call.i57, align 8
+  %config_writeb.i92 = getelementptr inbounds i8, ptr %64, i64 104
+  %65 = load ptr, ptr %config_writeb.i92, align 8
+  %66 = load i32, ptr %devfn2.i.i60, align 8
+  tail call void %65(ptr noundef %64, i32 noundef %66, i8 noundef zeroext 26, i8 noundef zeroext %subbus.0) #11
   br label %for.inc91
 
-for.inc91:                                        ; preds = %if.end18, %qpci_device_set.exit.i58, %if.end90
-  tail call void @g_free(ptr noundef nonnull %call.i56) #11
-  %inc92 = add nuw nsw i32 %index.1103, 1
-  %exitcond107.not = icmp eq i32 %inc92, 32
-  br i1 %exitcond107.not, label %for.end93, label %for.body10, !llvm.loop !11
+for.inc91:                                        ; preds = %if.end18, %qpci_device_set.exit.i59, %if.end90
+  tail call void @g_free(ptr noundef nonnull %call.i57) #11
+  %inc92 = add nuw nsw i32 %index.1104, 1
+  %exitcond108.not = icmp eq i32 %inc92, 32
+  br i1 %exitcond108.not, label %for.end93, label %for.body10, !llvm.loop !11
 
 for.end93:                                        ; preds = %for.inc91
   ret void

@@ -54,20 +54,18 @@ if.end:                                           ; preds = %entry
   %has_ipv6 = getelementptr inbounds i8, ptr %netdev, i64 48
   %1 = load i8, ptr %has_ipv6, align 8
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.else7
+  br i1 %tobool, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %if.end
   %ipv6 = getelementptr inbounds i8, ptr %netdev, i64 49
   %2 = load i8, ptr %ipv6, align 1
   %tobool2 = trunc i8 %2 to i1
-  br i1 %tobool2, label %if.end9, label %if.else7
-
-if.else7:                                         ; preds = %land.lhs.true, %if.end
+  %spec.select126 = and i8 %2, 1
   br label %if.end9
 
-if.end9:                                          ; preds = %land.lhs.true, %if.else7
-  %.sink119 = phi i8 [ 0, %if.else7 ], [ 1, %land.lhs.true ]
-  %tobool80 = phi i32 [ 2, %if.else7 ], [ 10, %land.lhs.true ]
+if.end9:                                          ; preds = %land.lhs.true, %if.end
+  %.sink119 = phi i8 [ 0, %if.end ], [ %spec.select126, %land.lhs.true ]
+  %tobool80 = phi i1 [ false, %if.end ], [ %tobool2, %land.lhs.true ]
   %ipv68 = getelementptr inbounds i8, ptr %call, i64 490
   store i8 %.sink119, ptr %ipv68, align 2
   %has_offset = getelementptr inbounds i8, ptr %netdev, i64 100
@@ -117,11 +115,11 @@ lor.lhs.false30:                                  ; preds = %if.end28
   %cookie64 = getelementptr inbounds i8, ptr %netdev, i64 53
   %8 = load i8, ptr %cookie64, align 1
   %tobool31 = trunc i8 %8 to i1
-  %spec.select126 = and i8 %8, 1
+  %spec.select128 = and i8 %8, 1
   br label %if.end35
 
 if.end35:                                         ; preds = %lor.lhs.false30, %if.end28
-  %.sink121 = phi i8 [ 1, %if.end28 ], [ %spec.select126, %lor.lhs.false30 ]
+  %.sink121 = phi i8 [ 1, %if.end28 ], [ %spec.select128, %lor.lhs.false30 ]
   %tobool65 = phi i1 [ true, %if.end28 ], [ %tobool31, %lor.lhs.false30 ]
   %cookie_is_6434 = getelementptr inbounds i8, ptr %call, i64 495
   store i8 %.sink121, ptr %cookie_is_6434, align 1
@@ -207,8 +205,9 @@ if.end78:                                         ; preds = %if.then63, %if.end6
   %add89 = phi i32 [ 8, %if.end60 ], [ %.125, %if.then63 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints, i8 0, i64 48, i1 false)
   %ipv679 = getelementptr inbounds i8, ptr %call, i64 490
+  %.sink112 = select i1 %tobool80, i32 10, i32 2
   %19 = getelementptr inbounds i8, ptr %hints, i64 4
-  store i32 %tobool80, ptr %19, align 4
+  store i32 %.sink112, ptr %19, align 4
   %udp85 = getelementptr inbounds i8, ptr %call, i64 491
   br i1 %tobool86, label %if.then87, label %if.end99
 
@@ -386,11 +385,11 @@ lor.lhs.false187:                                 ; preds = %if.end183
   %tobool189 = trunc i8 %51 to i1
   %.pre118 = load i32, ptr %offset54, align 8
   %add196 = add i32 %.pre118, 20
-  %spec.select128 = select i1 %tobool189, i32 %.pre118, i32 %add196
+  %spec.select130 = select i1 %tobool189, i32 %.pre118, i32 %add196
   br label %if.end199
 
 if.end199:                                        ; preds = %lor.lhs.false187, %if.end183.if.then191_crit_edge
-  %add196.sink = phi i32 [ %.pre, %if.end183.if.then191_crit_edge ], [ %spec.select128, %lor.lhs.false187 ]
+  %add196.sink = phi i32 [ %.pre, %if.end183.if.then191_crit_edge ], [ %spec.select130, %lor.lhs.false187 ]
   %header_size198 = getelementptr inbounds i8, ptr %call, i64 448
   store i32 %add196.sink, ptr %header_size198, align 8
   %call200 = call fastcc ptr @build_l2tpv3_vector(ptr noundef nonnull %call)

@@ -873,7 +873,7 @@ define internal noundef i32 @netmon_read(ptr nocapture noundef readonly %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %28, %.loopexit.loopexit, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %.loopexit.loopexit ], [ 0, %28 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %28 ], [ 0, %24 ], [ 1, %.loopexit.loopexit ]
   ret i32 %.0
 }
 
@@ -1336,7 +1336,7 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
   %78 = udiv i64 %.0121.lcssa, 1000000000
   %79 = add nsw i64 %.0120.lcssa, %78
   %80 = urem i64 %.0121.lcssa, 1000000000
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw nsw i64 %80 to i32
   %82 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 3, ptr %82, align 4
   %83 = load i64, ptr %11, align 8
@@ -2170,7 +2170,7 @@ define internal noundef i32 @netmon_dump_finish(ptr noundef %0, ptr noundef %1, 
   %74 = getelementptr inbounds i8, ptr %6, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = sdiv i32 %75, 1000000
-  %77 = trunc i32 %76 to i16
+  %77 = trunc nsw i32 %76 to i16
   %78 = getelementptr inbounds i8, ptr %4, i64 18
   store i16 %77, ptr %78, align 2
   %79 = getelementptr inbounds i8, ptr %6, i64 24

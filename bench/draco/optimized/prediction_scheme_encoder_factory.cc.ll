@@ -67,7 +67,7 @@ define noundef i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18EncoderOptionsBase
   store i32 %0, ptr %4, align 4
   %13 = tail call noundef i32 @_ZNK5draco18EncoderOptionsBaseIiE8GetSpeedEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   %14 = icmp sgt i32 %13, 9
-  br i1 %14, label %.thread.thread, label %15
+  br i1 %14, label %.critedge58.thread63, label %15
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %2, align 8
@@ -75,7 +75,7 @@ define noundef i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18EncoderOptionsBase
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %20 = icmp eq i32 %19, 1
-  br i1 %20, label %21, label %.thread.thread
+  br i1 %20, label %21, label %.critedge58.thread63
 
 21:                                               ; preds = %15
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
@@ -84,19 +84,19 @@ define noundef i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18EncoderOptionsBase
 
 .noexc:                                           ; preds = %21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %.noexc60 unwind label %49
+          to label %.noexc61 unwind label %49
 
-.noexc60:                                         ; preds = %.noexc
+.noexc61:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str, i64 0, i64 17))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %23
 
-23:                                               ; preds = %.noexc60
+23:                                               ; preds = %.noexc61
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   br label %.body
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc60
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc61
   %25 = invoke noundef i32 @_ZNK5draco12DracoOptionsIiE15GetAttributeIntERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef -1)
           to label %26 unwind label %51
 
@@ -187,7 +187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .critedge56:                                      ; preds = %45, %60
   %68 = call noundef i32 @_ZNK5draco18EncoderOptionsBaseIiE8GetSpeedEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   %69 = icmp slt i32 %68, 4
-  br i1 %69, label %.thread.thread, label %.critedge
+  br i1 %69, label %.critedge58.thread63, label %.critedge
 
 .critedge:                                        ; preds = %58, %43, %60, %.critedge56, %39, %35, %26
   %70 = getelementptr inbounds i8, ptr %34, i64 56
@@ -198,7 +198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 74:                                               ; preds = %.critedge
   %75 = icmp slt i32 %73, 4
-  br i1 %75, label %76, label %.thread
+  br i1 %75, label %76, label %.critedge58.thread63
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %27, align 8
@@ -207,13 +207,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %79 = load ptr, ptr %27, align 8
   %80 = call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %79, i32 noundef 0)
   %.not51 = icmp eq ptr %80, null
-  br i1 %.not51, label %.thread, label %81
+  br i1 %.not51, label %.critedge58.thread63, label %81
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds i8, ptr %80, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = call noundef zeroext i1 @_ZN5draco18IsDataTypeIntegralENS_8DataTypeE(i32 noundef %83)
-  br i1 %84, label %.thread.thread, label %85
+  br i1 %84, label %.critedge58.thread63, label %85
 
 85:                                               ; preds = %81
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #10
@@ -228,7 +228,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %88 = icmp sgt i32 %87, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #10
-  br i1 %88, label %.thread.thread, label %.thread
+  %spec.select = select i1 %88, i32 6, i32 0
+  br label %.critedge58.thread63
 
 89:                                               ; preds = %85
   %90 = landingpad { ptr, i32 }
@@ -241,28 +242,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #10
   br label %.body
 
-.thread:                                          ; preds = %76, %.critedge58, %74
-  br label %.thread.thread
-
 93:                                               ; preds = %.critedge
   %94 = icmp sgt i32 %73, 7
-  br i1 %94, label %.thread.thread, label %95
+  br i1 %94, label %.critedge58.thread63, label %95
 
 95:                                               ; preds = %93
   %96 = call noundef i32 @_ZNK5draco18EncoderOptionsBaseIiE8GetSpeedEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   %97 = icmp sgt i32 %96, 1
-  br i1 %97, label %.thread.thread, label %98
+  br i1 %97, label %.critedge58.thread63, label %98
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %27, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 160
   %101 = load i32, ptr %100, align 8
   %102 = icmp ult i32 %101, 40
-  %spec.select59 = select i1 %102, i32 1, i32 4
-  br label %.thread.thread
+  %spec.select60 = select i1 %102, i32 1, i32 4
+  br label %.critedge58.thread63
 
-.thread.thread:                                   ; preds = %81, %98, %15, %95, %93, %.critedge58, %.critedge56, %3, %.thread
-  %.036 = phi i32 [ 0, %.thread ], [ 0, %3 ], [ 5, %.critedge56 ], [ 6, %.critedge58 ], [ 0, %93 ], [ 1, %95 ], [ 0, %15 ], [ %spec.select59, %98 ], [ 6, %81 ]
+.critedge58.thread63:                             ; preds = %.critedge58, %81, %76, %98, %15, %95, %93, %74, %.critedge56, %3
+  %.036 = phi i32 [ 0, %3 ], [ 5, %.critedge56 ], [ 0, %74 ], [ 0, %93 ], [ 1, %95 ], [ 0, %15 ], [ %spec.select60, %98 ], [ 0, %76 ], [ 6, %81 ], [ %spec.select, %.critedge58 ]
   ret i32 %.036
 
 .body:                                            ; preds = %91, %89, %64, %66, %51, %23, %49
@@ -446,15 +444,13 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 _ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %28
   %34 = icmp slt i32 %30, 0
-  br i1 %34, label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread, label %35
+  %spec.select = select i1 %34, ptr %0, ptr %17
+  br label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread
 
-_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread: ; preds = %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %4, %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  br label %35
-
-35:                                               ; preds = %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread
-  %.sink = phi ptr [ %0, %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread ], [ %17, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %36 = tail call noundef i32 @_ZNK5draco7Options6GetIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(48) %.sink, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3)
-  ret i32 %36
+_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread: ; preds = %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %4, %_ZNKSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit
+  %.sink = phi ptr [ %0, %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit ], [ %0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %0, %_ZNKSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ %0, %4 ], [ %0, %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %spec.select, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %35 = tail call noundef i32 @_ZNK5draco7Options6GetIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(48) %.sink, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3)
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind

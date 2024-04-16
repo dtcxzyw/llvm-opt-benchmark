@@ -207,7 +207,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
   %60 = trunc i64 %59 to i32
   %61 = call fastcc i32 @jread(ptr noundef nonnull %10, ptr noundef %0, i32 noundef %60)
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %.loopexit79
+  br i1 %62, label %63, label %.loopexit80
 
 63:                                               ; preds = %58
   %64 = add i64 %59, 1
@@ -300,7 +300,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
 116:                                              ; preds = %110
   %117 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i64 noundef %72) #10
   %118 = icmp eq ptr %73, null
-  br i1 %118, label %.loopexit79, label %.loopexit79.sink.split
+  br i1 %118, label %.loopexit80, label %.loopexit80.sink.split
 
 119:                                              ; preds = %110, %105
   %120 = phi i8 [ %115, %110 ], [ %47, %105 ]
@@ -433,7 +433,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
   %206 = sub i32 %205, %108
   %207 = sext i32 %206 to i64
   %208 = icmp sgt i64 %204, %207
-  br i1 %208, label %387, label %.preheader471
+  br i1 %208, label %387, label %.preheader472
 
 209:                                              ; preds = %.thread35
   %210 = getelementptr i8, ptr %227, i64 %37
@@ -451,9 +451,9 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
   %222 = sub i32 %221, %108
   %223 = sext i32 %222 to i64
   %224 = icmp sgt i64 %220, %223
-  br i1 %224, label %.loopexit, label %.preheader471, !llvm.loop !16
+  br i1 %224, label %.loopexit, label %.preheader472, !llvm.loop !16
 
-.preheader471:                                    ; preds = %198, %209
+.preheader472:                                    ; preds = %198, %209
   %225 = phi i32 [ %384, %209 ], [ %50, %198 ]
   %226 = phi i32 [ %383, %209 ], [ %48, %198 ]
   %227 = phi ptr [ %215, %209 ], [ %200, %198 ]
@@ -472,14 +472,14 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
   %240 = icmp ult i64 %238, %239
   br i1 %240, label %245, label %241
 
-241:                                              ; preds = %.preheader471
+241:                                              ; preds = %.preheader472
   %242 = load i64, ptr %28, align 8
   %243 = sub i64 %238, %239
   %244 = add i64 %242, %243
   br label %245
 
-245:                                              ; preds = %241, %.preheader471
-  %246 = phi i64 [ %244, %241 ], [ %238, %.preheader471 ]
+245:                                              ; preds = %241, %.preheader472
+  %246 = phi i64 [ %244, %241 ], [ %238, %.preheader472 ]
   %247 = trunc i64 %228 to i32
   %248 = call fastcc i32 @jread(ptr noundef nonnull %12, ptr noundef %0, i32 noundef %247)
   %249 = icmp eq i32 %248, 0
@@ -683,11 +683,11 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
 355:                                              ; preds = %342
   %356 = icmp eq ptr %73, null
   %357 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #10
-  br i1 %356, label %.loopexit79.sink.split, label %358
+  br i1 %356, label %.loopexit80.sink.split, label %358
 
 358:                                              ; preds = %355
   call void @__brelse(ptr noundef nonnull %73) #9
-  br label %.loopexit79.sink.split
+  br label %.loopexit80.sink.split
 
 359:                                              ; preds = %342
   %360 = call i32 @__SCT__might_resched() #9
@@ -768,14 +768,14 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
 
 398:                                              ; preds = %392
   %399 = icmp ult i64 %395, %46
-  br i1 %399, label %.loopexit81, label %400
+  br i1 %399, label %.loopexit82, label %400
 
 400:                                              ; preds = %398
   %401 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %52) #10
   %402 = icmp eq ptr %73, null
-  br i1 %402, label %.loopexit79, label %.loopexit79.sink.split
+  br i1 %402, label %.loopexit80, label %.loopexit80.sink.split
 
-.loopexit81:                                      ; preds = %.thread41, %398
+.loopexit82:                                      ; preds = %.thread41, %398
   %403 = icmp eq ptr %73, null
   br i1 %403, label %570, label %.sink.split
 
@@ -907,7 +907,7 @@ jbd2_commit_block_csum_verify.exit:               ; preds = %461
 
 .thread41:                                        ; preds = %430, %._crit_edge, %435, %jbd2_commit_block_csum_verify.exit
   %467 = icmp ult i64 %395, %46
-  br i1 %467, label %.loopexit81, label %468
+  br i1 %467, label %.loopexit82, label %468
 
 468:                                              ; preds = %.thread41
   store i32 %52, ptr %26, align 4
@@ -1016,10 +1016,10 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %451, %473, %jbd2_co
 .thread46:                                        ; preds = %520
   %525 = getelementptr inbounds i8, ptr %521, i64 40
   %526 = load i32, ptr %525, align 4
-  %.fr73 = freeze i32 %526
-  %527 = and i32 %.fr73, 33554432
-  %.not470 = icmp eq i32 %527, 0
-  %spec.select = select i1 %.not470, i32 4, i32 8
+  %.fr74 = freeze i32 %526
+  %527 = and i32 %.fr74, 33554432
+  %.not471 = icmp eq i32 %527, 0
+  %spec.select = select i1 %.not471, i32 4, i32 8
   %528 = or disjoint i32 %spec.select, 16
   %529 = icmp sgt i32 %528, %499
   br i1 %529, label %.thread48, label %.lr.ph
@@ -1029,7 +1029,7 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %451, %473, %jbd2_co
   br i1 %530, label %.thread48, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %.thread46
-  br i1 %.not470, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %.not471, label %.lr.ph.split.preheader, label %.lr.ph.split.us
 
 .lr.ph.split.preheader:                           ; preds = %.thread46.thread, %.lr.ph
   %531 = phi i32 [ %spec.select, %.lr.ph ], [ 4, %.thread46.thread ]
@@ -1088,22 +1088,22 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %451, %473, %jbd2_co
 
 565:                                              ; preds = %564, %.thread48
   %566 = icmp eq i32 %562, 0
-  br i1 %566, label %select.unfold49, label %.loopexit79, !llvm.loop !11
+  br i1 %566, label %select.unfold49, label %.loopexit80, !llvm.loop !11
 
 567:                                              ; preds = %87
   %568 = icmp eq ptr %73, null
   br i1 %568, label %570, label %.sink.split
 
-.loopexit79.sink.split:                           ; preds = %400, %355, %358, %116
-  %.lcssa342.sink = phi ptr [ %73, %116 ], [ %253, %358 ], [ %253, %355 ], [ %73, %400 ]
-  %.ph465 = phi i32 [ -74, %116 ], [ -12, %358 ], [ -12, %355 ], [ -74, %400 ]
-  call void @__brelse(ptr noundef nonnull %.lcssa342.sink) #9
-  br label %.loopexit79
+.loopexit80.sink.split:                           ; preds = %400, %355, %358, %116
+  %.lcssa343.sink = phi ptr [ %73, %116 ], [ %253, %358 ], [ %253, %355 ], [ %73, %400 ]
+  %.ph466 = phi i32 [ -74, %116 ], [ -12, %358 ], [ -12, %355 ], [ -74, %400 ]
+  call void @__brelse(ptr noundef nonnull %.lcssa343.sink) #9
+  br label %.loopexit80
 
-.loopexit79:                                      ; preds = %565, %58, %.loopexit79.sink.split, %400, %116
-  %569 = phi i32 [ -74, %116 ], [ -74, %400 ], [ %.ph465, %.loopexit79.sink.split ], [ %562, %565 ], [ %61, %58 ]
+.loopexit80:                                      ; preds = %565, %58, %.loopexit80.sink.split, %400, %116
+  %569 = phi i32 [ -74, %116 ], [ -74, %400 ], [ %.ph466, %.loopexit80.sink.split ], [ %562, %565 ], [ %61, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  br label %637
+  br label %636
 
 select.unfold49:                                  ; preds = %138, %565, %485, %196, %387, %391, %478, %480, %492, %495, %420, %422
   %.ph = phi i64 [ %46, %422 ], [ %46, %420 ], [ %46, %495 ], [ %46, %492 ], [ %46, %480 ], [ %46, %478 ], [ %46, %391 ], [ %46, %387 ], [ %46, %196 ], [ %482, %485 ], [ %46, %565 ], [ %46, %138 ]
@@ -1116,11 +1116,11 @@ select.unfold49:                                  ; preds = %138, %565, %485, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
   br label %45, !llvm.loop !11
 
-.sink.split:                                      ; preds = %567, %.loopexit81, %85, %78
+.sink.split:                                      ; preds = %567, %.loopexit82, %85, %78
   call void @__brelse(ptr noundef nonnull %73) #9
   br label %570
 
-570:                                              ; preds = %.sink.split, %78, %85, %.loopexit81, %567
+570:                                              ; preds = %.sink.split, %78, %85, %.loopexit82, %567
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
   %571 = load i32, ptr %26, align 4
   br i1 %23, label %572, label %579
@@ -1225,30 +1225,28 @@ select.unfold49:                                  ; preds = %138, %565, %485, %1
 
 .thread69:                                        ; preds = %610, %599, %605
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %631
+  br label %.thread66
 
 629:                                              ; preds = %627
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   %630 = icmp eq i32 %.fr, 0
-  br i1 %630, label %631, label %.thread66
-
-631:                                              ; preds = %.thread69, %629
+  %spec.select73 = select i1 %630, i32 %587, i32 %.fr
   br label %.thread66
 
-.thread66:                                        ; preds = %586, %631, %629, %.thread71, %592
-  %632 = phi i32 [ %587, %592 ], [ %587, %631 ], [ %.fr, %629 ], [ %616, %.thread71 ], [ %587, %586 ]
-  %633 = icmp ne i32 %48, 0
-  %634 = icmp eq i32 %632, 0
-  %635 = select i1 %633, i1 %634, i1 false
-  %636 = select i1 %635, i32 -5, i32 %632
-  br label %637
+.thread66:                                        ; preds = %629, %586, %.thread71, %.thread69, %592
+  %631 = phi i32 [ %587, %592 ], [ %616, %.thread71 ], [ %587, %.thread69 ], [ %587, %586 ], [ %spec.select73, %629 ]
+  %632 = icmp ne i32 %48, 0
+  %633 = icmp eq i32 %631, 0
+  %634 = select i1 %632, i1 %633, i1 false
+  %635 = select i1 %634, i32 -5, i32 %631
+  br label %636
 
-637:                                              ; preds = %.loopexit79, %.thread66
-  %638 = phi i32 [ %636, %.thread66 ], [ %569, %.loopexit79 ]
+636:                                              ; preds = %.loopexit80, %.thread66
+  %637 = phi i32 [ %635, %.thread66 ], [ %569, %.loopexit80 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  ret i32 %638
+  ret i32 %637
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1048,7 +1048,7 @@ define internal fastcc noundef zeroext i1 @nexthop_uses_dev(ptr noundef %0, ptr 
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, 0
-  br i1 %11, label %.loopexit3, label %12
+  br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %7, i64 24
@@ -1059,7 +1059,7 @@ define internal fastcc noundef zeroext i1 @nexthop_uses_dev(ptr noundef %0, ptr 
 16:                                               ; preds = %28
   %17 = add nuw nsw i64 %20, 1
   %18 = icmp eq i64 %17, %15
-  br i1 %18, label %.loopexit3, label %19, !llvm.loop !20
+  br i1 %18, label %.loopexit, label %19, !llvm.loop !20
 
 19:                                               ; preds = %16, %12
   %20 = phi i64 [ 0, %12 ], [ %17, %16 ]
@@ -1087,13 +1087,10 @@ define internal fastcc noundef zeroext i1 @nexthop_uses_dev(ptr noundef %0, ptr 
   %36 = getelementptr inbounds i8, ptr %1, i64 216
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.loopexit, label %.loopexit3
-
-.loopexit3:                                       ; preds = %16, %35, %8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %19, %.loopexit3, %35, %31
-  %39 = phi i1 [ false, %.loopexit3 ], [ true, %35 ], [ true, %31 ], [ true, %19 ], [ true, %28 ]
+.loopexit:                                        ; preds = %16, %28, %19, %35, %8, %31
+  %39 = phi i1 [ true, %31 ], [ false, %8 ], [ %38, %35 ], [ false, %16 ], [ true, %28 ], [ true, %19 ]
   ret i1 %39
 }
 
@@ -1526,7 +1523,7 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load i16, ptr %14, align 8
   %16 = icmp eq i16 %15, 2
-  br i1 %16, label %17, label %.thread19
+  br i1 %16, label %17, label %.thread18
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %2, i64 12
@@ -1549,7 +1546,7 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %31 = icmp eq i32 %27, 0
   %32 = icmp eq i16 %28, 0
   %33 = and i1 %31, %32
-  br i1 %33, label %34, label %.thread19
+  br i1 %33, label %34, label %.thread18
 
 34:                                               ; preds = %30, %24
   %35 = xor i32 %27, -1
@@ -1559,7 +1556,7 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %39 = and i32 %38, %37
   %40 = or i32 %39, %36
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.thread19
+  br i1 %41, label %42, label %.thread18
 
 42:                                               ; preds = %34
   %43 = icmp eq i32 %27, 0
@@ -1687,7 +1684,7 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 .thread15:                                        ; preds = %73, %81, %89, %107
   %.ph14 = phi i32 [ -19, %107 ], [ -19, %89 ], [ -19, %81 ], [ -14, %73 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  br label %.thread19
+  br label %.thread18
 
 108:                                              ; preds = %103, %84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
@@ -1734,7 +1731,7 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 
 134:                                              ; preds = %133, %129
   %135 = phi i32 [ 254, %133 ], [ %131, %129 ]
-  br i1 %52, label %.thread22, label %136
+  br i1 %52, label %.thread21, label %136
 
 136:                                              ; preds = %134
   %137 = load i16, ptr %20, align 8
@@ -1744,7 +1741,7 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %141 = load i8, ptr %140, align 1
   %142 = icmp eq i8 %141, 0
   %143 = select i1 %139, i1 %142, i1 false
-  br i1 %143, label %.thread19, label %144
+  br i1 %143, label %.thread18, label %144
 
 144:                                              ; preds = %136
   %145 = load i8, ptr %67, align 1
@@ -1758,13 +1755,13 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 148:                                              ; preds = %147, %144
   %149 = and i16 %137, 448
   %150 = icmp eq i16 %149, 0
-  br i1 %150, label %.thread21, label %151
+  br i1 %150, label %.thread20, label %151
 
 151:                                              ; preds = %148
   %152 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
   %153 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %152, i32 noundef 3520, i64 noundef 24) #15
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %.thread19, label %155
+  br i1 %154, label %.thread18, label %155
 
 155:                                              ; preds = %151
   %156 = load i16, ptr %20, align 8
@@ -1825,21 +1822,21 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %192 = add nuw nsw i32 %180, 8
   br label %193
 
-193:                                              ; preds = %179, %183
+193:                                              ; preds = %183, %179
   %194 = phi i32 [ %192, %183 ], [ %180, %179 ]
   %195 = getelementptr inbounds i8, ptr %5, i64 56
   store ptr %153, ptr %195, align 8
   %196 = getelementptr inbounds i8, ptr %5, i64 72
   store i32 %194, ptr %196, align 8
   %.pre = load i32, ptr %130, align 8
-  br label %.thread21
+  br label %.thread20
 
 197:                                              ; preds = %64
   store i8 -2, ptr %67, align 1
   store i8 7, ptr %68, align 4
-  br i1 %52, label %.thread22, label %.thread21
+  br i1 %52, label %.thread21, label %.thread20
 
-.thread22:                                        ; preds = %197, %134
+.thread21:                                        ; preds = %197, %134
   %198 = phi i32 [ %135, %134 ], [ 254, %197 ]
   %199 = and i32 %198, 255
   %200 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -1848,11 +1845,11 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %203 = getelementptr %struct.hlist_head, ptr %201, i64 %202
   br label %204
 
-204:                                              ; preds = %208, %.thread22
-  %205 = phi ptr [ %203, %.thread22 ], [ %206, %208 ]
+204:                                              ; preds = %208, %.thread21
+  %205 = phi ptr [ %203, %.thread21 ], [ %206, %208 ]
   %206 = load volatile ptr, ptr %205, align 8
   %207 = icmp eq ptr %206, null
-  br i1 %207, label %.thread23, label %208
+  br i1 %207, label %.thread22, label %208
 
 208:                                              ; preds = %204
   %209 = getelementptr inbounds i8, ptr %206, i64 16
@@ -1862,32 +1859,32 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 
 212:                                              ; preds = %208
   %213 = call i32 @fib_table_delete(ptr noundef %0, ptr noundef nonnull %206, ptr noundef nonnull %5, ptr noundef null) #13
-  br label %.thread23
+  br label %.thread22
 
-.thread21:                                        ; preds = %148, %193, %197
-  %214 = phi i32 [ 0, %197 ], [ %.pre, %193 ], [ %135, %148 ]
+.thread20:                                        ; preds = %193, %148, %197
+  %214 = phi i32 [ 0, %197 ], [ %135, %148 ], [ %.pre, %193 ]
   %215 = call ptr @fib_new_table(ptr noundef %0, i32 noundef %214)
   %216 = icmp eq ptr %215, null
-  br i1 %216, label %.thread23, label %217
+  br i1 %216, label %.thread22, label %217
 
-217:                                              ; preds = %.thread21
+217:                                              ; preds = %.thread20
   %218 = call i32 @fib_table_insert(ptr noundef %0, ptr noundef nonnull %215, ptr noundef nonnull %5, ptr noundef null) #13
-  br label %.thread23
+  br label %.thread22
 
-.thread23:                                        ; preds = %204, %217, %.thread21, %212
-  %219 = phi i32 [ %213, %212 ], [ %218, %217 ], [ -105, %.thread21 ], [ -3, %204 ]
+.thread22:                                        ; preds = %204, %217, %.thread20, %212
+  %219 = phi i32 [ %213, %212 ], [ %218, %217 ], [ -105, %.thread20 ], [ -3, %204 ]
   %220 = getelementptr inbounds i8, ptr %5, i64 56
   %221 = load ptr, ptr %220, align 8
   call void @kfree(ptr noundef %221) #13
-  br label %.thread19
+  br label %.thread18
 
-.thread19:                                        ; preds = %151, %.thread15, %34, %30, %136, %12, %.thread23
-  %222 = phi i32 [ %219, %.thread23 ], [ %.ph14, %.thread15 ], [ -22, %34 ], [ -97, %30 ], [ -22, %136 ], [ -97, %12 ], [ -12, %151 ]
+.thread18:                                        ; preds = %.thread15, %34, %30, %151, %136, %12, %.thread22
+  %222 = phi i32 [ %219, %.thread22 ], [ %.ph14, %.thread15 ], [ -22, %34 ], [ -97, %30 ], [ -12, %151 ], [ -22, %136 ], [ -97, %12 ]
   call void @rtnl_unlock() #13
   br label %223
 
-223:                                              ; preds = %.thread19, %8, %3
-  %224 = phi i32 [ %222, %.thread19 ], [ -1, %8 ], [ -22, %3 ]
+223:                                              ; preds = %.thread18, %8, %3
+  %224 = phi i32 [ %222, %.thread18 ], [ -1, %8 ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
   ret i32 %224
 }
@@ -2125,83 +2122,83 @@ define dso_local i32 @ip_valid_fib_dump_req(ptr noundef %0, ptr noundef %1, ptr 
   %69 = icmp eq ptr %7, null
   br label %70
 
-70:                                               ; preds = %87, %67
-  %71 = phi i64 [ 0, %67 ], [ %88, %87 ]
+70:                                               ; preds = %.thread6, %67
+  %71 = phi i64 [ 0, %67 ], [ %86, %.thread6 ]
   %72 = getelementptr [31 x ptr], ptr %5, i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %87, label %75
+  br i1 %74, label %.thread6, label %75
 
 75:                                               ; preds = %70
   %76 = trunc i64 %71 to i32
-  switch i32 %76, label %85 [
+  switch i32 %76, label %80 [
     i32 15, label %77
-    i32 4, label %80
+    i32 4, label %82
   ]
 
 77:                                               ; preds = %75
   %78 = getelementptr i8, ptr %73, i64 4
   %79 = load i32, ptr %78, align 4
   store i32 %79, ptr %2, align 8
-  br label %87
+  br label %.thread6
 
 80:                                               ; preds = %75
-  %81 = getelementptr i8, ptr %73, i64 4
-  %82 = load i32, ptr %81, align 4
-  %83 = call ptr @__dev_get_by_index(ptr noundef %0, i32 noundef %82) #13
-  store ptr %83, ptr %68, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %.thread, label %87
-
-85:                                               ; preds = %75
   call void @do_trace_netlink_extack(ptr noundef nonnull @ip_valid_fib_dump_req.__msg.7) #13
-  br i1 %69, label %.thread, label %86
+  br i1 %69, label %.thread, label %81
 
-86:                                               ; preds = %85
+81:                                               ; preds = %80
   store ptr @ip_valid_fib_dump_req.__msg.7, ptr %7, align 8
   br label %.thread
 
-87:                                               ; preds = %77, %80, %70
-  %88 = add nuw nsw i64 %71, 1
-  %89 = icmp eq i64 %88, 31
-  br i1 %89, label %90, label %70, !llvm.loop !29
+82:                                               ; preds = %75
+  %83 = getelementptr i8, ptr %73, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = call ptr @__dev_get_by_index(ptr noundef %0, i32 noundef %84) #13
+  store ptr %85, ptr %68, align 8
+  %.not = icmp eq ptr %85, null
+  br i1 %.not, label %.thread, label %.thread6
 
-90:                                               ; preds = %87
-  %91 = load i32, ptr %55, align 4
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %105
+.thread6:                                         ; preds = %82, %77, %70
+  %86 = add nuw nsw i64 %71, 1
+  %87 = icmp eq i64 %86, 31
+  br i1 %87, label %88, label %70, !llvm.loop !29
 
-93:                                               ; preds = %90
-  %94 = load i8, ptr %58, align 1
-  %95 = icmp eq i8 %94, 0
-  br i1 %95, label %96, label %105
+88:                                               ; preds = %.thread6
+  %89 = load i32, ptr %55, align 4
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %103
 
-96:                                               ; preds = %93
-  %97 = load i8, ptr %61, align 8
-  %98 = icmp eq i8 %97, 0
-  br i1 %98, label %99, label %105
+91:                                               ; preds = %88
+  %92 = load i8, ptr %58, align 1
+  %93 = icmp eq i8 %92, 0
+  br i1 %93, label %94, label %103
 
-99:                                               ; preds = %96
-  %100 = load i32, ptr %2, align 8
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %105
+94:                                               ; preds = %91
+  %95 = load i8, ptr %61, align 8
+  %96 = icmp eq i8 %95, 0
+  br i1 %96, label %97, label %103
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %68, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %.thread, label %105
+97:                                               ; preds = %94
+  %98 = load i32, ptr %2, align 8
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %103
 
-105:                                              ; preds = %102, %99, %96, %93, %90
-  %106 = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 1, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %3, i64 58
-  store i16 32, ptr %107, align 2
+100:                                              ; preds = %97
+  %101 = load ptr, ptr %68, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %.thread, label %103
+
+103:                                              ; preds = %100, %97, %94, %91, %88
+  %104 = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 1, ptr %104, align 4
+  %105 = getelementptr inbounds i8, ptr %3, i64 58
+  store i16 32, ptr %105, align 2
   br label %.thread
 
-.thread:                                          ; preds = %80, %85, %86, %105, %102, %53, %45, %43, %37, %35, %18, %16
-  %108 = phi i32 [ -22, %18 ], [ -22, %16 ], [ -22, %37 ], [ -22, %35 ], [ -22, %45 ], [ -22, %43 ], [ %65, %53 ], [ 0, %105 ], [ 0, %102 ], [ -22, %85 ], [ -22, %86 ], [ -19, %80 ]
+.thread:                                          ; preds = %82, %80, %81, %103, %100, %53, %45, %43, %37, %35, %18, %16
+  %106 = phi i32 [ -22, %18 ], [ -22, %16 ], [ -22, %37 ], [ -22, %35 ], [ -22, %45 ], [ -22, %43 ], [ %65, %53 ], [ 0, %103 ], [ 0, %100 ], [ -22, %81 ], [ -22, %80 ], [ -19, %82 ]
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %5) #13
-  ret i32 %108
+  ret i32 %106
 }
 
 ; Function Attrs: null_pointer_is_valid

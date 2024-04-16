@@ -929,7 +929,7 @@ define dso_local i32 @__get_random_u32_below(i32 noundef %0) #0 align 16 {
   %8 = trunc i64 %7 to i32
   %9 = icmp ult i32 %8, %0
   %extract = lshr i64 %7, 32
-  %extract.t = trunc i64 %extract to i32
+  %extract.t = trunc nuw i64 %extract to i32
   br i1 %9, label %10, label %19, !prof !17
 
 10:                                               ; preds = %4
@@ -948,7 +948,7 @@ define dso_local i32 @__get_random_u32_below(i32 noundef %0) #0 align 16 {
 
 .loopexit:                                        ; preds = %.preheader
   %extract4.le = lshr i64 %16, 32
-  %extract.t5.le = trunc i64 %extract4.le to i32
+  %extract.t5.le = trunc nuw i64 %extract4.le to i32
   br label %19
 
 19:                                               ; preds = %.loopexit, %4, %10, %1
@@ -1104,54 +1104,54 @@ define internal void @crng_reseed(ptr nocapture readnone %0) #0 align 16 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
   %3 = load ptr, ptr @system_unbound_wq, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %20, label %5, !prof !17
+  br i1 %4, label %21, label %5, !prof !17
 
 5:                                                ; preds = %1
   %6 = load volatile i8, ptr @crng_reseed_interval.early_boot, align 1, !range !50, !noundef !51
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %16, label %8, !prof !13
+  br i1 %7, label %17, label %8, !prof !13
 
 8:                                                ; preds = %5
   %9 = tail call i64 @ktime_get_seconds() #16
   %10 = icmp sgt i64 %9, 119
-  br i1 %10, label %.thread, label %11
-
-.thread:                                          ; preds = %8
-  store volatile i8 0, ptr @crng_reseed_interval.early_boot, align 1
-  br label %16
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
-  %12 = trunc i64 %9 to i32
-  %13 = lshr i32 %12, 1
-  %14 = mul i32 %13, 1000
-  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 1000)
-  br label %16
+  store volatile i8 0, ptr @crng_reseed_interval.early_boot, align 1
+  br label %17
 
-16:                                               ; preds = %5, %.thread, %11
-  %17 = phi i32 [ %15, %11 ], [ 60000, %.thread ], [ 60000, %5 ]
-  %18 = zext i32 %17 to i64
-  %19 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef nonnull %3, ptr noundef nonnull @crng_reseed.next_reseed, i64 noundef %18) #16
-  br label %20
+12:                                               ; preds = %8
+  %13 = trunc i64 %9 to i32
+  %14 = lshr i32 %13, 1
+  %15 = mul i32 %14, 1000
+  %16 = tail call i32 @llvm.umax.i32(i32 %15, i32 1000)
+  br label %17
 
-20:                                               ; preds = %16, %1
+17:                                               ; preds = %11, %12, %5
+  %18 = phi i32 [ 60000, %5 ], [ 60000, %11 ], [ %16, %12 ]
+  %19 = zext i32 %18 to i64
+  %20 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef nonnull %3, ptr noundef nonnull @crng_reseed.next_reseed, i64 noundef %19) #16
+  br label %21
+
+21:                                               ; preds = %17, %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !7
   call fastcc void @extract_entropy(ptr noundef nonnull %2)
-  %21 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (%struct.anon.4, ptr @base_crng, i64 0, i32 2)) #16
+  %22 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull getelementptr inbounds (%struct.anon.4, ptr @base_crng, i64 0, i32 2)) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @base_crng, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
-  %22 = load i64, ptr getelementptr inbounds (%struct.anon.4, ptr @base_crng, i64 0, i32 1), align 8
-  %23 = add i64 %22, 1
-  %24 = icmp eq i64 %23, -1
-  %25 = select i1 %24, i64 0, i64 %23
-  store volatile i64 %25, ptr getelementptr inbounds (%struct.anon.4, ptr @base_crng, i64 0, i32 1), align 8
+  %23 = load i64, ptr getelementptr inbounds (%struct.anon.4, ptr @base_crng, i64 0, i32 1), align 8
+  %24 = add i64 %23, 1
+  %25 = icmp eq i64 %24, -1
+  %26 = select i1 %25, i64 0, i64 %24
+  store volatile i64 %26, ptr getelementptr inbounds (%struct.anon.4, ptr @base_crng, i64 0, i32 1), align 8
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @crng_is_ready, i1 true) #16
-          to label %27 [label %26], !srcloc !6
+          to label %28 [label %27], !srcloc !6
 
-26:                                               ; preds = %20
+27:                                               ; preds = %21
   store i32 2, ptr @crng_init, align 4
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %20
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (%struct.anon.4, ptr @base_crng, i64 0, i32 2), i64 noundef %21) #16
+28:                                               ; preds = %27, %21
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull getelementptr inbounds (%struct.anon.4, ptr @base_crng, i64 0, i32 2), i64 noundef %22) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #16, !srcloc !25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
@@ -1165,7 +1165,7 @@ define internal fastcc void @_credit_init_bits(i64 noundef %0) unnamed_addr #2 a
 
 3:                                                ; preds = %1
   %4 = tail call i64 @llvm.umin.i64(i64 %0, i64 256)
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = load volatile i32, ptr getelementptr inbounds (%struct.anon.5, ptr @input_pool, i64 0, i32 2), align 4
   %7 = add i32 %6, %5
   %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 256)
@@ -1377,11 +1377,11 @@ define dso_local void @add_hwgenerator_randomness(ptr noundef %0, i64 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %4, %9, %6
-  br i1 %3, label %10, label %32
+  br i1 %3, label %10, label %33
 
 10:                                               ; preds = %.thread
   %11 = tail call zeroext i1 @kthread_should_stop() #16
-  br i1 %11, label %32, label %12
+  br i1 %11, label %33, label %12
 
 12:                                               ; preds = %10
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @crng_is_ready, i1 true) #16
@@ -1392,36 +1392,36 @@ define dso_local void @add_hwgenerator_randomness(ptr noundef %0, i64 noundef %1
   %15 = icmp ult i32 %14, 2
   %16 = icmp ne i64 %2, 0
   %17 = and i1 %16, %15
-  br i1 %17, label %32, label %.thread1
+  br i1 %17, label %33, label %.thread1
 
 .thread1:                                         ; preds = %12, %13
   %18 = load volatile i8, ptr @crng_reseed_interval.early_boot, align 1, !range !50, !noundef !51
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %28, label %20, !prof !13
+  br i1 %19, label %29, label %20, !prof !13
 
 20:                                               ; preds = %.thread1
   %21 = tail call i64 @ktime_get_seconds() #16
   %22 = icmp sgt i64 %21, 119
-  br i1 %22, label %.thread2, label %23
-
-.thread2:                                         ; preds = %20
-  store volatile i8 0, ptr @crng_reseed_interval.early_boot, align 1
-  br label %28
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
-  %24 = trunc i64 %21 to i32
-  %25 = lshr i32 %24, 1
-  %26 = mul i32 %25, 1000
-  %27 = tail call i32 @llvm.umax.i32(i32 %26, i32 1000)
-  br label %28
+  store volatile i8 0, ptr @crng_reseed_interval.early_boot, align 1
+  br label %29
 
-28:                                               ; preds = %.thread1, %.thread2, %23
-  %29 = phi i32 [ %27, %23 ], [ 60000, %.thread2 ], [ 60000, %.thread1 ]
-  %30 = zext i32 %29 to i64
-  %31 = tail call i64 @schedule_timeout_interruptible(i64 noundef %30) #16
-  br label %32
+24:                                               ; preds = %20
+  %25 = trunc i64 %21 to i32
+  %26 = lshr i32 %25, 1
+  %27 = mul i32 %26, 1000
+  %28 = tail call i32 @llvm.umax.i32(i32 %27, i32 1000)
+  br label %29
 
-32:                                               ; preds = %28, %13, %10, %.thread
+29:                                               ; preds = %23, %24, %.thread1
+  %30 = phi i32 [ 60000, %.thread1 ], [ 60000, %23 ], [ %28, %24 ]
+  %31 = zext i32 %30 to i64
+  %32 = tail call i64 @schedule_timeout_interruptible(i64 noundef %31) #16
+  br label %33
+
+33:                                               ; preds = %29, %13, %10, %.thread
   ret void
 }
 

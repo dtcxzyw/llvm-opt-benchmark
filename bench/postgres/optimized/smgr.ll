@@ -182,7 +182,7 @@ define dso_local void @smgrrelease(ptr noundef %0) local_unnamed_addr #0 {
   %6 = sext i32 %5 to i64
   %7 = getelementptr [1 x %struct.f_smgr], ptr @smgrsw, i64 0, i64 %6, i32 3
   %8 = load ptr, ptr %7, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %8(ptr noundef %0, i32 noundef %9) #11
   %10 = getelementptr [4 x i32], ptr %3, i64 0, i64 %indvars.iv
   store i32 -1, ptr %10, align 4
@@ -208,7 +208,7 @@ define dso_local void @smgrclose(ptr noundef %0) local_unnamed_addr #0 {
   %6 = sext i32 %5 to i64
   %7 = getelementptr [1 x %struct.f_smgr], ptr @smgrsw, i64 0, i64 %6, i32 3
   %8 = load ptr, ptr %7, align 8
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void %8(ptr noundef %0, i32 noundef %9) #11
   %10 = getelementptr [4 x i32], ptr %3, i64 0, i64 %indvars.iv.i
   store i32 -1, ptr %10, align 4
@@ -301,7 +301,7 @@ define dso_local void @smgrreleaseall() local_unnamed_addr #0 {
   %11 = sext i32 %10 to i64
   %12 = getelementptr [1 x %struct.f_smgr], ptr @smgrsw, i64 0, i64 %11, i32 3
   %13 = load ptr, ptr %12, align 8
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void %13(ptr noundef nonnull %6, i32 noundef %14) #11
   %15 = getelementptr [4 x i32], ptr %8, i64 0, i64 %indvars.iv.i
   store i32 -1, ptr %15, align 4
@@ -350,7 +350,7 @@ define dso_local void @smgrreleaserellocator(i64 %0, i64 %1) local_unnamed_addr 
   %14 = sext i32 %13 to i64
   %15 = getelementptr [1 x %struct.f_smgr], ptr @smgrsw, i64 0, i64 %14, i32 3
   %16 = load ptr, ptr %15, align 8
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void %16(ptr noundef nonnull %8, i32 noundef %17) #11
   %18 = getelementptr [4 x i32], ptr %11, i64 0, i64 %indvars.iv.i
   store i32 -1, ptr %18, align 4
@@ -641,35 +641,35 @@ define dso_local void @smgrwriteback(ptr noundef %0, i32 noundef %1, i32 noundef
 define dso_local i32 @smgrnblocks(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @InRecovery, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %._crit_edge
+  br i1 %4, label %smgrnblocks_cached.exit, label %.smgrnblocks_cached.exit.thread_crit_edge
 
-._crit_edge:                                      ; preds = %2
+.smgrnblocks_cached.exit.thread_crit_edge:        ; preds = %2
   %.pre = sext i32 %1 to i64
-  br label %10
+  br label %smgrnblocks_cached.exit.thread
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
-  %7 = sext i32 %1 to i64
-  %8 = getelementptr [4 x i32], ptr %6, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 4
-  %.not.i = icmp eq i32 %9, -1
-  br i1 %.not.i, label %10, label %smgrnblocks_cached.exit
+smgrnblocks_cached.exit:                          ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = sext i32 %1 to i64
+  %7 = getelementptr [4 x i32], ptr %5, i64 0, i64 %6
+  %8 = load i32, ptr %7, align 4
+  %.not = icmp eq i32 %8, -1
+  br i1 %.not, label %smgrnblocks_cached.exit.thread, label %17
 
-10:                                               ; preds = %._crit_edge, %5
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %7, %5 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
-  %12 = load i32, ptr %11, align 4
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr [1 x %struct.f_smgr], ptr @smgrsw, i64 0, i64 %13, i32 13
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, i32 noundef %1) #11
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
-  %18 = getelementptr [4 x i32], ptr %17, i64 0, i64 %.pre-phi
-  store i32 %16, ptr %18, align 4
-  br label %smgrnblocks_cached.exit
+smgrnblocks_cached.exit.thread:                   ; preds = %.smgrnblocks_cached.exit.thread_crit_edge, %smgrnblocks_cached.exit
+  %.pre-phi = phi i64 [ %.pre, %.smgrnblocks_cached.exit.thread_crit_edge ], [ %6, %smgrnblocks_cached.exit ]
+  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = load i32, ptr %9, align 4
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr [1 x %struct.f_smgr], ptr @smgrsw, i64 0, i64 %11, i32 13
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1) #11
+  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr [4 x i32], ptr %15, i64 0, i64 %.pre-phi
+  store i32 %14, ptr %16, align 4
+  br label %17
 
-smgrnblocks_cached.exit:                          ; preds = %5, %10
-  %.0 = phi i32 [ %16, %10 ], [ %9, %5 ]
+17:                                               ; preds = %smgrnblocks_cached.exit, %smgrnblocks_cached.exit.thread
+  %.0 = phi i32 [ %14, %smgrnblocks_cached.exit.thread ], [ %8, %smgrnblocks_cached.exit ]
   ret i32 %.0
 }
 
@@ -684,14 +684,10 @@ define dso_local i32 @smgrnblocks_cached(ptr nocapture noundef readonly %0, i32 
   %7 = sext i32 %1 to i64
   %8 = getelementptr [4 x i32], ptr %6, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %.not = icmp eq i32 %9, -1
-  br i1 %.not, label %10, label %11
+  br label %10
 
 10:                                               ; preds = %5, %2
-  br label %11
-
-11:                                               ; preds = %5, %10
-  %.0 = phi i32 [ -1, %10 ], [ %9, %5 ]
+  %.0 = phi i32 [ -1, %2 ], [ %9, %5 ]
   ret i32 %.0
 }
 
@@ -795,7 +791,7 @@ define dso_local noundef zeroext i1 @ProcessBarrierSmgrRelease() local_unnamed_a
   %11 = sext i32 %10 to i64
   %12 = getelementptr [1 x %struct.f_smgr], ptr @smgrsw, i64 0, i64 %11, i32 3
   %13 = load ptr, ptr %12, align 8
-  %14 = trunc i64 %indvars.iv.i.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void %13(ptr noundef nonnull %6, i32 noundef %14) #11
   %15 = getelementptr [4 x i32], ptr %8, i64 0, i64 %indvars.iv.i.i
   store i32 -1, ptr %15, align 4

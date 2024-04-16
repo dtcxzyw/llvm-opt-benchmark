@@ -766,7 +766,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %258 = zext i16 %241 to i32
   %259 = and i32 %252, 255
   %260 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %257, ptr noundef %0, i32 noundef %258, i32 noundef %259, i32 noundef 0) #8
-  %261 = trunc i32 %259 to i16
+  %261 = trunc nuw nsw i32 %259 to i16
   %262 = add i16 %241, %261
   br label %.loopexit492
 
@@ -785,7 +785,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %273 = load ptr, ptr %21, align 8
   %274 = call ptr @tvb_format_text(ptr noundef %273, ptr noundef %0, i32 noundef %270, i32 noundef %271) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %272, ptr noundef nonnull @.str.127, ptr noundef %274) #8
-  %275 = trunc i32 %271 to i16
+  %275 = trunc nuw nsw i32 %271 to i16
   %276 = add i16 %241, %275
   br label %.loopexit492
 
@@ -1005,7 +1005,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %390 = zext i16 %379 to i32
   %391 = and i32 %384, 255
   %392 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %389, ptr noundef %0, i32 noundef %390, i32 noundef %391, i32 noundef 0) #8
-  %393 = trunc i32 %391 to i16
+  %393 = trunc nuw nsw i32 %391 to i16
   %394 = add i16 %379, %393
   br label %.loopexit493
 
@@ -1024,7 +1024,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %405 = load ptr, ptr %21, align 8
   %406 = call ptr @tvb_format_text(ptr noundef %405, ptr noundef %0, i32 noundef %402, i32 noundef %403) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %404, ptr noundef nonnull @.str.127, ptr noundef %406) #8
-  %407 = trunc i32 %403 to i16
+  %407 = trunc nuw nsw i32 %403 to i16
   %408 = add i16 %379, %407
   br label %.loopexit493
 
@@ -1136,7 +1136,7 @@ define internal i32 @fiveco_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -1156,13 +1156,11 @@ define internal noundef i32 @fiveco_hash_equal(ptr nocapture noundef readonly %0
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %14, %16
-  br i1 %17, label %19, label %18
+  %spec.select = zext i1 %17 to i32
+  br label %18
 
-18:                                               ; preds = %12, %6, %2
-  br label %19
-
-19:                                               ; preds = %12, %18
-  %.0 = phi i32 [ 0, %18 ], [ 1, %12 ]
+18:                                               ; preds = %12, %2, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 
@@ -1228,9 +1226,9 @@ define internal void @dispMAC(ptr nocapture noundef writeonly %0, i64 noundef %1
   %4 = lshr i32 %.sroa.0.0.extract.trunc, 16
   %5 = lshr i32 %.sroa.0.0.extract.trunc, 24
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %.sroa.6.0.extract.shift = lshr i64 %1, 40
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw nsw i64 %.sroa.6.0.extract.shift to i32
   %6 = and i32 %.sroa.6.0.extract.trunc, 255
   %7 = and i32 %.sroa.5.0.extract.trunc, 255
   %8 = and i32 %4, 255

@@ -4774,7 +4774,7 @@ if.else:                                          ; preds = %if.then
   %m_upper.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %m_bqmanager.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %call4.i = tail call noundef zeroext i1 @_ZN12mpbq_manager2leERK4mpbqRK3mpq(ptr noundef nonnull align 8 dereferenceable(208) %m_bqmanager.i.i, ptr noundef nonnull align 8 dereferenceable(20) %m_upper.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i20)
-  br i1 %call4.i, label %8, label %if.end.i
+  br i1 %call4.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
   %m_interval.i.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -4797,9 +4797,7 @@ if.end12.i:                                       ; preds = %if.end8.i
   %cmp.i.i23 = icmp eq i32 %7, 0
   %cond.i.i = select i1 %cmp.i.i23, i32 1, i32 -1
   %cmp14.i = icmp eq i32 %call10.i, %cond.i.i
-  br i1 %cmp14.i, label %return, label %8
-
-8:                                                ; preds = %if.else, %if.end12.i
+  %spec.select = select i1 %cmp14.i, i32 -1, i32 1
   br label %return
 
 if.else11:                                        ; preds = %entry
@@ -4807,34 +4805,34 @@ if.else11:                                        ; preds = %entry
 
 if.then13:                                        ; preds = %if.else11
   %and.i26 = and i64 %1, -8
-  %9 = inttoptr i64 %and.i26 to ptr
+  %8 = inttoptr i64 %and.i26 to ptr
   %cmp.i.i27 = icmp eq ptr %2, null
   %m_zero.i28 = getelementptr inbounds i8, ptr %this, i64 640
   %retval.0.i30 = select i1 %cmp.i.i27, ptr %m_zero.i28, ptr %2
-  %m_upper.i.i.i31 = getelementptr inbounds i8, ptr %9, i64 40
+  %m_upper.i.i.i31 = getelementptr inbounds i8, ptr %8, i64 40
   %m_bqmanager.i.i32 = getelementptr inbounds i8, ptr %this, i64 32
   %call4.i33 = tail call noundef zeroext i1 @_ZN12mpbq_manager2leERK4mpbqRK3mpq(ptr noundef nonnull align 8 dereferenceable(208) %m_bqmanager.i.i32, ptr noundef nonnull align 8 dereferenceable(20) %m_upper.i.i.i31, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i30)
   br i1 %call4.i33, label %return, label %if.end.i34
 
 if.end.i34:                                       ; preds = %if.then13
-  %m_interval.i.i35 = getelementptr inbounds i8, ptr %9, i64 16
+  %m_interval.i.i35 = getelementptr inbounds i8, ptr %8, i64 16
   %call.i.i36 = tail call noundef zeroext i1 @_ZN12mpbq_manager2ltERK4mpbqRK3mpq(ptr noundef nonnull align 8 dereferenceable(208) %m_bqmanager.i.i32, ptr noundef nonnull align 8 dereferenceable(20) %m_interval.i.i35, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i30)
   br i1 %call.i.i36, label %if.end8.i38, label %return
 
 if.end8.i38:                                      ; preds = %if.end.i34
   %m_upmanager.i.i39 = getelementptr inbounds i8, ptr %this, i64 328
-  %10 = load i32, ptr %9, align 8
-  %m_p.i40 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load ptr, ptr %m_p.i40, align 8
-  %call10.i41 = tail call noundef i32 @_ZN11upolynomial7manager12eval_sign_atEjPK3mpzRK3mpq(ptr noundef nonnull align 8 dereferenceable(312) %m_upmanager.i.i39, i32 noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i30)
+  %9 = load i32, ptr %8, align 8
+  %m_p.i40 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = load ptr, ptr %m_p.i40, align 8
+  %call10.i41 = tail call noundef i32 @_ZN11upolynomial7manager12eval_sign_atEjPK3mpzRK3mpq(ptr noundef nonnull align 8 dereferenceable(312) %m_upmanager.i.i39, i32 noundef %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i30)
   %cmp.i42 = icmp eq i32 %call10.i41, 0
   br i1 %cmp.i42, label %return, label %if.end12.i43
 
 if.end12.i43:                                     ; preds = %if.end8.i38
-  %m_sign_lower.i.i44 = getelementptr inbounds i8, ptr %9, i64 64
+  %m_sign_lower.i.i44 = getelementptr inbounds i8, ptr %8, i64 64
   %bf.load.i.i45 = load i32, ptr %m_sign_lower.i.i44, align 8
-  %12 = and i32 %bf.load.i.i45, 2
-  %cmp.i.i46 = icmp eq i32 %12, 0
+  %11 = and i32 %bf.load.i.i45, 2
+  %cmp.i.i46 = icmp eq i32 %11, 0
   %cond.i.i47 = select i1 %cmp.i.i46, i32 1, i32 -1
   %cmp14.i48 = icmp eq i32 %call10.i41, %cond.i.i47
   %cond.i49 = select i1 %cmp14.i48, i32 1, i32 -1
@@ -4844,8 +4842,8 @@ if.else17:                                        ; preds = %if.else11
   %call18 = tail call noundef i32 @_ZN17algebraic_numbers7manager3imp12compare_coreERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
   br label %return
 
-return:                                           ; preds = %if.end12.i, %if.end8.i, %if.end.i, %if.end12.i43, %if.end8.i38, %if.end.i34, %if.then13, %8, %if.else17, %if.then3
-  %retval.0 = phi i32 [ %call6, %if.then3 ], [ %call18, %if.else17 ], [ 1, %8 ], [ %cond.i49, %if.end12.i43 ], [ -1, %if.then13 ], [ 1, %if.end.i34 ], [ 0, %if.end8.i38 ], [ 0, %if.end8.i ], [ -1, %if.end.i ], [ -1, %if.end12.i ]
+return:                                           ; preds = %if.end12.i, %if.else, %if.end8.i, %if.end.i, %if.end12.i43, %if.end8.i38, %if.end.i34, %if.then13, %if.else17, %if.then3
+  %retval.0 = phi i32 [ %call6, %if.then3 ], [ %call18, %if.else17 ], [ %cond.i49, %if.end12.i43 ], [ -1, %if.then13 ], [ 1, %if.end.i34 ], [ 0, %if.end8.i38 ], [ 0, %if.end8.i ], [ -1, %if.end.i ], [ 1, %if.else ], [ %spec.select, %if.end12.i ]
   ret i32 %retval.0
 }
 
@@ -7267,7 +7265,7 @@ for.inc:                                          ; preds = %invoke.cont76, %lor
 
 for.end:                                          ; preds = %invoke.cont76, %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %restart.1 = phi i8 [ %restart.0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ 1, %invoke.cont76 ]
-  %tobool82 = trunc i8 %restart.1 to i1
+  %tobool82 = trunc nuw i8 %restart.1 to i1
   br i1 %refined.0, label %lor.lhs.false81, label %while.end
 
 lor.lhs.false81:                                  ; preds = %for.end
@@ -16240,7 +16238,7 @@ if.else.us:                                       ; preds = %invoke.cont56.us
   br i1 %cmp61.us, label %if.then62.us, label %for.inc68.us
 
 if.then62.us:                                     ; preds = %if.else.us
-  %23 = trunc i64 %indvars.iv148 to i32
+  %23 = trunc nuw i64 %indvars.iv148 to i32
   br label %for.inc68.us
 
 if.then59.us:                                     ; preds = %invoke.cont56.us
@@ -17914,7 +17912,7 @@ if.else.us:                                       ; preds = %invoke.cont55.us
   br i1 %cmp60.us, label %if.then61.us, label %for.inc67.us
 
 if.then61.us:                                     ; preds = %if.else.us
-  %25 = trunc i64 %indvars.iv152 to i32
+  %25 = trunc nuw i64 %indvars.iv152 to i32
   br label %for.inc67.us
 
 if.then58.us:                                     ; preds = %invoke.cont55.us
@@ -19467,7 +19465,7 @@ if.else:                                          ; preds = %invoke.cont58
   br i1 %cmp63, label %if.then64, label %for.inc70
 
 if.then64:                                        ; preds = %if.else
-  %34 = trunc i64 %indvars.iv162 to i32
+  %34 = trunc nuw i64 %indvars.iv162 to i32
   br label %for.inc70
 
 for.inc70:                                        ; preds = %if.else, %_Z7deallocIN11upolynomial27scoped_upolynomial_sequenceEEvPT_.exit.i, %if.then61, %if.then64, %invoke.cont43
@@ -21003,7 +21001,7 @@ if.else:                                          ; preds = %invoke.cont58
   br i1 %cmp63, label %if.then64, label %for.inc70
 
 if.then64:                                        ; preds = %if.else
-  %34 = trunc i64 %indvars.iv163 to i32
+  %34 = trunc nuw i64 %indvars.iv163 to i32
   br label %for.inc70
 
 for.inc70:                                        ; preds = %if.else, %_Z7deallocIN11upolynomial27scoped_upolynomial_sequenceEEvPT_.exit.i, %if.then61, %if.then64, %invoke.cont43
@@ -22432,7 +22430,7 @@ if.else.us:                                       ; preds = %invoke.cont58.us
   br i1 %cmp63.us, label %if.then64.us, label %for.inc70.us
 
 if.then64.us:                                     ; preds = %if.else.us
-  %27 = trunc i64 %indvars.iv167 to i32
+  %27 = trunc nuw i64 %indvars.iv167 to i32
   br label %for.inc70.us
 
 if.then61.us:                                     ; preds = %invoke.cont58.us

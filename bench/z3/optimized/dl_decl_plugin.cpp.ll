@@ -500,7 +500,7 @@ if.then19:                                        ; preds = %invoke.cont15
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then19
-  %conv.i.i.i.i = trunc i64 %7 to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %7 to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp, align 8
   store i8 %bf.clear3.i.i.i25, ptr %m_kind.i.i.i23, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpqm.exit.i
@@ -5014,7 +5014,7 @@ if.end:                                           ; preds = %if.then, %_ZNK7data
   br i1 %cmp.i.i.i.i20, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end
-  %conv.i.i.i.i = trunc i64 %value to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %value to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp, align 8
   store i8 0, ptr %m_kind.i.i.i, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit
@@ -5210,7 +5210,7 @@ _ZNK7datalog12dl_decl_util5arithEv.exit61:        ; preds = %_ZNK17arith_recogni
   br i1 %cmp.i.i.i.i71, label %if.then.i.i.i.i73, label %if.else.i.i.i.i72
 
 if.then.i.i.i.i73:                                ; preds = %_ZNK7datalog12dl_decl_util5arithEv.exit61
-  %conv.i.i.i.i74 = trunc i64 %value to i32
+  %conv.i.i.i.i74 = trunc nuw nsw i64 %value to i32
   store i32 %conv.i.i.i.i74, ptr %ref.tmp36, align 8
   store i8 0, ptr %m_kind.i.i.i62, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit75
@@ -5353,7 +5353,7 @@ _ZNK7datalog12dl_decl_util2bvEv.exit98:           ; preds = %if.then45, %if.then
   br i1 %cmp.i.i.i.i108, label %if.then.i.i.i.i110, label %if.else.i.i.i.i109
 
 if.then.i.i.i.i110:                               ; preds = %_ZNK7datalog12dl_decl_util2bvEv.exit98
-  %conv.i.i.i.i111 = trunc i64 %value to i32
+  %conv.i.i.i.i111 = trunc nuw nsw i64 %value to i32
   store i32 %conv.i.i.i.i111, ptr %ref.tmp47, align 8
   store i8 0, ptr %m_kind.i.i.i99, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit112
@@ -6003,13 +6003,13 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont28 unwind label %lpad25
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  br i1 %call29, label %land.lhs.true30, label %if.end34
+  br i1 %call29, label %land.lhs.true30, label %cleanup
 
 land.lhs.true30:                                  ; preds = %invoke.cont28
   %bf.load.i.i.i30 = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i31 = and i32 %bf.load.i.i.i30, 65535
   %cmp.i.i32 = icmp eq i32 %bf.clear.i.i.i31, 0
-  br i1 %cmp.i.i32, label %land.rhs.i, label %if.end34
+  br i1 %cmp.i.i32, label %land.rhs.i, label %cleanup
 
 land.rhs.i:                                       ; preds = %land.lhs.true30
   %call.i.i36 = invoke noundef i32 @_ZNK8datatype4util3fidEv(ptr noundef nonnull align 8 dereferenceable(288) %dt)
@@ -6019,7 +6019,7 @@ call.i.i.noexc:                                   ; preds = %land.rhs.i
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i33 = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i33, label %land.rhs.i.i.i, label %if.end34
+  br i1 %cmp.i.i.i33, label %land.rhs.i.i.i, label %cleanup
 
 land.rhs.i.i.i:                                   ; preds = %call.i.i.noexc
   %m_decl.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 16
@@ -6027,16 +6027,16 @@ land.rhs.i.i.i:                                   ; preds = %call.i.i.noexc
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.end34, label %invoke.cont31
+  br i1 %tobool.not.i.i.i.i.i, label %cleanup, label %land.rhs.i.i.i.i.i
 
-invoke.cont31:                                    ; preds = %land.rhs.i.i.i
+land.rhs.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i
   %26 = load i32, ptr %25, align 8
   %cmp.i.i.i.i.i.i34 = icmp eq i32 %26, %call.i.i36
   %m_kind.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load i32, ptr %m_kind.i.i.i.i.i.i35, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %27, 0
   %28 = select i1 %cmp.i.i.i.i.i.i34, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %28, label %cleanup, label %if.end34
+  br label %cleanup
 
 lpad25:                                           ; preds = %land.rhs.i, %invoke.cont26, %invoke.cont24
   %29 = landingpad { ptr, i32 }
@@ -6044,11 +6044,8 @@ lpad25:                                           ; preds = %land.rhs.i, %invoke
   call void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %dt) #18
   br label %ehcleanup
 
-if.end34:                                         ; preds = %land.rhs.i.i.i, %call.i.i.noexc, %land.lhs.true30, %invoke.cont31, %invoke.cont28
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont31, %if.end34
-  %retval.0 = phi i1 [ false, %if.end34 ], [ true, %invoke.cont31 ]
+cleanup:                                          ; preds = %land.lhs.true30, %call.i.i.noexc, %land.rhs.i.i.i, %land.rhs.i.i.i.i.i, %invoke.cont28
+  %retval.0 = phi i1 [ false, %invoke.cont28 ], [ false, %land.lhs.true30 ], [ false, %call.i.i.noexc ], [ false, %land.rhs.i.i.i ], [ %28, %land.rhs.i.i.i.i.i ]
   call void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %dt) #18
   br label %cleanup35
 
@@ -6161,7 +6158,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end
-  %conv.i.i.i.i = trunc i64 %domain_size to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %domain_size to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp13, align 8
   store i8 0, ptr %m_kind.i.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpqm.exit.i

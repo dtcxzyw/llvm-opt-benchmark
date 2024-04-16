@@ -24,79 +24,76 @@ define void @mca_fs_base_get_parent_dir(ptr nocapture noundef readonly %0, ptr n
 
 6:                                                ; preds = %2
   %7 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #10
-  br label %36
+  br label %35
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %9 = call i32 @lstat(ptr noundef nonnull %0, ptr noundef nonnull %4) #10
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %10, label %15
-
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = load i32, ptr %11, align 8
-  %13 = and i32 %12, 61440
-  %14 = icmp eq i32 %13, 40960
-  br i1 %14, label %17, label %15
-
-15:                                               ; preds = %10, %8
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = load i32, ptr %10, align 8
+  %12 = and i32 %11, 61440
+  %13 = icmp eq i32 %12, 40960
+  %.0.i = select i1 %.not.i, i1 %13, i1 false
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  %16 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
-  br label %27
+  br i1 %.0.i, label %16, label %14
 
-17:                                               ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+14:                                               ; preds = %8
+  %15 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
+  br label %26
+
+16:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %3)
-  %18 = call i64 @readlink(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4096) #10
-  %19 = and i64 %18, 4294967295
-  %20 = icmp eq i64 %19, 4294967295
-  br i1 %20, label %21, label %23
+  %17 = call i64 @readlink(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4096) #10
+  %18 = and i64 %17, 4294967295
+  %19 = icmp eq i64 %18, 4294967295
+  br i1 %19, label %20, label %22
 
-21:                                               ; preds = %17
-  %22 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
+20:                                               ; preds = %16
+  %21 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #10
   br label %mca_fs_base_get_real_filename.exit
 
-23:                                               ; preds = %17
-  %sext.i = shl i64 %18, 32
-  %24 = ashr exact i64 %sext.i, 32
-  %25 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %24
-  store i8 0, ptr %25, align 1
-  %26 = call noalias ptr @strdup(ptr noundef nonnull %3) #10
+22:                                               ; preds = %16
+  %sext.i = shl i64 %17, 32
+  %23 = ashr exact i64 %sext.i, 32
+  %24 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %23
+  store i8 0, ptr %24, align 1
+  %25 = call noalias ptr @strdup(ptr noundef nonnull %3) #10
   br label %mca_fs_base_get_real_filename.exit
 
-mca_fs_base_get_real_filename.exit:               ; preds = %21, %23
-  %storemerge.i = phi ptr [ %26, %23 ], [ %22, %21 ]
+mca_fs_base_get_real_filename.exit:               ; preds = %20, %22
+  %storemerge.i = phi ptr [ %25, %22 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %3)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %mca_fs_base_get_real_filename.exit, %15
-  %.0 = phi ptr [ %storemerge.i, %mca_fs_base_get_real_filename.exit ], [ %16, %15 ]
-  %28 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 47) #11
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %30
+26:                                               ; preds = %mca_fs_base_get_real_filename.exit, %14
+  %.0 = phi ptr [ %storemerge.i, %mca_fs_base_get_real_filename.exit ], [ %15, %14 ]
+  %27 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 47) #11
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %28, label %29
 
-29:                                               ; preds = %27
+28:                                               ; preds = %26
   tail call void @opal_string_copy(ptr noundef %.0, ptr noundef nonnull @.str.2, i64 noundef 2) #10
-  br label %35
+  br label %34
 
-30:                                               ; preds = %27
-  %31 = icmp eq ptr %28, %.0
-  br i1 %31, label %32, label %34
+29:                                               ; preds = %26
+  %30 = icmp eq ptr %27, %.0
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.0, i64 1
-  store i8 0, ptr %33, align 1
-  br label %35
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %.0, i64 1
+  store i8 0, ptr %32, align 1
+  br label %34
 
-34:                                               ; preds = %30
-  store i8 0, ptr %28, align 1
-  br label %35
+33:                                               ; preds = %29
+  store i8 0, ptr %27, align 1
+  br label %34
 
-35:                                               ; preds = %32, %34, %29
+34:                                               ; preds = %31, %33, %28
   store ptr %.0, ptr %1, align 8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %6
+35:                                               ; preds = %34, %6
   ret void
 }
 

@@ -40,7 +40,7 @@ define internal fastcc i64 @__se_sys_name_to_handle_at(i64 noundef %0, i64 nound
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
   %12 = and i32 %11, -5633
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %103
+  br i1 %13, label %14, label %102
 
 14:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !7
@@ -55,7 +55,7 @@ define internal fastcc i64 @__se_sys_name_to_handle_at(i64 noundef %0, i64 nound
   %23 = select i1 %21, i32 %18, i32 %22
   %24 = call i32 @user_path_at_empty(i32 noundef %16, ptr noundef %15, i32 noundef %23, ptr noundef nonnull %8, ptr noundef null) #8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %100
+  br i1 %25, label %26, label %99
 
 26:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
@@ -75,7 +75,7 @@ define internal fastcc i64 @__se_sys_name_to_handle_at(i64 noundef %0, i64 nound
   br i1 %34, label %43, label %39
 
 36:                                               ; preds = %26
-  br i1 %34, label %98, label %37
+  br i1 %34, label %97, label %37
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds i8, ptr %32, i64 8
@@ -85,24 +85,24 @@ define internal fastcc i64 @__se_sys_name_to_handle_at(i64 noundef %0, i64 nound
   %40 = phi ptr [ %38, %37 ], [ %32, %35 ]
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %98, label %43
+  br i1 %42, label %97, label %43
 
 43:                                               ; preds = %39, %35
   %44 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %9, i64 noundef 8) #8
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %46, label %98
+  br i1 %45, label %46, label %97
 
 46:                                               ; preds = %43
   %47 = load i32, ptr %6, align 8
   %48 = icmp ugt i32 %47, 128
-  br i1 %48, label %98, label %49
+  br i1 %48, label %97, label %49
 
 49:                                               ; preds = %46
   %50 = add nuw nsw i32 %47, 8
   %51 = zext nneg i32 %50 to i64
   %52 = call noalias align 8 ptr @__kmalloc(i64 noundef %51, i32 noundef 3264) #9
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %98, label %54
+  br i1 %53, label %97, label %54
 
 54:                                               ; preds = %49
   %55 = load i32, ptr %6, align 8
@@ -164,32 +164,30 @@ define internal fastcc i64 @__se_sys_name_to_handle_at(i64 noundef %0, i64 nound
 92:                                               ; preds = %89
   %93 = call i64 @_copy_to_user(ptr noundef %9, ptr noundef nonnull %52, i64 noundef %77) #8
   %94 = icmp eq i64 %93, 0
-  br i1 %94, label %96, label %95
+  %spec.select = select i1 %94, i32 %78, i32 -14
+  br label %95
 
-95:                                               ; preds = %92, %91, %76
-  br label %96
-
-96:                                               ; preds = %95, %92
-  %97 = phi i32 [ -14, %95 ], [ %78, %92 ]
+95:                                               ; preds = %92, %76, %91
+  %96 = phi i32 [ -14, %91 ], [ -14, %76 ], [ %spec.select, %92 ]
   call void @kfree(ptr noundef nonnull %52) #8
-  br label %98
+  br label %97
 
-98:                                               ; preds = %96, %49, %46, %43, %39, %36
-  %99 = phi i32 [ %97, %96 ], [ -95, %39 ], [ -14, %43 ], [ -22, %46 ], [ -12, %49 ], [ -95, %36 ]
+97:                                               ; preds = %95, %49, %46, %43, %39, %36
+  %98 = phi i32 [ %96, %95 ], [ -95, %39 ], [ -14, %43 ], [ -22, %46 ], [ -12, %49 ], [ -95, %36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @path_put(ptr noundef nonnull %8) #8
-  br label %100
+  br label %99
 
-100:                                              ; preds = %98, %14
-  %101 = phi i32 [ %24, %14 ], [ %99, %98 ]
-  %102 = sext i32 %101 to i64
-  br label %103
+99:                                               ; preds = %97, %14
+  %100 = phi i32 [ %24, %14 ], [ %98, %97 ]
+  %101 = sext i32 %100 to i64
+  br label %102
 
-103:                                              ; preds = %100, %5
-  %104 = phi i64 [ %102, %100 ], [ -22, %5 ]
+102:                                              ; preds = %99, %5
+  %103 = phi i64 [ %101, %99 ], [ -22, %5 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
-  ret i64 %104
+  ret i64 %103
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

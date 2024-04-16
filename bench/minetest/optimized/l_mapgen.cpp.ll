@@ -1823,7 +1823,7 @@ if.end:                                           ; preds = %entry
   %size.sroa.6.0.extract.shift = lshr i48 %call1, 16
   %size.sroa.6.0.extract.trunc = trunc i48 %size.sroa.6.0.extract.shift to i16
   %size.sroa.10.0.extract.shift = lshr i48 %call1, 32
-  %size.sroa.10.0.extract.trunc = trunc i48 %size.sroa.10.0.extract.shift to i16
+  %size.sroa.10.0.extract.trunc = trunc nuw i48 %size.sroa.10.0.extract.shift to i16
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)
   %size2 = getelementptr inbounds i8, ptr %schem, i64 164
   store i16 %size.sroa.0.0.extract.trunc, ptr %size2, align 4, !tbaa !40
@@ -7956,7 +7956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %conv.i.i = trunc i64 %call.i.i65 to i32
   %spec.select.i = call i32 @llvm.smax.i32(i32 %conv.i.i, i32 0)
   %8 = call i32 @llvm.umin.i32(i32 %spec.select.i, i32 31007)
-  %conv12 = trunc i32 %8 to i16
+  %conv12 = trunc nuw nsw i32 %8 to i16
   %9 = load ptr, ptr %mapgen_limit_str, align 8, !tbaa !11
   %cmp.i.i.i66 = icmp eq ptr %9, %3
   br i1 %cmp.i.i.i66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68, label %if.then.i.i67
@@ -8063,7 +8063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %if
   %conv.i.i105 = trunc i64 %call.i.i104 to i32
   %spec.select.i106 = call i32 @llvm.smax.i32(i32 %conv.i.i105, i32 -32768)
   %i.1.i107 = call noundef i32 @llvm.smin.i32(i32 %spec.select.i106, i32 32767)
-  %conv35 = trunc i32 %i.1.i107 to i16
+  %conv35 = trunc nsw i32 %i.1.i107 to i16
   %21 = load ptr, ptr %chunksize_str, align 8, !tbaa !11
   %cmp.i.i.i108 = icmp eq ptr %21, %16
   br i1 %cmp.i.i.i108, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i110, label %if.then.i.i109
@@ -9626,7 +9626,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %13, %14
   %spec.select6.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -11465,10 +11465,10 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit120: ; preds = %i
   br label %cleanup28
 
 if.end25:                                         ; preds = %if.end13
-  %conv26 = trunc i32 %call14 to i8
+  %conv26 = trunc nuw i32 %call14 to i8
   %deco_param2 = getelementptr inbounds i8, ptr %deco, i64 340
   store i8 %conv26, ptr %deco_param2, align 4, !tbaa !243
-  %conv27 = trunc i32 %call15 to i8
+  %conv27 = trunc nuw i32 %call15 to i8
   %deco_param2_max = getelementptr inbounds i8, ptr %deco, i64 341
   store i8 %conv27, ptr %deco_param2_max, align 1, !tbaa !244
   br label %cleanup28
@@ -13758,7 +13758,7 @@ cond.end:                                         ; preds = %invoke.cont23, %con
   %pmin.sroa.8.0.extract.shift = lshr i48 %storemerge, 16
   %pmin.sroa.8.0.extract.trunc = trunc i48 %pmin.sroa.8.0.extract.shift to i16
   %pmin.sroa.10.0.extract.shift = lshr i48 %storemerge, 32
-  %pmin.sroa.10.0.extract.trunc = trunc i48 %pmin.sroa.10.0.extract.shift to i16
+  %pmin.sroa.10.0.extract.trunc = trunc nuw i48 %pmin.sroa.10.0.extract.shift to i16
   %call31 = invoke i32 @lua_type(ptr noundef %L, i32 noundef 3)
           to label %invoke.cont30 unwind label %lpad29
 
@@ -13796,7 +13796,7 @@ cond.end50:                                       ; preds = %invoke.cont44, %con
   %pmax.sroa.7.0.extract.shift = lshr i48 %storemerge77, 16
   %pmax.sroa.7.0.extract.trunc = trunc i48 %pmax.sroa.7.0.extract.shift to i16
   %pmax.sroa.9.0.extract.shift = lshr i48 %storemerge77, 32
-  %pmax.sroa.9.0.extract.trunc = trunc i48 %pmax.sroa.9.0.extract.shift to i16
+  %pmax.sroa.9.0.extract.trunc = trunc nuw i48 %pmax.sroa.9.0.extract.shift to i16
   %spec.select142 = call i16 @llvm.smin.i16(i16 %pmin.sroa.0.0.extract.trunc, i16 %pmax.sroa.0.0.extract.trunc)
   %pmin.sroa.8.0 = call i16 @llvm.smin.i16(i16 %pmin.sroa.8.0.extract.trunc, i16 %pmax.sroa.7.0.extract.trunc)
   %pmin.sroa.10.0 = call i16 @llvm.smin.i16(i16 %pmin.sroa.10.0.extract.trunc, i16 %pmax.sroa.9.0.extract.trunc)
@@ -14022,7 +14022,7 @@ cond.end:                                         ; preds = %invoke.cont23, %con
   %pmin.sroa.8.0.extract.shift = lshr i48 %storemerge, 16
   %pmin.sroa.8.0.extract.trunc = trunc i48 %pmin.sroa.8.0.extract.shift to i16
   %pmin.sroa.10.0.extract.shift = lshr i48 %storemerge, 32
-  %pmin.sroa.10.0.extract.trunc = trunc i48 %pmin.sroa.10.0.extract.shift to i16
+  %pmin.sroa.10.0.extract.trunc = trunc nuw i48 %pmin.sroa.10.0.extract.shift to i16
   %call31 = invoke i32 @lua_type(ptr noundef %L, i32 noundef 3)
           to label %invoke.cont30 unwind label %lpad29
 
@@ -14060,7 +14060,7 @@ cond.end50:                                       ; preds = %invoke.cont44, %con
   %pmax.sroa.7.0.extract.shift = lshr i48 %storemerge77, 16
   %pmax.sroa.7.0.extract.trunc = trunc i48 %pmax.sroa.7.0.extract.shift to i16
   %pmax.sroa.9.0.extract.shift = lshr i48 %storemerge77, 32
-  %pmax.sroa.9.0.extract.trunc = trunc i48 %pmax.sroa.9.0.extract.shift to i16
+  %pmax.sroa.9.0.extract.trunc = trunc nuw i48 %pmax.sroa.9.0.extract.shift to i16
   %spec.select142 = call i16 @llvm.smin.i16(i16 %pmin.sroa.0.0.extract.trunc, i16 %pmax.sroa.0.0.extract.trunc)
   %pmin.sroa.8.0 = call i16 @llvm.smin.i16(i16 %pmin.sroa.8.0.extract.trunc, i16 %pmax.sroa.7.0.extract.trunc)
   %pmin.sroa.10.0 = call i16 @llvm.smin.i16(i16 %pmin.sroa.10.0.extract.trunc, i16 %pmax.sroa.9.0.extract.trunc)
@@ -14342,7 +14342,7 @@ invoke.cont28:                                    ; preds = %_ZN9SchematicC2Ev.e
 
 invoke.cont31:                                    ; preds = %invoke.cont28
   %p1.sroa.10.0.extract.shift = lshr i48 %call29, 32
-  %p1.sroa.10.0.extract.trunc = trunc i48 %p1.sroa.10.0.extract.shift to i16
+  %p1.sroa.10.0.extract.trunc = trunc nuw i48 %p1.sroa.10.0.extract.shift to i16
   %p1.sroa.8.0.extract.shift = lshr i48 %call29, 16
   %p1.sroa.8.0.extract.trunc = trunc i48 %p1.sroa.8.0.extract.shift to i16
   %p1.sroa.0.0.extract.trunc = trunc i48 %call29 to i16
@@ -14350,7 +14350,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
   %p2.sroa.7.0.extract.shift = lshr i48 %call32, 16
   %p2.sroa.7.0.extract.trunc = trunc i48 %p2.sroa.7.0.extract.shift to i16
   %p2.sroa.9.0.extract.shift = lshr i48 %call32, 32
-  %p2.sroa.9.0.extract.trunc = trunc i48 %p2.sroa.9.0.extract.shift to i16
+  %p2.sroa.9.0.extract.trunc = trunc nuw i48 %p2.sroa.9.0.extract.shift to i16
   %spec.select = call i16 @llvm.smax.i16(i16 %p1.sroa.0.0.extract.trunc, i16 %p2.sroa.0.0.extract.trunc)
   %spec.select389 = call i16 @llvm.smin.i16(i16 %p1.sroa.0.0.extract.trunc, i16 %p2.sroa.0.0.extract.trunc)
   %p2.sroa.7.0 = call i16 @llvm.smax.i16(i16 %p1.sroa.8.0.extract.trunc, i16 %p2.sroa.7.0.extract.trunc)
@@ -20125,7 +20125,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i = sub i64 %0, %2
   %spec.select6.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i = trunc i64 %retval.07.i.i.i.i to i32
+  %retval.0.i12.i.i.i = trunc nsw i64 %retval.07.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %if.then.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -20177,7 +20177,7 @@ if.then.i.i.i36:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i37 = sub i64 %6, %5
   %spec.select6.i.i.i.i38 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i37, i64 -2147483648)
   %retval.07.i.i.i.i39 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i38, i64 2147483647)
-  %retval.0.i12.i.i.i40 = trunc i64 %retval.07.i.i.i.i39 to i32
+  %retval.0.i12.i.i.i40 = trunc nsw i64 %retval.07.i.i.i.i39 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit41
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit41: ; preds = %if.then.i.i.i36, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i31
@@ -20301,7 +20301,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !422
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !13
@@ -20312,13 +20312,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #27
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

@@ -1123,16 +1123,16 @@ define i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroe
   %41 = getelementptr inbounds i8, ptr %12, i64 8
   br label %42
 
-42:                                               ; preds = %31, %135
-  %.06798 = phi ptr [ %7, %31 ], [ %.2, %135 ]
-  %.06897 = phi ptr [ %32, %31 ], [ %136, %135 ]
+42:                                               ; preds = %31, %134
+  %.06798 = phi ptr [ %7, %31 ], [ %.2, %134 ]
+  %.06897 = phi ptr [ %32, %31 ], [ %135, %134 ]
   %43 = load ptr, ptr %.06897, align 8
   %.not82 = icmp eq ptr %43, null
   br i1 %.not82, label %.critedge, label %44
 
 44:                                               ; preds = %42
   %45 = load i16, ptr %43, align 2
-  switch i16 %45, label %135 [
+  switch i16 %45, label %134 [
     i16 10, label %46
     i16 2, label %52
   ]
@@ -1144,20 +1144,20 @@ define i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroe
 47:                                               ; preds = %46
   %48 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06798, i32 noundef 58) #22
   %.not87 = icmp eq ptr %48, null
-  br i1 %.not87, label %135, label %49
+  br i1 %.not87, label %134, label %49
 
 49:                                               ; preds = %47, %46
   %50 = call zeroext i16 @htons(i16 noundef zeroext %1) #20
   %51 = getelementptr inbounds i8, ptr %43, i64 2
   store i16 %50, ptr %51, align 2
-  br label %60
+  br label %59
 
 52:                                               ; preds = %44
   %53 = call zeroext i16 @htons(i16 noundef zeroext %1) #20
   %54 = getelementptr inbounds i8, ptr %43, i64 2
   store i16 %53, ptr %54, align 2
   %.not83 = icmp eq ptr %.06798, null
-  br i1 %.not83, label %60, label %55
+  br i1 %.not83, label %59, label %55
 
 55:                                               ; preds = %52
   %56 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06798, i32 noundef 58) #22
@@ -1167,208 +1167,206 @@ define i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroe
 57:                                               ; preds = %55
   %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.06798, ptr noundef nonnull dereferenceable(2) @.str.7) #22
   %.not85 = icmp eq i32 %58, 0
-  br i1 %.not85, label %59, label %60
+  %spec.select = select i1 %.not85, ptr null, ptr %.06798
+  br label %59
 
-59:                                               ; preds = %57, %55
-  br label %60
+59:                                               ; preds = %57, %55, %52, %49
+  %.1 = phi ptr [ null, %52 ], [ %.06798, %49 ], [ null, %55 ], [ %spec.select, %57 ]
+  %.066 = phi i32 [ 16, %52 ], [ 28, %49 ], [ 16, %55 ], [ 16, %57 ]
+  %60 = zext nneg i16 %45 to i32
+  %61 = call i32 @socket(i32 noundef %60, i32 noundef %2, i32 noundef 0) #19
+  %62 = icmp eq i32 %61, -1
+  br i1 %62, label %134, label %63
 
-60:                                               ; preds = %52, %57, %59, %49
-  %.1 = phi ptr [ null, %59 ], [ %.06798, %57 ], [ null, %52 ], [ %.06798, %49 ]
-  %.066 = phi i32 [ 16, %59 ], [ 16, %57 ], [ 16, %52 ], [ 28, %49 ]
-  %61 = zext nneg i16 %45 to i32
-  %62 = call i32 @socket(i32 noundef %61, i32 noundef %2, i32 noundef 0) #19
-  %63 = icmp eq i32 %62, -1
-  br i1 %63, label %135, label %64
-
-64:                                               ; preds = %60
+63:                                               ; preds = %59
   %.not88 = icmp eq ptr %.1, null
-  br i1 %.not88, label %89, label %65
+  br i1 %.not88, label %88, label %64
 
-65:                                               ; preds = %64
-  %66 = load i16, ptr %43, align 2
-  %67 = icmp eq i16 %66, 2
-  br i1 %67, label %68, label %74
+64:                                               ; preds = %63
+  %65 = load i16, ptr %43, align 2
+  %66 = icmp eq i16 %65, 2
+  br i1 %66, label %67, label %73
 
-68:                                               ; preds = %65
-  %69 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.1, ptr noundef nonnull %35) #19
-  %70 = icmp eq i32 %69, 1
-  br i1 %70, label %71, label %80
+67:                                               ; preds = %64
+  %68 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.1, ptr noundef nonnull %35) #19
+  %69 = icmp eq i32 %68, 1
+  br i1 %69, label %70, label %79
 
-71:                                               ; preds = %68
-  %72 = load i16, ptr %43, align 2
-  store i16 %72, ptr %15, align 4
-  %73 = call zeroext i16 @htons(i16 noundef zeroext %8) #20
-  store i16 %73, ptr %34, align 2
+70:                                               ; preds = %67
+  %71 = load i16, ptr %43, align 2
+  store i16 %71, ptr %15, align 4
+  %72 = call zeroext i16 @htons(i16 noundef zeroext %8) #20
+  store i16 %72, ptr %34, align 2
   store i64 0, ptr %33, align 4
-  br label %82
+  br label %81
 
-74:                                               ; preds = %65
-  %75 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.1, ptr noundef nonnull %33) #19
-  %76 = icmp eq i32 %75, 1
-  br i1 %76, label %77, label %80
+73:                                               ; preds = %64
+  %74 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.1, ptr noundef nonnull %33) #19
+  %75 = icmp eq i32 %74, 1
+  br i1 %75, label %76, label %79
 
-77:                                               ; preds = %74
-  %78 = load i16, ptr %43, align 2
-  store i16 %78, ptr %15, align 4
-  %79 = call zeroext i16 @htons(i16 noundef zeroext %8) #20
-  store i16 %79, ptr %34, align 2
-  br label %82
+76:                                               ; preds = %73
+  %77 = load i16, ptr %43, align 2
+  store i16 %77, ptr %15, align 4
+  %78 = call zeroext i16 @htons(i16 noundef zeroext %8) #20
+  store i16 %78, ptr %34, align 2
+  br label %81
 
-80:                                               ; preds = %68, %74
+79:                                               ; preds = %67, %73
   store i32 1, ptr %16, align 4
-  %81 = call i32 @setsockopt(i32 noundef %62, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
+  %80 = call i32 @setsockopt(i32 noundef %61, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1) #19
-  br label %89
+  br label %88
 
-82:                                               ; preds = %71, %77
-  %.065 = phi i32 [ 16, %71 ], [ 28, %77 ]
+81:                                               ; preds = %70, %76
+  %.065 = phi i32 [ 16, %70 ], [ 28, %76 ]
   store i32 1, ptr %16, align 4
-  %83 = call i32 @setsockopt(i32 noundef %62, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
-  %84 = call i32 @bind(i32 noundef %62, ptr nonnull %15, i32 noundef %.065) #19
-  %.not89 = icmp eq i32 %84, 0
-  br i1 %.not89, label %89, label %85
+  %82 = call i32 @setsockopt(i32 noundef %61, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
+  %83 = call i32 @bind(i32 noundef %61, ptr nonnull %15, i32 noundef %.065) #19
+  %.not89 = icmp eq i32 %83, 0
+  br i1 %.not89, label %88, label %84
 
-85:                                               ; preds = %82
-  %86 = tail call ptr @__errno_location() #20
-  %87 = load i32, ptr %86, align 4
-  %88 = call ptr @strerror(i32 noundef %87) #19
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.1, i32 noundef %36, ptr noundef %88) #19
-  br label %89
+84:                                               ; preds = %81
+  %85 = tail call ptr @__errno_location() #20
+  %86 = load i32, ptr %85, align 4
+  %87 = call ptr @strerror(i32 noundef %86) #19
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.1, i32 noundef %36, ptr noundef %87) #19
+  br label %88
 
-89:                                               ; preds = %80, %85, %82, %64
-  br i1 %.not90, label %103, label %90
+88:                                               ; preds = %79, %84, %81, %63
+  br i1 %.not90, label %102, label %89
 
-90:                                               ; preds = %89
-  %91 = load ptr, ptr %5, align 8
-  %.not91 = icmp eq ptr %91, null
-  br i1 %.not91, label %103, label %92
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %5, align 8
+  %.not91 = icmp eq ptr %90, null
+  br i1 %.not91, label %102, label %91
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %91, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = and i32 %94, 64
-  %.not92 = icmp eq i32 %95, 0
-  br i1 %.not92, label %96, label %102
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds i8, ptr %90, i64 4
+  %93 = load i32, ptr %92, align 4
+  %94 = and i32 %93, 64
+  %.not92 = icmp eq i32 %94, 0
+  br i1 %.not92, label %95, label %101
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %91, align 4
-  %98 = icmp ne i32 %97, 0
-  call void @llvm.assume(i1 %98)
-  %99 = add i32 %97, -1
-  store i32 %99, ptr %91, align 4
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %102
+95:                                               ; preds = %91
+  %96 = load i32, ptr %90, align 4
+  %97 = icmp ne i32 %96, 0
+  call void @llvm.assume(i1 %97)
+  %98 = add i32 %96, -1
+  store i32 %98, ptr %90, align 4
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %101
 
-101:                                              ; preds = %96
-  call void @_efree(ptr noundef nonnull %91) #19
+100:                                              ; preds = %95
+  call void @_efree(ptr noundef nonnull %90) #19
+  br label %101
+
+101:                                              ; preds = %95, %100, %91
+  store ptr null, ptr %5, align 8
   br label %102
 
-102:                                              ; preds = %96, %101, %92
-  store ptr null, ptr %5, align 8
-  br label %103
-
-103:                                              ; preds = %102, %90, %89
+102:                                              ; preds = %101, %89, %88
   store i32 1, ptr %17, align 4
-  br i1 %.not93, label %106, label %104
+  br i1 %.not93, label %105, label %103
 
-104:                                              ; preds = %103
-  %105 = call i32 @setsockopt(i32 noundef %62, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %17, i32 noundef 4) #19
-  br label %106
+103:                                              ; preds = %102
+  %104 = call i32 @setsockopt(i32 noundef %61, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %17, i32 noundef 4) #19
+  br label %105
 
-106:                                              ; preds = %104, %103
+105:                                              ; preds = %103, %102
   store i32 1, ptr %18, align 4
-  br i1 %.not94, label %109, label %107
+  br i1 %.not94, label %108, label %106
 
-107:                                              ; preds = %106
-  %108 = call i32 @setsockopt(i32 noundef %62, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 4) #19
-  br label %109
+106:                                              ; preds = %105
+  %107 = call i32 @setsockopt(i32 noundef %61, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 4) #19
+  br label %108
 
-109:                                              ; preds = %107, %106
-  %110 = call i32 @php_network_connect_socket(i32 noundef %62, ptr noundef nonnull %43, i32 noundef %.066, i32 noundef %3, ptr noundef %., ptr noundef %5, ptr noundef %6), !range !4
-  %.not95 = icmp eq i32 %110, -1
-  br i1 %.not95, label %111, label %.critedge
+108:                                              ; preds = %106, %105
+  %109 = call i32 @php_network_connect_socket(i32 noundef %61, ptr noundef nonnull %43, i32 noundef %.066, i32 noundef %3, ptr noundef %., ptr noundef %5, ptr noundef %6), !range !4
+  %.not95 = icmp eq i32 %109, -1
+  br i1 %.not95, label %110, label %.critedge
 
-111:                                              ; preds = %109
-  br i1 %.not, label %sub_times.exit, label %112
+110:                                              ; preds = %108
+  br i1 %.not, label %sub_times.exit, label %111
 
-112:                                              ; preds = %111
-  %113 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #19
-  %114 = load i64, ptr %14, align 8
-  %115 = load i64, ptr %13, align 16
-  %116 = icmp eq i64 %114, %115
-  br i1 %116, label %117, label %121
+111:                                              ; preds = %110
+  %112 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #19
+  %113 = load i64, ptr %14, align 8
+  %114 = load i64, ptr %13, align 16
+  %115 = icmp eq i64 %113, %114
+  br i1 %115, label %116, label %120
 
-117:                                              ; preds = %112
-  %118 = load i64, ptr %39, align 8
-  %119 = load i64, ptr %40, align 8
-  %120 = icmp slt i64 %118, %119
-  br i1 %120, label %123, label %sub_times.exit
+116:                                              ; preds = %111
+  %117 = load i64, ptr %39, align 8
+  %118 = load i64, ptr %40, align 8
+  %119 = icmp slt i64 %117, %118
+  br i1 %119, label %122, label %sub_times.exit
 
-121:                                              ; preds = %112
-  %122 = icmp slt i64 %114, %115
-  br i1 %122, label %._crit_edge, label %sub_times.exit
+120:                                              ; preds = %111
+  %121 = icmp slt i64 %113, %114
+  br i1 %121, label %._crit_edge, label %sub_times.exit
 
-._crit_edge:                                      ; preds = %121
+._crit_edge:                                      ; preds = %120
   %.pre = load i64, ptr %40, align 8
   %.pre99 = load i64, ptr %39, align 8
-  br label %123
+  br label %122
 
-123:                                              ; preds = %._crit_edge, %117
-  %124 = phi i64 [ %.pre99, %._crit_edge ], [ %118, %117 ]
-  %125 = phi i64 [ %.pre, %._crit_edge ], [ %119, %117 ]
-  %126 = sub nsw i64 %125, %124
-  %127 = icmp slt i64 %126, 0
-  %128 = add nsw i64 %126, 1000000
-  %storemerge.i = select i1 %127, i64 %128, i64 %126
-  %.lobit.i = ashr i64 %126, 63
+122:                                              ; preds = %._crit_edge, %116
+  %123 = phi i64 [ %.pre99, %._crit_edge ], [ %117, %116 ]
+  %124 = phi i64 [ %.pre, %._crit_edge ], [ %118, %116 ]
+  %125 = sub nsw i64 %124, %123
+  %126 = icmp slt i64 %125, 0
+  %127 = add nsw i64 %125, 1000000
+  %storemerge.i = select i1 %126, i64 %127, i64 %125
+  %.lobit.i = ashr i64 %125, 63
   store i64 %storemerge.i, ptr %41, align 8
-  %.sroa.07.0.i = sub i64 %115, %114
-  %129 = add i64 %.lobit.i, %.sroa.07.0.i
-  store i64 %129, ptr %12, align 16
-  %130 = icmp slt i64 %129, 0
-  br i1 %130, label %131, label %sub_times.exit
+  %.sroa.07.0.i = sub i64 %114, %113
+  %128 = add i64 %.lobit.i, %.sroa.07.0.i
+  store i64 %128, ptr %12, align 16
+  %129 = icmp slt i64 %128, 0
+  br i1 %129, label %130, label %sub_times.exit
 
-131:                                              ; preds = %123
-  %132 = add nsw i64 %129, 1
-  store i64 %132, ptr %12, align 16
-  %133 = add nsw i64 %storemerge.i, -1000000
-  store i64 %133, ptr %41, align 8
+130:                                              ; preds = %122
+  %131 = add nsw i64 %128, 1
+  store i64 %131, ptr %12, align 16
+  %132 = add nsw i64 %storemerge.i, -1000000
+  store i64 %132, ptr %41, align 8
   br label %sub_times.exit
 
-sub_times.exit:                                   ; preds = %131, %123, %117, %121, %111
-  %.171 = phi i32 [ 0, %111 ], [ 1, %121 ], [ 1, %117 ], [ 0, %123 ], [ 0, %131 ]
-  %134 = call i32 @close(i32 noundef %62) #19
-  br label %135
+sub_times.exit:                                   ; preds = %130, %122, %116, %120, %110
+  %.171 = phi i32 [ 0, %110 ], [ 1, %120 ], [ 1, %116 ], [ 0, %122 ], [ 0, %130 ]
+  %133 = call i32 @close(i32 noundef %61) #19
+  br label %134
 
-135:                                              ; preds = %60, %44, %47, %sub_times.exit
-  %.272 = phi i32 [ 0, %44 ], [ 0, %60 ], [ %.171, %sub_times.exit ], [ 0, %47 ]
-  %.2 = phi ptr [ %.06798, %44 ], [ %.1, %60 ], [ %.1, %sub_times.exit ], [ %.06798, %47 ]
-  %136 = getelementptr inbounds i8, ptr %.06897, i64 8
+134:                                              ; preds = %59, %44, %47, %sub_times.exit
+  %.272 = phi i32 [ 0, %44 ], [ 0, %59 ], [ %.171, %sub_times.exit ], [ 0, %47 ]
+  %.2 = phi ptr [ %.06798, %44 ], [ %.1, %59 ], [ %.1, %sub_times.exit ], [ %.06798, %47 ]
+  %135 = getelementptr inbounds i8, ptr %.06897, i64 8
   %.not81 = icmp eq i32 %.272, 0
   br i1 %.not81, label %42, label %.critedge
 
-.critedge:                                        ; preds = %42, %135, %109
-  %.069 = phi i32 [ %62, %109 ], [ -1, %135 ], [ -1, %42 ]
-  %137 = load ptr, ptr %11, align 8
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %php_network_freeaddresses.exit, label %.preheader.i
+.critedge:                                        ; preds = %42, %134, %108
+  %.069 = phi i32 [ %61, %108 ], [ -1, %134 ], [ -1, %42 ]
+  %136 = load ptr, ptr %11, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %php_network_freeaddresses.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge
-  %139 = load ptr, ptr %137, align 8
-  %.not8.i = icmp eq ptr %139, null
+  %138 = load ptr, ptr %136, align 8
+  %.not8.i = icmp eq ptr %138, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %140 = phi ptr [ %142, %.lr.ph.i ], [ %139, %.preheader.i ]
-  %.09.i = phi ptr [ %141, %.lr.ph.i ], [ %137, %.preheader.i ]
-  call void @_efree(ptr noundef nonnull %140) #19
-  %141 = getelementptr inbounds i8, ptr %.09.i, i64 8
-  %142 = load ptr, ptr %141, align 8
-  %.not.i = icmp eq ptr %142, null
+  %139 = phi ptr [ %141, %.lr.ph.i ], [ %138, %.preheader.i ]
+  %.09.i = phi ptr [ %140, %.lr.ph.i ], [ %136, %.preheader.i ]
+  call void @_efree(ptr noundef nonnull %139) #19
+  %140 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %.not.i = icmp eq ptr %141, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  call void @_efree(ptr noundef nonnull %137) #19
+  call void @_efree(ptr noundef nonnull %136) #19
   br label %php_network_freeaddresses.exit
 
 php_network_freeaddresses.exit:                   ; preds = %._crit_edge.i, %.critedge, %10

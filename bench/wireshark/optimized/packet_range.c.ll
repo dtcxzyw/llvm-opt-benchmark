@@ -677,7 +677,7 @@ define hidden i32 @packet_range_process_all(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @packet_range_process_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden i32 @packet_range_process_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -898,20 +898,18 @@ define hidden noundef i32 @packet_range_process_packet(ptr nocapture noundef %0,
   %118 = getelementptr inbounds i8, ptr %0, i64 4
   %119 = load i32, ptr %118, align 4
   %.not26 = icmp eq i32 %119, 0
-  br i1 %.not26, label %125, label %120
+  br i1 %.not26, label %packet_range_process_packet_include_depends.exit, label %120
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds i8, ptr %1, i64 50
   %122 = load i16, ptr %121, align 2
   %123 = and i16 %122, 1
-  %124 = icmp eq i16 %123, 0
-  br i1 %124, label %packet_range_process_packet_include_depends.exit, label %125
-
-125:                                              ; preds = %120, %117
+  %124 = xor i16 %123, 1
+  %spec.select = zext nneg i16 %124 to i32
   br label %packet_range_process_packet_include_depends.exit
 
-packet_range_process_packet_include_depends.exit: ; preds = %79, %74, %70, %60, %56, %46, %42, %32, %28, %17, %120, %110, %100, %92, %87, %81, %5, %125
-  %.0 = phi i32 [ 0, %125 ], [ 1, %5 ], [ 1, %81 ], [ 1, %87 ], [ 2, %92 ], [ 1, %100 ], [ 1, %110 ], [ 1, %120 ], [ 0, %79 ], [ 1, %17 ], [ 1, %28 ], [ 1, %32 ], [ 1, %42 ], [ 1, %46 ], [ 1, %56 ], [ 1, %60 ], [ 1, %70 ], [ 1, %74 ]
+packet_range_process_packet_include_depends.exit: ; preds = %79, %74, %70, %60, %56, %46, %42, %32, %28, %17, %120, %117, %110, %100, %92, %87, %81, %5
+  %.0 = phi i32 [ 1, %5 ], [ 1, %81 ], [ 1, %87 ], [ 2, %92 ], [ 1, %100 ], [ 1, %110 ], [ 0, %117 ], [ %spec.select, %120 ], [ 0, %79 ], [ 1, %17 ], [ 1, %28 ], [ 1, %32 ], [ 1, %42 ], [ 1, %46 ], [ 1, %56 ], [ 1, %60 ], [ 1, %70 ], [ 1, %74 ]
   ret i32 %.0
 }
 

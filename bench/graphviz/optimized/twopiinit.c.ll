@@ -188,8 +188,8 @@ define void @twopi_layout(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %findRootNode.exit, label %.lr.ph.i
 
-findRootNode.exit:                                ; preds = %40, %.lr.ph.i, %34, %36
-  %.082 = phi ptr [ %.083, %34 ], [ null, %36 ], [ null, %40 ], [ %.010.i, %.lr.ph.i ]
+findRootNode.exit:                                ; preds = %40, %.lr.ph.i, %36, %34
+  %.082 = phi ptr [ %.083, %34 ], [ null, %36 ], [ %.010.i, %.lr.ph.i ], [ null, %40 ]
   %42 = call ptr @circleLayout(ptr noundef %0, ptr noundef %.082) #8
   %or.cond = or i1 %17, %35
   %spec.select = select i1 %or.cond, ptr %.083, ptr %42
@@ -219,8 +219,8 @@ findRootNode.exit:                                ; preds = %40, %.lr.ph.i, %34,
   %57 = getelementptr inbounds i8, ptr %4, i64 12
   store i8 0, ptr %57, align 4
   %58 = load i64, ptr %3, align 8
-  %.not129 = icmp eq i64 %58, 0
-  br i1 %.not129, label %._crit_edge, label %.lr.ph
+  %.not127 = icmp eq i64 %58, 0
+  br i1 %.not127, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55
   br i1 %.not97, label %.lr.ph.split.us, label %.lr.ph.split
@@ -229,12 +229,12 @@ findRootNode.exit:                                ; preds = %40, %.lr.ph.i, %34,
   br i1 %17, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %.not131 = icmp eq ptr %.083, null
-  br i1 %.not131, label %findRootNode.exit114.us.us, label %findRootNode.exit114.us.us.us
+  %.not129 = icmp eq ptr %.083, null
+  br i1 %.not129, label %findRootNode.exit117.us.us, label %findRootNode.exit117.us.us.us
 
-findRootNode.exit114.us.us.us:                    ; preds = %.lr.ph.split.us.split.us, %findRootNode.exit114.us.us.us
-  %.081121.us.us.us = phi i64 [ %65, %findRootNode.exit114.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %59 = getelementptr inbounds ptr, ptr %31, i64 %.081121.us.us.us
+findRootNode.exit117.us.us.us:                    ; preds = %.lr.ph.split.us.split.us, %findRootNode.exit117.us.us.us
+  %.081119.us.us.us = phi i64 [ %65, %findRootNode.exit117.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
+  %59 = getelementptr inbounds ptr, ptr %31, i64 %.081119.us.us.us
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @agcontains(ptr noundef %60, ptr noundef nonnull %.083) #8
   %.not101.us.us.us.not = icmp eq i32 %61, 0
@@ -242,101 +242,101 @@ findRootNode.exit114.us.us.us:                    ; preds = %.lr.ph.split.us.spl
   %62 = call i64 @graphviz_node_induce(ptr noundef %60, ptr noundef null) #8
   %63 = call ptr @circleLayout(ptr noundef %60, ptr noundef %.2.mux.us.us.us) #8
   %64 = call i32 @adjustNodes(ptr noundef %60) #8
-  %65 = add nuw i64 %.081121.us.us.us, 1
+  %65 = add nuw i64 %.081119.us.us.us, 1
   %66 = load i64, ptr %3, align 8
   %67 = icmp ult i64 %65, %66
-  br i1 %67, label %findRootNode.exit114.us.us.us, label %._crit_edge
+  br i1 %67, label %findRootNode.exit117.us.us.us, label %._crit_edge
 
-findRootNode.exit114.us.us:                       ; preds = %.lr.ph.split.us.split.us, %findRootNode.exit114.us.us
-  %.081121.us.us = phi i64 [ %73, %findRootNode.exit114.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %68 = getelementptr inbounds ptr, ptr %31, i64 %.081121.us.us
+findRootNode.exit117.us.us:                       ; preds = %.lr.ph.split.us.split.us, %findRootNode.exit117.us.us
+  %.081119.us.us = phi i64 [ %73, %findRootNode.exit117.us.us ], [ 0, %.lr.ph.split.us.split.us ]
+  %68 = getelementptr inbounds ptr, ptr %31, i64 %.081119.us.us
   %69 = load ptr, ptr %68, align 8
   %70 = call i64 @graphviz_node_induce(ptr noundef %69, ptr noundef null) #8
   %71 = call ptr @circleLayout(ptr noundef %69, ptr noundef null) #8
   %72 = call i32 @adjustNodes(ptr noundef %69) #8
-  %73 = add nuw i64 %.081121.us.us, 1
+  %73 = add nuw i64 %.081119.us.us, 1
   %74 = load i64, ptr %3, align 8
   %75 = icmp ult i64 %73, %74
-  br i1 %75, label %findRootNode.exit114.us.us, label %._crit_edge
+  br i1 %75, label %findRootNode.exit117.us.us, label %._crit_edge
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %findRootNode.exit114.us
-  %.081121.us = phi i64 [ %83, %findRootNode.exit114.us ], [ 0, %.lr.ph.split.us ]
-  %.2120.us = phi ptr [ %spec.select128, %findRootNode.exit114.us ], [ %.083, %.lr.ph.split.us ]
-  %76 = getelementptr inbounds ptr, ptr %31, i64 %.081121.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %findRootNode.exit117.us
+  %.081119.us = phi i64 [ %83, %findRootNode.exit117.us ], [ 0, %.lr.ph.split.us ]
+  %.2118.us = phi ptr [ %spec.select126, %findRootNode.exit117.us ], [ %.083, %.lr.ph.split.us ]
+  %76 = getelementptr inbounds ptr, ptr %31, i64 %.081119.us
   %77 = load ptr, ptr %76, align 8
-  %.not130 = icmp eq ptr %.2120.us, null
-  br i1 %.not130, label %findRootNode.exit114.us, label %78
+  %.not128 = icmp eq ptr %.2118.us, null
+  br i1 %.not128, label %findRootNode.exit117.us, label %78
 
 78:                                               ; preds = %.lr.ph.split.us.split
-  %79 = call i32 @agcontains(ptr noundef %77, ptr noundef nonnull %.2120.us) #8
+  %79 = call i32 @agcontains(ptr noundef %77, ptr noundef nonnull %.2118.us) #8
   %.not101.us.not = icmp eq i32 %79, 0
-  %.2.mux.us = select i1 %.not101.us.not, ptr null, ptr %.2120.us
-  br label %findRootNode.exit114.us
+  %.2.mux.us = select i1 %.not101.us.not, ptr null, ptr %.2118.us
+  br label %findRootNode.exit117.us
 
-findRootNode.exit114.us:                          ; preds = %.lr.ph.split.us.split, %78
+findRootNode.exit117.us:                          ; preds = %.lr.ph.split.us.split, %78
   %.1.us = phi ptr [ %.2.mux.us, %78 ], [ null, %.lr.ph.split.us.split ]
   %80 = call i64 @graphviz_node_induce(ptr noundef %77, ptr noundef null) #8
   %81 = call ptr @circleLayout(ptr noundef %77, ptr noundef %.1.us) #8
-  %spec.select128 = select i1 %.not130, ptr %81, ptr %.2120.us
+  %spec.select126 = select i1 %.not128, ptr %81, ptr %.2118.us
   %82 = call i32 @adjustNodes(ptr noundef %77) #8
-  %83 = add nuw i64 %.081121.us, 1
+  %83 = add nuw i64 %.081119.us, 1
   %84 = load i64, ptr %3, align 8
   %85 = icmp ult i64 %83, %84
   br i1 %85, label %.lr.ph.split.us.split, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %102
-  %.081121 = phi i64 [ %104, %102 ], [ 0, %.lr.ph ]
-  %.2120 = phi ptr [ %spec.select107, %102 ], [ %.083, %.lr.ph ]
-  %86 = getelementptr inbounds ptr, ptr %31, i64 %.081121
+  %.081119 = phi i64 [ %104, %102 ], [ 0, %.lr.ph ]
+  %.2118 = phi ptr [ %spec.select107, %102 ], [ %.083, %.lr.ph ]
+  %86 = getelementptr inbounds ptr, ptr %31, i64 %.081119
   %87 = load ptr, ptr %86, align 8
-  %88 = icmp ne ptr %.2120, null
+  %88 = icmp ne ptr %.2118, null
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %.lr.ph.split
-  %90 = call i32 @agcontains(ptr noundef %87, ptr noundef nonnull %.2120) #8
+  %90 = call i32 @agcontains(ptr noundef %87, ptr noundef nonnull %.2118) #8
   %.not101.not = icmp eq i32 %90, 0
-  br i1 %.not101.not, label %91, label %findRootNode.exit114
+  br i1 %.not101.not, label %91, label %findRootNode.exit117
 
 91:                                               ; preds = %.lr.ph.split, %89
   %92 = call ptr @agfstnode(ptr noundef %87) #8
-  %.not9.i109 = icmp eq ptr %92, null
-  br i1 %.not9.i109, label %findRootNode.exit114, label %.lr.ph.i110
+  %.not9.i112 = icmp eq ptr %92, null
+  br i1 %.not9.i112, label %findRootNode.exit117, label %.lr.ph.i113
 
-.lr.ph.i110:                                      ; preds = %91, %95
-  %.010.i111 = phi ptr [ %96, %95 ], [ %92, %91 ]
-  %93 = call ptr @agxget(ptr noundef nonnull %.010.i111, ptr noundef nonnull %.fr) #8
+.lr.ph.i113:                                      ; preds = %91, %95
+  %.010.i114 = phi ptr [ %96, %95 ], [ %92, %91 ]
+  %93 = call ptr @agxget(ptr noundef nonnull %.010.i114, ptr noundef nonnull %.fr) #8
   %94 = call zeroext i1 @mapbool(ptr noundef %93) #8
-  br i1 %94, label %findRootNode.exit114, label %95
+  br i1 %94, label %findRootNode.exit117, label %95
 
-95:                                               ; preds = %.lr.ph.i110
-  %96 = call ptr @agnxtnode(ptr noundef %87, ptr noundef nonnull %.010.i111) #8
-  %.not.i112 = icmp eq ptr %96, null
-  br i1 %.not.i112, label %findRootNode.exit114, label %.lr.ph.i110
+95:                                               ; preds = %.lr.ph.i113
+  %96 = call ptr @agnxtnode(ptr noundef %87, ptr noundef nonnull %.010.i114) #8
+  %.not.i115 = icmp eq ptr %96, null
+  br i1 %.not.i115, label %findRootNode.exit117, label %.lr.ph.i113
 
-findRootNode.exit114:                             ; preds = %95, %.lr.ph.i110, %89, %91
-  %.1 = phi ptr [ %.2120, %89 ], [ null, %91 ], [ null, %95 ], [ %.010.i111, %.lr.ph.i110 ]
+findRootNode.exit117:                             ; preds = %95, %.lr.ph.i113, %91, %89
+  %.1 = phi ptr [ %.2118, %89 ], [ null, %91 ], [ %.010.i114, %.lr.ph.i113 ], [ null, %95 ]
   %97 = call i64 @graphviz_node_induce(ptr noundef %87, ptr noundef null) #8
   %98 = call ptr @circleLayout(ptr noundef %87, ptr noundef %.1) #8
   %or.cond5 = or i1 %17, %88
-  %spec.select107 = select i1 %or.cond5, ptr %.2120, ptr %98
+  %spec.select107 = select i1 %or.cond5, ptr %.2118, ptr %98
   %.not104 = icmp eq ptr %.1, null
   %99 = icmp eq ptr %.1, %spec.select107
   %or.cond108 = select i1 %.not104, i1 true, i1 %99
   br i1 %or.cond108, label %100, label %102
 
-100:                                              ; preds = %findRootNode.exit114
+100:                                              ; preds = %findRootNode.exit117
   %101 = call i32 @agxset(ptr noundef %98, ptr noundef nonnull %.fr, ptr noundef nonnull @.str.5) #8
   br label %102
 
-102:                                              ; preds = %findRootNode.exit114, %100
+102:                                              ; preds = %findRootNode.exit117, %100
   %103 = call i32 @adjustNodes(ptr noundef %87) #8
-  %104 = add nuw i64 %.081121, 1
+  %104 = add nuw i64 %.081119, 1
   %105 = load i64, ptr %3, align 8
   %106 = icmp ult i64 %104, %105
   br i1 %106, label %.lr.ph.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %102, %findRootNode.exit114.us, %findRootNode.exit114.us.us.us, %findRootNode.exit114.us.us, %55
-  %.2.lcssa = phi ptr [ %.083, %55 ], [ null, %findRootNode.exit114.us.us ], [ %.083, %findRootNode.exit114.us.us.us ], [ %spec.select128, %findRootNode.exit114.us ], [ %spec.select107, %102 ]
+._crit_edge:                                      ; preds = %102, %findRootNode.exit117.us, %findRootNode.exit117.us.us.us, %findRootNode.exit117.us.us, %55
+  %.2.lcssa = phi ptr [ %.083, %55 ], [ null, %findRootNode.exit117.us.us ], [ %.083, %findRootNode.exit117.us.us.us ], [ %spec.select126, %findRootNode.exit117.us ], [ %spec.select107, %102 ]
   %107 = call ptr @agfstnode(ptr noundef %0) #8
   %108 = getelementptr inbounds i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
@@ -354,25 +354,25 @@ findRootNode.exit114:                             ; preds = %95, %.lr.ph.i110, %
   %.4 = phi ptr [ %spec.select, %46 ], [ %.2.lcssa, %._crit_edge ]
   call void @spline_edges(ptr noundef %0) #8
   %117 = load i64, ptr %3, align 8
-  %.not132 = icmp eq i64 %117, 0
-  br i1 %.not132, label %._crit_edge127, label %.lr.ph126
+  %.not130 = icmp eq i64 %117, 0
+  br i1 %.not130, label %._crit_edge125, label %.lr.ph124
 
-.lr.ph126:                                        ; preds = %116, %.lr.ph126
-  %.0124 = phi i64 [ %121, %.lr.ph126 ], [ 0, %116 ]
-  %118 = getelementptr inbounds ptr, ptr %31, i64 %.0124
+.lr.ph124:                                        ; preds = %116, %.lr.ph124
+  %.0122 = phi i64 [ %121, %.lr.ph124 ], [ 0, %116 ]
+  %118 = getelementptr inbounds ptr, ptr %31, i64 %.0122
   %119 = load ptr, ptr %118, align 8
   %120 = call i32 @agdelete(ptr noundef %0, ptr noundef %119) #8
-  %121 = add nuw i64 %.0124, 1
+  %121 = add nuw i64 %.0122, 1
   %122 = load i64, ptr %3, align 8
   %123 = icmp ult i64 %121, %122
-  br i1 %123, label %.lr.ph126, label %._crit_edge127
+  br i1 %123, label %.lr.ph124, label %._crit_edge125
 
-._crit_edge127:                                   ; preds = %.lr.ph126, %116
+._crit_edge125:                                   ; preds = %.lr.ph124, %116
   call void @free(ptr noundef %31) #8
   br label %124
 
-124:                                              ; preds = %._crit_edge127, %28
-  %.5 = phi ptr [ %.4, %._crit_edge127 ], [ %.083, %28 ]
+124:                                              ; preds = %._crit_edge125, %28
+  %.5 = phi ptr [ %.4, %._crit_edge125 ], [ %.083, %28 ]
   br i1 %17, label %128, label %125
 
 125:                                              ; preds = %124

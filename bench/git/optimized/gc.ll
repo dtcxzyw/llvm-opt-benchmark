@@ -806,7 +806,7 @@ for.body.us.i:                                    ; preds = %if.then184, %for.in
 
 if.end.us.i:                                      ; preds = %for.body.us.i
   %tobool10.not.us.i = icmp eq ptr %base.016.us.i, null
-  br i1 %tobool10.not.us.i, label %if.then15.us.i, label %lor.lhs.false11.us.i
+  br i1 %tobool10.not.us.i, label %for.inc.us.i, label %lor.lhs.false11.us.i
 
 lor.lhs.false11.us.i:                             ; preds = %if.end.us.i
   %pack_size12.us.i = getelementptr inbounds i8, ptr %base.016.us.i, i64 48
@@ -814,13 +814,11 @@ lor.lhs.false11.us.i:                             ; preds = %if.end.us.i
   %pack_size13.us.i = getelementptr inbounds i8, ptr %p.015.us.i, i64 48
   %32 = load i64, ptr %pack_size13.us.i, align 8
   %cmp14.us.i = icmp slt i64 %31, %32
-  br i1 %cmp14.us.i, label %if.then15.us.i, label %for.inc.us.i
-
-if.then15.us.i:                                   ; preds = %lor.lhs.false11.us.i, %if.end.us.i
+  %spec.select.us.i = select i1 %cmp14.us.i, ptr %p.015.us.i, ptr %base.016.us.i
   br label %for.inc.us.i
 
-for.inc.us.i:                                     ; preds = %if.then15.us.i, %lor.lhs.false11.us.i, %for.body.us.i
-  %base.1.us.i = phi ptr [ %p.015.us.i, %if.then15.us.i ], [ %base.016.us.i, %lor.lhs.false11.us.i ], [ %base.016.us.i, %for.body.us.i ]
+for.inc.us.i:                                     ; preds = %lor.lhs.false11.us.i, %if.end.us.i, %for.body.us.i
+  %base.1.us.i = phi ptr [ %base.016.us.i, %for.body.us.i ], [ %p.015.us.i, %if.end.us.i ], [ %spec.select.us.i, %lor.lhs.false11.us.i ]
   %next.us.i = getelementptr inbounds i8, ptr %p.015.us.i, i64 16
   %33 = load ptr, ptr %next.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %33, null
@@ -1034,7 +1032,7 @@ for.body.i56:                                     ; preds = %if.then270, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %64, i64 %indvars.iv.i
   %65 = load ptr, ptr %arrayidx.i, align 8
   %call.i57 = call i32 @unlink_or_warn(ptr noundef %65) #21
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @pack_garbage, i64 0, i32 1), align 8
   %cmp.i58 = icmp ugt i64 %66, %indvars.iv.next.i
   br i1 %cmp.i58, label %for.body.i56, label %clean_pack_garbage.exit, !llvm.loop !8
@@ -1374,7 +1372,7 @@ for.body.us.i15:                                  ; preds = %if.then7, %for.inc.
 
 if.end.us.i31:                                    ; preds = %for.body.us.i15
   %tobool10.not.us.i32 = icmp eq ptr %base.016.us.i16, null
-  br i1 %tobool10.not.us.i32, label %if.then15.us.i37, label %lor.lhs.false11.us.i33
+  br i1 %tobool10.not.us.i32, label %for.inc.us.i21, label %lor.lhs.false11.us.i33
 
 lor.lhs.false11.us.i33:                           ; preds = %if.end.us.i31
   %pack_size12.us.i34 = getelementptr inbounds i8, ptr %base.016.us.i16, i64 48
@@ -1382,13 +1380,11 @@ lor.lhs.false11.us.i33:                           ; preds = %if.end.us.i31
   %pack_size13.us.i35 = getelementptr inbounds i8, ptr %p.015.us.i17, i64 48
   %16 = load i64, ptr %pack_size13.us.i35, align 8
   %cmp14.us.i36 = icmp slt i64 %15, %16
-  br i1 %cmp14.us.i36, label %if.then15.us.i37, label %for.inc.us.i21
-
-if.then15.us.i37:                                 ; preds = %lor.lhs.false11.us.i33, %if.end.us.i31
+  %spec.select.us.i37 = select i1 %cmp14.us.i36, ptr %p.015.us.i17, ptr %base.016.us.i16
   br label %for.inc.us.i21
 
-for.inc.us.i21:                                   ; preds = %if.then15.us.i37, %lor.lhs.false11.us.i33, %for.body.us.i15
-  %base.1.us.i22 = phi ptr [ %p.015.us.i17, %if.then15.us.i37 ], [ %base.016.us.i16, %lor.lhs.false11.us.i33 ], [ %base.016.us.i16, %for.body.us.i15 ]
+for.inc.us.i21:                                   ; preds = %lor.lhs.false11.us.i33, %if.end.us.i31, %for.body.us.i15
+  %base.1.us.i22 = phi ptr [ %base.016.us.i16, %for.body.us.i15 ], [ %p.015.us.i17, %if.end.us.i31 ], [ %spec.select.us.i37, %lor.lhs.false11.us.i33 ]
   %next.us.i23 = getelementptr inbounds i8, ptr %p.015.us.i17, i64 16
   %17 = load ptr, ptr %next.us.i23, align 8
   %tobool.not.us.i24 = icmp eq ptr %17, null
@@ -1417,7 +1413,7 @@ for.body.us.i42:                                  ; preds = %if.else, %for.inc.u
 
 if.end.us.i58:                                    ; preds = %for.body.us.i42
   %tobool10.not.us.i59 = icmp eq ptr %base.016.us.i43, null
-  br i1 %tobool10.not.us.i59, label %if.then15.us.i64, label %lor.lhs.false11.us.i60
+  br i1 %tobool10.not.us.i59, label %for.inc.us.i48, label %lor.lhs.false11.us.i60
 
 lor.lhs.false11.us.i60:                           ; preds = %if.end.us.i58
   %pack_size12.us.i61 = getelementptr inbounds i8, ptr %base.016.us.i43, i64 48
@@ -1425,13 +1421,11 @@ lor.lhs.false11.us.i60:                           ; preds = %if.end.us.i58
   %pack_size13.us.i62 = getelementptr inbounds i8, ptr %p.015.us.i44, i64 48
   %20 = load i64, ptr %pack_size13.us.i62, align 8
   %cmp14.us.i63 = icmp slt i64 %19, %20
-  br i1 %cmp14.us.i63, label %if.then15.us.i64, label %for.inc.us.i48
-
-if.then15.us.i64:                                 ; preds = %lor.lhs.false11.us.i60, %if.end.us.i58
+  %spec.select.us.i64 = select i1 %cmp14.us.i63, ptr %p.015.us.i44, ptr %base.016.us.i43
   br label %for.inc.us.i48
 
-for.inc.us.i48:                                   ; preds = %if.then15.us.i64, %lor.lhs.false11.us.i60, %for.body.us.i42
-  %base.1.us.i49 = phi ptr [ %p.015.us.i44, %if.then15.us.i64 ], [ %base.016.us.i43, %lor.lhs.false11.us.i60 ], [ %base.016.us.i43, %for.body.us.i42 ]
+for.inc.us.i48:                                   ; preds = %lor.lhs.false11.us.i60, %if.end.us.i58, %for.body.us.i42
+  %base.1.us.i49 = phi ptr [ %base.016.us.i43, %for.body.us.i42 ], [ %p.015.us.i44, %if.end.us.i58 ], [ %spec.select.us.i64, %lor.lhs.false11.us.i60 ]
   %next.us.i50 = getelementptr inbounds i8, ptr %p.015.us.i44, i64 16
   %21 = load ptr, ptr %next.us.i50, align 8
   %tobool.not.us.i51 = icmp eq ptr %21, null

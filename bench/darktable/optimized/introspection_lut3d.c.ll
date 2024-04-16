@@ -3554,7 +3554,7 @@ define hidden zeroext i16 @calculate_clut_cube(ptr noundef %0, ptr nocapture nou
   %189 = phi i32 [ %176, %182 ], [ 0, %8 ]
   %190 = phi ptr [ %175, %182 ], [ null, %8 ]
   %191 = sdiv i32 %189, 3
-  %192 = trunc i64 %188 to i32
+  %192 = trunc nuw nsw i64 %188 to i32
   %193 = udiv i32 %192, 3
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.51, i32 noundef %191, i32 noundef %193) #31
   %194 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.52, i32 noundef 5) #31
@@ -3947,7 +3947,7 @@ split:                                            ; preds = %99, %._crit_edge
   br i1 %220, label %221, label %177, !llvm.loop !78
 
 221:                                              ; preds = %177
-  %222 = trunc i64 %174 to i32
+  %222 = trunc nuw nsw i64 %174 to i32
   %223 = icmp eq i64 %143, %174
   br i1 %223, label %.loopexit, label %.preheader108
 
@@ -4020,7 +4020,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %36
 
 27:                                               ; preds = %6
-  %28 = trunc i32 %22 to i8
+  %28 = trunc nuw nsw i32 %22 to i8
   %29 = lshr i8 39, %28
   %30 = and i8 %29, 1
   %31 = icmp eq i8 %30, 0
@@ -4458,12 +4458,12 @@ define hidden noundef i32 @check_extension(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 19
   %3 = load i8, ptr %2, align 1, !tbaa !57
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %25, label %5
+  br i1 %4, label %24, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @g_strrstr(ptr noundef nonnull %2, ptr noundef nonnull @.str.75) #31
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %25, label %8
+  br i1 %7, label %24, label %8
 
 8:                                                ; preds = %5
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #31
@@ -4485,19 +4485,17 @@ define hidden noundef i32 @check_extension(ptr noundef %0) #1 {
 19:                                               ; preds = %16
   %20 = tail call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull @.str.79) #31
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+  %spec.select = zext i1 %21 to i32
+  br label %22
 
-22:                                               ; preds = %19, %16, %13, %8
-  br label %23
-
-23:                                               ; preds = %22, %19
-  %24 = phi i32 [ 0, %19 ], [ 1, %22 ]
+22:                                               ; preds = %19, %8, %13, %16
+  %23 = phi i32 [ 1, %16 ], [ 1, %13 ], [ 1, %8 ], [ %spec.select, %19 ]
   tail call void @g_free(ptr noundef %10) #31
-  br label %25
+  br label %24
 
-25:                                               ; preds = %23, %5, %1
-  %26 = phi i32 [ 0, %1 ], [ %24, %23 ], [ 0, %5 ]
-  ret i32 %26
+24:                                               ; preds = %22, %5, %1
+  %25 = phi i32 [ 0, %1 ], [ %23, %22 ], [ 0, %5 ]
+  ret i32 %25
 }
 
 declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #3

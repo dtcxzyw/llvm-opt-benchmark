@@ -948,7 +948,7 @@ define i32 @hwloc_bitmap_list_snprintf(ptr noalias nocapture noundef writeonly %
   %.us-phi31.in.i = phi i64 [ %indvars.iv42.i, %.preheader.split.i ], [ %indvars.iv.i, %.preheader.split.us.i ]
   %.us-phi31.i = trunc i64 %.us-phi31.in.i to i32
   %33 = tail call i64 @llvm.cttz.i64(i64 %.us-phi.i, i1 true), !range !14
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = shl i32 %.us-phi31.i, 6
   %36 = or disjoint i32 %35, %34
   br label %hwloc_bitmap_next.exit
@@ -1033,7 +1033,7 @@ hwloc_bitmap_next.exit.thread82:                  ; preds = %.split33.us.i, %hwl
   %.us-phi31.in.i65 = phi i64 [ %indvars.iv.i61, %.split.us.loopexit35.i ], [ %indvars.iv42.i75, %.preheader.split.i74 ]
   %.us-phi31.i66 = trunc i64 %.us-phi31.in.i65 to i32
   %64 = tail call i64 @llvm.cttz.i64(i64 %.us-phi.i64, i1 true), !range !14
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw nsw i64 %64 to i32
   %66 = shl i32 %.us-phi31.i66, 6
   %67 = or disjoint i32 %66, %65
   br label %hwloc_bitmap_next_unset.exit
@@ -1168,7 +1168,7 @@ define i32 @hwloc_bitmap_next(ptr nocapture noundef readonly %0, i32 noundef %1)
   %.us-phi31.in = phi i64 [ %indvars.iv42, %.preheader.split ], [ %indvars.iv, %.preheader.split.us ]
   %.us-phi31 = trunc i64 %.us-phi31.in to i32
   %28 = tail call i64 @llvm.cttz.i64(i64 %.us-phi, i1 true), !range !14
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = shl i32 %.us-phi31, 6
   %31 = or disjoint i32 %30, %29
   br label %36
@@ -1261,7 +1261,7 @@ define i32 @hwloc_bitmap_next_unset(ptr nocapture noundef readonly %0, i32 nound
   %.us-phi31.in = phi i64 [ %indvars.iv, %.split.us.loopexit35 ], [ %indvars.iv42, %.preheader.split ]
   %.us-phi31 = trunc i64 %.us-phi31.in to i32
   %30 = tail call i64 @llvm.cttz.i64(i64 %.us-phi, i1 true), !range !14
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %32 = shl i32 %.us-phi31, 6
   %33 = or disjoint i32 %32, %31
   br label %38
@@ -2501,7 +2501,7 @@ define i32 @hwloc_bitmap_nr_ulongs(ptr nocapture noundef readonly %0) local_unna
 
 8:                                                ; preds = %11, %4
   %indvars.iv.i = phi i64 [ %12, %11 ], [ %7, %4 ]
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw i64 %indvars.iv.i to i32
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %hwloc_bitmap_last.exit
 
@@ -2570,7 +2570,7 @@ define i32 @hwloc_bitmap_last(ptr nocapture noundef readonly %0) local_unnamed_a
 
 8:                                                ; preds = %11, %4
   %indvars.iv = phi i64 [ %12, %11 ], [ %7, %4 ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.loopexit
 
@@ -2652,7 +2652,7 @@ define noundef i32 @hwloc_bitmap_only(ptr nocapture noundef %0, i32 noundef %1) 
   %14 = or disjoint i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %13
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %14
-  %15 = trunc i64 %.425.i.i.i to i32
+  %15 = trunc nuw nsw i64 %.425.i.i.i to i32
   %16 = lshr i32 %15, 1
   %17 = and i32 %16, 1
   %.5.i.i.i = add nuw nsw i32 %17, %.4.i.i.i
@@ -2744,7 +2744,7 @@ define noundef i32 @hwloc_bitmap_allbut(ptr nocapture noundef %0, i32 noundef %1
   %14 = or disjoint i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %13
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %14
-  %15 = trunc i64 %.425.i.i.i to i32
+  %15 = trunc nuw nsw i64 %.425.i.i.i to i32
   %16 = lshr i32 %15, 1
   %17 = and i32 %16, 1
   %.5.i.i.i = add nuw nsw i32 %17, %.4.i.i.i
@@ -3325,7 +3325,7 @@ define i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3421,24 +3421,22 @@ define noundef i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, p
 .loopexit:                                        ; preds = %._crit_edge..loopexit_crit_edge, %.loopexit42
   %38 = phi i32 [ %.pre, %._crit_edge..loopexit_crit_edge ], [ %29, %.loopexit42 ]
   %.not35 = icmp eq i32 %38, 0
-  br i1 %.not35, label %41, label %.loopexit.thread
+  br i1 %.not35, label %.loopexit40, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %34, %.loopexit
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load i32, ptr %39, align 8
-  %.not36 = icmp eq i32 %40, 0
-  br i1 %.not36, label %41, label %.loopexit40
-
-41:                                               ; preds = %.loopexit.thread, %.loopexit
+  %.not36 = icmp ne i32 %40, 0
+  %spec.select = zext i1 %.not36 to i32
   br label %.loopexit40
 
-.loopexit40:                                      ; preds = %11, %25, %35, %.loopexit.thread, %41
-  %.031 = phi i32 [ 0, %41 ], [ 1, %.loopexit.thread ], [ 1, %35 ], [ 1, %25 ], [ 1, %11 ]
+.loopexit40:                                      ; preds = %11, %25, %35, %.loopexit.thread, %.loopexit
+  %.031 = phi i32 [ 0, %.loopexit ], [ %spec.select, %.loopexit.thread ], [ 1, %35 ], [ 1, %25 ], [ 1, %11 ]
   ret i32 %.031
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %1, align 8
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3534,19 +3532,17 @@ define noundef i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, p
 .loopexit:                                        ; preds = %._crit_edge..loopexit_crit_edge, %.loopexit46
   %38 = phi i32 [ %.pre, %._crit_edge..loopexit_crit_edge ], [ %29, %.loopexit46 ]
   %.not40 = icmp eq i32 %38, 0
-  br i1 %.not40, label %41, label %.loopexit.thread
+  br i1 %.not40, label %.loopexit44, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %34, %.loopexit
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load i32, ptr %39, align 8
-  %.not41 = icmp eq i32 %40, 0
-  br i1 %.not41, label %.loopexit44, label %41
-
-41:                                               ; preds = %.loopexit.thread, %.loopexit
+  %.not41 = icmp ne i32 %40, 0
+  %spec.select = zext i1 %.not41 to i32
   br label %.loopexit44
 
-.loopexit44:                                      ; preds = %11, %25, %35, %.loopexit.thread, %41
-  %.033 = phi i32 [ 1, %41 ], [ 0, %.loopexit.thread ], [ 0, %35 ], [ 0, %25 ], [ 0, %11 ]
+.loopexit44:                                      ; preds = %11, %25, %35, %.loopexit.thread, %.loopexit
+  %.033 = phi i32 [ 1, %.loopexit ], [ %spec.select, %.loopexit.thread ], [ 0, %35 ], [ 0, %25 ], [ 0, %11 ]
   ret i32 %.033
 }
 
@@ -4407,9 +4403,9 @@ define i32 @hwloc_bitmap_first(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %.not13, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %10 = tail call i64 @llvm.cttz.i64(i64 %7, i1 true), !range !14
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %12 = shl i32 %9, 6
   %13 = or disjoint i32 %12, %11
   br label %18
@@ -4455,10 +4451,10 @@ define i32 @hwloc_bitmap_first_unset(ptr nocapture noundef readonly %0) local_un
   br i1 %.not13, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %10 = xor i64 %7, -1
   %11 = tail call i64 @llvm.cttz.i64(i64 %10, i1 true), !range !14
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = shl i32 %9, 6
   %14 = or disjoint i32 %13, %12
   br label %19
@@ -4496,7 +4492,7 @@ define i32 @hwloc_bitmap_last_unset(ptr nocapture noundef readonly %0) local_unn
 
 8:                                                ; preds = %11, %4
   %indvars.iv = phi i64 [ %12, %11 ], [ %7, %4 ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.loopexit
 
@@ -4670,9 +4666,9 @@ define i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr no
 
 18:                                               ; preds = %11
   %19 = tail call i64 @llvm.cttz.i64(i64 %13, i1 true), !range !14
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = tail call i64 @llvm.cttz.i64(i64 %15, i1 true), !range !14
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %or.cond3 = select i1 %16, i1 %17, i1 false
   br i1 %or.cond3, label %23, label %25
 
@@ -4877,7 +4873,7 @@ define i32 @hwloc_bitmap_compare(ptr nocapture noundef readonly %0, ptr nocaptur
 
 49:                                               ; preds = %52, %.loopexit62
   %indvars.iv75 = phi i64 [ %53, %52 ], [ %umin, %.loopexit62 ]
-  %50 = trunc i64 %indvars.iv75 to i32
+  %50 = trunc nuw i64 %indvars.iv75 to i32
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %52, label %.loopexit
 
@@ -4926,7 +4922,7 @@ define i32 @hwloc_bitmap_weight(ptr nocapture noundef readonly %0) local_unnamed
   %8 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 @llvm.ctpop.i64(i64 %9), !range !14
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %12 = add nuw nsw i32 %.0810, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -6483,7 +6483,7 @@ if.end12:                                         ; preds = %if.then.i.i.i23, %_
   %bf.load.i.i27 = load i8, ptr %m_lower_inf.i.i, align 8
   %13 = and i8 %bf.load.i.i27, 8
   %tobool.i.i28.not = icmp eq i8 %13, 0
-  br i1 %tobool.i.i28.not, label %if.then14, label %if.end27
+  br i1 %tobool.i.i28.not, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end12
   %m_c.i29 = getelementptr inbounds i8, ptr %this, i64 8
@@ -6558,12 +6558,12 @@ if.then.i.i.i66:                                  ; preds = %land.lhs.true.i.i.i
   %22 = load i32, ptr %v, align 8
   %23 = load i32, ptr %m_upper.i.i, align 8
   %cmp.i.i.i67 = icmp eq i32 %22, %23
-  br i1 %cmp.i.i.i67, label %land.rhs.i44, label %if.end27
+  br i1 %cmp.i.i.i67, label %land.rhs.i44, label %return
 
 _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i41:     ; preds = %land.lhs.true.i.i.i61, %if.end19
   %call4.i.i.i42 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %21, ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i)
   %cmp5.i.i.i43 = icmp eq i32 %call4.i.i.i42, 0
-  br i1 %cmp5.i.i.i43, label %land.rhs.i44, label %if.end27
+  br i1 %cmp5.i.i.i43, label %land.rhs.i44, label %return
 
 land.rhs.i44:                                     ; preds = %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i41, %if.then.i.i.i66
   %m_den.i45 = getelementptr inbounds i8, ptr %v, i64 16
@@ -6583,24 +6583,21 @@ if.then.i.i16.i59:                                ; preds = %land.lhs.true.i.i11
   %24 = load i32, ptr %m_den.i45, align 8
   %25 = load i32, ptr %m_den.i.i.i, align 8
   %cmp.i.i17.i60 = icmp eq i32 %24, %25
-  br i1 %cmp.i.i17.i60, label %land.lhs.true23, label %if.end27
+  br i1 %cmp.i.i17.i60, label %land.lhs.true23, label %return
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit68:       ; preds = %land.rhs.i44, %land.lhs.true.i.i11.i54
   %call4.i.i8.i52 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %21, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i45, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i)
   %cmp5.i.i9.i53 = icmp eq i32 %call4.i.i8.i52, 0
-  br i1 %cmp5.i.i9.i53, label %land.lhs.true23, label %if.end27
+  br i1 %cmp5.i.i9.i53, label %land.lhs.true23, label %return
 
 land.lhs.true23:                                  ; preds = %if.then.i.i16.i59, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit68
   %bf.load.i.i69 = load i8, ptr %m_lower_inf.i.i, align 8
   %26 = and i8 %bf.load.i.i69, 2
   %tobool.i.i70.not = icmp eq i8 %26, 0
-  br i1 %tobool.i.i70.not, label %if.end27, label %return
-
-if.end27:                                         ; preds = %if.then.i.i.i66, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i41, %if.then.i.i16.i59, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit68, %land.lhs.true23, %if.end12
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i.i, %if.else.i.i, %if.then.i.i.i, %if.else.i, %land.lhs.true23, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, %land.lhs.true, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, %if.end27
-  %retval.0 = phi i1 [ true, %if.end27 ], [ false, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit ], [ false, %land.lhs.true ], [ false, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit ], [ false, %land.lhs.true23 ], [ false, %if.else.i ], [ false, %if.then.i.i.i ], [ false, %if.else.i.i ], [ false, %if.then.i.i.i.i ]
+return:                                           ; preds = %if.then.i.i.i66, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i41, %if.then.i.i16.i59, %if.then.i.i.i.i, %if.else.i.i, %if.then.i.i.i, %if.else.i, %land.lhs.true23, %if.end12, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit68, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, %land.lhs.true, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+  %retval.0 = phi i1 [ false, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit ], [ false, %land.lhs.true ], [ false, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit ], [ true, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit68 ], [ true, %if.end12 ], [ %tobool.i.i70.not, %land.lhs.true23 ], [ false, %if.else.i ], [ false, %if.then.i.i.i ], [ false, %if.else.i.i ], [ false, %if.then.i.i.i.i ], [ true, %if.then.i.i16.i59 ], [ true, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i41 ], [ true, %if.then.i.i.i66 ]
   ret i1 %retval.0
 }
 
@@ -7259,22 +7256,12 @@ lor.end:                                          ; preds = %if.then2.i34, %if.t
   %bf.load.i.i55 = load i8, ptr %m_lower_inf.i.i, align 8
   %9 = and i8 %bf.load.i.i55, 2
   %tobool.i.i56.not = icmp eq i8 %9, 0
-  br i1 %tobool.i.i56.not, label %lor.end19, label %lor.end19.thread
-
-lor.end19:                                        ; preds = %lor.end
   %bf.load.i.i58 = load i8, ptr %m_lower_inf.i.i16, align 8
   %bf.load.i.i58.fr = freeze i8 %bf.load.i.i58
   %10 = and i8 %bf.load.i.i58.fr, 2
-  %tobool.i.i59.not = icmp eq i8 %10, 0
-  br i1 %tobool.i.i59.not, label %11, label %lor.end19.thread
-
-lor.end19.thread:                                 ; preds = %lor.end, %lor.end19
-  br label %11
-
-11:                                               ; preds = %lor.end19, %lor.end19.thread
-  %12 = phi i8 [ 2, %lor.end19.thread ], [ 0, %lor.end19 ]
+  %11 = select i1 %tobool.i.i56.not, i8 %10, i8 2
   %bf.clear.i.i63 = and i8 %bf.set.i.i54, -3
-  %bf.set.i.i64 = or disjoint i8 %12, %bf.clear.i.i63
+  %bf.set.i.i64 = or disjoint i8 %bf.clear.i.i63, %11
   store i8 %bf.set.i.i64, ptr %m_lower_inf.i.i3874, align 8
   ret void
 }
@@ -7282,10 +7269,75 @@ lor.end19.thread:                                 ; preds = %lor.end, %lor.end19
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3subERKNS0_8intervalES4_RS2_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(65) %a, ptr noundef nonnull align 8 dereferenceable(65) %b, ptr noundef nonnull align 8 dereferenceable(65) %c, ptr noundef nonnull align 2 dereferenceable(4) %c_deps) local_unnamed_addr #3 comdat align 2 {
 entry:
+  %new_l_kind.i = alloca i32, align 4
+  %new_u_kind.i = alloca i32, align 4
   store i16 9, ptr %c_deps, align 2
   %m_upper_combine.i = getelementptr inbounds i8, ptr %c_deps, i64 2
   store i16 6, ptr %m_upper_combine.i, align 2
-  tail call void @_ZN16interval_managerI17im_default_configE3subERKNS0_8intervalES4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(65) %a, ptr noundef nonnull align 8 dereferenceable(65) %b, ptr noundef nonnull align 8 dereferenceable(65) %c)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %new_l_kind.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %new_u_kind.i)
+  %m_c.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %m_c.i.i, align 8
+  %m_lower_inf.i.i.i = getelementptr inbounds i8, ptr %a, i64 64
+  %bf.load.i.i.i = load i8, ptr %m_lower_inf.i.i.i, align 8
+  %1 = and i8 %bf.load.i.i.i, 4
+  %tobool.i.not.i.i = icmp eq i8 %1, 0
+  %cond.i.i = zext i1 %tobool.i.not.i.i to i32
+  %m_upper.i.i.i = getelementptr inbounds i8, ptr %b, i64 32
+  %m_upper_inf.i.i.i = getelementptr inbounds i8, ptr %b, i64 64
+  %bf.load.i.i16.i = load i8, ptr %m_upper_inf.i.i.i, align 8
+  %2 = and i8 %bf.load.i.i16.i, 8
+  %tobool.i.not.i17.i = icmp eq i8 %2, 0
+  %cond.i18.i = select i1 %tobool.i.not.i17.i, i32 1, i32 2
+  call void @_Z3subI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %a, i32 noundef %cond.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i.i, i32 noundef %cond.i18.i, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 4 dereferenceable(4) %new_l_kind.i)
+  %3 = load ptr, ptr %m_c.i.i, align 8
+  %m_upper.i.i20.i = getelementptr inbounds i8, ptr %a, i64 32
+  %bf.load.i.i22.i = load i8, ptr %m_lower_inf.i.i.i, align 8
+  %4 = and i8 %bf.load.i.i22.i, 8
+  %tobool.i.not.i23.i = icmp eq i8 %4, 0
+  %cond.i24.i = select i1 %tobool.i.not.i23.i, i32 1, i32 2
+  %bf.load.i.i26.i = load i8, ptr %m_upper_inf.i.i.i, align 8
+  %5 = and i8 %bf.load.i.i26.i, 4
+  %tobool.i.not.i27.i = icmp eq i8 %5, 0
+  %cond.i28.i = zext i1 %tobool.i.not.i27.i to i32
+  %m_upper.i.i29.i = getelementptr inbounds i8, ptr %c, i64 32
+  call void @_Z3subI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_(ptr noundef nonnull align 8 dereferenceable(728) %3, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i20.i, i32 noundef %cond.i24.i, ptr noundef nonnull align 8 dereferenceable(32) %b, i32 noundef %cond.i28.i, ptr noundef nonnull align 8 dereferenceable(32) %m_upper.i.i29.i, ptr noundef nonnull align 4 dereferenceable(4) %new_u_kind.i)
+  %6 = load i32, ptr %new_l_kind.i, align 4
+  %cmp.i = icmp eq i32 %6, 0
+  %m_lower_inf.i.i30.i = getelementptr inbounds i8, ptr %c, i64 64
+  %bf.load.i.i31.i = load i8, ptr %m_lower_inf.i.i30.i, align 8
+  %bf.shl.i.i.i = select i1 %cmp.i, i8 4, i8 0
+  %bf.clear.i.i.i = and i8 %bf.load.i.i31.i, -13
+  %bf.set.i.i.i = or disjoint i8 %bf.clear.i.i.i, %bf.shl.i.i.i
+  %7 = load i32, ptr %new_u_kind.i, align 4
+  %cmp13.i = icmp eq i32 %7, 2
+  %bf.shl.i.i34.i = select i1 %cmp13.i, i8 8, i8 0
+  %bf.set.i.i36.i = or disjoint i8 %bf.set.i.i.i, %bf.shl.i.i34.i
+  store i8 %bf.set.i.i36.i, ptr %m_lower_inf.i.i30.i, align 8
+  %bf.load.i.i37.i = load i8, ptr %m_lower_inf.i.i.i, align 8
+  %bf.clear.i.i38.i = and i8 %bf.load.i.i37.i, 1
+  %tobool.i.i.i = icmp ne i8 %bf.clear.i.i38.i, 0
+  %bf.load.i.i39.i = load i8, ptr %m_upper_inf.i.i.i, align 8
+  %8 = and i8 %bf.load.i.i39.i, 2
+  %tobool.i.i40.i = icmp ne i8 %8, 0
+  %9 = select i1 %tobool.i.i.i, i1 true, i1 %tobool.i.i40.i
+  %10 = zext i1 %9 to i8
+  %bf.clear.i.i43.i = and i8 %bf.set.i.i36.i, -2
+  %bf.set.i.i44.i = or disjoint i8 %bf.clear.i.i43.i, %10
+  store i8 %bf.set.i.i44.i, ptr %m_lower_inf.i.i30.i, align 8
+  %bf.load.i.i46.i = load i8, ptr %m_lower_inf.i.i.i, align 8
+  %11 = and i8 %bf.load.i.i46.i, 2
+  %tobool.i.i47.not.i = icmp eq i8 %11, 0
+  %bf.load.i.i49.i = load i8, ptr %m_upper_inf.i.i.i, align 8
+  %bf.load.i.i49.fr.i = freeze i8 %bf.load.i.i49.i
+  %bf.clear.i.i50.i = shl i8 %bf.load.i.i49.fr.i, 1
+  %spec.select.i = and i8 %bf.clear.i.i50.i, 2
+  %12 = select i1 %tobool.i.i47.not.i, i8 %spec.select.i, i8 2
+  %bf.clear.i.i55.i = and i8 %bf.set.i.i44.i, -3
+  %bf.set.i.i56.i = or disjoint i8 %12, %bf.clear.i.i55.i
+  store i8 %bf.set.i.i56.i, ptr %m_lower_inf.i.i30.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %new_l_kind.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %new_u_kind.i)
   ret void
 }
 
@@ -7355,22 +7407,13 @@ entry:
   %bf.load.i.i46 = load i8, ptr %m_lower_inf.i.i, align 8
   %11 = and i8 %bf.load.i.i46, 2
   %tobool.i.i47.not = icmp eq i8 %11, 0
-  br i1 %tobool.i.i47.not, label %lor.end19, label %lor.end19.thread
-
-lor.end19:                                        ; preds = %entry
   %bf.load.i.i49 = load i8, ptr %m_upper_inf.i.i, align 8
   %bf.load.i.i49.fr = freeze i8 %bf.load.i.i49
-  %bf.clear.i.i50 = and i8 %bf.load.i.i49.fr, 1
-  %tobool.i.i51.not = icmp eq i8 %bf.clear.i.i50, 0
-  br i1 %tobool.i.i51.not, label %12, label %lor.end19.thread
-
-lor.end19.thread:                                 ; preds = %entry, %lor.end19
-  br label %12
-
-12:                                               ; preds = %lor.end19, %lor.end19.thread
-  %13 = phi i8 [ 2, %lor.end19.thread ], [ 0, %lor.end19 ]
+  %bf.clear.i.i50 = shl i8 %bf.load.i.i49.fr, 1
+  %spec.select = and i8 %bf.clear.i.i50, 2
+  %12 = select i1 %tobool.i.i47.not, i8 %spec.select, i8 2
   %bf.clear.i.i55 = and i8 %bf.set.i.i44, -3
-  %bf.set.i.i56 = or disjoint i8 %13, %bf.clear.i.i55
+  %bf.set.i.i56 = or disjoint i8 %12, %bf.clear.i.i55
   store i8 %bf.set.i.i56, ptr %m_lower_inf.i.i30, align 8
   ret void
 }
@@ -7676,15 +7719,13 @@ if.else13:                                        ; preds = %if.then8
   %tobool.i.not.i.i.i53 = icmp ne i8 %6, 0
   %cmp.i.i.i.i.i.i54 = icmp slt i32 %7, 0
   %18 = select i1 %tobool.i.not.i.i.i53, i1 true, i1 %cmp.i.i.i.i.i.i54
-  br i1 %18, label %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit, label %if.else18
+  br i1 %18, label %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit, label %if.end57
 
 _ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit: ; preds = %if.else13
   %tobool.i.not.i.i3.i57 = icmp ne i8 %15, 0
   %cmp.i.i.i.i.i4.i58 = icmp sgt i32 %16, 0
   %19 = select i1 %tobool.i.not.i.i3.i57, i1 true, i1 %cmp.i.i.i.i.i4.i58
-  br i1 %19, label %if.end57, label %if.else18
-
-if.else18:                                        ; preds = %if.else13, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit
+  %spec.select = select i1 %19, i16 7, i16 6
   br label %if.end57
 
 if.else22:                                        ; preds = %if.else6
@@ -7712,15 +7753,14 @@ if.else29:                                        ; preds = %if.then24
   %tobool.i.not.i.i.i78 = icmp ne i8 %6, 0
   %cmp.i.i.i.i.i.i79 = icmp slt i32 %7, 0
   %25 = select i1 %tobool.i.not.i.i.i78, i1 true, i1 %cmp.i.i.i.i.i.i79
-  br i1 %25, label %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84, label %if.else34
+  br i1 %25, label %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84, label %if.end57
 
 _ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84: ; preds = %if.else29
   %tobool.i.not.i.i3.i82 = icmp ne i8 %22, 0
   %cmp.i.i.i.i.i4.i83 = icmp sgt i32 %23, 0
   %26 = select i1 %tobool.i.not.i.i3.i82, i1 true, i1 %cmp.i.i.i.i.i4.i83
-  br i1 %26, label %if.end57, label %if.else34
-
-if.else34:                                        ; preds = %if.else29, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84
+  %spec.select106 = select i1 %26, i16 15, i16 13
+  %spec.select107 = select i1 %26, i16 15, i16 14
   br label %if.end57
 
 if.else39:                                        ; preds = %if.else22, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit67
@@ -7736,20 +7776,21 @@ if.else44:                                        ; preds = %if.else39
   %tobool.i.not.i.i.i95 = icmp ne i8 %6, 0
   %cmp.i.i.i.i.i.i96 = icmp slt i32 %7, 0
   %30 = select i1 %tobool.i.not.i.i.i95, i1 true, i1 %cmp.i.i.i.i.i.i96
-  br i1 %30, label %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101, label %if.else49
+  br i1 %30, label %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101, label %if.end57
 
 _ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101: ; preds = %if.else44
   %tobool.i.not.i.i3.i99 = icmp ne i8 %27, 0
   %cmp.i.i.i.i.i4.i100 = icmp sgt i32 %28, 0
   %31 = select i1 %tobool.i.not.i.i3.i99, i1 true, i1 %cmp.i.i.i.i.i4.i100
-  br i1 %31, label %if.end57, label %if.else49
-
-if.else49:                                        ; preds = %if.else44, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101
+  %spec.select108 = select i1 %31, i16 7, i16 5
   br label %if.end57
 
-if.end57:                                         ; preds = %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101, %if.else39, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84, %if.then24, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit, %if.then8, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit, %if.else34, %if.else49, %if.else18
-  %32 = phi <2 x i16> [ <i16 13, i16 14>, %if.else34 ], [ <i16 5, i16 11>, %if.else49 ], [ <i16 11, i16 6>, %if.else18 ], [ <i16 3, i16 3>, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit ], [ <i16 12, i16 12>, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38 ], [ <i16 10, i16 7>, %if.then8 ], [ <i16 11, i16 7>, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit ], [ <i16 14, i16 13>, %if.then24 ], [ <i16 15, i16 15>, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84 ], [ <i16 7, i16 9>, %if.else39 ], [ <i16 7, i16 11>, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101 ]
-  store <2 x i16> %32, ptr %r_deps, align 2
+if.end57:                                         ; preds = %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit, %if.else44, %if.else39, %if.else29, %if.then24, %if.else13, %if.then8, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit
+  %.sink105 = phi i16 [ 3, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit ], [ 12, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38 ], [ 10, %if.then8 ], [ 11, %if.else13 ], [ 14, %if.then24 ], [ 13, %if.else29 ], [ 7, %if.else39 ], [ 5, %if.else44 ], [ 11, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit ], [ %spec.select106, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84 ], [ %spec.select108, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101 ]
+  %.sink = phi i16 [ 3, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit ], [ 12, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38 ], [ 7, %if.then8 ], [ 6, %if.else13 ], [ 13, %if.then24 ], [ 14, %if.else29 ], [ 9, %if.else39 ], [ 11, %if.else44 ], [ %spec.select, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit ], [ %spec.select107, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84 ], [ 11, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101 ]
+  store i16 %.sink105, ptr %r_deps, align 2
+  %m_upper_combine5 = getelementptr inbounds i8, ptr %r_deps, i64 2
+  store i16 %.sink, ptr %m_upper_combine5, align 2
   ret void
 }
 

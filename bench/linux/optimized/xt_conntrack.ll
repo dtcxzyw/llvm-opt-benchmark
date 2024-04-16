@@ -152,7 +152,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %21, label %.thread2, label %.thread1
 
 .thread1:                                         ; preds = %.thread
-  %.lhs.trunc = trunc i32 %7 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %7 to i8
   %22 = urem i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %22 to i32
   %23 = shl nuw nsw i32 2, %.zext
@@ -670,7 +670,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 414:                                              ; preds = %403, %400
   %415 = and i16 %46, 128
   %416 = icmp eq i16 %415, 0
-  br i1 %416, label %441, label %417
+  br i1 %416, label %.thread6, label %417
 
 417:                                              ; preds = %414
   %418 = getelementptr inbounds i8, ptr %9, i64 8
@@ -700,14 +700,11 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   %438 = icmp eq i16 %437, 0
   %439 = zext i1 %438 to i32
   %440 = icmp eq i32 %434, %439
-  br i1 %440, label %441, label %.thread6
-
-441:                                              ; preds = %433, %414
   br label %.thread6
 
-.thread6:                                         ; preds = %35, %11, %._crit_edge5, %._crit_edge4, %._crit_edge3, %._crit_edge, %441, %433, %403, %384, %365, %346, %327, %312, %300, %286, %272, %258, %243, %228, %183, %138, %93, %49
-  %442 = phi i1 [ true, %441 ], [ false, %433 ], [ %not., %35 ], [ false, %49 ], [ false, %93 ], [ false, %138 ], [ false, %183 ], [ false, %228 ], [ false, %403 ], [ false, %243 ], [ false, %258 ], [ false, %272 ], [ false, %286 ], [ false, %300 ], [ false, %312 ], [ false, %327 ], [ false, %346 ], [ false, %365 ], [ false, %384 ], [ false, %._crit_edge ], [ false, %._crit_edge3 ], [ false, %._crit_edge4 ], [ false, %._crit_edge5 ], [ false, %11 ]
-  ret i1 %442
+.thread6:                                         ; preds = %35, %11, %._crit_edge5, %._crit_edge4, %._crit_edge3, %._crit_edge, %433, %414, %403, %384, %365, %346, %327, %312, %300, %286, %272, %258, %243, %228, %183, %138, %93, %49
+  %441 = phi i1 [ %not., %35 ], [ false, %49 ], [ false, %93 ], [ false, %138 ], [ false, %183 ], [ false, %228 ], [ false, %403 ], [ false, %243 ], [ false, %258 ], [ false, %272 ], [ false, %286 ], [ false, %300 ], [ false, %312 ], [ false, %327 ], [ false, %346 ], [ false, %365 ], [ false, %384 ], [ true, %414 ], [ %440, %433 ], [ false, %._crit_edge ], [ false, %._crit_edge3 ], [ false, %._crit_edge4 ], [ false, %._crit_edge5 ], [ false, %11 ]
+  ret i1 %441
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

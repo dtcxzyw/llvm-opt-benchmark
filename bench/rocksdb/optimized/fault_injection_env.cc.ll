@@ -1052,7 +1052,7 @@ entry:
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -5710,18 +5710,15 @@ if.else5:                                         ; preds = %if.else
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
-  br i1 %cmp.not, label %if.else11, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else5
   %call.i4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %call8) #18
   %cmp.i5 = icmp eq i32 %call.i4, 0
-  br i1 %cmp.i5, label %return, label %if.else11
-
-if.else11:                                        ; preds = %land.lhs.true, %if.else5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %entry, %if.else11
-  %retval.0 = phi i1 [ false, %if.else11 ], [ false, %entry ], [ true, %if.else ], [ true, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else5, %if.else, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.else ], [ false, %if.else5 ], [ %cmp.i5, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -8736,7 +8733,7 @@ entry:
   %shr.i.i.i.i.i.i = lshr i64 %mul.i.i.i.i.i.i, 31
   %and.i.i.i.i.i.i = and i64 %mul.i.i.i.i.i.i, 2147483647
   %add.i.i.i.i.i.i = add nuw nsw i64 %shr.i.i.i.i.i.i, %and.i.i.i.i.i.i
-  %conv2.i.i.i.i.i.i = trunc i64 %add.i.i.i.i.i.i to i32
+  %conv2.i.i.i.i.i.i = trunc nuw i64 %add.i.i.i.i.i.i to i32
   %cmp.i.i.i.i.i.i = icmp slt i32 %conv2.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i = add i32 %conv2.i.i.i.i.i.i, -2147483647
   %spec.select.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i32 %sub.i.i.i.i.i.i, i32 %conv2.i.i.i.i.i.i

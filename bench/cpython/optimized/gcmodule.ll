@@ -1177,7 +1177,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %cmp.not.i, label %if.then5, label %for.body.i, !llvm.loop !7
 
 gc_select_generation.exit:                        ; preds = %if.then.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp4 = icmp slt i32 %7, 0
   br i1 %cmp4, label %if.then5, label %if.end8
 
@@ -3183,7 +3183,7 @@ if.end8:                                          ; preds = %if.then4, %if.end
 declare void @PyObject_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_GC_IsTracked(ptr noundef %obj) local_unnamed_addr #1 {
+define dso_local i32 @PyObject_GC_IsTracked(ptr noundef %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -3191,7 +3191,7 @@ entry:
   %call.val.i = load i64, ptr %1, align 8
   %2 = and i64 %call.val.i, 16384
   %tobool.not.i = icmp eq i64 %2, 0
-  br i1 %tobool.not.i, label %if.end, label %land.rhs.i
+  br i1 %tobool.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
   %tp_is_gc.i = getelementptr inbounds i8, ptr %obj.val.i, i64 328
@@ -3202,24 +3202,22 @@ land.rhs.i:                                       ; preds = %entry
 _PyObject_IS_GC.exit:                             ; preds = %land.rhs.i
   %call3.i = tail call i32 %3(ptr noundef nonnull %obj) #15
   %tobool4.i.not = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.i.not, label %if.end, label %land.lhs.true
+  br i1 %tobool4.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.rhs.i, %_PyObject_IS_GC.exit
   %4 = getelementptr i8, ptr %obj, i64 -16
   %obj.val = load i64, ptr %4, align 8
-  %cmp.i2.not = icmp eq i64 %obj.val, 0
-  br i1 %cmp.i2.not, label %if.end, label %return
-
-if.end:                                           ; preds = %entry, %land.lhs.true, %_PyObject_IS_GC.exit
+  %cmp.i2.not = icmp ne i64 %obj.val, 0
+  %spec.select = zext i1 %cmp.i2.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %land.lhs.true ]
+return:                                           ; preds = %entry, %land.lhs.true, %_PyObject_IS_GC.exit
+  %retval.0 = phi i32 [ 0, %_PyObject_IS_GC.exit ], [ %spec.select, %land.lhs.true ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_GC_IsFinalized(ptr noundef %obj) local_unnamed_addr #1 {
+define dso_local i32 @PyObject_GC_IsFinalized(ptr noundef %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -3227,7 +3225,7 @@ entry:
   %call.val.i = load i64, ptr %1, align 8
   %2 = and i64 %call.val.i, 16384
   %tobool.not.i = icmp eq i64 %2, 0
-  br i1 %tobool.not.i, label %if.end, label %land.rhs.i
+  br i1 %tobool.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
   %tp_is_gc.i = getelementptr inbounds i8, ptr %obj.val.i, i64 328
@@ -3238,20 +3236,17 @@ land.rhs.i:                                       ; preds = %entry
 _PyObject_IS_GC.exit:                             ; preds = %land.rhs.i
   %call3.i = tail call i32 %3(ptr noundef nonnull %obj) #15
   %tobool4.i.not = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.i.not, label %if.end, label %land.lhs.true
+  br i1 %tobool4.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.rhs.i, %_PyObject_IS_GC.exit
   %4 = getelementptr i8, ptr %obj, i64 -8
   %obj.val = load i64, ptr %4, align 8
-  %conv.i.i7 = and i64 %obj.val, 1
-  %tobool2.not = icmp eq i64 %conv.i.i7, 0
-  br i1 %tobool2.not, label %if.end, label %return
-
-if.end:                                           ; preds = %entry, %land.lhs.true, %_PyObject_IS_GC.exit
+  %5 = trunc i64 %obj.val to i32
+  %spec.select = and i32 %5, 1
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %land.lhs.true ]
+return:                                           ; preds = %entry, %land.lhs.true, %_PyObject_IS_GC.exit
+  %retval.0 = phi i32 [ 0, %_PyObject_IS_GC.exit ], [ %spec.select, %land.lhs.true ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -3866,7 +3861,7 @@ if.end:                                           ; preds = %if.end.i.i7, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gc_is_finalized(ptr nocapture readnone %module, ptr noundef %obj) #1 {
+define internal ptr @gc_is_finalized(ptr nocapture readnone %module, ptr noundef %obj) #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -3874,7 +3869,7 @@ entry:
   %call.val.i = load i64, ptr %1, align 8
   %2 = and i64 %call.val.i, 16384
   %tobool.not.i = icmp eq i64 %2, 0
-  br i1 %tobool.not.i, label %if.end, label %land.rhs.i
+  br i1 %tobool.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
   %tp_is_gc.i = getelementptr inbounds i8, ptr %obj.val.i, i64 328
@@ -3885,20 +3880,18 @@ land.rhs.i:                                       ; preds = %entry
 _PyObject_IS_GC.exit:                             ; preds = %land.rhs.i
   %call3.i = tail call i32 %3(ptr noundef nonnull %obj) #15
   %tobool4.i.not = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.i.not, label %if.end, label %land.lhs.true
+  br i1 %tobool4.i.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.rhs.i, %_PyObject_IS_GC.exit
   %4 = getelementptr i8, ptr %obj, i64 -8
   %obj.val = load i64, ptr %4, align 8
   %conv.i.i7 = and i64 %obj.val, 1
   %tobool2.not = icmp eq i64 %conv.i.i7, 0
-  br i1 %tobool2.not, label %if.end, label %return
-
-if.end:                                           ; preds = %entry, %land.lhs.true, %_PyObject_IS_GC.exit
+  %spec.select = select i1 %tobool2.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi ptr [ @_Py_FalseStruct, %if.end ], [ @_Py_TrueStruct, %land.lhs.true ]
+return:                                           ; preds = %entry, %land.lhs.true, %_PyObject_IS_GC.exit
+  %retval.0 = phi ptr [ @_Py_FalseStruct, %_PyObject_IS_GC.exit ], [ %spec.select, %land.lhs.true ], [ @_Py_FalseStruct, %entry ]
   ret ptr %retval.0
 }
 

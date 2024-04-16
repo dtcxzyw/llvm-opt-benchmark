@@ -276,7 +276,7 @@ define noundef ptr @IDACreate(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @IDAProcessError(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ...) local_unnamed_addr #0 {
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %5, ptr noundef nonnull %7) #14
   %9 = add nsw i32 %8, 1
   %10 = sext i32 %9 to i64
@@ -339,7 +339,7 @@ SUNHandleErrWithMsg.exit:                         ; preds = %.lr.ph.i, %29
   br label %38
 
 38:                                               ; preds = %SUNHandleErrWithMsg.exit, %17, %14
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   call void @free(ptr noundef %11) #14
   ret void
 }
@@ -2507,7 +2507,7 @@ define noundef i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %indvars.iv139 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next140, %277 ]
   %278 = load ptr, ptr %210, align 8
   %279 = getelementptr inbounds i32, ptr %278, i64 %indvars.iv139
-  %280 = trunc i64 %indvars.iv139 to i32
+  %280 = trunc nuw nsw i64 %indvars.iv139 to i32
   store i32 %280, ptr %279, align 4
   %281 = load ptr, ptr %184, align 8
   %282 = getelementptr inbounds double, ptr %281, i64 %indvars.iv139
@@ -2834,7 +2834,7 @@ define noundef i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %indvars.iv113 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next114, %55 ]
   %56 = load ptr, ptr %53, align 8
   %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv113
-  %58 = trunc i64 %indvars.iv113 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv113 to i32
   store i32 %58, ptr %57, align 4
   %59 = load ptr, ptr %54, align 8
   %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv113
@@ -5261,7 +5261,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %531
   %597 = fdiv double %595, %596
   %598 = getelementptr inbounds [6 x double], ptr %338, i64 0, i64 %indvars.iv.i.i444
   store double %597, ptr %598, align 8
-  %599 = trunc i64 %indvars.iv.i.i444 to i32
+  %599 = trunc nuw nsw i64 %indvars.iv.i.i444 to i32
   %600 = sitofp i32 %599 to double
   %601 = fmul double %587, %600
   %602 = fmul double %601, %597
@@ -5300,7 +5300,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %531
   %.0199.i.i = phi double [ 0.000000e+00, %.lr.ph201.i.i ], [ %618, %614 ]
   %.0155198.i.i = phi double [ 0.000000e+00, %.lr.ph201.i.i ], [ %621, %614 ]
   %indvars.iv.next253.i.i = add nuw nsw i64 %indvars.iv252.i.i, 1
-  %615 = trunc i64 %indvars.iv.next253.i.i to i32
+  %615 = trunc nuw nsw i64 %indvars.iv.next253.i.i to i32
   %616 = sitofp i32 %615 to double
   %617 = fdiv double 1.000000e+00, %616
   %618 = fsub double %.0199.i.i, %617
@@ -5426,7 +5426,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %531
   br i1 %681, label %676, label %._crit_edge214.loopexit.i.i
 
 ._crit_edge214.loopexit.i.i:                      ; preds = %676
-  %682 = trunc i64 %indvars.iv.next259.i.i to i32
+  %682 = trunc nsw i64 %indvars.iv.next259.i.i to i32
   %.pre293.i.i = load i32, ptr %329, align 8
   br label %._crit_edge214.i.i
 
@@ -5493,7 +5493,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %531
   br i1 %706, label %698, label %._crit_edge222.loopexit.i.i
 
 ._crit_edge222.loopexit.i.i:                      ; preds = %698
-  %707 = trunc i64 %indvars.iv.next267.i.i to i32
+  %707 = trunc nsw i64 %indvars.iv.next267.i.i to i32
   %.pre295.i.i = load i32, ptr %329, align 8
   br label %._crit_edge222.i.i
 
@@ -5563,7 +5563,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %531
   br i1 %733, label %725, label %._crit_edge232.loopexit.i.i
 
 ._crit_edge232.loopexit.i.i:                      ; preds = %725
-  %734 = trunc i64 %indvars.iv.next277.i.i to i32
+  %734 = trunc nsw i64 %indvars.iv.next277.i.i to i32
   %.pre296.i.i = load i32, ptr %329, align 8
   br label %._crit_edge232.i.i
 
@@ -5743,7 +5743,7 @@ IDASensPredict.exit.i:                            ; preds = %.lr.ph.i135.i, %764
   %818 = getelementptr inbounds i8, ptr %817, i64 16
   %819 = load ptr, ptr %818, align 8
   %.not139.i.i = icmp eq ptr %819, null
-  br i1 %.not139.i.i, label %.thread148.i.i, label %.thread146.i.i
+  br i1 %.not139.i.i, label %.thread147.i.i.sink.split, label %.thread146.i.i
 
 .thread.i.i:                                      ; preds = %812
   %820 = load ptr, ptr %359, align 8
@@ -5771,14 +5771,14 @@ IDASensPredict.exit.i:                            ; preds = %.lr.ph.i135.i, %764
 830:                                              ; preds = %829
   br i1 %785, label %.thread148.i.i, label %.thread147.i.i.sink.split
 
-.thread148.i.i:                                   ; preds = %830, %813
+.thread148.i.i:                                   ; preds = %830
   br label %.thread147.i.i.sink.split
 
-.thread147.i.i.sink.split:                        ; preds = %830, %.thread148.i.i
-  %.sink645 = phi ptr [ %363, %.thread148.i.i ], [ %358, %830 ]
-  %.sink644.ph = phi ptr [ %364, %.thread148.i.i ], [ %345, %830 ]
-  %.sink643.ph = phi ptr [ %360, %.thread148.i.i ], [ %359, %830 ]
-  %.sink642.ph = phi ptr [ %365, %.thread148.i.i ], [ %309, %830 ]
+.thread147.i.i.sink.split:                        ; preds = %813, %830, %.thread148.i.i
+  %.sink645 = phi ptr [ %358, %830 ], [ %363, %813 ], [ %363, %.thread148.i.i ]
+  %.sink644.ph = phi ptr [ %345, %830 ], [ %364, %813 ], [ %364, %.thread148.i.i ]
+  %.sink643.ph = phi ptr [ %359, %830 ], [ %360, %813 ], [ %360, %.thread148.i.i ]
+  %.sink642.ph = phi ptr [ %309, %830 ], [ %365, %813 ], [ %365, %.thread148.i.i ]
   %.pre149.i.i = load ptr, ptr %.sink645, align 8
   br label %.thread147.i.i
 
@@ -7352,7 +7352,7 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
 .lr.ph356.i.i:                                    ; preds = %.loopexit.thread.i211.thread.i, %.lr.ph356.i.i
   %indvars.iv399.i.i = phi i64 [ %indvars.iv.next400.i.i, %.lr.ph356.i.i ], [ 1, %.loopexit.thread.i211.thread.i ]
   %1670 = phi i32 [ %1685, %.lr.ph356.i.i ], [ %1669, %.loopexit.thread.i211.thread.i ]
-  %1671 = trunc i64 %indvars.iv399.i.i to i32
+  %1671 = trunc nuw nsw i64 %indvars.iv399.i.i to i32
   %reass.sub = sub i32 %1670, %1671
   %1672 = add i32 %reass.sub, 1
   %1673 = sext i32 %1672 to i64
@@ -7402,7 +7402,7 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
 .lr.ph360.i.i:                                    ; preds = %1692, %.lr.ph360.i.i
   %indvars.iv402.i.i = phi i64 [ %indvars.iv.next403.i.i, %.lr.ph360.i.i ], [ 1, %1692 ]
   %1701 = phi i32 [ %1716, %.lr.ph360.i.i ], [ %1700, %1692 ]
-  %1702 = trunc i64 %indvars.iv402.i.i to i32
+  %1702 = trunc nuw nsw i64 %indvars.iv402.i.i to i32
   %reass.sub550 = sub i32 %1701, %1702
   %1703 = add i32 %reass.sub550, 1
   %1704 = sext i32 %1703 to i64
@@ -7506,7 +7506,7 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
   br i1 %.not324.not.i.i, label %.lr.ph368.i.i, label %._crit_edge369.loopexit.i.i
 
 ._crit_edge369.loopexit.i.i:                      ; preds = %.lr.ph368.i.i
-  %1762 = trunc i64 %indvars.iv.next406.i.i to i32
+  %1762 = trunc nsw i64 %indvars.iv.next406.i.i to i32
   br label %._crit_edge369.i.i
 
 ._crit_edge369.i.i:                               ; preds = %._crit_edge369.loopexit.i.i, %.lr.ph373.i.i
@@ -7601,7 +7601,7 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i333.i.i, 
   br i1 %.not323.not.i.i, label %.lr.ph381.i.i, label %._crit_edge382.loopexit.i.i
 
 ._crit_edge382.loopexit.i.i:                      ; preds = %.lr.ph381.i.i
-  %1813 = trunc i64 %indvars.iv.next412.i.i to i32
+  %1813 = trunc nsw i64 %indvars.iv.next412.i.i to i32
   br label %._crit_edge382.i.i
 
 ._crit_edge382.i.i:                               ; preds = %._crit_edge382.loopexit.i.i, %.lr.ph386.i.i
@@ -8889,7 +8889,7 @@ define internal fastcc noundef i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not.i, label %._crit_edge.i, label %60
 
 .thread.i:                                        ; preds = %95
-  %101 = trunc i64 %indvars.iv.i to i32
+  %101 = trunc nuw nsw i64 %indvars.iv.i to i32
   %indvars.iv.next363.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not364.i = icmp eq i64 %indvars.iv.next363.i, %wide.trip.count.i
   br i1 %exitcond.not364.i, label %.preheader263.i, label %.outer.i
@@ -9150,7 +9150,7 @@ define internal fastcc noundef i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond331.not.i, label %._crit_edge286.i, label %210
 
 .thread54:                                        ; preds = %245
-  %251 = trunc i64 %indvars.iv327.i to i32
+  %251 = trunc nuw nsw i64 %indvars.iv327.i to i32
   %indvars.iv.next328.i59 = add nuw nsw i64 %indvars.iv327.i, 1
   %exitcond331.not.i60 = icmp eq i64 %indvars.iv.next328.i59, %wide.trip.count330.i
   br i1 %exitcond331.not.i60, label %._crit_edge286.i.thread, label %.outer
@@ -10318,7 +10318,7 @@ define i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr nou
   %62 = add nsw i64 %indvar, -1
   %63 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %62
   %64 = load double, ptr %63, align 8
-  %65 = trunc i64 %indvar to i32
+  %65 = trunc nuw nsw i64 %indvar to i32
   %66 = sitofp i32 %65 to double
   %67 = fmul double %64, %66
   %68 = getelementptr inbounds [6 x double], ptr %42, i64 0, i64 %62
@@ -10335,7 +10335,7 @@ define i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr nou
   br i1 %.not8387, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72
-  %74 = trunc i64 %indvar to i32
+  %74 = trunc nuw nsw i64 %indvar to i32
   %75 = sitofp i32 %74 to double
   %load_initial = load double, ptr %scevgep110, align 8
   br label %76
@@ -10524,7 +10524,7 @@ define i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
   %64 = add nsw i64 %indvar, -1
   %65 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %64
   %66 = load double, ptr %65, align 8
-  %67 = trunc i64 %indvar to i32
+  %67 = trunc nuw nsw i64 %indvar to i32
   %68 = sitofp i32 %67 to double
   %69 = fmul double %66, %68
   %70 = getelementptr inbounds [6 x double], ptr %42, i64 0, i64 %64
@@ -10541,7 +10541,7 @@ define i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
   br i1 %.not8387, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74
-  %76 = trunc i64 %indvar to i32
+  %76 = trunc nuw nsw i64 %indvar to i32
   %77 = sitofp i32 %76 to double
   %load_initial = load double, ptr %scevgep111, align 8
   br label %78
@@ -10636,7 +10636,7 @@ define i32 @IDAGetSens(ptr noundef %0, ptr nocapture noundef %1, ptr noundef rea
   %24 = load double, ptr %1, align 8
   %25 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 @IDAGetSensDky1(ptr noundef nonnull %0, double noundef %24, i32 noundef 0, i32 noundef %27, ptr noundef %26), !range !18
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %20, label %.loopexit
@@ -10789,7 +10789,7 @@ define i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i3
   %78 = add nsw i64 %indvar, -1
   %79 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %78
   %80 = load double, ptr %79, align 8
-  %81 = trunc i64 %indvar to i32
+  %81 = trunc nuw nsw i64 %indvar to i32
   %82 = sitofp i32 %81 to double
   %83 = fmul double %80, %82
   %84 = getelementptr inbounds [6 x double], ptr %54, i64 0, i64 %78
@@ -10806,7 +10806,7 @@ define i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i3
   br i1 %.not102108, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88
-  %90 = trunc i64 %indvar to i32
+  %90 = trunc nuw nsw i64 %indvar to i32
   %91 = sitofp i32 %90 to double
   %load_initial = load double, ptr %scevgep136, align 8
   br label %92
@@ -10928,7 +10928,7 @@ define i32 @IDAGetSensDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
   %29 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = tail call i32 @IDAGetSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %31, ptr noundef %30), !range !18
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %25, label %.loopexit
@@ -11007,7 +11007,7 @@ define i32 @IDAGetQuadSens(ptr noundef %0, ptr nocapture noundef %1, ptr noundef
   %24 = load double, ptr %1, align 8
   %25 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 @IDAGetQuadSensDky1(ptr noundef nonnull %0, double noundef %24, i32 noundef 0, i32 noundef %27, ptr noundef %26), !range !19
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %20, label %.loopexit
@@ -11170,7 +11170,7 @@ define i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2
   %83 = add nsw i64 %indvar, -1
   %84 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %83
   %85 = load double, ptr %84, align 8
-  %86 = trunc i64 %indvar to i32
+  %86 = trunc nuw nsw i64 %indvar to i32
   %87 = sitofp i32 %86 to double
   %88 = fmul double %85, %87
   %89 = getelementptr inbounds [6 x double], ptr %59, i64 0, i64 %83
@@ -11187,7 +11187,7 @@ define i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2
   br i1 %.not104110, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %93
-  %95 = trunc i64 %indvar to i32
+  %95 = trunc nuw nsw i64 %indvar to i32
   %96 = sitofp i32 %95 to double
   %load_initial = load double, ptr %scevgep138, align 8
   br label %97
@@ -11319,7 +11319,7 @@ define i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %1, i32 noundef %2,
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader ]
   %34 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 @IDAGetQuadSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %36, ptr noundef %35), !range !19
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %30, label %.loopexit
@@ -11958,20 +11958,14 @@ declare i32 @N_VWrmsNormMaskVectorArray(i32 noundef, ptr noundef, ptr noundef, p
 
 declare i32 @N_VWrmsNormVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
 declare void @SUNGlobalFallbackErrHandler(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #3
 
 declare i32 @SUNLogger_QueueMsg(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @SUNContext_GetLastError(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
 
 declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -12124,7 +12118,7 @@ define internal fastcc void @IDARestore(ptr noundef %0, double noundef %1) unnam
   br i1 %80, label %73, label %._crit_edge122.loopexit
 
 ._crit_edge122.loopexit:                          ; preds = %73
-  %81 = trunc i64 %indvars.iv.next161 to i32
+  %81 = trunc nsw i64 %indvars.iv.next161 to i32
   %.pre186 = load i32, ptr %4, align 8
   br label %._crit_edge122
 
@@ -12194,7 +12188,7 @@ define internal fastcc void @IDARestore(ptr noundef %0, double noundef %1) unnam
   br i1 %108, label %100, label %._crit_edge130.loopexit
 
 ._crit_edge130.loopexit:                          ; preds = %100
-  %109 = trunc i64 %indvars.iv.next169 to i32
+  %109 = trunc nsw i64 %indvars.iv.next169 to i32
   %.pre188 = load i32, ptr %4, align 8
   br label %._crit_edge130
 
@@ -12269,7 +12263,7 @@ define internal fastcc void @IDARestore(ptr noundef %0, double noundef %1) unnam
   br i1 %141, label %133, label %._crit_edge140.loopexit
 
 ._crit_edge140.loopexit:                          ; preds = %133
-  %142 = trunc i64 %indvars.iv.next179 to i32
+  %142 = trunc nsw i64 %indvars.iv.next179 to i32
   %.pre189 = load i32, ptr %4, align 8
   br label %._crit_edge140
 
@@ -12499,13 +12493,19 @@ declare void @N_VDiv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare double @N_VMinQuotient(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #8
+declare double @sqrt(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
@@ -12534,10 +12534,10 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -1668,8 +1668,8 @@ if.end.i:                                         ; preds = %if.end135.i
   br i1 %tobool4.not.i, label %goughEnableStarts.exit, label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.end.i
-  %idx.ext.i126 = zext i32 %33 to i64
-  %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i126
+  %idx.ext.i127 = zext i32 %33 to i64
+  %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i127
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
@@ -1730,11 +1730,11 @@ sw.epilog.i.i:                                    ; preds = %if.then32.i.i, %if.
   br label %while.body.i.i
 
 goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
-  %.pre134.pre = load i32, ptr %cur.i44, align 8
+  %.pre133.pre = load i32, ptr %cur.i44, align 8
   br label %goughEnableStarts.exit
 
 goughEnableStarts.exit:                           ; preds = %goughEnableStarts.exit.loopexit, %entry.return_crit_edge.i, %if.end.i
-  %.pre134 = phi i32 [ %.pre.pre, %entry.return_crit_edge.i ], [ %.pre.pre, %if.end.i ], [ %.pre134.pre, %goughEnableStarts.exit.loopexit ]
+  %.pre133 = phi i32 [ %.pre.pre, %entry.return_crit_edge.i ], [ %.pre.pre, %if.end.i ], [ %.pre133.pre, %goughEnableStarts.exit.loopexit ]
   %idx.ext2.i.pre-phi.i = phi i64 [ %.pre.i, %entry.return_crit_edge.i ], [ %idxprom.i, %if.end.i ], [ %idxprom.i, %goughEnableStarts.exit.loopexit ]
   %idx.ext.i.i = zext i32 %30 to i64
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i
@@ -1745,7 +1745,7 @@ goughEnableStarts.exit:                           ; preds = %goughEnableStarts.e
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end124.i, %goughEnableStarts.exit, %if.then133.i
-  %40 = phi i32 [ %.pre.pre, %if.end124.i ], [ %.pre134, %goughEnableStarts.exit ], [ %.pre.pre, %if.then133.i ]
+  %40 = phi i32 [ %.pre.pre, %if.end124.i ], [ %.pre133, %goughEnableStarts.exit ], [ %.pre.pre, %if.then133.i ]
   %inc153.i = add i32 %40, 1
   store i32 %inc153.i, ptr %cur.i44, align 8
   br label %while.body.i.backedge
@@ -1767,11 +1767,11 @@ nfaExecGough8_Q2i.exit:                           ; preds = %if.end124.i
 land.lhs.true:                                    ; preds = %nfaExecGough8_Q2i.exit
   %call5 = tail call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef nonnull %q) #12
   %tobool7.not = icmp eq i8 %call5, 0
-  %spec.select130 = select i1 %tobool7.not, i8 1, i8 2
+  %spec.select126 = select i1 %tobool7.not, i8 1, i8 2
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %cond.end.i33, %doReports.exit, %if.then7.i.critedge, %if.then65.i, %nfaExecGough8_Q2i.exit
-  %retval.0 = phi i8 [ 0, %nfaExecGough8_Q2i.exit ], [ 0, %if.then65.i ], [ 0, %if.then7.i.critedge ], [ 0, %doReports.exit ], [ 0, %cond.end.i33 ], [ %spec.select130, %land.lhs.true ]
+return:                                           ; preds = %cond.end.i33, %doReports.exit, %if.then7.i.critedge, %if.then65.i, %land.lhs.true, %nfaExecGough8_Q2i.exit
+  %retval.0 = phi i8 [ 0, %nfaExecGough8_Q2i.exit ], [ %spec.select126, %land.lhs.true ], [ 0, %if.then65.i ], [ 0, %if.then7.i.critedge ], [ 0, %doReports.exit ], [ 0, %cond.end.i33 ]
   ret i8 %retval.0
 }
 
@@ -1991,8 +1991,8 @@ if.end.i:                                         ; preds = %if.end127.i
   br i1 %tobool4.not.i, label %goughEnableStarts.exit, label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.end.i
-  %idx.ext.i126 = zext i32 %33 to i64
-  %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i126
+  %idx.ext.i127 = zext i32 %33 to i64
+  %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i127
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
@@ -2053,11 +2053,11 @@ sw.epilog.i.i:                                    ; preds = %if.then32.i.i, %if.
   br label %while.body.i.i
 
 goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
-  %.pre134.pre = load i32, ptr %cur.i41, align 8
+  %.pre133.pre = load i32, ptr %cur.i41, align 8
   br label %goughEnableStarts.exit
 
 goughEnableStarts.exit:                           ; preds = %goughEnableStarts.exit.loopexit, %entry.return_crit_edge.i, %if.end.i
-  %.pre134 = phi i32 [ %.pre.pre, %entry.return_crit_edge.i ], [ %.pre.pre, %if.end.i ], [ %.pre134.pre, %goughEnableStarts.exit.loopexit ]
+  %.pre133 = phi i32 [ %.pre.pre, %entry.return_crit_edge.i ], [ %.pre.pre, %if.end.i ], [ %.pre133.pre, %goughEnableStarts.exit.loopexit ]
   %idx.ext2.i.pre-phi.i = phi i64 [ %.pre.i, %entry.return_crit_edge.i ], [ %idxprom.i, %if.end.i ], [ %idxprom.i, %goughEnableStarts.exit.loopexit ]
   %idx.ext.i.i = zext i32 %30 to i64
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i
@@ -2067,7 +2067,7 @@ goughEnableStarts.exit:                           ; preds = %goughEnableStarts.e
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end117.i, %goughEnableStarts.exit, %if.then126.i
-  %40 = phi i32 [ %.pre.pre, %if.end117.i ], [ %.pre134, %goughEnableStarts.exit ], [ %.pre.pre, %if.then126.i ]
+  %40 = phi i32 [ %.pre.pre, %if.end117.i ], [ %.pre133, %goughEnableStarts.exit ], [ %.pre.pre, %if.then126.i ]
   %inc143.i = add i32 %40, 1
   store i32 %inc143.i, ptr %cur.i41, align 8
   br label %while.body.i.backedge
@@ -2089,11 +2089,11 @@ nfaExecGough16_Q2i.exit:                          ; preds = %if.end117.i
 land.lhs.true:                                    ; preds = %nfaExecGough16_Q2i.exit
   %call5 = tail call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef nonnull %q) #12
   %tobool7.not = icmp eq i8 %call5, 0
-  %spec.select130 = select i1 %tobool7.not, i8 1, i8 2
+  %spec.select126 = select i1 %tobool7.not, i8 1, i8 2
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %cond.end.i31, %doReports.exit, %if.then6.i.critedge, %if.then60.i, %nfaExecGough16_Q2i.exit
-  %retval.0 = phi i8 [ 0, %nfaExecGough16_Q2i.exit ], [ 0, %if.then60.i ], [ 0, %if.then6.i.critedge ], [ 0, %doReports.exit ], [ 0, %cond.end.i31 ], [ %spec.select130, %land.lhs.true ]
+return:                                           ; preds = %cond.end.i31, %doReports.exit, %if.then6.i.critedge, %if.then60.i, %land.lhs.true, %nfaExecGough16_Q2i.exit
+  %retval.0 = phi i8 [ 0, %nfaExecGough16_Q2i.exit ], [ %spec.select126, %land.lhs.true ], [ 0, %if.then60.i ], [ 0, %if.then6.i.critedge ], [ 0, %doReports.exit ], [ 0, %cond.end.i31 ]
   ret i8 %retval.0
 }
 
@@ -2581,7 +2581,7 @@ for.body.i.us:                                    ; preds = %for.body.i.us.prehe
   %indvars.iv57 = phi i64 [ 0, %for.body.i.us.preheader ], [ %indvars.iv.next58, %for.body.i.us ]
   %arrayidx.i.us = getelementptr inbounds [1 x i64], ptr %add.ptr.i, i64 0, i64 %indvars.iv57
   %7 = load i64, ptr %arrayidx.i.us, align 8
-  %8 = trunc i64 %indvars.iv57 to i32
+  %8 = trunc nuw i64 %indvars.iv57 to i32
   %mul.i.us = mul i32 %8, %conv.i
   %idx.ext.i5.us = zext i32 %mul.i.us to i64
   %add.ptr.i6.us = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i5.us
@@ -2598,7 +2598,7 @@ for.body.i.us23:                                  ; preds = %for.body.i.us23.pre
   %indvars.iv52 = phi i64 [ 0, %for.body.i.us23.preheader ], [ %indvars.iv.next53, %for.body.i.us23 ]
   %arrayidx.i.us26 = getelementptr inbounds [1 x i64], ptr %add.ptr.i, i64 0, i64 %indvars.iv52
   %10 = load i64, ptr %arrayidx.i.us26, align 8
-  %11 = trunc i64 %indvars.iv52 to i32
+  %11 = trunc nuw i64 %indvars.iv52 to i32
   %mul.i.us27 = mul i32 %11, %conv.i
   %idx.ext.i5.us28 = zext i32 %mul.i.us27 to i64
   %add.ptr.i6.us29 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i5.us28
@@ -2615,7 +2615,7 @@ for.body.i.us36:                                  ; preds = %for.body.i.us36.pre
   %indvars.iv = phi i64 [ 0, %for.body.i.us36.preheader ], [ %indvars.iv.next, %for.body.i.us36 ]
   %arrayidx.i.us39 = getelementptr inbounds [1 x i64], ptr %add.ptr.i, i64 0, i64 %indvars.iv
   %13 = load i64, ptr %arrayidx.i.us39, align 8
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   %mul.i.us40 = mul i32 %14, %conv.i
   %idx.ext.i5.us41 = zext i32 %mul.i.us40 to i64
   %add.ptr.i6.us42 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i5.us41
@@ -2658,7 +2658,7 @@ for.body.i.lr.ph:                                 ; preds = %entry
 
 for.body.i.us:                                    ; preds = %for.body.i.lr.ph, %for.body.i.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %for.body.i.us ], [ 0, %for.body.i.lr.ph ]
-  %4 = trunc i64 %indvars.iv55 to i32
+  %4 = trunc nuw i64 %indvars.iv55 to i32
   %mul.i.us = mul i32 %4, %conv.i
   %idx.ext.i5.us = zext i32 %mul.i.us to i64
   %add.ptr.i6.us = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i5.us
@@ -2675,7 +2675,7 @@ for.body.i.us:                                    ; preds = %for.body.i.lr.ph, %
 
 for.body.i.us17:                                  ; preds = %for.body.i.lr.ph, %for.body.i.us17
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.body.i.us17 ], [ 0, %for.body.i.lr.ph ]
-  %6 = trunc i64 %indvars.iv50 to i32
+  %6 = trunc nuw i64 %indvars.iv50 to i32
   %mul.i.us19 = mul i32 %6, %conv.i
   %idx.ext.i5.us20 = zext i32 %mul.i.us19 to i64
   %add.ptr.i6.us21 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i5.us20
@@ -2692,7 +2692,7 @@ for.body.i.us17:                                  ; preds = %for.body.i.lr.ph, %
 
 for.body.i.us32:                                  ; preds = %for.body.i.lr.ph, %for.body.i.us32
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.us32 ], [ 0, %for.body.i.lr.ph ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   %mul.i.us34 = mul i32 %8, %conv.i
   %idx.ext.i5.us35 = zext i32 %mul.i.us34 to i64
   %add.ptr.i6.us36 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i5.us35
@@ -2767,7 +2767,7 @@ for.body.i.us:                                    ; preds = %for.body.i.us.prehe
   %indvars.iv57 = phi i64 [ 0, %for.body.i.us.preheader ], [ %indvars.iv.next58, %for.body.i.us ]
   %arrayidx.i.us = getelementptr inbounds [1 x i64], ptr %add.ptr.i, i64 0, i64 %indvars.iv57
   %7 = load i64, ptr %arrayidx.i.us, align 8
-  %8 = trunc i64 %indvars.iv57 to i32
+  %8 = trunc nuw i64 %indvars.iv57 to i32
   %mul.i.us = mul i32 %8, %conv.i
   %idx.ext.i6.us = zext i32 %mul.i.us to i64
   %add.ptr.i7.us = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i6.us
@@ -2784,7 +2784,7 @@ for.body.i.us23:                                  ; preds = %for.body.i.us23.pre
   %indvars.iv52 = phi i64 [ 0, %for.body.i.us23.preheader ], [ %indvars.iv.next53, %for.body.i.us23 ]
   %arrayidx.i.us26 = getelementptr inbounds [1 x i64], ptr %add.ptr.i, i64 0, i64 %indvars.iv52
   %10 = load i64, ptr %arrayidx.i.us26, align 8
-  %11 = trunc i64 %indvars.iv52 to i32
+  %11 = trunc nuw i64 %indvars.iv52 to i32
   %mul.i.us27 = mul i32 %11, %conv.i
   %idx.ext.i6.us28 = zext i32 %mul.i.us27 to i64
   %add.ptr.i7.us29 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i6.us28
@@ -2801,7 +2801,7 @@ for.body.i.us36:                                  ; preds = %for.body.i.us36.pre
   %indvars.iv = phi i64 [ 0, %for.body.i.us36.preheader ], [ %indvars.iv.next, %for.body.i.us36 ]
   %arrayidx.i.us39 = getelementptr inbounds [1 x i64], ptr %add.ptr.i, i64 0, i64 %indvars.iv
   %13 = load i64, ptr %arrayidx.i.us39, align 8
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   %mul.i.us40 = mul i32 %14, %conv.i
   %idx.ext.i6.us41 = zext i32 %mul.i.us40 to i64
   %add.ptr.i7.us42 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i6.us41
@@ -2844,7 +2844,7 @@ for.body.i.lr.ph:                                 ; preds = %entry
 
 for.body.i.us:                                    ; preds = %for.body.i.lr.ph, %for.body.i.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %for.body.i.us ], [ 0, %for.body.i.lr.ph ]
-  %4 = trunc i64 %indvars.iv55 to i32
+  %4 = trunc nuw i64 %indvars.iv55 to i32
   %mul.i.us = mul i32 %4, %conv.i
   %idx.ext.i6.us = zext i32 %mul.i.us to i64
   %add.ptr.i7.us = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i6.us
@@ -2861,7 +2861,7 @@ for.body.i.us:                                    ; preds = %for.body.i.lr.ph, %
 
 for.body.i.us17:                                  ; preds = %for.body.i.lr.ph, %for.body.i.us17
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.body.i.us17 ], [ 0, %for.body.i.lr.ph ]
-  %6 = trunc i64 %indvars.iv50 to i32
+  %6 = trunc nuw i64 %indvars.iv50 to i32
   %mul.i.us19 = mul i32 %6, %conv.i
   %idx.ext.i6.us20 = zext i32 %mul.i.us19 to i64
   %add.ptr.i7.us21 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i6.us20
@@ -2878,7 +2878,7 @@ for.body.i.us17:                                  ; preds = %for.body.i.lr.ph, %
 
 for.body.i.us32:                                  ; preds = %for.body.i.lr.ph, %for.body.i.us32
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.us32 ], [ 0, %for.body.i.lr.ph ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   %mul.i.us34 = mul i32 %8, %conv.i
   %idx.ext.i6.us35 = zext i32 %mul.i.us34 to i64
   %add.ptr.i7.us36 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i6.us35
@@ -4032,7 +4032,7 @@ if.then.i19:                                      ; preds = %if.else.i
   %21 = and i16 %20, -16
   %and.i20 = zext i16 %21 to i32
   %conv.i21 = zext nneg i8 %18 to i32
-  %shl.i23 = shl i32 16, %conv.i21
+  %shl.i23 = shl nuw i32 16, %conv.i21
   %sub.i24 = add nuw i32 %shl.i23, 65535
   %and4.i = and i32 %sub.i24, %and.i20
   %tobool5.i.not = icmp eq i32 %and4.i, 0
@@ -4322,7 +4322,7 @@ if.then.i55:                                      ; preds = %if.else94.i
   %53 = and i16 %52, -16
   %and.i60 = zext i16 %53 to i32
   %conv.i61 = zext nneg i8 %50 to i32
-  %shl.i63 = shl i32 16, %conv.i61
+  %shl.i63 = shl nuw i32 16, %conv.i61
   %sub.i64 = add nuw i32 %shl.i63, 65535
   %and4.i65 = and i32 %sub.i64, %and.i60
   %tobool5.i66.not = icmp eq i32 %and4.i65, 0
@@ -4500,7 +4500,7 @@ if.end156.i:                                      ; preds = %if.then155.i, %land
   %add.ptr165.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 -16
   %cmp166.i.not = icmp ult ptr %min_accel_offset.i.2, %add.ptr165.i
   %min_accel_offset.i.3 = select i1 %cmp166.i.not, ptr %min_accel_offset.i.2, ptr %add.ptr1.i
-  %conv174.i = trunc i32 %and145.i to i16
+  %conv174.i = trunc nuw nsw i32 %and145.i to i16
   br label %without_accel.i
 
 if.end176.i:                                      ; preds = %for.cond.i.i, %cond.end15.i.i, %if.else137.i.if.end176.i_crit_edge, %cond.end.i.i, %doReports.exit.i

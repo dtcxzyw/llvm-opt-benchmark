@@ -942,17 +942,14 @@ lor.lhs.false:                                    ; preds = %if.end20
   %cmp24.not = icmp eq ptr %17, null
   %cmp27.not = icmp eq ptr %16, null
   %or.cond = or i1 %cmp27.not, %cmp24.not
-  br i1 %or.cond, label %if.end33, label %land.lhs.true28
+  br i1 %or.cond, label %return, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %lor.lhs.false
   %call31 = tail call noundef zeroext i1 @_ZNK6icu_7515RBBIDataWrappereqERKS0_(ptr noundef nonnull align 8 dereferenceable(137) %16, ptr noundef nonnull align 8 dereferenceable(137) %17)
-  br i1 %call31, label %return, label %if.end33
-
-if.end33:                                         ; preds = %land.lhs.true28, %lor.lhs.false
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %if.end20, %land.lhs.true28, %if.end8, %land.lhs.true, %land.lhs.true13, %if.end4, %if.end, %_ZNKSt9type_infoneERKS_.exit, %if.end33
-  %retval.0 = phi i1 [ false, %if.end33 ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %if.end ], [ false, %if.end4 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true ], [ false, %if.end8 ], [ true, %land.lhs.true28 ], [ true, %if.end20 ], [ false, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %land.lhs.true28, %lor.lhs.false, %if.end20, %if.end8, %land.lhs.true, %land.lhs.true13, %if.end4, %if.end, %_ZNKSt9type_infoneERKS_.exit
+  %retval.0 = phi i1 [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %if.end ], [ false, %if.end4 ], [ false, %land.lhs.true13 ], [ false, %land.lhs.true ], [ false, %if.end8 ], [ true, %if.end20 ], [ false, %lor.lhs.false ], [ %call31, %land.lhs.true28 ], [ false, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -1303,7 +1300,7 @@ for.body11:                                       ; preds = %if.else, %for.body1
   %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 96
   %2 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(745) %this)
-  %inc = add nsw i32 %n.addr.19, 1
+  %inc = add nuw nsw i32 %n.addr.19, 1
   %cmp7 = icmp ne i32 %n.addr.19, -1
   %cmp9 = icmp ne i32 %call14, -1
   %3 = and i1 %cmp7, %cmp9
@@ -1599,7 +1596,7 @@ land.lhs.true5.i:                                 ; preds = %if.then4
   br i1 %cmp8.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
-  %conv9.i = trunc i64 %sub.i191 to i32
+  %conv9.i = trunc nuw nsw i64 %sub.i191 to i32
   %chunkOffset.i = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %conv9.i, ptr %chunkOffset.i, align 8
   br label %do.end.i
@@ -1652,7 +1649,7 @@ if.end35.i:                                       ; preds = %cond.end.i, %cond.e
   %and.i = and i32 %18, 2
   %and.lobit.i = lshr exact i32 %and.i, 1
   %spec.select.i = xor i32 %and.lobit.i, 1
-  %spec.select37.i = trunc i32 %and.i to i16
+  %spec.select37.i = trunc nuw nsw i32 %and.i to i16
   %invariant.gep.i = getelementptr inbounds i8, ptr %5, i64 23
   %pFuncs.i = getelementptr inbounds i8, ptr %this, i64 536
   %fLookAheadMatches.i = getelementptr inbounds i8, ptr %this, i64 736
@@ -1918,7 +1915,7 @@ land.lhs.true5.i173:                              ; preds = %if.else
   br i1 %cmp8.i176, label %if.then.i177, label %if.else.i19
 
 if.then.i177:                                     ; preds = %land.lhs.true5.i173
-  %conv9.i178 = trunc i64 %sub.i191 to i32
+  %conv9.i178 = trunc nuw nsw i64 %sub.i191 to i32
   %chunkOffset.i179 = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %conv9.i178, ptr %chunkOffset.i179, align 8
   br label %do.end.i22
@@ -1971,7 +1968,7 @@ if.end35.i29:                                     ; preds = %cond.end.i26, %cond
   %and.i33 = and i32 %60, 2
   %and.lobit.i34 = lshr exact i32 %and.i33, 1
   %spec.select.i35 = xor i32 %and.lobit.i34, 1
-  %spec.select37.i36 = trunc i32 %and.i33 to i16
+  %spec.select37.i36 = trunc nuw nsw i32 %and.i33 to i16
   %invariant.gep.i37 = getelementptr inbounds i8, ptr %5, i64 23
   %pFuncs.i38 = getelementptr inbounds i8, ptr %this, i64 536
   %fLookAheadMatches.i39 = getelementptr inbounds i8, ptr %this, i64 736
@@ -2239,7 +2236,7 @@ land.lhs.true5.i295:                              ; preds = %if.then9
   br i1 %cmp8.i298, label %if.then.i299, label %if.else.i197
 
 if.then.i299:                                     ; preds = %land.lhs.true5.i295
-  %conv9.i300 = trunc i64 %sub.i191 to i32
+  %conv9.i300 = trunc nuw nsw i64 %sub.i191 to i32
   %chunkOffset.i301 = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %conv9.i300, ptr %chunkOffset.i301, align 8
   br label %do.end.i200
@@ -2292,7 +2289,7 @@ if.end35.i207:                                    ; preds = %cond.end.i204, %con
   %and.i211 = and i32 %102, 2
   %and.lobit.i212 = lshr exact i32 %and.i211, 1
   %spec.select.i213 = xor i32 %and.lobit.i212, 1
-  %spec.select37.i214 = trunc i32 %and.i211 to i16
+  %spec.select37.i214 = trunc nuw nsw i32 %and.i211 to i16
   %invariant.gep.i215 = getelementptr inbounds i8, ptr %5, i64 26
   %pFuncs.i216 = getelementptr inbounds i8, ptr %this, i64 536
   %fLookAheadMatches.i217 = getelementptr inbounds i8, ptr %this, i64 736
@@ -2558,7 +2555,7 @@ land.lhs.true5.i474:                              ; preds = %if.else11
   br i1 %cmp8.i477, label %if.then.i478, label %if.else.i319
 
 if.then.i478:                                     ; preds = %land.lhs.true5.i474
-  %conv9.i479 = trunc i64 %sub.i191 to i32
+  %conv9.i479 = trunc nuw nsw i64 %sub.i191 to i32
   %chunkOffset.i480 = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %conv9.i479, ptr %chunkOffset.i480, align 8
   br label %do.end.i322
@@ -2611,7 +2608,7 @@ if.end35.i329:                                    ; preds = %cond.end.i326, %con
   %and.i333 = and i32 %144, 2
   %and.lobit.i334 = lshr exact i32 %and.i333, 1
   %spec.select.i335 = xor i32 %and.lobit.i334, 1
-  %spec.select37.i336 = trunc i32 %and.i333 to i16
+  %spec.select37.i336 = trunc nuw nsw i32 %and.i333 to i16
   %invariant.gep.i337 = getelementptr inbounds i8, ptr %5, i64 26
   %pFuncs.i338 = getelementptr inbounds i8, ptr %this, i64 536
   %fLookAheadMatches.i339 = getelementptr inbounds i8, ptr %this, i64 736
@@ -2917,7 +2914,7 @@ land.lhs.true5.i:                                 ; preds = %if.then4
   br i1 %cmp8.i, label %do.end.thread.i, label %do.end.i
 
 do.end.thread.i:                                  ; preds = %land.lhs.true5.i
-  %conv9.i = trunc i64 %sub.i127 to i32
+  %conv9.i = trunc nuw nsw i64 %sub.i127 to i32
   %chunkOffset.i = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %conv9.i, ptr %chunkOffset.i, align 8
   br label %lor.lhs.false.i
@@ -3130,7 +3127,7 @@ land.lhs.true5.i115:                              ; preds = %if.else
   br i1 %cmp8.i118, label %do.end.thread.i119, label %do.end.i16
 
 do.end.thread.i119:                               ; preds = %land.lhs.true5.i115
-  %conv9.i120 = trunc i64 %sub.i127 to i32
+  %conv9.i120 = trunc nuw nsw i64 %sub.i127 to i32
   %chunkOffset.i121 = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %conv9.i120, ptr %chunkOffset.i121, align 8
   br label %lor.lhs.false.i19
@@ -3346,7 +3343,7 @@ land.lhs.true5.i233:                              ; preds = %if.then9
   br i1 %cmp8.i236, label %do.end.thread.i237, label %do.end.i133
 
 do.end.thread.i237:                               ; preds = %land.lhs.true5.i233
-  %conv9.i238 = trunc i64 %sub.i127 to i32
+  %conv9.i238 = trunc nuw nsw i64 %sub.i127 to i32
   %chunkOffset.i239 = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %conv9.i238, ptr %chunkOffset.i239, align 8
   br label %lor.lhs.false.i136
@@ -3559,7 +3556,7 @@ land.lhs.true5.i351:                              ; preds = %if.else11
   br i1 %cmp8.i354, label %do.end.thread.i355, label %do.end.i251
 
 do.end.thread.i355:                               ; preds = %land.lhs.true5.i351
-  %conv9.i356 = trunc i64 %sub.i127 to i32
+  %conv9.i356 = trunc nuw nsw i64 %sub.i127 to i32
   %chunkOffset.i357 = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %conv9.i356, ptr %chunkOffset.i357, align 8
   br label %lor.lhs.false.i254
@@ -3823,7 +3820,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %fRuleStatusTable6 = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %fRuleStatusTable6, align 8
   %7 = load i32, ptr %fRuleStatusIndex, align 8
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add nsw i32 %7, %8
   %9 = sext i32 %add to i64
   %10 = getelementptr i32, ptr %6, i64 %9

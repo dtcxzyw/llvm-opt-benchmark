@@ -403,21 +403,21 @@ if.then2:                                         ; preds = %if.then
   %fneg = fneg float %1
   %arrayidx.i21 = getelementptr inbounds i8, ptr %mat, i64 40
   %2 = load float, ptr %arrayidx.i21, align 4
-  %call.i = tail call noundef float @atan2f(float noundef %fneg, float noundef %2) #24
+  %call.i = tail call noundef float @atan2f(float noundef %fneg, float noundef %2) #23
   store float %call.i, ptr %xyz, align 4
   %3 = load float, ptr %arrayidx.i.i, align 4
   %cmp.i = fcmp olt float %3, -1.000000e+00
   %x.addr.0.i = select i1 %cmp.i, float -1.000000e+00, float %3
   %cmp1.i = fcmp ogt float %x.addr.0.i, 1.000000e+00
   %x.addr.1.i = select i1 %cmp1.i, float 1.000000e+00, float %x.addr.0.i
-  %call.i23 = tail call noundef float @asinf(float noundef %x.addr.1.i) #24
+  %call.i23 = tail call noundef float @asinf(float noundef %x.addr.1.i) #23
   %arrayidx10 = getelementptr inbounds i8, ptr %xyz, i64 4
   store float %call.i23, ptr %arrayidx10, align 4
   %arrayidx.i.i24 = getelementptr inbounds i8, ptr %mat, i64 16
   %4 = load float, ptr %arrayidx.i.i24, align 4
   %fneg12 = fneg float %4
   %5 = load float, ptr %mat, align 4
-  %call.i25 = tail call noundef float @atan2f(float noundef %fneg12, float noundef %5) #24
+  %call.i25 = tail call noundef float @atan2f(float noundef %fneg12, float noundef %5) #23
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -425,7 +425,7 @@ if.else:                                          ; preds = %if.then
   %6 = load float, ptr %arrayidx.i26, align 4
   %arrayidx.i28 = getelementptr inbounds i8, ptr %mat, i64 20
   %7 = load float, ptr %arrayidx.i28, align 4
-  %call.i29 = tail call noundef float @atan2f(float noundef %6, float noundef %7) #24
+  %call.i29 = tail call noundef float @atan2f(float noundef %6, float noundef %7) #23
   %fneg20 = fneg float %call.i29
   store float %fneg20, ptr %xyz, align 4
   %arrayidx24 = getelementptr inbounds i8, ptr %xyz, i64 4
@@ -437,7 +437,7 @@ if.else27:                                        ; preds = %entry
   %8 = load float, ptr %arrayidx.i30, align 4
   %arrayidx.i32 = getelementptr inbounds i8, ptr %mat, i64 20
   %9 = load float, ptr %arrayidx.i32, align 4
-  %call.i33 = tail call noundef float @atan2f(float noundef %8, float noundef %9) #24
+  %call.i33 = tail call noundef float @atan2f(float noundef %8, float noundef %9) #23
   store float %call.i33, ptr %xyz, align 4
   %arrayidx34 = getelementptr inbounds i8, ptr %xyz, i64 4
   store float 0x3FF921FB60000000, ptr %arrayidx34, align 4
@@ -528,27 +528,27 @@ return:                                           ; preds = %if.then28, %if.then
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef float @_ZN22btRotationalLimitMotor18solveAngularLimitsEfR9btVector3fP11btRigidBodyS3_(ptr nocapture noundef nonnull align 4 dereferenceable(64) %this, float noundef %timeStep, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %axis, float noundef %jacDiagABInv, ptr nocapture noundef %body0, ptr nocapture noundef %body1) local_unnamed_addr #8 align 2 {
 entry:
   %m_currentLimit.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %m_currentLimit.i, align 4
-  %cmp.i = icmp eq i32 %0, 0
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.then3
-
-land.lhs.true.i:                                  ; preds = %entry
+  %cmp.i = icmp ne i32 %0, 0
   %m_enableMotor.i = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i8, ptr %m_enableMotor.i, align 4
   %2 = and i8 %1, 1
-  %cmp2.i = icmp eq i8 %2, 0
-  br i1 %cmp2.i, label %return, label %if.end.thread
+  %cmp2.i = icmp ne i8 %2, 0
+  %retval.0.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
+  br i1 %retval.0.i, label %if.end, label %return
 
-if.end.thread:                                    ; preds = %land.lhs.true.i
-  %m_targetVelocity65 = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load float, ptr %m_targetVelocity65, align 4
-  br label %if.end4
+if.end:                                           ; preds = %entry
+  %m_targetVelocity = getelementptr inbounds i8, ptr %this, i64 8
+  %3 = load float, ptr %m_targetVelocity, align 4
+  %m_maxMotorForce = getelementptr inbounds i8, ptr %this, i64 12
+  %cmp2.not = icmp eq i32 %0, 0
+  br i1 %cmp2.not, label %if.end4, label %if.then3
 
-if.then3:                                         ; preds = %entry
+if.then3:                                         ; preds = %if.end
   %m_stopERP = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load float, ptr %m_stopERP, align 4
   %fneg = fneg float %4
@@ -556,13 +556,13 @@ if.then3:                                         ; preds = %entry
   %5 = load float, ptr %m_currentLimitError, align 4
   %mul = fmul float %5, %fneg
   %div = fdiv float %mul, %timeStep
+  %m_maxLimitForce = getelementptr inbounds i8, ptr %this, i64 16
   br label %if.end4
 
-if.end4:                                          ; preds = %if.end.thread, %if.then3
-  %.sink = phi i64 [ 12, %if.end.thread ], [ 16, %if.then3 ]
-  %target_velocity.0 = phi float [ %3, %if.end.thread ], [ %div, %if.then3 ]
-  %m_maxMotorForce66 = getelementptr inbounds i8, ptr %this, i64 %.sink
-  %maxMotorForce.0 = load float, ptr %m_maxMotorForce66, align 4
+if.end4:                                          ; preds = %if.then3, %if.end
+  %maxMotorForce.0.in = phi ptr [ %m_maxLimitForce, %if.then3 ], [ %m_maxMotorForce, %if.end ]
+  %target_velocity.0 = phi float [ %div, %if.then3 ], [ %3, %if.end ]
+  %maxMotorForce.0 = load float, ptr %maxMotorForce.0.in, align 4
   %mul5 = fmul float %maxMotorForce.0, %timeStep
   %m_angularVelocity.i = getelementptr inbounds i8, ptr %body0, i64 436
   %angVelA.sroa.0.0.copyload = load float, ptr %m_angularVelocity.i, align 4
@@ -735,8 +735,8 @@ if.end28:                                         ; preds = %if.else, %if.then19
   store float %add13.i.i56, ptr %angVelB.sroa.3.0.m_angularVelocity.i18.sroa_idx, align 4
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %if.end4, %if.end28
-  %retval.0 = phi float [ %sub, %if.end28 ], [ 0.000000e+00, %if.end4 ], [ 0.000000e+00, %land.lhs.true.i ]
+return:                                           ; preds = %if.end4, %entry, %if.end28
+  %retval.0 = phi float [ %sub, %if.end28 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.end4 ]
   ret float %retval.0
 }
 
@@ -1203,21 +1203,21 @@ if.then.i:                                        ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.then.i
   %fneg.i = fneg float %46
-  %call.i.i = tail call noundef float @atan2f(float noundef %fneg.i, float noundef %48) #24
+  %call.i.i = tail call noundef float @atan2f(float noundef %fneg.i, float noundef %48) #23
   store float %call.i.i, ptr %m_calculatedAxisAngleDiff, align 8
   %cmp.i.i = fcmp olt float %44, -1.000000e+00
   %x.addr.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float %44
   %cmp1.i.i = fcmp ogt float %x.addr.0.i.i, 1.000000e+00
   %x.addr.1.i.i = select i1 %cmp1.i.i, float 1.000000e+00, float %x.addr.0.i.i
-  %call.i23.i = tail call noundef float @asinf(float noundef %x.addr.1.i.i) #24
+  %call.i23.i = tail call noundef float @asinf(float noundef %x.addr.1.i.i) #23
   %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 1220
   store float %call.i23.i, ptr %arrayidx10.i, align 4
   %fneg12.i = fneg float %40
-  %call.i25.i = tail call noundef float @atan2f(float noundef %fneg12.i, float noundef %30) #24
+  %call.i25.i = tail call noundef float @atan2f(float noundef %fneg12.i, float noundef %30) #23
   br label %_Z16matrixToEulerXYZRK11btMatrix3x3R9btVector3.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i29.i = tail call noundef float @atan2f(float noundef %35, float noundef %42) #24
+  %call.i29.i = tail call noundef float @atan2f(float noundef %35, float noundef %42) #23
   %fneg20.i = fneg float %call.i29.i
   store float %fneg20.i, ptr %m_calculatedAxisAngleDiff, align 8
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 1220
@@ -1225,7 +1225,7 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_Z16matrixToEulerXYZRK11btMatrix3x3R9btVector3.exit
 
 if.else27.i:                                      ; preds = %entry
-  %call.i33.i = tail call noundef float @atan2f(float noundef %35, float noundef %42) #24
+  %call.i33.i = tail call noundef float @atan2f(float noundef %35, float noundef %42) #23
   store float %call.i33.i, ptr %m_calculatedAxisAngleDiff, align 8
   %arrayidx34.i = getelementptr inbounds i8, ptr %this, i64 1220
   store float 0x3FF921FB60000000, ptr %arrayidx34.i, align 4
@@ -1753,7 +1753,7 @@ for.end:                                          ; preds = %_ZN25btTranslationa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btGeneric6DofConstraint19buildLinearJacobianER15btJacobianEntryRK9btVector3S4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1333) %this, ptr nocapture noundef nonnull align 4 dereferenceable(84) %jacLinear, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normalWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pivotAInW, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pivotBInW) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN23btGeneric6DofConstraint19buildLinearJacobianER15btJacobianEntryRK9btVector3S4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1333) %this, ptr nocapture noundef nonnull align 4 dereferenceable(84) %jacLinear, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normalWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pivotAInW, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pivotBInW) local_unnamed_addr #8 align 2 {
 entry:
   %m_rbA = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_rbA, align 8
@@ -1916,7 +1916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btGeneric6DofConstraint20buildAngularJacobianER15btJacobianEntryRK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1333) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(84) %jacAngular, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %jointAxisW) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN23btGeneric6DofConstraint20buildAngularJacobianER15btJacobianEntryRK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1333) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(84) %jacAngular, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %jointAxisW) local_unnamed_addr #8 align 2 {
 entry:
   %m_rbA = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_rbA, align 8
@@ -2055,7 +2055,8 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %m_currentLimit.i = getelementptr inbounds i8, ptr %arrayidx3, i64 56
-  br label %land.lhs.true.i
+  store i32 0, ptr %m_currentLimit.i, align 4
+  br label %_ZN22btRotationalLimitMotor14testLimitValueEf.exit
 
 if.end.i:                                         ; preds = %entry
   %cmp3.i = fcmp ogt float %3, %call7
@@ -2073,21 +2074,21 @@ if.then4.i:                                       ; preds = %if.end.i
 if.then9.i:                                       ; preds = %if.then4.i
   %sub11.i = fadd float %sub.i, 0xC01921FB60000000
   store float %sub11.i, ptr %m_currentLimitError.i, align 4
-  br label %if.end.i10
+  br label %_ZN22btRotationalLimitMotor14testLimitValueEf.exit
 
 if.else.i:                                        ; preds = %if.then4.i
   %cmp13.i = fcmp olt float %sub.i, 0xC00921FB60000000
-  br i1 %cmp13.i, label %if.then14.i, label %if.end.i10
+  br i1 %cmp13.i, label %if.then14.i, label %_ZN22btRotationalLimitMotor14testLimitValueEf.exit
 
 if.then14.i:                                      ; preds = %if.else.i
   %add.i = fadd float %sub.i, 0x401921FB60000000
   store float %add.i, ptr %m_currentLimitError.i, align 4
-  br label %if.end.i10
+  br label %_ZN22btRotationalLimitMotor14testLimitValueEf.exit
 
 if.else18.i:                                      ; preds = %if.end.i
   %cmp20.i = fcmp olt float %4, %call7
   %m_currentLimit22.i = getelementptr inbounds i8, ptr %arrayidx3, i64 56
-  br i1 %cmp20.i, label %if.then21.i, label %land.lhs.true.i
+  br i1 %cmp20.i, label %if.then21.i, label %if.end40.i
 
 if.then21.i:                                      ; preds = %if.else18.i
   store i32 2, ptr %m_currentLimit22.i, align 4
@@ -2100,32 +2101,29 @@ if.then21.i:                                      ; preds = %if.else18.i
 if.then28.i:                                      ; preds = %if.then21.i
   %sub30.i = fadd float %sub24.i, 0xC01921FB60000000
   store float %sub30.i, ptr %m_currentLimitError25.i, align 4
-  br label %if.end.i10
+  br label %_ZN22btRotationalLimitMotor14testLimitValueEf.exit
 
 if.else31.i:                                      ; preds = %if.then21.i
   %cmp33.i = fcmp olt float %sub24.i, 0xC00921FB60000000
-  br i1 %cmp33.i, label %if.then34.i, label %if.end.i10
+  br i1 %cmp33.i, label %if.then34.i, label %_ZN22btRotationalLimitMotor14testLimitValueEf.exit
 
 if.then34.i:                                      ; preds = %if.else31.i
   %add36.i = fadd float %sub24.i, 0x401921FB60000000
   store float %add36.i, ptr %m_currentLimitError25.i, align 4
-  br label %if.end.i10
+  br label %_ZN22btRotationalLimitMotor14testLimitValueEf.exit
 
-land.lhs.true.i:                                  ; preds = %if.else18.i, %if.then.i
-  %m_currentLimit22.i.sink = phi ptr [ %m_currentLimit.i, %if.then.i ], [ %m_currentLimit22.i, %if.else18.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink, align 4
+if.end40.i:                                       ; preds = %if.else18.i
+  store i32 0, ptr %m_currentLimit22.i, align 4
+  br label %_ZN22btRotationalLimitMotor14testLimitValueEf.exit
+
+_ZN22btRotationalLimitMotor14testLimitValueEf.exit: ; preds = %if.then.i, %if.then9.i, %if.else.i, %if.then14.i, %if.then28.i, %if.else31.i, %if.then34.i, %if.end40.i
+  %cmp.i9 = phi i1 [ false, %if.then.i ], [ true, %if.then9.i ], [ true, %if.else.i ], [ true, %if.then14.i ], [ true, %if.then28.i ], [ true, %if.else31.i ], [ true, %if.then34.i ], [ false, %if.end40.i ]
   %m_enableMotor.i = getelementptr inbounds i8, ptr %arrayidx3, i64 44
   %5 = load i8, ptr %m_enableMotor.i, align 8
   %6 = and i8 %5, 1
-  %cmp2.i = icmp eq i8 %6, 0
-  br i1 %cmp2.i, label %_ZNK22btRotationalLimitMotor16needApplyTorquesEv.exit, label %if.end.i10
-
-if.end.i10:                                       ; preds = %if.then34.i, %if.else31.i, %if.then28.i, %if.then14.i, %if.else.i, %if.then9.i, %land.lhs.true.i
-  br label %_ZNK22btRotationalLimitMotor16needApplyTorquesEv.exit
-
-_ZNK22btRotationalLimitMotor16needApplyTorquesEv.exit: ; preds = %land.lhs.true.i, %if.end.i10
-  %retval.0.i11 = phi i1 [ true, %if.end.i10 ], [ false, %land.lhs.true.i ]
-  ret i1 %retval.0.i11
+  %cmp2.i = icmp ne i8 %6, 0
+  %retval.0.i10 = select i1 %cmp.i9, i1 true, i1 %cmp2.i
+  ret i1 %retval.0.i10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2140,7 +2138,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %sub = fsub float %angleLowerLimitInRadians, %angleInRadians
-  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #24
+  %call.i.i = tail call noundef float @fmodf(float noundef %sub, float noundef 0x401921FB60000000) #23
   %cmp.i = fcmp olt float %call.i.i, 0xC00921FB60000000
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -2160,7 +2158,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
   %retval.0.i = phi float [ %add.i, %if.then.i ], [ %sub.i, %if.then2.i ], [ %call.i.i, %if.else.i ]
   %0 = tail call noundef float @llvm.fabs.f32(float %retval.0.i)
   %sub4 = fsub float %angleUpperLimitInRadians, %angleInRadians
-  %call.i.i18 = tail call noundef float @fmodf(float noundef %sub4, float noundef 0x401921FB60000000) #24
+  %call.i.i18 = tail call noundef float @fmodf(float noundef %sub4, float noundef 0x401921FB60000000) #23
   %cmp.i19 = fcmp olt float %call.i.i18, 0xC00921FB60000000
   br i1 %cmp.i19, label %if.then.i25, label %if.else.i20
 
@@ -2190,7 +2188,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then10:                                        ; preds = %if.else8
   %sub12 = fsub float %angleInRadians, %angleUpperLimitInRadians
-  %call.i.i28 = tail call noundef float @fmodf(float noundef %sub12, float noundef 0x401921FB60000000) #24
+  %call.i.i28 = tail call noundef float @fmodf(float noundef %sub12, float noundef 0x401921FB60000000) #23
   %cmp.i29 = fcmp olt float %call.i.i28, 0xC00921FB60000000
   br i1 %cmp.i29, label %if.then.i35, label %if.else.i30
 
@@ -2210,7 +2208,7 @@ _Z16btNormalizeAnglef.exit37:                     ; preds = %if.then.i35, %if.el
   %retval.0.i32 = phi float [ %add.i36, %if.then.i35 ], [ %sub.i34, %if.then2.i33 ], [ %call.i.i28, %if.else.i30 ]
   %2 = tail call noundef float @llvm.fabs.f32(float %retval.0.i32)
   %sub16 = fsub float %angleInRadians, %angleLowerLimitInRadians
-  %call.i.i38 = tail call noundef float @fmodf(float noundef %sub16, float noundef 0x401921FB60000000) #24
+  %call.i.i38 = tail call noundef float @fmodf(float noundef %sub16, float noundef 0x401921FB60000000) #23
   %cmp.i39 = fcmp olt float %call.i.i38, 0xC00921FB60000000
   br i1 %cmp.i39, label %if.then.i45, label %if.else.i40
 
@@ -2293,10 +2291,10 @@ for.cond28.preheader:                             ; preds = %for.inc25
   br label %for.body30
 
 for.body9:                                        ; preds = %for.end, %for.inc25
-  %indvars.iv42 = phi i64 [ 0, %for.end ], [ %indvars.iv.next43, %for.inc25 ]
-  %arrayidx.i = getelementptr inbounds float, ptr %m_upperLimit.i, i64 %indvars.iv42
+  %indvars.iv45 = phi i64 [ 0, %for.end ], [ %indvars.iv.next46, %for.inc25 ]
+  %arrayidx.i = getelementptr inbounds float, ptr %m_upperLimit.i, i64 %indvars.iv45
   %4 = load float, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds float, ptr %m_linearLimits, i64 %indvars.iv42
+  %arrayidx4.i = getelementptr inbounds float, ptr %m_linearLimits, i64 %indvars.iv45
   %5 = load float, ptr %arrayidx4.i, align 4
   %cmp.i = fcmp ult float %4, %5
   br i1 %cmp.i, label %for.inc25, label %if.then12
@@ -2310,9 +2308,9 @@ if.then12:                                        ; preds = %for.body9
   %arrayidx4.i16.arrayidx4.i20 = getelementptr inbounds i8, ptr %this, i64 %arrayidx4.i16.arrayidx4.i20.v
   %arrayidx9.i.arrayidx9.i22.v = select i1 %tobool13, i64 1120, i64 1184
   %arrayidx9.i.arrayidx9.i22 = getelementptr inbounds i8, ptr %this, i64 %arrayidx9.i.arrayidx9.i22.v
-  %arrayidx2.i19 = getelementptr inbounds float, ptr %m_calculatedTransformA.m_calculatedTransformB, i64 %indvars.iv42
-  %arrayidx7.i21 = getelementptr inbounds float, ptr %arrayidx4.i16.arrayidx4.i20, i64 %indvars.iv42
-  %arrayidx12.i23 = getelementptr inbounds float, ptr %arrayidx9.i.arrayidx9.i22, i64 %indvars.iv42
+  %arrayidx2.i19 = getelementptr inbounds float, ptr %m_calculatedTransformA.m_calculatedTransformB, i64 %indvars.iv45
+  %arrayidx7.i21 = getelementptr inbounds float, ptr %arrayidx4.i16.arrayidx4.i20, i64 %indvars.iv45
+  %arrayidx12.i23 = getelementptr inbounds float, ptr %arrayidx9.i.arrayidx9.i22, i64 %indvars.iv45
   %7 = load float, ptr %arrayidx2.i19, align 4
   %retval.sroa.0.0.vec.insert.i24 = insertelement <2 x float> poison, float %7, i64 0
   %8 = load float, ptr %arrayidx7.i21, align 4
@@ -2321,20 +2319,20 @@ if.then12:                                        ; preds = %for.body9
   %retval.sroa.3.12.vec.insert.i26 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %9, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i25, ptr %normalWorld, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i26, ptr %ref.tmp18.sroa.2.0.normalWorld.sroa_idx, align 8
-  %arrayidx23 = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jacLinear, i64 0, i64 %indvars.iv42
+  %arrayidx23 = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jacLinear, i64 0, i64 %indvars.iv45
   call void @_ZN23btGeneric6DofConstraint19buildLinearJacobianER15btJacobianEntryRK9btVector3S4_S4_(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull align 4 dereferenceable(84) %arrayidx23, ptr noundef nonnull align 4 dereferenceable(16) %normalWorld, ptr noundef nonnull align 4 dereferenceable(16) %pivotAInW, ptr noundef nonnull align 4 dereferenceable(16) %pivotBInW)
   br label %for.inc25
 
 for.inc25:                                        ; preds = %for.body9, %if.then12
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next43, 3
-  br i1 %exitcond45.not, label %for.cond28.preheader, label %for.body9, !llvm.loop !47
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next46, 3
+  br i1 %exitcond48.not, label %for.cond28.preheader, label %for.body9, !llvm.loop !47
 
 for.body30:                                       ; preds = %for.cond28.preheader, %for.inc39
-  %indvars.iv46 = phi i64 [ 0, %for.cond28.preheader ], [ %indvars.iv.next47, %for.inc39 ]
-  %arrayidx.i30 = getelementptr inbounds float, ptr %m_calculatedAxisAngleDiff.i, i64 %indvars.iv46
+  %indvars.iv49 = phi i64 [ 0, %for.cond28.preheader ], [ %indvars.iv.next50, %for.inc39 ]
+  %arrayidx.i30 = getelementptr inbounds float, ptr %m_calculatedAxisAngleDiff.i, i64 %indvars.iv49
   %10 = load float, ptr %arrayidx.i30, align 4
-  %arrayidx3.i31 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits, i64 0, i64 %indvars.iv46
+  %arrayidx3.i31 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits, i64 0, i64 %indvars.iv49
   %11 = load float, ptr %arrayidx3.i31, align 4
   %m_hiLimit.i = getelementptr inbounds i8, ptr %arrayidx3.i31, i64 4
   %12 = load float, ptr %m_hiLimit.i, align 8
@@ -2348,7 +2346,7 @@ for.body30:                                       ; preds = %for.cond28.preheade
 
 if.then.i.i:                                      ; preds = %for.body30
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i31, i64 56
-  br label %land.lhs.true.i.i
+  br label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
 if.end.i.i:                                       ; preds = %for.body30
   %cmp3.i.i = fcmp ogt float %13, %call7.i
@@ -2380,7 +2378,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
 if.else18.i.i:                                    ; preds = %if.end.i.i
   %cmp20.i.i = fcmp olt float %14, %call7.i
   %m_currentLimit22.i.i = getelementptr inbounds i8, ptr %arrayidx3.i31, i64 56
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %land.lhs.true.i.i
+  br i1 %cmp20.i.i, label %if.then21.i.i, label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
   store i32 2, ptr %m_currentLimit22.i.i, align 4
@@ -2404,21 +2402,21 @@ if.then34.i.i:                                    ; preds = %if.else31.i.i
   store float %add36.i.i, ptr %m_currentLimitError25.i.i, align 4
   br label %if.then32
 
-land.lhs.true.i.i:                                ; preds = %if.else18.i.i, %if.then.i.i
-  %m_currentLimit22.i.sink.i = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink.i, align 4
+_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %if.else18.i.i, %if.then.i.i
+  %m_currentLimit.i.i.sink = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
+  store i32 0, ptr %m_currentLimit.i.i.sink, align 4
   %m_enableMotor.i.i = getelementptr inbounds i8, ptr %arrayidx3.i31, i64 44
   %15 = load i8, ptr %m_enableMotor.i.i, align 8
   %16 = and i8 %15, 1
-  %cmp2.i.i = icmp eq i8 %16, 0
-  br i1 %cmp2.i.i, label %for.inc39, label %if.then32
+  %cmp2.i.i.not = icmp eq i8 %16, 0
+  br i1 %cmp2.i.i.not, label %for.inc39, label %if.then32
 
-if.then32:                                        ; preds = %if.then9.i.i, %if.else.i.i, %if.then14.i.i, %if.then28.i.i, %if.else31.i.i, %if.then34.i.i, %land.lhs.true.i.i
-  %arrayidx.i33 = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i, i64 0, i64 %indvars.iv46
+if.then32:                                        ; preds = %if.then34.i.i, %if.else31.i.i, %if.then28.i.i, %if.then14.i.i, %if.else.i.i, %if.then9.i.i, %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
+  %arrayidx.i33 = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i, i64 0, i64 %indvars.iv49
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %arrayidx.i33, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i33, i64 8
   %retval.sroa.2.0.copyload.i = load <2 x float>, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx37 = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jacAng, i64 0, i64 %indvars.iv46
+  %arrayidx37 = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jacAng, i64 0, i64 %indvars.iv49
   %17 = load ptr, ptr %m_rbA, align 8
   %m_worldTransform.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %17, i64 24
@@ -2529,10 +2527,10 @@ if.then32:                                        ; preds = %if.then9.i.i, %if.e
   store float %add.i.i36, ptr %m_Adiag.i.i, align 4
   br label %for.inc39
 
-for.inc39:                                        ; preds = %land.lhs.true.i.i, %if.then32
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next47, 3
-  br i1 %exitcond49.not, label %if.end42, label %for.body30, !llvm.loop !54
+for.inc39:                                        ; preds = %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit, %if.then32
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next50, 3
+  br i1 %exitcond52.not, label %if.end42, label %for.body30, !llvm.loop !54
 
 if.end42:                                         ; preds = %for.inc39, %entry
   ret void
@@ -2592,31 +2590,31 @@ for.body:                                         ; preds = %if.else, %for.inc
   %arrayidx.i = getelementptr inbounds [3 x i32], ptr %m_currentLimit.i, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx.i, align 4
   %cmp.i = icmp eq i32 %4, 0
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.then6
+  br i1 %cmp.i, label %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit, label %if.then6
 
-land.lhs.true.i:                                  ; preds = %for.body
+_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %for.body
   %arrayidx3.i = getelementptr inbounds [3 x i8], ptr %m_enableMotor.i, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx3.i, align 1
   %6 = and i8 %5, 1
-  %cmp4.i = icmp eq i8 %6, 0
-  br i1 %cmp4.i, label %for.inc, label %if.then6
+  %cmp4.i.not = icmp eq i8 %6, 0
+  br i1 %cmp4.i.not, label %for.inc, label %if.then6
 
-if.then6:                                         ; preds = %for.body, %land.lhs.true.i
+if.then6:                                         ; preds = %for.body, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit
   %7 = add nsw <2 x i32> %3, <i32 1, i32 -1>
   store <2 x i32> %7, ptr %info, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true.i, %if.then6
-  %8 = phi <2 x i32> [ %3, %land.lhs.true.i ], [ %7, %if.then6 ]
+for.inc:                                          ; preds = %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit, %if.then6
+  %8 = phi <2 x i32> [ %3, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit ], [ %7, %if.then6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.cond10.preheader, label %for.body, !llvm.loop !55
 
 for.body12:                                       ; preds = %for.cond10.preheader, %for.inc20
-  %indvars.iv22 = phi i64 [ 0, %for.cond10.preheader ], [ %indvars.iv.next23, %for.inc20 ]
-  %arrayidx.i15 = getelementptr inbounds float, ptr %m_calculatedAxisAngleDiff.i, i64 %indvars.iv22
+  %indvars.iv25 = phi i64 [ 0, %for.cond10.preheader ], [ %indvars.iv.next26, %for.inc20 ]
+  %arrayidx.i15 = getelementptr inbounds float, ptr %m_calculatedAxisAngleDiff.i, i64 %indvars.iv25
   %9 = load float, ptr %arrayidx.i15, align 4
-  %arrayidx3.i16 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv22
+  %arrayidx3.i16 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv25
   %10 = load float, ptr %arrayidx3.i16, align 4
   %m_hiLimit.i = getelementptr inbounds i8, ptr %arrayidx3.i16, i64 4
   %11 = load float, ptr %m_hiLimit.i, align 8
@@ -2630,7 +2628,7 @@ for.body12:                                       ; preds = %for.cond10.preheade
 
 if.then.i.i:                                      ; preds = %for.body12
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i16, i64 56
-  br label %land.lhs.true.i.i
+  br label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
 if.end.i.i:                                       ; preds = %for.body12
   %cmp3.i.i = fcmp ogt float %12, %call7.i
@@ -2662,7 +2660,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
 if.else18.i.i:                                    ; preds = %if.end.i.i
   %cmp20.i.i = fcmp olt float %13, %call7.i
   %m_currentLimit22.i.i = getelementptr inbounds i8, ptr %arrayidx3.i16, i64 56
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %land.lhs.true.i.i
+  br i1 %cmp20.i.i, label %if.then21.i.i, label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
   store i32 2, ptr %m_currentLimit22.i.i, align 4
@@ -2686,25 +2684,25 @@ if.then34.i.i:                                    ; preds = %if.else31.i.i
   store float %add36.i.i, ptr %m_currentLimitError25.i.i, align 4
   br label %if.then14
 
-land.lhs.true.i.i:                                ; preds = %if.else18.i.i, %if.then.i.i
-  %m_currentLimit22.i.sink.i = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink.i, align 4
+_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %if.else18.i.i, %if.then.i.i
+  %m_currentLimit.i.i.sink = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
+  store i32 0, ptr %m_currentLimit.i.i.sink, align 4
   %m_enableMotor.i.i = getelementptr inbounds i8, ptr %arrayidx3.i16, i64 44
   %14 = load i8, ptr %m_enableMotor.i.i, align 8
   %15 = and i8 %14, 1
-  %cmp2.i.i = icmp eq i8 %15, 0
-  br i1 %cmp2.i.i, label %for.inc20, label %if.then14
+  %cmp2.i.i.not = icmp eq i8 %15, 0
+  br i1 %cmp2.i.i.not, label %for.inc20, label %if.then14
 
-if.then14:                                        ; preds = %if.then9.i.i, %if.else.i.i, %if.then14.i.i, %if.then28.i.i, %if.else31.i.i, %if.then34.i.i, %land.lhs.true.i.i
+if.then14:                                        ; preds = %if.then34.i.i, %if.else31.i.i, %if.then28.i.i, %if.then14.i.i, %if.else.i.i, %if.then9.i.i, %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
   %16 = load <2 x i32>, ptr %info, align 4
   %17 = add nsw <2 x i32> %16, <i32 1, i32 -1>
   store <2 x i32> %17, ptr %info, align 4
   br label %for.inc20
 
-for.inc20:                                        ; preds = %land.lhs.true.i.i, %if.then14
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 3
-  br i1 %exitcond25.not, label %if.end23, label %for.body12, !llvm.loop !56
+for.inc20:                                        ; preds = %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit, %if.then14
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond28.not = icmp eq i64 %indvars.iv.next26, 3
+  br i1 %exitcond28.not, label %if.end23, label %for.body12, !llvm.loop !56
 
 if.end23:                                         ; preds = %for.inc20, %if.then
   ret void
@@ -2755,21 +2753,19 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
-  %row.026.i = phi i32 [ 0, %if.then ], [ %row.1.i, %for.inc.i ]
+  %row.025.i = phi i32 [ 0, %if.then ], [ %row.1.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i, i64 0, i64 %indvars.iv.i
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 56
   %4 = load i32, ptr %m_currentLimit.i.i, align 4
-  %cmp.i.i = icmp eq i32 %4, 0
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then.i
-
-land.lhs.true.i.i:                                ; preds = %for.body.i
+  %cmp.i.i = icmp ne i32 %4, 0
   %m_enableMotor.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 44
   %5 = load i8, ptr %m_enableMotor.i.i, align 8
   %6 = and i8 %5, 1
-  %cmp2.i.i = icmp eq i8 %6, 0
-  br i1 %cmp2.i.i, label %for.inc.i, label %if.then.i
+  %cmp2.i.i = icmp ne i8 %6, 0
+  %retval.0.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.i.i
+  br i1 %retval.0.i.i, label %if.then.i, label %for.inc.i
 
-if.then.i:                                        ; preds = %land.lhs.true.i.i, %for.body.i
+if.then.i:                                        ; preds = %for.body.i
   %arrayidx.i19.i = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i.i, i64 0, i64 %indvars.iv.i
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %arrayidx.i19.i, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 8
@@ -2816,12 +2812,12 @@ if.then17.i:                                      ; preds = %if.end14.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %call23.i = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i22, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity.i23, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity.i24, ptr noundef %info, i32 noundef %row.026.i, ptr noundef nonnull align 4 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0), !range !57
-  %add24.i = add nsw i32 %call23.i, %row.026.i
+  %call23.i = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i22, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity.i23, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity.i24, ptr noundef %info, i32 noundef %row.025.i, ptr noundef nonnull align 4 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0), !range !57
+  %add24.i = add nsw i32 %call23.i, %row.025.i
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end21.i, %land.lhs.true.i.i
-  %row.1.i = phi i32 [ %add24.i, %if.end21.i ], [ %row.026.i, %land.lhs.true.i.i ]
+for.inc.i:                                        ; preds = %if.end21.i, %for.body.i
+  %row.1.i = phi i32 [ %add24.i, %if.end21.i ], [ %row.025.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit, label %for.body.i, !llvm.loop !58
@@ -2842,80 +2838,78 @@ if.else:                                          ; preds = %entry
   %erp.i30 = getelementptr inbounds i8, ptr %info, i64 4
   br label %for.body.i31
 
-for.body.i31:                                     ; preds = %for.inc.i54, %if.else
-  %indvars.iv.i32 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i56, %for.inc.i54 ]
-  %row.026.i33 = phi i32 [ %call14, %if.else ], [ %row.1.i55, %for.inc.i54 ]
+for.body.i31:                                     ; preds = %for.inc.i40, %if.else
+  %indvars.iv.i32 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i42, %for.inc.i40 ]
+  %row.025.i33 = phi i32 [ %call14, %if.else ], [ %row.1.i41, %for.inc.i40 ]
   %arrayidx.i.i34 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i26, i64 0, i64 %indvars.iv.i32
   %m_currentLimit.i.i35 = getelementptr inbounds i8, ptr %arrayidx.i.i34, i64 56
   %17 = load i32, ptr %m_currentLimit.i.i35, align 4
-  %cmp.i.i36 = icmp eq i32 %17, 0
-  br i1 %cmp.i.i36, label %land.lhs.true.i.i64, label %if.then.i37
-
-land.lhs.true.i.i64:                              ; preds = %for.body.i31
-  %m_enableMotor.i.i65 = getelementptr inbounds i8, ptr %arrayidx.i.i34, i64 44
-  %18 = load i8, ptr %m_enableMotor.i.i65, align 8
+  %cmp.i.i36 = icmp ne i32 %17, 0
+  %m_enableMotor.i.i37 = getelementptr inbounds i8, ptr %arrayidx.i.i34, i64 44
+  %18 = load i8, ptr %m_enableMotor.i.i37, align 8
   %19 = and i8 %18, 1
-  %cmp2.i.i66 = icmp eq i8 %19, 0
-  br i1 %cmp2.i.i66, label %for.inc.i54, label %if.then.i37
+  %cmp2.i.i38 = icmp ne i8 %19, 0
+  %retval.0.i.i39 = select i1 %cmp.i.i36, i1 true, i1 %cmp2.i.i38
+  br i1 %retval.0.i.i39, label %if.then.i44, label %for.inc.i40
 
-if.then.i37:                                      ; preds = %land.lhs.true.i.i64, %for.body.i31
-  %arrayidx.i19.i38 = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i.i27, i64 0, i64 %indvars.iv.i32
-  %retval.sroa.0.0.copyload.i.i39 = load <2 x float>, ptr %arrayidx.i19.i38, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i.i40 = getelementptr inbounds i8, ptr %arrayidx.i19.i38, i64 8
-  %retval.sroa.2.0.copyload.i.i41 = load <2 x float>, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i40, align 8
-  store <2 x float> %retval.sroa.0.0.copyload.i.i39, ptr %axis.i25, align 8
-  store <2 x float> %retval.sroa.2.0.copyload.i.i41, ptr %16, align 8
+if.then.i44:                                      ; preds = %for.body.i31
+  %arrayidx.i19.i45 = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i.i27, i64 0, i64 %indvars.iv.i32
+  %retval.sroa.0.0.copyload.i.i46 = load <2 x float>, ptr %arrayidx.i19.i45, align 8
+  %retval.sroa.2.0.arrayidx.sroa_idx.i.i47 = getelementptr inbounds i8, ptr %arrayidx.i19.i45, i64 8
+  %retval.sroa.2.0.copyload.i.i48 = load <2 x float>, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i47, align 8
+  store <2 x float> %retval.sroa.0.0.copyload.i.i46, ptr %axis.i25, align 8
+  store <2 x float> %retval.sroa.2.0.copyload.i.i48, ptr %16, align 8
   %20 = load i32, ptr %m_flags.i28, align 8
   %21 = trunc i64 %indvars.iv.i32 to i32
   %22 = mul i32 %21, 3
   %23 = add i32 %22, 9
-  %shr.i42 = ashr i32 %20, %23
-  %and.i43 = and i32 %shr.i42, 1
-  %tobool.not.i44 = icmp eq i32 %and.i43, 0
-  br i1 %tobool.not.i44, label %if.then4.i62, label %if.end.i45
+  %shr.i49 = ashr i32 %20, %23
+  %and.i50 = and i32 %shr.i49, 1
+  %tobool.not.i51 = icmp eq i32 %and.i50, 0
+  br i1 %tobool.not.i51, label %if.then4.i65, label %if.end.i52
 
-if.then4.i62:                                     ; preds = %if.then.i37
+if.then4.i65:                                     ; preds = %if.then.i44
   %24 = load ptr, ptr %cfm.i29, align 8
   %25 = load float, ptr %24, align 4
-  %m_normalCFM.i63 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i26, i64 0, i64 %indvars.iv.i32, i32 7
-  store float %25, ptr %m_normalCFM.i63, align 8
-  br label %if.end.i45
+  %m_normalCFM.i66 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i26, i64 0, i64 %indvars.iv.i32, i32 7
+  store float %25, ptr %m_normalCFM.i66, align 8
+  br label %if.end.i52
 
-if.end.i45:                                       ; preds = %if.then4.i62, %if.then.i37
-  %and6.i46 = and i32 %shr.i42, 2
-  %tobool7.not.i47 = icmp eq i32 %and6.i46, 0
-  br i1 %tobool7.not.i47, label %if.then8.i60, label %if.end14.i48
+if.end.i52:                                       ; preds = %if.then4.i65, %if.then.i44
+  %and6.i53 = and i32 %shr.i49, 2
+  %tobool7.not.i54 = icmp eq i32 %and6.i53, 0
+  br i1 %tobool7.not.i54, label %if.then8.i63, label %if.end14.i55
 
-if.then8.i60:                                     ; preds = %if.end.i45
+if.then8.i63:                                     ; preds = %if.end.i52
   %26 = load ptr, ptr %cfm.i29, align 8
   %27 = load float, ptr %26, align 4
-  %m_stopCFM.i61 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i26, i64 0, i64 %indvars.iv.i32, i32 9
-  store float %27, ptr %m_stopCFM.i61, align 8
-  br label %if.end14.i48
+  %m_stopCFM.i64 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i26, i64 0, i64 %indvars.iv.i32, i32 9
+  store float %27, ptr %m_stopCFM.i64, align 8
+  br label %if.end14.i55
 
-if.end14.i48:                                     ; preds = %if.then8.i60, %if.end.i45
-  %and15.i49 = and i32 %shr.i42, 4
-  %tobool16.not.i50 = icmp eq i32 %and15.i49, 0
-  br i1 %tobool16.not.i50, label %if.then17.i58, label %if.end21.i51
+if.end14.i55:                                     ; preds = %if.then8.i63, %if.end.i52
+  %and15.i56 = and i32 %shr.i49, 4
+  %tobool16.not.i57 = icmp eq i32 %and15.i56, 0
+  br i1 %tobool16.not.i57, label %if.then17.i61, label %if.end21.i58
 
-if.then17.i58:                                    ; preds = %if.end14.i48
+if.then17.i61:                                    ; preds = %if.end14.i55
   %28 = load float, ptr %erp.i30, align 4
-  %m_stopERP.i59 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i26, i64 0, i64 %indvars.iv.i32, i32 8
-  store float %28, ptr %m_stopERP.i59, align 4
-  br label %if.end21.i51
+  %m_stopERP.i62 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i26, i64 0, i64 %indvars.iv.i32, i32 8
+  store float %28, ptr %m_stopERP.i62, align 4
+  br label %if.end21.i58
 
-if.end21.i51:                                     ; preds = %if.then17.i58, %if.end14.i48
-  %call23.i52 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i34, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i22, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity.i23, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity.i24, ptr noundef %info, i32 noundef %row.026.i33, ptr noundef nonnull align 4 dereferenceable(16) %axis.i25, i32 noundef 1, i32 noundef 0), !range !57
-  %add24.i53 = add nsw i32 %call23.i52, %row.026.i33
-  br label %for.inc.i54
+if.end21.i58:                                     ; preds = %if.then17.i61, %if.end14.i55
+  %call23.i59 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i34, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i22, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull align 4 dereferenceable(16) %m_linearVelocity.i23, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull align 4 dereferenceable(16) %m_angularVelocity.i24, ptr noundef %info, i32 noundef %row.025.i33, ptr noundef nonnull align 4 dereferenceable(16) %axis.i25, i32 noundef 1, i32 noundef 0), !range !57
+  %add24.i60 = add nsw i32 %call23.i59, %row.025.i33
+  br label %for.inc.i40
 
-for.inc.i54:                                      ; preds = %if.end21.i51, %land.lhs.true.i.i64
-  %row.1.i55 = phi i32 [ %add24.i53, %if.end21.i51 ], [ %row.026.i33, %land.lhs.true.i.i64 ]
-  %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i32, 1
-  %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 3
-  br i1 %exitcond.not.i57, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit67, label %for.body.i31, !llvm.loop !58
+for.inc.i40:                                      ; preds = %if.end21.i58, %for.body.i31
+  %row.1.i41 = phi i32 [ %add24.i60, %if.end21.i58 ], [ %row.025.i33, %for.body.i31 ]
+  %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i32, 1
+  %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
+  br i1 %exitcond.not.i43, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit67, label %for.body.i31, !llvm.loop !58
 
-_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit67: ; preds = %for.inc.i54
+_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit67: ; preds = %for.inc.i40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %axis.i25)
   br label %if.end
 
@@ -2937,21 +2931,19 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %row.026 = phi i32 [ %row_offset, %entry ], [ %row.1, %for.inc ]
+  %row.025 = phi i32 [ %row_offset, %entry ], [ %row.1, %for.inc ]
   %arrayidx.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv
   %m_currentLimit.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %1 = load i32, ptr %m_currentLimit.i, align 4
-  %cmp.i = icmp eq i32 %1, 0
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.then
-
-land.lhs.true.i:                                  ; preds = %for.body
+  %cmp.i = icmp ne i32 %1, 0
   %m_enableMotor.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 44
   %2 = load i8, ptr %m_enableMotor.i, align 8
   %3 = and i8 %2, 1
-  %cmp2.i = icmp eq i8 %3, 0
-  br i1 %cmp2.i, label %for.inc, label %if.then
+  %cmp2.i = icmp ne i8 %3, 0
+  %retval.0.i = select i1 %cmp.i, i1 true, i1 %cmp2.i
+  br i1 %retval.0.i, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %for.body, %land.lhs.true.i
+if.then:                                          ; preds = %for.body
   %arrayidx.i19 = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i, i64 0, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %arrayidx.i19, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 8
@@ -2998,12 +2990,12 @@ if.then17:                                        ; preds = %if.end14
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %if.end14
-  %call23 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.026, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 1, i32 noundef 0), !range !57
-  %add24 = add nsw i32 %call23, %row.026
+  %call23 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.025, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 1, i32 noundef 0), !range !57
+  %add24 = add nsw i32 %call23, %row.025
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true.i, %if.end21
-  %row.1 = phi i32 [ %add24, %if.end21 ], [ %row.026, %land.lhs.true.i ]
+for.inc:                                          ; preds = %for.body, %if.end21
+  %row.1 = phi i32 [ %add24, %if.end21 ], [ %row.025, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !58
@@ -3066,14 +3058,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %arrayidx3.i = getelementptr inbounds [3 x i8], ptr %m_enableMotor.i35, i64 0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx3.i, align 1
   %3 = and i8 %2, 1
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.then
+  br i1 %cmp.i, label %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit, label %if.then
 
-land.lhs.true.i:                                  ; preds = %for.body
-  %cmp4.i = icmp eq i8 %3, 0
-  br i1 %cmp4.i, label %for.inc, label %if.then
+_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %for.body
+  %cmp4.i.not = icmp eq i8 %3, 0
+  br i1 %cmp4.i.not, label %for.inc, label %if.then
 
-if.then:                                          ; preds = %for.body, %land.lhs.true.i
-  %frombool.pre-phi = phi i8 [ 1, %land.lhs.true.i ], [ %3, %for.body ]
+if.then:                                          ; preds = %for.body, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit
+  %frombool.pre-phi = phi i8 [ 1, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit ], [ %3, %for.body ]
   store float 0.000000e+00, ptr %m_bounce.i, align 4
   store i32 %1, ptr %m_currentLimit.i, align 4
   %arrayidx7 = getelementptr inbounds float, ptr %m_currentLinearDiff, i64 %indvars.iv
@@ -3183,8 +3175,8 @@ for.inc.sink.split:                               ; preds = %cond.end58, %if.the
   %add89 = add nsw i32 %call88, %row.addr.040
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.sink.split, %land.lhs.true.i
-  %row.addr.1 = phi i32 [ %row.addr.040, %land.lhs.true.i ], [ %add89, %for.inc.sink.split ]
+for.inc:                                          ; preds = %for.inc.sink.split, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit
+  %row.addr.1 = phi i32 [ %row.addr.040, %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit ], [ %add89, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !59
@@ -3196,7 +3188,7 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btGeneric6DofConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr nocapture noundef readonly %info, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelB) local_unnamed_addr #4 align 2 {
 entry:
-  %axis.i31 = alloca %class.btVector3, align 8
+  %axis.i30 = alloca %class.btVector3, align 8
   %axis.i = alloca %class.btVector3, align 8
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB)
   %m_calculatedAxisAngleDiff.i = getelementptr inbounds i8, ptr %this, i64 1216
@@ -3221,7 +3213,8 @@ for.body:                                         ; preds = %entry, %_ZN23btGene
 
 if.then.i.i:                                      ; preds = %for.body
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 56
-  br label %land.lhs.true.i.i
+  store i32 0, ptr %m_currentLimit.i.i, align 4
+  br label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
 if.end.i.i:                                       ; preds = %for.body
   %cmp3.i.i = fcmp ogt float %3, %call7.i
@@ -3253,7 +3246,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
 if.else18.i.i:                                    ; preds = %if.end.i.i
   %cmp20.i.i = fcmp olt float %4, %call7.i
   %m_currentLimit22.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 56
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %land.lhs.true.i.i
+  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end40.i.i
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
   store i32 2, ptr %m_currentLimit22.i.i, align 4
@@ -3277,12 +3270,11 @@ if.then34.i.i:                                    ; preds = %if.else31.i.i
   store float %add36.i.i, ptr %m_currentLimitError25.i.i, align 4
   br label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
-land.lhs.true.i.i:                                ; preds = %if.else18.i.i, %if.then.i.i
-  %m_currentLimit22.i.sink.i = phi ptr [ %m_currentLimit.i.i, %if.then.i.i ], [ %m_currentLimit22.i.i, %if.else18.i.i ]
-  store i32 0, ptr %m_currentLimit22.i.sink.i, align 4
+if.end40.i.i:                                     ; preds = %if.else18.i.i
+  store i32 0, ptr %m_currentLimit22.i.i, align 4
   br label %_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit
 
-_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %land.lhs.true.i.i, %if.then9.i.i, %if.else.i.i, %if.then14.i.i, %if.then28.i.i, %if.else31.i.i, %if.then34.i.i
+_ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %if.then.i.i, %if.then9.i.i, %if.else.i.i, %if.then14.i.i, %if.then28.i.i, %if.else31.i.i, %if.then34.i.i, %if.end40.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !60
@@ -3304,21 +3296,19 @@ if.then:                                          ; preds = %for.end
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
-  %row.026.i = phi i32 [ 0, %if.then ], [ %row.1.i, %for.inc.i ]
+  %row.025.i = phi i32 [ 0, %if.then ], [ %row.1.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i
   %m_currentLimit.i.i26 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 56
   %7 = load i32, ptr %m_currentLimit.i.i26, align 4
-  %cmp.i.i27 = icmp eq i32 %7, 0
-  br i1 %cmp.i.i27, label %land.lhs.true.i.i28, label %if.then.i
-
-land.lhs.true.i.i28:                              ; preds = %for.body.i
-  %m_enableMotor.i.i29 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 44
-  %8 = load i8, ptr %m_enableMotor.i.i29, align 8
+  %cmp.i.i27 = icmp ne i32 %7, 0
+  %m_enableMotor.i.i28 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 44
+  %8 = load i8, ptr %m_enableMotor.i.i28, align 8
   %9 = and i8 %8, 1
-  %cmp2.i.i30 = icmp eq i8 %9, 0
-  br i1 %cmp2.i.i30, label %for.inc.i, label %if.then.i
+  %cmp2.i.i29 = icmp ne i8 %9, 0
+  %retval.0.i.i = select i1 %cmp.i.i27, i1 true, i1 %cmp2.i.i29
+  br i1 %retval.0.i.i, label %if.then.i, label %for.inc.i
 
-if.then.i:                                        ; preds = %land.lhs.true.i.i28, %for.body.i
+if.then.i:                                        ; preds = %for.body.i
   %arrayidx.i19.i = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i.i, i64 0, i64 %indvars.iv.i
   %retval.sroa.0.0.copyload.i.i = load <2 x float>, ptr %arrayidx.i19.i, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i19.i, i64 8
@@ -3365,12 +3355,12 @@ if.then17.i:                                      ; preds = %if.end14.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %call23.i = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.026.i, ptr noundef nonnull align 4 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0), !range !57
-  %add24.i = add nsw i32 %call23.i, %row.026.i
+  %call23.i = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.025.i, ptr noundef nonnull align 4 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0), !range !57
+  %add24.i = add nsw i32 %call23.i, %row.025.i
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end21.i, %land.lhs.true.i.i28
-  %row.1.i = phi i32 [ %add24.i, %if.end21.i ], [ %row.026.i, %land.lhs.true.i.i28 ]
+for.inc.i:                                        ; preds = %if.end21.i, %for.body.i
+  %row.1.i = phi i32 [ %add24.i, %if.end21.i ], [ %row.025.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit, label %for.body.i, !llvm.loop !58
@@ -3382,92 +3372,90 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
 
 if.else:                                          ; preds = %for.end
   %call5 = tail call noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef %info, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %axis.i31)
-  %m_calculatedAxis.i.i33 = getelementptr inbounds i8, ptr %this, i64 1232
-  %19 = getelementptr inbounds i8, ptr %axis.i31, i64 8
-  %m_flags.i34 = getelementptr inbounds i8, ptr %this, i64 1328
-  %cfm.i35 = getelementptr inbounds i8, ptr %info, i64 56
-  %erp.i36 = getelementptr inbounds i8, ptr %info, i64 4
-  br label %for.body.i37
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %axis.i30)
+  %m_calculatedAxis.i.i32 = getelementptr inbounds i8, ptr %this, i64 1232
+  %19 = getelementptr inbounds i8, ptr %axis.i30, i64 8
+  %m_flags.i33 = getelementptr inbounds i8, ptr %this, i64 1328
+  %cfm.i34 = getelementptr inbounds i8, ptr %info, i64 56
+  %erp.i35 = getelementptr inbounds i8, ptr %info, i64 4
+  br label %for.body.i36
 
-for.body.i37:                                     ; preds = %for.inc.i60, %if.else
-  %indvars.iv.i38 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i62, %for.inc.i60 ]
-  %row.026.i39 = phi i32 [ %call5, %if.else ], [ %row.1.i61, %for.inc.i60 ]
-  %arrayidx.i.i40 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i38
-  %m_currentLimit.i.i41 = getelementptr inbounds i8, ptr %arrayidx.i.i40, i64 56
-  %20 = load i32, ptr %m_currentLimit.i.i41, align 4
-  %cmp.i.i42 = icmp eq i32 %20, 0
-  br i1 %cmp.i.i42, label %land.lhs.true.i.i70, label %if.then.i43
-
-land.lhs.true.i.i70:                              ; preds = %for.body.i37
-  %m_enableMotor.i.i71 = getelementptr inbounds i8, ptr %arrayidx.i.i40, i64 44
-  %21 = load i8, ptr %m_enableMotor.i.i71, align 8
+for.body.i36:                                     ; preds = %for.inc.i45, %if.else
+  %indvars.iv.i37 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i47, %for.inc.i45 ]
+  %row.025.i38 = phi i32 [ %call5, %if.else ], [ %row.1.i46, %for.inc.i45 ]
+  %arrayidx.i.i39 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i37
+  %m_currentLimit.i.i40 = getelementptr inbounds i8, ptr %arrayidx.i.i39, i64 56
+  %20 = load i32, ptr %m_currentLimit.i.i40, align 4
+  %cmp.i.i41 = icmp ne i32 %20, 0
+  %m_enableMotor.i.i42 = getelementptr inbounds i8, ptr %arrayidx.i.i39, i64 44
+  %21 = load i8, ptr %m_enableMotor.i.i42, align 8
   %22 = and i8 %21, 1
-  %cmp2.i.i72 = icmp eq i8 %22, 0
-  br i1 %cmp2.i.i72, label %for.inc.i60, label %if.then.i43
+  %cmp2.i.i43 = icmp ne i8 %22, 0
+  %retval.0.i.i44 = select i1 %cmp.i.i41, i1 true, i1 %cmp2.i.i43
+  br i1 %retval.0.i.i44, label %if.then.i49, label %for.inc.i45
 
-if.then.i43:                                      ; preds = %land.lhs.true.i.i70, %for.body.i37
-  %arrayidx.i19.i44 = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i.i33, i64 0, i64 %indvars.iv.i38
-  %retval.sroa.0.0.copyload.i.i45 = load <2 x float>, ptr %arrayidx.i19.i44, align 8
-  %retval.sroa.2.0.arrayidx.sroa_idx.i.i46 = getelementptr inbounds i8, ptr %arrayidx.i19.i44, i64 8
-  %retval.sroa.2.0.copyload.i.i47 = load <2 x float>, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i46, align 8
-  store <2 x float> %retval.sroa.0.0.copyload.i.i45, ptr %axis.i31, align 8
-  store <2 x float> %retval.sroa.2.0.copyload.i.i47, ptr %19, align 8
-  %23 = load i32, ptr %m_flags.i34, align 8
-  %24 = trunc i64 %indvars.iv.i38 to i32
+if.then.i49:                                      ; preds = %for.body.i36
+  %arrayidx.i19.i50 = getelementptr inbounds [3 x %class.btVector3], ptr %m_calculatedAxis.i.i32, i64 0, i64 %indvars.iv.i37
+  %retval.sroa.0.0.copyload.i.i51 = load <2 x float>, ptr %arrayidx.i19.i50, align 8
+  %retval.sroa.2.0.arrayidx.sroa_idx.i.i52 = getelementptr inbounds i8, ptr %arrayidx.i19.i50, i64 8
+  %retval.sroa.2.0.copyload.i.i53 = load <2 x float>, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i52, align 8
+  store <2 x float> %retval.sroa.0.0.copyload.i.i51, ptr %axis.i30, align 8
+  store <2 x float> %retval.sroa.2.0.copyload.i.i53, ptr %19, align 8
+  %23 = load i32, ptr %m_flags.i33, align 8
+  %24 = trunc i64 %indvars.iv.i37 to i32
   %25 = mul i32 %24, 3
   %26 = add i32 %25, 9
-  %shr.i48 = ashr i32 %23, %26
-  %and.i49 = and i32 %shr.i48, 1
-  %tobool.not.i50 = icmp eq i32 %and.i49, 0
-  br i1 %tobool.not.i50, label %if.then4.i68, label %if.end.i51
+  %shr.i54 = ashr i32 %23, %26
+  %and.i55 = and i32 %shr.i54, 1
+  %tobool.not.i56 = icmp eq i32 %and.i55, 0
+  br i1 %tobool.not.i56, label %if.then4.i70, label %if.end.i57
 
-if.then4.i68:                                     ; preds = %if.then.i43
-  %27 = load ptr, ptr %cfm.i35, align 8
+if.then4.i70:                                     ; preds = %if.then.i49
+  %27 = load ptr, ptr %cfm.i34, align 8
   %28 = load float, ptr %27, align 4
-  %m_normalCFM.i69 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i38, i32 7
-  store float %28, ptr %m_normalCFM.i69, align 8
-  br label %if.end.i51
+  %m_normalCFM.i71 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i37, i32 7
+  store float %28, ptr %m_normalCFM.i71, align 8
+  br label %if.end.i57
 
-if.end.i51:                                       ; preds = %if.then4.i68, %if.then.i43
-  %and6.i52 = and i32 %shr.i48, 2
-  %tobool7.not.i53 = icmp eq i32 %and6.i52, 0
-  br i1 %tobool7.not.i53, label %if.then8.i66, label %if.end14.i54
+if.end.i57:                                       ; preds = %if.then4.i70, %if.then.i49
+  %and6.i58 = and i32 %shr.i54, 2
+  %tobool7.not.i59 = icmp eq i32 %and6.i58, 0
+  br i1 %tobool7.not.i59, label %if.then8.i68, label %if.end14.i60
 
-if.then8.i66:                                     ; preds = %if.end.i51
-  %29 = load ptr, ptr %cfm.i35, align 8
+if.then8.i68:                                     ; preds = %if.end.i57
+  %29 = load ptr, ptr %cfm.i34, align 8
   %30 = load float, ptr %29, align 4
-  %m_stopCFM.i67 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i38, i32 9
-  store float %30, ptr %m_stopCFM.i67, align 8
-  br label %if.end14.i54
+  %m_stopCFM.i69 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i37, i32 9
+  store float %30, ptr %m_stopCFM.i69, align 8
+  br label %if.end14.i60
 
-if.end14.i54:                                     ; preds = %if.then8.i66, %if.end.i51
-  %and15.i55 = and i32 %shr.i48, 4
-  %tobool16.not.i56 = icmp eq i32 %and15.i55, 0
-  br i1 %tobool16.not.i56, label %if.then17.i64, label %if.end21.i57
+if.end14.i60:                                     ; preds = %if.then8.i68, %if.end.i57
+  %and15.i61 = and i32 %shr.i54, 4
+  %tobool16.not.i62 = icmp eq i32 %and15.i61, 0
+  br i1 %tobool16.not.i62, label %if.then17.i66, label %if.end21.i63
 
-if.then17.i64:                                    ; preds = %if.end14.i54
-  %31 = load float, ptr %erp.i36, align 4
-  %m_stopERP.i65 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i38, i32 8
-  store float %31, ptr %m_stopERP.i65, align 4
-  br label %if.end21.i57
+if.then17.i66:                                    ; preds = %if.end14.i60
+  %31 = load float, ptr %erp.i35, align 4
+  %m_stopERP.i67 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i37, i32 8
+  store float %31, ptr %m_stopERP.i67, align 4
+  br label %if.end21.i63
 
-if.end21.i57:                                     ; preds = %if.then17.i64, %if.end14.i54
-  %call23.i58 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i40, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.026.i39, ptr noundef nonnull align 4 dereferenceable(16) %axis.i31, i32 noundef 1, i32 noundef 0), !range !57
-  %add24.i59 = add nsw i32 %call23.i58, %row.026.i39
-  br label %for.inc.i60
+if.end21.i63:                                     ; preds = %if.then17.i66, %if.end14.i60
+  %call23.i64 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i39, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.025.i38, ptr noundef nonnull align 4 dereferenceable(16) %axis.i30, i32 noundef 1, i32 noundef 0), !range !57
+  %add24.i65 = add nsw i32 %call23.i64, %row.025.i38
+  br label %for.inc.i45
 
-for.inc.i60:                                      ; preds = %if.end21.i57, %land.lhs.true.i.i70
-  %row.1.i61 = phi i32 [ %add24.i59, %if.end21.i57 ], [ %row.026.i39, %land.lhs.true.i.i70 ]
-  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i38, 1
-  %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 3
-  br i1 %exitcond.not.i63, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit73, label %for.body.i37, !llvm.loop !58
+for.inc.i45:                                      ; preds = %if.end21.i63, %for.body.i36
+  %row.1.i46 = phi i32 [ %add24.i65, %if.end21.i63 ], [ %row.025.i38, %for.body.i36 ]
+  %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i37, 1
+  %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, 3
+  br i1 %exitcond.not.i48, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit72, label %for.body.i36, !llvm.loop !58
 
-_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit73: ; preds = %for.inc.i60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %axis.i31)
+_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit72: ; preds = %for.inc.i45
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %axis.i30)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit73, %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit
+if.end:                                           ; preds = %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit72, %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit
   ret void
 }
 
@@ -3968,7 +3956,7 @@ return:                                           ; preds = %if.then186, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN23btGeneric6DofConstraint9updateRHSEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1333) %this, float noundef %timeStep) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN23btGeneric6DofConstraint9updateRHSEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1333) %this, float noundef %timeStep) local_unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -4033,7 +4021,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btGeneric6DofConstraint13calcAnchorPosEv(ptr nocapture noundef nonnull align 8 dereferenceable(1333) %this) unnamed_addr #14 align 2 {
+define dso_local void @_ZN23btGeneric6DofConstraint13calcAnchorPosEv(ptr nocapture noundef nonnull align 8 dereferenceable(1333) %this) unnamed_addr #8 align 2 {
 entry:
   %m_rbA = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_rbA, align 8
@@ -4077,7 +4065,7 @@ entry:
 declare noundef float @_ZN17btTypedConstraint14getMotorFactorEfffff(ptr noundef nonnull align 8 dereferenceable(72), float noundef, float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btGeneric6DofConstraint8setParamEifi(ptr nocapture noundef nonnull align 8 dereferenceable(1333) %this, i32 noundef %num, float noundef %value, i32 noundef %axis) unnamed_addr #16 align 2 {
+define dso_local void @_ZN23btGeneric6DofConstraint8setParamEifi(ptr nocapture noundef nonnull align 8 dereferenceable(1333) %this, i32 noundef %num, float noundef %value, i32 noundef %axis) unnamed_addr #15 align 2 {
 entry:
   %or.cond = icmp ult i32 %axis, 3
   br i1 %or.cond, label %if.then, label %if.else
@@ -4154,7 +4142,7 @@ if.end56:                                         ; preds = %if.end56.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZNK23btGeneric6DofConstraint8getParamEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1333) %this, i32 noundef %num, i32 noundef %axis) unnamed_addr #17 align 2 {
+define dso_local noundef float @_ZNK23btGeneric6DofConstraint8getParamEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1333) %this, i32 noundef %num, i32 noundef %axis) unnamed_addr #16 align 2 {
 entry:
   %or.cond = icmp ult i32 %axis, 3
   br i1 %or.cond, label %if.then, label %if.else
@@ -4490,7 +4478,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17btTypedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #25
+  tail call void @llvm.trap() #24
   unreachable
 }
 
@@ -4534,7 +4522,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__clang_call_terminate(ptr %1) #25
+  tail call void @__clang_call_terminate(ptr %1) #24
   unreachable
 
 _ZN23btGeneric6DofConstraintdlEPv.exit:           ; preds = %entry
@@ -4689,26 +4677,26 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #18
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @asinf(float noundef) local_unnamed_addr #18
+declare float @asinf(float noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @fmodf(float noundef, float noundef) local_unnamed_addr #18
+declare float @fmodf(float noundef, float noundef) local_unnamed_addr #17
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #19
+declare void @llvm.trap() #18
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #25
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #19 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
@@ -4717,19 +4705,19 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #22
+declare float @llvm.sqrt.f32(float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #22
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #21
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4739,24 +4727,23 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #20 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nounwind }
-attributes #25 = { noreturn nounwind }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #19 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nounwind }
+attributes #24 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

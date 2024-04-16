@@ -689,7 +689,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @i2r_NAMING_AUTHORITY(ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) unnamed_addr #1 {
+define internal fastcc i32 @i2r_NAMING_AUTHORITY(ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) unnamed_addr #1 {
 entry:
   %objbuf = alloca [128 x i8], align 16
   %0 = load ptr, ptr %in, align 8
@@ -711,7 +711,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
 if.end6:                                          ; preds = %land.lhs.true3, %land.lhs.true, %entry
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.30, i32 noundef %ind, ptr noundef nonnull @.str.16) #4
   %cmp7 = icmp slt i32 %call, 1
-  br i1 %cmp7, label %err, label %if.end9
+  br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
   %3 = load ptr, ptr %in, align 8
@@ -723,7 +723,7 @@ if.then12:                                        ; preds = %if.end9
   %call15 = tail call ptr @OBJ_nid2ln(i32 noundef %call14) #4
   %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.31, i32 noundef %ind, ptr noundef nonnull @.str.16) #4
   %cmp17 = icmp slt i32 %call16, 1
-  br i1 %cmp17, label %err, label %if.end19
+  br i1 %cmp17, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.then12
   %4 = load ptr, ptr %in, align 8
@@ -734,7 +734,7 @@ if.end19:                                         ; preds = %if.then12
   %cond26 = select i1 %tobool.not, ptr @.str.16, ptr @.str.29
   %call27 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.32, ptr noundef nonnull %cond, ptr noundef nonnull %cond23, ptr noundef nonnull %objbuf, ptr noundef nonnull %cond26) #4
   %cmp28 = icmp slt i32 %call27, 1
-  br i1 %cmp28, label %err, label %if.end31
+  br i1 %cmp28, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end19, %if.end9
   %namingAuthorityText32 = getelementptr inbounds i8, ptr %in, i64 16
@@ -745,18 +745,18 @@ if.end31:                                         ; preds = %if.end19, %if.end9
 if.then34:                                        ; preds = %if.end31
   %call35 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.33, i32 noundef %ind, ptr noundef nonnull @.str.16) #4
   %cmp36 = icmp slt i32 %call35, 1
-  br i1 %cmp36, label %err, label %lor.lhs.false
+  br i1 %cmp36, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then34
   %6 = load ptr, ptr %namingAuthorityText32, align 8
   %call38 = call i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef %6) #4
   %cmp39 = icmp slt i32 %call38, 1
-  br i1 %cmp39, label %err, label %lor.lhs.false40
+  br i1 %cmp39, label %return, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %lor.lhs.false
   %call41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.18) #4
   %cmp42 = icmp slt i32 %call41, 1
-  br i1 %cmp42, label %err, label %if.end45
+  br i1 %cmp42, label %return, label %if.end45
 
 if.end45:                                         ; preds = %lor.lhs.false40, %if.end31
   %namingAuthorityUrl46 = getelementptr inbounds i8, ptr %in, i64 8
@@ -767,24 +767,22 @@ if.end45:                                         ; preds = %lor.lhs.false40, %i
 if.then48:                                        ; preds = %if.end45
   %call49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.34, i32 noundef %ind, ptr noundef nonnull @.str.16) #4
   %cmp50 = icmp slt i32 %call49, 1
-  br i1 %cmp50, label %err, label %lor.lhs.false51
+  br i1 %cmp50, label %return, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %if.then48
   %8 = load ptr, ptr %namingAuthorityUrl46, align 8
   %call53 = call i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef %8) #4
   %cmp54 = icmp slt i32 %call53, 1
-  br i1 %cmp54, label %err, label %lor.lhs.false55
+  br i1 %cmp54, label %return, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false51
   %call56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.18) #4
-  %cmp57 = icmp slt i32 %call56, 1
-  br i1 %cmp57, label %err, label %return
-
-err:                                              ; preds = %if.then48, %lor.lhs.false51, %lor.lhs.false55, %if.then34, %lor.lhs.false, %lor.lhs.false40, %if.end19, %if.then12, %if.end6
+  %cmp57 = icmp sgt i32 %call56, 0
+  %spec.select = zext i1 %cmp57 to i32
   br label %return
 
-return:                                           ; preds = %if.end45, %lor.lhs.false55, %land.lhs.true3, %err
-  %retval.0 = phi i32 [ 0, %err ], [ 0, %land.lhs.true3 ], [ 1, %lor.lhs.false55 ], [ 1, %if.end45 ]
+return:                                           ; preds = %lor.lhs.false55, %if.end6, %if.then12, %if.end19, %lor.lhs.false40, %lor.lhs.false, %if.then34, %lor.lhs.false51, %if.then48, %if.end45, %land.lhs.true3
+  %retval.0 = phi i32 [ 0, %land.lhs.true3 ], [ 1, %if.end45 ], [ 0, %if.then48 ], [ 0, %lor.lhs.false51 ], [ 0, %if.then34 ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false40 ], [ 0, %if.end19 ], [ 0, %if.then12 ], [ 0, %if.end6 ], [ %spec.select, %lor.lhs.false55 ]
   ret i32 %retval.0
 }
 

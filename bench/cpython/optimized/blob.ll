@@ -234,18 +234,14 @@ do.body6:                                         ; preds = %if.then, %entry
   %connection = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %connection, align 8
   %tobool7.not = icmp eq ptr %1, null
-  br i1 %tobool7.not, label %do.end16, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
   %call11 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #5
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.end16, label %return
-
-do.end16:                                         ; preds = %do.body6, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %do.end16
-  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call2, %if.then ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %do.body6, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ 0, %do.body6 ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 
@@ -628,7 +624,7 @@ if.then18.i:                                      ; preds = %if.end15.i, %if.the
   br label %ass_subscript_index.exit
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %conv.i = trunc i64 %call10.i to i8
+  %conv.i = trunc nuw i64 %call10.i to i8
   store i8 %conv.i, ptr %byte.i, align 1
   %16 = load ptr, ptr %blob.i, align 8
   %call.i12.i = tail call i32 @sqlite3_blob_bytes(ptr noundef %16) #5

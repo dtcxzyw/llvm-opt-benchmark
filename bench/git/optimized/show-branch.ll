@@ -636,7 +636,7 @@ for.body:                                         ; preds = %if.end272, %append_
   %call275 = call ptr @get_main_ref_store(ptr noundef %23) #16
   %24 = load ptr, ptr %ref, align 8
   %25 = load i32, ptr %base, align 4
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %add276 = add nsw i32 %25, %26
   %call277 = call i32 @read_ref_at(ptr noundef %call275, ptr noundef %24, i32 noundef 0, i64 noundef 0, i32 noundef %add276, ptr noundef nonnull %oid, ptr noundef nonnull %logmsg, ptr noundef nonnull %timestamp, ptr noundef nonnull %tz, ptr noundef null) #16
   %tobool278.not = icmp eq i32 %call277, 0
@@ -920,7 +920,7 @@ if.then327:                                       ; preds = %if.end325
   unreachable
 
 for.cond375.preheader:                            ; preds = %if.end369
-  %66 = trunc i64 %indvars.iv.next348 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv.next348 to i32
   %cmp376310.not = icmp eq i32 %66, 0
   br i1 %cmp376310.not, label %for.end388, label %for.body378.preheader
 
@@ -931,8 +931,8 @@ for.body378.preheader:                            ; preds = %for.cond375.prehead
 for.body335:                                      ; preds = %for.cond331.preheader, %if.end369
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %if.end369 ], [ 0, %for.cond331.preheader ]
   %67 = phi ptr [ %74, %if.end369 ], [ %63, %for.cond331.preheader ]
-  %68 = trunc i64 %indvars.iv347 to i32
-  %shl = shl i32 4, %68
+  %68 = trunc nuw nsw i64 %indvars.iv347 to i32
+  %shl = shl nuw i32 4, %68
   %exitcond350 = icmp eq i64 %indvars.iv347, 26
   br i1 %exitcond350, label %if.then339, label %if.end341
 
@@ -1023,7 +1023,7 @@ for.end388:                                       ; preds = %for.body378, %for.c
   br i1 %cmp389, label %if.then391, label %if.end392
 
 if.then391:                                       ; preds = %for.end388
-  %notmask.i = shl i32 -4, %num_rev.0.lcssa374
+  %notmask.i = shl nsw i32 -4, %num_rev.0.lcssa374
   %sub.i = xor i32 %notmask.i, -1
   %and.i = and i32 %sub.i, 2147483644
   %77 = load ptr, ptr %list, align 8
@@ -1198,7 +1198,7 @@ if.then394:                                       ; preds = %if.end392
   %96 = load ptr, ptr %seen, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %seen.addr.i)
   store ptr %96, ptr %seen.addr.i, align 8
-  %notmask.i130 = shl i32 -4, %num_rev.0.lcssa374
+  %notmask.i130 = shl nsw i32 -4, %num_rev.0.lcssa374
   %sub.i131 = and i32 %notmask.i130, 2147483644
   %and.i132 = xor i32 %sub.i131, 2147483644
   %tobool.not6.i = icmp eq ptr %96, null
@@ -1424,7 +1424,7 @@ for.end441:                                       ; preds = %for.body437, %for.c
   br i1 %tobool.not.i204, label %get_color_code.exit, label %if.then.i205
 
 if.then.i205:                                     ; preds = %for.end441
-  %119 = trunc i64 %indvars.iv356 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv356 to i32
   %rem.i = srem i32 %119, %102
   %idxprom.i206 = zext nneg i32 %rem.i to i64
   %arrayidx.i207 = getelementptr inbounds [0 x ptr], ptr @column_colors_ansi, i64 0, i64 %idxprom.i206
@@ -1460,7 +1460,7 @@ if.else454:                                       ; preds = %if.end449
   br label %if.end458
 
 if.end458:                                        ; preds = %if.else454, %if.then451
-  %126 = trunc i64 %indvars.iv356 to i32
+  %126 = trunc nuw nsw i64 %indvars.iv356 to i32
   %spec.select110 = select i1 %115, i32 %126, i32 %head_at.0316
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count359
@@ -2079,7 +2079,7 @@ name_commits.exit:                                ; preds = %name_commits.exit.l
 
 if.end489:                                        ; preds = %name_commits.exit, %if.end483
   %205 = phi ptr [ %.pre367, %name_commits.exit ], [ %.pre368, %if.end483 ]
-  %shl491 = shl i32 4, %num_rev.0.lcssa374
+  %shl491 = shl nuw i32 4, %num_rev.0.lcssa374
   %sub = add i32 %shl491, -1
   %and = and i32 %sub, -4
   %tobool493.not326 = icmp eq ptr %205, null
@@ -2143,7 +2143,7 @@ for.body.i232:                                    ; preds = %if.end521, %for.con
 for.body4.i:                                      ; preds = %for.cond.i235, %for.body4.i
   %count.013.i = phi i32 [ %spec.select.i243, %for.body4.i ], [ 0, %for.cond.i235 ]
   %i.112.i = phi i32 [ %inc9.i, %for.body4.i ], [ 0, %for.cond.i235 ]
-  %shl.i = shl i32 4, %i.112.i
+  %shl.i = shl nuw i32 4, %i.112.i
   %and.i241 = and i32 %shl.i, %bf.lshr499
   %tobool.not.i242 = icmp ne i32 %and.i241, 0
   %inc6.i = zext i1 %tobool.not.i242 to i32
@@ -2161,7 +2161,7 @@ if.end530:                                        ; preds = %for.body.i232, %omi
 
 for.body534:                                      ; preds = %if.end530, %for.inc560
   %i.5324 = phi i32 [ %inc561, %for.inc560 ], [ 0, %if.end530 ]
-  %shl536 = shl i32 4, %i.5324
+  %shl536 = shl nuw i32 4, %i.5324
   %and537 = and i32 %shl536, %bf.lshr499
   %tobool538.not = icmp eq i32 %and537, 0
   %cmp544 = icmp eq i32 %i.5324, %head_at.2269
@@ -2856,7 +2856,7 @@ if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %refname, i64 11
   %call1 = call i32 @repo_get_oid(ptr noundef %0, ptr noundef nonnull %add.ptr, ptr noundef nonnull %tmp) #16
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %lor.lhs.false, label %if.then5
+  br i1 %tobool2.not, label %lor.lhs.false, label %if.end6
 
 lor.lhs.false:                                    ; preds = %if.end
   %algo.i = getelementptr inbounds i8, ptr %tmp, i64 32
@@ -2893,13 +2893,11 @@ if.end.i.i:                                       ; preds = %if.end.i
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
   %retval.0.in.i.i.not = icmp eq i32 %retval.0.in.in.i.i, 0
-  br i1 %retval.0.in.i.i.not, label %if.end6, label %if.then5
-
-if.then5:                                         ; preds = %oideq.exit, %if.end
+  %spec.select = select i1 %retval.0.in.i.i.not, i64 11, i64 5
   br label %if.end6
 
-if.end6:                                          ; preds = %if.then5, %oideq.exit
-  %ofs.0 = phi i64 [ 5, %if.then5 ], [ 11, %oideq.exit ]
+if.end6:                                          ; preds = %oideq.exit, %if.end
+  %ofs.0 = phi i64 [ 5, %if.end ], [ %spec.select, %oideq.exit ]
   %add.ptr8 = getelementptr inbounds i8, ptr %refname, i64 %ofs.0
   call fastcc void @append_ref(ptr noundef nonnull %add.ptr8, ptr noundef %oid, i32 noundef 0)
   br label %return
@@ -3041,7 +3039,7 @@ if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %refname, i64 13
   %call1 = call i32 @repo_get_oid(ptr noundef %0, ptr noundef nonnull %add.ptr, ptr noundef nonnull %tmp) #16
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %lor.lhs.false, label %if.then5
+  br i1 %tobool2.not, label %lor.lhs.false, label %if.end6
 
 lor.lhs.false:                                    ; preds = %if.end
   %algo.i = getelementptr inbounds i8, ptr %tmp, i64 32
@@ -3078,13 +3076,11 @@ if.end.i.i:                                       ; preds = %if.end.i
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
   %retval.0.in.i.i.not = icmp eq i32 %retval.0.in.in.i.i, 0
-  br i1 %retval.0.in.i.i.not, label %if.end6, label %if.then5
-
-if.then5:                                         ; preds = %oideq.exit, %if.end
+  %spec.select = select i1 %retval.0.in.i.i.not, i64 13, i64 5
   br label %if.end6
 
-if.end6:                                          ; preds = %if.then5, %oideq.exit
-  %ofs.0 = phi i64 [ 5, %if.then5 ], [ 13, %oideq.exit ]
+if.end6:                                          ; preds = %oideq.exit, %if.end
+  %ofs.0 = phi i64 [ 5, %if.end ], [ %spec.select, %oideq.exit ]
   %add.ptr8 = getelementptr inbounds i8, ptr %refname, i64 %ofs.0
   call fastcc void @append_ref(ptr noundef nonnull %add.ptr8, ptr noundef %oid, i32 noundef 0)
   br label %return

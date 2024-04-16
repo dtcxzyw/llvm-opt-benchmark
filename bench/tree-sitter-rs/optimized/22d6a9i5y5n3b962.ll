@@ -1988,7 +1988,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hbf32a662199783f0E.exit: ; preds = %.
   %210 = getelementptr inbounds i8, ptr %201, i64 24
   %211 = load i8, ptr %210, align 8, !range !221, !alias.scope !227, !noalias !232
   %212 = xor i8 %211, %199
-  %213 = trunc i8 %212 to i1
+  %213 = trunc nuw i8 %212 to i1
   %not..i.i.i.i83 = xor i1 %209, true
   %214 = select i1 %not..i.i.i.i83, i1 true, i1 %213
   br i1 %214, label %200, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h0e5a7159dc268d93E.exit.thread.i.i84"
@@ -2040,7 +2040,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hbf32a662199783f0E.exit: ; preds = %.
   %233 = getelementptr inbounds i8, ptr %224, i64 24
   %234 = load i8, ptr %233, align 8, !range !221, !alias.scope !245, !noalias !250
   %235 = xor i8 %234, %222
-  %236 = trunc i8 %235 to i1
+  %236 = trunc nuw i8 %235 to i1
   %not..i.i8.i.i81 = xor i1 %232, true
   %237 = select i1 %not..i.i8.i.i81, i1 true, i1 %236
   br i1 %237, label %223, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h0e5a7159dc268d93E.exit9.i.i82"
@@ -2112,7 +2112,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hbf32a662199783f0E.exit: ; preds = %.
   %261 = getelementptr inbounds i8, ptr %252, i64 24
   %262 = load i8, ptr %261, align 8, !range !221, !alias.scope !275, !noalias !280
   %263 = xor i8 %262, %250
-  %264 = trunc i8 %263 to i1
+  %264 = trunc nuw i8 %263 to i1
   %not..i.i.i.i = xor i1 %260, true
   %265 = select i1 %not..i.i.i.i, i1 true, i1 %264
   br i1 %265, label %251, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h0e5a7159dc268d93E.exit.thread.i.i"
@@ -2164,7 +2164,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hbf32a662199783f0E.exit: ; preds = %.
   %284 = getelementptr inbounds i8, ptr %275, i64 24
   %285 = load i8, ptr %284, align 8, !range !221, !alias.scope !293, !noalias !298
   %286 = xor i8 %285, %273
-  %287 = trunc i8 %286 to i1
+  %287 = trunc nuw i8 %286 to i1
   %not..i.i8.i.i = xor i1 %283, true
   %288 = select i1 %not..i.i8.i.i, i1 true, i1 %287
   br i1 %288, label %274, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h0e5a7159dc268d93E.exit9.i.i"
@@ -5354,11 +5354,11 @@ define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$clos
   %26 = getelementptr inbounds i8, ptr %14, i64 56
   %.val7.i.i.i = load i64, ptr %26, align 8, !range !617, !alias.scope !1031, !noalias !1032, !noundef !14
   %.not.i.i.i.i = icmp eq i64 %.val5.i.i.i, -9223372036854775808
-  %27 = trunc i64 %.val.i.i.i to i8
+  %27 = trunc nuw nsw i64 %.val.i.i.i to i8
   %28 = xor i8 %27, 1
   %.05.i.i.i.i = select i1 %.not.i.i.i.i, i8 %28, i8 0
   %.not8.i.i.i.i = icmp eq i64 %.val7.i.i.i, -9223372036854775808
-  %29 = trunc i64 %.val6.i.i.i to i8
+  %29 = trunc nuw nsw i64 %.val6.i.i.i to i8
   %30 = xor i8 %29, 1
   %.0.i.i.i.i = select i1 %.not8.i.i.i.i, i8 %30, i8 0
   %31 = sub nsw i8 %.05.i.i.i.i, %.0.i.i.i.i
@@ -5441,11 +5441,11 @@ define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$clos
   %66 = getelementptr inbounds i8, ptr %56, i64 56
   %.val7.i.i.i17 = load i64, ptr %66, align 8, !range !617, !alias.scope !1064, !noalias !1065, !noundef !14
   %.not.i.i.i.i18 = icmp eq i64 %.val5.i.i.i15, -9223372036854775808
-  %67 = trunc i64 %.val.i.i.i14 to i8
+  %67 = trunc nuw nsw i64 %.val.i.i.i14 to i8
   %68 = xor i8 %67, 1
   %.05.i.i.i.i19 = select i1 %.not.i.i.i.i18, i8 %68, i8 0
   %.not8.i.i.i.i20 = icmp eq i64 %.val7.i.i.i17, -9223372036854775808
-  %69 = trunc i64 %.val6.i.i.i16 to i8
+  %69 = trunc nuw nsw i64 %.val6.i.i.i16 to i8
   %70 = xor i8 %69, 1
   %.0.i.i.i.i21 = select i1 %.not8.i.i.i.i20, i8 %70, i8 0
   %71 = sub nsw i8 %.05.i.i.i.i19, %.0.i.i.i.i21
@@ -5526,11 +5526,11 @@ define internal fastcc void @"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$clos
   %104 = getelementptr inbounds i8, ptr %94, i64 56
   %.val7.i.i.i35 = load i64, ptr %104, align 8, !range !617, !alias.scope !1094, !noalias !1095, !noundef !14
   %.not.i.i.i.i36 = icmp eq i64 %.val5.i.i.i33, -9223372036854775808
-  %105 = trunc i64 %.val.i.i.i32 to i8
+  %105 = trunc nuw nsw i64 %.val.i.i.i32 to i8
   %106 = xor i8 %105, 1
   %.05.i.i.i.i37 = select i1 %.not.i.i.i.i36, i8 %106, i8 0
   %.not8.i.i.i.i38 = icmp eq i64 %.val7.i.i.i35, -9223372036854775808
-  %107 = trunc i64 %.val6.i.i.i34 to i8
+  %107 = trunc nuw nsw i64 %.val6.i.i.i34 to i8
   %108 = xor i8 %107, 1
   %.0.i.i.i.i39 = select i1 %.not8.i.i.i.i38, i8 %108, i8 0
   %109 = sub nsw i8 %.05.i.i.i.i37, %.0.i.i.i.i39
@@ -6995,7 +6995,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %65 = getelementptr inbounds i8, ptr %.val4.i, i64 8
   %.val5.i43 = load i64, ptr %65, align 8, !alias.scope !1248, !noalias !1246, !noundef !14
   %66 = lshr i64 %64, 57
-  %67 = trunc i64 %66 to i8
+  %67 = trunc nuw nsw i64 %66 to i8
   %.0.vec.insert.i.i.i.i44 = insertelement <16 x i8> poison, i8 %67, i64 0
   %.15.vec.insert.i.i.i.i45 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i44, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %68
@@ -7111,7 +7111,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %117 = getelementptr inbounds i8, ptr %.val.i.pre, i64 8
   %.val5.i = load i64, ptr %117, align 8, !alias.scope !1314, !noalias !1312, !noundef !14
   %118 = lshr i64 %116, 57
-  %119 = trunc i64 %118 to i8
+  %119 = trunc nuw nsw i64 %118 to i8
   %.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %119, i64 0
   %.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %120
@@ -7345,7 +7345,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %198 = getelementptr inbounds i8, ptr %.val4.i24.i.i, i64 8
   %.val5.i18.i = load i64, ptr %198, align 8, !alias.scope !1390, !noalias !1388, !noundef !14
   %199 = lshr i64 %197, 57
-  %200 = trunc i64 %199 to i8
+  %200 = trunc nuw nsw i64 %199 to i8
   %.0.vec.insert.i.i.i.i19.i = insertelement <16 x i8> poison, i8 %200, i64 0
   %.15.vec.insert.i.i.i.i20.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i19.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %201
@@ -7470,7 +7470,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %247 = getelementptr inbounds i8, ptr %.val.i27.i.pre.i, i64 8
   %.val5.i.i = load i64, ptr %247, align 8, !alias.scope !1454, !noalias !1452, !noundef !14
   %248 = lshr i64 %246, 57
-  %249 = trunc i64 %248 to i8
+  %249 = trunc nuw nsw i64 %248 to i8
   %.0.vec.insert.i.i.i.i.i = insertelement <16 x i8> poison, i8 %249, i64 0
   %.15.vec.insert.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %250
@@ -7613,11 +7613,11 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %30 = getelementptr inbounds i8, ptr %18, i64 56
   %.val7.i.i = load i64, ptr %30, align 8, !range !617, !alias.scope !1485, !noalias !1486, !noundef !14
   %.not.i.i.i = icmp eq i64 %.val5.i.i, -9223372036854775808
-  %31 = trunc i64 %.val.i.i to i8
+  %31 = trunc nuw nsw i64 %.val.i.i to i8
   %32 = xor i8 %31, 1
   %.05.i.i.i = select i1 %.not.i.i.i, i8 %32, i8 0
   %.not8.i.i.i = icmp eq i64 %.val7.i.i, -9223372036854775808
-  %33 = trunc i64 %.val6.i.i to i8
+  %33 = trunc nuw nsw i64 %.val6.i.i to i8
   %34 = xor i8 %33, 1
   %.0.i.i.i = select i1 %.not8.i.i.i, i8 %34, i8 0
   %35 = sub nsw i8 %.05.i.i.i, %.0.i.i.i
@@ -7713,11 +7713,11 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %.val6.i.i.i.i = load i64, ptr %0, align 8, !alias.scope !1516, !noalias !1517
   %.val7.i.i.i.i = load i64, ptr %8, align 8, !range !617, !alias.scope !1516, !noalias !1517, !noundef !14
   %.not.i.i.i.i.i = icmp eq i64 %.val5.i.i.i.i, -9223372036854775808
-  %67 = trunc i64 %.val.i.i.i.i to i8
+  %67 = trunc nuw nsw i64 %.val.i.i.i.i to i8
   %68 = xor i8 %67, 1
   %.05.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i8 %68, i8 0
   %.not8.i.i.i.i.i = icmp eq i64 %.val7.i.i.i.i, -9223372036854775808
-  %69 = trunc i64 %.val6.i.i.i.i to i8
+  %69 = trunc nuw nsw i64 %.val6.i.i.i.i to i8
   %70 = xor i8 %69, 1
   %.0.i.i.i.i.i = select i1 %.not8.i.i.i.i.i, i8 %70, i8 0
   %71 = sub nsw i8 %.05.i.i.i.i.i, %.0.i.i.i.i.i
@@ -7766,7 +7766,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
 
 .lr.ph.i.i:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h5954fe1023b611ffE.exit.thread.i.i"
   %.not8.i.i.i35.i.i = icmp eq i64 %.sroa.715.0.copyload.i.i, -9223372036854775808
-  %79 = trunc i64 %.sroa.013.0.copyload.i.i to i8
+  %79 = trunc nuw nsw i64 %.sroa.013.0.copyload.i.i to i8
   %80 = xor i8 %79, 1
   %.0.i.i.i36.i.i = select i1 %.not8.i.i.i35.i.i, i8 %80, i8 0
   %81 = icmp ne ptr %.sroa.5.0.copyload.i.i, null
@@ -7815,7 +7815,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %91 = getelementptr inbounds i8, ptr %84, i64 56
   %.val5.i.i30.i.i = load i64, ptr %91, align 8, !range !617, !alias.scope !1529, !noalias !1530, !noundef !14
   %.not.i.i.i33.i.i = icmp eq i64 %.val5.i.i30.i.i, -9223372036854775808
-  %92 = trunc i64 %.val.i.i29.i.i to i8
+  %92 = trunc nuw nsw i64 %.val.i.i29.i.i to i8
   %93 = xor i8 %92, 1
   %.05.i.i.i34.i.i = select i1 %.not.i.i.i33.i.i, i8 %93, i8 0
   %94 = sub nsw i8 %.05.i.i.i34.i.i, %.0.i.i.i36.i.i
@@ -10735,7 +10735,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %65 = getelementptr inbounds i8, ptr %.val6.i, i64 8
   %.val5.i42 = load i64, ptr %65, align 8, !alias.scope !2021, !noalias !2019, !noundef !14
   %66 = lshr i64 %64, 57
-  %67 = trunc i64 %66 to i8
+  %67 = trunc nuw nsw i64 %66 to i8
   %.0.vec.insert.i.i.i.i43 = insertelement <16 x i8> poison, i8 %67, i64 0
   %.15.vec.insert.i.i.i.i44 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i43, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %68
@@ -10851,7 +10851,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %117 = getelementptr inbounds i8, ptr %.val4.i.pre, i64 8
   %.val5.i = load i64, ptr %117, align 8, !alias.scope !2086, !noalias !2084, !noundef !14
   %118 = lshr i64 %116, 57
-  %119 = trunc i64 %118 to i8
+  %119 = trunc nuw nsw i64 %118 to i8
   %.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %119, i64 0
   %.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %120
@@ -11085,7 +11085,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %198 = getelementptr inbounds i8, ptr %.val6.i24.i.i, i64 8
   %.val5.i18.i = load i64, ptr %198, align 8, !alias.scope !2162, !noalias !2160, !noundef !14
   %199 = lshr i64 %197, 57
-  %200 = trunc i64 %199 to i8
+  %200 = trunc nuw nsw i64 %199 to i8
   %.0.vec.insert.i.i.i.i19.i = insertelement <16 x i8> poison, i8 %200, i64 0
   %.15.vec.insert.i.i.i.i20.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i19.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %201
@@ -11210,7 +11210,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %247 = getelementptr inbounds i8, ptr %.val4.i27.i.pre.i, i64 8
   %.val5.i.i = load i64, ptr %247, align 8, !alias.scope !2226, !noalias !2224, !noundef !14
   %248 = lshr i64 %246, 57
-  %249 = trunc i64 %248 to i8
+  %249 = trunc nuw nsw i64 %248 to i8
   %.0.vec.insert.i.i.i.i.i = insertelement <16 x i8> poison, i8 %249, i64 0
   %.15.vec.insert.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %250
@@ -12482,7 +12482,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h52
   %62 = getelementptr inbounds i8, ptr %.val4.i19.i, i64 8
   %.val5.i19 = load i64, ptr %62, align 8, !alias.scope !2355, !noalias !2353, !noundef !14
   %63 = lshr i64 %61, 57
-  %64 = trunc i64 %63 to i8
+  %64 = trunc nuw nsw i64 %63 to i8
   %.0.vec.insert.i.i.i.i20 = insertelement <16 x i8> poison, i8 %64, i64 0
   %.15.vec.insert.i.i.i.i21 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i20, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %65
@@ -12610,7 +12610,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h52
   %114 = getelementptr inbounds i8, ptr %.val.i22.i.pre, i64 8
   %.val5.i = load i64, ptr %114, align 8, !alias.scope !2419, !noalias !2417, !noundef !14
   %115 = lshr i64 %113, 57
-  %116 = trunc i64 %115 to i8
+  %116 = trunc nuw nsw i64 %115 to i8
   %.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %116, i64 0
   %.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %117
@@ -12867,7 +12867,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h59
   %62 = getelementptr inbounds i8, ptr %.val6.i19.i, i64 8
   %.val5.i19 = load i64, ptr %62, align 8, !alias.scope !2486, !noalias !2484, !noundef !14
   %63 = lshr i64 %61, 57
-  %64 = trunc i64 %63 to i8
+  %64 = trunc nuw nsw i64 %63 to i8
   %.0.vec.insert.i.i.i.i20 = insertelement <16 x i8> poison, i8 %64, i64 0
   %.15.vec.insert.i.i.i.i21 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i20, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %65
@@ -12995,7 +12995,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h59
   %114 = getelementptr inbounds i8, ptr %.val4.i22.i.pre, i64 8
   %.val5.i = load i64, ptr %114, align 8, !alias.scope !2550, !noalias !2548, !noundef !14
   %115 = lshr i64 %113, 57
-  %116 = trunc i64 %115 to i8
+  %116 = trunc nuw nsw i64 %115 to i8
   %.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %116, i64 0
   %.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %117
@@ -13887,7 +13887,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h97
   %39 = getelementptr inbounds i8, ptr %30, i64 24
   %40 = load i8, ptr %39, align 8, !range !221, !alias.scope !2775, !noalias !2780
   %41 = xor i8 %40, %28
-  %42 = trunc i8 %41 to i1
+  %42 = trunc nuw i8 %41 to i1
   %not..i.i.i.i = xor i1 %38, true
   %43 = select i1 %not..i.i.i.i, i1 true, i1 %42
   br i1 %43, label %29, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h25ab73fde01e57ffE.exit.thread"
@@ -13939,7 +13939,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h97
   %60 = getelementptr inbounds i8, ptr %51, i64 24
   %61 = load i8, ptr %60, align 8, !range !221, !alias.scope !2793, !noalias !2798
   %62 = xor i8 %61, %49
-  %63 = trunc i8 %62 to i1
+  %63 = trunc nuw i8 %62 to i1
   %not..i.i8.i.i = xor i1 %59, true
   %64 = select i1 %not..i.i8.i.i, i1 true, i1 %63
   br i1 %64, label %50, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h25ab73fde01e57ffE.exit"
@@ -14146,11 +14146,11 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hb4
   %21 = getelementptr i8, ptr %8, i64 -64
   %.val7.i.i.i = load i64, ptr %21, align 8, !range !617, !alias.scope !2825, !noalias !2826, !noundef !14
   %.not.i.i.i.i = icmp eq i64 %.val5.i.i.i, -9223372036854775808
-  %22 = trunc i64 %.val.i.i.i to i8
+  %22 = trunc nuw nsw i64 %.val.i.i.i to i8
   %23 = xor i8 %22, 1
   %.05.i.i.i.i = select i1 %.not.i.i.i.i, i8 %23, i8 0
   %.not8.i.i.i.i = icmp eq i64 %.val7.i.i.i, -9223372036854775808
-  %24 = trunc i64 %.val6.i.i.i to i8
+  %24 = trunc nuw nsw i64 %.val6.i.i.i to i8
   %25 = xor i8 %24, 1
   %.0.i.i.i.i = select i1 %.not8.i.i.i.i, i8 %25, i8 0
   %26 = sub nsw i8 %.05.i.i.i.i, %.0.i.i.i.i
@@ -14211,7 +14211,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hb4
 
 .lr.ph.i:                                         ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h5954fe1023b611ffE.exit.thread.i"
   %.not.i.i.i28.i = icmp eq i64 %.sroa.716.0.copyload.i, -9223372036854775808
-  %40 = trunc i64 %.sroa.014.0.copyload.i to i8
+  %40 = trunc nuw nsw i64 %.sroa.014.0.copyload.i to i8
   %41 = xor i8 %40, 1
   %.05.i.i.i29.i = select i1 %.not.i.i.i28.i, i8 %41, i8 0
   br label %42
@@ -14258,7 +14258,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hb4
   %52 = getelementptr inbounds i8, ptr %44, i64 56
   %.val7.i.i27.i = load i64, ptr %52, align 8, !range !617, !alias.scope !2840, !noalias !2841, !noundef !14
   %.not8.i.i.i30.i = icmp eq i64 %.val7.i.i27.i, -9223372036854775808
-  %53 = trunc i64 %.val6.i.i26.i to i8
+  %53 = trunc nuw nsw i64 %.val6.i.i26.i to i8
   %54 = xor i8 %53, 1
   %.0.i.i.i31.i = select i1 %.not8.i.i.i30.i, i8 %54, i8 0
   %55 = sub nsw i8 %.05.i.i.i29.i, %.0.i.i.i31.i
@@ -15598,7 +15598,7 @@ _ZN4core5slice4sort12choose_pivot17h32fb2359f94c7ac3E.exit: ; preds = %"_ZN4core
   %183 = getelementptr inbounds i8, ptr %.val4.i.i, i64 8
   %.val5.i155 = load i64, ptr %183, align 8, !alias.scope !3075, !noalias !3073, !noundef !14
   %184 = lshr i64 %182, 57
-  %185 = trunc i64 %184 to i8
+  %185 = trunc nuw nsw i64 %184 to i8
   %.0.vec.insert.i.i.i.i156 = insertelement <16 x i8> poison, i8 %185, i64 0
   %.15.vec.insert.i.i.i.i157 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i156, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %186
@@ -15723,7 +15723,7 @@ _ZN4core5slice4sort12choose_pivot17h32fb2359f94c7ac3E.exit: ; preds = %"_ZN4core
   %233 = getelementptr inbounds i8, ptr %.val.i.i.pre, i64 8
   %.val5.i125 = load i64, ptr %233, align 8, !alias.scope !3139, !noalias !3137, !noundef !14
   %234 = lshr i64 %232, 57
-  %235 = trunc i64 %234 to i8
+  %235 = trunc nuw nsw i64 %234 to i8
   %.0.vec.insert.i.i.i.i126 = insertelement <16 x i8> poison, i8 %235, i64 0
   %.15.vec.insert.i.i.i.i127 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i126, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %236
@@ -15877,7 +15877,7 @@ _ZN4core5slice4sort12choose_pivot17h32fb2359f94c7ac3E.exit: ; preds = %"_ZN4core
   %294 = getelementptr inbounds i8, ptr %.val4.i36.i, i64 8
   %.val5.i95 = load i64, ptr %294, align 8, !alias.scope !3203, !noalias !3201, !noundef !14
   %295 = lshr i64 %293, 57
-  %296 = trunc i64 %295 to i8
+  %296 = trunc nuw nsw i64 %295 to i8
   %.0.vec.insert.i.i.i.i96 = insertelement <16 x i8> poison, i8 %296, i64 0
   %.15.vec.insert.i.i.i.i97 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i96, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %297
@@ -16002,7 +16002,7 @@ _ZN4core5slice4sort12choose_pivot17h32fb2359f94c7ac3E.exit: ; preds = %"_ZN4core
   %344 = getelementptr inbounds i8, ptr %.val.i39.i.pre, i64 8
   %.val5.i = load i64, ptr %344, align 8, !alias.scope !3267, !noalias !3265, !noundef !14
   %345 = lshr i64 %343, 57
-  %346 = trunc i64 %345 to i8
+  %346 = trunc nuw nsw i64 %345 to i8
   %.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %346, i64 0
   %.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %347
@@ -16227,7 +16227,7 @@ _ZN4core5slice4sort12choose_pivot17h32fb2359f94c7ac3E.exit: ; preds = %"_ZN4core
   %423 = getelementptr inbounds i8, ptr %.val4.i.i.i, i64 8
   %.val5.i186.i.i = load i64, ptr %423, align 8, !alias.scope !3335, !noalias !3333, !noundef !14
   %424 = lshr i64 %422, 57
-  %425 = trunc i64 %424 to i8
+  %425 = trunc nuw nsw i64 %424 to i8
   %.0.vec.insert.i.i.i.i187.i.i = insertelement <16 x i8> poison, i8 %425, i64 0
   %.15.vec.insert.i.i.i.i188.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i187.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %426
@@ -16352,7 +16352,7 @@ _ZN4core5slice4sort12choose_pivot17h32fb2359f94c7ac3E.exit: ; preds = %"_ZN4core
   %473 = getelementptr inbounds i8, ptr %.val.i.pre.i.i, i64 8
   %.val5.i.i.i = load i64, ptr %473, align 8, !alias.scope !3399, !noalias !3397, !noundef !14
   %474 = lshr i64 %472, 57
-  %475 = trunc i64 %474 to i8
+  %475 = trunc nuw nsw i64 %474 to i8
   %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %475, i64 0
   %.15.vec.insert.i.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %476
@@ -16520,7 +16520,7 @@ _ZN4core5slice4sort12choose_pivot17h32fb2359f94c7ac3E.exit: ; preds = %"_ZN4core
   %542 = getelementptr inbounds i8, ptr %.val4.i166.i.i, i64 8
   %.val5.i238.i.i = load i64, ptr %542, align 8, !alias.scope !3463, !noalias !3461, !noundef !14
   %543 = lshr i64 %541, 57
-  %544 = trunc i64 %543 to i8
+  %544 = trunc nuw nsw i64 %543 to i8
   %.0.vec.insert.i.i.i.i239.i.i = insertelement <16 x i8> poison, i8 %544, i64 0
   %.15.vec.insert.i.i.i.i240.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i239.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %545
@@ -16645,7 +16645,7 @@ _ZN4core5slice4sort12choose_pivot17h32fb2359f94c7ac3E.exit: ; preds = %"_ZN4core
   %592 = getelementptr inbounds i8, ptr %.val.i169.pre.i.i, i64 8
   %.val5.i212.i.i = load i64, ptr %592, align 8, !alias.scope !3527, !noalias !3525, !noundef !14
   %593 = lshr i64 %591, 57
-  %594 = trunc i64 %593 to i8
+  %594 = trunc nuw nsw i64 %593 to i8
   %.0.vec.insert.i.i.i.i213.i.i = insertelement <16 x i8> poison, i8 %594, i64 0
   %.15.vec.insert.i.i.i.i214.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i213.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %595
@@ -17023,7 +17023,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   %734 = getelementptr inbounds i8, ptr %.val4.i.i67, i64 8
   %.val5.i275 = load i64, ptr %734, align 8, !alias.scope !3605, !noalias !3603, !noundef !14
   %735 = lshr i64 %733, 57
-  %736 = trunc i64 %735 to i8
+  %736 = trunc nuw nsw i64 %735 to i8
   %.0.vec.insert.i.i.i.i276 = insertelement <16 x i8> poison, i8 %736, i64 0
   %.15.vec.insert.i.i.i.i277 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i276, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %737
@@ -17151,7 +17151,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   %786 = getelementptr inbounds i8, ptr %.val.i.i72.pre, i64 8
   %.val5.i245 = load i64, ptr %786, align 8, !alias.scope !3669, !noalias !3667, !noundef !14
   %787 = lshr i64 %785, 57
-  %788 = trunc i64 %787 to i8
+  %788 = trunc nuw nsw i64 %787 to i8
   %.0.vec.insert.i.i.i.i246 = insertelement <16 x i8> poison, i8 %788, i64 0
   %.15.vec.insert.i.i.i.i247 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i246, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %789
@@ -17314,7 +17314,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   %847 = getelementptr inbounds i8, ptr %.val4.i40.i, i64 8
   %.val5.i215 = load i64, ptr %847, align 8, !alias.scope !3733, !noalias !3731, !noundef !14
   %848 = lshr i64 %846, 57
-  %849 = trunc i64 %848 to i8
+  %849 = trunc nuw nsw i64 %848 to i8
   %.0.vec.insert.i.i.i.i216 = insertelement <16 x i8> poison, i8 %849, i64 0
   %.15.vec.insert.i.i.i.i217 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i216, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %850
@@ -17442,7 +17442,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   %899 = getelementptr inbounds i8, ptr %.val.i43.i.pre, i64 8
   %.val5.i185 = load i64, ptr %899, align 8, !alias.scope !3797, !noalias !3795, !noundef !14
   %900 = lshr i64 %898, 57
-  %901 = trunc i64 %900 to i8
+  %901 = trunc nuw nsw i64 %900 to i8
   %.0.vec.insert.i.i.i.i186 = insertelement <16 x i8> poison, i8 %901, i64 0
   %.15.vec.insert.i.i.i.i187 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i186, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %902
@@ -22690,7 +22690,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %84 = icmp ne i64 %.sroa.9.0.copyload.i, -9223372036854775808
   %85 = zext i1 %84 to i8
   %.not8.i.i.i.i = icmp eq i64 %.sroa.7.0.copyload.i, -9223372036854775808
-  %86 = trunc i64 %.sroa.030.0.copyload.i to i8
+  %86 = trunc nuw nsw i64 %.sroa.030.0.copyload.i to i8
   %87 = xor i8 %86, 1
   %.0.i.i.i.i = select i1 %.not8.i.i.i.i, i8 %87, i8 0
   %88 = icmp ne ptr %.sroa.5.0.copyload.i, null
@@ -22714,7 +22714,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %97 = getelementptr inbounds i8, ptr %90, i64 56
   %.val5.i.i.i = load i64, ptr %97, align 8, !range !617, !alias.scope !4538, !noalias !4539, !noundef !14
   %.not.i.i.i.i = icmp eq i64 %.val5.i.i.i, -9223372036854775808
-  %98 = trunc i64 %.val.i.i.i to i8
+  %98 = trunc nuw nsw i64 %.val.i.i.i to i8
   %99 = xor i8 %98, 1
   %.05.i.i.i.i = select i1 %.not.i.i.i.i, i8 %99, i8 0
   %100 = sub nsw i8 %.05.i.i.i.i, %.0.i.i.i.i
@@ -22776,7 +22776,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %123 = getelementptr inbounds i8, ptr %116, i64 56
   %.val5.i.i39.i = load i64, ptr %123, align 8, !range !617, !alias.scope !4553, !noalias !4554, !noundef !14
   %.not.i.i.i42.i = icmp eq i64 %.val5.i.i39.i, -9223372036854775808
-  %124 = trunc i64 %.val.i.i38.i to i8
+  %124 = trunc nuw nsw i64 %.val.i.i38.i to i8
   %125 = xor i8 %124, 1
   %.05.i.i.i43.i = select i1 %.not.i.i.i42.i, i8 %125, i8 0
   %126 = sub nsw i8 %.05.i.i.i43.i, %.0.i.i.i.i
@@ -22850,7 +22850,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 150:                                              ; preds = %143
-  %.lhs.trunc.i.i = trunc i64 %146 to i16
+  %.lhs.trunc.i.i = trunc nuw i64 %146 to i16
   %151 = udiv i16 %.lhs.trunc.i.i, 120
   %.zext.i.i = zext nneg i16 %151 to i64
   %152 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -22901,7 +22901,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %168 = getelementptr inbounds i8, ptr %.015515.i.i, i64 56
   %.val5.i.i.i.i = load i64, ptr %168, align 8, !range !617, !alias.scope !4573, !noalias !4574, !noundef !14
   %.not.i.i.i.i.i = icmp eq i64 %.val5.i.i.i.i, -9223372036854775808
-  %169 = trunc i64 %.val.i.i.i.i to i8
+  %169 = trunc nuw nsw i64 %.val.i.i.i.i to i8
   %170 = xor i8 %169, 1
   %.05.i.i.i.i.i48 = select i1 %.not.i.i.i.i.i, i8 %170, i8 0
   %171 = sub nsw i8 %.05.i.i.i.i.i48, %.0.i.i.i.i
@@ -22970,7 +22970,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %201 = getelementptr inbounds i8, ptr %.015618.i.i, i64 -64
   %.val5.i.i174.i.i = load i64, ptr %201, align 8, !range !617, !alias.scope !4588, !noalias !4589, !noundef !14
   %.not.i.i.i177.i.i = icmp eq i64 %.val5.i.i174.i.i, -9223372036854775808
-  %202 = trunc i64 %.val.i.i173.i.i to i8
+  %202 = trunc nuw nsw i64 %.val.i.i173.i.i to i8
   %203 = xor i8 %202, 1
   %.05.i.i.i178.i.i = select i1 %.not.i.i.i177.i.i, i8 %203, i8 0
   %204 = sub nsw i8 %.05.i.i.i178.i.i, %.0.i.i.i.i
@@ -23188,11 +23188,11 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %294 = getelementptr inbounds i8, ptr %284, i64 56
   %.val7.i.i = load i64, ptr %294, align 8, !range !617, !alias.scope !4615, !noalias !4616, !noundef !14
   %.not.i.i.i53 = icmp eq i64 %.val5.i.i, -9223372036854775808
-  %295 = trunc i64 %.val.i.i to i8
+  %295 = trunc nuw nsw i64 %.val.i.i to i8
   %296 = xor i8 %295, 1
   %.05.i.i.i = select i1 %.not.i.i.i53, i8 %296, i8 0
   %.not8.i.i.i = icmp eq i64 %.val7.i.i, -9223372036854775808
-  %297 = trunc i64 %.val6.i.i to i8
+  %297 = trunc nuw nsw i64 %.val6.i.i to i8
   %298 = xor i8 %297, 1
   %.0.i.i.i = select i1 %.not8.i.i.i, i8 %298, i8 0
   %299 = sub nsw i8 %.05.i.i.i, %.0.i.i.i
@@ -23256,7 +23256,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %313 = icmp ne i64 %.sroa.942.0.copyload.i, -9223372036854775808
   %.neg.i.i34.i = sext i1 %313 to i8
   %.not.i.i.i49.i = icmp eq i64 %.sroa.7.0.copyload.i63, -9223372036854775808
-  %314 = trunc i64 %.sroa.041.0.copyload.i to i8
+  %314 = trunc nuw nsw i64 %.sroa.041.0.copyload.i to i8
   %315 = xor i8 %314, 1
   %.05.i.i.i50.i = select i1 %.not.i.i.i49.i, i8 %315, i8 0
   br label %.outer.i
@@ -23281,7 +23281,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %325 = getelementptr inbounds i8, ptr %317, i64 56
   %.val7.i.i.i = load i64, ptr %325, align 8, !range !617, !alias.scope !4636, !noalias !4637, !noundef !14
   %.not8.i.i.i.i73 = icmp eq i64 %.val7.i.i.i, -9223372036854775808
-  %326 = trunc i64 %.val6.i.i.i to i8
+  %326 = trunc nuw nsw i64 %.val6.i.i.i to i8
   %327 = xor i8 %326, 1
   %.0.i.i.i.i74 = select i1 %.not8.i.i.i.i73, i8 %327, i8 0
   %328 = sub nsw i8 %.05.i.i.i50.i, %.0.i.i.i.i74
@@ -23343,7 +23343,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   %351 = getelementptr inbounds i8, ptr %343, i64 56
   %.val7.i.i48.i = load i64, ptr %351, align 8, !range !617, !alias.scope !4651, !noalias !4652, !noundef !14
   %.not8.i.i.i51.i = icmp eq i64 %.val7.i.i48.i, -9223372036854775808
-  %352 = trunc i64 %.val6.i.i47.i to i8
+  %352 = trunc nuw nsw i64 %.val6.i.i47.i to i8
   %353 = xor i8 %352, 1
   %.0.i.i.i52.i = select i1 %.not8.i.i.i51.i, i8 %353, i8 0
   %354 = sub nsw i8 %.05.i.i.i50.i, %.0.i.i.i52.i
@@ -25449,7 +25449,7 @@ _ZN4core5slice4sort12choose_pivot17hd3a5a41e41787196E.exit: ; preds = %"_ZN4core
   %183 = getelementptr inbounds i8, ptr %.val6.i.i, i64 8
   %.val5.i153 = load i64, ptr %183, align 8, !alias.scope !4929, !noalias !4927, !noundef !14
   %184 = lshr i64 %182, 57
-  %185 = trunc i64 %184 to i8
+  %185 = trunc nuw nsw i64 %184 to i8
   %.0.vec.insert.i.i.i.i154 = insertelement <16 x i8> poison, i8 %185, i64 0
   %.15.vec.insert.i.i.i.i155 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i154, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %186
@@ -25574,7 +25574,7 @@ _ZN4core5slice4sort12choose_pivot17hd3a5a41e41787196E.exit: ; preds = %"_ZN4core
   %233 = getelementptr inbounds i8, ptr %.val4.i.i.pre, i64 8
   %.val5.i123 = load i64, ptr %233, align 8, !alias.scope !4993, !noalias !4991, !noundef !14
   %234 = lshr i64 %232, 57
-  %235 = trunc i64 %234 to i8
+  %235 = trunc nuw nsw i64 %234 to i8
   %.0.vec.insert.i.i.i.i124 = insertelement <16 x i8> poison, i8 %235, i64 0
   %.15.vec.insert.i.i.i.i125 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i124, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %236
@@ -25728,7 +25728,7 @@ _ZN4core5slice4sort12choose_pivot17hd3a5a41e41787196E.exit: ; preds = %"_ZN4core
   %294 = getelementptr inbounds i8, ptr %.val6.i36.i, i64 8
   %.val5.i93 = load i64, ptr %294, align 8, !alias.scope !5057, !noalias !5055, !noundef !14
   %295 = lshr i64 %293, 57
-  %296 = trunc i64 %295 to i8
+  %296 = trunc nuw nsw i64 %295 to i8
   %.0.vec.insert.i.i.i.i94 = insertelement <16 x i8> poison, i8 %296, i64 0
   %.15.vec.insert.i.i.i.i95 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i94, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %297
@@ -25853,7 +25853,7 @@ _ZN4core5slice4sort12choose_pivot17hd3a5a41e41787196E.exit: ; preds = %"_ZN4core
   %344 = getelementptr inbounds i8, ptr %.val4.i39.i.pre, i64 8
   %.val5.i = load i64, ptr %344, align 8, !alias.scope !5121, !noalias !5119, !noundef !14
   %345 = lshr i64 %343, 57
-  %346 = trunc i64 %345 to i8
+  %346 = trunc nuw nsw i64 %345 to i8
   %.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %346, i64 0
   %.15.vec.insert.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %347
@@ -26078,7 +26078,7 @@ _ZN4core5slice4sort12choose_pivot17hd3a5a41e41787196E.exit: ; preds = %"_ZN4core
   %423 = getelementptr inbounds i8, ptr %.val6.i.i.i, i64 8
   %.val5.i185.i.i = load i64, ptr %423, align 8, !alias.scope !5189, !noalias !5187, !noundef !14
   %424 = lshr i64 %422, 57
-  %425 = trunc i64 %424 to i8
+  %425 = trunc nuw nsw i64 %424 to i8
   %.0.vec.insert.i.i.i.i186.i.i = insertelement <16 x i8> poison, i8 %425, i64 0
   %.15.vec.insert.i.i.i.i187.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i186.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %426
@@ -26203,7 +26203,7 @@ _ZN4core5slice4sort12choose_pivot17hd3a5a41e41787196E.exit: ; preds = %"_ZN4core
   %473 = getelementptr inbounds i8, ptr %.val4.i.pre.i.i, i64 8
   %.val5.i.i.i = load i64, ptr %473, align 8, !alias.scope !5253, !noalias !5251, !noundef !14
   %474 = lshr i64 %472, 57
-  %475 = trunc i64 %474 to i8
+  %475 = trunc nuw nsw i64 %474 to i8
   %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %475, i64 0
   %.15.vec.insert.i.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %476
@@ -26371,7 +26371,7 @@ _ZN4core5slice4sort12choose_pivot17hd3a5a41e41787196E.exit: ; preds = %"_ZN4core
   %542 = getelementptr inbounds i8, ptr %.val6.i166.i.i, i64 8
   %.val5.i237.i.i = load i64, ptr %542, align 8, !alias.scope !5317, !noalias !5315, !noundef !14
   %543 = lshr i64 %541, 57
-  %544 = trunc i64 %543 to i8
+  %544 = trunc nuw nsw i64 %543 to i8
   %.0.vec.insert.i.i.i.i238.i.i = insertelement <16 x i8> poison, i8 %544, i64 0
   %.15.vec.insert.i.i.i.i239.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i238.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %545
@@ -26496,7 +26496,7 @@ _ZN4core5slice4sort12choose_pivot17hd3a5a41e41787196E.exit: ; preds = %"_ZN4core
   %592 = getelementptr inbounds i8, ptr %.val4.i169.pre.i.i, i64 8
   %.val5.i211.i.i = load i64, ptr %592, align 8, !alias.scope !5381, !noalias !5379, !noundef !14
   %593 = lshr i64 %591, 57
-  %594 = trunc i64 %593 to i8
+  %594 = trunc nuw nsw i64 %593 to i8
   %.0.vec.insert.i.i.i.i212.i.i = insertelement <16 x i8> poison, i8 %594, i64 0
   %.15.vec.insert.i.i.i.i213.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i212.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %595
@@ -26874,7 +26874,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   %734 = getelementptr inbounds i8, ptr %.val6.i.i66, i64 8
   %.val5.i273 = load i64, ptr %734, align 8, !alias.scope !5459, !noalias !5457, !noundef !14
   %735 = lshr i64 %733, 57
-  %736 = trunc i64 %735 to i8
+  %736 = trunc nuw nsw i64 %735 to i8
   %.0.vec.insert.i.i.i.i274 = insertelement <16 x i8> poison, i8 %736, i64 0
   %.15.vec.insert.i.i.i.i275 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i274, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %737
@@ -27002,7 +27002,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   %786 = getelementptr inbounds i8, ptr %.val4.i.i71.pre, i64 8
   %.val5.i243 = load i64, ptr %786, align 8, !alias.scope !5523, !noalias !5521, !noundef !14
   %787 = lshr i64 %785, 57
-  %788 = trunc i64 %787 to i8
+  %788 = trunc nuw nsw i64 %787 to i8
   %.0.vec.insert.i.i.i.i244 = insertelement <16 x i8> poison, i8 %788, i64 0
   %.15.vec.insert.i.i.i.i245 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i244, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %789
@@ -27165,7 +27165,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   %847 = getelementptr inbounds i8, ptr %.val6.i40.i, i64 8
   %.val5.i213 = load i64, ptr %847, align 8, !alias.scope !5587, !noalias !5585, !noundef !14
   %848 = lshr i64 %846, 57
-  %849 = trunc i64 %848 to i8
+  %849 = trunc nuw nsw i64 %848 to i8
   %.0.vec.insert.i.i.i.i214 = insertelement <16 x i8> poison, i8 %849, i64 0
   %.15.vec.insert.i.i.i.i215 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i214, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %850
@@ -27293,7 +27293,7 @@ common.resume:                                    ; preds = %935, %.loopexit.spl
   %899 = getelementptr inbounds i8, ptr %.val4.i43.i.pre, i64 8
   %.val5.i183 = load i64, ptr %899, align 8, !alias.scope !5651, !noalias !5649, !noundef !14
   %900 = lshr i64 %898, 57
-  %901 = trunc i64 %900 to i8
+  %901 = trunc nuw nsw i64 %900 to i8
   %.0.vec.insert.i.i.i.i184 = insertelement <16 x i8> poison, i8 %901, i64 0
   %.15.vec.insert.i.i.i.i185 = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i184, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %902
@@ -28676,7 +28676,7 @@ _ZN4core5slice4sort12choose_pivot17hc9f204e5fc20119bE.exit: ; preds = %"_ZN4core
   br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 165:                                              ; preds = %158
-  %.lhs.trunc.i.i = trunc i64 %161 to i16
+  %.lhs.trunc.i.i = trunc nuw i64 %161 to i16
   %166 = udiv i16 %.lhs.trunc.i.i, 56
   %.zext.i.i = zext nneg i16 %166 to i64
   %167 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -29521,7 +29521,7 @@ _ZN4core5slice4sort12choose_pivot17h3ac59c61bc8907f8E.exit: ; preds = %"_ZN4core
   br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 168:                                              ; preds = %161
-  %.lhs.trunc.i.i = trunc i64 %164 to i16
+  %.lhs.trunc.i.i = trunc nuw i64 %164 to i16
   %169 = udiv i16 %.lhs.trunc.i.i, 40
   %.zext.i.i = zext nneg i16 %169 to i64
   %170 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -30327,7 +30327,7 @@ _ZN4core5slice4sort12choose_pivot17he0037570949066a4E.exit: ; preds = %"_ZN4core
   br i1 %.not58.i.i, label %.thread.i.i, label %.lr.ph.split.i.i
 
 140:                                              ; preds = %133
-  %.lhs.trunc.i.i = trunc i64 %136 to i16
+  %.lhs.trunc.i.i = trunc nuw i64 %136 to i16
   %141 = udiv i16 %.lhs.trunc.i.i, 40
   %.zext.i.i = zext nneg i16 %141 to i64
   %142 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -31090,7 +31090,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h5c63d21459c54387E.exit: ; preds
   %63 = getelementptr i8, ptr %61, i64 24
   %.val6.i.i16.i = load i64, ptr %63, align 8, !alias.scope !6138, !noalias !6161, !noundef !14
   %64 = icmp ult i64 %.val.i.i15.i, %.val6.i.i16.i
-  br i1 %64, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i"
+  br i1 %64, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h17cde27099f00227E.exit.i21.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i": ; preds = %56
   %65 = getelementptr i8, ptr %61, i64 32
@@ -31102,14 +31102,14 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h5c63d21459c54387E.exit: ; preds
   %spec.select.i.i.i.i20.i = and i1 %67, %68
   br i1 %spec.select.i.i.i.i20.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h17cde27099f00227E.exit.i21.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i", %56
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i"
   br label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h17cde27099f00227E.exit.i21.i"
 
-"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h17cde27099f00227E.exit.i21.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i"
-  %.4176.i = phi i64 [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i" ]
-  %.1.i = phi i64 [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i" ], [ %22, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i" ]
-  %69 = phi i64 [ %22, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i" ], [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i" ]
-  %.val6.i6.i22.i = phi i64 [ %.val6.i.i16.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i" ], [ %.val.i.i15.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i" ]
+"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h17cde27099f00227E.exit.i21.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i", %56
+  %.4176.i = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i" ], [ 1, %56 ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i" ]
+  %.1.i = phi i64 [ %22, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i" ], [ %57, %56 ], [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i" ]
+  %69 = phi i64 [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i" ], [ %22, %56 ], [ %22, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i" ]
+  %.val6.i6.i22.i = phi i64 [ %.val.i.i15.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i.i17.i" ], [ %.val6.i.i16.i, %56 ], [ %.val.i.i15.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.thread.i.i41.i" ]
   %70 = icmp ult i64 %58, %.sroa.14.0123
   call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, i64 }, i8, [7 x i8] }, ptr %.sroa.0.0124, i64 %58
@@ -31509,7 +31509,7 @@ _ZN4core5slice4sort12choose_pivot17ha70fdc3a2e92304cE.exit: ; preds = %"_ZN4core
   br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 212:                                              ; preds = %205
-  %.lhs.trunc.i.i = trunc i64 %208 to i16
+  %.lhs.trunc.i.i = trunc nuw i64 %208 to i16
   %213 = udiv i16 %.lhs.trunc.i.i, 48
   %.zext.i.i = zext nneg i16 %213 to i64
   %214 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -32376,7 +32376,7 @@ _ZN4core3ops8function5FnMut8call_mut17hadb984013256e1eaE.exit43.i: ; preds = %.l
   br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 149:                                              ; preds = %142
-  %.lhs.trunc.i.i = trunc i64 %145 to i16
+  %.lhs.trunc.i.i = trunc nuw i64 %145 to i16
   %150 = udiv i16 %.lhs.trunc.i.i, 48
   %.zext.i.i = zext nneg i16 %150 to i64
   %151 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -36134,7 +36134,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h00afa88af87b9172E(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17hd742b74808f2c569E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(56) null, i32 noundef %7)
   ret void
@@ -36145,7 +36145,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h1f677a0a79aa4909E(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17hed4a311a985a6c70E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(48) null, i32 noundef %7)
   ret void
@@ -36156,7 +36156,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h1f94772b5043851dE(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17he05624f2d30e802dE.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, i32 noundef %7)
   ret void
@@ -36166,7 +36166,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h1f94772b5043851dE(ptr noalia
 define hidden void @_ZN4core5slice4sort9quicksort17h1fcace60a5d14756E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17h0b5b1cbd42f8d6a4E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, i32 noundef %6)
   ret void
@@ -36177,7 +36177,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h2d5289538c7da8d3E(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17h657c7bc45728237bE.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(120) null, i32 noundef %7)
   ret void
@@ -36188,7 +36188,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h2efeb7529d8171adE(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17h2934fcca48988614E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, i32 noundef %7)
   ret void
@@ -36199,7 +36199,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h423456fb28f2cfe7E(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17h540ee19e15bc847eE.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, i32 noundef %7)
   ret void
@@ -36209,7 +36209,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h423456fb28f2cfe7E(ptr noalia
 define hidden void @_ZN4core5slice4sort9quicksort17h469d1c4e6288dd73E(ptr noalias noundef nonnull align 4 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17h717c6a2403176c55E.llvm.14675458225591540946(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) null, i32 noundef %6)
   ret void
@@ -36219,7 +36219,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h469d1c4e6288dd73E(ptr noalia
 define hidden void @_ZN4core5slice4sort9quicksort17h4ae1f606cc9f95b7E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17h45f3b4aee97cdd5cE.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) null, i32 noundef %6)
   ret void
@@ -36229,7 +36229,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h4ae1f606cc9f95b7E(ptr noalia
 define hidden void @_ZN4core5slice4sort9quicksort17h636e22fb6d0b5273E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17hacba365843643c77E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, i32 noundef %6)
   ret void
@@ -36240,7 +36240,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h702b8d1750b2fbafE(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17h2c02ac912e751456E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, i32 noundef %7)
   ret void
@@ -36251,7 +36251,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h9193b85824d27485E(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17h84d663f90454b8fbE.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, i32 noundef %7)
   ret void
@@ -36262,7 +36262,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h97fb82776e1b1525E(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17h5f7815451da1f45cE.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, i32 noundef %7)
   ret void
@@ -36273,7 +36273,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h9857e60fa278d61dE(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17h7d631aca80b45a51E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, i32 noundef %7)
   ret void
@@ -36283,7 +36283,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h9857e60fa278d61dE(ptr noalia
 define hidden void @_ZN4core5slice4sort9quicksort17hb0b953e1f4030ed6E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17hf7ab5c6f73ad933fE.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(48) null, i32 noundef %6)
   ret void
@@ -36294,7 +36294,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17hcd401d47b868734aE(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17hd8c49fd60d715225E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null, i32 noundef %7)
   ret void
@@ -36305,7 +36305,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17hf1006d6cd736525cE(ptr noalia
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !1104
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = sub nuw nsw i32 64, %6
   call void @_ZN4core5slice4sort7recurse17h3c4a691cdec94bc2E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) null, i32 noundef %7)
   ret void
@@ -36467,7 +36467,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %23 = getelementptr inbounds i8, ptr %14, i64 24
   %24 = load i8, ptr %23, align 8, !range !221, !alias.scope !7725, !noalias !7719
   %25 = xor i8 %24, %12
-  %26 = trunc i8 %25 to i1
+  %26 = trunc nuw i8 %25 to i1
   %not..i.i.i = xor i1 %22, true
   %27 = select i1 %not..i.i.i, i1 true, i1 %26
   br i1 %27, label %13, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h0e5a7159dc268d93E.exit.thread.i"
@@ -36508,7 +36508,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %47 = getelementptr inbounds i8, ptr %38, i64 24
   %48 = load i8, ptr %47, align 8, !range !221, !alias.scope !7744, !noalias !7738
   %49 = xor i8 %48, %36
-  %50 = trunc i8 %49 to i1
+  %50 = trunc nuw i8 %49 to i1
   %not..i.i8.i = xor i1 %46, true
   %51 = select i1 %not..i.i8.i, i1 true, i1 %50
   br i1 %51, label %37, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h0e5a7159dc268d93E.exit9.i"
@@ -36586,7 +36586,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %.val5 = load i64, ptr %30, align 8, !alias.scope !7788, !noalias !7786, !noundef !14
   %31 = lshr i64 %29, 57
-  %32 = trunc i64 %31 to i8
+  %32 = trunc nuw nsw i64 %31 to i8
   %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %32, i64 0
   %.15.vec.insert.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %33

@@ -313,9 +313,9 @@ if.then3:                                         ; preds = %land.lhs.true
 if.end5:                                          ; preds = %quic_set_last_error.exit, %land.lhs.true, %if.then3, %entry
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %line, ptr noundef %func) #8
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   call void @ERR_vset_error(i32 noundef 20, i32 noundef %reason, ptr noundef %fmt, ptr noundef nonnull %args) #8
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
 
@@ -1538,7 +1538,7 @@ get_time.exit:                                    ; preds = %if.then.i7, %if.els
   %t.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i9, i64 999)
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
-  %div7.lhs.trunc.i = trunc i64 %rem.i to i32
+  %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32
   %div77.i = udiv i32 %div7.lhs.trunc.i, 1000
   %div7.zext.i = zext nneg i32 %div77.i to i64
   store i64 %div.i, ptr %tv, align 8
@@ -2993,19 +2993,19 @@ lor.lhs.false.i37:                                ; preds = %if.end21
   %12 = load ptr, ptr %ch.i, align 8
   %call.i39 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %12) #8
   %tobool1.not.i40 = icmp eq i32 %call.i39, 0
-  br i1 %tobool1.not.i40, label %if.end.i41, label %if.then28
+  br i1 %tobool1.not.i40, label %quic_mutation_allowed.exit42, label %if.then28
 
-if.end.i41:                                       ; preds = %lor.lhs.false.i37
+quic_mutation_allowed.exit42:                     ; preds = %lor.lhs.false.i37
   %13 = load ptr, ptr %ch.i, align 8
   %call4.i = call i32 @ossl_quic_channel_is_active(ptr noundef %13) #8
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %if.then28, label %if.else
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i.not, label %if.then28, label %if.else
 
-if.then28:                                        ; preds = %lor.lhs.false.i37, %if.end21, %if.end.i41
+if.then28:                                        ; preds = %if.end21, %lor.lhs.false.i37, %quic_mutation_allowed.exit42
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2006, ptr noundef nonnull @__func__.quic_conn_stream_new, i32 noundef 207, ptr noundef null)
   br label %err
 
-if.else:                                          ; preds = %if.end.i41
+if.else:                                          ; preds = %quic_mutation_allowed.exit42
   %cmp30 = icmp slt i32 %call2.i, 1
   br i1 %cmp30, label %if.then32, label %if.end36
 
@@ -3415,19 +3415,19 @@ lor.lhs.false.i.i:                                ; preds = %if.then13.i
   %33 = load ptr, ptr %ch.i16.i, align 8
   %call.i17.i = call i32 @ossl_quic_channel_is_term_any(ptr noundef %33) #8
   %tobool1.not.i.i = icmp eq i32 %call.i17.i, 0
-  br i1 %tobool1.not.i.i, label %if.end.i.i, label %if.then17.i
+  br i1 %tobool1.not.i.i, label %quic_mutation_allowed.exit.i, label %if.then17.i
 
-if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
+quic_mutation_allowed.exit.i:                     ; preds = %lor.lhs.false.i.i
   %34 = load ptr, ptr %ch.i16.i, align 8
   %call4.i.i = call i32 @ossl_quic_channel_is_active(ptr noundef %34) #8
-  %tobool5.not.i.i = icmp eq i32 %call4.i.i, 0
-  br i1 %tobool5.not.i.i, label %if.then17.i, label %if.else.i26
+  %tobool5.not.i.not.i = icmp eq i32 %call4.i.i, 0
+  br i1 %tobool5.not.i.not.i, label %if.then17.i, label %if.else.i26
 
-if.then17.i:                                      ; preds = %if.end.i.i, %lor.lhs.false.i.i, %if.then13.i
+if.then17.i:                                      ; preds = %quic_mutation_allowed.exit.i, %lor.lhs.false.i.i, %if.then13.i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2304, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef 207, ptr noundef null)
   br label %quic_write_blocking.exit
 
-if.else.i26:                                      ; preds = %if.end.i.i
+if.else.i26:                                      ; preds = %quic_mutation_allowed.exit.i
   %35 = load i32, ptr %err.i, align 8
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2306, ptr noundef nonnull @__func__.quic_write_blocking, i32 noundef %35, ptr noundef null)
   br label %quic_write_blocking.exit
@@ -3701,7 +3701,7 @@ return:                                           ; preds = %sw.default.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @quic_mutation_allowed(ptr nocapture noundef readonly %qc, i32 noundef %req_active) unnamed_addr #0 {
+define internal fastcc i32 @quic_mutation_allowed(ptr nocapture noundef readonly %qc, i32 noundef %req_active) unnamed_addr #0 {
 entry:
   %shutting_down = getelementptr inbounds i8, ptr %qc, i64 296
   %bf.load = load i16, ptr %shutting_down, align 8
@@ -3718,19 +3718,17 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %tobool2.not = icmp eq i32 %req_active, 0
-  br i1 %tobool2.not, label %if.end7, label %land.lhs.true
+  br i1 %tobool2.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %2 = load ptr, ptr %ch, align 8
   %call4 = tail call i32 @ossl_quic_channel_is_active(ptr noundef %2) #8
-  %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %return, label %if.end7
-
-if.end7:                                          ; preds = %land.lhs.true, %if.end
+  %tobool5.not = icmp ne i32 %call4, 0
+  %spec.select = zext i1 %tobool5.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %lor.lhs.false, %if.end7
-  %retval.0 = phi i32 [ 1, %if.end7 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -4616,15 +4614,15 @@ lor.lhs.false.i:                                  ; preds = %if.end
   %4 = load ptr, ptr %ch.i, align 8
   %call.i = call i32 @ossl_quic_channel_is_term_any(ptr noundef %4) #8
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %if.end.i, label %if.then3
+  br i1 %tobool1.not.i, label %quic_mutation_allowed.exit, label %if.then3
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+quic_mutation_allowed.exit:                       ; preds = %lor.lhs.false.i
   %5 = load ptr, ptr %ch.i, align 8
   %call4.i = call i32 @ossl_quic_channel_is_active(ptr noundef %5) #8
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %if.then3, label %if.end6
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i.not, label %if.then3, label %if.end6
 
-if.then3:                                         ; preds = %lor.lhs.false.i, %if.end, %if.end.i
+if.then3:                                         ; preds = %if.end, %lor.lhs.false.i, %quic_mutation_allowed.exit
   %6 = load ptr, ptr %ctx, align 8
   %7 = getelementptr i8, ptr %6, i64 80
   %.val4 = load ptr, ptr %7, align 8
@@ -4632,7 +4630,7 @@ if.then3:                                         ; preds = %lor.lhs.false.i, %i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2847, ptr noundef nonnull @__func__.ossl_quic_conn_stream_conclude, i32 noundef 207, ptr noundef null)
   br label %return
 
-if.end6:                                          ; preds = %if.end.i
+if.end6:                                          ; preds = %quic_mutation_allowed.exit
   %8 = load ptr, ptr %xso, align 8
   %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %if.then10, label %lor.lhs.false.i5
@@ -5552,20 +5550,20 @@ lor.lhs.false.i:                                  ; preds = %entry
   %4 = load ptr, ptr %ch, align 8
   %call.i = tail call i32 @ossl_quic_channel_is_term_any(ptr noundef %4) #8
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %if.end.i, label %if.then
+  br i1 %tobool1.not.i, label %quic_mutation_allowed.exit, label %if.then
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+quic_mutation_allowed.exit:                       ; preds = %lor.lhs.false.i
   %5 = load ptr, ptr %ch, align 8
   %call4.i = tail call i32 @ossl_quic_channel_is_active(ptr noundef %5) #8
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %if.then, label %if.end
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %lor.lhs.false.i, %entry, %if.end.i
+if.then:                                          ; preds = %entry, %lor.lhs.false.i, %quic_mutation_allowed.exit
   %6 = load ptr, ptr %arg, align 8
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef %6, ptr nonnull poison, i32 noundef 3172, ptr noundef nonnull @__func__.wait_for_incoming_stream, i32 noundef 207, ptr noundef null)
   br label %return
 
-if.end:                                           ; preds = %if.end.i
+if.end:                                           ; preds = %quic_mutation_allowed.exit
   %call5 = tail call ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef %call) #8
   %qs = getelementptr inbounds i8, ptr %arg, i64 8
   store ptr %call5, ptr %qs, align 8
@@ -6511,13 +6509,7 @@ return:                                           ; preds = %sw.default.i.i, %if
 
 declare void @ossl_quic_channel_restore_err_state(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare void @ERR_vset_error(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 declare void @ossl_crypto_mutex_lock(ptr noundef) local_unnamed_addr #1
 
@@ -6548,7 +6540,7 @@ declare void @ossl_quic_channel_set_inhibit_tick(ptr noundef, i32 noundef) local
 declare i32 @ossl_quic_reactor_block_until_pred(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @get_time_cb(ptr nocapture noundef readonly %arg) #0 {
@@ -6596,15 +6588,15 @@ lor.lhs.false.i:                                  ; preds = %entry
   %2 = load ptr, ptr %ch.i, align 8
   %call.i = tail call i32 @ossl_quic_channel_is_term_any(ptr noundef %2) #8
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %if.end.i, label %return
+  br i1 %tobool1.not.i, label %quic_mutation_allowed.exit, label %return
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+quic_mutation_allowed.exit:                       ; preds = %lor.lhs.false.i
   %3 = load ptr, ptr %ch.i, align 8
   %call4.i = tail call i32 @ossl_quic_channel_is_active(ptr noundef %3) #8
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %return, label %if.end
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %if.end.i
+if.end:                                           ; preds = %quic_mutation_allowed.exit
   %4 = load ptr, ptr %arg, align 8
   %ch = getelementptr inbounds i8, ptr %4, i64 72
   %5 = load ptr, ptr %ch, align 8
@@ -6627,8 +6619,8 @@ switch.lookup:                                    ; preds = %if.end5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
-return:                                           ; preds = %if.end5, %switch.lookup, %if.end.i, %entry, %lor.lhs.false.i, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ -1, %lor.lhs.false.i ], [ -1, %entry ], [ -1, %if.end.i ], [ %switch.load, %switch.lookup ], [ 0, %if.end5 ]
+return:                                           ; preds = %if.end5, %switch.lookup, %entry, %lor.lhs.false.i, %if.end, %quic_mutation_allowed.exit
+  %retval.0 = phi i32 [ -1, %quic_mutation_allowed.exit ], [ 1, %if.end ], [ -1, %lor.lhs.false.i ], [ -1, %entry ], [ %switch.load, %switch.lookup ], [ 0, %if.end5 ]
   ret i32 %retval.0
 }
 
@@ -6657,15 +6649,15 @@ lor.lhs.false.i:                                  ; preds = %entry
   %2 = load ptr, ptr %ch.i, align 8
   %call.i = tail call i32 @ossl_quic_channel_is_term_any(ptr noundef %2) #8
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %if.end.i, label %return
+  br i1 %tobool1.not.i, label %quic_mutation_allowed.exit, label %return
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+quic_mutation_allowed.exit:                       ; preds = %lor.lhs.false.i
   %3 = load ptr, ptr %ch.i, align 8
   %call4.i = tail call i32 @ossl_quic_channel_is_active(ptr noundef %3) #8
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %return, label %if.end
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %if.end.i
+if.end:                                           ; preds = %quic_mutation_allowed.exit
   %4 = load ptr, ptr %ch.i, align 8
   %is_uni = getelementptr inbounds i8, ptr %arg, i64 8
   %5 = load i32, ptr %is_uni, align 8
@@ -6674,8 +6666,8 @@ if.end:                                           ; preds = %if.end.i
   %. = zext i1 %tobool3.not to i32
   br label %return
 
-return:                                           ; preds = %if.end.i, %entry, %lor.lhs.false.i, %if.end
-  %retval.0 = phi i32 [ %., %if.end ], [ -1, %lor.lhs.false.i ], [ -1, %entry ], [ -1, %if.end.i ]
+return:                                           ; preds = %entry, %lor.lhs.false.i, %if.end, %quic_mutation_allowed.exit
+  %retval.0 = phi i32 [ -1, %quic_mutation_allowed.exit ], [ %., %if.end ], [ -1, %lor.lhs.false.i ], [ -1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6700,21 +6692,21 @@ lor.lhs.false.i:                                  ; preds = %entry
   %2 = load ptr, ptr %ch.i, align 8
   %call.i = tail call i32 @ossl_quic_channel_is_term_any(ptr noundef %2) #8
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %if.end.i, label %if.then
+  br i1 %tobool1.not.i, label %quic_mutation_allowed.exit, label %if.then
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+quic_mutation_allowed.exit:                       ; preds = %lor.lhs.false.i
   %3 = load ptr, ptr %ch.i, align 8
   %call4.i = tail call i32 @ossl_quic_channel_is_active(ptr noundef %3) #8
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %if.then, label %if.end
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %lor.lhs.false.i, %entry, %if.end.i
+if.then:                                          ; preds = %entry, %lor.lhs.false.i, %quic_mutation_allowed.exit
   %ctx = getelementptr inbounds i8, ptr %arg, i64 16
   %4 = load ptr, ptr %ctx, align 8
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef %4, ptr nonnull poison, i32 noundef 1813, ptr noundef nonnull @__func__.quic_wait_for_stream, i32 noundef 207, ptr noundef null)
   br label %return
 
-if.end:                                           ; preds = %if.end.i
+if.end:                                           ; preds = %quic_mutation_allowed.exit
   %5 = load ptr, ptr %arg, align 8
   %ch = getelementptr inbounds i8, ptr %5, i64 72
   %6 = load ptr, ptr %ch, align 8
@@ -6805,15 +6797,15 @@ lor.lhs.false.i:                                  ; preds = %entry
   %3 = load ptr, ptr %ch.i, align 8
   %call.i = tail call i32 @ossl_quic_channel_is_term_any(ptr noundef %3) #8
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %if.end.i, label %return
+  br i1 %tobool1.not.i, label %quic_mutation_allowed.exit, label %return
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+quic_mutation_allowed.exit:                       ; preds = %lor.lhs.false.i
   %4 = load ptr, ptr %ch.i, align 8
   %call4.i = tail call i32 @ossl_quic_channel_is_active(ptr noundef %4) #8
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %return, label %if.end
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %if.end.i
+if.end:                                           ; preds = %quic_mutation_allowed.exit
   %5 = load ptr, ptr %arg, align 8
   %err = getelementptr inbounds i8, ptr %arg, i64 32
   %cmp.i = icmp eq ptr %5, null
@@ -6915,8 +6907,8 @@ quic_post_write.exit:                             ; preds = %if.end11, %if.then.
   %. = zext i1 %cmp16 to i32
   br label %return
 
-return:                                           ; preds = %if.end.i, %entry, %lor.lhs.false.i, %quic_validate_for_write.exit.thread, %quic_post_write.exit, %if.end5
-  %retval.0 = phi i32 [ -2, %if.end5 ], [ %., %quic_post_write.exit ], [ -2, %quic_validate_for_write.exit.thread ], [ -2, %lor.lhs.false.i ], [ -2, %entry ], [ -2, %if.end.i ]
+return:                                           ; preds = %entry, %lor.lhs.false.i, %quic_validate_for_write.exit.thread, %quic_post_write.exit, %if.end5, %quic_mutation_allowed.exit
+  %retval.0 = phi i32 [ -2, %quic_mutation_allowed.exit ], [ -2, %if.end5 ], [ %., %quic_post_write.exit ], [ -2, %quic_validate_for_write.exit.thread ], [ -2, %lor.lhs.false.i ], [ -2, %entry ]
   ret i32 %retval.0
 }
 
@@ -6970,9 +6962,9 @@ sw.bb5.i:                                         ; preds = %if.end.i
   %call.i = tail call ptr @ossl_quic_channel_get_qsm(ptr noundef %5) #8
   %6 = load ptr, ptr %stream.i, align 8
   %call7.i = tail call i32 @ossl_quic_stream_map_notify_app_read_reset_recv_part(ptr noundef %call.i, ptr noundef %6) #8
-  br label %sw.bb8.i
+  br label %if.else
 
-sw.bb8.i:                                         ; preds = %sw.bb5.i, %if.end.i
+sw.bb8.i:                                         ; preds = %if.end.i
   br label %if.else
 
 if.then3:                                         ; preds = %if.end.i
@@ -7004,8 +6996,8 @@ if.end13.sink.split.i.i:                          ; preds = %if.then9.i.i, %if.t
   store i32 6, ptr %last_error11.sink.i.i, align 8
   br label %return
 
-if.else:                                          ; preds = %if.end.i, %entry, %lor.lhs.false.i, %sw.bb8.i
-  %err.0.ph.ph = phi i32 [ 375, %sw.bb8.i ], [ 786691, %lor.lhs.false.i ], [ 786691, %entry ], [ 379, %if.end.i ]
+if.else:                                          ; preds = %if.end.i, %sw.bb8.i, %sw.bb5.i, %entry, %lor.lhs.false.i
+  %err.0.ph.ph = phi i32 [ 786691, %lor.lhs.false.i ], [ 786691, %entry ], [ 375, %sw.bb5.i ], [ 375, %sw.bb8.i ], [ 379, %if.end.i ]
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef nonnull %ctx, ptr nonnull poison, i32 noundef 2598, ptr noundef nonnull @__func__.quic_read_actual, i32 noundef %err.0.ph.ph, ptr noundef null)
   br label %return
 
@@ -7146,25 +7138,25 @@ lor.lhs.false.i:                                  ; preds = %entry
   %3 = load ptr, ptr %ch.i, align 8
   %call.i = tail call i32 @ossl_quic_channel_is_term_any(ptr noundef %3) #8
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %if.end.i, label %lor.lhs.false.i.if.then_crit_edge
+  br i1 %tobool1.not.i, label %quic_mutation_allowed.exit, label %lor.lhs.false.i.if.then_crit_edge
 
 lor.lhs.false.i.if.then_crit_edge:                ; preds = %lor.lhs.false.i
   %.pre = load ptr, ptr %arg, align 8
   br label %if.then
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+quic_mutation_allowed.exit:                       ; preds = %lor.lhs.false.i
   %4 = load ptr, ptr %ch.i, align 8
   %call4.i = tail call i32 @ossl_quic_channel_is_active(ptr noundef %4) #8
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
   %.pre11 = load ptr, ptr %arg, align 8
-  br i1 %tobool5.not.i, label %if.then, label %if.end
+  br i1 %tobool5.not.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %lor.lhs.false.i.if.then_crit_edge, %entry, %if.end.i
-  %5 = phi ptr [ %.pre, %lor.lhs.false.i.if.then_crit_edge ], [ %0, %entry ], [ %.pre11, %if.end.i ]
+if.then:                                          ; preds = %lor.lhs.false.i.if.then_crit_edge, %entry, %quic_mutation_allowed.exit
+  %5 = phi ptr [ %.pre, %lor.lhs.false.i.if.then_crit_edge ], [ %0, %entry ], [ %.pre11, %quic_mutation_allowed.exit ]
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @quic_raise_non_normal_error(ptr noundef %5, ptr nonnull poison, i32 noundef 2653, ptr noundef nonnull @__func__.quic_read_again, i32 noundef 207, ptr noundef null)
   br label %return
 
-if.end:                                           ; preds = %if.end.i
+if.end:                                           ; preds = %quic_mutation_allowed.exit
   %stream = getelementptr inbounds i8, ptr %arg, i64 8
   %6 = load ptr, ptr %stream, align 8
   %buf = getelementptr inbounds i8, ptr %arg, i64 16
@@ -7209,6 +7201,12 @@ declare i32 @SSL_up_ref(ptr noundef) local_unnamed_addr #1
 
 declare void @ossl_quic_channel_set_incoming_stream_auto_reject(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #6
 
@@ -7228,8 +7226,8 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }

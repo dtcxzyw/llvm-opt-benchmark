@@ -674,7 +674,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %return, label %for.cond.i
 
-return:                                           ; preds = %for.body.i, %for.cond.i, %if.end
+return:                                           ; preds = %for.cond.i, %for.body.i, %if.end
   %retval.0 = phi i8 [ 0, %if.end ], [ 0, %for.body.i ], [ 1, %for.cond.i ]
   ret i8 %retval.0
 }
@@ -711,7 +711,7 @@ for.body.i:                                       ; preds = %if.end, %for.cond.i
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %return, label %for.cond.i
 
-return:                                           ; preds = %for.body.i, %for.cond.i, %if.end
+return:                                           ; preds = %for.cond.i, %for.body.i, %if.end
   %retval.0 = phi i8 [ 0, %if.end ], [ 0, %for.body.i ], [ 1, %for.cond.i ]
   ret i8 %retval.0
 }
@@ -760,7 +760,7 @@ for.body.i7:                                      ; preds = %if.end, %for.cond.i
   %or.cond.i = icmp ult i8 %2, 10
   br i1 %or.cond.i, label %for.cond.i11, label %return
 
-return:                                           ; preds = %for.body.i7, %for.cond.i11, %for.cond.i, %for.body.i, %if.end
+return:                                           ; preds = %for.cond.i11, %for.body.i7, %for.cond.i, %for.body.i, %if.end
   %retval.0 = phi i8 [ 0, %if.end ], [ 0, %for.body.i ], [ 1, %for.cond.i ], [ 0, %for.body.i7 ], [ 1, %for.cond.i11 ]
   ret i8 %retval.0
 }
@@ -1428,7 +1428,7 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end19.i.thread, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ultag_isUnicodeLocaleKey_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
+define signext i8 @ultag_isUnicodeLocaleKey_75(ptr nocapture noundef readonly %s, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1441,7 +1441,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %len.addr.0 = phi i32 [ %conv, %if.then ], [ %len, %entry ]
   %cmp1 = icmp eq i32 %len.addr.0, 2
-  br i1 %cmp1, label %land.lhs.true, label %if.end12
+  br i1 %cmp1, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
   %0 = load i8, ptr %s, align 1
@@ -1453,20 +1453,18 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %1 = load i8, ptr %s, align 1
   %2 = add i8 %1, -48
   %or.cond = icmp ult i8 %2, 10
-  br i1 %or.cond, label %land.lhs.true8, label %if.end12
+  br i1 %or.cond, label %land.lhs.true8, label %return
 
 land.lhs.true8:                                   ; preds = %lor.lhs.false, %land.lhs.true
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 1
   %3 = load i8, ptr %arrayidx, align 1
   %call9 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %3)
-  %tobool10.not = icmp eq i8 %call9, 0
-  br i1 %tobool10.not, label %if.end12, label %return
-
-if.end12:                                         ; preds = %land.lhs.true8, %lor.lhs.false, %if.end
+  %tobool10.not = icmp ne i8 %call9, 0
+  %spec.select = zext i1 %tobool10.not to i8
   br label %return
 
-return:                                           ; preds = %land.lhs.true8, %if.end12
-  %retval.0 = phi i8 [ 0, %if.end12 ], [ 1, %land.lhs.true8 ]
+return:                                           ; preds = %land.lhs.true8, %if.end, %lor.lhs.false
+  %retval.0 = phi i8 [ 0, %lor.lhs.false ], [ 0, %if.end ], [ %spec.select, %land.lhs.true8 ]
   ret i8 %retval.0
 }
 
@@ -1658,22 +1656,22 @@ _ZL12_isSepListOfPFaPKciES0_i.exit:               ; preds = %if.end19.i.thread, 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ultag_getTKeyStart_75(ptr noundef %localeID) local_unnamed_addr #1 {
 entry:
-  %call27 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %localeID, i32 noundef 45) #16
-  %cmp.not28 = icmp eq ptr %call27, null
-  br i1 %cmp.not28, label %while.end, label %while.body
+  %call29 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %localeID, i32 noundef 45) #16
+  %cmp.not30 = icmp eq ptr %call29, null
+  br i1 %cmp.not30, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end
-  %call30 = phi ptr [ %call, %if.end ], [ %call27, %entry ]
-  %result.029 = phi ptr [ %incdec.ptr, %if.end ], [ %localeID, %entry ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %call30 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %result.029 to i64
+  %call32 = phi ptr [ %call, %if.end ], [ %call29, %entry ]
+  %result.031 = phi ptr [ %incdec.ptr, %if.end ], [ %localeID, %entry ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %call32 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %result.031 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   %cmp.i = icmp slt i32 %conv, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %result.029) #16
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %result.031) #16
   %conv.i = trunc i64 %call.i to i32
   br label %if.end.i
 
@@ -1683,20 +1681,20 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %cmp1.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %0 = load i8, ptr %result.029, align 1
+  %0 = load i8, ptr %result.031, align 1
   %call2.i = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %0)
   %tobool.not.i = icmp eq i8 %call2.i, 0
-  br i1 %tobool.not.i, label %if.end, label %land.lhs.true3.i
+  br i1 %tobool.not.i, label %if.end, label %_ZL7_isTKeyPKci.exit
 
-land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %result.029, i64 1
+_ZL7_isTKeyPKci.exit:                             ; preds = %land.lhs.true.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %result.031, i64 1
   %1 = load i8, ptr %add.ptr.i, align 1
-  %2 = add i8 %1, -48
-  %or.cond.i = icmp ult i8 %2, 10
-  br i1 %or.cond.i, label %return, label %if.end
+  %2 = add i8 %1, -58
+  %or.cond.i = icmp ult i8 %2, -10
+  br i1 %or.cond.i, label %if.end, label %return
 
-if.end:                                           ; preds = %if.end.i, %land.lhs.true.i, %land.lhs.true3.i
-  %incdec.ptr = getelementptr inbounds i8, ptr %call30, i64 1
+if.end:                                           ; preds = %if.end.i, %land.lhs.true.i, %_ZL7_isTKeyPKci.exit
+  %incdec.ptr = getelementptr inbounds i8, ptr %call32, i64 1
   %call = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, i32 noundef 45) #16
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
@@ -1706,26 +1704,25 @@ while.end:                                        ; preds = %if.end, %entry
   %call.i8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %result.0.lcssa) #16
   %3 = and i64 %call.i8, 4294967295
   %cmp1.i12 = icmp eq i64 %3, 2
-  br i1 %cmp1.i12, label %land.lhs.true.i15, label %7
+  br i1 %cmp1.i12, label %land.lhs.true.i14, label %return
 
-land.lhs.true.i15:                                ; preds = %while.end
+land.lhs.true.i14:                                ; preds = %while.end
   %4 = load i8, ptr %result.0.lcssa, align 1
-  %call2.i16 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %4)
-  %tobool.not.i17 = icmp eq i8 %call2.i16, 0
-  br i1 %tobool.not.i17, label %7, label %land.lhs.true3.i18
+  %call2.i15 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %4)
+  %tobool.not.i16 = icmp eq i8 %call2.i15, 0
+  br i1 %tobool.not.i16, label %return, label %_ZL7_isTKeyPKci.exit21
 
-land.lhs.true3.i18:                               ; preds = %land.lhs.true.i15
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %result.0.lcssa, i64 1
-  %5 = load i8, ptr %add.ptr.i19, align 1
-  %6 = add i8 %5, -48
-  %or.cond.i20 = icmp ult i8 %6, 10
-  br i1 %or.cond.i20, label %return, label %7
-
-7:                                                ; preds = %while.end, %land.lhs.true.i15, %land.lhs.true3.i18
+_ZL7_isTKeyPKci.exit21:                           ; preds = %land.lhs.true.i14
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %result.0.lcssa, i64 1
+  %5 = load i8, ptr %add.ptr.i18, align 1
+  %.fr27 = freeze i8 %5
+  %6 = add i8 %.fr27, -58
+  %or.cond.i19 = icmp ult i8 %6, -10
+  %spec.select = select i1 %or.cond.i19, ptr null, ptr %result.0.lcssa
   br label %return
 
-return:                                           ; preds = %land.lhs.true3.i, %7, %land.lhs.true3.i18
-  %retval.0 = phi ptr [ null, %7 ], [ %result.0.lcssa, %land.lhs.true3.i18 ], [ %result.029, %land.lhs.true3.i ]
+return:                                           ; preds = %_ZL7_isTKeyPKci.exit, %_ZL7_isTKeyPKci.exit21, %while.end, %land.lhs.true.i14
+  %retval.0 = phi ptr [ null, %land.lhs.true.i14 ], [ null, %while.end ], [ %spec.select, %_ZL7_isTKeyPKci.exit21 ], [ %result.031, %_ZL7_isTKeyPKci.exit ]
   ret ptr %retval.0
 }
 
@@ -1875,14 +1872,14 @@ land.lhs.true.i:                                  ; preds = %if.end.i29
   %3 = load i8, ptr %s, align 1
   %call2.i = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %3)
   %tobool.not.i = icmp eq i8 %call2.i, 0
-  br i1 %tobool.not.i, label %return, label %land.lhs.true3.i
+  br i1 %tobool.not.i, label %return, label %_ZL7_isTKeyPKci.exit
 
-land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
+_ZL7_isTKeyPKci.exit:                             ; preds = %land.lhs.true.i
   %add.ptr.i = getelementptr inbounds i8, ptr %s, i64 1
   %4 = load i8, ptr %add.ptr.i, align 1
-  %5 = add i8 %4, -48
-  %or.cond.i32 = icmp ult i8 %5, 10
-  br i1 %or.cond.i32, label %return.sink.split, label %return
+  %5 = add i8 %4, -58
+  %or.cond.i32 = icmp ult i8 %5, -10
+  br i1 %or.cond.i32, label %return, label %return.sink.split
 
 sw.bb9:                                           ; preds = %if.end
   %cmp.i36 = icmp slt i32 %len.addr.0, 0
@@ -2035,20 +2032,20 @@ if.then.i94:                                      ; preds = %if.end24
 if.end.i83:                                       ; preds = %if.then.i94, %if.end24
   %len.addr.0.i84 = phi i32 [ %conv.i96, %if.then.i94 ], [ %len.addr.0, %if.end24 ]
   %cmp1.i85 = icmp eq i32 %len.addr.0.i84, 2
-  br i1 %cmp1.i85, label %land.lhs.true.i88, label %return
+  br i1 %cmp1.i85, label %land.lhs.true.i87, label %return
 
-land.lhs.true.i88:                                ; preds = %if.end.i83
+land.lhs.true.i87:                                ; preds = %if.end.i83
   %19 = load i8, ptr %s, align 1
-  %call2.i89 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %19)
-  %tobool.not.i90 = icmp eq i8 %call2.i89, 0
-  br i1 %tobool.not.i90, label %return, label %land.lhs.true3.i91
+  %call2.i88 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %19)
+  %tobool.not.i89 = icmp eq i8 %call2.i88, 0
+  br i1 %tobool.not.i89, label %return, label %_ZL7_isTKeyPKci.exit97
 
-land.lhs.true3.i91:                               ; preds = %land.lhs.true.i88
-  %add.ptr.i92 = getelementptr inbounds i8, ptr %s, i64 1
-  %20 = load i8, ptr %add.ptr.i92, align 1
-  %21 = add i8 %20, -48
-  %or.cond.i93 = icmp ult i8 %21, 10
-  br i1 %or.cond.i93, label %return.sink.split, label %return
+_ZL7_isTKeyPKci.exit97:                           ; preds = %land.lhs.true.i87
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %s, i64 1
+  %20 = load i8, ptr %add.ptr.i91, align 1
+  %21 = add i8 %20, -58
+  %or.cond.i92 = icmp ult i8 %21, -10
+  br i1 %or.cond.i92, label %return, label %return.sink.split
 
 sw.bb29:                                          ; preds = %if.end
   %cmp.i.i = icmp slt i32 %len.addr.0, 0
@@ -2100,22 +2097,22 @@ if.then.i125:                                     ; preds = %sw.bb34
 if.end.i114:                                      ; preds = %if.then.i125, %sw.bb34
   %len.addr.0.i115 = phi i32 [ %conv.i127, %if.then.i125 ], [ %len.addr.0, %sw.bb34 ]
   %cmp1.i116 = icmp eq i32 %len.addr.0.i115, 2
-  br i1 %cmp1.i116, label %land.lhs.true.i119, label %if.end38
+  br i1 %cmp1.i116, label %land.lhs.true.i118, label %if.end38
 
-land.lhs.true.i119:                               ; preds = %if.end.i114
+land.lhs.true.i118:                               ; preds = %if.end.i114
   %26 = load i8, ptr %s, align 1
-  %call2.i120 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %26)
-  %tobool.not.i121 = icmp eq i8 %call2.i120, 0
-  br i1 %tobool.not.i121, label %if.end38, label %land.lhs.true3.i122
+  %call2.i119 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %26)
+  %tobool.not.i120 = icmp eq i8 %call2.i119, 0
+  br i1 %tobool.not.i120, label %if.end38, label %_ZL7_isTKeyPKci.exit128
 
-land.lhs.true3.i122:                              ; preds = %land.lhs.true.i119
-  %add.ptr.i123 = getelementptr inbounds i8, ptr %s, i64 1
-  %27 = load i8, ptr %add.ptr.i123, align 1
-  %28 = add i8 %27, -48
-  %or.cond.i124 = icmp ult i8 %28, 10
-  br i1 %or.cond.i124, label %return.sink.split, label %if.end38
+_ZL7_isTKeyPKci.exit128:                          ; preds = %land.lhs.true.i118
+  %add.ptr.i122 = getelementptr inbounds i8, ptr %s, i64 1
+  %27 = load i8, ptr %add.ptr.i122, align 1
+  %28 = add i8 %27, -58
+  %or.cond.i123 = icmp ult i8 %28, -10
+  br i1 %or.cond.i123, label %if.end38, label %return.sink.split
 
-if.end38:                                         ; preds = %if.end.i114, %land.lhs.true.i119, %land.lhs.true3.i122
+if.end38:                                         ; preds = %if.end.i114, %land.lhs.true.i118, %_ZL7_isTKeyPKci.exit128
   br i1 %cmp.i113, label %if.then.i.i146, label %if.end.i.i130
 
 if.then.i.i146:                                   ; preds = %if.end38
@@ -2152,13 +2149,13 @@ for.inc.i.i.i141:                                 ; preds = %land.lhs.true.i.i.i
   %exitcond.not.i.i.i143 = icmp eq i64 %indvars.iv.next.i.i.i142, %wide.trip.count.i.i.i135
   br i1 %exitcond.not.i.i.i143, label %return, label %for.body.i.i.i136, !llvm.loop !7
 
-return.sink.split:                                ; preds = %for.inc.i.i.i107, %for.cond.i.i46, %for.cond.i11.i, %for.cond.i.i61, %for.inc.i.i.i, %for.inc.i.i, %land.lhs.true3.i122, %land.lhs.true3.i91, %land.lhs.true3.i, %ultag_isLanguageSubtag_75.exit
-  %.sink = phi i32 [ 1, %ultag_isLanguageSubtag_75.exit ], [ -1, %land.lhs.true3.i ], [ -1, %land.lhs.true3.i91 ], [ -1, %land.lhs.true3.i122 ], [ 4, %for.inc.i.i ], [ 4, %for.inc.i.i.i ], [ 3, %for.cond.i.i61 ], [ 3, %for.cond.i11.i ], [ 2, %for.cond.i.i46 ], [ 6, %for.inc.i.i.i107 ]
+return.sink.split:                                ; preds = %for.inc.i.i.i107, %for.cond.i.i46, %for.cond.i11.i, %for.cond.i.i61, %for.inc.i.i.i, %for.inc.i.i, %_ZL7_isTKeyPKci.exit128, %_ZL7_isTKeyPKci.exit97, %_ZL7_isTKeyPKci.exit, %ultag_isLanguageSubtag_75.exit
+  %.sink = phi i32 [ 1, %ultag_isLanguageSubtag_75.exit ], [ -1, %_ZL7_isTKeyPKci.exit ], [ -1, %_ZL7_isTKeyPKci.exit97 ], [ -1, %_ZL7_isTKeyPKci.exit128 ], [ 4, %for.inc.i.i ], [ 4, %for.inc.i.i.i ], [ 3, %for.cond.i.i61 ], [ 3, %for.cond.i11.i ], [ 2, %for.cond.i.i46 ], [ 6, %for.inc.i.i.i107 ]
   store i32 %.sink, ptr %state, align 4
   br label %return
 
-return:                                           ; preds = %for.inc.i.i.i141, %land.lhs.true.i.i.i144, %land.lhs.true.i.i.i110, %return.sink.split, %ultag_isLanguageSubtag_75.exit, %if.end.i.i98, %land.lhs.true3.i91, %land.lhs.true.i88, %if.end.i83, %land.lhs.true3.i, %land.lhs.true.i, %if.end.i29, %if.end.i.i130, %if.end
-  %retval.0 = phi i8 [ 0, %if.end ], [ 0, %if.end.i.i130 ], [ 0, %if.end.i29 ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ], [ 0, %if.end.i83 ], [ 0, %land.lhs.true.i88 ], [ 0, %land.lhs.true3.i91 ], [ 0, %if.end.i.i98 ], [ 0, %ultag_isLanguageSubtag_75.exit ], [ 1, %return.sink.split ], [ 0, %land.lhs.true.i.i.i110 ], [ 0, %land.lhs.true.i.i.i144 ], [ 1, %for.inc.i.i.i141 ]
+return:                                           ; preds = %for.inc.i.i.i141, %land.lhs.true.i.i.i144, %land.lhs.true.i.i.i110, %return.sink.split, %ultag_isLanguageSubtag_75.exit, %if.end.i.i98, %if.end.i83, %land.lhs.true.i87, %if.end.i29, %land.lhs.true.i, %if.end.i.i130, %if.end, %_ZL7_isTKeyPKci.exit97, %_ZL7_isTKeyPKci.exit
+  %retval.0 = phi i8 [ 0, %_ZL7_isTKeyPKci.exit ], [ 0, %_ZL7_isTKeyPKci.exit97 ], [ 0, %if.end ], [ 0, %if.end.i.i130 ], [ 0, %land.lhs.true.i ], [ 0, %if.end.i29 ], [ 0, %land.lhs.true.i87 ], [ 0, %if.end.i83 ], [ 0, %if.end.i.i98 ], [ 0, %ultag_isLanguageSubtag_75.exit ], [ 1, %return.sink.split ], [ 0, %land.lhs.true.i.i.i110 ], [ 0, %land.lhs.true.i.i.i144 ], [ 1, %for.inc.i.i.i141 ]
   ret i8 %retval.0
 }
 
@@ -2256,22 +2253,22 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %1 = load i8, ptr %s, align 1
   %call2.i = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %1)
   %tobool.not.i = icmp eq i8 %call2.i, 0
-  br i1 %tobool.not.i, label %lor.lhs.false.i, label %land.lhs.true8.i
+  br i1 %tobool.not.i, label %lor.lhs.false.i, label %ultag_isUnicodeLocaleKey_75.exit
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %2 = load i8, ptr %s, align 1
   %3 = add i8 %2, -48
   %or.cond.i = icmp ult i8 %3, 10
-  br i1 %or.cond.i, label %land.lhs.true8.i, label %if.end
+  br i1 %or.cond.i, label %ultag_isUnicodeLocaleKey_75.exit, label %if.end
 
-land.lhs.true8.i:                                 ; preds = %lor.lhs.false.i, %land.lhs.true.i
+ultag_isUnicodeLocaleKey_75.exit:                 ; preds = %land.lhs.true.i, %lor.lhs.false.i
   %arrayidx.i = getelementptr inbounds i8, ptr %s, i64 1
   %4 = load i8, ptr %arrayidx.i, align 1
   %call9.i = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %4)
-  %tobool10.not.i = icmp eq i8 %call9.i, 0
-  br i1 %tobool10.not.i, label %if.end, label %return.sink.split
+  %tobool10.not.i.not = icmp eq i8 %call9.i, 0
+  br i1 %tobool10.not.i.not, label %if.end, label %return.sink.split
 
-if.end:                                           ; preds = %if.end.i, %lor.lhs.false.i, %land.lhs.true8.i
+if.end:                                           ; preds = %if.end.i, %lor.lhs.false.i, %ultag_isUnicodeLocaleKey_75.exit
   br i1 %cmp.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -2320,28 +2317,28 @@ if.then.i30:                                      ; preds = %sw.bb5
 if.end.i16:                                       ; preds = %if.then.i30, %sw.bb5
   %len.addr.0.i17 = phi i32 [ %conv.i32, %if.then.i30 ], [ %len, %sw.bb5 ]
   %cmp1.i18 = icmp eq i32 %len.addr.0.i17, 2
-  br i1 %cmp1.i18, label %land.lhs.true.i21, label %if.end9
+  br i1 %cmp1.i18, label %land.lhs.true.i20, label %if.end9
 
-land.lhs.true.i21:                                ; preds = %if.end.i16
+land.lhs.true.i20:                                ; preds = %if.end.i16
   %9 = load i8, ptr %s, align 1
-  %call2.i22 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %9)
-  %tobool.not.i23 = icmp eq i8 %call2.i22, 0
-  br i1 %tobool.not.i23, label %lor.lhs.false.i28, label %land.lhs.true8.i24
+  %call2.i21 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %9)
+  %tobool.not.i22 = icmp eq i8 %call2.i21, 0
+  br i1 %tobool.not.i22, label %lor.lhs.false.i28, label %ultag_isUnicodeLocaleKey_75.exit33
 
-lor.lhs.false.i28:                                ; preds = %land.lhs.true.i21
+lor.lhs.false.i28:                                ; preds = %land.lhs.true.i20
   %10 = load i8, ptr %s, align 1
   %11 = add i8 %10, -48
   %or.cond.i29 = icmp ult i8 %11, 10
-  br i1 %or.cond.i29, label %land.lhs.true8.i24, label %if.end9
+  br i1 %or.cond.i29, label %ultag_isUnicodeLocaleKey_75.exit33, label %if.end9
 
-land.lhs.true8.i24:                               ; preds = %lor.lhs.false.i28, %land.lhs.true.i21
-  %arrayidx.i25 = getelementptr inbounds i8, ptr %s, i64 1
-  %12 = load i8, ptr %arrayidx.i25, align 1
-  %call9.i26 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %12)
-  %tobool10.not.i27 = icmp eq i8 %call9.i26, 0
-  br i1 %tobool10.not.i27, label %if.end9, label %return
+ultag_isUnicodeLocaleKey_75.exit33:               ; preds = %land.lhs.true.i20, %lor.lhs.false.i28
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %s, i64 1
+  %12 = load i8, ptr %arrayidx.i24, align 1
+  %call9.i25 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %12)
+  %tobool10.not.i26.not = icmp eq i8 %call9.i25, 0
+  br i1 %tobool10.not.i26.not, label %if.end9, label %return
 
-if.end9:                                          ; preds = %if.end.i16, %lor.lhs.false.i28, %land.lhs.true8.i24
+if.end9:                                          ; preds = %if.end.i16, %lor.lhs.false.i28, %ultag_isUnicodeLocaleKey_75.exit33
   br i1 %cmp.i15, label %if.then.i.i51, label %if.end.i.i35
 
 if.then.i.i51:                                    ; preds = %if.end9
@@ -2390,28 +2387,28 @@ if.then.i69:                                      ; preds = %sw.bb14
 if.end.i55:                                       ; preds = %if.then.i69, %sw.bb14
   %len.addr.0.i56 = phi i32 [ %conv.i71, %if.then.i69 ], [ %len, %sw.bb14 ]
   %cmp1.i57 = icmp eq i32 %len.addr.0.i56, 2
-  br i1 %cmp1.i57, label %land.lhs.true.i60, label %if.end18
+  br i1 %cmp1.i57, label %land.lhs.true.i59, label %if.end18
 
-land.lhs.true.i60:                                ; preds = %if.end.i55
+land.lhs.true.i59:                                ; preds = %if.end.i55
   %17 = load i8, ptr %s, align 1
-  %call2.i61 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %17)
-  %tobool.not.i62 = icmp eq i8 %call2.i61, 0
-  br i1 %tobool.not.i62, label %lor.lhs.false.i67, label %land.lhs.true8.i63
+  %call2.i60 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %17)
+  %tobool.not.i61 = icmp eq i8 %call2.i60, 0
+  br i1 %tobool.not.i61, label %lor.lhs.false.i67, label %ultag_isUnicodeLocaleKey_75.exit72
 
-lor.lhs.false.i67:                                ; preds = %land.lhs.true.i60
+lor.lhs.false.i67:                                ; preds = %land.lhs.true.i59
   %18 = load i8, ptr %s, align 1
   %19 = add i8 %18, -48
   %or.cond.i68 = icmp ult i8 %19, 10
-  br i1 %or.cond.i68, label %land.lhs.true8.i63, label %if.end18
+  br i1 %or.cond.i68, label %ultag_isUnicodeLocaleKey_75.exit72, label %if.end18
 
-land.lhs.true8.i63:                               ; preds = %lor.lhs.false.i67, %land.lhs.true.i60
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %s, i64 1
-  %20 = load i8, ptr %arrayidx.i64, align 1
-  %call9.i65 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %20)
-  %tobool10.not.i66 = icmp eq i8 %call9.i65, 0
-  br i1 %tobool10.not.i66, label %if.end18, label %return.sink.split
+ultag_isUnicodeLocaleKey_75.exit72:               ; preds = %land.lhs.true.i59, %lor.lhs.false.i67
+  %arrayidx.i63 = getelementptr inbounds i8, ptr %s, i64 1
+  %20 = load i8, ptr %arrayidx.i63, align 1
+  %call9.i64 = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %20)
+  %tobool10.not.i65.not = icmp eq i8 %call9.i64, 0
+  br i1 %tobool10.not.i65.not, label %if.end18, label %return.sink.split
 
-if.end18:                                         ; preds = %if.end.i55, %lor.lhs.false.i67, %land.lhs.true8.i63
+if.end18:                                         ; preds = %if.end.i55, %lor.lhs.false.i67, %ultag_isUnicodeLocaleKey_75.exit72
   br i1 %cmp.i54, label %if.then.i.i90, label %if.end.i.i74
 
 if.then.i.i90:                                    ; preds = %if.end18
@@ -2448,13 +2445,13 @@ for.inc.i.i.i85:                                  ; preds = %land.lhs.true.i.i.i
   %exitcond.not.i.i.i87 = icmp eq i64 %indvars.iv.next.i.i.i86, %wide.trip.count.i.i.i79
   br i1 %exitcond.not.i.i.i87, label %return, label %for.body.i.i.i80, !llvm.loop !7
 
-return.sink.split:                                ; preds = %for.inc.i.i.i46, %land.lhs.true8.i63, %land.lhs.true8.i
-  %.sink = phi i32 [ 1, %land.lhs.true8.i ], [ 1, %land.lhs.true8.i63 ], [ 2, %for.inc.i.i.i46 ]
+return.sink.split:                                ; preds = %for.inc.i.i.i46, %ultag_isUnicodeLocaleKey_75.exit72, %ultag_isUnicodeLocaleKey_75.exit
+  %.sink = phi i32 [ 1, %ultag_isUnicodeLocaleKey_75.exit ], [ 1, %ultag_isUnicodeLocaleKey_75.exit72 ], [ 2, %for.inc.i.i.i46 ]
   store i32 %.sink, ptr %state, align 4
   br label %return
 
-return:                                           ; preds = %for.inc.i.i.i85, %land.lhs.true.i.i.i88, %land.lhs.true.i.i.i49, %for.inc.i.i.i, %land.lhs.true.i.i.i, %return.sink.split, %if.end.i.i35, %if.end.i.i74, %land.lhs.true8.i24, %if.end.i.i, %entry
-  %retval.0 = phi i8 [ 0, %entry ], [ 0, %if.end.i.i ], [ 1, %land.lhs.true8.i24 ], [ 0, %if.end.i.i74 ], [ 0, %if.end.i.i35 ], [ 1, %return.sink.split ], [ 0, %land.lhs.true.i.i.i ], [ 1, %for.inc.i.i.i ], [ 0, %land.lhs.true.i.i.i49 ], [ 0, %land.lhs.true.i.i.i88 ], [ 1, %for.inc.i.i.i85 ]
+return:                                           ; preds = %for.inc.i.i.i85, %land.lhs.true.i.i.i88, %land.lhs.true.i.i.i49, %for.inc.i.i.i, %land.lhs.true.i.i.i, %return.sink.split, %if.end.i.i35, %if.end.i.i74, %if.end.i.i, %entry, %ultag_isUnicodeLocaleKey_75.exit33
+  %retval.0 = phi i8 [ 1, %ultag_isUnicodeLocaleKey_75.exit33 ], [ 0, %entry ], [ 0, %if.end.i.i ], [ 0, %if.end.i.i74 ], [ 0, %if.end.i.i35 ], [ 1, %return.sink.split ], [ 0, %land.lhs.true.i.i.i ], [ 1, %for.inc.i.i.i ], [ 0, %land.lhs.true.i.i.i49 ], [ 0, %land.lhs.true.i.i.i88 ], [ 1, %for.inc.i.i.i85 ]
   ret i8 %retval.0
 }
 
@@ -2669,7 +2666,7 @@ invoke.cont15:                                    ; preds = %if.then10
   store ptr %call14, ptr %kwdEnum, align 8
   %5 = load i32, ptr %tmpStatus, align 4
   %cmp.i28 = icmp sgt i32 %5, 0
-  br i1 %cmp.i28, label %if.end71, label %if.then20
+  br i1 %cmp.i28, label %cleanup, label %if.then20
 
 if.then20:                                        ; preds = %invoke.cont15
   %call24 = invoke i32 @uenum_count_75(ptr noundef %call14, ptr noundef nonnull %tmpStatus)
@@ -2677,7 +2674,7 @@ if.then20:                                        ; preds = %invoke.cont15
 
 invoke.cont23:                                    ; preds = %if.then20
   %cmp25 = icmp eq i32 %call24, 1
-  br i1 %cmp25, label %if.then26, label %if.end71thread-pre-split
+  br i1 %cmp25, label %if.then26, label %cleanupthread-pre-split
 
 if.then26:                                        ; preds = %invoke.cont23
   store i32 0, ptr %len, align 4
@@ -2688,12 +2685,12 @@ if.then26:                                        ; preds = %invoke.cont23
 invoke.cont29:                                    ; preds = %if.then26
   %7 = load i32, ptr %len, align 4
   %cmp31 = icmp eq i32 %7, 1
-  br i1 %cmp31, label %land.lhs.true, label %if.end71thread-pre-split
+  br i1 %cmp31, label %land.lhs.true, label %cleanupthread-pre-split
 
 land.lhs.true:                                    ; preds = %invoke.cont29
   %8 = load i8, ptr %call30, align 1
   %cmp32 = icmp eq i8 %8, 120
-  br i1 %cmp32, label %if.then33, label %if.end71thread-pre-split
+  br i1 %cmp32, label %if.then33, label %cleanupthread-pre-split
 
 if.then33:                                        ; preds = %land.lhs.true
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buf)
@@ -2715,7 +2712,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink35) #13
   %10 = load i32, ptr %tmpStatus, align 4
   %cmp.i31 = icmp sgt i32 %10, 0
-  br i1 %cmp.i31, label %cleanup.critedge.sink.split, label %if.then43
+  br i1 %cmp.i31, label %cleanup92.critedge.critedge.sink.split, label %if.then43
 
 if.then43:                                        ; preds = %invoke.cont39
   %11 = load ptr, ptr %buf, align 8
@@ -2741,7 +2738,7 @@ invoke.cont52:                                    ; preds = %if.then51
   %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 16
   %16 = load ptr, ptr %vfn58, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %14, i32 noundef %15)
-          to label %cleanup.critedge unwind label %lpad36
+          to label %cleanup92.critedge.critedge unwind label %lpad36
 
 lpad16:                                           ; preds = %if.then33, %if.then26, %if.then20
   %17 = landingpad { ptr, i32 }
@@ -2761,27 +2758,27 @@ lpad38:                                           ; preds = %invoke.cont37
 
 if.else:                                          ; preds = %invoke.cont48
   %tobool60.not = icmp eq i8 %strict, 0
-  br i1 %tobool60.not, label %if.end65, label %cleanup.critedge.sink.split
+  br i1 %tobool60.not, label %if.end65, label %cleanup92.critedge.critedge.sink.split
 
 if.end65:                                         ; preds = %if.else
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buf) #13
-  br label %if.end71thread-pre-split
+  br label %cleanupthread-pre-split
 
 ehcleanup:                                        ; preds = %lpad38, %lpad36
   %.pn = phi { ptr, i32 } [ %18, %lpad36 ], [ %19, %lpad38 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buf) #13
   br label %ehcleanup72
 
-if.end71thread-pre-split:                         ; preds = %invoke.cont23, %invoke.cont29, %land.lhs.true, %if.end65
+cleanupthread-pre-split:                          ; preds = %if.end65, %land.lhs.true, %invoke.cont29, %invoke.cont23
   %.pr = load ptr, ptr %kwdEnum, align 8
-  br label %if.end71
+  br label %cleanup
 
-if.end71:                                         ; preds = %if.end71thread-pre-split, %invoke.cont15
-  %20 = phi ptr [ %.pr, %if.end71thread-pre-split ], [ %call14, %invoke.cont15 ]
+cleanup:                                          ; preds = %cleanupthread-pre-split, %invoke.cont15
+  %20 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %call14, %invoke.cont15 ]
   %cmp.not.i = icmp eq ptr %20, null
   br i1 %cmp.not.i, label %if.end73, label %if.then.i
 
-if.then.i:                                        ; preds = %if.end71
+if.then.i:                                        ; preds = %cleanup
   invoke void @uenum_close_75(ptr noundef nonnull %20)
           to label %if.end73 unwind label %terminate.lpad.i
 
@@ -2792,21 +2789,12 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   call void @__clang_call_terminate(ptr %22) #15
   unreachable
 
-cleanup.critedge.sink.split:                      ; preds = %invoke.cont39, %if.else
-  store i32 1, ptr %status, align 4
-  br label %cleanup.critedge
-
-cleanup.critedge:                                 ; preds = %cleanup.critedge.sink.split, %invoke.cont52
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buf) #13
-  call void @_ZN6icu_7524LocalUEnumerationPointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %kwdEnum) #13
-  br label %cleanup92
-
 ehcleanup72:                                      ; preds = %ehcleanup, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %17, %lpad16 ]
   call void @_ZN6icu_7524LocalUEnumerationPointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %kwdEnum) #13
   br label %ehcleanup95
 
-if.end73:                                         ; preds = %if.then.i, %if.end71, %invoke.cont6
+if.end73:                                         ; preds = %if.then.i, %cleanup, %invoke.cont6
   %23 = load ptr, ptr %canonical, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmpStatus.i)
@@ -3656,7 +3644,7 @@ if.then54.i:                                      ; preds = %for.body.lr.ph.i, %
 
 if.then57.i:                                      ; preds = %if.then54.i
   %indvars.iv.next416.i = add nuw nsw i64 %indvars.iv415.i349, 1
-  %85 = trunc i64 %indvars.iv.next416.i to i32
+  %85 = trunc nuw nsw i64 %indvars.iv.next416.i to i32
   store i32 %85, ptr %attrBufLength.i, align 4
   %arrayidx.i181 = getelementptr inbounds [100 x i8], ptr %attrBuf.i, i64 0, i64 %indvars.iv415.i349
   store i8 %84, ptr %arrayidx.i181, align 1
@@ -3672,7 +3660,7 @@ cleanup.thread298.i:                              ; preds = %if.then54.i
 if.else61.i:                                      ; preds = %for.body.i179, %for.body.lr.ph.i
   %.lcssa = phi i32 [ 0, %for.body.lr.ph.i ], [ %85, %for.body.i179 ]
   %indvars.iv.i180.lcssa = phi i64 [ %81, %for.body.lr.ph.i ], [ %indvars.iv.next.i182, %for.body.i179 ]
-  %86 = trunc i64 %indvars.iv.i180.lcssa to i32
+  %86 = trunc nsw i64 %indvars.iv.i180.lcssa to i32
   %inc62.i = add nsw i32 %86, 1
   br label %for.end.i183
 
@@ -3940,13 +3928,13 @@ call2.i.noexc.i:                                  ; preds = %land.lhs.true.i130.
 
 land.lhs.true8.i.i:                               ; preds = %call2.i.noexc.i
   %call9.i135.i = invoke signext i8 @uprv_asciitolower_75(i8 noundef signext %.pre.i.i168)
-          to label %call9.i.noexc.i unwind label %lpad24.loopexit.split-lp.i
+          to label %invoke.cont154.i unwind label %lpad24.loopexit.split-lp.i
 
-call9.i.noexc.i:                                  ; preds = %land.lhs.true8.i.i
-  %cmp11.not.i.i = icmp eq i8 %call9.i135.i, 120
-  br i1 %cmp11.not.i.i, label %if.then162.i, label %lor.lhs.false157.i
+invoke.cont154.i:                                 ; preds = %land.lhs.true8.i.i
+  %cmp11.not.i.not.i = icmp eq i8 %call9.i135.i, 120
+  br i1 %cmp11.not.i.not.i, label %if.then162.i, label %lor.lhs.false157.i
 
-lor.lhs.false157.i:                               ; preds = %call9.i.noexc.i
+lor.lhs.false157.i:                               ; preds = %invoke.cont154.i
   %111 = load ptr, ptr %buf.i154, align 8
   %112 = load i32, ptr %len.i152, align 4
   %call160.i = invoke signext i8 @ultag_isExtensionSubtags_75(ptr noundef %111, i32 noundef %112)
@@ -3956,7 +3944,7 @@ invoke.cont159.i:                                 ; preds = %lor.lhs.false157.i
   %tobool161.not.i = icmp eq i8 %call160.i, 0
   br i1 %tobool161.not.i, label %if.then162.i, label %if.end167.i
 
-if.then162.i:                                     ; preds = %invoke.cont159.i, %call9.i.noexc.i, %call2.i.noexc.i, %if.end.i128.i
+if.then162.i:                                     ; preds = %invoke.cont159.i, %invoke.cont154.i, %call2.i.noexc.i, %if.end.i128.i
   br i1 %tobool35.not.i, label %cleanup.thread.i, label %cleanup.i, !llvm.loop !21
 
 if.end167.i:                                      ; preds = %invoke.cont159.i, %invoke.cont145.i
@@ -4762,7 +4750,16 @@ _ZL30_appendPrivateuseToLanguageTagPKcRN6icu_758ByteSinkEaaP10UErrorCode.exit: ;
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmpStatus.i185)
   br label %cleanup92
 
-cleanup92:                                        ; preds = %_ZL30_appendPrivateuseToLanguageTagPKcRN6icu_758ByteSinkEaaP10UErrorCode.exit, %cleanup.critedge, %if.then
+cleanup92.critedge.critedge.sink.split:           ; preds = %invoke.cont39, %if.else
+  store i32 1, ptr %status, align 4
+  br label %cleanup92.critedge.critedge
+
+cleanup92.critedge.critedge:                      ; preds = %cleanup92.critedge.critedge.sink.split, %invoke.cont52
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buf) #13
+  call void @_ZN6icu_7524LocalUEnumerationPointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %kwdEnum) #13
+  br label %cleanup92
+
+cleanup92:                                        ; preds = %_ZL30_appendPrivateuseToLanguageTagPKcRN6icu_758ByteSinkEaaP10UErrorCode.exit, %cleanup92.critedge.critedge, %if.then
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %canonical) #13
   ret void
 
@@ -5685,13 +5682,13 @@ call2.i.noexc.i:                                  ; preds = %land.lhs.true.i289.
 
 land.lhs.true8.i.i:                               ; preds = %call2.i.noexc.i
   %call9.i295.i = invoke signext i8 @uprv_asciitolower_75(i8 noundef signext %.pre.i.i)
-          to label %call9.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
+          to label %invoke.cont275.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
-call9.i.noexc.i:                                  ; preds = %land.lhs.true8.i.i
-  %cmp11.not.i.i = icmp eq i8 %call9.i295.i, 120
-  br i1 %cmp11.not.i.i, label %if.end307.i, label %if.then278.i
+invoke.cont275.i:                                 ; preds = %land.lhs.true8.i.i
+  %cmp11.not.i.not.i = icmp eq i8 %call9.i295.i, 120
+  br i1 %cmp11.not.i.not.i, label %if.end307.i, label %if.then278.i
 
-if.then278.i:                                     ; preds = %call9.i.noexc.i
+if.then278.i:                                     ; preds = %invoke.cont275.i
   %cmp279.not.i = icmp eq ptr %pExtension.0590.i, null
   br i1 %cmp279.not.i, label %if.end297.i, label %if.then280.i
 
@@ -5785,7 +5782,7 @@ invoke.cont303.i:                                 ; preds = %if.end302.i
   store ptr null, ptr %value305.i, align 8
   br label %while.cond.backedge.i
 
-if.end307.i:                                      ; preds = %call9.i.noexc.i, %call2.i.noexc.i, %if.end.i285.i, %if.end270.i
+if.end307.i:                                      ; preds = %invoke.cont275.i, %call2.i.noexc.i, %if.end.i285.i, %if.end270.i
   %and309.i = and i32 %conv166.i, 64
   %tobool310.not.i = icmp eq i32 %and309.i, 0
   br i1 %tobool310.not.i, label %if.end320.i, label %if.then311.i
@@ -6576,7 +6573,7 @@ lpad2.loopexit.i:                                 ; preds = %invoke.cont81.i, %i
           cleanup
   br label %lpad2.body.i
 
-lpad2.loopexit.split-lp.loopexit.i:               ; preds = %if.then.i.i.i237.i, %if.then.i.i227.i, %call155.i.noexc.i, %if.then153.i.i, %if.end140.i.i, %call124.i.noexc.i, %if.then122.i.i, %if.end110.i.i, %land.lhs.true8.i132.i.i, %land.lhs.true.i130.i.i
+lpad2.loopexit.split-lp.loopexit.i:               ; preds = %if.then.i.i.i237.i, %if.then.i.i227.i, %call155.i.noexc.i, %if.then153.i.i, %if.end140.i.i, %call124.i.noexc.i, %if.then122.i.i, %if.end110.i.i, %ultag_isUnicodeLocaleKey_75.exit137.i.i, %land.lhs.true.i129.i.i
   %lpad.loopexit324.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad2.body.i
@@ -6620,7 +6617,7 @@ for.inc.i.i:                                      ; preds = %for.cond.i.i
 
 for.end.i.i:                                      ; preds = %for.cond.i.i, %for.cond.i.i
   %add.ptr.le.i.i = getelementptr inbounds i8, ptr %pTag.0267.i.i, i64 %indvars.iv.i.i
-  %113 = trunc i64 %indvars.iv.i.i to i32
+  %113 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp1.i.i.i = icmp eq i32 %113, 2
   br i1 %cmp1.i.i.i, label %land.lhs.true.i.i.i135, label %if.end.i78.i
 
@@ -6642,11 +6639,11 @@ land.lhs.true8.i.i.i:                             ; preds = %lor.lhs.false.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %pTag.0267.i.i, i64 1
   %116 = load i8, ptr %arrayidx.i.i.i, align 1
   %call9.i101.i.i = invoke signext i8 @uprv_isASCIILetter_75(i8 noundef signext %116)
-          to label %call9.i.noexc.i.i unwind label %lpad.loopexit.split-lp.loopexit.i.i
+          to label %invoke.cont.i.i unwind label %lpad.loopexit.split-lp.loopexit.i.i
 
-call9.i.noexc.i.i:                                ; preds = %land.lhs.true8.i.i.i
-  %tobool10.not.i.i.i = icmp eq i8 %call9.i101.i.i, 0
-  br i1 %tobool10.not.i.i.i, label %if.end.i78.i, label %while.end.i.i
+invoke.cont.i.i:                                  ; preds = %land.lhs.true8.i.i.i
+  %tobool10.not.i.not.i.i = icmp eq i8 %call9.i101.i.i, 0
+  br i1 %tobool10.not.i.not.i.i, label %if.end.i78.i, label %while.end.i.i
 
 lpad.loopexit.i.i134:                             ; preds = %invoke.cont47.i.i, %if.end45.i.i, %if.then42.i.i
   %lpad.loopexit239.i.i = landingpad { ptr, i32 }
@@ -6668,7 +6665,7 @@ lpad.i.i:                                         ; preds = %lpad.loopexit.split
   call void @_ZN6icu_7510MemoryPoolI18AttributeListEntryLi8EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %attrPool.i.i) #13
   br label %lpad2.body.i
 
-if.end.i78.i:                                     ; preds = %call9.i.noexc.i.i, %lor.lhs.false.i.i.i, %for.end.i.i
+if.end.i78.i:                                     ; preds = %invoke.cont.i.i, %lor.lhs.false.i.i.i, %for.end.i.i
   %117 = load i32, ptr %capacity.i.i.i.i, align 8
   %118 = load i32, ptr %attrPool.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %118, %117
@@ -6817,9 +6814,9 @@ if.else.i.i:                                      ; preds = %if.end9.i.i124
   store i32 1, ptr %status, align 4
   br label %cleanup.i.i
 
-while.end.i.i:                                    ; preds = %_ZL19_addAttributeToListPP18AttributeListEntryS0_.exit.i.i, %call9.i.noexc.i.i
-  %attrFirst.0.lcssa.i.i = phi ptr [ %attrFirst.2.i.i, %_ZL19_addAttributeToListPP18AttributeListEntryS0_.exit.i.i ], [ %attrFirst.0265.i.i, %call9.i.noexc.i.i ]
-  %pKwds.0.i.i = phi ptr [ null, %_ZL19_addAttributeToListPP18AttributeListEntryS0_.exit.i.i ], [ %pTag.0267.i.i, %call9.i.noexc.i.i ]
+while.end.i.i:                                    ; preds = %_ZL19_addAttributeToListPP18AttributeListEntryS0_.exit.i.i, %invoke.cont.i.i
+  %attrFirst.0.lcssa.i.i = phi ptr [ %attrFirst.2.i.i, %_ZL19_addAttributeToListPP18AttributeListEntryS0_.exit.i.i ], [ %attrFirst.0265.i.i, %invoke.cont.i.i ]
+  %pKwds.0.i.i = phi ptr [ null, %_ZL19_addAttributeToListPP18AttributeListEntryS0_.exit.i.i ], [ %pTag.0267.i.i, %invoke.cont.i.i ]
   %tobool26.not.i.i = icmp eq ptr %attrFirst.0.lcssa.i.i, null
   br i1 %tobool26.not.i.i, label %cleanup.i.i, label %if.then27.i.i
 
@@ -7041,33 +7038,33 @@ for.inc80.i.i:                                    ; preds = %for.cond69.i.i
 
 for.end82.i.i:                                    ; preds = %for.cond69.i.i, %for.cond69.i.i
   %add.ptr71.le.i.i = getelementptr inbounds i8, ptr %pTag.2278.i.i, i64 %indvars.iv295.i.i
-  %160 = trunc i64 %indvars.iv295.i.i to i32
+  %160 = trunc nuw nsw i64 %indvars.iv295.i.i to i32
   %cmp1.i127.i.i = icmp eq i32 %160, 2
-  br i1 %cmp1.i127.i.i, label %land.lhs.true.i130.i.i, label %if.else90.i.i
+  br i1 %cmp1.i127.i.i, label %land.lhs.true.i129.i.i, label %if.else90.i.i
 
-land.lhs.true.i130.i.i:                           ; preds = %for.end82.i.i
+land.lhs.true.i129.i.i:                           ; preds = %for.end82.i.i
   %call2.i.i81.i = invoke signext i8 @uprv_isASCIILetter_75(i8 noundef signext %158)
           to label %call2.i.i.noexc.i unwind label %lpad2.loopexit.split-lp.loopexit.i
 
-call2.i.i.noexc.i:                                ; preds = %land.lhs.true.i130.i.i
-  %tobool.not.i131.i.i = icmp eq i8 %call2.i.i81.i, 0
-  br i1 %tobool.not.i131.i.i, label %lor.lhs.false.i135.i.i, label %land.lhs.true8.i132.i.i
+call2.i.i.noexc.i:                                ; preds = %land.lhs.true.i129.i.i
+  %tobool.not.i130.i.i = icmp eq i8 %call2.i.i81.i, 0
+  br i1 %tobool.not.i130.i.i, label %lor.lhs.false.i135.i.i, label %ultag_isUnicodeLocaleKey_75.exit137.i.i
 
 lor.lhs.false.i135.i.i:                           ; preds = %call2.i.i.noexc.i
   %161 = load i8, ptr %pTag.2278.i.i, align 1
   %162 = add i8 %161, -48
   %or.cond.i136.i.i = icmp ult i8 %162, 10
-  br i1 %or.cond.i136.i.i, label %land.lhs.true8.i132.i.i, label %if.else90.i.i
+  br i1 %or.cond.i136.i.i, label %ultag_isUnicodeLocaleKey_75.exit137.i.i, label %if.else90.i.i
 
-land.lhs.true8.i132.i.i:                          ; preds = %lor.lhs.false.i135.i.i, %call2.i.i.noexc.i
-  %arrayidx.i133.i.i = getelementptr inbounds i8, ptr %pTag.2278.i.i, i64 1
-  %163 = load i8, ptr %arrayidx.i133.i.i, align 1
+ultag_isUnicodeLocaleKey_75.exit137.i.i:          ; preds = %lor.lhs.false.i135.i.i, %call2.i.i.noexc.i
+  %arrayidx.i132.i.i = getelementptr inbounds i8, ptr %pTag.2278.i.i, i64 1
+  %163 = load i8, ptr %arrayidx.i132.i.i, align 1
   %call9.i.i82.i = invoke signext i8 @uprv_isASCIILetter_75(i8 noundef signext %163)
           to label %call9.i.i.noexc.i unwind label %lpad2.loopexit.split-lp.loopexit.i
 
-call9.i.i.noexc.i:                                ; preds = %land.lhs.true8.i132.i.i
-  %tobool10.not.i134.i.i = icmp eq i8 %call9.i.i82.i, 0
-  br i1 %tobool10.not.i134.i.i, label %if.else90.i.i, label %if.then85.i.i
+call9.i.i.noexc.i:                                ; preds = %ultag_isUnicodeLocaleKey_75.exit137.i.i
+  %tobool10.not.i133.not.i.i = icmp eq i8 %call9.i.i82.i, 0
+  br i1 %tobool10.not.i133.not.i.i, label %if.else90.i.i, label %if.then85.i.i
 
 if.then85.i.i:                                    ; preds = %call9.i.i.noexc.i
   %tobool86.not.i.i = icmp eq ptr %pBcpKey.0274.i.i, null

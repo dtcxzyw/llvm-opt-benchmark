@@ -698,7 +698,7 @@ store_att_byval.exit:                             ; preds = %47, %49, %51, %53
 117:                                              ; preds = %112
   %118 = zext nneg i32 %115 to i64
   %119 = add nuw nsw i64 %118, 1
-  %120 = trunc i64 %119 to i8
+  %120 = trunc nuw i64 %119 to i8
   %121 = shl nuw i8 %120, 1
   %122 = or disjoint i8 %121, 1
   store i8 %122, ptr %8, align 1
@@ -804,11 +804,11 @@ define dso_local zeroext i1 @heap_attisnull(ptr nocapture noundef readonly %0, i
   %8 = and i16 %7, 2047
   %9 = zext nneg i16 %8 to i32
   %10 = icmp slt i32 %9, %1
-  br i1 %10, label %11, label %20
+  br i1 %10, label %11, label %19
 
 11:                                               ; preds = %3
   %.not13 = icmp eq ptr %2, null
-  br i1 %.not13, label %19, label %12
+  br i1 %.not13, label %40, label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %2, i64 24
@@ -817,49 +817,47 @@ define dso_local zeroext i1 @heap_attisnull(ptr nocapture noundef readonly %0, i
   %16 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %15, i32 14
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %41, label %19
+  %not. = xor i1 %18, true
+  br label %40
 
-19:                                               ; preds = %12, %11
-  br label %41
+19:                                               ; preds = %3
+  %20 = icmp sgt i32 %1, 0
+  br i1 %20, label %21, label %36
 
-20:                                               ; preds = %3
-  %21 = icmp sgt i32 %1, 0
-  br i1 %21, label %22, label %37
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %5, i64 20
+  %23 = load i16, ptr %22, align 4
+  %24 = and i16 %23, 1
+  %.not = icmp eq i16 %24, 0
+  br i1 %.not, label %40, label %25
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 20
-  %24 = load i16, ptr %23, align 4
-  %25 = and i16 %24, 1
-  %.not = icmp eq i16 %25, 0
-  br i1 %.not, label %41, label %26
+25:                                               ; preds = %21
+  %26 = add nsw i32 %1, -1
+  %27 = getelementptr inbounds i8, ptr %5, i64 23
+  %28 = lshr i32 %26, 3
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr i8, ptr %27, i64 %29
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = and i32 %26, 7
+  %34 = shl nuw nsw i32 1, %33
+  %35 = and i32 %34, %32
+  %.not.i = icmp eq i32 %35, 0
+  br label %40
 
-26:                                               ; preds = %22
-  %27 = add nsw i32 %1, -1
-  %28 = getelementptr inbounds i8, ptr %5, i64 23
-  %29 = lshr i32 %27, 3
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr i8, ptr %28, i64 %30
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = and i32 %27, 7
-  %35 = shl nuw nsw i32 1, %34
-  %36 = and i32 %35, %33
-  %.not.i = icmp eq i32 %36, 0
-  br label %41
-
-37:                                               ; preds = %20
+36:                                               ; preds = %19
   %switch = icmp ugt i32 %1, -7
-  br i1 %switch, label %41, label %38
+  br i1 %switch, label %40, label %37
 
-38:                                               ; preds = %37
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #11
+37:                                               ; preds = %36
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %38)
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 490, ptr noundef nonnull @__func__.heap_attisnull) #11
   unreachable
 
-41:                                               ; preds = %37, %22, %12, %26, %19
-  %.0 = phi i1 [ true, %19 ], [ %.not.i, %26 ], [ false, %12 ], [ false, %22 ], [ false, %37 ]
+40:                                               ; preds = %12, %36, %21, %11, %25
+  %.0 = phi i1 [ %.not.i, %25 ], [ true, %11 ], [ false, %21 ], [ false, %36 ], [ %not., %12 ]
   ret i1 %.0
 }
 
@@ -1033,7 +1031,7 @@ define dso_local i64 @nocachegetattr(ptr nocapture noundef readonly %0, i32 noun
   br i1 %exitcond195.not, label %._crit_edge, label %.lr.ph182, !llvm.loop !10
 
 .critedge.loopexit:                               ; preds = %.lr.ph182
-  %79 = trunc i64 %indvars.iv191 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv191 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.thread166
@@ -1094,7 +1092,7 @@ define dso_local i64 @nocachegetattr(ptr nocapture noundef readonly %0, i32 noun
   %110 = zext nneg i16 %93 to i32
   %111 = add i32 %108, %110
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %112 = trunc i64 %indvars.iv.next197 to i32
+  %112 = trunc nuw i64 %indvars.iv.next197 to i32
   %113 = icmp sgt i32 %71, %112
   br i1 %113, label %.lr.ph188, label %._crit_edge, !llvm.loop !11
 
@@ -1128,7 +1126,7 @@ define dso_local i64 @nocachegetattr(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not.i, label %234, label %131
 
 131:                                              ; preds = %122, %117
-  %132 = trunc i8 %.0135 to i1
+  %132 = trunc nuw i8 %.0135 to i1
   br i1 %132, label %133, label %.thread168
 
 133:                                              ; preds = %131
@@ -1320,7 +1318,7 @@ define dso_local i64 @nocachegetattr(ptr nocapture noundef readonly %0, i32 noun
 228:                                              ; preds = %221, %224, %190
   %229 = phi i64 [ %193, %190 ], [ %223, %221 ], [ %227, %224 ]
   %230 = trunc i64 %229 to i32
-  %231 = trunc i8 %.1 to i1
+  %231 = trunc nuw i8 %.1 to i1
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %228
@@ -1618,7 +1616,7 @@ define internal fastcc void @expand_tuple(ptr noundef %0, ptr nocapture noundef 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv.lcssa = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0153184.lcssa = phi i1 [ %32, %.lr.ph.preheader ], [ true, %.lr.ph ]
-  %42 = trunc i64 %indvars.iv.lcssa to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.lcssa to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -2299,7 +2297,7 @@ define dso_local void @heap_deform_tuple(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not, label %40, label %27
 
 27:                                               ; preds = %25
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = lshr i64 %indvars.iv, 3
   %30 = and i64 %29, 536870911
   %31 = getelementptr i8, ptr %11, i64 %30
@@ -2572,7 +2570,7 @@ fetch_att.exit:                                   ; preds = %103, %106, %109, %1
   %indvars.iv123 = phi i64 [ %24, %.lr.ph121.preheader ], [ %indvars.iv.next124, %.lr.ph121 ]
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %164 = getelementptr i8, ptr %3, i64 %indvars.iv123
-  %165 = trunc i64 %indvars.iv.next124 to i32
+  %165 = trunc nuw nsw i64 %indvars.iv.next124 to i32
   %166 = tail call i64 @getmissingattr(ptr noundef nonnull %1, i32 noundef %165, ptr noundef %164)
   %167 = getelementptr i64, ptr %2, i64 %indvars.iv123
   store i64 %166, ptr %167, align 8

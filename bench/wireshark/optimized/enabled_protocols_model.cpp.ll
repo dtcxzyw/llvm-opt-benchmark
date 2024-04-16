@@ -1800,12 +1800,12 @@ define noundef zeroext i1 @_ZNK26EnabledProtocolsProxyModel8lessThanERK11QModelI
   %14 = icmp ne i64 %9, 0
   %15 = icmp ne i64 %12, 0
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %16, label %_ZN7QStringD2Ev.exit20.thread
+  br i1 %or.cond, label %16, label %76
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
-  switch i32 %18, label %_ZN7QStringD2Ev.exit20.thread [
+  switch i32 %18, label %_ZN7QStringD2Ev.exit20 [
     i32 0, label %19
     i32 1, label %47
   ]
@@ -1949,16 +1949,13 @@ _ZN7QStringD2Ev.exit20.sink.split:                ; preds = %_ZN17QArrayDataPoin
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #21
   br label %_ZN7QStringD2Ev.exit20
 
-_ZN7QStringD2Ev.exit20:                           ; preds = %_ZN7QStringD2Ev.exit20.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29, %_ZN7QStringD2Ev.exit27, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18, %_ZN7QStringD2Ev.exit
-  %.0 = phi i32 [ %40, %_ZN7QStringD2Ev.exit ], [ %40, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18 ], [ %68, %_ZN7QStringD2Ev.exit27 ], [ %68, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ], [ %.0.ph, %_ZN7QStringD2Ev.exit20.sink.split ]
+_ZN7QStringD2Ev.exit20:                           ; preds = %_ZN7QStringD2Ev.exit20.sink.split, %16, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29, %_ZN7QStringD2Ev.exit27, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18, %_ZN7QStringD2Ev.exit
+  %.0 = phi i32 [ %40, %_ZN7QStringD2Ev.exit ], [ %40, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18 ], [ %68, %_ZN7QStringD2Ev.exit27 ], [ %68, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ], [ 0, %16 ], [ %.0.ph, %_ZN7QStringD2Ev.exit20.sink.split ]
   %75 = icmp slt i32 %.0, 0
-  br i1 %75, label %76, label %_ZN7QStringD2Ev.exit20.thread
-
-_ZN7QStringD2Ev.exit20.thread:                    ; preds = %16, %_ZN7QStringD2Ev.exit20, %3
   br label %76
 
-76:                                               ; preds = %_ZN7QStringD2Ev.exit20, %_ZN7QStringD2Ev.exit20.thread
-  %.012 = phi i1 [ false, %_ZN7QStringD2Ev.exit20.thread ], [ true, %_ZN7QStringD2Ev.exit20 ]
+76:                                               ; preds = %_ZN7QStringD2Ev.exit20, %3
+  %.012 = phi i1 [ false, %3 ], [ %75, %_ZN7QStringD2Ev.exit20 ]
   ret i1 %.012
 }
 

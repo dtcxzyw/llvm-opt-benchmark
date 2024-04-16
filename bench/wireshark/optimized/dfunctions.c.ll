@@ -794,25 +794,25 @@ define internal noundef zeroext i1 @df_func_max(ptr nocapture noundef readonly %
   br i1 %.not33.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
+  %7 = phi i32 [ %15, %14 ], [ %6, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
   %.125.i = phi ptr [ %.2.i, %14 ], [ %.02228.i, %.preheader.i ]
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %.125.i, null
-  br i1 %10, label %13, label %11
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr ptr, ptr %8, i64 %indvars.iv.i
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %.125.i, null
+  br i1 %11, label %14, label %12
 
-11:                                               ; preds = %.lr.ph.i
-  %12 = tail call zeroext i1 @fvalue_gt(ptr noundef %9, ptr noundef nonnull %.125.i) #4, !callees !10
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %11, %.lr.ph.i
+12:                                               ; preds = %.lr.ph.i
+  %13 = tail call zeroext i1 @fvalue_gt(ptr noundef %10, ptr noundef nonnull %.125.i) #4, !callees !10
+  %spec.select.i = select i1 %13, ptr %10, ptr %.125.i
+  %.pre.i = load i32, ptr %5, align 8
   br label %14
 
-14:                                               ; preds = %13, %11
-  %.2.i = phi ptr [ %9, %13 ], [ %.125.i, %11 ]
+14:                                               ; preds = %12, %.lr.ph.i
+  %15 = phi i32 [ %7, %.lr.ph.i ], [ %.pre.i, %12 ]
+  %.2.i = phi ptr [ %10, %.lr.ph.i ], [ %spec.select.i, %12 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = load i32, ptr %5, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp ult i64 %indvars.iv.next.i, %16
   br i1 %17, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
@@ -902,25 +902,25 @@ define internal noundef zeroext i1 @df_func_min(ptr nocapture noundef readonly %
   br i1 %.not33.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
+  %7 = phi i32 [ %15, %14 ], [ %6, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
   %.125.i = phi ptr [ %.2.i, %14 ], [ %.02228.i, %.preheader.i ]
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %.125.i, null
-  br i1 %10, label %13, label %11
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr ptr, ptr %8, i64 %indvars.iv.i
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %.125.i, null
+  br i1 %11, label %14, label %12
 
-11:                                               ; preds = %.lr.ph.i
-  %12 = tail call zeroext i1 @fvalue_lt(ptr noundef %9, ptr noundef nonnull %.125.i) #4, !callees !10
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %11, %.lr.ph.i
+12:                                               ; preds = %.lr.ph.i
+  %13 = tail call zeroext i1 @fvalue_lt(ptr noundef %10, ptr noundef nonnull %.125.i) #4, !callees !10
+  %spec.select.i = select i1 %13, ptr %10, ptr %.125.i
+  %.pre.i = load i32, ptr %5, align 8
   br label %14
 
-14:                                               ; preds = %13, %11
-  %.2.i = phi ptr [ %9, %13 ], [ %.125.i, %11 ]
+14:                                               ; preds = %12, %.lr.ph.i
+  %15 = phi i32 [ %7, %.lr.ph.i ], [ %.pre.i, %12 ]
+  %.2.i = phi ptr [ %10, %.lr.ph.i ], [ %spec.select.i, %12 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = load i32, ptr %5, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp ult i64 %indvars.iv.next.i, %16
   br i1 %17, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11

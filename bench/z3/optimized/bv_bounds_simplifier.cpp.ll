@@ -1585,7 +1585,7 @@ while.end:                                        ; preds = %land.rhs.i.i.i, %wh
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.end
-  br i1 %call3, label %if.then, label %if.end44
+  br i1 %call3, label %if.then, label %cleanup45
 
 if.then:                                          ; preds = %invoke.cont
   br i1 %sign.addr.0.in.lcssa, label %land.lhs.true, label %if.end
@@ -1854,7 +1854,8 @@ terminate.lpad.i1.i.i.i:                          ; preds = %.noexc.i2.i.i.i, %_
   unreachable
 
 _ZN2bv8intervalD2Ev.exit:                         ; preds = %.noexc.i2.i.i.i
-  br i1 %cond, label %if.end44, label %cleanup45
+  %spec.select = or i1 %cond, %retval.0
+  br label %cleanup45
 
 lpad25:                                           ; preds = %invoke.cont24
   %41 = landingpad { ptr, i32 }
@@ -1959,7 +1960,7 @@ _ZN8rationalD2Ev.exit.i.i.i63:                    ; preds = %.noexc.i.i.i.i61
 .noexc.i2.i.i.i65:                                ; preds = %_ZN8rationalD2Ev.exit.i.i.i63
   %m_den.i.i3.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp34, i64 48
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i3.i.i.i66)
-          to label %if.end44 unwind label %terminate.lpad.i1.i.i.i64
+          to label %cleanup45 unwind label %terminate.lpad.i1.i.i.i64
 
 terminate.lpad.i1.i.i.i64:                        ; preds = %.noexc.i2.i.i.i65, %_ZN8rationalD2Ev.exit.i.i.i63
   %54 = landingpad { ptr, i32 }
@@ -1984,11 +1985,8 @@ ehcleanup42:                                      ; preds = %lpad38, %lpad36
   call void @_ZN2bv8intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %ref.tmp34) #18
   br label %ehcleanup46
 
-if.end44:                                         ; preds = %.noexc.i2.i.i.i65, %_ZN2bv8intervalD2Ev.exit, %invoke.cont
-  br label %cleanup45
-
-cleanup45:                                        ; preds = %_ZNK2bv12interval_tplImNS_14iinterval_baseEE7is_fullEv.exit.i.i, %invoke.cont5, %_ZN2bv8intervalD2Ev.exit, %if.end44
-  %retval.1 = phi i1 [ true, %if.end44 ], [ %retval.0, %_ZN2bv8intervalD2Ev.exit ], [ false, %invoke.cont5 ], [ false, %_ZNK2bv12interval_tplImNS_14iinterval_baseEE7is_fullEv.exit.i.i ]
+cleanup45:                                        ; preds = %_ZNK2bv12interval_tplImNS_14iinterval_baseEE7is_fullEv.exit.i.i, %.noexc.i2.i.i.i65, %_ZN2bv8intervalD2Ev.exit, %invoke.cont, %invoke.cont5
+  %retval.1 = phi i1 [ false, %invoke.cont5 ], [ true, %invoke.cont ], [ %spec.select, %_ZN2bv8intervalD2Ev.exit ], [ true, %.noexc.i2.i.i.i65 ], [ false, %_ZNK2bv12interval_tplImNS_14iinterval_baseEE7is_fullEv.exit.i.i ]
   %h.i.i.i69 = getelementptr inbounds i8, ptr %b, i64 64
   %58 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(16) %h.i.i.i69)
@@ -8600,7 +8598,7 @@ invoke.cont26:                                    ; preds = %while.end
   br i1 %call27, label %if.end29, label %cleanup
 
 if.end29:                                         ; preds = %invoke.cont26
-  %tobool30 = trunc i8 %sign.0.lcssa to i1
+  %tobool30 = trunc nuw i8 %sign.0.lcssa to i1
   br i1 %tobool30, label %land.lhs.true31, label %if.end44
 
 land.lhs.true31:                                  ; preds = %if.end29
@@ -8989,7 +8987,7 @@ if.end108thread-pre-split:                        ; preds = %if.then78.invoke, %
 
 if.end108:                                        ; preds = %if.end108thread-pre-split, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit91
   %.pre195 = phi ptr [ %.pre195.pr, %if.end108thread-pre-split ], [ %49, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit91 ]
-  %tobool109 = trunc i8 %sign.1 to i1
+  %tobool109 = trunc nuw i8 %sign.1 to i1
   br i1 %tobool109, label %land.lhs.true110, label %if.end121
 
 land.lhs.true110:                                 ; preds = %if.end108
@@ -9301,7 +9299,7 @@ cond.true:                                        ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cond.true
-  %conv.i.i.i.i = trunc i64 %1 to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %1 to i32
   store i32 %conv.i.i.i.i, ptr %agg.result, align 8
   store i8 %bf.clear3.i.i.i, ptr %m_kind.i.i.i, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit
@@ -10000,7 +9998,7 @@ cond.true:                                        ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cond.true
-  %conv.i.i.i.i = trunc i64 %1 to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %1 to i32
   store i32 %conv.i.i.i.i, ptr %agg.result, align 8
   store i8 %bf.clear3.i.i.i, ptr %m_kind.i.i.i, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit

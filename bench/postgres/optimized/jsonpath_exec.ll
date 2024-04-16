@@ -676,7 +676,7 @@ JsonbInitBinary.exit:                             ; preds = %20, %31, %34
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %7, i64 56
   %.lobit = lshr i32 %43, 31
-  %45 = trunc i32 %.lobit to i8
+  %45 = trunc nuw nsw i32 %.lobit to i8
   store i8 %45, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %7, i64 57
   store i8 %45, ptr %46, align 1
@@ -717,7 +717,7 @@ countVariablesFromJsonb.exit:                     ; preds = %40, %51
   store i8 %11, ptr %63, align 2
   %64 = getelementptr inbounds i8, ptr %7, i64 59
   store i8 %12, ptr %64, align 1
-  %65 = trunc i32 %.lobit to i1
+  %65 = trunc nuw i32 %.lobit to i1
   %66 = icmp ne ptr %4, null
   %or.cond = or i1 %66, %65
   br i1 %or.cond, label %74, label %67
@@ -5861,15 +5861,15 @@ compareItems.exit:                                ; preds = %11, %14, %17, %17, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @executeStartsWith(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #6 {
+define internal i32 @executeStartsWith(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #6 {
   %5 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %5, 1
-  br i1 %.not, label %6, label %20
+  br i1 %.not, label %6, label %19
 
 6:                                                ; preds = %4
   %7 = load i32, ptr %2, align 8
   %.not15 = icmp eq i32 %7, 1
-  br i1 %.not15, label %8, label %20
+  br i1 %.not15, label %8, label %19
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5887,13 +5887,11 @@ define internal noundef i32 @executeStartsWith(ptr nocapture readnone %0, ptr no
   %18 = sext i32 %12 to i64
   %bcmp = tail call i32 @bcmp(ptr %15, ptr %17, i64 %18)
   %.not12 = icmp eq i32 %bcmp, 0
-  br i1 %.not12, label %20, label %19
+  %spec.select = zext i1 %.not12 to i32
+  br label %19
 
-19:                                               ; preds = %13, %8
-  br label %20
-
-20:                                               ; preds = %13, %6, %4, %19
-  %.0 = phi i32 [ 0, %19 ], [ 2, %4 ], [ 2, %6 ], [ 1, %13 ]
+19:                                               ; preds = %13, %8, %6, %4
+  %.0 = phi i32 [ 2, %4 ], [ 2, %6 ], [ 0, %8 ], [ %spec.select, %13 ]
   ret i32 %.0
 }
 

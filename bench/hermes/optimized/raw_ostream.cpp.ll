@@ -331,7 +331,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = load i8, ptr %arrayidx, align 1, !noalias !4
   store i8 %0, ptr %Vals.i.i, align 8, !alias.scope !4
   %call = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %2 = and i32 %1, 11
   %3 = icmp eq i32 %2, 3
   br i1 %3, label %if.then, label %switch.early.test
@@ -426,7 +426,7 @@ if.else.i:                                        ; preds = %while.cond
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i._ZN4llvh15SmallVectorImplIcE6resizeEm.exit_crit_edge
 
 if.else.i._ZN4llvh15SmallVectorImplIcE6resizeEm.exit_crit_edge: ; preds = %if.else.i
-  %.pre = trunc i64 %NextBufferSize.1 to i32
+  %.pre = trunc nuw i64 %NextBufferSize.1 to i32
   br label %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit
 
 if.then6.i:                                       ; preds = %if.else.i
@@ -454,7 +454,7 @@ for.body.preheader.i:                             ; preds = %if.end.i
   br label %if.end15.sink.split.i
 
 if.end15.sink.split.i:                            ; preds = %for.body.preheader.i, %if.end.i, %while.cond
-  %conv.i18.i = trunc i64 %NextBufferSize.1 to i32
+  %conv.i18.i = trunc nuw i64 %NextBufferSize.1 to i32
   store i32 %conv.i18.i, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit
 
@@ -2550,14 +2550,27 @@ if.then:                                          ; preds = %entry
   %HexPrefix = getelementptr inbounds i8, ptr %FN, i64 22
   %2 = load i8, ptr %HexPrefix, align 2
   %tobool3 = trunc i8 %2 to i1
-  %spec.select = select i1 %tobool3, i32 2, i32 0
-  %spec.select17 = select i1 %tobool3, i32 3, i32 1
-  %Style.0 = select i1 %tobool2, i32 %spec.select, i32 %spec.select17
-  %3 = load i64, ptr %FN, align 8
+  br i1 %tobool2, label %land.lhs.true, label %land.lhs.true14
+
+land.lhs.true:                                    ; preds = %if.then
+  br i1 %tobool3, label %if.end20, label %land.lhs.true7
+
+land.lhs.true7:                                   ; preds = %land.lhs.true
+  %3 = and i8 %2, 1
+  %spec.select17 = zext nneg i8 %3 to i32
+  br label %if.end20
+
+land.lhs.true14:                                  ; preds = %if.then
+  %spec.select = select i1 %tobool3, i32 3, i32 1
+  br label %if.end20
+
+if.end20:                                         ; preds = %land.lhs.true7, %land.lhs.true14, %land.lhs.true
+  %Style.0 = phi i32 [ 2, %land.lhs.true ], [ %spec.select, %land.lhs.true14 ], [ %spec.select17, %land.lhs.true7 ]
+  %4 = load i64, ptr %FN, align 8
   %Width = getelementptr inbounds i8, ptr %FN, i64 16
-  %4 = load i32, ptr %Width, align 8
-  %conv = zext i32 %4 to i64
-  tail call void @_ZN4llvh9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(36) %this, i64 noundef %3, i32 noundef %Style.0, i64 %conv, i8 1) #26
+  %5 = load i32, ptr %Width, align 8
+  %conv = zext i32 %5 to i64
+  tail call void @_ZN4llvh9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(36) %this, i64 noundef %4, i32 noundef %Style.0, i64 %conv, i8 1) #26
   br label %if.end32
 
 if.else21:                                        ; preds = %entry
@@ -2573,16 +2586,16 @@ if.else21:                                        ; preds = %entry
   store ptr %Buffer, ptr %OS.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %OutBufStart.i.i.i, i8 0, i64 28, i1 false)
   %DecValue = getelementptr inbounds i8, ptr %FN, i64 8
-  %5 = load i64, ptr %DecValue, align 8
-  call void @_ZN4llvh13write_integerERNS_11raw_ostreamElmNS_12IntegerStyleE(ptr noundef nonnull align 8 dereferenceable(36) %Stream, i64 noundef %5, i64 noundef 0, i32 noundef 0) #26
-  %6 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %6 = load i64, ptr %DecValue, align 8
+  call void @_ZN4llvh13write_integerERNS_11raw_ostreamElmNS_12IntegerStyleE(ptr noundef nonnull align 8 dereferenceable(36) %Stream, i64 noundef %6, i64 noundef 0, i32 noundef 0) #26
+  %7 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %Width22 = getelementptr inbounds i8, ptr %FN, i64 16
-  %7 = load i32, ptr %Width22, align 8
-  %cmp = icmp ult i32 %6, %7
+  %8 = load i32, ptr %Width22, align 8
+  %cmp = icmp ult i32 %7, %8
   br i1 %cmp, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %if.else21
-  %conv28 = sub i32 %7, %6
+  %conv28 = sub i32 %8, %7
   %cmp.i.i = icmp ult i32 %conv28, 80
   br i1 %cmp.i.i, label %if.then.i.i, label %while.body.i.i
 
@@ -2601,35 +2614,35 @@ while.body.i.i:                                   ; preds = %if.then24, %while.b
   br i1 %tobool.not.i.i, label %if.end30, label %while.body.i.i, !llvm.loop !10
 
 if.end30:                                         ; preds = %while.body.i.i, %if.then.i.i, %if.else21
-  %8 = load ptr, ptr %Buffer, align 8
-  %9 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i.i14 = zext i32 %9 to i64
-  %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %8, i64 noundef %conv.i.i14)
+  %9 = load ptr, ptr %Buffer, align 8
+  %10 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i.i14 = zext i32 %10 to i64
+  %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %9, i64 noundef %conv.i.i14)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i64 0, i32 0, i64 2), ptr %Stream, align 8
   %BufferMode.i.i.i = getelementptr inbounds i8, ptr %Stream, i64 32
-  %10 = load i32, ptr %BufferMode.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i32 %10, 1
+  %11 = load i32, ptr %BufferMode.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i32 %11, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh19raw_svector_ostreamD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.end30
-  %11 = load ptr, ptr %OutBufStart.i.i.i, align 8
-  %isnull.i.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %OutBufStart.i.i.i, align 8
+  %isnull.i.i.i = icmp eq ptr %12, null
   br i1 %isnull.i.i.i, label %_ZN4llvh19raw_svector_ostreamD2Ev.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %11) #24
+  call void @_ZdaPv(ptr noundef nonnull %12) #24
   br label %_ZN4llvh19raw_svector_ostreamD2Ev.exit
 
 _ZN4llvh19raw_svector_ostreamD2Ev.exit:           ; preds = %if.end30, %if.then.i.i.i, %delete.notnull.i.i.i
-  %12 = load ptr, ptr %Buffer, align 8
-  %cmp.i.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i
+  %13 = load ptr, ptr %Buffer, align 8
+  %cmp.i.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.end32, label %if.then.i.i.i16
 
 if.then.i.i.i16:                                  ; preds = %_ZN4llvh19raw_svector_ostreamD2Ev.exit
-  call void @free(ptr noundef %12) #26
+  call void @free(ptr noundef %13) #26
   br label %if.end32
 
-if.end32:                                         ; preds = %if.then.i.i.i16, %_ZN4llvh19raw_svector_ostreamD2Ev.exit, %if.then
+if.end32:                                         ; preds = %if.then.i.i.i16, %_ZN4llvh19raw_svector_ostreamD2Ev.exit, %if.end20
   ret ptr %this
 }
 

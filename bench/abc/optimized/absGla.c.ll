@@ -2641,7 +2641,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %39
   %indvars.iv144 = phi i64 [ 0, %.lr.ph125.preheader ], [ %indvars.iv.next145, %39 ]
   %.0124 = phi i32 [ 0, %.lr.ph125.preheader ], [ %.1, %39 ]
-  %28 = trunc i64 %indvars.iv144 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv144 to i32
   %29 = shl nuw i32 1, %28
   %30 = lshr i32 %25, %29
   %31 = xor i32 %30, %25
@@ -2679,7 +2679,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph30.i
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next36.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph30.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %43 = trunc i64 %indvars.iv35.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv35.i to i32
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph.i
@@ -2697,7 +2697,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
   %54 = getelementptr inbounds i32, ptr %.val25.i, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp slt i32 %49, %55
-  %57 = trunc i64 %indvars.iv32.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv32.i to i32
   %spec.select.i = select i1 %56, i32 %57, i32 %.02327.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count.i
@@ -5386,7 +5386,7 @@ define void @Ga2_ManAddToAbs(ptr nocapture noundef %0, ptr nocapture noundef rea
   br i1 %102, label %.lr.ph91.preheader, label %.critedge6
 
 .lr.ph91.preheader:                               ; preds = %96
-  %103 = trunc i64 %indvars.iv106 to i32
+  %103 = trunc nuw nsw i64 %indvars.iv106 to i32
   br label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %106
@@ -6591,7 +6591,7 @@ Vec_IntPush.exit50:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %102, ptr %3, align 4
   %103 = sext i32 %78 to i64
   %104 = getelementptr inbounds i32, ptr %101, i64 %103
-  %105 = trunc i64 %indvars.iv to i32
+  %105 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %105, ptr %104, align 4
   %.pre = load i32, ptr %60, align 8
   br label %106
@@ -6838,7 +6838,7 @@ Ga2_ObjSatValue.exit:                             ; preds = %64
 74:                                               ; preds = %Ga2_ObjSatValue.exit
   %75 = load i32, ptr %25, align 4
   %76 = load i32, ptr %26, align 4
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw nsw i64 %indvars.iv to i32
   %78 = mul nsw i32 %76, %77
   %79 = add nsw i32 %78, %75
   %.val35 = load i64, ptr %35, align 4
@@ -6938,7 +6938,7 @@ define void @Ga2_ManRefinePrint(ptr nocapture noundef readonly %0, ptr nocapture
   %33 = getelementptr i32, ptr %.val6.val.i, i64 %32
   %34 = getelementptr i8, ptr %33, i64 4
   store ptr %34, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i64 0, i32 2), align 8
-  %35 = trunc i64 %indvars.iv94 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv94 to i32
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %35)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr i8, ptr %37, i64 32
@@ -6966,142 +6966,134 @@ Gia_ObjIsRo.exit:                                 ; preds = %12
   %.val3.val.i = load i32, ptr %51, align 4
   %52 = sub nsw i32 %.val3.val.i, %.val.i50
   %.not80 = icmp slt i32 %48, %52
-  br i1 %.not80, label %Gia_ObjIsRo.exit.thread, label %53
+  %spec.select = select i1 %.not80, ptr @.str.29, ptr @.str.28
+  br label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.exit.thread:                          ; preds = %12, %Gia_ObjIsRo.exit
-  br label %53
-
-53:                                               ; preds = %Gia_ObjIsRo.exit, %Gia_ObjIsRo.exit.thread
-  %.str.29.sink = phi ptr [ @.str.29, %Gia_ObjIsRo.exit.thread ], [ @.str.28, %Gia_ObjIsRo.exit ]
-  %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.29.sink)
+Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit, %12
+  %.str.29.sink = phi ptr [ @.str.29, %12 ], [ %spec.select, %Gia_ObjIsRo.exit ]
+  %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.29.sink)
   %.val6.i51 = load ptr, ptr %0, align 8
   %.val7.i = load ptr, ptr %6, align 8
-  %55 = getelementptr i8, ptr %.val6.i51, i64 32
-  %.val6.val.i52 = load ptr, ptr %55, align 8
-  %56 = getelementptr i8, ptr %.val7.i, i64 8
-  %.val7.val.i = load ptr, ptr %56, align 8
-  %57 = ptrtoint ptr %.val6.val.i52 to i64
-  %58 = sub i64 %19, %57
-  %59 = sdiv exact i64 %58, 12
-  %sext.i.i = shl i64 %59, 32
-  %60 = ashr exact i64 %sext.i.i, 32
-  %61 = getelementptr inbounds i32, ptr %.val7.val.i, i64 %60
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp sgt i32 %62, -1
+  %54 = getelementptr i8, ptr %.val6.i51, i64 32
+  %.val6.val.i52 = load ptr, ptr %54, align 8
+  %55 = getelementptr i8, ptr %.val7.i, i64 8
+  %.val7.val.i = load ptr, ptr %55, align 8
+  %56 = ptrtoint ptr %.val6.val.i52 to i64
+  %57 = sub i64 %19, %56
+  %58 = sdiv exact i64 %57, 12
+  %sext.i.i = shl i64 %58, 32
+  %59 = ashr exact i64 %sext.i.i, 32
+  %60 = getelementptr inbounds i32, ptr %.val7.val.i, i64 %59
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp sgt i32 %61, -1
   %.pre = load i32, ptr %7, align 4
-  %.not81 = icmp slt i32 %62, %.pre
-  %or.cond = select i1 %63, i1 %.not81, i1 false
-  br i1 %or.cond, label %65, label %Ga2_ObjIsAbs0.exit.thread
+  %.not81 = icmp slt i32 %61, %.pre
+  %or.cond = select i1 %62, i1 %.not81, i1 false
+  br i1 %or.cond, label %Ga2_ObjIsLeaf0.exit.thread, label %Ga2_ObjIsAbs0.exit.thread
 
-Ga2_ObjIsAbs0.exit.thread:                        ; preds = %53
-  %.not.i = icmp slt i32 %62, %.pre
+Ga2_ObjIsAbs0.exit.thread:                        ; preds = %Gia_ObjIsRo.exit.thread
+  %.not.i = icmp slt i32 %61, %.pre
   br i1 %.not.i, label %Ga2_ObjIsLeaf0.exit.thread, label %Ga2_ObjIsLeaf0.exit
 
 Ga2_ObjIsLeaf0.exit:                              ; preds = %Ga2_ObjIsAbs0.exit.thread
-  %64 = load i32, ptr %8, align 8
-  %.not82 = icmp slt i32 %62, %64
-  br i1 %.not82, label %65, label %Ga2_ObjIsLeaf0.exit.thread
+  %63 = load i32, ptr %8, align 8
+  %.not82 = icmp slt i32 %61, %63
+  %spec.select100 = select i1 %.not82, ptr @.str.31, ptr @.str.32
+  br label %Ga2_ObjIsLeaf0.exit.thread
 
-Ga2_ObjIsLeaf0.exit.thread:                       ; preds = %Ga2_ObjIsAbs0.exit.thread, %Ga2_ObjIsLeaf0.exit
-  br label %65
-
-65:                                               ; preds = %Ga2_ObjIsLeaf0.exit, %53, %Ga2_ObjIsLeaf0.exit.thread
-  %.str.31.sink = phi ptr [ @.str.32, %Ga2_ObjIsLeaf0.exit.thread ], [ @.str.30, %53 ], [ @.str.31, %Ga2_ObjIsLeaf0.exit ]
-  %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.31.sink)
-  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33)
+Ga2_ObjIsLeaf0.exit.thread:                       ; preds = %Ga2_ObjIsLeaf0.exit, %Ga2_ObjIsAbs0.exit.thread, %Gia_ObjIsRo.exit.thread
+  %.str.31.sink = phi ptr [ @.str.30, %Gia_ObjIsRo.exit.thread ], [ @.str.32, %Ga2_ObjIsAbs0.exit.thread ], [ %spec.select100, %Ga2_ObjIsLeaf0.exit ]
+  %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.31.sink)
+  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33)
   %Ga2_ObjLeaves.v.val86 = load i32, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i64 0, i32 1), align 4
-  %68 = icmp sgt i32 %Ga2_ObjLeaves.v.val86, 0
-  br i1 %68, label %.lr.ph, label %.critedge2
+  %66 = icmp sgt i32 %Ga2_ObjLeaves.v.val86, 0
+  br i1 %66, label %.lr.ph, label %.critedge2
 
-.lr.ph:                                           ; preds = %65, %99
-  %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %65 ]
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr i8, ptr %69, i64 32
-  %.val44 = load ptr, ptr %70, align 8
+.lr.ph:                                           ; preds = %Ga2_ObjIsLeaf0.exit.thread, %Ga2_ObjIsLeaf0.exit73.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Ga2_ObjIsLeaf0.exit73.thread ], [ 0, %Ga2_ObjIsLeaf0.exit.thread ]
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr i8, ptr %67, i64 32
+  %.val44 = load ptr, ptr %68, align 8
   %.not38 = icmp eq ptr %.val44, null
-  br i1 %.not38, label %.critedge2, label %71
+  br i1 %.not38, label %.critedge2, label %69
 
-71:                                               ; preds = %.lr.ph
+69:                                               ; preds = %.lr.ph
   %Ga2_ObjLeaves.v.val42 = load ptr, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i64 0, i32 2), align 8
-  %72 = getelementptr inbounds i32, ptr %Ga2_ObjLeaves.v.val42, i64 %indvars.iv
-  %73 = load i32, ptr %72, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val44, i64 %74
-  %76 = ptrtoint ptr %75 to i64
-  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %73)
-  %.val48 = load i64, ptr %75, align 4
-  %78 = and i64 %.val48, 2684354559
-  %narrow.i.not.i56 = icmp eq i64 %78, 2684354559
+  %70 = getelementptr inbounds i32, ptr %Ga2_ObjLeaves.v.val42, i64 %indvars.iv
+  %71 = load i32, ptr %70, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val44, i64 %72
+  %74 = ptrtoint ptr %73 to i64
+  %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %71)
+  %.val48 = load i64, ptr %73, align 4
+  %76 = and i64 %.val48, 2684354559
+  %narrow.i.not.i56 = icmp eq i64 %76, 2684354559
   br i1 %narrow.i.not.i56, label %Gia_ObjIsRo.exit60, label %Gia_ObjIsRo.exit60.thread
 
-Gia_ObjIsRo.exit60:                               ; preds = %71
-  %79 = load ptr, ptr %0, align 8
-  %80 = lshr i64 %.val48, 32
-  %81 = trunc nuw i64 %80 to i32
-  %82 = and i32 %81, 536870911
-  %83 = getelementptr i8, ptr %79, i64 16
-  %.val.i57 = load i32, ptr %83, align 8
-  %84 = getelementptr i8, ptr %79, i64 64
-  %.val3.i58 = load ptr, ptr %84, align 8
-  %85 = getelementptr i8, ptr %.val3.i58, i64 4
-  %.val3.val.i59 = load i32, ptr %85, align 4
-  %86 = sub nsw i32 %.val3.val.i59, %.val.i57
-  %.not83 = icmp slt i32 %82, %86
-  br i1 %.not83, label %Gia_ObjIsRo.exit60.thread, label %87
+Gia_ObjIsRo.exit60:                               ; preds = %69
+  %77 = load ptr, ptr %0, align 8
+  %78 = lshr i64 %.val48, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = and i32 %79, 536870911
+  %81 = getelementptr i8, ptr %77, i64 16
+  %.val.i57 = load i32, ptr %81, align 8
+  %82 = getelementptr i8, ptr %77, i64 64
+  %.val3.i58 = load ptr, ptr %82, align 8
+  %83 = getelementptr i8, ptr %.val3.i58, i64 4
+  %.val3.val.i59 = load i32, ptr %83, align 4
+  %84 = sub nsw i32 %.val3.val.i59, %.val.i57
+  %.not83 = icmp slt i32 %80, %84
+  %spec.select101 = select i1 %.not83, ptr @.str.29, ptr @.str.28
+  br label %Gia_ObjIsRo.exit60.thread
 
-Gia_ObjIsRo.exit60.thread:                        ; preds = %71, %Gia_ObjIsRo.exit60
-  br label %87
-
-87:                                               ; preds = %Gia_ObjIsRo.exit60, %Gia_ObjIsRo.exit60.thread
-  %.str.29.sink98 = phi ptr [ @.str.29, %Gia_ObjIsRo.exit60.thread ], [ @.str.28, %Gia_ObjIsRo.exit60 ]
-  %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.29.sink98)
+Gia_ObjIsRo.exit60.thread:                        ; preds = %Gia_ObjIsRo.exit60, %69
+  %.str.29.sink98 = phi ptr [ @.str.29, %69 ], [ %spec.select101, %Gia_ObjIsRo.exit60 ]
+  %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.29.sink98)
   %.val6.i61 = load ptr, ptr %0, align 8
   %.val7.i62 = load ptr, ptr %6, align 8
-  %89 = getelementptr i8, ptr %.val6.i61, i64 32
-  %.val6.val.i63 = load ptr, ptr %89, align 8
-  %90 = getelementptr i8, ptr %.val7.i62, i64 8
-  %.val7.val.i64 = load ptr, ptr %90, align 8
-  %91 = ptrtoint ptr %.val6.val.i63 to i64
-  %92 = sub i64 %76, %91
-  %93 = sdiv exact i64 %92, 12
-  %sext.i.i65 = shl i64 %93, 32
-  %94 = ashr exact i64 %sext.i.i65, 32
-  %95 = getelementptr inbounds i32, ptr %.val7.val.i64, i64 %94
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp sgt i32 %96, -1
+  %86 = getelementptr i8, ptr %.val6.i61, i64 32
+  %.val6.val.i63 = load ptr, ptr %86, align 8
+  %87 = getelementptr i8, ptr %.val7.i62, i64 8
+  %.val7.val.i64 = load ptr, ptr %87, align 8
+  %88 = ptrtoint ptr %.val6.val.i63 to i64
+  %89 = sub i64 %74, %88
+  %90 = sdiv exact i64 %89, 12
+  %sext.i.i65 = shl i64 %90, 32
+  %91 = ashr exact i64 %sext.i.i65, 32
+  %92 = getelementptr inbounds i32, ptr %.val7.val.i64, i64 %91
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp sgt i32 %93, -1
   %.pre97 = load i32, ptr %7, align 4
-  %.not84 = icmp slt i32 %96, %.pre97
-  %or.cond99 = select i1 %97, i1 %.not84, i1 false
-  br i1 %or.cond99, label %99, label %Ga2_ObjIsAbs0.exit66.thread
+  %.not84 = icmp slt i32 %93, %.pre97
+  %or.cond99 = select i1 %94, i1 %.not84, i1 false
+  br i1 %or.cond99, label %Ga2_ObjIsLeaf0.exit73.thread, label %Ga2_ObjIsAbs0.exit66.thread
 
-Ga2_ObjIsAbs0.exit66.thread:                      ; preds = %87
-  %.not.i72 = icmp slt i32 %96, %.pre97
+Ga2_ObjIsAbs0.exit66.thread:                      ; preds = %Gia_ObjIsRo.exit60.thread
+  %.not.i72 = icmp slt i32 %93, %.pre97
   br i1 %.not.i72, label %Ga2_ObjIsLeaf0.exit73.thread, label %Ga2_ObjIsLeaf0.exit73
 
 Ga2_ObjIsLeaf0.exit73:                            ; preds = %Ga2_ObjIsAbs0.exit66.thread
-  %98 = load i32, ptr %8, align 8
-  %.not85 = icmp slt i32 %96, %98
-  br i1 %.not85, label %99, label %Ga2_ObjIsLeaf0.exit73.thread
+  %95 = load i32, ptr %8, align 8
+  %.not85 = icmp slt i32 %93, %95
+  %spec.select102 = select i1 %.not85, ptr @.str.31, ptr @.str.32
+  br label %Ga2_ObjIsLeaf0.exit73.thread
 
-Ga2_ObjIsLeaf0.exit73.thread:                     ; preds = %Ga2_ObjIsAbs0.exit66.thread, %Ga2_ObjIsLeaf0.exit73
-  br label %99
-
-99:                                               ; preds = %Ga2_ObjIsLeaf0.exit73, %87, %Ga2_ObjIsLeaf0.exit73.thread
-  %.str.30.sink = phi ptr [ @.str.32, %Ga2_ObjIsLeaf0.exit73.thread ], [ @.str.30, %87 ], [ @.str.31, %Ga2_ObjIsLeaf0.exit73 ]
-  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.30.sink)
+Ga2_ObjIsLeaf0.exit73.thread:                     ; preds = %Ga2_ObjIsLeaf0.exit73, %Ga2_ObjIsAbs0.exit66.thread, %Gia_ObjIsRo.exit60.thread
+  %.str.30.sink = phi ptr [ @.str.30, %Gia_ObjIsRo.exit60.thread ], [ @.str.32, %Ga2_ObjIsAbs0.exit66.thread ], [ %spec.select102, %Ga2_ObjIsLeaf0.exit73 ]
+  %96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.30.sink)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %Ga2_ObjLeaves.v.val = load i32, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i64 0, i32 1), align 4
-  %101 = sext i32 %Ga2_ObjLeaves.v.val to i64
-  %102 = icmp slt i64 %indvars.iv.next, %101
-  br i1 %102, label %.lr.ph, label %.critedge2, !llvm.loop !58
+  %97 = sext i32 %Ga2_ObjLeaves.v.val to i64
+  %98 = icmp slt i64 %indvars.iv.next, %97
+  br i1 %98, label %.lr.ph, label %.critedge2, !llvm.loop !58
 
-.critedge2:                                       ; preds = %.lr.ph, %99, %65
+.critedge2:                                       ; preds = %.lr.ph, %Ga2_ObjIsLeaf0.exit73.thread, %Ga2_ObjIsLeaf0.exit.thread
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %.val = load i32, ptr %3, align 4
-  %103 = sext i32 %.val to i64
-  %104 = icmp slt i64 %indvars.iv.next95, %103
-  br i1 %104, label %9, label %.critedge, !llvm.loop !59
+  %99 = sext i32 %.val to i64
+  %100 = icmp slt i64 %indvars.iv.next95, %99
+  br i1 %100, label %9, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %9, %.critedge2, %2
   ret void
@@ -7461,7 +7453,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph66:                                         ; preds = %.critedge2, %.preheader.preheader
   %indvars.iv75 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next76, %.critedge2 ]
-  %85 = trunc i64 %indvars.iv75 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv75 to i32
   %86 = mul nsw i32 %.val46, %85
   br label %87
 
@@ -7515,7 +7507,7 @@ Ga2_ObjSatValue.exit:                             ; preds = %105
   br i1 %.not43, label %Ga2_ObjSatValue.exit.thread, label %115
 
 115:                                              ; preds = %Ga2_ObjSatValue.exit
-  %116 = trunc i64 %indvars.iv72 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv72 to i32
   %117 = add nsw i32 %86, %116
   %118 = and i32 %117, 31
   %119 = shl nuw i32 1, %118
@@ -8925,7 +8917,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %211
   %.val463 = load i32, ptr %262, align 4
   %263 = load ptr, ptr %103, align 8
   %264 = getelementptr inbounds i8, ptr %263, i64 120
-  %265 = trunc i64 %indvars.iv783 to i32
+  %265 = trunc nuw nsw i64 %indvars.iv783 to i32
   store i32 %265, ptr %264, align 8
   %266 = load ptr, ptr %221, align 8
   %267 = getelementptr i8, ptr %266, i64 4
@@ -9567,7 +9559,7 @@ Vec_WrdAlloc.exit.i:                              ; preds = %588, %572
   br i1 %601, label %.lr.ph.i546, label %.preheader.i
 
 .preheader.loopexit.i:                            ; preds = %Vec_WrdPush.exit.i
-  %602 = trunc i64 %indvars.iv.next.i548 to i32
+  %602 = trunc nuw nsw i64 %indvars.iv.next.i548 to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %596
@@ -10473,7 +10465,7 @@ Vec_IntFreeP.exit:                                ; preds = %960, %966, %.thread
   %indvars.iv.next784 = add nuw nsw i64 %indvars.iv783, 1
   %1035 = load i32, ptr %1, align 8
   %.not400 = icmp eq i32 %1035, 0
-  %1036 = trunc i64 %indvars.iv.next784 to i32
+  %1036 = trunc nuw i64 %indvars.iv.next784 to i32
   %1037 = icmp sgt i32 %1035, %1036
   %or.cond448 = select i1 %.not400, i1 true, i1 %1037
   br i1 %or.cond448, label %.critedge6, label %.loopexit660, !llvm.loop !76

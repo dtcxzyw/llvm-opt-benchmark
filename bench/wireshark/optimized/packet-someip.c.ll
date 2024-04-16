@@ -5581,7 +5581,7 @@ define internal noundef zeroext i1 @update_someip_parameter_string_list(ptr noca
   br label %switch.lookup
 
 switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc i32 %15 to i8
+  %switch.maskindex = trunc nuw i32 %15 to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %17
@@ -7887,7 +7887,7 @@ dissect_someip_payload_array_dim_length.exit.thread: ; preds = %287, %284
   br label %dissect_someip_payload_array_dim_length.exit.thread126
 
 dissect_someip_payload_array_dim_length.exit:     ; preds = %.thread.i78
-  %292 = trunc i64 %282 to i32
+  %292 = trunc nuw i64 %282 to i32
   %293 = lshr i32 %.03847.i, 3
   %294 = add i32 %293, %3
   %.not.i66 = icmp eq i32 %292, -1
@@ -8049,7 +8049,7 @@ switch.lookup160:                                 ; preds = %proto_item_set_hidd
 
 368:                                              ; preds = %365
   %369 = add i32 %358, %3
-  %370 = trunc i64 %366 to i32
+  %370 = trunc nuw i64 %366 to i32
   %371 = add i32 %369, %370
   call void @proto_item_set_end(ptr noundef %.074.i69135138, ptr noundef nonnull %0, i32 noundef %371) #14
   %372 = call ptr @tvb_new_subset_length(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %371) #14
@@ -8204,7 +8204,7 @@ switch.lookup164:                                 ; preds = %proto_item_set_hidd
   br i1 %450, label %dissect_someip_payload_typedef.exit, label %451
 
 451:                                              ; preds = %448
-  %452 = trunc i64 %449 to i32
+  %452 = trunc nuw i64 %449 to i32
   %453 = lshr i32 %.0.i74, 3
   %454 = add i32 %453, %3
   %455 = load i32, ptr %437, align 4
@@ -8581,7 +8581,7 @@ dissect_someip_payload_array_payload.exit:        ; preds = %.critedge.i, %21, %
   br label %dissect_someip_payload_array_dim_length.exit
 
 79:                                               ; preds = %.thread.i
-  %80 = trunc i64 %75 to i32
+  %80 = trunc nuw i64 %75 to i32
   %81 = lshr i32 %.03847.i, 3
   %82 = add i32 %81, %.092
   br label %87
@@ -8927,7 +8927,7 @@ free_address.exit7:                               ; preds = %free_address.exit, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc i32 @addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -8943,7 +8943,7 @@ define internal fastcc noundef i32 @addresses_equal(ptr nocapture noundef readon
 
 12:                                               ; preds = %6
   %13 = icmp eq i32 %8, 0
-  br i1 %13, label %22, label %14
+  br i1 %13, label %21, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8953,13 +8953,11 @@ define internal fastcc noundef i32 @addresses_equal(ptr nocapture noundef readon
   %19 = sext i32 %8 to i64
   %bcmp = tail call i32 @bcmp(ptr %16, ptr %18, i64 %19)
   %20 = icmp eq i32 %bcmp, 0
-  br i1 %20, label %22, label %21
+  %spec.select = zext i1 %20 to i32
+  br label %21
 
-21:                                               ; preds = %14, %6, %2
-  br label %22
-
-22:                                               ; preds = %12, %14, %21
-  %.0 = phi i32 [ 0, %21 ], [ 1, %14 ], [ 1, %12 ]
+21:                                               ; preds = %14, %2, %6, %12
+  %.0 = phi i32 [ 1, %12 ], [ 0, %6 ], [ 0, %2 ], [ %spec.select, %14 ]
   ret i32 %.0
 }
 

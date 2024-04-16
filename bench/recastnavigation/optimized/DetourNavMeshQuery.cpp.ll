@@ -410,7 +410,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery15findRandomPointEPK13dtQueryFilterPFfvE
   br i1 %.not102, label %57, label %109
 
 57:                                               ; preds = %52
-  %58 = trunc i64 %indvars.iv130 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv130 to i32
   %59 = or i32 %42, %58
   %60 = getelementptr inbounds i8, ptr %54, i64 28
   %61 = load i16, ptr %60, align 4
@@ -1139,7 +1139,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %264, %248
   br i1 %289, label %290, label %292
 
 290:                                              ; preds = %286
-  %291 = trunc i64 %indvars.iv.i to i32
+  %291 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull align 8 dereferenceable(16) %281, i32 noundef %291, ptr noundef nonnull %223)
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
@@ -1656,7 +1656,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   br i1 %54, label %39, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %39
-  %55 = trunc i64 %indvars.iv.next to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.next to i32
   %56 = call noundef zeroext i1 @_Z24dtDistancePtPolyEdgesSqrPKfS0_iPfS1_(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef %55, ptr noundef nonnull %8, ptr noundef nonnull %9)
   br i1 %56, label %58, label %63
 
@@ -1690,7 +1690,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   %67 = load float, ptr %66, align 4
   %68 = fcmp olt float %67, %.03548
   %.136 = select i1 %68, float %67, float %.03548
-  %69 = trunc i64 %indvars.iv59 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv59 to i32
   %.1 = select i1 %68, i32 %69, i32 %.03449
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
@@ -2406,7 +2406,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %117
   br i1 %191, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, label %192
 
 192:                                              ; preds = %185
-  %193 = trunc i64 %indvars.iv175 to i32
+  %193 = trunc nuw nsw i64 %indvars.iv175 to i32
   %194 = or i32 %171, %193
   %195 = getelementptr inbounds i8, ptr %188, i64 28
   %196 = load i16, ptr %195, align 4
@@ -3109,7 +3109,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %274, %272
   br i1 %300, label %301, label %303
 
 301:                                              ; preds = %297
-  %302 = trunc i64 %indvars.iv.i to i32
+  %302 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull align 8 dereferenceable(16) %292, i32 noundef %302, ptr noundef nonnull %184)
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
@@ -4066,7 +4066,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %284, %282
   br i1 %314, label %315, label %317
 
 315:                                              ; preds = %311
-  %316 = trunc i64 %indvars.iv.i to i32
+  %316 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull align 8 dereferenceable(16) %306, i32 noundef %316, ptr noundef %156)
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
@@ -4330,7 +4330,7 @@ _Z11dtVisfinitePKf.exit177:                       ; preds = %49
   br i1 %110, label %92, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %92
-  %111 = trunc i64 %indvars.iv.next to i32
+  %111 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -5268,17 +5268,15 @@ _Z8dtVequalPKfS0_.exit._crit_edge:                ; preds = %_Z8dtVequalPKfS0_.e
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %7, align 4
   %.not32 = icmp slt i32 %75, %8
-  br i1 %.not32, label %76, label %79
+  br i1 %.not32, label %76, label %78
 
 76:                                               ; preds = %73
   %77 = icmp eq i8 %2, 2
-  br i1 %77, label %79, label %78
+  %spec.select = select i1 %77, i32 1073741824, i32 536870912
+  br label %78
 
-78:                                               ; preds = %76, %46, %47
-  br label %79
-
-79:                                               ; preds = %76, %73, %78
-  %.0 = phi i32 [ 536870912, %78 ], [ 1073741840, %73 ], [ 1073741824, %76 ]
+78:                                               ; preds = %76, %47, %46, %73
+  %.0 = phi i32 [ 1073741840, %73 ], [ 536870912, %46 ], [ 536870912, %47 ], [ %spec.select, %76 ]
   ret i32 %.0
 }
 
@@ -6382,7 +6380,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %242, %243
   %263 = load i8, ptr %262, align 2
   %264 = zext i8 %263 to i64
   %265 = icmp ult i64 %indvars.iv.next267, %264
-  %266 = trunc i64 %indvars.iv266 to i32
+  %266 = trunc nuw nsw i64 %indvars.iv266 to i32
   br i1 %265, label %143, label %.loopexit210, !llvm.loop !52
 
 .loopexit211:                                     ; preds = %.loopexit210, %133
@@ -6458,7 +6456,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit197:   ; preds = %.preheader205, %276
   br i1 %.not186, label %.loopexit.loopexit.split.loop.exit, label %.preheader, !llvm.loop !54
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %290
-  %299 = trunc i64 %indvars.iv.next270 to i32
+  %299 = trunc nuw nsw i64 %indvars.iv.next270 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit.split.loop.exit, %.loopexit211
@@ -6948,7 +6946,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %224, %200
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %246
-  %251 = trunc i64 %indvars.iv.i to i32
+  %251 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull align 8 dereferenceable(16) %241, i32 noundef %251, ptr noundef nonnull %175)
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
@@ -7417,7 +7415,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %226, %202
   br i1 %251, label %252, label %254
 
 252:                                              ; preds = %248
-  %253 = trunc i64 %indvars.iv.i to i32
+  %253 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull align 8 dereferenceable(16) %243, i32 noundef %253, ptr noundef nonnull %177)
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 
@@ -8059,7 +8057,7 @@ define noundef i32 @_ZNK14dtNavMeshQuery19getPolyWallSegmentsEjPK13dtQueryFilter
   br i1 %exitcond.not.i, label %._crit_edge._crit_edge.i, label %.lr.ph.i, !llvm.loop !66
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %75 = trunc i64 %indvars.iv.i to i32
+  %75 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -8216,7 +8214,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit:   ; preds = %._crit_edge._crit_e
   br i1 %exitcond.not.i152, label %_ZL14insertIntervalP13dtSegIntervalRiissj.exit153, label %.lr.ph.i147, !llvm.loop !66
 
 ._crit_edge.loopexit.i150:                        ; preds = %.lr.ph.i147
-  %157 = trunc i64 %indvars.iv.i148 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv.i148 to i32
   br label %._crit_edge.i138
 
 ._crit_edge.i138:                                 ; preds = %._crit_edge.loopexit.i150, %.preheader.i137
@@ -8273,7 +8271,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit153: ; preds = %156, %._crit_edge.
   br i1 %exitcond.not.i169, label %._crit_edge._crit_edge.i159, label %.lr.ph.i164, !llvm.loop !66
 
 ._crit_edge.loopexit.i167:                        ; preds = %.lr.ph.i164
-  %174 = trunc i64 %indvars.iv.i165 to i32
+  %174 = trunc nuw nsw i64 %indvars.iv.i165 to i32
   br label %._crit_edge.i155
 
 ._crit_edge.i155:                                 ; preds = %._crit_edge.loopexit.i167, %.preheader.i154
@@ -8497,7 +8495,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit170: ; preds = %._crit_edge, %_ZL1
   %313 = load i8, ptr %312, align 2
   %314 = zext i8 %313 to i64
   %315 = icmp ult i64 %indvars.iv.next219, %314
-  %316 = trunc i64 %indvars.iv218 to i32
+  %316 = trunc nuw nsw i64 %indvars.iv218 to i32
   br i1 %315, label %34, label %._crit_edge210, !llvm.loop !69
 
 ._crit_edge210:                                   ; preds = %.loopexit, %26
@@ -8878,7 +8876,7 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %45
   %223 = load i8, ptr %222, align 2
   %224 = zext i8 %223 to i64
   %225 = icmp ult i64 %indvars.iv.next, %224
-  %226 = trunc i64 %indvars.iv to i32
+  %226 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %225, label %.lr.ph200, label %.preheader191, !llvm.loop !72
 
 227:                                              ; preds = %.lr.ph206, %_ZN11dtNodeQueue6modifyEP6dtNode.exit
@@ -9067,7 +9065,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %322, %304
   br i1 %347, label %348, label %350
 
 348:                                              ; preds = %344
-  %349 = trunc i64 %indvars.iv.i to i32
+  %349 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull align 8 dereferenceable(16) %339, i32 noundef %349, ptr noundef nonnull %277)
   br label %_ZN11dtNodeQueue6modifyEP6dtNode.exit
 

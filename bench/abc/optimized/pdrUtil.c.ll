@@ -80,7 +80,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %29 = trunc i64 %indvars.iv32.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -92,7 +92,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
   %33 = getelementptr inbounds i32, ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %31, %34
-  %36 = trunc i64 %indvars.iv29.i to i32
+  %36 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %spec.select.i = select i1 %35, i32 %36, i32 %.024.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
@@ -276,7 +276,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %35 = trunc i64 %indvars.iv32.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -288,7 +288,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %
   %39 = getelementptr inbounds i32, ptr %33, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = icmp slt i32 %37, %40
-  %42 = trunc i64 %indvars.iv29.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %spec.select.i = select i1 %41, i32 %42, i32 %.024.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
@@ -1287,13 +1287,13 @@ define noundef i32 @Pdr_SetIsInit(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph, label %.critedge
+  br i1 %7, label %.lr.ph, label %.critedge.thread41
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1304,69 +1304,63 @@ define noundef i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapt
   %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
   %wide.trip.count37 = zext nneg i32 %6 to i64
-  %exitcond.not53 = icmp slt i32 %9, 1
-  br i1 %exitcond.not53, label %.critedge, label %.lr.ph55
+  %exitcond.not52 = icmp slt i32 %9, 1
+  br i1 %exitcond.not52, label %.critedge, label %.lr.ph54
 
 13:                                               ; preds = %21
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph55, !llvm.loop !21
+  br i1 %exitcond.not, label %..critedge_crit_edge, label %.lr.ph54, !llvm.loop !21
 
-.lr.ph55:                                         ; preds = %.lr.ph, %13
-  %indvars.iv54 = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv54
+.lr.ph54:                                         ; preds = %.lr.ph, %13
+  %indvars.iv53 = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
+  %14 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv53
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %indvars.iv54
+  %16 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %indvars.iv53
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %.loopexit, label %19
 
-19:                                               ; preds = %.lr.ph55
+19:                                               ; preds = %.lr.ph54
   %20 = icmp slt i32 %15, %17
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv54, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv53, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count37
-  br i1 %exitcond38.not, label %.critedge.thread.loopexit, label %13, !llvm.loop !21
+  br i1 %exitcond38.not, label %.critedge.thread, label %13, !llvm.loop !21
 
-.critedge.loopexit:                               ; preds = %13
+..critedge_crit_edge:                             ; preds = %13
   %22 = icmp ult i64 %indvars.iv.next, %12
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %smax, %.lr.ph ], [ %smax, %.critedge.loopexit ]
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %22, %.critedge.loopexit ]
-  %23 = icmp eq i32 %.0.lcssa, %6
+.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph
+  %.lcssa = phi i1 [ %22, %..critedge_crit_edge ], [ true, %.lr.ph ]
+  %23 = icmp eq i32 %9, %6
   br i1 %23, label %.critedge.thread, label %28
 
-.critedge.thread.loopexit:                        ; preds = %21
-  %24 = icmp ult i64 %indvars.iv.next, %12
-  br label %.critedge.thread
+.critedge.thread41:                               ; preds = %2
+  %24 = icmp eq i32 %6, 0
+  br i1 %24, label %.critedge.thread, label %.loopexit
 
-.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %.critedge
-  %.lcssa44 = phi i1 [ %.lcssa, %.critedge ], [ %24, %.critedge.thread.loopexit ]
-  %.0.lcssa42 = phi i32 [ %.0.lcssa, %.critedge ], [ %6, %.critedge.thread.loopexit ]
+.critedge.thread:                                 ; preds = %21, %.critedge.thread41, %.critedge
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp slt i32 %6, %26
-  br i1 %27, label %.loopexit, label %28
+  %.mux = sext i1 %27 to i32
+  br label %.loopexit
 
-28:                                               ; preds = %.critedge.thread, %.critedge
-  %.lcssa43 = phi i1 [ %.lcssa44, %.critedge.thread ], [ %.lcssa, %.critedge ]
-  %.0.lcssa41 = phi i32 [ %.0.lcssa42, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
-  br i1 %.lcssa43, label %29, label %33
+28:                                               ; preds = %.critedge
+  br i1 %.lcssa, label %29, label %.loopexit
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %.0.lcssa41, %31
-  br i1 %32, label %.loopexit, label %33
-
-33:                                               ; preds = %29, %28
+  %32 = icmp eq i32 %smax, %31
+  %spec.select = zext i1 %32 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %.lr.ph55, %29, %.critedge.thread, %33
-  %.023 = phi i32 [ 0, %33 ], [ -1, %.critedge.thread ], [ 1, %29 ], [ 1, %19 ], [ -1, %.lr.ph55 ]
+.loopexit:                                        ; preds = %19, %.lr.ph54, %.critedge.thread41, %.critedge.thread, %29, %28
+  %.023 = phi i32 [ %.mux, %.critedge.thread ], [ 0, %28 ], [ %spec.select, %29 ], [ 0, %.critedge.thread41 ], [ 1, %19 ], [ -1, %.lr.ph54 ]
   ret i32 %.023
 }
 
@@ -1608,7 +1602,7 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #27
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #27
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1627,7 +1621,7 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1863,19 +1857,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #19
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #20
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #20
+declare void @llvm.va_start.p0(ptr) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #21
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #22
@@ -1912,8 +1906,8 @@ attributes #16 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: non
 attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #22 = { nofree nounwind }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }

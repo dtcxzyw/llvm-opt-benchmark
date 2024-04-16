@@ -697,14 +697,14 @@ if.else:                                          ; preds = %land.lhs.true, %whi
 if.end:                                           ; preds = %if.else, %if.then
   %tv.0 = phi ptr [ %call15, %if.then ], [ %call17, %if.else ]
   %tobool.not = icmp eq ptr %tv.0, null
-  br i1 %tobool.not, label %if.end32, label %land.lhs.true18
+  br i1 %tobool.not, label %return, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end
   %6 = load i64, ptr %tv.0, align 8
   %shr19 = ashr i64 %6, 47
   %7 = and i64 %shr19, 4294967295
   %cmp20 = icmp eq i64 %7, 4294967284
-  br i1 %cmp20, label %land.lhs.true22, label %if.end32
+  br i1 %cmp20, label %land.lhs.true22, label %return
 
 land.lhs.true22:                                  ; preds = %land.lhs.true18
   %and23 = and i64 %6, 140737488355327
@@ -718,18 +718,16 @@ land.lhs.true22:                                  ; preds = %land.lhs.true18
   %11 = inttoptr i64 %10 to ptr
   %call26 = tail call ptr @lj_tab_getstr(ptr noundef %8, ptr noundef %11) #14
   %tobool27.not = icmp eq ptr %call26, null
-  br i1 %tobool27.not, label %if.end32, label %land.lhs.true28
+  br i1 %tobool27.not, label %return, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %land.lhs.true22
   %12 = load i64, ptr %call26, align 8
   %cmp29 = icmp eq i64 %12, -1
-  br i1 %cmp29, label %if.end32, label %return
-
-if.end32:                                         ; preds = %land.lhs.true28, %land.lhs.true22, %land.lhs.true18, %if.end
+  %spec.select = select i1 %cmp29, ptr null, ptr %call26
   br label %return
 
-return:                                           ; preds = %land.lhs.true28, %if.end32
-  %retval.0 = phi ptr [ null, %if.end32 ], [ %call26, %land.lhs.true28 ]
+return:                                           ; preds = %land.lhs.true28, %if.end, %land.lhs.true18, %land.lhs.true22
+  %retval.0 = phi ptr [ null, %land.lhs.true22 ], [ null, %land.lhs.true18 ], [ null, %if.end ], [ %spec.select, %land.lhs.true28 ]
   ret ptr %retval.0
 }
 
@@ -1274,7 +1272,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %do.bo
   %n.addr.0.i.i = phi i32 [ %div.i.i, %do.body.i.i ], [ %mul.i, %do.body.i.preheader.i ]
   %p.0.i279.i = phi ptr [ %incdec.ptr.i280.i, %do.body.i.i ], [ %45, %do.body.i.preheader.i ]
   %rem.i.i = urem i32 %n.addr.0.i.i, 10
-  %46 = trunc i32 %rem.i.i to i8
+  %46 = trunc nuw nsw i32 %rem.i.i to i8
   %conv.i.i = or disjoint i8 %46, 48
   %incdec.ptr.i280.i = getelementptr inbounds i8, ptr %p.0.i279.i, i64 -1
   store i8 %conv.i.i, ptr %incdec.ptr.i280.i, align 1
@@ -1876,7 +1874,7 @@ do.body.i504.i:                                   ; preds = %cond.end.i, %do.bod
   %p.0.idx.i.i = phi i64 [ %p.0.add.i.i, %do.body.i504.i ], [ 10, %cond.end.i ]
   %indvars.iv.i506.i = getelementptr i8, ptr %.pn.i.i, i64 1
   %rem.i507.i = urem i32 %n.addr.0.i505.i, 10
-  %96 = trunc i32 %rem.i507.i to i8
+  %96 = trunc nuw nsw i32 %rem.i507.i to i8
   %conv.i508.i = or disjoint i8 %96, 48
   %p.0.add.i.i = add nsw i64 %p.0.idx.i.i, -1
   %incdec.ptr.ptr.i.i = getelementptr i8, ptr %buf.i501.i, i64 %p.0.add.i.i
@@ -2068,7 +2066,7 @@ do.body.i594.i:                                   ; preds = %ctype_prepstr.exit5
   %n.addr.0.i595.i = phi i32 [ %div.i600.i, %do.body.i594.i ], [ %8, %ctype_prepstr.exit591.i ]
   %p.0.i596.i = phi ptr [ %incdec.ptr.i599.i, %do.body.i594.i ], [ %110, %ctype_prepstr.exit591.i ]
   %rem.i597.i = urem i32 %n.addr.0.i595.i, 10
-  %111 = trunc i32 %rem.i597.i to i8
+  %111 = trunc nuw nsw i32 %rem.i597.i to i8
   %conv.i598.i = or disjoint i8 %111, 48
   %incdec.ptr.i599.i = getelementptr inbounds i8, ptr %p.0.i596.i, i64 -1
   store i8 %conv.i598.i, ptr %incdec.ptr.i599.i, align 1
@@ -2256,7 +2254,7 @@ do.body:                                          ; preds = %do.body, %if.end4
   %n.addr.1 = phi i64 [ %n.addr.0, %if.end4 ], [ %div, %do.body ]
   %p.1 = phi ptr [ %p.0, %if.end4 ], [ %incdec.ptr6, %do.body ]
   %rem = urem i64 %n.addr.1, 10
-  %0 = trunc i64 %rem to i8
+  %0 = trunc nuw nsw i64 %rem to i8
   %conv = or disjoint i8 %0, 48
   %incdec.ptr6 = getelementptr inbounds i8, ptr %p.1, i64 -1
   store i8 %conv, ptr %incdec.ptr6, align 1
@@ -2628,7 +2626,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   %n.addr.0.i = phi i32 [ %div.i, %do.body.i ], [ %conv, %do.body.i.preheader ]
   %p.0.i19 = phi ptr [ %incdec.ptr.i20, %do.body.i ], [ %8, %do.body.i.preheader ]
   %rem.i = urem i32 %n.addr.0.i, 10
-  %11 = trunc i32 %rem.i to i8
+  %11 = trunc nuw nsw i32 %rem.i to i8
   %conv.i = or disjoint i8 %11, 48
   %incdec.ptr.i20 = getelementptr inbounds i8, ptr %p.0.i19, i64 -1
   store i8 %conv.i, ptr %incdec.ptr.i20, align 1

@@ -598,17 +598,16 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 
 if.end.thread:                                    ; preds = %lor.lhs.false
   %cmp914 = icmp ult i32 %0, %1
-  br i1 %cmp914, label %return, label %if.end19
+  %spec.select15 = sext i1 %cmp914 to i32
+  br label %return
 
 land.lhs.true14:                                  ; preds = %land.lhs.true
   %cmp17 = icmp ult i32 %2, %3
-  br i1 %cmp17, label %return, label %if.end19
-
-if.end19:                                         ; preds = %if.end.thread, %land.lhs.true14
+  %spec.select = sext i1 %cmp17 to i32
   br label %return
 
-return:                                           ; preds = %if.end.thread, %land.lhs.true14, %entry, %land.lhs.true, %if.end19
-  %retval.0 = phi i32 [ 0, %if.end19 ], [ 1, %land.lhs.true ], [ 1, %entry ], [ -1, %land.lhs.true14 ], [ -1, %if.end.thread ]
+return:                                           ; preds = %if.end.thread, %land.lhs.true14, %entry, %land.lhs.true
+  %retval.0 = phi i32 [ 1, %land.lhs.true ], [ 1, %entry ], [ %spec.select, %land.lhs.true14 ], [ %spec.select15, %if.end.thread ]
   ret i32 %retval.0
 }
 
@@ -643,18 +642,18 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %spec.select = select i1 %cmp6.i, ptr %peer_versions, ptr %local_versions
   br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
 
-_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit: ; preds = %land.lhs.true.i, %lor.lhs.false.i, %if.end
-  %4 = phi ptr [ %peer_versions, %if.end ], [ %local_versions, %lor.lhs.false.i ], [ %spec.select, %land.lhs.true.i ]
+_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit: ; preds = %lor.lhs.false.i, %land.lhs.true.i, %if.end
+  %4 = phi ptr [ %peer_versions, %if.end ], [ %spec.select, %land.lhs.true.i ], [ %local_versions, %lor.lhs.false.i ]
   %min_rpc_version = getelementptr inbounds i8, ptr %local_versions, i64 8
   %min_rpc_version6 = getelementptr inbounds i8, ptr %peer_versions, i64 8
   %5 = load i32, ptr %min_rpc_version, align 4
   %6 = load i32, ptr %min_rpc_version6, align 4
   %cmp.i13 = icmp ugt i32 %5, %6
-  br i1 %cmp.i13, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26, label %lor.lhs.false.i14
+  br i1 %cmp.i13, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit27, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
   %cmp4.i15 = icmp eq i32 %5, %6
-  br i1 %cmp4.i15, label %land.lhs.true.i20, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26
+  br i1 %cmp4.i15, label %land.lhs.true.i20, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit27
 
 land.lhs.true.i20:                                ; preds = %lor.lhs.false.i14
   %minor.i21 = getelementptr inbounds i8, ptr %local_versions, i64 12
@@ -663,42 +662,51 @@ land.lhs.true.i20:                                ; preds = %lor.lhs.false.i14
   %8 = load i32, ptr %minor5.i22, align 4
   %cmp6.i23 = icmp ugt i32 %7, %8
   %spec.select49 = select i1 %cmp6.i23, ptr %min_rpc_version, ptr %min_rpc_version6
-  br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26
+  br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit27
 
-_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26: ; preds = %lor.lhs.false.i14, %land.lhs.true.i20, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
+_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit27: ; preds = %lor.lhs.false.i14, %land.lhs.true.i20, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
   %9 = phi i32 [ %5, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit ], [ %5, %land.lhs.true.i20 ], [ %6, %lor.lhs.false.i14 ]
   %10 = phi ptr [ %min_rpc_version, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit ], [ %spec.select49, %land.lhs.true.i20 ], [ %min_rpc_version6, %lor.lhs.false.i14 ]
   %11 = load i32, ptr %4, align 4
-  %cmp.i27 = icmp ugt i32 %11, %9
-  br i1 %cmp.i27, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40, label %lor.lhs.false.i28
+  %cmp.i28 = icmp ugt i32 %11, %9
+  br i1 %cmp.i28, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit42, label %lor.lhs.false.i29
 
-lor.lhs.false.i28:                                ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26
-  %cmp4.i29 = icmp eq i32 %11, %9
-  br i1 %cmp4.i29, label %land.lhs.true.i34, label %if.end.thread.i30
+lor.lhs.false.i29:                                ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit27
+  %cmp4.i30 = icmp eq i32 %11, %9
+  br i1 %cmp4.i30, label %land.lhs.true.i35, label %if.end.thread.i31
 
-land.lhs.true.i34:                                ; preds = %lor.lhs.false.i28
-  %minor.i35 = getelementptr inbounds i8, ptr %4, i64 4
-  %12 = load i32, ptr %minor.i35, align 4
-  %minor5.i36 = getelementptr inbounds i8, ptr %10, i64 4
-  %13 = load i32, ptr %minor5.i36, align 4
-  %cmp17.i39 = icmp ult i32 %12, %13
-  br i1 %cmp17.i39, label %return, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40
+land.lhs.true.i35:                                ; preds = %lor.lhs.false.i29
+  %minor.i36 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = load i32, ptr %minor.i36, align 4
+  %minor5.i37 = getelementptr inbounds i8, ptr %10, i64 4
+  %13 = load i32, ptr %minor5.i37, align 4
+  %cmp6.i38 = icmp ugt i32 %12, %13
+  br i1 %cmp6.i38, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit42, label %land.lhs.true14.i39
 
-if.end.thread.i30:                                ; preds = %lor.lhs.false.i28
-  %cmp914.i31 = icmp ult i32 %11, %9
-  br i1 %cmp914.i31, label %return, label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40
+if.end.thread.i31:                                ; preds = %lor.lhs.false.i29
+  %cmp914.i32 = icmp ult i32 %11, %9
+  %spec.select15.i33 = sext i1 %cmp914.i32 to i32
+  br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit42
 
-_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40: ; preds = %if.end.thread.i30, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit26, %land.lhs.true.i34
-  %cmp17.not = icmp eq ptr %highest_common_version, null
-  br i1 %cmp17.not, label %return, label %if.then18
+land.lhs.true14.i39:                              ; preds = %land.lhs.true.i35
+  %cmp17.i40 = icmp ult i32 %12, %13
+  %spec.select.i41 = sext i1 %cmp17.i40 to i32
+  br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit42
 
-if.then18:                                        ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40
+_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit42: ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit27, %land.lhs.true.i35, %if.end.thread.i31, %land.lhs.true14.i39
+  %retval.0.i34 = phi i32 [ 1, %land.lhs.true.i35 ], [ 1, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit27 ], [ %spec.select.i41, %land.lhs.true14.i39 ], [ %spec.select15.i33, %if.end.thread.i31 ]
+  %cmp16 = icmp sgt i32 %retval.0.i34, -1
+  %cmp17 = icmp ne ptr %highest_common_version, null
+  %or.cond1 = and i1 %cmp17, %cmp16
+  br i1 %or.cond1, label %if.then18, label %return
+
+if.then18:                                        ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit42
   %14 = load i64, ptr %4, align 4
   store i64 %14, ptr %highest_common_version, align 4
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i34, %if.end.thread.i30, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40, %if.then18, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.then18 ], [ true, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit40 ], [ false, %if.end.thread.i30 ], [ false, %land.lhs.true.i34 ]
+return:                                           ; preds = %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit42, %if.then18, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.then18 ], [ %cmp16, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit42 ]
   ret i1 %retval.0
 }
 

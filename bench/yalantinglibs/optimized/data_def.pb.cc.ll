@@ -1005,18 +1005,28 @@ define dso_local noundef i64 @_ZNK6mygame4Vec312ByteSizeLongEv(ptr noundef nonnu
 entry:
   %x_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %x_.i.i, align 8
-  %or.cond = fcmp une float %0, 0.000000e+00
-  %total_size.0 = select i1 %or.cond, i64 5, i64 0
+  %cmp = fcmp ugt float %0, 0.000000e+00
+  br i1 %cmp, label %if.end, label %land.lhs.true
+
+land.lhs.true:                                    ; preds = %entry
+  %cmp3 = fcmp ult float %0, 0.000000e+00
+  br i1 %cmp3, label %if.then, label %if.end
+
+if.then:                                          ; preds = %land.lhs.true
+  br label %if.end
+
+if.end:                                           ; preds = %entry, %if.then, %land.lhs.true
+  %total_size.0 = phi i64 [ 0, %land.lhs.true ], [ 5, %entry ], [ 5, %if.then ]
   %y_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %y_.i.i, align 4
-  %or.cond10 = fcmp une float %1, 0.000000e+00
+  %or.cond = fcmp une float %1, 0.000000e+00
   %add10 = add nuw nsw i64 %total_size.0, 5
-  %total_size.1 = select i1 %or.cond10, i64 %add10, i64 %total_size.0
+  %total_size.1 = select i1 %or.cond, i64 %add10, i64 %total_size.0
   %z_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load float, ptr %z_.i.i, align 8
-  %or.cond11 = fcmp une float %2, 0.000000e+00
+  %or.cond10 = fcmp une float %2, 0.000000e+00
   %add18 = add nuw nsw i64 %total_size.1, 5
-  %total_size.2 = select i1 %or.cond11, i64 %add18, i64 %total_size.1
+  %total_size.2 = select i1 %or.cond10, i64 %add18, i64 %total_size.1
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_internal_metadata_, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -1024,13 +1034,13 @@ entry:
   %cmp.i.not = icmp eq i64 %conv.i6, 0
   br i1 %cmp.i.not, label %if.end24, label %if.then21
 
-if.then21:                                        ; preds = %entry
+if.then21:                                        ; preds = %if.end
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   %call23 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, i64 noundef %total_size.2, ptr noundef nonnull %_cached_size_)
   br label %return
 
-if.end24:                                         ; preds = %entry
-  %conv.i = trunc i64 %total_size.2 to i32
+if.end24:                                         ; preds = %if.end
+  %conv.i = trunc nuw nsw i64 %total_size.2 to i32
   %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 4
   br label %return
@@ -2027,7 +2037,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end8.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %conv5.i.i.i = trunc i64 %shr.i.i.i to i8
+  %conv5.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i8
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i15, i64 2
   store i8 %conv5.i.i.i, ptr %arrayidx6.i.i.i, align 1
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %retval.0.i15, i64 3
@@ -2049,7 +2059,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !8
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
-  %conv15.i.i.i = trunc i64 %shr11.i.i.i to i8
+  %conv15.i.i.i = trunc nuw nsw i64 %shr11.i.i.i to i8
   %incdec.ptr16.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 2
   store i8 %conv15.i.i.i, ptr %incdec.ptr12.i.i.i, align 1
   br label %if.end16
@@ -4405,7 +4415,7 @@ if.end.i.i:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end8.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %conv5.i.i = trunc i32 %shr.i.i to i8
+  %conv5.i.i = trunc nuw nsw i32 %shr.i.i to i8
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 2
   store i8 %conv5.i.i, ptr %arrayidx6.i.i, align 1
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 3
@@ -4427,7 +4437,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !16
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %conv15.i.i = trunc i32 %shr11.i.i to i8
+  %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
   %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 2
   store i8 %conv15.i.i, ptr %incdec.ptr12.i.i, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -4477,7 +4487,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end8.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %conv5.i.i.i = trunc i64 %shr.i.i.i to i8
+  %conv5.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i8
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i57, i64 2
   store i8 %conv5.i.i.i, ptr %arrayidx6.i.i.i, align 1
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %retval.0.i57, i64 3
@@ -4499,7 +4509,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !8
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
-  %conv15.i.i.i = trunc i64 %shr11.i.i.i to i8
+  %conv15.i.i.i = trunc nuw nsw i64 %shr11.i.i.i to i8
   %incdec.ptr16.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 2
   store i8 %conv15.i.i.i, ptr %incdec.ptr12.i.i.i, align 1
   br label %if.end10
@@ -4544,7 +4554,7 @@ if.end.i.i.i71:                                   ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i75, label %if.then4.i.i.i89, label %if.end8.i.i.i76
 
 if.then4.i.i.i89:                                 ; preds = %if.end.i.i.i71
-  %conv5.i.i.i90 = trunc i64 %shr.i.i.i74 to i8
+  %conv5.i.i.i90 = trunc nuw nsw i64 %shr.i.i.i74 to i8
   %arrayidx6.i.i.i91 = getelementptr inbounds i8, ptr %retval.0.i64, i64 2
   store i8 %conv5.i.i.i90, ptr %arrayidx6.i.i.i91, align 1
   %add.ptr7.i.i.i92 = getelementptr inbounds i8, ptr %retval.0.i64, i64 3
@@ -4566,7 +4576,7 @@ do.body.i.i.i78:                                  ; preds = %do.body.i.i.i78, %i
   br i1 %cmp13.i.i.i84, label %do.body.i.i.i78, label %do.end.i.i.i85, !llvm.loop !8
 
 do.end.i.i.i85:                                   ; preds = %do.body.i.i.i78
-  %conv15.i.i.i86 = trunc i64 %shr11.i.i.i82 to i8
+  %conv15.i.i.i86 = trunc nuw nsw i64 %shr11.i.i.i82 to i8
   %incdec.ptr16.i.i.i87 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i79, i64 2
   store i8 %conv15.i.i.i86, ptr %incdec.ptr12.i.i.i83, align 1
   br label %if.end17
@@ -4691,7 +4701,7 @@ if.end.i.i.i123:                                  ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i127, label %if.then4.i.i.i141, label %if.end8.i.i.i128
 
 if.then4.i.i.i141:                                ; preds = %if.end.i.i.i123
-  %conv5.i.i.i142 = trunc i64 %shr.i.i.i126 to i8
+  %conv5.i.i.i142 = trunc nuw nsw i64 %shr.i.i.i126 to i8
   %arrayidx6.i.i.i143 = getelementptr inbounds i8, ptr %retval.0.i116, i64 2
   store i8 %conv5.i.i.i142, ptr %arrayidx6.i.i.i143, align 1
   %add.ptr7.i.i.i144 = getelementptr inbounds i8, ptr %retval.0.i116, i64 3
@@ -4713,7 +4723,7 @@ do.body.i.i.i130:                                 ; preds = %do.body.i.i.i130, %
   br i1 %cmp13.i.i.i136, label %do.body.i.i.i130, label %do.end.i.i.i137, !llvm.loop !8
 
 do.end.i.i.i137:                                  ; preds = %do.body.i.i.i130
-  %conv15.i.i.i138 = trunc i64 %shr11.i.i.i134 to i8
+  %conv15.i.i.i138 = trunc nuw nsw i64 %shr11.i.i.i134 to i8
   %incdec.ptr16.i.i.i139 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i131, i64 2
   store i8 %conv15.i.i.i138, ptr %incdec.ptr12.i.i.i135, align 1
   br label %if.end43
@@ -4768,7 +4778,7 @@ if.end.i.i159:                                    ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i162, label %if.then4.i.i176, label %if.end8.i.i163
 
 if.then4.i.i176:                                  ; preds = %if.end.i.i159
-  %conv5.i.i177 = trunc i32 %shr.i.i161 to i8
+  %conv5.i.i177 = trunc nuw nsw i32 %shr.i.i161 to i8
   %arrayidx6.i.i178 = getelementptr inbounds i8, ptr %retval.0.i151, i64 2
   store i8 %conv5.i.i177, ptr %arrayidx6.i.i178, align 1
   %add.ptr7.i.i179 = getelementptr inbounds i8, ptr %retval.0.i151, i64 3
@@ -4790,7 +4800,7 @@ do.body.i.i165:                                   ; preds = %do.body.i.i165, %if
   br i1 %cmp13.i.i171, label %do.body.i.i165, label %do.end.i.i172, !llvm.loop !16
 
 do.end.i.i172:                                    ; preds = %do.body.i.i165
-  %conv15.i.i173 = trunc i32 %shr11.i.i169 to i8
+  %conv15.i.i173 = trunc nuw nsw i32 %shr11.i.i169 to i8
   %incdec.ptr16.i.i174 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i166, i64 2
   store i8 %conv15.i.i173, ptr %incdec.ptr12.i.i170, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182
@@ -4844,7 +4854,7 @@ if.end.i.i196:                                    ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i199, label %if.then4.i.i213, label %if.end8.i.i200
 
 if.then4.i.i213:                                  ; preds = %if.end.i.i196
-  %conv5.i.i214 = trunc i32 %shr.i.i198 to i8
+  %conv5.i.i214 = trunc nuw nsw i32 %shr.i.i198 to i8
   %arrayidx6.i.i215 = getelementptr inbounds i8, ptr %retval.0.i188, i64 2
   store i8 %conv5.i.i214, ptr %arrayidx6.i.i215, align 1
   %add.ptr7.i.i216 = getelementptr inbounds i8, ptr %retval.0.i188, i64 3
@@ -4866,7 +4876,7 @@ do.body.i.i202:                                   ; preds = %do.body.i.i202, %if
   br i1 %cmp13.i.i208, label %do.body.i.i202, label %do.end.i.i209, !llvm.loop !16
 
 do.end.i.i209:                                    ; preds = %do.body.i.i202
-  %conv15.i.i210 = trunc i32 %shr11.i.i206 to i8
+  %conv15.i.i210 = trunc nuw nsw i32 %shr11.i.i206 to i8
   %incdec.ptr16.i.i211 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i203, i64 2
   store i8 %conv15.i.i210, ptr %incdec.ptr12.i.i207, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit219
@@ -4926,7 +4936,7 @@ if.end.i.i236:                                    ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i239, label %if.then4.i.i253, label %if.end8.i.i240
 
 if.then4.i.i253:                                  ; preds = %if.end.i.i236
-  %conv5.i.i254 = trunc i32 %shr.i.i238 to i8
+  %conv5.i.i254 = trunc nuw nsw i32 %shr.i.i238 to i8
   %arrayidx6.i.i255 = getelementptr inbounds i8, ptr %retval.0.i224, i64 2
   store i8 %conv5.i.i254, ptr %arrayidx6.i.i255, align 1
   %add.ptr7.i.i256 = getelementptr inbounds i8, ptr %retval.0.i224, i64 3
@@ -4948,7 +4958,7 @@ do.body.i.i242:                                   ; preds = %do.body.i.i242, %if
   br i1 %cmp13.i.i248, label %do.body.i.i242, label %do.end.i.i249, !llvm.loop !16
 
 do.end.i.i249:                                    ; preds = %do.body.i.i242
-  %conv15.i.i250 = trunc i32 %shr11.i.i246 to i8
+  %conv15.i.i250 = trunc nuw nsw i32 %shr11.i.i246 to i8
   %incdec.ptr16.i.i251 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i243, i64 2
   store i8 %conv15.i.i250, ptr %incdec.ptr12.i.i247, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259
@@ -4993,13 +5003,13 @@ entry:
   %elements.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
   %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
-  %cmp.i.not185188 = icmp eq i32 %0, 0
-  br i1 %cmp.i.not185188, label %for.end, label %for.body
+  %cmp.i.not192195 = icmp eq i32 %0, 0
+  br i1 %cmp.i.not192195, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit
-  %total_size.0190 = phi i64 [ %add8, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit ], [ %conv, %entry ]
-  %__begin1.sroa.0.0189 = phi ptr [ %incdec.ptr.i, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit ], [ %spec.select.i.i, %entry ]
-  %2 = load ptr, ptr %__begin1.sroa.0.0189, align 8
+  %total_size.0197 = phi i64 [ %add8, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit ], [ %conv, %entry ]
+  %__begin1.sroa.0.0196 = phi ptr [ %incdec.ptr.i, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit ], [ %spec.select.i.i, %entry ]
+  %2 = load ptr, ptr %__begin1.sroa.0.0196, align 8
   %name_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %name_.i.i.i.i, align 8
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -5078,11 +5088,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
   %div1.i.i.i = lshr i32 %add.i.i.i, 6
   %conv.i.i1.i = zext nneg i32 %div1.i.i.i to i64
-  %add.i2.i = add i64 %retval.0.i.i, %total_size.0190
+  %add.i2.i = add i64 %retval.0.i.i, %total_size.0197
   %add8 = add i64 %add.i2.i, %conv.i.i1.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0189, i64 8
-  %cmp.i.not185 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.i.not185, label %for.end, label %for.body
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0196, i64 8
+  %cmp.i.not192 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  br i1 %cmp.i.not192, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit, %entry
   %total_size.0.lcssa = phi i64 [ 0, %entry ], [ %add8, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit ]
@@ -5096,60 +5106,70 @@ for.end:                                          ; preds = %_ZN6google8protobuf
   %elements.i.i25 = getelementptr inbounds i8, ptr %13, i64 8
   %spec.select.i.i26 = select i1 %tobool.not.i.i24, ptr null, ptr %elements.i.i25
   %add.ptr.i33 = getelementptr inbounds ptr, ptr %spec.select.i.i26, i64 %conv11
-  %cmp.i34.not191 = icmp eq i32 %12, 0
-  br i1 %cmp.i34.not191, label %for.end30, label %for.body23
+  %cmp.i34.not198 = icmp eq i32 %12, 0
+  br i1 %cmp.i34.not198, label %for.end30, label %for.body23
 
 for.body23:                                       ; preds = %for.end, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit
-  %total_size.1193 = phi i64 [ %add27, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit ], [ %add13, %for.end ]
-  %__begin115.sroa.0.0192 = phi ptr [ %incdec.ptr.i52, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit ], [ %spec.select.i.i26, %for.end ]
-  %14 = load ptr, ptr %__begin115.sroa.0.0192, align 8
+  %total_size.1200 = phi i64 [ %add27, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit ], [ %add13, %for.end ]
+  %__begin115.sroa.0.0199 = phi ptr [ %incdec.ptr.i54, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit ], [ %spec.select.i.i26, %for.end ]
+  %14 = load ptr, ptr %__begin115.sroa.0.0199, align 8
   %x_.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load float, ptr %x_.i.i.i.i, align 8
-  %or.cond.i.i = fcmp une float %15, 0.000000e+00
-  %total_size.0.i.i35 = select i1 %or.cond.i.i, i64 5, i64 0
+  %cmp.i.i = fcmp ugt float %15, 0.000000e+00
+  br i1 %cmp.i.i, label %if.end.i.i35, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %for.body23
+  %cmp3.i.i = fcmp ult float %15, 0.000000e+00
+  br i1 %cmp3.i.i, label %if.then.i.i53, label %if.end.i.i35
+
+if.then.i.i53:                                    ; preds = %land.lhs.true.i.i
+  br label %if.end.i.i35
+
+if.end.i.i35:                                     ; preds = %if.then.i.i53, %land.lhs.true.i.i, %for.body23
+  %total_size.0.i.i36 = phi i64 [ 0, %land.lhs.true.i.i ], [ 5, %for.body23 ], [ 5, %if.then.i.i53 ]
   %y_.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 20
   %16 = load float, ptr %y_.i.i.i.i, align 4
-  %or.cond10.i.i = fcmp une float %16, 0.000000e+00
-  %add10.i.i = add nuw nsw i64 %total_size.0.i.i35, 5
-  %total_size.1.i.i36 = select i1 %or.cond10.i.i, i64 %add10.i.i, i64 %total_size.0.i.i35
+  %or.cond.i.i = fcmp une float %16, 0.000000e+00
+  %add10.i.i = add nuw nsw i64 %total_size.0.i.i36, 5
+  %total_size.1.i.i37 = select i1 %or.cond.i.i, i64 %add10.i.i, i64 %total_size.0.i.i36
   %z_.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %17 = load float, ptr %z_.i.i.i.i, align 8
-  %or.cond11.i.i = fcmp une float %17, 0.000000e+00
-  %add18.i.i = add nuw nsw i64 %total_size.1.i.i36, 5
-  %total_size.2.i.i = select i1 %or.cond11.i.i, i64 %add18.i.i, i64 %total_size.1.i.i36
-  %_internal_metadata_.i.i37 = getelementptr inbounds i8, ptr %14, i64 8
-  %18 = load ptr, ptr %_internal_metadata_.i.i37, align 8
+  %or.cond10.i.i = fcmp une float %17, 0.000000e+00
+  %add18.i.i = add nuw nsw i64 %total_size.1.i.i37, 5
+  %total_size.2.i.i = select i1 %or.cond10.i.i, i64 %add18.i.i, i64 %total_size.1.i.i37
+  %_internal_metadata_.i.i38 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = load ptr, ptr %_internal_metadata_.i.i38, align 8
   %19 = ptrtoint ptr %18 to i64
   %conv.i6.i.i = and i64 %19, 1
-  %cmp.i.not.i.i38 = icmp eq i64 %conv.i6.i.i, 0
-  br i1 %cmp.i.not.i.i38, label %if.end24.i.i, label %if.then21.i.i
+  %cmp.i.not.i.i39 = icmp eq i64 %conv.i6.i.i, 0
+  br i1 %cmp.i.not.i.i39, label %if.end24.i.i, label %if.then21.i.i
 
-if.then21.i.i:                                    ; preds = %for.body23
-  %_cached_size_.i.i39 = getelementptr inbounds i8, ptr %14, i64 28
-  %call23.i.i = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i37, i64 noundef %total_size.2.i.i, ptr noundef nonnull %_cached_size_.i.i39)
-  %.pre.i40 = trunc i64 %call23.i.i to i32
+if.then21.i.i:                                    ; preds = %if.end.i.i35
+  %_cached_size_.i.i40 = getelementptr inbounds i8, ptr %14, i64 28
+  %call23.i.i = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i38, i64 noundef %total_size.2.i.i, ptr noundef nonnull %_cached_size_.i.i40)
+  %.pre.i41 = trunc i64 %call23.i.i to i32
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit
 
-if.end24.i.i:                                     ; preds = %for.body23
-  %conv.i.i.i50 = trunc i64 %total_size.2.i.i to i32
-  %_cached_size_.i.i.i51 = getelementptr inbounds i8, ptr %14, i64 28
-  store atomic i32 %conv.i.i.i50, ptr %_cached_size_.i.i.i51 monotonic, align 4
+if.end24.i.i:                                     ; preds = %if.end.i.i35
+  %conv.i.i.i51 = trunc nuw nsw i64 %total_size.2.i.i to i32
+  %_cached_size_.i.i.i52 = getelementptr inbounds i8, ptr %14, i64 28
+  store atomic i32 %conv.i.i.i51, ptr %_cached_size_.i.i.i52 monotonic, align 4
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit: ; preds = %if.then21.i.i, %if.end24.i.i
-  %conv.i.pre-phi.i41 = phi i32 [ %.pre.i40, %if.then21.i.i ], [ %conv.i.i.i50, %if.end24.i.i ]
-  %retval.0.i.i42 = phi i64 [ %call23.i.i, %if.then21.i.i ], [ %total_size.2.i.i, %if.end24.i.i ]
-  %or.i.i.i43 = or i32 %conv.i.pre-phi.i41, 1
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i43, i1 true), !range !9
-  %xor.i.i.i.i44 = xor i32 %20, 31
-  %mul.i.i.i45 = mul nuw nsw i32 %xor.i.i.i.i44, 9
-  %add.i.i.i46 = add nuw nsw i32 %mul.i.i.i45, 73
-  %div1.i.i.i47 = lshr i32 %add.i.i.i46, 6
-  %conv.i.i1.i48 = zext nneg i32 %div1.i.i.i47 to i64
-  %add.i.i49 = add i64 %retval.0.i.i42, %total_size.1193
-  %add27 = add i64 %add.i.i49, %conv.i.i1.i48
-  %incdec.ptr.i52 = getelementptr inbounds i8, ptr %__begin115.sroa.0.0192, i64 8
-  %cmp.i34.not = icmp eq ptr %incdec.ptr.i52, %add.ptr.i33
+  %conv.i.pre-phi.i42 = phi i32 [ %.pre.i41, %if.then21.i.i ], [ %conv.i.i.i51, %if.end24.i.i ]
+  %retval.0.i.i43 = phi i64 [ %call23.i.i, %if.then21.i.i ], [ %total_size.2.i.i, %if.end24.i.i ]
+  %or.i.i.i44 = or i32 %conv.i.pre-phi.i42, 1
+  %20 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i44, i1 true), !range !9
+  %xor.i.i.i.i45 = xor i32 %20, 31
+  %mul.i.i.i46 = mul nuw nsw i32 %xor.i.i.i.i45, 9
+  %add.i.i.i47 = add nuw nsw i32 %mul.i.i.i46, 73
+  %div1.i.i.i48 = lshr i32 %add.i.i.i47, 6
+  %conv.i.i1.i49 = zext nneg i32 %div1.i.i.i48 to i64
+  %add.i.i50 = add i64 %retval.0.i.i43, %total_size.1200
+  %add27 = add i64 %add.i.i50, %conv.i.i1.i49
+  %incdec.ptr.i54 = getelementptr inbounds i8, ptr %__begin115.sroa.0.0199, i64 8
+  %cmp.i34.not = icmp eq ptr %incdec.ptr.i54, %add.ptr.i33
   br i1 %cmp.i34.not, label %for.end30, label %for.body23
 
 for.end30:                                        ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit, %for.end
@@ -5163,216 +5183,226 @@ for.end30:                                        ; preds = %_ZN6google8protobuf
 
 if.then:                                          ; preds = %for.end30
   %conv.i.i = trunc i64 %22 to i32
-  %or.i.i.i53 = or i32 %conv.i.i, 1
-  %23 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i53, i1 true), !range !9
-  %xor.i.i.i.i54 = xor i32 %23, 31
-  %mul.i.i.i55 = mul nuw nsw i32 %xor.i.i.i.i54, 9
-  %add.i.i.i56 = add nuw nsw i32 %mul.i.i.i55, 73
-  %div1.i.i.i57 = lshr i32 %add.i.i.i56, 6
-  %conv.i.i.i58 = zext nneg i32 %div1.i.i.i57 to i64
-  %add.i.i59 = add i64 %total_size.1.lcssa, 1
-  %add35 = add i64 %add.i.i59, %22
-  %add36 = add i64 %add35, %conv.i.i.i58
+  %or.i.i.i55 = or i32 %conv.i.i, 1
+  %23 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i55, i1 true), !range !9
+  %xor.i.i.i.i56 = xor i32 %23, 31
+  %mul.i.i.i57 = mul nuw nsw i32 %xor.i.i.i.i56, 9
+  %add.i.i.i58 = add nuw nsw i32 %mul.i.i.i57, 73
+  %div1.i.i.i59 = lshr i32 %add.i.i.i58, 6
+  %conv.i.i.i60 = zext nneg i32 %div1.i.i.i59 to i64
+  %add.i.i61 = add i64 %total_size.1.lcssa, 1
+  %add35 = add i64 %add.i.i61, %22
+  %add36 = add i64 %add35, %conv.i.i.i60
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end30
   %total_size.2 = phi i64 [ %add36, %if.then ], [ %total_size.1.lcssa, %for.end30 ]
   %inventory_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %24 = load ptr, ptr %inventory_.i.i, align 8
-  %_M_string_length.i60 = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load i64, ptr %_M_string_length.i60, align 8
+  %_M_string_length.i62 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load i64, ptr %_M_string_length.i62, align 8
   %cmp39.not = icmp eq i64 %25, 0
   br i1 %cmp39.not, label %if.end45, label %if.then40
 
 if.then40:                                        ; preds = %if.end
-  %conv.i.i62 = trunc i64 %25 to i32
-  %or.i.i.i63 = or i32 %conv.i.i62, 1
-  %26 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i63, i1 true), !range !9
-  %xor.i.i.i.i64 = xor i32 %26, 31
-  %mul.i.i.i65 = mul nuw nsw i32 %xor.i.i.i.i64, 9
-  %add.i.i.i66 = add nuw nsw i32 %mul.i.i.i65, 73
-  %div1.i.i.i67 = lshr i32 %add.i.i.i66, 6
-  %conv.i.i.i68 = zext nneg i32 %div1.i.i.i67 to i64
-  %add.i.i69 = add i64 %total_size.2, 1
-  %add43 = add i64 %add.i.i69, %25
-  %add44 = add i64 %add43, %conv.i.i.i68
+  %conv.i.i64 = trunc i64 %25 to i32
+  %or.i.i.i65 = or i32 %conv.i.i64, 1
+  %26 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i65, i1 true), !range !9
+  %xor.i.i.i.i66 = xor i32 %26, 31
+  %mul.i.i.i67 = mul nuw nsw i32 %xor.i.i.i.i66, 9
+  %add.i.i.i68 = add nuw nsw i32 %mul.i.i.i67, 73
+  %div1.i.i.i69 = lshr i32 %add.i.i.i68, 6
+  %conv.i.i.i70 = zext nneg i32 %div1.i.i.i69 to i64
+  %add.i.i71 = add i64 %total_size.2, 1
+  %add43 = add i64 %add.i.i71, %25
+  %add44 = add i64 %add43, %conv.i.i.i70
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then40, %if.end
   %total_size.3 = phi i64 [ %add44, %if.then40 ], [ %total_size.2, %if.end ]
-  %cmp.not.i.i70 = icmp ne ptr %this, @_ZN6mygame26_Monster_default_instance_E
+  %cmp.not.i.i72 = icmp ne ptr %this, @_ZN6mygame26_Monster_default_instance_E
   %pos_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %27 = load ptr, ptr %pos_.i.i, align 8
   %cmp2.i.i = icmp ne ptr %27, null
-  %28 = select i1 %cmp.not.i.i70, i1 %cmp2.i.i, i1 false
+  %28 = select i1 %cmp.not.i.i72, i1 %cmp2.i.i, i1 false
   br i1 %28, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.end45
-  %x_.i.i.i.i71 = getelementptr inbounds i8, ptr %27, i64 16
-  %29 = load float, ptr %x_.i.i.i.i71, align 8
-  %or.cond.i.i72 = fcmp une float %29, 0.000000e+00
-  %total_size.0.i.i73 = select i1 %or.cond.i.i72, i64 5, i64 0
-  %y_.i.i.i.i74 = getelementptr inbounds i8, ptr %27, i64 20
-  %30 = load float, ptr %y_.i.i.i.i74, align 4
-  %or.cond10.i.i75 = fcmp une float %30, 0.000000e+00
-  %add10.i.i76 = add nuw nsw i64 %total_size.0.i.i73, 5
-  %total_size.1.i.i77 = select i1 %or.cond10.i.i75, i64 %add10.i.i76, i64 %total_size.0.i.i73
-  %z_.i.i.i.i78 = getelementptr inbounds i8, ptr %27, i64 24
-  %31 = load float, ptr %z_.i.i.i.i78, align 8
-  %or.cond11.i.i79 = fcmp une float %31, 0.000000e+00
-  %add18.i.i80 = add nuw nsw i64 %total_size.1.i.i77, 5
-  %total_size.2.i.i81 = select i1 %or.cond11.i.i79, i64 %add18.i.i80, i64 %total_size.1.i.i77
-  %_internal_metadata_.i.i82 = getelementptr inbounds i8, ptr %27, i64 8
-  %32 = load ptr, ptr %_internal_metadata_.i.i82, align 8
+  %x_.i.i.i.i73 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load float, ptr %x_.i.i.i.i73, align 8
+  %cmp.i.i74 = fcmp ugt float %29, 0.000000e+00
+  br i1 %cmp.i.i74, label %if.end.i.i77, label %land.lhs.true.i.i75
+
+land.lhs.true.i.i75:                              ; preds = %if.then47
+  %cmp3.i.i76 = fcmp ult float %29, 0.000000e+00
+  br i1 %cmp3.i.i76, label %if.then.i.i106, label %if.end.i.i77
+
+if.then.i.i106:                                   ; preds = %land.lhs.true.i.i75
+  br label %if.end.i.i77
+
+if.end.i.i77:                                     ; preds = %if.then.i.i106, %land.lhs.true.i.i75, %if.then47
+  %total_size.0.i.i78 = phi i64 [ 0, %land.lhs.true.i.i75 ], [ 5, %if.then47 ], [ 5, %if.then.i.i106 ]
+  %y_.i.i.i.i79 = getelementptr inbounds i8, ptr %27, i64 20
+  %30 = load float, ptr %y_.i.i.i.i79, align 4
+  %or.cond.i.i80 = fcmp une float %30, 0.000000e+00
+  %add10.i.i81 = add nuw nsw i64 %total_size.0.i.i78, 5
+  %total_size.1.i.i82 = select i1 %or.cond.i.i80, i64 %add10.i.i81, i64 %total_size.0.i.i78
+  %z_.i.i.i.i83 = getelementptr inbounds i8, ptr %27, i64 24
+  %31 = load float, ptr %z_.i.i.i.i83, align 8
+  %or.cond10.i.i84 = fcmp une float %31, 0.000000e+00
+  %add18.i.i85 = add nuw nsw i64 %total_size.1.i.i82, 5
+  %total_size.2.i.i86 = select i1 %or.cond10.i.i84, i64 %add18.i.i85, i64 %total_size.1.i.i82
+  %_internal_metadata_.i.i87 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = load ptr, ptr %_internal_metadata_.i.i87, align 8
   %33 = ptrtoint ptr %32 to i64
-  %conv.i6.i.i83 = and i64 %33, 1
-  %cmp.i.not.i.i84 = icmp eq i64 %conv.i6.i.i83, 0
-  br i1 %cmp.i.not.i.i84, label %if.end24.i.i98, label %if.then21.i.i85
+  %conv.i6.i.i88 = and i64 %33, 1
+  %cmp.i.not.i.i89 = icmp eq i64 %conv.i6.i.i88, 0
+  br i1 %cmp.i.not.i.i89, label %if.end24.i.i103, label %if.then21.i.i90
 
-if.then21.i.i85:                                  ; preds = %if.then47
-  %_cached_size_.i.i86 = getelementptr inbounds i8, ptr %27, i64 28
-  %call23.i.i87 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i82, i64 noundef %total_size.2.i.i81, ptr noundef nonnull %_cached_size_.i.i86)
-  %.pre.i88 = trunc i64 %call23.i.i87 to i32
-  br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101
+if.then21.i.i90:                                  ; preds = %if.end.i.i77
+  %_cached_size_.i.i91 = getelementptr inbounds i8, ptr %27, i64 28
+  %call23.i.i92 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i87, i64 noundef %total_size.2.i.i86, ptr noundef nonnull %_cached_size_.i.i91)
+  %.pre.i93 = trunc i64 %call23.i.i92 to i32
+  br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit107
 
-if.end24.i.i98:                                   ; preds = %if.then47
-  %conv.i.i.i99 = trunc i64 %total_size.2.i.i81 to i32
-  %_cached_size_.i.i.i100 = getelementptr inbounds i8, ptr %27, i64 28
-  store atomic i32 %conv.i.i.i99, ptr %_cached_size_.i.i.i100 monotonic, align 4
-  br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101
+if.end24.i.i103:                                  ; preds = %if.end.i.i77
+  %conv.i.i.i104 = trunc nuw nsw i64 %total_size.2.i.i86 to i32
+  %_cached_size_.i.i.i105 = getelementptr inbounds i8, ptr %27, i64 28
+  store atomic i32 %conv.i.i.i104, ptr %_cached_size_.i.i.i105 monotonic, align 4
+  br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit107
 
-_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101: ; preds = %if.then21.i.i85, %if.end24.i.i98
-  %conv.i.pre-phi.i89 = phi i32 [ %.pre.i88, %if.then21.i.i85 ], [ %conv.i.i.i99, %if.end24.i.i98 ]
-  %retval.0.i.i90 = phi i64 [ %call23.i.i87, %if.then21.i.i85 ], [ %total_size.2.i.i81, %if.end24.i.i98 ]
-  %or.i.i.i91 = or i32 %conv.i.pre-phi.i89, 1
-  %34 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i91, i1 true), !range !9
-  %xor.i.i.i.i92 = xor i32 %34, 31
-  %mul.i.i.i93 = mul nuw nsw i32 %xor.i.i.i.i92, 9
-  %add.i.i.i94 = add nuw nsw i32 %mul.i.i.i93, 73
-  %div1.i.i.i95 = lshr i32 %add.i.i.i94, 6
-  %conv.i.i1.i96 = zext nneg i32 %div1.i.i.i95 to i64
-  %add.i.i97 = add i64 %total_size.3, 1
-  %add49 = add i64 %add.i.i97, %retval.0.i.i90
-  %add50 = add i64 %add49, %conv.i.i1.i96
+_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit107: ; preds = %if.then21.i.i90, %if.end24.i.i103
+  %conv.i.pre-phi.i94 = phi i32 [ %.pre.i93, %if.then21.i.i90 ], [ %conv.i.i.i104, %if.end24.i.i103 ]
+  %retval.0.i.i95 = phi i64 [ %call23.i.i92, %if.then21.i.i90 ], [ %total_size.2.i.i86, %if.end24.i.i103 ]
+  %or.i.i.i96 = or i32 %conv.i.pre-phi.i94, 1
+  %34 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i96, i1 true), !range !9
+  %xor.i.i.i.i97 = xor i32 %34, 31
+  %mul.i.i.i98 = mul nuw nsw i32 %xor.i.i.i.i97, 9
+  %add.i.i.i99 = add nuw nsw i32 %mul.i.i.i98, 73
+  %div1.i.i.i100 = lshr i32 %add.i.i.i99, 6
+  %conv.i.i1.i101 = zext nneg i32 %div1.i.i.i100 to i64
+  %add.i.i102 = add i64 %total_size.3, 1
+  %add49 = add i64 %add.i.i102, %retval.0.i.i95
+  %add50 = add i64 %add49, %conv.i.i1.i101
   br label %if.end51
 
-if.end51:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101, %if.end45
-  %total_size.4 = phi i64 [ %add50, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit101 ], [ %total_size.3, %if.end45 ]
+if.end51:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit107, %if.end45
+  %total_size.4 = phi i64 [ %add50, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.exit107 ], [ %total_size.3, %if.end45 ]
   %equipped_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %35 = load ptr, ptr %equipped_.i.i, align 8
-  %cmp2.i.i103 = icmp ne ptr %35, null
-  %36 = select i1 %cmp.not.i.i70, i1 %cmp2.i.i103, i1 false
+  %cmp2.i.i109 = icmp ne ptr %35, null
+  %36 = select i1 %cmp.not.i.i72, i1 %cmp2.i.i109, i1 false
   br i1 %36, label %if.then53, label %if.end57
 
 if.then53:                                        ; preds = %if.end51
-  %name_.i.i.i.i104 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = load ptr, ptr %name_.i.i.i.i104, align 8
-  %_M_string_length.i.i.i105 = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load i64, ptr %_M_string_length.i.i.i105, align 8
-  %cmp.not.i.i106 = icmp eq i64 %38, 0
-  br i1 %cmp.not.i.i106, label %if.end.i.i117, label %if.then.i.i107
+  %name_.i.i.i.i110 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %name_.i.i.i.i110, align 8
+  %_M_string_length.i.i.i111 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = load i64, ptr %_M_string_length.i.i.i111, align 8
+  %cmp.not.i.i112 = icmp eq i64 %38, 0
+  br i1 %cmp.not.i.i112, label %if.end.i.i123, label %if.then.i.i113
 
-if.then.i.i107:                                   ; preds = %if.then53
-  %conv.i.i.i.i108 = trunc i64 %38 to i32
-  %or.i.i.i.i.i109 = or i32 %conv.i.i.i.i108, 1
-  %39 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i.i.i109, i1 true), !range !9
-  %xor.i.i.i.i.i.i110 = xor i32 %39, 31
-  %mul.i.i.i.i.i111 = mul nuw nsw i32 %xor.i.i.i.i.i.i110, 9
-  %add.i.i.i.i.i112 = add nuw nsw i32 %mul.i.i.i.i.i111, 73
-  %div1.i.i.i.i.i113 = lshr i32 %add.i.i.i.i.i112, 6
-  %conv.i.i.i.i.i114 = zext nneg i32 %div1.i.i.i.i.i113 to i64
-  %add.i.i.i.i115 = add i64 %38, 1
-  %add.i.i116 = add i64 %add.i.i.i.i115, %conv.i.i.i.i.i114
-  br label %if.end.i.i117
+if.then.i.i113:                                   ; preds = %if.then53
+  %conv.i.i.i.i114 = trunc i64 %38 to i32
+  %or.i.i.i.i.i115 = or i32 %conv.i.i.i.i114, 1
+  %39 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i.i.i115, i1 true), !range !9
+  %xor.i.i.i.i.i.i116 = xor i32 %39, 31
+  %mul.i.i.i.i.i117 = mul nuw nsw i32 %xor.i.i.i.i.i.i116, 9
+  %add.i.i.i.i.i118 = add nuw nsw i32 %mul.i.i.i.i.i117, 73
+  %div1.i.i.i.i.i119 = lshr i32 %add.i.i.i.i.i118, 6
+  %conv.i.i.i.i.i120 = zext nneg i32 %div1.i.i.i.i.i119 to i64
+  %add.i.i.i.i121 = add i64 %38, 1
+  %add.i.i122 = add i64 %add.i.i.i.i121, %conv.i.i.i.i.i120
+  br label %if.end.i.i123
 
-if.end.i.i117:                                    ; preds = %if.then.i.i107, %if.then53
-  %total_size.0.i.i118 = phi i64 [ %add.i.i116, %if.then.i.i107 ], [ 0, %if.then53 ]
-  %damage_.i.i.i.i119 = getelementptr inbounds i8, ptr %35, i64 24
-  %40 = load i32, ptr %damage_.i.i.i.i119, align 8
-  %cmp7.not.i.i120 = icmp eq i32 %40, 0
-  br i1 %cmp7.not.i.i120, label %if.end13.i.i133, label %if.then8.i.i121
+if.end.i.i123:                                    ; preds = %if.then.i.i113, %if.then53
+  %total_size.0.i.i124 = phi i64 [ %add.i.i122, %if.then.i.i113 ], [ 0, %if.then53 ]
+  %damage_.i.i.i.i125 = getelementptr inbounds i8, ptr %35, i64 24
+  %40 = load i32, ptr %damage_.i.i.i.i125, align 8
+  %cmp7.not.i.i126 = icmp eq i32 %40, 0
+  br i1 %cmp7.not.i.i126, label %if.end13.i.i139, label %if.then8.i.i127
 
-if.then8.i.i121:                                  ; preds = %if.end.i.i117
-  %cmp.i.i.i.i122 = icmp slt i32 %40, 0
-  br i1 %cmp.i.i.i.i122, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i130, label %if.else.i.i.i.i123
+if.then8.i.i127:                                  ; preds = %if.end.i.i123
+  %cmp.i.i.i.i128 = icmp slt i32 %40, 0
+  br i1 %cmp.i.i.i.i128, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i136, label %if.else.i.i.i.i129
 
-if.else.i.i.i.i123:                               ; preds = %if.then8.i.i121
-  %or.i.i.i6.i.i124 = or i32 %40, 1
-  %41 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i6.i.i124, i1 true), !range !9
-  %xor.i.i.i.i7.i.i125 = xor i32 %41, 31
-  %mul.i.i.i8.i.i126 = mul nuw nsw i32 %xor.i.i.i.i7.i.i125, 9
-  %add.i.i.i9.i.i127 = add nuw nsw i32 %mul.i.i.i8.i.i126, 73
-  %div1.i.i.i10.i.i128 = lshr i32 %add.i.i.i9.i.i127, 6
-  %narrow.i.i129 = add nuw nsw i32 %div1.i.i.i10.i.i128, 1
-  %42 = zext nneg i32 %narrow.i.i129 to i64
-  br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i130
+if.else.i.i.i.i129:                               ; preds = %if.then8.i.i127
+  %or.i.i.i6.i.i130 = or i32 %40, 1
+  %41 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i6.i.i130, i1 true), !range !9
+  %xor.i.i.i.i7.i.i131 = xor i32 %41, 31
+  %mul.i.i.i8.i.i132 = mul nuw nsw i32 %xor.i.i.i.i7.i.i131, 9
+  %add.i.i.i9.i.i133 = add nuw nsw i32 %mul.i.i.i8.i.i132, 73
+  %div1.i.i.i10.i.i134 = lshr i32 %add.i.i.i9.i.i133, 6
+  %narrow.i.i135 = add nuw nsw i32 %div1.i.i.i10.i.i134, 1
+  %42 = zext nneg i32 %narrow.i.i135 to i64
+  br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i136
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i130: ; preds = %if.else.i.i.i.i123, %if.then8.i.i121
-  %retval.0.i.i.i.i131 = phi i64 [ %42, %if.else.i.i.i.i123 ], [ 11, %if.then8.i.i121 ]
-  %add12.i.i132 = add i64 %retval.0.i.i.i.i131, %total_size.0.i.i118
-  br label %if.end13.i.i133
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i136: ; preds = %if.else.i.i.i.i129, %if.then8.i.i127
+  %retval.0.i.i.i.i137 = phi i64 [ %42, %if.else.i.i.i.i129 ], [ 11, %if.then8.i.i127 ]
+  %add12.i.i138 = add i64 %retval.0.i.i.i.i137, %total_size.0.i.i124
+  br label %if.end13.i.i139
 
-if.end13.i.i133:                                  ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i130, %if.end.i.i117
-  %total_size.1.i.i134 = phi i64 [ %add12.i.i132, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i130 ], [ %total_size.0.i.i118, %if.end.i.i117 ]
-  %_internal_metadata_.i.i135 = getelementptr inbounds i8, ptr %35, i64 8
-  %43 = load ptr, ptr %_internal_metadata_.i.i135, align 8
+if.end13.i.i139:                                  ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i136, %if.end.i.i123
+  %total_size.1.i.i140 = phi i64 [ %add12.i.i138, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i.i136 ], [ %total_size.0.i.i124, %if.end.i.i123 ]
+  %_internal_metadata_.i.i141 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = load ptr, ptr %_internal_metadata_.i.i141, align 8
   %44 = ptrtoint ptr %43 to i64
-  %conv.i5.i.i136 = and i64 %44, 1
-  %cmp.i.not.i.i137 = icmp eq i64 %conv.i5.i.i136, 0
-  br i1 %cmp.i.not.i.i137, label %if.end18.i.i151, label %if.then15.i.i138
+  %conv.i5.i.i142 = and i64 %44, 1
+  %cmp.i.not.i.i143 = icmp eq i64 %conv.i5.i.i142, 0
+  br i1 %cmp.i.not.i.i143, label %if.end18.i.i157, label %if.then15.i.i144
 
-if.then15.i.i138:                                 ; preds = %if.end13.i.i133
-  %_cached_size_.i.i139 = getelementptr inbounds i8, ptr %35, i64 28
-  %call17.i.i140 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i135, i64 noundef %total_size.1.i.i134, ptr noundef nonnull %_cached_size_.i.i139)
-  %.pre.i141 = trunc i64 %call17.i.i140 to i32
-  br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154
+if.then15.i.i144:                                 ; preds = %if.end13.i.i139
+  %_cached_size_.i.i145 = getelementptr inbounds i8, ptr %35, i64 28
+  %call17.i.i146 = tail call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i141, i64 noundef %total_size.1.i.i140, ptr noundef nonnull %_cached_size_.i.i145)
+  %.pre.i147 = trunc i64 %call17.i.i146 to i32
+  br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit160
 
-if.end18.i.i151:                                  ; preds = %if.end13.i.i133
-  %conv.i.i.i152 = trunc i64 %total_size.1.i.i134 to i32
-  %_cached_size_.i.i.i153 = getelementptr inbounds i8, ptr %35, i64 28
-  store atomic i32 %conv.i.i.i152, ptr %_cached_size_.i.i.i153 monotonic, align 4
-  br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154
+if.end18.i.i157:                                  ; preds = %if.end13.i.i139
+  %conv.i.i.i158 = trunc i64 %total_size.1.i.i140 to i32
+  %_cached_size_.i.i.i159 = getelementptr inbounds i8, ptr %35, i64 28
+  store atomic i32 %conv.i.i.i158, ptr %_cached_size_.i.i.i159 monotonic, align 4
+  br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit160
 
-_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154: ; preds = %if.then15.i.i138, %if.end18.i.i151
-  %conv.i.pre-phi.i142 = phi i32 [ %.pre.i141, %if.then15.i.i138 ], [ %conv.i.i.i152, %if.end18.i.i151 ]
-  %retval.0.i.i143 = phi i64 [ %call17.i.i140, %if.then15.i.i138 ], [ %total_size.1.i.i134, %if.end18.i.i151 ]
-  %or.i.i.i144 = or i32 %conv.i.pre-phi.i142, 1
-  %45 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i144, i1 true), !range !9
-  %xor.i.i.i.i145 = xor i32 %45, 31
-  %mul.i.i.i146 = mul nuw nsw i32 %xor.i.i.i.i145, 9
-  %add.i.i.i147 = add nuw nsw i32 %mul.i.i.i146, 73
-  %div1.i.i.i148 = lshr i32 %add.i.i.i147, 6
-  %conv.i.i1.i149 = zext nneg i32 %div1.i.i.i148 to i64
-  %add.i2.i150 = add i64 %total_size.4, 1
-  %add55 = add i64 %add.i2.i150, %retval.0.i.i143
-  %add56 = add i64 %add55, %conv.i.i1.i149
+_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit160: ; preds = %if.then15.i.i144, %if.end18.i.i157
+  %conv.i.pre-phi.i148 = phi i32 [ %.pre.i147, %if.then15.i.i144 ], [ %conv.i.i.i158, %if.end18.i.i157 ]
+  %retval.0.i.i149 = phi i64 [ %call17.i.i146, %if.then15.i.i144 ], [ %total_size.1.i.i140, %if.end18.i.i157 ]
+  %or.i.i.i150 = or i32 %conv.i.pre-phi.i148, 1
+  %45 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i150, i1 true), !range !9
+  %xor.i.i.i.i151 = xor i32 %45, 31
+  %mul.i.i.i152 = mul nuw nsw i32 %xor.i.i.i.i151, 9
+  %add.i.i.i153 = add nuw nsw i32 %mul.i.i.i152, 73
+  %div1.i.i.i154 = lshr i32 %add.i.i.i153, 6
+  %conv.i.i1.i155 = zext nneg i32 %div1.i.i.i154 to i64
+  %add.i2.i156 = add i64 %total_size.4, 1
+  %add55 = add i64 %add.i2.i156, %retval.0.i.i149
+  %add56 = add i64 %add55, %conv.i.i1.i155
   br label %if.end57
 
-if.end57:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154, %if.end51
-  %total_size.5 = phi i64 [ %add56, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit154 ], [ %total_size.4, %if.end51 ]
+if.end57:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit160, %if.end51
+  %total_size.5 = phi i64 [ %add56, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT_.exit160 ], [ %total_size.4, %if.end51 ]
   %mana_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %46 = load i32, ptr %mana_.i.i, align 8
   %cmp59.not = icmp eq i32 %46, 0
   br i1 %cmp59.not, label %if.end65, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
-  %cmp.i.i = icmp slt i32 %46, 0
-  br i1 %cmp.i.i, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, label %if.else.i.i
+  %cmp.i.i161 = icmp slt i32 %46, 0
+  br i1 %cmp.i.i161, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then60
-  %or.i.i.i155 = or i32 %46, 1
-  %47 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i155, i1 true), !range !9
-  %xor.i.i.i.i156 = xor i32 %47, 31
-  %mul.i.i.i157 = mul nuw nsw i32 %xor.i.i.i.i156, 9
-  %add.i.i.i158 = add nuw nsw i32 %mul.i.i.i157, 73
-  %div1.i.i.i159 = lshr i32 %add.i.i.i158, 6
-  %narrow = add nuw nsw i32 %div1.i.i.i159, 1
+  %or.i.i.i162 = or i32 %46, 1
+  %47 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i162, i1 true), !range !9
+  %xor.i.i.i.i163 = xor i32 %47, 31
+  %mul.i.i.i164 = mul nuw nsw i32 %xor.i.i.i.i163, 9
+  %add.i.i.i165 = add nuw nsw i32 %mul.i.i.i164, 73
+  %div1.i.i.i166 = lshr i32 %add.i.i.i165, 6
+  %narrow = add nuw nsw i32 %div1.i.i.i166, 1
   %48 = zext nneg i32 %narrow to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %if.then60, %if.else.i.i
-  %retval.0.i.i161 = phi i64 [ %48, %if.else.i.i ], [ 11, %if.then60 ]
-  %add64 = add i64 %retval.0.i.i161, %total_size.5
+  %retval.0.i.i168 = phi i64 [ %48, %if.else.i.i ], [ 11, %if.then60 ]
+  %add64 = add i64 %retval.0.i.i168, %total_size.5
   br label %if.end65
 
 if.end65:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, %if.end57
@@ -5383,50 +5413,50 @@ if.end65:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp67.not, label %if.end73, label %if.then68
 
 if.then68:                                        ; preds = %if.end65
-  %cmp.i.i162 = icmp slt i32 %49, 0
-  br i1 %cmp.i.i162, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171, label %if.else.i.i163
+  %cmp.i.i169 = icmp slt i32 %49, 0
+  br i1 %cmp.i.i169, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit178, label %if.else.i.i170
 
-if.else.i.i163:                                   ; preds = %if.then68
-  %or.i.i.i164 = or i32 %49, 1
-  %50 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i164, i1 true), !range !9
-  %xor.i.i.i.i165 = xor i32 %50, 31
-  %mul.i.i.i166 = mul nuw nsw i32 %xor.i.i.i.i165, 9
-  %add.i.i.i167 = add nuw nsw i32 %mul.i.i.i166, 73
-  %div1.i.i.i168 = lshr i32 %add.i.i.i167, 6
-  %narrow186 = add nuw nsw i32 %div1.i.i.i168, 1
-  %51 = zext nneg i32 %narrow186 to i64
-  br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171
+if.else.i.i170:                                   ; preds = %if.then68
+  %or.i.i.i171 = or i32 %49, 1
+  %50 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i171, i1 true), !range !9
+  %xor.i.i.i.i172 = xor i32 %50, 31
+  %mul.i.i.i173 = mul nuw nsw i32 %xor.i.i.i.i172, 9
+  %add.i.i.i174 = add nuw nsw i32 %mul.i.i.i173, 73
+  %div1.i.i.i175 = lshr i32 %add.i.i.i174, 6
+  %narrow193 = add nuw nsw i32 %div1.i.i.i175, 1
+  %51 = zext nneg i32 %narrow193 to i64
+  br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit178
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171: ; preds = %if.then68, %if.else.i.i163
-  %retval.0.i.i170 = phi i64 [ %51, %if.else.i.i163 ], [ 11, %if.then68 ]
-  %add72 = add i64 %retval.0.i.i170, %total_size.6
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit178: ; preds = %if.then68, %if.else.i.i170
+  %retval.0.i.i177 = phi i64 [ %51, %if.else.i.i170 ], [ 11, %if.then68 ]
+  %add72 = add i64 %retval.0.i.i177, %total_size.6
   br label %if.end73
 
-if.end73:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171, %if.end65
-  %total_size.7 = phi i64 [ %add72, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit171 ], [ %total_size.6, %if.end65 ]
+if.end73:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit178, %if.end65
+  %total_size.7 = phi i64 [ %add72, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit178 ], [ %total_size.6, %if.end65 ]
   %color_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %52 = load i32, ptr %color_.i.i, align 8
   %cmp75.not = icmp eq i32 %52, 0
   br i1 %cmp75.not, label %if.end81, label %if.then76
 
 if.then76:                                        ; preds = %if.end73
-  %cmp.i.i172 = icmp slt i32 %52, 0
-  br i1 %cmp.i.i172, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, label %if.else.i.i173
+  %cmp.i.i179 = icmp slt i32 %52, 0
+  br i1 %cmp.i.i179, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, label %if.else.i.i180
 
-if.else.i.i173:                                   ; preds = %if.then76
-  %or.i.i.i174 = or i32 %52, 1
-  %53 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i174, i1 true), !range !9
-  %xor.i.i.i.i175 = xor i32 %53, 31
-  %mul.i.i.i176 = mul nuw nsw i32 %xor.i.i.i.i175, 9
-  %add.i.i.i177 = add nuw nsw i32 %mul.i.i.i176, 73
-  %div1.i.i.i178 = lshr i32 %add.i.i.i177, 6
-  %narrow187 = add nuw nsw i32 %div1.i.i.i178, 1
-  %54 = zext nneg i32 %narrow187 to i64
+if.else.i.i180:                                   ; preds = %if.then76
+  %or.i.i.i181 = or i32 %52, 1
+  %53 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i181, i1 true), !range !9
+  %xor.i.i.i.i182 = xor i32 %53, 31
+  %mul.i.i.i183 = mul nuw nsw i32 %xor.i.i.i.i182, 9
+  %add.i.i.i184 = add nuw nsw i32 %mul.i.i.i183, 73
+  %div1.i.i.i185 = lshr i32 %add.i.i.i184, 6
+  %narrow194 = add nuw nsw i32 %div1.i.i.i185, 1
+  %54 = zext nneg i32 %narrow194 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit
 
-_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %if.then76, %if.else.i.i173
-  %retval.0.i.i180 = phi i64 [ %54, %if.else.i.i173 ], [ 11, %if.then76 ]
-  %add80 = add i64 %retval.0.i.i180, %total_size.7
+_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %if.then76, %if.else.i.i180
+  %retval.0.i.i187 = phi i64 [ %54, %if.else.i.i180 ], [ 11, %if.then76 ]
+  %add80 = add i64 %retval.0.i.i187, %total_size.7
   br label %if.end81
 
 if.end81:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, %if.end73
@@ -6672,7 +6702,7 @@ if.end.i.i:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end8.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %conv5.i.i = trunc i32 %shr.i.i to i8
+  %conv5.i.i = trunc nuw nsw i32 %shr.i.i to i8
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 2
   store i8 %conv5.i.i, ptr %arrayidx6.i.i, align 1
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 3
@@ -6694,7 +6724,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !16
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %conv15.i.i = trunc i32 %shr11.i.i to i8
+  %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
   %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 2
   store i8 %conv15.i.i, ptr %incdec.ptr12.i.i, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -7745,7 +7775,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end8.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %conv5.i.i.i = trunc i64 %shr.i.i.i to i8
+  %conv5.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i8
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 2
   store i8 %conv5.i.i.i, ptr %arrayidx6.i.i.i, align 1
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 3
@@ -7767,7 +7797,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !8
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
-  %conv15.i.i.i = trunc i64 %shr11.i.i.i to i8
+  %conv15.i.i.i = trunc nuw nsw i64 %shr11.i.i.i to i8
   %incdec.ptr16.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 2
   store i8 %conv15.i.i.i, ptr %incdec.ptr12.i.i.i, align 1
   br label %if.end
@@ -7812,7 +7842,7 @@ if.end.i.i.i28:                                   ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i32, label %if.then4.i.i.i46, label %if.end8.i.i.i33
 
 if.then4.i.i.i46:                                 ; preds = %if.end.i.i.i28
-  %conv5.i.i.i47 = trunc i64 %shr.i.i.i31 to i8
+  %conv5.i.i.i47 = trunc nuw nsw i64 %shr.i.i.i31 to i8
   %arrayidx6.i.i.i48 = getelementptr inbounds i8, ptr %retval.0.i23, i64 2
   store i8 %conv5.i.i.i47, ptr %arrayidx6.i.i.i48, align 1
   %add.ptr7.i.i.i49 = getelementptr inbounds i8, ptr %retval.0.i23, i64 3
@@ -7834,7 +7864,7 @@ do.body.i.i.i35:                                  ; preds = %do.body.i.i.i35, %i
   br i1 %cmp13.i.i.i41, label %do.body.i.i.i35, label %do.end.i.i.i42, !llvm.loop !8
 
 do.end.i.i.i42:                                   ; preds = %do.body.i.i.i35
-  %conv15.i.i.i43 = trunc i64 %shr11.i.i.i39 to i8
+  %conv15.i.i.i43 = trunc nuw nsw i64 %shr11.i.i.i39 to i8
   %incdec.ptr16.i.i.i44 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i36, i64 2
   store i8 %conv15.i.i.i43, ptr %incdec.ptr12.i.i.i40, align 1
   br label %if.end11
@@ -7879,7 +7909,7 @@ if.end.i.i.i61:                                   ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i65, label %if.then4.i.i.i79, label %if.end8.i.i.i66
 
 if.then4.i.i.i79:                                 ; preds = %if.end.i.i.i61
-  %conv5.i.i.i80 = trunc i64 %shr.i.i.i64 to i8
+  %conv5.i.i.i80 = trunc nuw nsw i64 %shr.i.i.i64 to i8
   %arrayidx6.i.i.i81 = getelementptr inbounds i8, ptr %retval.0.i56, i64 2
   store i8 %conv5.i.i.i80, ptr %arrayidx6.i.i.i81, align 1
   %add.ptr7.i.i.i82 = getelementptr inbounds i8, ptr %retval.0.i56, i64 3
@@ -7901,7 +7931,7 @@ do.body.i.i.i68:                                  ; preds = %do.body.i.i.i68, %i
   br i1 %cmp13.i.i.i74, label %do.body.i.i.i68, label %do.end.i.i.i75, !llvm.loop !8
 
 do.end.i.i.i75:                                   ; preds = %do.body.i.i.i68
-  %conv15.i.i.i76 = trunc i64 %shr11.i.i.i72 to i8
+  %conv15.i.i.i76 = trunc nuw nsw i64 %shr11.i.i.i72 to i8
   %incdec.ptr16.i.i.i77 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i69, i64 2
   store i8 %conv15.i.i.i76, ptr %incdec.ptr12.i.i.i73, align 1
   br label %if.end18
@@ -7946,7 +7976,7 @@ if.end.i.i.i94:                                   ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i98, label %if.then4.i.i.i112, label %if.end8.i.i.i99
 
 if.then4.i.i.i112:                                ; preds = %if.end.i.i.i94
-  %conv5.i.i.i113 = trunc i64 %shr.i.i.i97 to i8
+  %conv5.i.i.i113 = trunc nuw nsw i64 %shr.i.i.i97 to i8
   %arrayidx6.i.i.i114 = getelementptr inbounds i8, ptr %retval.0.i89, i64 2
   store i8 %conv5.i.i.i113, ptr %arrayidx6.i.i.i114, align 1
   %add.ptr7.i.i.i115 = getelementptr inbounds i8, ptr %retval.0.i89, i64 3
@@ -7968,7 +7998,7 @@ do.body.i.i.i101:                                 ; preds = %do.body.i.i.i101, %
   br i1 %cmp13.i.i.i107, label %do.body.i.i.i101, label %do.end.i.i.i108, !llvm.loop !8
 
 do.end.i.i.i108:                                  ; preds = %do.body.i.i.i101
-  %conv15.i.i.i109 = trunc i64 %shr11.i.i.i105 to i8
+  %conv15.i.i.i109 = trunc nuw nsw i64 %shr11.i.i.i105 to i8
   %incdec.ptr16.i.i.i110 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i102, i64 2
   store i8 %conv15.i.i.i109, ptr %incdec.ptr12.i.i.i106, align 1
   br label %if.end25
@@ -8113,7 +8143,7 @@ if.then30:                                        ; preds = %if.end28
   br label %return
 
 if.end33:                                         ; preds = %if.end28
-  %conv.i = trunc i64 %total_size.3 to i32
+  %conv.i = trunc nuw nsw i64 %total_size.3 to i32
   %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i32 %conv.i, ptr %_cached_size_.i monotonic, align 8
   br label %return
@@ -9093,7 +9123,7 @@ if.end.i.i:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end8.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %conv5.i.i = trunc i32 %shr.i.i to i8
+  %conv5.i.i = trunc nuw nsw i32 %shr.i.i to i8
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 2
   store i8 %conv5.i.i, ptr %arrayidx6.i.i, align 1
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 3
@@ -9115,7 +9145,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !16
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %conv15.i.i = trunc i32 %shr11.i.i to i8
+  %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
   %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 2
   store i8 %conv15.i.i, ptr %incdec.ptr12.i.i, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -10207,7 +10237,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end8.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %conv5.i.i.i = trunc i64 %shr.i.i.i to i8
+  %conv5.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i8
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 2
   store i8 %conv5.i.i.i, ptr %arrayidx6.i.i.i, align 1
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 3
@@ -10229,7 +10259,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   br i1 %cmp13.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !8
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
-  %conv15.i.i.i = trunc i64 %shr11.i.i.i to i8
+  %conv15.i.i.i = trunc nuw nsw i64 %shr11.i.i.i to i8
   %incdec.ptr16.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i, i64 2
   store i8 %conv15.i.i.i, ptr %incdec.ptr12.i.i.i, align 1
   br label %if.end
@@ -10317,7 +10347,7 @@ if.end.i.i.i32:                                   ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i.i36, label %if.then4.i.i.i50, label %if.end8.i.i.i37
 
 if.then4.i.i.i50:                                 ; preds = %if.end.i.i.i32
-  %conv5.i.i.i51 = trunc i64 %shr.i.i.i35 to i8
+  %conv5.i.i.i51 = trunc nuw nsw i64 %shr.i.i.i35 to i8
   %arrayidx6.i.i.i52 = getelementptr inbounds i8, ptr %retval.0.i27, i64 2
   store i8 %conv5.i.i.i51, ptr %arrayidx6.i.i.i52, align 1
   %add.ptr7.i.i.i53 = getelementptr inbounds i8, ptr %retval.0.i27, i64 3
@@ -10339,7 +10369,7 @@ do.body.i.i.i39:                                  ; preds = %do.body.i.i.i39, %i
   br i1 %cmp13.i.i.i45, label %do.body.i.i.i39, label %do.end.i.i.i46, !llvm.loop !8
 
 do.end.i.i.i46:                                   ; preds = %do.body.i.i.i39
-  %conv15.i.i.i47 = trunc i64 %shr11.i.i.i43 to i8
+  %conv15.i.i.i47 = trunc nuw nsw i64 %shr11.i.i.i43 to i8
   %incdec.ptr16.i.i.i48 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i.i40, i64 2
   store i8 %conv15.i.i.i47, ptr %incdec.ptr12.i.i.i44, align 1
   br label %if.end23
@@ -11654,7 +11684,7 @@ if.end.i.i:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end8.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %conv5.i.i = trunc i32 %shr.i.i to i8
+  %conv5.i.i = trunc nuw nsw i32 %shr.i.i to i8
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 2
   store i8 %conv5.i.i, ptr %arrayidx6.i.i, align 1
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 3
@@ -11676,7 +11706,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !16
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %conv15.i.i = trunc i32 %shr11.i.i to i8
+  %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
   %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 2
   store i8 %conv15.i.i, ptr %incdec.ptr12.i.i, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit

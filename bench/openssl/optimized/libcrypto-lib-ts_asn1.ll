@@ -546,7 +546,7 @@ if.then6:                                         ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then6
   %or.cond.i = icmp ugt i64 %call.i, 1
-  br i1 %or.cond.i, label %ts_resp_set_tst_info.exit, label %if.end.i
+  br i1 %or.cond.i, label %7, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %tst_info.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -556,13 +556,13 @@ if.end.i:                                         ; preds = %if.then.i
   %call5.i = tail call ptr @PKCS7_to_TS_TST_INFO(ptr noundef %6)
   store ptr %call5.i, ptr %tst_info.i, align 8
   %tobool8.not.i = icmp eq ptr %call5.i, null
-  br i1 %tobool8.not.i, label %ts_resp_set_tst_info.exit, label %return
+  br i1 %tobool8.not.i, label %7, label %return
 
 if.else.i:                                        ; preds = %if.then6
   %or.cond1.i = icmp ult i64 %call.i, 2
-  br i1 %or.cond1.i, label %ts_resp_set_tst_info.exit, label %return
+  br i1 %or.cond1.i, label %7, label %return
 
-ts_resp_set_tst_info.exit:                        ; preds = %if.then.i, %if.end.i, %if.else.i
+7:                                                ; preds = %if.else.i, %if.end.i, %if.then.i
   %.sink10.i = phi i32 [ 141, %if.then.i ], [ 147, %if.end.i ], [ 151, %if.else.i ]
   %.sink.i = phi i32 [ 131, %if.then.i ], [ 129, %if.end.i ], [ 130, %if.else.i ]
   tail call void @ERR_new() #3
@@ -570,8 +570,8 @@ ts_resp_set_tst_info.exit:                        ; preds = %if.then.i, %if.end.
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink.i, ptr noundef null) #3
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.else.i, %if.then, %if.then2, %entry, %ts_resp_set_tst_info.exit
-  %retval.0 = phi i32 [ 0, %ts_resp_set_tst_info.exit ], [ 1, %entry ], [ 1, %if.then2 ], [ 1, %if.then ], [ 1, %if.else.i ], [ 1, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.else.i, %7, %if.then, %if.then2, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %if.then2 ], [ 1, %if.then ], [ 0, %7 ], [ 1, %if.else.i ], [ 1, %if.end.i ]
   ret i32 %retval.0
 }
 

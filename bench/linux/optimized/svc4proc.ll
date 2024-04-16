@@ -700,13 +700,13 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load ptr, ptr @nlmsvc_ops, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread4, label %9
+  br i1 %8, label %71, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %1, i64 208
   %11 = load i64, ptr %10, align 8
   %12 = icmp slt i64 %11, 0
-  br i1 %12, label %.thread4, label %13
+  br i1 %12, label %71, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %1, i64 216
@@ -718,7 +718,7 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   %18 = add i64 %15, -1
   %19 = xor i64 %11, 9223372036854775807
   %20 = icmp ugt i64 %18, %19
-  br i1 %20, label %.thread4, label %21
+  br i1 %20, label %71, label %21
 
 21:                                               ; preds = %17, %13
   %22 = load ptr, ptr %6, align 8
@@ -743,7 +743,7 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
 35:                                               ; preds = %32, %28
   store ptr %26, ptr %2, align 8
   %36 = icmp eq ptr %3, null
-  br i1 %36, label %.thread4, label %37
+  br i1 %36, label %71, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %1, i64 224
@@ -787,24 +787,24 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   %66 = getelementptr inbounds i8, ptr %1, i64 296
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.thread, label %.thread4
+  br i1 %68, label %.thread, label %71
 
 .thread:                                          ; preds = %42
   call void @nlmsvc_release_host(ptr noundef nonnull %26) #7
-  br label %.thread4
+  br label %71
 
 69:                                               ; preds = %37
   call void @nlmsvc_release_host(ptr noundef nonnull %26) #7
-  br label %.thread4
+  br label %71
 
 70:                                               ; preds = %32, %21
   tail call void @nlmsvc_release_host(ptr noundef %26) #7
-  br label %.thread4
+  br label %71
 
-.thread4:                                         ; preds = %42, %70, %69, %35, %.thread, %17, %9, %4
-  %71 = phi i32 [ 33554432, %4 ], [ 134217728, %17 ], [ 134217728, %9 ], [ 33554432, %.thread ], [ 0, %35 ], [ 33554432, %70 ], [ %40, %69 ], [ 0, %42 ]
+71:                                               ; preds = %70, %69, %42, %.thread, %35, %17, %9, %4
+  %72 = phi i32 [ 33554432, %4 ], [ 134217728, %17 ], [ 134217728, %9 ], [ 0, %35 ], [ 33554432, %.thread ], [ 0, %42 ], [ 33554432, %70 ], [ %40, %69 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  ret i32 %71
+  ret i32 %72
 }
 
 ; Function Attrs: null_pointer_is_valid

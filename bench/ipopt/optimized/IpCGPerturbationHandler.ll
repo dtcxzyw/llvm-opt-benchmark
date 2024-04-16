@@ -336,72 +336,75 @@ define noundef zeroext i1 @_ZN5Ipopt21CGPerturbationHandler17ConsiderNewSystemER
   %92 = load i8, ptr %91, align 1
   %93 = and i8 %92, 1
   %.not29 = icmp eq i8 %93, 0
-  br i1 %.not29, label %94, label %.thread
+  br i1 %.not29, label %94, label %101
 
 94:                                               ; preds = %87
   %95 = getelementptr inbounds i8, ptr %0, i64 216
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
-  br i1 %97, label %.thread, label %100
+  br i1 %97, label %101, label %100
 
 98:                                               ; preds = %78
   %99 = fcmp olt double %84, 0x3D19000000000000
-  br i1 %99, label %100, label %.thread
+  br i1 %99, label %101, label %.thread
 
-.thread:                                          ; preds = %87, %94, %98
-  br label %100
+.thread:                                          ; preds = %98
+  br label %101
 
-100:                                              ; preds = %94, %98, %.thread
-  %.sink39 = phi double [ %84, %.thread ], [ 0x3D19000000000000, %98 ], [ 0.000000e+00, %94 ]
-  %101 = getelementptr inbounds i8, ptr %0, i64 104
-  store double %.sink39, ptr %101, align 8
+100:                                              ; preds = %94
+  br label %101
+
+101:                                              ; preds = %94, %87, %98, %.thread, %100
+  %.sink39 = phi double [ 0.000000e+00, %100 ], [ 0x3D19000000000000, %98 ], [ %84, %87 ], [ %84, %94 ], [ %84, %.thread ]
+  %102 = getelementptr inbounds i8, ptr %0, i64 104
+  store double %.sink39, ptr %102, align 8
   store double %.sink39, ptr %3, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 2192
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 88
-  store double %.sink39, ptr %105, align 8
-  %106 = load double, ptr %3, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 112
-  store double %106, ptr %107, align 8
-  store double %106, ptr %4, align 8
-  %108 = load i32, ptr %53, align 4
-  %109 = icmp eq i32 %108, 2
-  br i1 %109, label %110, label %113
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 2192
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 88
+  store double %.sink39, ptr %106, align 8
+  %107 = load double, ptr %3, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 112
+  store double %107, ptr %108, align 8
+  store double %107, ptr %4, align 8
+  %109 = load i32, ptr %53, align 4
+  %110 = icmp eq i32 %109, 2
+  br i1 %110, label %111, label %114
 
-110:                                              ; preds = %100
-  %111 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
-  %112 = tail call noundef zeroext i1 @_ZN5Ipopt21PDPerturbationHandler28get_deltas_for_wrong_inertiaERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %112, label %114, label %126
+111:                                              ; preds = %101
+  %112 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
+  %113 = tail call noundef zeroext i1 @_ZN5Ipopt21PDPerturbationHandler28get_deltas_for_wrong_inertiaERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %113, label %115, label %127
 
-113:                                              ; preds = %100
+114:                                              ; preds = %101
   store double 0.000000e+00, ptr %1, align 8
   store double 0.000000e+00, ptr %2, align 8
-  br label %114
+  br label %115
 
-114:                                              ; preds = %110, %113
-  %115 = load double, ptr %1, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 88
-  store double %115, ptr %116, align 8
-  %117 = load double, ptr %2, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 96
-  store double %117, ptr %118, align 8
-  %119 = load double, ptr %3, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 104
-  store double %119, ptr %120, align 8
-  %121 = load double, ptr %4, align 8
-  store double %121, ptr %107, align 8
-  %122 = load ptr, ptr %6, align 8
-  %123 = load double, ptr %1, align 8
-  %124 = getelementptr inbounds i8, ptr %122, i64 120
-  store double %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 120
-  store i8 0, ptr %125, align 8
-  br label %126
+115:                                              ; preds = %111, %114
+  %116 = load double, ptr %1, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 88
+  store double %116, ptr %117, align 8
+  %118 = load double, ptr %2, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 96
+  store double %118, ptr %119, align 8
+  %120 = load double, ptr %3, align 8
+  %121 = getelementptr inbounds i8, ptr %0, i64 104
+  store double %120, ptr %121, align 8
+  %122 = load double, ptr %4, align 8
+  store double %122, ptr %108, align 8
+  %123 = load ptr, ptr %6, align 8
+  %124 = load double, ptr %1, align 8
+  %125 = getelementptr inbounds i8, ptr %123, i64 120
+  store double %124, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 120
+  store i8 0, ptr %126, align 8
+  br label %127
 
-126:                                              ; preds = %110, %114
-  %.0 = phi i1 [ true, %114 ], [ false, %110 ]
+127:                                              ; preds = %111, %115
+  %.0 = phi i1 [ true, %115 ], [ false, %111 ]
   ret i1 %.0
 }
 

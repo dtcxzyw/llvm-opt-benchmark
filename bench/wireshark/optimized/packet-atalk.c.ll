@@ -961,7 +961,7 @@ define internal i32 @dissect_ddp_short(ptr noundef %0, ptr noundef %1, ptr nound
 
 29:                                               ; preds = %26
   %30 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_ddp_len_invalid, ptr noundef nonnull @.str.360) #7
-  %31 = trunc i32 %27 to i16
+  %31 = trunc nuw i32 %27 to i16
   br label %32
 
 32:                                               ; preds = %26, %29, %24
@@ -2301,7 +2301,7 @@ define internal i32 @asp_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @asp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal i32 @asp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -2320,13 +2320,11 @@ define internal noundef i32 @asp_equal(ptr nocapture noundef readonly %0, ptr no
   %14 = getelementptr inbounds i8, ptr %1, i64 4
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %13, ptr noundef nonnull dereferenceable(4) %14, i64 4)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %16, label %15
+  %spec.select = zext i1 %.not to i32
+  br label %15
 
-15:                                               ; preds = %12, %6, %2
-  br label %16
-
-16:                                               ; preds = %12, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %12 ]
+15:                                               ; preds = %12, %2, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 

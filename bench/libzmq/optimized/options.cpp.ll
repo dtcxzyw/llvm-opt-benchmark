@@ -123,7 +123,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %frombool = trunc i32 %0 to i8
+  %frombool = trunc nuw i32 %0 to i8
   store i8 %frombool, ptr %out_value_, align 1
   br label %return
 
@@ -354,14 +354,13 @@ invoke.cont:                                      ; preds = %sw.bb2
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %tobool.not = icmp eq ptr %call5, null
-  br i1 %tobool.not, label %cleanup, label %cleanup.thread
+  %tobool.not.not = icmp eq ptr %call5, null
+  br i1 %tobool.not.not, label %cleanup, label %if.then
 
-cleanup.thread:                                   ; preds = %invoke.cont4
+if.then:                                          ; preds = %invoke.cont4
   %mechanism6 = getelementptr inbounds i8, ptr %this, i64 656
   store i32 2, ptr %mechanism6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #14
-  br label %return
+  br label %cleanup
 
 lpad:                                             ; preds = %sw.bb2
   %0 = landingpad { ptr, i32 }
@@ -375,8 +374,9 @@ lpad3:                                            ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #14
   br label %eh.resume
 
-cleanup:                                          ; preds = %invoke.cont4
+cleanup:                                          ; preds = %invoke.cont4, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #14
+  %spec.select = sext i1 %tobool.not.not to i32
   br label %return
 
 sw.bb7:                                           ; preds = %entry
@@ -392,8 +392,8 @@ if.then11:                                        ; preds = %sw.bb7
   store i32 2, ptr %mechanism12, align 8
   br label %return
 
-return:                                           ; preds = %sw.bb7, %entry, %cleanup, %cleanup.thread, %if.then11, %sw.bb
-  %retval.1 = phi i32 [ 0, %if.then11 ], [ 0, %sw.bb ], [ 0, %cleanup.thread ], [ -1, %cleanup ], [ -1, %entry ], [ -1, %sw.bb7 ]
+return:                                           ; preds = %cleanup, %sw.bb7, %entry, %if.then11, %sw.bb
+  %retval.1 = phi i32 [ 0, %if.then11 ], [ 0, %sw.bb ], [ -1, %entry ], [ -1, %sw.bb7 ], [ %spec.select, %cleanup ]
   ret i32 %retval.1
 
 eh.resume:                                        ; preds = %lpad3, %lpad
@@ -556,7 +556,7 @@ sw.bb13:                                          ; preds = %if.end
   br i1 %or.cond3, label %if.then17, label %sw.epilog
 
 if.then17:                                        ; preds = %sw.bb13
-  %conv = trunc i64 %optvallen_ to i8
+  %conv = trunc nuw i64 %optvallen_ to i8
   %routing_id_size = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %conv, ptr %routing_id_size, align 8
   %routing_id = getelementptr inbounds i8, ptr %this, i64 17
@@ -1032,7 +1032,7 @@ sw.bb276:                                         ; preds = %if.end
 
 if.then282:                                       ; preds = %sw.bb276
   %div = sdiv i32 %value.0, 100
-  %conv283 = trunc i32 %div to i16
+  %conv283 = trunc nuw i32 %div to i16
   %heartbeat_ttl = getelementptr inbounds i8, ptr %this, i64 946
   store i16 %conv283, ptr %heartbeat_ttl, align 2
   br label %return
@@ -1557,8 +1557,8 @@ _ZNKSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pr
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
-  %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 288230376151711743)
-  %cond.i.i = select i1 %cmp7.i.i, i64 288230376151711743, i64 %4
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 288230376151711743)
+  %cond.i.i = select i1 %cmp7.i.i, i64 288230376151711743, i64 %spec.select.i.i
   %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE11_M_allocateEm.exit.i, label %cond.true.i.i
 

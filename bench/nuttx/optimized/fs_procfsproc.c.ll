@@ -108,7 +108,7 @@ define internal noundef i32 @proc_open(ptr nocapture noundef writeonly %0, ptr n
   br i1 %19, label %proc_findnode.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = trunc i64 %.01621 to i32
+  %21 = trunc nuw nsw i64 %.01621 to i32
   %22 = tail call ptr @nxsched_get_tcb(i32 noundef %21) #15
   %23 = icmp eq ptr %22, null
   br i1 %23, label %proc_findnode.exit, label %.preheader
@@ -716,7 +716,7 @@ define internal noundef i32 @proc_opendir(ptr noundef %0, ptr nocapture noundef 
   br i1 %16, label %55, label %17
 
 17:                                               ; preds = %15
-  %18 = trunc i64 %.02332 to i32
+  %18 = trunc nuw nsw i64 %.02332 to i32
   %19 = tail call ptr @nxsched_get_tcb(i32 noundef %18) #15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %55, label %21
@@ -905,7 +905,7 @@ define internal noundef i32 @proc_stat(ptr noundef %0, ptr nocapture noundef wri
   br i1 %or.cond, label %proc_findnode.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = trunc i64 %.013 to i32
+  %17 = trunc nuw nsw i64 %.013 to i32
   %18 = tail call ptr @nxsched_get_tcb(i32 noundef %17) #15
   %19 = icmp eq ptr %18, null
   br i1 %19, label %proc_findnode.exit, label %20
@@ -957,7 +957,7 @@ define internal noundef i32 @proc_stat(ptr noundef %0, ptr nocapture noundef wri
   %44 = getelementptr inbounds i8, ptr %31, i64 17
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 4
-  br i1 %46, label %split.thread, label %47
+  br i1 %46, label %proc_findnode.exit.sink.split, label %47
 
 47:                                               ; preds = %43, %39, %36, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -968,13 +968,11 @@ split:                                            ; preds = %36
   %.phi.trans.insert = getelementptr inbounds i8, ptr %31, i64 17
   %.pre20 = load i8, ptr %.phi.trans.insert, align 1
   %48 = icmp eq i8 %.pre20, 8
-  br i1 %48, label %proc_findnode.exit.sink.split, label %split.thread
-
-split.thread:                                     ; preds = %43, %split
+  %spec.select = select i1 %48, i32 33060, i32 16676
   br label %proc_findnode.exit.sink.split
 
-proc_findnode.exit.sink.split:                    ; preds = %split, %20, %23, %split.thread
-  %.sink = phi i32 [ 16676, %split.thread ], [ 16676, %23 ], [ 16676, %20 ], [ 33060, %split ]
+proc_findnode.exit.sink.split:                    ; preds = %43, %split, %20, %23
+  %.sink = phi i32 [ 16676, %23 ], [ 16676, %20 ], [ %spec.select, %split ], [ 16676, %43 ]
   %49 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %.sink, ptr %49, align 8
   br label %proc_findnode.exit

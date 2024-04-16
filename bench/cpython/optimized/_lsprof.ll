@@ -524,14 +524,12 @@ if.end.i:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %PyObject_TypeCheck.exit
   %callable.val = load ptr, ptr %0, align 8
-  %cmp = icmp eq ptr %callable.val, @PyMethodDescr_Type
-  br i1 %cmp, label %if.then2, label %if.end16
-
-if.then2:                                         ; preds = %if.end
+  %cmp = icmp ne ptr %callable.val, @PyMethodDescr_Type
   %cmp3 = icmp eq ptr %self_arg, %missing
-  br i1 %cmp3, label %return, label %if.end5
+  %or.cond = or i1 %cmp3, %cmp
+  br i1 %or.cond, label %return, label %if.end5
 
-if.end5:                                          ; preds = %if.then2
+if.end5:                                          ; preds = %if.end
   %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMethodDescr_Type, i64 0, i32 32), align 8
   %3 = getelementptr i8, ptr %self_arg, i64 8
   %self_arg.val = load ptr, ptr %3, align 8
@@ -547,14 +545,13 @@ if.end11:                                         ; preds = %if.end5
 
 PyObject_TypeCheck.exit19:                        ; preds = %if.end11
   %call2.i16 = tail call i32 @PyType_IsSubtype(ptr noundef %call8.val, ptr noundef nonnull @PyCFunction_Type) #4
-  %tobool3.i17.not = icmp eq i32 %call2.i16, 0
-  br i1 %tobool3.i17.not, label %if.end16, label %return
-
-if.end16:                                         ; preds = %PyObject_TypeCheck.exit19, %if.end
+  %call2.i16.fr = freeze i32 %call2.i16
+  %tobool3.i17.not = icmp eq i32 %call2.i16.fr, 0
+  %spec.select = select i1 %tobool3.i17.not, ptr null, ptr %call8
   br label %return
 
-return:                                           ; preds = %if.end11, %PyObject_TypeCheck.exit19, %if.end5, %if.then2, %if.end.i, %if.then, %if.end16
-  %retval.0 = phi ptr [ null, %if.end16 ], [ %callable, %if.then ], [ %callable, %if.end.i ], [ null, %if.then2 ], [ null, %if.end5 ], [ %call8, %PyObject_TypeCheck.exit19 ], [ %call8, %if.end11 ]
+return:                                           ; preds = %PyObject_TypeCheck.exit19, %if.end11, %if.end, %if.end5, %if.end.i, %if.then
+  %retval.0 = phi ptr [ %callable, %if.then ], [ %callable, %if.end.i ], [ null, %if.end5 ], [ null, %if.end ], [ %call8, %if.end11 ], [ %spec.select, %PyObject_TypeCheck.exit19 ]
   ret ptr %retval.0
 }
 
@@ -598,8 +595,8 @@ if.end.i9:                                        ; preds = %PyObject_TypeCheck.
   %callable.val.i = load ptr, ptr %4, align 8
   %cmp.i10 = icmp ne ptr %callable.val.i, @PyMethodDescr_Type
   %cmp3.i = icmp eq ptr %2, %3
-  %or.cond = select i1 %cmp.i10, i1 true, i1 %cmp3.i
-  br i1 %or.cond, label %if.end4, label %if.end5.i
+  %or.cond.i = or i1 %cmp3.i, %cmp.i10
+  br i1 %or.cond.i, label %if.end4, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i9
   %6 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMethodDescr_Type, i64 0, i32 32), align 8
@@ -617,11 +614,12 @@ if.end11.i:                                       ; preds = %if.end5.i
 
 PyObject_TypeCheck.exit19.i:                      ; preds = %if.end11.i
   %call2.i16.i = tail call i32 @PyType_IsSubtype(ptr noundef %call8.val.i, ptr noundef nonnull @PyCFunction_Type) #4
-  %tobool3.i17.not.i = icmp eq i32 %call2.i16.i, 0
+  %call2.i16.fr.i = freeze i32 %call2.i16.i
+  %tobool3.i17.not.i = icmp eq i32 %call2.i16.fr.i, 0
   br i1 %tobool3.i17.not.i, label %if.end4, label %if.then3
 
-if.then3:                                         ; preds = %if.then.i, %if.end.i.i, %PyObject_TypeCheck.exit19.i, %if.end11.i
-  %retval.0.i.ph = phi ptr [ %call8.i, %if.end11.i ], [ %call8.i, %PyObject_TypeCheck.exit19.i ], [ %1, %if.end.i.i ], [ %1, %if.then.i ]
+if.then3:                                         ; preds = %if.then.i, %if.end.i.i, %if.end11.i, %PyObject_TypeCheck.exit19.i
+  %retval.0.i.ph = phi ptr [ %call8.i, %PyObject_TypeCheck.exit19.i ], [ %call8.i, %if.end11.i ], [ %1, %if.end.i.i ], [ %1, %if.then.i ]
   %m_ml = getelementptr inbounds i8, ptr %retval.0.i.ph, i64 16
   %9 = load ptr, ptr %m_ml, align 8
   tail call fastcc void @ptrace_enter_call(ptr noundef nonnull %self, ptr noundef %9, ptr noundef nonnull %retval.0.i.ph)
@@ -640,7 +638,7 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i.ph) #4
   br label %if.end4
 
-if.end4:                                          ; preds = %if.end.i9, %PyObject_TypeCheck.exit19.i, %if.end5.i, %if.then3, %if.then1.i, %if.end.i, %entry
+if.end4:                                          ; preds = %PyObject_TypeCheck.exit19.i, %if.end5.i, %if.end.i9, %if.then3, %if.then1.i, %if.end.i, %entry
   ret ptr @_Py_NoneStruct
 }
 
@@ -684,8 +682,8 @@ if.end.i8:                                        ; preds = %PyObject_TypeCheck.
   %callable.val.i = load ptr, ptr %4, align 8
   %cmp.i9 = icmp ne ptr %callable.val.i, @PyMethodDescr_Type
   %cmp3.i = icmp eq ptr %2, %3
-  %or.cond = select i1 %cmp.i9, i1 true, i1 %cmp3.i
-  br i1 %or.cond, label %if.end4, label %if.end5.i
+  %or.cond.i = or i1 %cmp3.i, %cmp.i9
+  br i1 %or.cond.i, label %if.end4, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i8
   %6 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyMethodDescr_Type, i64 0, i32 32), align 8
@@ -703,11 +701,12 @@ if.end11.i:                                       ; preds = %if.end5.i
 
 PyObject_TypeCheck.exit19.i:                      ; preds = %if.end11.i
   %call2.i16.i = tail call i32 @PyType_IsSubtype(ptr noundef %call8.val.i, ptr noundef nonnull @PyCFunction_Type) #4
-  %tobool3.i17.not.i = icmp eq i32 %call2.i16.i, 0
+  %call2.i16.fr.i = freeze i32 %call2.i16.i
+  %tobool3.i17.not.i = icmp eq i32 %call2.i16.fr.i, 0
   br i1 %tobool3.i17.not.i, label %if.end4, label %if.then3
 
-if.then3:                                         ; preds = %if.then.i, %if.end.i.i, %PyObject_TypeCheck.exit19.i, %if.end11.i
-  %retval.0.i.ph = phi ptr [ %call8.i, %if.end11.i ], [ %call8.i, %PyObject_TypeCheck.exit19.i ], [ %1, %if.end.i.i ], [ %1, %if.then.i ]
+if.then3:                                         ; preds = %if.then.i, %if.end.i.i, %if.end11.i, %PyObject_TypeCheck.exit19.i
+  %retval.0.i.ph = phi ptr [ %call8.i, %PyObject_TypeCheck.exit19.i ], [ %call8.i, %if.end11.i ], [ %1, %if.end.i.i ], [ %1, %if.then.i ]
   %currentProfilerContext.i = getelementptr inbounds i8, ptr %self, i64 24
   %9 = load ptr, ptr %currentProfilerContext.i, align 8
   %cmp.i10 = icmp eq ptr %9, null
@@ -755,7 +754,7 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i.ph) #4
   br label %if.end4
 
-if.end4:                                          ; preds = %if.end.i8, %PyObject_TypeCheck.exit19.i, %if.end5.i, %ptrace_leave_call.exit, %if.then1.i, %if.end.i, %entry
+if.end4:                                          ; preds = %PyObject_TypeCheck.exit19.i, %if.end5.i, %if.end.i8, %ptrace_leave_call.exit, %if.then1.i, %if.end.i, %entry
   ret ptr @_Py_NoneStruct
 }
 
@@ -1028,18 +1027,14 @@ do.body17:                                        ; preds = %if.then8, %do.body6
   %stats_subentry_type = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %stats_subentry_type, align 8
   %tobool18.not = icmp eq ptr %2, null
-  br i1 %tobool18.not, label %do.end27, label %if.then19
+  br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %do.body17
   %call22 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #4
-  %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %do.end27, label %return
-
-do.end27:                                         ; preds = %do.body17, %if.then19
   br label %return
 
-return:                                           ; preds = %if.then19, %if.then8, %if.then, %do.end27
-  %retval.0 = phi i32 [ 0, %do.end27 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ]
+return:                                           ; preds = %if.then19, %do.body17, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ 0, %do.body17 ], [ %call22, %if.then19 ]
   ret i32 %retval.0
 }
 
@@ -1456,18 +1451,14 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val3 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %op.val3, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %op.val3, ptr noundef %arg) #4
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 

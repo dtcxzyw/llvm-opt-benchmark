@@ -380,7 +380,7 @@ for.inc:                                          ; preds = %_ZNK3dpx13GenericHe
   br i1 %exitcond.not, label %for.end, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, !llvm.loop !8
 
 for.end.split.loop.exit:                          ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit
@@ -527,7 +527,7 @@ entry:
   %sub7 = sub i64 %mul, %.fr
   %conv8 = trunc i64 %sub7 to i32
   %cmp = icmp sgt i32 %conv8, 0
-  br i1 %cmp, label %if.then, label %if.end21
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %conv9 = and i64 %sub7, 2147483647
@@ -555,14 +555,11 @@ invoke.cont13:                                    ; preds = %invoke.cont
   store i64 %add16, ptr %fileLoc, align 8
   %cmp19.not.not = icmp eq i64 %add16, %conv5
   %tobool.not.i.i.i = icmp eq ptr %pad.sroa.0.0, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont13
   tail call void @_ZdlPv(ptr noundef nonnull %pad.sroa.0.0) #18
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit
-
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont13, %if.then.i.i.i
-  br i1 %cmp19.not.not, label %if.end21, label %return
+  br label %return
 
 lpad12:                                           ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
@@ -574,11 +571,8 @@ if.then.i.i.i9:                                   ; preds = %lpad12
   tail call void @_ZdlPv(ptr noundef nonnull %pad.sroa.0.0) #18
   br label %eh.resume
 
-if.end21:                                         ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %entry
-  br label %return
-
-return:                                           ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.end21
-  %retval.1 = phi i1 [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ true, %if.end21 ]
+return:                                           ; preds = %if.then.i.i.i, %invoke.cont13, %entry
+  %retval.1 = phi i1 [ true, %entry ], [ %cmp19.not.not, %invoke.cont13 ], [ %cmp19.not.not, %if.then.i.i.i ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %if.then.i.i.i9, %lpad12
@@ -1083,7 +1077,7 @@ for.cond:                                         ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %1 = load ptr, ptr %fd, align 8
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw i64 %indvars.iv to i32
   %mul11 = mul i32 %mul10, %2
   %idx.ext = zext i32 %mul11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
@@ -1116,7 +1110,7 @@ if.else:                                          ; preds = %entry
 
 if.end26:                                         ; preds = %for.cond, %for.cond.preheader, %if.else
   %status.0 = phi i8 [ %spec.select, %if.else ], [ 1, %for.cond.preheader ], [ 1, %for.cond ]
-  %tobool27 = trunc i8 %status.0 to i1
+  %tobool27 = trunc nuw i8 %status.0 to i1
   %tobool28 = icmp ne i32 %eoimPad, 0
   %or.cond = and i1 %tobool28, %tobool27
   br i1 %or.cond, label %if.then29, label %if.end36
@@ -1138,7 +1132,7 @@ if.then29:                                        ; preds = %if.end26
 
 if.end36:                                         ; preds = %if.end, %for.body, %if.then29, %if.end26
   %status.1 = phi i8 [ %frombool, %if.then29 ], [ %status.0, %if.end26 ], [ 0, %for.body ], [ 0, %if.end ]
-  %tobool37 = trunc i8 %status.1 to i1
+  %tobool37 = trunc nuw i8 %status.1 to i1
   ret i1 %tobool37
 }
 
@@ -1178,7 +1172,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %fileOffset.047 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw i64 %indvars.iv to i32
   %mul12 = mul i32 %mul, %0
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
@@ -1209,7 +1203,7 @@ for.body.i16.i:                                   ; preds = %if.then2.i, %for.bo
   %arrayidx2.i19.i = getelementptr inbounds i8, ptr %call, i64 %indvars.iv.i17.i
   %1 = load i16, ptr %arrayidx.i18.i, align 2
   %2 = lshr i16 %1, 8
-  %conv1.i.i.i = trunc i16 %2 to i8
+  %conv1.i.i.i = trunc nuw i16 %2 to i8
   store i8 %conv1.i.i.i, ptr %arrayidx2.i19.i, align 1
   %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %exitcond.not.i21.i = icmp eq i64 %indvars.iv.next.i20.i, %wide.trip.count.i33.i
@@ -1420,7 +1414,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv165 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next166, %for.inc ]
   %fileOffset.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
-  %4 = trunc i64 %indvars.iv165 to i32
+  %4 = trunc nuw i64 %indvars.iv165 to i32
   %mul12 = mul i32 %mul, %4
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
@@ -1542,7 +1536,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then29
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %if.end.us.i
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %if.end.us.i ], [ 0, %for.body.lr.ph.i ]
   %value.019.us.i = phi i32 [ %or.us.i, %if.end.us.i ], [ 0, %for.body.lr.ph.i ]
-  %14 = trunc i64 %indvars.iv152 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv152 to i32
   %rem2.us.i = urem i32 %14, 3
   %div1.us.i = udiv i32 %14, 3
   %tobool.us.i = icmp ne i64 %indvars.iv152, 0
@@ -1578,7 +1572,7 @@ if.end.us.i:                                      ; preds = %if.then.us.i, %for.
 for.body.i54:                                     ; preds = %for.body.lr.ph.i, %if.end.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end.i ], [ 0, %for.body.lr.ph.i ]
   %value.019.i = phi i32 [ %or.i61, %if.end.i ], [ 0, %for.body.lr.ph.i ]
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %rem2.i = urem i32 %18, 3
   %div1.i = udiv i32 %18, 3
   %tobool.i = icmp ne i64 %indvars.iv, 0
@@ -1619,7 +1613,7 @@ for.body.lr.ph.i77:                               ; preds = %if.else32
 for.body.us.i99:                                  ; preds = %for.body.lr.ph.i77, %if.end.us.i104
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %if.end.us.i104 ], [ 0, %for.body.lr.ph.i77 ]
   %value.020.us.i = phi i32 [ %or.us.i115, %if.end.us.i104 ], [ 0, %for.body.lr.ph.i77 ]
-  %22 = trunc i64 %indvars.iv162 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv162 to i32
   %rem2.us.i100 = urem i32 %22, 3
   %div1.us.i118 = udiv i32 %22, 3
   %tobool.us.i101 = icmp ne i64 %indvars.iv162, 0
@@ -1653,7 +1647,7 @@ if.end.us.i104:                                   ; preds = %if.then.us.i117, %f
 for.body.i78:                                     ; preds = %for.body.lr.ph.i77, %if.end.i83
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %if.end.i83 ], [ 0, %for.body.lr.ph.i77 ]
   %value.020.i = phi i32 [ %or.i93, %if.end.i83 ], [ 0, %for.body.lr.ph.i77 ]
-  %26 = trunc i64 %indvars.iv159 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv159 to i32
   %rem2.i79 = urem i32 %26, 3
   %div1.i97 = udiv i32 %26, 3
   %tobool.i80 = icmp ne i64 %indvars.iv159, 0
@@ -1818,7 +1812,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv154 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next155, %for.inc ]
   %fileOffset.0135 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
-  %4 = trunc i64 %indvars.iv154 to i32
+  %4 = trunc nuw i64 %indvars.iv154 to i32
   %mul12 = mul i32 %mul, %4
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
@@ -1882,7 +1876,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then28
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %if.end.us.i
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %if.end.us.i ], [ 0, %for.body.lr.ph.i ]
   %value.019.us.i = phi i32 [ %or.us.i, %if.end.us.i ], [ 0, %for.body.lr.ph.i ]
-  %11 = trunc i64 %indvars.iv141 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv141 to i32
   %rem2.us.i = urem i32 %11, 3
   %div1.us.i = udiv i32 %11, 3
   %tobool.us.i = icmp ne i64 %indvars.iv141, 0
@@ -1918,7 +1912,7 @@ if.end.us.i:                                      ; preds = %if.then.us.i, %for.
 for.body.i48:                                     ; preds = %for.body.lr.ph.i, %if.end.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end.i ], [ 0, %for.body.lr.ph.i ]
   %value.019.i = phi i32 [ %or.i55, %if.end.i ], [ 0, %for.body.lr.ph.i ]
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %rem2.i = urem i32 %15, 3
   %div1.i = udiv i32 %15, 3
   %tobool.i = icmp ne i64 %indvars.iv, 0
@@ -1959,7 +1953,7 @@ for.body.lr.ph.i71:                               ; preds = %if.else31
 for.body.us.i93:                                  ; preds = %for.body.lr.ph.i71, %if.end.us.i98
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %if.end.us.i98 ], [ 0, %for.body.lr.ph.i71 ]
   %value.020.us.i = phi i32 [ %or.us.i109, %if.end.us.i98 ], [ 0, %for.body.lr.ph.i71 ]
-  %19 = trunc i64 %indvars.iv151 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv151 to i32
   %rem2.us.i94 = urem i32 %19, 3
   %div1.us.i112 = udiv i32 %19, 3
   %tobool.us.i95 = icmp ne i64 %indvars.iv151, 0
@@ -1993,7 +1987,7 @@ if.end.us.i98:                                    ; preds = %if.then.us.i111, %f
 for.body.i72:                                     ; preds = %for.body.lr.ph.i71, %if.end.i77
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %if.end.i77 ], [ 0, %for.body.lr.ph.i71 ]
   %value.020.i = phi i32 [ %or.i87, %if.end.i77 ], [ 0, %for.body.lr.ph.i71 ]
-  %23 = trunc i64 %indvars.iv148 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv148 to i32
   %rem2.i73 = urem i32 %23, 3
   %div1.i91 = udiv i32 %23, 3
   %tobool.i74 = icmp ne i64 %indvars.iv148, 0
@@ -2150,7 +2144,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %fileOffset.069 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc75 ]
   %bufaccess.sroa.8.067 = phi i32 [ %mul, %for.body.lr.ph ], [ %bufaccess.sroa.8.1, %for.inc75 ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
-  %3 = trunc i64 %indvars.iv82 to i32
+  %3 = trunc nuw i64 %indvars.iv82 to i32
   %mul12 = mul i32 %mul, %3
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
@@ -2423,7 +2417,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %fileOffset.060 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc74 ]
   %bufaccess.sroa.8.058 = phi i32 [ %mul, %for.body.lr.ph ], [ %bufaccess.sroa.8.1, %for.inc74 ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
-  %3 = trunc i64 %indvars.iv70 to i32
+  %3 = trunc nuw i64 %indvars.iv70 to i32
   %mul12 = mul i32 %mul, %3
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
@@ -2637,7 +2631,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %fileOffset.047 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %mul12 = mul i32 %mul, %4
   %mul13 = mul i32 %mul12, %call10
   %idx.ext = zext i32 %mul13 to i64
@@ -3174,7 +3168,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %fileOffset.046 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
   %call5 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %mul7 = mul i32 %mul, %4
   %mul8 = mul i32 %mul7, %call5
   %idx.ext = zext i32 %mul8 to i64
@@ -3549,7 +3543,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %fileOffset.046 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
   %call5 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %mul7 = mul i32 %mul, %4
   %mul8 = mul i32 %mul7, %call5
   %idx.ext = zext i32 %mul8 to i64

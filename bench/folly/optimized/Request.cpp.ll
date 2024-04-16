@@ -727,7 +727,7 @@ call2.i.noexc76:                                  ; preds = %invoke.cont
   %12 = load ptr, ptr %chunks_.i, align 8, !tbaa !8
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %13 = load i64, ptr %_M_string_length.i.i.i.i, align 8
@@ -945,7 +945,7 @@ call2.i.noexc:                                    ; preds = %invoke.cont21
   %53 = load ptr, ptr %chunks_.i105, align 8, !tbaa !8
   %notmask.i181 = shl nsw i64 -1, %sh_prom.i92
   %sub.i182 = xor i64 %notmask.i181, -1
-  %conv.i184 = trunc i64 %or.i172 to i8
+  %conv.i184 = trunc nuw i64 %or.i172 to i8
   %vecinit.i.i185 = insertelement <16 x i8> poison, i8 %conv.i184, i64 0
   %vecinit15.i.i186 = shufflevector <16 x i8> %vecinit.i.i185, <16 x i8> poison, <16 x i32> zeroinitializer
   %54 = load i64, ptr %_M_string_length.i.i.i.i, align 8
@@ -2192,7 +2192,7 @@ if.else11.i.i:                                    ; preds = %if.then.i
   %sub.i.i8 = add i64 %.sroa.speculated.i, -1
   %div.i.i = udiv i64 %sub.i.i8, 10
   %24 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !84
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %add.i.i.i = sub nuw nsw i32 64, %25
   %conv.i.i9 = zext nneg i32 %add.i.i.i to i64
   %shl.i.i = shl nuw nsw i64 1, %conv.i.i9
@@ -2856,7 +2856,7 @@ if.then.i19.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont78:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i194, align 1, !tbaa !85
   %control_.i.i196 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %42 = load i8, ptr %control_.i.i196, align 2, !tbaa !91
@@ -4607,7 +4607,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %conv.i.i.i.i.i.i.i = zext i64 %1 to i128
   %mul.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i, 14181476777654086739
   %shr.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i, 64
-  %conv1.i.i.i.i.i.i.i = trunc i128 %shr.i.i.i.i.i.i.i to i64
+  %conv1.i.i.i.i.i.i.i = trunc nuw i128 %shr.i.i.i.i.i.i.i to i64
   %mul2.i.i.i.i.i.i.i = mul i64 %1, -4265267296055464877
   %xor.i.i.i.i.i.i.i = xor i64 %mul2.i.i.i.i.i.i.i, %conv1.i.i.i.i.i.i.i
   %mul3.i.i.i.i.i.i.i = mul i64 %xor.i.i.i.i.i.i.i, -4265267296055464877
@@ -4627,7 +4627,7 @@ if.then.i53:                                      ; preds = %for.body.i
   %sh_prom.i.i = and i64 %2, 255
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i
   %sub.i.i = xor i64 %notmask.i.i, -1
-  %conv.i.i = trunc i64 %or.i.i.i.i.i.i.i to i8
+  %conv.i.i = trunc nuw i64 %or.i.i.i.i.i.i.i to i8
   %vecinit.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i, i64 0
   %vecinit15.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i
@@ -4805,7 +4805,7 @@ if.then.i78.i:                                    ; preds = %if.end19.i
   unreachable
 
 _ZN5folly3f146detail8F14ChunkIPKvE6setTagEmm.exit.i: ; preds = %if.end19.i
-  %conv4.i.i = trunc i64 %or.i.i.i.i.i.i.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i.i.i.i.i.i.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i76.i, align 1, !tbaa !85, !noalias !187
   %rawItems_.i.i.i79.i = getelementptr inbounds i8, ptr %chunk.1.i, i64 16
   %arrayidx.i.i.i.i.i80.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i79.i, i64 0, i64 %conv.i
@@ -5291,7 +5291,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %conv.i5.i.i = zext i64 %3 to i128
   %mul.i.i.i = mul nuw i128 %conv.i5.i.i, 14181476777654086739
   %shr.i.i.i = lshr i128 %mul.i.i.i, 64
-  %conv1.i.i.i = trunc i128 %shr.i.i.i to i64
+  %conv1.i.i.i = trunc nuw i128 %shr.i.i.i to i64
   %mul2.i.i.i = mul i64 %3, -4265267296055464877
   %xor.i.i.i = xor i64 %mul2.i.i.i, %conv1.i.i.i
   %mul3.i.i.i = mul i64 %xor.i.i.i, -4265267296055464877
@@ -5302,7 +5302,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %mul.i8.i.i = shl nuw nsw i64 %or.i.i.i, 1
   %add.i.i.i = or disjoint i64 %mul.i8.i.i, 1
   %4 = load ptr, ptr %hs, align 8, !tbaa !183
-  %conv.i10.i.i = trunc i64 %or.i.i.i to i8
+  %conv.i10.i.i = trunc nuw i64 %or.i.i.i to i8
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i10.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
@@ -5555,7 +5555,7 @@ while.body.i:                                     ; preds = %if.end.i16, %while.
   %conv.i5.i.i = zext i64 %13 to i128
   %mul.i.i.i = mul nuw i128 %conv.i5.i.i, 14181476777654086739
   %shr.i.i.i = lshr i128 %mul.i.i.i, 64
-  %conv1.i.i.i = trunc i128 %shr.i.i.i to i64
+  %conv1.i.i.i = trunc nuw i128 %shr.i.i.i to i64
   %mul2.i.i.i = mul i64 %13, -4265267296055464877
   %xor.i.i.i = xor i64 %mul2.i.i.i, %conv1.i.i.i
   %mul3.i.i.i = mul i64 %xor.i.i.i, -4265267296055464877
@@ -5566,7 +5566,7 @@ while.body.i:                                     ; preds = %if.end.i16, %while.
   %mul.i8.i.i = shl nuw nsw i64 %or.i.i.i, 1
   %add.i.i.i = or disjoint i64 %mul.i8.i.i, 1
   %14 = load ptr, ptr %hs, align 8, !tbaa !183
-  %conv.i10.i.i = trunc i64 %or.i.i.i to i8
+  %conv.i10.i.i = trunc nuw i64 %or.i.i.i to i8
   %vecinit.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i10.i.i, i64 0
   %vecinit15.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
@@ -6054,7 +6054,7 @@ invoke.cont72:                                    ; preds = %if.else.i, %while.b
   %conv.i200 = zext i64 %17 to i128
   %mul.i201 = mul nuw i128 %conv.i200, 14181476777654086739
   %shr.i202 = lshr i128 %mul.i201, 64
-  %conv1.i = trunc i128 %shr.i202 to i64
+  %conv1.i = trunc nuw i128 %shr.i202 to i64
   %mul2.i = mul i64 %17, -4265267296055464877
   %xor.i = xor i64 %mul2.i, %conv1.i
   %mul3.i203 = mul i64 %xor.i, -4265267296055464877
@@ -6125,7 +6125,7 @@ if.then.i19.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont85:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i211, align 1, !tbaa !85
   %control_.i.i213 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %25 = load i8, ptr %control_.i.i213, align 2, !tbaa !192
@@ -8685,7 +8685,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !335
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !85
@@ -8696,13 +8696,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #25
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

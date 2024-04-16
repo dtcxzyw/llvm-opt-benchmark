@@ -712,7 +712,7 @@ declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_print_info(ptr noundef %bp, i32 noundef %tag, i32 noundef %xclass, i32 noundef %constructed, i32 noundef %indent) unnamed_addr #0 {
+define internal fastcc i32 @asn1_print_info(ptr noundef %bp, i32 noundef %tag, i32 noundef %xclass, i32 noundef %constructed, i32 noundef %indent) unnamed_addr #0 {
 entry:
   %str = alloca [128 x i8], align 16
   %and = and i32 %constructed, 32
@@ -720,7 +720,7 @@ entry:
   %.str.50..str.49 = select i1 %tobool.not, ptr @.str.50, ptr @.str.49
   %call = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %.str.50..str.49, i32 noundef 6) #4
   %cmp = icmp slt i32 %call, 6
-  br i1 %cmp, label %err, label %if.end2
+  br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %entry
   %call3 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %indent, i32 noundef 128) #4
@@ -775,14 +775,12 @@ if.end6.i:                                        ; preds = %if.else26
 if.end31:                                         ; preds = %if.end6.i, %if.else26, %if.then12, %if.then23, %if.then18, %if.then6
   %p.1 = phi ptr [ %str, %if.then6 ], [ %str, %if.then12 ], [ %str, %if.then18 ], [ %str, %if.then23 ], [ %1, %if.end6.i ], [ @.str.31, %if.else26 ]
   %call32 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @asn1_print_info.fmt, ptr noundef %p.1) #4
-  %cmp33 = icmp slt i32 %call32, 1
-  br i1 %cmp33, label %err, label %return
-
-err:                                              ; preds = %if.end31, %entry
+  %cmp33 = icmp sgt i32 %call32, 0
+  %spec.select = zext i1 %cmp33 to i32
   br label %return
 
-return:                                           ; preds = %if.end31, %err
-  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end31 ]
+return:                                           ; preds = %if.end31, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %if.end31 ]
   ret i32 %retval.0
 }
 

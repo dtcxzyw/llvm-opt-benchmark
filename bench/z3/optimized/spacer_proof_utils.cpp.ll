@@ -10266,7 +10266,7 @@ if.end13:                                         ; preds = %land.lhs.true.i
   %bf.load.i.i.i.i48 = load i32, ptr %m_kind.i.i.i.i47, align 4
   %bf.clear.i.i.i.i49 = and i32 %bf.load.i.i.i.i48, 65535
   %cmp.i.i.i50 = icmp eq i32 %bf.clear.i.i.i.i49, 0
-  br i1 %cmp.i.i.i50, label %land.rhs.i.i.i51, label %if.then15
+  br i1 %cmp.i.i.i50, label %land.rhs.i.i.i51, label %if.end16
 
 land.rhs.i.i.i51:                                 ; preds = %if.end13
   %m_decl.i.i.i.i52 = getelementptr inbounds i8, ptr %29, i64 16
@@ -10274,7 +10274,7 @@ land.rhs.i.i.i51:                                 ; preds = %if.end13
   %m_info.i.i.i.i.i53 = getelementptr inbounds i8, ptr %31, i64 24
   %32 = load ptr, ptr %m_info.i.i.i.i.i53, align 8
   %tobool.not.i.i.i.i.i54 = icmp eq ptr %32, null
-  br i1 %tobool.not.i.i.i.i.i54, label %if.then15, label %_ZNK10arith_util10is_numeralEPK4expr.exit59
+  br i1 %tobool.not.i.i.i.i.i54, label %if.end16, label %_ZNK10arith_util10is_numeralEPK4expr.exit59
 
 _ZNK10arith_util10is_numeralEPK4expr.exit59:      ; preds = %land.rhs.i.i.i51
   %33 = load i32, ptr %32, align 8
@@ -10283,17 +10283,15 @@ _ZNK10arith_util10is_numeralEPK4expr.exit59:      ; preds = %land.rhs.i.i.i51
   %34 = load i32, ptr %m_kind.i.i.i.i.i.i57, align 4
   %cmp2.i.i.i.i.i.i58 = icmp eq i32 %34, 0
   %35 = select i1 %cmp.i.i.i.i.i.i56, i1 %cmp2.i.i.i.i.i.i58, i1 false
-  br i1 %35, label %if.end16, label %if.then15
-
-if.then15:                                        ; preds = %land.rhs.i.i.i51, %if.end13, %_ZNK10arith_util10is_numeralEPK4expr.exit59
-  %m_kind.i.i.i.i60.phi.trans.insert = getelementptr inbounds i8, ptr %30, i64 4
-  %bf.load.i.i.i.i61.pre = load i32, ptr %m_kind.i.i.i.i60.phi.trans.insert, align 4
+  %spec.select = select i1 %35, ptr %29, ptr %30
+  %spec.select108 = select i1 %35, ptr %30, ptr %29
   br label %if.end16
 
-if.end16:                                         ; preds = %if.then15, %_ZNK10arith_util10is_numeralEPK4expr.exit59
-  %bf.load.i.i.i.i61 = phi i32 [ %bf.load.i.i.i.i48, %_ZNK10arith_util10is_numeralEPK4expr.exit59 ], [ %bf.load.i.i.i.i61.pre, %if.then15 ]
-  %e1.1 = phi ptr [ %29, %_ZNK10arith_util10is_numeralEPK4expr.exit59 ], [ %30, %if.then15 ]
-  %e2.1 = phi ptr [ %30, %_ZNK10arith_util10is_numeralEPK4expr.exit59 ], [ %29, %if.then15 ]
+if.end16:                                         ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit59, %land.rhs.i.i.i51, %if.end13
+  %e1.1 = phi ptr [ %30, %if.end13 ], [ %30, %land.rhs.i.i.i51 ], [ %spec.select, %_ZNK10arith_util10is_numeralEPK4expr.exit59 ]
+  %e2.1 = phi ptr [ %29, %if.end13 ], [ %29, %land.rhs.i.i.i51 ], [ %spec.select108, %_ZNK10arith_util10is_numeralEPK4expr.exit59 ]
+  %m_kind.i.i.i.i60 = getelementptr inbounds i8, ptr %e1.1, i64 4
+  %bf.load.i.i.i.i61 = load i32, ptr %m_kind.i.i.i.i60, align 4
   %bf.clear.i.i.i.i62 = and i32 %bf.load.i.i.i.i61, 65535
   %cmp.i.i.i63 = icmp eq i32 %bf.clear.i.i.i.i62, 0
   br i1 %cmp.i.i.i63, label %land.rhs.i.i.i64, label %return
@@ -10319,8 +10317,8 @@ if.end19:                                         ; preds = %_ZNK10arith_util10i
   %41 = load ptr, ptr %var, align 8
   %cmp.i73 = icmp eq ptr %41, null
   %cmp23 = icmp eq ptr %41, %e2.1
-  %or.cond108 = select i1 %cmp.i73, i1 true, i1 %cmp23
-  br i1 %or.cond108, label %if.then24, label %return
+  %or.cond109 = select i1 %cmp.i73, i1 true, i1 %cmp23
+  br i1 %or.cond109, label %if.then24, label %return
 
 if.then24:                                        ; preds = %if.end19
   %tobool.not.i74 = icmp eq ptr %e2.1, null
@@ -11316,7 +11314,7 @@ invoke.cont118:                                   ; preds = %land.rhs.i.i287
   %111 = load i32, ptr %m_kind.i.i.i.i.i293, align 4
   %cmp2.i.i.i.i.i294 = icmp eq i32 %111, 3
   %112 = select i1 %cmp.i.i.i.i.i292, i1 %cmp2.i.i.i.i.i294, i1 false
-  br i1 %112, label %if.then124, label %invoke.cont122
+  br i1 %112, label %land.rhs.i.i339, label %invoke.cont122
 
 invoke.cont122:                                   ; preds = %invoke.cont118
   %113 = load i32, ptr %109, align 8
@@ -11325,9 +11323,8 @@ invoke.cont122:                                   ; preds = %invoke.cont118
   %114 = load i32, ptr %m_kind.i.i.i.i.i306, align 4
   %cmp2.i.i.i.i.i307 = icmp eq i32 %114, 5
   %115 = select i1 %cmp.i.i.i.i.i305, i1 %cmp2.i.i.i.i.i307, i1 false
-  br i1 %115, label %if.then124, label %land.rhs.i.i339
-
-if.then124:                                       ; preds = %invoke.cont122, %invoke.cont118
+  %spec.select = select i1 %115, ptr %107, ptr %106
+  %spec.select543 = select i1 %115, ptr %106, ptr %107
   br label %land.rhs.i.i339
 
 land.lhs.true127:                                 ; preds = %if.end112
@@ -11347,7 +11344,7 @@ invoke.cont129:                                   ; preds = %land.rhs.i.i313
   %119 = load i32, ptr %m_kind.i.i.i.i.i319, align 4
   %cmp2.i.i.i.i.i320 = icmp eq i32 %119, 2
   %120 = select i1 %cmp.i.i.i.i.i318, i1 %cmp2.i.i.i.i.i320, i1 false
-  br i1 %120, label %if.then135, label %invoke.cont133
+  br i1 %120, label %invoke.cont147, label %invoke.cont133
 
 invoke.cont133:                                   ; preds = %invoke.cont129
   %121 = load i32, ptr %117, align 8
@@ -11356,14 +11353,13 @@ invoke.cont133:                                   ; preds = %invoke.cont129
   %122 = load i32, ptr %m_kind.i.i.i.i.i332, align 4
   %cmp2.i.i.i.i.i333 = icmp eq i32 %122, 4
   %123 = select i1 %cmp.i.i.i.i.i331, i1 %cmp2.i.i.i.i.i333, i1 false
-  br i1 %123, label %if.then135, label %invoke.cont147
-
-if.then135:                                       ; preds = %invoke.cont133, %invoke.cont129
+  %spec.select544 = select i1 %123, ptr %106, ptr %107
+  %spec.select545 = select i1 %123, ptr %107, ptr %106
   br label %invoke.cont147
 
-land.rhs.i.i339:                                  ; preds = %land.rhs.i.i287, %invoke.cont122, %if.then124
-  %a0.3.ph = phi ptr [ %106, %invoke.cont122 ], [ %107, %if.then124 ], [ %106, %land.rhs.i.i287 ]
-  %a1.3.ph = phi ptr [ %107, %invoke.cont122 ], [ %106, %if.then124 ], [ %107, %land.rhs.i.i287 ]
+land.rhs.i.i339:                                  ; preds = %land.rhs.i.i287, %invoke.cont122, %invoke.cont118
+  %a0.3.ph = phi ptr [ %spec.select, %invoke.cont122 ], [ %107, %invoke.cont118 ], [ %106, %land.rhs.i.i287 ]
+  %a1.3.ph = phi ptr [ %spec.select543, %invoke.cont122 ], [ %106, %invoke.cont118 ], [ %107, %land.rhs.i.i287 ]
   %124 = load ptr, ptr %m_decl.i.i.i49, align 8
   %m_info.i.i.i.i341 = getelementptr inbounds i8, ptr %124, i64 24
   %125 = load ptr, ptr %m_info.i.i.i.i341, align 8
@@ -11379,9 +11375,9 @@ invoke.cont140:                                   ; preds = %land.rhs.i.i339
   %128 = select i1 %cmp.i.i.i.i.i344, i1 %cmp2.i.i.i.i.i346, i1 false
   br i1 %128, label %cond.end154, label %cond.end154.sink.split
 
-invoke.cont147:                                   ; preds = %if.then135, %invoke.cont133
-  %a1.2520.ph = phi ptr [ %106, %if.then135 ], [ %107, %invoke.cont133 ]
-  %a0.2518.ph = phi ptr [ %107, %if.then135 ], [ %106, %invoke.cont133 ]
+invoke.cont147:                                   ; preds = %invoke.cont133, %invoke.cont129
+  %a1.2520.ph = phi ptr [ %spec.select544, %invoke.cont133 ], [ %106, %invoke.cont129 ]
+  %a0.2518.ph = phi ptr [ %spec.select545, %invoke.cont133 ], [ %107, %invoke.cont129 ]
   %129 = load i32, ptr %117, align 8
   %cmp.i.i.i.i.i370 = icmp eq i32 %129, 5
   %m_kind.i.i.i.i.i371 = getelementptr inbounds i8, ptr %117, i64 4
@@ -11391,15 +11387,15 @@ invoke.cont147:                                   ; preds = %if.then135, %invoke
   br i1 %131, label %cond.end154, label %cond.end154.sink.split
 
 cond.end154.sink.split:                           ; preds = %invoke.cont147, %invoke.cont140
-  %.sink558 = phi ptr [ %125, %invoke.cont140 ], [ %117, %invoke.cont147 ]
-  %.sink556 = phi i32 [ 4, %invoke.cont140 ], [ 2, %invoke.cont147 ]
+  %.sink561 = phi ptr [ %125, %invoke.cont140 ], [ %117, %invoke.cont147 ]
+  %.sink559 = phi i32 [ 4, %invoke.cont140 ], [ 2, %invoke.cont147 ]
   %a0.4.ph = phi ptr [ %a0.3.ph, %invoke.cont140 ], [ %a0.2518.ph, %invoke.cont147 ]
   %a1.4.ph = phi ptr [ %a1.3.ph, %invoke.cont140 ], [ %a1.2520.ph, %invoke.cont147 ]
-  %132 = load i32, ptr %.sink558, align 8
+  %132 = load i32, ptr %.sink561, align 8
   %cmp.i.i.i.i.i383 = icmp eq i32 %132, 5
-  %m_kind.i.i.i.i.i384 = getelementptr inbounds i8, ptr %.sink558, i64 4
+  %m_kind.i.i.i.i.i384 = getelementptr inbounds i8, ptr %.sink561, i64 4
   %133 = load i32, ptr %m_kind.i.i.i.i.i384, align 4
-  %cmp2.i.i.i.i.i385 = icmp eq i32 %133, %.sink556
+  %cmp2.i.i.i.i.i385 = icmp eq i32 %133, %.sink559
   %134 = select i1 %cmp.i.i.i.i.i383, i1 %cmp2.i.i.i.i.i385, i1 false
   br label %cond.end154
 

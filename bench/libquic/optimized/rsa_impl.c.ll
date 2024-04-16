@@ -789,7 +789,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   store i8 1, ptr %arrayidx.le, align 1
   %blindings = getelementptr inbounds i8, ptr %rsa, i64 184
   %4 = load ptr, ptr %blindings, align 8
@@ -880,7 +880,7 @@ return:                                           ; preds = %if.end12, %err1, %i
 declare i32 @BN_BLINDING_convert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mod_exp(ptr noundef %r0, ptr noundef %I, ptr noundef %rsa, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc i32 @mod_exp(ptr noundef %r0, ptr noundef %I, ptr noundef %rsa, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %local_dmp1 = alloca %struct.bignum_st, align 8
   %local_dmq1 = alloca %struct.bignum_st, align 8
@@ -1136,7 +1136,7 @@ if.then145:                                       ; preds = %if.end142
 if.end151:                                        ; preds = %if.then145, %if.end142
   %call152 = call i32 @BN_is_zero(ptr noundef %call4) #7
   %tobool153.not = icmp eq i32 %call152, 0
-  br i1 %tobool153.not, label %if.then154, label %if.end162
+  br i1 %tobool153.not, label %if.then154, label %err
 
 if.then154:                                       ; preds = %if.end151
   %d155 = getelementptr inbounds i8, ptr %rsa, i64 24
@@ -1145,14 +1145,12 @@ if.then154:                                       ; preds = %if.end151
   %29 = load ptr, ptr %n, align 8
   %30 = load ptr, ptr %mont_n, align 8
   %call158 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %r0, ptr noundef %I, ptr noundef nonnull %local_d, ptr noundef %29, ptr noundef %ctx, ptr noundef %30) #7
-  %tobool159.not = icmp eq i32 %call158, 0
-  br i1 %tobool159.not, label %err, label %if.end162
-
-if.end162:                                        ; preds = %if.then154, %if.end151
+  %tobool159.not = icmp ne i32 %call158, 0
+  %spec.select = zext i1 %tobool159.not to i32
   br label %err
 
-err:                                              ; preds = %if.end106, %lor.lhs.false109, %lor.lhs.false112, %land.lhs.true, %lor.lhs.false120, %lor.lhs.false123, %if.end97, %lor.lhs.false101, %for.body, %if.then154, %if.then145, %if.end137, %if.end133, %for.end, %if.end84, %if.end79, %if.then73, %if.end65, %if.end61, %if.then55, %if.end48, %if.end41, %if.end36, %if.end29, %if.end24, %if.end19, %if.end10, %lor.lhs.false14, %if.end, %if.end162
-  %ret.0 = phi i32 [ 0, %if.end ], [ 1, %if.end162 ], [ 0, %if.then154 ], [ 0, %if.then145 ], [ 0, %if.end137 ], [ 0, %if.end133 ], [ 0, %for.end ], [ 0, %if.end84 ], [ 0, %if.end79 ], [ 0, %if.then73 ], [ 0, %if.end65 ], [ 0, %if.end61 ], [ 0, %if.then55 ], [ 0, %if.end48 ], [ 0, %if.end41 ], [ 0, %if.end36 ], [ 0, %if.end29 ], [ 0, %if.end24 ], [ 0, %if.end19 ], [ 0, %lor.lhs.false14 ], [ 0, %if.end10 ], [ 0, %for.body ], [ 0, %lor.lhs.false101 ], [ 0, %if.end97 ], [ 0, %lor.lhs.false123 ], [ 0, %lor.lhs.false120 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false112 ], [ 0, %lor.lhs.false109 ], [ 0, %if.end106 ]
+err:                                              ; preds = %if.end106, %lor.lhs.false109, %lor.lhs.false112, %land.lhs.true, %lor.lhs.false120, %lor.lhs.false123, %if.end97, %lor.lhs.false101, %for.body, %if.then154, %if.end151, %if.then145, %if.end137, %if.end133, %for.end, %if.end84, %if.end79, %if.then73, %if.end65, %if.end61, %if.then55, %if.end48, %if.end41, %if.end36, %if.end29, %if.end24, %if.end19, %if.end10, %lor.lhs.false14, %if.end
+  %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.then145 ], [ 0, %if.end137 ], [ 0, %if.end133 ], [ 0, %for.end ], [ 0, %if.end84 ], [ 0, %if.end79 ], [ 0, %if.then73 ], [ 0, %if.end65 ], [ 0, %if.end61 ], [ 0, %if.then55 ], [ 0, %if.end48 ], [ 0, %if.end41 ], [ 0, %if.end36 ], [ 0, %if.end29 ], [ 0, %if.end24 ], [ 0, %if.end19 ], [ 0, %lor.lhs.false14 ], [ 0, %if.end10 ], [ 1, %if.end151 ], [ %spec.select, %if.then154 ], [ 0, %for.body ], [ 0, %lor.lhs.false101 ], [ 0, %if.end97 ], [ 0, %lor.lhs.false123 ], [ 0, %lor.lhs.false120 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false112 ], [ 0, %lor.lhs.false109 ], [ 0, %if.end106 ]
   call void @BN_CTX_end(ptr noundef %ctx) #7
   ret i32 %ret.0
 }

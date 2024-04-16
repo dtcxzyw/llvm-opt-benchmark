@@ -158,7 +158,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @OSSL_SELF_TEST_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @self_test_on_load(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal i32 @self_test_on_load(ptr noundef %params, ptr nocapture noundef %arg) #1 {
 entry:
   %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.22, i32 noundef 0), !range !7
   ret i32 %call
@@ -302,7 +302,7 @@ entry:
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @self_test_events(ptr noundef %params, ptr nocapture noundef %arg, ptr noundef %title, i32 noundef %corrupt) unnamed_addr #1 {
+define internal fastcc i32 @self_test_events(ptr noundef %params, ptr nocapture noundef %arg, ptr noundef %title, i32 noundef %corrupt) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %cmp = icmp eq i32 %0, 0
@@ -383,18 +383,16 @@ if.then32:                                        ; preds = %lor.lhs.false29, %i
 
 if.end35:                                         ; preds = %lor.lhs.false29, %if.then32, %if.then25
   %tobool.not = icmp eq i32 %corrupt, 0
-  br i1 %tobool.not, label %if.end39, label %land.lhs.true
+  br i1 %tobool.not, label %err, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end35
   %call36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.32) #6
-  %cmp37 = icmp eq i32 %call36, 0
-  br i1 %cmp37, label %err, label %if.end39
-
-if.end39:                                         ; preds = %land.lhs.true, %if.end35
+  %cmp37 = icmp ne i32 %call36, 0
+  %spec.select = zext i1 %cmp37 to i32
   br label %err
 
-err:                                              ; preds = %land.lhs.true, %if.end13, %lor.lhs.false17, %if.end6, %lor.lhs.false9, %if.end, %lor.lhs.false, %if.end39
-  %ret.0 = phi i32 [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %if.end6 ], [ 0, %lor.lhs.false9 ], [ 0, %if.end13 ], [ 0, %lor.lhs.false17 ], [ 0, %land.lhs.true ], [ 1, %if.end39 ]
+err:                                              ; preds = %land.lhs.true, %if.end35, %if.end13, %lor.lhs.false17, %if.end6, %lor.lhs.false9, %if.end, %lor.lhs.false
+  %ret.0 = phi i32 [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %if.end6 ], [ 0, %lor.lhs.false9 ], [ 0, %if.end13 ], [ 0, %lor.lhs.false17 ], [ 1, %if.end35 ], [ %spec.select, %land.lhs.true ]
   ret i32 %ret.0
 }
 
@@ -533,7 +531,7 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @self_test_on_demand(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal i32 @self_test_on_demand(ptr noundef %params, ptr nocapture noundef %arg) #1 {
 entry:
   %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.54, i32 noundef 0), !range !7
   ret i32 %call
@@ -542,7 +540,7 @@ entry:
 declare i32 @OSSL_PROVIDER_self_test(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @self_test_on_demand_fail(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal i32 @self_test_on_demand_fail(ptr noundef %params, ptr nocapture noundef %arg) #1 {
 entry:
   %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.55, i32 noundef 1), !range !7
   ret i32 %call

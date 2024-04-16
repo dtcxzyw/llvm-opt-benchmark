@@ -21,7 +21,7 @@ entry:
 declare zeroext i1 @visit_type_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_device_add_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_device_add_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_bus = alloca i8, align 1
   %has_id = alloca i8, align 1
@@ -48,17 +48,14 @@ if.then7:                                         ; preds = %if.end
 
 if.end12:                                         ; preds = %if.then7, %if.end
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_id) #2
-  br i1 %call13, label %if.then14, label %if.end19
+  br i1 %call13, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end12
   %call16 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %id, ptr noundef %errp) #2
-  br i1 %call16, label %if.end19, label %return
-
-if.end19:                                         ; preds = %if.then14, %if.end12
   br label %return
 
-return:                                           ; preds = %if.then14, %if.then7, %entry, %if.end19
-  %retval.0 = phi i1 [ true, %if.end19 ], [ false, %entry ], [ false, %if.then7 ], [ false, %if.then14 ]
+return:                                           ; preds = %if.then14, %if.end12, %if.then7, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then7 ], [ true, %if.end12 ], [ %call16, %if.then14 ]
   ret i1 %retval.0
 }
 

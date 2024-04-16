@@ -711,7 +711,7 @@ define dso_local noundef ptr @ndisc_parse_options(ptr noundef %0, ptr noundef %1
   br label %.thread14
 
 .thread14:                                        ; preds = %17, %14, %.thread14.loopexit16, %4
-  %62 = phi ptr [ null, %4 ], [ %3, %.thread14.loopexit16 ], [ null, %14 ], [ null, %17 ]
+  %62 = phi ptr [ null, %4 ], [ null, %14 ], [ null, %17 ], [ %3, %.thread14.loopexit16 ]
   ret ptr %62
 }
 
@@ -1268,7 +1268,7 @@ define dso_local void @ndisc_send_na(ptr noundef %0, ptr noundef %1, ptr noundef
   store i16 -8826, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %103, i64 16
   store ptr %0, ptr %112, align 8
-  %113 = trunc i64 %98 to i32
+  %113 = trunc nuw nsw i64 %98 to i32
   %114 = getelementptr inbounds i8, ptr %103, i64 200
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr i8, ptr %115, i64 %98
@@ -1322,7 +1322,7 @@ define dso_local void @ndisc_send_na(ptr noundef %0, ptr noundef %1, ptr noundef
   %152 = call ptr @skb_put(ptr noundef nonnull %103, i32 noundef %151) #14
   store i8 2, ptr %152, align 1
   %153 = lshr i32 %150, 3
-  %154 = trunc i32 %153 to i8
+  %154 = trunc nuw nsw i32 %153 to i8
   %155 = getelementptr i8, ptr %152, i64 1
   store i8 %154, ptr %155, align 1
   %156 = getelementptr i8, ptr %152, i64 2
@@ -1417,7 +1417,7 @@ define internal fastcc ptr @ndisc_alloc_skb(ptr noundef %0, i32 noundef %1) unna
   store i16 -8826, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %0, ptr %32, align 8
-  %33 = trunc i64 %17 to i32
+  %33 = trunc nuw nsw i64 %17 to i32
   %34 = getelementptr inbounds i8, ptr %23, i64 200
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 %17
@@ -1531,7 +1531,7 @@ define dso_local ptr @ndisc_ns_create(ptr noundef %0, ptr nocapture noundef read
   store i16 -8826, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %63, i64 16
   store ptr %0, ptr %72, align 8
-  %73 = trunc i64 %57 to i32
+  %73 = trunc nuw nsw i64 %57 to i32
   %74 = getelementptr inbounds i8, ptr %63, i64 200
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 %57
@@ -1580,7 +1580,7 @@ define dso_local ptr @ndisc_ns_create(ptr noundef %0, ptr nocapture noundef read
   %107 = tail call ptr @skb_put(ptr noundef nonnull %63, i32 noundef %106) #14
   store i8 1, ptr %107, align 1
   %108 = lshr i32 %105, 3
-  %109 = trunc i32 %108 to i8
+  %109 = trunc nuw nsw i32 %108 to i8
   %110 = getelementptr i8, ptr %107, i64 1
   store i8 %109, ptr %110, align 1
   %111 = getelementptr i8, ptr %107, i64 2
@@ -1745,7 +1745,7 @@ define dso_local void @ndisc_send_rs(ptr noundef %0, ptr noundef %1, ptr noundef
   store i16 -8826, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %0, ptr %59, align 8
-  %60 = trunc i64 %45 to i32
+  %60 = trunc nuw nsw i64 %45 to i32
   %61 = getelementptr inbounds i8, ptr %50, i64 200
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr i8, ptr %62, i64 %45
@@ -1791,7 +1791,7 @@ define dso_local void @ndisc_send_rs(ptr noundef %0, ptr noundef %1, ptr noundef
   %93 = tail call ptr @skb_put(ptr noundef nonnull %50, i32 noundef %92) #14
   store i8 1, ptr %93, align 1
   %94 = lshr i32 %91, 3
-  %95 = trunc i32 %94 to i8
+  %95 = trunc nuw nsw i32 %94 to i8
   %96 = getelementptr i8, ptr %93, i64 1
   store i8 %95, ptr %96, align 1
   %97 = getelementptr i8, ptr %93, i64 2
@@ -2224,7 +2224,7 @@ define internal fastcc void @ndisc_fill_redirect_addr_option(ptr noundef %0, ptr
   %17 = tail call ptr @skb_put(ptr noundef %0, i32 noundef %16) #14
   store i8 2, ptr %17, align 1
   %18 = lshr i32 %15, 3
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = getelementptr i8, ptr %17, i64 1
   store i8 %19, ptr %20, align 1
   %21 = getelementptr i8, ptr %17, i64 2
@@ -2445,14 +2445,14 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %31 = getelementptr inbounds i8, ptr %0, i64 112
   %32 = load i32, ptr %31, align 8
   %33 = icmp ult i32 %32, 24
-  br i1 %33, label %.thread27, label %34
+  br i1 %33, label %.thread28, label %34
 
 34:                                               ; preds = %1
   %35 = getelementptr inbounds i8, ptr %8, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 255
   %38 = icmp eq i32 %37, 255
-  br i1 %38, label %.thread27, label %39
+  br i1 %38, label %.thread28, label %39
 
 39:                                               ; preds = %34
   br i1 %30, label %40, label %48
@@ -2465,12 +2465,12 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %45 = icmp eq i64 %41, 767
   %46 = icmp eq i64 %44, 1095233437696
   %47 = and i1 %45, %46
-  br i1 %47, label %48, label %.thread27
+  br i1 %47, label %48, label %.thread28
 
 48:                                               ; preds = %40, %39
   %49 = call ptr @ndisc_parse_options(ptr noundef %25, ptr noundef %19, i32 noundef %23, ptr noundef nonnull %2)
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread27, label %51
+  br i1 %50, label %.thread28, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2500,7 +2500,7 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %74 = icmp eq ptr %73, null
   %75 = select i1 %70, i1 true, i1 %74
   %76 = select i1 %75, i1 true, i1 %30
-  br i1 %76, label %.thread27, label %77
+  br i1 %76, label %.thread28, label %77
 
 77:                                               ; preds = %55, %51
   %78 = phi ptr [ null, %51 ], [ %73, %55 ]
@@ -2538,7 +2538,7 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %102 = load i32, ptr %101, align 4
   %103 = and i32 %102, 68
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %.thread21, label %105
+  br i1 %104, label %.thread22, label %105
 
 105:                                              ; preds = %99
   br i1 %30, label %106, label %113
@@ -2551,18 +2551,18 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %109 = getelementptr inbounds i8, ptr %100, i64 56
   %110 = load i64, ptr %109, align 8
   %111 = icmp eq i64 %110, %91
-  br i1 %111, label %.thread24, label %112
+  br i1 %111, label %.thread25, label %112
 
 112:                                              ; preds = %108, %106
   call void @addrconf_dad_failure(ptr noundef %0, ptr noundef nonnull %100) #14
-  br label %.thread27
+  br label %.thread28
 
 113:                                              ; preds = %105
   %114 = and i32 %102, 4
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.thread24, label %.thread21
+  br i1 %115, label %.thread25, label %.thread22
 
-.thread21:                                        ; preds = %99, %113
+.thread22:                                        ; preds = %99, %113
   %116 = getelementptr inbounds i8, ptr %100, i64 168
   %117 = load ptr, ptr %116, align 8
   br label %186
@@ -2589,7 +2589,7 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %129 = getelementptr inbounds i8, ptr %25, i64 184
   %130 = load volatile ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %.thread20, label %132
+  br i1 %131, label %.thread21, label %132
 
 132:                                              ; preds = %.thread
   %133 = getelementptr inbounds i8, ptr %130, i64 624
@@ -2617,7 +2617,7 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %145 = getelementptr inbounds i8, ptr %130, i64 680
   %146 = load i32, ptr %145, align 8
   %147 = icmp eq i32 %146, 0
-  br i1 %147, label %.thread25, label %148
+  br i1 %147, label %.thread26, label %148
 
 148:                                              ; preds = %144
   %149 = getelementptr inbounds i8, ptr %119, i64 1848
@@ -2631,12 +2631,12 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %155 = getelementptr inbounds i8, ptr %130, i64 784
   %156 = load i32, ptr %155, align 8
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %.thread25, label %158
+  br i1 %157, label %.thread26, label %158
 
 158:                                              ; preds = %154, %148
   %159 = call fastcc i32 @pndisc_is_router(ptr noundef %35, ptr noundef %25), !range !21
   %160 = icmp sgt i32 %159, -1
-  br i1 %160, label %161, label %.thread25
+  br i1 %160, label %161, label %.thread26
 
 161:                                              ; preds = %158, %142
   %162 = phi i32 [ -1, %142 ], [ %159, %158 ]
@@ -2665,24 +2665,24 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
 179:                                              ; preds = %173
   %180 = call ptr @skb_clone(ptr noundef %0, i32 noundef 2080) #14
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread25, label %182
+  br i1 %181, label %.thread26, label %182
 
 182:                                              ; preds = %179
   %183 = load ptr, ptr %174, align 8
   call void @pneigh_enqueue(ptr noundef nonnull @nd_tbl, ptr noundef %183, ptr noundef nonnull %180) #14
-  br label %.thread25
+  br label %.thread26
 
-.thread20:                                        ; preds = %.thread
+.thread21:                                        ; preds = %.thread
   call void @__rcu_read_unlock() #14
-  br label %.thread27
+  br label %.thread28
 
 184:                                              ; preds = %167, %161, %173
   %185 = icmp slt i32 %162, 0
   br i1 %185, label %186, label %191
 
-186:                                              ; preds = %.thread21, %184
-  %187 = phi ptr [ %117, %.thread21 ], [ %130, %184 ]
-  %188 = phi ptr [ %100, %.thread21 ], [ null, %184 ]
+186:                                              ; preds = %.thread22, %184
+  %187 = phi ptr [ %117, %.thread22 ], [ %130, %184 ]
+  %188 = phi ptr [ %100, %.thread22 ], [ null, %184 ]
   %189 = getelementptr inbounds i8, ptr %187, i64 680
   %190 = load i32, ptr %189, align 8
   br label %191
@@ -2701,9 +2701,9 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
 
 198:                                              ; preds = %191
   %199 = load ptr, ptr getelementptr inbounds (%struct.neigh_table, ptr @nd_tbl, i64 0, i32 30), align 8
-  br i1 %94, label %201, label %.thread22
+  br i1 %94, label %201, label %.thread23
 
-.thread22:                                        ; preds = %198
+.thread23:                                        ; preds = %198
   %200 = getelementptr inbounds i8, ptr %199, i64 56
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %200, ptr elementtype(i64) %200) #14, !srcloc !22
   br label %208
@@ -2720,8 +2720,8 @@ define internal fastcc noundef i32 @ndisc_recv_ns(ptr noundef %0) unnamed_addr #
   %207 = icmp eq i8 %206, 0
   br label %208
 
-208:                                              ; preds = %.thread22, %204, %201
-  %209 = phi i1 [ true, %201 ], [ %207, %204 ], [ true, %.thread22 ]
+208:                                              ; preds = %.thread23, %204, %201
+  %209 = phi i1 [ true, %201 ], [ %207, %204 ], [ true, %.thread23 ]
   %210 = call ptr @neigh_lookup(ptr noundef nonnull @nd_tbl, ptr noundef %13, ptr noundef %25) #14
   %211 = icmp eq ptr %210, null
   %212 = and i1 %209, %211
@@ -2762,9 +2762,9 @@ __neigh_lookup.exit.thread:                       ; preds = %213, %__neigh_looku
 229:                                              ; preds = %225, %__neigh_lookup.exit.thread, %218, %195
   %230 = phi i32 [ 2, %195 ], [ 2, %__neigh_lookup.exit.thread ], [ 1, %218 ], [ 1, %225 ]
   %231 = icmp eq ptr %193, null
-  br i1 %231, label %.thread25, label %.thread24
+  br i1 %231, label %.thread26, label %.thread25
 
-.thread24:                                        ; preds = %108, %113, %229
+.thread25:                                        ; preds = %108, %113, %229
   %232 = phi i32 [ %230, %229 ], [ 2, %113 ], [ 2, %108 ]
   %233 = phi ptr [ %193, %229 ], [ %100, %113 ], [ %100, %108 ]
   %234 = getelementptr inbounds i8, ptr %233, i64 32
@@ -2772,20 +2772,20 @@ __neigh_lookup.exit.thread:                       ; preds = %213, %__neigh_looku
   %236 = icmp eq i32 %235, 1
   br i1 %236, label %240, label %237
 
-237:                                              ; preds = %.thread24
+237:                                              ; preds = %.thread25
   %238 = icmp sgt i32 %235, 0
-  br i1 %238, label %.thread27, label %239, !prof !7
+  br i1 %238, label %.thread28, label %239, !prof !7
 
 239:                                              ; preds = %237
   call void @refcount_warn_saturate(ptr noundef %234, i32 noundef 3) #14
-  br label %.thread27
+  br label %.thread28
 
-240:                                              ; preds = %.thread24
+240:                                              ; preds = %.thread25
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   call void @inet6_ifa_finish_destroy(ptr noundef nonnull %233) #14
-  br label %.thread27
+  br label %.thread28
 
-.thread25:                                        ; preds = %182, %179, %158, %154, %144, %229
+.thread26:                                        ; preds = %182, %179, %158, %154, %144, %229
   %241 = phi i32 [ %230, %229 ], [ 81, %144 ], [ 81, %154 ], [ 81, %158 ], [ 2, %179 ], [ 2, %182 ]
   %242 = phi ptr [ %192, %229 ], [ %130, %144 ], [ %130, %154 ], [ %130, %158 ], [ %130, %179 ], [ %130, %182 ]
   %243 = getelementptr inbounds i8, ptr %242, i64 624
@@ -2793,21 +2793,21 @@ __neigh_lookup.exit.thread:                       ; preds = %213, %__neigh_looku
   %245 = icmp eq i32 %244, 1
   br i1 %245, label %249, label %246
 
-246:                                              ; preds = %.thread25
+246:                                              ; preds = %.thread26
   %247 = icmp sgt i32 %244, 0
-  br i1 %247, label %.thread27, label %248, !prof !7
+  br i1 %247, label %.thread28, label %248, !prof !7
 
 248:                                              ; preds = %246
   call void @refcount_warn_saturate(ptr noundef %243, i32 noundef 3) #14
-  br label %.thread27
+  br label %.thread28
 
-249:                                              ; preds = %.thread25
+249:                                              ; preds = %.thread26
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   call void @in6_dev_finish_destroy(ptr noundef %242) #14
-  br label %.thread27
+  br label %.thread28
 
-.thread27:                                        ; preds = %246, %248, %237, %239, %.thread20, %249, %240, %112, %55, %48, %40, %34, %1
-  %250 = phi i32 [ 2, %112 ], [ 4, %1 ], [ 2, %34 ], [ 2, %40 ], [ 80, %48 ], [ 2, %55 ], [ %232, %240 ], [ %241, %249 ], [ 2, %.thread20 ], [ %232, %239 ], [ %232, %237 ], [ %241, %248 ], [ %241, %246 ]
+.thread28:                                        ; preds = %246, %248, %237, %239, %.thread21, %249, %240, %112, %55, %48, %40, %34, %1
+  %250 = phi i32 [ 2, %112 ], [ 4, %1 ], [ 2, %34 ], [ 2, %40 ], [ 80, %48 ], [ 2, %55 ], [ %232, %240 ], [ %241, %249 ], [ 2, %.thread21 ], [ %232, %239 ], [ %232, %237 ], [ %241, %248 ], [ %241, %246 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #14
   ret i32 %250
 }

@@ -3082,7 +3082,7 @@ if.then97:                                        ; preds = %if.end95
   %or4.i = or i64 %shr3.i, %or2.i
   %shr5.i = lshr i64 %or4.i, 8
   %or6.i = or i64 %shr5.i, %or4.i
-  %50 = trunc i64 %or6.i to i32
+  %50 = trunc nuw nsw i64 %or6.i to i32
   %conv99 = add nuw nsw i32 %50, 1
   br label %if.end100
 
@@ -3453,9 +3453,9 @@ for.inc:                                          ; preds = %for.body, %sw.bb26,
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc
-  %6 = trunc i8 %saw_date64.1 to i1
-  %7 = trunc i8 %saw_date32.1 to i1
-  %8 = trunc i8 %saw_duration.1 to i1
+  %6 = trunc nuw i8 %saw_date64.1 to i1
+  %7 = trunc nuw i8 %saw_date32.1 to i1
+  %8 = trunc nuw i8 %saw_duration.1 to i1
   %tobool33.not = icmp eq ptr %timezone.1, null
   br i1 %tobool33.not, label %lor.lhs.false, label %lor.end
 
@@ -3686,7 +3686,7 @@ for.inc:                                          ; preds = %for.body, %sw.bb4, 
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc
-  %2 = trunc i8 %all_offset32.1 to i1
+  %2 = trunc nuw i8 %all_offset32.1 to i1
   br i1 %all_fixed_width.1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %for.end
@@ -4432,18 +4432,16 @@ if.then96:                                        ; preds = %if.end93
 if.end97:                                         ; preds = %if.end93
   %86 = load i32, ptr %id_.i, align 8
   %cmp99 = icmp eq i32 %86, 24
-  br i1 %cmp99, label %if.then103, label %lor.lhs.false100
+  br i1 %cmp99, label %if.end104, label %lor.lhs.false100
 
 lor.lhs.false100:                                 ; preds = %if.end97
   %87 = load i32, ptr %id_.i34, align 8
   %cmp102 = icmp eq i32 %87, 24
-  br i1 %cmp102, label %if.then103, label %if.end104
-
-if.then103:                                       ; preds = %lor.lhs.false100, %if.end97
+  %spec.select = select i1 %cmp102, i32 24, i32 23
   br label %if.end104
 
-if.end104:                                        ; preds = %if.then103, %lor.lhs.false100
-  %casted_type_id.0 = phi i32 [ 24, %if.then103 ], [ 23, %lor.lhs.false100 ]
+if.end104:                                        ; preds = %lor.lhs.false100, %if.end97
+  %casted_type_id.0 = phi i32 [ 24, %if.end97 ], [ %spec.select, %lor.lhs.false100 ]
   switch i8 %promotion, label %sw.epilog [
     i8 0, label %sw.bb
     i8 2, label %sw.bb109

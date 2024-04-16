@@ -520,7 +520,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare ptr @slurm_list_remove_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_find_ext_conn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @_find_ext_conn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80
@@ -535,13 +535,11 @@ define internal noundef i32 @_find_ext_conn(ptr nocapture noundef readonly %0, p
   %11 = getelementptr inbounds i8, ptr %1, i64 88
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %10, %12
-  br i1 %13, label %15, label %14
+  %spec.select = zext i1 %13 to i32
+  br label %14
 
 14:                                               ; preds = %8, %2
-  br label %15
-
-15:                                               ; preds = %8, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %8 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 

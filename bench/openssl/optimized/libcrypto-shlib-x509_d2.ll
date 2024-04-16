@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_set_default_paths_ex(ptr noundef %ctx, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define noundef i32 @X509_STORE_set_default_paths_ex(ptr noundef %ctx, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_LOOKUP_file() #2
   %call1 = tail call ptr @X509_STORE_add_lookup(ptr noundef %ctx, ptr noundef %call) #2
@@ -50,7 +50,7 @@ declare ptr @X509_LOOKUP_store() local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_set_default_paths(ptr noundef %ctx) local_unnamed_addr #0 {
+define noundef i32 @X509_STORE_set_default_paths(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_STORE_set_default_paths_ex(ptr noundef %ctx, ptr noundef null, ptr noundef null), !range !4
   ret i32 %call
@@ -191,12 +191,14 @@ lor.lhs.false.i:                                  ; preds = %if.end
 X509_STORE_load_file_ex.exit:                     ; preds = %lor.lhs.false.i
   %call4.i = tail call i32 @X509_LOOKUP_ctrl_ex(ptr noundef nonnull %call1.i, i32 noundef 1, ptr noundef nonnull %file, i64 noundef 1, ptr noundef null, ptr noundef %libctx, ptr noundef %propq) #2
   %cmp5.i = icmp slt i32 %call4.i, 1
-  br i1 %cmp5.i, label %return, label %if.end5
+  %brmerge = or i1 %cmp1, %cmp5.i
+  %not.cmp5.i = xor i1 %cmp5.i, true
+  br i1 %brmerge, label %return, label %lor.lhs.false.i7
 
-if.end5:                                          ; preds = %X509_STORE_load_file_ex.exit, %if.end
-  br i1 %cmp1, label %if.end11, label %lor.lhs.false.i7
+if.end5:                                          ; preds = %if.end
+  br i1 %cmp1, label %return, label %lor.lhs.false.i7
 
-lor.lhs.false.i7:                                 ; preds = %if.end5
+lor.lhs.false.i7:                                 ; preds = %X509_STORE_load_file_ex.exit, %if.end5
   %call.i8 = tail call ptr @X509_LOOKUP_hash_dir() #2
   %call1.i9 = tail call ptr @X509_STORE_add_lookup(ptr noundef %ctx, ptr noundef %call.i8) #2
   %cmp2.i10 = icmp eq ptr %call1.i9, null
@@ -204,14 +206,13 @@ lor.lhs.false.i7:                                 ; preds = %if.end5
 
 X509_STORE_load_path.exit:                        ; preds = %lor.lhs.false.i7
   %call4.i12 = tail call i32 @X509_LOOKUP_ctrl(ptr noundef nonnull %call1.i9, i32 noundef 2, ptr noundef nonnull %path, i64 noundef 1, ptr noundef null) #2
-  %cmp5.i13 = icmp slt i32 %call4.i12, 1
-  br i1 %cmp5.i13, label %return, label %if.end11
-
-if.end11:                                         ; preds = %X509_STORE_load_path.exit, %if.end5
+  %call4.i12.fr = freeze i32 %call4.i12
+  %cmp5.i13 = icmp sgt i32 %call4.i12.fr, 0
   br label %return
 
-return:                                           ; preds = %lor.lhs.false.i7, %lor.lhs.false.i, %X509_STORE_load_path.exit, %X509_STORE_load_file_ex.exit, %entry, %if.end11
-  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %entry ], [ 0, %X509_STORE_load_file_ex.exit ], [ 0, %X509_STORE_load_path.exit ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false.i7 ]
+return:                                           ; preds = %X509_STORE_load_path.exit, %X509_STORE_load_file_ex.exit, %lor.lhs.false.i7, %lor.lhs.false.i, %if.end5, %entry
+  %retval.0.shrunk = phi i1 [ false, %entry ], [ %not.cmp5.i, %X509_STORE_load_file_ex.exit ], [ true, %if.end5 ], [ false, %lor.lhs.false.i ], [ false, %lor.lhs.false.i7 ], [ %cmp5.i13, %X509_STORE_load_path.exit ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 

@@ -401,41 +401,41 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_resp_get1_id(ptr nocapture noundef readonly %bs, ptr nocapture noundef %pid, ptr nocapture noundef %pname) local_unnamed_addr #0 {
+define i32 @OCSP_resp_get1_id(ptr nocapture noundef readonly %bs, ptr nocapture noundef %pid, ptr nocapture noundef %pname) local_unnamed_addr #0 {
 entry:
   %responderId = getelementptr inbounds i8, ptr %bs, i64 8
   %0 = load i32, ptr %responderId, align 8
   switch i32 %0, label %return [
     i32 0, label %if.end7
-    i32 1, label %land.lhs.true
+    i32 1, label %if.end7.thread
   ]
+
+if.end7.thread:                                   ; preds = %entry
+  %value4 = getelementptr inbounds i8, ptr %bs, i64 16
+  %1 = load ptr, ptr %value4, align 8
+  %call5 = tail call ptr @ASN1_OCTET_STRING_dup(ptr noundef %1) #6
+  store ptr %call5, ptr %pid, align 8
+  br label %return.sink.split
 
 if.end7:                                          ; preds = %entry
   %value = getelementptr inbounds i8, ptr %bs, i64 16
-  %1 = load ptr, ptr %value, align 8
-  %call = tail call ptr @X509_NAME_dup(ptr noundef %1) #6
+  %2 = load ptr, ptr %value, align 8
+  %call = tail call ptr @X509_NAME_dup(ptr noundef %2) #6
   store ptr %call, ptr %pname, align 8
-  store ptr null, ptr %pid, align 8
-  %.pr = load ptr, ptr %pname, align 8
-  %cmp8 = icmp eq ptr %.pr, null
-  br i1 %cmp8, label %return, label %if.end11
+  br label %return.sink.split
 
-land.lhs.true:                                    ; preds = %entry
-  %value4 = getelementptr inbounds i8, ptr %bs, i64 16
-  %2 = load ptr, ptr %value4, align 8
-  %call5 = tail call ptr @ASN1_OCTET_STRING_dup(ptr noundef %2) #6
-  store ptr %call5, ptr %pid, align 8
-  store ptr null, ptr %pname, align 8
-  %.pr9 = load ptr, ptr %pid, align 8
-  %cmp9 = icmp eq ptr %.pr9, null
-  br i1 %cmp9, label %return, label %if.end11
-
-if.end11:                                         ; preds = %land.lhs.true, %if.end7
+return.sink.split:                                ; preds = %if.end7.thread, %if.end7
+  %pid.sink = phi ptr [ %pid, %if.end7 ], [ %pname, %if.end7.thread ]
+  %pname.sink = phi ptr [ %pname, %if.end7 ], [ %pid, %if.end7.thread ]
+  store ptr null, ptr %pid.sink, align 8
+  %.pr = load ptr, ptr %pname.sink, align 8
+  %cmp8 = icmp ne ptr %.pr, null
+  %3 = zext i1 %cmp8 to i32
   br label %return
 
-return:                                           ; preds = %if.end7, %land.lhs.true, %entry, %if.end11
-  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end7 ]
-  ret i32 %retval.0
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.0.shrunk = phi i32 [ 0, %entry ], [ %3, %return.sink.split ]
+  ret i32 %retval.0.shrunk
 }
 
 declare ptr @X509_NAME_dup(ptr noundef) local_unnamed_addr #1
@@ -467,7 +467,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %inc11 = add nsw i32 %i.010, 1
+  %inc11 = add nuw nsw i32 %i.010, 1
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #6
   %cmp5 = icmp slt i32 %inc11, %call4
   br i1 %cmp5, label %for.body, label %return, !llvm.loop !4

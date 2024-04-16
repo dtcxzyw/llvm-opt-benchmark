@@ -1763,15 +1763,15 @@ if.end.i7:                                        ; preds = %if.else
   br i1 %or.cond6.i, label %11, label %ipv4_from_asc.exit
 
 ipv4_from_asc.exit:                               ; preds = %if.end.i7
-  %conv.i9 = trunc i32 %4 to i8
+  %conv.i9 = trunc nuw i32 %4 to i8
   store i8 %conv.i9, ptr %ipout, align 1
-  %conv17.i = trunc i32 %5 to i8
+  %conv17.i = trunc nuw i32 %5 to i8
   %arrayidx18.i = getelementptr inbounds i8, ptr %ipout, i64 1
   store i8 %conv17.i, ptr %arrayidx18.i, align 1
-  %conv19.i = trunc i32 %7 to i8
+  %conv19.i = trunc nuw i32 %7 to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %ipout, i64 2
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
-  %conv21.i = trunc i32 %9 to i8
+  %conv21.i = trunc nuw i32 %9 to i8
   %arrayidx22.i = getelementptr inbounds i8, ptr %ipout, i64 3
   store i8 %conv21.i, ptr %arrayidx22.i, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)
@@ -2040,20 +2040,18 @@ if.end39.i:                                       ; preds = %if.then9.i, %if.end
 
 while.end:                                        ; preds = %if.end39.i, %if.then8
   %cmp14 = icmp eq i64 %dec, 0
-  br i1 %cmp14, label %while.end.thread, label %8
+  %spec.select = select i1 %cmp14, i64 %a_len, i64 %dec
+  br label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.cond, %while.end
-  br label %8
-
-8:                                                ; preds = %while.end, %while.end.thread
-  %9 = phi i64 [ %a_len, %while.end.thread ], [ %dec, %while.end ]
-  %bcmp.i = tail call i32 @bcmp(ptr %a, ptr %b, i64 %9)
+  %8 = phi i64 [ %spec.select, %while.end ], [ %a_len, %while.cond ]
+  %bcmp.i = tail call i32 @bcmp(ptr %a, ptr %b, i64 %8)
   %tobool.not.i19 = icmp eq i32 %bcmp.i, 0
   %lnot.ext.i = zext i1 %tobool.not.i19 to i32
   br label %return
 
-return:                                           ; preds = %if.then9.i, %while.body.i, %entry, %8
-  %retval.0 = phi i32 [ %lnot.ext.i, %8 ], [ 0, %entry ], [ 0, %while.body.i ], [ 0, %if.then9.i ]
+return:                                           ; preds = %if.then9.i, %while.body.i, %entry, %while.end.thread
+  %retval.0 = phi i32 [ %lnot.ext.i, %while.end.thread ], [ 0, %entry ], [ 0, %while.body.i ], [ 0, %if.then9.i ]
   ret i32 %retval.0
 }
 
@@ -2829,15 +2827,15 @@ ipv4_from_asc.exit.thread:                        ; preds = %if.end21, %if.end.i
   br label %return
 
 if.end25:                                         ; preds = %if.end.i
-  %conv.i = trunc i32 %4 to i8
+  %conv.i = trunc nuw i32 %4 to i8
   store i8 %conv.i, ptr %add.ptr, align 1
-  %conv17.i = trunc i32 %5 to i8
+  %conv17.i = trunc nuw i32 %5 to i8
   %arrayidx18.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 %conv17.i, ptr %arrayidx18.i, align 1
-  %conv19.i = trunc i32 %7 to i8
+  %conv19.i = trunc nuw i32 %7 to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
-  %conv21.i = trunc i32 %9 to i8
+  %conv21.i = trunc nuw i32 %9 to i8
   %arrayidx22.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
   store i8 %conv21.i, ptr %arrayidx22.i, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %a0.i)

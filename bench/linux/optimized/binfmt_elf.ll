@@ -517,7 +517,7 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   br i1 %260, label %261, label %.thread51, !prof !14
 
 261:                                              ; preds = %259
-  %262 = trunc i64 %245 to i32
+  %262 = trunc nsw i64 %245 to i32
   br label %.thread51
 
 263:                                              ; preds = %256
@@ -742,7 +742,7 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   br i1 %416, label %417, label %.thread51, !prof !14
 
 417:                                              ; preds = %415
-  %418 = trunc i64 %400 to i32
+  %418 = trunc nsw i64 %400 to i32
   br label %.thread51
 
 419:                                              ; preds = %412
@@ -2168,7 +2168,7 @@ define internal fastcc i64 @elf_load(ptr noundef %0, i64 noundef %1, ptr nocaptu
   %7 = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %112, label %10
+  br i1 %9, label %114, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2272,7 +2272,7 @@ define internal fastcc i64 @elf_load(ptr noundef %0, i64 noundef %1, ptr nocaptu
 83:                                               ; preds = %81, %75
   %84 = phi i64 [ %80, %75 ], [ %82, %81 ]
   %85 = icmp ult i64 %69, %84
-  br i1 %85, label %86, label %139, !prof !6
+  br i1 %85, label %86, label %141, !prof !6
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %2, i64 40
@@ -2294,7 +2294,7 @@ define internal fastcc i64 @elf_load(ptr noundef %0, i64 noundef %1, ptr nocaptu
 99:                                               ; preds = %91
   %100 = inttoptr i64 %95 to ptr
   %101 = icmp sgt ptr %100, inttoptr (i64 -1 to ptr)
-  br i1 %101, label %102, label %111
+  br i1 %101, label %102, label %109
 
 102:                                              ; preds = %99
   %103 = sub nuw nsw i64 4096, %97
@@ -2306,58 +2306,57 @@ define internal fastcc i64 @elf_load(ptr noundef %0, i64 noundef %1, ptr nocaptu
   tail call void @llvm.write_register.i64(metadata !0, i64 %107)
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !49
   %108 = icmp eq i64 %106, 0
-  %109 = and i32 %3, 2
-  %110 = icmp eq i32 %109, 0
-  %or.cond = or i1 %110, %108
-  br i1 %or.cond, label %..thread_crit_edge, label %139
+  br label %109
 
-..thread_crit_edge:                               ; preds = %102
+109:                                              ; preds = %102, %99
+  %110 = phi i1 [ false, %99 ], [ %108, %102 ]
+  %111 = and i32 %3, 2
+  %112 = icmp eq i32 %111, 0
+  %113 = or i1 %112, %110
+  br i1 %113, label %..thread_crit_edge, label %141
+
+..thread_crit_edge:                               ; preds = %109
   %.pre = load i64, ptr %87, align 8
-  %.pre12 = load i64, ptr %7, align 8
+  %.pre11 = load i64, ptr %7, align 8
   br label %.thread
 
-111:                                              ; preds = %99
-  %.old = and i32 %3, 2
-  %.old11 = icmp eq i32 %.old, 0
-  br i1 %.old11, label %.thread, label %139
-
-112:                                              ; preds = %6
-  %113 = and i64 %1, -4096
-  %114 = getelementptr inbounds i8, ptr %2, i64 16
-  %115 = load i64, ptr %114, align 8
-  %116 = and i64 %115, 4095
-  %117 = or disjoint i64 %116, %113
-  %118 = getelementptr inbounds i8, ptr %2, i64 40
-  %119 = load i64, ptr %118, align 8
-  %120 = add i64 %117, %119
+114:                                              ; preds = %6
+  %115 = and i64 %1, -4096
+  %116 = getelementptr inbounds i8, ptr %2, i64 16
+  %117 = load i64, ptr %116, align 8
+  %118 = and i64 %117, 4095
+  %119 = or disjoint i64 %118, %115
+  %120 = getelementptr inbounds i8, ptr %2, i64 40
+  %121 = load i64, ptr %120, align 8
+  %122 = add i64 %119, %121
   br label %.thread
 
-.thread:                                          ; preds = %..thread_crit_edge, %91, %112, %111, %86
-  %121 = phi i64 [ %89, %111 ], [ %89, %86 ], [ 0, %112 ], [ %89, %91 ], [ %.pre12, %..thread_crit_edge ]
-  %122 = phi i64 [ %88, %111 ], [ %88, %86 ], [ %119, %112 ], [ %88, %91 ], [ %.pre, %..thread_crit_edge ]
-  %123 = phi i64 [ %95, %111 ], [ 0, %86 ], [ %113, %112 ], [ %95, %91 ], [ %95, %..thread_crit_edge ]
-  %124 = phi i64 [ %96, %111 ], [ 0, %86 ], [ %120, %112 ], [ %96, %91 ], [ %96, %..thread_crit_edge ]
-  %125 = phi i64 [ %69, %111 ], [ %69, %86 ], [ %113, %112 ], [ %69, %91 ], [ %69, %..thread_crit_edge ]
-  %126 = icmp ugt i64 %122, %121
-  br i1 %126, label %127, label %139
+.thread:                                          ; preds = %..thread_crit_edge, %91, %114, %86
+  %123 = phi i64 [ %.pre11, %..thread_crit_edge ], [ %89, %86 ], [ 0, %114 ], [ %89, %91 ]
+  %124 = phi i64 [ %.pre, %..thread_crit_edge ], [ %88, %86 ], [ %121, %114 ], [ %88, %91 ]
+  %125 = phi i64 [ %95, %..thread_crit_edge ], [ 0, %86 ], [ %115, %114 ], [ %95, %91 ]
+  %126 = phi i64 [ %96, %..thread_crit_edge ], [ 0, %86 ], [ %122, %114 ], [ %96, %91 ]
+  %127 = phi i64 [ %69, %..thread_crit_edge ], [ %69, %86 ], [ %115, %114 ], [ %69, %91 ]
+  %128 = icmp ugt i64 %124, %123
+  br i1 %128, label %129, label %141
 
-127:                                              ; preds = %.thread
-  %128 = add i64 %123, 4095
-  %129 = and i64 %128, -4096
-  %130 = add i64 %124, 4095
+129:                                              ; preds = %.thread
+  %130 = add i64 %125, 4095
   %131 = and i64 %130, -4096
-  %132 = sub i64 %131, %129
-  %133 = and i32 %3, 4
-  %134 = zext nneg i32 %133 to i64
-  %135 = tail call i32 @vm_brk_flags(i64 noundef %129, i64 noundef %132, i64 noundef %134) #15
-  %136 = icmp eq i32 %135, 0
-  %137 = sext i32 %135 to i64
-  %138 = select i1 %136, i64 %125, i64 %137
-  br label %139
+  %132 = add i64 %126, 4095
+  %133 = and i64 %132, -4096
+  %134 = sub i64 %133, %131
+  %135 = and i32 %3, 4
+  %136 = zext nneg i32 %135 to i64
+  %137 = tail call i32 @vm_brk_flags(i64 noundef %131, i64 noundef %134, i64 noundef %136) #15
+  %138 = icmp eq i32 %137, 0
+  %139 = sext i32 %137 to i64
+  %140 = select i1 %138, i64 %127, i64 %139
+  br label %141
 
-139:                                              ; preds = %102, %127, %.thread, %111, %83
-  %140 = phi i64 [ %69, %83 ], [ -14, %111 ], [ %138, %127 ], [ %125, %.thread ], [ -14, %102 ]
-  ret i64 %140
+141:                                              ; preds = %129, %.thread, %109, %83
+  %142 = phi i64 [ %69, %83 ], [ -14, %109 ], [ %140, %129 ], [ %127, %.thread ]
+  ret i64 %142
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

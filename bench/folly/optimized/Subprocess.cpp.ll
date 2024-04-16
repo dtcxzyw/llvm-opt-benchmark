@@ -938,7 +938,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !20
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -3346,7 +3346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2: ; preds = %_ZN
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %add.i = add nsw i64 %sub.ptr.div.i.i, 1
   %22 = icmp ugt i64 %add.i, 2305843009213693951
-  %23 = shl nsw i64 %add.i, 3
+  %23 = shl nuw nsw i64 %add.i, 3
   %24 = select i1 %22, i64 -1, i64 %23
   %call1.i77 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %24) #45
           to label %call1.i.noexc unwind label %lpad33
@@ -6300,21 +6300,17 @@ if.end85:                                         ; preds = %if.then79, %if.end7
   %dangerousPostForkPreExecCallback_ = getelementptr inbounds i8, ptr %options, i64 80
   %15 = load ptr, ptr %dangerousPostForkPreExecCallback_, align 8, !tbaa !224
   %tobool86.not = icmp eq ptr %15, null
-  br i1 %tobool86.not, label %if.end96, label %if.then87
+  br i1 %tobool86.not, label %return, label %if.then87
 
 if.then87:                                        ; preds = %if.end85
   %vtable = load ptr, ptr %15, align 8, !tbaa !38
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %16 = load ptr, ptr %vfn, align 8
   %call89 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %tobool90.not.not = icmp eq i32 %call89, 0
-  br i1 %tobool90.not.not, label %if.end96, label %return
-
-if.end96:                                         ; preds = %if.then87, %if.end85
   br label %return
 
-return:                                           ; preds = %if.end96, %if.then87, %if.then82, %cleanup74, %if.then47, %if.then31, %if.then26, %if.then7, %entry
-  %retval.9 = phi i32 [ %call2, %entry ], [ %0, %if.then7 ], [ %12, %cleanup74 ], [ %14, %if.then82 ], [ %call89, %if.then87 ], [ 0, %if.end96 ], [ %7, %if.then31 ], [ %5, %if.then26 ], [ %9, %if.then47 ]
+return:                                           ; preds = %if.then87, %if.end85, %if.then82, %cleanup74, %if.then47, %if.then31, %if.then26, %if.then7, %entry
+  %retval.9 = phi i32 [ %call2, %entry ], [ %0, %if.then7 ], [ %12, %cleanup74 ], [ %14, %if.then82 ], [ %7, %if.then31 ], [ %5, %if.then26 ], [ %9, %if.then47 ], [ 0, %if.end85 ], [ %call89, %if.then87 ]
   ret i32 %retval.9
 }
 
@@ -7751,7 +7747,7 @@ if.then.i:                                        ; preds = %invoke.cont4
   br i1 %cmp4.i, label %if.end.i, label %if.then6.i, !prof !248
 
 if.then6.i:                                       ; preds = %if.then.i
-  %4 = trunc i64 %add.i to i8
+  %4 = trunc nuw nsw i64 %add.i to i8
   %conv.i40.i = sub nuw nsw i8 23, %4
   store i8 %conv.i40.i, ptr %arrayidx.i.i, align 1, !tbaa !20
   %arrayidx2.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add.i
@@ -7856,7 +7852,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.end.i, label %if.then6.i, !prof !248
 
 if.then6.i:                                       ; preds = %if.then.i
-  %2 = trunc i64 %add.i to i8
+  %2 = trunc nuw nsw i64 %add.i to i8
   %conv.i40.i = sub nuw nsw i8 23, %2
   store i8 %conv.i40.i, ptr %arrayidx.i.i, align 1, !tbaa !20
   %arrayidx2.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add.i

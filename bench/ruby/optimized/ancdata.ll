@@ -2320,7 +2320,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ancillary_cmsg_is_p(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal i64 @ancillary_cmsg_is_p(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %.pr.i.i = load i64, ptr @ancillary_family.rbimpl_id, align 8
   %.not4.i.i = icmp eq i64 %.pr.i.i, 0
   br i1 %.not4.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.i
@@ -2412,13 +2412,11 @@ ancillary_type.exit:                              ; preds = %27, %29
   %.0.i.i24 = phi i64 [ %28, %27 ], [ %30, %29 ]
   %31 = trunc i64 %.0.i.i24 to i32
   %32 = icmp eq i32 %13, %31
-  br i1 %32, label %34, label %33
+  %spec.select = select i1 %32, i64 20, i64 0
+  br label %33
 
 33:                                               ; preds = %ancillary_type.exit, %ancillary_level.exit
-  br label %34
-
-34:                                               ; preds = %ancillary_type.exit, %33
-  %.0 = phi i64 [ 0, %33 ], [ 20, %ancillary_type.exit ]
+  %.0 = phi i64 [ 0, %ancillary_level.exit ], [ %spec.select, %ancillary_type.exit ]
   ret i64 %.0
 }
 

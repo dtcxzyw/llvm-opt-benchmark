@@ -870,7 +870,7 @@ define dso_local noundef zeroext i1 @nf_ct_delete(ptr noundef %0, i32 %1, i32 %2
   %41 = zext i32 %39 to i64
   %42 = mul nuw i64 %40, %41
   %43 = lshr i64 %42, 32
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !10
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hash_conntrack_raw.___once_key, i1 false) #17
@@ -905,7 +905,7 @@ define dso_local noundef zeroext i1 @nf_ct_delete(ptr noundef %0, i32 %1, i32 %2
   %57 = zext i32 %55 to i64
   %58 = mul nuw i64 %56, %57
   %59 = lshr i64 %58, 32
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw i64 %59 to i32
   %61 = call fastcc zeroext i1 @nf_conntrack_double_lock(i32 noundef %44, i32 noundef %60, i32 noundef %28)
   br i1 %61, label %21, label %62, !llvm.loop !32
 
@@ -1410,7 +1410,7 @@ define dso_local noundef i32 @nf_conntrack_hash_check_insert(ptr noundef %0) #0 
   %43 = zext i32 %41 to i64
   %44 = mul nuw i64 %42, %43
   %45 = lshr i64 %44, 32
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw i64 %45 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !10
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hash_conntrack_raw.___once_key, i1 false) #17
@@ -1445,7 +1445,7 @@ define dso_local noundef i32 @nf_conntrack_hash_check_insert(ptr noundef %0) #0 
   %59 = zext i32 %57 to i64
   %60 = mul nuw i64 %58, %59
   %61 = lshr i64 %60, 32
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   %63 = call fastcc zeroext i1 @nf_conntrack_double_lock(i32 noundef %46, i32 noundef %62, i32 noundef %30)
   br i1 %63, label %23, label %.preheader, !llvm.loop !45
 
@@ -1964,7 +1964,7 @@ define dso_local noundef i32 @__nf_conntrack_confirm(ptr nocapture noundef %0) #
   %29 = zext i32 %27 to i64
   %30 = mul nuw i64 %28, %29
   %31 = lshr i64 %30, 32
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !10
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hash_conntrack_raw.___once_key, i1 false) #17
@@ -1999,7 +1999,7 @@ define dso_local noundef i32 @__nf_conntrack_confirm(ptr nocapture noundef %0) #
   %45 = zext i32 %43 to i64
   %46 = mul nuw i64 %44, %45
   %47 = lshr i64 %46, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = call fastcc zeroext i1 @nf_conntrack_double_lock(i32 noundef %32, i32 noundef %48, i32 noundef %25)
   br i1 %49, label %18, label %50, !llvm.loop !55
 
@@ -3968,15 +3968,13 @@ define dso_local noundef i32 @nf_ct_port_tuple_to_nlattr(ptr noundef %0, ptr noc
   store i16 %11, ptr %3, align 2
   %12 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 2, ptr noundef nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #17
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %15, label %14
+  %13 = icmp ne i32 %12, 0
+  %spec.select = sext i1 %13 to i32
+  br label %14
 
 14:                                               ; preds = %9, %2
-  br label %15
-
-15:                                               ; preds = %14, %9
-  %16 = phi i32 [ -1, %14 ], [ 0, %9 ]
-  ret i32 %16
+  %15 = phi i32 [ -1, %2 ], [ %spec.select, %9 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
@@ -4942,14 +4940,14 @@ define dso_local noundef i32 @__nf_ct_change_timeout(ptr noundef %0, i64 noundef
 12:                                               ; preds = %7
   %13 = load volatile i64, ptr @jiffies, align 64
   %14 = trunc i64 %13 to i32
-  %15 = trunc i64 %8 to i32
+  %15 = trunc nuw nsw i64 %8 to i32
   %16 = add i32 %14, %15
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile i32 %16, ptr %17, align 8
   br label %21
 
 18:                                               ; preds = %7
-  %19 = trunc i64 %8 to i32
+  %19 = trunc nuw nsw i64 %8 to i32
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %19, ptr %20, align 8
   br label %21
@@ -5454,7 +5452,7 @@ define internal fastcc noundef i32 @early_drop(ptr noundef readonly %0, i32 noun
   %25 = zext i32 %18 to i64
   %26 = mul nuw i64 %25, %3
   %27 = lshr i64 %26, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   br label %32
 
 29:                                               ; preds = %22
@@ -6189,7 +6187,7 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
   %9 = and i64 %8, -8
   %10 = inttoptr i64 %9 to ptr
   %11 = icmp eq i64 %9, 0
-  br i1 %11, label %.thread17, label %12
+  br i1 %11, label %.thread19, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %10, i64 128
@@ -6220,7 +6218,7 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
   %32 = trunc i16 %19 to i8
   %33 = call fastcc i32 @get_l4proto(ptr noundef %1, i32 noundef %31, i8 noundef zeroext %32, ptr noundef nonnull %6)
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %.thread15, label %35
+  br i1 %34, label %.thread16, label %35
 
 35:                                               ; preds = %17
   %36 = load ptr, ptr %20, align 8
@@ -6234,7 +6232,7 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
   %44 = trunc i64 %43 to i32
   %45 = load i8, ptr %6, align 1
   %46 = call fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %1, i32 noundef %44, i32 noundef %33, i16 noundef zeroext %19, i8 noundef zeroext %45, ptr noundef %0, ptr noundef nonnull %5)
-  br i1 %46, label %47, label %.thread15
+  br i1 %46, label %47, label %.thread16
 
 47:                                               ; preds = %35
   %48 = load i64, ptr %13, align 8
@@ -6269,7 +6267,7 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
 65:                                               ; preds = %59, %56
   %66 = call ptr @nf_conntrack_find_get(ptr noundef %0, ptr nonnull poison, ptr noundef nonnull %5)
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %113, label %68
+  br i1 %67, label %.thread14, label %68
 
 68:                                               ; preds = %65
   %69 = load i64, ptr %13, align 8
@@ -6314,7 +6312,7 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
   store i64 %85, ptr %7, align 8
   %95 = load volatile ptr, ptr @nf_nat_hook, align 8
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %113, label %97
+  br i1 %96, label %.thread14, label %97
 
 97:                                               ; preds = %.thread
   %98 = and i32 %70, 16
@@ -6326,34 +6324,39 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 %102(ptr noundef %1, ptr noundef %82, i32 noundef 0, i32 noundef 0) #17
   %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %.thread15
+  br i1 %104, label %105, label %.thread16
 
 105:                                              ; preds = %100, %97
   %106 = and i32 %70, 32
   %107 = icmp eq i32 %106, 0
-  br i1 %107, label %113, label %108
+  br i1 %107, label %.thread14, label %108
+
+.thread14:                                        ; preds = %65, %.thread, %105
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
+  br label %113
+
+.thread16:                                        ; preds = %100, %17, %35
+  %.ph = phi i32 [ 0, %35 ], [ 0, %17 ], [ %103, %100 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
+  br label %.thread19
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds i8, ptr %95, i64 16
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 %110(ptr noundef %1, ptr noundef %82, i32 noundef 1, i32 noundef 0) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
   %112 = icmp eq i32 %111, 1
-  br i1 %112, label %113, label %.thread15
+  br i1 %112, label %113, label %.thread19
 
-.thread15:                                        ; preds = %35, %17, %100, %108
-  %.ph = phi i32 [ 0, %35 ], [ 0, %17 ], [ %103, %100 ], [ %111, %108 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
-  br label %.thread17
-
-113:                                              ; preds = %105, %108, %.thread, %65
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
+113:                                              ; preds = %108, %.thread14
   %114 = load i64, ptr %7, align 8
   %115 = and i64 %114, -8
   %116 = inttoptr i64 %115 to ptr
   %.not = icmp eq i64 %115, 0
-  br i1 %.not, label %.thread17, label %117
+  br i1 %.not, label %.thread19, label %117
 
 117:                                              ; preds = %113, %12
   %.in.in = phi i64 [ %114, %113 ], [ %8, %12 ]
@@ -6363,12 +6366,12 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
   %120 = getelementptr inbounds i8, ptr %118, i64 176
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.thread17, label %123
+  br i1 %122, label %.thread19, label %123
 
 123:                                              ; preds = %117
   %124 = load i8, ptr %121, align 1
   %125 = icmp eq i8 %124, 0
-  br i1 %125, label %.thread17, label %126
+  br i1 %125, label %.thread19, label %126
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds i8, ptr %121, i64 8
@@ -6388,24 +6391,24 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
 135:                                              ; preds = %132, %130
   %136 = phi ptr [ %131, %130 ], [ %134, %132 ]
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.thread17, label %138
+  br i1 %137, label %.thread19, label %138
 
 138:                                              ; preds = %135
   %139 = load volatile ptr, ptr %136, align 8
   %140 = icmp eq ptr %139, null
-  br i1 %140, label %.thread17, label %141
+  br i1 %140, label %.thread19, label %141
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds i8, ptr %139, i64 132
   %143 = load i32, ptr %142, align 4
   %144 = and i32 %143, 1
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %.thread17, label %146
+  br i1 %145, label %.thread19, label %146
 
 146:                                              ; preds = %141
   %147 = getelementptr inbounds i8, ptr %118, i64 50
   %148 = load i16, ptr %147, align 2
-  switch i16 %148, label %.thread17 [
+  switch i16 %148, label %.thread19 [
     i16 2, label %149
     i16 10, label %167
   ]
@@ -6461,7 +6464,7 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
 183:                                              ; preds = %178, %167
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #17
-  br label %.thread17
+  br label %.thread19
 
 184:                                              ; preds = %182, %149
   %185 = phi i32 [ %166, %149 ], [ %176, %182 ]
@@ -6502,13 +6505,13 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 20
   call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %211, ptr elementtype(i32) %211) #17, !srcloc !117
-  br label %.thread17
+  br label %.thread19
 
 212:                                              ; preds = %203, %198, %184
   %213 = load i64, ptr %7, align 8
   %214 = and i64 %213, -8
   %215 = icmp eq i64 %214, 0
-  br i1 %215, label %.thread17, label %216
+  br i1 %215, label %.thread19, label %216
 
 216:                                              ; preds = %212
   %217 = inttoptr i64 %214 to ptr
@@ -6516,14 +6519,14 @@ define internal i32 @nf_conntrack_update(ptr noundef %0, ptr noundef %1) #0 alig
   %219 = load volatile i64, ptr %218, align 8
   %220 = and i64 %219, 8
   %221 = icmp eq i64 %220, 0
-  br i1 %221, label %222, label %.thread17
+  br i1 %221, label %222, label %.thread19
 
 222:                                              ; preds = %216
   %223 = call i32 @__nf_conntrack_confirm(ptr noundef %1), !range !67
-  br label %.thread17
+  br label %.thread19
 
-.thread17:                                        ; preds = %117, %123, %.thread15, %222, %216, %212, %206, %183, %146, %141, %138, %135, %113, %2
-  %224 = phi i32 [ 1, %113 ], [ 1, %2 ], [ 0, %206 ], [ 1, %183 ], [ 1, %135 ], [ 1, %138 ], [ 1, %141 ], [ 1, %146 ], [ 1, %212 ], [ 1, %216 ], [ %223, %222 ], [ %.ph, %.thread15 ], [ 1, %123 ], [ 1, %117 ]
+.thread19:                                        ; preds = %117, %123, %.thread16, %108, %222, %216, %212, %206, %183, %146, %141, %138, %135, %113, %2
+  %224 = phi i32 [ 1, %113 ], [ 1, %2 ], [ 0, %206 ], [ 1, %183 ], [ 1, %135 ], [ 1, %138 ], [ 1, %141 ], [ 1, %146 ], [ 1, %212 ], [ 1, %216 ], [ %223, %222 ], [ %.ph, %.thread16 ], [ %111, %108 ], [ 1, %123 ], [ 1, %117 ]
   ret i32 %224
 }
 

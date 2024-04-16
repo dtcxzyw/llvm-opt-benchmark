@@ -197,7 +197,7 @@ define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unn
   %39 = getelementptr [6 x i8], ptr %4, i64 0, i64 %28
   store i8 %38, ptr %39, align 1
   %40 = lshr i16 %37, 8
-  %41 = trunc i16 %40 to i8
+  %41 = trunc nuw i16 %40 to i8
   %42 = or disjoint i64 %28, 1
   %43 = getelementptr [6 x i8], ptr %4, i64 0, i64 %42
   store i8 %41, ptr %43, align 1
@@ -881,35 +881,35 @@ define dso_local i32 @e1000e_config_fc_after_link_up(ptr noundef %0) local_unnam
 
 181:                                              ; preds = %172
   %182 = and i32 %178, -402653185
-  br label %.thread9
+  br label %191
 
 183:                                              ; preds = %172
   %184 = and i32 %178, -402653185
   %185 = or disjoint i32 %184, 134217728
-  br label %.thread9
+  br label %191
 
 186:                                              ; preds = %172
   %187 = and i32 %178, -402653185
   %188 = or disjoint i32 %187, 268435456
-  br label %.thread9
+  br label %191
 
 189:                                              ; preds = %172
   %190 = or i32 %178, 402653184
-  br label %.thread9
+  br label %191
 
-.thread9:                                         ; preds = %181, %183, %186, %189
-  %191 = phi i32 [ %190, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %181 ]
-  call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %191) #6
+191:                                              ; preds = %189, %186, %183, %181
+  %192 = phi i32 [ %190, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %181 ]
+  call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %192) #6
   br label %.thread7.thread
 
-.thread7.thread:                                  ; preds = %54, %.thread7, %125, %.thread9, %172, %15, %33, %129, %120, %110, %75, %71, %67, %63, %58
-  %192 = phi i32 [ %61, %58 ], [ %65, %63 ], [ 0, %67 ], [ %73, %71 ], [ %77, %75 ], [ %113, %110 ], [ %121, %120 ], [ 0, %129 ], [ -3, %15 ], [ -3, %33 ], [ -3, %172 ], [ 0, %.thread9 ], [ 0, %125 ], [ 0, %.thread7 ], [ 0, %54 ]
+.thread7.thread:                                  ; preds = %54, %15, %33, %172, %191, %.thread7, %125, %129, %120, %110, %75, %71, %67, %63, %58
+  %193 = phi i32 [ %61, %58 ], [ %65, %63 ], [ 0, %67 ], [ %73, %71 ], [ %77, %75 ], [ %113, %110 ], [ %121, %120 ], [ 0, %129 ], [ 0, %125 ], [ 0, %.thread7 ], [ 0, %191 ], [ -3, %172 ], [ -3, %15 ], [ -3, %33 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #6
-  ret i32 %192
+  ret i32 %193
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -931,7 +931,7 @@ define dso_local i32 @e1000e_check_for_fiber_link(ptr noundef %0) local_unnamed_
   %16 = and i32 %10, 536870912
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %15, i1 %17, i1 false
-  br i1 %18, label %19, label %33
+  br i1 %18, label %19, label %32
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds i8, ptr %0, i64 783
@@ -941,7 +941,7 @@ define dso_local i32 @e1000e_check_for_fiber_link(ptr noundef %0) local_unnamed_
 
 23:                                               ; preds = %19
   store i8 1, ptr %20, align 1
-  br label %43
+  br label %41
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 248
@@ -953,31 +953,27 @@ define dso_local i32 @e1000e_check_for_fiber_link(ptr noundef %0) local_unnamed_
   %30 = or i32 %29, 65
   tail call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %30) #6
   %31 = tail call i32 @e1000e_config_fc_after_link_up(ptr noundef %0)
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %42, label %43
+  br label %41
 
-33:                                               ; preds = %1
-  %34 = and i32 %4, 64
-  %35 = icmp eq i32 %34, 0
-  %36 = select i1 %35, i1 true, i1 %17
-  br i1 %36, label %42, label %37
+32:                                               ; preds = %1
+  %33 = and i32 %4, 64
+  %34 = icmp eq i32 %33, 0
+  %35 = select i1 %34, i1 true, i1 %17
+  br i1 %35, label %41, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 248
-  %39 = load i32, ptr %38, align 8
-  tail call void @__ew32(ptr noundef %0, i64 noundef 376, i32 noundef %39) #6
-  %40 = and i32 %4, -65
-  tail call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %40) #6
-  %41 = getelementptr inbounds i8, ptr %0, i64 786
-  store i8 1, ptr %41, align 2
-  br label %42
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %0, i64 248
+  %38 = load i32, ptr %37, align 8
+  tail call void @__ew32(ptr noundef %0, i64 noundef 376, i32 noundef %38) #6
+  %39 = and i32 %4, -65
+  tail call void @__ew32(ptr noundef %0, i64 noundef 0, i32 noundef %39) #6
+  %40 = getelementptr inbounds i8, ptr %0, i64 786
+  store i8 1, ptr %40, align 2
+  br label %41
 
-42:                                               ; preds = %37, %33, %24
-  br label %43
-
-43:                                               ; preds = %42, %24, %23
-  %44 = phi i32 [ 0, %42 ], [ 0, %23 ], [ %31, %24 ]
-  ret i32 %44
+41:                                               ; preds = %24, %32, %36, %23
+  %42 = phi i32 [ 0, %23 ], [ 0, %36 ], [ 0, %32 ], [ %31, %24 ]
+  ret i32 %42
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1492,7 +1488,7 @@ define dso_local void @e1000e_put_hw_semaphore(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_get_auto_rd_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @e1000e_get_auto_rd_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   br label %3
 
@@ -1513,14 +1509,12 @@ define dso_local noundef i32 @e1000e_get_auto_rd_done(ptr nocapture noundef read
 
 13:                                               ; preds = %3
   %14 = icmp eq i32 %4, 10
-  br i1 %14, label %.thread, label %15
+  %spec.select = select i1 %14, i32 -9, i32 0
+  br label %.thread
 
 .thread:                                          ; preds = %10, %13
-  br label %15
-
-15:                                               ; preds = %13, %.thread
-  %16 = phi i32 [ -9, %.thread ], [ 0, %13 ]
-  ret i32 %16
+  %15 = phi i32 [ %spec.select, %13 ], [ -9, %10 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

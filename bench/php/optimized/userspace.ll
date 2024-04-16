@@ -743,7 +743,7 @@ define internal noundef i32 @php_userstreamop_close(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_userstreamop_flush(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @php_userstreamop_flush(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -776,13 +776,11 @@ define internal noundef i32 @php_userstreamop_flush(ptr nocapture noundef readon
 18:                                               ; preds = %1
   %19 = call i32 @zend_is_true(ptr noundef nonnull %3) #11
   %.not61 = icmp eq i32 %19, 0
-  br i1 %.not61, label %20, label %21
+  %spec.select = sext i1 %.not61 to i32
+  br label %20
 
 20:                                               ; preds = %18, %1
-  br label %21
-
-21:                                               ; preds = %18, %20
-  %.0 = phi i32 [ -1, %20 ], [ 0, %18 ]
+  %.0 = phi i32 [ -1, %1 ], [ %spec.select, %18 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #11
   ret i32 %.0
@@ -824,7 +822,7 @@ define internal noundef i32 @php_userstreamop_seek(ptr nocapture noundef %0, i64
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %18) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
-  switch i32 %22, label %55 [
+  switch i32 %22, label %.sink.split [
     i32 -1, label %23
     i32 0, label %27
   ]
@@ -834,22 +832,22 @@ define internal noundef i32 @php_userstreamop_seek(ptr nocapture noundef %0, i64
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 1
   store i32 %26, ptr %24, align 4
-  br label %55
+  br label %.sink.split
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds i8, ptr %6, i64 8
   %29 = load i8, ptr %28, align 8
   %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %55, label %30
+  br i1 %.not, label %.sink.split, label %30
 
 30:                                               ; preds = %27
   %31 = call i32 @zend_is_true(ptr noundef nonnull %6) #11
-  %.not137 = icmp eq i32 %31, 0
-  br i1 %.not137, label %55, label %32
-
-32:                                               ; preds = %30
+  %.not137.not = icmp eq i32 %31, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   store i32 0, ptr %28, align 8
+  br i1 %.not137.not, label %55, label %32
+
+32:                                               ; preds = %30
   %33 = call noalias ptr @_emalloc_40() #11
   store i32 1, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %33, i64 4
@@ -894,12 +892,16 @@ define internal noundef i32 @php_userstreamop_seek(ptr nocapture noundef %0, i64
 54:                                               ; preds = %45, %47, %43
   %.1 = phi i32 [ 0, %43 ], [ -1, %47 ], [ -1, %45 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %27, %4, %23, %54
+  %.sink = phi ptr [ %5, %54 ], [ %6, %23 ], [ %6, %4 ], [ %6, %27 ]
+  %.0.ph = phi i32 [ %.1, %54 ], [ -1, %23 ], [ -1, %4 ], [ -1, %27 ]
+  call void @zval_ptr_dtor(ptr noundef nonnull %.sink) #11
   br label %55
 
-55:                                               ; preds = %4, %30, %27, %54, %23
-  %.sink = phi ptr [ %5, %54 ], [ %6, %23 ], [ %6, %27 ], [ %6, %30 ], [ %6, %4 ]
-  %.0 = phi i32 [ %.1, %54 ], [ -1, %23 ], [ -1, %27 ], [ -1, %30 ], [ -1, %4 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %.sink) #11
+55:                                               ; preds = %.sink.split, %30
+  %.0 = phi i32 [ -1, %30 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

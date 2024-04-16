@@ -3720,7 +3720,7 @@ define internal i32 @dissect_ldap_LDAPString(i1 noundef zeroext %0, ptr noundef 
   %10 = load i32, ptr @hf_ldap_baseObject, align 4
   %11 = icmp eq i32 %10, %5
   %or.cond76 = select i1 %.not, i1 true, i1 %11
-  br i1 %or.cond76, label %12, label %132
+  br i1 %or.cond76, label %12, label %130
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %3, i64 16
@@ -3762,212 +3762,208 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
   %31 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef nonnull %25, i32 noundef 0, i32 noundef %30, i32 noundef 2) #12
   %32 = load i32, ptr @hf_ldap_baseObject, align 4
   %33 = icmp eq i32 %32, %5
-  br i1 %33, label %36, label %54
+  br i1 %33, label %36, label %53
 
 .thread:                                          ; preds = %ldap_do_protocolop.exit
   %34 = load i32, ptr @hf_ldap_baseObject, align 4
   %35 = icmp eq i32 %34, %5
-  br i1 %35, label %.thread88, label %.thread91
+  br i1 %35, label %.thread89, label %.thread92
 
 36:                                               ; preds = %26
   %.not71 = icmp eq ptr %31, null
-  br i1 %.not71, label %.thread88, label %37
+  br i1 %.not71, label %.thread89, label %37
 
 37:                                               ; preds = %36
   %38 = load i8, ptr %31, align 1
   %.not72 = icmp eq i8 %38, 0
-  br i1 %.not72, label %.thread88, label %39
+  %spec.select = select i1 %.not72, ptr @.str.842, ptr %31
+  br label %.thread89
 
-.thread88:                                        ; preds = %.thread, %37, %36
-  br label %39
+.thread89:                                        ; preds = %.thread, %37, %36
+  %.1 = phi ptr [ @.str.842, %36 ], [ %spec.select, %37 ], [ @.str.842, %.thread ]
+  %39 = load ptr, ptr %13, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 408
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #13
+  %45 = call ptr @format_text(ptr noundef %43, ptr noundef nonnull %.1, i64 noundef %44) #12
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.843, ptr noundef %45) #12
+  %46 = load ptr, ptr @ldm_tree, align 8
+  %.not73 = icmp eq ptr %46, null
+  br i1 %.not73, label %48, label %47
 
-39:                                               ; preds = %.thread88, %37
-  %.1 = phi ptr [ %31, %37 ], [ @.str.842, %.thread88 ]
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 408
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #13
-  %46 = call ptr @format_text(ptr noundef %44, ptr noundef nonnull %.1, i64 noundef %45) #12
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.843, ptr noundef %46) #12
-  %47 = load ptr, ptr @ldm_tree, align 8
-  %.not73 = icmp eq ptr %47, null
-  br i1 %.not73, label %49, label %48
+47:                                               ; preds = %.thread89
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %46, ptr noundef nonnull @.str.844, ptr noundef nonnull %.1) #12
+  br label %48
 
-48:                                               ; preds = %39
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %47, ptr noundef nonnull @.str.844, ptr noundef nonnull %.1) #12
-  br label %49
+48:                                               ; preds = %47, %.thread89
+  %49 = load ptr, ptr %7, align 8
+  %.not74 = icmp eq ptr %49, null
+  br i1 %.not74, label %50, label %130
 
-49:                                               ; preds = %48, %39
-  %50 = load ptr, ptr %7, align 8
-  %.not74 = icmp eq ptr %50, null
-  br i1 %.not74, label %51, label %132
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %3, i64 24
+  %52 = load ptr, ptr %51, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.845, ptr noundef nonnull %.1) #12
+  br label %130
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %3, i64 24
-  %53 = load ptr, ptr %52, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.845, ptr noundef nonnull %.1) #12
-  br label %132
+53:                                               ; preds = %26
+  %54 = load i32, ptr @hf_ldap_errorMessage, align 4
+  %55 = icmp eq i32 %54, %5
+  %56 = icmp ne ptr %31, null
+  %or.cond = select i1 %55, i1 %56, i1 false
+  br i1 %or.cond, label %57, label %.thread92
 
-54:                                               ; preds = %26
-  %55 = load i32, ptr @hf_ldap_errorMessage, align 4
-  %56 = icmp eq i32 %55, %5
-  %57 = icmp ne ptr %31, null
-  %or.cond = select i1 %56, i1 %57, i1 false
-  br i1 %or.cond, label %58, label %.thread91
+57:                                               ; preds = %53
+  %58 = load i8, ptr %31, align 1
+  %.not65 = icmp eq i8 %58, 0
+  br i1 %.not65, label %.thread92, label %59
 
-58:                                               ; preds = %54
-  %59 = load i8, ptr %31, align 1
-  %.not65 = icmp eq i8 %59, 0
-  br i1 %.not65, label %.thread91, label %60
+59:                                               ; preds = %57
+  %60 = load ptr, ptr %13, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %60, i64 408
+  %64 = load ptr, ptr %63, align 8
+  %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #13
+  %66 = call ptr @format_text(ptr noundef %64, ptr noundef nonnull %31, i64 noundef %65) #12
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.846, ptr noundef %66) #12
+  %67 = load ptr, ptr @ldm_tree, align 8
+  %.not70 = icmp eq ptr %67, null
+  br i1 %.not70, label %130, label %68
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %13, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 408
-  %65 = load ptr, ptr %64, align 8
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #13
-  %67 = call ptr @format_text(ptr noundef %65, ptr noundef nonnull %31, i64 noundef %66) #12
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.846, ptr noundef %67) #12
-  %68 = load ptr, ptr @ldm_tree, align 8
-  %.not70 = icmp eq ptr %68, null
-  br i1 %.not70, label %132, label %69
+68:                                               ; preds = %59
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %67, ptr noundef nonnull @.str.845, ptr noundef nonnull %31) #12
+  br label %130
 
-69:                                               ; preds = %60
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %68, ptr noundef nonnull @.str.845, ptr noundef nonnull %31) #12
-  br label %132
+.thread92:                                        ; preds = %.thread, %57, %53
+  %69 = phi i1 [ true, %57 ], [ %56, %53 ], [ false, %.thread ]
+  %.08895 = phi ptr [ %31, %57 ], [ %31, %53 ], [ null, %.thread ]
+  %70 = load i32, ptr @hf_ldap_objectName, align 4
+  %71 = icmp eq i32 %70, %5
+  %72 = load i32, ptr @hf_ldap_name, align 4
+  %73 = icmp eq i32 %72, %5
+  %or.cond78 = select i1 %71, i1 true, i1 %73
+  %74 = load i32, ptr @hf_ldap_entry, align 4
+  %75 = icmp eq i32 %74, %5
+  %or.cond80 = select i1 %or.cond78, i1 true, i1 %75
+  %76 = load i32, ptr @hf_ldap_object, align 4
+  %77 = icmp eq i32 %76, %5
+  %or.cond82 = select i1 %or.cond80, i1 true, i1 %77
+  %78 = load i32, ptr @hf_ldap_delRequest, align 4
+  %79 = icmp eq i32 %78, %5
+  %or.cond84 = select i1 %or.cond82, i1 true, i1 %79
+  br i1 %or.cond84, label %80, label %93
 
-.thread91:                                        ; preds = %.thread, %58, %54
-  %70 = phi i1 [ true, %58 ], [ %57, %54 ], [ false, %.thread ]
-  %.08794 = phi ptr [ %31, %58 ], [ %31, %54 ], [ null, %.thread ]
-  %71 = load i32, ptr @hf_ldap_objectName, align 4
-  %72 = icmp eq i32 %71, %5
-  %73 = load i32, ptr @hf_ldap_name, align 4
-  %74 = icmp eq i32 %73, %5
-  %or.cond78 = select i1 %72, i1 true, i1 %74
-  %75 = load i32, ptr @hf_ldap_entry, align 4
-  %76 = icmp eq i32 %75, %5
-  %or.cond80 = select i1 %or.cond78, i1 true, i1 %76
-  %77 = load i32, ptr @hf_ldap_object, align 4
-  %78 = icmp eq i32 %77, %5
-  %or.cond82 = select i1 %or.cond80, i1 true, i1 %78
-  %79 = load i32, ptr @hf_ldap_delRequest, align 4
-  %80 = icmp eq i32 %79, %5
-  %or.cond84 = select i1 %or.cond82, i1 true, i1 %80
-  br i1 %or.cond84, label %81, label %95
+80:                                               ; preds = %.thread92
+  br i1 %69, label %81, label %83
 
-81:                                               ; preds = %.thread91
-  br i1 %70, label %82, label %84
+81:                                               ; preds = %80
+  %82 = load i8, ptr %.08895, align 1
+  %.not68 = icmp eq i8 %82, 0
+  %spec.select85 = select i1 %.not68, ptr @.str.842, ptr %.08895
+  br label %83
 
-82:                                               ; preds = %81
-  %83 = load i8, ptr %.08794, align 1
-  %.not68 = icmp eq i8 %83, 0
-  br i1 %.not68, label %84, label %85
-
-84:                                               ; preds = %82, %81
-  br label %85
-
-85:                                               ; preds = %84, %82
-  %.2 = phi ptr [ %.08794, %82 ], [ @.str.842, %84 ]
-  %86 = load ptr, ptr %13, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+83:                                               ; preds = %81, %80
+  %.2 = phi ptr [ @.str.842, %80 ], [ %spec.select85, %81 ]
+  %84 = load ptr, ptr %13, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %84, i64 408
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 408
-  %90 = load ptr, ptr %89, align 8
-  %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #13
-  %92 = call ptr @format_text(ptr noundef %90, ptr noundef nonnull %.2, i64 noundef %91) #12
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.843, ptr noundef %92) #12
-  %93 = load ptr, ptr @ldm_tree, align 8
-  %.not69 = icmp eq ptr %93, null
-  br i1 %.not69, label %132, label %94
+  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #13
+  %90 = call ptr @format_text(ptr noundef %88, ptr noundef nonnull %.2, i64 noundef %89) #12
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.843, ptr noundef %90) #12
+  %91 = load ptr, ptr @ldm_tree, align 8
+  %.not69 = icmp eq ptr %91, null
+  br i1 %.not69, label %130, label %92
 
-94:                                               ; preds = %85
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %93, ptr noundef nonnull @.str.844, ptr noundef nonnull %.2) #12
-  br label %132
+92:                                               ; preds = %83
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %91, ptr noundef nonnull @.str.844, ptr noundef nonnull %.2) #12
+  br label %130
 
-95:                                               ; preds = %.thread91
-  %96 = load i32, ptr @hf_ldap_attributeDesc, align 4
-  %97 = icmp eq i32 %96, %5
-  br i1 %97, label %98, label %99
+93:                                               ; preds = %.thread92
+  %94 = load i32, ptr @hf_ldap_attributeDesc, align 4
+  %95 = icmp eq i32 %94, %5
+  br i1 %95, label %96, label %97
 
-98:                                               ; preds = %95
-  store ptr %.08794, ptr @attributedesc_string, align 8
-  br label %132
+96:                                               ; preds = %93
+  store ptr %.08895, ptr @attributedesc_string, align 8
+  br label %130
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr @hf_ldap_initial, align 4
-  %101 = icmp eq i32 %100, %5
-  br i1 %101, label %102, label %103
+97:                                               ; preds = %93
+  %98 = load i32, ptr @hf_ldap_initial, align 4
+  %99 = icmp eq i32 %98, %5
+  br i1 %99, label %100, label %101
 
-102:                                              ; preds = %99
-  store ptr %.08794, ptr @substring_item_init, align 8
-  br label %132
+100:                                              ; preds = %97
+  store ptr %.08895, ptr @substring_item_init, align 8
+  br label %130
 
-103:                                              ; preds = %99
-  %104 = load i32, ptr @hf_ldap_any, align 4
-  %105 = icmp eq i32 %104, %5
-  br i1 %105, label %106, label %107
+101:                                              ; preds = %97
+  %102 = load i32, ptr @hf_ldap_any, align 4
+  %103 = icmp eq i32 %102, %5
+  br i1 %103, label %104, label %105
 
-106:                                              ; preds = %103
-  store ptr %.08794, ptr @substring_item_any, align 8
-  br label %132
+104:                                              ; preds = %101
+  store ptr %.08895, ptr @substring_item_any, align 8
+  br label %130
 
-107:                                              ; preds = %103
-  %108 = load i32, ptr @hf_ldap_final, align 4
-  %109 = icmp eq i32 %108, %5
-  br i1 %109, label %110, label %111
+105:                                              ; preds = %101
+  %106 = load i32, ptr @hf_ldap_final, align 4
+  %107 = icmp eq i32 %106, %5
+  br i1 %107, label %108, label %109
 
-110:                                              ; preds = %107
-  store ptr %.08794, ptr @substring_item_final, align 8
-  br label %132
+108:                                              ; preds = %105
+  store ptr %.08895, ptr @substring_item_final, align 8
+  br label %130
 
-111:                                              ; preds = %107
-  %112 = load i32, ptr @hf_ldap_matchingRule, align 4
-  %113 = icmp eq i32 %112, %5
-  br i1 %113, label %114, label %115
+109:                                              ; preds = %105
+  %110 = load i32, ptr @hf_ldap_matchingRule, align 4
+  %111 = icmp eq i32 %110, %5
+  br i1 %111, label %112, label %113
 
-114:                                              ; preds = %111
-  store ptr %.08794, ptr @matching_rule_string, align 8
-  br label %132
+112:                                              ; preds = %109
+  store ptr %.08895, ptr @matching_rule_string, align 8
+  br label %130
 
-115:                                              ; preds = %111
-  %116 = load i32, ptr @hf_ldap_present, align 4
-  %117 = icmp eq i32 %116, %5
-  br i1 %117, label %118, label %119
+113:                                              ; preds = %109
+  %114 = load i32, ptr @hf_ldap_present, align 4
+  %115 = icmp eq i32 %114, %5
+  br i1 %115, label %116, label %117
 
-118:                                              ; preds = %115
-  store ptr %.08794, ptr @Filter_string, align 8
-  br label %132
+116:                                              ; preds = %113
+  store ptr %.08895, ptr @Filter_string, align 8
+  br label %130
 
-119:                                              ; preds = %115
-  %120 = load i32, ptr @hf_ldap_type, align 4
-  %121 = icmp eq i32 %120, %5
-  br i1 %121, label %122, label %132
+117:                                              ; preds = %113
+  %118 = load i32, ptr @hf_ldap_type, align 4
+  %119 = icmp eq i32 %118, %5
+  br i1 %119, label %120, label %130
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr %13, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 408
-  %125 = load ptr, ptr %124, align 8
-  %126 = call noalias ptr @wmem_strdup(ptr noundef %125, ptr noundef %.08794) #12
-  store ptr %126, ptr @attr_type, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.847, ptr noundef %126) #12
-  %127 = load ptr, ptr @attr_type, align 8
-  %128 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %127, i32 noundef 59) #13
-  %.not66 = icmp eq ptr %128, null
-  br i1 %.not66, label %132, label %129
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %13, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 408
+  %123 = load ptr, ptr %122, align 8
+  %124 = call noalias ptr @wmem_strdup(ptr noundef %123, ptr noundef %.08895) #12
+  store ptr %124, ptr @attr_type, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.847, ptr noundef %124) #12
+  %125 = load ptr, ptr @attr_type, align 8
+  %126 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %125, i32 noundef 59) #13
+  %.not66 = icmp eq ptr %126, null
+  br i1 %.not66, label %130, label %127
 
-129:                                              ; preds = %122
-  %130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(8) @.str.848) #13
-  %.not67 = icmp eq i32 %130, 0
-  br i1 %.not67, label %131, label %132
+127:                                              ; preds = %120
+  %128 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(8) @.str.848) #13
+  %.not67 = icmp eq i32 %128, 0
+  br i1 %.not67, label %129, label %130
 
-131:                                              ; preds = %129
-  store i8 0, ptr %128, align 1
-  br label %132
+129:                                              ; preds = %127
+  store i8 0, ptr %126, align 1
+  br label %130
 
-132:                                              ; preds = %122, %6, %51, %49, %94, %85, %102, %110, %118, %131, %129, %119, %114, %106, %98, %60, %69
+130:                                              ; preds = %120, %6, %50, %48, %92, %83, %100, %108, %116, %129, %127, %117, %112, %104, %96, %59, %68
   ret i32 %8
 }
 

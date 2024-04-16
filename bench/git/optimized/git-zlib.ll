@@ -47,13 +47,13 @@ entry:
   %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
   %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
-  %conv.i13.i = trunc i64 %cond.i12.i to i32
+  %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
   %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateInit_(ptr noundef nonnull %strm, ptr noundef nonnull @.str, i32 noundef 112) #6
@@ -156,13 +156,13 @@ entry:
   %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
   %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
-  %conv.i13.i = trunc i64 %cond.i12.i to i32
+  %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
   %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateInit2_(ptr noundef nonnull %strm, i32 noundef 31, ptr noundef nonnull @.str, i32 noundef 112) #6
@@ -244,13 +244,13 @@ entry:
   %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
   %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
-  %conv.i13.i = trunc i64 %cond.i12.i to i32
+  %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
   %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %strm) #6
@@ -368,10 +368,10 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   store i64 %3, ptr %total_in5.i, align 8
   store i64 %2, ptr %total_out7.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 1073741824)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %0, i64 1073741824)
-  %conv.i13.i = trunc i64 %cond.i12.i to i32
+  %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %cmp.not = icmp ult i64 %1, 1073741825
   %cond = select i1 %cmp.not, i32 %flush, i32 0
@@ -435,14 +435,14 @@ land.lhs.true:                                    ; preds = %zlib_post_call.exit
   br i1 %tobool8.not, label %land.lhs.true9, label %for.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  switch i32 %call, label %sw.default.i [
+  switch i32 %call, label %zerr_to_string.exit [
     i32 -5, label %for.cond.backedge
     i32 0, label %for.cond.backedge
     i32 1, label %return
-    i32 -2, label %sw.bb4.i
-    i32 -6, label %zerr_to_string.exit.loopexit89
-    i32 2, label %zerr_to_string.exit
-    i32 -3, label %sw.bb3.i
+    i32 -2, label %zerr_to_string.exit.loopexit88
+    i32 -6, label %zerr_to_string.exit.loopexit38
+    i32 2, label %zerr_to_string.exit.loopexit60
+    i32 -3, label %zerr_to_string.exit.loopexit
   ]
 
 for.cond.backedge:                                ; preds = %land.lhs.true9, %land.lhs.true9
@@ -462,20 +462,29 @@ for.end:                                          ; preds = %zlib_post_call.exit
 sw.bb2.i:                                         ; preds = %for.end
   br label %zerr_to_string.exit
 
-sw.bb3.i:                                         ; preds = %land.lhs.true9, %for.end
+sw.bb3.i:                                         ; preds = %for.end
   br label %zerr_to_string.exit
 
-sw.bb4.i:                                         ; preds = %land.lhs.true9, %for.end
+sw.bb4.i:                                         ; preds = %for.end
   br label %zerr_to_string.exit
 
-sw.default.i:                                     ; preds = %land.lhs.true9, %for.end
+sw.default.i:                                     ; preds = %for.end
   br label %zerr_to_string.exit
 
-zerr_to_string.exit.loopexit89:                   ; preds = %land.lhs.true9
+zerr_to_string.exit.loopexit38:                   ; preds = %land.lhs.true9
   br label %zerr_to_string.exit
 
-zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit89, %for.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
-  %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.15, %for.end ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %zerr_to_string.exit.loopexit89 ], [ @.str.16, %land.lhs.true9 ]
+zerr_to_string.exit.loopexit60:                   ; preds = %land.lhs.true9
+  br label %zerr_to_string.exit
+
+zerr_to_string.exit.loopexit:                     ; preds = %land.lhs.true9
+  br label %zerr_to_string.exit
+
+zerr_to_string.exit.loopexit88:                   ; preds = %land.lhs.true9
+  br label %zerr_to_string.exit
+
+zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit88, %zerr_to_string.exit.loopexit, %for.end, %zerr_to_string.exit.loopexit60, %zerr_to_string.exit.loopexit38, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
+  %retval.0.i = phi ptr [ @.str.15, %zerr_to_string.exit.loopexit38 ], [ @.str.16, %sw.bb2.i ], [ @.str.16, %zerr_to_string.exit.loopexit60 ], [ @.str.15, %for.end ], [ @.str.17, %sw.bb3.i ], [ @.str.17, %zerr_to_string.exit.loopexit ], [ @.str.18, %sw.bb4.i ], [ @.str.18, %zerr_to_string.exit.loopexit88 ], [ @.str.19, %land.lhs.true9 ], [ @.str.19, %sw.default.i ]
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
   %17 = load ptr, ptr %msg, align 8
   %tobool18.not = icmp eq ptr %17, null
@@ -674,13 +683,13 @@ entry:
   %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
   %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
-  %conv.i13.i = trunc i64 %cond.i12.i to i32
+  %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
   %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @deflateEnd(ptr noundef nonnull %strm) #6
@@ -790,13 +799,13 @@ entry:
   %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
   %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
-  %conv.i13.i = trunc i64 %cond.i12.i to i32
+  %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
   %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @deflateEnd(ptr noundef nonnull %strm) #6
@@ -876,10 +885,10 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   store i64 %3, ptr %total_in5.i, align 8
   store i64 %2, ptr %total_out7.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 1073741824)
-  %conv.i.i = trunc i64 %cond.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %0, i64 1073741824)
-  %conv.i13.i = trunc i64 %cond.i12.i to i32
+  %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %cmp.not = icmp ult i64 %1, 1073741825
   %cond = select i1 %cmp.not, i32 %flush, i32 0
@@ -943,14 +952,14 @@ land.lhs.true:                                    ; preds = %zlib_post_call.exit
   br i1 %tobool8.not, label %land.lhs.true9, label %for.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  switch i32 %call, label %sw.default.i [
+  switch i32 %call, label %zerr_to_string.exit [
     i32 -5, label %for.cond.backedge
     i32 0, label %for.cond.backedge
     i32 1, label %return
-    i32 -2, label %sw.bb4.i
-    i32 -6, label %zerr_to_string.exit.loopexit89
-    i32 2, label %zerr_to_string.exit
-    i32 -3, label %sw.bb3.i
+    i32 -2, label %zerr_to_string.exit.loopexit88
+    i32 -6, label %zerr_to_string.exit.loopexit38
+    i32 2, label %zerr_to_string.exit.loopexit60
+    i32 -3, label %zerr_to_string.exit.loopexit
   ]
 
 for.cond.backedge:                                ; preds = %land.lhs.true9, %land.lhs.true9
@@ -970,20 +979,29 @@ for.end:                                          ; preds = %zlib_post_call.exit
 sw.bb2.i:                                         ; preds = %for.end
   br label %zerr_to_string.exit
 
-sw.bb3.i:                                         ; preds = %land.lhs.true9, %for.end
+sw.bb3.i:                                         ; preds = %for.end
   br label %zerr_to_string.exit
 
-sw.bb4.i:                                         ; preds = %land.lhs.true9, %for.end
+sw.bb4.i:                                         ; preds = %for.end
   br label %zerr_to_string.exit
 
-sw.default.i:                                     ; preds = %land.lhs.true9, %for.end
+sw.default.i:                                     ; preds = %for.end
   br label %zerr_to_string.exit
 
-zerr_to_string.exit.loopexit89:                   ; preds = %land.lhs.true9
+zerr_to_string.exit.loopexit38:                   ; preds = %land.lhs.true9
   br label %zerr_to_string.exit
 
-zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit89, %for.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
-  %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.15, %for.end ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %zerr_to_string.exit.loopexit89 ], [ @.str.16, %land.lhs.true9 ]
+zerr_to_string.exit.loopexit60:                   ; preds = %land.lhs.true9
+  br label %zerr_to_string.exit
+
+zerr_to_string.exit.loopexit:                     ; preds = %land.lhs.true9
+  br label %zerr_to_string.exit
+
+zerr_to_string.exit.loopexit88:                   ; preds = %land.lhs.true9
+  br label %zerr_to_string.exit
+
+zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit88, %zerr_to_string.exit.loopexit, %for.end, %zerr_to_string.exit.loopexit60, %zerr_to_string.exit.loopexit38, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
+  %retval.0.i = phi ptr [ @.str.15, %zerr_to_string.exit.loopexit38 ], [ @.str.16, %sw.bb2.i ], [ @.str.16, %zerr_to_string.exit.loopexit60 ], [ @.str.15, %for.end ], [ @.str.17, %sw.bb3.i ], [ @.str.17, %zerr_to_string.exit.loopexit ], [ @.str.18, %sw.bb4.i ], [ @.str.18, %zerr_to_string.exit.loopexit88 ], [ @.str.19, %land.lhs.true9 ], [ @.str.19, %sw.default.i ]
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
   %17 = load ptr, ptr %msg, align 8
   %tobool18.not = icmp eq ptr %17, null

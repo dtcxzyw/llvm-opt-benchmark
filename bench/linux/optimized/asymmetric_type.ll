@@ -458,13 +458,13 @@ define internal i32 @asymmetric_key_match_preparse(ptr nocapture noundef %0) #0 
   %16 = getelementptr i8, ptr %3, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 120
-  br i1 %18, label %19, label %59
+  br i1 %18, label %19, label %60
 
 19:                                               ; preds = %15
   %20 = getelementptr i8, ptr %3, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 58
-  br i1 %22, label %31, label %59
+  br i1 %22, label %31, label %60
 
 23:                                               ; preds = %5
   %24 = getelementptr i8, ptr %3, i64 1
@@ -528,11 +528,11 @@ define internal i32 @asymmetric_key_match_preparse(ptr nocapture noundef %0) #0 
   store i32 1, ptr %58, align 8
   br label %60
 
-59:                                               ; preds = %15, %19, %5
+59:                                               ; preds = %5
   br label %60
 
-60:                                               ; preds = %7, %11, %59, %56, %.thread, %27, %23, %5, %1
-  %61 = phi i32 [ %55, %.thread ], [ 0, %56 ], [ -22, %5 ], [ -22, %1 ], [ 0, %23 ], [ 0, %27 ], [ 0, %59 ], [ 0, %11 ], [ 0, %7 ]
+60:                                               ; preds = %15, %19, %7, %11, %59, %56, %.thread, %27, %23, %5, %1
+  %61 = phi i32 [ %55, %.thread ], [ 0, %56 ], [ -22, %5 ], [ -22, %1 ], [ 0, %23 ], [ 0, %27 ], [ 0, %59 ], [ 0, %11 ], [ 0, %7 ], [ 0, %19 ], [ 0, %15 ]
   ret i32 %61
 }
 

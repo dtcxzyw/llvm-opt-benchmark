@@ -40,7 +40,7 @@ define void @fini() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -69,13 +69,10 @@ define noundef zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef rea
   %19 = getelementptr inbounds i8, ptr %18, i64 278
   %20 = load i16, ptr %19, align 2
   %21 = icmp ugt i16 %17, %20
-  br i1 %21, label %23, label %22
+  br label %22
 
-22:                                               ; preds = %14, %8, %5, %2
-  br label %23
-
-23:                                               ; preds = %14, %22
-  %.0 = phi i1 [ false, %22 ], [ true, %14 ]
+22:                                               ; preds = %14, %2, %5, %8
+  %.0 = phi i1 [ false, %8 ], [ false, %5 ], [ false, %2 ], [ %21, %14 ]
   ret i1 %.0
 }
 

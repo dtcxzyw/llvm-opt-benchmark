@@ -113,7 +113,7 @@ define noundef i32 @cuddTreeSifting(ptr noundef %0, i32 noundef %1) local_unname
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = load ptr, ptr %18, align 8
   %21 = getelementptr inbounds %struct.DdSubtable, ptr %20, i64 %indvars.iv, i32 6
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -492,7 +492,7 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %131 = load ptr, ptr %128, align 8
   %132 = getelementptr inbounds %struct.DdSubtable, ptr %131, i64 %indvars.iv.i, i32 6
-  %133 = trunc i64 %indvars.iv.next.i to i32
+  %133 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %133, ptr %132, align 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %130, !llvm.loop !12
@@ -612,7 +612,7 @@ define internal fastcc noundef i32 @ddGroupSifting(ptr noundef %0, i32 noundef %
   store i32 %36, ptr %37, align 4
   %38 = sext i32 %.0163230 to i64
   %39 = getelementptr inbounds i32, ptr %10, i64 %38
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %40, ptr %39, align 4
   %41 = add nsw i32 %.0163230, 1
   br label %42
@@ -1213,7 +1213,7 @@ declare i32 @cuddLinearAndSifting(ptr noundef, i32 noundef, i32 noundef) local_u
 declare i32 @cuddExact(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ddVarGroupCheck(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal i32 @ddVarGroupCheck(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
@@ -1224,7 +1224,7 @@ define internal noundef i32 @ddVarGroupCheck(ptr noundef %0, i32 noundef %1, i32
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef %0, i32 noundef %8) #10
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %51
+  br i1 %.not, label %13, label %50
 
 13:                                               ; preds = %3
   %14 = tail call i32 @Cudd_bddReadPairIndex(ptr noundef nonnull %0, i32 noundef %8) #10
@@ -1286,14 +1286,12 @@ ddIsVarHandled.exit.thread:                       ; preds = %31, %16, %ddIsVarHa
   %47 = load i32, ptr %46, align 8
   %48 = sub i32 %45, %47
   %49 = load i32, ptr @originalSize, align 4
-  %.not24 = icmp ugt i32 %48, %49
-  br i1 %.not24, label %50, label %51
+  %.not24 = icmp ule i32 %48, %49
+  %spec.select = zext i1 %.not24 to i32
+  br label %50
 
-50:                                               ; preds = %ddIsVarHandled.exit27, %43, %41, %13
-  br label %51
-
-51:                                               ; preds = %43, %3, %50
-  %.0 = phi i32 [ 0, %50 ], [ 0, %3 ], [ 1, %43 ]
+50:                                               ; preds = %43, %13, %41, %ddIsVarHandled.exit27, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %ddIsVarHandled.exit27 ], [ 0, %41 ], [ 0, %13 ], [ %spec.select, %43 ]
   ret i32 %.0
 }
 

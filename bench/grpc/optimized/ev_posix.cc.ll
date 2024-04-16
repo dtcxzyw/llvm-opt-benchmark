@@ -726,12 +726,12 @@ for.body.i:                                       ; preds = %_ZN4absl12lts_20230
   %engine.coerce0.fr.i.i = freeze i64 %trial.sroa.0.0.copyload.i
   switch i64 %engine.coerce0.fr.i.i, label %for.body.i.i [
     i64 3, label %for.body.us.i.i
-    i64 0, label %for.body.us20.i.i
+    i64 0, label %for.body.us22.i.i
   ]
 
 for.body.us.i.i:                                  ; preds = %for.body.i, %for.inc.us.i.i
-  %i.019.us.i.i = phi i64 [ %inc.us.i.i, %for.inc.us.i.i ], [ 0, %for.body.i ]
-  %arrayidx.us.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.us.i.i
+  %i.021.us.i.i = phi i64 [ %inc.us.i.i, %for.inc.us.i.i ], [ 0, %for.body.i ]
+  %arrayidx.us.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.021.us.i.i
   %8 = load ptr, ptr %arrayidx.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %8, null
   br i1 %cmp1.not.us.i.i, label %for.inc.us.i.i, label %land.lhs.true.us.i.i
@@ -746,23 +746,23 @@ land.lhs.true.us.i.i:                             ; preds = %for.body.us.i.i
 
 lor.rhs.thread.i.us.i.i:                          ; preds = %land.lhs.true.us.i.i
   %cmp.i29.i.us.i.i = icmp eq i64 %call.i.i.us.i.i, 3
-  br i1 %cmp.i29.i.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i, label %for.inc.us.i.i
+  br i1 %cmp.i29.i.us.i.i, label %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.us.i.i, label %for.inc.us.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i: ; preds = %lor.rhs.thread.i.us.i.i
+_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.us.i.i: ; preds = %lor.rhs.thread.i.us.i.i
   %bcmp.i6.i.us.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(3) %9, i64 3)
   %cmp.i.i7.i.us.i.i = icmp eq i32 %bcmp.i6.i.us.i.i, 0
   br i1 %cmp.i.i7.i.us.i.i, label %land.lhs.true4.us.i.i, label %for.inc.us.i.i
 
-land.lhs.true4.us.i.i:                            ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i
+land.lhs.true4.us.i.i:                            ; preds = %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.us.i.i
   %check_engine_available.us.i.i = getelementptr inbounds i8, ptr %8, i64 232
   %10 = load ptr, ptr %check_engine_available.us.i.i, align 8
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i
 
 land.lhs.true4.thread.us.i.i:                     ; preds = %land.lhs.true.us.i.i
-  %check_engine_available11.us.i.i = getelementptr inbounds i8, ptr %8, i64 232
-  %11 = load ptr, ptr %check_engine_available11.us.i.i, align 8
-  %cmp.i12.us.i.i = icmp eq i64 %call.i.i.us.i.i, 3
-  br i1 %cmp.i12.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
+  %check_engine_available13.us.i.i = getelementptr inbounds i8, ptr %8, i64 232
+  %11 = load ptr, ptr %check_engine_available13.us.i.i, align 8
+  %cmp.i14.us.i.i = icmp eq i64 %call.i.i.us.i.i, 3
+  br i1 %cmp.i14.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i: ; preds = %land.lhs.true4.thread.us.i.i, %land.lhs.true4.us.i.i
   %12 = phi ptr [ %11, %land.lhs.true4.thread.us.i.i ], [ %10, %land.lhs.true4.us.i.i ]
@@ -771,44 +771,44 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i: ; preds = %land.lhs.true4
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i, %land.lhs.true4.thread.us.i.i
-  %13 = phi ptr [ %11, %land.lhs.true4.thread.us.i.i ], [ %12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i ]
-  %14 = phi i1 [ false, %land.lhs.true4.thread.us.i.i ], [ %cmp.i.i10.us.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i ]
+  %13 = phi ptr [ %12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i ], [ %11, %land.lhs.true4.thread.us.i.i ]
+  %14 = phi i1 [ %cmp.i.i10.us.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i ], [ false, %land.lhs.true4.thread.us.i.i ]
   %call11.us.i.i = call noundef zeroext i1 %13(i1 noundef zeroext %14)
   br i1 %call11.us.i.i, label %if.then.i.i, label %for.inc.us.i.i
 
-for.inc.us.i.i:                                   ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i, %lor.rhs.thread.i.us.i.i, %for.body.us.i.i
-  %inc.us.i.i = add nuw nsw i64 %i.019.us.i.i, 1
-  %exitcond68.not.i.i = icmp eq i64 %inc.us.i.i, 11
-  br i1 %exitcond68.not.i.i, label %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %for.body.us.i.i, !llvm.loop !16
+for.inc.us.i.i:                                   ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i, %_ZL2isSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.us.i.i, %lor.rhs.thread.i.us.i.i, %for.body.us.i.i
+  %inc.us.i.i = add nuw nsw i64 %i.021.us.i.i, 1
+  %exitcond70.not.i.i = icmp eq i64 %inc.us.i.i, 11
+  br i1 %exitcond70.not.i.i, label %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %for.body.us.i.i, !llvm.loop !16
 
-for.body.us20.i.i:                                ; preds = %for.body.i, %for.inc.us29.i.i
-  %i.019.us21.i.i = phi i64 [ %inc.us30.i.i, %for.inc.us29.i.i ], [ %engine.coerce0.fr.i.i, %for.body.i ]
-  %arrayidx.us22.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.us21.i.i
-  %15 = load ptr, ptr %arrayidx.us22.i.i, align 8
-  %cmp1.not.us23.i.i = icmp eq ptr %15, null
-  br i1 %cmp1.not.us23.i.i, label %for.inc.us29.i.i, label %land.lhs.true.us24.i.i
+for.body.us22.i.i:                                ; preds = %for.body.i, %for.inc.us31.i.i
+  %i.021.us23.i.i = phi i64 [ %inc.us32.i.i, %for.inc.us31.i.i ], [ %engine.coerce0.fr.i.i, %for.body.i ]
+  %arrayidx.us24.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.021.us23.i.i
+  %15 = load ptr, ptr %arrayidx.us24.i.i, align 8
+  %cmp1.not.us25.i.i = icmp eq ptr %15, null
+  br i1 %cmp1.not.us25.i.i, label %for.inc.us31.i.i, label %land.lhs.true.us26.i.i
 
-land.lhs.true.us24.i.i:                           ; preds = %for.body.us20.i.i
-  %name.us25.i.i = getelementptr inbounds i8, ptr %15, i64 224
-  %16 = load ptr, ptr %name.us25.i.i, align 8
+land.lhs.true.us26.i.i:                           ; preds = %for.body.us22.i.i
+  %name.us27.i.i = getelementptr inbounds i8, ptr %15, i64 224
+  %16 = load ptr, ptr %name.us27.i.i, align 8
   %char0.i.i = load i8, ptr %16, align 1
   %cmp.i2.i.us.i.i = icmp eq i8 %char0.i.i, 0
-  br i1 %cmp.i2.i.us.i.i, label %land.rhs.i3.i.us.i.i, label %for.inc.us29.i.i
+  br i1 %cmp.i2.i.us.i.i, label %land.rhs.i3.i.us.i.i, label %for.inc.us31.i.i
 
-land.rhs.i3.i.us.i.i:                             ; preds = %land.lhs.true.us24.i.i
-  %check_engine_available15.us.i.i = getelementptr inbounds i8, ptr %15, i64 232
-  %17 = load ptr, ptr %check_engine_available15.us.i.i, align 8
-  %call11.us28.i.i = call noundef zeroext i1 %17(i1 noundef zeroext true)
-  br i1 %call11.us28.i.i, label %if.then.i.i, label %for.inc.us29.i.i
+land.rhs.i3.i.us.i.i:                             ; preds = %land.lhs.true.us26.i.i
+  %check_engine_available17.us.i.i = getelementptr inbounds i8, ptr %15, i64 232
+  %17 = load ptr, ptr %check_engine_available17.us.i.i, align 8
+  %call11.us30.i.i = call noundef zeroext i1 %17(i1 noundef zeroext true)
+  br i1 %call11.us30.i.i, label %if.then.i.i, label %for.inc.us31.i.i
 
-for.inc.us29.i.i:                                 ; preds = %land.rhs.i3.i.us.i.i, %land.lhs.true.us24.i.i, %for.body.us20.i.i
-  %inc.us30.i.i = add nuw nsw i64 %i.019.us21.i.i, 1
-  %exitcond67.not.i.i = icmp eq i64 %inc.us30.i.i, 11
-  br i1 %exitcond67.not.i.i, label %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %for.body.us20.i.i, !llvm.loop !16
+for.inc.us31.i.i:                                 ; preds = %land.rhs.i3.i.us.i.i, %land.lhs.true.us26.i.i, %for.body.us22.i.i
+  %inc.us32.i.i = add nuw nsw i64 %i.021.us23.i.i, 1
+  %exitcond69.not.i.i = icmp eq i64 %inc.us32.i.i, 11
+  br i1 %exitcond69.not.i.i, label %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %for.body.us22.i.i, !llvm.loop !16
 
 for.body.i.i:                                     ; preds = %for.body.i, %for.inc.i.i
-  %i.019.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i ]
-  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.019.i.i
+  %i.021.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i ]
+  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %i.021.i.i
   %18 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp1.not.i.i = icmp eq ptr %18, null
   br i1 %cmp1.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
@@ -832,7 +832,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %call11.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs.i3.i.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i
-  %.us-phi.i.i = phi i64 [ %i.019.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i ], [ %i.019.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i ], [ %i.019.us21.i.i, %land.rhs.i3.i.us.i.i ]
+  %.us-phi.i.i = phi i64 [ %i.021.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i ], [ %i.021.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i ], [ %i.021.us23.i.i, %land.rhs.i3.i.us.i.i ]
   %arrayidx.le.i.i = getelementptr inbounds [11 x ptr], ptr @_ZL9g_vtables, i64 0, i64 %.us-phi.i.i
   %21 = load ptr, ptr %arrayidx.le.i.i, align 8
   store ptr %21, ptr @_ZL14g_event_engine, align 8
@@ -842,11 +842,11 @@ if.then.i.i:                                      ; preds = %land.rhs.i3.i.us.i.
   br label %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 for.inc.i.i:                                      ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, %land.rhs.i3.i.i.i, %land.lhs.true.i.i, %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.019.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.021.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 11
   br i1 %exitcond.not.i.i, label %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i, label %for.body.i.i, !llvm.loop !16
 
-_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %for.inc.us29.i.i, %for.inc.us.i.i, %for.inc.i.i, %if.then.i.i
+_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %for.inc.us31.i.i, %for.inc.us.i.i, %for.inc.i.i, %if.then.i.i
   %23 = load ptr, ptr @_ZL14g_event_engine, align 8
   %cmp.not.i = icmp eq ptr %23, null
   br i1 %cmp.not.i, label %for.inc.i, label %"_ZZ22grpc_event_engine_initvENK3$_0clEv.exit"

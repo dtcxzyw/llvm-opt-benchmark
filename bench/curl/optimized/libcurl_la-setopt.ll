@@ -19,14 +19,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [4 x i8] c"all\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_setstropt(ptr nocapture noundef %charp, ptr noundef %s) local_unnamed_addr #0 {
+define hidden i32 @Curl_setstropt(ptr nocapture noundef %charp, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %1 = load ptr, ptr %charp, align 8
   tail call void %0(ptr noundef %1) #8
   store ptr null, ptr %charp, align 8
   %tobool.not = icmp eq ptr %s, null
-  br i1 %tobool.not, label %if.end6, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #9
@@ -38,13 +38,11 @@ if.end:                                           ; preds = %if.then
   %call2 = tail call ptr %2(ptr noundef nonnull %s) #8
   store ptr %call2, ptr %charp, align 8
   %tobool3.not = icmp eq ptr %call2, null
-  br i1 %tobool3.not, label %return, label %if.end6
-
-if.end6:                                          ; preds = %if.end, %entry
+  %spec.select = select i1 %tobool3.not, i32 27, i32 0
   br label %return
 
-return:                                           ; preds = %if.end, %if.then, %if.end6
-  %retval.0 = phi i32 [ 0, %if.end6 ], [ 43, %if.then ], [ 27, %if.end ]
+return:                                           ; preds = %if.end, %entry, %if.then
+  %retval.0 = phi i32 [ 43, %if.then ], [ 0, %entry ], [ %spec.select, %if.end ]
   ret i32 %retval.0
 }
 
@@ -427,7 +425,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
 
 if.else:                                          ; preds = %vaarg.end
   %spec.select = tail call i64 @llvm.smin.i64(i64 %4, i64 2147483647)
-  %conv = trunc i64 %spec.select to i32
+  %conv = trunc nsw i64 %spec.select to i32
   %dns_cache_timeout = getelementptr inbounds i8, ptr %data, i64 1728
   store i32 %conv, ptr %dns_cache_timeout, align 8
   br label %sw.epilog5747
@@ -461,7 +459,7 @@ vaarg.end14:                                      ; preds = %vaarg.in_mem10, %va
 
 if.else19:                                        ; preds = %vaarg.end14
   %spec.select1120 = tail call i64 @llvm.smin.i64(i64 %9, i64 2147483647)
-  %conv25 = trunc i64 %spec.select1120 to i32
+  %conv25 = trunc nsw i64 %spec.select1120 to i32
   %ca_cache_timeout = getelementptr inbounds i8, ptr %data, i64 1720
   store i32 %conv25, ptr %ca_cache_timeout, align 8
   br label %sw.epilog5747
@@ -614,7 +612,7 @@ vaarg.end109:                                     ; preds = %vaarg.in_mem105, %v
   br i1 %cmp111, label %return, label %if.end114
 
 if.end114:                                        ; preds = %vaarg.end109
-  %conv115 = trunc i64 %34 to i32
+  %conv115 = trunc nuw i64 %34 to i32
   %maxconnects = getelementptr inbounds i8, ptr %data, i64 2700
   store i32 %conv115, ptr %maxconnects, align 4
   br label %sw.epilog5747
@@ -1038,7 +1036,7 @@ vaarg.end380:                                     ; preds = %vaarg.in_mem376, %v
   br i1 %or.cond, label %if.then386, label %return
 
 if.then386:                                       ; preds = %vaarg.end380
-  %conv387 = trunc i64 %96 to i32
+  %conv387 = trunc nuw nsw i64 %96 to i32
   %mul = mul nuw nsw i32 %conv387, 1000
   %server_response_timeout = getelementptr inbounds i8, ptr %data, i64 724
   store i32 %mul, ptr %server_response_timeout, align 4
@@ -1072,7 +1070,7 @@ vaarg.end401:                                     ; preds = %vaarg.in_mem397, %v
   br i1 %or.cond1, label %if.then408, label %return
 
 if.then408:                                       ; preds = %vaarg.end401
-  %conv409 = trunc i64 %101 to i32
+  %conv409 = trunc nuw nsw i64 %101 to i32
   %server_response_timeout411 = getelementptr inbounds i8, ptr %data, i64 724
   store i32 %conv409, ptr %server_response_timeout411, align 4
   br label %sw.epilog5747
@@ -1171,7 +1169,7 @@ vaarg.end464:                                     ; preds = %vaarg.in_mem460, %v
   br i1 %or.cond3, label %return, label %if.end472
 
 if.end472:                                        ; preds = %vaarg.end464
-  %conv473 = trunc i64 %117 to i8
+  %conv473 = trunc nuw nsw i64 %117 to i8
   %use_netrc = getelementptr inbounds i8, ptr %data, i64 1809
   store i8 %conv473, ptr %use_netrc, align 1
   br label %sw.epilog5747
@@ -1265,7 +1263,7 @@ vaarg.end522:                                     ; preds = %vaarg.in_mem518, %v
   br i1 %or.cond4, label %return, label %if.end530
 
 if.end530:                                        ; preds = %vaarg.end522
-  %conv532 = trunc i64 %132 to i8
+  %conv532 = trunc nuw i64 %132 to i8
   %timecondition = getelementptr inbounds i8, ptr %data, i64 1288
   store i8 %conv532, ptr %timecondition, align 8
   br label %sw.epilog5747
@@ -1367,7 +1365,7 @@ if.end601:                                        ; preds = %vaarg.end579
   %conv602 = trunc i64 %147 to i8
   %version603 = getelementptr inbounds i8, ptr %spec.select1121, i64 120
   store i8 %conv602, ptr %version603, align 8
-  %conv604 = trunc i64 %and582 to i32
+  %conv604 = trunc nuw nsw i64 %and582 to i32
   %version_max605 = getelementptr inbounds i8, ptr %spec.select1121, i64 116
   store i32 %conv604, ptr %version_max605, align 4
   br label %sw.epilog5747
@@ -2457,7 +2455,7 @@ sw.default:                                       ; preds = %vaarg.end1276
   br label %return
 
 sw.epilog:                                        ; preds = %vaarg.end1276
-  %conv1284 = trunc i64 %318 to i8
+  %conv1284 = trunc nuw i64 %318 to i8
   %httpwant = getelementptr inbounds i8, ptr %data, i64 1290
   store i8 %conv1284, ptr %httpwant, align 2
   br label %sw.epilog5747
@@ -2820,7 +2818,7 @@ vaarg.end1513:                                    ; preds = %vaarg.in_mem1509, %
   br i1 %or.cond10, label %return, label %if.end1521
 
 if.end1521:                                       ; preds = %vaarg.end1513
-  %conv1522 = trunc i64 %373 to i16
+  %conv1522 = trunc nuw i64 %373 to i16
   %proxyport = getelementptr inbounds i8, ptr %data, i64 1704
   store i16 %conv1522, ptr %proxyport, align 8
   br label %sw.epilog5747
@@ -2975,7 +2973,7 @@ vaarg.end1625:                                    ; preds = %vaarg.in_mem1621, %
   br i1 %or.cond11, label %return, label %if.end1633
 
 if.end1633:                                       ; preds = %vaarg.end1625
-  %conv1635 = trunc i64 %395 to i8
+  %conv1635 = trunc nuw i64 %395 to i8
   %proxytype = getelementptr inbounds i8, ptr %data, i64 1706
   store i8 %conv1635, ptr %proxytype, align 2
   br label %sw.epilog5747
@@ -3289,7 +3287,7 @@ vaarg.end1806:                                    ; preds = %vaarg.in_mem1802, %
   br i1 %or.cond12, label %return, label %if.end1814
 
 if.end1814:                                       ; preds = %vaarg.end1806
-  %conv1815 = trunc i64 %445 to i8
+  %conv1815 = trunc nuw nsw i64 %445 to i8
   %ftp_filemethod = getelementptr inbounds i8, ptr %data, i64 1776
   store i8 %conv1815, ptr %ftp_filemethod, align 8
   br label %sw.epilog5747
@@ -3457,7 +3455,7 @@ vaarg.end1921:                                    ; preds = %vaarg.in_mem1917, %
   br i1 %or.cond13, label %return, label %if.end1929
 
 if.end1929:                                       ; preds = %vaarg.end1921
-  %conv1930 = trunc i64 %471 to i8
+  %conv1930 = trunc nuw nsw i64 %471 to i8
   %ftp_ccc = getelementptr inbounds i8, ptr %data, i64 1778
   store i8 %conv1930, ptr %ftp_ccc, align 2
   br label %sw.epilog5747
@@ -3579,7 +3577,7 @@ vaarg.end1995:                                    ; preds = %vaarg.in_mem1991, %
   br i1 %or.cond14, label %return, label %if.end2003
 
 if.end2003:                                       ; preds = %vaarg.end1995
-  %conv2005 = trunc i64 %491 to i8
+  %conv2005 = trunc nuw i64 %491 to i8
   %ftpsslauth = getelementptr inbounds i8, ptr %data, i64 1777
   store i8 %conv2005, ptr %ftpsslauth, align 1
   br label %sw.epilog5747
@@ -3648,7 +3646,7 @@ vaarg.end2048:                                    ; preds = %vaarg.in_mem2044, %
   br i1 %or.cond15, label %sw.epilog5747, label %if.else2056
 
 if.else2056:                                      ; preds = %vaarg.end2048
-  %conv2057 = trunc i64 %502 to i8
+  %conv2057 = trunc nuw nsw i64 %502 to i8
   %ftp_create_missing_dirs = getelementptr inbounds i8, ptr %data, i64 1808
   store i8 %conv2057, ptr %ftp_create_missing_dirs, align 8
   br label %sw.epilog5747
@@ -4062,7 +4060,7 @@ vaarg.end2276:                                    ; preds = %vaarg.in_mem2272, %
   br i1 %or.cond16, label %return, label %if.end2284
 
 if.end2284:                                       ; preds = %vaarg.end2276
-  %conv2285 = trunc i64 %571 to i16
+  %conv2285 = trunc nuw i64 %571 to i16
   %use_port = getelementptr inbounds i8, ptr %data, i64 464
   store i16 %conv2285, ptr %use_port, align 8
   br label %sw.epilog5747
@@ -4095,7 +4093,7 @@ vaarg.end2297:                                    ; preds = %vaarg.in_mem2293, %
   br i1 %or.cond17, label %if.then2304, label %return
 
 if.then2304:                                      ; preds = %vaarg.end2297
-  %conv2305 = trunc i64 %576 to i32
+  %conv2305 = trunc nuw nsw i64 %576 to i32
   %mul2306 = mul nuw nsw i32 %conv2305, 1000
   %timeout = getelementptr inbounds i8, ptr %data, i64 712
   store i32 %mul2306, ptr %timeout, align 8
@@ -4126,7 +4124,7 @@ vaarg.end2320:                                    ; preds = %vaarg.in_mem2316, %
   %vaarg.addr2321 = phi ptr [ %579, %vaarg.in_reg2314 ], [ %overflow_arg_area2318, %vaarg.in_mem2316 ]
   %581 = load i64, ptr %vaarg.addr2321, align 8
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %581, i64 4294967295)
-  %conv2326 = trunc i64 %spec.store.select to i32
+  %conv2326 = trunc nuw i64 %spec.store.select to i32
   %timeout2328 = getelementptr inbounds i8, ptr %data, i64 712
   store i32 %conv2326, ptr %timeout2328, align 8
   br label %sw.epilog5747
@@ -4159,7 +4157,7 @@ vaarg.end2339:                                    ; preds = %vaarg.in_mem2335, %
   br i1 %or.cond18, label %if.then2346, label %return
 
 if.then2346:                                      ; preds = %vaarg.end2339
-  %conv2347 = trunc i64 %586 to i32
+  %conv2347 = trunc nuw nsw i64 %586 to i32
   %mul2348 = mul nuw nsw i32 %conv2347, 1000
   %connecttimeout = getelementptr inbounds i8, ptr %data, i64 716
   store i32 %mul2348, ptr %connecttimeout, align 4
@@ -4190,7 +4188,7 @@ vaarg.end2362:                                    ; preds = %vaarg.in_mem2358, %
   %vaarg.addr2363 = phi ptr [ %589, %vaarg.in_reg2356 ], [ %overflow_arg_area2360, %vaarg.in_mem2358 ]
   %591 = load i64, ptr %vaarg.addr2363, align 8
   %spec.store.select19 = tail call i64 @llvm.umin.i64(i64 %591, i64 4294967295)
-  %conv2368 = trunc i64 %spec.store.select19 to i32
+  %conv2368 = trunc nuw i64 %spec.store.select19 to i32
   %connecttimeout2370 = getelementptr inbounds i8, ptr %data, i64 716
   store i32 %conv2368, ptr %connecttimeout2370, align 4
   br label %sw.epilog5747
@@ -4220,7 +4218,7 @@ vaarg.end2381:                                    ; preds = %vaarg.in_mem2377, %
   %vaarg.addr2382 = phi ptr [ %594, %vaarg.in_reg2375 ], [ %overflow_arg_area2379, %vaarg.in_mem2377 ]
   %596 = load i64, ptr %vaarg.addr2382, align 8
   %spec.store.select20 = tail call i64 @llvm.umin.i64(i64 %596, i64 4294967295)
-  %conv2387 = trunc i64 %spec.store.select20 to i32
+  %conv2387 = trunc nuw i64 %spec.store.select20 to i32
   %accepttimeout = getelementptr inbounds i8, ptr %data, i64 1780
   store i32 %conv2387, ptr %accepttimeout, align 4
   br label %sw.epilog5747
@@ -6579,7 +6577,7 @@ if.else3791:                                      ; preds = %vaarg.end3786
 
 if.else3795:                                      ; preds = %if.else3791
   %spec.select1125 = tail call i64 @llvm.umax.i64(i64 %984, i64 1024)
-  %985 = trunc i64 %spec.select1125 to i32
+  %985 = trunc nuw nsw i64 %spec.select1125 to i32
   br label %if.end3801
 
 if.end3801:                                       ; preds = %if.else3795, %if.else3791, %vaarg.end3786
@@ -6614,7 +6612,7 @@ vaarg.end3814:                                    ; preds = %vaarg.in_mem3810, %
   %990 = load i64, ptr %vaarg.addr3815, align 8
   %spec.select1126 = tail call i64 @llvm.smax.i64(i64 %990, i64 16384)
   %991 = tail call i64 @llvm.umin.i64(i64 %spec.select1126, i64 2097152)
-  %conv3825 = trunc i64 %991 to i32
+  %conv3825 = trunc nuw nsw i64 %991 to i32
   %upload_buffer_size = getelementptr inbounds i8, ptr %data, i64 1736
   store i32 %conv3825, ptr %upload_buffer_size, align 8
   %992 = load ptr, ptr @Curl_cfree, align 8
@@ -6947,7 +6945,7 @@ vaarg.end4022:                                    ; preds = %vaarg.in_mem4018, %
   br i1 %or.cond23, label %return, label %if.end4030
 
 if.end4030:                                       ; preds = %vaarg.end4022
-  %conv4031 = trunc i64 %1048 to i8
+  %conv4031 = trunc nuw nsw i64 %1048 to i8
   %use_ssl = getelementptr inbounds i8, ptr %data, i64 2704
   store i8 %conv4031, ptr %use_ssl, align 8
   br label %sw.epilog5747
@@ -7078,7 +7076,7 @@ vaarg.end4268:                                    ; preds = %vaarg.in_mem4264, %
   br i1 %or.cond24, label %return, label %if.end4276
 
 if.end4276:                                       ; preds = %vaarg.end4268
-  %conv4277 = trunc i64 %1070 to i8
+  %conv4277 = trunc nuw nsw i64 %1070 to i8
   %ipver = getelementptr inbounds i8, ptr %data, i64 1760
   store i8 %conv4277, ptr %ipver, align 8
   br label %sw.epilog5747
@@ -7570,7 +7568,7 @@ vaarg.end4554:                                    ; preds = %vaarg.in_mem4550, %
   br i1 %or.cond25, label %return, label %if.end4562
 
 if.end4562:                                       ; preds = %vaarg.end4554
-  %conv4563 = trunc i64 %1150 to i32
+  %conv4563 = trunc nuw nsw i64 %1150 to i32
   %new_file_perms = getelementptr inbounds i8, ptr %data, i64 1812
   store i32 %conv4563, ptr %new_file_perms, align 4
   br label %sw.epilog5747
@@ -7603,7 +7601,7 @@ vaarg.end4575:                                    ; preds = %vaarg.in_mem4571, %
   br i1 %cmp4577, label %return, label %if.end4580
 
 if.end4580:                                       ; preds = %vaarg.end4575
-  %conv4581 = trunc i64 %1155 to i32
+  %conv4581 = trunc nuw i64 %1155 to i32
   %scope_id = getelementptr inbounds i8, ptr %data, i64 2520
   store i32 %conv4581, ptr %scope_id, align 8
   br label %sw.epilog5747
@@ -8580,7 +8578,7 @@ vaarg.end5110:                                    ; preds = %vaarg.in_mem5106, %
 
 if.else5115:                                      ; preds = %vaarg.end5110
   %spec.select1128 = tail call i64 @llvm.umin.i64(i64 %1324, i64 2147483647)
-  %conv5121 = trunc i64 %spec.select1128 to i32
+  %conv5121 = trunc nuw nsw i64 %spec.select1128 to i32
   %tcp_keepidle = getelementptr inbounds i8, ptr %data, i64 2596
   store i32 %conv5121, ptr %tcp_keepidle, align 4
   br label %sw.epilog5747
@@ -8614,7 +8612,7 @@ vaarg.end5133:                                    ; preds = %vaarg.in_mem5129, %
 
 if.else5138:                                      ; preds = %vaarg.end5133
   %spec.select1129 = tail call i64 @llvm.umin.i64(i64 %1329, i64 2147483647)
-  %conv5144 = trunc i64 %spec.select1129 to i32
+  %conv5144 = trunc nuw nsw i64 %spec.select1129 to i32
   %tcp_keepintvl = getelementptr inbounds i8, ptr %data, i64 2600
   store i32 %conv5144, ptr %tcp_keepintvl, align 8
   br label %sw.epilog5747
@@ -8933,7 +8931,7 @@ vaarg.end5340:                                    ; preds = %vaarg.in_mem5336, %
   %vaarg.addr5341 = phi ptr [ %1378, %vaarg.in_reg5334 ], [ %overflow_arg_area5338, %vaarg.in_mem5336 ]
   %1380 = load i64, ptr %vaarg.addr5341, align 8
   %spec.store.select26 = tail call i64 @llvm.umin.i64(i64 %1380, i64 4294967295)
-  %conv5346 = trunc i64 %spec.store.select26 to i32
+  %conv5346 = trunc nuw i64 %spec.store.select26 to i32
   %happy_eyeballs_timeout = getelementptr inbounds i8, ptr %data, i64 720
   store i32 %conv5346, ptr %happy_eyeballs_timeout, align 8
   br label %sw.epilog5747
@@ -9841,9 +9839,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %arg)
+  call void @llvm.va_start.p0(ptr nonnull %arg)
   %call = call i32 @Curl_vsetopt(ptr noundef nonnull %data, i32 noundef %tag, ptr noundef nonnull %arg)
-  call void @llvm.va_end(ptr nonnull %arg)
+  call void @llvm.va_end.p0(ptr nonnull %arg)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -9851,18 +9849,18 @@ return:                                           ; preds = %entry, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
 declare i32 @Curl_parse_login_details(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @Curl_getn_scheme_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

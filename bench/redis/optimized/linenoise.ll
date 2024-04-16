@@ -318,7 +318,7 @@ entry:
   %buflen = getelementptr inbounds i8, ptr %l, i64 16
   %1 = load i64, ptr %buflen, align 8
   %cmp = icmp ult i64 %0, %1
-  br i1 %cmp, label %if.then, label %if.end42
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %pos = getelementptr inbounds i8, ptr %l, i64 40
@@ -342,7 +342,7 @@ if.then3:                                         ; preds = %if.then
   store i8 0, ptr %arrayidx10, align 1
   %7 = load i32, ptr @mlmode, align 4
   %tobool.not = icmp eq i32 %7, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end42.sink.split
+  br i1 %tobool.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then3
   %plen = getelementptr inbounds i8, ptr %l, i64 32
@@ -355,7 +355,7 @@ land.lhs.true:                                    ; preds = %if.then3
   %11 = load ptr, ptr @hintsCallback, align 8
   %tobool14 = icmp ne ptr %11, null
   %or.cond = select i1 %cmp12, i1 true, i1 %tobool14
-  br i1 %or.cond, label %if.end42.sink.split, label %if.then15
+  br i1 %or.cond, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true
   %.b = load i1, ptr @maskmode, align 4
@@ -365,7 +365,12 @@ if.then15:                                        ; preds = %land.lhs.true
   %12 = load i32, ptr %ofd, align 4
   %call = call i64 @write(i32 noundef %12, ptr noundef nonnull %d, i64 noundef 1) #23
   %cmp18 = icmp eq i64 %call, -1
-  br i1 %cmp18, label %return, label %if.end42
+  %spec.select = sext i1 %cmp18 to i32
+  br label %return
+
+if.else:                                          ; preds = %land.lhs.true, %if.then3
+  tail call fastcc void @refreshLine(ptr noundef nonnull %l)
+  br label %return
 
 if.else22:                                        ; preds = %if.then
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %2
@@ -385,17 +390,11 @@ if.else22:                                        ; preds = %if.then
   %17 = load ptr, ptr %buf, align 8
   %arrayidx40 = getelementptr inbounds i8, ptr %17, i64 %inc35
   store i8 0, ptr %arrayidx40, align 1
-  br label %if.end42.sink.split
-
-if.end42.sink.split:                              ; preds = %if.then3, %land.lhs.true, %if.else22
   tail call fastcc void @refreshLine(ptr noundef nonnull %l)
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.end42.sink.split, %if.then15, %entry
   br label %return
 
-return:                                           ; preds = %if.then15, %if.end42
-  %retval.0 = phi i32 [ 0, %if.end42 ], [ -1, %if.then15 ]
+return:                                           ; preds = %if.then15, %entry, %if.else, %if.else22
+  %retval.0 = phi i32 [ 0, %if.else22 ], [ 0, %if.else ], [ 0, %entry ], [ %spec.select, %if.then15 ]
   ret i32 %retval.0
 }
 
@@ -1895,7 +1894,7 @@ completeLine.exit.i.i:                            ; preds = %return.sink.split.i
   %retval.0.i20.i.i = phi i32 [ %conv47.i.i.i, %for.end.i35.i.i.i ], [ %retval.0.ph.i.i.i, %return.sink.split.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lc.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i.i)
-  %conv28.i.i = trunc i32 %retval.0.i20.i.i to i8
+  %conv28.i.i = trunc nsw i32 %retval.0.i20.i.i to i8
   store i8 %conv28.i.i, ptr %c.i.i, align 1
   %cmp30.i.i = icmp slt i32 %retval.0.i20.i.i, 0
   br i1 %cmp30.i.i, label %if.then32.i.i, label %if.end35.i.i

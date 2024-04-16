@@ -595,7 +595,7 @@ if.end23.preheader:                               ; preds = %if.end17.thread, %i
   br label %if.end23
 
 for.body30.preheader:                             ; preds = %if.end23
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.next to i32
   %3 = and i64 %indvars.iv.next, 4294967295
   br label %for.body30
 
@@ -711,18 +711,16 @@ if.end3:                                          ; preds = %entry, %if.end
   %ret.025 = phi ptr [ %call, %if.end ], [ %ai, %entry ]
   %call4 = tail call i32 @BN_is_negative(ptr noundef %bn) #9
   %tobool.not = icmp eq i32 %call4, 0
-  br i1 %tobool.not, label %if.else8, label %land.lhs.true
+  br i1 %tobool.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
   %call5 = tail call i32 @BN_is_zero(ptr noundef %bn) #9
   %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %if.end10, label %if.else8
-
-if.else8:                                         ; preds = %land.lhs.true, %if.end3
+  %spec.select = select i1 %tobool6.not, i32 258, i32 2
   br label %if.end10
 
-if.end10:                                         ; preds = %land.lhs.true, %if.else8
-  %.sink = phi i32 [ 2, %if.else8 ], [ 258, %land.lhs.true ]
+if.end10:                                         ; preds = %land.lhs.true, %if.end3
+  %.sink = phi i32 [ 2, %if.end3 ], [ %spec.select, %land.lhs.true ]
   %type9 = getelementptr inbounds i8, ptr %ret.025, i64 4
   store i32 %.sink, ptr %type9, align 4
   %call11 = tail call i32 @BN_num_bits(ptr noundef %bn) #9

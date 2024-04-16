@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hash.asso_values = internal unnamed_addr constant [256 x i8] c"88888888888888888888888888888888888888888888888888888888888888888\00\03\0A\1988\1E\0088\00\14888\0F88\148\1E8\00\0088888888\0F88888\198\0A8888\058\008\008\0588\148888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888", align 16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @onigenc_euc_jp_lookup_property_name(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @onigenc_euc_jp_lookup_property_name(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, -4
   %or.cond = icmp ult i64 %3, 5
   br i1 %or.cond, label %4, label %28
@@ -35,7 +35,7 @@ define noundef ptr @onigenc_euc_jp_lookup_property_name(ptr nocapture noundef re
   %.val = load i8, ptr %0, align 1
   %5 = getelementptr i8, ptr %0, i64 2
   %.val14 = load i8, ptr %5, align 1
-  %6 = trunc i64 %1 to i32
+  %6 = trunc nuw nsw i64 %1 to i32
   %7 = zext i8 %.val14 to i64
   %8 = getelementptr inbounds [256 x i8], ptr @hash.asso_values, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
@@ -62,13 +62,11 @@ define noundef ptr @onigenc_euc_jp_lookup_property_name(ptr nocapture noundef re
   %26 = getelementptr inbounds i8, ptr %21, i64 1
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %26) #2
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %29, label %28
+  %spec.select = select i1 %.not, ptr %20, ptr null
+  br label %28
 
-28:                                               ; preds = %4, %24, %18, %2
-  br label %29
-
-29:                                               ; preds = %24, %28
-  %.0 = phi ptr [ null, %28 ], [ %20, %24 ]
+28:                                               ; preds = %24, %2, %18, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %18 ], [ null, %2 ], [ %spec.select, %24 ]
   ret ptr %.0
 }
 

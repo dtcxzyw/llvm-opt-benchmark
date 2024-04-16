@@ -53,9 +53,9 @@ define dso_local noundef ptr @pg_strtok(ptr nocapture noundef writeonly %0) loca
   %7 = getelementptr i8, ptr %.037, i64 1
   br label %.critedge2
 
-.preheader:                                       ; preds = %3, %13
-  %8 = phi i8 [ %.pr, %13 ], [ %4, %3 ]
-  %.1 = phi ptr [ %14, %13 ], [ %.037, %3 ]
+.preheader:                                       ; preds = %3, %12
+  %8 = phi i8 [ %.pr, %12 ], [ %4, %3 ]
+  %.1 = phi ptr [ %13, %12 ], [ %.037, %3 ]
   switch i8 %8, label %12 [
     i8 0, label %.critedge2
     i8 32, label %.critedge2
@@ -72,47 +72,45 @@ define dso_local noundef ptr @pg_strtok(ptr nocapture noundef writeonly %0) loca
   %10 = getelementptr i8, ptr %.1, i64 1
   %11 = load i8, ptr %10, align 1
   %.not47 = icmp eq i8 %11, 0
-  br i1 %.not47, label %12, label %13
+  %spec.select = select i1 %.not47, i64 1, i64 2
+  br label %12
 
-12:                                               ; preds = %.preheader, %9
-  br label %13
-
-13:                                               ; preds = %9, %12
-  %.sink = phi i64 [ 1, %12 ], [ 2, %9 ]
-  %14 = getelementptr i8, ptr %.1, i64 %.sink
-  %.pr = load i8, ptr %14, align 1
+12:                                               ; preds = %9, %.preheader
+  %.sink = phi i64 [ 1, %.preheader ], [ %spec.select, %9 ]
+  %13 = getelementptr i8, ptr %.1, i64 %.sink
+  %.pr = load i8, ptr %13, align 1
   br label %.preheader, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %6
   %.3 = phi ptr [ %7, %6 ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ]
-  %15 = ptrtoint ptr %.3 to i64
-  %16 = ptrtoint ptr %.037 to i64
-  %17 = sub i64 %15, %16
-  %18 = trunc i64 %17 to i32
-  store i32 %18, ptr %0, align 4
-  %19 = icmp eq i32 %18, 2
-  br i1 %19, label %20, label %27
+  %14 = ptrtoint ptr %.3 to i64
+  %15 = ptrtoint ptr %.037 to i64
+  %16 = sub i64 %14, %15
+  %17 = trunc i64 %16 to i32
+  store i32 %17, ptr %0, align 4
+  %18 = icmp eq i32 %17, 2
+  br i1 %18, label %19, label %26
 
-20:                                               ; preds = %.critedge2
-  %21 = load i8, ptr %.037, align 1
-  %22 = icmp eq i8 %21, 60
-  br i1 %22, label %23, label %27
+19:                                               ; preds = %.critedge2
+  %20 = load i8, ptr %.037, align 1
+  %21 = icmp eq i8 %20, 60
+  br i1 %21, label %22, label %26
 
-23:                                               ; preds = %20
-  %24 = getelementptr i8, ptr %.037, i64 1
-  %25 = load i8, ptr %24, align 1
-  %26 = icmp eq i8 %25, 62
-  br i1 %26, label %.sink.split, label %27
+22:                                               ; preds = %19
+  %23 = getelementptr i8, ptr %.037, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 62
+  br i1 %25, label %.sink.split, label %26
 
-.sink.split:                                      ; preds = %3, %23
-  %storemerge.ph = phi ptr [ %.3, %23 ], [ %.037, %3 ]
-  %.0.ph = phi ptr [ %.037, %23 ], [ null, %3 ]
+.sink.split:                                      ; preds = %3, %22
+  %storemerge.ph = phi ptr [ %.3, %22 ], [ %.037, %3 ]
+  %.0.ph = phi ptr [ %.037, %22 ], [ null, %3 ]
   store i32 0, ptr %0, align 4
-  br label %27
+  br label %26
 
-27:                                               ; preds = %.sink.split, %.critedge2, %20, %23
-  %storemerge = phi ptr [ %.3, %23 ], [ %.3, %20 ], [ %.3, %.critedge2 ], [ %storemerge.ph, %.sink.split ]
-  %.0 = phi ptr [ %.037, %23 ], [ %.037, %20 ], [ %.037, %.critedge2 ], [ %.0.ph, %.sink.split ]
+26:                                               ; preds = %.sink.split, %.critedge2, %19, %22
+  %storemerge = phi ptr [ %.3, %22 ], [ %.3, %19 ], [ %.3, %.critedge2 ], [ %storemerge.ph, %.sink.split ]
+  %.0 = phi ptr [ %.037, %22 ], [ %.037, %19 ], [ %.037, %.critedge2 ], [ %.0.ph, %.sink.split ]
   store ptr %storemerge, ptr @pg_strtok_ptr, align 8
   ret ptr %.0
 }

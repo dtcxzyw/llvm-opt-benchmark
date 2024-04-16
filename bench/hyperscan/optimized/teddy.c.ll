@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @p_mask_arr = hidden local_unnamed_addr constant <{ [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8], <{ [16 x i8], [16 x i8] }> }> <{ [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF", [32 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF", <{ [16 x i8], [16 x i8] }> <{ [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", [16 x i8] zeroinitializer }> }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks1(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden i32 @fdr_exec_teddy_msks1(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1263 = alloca i64, align 8
   %tmp.i1215 = alloca i64, align 8
@@ -1363,7 +1363,7 @@ if.end206.i:                                      ; preds = %if.then200.i, %if.e
   br i1 %tobool210.i.not, label %if.end218.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end206.i
-  %171 = trunc i64 %indvars.iv1773 to i32
+  %171 = trunc nuw i64 %indvars.iv1773 to i32
   %add213.i = add i32 %add212.i, %171
   %conv214.i = zext i32 %add213.i to i64
   %172 = load i32, ptr %ids192.i, align 8
@@ -1378,7 +1378,7 @@ if.end218.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool222.i.not, label %if.end230.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end218.i
-  %174 = trunc i64 %indvars.iv1773 to i32
+  %174 = trunc nuw i64 %indvars.iv1773 to i32
   %add225.i = add i32 %add212.i, %174
   %conv226.i = zext i32 %add225.i to i64
   %175 = load i32, ptr %arrayidx204.i, align 4
@@ -1393,7 +1393,7 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %tobool234.i.not, label %if.end242.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %if.end230.i
-  %177 = trunc i64 %indvars.iv1773 to i32
+  %177 = trunc nuw i64 %indvars.iv1773 to i32
   %add237.i = add i32 %add236.i, %177
   %conv238.i = zext i32 %add237.i to i64
   %178 = load i32, ptr %ids192.i, align 8
@@ -1408,7 +1408,7 @@ if.end242.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %tobool246.i.not, label %if.end254.i, label %if.then247.i
 
 if.then247.i:                                     ; preds = %if.end242.i
-  %180 = trunc i64 %indvars.iv1773 to i32
+  %180 = trunc nuw i64 %indvars.iv1773 to i32
   %add249.i = add i32 %add236.i, %180
   %conv250.i = zext i32 %add249.i to i64
   %181 = load i32, ptr %arrayidx204.i, align 4
@@ -1423,7 +1423,7 @@ if.end254.i:                                      ; preds = %if.then247.i, %if.e
   br i1 %tobool258.i.not, label %if.end266.i, label %if.then259.i
 
 if.then259.i:                                     ; preds = %if.end254.i
-  %183 = trunc i64 %indvars.iv1773 to i32
+  %183 = trunc nuw i64 %indvars.iv1773 to i32
   %add261.i = add i32 %add260.i, %183
   %conv262.i = zext i32 %add261.i to i64
   %184 = load i32, ptr %ids192.i, align 8
@@ -1438,7 +1438,7 @@ if.end266.i:                                      ; preds = %if.then259.i, %if.e
   br i1 %tobool270.i.not, label %if.end278.i, label %if.then271.i
 
 if.then271.i:                                     ; preds = %if.end266.i
-  %186 = trunc i64 %indvars.iv1773 to i32
+  %186 = trunc nuw i64 %indvars.iv1773 to i32
   %add273.i = add i32 %add260.i, %186
   %conv274.i = zext i32 %add273.i to i64
   %187 = load i32, ptr %arrayidx204.i, align 4
@@ -1508,7 +1508,7 @@ if.end325.i:                                      ; preds = %if.then319.i, %if.e
   br i1 %tobool329.i.not, label %if.end337.i, label %if.then330.i
 
 if.then330.i:                                     ; preds = %if.end325.i
-  %196 = trunc i64 %indvars.iv to i32
+  %196 = trunc nuw i64 %indvars.iv to i32
   %add332.i = add i32 %add331.i, %196
   %conv333.i = zext i32 %add332.i to i64
   %197 = load i32, ptr %ids300.i, align 8
@@ -1523,7 +1523,7 @@ if.end337.i:                                      ; preds = %if.then330.i, %if.e
   br i1 %tobool341.i.not, label %if.end349.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end337.i
-  %199 = trunc i64 %indvars.iv to i32
+  %199 = trunc nuw i64 %indvars.iv to i32
   %add344.i = add i32 %add331.i, %199
   %conv345.i = zext i32 %add344.i to i64
   %200 = load i32, ptr %arrayidx312.i, align 4
@@ -1538,7 +1538,7 @@ if.end349.i:                                      ; preds = %if.then342.i, %if.e
   br i1 %tobool353.i.not, label %if.end361.i, label %if.then354.i
 
 if.then354.i:                                     ; preds = %if.end349.i
-  %202 = trunc i64 %indvars.iv to i32
+  %202 = trunc nuw i64 %indvars.iv to i32
   %add356.i = add i32 %add331.i, %202
   %conv357.i = zext i32 %add356.i to i64
   %203 = load i32, ptr %arrayidx323.i, align 8
@@ -1658,7 +1658,7 @@ for.end440.i:                                     ; preds = %if.end437.i, %if.en
   br i1 %tobool444.i.not, label %if.end452.i, label %if.then445.i
 
 if.then445.i:                                     ; preds = %for.end440.i
-  %220 = trunc i64 %indvars.iv1785 to i32
+  %220 = trunc nuw i64 %indvars.iv1785 to i32
   %add447.i = add i32 %add446.i, %220
   %conv448.i = zext i32 %add447.i to i64
   %221 = load i32, ptr %ids382.i, align 8
@@ -1673,7 +1673,7 @@ if.end452.i:                                      ; preds = %if.then445.i, %for.
   br i1 %tobool456.i.not, label %if.end464.i, label %if.then457.i
 
 if.then457.i:                                     ; preds = %if.end452.i
-  %223 = trunc i64 %indvars.iv1785 to i32
+  %223 = trunc nuw i64 %indvars.iv1785 to i32
   %add459.i = add i32 %add446.i, %223
   %conv460.i = zext i32 %add459.i to i64
   %224 = load i32, ptr %arrayidx394.i, align 4
@@ -1688,7 +1688,7 @@ if.end464.i:                                      ; preds = %if.then457.i, %if.e
   br i1 %tobool468.i.not, label %if.end476.i, label %if.then469.i
 
 if.then469.i:                                     ; preds = %if.end464.i
-  %226 = trunc i64 %indvars.iv1785 to i32
+  %226 = trunc nuw i64 %indvars.iv1785 to i32
   %add471.i = add i32 %add446.i, %226
   %conv472.i = zext i32 %add471.i to i64
   %227 = load i32, ptr %arrayidx405.i, align 8
@@ -1703,7 +1703,7 @@ if.end476.i:                                      ; preds = %if.then469.i, %if.e
   br i1 %tobool480.i.not, label %if.end488.i, label %if.then481.i
 
 if.then481.i:                                     ; preds = %if.end476.i
-  %229 = trunc i64 %indvars.iv1785 to i32
+  %229 = trunc nuw i64 %indvars.iv1785 to i32
   %add483.i = add i32 %add446.i, %229
   %conv484.i = zext i32 %add483.i to i64
   %230 = load i32, ptr %arrayidx416.i, align 4
@@ -1717,7 +1717,7 @@ if.end488.i:                                      ; preds = %if.then481.i, %if.e
   br i1 %cmp493.i1707, label %for.body495.i.lr.ph, label %for.end512.i
 
 for.body495.i.lr.ph:                              ; preds = %if.end488.i
-  %232 = trunc i64 %indvars.iv1785 to i32
+  %232 = trunc nuw i64 %indvars.iv1785 to i32
   %add503.i = add i32 %add446.i, %232
   %conv504.i = zext i32 %add503.i to i64
   br label %for.body495.i
@@ -2779,7 +2779,7 @@ if.end407:                                        ; preds = %do.body390, %do.bod
   %control.addr.90 = phi i64 [ %control.addr.22.lcssa, %for.end ], [ %control.addr.88, %do.body390 ], [ %control.addr.84, %do.body379 ], [ %control.addr.22.lcssa, %if.then332 ]
   %ptr.4 = phi ptr [ %ptr.2.lcssa, %for.end ], [ %add.ptr329, %do.body390 ], [ %add.ptr329, %do.body379 ], [ %add.ptr329, %if.then332 ]
   %cmp408 = icmp ult ptr %ptr.4, %add.ptr
-  br i1 %cmp408, label %if.then410, label %if.end489
+  br i1 %cmp408, label %if.then410, label %do.end490
 
 if.then410:                                       ; preds = %if.end407
   %len_history414 = getelementptr inbounds i8, ptr %a, i64 24
@@ -2877,7 +2877,7 @@ vectoredLoad128.exit:                             ; preds = %sw.bb1.i1390, %sw.b
   %418 = icmp ne <16 x i8> %417, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %419 = bitcast <16 x i1> %418 to i16
   %tobool422.not = icmp eq i16 %419, 0
-  br i1 %tobool422.not, label %if.end489, label %if.then429
+  br i1 %tobool422.not, label %do.end490, label %if.then429
 
 if.then429:                                       ; preds = %vectoredLoad128.exit
   %vecext.i2107 = extractelement <2 x i64> %or.i2039, i64 0
@@ -3083,7 +3083,7 @@ do.body462:                                       ; preds = %do.body448, %if.the
   %last_match.58 = phi i32 [ %last_match.57, %do.body448 ], [ %last_match.53, %if.then429 ]
   %control.addr.95 = phi i64 [ %control.addr.94, %do.body448 ], [ %control.addr.90, %if.then429 ]
   %cmp463.not = icmp eq i64 %vecext.i2109, -1
-  br i1 %cmp463.not, label %if.end489, label %if.then471
+  br i1 %cmp463.not, label %do.end490, label %if.then471
 
 if.then471:                                       ; preds = %do.body462
   %not472 = xor i64 %vecext.i2109, -1
@@ -3279,13 +3279,11 @@ do.cond.i:                                        ; preds = %do.end.i3663, %getC
 
 do.body473:                                       ; preds = %do.cond.i
   %cmp474 = icmp eq i64 %control.addr.99, 0
-  br i1 %cmp474, label %do.end490, label %if.end489
-
-if.end489:                                        ; preds = %do.body473, %do.body462, %vectoredLoad128.exit, %if.end407
+  %spec.select = zext i1 %cmp474 to i32
   br label %do.end490
 
-do.end490:                                        ; preds = %do.body312, %do.body287, %do.body239, %do.body214, %floodout.i, %do.body473, %do.body448, %do.body390, %do.body365, %do.body135, %do.body110, %do.body56, %do.body32, %if.end489
-  %retval.0 = phi i32 [ 0, %if.end489 ], [ 1, %do.body32 ], [ 1, %do.body56 ], [ 1, %do.body110 ], [ 1, %do.body135 ], [ 1, %do.body365 ], [ 1, %do.body390 ], [ 1, %do.body448 ], [ 1, %do.body473 ], [ 1, %floodout.i ], [ 1, %do.body214 ], [ 1, %do.body239 ], [ 1, %do.body287 ], [ 1, %do.body312 ]
+do.end490:                                        ; preds = %do.body312, %do.body287, %do.body239, %do.body214, %floodout.i, %do.body473, %if.end407, %vectoredLoad128.exit, %do.body462, %do.body448, %do.body390, %do.body365, %do.body135, %do.body110, %do.body56, %do.body32
+  %retval.0 = phi i32 [ 1, %do.body32 ], [ 1, %do.body56 ], [ 1, %do.body110 ], [ 1, %do.body135 ], [ 1, %do.body365 ], [ 1, %do.body390 ], [ 1, %do.body448 ], [ 0, %do.body462 ], [ 0, %vectoredLoad128.exit ], [ 0, %if.end407 ], [ %spec.select, %do.body473 ], [ 1, %floodout.i ], [ 1, %do.body214 ], [ 1, %do.body239 ], [ 1, %do.body287 ], [ 1, %do.body312 ]
   ret i32 %retval.0
 }
 
@@ -3293,7 +3291,7 @@ do.end490:                                        ; preds = %do.body312, %do.bod
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks1_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden i32 @fdr_exec_teddy_msks1_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1263 = alloca i64, align 8
   %tmp.i1215 = alloca i64, align 8
@@ -4647,7 +4645,7 @@ if.end206.i:                                      ; preds = %if.then200.i, %if.e
   br i1 %tobool210.i.not, label %if.end218.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end206.i
-  %171 = trunc i64 %indvars.iv1773 to i32
+  %171 = trunc nuw i64 %indvars.iv1773 to i32
   %add213.i = add i32 %add212.i, %171
   %conv214.i = zext i32 %add213.i to i64
   %172 = load i32, ptr %ids192.i, align 8
@@ -4662,7 +4660,7 @@ if.end218.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool222.i.not, label %if.end230.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end218.i
-  %174 = trunc i64 %indvars.iv1773 to i32
+  %174 = trunc nuw i64 %indvars.iv1773 to i32
   %add225.i = add i32 %add212.i, %174
   %conv226.i = zext i32 %add225.i to i64
   %175 = load i32, ptr %arrayidx204.i, align 4
@@ -4677,7 +4675,7 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %tobool234.i.not, label %if.end242.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %if.end230.i
-  %177 = trunc i64 %indvars.iv1773 to i32
+  %177 = trunc nuw i64 %indvars.iv1773 to i32
   %add237.i = add i32 %add236.i, %177
   %conv238.i = zext i32 %add237.i to i64
   %178 = load i32, ptr %ids192.i, align 8
@@ -4692,7 +4690,7 @@ if.end242.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %tobool246.i.not, label %if.end254.i, label %if.then247.i
 
 if.then247.i:                                     ; preds = %if.end242.i
-  %180 = trunc i64 %indvars.iv1773 to i32
+  %180 = trunc nuw i64 %indvars.iv1773 to i32
   %add249.i = add i32 %add236.i, %180
   %conv250.i = zext i32 %add249.i to i64
   %181 = load i32, ptr %arrayidx204.i, align 4
@@ -4707,7 +4705,7 @@ if.end254.i:                                      ; preds = %if.then247.i, %if.e
   br i1 %tobool258.i.not, label %if.end266.i, label %if.then259.i
 
 if.then259.i:                                     ; preds = %if.end254.i
-  %183 = trunc i64 %indvars.iv1773 to i32
+  %183 = trunc nuw i64 %indvars.iv1773 to i32
   %add261.i = add i32 %add260.i, %183
   %conv262.i = zext i32 %add261.i to i64
   %184 = load i32, ptr %ids192.i, align 8
@@ -4722,7 +4720,7 @@ if.end266.i:                                      ; preds = %if.then259.i, %if.e
   br i1 %tobool270.i.not, label %if.end278.i, label %if.then271.i
 
 if.then271.i:                                     ; preds = %if.end266.i
-  %186 = trunc i64 %indvars.iv1773 to i32
+  %186 = trunc nuw i64 %indvars.iv1773 to i32
   %add273.i = add i32 %add260.i, %186
   %conv274.i = zext i32 %add273.i to i64
   %187 = load i32, ptr %arrayidx204.i, align 4
@@ -4792,7 +4790,7 @@ if.end325.i:                                      ; preds = %if.then319.i, %if.e
   br i1 %tobool329.i.not, label %if.end337.i, label %if.then330.i
 
 if.then330.i:                                     ; preds = %if.end325.i
-  %196 = trunc i64 %indvars.iv to i32
+  %196 = trunc nuw i64 %indvars.iv to i32
   %add332.i = add i32 %add331.i, %196
   %conv333.i = zext i32 %add332.i to i64
   %197 = load i32, ptr %ids300.i, align 8
@@ -4807,7 +4805,7 @@ if.end337.i:                                      ; preds = %if.then330.i, %if.e
   br i1 %tobool341.i.not, label %if.end349.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end337.i
-  %199 = trunc i64 %indvars.iv to i32
+  %199 = trunc nuw i64 %indvars.iv to i32
   %add344.i = add i32 %add331.i, %199
   %conv345.i = zext i32 %add344.i to i64
   %200 = load i32, ptr %arrayidx312.i, align 4
@@ -4822,7 +4820,7 @@ if.end349.i:                                      ; preds = %if.then342.i, %if.e
   br i1 %tobool353.i.not, label %if.end361.i, label %if.then354.i
 
 if.then354.i:                                     ; preds = %if.end349.i
-  %202 = trunc i64 %indvars.iv to i32
+  %202 = trunc nuw i64 %indvars.iv to i32
   %add356.i = add i32 %add331.i, %202
   %conv357.i = zext i32 %add356.i to i64
   %203 = load i32, ptr %arrayidx323.i, align 8
@@ -4942,7 +4940,7 @@ for.end440.i:                                     ; preds = %if.end437.i, %if.en
   br i1 %tobool444.i.not, label %if.end452.i, label %if.then445.i
 
 if.then445.i:                                     ; preds = %for.end440.i
-  %220 = trunc i64 %indvars.iv1785 to i32
+  %220 = trunc nuw i64 %indvars.iv1785 to i32
   %add447.i = add i32 %add446.i, %220
   %conv448.i = zext i32 %add447.i to i64
   %221 = load i32, ptr %ids382.i, align 8
@@ -4957,7 +4955,7 @@ if.end452.i:                                      ; preds = %if.then445.i, %for.
   br i1 %tobool456.i.not, label %if.end464.i, label %if.then457.i
 
 if.then457.i:                                     ; preds = %if.end452.i
-  %223 = trunc i64 %indvars.iv1785 to i32
+  %223 = trunc nuw i64 %indvars.iv1785 to i32
   %add459.i = add i32 %add446.i, %223
   %conv460.i = zext i32 %add459.i to i64
   %224 = load i32, ptr %arrayidx394.i, align 4
@@ -4972,7 +4970,7 @@ if.end464.i:                                      ; preds = %if.then457.i, %if.e
   br i1 %tobool468.i.not, label %if.end476.i, label %if.then469.i
 
 if.then469.i:                                     ; preds = %if.end464.i
-  %226 = trunc i64 %indvars.iv1785 to i32
+  %226 = trunc nuw i64 %indvars.iv1785 to i32
   %add471.i = add i32 %add446.i, %226
   %conv472.i = zext i32 %add471.i to i64
   %227 = load i32, ptr %arrayidx405.i, align 8
@@ -4987,7 +4985,7 @@ if.end476.i:                                      ; preds = %if.then469.i, %if.e
   br i1 %tobool480.i.not, label %if.end488.i, label %if.then481.i
 
 if.then481.i:                                     ; preds = %if.end476.i
-  %229 = trunc i64 %indvars.iv1785 to i32
+  %229 = trunc nuw i64 %indvars.iv1785 to i32
   %add483.i = add i32 %add446.i, %229
   %conv484.i = zext i32 %add483.i to i64
   %230 = load i32, ptr %arrayidx416.i, align 4
@@ -5001,7 +4999,7 @@ if.end488.i:                                      ; preds = %if.then481.i, %if.e
   br i1 %cmp493.i1707, label %for.body495.i.lr.ph, label %for.end512.i
 
 for.body495.i.lr.ph:                              ; preds = %if.end488.i
-  %232 = trunc i64 %indvars.iv1785 to i32
+  %232 = trunc nuw i64 %indvars.iv1785 to i32
   %add503.i = add i32 %add446.i, %232
   %conv504.i = zext i32 %add503.i to i64
   br label %for.body495.i
@@ -6063,7 +6061,7 @@ if.end407:                                        ; preds = %do.body390, %do.bod
   %control.addr.90 = phi i64 [ %control.addr.22.lcssa, %for.end ], [ %control.addr.88, %do.body390 ], [ %control.addr.84, %do.body379 ], [ %control.addr.22.lcssa, %if.then332 ]
   %ptr.4 = phi ptr [ %ptr.2.lcssa, %for.end ], [ %add.ptr329, %do.body390 ], [ %add.ptr329, %do.body379 ], [ %add.ptr329, %if.then332 ]
   %cmp408 = icmp ult ptr %ptr.4, %add.ptr
-  br i1 %cmp408, label %if.then410, label %if.end489
+  br i1 %cmp408, label %if.then410, label %do.end490
 
 if.then410:                                       ; preds = %if.end407
   %len_history414 = getelementptr inbounds i8, ptr %a, i64 24
@@ -6161,7 +6159,7 @@ vectoredLoad128.exit:                             ; preds = %sw.bb1.i1390, %sw.b
   %418 = icmp ne <16 x i8> %417, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %419 = bitcast <16 x i1> %418 to i16
   %tobool422.not = icmp eq i16 %419, 0
-  br i1 %tobool422.not, label %if.end489, label %if.then429
+  br i1 %tobool422.not, label %do.end490, label %if.then429
 
 if.then429:                                       ; preds = %vectoredLoad128.exit
   %vecext.i2107 = extractelement <2 x i64> %or.i2039, i64 0
@@ -6367,7 +6365,7 @@ do.body462:                                       ; preds = %do.body448, %if.the
   %last_match.58 = phi i32 [ %last_match.57, %do.body448 ], [ %last_match.53, %if.then429 ]
   %control.addr.95 = phi i64 [ %control.addr.94, %do.body448 ], [ %control.addr.90, %if.then429 ]
   %cmp463.not = icmp eq i64 %vecext.i2109, -1
-  br i1 %cmp463.not, label %if.end489, label %if.then471
+  br i1 %cmp463.not, label %do.end490, label %if.then471
 
 if.then471:                                       ; preds = %do.body462
   %not472 = xor i64 %vecext.i2109, -1
@@ -6563,18 +6561,16 @@ do.cond.i:                                        ; preds = %do.end.i3663, %getC
 
 do.body473:                                       ; preds = %do.cond.i
   %cmp474 = icmp eq i64 %control.addr.99, 0
-  br i1 %cmp474, label %do.end490, label %if.end489
-
-if.end489:                                        ; preds = %do.body473, %do.body462, %vectoredLoad128.exit, %if.end407
+  %spec.select = zext i1 %cmp474 to i32
   br label %do.end490
 
-do.end490:                                        ; preds = %do.body312, %do.body287, %do.body239, %do.body214, %floodout.i, %do.body473, %do.body448, %do.body390, %do.body365, %do.body135, %do.body110, %do.body56, %do.body32, %if.end489
-  %retval.0 = phi i32 [ 0, %if.end489 ], [ 1, %do.body32 ], [ 1, %do.body56 ], [ 1, %do.body110 ], [ 1, %do.body135 ], [ 1, %do.body365 ], [ 1, %do.body390 ], [ 1, %do.body448 ], [ 1, %do.body473 ], [ 1, %floodout.i ], [ 1, %do.body214 ], [ 1, %do.body239 ], [ 1, %do.body287 ], [ 1, %do.body312 ]
+do.end490:                                        ; preds = %do.body312, %do.body287, %do.body239, %do.body214, %floodout.i, %do.body473, %if.end407, %vectoredLoad128.exit, %do.body462, %do.body448, %do.body390, %do.body365, %do.body135, %do.body110, %do.body56, %do.body32
+  %retval.0 = phi i32 [ 1, %do.body32 ], [ 1, %do.body56 ], [ 1, %do.body110 ], [ 1, %do.body135 ], [ 1, %do.body365 ], [ 1, %do.body390 ], [ 1, %do.body448 ], [ 0, %do.body462 ], [ 0, %vectoredLoad128.exit ], [ 0, %if.end407 ], [ %spec.select, %do.body473 ], [ 1, %floodout.i ], [ 1, %do.body214 ], [ 1, %do.body239 ], [ 1, %do.body287 ], [ 1, %do.body312 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks2(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden i32 @fdr_exec_teddy_msks2(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1178 = alloca i64, align 8
   %tmp.i1130 = alloca i64, align 8
@@ -7969,7 +7965,7 @@ if.end206.i:                                      ; preds = %if.then200.i, %if.e
   br i1 %tobool210.i.not, label %if.end218.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end206.i
-  %185 = trunc i64 %indvars.iv1926 to i32
+  %185 = trunc nuw i64 %indvars.iv1926 to i32
   %add213.i = add i32 %add212.i, %185
   %conv214.i = zext i32 %add213.i to i64
   %186 = load i32, ptr %ids192.i, align 8
@@ -7984,7 +7980,7 @@ if.end218.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool222.i.not, label %if.end230.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end218.i
-  %188 = trunc i64 %indvars.iv1926 to i32
+  %188 = trunc nuw i64 %indvars.iv1926 to i32
   %add225.i = add i32 %add212.i, %188
   %conv226.i = zext i32 %add225.i to i64
   %189 = load i32, ptr %arrayidx204.i, align 4
@@ -7999,7 +7995,7 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %tobool234.i.not, label %if.end242.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %if.end230.i
-  %191 = trunc i64 %indvars.iv1926 to i32
+  %191 = trunc nuw i64 %indvars.iv1926 to i32
   %add237.i = add i32 %add236.i, %191
   %conv238.i = zext i32 %add237.i to i64
   %192 = load i32, ptr %ids192.i, align 8
@@ -8014,7 +8010,7 @@ if.end242.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %tobool246.i.not, label %if.end254.i, label %if.then247.i
 
 if.then247.i:                                     ; preds = %if.end242.i
-  %194 = trunc i64 %indvars.iv1926 to i32
+  %194 = trunc nuw i64 %indvars.iv1926 to i32
   %add249.i = add i32 %add236.i, %194
   %conv250.i = zext i32 %add249.i to i64
   %195 = load i32, ptr %arrayidx204.i, align 4
@@ -8029,7 +8025,7 @@ if.end254.i:                                      ; preds = %if.then247.i, %if.e
   br i1 %tobool258.i.not, label %if.end266.i, label %if.then259.i
 
 if.then259.i:                                     ; preds = %if.end254.i
-  %197 = trunc i64 %indvars.iv1926 to i32
+  %197 = trunc nuw i64 %indvars.iv1926 to i32
   %add261.i = add i32 %add260.i, %197
   %conv262.i = zext i32 %add261.i to i64
   %198 = load i32, ptr %ids192.i, align 8
@@ -8044,7 +8040,7 @@ if.end266.i:                                      ; preds = %if.then259.i, %if.e
   br i1 %tobool270.i.not, label %if.end278.i, label %if.then271.i
 
 if.then271.i:                                     ; preds = %if.end266.i
-  %200 = trunc i64 %indvars.iv1926 to i32
+  %200 = trunc nuw i64 %indvars.iv1926 to i32
   %add273.i = add i32 %add260.i, %200
   %conv274.i = zext i32 %add273.i to i64
   %201 = load i32, ptr %arrayidx204.i, align 4
@@ -8114,7 +8110,7 @@ if.end325.i:                                      ; preds = %if.then319.i, %if.e
   br i1 %tobool329.i.not, label %if.end337.i, label %if.then330.i
 
 if.then330.i:                                     ; preds = %if.end325.i
-  %210 = trunc i64 %indvars.iv to i32
+  %210 = trunc nuw i64 %indvars.iv to i32
   %add332.i = add i32 %add331.i, %210
   %conv333.i = zext i32 %add332.i to i64
   %211 = load i32, ptr %ids300.i, align 8
@@ -8129,7 +8125,7 @@ if.end337.i:                                      ; preds = %if.then330.i, %if.e
   br i1 %tobool341.i.not, label %if.end349.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end337.i
-  %213 = trunc i64 %indvars.iv to i32
+  %213 = trunc nuw i64 %indvars.iv to i32
   %add344.i = add i32 %add331.i, %213
   %conv345.i = zext i32 %add344.i to i64
   %214 = load i32, ptr %arrayidx312.i, align 4
@@ -8144,7 +8140,7 @@ if.end349.i:                                      ; preds = %if.then342.i, %if.e
   br i1 %tobool353.i.not, label %if.end361.i, label %if.then354.i
 
 if.then354.i:                                     ; preds = %if.end349.i
-  %216 = trunc i64 %indvars.iv to i32
+  %216 = trunc nuw i64 %indvars.iv to i32
   %add356.i = add i32 %add331.i, %216
   %conv357.i = zext i32 %add356.i to i64
   %217 = load i32, ptr %arrayidx323.i, align 8
@@ -8264,7 +8260,7 @@ for.end440.i:                                     ; preds = %if.end437.i, %if.en
   br i1 %tobool444.i.not, label %if.end452.i, label %if.then445.i
 
 if.then445.i:                                     ; preds = %for.end440.i
-  %234 = trunc i64 %indvars.iv1938 to i32
+  %234 = trunc nuw i64 %indvars.iv1938 to i32
   %add447.i = add i32 %add446.i, %234
   %conv448.i = zext i32 %add447.i to i64
   %235 = load i32, ptr %ids382.i, align 8
@@ -8279,7 +8275,7 @@ if.end452.i:                                      ; preds = %if.then445.i, %for.
   br i1 %tobool456.i.not, label %if.end464.i, label %if.then457.i
 
 if.then457.i:                                     ; preds = %if.end452.i
-  %237 = trunc i64 %indvars.iv1938 to i32
+  %237 = trunc nuw i64 %indvars.iv1938 to i32
   %add459.i = add i32 %add446.i, %237
   %conv460.i = zext i32 %add459.i to i64
   %238 = load i32, ptr %arrayidx394.i, align 4
@@ -8294,7 +8290,7 @@ if.end464.i:                                      ; preds = %if.then457.i, %if.e
   br i1 %tobool468.i.not, label %if.end476.i, label %if.then469.i
 
 if.then469.i:                                     ; preds = %if.end464.i
-  %240 = trunc i64 %indvars.iv1938 to i32
+  %240 = trunc nuw i64 %indvars.iv1938 to i32
   %add471.i = add i32 %add446.i, %240
   %conv472.i = zext i32 %add471.i to i64
   %241 = load i32, ptr %arrayidx405.i, align 8
@@ -8309,7 +8305,7 @@ if.end476.i:                                      ; preds = %if.then469.i, %if.e
   br i1 %tobool480.i.not, label %if.end488.i, label %if.then481.i
 
 if.then481.i:                                     ; preds = %if.end476.i
-  %243 = trunc i64 %indvars.iv1938 to i32
+  %243 = trunc nuw i64 %indvars.iv1938 to i32
   %add483.i = add i32 %add446.i, %243
   %conv484.i = zext i32 %add483.i to i64
   %244 = load i32, ptr %arrayidx416.i, align 4
@@ -8323,7 +8319,7 @@ if.end488.i:                                      ; preds = %if.then481.i, %if.e
   br i1 %cmp493.i1858, label %for.body495.i.lr.ph, label %for.end512.i
 
 for.body495.i.lr.ph:                              ; preds = %if.end488.i
-  %246 = trunc i64 %indvars.iv1938 to i32
+  %246 = trunc nuw i64 %indvars.iv1938 to i32
   %add503.i = add i32 %add446.i, %246
   %conv504.i = zext i32 %add503.i to i64
   br label %for.body495.i
@@ -9410,7 +9406,7 @@ if.end408:                                        ; preds = %do.body391, %do.bod
   %ptr.4 = phi ptr [ %ptr.2.lcssa, %for.end ], [ %add.ptr330, %do.body391 ], [ %add.ptr330, %do.body380 ], [ %add.ptr330, %if.then333 ]
   %423 = phi <16 x i8> [ %.lcssa, %for.end ], [ %or.i25681772, %do.body391 ], [ %or.i25681772, %do.body380 ], [ %or.i25681772, %if.then333 ]
   %cmp409 = icmp ult ptr %ptr.4, %add.ptr
-  br i1 %cmp409, label %if.then411, label %if.end490
+  br i1 %cmp409, label %if.then411, label %do.end491
 
 if.then411:                                       ; preds = %if.end408
   %len_history415 = getelementptr inbounds i8, ptr %a, i64 24
@@ -9517,7 +9513,7 @@ vectoredLoad128.exit:                             ; preds = %sw.bb1.i1503, %sw.b
   %449 = icmp ne <16 x i8> %448, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %450 = bitcast <16 x i1> %449 to i16
   %tobool423.not = icmp eq i16 %450, 0
-  br i1 %tobool423.not, label %if.end490, label %if.then430
+  br i1 %tobool423.not, label %do.end491, label %if.then430
 
 if.then430:                                       ; preds = %vectoredLoad128.exit
   %vecext.i2636 = extractelement <2 x i64> %or.i2586, i64 0
@@ -9723,7 +9719,7 @@ do.body463:                                       ; preds = %do.body449, %if.the
   %last_match.58 = phi i32 [ %last_match.57, %do.body449 ], [ %last_match.53, %if.then430 ]
   %control.addr.95 = phi i64 [ %control.addr.94, %do.body449 ], [ %control.addr.90, %if.then430 ]
   %cmp464.not = icmp eq i64 %vecext.i2638, -1
-  br i1 %cmp464.not, label %if.end490, label %if.then472
+  br i1 %cmp464.not, label %do.end491, label %if.then472
 
 if.then472:                                       ; preds = %do.body463
   %not473 = xor i64 %vecext.i2638, -1
@@ -9919,18 +9915,16 @@ do.cond.i:                                        ; preds = %do.end.i4193, %getC
 
 do.body474:                                       ; preds = %do.cond.i
   %cmp475 = icmp eq i64 %control.addr.99, 0
-  br i1 %cmp475, label %do.end491, label %if.end490
-
-if.end490:                                        ; preds = %do.body474, %do.body463, %vectoredLoad128.exit, %if.end408
+  %spec.select = zext i1 %cmp475 to i32
   br label %do.end491
 
-do.end491:                                        ; preds = %do.body313, %do.body288, %do.body240, %do.body215, %floodout.i, %do.body474, %do.body449, %do.body391, %do.body366, %do.body136, %do.body111, %do.body57, %do.body33, %if.end490
-  %retval.0 = phi i32 [ 0, %if.end490 ], [ 1, %do.body33 ], [ 1, %do.body57 ], [ 1, %do.body111 ], [ 1, %do.body136 ], [ 1, %do.body366 ], [ 1, %do.body391 ], [ 1, %do.body449 ], [ 1, %do.body474 ], [ 1, %floodout.i ], [ 1, %do.body215 ], [ 1, %do.body240 ], [ 1, %do.body288 ], [ 1, %do.body313 ]
+do.end491:                                        ; preds = %do.body313, %do.body288, %do.body240, %do.body215, %floodout.i, %do.body474, %if.end408, %vectoredLoad128.exit, %do.body463, %do.body449, %do.body391, %do.body366, %do.body136, %do.body111, %do.body57, %do.body33
+  %retval.0 = phi i32 [ 1, %do.body33 ], [ 1, %do.body57 ], [ 1, %do.body111 ], [ 1, %do.body136 ], [ 1, %do.body366 ], [ 1, %do.body391 ], [ 1, %do.body449 ], [ 0, %do.body463 ], [ 0, %vectoredLoad128.exit ], [ 0, %if.end408 ], [ %spec.select, %do.body474 ], [ 1, %floodout.i ], [ 1, %do.body215 ], [ 1, %do.body240 ], [ 1, %do.body288 ], [ 1, %do.body313 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks2_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden i32 @fdr_exec_teddy_msks2_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1178 = alloca i64, align 8
   %tmp.i1130 = alloca i64, align 8
@@ -11325,7 +11319,7 @@ if.end206.i:                                      ; preds = %if.then200.i, %if.e
   br i1 %tobool210.i.not, label %if.end218.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end206.i
-  %185 = trunc i64 %indvars.iv1926 to i32
+  %185 = trunc nuw i64 %indvars.iv1926 to i32
   %add213.i = add i32 %add212.i, %185
   %conv214.i = zext i32 %add213.i to i64
   %186 = load i32, ptr %ids192.i, align 8
@@ -11340,7 +11334,7 @@ if.end218.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool222.i.not, label %if.end230.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end218.i
-  %188 = trunc i64 %indvars.iv1926 to i32
+  %188 = trunc nuw i64 %indvars.iv1926 to i32
   %add225.i = add i32 %add212.i, %188
   %conv226.i = zext i32 %add225.i to i64
   %189 = load i32, ptr %arrayidx204.i, align 4
@@ -11355,7 +11349,7 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %tobool234.i.not, label %if.end242.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %if.end230.i
-  %191 = trunc i64 %indvars.iv1926 to i32
+  %191 = trunc nuw i64 %indvars.iv1926 to i32
   %add237.i = add i32 %add236.i, %191
   %conv238.i = zext i32 %add237.i to i64
   %192 = load i32, ptr %ids192.i, align 8
@@ -11370,7 +11364,7 @@ if.end242.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %tobool246.i.not, label %if.end254.i, label %if.then247.i
 
 if.then247.i:                                     ; preds = %if.end242.i
-  %194 = trunc i64 %indvars.iv1926 to i32
+  %194 = trunc nuw i64 %indvars.iv1926 to i32
   %add249.i = add i32 %add236.i, %194
   %conv250.i = zext i32 %add249.i to i64
   %195 = load i32, ptr %arrayidx204.i, align 4
@@ -11385,7 +11379,7 @@ if.end254.i:                                      ; preds = %if.then247.i, %if.e
   br i1 %tobool258.i.not, label %if.end266.i, label %if.then259.i
 
 if.then259.i:                                     ; preds = %if.end254.i
-  %197 = trunc i64 %indvars.iv1926 to i32
+  %197 = trunc nuw i64 %indvars.iv1926 to i32
   %add261.i = add i32 %add260.i, %197
   %conv262.i = zext i32 %add261.i to i64
   %198 = load i32, ptr %ids192.i, align 8
@@ -11400,7 +11394,7 @@ if.end266.i:                                      ; preds = %if.then259.i, %if.e
   br i1 %tobool270.i.not, label %if.end278.i, label %if.then271.i
 
 if.then271.i:                                     ; preds = %if.end266.i
-  %200 = trunc i64 %indvars.iv1926 to i32
+  %200 = trunc nuw i64 %indvars.iv1926 to i32
   %add273.i = add i32 %add260.i, %200
   %conv274.i = zext i32 %add273.i to i64
   %201 = load i32, ptr %arrayidx204.i, align 4
@@ -11470,7 +11464,7 @@ if.end325.i:                                      ; preds = %if.then319.i, %if.e
   br i1 %tobool329.i.not, label %if.end337.i, label %if.then330.i
 
 if.then330.i:                                     ; preds = %if.end325.i
-  %210 = trunc i64 %indvars.iv to i32
+  %210 = trunc nuw i64 %indvars.iv to i32
   %add332.i = add i32 %add331.i, %210
   %conv333.i = zext i32 %add332.i to i64
   %211 = load i32, ptr %ids300.i, align 8
@@ -11485,7 +11479,7 @@ if.end337.i:                                      ; preds = %if.then330.i, %if.e
   br i1 %tobool341.i.not, label %if.end349.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end337.i
-  %213 = trunc i64 %indvars.iv to i32
+  %213 = trunc nuw i64 %indvars.iv to i32
   %add344.i = add i32 %add331.i, %213
   %conv345.i = zext i32 %add344.i to i64
   %214 = load i32, ptr %arrayidx312.i, align 4
@@ -11500,7 +11494,7 @@ if.end349.i:                                      ; preds = %if.then342.i, %if.e
   br i1 %tobool353.i.not, label %if.end361.i, label %if.then354.i
 
 if.then354.i:                                     ; preds = %if.end349.i
-  %216 = trunc i64 %indvars.iv to i32
+  %216 = trunc nuw i64 %indvars.iv to i32
   %add356.i = add i32 %add331.i, %216
   %conv357.i = zext i32 %add356.i to i64
   %217 = load i32, ptr %arrayidx323.i, align 8
@@ -11620,7 +11614,7 @@ for.end440.i:                                     ; preds = %if.end437.i, %if.en
   br i1 %tobool444.i.not, label %if.end452.i, label %if.then445.i
 
 if.then445.i:                                     ; preds = %for.end440.i
-  %234 = trunc i64 %indvars.iv1938 to i32
+  %234 = trunc nuw i64 %indvars.iv1938 to i32
   %add447.i = add i32 %add446.i, %234
   %conv448.i = zext i32 %add447.i to i64
   %235 = load i32, ptr %ids382.i, align 8
@@ -11635,7 +11629,7 @@ if.end452.i:                                      ; preds = %if.then445.i, %for.
   br i1 %tobool456.i.not, label %if.end464.i, label %if.then457.i
 
 if.then457.i:                                     ; preds = %if.end452.i
-  %237 = trunc i64 %indvars.iv1938 to i32
+  %237 = trunc nuw i64 %indvars.iv1938 to i32
   %add459.i = add i32 %add446.i, %237
   %conv460.i = zext i32 %add459.i to i64
   %238 = load i32, ptr %arrayidx394.i, align 4
@@ -11650,7 +11644,7 @@ if.end464.i:                                      ; preds = %if.then457.i, %if.e
   br i1 %tobool468.i.not, label %if.end476.i, label %if.then469.i
 
 if.then469.i:                                     ; preds = %if.end464.i
-  %240 = trunc i64 %indvars.iv1938 to i32
+  %240 = trunc nuw i64 %indvars.iv1938 to i32
   %add471.i = add i32 %add446.i, %240
   %conv472.i = zext i32 %add471.i to i64
   %241 = load i32, ptr %arrayidx405.i, align 8
@@ -11665,7 +11659,7 @@ if.end476.i:                                      ; preds = %if.then469.i, %if.e
   br i1 %tobool480.i.not, label %if.end488.i, label %if.then481.i
 
 if.then481.i:                                     ; preds = %if.end476.i
-  %243 = trunc i64 %indvars.iv1938 to i32
+  %243 = trunc nuw i64 %indvars.iv1938 to i32
   %add483.i = add i32 %add446.i, %243
   %conv484.i = zext i32 %add483.i to i64
   %244 = load i32, ptr %arrayidx416.i, align 4
@@ -11679,7 +11673,7 @@ if.end488.i:                                      ; preds = %if.then481.i, %if.e
   br i1 %cmp493.i1858, label %for.body495.i.lr.ph, label %for.end512.i
 
 for.body495.i.lr.ph:                              ; preds = %if.end488.i
-  %246 = trunc i64 %indvars.iv1938 to i32
+  %246 = trunc nuw i64 %indvars.iv1938 to i32
   %add503.i = add i32 %add446.i, %246
   %conv504.i = zext i32 %add503.i to i64
   br label %for.body495.i
@@ -12766,7 +12760,7 @@ if.end408:                                        ; preds = %do.body391, %do.bod
   %ptr.4 = phi ptr [ %ptr.2.lcssa, %for.end ], [ %add.ptr330, %do.body391 ], [ %add.ptr330, %do.body380 ], [ %add.ptr330, %if.then333 ]
   %423 = phi <16 x i8> [ %.lcssa, %for.end ], [ %or.i25681772, %do.body391 ], [ %or.i25681772, %do.body380 ], [ %or.i25681772, %if.then333 ]
   %cmp409 = icmp ult ptr %ptr.4, %add.ptr
-  br i1 %cmp409, label %if.then411, label %if.end490
+  br i1 %cmp409, label %if.then411, label %do.end491
 
 if.then411:                                       ; preds = %if.end408
   %len_history415 = getelementptr inbounds i8, ptr %a, i64 24
@@ -12873,7 +12867,7 @@ vectoredLoad128.exit:                             ; preds = %sw.bb1.i1503, %sw.b
   %449 = icmp ne <16 x i8> %448, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %450 = bitcast <16 x i1> %449 to i16
   %tobool423.not = icmp eq i16 %450, 0
-  br i1 %tobool423.not, label %if.end490, label %if.then430
+  br i1 %tobool423.not, label %do.end491, label %if.then430
 
 if.then430:                                       ; preds = %vectoredLoad128.exit
   %vecext.i2636 = extractelement <2 x i64> %or.i2586, i64 0
@@ -13079,7 +13073,7 @@ do.body463:                                       ; preds = %do.body449, %if.the
   %last_match.58 = phi i32 [ %last_match.57, %do.body449 ], [ %last_match.53, %if.then430 ]
   %control.addr.95 = phi i64 [ %control.addr.94, %do.body449 ], [ %control.addr.90, %if.then430 ]
   %cmp464.not = icmp eq i64 %vecext.i2638, -1
-  br i1 %cmp464.not, label %if.end490, label %if.then472
+  br i1 %cmp464.not, label %do.end491, label %if.then472
 
 if.then472:                                       ; preds = %do.body463
   %not473 = xor i64 %vecext.i2638, -1
@@ -13275,18 +13269,16 @@ do.cond.i:                                        ; preds = %do.end.i4193, %getC
 
 do.body474:                                       ; preds = %do.cond.i
   %cmp475 = icmp eq i64 %control.addr.99, 0
-  br i1 %cmp475, label %do.end491, label %if.end490
-
-if.end490:                                        ; preds = %do.body474, %do.body463, %vectoredLoad128.exit, %if.end408
+  %spec.select = zext i1 %cmp475 to i32
   br label %do.end491
 
-do.end491:                                        ; preds = %do.body313, %do.body288, %do.body240, %do.body215, %floodout.i, %do.body474, %do.body449, %do.body391, %do.body366, %do.body136, %do.body111, %do.body57, %do.body33, %if.end490
-  %retval.0 = phi i32 [ 0, %if.end490 ], [ 1, %do.body33 ], [ 1, %do.body57 ], [ 1, %do.body111 ], [ 1, %do.body136 ], [ 1, %do.body366 ], [ 1, %do.body391 ], [ 1, %do.body449 ], [ 1, %do.body474 ], [ 1, %floodout.i ], [ 1, %do.body215 ], [ 1, %do.body240 ], [ 1, %do.body288 ], [ 1, %do.body313 ]
+do.end491:                                        ; preds = %do.body313, %do.body288, %do.body240, %do.body215, %floodout.i, %do.body474, %if.end408, %vectoredLoad128.exit, %do.body463, %do.body449, %do.body391, %do.body366, %do.body136, %do.body111, %do.body57, %do.body33
+  %retval.0 = phi i32 [ 1, %do.body33 ], [ 1, %do.body57 ], [ 1, %do.body111 ], [ 1, %do.body136 ], [ 1, %do.body366 ], [ 1, %do.body391 ], [ 1, %do.body449 ], [ 0, %do.body463 ], [ 0, %vectoredLoad128.exit ], [ 0, %if.end408 ], [ %spec.select, %do.body474 ], [ 1, %floodout.i ], [ 1, %do.body215 ], [ 1, %do.body240 ], [ 1, %do.body288 ], [ 1, %do.body313 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks3(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden i32 @fdr_exec_teddy_msks3(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1179 = alloca i64, align 8
   %tmp.i1131 = alloca i64, align 8
@@ -14704,7 +14696,7 @@ if.end206.i:                                      ; preds = %if.then200.i, %if.e
   br i1 %tobool210.i.not, label %if.end218.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end206.i
-  %196 = trunc i64 %indvars.iv2078 to i32
+  %196 = trunc nuw i64 %indvars.iv2078 to i32
   %add213.i = add i32 %add212.i, %196
   %conv214.i = zext i32 %add213.i to i64
   %197 = load i32, ptr %ids192.i, align 8
@@ -14719,7 +14711,7 @@ if.end218.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool222.i.not, label %if.end230.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end218.i
-  %199 = trunc i64 %indvars.iv2078 to i32
+  %199 = trunc nuw i64 %indvars.iv2078 to i32
   %add225.i = add i32 %add212.i, %199
   %conv226.i = zext i32 %add225.i to i64
   %200 = load i32, ptr %arrayidx204.i, align 4
@@ -14734,7 +14726,7 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %tobool234.i.not, label %if.end242.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %if.end230.i
-  %202 = trunc i64 %indvars.iv2078 to i32
+  %202 = trunc nuw i64 %indvars.iv2078 to i32
   %add237.i = add i32 %add236.i, %202
   %conv238.i = zext i32 %add237.i to i64
   %203 = load i32, ptr %ids192.i, align 8
@@ -14749,7 +14741,7 @@ if.end242.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %tobool246.i.not, label %if.end254.i, label %if.then247.i
 
 if.then247.i:                                     ; preds = %if.end242.i
-  %205 = trunc i64 %indvars.iv2078 to i32
+  %205 = trunc nuw i64 %indvars.iv2078 to i32
   %add249.i = add i32 %add236.i, %205
   %conv250.i = zext i32 %add249.i to i64
   %206 = load i32, ptr %arrayidx204.i, align 4
@@ -14764,7 +14756,7 @@ if.end254.i:                                      ; preds = %if.then247.i, %if.e
   br i1 %tobool258.i.not, label %if.end266.i, label %if.then259.i
 
 if.then259.i:                                     ; preds = %if.end254.i
-  %208 = trunc i64 %indvars.iv2078 to i32
+  %208 = trunc nuw i64 %indvars.iv2078 to i32
   %add261.i = add i32 %add260.i, %208
   %conv262.i = zext i32 %add261.i to i64
   %209 = load i32, ptr %ids192.i, align 8
@@ -14779,7 +14771,7 @@ if.end266.i:                                      ; preds = %if.then259.i, %if.e
   br i1 %tobool270.i.not, label %if.end278.i, label %if.then271.i
 
 if.then271.i:                                     ; preds = %if.end266.i
-  %211 = trunc i64 %indvars.iv2078 to i32
+  %211 = trunc nuw i64 %indvars.iv2078 to i32
   %add273.i = add i32 %add260.i, %211
   %conv274.i = zext i32 %add273.i to i64
   %212 = load i32, ptr %arrayidx204.i, align 4
@@ -14849,7 +14841,7 @@ if.end325.i:                                      ; preds = %if.then319.i, %if.e
   br i1 %tobool329.i.not, label %if.end337.i, label %if.then330.i
 
 if.then330.i:                                     ; preds = %if.end325.i
-  %221 = trunc i64 %indvars.iv to i32
+  %221 = trunc nuw i64 %indvars.iv to i32
   %add332.i = add i32 %add331.i, %221
   %conv333.i = zext i32 %add332.i to i64
   %222 = load i32, ptr %ids300.i, align 8
@@ -14864,7 +14856,7 @@ if.end337.i:                                      ; preds = %if.then330.i, %if.e
   br i1 %tobool341.i.not, label %if.end349.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end337.i
-  %224 = trunc i64 %indvars.iv to i32
+  %224 = trunc nuw i64 %indvars.iv to i32
   %add344.i = add i32 %add331.i, %224
   %conv345.i = zext i32 %add344.i to i64
   %225 = load i32, ptr %arrayidx312.i, align 4
@@ -14879,7 +14871,7 @@ if.end349.i:                                      ; preds = %if.then342.i, %if.e
   br i1 %tobool353.i.not, label %if.end361.i, label %if.then354.i
 
 if.then354.i:                                     ; preds = %if.end349.i
-  %227 = trunc i64 %indvars.iv to i32
+  %227 = trunc nuw i64 %indvars.iv to i32
   %add356.i = add i32 %add331.i, %227
   %conv357.i = zext i32 %add356.i to i64
   %228 = load i32, ptr %arrayidx323.i, align 8
@@ -14999,7 +14991,7 @@ for.end440.i:                                     ; preds = %if.end437.i, %if.en
   br i1 %tobool444.i.not, label %if.end452.i, label %if.then445.i
 
 if.then445.i:                                     ; preds = %for.end440.i
-  %245 = trunc i64 %indvars.iv2090 to i32
+  %245 = trunc nuw i64 %indvars.iv2090 to i32
   %add447.i = add i32 %add446.i, %245
   %conv448.i = zext i32 %add447.i to i64
   %246 = load i32, ptr %ids382.i, align 8
@@ -15014,7 +15006,7 @@ if.end452.i:                                      ; preds = %if.then445.i, %for.
   br i1 %tobool456.i.not, label %if.end464.i, label %if.then457.i
 
 if.then457.i:                                     ; preds = %if.end452.i
-  %248 = trunc i64 %indvars.iv2090 to i32
+  %248 = trunc nuw i64 %indvars.iv2090 to i32
   %add459.i = add i32 %add446.i, %248
   %conv460.i = zext i32 %add459.i to i64
   %249 = load i32, ptr %arrayidx394.i, align 4
@@ -15029,7 +15021,7 @@ if.end464.i:                                      ; preds = %if.then457.i, %if.e
   br i1 %tobool468.i.not, label %if.end476.i, label %if.then469.i
 
 if.then469.i:                                     ; preds = %if.end464.i
-  %251 = trunc i64 %indvars.iv2090 to i32
+  %251 = trunc nuw i64 %indvars.iv2090 to i32
   %add471.i = add i32 %add446.i, %251
   %conv472.i = zext i32 %add471.i to i64
   %252 = load i32, ptr %arrayidx405.i, align 8
@@ -15044,7 +15036,7 @@ if.end476.i:                                      ; preds = %if.then469.i, %if.e
   br i1 %tobool480.i.not, label %if.end488.i, label %if.then481.i
 
 if.then481.i:                                     ; preds = %if.end476.i
-  %254 = trunc i64 %indvars.iv2090 to i32
+  %254 = trunc nuw i64 %indvars.iv2090 to i32
   %add483.i = add i32 %add446.i, %254
   %conv484.i = zext i32 %add483.i to i64
   %255 = load i32, ptr %arrayidx416.i, align 4
@@ -15058,7 +15050,7 @@ if.end488.i:                                      ; preds = %if.then481.i, %if.e
   br i1 %cmp493.i2009, label %for.body495.i.lr.ph, label %for.end512.i
 
 for.body495.i.lr.ph:                              ; preds = %if.end488.i
-  %257 = trunc i64 %indvars.iv2090 to i32
+  %257 = trunc nuw i64 %indvars.iv2090 to i32
   %add503.i = add i32 %add446.i, %257
   %conv504.i = zext i32 %add503.i to i64
   br label %for.body495.i
@@ -16170,7 +16162,7 @@ if.end409:                                        ; preds = %do.body392, %do.bod
   %446 = phi <16 x i8> [ %.lcssa1952, %for.end ], [ %or.i30971915, %do.body392 ], [ %or.i30971915, %do.body381 ], [ %or.i30971915, %if.then334 ]
   %447 = phi <16 x i8> [ %.lcssa, %for.end ], [ %or.i31031913, %do.body392 ], [ %or.i31031913, %do.body381 ], [ %or.i31031913, %if.then334 ]
   %cmp410 = icmp ult ptr %ptr.4, %add.ptr
-  br i1 %cmp410, label %if.then412, label %if.end491
+  br i1 %cmp410, label %if.then412, label %do.end492
 
 if.then412:                                       ; preds = %if.end409
   %len_history416 = getelementptr inbounds i8, ptr %a, i64 24
@@ -16286,7 +16278,7 @@ vectoredLoad128.exit:                             ; preds = %sw.bb1.i1630, %sw.b
   %477 = icmp ne <16 x i8> %476, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %478 = bitcast <16 x i1> %477 to i16
   %tobool424.not = icmp eq i16 %478, 0
-  br i1 %tobool424.not, label %if.end491, label %if.then431
+  br i1 %tobool424.not, label %do.end492, label %if.then431
 
 if.then431:                                       ; preds = %vectoredLoad128.exit
   %vecext.i3177 = extractelement <2 x i64> %or.i3127, i64 0
@@ -16492,7 +16484,7 @@ do.body464:                                       ; preds = %do.body450, %if.the
   %last_match.58 = phi i32 [ %last_match.57, %do.body450 ], [ %last_match.53, %if.then431 ]
   %control.addr.95 = phi i64 [ %control.addr.94, %do.body450 ], [ %control.addr.90, %if.then431 ]
   %cmp465.not = icmp eq i64 %vecext.i3179, -1
-  br i1 %cmp465.not, label %if.end491, label %if.then473
+  br i1 %cmp465.not, label %do.end492, label %if.then473
 
 if.then473:                                       ; preds = %do.body464
   %not474 = xor i64 %vecext.i3179, -1
@@ -16688,18 +16680,16 @@ do.cond.i:                                        ; preds = %do.end.i4734, %getC
 
 do.body475:                                       ; preds = %do.cond.i
   %cmp476 = icmp eq i64 %control.addr.99, 0
-  br i1 %cmp476, label %do.end492, label %if.end491
-
-if.end491:                                        ; preds = %do.body475, %do.body464, %vectoredLoad128.exit, %if.end409
+  %spec.select = zext i1 %cmp476 to i32
   br label %do.end492
 
-do.end492:                                        ; preds = %do.body314, %do.body289, %do.body241, %do.body216, %floodout.i, %do.body475, %do.body450, %do.body392, %do.body367, %do.body137, %do.body112, %do.body58, %do.body34, %if.end491
-  %retval.0 = phi i32 [ 0, %if.end491 ], [ 1, %do.body34 ], [ 1, %do.body58 ], [ 1, %do.body112 ], [ 1, %do.body137 ], [ 1, %do.body367 ], [ 1, %do.body392 ], [ 1, %do.body450 ], [ 1, %do.body475 ], [ 1, %floodout.i ], [ 1, %do.body216 ], [ 1, %do.body241 ], [ 1, %do.body289 ], [ 1, %do.body314 ]
+do.end492:                                        ; preds = %do.body314, %do.body289, %do.body241, %do.body216, %floodout.i, %do.body475, %if.end409, %vectoredLoad128.exit, %do.body464, %do.body450, %do.body392, %do.body367, %do.body137, %do.body112, %do.body58, %do.body34
+  %retval.0 = phi i32 [ 1, %do.body34 ], [ 1, %do.body58 ], [ 1, %do.body112 ], [ 1, %do.body137 ], [ 1, %do.body367 ], [ 1, %do.body392 ], [ 1, %do.body450 ], [ 0, %do.body464 ], [ 0, %vectoredLoad128.exit ], [ 0, %if.end409 ], [ %spec.select, %do.body475 ], [ 1, %floodout.i ], [ 1, %do.body216 ], [ 1, %do.body241 ], [ 1, %do.body289 ], [ 1, %do.body314 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks3_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden i32 @fdr_exec_teddy_msks3_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1179 = alloca i64, align 8
   %tmp.i1131 = alloca i64, align 8
@@ -18117,7 +18107,7 @@ if.end206.i:                                      ; preds = %if.then200.i, %if.e
   br i1 %tobool210.i.not, label %if.end218.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end206.i
-  %196 = trunc i64 %indvars.iv2078 to i32
+  %196 = trunc nuw i64 %indvars.iv2078 to i32
   %add213.i = add i32 %add212.i, %196
   %conv214.i = zext i32 %add213.i to i64
   %197 = load i32, ptr %ids192.i, align 8
@@ -18132,7 +18122,7 @@ if.end218.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool222.i.not, label %if.end230.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end218.i
-  %199 = trunc i64 %indvars.iv2078 to i32
+  %199 = trunc nuw i64 %indvars.iv2078 to i32
   %add225.i = add i32 %add212.i, %199
   %conv226.i = zext i32 %add225.i to i64
   %200 = load i32, ptr %arrayidx204.i, align 4
@@ -18147,7 +18137,7 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %tobool234.i.not, label %if.end242.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %if.end230.i
-  %202 = trunc i64 %indvars.iv2078 to i32
+  %202 = trunc nuw i64 %indvars.iv2078 to i32
   %add237.i = add i32 %add236.i, %202
   %conv238.i = zext i32 %add237.i to i64
   %203 = load i32, ptr %ids192.i, align 8
@@ -18162,7 +18152,7 @@ if.end242.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %tobool246.i.not, label %if.end254.i, label %if.then247.i
 
 if.then247.i:                                     ; preds = %if.end242.i
-  %205 = trunc i64 %indvars.iv2078 to i32
+  %205 = trunc nuw i64 %indvars.iv2078 to i32
   %add249.i = add i32 %add236.i, %205
   %conv250.i = zext i32 %add249.i to i64
   %206 = load i32, ptr %arrayidx204.i, align 4
@@ -18177,7 +18167,7 @@ if.end254.i:                                      ; preds = %if.then247.i, %if.e
   br i1 %tobool258.i.not, label %if.end266.i, label %if.then259.i
 
 if.then259.i:                                     ; preds = %if.end254.i
-  %208 = trunc i64 %indvars.iv2078 to i32
+  %208 = trunc nuw i64 %indvars.iv2078 to i32
   %add261.i = add i32 %add260.i, %208
   %conv262.i = zext i32 %add261.i to i64
   %209 = load i32, ptr %ids192.i, align 8
@@ -18192,7 +18182,7 @@ if.end266.i:                                      ; preds = %if.then259.i, %if.e
   br i1 %tobool270.i.not, label %if.end278.i, label %if.then271.i
 
 if.then271.i:                                     ; preds = %if.end266.i
-  %211 = trunc i64 %indvars.iv2078 to i32
+  %211 = trunc nuw i64 %indvars.iv2078 to i32
   %add273.i = add i32 %add260.i, %211
   %conv274.i = zext i32 %add273.i to i64
   %212 = load i32, ptr %arrayidx204.i, align 4
@@ -18262,7 +18252,7 @@ if.end325.i:                                      ; preds = %if.then319.i, %if.e
   br i1 %tobool329.i.not, label %if.end337.i, label %if.then330.i
 
 if.then330.i:                                     ; preds = %if.end325.i
-  %221 = trunc i64 %indvars.iv to i32
+  %221 = trunc nuw i64 %indvars.iv to i32
   %add332.i = add i32 %add331.i, %221
   %conv333.i = zext i32 %add332.i to i64
   %222 = load i32, ptr %ids300.i, align 8
@@ -18277,7 +18267,7 @@ if.end337.i:                                      ; preds = %if.then330.i, %if.e
   br i1 %tobool341.i.not, label %if.end349.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end337.i
-  %224 = trunc i64 %indvars.iv to i32
+  %224 = trunc nuw i64 %indvars.iv to i32
   %add344.i = add i32 %add331.i, %224
   %conv345.i = zext i32 %add344.i to i64
   %225 = load i32, ptr %arrayidx312.i, align 4
@@ -18292,7 +18282,7 @@ if.end349.i:                                      ; preds = %if.then342.i, %if.e
   br i1 %tobool353.i.not, label %if.end361.i, label %if.then354.i
 
 if.then354.i:                                     ; preds = %if.end349.i
-  %227 = trunc i64 %indvars.iv to i32
+  %227 = trunc nuw i64 %indvars.iv to i32
   %add356.i = add i32 %add331.i, %227
   %conv357.i = zext i32 %add356.i to i64
   %228 = load i32, ptr %arrayidx323.i, align 8
@@ -18412,7 +18402,7 @@ for.end440.i:                                     ; preds = %if.end437.i, %if.en
   br i1 %tobool444.i.not, label %if.end452.i, label %if.then445.i
 
 if.then445.i:                                     ; preds = %for.end440.i
-  %245 = trunc i64 %indvars.iv2090 to i32
+  %245 = trunc nuw i64 %indvars.iv2090 to i32
   %add447.i = add i32 %add446.i, %245
   %conv448.i = zext i32 %add447.i to i64
   %246 = load i32, ptr %ids382.i, align 8
@@ -18427,7 +18417,7 @@ if.end452.i:                                      ; preds = %if.then445.i, %for.
   br i1 %tobool456.i.not, label %if.end464.i, label %if.then457.i
 
 if.then457.i:                                     ; preds = %if.end452.i
-  %248 = trunc i64 %indvars.iv2090 to i32
+  %248 = trunc nuw i64 %indvars.iv2090 to i32
   %add459.i = add i32 %add446.i, %248
   %conv460.i = zext i32 %add459.i to i64
   %249 = load i32, ptr %arrayidx394.i, align 4
@@ -18442,7 +18432,7 @@ if.end464.i:                                      ; preds = %if.then457.i, %if.e
   br i1 %tobool468.i.not, label %if.end476.i, label %if.then469.i
 
 if.then469.i:                                     ; preds = %if.end464.i
-  %251 = trunc i64 %indvars.iv2090 to i32
+  %251 = trunc nuw i64 %indvars.iv2090 to i32
   %add471.i = add i32 %add446.i, %251
   %conv472.i = zext i32 %add471.i to i64
   %252 = load i32, ptr %arrayidx405.i, align 8
@@ -18457,7 +18447,7 @@ if.end476.i:                                      ; preds = %if.then469.i, %if.e
   br i1 %tobool480.i.not, label %if.end488.i, label %if.then481.i
 
 if.then481.i:                                     ; preds = %if.end476.i
-  %254 = trunc i64 %indvars.iv2090 to i32
+  %254 = trunc nuw i64 %indvars.iv2090 to i32
   %add483.i = add i32 %add446.i, %254
   %conv484.i = zext i32 %add483.i to i64
   %255 = load i32, ptr %arrayidx416.i, align 4
@@ -18471,7 +18461,7 @@ if.end488.i:                                      ; preds = %if.then481.i, %if.e
   br i1 %cmp493.i2009, label %for.body495.i.lr.ph, label %for.end512.i
 
 for.body495.i.lr.ph:                              ; preds = %if.end488.i
-  %257 = trunc i64 %indvars.iv2090 to i32
+  %257 = trunc nuw i64 %indvars.iv2090 to i32
   %add503.i = add i32 %add446.i, %257
   %conv504.i = zext i32 %add503.i to i64
   br label %for.body495.i
@@ -19583,7 +19573,7 @@ if.end409:                                        ; preds = %do.body392, %do.bod
   %446 = phi <16 x i8> [ %.lcssa1952, %for.end ], [ %or.i30971915, %do.body392 ], [ %or.i30971915, %do.body381 ], [ %or.i30971915, %if.then334 ]
   %447 = phi <16 x i8> [ %.lcssa, %for.end ], [ %or.i31031913, %do.body392 ], [ %or.i31031913, %do.body381 ], [ %or.i31031913, %if.then334 ]
   %cmp410 = icmp ult ptr %ptr.4, %add.ptr
-  br i1 %cmp410, label %if.then412, label %if.end491
+  br i1 %cmp410, label %if.then412, label %do.end492
 
 if.then412:                                       ; preds = %if.end409
   %len_history416 = getelementptr inbounds i8, ptr %a, i64 24
@@ -19699,7 +19689,7 @@ vectoredLoad128.exit:                             ; preds = %sw.bb1.i1630, %sw.b
   %477 = icmp ne <16 x i8> %476, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %478 = bitcast <16 x i1> %477 to i16
   %tobool424.not = icmp eq i16 %478, 0
-  br i1 %tobool424.not, label %if.end491, label %if.then431
+  br i1 %tobool424.not, label %do.end492, label %if.then431
 
 if.then431:                                       ; preds = %vectoredLoad128.exit
   %vecext.i3177 = extractelement <2 x i64> %or.i3127, i64 0
@@ -19905,7 +19895,7 @@ do.body464:                                       ; preds = %do.body450, %if.the
   %last_match.58 = phi i32 [ %last_match.57, %do.body450 ], [ %last_match.53, %if.then431 ]
   %control.addr.95 = phi i64 [ %control.addr.94, %do.body450 ], [ %control.addr.90, %if.then431 ]
   %cmp465.not = icmp eq i64 %vecext.i3179, -1
-  br i1 %cmp465.not, label %if.end491, label %if.then473
+  br i1 %cmp465.not, label %do.end492, label %if.then473
 
 if.then473:                                       ; preds = %do.body464
   %not474 = xor i64 %vecext.i3179, -1
@@ -20101,18 +20091,16 @@ do.cond.i:                                        ; preds = %do.end.i4734, %getC
 
 do.body475:                                       ; preds = %do.cond.i
   %cmp476 = icmp eq i64 %control.addr.99, 0
-  br i1 %cmp476, label %do.end492, label %if.end491
-
-if.end491:                                        ; preds = %do.body475, %do.body464, %vectoredLoad128.exit, %if.end409
+  %spec.select = zext i1 %cmp476 to i32
   br label %do.end492
 
-do.end492:                                        ; preds = %do.body314, %do.body289, %do.body241, %do.body216, %floodout.i, %do.body475, %do.body450, %do.body392, %do.body367, %do.body137, %do.body112, %do.body58, %do.body34, %if.end491
-  %retval.0 = phi i32 [ 0, %if.end491 ], [ 1, %do.body34 ], [ 1, %do.body58 ], [ 1, %do.body112 ], [ 1, %do.body137 ], [ 1, %do.body367 ], [ 1, %do.body392 ], [ 1, %do.body450 ], [ 1, %do.body475 ], [ 1, %floodout.i ], [ 1, %do.body216 ], [ 1, %do.body241 ], [ 1, %do.body289 ], [ 1, %do.body314 ]
+do.end492:                                        ; preds = %do.body314, %do.body289, %do.body241, %do.body216, %floodout.i, %do.body475, %if.end409, %vectoredLoad128.exit, %do.body464, %do.body450, %do.body392, %do.body367, %do.body137, %do.body112, %do.body58, %do.body34
+  %retval.0 = phi i32 [ 1, %do.body34 ], [ 1, %do.body58 ], [ 1, %do.body112 ], [ 1, %do.body137 ], [ 1, %do.body367 ], [ 1, %do.body392 ], [ 1, %do.body450 ], [ 0, %do.body464 ], [ 0, %vectoredLoad128.exit ], [ 0, %if.end409 ], [ %spec.select, %do.body475 ], [ 1, %floodout.i ], [ 1, %do.body216 ], [ 1, %do.body241 ], [ 1, %do.body289 ], [ 1, %do.body314 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks4(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden i32 @fdr_exec_teddy_msks4(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1180 = alloca i64, align 8
   %tmp.i1132 = alloca i64, align 8
@@ -21553,7 +21541,7 @@ if.end206.i:                                      ; preds = %if.then200.i, %if.e
   br i1 %tobool210.i.not, label %if.end218.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end206.i
-  %207 = trunc i64 %indvars.iv2230 to i32
+  %207 = trunc nuw i64 %indvars.iv2230 to i32
   %add213.i = add i32 %add212.i, %207
   %conv214.i = zext i32 %add213.i to i64
   %208 = load i32, ptr %ids192.i, align 8
@@ -21568,7 +21556,7 @@ if.end218.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool222.i.not, label %if.end230.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end218.i
-  %210 = trunc i64 %indvars.iv2230 to i32
+  %210 = trunc nuw i64 %indvars.iv2230 to i32
   %add225.i = add i32 %add212.i, %210
   %conv226.i = zext i32 %add225.i to i64
   %211 = load i32, ptr %arrayidx204.i, align 4
@@ -21583,7 +21571,7 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %tobool234.i.not, label %if.end242.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %if.end230.i
-  %213 = trunc i64 %indvars.iv2230 to i32
+  %213 = trunc nuw i64 %indvars.iv2230 to i32
   %add237.i = add i32 %add236.i, %213
   %conv238.i = zext i32 %add237.i to i64
   %214 = load i32, ptr %ids192.i, align 8
@@ -21598,7 +21586,7 @@ if.end242.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %tobool246.i.not, label %if.end254.i, label %if.then247.i
 
 if.then247.i:                                     ; preds = %if.end242.i
-  %216 = trunc i64 %indvars.iv2230 to i32
+  %216 = trunc nuw i64 %indvars.iv2230 to i32
   %add249.i = add i32 %add236.i, %216
   %conv250.i = zext i32 %add249.i to i64
   %217 = load i32, ptr %arrayidx204.i, align 4
@@ -21613,7 +21601,7 @@ if.end254.i:                                      ; preds = %if.then247.i, %if.e
   br i1 %tobool258.i.not, label %if.end266.i, label %if.then259.i
 
 if.then259.i:                                     ; preds = %if.end254.i
-  %219 = trunc i64 %indvars.iv2230 to i32
+  %219 = trunc nuw i64 %indvars.iv2230 to i32
   %add261.i = add i32 %add260.i, %219
   %conv262.i = zext i32 %add261.i to i64
   %220 = load i32, ptr %ids192.i, align 8
@@ -21628,7 +21616,7 @@ if.end266.i:                                      ; preds = %if.then259.i, %if.e
   br i1 %tobool270.i.not, label %if.end278.i, label %if.then271.i
 
 if.then271.i:                                     ; preds = %if.end266.i
-  %222 = trunc i64 %indvars.iv2230 to i32
+  %222 = trunc nuw i64 %indvars.iv2230 to i32
   %add273.i = add i32 %add260.i, %222
   %conv274.i = zext i32 %add273.i to i64
   %223 = load i32, ptr %arrayidx204.i, align 4
@@ -21698,7 +21686,7 @@ if.end325.i:                                      ; preds = %if.then319.i, %if.e
   br i1 %tobool329.i.not, label %if.end337.i, label %if.then330.i
 
 if.then330.i:                                     ; preds = %if.end325.i
-  %232 = trunc i64 %indvars.iv to i32
+  %232 = trunc nuw i64 %indvars.iv to i32
   %add332.i = add i32 %add331.i, %232
   %conv333.i = zext i32 %add332.i to i64
   %233 = load i32, ptr %ids300.i, align 8
@@ -21713,7 +21701,7 @@ if.end337.i:                                      ; preds = %if.then330.i, %if.e
   br i1 %tobool341.i.not, label %if.end349.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end337.i
-  %235 = trunc i64 %indvars.iv to i32
+  %235 = trunc nuw i64 %indvars.iv to i32
   %add344.i = add i32 %add331.i, %235
   %conv345.i = zext i32 %add344.i to i64
   %236 = load i32, ptr %arrayidx312.i, align 4
@@ -21728,7 +21716,7 @@ if.end349.i:                                      ; preds = %if.then342.i, %if.e
   br i1 %tobool353.i.not, label %if.end361.i, label %if.then354.i
 
 if.then354.i:                                     ; preds = %if.end349.i
-  %238 = trunc i64 %indvars.iv to i32
+  %238 = trunc nuw i64 %indvars.iv to i32
   %add356.i = add i32 %add331.i, %238
   %conv357.i = zext i32 %add356.i to i64
   %239 = load i32, ptr %arrayidx323.i, align 8
@@ -21848,7 +21836,7 @@ for.end440.i:                                     ; preds = %if.end437.i, %if.en
   br i1 %tobool444.i.not, label %if.end452.i, label %if.then445.i
 
 if.then445.i:                                     ; preds = %for.end440.i
-  %256 = trunc i64 %indvars.iv2242 to i32
+  %256 = trunc nuw i64 %indvars.iv2242 to i32
   %add447.i = add i32 %add446.i, %256
   %conv448.i = zext i32 %add447.i to i64
   %257 = load i32, ptr %ids382.i, align 8
@@ -21863,7 +21851,7 @@ if.end452.i:                                      ; preds = %if.then445.i, %for.
   br i1 %tobool456.i.not, label %if.end464.i, label %if.then457.i
 
 if.then457.i:                                     ; preds = %if.end452.i
-  %259 = trunc i64 %indvars.iv2242 to i32
+  %259 = trunc nuw i64 %indvars.iv2242 to i32
   %add459.i = add i32 %add446.i, %259
   %conv460.i = zext i32 %add459.i to i64
   %260 = load i32, ptr %arrayidx394.i, align 4
@@ -21878,7 +21866,7 @@ if.end464.i:                                      ; preds = %if.then457.i, %if.e
   br i1 %tobool468.i.not, label %if.end476.i, label %if.then469.i
 
 if.then469.i:                                     ; preds = %if.end464.i
-  %262 = trunc i64 %indvars.iv2242 to i32
+  %262 = trunc nuw i64 %indvars.iv2242 to i32
   %add471.i = add i32 %add446.i, %262
   %conv472.i = zext i32 %add471.i to i64
   %263 = load i32, ptr %arrayidx405.i, align 8
@@ -21893,7 +21881,7 @@ if.end476.i:                                      ; preds = %if.then469.i, %if.e
   br i1 %tobool480.i.not, label %if.end488.i, label %if.then481.i
 
 if.then481.i:                                     ; preds = %if.end476.i
-  %265 = trunc i64 %indvars.iv2242 to i32
+  %265 = trunc nuw i64 %indvars.iv2242 to i32
   %add483.i = add i32 %add446.i, %265
   %conv484.i = zext i32 %add483.i to i64
   %266 = load i32, ptr %arrayidx416.i, align 4
@@ -21907,7 +21895,7 @@ if.end488.i:                                      ; preds = %if.then481.i, %if.e
   br i1 %cmp493.i2160, label %for.body495.i.lr.ph, label %for.end512.i
 
 for.body495.i.lr.ph:                              ; preds = %if.end488.i
-  %268 = trunc i64 %indvars.iv2242 to i32
+  %268 = trunc nuw i64 %indvars.iv2242 to i32
   %add503.i = add i32 %add446.i, %268
   %conv504.i = zext i32 %add503.i to i64
   br label %for.body495.i
@@ -23044,7 +23032,7 @@ if.end410:                                        ; preds = %do.body393, %do.bod
   %470 = phi <16 x i8> [ %.lcssa2101, %for.end ], [ %or.i36372056, %do.body393 ], [ %or.i36372056, %do.body382 ], [ %or.i36372056, %if.then335 ]
   %471 = phi <16 x i8> [ %.lcssa, %for.end ], [ %or.i36432054, %do.body393 ], [ %or.i36432054, %do.body382 ], [ %or.i36432054, %if.then335 ]
   %cmp411 = icmp ult ptr %ptr.4, %add.ptr
-  br i1 %cmp411, label %if.then413, label %if.end492
+  br i1 %cmp411, label %if.then413, label %do.end493
 
 if.then413:                                       ; preds = %if.end410
   %len_history417 = getelementptr inbounds i8, ptr %a, i64 24
@@ -23169,7 +23157,7 @@ vectoredLoad128.exit:                             ; preds = %sw.bb1.i1762, %sw.b
   %505 = icmp ne <16 x i8> %504, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %506 = bitcast <16 x i1> %505 to i16
   %tobool425.not = icmp eq i16 %506, 0
-  br i1 %tobool425.not, label %if.end492, label %if.then432
+  br i1 %tobool425.not, label %do.end493, label %if.then432
 
 if.then432:                                       ; preds = %vectoredLoad128.exit
   %vecext.i3723 = extractelement <2 x i64> %or.i3673, i64 0
@@ -23375,7 +23363,7 @@ do.body465:                                       ; preds = %do.body451, %if.the
   %last_match.58 = phi i32 [ %last_match.57, %do.body451 ], [ %last_match.53, %if.then432 ]
   %control.addr.95 = phi i64 [ %control.addr.94, %do.body451 ], [ %control.addr.90, %if.then432 ]
   %cmp466.not = icmp eq i64 %vecext.i3725, -1
-  br i1 %cmp466.not, label %if.end492, label %if.then474
+  br i1 %cmp466.not, label %do.end493, label %if.then474
 
 if.then474:                                       ; preds = %do.body465
   %not475 = xor i64 %vecext.i3725, -1
@@ -23571,18 +23559,16 @@ do.cond.i:                                        ; preds = %do.end.i5280, %getC
 
 do.body476:                                       ; preds = %do.cond.i
   %cmp477 = icmp eq i64 %control.addr.99, 0
-  br i1 %cmp477, label %do.end493, label %if.end492
-
-if.end492:                                        ; preds = %do.body476, %do.body465, %vectoredLoad128.exit, %if.end410
+  %spec.select = zext i1 %cmp477 to i32
   br label %do.end493
 
-do.end493:                                        ; preds = %do.body315, %do.body290, %do.body242, %do.body217, %floodout.i, %do.body476, %do.body451, %do.body393, %do.body368, %do.body138, %do.body113, %do.body59, %do.body35, %if.end492
-  %retval.0 = phi i32 [ 0, %if.end492 ], [ 1, %do.body35 ], [ 1, %do.body59 ], [ 1, %do.body113 ], [ 1, %do.body138 ], [ 1, %do.body368 ], [ 1, %do.body393 ], [ 1, %do.body451 ], [ 1, %do.body476 ], [ 1, %floodout.i ], [ 1, %do.body217 ], [ 1, %do.body242 ], [ 1, %do.body290 ], [ 1, %do.body315 ]
+do.end493:                                        ; preds = %do.body315, %do.body290, %do.body242, %do.body217, %floodout.i, %do.body476, %if.end410, %vectoredLoad128.exit, %do.body465, %do.body451, %do.body393, %do.body368, %do.body138, %do.body113, %do.body59, %do.body35
+  %retval.0 = phi i32 [ 1, %do.body35 ], [ 1, %do.body59 ], [ 1, %do.body113 ], [ 1, %do.body138 ], [ 1, %do.body368 ], [ 1, %do.body393 ], [ 1, %do.body451 ], [ 0, %do.body465 ], [ 0, %vectoredLoad128.exit ], [ 0, %if.end410 ], [ %spec.select, %do.body476 ], [ 1, %floodout.i ], [ 1, %do.body217 ], [ 1, %do.body242 ], [ 1, %do.body290 ], [ 1, %do.body315 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fdr_exec_teddy_msks4_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
+define hidden i32 @fdr_exec_teddy_msks4_pck(ptr noundef readonly %fdr, ptr noundef readonly %a, i64 noundef %control) local_unnamed_addr #0 {
 entry:
   %tmp.i1180 = alloca i64, align 8
   %tmp.i1132 = alloca i64, align 8
@@ -25023,7 +25009,7 @@ if.end206.i:                                      ; preds = %if.then200.i, %if.e
   br i1 %tobool210.i.not, label %if.end218.i, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end206.i
-  %207 = trunc i64 %indvars.iv2230 to i32
+  %207 = trunc nuw i64 %indvars.iv2230 to i32
   %add213.i = add i32 %add212.i, %207
   %conv214.i = zext i32 %add213.i to i64
   %208 = load i32, ptr %ids192.i, align 8
@@ -25038,7 +25024,7 @@ if.end218.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool222.i.not, label %if.end230.i, label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end218.i
-  %210 = trunc i64 %indvars.iv2230 to i32
+  %210 = trunc nuw i64 %indvars.iv2230 to i32
   %add225.i = add i32 %add212.i, %210
   %conv226.i = zext i32 %add225.i to i64
   %211 = load i32, ptr %arrayidx204.i, align 4
@@ -25053,7 +25039,7 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %tobool234.i.not, label %if.end242.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %if.end230.i
-  %213 = trunc i64 %indvars.iv2230 to i32
+  %213 = trunc nuw i64 %indvars.iv2230 to i32
   %add237.i = add i32 %add236.i, %213
   %conv238.i = zext i32 %add237.i to i64
   %214 = load i32, ptr %ids192.i, align 8
@@ -25068,7 +25054,7 @@ if.end242.i:                                      ; preds = %if.then235.i, %if.e
   br i1 %tobool246.i.not, label %if.end254.i, label %if.then247.i
 
 if.then247.i:                                     ; preds = %if.end242.i
-  %216 = trunc i64 %indvars.iv2230 to i32
+  %216 = trunc nuw i64 %indvars.iv2230 to i32
   %add249.i = add i32 %add236.i, %216
   %conv250.i = zext i32 %add249.i to i64
   %217 = load i32, ptr %arrayidx204.i, align 4
@@ -25083,7 +25069,7 @@ if.end254.i:                                      ; preds = %if.then247.i, %if.e
   br i1 %tobool258.i.not, label %if.end266.i, label %if.then259.i
 
 if.then259.i:                                     ; preds = %if.end254.i
-  %219 = trunc i64 %indvars.iv2230 to i32
+  %219 = trunc nuw i64 %indvars.iv2230 to i32
   %add261.i = add i32 %add260.i, %219
   %conv262.i = zext i32 %add261.i to i64
   %220 = load i32, ptr %ids192.i, align 8
@@ -25098,7 +25084,7 @@ if.end266.i:                                      ; preds = %if.then259.i, %if.e
   br i1 %tobool270.i.not, label %if.end278.i, label %if.then271.i
 
 if.then271.i:                                     ; preds = %if.end266.i
-  %222 = trunc i64 %indvars.iv2230 to i32
+  %222 = trunc nuw i64 %indvars.iv2230 to i32
   %add273.i = add i32 %add260.i, %222
   %conv274.i = zext i32 %add273.i to i64
   %223 = load i32, ptr %arrayidx204.i, align 4
@@ -25168,7 +25154,7 @@ if.end325.i:                                      ; preds = %if.then319.i, %if.e
   br i1 %tobool329.i.not, label %if.end337.i, label %if.then330.i
 
 if.then330.i:                                     ; preds = %if.end325.i
-  %232 = trunc i64 %indvars.iv to i32
+  %232 = trunc nuw i64 %indvars.iv to i32
   %add332.i = add i32 %add331.i, %232
   %conv333.i = zext i32 %add332.i to i64
   %233 = load i32, ptr %ids300.i, align 8
@@ -25183,7 +25169,7 @@ if.end337.i:                                      ; preds = %if.then330.i, %if.e
   br i1 %tobool341.i.not, label %if.end349.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end337.i
-  %235 = trunc i64 %indvars.iv to i32
+  %235 = trunc nuw i64 %indvars.iv to i32
   %add344.i = add i32 %add331.i, %235
   %conv345.i = zext i32 %add344.i to i64
   %236 = load i32, ptr %arrayidx312.i, align 4
@@ -25198,7 +25184,7 @@ if.end349.i:                                      ; preds = %if.then342.i, %if.e
   br i1 %tobool353.i.not, label %if.end361.i, label %if.then354.i
 
 if.then354.i:                                     ; preds = %if.end349.i
-  %238 = trunc i64 %indvars.iv to i32
+  %238 = trunc nuw i64 %indvars.iv to i32
   %add356.i = add i32 %add331.i, %238
   %conv357.i = zext i32 %add356.i to i64
   %239 = load i32, ptr %arrayidx323.i, align 8
@@ -25318,7 +25304,7 @@ for.end440.i:                                     ; preds = %if.end437.i, %if.en
   br i1 %tobool444.i.not, label %if.end452.i, label %if.then445.i
 
 if.then445.i:                                     ; preds = %for.end440.i
-  %256 = trunc i64 %indvars.iv2242 to i32
+  %256 = trunc nuw i64 %indvars.iv2242 to i32
   %add447.i = add i32 %add446.i, %256
   %conv448.i = zext i32 %add447.i to i64
   %257 = load i32, ptr %ids382.i, align 8
@@ -25333,7 +25319,7 @@ if.end452.i:                                      ; preds = %if.then445.i, %for.
   br i1 %tobool456.i.not, label %if.end464.i, label %if.then457.i
 
 if.then457.i:                                     ; preds = %if.end452.i
-  %259 = trunc i64 %indvars.iv2242 to i32
+  %259 = trunc nuw i64 %indvars.iv2242 to i32
   %add459.i = add i32 %add446.i, %259
   %conv460.i = zext i32 %add459.i to i64
   %260 = load i32, ptr %arrayidx394.i, align 4
@@ -25348,7 +25334,7 @@ if.end464.i:                                      ; preds = %if.then457.i, %if.e
   br i1 %tobool468.i.not, label %if.end476.i, label %if.then469.i
 
 if.then469.i:                                     ; preds = %if.end464.i
-  %262 = trunc i64 %indvars.iv2242 to i32
+  %262 = trunc nuw i64 %indvars.iv2242 to i32
   %add471.i = add i32 %add446.i, %262
   %conv472.i = zext i32 %add471.i to i64
   %263 = load i32, ptr %arrayidx405.i, align 8
@@ -25363,7 +25349,7 @@ if.end476.i:                                      ; preds = %if.then469.i, %if.e
   br i1 %tobool480.i.not, label %if.end488.i, label %if.then481.i
 
 if.then481.i:                                     ; preds = %if.end476.i
-  %265 = trunc i64 %indvars.iv2242 to i32
+  %265 = trunc nuw i64 %indvars.iv2242 to i32
   %add483.i = add i32 %add446.i, %265
   %conv484.i = zext i32 %add483.i to i64
   %266 = load i32, ptr %arrayidx416.i, align 4
@@ -25377,7 +25363,7 @@ if.end488.i:                                      ; preds = %if.then481.i, %if.e
   br i1 %cmp493.i2160, label %for.body495.i.lr.ph, label %for.end512.i
 
 for.body495.i.lr.ph:                              ; preds = %if.end488.i
-  %268 = trunc i64 %indvars.iv2242 to i32
+  %268 = trunc nuw i64 %indvars.iv2242 to i32
   %add503.i = add i32 %add446.i, %268
   %conv504.i = zext i32 %add503.i to i64
   br label %for.body495.i
@@ -26514,7 +26500,7 @@ if.end410:                                        ; preds = %do.body393, %do.bod
   %470 = phi <16 x i8> [ %.lcssa2101, %for.end ], [ %or.i36372056, %do.body393 ], [ %or.i36372056, %do.body382 ], [ %or.i36372056, %if.then335 ]
   %471 = phi <16 x i8> [ %.lcssa, %for.end ], [ %or.i36432054, %do.body393 ], [ %or.i36432054, %do.body382 ], [ %or.i36432054, %if.then335 ]
   %cmp411 = icmp ult ptr %ptr.4, %add.ptr
-  br i1 %cmp411, label %if.then413, label %if.end492
+  br i1 %cmp411, label %if.then413, label %do.end493
 
 if.then413:                                       ; preds = %if.end410
   %len_history417 = getelementptr inbounds i8, ptr %a, i64 24
@@ -26639,7 +26625,7 @@ vectoredLoad128.exit:                             ; preds = %sw.bb1.i1762, %sw.b
   %505 = icmp ne <16 x i8> %504, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %506 = bitcast <16 x i1> %505 to i16
   %tobool425.not = icmp eq i16 %506, 0
-  br i1 %tobool425.not, label %if.end492, label %if.then432
+  br i1 %tobool425.not, label %do.end493, label %if.then432
 
 if.then432:                                       ; preds = %vectoredLoad128.exit
   %vecext.i3723 = extractelement <2 x i64> %or.i3673, i64 0
@@ -26845,7 +26831,7 @@ do.body465:                                       ; preds = %do.body451, %if.the
   %last_match.58 = phi i32 [ %last_match.57, %do.body451 ], [ %last_match.53, %if.then432 ]
   %control.addr.95 = phi i64 [ %control.addr.94, %do.body451 ], [ %control.addr.90, %if.then432 ]
   %cmp466.not = icmp eq i64 %vecext.i3725, -1
-  br i1 %cmp466.not, label %if.end492, label %if.then474
+  br i1 %cmp466.not, label %do.end493, label %if.then474
 
 if.then474:                                       ; preds = %do.body465
   %not475 = xor i64 %vecext.i3725, -1
@@ -27041,13 +27027,11 @@ do.cond.i:                                        ; preds = %do.end.i5280, %getC
 
 do.body476:                                       ; preds = %do.cond.i
   %cmp477 = icmp eq i64 %control.addr.99, 0
-  br i1 %cmp477, label %do.end493, label %if.end492
-
-if.end492:                                        ; preds = %do.body476, %do.body465, %vectoredLoad128.exit, %if.end410
+  %spec.select = zext i1 %cmp477 to i32
   br label %do.end493
 
-do.end493:                                        ; preds = %do.body315, %do.body290, %do.body242, %do.body217, %floodout.i, %do.body476, %do.body451, %do.body393, %do.body368, %do.body138, %do.body113, %do.body59, %do.body35, %if.end492
-  %retval.0 = phi i32 [ 0, %if.end492 ], [ 1, %do.body35 ], [ 1, %do.body59 ], [ 1, %do.body113 ], [ 1, %do.body138 ], [ 1, %do.body368 ], [ 1, %do.body393 ], [ 1, %do.body451 ], [ 1, %do.body476 ], [ 1, %floodout.i ], [ 1, %do.body217 ], [ 1, %do.body242 ], [ 1, %do.body290 ], [ 1, %do.body315 ]
+do.end493:                                        ; preds = %do.body315, %do.body290, %do.body242, %do.body217, %floodout.i, %do.body476, %if.end410, %vectoredLoad128.exit, %do.body465, %do.body451, %do.body393, %do.body368, %do.body138, %do.body113, %do.body59, %do.body35
+  %retval.0 = phi i32 [ 1, %do.body35 ], [ 1, %do.body59 ], [ 1, %do.body113 ], [ 1, %do.body138 ], [ 1, %do.body368 ], [ 1, %do.body393 ], [ 1, %do.body451 ], [ 0, %do.body465 ], [ 0, %vectoredLoad128.exit ], [ 0, %if.end410 ], [ %spec.select, %do.body476 ], [ 1, %floodout.i ], [ 1, %do.body217 ], [ 1, %do.body242 ], [ 1, %do.body290 ], [ 1, %do.body315 ]
   ret i32 %retval.0
 }
 

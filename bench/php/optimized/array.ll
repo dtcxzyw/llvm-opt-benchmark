@@ -172,7 +172,7 @@ define hidden void @zif_krsort(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %.thread148.thread, label %34
+  br i1 %33, label %php_get_key_compare_func.exit, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -201,12 +201,12 @@ define hidden void @zif_krsort(ptr noundef %0, ptr nocapture noundef writeonly %
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %51
+  br label %52
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %.thread148.thread [
+  switch i64 %43, label %49 [
     i64 1, label %php_get_key_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -228,18 +228,18 @@ define hidden void @zif_krsort(ptr noundef %0, ptr nocapture noundef writeonly %
 48:                                               ; preds = %.thread148
   br label %php_get_key_compare_func.exit
 
-.thread148.thread:                                ; preds = %.thread, %.thread148
+49:                                               ; preds = %.thread148
   br label %php_get_key_compare_func.exit
 
-php_get_key_compare_func.exit:                    ; preds = %46, %44, %.thread148, %48, %.thread148.thread
-  %.0.i = phi ptr [ @php_array_reverse_key_compare_string_locale, %48 ], [ @php_array_reverse_key_compare, %.thread148.thread ], [ @php_array_reverse_key_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
-  %49 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %50, align 8
-  br label %51
+php_get_key_compare_func.exit:                    ; preds = %.thread, %46, %44, %.thread148, %48, %49
+  %.0.i = phi ptr [ @php_array_reverse_key_compare_string_locale, %48 ], [ @php_array_reverse_key_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_reverse_key_compare, %49 ], [ @php_array_reverse_key_compare, %.thread ]
+  %50 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %php_get_key_compare_func.exit, %.thread127
+52:                                               ; preds = %php_get_key_compare_func.exit, %.thread127
   ret void
 }
 
@@ -311,7 +311,7 @@ define hidden void @zif_ksort(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %.thread148.thread, label %34
+  br i1 %33, label %php_get_key_compare_func.exit, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -340,12 +340,12 @@ define hidden void @zif_ksort(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %51
+  br label %52
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %.thread148.thread [
+  switch i64 %43, label %49 [
     i64 1, label %php_get_key_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -367,18 +367,18 @@ define hidden void @zif_ksort(ptr noundef %0, ptr nocapture noundef writeonly %1
 48:                                               ; preds = %.thread148
   br label %php_get_key_compare_func.exit
 
-.thread148.thread:                                ; preds = %.thread, %.thread148
+49:                                               ; preds = %.thread148
   br label %php_get_key_compare_func.exit
 
-php_get_key_compare_func.exit:                    ; preds = %46, %44, %.thread148, %48, %.thread148.thread
-  %.0.i = phi ptr [ @php_array_key_compare_string_locale, %48 ], [ @php_array_key_compare, %.thread148.thread ], [ @php_array_key_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
-  %49 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %50, align 8
-  br label %51
+php_get_key_compare_func.exit:                    ; preds = %.thread, %46, %44, %.thread148, %48, %49
+  %.0.i = phi ptr [ @php_array_key_compare_string_locale, %48 ], [ @php_array_key_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_key_compare, %49 ], [ @php_array_key_compare, %.thread ]
+  %50 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %php_get_key_compare_func.exit, %.thread127
+52:                                               ; preds = %php_get_key_compare_func.exit, %.thread127
   ret void
 }
 
@@ -744,7 +744,7 @@ define internal fastcc void @php_natsort(ptr noundef %0, ptr nocapture noundef w
   tail call void @zend_wrong_parameter_error(i32 noundef %.070.ph, i32 noundef %.067.ph, ptr noundef null, i32 noundef %.069.ph, ptr noundef %.1.ph) #18
   br label %34
 
-.thread:                                          ; preds = %19, %23, %28
+.thread:                                          ; preds = %19, %28, %23
   %.not79 = icmp eq i32 %2, 0
   %32 = load ptr, ptr %.068, align 8
   %php_array_natural_compare.php_array_natural_case_compare = select i1 %.not79, ptr @php_array_natural_compare, ptr @php_array_natural_case_compare
@@ -822,7 +822,7 @@ define hidden void @zif_asort(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %.thread148.thread, label %34
+  br i1 %33, label %php_get_data_compare_func.exit, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -851,12 +851,12 @@ define hidden void @zif_asort(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %51
+  br label %52
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %.thread148.thread [
+  switch i64 %43, label %49 [
     i64 1, label %php_get_data_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -878,18 +878,18 @@ define hidden void @zif_asort(ptr noundef %0, ptr nocapture noundef writeonly %1
 48:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-.thread148.thread:                                ; preds = %.thread, %.thread148
+49:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread148, %48, %.thread148.thread
-  %.0.i = phi ptr [ @php_array_data_compare_string_locale, %48 ], [ @php_array_data_compare, %.thread148.thread ], [ @php_array_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
-  %49 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %50, align 8
-  br label %51
+php_get_data_compare_func.exit:                   ; preds = %.thread, %46, %44, %.thread148, %48, %49
+  %.0.i = phi ptr [ @php_array_data_compare_string_locale, %48 ], [ @php_array_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_data_compare, %49 ], [ @php_array_data_compare, %.thread ]
+  %50 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
+52:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
   ret void
 }
 
@@ -952,7 +952,7 @@ define hidden void @zif_arsort(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %.thread148.thread, label %34
+  br i1 %33, label %php_get_data_compare_func.exit, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -981,12 +981,12 @@ define hidden void @zif_arsort(ptr noundef %0, ptr nocapture noundef writeonly %
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %51
+  br label %52
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %.thread148.thread [
+  switch i64 %43, label %49 [
     i64 1, label %php_get_data_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -1008,18 +1008,18 @@ define hidden void @zif_arsort(ptr noundef %0, ptr nocapture noundef writeonly %
 48:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-.thread148.thread:                                ; preds = %.thread, %.thread148
+49:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread148, %48, %.thread148.thread
-  %.0.i = phi ptr [ @php_array_reverse_data_compare_string_locale, %48 ], [ @php_array_reverse_data_compare, %.thread148.thread ], [ @php_array_reverse_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
-  %49 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %50, align 8
-  br label %51
+php_get_data_compare_func.exit:                   ; preds = %.thread, %46, %44, %.thread148, %48, %49
+  %.0.i = phi ptr [ @php_array_reverse_data_compare_string_locale, %48 ], [ @php_array_reverse_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_reverse_data_compare, %49 ], [ @php_array_reverse_data_compare, %.thread ]
+  %50 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext false) #18
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
+52:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
   ret void
 }
 
@@ -1082,7 +1082,7 @@ define hidden void @zif_sort(ptr noundef %0, ptr nocapture noundef writeonly %1)
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %.thread148.thread, label %34
+  br i1 %33, label %php_get_data_compare_func.exit, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1111,12 +1111,12 @@ define hidden void @zif_sort(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %51
+  br label %52
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %.thread148.thread [
+  switch i64 %43, label %49 [
     i64 1, label %php_get_data_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -1138,18 +1138,18 @@ define hidden void @zif_sort(ptr noundef %0, ptr nocapture noundef writeonly %1)
 48:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-.thread148.thread:                                ; preds = %.thread, %.thread148
+49:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread148, %48, %.thread148.thread
-  %.0.i = phi ptr [ @php_array_data_compare_string_locale, %48 ], [ @php_array_data_compare, %.thread148.thread ], [ @php_array_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
-  %49 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext true) #18
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %50, align 8
-  br label %51
+php_get_data_compare_func.exit:                   ; preds = %.thread, %46, %44, %.thread148, %48, %49
+  %.0.i = phi ptr [ @php_array_data_compare_string_locale, %48 ], [ @php_array_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_data_compare, %49 ], [ @php_array_data_compare, %.thread ]
+  %50 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext true) #18
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
+52:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
   ret void
 }
 
@@ -1212,7 +1212,7 @@ define hidden void @zif_rsort(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread:                                          ; preds = %20, %24, %29
   %33 = icmp eq i32 %5, 1
-  br i1 %33, label %.thread148.thread, label %34
+  br i1 %33, label %php_get_data_compare_func.exit, label %34
 
 34:                                               ; preds = %.thread
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1241,12 +1241,12 @@ define hidden void @zif_rsort(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.0105135 = phi i32 [ 9, %40 ], [ 9, %29 ], [ 1, %7 ], [ 9, %16 ]
   %.0106134 = phi i32 [ 0, %40 ], [ 6, %29 ], [ 0, %7 ], [ 6, %16 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0105135, i32 noundef %.0103137, ptr noundef null, i32 noundef %.0106134, ptr noundef %.1136) #18
-  br label %51
+  br label %52
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread123
   %42 = phi i64 [ %.pre, %..thread148_crit_edge ], [ %39, %.thread123 ]
   %43 = and i64 %42, -9
-  switch i64 %43, label %.thread148.thread [
+  switch i64 %43, label %49 [
     i64 1, label %php_get_data_compare_func.exit
     i64 2, label %44
     i64 6, label %46
@@ -1268,18 +1268,18 @@ define hidden void @zif_rsort(ptr noundef %0, ptr nocapture noundef writeonly %1
 48:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-.thread148.thread:                                ; preds = %.thread, %.thread148
+49:                                               ; preds = %.thread148
   br label %php_get_data_compare_func.exit
 
-php_get_data_compare_func.exit:                   ; preds = %46, %44, %.thread148, %48, %.thread148.thread
-  %.0.i = phi ptr [ @php_array_reverse_data_compare_string_locale, %48 ], [ @php_array_reverse_data_compare, %.thread148.thread ], [ @php_array_reverse_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ]
-  %49 = load ptr, ptr %.0104, align 8
-  call void @zend_hash_sort_ex(ptr noundef %49, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext true) #18
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %50, align 8
-  br label %51
+php_get_data_compare_func.exit:                   ; preds = %.thread, %46, %44, %.thread148, %48, %49
+  %.0.i = phi ptr [ @php_array_reverse_data_compare_string_locale, %48 ], [ @php_array_reverse_data_compare_numeric, %.thread148 ], [ %spec.select, %44 ], [ %spec.select149, %46 ], [ @php_array_reverse_data_compare, %49 ], [ @php_array_reverse_data_compare, %.thread ]
+  %50 = load ptr, ptr %.0104, align 8
+  call void @zend_hash_sort_ex(ptr noundef %50, ptr noundef nonnull @zend_sort, ptr noundef nonnull %.0.i, i1 noundef zeroext true) #18
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %51, align 8
+  br label %52
 
-51:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
+52:                                               ; preds = %php_get_data_compare_func.exit, %.thread127
   ret void
 }
 
@@ -2619,7 +2619,7 @@ define hidden void @zif_min(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 59:                                               ; preds = %.lr.ph
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nuw i64 %indvars.iv to i32
   %61 = sitofp i64 %.0154208 to double
   %62 = fcmp oge double %61, 0x43E0000000000000
   %63 = fcmp olt double %61, 0xC3E0000000000000
@@ -2722,7 +2722,7 @@ define hidden void @zif_min(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br i1 %103, label %.loopexit, label %110
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %104 = trunc i64 %indvars.iv to i32
+  %104 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %94, %75, %68, %102
@@ -3030,7 +3030,7 @@ define hidden void @zif_max(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 59:                                               ; preds = %.lr.ph
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nuw i64 %indvars.iv to i32
   %61 = sitofp i64 %.0154208 to double
   %62 = fcmp oge double %61, 0x43E0000000000000
   %63 = fcmp olt double %61, 0xC3E0000000000000
@@ -3133,7 +3133,7 @@ define hidden void @zif_max(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br i1 %103, label %.loopexit, label %110
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %104 = trunc i64 %indvars.iv to i32
+  %104 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %94, %75, %68, %102
@@ -9297,7 +9297,7 @@ define hidden void @zif_compact(ptr noundef %0, ptr nocapture noundef %1) local_
   %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %54 ]
   %55 = getelementptr inbounds %struct._zval_struct, ptr %8, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = trunc i64 %indvars.iv.next to i32
+  %56 = trunc nuw i64 %indvars.iv.next to i32
   tail call fastcc void @php_compact_var(ptr noundef nonnull %42, ptr noundef nonnull %1, ptr noundef nonnull %55, i32 noundef %56)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %54
@@ -9604,7 +9604,7 @@ thread-pre-split:                                 ; preds = %22
 
 42:                                               ; preds = %41
   %43 = add nuw nsw i64 %35, %26
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw i64 %43 to i32
   %45 = call ptr @_zend_new_array(i32 noundef %44) #18
   store ptr %45, ptr %1, align 8
   %46 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9679,7 +9679,7 @@ thread-pre-split:                                 ; preds = %22
   br i1 %.not168, label %.loopexit, label %.lr.ph188
 
 80:                                               ; preds = %41
-  %81 = trunc i64 %26 to i32
+  %81 = trunc nuw i64 %26 to i32
   %82 = call ptr @_zend_new_array(i32 noundef %81) #18
   store ptr %82, ptr %1, align 8
   %83 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10081,7 +10081,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   %67 = load i64, ptr %37, align 8
   %spec.select = call i64 @llvm.abs.i64(i64 %67, i1 true)
   %.lobit = lshr i64 %67, 63
-  %spec.select538 = trunc i64 %.lobit to i8
+  %spec.select538 = trunc nuw nsw i64 %.lobit to i8
   %68 = sitofp i64 %spec.select to double
   br label %69
 
@@ -10169,7 +10169,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   br i1 %.not528, label %210, label %432
 
 101:                                              ; preds = %91
-  %102 = trunc i8 %.1 to i1
+  %102 = trunc nuw i8 %.1 to i1
   br i1 %102, label %103, label %109
 
 103:                                              ; preds = %101
@@ -10209,7 +10209,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
 
 125:                                              ; preds = %121
   %126 = sdiv i64 %123, %.2450
-  %127 = trunc i64 %126 to i32
+  %127 = trunc nsw i64 %126 to i32
   %128 = add nsw i32 %127, 1
   %129 = call ptr @_zend_new_array(i32 noundef %128) #18
   store ptr %129, ptr %1, align 8
@@ -10278,7 +10278,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   br i1 %161, label %162, label %202
 
 162:                                              ; preds = %160
-  %163 = trunc i8 %.3 to i1
+  %163 = trunc nuw i8 %.3 to i1
   br i1 %163, label %426, label %164
 
 164:                                              ; preds = %162
@@ -10289,7 +10289,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
 
 .lr.ph:                                           ; preds = %164
   %168 = sdiv i64 %166, %.2450
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nsw i64 %168 to i32
   %170 = add nsw i32 %169, 1
   %171 = call ptr @_zend_new_array(i32 noundef %170) #18
   store ptr %171, ptr %1, align 8
@@ -10368,7 +10368,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   br i1 %or.cond14, label %215, label %213
 
 213:                                              ; preds = %210
-  %214 = trunc i8 %.1 to i1
+  %214 = trunc nuw i8 %.1 to i1
   br i1 %214, label %215, label %328
 
 215:                                              ; preds = %213, %210
@@ -10472,7 +10472,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   br i1 %270, label %271, label %322
 
 271:                                              ; preds = %269
-  %272 = trunc i8 %.3 to i1
+  %272 = trunc nuw i8 %.3 to i1
   br i1 %272, label %426, label %273
 
 273:                                              ; preds = %271
@@ -10604,7 +10604,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   br label %432
 
 343:                                              ; preds = %337
-  %344 = trunc i64 %338 to i32
+  %344 = trunc nuw i64 %338 to i32
   %345 = add nuw nsw i32 %344, 1
   %346 = call ptr @_zend_new_array(i32 noundef %345) #18
   store ptr %346, ptr %1, align 8
@@ -10661,7 +10661,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   br i1 %376, label %377, label %420
 
 377:                                              ; preds = %375
-  %378 = trunc i8 %.3 to i1
+  %378 = trunc nuw i8 %.3 to i1
   br i1 %378, label %426, label %379
 
 379:                                              ; preds = %377
@@ -10682,7 +10682,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   br label %432
 
 388:                                              ; preds = %382
-  %389 = trunc i64 %383 to i32
+  %389 = trunc nuw i64 %383 to i32
   %390 = add nuw nsw i32 %389, 1
   %391 = call ptr @_zend_new_array(i32 noundef %390) #18
   store ptr %391, ptr %1, align 8
@@ -11197,7 +11197,7 @@ define noundef zeroext i1 @php_array_data_shuffle(ptr nocapture readonly %0, ptr
   br i1 %.not183, label %158, label %155
 
 155:                                              ; preds = %141
-  %156 = trunc i64 %136 to i32
+  %156 = trunc nuw i64 %136 to i32
   %157 = trunc i64 %138 to i32
   tail call void @_zend_hash_iterators_update(ptr noundef nonnull %4, i32 noundef %157, i32 noundef %156) #18
   br label %158
@@ -11287,7 +11287,7 @@ define hidden void @zif_shuffle(ptr noundef %0, ptr nocapture noundef writeonly 
   tail call void @zend_wrong_parameter_error(i32 noundef %.063.ph, i32 noundef %.060.ph, ptr noundef null, i32 noundef %.062.ph, ptr noundef %.1.ph) #18
   br label %35
 
-.thread:                                          ; preds = %18, %22, %27
+.thread:                                          ; preds = %18, %27, %22
   %31 = tail call ptr @php_random_default_algo() #18
   %32 = tail call ptr @php_random_default_status() #18
   %33 = tail call zeroext i1 @php_array_data_shuffle(ptr %31, ptr %32, ptr noundef nonnull %.061)
@@ -11957,7 +11957,7 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not241, label %130, label %128
 
 128:                                              ; preds = %125
-  %129 = trunc i64 %indvars.iv to i32
+  %129 = trunc nuw i64 %indvars.iv to i32
   tail call void @_zend_hash_iterators_update(ptr noundef nonnull %.pre307.pre310, i32 noundef %129, i32 noundef %.2190269) #18
   %.pre306 = load ptr, ptr %.0184, align 8
   br label %130
@@ -12717,7 +12717,7 @@ define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef write
   %152 = load i32, ptr %148, align 8
   %153 = zext i32 %152 to i64
   %154 = icmp ult i64 %indvars.iv.i, %153
-  %155 = trunc i64 %indvars.iv.i to i32
+  %155 = trunc nuw i64 %indvars.iv.i to i32
   br i1 %154, label %156, label %.critedge.i
 
 156:                                              ; preds = %151
@@ -12998,7 +12998,7 @@ define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef write
 
 281:                                              ; preds = %279
   %282 = trunc i64 %.8419.i to i32
-  %283 = trunc i64 %indvars.iv484.i to i32
+  %283 = trunc nuw i64 %indvars.iv484.i to i32
   call void @_zend_hash_iterators_update(ptr noundef nonnull %105, i32 noundef %283, i32 noundef %282) #18
   br label %284
 
@@ -13038,7 +13038,7 @@ define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef write
   %297 = load i32, ptr %148, align 8
   %298 = zext i32 %297 to i64
   %299 = icmp ult i64 %indvars.iv488.i, %298
-  %300 = trunc i64 %indvars.iv488.i to i32
+  %300 = trunc nuw i64 %indvars.iv488.i to i32
   br i1 %299, label %301, label %.critedge6.i
 
 301:                                              ; preds = %296
@@ -13316,7 +13316,7 @@ define hidden void @zif_array_splice(ptr noundef %0, ptr nocapture noundef write
 
 426:                                              ; preds = %424
   %427 = trunc i64 %.18469.i to i32
-  %428 = trunc i64 %indvars.iv492.i to i32
+  %428 = trunc nuw i64 %indvars.iv492.i to i32
   call void @_zend_hash_iterators_update(ptr noundef nonnull %105, i32 noundef %428, i32 noundef %427) #18
   br label %429
 
@@ -14819,7 +14819,7 @@ define hidden void @zif_array_merge(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not329, label %22, label %16
 
 16:                                               ; preds = %.preheader
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   %18 = add nuw i32 %17, 1
   %19 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %13) #18
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %19) #18
@@ -15292,7 +15292,7 @@ define hidden void @zif_array_merge_recursive(ptr noundef %0, ptr nocapture noun
   br i1 %.not329, label %22, label %16
 
 16:                                               ; preds = %.preheader
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   %18 = add nuw i32 %17, 1
   %19 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %13) #18
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %19) #18
@@ -15762,7 +15762,7 @@ define hidden void @zif_array_replace(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not84, label %22, label %16
 
 16:                                               ; preds = %.preheader
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   %18 = add nuw i32 %17, 1
   %19 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %13) #18
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %19) #18
@@ -15872,7 +15872,7 @@ define hidden void @zif_array_replace_recursive(ptr noundef %0, ptr nocapture no
   br i1 %.not84, label %22, label %16
 
 16:                                               ; preds = %.preheader
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   %18 = add nuw i32 %17, 1
   %19 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %13) #18
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %19) #18
@@ -19020,7 +19020,7 @@ define internal fastcc void @php_array_intersect_key(i32 %.44.val, ptr nocapture
   br i1 %.not103, label %19, label %15
 
 15:                                               ; preds = %11
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   %17 = add nuw i32 %16, 1
   %18 = call ptr @zend_zval_value_name(ptr noundef nonnull %12) #18
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %17, ptr noundef nonnull @.str.3, ptr noundef %18) #18
@@ -19373,7 +19373,7 @@ define internal fastcc void @php_array_intersect(ptr nocapture noundef readonly 
   br i1 %.not292, label %67, label %63
 
 63:                                               ; preds = %58
-  %64 = trunc i64 %indvars.iv387 to i32
+  %64 = trunc nuw i64 %indvars.iv387 to i32
   %65 = add nuw i32 %64, 1
   %66 = call ptr @zend_zval_value_name(ptr noundef nonnull %60) #18
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %65, ptr noundef nonnull @.str.3, ptr noundef %66) #18
@@ -20005,7 +20005,7 @@ define internal fastcc void @php_array_diff_key(i32 %.44.val, ptr nocapture noun
   br i1 %.not102, label %25, label %21
 
 21:                                               ; preds = %17
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   %23 = add nuw i32 %22, 1
   %24 = call ptr @zend_zval_value_name(ptr noundef nonnull %18) #18
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %23, ptr noundef nonnull @.str.3, ptr noundef %24) #18
@@ -20358,7 +20358,7 @@ define internal fastcc void @php_array_diff(ptr nocapture noundef readonly %0, p
   br i1 %.not264, label %67, label %63
 
 63:                                               ; preds = %58
-  %64 = trunc i64 %indvars.iv344 to i32
+  %64 = trunc nuw i64 %indvars.iv344 to i32
   %65 = add nuw i32 %64, 1
   %66 = call ptr @zend_zval_value_name(ptr noundef nonnull %60) #18
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %65, ptr noundef nonnull @.str.3, ptr noundef %66) #18
@@ -20871,7 +20871,7 @@ define hidden void @zif_array_diff(ptr noundef %0, ptr nocapture noundef %1) loc
   br i1 %.not355, label %35, label %29
 
 29:                                               ; preds = %.lr.ph397
-  %30 = trunc i64 %indvars.iv447 to i32
+  %30 = trunc nuw i64 %indvars.iv447 to i32
   %31 = add nuw i32 %30, 1
   %32 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %26) #18
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %31, ptr noundef nonnull @.str.3, ptr noundef %32) #18
@@ -20943,7 +20943,7 @@ define hidden void @zif_array_diff(ptr noundef %0, ptr nocapture noundef %1) loc
   br i1 %.not342, label %62, label %56
 
 56:                                               ; preds = %.lr.ph394
-  %57 = trunc i64 %indvars.iv441 to i32
+  %57 = trunc nuw i64 %indvars.iv441 to i32
   %58 = add nuw i32 %57, 1
   %59 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %53) #18
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %58, ptr noundef nonnull @.str.3, ptr noundef %59) #18
@@ -20993,7 +20993,7 @@ define hidden void @zif_array_diff(ptr noundef %0, ptr nocapture noundef %1) loc
   br i1 %.not347, label %80, label %74
 
 74:                                               ; preds = %70
-  %75 = trunc i64 %indvars.iv to i32
+  %75 = trunc nuw i64 %indvars.iv to i32
   %76 = add nuw i32 %75, 1
   %77 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %71) #18
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %76, ptr noundef nonnull @.str.3, ptr noundef %77) #18
@@ -21181,7 +21181,7 @@ define hidden void @zif_array_diff(ptr noundef %0, ptr nocapture noundef %1) loc
   br i1 %.not338, label %162, label %156
 
 156:                                              ; preds = %.lr.ph401
-  %157 = trunc i64 %indvars.iv452 to i32
+  %157 = trunc nuw i64 %indvars.iv452 to i32
   %158 = add nuw i32 %157, 1
   %159 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %153) #18
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %158, ptr noundef nonnull @.str.3, ptr noundef %159) #18
@@ -21686,7 +21686,7 @@ php_get_data_compare_func_unstable.exit:          ; preds = %44, %47, %48, %51, 
   br label %.loopexit284
 
 70:                                               ; preds = %65
-  %71 = trunc i64 %indvars.iv340 to i32
+  %71 = trunc nuw i64 %indvars.iv340 to i32
   %72 = add nuw i32 %71, 1
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %72, ptr noundef nonnull @.str.25) #18
   tail call void @_efree(ptr noundef %16) #18
@@ -21702,7 +21702,7 @@ php_get_data_compare_func_unstable.exit:          ; preds = %44, %47, %48, %51, 
   br label %.loopexit284
 
 77:                                               ; preds = %73
-  %78 = trunc i64 %indvars.iv340 to i32
+  %78 = trunc nuw i64 %indvars.iv340 to i32
   %79 = add nuw i32 %78, 1
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %79, ptr noundef nonnull @.str.25) #18
   tail call void @_efree(ptr noundef %16) #18
@@ -21710,7 +21710,7 @@ php_get_data_compare_func_unstable.exit:          ; preds = %44, %47, %48, %51, 
   br label %231
 
 80:                                               ; preds = %62
-  %81 = trunc i64 %indvars.iv340 to i32
+  %81 = trunc nuw i64 %indvars.iv340 to i32
   %82 = add nuw i32 %81, 1
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef %82, ptr noundef nonnull @.str.26) #18
   tail call void @_efree(ptr noundef %16) #18
@@ -21718,7 +21718,7 @@ php_get_data_compare_func_unstable.exit:          ; preds = %44, %47, %48, %51, 
   br label %231
 
 83:                                               ; preds = %25
-  %84 = trunc i64 %indvars.iv340 to i32
+  %84 = trunc nuw i64 %indvars.iv340 to i32
   %85 = add nuw i32 %84, 1
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %85, ptr noundef nonnull @.str.27) #18
   tail call void @_efree(ptr noundef %16) #18
@@ -21853,7 +21853,7 @@ php_get_data_compare_func_unstable.exit269:       ; preds = %89, %92, %93, %96, 
 
 126:                                              ; preds = %119, %126
   %indvars.iv348 = phi i64 [ 0, %119 ], [ %indvars.iv.next349, %126 ]
-  %127 = trunc i64 %indvars.iv348 to i32
+  %127 = trunc nuw i64 %indvars.iv348 to i32
   %128 = mul i32 %122, %127
   %129 = zext i32 %128 to i64
   %130 = getelementptr inbounds %struct._Bucket, ptr %125, i64 %129
@@ -21982,7 +21982,7 @@ php_get_data_compare_func_unstable.exit269:       ; preds = %89, %92, %93, %96, 
   %188 = getelementptr inbounds %struct._Bucket, ptr %187, i64 %.pre-phi, i32 0, i32 1
   store i32 0, ptr %188, align 8
   %189 = getelementptr inbounds %struct._Bucket, ptr %187, i64 %.pre-phi, i32 0, i32 2
-  %190 = trunc i64 %indvars.iv361 to i32
+  %190 = trunc nuw i64 %indvars.iv361 to i32
   store i32 %190, ptr %189, align 4
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count364
@@ -22357,7 +22357,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
   br label %.loopexit
 
 128:                                              ; preds = %123
-  %129 = trunc i64 %3 to i32
+  %129 = trunc nuw i64 %3 to i32
   %130 = tail call ptr @_zend_new_array(i32 noundef %129) #18
   store ptr %130, ptr %4, align 8
   %131 = getelementptr inbounds i8, ptr %4, i64 8
@@ -22369,7 +22369,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
   %spec.select265 = select i1 %134, i64 %135, i64 %3
   %136 = add nuw nsw i64 %124, 63
   %137 = lshr i64 %136, 6
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nuw nsw i64 %137 to i32
   %139 = shl nuw nsw i64 %137, 3
   %140 = icmp ugt i32 %138, 4096
   br i1 %140, label %141, label %143
@@ -23920,7 +23920,7 @@ define hidden void @zif_array_map(ptr noundef %0, ptr nocapture noundef %1) loca
   br i1 %.not400, label %192, label %186
 
 186:                                              ; preds = %.lr.ph
-  %187 = trunc i64 %indvars.iv to i32
+  %187 = trunc nuw nsw i64 %indvars.iv to i32
   %188 = add nuw nsw i32 %187, 2
   %189 = call ptr @zend_zval_value_name(ptr noundef nonnull %183) #18
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %188, ptr noundef nonnull @.str.3, ptr noundef %189) #18
@@ -24015,7 +24015,7 @@ define hidden void @zif_array_map(ptr noundef %0, ptr nocapture noundef %1) loca
 
 222:                                              ; preds = %218
   %223 = getelementptr inbounds i8, ptr %219, i64 8
-  %224 = trunc i64 %indvars.iv541 to i32
+  %224 = trunc nuw i64 %indvars.iv541 to i32
   %225 = load ptr, ptr %219, align 8
   %226 = load i32, ptr %223, align 8
   store ptr %225, ptr %8, align 8
@@ -24054,7 +24054,7 @@ define hidden void @zif_array_map(ptr noundef %0, ptr nocapture noundef %1) loca
 
 238:                                              ; preds = %234
   %239 = getelementptr inbounds i8, ptr %235, i64 8
-  %240 = trunc i64 %indvars.iv546 to i32
+  %240 = trunc nuw i64 %indvars.iv546 to i32
   %241 = load ptr, ptr %235, align 8
   %242 = load i32, ptr %239, align 8
   store ptr %241, ptr %8, align 8
@@ -24161,7 +24161,7 @@ define hidden void @zif_array_map(ptr noundef %0, ptr nocapture noundef %1) loca
 
 282:                                              ; preds = %278
   %283 = getelementptr inbounds i8, ptr %279, i64 8
-  %284 = trunc i64 %indvars.iv515 to i32
+  %284 = trunc nuw i64 %indvars.iv515 to i32
   %285 = getelementptr inbounds %struct._zval_struct, ptr %257, i64 %indvars.iv525
   %286 = load ptr, ptr %279, align 8
   %287 = load i32, ptr %283, align 8
@@ -24203,7 +24203,7 @@ define hidden void @zif_array_map(ptr noundef %0, ptr nocapture noundef %1) loca
 
 301:                                              ; preds = %297
   %302 = getelementptr inbounds i8, ptr %298, i64 8
-  %303 = trunc i64 %indvars.iv520 to i32
+  %303 = trunc nuw i64 %indvars.iv520 to i32
   %304 = getelementptr inbounds %struct._zval_struct, ptr %257, i64 %indvars.iv525
   %305 = load ptr, ptr %298, align 8
   %306 = load i32, ptr %302, align 8
@@ -24843,7 +24843,7 @@ define hidden void @zif_array_combine(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not218, label %104, label %61
 
 61:                                               ; preds = %56
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw i64 %indvars.iv to i32
   switch i8 %46, label %69 [
     i8 4, label %63
     i8 6, label %67
@@ -25127,7 +25127,7 @@ define internal i32 @php_array_reverse_key_compare_string_case(ptr nocapture nou
   %.066.i.i = phi i64 [ %17, %16 ], [ %23, %18 ]
   %.064.i.i = phi ptr [ %12, %16 ], [ %22, %18 ]
   %19 = urem i64 %.066.i.i, 10
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = or disjoint i8 %20, 48
   %22 = getelementptr inbounds i8, ptr %.064.i.i, i64 -1
   store i8 %21, ptr %22, align 1
@@ -25148,7 +25148,7 @@ define internal i32 @php_array_reverse_key_compare_string_case(ptr nocapture nou
   %.063.i.i = phi i64 [ %14, %26 ], [ %32, %27 ]
   %.062.i.i = phi ptr [ %12, %26 ], [ %31, %27 ]
   %28 = urem i64 %.063.i.i, 10
-  %29 = trunc i64 %28 to i8
+  %29 = trunc nuw nsw i64 %28 to i8
   %30 = or disjoint i8 %29, 48
   %31 = getelementptr inbounds i8, ptr %.062.i.i, i64 -1
   store i8 %30, ptr %31, align 1
@@ -25193,7 +25193,7 @@ define internal i32 @php_array_reverse_key_compare_string_case(ptr nocapture nou
   %.061.i.i = phi i64 [ %49, %48 ], [ %55, %50 ]
   %.060.i.i = phi ptr [ %44, %48 ], [ %54, %50 ]
   %51 = urem i64 %.061.i.i, 10
-  %52 = trunc i64 %51 to i8
+  %52 = trunc nuw nsw i64 %51 to i8
   %53 = or disjoint i8 %52, 48
   %54 = getelementptr inbounds i8, ptr %.060.i.i, i64 -1
   store i8 %53, ptr %54, align 1
@@ -25214,7 +25214,7 @@ define internal i32 @php_array_reverse_key_compare_string_case(ptr nocapture nou
   %.055.i.i = phi i64 [ %46, %58 ], [ %64, %59 ]
   %.0.i.i = phi ptr [ %44, %58 ], [ %63, %59 ]
   %60 = urem i64 %.055.i.i, 10
-  %61 = trunc i64 %60 to i8
+  %61 = trunc nuw nsw i64 %60 to i8
   %62 = or disjoint i8 %61, 48
   %63 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   store i8 %62, ptr %63, align 1
@@ -25286,7 +25286,7 @@ define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef rea
   %.071 = phi i64 [ %17, %16 ], [ %23, %18 ]
   %.070 = phi ptr [ %12, %16 ], [ %22, %18 ]
   %19 = urem i64 %.071, 10
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = or disjoint i8 %20, 48
   %22 = getelementptr inbounds i8, ptr %.070, i64 -1
   store i8 %21, ptr %22, align 1
@@ -25307,7 +25307,7 @@ define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef rea
   %.069 = phi i64 [ %14, %26 ], [ %32, %27 ]
   %.068 = phi ptr [ %12, %26 ], [ %31, %27 ]
   %28 = urem i64 %.069, 10
-  %29 = trunc i64 %28 to i8
+  %29 = trunc nuw nsw i64 %28 to i8
   %30 = or disjoint i8 %29, 48
   %31 = getelementptr inbounds i8, ptr %.068, i64 -1
   store i8 %30, ptr %31, align 1
@@ -25352,7 +25352,7 @@ define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef rea
   %.067 = phi i64 [ %49, %48 ], [ %55, %50 ]
   %.061 = phi ptr [ %44, %48 ], [ %54, %50 ]
   %51 = urem i64 %.067, 10
-  %52 = trunc i64 %51 to i8
+  %52 = trunc nuw nsw i64 %51 to i8
   %53 = or disjoint i8 %52, 48
   %54 = getelementptr inbounds i8, ptr %.061, i64 -1
   store i8 %53, ptr %54, align 1
@@ -25373,7 +25373,7 @@ define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef rea
   %.060 = phi i64 [ %46, %58 ], [ %64, %59 ]
   %.0 = phi ptr [ %44, %58 ], [ %63, %59 ]
   %60 = urem i64 %.060, 10
-  %61 = trunc i64 %60 to i8
+  %61 = trunc nuw nsw i64 %60 to i8
   %62 = or disjoint i8 %61, 48
   %63 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %62, ptr %63, align 1
@@ -25465,7 +25465,7 @@ define internal i32 @php_array_key_compare_string(ptr nocapture noundef readonly
   %.071 = phi i64 [ %17, %16 ], [ %23, %18 ]
   %.070 = phi ptr [ %12, %16 ], [ %22, %18 ]
   %19 = urem i64 %.071, 10
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = or disjoint i8 %20, 48
   %22 = getelementptr inbounds i8, ptr %.070, i64 -1
   store i8 %21, ptr %22, align 1
@@ -25486,7 +25486,7 @@ define internal i32 @php_array_key_compare_string(ptr nocapture noundef readonly
   %.069 = phi i64 [ %14, %26 ], [ %32, %27 ]
   %.068 = phi ptr [ %12, %26 ], [ %31, %27 ]
   %28 = urem i64 %.069, 10
-  %29 = trunc i64 %28 to i8
+  %29 = trunc nuw nsw i64 %28 to i8
   %30 = or disjoint i8 %29, 48
   %31 = getelementptr inbounds i8, ptr %.068, i64 -1
   store i8 %30, ptr %31, align 1
@@ -25531,7 +25531,7 @@ define internal i32 @php_array_key_compare_string(ptr nocapture noundef readonly
   %.067 = phi i64 [ %49, %48 ], [ %55, %50 ]
   %.061 = phi ptr [ %44, %48 ], [ %54, %50 ]
   %51 = urem i64 %.067, 10
-  %52 = trunc i64 %51 to i8
+  %52 = trunc nuw nsw i64 %51 to i8
   %53 = or disjoint i8 %52, 48
   %54 = getelementptr inbounds i8, ptr %.061, i64 -1
   store i8 %53, ptr %54, align 1
@@ -25552,7 +25552,7 @@ define internal i32 @php_array_key_compare_string(ptr nocapture noundef readonly
   %.060 = phi i64 [ %46, %58 ], [ %64, %59 ]
   %.0 = phi ptr [ %44, %58 ], [ %63, %59 ]
   %60 = urem i64 %.060, 10
-  %61 = trunc i64 %60 to i8
+  %61 = trunc nuw nsw i64 %60 to i8
   %62 = or disjoint i8 %61, 48
   %63 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %62, ptr %63, align 1
@@ -25709,7 +25709,7 @@ define internal i32 @php_array_reverse_key_compare_string_locale(ptr nocapture n
   %.058.i.i = phi i64 [ %15, %14 ], [ %21, %16 ]
   %.056.i.i = phi ptr [ %10, %14 ], [ %20, %16 ]
   %17 = urem i64 %.058.i.i, 10
-  %18 = trunc i64 %17 to i8
+  %18 = trunc nuw nsw i64 %17 to i8
   %19 = or disjoint i8 %18, 48
   %20 = getelementptr inbounds i8, ptr %.056.i.i, i64 -1
   store i8 %19, ptr %20, align 1
@@ -25730,7 +25730,7 @@ define internal i32 @php_array_reverse_key_compare_string_locale(ptr nocapture n
   %.055.i.i = phi i64 [ %12, %24 ], [ %30, %25 ]
   %.054.i.i = phi ptr [ %10, %24 ], [ %29, %25 ]
   %26 = urem i64 %.055.i.i, 10
-  %27 = trunc i64 %26 to i8
+  %27 = trunc nuw nsw i64 %26 to i8
   %28 = or disjoint i8 %27, 48
   %29 = getelementptr inbounds i8, ptr %.054.i.i, i64 -1
   store i8 %28, ptr %29, align 1
@@ -25765,7 +25765,7 @@ define internal i32 @php_array_reverse_key_compare_string_locale(ptr nocapture n
   %.053.i.i = phi i64 [ %41, %40 ], [ %47, %42 ]
   %.052.i.i = phi ptr [ %36, %40 ], [ %46, %42 ]
   %43 = urem i64 %.053.i.i, 10
-  %44 = trunc i64 %43 to i8
+  %44 = trunc nuw nsw i64 %43 to i8
   %45 = or disjoint i8 %44, 48
   %46 = getelementptr inbounds i8, ptr %.052.i.i, i64 -1
   store i8 %45, ptr %46, align 1
@@ -25786,7 +25786,7 @@ define internal i32 @php_array_reverse_key_compare_string_locale(ptr nocapture n
   %.049.i.i = phi i64 [ %38, %50 ], [ %56, %51 ]
   %.0.i.i = phi ptr [ %36, %50 ], [ %55, %51 ]
   %52 = urem i64 %.049.i.i, 10
-  %53 = trunc i64 %52 to i8
+  %53 = trunc nuw nsw i64 %52 to i8
   %54 = or disjoint i8 %53, 48
   %55 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   store i8 %54, ptr %55, align 1
@@ -25848,7 +25848,7 @@ define internal i32 @php_array_key_compare_string_locale(ptr nocapture noundef r
   %.063 = phi i64 [ %15, %14 ], [ %21, %16 ]
   %.062 = phi ptr [ %10, %14 ], [ %20, %16 ]
   %17 = urem i64 %.063, 10
-  %18 = trunc i64 %17 to i8
+  %18 = trunc nuw nsw i64 %17 to i8
   %19 = or disjoint i8 %18, 48
   %20 = getelementptr inbounds i8, ptr %.062, i64 -1
   store i8 %19, ptr %20, align 1
@@ -25869,7 +25869,7 @@ define internal i32 @php_array_key_compare_string_locale(ptr nocapture noundef r
   %.061 = phi i64 [ %12, %24 ], [ %30, %25 ]
   %.060 = phi ptr [ %10, %24 ], [ %29, %25 ]
   %26 = urem i64 %.061, 10
-  %27 = trunc i64 %26 to i8
+  %27 = trunc nuw nsw i64 %26 to i8
   %28 = or disjoint i8 %27, 48
   %29 = getelementptr inbounds i8, ptr %.060, i64 -1
   store i8 %28, ptr %29, align 1
@@ -25904,7 +25904,7 @@ define internal i32 @php_array_key_compare_string_locale(ptr nocapture noundef r
   %.059 = phi i64 [ %41, %40 ], [ %47, %42 ]
   %.055 = phi ptr [ %36, %40 ], [ %46, %42 ]
   %43 = urem i64 %.059, 10
-  %44 = trunc i64 %43 to i8
+  %44 = trunc nuw nsw i64 %43 to i8
   %45 = or disjoint i8 %44, 48
   %46 = getelementptr inbounds i8, ptr %.055, i64 -1
   store i8 %45, ptr %46, align 1
@@ -25925,7 +25925,7 @@ define internal i32 @php_array_key_compare_string_locale(ptr nocapture noundef r
   %.054 = phi i64 [ %38, %50 ], [ %56, %51 ]
   %.0 = phi ptr [ %36, %50 ], [ %55, %51 ]
   %52 = urem i64 %.054, 10
-  %53 = trunc i64 %52 to i8
+  %53 = trunc nuw nsw i64 %52 to i8
   %54 = or disjoint i8 %53, 48
   %55 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %54, ptr %55, align 1
@@ -26167,7 +26167,7 @@ define internal i32 @php_array_key_compare_string_unstable(ptr nocapture noundef
   %.066 = phi i64 [ %17, %16 ], [ %23, %18 ]
   %.064 = phi ptr [ %12, %16 ], [ %22, %18 ]
   %19 = urem i64 %.066, 10
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = or disjoint i8 %20, 48
   %22 = getelementptr inbounds i8, ptr %.064, i64 -1
   store i8 %21, ptr %22, align 1
@@ -26188,7 +26188,7 @@ define internal i32 @php_array_key_compare_string_unstable(ptr nocapture noundef
   %.063 = phi i64 [ %14, %26 ], [ %32, %27 ]
   %.062 = phi ptr [ %12, %26 ], [ %31, %27 ]
   %28 = urem i64 %.063, 10
-  %29 = trunc i64 %28 to i8
+  %29 = trunc nuw nsw i64 %28 to i8
   %30 = or disjoint i8 %29, 48
   %31 = getelementptr inbounds i8, ptr %.062, i64 -1
   store i8 %30, ptr %31, align 1
@@ -26233,7 +26233,7 @@ define internal i32 @php_array_key_compare_string_unstable(ptr nocapture noundef
   %.061 = phi i64 [ %49, %48 ], [ %55, %50 ]
   %.060 = phi ptr [ %44, %48 ], [ %54, %50 ]
   %51 = urem i64 %.061, 10
-  %52 = trunc i64 %51 to i8
+  %52 = trunc nuw nsw i64 %51 to i8
   %53 = or disjoint i8 %52, 48
   %54 = getelementptr inbounds i8, ptr %.060, i64 -1
   store i8 %53, ptr %54, align 1
@@ -26254,7 +26254,7 @@ define internal i32 @php_array_key_compare_string_unstable(ptr nocapture noundef
   %.055 = phi i64 [ %46, %58 ], [ %64, %59 ]
   %.0 = phi ptr [ %44, %58 ], [ %63, %59 ]
   %60 = urem i64 %.055, 10
-  %61 = trunc i64 %60 to i8
+  %61 = trunc nuw nsw i64 %60 to i8
   %62 = or disjoint i8 %61, 48
   %63 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %62, ptr %63, align 1
@@ -26309,7 +26309,7 @@ define internal fastcc i32 @php_array_key_compare_string_natural_general(ptr noc
   %.065 = phi i64 [ %18, %17 ], [ %24, %19 ]
   %.064 = phi ptr [ %13, %17 ], [ %23, %19 ]
   %20 = urem i64 %.065, 10
-  %21 = trunc i64 %20 to i8
+  %21 = trunc nuw nsw i64 %20 to i8
   %22 = or disjoint i8 %21, 48
   %23 = getelementptr inbounds i8, ptr %.064, i64 -1
   store i8 %22, ptr %23, align 1
@@ -26330,7 +26330,7 @@ define internal fastcc i32 @php_array_key_compare_string_natural_general(ptr noc
   %.062 = phi i64 [ %15, %27 ], [ %33, %28 ]
   %.061 = phi ptr [ %13, %27 ], [ %32, %28 ]
   %29 = urem i64 %.062, 10
-  %30 = trunc i64 %29 to i8
+  %30 = trunc nuw nsw i64 %29 to i8
   %31 = or disjoint i8 %30, 48
   %32 = getelementptr inbounds i8, ptr %.061, i64 -1
   store i8 %31, ptr %32, align 1
@@ -26375,7 +26375,7 @@ define internal fastcc i32 @php_array_key_compare_string_natural_general(ptr noc
   %.060 = phi i64 [ %50, %49 ], [ %56, %51 ]
   %.059 = phi ptr [ %45, %49 ], [ %55, %51 ]
   %52 = urem i64 %.060, 10
-  %53 = trunc i64 %52 to i8
+  %53 = trunc nuw nsw i64 %52 to i8
   %54 = or disjoint i8 %53, 48
   %55 = getelementptr inbounds i8, ptr %.059, i64 -1
   store i8 %54, ptr %55, align 1
@@ -26396,7 +26396,7 @@ define internal fastcc i32 @php_array_key_compare_string_natural_general(ptr noc
   %.058 = phi i64 [ %47, %59 ], [ %65, %60 ]
   %.057 = phi ptr [ %45, %59 ], [ %64, %60 ]
   %61 = urem i64 %.058, 10
-  %62 = trunc i64 %61 to i8
+  %62 = trunc nuw nsw i64 %61 to i8
   %63 = or disjoint i8 %62, 48
   %64 = getelementptr inbounds i8, ptr %.057, i64 -1
   store i8 %63, ptr %64, align 1

@@ -428,7 +428,7 @@ if.then97:                                        ; preds = %do.body94
 
 do.end101:                                        ; preds = %do.body94, %if.then97
   %24 = phi ptr [ null, %do.body94 ], [ %.pre, %if.then97 ]
-  %conv102 = trunc i64 %new_l1_size.1 to i32
+  %conv102 = trunc nuw nsw i64 %new_l1_size.1 to i32
   %25 = tail call i32 @llvm.bswap.i32(i32 %conv102)
   store i32 %25, ptr %data, align 4
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 4
@@ -520,7 +520,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %mul, %9
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr i64, ptr %.pre, i64 %idxprom
@@ -794,7 +794,7 @@ default.unreachable158:                           ; preds = %if.end41
   unreachable
 
 sw.epilog:                                        ; preds = %if.end54, %if.end41, %if.end41, %if.end41, %if.end45
-  %conv64 = trunc i64 %shr.i118 to i32
+  %conv64 = trunc nuw nsw i64 %shr.i118 to i32
   %35 = load ptr, ptr %l2_slice, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %type.i)
   %36 = load ptr, ptr %opaque, align 8
@@ -826,7 +826,7 @@ for.body.i:                                       ; preds = %if.end32.i, %for.bo
   %expected_offset.030.i = phi i64 [ %expected_offset.1.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
   %cmp2.i = icmp eq i64 %indvars.iv, 0
   %cond.i = select i1 %cmp2.i, i32 %conv1.i109, i32 0
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   %add3.i = add i32 %conv1.i105, %39
   %.val.i = load i64, ptr %38, align 8
   %40 = trunc i64 %.val.i to i32
@@ -946,7 +946,7 @@ if.else84:                                        ; preds = %out
   unreachable
 
 if.end85:                                         ; preds = %out
-  %conv88 = trunc i64 %sub80 to i32
+  %conv88 = trunc nuw i64 %sub80 to i32
   store i32 %conv88, ptr %bytes, align 4
   store i32 %type.0, ptr %subcluster_type, align 4
   br label %return
@@ -1439,7 +1439,7 @@ for.body.lr.ph.i:                                 ; preds = %trace_qcow2_l2_allo
 for.body.i:                                       ; preds = %trace_qcow2_l2_allocate_write_l2.exit.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %trace_qcow2_l2_allocate_write_l2.exit.i ]
   %30 = load ptr, ptr %l2_table_cache.i, align 8
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw i64 %indvars.iv.i to i32
   %mul23.i = mul i32 %conv20.i, %31
   %conv24.i = zext i32 %mul23.i to i64
   %add.i43 = add nuw nsw i64 %call1.i, %conv24.i
@@ -2005,12 +2005,12 @@ set_l2_bitmap.exit:                               ; preds = %get_l2_bitmap.exit
   %sh_prom.i = zext nneg i32 %.val74 to i64
   %shr.i = lshr i64 %conv94, %sh_prom.i
   %sub.i = add i32 %.val75, -1
-  %40 = trunc i64 %shr.i to i32
+  %40 = trunc nuw i64 %shr.i to i32
   %conv1.i91 = and i32 %sub.i, %40
   %sub = add i32 %cond88, -1
   %conv96 = zext i32 %sub to i64
   %shr.i93 = lshr i64 %conv96, %sh_prom.i
-  %41 = trunc i64 %shr.i93 to i32
+  %41 = trunc nuw i64 %shr.i93 to i32
   %conv1.i95 = and i32 %sub.i, %41
   %add98 = add nuw i32 %conv1.i95, 1
   %sh_prom99 = zext nneg i32 %add98 to i64
@@ -3007,7 +3007,7 @@ if.then34:                                        ; preds = %if.end29
   br label %out.thread
 
 if.end35:                                         ; preds = %if.end29
-  %conv36 = trunc i64 %cond15 to i32
+  %conv36 = trunc nuw nsw i64 %cond15 to i32
   %call37 = tail call fastcc i32 @count_single_write_clusters(ptr noundef nonnull %bs, i32 noundef %conv36, ptr noundef nonnull %16, i32 noundef %17, i1 noundef zeroext false)
   %conv38 = zext i32 %call37 to i64
   %cmp39.not = icmp ult i64 %cond15, %conv38
@@ -3148,7 +3148,7 @@ if.end17:                                         ; preds = %if.end
   %cond = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %conv)
   %shr = lshr i64 2147483136, %sh_prom.i
   %cond12 = tail call i64 @llvm.umin.i64(i64 %cond, i64 %shr)
-  %conv18 = trunc i64 %cond12 to i32
+  %conv18 = trunc nuw nsw i64 %cond12 to i32
   %13 = load ptr, ptr %l2_slice, align 8
   %14 = load i32, ptr %l2_index, align 4
   %call19 = tail call fastcc i32 @count_single_write_clusters(ptr noundef nonnull %bs, i32 noundef %conv18, ptr noundef %13, i32 noundef %14, i1 noundef zeroext true)
@@ -3709,7 +3709,7 @@ if.end77:                                         ; preds = %while.body
 
 while.end:                                        ; preds = %if.end77, %if.end66
   %tobool82.not = icmp eq i32 %cond50, 0
-  br i1 %tobool82.not, label %if.end92, label %if.then83
+  br i1 %tobool82.not, label %fail, label %if.then83
 
 if.then83:                                        ; preds = %while.end
   %13 = getelementptr i8, ptr %0, i64 12
@@ -3722,14 +3722,10 @@ if.then83:                                        ; preds = %while.end
   %shr.i91 = lshr i64 %add.i89, %sh_prom.i90
   %conv86 = trunc i64 %shr.i91 to i32
   %call87 = tail call i32 @zero_l2_subclusters(ptr noundef %bs, i64 noundef %sub53, i32 noundef %conv86), !range !13
-  %cmp88 = icmp slt i32 %call87, 0
-  br i1 %cmp88, label %fail, label %if.end92
-
-if.end92:                                         ; preds = %if.then83, %while.end
   br label %fail
 
-fail:                                             ; preds = %while.body, %if.then83, %if.then55, %if.end92
-  %ret.0 = phi i32 [ %call61, %if.then55 ], [ %call87, %if.then83 ], [ 0, %if.end92 ], [ %call71, %while.body ]
+fail:                                             ; preds = %while.body, %if.then83, %while.end, %if.then55
+  %ret.0 = phi i32 [ %call61, %if.then55 ], [ 0, %while.end ], [ %call87, %if.then83 ], [ %call71, %while.body ]
   store i8 0, ptr %cache_discards, align 8
   tail call void @qcow2_process_discards(ptr noundef %bs, i32 noundef %ret.0) #13
   br label %return
@@ -4086,7 +4082,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %l2_table_cache65 = getelementptr inbounds i8, ptr %0, i64 80
   %31 = load ptr, ptr %l2_table_cache65, align 8
   call void @qcow2_cache_put(ptr noundef %31, ptr noundef nonnull %l2_slice) #13
-  %conv66 = trunc i64 %cond to i32
+  %conv66 = trunc nuw nsw i64 %cond to i32
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -4335,7 +4331,7 @@ if.end24.us:                                      ; preds = %if.end20.us
 
 for.body33.us:                                    ; preds = %if.end24.us, %for.inc169.us
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %for.inc169.us ], [ 0, %if.end24.us ]
-  %10 = trunc i64 %indvars.iv332 to i32
+  %10 = trunc nuw i64 %indvars.iv332 to i32
   %mul34.us = mul i32 %conv3, %10
   %conv35.us = zext i32 %mul34.us to i64
   %add.us = add nuw nsw i64 %and.us, %conv35.us
@@ -4359,7 +4355,7 @@ if.end43.us:                                      ; preds = %if.then37.us, %if.e
 
 for.end.us:                                       ; preds = %for.inc.us, %for.cond48.preheader.us
   %l2_dirty.0.lcssa.us = phi i8 [ 0, %for.cond48.preheader.us ], [ %l2_dirty.1.us, %for.inc.us ]
-  %tobool145.us = trunc i8 %l2_dirty.0.lcssa.us to i1
+  %tobool145.us = trunc nuw i8 %l2_dirty.0.lcssa.us to i1
   br i1 %cmp, label %if.then144.us, label %if.else151.us
 
 if.else151.us:                                    ; preds = %for.end.us
@@ -4835,7 +4831,7 @@ sw.bb8:                                           ; preds = %lor.lhs.false, %lor
   %shl12 = shl i64 %sub11, 32
   %or13 = or i64 %shl12, %l2_bitmap
   %shr = lshr i64 %or13, 32
-  %conv14 = trunc i64 %shr to i32
+  %conv14 = trunc nuw i64 %shr to i32
   %not.i21 = xor i32 %conv14, -1
   %4 = tail call i32 @llvm.cttz.i32(i32 %not.i21, i1 false), !range !30
   %sub16 = sub i32 %4, %sc_from
@@ -5086,7 +5082,7 @@ for.inc.us.us:                                    ; preds = %cluster_needs_new_a
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
   %indvars.iv80 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next81, %for.inc.us ]
-  %11 = trunc i64 %indvars.iv80 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv80 to i32
   %add.us = add i32 %11, %l2_index
   %idxprom.i17.us = sext i32 %add.us to i64
   %arrayidx.i18.us = getelementptr i64, ptr %l2_slice, i64 %idxprom.i17.us
@@ -5174,7 +5170,7 @@ if.end12.us:                                      ; preds = %cluster_needs_new_a
 for.body:                                         ; preds = %for.body.preheader, %if.end12
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end12 ]
   %expected_offset.021 = phi i64 [ %and, %for.body.preheader ], [ %add14, %if.end12 ]
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %19, %l2_index
   %idxprom.i17 = sext i32 %add to i64
   %arrayidx.i18 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i17
@@ -5310,7 +5306,7 @@ if.then.i:                                        ; preds = %for.body
 
 get_l2_bitmap.exit:                               ; preds = %for.body, %if.then.i
   %retval.0.i = phi i64 [ %15, %if.then.i ], [ 0, %for.body ]
-  %tobool13 = trunc i8 %skip_cow.0202 to i1
+  %tobool13 = trunc nuw i8 %skip_cow.0202 to i1
   br i1 %tobool13, label %if.then14, label %if.else40
 
 if.then14:                                        ; preds = %get_l2_bitmap.exit
@@ -5326,12 +5322,12 @@ if.then14:                                        ; preds = %get_l2_bitmap.exit
   %sh_prom.i150 = zext nneg i32 %.val130 to i64
   %shr.i151 = lshr i64 %conv27, %sh_prom.i150
   %sub.i152 = add i32 %.val131, -1
-  %17 = trunc i64 %shr.i151 to i32
+  %17 = trunc nuw i64 %shr.i151 to i32
   %conv1.i153 = and i32 %sub.i152, %17
   %sub29 = add i32 %cond26, -1
   %conv30 = zext i32 %sub29 to i64
   %shr.i155 = lshr i64 %conv30, %sh_prom.i150
-  %18 = trunc i64 %shr.i155 to i32
+  %18 = trunc nuw i64 %shr.i155 to i32
   %conv1.i157 = and i32 %sub.i152, %18
   %call32 = call fastcc i32 @qcow2_get_subcluster_range_type(ptr noundef %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef %conv1.i153, ptr noundef nonnull %type)
   %19 = load i32, ptr %type, align 4
@@ -5371,7 +5367,7 @@ if.then45:                                        ; preds = %if.end42
   br label %return
 
 for.end.loopexit:                                 ; preds = %for.cond
-  %24 = trunc i8 %skip_cow.1 to i1
+  %24 = trunc nuw i8 %skip_cow.1 to i1
   br i1 %24, label %return, label %if.end51
 
 for.end:                                          ; preds = %for.cond.preheader

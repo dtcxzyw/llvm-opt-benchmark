@@ -108,15 +108,15 @@ define dso_local ptr @snd_seq_prioq_cell_out(ptr noundef %0, ptr noundef readonl
 
 19:                                               ; preds = %11
   %20 = icmp ult i32 %17, %18
-  br i1 %20, label %.thread7, label %.thread
+  br i1 %20, label %.thread, label %.thread8
 
 21:                                               ; preds = %11
   %22 = icmp ugt i32 %17, %18
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.thread8, label %23
 
 23:                                               ; preds = %21
   %24 = icmp eq i32 %17, %18
-  br i1 %24, label %25, label %.thread7
+  br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %1, i64 4
@@ -124,13 +124,13 @@ define dso_local ptr @snd_seq_prioq_cell_out(ptr noundef %0, ptr noundef readonl
   %28 = getelementptr inbounds i8, ptr %7, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = icmp ult i32 %27, %29
-  br i1 %30, label %.thread7, label %.thread
+  br i1 %30, label %.thread, label %.thread8
 
 31:                                               ; preds = %4
   %32 = icmp eq ptr %7, null
-  br i1 %32, label %.thread7, label %.thread
+  br i1 %32, label %.thread, label %.thread8
 
-.thread:                                          ; preds = %25, %21, %19, %31
+.thread8:                                         ; preds = %25, %21, %19, %31
   %33 = getelementptr inbounds i8, ptr %7, i64 40
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %0, align 8
@@ -139,25 +139,25 @@ define dso_local ptr @snd_seq_prioq_cell_out(ptr noundef %0, ptr noundef readonl
   %37 = icmp eq ptr %36, %7
   br i1 %37, label %38, label %39
 
-38:                                               ; preds = %.thread
+38:                                               ; preds = %.thread8
   store ptr null, ptr %35, align 8
   br label %39
 
-39:                                               ; preds = %38, %.thread
+39:                                               ; preds = %38, %.thread8
   store ptr null, ptr %33, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, -1
   store i32 %42, ptr %40, align 8
-  br label %.thread7
+  br label %.thread
 
-.thread7:                                         ; preds = %19, %23, %25, %39, %31
-  %43 = phi ptr [ %7, %39 ], [ null, %31 ], [ null, %25 ], [ null, %23 ], [ null, %19 ]
+.thread:                                          ; preds = %25, %19, %23, %39, %31
+  %43 = phi ptr [ %7, %39 ], [ null, %31 ], [ null, %23 ], [ null, %19 ], [ null, %25 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #7
   br label %44
 
-44:                                               ; preds = %.thread7, %2
-  %45 = phi ptr [ %43, %.thread7 ], [ null, %2 ]
+44:                                               ; preds = %.thread, %2
+  %45 = phi ptr [ %43, %.thread ], [ null, %2 ]
   ret ptr %45
 }
 

@@ -3476,7 +3476,7 @@ find_parser_by_type.exit:
   %7 = load i64, ptr %5, align 8
   %8 = icmp eq i64 %7, -2
   %9 = icmp ugt i64 %7, 4294967293
-  %10 = trunc i64 %7 to i32
+  %10 = trunc nuw i64 %7 to i32
   %spec.select = select i1 %9, i32 -1, i32 %10
   %.sink = select i1 %8, i32 -2, i32 %spec.select
   store i32 %.sink, ptr %1, align 4
@@ -3924,7 +3924,7 @@ _v41_parse_INT64.exit:                            ; preds = %8
 
 .thread:                                          ; preds = %5, %12
   %.011.ph18 = phi i64 [ %13, %12 ], [ 0, %5 ]
-  %15 = trunc i64 %.011.ph18 to i32
+  %15 = trunc nsw i64 %.011.ph18 to i32
   store i32 %15, ptr %1, align 4
   br label %16
 
@@ -7635,39 +7635,37 @@ define internal i32 @_v41_parse_QOS_ID_STRING(ptr noundef %0, ptr noundef %1, pt
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1, ptr noundef nonnull @.str.790, i32 noundef %11) #18
-  br label %24
+  br label %23
 
 12:                                               ; preds = %5
   %13 = call i32 @data_get_type(ptr noundef %2) #18
   %14 = icmp eq i32 %13, 3
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %12
   %16 = call ptr @data_key_get(ptr noundef %2, ptr noundef nonnull @.str.888) #18
   %.not20 = icmp eq ptr %16, null
-  br i1 %.not20, label %19, label %17
+  br i1 %.not20, label %23, label %17
 
 17:                                               ; preds = %15
   %18 = call i32 @data_get_string_converted(ptr noundef nonnull %16, ptr noundef %1) #18
   %.not21 = icmp eq i32 %18, 0
-  br i1 %.not21, label %24, label %19
+  %spec.select = select i1 %.not21, i32 0, i32 9202
+  br label %23
 
-19:                                               ; preds = %17, %15
-  br label %24
+19:                                               ; preds = %12
+  %20 = call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
+  %.not18 = icmp eq i32 %20, 4
+  br i1 %.not18, label %21, label %23
 
-20:                                               ; preds = %12
-  %21 = call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
-  %.not18 = icmp eq i32 %21, 4
-  br i1 %.not18, label %22, label %24
-
-22:                                               ; preds = %20
-  %23 = call i32 @data_get_string_converted(ptr noundef %2, ptr noundef %1) #18
-  %.not19 = icmp eq i32 %23, 0
+21:                                               ; preds = %19
+  %22 = call i32 @data_get_string_converted(ptr noundef %2, ptr noundef %1) #18
+  %.not19 = icmp eq i32 %22, 0
   %. = select i1 %.not19, i32 0, i32 9202
-  br label %24
+  br label %23
 
-24:                                               ; preds = %22, %20, %17, %19, %8
-  %.0 = phi i32 [ 9202, %19 ], [ 0, %8 ], [ 0, %17 ], [ 9202, %20 ], [ %., %22 ]
+23:                                               ; preds = %17, %21, %19, %15, %8
+  %.0 = phi i32 [ 0, %8 ], [ 9202, %15 ], [ 9202, %19 ], [ %., %21 ], [ %spec.select, %17 ]
   ret i32 %.0
 }
 
@@ -9110,7 +9108,7 @@ define internal i32 @_v41_dump_STATS_MSG_SCHEDULE_EXIT(ptr nocapture readnone %0
   br i1 %18, label %_set_schedule_exit_field.exit, label %13
 
 19:                                               ; preds = %13
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.899, i32 noundef %20) #20
   unreachable
 
@@ -9478,7 +9476,7 @@ define internal i32 @_v41_dump_STATS_MSG_BF_EXIT(ptr nocapture readnone %0, ptr 
   br i1 %18, label %_set_bf_exit_field.exit, label %13
 
 19:                                               ; preds = %13
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.899, i32 noundef %20) #20
   unreachable
 
@@ -10419,7 +10417,7 @@ define internal noundef i32 @_v41_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %31
-  %36 = trunc i64 %.02744 to i32
+  %36 = trunc nuw i64 %.02744 to i32
   %37 = call ptr @hostlist_nth(ptr noundef %15, i32 noundef %36) #18
   %38 = load ptr, ptr %18, align 8
   %39 = getelementptr inbounds i32, ptr %38, i64 %.03042

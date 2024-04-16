@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_dh_key_from_pkcs8 = private unnamed_addr constant [23 x i8] c"ossl_dh_key_from_pkcs8\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dh_params_fromdata(ptr noundef %dh, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @ossl_dh_params_fromdata(ptr noundef %dh, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %priv_len = alloca i64, align 8
   %call.i = tail call ptr @ossl_dh_get0_params(ptr noundef %dh) #2
@@ -22,7 +22,7 @@ if.end:                                           ; preds = %entry
   tail call void @ossl_dh_cache_named_group(ptr noundef %dh) #2
   %call1 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str) #2
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %if.end7, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %call2 = call i32 @OSSL_PARAM_get_long(ptr noundef nonnull %call1, ptr noundef nonnull %priv_len) #2
@@ -32,14 +32,12 @@ land.lhs.true:                                    ; preds = %if.end
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %0 = load i64, ptr %priv_len, align 8
   %call4 = call i32 @DH_set_length(ptr noundef %dh, i64 noundef %0) #2
-  %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %return, label %if.end7
-
-if.end7:                                          ; preds = %lor.lhs.false, %if.end
+  %tobool5.not = icmp ne i32 %call4, 0
+  %spec.select = zext i1 %tobool5.not to i32
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true, %lor.lhs.false, %if.end7
-  %retval.0 = phi i32 [ 1, %if.end7 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %entry ]
+return:                                           ; preds = %entry, %lor.lhs.false, %if.end, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 1, %if.end ], [ %spec.select, %lor.lhs.false ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -113,7 +111,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dh_params_todata(ptr noundef %dh, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @ossl_dh_params_todata(ptr noundef %dh, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @DH_get_length(ptr noundef %dh) #2
   %call1 = tail call ptr @ossl_dh_get0_params(ptr noundef %dh) #2
@@ -123,18 +121,16 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp = icmp sgt i64 %call, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end6
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
   %call3 = tail call i32 @ossl_param_build_set_long(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str, i64 noundef %call) #2
-  %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %return, label %if.end6
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
+  %tobool4.not = icmp ne i32 %call3, 0
+  %spec.select = zext i1 %tobool4.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %if.end6
-  %retval.0 = phi i32 [ 1, %if.end6 ], [ 0, %entry ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -147,7 +143,7 @@ declare ptr @ossl_dh_get0_params(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_param_build_set_long(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dh_key_todata(ptr noundef %dh, ptr noundef %bld, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define i32 @ossl_dh_key_todata(ptr noundef %dh, ptr noundef %bld, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %priv = alloca ptr, align 8
   %pub = alloca ptr, align 8
@@ -172,18 +168,16 @@ land.lhs.true2:                                   ; preds = %if.end
 if.end5:                                          ; preds = %land.lhs.true2, %if.end
   %1 = load ptr, ptr %pub, align 8
   %cmp6.not = icmp eq ptr %1, null
-  br i1 %cmp6.not, label %if.end11, label %land.lhs.true7
+  br i1 %cmp6.not, label %return, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %if.end5
   %call8 = call i32 @ossl_param_build_set_bn(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #2
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %return, label %if.end11
-
-if.end11:                                         ; preds = %land.lhs.true7, %if.end5
+  %tobool9.not = icmp ne i32 %call8, 0
+  %spec.select = zext i1 %tobool9.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true7, %land.lhs.true2, %entry, %if.end11
-  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %entry ], [ 0, %land.lhs.true2 ], [ 0, %land.lhs.true7 ]
+return:                                           ; preds = %land.lhs.true7, %if.end5, %land.lhs.true2, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %land.lhs.true2 ], [ 1, %if.end5 ], [ %spec.select, %land.lhs.true7 ]
   ret i32 %retval.0
 }
 
@@ -262,28 +256,28 @@ if.end11:                                         ; preds = %if.end3
   br i1 %or.cond, label %if.end37, label %err
 
 if.end11.thread:                                  ; preds = %land.lhs.true
-  %flags31 = getelementptr inbounds i8, ptr %dh, i64 128
-  %4 = load i32, ptr %flags31, align 8
-  %flags1232 = getelementptr inbounds i8, ptr %call1, i64 128
-  store i32 %4, ptr %flags1232, align 8
-  %and1333 = and i32 %selection, 2
-  %cmp14.not34 = icmp eq i32 %and1333, 0
-  br i1 %cmp14.not34, label %if.end24, label %lor.lhs.false
+  %flags32 = getelementptr inbounds i8, ptr %dh, i64 128
+  %4 = load i32, ptr %flags32, align 8
+  %flags1233 = getelementptr inbounds i8, ptr %call1, i64 128
+  store i32 %4, ptr %flags1233, align 8
+  %and1334 = and i32 %selection, 2
+  %cmp14.not35 = icmp eq i32 %and1334, 0
+  br i1 %cmp14.not35, label %if.end24, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11.thread
   %pub_key20 = getelementptr inbounds i8, ptr %dh, i64 112
   %5 = load ptr, ptr %pub_key20, align 8
   %cmp.not.i19 = icmp eq ptr %5, null
-  br i1 %cmp.not.i19, label %if.end24, label %land.lhs.true.i
+  br i1 %cmp.not.i19, label %if.end24, label %dh_bn_dup_check.exit
 
-land.lhs.true.i:                                  ; preds = %lor.lhs.false
+dh_bn_dup_check.exit:                             ; preds = %lor.lhs.false
   %pub_key = getelementptr inbounds i8, ptr %call1, i64 112
   %call.i20 = tail call ptr @BN_dup(ptr noundef nonnull %5) #2
   store ptr %call.i20, ptr %pub_key, align 8
-  %cmp1.i = icmp eq ptr %call.i20, null
-  br i1 %cmp1.i, label %err, label %if.end24
+  %cmp1.i.not = icmp eq ptr %call.i20, null
+  br i1 %cmp1.i.not, label %err, label %if.end24
 
-if.end24:                                         ; preds = %land.lhs.true.i, %lor.lhs.false, %if.end11.thread
+if.end24:                                         ; preds = %lor.lhs.false, %if.end11.thread, %dh_bn_dup_check.exit
   %and25 = and i32 %selection, 1
   %cmp26.not = icmp eq i32 %and25, 0
   br i1 %cmp26.not, label %if.end37, label %land.lhs.true28
@@ -294,24 +288,24 @@ land.lhs.true28:                                  ; preds = %if.end24
 lor.lhs.false32:                                  ; preds = %land.lhs.true28
   %priv_key33 = getelementptr inbounds i8, ptr %dh, i64 120
   %6 = load ptr, ptr %priv_key33, align 8
-  %cmp.not.i22 = icmp eq ptr %6, null
-  br i1 %cmp.not.i22, label %if.end37, label %land.lhs.true.i23
+  %cmp.not.i23 = icmp eq ptr %6, null
+  br i1 %cmp.not.i23, label %if.end37, label %dh_bn_dup_check.exit29
 
-land.lhs.true.i23:                                ; preds = %lor.lhs.false32
+dh_bn_dup_check.exit29:                           ; preds = %lor.lhs.false32
   %priv_key = getelementptr inbounds i8, ptr %call1, i64 120
-  %call.i24 = tail call ptr @BN_dup(ptr noundef nonnull %6) #2
-  store ptr %call.i24, ptr %priv_key, align 8
-  %cmp1.i25 = icmp eq ptr %call.i24, null
-  br i1 %cmp1.i25, label %err, label %if.end37
+  %call.i25 = tail call ptr @BN_dup(ptr noundef nonnull %6) #2
+  store ptr %call.i25, ptr %priv_key, align 8
+  %cmp1.i26.not = icmp eq ptr %call.i25, null
+  br i1 %cmp1.i26.not, label %err, label %if.end37
 
-if.end37:                                         ; preds = %if.end11, %land.lhs.true.i23, %lor.lhs.false32, %if.end24
+if.end37:                                         ; preds = %if.end11, %lor.lhs.false32, %dh_bn_dup_check.exit29, %if.end24
   %ex_data = getelementptr inbounds i8, ptr %call1, i64 152
   %ex_data38 = getelementptr inbounds i8, ptr %dh, i64 152
   %call39 = tail call i32 @CRYPTO_dup_ex_data(i32 noundef 6, ptr noundef nonnull %ex_data, ptr noundef nonnull %ex_data38) #2
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %err, label %return
 
-err:                                              ; preds = %land.lhs.true.i23, %land.lhs.true.i, %if.end11, %if.end37, %land.lhs.true28, %land.lhs.true
+err:                                              ; preds = %if.end11, %if.end37, %land.lhs.true28, %dh_bn_dup_check.exit29, %dh_bn_dup_check.exit, %land.lhs.true
   tail call void @DH_free(ptr noundef nonnull %call1) #2
   br label %return
 

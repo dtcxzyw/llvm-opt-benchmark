@@ -1229,7 +1229,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI6CmdNarSaIvELN9__gnu_cxx12
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI6CmdNarSaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
+  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1240,19 +1240,17 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI6CmdNarSaIvELN9_
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %10, 42
-  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
+  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #22
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
-  br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
+  %spec.select = select i1 %12, ptr %3, ptr null
+  br label %_ZNKSt9type_infoeqERKS_.exit.thread
 
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %5, %_ZNKSt9type_infoeqERKS_.exit
-  br label %_ZNKSt9type_infoeqERKS_.exit.thread8
-
-_ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %2
-  %.0 = phi ptr [ %3, %2 ], [ %3, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ]
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %9, %5, %2
+  %.0 = phi ptr [ %3, %2 ], [ %3, %5 ], [ null, %9 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %.0
 }
 
@@ -2574,7 +2572,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %27 = sub i64 %19, %21
   %spec.select7.i.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %.08.i.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i.i.i.i.i to i32
+  %.0.i6.i.i.i.i.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i.i.i.i.i to i32
   %28 = icmp eq i32 %.0.i6.i.i.i.i.i.i.i.i.i, 0
   br i1 %28, label %29, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit.i.i.i
 
@@ -2646,7 +2644,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %54 = sub i64 %46, %48
   %spec.select7.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %54, i64 -2147483648)
   %.08.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i.i to i32
+  %.0.i6.i.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i.i to i32
   %55 = icmp eq i32 %.0.i6.i.i.i.i.i.i, 0
   br i1 %55, label %56, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit
 
@@ -2747,7 +2745,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %36 = sub i64 %28, %30
   %spec.select7.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %36, i64 -2147483648)
   %.08.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i.i.i.i to i32
+  %.0.i6.i.i.i.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i.i.i.i to i32
   %37 = icmp eq i32 %.0.i6.i.i.i.i.i.i.i.i, 0
   br i1 %37, label %38, label %.loopexit.split.loop.exit.i.i.i.i.i
 
@@ -2843,7 +2841,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %31 = sub i64 %23, %25
   %spec.select7.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %31, i64 -2147483648)
   %.08.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i.i to i32
+  %.0.i6.i.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i.i to i32
   %32 = icmp eq i32 %.0.i6.i.i.i.i.i.i, 0
   br i1 %32, label %33, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit
 
@@ -2909,7 +2907,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %61 = sub i64 %53, %55
   %spec.select7.i.i.i.i.i.i.i19 = tail call i64 @llvm.smax.i64(i64 %61, i64 -2147483648)
   %.08.i.i.i.i.i.i.i20 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i19, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i21 = trunc i64 %.08.i.i.i.i.i.i.i20 to i32
+  %.0.i6.i.i.i.i.i.i21 = trunc nsw i64 %.08.i.i.i.i.i.i.i20 to i32
   %62 = icmp eq i32 %.0.i6.i.i.i.i.i.i21, 0
   br i1 %62, label %63, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit25
 
@@ -2973,7 +2971,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %90 = sub i64 %82, %84
   %spec.select7.i.i.i.i.i.i.i35 = tail call i64 @llvm.smax.i64(i64 %90, i64 -2147483648)
   %.08.i.i.i.i.i.i.i36 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i35, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i37 = trunc i64 %.08.i.i.i.i.i.i.i36 to i32
+  %.0.i6.i.i.i.i.i.i37 = trunc nsw i64 %.08.i.i.i.i.i.i.i36 to i32
   %91 = icmp eq i32 %.0.i6.i.i.i.i.i.i37, 0
   br i1 %91, label %92, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit41
 
@@ -3040,7 +3038,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %116 = sub i64 %108, %110
   %spec.select7.i.i.i.i.i.i.i51 = tail call i64 @llvm.smax.i64(i64 %116, i64 -2147483648)
   %.08.i.i.i.i.i.i.i52 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i51, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i53 = trunc i64 %.08.i.i.i.i.i.i.i52 to i32
+  %.0.i6.i.i.i.i.i.i53 = trunc nsw i64 %.08.i.i.i.i.i.i.i52 to i32
   %117 = icmp eq i32 %.0.i6.i.i.i.i.i.i53, 0
   br i1 %117, label %118, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit57
 
@@ -3103,7 +3101,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %144 = sub i64 %136, %138
   %spec.select7.i.i.i.i.i.i.i67 = tail call i64 @llvm.smax.i64(i64 %144, i64 -2147483648)
   %.08.i.i.i.i.i.i.i68 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i67, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i69 = trunc i64 %.08.i.i.i.i.i.i.i68 to i32
+  %.0.i6.i.i.i.i.i.i69 = trunc nsw i64 %.08.i.i.i.i.i.i.i68 to i32
   %145 = icmp eq i32 %.0.i6.i.i.i.i.i.i69, 0
   br i1 %145, label %146, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit73
 
@@ -3470,7 +3468,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %28 = sub i64 %20, %22
   %spec.select7.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %28, i64 -2147483648)
   %.08.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i.i to i32
+  %.0.i6.i.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i.i to i32
   %29 = icmp eq i32 %.0.i6.i.i.i.i.i.i, 0
   br i1 %29, label %30, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit
 
@@ -3558,7 +3556,7 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %62 = sub i64 %54, %56
   %spec.select7.i.i.i.i.i.i.i14 = tail call i64 @llvm.smax.i64(i64 %62, i64 -2147483648)
   %.08.i.i.i.i.i.i.i15 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i14, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i16 = trunc i64 %.08.i.i.i.i.i.i.i15 to i32
+  %.0.i6.i.i.i.i.i.i16 = trunc nsw i64 %.08.i.i.i.i.i.i.i15 to i32
   %63 = icmp eq i32 %.0.i6.i.i.i.i.i.i16, 0
   br i1 %63, label %64, label %_ZNKSt4lessISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEclERKS8_SB_.exit20
 

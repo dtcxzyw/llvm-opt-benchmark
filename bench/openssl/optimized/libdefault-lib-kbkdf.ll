@@ -479,7 +479,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kbkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal i32 @kbkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %new_r = alloca i32, align 4
   %0 = load ptr, ptr %vctx, align 8
@@ -645,12 +645,12 @@ land.lhs.true92:                                  ; preds = %if.end89
 if.end96:                                         ; preds = %land.lhs.true92, %if.end89
   %12 = load ptr, ptr %ctx_init, align 8
   %cmp98.not = icmp eq ptr %12, null
-  br i1 %cmp98.not, label %if.end119, label %land.lhs.true99
+  br i1 %cmp98.not, label %return, label %land.lhs.true99
 
 land.lhs.true99:                                  ; preds = %if.end96
   %13 = load i64, ptr %ki_len, align 8
   %cmp101.not = icmp eq i64 %13, 0
-  br i1 %cmp101.not, label %if.end119, label %if.then102
+  br i1 %cmp101.not, label %return, label %if.then102
 
 if.then102:                                       ; preds = %land.lhs.true99
   %is_kmac103 = getelementptr inbounds i8, ptr %vctx, i64 100
@@ -675,14 +675,12 @@ lor.lhs.false111:                                 ; preds = %land.lhs.true105.lo
   %18 = phi ptr [ %.pre, %land.lhs.true105.lor.lhs.false111_crit_edge ], [ %12, %if.then102 ]
   %19 = load ptr, ptr %ki, align 8
   %call115 = call i32 @EVP_MAC_init(ptr noundef %18, ptr noundef %19, i64 noundef %17, ptr noundef null) #7
-  %tobool116.not = icmp eq i32 %call115, 0
-  br i1 %tobool116.not, label %return, label %if.end119
-
-if.end119:                                        ; preds = %lor.lhs.false111, %land.lhs.true99, %if.end96
+  %tobool116.not = icmp ne i32 %call115, 0
+  %spec.select = zext i1 %tobool116.not to i32
   br label %return
 
-return:                                           ; preds = %if.end79, %land.lhs.true105, %lor.lhs.false111, %land.lhs.true92, %if.then75, %land.lhs.true68, %if.end61, %if.end57, %if.end53, %if.end49, %if.end, %entry, %if.end119, %if.then46, %if.then24
-  %retval.0 = phi i32 [ 1, %if.end119 ], [ 0, %if.then46 ], [ 0, %if.then24 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.end49 ], [ 0, %if.end53 ], [ 0, %if.end57 ], [ 0, %if.end61 ], [ 0, %land.lhs.true68 ], [ 0, %if.then75 ], [ 0, %if.end79 ], [ 0, %land.lhs.true92 ], [ 0, %lor.lhs.false111 ], [ 0, %land.lhs.true105 ]
+return:                                           ; preds = %lor.lhs.false111, %if.end79, %if.end96, %land.lhs.true99, %land.lhs.true105, %land.lhs.true92, %if.then75, %land.lhs.true68, %if.end61, %if.end57, %if.end53, %if.end49, %if.end, %entry, %if.then46, %if.then24
+  %retval.0 = phi i32 [ 0, %if.then46 ], [ 0, %if.then24 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.end49 ], [ 0, %if.end53 ], [ 0, %if.end57 ], [ 0, %if.end61 ], [ 0, %land.lhs.true68 ], [ 0, %if.then75 ], [ 0, %if.end79 ], [ 0, %land.lhs.true92 ], [ 0, %land.lhs.true105 ], [ 1, %land.lhs.true99 ], [ 1, %if.end96 ], [ %spec.select, %lor.lhs.false111 ]
   ret i32 %retval.0
 }
 

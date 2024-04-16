@@ -514,7 +514,7 @@ Abc_SopStart.exit.preheader:                      ; preds = %27
 
 42:                                               ; preds = %.lr.ph45.us, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph45.us ], [ %indvars.iv.next, %42 ]
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
   %44 = lshr i32 %.148.us, %43
   %45 = trunc i32 %44 to i8
   %46 = and i8 %45, 1
@@ -666,7 +666,7 @@ define ptr @Abc_SopCreateFromTruthIsop(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = icmp eq i32 %8, %13
   br i1 %14, label %._crit_edge.thread, label %.preheader33
 
@@ -695,7 +695,7 @@ define ptr @Abc_SopCreateFromTruthIsop(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %exitcond48.not, label %._crit_edge39.thread53, label %.lr.ph38, !llvm.loop !15
 
 ._crit_edge39:                                    ; preds = %.lr.ph38
-  %19 = trunc i64 %indvars.iv44 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv44 to i32
   %20 = icmp eq i32 %8, %19
   br i1 %20, label %._crit_edge39.thread53, label %._crit_edge39.thread
 
@@ -1446,71 +1446,58 @@ define i32 @Abc_SopIsConst1(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @Abc_SopIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define i32 @Abc_SopIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %14
+  br i1 %.not, label %4, label %.thread
 
 4:                                                ; preds = %1
   %5 = load i8, ptr %0, align 1
-  switch i8 %5, label %.thread [
-    i8 49, label %6
-    i8 48, label %10
-  ]
+  %6 = and i8 %5, -2
+  %switch = icmp eq i8 %6, 48
+  br i1 %switch, label %.thread.sink.split, label %.thread
 
-6:                                                ; preds = %4
+.thread.sink.split:                               ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 1
-  %9 = icmp eq i8 %8, 49
-  br i1 %9, label %14, label %.thread
+  %9 = icmp eq i8 %8, %5
+  %10 = zext i1 %9 to i32
+  br label %.thread
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
-  %12 = load i8, ptr %11, align 1
-  %13 = icmp eq i8 %12, 48
-  br i1 %13, label %14, label %.thread
-
-.thread:                                          ; preds = %4, %6, %10
-  br label %14
-
-14:                                               ; preds = %6, %10, %1, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %1 ], [ 1, %10 ], [ 1, %6 ]
-  ret i32 %.0
+.thread:                                          ; preds = %4, %.thread.sink.split, %1
+  %.0.shrunk = phi i32 [ 0, %1 ], [ 0, %4 ], [ %10, %.thread.sink.split ]
+  ret i32 %.0.shrunk
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @Abc_SopIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define i32 @Abc_SopIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %4, label %14
+  br i1 %.not, label %4, label %.thread
 
 4:                                                ; preds = %1
   %5 = load i8, ptr %0, align 1
   switch i8 %5, label %.thread [
-    i8 48, label %6
-    i8 49, label %10
+    i8 48, label %.thread.sink.split
+    i8 49, label %6
   ]
 
 6:                                                ; preds = %4
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %4, %6
+  %.sink6 = phi i8 [ 48, %6 ], [ 49, %4 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 1
-  %9 = icmp eq i8 %8, 49
-  br i1 %9, label %14, label %.thread
+  %9 = icmp eq i8 %8, %.sink6
+  %10 = zext i1 %9 to i32
+  br label %.thread
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
-  %12 = load i8, ptr %11, align 1
-  %13 = icmp eq i8 %12, 48
-  br i1 %13, label %14, label %.thread
-
-.thread:                                          ; preds = %4, %6, %10
-  br label %14
-
-14:                                               ; preds = %6, %10, %1, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %1 ], [ 1, %10 ], [ 1, %6 ]
-  ret i32 %.0
+.thread:                                          ; preds = %.thread.sink.split, %4, %1
+  %.0.shrunk = phi i32 [ 0, %1 ], [ 0, %4 ], [ %10, %.thread.sink.split ]
+  ret i32 %.0.shrunk
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -2019,7 +2006,7 @@ Vec_IntFree.exit:                                 ; preds = %23, %25
   br label %101
 
 27:                                               ; preds = %21
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = xor i32 %28, -1
   %30 = add nsw i32 %29, %3
   %31 = load i32, ptr %13, align 4
@@ -2151,7 +2138,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 86:                                               ; preds = %.lr.ph79.us, %86
   %indvars.iv91 = phi i64 [ 0, %.lr.ph79.us ], [ %indvars.iv.next92, %86 ]
-  %87 = trunc i64 %indvars.iv91 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv91 to i32
   %88 = shl nuw i32 1, %87
   %89 = and i32 %88, %83
   %.not66.us = icmp eq i32 %89, 0
@@ -2418,7 +2405,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i
 33:                                               ; preds = %.lr.ph, %27, %30
   %.079.in = phi i8 [ %narrow86, %27 ], [ %narrow, %30 ], [ %24, %.lr.ph ]
   %.079 = zext nneg i8 %.079.in to i32
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = xor i32 %34, -1
   %36 = add nsw i32 %35, %3
   %37 = shl nsw i32 %36, 2
@@ -2564,7 +2551,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 101:                                              ; preds = %96, %101
   %indvars.iv107 = phi i64 [ 0, %96 ], [ %indvars.iv.next108, %101 ]
-  %102 = trunc i64 %indvars.iv107 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv107 to i32
   %103 = shl nuw i32 1, %102
   %104 = and i32 %103, %98
   %.not85 = icmp eq i32 %104, 0
@@ -3189,7 +3176,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader40 ]
   %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader40 ]
   %72 = urem i32 %.11531, 10
-  %73 = trunc i32 %72 to i8
+  %73 = trunc nuw nsw i32 %72 to i8
   %74 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %73, ptr %74, align 1
   %75 = udiv i32 %.11531, 10
@@ -3266,7 +3253,7 @@ Vec_StrPush.exit30:                               ; preds = %.Vec_StrGrow.exit10
   %106 = sext i32 %104 to i64
   %107 = getelementptr inbounds i8, ptr %103, i64 %106
   store i8 %80, ptr %107, align 1
-  %108 = trunc i64 %indvars.iv37 to i32
+  %108 = trunc nuw i64 %indvars.iv37 to i32
   %109 = icmp sgt i32 %108, 1
   br i1 %109, label %76, label %.loopexit, !llvm.loop !47
 
@@ -3994,16 +3981,15 @@ Abc_SopIsComplement.exit:                         ; preds = %34
   %40 = icmp ne i8 %39, 48
   %41 = icmp ne i8 %39, 110
   %narrow.i.not = and i1 %40, %41
-  %42 = xor i64 %.us-phi, -1
   %cond.fr = freeze i1 %narrow.i.not
-  br i1 %cond.fr, label %Abc_SopIsComplement.exit.thread, label %43
+  %not.cond.fr = xor i1 %cond.fr, true
+  %42 = sext i1 %not.cond.fr to i64
+  %spec.select = xor i64 %.us-phi, %42
+  br label %Abc_SopIsComplement.exit.thread
 
 Abc_SopIsComplement.exit.thread:                  ; preds = %34, %Abc_SopIsComplement.exit
-  br label %43
-
-43:                                               ; preds = %Abc_SopIsComplement.exit, %Abc_SopIsComplement.exit.thread
-  %44 = phi i64 [ %.us-phi, %Abc_SopIsComplement.exit.thread ], [ %42, %Abc_SopIsComplement.exit ]
-  ret i64 %44
+  %43 = phi i64 [ %spec.select, %Abc_SopIsComplement.exit ], [ %.us-phi, %34 ]
+  ret i64 %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

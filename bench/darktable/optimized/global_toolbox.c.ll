@@ -673,7 +673,7 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
 91:                                               ; preds = %88, %74
   %92 = phi i1 [ true, %88 ], [ false, %74 ]
   %93 = icmp eq i32 %10, 1
-  br i1 %93, label %94, label %156
+  br i1 %93, label %94, label %155
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
@@ -685,7 +685,7 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
   %99 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
   %100 = tail call i32 @dt_view_lighttable_get_layout(ptr noundef %99) #10
   %101 = icmp eq i32 %100, 2
-  br i1 %101, label %102, label %156
+  br i1 %101, label %102, label %155
 
 102:                                              ; preds = %98, %94
   %103 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 11), align 8, !tbaa !59
@@ -747,7 +747,8 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
   %137 = load ptr, ptr %124, align 8, !tbaa !51
   tail call void @gtk_widget_set_sensitive(ptr noundef %137, i32 noundef 1) #10
   %138 = icmp eq i32 %114, 6
-  br i1 %138, label %145, label %144
+  %spec.select = select i1 %138, ptr @.str.35, ptr @.str.36
+  br label %144
 
 139:                                              ; preds = %132, %131, %122
   %140 = phi i64 [ 168, %132 ], [ 160, %131 ], [ 152, %122 ]
@@ -757,92 +758,89 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
   tail call void @gtk_toggle_button_set_active(ptr noundef %143, i32 noundef 1) #10
   br label %144
 
-144:                                              ; preds = %139, %133
-  br label %145
+144:                                              ; preds = %133, %139
+  %145 = phi ptr [ @.str.36, %139 ], [ %spec.select, %133 ]
+  %146 = load ptr, ptr %124, align 8, !tbaa !51
+  %147 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %145, i32 noundef 5) #10
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %146, ptr noundef %147) #10
+  %148 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.41, i32 noundef %106) #10
+  %149 = getelementptr inbounds i8, ptr %8, i64 192
+  %150 = load ptr, ptr %149, align 8, !tbaa !52
+  %151 = tail call ptr @g_type_check_instance_cast(ptr noundef %150, i64 noundef %130) #10
+  %152 = tail call i32 @dt_conf_get_bool(ptr noundef %148) #10
+  tail call void @gtk_toggle_button_set_active(ptr noundef %151, i32 noundef %152) #10
+  tail call void @g_free(ptr noundef %148) #10
+  %153 = getelementptr inbounds i8, ptr %8, i64 56
+  %154 = load ptr, ptr %153, align 8, !tbaa !45
+  tail call void @gtk_widget_show_all(ptr noundef %154) #10
+  br label %158
 
-145:                                              ; preds = %144, %133
-  %146 = phi ptr [ @.str.36, %144 ], [ @.str.35, %133 ]
-  %147 = load ptr, ptr %124, align 8, !tbaa !51
-  %148 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %146, i32 noundef 5) #10
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %147, ptr noundef %148) #10
-  %149 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.41, i32 noundef %106) #10
-  %150 = getelementptr inbounds i8, ptr %8, i64 192
-  %151 = load ptr, ptr %150, align 8, !tbaa !52
-  %152 = tail call ptr @g_type_check_instance_cast(ptr noundef %151, i64 noundef %130) #10
-  %153 = tail call i32 @dt_conf_get_bool(ptr noundef %149) #10
-  tail call void @gtk_toggle_button_set_active(ptr noundef %152, i32 noundef %153) #10
-  tail call void @g_free(ptr noundef %149) #10
-  %154 = getelementptr inbounds i8, ptr %8, i64 56
-  %155 = load ptr, ptr %154, align 8, !tbaa !45
-  tail call void @gtk_widget_show_all(ptr noundef %155) #10
-  br label %159
+155:                                              ; preds = %98, %91
+  %156 = getelementptr inbounds i8, ptr %8, i64 56
+  %157 = load ptr, ptr %156, align 8, !tbaa !45
+  tail call void @gtk_widget_hide(ptr noundef %157) #10
+  br i1 %92, label %186, label %158
 
-156:                                              ; preds = %98, %91
-  %157 = getelementptr inbounds i8, ptr %8, i64 56
-  %158 = load ptr, ptr %157, align 8, !tbaa !45
-  tail call void @gtk_widget_hide(ptr noundef %158) #10
-  br i1 %92, label %187, label %159
-
-159:                                              ; preds = %156, %145
-  %160 = tail call ptr @gdk_display_get_default() #10
-  %161 = tail call ptr @gdk_display_get_default_seat(ptr noundef %160) #10
-  %162 = tail call ptr @gdk_seat_get_pointer(ptr noundef %161) #10
+158:                                              ; preds = %155, %144
+  %159 = tail call ptr @gdk_display_get_default() #10
+  %160 = tail call ptr @gdk_display_get_default_seat(ptr noundef %159) #10
+  %161 = tail call ptr @gdk_seat_get_pointer(ptr noundef %160) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  %163 = call ptr @gdk_device_get_window_at_position(ptr noundef %162, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  %162 = call ptr @gdk_device_get_window_at_position(ptr noundef %161, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store ptr null, ptr %5, align 8, !tbaa !35
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %166, label %165
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %165, label %164
 
-165:                                              ; preds = %159
-  call void @gdk_window_get_user_data(ptr noundef nonnull %163, ptr noundef nonnull %5) #10
-  br label %166
+164:                                              ; preds = %158
+  call void @gdk_window_get_user_data(ptr noundef nonnull %162, ptr noundef nonnull %5) #10
+  br label %165
 
-166:                                              ; preds = %165, %159
+165:                                              ; preds = %164, %158
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  %167 = call i32 @gtk_widget_get_allocated_width(ptr noundef %0) #10
-  %168 = sdiv i32 %167, 2
-  store i32 %168, ptr %6, align 4, !tbaa !69
-  %169 = getelementptr inbounds i8, ptr %6, i64 4
-  %170 = call i32 @gtk_widget_get_allocated_height(ptr noundef %0) #10
-  store i32 %170, ptr %169, align 4, !tbaa !70
-  %171 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 1, ptr %171, align 4, !tbaa !71
-  %172 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 1, ptr %172, align 4, !tbaa !72
-  %173 = load ptr, ptr %5, align 8, !tbaa !35
-  %174 = icmp eq ptr %173, null
-  %175 = icmp eq ptr %173, %0
-  %176 = or i1 %174, %175
-  br i1 %176, label %181, label %177
+  %166 = call i32 @gtk_widget_get_allocated_width(ptr noundef %0) #10
+  %167 = sdiv i32 %166, 2
+  store i32 %167, ptr %6, align 4, !tbaa !69
+  %168 = getelementptr inbounds i8, ptr %6, i64 4
+  %169 = call i32 @gtk_widget_get_allocated_height(ptr noundef %0) #10
+  store i32 %169, ptr %168, align 4, !tbaa !70
+  %170 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 1, ptr %170, align 4, !tbaa !71
+  %171 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 1, ptr %171, align 4, !tbaa !72
+  %172 = load ptr, ptr %5, align 8, !tbaa !35
+  %173 = icmp eq ptr %172, null
+  %174 = icmp eq ptr %172, %0
+  %175 = or i1 %173, %174
+  br i1 %175, label %180, label %176
 
-177:                                              ; preds = %166
-  %178 = load i32, ptr %3, align 4, !tbaa !73
-  %179 = load i32, ptr %4, align 4, !tbaa !73
-  %180 = call i32 @gtk_widget_translate_coordinates(ptr noundef nonnull %173, ptr noundef %0, i32 noundef %178, i32 noundef %179, ptr noundef nonnull %6, ptr noundef nonnull %169) #10
-  br label %181
+176:                                              ; preds = %165
+  %177 = load i32, ptr %3, align 4, !tbaa !73
+  %178 = load i32, ptr %4, align 4, !tbaa !73
+  %179 = call i32 @gtk_widget_translate_coordinates(ptr noundef nonnull %172, ptr noundef %0, i32 noundef %177, i32 noundef %178, ptr noundef nonnull %6, ptr noundef nonnull %168) #10
+  br label %180
 
-181:                                              ; preds = %177, %166
-  %182 = getelementptr inbounds i8, ptr %8, i64 40
-  %183 = load ptr, ptr %182, align 8, !tbaa !32
-  %184 = tail call i64 @gtk_popover_get_type() #12
-  %185 = call ptr @g_type_check_instance_cast(ptr noundef %183, i64 noundef %184) #10
-  call void @gtk_popover_set_pointing_to(ptr noundef %185, ptr noundef nonnull %6) #10
-  %186 = load ptr, ptr %182, align 8, !tbaa !32
-  call void @gtk_widget_show(ptr noundef %186) #10
+180:                                              ; preds = %176, %165
+  %181 = getelementptr inbounds i8, ptr %8, i64 40
+  %182 = load ptr, ptr %181, align 8, !tbaa !32
+  %183 = tail call i64 @gtk_popover_get_type() #12
+  %184 = call ptr @g_type_check_instance_cast(ptr noundef %182, i64 noundef %183) #10
+  call void @gtk_popover_set_pointing_to(ptr noundef %184, ptr noundef nonnull %6) #10
+  %185 = load ptr, ptr %181, align 8, !tbaa !32
+  call void @gtk_widget_show(ptr noundef %185) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  br label %189
+  br label %188
 
-187:                                              ; preds = %156
-  %188 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #10
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %188) #10
-  br label %189
+186:                                              ; preds = %155
+  %187 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #10
+  tail call void (ptr, ...) @dt_control_log(ptr noundef %187) #10
+  br label %188
 
-189:                                              ; preds = %187, %181
+188:                                              ; preds = %186, %180
   store i32 0, ptr %9, align 8, !tbaa !58
   ret void
 }

@@ -510,7 +510,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %18 = getelementptr inbounds i8, ptr %5, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !62
   %20 = icmp eq ptr %19, %1
-  br i1 %20, label %21, label %39
+  br i1 %20, label %21, label %38
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %5, i64 172
@@ -530,19 +530,17 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   tail call void @gtk_notebook_set_show_tabs(ptr noundef %31, i32 noundef %28) #21
   %32 = load i32, ptr %7, align 4, !tbaa !65
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %35, label %34
+  %spec.select = zext i1 %33 to i32
+  br label %34
 
 34:                                               ; preds = %30, %21
-  br label %35
+  %35 = phi i32 [ 0, %21 ], [ %spec.select, %30 ]
+  %36 = getelementptr inbounds i8, ptr %5, i64 64
+  %37 = load ptr, ptr %36, align 8, !tbaa !66
+  tail call void @gtk_widget_set_visible(ptr noundef %37, i32 noundef %35) #21
+  br label %38
 
-35:                                               ; preds = %34, %30
-  %36 = phi i32 [ 0, %34 ], [ 1, %30 ]
-  %37 = getelementptr inbounds i8, ptr %5, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !66
-  tail call void @gtk_widget_set_visible(ptr noundef %38, i32 noundef %36) #21
-  br label %39
-
-39:                                               ; preds = %35, %17
+38:                                               ; preds = %34, %17
   ret void
 }
 
@@ -1013,18 +1011,16 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   tail call void @gtk_notebook_set_show_tabs(ptr noundef %23, i32 noundef %19) #21
   %24 = load i32, ptr %3, align 4, !tbaa !65
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %27, label %26
+  %spec.select = zext i1 %25 to i32
+  br label %26
 
 26:                                               ; preds = %21, %1
-  br label %27
-
-27:                                               ; preds = %26, %21
-  %28 = phi i32 [ 0, %26 ], [ 1, %21 ]
-  %29 = load ptr, ptr %9, align 8, !tbaa !66
-  tail call void @gtk_widget_set_visible(ptr noundef %29, i32 noundef %28) #21
-  %30 = getelementptr inbounds i8, ptr %0, i64 816
-  %31 = load ptr, ptr %30, align 16, !tbaa !89
-  tail call void @gtk_widget_queue_draw(ptr noundef %31) #21
+  %27 = phi i32 [ 0, %1 ], [ %spec.select, %21 ]
+  %28 = load ptr, ptr %9, align 8, !tbaa !66
+  tail call void @gtk_widget_set_visible(ptr noundef %28, i32 noundef %27) #21
+  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %30 = load ptr, ptr %29, align 16, !tbaa !89
+  tail call void @gtk_widget_queue_draw(ptr noundef %30) #21
   ret void
 }
 

@@ -274,7 +274,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %.fca.0.extract.i21.i = extractvalue { i64, i64 } %13, 0
   %.fca.1.extract.i22.i = extractvalue { i64, i64 } %13, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !47
-  %trunc23.i = trunc i64 %.fca.0.extract.i21.i to i1
+  %trunc23.i = trunc nuw i64 %.fca.0.extract.i21.i to i1
   br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -295,7 +295,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !47
   call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17ha41e4bd5922f0f5eE.llvm.16754810813067917266"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !56
   %16 = load i64, ptr %5, align 8, !range !8, !noalias !47, !noundef !4
-  %trunc9.i = trunc i64 %16 to i1
+  %trunc9.i = trunc nuw i64 %16 to i1
   br i1 %trunc9.i, label %17, label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h03e0c3cb68d088edE.exit"
 
 17:                                               ; preds = %15
@@ -316,7 +316,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %23, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %23, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !47
-  %trunc.i = trunc i64 %.fca.0.extract.i.i to i1
+  %trunc.i = trunc nuw i64 %.fca.0.extract.i.i to i1
   br i1 %trunc.i, label %15, label %.loopexit
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h03e0c3cb68d088edE.exit": ; preds = %15
@@ -359,7 +359,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %.fca.0.extract.i21.i = extractvalue { i64, i64 } %12, 0
   %.fca.1.extract.i22.i = extractvalue { i64, i64 } %12, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !57
-  %trunc23.i = trunc i64 %.fca.0.extract.i21.i to i1
+  %trunc23.i = trunc nuw i64 %.fca.0.extract.i21.i to i1
   br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %8
@@ -380,7 +380,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !57
   call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17ha41e4bd5922f0f5eE.llvm.16754810813067917266"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !66
   %15 = load i64, ptr %4, align 8, !range !8, !noalias !57, !noundef !4
-  %trunc9.i = trunc i64 %15 to i1
+  %trunc9.i = trunc nuw i64 %15 to i1
   br i1 %trunc9.i, label %16, label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd27bd9dc9d7508aeE.exit"
 
 16:                                               ; preds = %14
@@ -401,7 +401,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %22, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %22, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !57
-  %trunc.i = trunc i64 %.fca.0.extract.i.i to i1
+  %trunc.i = trunc nuw i64 %.fca.0.extract.i.i to i1
   br i1 %trunc.i, label %14, label %.loopexit
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd27bd9dc9d7508aeE.exit": ; preds = %14
@@ -484,7 +484,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.fca.0.extract.i21.i = extractvalue { i64, i64 } %14, 0
   %.fca.1.extract.i22.i = extractvalue { i64, i64 } %14, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !67
-  %trunc23.i = trunc i64 %.fca.0.extract.i21.i to i1
+  %trunc23.i = trunc nuw i64 %.fca.0.extract.i21.i to i1
   br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit57
 
 .lr.ph.i:                                         ; preds = %.noexc
@@ -508,7 +508,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 
 .noexc17:                                         ; preds = %16
   %17 = load i64, ptr %6, align 8, !range !8, !noalias !67, !noundef !4
-  %trunc9.i = trunc i64 %17 to i1
+  %trunc9.i = trunc nuw i64 %17 to i1
   %.sroa.04.0.copyload.i = load ptr, ptr %15, align 8, !noalias !75
   %.sroa.45.0.copyload.i = load i64, ptr %.sroa.45.0..sroa_idx.i, align 8, !noalias !75
   %.sroa.56.0.copyload.i = load i64, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !75
@@ -532,7 +532,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %24, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %24, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !67
-  %trunc.i = trunc i64 %.fca.0.extract.i.i to i1
+  %trunc.i = trunc nuw i64 %.fca.0.extract.i.i to i1
   br i1 %trunc.i, label %16, label %.loopexit57
 
 .critedge:                                        ; preds = %3
@@ -696,7 +696,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %.fca.0.extract.i21.i = extractvalue { i64, i64 } %12, 0
   %.fca.1.extract.i22.i = extractvalue { i64, i64 } %12, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !90
-  %trunc23.i = trunc i64 %.fca.0.extract.i21.i to i1
+  %trunc23.i = trunc nuw i64 %.fca.0.extract.i21.i to i1
   br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %8
@@ -717,7 +717,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !90
   call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h26d0cf90384c7385E.llvm.16754810813067917266"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !99
   %15 = load i64, ptr %4, align 8, !range !8, !noalias !90, !noundef !4
-  %trunc9.i = trunc i64 %15 to i1
+  %trunc9.i = trunc nuw i64 %15 to i1
   br i1 %trunc9.i, label %16, label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb4fe33a0be88709aE.exit"
 
 16:                                               ; preds = %14
@@ -738,7 +738,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %22, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %22, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !90
-  %trunc.i = trunc i64 %.fca.0.extract.i.i to i1
+  %trunc.i = trunc nuw i64 %.fca.0.extract.i.i to i1
   br i1 %trunc.i, label %14, label %.loopexit
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb4fe33a0be88709aE.exit": ; preds = %14
@@ -779,7 +779,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %.fca.0.extract.i21.i = extractvalue { i64, i64 } %13, 0
   %.fca.1.extract.i22.i = extractvalue { i64, i64 } %13, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !100
-  %trunc23.i = trunc i64 %.fca.0.extract.i21.i to i1
+  %trunc23.i = trunc nuw i64 %.fca.0.extract.i21.i to i1
   br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -800,7 +800,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !100
   call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h26d0cf90384c7385E.llvm.16754810813067917266"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !109
   %16 = load i64, ptr %5, align 8, !range !8, !noalias !100, !noundef !4
-  %trunc9.i = trunc i64 %16 to i1
+  %trunc9.i = trunc nuw i64 %16 to i1
   br i1 %trunc9.i, label %17, label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h9177ba8f6866066cE.exit"
 
 17:                                               ; preds = %15
@@ -821,7 +821,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %23, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %23, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !100
-  %trunc.i = trunc i64 %.fca.0.extract.i.i to i1
+  %trunc.i = trunc nuw i64 %.fca.0.extract.i.i to i1
   br i1 %trunc.i, label %15, label %.loopexit
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h9177ba8f6866066cE.exit": ; preds = %15
@@ -1113,7 +1113,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h46c9d6119
 
 .noexc2:                                          ; preds = %12
   %13 = load i64, ptr %3, align 8, !range !8, !noalias !145, !noundef !4
-  %trunc.i.i = trunc i64 %13 to i1
+  %trunc.i.i = trunc nuw i64 %13 to i1
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !145, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1278,7 +1278,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !156
   call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h2d11f8f1b3d17b4eE.llvm.16754810813067917266"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4), !noalias !153
   %11 = load i64, ptr %3, align 8, !range !8, !noalias !156, !noundef !4
-  %trunc.i = trunc i64 %11 to i1
+  %trunc.i = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8, !noalias !156, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1711,13 +1711,13 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
 
 .noexc:                                           ; preds = %44
   %45 = load i8, ptr %24, align 8, !range !38, !noalias !216, !noundef !4
-  %trunc.i.i.i = trunc i8 %45 to i1
+  %trunc.i.i.i = trunc nuw i8 %45 to i1
   br i1 %trunc.i.i.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17h2579b87e316226edE.llvm.14448454516092093177.exit.thread.i.i", label %46
 
 46:                                               ; preds = %.noexc
   %47 = getelementptr inbounds i8, ptr %24, i64 1
   %48 = load i8, ptr %47, align 1, !range !38, !noalias !216, !noundef !4
-  %trunc1.i.i.i = trunc i8 %48 to i1
+  %trunc1.i.i.i = trunc nuw i8 %48 to i1
   br i1 %trunc1.i.i.i, label %53, label %51
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17h2579b87e316226edE.llvm.14448454516092093177.exit.thread.i.i": ; preds = %.noexc
@@ -1934,12 +1934,12 @@ _ZN5serde2de9MapAccess10next_value17h3490345a979ef047E.exit.thread: ; preds = %"
 
 .noexc.i.i:                                       ; preds = %99
   %101 = load i8, ptr %13, align 8, !range !38, !noalias !270, !noundef !4
-  %trunc.i.i.i.i = trunc i8 %101 to i1
+  %trunc.i.i.i.i = trunc nuw i8 %101 to i1
   br i1 %trunc.i.i.i.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17h2579b87e316226edE.llvm.14448454516092093177.exit.thread.i.i.i", label %102
 
 102:                                              ; preds = %.noexc.i.i
   %103 = load i8, ptr %92, align 1, !range !38, !noalias !270, !noundef !4
-  %trunc1.i.i.i.i = trunc i8 %103 to i1
+  %trunc1.i.i.i.i = trunc nuw i8 %103 to i1
   br i1 %trunc1.i.i.i.i, label %108, label %106
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_object_colon17h2579b87e316226edE.llvm.14448454516092093177.exit.thread.i.i.i": ; preds = %.noexc.i.i
@@ -2250,21 +2250,19 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4: ; preds = %
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !325, !noundef !4
   %10 = icmp eq i64 %9, %1
-  br label %15
+  br label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread
 
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit: ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !325, !noundef !4
-  %13 = icmp slt i64 %12, 0
+  %13 = icmp sgt i64 %12, -1
   %14 = icmp eq i64 %12, %1
-  br i1 %13, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread, label %15
+  %spec.select = and i1 %13, %14
+  br label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread
 
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread: ; preds = %5, %2, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit
-  br label %15
-
-15:                                               ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread
-  %16 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread ], [ %14, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit ], [ %10, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4 ]
-  ret i1 %16
+_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread: ; preds = %5, %2, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4
+  %15 = phi i1 [ %10, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4 ], [ %spec.select, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit ], [ false, %2 ], [ false, %5 ]
+  ret i1 %15
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2404,7 +2402,7 @@ define hidden noundef zeroext i1 @_ZN10serde_json5value10partial_eq7eq_bool17had
   %.not = icmp eq i8 %2, 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !range !38, !alias.scope !337
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   %6 = select i1 %.not, i1 %5, i1 false
   %7 = xor i1 %6, %1
   %8 = xor i1 %7, true
@@ -2415,7 +2413,7 @@ define hidden noundef zeroext i1 @_ZN10serde_json5value10partial_eq7eq_bool17had
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN10serde_json5value10partial_eq7eq_bool28_$u7b$$u7b$closure$u7d$$u7d$17h37016833688f9be5E.llvm.15983814413174583861"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !38, !noundef !4
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   %5 = xor i1 %4, %1
   %6 = xor i1 %5, true
   ret i1 %6
@@ -2547,7 +2545,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq85_$LT$impl$u20$cor
   %4 = sext i8 %3 to i64
   %5 = load i8, ptr %1, align 8, !range !9, !alias.scope !389, !noundef !4
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2555,7 +2553,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq85_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2570,15 +2568,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !389, !noundef !4
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2588,7 +2584,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %4 = sext i16 %3 to i64
   %5 = load i8, ptr %1, align 8, !range !9, !alias.scope !394, !noundef !4
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2596,7 +2592,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2611,15 +2607,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !394, !noundef !4
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2629,7 +2623,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %4 = sext i32 %3 to i64
   %5 = load i8, ptr %1, align 8, !range !9, !alias.scope !399, !noundef !4
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2637,7 +2631,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2652,15 +2646,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !399, !noundef !4
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2669,7 +2661,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i8, ptr %1, align 8, !range !9, !alias.scope !404, !noundef !4
   %5 = icmp eq i8 %4, 2
-  br i1 %5, label %6, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %5, label %6, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2677,7 +2669,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   switch i64 %8, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %6
@@ -2692,15 +2684,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !404, !noundef !4
-  %14 = icmp slt i64 %13, 0
+  %14 = icmp sgt i64 %13, -1
   %15 = icmp eq i64 %13, %3
-  br i1 %14, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %6, %2
+  %spec.select.i = and i1 %14, %15
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %16 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %15, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %11, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %6, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %16 = phi i1 [ %11, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %6 ]
   ret i1 %16
 }
 
@@ -2709,7 +2699,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq88_$LT$impl$u20$cor
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i8, ptr %1, align 8, !range !9, !alias.scope !409, !noundef !4
   %5 = icmp eq i8 %4, 2
-  br i1 %5, label %6, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %5, label %6, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2717,7 +2707,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq88_$LT$impl$u20$cor
   switch i64 %8, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %6
@@ -2732,15 +2722,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !409, !noundef !4
-  %14 = icmp slt i64 %13, 0
+  %14 = icmp sgt i64 %13, -1
   %15 = icmp eq i64 %13, %3
-  br i1 %14, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %6, %2
+  %spec.select.i = and i1 %14, %15
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %16 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %15, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %11, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %6, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %16 = phi i1 [ %11, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %6 ]
   ret i1 %16
 }
 
@@ -2919,12 +2907,12 @@ _ZN10serde_json5value10partial_eq6eq_f6417h73bb8e405b9386e5E.exit: ; preds = %2,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq87_$LT$impl$u20$core..cmp..PartialEq$LT$serde_json..value..Value$GT$$u20$for$u20$bool$GT$2eq17h865a078cd650122aE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %0, align 1, !range !38, !noundef !4
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr %1, align 8, !range !9, !alias.scope !450, !noundef !4
   %.not.i = icmp eq i8 %5, 1
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1, !range !38, !alias.scope !450
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   %9 = select i1 %.not.i, i1 %8, i1 false
   %10 = xor i1 %9, %4
   %11 = xor i1 %10, true

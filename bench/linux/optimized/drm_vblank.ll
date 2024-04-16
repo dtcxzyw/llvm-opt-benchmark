@@ -1799,7 +1799,7 @@ define internal fastcc i32 @drm_vblank_enable(ptr noundef %0, i32 noundef %1) un
   %13 = getelementptr inbounds i8, ptr %6, i64 248
   %14 = load i8, ptr %13, align 8, !range !36, !noundef !37
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %60
+  br i1 %15, label %16, label %61
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1811,7 +1811,7 @@ define internal fastcc i32 @drm_vblank_enable(ptr noundef %0, i32 noundef %1) un
   %23 = and i32 %20, 2
   %24 = and i32 %23, %22
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %49, label %26
 
 26:                                               ; preds = %16
   %27 = tail call ptr @drm_crtc_from_index(ptr noundef %0, i32 noundef %1) #12
@@ -1840,7 +1840,7 @@ define internal fastcc i32 @drm_vblank_enable(ptr noundef %0, i32 noundef %1) un
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1138, i32 2313, i64 12) #12, !srcloc !92
   tail call void asm sideeffect "471: nop\0A\09.pushsection .discard.instr_end\0A\09.long 471b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 471) #12, !srcloc !93
   tail call void asm sideeffect "472: nop\0A\09.pushsection .discard.instr_end\0A\09.long 472b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 472) #12, !srcloc !94
-  br label %.thread
+  br label %49
 
 41:                                               ; preds = %26
   %42 = getelementptr inbounds i8, ptr %27, i64 408
@@ -1848,42 +1848,42 @@ define internal fastcc i32 @drm_vblank_enable(ptr noundef %0, i32 noundef %1) un
   %44 = getelementptr inbounds i8, ptr %43, i64 168
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %49, label %47
 
 47:                                               ; preds = %41
   %48 = tail call i32 %45(ptr noundef nonnull %27) #12
-  br label %.thread
+  br label %49
 
-.thread:                                          ; preds = %39, %47, %16, %41
-  %49 = phi i32 [ -22, %41 ], [ -22, %16 ], [ 0, %39 ], [ %48, %47 ]
-  %50 = icmp eq ptr %0, null
-  br i1 %50, label %54, label %51
+49:                                               ; preds = %39, %41, %47, %16
+  %50 = phi i32 [ -22, %16 ], [ %48, %47 ], [ 0, %39 ], [ -22, %41 ]
+  %51 = icmp eq ptr %0, null
+  br i1 %51, label %55, label %52
 
-51:                                               ; preds = %.thread
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8
-  br label %54
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8
+  br label %55
 
-54:                                               ; preds = %51, %.thread
-  %55 = phi ptr [ %53, %51 ], [ null, %.thread ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %55, i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef %1, i32 noundef %49) #12
-  %56 = icmp eq i32 %49, 0
-  br i1 %56, label %59, label %57
+55:                                               ; preds = %52, %49
+  %56 = phi ptr [ %54, %52 ], [ null, %49 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %56, i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef %1, i32 noundef %50) #12
+  %57 = icmp eq i32 %50, 0
+  br i1 %57, label %60, label %58
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %6, i64 96
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %58, ptr elementtype(i32) %58) #12, !srcloc !87
-  br label %60
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %6, i64 96
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59, ptr elementtype(i32) %59) #12, !srcloc !87
+  br label %61
 
-59:                                               ; preds = %54
+60:                                               ; preds = %55
   tail call fastcc void @drm_update_vblank_count(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false)
   store volatile i8 1, ptr %13, align 8
-  br label %60
+  br label %61
 
-60:                                               ; preds = %59, %57, %11
-  %61 = phi i32 [ 0, %11 ], [ %49, %57 ], [ 0, %59 ]
+61:                                               ; preds = %60, %58, %11
+  %62 = phi i32 [ 0, %11 ], [ %50, %58 ], [ 0, %60 ]
   tail call void @_raw_spin_unlock(ptr noundef %12) #12
-  ret i32 %61
+  ret i32 %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

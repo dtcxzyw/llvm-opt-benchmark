@@ -1359,7 +1359,7 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
   %77 = load ptr, ptr %49, align 8
   %78 = call i32 %76(ptr noundef nonnull %1, ptr noundef %77, ptr noundef nonnull %5, i16 noundef zeroext 21) #7
   %.not43 = icmp eq i32 %78, 0
-  br i1 %.not43, label %115, label %.thread47
+  br i1 %.not43, label %.thread, label %.thread47
 
 .thread47:                                        ; preds = %64, %72
   %.150 = phi i32 [ %78, %72 ], [ -20, %64 ]
@@ -1417,19 +1417,15 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
   %110 = getelementptr inbounds i8, ptr %109, i64 32
   %111 = load ptr, ptr %110, align 8
   %112 = call i32 %111(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %5, i16 noundef zeroext 28) #7
-  %.not = icmp eq i32 %112, 0
-  br i1 %.not, label %115, label %.thread
+  br label %.thread
 
 113:                                              ; preds = %4
   %114 = tail call ptr @PMIx_Error_string(i32 noundef -27) #7
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %114, ptr noundef nonnull @.str.1, i32 noundef 372) #7
   br label %.thread
 
-115:                                              ; preds = %107, %72
-  br label %.thread
-
-.thread:                                          ; preds = %98, %22, %107, %81, %.thread47, %31, %115, %113, %43
-  %.036 = phi i32 [ -27, %43 ], [ 0, %115 ], [ -27, %113 ], [ %36, %31 ], [ -2, %.thread47 ], [ %.150, %81 ], [ %112, %107 ], [ -20, %22 ], [ -20, %98 ]
+.thread:                                          ; preds = %107, %98, %22, %72, %81, %.thread47, %31, %113, %43
+  %.036 = phi i32 [ -27, %43 ], [ -27, %113 ], [ %36, %31 ], [ -2, %.thread47 ], [ %.150, %81 ], [ 0, %72 ], [ -20, %22 ], [ %112, %107 ], [ -20, %98 ]
   ret i32 %.036
 }
 

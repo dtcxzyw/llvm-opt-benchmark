@@ -289,7 +289,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_pbkdf1_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal i32 @kdf_pbkdf1_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #6
@@ -369,19 +369,17 @@ if.then4.i17:                                     ; preds = %if.else.i14
 if.end16:                                         ; preds = %if.then4.i17, %if.else.i14, %if.then.i22, %if.end8
   %call17 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.5) #6
   %cmp18.not = icmp eq ptr %call17, null
-  br i1 %cmp18.not, label %if.end24, label %if.then19
+  br i1 %cmp18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
   %iter = getelementptr inbounds i8, ptr %vctx, i64 64
   %call20 = tail call i32 @OSSL_PARAM_get_uint64(ptr noundef nonnull %call17, ptr noundef nonnull %iter) #6
-  %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %return, label %if.end24
-
-if.end24:                                         ; preds = %if.then19, %if.end16
+  %tobool21.not = icmp ne i32 %call20, 0
+  %spec.select = zext i1 %tobool21.not to i32
   br label %return
 
-return:                                           ; preds = %if.then4.i17, %if.then.i22, %if.then4.i, %if.then.i, %if.then19, %entry, %if.end24
-  %retval.0 = phi i32 [ 1, %if.end24 ], [ 0, %entry ], [ 0, %if.then19 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ 0, %if.then.i22 ], [ 0, %if.then4.i17 ]
+return:                                           ; preds = %if.then4.i17, %if.then.i22, %if.then4.i, %if.then.i, %if.then19, %if.end16, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end16 ], [ %spec.select, %if.then19 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ 0, %if.then.i22 ], [ 0, %if.then4.i17 ]
   ret i32 %retval.0
 }
 

@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [15 x i8] c"unexpected EOF\00", align 1
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 section ".init.text" align 16 {
   %8 = alloca %struct.lzma_header, align 1
   %9 = alloca %struct.rc, align 8
   %10 = alloca %struct.writer, align 8
@@ -37,7 +37,7 @@ define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef
 
 18:                                               ; preds = %15
   tail call void %6(ptr noundef nonnull @.str) #10
-  br label %228
+  br label %227
 
 .thread:                                          ; preds = %7, %15
   %19 = phi ptr [ %16, %15 ], [ %0, %7 ]
@@ -123,7 +123,7 @@ define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef
 
 62:                                               ; preds = %59
   call void %6(ptr noundef nonnull @.str.1) #10
-  br label %225
+  br label %224
 
 63:                                               ; preds = %59
   %64 = zext i8 %60 to i32
@@ -132,7 +132,7 @@ define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef
 
 66:                                               ; preds = %63
   %67 = call i32 @llvm.usub.sat.i32(i32 %64, i32 17)
-  %68 = trunc i32 %67 to i8
+  %68 = trunc nuw i32 %67 to i8
   %.lhs.trunc = add i8 %68, 8
   %69 = udiv i8 %.lhs.trunc, 9
   %.zext = zext nneg i8 %69 to i32
@@ -218,7 +218,7 @@ define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef
 123:                                              ; preds = %120
   %124 = zext i32 %121 to i64
   %125 = call i64 @llvm.umin.i64(i64 %112, i64 %124)
-  %126 = trunc i64 %125 to i32
+  %126 = trunc nuw i64 %125 to i32
   %127 = getelementptr inbounds i8, ptr %10, i64 24
   store i32 %126, ptr %127, align 8
   %128 = shl nuw i64 %125, 32
@@ -226,7 +226,7 @@ define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef
   %130 = call noalias ptr @vmalloc(i64 noundef %129) #11
   store ptr %130, ptr %10, align 8
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %225, label %132
+  br i1 %131, label %224, label %132
 
 132:                                              ; preds = %.thread17, %123
   %133 = add nsw i32 %86, %84
@@ -236,7 +236,7 @@ define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef
   %137 = shl nsw i64 %136, 1
   %138 = call noalias ptr @vmalloc(i64 noundef %137) #11
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %221, label %140
+  br i1 %139, label %220, label %140
 
 140:                                              ; preds = %132
   %141 = icmp sgt i32 %135, 0
@@ -364,47 +364,45 @@ define dso_local noundef i32 @unlzma(ptr noundef %0, i64 noundef %1, ptr noundef
 211:                                              ; preds = %205, %.thread19
   %212 = load ptr, ptr %25, align 8
   %213 = icmp eq ptr %212, null
-  br i1 %213, label %219, label %214
+  br i1 %213, label %.thread18, label %214
 
 214:                                              ; preds = %211
   %215 = load ptr, ptr %10, align 8
   %216 = load i64, ptr %28, align 8
   %217 = call i64 %212(ptr noundef %215, i64 noundef %216) #10
-  %218 = icmp eq i64 %217, %216
-  br i1 %218, label %219, label %.thread18
-
-219:                                              ; preds = %214, %211
+  %218 = icmp ne i64 %217, %216
+  %spec.select = sext i1 %218 to i32
   br label %.thread18
 
-.thread18:                                        ; preds = %201, %197, %193, %219, %214
-  %220 = phi i32 [ 0, %219 ], [ -1, %214 ], [ -1, %193 ], [ -1, %197 ], [ -1, %201 ]
+.thread18:                                        ; preds = %201, %197, %193, %214, %211
+  %219 = phi i32 [ 0, %211 ], [ %spec.select, %214 ], [ -1, %193 ], [ -1, %197 ], [ -1, %201 ]
   call void @vfree(ptr noundef nonnull %138) #10
-  br label %221
+  br label %220
 
-221:                                              ; preds = %.thread18, %132
-  %222 = phi i32 [ -1, %132 ], [ %220, %.thread18 ]
-  br i1 %122, label %223, label %225
+220:                                              ; preds = %.thread18, %132
+  %221 = phi i32 [ -1, %132 ], [ %219, %.thread18 ]
+  br i1 %122, label %222, label %224
 
-223:                                              ; preds = %221
-  %224 = load ptr, ptr %10, align 8
-  call void @vfree(ptr noundef %224) #10
-  br label %225
+222:                                              ; preds = %220
+  %223 = load ptr, ptr %10, align 8
+  call void @vfree(ptr noundef %223) #10
+  br label %224
 
-225:                                              ; preds = %223, %221, %123, %62
-  %226 = phi i32 [ -1, %62 ], [ -1, %123 ], [ %222, %221 ], [ %222, %223 ]
-  br i1 %14, label %227, label %228
+224:                                              ; preds = %222, %220, %123, %62
+  %225 = phi i32 [ -1, %62 ], [ -1, %123 ], [ %221, %220 ], [ %221, %222 ]
+  br i1 %14, label %226, label %227
 
-227:                                              ; preds = %225
+226:                                              ; preds = %224
   call void @kfree(ptr noundef nonnull %19) #10
-  br label %228
+  br label %227
 
-228:                                              ; preds = %227, %225, %18
-  %229 = phi i32 [ %226, %225 ], [ %226, %227 ], [ -1, %18 ]
+227:                                              ; preds = %226, %224, %18
+  %228 = phi i32 [ %225, %224 ], [ %225, %226 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %8) #10
-  ret i32 %229
+  ret i32 %228
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -456,7 +454,7 @@ define internal fastcc noundef i32 @process_bit0(ptr nocapture noundef %0, ptr n
   %13 = zext i16 %12 to i32
   %14 = sub nsw i32 2048, %13
   %15 = ashr i32 %14, 5
-  %16 = trunc i32 %15 to i16
+  %16 = trunc nsw i32 %15 to i16
   %17 = add i16 %12, %16
   store i16 %17, ptr %4, align 2
   %18 = getelementptr i8, ptr %3, i64 3692
@@ -595,7 +593,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %30 = zext i16 %29 to i32
   %31 = sub nsw i32 2048, %30
   %32 = ashr i32 %31, 5
-  %33 = trunc i32 %32 to i16
+  %33 = trunc nsw i32 %32 to i16
   %34 = add i16 %29, %33
   store i16 %34, ptr %24, align 2
   %35 = getelementptr inbounds i8, ptr %2, i64 12
@@ -639,7 +637,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %62 = zext i16 %61 to i32
   %63 = sub nsw i32 2048, %62
   %64 = ashr i32 %63, 5
-  %65 = trunc i32 %64 to i16
+  %65 = trunc nsw i32 %64 to i16
   %66 = add i16 %61, %65
   store i16 %66, ptr %56, align 2
   %67 = getelementptr i8, ptr %3, i64 480
@@ -660,7 +658,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %79 = zext i16 %78 to i32
   %80 = sub nsw i32 2048, %79
   %81 = ashr i32 %80, 5
-  %82 = trunc i32 %81 to i16
+  %82 = trunc nsw i32 %81 to i16
   %83 = add i16 %78, %82
   store i16 %83, ptr %73, align 2
   %84 = load i32, ptr %2, align 4
@@ -712,7 +710,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %116 = zext i16 %115 to i32
   %117 = sub nsw i32 2048, %116
   %118 = ashr i32 %117, 5
-  %119 = trunc i32 %118 to i16
+  %119 = trunc nsw i32 %118 to i16
   %120 = add i16 %115, %119
   store i16 %120, ptr %110, align 2
   %121 = getelementptr inbounds i8, ptr %2, i64 8
@@ -745,7 +743,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %140 = zext i16 %139 to i32
   %141 = sub nsw i32 2048, %140
   %142 = ashr i32 %141, 5
-  %143 = trunc i32 %142 to i16
+  %143 = trunc nsw i32 %142 to i16
   %144 = add i16 %139, %143
   store i16 %144, ptr %134, align 2
   %145 = getelementptr inbounds i8, ptr %2, i64 12
@@ -809,7 +807,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %182 = zext i16 %181 to i32
   %183 = sub nsw i32 2048, %182
   %184 = ashr i32 %183, 5
-  %185 = trunc i32 %184 to i16
+  %185 = trunc nsw i32 %184 to i16
   %186 = add i16 %181, %185
   store i16 %186, ptr %176, align 2
   %187 = getelementptr i8, ptr %176, i64 4
@@ -841,7 +839,7 @@ define internal fastcc i32 @process_bit1(ptr nocapture noundef %0, ptr nocapture
   %205 = zext i16 %204 to i32
   %206 = sub nsw i32 2048, %205
   %207 = ashr i32 %206, 5
-  %208 = trunc i32 %207 to i16
+  %208 = trunc nsw i32 %207 to i16
   %209 = add i16 %204, %208
   store i16 %209, ptr %199, align 2
   %210 = getelementptr i8, ptr %176, i64 260
@@ -1195,7 +1193,7 @@ define internal fastcc noundef i32 @rc_get_bit(ptr nocapture noundef %0, ptr noc
   %11 = zext i16 %10 to i32
   %12 = sub nsw i32 2048, %11
   %13 = ashr i32 %12, 5
-  %14 = trunc i32 %13 to i16
+  %14 = trunc nsw i32 %13 to i16
   %15 = add i16 %10, %14
   store i16 %15, ptr %1, align 2
   %16 = load i32, ptr %2, align 4
@@ -1268,15 +1266,13 @@ define internal fastcc noundef i32 @write_byte(ptr nocapture noundef %0, i8 noun
   %31 = getelementptr inbounds i8, ptr %30, i64 1
   %32 = load i32, ptr %31, align 1
   %33 = zext i32 %32 to i64
-  %34 = icmp eq i64 %29, %33
-  br i1 %34, label %35, label %36
+  %34 = icmp ne i64 %29, %33
+  %spec.select = sext i1 %34 to i32
+  br label %35
 
-35:                                               ; preds = %20, %12, %2
-  br label %36
-
-36:                                               ; preds = %35, %20
-  %37 = phi i32 [ 0, %35 ], [ -1, %20 ]
-  ret i32 %37
+35:                                               ; preds = %20, %2, %12
+  %36 = phi i32 [ 0, %12 ], [ 0, %2 ], [ %spec.select, %20 ]
+  ret i32 %36
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid optsize

@@ -870,26 +870,22 @@ entry:
   %0 = load ptr, ptr %ptr_.i, align 8
   %error_code.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %error_code.i, align 8
-  switch i64 %1, label %if.end [
-    i64 0, label %land.lhs.true
+  switch i64 %1, label %return [
+    i64 0, label %return.sink.split
     i64 65280, label %land.lhs.true6
   ]
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load i32, ptr %0, align 8
-  %cmp3 = icmp eq i32 %2, 0
-  br i1 %cmp3, label %return, label %if.end
-
 land.lhs.true6:                                   ; preds = %entry
-  %3 = load i32, ptr %0, align 8
-  %cmp8 = icmp eq i32 %3, 1
-  br i1 %cmp8, label %return, label %if.end
+  br label %return.sink.split
 
-if.end:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true6
+return.sink.split:                                ; preds = %entry, %land.lhs.true6
+  %.sink7 = phi i32 [ 1, %land.lhs.true6 ], [ 0, %entry ]
+  %2 = load i32, ptr %0, align 8
+  %cmp3 = icmp ne i32 %2, %.sink7
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %land.lhs.true6, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %land.lhs.true6 ], [ false, %land.lhs.true ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %cmp3, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -1082,7 +1078,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %land.rhs
   %12 = extractvalue { i64, ptr } %call.i, 1
-  %conv.i = trunc i64 %11 to i32
+  %conv.i = trunc nuw i64 %11 to i32
   %call11.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %12, i32 noundef 0, i32 noundef %conv.i) #16
   store ptr %call11.i, ptr %arrayinit.element19, align 16
   %cmp.i.i = icmp eq ptr %call11.i, null
@@ -1339,7 +1335,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

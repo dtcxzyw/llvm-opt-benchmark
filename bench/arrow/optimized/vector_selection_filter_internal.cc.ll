@@ -3036,7 +3036,7 @@ if.end.i66.i:                                     ; preds = %if.then11.i
 
 if.then.i.i.i85:                                  ; preds = %if.end.i66.i
   %conv4.i.i.i = trunc i64 %18 to i32
-  %conv6.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv6.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %sub.i.i.i = sub nsw i32 8, %conv6.i.i.i
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %conv4.i.i.i)
   store i32 %.sroa.speculated.i.i.i, ptr %current_num_bits_.i.i.i, align 8
@@ -3186,7 +3186,7 @@ if.end23.i.i.i:                                   ; preds = %if.end15.i.i.i, %if
   store ptr %add.ptr25.i.i.i, ptr %drop_null_counter.i, align 8
   %sub27.i.i.i = add nsw i64 %89, -64
   store i64 %sub27.i.i.i, ptr %bits_remaining_.i.i.i, align 8
-  %conv.i.i.i = trunc i64 %94 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %94 to i32
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i
 
 _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i: ; preds = %if.end23.i.i.i, %if.then13.i.i.i, %if.then6.i.i.i, %if.else.i.i
@@ -3201,15 +3201,15 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i: ; 
   %retval.sroa.0.0.i.i = phi i32 [ %call.i.i.i, %if.then.i78.i ], [ %retval.sroa.0.0.insert.insert.i.i.i, %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i ]
   %filter_block.sroa.0.0.extract.trunc.i = trunc i32 %retval.sroa.0.0.i.i to i16
   %filter_block.sroa.16.0.extract.shift.i = lshr i32 %retval.sroa.0.0.i.i, 16
-  %filter_block.sroa.16.0.extract.trunc.i = trunc i32 %filter_block.sroa.16.0.extract.shift.i to i16
+  %filter_block.sroa.16.0.extract.trunc.i = trunc nuw i32 %filter_block.sroa.16.0.extract.shift.i to i16
   %call21.i = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %filter_valid_counter.i)
   %filter_valid_block.sroa.0.0.extract.trunc.i = trunc i32 %call21.i to i16
   %filter_valid_block.sroa.3.0.extract.shift.i = lshr i32 %call21.i, 16
-  %filter_valid_block.sroa.3.0.extract.trunc.i = trunc i32 %filter_valid_block.sroa.3.0.extract.shift.i to i16
+  %filter_valid_block.sroa.3.0.extract.trunc.i = trunc nuw i32 %filter_valid_block.sroa.3.0.extract.shift.i to i16
   %call22.i = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %data_counter.i)
   %data_block.sroa.0.0.extract.trunc.i = trunc i32 %call22.i to i16
   %data_block.sroa.3.0.extract.shift.i = lshr i32 %call22.i, 16
-  %data_block.sroa.3.0.extract.trunc.i = trunc i32 %data_block.sroa.3.0.extract.shift.i to i16
+  %data_block.sroa.3.0.extract.trunc.i = trunc nuw i32 %data_block.sroa.3.0.extract.shift.i to i16
   %cmp.i80.i = icmp eq i16 %filter_block.sroa.0.0.extract.trunc.i, %filter_block.sroa.16.0.extract.trunc.i
   br i1 %cmp.i80.i, label %land.lhs.true24.i, label %if.else48.i
 
@@ -4161,7 +4161,7 @@ if.end.i66.i328:                                  ; preds = %if.then11.i326
 
 if.then.i.i.i344:                                 ; preds = %if.end.i66.i328
   %conv4.i.i.i345 = trunc i64 %287 to i32
-  %conv6.i.i.i346 = trunc i64 %rem.i.i.i335 to i32
+  %conv6.i.i.i346 = trunc nsw i64 %rem.i.i.i335 to i32
   %sub.i.i.i347 = sub nsw i32 8, %conv6.i.i.i346
   %.sroa.speculated.i.i.i348 = call i32 @llvm.smin.i32(i32 %sub.i.i.i347, i32 %conv4.i.i.i345)
   store i32 %.sroa.speculated.i.i.i348, ptr %current_num_bits_.i.i.i332, align 8
@@ -4309,7 +4309,7 @@ if.end23.i.i.i185:                                ; preds = %if.end15.i.i.i180, 
   store ptr %add.ptr25.i.i.i187, ptr %drop_null_counter.i133, align 8
   %sub27.i.i.i188 = add nsw i64 %356, -64
   store i64 %sub27.i.i.i188, ptr %bits_remaining_.i.i.i154, align 8
-  %conv.i.i.i189 = trunc i64 %361 to i32
+  %conv.i.i.i189 = trunc nuw nsw i64 %361 to i32
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i190
 
 _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i190: ; preds = %if.end23.i.i.i185, %if.then13.i.i.i314, %if.then6.i.i.i321, %if.else.i.i173
@@ -4324,15 +4324,15 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i196:
   %retval.sroa.0.0.i.i197 = phi i32 [ %call.i.i.i325, %if.then.i78.i324 ], [ %retval.sroa.0.0.insert.insert.i.i.i195, %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i190 ]
   %filter_block.sroa.0.0.extract.trunc.i198 = trunc i32 %retval.sroa.0.0.i.i197 to i16
   %filter_block.sroa.16.0.extract.shift.i199 = lshr i32 %retval.sroa.0.0.i.i197, 16
-  %filter_block.sroa.16.0.extract.trunc.i200 = trunc i32 %filter_block.sroa.16.0.extract.shift.i199 to i16
+  %filter_block.sroa.16.0.extract.trunc.i200 = trunc nuw i32 %filter_block.sroa.16.0.extract.shift.i199 to i16
   %call21.i201 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %filter_valid_counter.i135)
   %filter_valid_block.sroa.0.0.extract.trunc.i202 = trunc i32 %call21.i201 to i16
   %filter_valid_block.sroa.3.0.extract.shift.i203 = lshr i32 %call21.i201, 16
-  %filter_valid_block.sroa.3.0.extract.trunc.i204 = trunc i32 %filter_valid_block.sroa.3.0.extract.shift.i203 to i16
+  %filter_valid_block.sroa.3.0.extract.trunc.i204 = trunc nuw i32 %filter_valid_block.sroa.3.0.extract.shift.i203 to i16
   %call22.i205 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %data_counter.i134)
   %data_block.sroa.0.0.extract.trunc.i206 = trunc i32 %call22.i205 to i16
   %data_block.sroa.3.0.extract.shift.i207 = lshr i32 %call22.i205, 16
-  %data_block.sroa.3.0.extract.trunc.i208 = trunc i32 %data_block.sroa.3.0.extract.shift.i207 to i16
+  %data_block.sroa.3.0.extract.trunc.i208 = trunc nuw i32 %data_block.sroa.3.0.extract.shift.i207 to i16
   %cmp.i80.i209 = icmp eq i16 %filter_block.sroa.0.0.extract.trunc.i198, %filter_block.sroa.16.0.extract.trunc.i200
   br i1 %cmp.i80.i209, label %land.lhs.true24.i301, label %if.else48.i210
 
@@ -5161,7 +5161,7 @@ if.end.i66.i677:                                  ; preds = %if.then11.i675
 
 if.then.i.i.i701:                                 ; preds = %if.end.i66.i677
   %conv4.i.i.i702 = trunc i64 %518 to i32
-  %conv6.i.i.i703 = trunc i64 %rem.i.i.i684 to i32
+  %conv6.i.i.i703 = trunc nsw i64 %rem.i.i.i684 to i32
   %sub.i.i.i704 = sub nsw i32 8, %conv6.i.i.i703
   %.sroa.speculated.i.i.i705 = call i32 @llvm.smin.i32(i32 %sub.i.i.i704, i32 %conv4.i.i.i702)
   store i32 %.sroa.speculated.i.i.i705, ptr %current_num_bits_.i.i.i681, align 8
@@ -5310,7 +5310,7 @@ if.end23.i.i.i524:                                ; preds = %if.end15.i.i.i519, 
   store ptr %add.ptr25.i.i.i526, ptr %drop_null_counter.i472, align 8
   %sub27.i.i.i527 = add nsw i64 %587, -64
   store i64 %sub27.i.i.i527, ptr %bits_remaining_.i.i.i493, align 8
-  %conv.i.i.i528 = trunc i64 %592 to i32
+  %conv.i.i.i528 = trunc nuw nsw i64 %592 to i32
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i529
 
 _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i529: ; preds = %if.end23.i.i.i524, %if.then13.i.i.i663, %if.then6.i.i.i670, %if.else.i.i512
@@ -5325,15 +5325,15 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i535:
   %retval.sroa.0.0.i.i536 = phi i32 [ %call.i.i.i674, %if.then.i78.i673 ], [ %retval.sroa.0.0.insert.insert.i.i.i534, %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i529 ]
   %filter_block.sroa.0.0.extract.trunc.i537 = trunc i32 %retval.sroa.0.0.i.i536 to i16
   %filter_block.sroa.16.0.extract.shift.i538 = lshr i32 %retval.sroa.0.0.i.i536, 16
-  %filter_block.sroa.16.0.extract.trunc.i539 = trunc i32 %filter_block.sroa.16.0.extract.shift.i538 to i16
+  %filter_block.sroa.16.0.extract.trunc.i539 = trunc nuw i32 %filter_block.sroa.16.0.extract.shift.i538 to i16
   %call21.i540 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %filter_valid_counter.i474)
   %filter_valid_block.sroa.0.0.extract.trunc.i541 = trunc i32 %call21.i540 to i16
   %filter_valid_block.sroa.3.0.extract.shift.i542 = lshr i32 %call21.i540, 16
-  %filter_valid_block.sroa.3.0.extract.trunc.i543 = trunc i32 %filter_valid_block.sroa.3.0.extract.shift.i542 to i16
+  %filter_valid_block.sroa.3.0.extract.trunc.i543 = trunc nuw i32 %filter_valid_block.sroa.3.0.extract.shift.i542 to i16
   %call22.i544 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %data_counter.i473)
   %data_block.sroa.0.0.extract.trunc.i545 = trunc i32 %call22.i544 to i16
   %data_block.sroa.3.0.extract.shift.i546 = lshr i32 %call22.i544, 16
-  %data_block.sroa.3.0.extract.trunc.i547 = trunc i32 %data_block.sroa.3.0.extract.shift.i546 to i16
+  %data_block.sroa.3.0.extract.trunc.i547 = trunc nuw i32 %data_block.sroa.3.0.extract.shift.i546 to i16
   %cmp.i80.i548 = icmp eq i16 %filter_block.sroa.0.0.extract.trunc.i537, %filter_block.sroa.16.0.extract.trunc.i539
   br i1 %cmp.i80.i548, label %land.lhs.true24.i647, label %if.else48.i549
 
@@ -6164,7 +6164,7 @@ if.end.i66.i1171:                                 ; preds = %if.then11.i1169
 
 if.then.i.i.i1197:                                ; preds = %if.end.i66.i1171
   %conv4.i.i.i1198 = trunc i64 %749 to i32
-  %conv6.i.i.i1199 = trunc i64 %rem.i.i.i1178 to i32
+  %conv6.i.i.i1199 = trunc nsw i64 %rem.i.i.i1178 to i32
   %sub.i.i.i1200 = sub nsw i32 8, %conv6.i.i.i1199
   %.sroa.speculated.i.i.i1201 = call i32 @llvm.smin.i32(i32 %sub.i.i.i1200, i32 %conv4.i.i.i1198)
   store i32 %.sroa.speculated.i.i.i1201, ptr %current_num_bits_.i.i.i1175, align 8
@@ -6313,7 +6313,7 @@ if.end23.i.i.i889:                                ; preds = %if.end15.i.i.i884, 
   store ptr %add.ptr25.i.i.i891, ptr %drop_null_counter.i830, align 8
   %sub27.i.i.i892 = add nsw i64 %818, -64
   store i64 %sub27.i.i.i892, ptr %bits_remaining_.i.i.i851, align 8
-  %conv.i.i.i893 = trunc i64 %823 to i32
+  %conv.i.i.i893 = trunc nuw nsw i64 %823 to i32
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i894
 
 _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i894: ; preds = %if.end23.i.i.i889, %if.then13.i.i.i1157, %if.then6.i.i.i1164, %if.else.i.i877
@@ -6328,15 +6328,15 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i900:
   %retval.sroa.0.0.i.i901 = phi i32 [ %call.i.i.i1168, %if.then.i78.i1167 ], [ %retval.sroa.0.0.insert.insert.i.i.i899, %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i894 ]
   %filter_block.sroa.0.0.extract.trunc.i902 = trunc i32 %retval.sroa.0.0.i.i901 to i16
   %filter_block.sroa.16.0.extract.shift.i903 = lshr i32 %retval.sroa.0.0.i.i901, 16
-  %filter_block.sroa.16.0.extract.trunc.i904 = trunc i32 %filter_block.sroa.16.0.extract.shift.i903 to i16
+  %filter_block.sroa.16.0.extract.trunc.i904 = trunc nuw i32 %filter_block.sroa.16.0.extract.shift.i903 to i16
   %call21.i905 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %filter_valid_counter.i832)
   %filter_valid_block.sroa.0.0.extract.trunc.i906 = trunc i32 %call21.i905 to i16
   %filter_valid_block.sroa.3.0.extract.shift.i907 = lshr i32 %call21.i905, 16
-  %filter_valid_block.sroa.3.0.extract.trunc.i908 = trunc i32 %filter_valid_block.sroa.3.0.extract.shift.i907 to i16
+  %filter_valid_block.sroa.3.0.extract.trunc.i908 = trunc nuw i32 %filter_valid_block.sroa.3.0.extract.shift.i907 to i16
   %call22.i909 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %data_counter.i831)
   %data_block.sroa.0.0.extract.trunc.i910 = trunc i32 %call22.i909 to i16
   %data_block.sroa.3.0.extract.shift.i911 = lshr i32 %call22.i909, 16
-  %data_block.sroa.3.0.extract.trunc.i912 = trunc i32 %data_block.sroa.3.0.extract.shift.i911 to i16
+  %data_block.sroa.3.0.extract.trunc.i912 = trunc nuw i32 %data_block.sroa.3.0.extract.shift.i911 to i16
   %cmp.i80.i913 = icmp eq i16 %filter_block.sroa.0.0.extract.trunc.i902, %filter_block.sroa.16.0.extract.trunc.i904
   br i1 %cmp.i80.i913, label %land.lhs.true24.i1138, label %if.else48.i914
 
@@ -7167,7 +7167,7 @@ if.end.i66.i1668:                                 ; preds = %if.then11.i1666
 
 if.then.i.i.i1694:                                ; preds = %if.end.i66.i1668
   %conv4.i.i.i1695 = trunc i64 %980 to i32
-  %conv6.i.i.i1696 = trunc i64 %rem.i.i.i1675 to i32
+  %conv6.i.i.i1696 = trunc nsw i64 %rem.i.i.i1675 to i32
   %sub.i.i.i1697 = sub nsw i32 8, %conv6.i.i.i1696
   %.sroa.speculated.i.i.i1698 = call i32 @llvm.smin.i32(i32 %sub.i.i.i1697, i32 %conv4.i.i.i1695)
   store i32 %.sroa.speculated.i.i.i1698, ptr %current_num_bits_.i.i.i1672, align 8
@@ -7316,7 +7316,7 @@ if.end23.i.i.i1386:                               ; preds = %if.end15.i.i.i1381,
   store ptr %add.ptr25.i.i.i1388, ptr %drop_null_counter.i1327, align 8
   %sub27.i.i.i1389 = add nsw i64 %1049, -64
   store i64 %sub27.i.i.i1389, ptr %bits_remaining_.i.i.i1348, align 8
-  %conv.i.i.i1390 = trunc i64 %1054 to i32
+  %conv.i.i.i1390 = trunc nuw nsw i64 %1054 to i32
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i1391
 
 _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i1391: ; preds = %if.end23.i.i.i1386, %if.then13.i.i.i1654, %if.then6.i.i.i1661, %if.else.i.i1374
@@ -7331,15 +7331,15 @@ _ZN5arrow7compute8internal12_GLOBAL__N_115DropNullCounter9NextBlockEv.exit.i1397
   %retval.sroa.0.0.i.i1398 = phi i32 [ %call.i.i.i1665, %if.then.i78.i1664 ], [ %retval.sroa.0.0.insert.insert.i.i.i1396, %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i1391 ]
   %filter_block.sroa.0.0.extract.trunc.i1399 = trunc i32 %retval.sroa.0.0.i.i1398 to i16
   %filter_block.sroa.16.0.extract.shift.i1400 = lshr i32 %retval.sroa.0.0.i.i1398, 16
-  %filter_block.sroa.16.0.extract.trunc.i1401 = trunc i32 %filter_block.sroa.16.0.extract.shift.i1400 to i16
+  %filter_block.sroa.16.0.extract.trunc.i1401 = trunc nuw i32 %filter_block.sroa.16.0.extract.shift.i1400 to i16
   %call21.i1402 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %filter_valid_counter.i1329)
   %filter_valid_block.sroa.0.0.extract.trunc.i1403 = trunc i32 %call21.i1402 to i16
   %filter_valid_block.sroa.3.0.extract.shift.i1404 = lshr i32 %call21.i1402, 16
-  %filter_valid_block.sroa.3.0.extract.trunc.i1405 = trunc i32 %filter_valid_block.sroa.3.0.extract.shift.i1404 to i16
+  %filter_valid_block.sroa.3.0.extract.trunc.i1405 = trunc nuw i32 %filter_valid_block.sroa.3.0.extract.shift.i1404 to i16
   %call22.i1406 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %data_counter.i1328)
   %data_block.sroa.0.0.extract.trunc.i1407 = trunc i32 %call22.i1406 to i16
   %data_block.sroa.3.0.extract.shift.i1408 = lshr i32 %call22.i1406, 16
-  %data_block.sroa.3.0.extract.trunc.i1409 = trunc i32 %data_block.sroa.3.0.extract.shift.i1408 to i16
+  %data_block.sroa.3.0.extract.trunc.i1409 = trunc nuw i32 %data_block.sroa.3.0.extract.shift.i1408 to i16
   %cmp.i80.i1410 = icmp eq i16 %filter_block.sroa.0.0.extract.trunc.i1399, %filter_block.sroa.16.0.extract.trunc.i1401
   br i1 %cmp.i80.i1410, label %land.lhs.true24.i1635, label %if.else48.i1411
 
@@ -8448,7 +8448,7 @@ if.end.i.i:                                       ; preds = %if.else.i
 
 if.then.i.i240.i:                                 ; preds = %if.end.i.i
   %conv4.i.i.i = trunc i64 %39 to i32
-  %conv6.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv6.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %sub.i.i.i = sub nsw i32 8, %conv6.i.i.i
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %conv4.i.i.i)
   store i32 %.sroa.speculated.i.i.i, ptr %current_num_bits_.i.i.i, align 8, !noalias !85
@@ -8995,7 +8995,7 @@ if.end.i.i167:                                    ; preds = %if.else.i162
 
 if.then.i.i240.i268:                              ; preds = %if.end.i.i167
   %conv4.i.i.i269 = trunc i64 %102 to i32
-  %conv6.i.i.i270 = trunc i64 %rem.i.i.i174 to i32
+  %conv6.i.i.i270 = trunc nsw i64 %rem.i.i.i174 to i32
   %sub.i.i.i271 = sub nsw i32 8, %conv6.i.i.i270
   %.sroa.speculated.i.i.i272 = call i32 @llvm.smin.i32(i32 %sub.i.i.i271, i32 %conv4.i.i.i269)
   store i32 %.sroa.speculated.i.i.i272, ptr %current_num_bits_.i.i.i171, align 8, !noalias !134
@@ -9664,14 +9664,14 @@ while.body.i:                                     ; preds = %if.end712.i, %while
 invoke.cont102.i:                                 ; preds = %while.body.i
   %filter_valid_block.sroa.0.0.extract.trunc.i = trunc i32 %call103.i to i16
   %filter_valid_block.sroa.2.0.extract.shift.i = lshr i32 %call103.i, 16
-  %filter_valid_block.sroa.2.0.extract.trunc.i = trunc i32 %filter_valid_block.sroa.2.0.extract.shift.i to i16
+  %filter_valid_block.sroa.2.0.extract.trunc.i = trunc nuw i32 %filter_valid_block.sroa.2.0.extract.shift.i to i16
   %call105.i = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %values_valid_counter.i)
           to label %invoke.cont104.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !160
 
 invoke.cont104.i:                                 ; preds = %invoke.cont102.i
   %values_valid_block.sroa.0.0.extract.trunc.i = trunc i32 %call105.i to i16
   %values_valid_block.sroa.5.0.extract.shift.i = lshr i32 %call105.i, 16
-  %values_valid_block.sroa.5.0.extract.trunc.i = trunc i32 %values_valid_block.sroa.5.0.extract.shift.i to i16
+  %values_valid_block.sroa.5.0.extract.trunc.i = trunc nuw i32 %values_valid_block.sroa.5.0.extract.shift.i to i16
   %178 = load i64, ptr %bits_remaining_.i.i, align 8, !noalias !160
   %tobool.not.i.i = icmp eq i64 %178, 0
   br i1 %tobool.not.i.i, label %invoke.cont106.i, label %if.end.i.i545
@@ -9721,14 +9721,14 @@ if.end23.i.i:                                     ; preds = %if.end15.i.i, %if.e
   store ptr %add.ptr25.i.i, ptr %filter_counter.i, align 8, !noalias !160
   %sub27.i.i = add nsw i64 %178, -64
   store i64 %sub27.i.i, ptr %bits_remaining_.i.i, align 8, !noalias !160
-  %conv.i.i = trunc i64 %183 to i32
+  %conv.i.i = trunc nuw nsw i64 %183 to i32
   br label %invoke.cont106.i
 
 invoke.cont106.i:                                 ; preds = %if.end23.i.i, %if.then13.i.i, %if.then6.i.i, %invoke.cont104.i
   %retval.sroa.0.0.i.i = phi i32 [ %call.i.i, %if.then6.i.i ], [ 64, %if.end23.i.i ], [ %call14.i.i, %if.then13.i.i ], [ 0, %invoke.cont104.i ]
   %retval.sroa.5.0.i.i = phi i32 [ %retval.sroa.5.0.extract.shift.i.i, %if.then6.i.i ], [ %conv.i.i, %if.end23.i.i ], [ %retval.sroa.5.0.extract.shift2.i.i, %if.then13.i.i ], [ 0, %invoke.cont104.i ]
   %filter_block.sroa.0.0.extract.trunc.i = trunc i32 %retval.sroa.0.0.i.i to i16
-  %filter_block.sroa.13.0.extract.trunc.i = trunc i32 %retval.sroa.5.0.i.i to i16
+  %filter_block.sroa.13.0.extract.trunc.i = trunc nuw i32 %retval.sroa.5.0.i.i to i16
   %cmp.i337.i = icmp eq i16 %filter_block.sroa.13.0.extract.trunc.i, 0
   %or.cond.i = and i1 %cmp15, %cmp.i337.i
   br i1 %or.cond.i, label %if.then110.i, label %if.else114.i
@@ -11564,14 +11564,14 @@ while.body.i789:                                  ; preds = %if.end673.i, %while
 invoke.cont102.i793:                              ; preds = %while.body.i789
   %filter_valid_block.sroa.0.0.extract.trunc.i794 = trunc i32 %call103.i790 to i16
   %filter_valid_block.sroa.2.0.extract.shift.i795 = lshr i32 %call103.i790, 16
-  %filter_valid_block.sroa.2.0.extract.trunc.i796 = trunc i32 %filter_valid_block.sroa.2.0.extract.shift.i795 to i16
+  %filter_valid_block.sroa.2.0.extract.trunc.i796 = trunc nuw i32 %filter_valid_block.sroa.2.0.extract.shift.i795 to i16
   %call105.i797 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter8NextWordEv(ptr noundef nonnull align 8 dereferenceable(48) %values_valid_counter.i661)
           to label %invoke.cont104.i798 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i791, !noalias !265
 
 invoke.cont104.i798:                              ; preds = %invoke.cont102.i793
   %values_valid_block.sroa.0.0.extract.trunc.i799 = trunc i32 %call105.i797 to i16
   %values_valid_block.sroa.5.0.extract.shift.i800 = lshr i32 %call105.i797, 16
-  %values_valid_block.sroa.5.0.extract.trunc.i801 = trunc i32 %values_valid_block.sroa.5.0.extract.shift.i800 to i16
+  %values_valid_block.sroa.5.0.extract.trunc.i801 = trunc nuw i32 %values_valid_block.sroa.5.0.extract.shift.i800 to i16
   %547 = load i64, ptr %bits_remaining_.i.i712, align 8, !noalias !265
   %tobool.not.i.i802 = icmp eq i64 %547, 0
   br i1 %tobool.not.i.i802, label %invoke.cont106.i818, label %if.end.i.i803
@@ -11621,14 +11621,14 @@ if.end23.i.i813:                                  ; preds = %if.end15.i.i808, %i
   store ptr %add.ptr25.i.i815, ptr %filter_counter.i663, align 8, !noalias !265
   %sub27.i.i816 = add nsw i64 %547, -64
   store i64 %sub27.i.i816, ptr %bits_remaining_.i.i712, align 8, !noalias !265
-  %conv.i.i817 = trunc i64 %552 to i32
+  %conv.i.i817 = trunc nuw nsw i64 %552 to i32
   br label %invoke.cont106.i818
 
 invoke.cont106.i818:                              ; preds = %if.end23.i.i813, %if.then13.i.i1158, %if.then6.i.i1165, %invoke.cont104.i798
   %retval.sroa.0.0.i.i819 = phi i32 [ %call.i.i1166, %if.then6.i.i1165 ], [ 64, %if.end23.i.i813 ], [ %call14.i.i1159, %if.then13.i.i1158 ], [ 0, %invoke.cont104.i798 ]
   %retval.sroa.5.0.i.i820 = phi i32 [ %retval.sroa.5.0.extract.shift.i.i1167, %if.then6.i.i1165 ], [ %conv.i.i817, %if.end23.i.i813 ], [ %retval.sroa.5.0.extract.shift2.i.i1160, %if.then13.i.i1158 ], [ 0, %invoke.cont104.i798 ]
   %filter_block.sroa.0.0.extract.trunc.i821 = trunc i32 %retval.sroa.0.0.i.i819 to i16
-  %filter_block.sroa.13.0.extract.trunc.i822 = trunc i32 %retval.sroa.5.0.i.i820 to i16
+  %filter_block.sroa.13.0.extract.trunc.i822 = trunc nuw i32 %retval.sroa.5.0.i.i820 to i16
   %cmp.i337.i823 = icmp eq i16 %filter_block.sroa.13.0.extract.trunc.i822, 0
   %or.cond.i824 = and i1 %cmp15, %cmp.i337.i823
   br i1 %or.cond.i824, label %if.then110.i1155, label %if.else114.i825
@@ -14236,7 +14236,7 @@ if.end71:                                         ; preds = %if.else, %if.then48
   store ptr %add.ptr75, ptr %right_bitmap_74, align 8
   %sub77 = add nsw i64 %0, -64
   store i64 %sub77, ptr %bits_remaining_, align 8
-  %conv80 = trunc i64 %20 to i16
+  %conv80 = trunc nuw nsw i64 %20 to i16
   br label %return
 
 return:                                           ; preds = %entry, %if.end71, %for.end
@@ -14371,7 +14371,7 @@ if.end71:                                         ; preds = %if.else, %if.then48
   store ptr %add.ptr75, ptr %right_bitmap_74, align 8
   %sub77 = add nsw i64 %0, -64
   store i64 %sub77, ptr %bits_remaining_, align 8
-  %conv80 = trunc i64 %20 to i16
+  %conv80 = trunc nuw nsw i64 %20 to i16
   br label %return
 
 return:                                           ; preds = %entry, %if.end71, %for.end
@@ -14945,14 +14945,14 @@ if.end23.i:                                       ; preds = %if.end15.i, %if.end
   store ptr %add.ptr25.i, ptr %counter_, align 8
   %sub27.i = add nsw i64 %1, -64
   store i64 %sub27.i, ptr %bits_remaining_.i, align 8
-  %conv.i = trunc i64 %6 to i32
+  %conv.i = trunc nuw nsw i64 %6 to i32
   br label %_ZN5arrow8internal15BitBlockCounter8NextWordEv.exit
 
 _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit: ; preds = %if.then, %if.then6.i, %if.then13.i, %if.end23.i
   %retval.sroa.0.0.i = phi i32 [ %call.i, %if.then6.i ], [ 64, %if.end23.i ], [ %call14.i, %if.then13.i ], [ 0, %if.then ]
   %retval.sroa.5.0.i = phi i32 [ %retval.sroa.5.0.extract.shift.i, %if.then6.i ], [ %conv.i, %if.end23.i ], [ %retval.sroa.5.0.extract.shift2.i, %if.then13.i ], [ 0, %if.then ]
   %retval.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.i to i16
-  %retval.sroa.4.0.extract.trunc = trunc i32 %retval.sroa.5.0.i to i16
+  %retval.sroa.4.0.extract.trunc = trunc nuw i32 %retval.sroa.5.0.i to i16
   %conv = sext i16 %retval.sroa.0.0.extract.trunc to i64
   %position_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %position_, align 8
@@ -15223,7 +15223,7 @@ if.then:                                          ; preds = %entry
   %current_word_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %current_word_.i, align 8
   %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 false), !range !16
-  %cast.i.i.i = trunc i64 %2 to i32
+  %cast.i.i.i = trunc nuw nsw i64 %2 to i32
   %cmp.not.i = icmp sgt i32 %0, %cast.i.i.i
   %remaining_11.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %remaining_11.i, align 8
@@ -15245,7 +15245,7 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   %sub.i.i = sub nsw i64 %4, %sub12.i
   %not.i = xor i64 %shr.i.i, -1
   %5 = tail call i64 @llvm.cttz.i64(i64 %not.i, i1 false), !range !16
-  %cast.i.i7.i = trunc i64 %5 to i32
+  %cast.i.i7.i = trunc nuw nsw i64 %5 to i32
   %shr.i9.i = lshr i64 %shr.i.i, %5
   store i64 %shr.i9.i, ptr %current_word_.i, align 8
   %6 = add nuw nsw i32 %cast.i.i7.i, %cast.i.i.i
@@ -15280,7 +15280,7 @@ while.body.i:                                     ; preds = %if.end.i16, %while.
   store ptr %add.ptr.i.i, ptr %this, align 8
   store i64 %word.0.copyload.i.i, ptr %current_word_.i14, align 8
   %8 = tail call i64 @llvm.cttz.i64(i64 %word.0.copyload.i.i, i1 false), !range !16
-  %cast.i.i.i15 = trunc i64 %8 to i32
+  %cast.i.i.i15 = trunc nuw nsw i64 %8 to i32
   %cmp5.i = icmp ult i32 %cast.i.i.i15, 64
   br i1 %cmp5.i, label %if.then.i18, label %if.end.i16
 
@@ -15323,7 +15323,7 @@ if.then15.i:                                      ; preds = %while.end.i
   %current_word_18.i = getelementptr inbounds i8, ptr %this, i64 24
   %conv20.i = trunc i64 %.pr to i32
   %10 = tail call i64 @llvm.cttz.i64(i64 %and.i.i, i1 false), !range !16
-  %cast.i.i7.i12 = trunc i64 %10 to i32
+  %cast.i.i7.i12 = trunc nuw nsw i64 %10 to i32
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %cast.i.i7.i12, i32 %conv20.i)
   %sh_prom.i8.i = zext nneg i32 %.sroa.speculated.i to i64
   %shr.i9.i13 = lshr i64 %and.i.i, %sh_prom.i8.i
@@ -15425,7 +15425,7 @@ entry:
 if.then:                                          ; preds = %entry
   %not = xor i64 %0, -1
   %1 = tail call i64 @llvm.cttz.i64(i64 %not, i1 false), !range !16
-  %cast.i.i = trunc i64 %1 to i32
+  %cast.i.i = trunc nuw nsw i64 %1 to i32
   %remaining_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %remaining_, align 8
   %sub = sub nsw i64 %2, %1
@@ -15469,7 +15469,7 @@ while.body:                                       ; preds = %while.cond
   store i64 %word.0.copyload.i, ptr %current_word_, align 8
   %not24 = xor i64 %word.0.copyload.i, -1
   %7 = tail call i64 @llvm.cttz.i64(i64 %not24, i1 false), !range !16
-  %cast.i.i15 = trunc i64 %7 to i32
+  %cast.i.i15 = trunc nuw nsw i64 %7 to i32
   %add = add nuw nsw i64 %7, %len.1
   %sub29 = sub nuw nsw i64 %6, %7
   store i64 %sub29, ptr %remaining_17, align 8
@@ -15508,7 +15508,7 @@ if.then40:                                        ; preds = %while.end
   %current_num_bits_46 = getelementptr inbounds i8, ptr %this, i64 32
   %not49 = xor i64 %and.i, -1
   %8 = tail call i64 @llvm.cttz.i64(i64 %not49, i1 true), !range !16
-  %cast.i.i19 = trunc i64 %8 to i32
+  %cast.i.i19 = trunc nuw nsw i64 %8 to i32
   %shr.i21 = lshr i64 %and.i, %8
   store i64 %shr.i21, ptr %current_word_, align 8
   %sub55 = sub nsw i32 %conv45, %cast.i.i19
@@ -19801,7 +19801,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -19812,13 +19812,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -24161,7 +24159,7 @@ for.body.i:                                       ; preds = %invoke.cont22.i
   %vtable.i = load ptr, ptr %43, align 8, !noalias !469
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %70 = load ptr, ptr %vfn.i, align 8
-  %71 = trunc i64 %indvars.iv.i to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.i to i32
   invoke void %70(ptr nonnull sret(%"class.std::shared_ptr.177") align 8 %ref.tmp27.i, ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef %71)
           to label %invoke.cont28.i unwind label %lpad21.i
 
@@ -25884,7 +25882,7 @@ for.body.i270:                                    ; preds = %_ZNSt10shared_ptrIN
   %vtable20.i = load ptr, ptr %254, align 8, !noalias !497
   %vfn21.i = getelementptr inbounds i8, ptr %vtable20.i, i64 16
   %314 = load ptr, ptr %vfn21.i, align 8
-  %315 = trunc i64 %indvars.iv.i271 to i32
+  %315 = trunc nuw nsw i64 %indvars.iv.i271 to i32
   invoke void %314(ptr nonnull sret(%"class.std::shared_ptr.226") align 8 %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(32) %254, i32 noundef %315)
           to label %invoke.cont23.i unwind label %lpad22.loopexit.i
 
@@ -26796,7 +26794,7 @@ for.body158.i:                                    ; preds = %_ZNSt10shared_ptrIN
   %vtable163.i = load ptr, ptr %254, align 8, !noalias !497
   %vfn164.i = getelementptr inbounds i8, ptr %vtable163.i, i64 16
   %443 = load ptr, ptr %vfn164.i, align 8
-  %444 = trunc i64 %indvars.iv709.i to i32
+  %444 = trunc nuw nsw i64 %indvars.iv709.i to i32
   invoke void %443(ptr nonnull sret(%"class.std::shared_ptr.226") align 8 %ref.tmp162.i, ptr noundef nonnull align 8 dereferenceable(32) %254, i32 noundef %444)
           to label %invoke.cont166.i unwind label %lpad165.i
 
@@ -29746,8 +29744,8 @@ _ZNKSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE12_M_check_lenEmPKc.exit: ; 
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
-  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
@@ -29763,9 +29761,9 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit: 
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.177", ptr %cond.i10, i64 %sub.ptr.div.i
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %3 = load <2 x ptr>, ptr %__args, align 8
+  %2 = load <2 x ptr>, ptr %__args, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8
-  store <2 x ptr> %3, ptr %add.ptr, align 8
+  store <2 x ptr> %2, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
@@ -29776,9 +29774,9 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !557)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !560)
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !560, !noalias !557
+  %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !560, !noalias !557
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !560, !noalias !557
-  store <2 x ptr> %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !557, !noalias !560
+  store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !557, !noalias !560
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !560, !noalias !557
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
@@ -29797,9 +29795,9 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   tail call void @llvm.experimental.noalias.scope.decl(metadata !563)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !566)
   %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !566, !noalias !563
+  %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !566, !noalias !563
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !566, !noalias !563
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !563, !noalias !566
+  store <2 x ptr> %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !563, !noalias !566
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !566, !noalias !563
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
@@ -29863,7 +29861,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -29874,13 +29872,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

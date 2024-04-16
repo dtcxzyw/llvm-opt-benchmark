@@ -67,7 +67,7 @@ define dso_local zeroext i1 @IsValidJsonNumber(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i32 @json_lex_number(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -275,13 +275,11 @@ define internal fastcc noundef i32 @json_lex_number(ptr nocapture noundef %0, pt
   %85 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %84, ptr %85, align 8
   store ptr %.797.lcssa, ptr %83, align 8
-  br i1 %.388.lcssa, label %87, label %86
+  %spec.select = select i1 %.388.lcssa, i32 12, i32 0
+  br label %86
 
 86:                                               ; preds = %82, %80
-  br label %87
-
-87:                                               ; preds = %82, %86
-  %.089 = phi i32 [ 0, %86 ], [ 12, %82 ]
+  %.089 = phi i32 [ 0, %80 ], [ %spec.select, %82 ]
   ret i32 %.089
 }
 
@@ -425,7 +423,7 @@ lex_expect.exit:                                  ; preds = %18, %16, %12, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca [17 x i8], align 16
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1149,19 +1147,15 @@ lex_expect.exit:                                  ; preds = %.lr.ph, %15
   %38 = add i32 %37, -1
   store i32 %38, ptr %11, align 4
   %.not47 = icmp eq ptr %6, null
-  br i1 %.not47, label %42, label %39
+  br i1 %.not47, label %.critedge.thread, label %39
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %1, align 8
   %41 = tail call i32 %6(ptr noundef %40) #11
-  %.not48 = icmp eq i32 %41, 0
-  br i1 %.not48, label %42, label %.critedge.thread
-
-42:                                               ; preds = %39, %36
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %20, %22, %17, %25, %30, %39, %lex_expect.exit, %10, %7, %42
-  %.033 = phi i32 [ 0, %42 ], [ %9, %7 ], [ %14, %10 ], [ %35, %lex_expect.exit ], [ %41, %39 ], [ %spec.select, %30 ], [ %spec.select58, %25 ], [ %18, %17 ], [ %21, %20 ], [ %23, %22 ]
+.critedge.thread:                                 ; preds = %20, %22, %17, %25, %30, %39, %36, %lex_expect.exit, %10, %7
+  %.033 = phi i32 [ %9, %7 ], [ %14, %10 ], [ %35, %lex_expect.exit ], [ 0, %36 ], [ %41, %39 ], [ %spec.select, %30 ], [ %spec.select58, %25 ], [ %18, %17 ], [ %21, %20 ], [ %23, %22 ]
   ret i32 %.033
 }
 
@@ -1251,19 +1245,15 @@ lex_expect.exit50:                                ; preds = %.lr.ph, %23
   %40 = add i32 %39, -1
   store i32 %40, ptr %11, align 4
   %.not44 = icmp eq ptr %6, null
-  br i1 %.not44, label %44, label %41
+  br i1 %.not44, label %.critedge.thread, label %41
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %1, align 8
   %43 = tail call i32 %6(ptr noundef %42) #11
-  %.not45 = icmp eq i32 %43, 0
-  br i1 %.not45, label %44, label %.critedge.thread
-
-44:                                               ; preds = %41, %38
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %27, %29, %24, %32, %16, %lex_expect.exit, %41, %lex_expect.exit50, %7, %44
-  %.030 = phi i32 [ 0, %44 ], [ %9, %7 ], [ %37, %lex_expect.exit50 ], [ %43, %41 ], [ %21, %lex_expect.exit ], [ %spec.select, %16 ], [ %spec.select59, %32 ], [ %25, %24 ], [ %28, %27 ], [ %30, %29 ]
+.critedge.thread:                                 ; preds = %27, %29, %24, %32, %16, %lex_expect.exit, %41, %38, %lex_expect.exit50, %7
+  %.030 = phi i32 [ %9, %7 ], [ %37, %lex_expect.exit50 ], [ 0, %38 ], [ %43, %41 ], [ %21, %lex_expect.exit ], [ %spec.select, %16 ], [ %spec.select59, %32 ], [ %25, %24 ], [ %28, %27 ], [ %30, %29 ]
   ret i32 %.030
 }
 
@@ -1381,7 +1371,7 @@ lex_expect.exit:                                  ; preds = %2
   %.not17 = icmp eq i32 %.val, 6
   br i1 %.not17, label %lex_expect.exit27, label %.preheader
 
-thread-pre-split:                                 ; preds = %37
+thread-pre-split:                                 ; preds = %36
   %.val.i22.pr = load i32, ptr %8, align 8
   br label %.preheader
 
@@ -1426,47 +1416,47 @@ thread-pre-split:                                 ; preds = %37
 
 32:                                               ; preds = %31
   %.not32.i = icmp eq ptr %19, null
-  br i1 %.not32.i, label %parse_array_element.exit, label %33
+  br i1 %.not32.i, label %parse_array_element.exit.thread32, label %parse_array_element.exit
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr @nullSemAction, align 8
-  %35 = call i32 %19(ptr noundef %34, i1 noundef zeroext %20) #11
-  %.not33.i = icmp eq i32 %35, 0
-  br i1 %.not33.i, label %parse_array_element.exit, label %lex_expect.exit.thread
+parse_array_element.exit:                         ; preds = %32
+  %33 = load ptr, ptr @nullSemAction, align 8
+  %34 = call i32 %19(ptr noundef %33, i1 noundef zeroext %20) #11
+  %.not18 = icmp eq i32 %34, 0
+  br i1 %.not18, label %parse_array_element.exit.thread32, label %lex_expect.exit.thread
 
-parse_array_element.exit:                         ; preds = %33, %32
-  %36 = load i32, ptr %8, align 8
-  switch i32 %36, label %39 [
-    i32 7, label %37
+parse_array_element.exit.thread32:                ; preds = %32, %parse_array_element.exit
+  %35 = load i32, ptr %8, align 8
+  switch i32 %35, label %38 [
+    i32 7, label %36
     i32 6, label %lex_expect.exit27
   ]
 
-37:                                               ; preds = %parse_array_element.exit
-  %38 = call i32 @json_lex(ptr noundef nonnull %3)
-  %.not20 = icmp eq i32 %38, 0
+36:                                               ; preds = %parse_array_element.exit.thread32
+  %37 = call i32 @json_lex(ptr noundef nonnull %3)
+  %.not20 = icmp eq i32 %37, 0
   br i1 %.not20, label %thread-pre-split, label %lex_expect.exit.thread
 
-39:                                               ; preds = %parse_array_element.exit
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  %43 = icmp eq i32 %36, 12
-  %or.cond.i25 = or i1 %43, %42
-  %spec.select39 = select i1 %or.cond.i25, i32 8, i32 4
+38:                                               ; preds = %parse_array_element.exit.thread32
+  %39 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  %42 = icmp eq i32 %35, 12
+  %or.cond.i25 = or i1 %42, %41
+  %spec.select42 = select i1 %or.cond.i25, i32 8, i32 4
   br label %lex_expect.exit.thread
 
-lex_expect.exit27:                                ; preds = %parse_array_element.exit, %16
-  %.135 = phi i32 [ 0, %16 ], [ %17, %parse_array_element.exit ]
-  %44 = call i32 @json_lex(ptr noundef nonnull %3)
-  %.not21 = icmp eq i32 %44, 0
-  br i1 %.not21, label %45, label %lex_expect.exit.thread
+lex_expect.exit27:                                ; preds = %parse_array_element.exit.thread32, %16
+  %.138 = phi i32 [ 0, %16 ], [ %17, %parse_array_element.exit.thread32 ]
+  %43 = call i32 @json_lex(ptr noundef nonnull %3)
+  %.not21 = icmp eq i32 %43, 0
+  br i1 %.not21, label %44, label %lex_expect.exit.thread
 
-45:                                               ; preds = %lex_expect.exit27
-  store i32 %.135, ptr %1, align 4
+44:                                               ; preds = %lex_expect.exit27
+  store i32 %.138, ptr %1, align 4
   br label %lex_expect.exit.thread
 
-lex_expect.exit.thread:                           ; preds = %33, %31, %21, %37, %39, %10, %lex_expect.exit27, %lex_expect.exit, %45
-  %.012 = phi i32 [ 0, %45 ], [ %15, %lex_expect.exit ], [ %44, %lex_expect.exit27 ], [ %spec.select, %10 ], [ %spec.select39, %39 ], [ %23, %21 ], [ %.025.i, %31 ], [ %35, %33 ], [ %38, %37 ]
+lex_expect.exit.thread:                           ; preds = %31, %21, %36, %parse_array_element.exit, %38, %10, %lex_expect.exit27, %lex_expect.exit, %44
+  %.012 = phi i32 [ 0, %44 ], [ %15, %lex_expect.exit ], [ %43, %lex_expect.exit27 ], [ %spec.select, %10 ], [ %spec.select42, %38 ], [ %23, %21 ], [ %.025.i, %31 ], [ %37, %36 ], [ %34, %parse_array_element.exit ]
   ret i32 %.012
 }
 
@@ -1489,7 +1479,7 @@ define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr nocapture no
   %10 = load ptr, ptr %1, align 8
   %11 = tail call i32 %4(ptr noundef %10, i1 noundef zeroext %8) #11
   %.not30 = icmp eq i32 %11, 0
-  br i1 %.not30, label %12, label %25
+  br i1 %.not30, label %12, label %24
 
 12:                                               ; preds = %9, %2
   switch i32 %.val, label %17 [
@@ -1512,7 +1502,7 @@ define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr nocapture no
 19:                                               ; preds = %17, %15, %13
   %.025 = phi i32 [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
   %.not31 = icmp eq i32 %.025, 0
-  br i1 %.not31, label %20, label %25
+  br i1 %.not31, label %20, label %24
 
 20:                                               ; preds = %19
   %.not32 = icmp eq ptr %6, null
@@ -1521,14 +1511,10 @@ define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr nocapture no
 21:                                               ; preds = %20
   %22 = load ptr, ptr %1, align 8
   %23 = tail call i32 %6(ptr noundef %22, i1 noundef zeroext %8) #11
-  %.not33 = icmp eq i32 %23, 0
-  br i1 %.not33, label %24, label %25
+  br label %24
 
-24:                                               ; preds = %21, %20
-  br label %25
-
-25:                                               ; preds = %21, %19, %9, %24
-  %.0 = phi i32 [ 0, %24 ], [ %11, %9 ], [ %.025, %19 ], [ %23, %21 ]
+24:                                               ; preds = %21, %20, %19, %9
+  %.0 = phi i32 [ %11, %9 ], [ %.025, %19 ], [ 0, %20 ], [ %23, %21 ]
   ret i32 %.0
 }
 
@@ -1819,17 +1805,17 @@ define internal fastcc i32 @parse_object_field(ptr noundef %0, ptr nocapture nou
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 40
-  %.val55 = load i32, ptr %7, align 8
-  %.not = icmp eq i32 %.val55, 1
+  %.val56 = load i32, ptr %7, align 8
+  %.not = icmp eq i32 %.val56, 1
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  %12 = icmp eq i32 %.val55, 12
-  %or.cond59 = or i1 %12, %11
-  %spec.select60 = select i1 %or.cond59, i32 8, i32 11
+  %12 = icmp eq i32 %.val56, 12
+  %or.cond60 = or i1 %12, %11
+  %spec.select61 = select i1 %or.cond60, i32 8, i32 11
   br label %report_parse_error.exit
 
 13:                                               ; preds = %2
@@ -1906,22 +1892,16 @@ lex_expect.exit:                                  ; preds = %24
 44:                                               ; preds = %42, %40, %38
   %.0 = phi i32 [ %43, %42 ], [ %41, %40 ], [ %39, %38 ]
   %.not53 = icmp eq i32 %.0, 0
-  br i1 %.not53, label %45, label %report_parse_error.exit
+  %brmerge.not = select i1 %.not53, i1 %15, i1 false
+  br i1 %brmerge.not, label %45, label %report_parse_error.exit
 
 45:                                               ; preds = %44
-  br i1 %15, label %46, label %49
-
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %1, align 8
-  %48 = tail call i32 %6(ptr noundef %47, ptr noundef %.041, i1 noundef zeroext %33) #11
-  %.not54 = icmp eq i32 %48, 0
-  br i1 %.not54, label %49, label %report_parse_error.exit
-
-49:                                               ; preds = %46, %45
+  %46 = load ptr, ptr %1, align 8
+  %47 = tail call i32 %6(ptr noundef %46, ptr noundef %.041, i1 noundef zeroext %33) #11
   br label %report_parse_error.exit
 
-report_parse_error.exit:                          ; preds = %8, %26, %46, %44, %34, %lex_expect.exit, %22, %49
-  %.040 = phi i32 [ 0, %49 ], [ %23, %22 ], [ %31, %lex_expect.exit ], [ %36, %34 ], [ %.0, %44 ], [ %48, %46 ], [ %spec.select, %26 ], [ %spec.select60, %8 ]
+report_parse_error.exit:                          ; preds = %8, %26, %45, %44, %34, %lex_expect.exit, %22
+  %.040 = phi i32 [ %23, %22 ], [ %31, %lex_expect.exit ], [ %36, %34 ], [ %.0, %44 ], [ %47, %45 ], [ %spec.select, %26 ], [ %spec.select61, %8 ]
   ret i32 %.040
 }
 

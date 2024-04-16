@@ -614,8 +614,8 @@ land.lhs.true.i:                                  ; preds = %for.body4.i29
   br i1 %or.cond, label %if.then.i71, label %for.inc.i61
 
 if.then.i71:                                      ; preds = %land.lhs.true.i
-  %93 = trunc i64 %indvars.iv.i30 to i8
-  %94 = trunc i64 %indvars.iv.i30 to i32
+  %93 = trunc nuw nsw i64 %indvars.iv.i30 to i8
+  %94 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   %cmp23.i = icmp ugt i32 %94, %min_width
   br i1 %cmp23.i, label %single.i56, label %if.end.i72
 
@@ -791,8 +791,8 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit122.i: ; preds = %for.inc.i.i1
   br i1 %tobool.i.i.i115.not.i, label %for.inc.i61, label %if.then41.i
 
 if.then41.i:                                      ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit122.i, %land.lhs.true36.i
-  %117 = trunc i64 %indvars.iv.i30 to i32
-  %118 = trunc i64 %indvars.iv.i30 to i8
+  %117 = trunc nuw nsw i64 %indvars.iv.i30 to i32
+  %118 = trunc nuw nsw i64 %indvars.iv.i30 to i8
   %cmp43.i = icmp ugt i32 %117, %min_width
   br i1 %cmp43.i, label %single.i56, label %if.end45.i
 
@@ -926,7 +926,7 @@ for.body77.i58:                                   ; preds = %for.cond74.preheade
   br i1 %cmp.i183.i, label %for.body.i.i.i184.i, label %for.inc124.i
 
 if.then89.i:                                      ; preds = %for.body77.us.i59
-  %145 = trunc i64 %indvars.iv93.i to i8
+  %145 = trunc nuw nsw i64 %indvars.iv93.i to i8
   %146 = trunc i64 %indvars.iv93.i to i32
   %conv75.le.i60 = and i32 %146, 255
   %cmp91.not.i = icmp ult i32 %conv75.le.i60, %min_width
@@ -1015,7 +1015,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit212.i: ; preds = %for.inc.i.i1
   br i1 %tobool.i.i.i205.not.i, label %for.inc124.i, label %if.then107.i
 
 if.then107.i:                                     ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit212.i
-  %157 = trunc i64 %indvars.iv89.i to i8
+  %157 = trunc nuw nsw i64 %indvars.iv89.i to i8
   %158 = trunc i64 %indvars.iv89.i to i32
   %conv75.le44.i = and i32 %158, 255
   %cmp109.not.i = icmp ult i32 %conv75.le44.i, %min_width
@@ -1257,32 +1257,33 @@ while.body.i.i:                                   ; preds = %if.then60, %while.b
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__x.034.i.i, i64 32
   %agg.tmp.sroa.0.0.copyload.i.i.i = load ptr, ptr %_M_storage.i.i.i.i, align 8
   %tobool3.i.i.not.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i, null
-  br i1 %tobool3.i.i.not.i.i, label %cond.end.i.i.thread, label %if.then.i.i.i.i
+  br i1 %tobool3.i.i.not.i.i, label %cond.end.i.i.thread, label %cond.end.i.i
 
-if.then.i.i.i.i:                                  ; preds = %while.body.i.i
+cond.end.i.i:                                     ; preds = %while.body.i.i
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__x.034.i.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %18, %agg.tmp.sroa.2.0.copyload.i.i.i
-  br i1 %cmp.i.i.i.i, label %cond.end.i.i, label %cond.end.i.i.thread
-
-cond.end.i.i:                                     ; preds = %if.then.i.i.i.i
-  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.034.i.i, i64 16
+  %spec.select.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.034.i.i, i64 %spec.select.i.i
   %__x.0.i.i = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %__x.0.i.i, null
-  br i1 %cmp.not.i.i, label %if.then.i.i, label %while.body.i.i.backedge
+  br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i.backedge
 
 while.body.i.i.backedge:                          ; preds = %cond.end.i.i, %cond.end.i.i.thread
   %__x.034.i.i.be = phi ptr [ %__x.0.i.i, %cond.end.i.i ], [ %__x.0.i.i93, %cond.end.i.i.thread ]
   br label %while.body.i.i, !llvm.loop !26
 
-cond.end.i.i.thread:                              ; preds = %while.body.i.i, %if.then.i.i.i.i
+cond.end.i.i.thread:                              ; preds = %while.body.i.i
   %_M_right.i.i.i92 = getelementptr inbounds i8, ptr %__x.034.i.i, i64 24
   %__x.0.i.i93 = load ptr, ptr %_M_right.i.i.i92, align 8
   %cmp.not.i.i94 = icmp eq ptr %__x.0.i.i93, null
   br i1 %cmp.not.i.i94, label %if.end12.i.i, label %while.body.i.i.backedge
 
-if.then.i.i:                                      ; preds = %cond.end.i.i, %if.then60
-  %__y.0.lcssa41.i.i = phi ptr [ %2, %if.then60 ], [ %__x.034.i.i, %cond.end.i.i ]
+while.end.i.i:                                    ; preds = %cond.end.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end12.i.i
+
+if.then.i.i:                                      ; preds = %while.end.i.i, %if.then60
+  %__y.0.lcssa41.i.i = phi ptr [ %__x.034.i.i, %while.end.i.i ], [ %2, %if.then60 ]
   %24 = load ptr, ptr %_M_left.i.i.i.i.i19, align 8
   %cmp.i.i.i54 = icmp eq ptr %__y.0.lcssa41.i.i, %24
   br i1 %cmp.i.i.i54, label %if.then.i, label %if.else.i.i
@@ -1291,9 +1292,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa41.i.i) #15
   br label %if.end12.i.i
 
-if.end12.i.i:                                     ; preds = %cond.end.i.i.thread, %if.else.i.i
-  %__y.0.lcssa40.i.i = phi ptr [ %__y.0.lcssa41.i.i, %if.else.i.i ], [ %__x.034.i.i, %cond.end.i.i.thread ]
-  %__j.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %__x.034.i.i, %cond.end.i.i.thread ]
+if.end12.i.i:                                     ; preds = %cond.end.i.i.thread, %if.else.i.i, %while.end.i.i
+  %__y.0.lcssa40.i.i = phi ptr [ %__y.0.lcssa41.i.i, %if.else.i.i ], [ %__x.034.i.i, %while.end.i.i ], [ %__x.034.i.i, %cond.end.i.i.thread ]
+  %__j.sroa.0.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %__x.034.i.i, %while.end.i.i ], [ %__x.034.i.i, %cond.end.i.i.thread ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i, i64 32
   %25 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
   %tobool.i.i5.i.i = icmp ne ptr %25, null
@@ -1641,20 +1642,18 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.034.i, i64 32
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %_M_storage.i.i.i, align 8
   %tobool3.i.i.not.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i, null
-  br i1 %tobool3.i.i.not.i, label %cond.false.i, label %if.then.i.i.i
+  br i1 %tobool3.i.i.not.i, label %cond.end.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__x.034.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, %agg.tmp.sroa.2.0.copyload.i.i
-  br i1 %cmp.i.i.i, label %cond.end.i, label %cond.false.i
-
-cond.false.i:                                     ; preds = %if.then.i.i.i, %while.body.i
+  %spec.select.i = select i1 %cmp.i.i.i, i64 16, i64 24
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.false.i, %if.then.i.i.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %if.then.i.i.i ]
-  %retval.0.i.i29.i = phi i1 [ false, %cond.false.i ], [ true, %if.then.i.i.i ]
+cond.end.i:                                       ; preds = %if.then.i.i.i, %while.body.i
+  %.sink.i = phi i64 [ 24, %while.body.i ], [ %spec.select.i, %if.then.i.i.i ]
+  %retval.0.i.i29.i = phi i1 [ false, %while.body.i ], [ %cmp.i.i.i, %if.then.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.034.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null

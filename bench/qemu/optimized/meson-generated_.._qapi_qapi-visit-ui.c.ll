@@ -147,7 +147,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_SetPasswordOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_SetPasswordOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i9 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -168,7 +168,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %has_connected = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_connected) #4
-  br i1 %call4, label %if.then5, label %if.end9
+  br i1 %call4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end3
   %connected = getelementptr inbounds i8, ptr %obj, i64 20
@@ -179,13 +179,10 @@ if.then5:                                         ; preds = %if.end3
   %3 = load i32, ptr %value.i9, align 4
   store i32 %3, ptr %connected, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i9)
-  br i1 %call.i10, label %if.end9, label %return
-
-if.end9:                                          ; preds = %if.then5, %if.end3
   br label %return
 
-return:                                           ; preds = %if.then5, %if.end, %entry, %if.end9
-  %retval.0 = phi i1 [ true, %if.end9 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ]
+return:                                           ; preds = %if.then5, %if.end3, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end3 ], [ %call.i10, %if.then5 ]
   ret i1 %retval.0
 }
 
@@ -194,7 +191,7 @@ declare zeroext i1 @visit_type_str(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare zeroext i1 @visit_optional(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_SetPasswordOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_SetPasswordOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display.i = alloca i8, align 1
   %value.i9.i = alloca i32, align 4
@@ -216,9 +213,9 @@ if.end.i:                                         ; preds = %entry
 if.end3.i:                                        ; preds = %if.end.i
   %has_connected.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call4.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_connected.i) #4
-  br i1 %call4.i, label %if.then5.i, label %if.end
+  br i1 %call4.i, label %visit_type_q_obj_SetPasswordOptions_base_members.exit, label %if.end
 
-if.then5.i:                                       ; preds = %if.end3.i
+visit_type_q_obj_SetPasswordOptions_base_members.exit: ; preds = %if.end3.i
   %connected.i = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i9.i)
   %2 = load i32, ptr %connected.i, align 4
@@ -229,7 +226,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i9.i)
   br i1 %call.i10.i, label %if.end, label %return
 
-if.end:                                           ; preds = %if.then5.i, %if.end3.i
+if.end:                                           ; preds = %if.end3.i, %visit_type_q_obj_SetPasswordOptions_base_members.exit
   %4 = load i32, ptr %obj, align 8
   switch i32 %4, label %sw.default [
     i32 0, label %sw.bb
@@ -244,17 +241,14 @@ sw.bb:                                            ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_display.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_display.i) #4
-  br i1 %call.i, label %if.then.i, label %if.end5.i
+  br i1 %call.i, label %if.then.i, label %visit_type_SetPasswordOptionsVnc_members.exit
 
 if.then.i:                                        ; preds = %sw.bb
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %u, ptr noundef %errp) #4
-  br i1 %call3.i, label %if.end5.i, label %visit_type_SetPasswordOptionsVnc_members.exit
-
-if.end5.i:                                        ; preds = %if.then.i, %sw.bb
   br label %visit_type_SetPasswordOptionsVnc_members.exit
 
-visit_type_SetPasswordOptionsVnc_members.exit:    ; preds = %if.then.i, %if.end5.i
-  %retval.0.i5 = phi i1 [ true, %if.end5.i ], [ false, %if.then.i ]
+visit_type_SetPasswordOptionsVnc_members.exit:    ; preds = %sw.bb, %if.then.i
+  %retval.0.i5 = phi i1 [ true, %sw.bb ], [ %call3.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
   br label %return
 
@@ -262,13 +256,13 @@ sw.default:                                       ; preds = %if.end
   call void @abort() #5
   unreachable
 
-return:                                           ; preds = %if.then5.i, %if.end.i, %entry, %if.end, %visit_type_SetPasswordOptionsVnc_members.exit
-  %retval.0 = phi i1 [ %retval.0.i5, %visit_type_SetPasswordOptionsVnc_members.exit ], [ true, %if.end ], [ false, %entry ], [ false, %if.end.i ], [ false, %if.then5.i ]
+return:                                           ; preds = %if.end.i, %entry, %if.end, %visit_type_q_obj_SetPasswordOptions_base_members.exit, %visit_type_SetPasswordOptionsVnc_members.exit
+  %retval.0 = phi i1 [ %retval.0.i5, %visit_type_SetPasswordOptionsVnc_members.exit ], [ false, %visit_type_q_obj_SetPasswordOptions_base_members.exit ], [ true, %if.end ], [ false, %entry ], [ false, %if.end.i ]
   ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_SetPasswordOptionsVnc_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_SetPasswordOptionsVnc_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -276,17 +270,14 @@ entry:
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_display, align 1
   %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_display) #4
-  br i1 %call, label %if.then, label %if.end5
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %obj, ptr noundef %errp) #4
-  br i1 %call3, label %if.end5, label %return
-
-if.end5:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end5
-  %retval.0 = phi i1 [ true, %if.end5 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call3, %if.then ]
   ret i1 %retval.0
 }
 
@@ -390,19 +381,22 @@ if.end5:                                          ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_display.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_display.i) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_SetPasswordOptionsVnc_members.exit, label %visit_type_SetPasswordOptionsVnc_members.exit.thread
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_SetPasswordOptionsVnc_members.exit.thread: ; preds = %if.end5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
+  br label %out_obj
+
+visit_type_SetPasswordOptionsVnc_members.exit:    ; preds = %if.end5
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %0, ptr noundef %errp) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
+out_obj.thread16:                                 ; preds = %visit_type_SetPasswordOptionsVnc_members.exit
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
+out_obj:                                          ; preds = %visit_type_SetPasswordOptionsVnc_members.exit, %visit_type_SetPasswordOptionsVnc_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -448,7 +442,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_ExpirePasswordOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_ExpirePasswordOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display.i = alloca i8, align 1
   %value.i.i = alloca i32, align 4
@@ -481,17 +475,14 @@ sw.bb:                                            ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_display.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_display.i) #4
-  br i1 %call.i, label %if.then.i, label %if.end5.i
+  br i1 %call.i, label %if.then.i, label %visit_type_ExpirePasswordOptionsVnc_members.exit
 
 if.then.i:                                        ; preds = %sw.bb
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %u, ptr noundef %errp) #4
-  br i1 %call3.i, label %if.end5.i, label %visit_type_ExpirePasswordOptionsVnc_members.exit
-
-if.end5.i:                                        ; preds = %if.then.i, %sw.bb
   br label %visit_type_ExpirePasswordOptionsVnc_members.exit
 
-visit_type_ExpirePasswordOptionsVnc_members.exit: ; preds = %if.then.i, %if.end5.i
-  %retval.0.i5 = phi i1 [ true, %if.end5.i ], [ false, %if.then.i ]
+visit_type_ExpirePasswordOptionsVnc_members.exit: ; preds = %sw.bb, %if.then.i
+  %retval.0.i5 = phi i1 [ true, %sw.bb ], [ %call3.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
   br label %return
 
@@ -505,7 +496,7 @@ return:                                           ; preds = %entry, %if.end, %vi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_ExpirePasswordOptionsVnc_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_ExpirePasswordOptionsVnc_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -513,17 +504,14 @@ entry:
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_display, align 1
   %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_display) #4
-  br i1 %call, label %if.then, label %if.end5
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %obj, ptr noundef %errp) #4
-  br i1 %call3, label %if.end5, label %return
-
-if.end5:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end5
-  %retval.0 = phi i1 [ true, %if.end5 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call3, %if.then ]
   ret i1 %retval.0
 }
 
@@ -611,19 +599,22 @@ if.end5:                                          ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_display.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_display.i) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_ExpirePasswordOptionsVnc_members.exit, label %visit_type_ExpirePasswordOptionsVnc_members.exit.thread
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_ExpirePasswordOptionsVnc_members.exit.thread: ; preds = %if.end5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
+  br label %out_obj
+
+visit_type_ExpirePasswordOptionsVnc_members.exit: ; preds = %if.end5
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %0, ptr noundef %errp) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
+out_obj.thread16:                                 ; preds = %visit_type_ExpirePasswordOptionsVnc_members.exit
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_display.i)
+out_obj:                                          ; preds = %visit_type_ExpirePasswordOptionsVnc_members.exit, %visit_type_ExpirePasswordOptionsVnc_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -658,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_screendump_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_screendump_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %has_device = alloca i8, align 1
@@ -691,7 +682,7 @@ if.then10:                                        ; preds = %if.end8
 if.end14:                                         ; preds = %if.then10, %if.end8
   %has_format = getelementptr inbounds i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_format) #4
-  br i1 %call15, label %if.then16, label %if.end20
+  br i1 %call15, label %if.then16, label %return
 
 if.then16:                                        ; preds = %if.end14
   %format = getelementptr inbounds i8, ptr %obj, i64 36
@@ -702,13 +693,10 @@ if.then16:                                        ; preds = %if.end14
   %2 = load i32, ptr %value.i, align 4
   store i32 %2, ptr %format, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
-  br i1 %call.i, label %if.end20, label %return
-
-if.end20:                                         ; preds = %if.then16, %if.end14
   br label %return
 
-return:                                           ; preds = %if.then16, %if.then10, %if.then3, %entry, %if.end20
-  %retval.0 = phi i1 [ true, %if.end20 ], [ false, %entry ], [ false, %if.then3 ], [ false, %if.then10 ], [ false, %if.then16 ]
+return:                                           ; preds = %if.then16, %if.end14, %if.then10, %if.then3, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then3 ], [ false, %if.then10 ], [ true, %if.end14 ], [ %call.i, %if.then16 ]
   ret i1 %retval.0
 }
 
@@ -813,7 +801,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_VncBasicInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_VncServerInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_VncServerInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_auth = alloca i8, align 1
   %auth = getelementptr inbounds i8, ptr %obj, i64 24
@@ -841,17 +829,14 @@ visit_type_VncBasicInfo_members.exit:             ; preds = %if.end3.i
 
 if.end:                                           ; preds = %visit_type_VncBasicInfo_members.exit
   %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_auth) #4
-  br i1 %call2, label %if.then3, label %if.end8
+  br i1 %call2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
   %call5 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %auth, ptr noundef %errp) #4
-  br i1 %call5, label %if.end8, label %return
-
-if.end8:                                          ; preds = %if.then3, %if.end
   br label %return
 
-return:                                           ; preds = %if.end3.i, %if.end.i, %entry, %if.then3, %visit_type_VncBasicInfo_members.exit, %if.end8
-  %retval.0 = phi i1 [ true, %if.end8 ], [ false, %visit_type_VncBasicInfo_members.exit ], [ false, %if.then3 ], [ false, %entry ], [ false, %if.end.i ], [ false, %if.end3.i ]
+return:                                           ; preds = %if.end3.i, %if.end.i, %entry, %if.then3, %if.end, %visit_type_VncBasicInfo_members.exit
+  %retval.0 = phi i1 [ false, %visit_type_VncBasicInfo_members.exit ], [ true, %if.end ], [ %call5, %if.then3 ], [ false, %entry ], [ false, %if.end.i ], [ false, %if.end3.i ]
   ret i1 %retval.0
 }
 
@@ -909,7 +894,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_VncServerInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_VncClientInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_VncClientInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_x509_dname = alloca i8, align 1
   %has_sasl_username = alloca i8, align 1
@@ -951,17 +936,14 @@ if.then7:                                         ; preds = %if.end
 
 if.end12:                                         ; preds = %if.then7, %if.end
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %has_sasl_username) #4
-  br i1 %call13, label %if.then14, label %if.end19
+  br i1 %call13, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end12
   %call16 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %sasl_username, ptr noundef %errp) #4
-  br i1 %call16, label %if.end19, label %return
-
-if.end19:                                         ; preds = %if.then14, %if.end12
   br label %return
 
-return:                                           ; preds = %if.end3.i, %if.end.i, %entry, %if.then14, %if.then7, %visit_type_VncBasicInfo_members.exit, %if.end19
-  %retval.0 = phi i1 [ true, %if.end19 ], [ false, %visit_type_VncBasicInfo_members.exit ], [ false, %if.then7 ], [ false, %if.then14 ], [ false, %entry ], [ false, %if.end.i ], [ false, %if.end3.i ]
+return:                                           ; preds = %if.end3.i, %if.end.i, %entry, %if.then14, %if.end12, %if.then7, %visit_type_VncBasicInfo_members.exit
+  %retval.0 = phi i1 [ false, %visit_type_VncBasicInfo_members.exit ], [ false, %if.then7 ], [ true, %if.end12 ], [ %call16, %if.then14 ], [ false, %entry ], [ false, %if.end.i ], [ false, %if.end3.i ]
   ret i1 %retval.0
 }
 
@@ -1135,18 +1117,15 @@ if.then31:                                        ; preds = %if.end29
 if.end36:                                         ; preds = %if.then31, %if.end29
   %has_clients = getelementptr inbounds i8, ptr %obj, i64 40
   %call37 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_clients) #4
-  br i1 %call37, label %if.then38, label %if.end42
+  br i1 %call37, label %if.then38, label %return
 
 if.then38:                                        ; preds = %if.end36
   %clients = getelementptr inbounds i8, ptr %obj, i64 48
   %call39 = call zeroext i1 @visit_type_VncClientInfoList(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %clients, ptr noundef %errp)
-  br i1 %call39, label %if.end42, label %return
-
-if.end42:                                         ; preds = %if.then38, %if.end36
   br label %return
 
-return:                                           ; preds = %if.then38, %if.then31, %if.then24, %if.then18, %if.then11, %entry, %if.end42
-  %retval.0 = phi i1 [ true, %if.end42 ], [ false, %entry ], [ false, %if.then11 ], [ false, %if.then18 ], [ false, %if.then24 ], [ false, %if.then31 ], [ false, %if.then38 ]
+return:                                           ; preds = %if.then38, %if.end36, %if.then31, %if.then24, %if.then18, %if.then11, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then11 ], [ false, %if.then18 ], [ false, %if.then24 ], [ false, %if.then31 ], [ true, %if.end36 ], [ %call39, %if.then38 ]
   ret i1 %retval.0
 }
 
@@ -1228,7 +1207,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_VncServerInfo2_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_VncServerInfo2_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i10 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -1264,7 +1243,7 @@ if.end:                                           ; preds = %visit_type_VncBasic
 if.end3:                                          ; preds = %if.end
   %has_vencrypt = getelementptr inbounds i8, ptr %obj, i64 28
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_vencrypt) #4
-  br i1 %call4, label %if.then5, label %if.end9
+  br i1 %call4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end3
   %vencrypt = getelementptr inbounds i8, ptr %obj, i64 32
@@ -1275,13 +1254,10 @@ if.then5:                                         ; preds = %if.end3
   %3 = load i32, ptr %value.i10, align 4
   store i32 %3, ptr %vencrypt, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i10)
-  br i1 %call.i11, label %if.end9, label %return
-
-if.end9:                                          ; preds = %if.then5, %if.end3
   br label %return
 
-return:                                           ; preds = %if.end3.i, %if.end.i, %entry, %if.then5, %if.end, %visit_type_VncBasicInfo_members.exit, %if.end9
-  %retval.0 = phi i1 [ true, %if.end9 ], [ false, %visit_type_VncBasicInfo_members.exit ], [ false, %if.end ], [ false, %if.then5 ], [ false, %entry ], [ false, %if.end.i ], [ false, %if.end3.i ]
+return:                                           ; preds = %if.end3.i, %if.end.i, %entry, %if.then5, %if.end3, %if.end, %visit_type_VncBasicInfo_members.exit
+  %retval.0 = phi i1 [ false, %visit_type_VncBasicInfo_members.exit ], [ false, %if.end ], [ true, %if.end3 ], [ %call.i11, %if.then5 ], [ false, %entry ], [ false, %if.end.i ], [ false, %if.end3.i ]
   ret i1 %retval.0
 }
 
@@ -1387,7 +1363,7 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_VncServerInfo2List(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_VncInfo2_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_VncInfo2_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i20 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -1439,17 +1415,14 @@ if.then12:                                        ; preds = %if.end10
 
 if.end16:                                         ; preds = %if.then12, %if.end10
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_display) #4
-  br i1 %call17, label %if.then18, label %if.end23
+  br i1 %call17, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.end16
   %call20 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %display, ptr noundef %errp) #4
-  br i1 %call20, label %if.end23, label %return
-
-if.end23:                                         ; preds = %if.then18, %if.end16
   br label %return
 
-return:                                           ; preds = %if.then18, %if.then12, %if.end7, %if.end4, %if.end, %entry, %if.end23
-  %retval.0 = phi i1 [ true, %if.end23 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end4 ], [ false, %if.end7 ], [ false, %if.then12 ], [ false, %if.then18 ]
+return:                                           ; preds = %if.then18, %if.end16, %if.then12, %if.end7, %if.end4, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end4 ], [ false, %if.end7 ], [ false, %if.then12 ], [ true, %if.end16 ], [ %call20, %if.then18 ]
   ret i1 %retval.0
 }
 
@@ -2104,7 +2077,7 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_KeyValueList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_send_key_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_send_key_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_KeyValueList(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef %obj, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
@@ -2112,18 +2085,15 @@ entry:
 if.end:                                           ; preds = %entry
   %has_hold_time = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_hold_time) #4
-  br i1 %call1, label %if.then2, label %if.end6
+  br i1 %call1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   %hold_time = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %hold_time, ptr noundef %errp) #4
-  br i1 %call3, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %entry, %if.end6
-  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.then2 ]
+return:                                           ; preds = %if.then2, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call3, %if.then2 ]
   ret i1 %retval.0
 }
 
@@ -2970,7 +2940,7 @@ return:                                           ; preds = %if.end11, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayGTK_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayGTK_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef %obj) #4
   br i1 %call, label %if.then, label %if.end3
@@ -3003,18 +2973,15 @@ if.then11:                                        ; preds = %if.end9
 if.end15:                                         ; preds = %if.then11, %if.end9
   %has_show_menubar = getelementptr inbounds i8, ptr %obj, i64 6
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %has_show_menubar) #4
-  br i1 %call16, label %if.then17, label %if.end21
+  br i1 %call16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end15
   %show_menubar = getelementptr inbounds i8, ptr %obj, i64 7
   %call18 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %show_menubar, ptr noundef %errp) #4
-  br i1 %call18, label %if.end21, label %return
-
-if.end21:                                         ; preds = %if.then17, %if.end15
   br label %return
 
-return:                                           ; preds = %if.then17, %if.then11, %if.then5, %if.then, %if.end21
-  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ]
+return:                                           ; preds = %if.then17, %if.end15, %if.then11, %if.then5, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ true, %if.end15 ], [ %call18, %if.then17 ]
   ret i1 %retval.0
 }
 
@@ -3072,7 +3039,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayGTK(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayEGLHeadless_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayEGLHeadless_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_rendernode = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -3080,17 +3047,14 @@ entry:
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_rendernode, align 1
   %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %has_rendernode) #4
-  br i1 %call, label %if.then, label %if.end5
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %obj, ptr noundef %errp) #4
-  br i1 %call3, label %if.end5, label %return
-
-if.end5:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end5
-  %retval.0 = phi i1 [ true, %if.end5 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call3, %if.then ]
   ret i1 %retval.0
 }
 
@@ -3125,19 +3089,22 @@ if.end5:                                          ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_rendernode.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %has_rendernode.i) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_DisplayEGLHeadless_members.exit, label %visit_type_DisplayEGLHeadless_members.exit.thread
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_DisplayEGLHeadless_members.exit.thread: ; preds = %if.end5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_rendernode.i)
+  br label %out_obj
+
+visit_type_DisplayEGLHeadless_members.exit:       ; preds = %if.end5
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %0, ptr noundef %errp) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_rendernode.i)
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_rendernode.i)
+out_obj.thread16:                                 ; preds = %visit_type_DisplayEGLHeadless_members.exit
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_rendernode.i)
+out_obj:                                          ; preds = %visit_type_DisplayEGLHeadless_members.exit, %visit_type_DisplayEGLHeadless_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -3160,7 +3127,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayEGLHeadless(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayDBus_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayDBus_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_rendernode = alloca i8, align 1
   %has_addr = alloca i8, align 1
@@ -3206,17 +3173,14 @@ if.then22:                                        ; preds = %if.end20
 
 if.end26:                                         ; preds = %if.then22, %if.end20
   %call27 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %has_audiodev) #4
-  br i1 %call27, label %if.then28, label %if.end33
+  br i1 %call27, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.end26
   %call30 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %audiodev, ptr noundef %errp) #4
-  br i1 %call30, label %if.end33, label %return
-
-if.end33:                                         ; preds = %if.then28, %if.end26
   br label %return
 
-return:                                           ; preds = %if.then28, %if.then22, %if.then15, %if.then, %if.end33
-  %retval.0 = phi i1 [ true, %if.end33 ], [ false, %if.then ], [ false, %if.then15 ], [ false, %if.then22 ], [ false, %if.then28 ]
+return:                                           ; preds = %if.then28, %if.end26, %if.then22, %if.then15, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then15 ], [ false, %if.then22 ], [ true, %if.end26 ], [ %call30, %if.then28 ]
   ret i1 %retval.0
 }
 
@@ -3286,7 +3250,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayCurses_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayCurses_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_charset = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -3294,17 +3258,14 @@ entry:
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_charset, align 1
   %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %has_charset) #4
-  br i1 %call, label %if.then, label %if.end5
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %obj, ptr noundef %errp) #4
-  br i1 %call3, label %if.end5, label %return
-
-if.end5:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end5
-  %retval.0 = phi i1 [ true, %if.end5 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call3, %if.then ]
   ret i1 %retval.0
 }
 
@@ -3339,19 +3300,22 @@ if.end5:                                          ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_charset.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %has_charset.i) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_DisplayCurses_members.exit, label %visit_type_DisplayCurses_members.exit.thread
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_DisplayCurses_members.exit.thread:     ; preds = %if.end5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_charset.i)
+  br label %out_obj
+
+visit_type_DisplayCurses_members.exit:            ; preds = %if.end5
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %0, ptr noundef %errp) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_charset.i)
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_charset.i)
+out_obj.thread16:                                 ; preds = %visit_type_DisplayCurses_members.exit
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_charset.i)
+out_obj:                                          ; preds = %visit_type_DisplayCurses_members.exit, %visit_type_DisplayCurses_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -3374,7 +3338,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayCurses(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayCocoa_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayCocoa_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef %obj) #4
   br i1 %call, label %if.then, label %if.end3
@@ -3407,18 +3371,15 @@ if.then11:                                        ; preds = %if.end9
 if.end15:                                         ; preds = %if.then11, %if.end9
   %has_zoom_to_fit = getelementptr inbounds i8, ptr %obj, i64 6
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %has_zoom_to_fit) #4
-  br i1 %call16, label %if.then17, label %if.end21
+  br i1 %call16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end15
   %zoom_to_fit = getelementptr inbounds i8, ptr %obj, i64 7
   %call18 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %zoom_to_fit, ptr noundef %errp) #4
-  br i1 %call18, label %if.end21, label %return
-
-if.end21:                                         ; preds = %if.then17, %if.end15
   br label %return
 
-return:                                           ; preds = %if.then17, %if.then11, %if.then5, %if.then, %if.end21
-  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ]
+return:                                           ; preds = %if.then17, %if.end15, %if.then11, %if.then5, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ true, %if.end15 ], [ %call18, %if.then17 ]
   ret i1 %retval.0
 }
 
@@ -3488,11 +3449,11 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplaySDL_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplaySDL_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef %obj) #4
-  br i1 %call, label %if.then, label %if.end3
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %grab_mod = getelementptr inbounds i8, ptr %obj, i64 4
@@ -3503,13 +3464,10 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %grab_mod, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
-  br i1 %call.i, label %if.end3, label %return
-
-if.end3:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end3
-  %retval.0 = phi i1 [ true, %if.end3 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call.i, %if.then ]
   ret i1 %retval.0
 }
 
@@ -3539,9 +3497,9 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef nonnull %0) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_DisplaySDL_members.exit, label %out_obj
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_DisplaySDL_members.exit:               ; preds = %if.end5
   %grab_mod.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %grab_mod.i, align 4
@@ -3552,11 +3510,11 @@ if.then.i:                                        ; preds = %if.end5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
   br i1 %call.i.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
+out_obj.thread16:                                 ; preds = %visit_type_DisplaySDL_members.exit
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
+out_obj:                                          ; preds = %if.end5, %visit_type_DisplaySDL_members.exit
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -3591,7 +3549,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_DisplayOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_DisplayOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i21 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -3637,7 +3595,7 @@ if.then14:                                        ; preds = %if.end12
 if.end18:                                         ; preds = %if.then14, %if.end12
   %has_gl = getelementptr inbounds i8, ptr %obj, i64 10
   %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %has_gl) #4
-  br i1 %call19, label %if.then20, label %if.end24
+  br i1 %call19, label %if.then20, label %return
 
 if.then20:                                        ; preds = %if.end18
   %gl = getelementptr inbounds i8, ptr %obj, i64 12
@@ -3648,18 +3606,15 @@ if.then20:                                        ; preds = %if.end18
   %3 = load i32, ptr %value.i21, align 4
   store i32 %3, ptr %gl, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i21)
-  br i1 %call.i22, label %if.end24, label %return
-
-if.end24:                                         ; preds = %if.then20, %if.end18
   br label %return
 
-return:                                           ; preds = %if.then20, %if.then14, %if.then8, %if.then2, %entry, %if.end24
-  %retval.0 = phi i1 [ true, %if.end24 ], [ false, %entry ], [ false, %if.then2 ], [ false, %if.then8 ], [ false, %if.then14 ], [ false, %if.then20 ]
+return:                                           ; preds = %if.then20, %if.end18, %if.then14, %if.then8, %if.then2, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then2 ], [ false, %if.then8 ], [ false, %if.then14 ], [ true, %if.end18 ], [ %call.i22, %if.then20 ]
   ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_charset.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_type_q_obj_DisplayOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp)
@@ -3682,17 +3637,14 @@ sw.bb:                                            ; preds = %if.end
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_charset.i, align 1
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %has_charset.i) #4
-  br i1 %call.i, label %if.then.i, label %if.end5.i
+  br i1 %call.i, label %if.then.i, label %visit_type_DisplayCurses_members.exit
 
 if.then.i:                                        ; preds = %sw.bb
   %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %u, ptr noundef %errp) #4
-  br i1 %call3.i, label %if.end5.i, label %visit_type_DisplayCurses_members.exit
-
-if.end5.i:                                        ; preds = %if.then.i, %sw.bb
   br label %visit_type_DisplayCurses_members.exit
 
-visit_type_DisplayCurses_members.exit:            ; preds = %if.then.i, %if.end5.i
-  %retval.0.i = phi i1 [ true, %if.end5.i ], [ false, %if.then.i ]
+visit_type_DisplayCurses_members.exit:            ; preds = %sw.bb, %if.then.i
+  %retval.0.i = phi i1 [ true, %sw.bb ], [ %call3.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_charset.i)
   br label %return
 
@@ -3776,21 +3728,18 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayReloadOptionsVNC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayReloadOptionsVNC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef %obj) #4
-  br i1 %call, label %if.then, label %if.end3
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %tls_certs = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs, ptr noundef %errp) #4
-  br i1 %call1, label %if.end3, label %return
-
-if.end3:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end3
-  %retval.0 = phi i1 [ true, %if.end3 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call1, %if.then ]
   ret i1 %retval.0
 }
 
@@ -3819,18 +3768,18 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %0) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_DisplayReloadOptionsVNC_members.exit, label %out_obj
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_DisplayReloadOptionsVNC_members.exit:  ; preds = %if.end5
   %tls_certs.i = getelementptr inbounds i8, ptr %0, i64 1
   %call1.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
+out_obj.thread16:                                 ; preds = %visit_type_DisplayReloadOptionsVNC_members.exit
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
+out_obj:                                          ; preds = %if.end5, %visit_type_DisplayReloadOptionsVNC_members.exit
   %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -3867,7 +3816,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayReloadOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayReloadOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
@@ -3886,22 +3835,19 @@ if.end:                                           ; preds = %entry
 sw.bb:                                            ; preds = %if.end
   %u = getelementptr inbounds i8, ptr %obj, i64 4
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %u) #4
-  br i1 %call.i, label %if.then.i, label %if.end3.i
+  br i1 %call.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %sw.bb
   %tls_certs.i = getelementptr inbounds i8, ptr %obj, i64 5
   %call1.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs.i, ptr noundef %errp) #4
-  br i1 %call1.i, label %if.end3.i, label %return
-
-if.end3.i:                                        ; preds = %if.then.i, %sw.bb
   br label %return
 
 sw.default:                                       ; preds = %if.end
   call void @abort() #5
   unreachable
 
-return:                                           ; preds = %if.end3.i, %if.then.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end3.i ], [ false, %if.then.i ]
+return:                                           ; preds = %if.then.i, %sw.bb, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %sw.bb ], [ %call1.i, %if.then.i ]
   ret i1 %retval.0
 }
 
@@ -3919,9 +3865,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -3937,7 +3883,7 @@ if.end5:                                          ; preds = %if.end
   %2 = load i32, ptr %value.i.i.i, align 4
   store i32 %2, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i.i)
-  br i1 %call.i.i.i, label %if.end.i, label %out_obj.thread16
+  br i1 %call.i.i.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
   %cond.i = icmp eq i32 %2, 0
@@ -3946,27 +3892,27 @@ if.end.i:                                         ; preds = %if.end5
 sw.bb.i:                                          ; preds = %if.end.i
   %u.i = getelementptr inbounds i8, ptr %0, i64 4
   %call.i.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %u.i) #4
-  br i1 %call.i.i, label %if.then.i.i, label %out_obj
-
-if.then.i.i:                                      ; preds = %sw.bb.i
-  %tls_certs.i.i = getelementptr inbounds i8, ptr %0, i64 5
-  %call1.i.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs.i.i, ptr noundef %errp) #4
-  br i1 %call1.i.i, label %out_obj, label %out_obj.thread16
+  br i1 %call.i.i, label %visit_type_DisplayReloadOptions_members.exit, label %out_obj
 
 sw.default.i:                                     ; preds = %if.end.i
   call void @abort() #5
   unreachable
 
-out_obj.thread16:                                 ; preds = %if.then.i.i, %if.end5
+visit_type_DisplayReloadOptions_members.exit:     ; preds = %sw.bb.i
+  %tls_certs.i.i = getelementptr inbounds i8, ptr %0, i64 5
+  %call1.i.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs.i.i, ptr noundef %errp) #4
+  br i1 %call1.i.i, label %out_obj, label %out_obj.thread
+
+out_obj.thread:                                   ; preds = %visit_type_DisplayReloadOptions_members.exit, %if.end5
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %sw.bb.i, %if.then.i.i
+out_obj:                                          ; preds = %sw.bb.i, %visit_type_DisplayReloadOptions_members.exit
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -3976,8 +3922,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
@@ -3996,21 +3942,18 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayUpdateOptionsVNC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayUpdateOptionsVNC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef %obj) #4
-  br i1 %call, label %if.then, label %if.end3
+  br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %addresses = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses, ptr noundef %errp) #4
-  br i1 %call1, label %if.end3, label %return
-
-if.end3:                                          ; preds = %if.then, %entry
   br label %return
 
-return:                                           ; preds = %if.then, %if.end3
-  %retval.0 = phi i1 [ true, %if.end3 ], [ false, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %call1, %if.then ]
   ret i1 %retval.0
 }
 
@@ -4041,18 +3984,18 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %0) #4
-  br i1 %call.i, label %if.then.i, label %out_obj
+  br i1 %call.i, label %visit_type_DisplayUpdateOptionsVNC_members.exit, label %out_obj
 
-if.then.i:                                        ; preds = %if.end5
+visit_type_DisplayUpdateOptionsVNC_members.exit:  ; preds = %if.end5
   %addresses.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread16
 
-out_obj.thread16:                                 ; preds = %if.then.i
+out_obj.thread16:                                 ; preds = %visit_type_DisplayUpdateOptionsVNC_members.exit
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.then.i, %if.end5
+out_obj:                                          ; preds = %if.end5, %visit_type_DisplayUpdateOptionsVNC_members.exit
   %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
@@ -4089,7 +4032,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_DisplayUpdateOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DisplayUpdateOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
@@ -4108,22 +4051,19 @@ if.end:                                           ; preds = %entry
 sw.bb:                                            ; preds = %if.end
   %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %u) #4
-  br i1 %call.i, label %if.then.i, label %if.end3.i
+  br i1 %call.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %sw.bb
   %addresses.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call1.i = call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses.i, ptr noundef %errp) #4
-  br i1 %call1.i, label %if.end3.i, label %return
-
-if.end3.i:                                        ; preds = %if.then.i, %sw.bb
   br label %return
 
 sw.default:                                       ; preds = %if.end
   call void @abort() #5
   unreachable
 
-return:                                           ; preds = %if.end3.i, %if.then.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end3.i ], [ false, %if.then.i ]
+return:                                           ; preds = %if.then.i, %sw.bb, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %sw.bb ], [ %call1.i, %if.then.i ]
   ret i1 %retval.0
 }
 
@@ -4141,9 +4081,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -4159,7 +4099,7 @@ if.end5:                                          ; preds = %if.end
   %2 = load i32, ptr %value.i.i.i, align 4
   store i32 %2, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i.i)
-  br i1 %call.i.i.i, label %if.end.i, label %out_obj.thread16
+  br i1 %call.i.i.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
   %cond.i = icmp eq i32 %2, 0
@@ -4168,27 +4108,27 @@ if.end.i:                                         ; preds = %if.end5
 sw.bb.i:                                          ; preds = %if.end.i
   %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %u.i) #4
-  br i1 %call.i.i, label %if.then.i.i, label %out_obj
-
-if.then.i.i:                                      ; preds = %sw.bb.i
-  %addresses.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %call1.i.i = call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses.i.i, ptr noundef %errp) #4
-  br i1 %call1.i.i, label %out_obj, label %out_obj.thread16
+  br i1 %call.i.i, label %visit_type_DisplayUpdateOptions_members.exit, label %out_obj
 
 sw.default.i:                                     ; preds = %if.end.i
   call void @abort() #5
   unreachable
 
-out_obj.thread16:                                 ; preds = %if.then.i.i, %if.end5
+visit_type_DisplayUpdateOptions_members.exit:     ; preds = %sw.bb.i
+  %addresses.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %call1.i.i = call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses.i.i, ptr noundef %errp) #4
+  br i1 %call1.i.i, label %out_obj, label %out_obj.thread
+
+out_obj.thread:                                   ; preds = %visit_type_DisplayUpdateOptions_members.exit, %if.end5
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %sw.bb.i, %if.then.i.i
+out_obj:                                          ; preds = %sw.bb.i, %visit_type_DisplayUpdateOptions_members.exit
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -4198,15 +4138,15 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
 declare void @qapi_free_DisplayUpdateOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_client_migrate_info_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_client_migrate_info_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_cert_subject = alloca i8, align 1
   %cert_subject = getelementptr inbounds i8, ptr %obj, i64 48
@@ -4244,17 +4184,14 @@ if.then12:                                        ; preds = %if.end10
 
 if.end16:                                         ; preds = %if.then12, %if.end10
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %has_cert_subject) #4
-  br i1 %call17, label %if.then18, label %if.end23
+  br i1 %call17, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.end16
   %call20 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %cert_subject, ptr noundef %errp) #4
-  br i1 %call20, label %if.end23, label %return
-
-if.end23:                                         ; preds = %if.then18, %if.end16
   br label %return
 
-return:                                           ; preds = %if.then18, %if.then12, %if.then6, %if.end, %entry, %if.end23
-  %retval.0 = phi i1 [ true, %if.end23 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then6 ], [ false, %if.then12 ], [ false, %if.then18 ]
+return:                                           ; preds = %if.then18, %if.end16, %if.then12, %if.then6, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.then6 ], [ false, %if.then12 ], [ true, %if.end16 ], [ %call20, %if.then18 ]
   ret i1 %retval.0
 }
 

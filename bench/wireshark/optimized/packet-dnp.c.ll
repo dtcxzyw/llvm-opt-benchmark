@@ -3186,7 +3186,7 @@ switch.early.test:                                ; preds = %dnp3_al_empty_obj.e
   %424 = udiv i64 %423, 1000
   store i64 %424, ptr %11, align 8
   %425 = urem i64 %423, 1000
-  %426 = trunc i64 %425 to i32
+  %426 = trunc nuw nsw i64 %425 to i32
   %427 = mul nuw nsw i32 %426, 1000000
   store i32 %427, ptr %210, align 8
   %428 = load i32, ptr @hf_dnp3_al_timestamp, align 4
@@ -3396,7 +3396,7 @@ switch.early.test:                                ; preds = %dnp3_al_empty_obj.e
   %562 = udiv i64 %561, 1000
   store i64 %562, ptr %11, align 8
   %563 = urem i64 %561, 1000
-  %564 = trunc i64 %563 to i32
+  %564 = trunc nuw nsw i64 %563 to i32
   %565 = mul nuw nsw i32 %564, 1000000
   store i32 %565, ptr %210, align 8
   %566 = load ptr, ptr %9, align 8
@@ -3582,7 +3582,7 @@ switch.early.test:                                ; preds = %dnp3_al_empty_obj.e
   %629 = udiv i64 %628, 1000
   store i64 %629, ptr %11, align 8
   %630 = urem i64 %628, 1000
-  %631 = trunc i64 %630 to i32
+  %631 = trunc nuw nsw i64 %630 to i32
   %632 = mul nuw nsw i32 %631, 1000000
   store i32 %632, ptr %210, align 8
   %633 = load ptr, ptr %9, align 8
@@ -3701,7 +3701,7 @@ switch.early.test:                                ; preds = %dnp3_al_empty_obj.e
   %674 = udiv i64 %673, 1000
   store i64 %674, ptr %11, align 8
   %675 = urem i64 %673, 1000
-  %676 = trunc i64 %675 to i32
+  %676 = trunc nuw nsw i64 %675 to i32
   %677 = mul nuw nsw i32 %676, 1000000
   store i32 %677, ptr %210, align 8
   %678 = load ptr, ptr %9, align 8
@@ -3795,7 +3795,7 @@ switch.early.test:                                ; preds = %dnp3_al_empty_obj.e
   %717 = udiv i64 %716, 1000
   store i64 %717, ptr %11, align 8
   %718 = urem i64 %716, 1000
-  %719 = trunc i64 %718 to i32
+  %719 = trunc nuw nsw i64 %718 to i32
   %720 = mul nuw nsw i32 %719, 1000000
   store i32 %720, ptr %210, align 8
   %721 = load ptr, ptr %9, align 8
@@ -3825,7 +3825,7 @@ switch.early.test:                                ; preds = %dnp3_al_empty_obj.e
   %738 = udiv i64 %737, 1000
   store i64 %738, ptr %11, align 8
   %739 = urem i64 %737, 1000
-  %740 = trunc i64 %739 to i32
+  %740 = trunc nuw nsw i64 %739 to i32
   %741 = mul nuw nsw i32 %740, 1000000
   store i32 %741, ptr %210, align 8
   %742 = load i32, ptr @hf_dnp3_al_timestamp, align 4
@@ -4247,7 +4247,7 @@ switch.lookup:                                    ; preds = %923
   %1060 = udiv i64 %1059, 1000
   store i64 %1060, ptr %11, align 8
   %1061 = urem i64 %1059, 1000
-  %1062 = trunc i64 %1061 to i32
+  %1062 = trunc nuw nsw i64 %1061 to i32
   %1063 = mul nuw nsw i32 %1062, 1000000
   store i32 %1063, ptr %210, align 8
   %1064 = load ptr, ptr %9, align 8
@@ -4499,7 +4499,7 @@ define internal fastcc void @dnp3_al_get_timestamp(ptr nocapture noundef writeon
   %11 = udiv i64 %10, 1000
   store i64 %11, ptr %0, align 8
   %12 = urem i64 %10, 1000
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = mul nuw nsw i32 %13, 1000000
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %14, ptr %15, align 8
@@ -4517,7 +4517,7 @@ declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dnp3_udp_check_header(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1) #6
   %6 = icmp sgt i32 %5, 9
   br i1 %6, label %7, label %.thread.i
@@ -4537,7 +4537,7 @@ define internal noundef i32 @dnp3_udp_check_header(ptr nocapture readnone %0, pt
 
 13:                                               ; preds = %.thread.i
   %14 = icmp sgt i32 %5, 1
-  br i1 %14, label %15, label %18
+  br i1 %14, label %15, label %check_dnp3_header.exit
 
 15:                                               ; preds = %13
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #6
@@ -4545,13 +4545,11 @@ define internal noundef i32 @dnp3_udp_check_header(ptr nocapture readnone %0, pt
   %17 = icmp ult i32 %5, 10
   %or.cond.i = select i1 %17, i1 true, i1 %.01422.i
   %or.cond18.i = select i1 %.not16.i, i1 %or.cond.i, i1 false
-  br i1 %or.cond18.i, label %18, label %check_dnp3_header.exit
-
-18:                                               ; preds = %15, %13
+  %spec.select = zext i1 %or.cond18.i to i32
   br label %check_dnp3_header.exit
 
-check_dnp3_header.exit:                           ; preds = %.thread.i, %15, %18
-  %.0.i = phi i32 [ 1, %18 ], [ 0, %.thread.i ], [ 0, %15 ]
+check_dnp3_header.exit:                           ; preds = %15, %13, %.thread.i
+  %.0.i = phi i32 [ 0, %.thread.i ], [ 1, %13 ], [ %spec.select, %15 ]
   ret i32 %.0.i
 }
 

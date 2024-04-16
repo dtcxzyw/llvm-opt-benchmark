@@ -1271,7 +1271,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %vargs)
+  call void @llvm.va_start.p0(ptr nonnull %vargs)
   %cmp.i = icmp slt i64 %n, 0
   br i1 %cmp.i, label %tuple_alloc.exit.thread, label %if.end.i
 
@@ -1325,7 +1325,7 @@ tuple_alloc.exit:                                 ; preds = %if.then4.i, %if.end
   br i1 %cmp2, label %if.then3, label %for.body.lr.ph
 
 if.then3:                                         ; preds = %tuple_alloc.exit.thread, %tuple_alloc.exit
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   br label %return
 
 for.body.lr.ph:                                   ; preds = %tuple_alloc.exit, %tuple_alloc.exit.thread10
@@ -1375,7 +1375,7 @@ _Py_NewRef.exit:                                  ; preds = %vaarg.end, %if.end.
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %_Py_NewRef.exit
-  call void @llvm.va_end(ptr nonnull %vargs)
+  call void @llvm.va_end.p0(ptr nonnull %vargs)
   %add.ptr.i.i = getelementptr i8, ptr %retval.0.i13, i64 -16
   %13 = load ptr, ptr %0, align 8
   %interp.i.i = getelementptr inbounds i8, ptr %13, i64 16
@@ -1401,12 +1401,6 @@ return:                                           ; preds = %entry, %for.end, %i
   %retval.0 = phi ptr [ null, %if.then3 ], [ %retval.0.i13, %for.end ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 5), %entry ]
   ret ptr %retval.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTuple_FromArray(ptr nocapture noundef readonly %src, i64 noundef %n) local_unnamed_addr #0 {
@@ -2532,7 +2526,7 @@ declare ptr @_PyObject_GC_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @_Py_NewReferenceNoTotal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyTuple_Fini(ptr nocapture noundef %interp) local_unnamed_addr #0 {
@@ -2654,18 +2648,14 @@ entry:
   %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #8
-  %tobool2.not = icmp eq i32 %call, 0
-  br i1 %tobool2.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -2738,7 +2728,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call1 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %3) #8
   %arrayidx = getelementptr [20 x i32], ptr %numfree, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 4
@@ -2801,7 +2791,7 @@ declare ptr @_PyUnicodeWriter_Finish(ptr noundef) local_unnamed_addr #1
 declare void @_PyUnicodeWriter_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @tuplelength(ptr nocapture noundef readonly %a) #4 {
+define internal i64 @tuplelength(ptr nocapture noundef readonly %a) #3 {
 entry:
   %0 = getelementptr i8, ptr %a, i64 16
   %a.val = load i64, ptr %0, align 8
@@ -3269,7 +3259,7 @@ for.end:                                          ; preds = %for.body, %land.rhs
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3926,7 +3916,13 @@ declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
@@ -3939,11 +3935,11 @@ declare i64 @llvm.smin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

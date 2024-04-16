@@ -273,20 +273,17 @@ declare ptr @__h_errno_location() local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @is_full_path(ptr noundef readonly %0) local_unnamed_addr #5 {
+define zeroext i1 @is_full_path(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 47
-  br i1 %4, label %6, label %5
+  br label %5
 
 5:                                                ; preds = %2, %1
-  br label %6
-
-6:                                                ; preds = %2, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %2 ]
+  %.0 = phi i1 [ false, %1 ], [ %4, %2 ]
   ret i1 %.0
 }
 

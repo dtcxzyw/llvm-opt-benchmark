@@ -332,31 +332,27 @@ define noundef i32 @pmix_hash_table_set_value_uint32(ptr noundef %0, i32 noundef
   %26 = getelementptr inbounds i8, ptr %0, i64 152
   %27 = load i64, ptr %26, align 8
   %.not29 = icmp ult i64 %25, %27
-  br i1 %.not29, label %30, label %28
+  br i1 %.not29, label %36, label %28
 
 28:                                               ; preds = %._crit_edge
   %29 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0), !range !6
-  %.not30 = icmp eq i32 %29, 0
-  br i1 %.not30, label %30, label %37
-
-30:                                               ; preds = %28, %._crit_edge
-  br label %37
+  br label %36
 
 .lr.ph:                                           ; preds = %3, %15
-  %31 = phi ptr [ %18, %15 ], [ %13, %3 ]
+  %30 = phi ptr [ %18, %15 ], [ %13, %3 ]
   %spec.store.select33 = phi i64 [ %spec.store.select, %15 ], [ %10, %3 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, %1
-  br i1 %34, label %35, label %15
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp eq i32 %32, %1
+  br i1 %33, label %34, label %15
 
-35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %31, i64 32
-  store ptr %2, ptr %36, align 8
-  br label %37
+34:                                               ; preds = %.lr.ph
+  %35 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %2, ptr %35, align 8
+  br label %36
 
-37:                                               ; preds = %28, %35, %30
-  %.0 = phi i32 [ 0, %35 ], [ 0, %30 ], [ %29, %28 ]
+36:                                               ; preds = %28, %._crit_edge, %34
+  %.0 = phi i32 [ 0, %34 ], [ 0, %._crit_edge ], [ %29, %28 ]
   ret i32 %.0
 }
 
@@ -658,31 +654,27 @@ define noundef i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i64 noundef
   %25 = getelementptr inbounds i8, ptr %0, i64 152
   %26 = load i64, ptr %25, align 8
   %.not29 = icmp ult i64 %24, %26
-  br i1 %.not29, label %29, label %27
+  br i1 %.not29, label %35, label %27
 
 27:                                               ; preds = %._crit_edge
   %28 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0), !range !6
-  %.not30 = icmp eq i32 %28, 0
-  br i1 %.not30, label %29, label %36
-
-29:                                               ; preds = %27, %._crit_edge
-  br label %36
+  br label %35
 
 .lr.ph:                                           ; preds = %3, %14
-  %30 = phi ptr [ %17, %14 ], [ %12, %3 ]
+  %29 = phi ptr [ %17, %14 ], [ %12, %3 ]
   %spec.store.select33 = phi i64 [ %spec.store.select, %14 ], [ %9, %3 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp eq i64 %32, %1
-  br i1 %33, label %34, label %14
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp eq i64 %31, %1
+  br i1 %32, label %33, label %14
 
-34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %30, i64 32
-  store ptr %2, ptr %35, align 8
-  br label %36
+33:                                               ; preds = %.lr.ph
+  %34 = getelementptr inbounds i8, ptr %29, i64 32
+  store ptr %2, ptr %34, align 8
+  br label %35
 
-36:                                               ; preds = %27, %34, %29
-  %.0 = phi i32 [ 0, %34 ], [ 0, %29 ], [ %28, %27 ]
+35:                                               ; preds = %27, %._crit_edge, %33
+  %.0 = phi i32 [ 0, %33 ], [ 0, %._crit_edge ], [ %28, %27 ]
   ret i32 %.0
 }
 
@@ -891,8 +883,8 @@ pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
   %.not46 = icmp eq i32 %20, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %47, %pmix_hash_hash_key_ptr.exit
-  %.lcssa = phi ptr [ %19, %pmix_hash_hash_key_ptr.exit ], [ %50, %47 ]
+._crit_edge:                                      ; preds = %46, %pmix_hash_hash_key_ptr.exit
+  %.lcssa = phi ptr [ %19, %pmix_hash_hash_key_ptr.exit ], [ %49, %46 ]
   br i1 %.not.i, label %23, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -922,47 +914,43 @@ pmix_tma_malloc.exit:                             ; preds = %21, %23
   %32 = getelementptr inbounds i8, ptr %0, i64 152
   %33 = load i64, ptr %32, align 8
   %.not41 = icmp ult i64 %31, %33
-  br i1 %.not41, label %36, label %34
+  br i1 %.not41, label %51, label %34
 
 34:                                               ; preds = %pmix_tma_malloc.exit
   %35 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0), !range !6
-  %.not42 = icmp eq i32 %35, 0
-  br i1 %.not42, label %36, label %52
+  br label %51
 
-36:                                               ; preds = %34, %pmix_tma_malloc.exit
-  br label %52
+.lr.ph:                                           ; preds = %pmix_hash_hash_key_ptr.exit, %46
+  %36 = phi ptr [ %49, %46 ], [ %19, %pmix_hash_hash_key_ptr.exit ]
+  %spec.store.select47 = phi i64 [ %spec.store.select, %46 ], [ %16, %pmix_hash_hash_key_ptr.exit ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp eq i64 %38, %2
+  br i1 %39, label %40, label %46
 
-.lr.ph:                                           ; preds = %pmix_hash_hash_key_ptr.exit, %47
-  %37 = phi ptr [ %50, %47 ], [ %19, %pmix_hash_hash_key_ptr.exit ]
-  %spec.store.select47 = phi i64 [ %spec.store.select, %47 ], [ %16, %pmix_hash_hash_key_ptr.exit ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load i64, ptr %38, align 8
-  %40 = icmp eq i64 %39, %2
-  br i1 %40, label %41, label %47
+40:                                               ; preds = %.lr.ph
+  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %bcmp = tail call i32 @bcmp(ptr %42, ptr %1, i64 %2)
+  %43 = icmp eq i32 %bcmp, 0
+  br i1 %43, label %44, label %46
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %bcmp = tail call i32 @bcmp(ptr %43, ptr %1, i64 %2)
-  %44 = icmp eq i32 %bcmp, 0
-  br i1 %44, label %45, label %47
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %36, i64 32
+  store ptr %3, ptr %45, align 8
+  br label %51
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %37, i64 32
-  store ptr %3, ptr %46, align 8
-  br label %52
-
-47:                                               ; preds = %.lr.ph, %41
-  %48 = add i64 %spec.store.select47, 1
-  %49 = icmp eq i64 %48, %6
-  %spec.store.select = select i1 %49, i64 0, i64 %48
-  %50 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %18, i64 %spec.store.select
-  %51 = load i32, ptr %50, align 8
-  %.not = icmp eq i32 %51, 0
+46:                                               ; preds = %.lr.ph, %40
+  %47 = add i64 %spec.store.select47, 1
+  %48 = icmp eq i64 %47, %6
+  %spec.store.select = select i1 %48, i64 0, i64 %47
+  %49 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %18, i64 %spec.store.select
+  %50 = load i32, ptr %49, align 8
+  %.not = icmp eq i32 %50, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-52:                                               ; preds = %34, %45, %36
-  %.0 = phi i32 [ 0, %45 ], [ 0, %36 ], [ %35, %34 ]
+51:                                               ; preds = %34, %pmix_tma_malloc.exit, %44
+  %.0 = phi i32 [ 0, %44 ], [ 0, %pmix_tma_malloc.exit ], [ %35, %34 ]
   ret i32 %.0
 }
 

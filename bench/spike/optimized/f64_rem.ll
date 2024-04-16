@@ -18,13 +18,13 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 12:                                               ; preds = %2
   %.not129 = icmp eq i64 %7, 0
-  br i1 %.not129, label %13, label %94
+  br i1 %.not129, label %13, label %93
 
 13:                                               ; preds = %12
   %14 = icmp eq i64 %9, 2047
   %15 = icmp ne i64 %10, 0
   %or.cond = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond, label %94, label %96
+  br i1 %or.cond, label %93, label %95
 
 16:                                               ; preds = %2
   %17 = icmp eq i64 %9, 2047
@@ -32,12 +32,12 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 18:                                               ; preds = %16
   %.not128 = icmp eq i64 %10, 0
-  br i1 %.not128, label %97, label %94
+  br i1 %.not128, label %96, label %93
 
 19:                                               ; preds = %16
   %20 = add nsw i64 %9, -1
   %21 = icmp slt i64 %6, %20
-  br i1 %21, label %97, label %22
+  br i1 %21, label %96, label %22
 
 22:                                               ; preds = %19
   %.not = icmp eq i64 %9, 0
@@ -45,7 +45,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 23:                                               ; preds = %22
   %.not117 = icmp eq i64 %10, 0
-  br i1 %.not117, label %96, label %24
+  br i1 %.not117, label %95, label %24
 
 24:                                               ; preds = %23
   %25 = tail call { i64, i64 } @softfloat_normSubnormalF64Sig(i64 noundef %10) #3
@@ -61,7 +61,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 29:                                               ; preds = %28
   %.not119 = icmp eq i64 %7, 0
-  br i1 %.not119, label %97, label %30
+  br i1 %.not119, label %96, label %30
 
 30:                                               ; preds = %29
   %31 = tail call { i64, i64 } @softfloat_normSubnormalF64Sig(i64 noundef %7) #3
@@ -80,7 +80,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 39:                                               ; preds = %34
   %40 = icmp slt i64 %37, -1
-  br i1 %40, label %97, label %41
+  br i1 %40, label %96, label %41
 
 41:                                               ; preds = %39
   %42 = shl i64 %36, 9
@@ -113,28 +113,28 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %50, %.lr.ph
   %60 = phi i64 [ %69, %.lr.ph ], [ %58, %50 ]
-  %.0101139 = phi i64 [ %spec.select130, %.lr.ph ], [ %54, %50 ]
-  %.0106138 = phi i64 [ %67, %.lr.ph ], [ %55, %50 ]
+  %.0101140 = phi i64 [ %spec.select130, %.lr.ph ], [ %54, %50 ]
+  %.0106139 = phi i64 [ %67, %.lr.ph ], [ %55, %50 ]
   %61 = add nuw i64 %60, 2147483648
   %62 = lshr i64 %61, 32
-  %63 = shl i64 %.0101139, 29
+  %63 = shl i64 %.0101140, 29
   %64 = mul i64 %62, %56
   %65 = sub i64 %63, %64
-  %.not120134 = icmp slt i64 %65, 0
-  %66 = select i1 %.not120134, i64 %56, i64 0
+  %.not120135 = icmp slt i64 %65, 0
+  %66 = select i1 %.not120135, i64 %56, i64 0
   %spec.select130 = add i64 %66, %65
-  %67 = add nsw i64 %.0106138, -29
+  %67 = add nsw i64 %.0106139, -29
   %68 = lshr i64 %spec.select130, 32
   %69 = mul nuw i64 %68, %53
-  %70 = icmp ult i64 %.0106138, 29
+  %70 = icmp ult i64 %.0106139, 29
   br i1 %70, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %50
   %.0106.lcssa = phi i64 [ %55, %50 ], [ %67, %.lr.ph ]
   %.0101.lcssa = phi i64 [ %54, %50 ], [ %spec.select130, %.lr.ph ]
-  %.lcssa137 = phi i64 [ %58, %50 ], [ %69, %.lr.ph ]
-  %71 = lshr i64 %.lcssa137, 32
-  %72 = trunc i64 %71 to i32
+  %.lcssa138 = phi i64 [ %58, %50 ], [ %69, %.lr.ph ]
+  %71 = lshr i64 %.lcssa138, 32
+  %72 = trunc nuw i64 %71 to i32
   %73 = trunc i64 %.0106.lcssa to i32
   %74 = and i32 %73, 31
   %75 = xor i32 %74, 31
@@ -178,29 +178,27 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   %90 = and i32 %.2105, 1
   %.not126 = icmp eq i32 %90, 0
   %or.cond131 = select i1 %.not125, i1 true, i1 %.not126
-  br i1 %or.cond131, label %92, label %91
+  %spec.select134 = select i1 %or.cond131, i64 %.4, i64 %.0100
+  br label %91
 
 91:                                               ; preds = %89, %.loopexit
-  br label %92
-
-92:                                               ; preds = %91, %89
-  %.5 = phi i64 [ %.0100, %91 ], [ %.4, %89 ]
+  %.5 = phi i64 [ %.0100, %.loopexit ], [ %spec.select134, %89 ]
   %spec.select132 = tail call i64 @llvm.abs.i64(i64 %.5, i1 false)
-  %.not127135 = icmp slt i64 %.5, 0
-  %spec.select133 = select i1 %.not127135, i1 %3, i1 %4
-  %93 = tail call i64 @softfloat_normRoundPackToF64(i1 noundef zeroext %spec.select133, i64 noundef %.096, i64 noundef %spec.select132) #3
-  br label %97
+  %.not127136 = icmp slt i64 %.5, 0
+  %spec.select133 = select i1 %.not127136, i1 %3, i1 %4
+  %92 = tail call i64 @softfloat_normRoundPackToF64(i1 noundef zeroext %spec.select133, i64 noundef %.096, i64 noundef %spec.select132) #3
+  br label %96
 
-94:                                               ; preds = %18, %12, %13
-  %95 = tail call i64 @softfloat_propagateNaNF64UI(i64 noundef %0, i64 noundef %1) #3
-  br label %97
+93:                                               ; preds = %18, %12, %13
+  %94 = tail call i64 @softfloat_propagateNaNF64UI(i64 noundef %0, i64 noundef %1) #3
+  br label %96
 
-96:                                               ; preds = %23, %13
+95:                                               ; preds = %23, %13
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %97
+  br label %96
 
-97:                                               ; preds = %94, %96, %39, %29, %19, %18, %92
-  %.sroa.094.0 = phi i64 [ %93, %92 ], [ %0, %18 ], [ %0, %19 ], [ %0, %29 ], [ %0, %39 ], [ %95, %94 ], [ 9221120237041090560, %96 ]
+96:                                               ; preds = %93, %95, %39, %29, %19, %18, %91
+  %.sroa.094.0 = phi i64 [ %92, %91 ], [ %0, %18 ], [ %0, %19 ], [ %0, %29 ], [ %0, %39 ], [ %94, %93 ], [ 9221120237041090560, %95 ]
   ret i64 %.sroa.094.0
 }
 

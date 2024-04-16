@@ -757,13 +757,13 @@ define internal noundef i32 @virtscsi_queuecommand(ptr noundef %0, ptr noundef %
   %58 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %8) #12
   tail call fastcc void @virtscsi_complete_cmd(ptr noundef %9)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %58) #12
-  br label %59
-
-59:                                               ; preds = %56, %27
   br label %60
 
-60:                                               ; preds = %59, %27
-  %61 = phi i32 [ 0, %59 ], [ 4181, %27 ]
+59:                                               ; preds = %27
+  br label %60
+
+60:                                               ; preds = %56, %59, %27
+  %61 = phi i32 [ 4181, %27 ], [ 0, %56 ], [ 0, %59 ]
   ret i32 %61
 }
 
@@ -1100,11 +1100,11 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
 
 .thread5:                                         ; preds = %5, %14
   %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = trunc i64 %2 to i32
+  %20 = trunc nuw nsw i64 %2 to i32
   call void @sg_init_one(ptr noundef nonnull %7, ptr noundef %19, i32 noundef %20) #12
   store ptr %7, ptr %6, align 16
   %21 = getelementptr inbounds i8, ptr %1, i64 75
-  %22 = trunc i64 %3 to i32
+  %22 = trunc nuw nsw i64 %3 to i32
   call void @sg_init_one(ptr noundef nonnull %8, ptr noundef %21, i32 noundef %22) #12
   %23 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %23, align 8
@@ -1116,7 +1116,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
   %27 = getelementptr inbounds i8, ptr %12, i64 200
   %28 = select i1 %26, ptr null, ptr %27
   %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = trunc i64 %2 to i32
+  %30 = trunc nuw nsw i64 %2 to i32
   call void @sg_init_one(ptr noundef nonnull %7, ptr noundef %29, i32 noundef %30) #12
   store ptr %7, ptr %6, align 16
   %31 = icmp eq ptr %25, null
@@ -1152,7 +1152,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
 49:                                               ; preds = %43, %24
   %50 = phi i32 [ %46, %43 ], [ 1, %24 ]
   %51 = getelementptr inbounds i8, ptr %1, i64 75
-  %52 = trunc i64 %3 to i32
+  %52 = trunc nuw nsw i64 %3 to i32
   call void @sg_init_one(ptr noundef nonnull %8, ptr noundef %51, i32 noundef %52) #12
   %53 = zext nneg i32 %50 to i64
   %54 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %53

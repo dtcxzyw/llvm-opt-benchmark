@@ -1148,24 +1148,24 @@ declare void @exerror(ptr noundef, ...) local_unnamed_addr #1
 define internal ptr @exprintf(ptr noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %4, ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
+  call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %3)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %4) #21
   %6 = add nsw i32 %5, 1
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %7 = sext i32 %6 to i64
   %8 = call ptr @vmalloc(ptr noundef %0, i64 noundef %7) #21
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %11 = call ptr @exnospace() #21
   br label %14
 
 12:                                               ; preds = %2
   %13 = call i32 @vsnprintf(ptr noundef nonnull %8, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %3) #21
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -1560,7 +1560,7 @@ define noundef i32 @ex_parse() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %10, %12
-  %16 = trunc i32 %.1 to i16
+  %16 = trunc nsw i32 %.1 to i16
   store i16 %16, ptr %.1696, align 2
   %17 = load i32, ptr @ex_debug, align 4
   %.not796 = icmp eq i32 %17, 0
@@ -1829,7 +1829,7 @@ yy_stack_print.exit:                              ; preds = %.lr.ph.i, %18
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i920 ]
   %161 = load ptr, ptr @stderr, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %162 = trunc i64 %indvars.iv.next.i to i32
+  %162 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.70, i32 noundef %162) #24
   %164 = load ptr, ptr @stderr, align 8
   %165 = sub nsw i64 %indvars.iv.next.i, %160
@@ -3534,18 +3534,13 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   %1037 = call ptr @excast(ptr noundef %1035, ptr noundef nonnull %1026, i32 noundef %1036, ptr noundef null, i32 noundef 0)
   br label %.loopexit1006
 
-.sink.split1107:                                  ; preds = %1158, %1148
-  %.sink1108 = phi ptr [ %1152, %1148 ], [ %1160, %1158 ]
-  store ptr %.sink1108, ptr %.2703, align 8
-  br label %1038
-
-1038:                                             ; preds = %.sink.split1107, %1156, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit
+1038:                                             ; preds = %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit
   br label %1039
 
-1039:                                             ; preds = %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %1038
-  %.not844 = phi i32 [ 259, %1038 ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ]
-  %.not847 = phi i1 [ true, %1038 ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ]
-  %.0715 = phi i32 [ 0, %1038 ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ]
+1039:                                             ; preds = %1156, %1158, %1148, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %yy_reduce_print.exit, %1038
+  %.not844 = phi i32 [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 263, %yy_reduce_print.exit ], [ 259, %1148 ], [ 259, %1158 ], [ 259, %1156 ], [ 259, %1038 ]
+  %.not847 = phi i1 [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ false, %yy_reduce_print.exit ], [ true, %1148 ], [ true, %1158 ], [ true, %1156 ], [ true, %1038 ]
+  %.0715 = phi i32 [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 259, %yy_reduce_print.exit ], [ 0, %1148 ], [ 0, %1158 ], [ 0, %1156 ], [ 0, %1038 ]
   %1040 = getelementptr inbounds i8, ptr %.2703, i64 -16
   %1041 = load ptr, ptr %1040, align 8
   %1042 = load i32, ptr %1041, align 8
@@ -3746,7 +3741,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   store i32 1, ptr %1136, align 8
   %1138 = getelementptr inbounds i8, ptr %1135, i64 32
   store ptr %1128, ptr %1138, align 8
-  br label %.sink.split1109
+  br label %.sink.split1107
 
 1139:                                             ; preds = %1126
   %1140 = icmp sgt i32 %1129, 258
@@ -3755,14 +3750,14 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 1141:                                             ; preds = %1139
   %1142 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
   %1143 = call ptr @excast(ptr noundef %1142, ptr noundef nonnull %1128, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1109
+  br label %.sink.split1107
 
-.sink.split1109:                                  ; preds = %1131, %1141
-  %.sink1110 = phi ptr [ %1143, %1141 ], [ %1135, %1131 ]
-  store ptr %.sink1110, ptr %1127, align 8
+.sink.split1107:                                  ; preds = %1131, %1141
+  %.sink1108 = phi ptr [ %1143, %1141 ], [ %1135, %1131 ]
+  store ptr %.sink1108, ptr %1127, align 8
   br label %1144
 
-1144:                                             ; preds = %.sink.split1109, %1139
+1144:                                             ; preds = %.sink.split1107, %1139
   %1145 = load ptr, ptr %.2703, align 8
   %1146 = load i32, ptr %1145, align 8
   %1147 = icmp eq i32 %1146, 263
@@ -3781,16 +3776,18 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   store i32 1, ptr %1153, align 8
   %1155 = getelementptr inbounds i8, ptr %1152, i64 32
   store ptr %1145, ptr %1155, align 8
-  br label %.sink.split1107
+  store ptr %1152, ptr %.2703, align 8
+  br label %1039
 
 1156:                                             ; preds = %1144
   %1157 = icmp sgt i32 %1146, 258
-  br i1 %1157, label %1038, label %1158
+  br i1 %1157, label %1039, label %1158
 
 1158:                                             ; preds = %1156
   %1159 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
   %1160 = call ptr @excast(ptr noundef %1159, ptr noundef nonnull %1145, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1107
+  store ptr %1160, ptr %.2703, align 8
+  br label %1039
 
 1161:                                             ; preds = %yy_reduce_print.exit
   %1162 = getelementptr inbounds i8, ptr %.2703, i64 -16
@@ -3882,7 +3879,7 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
   store i32 1, ptr %1204, align 8
   %1206 = getelementptr inbounds i8, ptr %1203, i64 32
   store ptr %1196, ptr %1206, align 8
-  br label %.sink.split1111
+  br label %.sink.split1109
 
 1207:                                             ; preds = %1194
   %1208 = add i32 %1197, -259
@@ -3892,14 +3889,14 @@ exisAssign.exit924.thread:                        ; preds = %622, %630, %exisAss
 1209:                                             ; preds = %1207
   %1210 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
   %1211 = call ptr @excast(ptr noundef %1210, ptr noundef nonnull %1196, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  br label %.sink.split1111
+  br label %.sink.split1109
 
-.sink.split1111:                                  ; preds = %1199, %1209
-  %.sink1112 = phi ptr [ %1211, %1209 ], [ %1203, %1199 ]
-  store ptr %.sink1112, ptr %1195, align 8
+.sink.split1109:                                  ; preds = %1199, %1209
+  %.sink1110 = phi ptr [ %1211, %1209 ], [ %1203, %1199 ]
+  store ptr %.sink1110, ptr %1195, align 8
   br label %1212
 
-1212:                                             ; preds = %.sink.split1111, %1207
+1212:                                             ; preds = %.sink.split1109, %1207
   %1213 = load ptr, ptr %1183, align 8
   %1214 = load i32, ptr %1213, align 8
   %1215 = load ptr, ptr %.2703, align 8
@@ -5859,8 +5856,8 @@ yydestruct.exit957.thread:                        ; preds = %2329, %yydestruct.e
   %.not9061017 = icmp eq ptr %.5, %.3
   %2352 = load i32, ptr @ex_debug, align 4
   %2353 = icmp eq i32 %2352, 0
-  %or.cond1116 = select i1 %.not9061017, i1 true, i1 %2353
-  br i1 %or.cond1116, label %._crit_edge, label %.lr.ph1019.split
+  %or.cond1114 = select i1 %.not9061017, i1 true, i1 %2353
+  br i1 %or.cond1114, label %._crit_edge, label %.lr.ph1019.split
 
 .lr.ph1019.split:                                 ; preds = %yydestruct.exit957.thread, %yydestruct.exit967
   %2354 = phi i32 [ %2370, %yydestruct.exit967 ], [ 1, %yydestruct.exit957.thread ]
@@ -7223,7 +7220,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %133 = sext i8 %132 to i32
   %134 = add nsw i32 %133, -65
   %135 = icmp ult i32 %134, 26
-  br i1 %135, label %.loopexit165.loopexit, label %.loopexit
+  br i1 %135, label %.loopexit165, label %.loopexit
 
 .loopexit:                                        ; preds = %127, %agxbputc.exit, %62, %131, %72
   %.6 = phi ptr [ %64, %131 ], [ %64, %72 ], [ %64, %62 ], [ %.5, %agxbputc.exit ], [ %123, %127 ]
@@ -7242,11 +7239,11 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
 .loopexit354:                                     ; preds = %62, %62
   br label %.loopexit165
 
-.loopexit165.loopexit:                            ; preds = %62, %62, %131
+.loopexit165.loopexit:                            ; preds = %62, %62
   br label %.loopexit165
 
-.loopexit165:                                     ; preds = %62, %62, %62, %.loopexit165.loopexit, %.loopexit354, %.loopexit292
-  %.2113 = phi i32 [ 260, %.loopexit292 ], [ 263, %.loopexit354 ], [ 259, %.loopexit165.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
+.loopexit165:                                     ; preds = %131, %62, %62, %62, %.loopexit165.loopexit, %.loopexit354, %.loopexit292
+  %.2113 = phi i32 [ 260, %.loopexit292 ], [ 263, %.loopexit354 ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ], [ 259, %131 ], [ 259, %.loopexit165.loopexit ]
   %138 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 4), align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %139, i8 noundef signext %63)
@@ -7709,17 +7706,8 @@ define ptr @exop(i64 noundef %0) local_unnamed_addr #14 {
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #16
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
 
 declare void @_err_msg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -7838,13 +7826,22 @@ gv_calloc.exit.i:                                 ; preds = %.thread
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #17 {
+define internal fastcc void @graphviz_exit() unnamed_addr #16 {
   tail call void @exit(i32 noundef 1) #29
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #18
+declare void @exit(i32 noundef) local_unnamed_addr #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #19
@@ -7880,9 +7877,9 @@ attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vect
 attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nofree nounwind }
 attributes #21 = { nounwind }

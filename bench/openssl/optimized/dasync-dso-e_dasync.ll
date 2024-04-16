@@ -76,15 +76,11 @@ land.lhs.true.i:                                  ; preds = %skip_cbs
 
 bind_helper.exit:                                 ; preds = %skip_cbs, %land.lhs.true.i
   %call1.i = tail call fastcc i32 @bind_dasync(ptr noundef %e), !range !4
-  %tobool.not = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not, label %bind_helper.exit.thread, label %4
+  br label %bind_helper.exit.thread
 
-bind_helper.exit.thread:                          ; preds = %land.lhs.true.i, %bind_helper.exit
-  br label %4
-
-4:                                                ; preds = %bind_helper.exit, %bind_helper.exit.thread
-  %5 = phi i32 [ 0, %bind_helper.exit.thread ], [ 1, %bind_helper.exit ]
-  ret i32 %5
+bind_helper.exit.thread:                          ; preds = %bind_helper.exit, %land.lhs.true.i
+  %4 = phi i32 [ 0, %land.lhs.true.i ], [ %call1.i, %bind_helper.exit ]
+  ret i32 %4
 }
 
 declare ptr @ENGINE_get_static_state() local_unnamed_addr #2

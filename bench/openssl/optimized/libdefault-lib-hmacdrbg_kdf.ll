@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hmac_drbg_kdf_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal i32 @hmac_drbg_kdf_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.6) #4
   %cmp.not = icmp eq ptr %call, null
@@ -406,7 +406,7 @@ if.end:                                           ; preds = %if.then
 if.end9:                                          ; preds = %if.end, %entry
   %call10 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.3) #4
   %cmp11.not = icmp eq ptr %call10, null
-  br i1 %cmp11.not, label %if.end20, label %if.then12
+  br i1 %cmp11.not, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
   %digest = getelementptr inbounds i8, ptr %vctx, i64 8
@@ -417,14 +417,12 @@ if.then12:                                        ; preds = %if.end9
 lor.lhs.false:                                    ; preds = %if.then12
   %call15 = tail call ptr @EVP_MD_get0_name(ptr noundef nonnull %call13) #4
   %call16 = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call10, ptr noundef %call15) #4
-  %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %return, label %if.end20
-
-if.end20:                                         ; preds = %lor.lhs.false, %if.end9
+  %tobool17.not = icmp ne i32 %call16, 0
+  %spec.select = zext i1 %tobool17.not to i32
   br label %return
 
-return:                                           ; preds = %if.then12, %lor.lhs.false, %if.end, %if.then, %if.end20
-  %retval.0 = phi i32 [ 1, %if.end20 ], [ 0, %if.then ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %if.then12 ]
+return:                                           ; preds = %lor.lhs.false, %if.end9, %if.then12, %if.end, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end ], [ 0, %if.then12 ], [ 1, %if.end9 ], [ %spec.select, %lor.lhs.false ]
   ret i32 %retval.0
 }
 

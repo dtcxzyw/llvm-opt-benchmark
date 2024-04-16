@@ -4519,7 +4519,7 @@ dissect_nhdr_apphdr_chain_msgprop_element.exit.i: ; preds = %497, %462
   %.21077 = phi i32 [ %470, %462 ], [ %.11076, %497 ]
   %.051.i = phi i32 [ 8, %462 ], [ %.0.i56.i, %497 ]
   %498 = add i32 %.051.i, %.05264.i
-  %499 = trunc i32 %.051.i to i8
+  %499 = trunc nuw i32 %.051.i to i8
   %500 = sub i8 %.05363.i, %499
   %501 = add i32 %.051.i, %.067.i
   %502 = icmp ugt i8 %500, 3
@@ -7928,10 +7928,10 @@ dissect_nhdr_apphdr_chain.exit:                   ; preds = %3046, %3032, %2992,
   %3112 = icmp sgt i32 %3111, 0
   %3113 = trunc i64 %.val to i32
   %3114 = lshr i64 %.val, 32
-  %3115 = trunc i64 %3114 to i32
+  %3115 = trunc nuw i64 %3114 to i32
   %3116 = trunc i64 %.val815 to i32
   %3117 = lshr i64 %.val815, 32
-  %3118 = trunc i64 %3117 to i32
+  %3118 = trunc nuw i64 %3117 to i32
   br i1 %3112, label %3119, label %lbm_stream_istream_find.exit
 
 3119:                                             ; preds = %3110
@@ -7972,10 +7972,10 @@ lbm_stream_istream_find.exit:                     ; preds = %3110, %3119
   %3125 = icmp sgt i32 %3124, 0
   %3126 = trunc i64 %.val.i to i32
   %3127 = lshr i64 %.val.i, 32
-  %3128 = trunc i64 %3127 to i32
+  %3128 = trunc nuw i64 %3127 to i32
   %3129 = trunc i64 %.val21.i to i32
   %3130 = lshr i64 %.val21.i, 32
-  %3131 = trunc i64 %3130 to i32
+  %3131 = trunc nuw i64 %3130 to i32
   br i1 %3125, label %3132, label %lbm_stream_istream_find.exit.i
 
 3132:                                             ; preds = %3123
@@ -8014,10 +8014,10 @@ lbm_stream_istream_find.exit.i:                   ; preds = %3132, %3123
   %3142 = icmp sgt i32 %3141, 0
   %3143 = trunc i64 %3138 to i32
   %3144 = lshr i64 %3138, 32
-  %3145 = trunc i64 %3144 to i32
+  %3145 = trunc nuw i64 %3144 to i32
   %3146 = trunc i64 %3140 to i32
   %3147 = lshr i64 %3140, 32
-  %3148 = trunc i64 %3147 to i32
+  %3148 = trunc nuw i64 %3147 to i32
   br i1 %3142, label %3149, label %lbm_stream_order_istream_key.exit.i
 
 3149:                                             ; preds = %3135
@@ -8369,7 +8369,7 @@ proto_item_set_generated.exit885:                 ; preds = %proto_item_set_gene
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   %3307 = icmp ugt i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
-  br i1 %3307, label %.critedge28.i.i, label %3308
+  br i1 %3307, label %lbm_stream_dstream_find.exit, label %3308
 
 3308:                                             ; preds = %3306
   %3309 = icmp eq i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
@@ -8378,7 +8378,7 @@ proto_item_set_generated.exit885:                 ; preds = %proto_item_set_gene
 cmp_address.exit.i.i:                             ; preds = %3308
   %3310 = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %.sroa.17.1.lcssa, ptr noundef nonnull dereferenceable(4) %.sroa.40.1.lcssa, i64 noundef 4) #10
   %3311 = icmp sgt i32 %3310, 0
-  br i1 %3311, label %.critedge28.i.i, label %cmp_address.exit.thread.i.i
+  br i1 %3311, label %lbm_stream_dstream_find.exit, label %cmp_address.exit.thread.i.i
 
 cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.i.i
   %3312 = icmp eq i32 %3310, 0
@@ -8386,16 +8386,16 @@ cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.i.
   %or.cond.i = select i1 %3312, i1 %.not.i.i891, i1 false
   br i1 %or.cond.i, label %.critedge28.i.i, label %lbm_stream_dstream_find.exit
 
-.critedge28.i.i:                                  ; preds = %cmp_address.exit.thread.i.i, %cmp_address.exit.i.i, %3306
+.critedge28.i.i:                                  ; preds = %cmp_address.exit.thread.i.i
   br label %lbm_stream_dstream_find.exit
 
-lbm_stream_dstream_find.exit:                     ; preds = %3308, %cmp_address.exit.thread.i.i, %.critedge28.i.i
-  %.sroa.43.0.i = phi i16 [ %.sroa.22.1.lcssa, %.critedge28.i.i ], [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.45.1.lcssa, %3308 ]
-  %.sroa.38.0.i = phi i16 [ %.sroa.45.1.lcssa, %.critedge28.i.i ], [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.22.1.lcssa, %3308 ]
-  %.sroa.31.0.i = phi ptr [ %.sroa.17.1.lcssa, %.critedge28.i.i ], [ %.sroa.40.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.40.1.lcssa, %3308 ]
-  %.sroa.19.0.i = phi i32 [ %.sroa.31010.1.lcssa, %.critedge28.i.i ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.261036.1.lcssa, %3308 ]
-  %.sroa.12.0.i = phi ptr [ %.sroa.40.1.lcssa, %.critedge28.i.i ], [ %.sroa.17.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.17.1.lcssa, %3308 ]
-  %.sroa.0.0.i = phi i32 [ %.sroa.261036.1.lcssa, %.critedge28.i.i ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.31010.1.lcssa, %3308 ]
+lbm_stream_dstream_find.exit:                     ; preds = %3306, %3308, %cmp_address.exit.i.i, %cmp_address.exit.thread.i.i, %.critedge28.i.i
+  %.sroa.43.0.i = phi i16 [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.45.1.lcssa, %3308 ], [ %.sroa.22.1.lcssa, %3306 ], [ %.sroa.22.1.lcssa, %cmp_address.exit.i.i ], [ %.sroa.22.1.lcssa, %.critedge28.i.i ]
+  %.sroa.38.0.i = phi i16 [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.22.1.lcssa, %3308 ], [ %.sroa.45.1.lcssa, %3306 ], [ %.sroa.45.1.lcssa, %cmp_address.exit.i.i ], [ %.sroa.45.1.lcssa, %.critedge28.i.i ]
+  %.sroa.31.0.i = phi ptr [ %.sroa.40.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.40.1.lcssa, %3308 ], [ %.sroa.17.1.lcssa, %3306 ], [ %.sroa.17.1.lcssa, %cmp_address.exit.i.i ], [ %.sroa.17.1.lcssa, %.critedge28.i.i ]
+  %.sroa.19.0.i = phi i32 [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.261036.1.lcssa, %3308 ], [ %.sroa.31010.1.lcssa, %3306 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.i.i ], [ %.sroa.261036.1.lcssa, %.critedge28.i.i ]
+  %.sroa.12.0.i = phi ptr [ %.sroa.17.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.17.1.lcssa, %3308 ], [ %.sroa.40.1.lcssa, %3306 ], [ %.sroa.40.1.lcssa, %cmp_address.exit.i.i ], [ %.sroa.40.1.lcssa, %.critedge28.i.i ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.31010.1.lcssa, %3308 ], [ %.sroa.261036.1.lcssa, %3306 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.i.i ], [ %.sroa.261036.1.lcssa, %.critedge28.i.i ]
   store i32 %.sroa.0.0.i, ptr %23, align 16
   %.0.copyload.i.i889 = load i32, ptr %.sroa.12.0.i, align 1
   store i32 %.0.copyload.i.i889, ptr %112, align 4
@@ -8422,7 +8422,7 @@ lbm_stream_dstream_find.exit:                     ; preds = %3308, %cmp_address.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  br i1 %3307, label %.critedge28.i.i970, label %3319
+  br i1 %3307, label %lbm_stream_dstream_find.exit973, label %3319
 
 3319:                                             ; preds = %3318
   %3320 = icmp eq i32 %.sroa.31010.1.lcssa, %.sroa.261036.1.lcssa
@@ -8431,7 +8431,7 @@ lbm_stream_dstream_find.exit:                     ; preds = %3308, %cmp_address.
 cmp_address.exit.i.i966:                          ; preds = %3319
   %3321 = call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %.sroa.17.1.lcssa, ptr noundef nonnull dereferenceable(4) %.sroa.40.1.lcssa, i64 noundef 4) #10
   %3322 = icmp sgt i32 %3321, 0
-  br i1 %3322, label %.critedge28.i.i970, label %cmp_address.exit.thread.i.i967
+  br i1 %3322, label %lbm_stream_dstream_find.exit973, label %cmp_address.exit.thread.i.i967
 
 cmp_address.exit.thread.i.i967:                   ; preds = %cmp_address.exit.i.i966
   %3323 = icmp eq i32 %3321, 0
@@ -8439,16 +8439,16 @@ cmp_address.exit.thread.i.i967:                   ; preds = %cmp_address.exit.i.
   %or.cond.i969 = select i1 %3323, i1 %.not.i.i968, i1 false
   br i1 %or.cond.i969, label %.critedge28.i.i970, label %lbm_stream_dstream_find.exit973
 
-.critedge28.i.i970:                               ; preds = %cmp_address.exit.thread.i.i967, %cmp_address.exit.i.i966, %3318
+.critedge28.i.i970:                               ; preds = %cmp_address.exit.thread.i.i967
   br label %lbm_stream_dstream_find.exit973
 
-lbm_stream_dstream_find.exit973:                  ; preds = %3319, %cmp_address.exit.thread.i.i967, %.critedge28.i.i970
-  %.sroa.43.0.i958 = phi i16 [ %.sroa.22.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.45.1.lcssa, %3319 ]
-  %.sroa.38.0.i959 = phi i16 [ %.sroa.45.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.22.1.lcssa, %3319 ]
-  %.sroa.31.0.i960 = phi ptr [ %.sroa.17.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.40.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.40.1.lcssa, %3319 ]
-  %.sroa.19.0.i961 = phi i32 [ %.sroa.31010.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.261036.1.lcssa, %3319 ]
-  %.sroa.12.0.i962 = phi ptr [ %.sroa.40.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.17.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.17.1.lcssa, %3319 ]
-  %.sroa.0.0.i963 = phi i32 [ %.sroa.261036.1.lcssa, %.critedge28.i.i970 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.31010.1.lcssa, %3319 ]
+lbm_stream_dstream_find.exit973:                  ; preds = %3318, %3319, %cmp_address.exit.i.i966, %cmp_address.exit.thread.i.i967, %.critedge28.i.i970
+  %.sroa.43.0.i958 = phi i16 [ %.sroa.45.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.45.1.lcssa, %3319 ], [ %.sroa.22.1.lcssa, %3318 ], [ %.sroa.22.1.lcssa, %cmp_address.exit.i.i966 ], [ %.sroa.22.1.lcssa, %.critedge28.i.i970 ]
+  %.sroa.38.0.i959 = phi i16 [ %.sroa.22.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.22.1.lcssa, %3319 ], [ %.sroa.45.1.lcssa, %3318 ], [ %.sroa.45.1.lcssa, %cmp_address.exit.i.i966 ], [ %.sroa.45.1.lcssa, %.critedge28.i.i970 ]
+  %.sroa.31.0.i960 = phi ptr [ %.sroa.40.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.40.1.lcssa, %3319 ], [ %.sroa.17.1.lcssa, %3318 ], [ %.sroa.17.1.lcssa, %cmp_address.exit.i.i966 ], [ %.sroa.17.1.lcssa, %.critedge28.i.i970 ]
+  %.sroa.19.0.i961 = phi i32 [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.261036.1.lcssa, %3319 ], [ %.sroa.31010.1.lcssa, %3318 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.i.i966 ], [ %.sroa.261036.1.lcssa, %.critedge28.i.i970 ]
+  %.sroa.12.0.i962 = phi ptr [ %.sroa.17.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.17.1.lcssa, %3319 ], [ %.sroa.40.1.lcssa, %3318 ], [ %.sroa.40.1.lcssa, %cmp_address.exit.i.i966 ], [ %.sroa.40.1.lcssa, %.critedge28.i.i970 ]
+  %.sroa.0.0.i963 = phi i32 [ %.sroa.261036.1.lcssa, %cmp_address.exit.thread.i.i967 ], [ %.sroa.31010.1.lcssa, %3319 ], [ %.sroa.261036.1.lcssa, %3318 ], [ %.sroa.261036.1.lcssa, %cmp_address.exit.i.i966 ], [ %.sroa.261036.1.lcssa, %.critedge28.i.i970 ]
   store i32 %.sroa.0.0.i963, ptr %7, align 16
   %.0.copyload.i.i964 = load i32, ptr %.sroa.12.0.i962, align 1
   store i32 %.0.copyload.i.i964, ptr %120, align 4
@@ -8957,7 +8957,7 @@ proto_item_set_generated.exit919:                 ; preds = %proto_item_set_gene
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %3530 = load ptr, ptr %66, align 8
   %3531 = lshr i64 %.2753, 32
-  %3532 = trunc i64 %3531 to i32
+  %3532 = trunc nuw i64 %3531 to i32
   store i32 %3532, ptr %13, align 16
   %3533 = trunc i64 %.2753 to i32
   store i32 %3533, ptr %205, align 4

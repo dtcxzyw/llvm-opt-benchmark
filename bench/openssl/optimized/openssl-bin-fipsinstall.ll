@@ -1140,7 +1140,7 @@ end:                                              ; preds = %if.end, %if.then30,
 declare ptr @dup_bio_out(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_config_fips_section(ptr noundef %out, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
+define internal fastcc i32 @write_config_fips_section(ptr noundef %out, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.100, ptr noundef %section) #5
   %cmp = icmp slt i32 %call, 1
@@ -1207,7 +1207,7 @@ if.end:                                           ; preds = %print_mac.exit
   %cmp39 = icmp ne ptr %install_mac, null
   %cmp40 = icmp ne i64 %install_mac_len, 0
   %or.cond = and i1 %cmp39, %cmp40
-  br i1 %or.cond, label %if.then41, label %if.end49
+  br i1 %or.cond, label %if.then41, label %end
 
 if.then41:                                        ; preds = %if.end
   %call42 = tail call fastcc i32 @print_mac(ptr noundef %out, ptr noundef nonnull @.str.82, ptr noundef nonnull %install_mac, i64 noundef %install_mac_len)
@@ -1216,14 +1216,12 @@ if.then41:                                        ; preds = %if.end
 
 lor.lhs.false44:                                  ; preds = %if.then41
   %call45 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.65) #5
-  %cmp46 = icmp slt i32 %call45, 1
-  br i1 %cmp46, label %end, label %if.end49
-
-if.end49:                                         ; preds = %lor.lhs.false44, %if.end
+  %cmp46 = icmp sgt i32 %call45, 0
+  %spec.select = zext i1 %cmp46 to i32
   br label %end
 
-end:                                              ; preds = %lor.lhs.false36, %if.then41, %lor.lhs.false44, %entry, %lor.lhs.false, %lor.lhs.false3, %lor.lhs.false6, %lor.lhs.false9, %lor.lhs.false18, %lor.lhs.false27, %print_mac.exit, %if.end49
-  %ret.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false27 ], [ 0, %lor.lhs.false44 ], [ 1, %if.end49 ], [ 0, %if.then41 ], [ 0, %print_mac.exit ], [ 0, %lor.lhs.false36 ]
+end:                                              ; preds = %lor.lhs.false36, %lor.lhs.false44, %if.end, %if.then41, %entry, %lor.lhs.false, %lor.lhs.false3, %lor.lhs.false6, %lor.lhs.false9, %lor.lhs.false18, %lor.lhs.false27, %print_mac.exit
+  %ret.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false27 ], [ 0, %if.then41 ], [ 0, %print_mac.exit ], [ 1, %if.end ], [ %spec.select, %lor.lhs.false44 ], [ 0, %lor.lhs.false36 ]
   ret i32 %ret.0
 }
 

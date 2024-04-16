@@ -2155,7 +2155,7 @@ push_null_elements.exit69:                        ; preds = %.lr.ph.i67
 
 ._crit_edge94:                                    ; preds = %.loopexit, %101
   %.1123.i.lcssa = phi i8 [ %.0122.i, %101 ], [ %.2124.i, %.loopexit ]
-  %133 = trunc i8 %.1123.i.lcssa to i1
+  %133 = trunc nuw i8 %.1123.i.lcssa to i1
   %.not150.i = xor i1 %133, true
   %or.cond152.i = and i1 %89, %.not150.i
   %or.cond79 = select i1 %.not136.i, i1 %or.cond152.i, i1 false
@@ -2337,7 +2337,7 @@ setPathArray.exit:                                ; preds = %.thread, %143, %154
   %.1121.i88 = phi i8 [ %.0120.i, %.lr.ph ], [ %.2122.i, %.loopexit84 ]
   %.0123.i87 = phi i32 [ 0, %.lr.ph ], [ %309, %.loopexit84 ]
   %217 = call i32 @JsonbIteratorNext(ptr noundef %0, ptr noundef nonnull %12, i1 noundef zeroext true) #15
-  %218 = trunc i8 %.1121.i88 to i1
+  %218 = trunc nuw i8 %.1121.i88 to i1
   br i1 %218, label %.thread74, label %219
 
 219:                                              ; preds = %216
@@ -2507,7 +2507,7 @@ setPathArray.exit:                                ; preds = %.thread, %143, %154
 
 ._crit_edge:                                      ; preds = %.loopexit84, %.thread100, %205
   %.1121.i.lcssa = phi i8 [ %.0120.i, %205 ], [ %.0120.i, %.thread100 ], [ %.2122.i, %.loopexit84 ]
-  %310 = trunc i8 %.1121.i.lcssa to i1
+  %310 = trunc nuw i8 %.1121.i.lcssa to i1
   %311 = and i32 %7, 32
   %.not140.i48 = icmp eq i32 %311, 0
   %or.cond164.i = or i1 %.not140.i48, %310
@@ -9180,7 +9180,7 @@ define internal noundef i32 @populate_array_array_end(ptr nocapture noundef read
 
 populate_array_assign_ndims.exit.thread:          ; preds = %10
   tail call fastcc void @populate_array_report_expected_array(ptr noundef nonnull %3, i32 noundef %11)
-  br label %28
+  br label %27
 
 13:                                               ; preds = %10
   store i32 %11, ptr %7, align 8
@@ -9214,13 +9214,11 @@ populate_array_assign_ndims.exit:                 ; preds = %populate_array_assi
 
 25:                                               ; preds = %populate_array_assign_ndims.exit
   %26 = tail call fastcc zeroext i1 @populate_array_check_dimension(ptr noundef nonnull %3, i32 noundef %6)
-  br i1 %26, label %27, label %28
+  %spec.select = select i1 %26, i32 0, i32 19
+  br label %27
 
-27:                                               ; preds = %25, %populate_array_assign_ndims.exit
-  br label %28
-
-28:                                               ; preds = %populate_array_assign_ndims.exit.thread, %25, %27
-  %.0 = phi i32 [ 0, %27 ], [ 19, %25 ], [ 19, %populate_array_assign_ndims.exit.thread ]
+27:                                               ; preds = %populate_array_assign_ndims.exit.thread, %25, %populate_array_assign_ndims.exit
+  %.0 = phi i32 [ 0, %populate_array_assign_ndims.exit ], [ %spec.select, %25 ], [ 19, %populate_array_assign_ndims.exit.thread ]
   ret i32 %.0
 }
 
@@ -9269,7 +9267,7 @@ define internal noundef i32 @populate_array_element_end(ptr nocapture noundef re
   %10 = getelementptr inbounds i8, ptr %6, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %9, %11
-  br i1 %12, label %13, label %70
+  br i1 %12, label %13, label %71
 
 13:                                               ; preds = %2
   store i8 1, ptr %4, align 8
@@ -9325,46 +9323,46 @@ define internal noundef i32 @populate_array_element_end(ptr nocapture noundef re
   %45 = call fastcc i64 @populate_record_field(ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef null, ptr noundef %42, i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %44)
   %46 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %populate_array_element.exit.thread, label %47
+  br i1 %.not.i, label %54, label %47
 
 47:                                               ; preds = %32
   %48 = load i32, ptr %46, align 4
   %49 = icmp eq i32 %48, 431
-  br i1 %49, label %50, label %populate_array_element.exit.thread
+  br i1 %49, label %50, label %54
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %46, i64 4
   %52 = load i8, ptr %51, align 4
   %53 = trunc i8 %52 to i1
-  br i1 %53, label %populate_array_element.exit, label %populate_array_element.exit.thread
-
-populate_array_element.exit.thread:               ; preds = %32, %47, %50
-  %54 = load ptr, ptr %6, align 8
-  %55 = load i8, ptr %3, align 1
-  %56 = trunc i8 %55 to i1
-  %57 = load ptr, ptr %34, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call ptr @accumArrayResult(ptr noundef %54, i64 noundef %45, i1 noundef zeroext %56, i32 noundef %59, ptr noundef %61) #15
-  %63 = getelementptr inbounds i8, ptr %6, i64 48
-  %64 = load ptr, ptr %63, align 8
-  %65 = add i32 %9, -1
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr i32, ptr %64, i64 %66
-  %68 = load i32, ptr %67, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %67, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %70
+  br i1 %53, label %populate_array_element.exit, label %54
 
 populate_array_element.exit:                      ; preds = %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %70
+  br label %71
 
-70:                                               ; preds = %2, %populate_array_element.exit.thread, %populate_array_element.exit
-  %.0 = phi i32 [ 19, %populate_array_element.exit ], [ 0, %populate_array_element.exit.thread ], [ 0, %2 ]
+54:                                               ; preds = %32, %47, %50
+  %55 = load ptr, ptr %6, align 8
+  %56 = load i8, ptr %3, align 1
+  %57 = trunc i8 %56 to i1
+  %58 = load ptr, ptr %34, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = load i32, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %6, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call ptr @accumArrayResult(ptr noundef %55, i64 noundef %45, i1 noundef zeroext %57, i32 noundef %60, ptr noundef %62) #15
+  %64 = getelementptr inbounds i8, ptr %6, i64 48
+  %65 = load ptr, ptr %64, align 8
+  %66 = add i32 %9, -1
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr i32, ptr %65, i64 %67
+  %69 = load i32, ptr %68, align 4
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %68, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  br label %71
+
+71:                                               ; preds = %54, %populate_array_element.exit, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %54 ], [ 19, %populate_array_element.exit ]
   ret i32 %.0
 }
 
@@ -9991,7 +9989,7 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
 
 46:                                               ; preds = %35, %push_null_elements.exit
   %.sink = phi i32 [ 17, %35 ], [ 16, %push_null_elements.exit ]
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nsw i64 %indvars.iv to i32
   %48 = sub i32 %47, %1
   %49 = sext i32 %48 to i64
   %50 = getelementptr i32, ptr %13, i64 %49
@@ -10026,7 +10024,7 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
   br i1 %62, label %._crit_edge53, label %63
 
 63:                                               ; preds = %.lr.ph52
-  %64 = trunc i64 %indvars.iv56 to i32
+  %64 = trunc nsw i64 %indvars.iv56 to i32
   %65 = sub i32 %64, %1
   %66 = sext i32 %65 to i64
   %67 = getelementptr i32, ptr %13, i64 %66

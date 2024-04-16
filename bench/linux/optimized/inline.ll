@@ -560,7 +560,7 @@ define internal fastcc i32 @ext4_read_inline_folio(ptr noundef %0, ptr noundef %
   %45 = load i64, ptr @page_offset_base, align 8
   %46 = add i64 %44, %45
   %47 = inttoptr i64 %46 to ptr
-  %48 = trunc i64 %37 to i32
+  %48 = trunc nuw nsw i64 %37 to i32
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %88, label %50
 
@@ -669,7 +669,7 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
 14:                                               ; preds = %5
   %15 = call i32 @ext4_get_inode_loc(ptr noundef %1, ptr noundef nonnull %8) #8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %269
+  br i1 %16, label %17, label %268
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %1, i64 40
@@ -804,11 +804,11 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   %92 = phi i32 [ %28, %.thread ], [ %84, %89 ], [ %84, %83 ]
   %93 = load ptr, ptr %8, align 8
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %269, label %95
+  br i1 %94, label %268, label %95
 
 95:                                               ; preds = %91
   call void @__brelse(ptr noundef nonnull %93) #8
-  br label %269
+  br label %268
 
 96:                                               ; preds = %36, %32, %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
@@ -830,13 +830,13 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
 105:                                              ; preds = %101, %96
   %106 = getelementptr i8, ptr %1, i64 -212
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %106, i32 -65, ptr elementtype(i8) %106) #8, !srcloc !27
-  br label %267
+  br label %266
 
 107:                                              ; preds = %101
   %108 = call i32 @ext4_writepage_trans_blocks(ptr noundef %1) #8
   %109 = call i32 @ext4_get_inode_loc(ptr noundef %1, ptr noundef nonnull %7) #8
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %267
+  br i1 %110, label %111, label %266
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds i8, ptr %1, i64 40
@@ -863,7 +863,7 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   %131 = icmp ugt ptr %130, inttoptr (i64 -4096 to ptr)
   br i1 %131, label %.thread49, label %.preheader
 
-132:                                              ; preds = %239
+132:                                              ; preds = %238
   %133 = load ptr, ptr %112, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 872
   %135 = load ptr, ptr %134, align 8
@@ -891,7 +891,7 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   %149 = phi ptr [ %130, %121 ], [ %146, %144 ]
   %150 = ptrtoint ptr %149 to i64
   %151 = trunc i64 %150 to i32
-  br label %257
+  br label %256
 
 .preheader:                                       ; preds = %121, %144
   %152 = phi ptr [ %146, %144 ], [ %130, %121 ]
@@ -899,7 +899,7 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   call void @down_write(ptr noundef %123) #8
   %154 = load volatile i64, ptr %97, align 8
   %155 = lshr i64 %154, 34
-  %156 = trunc i64 %155 to i32
+  %156 = trunc nuw nsw i64 %155 to i32
   %157 = and i32 %156, 1
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %124, i32 4, ptr elementtype(i8) %124) #8, !srcloc !14
   %158 = load volatile i64, ptr %97, align 8
@@ -971,151 +971,149 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   %.fr57 = freeze i32 %201
   %202 = and i32 %.fr57, 134217728
   %203 = icmp eq i32 %202, 0
-  br i1 %203, label %.thread27, label %204
+  %spec.select = select i1 %203, ptr @ext4_get_block, ptr @ext4_get_block_unwritten
+  br label %.thread27
 
-.thread27:                                        ; preds = %192, %188, %184, %176, %196
-  br label %204
+.thread27:                                        ; preds = %196, %192, %188, %184, %176
+  %204 = phi ptr [ @ext4_get_block, %176 ], [ @ext4_get_block, %184 ], [ @ext4_get_block, %188 ], [ @ext4_get_block, %192 ], [ %spec.select, %196 ]
+  %205 = call i32 @__block_write_begin(ptr noundef %152, i64 noundef 0, i32 noundef %165, ptr noundef nonnull %204) #8
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %207, label %.thread30
 
-204:                                              ; preds = %196, %.thread27
-  %205 = phi ptr [ @ext4_get_block, %.thread27 ], [ @ext4_get_block_unwritten, %196 ]
-  %206 = call i32 @__block_write_begin(ptr noundef %152, i64 noundef 0, i32 noundef %165, ptr noundef nonnull %205) #8
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %.thread30
+207:                                              ; preds = %.thread27
+  %208 = call i32 @ext4_inode_journal_mode(ptr noundef %1) #8
+  %209 = and i32 %208, 1
+  %210 = icmp eq i32 %209, 0
+  br i1 %210, label %.thread29, label %211
 
-208:                                              ; preds = %204
-  %209 = call i32 @ext4_inode_journal_mode(ptr noundef %1) #8
-  %210 = and i32 %209, 1
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %.thread29, label %212
+211:                                              ; preds = %207
+  %212 = getelementptr inbounds i8, ptr %152, i64 40
+  %213 = load ptr, ptr %212, align 8
+  %214 = call i32 @ext4_walk_page_buffers(ptr noundef %153, ptr noundef %1, ptr noundef %213, i32 noundef 0, i32 noundef %165, ptr noundef null, ptr noundef nonnull @do_journal_get_write_access) #8
+  %215 = icmp eq i32 %214, 0
+  br i1 %215, label %.thread29, label %.thread30
 
-212:                                              ; preds = %208
-  %213 = getelementptr inbounds i8, ptr %152, i64 40
-  %214 = load ptr, ptr %213, align 8
-  %215 = call i32 @ext4_walk_page_buffers(ptr noundef %153, ptr noundef %1, ptr noundef %214, i32 noundef 0, i32 noundef %165, ptr noundef null, ptr noundef nonnull @do_journal_get_write_access) #8
-  %216 = icmp eq i32 %215, 0
-  br i1 %216, label %.thread29, label %.thread30
-
-.thread30:                                        ; preds = %204, %212
-  %217 = phi i32 [ %215, %212 ], [ %206, %204 ]
+.thread30:                                        ; preds = %.thread27, %211
+  %216 = phi i32 [ %214, %211 ], [ %205, %.thread27 ]
   call void @folio_unlock(ptr noundef %152) #8
-  %218 = getelementptr inbounds i8, ptr %152, i64 52
-  %219 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %218, ptr elementtype(i32) %218) #8, !srcloc !26
-  %220 = icmp ult i8 %219, 2
-  call void @llvm.assume(i1 %220)
-  %221 = icmp eq i8 %219, 0
-  br i1 %221, label %223, label %222
+  %217 = getelementptr inbounds i8, ptr %152, i64 52
+  %218 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %217, ptr elementtype(i32) %217) #8, !srcloc !26
+  %219 = icmp ult i8 %218, 2
+  call void @llvm.assume(i1 %219)
+  %220 = icmp eq i8 %218, 0
+  br i1 %220, label %222, label %221
 
-222:                                              ; preds = %.thread30
+221:                                              ; preds = %.thread30
   call void @__folio_put(ptr noundef %152) #8
-  br label %223
+  br label %222
 
-223:                                              ; preds = %222, %.thread30
-  %224 = call i32 @ext4_orphan_add(ptr noundef %153, ptr noundef %1) #8
-  %225 = icmp eq i32 %157, 0
-  br i1 %225, label %226, label %227
+222:                                              ; preds = %221, %.thread30
+  %223 = call i32 @ext4_orphan_add(ptr noundef %153, ptr noundef %1) #8
+  %224 = icmp eq i32 %157, 0
+  br i1 %224, label %225, label %226
 
-226:                                              ; preds = %223
+225:                                              ; preds = %222
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %124, i32 -5, ptr elementtype(i8) %124) #8, !srcloc !27
-  br label %227
+  br label %226
 
-227:                                              ; preds = %226, %223
+226:                                              ; preds = %225, %222
   call void @up_write(ptr noundef %123) #8
-  %228 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_convert_inline_data_to_extent, i32 noundef 622, ptr noundef %153) #8
-  %229 = load ptr, ptr %126, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 24
-  call void @down_write(ptr noundef %230) #8
-  %231 = load i64, ptr %127, align 8
-  call void @truncate_inode_pages(ptr noundef %229, i64 noundef %231) #8
-  %232 = call i32 @ext4_truncate(ptr noundef %1) #8
-  call void @up_write(ptr noundef %230) #8
-  %233 = load i32, ptr %128, align 8
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %237, label %235
+  %227 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_convert_inline_data_to_extent, i32 noundef 622, ptr noundef %153) #8
+  %228 = load ptr, ptr %126, align 8
+  %229 = getelementptr inbounds i8, ptr %228, i64 24
+  call void @down_write(ptr noundef %229) #8
+  %230 = load i64, ptr %127, align 8
+  call void @truncate_inode_pages(ptr noundef %228, i64 noundef %230) #8
+  %231 = call i32 @ext4_truncate(ptr noundef %1) #8
+  call void @up_write(ptr noundef %229) #8
+  %232 = load i32, ptr %128, align 8
+  %233 = icmp eq i32 %232, 0
+  br i1 %233, label %236, label %234
 
-235:                                              ; preds = %227
-  %236 = call i32 @ext4_orphan_del(ptr noundef null, ptr noundef %1) #8
-  br label %237
+234:                                              ; preds = %226
+  %235 = call i32 @ext4_orphan_del(ptr noundef null, ptr noundef %1) #8
+  br label %236
 
-237:                                              ; preds = %235, %227
-  %238 = icmp eq i32 %217, -28
-  br i1 %238, label %239, label %.thread56
+236:                                              ; preds = %234, %226
+  %237 = icmp eq i32 %216, -28
+  br i1 %237, label %238, label %.thread56
 
-239:                                              ; preds = %237
-  %240 = load ptr, ptr %112, align 8
-  %241 = call i32 @ext4_should_retry_alloc(ptr noundef %240, ptr noundef nonnull %6) #8
-  %242 = icmp eq i32 %241, 0
-  br i1 %242, label %.thread56, label %132
+238:                                              ; preds = %236
+  %239 = load ptr, ptr %112, align 8
+  %240 = call i32 @ext4_should_retry_alloc(ptr noundef %239, ptr noundef nonnull %6) #8
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %.thread56, label %132
 
-.thread29:                                        ; preds = %208, %212
-  %243 = icmp eq ptr %152, null
-  br i1 %243, label %.thread48, label %.thread42
+.thread29:                                        ; preds = %207, %211
+  %242 = icmp eq ptr %152, null
+  br i1 %242, label %.thread48, label %.thread42
 
 .thread42:                                        ; preds = %.thread29
   call void @block_commit_write(ptr noundef nonnull %152, i32 noundef 0, i32 noundef %165) #8
-  br label %246
+  br label %245
 
 .thread26:                                        ; preds = %.preheader, %173, %170, %161
-  %244 = phi i32 [ 0, %161 ], [ %171, %170 ], [ %174, %173 ], [ 0, %.preheader ]
-  %245 = icmp eq ptr %152, null
-  br i1 %245, label %.thread48, label %246
+  %243 = phi i32 [ 0, %161 ], [ %171, %170 ], [ %174, %173 ], [ 0, %.preheader ]
+  %244 = icmp eq ptr %152, null
+  br i1 %244, label %.thread48, label %245
 
-246:                                              ; preds = %.thread42, %.thread26
-  %247 = phi i32 [ 0, %.thread42 ], [ %244, %.thread26 ]
+245:                                              ; preds = %.thread42, %.thread26
+  %246 = phi i32 [ 0, %.thread42 ], [ %243, %.thread26 ]
   call void @folio_unlock(ptr noundef nonnull %152) #8
-  %248 = getelementptr inbounds i8, ptr %152, i64 52
-  %249 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %248, ptr elementtype(i32) %248) #8, !srcloc !26
-  %250 = icmp ult i8 %249, 2
-  call void @llvm.assume(i1 %250)
-  %251 = icmp eq i8 %249, 0
-  br i1 %251, label %.thread48, label %252
+  %247 = getelementptr inbounds i8, ptr %152, i64 52
+  %248 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %247, ptr elementtype(i32) %247) #8, !srcloc !26
+  %249 = icmp ult i8 %248, 2
+  call void @llvm.assume(i1 %249)
+  %250 = icmp eq i8 %248, 0
+  br i1 %250, label %.thread48, label %251
 
-252:                                              ; preds = %246
+251:                                              ; preds = %245
   call void @__folio_put(ptr noundef nonnull %152) #8
   br label %.thread48
 
-.thread48:                                        ; preds = %252, %246, %.thread26, %.thread29
-  %253 = phi i32 [ 0, %.thread29 ], [ %247, %252 ], [ %247, %246 ], [ %244, %.thread26 ]
-  %254 = icmp eq i32 %157, 0
-  br i1 %254, label %255, label %256
+.thread48:                                        ; preds = %251, %245, %.thread26, %.thread29
+  %252 = phi i32 [ 0, %.thread29 ], [ %246, %251 ], [ %246, %245 ], [ %243, %.thread26 ]
+  %253 = icmp eq i32 %157, 0
+  br i1 %253, label %254, label %255
 
-255:                                              ; preds = %.thread48
+254:                                              ; preds = %.thread48
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %124, i32 -5, ptr elementtype(i8) %124) #8, !srcloc !27
+  br label %255
+
+255:                                              ; preds = %254, %.thread48
+  call void @up_write(ptr noundef %123) #8
   br label %256
 
-256:                                              ; preds = %255, %.thread48
-  call void @up_write(ptr noundef %123) #8
-  br label %257
+256:                                              ; preds = %.thread49, %255
+  %257 = phi ptr [ %153, %255 ], [ %148, %.thread49 ]
+  %258 = phi i32 [ %252, %255 ], [ %151, %.thread49 ]
+  %259 = icmp eq ptr %257, null
+  br i1 %259, label %.thread56, label %260
 
-257:                                              ; preds = %.thread49, %256
-  %258 = phi ptr [ %153, %256 ], [ %148, %.thread49 ]
-  %259 = phi i32 [ %253, %256 ], [ %151, %.thread49 ]
-  %260 = icmp eq ptr %258, null
-  br i1 %260, label %.thread56, label %261
-
-261:                                              ; preds = %257
-  %262 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_convert_inline_data_to_extent, i32 noundef 649, ptr noundef nonnull %258) #8
+260:                                              ; preds = %256
+  %261 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_convert_inline_data_to_extent, i32 noundef 649, ptr noundef nonnull %257) #8
   br label %.thread56
 
-.thread56:                                        ; preds = %239, %237, %.loopexit, %261, %257
-  %263 = phi i32 [ %259, %261 ], [ %259, %257 ], [ %143, %.loopexit ], [ %217, %237 ], [ -28, %239 ]
-  %264 = load ptr, ptr %7, align 8
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %267, label %266
+.thread56:                                        ; preds = %238, %236, %.loopexit, %260, %256
+  %262 = phi i32 [ %258, %260 ], [ %258, %256 ], [ %143, %.loopexit ], [ %216, %236 ], [ -28, %238 ]
+  %263 = load ptr, ptr %7, align 8
+  %264 = icmp eq ptr %263, null
+  br i1 %264, label %266, label %265
 
-266:                                              ; preds = %.thread56
-  call void @__brelse(ptr noundef nonnull %264) #8
-  br label %267
+265:                                              ; preds = %.thread56
+  call void @__brelse(ptr noundef nonnull %263) #8
+  br label %266
 
-267:                                              ; preds = %266, %.thread56, %107, %105
-  %268 = phi i32 [ 0, %105 ], [ %109, %107 ], [ %263, %.thread56 ], [ %263, %266 ]
+266:                                              ; preds = %265, %.thread56, %107, %105
+  %267 = phi i32 [ 0, %105 ], [ %109, %107 ], [ %262, %.thread56 ], [ %262, %265 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  br label %269
+  br label %268
 
-269:                                              ; preds = %267, %95, %91, %14
-  %270 = phi i32 [ %268, %267 ], [ %15, %14 ], [ %92, %91 ], [ %92, %95 ]
+268:                                              ; preds = %266, %95, %91, %14
+  %269 = phi i32 [ %267, %266 ], [ %15, %14 ], [ %92, %91 ], [ %92, %95 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
-  ret i32 %270
+  ret i32 %269
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1309,7 +1307,7 @@ define dso_local i32 @ext4_write_inline_data_end(ptr noundef %0, i64 noundef %1,
   %81 = icmp ugt i64 %65, 60
   %82 = sub nuw nsw i64 60, %1
   %83 = select i1 %81, i64 %82, i64 %64
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   %85 = getelementptr inbounds i8, ptr %77, i64 40
   %86 = getelementptr i8, ptr %85, i64 %1
   %87 = shl nuw i64 %83, 32
@@ -1876,7 +1874,7 @@ define dso_local i32 @ext4_try_add_inline_entry(ptr noundef %0, ptr noundef %1, 
   unreachable
 
 72:                                               ; preds = %46
-  %73 = trunc i32 %66 to i16
+  %73 = trunc nuw i32 %66 to i16
   %74 = getelementptr inbounds i8, ptr %63, i64 4
   store i16 %73, ptr %74, align 4
   %75 = load i16, ptr %31, align 4
@@ -3786,7 +3784,7 @@ define dso_local i32 @ext4_inline_data_truncate(ptr noundef %0, ptr nocapture no
   %25 = getelementptr i8, ptr %0, i64 -216
   %26 = load volatile i64, ptr %25, align 8
   %27 = lshr i64 %26, 34
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %29 = and i32 %28, 1
   %30 = getelementptr i8, ptr %0, i64 -212
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %30, i32 4, ptr elementtype(i8) %30) #8, !srcloc !14
@@ -3923,7 +3921,7 @@ define dso_local i32 @ext4_inline_data_truncate(ptr noundef %0, ptr nocapture no
 
 107:                                              ; preds = %97, %94
   %108 = call i64 @llvm.umax.i64(i64 %51, i64 60)
-  %109 = trunc i64 %108 to i16
+  %109 = trunc nuw i64 %108 to i16
   %110 = getelementptr i8, ptr %0, i64 732
   store i16 %109, ptr %110, align 4
   br label %111

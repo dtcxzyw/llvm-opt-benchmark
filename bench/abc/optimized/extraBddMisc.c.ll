@@ -524,7 +524,7 @@ define void @Extra_bddPrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .sink.split:                                      ; preds = %.lr.ph.us, %28
   %.str.5.sink = phi ptr [ @.str.5, %28 ], [ @.str.6, %.lr.ph.us ]
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.5.sink, i32 noundef %29)
   br label %31
 
@@ -1297,7 +1297,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv56
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
-  %15 = trunc i64 %indvars.iv56 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv56 to i32
   %16 = lshr i32 %10, %15
   %17 = and i32 %16, 1
   %18 = zext nneg i32 %17 to i64
@@ -1316,7 +1316,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %21 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv51
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
-  %24 = trunc i64 %indvars.iv51 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv51 to i32
   %25 = lshr i32 %10, %24
   %26 = and i32 %25, 1
   %27 = zext nneg i32 %26 to i64
@@ -1339,7 +1339,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv46
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
-  %34 = trunc i64 %indvars.iv46 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv46 to i32
   %35 = xor i32 %34, -1
   %36 = add nsw i32 %35, %2
   %37 = lshr i32 %10, %36
@@ -1360,7 +1360,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %42 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   %46 = xor i32 %45, -1
   %47 = add nsw i32 %46, %2
   %48 = lshr i32 %10, %47
@@ -1443,7 +1443,7 @@ define ptr @Extra_bddSupportNegativeCube(ptr noundef %0, ptr noundef %1) local_u
   %31 = load i32, ptr %5, align 8
   %32 = sext i32 %31 to i64
   %.not.not.us = icmp sgt i64 %indvars.iv, %32
-  %33 = trunc i64 %indvars.iv.next to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.next to i32
   br i1 %.not.not.us, label %38, label %34
 
 34:                                               ; preds = %30
@@ -2324,10 +2324,10 @@ define i32 @Extra_bddVarIsInCube(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.not18 = icmp eq i32 %6, 2147483647
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %34
-  %7 = phi i32 [ %37, %34 ], [ %6, %2 ]
-  %8 = phi ptr [ %36, %34 ], [ %5, %2 ]
-  %.01319 = phi i64 [ %.1.in, %34 ], [ %3, %2 ]
+.lr.ph:                                           ; preds = %2, %33
+  %7 = phi i32 [ %36, %33 ], [ %6, %2 ]
+  %8 = phi ptr [ %35, %33 ], [ %5, %2 ]
+  %.01319 = phi i64 [ %.1.in, %33 ], [ %3, %2 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = getelementptr inbounds i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -2361,21 +2361,19 @@ define i32 @Extra_bddVarIsInCube(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %30 = inttoptr i64 %29 to ptr
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 2147483647
-  br i1 %32, label %34, label %33
+  %spec.select = select i1 %32, i64 %17, i64 %14
+  br label %33
 
 33:                                               ; preds = %28, %27
-  br label %34
-
-34:                                               ; preds = %28, %33
-  %.1.in = phi i64 [ %14, %33 ], [ %17, %28 ]
-  %35 = and i64 %.1.in, -2
-  %36 = inttoptr i64 %35 to ptr
-  %37 = load i32, ptr %36, align 8
-  %.not = icmp eq i32 %37, 2147483647
+  %.1.in = phi i64 [ %14, %27 ], [ %spec.select, %28 ]
+  %34 = and i64 %.1.in, -2
+  %35 = inttoptr i64 %34 to ptr
+  %36 = load i32, ptr %35, align 8
+  %.not = icmp eq i32 %36, 2147483647
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
-.loopexit:                                        ; preds = %34, %2, %20, %21
-  %.0 = phi i32 [ 0, %20 ], [ %26, %21 ], [ -1, %2 ], [ -1, %34 ]
+.loopexit:                                        ; preds = %33, %2, %20, %21
+  %.0 = phi i32 [ 0, %20 ], [ %26, %21 ], [ -1, %2 ], [ -1, %33 ]
   ret i32 %.0
 }
 
@@ -2878,7 +2876,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !36
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %34
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %._crit_edge.loopexit.split.loop.exit, %6
@@ -3717,7 +3715,7 @@ define ptr @extraZddCombination(ptr noundef %0, ptr nocapture noundef readonly %
   %18 = load i32, ptr %13, align 4
   %19 = sext i32 %18 to i64
   %.not.not = icmp sgt i64 %indvars.iv, %19
-  %20 = trunc i64 %indvars.iv.next to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.next to i32
   br i1 %.not.not, label %25, label %21
 
 21:                                               ; preds = %17
@@ -3821,7 +3819,7 @@ define ptr @Extra_zddCombination(ptr noundef %0, ptr nocapture noundef readonly 
   %20 = load i32, ptr %7, align 4
   %21 = sext i32 %20 to i64
   %.not.not.i.us = icmp sgt i64 %indvars.iv.i.us, %21
-  %22 = trunc i64 %indvars.iv.next.i.us to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.next.i.us to i32
   br i1 %.not.not.i.us, label %27, label %23
 
 23:                                               ; preds = %19
@@ -3964,7 +3962,7 @@ define ptr @Extra_zddRandomSet(ptr noundef %0, i32 noundef %1, i32 noundef %2, d
   %36 = load i32, ptr %24, align 4
   %37 = sext i32 %36 to i64
   %.not.not.i.us.i = icmp sgt i64 %indvars.iv.i.us.i, %37
-  %38 = trunc i64 %indvars.iv.next.i.us.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.next.i.us.i to i32
   br i1 %.not.not.i.us.i, label %43, label %39
 
 39:                                               ; preds = %35
@@ -4587,7 +4585,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -4606,7 +4604,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4617,19 +4615,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
@@ -4664,8 +4662,8 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

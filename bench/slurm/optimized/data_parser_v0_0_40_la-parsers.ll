@@ -3282,7 +3282,7 @@ define internal i32 @_v40_parse_UINT32_NO_VAL(ptr nocapture noundef readonly %0,
   %8 = load i64, ptr %6, align 8
   %9 = icmp eq i64 %8, -2
   %10 = icmp ugt i64 %8, 4294967293
-  %11 = trunc i64 %8 to i32
+  %11 = trunc nuw i64 %8 to i32
   %spec.select = select i1 %10, i32 -1, i32 %11
   %.sink = select i1 %9, i32 -2, i32 %spec.select
   store i32 %.sink, ptr %1, align 4
@@ -3774,7 +3774,7 @@ define internal i32 @_v40_parse_UINT16_NO_VAL(ptr nocapture noundef readonly %0,
   %8 = load i64, ptr %6, align 8
   %9 = icmp eq i64 %8, -2
   %10 = icmp ugt i64 %8, 65533
-  %11 = trunc i64 %8 to i16
+  %11 = trunc nuw i64 %8 to i16
   %spec.select = select i1 %10, i16 -1, i16 %11
   %.sink = select i1 %9, i16 -2, i16 %spec.select
   store i16 %.sink, ptr %1, align 2
@@ -3822,7 +3822,7 @@ _v40_parse_INT64.exit:                            ; preds = %8
 
 .thread:                                          ; preds = %5, %13
   %.011.ph18 = phi i64 [ %14, %13 ], [ 0, %5 ]
-  %16 = trunc i64 %.011.ph18 to i32
+  %16 = trunc nsw i64 %.011.ph18 to i32
   store i32 %16, ptr %1, align 4
   br label %17
 
@@ -6946,7 +6946,7 @@ define internal i32 @_v40_dump_ROLLUP_STATS(ptr nocapture noundef readonly %0, p
 19:                                               ; preds = %15
   %20 = tail call ptr @data_list_append(ptr noundef %2) #18
   %21 = tail call ptr @data_set_dict(ptr noundef %20) #18
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.826) #18
   %switch.selectcmp = icmp eq i32 %22, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.828, ptr @.str.829
@@ -7620,39 +7620,37 @@ define internal i32 @_v40_parse_QOS_ID_STRING(ptr noundef %0, ptr noundef %1, pt
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %1, ptr noundef nonnull @.str.738, i32 noundef %11) #18
-  br label %24
+  br label %23
 
 12:                                               ; preds = %5
   %13 = call i32 @data_get_type(ptr noundef %2) #18
   %14 = icmp eq i32 %13, 3
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %12
   %16 = call ptr @data_key_get(ptr noundef %2, ptr noundef nonnull @.str.852) #18
   %.not20 = icmp eq ptr %16, null
-  br i1 %.not20, label %19, label %17
+  br i1 %.not20, label %23, label %17
 
 17:                                               ; preds = %15
   %18 = call i32 @data_get_string_converted(ptr noundef nonnull %16, ptr noundef %1) #18
   %.not21 = icmp eq i32 %18, 0
-  br i1 %.not21, label %24, label %19
+  %spec.select = select i1 %.not21, i32 0, i32 9202
+  br label %23
 
-19:                                               ; preds = %17, %15
-  br label %24
+19:                                               ; preds = %12
+  %20 = call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
+  %.not18 = icmp eq i32 %20, 4
+  br i1 %.not18, label %21, label %23
 
-20:                                               ; preds = %12
-  %21 = call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
-  %.not18 = icmp eq i32 %21, 4
-  br i1 %.not18, label %22, label %24
-
-22:                                               ; preds = %20
-  %23 = call i32 @data_get_string_converted(ptr noundef %2, ptr noundef %1) #18
-  %.not19 = icmp eq i32 %23, 0
+21:                                               ; preds = %19
+  %22 = call i32 @data_get_string_converted(ptr noundef %2, ptr noundef %1) #18
+  %.not19 = icmp eq i32 %22, 0
   %. = select i1 %.not19, i32 0, i32 9202
-  br label %24
+  br label %23
 
-24:                                               ; preds = %22, %20, %17, %19, %8
-  %.0 = phi i32 [ 9202, %19 ], [ 0, %8 ], [ 0, %17 ], [ 9202, %20 ], [ %., %22 ]
+23:                                               ; preds = %17, %21, %19, %15, %8
+  %.0 = phi i32 [ 0, %8 ], [ 9202, %15 ], [ 9202, %19 ], [ %., %21 ], [ %spec.select, %17 ]
   ret i32 %.0
 }
 
@@ -8890,7 +8888,7 @@ define internal i32 @_v40_dump_STATS_MSG_SCHEDULE_EXIT(ptr nocapture readnone %0
   br i1 %18, label %_set_schedule_exit_field.exit, label %13
 
 19:                                               ; preds = %13
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.857, i32 noundef %20) #21
   unreachable
 
@@ -9258,7 +9256,7 @@ define internal i32 @_v40_dump_STATS_MSG_BF_EXIT(ptr nocapture readnone %0, ptr 
   br i1 %18, label %_set_bf_exit_field.exit, label %13
 
 19:                                               ; preds = %13
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.857, i32 noundef %20) #21
   unreachable
 
@@ -10128,7 +10126,7 @@ define internal noundef i32 @_v40_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   %.02638 = phi i64 [ 0, %.lr.ph ], [ %34, %_dump_node_res.exit ]
   %.02737 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_dump_node_res.exit ]
   %.036 = phi i64 [ 0, %.lr.ph ], [ %.2, %_dump_node_res.exit ]
-  %26 = trunc i64 %.02539 to i32
+  %26 = trunc nuw i64 %.02539 to i32
   %27 = call ptr @hostlist_nth(ptr noundef %15, i32 noundef %26) #18
   %28 = load ptr, ptr %19, align 8
   %29 = getelementptr inbounds i32, ptr %28, i64 %.02737

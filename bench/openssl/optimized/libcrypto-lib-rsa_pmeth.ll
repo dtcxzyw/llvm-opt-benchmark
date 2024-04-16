@@ -357,7 +357,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp10.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.then9
-  %conv14 = trunc i64 %tbslen to i32
+  %conv14 = trunc nsw i64 %tbslen to i32
   %call15 = call i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef 0, ptr noundef %tbs, i32 noundef %conv14, ptr noundef %sig, ptr noundef nonnull %sltmp, ptr noundef %call) #8
   %cmp16 = icmp slt i32 %call15, 1
   br i1 %cmp16, label %return, label %if.end19
@@ -416,7 +416,7 @@ if.end33:                                         ; preds = %if.end29
 if.then47:                                        ; preds = %if.else
   %10 = load ptr, ptr %md, align 8
   %call50 = tail call i32 @EVP_MD_get_type(ptr noundef %10) #8
-  %conv51 = trunc i64 %tbslen to i32
+  %conv51 = trunc nsw i64 %tbslen to i32
   %call52 = call i32 @RSA_sign(i32 noundef %call50, ptr noundef %tbs, i32 noundef %conv51, ptr noundef %sig, ptr noundef nonnull %sltmp48, ptr noundef %call) #8
   %cmp53 = icmp slt i32 %call52, 1
   br i1 %cmp53, label %return, label %if.end56
@@ -817,7 +817,7 @@ entry:
   %call = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %1) #8
   %pad_mode1 = getelementptr inbounds i8, ptr %0, i64 28
   %2 = load i32, ptr %pad_mode1, align 4
-  switch i32 %2, label %if.else18 [
+  switch i32 %2, label %if.end20 [
     i32 4, label %if.then
     i32 1, label %land.lhs.true
   ]
@@ -863,13 +863,11 @@ land.lhs.true:                                    ; preds = %entry
   %implicit_rejection = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load i32, ptr %implicit_rejection, align 8
   %cmp15 = icmp eq i32 %11, 0
-  br i1 %cmp15, label %if.end20, label %if.else18
-
-if.else18:                                        ; preds = %entry, %land.lhs.true
+  %spec.select = select i1 %cmp15, i32 8, i32 1
   br label %if.end20
 
-if.end20:                                         ; preds = %land.lhs.true, %if.else18
-  %pad_mode.0 = phi i32 [ %2, %if.else18 ], [ 8, %land.lhs.true ]
+if.end20:                                         ; preds = %land.lhs.true, %entry
+  %pad_mode.0 = phi i32 [ %2, %entry ], [ %spec.select, %land.lhs.true ]
   %conv21 = trunc i64 %inlen to i32
   %call22 = tail call i32 @RSA_private_decrypt(i32 noundef %conv21, ptr noundef %in, ptr noundef %out, ptr noundef %call, i32 noundef %pad_mode.0) #8
   br label %if.end23

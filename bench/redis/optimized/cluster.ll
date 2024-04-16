@@ -154,7 +154,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %if.then5, label %for.body, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
@@ -184,12 +184,12 @@ for.body11:                                       ; preds = %for.body11.preheade
 
 for.inc19:                                        ; preds = %for.body11
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %4 = trunc i64 %indvars.iv.next32 to i32
+  %4 = trunc nuw i64 %indvars.iv.next32 to i32
   %cmp9 = icmp slt i32 %4, %keylen
   br i1 %cmp9, label %for.body11, label %if.then27, !llvm.loop !7
 
 for.end21:                                        ; preds = %for.body11
-  %5 = trunc i64 %indvars.iv31 to i32
+  %5 = trunc nuw i64 %indvars.iv31 to i32
   %cmp22 = icmp eq i32 %5, %keylen
   %cmp25 = icmp eq i32 %add, %5
   %or.cond = or i1 %cmp22, %cmp25
@@ -243,7 +243,7 @@ if.else20:                                        ; preds = %for.body
   %cmp21 = icmp eq i32 %s.033, -1
   %cmp26 = icmp eq i8 %0, 123
   %or.cond = and i1 %cmp21, %cmp26
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %or.cond, label %for.inc, label %if.else29
 
 if.else29:                                        ; preds = %if.else20
@@ -2071,7 +2071,7 @@ while.body:                                       ; preds = %sdslen.exit283
   %83 = load ptr, ptr %sync_write.i, align 8
   %call.i = call i64 %83(ptr noundef nonnull %80, ptr noundef %add.ptr, i64 noundef %cond383, i64 noundef %81) #16
   %conv385 = trunc i64 %call.i to i32
-  %conv386 = trunc i64 %cond383 to i32
+  %conv386 = trunc nuw nsw i64 %cond383 to i32
   %cmp387.not = icmp eq i32 %conv385, %conv386
   br i1 %cmp387.not, label %if.end390, label %socket_err
 
@@ -2204,7 +2204,7 @@ for.inc495:                                       ; preds = %if.then447, %if.the
   br i1 %exitcond433.not, label %if.end511, label %for.body419, !llvm.loop !15
 
 for.end497:                                       ; preds = %for.body419
-  %109 = trunc i64 %indvars.iv429 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv429 to i32
   %tobool498 = icmp eq i32 %error_from_target.0376, 0
   %110 = or i32 %error_from_target.0376, %109
   %111 = icmp eq i32 %110, 0
@@ -2849,7 +2849,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then5.i, label %for.body.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %sdslen.exit123
@@ -2880,12 +2880,12 @@ for.body11.i:                                     ; preds = %for.inc19.i, %for.b
 
 for.inc19.i:                                      ; preds = %for.body11.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %26 = trunc i64 %indvars.iv.next32.i to i32
+  %26 = trunc nuw i64 %indvars.iv.next32.i to i32
   %cmp9.i = icmp slt i32 %26, %conv
   br i1 %cmp9.i, label %for.body11.i, label %if.then27.i, !llvm.loop !7
 
 for.end21.i:                                      ; preds = %for.body11.i
-  %27 = trunc i64 %indvars.iv31.i to i32
+  %27 = trunc nuw i64 %indvars.iv31.i to i32
   %cmp22.i = icmp eq i32 %27, %conv
   %cmp25.i = icmp eq i32 %add.i, %27
   %or.cond.i = or i1 %cmp22.i, %cmp25.i
@@ -2993,7 +2993,7 @@ if.end145:                                        ; preds = %if.end135
   %add.i135 = add i64 %45, %44
   %conv148 = and i64 %add.i135, 4294967295
   %46 = call i64 @llvm.umin.i64(i64 %40, i64 %conv148)
-  %conv152 = trunc i64 %46 to i32
+  %conv152 = trunc nuw i64 %46 to i32
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %46) #16
   %47 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
   %48 = load ptr, ptr %47, align 8
@@ -3466,7 +3466,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then5.i, label %for.body.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %sdslen.exit
@@ -3497,12 +3497,12 @@ for.body11.i:                                     ; preds = %for.inc19.i, %for.b
 
 for.inc19.i:                                      ; preds = %for.body11.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %21 = trunc i64 %indvars.iv.next32.i to i32
+  %21 = trunc nuw i64 %indvars.iv.next32.i to i32
   %cmp9.i = icmp slt i32 %21, %conv
   br i1 %cmp9.i, label %for.body11.i, label %if.then27.i, !llvm.loop !7
 
 for.end21.i:                                      ; preds = %for.body11.i
-  %22 = trunc i64 %indvars.iv31.i to i32
+  %22 = trunc nuw i64 %indvars.iv31.i to i32
   %cmp22.i = icmp eq i32 %22, %conv
   %cmp25.i = icmp eq i32 %add.i, %22
   %or.cond.i = or i1 %cmp22.i, %cmp25.i
@@ -4033,7 +4033,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then5.i, label %for.body.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %sdslen.exit
@@ -4064,12 +4064,12 @@ for.body11.i:                                     ; preds = %for.inc19.i, %for.b
 
 for.inc19.i:                                      ; preds = %for.body11.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %14 = trunc i64 %indvars.iv.next32.i to i32
+  %14 = trunc nuw i64 %indvars.iv.next32.i to i32
   %cmp9.i = icmp slt i32 %14, %conv
   br i1 %cmp9.i, label %for.body11.i, label %if.then27.i, !llvm.loop !7
 
 for.end21.i:                                      ; preds = %for.body11.i
-  %15 = trunc i64 %indvars.iv31.i to i32
+  %15 = trunc nuw i64 %indvars.iv31.i to i32
   %cmp22.i = icmp eq i32 %15, %conv
   %cmp25.i = icmp eq i32 %add.i, %15
   %or.cond.i = or i1 %cmp22.i, %cmp25.i
@@ -4302,9 +4302,9 @@ entry:
   %cmp40 = icmp sgt i32 %call39, 0
   br i1 %cmp40, label %for.body, label %for.end
 
-for.body:                                         ; preds = %entry, %for.cond
-  %nested_elements.042 = phi i32 [ %0, %for.cond ], [ 3, %entry ]
-  %i.041 = phi i32 [ %inc3, %for.cond ], [ 0, %entry ]
+for.body:                                         ; preds = %entry, %isReplicaAvailable.exit.thread
+  %nested_elements.042 = phi i32 [ %0, %isReplicaAvailable.exit.thread ], [ 3, %entry ]
+  %i.041 = phi i32 [ %inc3, %isReplicaAvailable.exit.thread ], [ 0, %entry ]
   %call1 = tail call ptr @clusterNodeGetSlave(ptr noundef %node, i32 noundef %i.041) #16
   %call.i = tail call i32 @clusterNodeIsFailing(ptr noundef %call1) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -4323,22 +4323,20 @@ if.then4.i:                                       ; preds = %if.end.i
 isReplicaAvailable.exit:                          ; preds = %if.end.i, %if.then4.i
   %repl_offset.0.i = phi i64 [ %call5.i, %if.then4.i ], [ %call1.i, %if.end.i ]
   %repl_offset.0.i.fr = freeze i64 %repl_offset.0.i
-  %cmp.i.not = icmp eq i64 %repl_offset.0.i.fr, 0
-  %inc = add nsw i32 %nested_elements.042, 1
-  br i1 %cmp.i.not, label %isReplicaAvailable.exit.thread, label %for.cond
+  %cmp.i.not = icmp ne i64 %repl_offset.0.i.fr, 0
+  %inc = zext i1 %cmp.i.not to i32
+  %spec.select = add nsw i32 %nested_elements.042, %inc
+  br label %isReplicaAvailable.exit.thread
 
-isReplicaAvailable.exit.thread:                   ; preds = %for.body, %isReplicaAvailable.exit
-  br label %for.cond
-
-for.cond:                                         ; preds = %isReplicaAvailable.exit, %isReplicaAvailable.exit.thread
-  %0 = phi i32 [ %nested_elements.042, %isReplicaAvailable.exit.thread ], [ %inc, %isReplicaAvailable.exit ]
+isReplicaAvailable.exit.thread:                   ; preds = %isReplicaAvailable.exit, %for.body
+  %0 = phi i32 [ %nested_elements.042, %for.body ], [ %spec.select, %isReplicaAvailable.exit ]
   %inc3 = add nuw nsw i32 %i.041, 1
   %call = tail call i32 @clusterNodeNumSlaves(ptr noundef %node) #16
   %cmp = icmp slt i32 %inc3, %call
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
-for.end:                                          ; preds = %for.cond, %entry
-  %nested_elements.0.lcssa = phi i32 [ 3, %entry ], [ %0, %for.cond ]
+for.end:                                          ; preds = %isReplicaAvailable.exit.thread, %entry
+  %nested_elements.0.lcssa = phi i32 [ 3, %entry ], [ %0, %isReplicaAvailable.exit.thread ]
   %conv = sext i32 %nested_elements.0.lcssa to i64
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv) #16
   %conv4 = sext i32 %start_slot to i64

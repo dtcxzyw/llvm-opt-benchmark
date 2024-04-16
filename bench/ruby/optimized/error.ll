@@ -2402,7 +2402,7 @@ define dso_local void @rb_check_type(i64 noundef %0, i32 noundef %1) local_unnam
   br label %rb_type.exit
 
 switch.hole_check:                                ; preds = %15
-  %switch.maskindex = trunc i64 %16 to i16
+  %switch.maskindex = trunc nuw i64 %16 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %18
@@ -2473,7 +2473,7 @@ define internal fastcc i32 @rb_type(i64 noundef %0) unnamed_addr #14 {
   br label %19
 
 switch.hole_check:                                ; preds = %11
-  %switch.maskindex = trunc i64 %12 to i16
+  %switch.maskindex = trunc nuw i64 %12 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %14
@@ -3713,7 +3713,7 @@ define internal noundef i64 @exc_exception(i32 noundef %0, ptr nocapture noundef
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %trunc = trunc i32 %0 to i1
+  %trunc = trunc nuw i32 %0 to i1
   br i1 %trunc, label %5, label %12
 
 5:                                                ; preds = %rb_check_arity.exit
@@ -3906,7 +3906,7 @@ define internal i64 @exc_detailed_message(i32 noundef %0, ptr noundef %1, i64 no
   %5 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.278, ptr noundef nonnull %4) #27
   %6 = load i64, ptr %4, align 8
   %7 = icmp eq i64 %6, 4
-  br i1 %7, label %.thread.i, label %8
+  br i1 %7, label %check_highlight_keyword.exit, label %8
 
 8:                                                ; preds = %3
   %9 = load i64, ptr @sym_highlight, align 8
@@ -3921,11 +3921,11 @@ define internal i64 @exc_detailed_message(i32 noundef %0, ptr noundef %1, i64 no
   %12 = call i32 @rb_bool_expected(i64 noundef %10, ptr noundef nonnull @.str.83, i32 noundef 1) #27
   unreachable
 
-.thread.i:                                        ; preds = %8, %3
+.thread.i:                                        ; preds = %8
   br label %check_highlight_keyword.exit
 
-check_highlight_keyword.exit:                     ; preds = %8, %8, %.thread.i
-  %.1.i = phi i64 [ 0, %.thread.i ], [ %10, %8 ], [ %10, %8 ]
+check_highlight_keyword.exit:                     ; preds = %3, %8, %8, %.thread.i
+  %.1.i = phi i64 [ %10, %8 ], [ %10, %8 ], [ 0, %3 ], [ 0, %.thread.i ]
   %13 = and i64 %2, 7
   %14 = icmp ne i64 %13, 0
   %15 = icmp eq i64 %2, 0

@@ -3601,23 +3601,27 @@ define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, pt
 45:                                               ; preds = %44
   %46 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.1871) #5
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %52, label %48
+  %brmerge = or i1 %47, %.not65
+  %.str.1873.mux = select i1 %47, ptr @.str.1873, ptr @.str.1872
+  %french_isup_message_type_value_acro_ext.mux = select i1 %47, ptr @french_isup_message_type_value_acro_ext, ptr @isup_message_type_value_acro_ext
+  %.mux = zext i1 %47 to i8
+  br i1 %brmerge, label %53, label %49
 
-48:                                               ; preds = %45, %44
+48:                                               ; preds = %44
   br i1 %.not65, label %53, label %49
 
-49:                                               ; preds = %48
+49:                                               ; preds = %45, %48
   %50 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.1871) #5
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %53
 
-52:                                               ; preds = %49, %45
+52:                                               ; preds = %49
   br label %53
 
-53:                                               ; preds = %49, %48, %5, %4, %52
-  %.str.1873.sink = phi ptr [ @.str.1873, %52 ], [ @.str.1872, %4 ], [ @.str.1872, %5 ], [ @.str.1872, %48 ], [ @.str.1872, %49 ]
-  %french_isup_message_type_value_acro_ext.sink = phi ptr [ @french_isup_message_type_value_acro_ext, %52 ], [ @isup_message_type_value_acro_ext, %4 ], [ @isup_message_type_value_acro_ext, %5 ], [ @isup_message_type_value_acro_ext, %48 ], [ @isup_message_type_value_acro_ext, %49 ]
-  %.05271 = phi i8 [ 1, %52 ], [ 0, %4 ], [ 0, %5 ], [ 0, %48 ], [ 0, %49 ]
+53:                                               ; preds = %45, %49, %48, %5, %4, %52
+  %.str.1873.sink = phi ptr [ @.str.1872, %4 ], [ @.str.1872, %5 ], [ @.str.1872, %48 ], [ @.str.1872, %49 ], [ %.str.1873.mux, %45 ], [ @.str.1873, %52 ]
+  %french_isup_message_type_value_acro_ext.sink = phi ptr [ @isup_message_type_value_acro_ext, %4 ], [ @isup_message_type_value_acro_ext, %5 ], [ @isup_message_type_value_acro_ext, %48 ], [ @isup_message_type_value_acro_ext, %49 ], [ %french_isup_message_type_value_acro_ext.mux, %45 ], [ @french_isup_message_type_value_acro_ext, %52 ]
+  %.05271 = phi i8 [ 0, %4 ], [ 0, %5 ], [ 0, %48 ], [ 0, %49 ], [ %.mux, %45 ], [ 1, %52 ]
   store i1 false, ptr @isup_standard, align 4
   %54 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %55 = getelementptr inbounds i8, ptr %1, i64 8
@@ -8613,7 +8617,7 @@ define internal fastcc void @dissect_japan_isup_network_poi_cad(ptr noundef %0, 
   %30 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %29) #5
   %31 = and i32 %29, 15
   %32 = icmp ult i32 %31, 10
-  %33 = trunc i32 %31 to i8
+  %33 = trunc nuw nsw i32 %31 to i8
   %.0.v.i.us = select i1 %32, i8 48, i8 55
   %.0.i.us = add nuw nsw i8 %.0.v.i.us, %33
   call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext %.0.i.us) #5
@@ -8649,7 +8653,7 @@ define internal fastcc void @dissect_japan_isup_network_poi_cad(ptr noundef %0, 
   %48 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %47) #5
   %49 = and i32 %47, 15
   %50 = icmp ult i32 %49, 10
-  %51 = trunc i32 %49 to i8
+  %51 = trunc nuw nsw i32 %49 to i8
   %.0.v.i = select i1 %50, i8 48, i8 55
   %.0.i = add nuw nsw i8 %.0.v.i, %51
   call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext %.0.i) #5
@@ -8793,7 +8797,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   %69 = call ptr @proto_tree_add_uint(ptr noundef %49, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %68) #5
   %70 = and i32 %68, 15
   %71 = icmp ult i32 %70, 10
-  %72 = trunc i32 %70 to i8
+  %72 = trunc nuw nsw i32 %70 to i8
   %.0.v.i = select i1 %71, i8 48, i8 55
   %.0.i = add nuw nsw i8 %.0.v.i, %72
   call void @wmem_strbuf_append_c(ptr noundef %56, i8 noundef signext %.0.i) #5
@@ -8892,7 +8896,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   %125 = call ptr @proto_tree_add_uint(ptr noundef %105, i32 noundef %123, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %124) #5
   %126 = and i32 %124, 15
   %127 = icmp ult i32 %126, 10
-  %128 = trunc i32 %126 to i8
+  %128 = trunc nuw nsw i32 %126 to i8
   %.0.v.i146 = select i1 %127, i8 48, i8 55
   %.0.i147 = add nuw nsw i8 %.0.v.i146, %128
   call void @wmem_strbuf_append_c(ptr noundef %112, i8 noundef signext %.0.i147) #5
@@ -9081,7 +9085,7 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %30 = call ptr @proto_tree_add_uint(ptr noundef %21, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %29) #5
   %31 = and i32 %29, 15
   %32 = icmp ult i32 %31, 10
-  %33 = trunc i32 %31 to i8
+  %33 = trunc nuw nsw i32 %31 to i8
   %.0.v.i.us = select i1 %32, i8 48, i8 55
   %.0.i.us = add nuw nsw i8 %.0.v.i.us, %33
   call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext %.0.i.us) #5
@@ -9116,7 +9120,7 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %48 = call ptr @proto_tree_add_uint(ptr noundef %21, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %47) #5
   %49 = and i32 %47, 15
   %50 = icmp ult i32 %49, 10
-  %51 = trunc i32 %49 to i8
+  %51 = trunc nuw nsw i32 %49 to i8
   %.0.v.i = select i1 %50, i8 48, i8 55
   %.0.i = add nuw nsw i8 %.0.v.i, %51
   call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext %.0.i) #5

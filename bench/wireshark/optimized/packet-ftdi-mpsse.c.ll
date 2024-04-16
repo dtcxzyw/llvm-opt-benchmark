@@ -667,7 +667,7 @@ is_data_shifting_command_returning_response.exit.i75.i: ; preds = %137, %126, %1
   br i1 %.not52.i.i, label %dissect_data_shifting_command_parameters.exit.i, label %143
 
 143:                                              ; preds = %is_data_shifting_command_returning_response.exit.i75.i
-  %144 = trunc i32 %.0.i76.i to i16
+  %144 = trunc nuw i32 %.0.i76.i to i16
   %145 = add i16 %144, 1
   %146 = select i1 %111, i16 %145, i16 1
   call fastcc void @expect_response(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %95, ptr noundef nonnull %3, i8 noundef zeroext %49, i16 noundef zeroext %146)
@@ -981,7 +981,7 @@ get_data_bit_pin_prefix.exit.i.i.i:               ; preds = %257, %256, %254, %2
 
 get_data_bit_pin_prefix.exit.split.us.i.i.i:      ; preds = %get_data_bit_pin_prefix.exit.i.i.i, %get_data_bit_pin_prefix.exit.split.us.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %get_data_bit_pin_prefix.exit.split.us.i.i.i ], [ 0, %get_data_bit_pin_prefix.exit.i.i.i ]
-  %262 = trunc i64 %indvars.iv.i.i.i to i32
+  %262 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %263 = shl nuw nsw i32 1, %262
   %264 = load i32, ptr %11, align 4
   %265 = and i32 %263, %264
@@ -1000,7 +1000,7 @@ get_data_bit_pin_prefix.exit.split.us.i.i.i:      ; preds = %get_data_bit_pin_pr
 
 get_data_bit_pin_prefix.exit.split.i.i.i:         ; preds = %get_data_bit_pin_prefix.exit.i.i.i, %286
   %indvars.iv12.i.i.i = phi i64 [ %indvars.iv.next13.i.i.i, %286 ], [ 0, %get_data_bit_pin_prefix.exit.i.i.i ]
-  %273 = trunc i64 %indvars.iv12.i.i.i to i32
+  %273 = trunc nuw nsw i64 %indvars.iv12.i.i.i to i32
   %274 = shl nuw nsw i32 1, %273
   %275 = load i32, ptr %11, align 4
   %276 = and i32 %274, %275
@@ -1064,7 +1064,7 @@ get_data_bit_pin_prefix.exit53.i.i.i:             ; preds = %295, %294, %292, %2
 
 get_data_bit_pin_prefix.exit53.split.us.i.i.i:    ; preds = %get_data_bit_pin_prefix.exit53.i.i.i, %get_data_bit_pin_prefix.exit53.split.us.i.i.i
   %indvars.iv16.i.i.i = phi i64 [ %indvars.iv.next17.i.i.i, %get_data_bit_pin_prefix.exit53.split.us.i.i.i ], [ 0, %get_data_bit_pin_prefix.exit53.i.i.i ]
-  %300 = trunc i64 %indvars.iv16.i.i.i to i32
+  %300 = trunc nuw nsw i64 %indvars.iv16.i.i.i to i32
   %301 = shl nuw nsw i32 1, %300
   %302 = load i32, ptr %11, align 4
   %303 = and i32 %301, %302
@@ -1083,7 +1083,7 @@ get_data_bit_pin_prefix.exit53.split.us.i.i.i:    ; preds = %get_data_bit_pin_pr
 
 get_data_bit_pin_prefix.exit53.split.i.i.i:       ; preds = %get_data_bit_pin_prefix.exit53.i.i.i, %324
   %indvars.iv20.i.i.i = phi i64 [ %indvars.iv.next21.i.i.i, %324 ], [ 0, %get_data_bit_pin_prefix.exit53.i.i.i ]
-  %311 = trunc i64 %indvars.iv20.i.i.i to i32
+  %311 = trunc nuw nsw i64 %indvars.iv20.i.i.i to i32
   %312 = shl nuw nsw i32 1, %311
   %313 = load i32, ptr %11, align 4
   %314 = and i32 %312, %313
@@ -1782,14 +1782,13 @@ is_same_mpsse_instance.exit:                      ; preds = %48
   %53 = load i32, ptr %17, align 4
   %54 = getelementptr inbounds i8, ptr %33, i64 16
   %55 = load i32, ptr %54, align 4
-  %.not15 = icmp eq i32 %53, %55
-  br i1 %.not15, label %56, label %is_same_mpsse_instance.exit.thread
+  %56 = icmp ne i32 %53, %55
+  %cond.fr = freeze i1 %56
+  %spec.select = select i1 %cond.fr, ptr null, ptr %33
+  br label %is_same_mpsse_instance.exit.thread
 
-is_same_mpsse_instance.exit.thread:               ; preds = %34, %38, %43, %48, %is_same_mpsse_instance.exit, %3
-  br label %56
-
-56:                                               ; preds = %is_same_mpsse_instance.exit, %is_same_mpsse_instance.exit.thread
-  %.0 = phi ptr [ null, %is_same_mpsse_instance.exit.thread ], [ %33, %is_same_mpsse_instance.exit ]
+is_same_mpsse_instance.exit.thread:               ; preds = %is_same_mpsse_instance.exit, %34, %38, %43, %48, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %48 ], [ null, %43 ], [ null, %38 ], [ null, %34 ], [ %spec.select, %is_same_mpsse_instance.exit ]
   ret ptr %.0
 }
 
@@ -2357,7 +2356,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
 
 .split.us:                                        ; preds = %6, %.split.us
   %indvars.iv11 = phi i64 [ %indvars.iv.next12, %.split.us ], [ 0, %6 ]
-  %17 = trunc i64 %indvars.iv11 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv11 to i32
   %18 = shl nuw nsw i32 1, %17
   %19 = load i32, ptr %8, align 4
   %20 = and i32 %19, %18
@@ -2380,7 +2379,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
 
 .split:                                           ; preds = %.split.preheader, %45
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %45 ]
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = shl nuw nsw i32 1, %30
   %32 = load i32, ptr %8, align 4
   %33 = and i32 %32, %31
@@ -2420,7 +2419,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
 
 .split5.us:                                       ; preds = %.split3.us, %.split5.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %.split5.us ], [ 0, %.split3.us ]
-  %49 = trunc i64 %indvars.iv19 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv19 to i32
   %50 = shl nuw nsw i32 1, %49
   %51 = load i32, ptr %8, align 4
   %52 = and i32 %51, %50
@@ -2439,7 +2438,7 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
 
 .split5:                                          ; preds = %.split5.preheader, %73
   %indvars.iv15 = phi i64 [ 0, %.split5.preheader ], [ %indvars.iv.next16, %73 ]
-  %60 = trunc i64 %indvars.iv15 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv15 to i32
   %61 = shl nuw nsw i32 1, %60
   %62 = load i32, ptr %8, align 4
   %63 = and i32 %62, %61
@@ -2498,7 +2497,7 @@ define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr
 
 .split.us:                                        ; preds = %6, %.split.us
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %.split.us ], [ 0, %6 ]
-  %13 = trunc i64 %indvars.iv6 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv6 to i32
   %14 = shl nuw nsw i32 1, %13
   %15 = load i32, ptr %7, align 4
   %16 = and i32 %15, %14
@@ -2517,7 +2516,7 @@ define internal fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr
 
 .split:                                           ; preds = %.split.preheader, %37
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %37 ]
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = shl nuw nsw i32 1, %24
   %26 = load i32, ptr %7, align 4
   %27 = and i32 %26, %25

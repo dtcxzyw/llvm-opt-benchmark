@@ -1786,10 +1786,10 @@ list_length.exit610:                              ; preds = %._crit_edge724.thre
   br i1 %849, label %switch.lookup, label %.fold.split
 
 switch.lookup:                                    ; preds = %847
-  %switch.cast = trunc i32 %848 to i3
+  %switch.cast = trunc nuw i32 %848 to i3
   %switch.downshift = lshr exact i3 -4, %switch.cast
   %switch.masked = trunc i3 %switch.downshift to i1
-  %switch.cast833 = trunc i32 %848 to i3
+  %switch.cast833 = trunc nuw i32 %848 to i3
   %switch.downshift835 = lshr i3 3, %switch.cast833
   %switch.masked836 = trunc i3 %switch.downshift835 to i1
   br label %.fold.split
@@ -1817,7 +1817,7 @@ switch.lookup:                                    ; preds = %847
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ExecAgg(ptr noundef %0) #1 {
+define internal ptr @ExecAgg(ptr noundef %0) #1 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -2244,7 +2244,7 @@ ExecQualAndReset.exit.i:                          ; preds = %157
   %219 = getelementptr ptr, ptr %218, i64 %indvars.iv39.i.i
   %.sink.i.us.i.i = load ptr, ptr %219, align 8
   store ptr %.sink.i.us.i.i, ptr %80, align 8
-  %220 = trunc i64 %indvars.iv39.i.i to i32
+  %220 = trunc nuw nsw i64 %indvars.iv39.i.i to i32
   store i32 %220, ptr %81, align 8
   br label %221
 
@@ -2372,7 +2372,7 @@ initialize_aggregate.exit.us.i.i:                 ; preds = %289, %275
   %298 = getelementptr ptr, ptr %.pre.i.i, i64 %indvars.iv.i.i
   %.sink.i.i.i = load ptr, ptr %298, align 8
   store ptr %.sink.i.i.i, ptr %80, align 8
-  %299 = trunc i64 %indvars.iv.i.i to i32
+  %299 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %299, ptr %81, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count42.i.i
@@ -2609,7 +2609,7 @@ prepare_projection_slot.exit.i:                   ; preds = %400, %.lr.ph.i.i, %
 
 ExecQual.exit.thread.i.i:                         ; preds = %prepare_projection_slot.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %.thread
+  br label %agg_retrieve_direct.exit.thread19
 
 ExecQual.exit.i.i:                                ; preds = %prepare_projection_slot.exit.i
   %411 = getelementptr inbounds i8, ptr %408, i64 40
@@ -2622,9 +2622,9 @@ ExecQual.exit.i.i:                                ; preds = %prepare_projection_
   store ptr %413, ptr @CurrentMemoryContext, align 8
   %.not9.i.i = icmp eq i64 %416, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %.not9.i.i, label %442, label %.thread
+  br i1 %.not9.i.i, label %442, label %agg_retrieve_direct.exit.thread19
 
-.thread:                                          ; preds = %ExecQual.exit.i.i, %ExecQual.exit.thread.i.i
+agg_retrieve_direct.exit.thread19:                ; preds = %ExecQual.exit.i.i, %ExecQual.exit.thread.i.i
   %417 = getelementptr inbounds i8, ptr %0, i64 136
   %418 = load ptr, ptr %417, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -2657,7 +2657,7 @@ ExecQual.exit.i.i:                                ; preds = %prepare_projection_
   %441 = getelementptr inbounds i8, ptr %423, i64 6
   store i16 %440, ptr %441, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br label %453
+  br label %agg_retrieve_direct.exit.thread
 
 442:                                              ; preds = %ExecQual.exit.i.i
   %443 = load ptr, ptr %87, align 8
@@ -2674,20 +2674,18 @@ ExecQual.exit.i.i:                                ; preds = %prepare_projection_
 agg_retrieve_direct.exit:                         ; preds = %14, %agg_fill_hash_table.exit, %18, %initialize_phase.exit.i
   %448 = call fastcc ptr @agg_retrieve_hash_table(ptr noundef nonnull %0)
   %449 = icmp eq ptr %448, null
-  br i1 %449, label %agg_retrieve_direct.exit.thread, label %450
+  br i1 %449, label %agg_retrieve_direct.exit.thread, label %agg_retrieve_direct.exit._crit_edge
 
-450:                                              ; preds = %agg_retrieve_direct.exit
+agg_retrieve_direct.exit._crit_edge:              ; preds = %agg_retrieve_direct.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %448, i64 4
   %.pre = load i16, ptr %.phi.trans.insert, align 4
-  %451 = and i16 %.pre, 2
-  %452 = icmp eq i16 %451, 0
-  br i1 %452, label %453, label %agg_retrieve_direct.exit.thread
+  %450 = and i16 %.pre, 2
+  %451 = icmp eq i16 %450, 0
+  %452 = select i1 %451, ptr %448, ptr null
+  br label %agg_retrieve_direct.exit.thread
 
-agg_retrieve_direct.exit.thread:                  ; preds = %209, %.backedge.i, %132, %14, %agg_retrieve_direct.exit, %450, %10
-  br label %453
-
-453:                                              ; preds = %.thread, %450, %agg_retrieve_direct.exit.thread
-  %.011 = phi ptr [ null, %agg_retrieve_direct.exit.thread ], [ %448, %450 ], [ %423, %.thread ]
+agg_retrieve_direct.exit.thread:                  ; preds = %209, %.backedge.i, %agg_retrieve_direct.exit.thread19, %agg_retrieve_direct.exit._crit_edge, %132, %14, %10, %agg_retrieve_direct.exit
+  %.011 = phi ptr [ null, %agg_retrieve_direct.exit ], [ null, %10 ], [ null, %14 ], [ null, %132 ], [ %423, %agg_retrieve_direct.exit.thread19 ], [ %452, %agg_retrieve_direct.exit._crit_edge ], [ null, %.backedge.i ], [ null, %209 ]
   ret ptr %.011
 }
 
@@ -4883,7 +4881,7 @@ prepare_hash_slot.exit.i:                         ; preds = %352, %slot_getsomea
   br label %405
 
 394:                                              ; preds = %prepare_hash_slot.exit.i
-  %395 = trunc i8 %.096.i to i1
+  %395 = trunc nuw i8 %.096.i to i1
   br i1 %395, label %400, label %396
 
 396:                                              ; preds = %394
@@ -4919,7 +4917,7 @@ prepare_hash_slot.exit.i:                         ; preds = %352, %slot_getsomea
   store i32 0, ptr %30, align 4
   %411 = load ptr, ptr %.phi.trans.insert.i, align 8
   store ptr %411, ptr %19, align 8
-  %412 = trunc i8 %.096.i to i1
+  %412 = trunc nuw i8 %.096.i to i1
   br i1 %412, label %413, label %443
 
 413:                                              ; preds = %409
@@ -5199,7 +5197,7 @@ define internal fastcc void @lookup_hash_entries(ptr noundef %0) unnamed_addr #1
   %. = select i1 %31, ptr null, ptr %3
   %.sink.i = load ptr, ptr %15, align 8
   store ptr %.sink.i, ptr %16, align 8
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %32, ptr %17, align 8
   %33 = getelementptr inbounds i8, ptr %26, i64 56
   %34 = load i32, ptr %33, align 8
@@ -5338,7 +5336,7 @@ define internal fastcc void @hashagg_finish_initial_spills(ptr nocapture noundef
   %8 = getelementptr %struct.HashAggSpill, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, %.01516
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @hashagg_spill_finish(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %4, align 4
@@ -5740,7 +5738,7 @@ slot_getsomeattrs.exit:                           ; preds = %10, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load ptr, ptr %28, align 8
-  %35 = trunc i64 %indvars.iv.next to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.next to i32
   %36 = tail call zeroext i1 @bms_is_member(i32 noundef %35, ptr noundef %34) #12
   br i1 %36, label %37, label %49
 
@@ -6233,7 +6231,7 @@ define internal fastcc void @finalize_aggregates(ptr noundef %0, ptr noundef %1,
   br i1 %102, label %117, label %103
 
 103:                                              ; preds = %.split.i
-  %104 = trunc i8 %.044.ph60.fr.i to i1
+  %104 = trunc nuw i8 %.044.ph60.fr.i to i1
   br i1 %104, label %107, label %105
 
 105:                                              ; preds = %103
@@ -6275,7 +6273,7 @@ define internal fastcc void @finalize_aggregates(ptr noundef %0, ptr noundef %1,
 .outer._crit_edge.i:                              ; preds = %.outer.i, %94, %78
   %.044.ph.lcssa.i = phi i8 [ %.044.ph60.fr.i, %78 ], [ %.044.ph60.fr.i, %94 ], [ %121, %.outer.i ]
   %.0.ph.lcssa.i = phi i64 [ %.0.ph63.i, %78 ], [ %.0.ph63.i, %94 ], [ %.1.i, %.outer.i ]
-  %128 = trunc i8 %.044.ph.lcssa.i to i1
+  %128 = trunc nuw i8 %.044.ph.lcssa.i to i1
   br i1 %128, label %process_ordered_aggregate_single.exit, label %129
 
 129:                                              ; preds = %.outer._crit_edge.i
@@ -6861,7 +6859,7 @@ finalize_partialaggregate.exit:                   ; preds = %372, %405, %419
   br i1 %452, label %.lr.ph95.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph95.i
-  %453 = trunc i64 %indvars.iv.next105.i to i32
+  %453 = trunc nuw i64 %indvars.iv.next105.i to i32
   br label %._crit_edge.i59
 
 ._crit_edge.i59:                                  ; preds = %._crit_edge.loopexit.i, %.lr.ph.i58, %423

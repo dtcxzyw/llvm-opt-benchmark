@@ -380,7 +380,7 @@ define dso_local noundef zeroext i1 @_ZNK23FunctionInvocationUnary6equalsEi(ptr 
   %12 = getelementptr inbounds i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 0)
-  br i1 %14, label %38, label %thread-pre-split
+  br i1 %14, label %37, label %thread-pre-split
 
 15:                                               ; preds = %2
   %16 = icmp eq i32 %1, 1
@@ -395,7 +395,7 @@ define dso_local noundef zeroext i1 @_ZNK23FunctionInvocationUnary6equalsEi(ptr 
   %22 = getelementptr inbounds i8, ptr %21, i64 120
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 0)
-  br i1 %24, label %38, label %thread-pre-split
+  br i1 %24, label %37, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %7, %17
   %.pr = load i32, ptr %4, align 8
@@ -415,13 +415,10 @@ thread-pre-split:                                 ; preds = %7, %17
   %34 = getelementptr inbounds i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(24) %31, i32 noundef %32)
-  br i1 %36, label %38, label %37
+  br label %37
 
-37:                                               ; preds = %28, %25
-  br label %38
-
-38:                                               ; preds = %28, %17, %7, %37
-  %.0 = phi i1 [ false, %37 ], [ true, %7 ], [ true, %17 ], [ true, %28 ]
+37:                                               ; preds = %28, %25, %17, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %17 ], [ false, %25 ], [ %36, %28 ]
   ret i1 %.0
 }
 

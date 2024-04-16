@@ -632,10 +632,10 @@ for.body.i.i4:                                    ; preds = %for.inc.i.i, %if.en
   br i1 %cmp15.not.i.i, label %for.inc.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %for.body.i.i4
-  %8 = trunc i64 %indvars.iv.i.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %mul.i.i = shl nuw i32 %8, 6
   %9 = tail call i64 @llvm.cttz.i64(i64 %Copy.1.i.i, i1 true), !range !10
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %conv20.i.i = or disjoint i32 %mul.i.i, %10
   br label %_ZNK4llvh9BitVector10find_firstEv.exit
 
@@ -1324,7 +1324,7 @@ if.then.i75:                                      ; preds = %if.end.i.i
   %or6.i.i152 = or i64 %shr5.i.i151, %or4.i.i150
   %shr7.i.i153 = lshr i64 %or6.i.i152, 16
   %or8.i.i154 = or i64 %shr7.i.i153, %or6.i.i152
-  %46 = trunc i64 %or8.i.i154 to i32
+  %46 = trunc nuw i64 %or8.i.i154 to i32
   %conv3.i155 = add i32 %46, 1
   %.sroa.speculated.i156 = call i32 @llvm.umax.i32(i32 %conv3.i155, i32 64)
   %conv.i.i157 = zext i32 %.sroa.speculated.i156 to i64
@@ -1499,7 +1499,7 @@ if.then10.i:                                      ; preds = %if.else.i
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %56 = trunc i64 %or8.i.i to i32
+  %56 = trunc nuw i64 %or8.i.i to i32
   %conv3.i = add i32 %56, 1
   %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %conv3.i, i32 64)
   %conv.i.i101 = zext i32 %.sroa.speculated.i to i64
@@ -3489,7 +3489,7 @@ entry:
   %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %1, 0
-  br i1 %cmp.i.i.i, label %if.end15, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %2 = ptrtoint ptr %Value to i64
@@ -3510,7 +3510,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i, %if.e
   %BucketNo.025.i.i.i = phi i32 [ %BucketNo.0.i.i.i, %if.end13.i.i.i ], [ %BucketNo.019.i.i.i, %if.end.i.i.i ]
   %ProbeAmt.024.i.i.i = phi i32 [ %inc.i.i.i, %if.end13.i.i.i ], [ 1, %if.end.i.i.i ]
   %cmp.i15.i.i.not.i = icmp eq ptr %4, inttoptr (i64 -8 to ptr)
-  br i1 %cmp.i15.i.i.not.i, label %if.end15, label %if.end13.i.i.i
+  br i1 %cmp.i15.i.i.not.i, label %return, label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %inc.i.i.i = add i32 %ProbeAmt.024.i.i.i, 1
@@ -3540,7 +3540,7 @@ if.end9.i.i.i18:                                  ; preds = %if.end.i.i.i8, %if.
   %BucketNo.025.i.i.i19 = phi i32 [ %BucketNo.0.i.i.i25, %if.end13.i.i.i22 ], [ %BucketNo.019.i.i.i14, %if.end.i.i.i8 ]
   %ProbeAmt.024.i.i.i20 = phi i32 [ %inc.i.i.i23, %if.end13.i.i.i22 ], [ 1, %if.end.i.i.i8 ]
   %cmp.i15.i.i.not.i21 = icmp eq ptr %8, inttoptr (i64 -8 to ptr)
-  br i1 %cmp.i15.i.i.not.i21, label %if.end15, label %if.end13.i.i.i22
+  br i1 %cmp.i15.i.i.not.i21, label %return, label %if.end13.i.i.i22
 
 if.end13.i.i.i22:                                 ; preds = %if.end9.i.i.i18
   %inc.i.i.i23 = add i32 %ProbeAmt.024.i.i.i20, 1
@@ -3623,7 +3623,7 @@ _ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit: ; preds = %if.end13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %I.addr.i)
   %call4 = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef %At)
   %cmp.i.not = icmp eq i32 %retval.sroa.0.0.copyload.i, -1
-  br i1 %cmp.i.not, label %if.end15, label %if.then6
+  br i1 %cmp.i.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit
   %call.i = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef %Value)
@@ -3764,11 +3764,11 @@ sw.bb27.i.i.i:                                    ; preds = %if.end25.i.i.i, %fo
   %tobool.not.old = icmp eq ptr %19, null
   br i1 %tobool.not.old, label %if.end15, label %return
 
-if.end15:                                         ; preds = %if.end9.i.i.i, %if.end9.i.i.i18, %sw.bb27.i.i.i, %entry, %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit"
+if.end15:                                         ; preds = %sw.bb27.i.i.i, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit"
   br label %return
 
-return:                                           ; preds = %if.end8.i.i.i, %if.end4.i.i.i, %if.end.i.i.i36, %for.body.i.i.i, %sw.bb27.i.i.i, %sw.bb22.i.i.i, %sw.bb.i.i.i, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit", %if.end15
-  %retval.sroa.0.0 = phi i32 [ -1, %if.end15 ], [ %retval.sroa.0.0.copyload.i, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit" ], [ %retval.sroa.0.0.copyload.i, %sw.bb.i.i.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb22.i.i.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb27.i.i.i ], [ %retval.sroa.0.0.copyload.i, %for.body.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i.i36 ], [ %retval.sroa.0.0.copyload.i, %if.end4.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end8.i.i.i ]
+return:                                           ; preds = %if.end9.i.i.i, %if.end9.i.i.i18, %if.end8.i.i.i, %if.end4.i.i.i, %if.end.i.i.i36, %for.body.i.i.i, %sw.bb27.i.i.i, %sw.bb22.i.i.i, %sw.bb.i.i.i, %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit, %entry, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit", %if.end15
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i, %"_ZSt7find_ifIPKN6hermes7SegmentEZNS0_17RegisterAllocator27getRegisterForInstructionAtEPNS0_11InstructionES6_E3$_0ET_S8_S8_T0_.exit" ], [ -1, %entry ], [ -1, %_ZN6hermes17RegisterAllocator11getRegisterEPNS_5ValueE.exit ], [ -1, %if.end15 ], [ %retval.sroa.0.0.copyload.i, %sw.bb.i.i.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb22.i.i.i ], [ %retval.sroa.0.0.copyload.i, %sw.bb27.i.i.i ], [ %retval.sroa.0.0.copyload.i, %for.body.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i.i36 ], [ %retval.sroa.0.0.copyload.i, %if.end4.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end8.i.i.i ], [ -1, %if.end9.i.i.i18 ], [ -1, %if.end9.i.i.i ]
   ret i32 %retval.sroa.0.0
 }
 
@@ -4216,7 +4216,7 @@ if.then.i400:                                     ; preds = %if.end.i.i49
   %or6.i.i653 = or i64 %shr5.i.i652, %or4.i.i651
   %shr7.i.i654 = lshr i64 %or6.i.i653, 16
   %or8.i.i655 = or i64 %shr7.i.i654, %or6.i.i653
-  %34 = trunc i64 %or8.i.i655 to i32
+  %34 = trunc nuw i64 %or8.i.i655 to i32
   %conv3.i656 = add i32 %34, 1
   %.sroa.speculated.i657 = tail call i32 @llvm.umax.i32(i32 %conv3.i656, i32 64)
   store i32 %.sroa.speculated.i657, ptr %NumBuckets.i.i.i.i, align 8
@@ -4406,7 +4406,7 @@ if.then10.i:                                      ; preds = %if.else.i
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %50 = trunc i64 %or8.i.i to i32
+  %50 = trunc nuw i64 %or8.i.i to i32
   %conv3.i = add i32 %50, 1
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 64)
   store i32 %.sroa.speculated.i, ptr %NumBuckets.i.i.i.i, align 8
@@ -4786,7 +4786,7 @@ if.then.i432:                                     ; preds = %if.end.i.i120
   %or6.i.i740 = or i64 %shr5.i.i739, %or4.i.i738
   %shr7.i.i741 = lshr i64 %or6.i.i740, 16
   %or8.i.i742 = or i64 %shr7.i.i741, %or6.i.i740
-  %88 = trunc i64 %or8.i.i742 to i32
+  %88 = trunc nuw i64 %or8.i.i742 to i32
   %conv3.i743 = add i32 %88, 1
   %.sroa.speculated.i744 = call i32 @llvm.umax.i32(i32 %conv3.i743, i32 64)
   store i32 %.sroa.speculated.i744, ptr %NumBuckets.i.i.i.i.i58, align 8
@@ -5312,7 +5312,7 @@ if.end.i919:                                      ; preds = %if.then12.i.i.i.i27
   %or6.i.i910 = or i64 %shr5.i.i909, %or4.i.i908
   %shr7.i.i911 = lshr i64 %or6.i.i910, 16
   %or8.i.i912 = or i64 %shr7.i.i911, %or6.i.i910
-  %151 = trunc i64 %or8.i.i912 to i32
+  %151 = trunc nuw i64 %or8.i.i912 to i32
   %conv3.i913 = add i32 %151, 1
   %.sroa.speculated.i914 = call i32 @llvm.umax.i32(i32 %conv3.i913, i32 64)
   store i32 %.sroa.speculated.i914, ptr %NumBuckets.i.i.i.i135, align 8
@@ -5478,7 +5478,7 @@ if.end.i832:                                      ; preds = %if.else.i557
   %or6.i.i823 = or i64 %shr5.i.i822, %or4.i.i821
   %shr7.i.i824 = lshr i64 %or6.i.i823, 16
   %or8.i.i825 = or i64 %shr7.i.i824, %or6.i.i823
-  %167 = trunc i64 %or8.i.i825 to i32
+  %167 = trunc nuw i64 %or8.i.i825 to i32
   %conv3.i826 = add i32 %167, 1
   %.sroa.speculated.i827 = call i32 @llvm.umax.i32(i32 %conv3.i826, i32 64)
   store i32 %.sroa.speculated.i827, ptr %NumBuckets.i.i.i.i135, align 8
@@ -6238,10 +6238,10 @@ for.body.i.i4.i:                                  ; preds = %for.inc.i.i.i, %if.
   br i1 %cmp15.not.i.i.i, label %for.inc.i.i.i, label %if.then16.i.i.i
 
 if.then16.i.i.i:                                  ; preds = %for.body.i.i4.i
-  %26 = trunc i64 %indvars.iv.i.i.i to i32
+  %26 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %mul.i.i.i = shl nuw i32 %26, 6
   %27 = tail call i64 @llvm.cttz.i64(i64 %Copy.1.i.i.i, i1 true), !range !10
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %conv20.i.i.i = or disjoint i32 %mul.i.i.i, %28
   br label %_ZNK4llvh9BitVector10find_firstEv.exit.i
 
@@ -6342,7 +6342,7 @@ if.then.i225:                                     ; preds = %if.end.i.i.i26
   %or6.i.i544 = or i64 %shr5.i.i543, %or4.i.i542
   %shr7.i.i545 = lshr i64 %or6.i.i544, 16
   %or8.i.i546 = or i64 %shr7.i.i545, %or6.i.i544
-  %37 = trunc i64 %or8.i.i546 to i32
+  %37 = trunc nuw i64 %or8.i.i546 to i32
   %conv3.i547 = add i32 %37, 1
   %.sroa.speculated.i548 = tail call i32 @llvm.umax.i32(i32 %conv3.i547, i32 64)
   store i32 %.sroa.speculated.i548, ptr %NumBuckets.i.i.i.i.i.i.i, align 8
@@ -6537,7 +6537,7 @@ if.then10.i:                                      ; preds = %if.else.i
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %54 = trunc i64 %or8.i.i to i32
+  %54 = trunc nuw i64 %or8.i.i to i32
   %conv3.i = add i32 %54, 1
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 64)
   store i32 %.sroa.speculated.i, ptr %NumBuckets.i.i.i.i.i.i.i, align 8
@@ -6813,7 +6813,7 @@ if.then.i255:                                     ; preds = %if.end.i.i.i63
   %or6.i.i718 = or i64 %shr5.i.i717, %or4.i.i716
   %shr7.i.i719 = lshr i64 %or6.i.i718, 16
   %or8.i.i720 = or i64 %shr7.i.i719, %or6.i.i718
-  %81 = trunc i64 %or8.i.i720 to i32
+  %81 = trunc nuw i64 %or8.i.i720 to i32
   %conv3.i721 = add i32 %81, 1
   %.sroa.speculated.i722 = tail call i32 @llvm.umax.i32(i32 %conv3.i721, i32 64)
   store i32 %.sroa.speculated.i722, ptr %NumBuckets.i.i.i.i.i.i.i, align 8
@@ -7008,7 +7008,7 @@ if.then10.i302:                                   ; preds = %if.else.i295
   %or6.i.i631 = or i64 %shr5.i.i630, %or4.i.i629
   %shr7.i.i632 = lshr i64 %or6.i.i631, 16
   %or8.i.i633 = or i64 %shr7.i.i632, %or6.i.i631
-  %98 = trunc i64 %or8.i.i633 to i32
+  %98 = trunc nuw i64 %or8.i.i633 to i32
   %conv3.i634 = add i32 %98, 1
   %.sroa.speculated.i635 = tail call i32 @llvm.umax.i32(i32 %conv3.i634, i32 64)
   store i32 %.sroa.speculated.i635, ptr %NumBuckets.i.i.i.i.i.i.i, align 8
@@ -7495,10 +7495,10 @@ for.body.i.i4.i95:                                ; preds = %for.inc.i.i.i115, %
   br i1 %cmp15.not.i.i.i101, label %for.inc.i.i.i115, label %if.then16.i.i.i102
 
 if.then16.i.i.i102:                               ; preds = %for.body.i.i4.i95
-  %147 = trunc i64 %indvars.iv.i.i.i96 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv.i.i.i96 to i32
   %mul.i.i.i103 = shl nuw i32 %147, 6
   %148 = call i64 @llvm.cttz.i64(i64 %Copy.1.i.i.i100, i1 true), !range !10
-  %149 = trunc i64 %148 to i32
+  %149 = trunc nuw nsw i64 %148 to i32
   %conv20.i.i.i104 = or disjoint i32 %mul.i.i.i103, %149
   br label %_ZNK4llvh9BitVector10find_firstEv.exit.i105
 
@@ -7599,7 +7599,7 @@ if.then.i435:                                     ; preds = %if.end.i.i.i166
   %or6.i.i892 = or i64 %shr5.i.i891, %or4.i.i890
   %shr7.i.i893 = lshr i64 %or6.i.i892, 16
   %or8.i.i894 = or i64 %shr7.i.i893, %or6.i.i892
-  %158 = trunc i64 %or8.i.i894 to i32
+  %158 = trunc nuw i64 %or8.i.i894 to i32
   %conv3.i895 = add i32 %158, 1
   %.sroa.speculated.i896 = call i32 @llvm.umax.i32(i32 %conv3.i895, i32 64)
   store i32 %.sroa.speculated.i896, ptr %NumBuckets.i.i.i.i.i, align 8
@@ -7794,7 +7794,7 @@ if.then10.i482:                                   ; preds = %if.else.i475
   %or6.i.i805 = or i64 %shr5.i.i804, %or4.i.i803
   %shr7.i.i806 = lshr i64 %or6.i.i805, 16
   %or8.i.i807 = or i64 %shr7.i.i806, %or6.i.i805
-  %175 = trunc i64 %or8.i.i807 to i32
+  %175 = trunc nuw i64 %or8.i.i807 to i32
   %conv3.i808 = add i32 %175, 1
   %.sroa.speculated.i809 = call i32 @llvm.umax.i32(i32 %conv3.i808, i32 64)
   store i32 %.sroa.speculated.i809, ptr %NumBuckets.i.i.i.i.i, align 8
@@ -9421,10 +9421,10 @@ for.body.i.i4.i:                                  ; preds = %for.inc.i.i.i, %if.
   br i1 %cmp15.not.i.i.i, label %for.inc.i.i.i, label %if.then16.i.i.i
 
 if.then16.i.i.i:                                  ; preds = %for.body.i.i4.i
-  %147 = trunc i64 %indvars.iv.i.i.i to i32
+  %147 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %mul.i.i.i = shl nuw i32 %147, 6
   %148 = call i64 @llvm.cttz.i64(i64 %Copy.1.i.i.i, i1 true), !range !10
-  %149 = trunc i64 %148 to i32
+  %149 = trunc nuw nsw i64 %148 to i32
   %conv20.i.i.i = or disjoint i32 %mul.i.i.i, %149
   br label %_ZNK4llvh9BitVector10find_firstEv.exit.i
 
@@ -11153,7 +11153,7 @@ if.then.i18:                                      ; preds = %if.end.i.i
   %or6.i.i = or i64 %shr5.i.i, %or4.i.i
   %shr7.i.i = lshr i64 %or6.i.i, 16
   %or8.i.i = or i64 %shr7.i.i, %or6.i.i
-  %10 = trunc i64 %or8.i.i to i32
+  %10 = trunc nuw i64 %or8.i.i to i32
   %conv3.i = add i32 %10, 1
   %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %conv3.i, i32 64)
   store i32 %.sroa.speculated.i, ptr %NumBuckets.i.i.i.i.i.i, align 8
@@ -12749,7 +12749,7 @@ _ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_7MovInstENS_12DenseMapInfoIS3_EENS_6detai
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -12909,7 +12909,7 @@ if.then:                                          ; preds = %entry
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %3 = trunc i64 %or8.i.i.i to i32
+  %3 = trunc nuw i64 %or8.i.i.i to i32
   %conv3.i.i = add i32 %3, 1
   %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %conv3.i.i, i32 64)
   store i32 %.sroa.speculated.i.i, ptr %NumBuckets.i.i, align 8
@@ -13019,7 +13019,7 @@ if.then10:                                        ; preds = %if.else
   %or6.i.i.i25 = or i64 %shr5.i.i.i24, %or4.i.i.i23
   %shr7.i.i.i26 = lshr i64 %or6.i.i.i25, 16
   %or8.i.i.i27 = or i64 %shr7.i.i.i26, %or6.i.i.i25
-  %13 = trunc i64 %or8.i.i.i27 to i32
+  %13 = trunc nuw i64 %or8.i.i.i27 to i32
   %conv3.i.i28 = add i32 %13, 1
   %.sroa.speculated.i.i29 = tail call i32 @llvm.umax.i32(i32 %conv3.i.i28, i32 64)
   store i32 %.sroa.speculated.i.i29, ptr %NumBuckets.i.i, align 8
@@ -13435,7 +13435,7 @@ _ZN4llvh8DenseMapIPN6hermes11InstructionES3_NS_12DenseMapInfoIS3_EENS_6detail12D
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -13671,7 +13671,7 @@ if.then.i:                                        ; preds = %if.end5
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %13 = trunc i64 %or8.i.i.i to i32
+  %13 = trunc nuw nsw i64 %or8.i.i.i to i32
   %conv2.i.i = add nuw i32 %13, 1
   store i32 %conv2.i.i, ptr %NumBuckets.i.i.i, align 8
   %conv.i3.i = zext i32 %conv2.i.i to i64
@@ -13872,8 +13872,8 @@ while.body.lr.ph:                                 ; preds = %entry
   %0 = getelementptr i8, ptr %__comp.coerce, i64 328
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.cond
-  %__secondChild.026 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %13, %while.cond ]
+while.body:                                       ; preds = %while.body.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"
+  %__secondChild.026 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ]
   %add = shl i64 %__secondChild.026, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
@@ -13960,21 +13960,21 @@ for.body.i33.i.i:                                 ; preds = %_ZNK6hermes8Interva
   %cmp10.i.i = icmp ult i32 %add.ptr.val, %add.ptr3.val
   %11 = and i1 %cmp10.i.i, %cmp9.i.i
   %cond.fr = freeze i1 %11
-  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread", label %while.cond
+  %spec.select = select i1 %cond.fr, i64 %sub2, i64 %mul
+  %add.ptr4.phi.trans.insert = getelementptr inbounds i32, ptr %__first, i64 %spec.select
+  %.pre = load i32, ptr %add.ptr4.phi.trans.insert, align 4
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread": ; preds = %_ZNK6hermes8Interval5startEv.exit16.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit"
-  br label %while.cond
-
-while.cond:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"
-  %12 = phi i32 [ %add.ptr3.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ], [ %add.ptr.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
-  %13 = phi i64 [ %sub2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ], [ %mul, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", %_ZNK6hermes8Interval5startEv.exit16.i.i
+  %12 = phi i32 [ %add.ptr3.val, %_ZNK6hermes8Interval5startEv.exit16.i.i ], [ %.pre, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
+  %13 = phi i64 [ %sub2, %_ZNK6hermes8Interval5startEv.exit16.i.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
   %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.026
   store i32 %12, ptr %add.ptr5, align 4
   %cmp = icmp slt i64 %13, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !73
 
-while.end:                                        ; preds = %while.cond, %entry
-  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %13, %while.cond ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread", %entry
+  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end17
@@ -14264,7 +14264,7 @@ _ZN4llvh8DenseMapIPN6hermes5ValueENS1_8RegisterENS_12DenseMapInfoIS3_EENS_6detai
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -14680,7 +14680,7 @@ _ZN4llvh8DenseMapIPN6hermes11InstructionEjNS_12DenseMapInfoIS3_EENS_6detail12Den
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
@@ -14830,7 +14830,7 @@ _ZN4llvh8DenseMapIPN6hermes9ScopeDescEPNS1_17ScopeCreationInstENS_12DenseMapInfo
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8

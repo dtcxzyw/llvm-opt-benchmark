@@ -1636,20 +1636,17 @@ land.lhs.true12:                                  ; preds = %if.end7
 if.end15:                                         ; preds = %land.lhs.true12, %if.end7
   %6 = and i8 %bf.load, 2
   %bf.cast20.not = icmp eq i8 %6, 0
-  br i1 %bf.cast20.not, label %if.end27, label %land.lhs.true21
+  br i1 %bf.cast20.not, label %return, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %if.end15
   %started_send_trailing_metadata_ = getelementptr inbounds i8, ptr %this, i64 2992
   %bf.load22 = load i16, ptr %started_send_trailing_metadata_, align 8
   %7 = and i16 %bf.load22, 4
   %bf.cast25.not = icmp eq i16 %7, 0
-  br i1 %bf.cast25.not, label %return, label %if.end27
-
-if.end27:                                         ; preds = %land.lhs.true21, %if.end15
   br label %return
 
-return:                                           ; preds = %land.lhs.true21, %land.lhs.true12, %land.lhs.true, %entry, %if.end27
-  %retval.0 = phi i1 [ false, %if.end27 ], [ false, %entry ], [ true, %land.lhs.true ], [ true, %land.lhs.true12 ], [ true, %land.lhs.true21 ]
+return:                                           ; preds = %land.lhs.true21, %if.end15, %land.lhs.true12, %land.lhs.true, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %land.lhs.true ], [ true, %land.lhs.true12 ], [ false, %if.end15 ], [ %bf.cast25.not, %land.lhs.true21 ]
   ret i1 %retval.0
 }
 
@@ -8622,8 +8619,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.013 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %pending_batches_, i64 0, i64 %i.013
+  %i.016 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds [6 x %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch"], ptr %pending_batches_, i64 0, i64 %i.016
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %for.inc, label %if.end
@@ -8665,16 +8662,16 @@ land.lhs.true12.i:                                ; preds = %if.end7.i
 if.end15.i:                                       ; preds = %land.lhs.true12.i, %if.end7.i
   %9 = and i8 %bf.load.i, 2
   %bf.cast20.not.i = icmp eq i8 %9, 0
-  br i1 %bf.cast20.not.i, label %for.inc, label %land.lhs.true21.i
+  br i1 %bf.cast20.not.i, label %for.inc, label %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit
 
-land.lhs.true21.i:                                ; preds = %if.end15.i
+_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit: ; preds = %if.end15.i
   %started_send_trailing_metadata_.i = getelementptr inbounds i8, ptr %3, i64 2992
   %bf.load22.i = load i16, ptr %started_send_trailing_metadata_.i, align 8
   %10 = and i16 %bf.load22.i, 4
   %bf.cast25.not.i = icmp eq i16 %10, 0
   br i1 %bf.cast25.not.i, label %if.then4, label %for.inc
 
-if.then4:                                         ; preds = %land.lhs.true.i, %land.lhs.true12.i, %land.lhs.true21.i
+if.then4:                                         ; preds = %land.lhs.true12.i, %land.lhs.true.i, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit
   %11 = load i64, ptr %error, align 8
   store i64 %11, ptr %agg.tmp, align 8
   %and.i.i.i = and i64 %11, 1
@@ -8779,8 +8776,8 @@ lpad:                                             ; preds = %if.end.i.i.i
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #26
   resume { ptr, i32 } %28
 
-for.inc:                                          ; preds = %if.end15.i, %land.lhs.true21.i, %if.end, %_ZN4absl12lts_202308026StatusD2Ev.exit, %for.body
-  %inc = add nuw nsw i64 %i.013, 1
+for.inc:                                          ; preds = %if.end15.i, %if.end, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit, %_ZN4absl12lts_202308026StatusD2Ev.exit, %for.body
+  %inc = add nuw nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !98
 
@@ -9232,7 +9229,7 @@ invoke.cont21:                                    ; preds = %_ZN4absl12lts_20230
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 64
   %43 = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %and2.i.i.i.i.lobit.i20.i = lshr exact i16 %and2.i.i.i.i.i18.i, 14
-  %retval.sroa.2.0.i21.i = trunc i16 %and2.i.i.i.i.lobit.i20.i to i8
+  %retval.sroa.2.0.i21.i = trunc nuw nsw i16 %and2.i.i.i.i.lobit.i20.i to i8
   %retval.sroa.0.0.i.i = select i1 %cmp.i.i.not.i.i.not.i19.i, i64 undef, i64 %43
   store i64 %retval.sroa.0.0.i.i, ptr %server_pushback, align 8
   store i8 %retval.sroa.2.0.i21.i, ptr %_M_engaged.i.i.i.i, align 8
@@ -9287,7 +9284,7 @@ invoke.cont31:                                    ; preds = %cond.true
 cond.end:                                         ; preds = %invoke.cont26, %invoke.cont31
   %cond = phi ptr [ %call32, %invoke.cont31 ], [ @.str.61, %invoke.cont26 ]
   %conv = zext nneg i8 %is_lb_drop.0 to i32
-  %tobool.i.i48 = trunc i16 %stream_network_state.sroa.4.0.extract.shift to i1
+  %tobool.i.i48 = trunc nuw i16 %stream_network_state.sroa.4.0.extract.shift to i1
   br i1 %tobool.i.i48, label %cond.true34, label %cond.end44
 
 cond.true34:                                      ; preds = %cond.end
@@ -9362,11 +9359,11 @@ cleanup.action55:                                 ; preds = %ehcleanup
   br label %if.then.i103
 
 if.end57:                                         ; preds = %cleanup.done, %cleanup.action52, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %tobool58 = trunc i8 %is_lb_drop.0 to i1
+  %tobool58 = trunc nuw i8 %is_lb_drop.0 to i1
   br i1 %tobool58, label %if.end162, label %if.then59
 
 if.then59:                                        ; preds = %if.end57
-  %tobool.i.i55 = trunc i16 %stream_network_state.sroa.4.0.extract.shift to i1
+  %tobool.i.i55 = trunc nuw i16 %stream_network_state.sroa.4.0.extract.shift to i1
   br i1 %tobool.i.i55, label %land.lhs.true, label %land.lhs.true86
 
 land.lhs.true:                                    ; preds = %if.then59

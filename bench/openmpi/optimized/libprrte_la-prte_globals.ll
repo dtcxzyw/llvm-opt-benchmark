@@ -141,16 +141,14 @@ define noundef i32 @prte_dt_init() local_unnamed_addr #0 {
   %10 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
   %11 = and i8 %10, 6
   %or.cond3 = icmp eq i8 %11, 0
-  br i1 %or.cond3, label %13, label %.thread
+  br i1 %or.cond3, label %13, label %.sink.split
 
 12:                                               ; preds = %0
-  br i1 %5, label %.sink.split, label %.thread
-
-.thread:                                          ; preds = %9, %12
+  %spec.select = select i1 %5, i32 %4, i32 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %12, %.thread
-  %.sink = phi i32 [ 1, %.thread ], [ %4, %12 ]
+.sink.split:                                      ; preds = %12, %9
+  %.sink = phi i32 [ 1, %9 ], [ %spec.select, %12 ]
   tail call void @pmix_output_set_verbosity(i32 noundef %1, i32 noundef %.sink) #13
   br label %13
 
@@ -247,7 +245,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %23
 
 17:                                               ; preds = %pmix_pointer_array_get_item.exit
   %18 = icmp slt i32 %.022, 0
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %18, i32 %19, i32 %.022
   br label %23
 
@@ -2032,7 +2030,7 @@ pmix_pointer_array_get_item.exit285:              ; preds = %287, %330
   br i1 %298, label %330, label %299
 
 299:                                              ; preds = %pmix_pointer_array_get_item.exit285
-  %300 = trunc i64 %indvars.iv360 to i32
+  %300 = trunc nuw nsw i64 %indvars.iv360 to i32
   %301 = call i32 @pmix_pointer_array_set_item(ptr noundef nonnull %293, i32 noundef %300, ptr noundef null) #13
   %302 = load ptr, ptr %2, align 8
   %303 = call i32 @pthread_mutex_lock(ptr noundef %302) #13
@@ -2696,7 +2694,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %54, %92
   br i1 %.not103, label %92, label %65
 
 65:                                               ; preds = %pmix_pointer_array_get_item.exit
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull %60, i32 noundef %66, ptr noundef null) #13
   %68 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %64) #13
   %69 = icmp eq i32 %68, 35
@@ -3316,7 +3314,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %31
 
 45:                                               ; preds = %42, %44, %25
   %46 = load ptr, ptr %10, align 8
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   %48 = tail call i32 @pmix_pointer_array_set_item(ptr noundef %46, i32 noundef %47, ptr noundef null) #13
   %.pre = load ptr, ptr %10, align 8
   br label %49

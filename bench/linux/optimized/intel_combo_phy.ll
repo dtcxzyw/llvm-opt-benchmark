@@ -77,9 +77,9 @@ define dso_local void @intel_combo_phy_power_up_lanes(ptr noundef %0, i32 nounde
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 277, i32 2313, i64 12) #3, !srcloc !13
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_end\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #3, !srcloc !14
   tail call void asm sideeffect "908: nop\0A\09.pushsection .discard.instr_end\0A\09.long 908b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 908) #3, !srcloc !15
-  br label %24
+  br label %32
 
-24:                                               ; preds = %22, %19
+24:                                               ; preds = %19
   br label %32
 
 25:                                               ; preds = %5
@@ -107,8 +107,8 @@ define dso_local void @intel_combo_phy_power_up_lanes(ptr noundef %0, i32 nounde
   tail call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_end\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #3, !srcloc !20
   br label %32
 
-32:                                               ; preds = %30, %28, %26, %25, %24, %21, %20, %19
-  %33 = phi i32 [ 0, %24 ], [ 128, %21 ], [ 160, %20 ], [ %29, %28 ], [ %27, %26 ], [ 176, %19 ], [ 0, %25 ], [ 0, %30 ]
+32:                                               ; preds = %22, %30, %28, %26, %25, %24, %21, %20, %19
+  %33 = phi i32 [ 128, %21 ], [ 160, %20 ], [ %29, %28 ], [ %27, %26 ], [ 176, %19 ], [ 0, %25 ], [ 0, %30 ], [ 0, %22 ], [ 0, %24 ]
   %34 = sext i32 %1 to i64
   %35 = getelementptr [5 x i32], ptr @constinit.36, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4

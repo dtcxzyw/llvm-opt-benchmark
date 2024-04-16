@@ -563,7 +563,7 @@ define dso_local noundef i32 @intel_bios_hdmi_max_tmds_clock(ptr noundef readonl
   %9 = getelementptr inbounds i8, ptr %0, i64 13
   %10 = load i24, ptr %9, align 1
   %11 = lshr i24 %10, 21
-  %12 = trunc i24 %11 to i3
+  %12 = trunc nuw i24 %11 to i3
   switch i3 %12, label %13 [
     i3 0, label %22
     i3 3, label %17
@@ -2450,7 +2450,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br label %1077
 
 1067:                                             ; preds = %1064
-  %1068 = trunc i32 %1055 to i8
+  %1068 = trunc nuw nsw i32 %1055 to i8
   %1069 = getelementptr inbounds i8, ptr %1062, i64 24
   store i8 %1068, ptr %1069, align 8
   %cond = icmp eq i32 %1055, 0
@@ -3020,7 +3020,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1387 = getelementptr i8, ptr %1282, i64 -43
   %1388 = load i24, ptr %1387, align 1
   %1389 = lshr i24 %1388, 21
-  %1390 = trunc i24 %1389 to i3
+  %1390 = trunc nuw i24 %1389 to i3
   switch i3 %1390, label %1391 [
     i3 0, label %.thread134.thread
     i3 3, label %1399
@@ -3950,7 +3950,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %407 = phi ptr [ %405, %404 ], [ null, %397 ]
   %408 = tail call i16 @llvm.bswap.i16(i16 %403)
   %409 = lshr i16 %408, 10
-  %410 = trunc i16 %409 to i8
+  %410 = trunc nuw nsw i16 %409 to i8
   %411 = and i8 %410, 31
   %412 = or disjoint i8 %411, 64
   store i8 %412, ptr %6, align 4
@@ -4237,7 +4237,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %595 = zext i16 %594 to i32
   %596 = add nuw nsw i32 %595, 99
   %597 = udiv i32 %596, 100
-  %598 = trunc i32 %597 to i16
+  %598 = trunc nuw nsw i32 %597 to i16
   br label %599
 
 599:                                              ; preds = %591, %586
@@ -4446,7 +4446,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %728 = phi i16 [ %.pre, %723 ], [ %716, %719 ], [ %716, %709 ]
   %729 = getelementptr inbounds i8, ptr %1, i64 204
   %730 = lshr i16 %728, 9
-  %731 = trunc i16 %730 to i8
+  %731 = trunc nuw nsw i16 %730 to i8
   %732 = and i8 %731, 1
   store i8 %732, ptr %729, align 4
   br label %.thread79
@@ -4915,13 +4915,13 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %983 = phi ptr [ %981, %980 ], [ null, %979 ]
   %984 = zext i16 %976 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %983, i32 noundef 2, ptr noundef nonnull @.str.98, i32 noundef %984) #17
-  br label %985
-
-985:                                              ; preds = %982, %974
   br label %986
 
-986:                                              ; preds = %985, %978, %977, %974
-  %987 = phi i32 [ 2500, %985 ], [ 0, %978 ], [ 100, %977 ], [ 500, %974 ]
+985:                                              ; preds = %974
+  br label %986
+
+986:                                              ; preds = %982, %985, %978, %977, %974
+  %987 = phi i32 [ 0, %978 ], [ 100, %977 ], [ 500, %974 ], [ 2500, %982 ], [ 2500, %985 ]
   %988 = getelementptr inbounds i8, ptr %1, i64 212
   store i32 %987, ptr %988, align 4
   %989 = getelementptr inbounds i8, ptr %948, i64 4
@@ -4950,9 +4950,9 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %997 = phi ptr [ %995, %994 ], [ null, %993 ]
   %998 = zext i16 %990 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %997, i32 noundef 2, ptr noundef nonnull @.str.99, i32 noundef %998) #17
-  br label %999
+  br label %1010
 
-999:                                              ; preds = %996, %986
+999:                                              ; preds = %986
   br label %1010
 
 1000:                                             ; preds = %969, %965, %946
@@ -4968,8 +4968,8 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %1009 = mul nuw nsw i32 %1008, 100
   br label %1010
 
-1010:                                             ; preds = %1000, %999, %992, %991, %986
-  %1011 = phi i32 [ %1009, %1000 ], [ 2500, %999 ], [ 0, %992 ], [ 100, %991 ], [ 500, %986 ]
+1010:                                             ; preds = %996, %1000, %999, %992, %991, %986
+  %1011 = phi i32 [ %1009, %1000 ], [ 0, %992 ], [ 100, %991 ], [ 500, %986 ], [ 2500, %996 ], [ 2500, %999 ]
   %1012 = getelementptr inbounds i8, ptr %1, i64 216
   store i32 %1011, ptr %1012, align 4
   %1013 = load i16, ptr %160, align 8
@@ -5162,7 +5162,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 1115:                                             ; preds = %1105
   %1116 = lshr i48 %1102, 42
-  %1117 = trunc i48 %1116 to i32
+  %1117 = trunc nuw nsw i48 %1116 to i32
   %1118 = and i32 %1117, 3
   switch i32 %1118, label %1122 [
     i32 0, label %1126
@@ -5170,12 +5170,12 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   ]
 
 1119:                                             ; preds = %1115
-  %1120 = trunc i32 %1099 to i16
+  %1120 = trunc nuw nsw i32 %1099 to i16
   %1121 = shl nuw nsw i16 1, %1120
   br label %1126
 
 1122:                                             ; preds = %1115
-  %1123 = trunc i32 %1099 to i16
+  %1123 = trunc nuw nsw i32 %1099 to i16
   %1124 = shl nuw nsw i16 1, %1123
   %1125 = or i16 %1124, 1
   br label %1126
@@ -5191,7 +5191,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
 
 1132:                                             ; preds = %1126
   %1133 = lshr i48 %1129, 40
-  %1134 = trunc i48 %1133 to i32
+  %1134 = trunc nuw nsw i48 %1133 to i32
   %1135 = and i32 %1134, 3
   switch i32 %1135, label %1139 [
     i32 0, label %1143
@@ -5199,12 +5199,12 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   ]
 
 1136:                                             ; preds = %1132
-  %1137 = trunc i32 %1099 to i16
+  %1137 = trunc nuw nsw i32 %1099 to i16
   %1138 = shl nuw nsw i16 1, %1137
   br label %1143
 
 1139:                                             ; preds = %1132
-  %1140 = trunc i32 %1099 to i16
+  %1140 = trunc nuw nsw i32 %1099 to i16
   %1141 = shl nuw nsw i16 1, %1140
   %1142 = or i16 %1141, 1
   br label %1143
@@ -6191,7 +6191,7 @@ define dso_local noundef zeroext i1 @intel_bios_get_dsc_params(ptr nocapture nou
   %72 = shl nuw nsw i32 %71, 1
   %73 = add nuw nsw i32 %72, 6
   %74 = tail call i32 @llvm.umin.i32(i32 %68, i32 %73)
-  %75 = trunc i32 %74 to i16
+  %75 = trunc nuw nsw i32 %74 to i16
   %76 = shl nuw nsw i16 %75, 4
   store i16 %76, ptr %17, align 2
   %77 = getelementptr inbounds i8, ptr %44, i64 3
@@ -6234,7 +6234,7 @@ define dso_local noundef zeroext i1 @intel_bios_get_dsc_params(ptr nocapture nou
 97:                                               ; preds = %94, %89
   %98 = load i16, ptr %44, align 1
   %99 = lshr i16 %98, 8
-  %100 = trunc i16 %99 to i8
+  %100 = trunc nuw i16 %99 to i8
   %101 = and i8 %100, 3
   %102 = getelementptr inbounds i8, ptr %44, i64 2
   %103 = load i8, ptr %102, align 1
@@ -6249,7 +6249,7 @@ define dso_local noundef zeroext i1 @intel_bios_get_dsc_params(ptr nocapture nou
   store i8 %110, ptr %20, align 2
   %111 = load i16, ptr %106, align 1
   %112 = lshr i16 %111, 8
-  %113 = trunc i16 %112 to i8
+  %113 = trunc nuw i16 %112 to i8
   %114 = and i8 %113, 1
   store i8 %114, ptr %22, align 2
   %115 = getelementptr inbounds i8, ptr %44, i64 11
@@ -6906,7 +6906,7 @@ define internal i32 @pnpid_get_panel_type(ptr noundef readonly %0, ptr nocapture
   %20 = phi ptr [ %18, %16 ], [ null, %9 ]
   %21 = tail call i16 @llvm.bswap.i16(i16 %14)
   %22 = lshr i16 %21, 10
-  %23 = trunc i16 %22 to i8
+  %23 = trunc nuw nsw i16 %22 to i8
   %24 = and i8 %23, 31
   %25 = or disjoint i8 %24, 64
   store i8 %25, ptr %5, align 4

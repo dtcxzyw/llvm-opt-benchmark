@@ -2245,7 +2245,7 @@ define internal i32 @_v39_parse_UINT32_NO_VAL(ptr nocapture noundef readonly %0,
   %8 = load i64, ptr %6, align 8
   %9 = icmp eq i64 %8, -2
   %10 = icmp ugt i64 %8, 4294967293
-  %11 = trunc i64 %8 to i32
+  %11 = trunc nuw i64 %8 to i32
   %spec.select = select i1 %10, i32 -1, i32 %11
   %.sink = select i1 %9, i32 -2, i32 %spec.select
   store i32 %.sink, ptr %1, align 4
@@ -2647,7 +2647,7 @@ define internal i32 @_v39_parse_UINT16_NO_VAL(ptr nocapture noundef readonly %0,
   %8 = load i64, ptr %6, align 8
   %9 = icmp eq i64 %8, -2
   %10 = icmp ugt i64 %8, 65533
-  %11 = trunc i64 %8 to i16
+  %11 = trunc nuw i64 %8 to i16
   %spec.select = select i1 %10, i16 -1, i16 %11
   %.sink = select i1 %9, i16 -2, i16 %spec.select
   store i16 %.sink, ptr %1, align 2
@@ -3715,10 +3715,10 @@ define internal noundef i32 @_v39_dump_USER_ID(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %15, label %8
+  br i1 %7, label %14, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 5) #16
@@ -3729,13 +3729,11 @@ define internal noundef i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr n
   %12 = tail call ptr @data_get_string(ptr noundef %2) #16
   %13 = tail call i32 @uid_from_string(ptr noundef %12, ptr noundef %1) #16
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %15, label %14
+  %spec.select = select i1 %.not, i32 0, i32 9001
+  br label %14
 
-14:                                               ; preds = %8, %11
-  br label %15
-
-15:                                               ; preds = %11, %5, %14
-  %.0 = phi i32 [ 9001, %14 ], [ 9001, %5 ], [ 0, %11 ]
+14:                                               ; preds = %11, %8, %5
+  %.0 = phi i32 [ 9001, %5 ], [ 9001, %8 ], [ %spec.select, %11 ]
   ret i32 %.0
 }
 
@@ -5156,7 +5154,7 @@ define internal i32 @_v39_dump_ROLLUP_STATS(ptr nocapture noundef readonly %0, p
 19:                                               ; preds = %15
   %20 = tail call ptr @data_list_append(ptr noundef %2) #16
   %21 = tail call ptr @data_set_dict(ptr noundef %20) #16
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.13) #16
   %switch.selectcmp = icmp eq i32 %22, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.16, ptr @.str.17
@@ -6451,7 +6449,7 @@ define internal noundef i32 @_v39_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   %.02638 = phi i64 [ 0, %.lr.ph ], [ %34, %_dump_node_res.exit ]
   %.02737 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_dump_node_res.exit ]
   %.036 = phi i64 [ 0, %.lr.ph ], [ %.2, %_dump_node_res.exit ]
-  %26 = trunc i64 %.02539 to i32
+  %26 = trunc nuw i64 %.02539 to i32
   %27 = call ptr @hostlist_nth(ptr noundef %15, i32 noundef %26) #16
   %28 = load ptr, ptr %19, align 8
   %29 = getelementptr inbounds i32, ptr %28, i64 %.02737

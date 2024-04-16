@@ -5364,7 +5364,7 @@ call5.i.i.i.i4.i.i.noexc:                         ; preds = %_ZNSt7__cxx1112basi
 invoke.cont.i107:                                 ; preds = %call5.i.i.i.i4.i.i.noexc
   %cmp9.i17.i.i.i = icmp slt i48 %agg.tmp849.sroa.0.0.copyload, 0
   %p.sroa.2.0.extract.shift.i.i108 = lshr i48 %agg.tmp849.sroa.0.0.copyload, 16
-  %tr.sh.diff.i.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i108 to i32
+  %tr.sh.diff.i.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i108 to i32
   %conv.i13.i.i.i = ashr i32 %tr.sh.diff.i.i.i, 16
   %add.i16.i.i.i = add nsw i32 %conv.i13.i.i.i, -15
   %cond.i18.i.i.i = select i1 %cmp9.i17.i.i.i, i32 %add.i16.i.i.i, i32 %conv.i13.i.i.i
@@ -5396,7 +5396,7 @@ invoke.cont.i107:                                 ; preds = %call5.i.i.i.i4.i.i.
   %406 = sitofp <2 x i16> %402 to <2 x float>
   %407 = fmul nsz <2 x float> %406, <float 1.000000e+01, float 1.000000e+01>
   %p.sroa.3.0.extract.shift.i.i = lshr i48 %agg.tmp849.sroa.0.0.copyload, 32
-  %p.sroa.3.0.extract.trunc.i.i = trunc i48 %p.sroa.3.0.extract.shift.i.i to i16
+  %p.sroa.3.0.extract.trunc.i.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i.i to i16
   %conv3.i.i = sitofp i16 %p.sroa.3.0.extract.trunc.i.i to float
   %mul4.i.i = fmul nsz float %conv3.i.i, 1.000000e+01
   invoke void @_ZN6Server17sendNodeChangePktER13NetworkPacketN3irr4core8vector3dIsEENS4_IfEEfPSt13unordered_setItSt4hashItESt8equal_toItESaItEE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull align 8 dereferenceable(36) %pkt.i103, i48 %retval.sroa.0.0.insert.insert.i.i.i, <2 x float> %407, float %mul4.i.i, float noundef %conv853, ptr noundef nonnull %far_players)
@@ -5547,7 +5547,7 @@ invoke.cont879:                                   ; preds = %if.end871
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %agg.tmp877.sroa.0.0.copyload, 0
@@ -23558,7 +23558,7 @@ for.body:                                         ; preds = %if.end139, %for.bod
   store i32 %67, ptr %0, align 4
   %68 = load ptr, ptr %m_env, align 8, !tbaa !36
   %69 = lshr i32 %67, 16
-  %70 = trunc i32 %69 to i16
+  %70 = trunc nuw i32 %69 to i16
   %m_iterating.i.i.i = getelementptr inbounds i8, ptr %68, i64 240
   %71 = load i32, ptr %m_iterating.i.i.i, align 8, !tbaa !372
   %tobool.not.i.i.i = icmp eq i32 %71, 0
@@ -24551,10 +24551,10 @@ entry:
   %n.sroa.2.0.extract.shift = lshr i32 %n.coerce, 16
   %n.sroa.2.0.extract.trunc = trunc i32 %n.sroa.2.0.extract.shift to i8
   %n.sroa.3.0.extract.shift = lshr i32 %n.coerce, 24
-  %n.sroa.3.0.extract.trunc = trunc i32 %n.sroa.3.0.extract.shift to i8
+  %n.sroa.3.0.extract.trunc = trunc nuw i32 %n.sroa.3.0.extract.shift to i8
   %p.sroa.2.0.extract.shift.i = lshr i48 %p.coerce, 16
   %p.sroa.3.0.extract.shift.i = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc.i = trunc i48 %p.sroa.3.0.extract.shift.i to i16
+  %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %0 = insertelement <2 x i48> poison, i48 %p.coerce, i64 0
   %1 = insertelement <2 x i48> %0, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %2 = trunc <2 x i48> %1 to <2 x i16>
@@ -24574,7 +24574,7 @@ entry:
   %cmp9.i9.i.i = icmp slt i16 %6, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
@@ -24682,7 +24682,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %cmp9.i17.i.i = icmp slt i48 %p.coerce, 0
   %p.sroa.2.0.extract.shift.i = lshr i48 %p.coerce, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cond.i18.i.i = select i1 %cmp9.i17.i.i, i32 %add.i16.i.i, i32 %conv.i13.i.i
@@ -24714,7 +24714,7 @@ invoke.cont:                                      ; preds = %entry
   %7 = sitofp <2 x i16> %3 to <2 x float>
   %8 = fmul nsz <2 x float> %7, <float 1.000000e+01, float 1.000000e+01>
   %p.sroa.3.0.extract.shift.i = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc.i = trunc i48 %p.sroa.3.0.extract.shift.i to i16
+  %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
   %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
   invoke void @_ZN6Server17sendNodeChangePktER13NetworkPacketN3irr4core8vector3dIsEENS4_IfEEfPSt13unordered_setItSt4hashItESt8equal_toItESaItEE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull align 8 dereferenceable(36) %pkt, i48 %retval.sroa.0.0.insert.insert.i.i, <2 x float> %8, float %mul4.i, float noundef %far_d_nodes, ptr noundef %far_players)
@@ -25082,7 +25082,7 @@ invoke.cont51:                                    ; preds = %invoke.cont44
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %pos.sroa.0.0.insert.insert335, 0
@@ -25097,9 +25097,9 @@ invoke.cont51:                                    ; preds = %invoke.cont44
   %retval.sroa.0.0.insert.ext.i.i = zext nneg i32 %conv5.i.mask.i.i to i48
   %38 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %38, %retval.sroa.2.0.insert.shift.i.i
-  %p.sroa.0.0.extract.trunc.i = trunc i32 %div.i.i.i to i16
-  %p.sroa.3.0.extract.trunc.i = trunc i32 %div.i11.i.i to i16
-  %p.sroa.5.0.extract.trunc.i = trunc i32 %div.i19.i.i to i16
+  %p.sroa.0.0.extract.trunc.i = trunc nsw i32 %div.i.i.i to i16
+  %p.sroa.3.0.extract.trunc.i = trunc nsw i32 %div.i11.i.i to i16
+  %p.sroa.5.0.extract.trunc.i = trunc nsw i32 %div.i19.i.i to i16
   %39 = load i64, ptr %_M_element_count.i.i.i.i, align 8, !tbaa !434
   %cmp.not.not.i.i.i = icmp eq i64 %39, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i194, label %if.end15.i.i.i
@@ -39802,7 +39802,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   %p.sroa.3.0.extract.shift.i = lshr i48 %block_pos.coerce, 16
   %p.sroa.3.0.extract.trunc.i = trunc i48 %p.sroa.3.0.extract.shift.i to i16
   %p.sroa.5.0.extract.shift.i = lshr i48 %block_pos.coerce, 32
-  %p.sroa.5.0.extract.trunc.i = trunc i48 %p.sroa.5.0.extract.shift.i to i16
+  %p.sroa.5.0.extract.trunc.i = trunc nuw i48 %p.sroa.5.0.extract.shift.i to i16
   %conv.i.i.i.i.i.i = sext i16 %p.sroa.0.0.extract.trunc.i to i64
   %conv.i14.i.i.i.i.i = sext i16 %p.sroa.3.0.extract.trunc.i to i64
   %conv.i15.i.i.i.i.i = sext i16 %p.sroa.5.0.extract.trunc.i to i64
@@ -40201,7 +40201,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
   %ref.tmp88.sroa.0.2.extract.shift286 = lshr i48 %retval.sroa.0.0.copyload.i, 16
   %ref.tmp88.sroa.0.2.extract.trunc287 = trunc i48 %ref.tmp88.sroa.0.2.extract.shift286 to i16
   %ref.tmp88.sroa.0.4.extract.shift289 = lshr i48 %retval.sroa.0.0.copyload.i, 32
-  %ref.tmp88.sroa.0.4.extract.trunc290 = trunc i48 %ref.tmp88.sroa.0.4.extract.shift289 to i16
+  %ref.tmp88.sroa.0.4.extract.trunc290 = trunc nuw i48 %ref.tmp88.sroa.0.4.extract.shift289 to i16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -40239,7 +40239,7 @@ if.end15.i:                                       ; preds = %if.then
   %ref.tmp88.sroa.0.2.extract.trunc = trunc i48 %ref.tmp88.sroa.0.2.extract.shift to i16
   %conv.i14.i.i.i.i = sext i16 %ref.tmp88.sroa.0.2.extract.trunc to i64
   %ref.tmp88.sroa.0.4.extract.shift = lshr i48 %retval.sroa.0.0.copyload.i, 32
-  %ref.tmp88.sroa.0.4.extract.trunc = trunc i48 %ref.tmp88.sroa.0.4.extract.shift to i16
+  %ref.tmp88.sroa.0.4.extract.trunc = trunc nuw i48 %ref.tmp88.sroa.0.4.extract.shift to i16
   %conv.i15.i.i.i.i = sext i16 %ref.tmp88.sroa.0.4.extract.trunc to i64
   %or.i.i.i.i = call i64 @llvm.fshl.i64(i64 %conv.i.i.i.i.i, i64 %conv.i.i.i.i.i, i64 40)
   %or8.i.i.i.i = call i64 @llvm.fshl.i64(i64 %conv.i14.i.i.i.i, i64 %conv.i14.i.i.i.i, i64 16)
@@ -40961,7 +40961,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont
   %p.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp6.sroa.0.0.copyload, 16
   %p.sroa.3.0.extract.trunc.i = trunc i48 %p.sroa.3.0.extract.shift.i to i16
   %p.sroa.5.0.extract.shift.i = lshr i48 %agg.tmp6.sroa.0.0.copyload, 32
-  %p.sroa.5.0.extract.trunc.i = trunc i48 %p.sroa.5.0.extract.shift.i to i16
+  %p.sroa.5.0.extract.trunc.i = trunc nuw i48 %p.sroa.5.0.extract.shift.i to i16
   %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 232
   %1 = load i64, ptr %_M_element_count.i.i.i.i, align 8, !tbaa !434
   %cmp.not.not.i.i.i = icmp eq i64 %1, 0
@@ -45561,7 +45561,7 @@ for.body33:                                       ; preds = %for.inc, %if.end28
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %nodepos.sroa.0.0.insert.insert134, 0
@@ -48582,7 +48582,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %6, %4
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -48619,7 +48619,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %4, %8
   %spec.select6.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -48931,7 +48931,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %7 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %7, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -65674,7 +65674,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !1445
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !13
@@ -65685,13 +65685,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #33
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -68809,7 +68807,7 @@ while.body.i.i.i.i32:                             ; preds = %land.rhs.i.i.i.i
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_.exit.i.i: ; preds = %while.body.i.i.i.i32, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i29 = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ %__holeIndex.addr.034.i.i.i.i, %land.rhs.i.i.i.i ], [ %__parent.035.i.i.i.i, %while.body.i.i.i.i32 ]
   %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i, 32
-  %__value.sroa.0.sroa.3.0.extract.trunc.i.i.i.i = trunc i64 %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i to i32
+  %__value.sroa.0.sroa.3.0.extract.trunc.i.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i to i32
   %add.ptr.i25.i.i.i.i = getelementptr inbounds %struct.PrioritySortedBlockTransfer, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i, ptr %add.ptr.i25.i.i.i.i, align 4, !tbaa !275
   %ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i25.i.i.i.i, i64 4
@@ -68900,7 +68898,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP27PrioritySortedBlockTransferSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_less_iterEEvT_SA_SA_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.034.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
   %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i.i, 32
-  %__value.sroa.0.sroa.3.0.extract.trunc.i.i.i.i.i = trunc i64 %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i.i to i32
+  %__value.sroa.0.sroa.3.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %__value.sroa.0.sroa.3.0.extract.shift.i.i.i.i.i to i32
   %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %struct.PrioritySortedBlockTransfer, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 4, !tbaa !275
   %ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i25.i.i.i.i.i, i64 4

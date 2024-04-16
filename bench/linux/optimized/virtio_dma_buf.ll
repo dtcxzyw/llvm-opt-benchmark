@@ -52,19 +52,15 @@ define dso_local i32 @virtio_dma_buf_attach(ptr noundef %0, ptr noundef %1) #0 a
   %5 = getelementptr inbounds i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %11, label %8
+  br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
   %9 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #3
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %12
+  br label %10
 
-11:                                               ; preds = %8, %2
-  br label %12
-
-12:                                               ; preds = %11, %8
-  %13 = phi i32 [ 0, %11 ], [ %9, %8 ]
-  ret i32 %13
+10:                                               ; preds = %8, %2
+  %11 = phi i32 [ 0, %2 ], [ %9, %8 ]
+  ret i32 %11
 }
 
 ; Function Attrs: null_pointer_is_valid

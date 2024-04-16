@@ -865,7 +865,7 @@ define internal fastcc i32 @ext4_ext_swap_inode_data(ptr noundef %0, ptr noundef
 57:                                               ; preds = %54, %41
   %58 = phi i32 [ %48, %41 ], [ %56, %54 ]
   %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.thread, label %60
+  br i1 %59, label %118, label %60
 
 60:                                               ; preds = %57
   %61 = zext i32 %20 to i64
@@ -879,7 +879,7 @@ define internal fastcc i32 @ext4_ext_swap_inode_data(ptr noundef %0, ptr noundef
 64:                                               ; preds = %62
   %65 = tail call fastcc i32 @free_dind_blocks(ptr noundef %0, ptr noundef %1, i32 noundef %22)
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %.thread
+  br i1 %66, label %67, label %118
 
 67:                                               ; preds = %64, %62
   %68 = icmp eq i32 %24, 0
@@ -894,94 +894,90 @@ define internal fastcc i32 @ext4_ext_swap_inode_data(ptr noundef %0, ptr noundef
   %75 = zext i32 %24 to i64
   %76 = tail call ptr @ext4_sb_bread(ptr noundef %71, i64 noundef %75, i32 noundef 0) #7
   %77 = icmp ugt ptr %76, inttoptr (i64 -4096 to ptr)
-  br i1 %77, label %114, label %78
+  br i1 %77, label %78, label %81
 
 78:                                               ; preds = %69
-  %79 = getelementptr inbounds i8, ptr %76, i64 40
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp ult i64 %73, 4
-  br i1 %81, label %.loopexit, label %.preheader
+  %79 = ptrtoint ptr %76 to i64
+  %80 = trunc i64 %79 to i32
+  br label %118
 
-.preheader:                                       ; preds = %78, %92
-  %82 = phi i64 [ %94, %92 ], [ 0, %78 ]
-  %83 = phi i32 [ %93, %92 ], [ 0, %78 ]
-  %84 = getelementptr i32, ptr %80, i64 %82
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %92, label %87
+81:                                               ; preds = %69
+  %82 = getelementptr inbounds i8, ptr %76, i64 40
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ult i64 %73, 4
+  br i1 %84, label %.loopexit, label %.preheader
 
-87:                                               ; preds = %.preheader
-  %88 = tail call fastcc i32 @free_dind_blocks(ptr noundef %0, ptr noundef %1, i32 noundef %85)
+.preheader:                                       ; preds = %81, %95
+  %85 = phi i64 [ %97, %95 ], [ 0, %81 ]
+  %86 = phi i32 [ %96, %95 ], [ 0, %81 ]
+  %87 = getelementptr i32, ptr %83, i64 %85
+  %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %92, label %90
+  br i1 %89, label %95, label %90
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %76, i64 96
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %91, ptr elementtype(i32) %91) #7, !srcloc !12
-  br label %.thread
+90:                                               ; preds = %.preheader
+  %91 = tail call fastcc i32 @free_dind_blocks(ptr noundef %0, ptr noundef %1, i32 noundef %88)
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %95, label %93
 
-92:                                               ; preds = %87, %.preheader
-  %93 = add i32 %83, 1
-  %94 = sext i32 %93 to i64
-  %95 = icmp ugt i64 %74, %94
-  br i1 %95, label %.preheader, label %.loopexit, !llvm.loop !17
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds i8, ptr %76, i64 96
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %94, ptr elementtype(i32) %94) #7, !srcloc !12
+  br label %118
 
-.loopexit:                                        ; preds = %92, %78
-  %96 = getelementptr inbounds i8, ptr %76, i64 96
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %96, ptr elementtype(i32) %96) #7, !srcloc !12
-  %97 = load ptr, ptr %70, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 872
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 80
-  %101 = load i32, ptr %100, align 16
-  %102 = tail call i32 @__ext4_journal_ensure_credits(ptr noundef %0, i32 noundef 12, i32 noundef 12, i32 noundef %101) #7
-  %103 = icmp slt i32 %102, 1
-  br i1 %103, label %111, label %104
+95:                                               ; preds = %90, %.preheader
+  %96 = add i32 %86, 1
+  %97 = sext i32 %96 to i64
+  %98 = icmp ugt i64 %74, %97
+  br i1 %98, label %.preheader, label %.loopexit, !llvm.loop !17
 
-104:                                              ; preds = %.loopexit
-  %105 = icmp ult ptr %0, inttoptr (i64 4096 to ptr)
-  br i1 %105, label %108, label %106
+.loopexit:                                        ; preds = %95, %81
+  %99 = getelementptr inbounds i8, ptr %76, i64 96
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %99, ptr elementtype(i32) %99) #7, !srcloc !12
+  %100 = load ptr, ptr %70, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 872
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 80
+  %104 = load i32, ptr %103, align 16
+  %105 = tail call i32 @__ext4_journal_ensure_credits(ptr noundef %0, i32 noundef 12, i32 noundef 12, i32 noundef %104) #7
+  %106 = icmp slt i32 %105, 1
+  br i1 %106, label %114, label %107
 
-106:                                              ; preds = %104
-  %107 = tail call i32 @jbd2__journal_restart(ptr noundef %0, i32 noundef 12, i32 noundef %101, i32 noundef 3136) #7
-  br label %108
+107:                                              ; preds = %.loopexit
+  %108 = icmp ult ptr %0, inttoptr (i64 4096 to ptr)
+  br i1 %108, label %111, label %109
 
-108:                                              ; preds = %106, %104
-  %109 = phi i32 [ %107, %106 ], [ 0, %104 ]
-  %110 = tail call i32 @llvm.umax.i32(i32 %109, i32 1)
+109:                                              ; preds = %107
+  %110 = tail call i32 @jbd2__journal_restart(ptr noundef %0, i32 noundef 12, i32 noundef %104, i32 noundef 3136) #7
   br label %111
 
-111:                                              ; preds = %108, %.loopexit
-  %112 = phi i32 [ %102, %.loopexit ], [ %110, %108 ]
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %.thread, label %.thread18
+111:                                              ; preds = %109, %107
+  %112 = phi i32 [ %110, %109 ], [ 0, %107 ]
+  %113 = tail call i32 @llvm.umax.i32(i32 %112, i32 1)
+  br label %114
 
-.thread18:                                        ; preds = %111
+114:                                              ; preds = %111, %.loopexit
+  %115 = phi i32 [ %105, %.loopexit ], [ %113, %111 ]
+  %116 = icmp slt i32 %115, 0
+  br i1 %116, label %118, label %117
+
+117:                                              ; preds = %114
   tail call void @ext4_free_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %75, i64 noundef 1, i32 noundef 3) #7
   br label %118
 
-114:                                              ; preds = %69
-  %115 = ptrtoint ptr %76 to i64
-  %116 = trunc i64 %115 to i32
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %.thread
-
-118:                                              ; preds = %.thread18, %114, %67
-  br label %.thread
-
-.thread:                                          ; preds = %111, %90, %118, %114, %64, %57
-  %119 = phi i32 [ 0, %118 ], [ %58, %57 ], [ %65, %64 ], [ %116, %114 ], [ %112, %111 ], [ %88, %90 ]
+118:                                              ; preds = %78, %93, %114, %117, %67, %64, %57
+  %119 = phi i32 [ %58, %57 ], [ %65, %64 ], [ 0, %67 ], [ %80, %78 ], [ %91, %93 ], [ 0, %117 ], [ %115, %114 ]
   %120 = tail call i32 @__ext4_mark_inode_dirty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @__func__.ext4_ext_swap_inode_data, i32 noundef 344) #7
   %121 = icmp ne i32 %120, 0
   %122 = icmp eq i32 %119, 0
   %123 = and i1 %122, %121
   br i1 %123, label %124, label %125, !prof !18
 
-124:                                              ; preds = %.thread
+124:                                              ; preds = %118
   br label %125
 
-125:                                              ; preds = %124, %.thread, %30, %15
-  %126 = phi i32 [ %16, %15 ], [ %120, %124 ], [ %119, %.thread ], [ -11, %30 ]
+125:                                              ; preds = %124, %118, %30, %15
+  %126 = phi i32 [ %16, %15 ], [ %120, %124 ], [ %119, %118 ], [ -11, %30 ]
   ret i32 %126
 }
 

@@ -1377,7 +1377,7 @@ define noundef zeroext i1 @_ZN8MdiChild9maybeSaveEv(ptr noundef nonnull align 8 
   %6 = alloca %class.QString, align 8
   %7 = tail call noundef ptr @_ZNK9QTextEdit8documentEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %8 = tail call noundef zeroext i1 @_ZNK13QTextDocument10isModifiedEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  br i1 %8, label %9, label %65
+  br i1 %8, label %9, label %_ZN8MdiChild4saveEv.exit
 
 9:                                                ; preds = %1
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN8MdiChild16staticMetaObjectE, ptr noundef nonnull @.str.4, ptr noundef null, i32 noundef -1)
@@ -1573,11 +1573,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i38:    ; preds = %_ZN7QStringD2Ev.exi
 _ZN7QStringD2Ev.exit40:                           ; preds = %_ZN7QStringD2Ev.exit36, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i38, %63
   resume { ptr, i32 } %.pn.pn.pn
 
-65:                                               ; preds = %_ZN7QStringD2Ev.exit24, %1
+65:                                               ; preds = %_ZN7QStringD2Ev.exit24
   br label %_ZN8MdiChild4saveEv.exit
 
-_ZN8MdiChild4saveEv.exit:                         ; preds = %39, %37, %_ZN7QStringD2Ev.exit24, %65
-  %.0 = phi i1 [ true, %65 ], [ false, %_ZN7QStringD2Ev.exit24 ], [ %38, %37 ], [ %40, %39 ]
+_ZN8MdiChild4saveEv.exit:                         ; preds = %39, %37, %1, %_ZN7QStringD2Ev.exit24, %65
+  %.0 = phi i1 [ false, %_ZN7QStringD2Ev.exit24 ], [ true, %1 ], [ true, %65 ], [ %38, %37 ], [ %40, %39 ]
   ret i1 %.0
 }
 

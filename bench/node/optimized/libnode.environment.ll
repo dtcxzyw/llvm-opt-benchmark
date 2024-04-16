@@ -3052,7 +3052,7 @@ declare i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4Name
 declare void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node32InitializeBaseContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
+define dso_local i16 @_ZN4node32InitializeBaseContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %call3 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #12
@@ -3083,18 +3083,16 @@ _ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERA
 
 if.end:                                           ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
   %call42 = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %call34) #12
-  br i1 %call42, label %land.rhs, label %cleanup.cont
+  br i1 %call42, label %land.rhs, label %cleanup69
 
 land.rhs:                                         ; preds = %if.end
   %call62 = call i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr nonnull %context.coerce, ptr %call.i.i5) #12
   %tobool.i = trunc i16 %call62 to i1
-  br i1 %tobool.i, label %cleanup.cont, label %cleanup69
-
-cleanup.cont:                                     ; preds = %if.end, %land.rhs
+  %spec.select = select i1 %tobool.i, i16 257, i16 0
   br label %cleanup69
 
-cleanup69:                                        ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %land.rhs, %cleanup.cont
-  %retval.sroa.0.1 = phi i16 [ 257, %cleanup.cont ], [ 0, %land.rhs ], [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ]
+cleanup69:                                        ; preds = %land.rhs, %if.end, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
+  %retval.sroa.0.1 = phi i16 [ 0, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 257, %if.end ], [ %spec.select, %land.rhs ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   ret i16 %retval.sroa.0.1
@@ -4445,7 +4443,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br label %if.then.i.i.i.i
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.i.i.i: ; preds = %entry
-  %conv.i.i.i.i = trunc i64 %agg.tmp4.sroa.0.0.copyload.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw i64 %agg.tmp4.sroa.0.0.copyload.i.i.i to i32
   %call11.i.i.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.i.i.i, ptr noundef %agg.tmp4.sroa.2.0.copyload.i.i.i, i32 noundef 0, i32 noundef %conv.i.i.i.i) #12
   %cmp.i.i.i.i.i.i = icmp eq ptr %call11.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIN2v810MaybeLocalINS0_5ValueEEERZN4node15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JRKNS4_26StartExecutionCallbackInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"

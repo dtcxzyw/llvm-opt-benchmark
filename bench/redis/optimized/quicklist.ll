@@ -940,7 +940,7 @@ if.end:                                           ; preds = %entry
   %bf.load = load i64, ptr %fill, align 8
   %bf.shl = shl i64 %bf.load, 48
   %bf.ashr = ashr exact i64 %bf.shl, 48
-  %bf.cast = trunc i64 %bf.ashr to i32
+  %bf.cast = trunc nsw i64 %bf.ashr to i32
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else, label %if.end.i
 
@@ -979,7 +979,7 @@ _quicklistNodeAllowInsert.exit:                   ; preds = %if.end14.i
 if.then11:                                        ; preds = %if.then.i.i, %_quicklistNodeAllowInsert.exit
   %entry13 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %entry13, align 8
-  %conv14 = trunc i64 %sz to i32
+  %conv14 = trunc nuw i64 %sz to i32
   %call15 = tail call ptr @lpPrepend(ptr noundef %7, ptr noundef %value, i32 noundef %conv14) #23
   %8 = load ptr, ptr %quicklist, align 8
   %entry17 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1004,7 +1004,7 @@ if.else:                                          ; preds = %if.then.i.i, %if.en
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store i32 %bf.set7.i, ptr %count.i23, align 8
   %call24 = tail call ptr @lpNew(i64 noundef 0) #23
-  %conv25 = trunc i64 %sz to i32
+  %conv25 = trunc nuw i64 %sz to i32
   %call26 = tail call ptr @lpPrepend(ptr noundef %call24, ptr noundef %value, i32 noundef %conv25) #23
   store ptr %call26, ptr %entry1.i, align 8
   %call30 = tail call i64 @lpBytes(ptr noundef %call26) #23
@@ -1077,7 +1077,7 @@ if.end:                                           ; preds = %entry
   %bf.load = load i64, ptr %fill, align 8
   %bf.shl = shl i64 %bf.load, 48
   %bf.ashr = ashr exact i64 %bf.shl, 48
-  %bf.cast = trunc i64 %bf.ashr to i32
+  %bf.cast = trunc nsw i64 %bf.ashr to i32
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else, label %if.end.i
 
@@ -1116,7 +1116,7 @@ _quicklistNodeAllowInsert.exit:                   ; preds = %if.end14.i
 if.then11:                                        ; preds = %if.then.i.i, %_quicklistNodeAllowInsert.exit
   %entry13 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %entry13, align 8
-  %conv14 = trunc i64 %sz to i32
+  %conv14 = trunc nuw i64 %sz to i32
   %call15 = tail call ptr @lpAppend(ptr noundef %7, ptr noundef %value, i32 noundef %conv14) #23
   %8 = load ptr, ptr %tail, align 8
   %entry17 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1141,7 +1141,7 @@ if.else:                                          ; preds = %if.then.i.i, %if.en
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store i32 %bf.set7.i, ptr %count.i23, align 8
   %call24 = tail call ptr @lpNew(i64 noundef 0) #23
-  %conv25 = trunc i64 %sz to i32
+  %conv25 = trunc nuw i64 %sz to i32
   %call26 = tail call ptr @lpAppend(ptr noundef %call24, ptr noundef %value, i32 noundef %conv25) #23
   store ptr %call26, ptr %entry1.i, align 8
   %call30 = tail call i64 @lpBytes(ptr noundef %call26) #23
@@ -2094,7 +2094,7 @@ entry:
   %bf.load = load i64, ptr %fill1, align 8
   %bf.shl = shl i64 %bf.load, 48
   %bf.ashr = ashr exact i64 %bf.shl, 48
-  %bf.cast = trunc i64 %bf.ashr to i32
+  %bf.cast = trunc nsw i64 %bf.ashr to i32
   %0 = load ptr, ptr %center, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end10, label %if.then
@@ -2412,7 +2412,7 @@ entry:
   %bf.load = load i64, ptr %fill3, align 8
   %bf.shl = shl i64 %bf.load, 48
   %bf.ashr = ashr exact i64 %bf.shl, 48
-  %bf.cast = trunc i64 %bf.ashr to i32
+  %bf.cast = trunc nsw i64 %bf.ashr to i32
   %node4 = getelementptr inbounds i8, ptr %entry1, i64 8
   %1 = load ptr, ptr %node4, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -2458,7 +2458,7 @@ if.end:                                           ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store i32 %bf.set7.i, ptr %count.i215, align 8
   %call8 = tail call ptr @lpNew(i64 noundef 0) #23
-  %conv9 = trunc i64 %sz to i32
+  %conv9 = trunc nuw i64 %sz to i32
   %call10 = tail call ptr @lpPrepend(ptr noundef %call8, ptr noundef %value, i32 noundef %conv9) #23
   store ptr %call10, ptr %entry1.i, align 8
   %tobool.not.i = icmp eq i32 %after, 0
@@ -2571,7 +2571,7 @@ if.then31:                                        ; preds = %land.lhs.true
   %next = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %next, align 8
   %tobool.not.i220 = icmp eq ptr %16, null
-  br i1 %tobool.not.i220, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end.i221
+  br i1 %tobool.not.i220, label %if.end55, label %if.end.i221
 
 if.end.i221:                                      ; preds = %if.then31
   %container.i222 = getelementptr inbounds i8, ptr %16, i64 32
@@ -2579,7 +2579,7 @@ if.end.i221:                                      ; preds = %if.then31
   %17 = and i32 %bf.load.i223, 786432
   %cmp.i224 = icmp eq i32 %17, 262144
   %18 = select i1 %cmp.i224, i1 true, i1 %cmp5.i
-  br i1 %18, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end14.i226
+  br i1 %18, label %if.end55, label %if.end14.i226
 
 if.end14.i226:                                    ; preds = %if.end.i221
   %sz15.i227 = getelementptr inbounds i8, ptr %16, i64 24
@@ -2587,7 +2587,7 @@ if.end14.i226:                                    ; preds = %if.end.i221
   %add.i228 = add i64 %sz, 8
   %add16.i229 = add i64 %add.i228, %19
   %cmp.i.i.i230 = icmp sgt i32 %bf.cast, -1
-  br i1 %cmp.i.i.i230, label %_quicklistNodeAllowInsert.exit247, label %if.then.i.i231
+  br i1 %cmp.i.i.i230, label %if.else.i.i241, label %if.then.i.i231
 
 if.then.i.i231:                                   ; preds = %if.end14.i226
   %20 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 -5)
@@ -2596,19 +2596,20 @@ if.then.i.i231:                                   ; preds = %if.end14.i226
   %arrayidx.i.i.i234 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i233
   %21 = load i64, ptr %arrayidx.i.i.i234, align 8
   %cmp2.i.i235 = icmp ult i64 %21, %add16.i229
-  %cond.fr351 = freeze i1 %cmp2.i.i235
-  br i1 %cond.fr351, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end55
+  br label %_quicklistNodeAllowInsert.exit247
 
-_quicklistNodeAllowInsert.exit247:                ; preds = %if.end14.i226
+if.else.i.i241:                                   ; preds = %if.end14.i226
   %bf.clear18.i242 = and i32 %bf.load.i223, 65535
   %cond.i.i.i243 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i244 = icmp ugt i64 %add16.i229, 8192
   %cmp10.i.i245 = icmp ule i32 %cond.i.i.i243, %bf.clear18.i242
   %spec.select.i.i246 = or i1 %cmp10.i.i245, %cmp7.i.i244
-  %cond.fr = freeze i1 %spec.select.i.i246
-  br i1 %cond.fr, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end55
+  br label %_quicklistNodeAllowInsert.exit247
 
-_quicklistNodeAllowInsert.exit247.thread:         ; preds = %if.then.i.i231, %if.end.i221, %if.then31, %_quicklistNodeAllowInsert.exit247
+_quicklistNodeAllowInsert.exit247:                ; preds = %if.then.i.i231, %if.else.i.i241
+  %retval.0.shrunk.i.i237 = phi i1 [ %cmp2.i.i235, %if.then.i.i231 ], [ %spec.select.i.i246, %if.else.i.i241 ]
+  %cond.fr = freeze i1 %retval.0.shrunk.i.i237
+  %not.cond.fr = xor i1 %cond.fr, true
   br label %if.end55
 
 land.lhs.true38:                                  ; preds = %_quicklistNodeAllowInsert.exit
@@ -2624,7 +2625,7 @@ lor.lhs.false42:                                  ; preds = %land.lhs.true38
 if.then50:                                        ; preds = %lor.lhs.false42, %land.lhs.true38
   %22 = load ptr, ptr %1, align 8
   %tobool.not.i248 = icmp eq ptr %22, null
-  br i1 %tobool.not.i248, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end.i249
+  br i1 %tobool.not.i248, label %if.end55, label %if.end.i249
 
 if.end.i249:                                      ; preds = %if.then50
   %container.i250 = getelementptr inbounds i8, ptr %22, i64 32
@@ -2632,7 +2633,7 @@ if.end.i249:                                      ; preds = %if.then50
   %23 = and i32 %bf.load.i251, 786432
   %cmp.i252 = icmp eq i32 %23, 262144
   %24 = select i1 %cmp.i252, i1 true, i1 %cmp5.i
-  br i1 %24, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end14.i254
+  br i1 %24, label %if.end55, label %if.end14.i254
 
 if.end14.i254:                                    ; preds = %if.end.i249
   %sz15.i255 = getelementptr inbounds i8, ptr %22, i64 24
@@ -2640,7 +2641,7 @@ if.end14.i254:                                    ; preds = %if.end.i249
   %add.i256 = add i64 %sz, 8
   %add16.i257 = add i64 %add.i256, %25
   %cmp.i.i.i258 = icmp sgt i32 %bf.cast, -1
-  br i1 %cmp.i.i.i258, label %_quicklistNodeAllowInsert.exit275, label %if.then.i.i259
+  br i1 %cmp.i.i.i258, label %if.else.i.i269, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %if.end14.i254
   %26 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 -5)
@@ -2649,28 +2650,29 @@ if.then.i.i259:                                   ; preds = %if.end14.i254
   %arrayidx.i.i.i262 = getelementptr inbounds [5 x i64], ptr @optimization_level, i64 0, i64 %spec.select.i.i.i261
   %27 = load i64, ptr %arrayidx.i.i.i262, align 8
   %cmp2.i.i263 = icmp ult i64 %27, %add16.i257
-  %cond.fr342352 = freeze i1 %cmp2.i.i263
-  br i1 %cond.fr342352, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end55
+  br label %_quicklistNodeAllowInsert.exit275
 
-_quicklistNodeAllowInsert.exit275:                ; preds = %if.end14.i254
+if.else.i.i269:                                   ; preds = %if.end14.i254
   %bf.clear18.i270 = and i32 %bf.load.i251, 65535
   %cond.i.i.i271 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i272 = icmp ugt i64 %add16.i257, 8192
   %cmp10.i.i273 = icmp ule i32 %cond.i.i.i271, %bf.clear18.i270
   %spec.select.i.i274 = or i1 %cmp10.i.i273, %cmp7.i.i272
-  %cond.fr342 = freeze i1 %spec.select.i.i274
-  br i1 %cond.fr342, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end55
+  br label %_quicklistNodeAllowInsert.exit275
 
-_quicklistNodeAllowInsert.exit275.thread:         ; preds = %if.then.i.i259, %if.end.i249, %if.then50, %_quicklistNodeAllowInsert.exit275
+_quicklistNodeAllowInsert.exit275:                ; preds = %if.then.i.i259, %if.else.i.i269
+  %retval.0.shrunk.i.i265 = phi i1 [ %cmp2.i.i263, %if.then.i.i259 ], [ %spec.select.i.i274, %if.else.i.i269 ]
+  %cond.fr342 = freeze i1 %retval.0.shrunk.i.i265
+  %not.cond.fr342 = xor i1 %cond.fr342, true
   br label %if.end55
 
-if.end55:                                         ; preds = %if.then.i.i259, %if.then.i.i231, %land.lhs.true, %_quicklistNodeAllowInsert.exit247, %_quicklistNodeAllowInsert.exit247.thread, %_quicklistNodeAllowInsert.exit275.thread, %_quicklistNodeAllowInsert.exit275, %lor.lhs.false42
-  %tobool399341 = phi i1 [ true, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ true, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
-  %tobool223340 = phi i1 [ false, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
-  %tobool225339 = phi i1 [ false, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
-  %tobool313 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
-  %tobool311 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
-  %tobool405 = phi i1 [ true, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ true, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
+if.end55:                                         ; preds = %_quicklistNodeAllowInsert.exit275, %_quicklistNodeAllowInsert.exit247, %if.end.i249, %if.then50, %if.end.i221, %if.then31, %land.lhs.true, %lor.lhs.false42
+  %tobool399341 = phi i1 [ true, %lor.lhs.false42 ], [ true, %land.lhs.true ], [ false, %if.then31 ], [ false, %if.end.i221 ], [ true, %if.then50 ], [ true, %if.end.i249 ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ true, %_quicklistNodeAllowInsert.exit275 ]
+  %tobool223340 = phi i1 [ false, %lor.lhs.false42 ], [ false, %land.lhs.true ], [ true, %if.then31 ], [ true, %if.end.i221 ], [ false, %if.then50 ], [ false, %if.end.i249 ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit275 ]
+  %tobool225339 = phi i1 [ false, %lor.lhs.false42 ], [ false, %land.lhs.true ], [ false, %if.then31 ], [ false, %if.end.i221 ], [ false, %if.then50 ], [ false, %if.end.i249 ], [ %not.cond.fr, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit275 ]
+  %tobool313 = phi i1 [ false, %lor.lhs.false42 ], [ false, %land.lhs.true ], [ false, %if.then31 ], [ false, %if.end.i221 ], [ false, %if.then50 ], [ false, %if.end.i249 ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ %not.cond.fr342, %_quicklistNodeAllowInsert.exit275 ]
+  %tobool311 = phi i1 [ false, %lor.lhs.false42 ], [ false, %land.lhs.true ], [ false, %if.then31 ], [ false, %if.end.i221 ], [ true, %if.then50 ], [ true, %if.end.i249 ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ true, %_quicklistNodeAllowInsert.exit275 ]
+  %tobool405 = phi i1 [ true, %lor.lhs.false42 ], [ true, %land.lhs.true ], [ true, %if.then31 ], [ true, %if.end.i221 ], [ false, %if.then50 ], [ false, %if.end.i249 ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit275 ]
   %cmp56.not = icmp ugt i64 %10, %sz
   br i1 %cmp56.not, label %if.end97, label %if.then64
 
@@ -2814,7 +2816,7 @@ __quicklistDecompressNode.exit309:                ; preds = %if.then.i308, %if.e
 do.end118:                                        ; preds = %land.lhs.true104, %__quicklistDecompressNode.exit309
   %entry119 = getelementptr inbounds i8, ptr %1, i64 16
   %41 = load ptr, ptr %entry119, align 8
-  %conv120 = trunc i64 %sz to i32
+  %conv120 = trunc nuw i64 %sz to i32
   %zi = getelementptr inbounds i8, ptr %entry1, i64 16
   %42 = load ptr, ptr %zi, align 8
   %call121 = tail call ptr @lpInsertString(ptr noundef %41, ptr noundef %value, i32 noundef %conv120, ptr noundef %42, i32 noundef 1, ptr noundef null) #23
@@ -2883,7 +2885,7 @@ __quicklistDecompressNode.exit325:                ; preds = %if.then.i324, %if.e
 do.end179:                                        ; preds = %land.lhs.true165, %__quicklistDecompressNode.exit325
   %entry180 = getelementptr inbounds i8, ptr %1, i64 16
   %49 = load ptr, ptr %entry180, align 8
-  %conv181 = trunc i64 %sz to i32
+  %conv181 = trunc nuw i64 %sz to i32
   %zi182 = getelementptr inbounds i8, ptr %entry1, i64 16
   %50 = load ptr, ptr %zi182, align 8
   %call183 = tail call ptr @lpInsertString(ptr noundef %49, ptr noundef %value, i32 noundef %conv181, ptr noundef %50, i32 noundef 0, ptr noundef null) #23
@@ -2935,7 +2937,7 @@ if.then239:                                       ; preds = %land.lhs.true232
 do.end246:                                        ; preds = %if.then228, %land.lhs.true232, %if.then239
   %entry247 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %entry247, align 8
-  %conv248 = trunc i64 %sz to i32
+  %conv248 = trunc nuw i64 %sz to i32
   %call249 = tail call ptr @lpPrepend(ptr noundef %54, ptr noundef %value, i32 noundef %conv248) #23
   store ptr %call249, ptr %entry247, align 8
   %count251 = getelementptr inbounds i8, ptr %52, i64 32
@@ -2997,7 +2999,7 @@ if.then327:                                       ; preds = %land.lhs.true320
 do.end334:                                        ; preds = %if.then316, %land.lhs.true320, %if.then327
   %entry335 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load ptr, ptr %entry335, align 8
-  %conv336 = trunc i64 %sz to i32
+  %conv336 = trunc nuw i64 %sz to i32
   %call337 = tail call ptr @lpAppend(ptr noundef %60, ptr noundef %value, i32 noundef %conv336) #23
   store ptr %call337, ptr %entry335, align 8
   %count339 = getelementptr inbounds i8, ptr %58, i64 32
@@ -3051,7 +3053,7 @@ if.then410:                                       ; preds = %land.lhs.true398
   %bf.clear3.i331 = and i32 %bf.load.i329, -6291456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i326, i8 0, i64 16, i1 false)
   %call412 = tail call ptr @lpNew(i64 noundef 0) #23
-  %conv413 = trunc i64 %sz to i32
+  %conv413 = trunc nuw i64 %sz to i32
   %call414 = tail call ptr @lpPrepend(ptr noundef %call412, ptr noundef %value, i32 noundef %conv413) #23
   store ptr %call414, ptr %entry1.i327, align 8
   %bf.set423 = or disjoint i32 %bf.clear3.i331, 589825
@@ -3072,15 +3074,15 @@ if.then441:                                       ; preds = %land.lhs.true434
   %bf.set446 = or i32 %bf.load444, 1048576
   store i32 %bf.set446, ptr %container.i, align 8
   %offset449.phi.trans.insert = getelementptr inbounds i8, ptr %entry1, i64 48
-  %.pre348 = load i32, ptr %offset449.phi.trans.insert, align 8
+  %.pre349 = load i32, ptr %offset449.phi.trans.insert, align 8
   br label %do.end448
 
 do.end448:                                        ; preds = %land.lhs.true434, %if.then441
-  %66 = phi i32 [ %15, %land.lhs.true434 ], [ %.pre348, %if.then441 ]
+  %66 = phi i32 [ %15, %land.lhs.true434 ], [ %.pre349, %if.then441 ]
   %call450 = tail call ptr @_quicklistSplitNode(ptr noundef nonnull %1, i32 noundef %66, i32 noundef %after)
   %entry453 = getelementptr inbounds i8, ptr %call450, i64 16
   %67 = load ptr, ptr %entry453, align 8
-  %conv454 = trunc i64 %sz to i32
+  %conv454 = trunc nuw i64 %sz to i32
   br i1 %tobool22, label %if.then452, label %if.else457
 
 if.then452:                                       ; preds = %do.end448
@@ -3762,7 +3764,7 @@ entry:
   %bf.load = load i64, ptr %fill, align 8
   %bf.shl = shl i64 %bf.load, 48
   %bf.ashr = ashr exact i64 %bf.shl, 48
-  %bf.cast = trunc i64 %bf.ashr to i32
+  %bf.cast = trunc nsw i64 %bf.ashr to i32
   %0 = trunc i64 %bf.load to i32
   %1 = and i32 %0, -65536
   %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #22
@@ -4330,7 +4332,7 @@ entry:
   %bf.load = load i64, ptr %fill, align 8
   %bf.shl = shl i64 %bf.load, 48
   %bf.ashr = ashr exact i64 %bf.shl, 48
-  %bf.cast = trunc i64 %bf.ashr to i32
+  %bf.cast = trunc nsw i64 %bf.ashr to i32
   %call2 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %bf.cast)
   %bf.load3 = load i64, ptr %fill, align 8
   %2 = trunc i64 %bf.load3 to i32
@@ -4338,7 +4340,7 @@ entry:
   %call5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %3)
   %bf.load6 = load i64, ptr %fill, align 8
   %bf.lshr7 = lshr i64 %bf.load6, 32
-  %4 = trunc i64 %bf.lshr7 to i32
+  %4 = trunc nuw i64 %bf.lshr7 to i32
   %bf.cast9 = and i32 %4, 15
   %call10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %bf.cast9)
   %node.026 = load ptr, ptr %ql, align 8

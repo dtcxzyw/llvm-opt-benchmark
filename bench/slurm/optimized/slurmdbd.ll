@@ -1368,7 +1368,7 @@ define internal fastcc void @_update_logging(i1 noundef zeroext %0) unnamed_addr
   store i32 %10, ptr @log_opts, align 8
   %13 = load i16, ptr %11, align 8
   %.not7 = icmp eq i16 %13, 10
-  br i1 %.not7, label %22, label %15
+  br i1 %.not7, label %21, label %15
 
 .thread:                                          ; preds = %8
   store i32 0, ptr @log_opts, align 8
@@ -1379,7 +1379,7 @@ define internal fastcc void @_update_logging(i1 noundef zeroext %0) unnamed_addr
 15:                                               ; preds = %.thread, %12
   %16 = phi i16 [ %14, %.thread ], [ %13, %12 ]
   %17 = zext i16 %16 to i32
-  br label %22
+  br label %21
 
 .thread14:                                        ; preds = %.thread
   %.not8 = icmp eq i16 %9, 0
@@ -1389,58 +1389,56 @@ define internal fastcc void @_update_logging(i1 noundef zeroext %0) unnamed_addr
   %19 = getelementptr inbounds i8, ptr %.pre, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not9 = icmp eq ptr %20, null
-  br i1 %.not9, label %22, label %21
+  %spec.select = select i1 %.not9, i32 %10, i32 1
+  br label %21
 
-21:                                               ; preds = %18, %.thread14
-  br label %22
-
-22:                                               ; preds = %18, %12, %21, %15
-  %.sink = phi i32 [ 1, %21 ], [ %17, %15 ], [ 0, %12 ], [ %10, %18 ]
+21:                                               ; preds = %18, %.thread14, %12, %15
+  %.sink = phi i32 [ %17, %15 ], [ 0, %12 ], [ 1, %.thread14 ], [ %spec.select, %18 ]
   store i32 %.sink, ptr getelementptr inbounds (%struct.log_options_t, ptr @log_opts, i64 0, i32 1), align 4
-  %23 = getelementptr inbounds i8, ptr %.pre, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 @log_opts, i32 noundef 24, ptr noundef %24) #16
-  %26 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 87), align 8
-  %27 = zext i16 %26 to i32
-  tail call void @log_set_timefmt(i32 noundef %27) #16
-  br i1 %0, label %28, label %46
+  %22 = getelementptr inbounds i8, ptr %.pre, i64 72
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 @log_opts, i32 noundef 24, ptr noundef %23) #16
+  %25 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 87), align 8
+  %26 = zext i16 %25 to i32
+  tail call void @log_set_timefmt(i32 noundef %26) #16
+  br i1 %0, label %27, label %45
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr @slurmdbd_conf, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 72
-  %31 = load ptr, ptr %30, align 8
-  %.not10 = icmp eq ptr %31, null
-  br i1 %.not10, label %46, label %32
+27:                                               ; preds = %21
+  %28 = load ptr, ptr @slurmdbd_conf, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 72
+  %30 = load ptr, ptr %29, align 8
+  %.not10 = icmp eq ptr %30, null
+  br i1 %.not10, label %45, label %31
 
-32:                                               ; preds = %28
-  %33 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
-  %34 = tail call i32 @gid_from_uid(i32 noundef %33) #16
-  %35 = load ptr, ptr @slurmdbd_conf, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 72
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
-  %39 = tail call i32 @chown(ptr noundef %37, i32 noundef %38, i32 noundef %34) #16
-  %.not11 = icmp eq i32 %39, 0
-  br i1 %.not11, label %46, label %40
+31:                                               ; preds = %27
+  %32 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %33 = tail call i32 @gid_from_uid(i32 noundef %32) #16
+  %34 = load ptr, ptr @slurmdbd_conf, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %38 = tail call i32 @chown(ptr noundef %36, i32 noundef %37, i32 noundef %33) #16
+  %.not11 = icmp eq i32 %38, 0
+  br i1 %.not11, label %45, label %39
 
-40:                                               ; preds = %32
-  %41 = load ptr, ptr @slurmdbd_conf, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 72
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
-  %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %43, i32 noundef %44, i32 noundef %34) #16
-  br label %46
+39:                                               ; preds = %31
+  %40 = load ptr, ptr @slurmdbd_conf, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 72
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 169), align 8
+  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %42, i32 noundef %43, i32 noundef %33) #16
+  br label %45
 
-46:                                               ; preds = %32, %40, %28, %22
-  %47 = tail call i32 @get_log_level() #16
-  %48 = icmp sgt i32 %47, 4
-  br i1 %48, label %49, label %50
+45:                                               ; preds = %31, %39, %27, %21
+  %46 = tail call i32 @get_log_level() #16
+  %47 = icmp sgt i32 %46, 4
+  br i1 %47, label %48, label %49
 
-49:                                               ; preds = %46
+48:                                               ; preds = %45
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.38) #16
-  br label %50
+  br label %49
 
-50:                                               ; preds = %49, %46
+49:                                               ; preds = %48, %45
   ret void
 }
 
@@ -1627,7 +1625,7 @@ define internal noalias noundef ptr @_commit_handler(ptr nocapture readnone %0) 
   %.not18 = icmp eq i64 %4, 0
   br i1 %.not18, label %.lr.ph20, label %._crit_edge21
 
-.lr.ph20:                                         ; preds = %1, %32
+.lr.ph20:                                         ; preds = %1, %.thread
   %5 = load ptr, ptr @slurmdbd_conf, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i16, ptr %6, align 8
@@ -1693,20 +1691,18 @@ define internal noalias noundef ptr @_commit_handler(ptr nocapture readnone %0) 
   %.pre24 = load i16, ptr %.phi.trans.insert, align 8
   %.pre24.fr = freeze i16 %.pre24
   %.not14 = icmp eq i16 %.pre24.fr, 0
-  br i1 %.not14, label %.thread, label %32
+  %spec.select29 = select i1 %.not14, i16 5, i16 %.pre24.fr
+  br label %.thread
 
-.thread:                                          ; preds = %.lr.ph20, %31
-  br label %32
-
-32:                                               ; preds = %31, %.thread
-  %33 = phi i16 [ 5, %.thread ], [ %.pre24.fr, %31 ]
-  %spec.select = zext i16 %33 to i32
-  %34 = tail call i32 @sleep(i32 noundef %spec.select) #16
-  %35 = load i64, ptr @shutdown_time, align 8
-  %.not = icmp eq i64 %35, 0
+.thread:                                          ; preds = %31, %.lr.ph20
+  %32 = phi i16 [ 5, %.lr.ph20 ], [ %spec.select29, %31 ]
+  %spec.select = zext i16 %32 to i32
+  %33 = tail call i32 @sleep(i32 noundef %spec.select) #16
+  %34 = load i64, ptr @shutdown_time, align 8
+  %.not = icmp eq i64 %34, 0
   br i1 %.not, label %.lr.ph20, label %._crit_edge21, !llvm.loop !11
 
-._crit_edge21:                                    ; preds = %32, %1
+._crit_edge21:                                    ; preds = %.thread, %1
   ret ptr null
 }
 

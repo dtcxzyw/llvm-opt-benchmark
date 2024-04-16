@@ -1661,13 +1661,13 @@ lor.end:                                          ; preds = %entry
   %call6 = tail call double %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(124) %g)
   %call6.fr = freeze double %call6
   %cmp.i2 = fcmp une double %call6.fr, 0.000000e+00
-  br i1 %cmp.i2, label %lor.end.thread, label %4
+  br i1 %cmp.i2, label %4, label %lor.end.thread
 
-lor.end.thread:                                   ; preds = %entry, %lor.end
-  br label %4
+4:                                                ; preds = %lor.end
+  br label %lor.end.thread
 
-4:                                                ; preds = %lor.end, %lor.end.thread
-  %5 = phi double [ 1.000000e+00, %lor.end.thread ], [ 0.000000e+00, %lor.end ]
+lor.end.thread:                                   ; preds = %entry, %lor.end, %4
+  %5 = phi double [ 0.000000e+00, %lor.end ], [ 1.000000e+00, %4 ], [ 1.000000e+00, %entry ]
   ret double %5
 }
 

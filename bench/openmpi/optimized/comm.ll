@@ -1120,7 +1120,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8
 44:                                               ; preds = %.lr.ph123
   %45 = sext i32 %.057122 to i64
   %46 = getelementptr inbounds i32, ptr %40, i64 %45
-  %47 = trunc i64 %indvars.iv125 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv125 to i32
   store i32 %47, ptr %46, align 4
   %48 = add nsw i32 %.057122, 1
   br label %49
@@ -1511,7 +1511,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %51 = shl nsw i32 %.0149210, 1
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %44, i64 %52
-  %54 = trunc i64 %indvars.iv228 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv228 to i32
   store i32 %54, ptr %53, align 4
   %55 = or disjoint i64 %46, 1
   %56 = getelementptr inbounds i32, ptr %26, i64 %55
@@ -1636,7 +1636,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %106 = shl nsw i32 %.2151222, 1
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i32, ptr %99, i64 %107
-  %109 = trunc i64 %indvars.iv243 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv243 to i32
   store i32 %109, ptr %108, align 4
   %110 = or disjoint i64 %101, 1
   %111 = getelementptr inbounds i32, ptr %82, i64 %110
@@ -1959,7 +1959,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8
   %41 = mul nsw i64 %indvars.iv, %36
   %42 = getelementptr inbounds i32, ptr %29, i64 %41
   %43 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = tail call i32 %40(ptr noundef nonnull %42, i64 noundef %36, ptr noundef %5, i32 noundef %44, i32 noundef -7, ptr noundef %6, ptr noundef nonnull %43) #19
   %.not78 = icmp eq i32 %45, 0
   br i1 %.not78, label %38, label %.loopexit85
@@ -2055,17 +2055,17 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @rankkeycompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal i32 @rankkeycompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %4, %6
-  br i1 %7, label %21, label %8
+  br i1 %7, label %20, label %8
 
 8:                                                ; preds = %2
   %9 = icmp sgt i32 %4, %6
-  br i1 %9, label %21, label %10
+  br i1 %9, label %20, label %10
 
 10:                                               ; preds = %8
   %11 = icmp eq i32 %4, %6
@@ -2075,21 +2075,19 @@ define internal noundef i32 @rankkeycompare(ptr nocapture noundef readonly %0, p
   %13 = load i32, ptr %0, align 4
   %14 = load i32, ptr %1, align 4
   %15 = icmp slt i32 %13, %14
-  br i1 %15, label %21, label %16
+  br i1 %15, label %20, label %16
 
 16:                                               ; preds = %12
   %17 = icmp eq i32 %13, %14
-  br i1 %17, label %21, label %18
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
   %19 = icmp sgt i32 %13, %14
-  br i1 %19, label %21, label %20
+  %spec.select = zext i1 %19 to i32
+  br label %20
 
-20:                                               ; preds = %18, %10
-  br label %21
-
-21:                                               ; preds = %18, %16, %12, %8, %2, %20
-  %.0 = phi i32 [ 0, %20 ], [ -1, %2 ], [ 1, %8 ], [ -1, %12 ], [ 0, %16 ], [ 1, %18 ]
+20:                                               ; preds = %18, %10, %16, %12, %8, %2
+  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %12 ], [ 0, %16 ], [ 0, %10 ], [ %spec.select, %18 ]
   ret i32 %.0
 }
 
@@ -5305,12 +5303,12 @@ define internal fastcc noundef i32 @ompi_comm_split_type_get_part(ptr nocapture 
 
 26:                                               ; preds = %25
   %.sroa.2.0.extract.shift = lshr i64 %23, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %27 = and i64 %23, 4294901760
   %28 = lshr i64 %23, 1
   %29 = and i64 %28, 32767
   %.sroa.0.0.insert.insert.i = or disjoint i64 %29, %27
-  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.insert.insert.i to i32
+  %.sroa.0.0.extract.trunc = trunc nuw i64 %.sroa.0.0.insert.insert.i to i32
   store ptr %5, ptr %6, align 8
   store ptr null, ptr %8, align 8
   %30 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %7, i32 noundef %.sroa.0.0.extract.trunc) #19
@@ -5501,7 +5499,7 @@ ompi_comm_split_type_to_str.exit:                 ; preds = %ompi_comm_split_typ
   %107 = add nsw i32 %.03476, 1
   %108 = sext i32 %.03476 to i64
   %109 = getelementptr inbounds i32, ptr %14, i64 %108
-  %110 = trunc i64 %indvars.iv to i32
+  %110 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %110, ptr %109, align 4
   br label %.thread66
 

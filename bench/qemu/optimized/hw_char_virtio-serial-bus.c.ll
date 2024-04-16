@@ -706,7 +706,7 @@ find_free_port_id.exit.thread:                    ; preds = %for.inc.i56, %if.el
   br label %if.then33
 
 find_free_port_id.exit:                           ; preds = %for.body.i54
-  %12 = trunc i64 %indvars.iv.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   %not.i = xor i32 %11, -1
   %13 = tail call i32 @llvm.cttz.i32(i32 %not.i, i1 true), !range !11
   %mul.i = shl nuw i32 %12, 5
@@ -1037,7 +1037,7 @@ if.end29:                                         ; preds = %for.body
   br i1 %tobool31, label %if.then32, label %if.end38
 
 if.then32:                                        ; preds = %if.end29
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw i64 %indvars.iv to i32
   store i32 %14, ptr %iov_idx, align 8
   %cmp34 = icmp sgt i64 %call25, 0
   br i1 %cmp34, label %if.then35, label %for.end
@@ -1724,8 +1724,8 @@ entry:
   %serial = getelementptr inbounds i8, ptr %call.i, i64 736
   %0 = load i32, ptr %serial, align 8
   %sub = add i32 %0, 31
-  %cmp24.not = icmp ult i32 %sub, 32
-  br i1 %cmp24.not, label %for.end, label %for.body.lr.ph
+  %cmp22.not = icmp ult i32 %sub, 32
+  br i1 %cmp22.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %div11 = lshr i32 %sub, 5
@@ -1834,16 +1834,16 @@ if.then23.i:                                      ; preds = %if.end.i
 for.inc.i:                                        ; preds = %if.then23.i, %if.end.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i18
-  br i1 %exitcond.not.i, label %fetch_active_ports_list.exit, label %for.body.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !23
 
-fetch_active_ports_list.exit:                     ; preds = %for.inc.i
+for.end.i:                                        ; preds = %for.inc.i
   %10 = load ptr, ptr %post_load.i, align 8
   %11 = load ptr, ptr %10, align 8
   tail call void @timer_mod(ptr noundef %11, i64 noundef 1) #12
   br label %return
 
-return:                                           ; preds = %for.body, %if.end.i.i, %for.body.i, %for.inc.i.i, %for.end, %fetch_active_ports_list.exit
-  %retval.0 = phi i32 [ 0, %fetch_active_ports_list.exit ], [ 0, %for.end ], [ -22, %for.inc.i.i ], [ -22, %for.body.i ], [ -22, %if.end.i.i ], [ -22, %for.body ]
+return:                                           ; preds = %for.body, %if.end.i.i, %for.body.i, %for.inc.i.i, %for.end.i, %for.end
+  %retval.0 = phi i32 [ 0, %for.end ], [ 0, %for.end.i ], [ -22, %for.inc.i.i ], [ -22, %for.body.i ], [ -22, %if.end.i.i ], [ -22, %for.body ]
   ret i32 %retval.0
 }
 

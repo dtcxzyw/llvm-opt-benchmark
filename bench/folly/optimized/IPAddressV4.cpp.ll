@@ -763,7 +763,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %12 = trunc i64 %7 to i8
+  %12 = trunc nuw nsw i64 %7 to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %12
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
@@ -926,7 +926,7 @@ if.then.i:                                        ; preds = %invoke.cont4
   br i1 %cmp4.i, label %if.end.i, label %if.then6.i, !prof !46
 
 if.then6.i:                                       ; preds = %if.then.i
-  %4 = trunc i64 %add.i to i8
+  %4 = trunc nuw nsw i64 %add.i to i8
   %conv.i40.i = sub nuw nsw i8 23, %4
   store i8 %conv.i40.i, ptr %arrayidx.i.i, align 1, !tbaa !7
   %arrayidx2.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add.i
@@ -2555,21 +2555,21 @@ if.then.i70:                                      ; preds = %switch.hole_check10
   unreachable
 
 switch.hole_check:                                ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i
-  %switch.maskindex = trunc i32 %9 to i8
+  %switch.maskindex = trunc nuw nsw i32 %9 to i8
   %switch.shifted = lshr i8 -107, %switch.maskindex
   %20 = and i8 %switch.shifted, 1
   %switch.lobit.not = icmp eq i8 %20, 0
   br i1 %switch.lobit.not, label %if.then.i51, label %sw.epilog.i.sink.split
 
 switch.hole_check99:                              ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i54
-  %switch.maskindex101 = trunc i32 %13 to i8
+  %switch.maskindex101 = trunc nuw nsw i32 %13 to i8
   %switch.shifted102 = lshr i8 -107, %switch.maskindex101
   %21 = and i8 %switch.shifted102, 1
   %switch.lobit103.not = icmp eq i8 %21, 0
   br i1 %switch.lobit103.not, label %if.then.i60, label %sw.epilog.i.sink.split
 
 switch.hole_check106:                             ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i64
-  %switch.maskindex108 = trunc i32 %17 to i8
+  %switch.maskindex108 = trunc nuw nsw i32 %17 to i8
   %switch.shifted109 = lshr i8 -107, %switch.maskindex108
   %22 = and i8 %switch.shifted109, 1
   %switch.lobit110.not = icmp eq i8 %22, 0
@@ -3188,7 +3188,7 @@ for.body.i.i.epil:                                ; preds = %_ZN3fmt2v96detail12
   br i1 %epil.iter.cmp.not, label %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit, label %for.body.i.i.epil, !llvm.loop !124
 
 _ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit: ; preds = %for.body.i.i.epil, %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.unr-lcssa
-  %conv.i.i = trunc i64 %sub.ptr.sub16 to i8
+  %conv.i.i = trunc nuw nsw i64 %sub.ptr.sub16 to i8
   %size_.i.i = getelementptr inbounds i8, ptr %6, i64 15
   store i8 %conv.i.i, ptr %size_.i.i, align 1, !tbaa !84
   br label %if.end19
@@ -3566,7 +3566,7 @@ do.end.i:                                         ; preds = %land.lhs.true6.i, %
 
 if.end.i:                                         ; preds = %do.end.i
   %cmp14.i = icmp eq i64 %sub.ptr.sub.i, 10
-  br i1 %cmp14.i, label %land.lhs.true15.i, label %cond.false.i
+  br i1 %cmp14.i, label %land.lhs.true15.i, label %if.end
 
 land.lhs.true15.i:                                ; preds = %if.end.i
   %conv16.i = zext i32 %value.0.i to i64
@@ -3577,18 +3577,16 @@ land.lhs.true15.i:                                ; preds = %if.end.i
   %conv20.i = and i64 %sub19.i, 4294967294
   %add21.i = add nuw nsw i64 %conv20.i, %mul17.i
   %cmp22.i = icmp ult i64 %add21.i, 2147483648
-  br i1 %cmp22.i, label %if.end, label %cond.false.i
-
-cond.false.i:                                     ; preds = %land.lhs.true15.i, %if.end.i
+  %spec.select = select i1 %cmp22.i, i32 %add.i, i32 2147483647
   br label %if.end
 
 if.else:                                          ; preds = %if.then
   %incdec.ptr = getelementptr inbounds i8, ptr %begin, i64 1
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %cond.false.i, %land.lhs.true15.i, %do.end.i
-  %begin.addr.0 = phi ptr [ %incdec.ptr, %if.else ], [ %incdec.ptr.lcssa.i, %do.end.i ], [ %incdec.ptr.lcssa.i, %land.lhs.true15.i ], [ %incdec.ptr.lcssa.i, %cond.false.i ]
-  %index.0 = phi i32 [ 0, %if.else ], [ %add.i, %do.end.i ], [ %add.i, %land.lhs.true15.i ], [ 2147483647, %cond.false.i ]
+if.end:                                           ; preds = %land.lhs.true15.i, %if.end.i, %if.else, %do.end.i
+  %begin.addr.0 = phi ptr [ %incdec.ptr, %if.else ], [ %incdec.ptr.lcssa.i, %do.end.i ], [ %incdec.ptr.lcssa.i, %if.end.i ], [ %incdec.ptr.lcssa.i, %land.lhs.true15.i ]
+  %index.0 = phi i32 [ 0, %if.else ], [ %add.i, %do.end.i ], [ 2147483647, %if.end.i ], [ %spec.select, %land.lhs.true15.i ]
   %cmp8 = icmp eq ptr %begin.addr.0, %end
   br i1 %cmp8, label %if.then14, label %lor.lhs.false
 
@@ -3727,7 +3725,7 @@ do.end.i:                                         ; preds = %land.lhs.true6.i, %
 
 if.end.i:                                         ; preds = %do.end.i
   %cmp14.i = icmp eq i64 %sub.ptr.sub.i, 10
-  br i1 %cmp14.i, label %land.lhs.true15.i, label %cond.false.i
+  br i1 %cmp14.i, label %land.lhs.true15.i, label %if.end
 
 land.lhs.true15.i:                                ; preds = %if.end.i
   %conv16.i = zext i32 %value.0.i to i64
@@ -3738,18 +3736,16 @@ land.lhs.true15.i:                                ; preds = %if.end.i
   %conv20.i = and i64 %sub19.i, 4294967294
   %add21.i = add nuw nsw i64 %conv20.i, %mul17.i
   %cmp22.i = icmp ult i64 %add21.i, 2147483648
-  br i1 %cmp22.i, label %if.end, label %cond.false.i
-
-cond.false.i:                                     ; preds = %land.lhs.true15.i, %if.end.i
+  %spec.select = select i1 %cmp22.i, i32 %add.i, i32 2147483647
   br label %if.end
 
 if.else:                                          ; preds = %if.then
   %incdec.ptr = getelementptr inbounds i8, ptr %begin, i64 1
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %cond.false.i, %land.lhs.true15.i, %do.end.i
-  %begin.addr.0 = phi ptr [ %incdec.ptr, %if.else ], [ %incdec.ptr.lcssa.i, %do.end.i ], [ %incdec.ptr.lcssa.i, %land.lhs.true15.i ], [ %incdec.ptr.lcssa.i, %cond.false.i ]
-  %index.0 = phi i32 [ 0, %if.else ], [ %add.i, %do.end.i ], [ %add.i, %land.lhs.true15.i ], [ 2147483647, %cond.false.i ]
+if.end:                                           ; preds = %land.lhs.true15.i, %if.end.i, %if.else, %do.end.i
+  %begin.addr.0 = phi ptr [ %incdec.ptr, %if.else ], [ %incdec.ptr.lcssa.i, %do.end.i ], [ %incdec.ptr.lcssa.i, %if.end.i ], [ %incdec.ptr.lcssa.i, %land.lhs.true15.i ]
+  %index.0 = phi i32 [ 0, %if.else ], [ %add.i, %do.end.i ], [ 2147483647, %if.end.i ], [ %spec.select, %land.lhs.true15.i ]
   %cmp8 = icmp eq ptr %begin.addr.0, %end
   br i1 %cmp8, label %if.then14, label %lor.lhs.false
 
@@ -3962,7 +3958,7 @@ if.then:                                          ; preds = %_ZN3fmt2v916visit_f
 
 if.end:                                           ; preds = %_ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit, %_ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
   %retval.0.i14 = phi i64 [ %conv.i, %_ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %retval.0.i, %_ZN3fmt2v916visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %conv3 = trunc i64 %retval.0.i14 to i32
+  %conv3 = trunc nuw nsw i64 %retval.0.i14 to i32
   ret i32 %conv3
 }
 
@@ -4186,7 +4182,7 @@ if.then:                                          ; preds = %_ZN3fmt2v916visit_f
 
 if.end:                                           ; preds = %_ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit, %_ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
   %retval.0.i14 = phi i64 [ %conv.i, %_ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %retval.0.i, %_ZN3fmt2v916visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %conv3 = trunc i64 %retval.0.i14 to i32
+  %conv3 = trunc nuw nsw i64 %retval.0.i14 to i32
   ret i32 %conv3
 }
 
@@ -6204,7 +6200,7 @@ entry:
   store i32 0, ptr %this, align 4
   %call = tail call i64 @_ZN5folly11IPAddressV413tryFromStringENS_5RangeIPKcEE(ptr %addr.coerce0, ptr %addr.coerce1) #29, !range !56
   %maybeIp.sroa.6.0.extract.shift = lshr i64 %call, 32
-  %maybeIp.sroa.6.0.extract.trunc = trunc i64 %maybeIp.sroa.6.0.extract.shift to i8
+  %maybeIp.sroa.6.0.extract.trunc = trunc nuw nsw i64 %maybeIp.sroa.6.0.extract.shift to i8
   switch i8 %maybeIp.sroa.6.0.extract.trunc, label %if.end.i.i [
     i8 2, label %if.then
     i8 1, label %_ZNR5folly8ExpectedINS_11IPAddressV4ENS_20IPAddressFormatErrorEE5valueEv.exit
@@ -6871,7 +6867,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !7
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -8542,7 +8538,7 @@ _ZN5folly11IPAddressV49fetchMaskEm.exit:          ; preds = %entry
   %ref.tmp6.sroa.5.0.extract.shift = lshr i32 %5, 16
   %ref.tmp6.sroa.5.0.extract.trunc = trunc i32 %ref.tmp6.sroa.5.0.extract.shift to i8
   %ref.tmp6.sroa.6.0.extract.shift = lshr i32 %5, 24
-  %ref.tmp6.sroa.6.0.extract.trunc = trunc i32 %ref.tmp6.sroa.6.0.extract.shift to i8
+  %ref.tmp6.sroa.6.0.extract.trunc = trunc nuw i32 %ref.tmp6.sroa.6.0.extract.shift to i8
   %6 = load i8, ptr %this, align 4, !tbaa !7
   %and11.i = and i8 %6, %ref.tmp6.sroa.0.0.extract.trunc
   %arrayidx.i.i12.1.i = getelementptr inbounds i8, ptr %this, i64 1

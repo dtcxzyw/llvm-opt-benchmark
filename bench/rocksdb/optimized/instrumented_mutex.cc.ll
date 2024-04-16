@@ -179,19 +179,17 @@ _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %entry, %0
   %cmp.i = icmp ne ptr %2, null
   %cmp1.i = icmp ne ptr %3, null
   %or.cond.i = and i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %land.lhs.true2.i, label %if.else.i
+  br i1 %or.cond.i, label %land.lhs.true2.i, label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
 
 land.lhs.true2.i:                                 ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   %stats_level_.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load atomic i8, ptr %stats_level_.i.i monotonic, align 1
   %cmp3.i = icmp ugt i8 %4, 4
-  br i1 %cmp3.i, label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %land.lhs.true2.i, %_ZTWN7rocksdb12perf_contextE.exit
+  %spec.select.i = select i1 %cmp3.i, ptr %3, ptr null
   br label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
 
-_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit: ; preds = %land.lhs.true2.i, %if.else.i
-  %5 = phi ptr [ null, %if.else.i ], [ %3, %land.lhs.true2.i ]
+_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit: ; preds = %_ZTWN7rocksdb12perf_contextE.exit, %land.lhs.true2.i
+  %5 = phi ptr [ null, %_ZTWN7rocksdb12perf_contextE.exit ], [ %spec.select.i, %land.lhs.true2.i ]
   %stats_code_ = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i32, ptr %stats_code_, align 8
   br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i
@@ -394,19 +392,17 @@ _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %entry, %0
   %cmp.i = icmp ne ptr %2, null
   %cmp1.i = icmp ne ptr %3, null
   %or.cond.i = and i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %land.lhs.true2.i, label %if.else.i
+  br i1 %or.cond.i, label %land.lhs.true2.i, label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
 
 land.lhs.true2.i:                                 ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   %stats_level_.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load atomic i8, ptr %stats_level_.i.i monotonic, align 1
   %cmp3.i = icmp ugt i8 %4, 4
-  br i1 %cmp3.i, label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %land.lhs.true2.i, %_ZTWN7rocksdb12perf_contextE.exit
+  %spec.select.i = select i1 %cmp3.i, ptr %3, ptr null
   br label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
 
-_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit: ; preds = %land.lhs.true2.i, %if.else.i
-  %5 = phi ptr [ null, %if.else.i ], [ %3, %land.lhs.true2.i ]
+_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit: ; preds = %_ZTWN7rocksdb12perf_contextE.exit, %land.lhs.true2.i
+  %5 = phi ptr [ null, %_ZTWN7rocksdb12perf_contextE.exit ], [ %spec.select.i, %land.lhs.true2.i ]
   %stats_code_ = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i32, ptr %stats_code_, align 8
   br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i
@@ -543,19 +539,17 @@ _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %entry, %0
   %cmp.i = icmp ne ptr %2, null
   %cmp1.i = icmp ne ptr %3, null
   %or.cond.i = and i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %land.lhs.true2.i, label %if.else.i
+  br i1 %or.cond.i, label %land.lhs.true2.i, label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
 
 land.lhs.true2.i:                                 ; preds = %_ZTWN7rocksdb12perf_contextE.exit
   %stats_level_.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load atomic i8, ptr %stats_level_.i.i monotonic, align 1
   %cmp3.i = icmp ugt i8 %4, 4
-  br i1 %cmp3.i, label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %land.lhs.true2.i, %_ZTWN7rocksdb12perf_contextE.exit
+  %spec.select.i = select i1 %cmp3.i, ptr %3, ptr null
   br label %_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit
 
-_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit: ; preds = %land.lhs.true2.i, %if.else.i
-  %5 = phi ptr [ null, %if.else.i ], [ %3, %land.lhs.true2.i ]
+_ZN7rocksdb12_GLOBAL__N_116stats_for_reportEPNS_11SystemClockEPNS_10StatisticsE.exit: ; preds = %_ZTWN7rocksdb12perf_contextE.exit, %land.lhs.true2.i
+  %5 = phi ptr [ null, %_ZTWN7rocksdb12perf_contextE.exit ], [ %spec.select.i, %land.lhs.true2.i ]
   %stats_code_ = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i32, ptr %stats_code_, align 8
   br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %7, label %_ZTWN7rocksdb10perf_levelE.exit.i

@@ -4773,7 +4773,7 @@ if.end:                                           ; preds = %entry
   %_M_string_length.i9.i.i = getelementptr inbounds i8, ptr %b, i64 72
   %2 = load i64, ptr %_M_string_length.i9.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp eq i64 %1, %2
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %return
 
 land.rhs.i.i:                                     ; preds = %if.end
   %cmp.i.i.i = icmp eq i64 %1, 0
@@ -4785,13 +4785,10 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   %bcmp.i.i = tail call i32 @bcmp(ptr %4, ptr %3, i64 %1)
   %bcmp.i.i.fr = freeze i32 %bcmp.i.i
   %.not = icmp eq i32 %bcmp.i.i.fr, 0
-  br i1 %.not, label %return, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
-
-_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %if.end
   br label %return
 
-return:                                           ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %land.rhs.i.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ], [ true, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ true, %land.rhs.i.i ]
+return:                                           ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %if.end, %land.rhs.i.i, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %land.rhs.i.i ], [ false, %if.end ], [ %.not, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
   ret i1 %retval.0
 }
 
@@ -19840,7 +19837,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %8 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %8 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %8, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 

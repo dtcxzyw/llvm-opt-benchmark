@@ -1119,7 +1119,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 if.end26:                                         ; preds = %invoke.cont23
   %41 = load i8, ptr %change, align 1
   %tobool27 = trunc i8 %41 to i1
-  %tobool35 = trunc i8 %updated.0 to i1
+  %tobool35 = trunc nuw i8 %updated.0 to i1
   br i1 %tobool27, label %if.end34, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
@@ -2042,7 +2042,7 @@ for.inc103:                                       ; preds = %for.inc101, %invoke
   br label %for.cond, !llvm.loop !11
 
 for.end105:                                       ; preds = %_ZNK6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE4sizeEv.exit
-  %tobool106 = trunc i8 %updated.0 to i1
+  %tobool106 = trunc nuw i8 %updated.0 to i1
   br i1 %tobool106, label %if.then107, label %cleanup
 
 if.then107:                                       ; preds = %for.end105
@@ -2222,14 +2222,11 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  br i1 %call8, label %land.lhs.true, label %if.end12
+  br i1 %call8, label %land.lhs.true, label %cleanup
 
 land.lhs.true:                                    ; preds = %invoke.cont7
   %call10 = invoke noundef zeroext i1 @_ZgtRK8rationali(ptr noundef nonnull align 8 dereferenceable(32) %lo, i32 noundef 0)
-          to label %invoke.cont9 unwind label %lpad4
-
-invoke.cont9:                                     ; preds = %land.lhs.true
-  br i1 %call10, label %cleanup, label %if.end12
+          to label %cleanup unwind label %lpad4
 
 lpad4:                                            ; preds = %land.lhs.true, %invoke.cont
   %5 = landingpad { ptr, i32 }
@@ -2237,11 +2234,8 @@ lpad4:                                            ; preds = %land.lhs.true, %inv
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lo) #12
   br label %eh.resume
 
-if.end12:                                         ; preds = %invoke.cont9, %invoke.cont7
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont9, %if.end12
-  %switch = phi i1 [ true, %if.end12 ], [ false, %invoke.cont9 ]
+cleanup:                                          ; preds = %land.lhs.true, %invoke.cont7
+  %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont7 ], [ %call10, %land.lhs.true ]
   %6 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %lo)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -2283,7 +2277,7 @@ terminate.lpad.i15:                               ; preds = %if.then2.i.i.i
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN8rationalD2Ev.exit, %if.then.i.i.i, %if.then2.i.i.i
-  br i1 %switch, label %for.cond, label %return
+  br i1 %cleanup.dest.slot.0, label %return, label %for.cond
 
 invoke.cont23:                                    ; preds = %for.cond
   %.pre = load ptr, ptr %m_nodes.i, align 8

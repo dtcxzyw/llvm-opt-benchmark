@@ -363,7 +363,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @scsi_build_sense_buf(ptr nocapture noundef writeonly %out_buf, i64 noundef %size, i24 %sense.coerce, i1 noundef zeroext %fixed_sense) local_unnamed_addr #4 {
+define dso_local i32 @scsi_build_sense_buf(ptr nocapture noundef writeonly %out_buf, i64 noundef %size, i24 %sense.coerce, i1 noundef zeroext %fixed_sense) local_unnamed_addr #4 {
 entry:
   %buf = alloca [18 x i8], align 16
   %sense.sroa.0.0.extract.trunc = trunc i24 %sense.coerce to i8
@@ -392,13 +392,13 @@ if.end:                                           ; preds = %if.else, %if.then
   %sense.sroa.3.0.extract.trunc.sink = phi i8 [ %sense.sroa.3.0.extract.trunc, %if.else ], [ %sense.sroa.0.0.extract.trunc, %if.then ]
   %len.0 = phi i64 [ 8, %if.else ], [ 18, %if.then ]
   %sense.sroa.5.0.extract.shift = lshr i24 %sense.coerce, 16
-  %sense.sroa.5.0.extract.trunc = trunc i24 %sense.sroa.5.0.extract.shift to i8
+  %sense.sroa.5.0.extract.trunc = trunc nuw i24 %sense.sroa.5.0.extract.shift to i8
   store i8 %sense.sroa.5.0.extract.trunc, ptr %.sink8.sroa.phi, align 1
   store i8 %.sink, ptr %buf, align 16
   %buf.2..sroa_idx = getelementptr inbounds i8, ptr %buf, i64 2
   store i8 %sense.sroa.3.0.extract.trunc.sink, ptr %buf.2..sroa_idx, align 2
   %cond = tail call i64 @llvm.umin.i64(i64 %len.0, i64 %size)
-  %conv13 = trunc i64 %cond to i32
+  %conv13 = trunc nuw nsw i64 %cond to i32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out_buf, ptr nonnull align 16 %buf, i64 %cond, i1 false)
   ret i32 %conv13
 }
@@ -413,7 +413,7 @@ entry:
   %sense.sroa.3.0.extract.shift.i = lshr i24 %sense.coerce, 8
   %sense.sroa.3.0.extract.trunc.i = trunc i24 %sense.sroa.3.0.extract.shift.i to i8
   %sense.sroa.5.0.extract.shift.i = lshr i24 %sense.coerce, 16
-  %sense.sroa.5.0.extract.trunc.i = trunc i24 %sense.sroa.5.0.extract.shift.i to i8
+  %sense.sroa.5.0.extract.trunc.i = trunc nuw i24 %sense.sroa.5.0.extract.shift.i to i8
   store i8 112, ptr %buf, align 1
   %buf.i.sroa.5.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 0, ptr %buf.i.sroa.5.0.buf.sroa_idx, align 1
@@ -435,7 +435,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @scsi_convert_sense(ptr nocapture noundef readonly %in_buf, i32 noundef %in_len, ptr nocapture noundef writeonly %buf, i32 noundef %len, i1 noundef zeroext %fixed) local_unnamed_addr #1 {
+define dso_local i32 @scsi_convert_sense(ptr nocapture noundef readonly %in_buf, i32 noundef %in_len, ptr nocapture noundef writeonly %buf, i32 noundef %len, i1 noundef zeroext %fixed) local_unnamed_addr #1 {
 entry:
   %buf.i19 = alloca [18 x i8], align 16
   %buf.i = alloca [18 x i8], align 16
@@ -466,7 +466,7 @@ scsi_build_sense_buf.exit:                        ; preds = %if.then, %if.then.i
   %buf.i.2.buf.i.2.buf.i.2..sroa_idx = getelementptr inbounds i8, ptr %buf.i, i64 2
   store i8 0, ptr %buf.i.2.buf.i.2.buf.i.2..sroa_idx, align 2
   %cond.i = tail call i64 @llvm.umin.i64(i64 %len.0.i, i64 %conv)
-  %conv13.i = trunc i64 %cond.i to i32
+  %conv13.i = trunc nuw nsw i64 %cond.i to i32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 16 %buf.i, i64 %cond.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buf.i)
   br label %return
@@ -547,7 +547,7 @@ scsi_build_sense_buf.exit32:                      ; preds = %if.then.i29, %if.el
   %buf.i19.2.buf.i19.2.buf.i19.2..sroa_idx = getelementptr inbounds i8, ptr %buf.i19, i64 2
   store i8 %sense.sroa.3.0.extract.trunc.sink.i, ptr %buf.i19.2.buf.i19.2.buf.i19.2..sroa_idx, align 2
   %cond.i27 = tail call i64 @llvm.umin.i64(i64 %len.0.i25, i64 %conv24)
-  %conv13.i28 = trunc i64 %cond.i27 to i32
+  %conv13.i28 = trunc nuw nsw i64 %cond.i27 to i32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 16 %buf.i19, i64 %cond.i27, i1 false)
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buf.i19)
   br label %return
@@ -644,11 +644,11 @@ if.end.i:                                         ; preds = %if.end
 
 if.then3.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp ult i32 %conv, 14
-  br i1 %cmp4.i, label %sw.bb1.i, label %scsi_parse_sense_buf.exit
+  br i1 %cmp4.i, label %return, label %scsi_parse_sense_buf.exit
 
 if.else11.i:                                      ; preds = %if.end.i
   %cmp12.i = icmp ult i32 %conv, 4
-  br i1 %cmp12.i, label %sw.bb1.i, label %scsi_parse_sense_buf.exit
+  br i1 %cmp12.i, label %return, label %scsi_parse_sense_buf.exit
 
 scsi_parse_sense_buf.exit:                        ; preds = %if.then3.i, %if.else11.i
   %.sink13.i = phi i64 [ 2, %if.then3.i ], [ 1, %if.else11.i ]
@@ -666,7 +666,7 @@ scsi_parse_sense_buf.exit:                        ; preds = %if.then3.i, %if.els
     i8 7, label %sw.epilog.i
   ]
 
-sw.bb1.i:                                         ; preds = %if.else11.i, %if.then3.i, %scsi_parse_sense_buf.exit
+sw.bb1.i:                                         ; preds = %scsi_parse_sense_buf.exit
   br label %return
 
 sw.default.i:                                     ; preds = %scsi_parse_sense_buf.exit
@@ -718,8 +718,8 @@ sw.bb9.i:                                         ; preds = %sw.epilog.i
 sw.default10.i:                                   ; preds = %sw.epilog.i
   br label %return
 
-return:                                           ; preds = %sw.default10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.default.i, %sw.bb1.i, %scsi_parse_sense_buf.exit, %scsi_parse_sense_buf.exit, %scsi_parse_sense_buf.exit, %entry
-  %retval.0 = phi i32 [ 5, %entry ], [ 5, %sw.default.i ], [ 5, %sw.default10.i ], [ 107, %sw.bb9.i ], [ 115, %sw.bb8.i ], [ 13, %sw.bb7.i ], [ 123, %sw.bb6.i ], [ 95, %sw.bb5.i ], [ 28, %sw.bb4.i ], [ 125, %sw.bb1.i ], [ 11, %scsi_parse_sense_buf.exit ], [ 11, %scsi_parse_sense_buf.exit ], [ 11, %scsi_parse_sense_buf.exit ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ]
+return:                                           ; preds = %if.else11.i, %if.then3.i, %sw.default10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.epilog.i, %sw.default.i, %sw.bb1.i, %scsi_parse_sense_buf.exit, %scsi_parse_sense_buf.exit, %scsi_parse_sense_buf.exit, %entry
+  %retval.0 = phi i32 [ 5, %entry ], [ 5, %sw.default.i ], [ 5, %sw.default10.i ], [ 107, %sw.bb9.i ], [ 115, %sw.bb8.i ], [ 13, %sw.bb7.i ], [ 123, %sw.bb6.i ], [ 95, %sw.bb5.i ], [ 28, %sw.bb4.i ], [ 11, %scsi_parse_sense_buf.exit ], [ 11, %scsi_parse_sense_buf.exit ], [ 11, %scsi_parse_sense_buf.exit ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 22, %sw.epilog.i ], [ 125, %sw.bb1.i ], [ 125, %if.then3.i ], [ 125, %if.else11.i ]
   ret i32 %retval.0
 }
 

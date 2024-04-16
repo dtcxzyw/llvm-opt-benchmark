@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @init_reader(ptr nocapture noundef %r, ptr nocapture noundef readonly %source, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local i32 @init_reader(ptr nocapture noundef %r, ptr nocapture noundef readonly %source, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %footer = alloca %struct.reftable_block, align 8
   %header = alloca %struct.reftable_block, align 8
@@ -565,18 +565,16 @@ lor.end.i:                                        ; preds = %lor.rhs.i, %if.end4
   %cmp69.i = icmp ne i64 %87, 0
   %conv70.i = zext i1 %cmp69.i to i32
   store i32 %conv70.i, ptr %obj_offsets.i, align 8
-  br i1 %cmp69.i, label %land.lhs.true.i, label %if.end79.i
+  br i1 %cmp69.i, label %land.lhs.true.i, label %done
 
 land.lhs.true.i:                                  ; preds = %lor.end.i
   %88 = load i32, ptr %object_id_len.i, align 8
   %tobool77.not.i = icmp eq i32 %88, 0
-  br i1 %tobool77.not.i, label %done, label %if.end79.i
-
-if.end79.i:                                       ; preds = %land.lhs.true.i, %lor.end.i
+  %spec.select.i = select i1 %tobool77.not.i, i32 -3, i32 0
   br label %done
 
-done:                                             ; preds = %if.end79.i, %land.lhs.true.i, %if.end20.i, %if.else.i, %if.end.i, %if.end36, %if.end10, %if.end20, %if.end7, %if.end, %entry
-  %err.0 = phi i32 [ -3, %entry ], [ -2, %if.end ], [ -3, %if.end7 ], [ -3, %if.end10 ], [ -2, %if.end20 ], [ 0, %if.end79.i ], [ -3, %if.end36 ], [ -3, %if.end.i ], [ -3, %if.else.i ], [ -3, %if.end20.i ], [ -3, %land.lhs.true.i ]
+done:                                             ; preds = %land.lhs.true.i, %lor.end.i, %if.end20.i, %if.else.i, %if.end.i, %if.end36, %if.end10, %if.end20, %if.end7, %if.end, %entry
+  %err.0 = phi i32 [ -3, %entry ], [ -2, %if.end ], [ -3, %if.end7 ], [ -3, %if.end10 ], [ -2, %if.end20 ], [ -3, %if.end36 ], [ -3, %if.end.i ], [ -3, %if.else.i ], [ -3, %if.end20.i ], [ 0, %lor.end.i ], [ %spec.select.i, %land.lhs.true.i ]
   call void @reftable_block_done(ptr noundef nonnull %footer) #11
   call void @reftable_block_done(ptr noundef nonnull %header) #11
   ret i32 %err.0
@@ -1122,7 +1120,7 @@ block_source_close.exit:                          ; preds = %entry, %if.end.i
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @reftable_new_reader(ptr nocapture noundef writeonly %p, ptr nocapture noundef %src, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local i32 @reftable_new_reader(ptr nocapture noundef writeonly %p, ptr nocapture noundef %src, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @reftable_calloc(i64 noundef 136) #11
   %call1 = tail call i32 @init_reader(ptr noundef %call, ptr noundef %src, ptr noundef %name), !range !6

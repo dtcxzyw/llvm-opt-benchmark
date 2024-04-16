@@ -977,18 +977,15 @@ if.else5:                                         ; preds = %if.else
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
-  br i1 %cmp.not, label %if.else11, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else5
   %call.i4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %call8) #25
   %cmp.i5 = icmp eq i32 %call.i4, 0
-  br i1 %cmp.i5, label %return, label %if.else11
-
-if.else11:                                        ; preds = %land.lhs.true, %if.else5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %entry, %if.else11
-  %retval.0 = phi i1 [ false, %if.else11 ], [ false, %entry ], [ true, %if.else ], [ true, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else5, %if.else, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.else ], [ false, %if.else5 ], [ %cmp.i5, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -1733,7 +1730,7 @@ if.else.i.i:                                      ; preds = %lor.lhs.false8.i.i
   br label %while.body.i.i13, !llvm.loop !11
 
 _ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i: ; preds = %lor.lhs.false8.i.i
-  br i1 %cmp3.i.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %cmp3.i.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %cond.end.i.i, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i
   %30 = load ptr, ptr %compare_.i.i, align 8
@@ -1743,13 +1740,10 @@ land.lhs.true.i:                                  ; preds = %cond.end.i.i, %_ZNK
   %32 = load ptr, ptr %vfn.i5.i, align 8
   %call.i.i17 = call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %key, ptr noundef %31)
   %cmp.i.i18 = icmp eq i32 %call.i.i17, 0
-  br i1 %cmp.i.i18, label %return, label %if.else.i
-
-if.else.i:                                        ; preds = %land.lhs.true.i, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i
   br label %return
 
-return:                                           ; preds = %while.body.i.i, %if.else.i, %land.lhs.true.i, %land.rhs.i, %if.end8, %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
-  %retval.0 = phi i1 [ false, %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit ], [ false, %if.end8 ], [ %cmp.i3.i, %land.rhs.i ], [ false, %if.else.i ], [ true, %land.lhs.true.i ], [ false, %while.body.i.i ]
+return:                                           ; preds = %while.body.i.i, %land.lhs.true.i, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i, %land.rhs.i, %if.end8, %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit
+  %retval.0 = phi i1 [ false, %_ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit ], [ false, %if.end8 ], [ %cmp.i3.i, %land.rhs.i ], [ false, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i ], [ %cmp.i.i18, %land.lhs.true.i ], [ false, %while.body.i.i ]
   ret i1 %retval.0
 }
 
@@ -2493,7 +2487,7 @@ land.rhs.i35:                                     ; preds = %while.body.i37, %la
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i

@@ -111,7 +111,7 @@ for.body9:                                        ; preds = %for.end, %for.inc11
   %youngest.091 = phi i32 [ -1, %for.end ], [ %youngest.1, %for.inc113 ]
   %youngest_evicting.090 = phi i1 [ false, %for.end ], [ %youngest_evicting.1, %for.inc113 ]
   %youngest_age.089 = phi i64 [ -1, %for.end ], [ %youngest_age.1, %for.inc113 ]
-  %5 = trunc i64 %indvars.iv100 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv100 to i32
   %mul = mul i32 %4, %5
   %6 = load i32, ptr %window_cur, align 4
   %rem = urem i32 %6, %4
@@ -249,7 +249,7 @@ land.lhs.true95:                                  ; preds = %if.end92
   %div9872 = lshr i32 %15, 1
   %conv99 = zext nneg i32 %div9872 to i64
   %cmp100 = icmp ugt i64 %w_sum.sroa.1074.1, %conv99
-  br i1 %cmp100, label %if.then109, label %lor.lhs.false
+  br i1 %cmp100, label %for.inc113, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true95
   %conv104 = uitofp i32 %15 to float
@@ -257,13 +257,13 @@ lor.lhs.false:                                    ; preds = %land.lhs.true95
   %cmp107 = fcmp ogt float %div105, 2.500000e-01
   br i1 %cmp107, label %if.then109, label %for.inc113
 
-if.then109:                                       ; preds = %lor.lhs.false, %land.lhs.true95
+if.then109:                                       ; preds = %lor.lhs.false
   br label %for.inc113
 
-for.inc113:                                       ; preds = %if.end92, %lor.lhs.false, %if.then109
-  %youngest_age.1 = phi i64 [ %div64, %if.then109 ], [ %youngest_age.089, %lor.lhs.false ], [ %youngest_age.089, %if.end92 ]
-  %youngest_evicting.1 = phi i1 [ %cmp24.not, %if.then109 ], [ %youngest_evicting.090, %lor.lhs.false ], [ %youngest_evicting.090, %if.end92 ]
-  %youngest.1 = phi i32 [ %5, %if.then109 ], [ %youngest.091, %lor.lhs.false ], [ %youngest.091, %if.end92 ]
+for.inc113:                                       ; preds = %land.lhs.true95, %if.end92, %lor.lhs.false, %if.then109
+  %youngest_age.1 = phi i64 [ %youngest_age.089, %lor.lhs.false ], [ %youngest_age.089, %if.end92 ], [ %div64, %land.lhs.true95 ], [ %div64, %if.then109 ]
+  %youngest_evicting.1 = phi i1 [ %youngest_evicting.090, %lor.lhs.false ], [ %youngest_evicting.090, %if.end92 ], [ %cmp24.not, %land.lhs.true95 ], [ %cmp24.not, %if.then109 ]
+  %youngest.1 = phi i32 [ %youngest.091, %lor.lhs.false ], [ %youngest.091, %if.end92 ], [ %5, %land.lhs.true95 ], [ %5, %if.then109 ]
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next101, 64
   br i1 %exitcond102.not, label %for.end115, label %for.body9, !llvm.loop !8

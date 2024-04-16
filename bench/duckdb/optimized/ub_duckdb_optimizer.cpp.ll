@@ -9929,7 +9929,7 @@ invoke.cont63:                                    ; preds = %if.end60
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %max_val) #27
   %conv64 = zext i8 %max_numeric.0 to i32
   %add = add nuw nsw i32 %conv64, 1
-  %conv65 = trunc i32 %add to i16
+  %conv65 = trunc nuw nsw i32 %add to i16
   invoke void @_ZN6duckdb5Value9USMALLINTEt(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %max_val, i16 noundef zeroext %conv65)
           to label %invoke.cont67 unwind label %lpad66
 
@@ -22130,7 +22130,7 @@ invoke.cont:                                      ; preds = %entry
 if.then:                                          ; preds = %invoke.cont
   %0 = load i8, ptr %return_type, align 8, !tbaa !33
   %cmp.not = icmp eq i8 %0, 25
-  br i1 %cmp.not, label %cleanup.done42.thread, label %lor.lhs.false
+  br i1 %cmp.not, label %if.end48, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp4) #27
@@ -22157,7 +22157,7 @@ call.i66.noexc:                                   ; preds = %lor.rhs
 cleanup.done42.thread72:                          ; preds = %lor.lhs.false
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp4) #27
-  br label %cleanup.done42.thread
+  br label %if.end48
 
 cleanup.done42:                                   ; preds = %call.i66.noexc
   %3 = load i8, ptr %ref.tmp15, align 8, !tbaa !33
@@ -22167,9 +22167,7 @@ cleanup.done42:                                   ; preds = %call.i66.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp15) #27
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp4) #27
-  br i1 %cmp23, label %cleanup.done42.thread, label %if.end48
-
-cleanup.done42.thread:                            ; preds = %cleanup.done42, %cleanup.done42.thread72, %if.then
+  %spec.select = select i1 %cmp23, i64 200, i64 5
   br label %if.end48
 
 lpad:                                             ; preds = %entry
@@ -22187,8 +22185,8 @@ lpad17:                                           ; preds = %call.i66.noexc, %lo
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp4) #27
   br label %ehcleanup51
 
-if.end48:                                         ; preds = %cleanup.done42.thread, %cleanup.done42, %invoke.cont
-  %cast_cost.0 = phi i64 [ 0, %invoke.cont ], [ 200, %cleanup.done42.thread ], [ 5, %cleanup.done42 ]
+if.end48:                                         ; preds = %cleanup.done42, %if.then, %cleanup.done42.thread72, %invoke.cont
+  %cast_cost.0 = phi i64 [ 0, %invoke.cont ], [ 200, %cleanup.done42.thread72 ], [ 200, %if.then ], [ %spec.select, %cleanup.done42 ]
   %call49 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %child.i)
   %call50 = call noundef i64 @_ZN6duckdb20ExpressionHeuristics4CostERNS_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %call49)
   %add = add i64 %call50, %cast_cost.0

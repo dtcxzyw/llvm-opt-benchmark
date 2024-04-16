@@ -168,7 +168,7 @@ define internal noundef i64 @dir_read(ptr nocapture noundef %0, ptr noundef %1, 
   %7 = icmp eq ptr %1, null
   %8 = icmp ult i64 %2, 34
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %64, label %9
+  br i1 %or.cond, label %.thread, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %6, i64 26
@@ -251,7 +251,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 read_pseudodir.exit.thread20:                     ; preds = %40, %45
   tail call void @inode_unlock() #7
   tail call void @inode_release(ptr noundef nonnull %42) #7
-  br label %60
+  br label %58
 
 read_pseudodir.exit:                              ; preds = %9
   %49 = getelementptr inbounds i8, ptr %6, i64 32
@@ -261,29 +261,23 @@ read_pseudodir.exit:                              ; preds = %9
   %53 = tail call i32 %52(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %1) #7
   %.fr = freeze i32 %53
   %54 = icmp slt i32 %.fr, 0
-  br i1 %54, label %55, label %60
+  br i1 %54, label %55, label %58
 
 55:                                               ; preds = %read_pseudodir.exit
   %56 = icmp eq i32 %.fr, -2
-  br i1 %56, label %.thread, label %57
+  %spec.select = select i1 %56, i32 0, i32 %.fr
+  %57 = sext i32 %spec.select to i64
+  br label %.thread
 
-.thread:                                          ; preds = %14, %55
-  br label %57
+58:                                               ; preds = %read_pseudodir.exit.thread20, %read_pseudodir.exit
+  %59 = getelementptr inbounds i8, ptr %0, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 4
+  br label %.thread
 
-57:                                               ; preds = %55, %.thread
-  %58 = phi i32 [ 0, %.thread ], [ %.fr, %55 ]
-  %59 = sext i32 %58 to i64
-  br label %64
-
-60:                                               ; preds = %read_pseudodir.exit.thread20, %read_pseudodir.exit
-  %61 = getelementptr inbounds i8, ptr %0, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %61, align 4
-  br label %64
-
-64:                                               ; preds = %3, %60, %57
-  %.016 = phi i64 [ %59, %57 ], [ 34, %60 ], [ -22, %3 ]
+.thread:                                          ; preds = %14, %55, %3, %58
+  %.016 = phi i64 [ 34, %58 ], [ -22, %3 ], [ 0, %14 ], [ %57, %55 ]
   ret i64 %.016
 }
 

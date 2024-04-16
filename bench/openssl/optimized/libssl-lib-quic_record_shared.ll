@@ -28,20 +28,18 @@ if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %enc_level to i64
   %arrayidx = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom
   %tobool6.not = icmp eq i32 %require_prov, 0
-  br i1 %tobool6.not, label %if.end9, label %if.then7
+  br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   %state = getelementptr inbounds i8, ptr %arrayidx, i64 104
   %0 = load i8, ptr %state, align 8
   %.off = add i8 %0, -1
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %if.end9, label %return
-
-if.end9:                                          ; preds = %if.then7, %if.end
+  %spec.select = select i1 %switch, ptr %arrayidx, ptr null
   br label %return
 
-return:                                           ; preds = %if.then7, %entry, %if.end9
-  %retval.0 = phi ptr [ %arrayidx, %if.end9 ], [ null, %entry ], [ null, %if.then7 ]
+return:                                           ; preds = %if.then7, %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %arrayidx, %if.end ], [ %spec.select, %if.then7 ]
   ret ptr %retval.0
 }
 
@@ -217,7 +215,7 @@ if.end49:                                         ; preds = %if.then43, %if.end4
   store i64 0, ptr %op_count, align 8
   %key_epoch = getelementptr inbounds i8, ptr %retval.0.i, i64 80
   store i64 %conv, ptr %key_epoch, align 8
-  %conv56 = trunc i32 %is_tx to i8
+  %conv56 = trunc nuw i32 %is_tx to i8
   %is_tx57 = getelementptr inbounds i8, ptr %retval.0.i, i64 105
   store i8 %conv56, ptr %is_tx57, align 1
   %call58 = call i32 @tls13_hkdf_expand_ex(ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %md.addr.0, ptr noundef %secret, ptr noundef nonnull @quic_v1_hp_label, i64 noundef 7, ptr noundef null, i64 noundef 0, ptr noundef nonnull %hpr_key, i64 noundef %conv36, i32 noundef 1) #5

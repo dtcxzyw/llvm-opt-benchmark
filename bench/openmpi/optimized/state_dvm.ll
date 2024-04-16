@@ -1057,7 +1057,7 @@ pmix_pointer_array_get_item.exit134:              ; preds = %215, %230
   br i1 %.not126, label %230, label %225
 
 225:                                              ; preds = %pmix_pointer_array_get_item.exit134
-  %226 = trunc i64 %indvars.iv149 to i32
+  %226 = trunc nuw nsw i64 %indvars.iv149 to i32
   %227 = call i32 @pmix_pointer_array_set_item(ptr noundef nonnull %220, i32 noundef %226, ptr noundef null) #14
   %228 = load ptr, ptr getelementptr inbounds (%struct.prte_plm_base_module_1_0_0_t, ptr @prte_plm, i64 0, i32 2), align 8
   %229 = call i32 %228(ptr noundef nonnull %224) #14
@@ -2585,8 +2585,8 @@ pmix_obj_run_destructors.exit463:                 ; preds = %.lr.ph.i460, %436
   %switch.selectcmp = icmp eq i16 %489, 20
   br label %490
 
-490:                                              ; preds = %483, %486
-  %.0318 = phi i1 [ %switch.selectcmp, %486 ], [ true, %483 ]
+490:                                              ; preds = %486, %483
+  %.0318 = phi i1 [ true, %483 ], [ %switch.selectcmp, %486 ]
   %491 = call noalias ptr @hwloc_bitmap_alloc() #14
   %492 = getelementptr inbounds i8, ptr %482, i64 160
   %493 = load ptr, ptr %492, align 8
@@ -2860,7 +2860,7 @@ pmix_pointer_array_get_item.exit469.thread:       ; preds = %528, %630, %632, %6
 
 ._crit_edge534:                                   ; preds = %pmix_pointer_array_get_item.exit469.thread, %516
   %639 = load ptr, ptr %492, align 8
-  %640 = trunc i64 %indvars.iv to i32
+  %640 = trunc nuw nsw i64 %indvars.iv to i32
   %641 = call i32 @pmix_pointer_array_set_item(ptr noundef %639, i32 noundef %640, ptr noundef null) #14
   %642 = call i32 @pthread_mutex_lock(ptr noundef nonnull %503) #14
   %643 = icmp eq i32 %642, 35

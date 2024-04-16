@@ -301,14 +301,16 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
 land.lhs.true8:                                   ; preds = %land.lhs.true4
   %version = getelementptr inbounds i8, ptr %buf, i64 64
   %0 = load i32, ptr %version, align 1
-  %1 = add i32 %0, -65536
-  %switch.and = and i32 %1, -65537
-  %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %2 = select i1 %switch.selectcmp, i32 100, i32 0
+  %cmp10 = icmp eq i32 %0, 131072
+  br i1 %cmp10, label %return, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %land.lhs.true8
+  %cmp13 = icmp eq i32 %0, 65536
+  %spec.select = select i1 %cmp13, i32 100, i32 0
   br label %return
 
-return:                                           ; preds = %if.end, %land.lhs.true, %land.lhs.true4, %land.lhs.true8, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %2, %land.lhs.true8 ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true ], [ 0, %if.end ]
+return:                                           ; preds = %lor.lhs.false, %if.end, %land.lhs.true, %land.lhs.true4, %land.lhs.true8, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 100, %land.lhs.true8 ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ %spec.select, %lor.lhs.false ]
   ret i32 %retval.0
 }
 
@@ -412,7 +414,7 @@ seek_to_sector.exit.thread17:                     ; preds = %if.end.i
 if.end19.i:                                       ; preds = %if.end.i
   %11 = load i8, ptr %bitmap_entry.i, align 1
   %conv2018.i = zext i8 %11 to i32
-  %12 = trunc i64 %div315.i to i32
+  %12 = trunc nuw nsw i64 %div315.i to i32
   %sh_prom.i = and i32 %12, 7
   %13 = shl nuw nsw i32 1, %sh_prom.i
   %14 = and i32 %13, %conv2018.i
@@ -561,7 +563,7 @@ if.then17:                                        ; preds = %if.end
 if.end19:                                         ; preds = %if.end
   %9 = load i8, ptr %bitmap_entry, align 1
   %conv2018 = zext i8 %9 to i32
-  %10 = trunc i64 %div315 to i32
+  %10 = trunc nuw nsw i64 %div315 to i32
   %sh_prom = and i32 %10, 7
   %11 = shl nuw nsw i32 1, %sh_prom
   %12 = and i32 %11, %conv2018

@@ -37,18 +37,16 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq ptr %engine, null
-  br i1 %tobool.not, label %if.then6, label %if.then1
+  br i1 %tobool.not, label %if.end8, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call ptr @ENGINE_get_RSA_method(ptr noundef nonnull %engine) #9
   %0 = icmp eq ptr %call2, null
-  br i1 %0, label %if.then6, label %if.end8
-
-if.then6:                                         ; preds = %if.end, %if.then1
+  %spec.select = select i1 %0, ptr @RSA_default_method, ptr %call2
   br label %if.end8
 
-if.end8:                                          ; preds = %if.then6, %if.then1
-  %storemerge = phi ptr [ @RSA_default_method, %if.then6 ], [ %call2, %if.then1 ]
+if.end8:                                          ; preds = %if.then1, %if.end
+  %storemerge = phi ptr [ @RSA_default_method, %if.end ], [ %spec.select, %if.then1 ]
   store ptr %storemerge, ptr %calloc, align 8
   tail call void @METHOD_ref(ptr noundef nonnull %storemerge) #9
   %references = getelementptr inbounds i8, ptr %calloc, i64 88
@@ -386,7 +384,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %conv5 = trunc i64 %4 to i32
+  %conv5 = trunc nuw nsw i64 %4 to i32
   br label %return
 
 return:                                           ; preds = %RSA_encrypt.exit, %if.end4, %if.then3
@@ -491,7 +489,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %conv5 = trunc i64 %4 to i32
+  %conv5 = trunc nuw nsw i64 %4 to i32
   br label %return
 
 return:                                           ; preds = %RSA_sign_raw.exit, %if.end4, %if.then3
@@ -573,7 +571,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %conv5 = trunc i64 %4 to i32
+  %conv5 = trunc nuw nsw i64 %4 to i32
   br label %return
 
 return:                                           ; preds = %RSA_decrypt.exit, %if.end4, %if.then3
@@ -616,7 +614,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %conv5 = trunc i64 %2 to i32
+  %conv5 = trunc nuw nsw i64 %2 to i32
   br label %return
 
 return:                                           ; preds = %RSA_size.exit, %if.end4, %if.then3

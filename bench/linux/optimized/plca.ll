@@ -81,7 +81,7 @@ define internal noundef i32 @plca_get_cfg_fill_reply(ptr noundef %0, ptr nocaptu
   %16 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #5
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %63
+  br i1 %17, label %18, label %62
 
 18:                                               ; preds = %14, %3
   %19 = getelementptr inbounds i8, ptr %2, i64 12
@@ -97,7 +97,7 @@ define internal noundef i32 @plca_get_cfg_fill_reply(ptr noundef %0, ptr nocaptu
   %25 = call i32 @nla_put(ptr noundef %0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #5
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %63
+  br i1 %26, label %27, label %62
 
 27:                                               ; preds = %22, %18
   %28 = getelementptr inbounds i8, ptr %2, i64 16
@@ -111,7 +111,7 @@ define internal noundef i32 @plca_get_cfg_fill_reply(ptr noundef %0, ptr nocaptu
   %32 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %63
+  br i1 %33, label %34, label %62
 
 34:                                               ; preds = %31, %27
   %35 = getelementptr inbounds i8, ptr %2, i64 20
@@ -125,7 +125,7 @@ define internal noundef i32 @plca_get_cfg_fill_reply(ptr noundef %0, ptr nocaptu
   %39 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %63
+  br i1 %40, label %41, label %62
 
 41:                                               ; preds = %38, %34
   %42 = getelementptr inbounds i8, ptr %2, i64 24
@@ -139,7 +139,7 @@ define internal noundef i32 @plca_get_cfg_fill_reply(ptr noundef %0, ptr nocaptu
   %46 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 4, ptr noundef nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %63
+  br i1 %47, label %48, label %62
 
 48:                                               ; preds = %45, %41
   %49 = getelementptr inbounds i8, ptr %2, i64 28
@@ -153,7 +153,7 @@ define internal noundef i32 @plca_get_cfg_fill_reply(ptr noundef %0, ptr nocaptu
   %53 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 4, ptr noundef nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %63
+  br i1 %54, label %55, label %62
 
 55:                                               ; preds = %52, %48
   %56 = getelementptr inbounds i8, ptr %2, i64 32
@@ -167,14 +167,12 @@ define internal noundef i32 @plca_get_cfg_fill_reply(ptr noundef %0, ptr nocaptu
   %60 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 4, ptr noundef nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %63
+  %spec.select = select i1 %61, i32 0, i32 -90
+  br label %62
 
-62:                                               ; preds = %59, %55
-  br label %63
-
-63:                                               ; preds = %62, %59, %52, %45, %38, %31, %22, %14
-  %64 = phi i32 [ 0, %62 ], [ -90, %59 ], [ -90, %52 ], [ -90, %45 ], [ -90, %38 ], [ -90, %31 ], [ -90, %22 ], [ -90, %14 ]
-  ret i32 %64
+62:                                               ; preds = %59, %55, %52, %45, %38, %31, %22, %14
+  %63 = phi i32 [ -90, %52 ], [ -90, %45 ], [ -90, %38 ], [ -90, %31 ], [ -90, %22 ], [ -90, %14 ], [ 0, %55 ], [ %spec.select, %59 ]
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

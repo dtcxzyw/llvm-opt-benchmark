@@ -438,20 +438,20 @@ if.end27.i:                                       ; preds = %if.else.i122.if.end
 if.end32.i:                                       ; preds = %if.end27.i
   %24 = load i8, ptr @opt_retain, align 1
   %tobool33.i = trunc i8 %24 to i1
-  br i1 %tobool33.i, label %if.end44.i, label %if.else37.i
+  br i1 %tobool33.i, label %if.end20, label %if.else37.i
 
 if.else37.i:                                      ; preds = %if.end32.i
   %25 = xor i64 %.val100, %edata.val98
   %26 = and i64 %25, 4095
   %cmp40.i.not = icmp eq i64 %26, 0
-  br i1 %cmp40.i.not, label %if.end44.i, label %return
+  br i1 %cmp40.i.not, label %if.end20, label %return
 
-if.end44.i:                                       ; preds = %if.else37.i, %if.end32.i
+if.end20:                                         ; preds = %if.else37.i, %if.end32.i
   call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %emap, ptr noundef nonnull %17, i32 noundef 5)
   br label %return
 
-return:                                           ; preds = %if.else37.i, %if.end27.i, %if.else.i122, %land.lhs.true.i, %if.then11.i, %if.else.i141, %if.then.i144, %monotonic.i.i, %rtree_leaf_elm_lookup.exit, %cond.end, %if.end44.i
-  %retval.0 = phi ptr [ %17, %if.end44.i ], [ null, %cond.end ], [ null, %rtree_leaf_elm_lookup.exit ], [ null, %monotonic.i.i ], [ null, %if.then.i144 ], [ null, %if.else.i141 ], [ null, %if.then11.i ], [ null, %land.lhs.true.i ], [ null, %if.else.i122 ], [ null, %if.end27.i ], [ null, %if.else37.i ]
+return:                                           ; preds = %monotonic.i.i, %if.then.i144, %if.else.i141, %if.then11.i, %land.lhs.true.i, %if.else.i122, %if.end27.i, %if.else37.i, %rtree_leaf_elm_lookup.exit, %cond.end, %if.end20
+  %retval.0 = phi ptr [ %17, %if.end20 ], [ null, %cond.end ], [ null, %rtree_leaf_elm_lookup.exit ], [ null, %if.else37.i ], [ null, %if.end27.i ], [ null, %if.else.i122 ], [ null, %land.lhs.true.i ], [ null, %if.then11.i ], [ null, %if.else.i141 ], [ null, %if.then.i144 ], [ null, %monotonic.i.i ]
   ret ptr %retval.0
 }
 
@@ -1572,7 +1572,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
   %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !11
   %shr.i63 = lshr i64 %10, 48
-  %conv.i64 = trunc i64 %shr.i63 to i32
+  %conv.i64 = trunc nuw nsw i64 %shr.i63 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %conv.i64, ptr %metadata.i, align 8, !alias.scope !14
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17
@@ -1731,7 +1731,7 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %for.end.i, %if.then
 acquire.i.i:                                      ; preds = %rtree_leaf_elm_lookup.exit
   %10 = load atomic i64, ptr %retval.i.0 acquire, align 8, !noalias !17
   %shr.i63 = lshr i64 %10, 48
-  %conv.i64 = trunc i64 %shr.i63 to i32
+  %conv.i64 = trunc nuw nsw i64 %shr.i63 to i32
   %11 = trunc i64 %10 to i8
   %frombool.i = and i8 %11, 1
   %12 = lshr i8 %11, 1

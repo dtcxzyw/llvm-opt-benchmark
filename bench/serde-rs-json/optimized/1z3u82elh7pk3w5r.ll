@@ -200,7 +200,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01952874170
   br i1 %30, label %57, label %14
 
 31:                                               ; preds = %24
-  %32 = trunc i32 %0 to i8
+  %32 = trunc nuw i32 %0 to i8
   store i8 %32, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 
@@ -213,7 +213,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01952874170
 
 36:                                               ; preds = %25
   %37 = lshr i32 %0, 6
-  %38 = trunc i32 %37 to i8
+  %38 = trunc nuw i32 %37 to i8
   %39 = or disjoint i8 %38, -64
   store i8 %39, ptr %1, align 1
   %40 = trunc i32 %0 to i8
@@ -225,7 +225,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01952874170
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
-  %46 = trunc i32 %45 to i8
+  %46 = trunc nuw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %1, align 1
   %48 = lshr i32 %0, 6
@@ -469,7 +469,7 @@ default.unreachable:                              ; preds = %225, %208, %38, %22
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %0, i64 1
   %31 = load i8, ptr %30, align 1, !range !85, !alias.scope !82, !noalias !83, !noundef !5
-  %32 = trunc i8 %31 to i1
+  %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %.split.i.i.i.i, label %.split2.i.i.i.i
 
 .split2.i.i.i.i:                                  ; preds = %29
@@ -519,7 +519,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i.i.i: ; pred
   %.02836.i.i.i.i.i.i = phi i64 [ %54, %.lr.ph.i.i.i.i.i.i ], [ 20, %42 ]
   %46 = urem i64 %.137.i.i.i.i.i.i, 10000
   %47 = udiv i64 %.137.i.i.i.i.i.i, 10000
-  %.lhs.trunc.i.i.i.i.i.i = trunc i64 %46 to i16
+  %.lhs.trunc.i.i.i.i.i.i = trunc nuw nsw i64 %46 to i16
   %48 = udiv i16 %.lhs.trunc.i.i.i.i.i.i, 100
   %49 = shl nuw nsw i16 %48, 1
   %50 = zext nneg i16 %49 to i64
@@ -539,7 +539,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i.i.i: ; pred
   br i1 %60, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 61:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %.lhs.trunc32.i.i.i.i.i.i = trunc i64 %.1.lcssa.i.i.i.i.i.i to i16
+  %.lhs.trunc32.i.i.i.i.i.i = trunc nuw i64 %.1.lcssa.i.i.i.i.i.i to i16
   %62 = urem i16 %.lhs.trunc32.i.i.i.i.i.i, 100
   %63 = shl nuw nsw i16 %62, 1
   %64 = zext nneg i16 %63 to i64
@@ -569,7 +569,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i.i.i: ; pred
 
 78:                                               ; preds = %70
   %79 = add i64 %.129.i.i.i.i.i.i, -1
-  %80 = trunc i64 %.027.i.i.i.i.i.i to i8
+  %80 = trunc nuw nsw i64 %.027.i.i.i.i.i.i to i8
   %81 = getelementptr inbounds i8, ptr %13, i64 %79
   %82 = or disjoint i8 %80, 48
   store i8 %82, ptr %81, align 1, !alias.scope !92, !noalias !91
@@ -609,7 +609,7 @@ _ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i.i.i: ; pred
   %.02636.i.i.i.i.i.i = phi i64 [ %102, %.lr.ph.i.i.i10.i.i.i ], [ 20, %89 ]
   %94 = urem i64 %.137.i.i.i11.i.i.i, 10000
   %95 = udiv i64 %.137.i.i.i11.i.i.i, 10000
-  %.lhs.trunc.i.i.i12.i.i.i = trunc i64 %94 to i16
+  %.lhs.trunc.i.i.i12.i.i.i = trunc nuw nsw i64 %94 to i16
   %96 = udiv i16 %.lhs.trunc.i.i.i12.i.i.i, 100
   %97 = shl nuw nsw i16 %96, 1
   %98 = zext nneg i16 %97 to i64
@@ -629,7 +629,7 @@ _ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i.i.i: ; pred
   br i1 %108, label %.lr.ph.i.i.i10.i.i.i, label %._crit_edge.i.i.i4.i.i.i
 
 109:                                              ; preds = %._crit_edge.i.i.i4.i.i.i
-  %.lhs.trunc32.i.i.i8.i.i.i = trunc i64 %.1.lcssa.i.i.i5.i.i.i to i16
+  %.lhs.trunc32.i.i.i8.i.i.i = trunc nuw i64 %.1.lcssa.i.i.i5.i.i.i to i16
   %110 = urem i16 %.lhs.trunc32.i.i.i8.i.i.i, 100
   %111 = shl nuw nsw i16 %110, 1
   %112 = zext nneg i16 %111 to i64
@@ -659,7 +659,7 @@ _ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i.i.i: ; pred
 
 126:                                              ; preds = %118
   %127 = add i64 %.127.i.i.i.i.i.i, -1
-  %128 = trunc i64 %.025.i.i.i.i.i.i to i8
+  %128 = trunc nuw nsw i64 %.025.i.i.i.i.i.i to i8
   %129 = getelementptr inbounds i8, ptr %12, i64 %127
   %130 = or disjoint i8 %128, 48
   store i8 %130, ptr %129, align 1, !alias.scope !97, !noalias !91
@@ -909,7 +909,7 @@ _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit: ; preds = %169, %"_ZN83_
 216:                                              ; preds = %208
   %217 = getelementptr inbounds i8, ptr %0, i64 1
   %218 = load i8, ptr %217, align 1, !range !85, !alias.scope !158, !noalias !159, !noundef !5
-  %219 = trunc i8 %218 to i1
+  %219 = trunc nuw i8 %218 to i1
   br i1 %219, label %.split.i.i.i.i53, label %.split2.i.i.i.i51
 
 .split2.i.i.i.i51:                                ; preds = %216
@@ -959,7 +959,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i.i.i: ; pred
   %.02836.i.i.i.i.i.i47 = phi i64 [ %241, %.lr.ph.i.i.i.i.i.i45 ], [ 20, %229 ]
   %233 = urem i64 %.137.i.i.i.i.i.i46, 10000
   %234 = udiv i64 %.137.i.i.i.i.i.i46, 10000
-  %.lhs.trunc.i.i.i.i.i.i48 = trunc i64 %233 to i16
+  %.lhs.trunc.i.i.i.i.i.i48 = trunc nuw nsw i64 %233 to i16
   %235 = udiv i16 %.lhs.trunc.i.i.i.i.i.i48, 100
   %236 = shl nuw nsw i16 %235, 1
   %237 = zext nneg i16 %236 to i64
@@ -979,7 +979,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i.i.i: ; pred
   br i1 %247, label %.lr.ph.i.i.i.i.i.i45, label %._crit_edge.i.i.i.i.i.i37
 
 248:                                              ; preds = %._crit_edge.i.i.i.i.i.i37
-  %.lhs.trunc32.i.i.i.i.i.i43 = trunc i64 %.1.lcssa.i.i.i.i.i.i39 to i16
+  %.lhs.trunc32.i.i.i.i.i.i43 = trunc nuw i64 %.1.lcssa.i.i.i.i.i.i39 to i16
   %249 = urem i16 %.lhs.trunc32.i.i.i.i.i.i43, 100
   %250 = shl nuw nsw i16 %249, 1
   %251 = zext nneg i16 %250 to i64
@@ -1009,7 +1009,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i.i.i: ; pred
 
 265:                                              ; preds = %257
   %266 = add i64 %.129.i.i.i.i.i.i40, -1
-  %267 = trunc i64 %.027.i.i.i.i.i.i41 to i8
+  %267 = trunc nuw nsw i64 %.027.i.i.i.i.i.i41 to i8
   %268 = getelementptr inbounds i8, ptr %6, i64 %266
   %269 = or disjoint i8 %267, 48
   store i8 %269, ptr %268, align 1, !alias.scope !166, !noalias !165
@@ -1049,7 +1049,7 @@ _ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i.i.i: ; pred
   %.02636.i.i.i.i.i.i33 = phi i64 [ %289, %.lr.ph.i.i.i10.i.i.i31 ], [ 20, %276 ]
   %281 = urem i64 %.137.i.i.i11.i.i.i32, 10000
   %282 = udiv i64 %.137.i.i.i11.i.i.i32, 10000
-  %.lhs.trunc.i.i.i12.i.i.i34 = trunc i64 %281 to i16
+  %.lhs.trunc.i.i.i12.i.i.i34 = trunc nuw nsw i64 %281 to i16
   %283 = udiv i16 %.lhs.trunc.i.i.i12.i.i.i34, 100
   %284 = shl nuw nsw i16 %283, 1
   %285 = zext nneg i16 %284 to i64
@@ -1069,7 +1069,7 @@ _ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i.i.i: ; pred
   br i1 %295, label %.lr.ph.i.i.i10.i.i.i31, label %._crit_edge.i.i.i4.i.i.i22
 
 296:                                              ; preds = %._crit_edge.i.i.i4.i.i.i22
-  %.lhs.trunc32.i.i.i8.i.i.i29 = trunc i64 %.1.lcssa.i.i.i5.i.i.i24 to i16
+  %.lhs.trunc32.i.i.i8.i.i.i29 = trunc nuw i64 %.1.lcssa.i.i.i5.i.i.i24 to i16
   %297 = urem i16 %.lhs.trunc32.i.i.i8.i.i.i29, 100
   %298 = shl nuw nsw i16 %297, 1
   %299 = zext nneg i16 %298 to i64
@@ -1099,7 +1099,7 @@ _ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i.i.i: ; pred
 
 313:                                              ; preds = %305
   %314 = add i64 %.127.i.i.i.i.i.i25, -1
-  %315 = trunc i64 %.025.i.i.i.i.i.i26 to i8
+  %315 = trunc nuw nsw i64 %.025.i.i.i.i.i.i26 to i8
   %316 = getelementptr inbounds i8, ptr %5, i64 %314
   %317 = or disjoint i8 %315, 48
   store i8 %317, ptr %316, align 1, !alias.scope !171, !noalias !165
@@ -1276,7 +1276,7 @@ _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i: ;
   store i64 %383, ptr %381, align 8, !alias.scope !227, !noalias !158
   %384 = getelementptr inbounds i8, ptr %377, i64 32
   %385 = load i8, ptr %384, align 8, !range !85, !alias.scope !227, !noalias !158, !noundef !5
-  %386 = trunc i8 %385 to i1
+  %386 = trunc nuw i8 %385 to i1
   br i1 %386, label %387, label %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h1fe3b75ebc7f4fa2E.exit.i18.i.i"
 
 387:                                              ; preds = %379
@@ -1448,7 +1448,7 @@ define hidden { i64, i64 } @_ZN10serde_json5value11parse_index17h8e605e054c94b14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h2792cf320b823c7dE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   %7 = load i8, ptr %3, align 8, !range !85, !noundef !5
-  %trunc = trunc i8 %7 to i1
+  %trunc = trunc nuw i8 %7 to i1
   %switch = xor i1 %trunc, true
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
@@ -2324,7 +2324,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq85_$LT$impl$u20$cor
   %4 = sext i8 %3 to i64
   %5 = load i8, ptr %0, align 8, !range !4, !alias.scope !395, !noundef !5
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2332,7 +2332,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq85_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2347,15 +2347,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !395, !noundef !5
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2366,7 +2364,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq89_$LT$impl$u20$cor
   %5 = sext i8 %4 to i64
   %6 = load i8, ptr %3, align 8, !range !4, !alias.scope !400, !noundef !5
   %7 = icmp eq i8 %6, 2
-  br i1 %7, label %8, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %7, label %8, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2374,7 +2372,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq89_$LT$impl$u20$cor
   switch i64 %10, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %8
@@ -2389,15 +2387,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !400, !noundef !5
-  %16 = icmp slt i64 %15, 0
+  %16 = icmp sgt i64 %15, -1
   %17 = icmp eq i64 %15, %5
-  br i1 %16, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %8, %2
+  %spec.select.i = and i1 %16, %17
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %18 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %17, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %8, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %18 = phi i1 [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %8 ]
   ret i1 %18
 }
 
@@ -2408,7 +2404,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq97_$LT$impl$u20$cor
   %5 = sext i8 %4 to i64
   %6 = load i8, ptr %3, align 8, !range !4, !alias.scope !405, !noundef !5
   %7 = icmp eq i8 %6, 2
-  br i1 %7, label %8, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %7, label %8, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2416,7 +2412,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq97_$LT$impl$u20$cor
   switch i64 %10, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %8
@@ -2431,15 +2427,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !405, !noundef !5
-  %16 = icmp slt i64 %15, 0
+  %16 = icmp sgt i64 %15, -1
   %17 = icmp eq i64 %15, %5
-  br i1 %16, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %8, %2
+  %spec.select.i = and i1 %16, %17
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %18 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %17, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %8, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %18 = phi i1 [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %8 ]
   ret i1 %18
 }
 
@@ -2449,7 +2443,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %4 = sext i16 %3 to i64
   %5 = load i8, ptr %0, align 8, !range !4, !alias.scope !410, !noundef !5
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2457,7 +2451,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2472,15 +2466,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !410, !noundef !5
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2491,7 +2483,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %5 = sext i16 %4 to i64
   %6 = load i8, ptr %3, align 8, !range !4, !alias.scope !415, !noundef !5
   %7 = icmp eq i8 %6, 2
-  br i1 %7, label %8, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %7, label %8, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2499,7 +2491,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   switch i64 %10, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %8
@@ -2514,15 +2506,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !415, !noundef !5
-  %16 = icmp slt i64 %15, 0
+  %16 = icmp sgt i64 %15, -1
   %17 = icmp eq i64 %15, %5
-  br i1 %16, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %8, %2
+  %spec.select.i = and i1 %16, %17
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %18 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %17, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %8, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %18 = phi i1 [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %8 ]
   ret i1 %18
 }
 
@@ -2533,7 +2523,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %5 = sext i16 %4 to i64
   %6 = load i8, ptr %3, align 8, !range !4, !alias.scope !420, !noundef !5
   %7 = icmp eq i8 %6, 2
-  br i1 %7, label %8, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %7, label %8, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2541,7 +2531,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   switch i64 %10, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %8
@@ -2556,15 +2546,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !420, !noundef !5
-  %16 = icmp slt i64 %15, 0
+  %16 = icmp sgt i64 %15, -1
   %17 = icmp eq i64 %15, %5
-  br i1 %16, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %8, %2
+  %spec.select.i = and i1 %16, %17
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %18 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %17, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %8, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %18 = phi i1 [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %8 ]
   ret i1 %18
 }
 
@@ -2574,7 +2562,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %4 = sext i32 %3 to i64
   %5 = load i8, ptr %0, align 8, !range !4, !alias.scope !425, !noundef !5
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2582,7 +2570,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2597,15 +2585,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !425, !noundef !5
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2616,7 +2602,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %5 = sext i32 %4 to i64
   %6 = load i8, ptr %3, align 8, !range !4, !alias.scope !430, !noundef !5
   %7 = icmp eq i8 %6, 2
-  br i1 %7, label %8, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %7, label %8, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2624,7 +2610,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   switch i64 %10, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %8
@@ -2639,15 +2625,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !430, !noundef !5
-  %16 = icmp slt i64 %15, 0
+  %16 = icmp sgt i64 %15, -1
   %17 = icmp eq i64 %15, %5
-  br i1 %16, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %8, %2
+  %spec.select.i = and i1 %16, %17
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %18 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %17, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %8, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %18 = phi i1 [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %8 ]
   ret i1 %18
 }
 
@@ -2658,7 +2642,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %5 = sext i32 %4 to i64
   %6 = load i8, ptr %3, align 8, !range !4, !alias.scope !435, !noundef !5
   %7 = icmp eq i8 %6, 2
-  br i1 %7, label %8, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %7, label %8, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2666,7 +2650,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   switch i64 %10, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %8
@@ -2681,15 +2665,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !435, !noundef !5
-  %16 = icmp slt i64 %15, 0
+  %16 = icmp sgt i64 %15, -1
   %17 = icmp eq i64 %15, %5
-  br i1 %16, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %8, %2
+  %spec.select.i = and i1 %16, %17
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %18 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %17, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %8, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %18 = phi i1 [ %13, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %8 ]
   ret i1 %18
 }
 
@@ -2698,7 +2680,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %3 = load i64, ptr %1, align 8, !noundef !5
   %4 = load i8, ptr %0, align 8, !range !4, !alias.scope !440, !noundef !5
   %5 = icmp eq i8 %4, 2
-  br i1 %5, label %6, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %5, label %6, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2706,7 +2688,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   switch i64 %8, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %6
@@ -2721,15 +2703,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %6
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !440, !noundef !5
-  %14 = icmp slt i64 %13, 0
+  %14 = icmp sgt i64 %13, -1
   %15 = icmp eq i64 %13, %3
-  br i1 %14, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %6, %2
+  %spec.select.i = and i1 %14, %15
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %16 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %15, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %11, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %6, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %16 = phi i1 [ %11, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %6 ]
   ret i1 %16
 }
 
@@ -2739,7 +2719,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %4 = load i64, ptr %1, align 8, !noundef !5
   %5 = load i8, ptr %3, align 8, !range !4, !alias.scope !445, !noundef !5
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2747,7 +2727,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2762,15 +2742,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !445, !noundef !5
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2780,7 +2758,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %4 = load i64, ptr %1, align 8, !noundef !5
   %5 = load i8, ptr %3, align 8, !range !4, !alias.scope !450, !noundef !5
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2788,7 +2766,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2803,15 +2781,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !450, !noundef !5
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2820,7 +2796,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq88_$LT$impl$u20$cor
   %3 = load i64, ptr %1, align 8, !noundef !5
   %4 = load i8, ptr %0, align 8, !range !4, !alias.scope !455, !noundef !5
   %5 = icmp eq i8 %4, 2
-  br i1 %5, label %6, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %5, label %6, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2828,7 +2804,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq88_$LT$impl$u20$cor
   switch i64 %8, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %6
@@ -2843,15 +2819,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %6
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !455, !noundef !5
-  %14 = icmp slt i64 %13, 0
+  %14 = icmp sgt i64 %13, -1
   %15 = icmp eq i64 %13, %3
-  br i1 %14, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %6, %2
+  %spec.select.i = and i1 %14, %15
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %16 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %15, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %11, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %6, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %16 = phi i1 [ %11, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %6 ]
   ret i1 %16
 }
 
@@ -2861,7 +2835,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq92_$LT$impl$u20$cor
   %4 = load i64, ptr %1, align 8, !noundef !5
   %5 = load i8, ptr %3, align 8, !range !4, !alias.scope !460, !noundef !5
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2869,7 +2843,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq92_$LT$impl$u20$cor
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2884,15 +2858,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !460, !noundef !5
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -2902,7 +2874,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq100_$LT$impl$u20$co
   %4 = load i64, ptr %1, align 8, !noundef !5
   %5 = load i8, ptr %3, align 8, !range !4, !alias.scope !465, !noundef !5
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+  br i1 %6, label %7, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2910,7 +2882,7 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq100_$LT$impl$u20$co
   switch i64 %9, label %default.unreachable [
     i64 0, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
     i64 1, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i
-    i64 2, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
+    i64 2, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
   ]
 
 default.unreachable:                              ; preds = %7
@@ -2925,15 +2897,13 @@ _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i: ; preds =
 _ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !465, !noundef !5
-  %15 = icmp slt i64 %14, 0
+  %15 = icmp sgt i64 %14, -1
   %16 = icmp eq i64 %14, %4
-  br i1 %15, label %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i, label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
-
-_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %7, %2
+  %spec.select.i = and i1 %15, %16
   br label %_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit
 
-_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i
-  %17 = phi i1 [ false, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread.i ], [ %16, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ]
+_ZN10serde_json5value10partial_eq6eq_i6417h25e90b45d05a1d04E.exit: ; preds = %2, %7, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i
+  %17 = phi i1 [ %12, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.thread4.i ], [ %spec.select.i, %_ZN10serde_json5value5Value6as_i6417h7fb3dda09a05643dE.exit.i ], [ false, %2 ], [ false, %7 ]
   ret i1 %17
 }
 
@@ -3470,12 +3440,12 @@ _ZN10serde_json5value10partial_eq6eq_f6417h73bb8e405b9386e5E.exit: ; preds = %2,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq87_$LT$impl$u20$core..cmp..PartialEq$LT$bool$GT$$u20$for$u20$serde_json..value..Value$GT$2eq17h73edb7cfa0b6d12dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !range !85, !noundef !5
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr %0, align 8, !range !4, !alias.scope !578, !noundef !5
   %.not.i = icmp eq i8 %5, 1
   %6 = getelementptr inbounds i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1, !range !85, !alias.scope !578
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   %9 = select i1 %.not.i, i1 %8, i1 false
   %10 = xor i1 %9, %4
   %11 = xor i1 %10, true
@@ -3487,12 +3457,12 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq87_$LT$impl$u20$cor
 define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq91_$LT$impl$u20$core..cmp..PartialEq$LT$bool$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$2eq17h52b32b7978a2044fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !124, !noundef !5
   %4 = load i8, ptr %1, align 1, !range !85, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr %3, align 8, !range !4, !alias.scope !583, !noundef !5
   %.not.i = icmp eq i8 %6, 1
   %7 = getelementptr inbounds i8, ptr %3, i64 1
   %8 = load i8, ptr %7, align 1, !range !85, !alias.scope !583
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %.not.i, i1 %9, i1 false
   %11 = xor i1 %10, %5
   %12 = xor i1 %11, true
@@ -3504,12 +3474,12 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq91_$LT$impl$u20$cor
 define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq99_$LT$impl$u20$core..cmp..PartialEq$LT$bool$GT$$u20$for$u20$$RF$mut$u20$serde_json..value..Value$GT$2eq17h597f064984f0ebf2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !124, !noundef !5
   %4 = load i8, ptr %1, align 1, !range !85, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr %3, align 8, !range !4, !alias.scope !588, !noundef !5
   %.not.i = icmp eq i8 %6, 1
   %7 = getelementptr inbounds i8, ptr %3, i64 1
   %8 = load i8, ptr %7, align 1, !range !85, !alias.scope !588
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %.not.i, i1 %9, i1 false
   %11 = xor i1 %10, %5
   %12 = xor i1 %11, true

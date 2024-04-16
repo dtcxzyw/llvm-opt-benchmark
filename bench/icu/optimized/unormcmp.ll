@@ -362,14 +362,14 @@ do.body.us.preheader.i:                           ; preds = %if.then23.us.i
 
 do.body.us.i:                                     ; preds = %do.body.us.i, %do.body.us.preheader.i
   %indvars.iv.i = phi i64 [ %24, %do.body.us.preheader.i ], [ %indvars.iv.next.i, %do.body.us.i ]
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.us.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %indvars.iv.next.i
   %25 = load ptr, ptr %arrayidx.us.i, align 8
   %cmp29.us.i = icmp eq ptr %25, null
   br i1 %cmp29.us.i, label %do.body.us.i, label %do.end.us.i, !llvm.loop !5
 
 do.end.us.i:                                      ; preds = %do.body.us.i
-  %26 = trunc i64 %indvars.iv.next.i to i32
+  %26 = trunc nsw i64 %indvars.iv.next.i to i32
   %s.us.i = getelementptr inbounds i8, ptr %arrayidx.us.i, i64 8
   %27 = load ptr, ptr %s.us.i, align 8
   %limit.us.i = getelementptr inbounds i8, ptr %arrayidx.us.i, i64 16
@@ -411,14 +411,14 @@ if.else27.i:                                      ; preds = %lor.lhs.false.us.i,
 
 do.body.i:                                        ; preds = %do.body.i, %do.body.preheader.i
   %indvars.iv212.i = phi i64 [ %30, %do.body.preheader.i ], [ %indvars.iv.next213.i, %do.body.i ]
-  %indvars.iv.next213.i = add i64 %indvars.iv212.i, -1
+  %indvars.iv.next213.i = add nsw i64 %indvars.iv212.i, -1
   %arrayidx.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack1.i, i64 0, i64 %indvars.iv.next213.i
   %31 = load ptr, ptr %arrayidx.i, align 8
   %cmp29.i = icmp eq ptr %31, null
   br i1 %cmp29.i, label %do.body.i, label %do.end.i, !llvm.loop !5
 
 do.end.i:                                         ; preds = %do.body.i
-  %32 = trunc i64 %indvars.iv.next213.i to i32
+  %32 = trunc nsw i64 %indvars.iv.next213.i to i32
   %s.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %33 = load ptr, ptr %s.i, align 8
   %limit.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
@@ -465,14 +465,14 @@ if.else51.i:                                      ; preds = %lor.lhs.false39.i
 
 do.body54.i:                                      ; preds = %do.body54.i, %do.body54.preheader.i
   %indvars.iv215.i = phi i64 [ %36, %do.body54.preheader.i ], [ %indvars.iv.next216.i, %do.body54.i ]
-  %indvars.iv.next216.i = add i64 %indvars.iv215.i, -1
+  %indvars.iv.next216.i = add nsw i64 %indvars.iv215.i, -1
   %arrayidx57.i = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack2.i, i64 0, i64 %indvars.iv.next216.i
   %37 = load ptr, ptr %arrayidx57.i, align 8
   %cmp60.i = icmp eq ptr %37, null
   br i1 %cmp60.i, label %do.body54.i, label %do.end61.i, !llvm.loop !8
 
 do.end61.i:                                       ; preds = %do.body54.i
-  %38 = trunc i64 %indvars.iv.next216.i to i32
+  %38 = trunc nsw i64 %indvars.iv.next216.i to i32
   %s64.i = getelementptr inbounds i8, ptr %arrayidx57.i, i64 8
   %39 = load ptr, ptr %s64.i, align 8
   %limit67.i = getelementptr inbounds i8, ptr %arrayidx57.i, i64 16
@@ -648,7 +648,7 @@ if.else178.i:                                     ; preds = %if.end168.i
   br i1 %cmp180.i, label %if.then181.i, label %if.else186.i
 
 if.then181.i:                                     ; preds = %if.else178.i
-  %conv182.i = trunc i32 %call153.i98 to i16
+  %conv182.i = trunc nuw i32 %call153.i98 to i16
   br label %do.end199.i
 
 if.else186.i:                                     ; preds = %if.else178.i
@@ -731,7 +731,7 @@ if.else238.i:                                     ; preds = %if.end226.i
   br i1 %cmp241.i, label %if.then242.i, label %if.else247.i
 
 if.then242.i:                                     ; preds = %if.else238.i
-  %conv243.i = trunc i32 %call211.i100 to i16
+  %conv243.i = trunc nuw i32 %call211.i100 to i16
   br label %do.end262.i
 
 if.else247.i:                                     ; preds = %if.else238.i
@@ -1015,7 +1015,7 @@ entry:
   %unnormalized = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp9 = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %length.lobit = lshr i32 %length, 31
-  %conv = trunc i32 %length.lobit to i8
+  %conv = trunc nuw nsw i32 %length.lobit to i8
   store ptr %s, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %str, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
@@ -1056,7 +1056,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %8 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %8, i32 %shr.i.i
   %cmp6 = icmp slt i32 %call, %cond.i
-  br i1 %cmp6, label %if.then7, label %if.end26
+  br i1 %cmp6, label %if.then7, label %cleanup27
 
 if.then7:                                         ; preds = %invoke.cont4
   invoke void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %unnormalized, ptr noundef nonnull align 8 dereferenceable(64) %str, i32 noundef %call, i32 noundef 2147483647)
@@ -1100,9 +1100,10 @@ invoke.cont15:                                    ; preds = %_ZNK6icu_7513Unicod
 
 invoke.cont19:                                    ; preds = %invoke.cont15
   %13 = load i32, ptr %pErrorCode, align 4
-  %cmp.i12 = icmp sgt i32 %13, 0
+  %cmp.i12 = icmp slt i32 %13, 1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %unnormalized) #4
-  br i1 %cmp.i12, label %if.end26, label %cleanup27
+  %spec.select = zext i1 %cmp.i12 to i8
+  br label %cleanup27
 
 lpad10:                                           ; preds = %invoke.cont15
   %14 = landingpad { ptr, i32 }
@@ -1121,11 +1122,8 @@ ehcleanup:                                        ; preds = %lpad14, %lpad10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %unnormalized) #4
   br label %ehcleanup28
 
-if.end26:                                         ; preds = %invoke.cont19, %invoke.cont4
-  br label %cleanup27
-
-cleanup27:                                        ; preds = %invoke.cont2, %invoke.cont19, %if.end26
-  %retval.1 = phi i8 [ 0, %if.end26 ], [ 1, %invoke.cont19 ], [ 0, %invoke.cont2 ]
+cleanup27:                                        ; preds = %invoke.cont19, %invoke.cont4, %invoke.cont2
+  %retval.1 = phi i8 [ 0, %invoke.cont2 ], [ 0, %invoke.cont4 ], [ %spec.select, %invoke.cont19 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str) #4
   ret i8 %retval.1
 

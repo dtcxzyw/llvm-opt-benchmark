@@ -513,9 +513,9 @@ define hidden noundef zeroext i8 @mausb_ep_handle_dev_addr(i16 noundef zeroext %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @mausb_ep_handle_bus_num(i16 noundef zeroext %0) local_unnamed_addr #1 {
+define hidden zeroext i8 @mausb_ep_handle_bus_num(i16 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = lshr i16 %0, 12
-  %3 = trunc i16 %2 to i8
+  %3 = trunc nuw nsw i16 %2 to i8
   ret i8 %3
 }
 
@@ -548,59 +548,50 @@ define hidden void @mausb_set_usb_conv_info(ptr nocapture noundef writeonly %0, 
   %22 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %21, ptr %22, align 4
   %23 = load i8, ptr %3, align 1
-  switch i8 %23, label %.thread [
+  switch i8 %23, label %mausb_is_setup_response.exit [
     i8 -128, label %24
-    i8 -127, label %35
+    i8 -127, label %31
   ]
 
 24:                                               ; preds = %2
   %25 = load i8, ptr %1, align 4
   %26 = and i8 %25, 16
   %.not.i = icmp eq i8 %26, 0
-  br i1 %.not.i, label %.thread, label %27
+  br i1 %.not.i, label %mausb_is_setup_response.exit, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %mausb_is_setup_response.exit.sink.split, label %mausb_is_setup_response.exit
 
-31:                                               ; preds = %27
-  %32 = getelementptr i8, ptr %1, i64 12
-  %.val.i = load i8, ptr %32, align 4
-  %33 = and i8 %.val.i, 96
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %mausb_has_setup_data.exit, label %.thread
+31:                                               ; preds = %2
+  %32 = load i8, ptr %1, align 4
+  %33 = and i8 %32, 16
+  %.not.i21 = icmp eq i8 %33, 0
+  br i1 %.not.i21, label %mausb_is_setup_response.exit.sink.split, label %mausb_is_setup_response.exit
 
-35:                                               ; preds = %2
-  %36 = load i8, ptr %1, align 4
-  %37 = and i8 %36, 16
-  %.not.i21 = icmp eq i8 %37, 0
-  br i1 %.not.i21, label %38, label %.thread
+mausb_is_setup_response.exit.sink.split:          ; preds = %31, %27
+  %34 = getelementptr i8, ptr %1, i64 12
+  %.val.i = load i8, ptr %34, align 4
+  %35 = and i8 %.val.i, 96
+  %.not = icmp eq i8 %35, 0
+  %36 = zext i1 %.not to i32
+  br label %mausb_is_setup_response.exit
 
-38:                                               ; preds = %35
-  %39 = getelementptr i8, ptr %1, i64 12
-  %.val.i22 = load i8, ptr %39, align 4
-  %40 = and i8 %.val.i22, 96
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %mausb_has_setup_data.exit, label %.thread
-
-.thread:                                          ; preds = %2, %31, %27, %24, %38, %35
-  br label %mausb_has_setup_data.exit
-
-mausb_has_setup_data.exit:                        ; preds = %.thread, %38, %31
-  %42 = phi i32 [ 1, %31 ], [ 0, %.thread ], [ 1, %38 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %42, ptr %43, align 8
-  %44 = getelementptr i8, ptr %1, i64 12
-  %.val19 = load i8, ptr %44, align 4
-  %45 = lshr i8 %.val19, 2
-  %46 = and i8 %45, 24
-  %switch.shiftamt = zext nneg i8 %46 to i32
+mausb_is_setup_response.exit:                     ; preds = %mausb_is_setup_response.exit.sink.split, %2, %24, %27, %31
+  %.shrunk = phi i32 [ 0, %31 ], [ 0, %27 ], [ 0, %24 ], [ 0, %2 ], [ %36, %mausb_is_setup_response.exit.sink.split ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.shrunk, ptr %37, align 8
+  %38 = getelementptr i8, ptr %1, i64 12
+  %.val19 = load i8, ptr %38, align 4
+  %39 = lshr i8 %.val19, 2
+  %40 = and i8 %39, 24
+  %switch.shiftamt = zext nneg i8 %40 to i32
   %switch.downshift = lshr i32 16973826, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %47 = getelementptr inbounds i8, ptr %0, i64 12
-  store i8 %switch.masked, ptr %47, align 4
+  %41 = getelementptr inbounds i8, ptr %0, i64 12
+  store i8 %switch.masked, ptr %41, align 4
   ret void
 }
 
@@ -1184,7 +1175,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr nocaptur
   %71 = sext i16 %67 to i32
   %72 = add nsw i32 %57, -2
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %70, ptr noundef %2, i32 noundef %71, i32 noundef %72, i32 noundef 0) #6
-  %74 = trunc i32 %72 to i16
+  %74 = trunc nsw i32 %72 to i16
   %75 = add i16 %67, %74
   br label %76
 

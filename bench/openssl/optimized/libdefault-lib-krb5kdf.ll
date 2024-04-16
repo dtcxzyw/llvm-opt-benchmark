@@ -321,10 +321,10 @@ for.cond37.preheader.i.i:                         ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %6, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %carry.047.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %shr35.i.i, %for.body.i.i ]
-  %9 = trunc i64 %indvars.iv.i.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %rem11.i.i = urem i32 %9, %call14.i
   %div13.i.i = udiv i64 %indvars.iv.i.i, %5
-  %10 = trunc i64 %div13.i.i to i32
+  %10 = trunc nuw nsw i64 %div13.i.i to i32
   %conv15.i.i = mul i32 %10, 13
   %div1641.i.i = lshr i32 %conv15.i.i, 3
   %sub17.i.i = sub nsw i32 %9, %div1641.i.i
@@ -486,7 +486,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @krb5kdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal i32 @krb5kdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #7
@@ -518,7 +518,7 @@ if.then7:                                         ; preds = %if.end4
 if.end12:                                         ; preds = %if.then7, %if.end4
   %call13 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.4) #7
   %cmp14.not = icmp eq ptr %call13, null
-  br i1 %cmp14.not, label %if.end20, label %if.then15
+  br i1 %cmp14.not, label %return, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
   %constant = getelementptr inbounds i8, ptr %vctx, i64 48
@@ -528,14 +528,12 @@ if.then15:                                        ; preds = %if.end12
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 98) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %constant, i8 0, i64 16, i1 false)
   %call.i10 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %call13, ptr noundef nonnull %constant, i64 noundef 0, ptr noundef nonnull %constant_len) #7
-  %tobool17.not = icmp eq i32 %call.i10, 0
-  br i1 %tobool17.not, label %return, label %if.end20
-
-if.end20:                                         ; preds = %if.then15, %if.end12
+  %tobool17.not = icmp ne i32 %call.i10, 0
+  %spec.select = zext i1 %tobool17.not to i32
   br label %return
 
-return:                                           ; preds = %if.then15, %if.then7, %if.end, %entry, %if.end20
-  %retval.0 = phi i32 [ 1, %if.end20 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then7 ], [ 0, %if.then15 ]
+return:                                           ; preds = %if.then15, %if.end12, %if.then7, %if.end, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then7 ], [ 1, %if.end12 ], [ %spec.select, %if.then15 ]
   ret i32 %retval.0
 }
 
@@ -639,7 +637,7 @@ for.body7:                                        ; preds = %for.body, %for.body
   %3 = and i8 %2, 1
   %and = zext nneg i8 %3 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = trunc i64 %indvars.iv.next to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %shl = shl nuw nsw i32 %and, %4
   %5 = trunc i32 %shl to i8
   %conv12 = or i8 %storemerge16, %5

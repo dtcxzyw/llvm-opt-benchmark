@@ -158,7 +158,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_gcm128(i32 noundef %idx) #0 {
+define internal i32 @test_gcm128(i32 noundef %idx) #0 {
 entry:
   %out = alloca [512 x i8], align 16
   %ctx = alloca %struct.gcm128_context, align 8
@@ -254,21 +254,18 @@ if.end89:                                         ; preds = %if.then84, %if.end8
   %conv93 = zext i1 %cmp92 to i32
   %call94 = call i32 @test_false(ptr noundef nonnull @.str.4, i32 noundef 885, ptr noundef nonnull @.str.20, i32 noundef %conv93) #5
   %tobool95.not = icmp eq i32 %call94, 0
-  br i1 %tobool95.not, label %return, label %lor.lhs.false96
+  %brmerge = or i1 %cmp41.not, %tobool95.not
+  %not.tobool95.not = xor i1 %tobool95.not, true
+  br i1 %brmerge, label %return, label %land.lhs.true100
 
-lor.lhs.false96:                                  ; preds = %if.end89
-  br i1 %cmp41.not, label %if.end108, label %land.lhs.true100
-
-land.lhs.true100:                                 ; preds = %lor.lhs.false96
+land.lhs.true100:                                 ; preds = %if.end89
   %call105 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 887, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull %out, i64 noundef %P.sroa.0.0.copyload, ptr noundef nonnull %P.sroa.10.0, i64 noundef %P.sroa.0.0.copyload) #5
-  %tobool106.not = icmp eq i32 %call105, 0
-  br i1 %tobool106.not, label %return, label %if.end108
-
-if.end108:                                        ; preds = %land.lhs.true100, %lor.lhs.false96
+  %tobool106.not = icmp ne i32 %call105, 0
   br label %return
 
-return:                                           ; preds = %if.end89, %land.lhs.true100, %if.end51, %land.lhs.true, %if.then43, %if.end108
-  %retval.0 = phi i32 [ 1, %if.end108 ], [ 0, %if.then43 ], [ 0, %land.lhs.true ], [ 0, %if.end51 ], [ 0, %land.lhs.true100 ], [ 0, %if.end89 ]
+return:                                           ; preds = %land.lhs.true100, %if.end89, %if.end51, %land.lhs.true, %if.then43
+  %retval.0.shrunk = phi i1 [ false, %if.then43 ], [ false, %land.lhs.true ], [ false, %if.end51 ], [ %not.tobool95.not, %if.end89 ], [ %tobool106.not, %land.lhs.true100 ]
+  %retval.0 = zext i1 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
 

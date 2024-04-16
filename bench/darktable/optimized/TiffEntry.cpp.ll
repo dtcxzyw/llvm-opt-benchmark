@@ -1199,7 +1199,7 @@ define hidden void @_ZNK8rawspeed9TiffEntry9getStringB5cxx11Ev(ptr dead_on_unwin
   %60 = phi i64 [ %58, %57 ], [ %30, %23 ]
   %61 = phi ptr [ %35, %57 ], [ %27, %23 ]
   %62 = sub i64 %29, %60
-  switch i64 %62, label %78 [
+  switch i64 %62, label %.loopexit [
     i64 3, label %63
     i64 2, label %68
     i64 1, label %74
@@ -1228,77 +1228,75 @@ define hidden void @_ZNK8rawspeed9TiffEntry9getStringB5cxx11Ev(ptr dead_on_unwin
   %75 = phi ptr [ %73, %72 ], [ %61, %59 ]
   %76 = load i8, ptr %75, align 1, !tbaa !39
   %77 = icmp eq i8 %76, 0
-  br i1 %77, label %.loopexit, label %78
-
-78:                                               ; preds = %74, %59
+  %spec.select = select i1 %77, ptr %75, ptr %28
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %41
-  %79 = getelementptr inbounds i8, ptr %38, i64 1
+  %78 = getelementptr inbounds i8, ptr %38, i64 1
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit14:             ; preds = %45
-  %80 = getelementptr inbounds i8, ptr %38, i64 2
+  %79 = getelementptr inbounds i8, ptr %38, i64 2
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit16:             ; preds = %49
-  %81 = getelementptr inbounds i8, ptr %38, i64 3
+  %80 = getelementptr inbounds i8, ptr %38, i64 3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit14, %.loopexit.loopexit.split.loop.exit16, %78, %74, %68, %63
-  %82 = phi ptr [ %28, %78 ], [ %61, %63 ], [ %69, %68 ], [ %75, %74 ], [ %79, %.loopexit.loopexit.split.loop.exit ], [ %80, %.loopexit.loopexit.split.loop.exit14 ], [ %81, %.loopexit.loopexit.split.loop.exit16 ], [ %38, %36 ]
-  %83 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %83, ptr %0, align 8, !tbaa !42
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %84, align 8, !tbaa !44
-  %85 = ptrtoint ptr %82 to i64
-  %86 = sub i64 %85, %30
-  %87 = icmp ugt i64 %86, 15
-  br i1 %87, label %88, label %97
+.loopexit:                                        ; preds = %36, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit14, %.loopexit.loopexit.split.loop.exit16, %74, %59, %68, %63
+  %81 = phi ptr [ %61, %63 ], [ %69, %68 ], [ %28, %59 ], [ %spec.select, %74 ], [ %78, %.loopexit.loopexit.split.loop.exit ], [ %79, %.loopexit.loopexit.split.loop.exit14 ], [ %80, %.loopexit.loopexit.split.loop.exit16 ], [ %38, %36 ]
+  %82 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %82, ptr %0, align 8, !tbaa !42
+  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %83, align 8, !tbaa !44
+  %84 = ptrtoint ptr %81 to i64
+  %85 = sub i64 %84, %30
+  %86 = icmp ugt i64 %85, 15
+  br i1 %86, label %87, label %96
 
-88:                                               ; preds = %.loopexit
-  %89 = icmp slt i64 %86, 0
-  br i1 %89, label %90, label %91
+87:                                               ; preds = %.loopexit
+  %88 = icmp slt i64 %85, 0
+  br i1 %88, label %89, label %90
 
-90:                                               ; preds = %88
+89:                                               ; preds = %87
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.18) #23
   unreachable
 
-91:                                               ; preds = %88
-  %92 = add nuw i64 %86, 1
-  %93 = icmp slt i64 %92, 0
-  br i1 %93, label %94, label %95, !prof !47
+90:                                               ; preds = %87
+  %91 = add nuw i64 %85, 1
+  %92 = icmp slt i64 %91, 0
+  br i1 %92, label %93, label %94, !prof !47
 
-94:                                               ; preds = %91
+93:                                               ; preds = %90
   tail call void @_ZSt17__throw_bad_allocv() #23
   unreachable
 
-95:                                               ; preds = %91
-  %96 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #24
-  store ptr %96, ptr %0, align 8, !tbaa !48
-  store i64 %86, ptr %83, align 8, !tbaa !39
-  br label %97
+94:                                               ; preds = %90
+  %95 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %91) #24
+  store ptr %95, ptr %0, align 8, !tbaa !48
+  store i64 %85, ptr %82, align 8, !tbaa !39
+  br label %96
 
-97:                                               ; preds = %95, %.loopexit
-  %98 = phi ptr [ %96, %95 ], [ %83, %.loopexit ]
-  switch i64 %86, label %101 [
-    i64 1, label %99
-    i64 0, label %102
+96:                                               ; preds = %94, %.loopexit
+  %97 = phi ptr [ %95, %94 ], [ %82, %.loopexit ]
+  switch i64 %85, label %100 [
+    i64 1, label %98
+    i64 0, label %101
   ]
 
-99:                                               ; preds = %97
-  %100 = load i8, ptr %27, align 1, !tbaa !39
-  store i8 %100, ptr %98, align 1, !tbaa !39
-  br label %102
+98:                                               ; preds = %96
+  %99 = load i8, ptr %27, align 1, !tbaa !39
+  store i8 %99, ptr %97, align 1, !tbaa !39
+  br label %101
 
-101:                                              ; preds = %97
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull align 1 %27, i64 %86, i1 false)
-  br label %102
+100:                                              ; preds = %96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull align 1 %27, i64 %85, i1 false)
+  br label %101
 
-102:                                              ; preds = %101, %99, %97
-  store i64 %86, ptr %84, align 8, !tbaa !44
-  %103 = getelementptr inbounds i8, ptr %98, i64 %86
-  store i8 0, ptr %103, align 1, !tbaa !39
+101:                                              ; preds = %100, %98, %96
+  store i64 %85, ptr %83, align 8, !tbaa !44
+  %102 = getelementptr inbounds i8, ptr %97, i64 %85
+  store i8 0, ptr %102, align 1, !tbaa !39
   ret void
 }
 

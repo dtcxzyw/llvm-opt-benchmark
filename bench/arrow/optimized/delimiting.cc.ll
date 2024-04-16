@@ -2146,7 +2146,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -2157,13 +2157,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #19
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -3061,7 +3059,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1
@@ -3072,13 +3070,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #19
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %lor.lhs.false, %_ZNKSt9type_infoeqERKS_.exit
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+return:                                           ; preds = %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %lor.lhs.false ], [ null, %if.end.i ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -3124,7 +3120,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit: ; preds
 
 if.else:                                          ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
   %cmp6.i.i = icmp ult i64 %__pos.addr.07.i.i, %block.coerce0
-  br i1 %cmp6.i.i, label %for.body.i.i, label %if.then4
+  br i1 %cmp6.i.i, label %for.body.i.i, label %if.end6
 
 for.body.i.i:                                     ; preds = %if.else, %for.inc.i.i12
   %__pos.addr.07.i.i7 = phi i64 [ %inc.i.i13, %for.inc.i.i12 ], [ %__pos.addr.07.i.i, %if.else ]
@@ -3138,17 +3134,15 @@ for.body.i.i:                                     ; preds = %if.else, %for.inc.i
 for.inc.i.i12:                                    ; preds = %for.body.i.i, %for.body.i.i
   %inc.i.i13 = add i64 %__pos.addr.07.i.i7, 1
   %exitcond.not.i.i14 = icmp eq i64 %inc.i.i13, %block.coerce0
-  br i1 %exitcond.not.i.i14, label %if.then4, label %for.body.i.i, !llvm.loop !106
+  br i1 %exitcond.not.i.i14, label %if.end6, label %for.body.i.i, !llvm.loop !106
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit: ; preds = %for.body.i.i
   %cmp3 = icmp eq i64 %__pos.addr.07.i.i7, -1
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %for.inc.i.i12, %if.else, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit
+  %spec.select = select i1 %cmp3, i64 %block.coerce0, i64 %__pos.addr.07.i.i7
   br label %if.end6
 
-if.end6:                                          ; preds = %for.inc.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit, %if.then4, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
-  %storemerge = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ %block.coerce0, %if.then4 ], [ %__pos.addr.07.i.i7, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ -1, %entry ], [ -1, %for.inc.i.i ]
+if.end6:                                          ; preds = %for.inc.i.i, %for.inc.i.i12, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit, %if.else, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit
+  %storemerge = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit ], [ -1, %entry ], [ %block.coerce0, %if.else ], [ %spec.select, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ %block.coerce0, %for.inc.i.i12 ], [ -1, %for.inc.i.i ]
   store i64 %storemerge, ptr %out_pos, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !107
   ret void
@@ -3176,7 +3170,7 @@ do.cond.i.i:                                      ; preds = %_ZNSt11char_traitsI
 
 if.else:                                          ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %cmp6.i.i = icmp ult i64 %__size.1.i.i, %block.coerce0
-  br i1 %cmp6.i.i, label %for.body.i.i, label %if.then4
+  br i1 %cmp6.i.i, label %for.body.i.i, label %if.end6
 
 for.body.i.i:                                     ; preds = %if.else, %for.inc.i.i
   %__pos.addr.07.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ %__size.1.i.i, %if.else ]
@@ -3190,17 +3184,15 @@ for.body.i.i:                                     ; preds = %if.else, %for.inc.i
 for.inc.i.i:                                      ; preds = %for.body.i.i, %for.body.i.i
   %inc.i.i = add i64 %__pos.addr.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %block.coerce0
-  br i1 %exitcond.not.i.i, label %if.then4, label %for.body.i.i, !llvm.loop !106
+  br i1 %exitcond.not.i.i, label %if.end6, label %for.body.i.i, !llvm.loop !106
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit: ; preds = %for.body.i.i
   %cmp3 = icmp eq i64 %__pos.addr.07.i.i, -1
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %for.inc.i.i, %if.else, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit
+  %spec.select = select i1 %cmp3, i64 %block.coerce0, i64 %__pos.addr.07.i.i
   br label %if.end6
 
-if.end6:                                          ; preds = %do.cond.i.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit, %if.then4
-  %storemerge = phi i64 [ %block.coerce0, %if.then4 ], [ %__pos.addr.07.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ -1, %entry ], [ -1, %do.cond.i.i ]
+if.end6:                                          ; preds = %do.cond.i.i, %for.inc.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit, %if.else, %entry
+  %storemerge = phi i64 [ -1, %entry ], [ %block.coerce0, %if.else ], [ %spec.select, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ %block.coerce0, %for.inc.i.i ], [ -1, %do.cond.i.i ]
   store i64 %storemerge, ptr %out_pos, align 8
   store ptr null, ptr %agg.result, align 8, !alias.scope !111
   ret void

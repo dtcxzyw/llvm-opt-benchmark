@@ -111,10 +111,10 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @evp_pkey_ctx_state(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
+define i32 @evp_pkey_ctx_state(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %ctx, align 8
-  switch i32 %0, label %if.end52 [
+  switch i32 %0, label %return.fold.split [
     i32 0, label %return
     i32 2048, label %land.lhs.true
     i32 16, label %land.lhs.true18
@@ -134,37 +134,42 @@ land.lhs.true:                                    ; preds = %entry
   %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %algctx, align 8
   %cmp3.not = icmp eq ptr %1, null
-  br i1 %cmp3.not, label %if.end52, label %return
+  %spec.select22 = select i1 %cmp3.not, i32 1, i32 2
+  br label %return
 
 land.lhs.true18:                                  ; preds = %entry, %entry, %entry, %entry, %entry
   %algctx20 = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %algctx20, align 8
   %cmp21.not = icmp eq ptr %2, null
-  br i1 %cmp21.not, label %if.end52, label %return
+  %spec.select23 = select i1 %cmp21.not, i32 1, i32 2
+  br label %return
 
 land.lhs.true28:                                  ; preds = %entry, %entry
   %algctx30 = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load ptr, ptr %algctx30, align 8
   %cmp31.not = icmp eq ptr %3, null
-  br i1 %cmp31.not, label %if.end52, label %return
+  %spec.select24 = select i1 %cmp31.not, i32 1, i32 2
+  br label %return
 
 land.lhs.true38:                                  ; preds = %entry, %entry
   %op39 = getelementptr inbounds i8, ptr %ctx, i64 40
   %4 = load ptr, ptr %op39, align 8
   %cmp40.not = icmp eq ptr %4, null
-  br i1 %cmp40.not, label %if.end52, label %return
+  %spec.select25 = select i1 %cmp40.not, i32 1, i32 2
+  br label %return
 
 land.lhs.true47:                                  ; preds = %entry, %entry
   %algctx49 = getelementptr inbounds i8, ptr %ctx, i64 48
   %5 = load ptr, ptr %algctx49, align 8
   %cmp50.not = icmp eq ptr %5, null
-  br i1 %cmp50.not, label %if.end52, label %return
-
-if.end52:                                         ; preds = %land.lhs.true38, %land.lhs.true28, %land.lhs.true18, %entry, %land.lhs.true, %land.lhs.true47
+  %spec.select = select i1 %cmp50.not, i32 1, i32 2
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true18, %land.lhs.true28, %land.lhs.true38, %land.lhs.true47, %if.end52
-  %retval.0 = phi i32 [ 1, %if.end52 ], [ %0, %entry ], [ 2, %land.lhs.true47 ], [ 2, %land.lhs.true38 ], [ 2, %land.lhs.true28 ], [ 2, %land.lhs.true18 ], [ 2, %land.lhs.true ]
+return.fold.split:                                ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %land.lhs.true38, %land.lhs.true28, %land.lhs.true18, %land.lhs.true, %entry, %return.fold.split, %land.lhs.true47
+  %retval.0 = phi i32 [ %0, %entry ], [ %spec.select, %land.lhs.true47 ], [ %spec.select22, %land.lhs.true ], [ 1, %return.fold.split ], [ %spec.select23, %land.lhs.true18 ], [ %spec.select24, %land.lhs.true28 ], [ %spec.select25, %land.lhs.true38 ]
   ret i32 %retval.0
 }
 
@@ -1416,7 +1421,7 @@ entry:
   %0 = load i32, ptr %ctx, align 8
   switch i32 %0, label %sw.bb97 [
     i32 8192, label %land.lhs.true47.i
-    i32 2048, label %land.lhs.true.i
+    i32 2048, label %evp_pkey_ctx_state.exit.thread54
     i32 16, label %land.lhs.true18.i
     i32 128, label %land.lhs.true18.i
     i32 32, label %land.lhs.true18.i
@@ -1429,37 +1434,52 @@ entry:
     i32 4096, label %land.lhs.true47.i
   ]
 
-land.lhs.true.i:                                  ; preds = %entry
-  %algctx.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %1 = load ptr, ptr %algctx.i, align 8
-  %cmp3.not.i = icmp eq ptr %1, null
-  br i1 %cmp3.not.i, label %sw.bb97, label %land.lhs.true
-
 land.lhs.true18.i:                                ; preds = %entry, %entry, %entry, %entry, %entry
   %algctx20.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %2 = load ptr, ptr %algctx20.i, align 8
-  %cmp21.not.i = icmp eq ptr %2, null
-  br i1 %cmp21.not.i, label %sw.bb97, label %if.end
+  %1 = load ptr, ptr %algctx20.i, align 8
+  %cmp21.not.i = icmp eq ptr %1, null
+  br i1 %cmp21.not.i, label %sw.bb97, label %sw.bb
 
 land.lhs.true28.i:                                ; preds = %entry, %entry
   %algctx30.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %3 = load ptr, ptr %algctx30.i, align 8
-  %cmp31.not.i = icmp eq ptr %3, null
-  br i1 %cmp31.not.i, label %sw.bb97, label %if.end
+  %2 = load ptr, ptr %algctx30.i, align 8
+  %cmp31.not.i = icmp eq ptr %2, null
+  br i1 %cmp31.not.i, label %sw.bb97, label %sw.bb
 
 land.lhs.true38.i:                                ; preds = %entry, %entry
   %op39.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  %4 = load ptr, ptr %op39.i, align 8
-  %cmp40.not.i = icmp eq ptr %4, null
-  br i1 %cmp40.not.i, label %sw.bb97, label %if.end
+  %3 = load ptr, ptr %op39.i, align 8
+  %cmp40.not.i = icmp eq ptr %3, null
+  br i1 %cmp40.not.i, label %sw.bb97, label %sw.bb
 
 land.lhs.true47.i:                                ; preds = %entry, %entry
   %algctx49.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %5 = load ptr, ptr %algctx49.i, align 8
-  %cmp50.not.i = icmp eq ptr %5, null
-  br i1 %cmp50.not.i, label %sw.bb97, label %if.end
+  %4 = load ptr, ptr %algctx49.i, align 8
+  %cmp50.not.i = icmp eq ptr %4, null
+  br i1 %cmp50.not.i, label %sw.bb97, label %sw.bb
 
-land.lhs.true:                                    ; preds = %land.lhs.true.i
+evp_pkey_ctx_state.exit.thread54:                 ; preds = %entry
+  %algctx.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %5 = load ptr, ptr %algctx.i, align 8
+  %cmp3.not.i.not = icmp eq ptr %5, null
+  br i1 %cmp3.not.i.not, label %sw.bb97, label %land.lhs.true
+
+sw.bb:                                            ; preds = %land.lhs.true47.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i
+  switch i32 %0, label %return [
+    i32 8192, label %land.lhs.true81
+    i32 16, label %land.lhs.true24
+    i32 128, label %land.lhs.true24
+    i32 32, label %land.lhs.true24
+    i32 256, label %land.lhs.true24
+    i32 64, label %land.lhs.true24
+    i32 512, label %land.lhs.true45
+    i32 1024, label %land.lhs.true45
+    i32 2, label %land.lhs.true66
+    i32 4, label %land.lhs.true66
+    i32 4096, label %land.lhs.true81
+  ]
+
+land.lhs.true:                                    ; preds = %evp_pkey_ctx_state.exit.thread54
   %op = getelementptr inbounds i8, ptr %ctx, i64 40
   %6 = load ptr, ptr %op, align 8
   %cmp1.not = icmp eq ptr %6, null
@@ -1472,102 +1492,89 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp5.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2
-  %call10 = tail call i32 %7(ptr noundef nonnull %1, ptr noundef %params) #10
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
+  %8 = load ptr, ptr %algctx, align 8
+  %call10 = tail call i32 %7(ptr noundef %8, ptr noundef %params) #10
   br label %return
 
-if.end:                                           ; preds = %land.lhs.true47.i, %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i
-  switch i32 %0, label %return [
-    i32 16, label %land.lhs.true24
-    i32 128, label %land.lhs.true24
-    i32 32, label %land.lhs.true24
-    i32 256, label %land.lhs.true24
-    i32 64, label %land.lhs.true24
-    i32 512, label %land.lhs.true45
-    i32 1024, label %land.lhs.true45
-    i32 2, label %land.lhs.true66
-    i32 4, label %land.lhs.true66
-    i32 4096, label %land.lhs.true81
-    i32 8192, label %land.lhs.true81
-  ]
-
-land.lhs.true24:                                  ; preds = %if.end, %if.end, %if.end, %if.end, %if.end
+land.lhs.true24:                                  ; preds = %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb
   %op25 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %8 = load ptr, ptr %op25, align 8
-  %cmp26.not = icmp eq ptr %8, null
+  %9 = load ptr, ptr %op25, align 8
+  %cmp26.not = icmp eq ptr %9, null
   br i1 %cmp26.not, label %return, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %land.lhs.true24
-  %set_ctx_params30 = getelementptr inbounds i8, ptr %8, i64 192
-  %9 = load ptr, ptr %set_ctx_params30, align 8
-  %cmp31.not = icmp eq ptr %9, null
+  %set_ctx_params30 = getelementptr inbounds i8, ptr %9, i64 192
+  %10 = load ptr, ptr %set_ctx_params30, align 8
+  %cmp31.not = icmp eq ptr %10, null
   br i1 %cmp31.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %land.lhs.true27
   %algctx37 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %10 = load ptr, ptr %algctx37, align 8
-  %call38 = tail call i32 %9(ptr noundef %10, ptr noundef %params) #10
+  %11 = load ptr, ptr %algctx37, align 8
+  %call38 = tail call i32 %10(ptr noundef %11, ptr noundef %params) #10
   br label %return
 
-land.lhs.true45:                                  ; preds = %if.end, %if.end
+land.lhs.true45:                                  ; preds = %sw.bb, %sw.bb
   %op46 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %11 = load ptr, ptr %op46, align 8
-  %cmp47.not = icmp eq ptr %11, null
+  %12 = load ptr, ptr %op46, align 8
+  %cmp47.not = icmp eq ptr %12, null
   br i1 %cmp47.not, label %return, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %land.lhs.true45
-  %set_ctx_params51 = getelementptr inbounds i8, ptr %11, i64 112
-  %12 = load ptr, ptr %set_ctx_params51, align 8
-  %cmp52.not = icmp eq ptr %12, null
+  %set_ctx_params51 = getelementptr inbounds i8, ptr %12, i64 112
+  %13 = load ptr, ptr %set_ctx_params51, align 8
+  %cmp52.not = icmp eq ptr %13, null
   br i1 %cmp52.not, label %return, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true48
   %algctx58 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %13 = load ptr, ptr %algctx58, align 8
-  %call59 = tail call i32 %12(ptr noundef %13, ptr noundef %params) #10
+  %14 = load ptr, ptr %algctx58, align 8
+  %call59 = tail call i32 %13(ptr noundef %14, ptr noundef %params) #10
   br label %return
 
-land.lhs.true66:                                  ; preds = %if.end, %if.end
+land.lhs.true66:                                  ; preds = %sw.bb, %sw.bb
   %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
-  %14 = load ptr, ptr %keymgmt, align 8
-  %cmp67.not = icmp eq ptr %14, null
+  %15 = load ptr, ptr %keymgmt, align 8
+  %cmp67.not = icmp eq ptr %15, null
   br i1 %cmp67.not, label %return, label %land.lhs.true68
 
 land.lhs.true68:                                  ; preds = %land.lhs.true66
-  %gen_set_params = getelementptr inbounds i8, ptr %14, i64 104
-  %15 = load ptr, ptr %gen_set_params, align 8
-  %cmp70.not = icmp eq ptr %15, null
+  %gen_set_params = getelementptr inbounds i8, ptr %15, i64 104
+  %16 = load ptr, ptr %gen_set_params, align 8
+  %cmp70.not = icmp eq ptr %16, null
   br i1 %cmp70.not, label %return, label %if.then71
 
 if.then71:                                        ; preds = %land.lhs.true68
   %op73 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %16 = load ptr, ptr %op73, align 8
-  %call74 = tail call i32 @evp_keymgmt_gen_set_params(ptr noundef nonnull %14, ptr noundef %16, ptr noundef %params) #10
+  %17 = load ptr, ptr %op73, align 8
+  %call74 = tail call i32 @evp_keymgmt_gen_set_params(ptr noundef nonnull %15, ptr noundef %17, ptr noundef %params) #10
   br label %return
 
-land.lhs.true81:                                  ; preds = %if.end, %if.end
+land.lhs.true81:                                  ; preds = %sw.bb, %sw.bb
   %op82 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %17 = load ptr, ptr %op82, align 8
-  %cmp83.not = icmp eq ptr %17, null
+  %18 = load ptr, ptr %op82, align 8
+  %cmp83.not = icmp eq ptr %18, null
   br i1 %cmp83.not, label %return, label %land.lhs.true84
 
 land.lhs.true84:                                  ; preds = %land.lhs.true81
-  %set_ctx_params87 = getelementptr inbounds i8, ptr %17, i64 112
-  %18 = load ptr, ptr %set_ctx_params87, align 8
-  %cmp88.not = icmp eq ptr %18, null
+  %set_ctx_params87 = getelementptr inbounds i8, ptr %18, i64 112
+  %19 = load ptr, ptr %set_ctx_params87, align 8
+  %cmp88.not = icmp eq ptr %19, null
   br i1 %cmp88.not, label %return, label %if.then89
 
 if.then89:                                        ; preds = %land.lhs.true84
   %algctx94 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %19 = load ptr, ptr %algctx94, align 8
-  %call95 = tail call i32 %18(ptr noundef %19, ptr noundef %params) #10
+  %20 = load ptr, ptr %algctx94, align 8
+  %call95 = tail call i32 %19(ptr noundef %20, ptr noundef %params) #10
   br label %return
 
-sw.bb97:                                          ; preds = %entry, %land.lhs.true.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i, %land.lhs.true47.i
+sw.bb97:                                          ; preds = %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i, %land.lhs.true47.i, %entry, %evp_pkey_ctx_state.exit.thread54
   %call98 = tail call i32 @evp_pkey_ctx_set_params_to_ctrl(ptr noundef nonnull %ctx, ptr noundef %params) #10
   br label %return
 
-return:                                           ; preds = %land.lhs.true66, %land.lhs.true68, %land.lhs.true45, %land.lhs.true48, %land.lhs.true24, %land.lhs.true27, %if.end, %land.lhs.true2, %land.lhs.true, %land.lhs.true84, %land.lhs.true81, %sw.bb97, %if.then89, %if.then71, %if.then53, %if.then32, %if.then
-  %retval.0 = phi i32 [ %call98, %sw.bb97 ], [ %call10, %if.then ], [ %call38, %if.then32 ], [ %call59, %if.then53 ], [ %call74, %if.then71 ], [ %call95, %if.then89 ], [ 0, %land.lhs.true81 ], [ 0, %land.lhs.true84 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true2 ], [ 0, %if.end ], [ 0, %land.lhs.true27 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true48 ], [ 0, %land.lhs.true45 ], [ 0, %land.lhs.true68 ], [ 0, %land.lhs.true66 ]
+return:                                           ; preds = %land.lhs.true66, %land.lhs.true68, %land.lhs.true45, %land.lhs.true48, %land.lhs.true24, %land.lhs.true27, %sw.bb, %land.lhs.true2, %land.lhs.true, %land.lhs.true84, %land.lhs.true81, %sw.bb97, %if.then89, %if.then71, %if.then53, %if.then32, %if.then
+  %retval.0 = phi i32 [ %call98, %sw.bb97 ], [ %call10, %if.then ], [ %call38, %if.then32 ], [ %call59, %if.then53 ], [ %call74, %if.then71 ], [ %call95, %if.then89 ], [ 0, %land.lhs.true81 ], [ 0, %land.lhs.true84 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true2 ], [ 0, %sw.bb ], [ 0, %land.lhs.true27 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true48 ], [ 0, %land.lhs.true45 ], [ 0, %land.lhs.true68 ], [ 0, %land.lhs.true66 ]
   ret i32 %retval.0
 }
 
@@ -1581,7 +1588,7 @@ entry:
   %0 = load i32, ptr %ctx, align 8
   switch i32 %0, label %sw.bb82 [
     i32 8192, label %land.lhs.true47.i
-    i32 2048, label %land.lhs.true.i
+    i32 2048, label %evp_pkey_ctx_state.exit.thread45
     i32 16, label %land.lhs.true18.i
     i32 128, label %land.lhs.true18.i
     i32 32, label %land.lhs.true18.i
@@ -1594,37 +1601,50 @@ entry:
     i32 4096, label %land.lhs.true47.i
   ]
 
-land.lhs.true.i:                                  ; preds = %entry
-  %algctx.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %1 = load ptr, ptr %algctx.i, align 8
-  %cmp3.not.i = icmp eq ptr %1, null
-  br i1 %cmp3.not.i, label %sw.bb82, label %land.lhs.true
-
 land.lhs.true18.i:                                ; preds = %entry, %entry, %entry, %entry, %entry
   %algctx20.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %2 = load ptr, ptr %algctx20.i, align 8
-  %cmp21.not.i = icmp eq ptr %2, null
-  br i1 %cmp21.not.i, label %sw.bb82, label %if.end
+  %1 = load ptr, ptr %algctx20.i, align 8
+  %cmp21.not.i = icmp eq ptr %1, null
+  br i1 %cmp21.not.i, label %sw.bb82, label %sw.bb
 
 land.lhs.true28.i:                                ; preds = %entry, %entry
   %algctx30.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %3 = load ptr, ptr %algctx30.i, align 8
-  %cmp31.not.i = icmp eq ptr %3, null
-  br i1 %cmp31.not.i, label %sw.bb82, label %if.end
+  %2 = load ptr, ptr %algctx30.i, align 8
+  %cmp31.not.i = icmp eq ptr %2, null
+  br i1 %cmp31.not.i, label %sw.bb82, label %sw.bb
 
 land.lhs.true38.i:                                ; preds = %entry, %entry
   %op39.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  %4 = load ptr, ptr %op39.i, align 8
-  %cmp40.not.i = icmp eq ptr %4, null
-  br i1 %cmp40.not.i, label %sw.bb82, label %if.end
+  %3 = load ptr, ptr %op39.i, align 8
+  %cmp40.not.i = icmp eq ptr %3, null
+  br i1 %cmp40.not.i, label %sw.bb82, label %sw.bb
 
 land.lhs.true47.i:                                ; preds = %entry, %entry
   %algctx49.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %5 = load ptr, ptr %algctx49.i, align 8
-  %cmp50.not.i = icmp eq ptr %5, null
-  br i1 %cmp50.not.i, label %sw.bb82, label %if.end
+  %4 = load ptr, ptr %algctx49.i, align 8
+  %cmp50.not.i = icmp eq ptr %4, null
+  br i1 %cmp50.not.i, label %sw.bb82, label %sw.bb
 
-land.lhs.true:                                    ; preds = %land.lhs.true.i
+evp_pkey_ctx_state.exit.thread45:                 ; preds = %entry
+  %algctx.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %5 = load ptr, ptr %algctx.i, align 8
+  %cmp3.not.i.not = icmp eq ptr %5, null
+  br i1 %cmp3.not.i.not, label %sw.bb82, label %land.lhs.true
+
+sw.bb:                                            ; preds = %land.lhs.true47.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i
+  switch i32 %0, label %return [
+    i32 8192, label %land.lhs.true66
+    i32 16, label %land.lhs.true24
+    i32 128, label %land.lhs.true24
+    i32 32, label %land.lhs.true24
+    i32 256, label %land.lhs.true24
+    i32 64, label %land.lhs.true24
+    i32 512, label %land.lhs.true45
+    i32 1024, label %land.lhs.true45
+    i32 4096, label %land.lhs.true66
+  ]
+
+land.lhs.true:                                    ; preds = %evp_pkey_ctx_state.exit.thread45
   %op = getelementptr inbounds i8, ptr %ctx, i64 40
   %6 = load ptr, ptr %op, align 8
   %cmp1.not = icmp eq ptr %6, null
@@ -1637,82 +1657,71 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp5.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true2
-  %call10 = tail call i32 %7(ptr noundef nonnull %1, ptr noundef %params) #10
+  %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
+  %8 = load ptr, ptr %algctx, align 8
+  %call10 = tail call i32 %7(ptr noundef %8, ptr noundef %params) #10
   br label %return
 
-if.end:                                           ; preds = %land.lhs.true47.i, %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i
-  switch i32 %0, label %return [
-    i32 16, label %land.lhs.true24
-    i32 128, label %land.lhs.true24
-    i32 32, label %land.lhs.true24
-    i32 256, label %land.lhs.true24
-    i32 64, label %land.lhs.true24
-    i32 512, label %land.lhs.true45
-    i32 1024, label %land.lhs.true45
-    i32 4096, label %land.lhs.true66
-    i32 8192, label %land.lhs.true66
-  ]
-
-land.lhs.true24:                                  ; preds = %if.end, %if.end, %if.end, %if.end, %if.end
+land.lhs.true24:                                  ; preds = %sw.bb, %sw.bb, %sw.bb, %sw.bb, %sw.bb
   %op25 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %8 = load ptr, ptr %op25, align 8
-  %cmp26.not = icmp eq ptr %8, null
+  %9 = load ptr, ptr %op25, align 8
+  %cmp26.not = icmp eq ptr %9, null
   br i1 %cmp26.not, label %return, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %land.lhs.true24
-  %get_ctx_params30 = getelementptr inbounds i8, ptr %8, i64 176
-  %9 = load ptr, ptr %get_ctx_params30, align 8
-  %cmp31.not = icmp eq ptr %9, null
+  %get_ctx_params30 = getelementptr inbounds i8, ptr %9, i64 176
+  %10 = load ptr, ptr %get_ctx_params30, align 8
+  %cmp31.not = icmp eq ptr %10, null
   br i1 %cmp31.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %land.lhs.true27
   %algctx37 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %10 = load ptr, ptr %algctx37, align 8
-  %call38 = tail call i32 %9(ptr noundef %10, ptr noundef %params) #10
+  %11 = load ptr, ptr %algctx37, align 8
+  %call38 = tail call i32 %10(ptr noundef %11, ptr noundef %params) #10
   br label %return
 
-land.lhs.true45:                                  ; preds = %if.end, %if.end
+land.lhs.true45:                                  ; preds = %sw.bb, %sw.bb
   %op46 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %11 = load ptr, ptr %op46, align 8
-  %cmp47.not = icmp eq ptr %11, null
+  %12 = load ptr, ptr %op46, align 8
+  %cmp47.not = icmp eq ptr %12, null
   br i1 %cmp47.not, label %return, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %land.lhs.true45
-  %get_ctx_params51 = getelementptr inbounds i8, ptr %11, i64 96
-  %12 = load ptr, ptr %get_ctx_params51, align 8
-  %cmp52.not = icmp eq ptr %12, null
+  %get_ctx_params51 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = load ptr, ptr %get_ctx_params51, align 8
+  %cmp52.not = icmp eq ptr %13, null
   br i1 %cmp52.not, label %return, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true48
   %algctx58 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %13 = load ptr, ptr %algctx58, align 8
-  %call59 = tail call i32 %12(ptr noundef %13, ptr noundef %params) #10
+  %14 = load ptr, ptr %algctx58, align 8
+  %call59 = tail call i32 %13(ptr noundef %14, ptr noundef %params) #10
   br label %return
 
-land.lhs.true66:                                  ; preds = %if.end, %if.end
+land.lhs.true66:                                  ; preds = %sw.bb, %sw.bb
   %op67 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %14 = load ptr, ptr %op67, align 8
-  %cmp68.not = icmp eq ptr %14, null
+  %15 = load ptr, ptr %op67, align 8
+  %cmp68.not = icmp eq ptr %15, null
   br i1 %cmp68.not, label %return, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %land.lhs.true66
-  %get_ctx_params72 = getelementptr inbounds i8, ptr %14, i64 96
-  %15 = load ptr, ptr %get_ctx_params72, align 8
-  %cmp73.not = icmp eq ptr %15, null
+  %get_ctx_params72 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = load ptr, ptr %get_ctx_params72, align 8
+  %cmp73.not = icmp eq ptr %16, null
   br i1 %cmp73.not, label %return, label %if.then74
 
 if.then74:                                        ; preds = %land.lhs.true69
   %algctx79 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %16 = load ptr, ptr %algctx79, align 8
-  %call80 = tail call i32 %15(ptr noundef %16, ptr noundef %params) #10
+  %17 = load ptr, ptr %algctx79, align 8
+  %call80 = tail call i32 %16(ptr noundef %17, ptr noundef %params) #10
   br label %return
 
-sw.bb82:                                          ; preds = %entry, %land.lhs.true.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i, %land.lhs.true47.i
+sw.bb82:                                          ; preds = %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i, %land.lhs.true47.i, %entry, %evp_pkey_ctx_state.exit.thread45
   %call83 = tail call i32 @evp_pkey_ctx_get_params_to_ctrl(ptr noundef nonnull %ctx, ptr noundef %params) #10
   br label %return
 
-return:                                           ; preds = %land.lhs.true45, %land.lhs.true48, %land.lhs.true24, %land.lhs.true27, %if.end, %land.lhs.true, %land.lhs.true2, %land.lhs.true69, %land.lhs.true66, %sw.bb82, %if.then74, %if.then53, %if.then32, %if.then
-  %retval.0 = phi i32 [ %call83, %sw.bb82 ], [ %call10, %if.then ], [ %call38, %if.then32 ], [ %call59, %if.then53 ], [ %call80, %if.then74 ], [ 0, %land.lhs.true66 ], [ 0, %land.lhs.true69 ], [ 0, %land.lhs.true2 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %land.lhs.true27 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true48 ], [ 0, %land.lhs.true45 ]
+return:                                           ; preds = %land.lhs.true45, %land.lhs.true48, %land.lhs.true24, %land.lhs.true27, %sw.bb, %land.lhs.true, %land.lhs.true2, %land.lhs.true69, %land.lhs.true66, %sw.bb82, %if.then74, %if.then53, %if.then32, %if.then
+  %retval.0 = phi i32 [ %call83, %sw.bb82 ], [ %call10, %if.then ], [ %call38, %if.then32 ], [ %call59, %if.then53 ], [ %call80, %if.then74 ], [ 0, %land.lhs.true66 ], [ 0, %land.lhs.true69 ], [ 0, %land.lhs.true2 ], [ 0, %land.lhs.true ], [ 0, %sw.bb ], [ 0, %land.lhs.true27 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true48 ], [ 0, %land.lhs.true45 ]
   ret i32 %retval.0
 }
 
@@ -2650,7 +2659,7 @@ lor.lhs.false.i:                                  ; preds = %if.then6.i
   %cmp10.i = icmp eq i32 %call9.i, 0
   br i1 %cmp10.i, label %sw.epilog, label %sw.default
 
-sw.default:                                       ; preds = %entry, %if.then.i, %lor.lhs.false.i
+sw.default:                                       ; preds = %entry, %lor.lhs.false.i, %if.then.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1388, ptr noundef nonnull @__func__.evp_pkey_ctx_store_cached_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #10
@@ -2707,7 +2716,7 @@ land.lhs.true47.i:                                ; preds = %if.then, %if.then
   %cmp50.not.i = icmp eq ptr %5, null
   br i1 %cmp50.not.i, label %sw.bb10, label %sw.bb2
 
-sw.bb2:                                           ; preds = %land.lhs.true47.i, %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i, %land.lhs.true.i
+sw.bb2:                                           ; preds = %land.lhs.true47.i, %land.lhs.true.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i
   %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
   %6 = load ptr, ptr %keymgmt, align 8
   %cmp3 = icmp eq ptr %6, null
@@ -2731,7 +2740,7 @@ if.then8:                                         ; preds = %if.end
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 148, ptr noundef null) #10
   br label %return
 
-sw.bb10:                                          ; preds = %if.then, %land.lhs.true.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i, %land.lhs.true47.i
+sw.bb10:                                          ; preds = %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i, %land.lhs.true.i, %land.lhs.true47.i, %if.then
   %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %7 = load ptr, ptr %pmeth, align 8
   %cmp11 = icmp eq ptr %7, null
@@ -2904,11 +2913,11 @@ land.lhs.true47.i:                                ; preds = %if.end9, %if.end9
   %cmp50.not.i = icmp eq ptr %8, null
   br i1 %cmp50.not.i, label %sw.bb11, label %sw.bb
 
-sw.bb:                                            ; preds = %land.lhs.true47.i, %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i, %land.lhs.true.i
+sw.bb:                                            ; preds = %land.lhs.true47.i, %land.lhs.true.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i
   %call10 = tail call i32 @evp_pkey_ctx_ctrl_to_param(ptr noundef nonnull %ctx, i32 noundef %keytype, i32 noundef %optype, i32 noundef %cmd, i32 noundef %p1, ptr noundef %p2) #10
   br label %return
 
-sw.bb11:                                          ; preds = %if.end9, %land.lhs.true.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i, %land.lhs.true47.i
+sw.bb11:                                          ; preds = %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i, %land.lhs.true.i, %land.lhs.true47.i, %if.end9
   br i1 %cmp, label %if.then17, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %sw.bb11
@@ -3052,11 +3061,11 @@ land.lhs.true47.i:                                ; preds = %if.end, %if.end
   %cmp50.not.i = icmp eq ptr %5, null
   br i1 %cmp50.not.i, label %lor.lhs.false, label %sw.bb
 
-sw.bb:                                            ; preds = %land.lhs.true47.i, %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i, %land.lhs.true.i
+sw.bb:                                            ; preds = %land.lhs.true47.i, %land.lhs.true.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i
   %call1 = tail call i32 @evp_pkey_ctx_ctrl_str_to_param(ptr noundef nonnull %ctx, ptr noundef %name, ptr noundef %value) #10
   br label %return
 
-lor.lhs.false:                                    ; preds = %if.end, %land.lhs.true.i, %land.lhs.true18.i, %land.lhs.true28.i, %land.lhs.true38.i, %land.lhs.true47.i
+lor.lhs.false:                                    ; preds = %land.lhs.true38.i, %land.lhs.true28.i, %land.lhs.true18.i, %land.lhs.true.i, %land.lhs.true47.i, %if.end
   %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %6 = load ptr, ptr %pmeth, align 8
   %cmp4 = icmp eq ptr %6, null
@@ -3243,7 +3252,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %pmeth, align 8
   %ctrl = getelementptr inbounds i8, ptr %0, i64 192
   %1 = load ptr, ptr %ctrl, align 8
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw nsw i64 %call to i32
   %call1 = tail call i32 %1(ptr noundef %ctx, i32 noundef %cmd, i32 noundef %conv, ptr noundef %str) #10
   br label %return
 

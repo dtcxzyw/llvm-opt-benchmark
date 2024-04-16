@@ -364,7 +364,7 @@ define dso_local void @drm_dp_encode_sideband_req(ptr nocapture noundef readonly
   %24 = getelementptr inbounds i8, ptr %0, i64 12
   %25 = load i16, ptr %24, align 4
   %26 = lshr i16 %25, 8
-  %27 = trunc i16 %26 to i8
+  %27 = trunc nuw i16 %26 to i8
   %28 = getelementptr i8, ptr %1, i64 3
   store i8 %27, ptr %28, align 1
   %29 = load i16, ptr %24, align 4
@@ -1497,7 +1497,7 @@ define dso_local i64 @drm_dp_mst_dpcd_read(ptr nocapture noundef readonly %0, i3
   %70 = zext i8 %66 to i64
   %71 = and i64 %3, 4294967295
   %72 = call i64 @llvm.umin.i64(i64 %70, i64 %71)
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw nsw i64 %72 to i32
   %74 = getelementptr inbounds i8, ptr %16, i64 350
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 2 %74, i64 %72, i1 false)
   br label %75
@@ -2850,7 +2850,7 @@ define internal fastcc i32 @drm_dp_dpcd_write_payload(ptr nocapture noundef read
   store i8 1, ptr %5, align 1
   %10 = call i64 @drm_dp_dpcd_write(ptr noundef %9, i32 noundef 704, ptr noundef nonnull %5, i64 noundef 1) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   store i8 %11, ptr %6, align 1
   %12 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %2, ptr %12, align 1
@@ -3272,7 +3272,7 @@ define dso_local noundef i32 @drm_dp_mst_hpd_irq_handle_event(ptr noundef %0, pt
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %4
-  %17 = trunc i32 %11 to i8
+  %17 = trunc nuw nsw i32 %11 to i8
   store i8 %17, ptr %12, align 1
   store i8 1, ptr %3, align 1
   br label %18
@@ -5408,7 +5408,7 @@ define dso_local i32 @drm_dp_calc_pbn_mode(i32 noundef %0, i32 noundef %1) #3 al
   %9 = mul nuw i64 %8, %7
   %10 = add i64 %9, 431999999999
   %11 = udiv i64 %10, 432000000000
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   ret i32 %12
 }
 
@@ -5732,7 +5732,7 @@ drm_dp_mst_get_edid.exit:                         ; preds = %drm_dp_mst_topology
   %186 = add nuw nsw i64 %183, 16
   %187 = load ptr, ptr %135, align 8
   %188 = getelementptr i8, ptr %4, i64 %186
-  %189 = trunc i64 %186 to i32
+  %189 = trunc nuw nsw i64 %186 to i32
   %190 = or i32 %189, 704
   %191 = call i64 @drm_dp_dpcd_read(ptr noundef %187, i32 noundef %190, ptr noundef %188, i64 noundef 16) #21
   %192 = icmp eq i64 %191, 16
@@ -6032,14 +6032,14 @@ define dso_local ptr @drm_dp_mst_dsc_aux_for_port(ptr noundef %0) #3 align 16 {
   %11 = getelementptr inbounds i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.split.thread15, label %.preheader
+  br i1 %13, label %.split.thread17, label %.preheader
 
 .preheader:                                       ; preds = %8, %drm_dp_mst_is_virtual_dpcd.exit.thread
   %14 = phi ptr [ %73, %drm_dp_mst_is_virtual_dpcd.exit.thread ], [ %12, %8 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 14
   %16 = load i8, ptr %15, align 2
   %17 = icmp ult i8 %16, 20
-  br i1 %17, label %drm_dp_mst_is_virtual_dpcd.exit.thread10, label %18
+  br i1 %17, label %drm_dp_mst_is_virtual_dpcd.exit.thread12, label %18
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds i8, ptr %14, i64 8
@@ -6072,25 +6072,25 @@ define dso_local ptr @drm_dp_mst_dsc_aux_for_port(ptr noundef %0) #3 align 16 {
   tail call void @mutex_lock(ptr noundef %37) #21
   %38 = load i8, ptr %23, align 4
   %39 = icmp eq i8 %38, 2
-  br i1 %39, label %40, label %drm_dp_mst_is_virtual_dpcd.exit.thread12
+  br i1 %39, label %40, label %drm_dp_mst_is_virtual_dpcd.exit.thread14
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %14, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %drm_dp_mst_is_virtual_dpcd.exit.thread12, label %44
+  br i1 %43, label %drm_dp_mst_is_virtual_dpcd.exit.thread14, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %42, i64 36
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 2
-  br i1 %47, label %48, label %drm_dp_mst_is_virtual_dpcd.exit.thread12
+  br i1 %47, label %48, label %drm_dp_mst_is_virtual_dpcd.exit.thread14
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %42, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %49
-  br i1 %51, label %drm_dp_mst_is_virtual_dpcd.exit.thread12, label %.preheader.i
+  br i1 %51, label %drm_dp_mst_is_virtual_dpcd.exit.thread14, label %.preheader.i
 
 .preheader.i:                                     ; preds = %48, %60
   %52 = phi ptr [ %61, %60 ], [ %50, %48 ]
@@ -6108,13 +6108,13 @@ define dso_local ptr @drm_dp_mst_dsc_aux_for_port(ptr noundef %0) #3 align 16 {
 60:                                               ; preds = %56, %.preheader.i
   %61 = load ptr, ptr %52, align 8
   %62 = icmp eq ptr %61, %49
-  br i1 %62, label %drm_dp_mst_is_virtual_dpcd.exit.thread12, label %.preheader.i, !llvm.loop !84
+  br i1 %62, label %drm_dp_mst_is_virtual_dpcd.exit.thread14, label %.preheader.i, !llvm.loop !84
 
-drm_dp_mst_is_virtual_dpcd.exit.thread12:         ; preds = %60, %48, %44, %40, %34
+drm_dp_mst_is_virtual_dpcd.exit.thread14:         ; preds = %60, %48, %44, %40, %34
   %63 = load ptr, ptr %35, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 784
   tail call void @mutex_unlock(ptr noundef %64) #21
-  br label %drm_dp_mst_is_virtual_dpcd.exit.thread10
+  br label %drm_dp_mst_is_virtual_dpcd.exit.thread12
 
 drm_dp_mst_is_virtual_dpcd.exit:                  ; preds = %56
   %65 = load ptr, ptr %35, align 8
@@ -6122,27 +6122,27 @@ drm_dp_mst_is_virtual_dpcd.exit:                  ; preds = %56
   tail call void @mutex_unlock(ptr noundef %66) #21
   br label %drm_dp_mst_is_virtual_dpcd.exit.thread
 
-drm_dp_mst_is_virtual_dpcd.exit.thread10:         ; preds = %.preheader, %drm_dp_mst_is_virtual_dpcd.exit.thread12
+drm_dp_mst_is_virtual_dpcd.exit.thread12:         ; preds = %.preheader, %drm_dp_mst_is_virtual_dpcd.exit.thread14
   %67 = getelementptr inbounds i8, ptr %14, i64 1384
   %68 = load i8, ptr %67, align 8, !range !9, !noundef !10
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %.loopexit, label %drm_dp_mst_is_virtual_dpcd.exit.thread
 
-drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_mst_is_virtual_dpcd.exit, %drm_dp_mst_is_virtual_dpcd.exit.thread10
+drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_mst_is_virtual_dpcd.exit, %drm_dp_mst_is_virtual_dpcd.exit.thread12
   %70 = getelementptr inbounds i8, ptr %14, i64 1352
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 56
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.split1, label %.preheader, !llvm.loop !85
+  br i1 %74, label %.split3, label %.preheader, !llvm.loop !85
 
-.split1:                                          ; preds = %drm_dp_mst_is_virtual_dpcd.exit.thread
+.split3:                                          ; preds = %drm_dp_mst_is_virtual_dpcd.exit.thread
   %75 = getelementptr inbounds i8, ptr %12, i64 14
   %76 = load i8, ptr %75, align 2
   %77 = icmp ult i8 %76, 20
-  br i1 %77, label %.split.thread15, label %78
+  br i1 %77, label %.split.thread17, label %78
 
-78:                                               ; preds = %.split1
+78:                                               ; preds = %.split3
   %79 = getelementptr inbounds i8, ptr %12, i64 8
   %80 = load i8, ptr %79, align 8
   %81 = icmp ugt i8 %80, 7
@@ -6173,49 +6173,49 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
   tail call void @mutex_lock(ptr noundef %97) #21
   %98 = load i8, ptr %83, align 4
   %99 = icmp eq i8 %98, 2
-  br i1 %99, label %100, label %.split.thread18
+  br i1 %99, label %100, label %.split.thread20
 
 100:                                              ; preds = %94
   %101 = getelementptr inbounds i8, ptr %12, i64 40
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.split.thread18, label %104
+  br i1 %103, label %.split.thread20, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds i8, ptr %102, i64 36
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 2
-  br i1 %107, label %108, label %.split.thread18
+  br i1 %107, label %108, label %.split.thread20
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds i8, ptr %102, i64 40
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, %109
-  br i1 %111, label %.split.thread18, label %.preheader.i5
+  br i1 %111, label %.split.thread20, label %.preheader.i7
 
-.preheader.i5:                                    ; preds = %108, %120
+.preheader.i7:                                    ; preds = %108, %120
   %112 = phi ptr [ %121, %120 ], [ %110, %108 ]
   %113 = getelementptr i8, ptr %112, i64 -12
   %114 = load i8, ptr %113, align 4
   %115 = icmp eq i8 %114, 3
   br i1 %115, label %116, label %120
 
-116:                                              ; preds = %.preheader.i5
+116:                                              ; preds = %.preheader.i7
   %117 = getelementptr i8, ptr %112, i64 -15
   %118 = load i8, ptr %117, align 1, !range !9, !noundef !10
   %119 = icmp eq i8 %118, 0
   br i1 %119, label %.split, label %120
 
-120:                                              ; preds = %116, %.preheader.i5
+120:                                              ; preds = %116, %.preheader.i7
   %121 = load ptr, ptr %112, align 8
   %122 = icmp eq ptr %121, %109
-  br i1 %122, label %.split.thread18, label %.preheader.i5, !llvm.loop !84
+  br i1 %122, label %.split.thread20, label %.preheader.i7, !llvm.loop !84
 
-.split.thread18:                                  ; preds = %120, %108, %104, %100, %94
+.split.thread20:                                  ; preds = %120, %108, %104, %100, %94
   %123 = load ptr, ptr %95, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 784
   tail call void @mutex_unlock(ptr noundef %124) #21
-  br label %.split.thread15
+  br label %.split.thread17
 
 .split:                                           ; preds = %116
   %125 = load ptr, ptr %95, align 8
@@ -6270,17 +6270,17 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
   br label %.loopexit
 
-.split.thread15:                                  ; preds = %.split1, %8, %.split.thread18
+.split.thread17:                                  ; preds = %.split3, %8, %.split.thread20
   %153 = getelementptr inbounds i8, ptr %0, i64 14
   %154 = load i8, ptr %153, align 2
   %155 = icmp ult i8 %154, 20
-  br i1 %155, label %drm_dp_mst_is_virtual_dpcd.exit9.thread19, label %156
+  br i1 %155, label %drm_dp_mst_is_virtual_dpcd.exit11.thread21, label %156
 
-156:                                              ; preds = %.split.thread15
+156:                                              ; preds = %.split.thread17
   %157 = getelementptr inbounds i8, ptr %0, i64 8
   %158 = load i8, ptr %157, align 8
   %159 = icmp ugt i8 %158, 7
-  br i1 %159, label %drm_dp_mst_is_virtual_dpcd.exit9.thread, label %160
+  br i1 %159, label %drm_dp_mst_is_virtual_dpcd.exit11.thread, label %160
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds i8, ptr %0, i64 12
@@ -6298,7 +6298,7 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
   %169 = getelementptr inbounds i8, ptr %0, i64 13
   %170 = load i8, ptr %169, align 1, !range !9, !noundef !10
   %171 = icmp eq i8 %170, 0
-  br i1 %171, label %172, label %drm_dp_mst_is_virtual_dpcd.exit9.thread
+  br i1 %171, label %172, label %drm_dp_mst_is_virtual_dpcd.exit11.thread
 
 172:                                              ; preds = %168, %164, %160
   %173 = getelementptr inbounds i8, ptr %0, i64 1368
@@ -6307,68 +6307,68 @@ drm_dp_mst_is_virtual_dpcd.exit.thread:           ; preds = %30, %18, %drm_dp_ms
   tail call void @mutex_lock(ptr noundef %175) #21
   %176 = load i8, ptr %161, align 4
   %177 = icmp eq i8 %176, 2
-  br i1 %177, label %178, label %drm_dp_mst_is_virtual_dpcd.exit9.thread21
+  br i1 %177, label %178, label %drm_dp_mst_is_virtual_dpcd.exit11.thread23
 
 178:                                              ; preds = %172
   %179 = getelementptr inbounds i8, ptr %0, i64 40
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %drm_dp_mst_is_virtual_dpcd.exit9.thread21, label %182
+  br i1 %181, label %drm_dp_mst_is_virtual_dpcd.exit11.thread23, label %182
 
 182:                                              ; preds = %178
   %183 = getelementptr inbounds i8, ptr %180, i64 36
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %184, 2
-  br i1 %185, label %186, label %drm_dp_mst_is_virtual_dpcd.exit9.thread21
+  br i1 %185, label %186, label %drm_dp_mst_is_virtual_dpcd.exit11.thread23
 
 186:                                              ; preds = %182
   %187 = getelementptr inbounds i8, ptr %180, i64 40
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %188, %187
-  br i1 %189, label %drm_dp_mst_is_virtual_dpcd.exit9.thread21, label %.preheader.i8
+  br i1 %189, label %drm_dp_mst_is_virtual_dpcd.exit11.thread23, label %.preheader.i10
 
-.preheader.i8:                                    ; preds = %186, %198
+.preheader.i10:                                   ; preds = %186, %198
   %190 = phi ptr [ %199, %198 ], [ %188, %186 ]
   %191 = getelementptr i8, ptr %190, i64 -12
   %192 = load i8, ptr %191, align 4
   %193 = icmp eq i8 %192, 3
   br i1 %193, label %194, label %198
 
-194:                                              ; preds = %.preheader.i8
+194:                                              ; preds = %.preheader.i10
   %195 = getelementptr i8, ptr %190, i64 -15
   %196 = load i8, ptr %195, align 1, !range !9, !noundef !10
   %197 = icmp eq i8 %196, 0
-  br i1 %197, label %drm_dp_mst_is_virtual_dpcd.exit9, label %198
+  br i1 %197, label %drm_dp_mst_is_virtual_dpcd.exit11, label %198
 
-198:                                              ; preds = %194, %.preheader.i8
+198:                                              ; preds = %194, %.preheader.i10
   %199 = load ptr, ptr %190, align 8
   %200 = icmp eq ptr %199, %187
-  br i1 %200, label %drm_dp_mst_is_virtual_dpcd.exit9.thread21, label %.preheader.i8, !llvm.loop !84
+  br i1 %200, label %drm_dp_mst_is_virtual_dpcd.exit11.thread23, label %.preheader.i10, !llvm.loop !84
 
-drm_dp_mst_is_virtual_dpcd.exit9.thread21:        ; preds = %198, %186, %182, %178, %172
+drm_dp_mst_is_virtual_dpcd.exit11.thread23:       ; preds = %198, %186, %182, %178, %172
   %201 = load ptr, ptr %173, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 784
   tail call void @mutex_unlock(ptr noundef %202) #21
-  br label %drm_dp_mst_is_virtual_dpcd.exit9.thread19
+  br label %drm_dp_mst_is_virtual_dpcd.exit11.thread21
 
-drm_dp_mst_is_virtual_dpcd.exit9:                 ; preds = %194
+drm_dp_mst_is_virtual_dpcd.exit11:                ; preds = %194
   %203 = load ptr, ptr %173, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 784
   tail call void @mutex_unlock(ptr noundef %204) #21
-  br label %drm_dp_mst_is_virtual_dpcd.exit9.thread
+  br label %drm_dp_mst_is_virtual_dpcd.exit11.thread
 
-drm_dp_mst_is_virtual_dpcd.exit9.thread:          ; preds = %168, %156, %drm_dp_mst_is_virtual_dpcd.exit9
+drm_dp_mst_is_virtual_dpcd.exit11.thread:         ; preds = %168, %156, %drm_dp_mst_is_virtual_dpcd.exit11
   %205 = getelementptr inbounds i8, ptr %0, i64 48
   br label %.loopexit
 
-drm_dp_mst_is_virtual_dpcd.exit9.thread19:        ; preds = %.split.thread15, %drm_dp_mst_is_virtual_dpcd.exit9.thread21
+drm_dp_mst_is_virtual_dpcd.exit11.thread21:       ; preds = %.split.thread17, %drm_dp_mst_is_virtual_dpcd.exit11.thread23
   br i1 %13, label %208, label %206
 
-206:                                              ; preds = %drm_dp_mst_is_virtual_dpcd.exit9.thread19
+206:                                              ; preds = %drm_dp_mst_is_virtual_dpcd.exit11.thread21
   %207 = getelementptr inbounds i8, ptr %12, i64 48
   br label %213
 
-208:                                              ; preds = %drm_dp_mst_is_virtual_dpcd.exit9.thread19
+208:                                              ; preds = %drm_dp_mst_is_virtual_dpcd.exit11.thread21
   %209 = getelementptr inbounds i8, ptr %0, i64 1368
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 112
@@ -6386,19 +6386,27 @@ drm_dp_mst_is_virtual_dpcd.exit9.thread19:        ; preds = %.split.thread15, %d
   %219 = load i32, ptr %218, align 4
   %220 = and i32 %219, 8
   %221 = icmp eq i32 %220, 0
-  br i1 %221, label %238, label %222
+  br i1 %221, label %237, label %222
 
 222:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %6, i8 0, i64 15, i1 false), !annotation !28
   %223 = call i32 @drm_dp_read_dpcd_caps(ptr noundef %214, ptr noundef nonnull %6) #21
   %224 = icmp slt i32 %223, 0
-  br i1 %224, label %.thread, label %225
+  br i1 %224, label %.thread24, label %225
+
+.thread24:                                        ; preds = %222
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #21
+  br label %.loopexit
 
 225:                                              ; preds = %222
   %226 = load i8, ptr %6, align 1
   %227 = icmp ugt i8 %226, 19
-  br i1 %227, label %228, label %237
+  br i1 %227, label %228, label %.thread
+
+.thread:                                          ; preds = %225
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #21
+  br label %237
 
 228:                                              ; preds = %225
   %229 = getelementptr inbounds i8, ptr %6, i64 5
@@ -6409,49 +6417,39 @@ drm_dp_mst_is_virtual_dpcd.exit9.thread19:        ; preds = %.split.thread15, %d
   %234 = and i32 %231, 6
   %235 = icmp eq i32 %234, 2
   %236 = or i1 %233, %235
-  br i1 %236, label %237, label %.thread
-
-.thread:                                          ; preds = %222, %228
-  %.ph = phi ptr [ %214, %228 ], [ null, %222 ]
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #21
+  br i1 %236, label %237, label %.loopexit
+
+237:                                              ; preds = %.thread, %228, %217
+  %238 = getelementptr inbounds i8, ptr %0, i64 48
+  %239 = call i64 @drm_dp_dpcd_read(ptr noundef %238, i32 noundef 96, ptr noundef nonnull %4, i64 noundef 1) #21
+  %240 = icmp eq i64 %239, 1
+  br i1 %240, label %241, label %.loopexit
+
+241:                                              ; preds = %237
+  %242 = call i64 @drm_dp_dpcd_read(ptr noundef %238, i32 noundef 144, ptr noundef nonnull %3, i64 noundef 1) #21
+  %243 = icmp eq i64 %242, 1
+  br i1 %243, label %244, label %.loopexit
+
+244:                                              ; preds = %241
+  %245 = load i8, ptr %4, align 1
+  %246 = and i8 %245, 1
+  %247 = icmp eq i8 %246, 0
+  br i1 %247, label %.loopexit, label %248
+
+248:                                              ; preds = %244
+  %249 = load i8, ptr %3, align 1
+  %250 = and i8 %249, 1
+  %251 = icmp eq i8 %250, 0
+  %spec.select2 = select i1 %251, ptr null, ptr %238
   br label %.loopexit
 
-237:                                              ; preds = %225, %228
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #21
-  br label %238
-
-238:                                              ; preds = %237, %217
-  %239 = getelementptr inbounds i8, ptr %0, i64 48
-  %240 = call i64 @drm_dp_dpcd_read(ptr noundef %239, i32 noundef 96, ptr noundef nonnull %4, i64 noundef 1) #21
-  %241 = icmp eq i64 %240, 1
-  br i1 %241, label %242, label %.loopexit
-
-242:                                              ; preds = %238
-  %243 = call i64 @drm_dp_dpcd_read(ptr noundef %239, i32 noundef 144, ptr noundef nonnull %3, i64 noundef 1) #21
-  %244 = icmp eq i64 %243, 1
-  br i1 %244, label %245, label %.loopexit
-
-245:                                              ; preds = %242
-  %246 = load i8, ptr %4, align 1
-  %247 = and i8 %246, 1
-  %248 = icmp eq i8 %247, 0
-  br i1 %248, label %253, label %249
-
-249:                                              ; preds = %245
-  %250 = load i8, ptr %3, align 1
-  %251 = and i8 %250, 1
-  %252 = icmp eq i8 %251, 0
-  br i1 %252, label %253, label %.loopexit
-
-253:                                              ; preds = %249, %245
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %drm_dp_mst_is_virtual_dpcd.exit.thread10, %.thread, %253, %249, %242, %238, %213, %drm_dp_mst_is_virtual_dpcd.exit9.thread, %151, %1
-  %254 = phi ptr [ %152, %151 ], [ %205, %drm_dp_mst_is_virtual_dpcd.exit9.thread ], [ null, %253 ], [ null, %1 ], [ null, %213 ], [ null, %238 ], [ null, %242 ], [ %239, %249 ], [ %.ph, %.thread ], [ null, %drm_dp_mst_is_virtual_dpcd.exit.thread10 ]
+.loopexit:                                        ; preds = %drm_dp_mst_is_virtual_dpcd.exit.thread12, %.thread24, %248, %244, %241, %237, %228, %213, %drm_dp_mst_is_virtual_dpcd.exit11.thread, %151, %1
+  %252 = phi ptr [ %152, %151 ], [ %205, %drm_dp_mst_is_virtual_dpcd.exit11.thread ], [ %214, %228 ], [ null, %1 ], [ null, %213 ], [ null, %237 ], [ null, %241 ], [ null, %244 ], [ %spec.select2, %248 ], [ null, %.thread24 ], [ null, %drm_dp_mst_is_virtual_dpcd.exit.thread12 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #21
-  ret ptr %254
+  ret ptr %252
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -9022,7 +9020,7 @@ define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture nounde
   %92 = and i32 %85, %91
   %93 = zext nneg i8 %84 to i32
   %94 = lshr i32 %92, %93
-  %95 = trunc i32 %94 to i8
+  %95 = trunc nuw i32 %94 to i8
   %96 = or i8 %87, %95
   %97 = lshr i32 %85, 1
   %98 = and i32 %97, 127
@@ -9085,7 +9083,7 @@ define internal fastcc noundef i32 @process_single_tx_qlock(ptr nocapture nounde
   %144 = and i32 %137, %143
   %145 = zext nneg i8 %136 to i32
   %146 = lshr i32 %144, %145
-  %147 = trunc i32 %146 to i16
+  %147 = trunc nuw nsw i32 %146 to i16
   %148 = or i16 %139, %147
   %149 = lshr i32 %137, 1
   %150 = and i32 %149, 127
@@ -9387,7 +9385,7 @@ drm_dp_get_last_connected_port_to_mstb.exit:      ; preds = %.lr.ph.i
   %.pre-phi = phi i64 [ 0, %83 ], [ %88, %89 ]
   %95 = getelementptr inbounds i8, ptr %81, i64 312
   store ptr %79, ptr %95, align 8
-  %96 = trunc i32 %2 to i8
+  %96 = trunc nuw i32 %2 to i8
   %97 = trunc i32 %3 to i16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false)
@@ -9666,7 +9664,7 @@ define internal fastcc noundef zeroext i1 @drm_dp_get_one_sb_msg(ptr noundef %0,
   %52 = and i32 %45, %51
   %53 = zext nneg i8 %44 to i32
   %54 = lshr i32 %52, %53
-  %55 = trunc i32 %54 to i8
+  %55 = trunc nuw i32 %54 to i8
   %56 = or i8 %47, %55
   %57 = lshr i32 %45, 1
   %58 = and i32 %57, 127
@@ -10122,7 +10120,7 @@ define internal fastcc void @drm_dp_sideband_append_payload(ptr noundef %0, ptr 
   %32 = and i32 %25, %31
   %33 = zext nneg i8 %24 to i32
   %34 = lshr i32 %32, %33
-  %35 = trunc i32 %34 to i16
+  %35 = trunc nuw nsw i32 %34 to i16
   %36 = or i16 %27, %35
   %37 = lshr i32 %25, 1
   %38 = and i32 %37, 127
@@ -11320,8 +11318,8 @@ define internal fastcc i32 @drm_dp_send_enum_path_resources(ptr noundef %0, ptr 
   br i1 %76, label %77, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %63
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 349
-  %.pre.pre = load i8, ptr %.phi.trans.insert.phi.trans.insert, align 1, !range !9
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 349
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !9
   br label %83
 
 77:                                               ; preds = %63
@@ -11330,12 +11328,12 @@ define internal fastcc i32 @drm_dp_send_enum_path_resources(ptr noundef %0, ptr 
   %80 = getelementptr inbounds i8, ptr %7, i64 349
   %81 = load i8, ptr %80, align 1, !range !9, !noundef !10
   %82 = icmp ne i8 %79, %81
-  %spec.select6 = zext i1 %82 to i32
+  %spec.select = zext i1 %82 to i32
   br label %83
 
-83:                                               ; preds = %77, %._crit_edge
-  %84 = phi i8 [ %.pre.pre, %._crit_edge ], [ %81, %77 ]
-  %85 = phi i32 [ 1, %._crit_edge ], [ %spec.select6, %77 ]
+83:                                               ; preds = %._crit_edge, %77
+  %84 = phi i8 [ %.pre, %._crit_edge ], [ %81, %77 ]
+  %85 = phi i32 [ 1, %._crit_edge ], [ %spec.select, %77 ]
   store i16 %75, ptr %73, align 2
   %86 = getelementptr inbounds i8, ptr %2, i64 1384
   store i8 %84, ptr %86, align 8
@@ -11840,7 +11838,7 @@ define internal i32 @drm_dp_mst_i2c_xfer(ptr nocapture noundef readonly %0, ptr 
   %79 = trunc i16 %78 to i8
   %80 = getelementptr inbounds i8, ptr %7, i64 112
   store i8 %79, ptr %80, align 8
-  %81 = trunc i16 %45 to i8
+  %81 = trunc nuw i16 %45 to i8
   %82 = getelementptr inbounds i8, ptr %7, i64 113
   store i8 %81, ptr %82, align 1
   %83 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16

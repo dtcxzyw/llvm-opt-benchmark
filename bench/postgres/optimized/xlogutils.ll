@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [13 x i8] c"%08X%08X%08X\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @XLogHaveInvalidPages() local_unnamed_addr #0 {
+define dso_local zeroext i1 @XLogHaveInvalidPages() local_unnamed_addr #0 {
   %1 = load ptr, ptr @invalid_page_tab, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
@@ -59,13 +59,10 @@ define dso_local noundef zeroext i1 @XLogHaveInvalidPages() local_unnamed_addr #
 2:                                                ; preds = %0
   %3 = tail call i64 @hash_get_num_entries(ptr noundef nonnull %1) #7
   %4 = icmp sgt i64 %3, 0
-  br i1 %4, label %6, label %5
+  br label %5
 
 5:                                                ; preds = %2, %0
-  br label %6
-
-6:                                                ; preds = %2, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %2 ]
+  %.0 = phi i1 [ false, %0 ], [ %4, %2 ]
   ret i1 %.0
 }
 
@@ -97,7 +94,7 @@ define dso_local void @XLogCheckInvalidPages() local_unnamed_addr #0 {
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.025.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   %.sroa.226.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 32
-  %.sroa.226.0.extract.trunc.i = trunc i64 %.sroa.226.0.extract.shift.i to i32
+  %.sroa.226.0.extract.trunc.i = trunc nuw i64 %.sroa.226.0.extract.shift.i to i32
   %13 = call ptr @GetRelationPath(i32 noundef %.sroa.226.0.extract.trunc.i, i32 noundef %.sroa.025.0.extract.trunc.i, i32 noundef %.sroa.2.0.copyload, i32 noundef -1, i32 noundef %8) #7
   %14 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
   br i1 %14, label %.sink.split.i, label %report_invalid_page.exit
@@ -268,7 +265,7 @@ BufferGetPage.exit:                               ; preds = %45, %51
 
 67:                                               ; preds = %64
   %68 = lshr i64 %11, 32
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw i64 %68 to i32
   store i32 %69, ptr %.0.i.i, align 4
   %70 = trunc i64 %11 to i32
   %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -478,7 +475,7 @@ define internal fastcc void @log_invalid_page(i64 %0, i32 %1, i32 noundef %2, i3
 12:                                               ; preds = %5
   %.sroa.025.0.extract.trunc.i = trunc i64 %0 to i32
   %.sroa.226.0.extract.shift.i = lshr i64 %0, 32
-  %.sroa.226.0.extract.trunc.i = trunc i64 %.sroa.226.0.extract.shift.i to i32
+  %.sroa.226.0.extract.trunc.i = trunc nuw i64 %.sroa.226.0.extract.shift.i to i32
   %13 = tail call ptr @GetRelationPath(i32 noundef %.sroa.226.0.extract.trunc.i, i32 noundef %.sroa.025.0.extract.trunc.i, i32 noundef %1, i32 noundef -1, i32 noundef %2) #7
   %14 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
   br i1 %14, label %.sink.split.i, label %report_invalid_page.exit
@@ -510,7 +507,7 @@ report_invalid_page.exit:                         ; preds = %12, %.sink.split.i
 24:                                               ; preds = %22
   %.sroa.025.0.extract.trunc.i15 = trunc i64 %0 to i32
   %.sroa.226.0.extract.shift.i16 = lshr i64 %0, 32
-  %.sroa.226.0.extract.trunc.i17 = trunc i64 %.sroa.226.0.extract.shift.i16 to i32
+  %.sroa.226.0.extract.trunc.i17 = trunc nuw i64 %.sroa.226.0.extract.shift.i16 to i32
   %25 = tail call ptr @GetRelationPath(i32 noundef %.sroa.226.0.extract.trunc.i17, i32 noundef %.sroa.025.0.extract.trunc.i15, i32 noundef %1, i32 noundef -1, i32 noundef %2) #7
   %26 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #7
   br i1 %26, label %.sink.split.i18, label %report_invalid_page.exit21
@@ -570,7 +567,7 @@ declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @CreateFakeRelcacheEntry(i64 %0, i32 %1) local_unnamed_addr #0 {
   %.sroa.013.sroa.3.0.extract.shift = lshr i64 %0, 32
-  %.sroa.013.sroa.3.0.extract.trunc = trunc i64 %.sroa.013.sroa.3.0.extract.shift to i32
+  %.sroa.013.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.013.sroa.3.0.extract.shift to i32
   %3 = tail call ptr @palloc0(i64 noundef 624) #7
   %4 = getelementptr inbounds i8, ptr %3, i64 480
   %5 = getelementptr inbounds i8, ptr %3, i64 56
@@ -617,7 +614,7 @@ define internal fastcc void @forget_invalid_pages(i64 %0, i32 %1, i32 noundef %2
   %5 = alloca %struct.HASH_SEQ_STATUS, align 8
   %.sroa.014.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.215.0.extract.shift = lshr i64 %0, 32
-  %.sroa.215.0.extract.trunc = trunc i64 %.sroa.215.0.extract.shift to i32
+  %.sroa.215.0.extract.trunc = trunc nuw i64 %.sroa.215.0.extract.shift to i32
   %6 = load ptr, ptr @invalid_page_tab, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
@@ -860,7 +857,7 @@ define dso_local void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1,
   %52 = load i32, ptr %26, align 8
   %53 = load i64, ptr %30, align 8
   %54 = lshr i64 %53, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = trunc i64 %53 to i32
   %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %52, i32 noundef %55, i32 noundef %56) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 814, ptr noundef nonnull @__func__.XLogReadDetermineTimeline) #7
@@ -889,7 +886,7 @@ define dso_local void @wal_segment_open(ptr nocapture noundef %0, i64 noundef %1
   %10 = udiv i64 %1, %9
   %11 = trunc i64 %10 to i32
   %12 = urem i64 %1, %9
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.17, i32 noundef %5, i32 noundef %11, i32 noundef %13) #7
   %15 = call i32 @BasicOpenFile(ptr noundef nonnull %4, i32 noundef 0) #7
   %16 = getelementptr inbounds i8, ptr %0, i64 1208
@@ -1080,7 +1077,7 @@ define dso_local void @WALReadRaiseError(ptr nocapture noundef readonly %0) loca
   %10 = udiv i64 %6, %9
   %11 = trunc i64 %10 to i32
   %12 = urem i64 %6, %9
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.18, i32 noundef %4, i32 noundef %11, i32 noundef %13) #7
   %15 = getelementptr inbounds i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4

@@ -1043,7 +1043,7 @@ for.body:                                         ; preds = %if.end11, %for.cond
 
 for.body31:                                       ; preds = %for.body, %for.inc43
   %i.013 = phi i32 [ %inc, %for.inc43 ], [ 128, %for.body ]
-  %conv32 = trunc i32 %i.013 to i8
+  %conv32 = trunc nuw i32 %i.013 to i8
   store i8 %conv32, ptr %ch, align 1
   %call.i = call i64 @mbstowcs(ptr noundef nonnull %wch, ptr noundef nonnull %ch, i64 noundef 1) #16
   %3 = add i64 %call.i, -1
@@ -1357,7 +1357,7 @@ if.then.i:                                        ; preds = %while.body
   %narrow.i.not.i47 = or i1 %cmp.i.i46, %.not.i.i45
   br i1 %narrow.i.not.i47, label %if.then38, label %_Py_mbrtowc.exit
 
-_Py_mbrtowc.exit:                                 ; preds = %while.body, %if.then.i
+_Py_mbrtowc.exit:                                 ; preds = %if.then.i, %while.body
   switch i64 %call.i43, label %if.end44 [
     i64 0, label %while.end
     i64 -2, label %decode_error
@@ -3368,28 +3368,25 @@ entry:
   %0 = load ptr, ptr %lc, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %cmp = icmp ugt i64 %call, 1
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+  br i1 %cmp, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load i8, ptr %0, align 1
-  %cmp3 = icmp slt i8 %1, 0
-  br i1 %cmp3, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
+  %2 = icmp sgt i8 %1, -1
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %tobool.not = phi i1 [ false, %if.then ], [ true, %lor.lhs.false ]
+if.end:                                           ; preds = %lor.lhs.false, %entry
+  %change_locale.0 = phi i1 [ false, %entry ], [ %2, %lor.lhs.false ]
   %thousands_sep5 = getelementptr inbounds i8, ptr %lc, i64 8
-  %2 = load ptr, ptr %thousands_sep5, align 8
-  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %3 = load ptr, ptr %thousands_sep5, align 8
+  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %cmp7 = icmp ugt i64 %call6, 1
   br i1 %cmp7, label %if.then17, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end
-  %3 = load i8, ptr %2, align 1
-  %cmp13 = icmp sgt i8 %3, -1
-  %or.cond = and i1 %tobool.not, %cmp13
+  %4 = load i8, ptr %3, align 1
+  %cmp13 = icmp sgt i8 %4, -1
+  %or.cond = select i1 %cmp13, i1 %change_locale.0, i1 false
   br i1 %or.cond, label %if.end40, label %if.then17
 
 if.then17:                                        ; preds = %lor.lhs.false9, %if.end
@@ -3398,8 +3395,8 @@ if.then17:                                        ; preds = %lor.lhs.false9, %if
   br i1 %tobool19.not, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.then17
-  %4 = load ptr, ptr @PyExc_RuntimeWarning, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.5) #16
+  %5 = load ptr, ptr @PyExc_RuntimeWarning, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.5) #16
   br label %return
 
 if.end21:                                         ; preds = %if.then17
@@ -3428,15 +3425,15 @@ if.then37:                                        ; preds = %land.lhs.true
 if.end40:                                         ; preds = %lor.lhs.false9, %land.lhs.true, %if.end26, %if.then37
   %oldloc.0 = phi ptr [ %call22, %if.then37 ], [ %call22, %if.end26 ], [ %call22, %land.lhs.true ], [ null, %lor.lhs.false9 ]
   %loc.1 = phi i1 [ false, %if.then37 ], [ true, %if.end26 ], [ true, %land.lhs.true ], [ true, %lor.lhs.false9 ]
-  %5 = load ptr, ptr %lc, align 8
-  %call42 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %5, ptr noundef null) #16
+  %6 = load ptr, ptr %lc, align 8
+  %call42 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %6, ptr noundef null) #16
   store ptr %call42, ptr %decimal_point, align 8
   %cmp43 = icmp eq ptr %call42, null
   br i1 %cmp43, label %done, label %if.end46
 
 if.end46:                                         ; preds = %if.end40
-  %6 = load ptr, ptr %thousands_sep5, align 8
-  %call48 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %6, ptr noundef null) #16
+  %7 = load ptr, ptr %thousands_sep5, align 8
+  %call48 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %7, ptr noundef null) #16
   store ptr %call48, ptr %thousands_sep, align 8
   %cmp49 = icmp eq ptr %call48, null
   %spec.select = sext i1 %cmp49 to i32

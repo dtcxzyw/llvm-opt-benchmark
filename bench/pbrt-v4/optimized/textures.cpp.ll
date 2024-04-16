@@ -3863,7 +3863,7 @@ entry:
   %add9 = fadd float %5, 5.000000e-01
   %call10 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %add7, float noundef %add9, float noundef 5.000000e-01)
   %cmp = fcmp ogt float %call10, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end35
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %add13 = fadd float %4, 1.500000e+00
@@ -3884,11 +3884,11 @@ if.then:                                          ; preds = %entry
   %cmp33 = fcmp olt float %add.i, 0x3FBF5C28E0000000
   br i1 %cmp33, label %return, label %if.end35
 
-if.end35:                                         ; preds = %if.then, %entry
+if.end35:                                         ; preds = %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %if.end35
-  %retval.0 = phi i1 [ false, %if.end35 ], [ true, %if.then ]
+return:                                           ; preds = %entry, %if.then, %if.end35
+  %retval.0 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %if.end35 ]
   ret i1 %retval.0
 }
 
@@ -9689,7 +9689,7 @@ invoke.cont22:                                    ; preds = %invoke.cont22.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp24, i8 0, i64 48, i1 false)
   store i64 4539628425446424576, ptr %ctx.sroa.9.0.agg.tmp24.sroa_idx, align 8
   store <4 x float> <float 7.500000e-01, float 7.500000e-01, float 7.500000e-01, float 7.500000e-01>, ptr %ctx.sroa.10.0.agg.tmp24.sroa_idx, align 8
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %8, ptr %ctx.sroa.14.0.agg.tmp24.sroa_idx, align 8
   %call26 = invoke noundef i32 @_ZNK4pbrt15PtexTextureBase13SampleTextureENS_18TextureEvalContextEPf(ptr noundef nonnull align 8 dereferenceable(52) %tex, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp24, ptr noundef nonnull %result)
           to label %invoke.cont25 unwind label %lpad4.loopexit

@@ -2584,7 +2584,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i16.i.le = getelementptr inbounds float, ptr %arrayidx.i.i96, i64 %44
   %add.ptr.i.i.i.le = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i17.i18.i, i64 %46
-  %48 = trunc i64 %46 to i32
+  %48 = trunc nsw i64 %46 to i32
   %loc.i.i = getelementptr inbounds i8, ptr %agg.tmp29, i64 88
   store i32 %48, ptr %ref.tmp9.i.i, align 4, !noalias !36
   invoke void @_ZN4pbrt9ErrorExitIJiRfRKfEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef nonnull %loc.i.i, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9.i.i, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr.i.i.i.le, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i16.i.le) #21
@@ -5580,7 +5580,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
   %sub.ptr.sub16.pre-phi.i.i.i = phi i64 [ %.pre51.i.i.i, %for.end.loopexit.i.i.i ], [ %add.ptr.i13.idx, %if.end ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %incdec.ptr13.i.i.i, %for.end.loopexit.i.i.i ], [ %cond.i8, %if.end ]
   %sub.ptr.div17.i.i.i = ashr exact i64 %sub.ptr.sub16.pre-phi.i.i.i, 4
-  switch i64 %sub.ptr.div17.i.i.i, label %sw.default.i.i.i [
+  switch i64 %sub.ptr.div17.i.i.i, label %invoke.cont8 [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb22.i.i.i
     i64 1, label %sw.bb27.i.i.i
@@ -5615,9 +5615,7 @@ sw.bb27.i.i.i:                                    ; preds = %if.end25.i.i.i, %fo
   %31 = getelementptr i8, ptr %__first.addr.2.i.i.i, i64 8
   %__first.addr.2.val33.i.i.i = load ptr, ptr %31, align 8
   %call28.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %__pred.i.i.i, ptr %__first.addr.2.val.i.i.i, ptr %__first.addr.2.val33.i.i.i)
-  br i1 %call28.i.i.i, label %invoke.cont8, label %sw.default.i.i.i
-
-sw.default.i.i.i:                                 ; preds = %sw.bb27.i.i.i, %for.end.i.i.i
+  %spec.select.i.i.i = select i1 %call28.i.i.i, ptr %__first.addr.2.i.i.i, ptr %add.ptr.i13
   br label %invoke.cont8
 
 invoke.cont8.loopexit.split.loop.exit:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit"
@@ -5644,8 +5642,8 @@ invoke.cont8.loopexit.split.loop.exit150:         ; preds = %land.rhs.i4.i.i
   %incdec.ptr9.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.045.i.i.i, i64 48
   br label %invoke.cont8
 
-invoke.cont8:                                     ; preds = %land.rhs.i4.i.i89, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit96", %invoke.cont8.loopexit.split.loop.exit, %invoke.cont8.loopexit.split.loop.exit142, %invoke.cont8.loopexit.split.loop.exit144, %invoke.cont8.loopexit.split.loop.exit146, %invoke.cont8.loopexit.split.loop.exit148, %invoke.cont8.loopexit.split.loop.exit150, %sw.default.i.i.i, %sw.bb27.i.i.i, %sw.bb22.i.i.i, %sw.bb.i.i.i
-  %retval.0.i.i.i = phi ptr [ %add.ptr.i13, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb22.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb27.i.i.i ], [ %incdec.ptr9.i.i.i.le156, %invoke.cont8.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.le159, %invoke.cont8.loopexit.split.loop.exit142 ], [ %incdec.ptr.i.i.i.le162, %invoke.cont8.loopexit.split.loop.exit144 ], [ %incdec.ptr.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit146 ], [ %incdec.ptr5.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit148 ], [ %incdec.ptr9.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit150 ], [ %__first.addr.045.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit96" ], [ %__first.addr.045.i.i.i, %land.rhs.i4.i.i89 ]
+invoke.cont8:                                     ; preds = %land.rhs.i4.i.i89, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit96", %invoke.cont8.loopexit.split.loop.exit, %invoke.cont8.loopexit.split.loop.exit142, %invoke.cont8.loopexit.split.loop.exit144, %invoke.cont8.loopexit.split.loop.exit146, %invoke.cont8.loopexit.split.loop.exit148, %invoke.cont8.loopexit.split.loop.exit150, %sw.bb27.i.i.i, %sw.bb22.i.i.i, %sw.bb.i.i.i, %for.end.i.i.i
+  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb22.i.i.i ], [ %add.ptr.i13, %for.end.i.i.i ], [ %spec.select.i.i.i, %sw.bb27.i.i.i ], [ %incdec.ptr9.i.i.i.le156, %invoke.cont8.loopexit.split.loop.exit ], [ %incdec.ptr5.i.i.i.le159, %invoke.cont8.loopexit.split.loop.exit142 ], [ %incdec.ptr.i.i.i.le162, %invoke.cont8.loopexit.split.loop.exit144 ], [ %incdec.ptr.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit146 ], [ %incdec.ptr5.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit148 ], [ %incdec.ptr9.i.i.i.le, %invoke.cont8.loopexit.split.loop.exit150 ], [ %__first.addr.045.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit96" ], [ %__first.addr.045.i.i.i, %land.rhs.i4.i.i89 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__pred.i.i.i)
   %32 = load ptr, ptr %ptr.i, align 8
   %tobool.not.i.i15 = icmp eq ptr %32, null

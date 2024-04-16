@@ -161,7 +161,7 @@ land.end.i:                                       ; preds = %for.body.i
 if.then.i:                                        ; preds = %land.end.i
   %cmp.i.not.i = icmp eq i32 %cur_range.sroa.4.022.i, -1
   %3 = add nsw i32 %cur_range.sroa.4.022.i, 2
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select20.i = select i1 %cmp.i.not.i, i32 %4, i32 %cur_range.sroa.0.023.i
   %add7.i = select i1 %cmp.i.not.i, i32 2, i32 %3
   %cmp10.not.i = icmp eq i64 %indvars.iv.i, 14
@@ -425,7 +425,7 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %lor.lhs.false.i, %for.cond.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nsw i64 %indvars.iv.i to i32
   %sub.i = sub nsw i32 %4, %cur_component_begin.0.i.ph
   %idxprom5.i = zext nneg i32 %cur_component.0.i.ph to i64
   %arrayidx6.i = getelementptr inbounds %"struct.url::Component", ptr %components, i64 %idxprom5.i
@@ -447,7 +447,7 @@ if.end12.i:                                       ; preds = %if.then4.i
 
 if.end15.i:                                       ; preds = %if.end12.i
   %cmp16.i = icmp eq i32 %inc.i, 4
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   br i1 %cmp16.i, label %if.then17.i, label %for.cond.i.outer, !llvm.loop !12
 
 if.then17.i:                                      ; preds = %if.end15.i
@@ -531,7 +531,7 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %lor.lhs.false.i, %for.cond.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nsw i64 %indvars.iv.i to i32
   %sub.i = sub nsw i32 %4, %cur_component_begin.0.i.ph
   %idxprom5.i = zext nneg i32 %cur_component.0.i.ph to i64
   %arrayidx6.i = getelementptr inbounds %"struct.url::Component", ptr %components, i64 %idxprom5.i
@@ -553,7 +553,7 @@ if.end12.i:                                       ; preds = %if.then4.i
 
 if.end15.i:                                       ; preds = %if.end12.i
   %cmp16.i = icmp eq i32 %inc.i, 4
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   br i1 %cmp16.i, label %if.then17.i, label %for.cond.i.outer, !llvm.loop !14
 
 if.then17.i:                                      ; preds = %if.end15.i
@@ -977,7 +977,7 @@ lor.lhs.false.i.i.i:                              ; preds = %for.cond.i.i.i
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.else.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i, %for.cond.i.i.i
-  %4 = trunc i64 %indvars.iv.i.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.i.i.i to i32
   %sub.i.i.i = sub nsw i32 %4, %cur_component_begin.0.i.i.i.ph
   %idxprom5.i.i.i = zext nneg i32 %cur_component.0.i.i.i.ph to i64
   %arrayidx6.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %components.i, i64 %idxprom5.i.i.i
@@ -999,7 +999,7 @@ if.end12.i.i.i:                                   ; preds = %if.then4.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %if.end12.i.i.i
   %cmp16.i.i.i = icmp eq i32 %inc.i.i.i, 4
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   br i1 %cmp16.i.i.i, label %if.then17.i.i.i, label %for.cond.i.i.i.outer, !llvm.loop !12
 
 if.then17.i.i.i:                                  ; preds = %if.end15.i.i.i
@@ -1106,7 +1106,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !18
 
 while.end.loopexit.i.i:                           ; preds = %land.rhs.i.i
-  %17 = trunc i64 %indvars.iv.i.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %if.end18.i.i
@@ -1189,7 +1189,7 @@ _ZN3url12_GLOBAL__N_121IPv4ComponentToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RK
   br label %if.end14.i
 
 if.end14.fold.split.i:                            ; preds = %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
-  %conv51.i.i = trunc i64 %call.i.i.i to i32
+  %conv51.i.i = trunc nuw i64 %call.i.i.i to i32
   store i32 %conv51.i.i, ptr %arrayidx7.i, align 4
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %buf.i.i)
   br label %if.end14.i
@@ -1232,7 +1232,7 @@ for.body21.i:                                     ; preds = %if.end27.i, %for.bo
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %if.end27.i
 
 if.end27.i:                                       ; preds = %for.body21.i
-  %conv30.i = trunc i32 %24 to i8
+  %conv30.i = trunc nuw i32 %24 to i8
   %arrayidx32.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv31.i
   store i8 %conv30.i, ptr %arrayidx32.i, align 1
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
@@ -1329,7 +1329,7 @@ lor.lhs.false.i.i.i:                              ; preds = %for.cond.i.i.i
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.else.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i, %for.cond.i.i.i
-  %4 = trunc i64 %indvars.iv.i.i.i to i32
+  %4 = trunc nsw i64 %indvars.iv.i.i.i to i32
   %sub.i.i.i = sub nsw i32 %4, %cur_component_begin.0.i.i.i.ph
   %idxprom5.i.i.i = zext nneg i32 %cur_component.0.i.i.i.ph to i64
   %arrayidx6.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %components.i, i64 %idxprom5.i.i.i
@@ -1351,7 +1351,7 @@ if.end12.i.i.i:                                   ; preds = %if.then4.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %if.end12.i.i.i
   %cmp16.i.i.i = icmp eq i32 %inc.i.i.i, 4
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nsw i64 %5 to i32
   br i1 %cmp16.i.i.i, label %if.then17.i.i.i, label %for.cond.i.i.i.outer, !llvm.loop !14
 
 if.then17.i.i.i:                                  ; preds = %if.end15.i.i.i
@@ -1458,7 +1458,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !23
 
 while.end.loopexit.i.i:                           ; preds = %land.rhs.i.i
-  %17 = trunc i64 %indvars.iv.i.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %if.end18.i.i
@@ -1543,7 +1543,7 @@ _ZN3url12_GLOBAL__N_121IPv4ComponentToNumberItEENS_13CanonHostInfo6FamilyEPKT_RK
   br label %if.end14.i
 
 if.end14.fold.split.i:                            ; preds = %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
-  %conv52.i.i = trunc i64 %call.i.i.i to i32
+  %conv52.i.i = trunc nuw i64 %call.i.i.i to i32
   store i32 %conv52.i.i, ptr %arrayidx7.i, align 4
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %buf.i.i)
   br label %if.end14.i
@@ -1586,7 +1586,7 @@ for.body21.i:                                     ; preds = %if.end27.i, %for.bo
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %if.end27.i
 
 if.end27.i:                                       ; preds = %for.body21.i
-  %conv30.i = trunc i32 %24 to i8
+  %conv30.i = trunc nuw i32 %24 to i8
   %arrayidx32.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv31.i
   store i8 %conv30.i, ptr %arrayidx32.i, align 1
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
@@ -1975,20 +1975,17 @@ for.inc43.i:                                      ; preds = %_ZN3url12_GLOBAL__N
 
 for.end45.i:                                      ; preds = %for.inc43.us.i, %for.inc43.i, %for.cond.preheader.i
   %cur_index_in_address.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %cur_index_in_address.3.i, %for.inc43.i ], [ %cur_index_in_address.3.us.i, %for.inc43.us.i ]
-  br i1 %cmp.i.not.i.i, label %if.end55.i, label %if.then47.i
+  br i1 %cmp.i.not.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit, label %if.then47.i
 
 if.then47.i:                                      ; preds = %for.end45.i
   %idxprom49.i = sext i32 %cur_index_in_address.0.lcssa.i to i64
   %arrayidx50.i = getelementptr inbounds i8, ptr %address, i64 %idxprom49.i
   %call51.i = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %ipv4_component.i.i, ptr noundef %arrayidx50.i, ptr noundef nonnull %ignored_num_ipv4_components.i)
   %cmp52.not.i = icmp eq i32 %call51.i, 2
-  br i1 %cmp52.not.i, label %if.end55.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
-
-if.end55.i:                                       ; preds = %if.then47.i, %for.end45.i
   br label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
 
-_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %if.then11.i.i, %lor.lhs.false21.i.i, %land.lhs.true23.i.i, %if.then29.i.i, %if.then43.i.i, %if.else.i.i, %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i, %if.then64.i.i, %if.end11.i, %if.then47.i, %if.end55.i
-  %retval.0.i = phi i1 [ true, %if.end55.i ], [ false, %lor.lhs.false2.i ], [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %if.end11.i ], [ false, %if.then47.i ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %if.then64.i.i ], [ false, %if.else.i.i ], [ false, %if.then43.i.i ], [ false, %if.then29.i.i ], [ false, %land.lhs.true23.i.i ], [ false, %lor.lhs.false21.i.i ], [ false, %if.then11.i.i ]
+_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %if.then11.i.i, %lor.lhs.false21.i.i, %land.lhs.true23.i.i, %if.then29.i.i, %if.then43.i.i, %if.else.i.i, %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i, %if.then64.i.i, %if.end11.i, %for.end45.i, %if.then47.i
+  %retval.0.i = phi i1 [ false, %lor.lhs.false2.i ], [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %if.end11.i ], [ true, %for.end45.i ], [ %cmp52.not.i, %if.then47.i ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %if.then64.i.i ], [ false, %if.else.i.i ], [ false, %if.then43.i.i ], [ false, %if.then29.i.i ], [ false, %land.lhs.true23.i.i ], [ false, %lor.lhs.false21.i.i ], [ false, %if.then11.i.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ipv6_parsed.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ignored_num_ipv4_components.i)
   ret i1 %retval.0.i
@@ -2357,20 +2354,17 @@ for.inc43.i:                                      ; preds = %_ZN3url12_GLOBAL__N
 
 for.end45.i:                                      ; preds = %for.inc43.us.i, %for.inc43.i, %for.cond.preheader.i
   %cur_index_in_address.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %cur_index_in_address.3.i, %for.inc43.i ], [ %cur_index_in_address.3.us.i, %for.inc43.us.i ]
-  br i1 %cmp.i.not.i.i, label %if.end55.i, label %if.then47.i
+  br i1 %cmp.i.not.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit, label %if.then47.i
 
 if.then47.i:                                      ; preds = %for.end45.i
   %idxprom49.i = sext i32 %cur_index_in_address.0.lcssa.i to i64
   %arrayidx50.i = getelementptr inbounds i8, ptr %address, i64 %idxprom49.i
   %call51.i = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %ipv4_component.i.i, ptr noundef %arrayidx50.i, ptr noundef nonnull %ignored_num_ipv4_components.i)
   %cmp52.not.i = icmp eq i32 %call51.i, 2
-  br i1 %cmp52.not.i, label %if.end55.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
-
-if.end55.i:                                       ; preds = %if.then47.i, %for.end45.i
   br label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
 
-_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %if.then11.i.i, %lor.lhs.false21.i.i, %land.lhs.true23.i.i, %if.then29.i.i, %if.then43.i.i, %if.else.i.i, %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i, %if.then65.i.i, %if.end11.i, %if.then47.i, %if.end55.i
-  %retval.0.i = phi i1 [ true, %if.end55.i ], [ false, %lor.lhs.false2.i ], [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %if.end11.i ], [ false, %if.then47.i ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %if.then65.i.i ], [ false, %if.else.i.i ], [ false, %if.then43.i.i ], [ false, %if.then29.i.i ], [ false, %land.lhs.true23.i.i ], [ false, %lor.lhs.false21.i.i ], [ false, %if.then11.i.i ]
+_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %if.then11.i.i, %lor.lhs.false21.i.i, %land.lhs.true23.i.i, %if.then29.i.i, %if.then43.i.i, %if.else.i.i, %entry, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i, %if.then65.i.i, %if.end11.i, %for.end45.i, %if.then47.i
+  %retval.0.i = phi i1 [ false, %lor.lhs.false2.i ], [ false, %lor.lhs.false.i ], [ false, %entry ], [ false, %if.end11.i ], [ true, %for.end45.i ], [ %cmp52.not.i, %if.then47.i ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %if.then65.i.i ], [ false, %if.else.i.i ], [ false, %if.then43.i.i ], [ false, %if.then29.i.i ], [ false, %land.lhs.true23.i.i ], [ false, %lor.lhs.false21.i.i ], [ false, %if.then11.i.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ipv6_parsed.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ignored_num_ipv4_components.i)
   ret i1 %retval.0.i

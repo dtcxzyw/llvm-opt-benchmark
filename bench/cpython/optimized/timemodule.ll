@@ -197,18 +197,14 @@ entry:
   %module.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %module.val, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %1, ptr noundef %arg) #11
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -1728,7 +1724,7 @@ declare i32 @_PyTime_localtime(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gettmarg(ptr nocapture noundef readonly %state, ptr noundef %args, ptr noundef %p, ptr noundef %format) unnamed_addr #0 {
+define internal fastcc i32 @gettmarg(ptr nocapture noundef readonly %state, ptr noundef %args, ptr noundef %p, ptr noundef %format) unnamed_addr #0 {
 entry:
   %y = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %p, i8 0, i64 56, i1 false)
@@ -1784,7 +1780,7 @@ if.end7:                                          ; preds = %if.end5
   %9 = load ptr, ptr %state, align 8
   %args.val24 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %args.val24, %9
-  br i1 %cmp.i.not, label %if.then15, label %if.end34
+  br i1 %cmp.i.not, label %if.then15, label %return
 
 if.then15:                                        ; preds = %if.end7
   %call16 = call ptr @PyStructSequence_GetItem(ptr noundef nonnull %args, i64 noundef 9) #11
@@ -1801,7 +1797,7 @@ if.then18:                                        ; preds = %if.then15
 if.end24:                                         ; preds = %if.then18, %if.then15
   %call25 = call ptr @PyStructSequence_GetItem(ptr noundef nonnull %args, i64 noundef 10) #11
   %cmp26.not = icmp eq ptr %call25, @_Py_NoneStruct
-  br i1 %cmp26.not, label %if.end34, label %if.then27
+  br i1 %cmp26.not, label %return, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
   %call28 = call i64 @PyLong_AsLong(ptr noundef %call25) #11
@@ -1809,13 +1805,11 @@ if.then27:                                        ; preds = %if.end24
   store i64 %call28, ptr %tm_gmtoff, align 8
   %call29 = call ptr @PyErr_Occurred() #11
   %tobool30.not = icmp eq ptr %call29, null
-  br i1 %tobool30.not, label %if.end34, label %return
-
-if.end34:                                         ; preds = %if.end24, %if.then27, %if.end7
+  %spec.select = zext i1 %tobool30.not to i32
   br label %return
 
-return:                                           ; preds = %if.then27, %if.then18, %if.end, %if.end34, %if.then6, %if.then
-  %retval.0 = phi i32 [ 0, %if.then6 ], [ 1, %if.end34 ], [ 0, %if.then ], [ 0, %if.end ], [ 0, %if.then18 ], [ 0, %if.then27 ]
+return:                                           ; preds = %if.then27, %if.end7, %if.end24, %if.then18, %if.end, %if.then6, %if.then
+  %retval.0 = phi i32 [ 0, %if.then6 ], [ 0, %if.then ], [ 0, %if.end ], [ 0, %if.then18 ], [ 1, %if.end24 ], [ 1, %if.end7 ], [ %spec.select, %if.then27 ]
   ret i32 %retval.0
 }
 

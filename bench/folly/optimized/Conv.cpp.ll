@@ -334,44 +334,42 @@ land.lhs.true97:                                  ; preds = %land.lhs.true92
 
 if.then103:                                       ; preds = %land.lhs.true97
   %cmp104 = icmp ugt i64 %size.0, 7
-  br i1 %cmp104, label %land.lhs.true105, label %if.else
+  br i1 %cmp104, label %land.lhs.true105, label %if.end168
 
 land.lhs.true105:                                 ; preds = %if.then103
   %arrayidx106 = getelementptr inbounds i8, ptr %b.0, i64 3
   %22 = load i8, ptr %arrayidx106, align 1, !tbaa !21
   %23 = and i8 %22, -33
   %cmp110 = icmp eq i8 %23, 73
-  br i1 %cmp110, label %land.lhs.true111, label %if.else
+  br i1 %cmp110, label %land.lhs.true111, label %if.end168
 
 land.lhs.true111:                                 ; preds = %land.lhs.true105
   %arrayidx112 = getelementptr inbounds i8, ptr %b.0, i64 4
   %24 = load i8, ptr %arrayidx112, align 1, !tbaa !21
   %25 = and i8 %24, -33
   %cmp116 = icmp eq i8 %25, 78
-  br i1 %cmp116, label %land.lhs.true117, label %if.else
+  br i1 %cmp116, label %land.lhs.true117, label %if.end168
 
 land.lhs.true117:                                 ; preds = %land.lhs.true111
   %arrayidx118 = getelementptr inbounds i8, ptr %b.0, i64 5
   %26 = load i8, ptr %arrayidx118, align 1, !tbaa !21
   %27 = and i8 %26, -33
   %cmp122 = icmp eq i8 %27, 73
-  br i1 %cmp122, label %land.lhs.true123, label %if.else
+  br i1 %cmp122, label %land.lhs.true123, label %if.end168
 
 land.lhs.true123:                                 ; preds = %land.lhs.true117
   %arrayidx124 = getelementptr inbounds i8, ptr %b.0, i64 6
   %28 = load i8, ptr %arrayidx124, align 1, !tbaa !21
   %29 = and i8 %28, -33
   %cmp128 = icmp eq i8 %29, 84
-  br i1 %cmp128, label %land.lhs.true129, label %if.else
+  br i1 %cmp128, label %land.lhs.true129, label %if.end168
 
 land.lhs.true129:                                 ; preds = %land.lhs.true123
   %arrayidx130 = getelementptr inbounds i8, ptr %b.0, i64 7
   %30 = load i8, ptr %arrayidx130, align 1, !tbaa !21
   %31 = and i8 %30, -33
   %cmp134 = icmp eq i8 %31, 89
-  br i1 %cmp134, label %if.end168, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true129, %land.lhs.true123, %land.lhs.true117, %land.lhs.true111, %land.lhs.true105, %if.then103
+  %spec.select = select i1 %cmp134, i64 8, i64 3
   br label %if.end168
 
 sw.bb141:                                         ; preds = %if.end87
@@ -392,9 +390,9 @@ land.lhs.true149:                                 ; preds = %land.lhs.true143
   %cmp154 = icmp eq i8 %35, 78
   br i1 %cmp154, label %if.end168, label %cleanup177
 
-if.end168:                                        ; preds = %land.lhs.true149, %if.else, %land.lhs.true129
-  %.sink = phi i64 [ 3, %if.else ], [ 8, %land.lhs.true129 ], [ 3, %land.lhs.true149 ]
-  %result.0 = phi float [ 0x7FF0000000000000, %if.else ], [ 0x7FF0000000000000, %land.lhs.true129 ], [ 0x7FF8000000000000, %land.lhs.true149 ]
+if.end168:                                        ; preds = %land.lhs.true129, %if.then103, %land.lhs.true105, %land.lhs.true111, %land.lhs.true117, %land.lhs.true123, %land.lhs.true149
+  %.sink = phi i64 [ 3, %land.lhs.true149 ], [ 3, %land.lhs.true123 ], [ 3, %land.lhs.true117 ], [ 3, %land.lhs.true111 ], [ 3, %land.lhs.true105 ], [ 3, %if.then103 ], [ %spec.select, %land.lhs.true129 ]
+  %result.0 = phi float [ 0x7FF8000000000000, %land.lhs.true149 ], [ 0x7FF0000000000000, %land.lhs.true123 ], [ 0x7FF0000000000000, %land.lhs.true117 ], [ 0x7FF0000000000000, %land.lhs.true111 ], [ 0x7FF0000000000000, %land.lhs.true105 ], [ 0x7FF0000000000000, %if.then103 ], [ 0x7FF0000000000000, %land.lhs.true129 ]
   %add.ptr156 = getelementptr inbounds i8, ptr %b.0, i64 %.sink
   %fneg = fneg float %result.0
   %result.1 = select i1 %cmp74, float %fneg, float %result.0
@@ -583,7 +581,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.rhs.cast15.pre-phi = phi i64 [ %.pre, %for.end.loopexit ], [ %sub.ptr.rhs.cast, %entry ]
   %__first.addr.0.lcssa = phi ptr [ %scevgep, %for.end.loopexit ], [ %__first, %entry ]
   %sub.ptr.sub16 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast15.pre-phi
-  switch i64 %sub.ptr.sub16, label %sw.default [
+  switch i64 %sub.ptr.sub16, label %cleanup [
     i64 3, label %sw.bb
     i64 2, label %sw.bb21
     i64 1, label %sw.bb26
@@ -632,7 +630,7 @@ sw.bb26:                                          ; preds = %if.end24, %for.end
     i8 9, label %sw.default
   ]
 
-sw.default:                                       ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %for.end
+sw.default:                                       ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit:                 ; preds = %if.end
@@ -647,8 +645,8 @@ cleanup.loopexit.split.loop.exit15:               ; preds = %if.end8
   %incdec.ptr9.le = getelementptr inbounds i8, ptr %__first.addr.086, i64 3
   br label %cleanup
 
-cleanup:                                          ; preds = %for.body, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %sw.default, %sw.bb26, %sw.bb21, %sw.bb
-  %retval.0 = phi ptr [ %__last, %sw.default ], [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %incdec.ptr.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr5.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr9.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.addr.086, %for.body ]
+cleanup:                                          ; preds = %for.body, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %for.end, %sw.default, %sw.bb26, %sw.bb21, %sw.bb
+  %retval.0 = phi ptr [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %__last, %for.end ], [ %__last, %sw.default ], [ %incdec.ptr.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr5.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr9.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.addr.086, %for.body ]
   ret ptr %retval.0
 }
 
@@ -829,44 +827,42 @@ land.lhs.true86:                                  ; preds = %land.lhs.true82
 
 if.then91:                                        ; preds = %land.lhs.true86
   %cmp92 = icmp ugt i64 %size.0, 7
-  br i1 %cmp92, label %land.lhs.true93, label %if.else
+  br i1 %cmp92, label %land.lhs.true93, label %if.end148
 
 land.lhs.true93:                                  ; preds = %if.then91
   %arrayidx94 = getelementptr inbounds i8, ptr %b.0, i64 3
   %22 = load i8, ptr %arrayidx94, align 1, !tbaa !21
   %23 = and i8 %22, -33
   %cmp97 = icmp eq i8 %23, 73
-  br i1 %cmp97, label %land.lhs.true98, label %if.else
+  br i1 %cmp97, label %land.lhs.true98, label %if.end148
 
 land.lhs.true98:                                  ; preds = %land.lhs.true93
   %arrayidx99 = getelementptr inbounds i8, ptr %b.0, i64 4
   %24 = load i8, ptr %arrayidx99, align 1, !tbaa !21
   %25 = and i8 %24, -33
   %cmp102 = icmp eq i8 %25, 78
-  br i1 %cmp102, label %land.lhs.true103, label %if.else
+  br i1 %cmp102, label %land.lhs.true103, label %if.end148
 
 land.lhs.true103:                                 ; preds = %land.lhs.true98
   %arrayidx104 = getelementptr inbounds i8, ptr %b.0, i64 5
   %26 = load i8, ptr %arrayidx104, align 1, !tbaa !21
   %27 = and i8 %26, -33
   %cmp107 = icmp eq i8 %27, 73
-  br i1 %cmp107, label %land.lhs.true108, label %if.else
+  br i1 %cmp107, label %land.lhs.true108, label %if.end148
 
 land.lhs.true108:                                 ; preds = %land.lhs.true103
   %arrayidx109 = getelementptr inbounds i8, ptr %b.0, i64 6
   %28 = load i8, ptr %arrayidx109, align 1, !tbaa !21
   %29 = and i8 %28, -33
   %cmp112 = icmp eq i8 %29, 84
-  br i1 %cmp112, label %land.lhs.true113, label %if.else
+  br i1 %cmp112, label %land.lhs.true113, label %if.end148
 
 land.lhs.true113:                                 ; preds = %land.lhs.true108
   %arrayidx114 = getelementptr inbounds i8, ptr %b.0, i64 7
   %30 = load i8, ptr %arrayidx114, align 1, !tbaa !21
   %31 = and i8 %30, -33
   %cmp117 = icmp eq i8 %31, 89
-  br i1 %cmp117, label %if.end148, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true113, %land.lhs.true108, %land.lhs.true103, %land.lhs.true98, %land.lhs.true93, %if.then91
+  %spec.select = select i1 %cmp117, i64 8, i64 3
   br label %if.end148
 
 sw.bb124:                                         ; preds = %if.end78
@@ -887,9 +883,9 @@ land.lhs.true131:                                 ; preds = %land.lhs.true126
   %cmp135 = icmp eq i8 %35, 78
   br i1 %cmp135, label %if.end148, label %cleanup156
 
-if.end148:                                        ; preds = %land.lhs.true131, %if.else, %land.lhs.true113
-  %.sink = phi i64 [ 3, %if.else ], [ 8, %land.lhs.true113 ], [ 3, %land.lhs.true131 ]
-  %result.0 = phi double [ 0x7FF0000000000000, %if.else ], [ 0x7FF0000000000000, %land.lhs.true113 ], [ 0x7FF8000000000000, %land.lhs.true131 ]
+if.end148:                                        ; preds = %land.lhs.true113, %if.then91, %land.lhs.true93, %land.lhs.true98, %land.lhs.true103, %land.lhs.true108, %land.lhs.true131
+  %.sink = phi i64 [ 3, %land.lhs.true131 ], [ 3, %land.lhs.true108 ], [ 3, %land.lhs.true103 ], [ 3, %land.lhs.true98 ], [ 3, %land.lhs.true93 ], [ 3, %if.then91 ], [ %spec.select, %land.lhs.true113 ]
+  %result.0 = phi double [ 0x7FF8000000000000, %land.lhs.true131 ], [ 0x7FF0000000000000, %land.lhs.true108 ], [ 0x7FF0000000000000, %land.lhs.true103 ], [ 0x7FF0000000000000, %land.lhs.true98 ], [ 0x7FF0000000000000, %land.lhs.true93 ], [ 0x7FF0000000000000, %if.then91 ], [ 0x7FF0000000000000, %land.lhs.true113 ]
   %add.ptr137 = getelementptr inbounds i8, ptr %b.0, i64 %.sink
   %fneg = fneg double %result.0
   %result.1 = select i1 %cmp65, double %fneg, double %result.0
@@ -1000,7 +996,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.rhs.cast15.pre-phi = phi i64 [ %.pre, %for.end.loopexit ], [ %sub.ptr.rhs.cast, %entry ]
   %__first.addr.0.lcssa = phi ptr [ %scevgep, %for.end.loopexit ], [ %__first, %entry ]
   %sub.ptr.sub16 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast15.pre-phi
-  switch i64 %sub.ptr.sub16, label %sw.default [
+  switch i64 %sub.ptr.sub16, label %cleanup [
     i64 3, label %sw.bb
     i64 2, label %sw.bb21
     i64 1, label %sw.bb26
@@ -1049,7 +1045,7 @@ sw.bb26:                                          ; preds = %if.end24, %for.end
     i8 9, label %sw.default
   ]
 
-sw.default:                                       ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %for.end
+sw.default:                                       ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit:                 ; preds = %if.end
@@ -1064,8 +1060,8 @@ cleanup.loopexit.split.loop.exit15:               ; preds = %if.end8
   %incdec.ptr9.le = getelementptr inbounds i8, ptr %__first.addr.086, i64 3
   br label %cleanup
 
-cleanup:                                          ; preds = %for.body, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %sw.default, %sw.bb26, %sw.bb21, %sw.bb
-  %retval.0 = phi ptr [ %__last, %sw.default ], [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %incdec.ptr.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr5.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr9.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.addr.086, %for.body ]
+cleanup:                                          ; preds = %for.body, %cleanup.loopexit.split.loop.exit, %cleanup.loopexit.split.loop.exit13, %cleanup.loopexit.split.loop.exit15, %for.end, %sw.default, %sw.bb26, %sw.bb21, %sw.bb
+  %retval.0 = phi ptr [ %__first.addr.0.lcssa, %sw.bb ], [ %__first.addr.1, %sw.bb21 ], [ %__first.addr.2, %sw.bb26 ], [ %__last, %for.end ], [ %__last, %sw.default ], [ %incdec.ptr.le, %cleanup.loopexit.split.loop.exit ], [ %incdec.ptr5.le, %cleanup.loopexit.split.loop.exit13 ], [ %incdec.ptr9.le, %cleanup.loopexit.split.loop.exit15 ], [ %__first.addr.086, %for.body ]
   ret ptr %retval.0
 }
 
@@ -1838,7 +1834,7 @@ for.body:                                         ; preds = %if.end38, %for.inc7
 
 for.inc75:                                        ; preds = %for.body
   %mul = mul i16 %result.0234, 10000
-  %12 = trunc i32 %add62 to i16
+  %12 = trunc nuw nsw i32 %add62 to i16
   %conv70 = add i16 %mul, %12
   %add.ptr = getelementptr inbounds i8, ptr %b.addr.3233, i64 4
   %sub.ptr.rhs.cast41 = ptrtoint ptr %add.ptr to i64
@@ -2048,7 +2044,7 @@ for.body:                                         ; preds = %if.end38, %for.inc7
 
 for.inc75:                                        ; preds = %for.body
   %mul = mul i16 %result.0221, 10000
-  %10 = trunc i32 %add62 to i16
+  %10 = trunc nuw nsw i32 %add62 to i16
   %conv70 = add i16 %mul, %10
   %add.ptr = getelementptr inbounds i8, ptr %b.addr.2220, i64 4
   %sub.ptr.rhs.cast41 = ptrtoint ptr %add.ptr to i64
@@ -3482,7 +3478,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.in
   %call55 = tail call i24 @_ZN5folly6detail9digits_toIhEENS_8ExpectedIT_NS_14ConversionCodeEEEPKcS7_(ptr noundef nonnull %b.1.ph, ptr noundef %b.addr.0.lcssa.i) #17
   %tmp.sroa.0.0.extract.trunc = trunc i24 %call55 to i8
   %tmp.sroa.10.0.extract.shift = lshr i24 %call55, 16
-  %tmp.sroa.10.0.extract.trunc = trunc i24 %tmp.sroa.10.0.extract.shift to i8
+  %tmp.sroa.10.0.extract.trunc = trunc nuw i24 %tmp.sroa.10.0.extract.shift to i8
   switch i8 %tmp.sroa.0.0.extract.trunc, label %if.then.i.i [
     i8 1, label %invoke.cont76
     i8 2, label %invoke.cont65
@@ -3701,7 +3697,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.in
   %call54 = tail call i24 @_ZN5folly6detail9digits_toIhEENS_8ExpectedIT_NS_14ConversionCodeEEEPKcS7_(ptr noundef nonnull %b.1.ph, ptr noundef %b.addr.0.lcssa.i) #17
   %tmp.sroa.0.0.extract.trunc = trunc i24 %call54 to i8
   %tmp.sroa.10.0.extract.shift = lshr i24 %call54, 16
-  %tmp.sroa.10.0.extract.trunc = trunc i24 %tmp.sroa.10.0.extract.shift to i8
+  %tmp.sroa.10.0.extract.trunc = trunc nuw i24 %tmp.sroa.10.0.extract.shift to i8
   switch i8 %tmp.sroa.0.0.extract.trunc, label %if.then.i.i [
     i8 1, label %invoke.cont75
     i8 2, label %invoke.cont64
@@ -3841,7 +3837,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.in
   %call42 = tail call i24 @_ZN5folly6detail9digits_toIhEENS_8ExpectedIT_NS_14ConversionCodeEEEPKcS7_(ptr noundef nonnull %b.0114, ptr noundef %b.addr.0.lcssa.i) #17
   %tmp.sroa.0.0.extract.trunc = trunc i24 %call42 to i8
   %tmp.sroa.10.0.extract.shift = lshr i24 %call42, 16
-  %tmp.sroa.10.0.extract.trunc = trunc i24 %tmp.sroa.10.0.extract.shift to i8
+  %tmp.sroa.10.0.extract.trunc = trunc nuw i24 %tmp.sroa.10.0.extract.shift to i8
   switch i8 %tmp.sroa.0.0.extract.trunc, label %if.then.i.i [
     i8 1, label %if.then69
     i8 2, label %invoke.cont52
@@ -3992,7 +3988,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.in
   %call54 = tail call i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14ConversionCodeEEEPKcS7_(ptr noundef nonnull %b.1.ph, ptr noundef %b.addr.0.lcssa.i) #17
   %tmp.sroa.0.0.extract.trunc = trunc i32 %call54 to i8
   %tmp.sroa.10.0.extract.shift = lshr i32 %call54, 16
-  %tmp.sroa.10.0.extract.trunc = trunc i32 %tmp.sroa.10.0.extract.shift to i16
+  %tmp.sroa.10.0.extract.trunc = trunc nuw i32 %tmp.sroa.10.0.extract.shift to i16
   switch i8 %tmp.sroa.0.0.extract.trunc, label %if.then.i.i [
     i8 1, label %invoke.cont75
     i8 2, label %invoke.cont64
@@ -4273,7 +4269,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %for.in
   %call54 = tail call i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14ConversionCodeEEEPKcS7_(ptr noundef nonnull %b.1.ph, ptr noundef %b.addr.0.lcssa.i) #17
   %tmp.sroa.0.0.extract.trunc = trunc i64 %call54 to i8
   %tmp.sroa.10133.0.extract.shift = lshr i64 %call54, 32
-  %tmp.sroa.10133.0.extract.trunc = trunc i64 %tmp.sroa.10133.0.extract.shift to i32
+  %tmp.sroa.10133.0.extract.trunc = trunc nuw i64 %tmp.sroa.10133.0.extract.shift to i32
   switch i8 %tmp.sroa.0.0.extract.trunc, label %if.then.i.i [
     i8 1, label %invoke.cont75
     i8 2, label %invoke.cont64

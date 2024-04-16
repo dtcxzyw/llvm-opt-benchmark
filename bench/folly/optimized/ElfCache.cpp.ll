@@ -240,12 +240,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %while.body.
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %while.body.i.i.i
   %cmp7.not.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i5.i.i.i.i.i, %sub.ptr.sub.i15.i.i.i.i.i.i.i
-  br i1 %cmp7.not.i.i.i.i.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp7.not.i.i.i.i.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.sub.i15.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i5.i.i.i.i.i
   %sh.diff.i.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i.i, 62
-  %tr.sh.diff.i.i.i.i.i.i.i = trunc i64 %sh.diff.i.i.i.i.i.i.i to i32
+  %tr.sh.diff.i.i.i.i.i.i.i = trunc nuw nsw i64 %sh.diff.i.i.i.i.i.i.i to i32
   %shl.i.i.i.i.i.i.i = and i32 %tr.sh.diff.i.i.i.i.i.i.i, 2
   %sub8.i.i.i.i.i.i.i = add nsw i32 %shl.i.i.i.i.i.i.i, -1
   br label %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i
@@ -253,14 +253,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 _ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
   %r.0.i.i.i.i.i.i.i = phi i32 [ %sub8.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp slt i32 %r.0.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i, label %if.else.i.i.i
-
-if.else.i.i.i:                                    ; preds = %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i, %land.lhs.true.i.i.i.i.i.i.i
+  %spec.select = select i1 %cmp.i.i.i.i.i.i, i64 16, i64 8
+  %spec.select1 = select i1 %cmp.i.i.i.i.i.i, ptr %y.addr.08.i.i.i, ptr %storemerge37.i.i.i
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i
-  %.sink.i.i.i = phi i64 [ 8, %if.else.i.i.i ], [ 16, %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i ]
-  %y.addr.1.i.i.i = phi ptr [ %storemerge37.i.i.i, %if.else.i.i.i ], [ %y.addr.08.i.i.i, %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i ]
+if.end.i.i.i:                                     ; preds = %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i, %land.lhs.true.i.i.i.i.i.i.i
+  %.sink.i.i.i = phi i64 [ 8, %land.lhs.true.i.i.i.i.i.i.i ], [ %spec.select, %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i ]
+  %y.addr.1.i.i.i = phi ptr [ %storemerge37.i.i.i, %land.lhs.true.i.i.i.i.i.i.i ], [ %spec.select1, %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclERKNS1_5EntryES5_.exit.i.i.i ]
   %left_.i.i.i.i = getelementptr inbounds i8, ptr %storemerge37.i.i.i, i64 %.sink.i.i.i
   %storemerge.i.i.i = load ptr, ptr %left_.i.i.i.i, align 8, !tbaa !25, !noalias !19
   %tobool.not.i.i.i105 = icmp eq ptr %storemerge.i.i.i, null
@@ -294,7 +293,7 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %_ZNSt11char_traitsI
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
   %sub.i.i.i.i.i.i = sub i64 %sub.ptr.sub.i15.i.i.i.i.i.i, %sub.ptr.sub.i15.i.i.i.i.i.i.i
   %sh.diff.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 62
-  %tr.sh.diff.i.i.i.i.i.i = trunc i64 %sh.diff.i.i.i.i.i.i to i32
+  %tr.sh.diff.i.i.i.i.i.i = trunc nuw nsw i64 %sh.diff.i.i.i.i.i.i to i32
   %shl.i.i.i.i.i.i = and i32 %tr.sh.diff.i.i.i.i.i.i, 2
   %sub8.i.i.i.i.i.i = add nsw i32 %shl.i.i.i.i.i.i, -1
   br label %_ZZN5folly10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEENK3cmpclES5_RKNS1_5EntryE.exit.i.i
@@ -2607,7 +2606,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !204
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !51
@@ -2618,13 +2617,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #18
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_storage.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_storage.i, %entry ], [ %_M_storage.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_storage.i, %entry ], [ null, %if.end.i ], [ %_M_storage.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -2682,12 +2679,12 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.inc.i.i.i.i.i.i
   %__first1.addr.029.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ], [ %0, %for.body.preheader.i.i.i.i.i.i.i.i.i.i ]
   %5 = load i8, ptr %__first1.addr.029.i.i.i.i.i.i.i.i.i.i, align 1, !tbaa !51
   %6 = load i8, ptr %__first2.addr.030.i.i.i.i.i.i.i.i.i.i, align 1, !tbaa !51
-  %cmp.i25.i.i.i.i.i.i.i.i.i.i = icmp slt i8 %5, %6
-  br i1 %cmp.i25.i.i.i.i.i.i.i.i.i.i, label %cond.end.i, label %if.end.i.i.i.i.i.i.i.i.i.i
+  %cmp.i25.i.i.i.i.i.i.i.i.i.i.not = icmp sge i8 %5, %6
+  br i1 %cmp.i25.i.i.i.i.i.i.i.i.i.i.not, label %if.end.i.i.i.i.i.i.i.i.i.i, label %cond.end.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
   %cmp.i26.i.i.i.i.i.i.i.i.i.i = icmp slt i8 %6, %5
-  br i1 %cmp.i26.i.i.i.i.i.i.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i26.i.i.i.i.i.i.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.029.i.i.i.i.i.i.i.i.i.i, i64 1
@@ -2700,13 +2697,13 @@ _ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i: ;
   %cmp9.i.i.i.i.i.i.i.i.i.not.i = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp9.i.i.i.i.i.i.i.i.i.not.i, label %cond.false.i, label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i
+cond.false.i:                                     ; preds = %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %cond.false.i, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i
-  %.sink.i = phi i64 [ 16, %cond.false.i ], [ 8, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i ], [ 8, %for.body.i.i.i.i.i.i.i.i.i.i ]
-  %tobool.not.i15 = phi i1 [ true, %cond.false.i ], [ false, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i ], [ false, %for.body.i.i.i.i.i.i.i.i.i.i ]
-  %prev.1.i = phi ptr [ %x.079.i, %cond.false.i ], [ %prev.077.i, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i ], [ %prev.077.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i, %cond.false.i, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i
+  %.sink.i = phi i64 [ 8, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i ], [ 16, %cond.false.i ], [ 16, %if.end.i.i.i.i.i.i.i.i.i.i ], [ 8, %for.body.i.i.i.i.i.i.i.i.i.i ]
+  %tobool.not.i15 = phi i1 [ false, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i ], [ true, %cond.false.i ], [ %cmp.i25.i.i.i.i.i.i.i.i.i.i.not, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %cmp.i25.i.i.i.i.i.i.i.i.i.i.not, %if.end.i.i.i.i.i.i.i.i.i.i ]
+  %prev.1.i = phi ptr [ %prev.077.i, %_ZNKSt4lessIN5folly10symbolizer18SignalSafeElfCache5EntryEEclERKS3_S6_.exit.i ], [ %x.079.i, %cond.false.i ], [ %x.079.i, %if.end.i.i.i.i.i.i.i.i.i.i ], [ %prev.077.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %right_.i.i = getelementptr inbounds i8, ptr %x.079.i, i64 %.sink.i
   %x.0.i = load ptr, ptr %right_.i.i, align 8, !tbaa !25
   %tobool.not.i = icmp eq ptr %x.0.i, null
@@ -3410,7 +3407,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !204
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !51
@@ -3421,13 +3418,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #18
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

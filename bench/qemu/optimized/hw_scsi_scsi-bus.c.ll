@@ -871,19 +871,17 @@ entry:
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_legacy_dinfo(ptr noundef %blk) #15
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %if.else5, label %land.lhs.true
+  br i1 %tobool.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
   %media_cd = getelementptr inbounds i8, ptr %call2, i64 20
   %0 = load i32, ptr %media_cd, align 4
   %tobool3.not = icmp eq i32 %0, 0
-  br i1 %tobool3.not, label %if.else5, label %if.end6
-
-if.else5:                                         ; preds = %land.lhs.true, %if.else
+  %spec.select = select i1 %tobool3.not, ptr @.str.5, ptr @.str.4
   br label %if.end6
 
-if.end6:                                          ; preds = %land.lhs.true, %entry, %if.else5
-  %driver.0 = phi ptr [ @.str.5, %if.else5 ], [ @.str.3, %entry ], [ @.str.4, %land.lhs.true ]
+if.end6:                                          ; preds = %land.lhs.true, %if.else, %entry
+  %driver.0 = phi ptr [ @.str.3, %entry ], [ @.str.5, %if.else ], [ %spec.select, %land.lhs.true ]
   %call7 = tail call ptr @qdev_new(ptr noundef nonnull %driver.0) #15
   %call8 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, i32 noundef %unit) #15
   %call9 = tail call ptr @object_property_add_child(ptr noundef %bus, ptr noundef %call8, ptr noundef %call7) #15
@@ -2257,7 +2255,7 @@ entry:
   %sense.sroa.5.0.extract.shift = lshr i24 %sense.coerce, 8
   %sense.sroa.5.0.extract.trunc = trunc i24 %sense.sroa.5.0.extract.shift to i8
   %sense.sroa.6.0.extract.shift = lshr i24 %sense.coerce, 16
-  %sense.sroa.6.0.extract.trunc = trunc i24 %sense.sroa.6.0.extract.shift to i8
+  %sense.sroa.6.0.extract.trunc = trunc nuw i24 %sense.sroa.6.0.extract.shift to i8
   %sense.sroa.0.0.extract.trunc.mask = and i24 %sense.coerce, 255
   %cmp.not = icmp eq i24 %sense.sroa.0.0.extract.trunc.mask, 6
   br i1 %cmp.not, label %if.end, label %if.end12
@@ -3290,7 +3288,7 @@ define dso_local void @scsi_bus_set_ua(ptr nocapture noundef %bus, i24 %sense.co
 entry:
   %sense.sroa.0.0.extract.trunc = trunc i24 %sense.coerce to i8
   %sense.sroa.4.0.extract.shift = lshr i24 %sense.coerce, 8
-  %sense.sroa.4.0.extract.trunc = trunc i24 %sense.sroa.4.0.extract.shift to i16
+  %sense.sroa.4.0.extract.trunc = trunc nuw i24 %sense.sroa.4.0.extract.shift to i16
   %sense.sroa.0.0.extract.trunc.mask = and i24 %sense.coerce, 255
   %cmp.not = icmp eq i24 %sense.sroa.0.0.extract.trunc.mask, 6
   br i1 %cmp.not, label %if.end, label %if.end8
@@ -3984,7 +3982,7 @@ if.end63.i:                                       ; preds = %if.end54.i
   %xfer66.i = getelementptr inbounds i8, ptr %req, i64 80
   %39 = load i64, ptr %xfer66.i, align 8
   %cond73.i = tail call i64 @llvm.umin.i64(i64 %39, i64 36)
-  %conv74.i = trunc i64 %cond73.i to i32
+  %conv74.i = trunc nuw nsw i64 %cond73.i to i32
   %len75.i = getelementptr inbounds i8, ptr %req, i64 408
   store i32 %conv74.i, ptr %len75.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i.i36, i8 0, i64 %cond73.i, i1 false)
@@ -4002,7 +4000,7 @@ if.else86.i:                                      ; preds = %if.end63.i
   store i8 5, ptr %arrayidx90.i, align 1
   %arrayidx92.i = getelementptr i8, ptr %call.i.i36, i64 3
   store i8 18, ptr %arrayidx92.i, align 1
-  %41 = trunc i64 %cond73.i to i8
+  %41 = trunc nuw nsw i64 %cond73.i to i8
   %conv95.i = add nsw i8 %41, -5
   %arrayidx97.i = getelementptr i8, ptr %call.i.i36, i64 4
   store i8 %conv95.i, ptr %arrayidx97.i, align 1
@@ -4033,7 +4031,7 @@ sw.bb23:                                          ; preds = %land.lhs.true, %if.
   %call.i43 = tail call noalias ptr @g_malloc(i64 noundef %..i) #17
   %buf.i = getelementptr inbounds i8, ptr %req, i64 416
   store ptr %call.i43, ptr %buf.i, align 8
-  %conv.i44 = trunc i64 %..i to i32
+  %conv.i44 = trunc nuw nsw i64 %..i to i32
   %buf_len.i45 = getelementptr inbounds i8, ptr %req, i64 424
   store i32 %conv.i44, ptr %buf_len.i45, align 8
   %47 = load i32, ptr %lun, align 8
@@ -4050,7 +4048,7 @@ if.then30:                                        ; preds = %sw.bb23
 if.else:                                          ; preds = %sw.bb23
   %49 = load ptr, ptr %45, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %48, i64 %..i)
-  %conv42 = trunc i64 %cond to i32
+  %conv42 = trunc nuw nsw i64 %cond to i32
   %sense.i = getelementptr inbounds i8, ptr %49, i64 276
   %sense_len.i = getelementptr inbounds i8, ptr %49, i64 528
   %50 = load i32, ptr %sense_len.i, align 8

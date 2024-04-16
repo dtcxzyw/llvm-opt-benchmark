@@ -457,13 +457,13 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %86
+  br i1 %or.cond, label %5, label %87
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = load i32, ptr %1, align 8
   %8 = icmp eq i32 %6, %7
-  br i1 %8, label %9, label %86
+  br i1 %8, label %9, label %87
 
 9:                                                ; preds = %5
   switch i32 %6, label %86 [
@@ -484,7 +484,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %.not55 = icmp eq i64 %12, %14
-  br i1 %.not55, label %15, label %86
+  br i1 %.not55, label %15, label %87
 
 15:                                               ; preds = %10, %9
   %16 = getelementptr inbounds i8, ptr %0, i64 64
@@ -525,7 +525,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %42 = getelementptr inbounds i8, ptr %1, i64 32
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %41, %43
-  br i1 %44, label %45, label %86
+  br i1 %44, label %45, label %87
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds i8, ptr %1, i64 24
@@ -535,7 +535,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %50 = load ptr, ptr %46, align 8
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #23
   %52 = icmp eq i64 %49, %51
-  br i1 %52, label %53, label %86
+  br i1 %52, label %53, label %87
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %0, i64 8
@@ -547,7 +547,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %or.cond57 = select i1 %.not52, i1 %.not53, i1 false
   %58 = icmp eq i64 %55, %57
   %or.cond58 = select i1 %or.cond57, i1 true, i1 %58
-  br i1 %or.cond58, label %59, label %86
+  br i1 %or.cond58, label %59, label %87
 
 59:                                               ; preds = %53
   %bcmp54 = tail call i32 @bcmp(ptr %48, ptr %50, i64 %49)
@@ -560,7 +560,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %64 = getelementptr inbounds i8, ptr %1, i64 8
   %65 = load i64, ptr %64, align 8
   %.not = icmp eq i64 %63, %65
-  br i1 %.not, label %66, label %86
+  br i1 %.not, label %66, label %87
 
 66:                                               ; preds = %61, %9
   %67 = getelementptr inbounds i8, ptr %0, i64 40
@@ -570,12 +570,12 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #23
   %73 = icmp eq i64 %69, %72
-  br i1 %73, label %74, label %86
+  br i1 %73, label %74, label %87
 
 74:                                               ; preds = %66
   %bcmp = tail call i32 @bcmp(ptr %68, ptr %71, i64 %69)
   %75 = icmp eq i32 %bcmp, 0
-  br i1 %75, label %76, label %86
+  br i1 %75, label %76, label %87
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %0, i64 48
@@ -585,18 +585,18 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #23
   %83 = icmp eq i64 %79, %82
-  br i1 %83, label %84, label %86
+  br i1 %83, label %84, label %87
 
 84:                                               ; preds = %76
   %bcmp51 = tail call i32 @bcmp(ptr %78, ptr %81, i64 %79)
   %85 = icmp eq i32 %bcmp51, 0
   br label %87
 
-86:                                               ; preds = %53, %5, %9, %66, %76, %74, %61, %39, %45, %10, %2
+86:                                               ; preds = %9
   br label %87
 
-87:                                               ; preds = %9, %15, %21, %9, %86, %84, %59, %33, %27
-  %.0 = phi i1 [ false, %86 ], [ %85, %84 ], [ %60, %59 ], [ %38, %33 ], [ %32, %27 ], [ true, %9 ], [ false, %15 ], [ %26, %21 ], [ true, %9 ]
+87:                                               ; preds = %53, %2, %10, %45, %39, %61, %74, %76, %66, %5, %9, %15, %21, %9, %86, %84, %59, %33, %27
+  %.0 = phi i1 [ %85, %84 ], [ %60, %59 ], [ %38, %33 ], [ %32, %27 ], [ true, %9 ], [ false, %15 ], [ %26, %21 ], [ true, %9 ], [ false, %5 ], [ false, %66 ], [ false, %76 ], [ false, %74 ], [ false, %61 ], [ false, %39 ], [ false, %45 ], [ false, %10 ], [ false, %2 ], [ false, %86 ], [ false, %53 ]
   ret i1 %.0
 }
 
@@ -1004,7 +1004,7 @@ phpdbg_command_name.exit:                         ; preds = %17, %21
   br i1 %.not125, label %50, label %69
 
 50:                                               ; preds = %.split302.us
-  %51 = trunc i8 %.us-phi305 to i1
+  %51 = trunc nuw i8 %.us-phi305 to i1
   br i1 %51, label %.critedge2, label %52
 
 52:                                               ; preds = %50
@@ -1080,7 +1080,7 @@ phpdbg_command_name.exit140:                      ; preds = %71, %75
   br i1 %.not125, label %90, label %109
 
 90:                                               ; preds = %.split307.us
-  %91 = trunc i8 %.us-phi310 to i1
+  %91 = trunc nuw i8 %.us-phi310 to i1
   br i1 %91, label %.critedge2, label %92
 
 92:                                               ; preds = %90
@@ -1156,7 +1156,7 @@ phpdbg_command_name.exit146:                      ; preds = %111, %115
   br i1 %.not125, label %130, label %149
 
 130:                                              ; preds = %.split312.us
-  %131 = trunc i8 %.us-phi315 to i1
+  %131 = trunc nuw i8 %.us-phi315 to i1
   br i1 %131, label %.critedge2, label %132
 
 132:                                              ; preds = %130
@@ -1232,7 +1232,7 @@ phpdbg_command_name.exit152:                      ; preds = %151, %155
   br i1 %.not125, label %170, label %189
 
 170:                                              ; preds = %.split317.us
-  %171 = trunc i8 %.us-phi320 to i1
+  %171 = trunc nuw i8 %.us-phi320 to i1
   br i1 %171, label %.critedge2, label %172
 
 172:                                              ; preds = %170
@@ -1308,7 +1308,7 @@ phpdbg_command_name.exit158:                      ; preds = %191, %195
   br i1 %.not125, label %210, label %229
 
 210:                                              ; preds = %.split322.us
-  %211 = trunc i8 %.us-phi325 to i1
+  %211 = trunc nuw i8 %.us-phi325 to i1
   br i1 %211, label %.critedge2, label %212
 
 212:                                              ; preds = %210
@@ -1384,7 +1384,7 @@ phpdbg_command_name.exit164:                      ; preds = %231, %235
   br i1 %.not125, label %250, label %269
 
 250:                                              ; preds = %.split327.us
-  %251 = trunc i8 %.us-phi330 to i1
+  %251 = trunc nuw i8 %.us-phi330 to i1
   br i1 %251, label %.critedge2, label %252
 
 252:                                              ; preds = %250
@@ -1460,7 +1460,7 @@ phpdbg_command_name.exit170:                      ; preds = %271, %275
   br i1 %.not125, label %290, label %309
 
 290:                                              ; preds = %.split332.us
-  %291 = trunc i8 %.us-phi335 to i1
+  %291 = trunc nuw i8 %.us-phi335 to i1
   br i1 %291, label %.critedge2, label %292
 
 292:                                              ; preds = %290
@@ -1536,7 +1536,7 @@ phpdbg_command_name.exit176:                      ; preds = %311, %315
   br i1 %.not125, label %330, label %349
 
 330:                                              ; preds = %.split337.us
-  %331 = trunc i8 %.us-phi340 to i1
+  %331 = trunc nuw i8 %.us-phi340 to i1
   br i1 %331, label %.critedge2, label %332
 
 332:                                              ; preds = %330
@@ -1612,7 +1612,7 @@ phpdbg_command_name.exit182:                      ; preds = %351, %355
   br i1 %.not125, label %370, label %389
 
 370:                                              ; preds = %.split342.us
-  %371 = trunc i8 %.us-phi345 to i1
+  %371 = trunc nuw i8 %.us-phi345 to i1
   br i1 %371, label %.critedge2, label %372
 
 372:                                              ; preds = %370

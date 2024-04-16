@@ -316,7 +316,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %rem.i113 = srem i32 %y.0.i, 100
   %mul.i = mul nsw i32 %m.0.i, 13
   %div6.i = sdiv i32 %mul.i, 5
-  %div9.lhs.trunc.i = trunc i32 %rem.i113 to i8
+  %div9.lhs.trunc.i = trunc nsw i32 %rem.i113 to i8
   %div917.i = sdiv i8 %div9.lhs.trunc.i, 4
   %div9.sext.i = sext i8 %div917.i to i32
   %div11.i = sdiv i32 %y.0.i, 400
@@ -350,7 +350,7 @@ for.inc:                                          ; preds = %if.end80, %sw.bb, %
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end.split.loop.exit:                          ; preds = %land.lhs.true20, %land.lhs.true20, %land.lhs.true20
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit
@@ -393,7 +393,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond137.not, label %return, label %land.rhs, !llvm.loop !6
 
 while.end:                                        ; preds = %land.rhs
-  %30 = trunc i64 %indvars.iv134 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv134 to i32
   %cmp150 = icmp eq i32 %inc137, %30
   %cmp154 = icmp eq i32 %3, %30
   %or.cond111 = or i1 %cmp150, %cmp154
@@ -923,7 +923,7 @@ declare i32 @ASN1_UTCTIME_set_string(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_TIME_set_string_X509(ptr noundef %s, ptr noundef %str) local_unnamed_addr #1 {
+define i32 @ASN1_TIME_set_string_X509(ptr noundef %s, ptr noundef %str) local_unnamed_addr #1 {
 ASN1_TIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
   %tm = alloca %struct.tm, align 8
@@ -986,18 +986,16 @@ if.end28:                                         ; preds = %if.then18
 
 if.end34:                                         ; preds = %if.end6
   %cmp35 = icmp eq ptr %s, null
-  br i1 %cmp35, label %if.then39, label %lor.lhs.false
+  br i1 %cmp35, label %if.end40, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end28, %if.end15, %if.end34
   %call37 = call i32 @ASN1_STRING_copy(ptr noundef nonnull %s, ptr noundef nonnull %t) #9
-  %tobool38.not = icmp eq i32 %call37, 0
-  br i1 %tobool38.not, label %if.end40, label %if.then39
-
-if.then39:                                        ; preds = %lor.lhs.false, %if.end34
+  %tobool38.not = icmp ne i32 %call37, 0
+  %spec.select = zext i1 %tobool38.not to i32
   br label %if.end40
 
-if.end40:                                         ; preds = %if.then39, %lor.lhs.false
-  %rv.0 = phi i32 [ 1, %if.then39 ], [ 0, %lor.lhs.false ]
+if.end40:                                         ; preds = %lor.lhs.false, %if.end34
+  %rv.0 = phi i32 [ 1, %if.end34 ], [ %spec.select, %lor.lhs.false ]
   %5 = load ptr, ptr %data, align 8
   %cmp42.not = icmp eq ptr %5, %str
   br i1 %cmp42.not, label %out, label %if.then44
@@ -1162,7 +1160,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %if.end25, label %land.rhs, !llvm.loop !10
 
 if.end25.loopexit.split.loop.exit:                ; preds = %land.rhs
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.end25
 
 if.end25:                                         ; preds = %while.body, %if.end25.loopexit.split.loop.exit, %land.lhs.true, %if.then8

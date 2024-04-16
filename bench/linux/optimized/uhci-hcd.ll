@@ -1351,7 +1351,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   %131 = getelementptr inbounds i8, ptr %126, i64 32
   store ptr %130, ptr %131, align 8
   store volatile ptr %127, ptr %130, align 8
-  %132 = trunc i64 %124 to i32
+  %132 = trunc nuw nsw i64 %124 to i32
   %133 = or disjoint i32 %116, 14680109
   %134 = getelementptr inbounds i8, ptr %1, i64 144
   %135 = load i64, ptr %134, align 8
@@ -1419,10 +1419,10 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   store ptr %128, ptr %167, align 8
   store ptr %173, ptr %168, align 8
   store volatile ptr %167, ptr %173, align 8
-  %174 = trunc i64 %163 to i32
+  %174 = trunc nuw nsw i64 %163 to i32
   %175 = shl nuw i32 %160, 21
   %176 = add i32 %175, -2097152
-  %177 = trunc i64 %172 to i32
+  %177 = trunc nuw nsw i64 %172 to i32
   %178 = or i32 %176, %177
   %179 = trunc i64 %152 to i32
   %180 = getelementptr inbounds i8, ptr %157, i64 4
@@ -1474,9 +1474,9 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
   store ptr %128, ptr %194, align 8
   store ptr %199, ptr %195, align 8
   store volatile ptr %194, ptr %199, align 8
-  %200 = trunc i64 %.lcssa60 to i32
+  %200 = trunc nuw nsw i64 %.lcssa60 to i32
   %201 = or i32 %200, 16777216
-  %202 = trunc i64 %.lcssa62 to i32
+  %202 = trunc nuw nsw i64 %.lcssa62 to i32
   %203 = and i32 %202, 1572863
   %204 = xor i32 %203, -1572728
   %205 = getelementptr inbounds i8, ptr %188, i64 4
@@ -5694,7 +5694,7 @@ define internal noundef i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr no
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -124
   %5 = load i16, ptr %4, align 4
-  switch i16 %5, label %.loopexit1 [
+  switch i16 %5, label %24 [
     i16 6048, label %.loopexit
     i16 -32634, label %6
   ]
@@ -5703,14 +5703,14 @@ define internal noundef i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr no
   %7 = getelementptr inbounds i8, ptr %0, i64 296
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.preheader, label %.loopexit1
+  br i1 %9, label %.preheader, label %.loopexit
 
 10:                                               ; preds = %.preheader
   %11 = add nuw nsw i64 %15, 1
   %12 = load i32, ptr %7, align 8
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %11, %13
-  br i1 %14, label %.preheader, label %.loopexit1, !llvm.loop !97
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !97
 
 .preheader:                                       ; preds = %6, %10
   %15 = phi i64 [ %11, %10 ], [ 0, %6 ]
@@ -5724,12 +5724,12 @@ define internal noundef i32 @uhci_pci_resume_detect_interrupts_are_broken(ptr no
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %10, label %.loopexit
 
-.loopexit1:                                       ; preds = %10, %6, %1
+24:                                               ; preds = %1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit1, %1
-  %24 = phi i32 [ 0, %.loopexit1 ], [ 1, %1 ], [ 1, %.preheader ]
-  ret i32 %24
+.loopexit:                                        ; preds = %10, %.preheader, %6, %24, %1
+  %25 = phi i32 [ 1, %1 ], [ 0, %6 ], [ 0, %24 ], [ 0, %10 ], [ 1, %.preheader ]
+  ret i32 %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6123,7 +6123,7 @@ define internal fastcc noundef i32 @uhci_submit_common(ptr nocapture noundef rea
   %104 = getelementptr inbounds i8, ptr %101, i64 32
   store ptr %103, ptr %104, align 8
   store volatile ptr %102, ptr %103, align 8
-  %105 = trunc i64 %84 to i32
+  %105 = trunc nuw nsw i64 %84 to i32
   %106 = shl i32 %85, 21
   %107 = add i32 %106, -2097152
   %108 = shl nuw nsw i32 %72, 19
@@ -6213,7 +6213,7 @@ define internal fastcc noundef i32 @uhci_submit_common(ptr nocapture noundef rea
   store ptr %66, ptr %154, align 8
   store ptr %159, ptr %155, align 8
   store volatile ptr %154, ptr %159, align 8
-  %160 = trunc i64 %115 to i32
+  %160 = trunc nuw nsw i64 %115 to i32
   %161 = shl nuw nsw i32 %116, 19
   %162 = or disjoint i32 %161, %25
   %163 = or i32 %162, -2097152
@@ -6618,33 +6618,33 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 1
   %11 = icmp eq i16 %10, 0
-  br i1 %11, label %.thread8, label %12
+  br i1 %11, label %.thread9, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %5, i64 448
   %14 = load ptr, ptr %13, align 8
   %.fr = freeze ptr %14
   %.not = icmp eq ptr %.fr, null
-  %spec.select = select i1 %.not, i32 0, i32 8
-  %spec.select11 = select i1 %.not, i32 0, i32 2
-  br label %.thread8
+  %spec.select11 = select i1 %.not, i32 0, i32 8
+  %spec.select12 = select i1 %.not, i32 0, i32 2
+  br label %.thread9
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %5, i64 1296
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, 1
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %41, label %.thread8
+  br i1 %19, label %41, label %.thread9
 
-.thread8:                                         ; preds = %12, %7, %15
-  %20 = phi i32 [ 8, %15 ], [ 0, %7 ], [ %spec.select, %12 ]
-  %21 = phi i32 [ 2, %15 ], [ 0, %7 ], [ %spec.select11, %12 ]
+.thread9:                                         ; preds = %12, %7, %15
+  %20 = phi i32 [ 8, %15 ], [ 0, %7 ], [ %spec.select11, %12 ]
+  %21 = phi i32 [ 2, %15 ], [ 0, %7 ], [ %spec.select12, %12 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 440
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %31, label %25
 
-25:                                               ; preds = %.thread8
+25:                                               ; preds = %.thread9
   %26 = tail call i32 %23(ptr noundef %0) #12
   %27 = icmp eq i32 %26, 0
   %28 = load i8, ptr @ignore_oc, align 1, !range !43
@@ -6652,7 +6652,7 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_
   %30 = select i1 %27, i1 %29, i1 false
   br i1 %30, label %34, label %41
 
-31:                                               ; preds = %.thread8
+31:                                               ; preds = %.thread9
   %32 = load i8, ptr @ignore_oc, align 1, !range !43, !noundef !44
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %41
@@ -6666,14 +6666,14 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_
 38:                                               ; preds = %34
   %39 = tail call i32 %36(ptr noundef %0) #12
   %40 = icmp eq i32 %39, 0
-  %spec.select9 = select i1 %40, i32 %21, i32 0
-  %spec.select10 = select i1 %40, i32 %20, i32 0
+  %spec.select = select i1 %40, i32 %21, i32 0
+  %spec.select1 = select i1 %40, i32 %20, i32 0
   br label %41
 
 41:                                               ; preds = %38, %15, %25, %31, %34
   %42 = phi i1 [ false, %34 ], [ false, %31 ], [ false, %25 ], [ true, %15 ], [ false, %38 ]
-  %43 = phi i32 [ %21, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select9, %38 ]
-  %44 = phi i32 [ %20, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select10, %38 ]
+  %43 = phi i32 [ %21, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select, %38 ]
+  %44 = phi i32 [ %20, %34 ], [ 0, %31 ], [ 0, %25 ], [ 0, %15 ], [ %spec.select1, %38 ]
   %45 = icmp ne i32 %43, 0
   %46 = getelementptr inbounds i8, ptr %0, i64 200
   %47 = load i8, ptr %46, align 8
@@ -6681,12 +6681,12 @@ define internal fastcc void @suspend_rh(ptr noundef %0, i32 noundef %1) unnamed_
   %49 = and i8 %47, -9
   %50 = or disjoint i8 %49, %48
   store i8 %50, ptr %46, align 8
-  %51 = trunc i32 %43 to i16
+  %51 = trunc nuw nsw i32 %43 to i16
   %52 = load i64, ptr %0, align 8
   %53 = trunc i64 %52 to i16
   %54 = add i16 %53, 4
   tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %51, i16 %54) #12, !srcloc !8
-  %55 = trunc i32 %44 to i16
+  %55 = trunc nuw nsw i32 %44 to i16
   %56 = or i16 %55, 64
   %57 = load i64, ptr %0, align 8
   %58 = trunc i64 %57 to i16

@@ -428,7 +428,7 @@ if.then17:                                        ; preds = %if.then15
   br i1 %cmp19, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.then17
-  %sh_prom = trunc i64 %shr to i32
+  %sh_prom = trunc nuw nsw i64 %shr to i32
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
   %6 = load i32, ptr %msp, align 8
@@ -739,7 +739,7 @@ if.then24.i:                                      ; preds = %if.end22.i, %lor.lh
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %for.cond.i37.i, %if.then24.i, %if.end22.i, %lor.lhs.false.i, %segment_holding.exit.i, %if.then.i
-  %released.1.i = phi i64 [ %mul.i, %if.then24.i ], [ 0, %if.end22.i ], [ 0, %if.then.i ], [ 0, %lor.lhs.false.i ], [ 0, %segment_holding.exit.i ], [ 0, %for.cond.i37.i ]
+  %released.1.i = phi i64 [ %mul.i, %if.then24.i ], [ 0, %if.end22.i ], [ 0, %if.then.i ], [ 0, %segment_holding.exit.i ], [ 0, %lor.lhs.false.i ], [ 0, %for.cond.i37.i ]
   %call32.i = tail call fastcc i64 @release_unused_segments(ptr noundef %msp)
   %add33.i = sub i64 0, %call32.i
   %cmp34.i = icmp eq i64 %released.1.i, %add33.i
@@ -790,7 +790,7 @@ if.then146:                                       ; preds = %if.else140
   br i1 %cmp153, label %if.then154, label %if.else160
 
 if.then154:                                       ; preds = %if.then146
-  %sh_prom155 = trunc i64 %shr144 to i32
+  %sh_prom155 = trunc nuw nsw i64 %shr144 to i32
   %shl156 = shl nuw i32 1, %sh_prom155
   %not157 = xor i32 %shl156, -1
   %47 = load i32, ptr %msp, align 8
@@ -964,7 +964,7 @@ if.then275:                                       ; preds = %if.end272
   %shl279 = shl nuw nsw i64 %shr273, 1
   %arrayidx280 = getelementptr inbounds [66 x ptr], ptr %smallbins, i64 0, i64 %shl279
   %62 = load i32, ptr %msp, align 8
-  %sh_prom283 = trunc i64 %shr273 to i32
+  %sh_prom283 = trunc nuw nsw i64 %shr273 to i32
   %shl284 = shl nuw i32 1, %sh_prom283
   %and285 = and i32 %62, %shl284
   %tobool286.not = icmp eq i32 %and285, 0
@@ -1024,7 +1024,7 @@ if.end319:                                        ; preds = %if.else306, %if.els
   %treemap327 = getelementptr inbounds i8, ptr %msp, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %child323, i8 0, i64 16, i1 false)
   %65 = load i32, ptr %treemap327, align 4
-  %sh_prom328 = trunc i64 %I301.0 to i32
+  %sh_prom328 = trunc nuw nsw i64 %I301.0 to i32
   %shl329 = shl nuw i32 1, %sh_prom328
   %and330 = and i32 %65, %shl329
   %tobool331.not = icmp eq i32 %and330, 0
@@ -1123,7 +1123,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %cmp1, i64 32, i64 %and
   %shr = lshr exact i64 %cond, 3
   %0 = load i32, ptr %msp, align 8
-  %sh_prom = trunc i64 %shr to i32
+  %sh_prom = trunc nuw nsw i64 %shr to i32
   %shr3 = lshr i32 %0, %sh_prom
   %and4 = and i32 %shr3, 3
   %cmp5.not = icmp eq i32 %and4, 0
@@ -1145,7 +1145,7 @@ if.then6:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then6
-  %sh_prom13 = trunc i64 %add8 to i32
+  %sh_prom13 = trunc nuw nsw i64 %add8 to i32
   %shl14 = shl nuw i32 1, %sh_prom13
   %not15 = xor i32 %shl14, -1
   %and17 = and i32 %0, %not15
@@ -1620,7 +1620,7 @@ if.end46.i:                                       ; preds = %if.end29.i, %if.end
   br i1 %or.cond.i, label %if.then52.i, label %if.end68.i
 
 if.then52.i:                                      ; preds = %if.end46.i
-  %sh_prom53.i = trunc i64 %idx.0.i to i32
+  %sh_prom53.i = trunc nuw nsw i64 %idx.0.i to i32
   %shl55.i = shl i32 2, %sh_prom53.i
   %add60.i = sub i32 0, %shl55.i
   %or.i = or i32 %shl55.i, %add60.i
@@ -1844,7 +1844,7 @@ if.then203.i:                                     ; preds = %if.else193.i
   %shl205.i = shl nuw nsw i64 %shr200.i, 1
   %arrayidx206.i = getelementptr inbounds [66 x ptr], ptr %smallbins.i146, i64 0, i64 %shl205.i
   %66 = load i32, ptr %msp, align 8
-  %sh_prom208.i = trunc i64 %shr200.i to i32
+  %sh_prom208.i = trunc nuw nsw i64 %shr200.i to i32
   %shl209.i = shl nuw i32 1, %sh_prom208.i
   %and210.i = and i32 %66, %shl209.i
   %tobool.not.i147 = icmp eq i32 %and210.i, 0
@@ -1902,7 +1902,7 @@ if.end247.i:                                      ; preds = %if.else236.i, %if.e
   %child251.i = getelementptr inbounds i8, ptr %add.ptr.i139, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %child251.i, i8 0, i64 16, i1 false)
   %69 = load i32, ptr %treemap133, align 4
-  %sh_prom256.i = trunc i64 %I225.0.i to i32
+  %sh_prom256.i = trunc nuw nsw i64 %I225.0.i to i32
   %shl257.i = shl nuw i32 1, %sh_prom256.i
   %and258.i = and i32 %69, %shl257.i
   %tobool259.not.i = icmp eq i32 %and258.i, 0
@@ -2251,7 +2251,7 @@ if.then38.i.i:                                    ; preds = %if.then34.i.i
   br i1 %cmp40.i.i, label %if.then41.i.i, label %if.else43.i.i
 
 if.then41.i.i:                                    ; preds = %if.then38.i.i
-  %sh_prom.i.i = trunc i64 %shr.i.i to i32
+  %sh_prom.i.i = trunc nuw nsw i64 %shr.i.i to i32
   %shl.i.i = shl nuw i32 1, %sh_prom.i.i
   %not.i.i = xor i32 %shl.i.i, -1
   %104 = load i32, ptr %msp, align 8
@@ -2417,7 +2417,7 @@ if.then127.i.i:                                   ; preds = %if.end118.i.i
   %shl131.i.i = shl nuw nsw i64 %shr125.i.i, 1
   %arrayidx132.i.i = getelementptr inbounds [66 x ptr], ptr %smallbins.i.i, i64 0, i64 %shl131.i.i
   %119 = load i32, ptr %msp, align 8
-  %sh_prom135.i.i = trunc i64 %shr125.i.i to i32
+  %sh_prom135.i.i = trunc nuw nsw i64 %shr125.i.i to i32
   %shl136.i.i = shl nuw i32 1, %sh_prom135.i.i
   %and137.i.i = and i32 %119, %shl136.i.i
   %tobool138.not.i.i = icmp eq i32 %and137.i.i, 0
@@ -2477,7 +2477,7 @@ if.end172.i.i:                                    ; preds = %if.else163.i.i, %if
   %treemap180.i.i = getelementptr inbounds i8, ptr %msp, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %child176.i.i, i8 0, i64 16, i1 false)
   %122 = load i32, ptr %treemap180.i.i, align 4
-  %sh_prom181.i.i = trunc i64 %I154.0.i.i to i32
+  %sh_prom181.i.i = trunc nuw nsw i64 %I154.0.i.i to i32
   %shl182.i.i = shl nuw i32 1, %sh_prom181.i.i
   %and183.i.i = and i32 %122, %shl182.i.i
   %tobool184.not.i.i = icmp eq i32 %and183.i.i, 0
@@ -2655,7 +2655,7 @@ if.then36.i.i:                                    ; preds = %if.then28.i.i
   %shl.i85.i = shl nuw nsw i64 %shr.i83.i, 1
   %arrayidx.i86.i = getelementptr inbounds [66 x ptr], ptr %smallbins.i84.i, i64 0, i64 %shl.i85.i
   %135 = load i32, ptr %msp, align 8
-  %sh_prom.i87.i = trunc i64 %shr.i83.i to i32
+  %sh_prom.i87.i = trunc nuw nsw i64 %shr.i83.i to i32
   %shl38.i.i = shl nuw i32 1, %sh_prom.i87.i
   %and39.i.i = and i32 %135, %shl38.i.i
   %tobool.not.i88.i = icmp eq i32 %and39.i.i, 0
@@ -2710,7 +2710,7 @@ if.end69.i.i:                                     ; preds = %if.else60.i.i, %if.
   %treemap.i80.i = getelementptr inbounds i8, ptr %msp, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr8.i.i, i8 0, i64 16, i1 false)
   %138 = load i32, ptr %treemap.i80.i, align 4
-  %sh_prom74.i.i = trunc i64 %I51.0.i.i to i32
+  %sh_prom74.i.i = trunc nuw nsw i64 %I51.0.i.i to i32
   %shl75.i.i = shl nuw i32 1, %sh_prom74.i.i
   %and76.i.i = and i32 %138, %shl75.i.i
   %tobool77.not.i.i = icmp eq i32 %and76.i.i, 0
@@ -3048,7 +3048,7 @@ if.end105:                                        ; preds = %if.else92, %if.else
   %child109 = getelementptr inbounds i8, ptr %add.ptr9, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %child109, i8 0, i64 16, i1 false)
   %23 = load i32, ptr %treemap, align 4
-  %sh_prom114 = trunc i64 %I.0 to i32
+  %sh_prom114 = trunc nuw nsw i64 %I.0 to i32
   %shl115 = shl nuw i32 1, %sh_prom114
   %and116 = and i32 %23, %shl115
   %tobool117.not = icmp eq i32 %and116, 0

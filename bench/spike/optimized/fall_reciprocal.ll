@@ -96,7 +96,7 @@ rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %42 = and i64 %41, 64512
   %43 = or i64 %42, %31
   %44 = or i64 %43, %39
-  %45 = trunc i64 %44 to i16
+  %45 = trunc nuw i64 %44 to i16
   br label %46
 
 46:                                               ; preds = %1, %4, %rsqrte7.exit, %13, %10, %7
@@ -194,7 +194,7 @@ rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %42 = and i64 %41, 4286578688
   %43 = or i64 %42, %31
   %44 = or i64 %43, %39
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   br label %46
 
 46:                                               ; preds = %1, %4, %rsqrte7.exit, %13, %10, %7
@@ -332,9 +332,9 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   %12 = load i8, ptr @softfloat_exceptionFlags, align 1
   %13 = or i8 %12, 16
   store i8 %13, ptr @softfloat_exceptionFlags, align 1
-  br label %14
+  br label %63
 
-14:                                               ; preds = %11, %1
+14:                                               ; preds = %1
   br label %63
 
 15:                                               ; preds = %1
@@ -430,8 +430,8 @@ recip7.exit:                                      ; preds = %40, %49
   store i8 %62, ptr @softfloat_exceptionFlags, align 1
   br label %63
 
-63:                                               ; preds = %recip7.exit, %1, %59, %14, %8, %5, %4
-  %.sroa.0.0 = phi i16 [ %60, %59 ], [ %58, %recip7.exit ], [ 32256, %14 ], [ 31744, %8 ], [ -1024, %5 ], [ 0, %4 ], [ -32768, %1 ]
+63:                                               ; preds = %recip7.exit, %11, %1, %59, %14, %8, %5, %4
+  %.sroa.0.0 = phi i16 [ %60, %59 ], [ %58, %recip7.exit ], [ 31744, %8 ], [ -1024, %5 ], [ 0, %4 ], [ -32768, %1 ], [ 32256, %11 ], [ 32256, %14 ]
   ret i16 %.sroa.0.0
 }
 
@@ -469,9 +469,9 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   %12 = load i8, ptr @softfloat_exceptionFlags, align 1
   %13 = or i8 %12, 16
   store i8 %13, ptr @softfloat_exceptionFlags, align 1
-  br label %14
+  br label %62
 
-14:                                               ; preds = %11, %1
+14:                                               ; preds = %1
   br label %62
 
 15:                                               ; preds = %1
@@ -559,16 +559,16 @@ recip7.exit:                                      ; preds = %39, %48
   br label %62
 
 57:                                               ; preds = %35, %33
-  %.sink13 = phi i32 [ 2139095039, %33 ], [ %spec.select, %35 ]
+  %.sink12 = phi i32 [ 2139095039, %33 ], [ %spec.select, %35 ]
   %58 = and i32 %0, -2147483648
-  %59 = or disjoint i32 %58, %.sink13
+  %59 = or disjoint i32 %58, %.sink12
   %60 = load i8, ptr @softfloat_exceptionFlags, align 1
   %61 = or i8 %60, 5
   store i8 %61, ptr @softfloat_exceptionFlags, align 1
   br label %62
 
-62:                                               ; preds = %recip7.exit, %1, %57, %14, %8, %5, %4
-  %.sroa.0.0 = phi i32 [ %59, %57 ], [ %56, %recip7.exit ], [ 2143289344, %14 ], [ 2139095040, %8 ], [ -8388608, %5 ], [ 0, %4 ], [ -2147483648, %1 ]
+62:                                               ; preds = %recip7.exit, %11, %1, %57, %14, %8, %5, %4
+  %.sroa.0.0 = phi i32 [ %59, %57 ], [ %56, %recip7.exit ], [ 2139095040, %8 ], [ -8388608, %5 ], [ 0, %4 ], [ -2147483648, %1 ], [ 2143289344, %11 ], [ 2143289344, %14 ]
   ret i32 %.sroa.0.0
 }
 
@@ -606,9 +606,9 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   %12 = load i8, ptr @softfloat_exceptionFlags, align 1
   %13 = or i8 %12, 16
   store i8 %13, ptr @softfloat_exceptionFlags, align 1
-  br label %14
+  br label %59
 
-14:                                               ; preds = %11, %1
+14:                                               ; preds = %1
   br label %59
 
 15:                                               ; preds = %1
@@ -692,16 +692,16 @@ recip7.exit:                                      ; preds = %37, %46
   br label %59
 
 54:                                               ; preds = %33, %31
-  %.sink14 = phi i64 [ 9218868437227405311, %31 ], [ %spec.select, %33 ]
+  %.sink13 = phi i64 [ 9218868437227405311, %31 ], [ %spec.select, %33 ]
   %55 = and i64 %0, -9223372036854775808
-  %56 = or disjoint i64 %55, %.sink14
+  %56 = or disjoint i64 %55, %.sink13
   %57 = load i8, ptr @softfloat_exceptionFlags, align 1
   %58 = or i8 %57, 5
   store i8 %58, ptr @softfloat_exceptionFlags, align 1
   br label %59
 
-59:                                               ; preds = %recip7.exit, %1, %54, %14, %8, %5, %4
-  %.sroa.0.0 = phi i64 [ %56, %54 ], [ %53, %recip7.exit ], [ 9221120237041090560, %14 ], [ 9218868437227405312, %8 ], [ -4503599627370496, %5 ], [ 0, %4 ], [ -9223372036854775808, %1 ]
+59:                                               ; preds = %recip7.exit, %11, %1, %54, %14, %8, %5, %4
+  %.sroa.0.0 = phi i64 [ %56, %54 ], [ %53, %recip7.exit ], [ 9218868437227405312, %8 ], [ -4503599627370496, %5 ], [ 0, %4 ], [ -9223372036854775808, %1 ], [ 9221120237041090560, %11 ], [ 9221120237041090560, %14 ]
   ret i64 %.sroa.0.0
 }
 

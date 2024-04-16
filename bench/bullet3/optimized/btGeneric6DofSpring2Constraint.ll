@@ -2512,7 +2512,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next.pre-phi, %for.inc ]
-  %row.addr.063 = phi i32 [ %row, %entry ], [ %row.addr.1, %for.inc ]
+  %row.addr.065 = phi i32 [ %row, %entry ], [ %row.addr.1, %for.inc ]
   %arrayidx = getelementptr inbounds [3 x i32], ptr %m_currentLimit, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %tobool.not = icmp eq i32 %1, 0
@@ -2531,7 +2531,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
   br i1 %tobool10, label %if.then, label %lor.lhs.false6.for.inc_crit_edge
 
 lor.lhs.false6.for.inc_crit_edge:                 ; preds = %lor.lhs.false6
-  %.pre68 = add nuw nsw i64 %indvars.iv, 1
+  %.pre70 = add nuw nsw i64 %indvars.iv, 1
   br label %for.inc
 
 if.then:                                          ; preds = %for.body, %lor.lhs.false6, %lor.lhs.false
@@ -2697,7 +2697,7 @@ lor.end196:                                       ; preds = %land.lhs.true, %con
   %arrayidx200 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %idxprom199
   %m_currentLimit201 = getelementptr inbounds i8, ptr %arrayidx200, i64 84
   %38 = load i32, ptr %m_currentLimit201, align 4
-  switch i32 %38, label %lor.end251.thread60 [
+  switch i32 %38, label %lor.end251.thread.fold.split [
     i32 1, label %lor.end251.thread
     i32 2, label %lor.end251.thread
     i32 3, label %land.lhs.true215
@@ -2709,8 +2709,8 @@ land.lhs.true215:                                 ; preds = %lor.end196
   %39 = load float, ptr %m_currentLimitError219, align 8
   %40 = tail call float @llvm.fabs.f32(float %39)
   %41 = fpext float %40 to double
-  %or.cond55 = fcmp ogt double %41, 1.000000e-03
-  br i1 %or.cond55, label %lor.end251.thread, label %lor.end251.thread60
+  %or.cond55 = fcmp ule double %41, 1.000000e-03
+  br label %lor.end251.thread
 
 land.rhs235:                                      ; preds = %lor.end196
   %m_currentLimitError239 = getelementptr inbounds i8, ptr %arrayidx200, i64 72
@@ -2724,22 +2724,24 @@ lor.end251:                                       ; preds = %land.rhs235
   %43 = load float, ptr %m_currentLimitErrorHi246, align 4
   %.fr = freeze float %43
   %conv247 = fpext float %.fr to double
-  %cmp248 = fcmp ogt double %conv247, 1.000000e-03
-  br i1 %cmp248, label %lor.end251.thread, label %lor.end251.thread60
+  %cmp248 = fcmp ule double %conv247, 1.000000e-03
+  br label %lor.end251.thread
 
-lor.end251.thread:                                ; preds = %lor.end196, %lor.end196, %land.rhs235, %land.lhs.true215, %lor.end251
-  br label %lor.end251.thread60
+lor.end251.thread.fold.split:                     ; preds = %lor.end196
+  br label %lor.end251.thread
 
-lor.end251.thread60:                              ; preds = %lor.end196, %land.lhs.true215, %lor.end251, %lor.end251.thread
-  %44 = phi i32 [ 0, %lor.end251.thread ], [ 1, %lor.end251 ], [ 1, %land.lhs.true215 ], [ 1, %lor.end196 ]
-  %rotAllowed.0 = select i1 %37, i32 %44, i32 1
-  %call257 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull %limot, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.addr.063, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 0, i32 noundef %rotAllowed.0)
-  %add258 = add nsw i32 %call257, %row.addr.063
+lor.end251.thread:                                ; preds = %lor.end251, %land.lhs.true215, %lor.end196, %lor.end196, %lor.end251.thread.fold.split, %land.rhs235
+  %.shrunk = phi i1 [ false, %lor.end196 ], [ false, %lor.end196 ], [ false, %land.rhs235 ], [ true, %lor.end251.thread.fold.split ], [ %or.cond55, %land.lhs.true215 ], [ %cmp248, %lor.end251 ]
+  %not. = xor i1 %37, true
+  %narrow = select i1 %not., i1 true, i1 %.shrunk
+  %rotAllowed.0 = zext i1 %narrow to i32
+  %call257 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull %limot, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.addr.065, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 0, i32 noundef %rotAllowed.0)
+  %add258 = add nsw i32 %call257, %row.addr.065
   br label %for.inc
 
-for.inc:                                          ; preds = %lor.lhs.false6.for.inc_crit_edge, %lor.end251.thread60
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre68, %lor.lhs.false6.for.inc_crit_edge ], [ %27, %lor.end251.thread60 ]
-  %row.addr.1 = phi i32 [ %row.addr.063, %lor.lhs.false6.for.inc_crit_edge ], [ %add258, %lor.end251.thread60 ]
+for.inc:                                          ; preds = %lor.lhs.false6.for.inc_crit_edge, %lor.end251.thread
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre70, %lor.lhs.false6.for.inc_crit_edge ], [ %27, %lor.end251.thread ]
+  %row.addr.1 = phi i32 [ %row.addr.065, %lor.lhs.false6.for.inc_crit_edge ], [ %add258, %lor.end251.thread ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
@@ -2954,13 +2956,13 @@ if.then143:                                       ; preds = %entry
 if.end170.sink.split:                             ; preds = %if.end122, %if.then143
   %cfm163.sink = phi ptr [ %cfm163, %if.then143 ], [ %cfm, %if.end122 ]
   %idxprom154.sink = phi i64 [ %idxprom154, %if.then143 ], [ %idxprom73, %if.end122 ]
-  %.sink491.in = phi ptr [ %m_stopCFM162, %if.then143 ], [ %m_stopCFM, %if.end122 ]
+  %.sink490.in = phi ptr [ %m_stopCFM162, %if.then143 ], [ %m_stopCFM, %if.end122 ]
   %mul.sink = phi i32 [ %mul, %if.then143 ], [ %add, %if.end122 ]
   %count.0.ph = phi i32 [ 1, %if.then143 ], [ 2, %if.end122 ]
-  %.sink491 = load float, ptr %.sink491.in, align 4
+  %.sink490 = load float, ptr %.sink490.in, align 4
   %48 = load ptr, ptr %cfm163.sink, align 8
   %arrayidx165 = getelementptr inbounds float, ptr %48, i64 %idxprom154.sink
-  store float %.sink491, ptr %arrayidx165, align 4
+  store float %.sink490, ptr %arrayidx165, align 4
   %49 = load i32, ptr %rowskip, align 8
   %add167 = add nsw i32 %49, %mul.sink
   br label %if.end170
@@ -3102,16 +3104,18 @@ if.else256:                                       ; preds = %if.then241
   %cmp260 = fcmp ogt float %87, %84
   %or.cond = select i1 %cmp246, i1 %cmp260, i1 false
   %cond265 = select i1 %or.cond, float %87, float %84
-  %cmp269 = fcmp olt float %87, %85
-  %or.cond475 = select i1 %cmp229, i1 %cmp269, i1 false
-  br i1 %or.cond475, label %if.end275, label %cond.false271
+  br i1 %cmp229, label %land.lhs.true267, label %if.end275
 
-cond.false271:                                    ; preds = %if.else256
+land.lhs.true267:                                 ; preds = %if.else256
+  %cmp269 = fcmp olt float %87, %85
+  br i1 %cmp269, label %if.end275, label %cond.false271
+
+cond.false271:                                    ; preds = %land.lhs.true267
   br label %if.end275
 
-if.end275:                                        ; preds = %if.else256, %cond.false271, %if.then245
-  %hiLimit.0 = phi float [ %cond255, %if.then245 ], [ %85, %cond.false271 ], [ %87, %if.else256 ]
-  %lowLimit.0 = phi float [ %cond250, %if.then245 ], [ %cond265, %cond.false271 ], [ %cond265, %if.else256 ]
+if.end275:                                        ; preds = %if.else256, %cond.false271, %land.lhs.true267, %if.then245
+  %hiLimit.0 = phi float [ %cond255, %if.then245 ], [ %87, %land.lhs.true267 ], [ %85, %if.else256 ], [ %85, %cond.false271 ]
+  %lowLimit.0 = phi float [ %cond250, %if.then245 ], [ %cond265, %land.lhs.true267 ], [ %cond265, %if.else256 ], [ %cond265, %cond.false271 ]
   %88 = load float, ptr %m_currentPosition213, align 4
   %89 = load float, ptr %info, align 8
   %m_motorERP278 = getelementptr inbounds i8, ptr %limot, i64 20
@@ -3498,12 +3502,12 @@ if.else452:                                       ; preds = %if.end410
   br label %if.end461
 
 if.end461:                                        ; preds = %if.else452, %if.then442
-  %.sink493 = phi float [ %252, %if.else452 ], [ %mul448, %if.then442 ]
+  %.sink492 = phi float [ %252, %if.else452 ], [ %mul448, %if.then442 ]
   %m_constraintError458 = getelementptr inbounds i8, ptr %info, i64 48
   %253 = load ptr, ptr %m_constraintError458, align 8
   %idxprom459 = sext i32 %srow.2 to i64
   %arrayidx460 = getelementptr inbounds float, ptr %253, i64 %idxprom459
-  store float %.sink493, ptr %arrayidx460, align 4
+  store float %.sink492, ptr %arrayidx460, align 4
   %cmp462 = fcmp olt float %add440, %mul439
   %cond466 = select i1 %cmp462, float %add440, float %mul439
   %cond471 = select i1 %cmp462, float %mul439, float %add440
@@ -3532,10 +3536,10 @@ if.else490:                                       ; preds = %if.end461
   br label %if.end511
 
 if.end511:                                        ; preds = %if.else490, %if.then473
-  %fneg501.sink496 = phi float [ %fneg501, %if.else490 ], [ %cond471, %if.then473 ]
+  %fneg501.sink495 = phi float [ %fneg501, %if.else490 ], [ %cond471, %if.then473 ]
   %idxprom499.sink = phi i64 [ %idxprom499, %if.else490 ], [ %idxprom480, %if.then473 ]
-  %cmp502 = fcmp olt float %fneg501.sink496, 0.000000e+00
-  %cond507 = select i1 %cmp502, float 0.000000e+00, float %fneg501.sink496
+  %cmp502 = fcmp olt float %fneg501.sink495, 0.000000e+00
+  %cond507 = select i1 %cmp502, float 0.000000e+00, float %fneg501.sink495
   %m_upperLimit508 = getelementptr inbounds i8, ptr %info, i64 72
   %256 = load ptr, ptr %m_upperLimit508, align 8
   %arrayidx510 = getelementptr inbounds float, ptr %256, i64 %idxprom499.sink

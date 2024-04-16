@@ -327,136 +327,136 @@ init.end.i:                                       ; preds = %invoke.cont38.i, %i
   %13 = load ptr, ptr %type, align 8
   %kind_.i = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load i8, ptr %kind_.i, align 8
-  %conv.i = sext i8 %14 to i64
   %cmp.i = icmp slt i8 %14, 11
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.end
-
-land.lhs.true.i:                                  ; preds = %init.end.i
-  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
-  %15 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp55.i = icmp eq ptr %15, %13
-  br i1 %cmp55.i, label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end
+  br i1 %cmp.i, label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end
 
 lpad.i:                                           ; preds = %init.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup49.i
 
 lpad2.i:                                          ; preds = %invoke.cont.i
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48.i
 
 lpad6.i:                                          ; preds = %invoke.cont3.i
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup47.i
 
 lpad10.i:                                         ; preds = %invoke.cont7.i
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup46.i
 
 lpad14.i:                                         ; preds = %invoke.cont11.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup45.i
 
 lpad18.i:                                         ; preds = %invoke.cont15.i
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup44.i
 
 lpad22.i:                                         ; preds = %invoke.cont19.i
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup43.i
 
 lpad26.i:                                         ; preds = %invoke.cont23.i
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup42.i
 
 lpad30.i:                                         ; preds = %invoke.cont27.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41.i
 
 lpad34.i:                                         ; preds = %invoke.cont31.i
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad37.i:                                         ; preds = %invoke.cont35.i
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE9EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33.i) #16
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad37.i, %lpad34.i
-  %.pn = phi { ptr, i32 } [ %26, %lpad37.i ], [ %25, %lpad34.i ]
+  %.pn = phi { ptr, i32 } [ %25, %lpad37.i ], [ %24, %lpad34.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE8EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29.i) #16
   br label %ehcleanup41.i
 
 ehcleanup41.i:                                    ; preds = %ehcleanup.i, %lpad30.i
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup.i ], [ %24, %lpad30.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup.i ], [ %23, %lpad30.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25.i) #16
   br label %ehcleanup42.i
 
 ehcleanup42.i:                                    ; preds = %ehcleanup41.i, %lpad26.i
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup41.i ], [ %23, %lpad26.i ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup41.i ], [ %22, %lpad26.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE6EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.i) #16
   br label %ehcleanup43.i
 
 ehcleanup43.i:                                    ; preds = %ehcleanup42.i, %lpad22.i
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup42.i ], [ %22, %lpad22.i ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup42.i ], [ %21, %lpad22.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE5EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp17.i) #16
   br label %ehcleanup44.i
 
 ehcleanup44.i:                                    ; preds = %ehcleanup43.i, %lpad18.i
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup43.i ], [ %21, %lpad18.i ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup43.i ], [ %20, %lpad18.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i) #16
   br label %ehcleanup45.i
 
 ehcleanup45.i:                                    ; preds = %ehcleanup44.i, %lpad14.i
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup44.i ], [ %20, %lpad14.i ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup44.i ], [ %19, %lpad14.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9.i) #16
   br label %ehcleanup46.i
 
 ehcleanup46.i:                                    ; preds = %ehcleanup45.i, %lpad10.i
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup45.i ], [ %19, %lpad10.i ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup45.i ], [ %18, %lpad10.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5.i) #16
   br label %ehcleanup47.i
 
 ehcleanup47.i:                                    ; preds = %ehcleanup46.i, %lpad6.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup46.i ], [ %18, %lpad6.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup46.i ], [ %17, %lpad6.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1.i) #16
   br label %ehcleanup48.i
 
 ehcleanup48.i:                                    ; preds = %ehcleanup47.i, %lpad2.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup47.i ], [ %17, %lpad2.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup47.i ], [ %16, %lpad2.i ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #16
   br label %ehcleanup49.i
 
 ehcleanup49.i:                                    ; preds = %ehcleanup48.i, %lpad.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup48.i ], [ %16, %lpad.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup48.i ], [ %15, %lpad.i ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes) #16
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
-_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %land.lhs.true.i
-  %cmp = icmp sgt i8 %14, -1
+_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %init.end.i
+  %conv.i = sext i8 %14 to i32
+  %conv52.i = sext i8 %14 to i64
+  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv52.i
+  %26 = load ptr, ptr %arrayidx.i.i, align 8
+  %cmp55.i = icmp eq ptr %26, %13
+  %spec.select = select i1 %cmp55.i, i32 %conv.i, i32 -1
+  %cmp = icmp sgt i32 %spec.select, -1
   %cmp2 = icmp slt i32 %size, 65537
   %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
   %vectors_ = getelementptr inbounds i8, ptr %this, i64 8
-  %arrayidx.i.i19 = getelementptr inbounds [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv.i
+  %conv = zext nneg i32 %spec.select to i64
+  %arrayidx.i.i19 = getelementptr inbounds [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv
   %27 = load ptr, ptr %this, align 8
   call void @_ZN8facebook5velox10VectorPool8TypePool3popERKSt10shared_ptrIKNS0_4TypeEEiRNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %arrayidx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(168) %27)
   br label %return
 
-if.end:                                           ; preds = %land.lhs.true.i, %init.end.i, %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
+if.end:                                           ; preds = %init.end.i, %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
   %28 = load ptr, ptr %this, align 8
   call void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size, ptr noundef %28)
   br label %return

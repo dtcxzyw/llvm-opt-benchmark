@@ -1179,34 +1179,34 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add19 = add i64 %kwargs.val, %args.val
-  %ob_item24 = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item21 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
-  %or.cond1 = icmp ult i64 %args.val, 3
+  %2 = icmp ult i64 %args.val, 3
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
-  br i1 %or.cond1, label %if.end, label %cond.end15
+  br i1 %2, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
-  %ob_item27 = phi ptr [ %ob_item24, %cond.end.thread ], [ %ob_item, %cond.end ]
-  %add25 = phi i64 [ %add19, %cond.end.thread ], [ %args.val, %cond.end ]
-  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item27, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @select_epoll._parser, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #8
+  %ob_item24 = phi ptr [ %ob_item21, %cond.end.thread ], [ %ob_item, %cond.end ]
+  %add22 = phi i64 [ %add19, %cond.end.thread ], [ %args.val, %cond.end ]
+  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item24, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @select_epoll._parser, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #8
   %tobool17.not = icmp eq ptr %call14, null
   br i1 %tobool17.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %cond.end, %cond.end15
-  %cond1632 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
-  %add2631 = phi i64 [ %add25, %cond.end15 ], [ %args.val, %cond.end ]
-  %tobool18.not = icmp eq i64 %add2631, 0
+  %cond1629 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
+  %add2328 = phi i64 [ %add22, %cond.end15 ], [ %args.val, %cond.end ]
+  %tobool18.not = icmp eq i64 %add2328, 0
   br i1 %tobool18.not, label %if.end6.i, label %if.end20
 
 if.end20:                                         ; preds = %if.end
-  %2 = load ptr, ptr %cond1632, align 8
-  %tobool21.not = icmp eq ptr %2, null
+  %3 = load ptr, ptr %cond1629, align 8
+  %tobool21.not = icmp eq ptr %3, null
   br i1 %tobool21.not, label %if.end34, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %call24 = call i32 @PyLong_AsInt(ptr noundef nonnull %2) #8
+  %call24 = call i32 @PyLong_AsInt(ptr noundef nonnull %3) #8
   %cmp25 = icmp eq i32 %call24, -1
   br i1 %cmp25, label %land.lhs.true26, label %if.end30
 
@@ -1216,14 +1216,14 @@ land.lhs.true26:                                  ; preds = %if.then22
   br i1 %tobool28.not, label %if.end30, label %exit
 
 if.end30:                                         ; preds = %land.lhs.true26, %if.then22
-  %tobool31.not = icmp eq i64 %add2631, 1
+  %tobool31.not = icmp eq i64 %add2328, 1
   br i1 %tobool31.not, label %skip_optional_pos, label %if.end34
 
 if.end34:                                         ; preds = %if.end30, %if.end20
   %sizehint.0 = phi i32 [ %call24, %if.end30 ], [ -1, %if.end20 ]
-  %arrayidx35 = getelementptr i8, ptr %cond1632, i64 8
-  %3 = load ptr, ptr %arrayidx35, align 8
-  %call36 = call i32 @PyLong_AsInt(ptr noundef %3) #8
+  %arrayidx35 = getelementptr i8, ptr %cond1629, i64 8
+  %4 = load ptr, ptr %arrayidx35, align 8
+  %call36 = call i32 @PyLong_AsInt(ptr noundef %4) #8
   %cmp37 = icmp eq i32 %call36, -1
   br i1 %cmp37, label %land.lhs.true38, label %skip_optional_pos
 
@@ -1241,18 +1241,18 @@ skip_optional_pos:                                ; preds = %if.end34, %land.lhs
   br i1 %or.cond, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %skip_optional_pos
-  %4 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.55) #8
+  %5 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.55) #8
   br label %exit
 
 if.end3.i:                                        ; preds = %skip_optional_pos
-  %5 = and i32 %flags.0, -524289
-  %or.cond.not.i = icmp eq i32 %5, 0
+  %6 = and i32 %flags.0, -524289
+  %or.cond.not.i = icmp eq i32 %6, 0
   br i1 %or.cond.not.i, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %6 = load ptr, ptr @PyExc_OSError, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.56) #8
+  %7 = load ptr, ptr @PyExc_OSError, align 8
+  call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.56) #8
   br label %exit
 
 if.end6.i:                                        ; preds = %if.end, %if.end3.i
@@ -2073,18 +2073,14 @@ do.body28:                                        ; preds = %if.then19, %do.body
   %pyEpoll_Type = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %pyEpoll_Type, align 8
   %tobool29.not = icmp eq ptr %3, null
-  br i1 %tobool29.not, label %do.end38, label %if.then30
+  br i1 %tobool29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %do.body28
   %call33 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #8
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %do.end38, label %return
-
-do.end38:                                         ; preds = %do.body28, %if.then30
   br label %return
 
-return:                                           ; preds = %if.then30, %if.then19, %if.then8, %if.then, %do.end38
-  %retval.0 = phi i32 [ 0, %do.end38 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ]
+return:                                           ; preds = %if.then30, %do.body28, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ 0, %do.body28 ], [ %call33, %if.then30 ]
   ret i32 %retval.0
 }
 

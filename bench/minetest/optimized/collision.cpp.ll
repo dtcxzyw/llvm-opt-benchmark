@@ -550,7 +550,7 @@ land.rhs206:                                      ; preds = %if.then184
 
 if.end234:                                        ; preds = %land.rhs206, %if.then184, %land.lhs.true177, %lor.lhs.false174, %if.end140
   %tobool236 = fcmp nsz une float %speed.coerce1, 0.000000e+00
-  br i1 %tobool236, label %if.then237, label %if.end327
+  br i1 %tobool236, label %if.then237, label %cleanup
 
 if.then237:                                       ; preds = %if.end234
   %sub242 = fsub nsz float %sub58, %add26
@@ -560,7 +560,7 @@ if.then237:                                       ; preds = %if.end234
   %cmp.i494 = fcmp nsz olt float %div245, 0.000000e+00
   %.sroa.speculated515 = select i1 %cmp.i494, float 0.000000e+00, float %div245
   %cmp248 = fcmp nsz ugt float %div245, %16
-  br i1 %cmp248, label %if.end327, label %if.then249
+  br i1 %cmp248, label %cleanup, label %if.then249
 
 if.then249:                                       ; preds = %if.then237
   %54 = load float, ptr %Z22, align 4, !tbaa !20
@@ -580,13 +580,13 @@ land.lhs.true261:                                 ; preds = %if.then249
 
 lor.lhs.false268:                                 ; preds = %land.lhs.true261, %if.then249
   %cmp270 = fcmp nsz olt float %speed.coerce1, 0.000000e+00
-  br i1 %cmp270, label %land.lhs.true271, label %if.end327
+  br i1 %cmp270, label %land.lhs.true271, label %cleanup
 
 land.lhs.true271:                                 ; preds = %lor.lhs.false268
   %57 = load float, ptr %Z19, align 4, !tbaa !21
   %sub276 = fsub nsz float %57, %54
   %cmp277 = fcmp nsz ogt float %sub276, %.sroa.speculated513
-  br i1 %cmp277, label %if.then278, label %if.end327
+  br i1 %cmp277, label %if.then278, label %cleanup
 
 if.then278:                                       ; preds = %land.lhs.true271, %land.lhs.true261
   %58 = load float, ptr %MaxEdge, align 4, !tbaa !18
@@ -602,7 +602,7 @@ if.then278:                                       ; preds = %land.lhs.true271, %
   %sub295 = fsub nsz float %.sroa.speculated511, %.sroa.speculated509
   %sub298 = fsub nsz float %sub295, %add
   %cmp299 = fcmp nsz olt float %sub298, 0.000000e+00
-  br i1 %cmp299, label %land.rhs300, label %if.end327
+  br i1 %cmp299, label %land.rhs300, label %cleanup
 
 land.rhs300:                                      ; preds = %if.then278
   %64 = load float, ptr %Y, align 4, !tbaa !14
@@ -620,11 +620,11 @@ land.rhs300:                                      ; preds = %if.then278
   %cmp321 = fcmp nsz olt float %sub320, 0.000000e+00
   br i1 %cmp321, label %cleanup, label %if.end327
 
-if.end327:                                        ; preds = %land.rhs300, %if.then278, %land.lhs.true271, %lor.lhs.false268, %if.then237, %if.end234
+if.end327:                                        ; preds = %land.rhs300
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end327, %land.rhs300, %land.rhs206, %if.then143, %land.rhs, %if.then
-  %retval.0 = phi i32 [ -1, %if.end327 ], [ 1, %land.rhs ], [ -1, %if.then ], [ 0, %land.rhs206 ], [ -1, %if.then143 ], [ 2, %land.rhs300 ]
+cleanup:                                          ; preds = %if.end234, %if.then237, %lor.lhs.false268, %land.lhs.true271, %if.then278, %if.end327, %land.rhs300, %land.rhs206, %if.then143, %land.rhs, %if.then
+  %retval.0 = phi i32 [ 1, %land.rhs ], [ -1, %if.then ], [ 0, %land.rhs206 ], [ -1, %if.then143 ], [ 2, %land.rhs300 ], [ -1, %if.then278 ], [ -1, %land.lhs.true271 ], [ -1, %lor.lhs.false268 ], [ -1, %if.then237 ], [ -1, %if.end234 ], [ -1, %if.end327 ]
   ret i32 %retval.0
 }
 

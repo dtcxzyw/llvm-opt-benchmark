@@ -2163,7 +2163,7 @@ define dso_local noundef i32 @drm_mode_create_tv_properties_legacy(ptr noundef %
   %4 = getelementptr inbounds i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %57
+  br i1 %6, label %7, label %56
 
 7:                                                ; preds = %3
   %8 = tail call ptr @drm_property_create_enum(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef nonnull @drm_tv_select_enum_list, i32 noundef 5) #21
@@ -2248,14 +2248,12 @@ define dso_local noundef i32 @drm_mode_create_tv_properties_legacy(ptr noundef %
   %54 = getelementptr inbounds i8, ptr %0, i64 1256
   store ptr %53, ptr %54, align 8
   %55 = icmp eq ptr %53, null
-  br i1 %55, label %56, label %57
+  %spec.select = select i1 %55, i32 -12, i32 0
+  br label %56
 
-56:                                               ; preds = %52, %48, %44, %40, %36, %.loopexit, %19, %13, %10, %7
-  br label %57
-
-57:                                               ; preds = %56, %52, %3
-  %58 = phi i32 [ -12, %56 ], [ 0, %3 ], [ 0, %52 ]
-  ret i32 %58
+56:                                               ; preds = %52, %7, %10, %13, %19, %.loopexit, %36, %40, %44, %48, %3
+  %57 = phi i32 [ 0, %3 ], [ -12, %48 ], [ -12, %44 ], [ -12, %40 ], [ -12, %36 ], [ -12, %.loopexit ], [ -12, %19 ], [ -12, %13 ], [ -12, %10 ], [ -12, %7 ], [ %spec.select, %52 ]
+  ret i32 %57
 }
 
 ; Function Attrs: null_pointer_is_valid

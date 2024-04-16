@@ -201,7 +201,7 @@ if.end6.i:                                        ; preds = %if.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end6.i
   %pkts.i = getelementptr inbounds i8, ptr %h.i, i64 8
-  %4 = trunc i32 %rem4 to i8
+  %4 = trunc nsw i32 %rem4 to i8
   %bf.value.i = and i8 %4, 3
   br label %for.body.i
 
@@ -914,7 +914,7 @@ for.body110.i:                                    ; preds = %land.end.i, %for.co
 
 land.lhs.true.i:                                  ; preds = %for.body110.i
   %26 = load ptr, ptr %h.i, align 8
-  %conv116.i = trunc i64 %i.3112.i to i32
+  %conv116.i = trunc nuw nsw i64 %i.3112.i to i32
   %call117.i = call i64 @ossl_ackm_get_ack_deadline(ptr noundef %26, i32 noundef %conv116.i) #9
   %cmp5.i.not.i83.i = icmp eq i64 %call117.i, -1
   %conv.i84.i = zext i1 %cmp5.i.not.i83.i to i32
@@ -1126,9 +1126,14 @@ if.end16:                                         ; preds = %if.end8
   %num_pkts17 = getelementptr inbounds i8, ptr %h, i64 16
   store i64 %num_pkts, ptr %num_pkts17, align 8
   %cmp.not = icmp eq i64 %num_pkts, 0
-  br i1 %cmp.not, label %if.else, label %if.then18
+  br i1 %cmp.not, label %err.thread22, label %err
 
-if.then18:                                        ; preds = %if.end16
+err.thread22:                                     ; preds = %if.end16
+  %pkts25 = getelementptr inbounds i8, ptr %h, i64 8
+  store ptr null, ptr %pkts25, align 8
+  br label %if.end29
+
+err:                                              ; preds = %if.end16
   %mul = mul i64 %num_pkts, 24
   %call19 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %mul, ptr noundef nonnull @.str.3, i32 noundef 114) #9
   %pkts = getelementptr inbounds i8, ptr %h, i64 8
@@ -1137,18 +1142,13 @@ if.then18:                                        ; preds = %if.end16
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then28, label %if.end29
 
-if.else:                                          ; preds = %if.end16
-  %pkts25 = getelementptr inbounds i8, ptr %h, i64 8
-  store ptr null, ptr %pkts25, align 8
-  br label %if.end29
-
-if.then28:                                        ; preds = %if.then18, %if.end8, %if.end, %entry
+if.then28:                                        ; preds = %entry, %if.end, %if.end8, %err
   tail call fastcc void @helper_destroy(ptr noundef nonnull %h)
   br label %if.end29
 
-if.end29:                                         ; preds = %if.then18, %if.else, %if.then28
-  %rc.019 = phi i32 [ 0, %if.then28 ], [ 1, %if.else ], [ 1, %if.then18 ]
-  ret i32 %rc.019
+if.end29:                                         ; preds = %err.thread22, %if.then28, %err
+  %rc.020 = phi i32 [ 0, %if.then28 ], [ 1, %err ], [ 1, %err.thread22 ]
+  ret i32 %rc.020
 }
 
 declare void @ossl_ackm_set_loss_detection_deadline_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

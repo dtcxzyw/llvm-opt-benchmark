@@ -1109,18 +1109,16 @@ if.end25:                                         ; preds = %lor.lhs.false21, %i
   %call27 = tail call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef %call26, ptr noundef null) #6
   %call28 = tail call i32 @test_ptr(ptr noundef nonnull @.str.51, i32 noundef 1729, ptr noundef nonnull @.str.111, ptr noundef %call27) #6
   %tobool29.not = icmp eq i32 %call28, 0
-  br i1 %tobool29.not, label %if.then33, label %lor.lhs.false30
+  br i1 %tobool29.not, label %if.end34, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.end25
   %call31 = tail call fastcc i32 @test_kdfs_same(ptr noundef %call14, ptr noundef %call27), !range !8
   %tobool32.not = icmp eq i32 %call31, 0
-  br i1 %tobool32.not, label %if.then33, label %if.end34
-
-if.then33:                                        ; preds = %lor.lhs.false30, %if.end25
+  %spec.select11 = select i1 %tobool32.not, i32 0, i32 %ok.1
   br label %if.end34
 
-if.end34:                                         ; preds = %if.then33, %lor.lhs.false30
-  %ok.2 = phi i32 [ %ok.1, %lor.lhs.false30 ], [ 0, %if.then33 ]
+if.end34:                                         ; preds = %lor.lhs.false30, %if.end25
+  %ok.2 = phi i32 [ 0, %if.end25 ], [ %spec.select11, %lor.lhs.false30 ]
   tail call void @EVP_KDF_free(ptr noundef %call14) #6
   tail call void @EVP_KDF_free(ptr noundef %call27) #6
   ret i32 %ok.2

@@ -93,7 +93,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
 
 33:                                               ; preds = %31
   %34 = lshr i64 %26, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = tail call i32 @htonl(i32 noundef %35) #7
   %37 = load ptr, ptr %5, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 32
@@ -119,7 +119,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %.170 = phi i64 [ %52, %50 ], [ %29, %31 ]
   %.14569 = phi i64 [ %51, %50 ], [ %26, %31 ]
   %47 = lshr i64 %.14569, 56
-  %48 = trunc i64 %47 to i8
+  %48 = trunc nuw i64 %47 to i8
   %49 = tail call i32 @nghttp2_bufs_addb(ptr noundef %0, i8 noundef zeroext %48) #8
   %.not56 = icmp eq i32 %49, 0
   br i1 %.not56, label %50, label %.loopexit
@@ -145,7 +145,7 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %.273 = phi i64 [ %67, %65 ], [ %.042, %.preheader ]
   %.24672 = phi i64 [ %66, %65 ], [ %.044, %.preheader ]
   %62 = lshr i64 %.24672, 56
-  %63 = trunc i64 %62 to i8
+  %63 = trunc nuw i64 %62 to i8
   %64 = tail call i32 @nghttp2_bufs_addb(ptr noundef %0, i8 noundef zeroext %63) #8
   %.not55 = icmp eq i32 %64, 0
   br i1 %.not55, label %65, label %.loopexit
@@ -160,26 +160,22 @@ define dso_local i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonl
   %.246.lcssa = phi i64 [ %.044, %.preheader ], [ %66, %65 ]
   %.2.lcssa = phi i64 [ %.042, %.preheader ], [ %67, %65 ]
   %.not53 = icmp eq i64 %.2.lcssa, 0
-  br i1 %.not53, label %78, label %69
+  br i1 %.not53, label %.loopexit, label %69
 
 69:                                               ; preds = %._crit_edge75
   %70 = lshr i64 %.246.lcssa, 56
-  %71 = trunc i64 %70 to i16
-  %72 = trunc i64 %.2.lcssa to i16
+  %71 = trunc nuw nsw i64 %70 to i16
+  %72 = trunc nuw i64 %.2.lcssa to i16
   %73 = sub nuw nsw i16 8, %72
   %notmask = shl nsw i16 -1, %73
   %74 = xor i16 %notmask, -1
   %75 = or i16 %74, %71
-  %76 = trunc i16 %75 to i8
+  %76 = trunc nuw i16 %75 to i8
   %77 = tail call i32 @nghttp2_bufs_addb(ptr noundef %0, i8 noundef zeroext %76) #8
-  %.not54 = icmp eq i32 %77, 0
-  br i1 %.not54, label %78, label %.loopexit
-
-78:                                               ; preds = %69, %._crit_edge75
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %69, %78
-  %.043 = phi i32 [ 0, %78 ], [ %77, %69 ], [ %64, %.lr.ph74 ], [ %49, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph74, %69, %._crit_edge75
+  %.043 = phi i32 [ 0, %._crit_edge75 ], [ %77, %69 ], [ %64, %.lr.ph74 ], [ %49, %.lr.ph ]
   ret i32 %.043
 }
 

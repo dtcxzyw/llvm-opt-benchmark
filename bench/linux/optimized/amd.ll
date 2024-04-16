@@ -150,7 +150,7 @@ define dso_local void @init_spectral_chicken(ptr noundef %0) local_unnamed_addr 
   %19 = or i64 %18, 2
   %20 = trunc i64 %19 to i32
   %21 = lshr i64 %18, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073671965, i32 %20, i32 %22) #12, !srcloc !7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %25 [label %24], !srcloc !6
@@ -269,7 +269,8 @@ define dso_local noundef i32 @amd_get_highest_perf() #0 align 16 {
   %5 = icmp eq i8 %4, 48
   %6 = icmp sgt i8 %3, 111
   %7 = or i1 %6, %5
-  br i1 %7, label %16, label %15
+  %spec.select1 = select i1 %7, i32 166, i32 255
+  br label %15
 
 8:                                                ; preds = %0
   %9 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 2), align 2
@@ -278,14 +279,12 @@ define dso_local noundef i32 @amd_get_highest_perf() #0 align 16 {
   %12 = add i8 %9, -64
   %13 = icmp ult i8 %12, 48
   %14 = or i1 %11, %13
-  br i1 %14, label %16, label %15
+  %spec.select = select i1 %14, i32 166, i32 255
+  br label %15
 
 15:                                               ; preds = %2, %8, %0
-  br label %16
-
-16:                                               ; preds = %15, %8, %2
-  %17 = phi i32 [ 255, %15 ], [ 166, %2 ], [ 166, %8 ]
-  ret i32 %17
+  %16 = phi i32 [ 255, %0 ], [ %spec.select, %8 ], [ %spec.select1, %2 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1516,7 +1515,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   %129 = or disjoint i64 %128, 30
   %130 = trunc i64 %129 to i32
   %131 = lshr i64 %128, 32
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nuw i64 %131 to i32
   %133 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073672159, i32 %130, i32 %132) #12, !srcloc !7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %135 [label %134], !srcloc !6
@@ -1683,7 +1682,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   %219 = or i64 %218, 2
   %220 = trunc i64 %219 to i32
   %221 = lshr i64 %218, 32
-  %222 = trunc i64 %221 to i32
+  %222 = trunc nuw i64 %221 to i32
   %223 = call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1073671965, i32 %220, i32 %222) #12, !srcloc !7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #12
           to label %225 [label %224], !srcloc !6
@@ -1830,7 +1829,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   %302 = load i16, ptr %301, align 8
   %303 = zext i16 %302 to i32
   %304 = udiv i32 %303, %298
-  %305 = trunc i32 %304 to i16
+  %305 = trunc nuw nsw i32 %304 to i16
   store i16 %305, ptr %301, align 8
   br label %306
 
@@ -2192,7 +2191,7 @@ define internal void @cpu_detect_tlb_amd(ptr nocapture noundef readonly %0) #2 a
   %9 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483642, i32 0) #12, !srcloc !21
   %10 = extractvalue { i32, i32, i32, i32 } %9, 1
   %11 = lshr i32 %10, 16
-  %12 = trunc i32 %11 to i16
+  %12 = trunc nuw i32 %11 to i16
   %13 = and i16 %12, 4095
   store i16 %13, ptr @tlb_lld_4k, align 2
   %14 = trunc i32 %10 to i16
@@ -2219,12 +2218,12 @@ define internal void @cpu_detect_tlb_amd(ptr nocapture noundef readonly %0) #2 a
   %28 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483643, i32 0) #12, !srcloc !21
   %29 = extractvalue { i32, i32, i32, i32 } %28, 0
   %30 = lshr i32 %29, 16
-  %31 = trunc i32 %30 to i16
+  %31 = trunc nuw i32 %30 to i16
   %32 = and i16 %31, 255
   br label %35
 
 33:                                               ; preds = %20
-  %34 = trunc i32 %25 to i16
+  %34 = trunc nuw nsw i32 %25 to i16
   br label %35
 
 35:                                               ; preds = %33, %27
@@ -2255,7 +2254,7 @@ define internal void @cpu_detect_tlb_amd(ptr nocapture noundef readonly %0) #2 a
   br label %54
 
 52:                                               ; preds = %35
-  %53 = trunc i32 %38 to i16
+  %53 = trunc nuw nsw i32 %38 to i16
   br label %54
 
 54:                                               ; preds = %52, %47, %43

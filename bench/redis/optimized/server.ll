@@ -2006,7 +2006,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc38
   %cmp24 = phi i1 [ true, %entry ], [ false, %for.inc38 ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.inc38 ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call = tail call i64 @dbSize(ptr noundef %arrayidx, i32 noundef %1) #38
   %cmp1 = icmp eq i64 %call, 0
   br i1 %cmp1, label %for.inc38, label %if.end
@@ -2931,7 +2931,7 @@ if.end:                                           ; preds = %if.then.i, %removeC
   store i32 %call1.i, ptr %last_memory_type.i, align 8
   store i64 %call.i18, ptr %last_memory_usage.i19, align 8
   %15 = tail call i64 @llvm.ctlz.i64(i64 %call.i18, i1 false), !range !10
-  %cast.i = trunc i64 %15 to i32
+  %cast.i = trunc nuw nsw i64 %15 to i32
   %cmp1.i = icmp ult i32 %cast.i, 31
   br i1 %cmp1.i, label %getMemUsageBucket.exit, label %if.else.i
 
@@ -3027,7 +3027,7 @@ entry:
   %div.i = sdiv i64 %add.i.i, 1000
   %atomic-load = load atomic i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 349) seq_cst, align 8
   %rem = srem i64 %atomic-load, 8
-  %5 = trunc i64 %rem to i8
+  %5 = trunc nsw i64 %rem to i8
   %rem5.lhs.trunc = add nsw i8 %5, 1
   %rem517 = srem i8 %rem5.lhs.trunc, 8
   %idxprom = sext i8 %rem517 to i64
@@ -3546,7 +3546,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div4.rhs.trunc = trunc i32 %div to i16
+  %div4.rhs.trunc = trunc nsw i32 %div to i16
   %div41 = sdiv i16 100, %div4.rhs.trunc
   %div4.sext = sext i16 %div41 to i32
   %rem = srem i32 %2, %div4.sext
@@ -3663,7 +3663,7 @@ if.end12:                                         ; preds = %if.end8
 
 lor.lhs.false:                                    ; preds = %if.end12
   %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div17.rhs.trunc = trunc i32 %div13 to i16
+  %div17.rhs.trunc = trunc nsw i32 %div13 to i16
   %div17159 = sdiv i16 100, %div17.rhs.trunc
   %div17.sext = sext i16 %div17159 to i32
   %rem = srem i32 %9, %div17.sext
@@ -3991,7 +3991,7 @@ lor.lhs.false78:                                  ; preds = %if.end71
   %59 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
   %div75 = sdiv i32 1000, %59
   %60 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div80.rhs.trunc = trunc i32 %div75 to i16
+  %div80.rhs.trunc = trunc nsw i32 %div75 to i16
   %div80150 = sdiv i16 5000, %div80.rhs.trunc
   %div80.sext = sext i16 %div80150 to i32
   %rem81 = srem i32 %60, %div80.sext
@@ -4021,7 +4021,7 @@ for.body:                                         ; preds = %lor.lhs.false78, %f
   br i1 %or.cond12, label %for.inc, label %if.end101
 
 if.end101:                                        ; preds = %for.body
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.22, i32 noundef %66, i64 noundef %call89, i64 noundef %call92, i64 noundef %call86)
   br label %for.inc
 
@@ -4041,7 +4041,7 @@ lor.lhs.false111:                                 ; preds = %if.end105
   %70 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
   %div108 = sdiv i32 1000, %70
   %71 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div113.rhs.trunc = trunc i32 %div108 to i16
+  %div113.rhs.trunc = trunc nsw i32 %div108 to i16
   %div113151 = sdiv i16 5000, %div113.rhs.trunc
   %div113.sext = sext i16 %div113151 to i32
   %rem114 = srem i32 %71, %div113.sext
@@ -4109,7 +4109,7 @@ if.then144:                                       ; preds = %lor.lhs.false141, %
 
 lor.lhs.false148:                                 ; preds = %if.then144
   %82 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div150.rhs.trunc = trunc i32 %div145 to i16
+  %div150.rhs.trunc = trunc nsw i32 %div145 to i16
   %div150158 = sdiv i16 1000, %div150.rhs.trunc
   %div150.sext = sext i16 %div150158 to i32
   %rem151 = srem i32 %82, %div150.sext
@@ -4254,7 +4254,7 @@ if.end231:                                        ; preds = %if.end222, %if.then
 
 lor.lhs.false235:                                 ; preds = %if.end231
   %109 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div237.rhs.trunc = trunc i32 %div232 to i16
+  %div237.rhs.trunc = trunc nsw i32 %div232 to i16
   %div237157 = sdiv i16 1000, %div237.rhs.trunc
   %div237.sext = sext i16 %div237157 to i32
   %rem238 = srem i32 %109, %div237.sext
@@ -4288,7 +4288,7 @@ if.then254:                                       ; preds = %if.end251
 
 lor.lhs.false258:                                 ; preds = %if.then254
   %115 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div260.rhs.trunc = trunc i32 %div266 to i16
+  %div260.rhs.trunc = trunc nsw i32 %div266 to i16
   %div260156 = sdiv i16 100, %div260.rhs.trunc
   %div260.sext = sext i16 %div260156 to i32
   %rem261 = srem i32 %115, %div260.sext
@@ -4301,7 +4301,7 @@ if.else265:                                       ; preds = %if.end251
 
 lor.lhs.false269:                                 ; preds = %if.else265
   %116 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div271.rhs.trunc = trunc i32 %div266 to i16
+  %div271.rhs.trunc = trunc nsw i32 %div266 to i16
   %div271155 = sdiv i16 1000, %div271.rhs.trunc
   %div271.sext = sext i16 %div271155 to i32
   %rem272 = srem i32 %116, %div271.sext
@@ -4320,7 +4320,7 @@ if.end276:                                        ; preds = %if.end276.sink.spli
 
 lor.lhs.false280:                                 ; preds = %if.end276
   %118 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div282.rhs.trunc = trunc i32 %div277 to i16
+  %div282.rhs.trunc = trunc nsw i32 %div277 to i16
   %div282154 = sdiv i16 100, %div282.rhs.trunc
   %div282.sext = sext i16 %div282154 to i32
   %rem283 = srem i32 %118, %div282.sext
@@ -4356,7 +4356,7 @@ if.end292:                                        ; preds = %if.then291, %if.end
 
 lor.lhs.false296:                                 ; preds = %if.end292
   %122 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div298.rhs.trunc = trunc i32 %div293 to i16
+  %div298.rhs.trunc = trunc nsw i32 %div293 to i16
   %div298153 = sdiv i16 1000, %div298.rhs.trunc
   %div298.sext = sext i16 %div298153 to i32
   %rem299 = srem i32 %122, %div298.sext
@@ -4414,7 +4414,7 @@ if.end328:                                        ; preds = %if.then319, %if.the
 
 lor.lhs.false332:                                 ; preds = %if.end328
   %130 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 25), align 4
-  %div334.rhs.trunc = trunc i32 %div329 to i16
+  %div334.rhs.trunc = trunc nsw i32 %div329 to i16
   %div334152 = sdiv i16 100, %div334.rhs.trunc
   %div334.sext = sext i16 %div334152 to i32
   %rem335 = srem i32 %130, %div334.sext
@@ -5906,7 +5906,7 @@ for.body135:                                      ; preds = %for.end, %for.body1
 for.body151:                                      ; preds = %for.body135, %for.body151
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %for.body151 ], [ 0, %for.body135 ]
   %call152 = call ptr @sdsempty() #38
-  %2 = trunc i64 %indvars.iv28 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv28 to i32
   %call153 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call152, ptr noundef nonnull @.str.119, i32 noundef %2) #38
   %call154 = call ptr @createObject(i32 noundef 0, ptr noundef %call153) #38
   %arrayidx156 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 87, i64 %indvars.iv28
@@ -7154,7 +7154,7 @@ for.body:                                         ; preds = %if.end50, %initDbSt
   store ptr %call72, ptr %watched_keys, align 8
   %21 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
   %id = getelementptr inbounds %struct.redisDb, ptr %21, i64 %indvars.iv, i32 6
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %id, align 8
   %23 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
   %avg_ttl = getelementptr inbounds %struct.redisDb, ptr %23, i64 %indvars.iv, i32 7
@@ -8799,21 +8799,21 @@ if.end8.i:                                        ; preds = %if.end.i
 land.lhs.true.i:                                  ; preds = %if.end8.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 268), align 8
   %tobool13.not.i = icmp eq ptr %4, null
-  br i1 %tobool13.not.i, label %lor.lhs.false14.i, label %if.end
+  br i1 %tobool13.not.i, label %shouldPropagate.exit, label %if.end
 
-lor.lhs.false14.i:                                ; preds = %land.lhs.true.i
+shouldPropagate.exit:                             ; preds = %land.lhs.true.i
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 59), align 8
   %len.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %len.i, align 8
-  %cmp15.not.i = icmp eq i64 %6, 0
-  br i1 %cmp15.not.i, label %return, label %if.end
+  %cmp15.not.i.not = icmp eq i64 %6, 0
+  br i1 %cmp15.not.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false14.i, %land.lhs.true.i, %if.end.i
+if.end:                                           ; preds = %land.lhs.true.i, %if.end.i, %shouldPropagate.exit
   %conv = sext i32 %argc to i64
   %mul = shl nsw i64 %conv, 3
   %call1 = tail call noalias ptr @zmalloc(i64 noundef %mul) #42
-  %cmp13 = icmp sgt i32 %argc, 0
-  br i1 %cmp13, label %for.body.preheader, label %for.end
+  %cmp17 = icmp sgt i32 %argc, 0
+  br i1 %cmp17, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end
   %wide.trip.count = zext nneg i32 %argc to i64
@@ -8880,7 +8880,7 @@ redisOpArrayAppend.exit:                          ; preds = %if.end7.thread.i, %
   store i32 %inc.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 248, i32 1), align 8
   br label %return
 
-return:                                           ; preds = %if.end8.i, %lor.lhs.false14.i, %entry, %lor.lhs.false1.i, %redisOpArrayAppend.exit
+return:                                           ; preds = %if.end8.i, %entry, %lor.lhs.false1.i, %shouldPropagate.exit, %redisOpArrayAppend.exit
   ret void
 }
 
@@ -13491,7 +13491,7 @@ if.else20:                                        ; preds = %if.else15
 if.end22:                                         ; preds = %if.else15, %if.else, %if.then
   %9 = phi i32 [ 0, %if.then ], [ 1, %if.else ], [ 2, %if.else15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nuw i64 %indvars.iv.next to i32
   %cmp = icmp sgt i32 %0, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !62
 
@@ -15716,7 +15716,7 @@ if.then627:                                       ; preds = %for.body
   %265 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
   %avg_ttl = getelementptr inbounds %struct.redisDb, ptr %265, i64 %indvars.iv, i32 7
   %266 = load i64, ptr %avg_ttl, align 8
-  %267 = trunc i64 %indvars.iv to i32
+  %267 = trunc nuw nsw i64 %indvars.iv to i32
   %call630 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.34386, ptr noundef nonnull @.str.394, i32 noundef %267, i64 noundef %call620, i64 noundef %call623, i64 noundef %266) #38
   br label %for.inc
 
@@ -16014,7 +16014,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !75
 
 for.end.loopexit.split.loop.exit:                 ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %for.cond.preheader
@@ -17404,19 +17404,17 @@ sw.bb13.i:                                        ; preds = %if.end
 sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i3 = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ]
   %retval.0.i3.fr = freeze i64 %retval.0.i3
-  %cmp = icmp eq i64 %retval.0.i3.fr, 0
-  br i1 %cmp, label %sdslen.exit.thread, label %5
+  %cmp = icmp ne i64 %retval.0.i3.fr, 0
+  %spec.select = zext i1 %cmp to i32
+  br label %sdslen.exit.thread
 
-sdslen.exit.thread:                               ; preds = %if.end, %sdslen.exit
-  br label %5
-
-5:                                                ; preds = %sdslen.exit, %sdslen.exit.thread
-  %6 = phi i32 [ 0, %sdslen.exit.thread ], [ 1, %sdslen.exit ]
+sdslen.exit.thread:                               ; preds = %sdslen.exit, %if.end
+  %5 = phi i32 [ 0, %if.end ], [ %spec.select, %sdslen.exit ]
   tail call void @sdsfree(ptr noundef nonnull %call1.i) #38
   br label %return
 
-return:                                           ; preds = %entry, %expandProcTitleTemplate.exit, %5
-  %retval.0 = phi i32 [ %6, %5 ], [ 0, %expandProcTitleTemplate.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %expandProcTitleTemplate.exit, %sdslen.exit.thread
+  %retval.0 = phi i32 [ %5, %sdslen.exit.thread ], [ 0, %expandProcTitleTemplate.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -18522,16 +18520,16 @@ if.end8.i:                                        ; preds = %if.end.i
 land.lhs.true.i:                                  ; preds = %if.end8.i
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 268), align 8
   %tobool13.not.i = icmp eq ptr %4, null
-  br i1 %tobool13.not.i, label %lor.lhs.false14.i, label %if.end
+  br i1 %tobool13.not.i, label %shouldPropagate.exit, label %if.end
 
-lor.lhs.false14.i:                                ; preds = %land.lhs.true.i
+shouldPropagate.exit:                             ; preds = %land.lhs.true.i
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 59), align 8
   %len.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %len.i, align 8
-  %cmp15.not.i = icmp eq i64 %6, 0
-  br i1 %cmp15.not.i, label %if.end15, label %if.end
+  %cmp15.not.i.not = icmp eq i64 %6, 0
+  br i1 %cmp15.not.i.not, label %if.end15, label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false14.i, %land.lhs.true.i, %if.end.i
+if.end:                                           ; preds = %land.lhs.true.i, %if.end.i, %shouldPropagate.exit
   %call1 = tail call i32 @isPausedActions(i32 noundef 16) #38
   %tobool2 = icmp eq i32 %call1, 0
   %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 34), align 8
@@ -18565,7 +18563,7 @@ if.then14:                                        ; preds = %if.end11
   tail call void @replicationFeedSlaves(ptr noundef %9, i32 noundef %dbid, ptr noundef %argv, i32 noundef %argc) #38
   br label %if.end15
 
-if.end15:                                         ; preds = %if.end8.i, %lor.lhs.false14.i, %entry, %lor.lhs.false1.i, %if.then14, %if.end11
+if.end15:                                         ; preds = %if.end8.i, %entry, %lor.lhs.false1.i, %shouldPropagate.exit, %if.then14, %if.end11
   ret void
 }
 

@@ -494,21 +494,19 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @Curl_str_key_compare(ptr nocapture noundef readonly %k1, i64 noundef %key1_len, ptr nocapture noundef readonly %k2, i64 noundef %key2_len) local_unnamed_addr #4 {
+define hidden i64 @Curl_str_key_compare(ptr nocapture noundef readonly %k1, i64 noundef %key1_len, ptr nocapture noundef readonly %k2, i64 noundef %key2_len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i64 %key1_len, %key2_len
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %bcmp = tail call i32 @bcmp(ptr %k1, ptr %k2, i64 %key1_len)
   %tobool.not = icmp eq i32 %bcmp, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %spec.select = zext i1 %tobool.not to i64
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i64 [ 0, %if.end ], [ 1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi i64 [ 0, %entry ], [ %spec.select, %land.lhs.true ]
   ret i64 %retval.0
 }
 
@@ -566,7 +564,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool10.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   store ptr %8, ptr %current_element, align 8
   %add = add nsw i32 %9, 1
   store i32 %add, ptr %slot_index, align 8

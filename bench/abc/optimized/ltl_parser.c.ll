@@ -230,7 +230,7 @@ define noalias noundef ptr @getVarName(ptr nocapture noundef readonly %0, i32 no
   br label %.preheader, !llvm.loop !6
 
 isNotVarNameSymbol.exit24.thread:                 ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   store i32 %9, ptr %2, align 4
   %10 = sub nsw i32 %9, %1
   %11 = add nsw i32 %10, 1
@@ -723,7 +723,7 @@ generateTypedNode.exit166:                        ; preds = %161, %163
   br label %.preheader.i, !llvm.loop !6
 
 isNotVarNameSymbol.exit24.thread.i:               ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
-  %168 = trunc i64 %indvars.iv.i to i32
+  %168 = trunc nsw i64 %indvars.iv.i to i32
   %169 = sub nsw i32 %168, %.0221
   %170 = add nsw i32 %169, 1
   %171 = sext i32 %170 to i64
@@ -1010,7 +1010,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %6
   br i1 %exitcond.not.i, label %Vec_PtrFind.exit.thread, label %25, !llvm.loop !8
 
 Vec_PtrFind.exit:                                 ; preds = %25
-  %30 = trunc i64 %indvars.iv.i to i32
+  %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %Vec_PtrFind.exit.thread, label %.loopexit.sink.split
 
@@ -1103,7 +1103,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not.i44, label %.loopexit.sink.split, label %66, !llvm.loop !8
 
 ._crit_edge.loopexit.split.loop.exit12.i45:       ; preds = %66
-  %71 = trunc i64 %indvars.iv.i42 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.i42 to i32
   br label %.loopexit.sink.split
 
 72:                                               ; preds = %10
@@ -1134,7 +1134,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not.i52, label %Vec_PtrFind.exit54.thread, label %81, !llvm.loop !8
 
 Vec_PtrFind.exit54:                               ; preds = %81
-  %86 = trunc i64 %indvars.iv.i50 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv.i50 to i32
   %87 = icmp eq i32 %86, -1
   br i1 %87, label %Vec_PtrFind.exit54.thread, label %.loopexit.sink.split
 
@@ -1227,7 +1227,7 @@ Vec_PtrPush.exit61:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not.i67, label %.loopexit.sink.split, label %122, !llvm.loop !8
 
 ._crit_edge.loopexit.split.loop.exit12.i68:       ; preds = %122
-  %127 = trunc i64 %indvars.iv.i65 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv.i65 to i32
   br label %.loopexit.sink.split
 
 128:                                              ; preds = %tailrecurse
@@ -1553,7 +1553,7 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %tailrecurse, %.loopexit.loopexit
-  %.0 = phi i32 [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %tailrecurse ], [ 0, %3 ], [ 1, %.loopexit.loopexit ]
   ret i32 %.0
 }
 
@@ -1603,7 +1603,7 @@ tailrecurse.backedge:                             ; preds = %3, %tailrecurse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %tailrecurse, %.loopexit.loopexit, %8, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %8 ], [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %3 ]
+  %.0 = phi i32 [ %15, %12 ], [ 0, %8 ], [ 0, %tailrecurse ], [ 0, %3 ], [ 1, %.loopexit.loopexit ]
   ret i32 %.0
 }
 

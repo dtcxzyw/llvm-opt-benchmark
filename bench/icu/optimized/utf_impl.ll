@@ -254,7 +254,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %shr = lshr i32 %c, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv = or disjoint i8 %0, -64
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 %idxprom
@@ -282,7 +282,7 @@ if.then9:                                         ; preds = %if.else
 
 if.then14:                                        ; preds = %if.then9
   %shr15 = lshr i32 %c, 12
-  %3 = trunc i32 %shr15 to i8
+  %3 = trunc nuw i32 %shr15 to i8
   %conv17 = or disjoint i8 %3, -32
   %idxprom19 = sext i32 %i to i64
   %arrayidx20 = getelementptr inbounds i8, ptr %s, i64 %idxprom19
@@ -310,7 +310,7 @@ if.else35:                                        ; preds = %if.else
 
 if.then40:                                        ; preds = %if.else35
   %shr41 = lshr i32 %c, 18
-  %8 = trunc i32 %shr41 to i8
+  %8 = trunc nuw i32 %shr41 to i8
   %conv43 = or disjoint i8 %8, -16
   %idxprom45 = sext i32 %i to i64
   %arrayidx46 = getelementptr inbounds i8, ptr %s, i64 %idxprom45
@@ -360,7 +360,7 @@ if.then75:                                        ; preds = %if.else73
   br i1 %cmp82, label %if.then83, label %if.else88
 
 if.then83:                                        ; preds = %if.then75
-  %conv84 = trunc i32 %16 to i8
+  %conv84 = trunc nuw nsw i32 %16 to i8
   store i8 %conv84, ptr %add.ptr, align 1
   br label %do.end
 
@@ -463,11 +463,11 @@ cond.false:                                       ; preds = %if.else
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %and31.sink = phi i32 [ %and31, %cond.false ], [ %shr, %cond.true ]
-  %conv29120.sink.in.in = phi ptr [ %arrayidx28, %cond.false ], [ %arrayidx18, %cond.true ]
-  %conv29120.sink.in = load i8, ptr %conv29120.sink.in.in, align 1
-  %conv29120.sink = zext i8 %conv29120.sink.in to i32
+  %conv29121.sink.in.in = phi ptr [ %arrayidx28, %cond.false ], [ %arrayidx18, %cond.true ]
+  %conv29121.sink.in = load i8, ptr %conv29121.sink.in.in, align 1
+  %conv29121.sink = zext i8 %conv29121.sink.in to i32
   %shl32 = shl nuw nsw i32 1, %and31.sink
-  %and33 = and i32 %shl32, %conv29120.sink
+  %and33 = and i32 %shl32, %conv29121.sink
   %tobool.not = icmp eq i32 %and33, 0
   br i1 %tobool.not, label %if.end186, label %if.then34
 
@@ -511,10 +511,10 @@ if.then60:                                        ; preds = %if.then54
   %idxprom63 = zext nneg i8 %and56 to i64
   %arrayidx64 = getelementptr inbounds [17 x i8], ptr @.str.1, i64 0, i64 %idxprom63
   %5 = load i8, ptr %arrayidx64, align 1
-  %conv65121 = zext i8 %5 to i32
+  %conv65122 = zext i8 %5 to i32
   %shr67 = lshr i32 %conv3, 5
   %shl68 = shl nuw nsw i32 1, %shr67
-  %and69 = and i32 %shl68, %conv65121
+  %and69 = and i32 %shl68, %conv65122
   %tobool70.not = icmp eq i32 %and69, 0
   br i1 %tobool70.not, label %if.end186, label %if.then71
 
@@ -561,10 +561,10 @@ if.else111:                                       ; preds = %if.then51
   %idxprom114 = zext nneg i32 %shr113 to i64
   %arrayidx115 = getelementptr inbounds [17 x i8], ptr @.str, i64 0, i64 %idxprom114
   %6 = load i8, ptr %arrayidx115, align 1
-  %conv116122 = zext i8 %6 to i32
+  %conv116123 = zext i8 %6 to i32
   %and118 = and i32 %conv46, 7
   %shl119 = shl nuw nsw i32 1, %and118
-  %and120 = and i32 %shl119, %conv116122
+  %and120 = and i32 %shl119, %conv116123
   %tobool121.not = icmp eq i32 %and120, 0
   br i1 %tobool121.not, label %if.end186, label %if.then122
 
@@ -599,10 +599,10 @@ if.then140:                                       ; preds = %if.then131
   %idxprom146 = zext nneg i32 %shr145 to i64
   %arrayidx147 = getelementptr inbounds [17 x i8], ptr @.str, i64 0, i64 %idxprom146
   %10 = load i8, ptr %arrayidx147, align 1
-  %conv148123 = zext i8 %10 to i32
+  %conv148124 = zext i8 %10 to i32
   %conv149 = zext nneg i8 %9 to i32
   %shl151 = shl nuw nsw i32 1, %conv149
-  %and152 = and i32 %shl151, %conv148123
+  %and152 = and i32 %shl151, %conv148124
   %tobool153.not = icmp eq i32 %and152, 0
   br i1 %tobool153.not, label %if.end186, label %if.then154
 
@@ -623,16 +623,14 @@ if.then154:                                       ; preds = %if.then140
 
 land.lhs.true170:                                 ; preds = %if.then154
   %cmp171 = icmp ult i32 %or165, 65008
-  br i1 %cmp171, label %_ZL10errorValueia.exit110, label %lor.lhs.false172
+  br i1 %cmp171, label %return, label %lor.lhs.false172
 
 lor.lhs.false172:                                 ; preds = %land.lhs.true170
   %and173 = and i32 %or165, 65534
   %cmp174 = icmp eq i32 %and173, 65534
   %cmp176 = icmp ult i32 %or165, 1114112
   %or.cond10 = and i1 %cmp176, %cmp174
-  br i1 %or.cond10, label %_ZL10errorValueia.exit110, label %return
-
-_ZL10errorValueia.exit110:                        ; preds = %land.lhs.true170, %lor.lhs.false172
+  %spec.select119 = select i1 %or.cond10, i32 1114111, i32 %or165
   br label %return
 
 if.end186:                                        ; preds = %cond.end, %if.else111, %if.then60, %if.then131, %if.then140, %if.else126, %if.else36, %entry
@@ -644,8 +642,8 @@ if.else.i112:                                     ; preds = %if.else93, %if.end1
   %..i114 = select i1 %cmp2.i113, i32 65533, i32 -1
   br label %return
 
-return:                                           ; preds = %land.lhs.true82, %if.else.i112, %if.end186, %if.else.i98, %if.then122, %if.else.i, %if.then34, %if.then154, %lor.lhs.false172, %if.then71, %_ZL10errorValueia.exit110, %if.then102, %if.then10
-  %retval.0 = phi i32 [ %or, %if.then10 ], [ %or108, %if.then102 ], [ 1114111, %_ZL10errorValueia.exit110 ], [ %or78, %if.then71 ], [ %or165, %lor.lhs.false172 ], [ %or165, %if.then154 ], [ %..i, %if.else.i ], [ 159, %if.then34 ], [ %..i100, %if.else.i98 ], [ 65535, %if.then122 ], [ %..i114, %if.else.i112 ], [ 21, %if.end186 ], [ %spec.select, %land.lhs.true82 ]
+return:                                           ; preds = %lor.lhs.false172, %land.lhs.true82, %if.else.i112, %if.end186, %land.lhs.true170, %if.else.i98, %if.then122, %if.else.i, %if.then34, %if.then154, %if.then71, %if.then102, %if.then10
+  %retval.0 = phi i32 [ %or, %if.then10 ], [ %or108, %if.then102 ], [ %or78, %if.then71 ], [ %or165, %if.then154 ], [ %..i, %if.else.i ], [ 159, %if.then34 ], [ %..i100, %if.else.i98 ], [ 65535, %if.then122 ], [ 1114111, %land.lhs.true170 ], [ %..i114, %if.else.i112 ], [ 21, %if.end186 ], [ %spec.select, %land.lhs.true82 ], [ %spec.select119, %lor.lhs.false172 ]
   ret i32 %retval.0
 }
 

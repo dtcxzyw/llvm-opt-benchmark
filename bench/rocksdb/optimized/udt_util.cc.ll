@@ -1866,8 +1866,8 @@ _ZNK7rocksdb5Slice9ends_withERKS0_.exit.i:        ; preds = %land.lhs.true7.i
 if.end10.i:                                       ; preds = %_ZNK7rocksdb5Slice9ends_withERKS0_.exit.i, %land.lhs.true7.i, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit.i, %if.end.i
   %add13.i = add i64 %cond.i.i, 6
   %cmp14.i = icmp ne i64 %call2.i.i, %add13.i
-  %brmerge50.i = or i1 %cmp14.i, %cmp13.i.i
-  br i1 %brmerge50.i, label %sw.bb21, label %_ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i
+  %brmerge51.i = or i1 %cmp14.i, %cmp13.i.i
+  br i1 %brmerge51.i, label %sw.bb21, label %_ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i
 
 _ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i:   ; preds = %if.end10.i
   %bcmp.i22.i = tail call i32 @bcmp(ptr %call.i3.i, ptr %call1.i, i64 %cond.i.i)
@@ -1886,7 +1886,8 @@ _ZNK7rocksdb5Slice9ends_withERKS0_.exit33.i:      ; preds = %land.lhs.true17.i
   %add.ptr5.i30.i = getelementptr inbounds i8, ptr %add.ptr.i28.i, i64 %.neg27
   %7 = load ptr, ptr @_ZZN7rocksdb12_GLOBAL__N_117CompareComparatorEPKNS_10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12kSuffixSlice.0, align 8
   %bcmp.i31.i = tail call i32 @bcmp(ptr %add.ptr5.i30.i, ptr %7, i64 %6)
-  %cmp8.i32.i = icmp eq i32 %bcmp.i31.i, 0
+  %bcmp.i31.fr.i = freeze i32 %bcmp.i31.i
+  %cmp8.i32.i = icmp eq i32 %bcmp.i31.fr.i, 0
   br i1 %cmp8.i32.i, label %sw.bb15, label %sw.bb21
 
 sw.bb:                                            ; preds = %_ZN7rocksdb5SliceC2EPKc.exit.i
@@ -1958,7 +1959,7 @@ if.end18:                                         ; preds = %sw.bb15
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, i8 noundef zeroext 0)
   br label %return
 
-sw.bb21:                                          ; preds = %_ZNK7rocksdb5Slice9ends_withERKS0_.exit33.i, %land.lhs.true17.i, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i, %if.end10.i
+sw.bb21:                                          ; preds = %_ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i, %if.end10.i, %land.lhs.true17.i, %_ZNK7rocksdb5Slice9ends_withERKS0_.exit33.i
   %vtable = load ptr, ptr %new_comparator, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %9 = load ptr, ptr %vfn, align 8

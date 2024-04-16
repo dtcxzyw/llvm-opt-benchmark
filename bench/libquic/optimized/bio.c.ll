@@ -28,19 +28,19 @@ if.end:                                           ; preds = %entry
   %create.i = getelementptr inbounds i8, ptr %method, i64 56
   %1 = load ptr, ptr %create.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i, label %return, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %return, label %bio_set.exit
 
-land.lhs.true.i:                                  ; preds = %if.end
+bio_set.exit:                                     ; preds = %if.end
   %call.i = tail call i32 %1(ptr noundef nonnull %call) #17
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then2, label %return
+  %tobool.not.i.not = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i.not, label %if.then2, label %return
 
-if.then2:                                         ; preds = %land.lhs.true.i
+if.then2:                                         ; preds = %bio_set.exit
   tail call void @free(ptr noundef nonnull %call) #17
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %if.end, %if.then2, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ %call, %if.end ], [ %call, %land.lhs.true.i ]
+return:                                           ; preds = %if.end, %bio_set.exit, %if.then2, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %call, %bio_set.exit ], [ null, %if.then2 ], [ %call, %if.end ]
   ret ptr %retval.0
 }
 
@@ -519,14 +519,12 @@ BIO_ctrl.exit:                                    ; preds = %if.end12.i, %if.the
   %retval.0.i.fr = freeze i64 %retval.0.i
   %cmp = icmp slt i64 %retval.0.i.fr, 1
   %5 = load ptr, ptr %p, align 8
-  br i1 %cmp, label %BIO_ctrl.exit.thread, label %6
+  %spec.select = select i1 %cmp, ptr null, ptr %5
+  br label %BIO_ctrl.exit.thread
 
-BIO_ctrl.exit.thread:                             ; preds = %if.then7.i, %entry, %if.then4.i, %BIO_ctrl.exit
-  br label %6
-
-6:                                                ; preds = %BIO_ctrl.exit, %BIO_ctrl.exit.thread
-  %7 = phi ptr [ null, %BIO_ctrl.exit.thread ], [ %5, %BIO_ctrl.exit ]
-  ret ptr %7
+BIO_ctrl.exit.thread:                             ; preds = %BIO_ctrl.exit, %if.then7.i, %entry, %if.then4.i
+  %6 = phi ptr [ null, %if.then4.i ], [ null, %entry ], [ null, %if.then7.i ], [ %spec.select, %BIO_ctrl.exit ]
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1412,7 +1410,7 @@ if.end67:                                         ; preds = %if.end55
 if.end73:                                         ; preds = %if.end67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call69, ptr noundef nonnull align 2 dereferenceable(1) %header, i64 %header_len.0, i1 false)
   %add.ptr75 = getelementptr inbounds i8, ptr %call69, i64 %header_len.0
-  %conv77 = trunc i64 %len.0 to i32
+  %conv77 = trunc nuw nsw i64 %len.0 to i32
   %call.i47 = call fastcc i32 @bio_io(ptr noundef %bio, ptr noundef nonnull %add.ptr75, i32 noundef %conv77, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %num_read.i)
   %cmp81.not = icmp eq i32 %call.i47, %conv77
   br i1 %cmp81.not, label %return, label %if.then83

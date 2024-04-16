@@ -2836,7 +2836,7 @@ get_create_converstation_data.exit.i153:          ; preds = %466, %462
 .lr.ph.i155:                                      ; preds = %.lr.ph.i155, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i155 ]
   %.07681.i = phi i32 [ 36, %.lr.ph.preheader.i ], [ %476, %.lr.ph.i155 ]
-  %473 = trunc i64 %indvars.iv.i to i32
+  %473 = trunc nuw nsw i64 %indvars.iv.i to i32
   %474 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %.07681.i, i32 noundef 4, ptr noundef %435, ptr noundef nonnull @.str.1189, i32 noundef %473)
   %475 = getelementptr %struct.CTableColumn, ptr %472, i64 %indvars.iv.i
   %476 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CTableColumn(ptr noundef %0, ptr noundef %1, i32 noundef %474, ptr noundef %433, ptr noundef %435, ptr noundef %475, ptr nonnull poison, i32 noundef %473)
@@ -3264,12 +3264,12 @@ define internal noundef i32 @parse_padding(ptr noundef %0, i32 noundef %1, i32 n
 
 9:                                                ; preds = %5
   %10 = sub i32 %2, %8
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %11 = call ptr @wmem_packet_scope() #10
   %12 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %11, ptr noundef %4, ptr noundef nonnull %6) #10
   %13 = load i32, ptr @ett_mswsp_msg_padding, align 4
   %14 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %13, ptr noundef nonnull %7, ptr noundef %12) #10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   %15 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.951, i32 noundef %10) #10
   %16 = add i32 %10, %1
@@ -3295,10 +3295,10 @@ declare i32 @tvb_unicode_strsize(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal noundef i32 @parse_PropertySetArray(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ...) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %10 = call ptr @wmem_packet_scope() #10
   %11 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %10, ptr noundef %6, ptr noundef nonnull %9) #10
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %12 = load i32, ptr @ett_CDbPropSet_Array, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %8, ptr noundef %11) #10
   %14 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #10
@@ -3471,7 +3471,7 @@ find_fid_info.exit.thread:                        ; preds = %47, %find_fid_info.
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @msg_data_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @msg_data_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -3506,14 +3506,12 @@ define internal noundef i32 @msg_data_find(ptr nocapture noundef readonly %0, pt
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %1, i64 12
   %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %31, label %30
+  %29 = icmp ne i32 %26, %28
+  %spec.select = zext i1 %29 to i32
+  br label %30
 
-30:                                               ; preds = %24, %18, %12, %6, %2
-  br label %31
-
-31:                                               ; preds = %24, %30
-  %.0 = phi i32 [ 1, %30 ], [ 0, %24 ]
+30:                                               ; preds = %24, %2, %6, %12, %18
+  %.0 = phi i32 [ 1, %18 ], [ 1, %12 ], [ 1, %6 ], [ 1, %2 ], [ %spec.select, %24 ]
   ret i32 %.0
 }
 
@@ -3524,15 +3522,9 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @dcerpc_fetch_polhnd_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3541,10 +3533,10 @@ define internal noundef i32 @parse_CDbPropSet(ptr noundef %0, ptr noundef %1, i3
   %7 = alloca %struct._e_guid_t, align 4
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %10 = call ptr @wmem_packet_scope() #10
   %11 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %10, ptr noundef nonnull @.str.953, ptr noundef nonnull %9) #10
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %12 = load i32, ptr @ett_CDbPropSet, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %8, ptr noundef %11) #10
   %14 = call fastcc i32 @parse_guid(ptr noundef %0, i32 noundef %2, ptr noundef %13, ptr noundef nonnull %7, ptr noundef nonnull @.str.955)
@@ -3670,10 +3662,10 @@ define internal noundef i32 @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 n
 
 16:                                               ; preds = %13, %7
   %17 = phi ptr [ @parse_CDbProp.EMPTY_VS, %7 ], [ %spec.select, %13 ]
-  call void @llvm.va_start(ptr nonnull %12)
+  call void @llvm.va_start.p0(ptr nonnull %12)
   %18 = call ptr @wmem_packet_scope() #10
   %19 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %18, ptr noundef nonnull @.str.959, ptr noundef nonnull %12) #10
-  call void @llvm.va_end(ptr nonnull %12)
+  call void @llvm.va_end.p0(ptr nonnull %12)
   %20 = load i32, ptr @ett_CDbProp, align 4
   %21 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %20, ptr noundef nonnull %11, ptr noundef %19) #10
   %22 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
@@ -4085,7 +4077,7 @@ vvalue_strbuf_append_vector.exit32:               ; preds = %55, %43
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4177,12 +4169,12 @@ define internal fastcc i32 @vvalue_tvb_vector_internal(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @vvalue_tvb_get0(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #7 {
+define internal noundef i32 @vvalue_tvb_get0(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #6 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @vvalue_strbuf_append_null(ptr nocapture readnone %0, ptr nocapture readnone %1) #7 {
+define internal void @vvalue_strbuf_append_null(ptr nocapture readnone %0, ptr nocapture readnone %1) #6 {
   ret void
 }
 
@@ -4421,10 +4413,10 @@ declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unname
 define internal noundef i32 @parse_CColumnSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %7 = call ptr @wmem_packet_scope() #10
   %8 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %7, ptr noundef %3, ptr noundef nonnull %6) #10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   %9 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
   %10 = add i32 %1, 4
   %11 = shl i32 %9, 2
@@ -4460,10 +4452,10 @@ define internal noundef i32 @parse_CRestrictionArray(ptr noundef %0, ptr noundef
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   %9 = alloca %struct.CRestriction, align 8
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %10 = call ptr @wmem_packet_scope() #10
   %11 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %10, ptr noundef nonnull @.str.1032, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %12 = load i32, ptr @ett_CRestrictionArray, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %7, ptr noundef %11) #10
   %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #10
@@ -4503,10 +4495,10 @@ define internal noundef i32 @parse_CRestrictionArray(ptr noundef %0, ptr noundef
 define internal noundef i32 @parse_CInGroupSortAggregSets(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef %5, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_CInGroupSortAggregSets, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %13 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
@@ -4535,10 +4527,10 @@ define internal noundef i32 @parse_CInGroupSortAggregSets(ptr noundef %0, ptr no
 define internal noundef i32 @parse_CCategorizationSpec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef nonnull @.str.1036, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_CCategorizationSpec, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %13 = call i32 (ptr, i32, ptr, ptr, ...) @parse_CColumnSet(ptr noundef %0, i32 noundef %2, ptr noundef %12, ptr noundef nonnull @.str.1118)
@@ -4558,10 +4550,10 @@ define internal noundef i32 @parse_CCategorizationSpec(ptr noundef %0, ptr nound
 define internal noundef i32 @parse_CRowsetProperties(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef nonnull @.str.1038, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = load i32, ptr @ett_CRowsetProperties, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %9) #10
   %12 = load i32, ptr @hf_mswsp_bool_options, align 4
@@ -4590,10 +4582,10 @@ define internal noundef i32 @parse_CPidMapper(ptr noundef %0, i32 noundef %1, pt
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   %8 = alloca %struct.CFullPropSpec, align 8
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef nonnull @.str.1039, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %11 = load i32, ptr @ett_CPidMapper, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %6, ptr noundef %10) #10
   %13 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -4625,10 +4617,10 @@ define internal noundef i32 @parse_CPidMapper(ptr noundef %0, i32 noundef %1, pt
 define internal void @parse_CColumnGroupArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef nonnull @.str.1040, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = load i32, ptr @ett_CColumnGroupArray, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %9) #10
   %12 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -4658,10 +4650,10 @@ define internal void @parse_CColumnGroupArray(ptr noundef %0, i32 noundef %1, pt
 define internal noundef i32 @parse_CRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ...) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %10 = call ptr @wmem_packet_scope() #10
   %11 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %10, ptr noundef %6, ptr noundef nonnull %9) #10
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %12 = load i32, ptr @ett_CRestriction, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %8, ptr noundef %11) #10
   %14 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
@@ -4798,10 +4790,10 @@ define internal noundef i32 @parse_CNodeRestriction(ptr noundef %0, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = alloca %struct.CRestriction, align 8
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %11 = call ptr @wmem_packet_scope() #10
   %12 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %11, ptr noundef nonnull @.str.1047, ptr noundef nonnull %9) #10
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %13 = load i32, ptr @ett_CNodeRestriction, align 4
   %14 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %13, ptr noundef nonnull %8, ptr noundef %12) #10
   %15 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
@@ -4835,10 +4827,10 @@ define internal noundef i32 @parse_CNodeRestriction(ptr noundef %0, ptr noundef 
 define internal noundef i32 @parse_CPropertyRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture readnone %6, ...) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %10 = call ptr @wmem_packet_scope() #10
   %11 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %10, ptr noundef nonnull @.str.1049, ptr noundef nonnull %9) #10
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %12 = load i32, ptr @ett_CPropertyRestriction, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %8, ptr noundef %11) #10
   %14 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
@@ -4921,10 +4913,10 @@ parse_relop.exit:                                 ; preds = %19, %22, %26
 define internal noundef i32 @parse_CCoercionRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture readnone %6, ...) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %10 = call ptr @wmem_packet_scope() #10
   %11 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %10, ptr noundef nonnull @.str.1050, ptr noundef nonnull %9) #10
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %12 = load i32, ptr @ett_CCoercionRestriction, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %8, ptr noundef %11) #10
   %14 = call float @tvb_get_letohieee_float(ptr noundef %0, i32 noundef %2) #10
@@ -4943,10 +4935,10 @@ define internal noundef i32 @parse_CCoercionRestriction(ptr noundef %0, ptr noun
 define internal noundef i32 @parse_CContentRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef nonnull @.str.1051, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_CContentRestriction, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %13 = call i32 (ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CFullPropSpec(ptr noundef %0, i32 noundef %1, ptr noundef %12, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.1078)
@@ -4994,10 +4986,10 @@ define internal noundef i32 @parse_CContentRestriction(ptr noundef %0, i32 nound
 define internal noundef i32 @parse_CReuseWhere(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef nonnull @.str.1052, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_mswsp_msg_creusewhere, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %13 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -5014,10 +5006,10 @@ define internal noundef i32 @parse_CReuseWhere(ptr noundef %0, i32 noundef %1, p
 define internal noundef i32 @parse_CNatLanguageRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef nonnull @.str.1053, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_CNatLanguageRestriction, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %13 = call i32 (ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CFullPropSpec(ptr noundef %0, i32 noundef %1, ptr noundef %12, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.1078)
@@ -5059,10 +5051,10 @@ define internal noundef i32 @parse_CNatLanguageRestriction(ptr noundef %0, i32 n
 define internal i32 @parse_CFullPropSpec(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef %5, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_CFullPropSpec, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %13 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %1, i32 noundef 8, ptr noundef %3, ptr noundef nonnull @.str.1097)
@@ -5200,10 +5192,10 @@ define internal noundef i32 @parse_CInGroupSortAggregSet(ptr noundef %0, ptr nou
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   %9 = alloca %struct.CBaseStorageVariant, align 8
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %10 = call ptr @wmem_packet_scope() #10
   %11 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %10, ptr noundef nonnull @.str.1112, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %12 = load i32, ptr @ett_CInGroupSortAggregSet, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %7, ptr noundef %11) #10
   %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #10
@@ -5252,10 +5244,10 @@ parse_CInGroupSortAggregSet_type.exit:            ; preds = %6, %15, %16, %17
 define internal noundef i32 @parse_CSortSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef nonnull @.str.1115, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = load i32, ptr @ett_CSortSet, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %9) #10
   %12 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -5285,10 +5277,10 @@ define internal noundef i32 @parse_CSortSet(ptr noundef %0, i32 noundef %1, ptr 
 define internal noundef i32 @parse_CSort(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr noundef %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef %4, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = load i32, ptr @ett_CSort, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %9) #10
   %12 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -5326,10 +5318,10 @@ define internal noundef i32 @parse_CSort(ptr noundef %0, i32 noundef %1, ptr nou
 define internal noundef i32 @parse_CCategSpec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef nonnull @.str.1119, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_CCategSpec, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %13 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
@@ -5357,10 +5349,10 @@ define internal noundef i32 @parse_CCategSpec(ptr noundef %0, ptr noundef %1, i3
 define internal noundef i32 @parse_CAggregSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef nonnull @.str.1120, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = load i32, ptr @ett_CAggregSet, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %9) #10
   %12 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -5389,10 +5381,10 @@ define internal noundef i32 @parse_CAggregSet(ptr noundef %0, i32 noundef %1, pt
 define internal noundef i32 @parse_CSortAggregSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef nonnull @.str.1121, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = load i32, ptr @ett_CSortAggregSet, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %9) #10
   %12 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -5421,10 +5413,10 @@ define internal noundef i32 @parse_CSortAggregSet(ptr noundef %0, i32 noundef %1
 define internal noundef i32 @parse_CRangeCategSpec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef nonnull @.str.1125, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_CRangeCategSpec, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %13 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
@@ -5470,10 +5462,10 @@ define internal i32 @parse_RANGEBOUNDARY(ptr noundef %0, ptr noundef %1, i32 nou
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %12 = call ptr @wmem_packet_scope() #10
   %13 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %12, ptr noundef nonnull @.str.1126, ptr noundef nonnull %9) #10
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %14 = load i32, ptr @ett_RANGEBOUNDARY, align 4
   %15 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %14, ptr noundef nonnull %7, ptr noundef %13) #10
   %16 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #10
@@ -5528,10 +5520,10 @@ define internal noundef i32 @parse_CAggregSpec(ptr noundef %0, i32 noundef %1, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %11 = call ptr @wmem_packet_scope() #10
   %12 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %11, ptr noundef %4, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %13 = load i32, ptr @ett_CAggregSpec, align 4
   %14 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %13, ptr noundef nonnull %6, ptr noundef %12) #10
   %15 = load i32, ptr @hf_mswsp_caggregspec_type, align 4
@@ -5584,10 +5576,10 @@ define internal noundef i32 @parse_CAggregSpec(ptr noundef %0, i32 noundef %1, p
 define internal noundef i32 @parse_CAggregSortKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef nonnull @.str.1134, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = load i32, ptr @ett_CAggregSortKey, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %9) #10
   %12 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -5606,10 +5598,10 @@ declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 nou
 define internal noundef i32 @parse_CColumnGroup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef nonnull @.str.1139, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = load i32, ptr @ett_CColumnGroup, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %9) #10
   %12 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -5662,10 +5654,10 @@ define internal noundef i32 @parse_CColumnGroup(ptr noundef %0, i32 noundef %1, 
 define internal void @parse_CRowSeekNext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %7 = call ptr @wmem_packet_scope() #10
   %8 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %7, ptr noundef nonnull @.str.1147, ptr noundef nonnull %6) #10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   %9 = load i32, ptr @ett_CRowsSeekNext, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %5, ptr noundef %8) #10
   %11 = load i32, ptr @hf_mswsp_crowseeknext_cskip, align 4
@@ -5680,10 +5672,10 @@ define internal void @parse_CRowSeekNext(ptr noundef %0, i32 noundef %1, ptr nou
 define internal void @parse_CRowSeekAt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %7 = call ptr @wmem_packet_scope() #10
   %8 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %7, ptr noundef nonnull @.str.1148, ptr noundef nonnull %6) #10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   %9 = load i32, ptr @ett_CRowsSeekAt, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %5, ptr noundef %8) #10
   %11 = load i32, ptr @hf_mswsp_crowseekat_bmkoffset, align 4
@@ -5704,10 +5696,10 @@ define internal void @parse_CRowSeekAt(ptr noundef %0, i32 noundef %1, ptr nound
 define internal void @parse_CRowSeekAtRatio(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %7 = call ptr @wmem_packet_scope() #10
   %8 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %7, ptr noundef nonnull @.str.1149, ptr noundef nonnull %6) #10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   %9 = load i32, ptr @ett_CRowsSeekAtRatio, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %5, ptr noundef %8) #10
   %11 = load i32, ptr @hf_mswsp_crowseekatratio_ulnumerator, align 4
@@ -5728,10 +5720,10 @@ define internal void @parse_CRowSeekAtRatio(ptr noundef %0, i32 noundef %1, ptr 
 define internal void @parse_CRowSeekByBookmark(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %7 = call ptr @wmem_packet_scope() #10
   %8 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %7, ptr noundef nonnull @.str.1150, ptr noundef nonnull %6) #10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   %9 = load i32, ptr @ett_CRowsSeekByBookmark, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %5, ptr noundef %8) #10
   %11 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
@@ -5753,10 +5745,10 @@ define internal void @parse_CRowSeekByBookmark(ptr noundef %0, i32 noundef %1, p
 define internal noundef i32 @parse_RowsBuffer(ptr noundef %0, ptr noundef %1, i32 noundef returned %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %11)
+  call void @llvm.va_start.p0(ptr nonnull %11)
   %12 = call ptr @wmem_packet_scope() #10
   %13 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %12, ptr noundef nonnull @.str.1152, ptr noundef nonnull %11) #10
-  call void @llvm.va_end(ptr nonnull %11)
+  call void @llvm.va_end.p0(ptr nonnull %11)
   %14 = load i32, ptr @ett_GetRowsRow, align 4
   %15 = call ptr @proto_tree_add_subtree(ptr noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %14, ptr noundef nonnull %10, ptr noundef %13) #10
   %.not = icmp eq i32 %3, 0
@@ -5799,10 +5791,10 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 define internal noundef i32 @parse_UInt32Array(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %8)
+  call void @llvm.va_start.p0(ptr nonnull %8)
   %9 = call ptr @wmem_packet_scope() #10
   %10 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %9, ptr noundef %5, ptr noundef nonnull %8) #10
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   %11 = load i32, ptr @ett_Array, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef %10) #10
   %.not = icmp eq i32 %3, 0
@@ -5839,10 +5831,10 @@ define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1,
   %19 = load ptr, ptr %18, align 8
   %20 = zext i32 %4 to i64
   %21 = getelementptr %struct.CTableColumn, ptr %19, i64 %20
-  call void @llvm.va_start(ptr nonnull %12)
+  call void @llvm.va_start.p0(ptr nonnull %12)
   %22 = call ptr @wmem_packet_scope() #10
   %23 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %22, ptr noundef nonnull @.str.1159, ptr noundef nonnull %12) #10
-  call void @llvm.va_end(ptr nonnull %12)
+  call void @llvm.va_end.p0(ptr nonnull %12)
   %24 = load i32, ptr @ett_GetRowsColumn, align 4
   %25 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %24, ptr noundef nonnull %11, ptr noundef %23) #10
   %26 = load ptr, ptr %11, align 8
@@ -5925,10 +5917,10 @@ define internal void @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 nound
   %11 = alloca ptr, align 8
   %12 = alloca [1 x %struct.__va_list_tag], align 16
   %13 = alloca %union.vt_single, align 8
-  call void @llvm.va_start(ptr nonnull %12)
+  call void @llvm.va_start.p0(ptr nonnull %12)
   %14 = call ptr @wmem_packet_scope() #10
   %15 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %14, ptr noundef nonnull @.str.1165, ptr noundef nonnull %12) #10
-  call void @llvm.va_end(ptr nonnull %12)
+  call void @llvm.va_end.p0(ptr nonnull %12)
   %16 = load i32, ptr @ett_CRowVariant, align 4
   %17 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %16, ptr noundef nonnull %11, ptr noundef %15) #10
   %18 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %2) #10
@@ -6279,10 +6271,10 @@ define internal noundef i32 @parse_CTableColumn(ptr noundef %0, ptr noundef %1, 
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = alloca %struct.CFullPropSpec, align 8
-  call void @llvm.va_start(ptr nonnull %9)
+  call void @llvm.va_start.p0(ptr nonnull %9)
   %11 = call ptr @wmem_packet_scope() #10
   %12 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %11, ptr noundef nonnull @.str.1190, ptr noundef nonnull %9) #10
-  call void @llvm.va_end(ptr nonnull %9)
+  call void @llvm.va_end.p0(ptr nonnull %9)
   %13 = load i32, ptr @ett_CTableColumn, align 4
   %14 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %13, ptr noundef nonnull %8, ptr noundef %12) #10
   %15 = call i32 (ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CFullPropSpec(ptr noundef %0, i32 noundef %2, ptr noundef %14, ptr noundef %4, ptr noundef nonnull %10, ptr noundef nonnull @.str.1191)
@@ -6518,7 +6510,7 @@ vType_get_type.exit:                              ; preds = %60
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -6528,10 +6520,10 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define internal noundef i32 @parse_uin32_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ...) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %7)
+  call void @llvm.va_start.p0(ptr nonnull %7)
   %8 = call ptr @wmem_packet_scope() #10
   %9 = call noalias ptr @wmem_strdup_vprintf(ptr noundef %8, ptr noundef %4, ptr noundef nonnull %7) #10
-  call void @llvm.va_end(ptr nonnull %7)
+  call void @llvm.va_end.p0(ptr nonnull %7)
   %10 = shl i32 %3, 2
   %11 = load i32, ptr @ett_mswsp_uin32_array, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %6, ptr noundef %9) #10
@@ -6560,6 +6552,12 @@ define internal noundef i32 @parse_uin32_array(ptr noundef %0, i32 noundef %1, p
   ret i32 %.0.lcssa
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
@@ -6571,10 +6569,10 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }

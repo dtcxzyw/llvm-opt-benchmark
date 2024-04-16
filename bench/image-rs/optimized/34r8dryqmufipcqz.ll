@@ -648,7 +648,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br label %95
 
 ._crit_edge:                                      ; preds = %175
-  %35 = trunc i8 %.1126 to i1
+  %35 = trunc nuw i8 %.1126 to i1
   br i1 %35, label %47, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
@@ -716,7 +716,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i282 = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !147, !noalias !150
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !123
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18), !noalias !123
-  %trunc139 = trunc i64 %.pre.i to i1
+  %trunc139 = trunc nuw i64 %.pre.i to i1
   br i1 %trunc139, label %.loopexit461, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit": ; preds = %.thread, %57
@@ -785,7 +785,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i175283 = load ptr, ptr %.phi.trans.insert.i174, align 8, !alias.scope !157, !noalias !160
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !136
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16), !noalias !136
-  %trunc141 = trunc i64 %.pre.i173 to i1
+  %trunc141 = trunc nuw i64 %.pre.i173 to i1
   br i1 %trunc141, label %.loopexit461, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit183_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit183_crit_edge": ; preds = %81
@@ -824,7 +824,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i186284 = load ptr, ptr %.phi.trans.insert.i185, align 8, !alias.scope !175, !noalias !178
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !172
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14), !noalias !172
-  %trunc143 = trunc i64 %.pre.i184 to i1
+  %trunc143 = trunc nuw i64 %.pre.i184 to i1
   br i1 %trunc143, label %.loopexit461, label %79
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17hf64ff06d86a81a62E.exit": ; preds = %79
@@ -855,7 +855,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %98 = load i8, ptr %97, align 1, !noundef !19
   %99 = add nuw i64 %.0112371, 1
   %100 = add i8 %.0115369, 1
-  %101 = trunc i8 %.0125365 to i1
+  %101 = trunc nuw i8 %.0125365 to i1
   br i1 %101, label %104, label %102
 
 102:                                              ; preds = %95
@@ -940,7 +940,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i198278 = load ptr, ptr %.phi.trans.insert.i197, align 8, !alias.scope !206, !noalias !209
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !196
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !196
-  %trunc = trunc i64 %.pre.i196 to i1
+  %trunc = trunc nuw i64 %.pre.i196 to i1
   br i1 %trunc, label %.loopexit461, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit202"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit202": ; preds = %.thread258, %133
@@ -988,7 +988,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i192279 = load ptr, ptr %.phi.trans.insert.i191, align 8, !alias.scope !216, !noalias !219
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !183
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !183
-  %trunc133 = trunc i64 %.pre.i190 to i1
+  %trunc133 = trunc nuw i64 %.pre.i190 to i1
   br i1 %trunc133, label %.loopexit461, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209": ; preds = %.thread263, %154
@@ -1073,7 +1073,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i218280 = load ptr, ptr %.phi.trans.insert.i217, align 8, !alias.scope !239, !noalias !242
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !229
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !229
-  %trunc135 = trunc i64 %.pre.i216 to i1
+  %trunc135 = trunc nuw i64 %.pre.i216 to i1
   br i1 %trunc135, label %.loopexit461, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit222_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit222_crit_edge": ; preds = %188
@@ -1111,7 +1111,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i225281 = load ptr, ptr %.phi.trans.insert.i224, align 8, !alias.scope !257, !noalias !260
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !254
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !254
-  %trunc137 = trunc i64 %.pre.i223 to i1
+  %trunc137 = trunc nuw i64 %.pre.i223 to i1
   br i1 %trunc137, label %.loopexit461, label %198
 
 198:                                              ; preds = %.thread272, %197
@@ -1204,7 +1204,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br label %95
 
 ._crit_edge:                                      ; preds = %175
-  %35 = trunc i8 %.1126 to i1
+  %35 = trunc nuw i8 %.1126 to i1
   br i1 %35, label %47, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
@@ -1272,7 +1272,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i282 = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !294, !noalias !297
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !271
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18), !noalias !271
-  %trunc139 = trunc i64 %.pre.i to i1
+  %trunc139 = trunc nuw i64 %.pre.i to i1
   br i1 %trunc139, label %.loopexit461, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit": ; preds = %.thread, %57
@@ -1341,7 +1341,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i175283 = load ptr, ptr %.phi.trans.insert.i174, align 8, !alias.scope !304, !noalias !307
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !284
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16), !noalias !284
-  %trunc141 = trunc i64 %.pre.i173 to i1
+  %trunc141 = trunc nuw i64 %.pre.i173 to i1
   br i1 %trunc141, label %.loopexit461, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit183_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit183_crit_edge": ; preds = %81
@@ -1380,7 +1380,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i186284 = load ptr, ptr %.phi.trans.insert.i185, align 8, !alias.scope !322, !noalias !325
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !319
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14), !noalias !319
-  %trunc143 = trunc i64 %.pre.i184 to i1
+  %trunc143 = trunc nuw i64 %.pre.i184 to i1
   br i1 %trunc143, label %.loopexit461, label %79
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17h338a9b3d541a5c91E.exit": ; preds = %79
@@ -1411,7 +1411,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %98 = load i8, ptr %97, align 1, !noundef !19
   %99 = add nuw i64 %.0112371, 1
   %100 = add i8 %.0115369, 1
-  %101 = trunc i8 %.0125365 to i1
+  %101 = trunc nuw i8 %.0125365 to i1
   br i1 %101, label %104, label %102
 
 102:                                              ; preds = %95
@@ -1496,7 +1496,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i198278 = load ptr, ptr %.phi.trans.insert.i197, align 8, !alias.scope !353, !noalias !356
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !343
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !343
-  %trunc = trunc i64 %.pre.i196 to i1
+  %trunc = trunc nuw i64 %.pre.i196 to i1
   br i1 %trunc, label %.loopexit461, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit202"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit202": ; preds = %.thread258, %133
@@ -1544,7 +1544,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i192279 = load ptr, ptr %.phi.trans.insert.i191, align 8, !alias.scope !363, !noalias !366
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !330
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !330
-  %trunc133 = trunc i64 %.pre.i190 to i1
+  %trunc133 = trunc nuw i64 %.pre.i190 to i1
   br i1 %trunc133, label %.loopexit461, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit209": ; preds = %.thread263, %154
@@ -1629,7 +1629,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i218280 = load ptr, ptr %.phi.trans.insert.i217, align 8, !alias.scope !386, !noalias !389
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !376
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !376
-  %trunc135 = trunc i64 %.pre.i216 to i1
+  %trunc135 = trunc nuw i64 %.pre.i216 to i1
   br i1 %trunc135, label %.loopexit461, label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit222_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit222_crit_edge": ; preds = %188
@@ -1667,7 +1667,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i225281 = load ptr, ptr %.phi.trans.insert.i224, align 8, !alias.scope !404, !noalias !407
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !401
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !401
-  %trunc137 = trunc i64 %.pre.i223 to i1
+  %trunc137 = trunc nuw i64 %.pre.i223 to i1
   br i1 %trunc137, label %.loopexit461, label %198
 
 198:                                              ; preds = %.thread272, %197
@@ -1760,7 +1760,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   br label %100
 
 ._crit_edge:                                      ; preds = %180
-  %35 = trunc i8 %.1126 to i1
+  %35 = trunc nuw i8 %.1126 to i1
   br i1 %35, label %47, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
@@ -1828,7 +1828,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i286 = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !441, !noalias !444
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19), !noalias !418
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18), !noalias !418
-  %trunc139 = trunc i64 %.pre.i to i1
+  %trunc139 = trunc nuw i64 %.pre.i to i1
   br i1 %trunc139, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit": ; preds = %.thread, %57
@@ -1908,7 +1908,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i175287 = load ptr, ptr %.phi.trans.insert.i174, align 8, !alias.scope !460, !noalias !463
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !431
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16), !noalias !431
-  %trunc141 = trunc i64 %.pre.i173 to i1
+  %trunc141 = trunc nuw i64 %.pre.i173 to i1
   br i1 %trunc141, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit185_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit185_crit_edge": ; preds = %86
@@ -1947,7 +1947,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i188288 = load ptr, ptr %.phi.trans.insert.i187, align 8, !alias.scope !478, !noalias !481
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !475
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14), !noalias !475
-  %trunc143 = trunc i64 %.pre.i186 to i1
+  %trunc143 = trunc nuw i64 %.pre.i186 to i1
   br i1 %trunc143, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %79
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit": ; preds = %82
@@ -1978,7 +1978,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %103 = load i8, ptr %102, align 1, !noundef !19
   %104 = add nuw i64 %.0112375, 1
   %105 = add i8 %.0115373, 1
-  %106 = trunc i8 %.0125369 to i1
+  %106 = trunc nuw i8 %.0125369 to i1
   br i1 %106, label %109, label %107
 
 107:                                              ; preds = %100
@@ -2063,7 +2063,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i200282 = load ptr, ptr %.phi.trans.insert.i199, align 8, !alias.scope !509, !noalias !512
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !499
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !499
-  %trunc = trunc i64 %.pre.i198 to i1
+  %trunc = trunc nuw i64 %.pre.i198 to i1
   br i1 %trunc, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit204"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit204": ; preds = %.thread262, %138
@@ -2111,7 +2111,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i194283 = load ptr, ptr %.phi.trans.insert.i193, align 8, !alias.scope !519, !noalias !522
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !486
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !486
-  %trunc133 = trunc i64 %.pre.i192 to i1
+  %trunc133 = trunc nuw i64 %.pre.i192 to i1
   br i1 %trunc133, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit211"
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit211": ; preds = %.thread267, %159
@@ -2196,7 +2196,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i220284 = load ptr, ptr %.phi.trans.insert.i219, align 8, !alias.scope !542, !noalias !545
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !532
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !532
-  %trunc135 = trunc i64 %.pre.i218 to i1
+  %trunc135 = trunc nuw i64 %.pre.i218 to i1
   br i1 %trunc135, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %"._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit224_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$13get_or_insert17h25d3abc3056d06ccE.exit224_crit_edge": ; preds = %193
@@ -2234,7 +2234,7 @@ define hidden void @"_ZN115_$LT$tiff..encoder..compression..packbits..Packbits$u
   %.pre1.i227285 = load ptr, ptr %.phi.trans.insert.i226, align 8, !alias.scope !560, !noalias !563
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !557
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !557
-  %trunc137 = trunc i64 %.pre.i225 to i1
+  %trunc137 = trunc nuw i64 %.pre.i225 to i1
   br i1 %trunc137, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha23348442fcc79a2E.exit.thread", label %203
 
 203:                                              ; preds = %.thread276, %202
@@ -2273,7 +2273,7 @@ define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specifi
   unreachable
 
 14:                                               ; preds = %2
-  %15 = trunc i8 %7 to i1
+  %15 = trunc nuw i8 %7 to i1
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8, !alias.scope !565, !noalias !570, !nonnull !19, !noundef !19
@@ -2303,7 +2303,7 @@ define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specifi
   unreachable
 
 30:                                               ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit"
-  %31 = trunc i8 %23 to i1
+  %31 = trunc nuw i8 %23 to i1
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8, !alias.scope !573, !noalias !578, !nonnull !19, !noundef !19
@@ -2352,7 +2352,7 @@ define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specifi
   unreachable
 
 13:                                               ; preds = %2
-  %14 = trunc i8 %6 to i1
+  %14 = trunc nuw i8 %6 to i1
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !alias.scope !584, !noalias !589, !nonnull !19, !noundef !19
@@ -2382,7 +2382,7 @@ define internal fastcc noundef zeroext i1 @"_ZN126_$LT$exr..image..read..specifi
   unreachable
 
 29:                                               ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit"
-  %30 = trunc i8 %22 to i1
+  %30 = trunc nuw i8 %22 to i1
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !alias.scope !591, !noalias !596, !nonnull !19, !noundef !19
@@ -5284,7 +5284,7 @@ define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..Re
   %37 = icmp ugt i64 %.fr114.i.i.i, 24
   %38 = load i8, ptr %1, align 8, !range !572, !alias.scope !1452, !noalias !1453
   %39 = icmp eq i8 %38, 0
-  %40 = trunc i8 %38 to i1
+  %40 = trunc nuw i8 %38 to i1
   %41 = load ptr, ptr %34, align 8, !alias.scope !1452, !noalias !1453, !nonnull !19
   %42 = load i64, ptr %35, align 8, !alias.scope !1452, !noalias !1453
   br i1 %37, label %.lr.ph.i.i.us.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -5316,7 +5316,7 @@ define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..Re
   br i1 %57, label %.split.us.i.i.i, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit.i.i.i.i.i.us.i.i.i"
 
 58:                                               ; preds = %.lr.ph.i.i.us.i.i.i
-  %59 = trunc i8 %52 to i1
+  %59 = trunc nuw i8 %52 to i1
   tail call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds i8, ptr %44, i64 16
   %61 = load ptr, ptr %60, align 8, !alias.scope !1459, !noalias !1466, !nonnull !19, !noundef !19
@@ -5372,7 +5372,7 @@ define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..Re
   unreachable
 
 82:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %83 = trunc i8 %76 to i1
+  %83 = trunc nuw i8 %76 to i1
   tail call void @llvm.assume(i1 %83)
   %84 = getelementptr inbounds i8, ptr %68, i64 16
   %85 = load ptr, ptr %84, align 8, !alias.scope !1459, !noalias !1474, !nonnull !19, !noundef !19
@@ -5430,7 +5430,7 @@ define internal fastcc void @"_ZN169_$LT$exr..image..read..specific_channels..Re
   unreachable
 
 104:                                              ; preds = %.split107.us.i.i.i
-  %105 = trunc i8 %97 to i1
+  %105 = trunc nuw i8 %97 to i1
   tail call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds i8, ptr %.us-phi110.i.i.i, i64 16
   %107 = load ptr, ptr %106, align 8, !alias.scope !1482, !noalias !1487, !nonnull !19, !noundef !19
@@ -5572,7 +5572,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %137 = icmp ugt i64 %.fr201.i.i, 24
   %138 = load i8, ptr %131, align 8, !range !572, !alias.scope !1531, !noalias !1532
   %139 = icmp eq i8 %138, 0
-  %140 = trunc i8 %138 to i1
+  %140 = trunc nuw i8 %138 to i1
   %141 = load ptr, ptr %134, align 8, !alias.scope !1531, !noalias !1532, !nonnull !19
   %142 = load i64, ptr %135, align 8, !alias.scope !1531, !noalias !1532
   br i1 %137, label %.lr.ph.i.i.us.i.i, label %.lr.ph.i.i.i.i
@@ -5609,7 +5609,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   br i1 %157, label %.split.us.invoke.i.i, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit.i.i.i.i.i.us.i.i"
 
 158:                                              ; preds = %.lr.ph.i.i.us.i.i
-  %159 = trunc i8 %152 to i1
+  %159 = trunc nuw i8 %152 to i1
   call void @llvm.assume(i1 %159)
   %160 = getelementptr inbounds i8, ptr %143, i64 16
   %161 = load ptr, ptr %160, align 8, !alias.scope !1546, !noalias !1553, !nonnull !19, !noundef !19
@@ -5678,7 +5678,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   unreachable
 
 182:                                              ; preds = %.lr.ph.i.i.i.i
-  %183 = trunc i8 %176 to i1
+  %183 = trunc nuw i8 %176 to i1
   call void @llvm.assume(i1 %183)
   %184 = getelementptr inbounds i8, ptr %167, i64 16
   %185 = load ptr, ptr %184, align 8, !alias.scope !1546, !noalias !1553, !nonnull !19, !noundef !19
@@ -5765,7 +5765,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   unreachable
 
 205:                                              ; preds = %.split198.us.i.i
-  %206 = trunc i8 %198 to i1
+  %206 = trunc nuw i8 %198 to i1
   call void @llvm.assume(i1 %206)
   %207 = getelementptr inbounds i8, ptr %.us-phi199.i.i, i64 16
   %208 = load ptr, ptr %207, align 8, !alias.scope !1575, !noalias !1580, !nonnull !19, !noundef !19
@@ -5822,7 +5822,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
 
 222:                                              ; preds = %217
   %223 = load i8, ptr %20, align 8, !range !572, !alias.scope !1611, !noalias !1422, !noundef !19
-  %224 = trunc i8 %223 to i1
+  %224 = trunc nuw i8 %223 to i1
   call void @llvm.assume(i1 %224)
   %225 = load ptr, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !1611, !noalias !1422, !nonnull !19, !noundef !19
   %226 = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !1611, !noalias !1422, !noundef !19
@@ -5983,7 +5983,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %259 = icmp ugt i64 %258, 24
   %260 = load i8, ptr %253, align 8, !range !572, !alias.scope !1413, !noalias !1639
   %261 = icmp eq i8 %260, 0
-  %262 = trunc i8 %260 to i1
+  %262 = trunc nuw i8 %260 to i1
   %263 = load ptr, ptr %256, align 8, !alias.scope !1413, !noalias !1639, !nonnull !19
   %264 = load i64, ptr %257, align 8, !alias.scope !1413, !noalias !1639
   br label %.lr.ph.i.i.i
@@ -6027,7 +6027,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   unreachable
 
 280:                                              ; preds = %.lr.ph.i.i.i
-  %281 = trunc i8 %274 to i1
+  %281 = trunc nuw i8 %274 to i1
   call void @llvm.assume(i1 %281)
   %282 = getelementptr inbounds i8, ptr %265, i64 16
   %283 = load ptr, ptr %282, align 8, !alias.scope !1653, !noalias !1660, !nonnull !19, !noundef !19
@@ -6121,7 +6121,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   unreachable
 
 307:                                              ; preds = %295
-  %308 = trunc i8 %300 to i1
+  %308 = trunc nuw i8 %300 to i1
   call void @llvm.assume(i1 %308)
   %309 = getelementptr inbounds i8, ptr %265, i64 16
   %310 = load ptr, ptr %309, align 8, !alias.scope !1682, !noalias !1687, !nonnull !19, !noundef !19
@@ -6319,7 +6319,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %345 = icmp ugt i64 %344, 24
   %346 = load i8, ptr %339, align 8, !range !572
   %347 = icmp eq i8 %346, 0
-  %348 = trunc i8 %346 to i1
+  %348 = trunc nuw i8 %346 to i1
   %349 = load ptr, ptr %342, align 8, !nonnull !19
   %350 = load i64, ptr %343, align 8
   br label %.lr.ph.i.i
@@ -6363,7 +6363,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   unreachable
 
 366:                                              ; preds = %.lr.ph.i.i
-  %367 = trunc i8 %360 to i1
+  %367 = trunc nuw i8 %360 to i1
   call void @llvm.assume(i1 %367)
   %368 = getelementptr inbounds i8, ptr %351, i64 16
   %369 = load ptr, ptr %368, align 8, !alias.scope !1730, !noalias !1737, !nonnull !19, !noundef !19
@@ -6426,7 +6426,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   br i1 %389, label %.invoke, label %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17h09985145bdc80de2E.exit.i"
 
 390:                                              ; preds = %379
-  %391 = trunc i8 %384 to i1
+  %391 = trunc nuw i8 %384 to i1
   call void @llvm.assume(i1 %391)
   %392 = getelementptr inbounds i8, ptr %351, i64 16
   %393 = load ptr, ptr %392, align 8, !alias.scope !1747, !noalias !1752, !nonnull !19, !noundef !19
@@ -13213,7 +13213,7 @@ define hidden void @"_ZN179_$LT$exr..image..read..specific_channels..CollectPixe
   %7 = alloca { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 1420
   %9 = load i8, ptr %8, align 4, !range !572, !noundef !19
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %3
@@ -13344,7 +13344,7 @@ define hidden void @"_ZN179_$LT$exr..image..read..specific_channels..CollectPixe
   %7 = alloca { { { { { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} }, {} }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { { { { i8, [31 x i8] }, i64 } }, { i64, i64 }, i8, i8, [6 x i8] }, i64, {} } }, { { i8, [71 x i8] }, float, [1 x i32] } }, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 1420
   %9 = load i8, ptr %8, align 4, !range !572, !noundef !19
-  %10 = trunc i8 %9 to i1
+  %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %3
@@ -13498,7 +13498,7 @@ define hidden void @"_ZN195_$LT$exr..image..recursive..Recursive$LT$InnerReader$
   unreachable
 
 16:                                               ; preds = %2
-  %17 = trunc i8 %9 to i1
+  %17 = trunc nuw i8 %9 to i1
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !3560, !noalias !3565, !nonnull !19, !noundef !19
@@ -13580,7 +13580,7 @@ common.resume:                                    ; preds = %.body, %24
   unreachable
 
 45:                                               ; preds = %"_ZN195_$LT$exr..image..recursive..Recursive$LT$InnerReader$C$exr..image..read..specific_channels..SampleReader$LT$Sample$GT$$GT$$u20$as$u20$exr..image..read..specific_channels..RecursivePixelReader$GT$16get_descriptions17h8709c4b70154659dE.exit"
-  %46 = trunc i8 %38 to i1
+  %46 = trunc nuw i8 %38 to i1
   call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds i8, ptr %1, i64 88
   %48 = load ptr, ptr %47, align 8, !alias.scope !3586, !noalias !3591, !nonnull !19, !noundef !19
@@ -13690,7 +13690,7 @@ define hidden void @"_ZN195_$LT$exr..image..recursive..Recursive$LT$InnerReader$
   unreachable
 
 16:                                               ; preds = %2
-  %17 = trunc i8 %9 to i1
+  %17 = trunc nuw i8 %9 to i1
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds i8, ptr %1, i64 160
   %19 = load ptr, ptr %18, align 8, !alias.scope !3611, !noalias !3616, !nonnull !19, !noundef !19
@@ -13805,7 +13805,7 @@ define hidden void @"_ZN203_$LT$exr..image..recursive..Recursive$LT$InnerReader$
   unreachable
 
 18:                                               ; preds = %8
-  %19 = trunc i8 %6 to i1
+  %19 = trunc nuw i8 %6 to i1
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %1, i64 232
   %21 = load ptr, ptr %20, align 8, !alias.scope !3636, !noalias !3641, !nonnull !19, !noundef !19
@@ -13916,7 +13916,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %17 = icmp ugt i64 %16, 24
   %18 = load i8, ptr %11, align 8, !range !572
   %19 = icmp eq i8 %18, 0
-  %20 = trunc i8 %18 to i1
+  %20 = trunc nuw i8 %18 to i1
   %21 = load ptr, ptr %14, align 8, !nonnull !19
   %22 = load i64, ptr %15, align 8
   br label %.lr.ph.i.i
@@ -13952,7 +13952,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   unreachable
 
 39:                                               ; preds = %.lr.ph.i.i
-  %40 = trunc i8 %32 to i1
+  %40 = trunc nuw i8 %32 to i1
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds i8, ptr %24, i64 16
   %42 = load ptr, ptr %41, align 8, !alias.scope !3684, !noalias !3691, !nonnull !19, !noundef !19
@@ -14027,7 +14027,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %66 = icmp ugt i64 %.fr58.i, 24
   %67 = load i8, ptr %60, align 8, !range !572, !alias.scope !3701, !noalias !3728
   %68 = icmp eq i8 %67, 0
-  %69 = trunc i8 %67 to i1
+  %69 = trunc nuw i8 %67 to i1
   %70 = load ptr, ptr %63, align 8, !alias.scope !3701, !noalias !3728, !nonnull !19
   %71 = load i64, ptr %64, align 8, !alias.scope !3701, !noalias !3728
   br i1 %66, label %.lr.ph.i.i.us.i, label %.lr.ph.i.i.i
@@ -14059,7 +14059,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   br i1 %86, label %.split.us.i, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit.i.i.i.i.i.us.i"
 
 87:                                               ; preds = %.lr.ph.i.i.us.i
-  %88 = trunc i8 %81 to i1
+  %88 = trunc nuw i8 %81 to i1
   tail call void @llvm.assume(i1 %88)
   %89 = getelementptr inbounds i8, ptr %73, i64 16
   %90 = load ptr, ptr %89, align 8, !alias.scope !3734, !noalias !3741, !nonnull !19, !noundef !19
@@ -14115,7 +14115,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   unreachable
 
 111:                                              ; preds = %.lr.ph.i.i.i
-  %112 = trunc i8 %105 to i1
+  %112 = trunc nuw i8 %105 to i1
   tail call void @llvm.assume(i1 %112)
   %113 = getelementptr inbounds i8, ptr %97, i64 16
   %114 = load ptr, ptr %113, align 8, !alias.scope !3734, !noalias !3749, !nonnull !19, !noundef !19
@@ -14182,7 +14182,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %134 = icmp ugt i64 %.fr43.i.i, 24
   %135 = load i8, ptr %1, align 8, !range !572, !alias.scope !3781, !noalias !3782
   %136 = icmp eq i8 %135, 0
-  %137 = trunc i8 %135 to i1
+  %137 = trunc nuw i8 %135 to i1
   %138 = load ptr, ptr %131, align 8, !alias.scope !3781, !noalias !3782, !nonnull !19
   %139 = load i64, ptr %132, align 8, !alias.scope !3781, !noalias !3782
   br i1 %134, label %.lr.ph.i.i.us.i.i, label %.lr.ph.i.i.i.i
@@ -14214,7 +14214,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   br i1 %154, label %.split.us.i.i, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit.i.i.i.i.i.us.i.i"
 
 155:                                              ; preds = %.lr.ph.i.i.us.i.i
-  %156 = trunc i8 %149 to i1
+  %156 = trunc nuw i8 %149 to i1
   tail call void @llvm.assume(i1 %156)
   %157 = getelementptr inbounds i8, ptr %141, i64 16
   %158 = load ptr, ptr %157, align 8, !alias.scope !3788, !noalias !3795, !nonnull !19, !noundef !19
@@ -14270,7 +14270,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   unreachable
 
 179:                                              ; preds = %.lr.ph.i.i.i.i
-  %180 = trunc i8 %173 to i1
+  %180 = trunc nuw i8 %173 to i1
   tail call void @llvm.assume(i1 %180)
   %181 = getelementptr inbounds i8, ptr %165, i64 16
   %182 = load ptr, ptr %181, align 8, !alias.scope !3788, !noalias !3803, !nonnull !19, !noundef !19
@@ -14355,7 +14355,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   %16 = icmp ugt i64 %.fr43, 24
   %17 = load i8, ptr %10, align 8, !range !572
   %18 = icmp eq i8 %17, 0
-  %19 = trunc i8 %17 to i1
+  %19 = trunc nuw i8 %17 to i1
   %20 = load ptr, ptr %13, align 8, !nonnull !19
   %21 = load i64, ptr %14, align 8
   br i1 %16, label %.lr.ph.i.i.us, label %.lr.ph.i.i
@@ -14387,7 +14387,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   br i1 %36, label %.split.us, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit.i.i.i.i.i.us"
 
 37:                                               ; preds = %.lr.ph.i.i.us
-  %38 = trunc i8 %31 to i1
+  %38 = trunc nuw i8 %31 to i1
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds i8, ptr %23, i64 16
   %40 = load ptr, ptr %39, align 8, !alias.scope !3833, !noalias !3840, !nonnull !19, !noundef !19
@@ -14443,7 +14443,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   unreachable
 
 61:                                               ; preds = %.lr.ph.i.i
-  %62 = trunc i8 %55 to i1
+  %62 = trunc nuw i8 %55 to i1
   tail call void @llvm.assume(i1 %62)
   %63 = getelementptr inbounds i8, ptr %47, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !3833, !noalias !3840, !nonnull !19, !noundef !19
@@ -14534,7 +14534,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   unreachable
 
 17:                                               ; preds = %2
-  %18 = trunc i8 %10 to i1
+  %18 = trunc nuw i8 %10 to i1
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds i8, ptr %1, i64 144
   %20 = load ptr, ptr %19, align 8, !alias.scope !3855, !noalias !3860, !nonnull !19, !noundef !19
@@ -14704,7 +14704,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   unreachable
 
 17:                                               ; preds = %2
-  %18 = trunc i8 %10 to i1
+  %18 = trunc nuw i8 %10 to i1
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds i8, ptr %1, i64 208
   %20 = load ptr, ptr %19, align 8, !alias.scope !3890, !noalias !3895, !nonnull !19, !noundef !19
@@ -14874,7 +14874,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   unreachable
 
 17:                                               ; preds = %2
-  %18 = trunc i8 %10 to i1
+  %18 = trunc nuw i8 %10 to i1
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8, !alias.scope !3925, !noalias !3930, !nonnull !19, !noundef !19
@@ -15044,7 +15044,7 @@ define hidden void @"_ZN244_$LT$exr..image..recursive..Recursive$LT$InnerDescrip
   unreachable
 
 17:                                               ; preds = %2
-  %18 = trunc i8 %10 to i1
+  %18 = trunc nuw i8 %10 to i1
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds i8, ptr %1, i64 80
   %20 = load ptr, ptr %19, align 8, !alias.scope !3960, !noalias !3965, !nonnull !19, !noundef !19
@@ -15239,7 +15239,7 @@ define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecific
   br i1 %19, label %.invoke, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit.i"
 
 20:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdd06422e26c8f8c4E.exit"
-  %21 = trunc i8 %14 to i1
+  %21 = trunc nuw i8 %14 to i1
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds i8, ptr %1, i64 96
   %23 = load ptr, ptr %22, align 8, !alias.scope !3995, !noalias !4000, !nonnull !19, !noundef !19
@@ -15275,7 +15275,7 @@ define internal fastcc void @_ZN3exr5image4read17specific_channels19ReadSpecific
   unreachable
 
 35:                                               ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit.i"
-  %36 = trunc i8 %29 to i1
+  %36 = trunc nuw i8 %29 to i1
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds i8, ptr %6, i64 16
   %38 = load ptr, ptr %37, align 8, !alias.scope !4002, !noalias !4007, !nonnull !19, !noundef !19
@@ -15571,7 +15571,7 @@ define internal fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..att
 
 15:                                               ; preds = %1
   %16 = load i8, ptr %0, align 8, !range !572, !alias.scope !4043, !noundef !19
-  %17 = trunc i8 %16 to i1
+  %17 = trunc nuw i8 %16 to i1
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !4043, !nonnull !19, !noundef !19
@@ -15629,7 +15629,7 @@ define internal fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..att
 
 39:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$exr..meta..attribute..ChannelDescription$GT$17h46a518c434e8f5f5E.exit"
   %40 = load i8, ptr %33, align 8, !range !572, !alias.scope !4063, !noundef !19
-  %41 = trunc i8 %40 to i1
+  %41 = trunc nuw i8 %40 to i1
   call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds i8, ptr %0, i64 80
   %43 = load ptr, ptr %42, align 8, !alias.scope !4063, !nonnull !19, !noundef !19
@@ -15691,7 +15691,7 @@ define internal fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..att
 
 64:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$exr..meta..attribute..ChannelDescription$GT$17h46a518c434e8f5f5E.exit11"
   %65 = load i8, ptr %58, align 8, !range !572, !alias.scope !4083, !noundef !19
-  %66 = trunc i8 %65 to i1
+  %66 = trunc nuw i8 %65 to i1
   call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds i8, ptr %0, i64 144
   %68 = load ptr, ptr %67, align 8, !alias.scope !4083, !nonnull !19, !noundef !19
@@ -15758,7 +15758,7 @@ define internal fastcc void @"_ZN4core3ptr226drop_in_place$LT$$LP$exr..meta..att
   br label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$exr..meta..attribute..ChannelDescription$GT$$GT$17h69522df29acd4d6dE.exit"
 
 92:                                               ; preds = %86
-  %93 = trunc i8 %84 to i1
+  %93 = trunc nuw i8 %84 to i1
   call void @llvm.assume(i1 %93)
   %94 = getelementptr inbounds i8, ptr %0, i64 208
   %95 = load ptr, ptr %94, align 8, !alias.scope !4106, !nonnull !19, !noundef !19
@@ -15985,7 +15985,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$core..option..Optio
   br label %"_ZN4core3ptr61drop_in_place$LT$exr..meta..attribute..ChannelDescription$GT$17h46a518c434e8f5f5E.exit"
 
 12:                                               ; preds = %6
-  %13 = trunc i8 %4 to i1
+  %13 = trunc nuw i8 %4 to i1
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !4186, !nonnull !19, !noundef !19
@@ -16339,51 +16339,51 @@ define hidden void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.10740287948243
   %8 = load i64, ptr %7, align 8, !noundef !19
   switch i64 %6, label %11 [
     i64 0, label %9
-    i64 1, label %17
+    i64 1, label %16
   ]
 
 9:                                                ; preds = %2
   %10 = icmp eq i64 %8, 0
-  br i1 %10, label %12, label %11
+  br i1 %10, label %select.unfold, label %11
 
-11:                                               ; preds = %2, %17, %9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4240)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !4243
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !4249
-  call void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !4250
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !4243
+11:                                               ; preds = %2, %16, %9
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !4240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !4248
+  call void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !4249
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !4240
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469.exit"
 
-12:                                               ; preds = %19, %9
-  %.sroa.6.0.ph = phi i64 [ 0, %9 ], [ %22, %19 ]
-  %.sroa.0.0.ph = phi ptr [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.19.llvm.10740287948243559469, %9 ], [ %20, %19 ]
+select.unfold:                                    ; preds = %9, %18
+  %.sroa.6.0 = phi i64 [ %21, %18 ], [ 0, %9 ]
+  %.sroa.0.0 = phi ptr [ %19, %18 ], [ @anon.fbd0a4e148fbe6762a2d1a1104c17af0.19.llvm.10740287948243559469, %9 ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4250)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4251)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4254)
-  %13 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %.sroa.6.0.ph, i1 noundef zeroext false), !noalias !4257
-  %14 = extractvalue { i64, ptr } %13, 0
-  %15 = extractvalue { i64, ptr } %13, 1
-  %16 = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %.sroa.0.0.ph, i64 %.sroa.6.0.ph, i1 false)
-  store i64 %14, ptr %0, align 8, !alias.scope !4263, !noalias !4264
+  %12 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %.sroa.6.0, i1 noundef zeroext false), !noalias !4257
+  %13 = extractvalue { i64, ptr } %12, 0
+  %14 = extractvalue { i64, ptr } %12, 1
+  %15 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %15)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %.sroa.0.0, i64 %.sroa.6.0, i1 false)
+  store i64 %13, ptr %0, align 8, !alias.scope !4263, !noalias !4264
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %15, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !4263, !noalias !4264
+  store ptr %14, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !4263, !noalias !4264
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.6.0.ph, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !4263, !noalias !4264
+  store i64 %.sroa.6.0, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !4263, !noalias !4264
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469.exit"
 
-"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469.exit": ; preds = %11, %12
+"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469.exit": ; preds = %11, %select.unfold
   ret void
 
-17:                                               ; preds = %2
-  %18 = icmp eq i64 %8, 0
-  br i1 %18, label %19, label %11
+16:                                               ; preds = %2
+  %17 = icmp eq i64 %8, 0
+  br i1 %17, label %18, label %11
 
-19:                                               ; preds = %17
-  %20 = load ptr, ptr %4, align 8, !nonnull !19, !align !654, !noundef !19
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = load i64, ptr %21, align 8, !noundef !19
-  br label %12
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %4, align 8, !nonnull !19, !align !654, !noundef !19
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !noundef !19
+  br label %select.unfold
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -16621,7 +16621,7 @@ define hidden void @"_ZN79_$LT$exr..meta..attribute..ChannelDescription$u20$as$u
   unreachable
 
 14:                                               ; preds = %2
-  %15 = trunc i8 %7 to i1
+  %15 = trunc nuw i8 %7 to i1
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8, !alias.scope !4340, !noalias !4345, !nonnull !19, !noundef !19
@@ -17243,7 +17243,7 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
 
 57:                                               ; preds = %52
   %58 = load i8, ptr %10, align 8, !range !572, !alias.scope !4446, !noalias !4434, !noundef !19
-  %59 = trunc i8 %58 to i1
+  %59 = trunc nuw i8 %58 to i1
   call void @llvm.assume(i1 %59)
   %60 = load ptr, ptr %37, align 8, !alias.scope !4446, !noalias !4434, !nonnull !19, !noundef !19
   %61 = load i64, ptr %38, align 8, !alias.scope !4446, !noalias !4434, !noundef !19
@@ -17286,7 +17286,7 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
 "_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hccd09520fa54e25dE.exit.i": ; preds = %46
   %69 = getelementptr inbounds i8, ptr %44, i64 1420
   %70 = load i8, ptr %69, align 4, !range !572, !alias.scope !4426, !noalias !4455, !noundef !19
-  %71 = trunc i8 %70 to i1
+  %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hccd09520fa54e25dE.exit.thread.i", label %83
 
 "_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hccd09520fa54e25dE.exit.thread.i": ; preds = %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7e351ff797eaa31eE.exit.i.i.i", %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hccd09520fa54e25dE.exit.i"
@@ -17448,7 +17448,7 @@ common.resume:                                    ; preds = %.body, %99
 
 121:                                              ; preds = %115
   %122 = load i8, ptr %12, align 8, !range !572, !alias.scope !4489, !noundef !19
-  %123 = trunc i8 %122 to i1
+  %123 = trunc nuw i8 %122 to i1
   call void @llvm.assume(i1 %123)
   %124 = getelementptr inbounds i8, ptr %12, i64 16
   %125 = load ptr, ptr %124, align 8, !alias.scope !4489, !nonnull !19, !noundef !19
@@ -17671,7 +17671,7 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
 
 58:                                               ; preds = %53
   %59 = load i8, ptr %11, align 8, !range !572, !alias.scope !4531, !noalias !4519, !noundef !19
-  %60 = trunc i8 %59 to i1
+  %60 = trunc nuw i8 %59 to i1
   call void @llvm.assume(i1 %60)
   %61 = load ptr, ptr %38, align 8, !alias.scope !4531, !noalias !4519, !nonnull !19, !noundef !19
   %62 = load i64, ptr %39, align 8, !alias.scope !4531, !noalias !4519, !noundef !19
@@ -17714,7 +17714,7 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
 "_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hadb653bc2eb3b7e8E.exit.i": ; preds = %47
   %70 = getelementptr inbounds i8, ptr %45, i64 1420
   %71 = load i8, ptr %70, align 4, !range !572, !alias.scope !4511, !noalias !4540, !noundef !19
-  %72 = trunc i8 %71 to i1
+  %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hadb653bc2eb3b7e8E.exit.thread.i", label %84
 
 "_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hadb653bc2eb3b7e8E.exit.thread.i": ; preds = %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbe22916f420c6dc5E.exit.i.i.i", %"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alpha_preference28_$u7b$$u7b$closure$u7d$$u7d$17hadb653bc2eb3b7e8E.exit.i"
@@ -17906,7 +17906,7 @@ common.resume:                                    ; preds = %.body, %100
 
 132:                                              ; preds = %126
   %133 = load i8, ptr %13, align 8, !range !572, !alias.scope !4600, !noundef !19
-  %134 = trunc i8 %133 to i1
+  %134 = trunc nuw i8 %133 to i1
   call void @llvm.assume(i1 %134)
   %135 = getelementptr inbounds i8, ptr %13, i64 16
   %136 = load ptr, ptr %135, align 8, !alias.scope !4600, !nonnull !19, !noundef !19
@@ -18085,7 +18085,7 @@ define hidden noundef i8 @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R
   %5 = load i8, ptr %4, align 8, !range !572, !noundef !19
   %6 = icmp eq i8 %3, 2
   %spec.select = select i1 %6, i8 %5, i8 %3
-  %7 = trunc i8 %spec.select to i1
+  %7 = trunc nuw i8 %spec.select to i1
   %.0 = select i1 %7, i8 9, i8 8
   ret i8 %.0
 }
@@ -18098,7 +18098,7 @@ define hidden noundef i8 @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R
   %5 = load i8, ptr %4, align 8, !range !572, !noundef !19
   %6 = icmp eq i8 %3, 2
   %spec.select = select i1 %6, i8 %5, i8 %3
-  %7 = trunc i8 %spec.select to i1
+  %7 = trunc nuw i8 %spec.select to i1
   %.0 = select i1 %7, i8 9, i8 8
   ret i8 %.0
 }
@@ -18180,7 +18180,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %42 = load i8, ptr %41, align 8, !range !572, !alias.scope !4638, !noundef !19
   %43 = icmp eq i8 %40, 2
   %spec.select.i = select i1 %43, i8 %42, i8 %40
-  %44 = trunc i8 %spec.select.i to i1
+  %44 = trunc nuw i8 %spec.select.i to i1
   %45 = select i1 %44, i64 4, i64 3
   %46 = load i64, ptr %17, align 8, !noundef !19
   %47 = load i64, ptr %19, align 8, !alias.scope !4641, !noalias !4646, !noundef !19
@@ -18300,7 +18300,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %112 = load i8, ptr %41, align 8, !range !572, !alias.scope !4668, !noundef !19
   %113 = icmp eq i8 %111, 2
   %spec.select.i54 = select i1 %113, i8 %112, i8 %111
-  %114 = trunc i8 %spec.select.i54 to i1
+  %114 = trunc nuw i8 %spec.select.i54 to i1
   %115 = select i1 %114, i64 16, i64 12
   %116 = and i64 %108, 4294967295
   %117 = and i64 %110, 4294967295
@@ -18571,7 +18571,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %42 = load i8, ptr %41, align 8, !range !572, !alias.scope !4714, !noundef !19
   %43 = icmp eq i8 %40, 2
   %spec.select.i = select i1 %43, i8 %42, i8 %40
-  %44 = trunc i8 %spec.select.i to i1
+  %44 = trunc nuw i8 %spec.select.i to i1
   %45 = select i1 %44, i64 4, i64 3
   %46 = load i64, ptr %17, align 8, !noundef !19
   %47 = load i64, ptr %19, align 8, !alias.scope !4717, !noalias !4722, !noundef !19
@@ -18691,7 +18691,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %112 = load i8, ptr %41, align 8, !range !572, !alias.scope !4744, !noundef !19
   %113 = icmp eq i8 %111, 2
   %spec.select.i54 = select i1 %113, i8 %112, i8 %111
-  %114 = trunc i8 %spec.select.i54 to i1
+  %114 = trunc nuw i8 %spec.select.i54 to i1
   %115 = select i1 %114, i64 16, i64 12
   %116 = and i64 %108, 4294967295
   %117 = and i64 %110, 4294967295
@@ -20725,10 +20725,10 @@ define hidden void @_ZN5image8dynimage16decoder_to_image17h113d9013d84f8635E(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5047)
   %55 = getelementptr inbounds i8, ptr %1, i64 106
   %56 = load i8, ptr %55, align 2, !range !572, !alias.scope !5050, !noundef !19
-  %57 = trunc i8 %56 to i1
+  %57 = trunc nuw i8 %56 to i1
   %58 = getelementptr inbounds i8, ptr %1, i64 109
   %59 = load i8, ptr %58, align 1, !range !572, !alias.scope !5050
-  %60 = trunc i8 %59 to i1
+  %60 = trunc nuw i8 %59 to i1
   %..i.i = select i1 %60, i8 3, i8 2
   br i1 %57, label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.thread", label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit"
 
@@ -21812,10 +21812,10 @@ define hidden void @_ZN5image8dynimage16decoder_to_image17h1ff0ce6aa6e3c86bE(ptr
   %22 = load i32, ptr %21, align 8, !alias.scope !5214, !noundef !19
   %23 = getelementptr inbounds i8, ptr %1, i64 130
   %24 = load i8, ptr %23, align 2, !range !572, !alias.scope !5217, !noundef !19
-  %25 = trunc i8 %24 to i1
+  %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds i8, ptr %1, i64 133
   %27 = load i8, ptr %26, align 1, !range !572, !alias.scope !5217
-  %28 = trunc i8 %27 to i1
+  %28 = trunc nuw i8 %27 to i1
   %..i = select i1 %28, i8 3, i8 2
   %.0.i = select i1 %25, i8 0, i8 %..i
   switch i8 %.0.i, label %default.unreachable595 [
@@ -23808,10 +23808,10 @@ define hidden void @_ZN5image8dynimage16decoder_to_image17h4c6b9a8d8cb740a9E(ptr
   %22 = load i32, ptr %21, align 8, !alias.scope !5516, !noundef !19
   %23 = getelementptr inbounds i8, ptr %1, i64 106
   %24 = load i8, ptr %23, align 2, !range !572, !alias.scope !5519, !noundef !19
-  %25 = trunc i8 %24 to i1
+  %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds i8, ptr %1, i64 109
   %27 = load i8, ptr %26, align 1, !range !572, !alias.scope !5519
-  %28 = trunc i8 %27 to i1
+  %28 = trunc nuw i8 %27 to i1
   %..i = select i1 %28, i8 3, i8 2
   %.0.i = select i1 %25, i8 0, i8 %..i
   switch i8 %.0.i, label %default.unreachable595 [
@@ -26529,10 +26529,10 @@ define hidden void @_ZN5image8dynimage16decoder_to_image17h863a7892d67b49bbE(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5922)
   %55 = getelementptr inbounds i8, ptr %1, i64 130
   %56 = load i8, ptr %55, align 2, !range !572, !alias.scope !5925, !noundef !19
-  %57 = trunc i8 %56 to i1
+  %57 = trunc nuw i8 %56 to i1
   %58 = getelementptr inbounds i8, ptr %1, i64 133
   %59 = load i8, ptr %58, align 1, !range !572, !alias.scope !5925
-  %60 = trunc i8 %59 to i1
+  %60 = trunc nuw i8 %59 to i1
   %..i.i = select i1 %60, i8 3, i8 2
   br i1 %57, label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.thread", label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit"
 
@@ -34194,7 +34194,7 @@ define hidden noundef i64 @_ZN5image5image12ImageDecoder11total_bytes17h5d7a9aa7
   %33 = load i8, ptr %32, align 8, !range !572, !alias.scope !7087, !noundef !19
   %34 = icmp eq i8 %31, 2
   %spec.select.i = select i1 %34, i8 %33, i8 %31
-  %35 = trunc i8 %spec.select.i to i1
+  %35 = trunc nuw i8 %spec.select.i to i1
   %36 = select i1 %35, i64 16, i64 12
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %36)
   %38 = extractvalue { i64, i1 } %37, 0
@@ -34259,7 +34259,7 @@ define hidden noundef i64 @_ZN5image5image12ImageDecoder11total_bytes17he107f1d3
   %33 = load i8, ptr %32, align 8, !range !572, !alias.scope !7104, !noundef !19
   %34 = icmp eq i8 %31, 2
   %spec.select.i = select i1 %34, i8 %33, i8 %31
-  %35 = trunc i8 %spec.select.i to i1
+  %35 = trunc nuw i8 %spec.select.i to i1
   %36 = select i1 %35, i64 16, i64 12
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %36)
   %38 = extractvalue { i64, i1 } %37, 0
@@ -39388,31 +39388,31 @@ attributes #27 = { noreturn }
 !4237 = distinct !{!4237, !4238, !"_ZN8bytemuck8internal22try_pod_read_unaligned17h599c301a0917859aE.llvm.10740287948243559469: argument 0"}
 !4238 = distinct !{!4238, !"_ZN8bytemuck8internal22try_pod_read_unaligned17h599c301a0917859aE.llvm.10740287948243559469"}
 !4239 = distinct !{!4239, !4238, !"_ZN8bytemuck8internal22try_pod_read_unaligned17h599c301a0917859aE.llvm.10740287948243559469: argument 1"}
-!4240 = !{!4241}
-!4241 = distinct !{!4241, !4242, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469: argument 0"}
-!4242 = distinct !{!4242, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469"}
-!4243 = !{!4244, !4246, !4241, !4247, !4248}
-!4244 = distinct !{!4244, !4245, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h941be2bff1e9841eE: argument 0"}
-!4245 = distinct !{!4245, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h941be2bff1e9841eE"}
-!4246 = distinct !{!4246, !4245, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h941be2bff1e9841eE: argument 1"}
-!4247 = distinct !{!4247, !4242, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469: argument 1"}
-!4248 = distinct !{!4248, !4242, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469: argument 2"}
-!4249 = !{!4244, !4241, !4247}
-!4250 = !{!4246, !4248}
+!4240 = !{!4241, !4243, !4244, !4246, !4247}
+!4241 = distinct !{!4241, !4242, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h941be2bff1e9841eE: argument 0"}
+!4242 = distinct !{!4242, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h941be2bff1e9841eE"}
+!4243 = distinct !{!4243, !4242, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h941be2bff1e9841eE: argument 1"}
+!4244 = distinct !{!4244, !4245, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469: argument 0"}
+!4245 = distinct !{!4245, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469"}
+!4246 = distinct !{!4246, !4245, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469: argument 1"}
+!4247 = distinct !{!4247, !4245, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc764942466a53463E.llvm.10740287948243559469: argument 2"}
+!4248 = !{!4241, !4244, !4246}
+!4249 = !{!4243, !4247}
+!4250 = !{!4244}
 !4251 = !{!4252}
 !4252 = distinct !{!4252, !4253, !"_ZN4core3ops8function6FnOnce9call_once17h0acd322693c7da17E: argument 0"}
 !4253 = distinct !{!4253, !"_ZN4core3ops8function6FnOnce9call_once17h0acd322693c7da17E"}
 !4254 = !{!4255}
 !4255 = distinct !{!4255, !4256, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1b95a6c40bb9f30dE: argument 0"}
 !4256 = distinct !{!4256, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1b95a6c40bb9f30dE"}
-!4257 = !{!4258, !4260, !4255, !4261, !4252, !4262, !4241, !4248}
+!4257 = !{!4258, !4260, !4255, !4261, !4252, !4262, !4244, !4247}
 !4258 = distinct !{!4258, !4259, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c838cc96b95a841E: argument 0"}
 !4259 = distinct !{!4259, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c838cc96b95a841E"}
 !4260 = distinct !{!4260, !4259, !"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c838cc96b95a841E: argument 1"}
 !4261 = distinct !{!4261, !4256, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h1b95a6c40bb9f30dE: argument 1"}
 !4262 = distinct !{!4262, !4253, !"_ZN4core3ops8function6FnOnce9call_once17h0acd322693c7da17E: argument 1"}
-!4263 = !{!4255, !4252, !4241}
-!4264 = !{!4261, !4262, !4247, !4248}
+!4263 = !{!4255, !4252, !4244}
+!4264 = !{!4261, !4262, !4246, !4247}
 !4265 = !{!4266}
 !4266 = distinct !{!4266, !4267, !"_ZN80_$LT$$u5b$half..binary16..f16$u5d$$u20$as$u20$half..slice..HalfFloatSliceExt$GT$20convert_to_f32_slice17h313deb2718b22deaE: argument 0"}
 !4267 = distinct !{!4267, !"_ZN80_$LT$$u5b$half..binary16..f16$u5d$$u20$as$u20$half..slice..HalfFloatSliceExt$GT$20convert_to_f32_slice17h313deb2718b22deaE"}

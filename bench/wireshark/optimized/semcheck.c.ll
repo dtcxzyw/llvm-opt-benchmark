@@ -955,7 +955,7 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @stnode_type_id(ptr noundef %1) #6
-  switch i32 %5, label %51 [
+  switch i32 %5, label %50 [
     i32 8, label %6
     i32 4, label %6
     i32 2, label %8
@@ -966,12 +966,12 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
     i32 11, label %10
     i32 14, label %33
     i32 1, label %33
-    i32 10, label %42
-    i32 12, label %48
-    i32 0, label %48
-    i32 15, label %48
-    i32 9, label %48
-    i32 13, label %48
+    i32 10, label %41
+    i32 12, label %47
+    i32 0, label %47
+    i32 15, label %47
+    i32 9, label %47
+    i32 13, label %47
   ]
 
 6:                                                ; preds = %2, %2
@@ -1050,44 +1050,40 @@ resolve_unparsed.exit:                            ; preds = %19, %26, %27
 37:                                               ; preds = %35, %33
   %38 = load ptr, ptr %4, align 8
   %.not20 = icmp eq ptr %38, null
-  br i1 %.not20, label %41, label %39
+  br i1 %.not20, label %get_function_ftype.exit, label %39
 
 39:                                               ; preds = %37
   %40 = call i32 @get_logical_ftype(ptr noundef %0, ptr noundef nonnull %38)
-  %.not21 = icmp eq i32 %40, 0
-  br i1 %.not21, label %41, label %get_function_ftype.exit
-
-41:                                               ; preds = %39, %37
   br label %get_function_ftype.exit
 
-42:                                               ; preds = %2
-  %43 = tail call ptr @sttype_slice_entity(ptr noundef %1) #6
-  tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %43, i1 noundef zeroext true)
-  %44 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %43)
-  switch i32 %44, label %45 [
+41:                                               ; preds = %2
+  %42 = tail call ptr @sttype_slice_entity(ptr noundef %1) #6
+  tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %42, i1 noundef zeroext true)
+  %43 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %42)
+  switch i32 %43, label %44 [
     i32 45, label %get_function_ftype.exit
     i32 43, label %get_function_ftype.exit
     i32 27, label %get_function_ftype.exit
     i32 26, label %get_function_ftype.exit
   ]
 
-45:                                               ; preds = %42
-  %46 = icmp eq i32 %44, 28
-  %47 = select i1 %46, i32 26, i32 30
+44:                                               ; preds = %41
+  %45 = icmp eq i32 %43, 28
+  %46 = select i1 %45, i32 26, i32 30
   br label %get_function_ftype.exit
 
-48:                                               ; preds = %2, %2, %2, %2, %2
-  %49 = tail call i32 @stnode_type_id(ptr noundef %1) #6
-  %50 = tail call ptr @sttype_name(i32 noundef %49) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 750, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.6, ptr noundef %50) #7
+47:                                               ; preds = %2, %2, %2, %2, %2
+  %48 = tail call i32 @stnode_type_id(ptr noundef %1) #6
+  %49 = tail call ptr @sttype_name(i32 noundef %48) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 750, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.6, ptr noundef %49) #7
   unreachable
 
-51:                                               ; preds = %2
+50:                                               ; preds = %2
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 753, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.3) #7
   unreachable
 
-get_function_ftype.exit:                          ; preds = %30, %resolve_unparsed.exit, %45, %42, %42, %42, %42, %16, %10, %39, %35, %2, %2, %2, %2, %41, %8, %6
-  %.0 = phi i32 [ 0, %41 ], [ %9, %8 ], [ %7, %6 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %36, %35 ], [ %40, %39 ], [ %15, %10 ], [ 0, %16 ], [ 26, %42 ], [ %47, %45 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ 0, %30 ], [ %29, %resolve_unparsed.exit ]
+get_function_ftype.exit:                          ; preds = %30, %resolve_unparsed.exit, %44, %41, %41, %41, %41, %16, %10, %39, %37, %35, %2, %2, %2, %2, %8, %6
+  %.0 = phi i32 [ %9, %8 ], [ %7, %6 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %36, %35 ], [ 0, %37 ], [ %40, %39 ], [ %15, %10 ], [ 0, %16 ], [ 26, %41 ], [ %46, %44 ], [ 26, %41 ], [ 26, %41 ], [ 26, %41 ], [ 0, %30 ], [ %29, %resolve_unparsed.exit ]
   ret i32 %.0
 }
 

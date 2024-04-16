@@ -723,7 +723,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %113, %106
   %125 = zext i1 %124 to i8
   %126 = or disjoint i8 %125, 2
   %.sroa.11.1.i = select i1 %.0174.shrunk.i, i8 %126, i8 %125
-  %127 = trunc i8 %.0164.i to i1
+  %127 = trunc nuw i8 %.0164.i to i1
   br i1 %127, label %128, label %142
 
 128:                                              ; preds = %120
@@ -878,7 +878,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %113, %106
   br i1 %.not190.i, label %199, label %195
 
 195:                                              ; preds = %193
-  %196 = trunc i8 %.1165.i to i1
+  %196 = trunc nuw i8 %.1165.i to i1
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %195
@@ -982,7 +982,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %113, %106
   unreachable
 
 238:                                              ; preds = %231
-  %239 = trunc i64 %228 to i32
+  %239 = trunc nuw i64 %228 to i32
   %240 = getelementptr i8, ptr %.5172.i, i64 1
   store i8 -2, ptr %.5172.i, align 1
   store i32 %239, ptr %240, align 1
@@ -1061,7 +1061,7 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge231.i
   %278 = call i32 @GetCurrentTransactionIdIfAny() #10
   %279 = getelementptr inbounds i8, ptr %32, i64 4
   store i32 %278, ptr %279, align 4
-  %280 = trunc i64 %259 to i32
+  %280 = trunc nuw nsw i64 %259 to i32
   store i32 %280, ptr %32, align 8
   %281 = getelementptr inbounds i8, ptr %32, i64 16
   store i8 %spec.select.i, ptr %281, align 8
@@ -1110,7 +1110,7 @@ declare void @GetFullPageWriteInfo(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i64 @XLogInsertRecord(ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i8, align 1
   call void @GetFullPageWriteInfo(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
@@ -1143,14 +1143,11 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %.val = load i64, ptr %.0.i.i, align 4
   %20 = call i64 @llvm.fshl.i64(i64 %.val, i64 %.val, i64 32)
   %21 = load i64, ptr %2, align 8
-  %.not = icmp ugt i64 %20, %21
-  br i1 %.not, label %22, label %23
+  %.not = icmp ule i64 %20, %21
+  br label %22
 
 22:                                               ; preds = %19, %BufferGetPage.exit
-  br label %23
-
-23:                                               ; preds = %19, %22
-  %.0 = phi i1 [ false, %22 ], [ true, %19 ]
+  %.0 = phi i1 [ false, %BufferGetPage.exit ], [ %.not, %19 ]
   ret i1 %.0
 }
 
@@ -1311,7 +1308,7 @@ XLogRegisterBlock.exit:                           ; preds = %8
 
 25:                                               ; preds = %XLogRegisterBlock.exit
   %26 = lshr i64 %22, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   store i32 %27, ptr %3, align 4
   %28 = trunc i64 %22 to i32
   %29 = getelementptr inbounds i8, ptr %3, i64 4
@@ -1469,15 +1466,15 @@ XLogRegisterBlock.exit:                           ; preds = %61
   br i1 %77, label %51, label %78, !llvm.loop !12
 
 78:                                               ; preds = %XLogRegisterBlock.exit
-  %79 = trunc i64 %indvars.iv38 to i32
-  %80 = trunc i64 %indvars.iv.next39 to i32
+  %79 = trunc nsw i64 %indvars.iv38 to i32
+  %80 = trunc nsw i64 %indvars.iv.next39 to i32
   %81 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80), !range !10
   %.not = icmp sgt i32 %.02835, %79
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78
   %82 = lshr i64 %81, 32
-  %83 = trunc i64 %82 to i32
+  %83 = trunc nuw i64 %82 to i32
   %84 = trunc i64 %81 to i32
   %sext = shl i64 %indvars.iv38, 32
   %85 = ashr exact i64 %sext, 32
@@ -1702,7 +1699,7 @@ BufferGetPage.exit:                               ; preds = %51, %57
   %81 = getelementptr [32 x i32], ptr %6, i64 0, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4
   tail call void @MarkBufferDirty(i32 noundef %82) #10
-  %83 = trunc i64 %indvars.iv to i32
+  %83 = trunc nuw nsw i64 %indvars.iv to i32
   %84 = and i32 %83, 255
   %85 = load i32, ptr @max_registered_block_id, align 4
   %.not.i36 = icmp sgt i32 %85, %84
@@ -1774,7 +1771,7 @@ XLogRegisterBuffer.exit:                          ; preds = %101, %107
 
 .lr.ph48:                                         ; preds = %._crit_edge45
   %119 = lshr i64 %118, 32
-  %120 = trunc i64 %119 to i32
+  %120 = trunc nuw i64 %119 to i32
   %121 = trunc i64 %118 to i32
   %wide.trip.count58 = zext nneg i32 %.132 to i64
   br label %122

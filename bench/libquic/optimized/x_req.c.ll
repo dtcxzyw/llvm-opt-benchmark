@@ -103,24 +103,22 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rinf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
+define internal i32 @rinf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
 entry:
   %cmp = icmp eq i32 %operation, 1
-  br i1 %cmp, label %if.then, label %if.end3
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
   %call = tail call ptr @sk_new_null() #2
   %attributes = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call, ptr %attributes, align 8
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end3
-
-if.end3:                                          ; preds = %if.then, %entry
+  %tobool.not = icmp ne ptr %call, null
+  %spec.select = zext i1 %tobool.not to i32
   br label %return
 
-return:                                           ; preds = %if.then, %if.end3
-  %retval.0 = phi i32 [ 1, %if.end3 ], [ 0, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ %spec.select, %if.then ]
   ret i32 %retval.0
 }
 

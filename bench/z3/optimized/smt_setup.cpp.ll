@@ -3038,18 +3038,16 @@ if.else:                                          ; preds = %if.end21
   %m_cnf = getelementptr inbounds i8, ptr %st, i64 400
   %19 = load i8, ptr %m_cnf, align 8
   %tobool33 = trunc i8 %19 to i1
-  br i1 %tobool33, label %land.lhs.true, label %if.else37
+  br i1 %tobool33, label %land.lhs.true, label %if.end41
 
 land.lhs.true:                                    ; preds = %if.else
   %call34 = tail call noundef zeroext i1 @_ZNK15static_features8is_denseEv(ptr noundef nonnull align 8 dereferenceable(792) %st)
-  br i1 %call34, label %if.else37, label %if.end41
-
-if.else37:                                        ; preds = %land.lhs.true, %if.else
+  %spec.select = select i1 %call34, i32 2, i32 4
   br label %if.end41
 
-if.end41:                                         ; preds = %land.lhs.true, %if.end21, %if.else37
-  %.sink28 = phi i64 [ 552, %if.else37 ], [ 512, %if.end21 ], [ 552, %land.lhs.true ]
-  %.sink = phi i32 [ 2, %if.else37 ], [ 2, %if.end21 ], [ 4, %land.lhs.true ]
+if.end41:                                         ; preds = %land.lhs.true, %if.else, %if.end21
+  %.sink28 = phi i64 [ 512, %if.end21 ], [ 552, %if.else ], [ 552, %land.lhs.true ]
+  %.sink = phi i32 [ 2, %if.end21 ], [ 2, %if.else ], [ %spec.select, %land.lhs.true ]
   %20 = load ptr, ptr %m_params, align 8
   %m_phase_selection = getelementptr inbounds i8, ptr %20, i64 %.sink28
   store i32 %.sink, ptr %m_phase_selection, align 8

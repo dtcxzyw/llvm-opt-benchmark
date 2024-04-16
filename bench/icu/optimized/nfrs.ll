@@ -176,7 +176,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
   br i1 %tobool33.not, label %while.end, label %invoke.cont24, !llvm.loop !4
 
 while.end.split.loop.exit:                        ; preds = %invoke.cont24
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %invoke.cont31, %while.end.split.loop.exit
@@ -1023,56 +1023,55 @@ for.cond.preheader:                               ; preds = %_ZNK6icu_7513Unicod
   %nonNumericalRules11 = getelementptr inbounds i8, ptr %rhs, i64 88
   br label %for.body
 
-for.cond17.preheader:                             ; preds = %for.inc
-  %11 = load i32, ptr %fCount.i, align 8
-  %cmp2032.not = icmp eq i32 %11, 0
-  br i1 %cmp2032.not, label %return, label %for.body21
+for.cond:                                         ; preds = %if.then2.i, %_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %for.cond17.preheader, label %for.body, !llvm.loop !13
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
+for.cond17.preheader:                             ; preds = %for.cond
+  %11 = load i32, ptr %fCount.i, align 8
+  %cmp2025.not = icmp eq i32 %11, 0
+  br i1 %cmp2025.not, label %return, label %for.body21
+
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds [6 x ptr], ptr %nonNumericalRules, i64 0, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx, align 8
   %arrayidx13 = getelementptr inbounds [6 x ptr], ptr %nonNumericalRules11, i64 0, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx13, align 8
   %tobool.not.i12 = icmp eq ptr %12, null
   %tobool3.not.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i12, label %if.else.i15, label %if.then.i13
+  %brmerge.i = or i1 %tobool.not.i12, %tobool3.not.i
+  br i1 %brmerge.i, label %_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit, label %if.then2.i
 
-if.then.i13:                                      ; preds = %for.body
-  br i1 %tobool3.not.i, label %return, label %_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit
-
-if.else.i15:                                      ; preds = %for.body
-  br i1 %tobool3.not.i, label %for.inc, label %return
-
-_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit: ; preds = %if.then.i13
+if.then2.i:                                       ; preds = %for.body
   %call.i = tail call noundef zeroext i1 @_ZNK6icu_756NFRuleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(112) %13)
-  br i1 %call.i, label %for.inc, label %return
+  br i1 %call.i, label %for.cond, label %return
 
-for.inc:                                          ; preds = %if.else.i15, %_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.cond17.preheader, label %for.body, !llvm.loop !13
+_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit: ; preds = %for.body
+  %tobool3.not.mux.i = and i1 %tobool.not.i12, %tobool3.not.i
+  br i1 %tobool3.not.mux.i, label %for.cond, label %return
 
 for.cond17:                                       ; preds = %for.body21
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %14 = load i32, ptr %fCount.i, align 8
   %15 = zext i32 %14 to i64
-  %cmp20 = icmp ult i64 %indvars.iv.next38, %15
+  %cmp20 = icmp ult i64 %indvars.iv.next31, %15
   br i1 %cmp20, label %for.body21, label %return, !llvm.loop !14
 
 for.body21:                                       ; preds = %for.cond17.preheader, %for.cond17
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %for.cond17 ], [ 0, %for.cond17.preheader ]
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %for.cond17 ], [ 0, %for.cond17.preheader ]
   %16 = load ptr, ptr %rules, align 8, !nonnull !10, !noundef !10
-  %arrayidx.i = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv37
+  %arrayidx.i = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv30
   %17 = load ptr, ptr %arrayidx.i, align 8
   %18 = load ptr, ptr %rules2, align 8, !nonnull !10, !noundef !10
-  %arrayidx.i20 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv37
-  %19 = load ptr, ptr %arrayidx.i20, align 8
-  %call.i23 = tail call noundef zeroext i1 @_ZNK6icu_756NFRuleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %17, ptr noundef nonnull align 8 dereferenceable(112) %19)
-  br i1 %call.i23, label %for.cond17, label %return
+  %arrayidx.i18 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv30
+  %19 = load ptr, ptr %arrayidx.i18, align 8
+  %call.i21 = tail call noundef zeroext i1 @_ZNK6icu_756NFRuleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %17, ptr noundef nonnull align 8 dereferenceable(112) %19)
+  br i1 %call.i21, label %for.cond17, label %return
 
-return:                                           ; preds = %if.else.i15, %if.then.i13, %_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit, %for.body21, %for.cond17, %for.cond17.preheader, %if.else.i, %if.then.i, %entry, %land.lhs.true, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit
-  %retval.0 = phi i1 [ false, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit ], [ false, %land.lhs.true ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.else.i ], [ true, %for.cond17.preheader ], [ %call.i23, %for.cond17 ], [ %call.i23, %for.body21 ], [ false, %_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit ], [ false, %if.then.i13 ], [ false, %if.else.i15 ]
+return:                                           ; preds = %_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit, %if.then2.i, %for.body21, %for.cond17, %for.cond17.preheader, %if.else.i, %if.then.i, %entry, %land.lhs.true, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit
+  %retval.0 = phi i1 [ false, %_ZNK6icu_7513UnicodeStringeqERKS0_.exit ], [ false, %land.lhs.true ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.else.i ], [ true, %for.cond17.preheader ], [ %call.i21, %for.cond17 ], [ %call.i21, %for.body21 ], [ false, %if.then2.i ], [ false, %_ZN6icu_75L15util_equalRulesEPKNS_6NFRuleES2_.exit ]
   ret i1 %retval.0
 }
 
@@ -1741,7 +1740,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
 
 if.then24:                                        ; preds = %for.body17
   %cmp25 = icmp eq i64 %spec.select, 0
-  %17 = trunc i64 %indvars.iv96 to i32
+  %17 = trunc nuw i64 %indvars.iv96 to i32
   br i1 %cmp25, label %for.end31, label %for.inc29
 
 for.inc29:                                        ; preds = %for.body17, %if.then24
@@ -1891,7 +1890,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = shl nuw nsw i32 1, %5
   %7 = and i32 %nonNumericalExecutedRuleMask.addr.070, %6
   %cmp3 = icmp eq i32 %7, 0

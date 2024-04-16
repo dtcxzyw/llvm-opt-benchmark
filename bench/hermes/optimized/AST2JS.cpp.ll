@@ -2086,7 +2086,7 @@ if.end48.i.i:                                     ; preds = %"_ZN6hermes10decode
 
 if.then52.i.i:                                    ; preds = %if.end48.i.i
   %52 = load ptr, ptr %v, align 8
-  %conv54.i.i = trunc i32 %retval.0.i.i.i to i8
+  %conv54.i.i = trunc nuw nsw i32 %retval.0.i.i.i to i8
   %call55.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %52, i8 noundef zeroext %conv54.i.i) #12
   br label %for.cond.backedge.i.i
 
@@ -5996,7 +5996,7 @@ return.loopexit:                                  ; preds = %if.end, %if.end, %i
   br label %return
 
 return:                                           ; preds = %tailrecurse.backedge, %if.end, %return.loopexit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %return.loopexit ], [ false, %if.end ], [ false, %tailrecurse.backedge ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %tailrecurse.backedge ], [ true, %return.loopexit ]
   ret i1 %retval.0
 }
 
@@ -6670,27 +6670,27 @@ land.rhs.i.i255:                                  ; preds = %if.end.i88
   %agg.tmp.sroa.2.0.call2.sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i, 1
-  br i1 %cmp.i.i.i, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, label %if.then49.i113
-
-_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i: ; preds = %land.rhs.i.i255
-  %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
-  %lhsc.i = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 1
-  %12 = icmp eq i8 %lhsc.i, 45
-  br i1 %12, label %if.then23, label %if.then49.i113
+  br i1 %cmp.i.i.i, label %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit, label %if.then49.i113
 
 land.lhs.true.i.i:                                ; preds = %if.end.i88
   %_prefix.i.i = getelementptr inbounds i8, ptr %expr.tr.i83, i64 64
-  %13 = load i8, ptr %_prefix.i.i, align 8
-  %tobool.i.i = trunc i8 %13 to i1
+  %12 = load i8, ptr %_prefix.i.i, align 8
+  %tobool.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i, label %land.rhs.i9.i, label %if.then43.i106
 
 land.rhs.i9.i:                                    ; preds = %land.lhs.true.i.i
   %_operator.i10.i = getelementptr inbounds i8, ptr %expr.tr.i83, i64 48
-  %14 = load ptr, ptr %_operator.i10.i, align 8
-  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %13 = load ptr, ptr %_operator.i10.i, align 8
+  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %agg.tmp.sroa.2.0.copyload.i12.i = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i, align 8
   %cmp.i.i13.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i12.i, 2
-  br i1 %cmp.i.i13.i, label %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit, label %if.then43.i106
+  br i1 %cmp.i.i13.i, label %_ZN6hermes12_GLOBAL__N_114isUpdatePrefixEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, label %if.then43.i106
+
+_ZN6hermes12_GLOBAL__N_114isUpdatePrefixEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i: ; preds = %land.rhs.i9.i
+  %agg.tmp.sroa.0.0.copyload.i11.i = load ptr, ptr %13, align 8
+  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
+  %14 = icmp eq i32 %bcmp.i15.i, 0
+  br i1 %14, label %if.then23, label %if.then43.i106
 
 land.rhs.i18.i:                                   ; preds = %if.end.i88
   %_value.i.i = getelementptr inbounds i8, ptr %expr.tr.i83, i64 48
@@ -6698,11 +6698,11 @@ land.rhs.i18.i:                                   ; preds = %if.end.i88
   %cmp.i.i254 = fcmp olt double %15, 0.000000e+00
   br i1 %cmp.i.i254, label %if.then23, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
 
-_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit: ; preds = %land.rhs.i9.i
-  %agg.tmp.sroa.0.0.copyload.i11.i = load ptr, ptr %14, align 8
-  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
-  %16 = icmp eq i32 %bcmp.i15.i, 0
-  br i1 %16, label %if.then23, label %if.then43.i106
+_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit: ; preds = %land.rhs.i.i255
+  %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
+  %lhsc.i = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 1
+  %16 = icmp eq i8 %lhsc.i, 45
+  br i1 %16, label %if.then23, label %if.then49.i113
 
 tailrecurse.backedge.i96.fold.split:              ; preds = %if.end.i88
   br label %tailrecurse.backedge.i96
@@ -6713,19 +6713,19 @@ tailrecurse.backedge.i96:                         ; preds = %if.end.i88, %if.end
   %expr.tr.be.i99 = load ptr, ptr %_callee.i98, align 8
   br label %tailrecurse.i82
 
-if.then43.i106:                                   ; preds = %land.lhs.true.i.i, %land.rhs.i9.i, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit
+if.then43.i106:                                   ; preds = %land.rhs.i9.i, %land.lhs.true.i.i, %_ZN6hermes12_GLOBAL__N_114isUpdatePrefixEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i
   %_prefix.i107 = getelementptr inbounds i8, ptr %expr.tr.i83, i64 64
   %17 = load i8, ptr %_prefix.i107, align 8
   %tobool44.i108 = trunc i8 %17 to i1
   br i1 %tobool44.i108, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43, label %tailrecurse.backedge.i96
 
-if.then49.i113:                                   ; preds = %land.rhs.i.i255, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i
+if.then49.i113:                                   ; preds = %land.rhs.i.i255, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit
   %_prefix50.i114 = getelementptr inbounds i8, ptr %expr.tr.i83, i64 64
   %18 = load i8, ptr %_prefix50.i114, align 8
   %tobool51.i115 = trunc i8 %18 to i1
   br i1 %tobool51.i115, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43, label %tailrecurse.backedge.i96
 
-if.then23:                                        ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit, %land.rhs.i18.i
+if.then23:                                        ; preds = %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit, %_ZN6hermes12_GLOBAL__N_114isUpdatePrefixEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, %land.rhs.i18.i
   %pretty_ = getelementptr inbounds i8, ptr %this, i64 8
   %19 = load i8, ptr %pretty_, align 8
   %tobool = trunc i8 %19 to i1
@@ -6863,7 +6863,7 @@ if.end.i170:                                      ; preds = %land.lhs.true.i167,
   %kind_.i.i.i.i.i.i.i.i.i269 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 16
   %32 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i269, align 8
   switch i32 %32, label %land.rhs.i204 [
-    i32 52, label %land.rhs.i.i285
+    i32 52, label %land.rhs.i.i284
     i32 53, label %land.lhs.true.i.i273
     i32 34, label %land.rhs.i18.i270
     i32 60, label %tailrecurse.backedge.i178
@@ -6876,33 +6876,33 @@ if.end.i170:                                      ; preds = %land.lhs.true.i167,
     i32 55, label %tailrecurse.backedge.i178
   ]
 
-land.rhs.i.i285:                                  ; preds = %if.end.i170
-  %_operator.i.i286 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
-  %33 = load ptr, ptr %_operator.i.i286, align 8
-  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i287 = getelementptr inbounds i8, ptr %33, i64 8
-  %agg.tmp.sroa.2.0.copyload.i.i288 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i287, align 8
-  %cmp.i.i.i289 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i288, 1
-  br i1 %cmp.i.i.i289, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290, label %if.then49.i195
-
-_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290: ; preds = %land.rhs.i.i285
-  %agg.tmp.sroa.0.0.copyload.i.i291 = load ptr, ptr %33, align 8
-  %lhsc.i292 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i291, align 1
-  %34 = icmp eq i8 %lhsc.i292, 45
-  br i1 %34, label %if.then40, label %if.then49.i195
+land.rhs.i.i284:                                  ; preds = %if.end.i170
+  %_operator.i.i285 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
+  %33 = load ptr, ptr %_operator.i.i285, align 8
+  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i286 = getelementptr inbounds i8, ptr %33, i64 8
+  %agg.tmp.sroa.2.0.copyload.i.i287 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i286, align 8
+  %cmp.i.i.i288 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i287, 1
+  br i1 %cmp.i.i.i288, label %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit292, label %if.then49.i195
 
 land.lhs.true.i.i273:                             ; preds = %if.end.i170
   %_prefix.i.i274 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 64
-  %35 = load i8, ptr %_prefix.i.i274, align 8
-  %tobool.i.i275 = trunc i8 %35 to i1
-  br i1 %tobool.i.i275, label %land.rhs.i9.i277, label %if.then43.i188
+  %34 = load i8, ptr %_prefix.i.i274, align 8
+  %tobool.i.i275 = trunc i8 %34 to i1
+  br i1 %tobool.i.i275, label %land.rhs.i9.i276, label %if.then43.i188
 
-land.rhs.i9.i277:                                 ; preds = %land.lhs.true.i.i273
-  %_operator.i10.i278 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
-  %36 = load ptr, ptr %_operator.i10.i278, align 8
-  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i279 = getelementptr inbounds i8, ptr %36, i64 8
-  %agg.tmp.sroa.2.0.copyload.i12.i280 = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i279, align 8
-  %cmp.i.i13.i281 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i12.i280, 2
-  br i1 %cmp.i.i13.i281, label %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293, label %if.then43.i188
+land.rhs.i9.i276:                                 ; preds = %land.lhs.true.i.i273
+  %_operator.i10.i277 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
+  %35 = load ptr, ptr %_operator.i10.i277, align 8
+  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i278 = getelementptr inbounds i8, ptr %35, i64 8
+  %agg.tmp.sroa.2.0.copyload.i12.i279 = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i278, align 8
+  %cmp.i.i13.i280 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i12.i279, 2
+  br i1 %cmp.i.i13.i280, label %_ZN6hermes12_GLOBAL__N_114isUpdatePrefixEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i281, label %if.then43.i188
+
+_ZN6hermes12_GLOBAL__N_114isUpdatePrefixEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i281: ; preds = %land.rhs.i9.i276
+  %agg.tmp.sroa.0.0.copyload.i11.i282 = load ptr, ptr %35, align 8
+  %bcmp.i15.i283 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i282, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
+  %36 = icmp eq i32 %bcmp.i15.i283, 0
+  br i1 %36, label %if.then40, label %if.then43.i188
 
 land.rhs.i18.i270:                                ; preds = %if.end.i170
   %_value.i.i271 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
@@ -6910,11 +6910,11 @@ land.rhs.i18.i270:                                ; preds = %if.end.i170
   %cmp.i.i272 = fcmp olt double %37, 0.000000e+00
   br i1 %cmp.i.i272, label %if.then40, label %land.rhs.i204
 
-_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293: ; preds = %land.rhs.i9.i277
-  %agg.tmp.sroa.0.0.copyload.i11.i283 = load ptr, ptr %36, align 8
-  %bcmp.i15.i284 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i283, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
-  %38 = icmp eq i32 %bcmp.i15.i284, 0
-  br i1 %38, label %if.then40, label %if.then43.i188
+_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit292: ; preds = %land.rhs.i.i284
+  %agg.tmp.sroa.0.0.copyload.i.i290 = load ptr, ptr %33, align 8
+  %lhsc.i291 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i290, align 1
+  %38 = icmp eq i8 %lhsc.i291, 45
+  br i1 %38, label %if.then40, label %if.then49.i195
 
 tailrecurse.backedge.i178.fold.split:             ; preds = %if.end.i170
   br label %tailrecurse.backedge.i178
@@ -6925,19 +6925,19 @@ tailrecurse.backedge.i178:                        ; preds = %if.end.i170, %if.en
   %expr.tr.be.i181 = load ptr, ptr %_callee.i180, align 8
   br label %tailrecurse.i163
 
-if.then43.i188:                                   ; preds = %land.lhs.true.i.i273, %land.rhs.i9.i277, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293
+if.then43.i188:                                   ; preds = %land.rhs.i9.i276, %land.lhs.true.i.i273, %_ZN6hermes12_GLOBAL__N_114isUpdatePrefixEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i281
   %_prefix.i189 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 64
   %39 = load i8, ptr %_prefix.i189, align 8
   %tobool44.i190 = trunc i8 %39 to i1
   br i1 %tobool44.i190, label %land.rhs.i204, label %tailrecurse.backedge.i178
 
-if.then49.i195:                                   ; preds = %land.rhs.i.i285, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290
+if.then49.i195:                                   ; preds = %land.rhs.i.i284, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit292
   %_prefix50.i196 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 64
   %40 = load i8, ptr %_prefix50.i196, align 8
   %tobool51.i197 = trunc i8 %40 to i1
   br i1 %tobool51.i197, label %land.rhs.i204, label %tailrecurse.backedge.i178
 
-if.then40:                                        ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293, %land.rhs.i18.i270
+if.then40:                                        ; preds = %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit292, %_ZN6hermes12_GLOBAL__N_114isUpdatePrefixEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i281, %land.rhs.i18.i270
   %pretty_41 = getelementptr inbounds i8, ptr %this, i64 8
   %41 = load i8, ptr %pretty_41, align 8
   %tobool42 = trunc i8 %41 to i1
@@ -6949,8 +6949,8 @@ land.rhs.i204:                                    ; preds = %if.then49.i195, %if
 
 _ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210: ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %land.rhs.i204
   %agg.tmp.sroa.0.0.copyload.i206 = load ptr, ptr %30, align 8
-  %lhsc323 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i206, align 1
-  %42 = icmp eq i8 %lhsc323, 43
+  %lhsc320 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i206, align 1
+  %42 = icmp eq i8 %lhsc320, 43
   br i1 %42, label %tailrecurse.i211, label %if.end61
 
 tailrecurse.i211:                                 ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, %tailrecurse.backedge.i226
@@ -6965,11 +6965,11 @@ land.lhs.true.i215:                               ; preds = %tailrecurse.i211
   br i1 %cmp.i217, label %if.end61, label %if.end.i218
 
 if.end.i218:                                      ; preds = %land.lhs.true.i215, %tailrecurse.i211
-  %kind_.i.i.i.i.i.i.i.i.i294 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 16
-  %43 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i294, align 8
+  %kind_.i.i.i.i.i.i.i.i.i293 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 16
+  %43 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i293, align 8
   switch i32 %43, label %if.end61 [
-    i32 52, label %land.rhs.i.i306
-    i32 53, label %land.lhs.true.i.i295
+    i32 52, label %land.rhs.i.i305
+    i32 53, label %land.lhs.true.i.i294
     i32 60, label %tailrecurse.backedge.i226
     i32 59, label %tailrecurse.backedge.i226
     i32 58, label %tailrecurse.backedge.i226
@@ -6980,38 +6980,38 @@ if.end.i218:                                      ; preds = %land.lhs.true.i215,
     i32 55, label %tailrecurse.backedge.i226
   ]
 
-land.rhs.i.i306:                                  ; preds = %if.end.i218
-  %_operator.i.i307 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 48
-  %44 = load ptr, ptr %_operator.i.i307, align 8
-  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i308 = getelementptr inbounds i8, ptr %44, i64 8
-  %agg.tmp.sroa.2.0.copyload.i.i309 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i308, align 8
-  %cmp.i.i.i310 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i309, 1
-  br i1 %cmp.i.i.i310, label %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit314, label %if.then49.i243
+land.rhs.i.i305:                                  ; preds = %if.end.i218
+  %_operator.i.i306 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 48
+  %44 = load ptr, ptr %_operator.i.i306, align 8
+  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i307 = getelementptr inbounds i8, ptr %44, i64 8
+  %agg.tmp.sroa.2.0.copyload.i.i308 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i307, align 8
+  %cmp.i.i.i309 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i308, 1
+  br i1 %cmp.i.i.i309, label %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit313, label %if.then49.i243
 
-land.lhs.true.i.i295:                             ; preds = %if.end.i218
-  %_prefix.i.i296 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 64
-  %45 = load i8, ptr %_prefix.i.i296, align 8
-  %tobool.i.i297 = trunc i8 %45 to i1
-  br i1 %tobool.i.i297, label %land.rhs.i8.i298, label %if.then43.i236
+land.lhs.true.i.i294:                             ; preds = %if.end.i218
+  %_prefix.i.i295 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 64
+  %45 = load i8, ptr %_prefix.i.i295, align 8
+  %tobool.i.i296 = trunc i8 %45 to i1
+  br i1 %tobool.i.i296, label %land.rhs.i8.i297, label %if.then43.i236
 
-land.rhs.i8.i298:                                 ; preds = %land.lhs.true.i.i295
-  %_operator.i9.i299 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 48
-  %46 = load ptr, ptr %_operator.i9.i299, align 8
-  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i300 = getelementptr inbounds i8, ptr %46, i64 8
-  %agg.tmp.sroa.2.0.copyload.i11.i301 = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i300, align 8
-  %cmp.i.i12.i302 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i11.i301, 2
-  br i1 %cmp.i.i12.i302, label %land.rhs.i.i13.i303, label %if.then43.i236
+land.rhs.i8.i297:                                 ; preds = %land.lhs.true.i.i294
+  %_operator.i9.i298 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 48
+  %46 = load ptr, ptr %_operator.i9.i298, align 8
+  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i299 = getelementptr inbounds i8, ptr %46, i64 8
+  %agg.tmp.sroa.2.0.copyload.i11.i300 = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i299, align 8
+  %cmp.i.i12.i301 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i11.i300, 2
+  br i1 %cmp.i.i12.i301, label %land.rhs.i.i13.i302, label %if.then43.i236
 
-land.rhs.i.i13.i303:                              ; preds = %land.rhs.i8.i298
-  %agg.tmp.sroa.0.0.copyload.i10.i304 = load ptr, ptr %46, align 8
-  %bcmp.i14.i305 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i304, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
-  %47 = icmp eq i32 %bcmp.i14.i305, 0
+land.rhs.i.i13.i302:                              ; preds = %land.rhs.i8.i297
+  %agg.tmp.sroa.0.0.copyload.i10.i303 = load ptr, ptr %46, align 8
+  %bcmp.i14.i304 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i303, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
+  %47 = icmp eq i32 %bcmp.i14.i304, 0
   br i1 %47, label %if.then51, label %if.then43.i236
 
-_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit314: ; preds = %land.rhs.i.i306
-  %agg.tmp.sroa.0.0.copyload.i.i312 = load ptr, ptr %44, align 8
-  %lhsc.i313 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i312, align 1
-  %48 = icmp eq i8 %lhsc.i313, 43
+_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit313: ; preds = %land.rhs.i.i305
+  %agg.tmp.sroa.0.0.copyload.i.i311 = load ptr, ptr %44, align 8
+  %lhsc.i312 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i311, align 1
+  %48 = icmp eq i8 %lhsc.i312, 43
   br i1 %48, label %if.then51, label %if.then49.i243
 
 tailrecurse.backedge.i226.fold.split:             ; preds = %if.end.i218
@@ -7023,19 +7023,19 @@ tailrecurse.backedge.i226:                        ; preds = %if.end.i218, %if.en
   %expr.tr.be.i229 = load ptr, ptr %_callee.i228, align 8
   br label %tailrecurse.i211
 
-if.then43.i236:                                   ; preds = %land.rhs.i8.i298, %land.lhs.true.i.i295, %land.rhs.i.i13.i303
+if.then43.i236:                                   ; preds = %land.rhs.i8.i297, %land.lhs.true.i.i294, %land.rhs.i.i13.i302
   %_prefix.i237 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 64
   %49 = load i8, ptr %_prefix.i237, align 8
   %tobool44.i238 = trunc i8 %49 to i1
   br i1 %tobool44.i238, label %if.end61, label %tailrecurse.backedge.i226
 
-if.then49.i243:                                   ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit314, %land.rhs.i.i306
+if.then49.i243:                                   ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit313, %land.rhs.i.i305
   %_prefix50.i244 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 64
   %50 = load i8, ptr %_prefix50.i244, align 8
   %tobool51.i245 = trunc i8 %50 to i1
   br i1 %tobool51.i245, label %if.end61, label %tailrecurse.backedge.i226
 
-if.then51:                                        ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit314, %land.rhs.i.i13.i303
+if.then51:                                        ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit313, %land.rhs.i.i13.i302
   %pretty_52 = getelementptr inbounds i8, ptr %this, i64 8
   %51 = load i8, ptr %pretty_52, align 8
   %tobool53 = trunc i8 %51 to i1
@@ -7087,7 +7087,7 @@ return.loopexit:                                  ; preds = %if.end.i81, %if.end
   br label %return
 
 return:                                           ; preds = %if.then49.i, %if.then43.i, %land.lhs.true.i, %if.end.i81, %return.loopexit, %if.then5, %if.end.i, %land.rhs, %cond.true, %cond.false, %if.end79, %if.end76, %if.end71, %if.end65, %if.end61, %land.lhs.true, %if.then51, %if.then40, %if.then29, %if.then23
-  %retval.0 = phi i32 [ %cond, %if.then23 ], [ %cond32, %if.then29 ], [ %cond43, %if.then40 ], [ %cond54, %if.then51 ], [ 1, %land.lhs.true ], [ 1, %if.end61 ], [ 1, %if.end65 ], [ 0, %if.end71 ], [ 1, %if.end76 ], [ 0, %if.end79 ], [ %cond.i57, %cond.true ], [ %cond.i58, %cond.false ], [ 0, %if.then5 ], [ 0, %land.rhs ], [ %5, %if.end.i ], [ 1, %return.loopexit ], [ 0, %if.end.i81 ], [ 0, %land.lhs.true.i ], [ 0, %if.then43.i ], [ 0, %if.then49.i ]
+  %retval.0 = phi i32 [ %cond, %if.then23 ], [ %cond32, %if.then29 ], [ %cond43, %if.then40 ], [ %cond54, %if.then51 ], [ 1, %land.lhs.true ], [ 1, %if.end61 ], [ 1, %if.end65 ], [ 0, %if.end71 ], [ 1, %if.end76 ], [ 0, %if.end79 ], [ %cond.i57, %cond.true ], [ %cond.i58, %cond.false ], [ 0, %if.then5 ], [ 0, %land.rhs ], [ %5, %if.end.i ], [ 0, %if.end.i81 ], [ 0, %if.then49.i ], [ 0, %if.then43.i ], [ 0, %land.lhs.true.i ], [ 1, %return.loopexit ]
   ret i32 %retval.0
 }
 

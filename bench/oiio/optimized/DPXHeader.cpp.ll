@@ -1778,7 +1778,7 @@ if.end10:                                         ; preds = %_ZNK3dpx13GenericHe
   br i1 %exitcond.not, label %return, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, !llvm.loop !8
 
 return.loopexit.split.loop.exit:                  ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %if.end10, %return.loopexit.split.loop.exit, %entry
@@ -2027,12 +2027,12 @@ entry:
   %timeCode = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i32, ptr %timeCode, align 4
   %shr = lshr i32 %0, 28
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw nsw i32 %shr to i8
   %cmp.i = icmp ugt i8 %conv, 9
   %retval.0.v.i = select i1 %cmp.i, i32 55, i32 48
   %retval.0.i = add nuw nsw i32 %retval.0.v.i, %shr
   %and3 = lshr i32 %0, 24
-  %1 = trunc i32 %and3 to i8
+  %1 = trunc nuw i32 %and3 to i8
   %conv5 = and i8 %1, 15
   %cmp.i8 = icmp ugt i8 %conv5, 9
   %retval.0.v.i9 = select i1 %cmp.i8, i8 55, i8 48
@@ -2090,12 +2090,12 @@ entry:
   %userBits = getelementptr inbounds i8, ptr %this, i64 260
   %0 = load i32, ptr %userBits, align 4
   %shr = lshr i32 %0, 28
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw nsw i32 %shr to i8
   %cmp.i = icmp ugt i8 %conv, 9
   %retval.0.v.i = select i1 %cmp.i, i32 55, i32 48
   %retval.0.i = add nuw nsw i32 %retval.0.v.i, %shr
   %and3 = lshr i32 %0, 24
-  %1 = trunc i32 %and3 to i8
+  %1 = trunc nuw i32 %and3 to i8
   %conv5 = and i8 %1, 15
   %cmp.i8 = icmp ugt i8 %conv5, 9
   %retval.0.v.i9 = select i1 %cmp.i8, i8 55, i8 48
@@ -2347,13 +2347,13 @@ _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %entry
   %idxprom.i = zext nneg i32 %element to i64
   %descriptor.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 5
   %1 = load i8, ptr %descriptor.i, align 4
-  %switch.selectcmp.case1 = icmp eq i8 %1, 50
-  %switch.selectcmp.case2 = icmp eq i8 %1, 100
-  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  %cmp = icmp eq i8 %1, 50
+  %2 = icmp eq i8 %1, 100
+  %spec.select = or i1 %cmp, %2
   br label %return
 
-return:                                           ; preds = %entry, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
-  %retval.0 = phi i1 [ %switch.selectcmp, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %entry ]
+return:                                           ; preds = %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ %spec.select, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ]
   ret i1 %retval.0
 }
 

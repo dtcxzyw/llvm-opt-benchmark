@@ -239,7 +239,7 @@ entry:
   %0 = load i32, ptr %vl, align 8
   %cmp.i.i.i.i = icmp eq i32 %0, 1
   %1 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i, i1 false
-  br i1 %1, label %_ZNK8rational6is_oneEv.exit, label %cond.false
+  br i1 %1, label %_ZNK8rational6is_oneEv.exit, label %cond.end
 
 _ZNK8rational6is_oneEv.exit:                      ; preds = %entry
   %m_den.i.i = getelementptr inbounds i8, ptr %vl, i64 16
@@ -250,13 +250,11 @@ _ZNK8rational6is_oneEv.exit:                      ; preds = %entry
   %2 = load i32, ptr %m_den.i.i, align 8
   %cmp.i.i6.i.i = icmp eq i32 %2, 1
   %3 = select i1 %cmp.i.i.i5.i.i, i1 %cmp.i.i6.i.i, i1 false
-  br i1 %3, label %cond.end, label %cond.false
-
-cond.false:                                       ; preds = %entry, %_ZNK8rational6is_oneEv.exit
+  %spec.select = select i1 %3, i64 856, i64 864
   br label %cond.end
 
-cond.end:                                         ; preds = %_ZNK8rational6is_oneEv.exit, %cond.false
-  %.sink3 = phi i64 [ 864, %cond.false ], [ 856, %_ZNK8rational6is_oneEv.exit ]
+cond.end:                                         ; preds = %_ZNK8rational6is_oneEv.exit, %entry
+  %.sink3 = phi i64 [ 864, %entry ], [ %spec.select, %_ZNK8rational6is_oneEv.exit ]
   %m3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m3, align 8
   %m_false.i = getelementptr inbounds i8, ptr %4, i64 %.sink3
@@ -544,7 +542,7 @@ for.inc36.i.i:                                    ; preds = %if.then22.i.i, %for
   br i1 %cmp19.not.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %for.body20.i.i, !llvm.loop !6
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %for.body.i.i, %if.then.i.i, %for.body20.i.i, %if.then22.i.i, %for.inc36.i.i, %for.cond18.preheader.i.i
-  %retval.0.i.i = phi i1 [ true, %for.cond18.preheader.i.i ], [ true, %for.inc36.i.i ], [ false, %if.then22.i.i ], [ true, %for.body20.i.i ], [ true, %for.body.i.i ], [ false, %if.then.i.i ]
+  %call3.not = phi i1 [ true, %for.cond18.preheader.i.i ], [ true, %for.inc36.i.i ], [ false, %if.then22.i.i ], [ true, %for.body20.i.i ], [ true, %for.body.i.i ], [ false, %if.then.i.i ]
   %10 = load ptr, ptr %m_ctx, align 8
   %vtable5 = load ptr, ptr %10, align 8
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 32
@@ -612,8 +610,8 @@ for.inc36.i.i21:                                  ; preds = %if.then22.i.i25, %f
   br i1 %cmp19.not.i.i23, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit35, label %for.body20.i.i18, !llvm.loop !6
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit35: ; preds = %for.body.i.i10, %if.then.i.i30, %for.body20.i.i18, %if.then22.i.i25, %for.inc36.i.i21, %for.cond18.preheader.i.i16
-  %retval.0.i.i24 = phi i1 [ true, %for.cond18.preheader.i.i16 ], [ true, %for.inc36.i.i21 ], [ false, %if.then22.i.i25 ], [ true, %for.body20.i.i18 ], [ true, %for.body.i.i10 ], [ false, %if.then.i.i30 ]
-  %brmerge = or i1 %retval.0.i.i, %retval.0.i.i24
+  %call8.not = phi i1 [ true, %for.cond18.preheader.i.i16 ], [ true, %for.inc36.i.i21 ], [ false, %if.then22.i.i25 ], [ true, %for.body20.i.i18 ], [ true, %for.body.i.i10 ], [ false, %if.then.i.i30 ]
+  %brmerge = or i1 %call3.not, %call8.not
   %retval.0 = select i1 %brmerge, i32 0, i32 3
   ret i32 %retval.0
 }

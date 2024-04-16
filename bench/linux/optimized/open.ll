@@ -304,7 +304,7 @@ define dso_local i64 @do_sys_truncate(ptr noundef %0, i64 noundef %1) local_unna
 
 9:                                                ; preds = %.preheader
   %10 = call i64 @vfs_truncate(ptr noundef nonnull %3, i64 noundef %1), !range !18
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   call void @path_put(ptr noundef nonnull %3) #14
   br label %12
 
@@ -352,7 +352,7 @@ define dso_local i64 @__x64_sys_truncate(ptr nocapture noundef readonly %0) loca
 
 13:                                               ; preds = %.preheader
   %14 = call i64 @vfs_truncate(ptr noundef nonnull %2, i64 noundef %6), !range !18
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nsw i64 %14 to i32
   call void @path_put(ptr noundef nonnull %2) #14
   br label %16
 
@@ -400,7 +400,7 @@ define dso_local i64 @__ia32_sys_truncate(ptr nocapture noundef readonly %0) loc
 
 16:                                               ; preds = %.preheader
   %17 = call i64 @vfs_truncate(ptr noundef nonnull %2, i64 noundef %9), !range !18
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nsw i64 %17 to i32
   call void @path_put(ptr noundef nonnull %2) #14
   br label %19
 
@@ -449,7 +449,7 @@ define dso_local i64 @__ia32_compat_sys_truncate(ptr nocapture noundef readonly 
 
 17:                                               ; preds = %.preheader
   %18 = call i64 @vfs_truncate(ptr noundef nonnull %2, i64 noundef %10), !range !18
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nsw i64 %18 to i32
   call void @path_put(ptr noundef nonnull %2) #14
   br label %20
 
@@ -2995,7 +2995,7 @@ define dso_local noundef i32 @build_open_flags(ptr nocapture noundef readonly %0
   br i1 %24, label %25, label %108
 
 25:                                               ; preds = %23
-  %26 = trunc i64 %22 to i16
+  %26 = trunc nuw nsw i64 %22 to i16
   %27 = or disjoint i16 %26, -32768
   br label %30
 
@@ -3039,9 +3039,9 @@ define dso_local noundef i32 @build_open_flags(ptr nocapture noundef readonly %0
   %52 = lshr i64 %3, 8
   %53 = and i64 %52, 4096
   %54 = or i64 %53, %8
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   store i32 %55, ptr %1, align 4
-  %56 = trunc i64 %3 to i32
+  %56 = trunc nuw i64 %3 to i32
   %57 = lshr i32 %56, 8
   %58 = and i32 %57, 2
   %59 = lshr i32 %56, 7
@@ -3070,7 +3070,7 @@ define dso_local noundef i32 @build_open_flags(ptr nocapture noundef readonly %0
   %75 = or disjoint i32 %66, 1536
   store i32 %75, ptr %67, align 4
   %76 = or i64 %54, 131072
-  %.pre = trunc i64 %76 to i32
+  %.pre = trunc nuw i64 %76 to i32
   br label %77
 
 77:                                               ; preds = %74, %70, %50
@@ -4023,14 +4023,12 @@ define dso_local noundef i32 @generic_file_open(ptr nocapture noundef readonly %
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %9, 2147483647
-  br i1 %10, label %12, label %11
+  %spec.select = select i1 %10, i32 -75, i32 0
+  br label %11
 
 11:                                               ; preds = %7, %2
-  br label %12
-
-12:                                               ; preds = %11, %7
-  %13 = phi i32 [ 0, %11 ], [ -75, %7 ]
-  ret i32 %13
+  %12 = phi i32 [ 0, %2 ], [ %spec.select, %7 ]
+  ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

@@ -1651,7 +1651,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   ]
 
 144:                                              ; preds = %143
-  %145 = trunc i32 %switch.select193 to i16
+  %145 = trunc nuw nsw i32 %switch.select193 to i16
   %146 = sub i16 %16, %145
   %147 = load i32, ptr @hf_ospf_hello, align 4
   %148 = zext i16 %146 to i32
@@ -1720,7 +1720,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   br i1 %195, label %.lr.ph.i, label %dissect_ospf_hello.exit, !llvm.loop !6
 
 196:                                              ; preds = %143
-  %197 = trunc i32 %switch.select193 to i16
+  %197 = trunc nuw nsw i32 %switch.select193 to i16
   %198 = sub i16 %16, %197
   %.not.i198 = icmp eq ptr %20, null
   br i1 %.not.i198, label %235, label %199
@@ -1780,7 +1780,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %232 = call ptr @proto_tree_add_bitmask(ptr noundef %202, ptr noundef %0, i32 noundef 23, i32 noundef %230, i32 noundef %231, ptr noundef nonnull @bf_dbd, i32 noundef 0) #6
   %233 = load i32, ptr @hf_ospf_db_dd_sequence, align 4
   %234 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %233, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #6
-  br label %236
+  br label %.thread72.i
 
 235:                                              ; preds = %196
   switch i8 %11, label %.preheader.i [
@@ -1788,11 +1788,11 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
     i8 3, label %236
   ]
 
-236:                                              ; preds = %235, %.thread69.i
+236:                                              ; preds = %235
   br label %.thread72.i
 
-.thread72.i:                                      ; preds = %236, %235, %.thread.i
-  %.sink.i = phi i32 [ 12, %236 ], [ 8, %.thread.i ], [ 8, %235 ]
+.thread72.i:                                      ; preds = %236, %235, %.thread69.i, %.thread.i
+  %.sink.i = phi i32 [ 8, %.thread.i ], [ 8, %235 ], [ 12, %.thread69.i ], [ 12, %236 ]
   %237 = add nuw nsw i32 %.sink.i, %switch.select193
   br label %.preheader.i
 
@@ -1820,7 +1820,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   br i1 %245, label %.lr.ph.split.i, label %dissect_ospf_hello.exit, !llvm.loop !7
 
 246:                                              ; preds = %143
-  %247 = trunc i32 %switch.select193 to i16
+  %247 = trunc nuw nsw i32 %switch.select193 to i16
   %248 = sub i16 %16, %247
   %249 = zext i16 %248 to i32
   %250 = add nuw nsw i32 %switch.select193, %249
@@ -1878,7 +1878,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   br i1 %282, label %.lr.ph.i201, label %dissect_ospf_hello.exit, !llvm.loop !8
 
 283:                                              ; preds = %143
-  %284 = trunc i32 %switch.select193 to i16
+  %284 = trunc nuw nsw i32 %switch.select193 to i16
   %285 = sub i16 %16, %284
   %286 = zext i16 %285 to i32
   %287 = load i32, ptr @ett_ospf_lsa_upd, align 4
@@ -1910,7 +1910,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   br i1 %exitcond.not.i, label %dissect_ospf_hello.exit, label %.lr.ph.split.i206, !llvm.loop !9
 
 .preheader.i209:                                  ; preds = %143
-  %297 = trunc i32 %switch.select193 to i16
+  %297 = trunc nuw nsw i32 %switch.select193 to i16
   %298 = sub i16 %16, %297
   %299 = zext i16 %298 to i32
   %300 = add nuw nsw i32 %switch.select193, %299
@@ -2087,7 +2087,7 @@ dissect_ospfv2_lls_tlv.exit.us.i:                 ; preds = %._crit_edge.i.us.i,
   br label %390
 
 switch.hole_check:                                ; preds = %.lr.ph.split.i218
-  %switch.maskindex = trunc i16 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 -3, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %.thread.i.i

@@ -868,7 +868,7 @@ if.then.i:                                        ; preds = %if.then
 
 "_ZSt5visitIZNK5folly9SocketFds17getFdSocketSeqNumEvE3$_0JRSt7variantIJSt4pairISt6vectorINS0_4FileESaIS6_EElES4_IS5_ISt10shared_ptrIKS6_ESaISC_EElEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit": ; preds = %if.then
   %or.cond = icmp sgt i64 %call3.val, -2
-  br i1 %or.cond, label %cleanup, label %if.then7
+  br i1 %or.cond, label %return, label %if.then7
 
 if.then7:                                         ; preds = %"_ZSt5visitIZNK5folly9SocketFds17getFdSocketSeqNumEvE3$_0JRSt7variantIJSt4pairISt6vectorINS0_4FileESaIS6_EElES4_IS5_ISt10shared_ptrIKS6_ESaISC_EElEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit"
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp8) #14
@@ -887,7 +887,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
 cleanup.thread:                                   ; preds = %invoke.cont10
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp8) #14
-  br label %if.end21
+  br label %return
 
 lpad:                                             ; preds = %invoke.cont10, %invoke.cont, %if.then7
   %3 = landingpad { ptr, i32 }
@@ -895,10 +895,6 @@ lpad:                                             ; preds = %invoke.cont10, %inv
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp8) #14
   br label %eh.resume
-
-cleanup:                                          ; preds = %"_ZSt5visitIZNK5folly9SocketFds17getFdSocketSeqNumEvE3$_0JRSt7variantIJSt4pairISt6vectorINS0_4FileESaIS6_EElES4_IS5_ISt10shared_ptrIKS6_ESaISC_EElEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit"
-  %cmp = icmp slt i64 %call3.val, 0
-  br i1 %cmp, label %if.end21, label %return
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp15) #14
@@ -913,7 +909,7 @@ invoke.cont17:                                    ; preds = %if.else
 invoke.cont19:                                    ; preds = %invoke.cont17
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp15) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp15) #14
-  br label %if.end21
+  br label %return
 
 lpad16:                                           ; preds = %invoke.cont17, %if.else
   %4 = landingpad { ptr, i32 }
@@ -922,11 +918,8 @@ lpad16:                                           ; preds = %invoke.cont17, %if.
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp15) #14
   br label %eh.resume
 
-if.end21:                                         ; preds = %invoke.cont19, %cleanup, %cleanup.thread
-  br label %return
-
-return:                                           ; preds = %if.end21, %cleanup
-  %retval.1 = phi i64 [ %call3.val, %cleanup ], [ -1, %if.end21 ]
+return:                                           ; preds = %"_ZSt5visitIZNK5folly9SocketFds17getFdSocketSeqNumEvE3$_0JRSt7variantIJSt4pairISt6vectorINS0_4FileESaIS6_EElES4_IS5_ISt10shared_ptrIKS6_ESaISC_EElEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit", %cleanup.thread, %invoke.cont19
+  %retval.1 = phi i64 [ -1, %invoke.cont19 ], [ -1, %cleanup.thread ], [ %call3.val, %"_ZSt5visitIZNK5folly9SocketFds17getFdSocketSeqNumEvE3$_0JRSt7variantIJSt4pairISt6vectorINS0_4FileESaIS6_EElES4_IS5_ISt10shared_ptrIKS6_ESaISC_EElEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISL_EEEEE4typeEE4typeEOSU_EEEE4typeEOSJ_DpOSL_.exit" ]
   ret i64 %retval.1
 
 eh.resume:                                        ; preds = %lpad16, %lpad

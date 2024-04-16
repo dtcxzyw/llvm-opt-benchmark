@@ -1060,14 +1060,14 @@ entry:
   %0 = load ptr, ptr %path_managers_info_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not12 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not12, label %for.end, label %for.body
+  %cmp.i.not11 = icmp eq ptr %0, %1
+  br i1 %cmp.i.not11, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %retval.sroa.0.014 = phi i64 [ %retval.sroa.0.1, %for.inc ], [ 0, %entry ]
-  %__begin1.sroa.0.013 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %path_manager_info.sroa.0.0.copyload = load ptr, ptr %__begin1.sroa.0.013, align 8
-  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 8
+  %retval.sroa.0.013 = phi i64 [ %retval.sroa.0.1, %for.inc ], [ 0, %entry ]
+  %__begin1.sroa.0.012 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
+  %path_manager_info.sroa.0.0.copyload = load ptr, ptr %__begin1.sroa.0.012, align 8
+  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.012, i64 8
   %path_manager_info.sroa.2.0.copyload = load i32, ptr %path_manager_info.sroa.2.0..sroa_idx, align 8
   %cmp = icmp eq ptr %path_manager_info.sroa.0.0.copyload, null
   %cmp8 = icmp ne i32 %path_manager_info.sroa.2.0.copyload, 0
@@ -1083,14 +1083,16 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i2.not, label %for.inc, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %cmp.i3 = icmp eq i64 %retval.sroa.0.014, 0
-  %3 = tail call i64 @llvm.smin.i64(i64 %call10, i64 %retval.sroa.0.014)
-  %spec.select = select i1 %cmp.i3, i64 %call10, i64 %3
+  %cmp.i3.not = icmp eq i64 %retval.sroa.0.013, 0
+  br i1 %cmp.i3.not, label %for.inc, label %lor.lhs.false16
+
+lor.lhs.false16:                                  ; preds = %if.end14
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %call10, i64 %retval.sroa.0.013)
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end14, %if.end, %for.body
-  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.014, %for.body ], [ %retval.sroa.0.014, %if.end ], [ %spec.select, %if.end14 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 16
+for.inc:                                          ; preds = %lor.lhs.false16, %if.end14, %if.end, %for.body
+  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.013, %for.body ], [ %retval.sroa.0.013, %if.end ], [ %call10, %if.end14 ], [ %spec.select, %lor.lhs.false16 ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.012, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 

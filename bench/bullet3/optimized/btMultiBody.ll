@@ -6099,7 +6099,7 @@ if.end249:                                        ; preds = %if.else241, %for.en
   %ref.tmp4.sroa.2.0.m_bottomVec16.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx254, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i32.i, ptr %ref.tmp4.sroa.2.0.m_bottomVec16.sroa_idx.i, align 4
   %457 = load ptr, ptr %m_data.i667, align 8
-  %458 = trunc i64 %indvars.iv2735 to i32
+  %458 = trunc nuw nsw i64 %indvars.iv2735 to i32
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i864, %if.end249
@@ -6373,7 +6373,7 @@ if.else.i.lr.ph.i:                                ; preds = %if.else.i.lr.ph.i.l
   %indvars.iv2795 = phi i64 [ %34, %if.else.i.lr.ph.i.lr.ph ], [ %indvars.iv.next2796, %for.inc751 ]
   %indvars.iv.next2796 = add nsw i64 %indvars.iv2795, -1
   %585 = load ptr, ptr %m_data.i.i.i1155, align 8
-  %586 = trunc i64 %indvars.iv.next2796 to i32
+  %586 = trunc nuw nsw i64 %indvars.iv.next2796 to i32
   br label %if.else.i.i1156
 
 if.else.i.i1156:                                  ; preds = %if.end.i1165, %if.else.i.lr.ph.i
@@ -6509,7 +6509,7 @@ for.body523.us:                                   ; preds = %for.cond530.for.inc
 
 for.body535.us:                                   ; preds = %for.body523.us, %for.body535.us
   %indvars.iv2743 = phi i64 [ 0, %for.body523.us ], [ %indvars.iv.next2744, %for.body535.us ]
-  %602 = trunc i64 %indvars.iv2743 to i32
+  %602 = trunc nuw nsw i64 %indvars.iv2743 to i32
   %add539.us = add nsw i32 %.pre2824.pre, %602
   %idxprom540.us = sext i32 %add539.us to i64
   %arrayidx541.us = getelementptr inbounds %struct.btSpatialForceVector, ptr %cond2611, i64 %idxprom540.us
@@ -6552,7 +6552,7 @@ for.body475:                                      ; preds = %for.body475.lr.ph, 
   %arrayidx.i11892652 = phi ptr [ %arrayidx.i1179, %for.body475.lr.ph ], [ %arrayidx.i1189, %for.body475 ]
   %m_dofOffset = getelementptr inbounds i8, ptr %arrayidx.i11892652, i64 328
   %619 = load i32, ptr %m_dofOffset, align 8
-  %620 = trunc i64 %indvars.iv2740 to i32
+  %620 = trunc nuw nsw i64 %indvars.iv2740 to i32
   %add478 = add nsw i32 %619, %620
   %idxprom479 = sext i32 %add478 to i64
   %arrayidx480 = getelementptr inbounds %struct.btSpatialForceVector, ptr %cond2611, i64 %idxprom479
@@ -6986,7 +6986,7 @@ for.body655:                                      ; preds = %for.body655.lr.ph, 
   %875 = phi <2 x float> [ %853, %for.body655.lr.ph ], [ %914, %for.body655 ]
   %876 = phi <2 x float> [ %861, %for.body655.lr.ph ], [ %918, %for.body655 ]
   %877 = load i32, ptr %m_dofOffset659, align 8
-  %878 = trunc i64 %indvars.iv2774 to i32
+  %878 = trunc nuw nsw i64 %indvars.iv2774 to i32
   %add660 = add nsw i32 %877, %878
   %idxprom661 = sext i32 %add660 to i64
   %arrayidx662 = getelementptr inbounds %struct.btSpatialForceVector, ptr %cond2611, i64 %idxprom661
@@ -7293,7 +7293,7 @@ for.body728:                                      ; preds = %for.body728.lr.ph, 
   %indvars.iv2790 = phi i64 [ 0, %for.body728.lr.ph ], [ %indvars.iv.next2791, %for.body728 ]
   %1044 = phi <4 x float> [ %1029, %for.body728.lr.ph ], [ %1065, %for.body728 ]
   %1045 = phi <2 x float> [ %1038, %for.body728.lr.ph ], [ %1064, %for.body728 ]
-  %1046 = trunc i64 %indvars.iv2790 to i32
+  %1046 = trunc nuw nsw i64 %indvars.iv2790 to i32
   %add733 = add nsw i32 %.pre2834, %1046
   %idxprom734 = sext i32 %add733 to i64
   %arrayidx735 = getelementptr inbounds %struct.btSpatialForceVector, ptr %cond2611, i64 %idxprom734
@@ -7656,7 +7656,7 @@ for.body777:                                      ; preds = %for.body777.lr.ph, 
   %ref.tmp3.sroa.2.0.m_bottomVec17.sroa_idx.i1678 = getelementptr inbounds i8, ptr %arrayidx796, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i50.i1676, ptr %ref.tmp3.sroa.2.0.m_bottomVec17.sroa_idx.i1678, align 4
   %1215 = load ptr, ptr %m_data.i1632, align 8
-  %1216 = trunc i64 %indvars.iv2807 to i32
+  %1216 = trunc nuw nsw i64 %indvars.iv2807 to i32
   br label %if.else.i.i1681
 
 if.else.i.i1681:                                  ; preds = %if.end.i1690, %for.body777
@@ -7829,7 +7829,7 @@ for.body865:                                      ; preds = %_ZNK11btMultiBody9m
   %arrayidx871 = getelementptr inbounds [6 x %struct.btSpatialMotionVector], ptr %m_axes869, i64 0, i64 %indvars.iv2804
   %m_dofOffset874 = getelementptr inbounds i8, ptr %arrayidx.i17632716, i64 328
   %1270 = load i32, ptr %m_dofOffset874, align 8
-  %1271 = trunc i64 %indvars.iv2804 to i32
+  %1271 = trunc nuw nsw i64 %indvars.iv2804 to i32
   %add875 = add nsw i32 %1270, %1271
   %idxprom876 = sext i32 %add875 to i64
   %arrayidx877 = getelementptr inbounds float, ptr %add.ptr47, i64 %idxprom876
@@ -11844,7 +11844,7 @@ if.else.i.lr.ph.i:                                ; preds = %if.else.i.lr.ph.i.l
   %indvars.iv624 = phi i64 [ %72, %if.else.i.lr.ph.i.lr.ph ], [ %indvars.iv.next625, %for.inc176 ]
   %indvars.iv.next625 = add nsw i64 %indvars.iv624, -1
   %73 = load ptr, ptr %m_data.i.i.i159, align 8
-  %74 = trunc i64 %indvars.iv.next625 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv.next625 to i32
   br label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i160, %if.else.i.lr.ph.i
@@ -11970,7 +11970,7 @@ for.body73:                                       ; preds = %for.body73.lr.ph, %
   %117 = fadd <2 x float> %116, %shift
   %add.i = extractelement <2 x float> %117, i64 0
   %sub88 = fsub float %89, %add.i
-  %118 = trunc i64 %indvars.iv to i32
+  %118 = trunc nuw nsw i64 %indvars.iv to i32
   %add92 = add nsw i32 %86, %118
   %idxprom93 = sext i32 %add92 to i64
   %arrayidx94 = getelementptr inbounds float, ptr %cond547556, i64 %idxprom93
@@ -12202,7 +12202,7 @@ for.body190.lr.ph:                                ; preds = %if.end186
 for.body190:                                      ; preds = %for.body190.lr.ph, %for.inc293
   %198 = phi ptr [ %.pre, %for.body190.lr.ph ], [ %312, %for.inc293 ]
   %indvars.iv636 = phi i64 [ 0, %for.body190.lr.ph ], [ %indvars.iv.next637.pre-phi, %for.inc293 ]
-  %199 = trunc i64 %indvars.iv636 to i32
+  %199 = trunc nuw nsw i64 %indvars.iv636 to i32
   br label %if.else.i.i268
 
 if.else.i.i268:                                   ; preds = %if.end.i277, %for.body190
@@ -12457,7 +12457,7 @@ for.body273:                                      ; preds = %for.body273.lr.ph, 
   %arrayidx279 = getelementptr inbounds [6 x %struct.btSpatialMotionVector], ptr %m_axes277, i64 0, i64 %indvars.iv633
   %m_dofOffset282 = getelementptr inbounds i8, ptr %arrayidx.i371599, i64 328
   %296 = load i32, ptr %m_dofOffset282, align 8
-  %297 = trunc i64 %indvars.iv633 to i32
+  %297 = trunc nuw nsw i64 %indvars.iv633 to i32
   %add283 = add nsw i32 %296, %297
   %idxprom284 = sext i32 %add283 to i64
   %arrayidx285 = getelementptr inbounds float, ptr %add.ptr178, i64 %idxprom284
@@ -14471,7 +14471,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp21.not, label %while.end.loopexit, label %while.body, !llvm.loop !189
 
 while.end.loopexit:                               ; preds = %while.body
-  %27 = trunc i64 %indvars.iv.next to i32
+  %27 = trunc nuw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
@@ -16610,21 +16610,20 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then4.i4
   %m_baseCollider.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %m_baseCollider.i.i, align 8
   %tobool.not.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i, label %if.else, label %_ZNK11btMultiBody15isBaseKinematicEv.exit
+  br i1 %tobool.not.i, label %if.end, label %_ZNK11btMultiBody15isBaseKinematicEv.exit
 
 _ZNK11btMultiBody15isBaseKinematicEv.exit:        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
   %m_collisionFlags.i.i = getelementptr inbounds i8, ptr %14, i64 224
   %15 = load i32, ptr %m_collisionFlags.i.i, align 8
   %and.i.i = and i32 %15, 2
   %cmp.i.i79.not = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i79.not, label %if.else, label %if.end
-
-if.else:                                          ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit, %_ZNK11btMultiBody15isBaseKinematicEv.exit
+  %spec.select = select i1 %cmp.i.i79.not, i64 72, i64 56
+  %spec.select231 = select i1 %cmp.i.i79.not, i64 40, i64 24
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK11btMultiBody15isBaseKinematicEv.exit, %if.else
-  %.sink230 = phi i64 [ 72, %if.else ], [ 56, %_ZNK11btMultiBody15isBaseKinematicEv.exit ]
-  %.sink = phi i64 [ 40, %if.else ], [ 24, %_ZNK11btMultiBody15isBaseKinematicEv.exit ]
+if.end:                                           ; preds = %_ZNK11btMultiBody15isBaseKinematicEv.exit, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
+  %.sink230 = phi i64 [ 72, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit ], [ %spec.select, %_ZNK11btMultiBody15isBaseKinematicEv.exit ]
+  %.sink = phi i64 [ 40, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit ], [ %spec.select231, %_ZNK11btMultiBody15isBaseKinematicEv.exit ]
   %m_baseQuat_interpolate.i = getelementptr inbounds i8, ptr %this, i64 %.sink230
   %m_data.i81 = getelementptr inbounds i8, ptr %world_to_local, i64 16
   %16 = load ptr, ptr %m_data.i81, align 8

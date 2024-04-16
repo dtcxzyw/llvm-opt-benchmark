@@ -180,7 +180,7 @@ ossl_mac_key_free.exit:                           ; preds = %entry, %CRYPTO_DOWN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mac_get_params(ptr noundef %key, ptr noundef %params) #0 {
+define internal i32 @mac_get_params(ptr noundef %key, ptr noundef %params) #0 {
 entry:
   %call = tail call fastcc i32 @key_to_params(ptr noundef %key, ptr noundef null, ptr noundef %params), !range !4
   ret i32 %call
@@ -806,7 +806,7 @@ entry:
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @key_to_params(ptr noundef readonly %key, ptr noundef %tmpl, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc i32 @key_to_params(ptr noundef readonly %key, ptr noundef %tmpl, ptr noundef %params) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -840,19 +840,17 @@ if.end14:                                         ; preds = %land.lhs.true7, %if
   %engine = getelementptr inbounds i8, ptr %key, i64 48
   %3 = load ptr, ptr %engine, align 8
   %cmp16.not = icmp eq ptr %3, null
-  br i1 %cmp16.not, label %if.end24, label %land.lhs.true17
+  br i1 %cmp16.not, label %return, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %if.end14
   %call20 = tail call ptr @ENGINE_get_id(ptr noundef nonnull %3) #6
   %call21 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %tmpl, ptr noundef %params, ptr noundef nonnull @.str.3, ptr noundef %call20) #6
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %return, label %if.end24
-
-if.end24:                                         ; preds = %land.lhs.true17, %if.end14
+  %tobool22.not = icmp ne i32 %call21, 0
+  %spec.select = zext i1 %tobool22.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true17, %land.lhs.true7, %land.lhs.true, %entry, %if.end24
-  %retval.0 = phi i32 [ 1, %if.end24 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true7 ], [ 0, %land.lhs.true17 ]
+return:                                           ; preds = %land.lhs.true17, %if.end14, %land.lhs.true7, %land.lhs.true, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true7 ], [ 1, %if.end14 ], [ %spec.select, %land.lhs.true17 ]
   ret i32 %retval.0
 }
 

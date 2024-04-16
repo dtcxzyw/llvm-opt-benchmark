@@ -2245,18 +2245,14 @@ do.body149:                                       ; preds = %if.then140, %do.bod
   %Sock_Type = getelementptr inbounds i8, ptr %call.i, i64 112
   %14 = load ptr, ptr %Sock_Type, align 8
   %tobool150.not = icmp eq ptr %14, null
-  br i1 %tobool150.not, label %do.end159, label %if.then151
+  br i1 %tobool150.not, label %return, label %if.then151
 
 if.then151:                                       ; preds = %do.body149
   %call154 = tail call i32 %visit(ptr noundef nonnull %14, ptr noundef %arg) #11
-  %tobool155.not = icmp eq i32 %call154, 0
-  br i1 %tobool155.not, label %do.end159, label %return
-
-do.end159:                                        ; preds = %do.body149, %if.then151
   br label %return
 
-return:                                           ; preds = %if.then151, %if.then140, %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then, %do.end159
-  %retval.0 = phi i32 [ 0, %do.end159 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ], [ %call143, %if.then140 ], [ %call154, %if.then151 ]
+return:                                           ; preds = %if.then151, %do.body149, %if.then140, %if.then129, %if.then118, %if.then107, %if.then96, %if.then85, %if.then74, %if.then63, %if.then52, %if.then41, %if.then30, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ], [ %call44, %if.then41 ], [ %call55, %if.then52 ], [ %call66, %if.then63 ], [ %call77, %if.then74 ], [ %call88, %if.then85 ], [ %call99, %if.then96 ], [ %call110, %if.then107 ], [ %call121, %if.then118 ], [ %call132, %if.then129 ], [ %call143, %if.then140 ], [ 0, %do.body149 ], [ %call154, %if.then151 ]
   ret i32 %retval.0
 }
 
@@ -5708,7 +5704,7 @@ return:                                           ; preds = %if.end41, %if.end36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sslmodule_init_exceptions(ptr noundef %module) #0 {
+define internal i32 @sslmodule_init_exceptions(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #11
   %0 = load ptr, ptr @PyExc_OSError, align 8
@@ -5716,19 +5712,19 @@ entry:
   %PySSLErrorObject = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call1, ptr %PySSLErrorObject, align 8
   %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %error.thread, label %if.end
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call4 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.281, ptr noundef nonnull %call1) #11
   %cmp5 = icmp slt i32 %call4, 0
-  br i1 %cmp5, label %error.thread, label %if.end7
+  br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %1 = load ptr, ptr %PySSLErrorObject, align 8
   %2 = load ptr, ptr @PyExc_ValueError, align 8
   %call9 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef %1, ptr noundef %2) #11
   %cmp10 = icmp eq ptr %call9, null
-  br i1 %cmp10, label %error.thread, label %if.end16
+  br i1 %cmp10, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end7
   %call13 = tail call ptr @PyErr_NewExceptionWithDoc(ptr noundef nonnull @.str.282, ptr noundef nonnull @SSLCertVerificationError_doc, ptr noundef nonnull %call9, ptr noundef null) #11
@@ -5761,7 +5757,7 @@ do.body27:                                        ; preds = %if.end.i, %if.then1
   store ptr %call29, ptr %PySSLZeroReturnErrorObject, align 8
   %call34 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.285, ptr noundef %call29) #11
   %cmp35 = icmp slt i32 %call34, 0
-  br i1 %cmp35, label %error.thread, label %do.body39
+  br i1 %cmp35, label %return, label %do.body39
 
 do.body39:                                        ; preds = %do.body27
   %6 = load ptr, ptr %PySSLErrorObject, align 8
@@ -5770,7 +5766,7 @@ do.body39:                                        ; preds = %do.body27
   store ptr %call41, ptr %PySSLWantWriteErrorObject, align 8
   %call46 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.287, ptr noundef %call41) #11
   %cmp47 = icmp slt i32 %call46, 0
-  br i1 %cmp47, label %error.thread, label %do.body51
+  br i1 %cmp47, label %return, label %do.body51
 
 do.body51:                                        ; preds = %do.body39
   %7 = load ptr, ptr %PySSLErrorObject, align 8
@@ -5779,7 +5775,7 @@ do.body51:                                        ; preds = %do.body39
   store ptr %call53, ptr %PySSLWantReadErrorObject, align 8
   %call58 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.289, ptr noundef %call53) #11
   %cmp59 = icmp slt i32 %call58, 0
-  br i1 %cmp59, label %error.thread, label %do.body63
+  br i1 %cmp59, label %return, label %do.body63
 
 do.body63:                                        ; preds = %do.body51
   %8 = load ptr, ptr %PySSLErrorObject, align 8
@@ -5788,7 +5784,7 @@ do.body63:                                        ; preds = %do.body51
   store ptr %call65, ptr %PySSLSyscallErrorObject, align 8
   %call70 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.291, ptr noundef %call65) #11
   %cmp71 = icmp slt i32 %call70, 0
-  br i1 %cmp71, label %error.thread, label %do.body75
+  br i1 %cmp71, label %return, label %do.body75
 
 do.body75:                                        ; preds = %do.body63
   %9 = load ptr, ptr %PySSLErrorObject, align 8
@@ -5796,10 +5792,7 @@ do.body75:                                        ; preds = %do.body63
   %PySSLEOFErrorObject = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %call77, ptr %PySSLEOFErrorObject, align 8
   %call82 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.293, ptr noundef %call77) #11
-  %cmp83 = icmp slt i32 %call82, 0
-  br i1 %cmp83, label %error.thread, label %return
-
-error.thread:                                     ; preds = %entry, %if.end, %if.end7, %do.body27, %do.body39, %do.body51, %do.body63, %do.body75
+  %call82.lobit = ashr i32 %call82, 31
   br label %return
 
 if.then.i:                                        ; preds = %if.end16
@@ -5815,8 +5808,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call9) #11
   br label %return
 
-return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %error.thread, %do.body75
-  %retval.0 = phi i32 [ 0, %do.body75 ], [ -1, %error.thread ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ]
+return:                                           ; preds = %do.body75, %do.body63, %do.body51, %do.body39, %do.body27, %if.end7, %if.end, %entry, %if.then1.i.i, %if.end.i.i, %if.then.i
+  %retval.0 = phi i32 [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ], [ -1, %entry ], [ -1, %if.end ], [ -1, %if.end7 ], [ -1, %do.body27 ], [ -1, %do.body39 ], [ -1, %do.body51 ], [ -1, %do.body63 ], [ %call82.lobit, %do.body75 ]
   ret i32 %retval.0
 }
 
@@ -6765,18 +6758,14 @@ do.body16:                                        ; preds = %if.then7, %do.body5
   %2 = getelementptr i8, ptr %self, i64 8
   %self.val14 = load ptr, ptr %2, align 8
   %tobool18.not = icmp eq ptr %self.val14, null
-  br i1 %tobool18.not, label %do.end27, label %if.then19
+  br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %do.body16
   %call22 = tail call i32 %visit(ptr noundef nonnull %self.val14, ptr noundef %arg) #11
-  %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %do.end27, label %return
-
-do.end27:                                         ; preds = %do.body16, %if.then19
   br label %return
 
-return:                                           ; preds = %if.then19, %if.then7, %if.then, %do.end27
-  %retval.0 = phi i32 [ 0, %do.end27 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call22, %if.then19 ]
+return:                                           ; preds = %if.then19, %do.body16, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ 0, %do.body16 ], [ %call22, %if.then19 ]
   ret i32 %retval.0
 }
 
@@ -8813,7 +8802,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %if.end24.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end24.i ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call15.i = call ptr @OPENSSL_sk_value(ptr noundef %call2.i, i32 noundef %4) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %alg_bits.i.i)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %buf.i.i)
@@ -10213,7 +10202,7 @@ if.then3:                                         ; preds = %if.else
   br label %return
 
 if.end4:                                          ; preds = %if.else
-  %conv = trunc i64 %len to i32
+  %conv = trunc nuw nsw i64 %len to i32
   %call = tail call ptr @BIO_new_mem_buf(ptr noundef %data, i32 noundef %conv) #11
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %if.then7, label %if.end9
@@ -12656,18 +12645,14 @@ do.body5:                                         ; preds = %if.then, %entry
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val8 = load ptr, ptr %1, align 8
   %tobool7.not = icmp eq ptr %self.val8, null
-  br i1 %tobool7.not, label %do.end16, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body5
   %call11 = tail call i32 %visit(ptr noundef nonnull %self.val8, ptr noundef %arg) #11
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.end16, label %return
-
-do.end16:                                         ; preds = %do.body5, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %do.end16
-  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call, %if.then ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %do.body5, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body5 ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 
@@ -12830,7 +12815,7 @@ _PySSL_errno.exit.i:                              ; preds = %if.then.i39.i, %do.
   %retval.sroa.0.0.insert.insert.i.i = phi i64 [ %22, %if.then.i39.i ], [ 0, %do.body.i ]
   %err.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.0.insert.insert.i.i to i32
   %err.sroa.6.0.extract.shift.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i, 32
-  %err.sroa.6.0.extract.trunc.i = trunc i64 %err.sroa.6.0.extract.shift.i to i32
+  %err.sroa.6.0.extract.trunc.i = trunc nuw i64 %err.sroa.6.0.extract.shift.i to i32
   call void @PyEval_RestoreThread(ptr noundef %call22.i) #11
   store i32 %err.sroa.0.0.extract.trunc.i, ptr %err31.i, align 8
   store i32 %err.sroa.6.0.extract.trunc.i, ptr %err.sroa.6.0.err31.sroa_idx.i, align 4
@@ -13215,7 +13200,7 @@ _PySSL_errno.exit.i:                              ; preds = %if.then.i48.i, %do.
   %retval.sroa.0.0.insert.insert.i.i = phi i64 [ %27, %if.then.i48.i ], [ 0, %do.body.i ]
   %err.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.0.insert.insert.i.i to i32
   %err.sroa.6.0.extract.shift.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i, 32
-  %err.sroa.6.0.extract.trunc.i = trunc i64 %err.sroa.6.0.extract.shift.i to i32
+  %err.sroa.6.0.extract.trunc.i = trunc nuw i64 %err.sroa.6.0.extract.shift.i to i32
   call void @PyEval_RestoreThread(ptr noundef %call45.i) #11
   store i32 %err.sroa.0.0.extract.trunc.i, ptr %err54.i, align 8
   store i32 %err.sroa.6.0.extract.trunc.i, ptr %err.sroa.6.0.err54.sroa_idx.i, align 4
@@ -13706,7 +13691,7 @@ _PySSL_errno.exit.i:                              ; preds = %if.then.i58.i, %do.
   %retval.sroa.0.0.insert.insert.i.i = phi i64 [ %29, %if.then.i58.i ], [ 0, %do.body.i ]
   %err.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.0.insert.insert.i.i to i32
   %err.sroa.7.0.extract.shift.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i, 32
-  %err.sroa.7.0.extract.trunc.i = trunc i64 %err.sroa.7.0.extract.shift.i to i32
+  %err.sroa.7.0.extract.trunc.i = trunc nuw i64 %err.sroa.7.0.extract.shift.i to i32
   call void @PyEval_RestoreThread(ptr noundef %call59.i) #11
   store i32 %err.sroa.0.0.extract.trunc.i, ptr %err68.i, align 8
   store i32 %err.sroa.7.0.extract.trunc.i, ptr %err.sroa.7.0.err68.sroa_idx.i, align 4
@@ -14543,7 +14528,7 @@ _PySSL_errno.exit.i:                              ; preds = %if.then.i44.i, %if.
   %retval.sroa.0.0.insert.insert.i.i = phi i64 [ %22, %if.then.i44.i ], [ 0, %if.end26.i ]
   %err.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.0.insert.insert.i.i to i32
   %err.sroa.5.0.extract.shift.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i, 32
-  %err.sroa.5.0.extract.trunc.i = trunc i64 %err.sroa.5.0.extract.shift.i to i32
+  %err.sroa.5.0.extract.trunc.i = trunc nuw i64 %err.sroa.5.0.extract.shift.i to i32
   call void @PyEval_RestoreThread(ptr noundef %call22.i) #11
   store i32 %err.sroa.0.0.extract.trunc.i, ptr %err35.i, align 8
   store i32 %err.sroa.5.0.extract.trunc.i, ptr %err.sroa.5.0.err35.sroa_idx.i, align 4
@@ -15267,7 +15252,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end12
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end12 ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef %stack, i32 noundef %1) #11
   %state.val = load ptr, ptr %0, align 8
   %tp_alloc.i.i = getelementptr inbounds i8, ptr %state.val, i64 304
@@ -15694,18 +15679,14 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %self.val3, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %self.val3, ptr noundef %arg) #11
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -16122,18 +16103,14 @@ do.body5:                                         ; preds = %if.then, %entry
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val8 = load ptr, ptr %1, align 8
   %tobool7.not = icmp eq ptr %self.val8, null
-  br i1 %tobool7.not, label %do.end16, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body5
   %call11 = tail call i32 %visit(ptr noundef nonnull %self.val8, ptr noundef %arg) #11
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.end16, label %return
-
-do.end16:                                         ; preds = %do.body5, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %do.end16
-  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call, %if.then ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %do.body5, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body5 ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 

@@ -4272,7 +4272,7 @@ _ZNK9PrefsItem11getPrefTypeEv.exit:               ; preds = %50
 
 66:                                               ; preds = %65, %.noexc
   %.0.i.i = phi i64 [ %64, %.noexc ], [ 0, %65 ]
-  %67 = trunc i64 %.0.i.i to i32
+  %67 = trunc nuw i64 %.0.i.i to i32
   %68 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -6407,12 +6407,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %104
 
 .critedge:                                        ; preds = %_ZNK11QModelIndex6parentEv.exit37, %_ZNK11QModelIndex6parentEv.exit, %_ZNK11QModelIndex7isValidEv.exit32.thread, %_ZNK9PrefsItem14getModuleTitleEv.exit28, %110
   %113 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 0) #20
-  %114 = icmp sgt i32 %113, -1
+  %114 = icmp slt i32 %113, 0
   br label %115
 
 115:                                              ; preds = %.critedge, %110, %_ZNK11QModelIndex7isValidEv.exit39.thread
   %.017 = phi i1 [ false, %_ZNK11QModelIndex7isValidEv.exit39.thread ], [ true, %110 ], [ true, %.critedge ]
-  %.0 = phi i1 [ false, %_ZNK11QModelIndex7isValidEv.exit39.thread ], [ false, %110 ], [ %114, %.critedge ]
+  %.0 = phi i1 [ true, %_ZNK11QModelIndex7isValidEv.exit39.thread ], [ true, %110 ], [ %114, %.critedge ]
   %116 = load ptr, ptr %7, align 16
   %.not.i.i.i41 = icmp eq ptr %116, null
   br i1 %.not.i.i.i41, label %_ZN7QStringD2Ev.exit44, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i42
@@ -6443,7 +6443,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i46:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit48
 
 _ZN7QStringD2Ev.exit48:                           ; preds = %_ZN7QStringD2Ev.exit44, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i46, %122
-  br i1 %.0, label %128, label %129
+  %spec.select = and i1 %.017, %.0
+  br label %128
 
 _ZN7QStringD2Ev.exit:                             ; preds = %108, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %104, %102
   %.pn = phi { ptr, i32 } [ %103, %102 ], [ %105, %104 ], [ %105, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ %105, %108 ]
@@ -6465,10 +6466,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %_ZN7QStringD2Ev.exi
   resume { ptr, i32 } %.pn
 
 128:                                              ; preds = %_ZN7QStringD2Ev.exit48, %3
-  br label %129
-
-129:                                              ; preds = %_ZN7QStringD2Ev.exit48, %128
-  %.1 = phi i1 [ %.017, %_ZN7QStringD2Ev.exit48 ], [ false, %128 ]
+  %.1 = phi i1 [ false, %3 ], [ %spec.select, %_ZN7QStringD2Ev.exit48 ]
   ret i1 %.1
 }
 
@@ -6484,13 +6482,13 @@ define noundef zeroext i1 @_ZNK16ModulePrefsModel16filterAcceptsRowEiRK11QModelI
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = icmp eq i64 %10, 0
-  br i1 %12, label %23, label %13
+  br i1 %12, label %22, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %11, i64 40
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %16, label %23
+  br i1 %.not, label %16, label %22
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %11, i64 48
@@ -6501,14 +6499,11 @@ define noundef zeroext i1 @_ZNK16ModulePrefsModel16filterAcceptsRowEiRK11QModelI
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %18, i64 68
   %21 = load i32, ptr %20, align 4
-  %.not9 = icmp eq i32 %21, 0
-  br i1 %.not9, label %23, label %22
+  %.not9 = icmp ne i32 %21, 0
+  br label %22
 
-22:                                               ; preds = %19, %16
-  br label %23
-
-23:                                               ; preds = %19, %13, %3, %22
-  %.0 = phi i1 [ true, %22 ], [ true, %3 ], [ false, %13 ], [ false, %19 ]
+22:                                               ; preds = %19, %16, %13, %3
+  %.0 = phi i1 [ true, %3 ], [ false, %13 ], [ true, %16 ], [ %.not9, %19 ]
   ret i1 %.0
 }
 

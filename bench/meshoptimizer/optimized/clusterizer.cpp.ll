@@ -74,7 +74,7 @@ call.i45.i.noexc:                                 ; preds = %call.i.i.noexc
   store ptr %call.i45.i89, ptr %offsets.i, align 8
   %2 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i49.i = icmp ugt i64 %index_count, 4611686018427387903
-  %mul.i50.i = shl i64 %index_count, 2
+  %mul.i50.i = shl nuw i64 %index_count, 2
   %cond.i51.i = select i1 %cmp.i49.i, i64 -1, i64 %mul.i50.i
   %call.i52.i90 = invoke noundef ptr %2(i64 noundef %cond.i51.i)
           to label %call.i52.i.noexc unwind label %lpad
@@ -196,7 +196,7 @@ invoke.cont2:                                     ; preds = %invoke.cont1
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i97, i8 0, i64 %div.i, i1 false)
   %16 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i98 = icmp ugt i64 %index_count, 2305843009213693952
-  %mul.i99 = mul i64 %div.i, 24
+  %mul.i99 = mul nuw i64 %div.i, 24
   %cond.i100 = select i1 %cmp.i98, i64 -1, i64 %mul.i99
   %call.i104 = invoke noundef ptr %16(i64 noundef %cond.i100)
           to label %invoke.cont4 unwind label %lpad
@@ -316,7 +316,7 @@ _ZN7meshoptL20computeTriangleConesEPNS_4ConeEPKjmPKfmm.exit: ; preds = %for.body
   %mul13 = fmul float %call12, 5.000000e-01
   %58 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i113 = icmp ugt i64 %index_count, -4611686018427387905
-  %mul.i114 = shl i64 %div.i, 2
+  %mul.i114 = shl nuw i64 %div.i, 2
   %cond.i115 = select i1 %cmp.i113, i64 -1, i64 %mul.i114
   %call.i119 = invoke noundef ptr %58(i64 noundef %cond.i115)
           to label %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit120 unwind label %lpad
@@ -345,7 +345,7 @@ lpad:                                             ; preds = %invoke.cont19, %for
 for.end:                                          ; preds = %for.body, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit120
   %60 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i121 = icmp ugt i64 %index_count, 3458764513820540927
-  %mul.i122 = shl i64 %div.i, 4
+  %mul.i122 = shl nuw i64 %div.i, 4
   %cond.i123 = select i1 %cmp.i121, i64 -1, i64 %mul.i122
   %call.i127 = invoke noundef ptr %60(i64 noundef %cond.i123)
           to label %invoke.cont19 unwind label %lpad
@@ -498,25 +498,23 @@ for.body9.us.us.i:                                ; preds = %for.body.us.i, %for
 
 if.then.us.us.i:                                  ; preds = %for.body9.us.us.i
   %cmp42.us.us.i = icmp eq i32 %.pre.i, 1
-  br i1 %cmp42.us.us.i, label %if.then50.us.us.i, label %lor.lhs.false.us.us.i
+  br i1 %cmp42.us.us.i, label %if.end51.us.us.i, label %lor.lhs.false.us.us.i
 
 lor.lhs.false.us.us.i:                            ; preds = %if.then.us.us.i
   %arrayidx44.us.us.i = getelementptr inbounds i32, ptr %call.i93, i64 %idxprom27.us.us.i
   %98 = load i32, ptr %arrayidx44.us.us.i, align 4
   %cmp45.us.us.i = icmp eq i32 %98, 1
-  br i1 %cmp45.us.us.i, label %if.then50.us.us.i, label %lor.lhs.false46.us.us.i
+  br i1 %cmp45.us.us.i, label %if.end51.us.us.i, label %lor.lhs.false46.us.us.i
 
 lor.lhs.false46.us.us.i:                          ; preds = %lor.lhs.false.us.us.i
   %arrayidx48.us.us.i = getelementptr inbounds i32, ptr %call.i93, i64 %idxprom33.us.us.i
   %99 = load i32, ptr %arrayidx48.us.us.i, align 4
   %cmp49.us.us.i = icmp eq i32 %99, 1
-  br i1 %cmp49.us.us.i, label %if.then50.us.us.i, label %if.end51.us.us.i
-
-if.then50.us.us.i:                                ; preds = %lor.lhs.false46.us.us.i, %lor.lhs.false.us.us.i, %if.then.us.us.i
+  %spec.select.us.us.i = select i1 %cmp49.us.us.i, i32 0, i32 %add38.us.us.i
   br label %if.end51.us.us.i
 
-if.end51.us.us.i:                                 ; preds = %if.then50.us.us.i, %lor.lhs.false46.us.us.i
-  %extra.0.us.us.i = phi i32 [ 0, %if.then50.us.us.i ], [ %add38.us.us.i, %lor.lhs.false46.us.us.i ]
+if.end51.us.us.i:                                 ; preds = %lor.lhs.false46.us.us.i, %lor.lhs.false.us.us.i, %if.then.us.us.i
+  %extra.0.us.us.i = phi i32 [ 0, %lor.lhs.false.us.us.i ], [ 0, %if.then.us.us.i ], [ %spec.select.us.us.i, %lor.lhs.false46.us.us.i ]
   %inc.us.us.i = add nuw nsw i32 %extra.0.us.us.i, 1
   %cmp52.not.us.us.i = icmp ult i32 %extra.0.us.us.i, %best_extra.159.us.us.i
   br i1 %cmp52.not.us.us.i, label %if.end54.us.us.i, label %for.inc.us.us.i
@@ -744,7 +742,7 @@ if.then:                                          ; preds = %if.end42, %entry
   %0 = load i32, ptr %indices.tr.lcssa, align 4
   store i32 %0, ptr %arrayidx.i, align 4
   %axis.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %1 = trunc i64 %count.tr.lcssa to i32
+  %1 = trunc nuw i64 %count.tr.lcssa to i32
   %conv.i = shl nuw nsw i32 %1, 2
   %bf.set4.i = add nsw i32 %conv.i, -1
   store i32 %bf.set4.i, ptr %axis.i, align 4
@@ -1004,25 +1002,23 @@ for.body9.us.us:                                  ; preds = %for.body.us, %for.i
 
 if.then.us.us:                                    ; preds = %for.body9.us.us
   %cmp42.us.us = icmp eq i32 %.pre, 1
-  br i1 %cmp42.us.us, label %if.then50.us.us, label %lor.lhs.false.us.us
+  br i1 %cmp42.us.us, label %if.end51.us.us, label %lor.lhs.false.us.us
 
 lor.lhs.false.us.us:                              ; preds = %if.then.us.us
   %arrayidx44.us.us = getelementptr inbounds i32, ptr %live_triangles, i64 %idxprom27.us.us
   %15 = load i32, ptr %arrayidx44.us.us, align 4
   %cmp45.us.us = icmp eq i32 %15, 1
-  br i1 %cmp45.us.us, label %if.then50.us.us, label %lor.lhs.false46.us.us
+  br i1 %cmp45.us.us, label %if.end51.us.us, label %lor.lhs.false46.us.us
 
 lor.lhs.false46.us.us:                            ; preds = %lor.lhs.false.us.us
   %arrayidx48.us.us = getelementptr inbounds i32, ptr %live_triangles, i64 %idxprom33.us.us
   %16 = load i32, ptr %arrayidx48.us.us, align 4
   %cmp49.us.us = icmp eq i32 %16, 1
-  br i1 %cmp49.us.us, label %if.then50.us.us, label %if.end51.us.us
-
-if.then50.us.us:                                  ; preds = %lor.lhs.false46.us.us, %lor.lhs.false.us.us, %if.then.us.us
+  %spec.select.us.us = select i1 %cmp49.us.us, i32 0, i32 %add38.us.us
   br label %if.end51.us.us
 
-if.end51.us.us:                                   ; preds = %if.then50.us.us, %lor.lhs.false46.us.us
-  %extra.0.us.us = phi i32 [ 0, %if.then50.us.us ], [ %add38.us.us, %lor.lhs.false46.us.us ]
+if.end51.us.us:                                   ; preds = %lor.lhs.false46.us.us, %lor.lhs.false.us.us, %if.then.us.us
+  %extra.0.us.us = phi i32 [ 0, %lor.lhs.false.us.us ], [ 0, %if.then.us.us ], [ %spec.select.us.us, %lor.lhs.false46.us.us ]
   %inc.us.us = add nuw nsw i32 %extra.0.us.us, 1
   %cmp52.not.us.us = icmp ult i32 %extra.0.us.us, %best_extra.159.us.us
   br i1 %cmp52.not.us.us, label %if.end54.us.us, label %for.inc.us.us
@@ -1114,25 +1110,23 @@ if.then:                                          ; preds = %for.body9
   %arrayidx41 = getelementptr inbounds i32, ptr %live_triangles, i64 %idxprom22
   %29 = load i32, ptr %arrayidx41, align 4
   %cmp42 = icmp eq i32 %29, 1
-  br i1 %cmp42, label %if.then50, label %lor.lhs.false
+  br i1 %cmp42, label %if.end51, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %arrayidx44 = getelementptr inbounds i32, ptr %live_triangles, i64 %idxprom27
   %30 = load i32, ptr %arrayidx44, align 4
   %cmp45 = icmp eq i32 %30, 1
-  br i1 %cmp45, label %if.then50, label %lor.lhs.false46
+  br i1 %cmp45, label %if.end51, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false
   %arrayidx48 = getelementptr inbounds i32, ptr %live_triangles, i64 %idxprom33
   %31 = load i32, ptr %arrayidx48, align 4
   %cmp49 = icmp eq i32 %31, 1
-  br i1 %cmp49, label %if.then50, label %if.end51
-
-if.then50:                                        ; preds = %lor.lhs.false46, %lor.lhs.false, %if.then
+  %spec.select = select i1 %cmp49, i32 0, i32 %add38
   br label %if.end51
 
-if.end51:                                         ; preds = %lor.lhs.false46, %if.then50
-  %extra.0 = phi i32 [ 0, %if.then50 ], [ %add38, %lor.lhs.false46 ]
+if.end51:                                         ; preds = %lor.lhs.false, %if.then, %lor.lhs.false46
+  %extra.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.then ], [ %spec.select, %lor.lhs.false46 ]
   %inc = add nuw nsw i32 %extra.0, 1
   %cmp52.not = icmp ult i32 %extra.0, %best_extra.159
   br i1 %cmp52.not, label %if.end54, label %for.inc
@@ -1234,7 +1228,7 @@ for.cond.preheader:                               ; preds = %if.then47, %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %root.tr.lcssa, %1
   %idxprom3 = zext i32 %add to i64
   %arrayidx4 = getelementptr inbounds %"struct.meshopt::KDNode", ptr %nodes, i64 %idxprom3
@@ -2009,7 +2003,7 @@ for.body37:                                       ; preds = %for.body37.preheade
   %sub60 = fsub float %12, %13
   %14 = tail call float @llvm.fmuladd.f32(float %sub60, float %sub60, float %11)
   %cmp64 = fcmp ogt float %14, %paxisd2.085
-  %15 = trunc i64 %indvars.iv97 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv97 to i32
   %paxis.1 = select i1 %cmp64, i32 %15, i32 %paxis.084
   %paxisd2.1 = select i1 %cmp64, float %14, float %paxisd2.085
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1

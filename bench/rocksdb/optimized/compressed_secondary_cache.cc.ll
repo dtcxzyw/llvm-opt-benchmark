@@ -3836,18 +3836,15 @@ if.else5:                                         ; preds = %if.else
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
-  br i1 %cmp.not, label %if.else11, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else5
   %call.i4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %call8) #21
   %cmp.i5 = icmp eq i32 %call.i4, 0
-  br i1 %cmp.i5, label %return, label %if.else11
-
-if.else11:                                        ; preds = %land.lhs.true, %if.else5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %entry, %if.else11
-  %retval.0 = phi i1 [ false, %if.else11 ], [ false, %entry ], [ true, %if.else ], [ true, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else5, %if.else, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.else ], [ false, %if.else5 ], [ %cmp.i5, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -4431,7 +4428,7 @@ if.else:                                          ; preds = %entry
   %and = and i64 %mul, -4096
   %add = add i64 %and, 4096
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %add, i64 4294967295)
-  %conv4 = trunc i64 %.sroa.speculated to i32
+  %conv4 = trunc nuw i64 %.sroa.speculated to i32
   store i32 %conv4, ptr %output_len, align 4
   br label %if.end5
 
@@ -4440,7 +4437,7 @@ if.end5:                                          ; preds = %_ZN7rocksdb11compre
   %input_data.addr.1 = phi ptr [ %input_data, %if.else ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_stream, i8 0, i64 112, i1 false)
   %cmp6 = icmp sgt i32 %windowBits, 0
-  %add7 = add nsw i32 %windowBits, 32
+  %add7 = add nuw nsw i32 %windowBits, 32
   %cond = select i1 %cmp6, i32 %add7, i32 %windowBits
   %call8 = call i32 @inflateInit2_(ptr noundef nonnull %_stream, i32 noundef %cond, ptr noundef nonnull @.str.5, i32 noundef 112)
   %cmp9.not = icmp eq i32 %call8, 0
@@ -5180,7 +5177,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %conv3 = trunc i64 %length to i32
+  %conv3 = trunc nuw i64 %length to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
   %call.i.i = call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv3)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
@@ -5226,7 +5223,7 @@ if.end31:                                         ; preds = %if.then22, %if.end1
   %add = add i64 %call32, %output_header_len.0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %add)
   store ptr %input, ptr %_stream, align 8
-  %conv33 = trunc i64 %length to i32
+  %conv33 = trunc nuw i64 %length to i32
   %avail_in = getelementptr inbounds i8, ptr %_stream, i64 8
   store i32 %conv33, ptr %avail_in, align 8
   %conv34 = trunc i64 %call32 to i32
@@ -5269,7 +5266,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %conv3 = trunc i64 %length to i32
+  %conv3 = trunc nuw i64 %length to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
   %call.i.i = call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv3)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
@@ -5284,7 +5281,7 @@ if.else:                                          ; preds = %if.end
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef 8)
   %call5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #21
   store i64 %length, ptr %call5, align 1
-  %.pre = trunc i64 %length to i32
+  %.pre = trunc nuw i64 %length to i32
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.then2
@@ -5344,7 +5341,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %conv3 = trunc i64 %length to i32
+  %conv3 = trunc nuw i64 %length to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
   %call.i.i = call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv3)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
@@ -5359,7 +5356,7 @@ if.else:                                          ; preds = %if.end
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef 8)
   %call5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #21
   store i64 %length, ptr %call5, align 1
-  %.pre = trunc i64 %length to i32
+  %.pre = trunc nuw i64 %length to i32
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.then2
@@ -5417,7 +5414,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv1 = trunc i64 %length to i32
+  %conv1 = trunc nuw i64 %length to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
   %call.i.i = call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %buf.i.i, i32 noundef %conv1)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64

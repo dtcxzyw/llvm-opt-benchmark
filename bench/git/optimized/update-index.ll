@@ -2107,7 +2107,7 @@ lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   br i1 %or.cond.i, label %if.end13.i, label %if.end13
 
 if.end13.i:                                       ; preds = %lor.lhs.false4.i
-  %conv8.i = trunc i64 %call1.i to i32
+  %conv8.i = trunc nuw i64 %call1.i to i32
   %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 1
   %call15.i = call i32 @parse_oid_hex(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull %oid, ptr noundef nonnull %p.i) #18
   %tobool16.not.i = icmp eq i32 %call15.i, 0
@@ -2196,7 +2196,7 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.i15
   br i1 %tobool26.not, label %lor.lhs.false27, label %if.then32
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false
-  %conv9.i = trunc i64 %call2.i to i32
+  %conv9.i = trunc nuw i64 %call2.i to i32
   %17 = load ptr, ptr %ctx, align 8
   %incdec.ptr29 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr29, ptr %ctx, align 8
@@ -2797,7 +2797,7 @@ if.end.i.i.us.us.i:                               ; preds = %if.end14.i.us.us.i
   br i1 %cmp1.i.i.us.us.i, label %land.lhs.true.us.us.i, label %if.end3.i.i.us.us.i
 
 if.end3.i.i.us.us.i:                              ; preds = %if.end.i.i.us.us.i
-  %trunc.i.i.us.us.i = trunc i32 %and.i.i.us.us.i to i16
+  %trunc.i.i.us.us.i = trunc nuw i32 %and.i.i.us.us.i to i16
   switch i16 %trunc.i.i.us.us.i, label %if.end9.i.i.us.us.i [
     i16 16384, label %land.lhs.true.us.us.i
     i16 -8192, label %land.lhs.true.us.us.i
@@ -3221,10 +3221,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @flush_odb_transaction() #18
-  call void @llvm.va_start(ptr nonnull %vp)
+  call void @llvm.va_start.p0(ptr nonnull %vp)
   %call = call i32 @vprintf(ptr noundef %fmt, ptr noundef nonnull %vp)
   %call2 = call i32 @putchar(i32 noundef 10)
-  call void @llvm.va_end(ptr nonnull %vp)
+  call void @llvm.va_end.p0(ptr nonnull %vp)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -3317,7 +3317,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp1.i, label %create_ce_mode.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %trunc.i = trunc i32 %and.i to i16
+  %trunc.i = trunc nuw i32 %and.i to i16
   switch i16 %trunc.i, label %if.end9.i [
     i16 16384, label %create_ce_mode.exit
     i16 -8192, label %create_ce_mode.exit
@@ -3759,7 +3759,7 @@ if.end.thread.i:                                  ; preds = %land.lhs.true3.i
   br i1 %tobool7.not10.i, label %land.lhs.true13.i, label %if.end9.i.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  br i1 %tobool.not, label %if.end19.i, label %if.then11.i.land.lhs.true13.i_crit_edge
+  br i1 %tobool.not, label %ce_mode_from_stat.exit, label %if.then11.i.land.lhs.true13.i_crit_edge
 
 if.then11.i.land.lhs.true13.i_crit_edge:          ; preds = %if.then11.i
   %ce_mode14.i.phi.trans.insert = getelementptr inbounds i8, ptr %old, i64 52
@@ -3771,9 +3771,7 @@ land.lhs.true13.i:                                ; preds = %if.then11.i.land.lh
   %and15.i.pre-phi = phi i32 [ %.pre20, %if.then11.i.land.lhs.true13.i_crit_edge ], [ %and4.i, %if.end.thread.i ]
   %7 = phi i32 [ %.pre, %if.then11.i.land.lhs.true13.i_crit_edge ], [ %4, %if.end.thread.i ]
   %cmp16.i = icmp eq i32 %and15.i.pre-phi, 32768
-  br i1 %cmp16.i, label %ce_mode_from_stat.exit, label %if.end19.i
-
-if.end19.i:                                       ; preds = %land.lhs.true13.i, %if.then11.i
+  %spec.select.i = select i1 %cmp16.i, i32 %7, i32 33188
   br label %ce_mode_from_stat.exit
 
 if.end20.i:                                       ; preds = %if.end.i
@@ -3785,7 +3783,7 @@ if.end.i.i:                                       ; preds = %if.end20.i
   br i1 %cmp1.i.i, label %ce_mode_from_stat.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %trunc.i.i = trunc i32 %and.i to i16
+  %trunc.i.i = trunc nuw i32 %and.i to i16
   switch i16 %trunc.i.i, label %if.end9.i.i [
     i16 16384, label %ce_mode_from_stat.exit
     i16 -8192, label %ce_mode_from_stat.exit
@@ -3797,8 +3795,8 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i, %if.en
   %or.i.i = select i1 %tobool.not.i.i, i32 33188, i32 33261
   br label %ce_mode_from_stat.exit
 
-ce_mode_from_stat.exit:                           ; preds = %land.lhs.true3.i, %land.lhs.true13.i, %if.end19.i, %if.end20.i, %if.end.i.i, %if.end3.i.i, %if.end3.i.i, %if.end9.i.i
-  %retval.0.i = phi i32 [ 33188, %if.end19.i ], [ %4, %land.lhs.true3.i ], [ %7, %land.lhs.true13.i ], [ %or.i.i, %if.end9.i.i ], [ 40960, %if.end20.i ], [ 16384, %if.end.i.i ], [ 57344, %if.end3.i.i ], [ 57344, %if.end3.i.i ]
+ce_mode_from_stat.exit:                           ; preds = %land.lhs.true3.i, %if.then11.i, %land.lhs.true13.i, %if.end20.i, %if.end.i.i, %if.end3.i.i, %if.end3.i.i, %if.end9.i.i
+  %retval.0.i = phi i32 [ %4, %land.lhs.true3.i ], [ 33188, %if.then11.i ], [ %or.i.i, %if.end9.i.i ], [ 40960, %if.end20.i ], [ 16384, %if.end.i.i ], [ 57344, %if.end3.i.i ], [ 57344, %if.end3.i.i ], [ %spec.select.i, %land.lhs.true13.i ]
   %ce_mode = getelementptr inbounds i8, ptr %call4, i64 52
   store i32 %retval.0.i, ptr %ce_mode, align 4
   %oid = getelementptr inbounds i8, ptr %call4, i64 72
@@ -3856,17 +3854,11 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #11
 
 declare void @flush_odb_transaction() local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
 
 ; Function Attrs: nounwind
 declare ptr @mkdtemp(ptr noundef) local_unnamed_addr #11
@@ -3929,6 +3921,12 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
 
 declare void @delete_tempfile(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13

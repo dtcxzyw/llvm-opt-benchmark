@@ -130,7 +130,7 @@ define i32 @attach_system_memory_pid(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @check_corespec_cgroup_job_confinement() local_unnamed_addr #0 {
+define zeroext i1 @check_corespec_cgroup_job_confinement() local_unnamed_addr #0 {
   %1 = load ptr, ptr @conf, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 4160
   %3 = load ptr, ptr %2, align 8
@@ -151,14 +151,11 @@ define noundef zeroext i1 @check_corespec_cgroup_job_confinement() local_unnamed
 10:                                               ; preds = %7
   %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
   %12 = tail call ptr @xstrstr(ptr noundef %11, ptr noundef nonnull @.str.3) #3
-  %.not2 = icmp eq ptr %12, null
-  br i1 %.not2, label %13, label %14
+  %.not2 = icmp ne ptr %12, null
+  br label %13
 
-13:                                               ; preds = %10, %7, %4
-  br label %14
-
-14:                                               ; preds = %10, %13
-  %.0 = phi i1 [ false, %13 ], [ true, %10 ]
+13:                                               ; preds = %10, %4, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ %.not2, %10 ]
   ret i1 %.0
 }
 
@@ -178,89 +175,89 @@ define void @attach_system_cgroup_pid(i32 noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 4168
   %8 = load i16, ptr %7, align 8
   %.not1.i = icmp eq i16 %8, 0
-  br i1 %.not1.i, label %check_corespec_cgroup_job_confinement.exit, label %9
+  br i1 %.not1.i, label %check_corespec_cgroup_job_confinement.exit.thread, label %9
 
 9:                                                ; preds = %6, %1
   %10 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i64 0, i32 2), align 8
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %check_corespec_cgroup_job_confinement.exit
+  br i1 %11, label %check_corespec_cgroup_job_confinement.exit, label %check_corespec_cgroup_job_confinement.exit.thread
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
-  %14 = tail call ptr @xstrstr(ptr noundef %13, ptr noundef nonnull @.str.3) #3
-  %.not2.i = icmp eq ptr %14, null
-  br i1 %.not2.i, label %check_corespec_cgroup_job_confinement.exit, label %15
+check_corespec_cgroup_job_confinement.exit:       ; preds = %9
+  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 206), align 8
+  %13 = tail call ptr @xstrstr(ptr noundef %12, ptr noundef nonnull @.str.3) #3
+  %.not2.i.not = icmp eq ptr %13, null
+  br i1 %.not2.i.not, label %check_corespec_cgroup_job_confinement.exit.thread, label %14
 
-15:                                               ; preds = %12
-  %16 = tail call i32 @cgroup_g_initialize(i32 noundef 1) #3
-  %.not.i5 = icmp eq i32 %16, 0
+14:                                               ; preds = %check_corespec_cgroup_job_confinement.exit
+  %15 = tail call i32 @cgroup_g_initialize(i32 noundef 1) #3
+  %.not.i5 = icmp eq i32 %15, 0
   br i1 %.not.i5, label %init_system_cpuset_cgroup.exit, label %init_system_cpuset_cgroup.exit.thread
 
-init_system_cpuset_cgroup.exit:                   ; preds = %15
-  %17 = tail call i32 @cgroup_g_system_create(i32 noundef 1) #3
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %init_system_cpuset_cgroup.exit.thread
+init_system_cpuset_cgroup.exit:                   ; preds = %14
+  %16 = tail call i32 @cgroup_g_system_create(i32 noundef 1) #3
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %17, label %init_system_cpuset_cgroup.exit.thread
 
-18:                                               ; preds = %init_system_cpuset_cgroup.exit
-  %19 = call i32 @cgroup_g_system_addto(i32 noundef 1, ptr noundef nonnull %2, i32 noundef 1) #3
-  %.not1 = icmp eq i32 %19, 0
-  br i1 %.not1, label %check_corespec_cgroup_job_confinement.exit, label %.init_system_cpuset_cgroup.exit.thread_crit_edge
+17:                                               ; preds = %init_system_cpuset_cgroup.exit
+  %18 = call i32 @cgroup_g_system_addto(i32 noundef 1, ptr noundef nonnull %2, i32 noundef 1) #3
+  %.not1 = icmp eq i32 %18, 0
+  br i1 %.not1, label %check_corespec_cgroup_job_confinement.exit.thread, label %.init_system_cpuset_cgroup.exit.thread_crit_edge
 
-.init_system_cpuset_cgroup.exit.thread_crit_edge: ; preds = %18
+.init_system_cpuset_cgroup.exit.thread_crit_edge: ; preds = %17
   %.pre = load i32, ptr %2, align 4
   br label %init_system_cpuset_cgroup.exit.thread
 
-init_system_cpuset_cgroup.exit.thread:            ; preds = %.init_system_cpuset_cgroup.exit.thread_crit_edge, %15, %init_system_cpuset_cgroup.exit
-  %20 = phi i32 [ %.pre, %.init_system_cpuset_cgroup.exit.thread_crit_edge ], [ %0, %15 ], [ %0, %init_system_cpuset_cgroup.exit ]
-  %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.attach_system_cgroup_pid, i32 noundef %20) #3
-  br label %check_corespec_cgroup_job_confinement.exit
+init_system_cpuset_cgroup.exit.thread:            ; preds = %.init_system_cpuset_cgroup.exit.thread_crit_edge, %14, %init_system_cpuset_cgroup.exit
+  %19 = phi i32 [ %.pre, %.init_system_cpuset_cgroup.exit.thread_crit_edge ], [ %0, %14 ], [ %0, %init_system_cpuset_cgroup.exit ]
+  %20 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.attach_system_cgroup_pid, i32 noundef %19) #3
+  br label %check_corespec_cgroup_job_confinement.exit.thread
 
-check_corespec_cgroup_job_confinement.exit:       ; preds = %12, %9, %6, %init_system_cpuset_cgroup.exit.thread, %18
-  %22 = load ptr, ptr @conf, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4176
-  %24 = load i64, ptr %23, align 8
-  %.not2 = icmp eq i64 %24, 0
-  br i1 %.not2, label %42, label %25
+check_corespec_cgroup_job_confinement.exit.thread: ; preds = %6, %9, %init_system_cpuset_cgroup.exit.thread, %17, %check_corespec_cgroup_job_confinement.exit
+  %21 = load ptr, ptr @conf, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 4176
+  %23 = load i64, ptr %22, align 8
+  %.not2 = icmp eq i64 %23, 0
+  br i1 %.not2, label %41, label %24
 
-25:                                               ; preds = %check_corespec_cgroup_job_confinement.exit
-  %26 = call zeroext i1 @cgroup_memcg_job_confinement() #3
-  br i1 %26, label %27, label %42
+24:                                               ; preds = %check_corespec_cgroup_job_confinement.exit.thread
+  %25 = call zeroext i1 @cgroup_memcg_job_confinement() #3
+  br i1 %25, label %26, label %41
 
-27:                                               ; preds = %25
-  %28 = call i32 @cgroup_g_initialize(i32 noundef 2) #3
-  %.not.i7 = icmp eq i32 %28, 0
-  br i1 %.not.i7, label %29, label %init_system_memory_cgroup.exit
+26:                                               ; preds = %24
+  %27 = call i32 @cgroup_g_initialize(i32 noundef 2) #3
+  %.not.i7 = icmp eq i32 %27, 0
+  br i1 %.not.i7, label %28, label %init_system_memory_cgroup.exit
 
-29:                                               ; preds = %27
-  %30 = call i32 @setenv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0) #3
-  %31 = call i32 @cgroup_g_system_create(i32 noundef 2) #3
-  %.not1.i9 = icmp eq i32 %31, 0
-  br i1 %.not1.i9, label %32, label %init_system_memory_cgroup.exit
+28:                                               ; preds = %26
+  %29 = call i32 @setenv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0) #3
+  %30 = call i32 @cgroup_g_system_create(i32 noundef 2) #3
+  %.not1.i9 = icmp eq i32 %30, 0
+  br i1 %.not1.i9, label %31, label %init_system_memory_cgroup.exit
 
-32:                                               ; preds = %29
-  %33 = call zeroext i1 @running_in_slurmd() #3
-  br i1 %33, label %34, label %38
+31:                                               ; preds = %28
+  %32 = call zeroext i1 @running_in_slurmd() #3
+  br i1 %32, label %33, label %37
 
-34:                                               ; preds = %32
-  %35 = call i32 @get_log_level() #3
-  %36 = icmp sgt i32 %35, 4
-  br i1 %36, label %37, label %38
+33:                                               ; preds = %31
+  %34 = call i32 @get_log_level() #3
+  %35 = icmp sgt i32 %34, 4
+  br i1 %35, label %36, label %37
 
-37:                                               ; preds = %34
+36:                                               ; preds = %33
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2) #3
-  br label %38
+  br label %37
 
-38:                                               ; preds = %34, %37, %32
-  %39 = call i32 @cgroup_g_system_addto(i32 noundef 2, ptr noundef nonnull %2, i32 noundef 1) #3
-  %.not4 = icmp eq i32 %39, 0
-  br i1 %.not4, label %42, label %init_system_memory_cgroup.exit
+37:                                               ; preds = %33, %36, %31
+  %38 = call i32 @cgroup_g_system_addto(i32 noundef 2, ptr noundef nonnull %2, i32 noundef 1) #3
+  %.not4 = icmp eq i32 %38, 0
+  br i1 %.not4, label %41, label %init_system_memory_cgroup.exit
 
-init_system_memory_cgroup.exit:                   ; preds = %29, %27, %38
-  %40 = load i32, ptr %2, align 4
-  %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.attach_system_cgroup_pid, i32 noundef %40) #3
-  br label %42
+init_system_memory_cgroup.exit:                   ; preds = %28, %26, %37
+  %39 = load i32, ptr %2, align 4
+  %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.attach_system_cgroup_pid, i32 noundef %39) #3
+  br label %41
 
-42:                                               ; preds = %38, %init_system_memory_cgroup.exit, %25, %check_corespec_cgroup_job_confinement.exit
+41:                                               ; preds = %37, %init_system_memory_cgroup.exit, %24, %check_corespec_cgroup_job_confinement.exit.thread
   ret void
 }
 

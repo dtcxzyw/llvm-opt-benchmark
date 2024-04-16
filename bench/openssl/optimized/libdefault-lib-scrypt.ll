@@ -400,7 +400,7 @@ if.end45.i:                                       ; preds = %if.end41.i
   %add.ptr49.i = getelementptr inbounds i32, ptr %add.ptr47.i, i64 %mul24.i
   %conv.i = trunc i64 %8 to i32
   %conv50.i = trunc i64 %9 to i32
-  %conv51.i = trunc i64 %mul16.i to i32
+  %conv51.i = trunc nuw nsw i64 %mul16.i to i32
   %call52.i = tail call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %7, i32 noundef %conv.i, ptr noundef %6, i32 noundef %conv50.i, i32 noundef 1, ptr noundef nonnull %5, i32 noundef %conv51.i, ptr noundef nonnull %call.i18, ptr noundef %14, ptr noundef %15) #7
   %cmp53.i = icmp eq i32 %call52.i, 0
   br i1 %cmp53.i, label %if.then72.i, label %for.cond.preheader.i
@@ -540,7 +540,7 @@ for.body56.i.i:                                   ; preds = %for.cond38.for.end4
   %incdec.ptr66.i.i = getelementptr inbounds i8, ptr %pB.166.i.i, i64 3
   store i8 %conv65.i.i, ptr %incdec.ptr62.i.i, align 1
   %shr67.i.i = lshr i32 %24, 24
-  %conv69.i.i = trunc i32 %shr67.i.i to i8
+  %conv69.i.i = trunc nuw i32 %shr67.i.i to i8
   %incdec.ptr70.i.i = getelementptr inbounds i8, ptr %pB.166.i.i, i64 4
   store i8 %conv69.i.i, ptr %incdec.ptr66.i.i, align 1
   %inc72.i.i = add nuw i64 %i.365.i.i, 1
@@ -733,7 +733,7 @@ if.end56:                                         ; preds = %if.then50
 if.end57:                                         ; preds = %if.end56, %if.end47
   %call58 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.8) #7
   %cmp59.not = icmp eq ptr %call58, null
-  br i1 %cmp59.not, label %if.end70, label %if.then60
+  br i1 %cmp59.not, label %return, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
   %data_type = getelementptr inbounds i8, ptr %call58, i64 8
@@ -749,24 +749,20 @@ lor.lhs.false62:                                  ; preds = %if.then60
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 174) #7
   store ptr null, ptr %propq1.i, align 8
   %cmp.not.i = icmp eq ptr %14, null
-  br i1 %cmp.not.i, label %lor.lhs.false65, label %if.then.i46
+  br i1 %cmp.not.i, label %lor.lhs.false65, label %set_property_query.exit
 
-if.then.i46:                                      ; preds = %lor.lhs.false62
+set_property_query.exit:                          ; preds = %lor.lhs.false62
   %call.i47 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %14, ptr noundef nonnull @.str, i32 noundef 177) #7
   store ptr %call.i47, ptr %propq1.i, align 8
-  %cmp5.i = icmp eq ptr %call.i47, null
-  br i1 %cmp5.i, label %return, label %lor.lhs.false65
+  %cmp5.i.not = icmp eq ptr %call.i47, null
+  br i1 %cmp5.i.not, label %return, label %lor.lhs.false65
 
-lor.lhs.false65:                                  ; preds = %if.then.i46, %lor.lhs.false62
+lor.lhs.false65:                                  ; preds = %lor.lhs.false62, %set_property_query.exit
   %call66 = call fastcc i32 @set_digest(ptr noundef nonnull %vctx), !range !4
-  %tobool67.not = icmp eq i32 %call66, 0
-  br i1 %tobool67.not, label %return, label %if.end70
-
-if.end70:                                         ; preds = %lor.lhs.false65, %if.end57
   br label %return
 
-return:                                           ; preds = %if.then.i46, %if.then4.i36, %if.then.i41, %if.then4.i, %if.then.i, %if.then60, %lor.lhs.false65, %if.then50, %if.then39, %if.then29, %if.then17, %entry, %if.end70
-  %retval.0 = phi i32 [ 1, %if.end70 ], [ 1, %entry ], [ 0, %if.then17 ], [ 0, %if.then29 ], [ 0, %if.then39 ], [ 0, %if.then50 ], [ 0, %lor.lhs.false65 ], [ 0, %if.then60 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ 0, %if.then.i41 ], [ 0, %if.then4.i36 ], [ 0, %if.then.i46 ]
+return:                                           ; preds = %if.then4.i36, %if.then.i41, %if.then4.i, %if.then.i, %lor.lhs.false65, %if.end57, %if.then60, %set_property_query.exit, %if.then50, %if.then39, %if.then29, %if.then17, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then17 ], [ 0, %if.then29 ], [ 0, %if.then39 ], [ 0, %if.then50 ], [ 0, %set_property_query.exit ], [ 0, %if.then60 ], [ 1, %if.end57 ], [ %call66, %lor.lhs.false65 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ 0, %if.then.i41 ], [ 0, %if.then4.i36 ]
   ret i32 %retval.0
 }
 

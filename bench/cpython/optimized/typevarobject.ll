@@ -1770,18 +1770,14 @@ do.body27:                                        ; preds = %if.then18, %do.body
   %module = getelementptr inbounds i8, ptr %self, i64 48
   %3 = load ptr, ptr %module, align 8
   %tobool28.not = icmp eq ptr %3, null
-  br i1 %tobool28.not, label %do.end37, label %if.then29
+  br i1 %tobool28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %do.body27
   %call32 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #7
-  %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %do.end37, label %return
-
-do.end37:                                         ; preds = %do.body27, %if.then29
   br label %return
 
-return:                                           ; preds = %if.then29, %if.then18, %if.then7, %if.then, %do.end37
-  %retval.0 = phi i32 [ 0, %do.end37 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ %call32, %if.then29 ]
+return:                                           ; preds = %if.then29, %do.body27, %if.then18, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ], [ 0, %do.body27 ], [ %call32, %if.then29 ]
   ret i32 %retval.0
 }
 
@@ -3699,18 +3695,14 @@ entry:
   %__origin__ = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %__origin__, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #7
-  %tobool2.not = icmp eq i32 %call, 0
-  br i1 %tobool2.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -5012,18 +5004,14 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %self.val3, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %self.val3, ptr noundef %arg) #7
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 

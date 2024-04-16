@@ -2070,7 +2070,7 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %32 = ptrtoint ptr %31 to i64
   %ref.tmp56.sroa.0.0.extract.trunc = trunc i64 %32 to i32
   %ref.tmp56.sroa.0.4.extract.shift = lshr i64 %32, 32
-  %ref.tmp56.sroa.0.4.extract.trunc = trunc i64 %ref.tmp56.sroa.0.4.extract.shift to i32
+  %ref.tmp56.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp56.sroa.0.4.extract.shift to i32
   %add.i.i.i = add i32 %ref.tmp56.sroa.0.4.extract.trunc, %ref.tmp56.sroa.0.0.extract.trunc
   %shl.i.i.i = shl i32 %add.i.i.i, 15
   %not.i.i.i = xor i32 %shl.i.i.i, -1
@@ -2223,7 +2223,7 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
   %54 = ptrtoint ptr %53 to i64
   %ref.tmp85.sroa.0.0.extract.trunc = trunc i64 %54 to i32
   %ref.tmp85.sroa.0.4.extract.shift = lshr i64 %54, 32
-  %ref.tmp85.sroa.0.4.extract.trunc = trunc i64 %ref.tmp85.sroa.0.4.extract.shift to i32
+  %ref.tmp85.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp85.sroa.0.4.extract.shift to i32
   %add.i.i.i73 = add i32 %ref.tmp85.sroa.0.4.extract.trunc, %ref.tmp85.sroa.0.0.extract.trunc
   %shl.i.i.i74 = shl i32 %add.i.i.i73, 15
   %not.i.i.i75 = xor i32 %shl.i.i.i74, -1
@@ -3433,7 +3433,7 @@ if.then193:                                       ; preds = %if.end190
   %76 = ptrtoint ptr %75 to i64
   %ref.tmp194.sroa.0.0.extract.trunc = trunc i64 %76 to i32
   %ref.tmp194.sroa.0.4.extract.shift = lshr i64 %76, 32
-  %ref.tmp194.sroa.0.4.extract.trunc = trunc i64 %ref.tmp194.sroa.0.4.extract.shift to i32
+  %ref.tmp194.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp194.sroa.0.4.extract.shift to i32
   %add.i.i.i = add i32 %ref.tmp194.sroa.0.4.extract.trunc, %ref.tmp194.sroa.0.0.extract.trunc
   %shl.i.i.i = shl i32 %add.i.i.i, 15
   %not.i.i.i = xor i32 %shl.i.i.i, -1
@@ -3522,7 +3522,7 @@ if.then209:                                       ; preds = %if.end207
   %89 = ptrtoint ptr %88 to i64
   %ref.tmp212.sroa.0.0.extract.trunc = trunc i64 %89 to i32
   %ref.tmp212.sroa.0.4.extract.shift = lshr i64 %89, 32
-  %ref.tmp212.sroa.0.4.extract.trunc = trunc i64 %ref.tmp212.sroa.0.4.extract.shift to i32
+  %ref.tmp212.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp212.sroa.0.4.extract.shift to i32
   %add.i.i.i340 = add i32 %ref.tmp212.sroa.0.4.extract.trunc, %ref.tmp212.sroa.0.0.extract.trunc
   %shl.i.i.i341 = shl i32 %add.i.i.i340, 15
   %not.i.i.i342 = xor i32 %shl.i.i.i341, -1
@@ -7344,20 +7344,16 @@ invoke.cont:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %tobool.not3 = icmp eq ptr %0, null
   %tobool.not = select i1 %cmp.i, i1 true, i1 %tobool.not3
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont
   %idxprom.i.i = sext i32 %call.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i.i
   %1 = load ptr, ptr %arrayidx.i.i, align 8
-  %tobool2.not = icmp eq ptr %1, null
-  br i1 %tobool2.not, label %if.end, label %return
-
-if.end:                                           ; preds = %land.lhs.true, %invoke.cont
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ %1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %invoke.cont
+  %retval.0 = phi ptr [ null, %invoke.cont ], [ %1, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -10082,14 +10078,13 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   %tobool.not4 = icmp eq ptr %0, null
   %tobool.not = select i1 %cmp.i, i1 true, i1 %tobool.not4
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont
   %idxprom.i.i = sext i32 %call.i3 to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i.i
   %1 = load ptr, ptr %arrayidx.i.i, align 8
-  %tobool2.not = icmp eq ptr %1, null
-  br i1 %tobool2.not, label %if.end, label %return
+  br label %return
 
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -10097,11 +10092,8 @@ lpad:                                             ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   resume { ptr, i32 } %2
 
-if.end:                                           ; preds = %land.lhs.true, %invoke.cont
-  br label %return
-
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ %1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %invoke.cont
+  %retval.0 = phi ptr [ null, %invoke.cont ], [ %1, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -10111,7 +10103,7 @@ entry:
   %0 = ptrtoint ptr %ptr to i64
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %ref.tmp.sroa.0.4.extract.shift = lshr i64 %0, 32
-  %ref.tmp.sroa.0.4.extract.trunc = trunc i64 %ref.tmp.sroa.0.4.extract.shift to i32
+  %ref.tmp.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift to i32
   %add.i.i.i = add i32 %ref.tmp.sroa.0.4.extract.trunc, %ref.tmp.sroa.0.0.extract.trunc
   %shl.i.i.i = shl i32 %add.i.i.i, 15
   %not.i.i.i = xor i32 %shl.i.i.i, -1
@@ -10133,7 +10125,7 @@ entry:
   %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 956
   %2 = load i32, ptr %m_size.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %and.i.i, %2
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %entry
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
@@ -10142,7 +10134,7 @@ if.end.i.i:                                       ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom.i.i.i
   %index.012.i.i = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp6.not13.i.i = icmp eq i32 %index.012.i.i, -1
-  br i1 %cmp6.not13.i.i, label %if.end, label %land.rhs.lr.ph.i.i
+  br i1 %cmp6.not13.i.i, label %return, label %land.rhs.lr.ph.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.end.i.i
   %m_data.i6.i.i = getelementptr inbounds i8, ptr %this, i64 1064
@@ -10163,25 +10155,21 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %arrayidx.i11.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom.i7.i.i
   %index.0.i.i = load i32, ptr %arrayidx.i11.i.i, align 4
   %cmp6.not.i.i = icmp eq i32 %index.0.i.i, -1
-  br i1 %cmp6.not.i.i, label %if.end, label %land.rhs.i.i, !llvm.loop !28
+  br i1 %cmp6.not.i.i, label %return, label %land.rhs.i.i, !llvm.loop !28
 
 _ZNK9btHashMapI9btHashPtrPKcE4findERKS0_.exit:    ; preds = %land.rhs.i.i
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 1032
   %7 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not = icmp eq ptr %7, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZNK9btHashMapI9btHashPtrPKcE4findERKS0_.exit
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i7.i.i
   %8 = load ptr, ptr %arrayidx.i.i, align 8
-  %tobool2.not = icmp eq ptr %8, null
-  br i1 %tobool2.not, label %if.end, label %return
-
-if.end:                                           ; preds = %while.body.i.i, %if.end.i.i, %entry, %land.lhs.true, %_ZNK9btHashMapI9btHashPtrPKcE4findERKS0_.exit
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ %8, %land.lhs.true ]
+return:                                           ; preds = %while.body.i.i, %if.end.i.i, %entry, %land.lhs.true, %_ZNK9btHashMapI9btHashPtrPKcE4findERKS0_.exit
+  %retval.0 = phi ptr [ null, %_ZNK9btHashMapI9btHashPtrPKcE4findERKS0_.exit ], [ %8, %land.lhs.true ], [ null, %entry ], [ null, %if.end.i.i ], [ null, %while.body.i.i ]
   ret ptr %retval.0
 }
 
@@ -11037,7 +11025,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %27, ptr %arrayidx.i74, align 4
   %29 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i70
-  %30 = trunc i64 %indvars.iv90 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %30, ptr %arrayidx.i77, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
@@ -11294,7 +11282,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %27, ptr %arrayidx.i74, align 4
   %29 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i70
-  %30 = trunc i64 %indvars.iv90 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %30, ptr %arrayidx.i77, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
@@ -11551,7 +11539,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %27, ptr %arrayidx.i74, align 4
   %29 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i70
-  %30 = trunc i64 %indvars.iv90 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %30, ptr %arrayidx.i77, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
@@ -11854,7 +11842,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %26, ptr %arrayidx.i74, align 4
   %28 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i70
-  %29 = trunc i64 %indvars.iv90 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %29, ptr %arrayidx.i77, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
@@ -12209,7 +12197,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %27, ptr %arrayidx.i74, align 4
   %29 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i70
-  %30 = trunc i64 %indvars.iv90 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %30, ptr %arrayidx.i77, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
@@ -12512,7 +12500,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %26, ptr %arrayidx.i74, align 4
   %28 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i70
-  %29 = trunc i64 %indvars.iv90 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %29, ptr %arrayidx.i77, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93

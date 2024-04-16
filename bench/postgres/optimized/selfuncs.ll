@@ -1601,7 +1601,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %30, %28, %25, %201,
 declare zeroext i1 @comparison_ops_are_compatible(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @get_actual_variable_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc zeroext i1 @get_actual_variable_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   %8 = alloca i8, align 1
   %9 = alloca [1 x %struct.ScanKeyData], align 16
@@ -1733,7 +1733,7 @@ define internal fastcc noundef zeroext i1 @get_actual_variable_range(ptr nocaptu
   br i1 %.not60, label %95, label %86
 
 86:                                               ; preds = %85
-  %87 = trunc i8 %.049 to i1
+  %87 = trunc nuw i8 %.049 to i1
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %86
@@ -1752,7 +1752,7 @@ define internal fastcc noundef zeroext i1 @get_actual_variable_range(ptr nocaptu
   call void @table_close(ptr noundef %72, i32 noundef 0) #13
   store ptr %69, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %68) #13
-  %96 = trunc i8 %.1 to i1
+  %96 = trunc nuw i8 %.1 to i1
   br label %.loopexit
 
 97:                                               ; preds = %51, %48, %44, %40, %37, %31
@@ -4254,8 +4254,8 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
   %sext229 = shl i64 %91, 48
   %92 = ashr exact i64 %sext229, 48
   %93 = ptrtoint ptr %5 to i64
-  %94 = trunc i8 %.1181 to i1
-  %95 = trunc i8 %.1 to i1
+  %94 = trunc nuw i8 %.1181 to i1
+  %95 = trunc nuw i8 %.1 to i1
   br label %96
 
 96:                                               ; preds = %.lr.ph251, %128
@@ -4326,11 +4326,11 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
   br i1 %20, label %132, label %134
 
 132:                                              ; preds = %._crit_edge252
-  %133 = trunc i8 %.1 to i1
+  %133 = trunc nuw i8 %.1 to i1
   br i1 %133, label %136, label %.loopexit
 
 134:                                              ; preds = %._crit_edge252
-  %135 = trunc i8 %.1181 to i1
+  %135 = trunc nuw i8 %.1181 to i1
   br i1 %135, label %136, label %.loopexit
 
 136:                                              ; preds = %134, %132
@@ -4369,8 +4369,8 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
   %sext = shl i64 %156, 48
   %157 = ashr exact i64 %sext, 48
   %158 = ptrtoint ptr %5 to i64
-  %159 = trunc i8 %.1181 to i1
-  %160 = trunc i8 %.1 to i1
+  %159 = trunc nuw i8 %.1181 to i1
+  %160 = trunc nuw i8 %.1 to i1
   %161 = load i32, ptr %150, align 4
   %162 = icmp sgt i32 %161, 0
   br i1 %162, label %.lr.ph244, label %._crit_edge
@@ -4434,11 +4434,11 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
   br i1 %20, label %189, label %191
 
 189:                                              ; preds = %._crit_edge
-  %190 = trunc i8 %.1 to i1
+  %190 = trunc nuw i8 %.1 to i1
   br i1 %190, label %193, label %.loopexit
 
 191:                                              ; preds = %._crit_edge
-  %192 = trunc i8 %.1181 to i1
+  %192 = trunc nuw i8 %.1181 to i1
   br i1 %192, label %193, label %.loopexit
 
 193:                                              ; preds = %191, %189
@@ -4560,7 +4560,7 @@ define dso_local double @estimate_array_length(ptr noundef %0, ptr noundef %1) l
   %3 = alloca %struct.VariableStatData, align 8
   %4 = alloca %struct.AttStatsSlot, align 8
   %.not10.i = icmp eq ptr %1, null
-  br i1 %.not10.i, label %.critedge26, label %.lr.ph.i
+  br i1 %.not10.i, label %strip_array_coercion.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
   %.011.i = phi ptr [ %.1.i, %16 ], [ %1, %2 ]
@@ -4590,13 +4590,13 @@ define dso_local double @estimate_array_length(ptr noundef %0, ptr noundef %1) l
   %.1.in.i = getelementptr inbounds i8, ptr %.011.i, i64 8
   %.1.i = load ptr, ptr %.1.in.i, align 8
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %.critedge26, label %.lr.ph.i
+  br i1 %.not.i, label %strip_array_coercion.exit, label %.lr.ph.i
 
 17:                                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds i8, ptr %.011.i, i64 32
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %list_length.exit, label %21
+  br i1 %20, label %strip_array_coercion.exit, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %.011.i, i64 24
@@ -4608,7 +4608,7 @@ define dso_local double @estimate_array_length(ptr noundef %0, ptr noundef %1) l
   %28 = getelementptr i8, ptr %25, i64 16
   %29 = tail call i32 @ArrayGetNItems(i32 noundef %27, ptr noundef %28) #13
   %30 = sitofp i32 %29 to double
-  br label %list_length.exit
+  br label %strip_array_coercion.exit
 
 31:                                               ; preds = %.lr.ph.i
   %32 = getelementptr inbounds i8, ptr %.011.i, i64 24
@@ -4620,20 +4620,20 @@ define dso_local double @estimate_array_length(ptr noundef %0, ptr noundef %1) l
   %36 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not.i27 = icmp eq ptr %37, null
-  br i1 %.not.i27, label %list_length.exit, label %38
+  br i1 %.not.i27, label %strip_array_coercion.exit, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %37, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sitofp i32 %40 to double
-  br label %list_length.exit
+  br label %strip_array_coercion.exit
 
 .critedge:                                        ; preds = %11, %6, %.lr.ph.i, %31
   call void @examine_variable(ptr noundef %0, ptr noundef nonnull %.011.i, i32 noundef 0, ptr noundef nonnull %3)
   %42 = getelementptr inbounds i8, ptr %3, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not24 = icmp eq ptr %43, null
-  br i1 %.not24, label %.critedge26, label %44
+  br i1 %.not24, label %strip_array_coercion.exit, label %44
 
 44:                                               ; preds = %.critedge
   %45 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %4, ptr noundef nonnull %43, i32 noundef 5, i32 noundef 0, i32 noundef 2) #13
@@ -4675,13 +4675,13 @@ define dso_local double @estimate_array_length(ptr noundef %0, ptr noundef %1) l
 
 64:                                               ; preds = %60, %61
   %65 = fcmp ogt double %.1.ph, 0.000000e+00
-  br i1 %65, label %list_length.exit, label %.critedge26
+  br i1 %65, label %strip_array_coercion.exit, label %.critedge26
 
-.critedge26:                                      ; preds = %16, %.critedge, %2, %64
-  br label %list_length.exit
+.critedge26:                                      ; preds = %64
+  br label %strip_array_coercion.exit
 
-list_length.exit:                                 ; preds = %38, %35, %64, %17, %.critedge26, %21
-  %.018 = phi double [ %30, %21 ], [ 1.000000e+01, %.critedge26 ], [ 0.000000e+00, %17 ], [ %.1.ph, %64 ], [ %41, %38 ], [ 0.000000e+00, %35 ]
+strip_array_coercion.exit:                        ; preds = %16, %38, %35, %.critedge, %2, %64, %17, %.critedge26, %21
+  %.018 = phi double [ %30, %21 ], [ 0.000000e+00, %17 ], [ %.1.ph, %64 ], [ 1.000000e+01, %2 ], [ 1.000000e+01, %.critedge26 ], [ 1.000000e+01, %.critedge ], [ %41, %38 ], [ 0.000000e+00, %35 ], [ 1.000000e+01, %16 ]
   ret double %.018
 }
 
@@ -5472,7 +5472,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   %21 = getelementptr inbounds i8, ptr %2, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @bms_is_subset(ptr noundef %20, ptr noundef %22) #13
-  br i1 %23, label %34, label %24
+  br i1 %23, label %33, label %24
 
 24:                                               ; preds = %18, %11
   %25 = getelementptr inbounds i8, ptr %4, i64 8
@@ -5486,13 +5486,11 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   %30 = getelementptr inbounds i8, ptr %2, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @bms_is_subset(ptr noundef %29, ptr noundef %31) #13
-  br i1 %32, label %34, label %33
+  %spec.select = zext i1 %32 to i8
+  br label %33
 
-33:                                               ; preds = %27, %24
-  br label %34
-
-34:                                               ; preds = %27, %18, %33
-  %.sink = phi i8 [ 0, %33 ], [ 1, %18 ], [ 1, %27 ]
+33:                                               ; preds = %27, %24, %18
+  %.sink = phi i8 [ 1, %18 ], [ 0, %24 ], [ %spec.select, %27 ]
   store i8 %.sink, ptr %5, align 1
   ret void
 }
@@ -7052,7 +7050,7 @@ list_length.exit.i:                               ; preds = %191
 .lr.ph285.i:                                      ; preds = %191, %list_length.exit.i
   %.0167.i = phi i32 [ %197, %list_length.exit.i ], [ 0, %191 ]
   %198 = getelementptr inbounds i8, ptr %.1157.i, i64 32
-  %199 = trunc i32 %.0167.i to i16
+  %199 = trunc nsw i32 %.0167.i to i16
   %200 = load i32, ptr %121, align 4
   %201 = icmp sgt i32 %200, 0
   br i1 %201, label %.lr.ph271, label %._crit_edge286.i
@@ -8221,9 +8219,9 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
   %16 = getelementptr inbounds i8, ptr %1, i64 80
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.thread, label %.lr.ph228
+  br i1 %.not, label %.thread, label %.lr.ph229
 
-.lr.ph228:                                        ; preds = %8
+.lr.ph229:                                        ; preds = %8
   %18 = getelementptr inbounds i8, ptr %17, i64 4
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = getelementptr inbounds i8, ptr %9, i64 16
@@ -8233,37 +8231,37 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
   %24 = getelementptr inbounds i8, ptr %15, i64 72
   %25 = load i32, ptr %18, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph312, label %.thread
+  br i1 %26, label %.lr.ph313, label %.thread
 
-.lr.ph312:                                        ; preds = %.lr.ph228, %._crit_edge
-  %.0126221311 = phi double [ %.1127.lcssa, %._crit_edge ], [ 1.000000e+00, %.lr.ph228 ]
-  %.0123222310 = phi i1 [ %.1124.lcssa, %._crit_edge ], [ false, %.lr.ph228 ]
-  %.0120223309 = phi i1 [ %.1121.lcssa, %._crit_edge ], [ false, %.lr.ph228 ]
-  %.0117224308 = phi i8 [ %.2119.lcssa, %._crit_edge ], [ 0, %.lr.ph228 ]
-  %.0115225307 = phi i32 [ %.1116, %._crit_edge ], [ 0, %.lr.ph228 ]
-  %.0114226306 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %.lr.ph228 ]
-  %indvars.iv260305 = phi i64 [ %indvars.iv.next261, %._crit_edge ], [ 0, %.lr.ph228 ]
+.lr.ph313:                                        ; preds = %.lr.ph229, %._crit_edge
+  %.0126222312 = phi double [ %.1127.lcssa, %._crit_edge ], [ 1.000000e+00, %.lr.ph229 ]
+  %.0123223311 = phi i1 [ %.1124.lcssa, %._crit_edge ], [ false, %.lr.ph229 ]
+  %.0120224310 = phi i1 [ %.1121.lcssa, %._crit_edge ], [ false, %.lr.ph229 ]
+  %.0117225309 = phi i8 [ %.2119.lcssa, %._crit_edge ], [ 0, %.lr.ph229 ]
+  %.0115226308 = phi i32 [ %.1116, %._crit_edge ], [ 0, %.lr.ph229 ]
+  %.0114227307 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %.lr.ph229 ]
+  %indvars.iv261306 = phi i64 [ %indvars.iv.next262, %._crit_edge ], [ 0, %.lr.ph229 ]
   %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv260305
+  %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv261306
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 26
   %31 = load i16, ptr %30, align 2
   %32 = sext i16 %31 to i32
-  %.not146 = icmp eq i32 %.0115225307, %32
+  %.not146 = icmp eq i32 %.0115226308, %32
   br i1 %.not146, label %37, label %33
 
-33:                                               ; preds = %.lr.ph312
-  %34 = trunc i8 %.0117224308 to i1
+33:                                               ; preds = %.lr.ph313
+  %34 = trunc nuw i8 %.0117225309 to i1
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %33
-  %36 = add nsw i32 %.0115225307, 1
+  %36 = add nsw i32 %.0115226308, 1
   %.not147 = icmp eq i32 %36, %32
   br i1 %.not147, label %37, label %.thread
 
-37:                                               ; preds = %35, %.lr.ph312
-  %.1118 = phi i8 [ 0, %35 ], [ %.0117224308, %.lr.ph312 ]
-  %.1116 = phi i32 [ %32, %35 ], [ %.0115225307, %.lr.ph312 ]
+37:                                               ; preds = %35, %.lr.ph313
+  %.1118 = phi i8 [ 0, %35 ], [ %.0117225309, %.lr.ph313 ]
+  %.1116 = phi i32 [ %32, %35 ], [ %.0115226308, %.lr.ph313 ]
   %38 = getelementptr inbounds i8, ptr %29, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not148 = icmp eq ptr %39, null
@@ -8275,17 +8273,17 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
   %42 = sext i32 %.1116 to i64
   %43 = load i32, ptr %40, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph300, label %._crit_edge
+  br i1 %44, label %.lr.ph301, label %._crit_edge
 
-.lr.ph300:                                        ; preds = %.lr.ph, %146
-  %.1127201299 = phi double [ %.2128180, %146 ], [ %.0126221311, %.lr.ph ]
-  %.1124206298 = phi i1 [ %.2125181, %146 ], [ %.0123222310, %.lr.ph ]
-  %.1121207297 = phi i1 [ %.2122182, %146 ], [ %.0120223309, %.lr.ph ]
-  %.2119208296 = phi i8 [ %.4, %146 ], [ %.1118, %.lr.ph ]
-  %.1209295 = phi ptr [ %147, %146 ], [ %.0114226306, %.lr.ph ]
-  %indvars.iv294 = phi i64 [ %indvars.iv.next, %146 ], [ 0, %.lr.ph ]
+.lr.ph301:                                        ; preds = %.lr.ph, %146
+  %.1127202300 = phi double [ %.2128181, %146 ], [ %.0126222312, %.lr.ph ]
+  %.1124207299 = phi i1 [ %.2125182, %146 ], [ %.0123223311, %.lr.ph ]
+  %.1121208298 = phi i1 [ %.2122183, %146 ], [ %.0120224310, %.lr.ph ]
+  %.2119209297 = phi i8 [ %.4, %146 ], [ %.1118, %.lr.ph ]
+  %.1210296 = phi ptr [ %147, %146 ], [ %.0114227307, %.lr.ph ]
+  %indvars.iv295 = phi i64 [ %indvars.iv.next, %146 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr %union.ListCell, ptr %45, i64 %indvars.iv294
+  %46 = getelementptr %union.ListCell, ptr %45, i64 %indvars.iv295
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -8294,15 +8292,15 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
     i32 15, label %51
     i32 35, label %54
     i32 18, label %59
-    i32 45, label %.thread173
+    i32 45, label %.thread174
   ]
 
-51:                                               ; preds = %.lr.ph300
+51:                                               ; preds = %.lr.ph301
   %52 = getelementptr inbounds i8, ptr %49, i64 4
   %53 = load i32, ptr %52, align 4
   br label %139
 
-54:                                               ; preds = %.lr.ph300
+54:                                               ; preds = %.lr.ph301
   %55 = getelementptr inbounds i8, ptr %49, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 16
@@ -8310,7 +8308,7 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
   %58 = load i32, ptr %.val160, align 8
   br label %139
 
-59:                                               ; preds = %.lr.ph300
+59:                                               ; preds = %.lr.ph301
   %60 = getelementptr inbounds i8, ptr %49, i64 32
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr i8, ptr %61, i64 16
@@ -8320,7 +8318,7 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   %.not10.i.i = icmp eq ptr %64, null
-  br i1 %.not10.i.i, label %estimate_array_length.exit.thread170, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %estimate_array_length.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %59, %76
   %.011.i.i = phi ptr [ %.1.i.i, %76 ], [ %64, %59 ]
@@ -8350,13 +8348,13 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
   %.1.in.i.i = getelementptr inbounds i8, ptr %.011.i.i, i64 8
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not.i.i, label %estimate_array_length.exit.thread170, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %estimate_array_length.exit.thread, label %.lr.ph.i.i
 
 77:                                               ; preds = %.lr.ph.i.i
   %78 = getelementptr inbounds i8, ptr %.011.i.i, i64 32
   %79 = load i8, ptr %78, align 8
   %80 = trunc i8 %79 to i1
-  br i1 %80, label %estimate_array_length.exit.thread, label %81
+  br i1 %80, label %estimate_array_length.exit.thread172, label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds i8, ptr %.011.i.i, i64 24
@@ -8380,7 +8378,7 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
   %96 = getelementptr inbounds i8, ptr %.011.i.i, i64 16
   %97 = load ptr, ptr %96, align 8
   %.not.i27.i = icmp eq ptr %97, null
-  br i1 %.not.i27.i, label %estimate_array_length.exit.thread, label %98
+  br i1 %.not.i27.i, label %estimate_array_length.exit.thread172, label %98
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds i8, ptr %97, i64 4
@@ -8392,7 +8390,7 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
   call void @examine_variable(ptr noundef %0, ptr noundef nonnull %.011.i.i, i32 noundef 0, ptr noundef nonnull %9)
   %102 = load ptr, ptr %20, align 8
   %.not24.i = icmp eq ptr %102, null
-  br i1 %.not24.i, label %estimate_array_length.exit.thread170, label %103
+  br i1 %.not24.i, label %estimate_array_length.exit.thread, label %103
 
 103:                                              ; preds = %.critedge.i
   %104 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %10, ptr noundef nonnull %102, i32 noundef 5, i32 noundef 0, i32 noundef 2) #13
@@ -8431,16 +8429,16 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef read
 
 120:                                              ; preds = %118, %117
   %121 = fcmp ogt double %.1.ph.i, 0.000000e+00
-  br i1 %121, label %estimate_array_length.exit, label %estimate_array_length.exit.thread170
+  br i1 %121, label %estimate_array_length.exit, label %estimate_array_length.exit.thread
 
-estimate_array_length.exit.thread170:             ; preds = %76, %59, %.critedge.i, %120
+estimate_array_length.exit.thread:                ; preds = %76, %59, %.critedge.i, %120
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %122 = getelementptr inbounds i8, ptr %49, i64 4
   %123 = load i32, ptr %122, align 4
   br label %129
 
-estimate_array_length.exit.thread:                ; preds = %77, %95
+estimate_array_length.exit.thread172:             ; preds = %77, %95
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %124 = getelementptr inbounds i8, ptr %49, i64 4
@@ -8456,21 +8454,21 @@ estimate_array_length.exit:                       ; preds = %81, %98, %120
   %128 = fcmp ogt double %.018.i, 1.000000e+00
   br i1 %128, label %129, label %139
 
-129:                                              ; preds = %estimate_array_length.exit.thread170, %estimate_array_length.exit
-  %130 = phi i32 [ %123, %estimate_array_length.exit.thread170 ], [ %127, %estimate_array_length.exit ]
-  %.018.i172 = phi double [ 1.000000e+01, %estimate_array_length.exit.thread170 ], [ %.018.i, %estimate_array_length.exit ]
-  %131 = fmul double %.1127201299, %.018.i172
+129:                                              ; preds = %estimate_array_length.exit.thread, %estimate_array_length.exit
+  %130 = phi i32 [ %123, %estimate_array_length.exit.thread ], [ %127, %estimate_array_length.exit ]
+  %.018.i170 = phi double [ 1.000000e+01, %estimate_array_length.exit.thread ], [ %.018.i, %estimate_array_length.exit ]
+  %131 = fmul double %.1127202300, %.018.i170
   br label %139
 
-.thread173:                                       ; preds = %.lr.ph300
+.thread174:                                       ; preds = %.lr.ph301
   %132 = getelementptr inbounds i8, ptr %49, i64 16
   %133 = load i32, ptr %132, align 8
   %134 = icmp eq i32 %133, 0
-  %spec.select = select i1 %134, i1 true, i1 %.1124206298
-  %spec.select158 = select i1 %134, i8 1, i8 %.2119208296
+  %spec.select = select i1 %134, i1 true, i1 %.1124207299
+  %spec.select158 = select i1 %134, i8 1, i8 %.2119209297
   br label %146
 
-135:                                              ; preds = %.lr.ph300
+135:                                              ; preds = %.lr.ph301
   %136 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %136)
   %137 = load i32, ptr %49, align 4
@@ -8478,10 +8476,10 @@ estimate_array_length.exit:                       ; preds = %81, %98, %120
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6887, ptr noundef nonnull @__func__.btcostestimate) #13
   unreachable
 
-139:                                              ; preds = %estimate_array_length.exit.thread, %54, %estimate_array_length.exit, %129, %51
-  %.0130 = phi i32 [ %53, %51 ], [ %58, %54 ], [ %130, %129 ], [ %127, %estimate_array_length.exit ], [ %125, %estimate_array_length.exit.thread ]
-  %.2128 = phi double [ %.1127201299, %51 ], [ %.1127201299, %54 ], [ %131, %129 ], [ %.1127201299, %estimate_array_length.exit ], [ %.1127201299, %estimate_array_length.exit.thread ]
-  %.2122 = phi i1 [ %.1121207297, %51 ], [ %.1121207297, %54 ], [ true, %129 ], [ true, %estimate_array_length.exit ], [ true, %estimate_array_length.exit.thread ]
+139:                                              ; preds = %estimate_array_length.exit.thread172, %54, %estimate_array_length.exit, %129, %51
+  %.0130 = phi i32 [ %53, %51 ], [ %58, %54 ], [ %130, %129 ], [ %127, %estimate_array_length.exit ], [ %125, %estimate_array_length.exit.thread172 ]
+  %.2128 = phi double [ %.1127202300, %51 ], [ %.1127202300, %54 ], [ %131, %129 ], [ %.1127202300, %estimate_array_length.exit ], [ %.1127202300, %estimate_array_length.exit.thread172 ]
+  %.2122 = phi i1 [ %.1121208298, %51 ], [ %.1121208298, %54 ], [ true, %129 ], [ true, %estimate_array_length.exit ], [ true, %estimate_array_length.exit.thread172 ]
   %.not150 = icmp eq i32 %.0130, 0
   br i1 %.not150, label %146, label %140
 
@@ -8491,40 +8489,40 @@ estimate_array_length.exit:                       ; preds = %81, %98, %120
   %143 = load i32, ptr %142, align 4
   %144 = call i32 @get_op_opfamily_strategy(i32 noundef %.0130, i32 noundef %143) #13
   %145 = icmp eq i32 %144, 3
-  %spec.select159 = select i1 %145, i8 1, i8 %.2119208296
+  %spec.select159 = select i1 %145, i8 1, i8 %.2119209297
   br label %146
 
-146:                                              ; preds = %.thread173, %140, %139
-  %.2122182 = phi i1 [ %.2122, %139 ], [ %.2122, %140 ], [ %.1121207297, %.thread173 ]
-  %.2125181 = phi i1 [ %.1124206298, %139 ], [ %.1124206298, %140 ], [ %spec.select, %.thread173 ]
-  %.2128180 = phi double [ %.2128, %139 ], [ %.2128, %140 ], [ %.1127201299, %.thread173 ]
-  %.4 = phi i8 [ %.2119208296, %139 ], [ %spec.select159, %140 ], [ %spec.select158, %.thread173 ]
-  %147 = call ptr @lappend(ptr noundef %.1209295, ptr noundef %47) #13
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv294, 1
+146:                                              ; preds = %.thread174, %140, %139
+  %.2122183 = phi i1 [ %.2122, %139 ], [ %.2122, %140 ], [ %.1121208298, %.thread174 ]
+  %.2125182 = phi i1 [ %.1124207299, %139 ], [ %.1124207299, %140 ], [ %spec.select, %.thread174 ]
+  %.2128181 = phi double [ %.2128, %139 ], [ %.2128, %140 ], [ %.1127202300, %.thread174 ]
+  %.4 = phi i8 [ %.2119209297, %139 ], [ %spec.select159, %140 ], [ %spec.select158, %.thread174 ]
+  %147 = call ptr @lappend(ptr noundef %.1210296, ptr noundef %47) #13
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv295, 1
   %148 = load i32, ptr %40, align 4
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next, %149
-  br i1 %150, label %.lr.ph300, label %._crit_edge
+  br i1 %150, label %.lr.ph301, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %146, %.lr.ph, %37
-  %.1127.lcssa = phi double [ %.0126221311, %37 ], [ %.0126221311, %.lr.ph ], [ %.2128180, %146 ]
-  %.1124.lcssa = phi i1 [ %.0123222310, %37 ], [ %.0123222310, %.lr.ph ], [ %.2125181, %146 ]
-  %.1121.lcssa = phi i1 [ %.0120223309, %37 ], [ %.0120223309, %.lr.ph ], [ %.2122182, %146 ]
+  %.1127.lcssa = phi double [ %.0126222312, %37 ], [ %.0126222312, %.lr.ph ], [ %.2128181, %146 ]
+  %.1124.lcssa = phi i1 [ %.0123223311, %37 ], [ %.0123223311, %.lr.ph ], [ %.2125182, %146 ]
+  %.1121.lcssa = phi i1 [ %.0120224310, %37 ], [ %.0120224310, %.lr.ph ], [ %.2122183, %146 ]
   %.2119.lcssa = phi i8 [ %.1118, %37 ], [ %.1118, %.lr.ph ], [ %.4, %146 ]
-  %.1.lcssa = phi ptr [ %.0114226306, %37 ], [ %.0114226306, %.lr.ph ], [ %147, %146 ]
-  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260305, 1
+  %.1.lcssa = phi ptr [ %.0114227307, %37 ], [ %.0114227307, %.lr.ph ], [ %147, %146 ]
+  %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261306, 1
   %151 = load i32, ptr %18, align 4
   %152 = sext i32 %151 to i64
-  %153 = icmp slt i64 %indvars.iv.next261, %152
-  br i1 %153, label %.lr.ph312, label %.thread
+  %153 = icmp slt i64 %indvars.iv.next262, %152
+  br i1 %153, label %.lr.ph313, label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %35, %33, %.lr.ph228, %8
-  %.0126.lcssa = phi double [ 1.000000e+00, %8 ], [ 1.000000e+00, %.lr.ph228 ], [ %.0126221311, %33 ], [ %.0126221311, %35 ], [ %.1127.lcssa, %._crit_edge ]
-  %.0123.lcssa = phi i1 [ false, %8 ], [ false, %.lr.ph228 ], [ %.0123222310, %33 ], [ %.0123222310, %35 ], [ %.1124.lcssa, %._crit_edge ]
-  %.0120.lcssa = phi i1 [ false, %8 ], [ false, %.lr.ph228 ], [ %.0120223309, %33 ], [ %.0120223309, %35 ], [ %.1121.lcssa, %._crit_edge ]
-  %.0114.lcssa = phi ptr [ null, %8 ], [ null, %.lr.ph228 ], [ %.0114226306, %33 ], [ %.0114226306, %35 ], [ %.1.lcssa, %._crit_edge ]
-  %.5 = phi i8 [ 0, %8 ], [ 0, %.lr.ph228 ], [ %.0117224308, %33 ], [ 0, %35 ], [ %.2119.lcssa, %._crit_edge ]
-  %.2 = phi i32 [ 0, %8 ], [ 0, %.lr.ph228 ], [ %.0115225307, %33 ], [ %36, %35 ], [ %.1116, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %35, %33, %.lr.ph229, %8
+  %.0126.lcssa = phi double [ 1.000000e+00, %8 ], [ 1.000000e+00, %.lr.ph229 ], [ %.0126222312, %33 ], [ %.0126222312, %35 ], [ %.1127.lcssa, %._crit_edge ]
+  %.0123.lcssa = phi i1 [ false, %8 ], [ false, %.lr.ph229 ], [ %.0123223311, %33 ], [ %.0123223311, %35 ], [ %.1124.lcssa, %._crit_edge ]
+  %.0120.lcssa = phi i1 [ false, %8 ], [ false, %.lr.ph229 ], [ %.0120224310, %33 ], [ %.0120224310, %35 ], [ %.1121.lcssa, %._crit_edge ]
+  %.0114.lcssa = phi ptr [ null, %8 ], [ null, %.lr.ph229 ], [ %.0114227307, %33 ], [ %.0114227307, %35 ], [ %.1.lcssa, %._crit_edge ]
+  %.5 = phi i8 [ 0, %8 ], [ 0, %.lr.ph229 ], [ %.0117225309, %33 ], [ 0, %35 ], [ %.2119.lcssa, %._crit_edge ]
+  %.2 = phi i32 [ 0, %8 ], [ 0, %.lr.ph229 ], [ %.0115226308, %33 ], [ %36, %35 ], [ %.1116, %._crit_edge ]
   %154 = getelementptr inbounds i8, ptr %15, i64 169
   %155 = load i8, ptr %154, align 1
   %156 = trunc i8 %155 to i1
@@ -8538,11 +8536,11 @@ estimate_array_length.exit:                       ; preds = %81, %98, %120
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %157
-  %163 = trunc i8 %.5 to i1
-  %.not185 = xor i1 %163, true
-  %brmerge = select i1 %.not185, i1 true, i1 %.0120.lcssa
-  %brmerge186 = select i1 %brmerge, i1 true, i1 %.0123.lcssa
-  br i1 %brmerge186, label %164, label %194
+  %163 = trunc nuw i8 %.5 to i1
+  %.not186 = xor i1 %163, true
+  %brmerge = select i1 %.not186, i1 true, i1 %.0120.lcssa
+  %brmerge187 = select i1 %brmerge, i1 true, i1 %.0123.lcssa
+  br i1 %brmerge187, label %164, label %194
 
 164:                                              ; preds = %162, %157, %.thread
   %165 = getelementptr inbounds i8, ptr %15, i64 144
@@ -8610,15 +8608,15 @@ add_predicate_to_index_quals.exit:                ; preds = %164, %._crit_edge.i
   %196 = getelementptr inbounds i8, ptr %15, i64 32
   %197 = load double, ptr %196, align 8
   %198 = fcmp ogt double %197, 1.000000e+00
-  br i1 %198, label %199, label %._crit_edge262
+  br i1 %198, label %199, label %._crit_edge263
 
-._crit_edge262:                                   ; preds = %194
+._crit_edge263:                                   ; preds = %194
   %.pre = load double, ptr @cpu_operator_cost, align 8
-  %.pre263 = load double, ptr %11, align 8
+  %.pre264 = load double, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 56
-  %.pre264 = load double, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert265 = getelementptr inbounds i8, ptr %11, i64 8
-  %.pre266 = load double, ptr %.phi.trans.insert265, align 8
+  %.pre265 = load double, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert266 = getelementptr inbounds i8, ptr %11, i64 8
+  %.pre267 = load double, ptr %.phi.trans.insert266, align 8
   br label %212
 
 199:                                              ; preds = %194
@@ -8636,11 +8634,11 @@ add_predicate_to_index_quals.exit:                ; preds = %164, %._crit_edge.i
   %211 = call double @llvm.fmuladd.f64(double %208, double %204, double %210)
   br label %212
 
-212:                                              ; preds = %._crit_edge262, %199
-  %213 = phi double [ %.pre266, %._crit_edge262 ], [ %211, %199 ]
-  %214 = phi double [ %.pre264, %._crit_edge262 ], [ %208, %199 ]
-  %215 = phi double [ %.pre263, %._crit_edge262 ], [ %206, %199 ]
-  %216 = phi double [ %.pre, %._crit_edge262 ], [ %203, %199 ]
+212:                                              ; preds = %._crit_edge263, %199
+  %213 = phi double [ %.pre267, %._crit_edge263 ], [ %211, %199 ]
+  %214 = phi double [ %.pre265, %._crit_edge263 ], [ %208, %199 ]
+  %215 = phi double [ %.pre264, %._crit_edge263 ], [ %206, %199 ]
+  %216 = phi double [ %.pre, %._crit_edge263 ], [ %203, %199 ]
   %217 = getelementptr inbounds i8, ptr %15, i64 40
   %218 = load i32, ptr %217, align 8
   %219 = getelementptr inbounds i8, ptr %15, i64 56
@@ -8766,7 +8764,7 @@ add_predicate_to_index_quals.exit:                ; preds = %164, %._crit_edge.i
   %293 = phi ptr [ %279, %277 ], [ %255, %253 ], [ %.sink, %.sink.split ]
   %294 = getelementptr inbounds i8, ptr %12, i64 16
   %.not155 = icmp eq ptr %293, null
-  br i1 %.not155, label %.thread183, label %295
+  br i1 %.not155, label %.thread184, label %295
 
 295:                                              ; preds = %292
   %296 = getelementptr inbounds i8, ptr %15, i64 72
@@ -8808,15 +8806,15 @@ add_predicate_to_index_quals.exit:                ; preds = %164, %._crit_edge.i
 321:                                              ; preds = %306, %303, %295
   %.pr = load ptr, ptr %294, align 8
   %.not157 = icmp eq ptr %.pr, null
-  br i1 %.not157, label %.thread183, label %322
+  br i1 %.not157, label %.thread184, label %322
 
 322:                                              ; preds = %321
   %323 = getelementptr inbounds i8, ptr %12, i64 24
   %324 = load ptr, ptr %323, align 8
   call void %324(ptr noundef nonnull %.pr) #13
-  br label %.thread183
+  br label %.thread184
 
-.thread183:                                       ; preds = %292, %321, %322
+.thread184:                                       ; preds = %292, %321, %322
   %325 = add i32 %218, 1
   %326 = sitofp i32 %325 to double
   %327 = fmul double %326, 5.000000e+01
@@ -9429,7 +9427,7 @@ gincost_opexpr.exit:                              ; preds = %185
   %.1.in.i.i = getelementptr inbounds i8, ptr %.011.i.i, i64 8
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not.i.i, label %.critedge26.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %estimate_array_length.exit, label %.lr.ph.i.i
 
 223:                                              ; preds = %.lr.ph.i.i
   %224 = getelementptr inbounds i8, ptr %.011.i.i, i64 32
@@ -9471,7 +9469,7 @@ gincost_opexpr.exit:                              ; preds = %185
   call void @examine_variable(ptr noundef %0, ptr noundef nonnull %.011.i.i, i32 noundef 0, ptr noundef nonnull %9)
   %248 = load ptr, ptr %140, align 8
   %.not24.i = icmp eq ptr %248, null
-  br i1 %.not24.i, label %.critedge26.i, label %249
+  br i1 %.not24.i, label %estimate_array_length.exit, label %249
 
 249:                                              ; preds = %.critedge.i
   %250 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %10, ptr noundef nonnull %248, i32 noundef 5, i32 noundef 0, i32 noundef 2) #13
@@ -9512,11 +9510,11 @@ gincost_opexpr.exit:                              ; preds = %185
   %267 = fcmp ogt double %.1.ph.i, 0.000000e+00
   br i1 %267, label %estimate_array_length.exit, label %.critedge26.i
 
-.critedge26.i:                                    ; preds = %222, %266, %.critedge.i
+.critedge26.i:                                    ; preds = %266
   br label %estimate_array_length.exit
 
-estimate_array_length.exit:                       ; preds = %223, %227, %241, %244, %266, %.critedge26.i
-  %.018.i = phi double [ %236, %227 ], [ 1.000000e+01, %.critedge26.i ], [ 0.000000e+00, %223 ], [ %.1.ph.i, %266 ], [ %247, %244 ], [ 0.000000e+00, %241 ]
+estimate_array_length.exit:                       ; preds = %222, %223, %227, %241, %244, %.critedge.i, %266, %.critedge26.i
+  %.018.i = phi double [ %236, %227 ], [ 0.000000e+00, %223 ], [ %.1.ph.i, %266 ], [ 1.000000e+01, %.critedge26.i ], [ 1.000000e+01, %.critedge.i ], [ %247, %244 ], [ 0.000000e+00, %241 ], [ 1.000000e+01, %222 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %268 = load double, ptr %134, align 8

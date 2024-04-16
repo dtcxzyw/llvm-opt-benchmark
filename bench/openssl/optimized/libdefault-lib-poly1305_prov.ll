@@ -96,7 +96,7 @@ poly1305_set_ctx_params.exit:                     ; preds = %land.lhs.true.i
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #4
   br label %return
 
-if.end:                                           ; preds = %poly1305_setkey.exit.i, %lor.lhs.false
+if.end:                                           ; preds = %lor.lhs.false, %poly1305_setkey.exit.i
   %cmp.not = icmp eq ptr %key, null
   br i1 %cmp.not, label %if.end5, label %if.then3
 
@@ -205,13 +205,7 @@ land.lhs.true:                                    ; preds = %entry
   %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load i64, ptr %data_size, align 8
   %cmp.not.i = icmp eq i64 %0, 32
-  br i1 %cmp.not.i, label %poly1305_setkey.exit, label %poly1305_setkey.exit.thread
-
-poly1305_setkey.exit.thread:                      ; preds = %land.lhs.true
-  tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.poly1305_setkey) #4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #4
-  br label %return
+  br i1 %cmp.not.i, label %poly1305_setkey.exit, label %2
 
 poly1305_setkey.exit:                             ; preds = %land.lhs.true
   %data = getelementptr inbounds i8, ptr %call, i64 16
@@ -222,8 +216,14 @@ poly1305_setkey.exit:                             ; preds = %land.lhs.true
   store i32 0, ptr %updated.i, align 8
   br label %return
 
-return:                                           ; preds = %entry, %poly1305_setkey.exit, %poly1305_setkey.exit.thread
-  %retval.0 = phi i32 [ 0, %poly1305_setkey.exit.thread ], [ 1, %poly1305_setkey.exit ], [ 1, %entry ]
+2:                                                ; preds = %land.lhs.true
+  tail call void @ERR_new() #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.poly1305_setkey) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #4
+  br label %return
+
+return:                                           ; preds = %2, %poly1305_setkey.exit, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %2 ], [ 1, %poly1305_setkey.exit ]
   ret i32 %retval.0
 }
 

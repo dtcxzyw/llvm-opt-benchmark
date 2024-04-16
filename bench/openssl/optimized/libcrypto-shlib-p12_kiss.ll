@@ -65,18 +65,16 @@ if.else21:                                        ; preds = %lor.lhs.false
   br i1 %tobool23.not, label %err96.sink.split, label %if.end36
 
 if.else27:                                        ; preds = %if.end6
-  br i1 %cmp28, label %if.then34, label %lor.lhs.false30
+  br i1 %cmp28, label %if.end36, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.else27
   %1 = load i8, ptr %pass, align 1
   %cmp32 = icmp eq i8 %1, 0
-  br i1 %cmp32, label %if.then34, label %if.end36
-
-if.then34:                                        ; preds = %lor.lhs.false30, %if.else27
+  %spec.select = select i1 %cmp32, ptr null, ptr %pass
   br label %if.end36
 
-if.end36:                                         ; preds = %if.else, %if.then11, %lor.lhs.false30, %if.then34, %if.else21
-  %pass.addr.0 = phi ptr [ %pass, %if.else21 ], [ null, %if.then34 ], [ %pass, %lor.lhs.false30 ], [ null, %if.then11 ], [ @.str.1, %if.else ]
+if.end36:                                         ; preds = %lor.lhs.false30, %if.else27, %if.else, %if.then11, %if.else21
+  %pass.addr.0 = phi ptr [ %pass, %if.else21 ], [ null, %if.then11 ], [ @.str.1, %if.else ], [ null, %if.else27 ], [ %spec.select, %lor.lhs.false30 ]
   %cmp40 = icmp ne ptr %ca, null
   %or.cond = or i1 %cmp1, %cmp40
   br i1 %or.cond, label %land.lhs.true, label %if.end46

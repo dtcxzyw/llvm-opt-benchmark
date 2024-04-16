@@ -72,7 +72,7 @@ if.end12:                                         ; preds = %while.body
   br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !5
 
 while.end.loopexit:                               ; preds = %if.end12
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next to i32
   %7 = add nuw nsw i32 %6, 1
   br label %while.end
 
@@ -108,12 +108,12 @@ if.end:                                           ; preds = %entry, %if.end
   %or = or i8 %1, -128
   %arrayidx7 = getelementptr inbounds [10 x i8], ptr %buf, i64 0, i64 %indvars.iv
   store i8 %or, ptr %arrayidx7, align 1
-  %indvars.iv.next = add i64 %indvars.iv, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %tobool.not = icmp ult i64 %dec1, 128
   br i1 %tobool.not, label %while.end.loopexit, label %if.end
 
 while.end.loopexit:                               ; preds = %if.end
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
@@ -224,12 +224,12 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %or.i = or i8 %2, -128
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %entry
@@ -280,12 +280,12 @@ if.end.i15:                                       ; preds = %if.end, %if.end.i15
   %or.i20 = or i8 %5, -128
   %arrayidx7.i21 = getelementptr inbounds [10 x i8], ptr %buf.i11, i64 0, i64 %indvars.iv.i16
   store i8 %or.i20, ptr %arrayidx7.i21, align 1
-  %indvars.iv.next.i22 = add i64 %indvars.iv.i16, -1
+  %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i16, -1
   %tobool.not.i23 = icmp ult i64 %dec1.i19, 128
   br i1 %tobool.not.i23, label %while.end.loopexit.i24, label %if.end.i15
 
 while.end.loopexit.i24:                           ; preds = %if.end.i15
-  %6 = trunc i64 %indvars.iv.next.i22 to i32
+  %6 = trunc nsw i64 %indvars.iv.next.i22 to i32
   br label %while.end.i25
 
 while.end.i25:                                    ; preds = %while.end.loopexit.i24, %if.end
@@ -378,7 +378,7 @@ if.end12.i:                                       ; preds = %while.body.i
   br i1 %tobool.not.i, label %get_var_int.exit, label %while.body.i, !llvm.loop !5
 
 get_var_int.exit:                                 ; preds = %if.end12.i
-  %4 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %5 = add nuw i64 %indvars.iv.i, 2
   %cmp = icmp slt i32 %4, -1
   br i1 %cmp, label %return, label %if.end
@@ -1600,12 +1600,12 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %or.i = or i8 %2, -128
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %entry
@@ -1665,12 +1665,12 @@ if.end.i.i:                                       ; preds = %sw.bb, %if.end.i.i
   %or.i.i = or i8 %7, -128
   %arrayidx7.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %or.i.i, ptr %arrayidx7.i.i, align 1
-  %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, -1
+  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %tobool.not.i.i = icmp ult i64 %dec1.i.i, 128
   br i1 %tobool.not.i.i, label %while.end.loopexit.i.i, label %if.end.i.i
 
 while.end.loopexit.i.i:                           ; preds = %if.end.i.i
-  %8 = trunc i64 %indvars.iv.next.i.i to i32
+  %8 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %sw.bb
@@ -1789,7 +1789,7 @@ if.end12.i:                                       ; preds = %while.body.i
   br i1 %tobool.not.i, label %get_var_int.exit, label %while.body.i, !llvm.loop !5
 
 get_var_int.exit:                                 ; preds = %if.end12.i
-  %4 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %5 = add nuw nsw i32 %4, 1
   %cmp = icmp slt i32 %4, -1
   br i1 %cmp, label %return, label %if.end
@@ -2109,7 +2109,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   %3 = load i64, ptr %update_index, align 8
   %sub = xor i64 %3, -1
   %shr.i = lshr i64 %sub, 56
-  %conv.i = trunc i64 %shr.i to i8
+  %conv.i = trunc nuw i64 %shr.i to i8
   store i8 %conv.i, ptr %i64, align 1
   %shr1.i = lshr i64 %sub, 48
   %conv2.i = trunc i64 %shr1.i to i8
@@ -2322,12 +2322,12 @@ if.end.i.i:                                       ; preds = %if.end10, %if.end.i
   %or.i.i = or i8 %5, -128
   %arrayidx7.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %or.i.i, ptr %arrayidx7.i.i, align 1
-  %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, -1
+  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %tobool.not.i.i = icmp ult i64 %dec1.i.i, 128
   br i1 %tobool.not.i.i, label %while.end.loopexit.i.i, label %if.end.i.i
 
 while.end.loopexit.i.i:                           ; preds = %if.end.i.i
-  %6 = trunc i64 %indvars.iv.next.i.i to i32
+  %6 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %if.end10
@@ -2394,12 +2394,12 @@ if.end.i.i42:                                     ; preds = %if.end23, %if.end.i
   %or.i.i47 = or i8 %10, -128
   %arrayidx7.i.i48 = getelementptr inbounds [10 x i8], ptr %buf.i.i35, i64 0, i64 %indvars.iv.i.i43
   store i8 %or.i.i47, ptr %arrayidx7.i.i48, align 1
-  %indvars.iv.next.i.i49 = add i64 %indvars.iv.i.i43, -1
+  %indvars.iv.next.i.i49 = add nsw i64 %indvars.iv.i.i43, -1
   %tobool.not.i.i50 = icmp ult i64 %dec1.i.i46, 128
   br i1 %tobool.not.i.i50, label %while.end.loopexit.i.i51, label %if.end.i.i42
 
 while.end.loopexit.i.i51:                         ; preds = %if.end.i.i42
-  %11 = trunc i64 %indvars.iv.next.i.i49 to i32
+  %11 = trunc nsw i64 %indvars.iv.next.i.i49 to i32
   br label %while.end.i.i52
 
 while.end.i.i52:                                  ; preds = %while.end.loopexit.i.i51, %if.end23
@@ -2461,12 +2461,12 @@ if.end.i79:                                       ; preds = %if.end36, %if.end.i
   %or.i = or i8 %15, -128
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i79
 
 while.end.loopexit.i:                             ; preds = %if.end.i79
-  %16 = trunc i64 %indvars.iv.next.i to i32
+  %16 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.end36
@@ -2527,12 +2527,12 @@ if.end.i.i98:                                     ; preds = %if.end47, %if.end.i
   %or.i.i103 = or i8 %20, -128
   %arrayidx7.i.i104 = getelementptr inbounds [10 x i8], ptr %buf.i.i91, i64 0, i64 %indvars.iv.i.i99
   store i8 %or.i.i103, ptr %arrayidx7.i.i104, align 1
-  %indvars.iv.next.i.i105 = add i64 %indvars.iv.i.i99, -1
+  %indvars.iv.next.i.i105 = add nsw i64 %indvars.iv.i.i99, -1
   %tobool.not.i.i106 = icmp ult i64 %dec1.i.i102, 128
   br i1 %tobool.not.i.i106, label %while.end.loopexit.i.i107, label %if.end.i.i98
 
 while.end.loopexit.i.i107:                        ; preds = %if.end.i.i98
-  %21 = trunc i64 %indvars.iv.next.i.i105 to i32
+  %21 = trunc nsw i64 %indvars.iv.next.i.i105 to i32
   br label %while.end.i.i108
 
 while.end.i.i108:                                 ; preds = %while.end.loopexit.i.i107, %if.end47
@@ -2895,7 +2895,7 @@ if.end12.i:                                       ; preds = %while.body.i
   br i1 %tobool.not.i, label %get_var_int.exit, label %while.body.i, !llvm.loop !5
 
 get_var_int.exit:                                 ; preds = %if.end12.i
-  %56 = trunc i64 %indvars.iv.next.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %57 = add nuw i64 %indvars.iv.i, 2
   %cmp120 = icmp slt i32 %56, -1
   br i1 %cmp120, label %done, label %if.end123
@@ -3105,12 +3105,12 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %or.i = or i8 %2, -128
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %entry
@@ -3183,7 +3183,7 @@ if.end12.i:                                       ; preds = %while.body.i
   br i1 %tobool.not.i, label %get_var_int.exit, label %while.body.i, !llvm.loop !5
 
 get_var_int.exit:                                 ; preds = %if.end12.i
-  %5 = trunc i64 %indvars.iv.next.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %6 = add nuw nsw i32 %5, 1
   br label %return.sink.split
 
@@ -3337,7 +3337,7 @@ entry:
   %0 = load i32, ptr %offset_len, align 8
   %1 = add i32 %0, -1
   %or.cond = icmp ult i32 %1, 7
-  %conv = trunc i32 %0 to i8
+  %conv = trunc nuw nsw i32 %0 to i8
   %retval.0 = select i1 %or.cond, i8 %conv, i8 0
   ret i8 %retval.0
 }
@@ -3378,12 +3378,12 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
   %or.i = or i8 %2, -128
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
-  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.then
@@ -3438,12 +3438,12 @@ if.end.i22:                                       ; preds = %if.end14, %if.end.i
   %or.i27 = or i8 %8, -128
   %arrayidx7.i28 = getelementptr inbounds [10 x i8], ptr %buf.i18, i64 0, i64 %indvars.iv.i23
   store i8 %or.i27, ptr %arrayidx7.i28, align 1
-  %indvars.iv.next.i29 = add i64 %indvars.iv.i23, -1
+  %indvars.iv.next.i29 = add nsw i64 %indvars.iv.i23, -1
   %tobool.not.i30 = icmp ult i64 %dec1.i26, 128
   br i1 %tobool.not.i30, label %while.end.loopexit.i31, label %if.end.i22
 
 while.end.loopexit.i31:                           ; preds = %if.end.i22
-  %9 = trunc i64 %indvars.iv.next.i29 to i32
+  %9 = trunc nsw i64 %indvars.iv.next.i29 to i32
   br label %while.end.i32
 
 while.end.i32:                                    ; preds = %while.end.loopexit.i31, %if.end14
@@ -3506,12 +3506,12 @@ if.end.i52:                                       ; preds = %for.body, %if.end.i
   %or.i57 = or i8 %15, -128
   %arrayidx7.i58 = getelementptr inbounds [10 x i8], ptr %buf.i48, i64 0, i64 %indvars.iv.i53
   store i8 %or.i57, ptr %arrayidx7.i58, align 1
-  %indvars.iv.next.i59 = add i64 %indvars.iv.i53, -1
+  %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i53, -1
   %tobool.not.i60 = icmp ult i64 %dec1.i56, 128
   br i1 %tobool.not.i60, label %while.end.loopexit.i61, label %if.end.i52
 
 while.end.loopexit.i61:                           ; preds = %if.end.i52
-  %16 = trunc i64 %indvars.iv.next.i59 to i32
+  %16 = trunc nsw i64 %indvars.iv.next.i59 to i32
   br label %while.end.i62
 
 while.end.i62:                                    ; preds = %while.end.loopexit.i61, %for.body
@@ -3604,7 +3604,7 @@ if.end12.i:                                       ; preds = %while.body.i
   br i1 %tobool.not.i, label %get_var_int.exit, label %while.body.i, !llvm.loop !5
 
 get_var_int.exit:                                 ; preds = %if.end12.i
-  %6 = trunc i64 %indvars.iv.next.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %7 = add nuw nsw i32 %6, 1
   %cmp8 = icmp slt i32 %6, -1
   br i1 %cmp8, label %return, label %if.end
@@ -3672,7 +3672,7 @@ if.end12.i31:                                     ; preds = %while.body.i27
   br i1 %tobool.not.i38, label %get_var_int.exit44, label %while.body.i27, !llvm.loop !5
 
 get_var_int.exit44:                               ; preds = %if.end12.i31
-  %12 = trunc i64 %indvars.iv.next.i32 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.next.i32 to i32
   %13 = add nuw nsw i32 %12, 1
   store i64 %or.i37, ptr %call19, align 8
   %cmp25 = icmp slt i32 %12, -1
@@ -3726,7 +3726,7 @@ if.end12.i58:                                     ; preds = %while.body.i54
   br i1 %tobool.not.i65, label %get_var_int.exit71, label %while.body.i54, !llvm.loop !5
 
 get_var_int.exit71:                               ; preds = %if.end12.i58
-  %20 = trunc i64 %indvars.iv.next.i59 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.next.i59 to i32
   %21 = add nuw nsw i32 %20, 1
   %cmp36 = icmp slt i32 %20, -1
   br i1 %cmp36, label %return, label %if.end39
@@ -3770,7 +3770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @reftable_obj_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 %hash_size) #12 {
+define internal i32 @reftable_obj_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 %hash_size) #12 {
 entry:
   %hash_prefix_len = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %hash_prefix_len, align 8
@@ -3801,7 +3801,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end
   %tobool11.not = icmp eq i32 %2, 0
-  br i1 %tobool11.not, label %if.end19, label %land.lhs.true12
+  br i1 %tobool11.not, label %return, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %if.end9
   %offsets = getelementptr inbounds i8, ptr %a, i64 16
@@ -3812,13 +3812,11 @@ land.lhs.true12:                                  ; preds = %if.end9
   %mul = shl nsw i64 %conv15, 3
   %bcmp12 = tail call i32 @bcmp(ptr %6, ptr %7, i64 %mul)
   %tobool17.not = icmp eq i32 %bcmp12, 0
-  br i1 %tobool17.not, label %if.end19, label %return
-
-if.end19:                                         ; preds = %land.lhs.true12, %if.end9
+  %spec.select = zext i1 %tobool17.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true12, %land.lhs.true, %entry, %lor.lhs.false, %if.end19
-  %retval.0 = phi i32 [ 1, %if.end19 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true12 ]
+return:                                           ; preds = %land.lhs.true12, %if.end9, %land.lhs.true, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ], [ 1, %if.end9 ], [ %spec.select, %land.lhs.true12 ]
   ret i32 %retval.0
 }
 

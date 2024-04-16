@@ -1059,7 +1059,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %21 = load i64, ptr %20, align 8, !tbaa.struct !41
   %22 = trunc i64 %21 to i32
   %23 = lshr i64 %21, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %25 = tail call i32 @llvm.abs.i32(i32 %22, i1 false)
   %26 = zext i32 %25 to i64
   %27 = tail call i32 @llvm.abs.i32(i32 %24, i1 false)
@@ -1134,7 +1134,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %76 = load i64, ptr %75, align 4, !tbaa.struct !41
   %77 = trunc i64 %76 to i32
   %78 = lshr i64 %76, 32
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw i64 %78 to i32
   %80 = icmp slt i32 %77, 1
   %81 = load ptr, ptr %14, align 8, !tbaa !23
   br i1 %80, label %82, label %89
@@ -1225,7 +1225,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %145 = load i64, ptr %144, align 8, !tbaa.struct !41
   %146 = trunc i64 %145 to i32
   %147 = lshr i64 %145, 32
-  %148 = trunc i64 %147 to i32
+  %148 = trunc nuw i64 %147 to i32
   %149 = tail call i32 @llvm.abs.i32(i32 %146, i1 false)
   %150 = tail call i32 @llvm.abs.i32(i32 %148, i1 false)
   %151 = mul i32 %150, %149
@@ -2384,7 +2384,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %27 = sub i64 %18, %12
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %29 = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %26, %21
@@ -2419,7 +2419,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %52 = sub i64 %12, %43
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   br label %56
 
 56:                                               ; preds = %51, %46
@@ -2983,7 +2983,7 @@ define linkonce_odr hidden noundef double @_ZNK8rawspeed5Hints3getIdEET_RKNSt7__
   %27 = sub i64 %18, %12
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %29 = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %26, %21
@@ -3018,7 +3018,7 @@ define linkonce_odr hidden noundef double @_ZNK8rawspeed5Hints3getIdEET_RKNSt7__
   %52 = sub i64 %12, %43
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   br label %56
 
 56:                                               ; preds = %51, %46
@@ -3411,7 +3411,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawI
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawImageDataU16ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %17, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3422,20 +3422,18 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspee
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1, !tbaa !125
   %11 = icmp eq i8 %10, 42
-  br i1 %11, label %17, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #31
   %14 = freeze i32 %13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, ptr %3, ptr null
+  br label %16
 
-16:                                               ; preds = %12, %5
-  br label %17
-
-17:                                               ; preds = %16, %12, %9, %2
-  %18 = phi ptr [ %3, %2 ], [ %3, %16 ], [ null, %12 ], [ null, %9 ]
-  ret ptr %18
+16:                                               ; preds = %12, %5, %9, %2
+  %17 = phi ptr [ %3, %2 ], [ null, %9 ], [ %3, %5 ], [ %spec.select, %12 ]
+  ret ptr %17
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)

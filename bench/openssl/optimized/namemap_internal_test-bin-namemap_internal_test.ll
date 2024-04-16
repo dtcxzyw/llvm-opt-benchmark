@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [12 x i8] c"AES-128-CCM\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_namemap_empty) #2
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_namemap_independent) #2
@@ -241,28 +241,26 @@ if.end:                                           ; preds = %entry
   %conv = zext i1 %cmp to i32
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.7, i32 noundef 162, ptr noundef nonnull @.str.40, i32 noundef %conv) #2
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.then10, label %lor.lhs.false
+  br i1 %tobool4.not, label %if.end11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %call5 = tail call i32 @EVP_MD_is_a(ptr noundef %call, ptr noundef nonnull @.str.43) #2
   %cmp6 = icmp ne i32 %call5, 0
   %conv7 = zext i1 %cmp6 to i32
   %call8 = tail call i32 @test_false(ptr noundef nonnull @.str.7, i32 noundef 163, ptr noundef nonnull @.str.42, i32 noundef %conv7) #2
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %lor.lhs.false, %if.end
+  %tobool9.not = icmp ne i32 %call8, 0
+  %spec.select = zext i1 %tobool9.not to i32
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then10, %lor.lhs.false
-  %rv.0 = phi i32 [ 1, %lor.lhs.false ], [ 0, %if.then10 ]
+if.end11:                                         ; preds = %lor.lhs.false, %if.end
+  %rv.0 = phi i32 [ 0, %if.end ], [ %spec.select, %lor.lhs.false ]
   %call12 = tail call ptr @EVP_sha256() #2
   %call13 = tail call i32 @EVP_MD_is_a(ptr noundef %call12, ptr noundef nonnull @.str.45) #2
   %cmp14 = icmp ne i32 %call13, 0
   %conv15 = zext i1 %cmp14 to i32
   %call16 = tail call i32 @test_true(ptr noundef nonnull @.str.7, i32 noundef 165, ptr noundef nonnull @.str.44, i32 noundef %conv15) #2
   %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %if.then25, label %lor.lhs.false18
+  br i1 %tobool17.not, label %if.end26, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.end11
   %call19 = tail call ptr @EVP_sha256() #2
@@ -271,13 +269,11 @@ lor.lhs.false18:                                  ; preds = %if.end11
   %conv22 = zext i1 %cmp21 to i32
   %call23 = tail call i32 @test_false(ptr noundef nonnull @.str.7, i32 noundef 166, ptr noundef nonnull @.str.46, i32 noundef %conv22) #2
   %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %lor.lhs.false18, %if.end11
+  %spec.select4 = select i1 %tobool24.not, i32 0, i32 %rv.0
   br label %if.end26
 
-if.end26:                                         ; preds = %if.then25, %lor.lhs.false18
-  %rv.1 = phi i32 [ %rv.0, %lor.lhs.false18 ], [ 0, %if.then25 ]
+if.end26:                                         ; preds = %lor.lhs.false18, %if.end11
+  %rv.1 = phi i32 [ 0, %if.end11 ], [ %spec.select4, %lor.lhs.false18 ]
   tail call void @EVP_MD_free(ptr noundef %call) #2
   br label %return
 
@@ -300,28 +296,26 @@ if.end:                                           ; preds = %entry
   %conv = zext i1 %cmp to i32
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.7, i32 noundef 140, ptr noundef nonnull @.str.49, i32 noundef %conv) #2
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %if.then10, label %lor.lhs.false
+  br i1 %tobool4.not, label %if.end11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %call5 = tail call i32 @EVP_CIPHER_is_a(ptr noundef %call, ptr noundef nonnull @.str.52) #2
   %cmp6 = icmp ne i32 %call5, 0
   %conv7 = zext i1 %cmp6 to i32
   %call8 = tail call i32 @test_false(ptr noundef nonnull @.str.7, i32 noundef 141, ptr noundef nonnull @.str.51, i32 noundef %conv7) #2
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %lor.lhs.false, %if.end
+  %tobool9.not = icmp ne i32 %call8, 0
+  %spec.select = zext i1 %tobool9.not to i32
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then10, %lor.lhs.false
-  %rv.0 = phi i32 [ 1, %lor.lhs.false ], [ 0, %if.then10 ]
+if.end11:                                         ; preds = %lor.lhs.false, %if.end
+  %rv.0 = phi i32 [ 0, %if.end ], [ %spec.select, %lor.lhs.false ]
   %call12 = tail call ptr @EVP_aes_256_gcm() #2
   %call13 = tail call i32 @EVP_CIPHER_is_a(ptr noundef %call12, ptr noundef nonnull @.str.54) #2
   %cmp14 = icmp ne i32 %call13, 0
   %conv15 = zext i1 %cmp14 to i32
   %call16 = tail call i32 @test_true(ptr noundef nonnull @.str.7, i32 noundef 143, ptr noundef nonnull @.str.53, i32 noundef %conv15) #2
   %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %if.then25, label %lor.lhs.false18
+  br i1 %tobool17.not, label %if.end26, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.end11
   %call19 = tail call ptr @EVP_aes_256_gcm() #2
@@ -330,13 +324,11 @@ lor.lhs.false18:                                  ; preds = %if.end11
   %conv22 = zext i1 %cmp21 to i32
   %call23 = tail call i32 @test_false(ptr noundef nonnull @.str.7, i32 noundef 144, ptr noundef nonnull @.str.55, i32 noundef %conv22) #2
   %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %lor.lhs.false18, %if.end11
+  %spec.select4 = select i1 %tobool24.not, i32 0, i32 %rv.0
   br label %if.end26
 
-if.end26:                                         ; preds = %if.then25, %lor.lhs.false18
-  %rv.1 = phi i32 [ %rv.0, %lor.lhs.false18 ], [ 0, %if.then25 ]
+if.end26:                                         ; preds = %lor.lhs.false18, %if.end11
+  %rv.1 = phi i32 [ 0, %if.end11 ], [ %spec.select4, %lor.lhs.false18 ]
   tail call void @EVP_CIPHER_free(ptr noundef %call) #2
   br label %return
 

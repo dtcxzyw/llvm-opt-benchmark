@@ -223,7 +223,7 @@ Kit_TruthNot.exit130:                             ; preds = %select.unfold.i127,
   %89 = phi ptr [ %69, %79 ], [ %76, %Kit_TruthNot.exit118.thread ], [ %69, %select.unfold.i127 ]
   %90 = phi i32 [ %74, %79 ], [ %77, %Kit_TruthNot.exit118.thread ], [ %74, %select.unfold.i127 ]
   %91 = icmp sgt i32 %54, %90
-  br i1 %91, label %98, label %92
+  br i1 %91, label %99, label %92
 
 92:                                               ; preds = %Kit_TruthNot.exit130
   %93 = icmp eq i32 %54, %90
@@ -235,14 +235,14 @@ Kit_TruthNot.exit130:                             ; preds = %select.unfold.i127,
   %97 = icmp sgt i32 %95, %96
   br i1 %97, label %98, label %99
 
-98:                                               ; preds = %94, %Kit_TruthNot.exit130
+98:                                               ; preds = %94
   br label %99
 
-99:                                               ; preds = %Kit_TruthNot.exit118.thread, %Kit_TruthNot.exit118, %98, %94, %92, %62
-  %.068.sroa.phi = phi ptr [ %.068.sroa.gep134142, %98 ], [ %.068.sroa.gep69135141, %94 ], [ %.068.sroa.gep69135141, %92 ], [ %.068.sroa.gep69135141, %Kit_TruthNot.exit118 ], [ %.068.sroa.gep69135141, %62 ], [ %.068.sroa.gep69135141, %Kit_TruthNot.exit118.thread ]
-  %.068.sroa.phi79 = phi ptr [ %.068.sroa.gep74136140, %98 ], [ %53, %94 ], [ %53, %92 ], [ %53, %Kit_TruthNot.exit118 ], [ %53, %62 ], [ %53, %Kit_TruthNot.exit118.thread ]
-  %.067 = phi ptr [ %89, %98 ], [ %89, %94 ], [ %89, %92 ], [ %69, %Kit_TruthNot.exit118 ], [ %52, %62 ], [ %76, %Kit_TruthNot.exit118.thread ]
-  %.066 = phi i32 [ 1, %98 ], [ 0, %94 ], [ 0, %92 ], [ 0, %Kit_TruthNot.exit118 ], [ 0, %62 ], [ 0, %Kit_TruthNot.exit118.thread ]
+99:                                               ; preds = %Kit_TruthNot.exit118.thread, %Kit_TruthNot.exit130, %Kit_TruthNot.exit118, %98, %94, %92, %62
+  %.068.sroa.phi = phi ptr [ %.068.sroa.gep69135141, %94 ], [ %.068.sroa.gep69135141, %92 ], [ %.068.sroa.gep69135141, %Kit_TruthNot.exit118 ], [ %.068.sroa.gep69135141, %62 ], [ %.068.sroa.gep134142, %Kit_TruthNot.exit130 ], [ %.068.sroa.gep134142, %98 ], [ %.068.sroa.gep69135141, %Kit_TruthNot.exit118.thread ]
+  %.068.sroa.phi79 = phi ptr [ %53, %94 ], [ %53, %92 ], [ %53, %Kit_TruthNot.exit118 ], [ %53, %62 ], [ %.068.sroa.gep74136140, %Kit_TruthNot.exit130 ], [ %.068.sroa.gep74136140, %98 ], [ %53, %Kit_TruthNot.exit118.thread ]
+  %.067 = phi ptr [ %89, %94 ], [ %89, %92 ], [ %69, %Kit_TruthNot.exit118 ], [ %52, %62 ], [ %89, %Kit_TruthNot.exit130 ], [ %89, %98 ], [ %76, %Kit_TruthNot.exit118.thread ]
+  %.066 = phi i32 [ 0, %94 ], [ 0, %92 ], [ 0, %Kit_TruthNot.exit118 ], [ 0, %62 ], [ 1, %Kit_TruthNot.exit130 ], [ 1, %98 ], [ 0, %Kit_TruthNot.exit118.thread ]
   %.not88 = icmp eq i32 %5, 0
   %100 = getelementptr inbounds i8, ptr %3, i64 8
   %101 = load ptr, ptr %100, align 8
@@ -304,7 +304,7 @@ define internal fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %1, i3
 
 select.unfold.i:                                  ; preds = %31, %20
   %indvars.iv.i = phi i64 [ %28, %20 ], [ %32, %31 ]
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw i64 %indvars.iv.i to i32
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %Kit_TruthIsConst0.exit
 
@@ -327,7 +327,7 @@ select.unfold.preheader.i:                        ; preds = %Kit_TruthIsConst0.e
 
 select.unfold.i177:                               ; preds = %31, %39
   %indvars.iv.i178 = phi i64 [ %40, %39 ], [ %28, %31 ]
-  %37 = trunc i64 %indvars.iv.i178 to i32
+  %37 = trunc nuw i64 %indvars.iv.i178 to i32
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %43
 
@@ -639,7 +639,7 @@ Vec_IntFetch.exit218:                             ; preds = %167
   br i1 %exitcond.not, label %.preheader242, label %191, !llvm.loop !13
 
 .preheader241.loopexit:                           ; preds = %202
-  %197 = trunc i64 %indvars.iv.next273 to i32
+  %197 = trunc nuw i64 %indvars.iv.next273 to i32
   br label %.preheader241
 
 .preheader241:                                    ; preds = %.preheader241.loopexit, %.preheader242
@@ -759,7 +759,7 @@ Kit_TruthClear.exit:                              ; preds = %._crit_edge257.us, 
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Kit_TruthIsop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Kit_TruthIsop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Kit_Sop_t_, align 8
   %6 = alloca %struct.Kit_Sop_t_, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 4
@@ -793,7 +793,7 @@ Vec_IntGrow.exit:                                 ; preds = %4, %17
   %20 = getelementptr inbounds i8, ptr %5, i64 4
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %30 [
-    i32 -1, label %69
+    i32 -1, label %68
     i32 0, label %27
     i32 1, label %22
   ]
@@ -809,11 +809,11 @@ Vec_IntGrow.exit:                                 ; preds = %4, %17
   %28 = getelementptr inbounds i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   store i32 0, ptr %29, align 4
-  br label %69
+  br label %68
 
 30:                                               ; preds = %Vec_IntGrow.exit, %22
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %Kit_TruthNot.exit52, label %31
+  br i1 %.not, label %Kit_TruthNot.exit53, label %31
 
 31:                                               ; preds = %30
   %32 = icmp slt i32 %1, 6
@@ -842,7 +842,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %3
   %42 = getelementptr inbounds i8, ptr %6, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %45, label %54
+  br i1 %44, label %45, label %53
 
 45:                                               ; preds = %Kit_TruthNot.exit
   %46 = icmp sgt i32 %21, %43
@@ -850,54 +850,53 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %3
 
 47:                                               ; preds = %45
   %48 = icmp eq i32 %21, %43
-  br i1 %48, label %49, label %54
+  br i1 %48, label %49, label %53
 
 49:                                               ; preds = %47
   %50 = load i32, ptr %5, align 8
   %51 = load i32, ptr %6, align 8
   %52 = icmp sgt i32 %50, %51
-  br i1 %52, label %53, label %54
+  %spec.select = select i1 %52, ptr %6, ptr %5
+  %spec.select47 = zext i1 %52 to i32
+  br label %53
 
-53:                                               ; preds = %49, %45
-  br label %54
+53:                                               ; preds = %49, %45, %47, %Kit_TruthNot.exit
+  %.042 = phi ptr [ %5, %47 ], [ %5, %Kit_TruthNot.exit ], [ %6, %45 ], [ %spec.select, %49 ]
+  %.0 = phi i32 [ 0, %47 ], [ 0, %Kit_TruthNot.exit ], [ 1, %45 ], [ %spec.select47, %49 ]
+  br i1 %35, label %select.unfold.preheader.i49, label %Kit_TruthNot.exit53
 
-54:                                               ; preds = %47, %49, %53, %Kit_TruthNot.exit
-  %.042 = phi ptr [ %6, %53 ], [ %5, %49 ], [ %5, %47 ], [ %5, %Kit_TruthNot.exit ]
-  %.0 = phi i32 [ 1, %53 ], [ 0, %49 ], [ 0, %47 ], [ 0, %Kit_TruthNot.exit ]
-  br i1 %35, label %select.unfold.preheader.i48, label %Kit_TruthNot.exit52
+select.unfold.preheader.i49:                      ; preds = %53
+  %54 = zext nneg i32 %spec.select.i to i64
+  br label %select.unfold.i50
 
-select.unfold.preheader.i48:                      ; preds = %54
-  %55 = zext nneg i32 %spec.select.i to i64
-  br label %select.unfold.i49
+select.unfold.i50:                                ; preds = %select.unfold.i50, %select.unfold.preheader.i49
+  %indvars.iv.i51 = phi i64 [ %54, %select.unfold.preheader.i49 ], [ %indvars.iv.next.i52, %select.unfold.i50 ]
+  %indvars.iv.next.i52 = add nsw i64 %indvars.iv.i51, -1
+  %55 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next.i52
+  %56 = load i32, ptr %55, align 4
+  %57 = xor i32 %56, -1
+  store i32 %57, ptr %55, align 4
+  %58 = icmp ugt i64 %indvars.iv.i51, 1
+  br i1 %58, label %select.unfold.i50, label %Kit_TruthNot.exit53, !llvm.loop !4
 
-select.unfold.i49:                                ; preds = %select.unfold.i49, %select.unfold.preheader.i48
-  %indvars.iv.i50 = phi i64 [ %55, %select.unfold.preheader.i48 ], [ %indvars.iv.next.i51, %select.unfold.i49 ]
-  %indvars.iv.next.i51 = add nsw i64 %indvars.iv.i50, -1
-  %56 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next.i51
-  %57 = load i32, ptr %56, align 4
-  %58 = xor i32 %57, -1
-  store i32 %58, ptr %56, align 4
-  %59 = icmp ugt i64 %indvars.iv.i50, 1
-  br i1 %59, label %select.unfold.i49, label %Kit_TruthNot.exit52, !llvm.loop !4
+Kit_TruthNot.exit53:                              ; preds = %select.unfold.i50, %53, %30
+  %.143 = phi ptr [ %5, %30 ], [ %.042, %53 ], [ %.042, %select.unfold.i50 ]
+  %.1 = phi i32 [ 0, %30 ], [ %.0, %53 ], [ %.0, %select.unfold.i50 ]
+  %59 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %.143, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %.143, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = sext i32 %64 to i64
+  %66 = shl nsw i64 %65, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %60, ptr align 4 %62, i64 %66, i1 false)
+  %67 = load i32, ptr %63, align 4
+  br label %68
 
-Kit_TruthNot.exit52:                              ; preds = %select.unfold.i49, %54, %30
-  %.143 = phi ptr [ %5, %30 ], [ %.042, %54 ], [ %.042, %select.unfold.i49 ]
-  %.1 = phi i32 [ 0, %30 ], [ %.0, %54 ], [ %.0, %select.unfold.i49 ]
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.143, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.143, i64 4
-  %65 = load i32, ptr %64, align 4
-  %66 = sext i32 %65 to i64
-  %67 = shl nsw i64 %66, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %61, ptr align 4 %63, i64 %67, i1 false)
-  %68 = load i32, ptr %64, align 4
-  br label %69
-
-69:                                               ; preds = %Vec_IntGrow.exit, %Kit_TruthNot.exit52, %27
-  %.sink = phi i32 [ %68, %Kit_TruthNot.exit52 ], [ %21, %27 ], [ %21, %Vec_IntGrow.exit ]
-  %.041 = phi i32 [ %.1, %Kit_TruthNot.exit52 ], [ 0, %27 ], [ %21, %Vec_IntGrow.exit ]
+68:                                               ; preds = %Vec_IntGrow.exit, %Kit_TruthNot.exit53, %27
+  %.sink = phi i32 [ %67, %Kit_TruthNot.exit53 ], [ %21, %27 ], [ %21, %Vec_IntGrow.exit ]
+  %.041 = phi i32 [ %.1, %Kit_TruthNot.exit53 ], [ 0, %27 ], [ %21, %Vec_IntGrow.exit ]
   store i32 %.sink, ptr %7, align 4
   ret i32 %.041
 }
@@ -1211,7 +1210,7 @@ Vec_IntFetch.exit92:                              ; preds = %93
   br i1 %exitcond.not, label %.preheader96, label %119, !llvm.loop !22
 
 .preheader.loopexit:                              ; preds = %130
-  %125 = trunc i64 %indvars.iv.next112 to i32
+  %125 = trunc nuw i64 %indvars.iv.next112 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader96

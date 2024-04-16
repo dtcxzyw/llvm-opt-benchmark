@@ -362,7 +362,7 @@ define dso_local void @logicalrep_write_prepare(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = trunc i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %6 = load ptr, ptr %0, align 8, !alias.scope !47
@@ -1871,20 +1871,18 @@ column_in_column_list.exit43.i:                   ; preds = %112
   br i1 %116, label %column_in_column_list.exit43.thread.i, label %143
 
 column_in_column_list.exit43.thread.i:            ; preds = %column_in_column_list.exit43.i, %112
-  br i1 %96, label %.split.i, label %117
+  br i1 %96, label %.split41.i, label %117
 
 117:                                              ; preds = %column_in_column_list.exit43.thread.i
   %118 = load i16, ptr %113, align 2
   %119 = sext i16 %118 to i32
   %120 = add nsw i32 %119, 7
   %121 = tail call zeroext i1 @bms_is_member(i32 noundef %120, ptr noundef %.040.i) #8
-  br i1 %121, label %.split.i, label %.split41.i
-
-.split.i:                                         ; preds = %117, %column_in_column_list.exit43.thread.i
+  %spec.select = zext i1 %121 to i8
   br label %.split41.i
 
-.split41.i:                                       ; preds = %117, %.split.i
-  %.sink.i = phi i8 [ 1, %.split.i ], [ 0, %117 ]
+.split41.i:                                       ; preds = %117, %column_in_column_list.exit43.thread.i
+  %.sink.i = phi i8 [ 1, %column_in_column_list.exit43.thread.i ], [ %spec.select, %117 ]
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
   %122 = load ptr, ptr %0, align 8
   %123 = load i32, ptr %6, align 8
@@ -1975,7 +1973,7 @@ define dso_local ptr @logicalrep_read_rel(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not.i, label %27, label %24
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = trunc i64 %indvars.iv.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   %26 = tail call ptr @bms_add_member(ptr noundef %.02426.i, i32 noundef %25) #8
   br label %27
 

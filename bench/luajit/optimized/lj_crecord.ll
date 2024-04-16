@@ -372,7 +372,7 @@ if.end101:                                        ; preds = %if.then73, %if.then
   %.sink349 = phi i16 [ 17664, %if.then86 ], [ 17920, %if.else91 ], [ 17664, %if.then73 ]
   %.sink347 = phi i32 [ %27, %if.then86 ], [ %call95, %if.else91 ], [ %27, %if.then73 ]
   %.sink = phi i16 [ 22, %if.then86 ], [ 0, %if.else91 ], [ 23, %if.then73 ]
-  %52 = trunc i32 %add28.i to i16
+  %52 = trunc nuw nsw i32 %add28.i to i16
   %conv88 = or disjoint i16 %.sink349, %52
   %conv89 = trunc i32 %.sink347 to i16
   store i16 %conv88, ptr %ot1.i12.i, align 4
@@ -641,7 +641,7 @@ if.then.i264:                                     ; preds = %if.end265
 if.end.i256:                                      ; preds = %if.end265
   %83 = load i64, ptr %call.i255, align 8
   %shr.i = ashr i64 %83, 47
-  %conv2.i257 = trunc i64 %shr.i to i32
+  %conv2.i257 = trunc nsw i64 %shr.i to i32
   %cmp.i258 = icmp eq i32 %conv2.i257, -9
   br i1 %cmp.i258, label %if.then4.i, label %if.else.i259
 
@@ -911,7 +911,7 @@ entry:
   %and1.lobit = lshr exact i32 %and1, 23
   %add = add nuw nsw i32 %and1.lobit, 15
   %add2 = add nuw nsw i32 %add, %mul
-  %1 = trunc i32 %add2 to i16
+  %1 = trunc nuw nsw i32 %add2 to i16
   %conv = or disjoint i16 %1, 17920
   %conv3 = trunc i32 %ptr to i16
   %fold.i179 = getelementptr inbounds i8, ptr %J, i64 184
@@ -1155,7 +1155,7 @@ if.then:                                          ; preds = %crec_ct2irt.exit
   br i1 %cmp1, label %err_nyi, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %9 = trunc i32 %retval.0.i to i16
+  %9 = trunc nuw nsw i32 %retval.0.i to i16
   %conv = or disjoint i16 %9, 17920
   %conv3 = trunc i32 %sp to i16
   %fold.i206 = getelementptr inbounds i8, ptr %J, i64 184
@@ -1206,7 +1206,7 @@ if.else29:                                        ; preds = %crec_ct2irt.exit
   ]
 
 if.then37:                                        ; preds = %if.else29, %if.else29
-  %11 = trunc i32 %retval.0.i to i16
+  %11 = trunc nuw nsw i32 %retval.0.i to i16
   %conv39 = or disjoint i16 %11, 17920
   %conv40 = trunc i32 %sp to i16
   %fold.i179 = getelementptr inbounds i8, ptr %J, i64 184
@@ -1253,7 +1253,7 @@ if.then58:                                        ; preds = %if.else54
   %op2.i174 = getelementptr inbounds i8, ptr %J, i64 186
   store i16 32767, ptr %op2.i174, align 2
   %call63 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
-  %14 = trunc i32 %retval.0.i to i16
+  %14 = trunc nuw nsw i32 %retval.0.i to i16
   %conv65 = or disjoint i16 %14, 17920
   %conv66 = trunc i32 %sp to i16
   store i16 %conv65, ptr %ot1.i171, align 4
@@ -1573,7 +1573,7 @@ if.end131:                                        ; preds = %if.else129, %if.the
   br i1 %cmp134, label %if.then136, label %if.else157
 
 if.then136:                                       ; preds = %if.end131
-  %30 = trunc i32 %t.0 to i16
+  %30 = trunc nuw nsw i32 %t.0 to i16
   %conv138 = or disjoint i16 %30, 17664
   store i16 %conv138, ptr %ot1.i12.i, align 4
   store i16 %conv.i, ptr %fold.i11.i, align 8
@@ -1618,7 +1618,7 @@ if.else157:                                       ; preds = %if.end131
   br i1 %or.cond, label %if.then163, label %if.else168
 
 if.then163:                                       ; preds = %if.else157
-  %37 = trunc i32 %t.0 to i16
+  %37 = trunc nuw nsw i32 %t.0 to i16
   %conv165 = or disjoint i16 %37, 17664
   store i16 %conv165, ptr %ot1.i12.i, align 4
   store i16 %conv.i, ptr %fold.i11.i, align 8
@@ -1637,7 +1637,7 @@ if.then174:                                       ; preds = %if.else168
   %idxprom.i341 = zext nneg i32 %and.i329 to i64
   %arrayidx.i342 = getelementptr inbounds %struct.CType, ptr %28, i64 %idxprom.i341
   %s.2 = select i1 %cmp177, ptr %arrayidx.i342, ptr %s.0
-  %39 = trunc i32 %t.0 to i16
+  %39 = trunc nuw nsw i32 %t.0 to i16
   %conv183 = or disjoint i16 %39, 17664
   store i16 %conv183, ptr %ot1.i12.i, align 4
   store i16 %conv.i, ptr %fold.i11.i, align 8
@@ -1666,7 +1666,7 @@ if.end193:                                        ; preds = %if.else186, %if.end
   br i1 %or.cond2, label %if.then201, label %doconv
 
 if.then201:                                       ; preds = %if.end193
-  %41 = trunc i32 %t.1 to i16
+  %41 = trunc nuw nsw i32 %t.1 to i16
   %conv203 = or i16 %41, 17920
   %conv204 = trunc i32 %sp.addr.0 to i16
   store i16 %conv203, ptr %ot1.i12.i, align 4
@@ -1998,7 +1998,7 @@ crec_isnonzero.exit.thread275.i:                  ; preds = %crec_isnonzero.exit
   %retval.0.i267273.i = phi i32 [ 1, %crec_isnonzero.exit.thread.i ], [ 0, %crec_isnonzero.exit.i ], [ 0, %if.then7.i.i ], [ 0, %if.else.i.i ], [ 0, %if.then16.i.i ], [ 0, %if.then24.i269.i ], [ 0, %if.then32.i.i ], [ 0, %cond.end26.i ]
   %76 = phi i32 [ 2304, %crec_isnonzero.exit.thread.i ], [ 2048, %crec_isnonzero.exit.i ], [ 2048, %if.then7.i.i ], [ 2048, %if.else.i.i ], [ 2048, %if.then16.i.i ], [ 2048, %if.then24.i269.i ], [ 2048, %if.then32.i.i ], [ 2048, %cond.end26.i ]
   %or.i = or i32 %76, %retval.0.i232.i
-  %77 = trunc i32 %or.i to i16
+  %77 = trunc nuw nsw i32 %or.i to i16
   %conv.i143 = or i16 %77, 128
   %conv32.i = trunc i32 %sp.addr.2 to i16
   %conv33.i = trunc i32 %cond27.i to i16
@@ -2031,14 +2031,14 @@ if.end44.i:                                       ; preds = %conv_I_I.i
   br i1 %or.cond219.i, label %if.then51.i, label %if.else.i
 
 if.then51.i:                                      ; preds = %if.end44.i
-  %78 = trunc i32 %retval.0.i.i to i16
+  %78 = trunc nuw nsw i32 %retval.0.i.i to i16
   %conv53.i = or disjoint i16 %78, 23296
   %conv54.i = trunc i32 %sp.addr.2 to i16
   %cmp55.i = icmp ult i32 %ssize.0.i, 4
   %cond60.i = select i1 %cmp55.i, i32 19, i32 %st.0.i
   %shl61.i = shl nuw nsw i32 %retval.0.i.i, 5
   %or62.i = add nuw nsw i32 %cond60.i, %shl61.i
-  %79 = trunc i32 %or62.i to i16
+  %79 = trunc nuw nsw i32 %or62.i to i16
   %conv67.i = or disjoint i16 %79, 2048
   %fold.i499.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i500.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -2058,12 +2058,12 @@ if.else.i:                                        ; preds = %if.end44.i
 if.then74.i:                                      ; preds = %if.else.i
   %cmp75.i = icmp ult i32 %61, 4
   %cond80.i = select i1 %cmp75.i, i32 19, i32 %retval.0.i.i
-  %80 = trunc i32 %cond80.i to i16
+  %80 = trunc nuw nsw i32 %cond80.i to i16
   %conv82.i = or disjoint i16 %80, 23296
   %conv83.i = trunc i32 %sp.addr.2 to i16
   %shl90.i = shl nuw nsw i32 %cond80.i, 5
   %or91.i = add nuw nsw i32 %st.0.i, %shl90.i
-  %conv93.i = trunc i32 %or91.i to i16
+  %conv93.i = trunc nuw nsw i32 %or91.i to i16
   %fold.i490.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i491.i = getelementptr inbounds i8, ptr %J, i64 188
   store i16 %conv82.i, ptr %ot1.i491.i, align 4
@@ -2087,7 +2087,7 @@ xstore.i:                                         ; preds = %if.end312.i, %sw.bb
   br i1 %cmp110.i, label %crec_ct_ct.exit, label %if.end113.i
 
 if.end113.i:                                      ; preds = %xstore.i
-  %81 = trunc i32 %retval.0.i.i to i16
+  %81 = trunc nuw nsw i32 %retval.0.i.i to i16
   %conv115.i = or disjoint i16 %81, 19968
   %conv116.i = trunc i32 %dp to i16
   %conv117.i = trunc i32 %sp.addr.0.i to i16
@@ -2101,7 +2101,7 @@ if.end113.i:                                      ; preds = %xstore.i
   br label %crec_ct_ct.exit
 
 sw.bb119.i:                                       ; preds = %if.end.i
-  %82 = trunc i32 %retval.0.i232.i to i16
+  %82 = trunc nuw nsw i32 %retval.0.i232.i to i16
   %conv121.i = or disjoint i16 %82, 17920
   %conv122.i = trunc i32 %sp.addr.2 to i16
   %fold.i472.i = getelementptr inbounds i8, ptr %J, i64 184
@@ -2123,12 +2123,12 @@ sw.bb124.i:                                       ; preds = %sw.bb119.i, %if.end
 if.end131.i:                                      ; preds = %sw.bb124.i
   %cmp132.i = icmp ult i32 %61, 4
   %cond137.i = select i1 %cmp132.i, i32 19, i32 %retval.0.i.i
-  %83 = trunc i32 %cond137.i to i16
+  %83 = trunc nuw nsw i32 %cond137.i to i16
   %conv139.i = or disjoint i16 %83, 23296
   %conv140.i = trunc i32 %sp.addr.1.i to i16
   %shl147.i = shl nuw nsw i32 %cond137.i, 5
   %or148.i = add nuw nsw i32 %shl147.i, %retval.0.i232.i
-  %84 = trunc i32 %or148.i to i16
+  %84 = trunc nuw nsw i32 %or148.i to i16
   %conv150.i = or disjoint i16 %84, 4096
   %fold.i463.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i464.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -2145,7 +2145,7 @@ sw.bb152.i:                                       ; preds = %if.end.i, %if.end.i
   br i1 %cmp154.not.i, label %conv_I_I.i, label %if.then156.i
 
 if.then156.i:                                     ; preds = %sw.bb152.i
-  %85 = trunc i32 %retval.0.i.i to i16
+  %85 = trunc nuw nsw i32 %retval.0.i.i to i16
   %conv164.i = or disjoint i16 %85, 23296
   %conv165.i = trunc i32 %sp.addr.2 to i16
   %86 = shl nuw nsw i16 %85, 5
@@ -2166,14 +2166,14 @@ conv_F_I.i:                                       ; preds = %sw.bb225.i, %if.end
   br i1 %or.cond7.i, label %err_nyi.i, label %if.end185.i
 
 if.end185.i:                                      ; preds = %conv_F_I.i
-  %87 = trunc i32 %retval.0.i.i to i16
+  %87 = trunc nuw nsw i32 %retval.0.i.i to i16
   %conv187.i = or disjoint i16 %87, 23296
   %conv188.i = trunc i32 %sp.addr.2 to i16
   %cmp189.i = icmp ult i32 %62, 4
   %cond194.i = select i1 %cmp189.i, i32 19, i32 %retval.0.i232.i
   %shl195.i = shl nuw nsw i32 %retval.0.i.i, 5
   %or196.i = add nuw nsw i32 %cond194.i, %shl195.i
-  %conv198.i = trunc i32 %or196.i to i16
+  %conv198.i = trunc nuw nsw i32 %or196.i to i16
   %fold.i445.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i446.i = getelementptr inbounds i8, ptr %J, i64 188
   store i16 %conv187.i, ptr %ot1.i446.i, align 4
@@ -2184,7 +2184,7 @@ if.end185.i:                                      ; preds = %conv_F_I.i
   br label %xstore.i
 
 sw.bb200.i:                                       ; preds = %if.end.i
-  %88 = trunc i32 %retval.0.i232.i to i16
+  %88 = trunc nuw nsw i32 %retval.0.i232.i to i16
   %conv202.i = or disjoint i16 %88, 17920
   %conv203.i = trunc i32 %sp.addr.2 to i16
   %fold.i436.i = getelementptr inbounds i8, ptr %J, i64 184
@@ -2208,12 +2208,12 @@ if.end212.i:                                      ; preds = %conv_F_F.i
   br i1 %cmp213.not.i, label %xstore.i, label %if.then215.i
 
 if.then215.i:                                     ; preds = %if.end212.i
-  %89 = trunc i32 %retval.0.i.i to i16
+  %89 = trunc nuw nsw i32 %retval.0.i.i to i16
   %conv217.i = or disjoint i16 %89, 23296
   %conv218.i = trunc i32 %sp.addr.2.i to i16
   %shl219.i = shl nuw nsw i32 %retval.0.i.i, 5
   %or220.i = add nuw nsw i32 %retval.0.i232.i, %shl219.i
-  %conv222.i = trunc i32 %or220.i to i16
+  %conv222.i = trunc nuw nsw i32 %or220.i to i16
   %fold.i427.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i428.i = getelementptr inbounds i8, ptr %J, i64 188
   store i16 %conv217.i, ptr %ot1.i428.i, align 4
@@ -2236,7 +2236,7 @@ sw.bb225.i:                                       ; preds = %if.end.i, %if.end.i
   %op2.i422.i = getelementptr inbounds i8, ptr %J, i64 186
   store i16 %conv230.i, ptr %op2.i422.i, align 2
   %call231.i = call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
-  %90 = trunc i32 %retval.0.i.i to i16
+  %90 = trunc nuw nsw i32 %retval.0.i.i to i16
   %conv233.i = or disjoint i16 %90, 19968
   %conv234.i = trunc i32 %call231.i to i16
   %call.i.i = call i32 @lj_ir_knum_u64(ptr noundef nonnull %J, i64 noundef 0) #8
@@ -2256,7 +2256,7 @@ sw.bb242.i:                                       ; preds = %if.end.i
   br i1 %or.cond9.i, label %err_nyi.i, label %if.end249.i
 
 if.end249.i:                                      ; preds = %sw.bb242.i
-  %91 = trunc i32 %retval.0.i232.i to i16
+  %91 = trunc nuw nsw i32 %retval.0.i232.i to i16
   %conv252.i = or disjoint i16 %91, 17920
   %conv253.i = trunc i32 %sp.addr.2 to i16
   %fold.i400.i = getelementptr inbounds i8, ptr %J, i64 184
@@ -2280,7 +2280,7 @@ if.end249.i:                                      ; preds = %sw.bb242.i
   store i16 0, ptr %op2.i404.i, align 2
   %call264.i = call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
   %cmp265.not.i = icmp eq i32 %retval.0.i.i, %retval.0.i232.i
-  %.pre.i = trunc i32 %retval.0.i.i to i16
+  %.pre.i = trunc nuw nsw i32 %retval.0.i.i to i16
   br i1 %cmp265.not.i, label %if.end284.i, label %if.then267.i
 
 if.then267.i:                                     ; preds = %if.end249.i
@@ -2288,7 +2288,7 @@ if.then267.i:                                     ; preds = %if.end249.i
   %conv270.i = trunc i32 %call254.i to i16
   %shl271.i = shl nuw nsw i32 %retval.0.i.i, 5
   %or272.i = add nuw nsw i32 %retval.0.i232.i, %shl271.i
-  %conv274.i = trunc i32 %or272.i to i16
+  %conv274.i = trunc nuw nsw i32 %or272.i to i16
   store i16 %conv269.i, ptr %ot1.i401.i, align 4
   store i16 %conv270.i, ptr %fold.i400.i, align 8
   store i16 %conv274.i, ptr %op2.i404.i, align 2
@@ -2337,12 +2337,12 @@ sw.bb308.i:                                       ; preds = %if.end.i
 if.end312.i:                                      ; preds = %sw.bb308.i
   %cmp313.i = icmp eq i32 %61, 8
   %cond315.i = select i1 %cmp313.i, i32 21, i32 20
-  %92 = trunc i32 %cond315.i to i16
+  %92 = trunc nuw nsw i32 %cond315.i to i16
   %conv317.i = or disjoint i16 %92, 23296
   %conv318.i = trunc i32 %sp.addr.2 to i16
   %shl322.i = shl nuw nsw i32 %cond315.i, 5
   %or323.i = add nuw nsw i32 %shl322.i, %retval.0.i232.i
-  %93 = trunc i32 %or323.i to i16
+  %93 = trunc nuw nsw i32 %or323.i to i16
   %conv325.i = or disjoint i16 %93, 4096
   %fold.i.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -2493,7 +2493,7 @@ crec_call.exit.thread:                            ; preds = %if.end.i
   br label %if.end8
 
 if.then9.i:                                       ; preds = %if.end.i
-  %20 = trunc i32 %tp.0.i to i16
+  %20 = trunc nuw nsw i32 %tp.0.i to i16
   %conv10.i = or disjoint i16 %20, 17664
   %21 = load ptr, ptr %base, align 8
   %22 = load i32, ptr %21, align 4
@@ -2677,7 +2677,7 @@ if.then54.i:                                      ; preds = %if.end52.i
 
 if.end60.i:                                       ; preds = %if.then54.i, %if.end52.i
   %func.0.i = phi i32 [ %call59.i, %if.then54.i ], [ %call12.i, %if.end52.i ]
-  %41 = trunc i32 %t.0.fr.i to i16
+  %41 = trunc nuw nsw i32 %t.0.fr.i to i16
   %conv62.i = or disjoint i16 %41, 25344
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %args.i.i)
   br label %while.cond.i121.i
@@ -3655,7 +3655,7 @@ if.end335:                                        ; preds = %if.end165, %if.end3
 if.then340:                                       ; preds = %if.end335
   %67 = load i64, ptr %call338, align 8
   %shr.i = ashr i64 %67, 47
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nsw i64 %shr.i to i32
   %68 = add nsw i32 %conv.i, 13
   %cmp.i190 = icmp ult i32 %68, 9
   br i1 %cmp.i190, label %if.then.i, label %if.else.i
@@ -3678,7 +3678,7 @@ crec_finalizer.exit:                              ; preds = %if.then.i, %if.else
   %call.i = call i32 @lj_ir_kptr_(ptr noundef nonnull %J, i32 noundef 25, ptr noundef %.sink.i) #8
   %70 = load i64, ptr %call338, align 8
   %shr10.i = ashr i64 %70, 47
-  %conv11.i = trunc i64 %shr10.i to i32
+  %conv11.i = trunc nsw i64 %shr10.i to i32
   %call12.i = call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %conv11.i) #8
   %call13.i = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %J, i32 noundef 102, i32 noundef %call69, i32 noundef %call.i, i32 noundef %call12.i) #8
   %needsnap.i = getelementptr inbounds i8, ptr %J, i64 181
@@ -3860,7 +3860,7 @@ crec_ct2irt.exit:                                 ; preds = %if.then8.i, %if.els
   br i1 %cmp8, label %if.then10, label %if.else21
 
 if.then10:                                        ; preds = %crec_ct2irt.exit
-  %17 = trunc i32 %retval.0.i to i16
+  %17 = trunc nuw nsw i32 %retval.0.i to i16
   %conv11 = or disjoint i16 %17, 17664
   store i16 %conv11, ptr %ot1.i12.i, align 4
   store i16 %conv.i, ptr %fold.i11.i, align 8
@@ -3960,7 +3960,7 @@ if.else21:                                        ; preds = %crec_ct2irt.exit
   br i1 %or.cond, label %if.then26, label %if.else31
 
 if.then26:                                        ; preds = %if.else21
-  %28 = trunc i32 %retval.0.i to i16
+  %28 = trunc nuw nsw i32 %retval.0.i to i16
   %conv28 = or disjoint i16 %28, 17664
   store i16 %conv28, ptr %ot1.i12.i, align 4
   store i16 %conv.i, ptr %fold.i11.i, align 8
@@ -3974,7 +3974,7 @@ if.else31:                                        ; preds = %if.else21
   br i1 %or.cond1, label %if.then37, label %if.else49
 
 if.then37:                                        ; preds = %if.else31
-  %30 = trunc i32 %retval.0.i to i16
+  %30 = trunc nuw nsw i32 %retval.0.i to i16
   %conv39 = or disjoint i16 %30, 17664
   store i16 %conv39, ptr %ot1.i12.i, align 4
   store i16 %conv.i, ptr %fold.i11.i, align 8
@@ -4068,7 +4068,7 @@ if.then88:                                        ; preds = %if.end83
   br i1 %cmp89, label %ok, label %if.else92
 
 if.else92:                                        ; preds = %if.then88
-  %38 = trunc i32 %t.0 to i16
+  %38 = trunc nuw nsw i32 %t.0 to i16
   %conv101 = or disjoint i16 %38, 17920
   %conv102 = trunc i32 %tr.0 to i16
   store i16 %conv101, ptr %ot1.i12.i, align 4
@@ -4341,7 +4341,7 @@ if.then79.i:                                      ; preds = %land.lhs.true70.i
 if.end87.i:                                       ; preds = %land.lhs.true70.i, %if.else64.i, %land.lhs.true37.i, %land.lhs.true33.i, %land.lhs.true26.i, %if.else.i, %land.lhs.true20.i, %land.lhs.true13.i
   %id.0.i = phi i32 [ 11, %land.lhs.true26.i ], [ 11, %land.lhs.true70.i ], [ 11, %if.else64.i ], [ 11, %land.lhs.true37.i ], [ 11, %land.lhs.true33.i ], [ 11, %if.else.i ], [ 12, %land.lhs.true20.i ], [ 12, %land.lhs.true13.i ]
   %dt.0.i = phi i32 [ 21, %land.lhs.true26.i ], [ 21, %land.lhs.true70.i ], [ 21, %if.else64.i ], [ 21, %land.lhs.true37.i ], [ 21, %land.lhs.true33.i ], [ 21, %if.else.i ], [ 22, %land.lhs.true20.i ], [ 22, %land.lhs.true13.i ]
-  %72 = trunc i32 %dt.0.i to i16
+  %72 = trunc nuw nsw i32 %dt.0.i to i16
   %conv118.i = or disjoint i16 %72, 23296
   %shl122.i = shl nuw nsw i32 %dt.0.i, 5
   br label %for.body.i
@@ -4359,7 +4359,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end8
 
 if.then99.i:                                      ; preds = %for.body.i
   %or105.i = or disjoint i32 %and93.i, %shl122.i
-  %75 = trunc i32 %or105.i to i16
+  %75 = trunc nuw nsw i32 %or105.i to i16
   %conv107.i = or disjoint i16 %75, 4096
   br label %for.inc.sink.split.i
 
@@ -4374,7 +4374,7 @@ if.then116.i:                                     ; preds = %if.else110.i
   %and127.i = lshr i32 %78, 12
   %79 = and i32 %and127.i, 2048
   %or123.i = or disjoint i32 %shl122.i, %79
-  %80 = trunc i32 %or123.i to i16
+  %80 = trunc nuw nsw i32 %or123.i to i16
   %conv131.i = xor i16 %80, 2067
   br label %for.inc.sink.split.i
 
@@ -4412,7 +4412,7 @@ if.else143.i:                                     ; preds = %comp.i
 crec_arith_int64.exit.thread272:                  ; preds = %comp.i, %if.else143.i
   %op.0.i = phi i32 [ 2048, %comp.i ], [ %83, %if.else143.i ]
   %or156.i = or i32 %op.0.i, %dt.1.i
-  %84 = trunc i32 %or156.i to i16
+  %84 = trunc nuw nsw i32 %or156.i to i16
   %conv158.i = or i16 %84, 128
   %85 = load i32, ptr %sp, align 4
   %86 = load i32, ptr %indvars.iv.i.sroa.gep269, align 4
@@ -4560,7 +4560,7 @@ if.end98.i:                                       ; preds = %if.then89.i, %land.
   br i1 %or.cond4.i, label %if.then112.i, label %if.else118.i
 
 if.then112.i:                                     ; preds = %if.end98.i
-  %107 = trunc i32 %and102.i to i16
+  %107 = trunc nuw nsw i32 %and102.i to i16
   %conv116.i = or disjoint i16 %107, 4768
   br label %if.end134.sink.split.i
 
@@ -5703,7 +5703,7 @@ if.end5.i:                                        ; preds = %while.body.i47
   br i1 %cmp2.not.i, label %while.end.loopexit.i, label %while.body.i47, !llvm.loop !20
 
 while.end.loopexit.i:                             ; preds = %if.end5.i
-  %32 = trunc i64 %indvars.iv.next.i to i32
+  %32 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %do.body.i46
@@ -5992,7 +5992,7 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !24
 
 while.end.loopexit.i:                             ; preds = %if.end.i
-  %4 = trunc i64 %indvars.iv.next.i to i32
+  %4 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %do.body.i
@@ -6359,7 +6359,7 @@ if.end:                                           ; preds = %argv2cdata.exit
   %arrayidx9 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %arrayidx9, align 8
   %shr.i = ashr i64 %10, 47
-  %conv.i8 = trunc i64 %shr.i to i32
+  %conv.i8 = trunc nsw i64 %shr.i to i32
   %11 = add nsw i32 %conv.i8, 13
   %cmp.i9 = icmp ult i32 %11, 9
   br i1 %cmp.i9, label %crec_finalizer.exit, label %if.else.i
@@ -6376,7 +6376,7 @@ if.end9.sink.split.i:                             ; preds = %if.else.i
   %call.i10 = tail call i32 @lj_ir_kptr_(ptr noundef nonnull %J, i32 noundef 25, ptr noundef null) #8
   %.pre = load i64, ptr %arrayidx9, align 8
   %.pre13 = ashr i64 %.pre, 47
-  %.pre14 = trunc i64 %.pre13 to i32
+  %.pre14 = trunc nsw i64 %.pre13 to i32
   br label %crec_finalizer.exit
 
 crec_finalizer.exit:                              ; preds = %if.end, %if.end9.sink.split.i
@@ -6410,7 +6410,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc i32 %call2 to i16
-  %6 = trunc i32 %and to i16
+  %6 = trunc nuw nsw i32 %and to i16
   %conv6 = or disjoint i16 %6, 608
   %fold.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i = getelementptr inbounds i8, ptr %J, i64 188
@@ -6466,19 +6466,17 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   %ct.0.i = phi ptr [ %arrayidx.i.i, %if.then6.i ], [ %call.i, %if.then.i ]
   %and9.i = and i32 %8, -58720256
   %cmp10.i = icmp eq i32 %and9.i, 8388608
-  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end15.i
+  br i1 %cmp10.i, label %land.lhs.true.i, label %if.then
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %size.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %9 = load i32, ptr %size.i, align 4
   %cmp12.i = icmp eq i32 %9, 8
-  br i1 %cmp12.i, label %if.then, label %if.end15.i
-
-if.end15.i:                                       ; preds = %land.lhs.true.i, %if.end.i
+  %spec.select.i = select i1 %cmp12.i, i32 12, i32 11
   br label %if.then
 
-if.then:                                          ; preds = %if.end15.i, %land.lhs.true.i
-  %retval.0.i.ph = phi i32 [ 12, %land.lhs.true.i ], [ 11, %if.end15.i ]
+if.then:                                          ; preds = %if.end.i, %land.lhs.true.i
+  %retval.0.i.ph = phi i32 [ %spec.select.i, %land.lhs.true.i ], [ 11, %if.end.i ]
   %10 = load ptr, ptr %1, align 8
   %idxprom.i = zext nneg i32 %retval.0.i.ph to i64
   %arrayidx.i = getelementptr inbounds %struct.CType, ptr %10, i64 %idxprom.i
@@ -6566,19 +6564,17 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   %ct.0.i = phi ptr [ %arrayidx.i.i, %if.then6.i ], [ %call.i, %if.then.i ]
   %and9.i = and i32 %10, -58720256
   %cmp10.i = icmp eq i32 %and9.i, 8388608
-  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end15.i
+  br i1 %cmp10.i, label %land.lhs.true.i, label %crec_bit64_type.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %size.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %11 = load i32, ptr %size.i, align 4
   %cmp12.i = icmp eq i32 %11, 8
-  br i1 %cmp12.i, label %crec_bit64_type.exit, label %if.end15.i
-
-if.end15.i:                                       ; preds = %land.lhs.true.i, %if.end.i
+  %spec.select.i = select i1 %cmp12.i, i32 12, i32 11
   br label %crec_bit64_type.exit
 
-crec_bit64_type.exit:                             ; preds = %for.body, %land.lhs.true.i, %if.end15.i
-  %retval.0.i = phi i32 [ 11, %if.end15.i ], [ 12, %land.lhs.true.i ], [ 0, %for.body ]
+crec_bit64_type.exit:                             ; preds = %for.body, %if.end.i, %land.lhs.true.i
+  %retval.0.i = phi i32 [ 11, %if.end.i ], [ 0, %for.body ], [ %spec.select.i, %land.lhs.true.i ]
   %spec.select = tail call i32 @llvm.umax.i32(i32 %id.037, i32 %retval.0.i)
   %inc = add i32 %i.036, 1
   %12 = load ptr, ptr %base, align 8
@@ -6693,7 +6689,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then9:                                         ; preds = %if.then
   %conv = trunc i32 %call6 to i16
-  %7 = trunc i32 %and7 to i16
+  %7 = trunc nuw nsw i32 %and7 to i16
   %conv13 = or disjoint i16 %7, 608
   %fold.i83 = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i84 = getelementptr inbounds i8, ptr %J, i64 188
@@ -6745,19 +6741,17 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   %ct.0.i = phi ptr [ %arrayidx.i.i, %if.then6.i ], [ %call.i, %if.then.i ]
   %and9.i = and i32 %15, -58720256
   %cmp10.i = icmp eq i32 %and9.i, 8388608
-  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end15.i
+  br i1 %cmp10.i, label %land.lhs.true.i, label %if.then22
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %size.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %16 = load i32, ptr %size.i, align 4
   %cmp12.i = icmp eq i32 %16, 8
-  br i1 %cmp12.i, label %if.then22, label %if.end15.i
-
-if.end15.i:                                       ; preds = %land.lhs.true.i, %if.end.i
+  %spec.select.i = select i1 %cmp12.i, i32 12, i32 11
   br label %if.then22
 
-if.then22:                                        ; preds = %if.end15.i, %land.lhs.true.i
-  %retval.0.i.ph = phi i32 [ 12, %land.lhs.true.i ], [ 11, %if.end15.i ]
+if.then22:                                        ; preds = %if.end.i, %land.lhs.true.i
+  %retval.0.i.ph = phi i32 [ %spec.select.i, %land.lhs.true.i ], [ 11, %if.end.i ]
   %17 = load ptr, ptr %1, align 8
   %idxprom.i = zext nneg i32 %retval.0.i.ph to i64
   %arrayidx.i = getelementptr inbounds %struct.CType, ptr %17, i64 %idxprom.i
@@ -6821,8 +6815,8 @@ entry:
   %.val = load i64, ptr %2, align 8
   %shr.i = ashr i64 %.val, 47
   %3 = and i64 %shr.i, 4294967295
-  %cmp.i.not.not = icmp eq i64 %3, 4294967285
-  br i1 %cmp.i.not.not, label %if.then.i, label %crec_bit64_type.exit
+  %cmp.i = icmp eq i64 %3, 4294967285
+  br i1 %cmp.i, label %if.then.i, label %crec_bit64_type.exit
 
 if.then.i:                                        ; preds = %entry
   %and.i = and i64 %.val, 140737488355327
@@ -6849,19 +6843,17 @@ if.end.i:                                         ; preds = %if.then6.i, %if.the
   %ct.0.i = phi ptr [ %arrayidx.i.i, %if.then6.i ], [ %call.i, %if.then.i ]
   %and9.i = and i32 %8, -58720256
   %cmp10.i = icmp eq i32 %and9.i, 8388608
-  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end15.i
+  br i1 %cmp10.i, label %land.lhs.true.i, label %crec_bit64_type.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %size.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %9 = load i32, ptr %size.i, align 4
   %cmp12.i = icmp eq i32 %9, 8
-  br i1 %cmp12.i, label %crec_bit64_type.exit, label %if.end15.i
-
-if.end15.i:                                       ; preds = %land.lhs.true.i, %if.end.i
+  %spec.select.i = select i1 %cmp12.i, i32 12, i32 11
   br label %crec_bit64_type.exit
 
-crec_bit64_type.exit:                             ; preds = %entry, %land.lhs.true.i, %if.end15.i
-  %retval.0.i = phi i64 [ 11, %if.end15.i ], [ 12, %land.lhs.true.i ], [ 0, %entry ]
+crec_bit64_type.exit:                             ; preds = %entry, %if.end.i, %land.lhs.true.i
+  %retval.0.i = phi i32 [ 11, %if.end.i ], [ 0, %entry ], [ %spec.select.i, %land.lhs.true.i ]
   %base = getelementptr inbounds i8, ptr %J, i64 160
   %10 = load ptr, ptr %base, align 8
   %arrayidx1 = getelementptr inbounds i8, ptr %10, i64 4
@@ -6906,18 +6898,21 @@ if.end:                                           ; preds = %if.else, %if.then4
   br label %if.end16
 
 if.else14:                                        ; preds = %crec_bit64_type.exit
-  %cond = select i1 %cmp.i.not.not, i32 16, i32 8
+  %tobool15.not = icmp eq i32 %retval.0.i, 0
+  %cond = select i1 %tobool15.not, i32 8, i32 16
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else14, %if.end
   %n.0 = phi i32 [ %conv, %if.end ], [ %cond, %if.else14 ]
   %spec.select55 = call i32 @llvm.abs.i32(i32 %n.0, i1 false)
   %spec.store.select = call i32 @llvm.umin.i32(i32 %spec.select55, i32 254)
-  br i1 %cmp.i.not.not, label %if.then27, label %if.else43
+  %tobool26.not = icmp eq i32 %retval.0.i, 0
+  br i1 %tobool26.not, label %if.else43, label %if.then27
 
 if.then27:                                        ; preds = %if.end16
   %16 = load ptr, ptr %1, align 8
-  %arrayidx.i = getelementptr inbounds %struct.CType, ptr %16, i64 %retval.0.i
+  %idxprom.i = zext nneg i32 %retval.0.i to i64
+  %arrayidx.i = getelementptr inbounds %struct.CType, ptr %16, i64 %idxprom.i
   %17 = load ptr, ptr %base, align 8
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr %rd, align 8
@@ -7023,26 +7018,24 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then11:                                        ; preds = %if.end
   %cmp14 = icmp eq i32 %and8, 0
-  br i1 %cmp14, label %land.lhs.true, label %if.else
+  br i1 %cmp14, label %land.lhs.true, label %if.end28
 
 land.lhs.true:                                    ; preds = %if.then11
   %size = getelementptr inbounds i8, ptr %ct.0, i64 4
   %9 = load i32, ptr %size, align 4
   %cmp16 = icmp ult i32 %9, 5
-  br i1 %cmp16, label %land.lhs.true18, label %if.else
+  br i1 %cmp16, label %land.lhs.true18, label %if.end28
 
 land.lhs.true18:                                  ; preds = %land.lhs.true
   %cmp20 = icmp ne i32 %9, 4
   %and24 = and i32 %8, 8388608
   %tobool.not = icmp eq i32 %and24, 0
   %or.cond22 = or i1 %tobool.not, %cmp20
-  br i1 %or.cond22, label %if.end28, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true18, %land.lhs.true, %if.then11
+  %spec.select = select i1 %or.cond22, i64 216, i64 336
   br label %if.end28
 
-if.end28:                                         ; preds = %land.lhs.true18, %if.else
-  %.sink24 = phi i64 [ 336, %if.else ], [ 216, %land.lhs.true18 ]
+if.end28:                                         ; preds = %land.lhs.true18, %if.then11, %land.lhs.true
+  %.sink24 = phi i64 [ 336, %land.lhs.true ], [ 336, %if.then11 ], [ %spec.select, %land.lhs.true18 ]
   %10 = load ptr, ptr %1, align 8
   %arrayidx.i49 = getelementptr inbounds i8, ptr %10, i64 %.sink24
   %base = getelementptr inbounds i8, ptr %J, i64 160

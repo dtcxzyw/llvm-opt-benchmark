@@ -718,7 +718,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_sccp = private unnamed_addr constant [4 x ptr] [ptr @.str.456, ptr @.str.457, ptr @.str.458, ptr @.str.459], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden i32 @looks_like_valid_sccp(i32 noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call i32 @tvb_captured_length(ptr noundef %1) #9
   %5 = icmp ult i32 %4, 5
   br i1 %5, label %223, label %6
@@ -1139,30 +1139,33 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %197 = zext i8 %194 to i32
   %198 = add nuw nsw i32 %.1314, 1
   %199 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %198, i32 noundef %197) #9
-  %switch.tableidx415 = add i8 %7, -9
-  %200 = icmp ult i8 %switch.tableidx415, 11
-  br i1 %200, label %switch.hole_check416, label %201
+  %switch.tableidx417 = add i8 %7, -9
+  %200 = icmp ult i8 %switch.tableidx417, 11
+  br i1 %200, label %switch.hole_check418, label %201
 
-201:                                              ; preds = %switch.hole_check416, %196
+201:                                              ; preds = %switch.hole_check418, %196
   %202 = icmp ne i8 %7, 20
   %203 = zext i1 %202 to i32
-  br label %switch.lookup417
+  br label %switch.lookup419
 
-switch.hole_check416:                             ; preds = %196
-  %switch.maskindex418 = zext nneg i8 %switch.tableidx415 to i16
-  %switch.shifted419 = lshr i16 1795, %switch.maskindex418
-  %switch.lobit420 = trunc i16 %switch.shifted419 to i1
-  br i1 %switch.lobit420, label %switch.lookup417, label %201
+switch.hole_check418:                             ; preds = %196
+  %switch.maskindex420 = zext nneg i8 %switch.tableidx417 to i16
+  %switch.shifted421 = lshr i16 1795, %switch.maskindex420
+  %switch.lobit422 = trunc i16 %switch.shifted421 to i1
+  br i1 %switch.lobit422, label %switch.lookup419, label %201
 
-switch.lookup417:                                 ; preds = %switch.hole_check416, %201
-  %204 = phi i32 [ %203, %201 ], [ 0, %switch.hole_check416 ]
+switch.lookup419:                                 ; preds = %switch.hole_check418, %201
+  %204 = phi i32 [ %203, %201 ], [ 0, %switch.hole_check418 ]
   %205 = tail call fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %199, i8 noundef zeroext %2, i32 noundef %204)
   %.not354 = icmp eq i32 %205, 0
   br i1 %.not354, label %223, label %.thread392
 
-.thread392:                                       ; preds = %switch.lookup417
+.thread392.thread:                                ; preds = %177, %131, %143, %155, %156, %158, %171
+  br label %223
+
+.thread392:                                       ; preds = %switch.lookup419
   %.not355 = icmp eq i32 %.1319, 0
-  br i1 %.not355, label %.thread392.thread, label %.thread392.thread406
+  br i1 %.not355, label %223, label %.thread392.thread406
 
 .thread392.thread406:                             ; preds = %153, %141, %129, %120, %.thread392
   %.5391398413 = phi i32 [ %.4376, %.thread392 ], [ 9, %153 ], [ 6, %141 ], [ 9, %129 ], [ 7, %120 ]
@@ -1187,26 +1190,24 @@ switch.lookup417:                                 ; preds = %switch.hole_check41
 
 215:                                              ; preds = %214
   %.not358.not = icmp ult i32 %208, %4
-  br i1 %.not358.not, label %216, label %.thread392.thread
+  br i1 %.not358.not, label %216, label %223
 
 216:                                              ; preds = %215
   %217 = add nuw nsw i32 %208, 1
   %218 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %217) #9
   %219 = zext i8 %218 to i32
   %220 = add nuw nsw i32 %.5391398413, %219
-  %221 = icmp ugt i32 %220, %4
-  br i1 %221, label %223, label %.thread392.thread
+  %221 = icmp ule i32 %220, %4
+  br label %223
 
 222:                                              ; preds = %214
   %.old = add nuw nsw i32 %208, 1
   %.not359.old = icmp eq i32 %.old, %4
-  br i1 %.not359.old, label %.thread392.thread, label %223
-
-.thread392.thread:                                ; preds = %215, %216, %171, %158, %156, %155, %143, %131, %177, %222, %.thread392
   br label %223
 
-223:                                              ; preds = %.thread367, %.thread, %222, %216, %210, %.thread392.thread406, %switch.lookup417, %193, %switch.lookup, %180, %10, %10, %10, %10, %10, %10, %177, %175, %171, %166, %164, %162, %158, %157, %156, %155, %150, %146, %144, %143, %138, %134, %132, %131, %126, %124, %122, %117, %114, %112, %110, %105, %100, %94, %89, %.thread378, %64, %41, %36, %26, %19, %16, %11, %6, %3, %.thread392.thread
-  %.0 = phi i32 [ 1, %.thread392.thread ], [ 0, %3 ], [ 0, %6 ], [ 0, %11 ], [ 0, %16 ], [ 0, %19 ], [ 0, %26 ], [ 0, %36 ], [ 0, %41 ], [ 0, %64 ], [ 0, %.thread378 ], [ 0, %89 ], [ 0, %94 ], [ 0, %100 ], [ 0, %105 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ], [ 0, %117 ], [ 0, %122 ], [ 0, %124 ], [ 0, %126 ], [ 0, %131 ], [ 0, %132 ], [ 0, %134 ], [ 0, %138 ], [ 0, %143 ], [ 0, %144 ], [ 0, %146 ], [ 0, %150 ], [ 0, %155 ], [ 0, %156 ], [ 0, %157 ], [ 0, %158 ], [ 0, %162 ], [ 0, %164 ], [ 0, %166 ], [ 0, %171 ], [ 0, %175 ], [ 0, %177 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %180 ], [ 0, %switch.lookup ], [ 0, %193 ], [ 0, %switch.lookup417 ], [ 0, %.thread392.thread406 ], [ 0, %210 ], [ 0, %216 ], [ 0, %222 ], [ 0, %.thread ], [ 0, %.thread367 ]
+223:                                              ; preds = %216, %215, %222, %.thread392.thread, %.thread392, %.thread367, %.thread, %210, %.thread392.thread406, %switch.lookup419, %193, %switch.lookup, %180, %10, %10, %10, %10, %10, %10, %177, %175, %171, %166, %164, %162, %158, %157, %156, %155, %150, %146, %144, %143, %138, %134, %132, %131, %126, %124, %122, %117, %114, %112, %110, %105, %100, %94, %89, %.thread378, %64, %41, %36, %26, %19, %16, %11, %6, %3
+  %.0.shrunk = phi i1 [ false, %3 ], [ false, %6 ], [ false, %11 ], [ false, %16 ], [ false, %19 ], [ false, %26 ], [ false, %36 ], [ false, %41 ], [ false, %64 ], [ false, %.thread378 ], [ false, %89 ], [ false, %94 ], [ false, %100 ], [ false, %105 ], [ false, %110 ], [ false, %112 ], [ false, %114 ], [ false, %117 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %131 ], [ false, %132 ], [ false, %134 ], [ false, %138 ], [ false, %143 ], [ false, %144 ], [ false, %146 ], [ false, %150 ], [ false, %155 ], [ false, %156 ], [ false, %157 ], [ false, %158 ], [ false, %162 ], [ false, %164 ], [ false, %166 ], [ false, %171 ], [ false, %175 ], [ false, %177 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %180 ], [ false, %switch.lookup ], [ false, %193 ], [ false, %switch.lookup419 ], [ false, %.thread392.thread406 ], [ false, %210 ], [ false, %.thread ], [ false, %.thread367 ], [ true, %.thread392 ], [ true, %.thread392.thread ], [ %.not359.old, %222 ], [ true, %215 ], [ %221, %216 ]
+  %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
 
@@ -2529,7 +2530,7 @@ dissect_sccp_parameter.exit708.i:                 ; preds = %141, %134
   %147 = zext i8 %145 to i32
   %148 = call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %146, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %147) #9
   %149 = add nuw nsw i32 %147, 5
-  %150 = trunc i32 %149 to i16
+  %150 = trunc nuw nsw i32 %149 to i16
   %151 = load i32, ptr @sccp_reassemble, align 4
   %.not704.i = icmp eq i32 %151, 0
   br i1 %.not704.i, label %152, label %159
@@ -3897,7 +3898,7 @@ proto_item_set_generated.exit54:                  ; preds = %67, %68, %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %8 = zext i8 %4 to i32
   %.not = icmp eq i8 %4, 19
   br i1 %.not, label %12, label %9
@@ -3958,7 +3959,7 @@ define internal fastcc noundef zeroext i16 @dissect_sccp_variable_parameter(ptr 
 proto_item_set_hidden.exit:                       ; preds = %33, %30, %24, %28
   %.1 = phi i16 [ %.039, %28 ], [ %spec.select, %24 ], [ %.039, %30 ], [ %.039, %33 ]
   %37 = tail call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %19, i16 noundef zeroext %.1, ptr noundef %6)
-  %38 = trunc i32 %.0 to i16
+  %38 = trunc nuw nsw i32 %.0 to i16
   %39 = add i16 %.1, %38
   ret i16 %39
 }

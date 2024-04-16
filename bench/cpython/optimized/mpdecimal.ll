@@ -2999,7 +2999,7 @@ if.then2:                                         ; preds = %if.else.i, %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %conv = trunc i64 %cond.i to i32
+  %conv = trunc nsw i64 %cond.i to i32
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then2, %if.then
@@ -6324,7 +6324,7 @@ land.rhs.i53:                                     ; preds = %if.then7
 if.else15:                                        ; preds = %land.rhs.i53
   %5 = and i8 %0, 14
   %tobool.not.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i, label %mpd_isnormal.exit, label %mpd_isnormal.exit.thread
+  br i1 %tobool.not.i, label %mpd_isnormal.exit, label %return
 
 mpd_isnormal.exit:                                ; preds = %if.else15
   %exp.i.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -6337,9 +6337,7 @@ mpd_isnormal.exit:                                ; preds = %if.else15
   %8 = load i64, ptr %emin.i, align 8
   %cmp.i14.not = icmp slt i64 %sub.i.i, %8
   %cond.fr = freeze i1 %cmp.i14.not
-  br i1 %cond.fr, label %mpd_isnormal.exit.thread, label %return
-
-mpd_isnormal.exit.thread:                         ; preds = %if.else15, %mpd_isnormal.exit
+  %spec.select = select i1 %cond.fr, ptr @.str.6, ptr @.str.5
   br label %return
 
 if.else20:                                        ; preds = %if.else4
@@ -6359,7 +6357,7 @@ land.rhs.i:                                       ; preds = %if.else20
 if.else28:                                        ; preds = %land.rhs.i
   %13 = and i8 %0, 14
   %tobool.not.i15 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i15, label %mpd_isnormal.exit30, label %mpd_isnormal.exit30.thread
+  br i1 %tobool.not.i15, label %mpd_isnormal.exit30, label %return
 
 mpd_isnormal.exit30:                              ; preds = %if.else28
   %exp.i.i23 = getelementptr inbounds i8, ptr %a, i64 8
@@ -6372,13 +6370,11 @@ mpd_isnormal.exit30:                              ; preds = %if.else28
   %16 = load i64, ptr %emin.i27, align 8
   %cmp.i28.not = icmp slt i64 %sub.i.i26, %16
   %cond.fr34 = freeze i1 %cmp.i28.not
-  br i1 %cond.fr34, label %mpd_isnormal.exit30.thread, label %return
-
-mpd_isnormal.exit30.thread:                       ; preds = %if.else28, %mpd_isnormal.exit30
+  %spec.select38 = select i1 %cond.fr34, ptr @.str.10, ptr @.str.9
   br label %return
 
-return:                                           ; preds = %mpd_isnormal.exit30.thread, %mpd_isnormal.exit30, %mpd_isnormal.exit.thread, %mpd_isnormal.exit, %land.rhs.i, %if.else20, %land.rhs.i53, %if.then7, %if.then
-  %retval.0 = phi ptr [ %.str.2..str.1, %if.then ], [ @.str.3, %if.then7 ], [ @.str.4, %land.rhs.i53 ], [ @.str.7, %if.else20 ], [ @.str.8, %land.rhs.i ], [ @.str.6, %mpd_isnormal.exit.thread ], [ @.str.5, %mpd_isnormal.exit ], [ @.str.10, %mpd_isnormal.exit30.thread ], [ @.str.9, %mpd_isnormal.exit30 ]
+return:                                           ; preds = %mpd_isnormal.exit30, %mpd_isnormal.exit, %if.else28, %if.else15, %land.rhs.i, %if.else20, %land.rhs.i53, %if.then7, %if.then
+  %retval.0 = phi ptr [ %.str.2..str.1, %if.then ], [ @.str.3, %if.then7 ], [ @.str.4, %land.rhs.i53 ], [ @.str.7, %if.else20 ], [ @.str.8, %land.rhs.i ], [ @.str.6, %if.else15 ], [ @.str.10, %if.else28 ], [ %spec.select, %mpd_isnormal.exit ], [ %spec.select38, %mpd_isnormal.exit30 ]
   ret ptr %retval.0
 }
 
@@ -24357,7 +24353,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %cmp1.not.i = icmp eq i64 %22, -8446744073709551617
   br i1 %cmp1.not.i, label %while.cond.i, label %return, !llvm.loop !44
 
-return:                                           ; preds = %while.body.i, %while.cond.i, %mpd_word_isallnine.exit
+return:                                           ; preds = %while.cond.i, %while.body.i, %mpd_word_isallnine.exit
   %retval.0 = phi i32 [ 0, %mpd_word_isallnine.exit ], [ 0, %while.body.i ], [ 1, %while.cond.i ]
   ret i32 %retval.0
 }

@@ -250,7 +250,7 @@ declare i32 @cuddTreeSifting(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @cuddZddAlignToBdd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_ShuffleHeap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @Cudd_ShuffleHeap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %.not4459 = icmp sgt i32 %4, 0
@@ -348,7 +348,7 @@ ddReorderPreprocess.exit:                         ; preds = %29, %13
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %43, i64 %47
-  %49 = trunc i64 %indvars.iv65 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv65 to i32
   store i32 %49, ptr %48, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
@@ -419,7 +419,7 @@ ddReorderPreprocess.exit:                         ; preds = %29, %13
 74:                                               ; preds = %73
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, -1
   %indvars = trunc i64 %indvars.iv.next71 to i32
-  %75 = trunc i64 %indvars.iv70 to i32
+  %75 = trunc nsw i64 %indvars.iv70 to i32
   %76 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %indvars, i32 noundef %75)
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %ddShuffle.exit, label %73, !llvm.loop !10
@@ -450,53 +450,57 @@ ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %7
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @ddCheckPermuation(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #3 {
-  %4 = icmp eq ptr %1, null
-  br i1 %4, label %37, label %5
+define internal fastcc noundef i32 @ddCheckPermuation(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds i8, ptr %0, i64 328
+  br label %tailrecurse
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 8
-  %12 = add i32 %11, %9
-  %13 = icmp ult i32 %9, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge
+tailrecurse:                                      ; preds = %31, %3
+  %.tr45 = phi ptr [ %1, %3 ], [ %33, %31 ]
+  %6 = icmp eq ptr %.tr45, null
+  br i1 %6, label %34, label %7
 
-.lr.ph:                                           ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 328
-  %15 = load ptr, ptr %14, align 8
-  %16 = sext i32 %9 to i64
+7:                                                ; preds = %tailrecurse
+  %8 = load i32, ptr %4, align 8
+  %9 = getelementptr inbounds i8, ptr %.tr45, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = getelementptr inbounds i8, ptr %.tr45, i64 8
+  %12 = load i32, ptr %11, align 8
+  %13 = add i32 %12, %10
+  %14 = icmp ult i32 %10, %13
+  br i1 %14, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %7
+  %15 = load ptr, ptr %5, align 8
+  %16 = sext i32 %10 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %.046 = phi i32 [ 0, %.lr.ph ], [ %.1, %17 ]
-  %.03145 = phi i32 [ %7, %.lr.ph ], [ %spec.select, %17 ]
+  %.050 = phi i32 [ 0, %.lr.ph ], [ %.1, %17 ]
+  %.03149 = phi i32 [ %8, %.lr.ph ], [ %spec.select, %17 ]
   %18 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %2, i64 %20
   %22 = load i32, ptr %21, align 4
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %22, i32 %.03145)
-  %.1 = tail call i32 @llvm.smax.i32(i32 %22, i32 %.046)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %22, i32 %.03149)
+  %.1 = tail call i32 @llvm.smax.i32(i32 %22, i32 %.050)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = trunc i64 %indvars.iv.next to i32
-  %24 = icmp ugt i32 %12, %23
+  %23 = trunc nsw i64 %indvars.iv.next to i32
+  %24 = icmp ugt i32 %13, %23
   br i1 %24, label %17, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %17, %5
-  %.031.lcssa = phi i32 [ %7, %5 ], [ %spec.select, %17 ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1, %17 ]
+._crit_edge:                                      ; preds = %17, %7
+  %.031.lcssa = phi i32 [ %8, %7 ], [ %spec.select, %17 ]
+  %.0.lcssa = phi i32 [ 0, %7 ], [ %.1, %17 ]
   %reass.sub = sub i32 %.0.lcssa, %.031.lcssa
   %25 = add i32 %reass.sub, 1
-  %.not = icmp eq i32 %25, %11
-  br i1 %.not, label %26, label %37
+  %.not = icmp eq i32 %25, %12
+  br i1 %.not, label %26, label %34
 
 26:                                               ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds i8, ptr %.tr45, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not40 = icmp eq ptr %28, null
   br i1 %.not40, label %31, label %29
@@ -504,24 +508,16 @@ define internal fastcc noundef i32 @ddCheckPermuation(ptr noundef readonly %0, p
 29:                                               ; preds = %26
   %30 = tail call fastcc i32 @ddCheckPermuation(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %2)
   %.not41 = icmp eq i32 %30, 0
-  br i1 %.not41, label %37, label %31
+  br i1 %.not41, label %34, label %31
 
 31:                                               ; preds = %29, %26
-  %32 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = getelementptr inbounds i8, ptr %.tr45, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not42 = icmp eq ptr %33, null
-  br i1 %.not42, label %36, label %34
+  br i1 %.not42, label %34, label %tailrecurse
 
-34:                                               ; preds = %31
-  %35 = tail call fastcc i32 @ddCheckPermuation(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %2)
-  %.not43 = icmp eq i32 %35, 0
-  br i1 %.not43, label %37, label %36
-
-36:                                               ; preds = %34, %31
-  br label %37
-
-37:                                               ; preds = %34, %29, %._crit_edge, %3, %36
-  %.033 = phi i32 [ 1, %36 ], [ 1, %3 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 0, %34 ]
+34:                                               ; preds = %31, %29, %._crit_edge, %tailrecurse
+  %.033 = phi i32 [ 1, %tailrecurse ], [ 0, %._crit_edge ], [ 0, %29 ], [ 1, %31 ]
   ret i32 %.033
 }
 
@@ -529,42 +525,46 @@ define internal fastcc noundef i32 @ddCheckPermuation(ptr noundef readonly %0, p
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
-  %4 = icmp eq ptr %1, null
-  br i1 %4, label %._crit_edge.thread, label %5
+define internal fastcc noundef i32 @ddUpdateMtrTree(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  br label %tailrecurse
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8
-  %10 = add i32 %9, %7
-  %11 = icmp ult i32 %7, %10
-  br i1 %11, label %.lr.ph, label %._crit_edge.thread
+tailrecurse:                                      ; preds = %34, %3
+  %.tr52 = phi ptr [ %1, %3 ], [ %36, %34 ]
+  %5 = icmp eq ptr %.tr52, null
+  br i1 %5, label %._crit_edge.thread, label %6
 
-.lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 328
-  %13 = load ptr, ptr %12, align 8
-  %14 = sext i32 %7 to i64
+6:                                                ; preds = %tailrecurse
+  %7 = getelementptr inbounds i8, ptr %.tr52, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %.tr52, i64 8
+  %10 = load i32, ptr %9, align 8
+  %11 = add i32 %10, %8
+  %12 = icmp ult i32 %8, %11
+  br i1 %12, label %.lr.ph, label %._crit_edge.thread
+
+.lr.ph:                                           ; preds = %6
+  %13 = load ptr, ptr %4, align 8
+  %14 = sext i32 %8 to i64
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %.054 = phi i32 [ -1, %.lr.ph ], [ %spec.select50, %15 ]
-  %.03653 = phi i32 [ 0, %.lr.ph ], [ %.137, %15 ]
-  %.03852 = phi i32 [ 2147483647, %.lr.ph ], [ %spec.select, %15 ]
+  %.058 = phi i32 [ -1, %.lr.ph ], [ %spec.select50, %15 ]
+  %.03657 = phi i32 [ 0, %.lr.ph ], [ %.137, %15 ]
+  %.03856 = phi i32 [ 2147483647, %.lr.ph ], [ %spec.select, %15 ]
   %16 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %2, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = icmp slt i32 %20, %.03852
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %20, i32 %.03852)
-  %spec.select50 = select i1 %21, i32 %17, i32 %.054
-  %.137 = tail call i32 @llvm.smax.i32(i32 %20, i32 %.03653)
+  %21 = icmp slt i32 %20, %.03856
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %20, i32 %.03856)
+  %spec.select50 = select i1 %21, i32 %17, i32 %.058
+  %.137 = tail call i32 @llvm.smax.i32(i32 %20, i32 %.03657)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = trunc i64 %indvars.iv.next to i32
-  %23 = icmp ugt i32 %10, %22
+  %22 = trunc nsw i64 %indvars.iv.next to i32
+  %23 = icmp ugt i32 %11, %22
   br i1 %23, label %15, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %15
@@ -574,14 +574,14 @@ define internal fastcc noundef i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef 
 25:                                               ; preds = %._crit_edge
   %reass.sub = sub i32 %.137, %spec.select
   %26 = add i32 %reass.sub, 1
-  %27 = icmp eq i32 %26, %9
+  %27 = icmp eq i32 %26, %10
   br i1 %27, label %28, label %._crit_edge.thread
 
 28:                                               ; preds = %25
-  store i32 %spec.select, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 %spec.select, ptr %7, align 4
+  %29 = getelementptr inbounds i8, ptr %.tr52, i64 12
   store i32 %spec.select50, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds i8, ptr %.tr52, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %34, label %32
@@ -592,21 +592,13 @@ define internal fastcc noundef i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef 
   br i1 %.not47, label %._crit_edge.thread, label %34
 
 34:                                               ; preds = %32, %28
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds i8, ptr %.tr52, i64 40
   %36 = load ptr, ptr %35, align 8
   %.not48 = icmp eq ptr %36, null
-  br i1 %.not48, label %39, label %37
+  br i1 %.not48, label %._crit_edge.thread, label %tailrecurse
 
-37:                                               ; preds = %34
-  %38 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %2)
-  %.not49 = icmp eq i32 %38, 0
-  br i1 %.not49, label %._crit_edge.thread, label %39
-
-39:                                               ; preds = %37, %34
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %5, %37, %32, %25, %._crit_edge, %3, %39
-  %.040 = phi i32 [ 1, %39 ], [ 1, %3 ], [ 0, %._crit_edge ], [ 0, %25 ], [ 0, %32 ], [ 0, %37 ], [ 0, %5 ]
+._crit_edge.thread:                               ; preds = %6, %34, %32, %25, %._crit_edge, %tailrecurse
+  %.040 = phi i32 [ 1, %tailrecurse ], [ 0, %._crit_edge ], [ 0, %25 ], [ 0, %32 ], [ 1, %34 ], [ 0, %6 ]
   ret i32 %.040
 }
 
@@ -774,7 +766,7 @@ define noundef i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %27 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
   %28 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %29, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1213,7 +1205,7 @@ define noundef i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, %.070106
   %spec.select = tail call i32 @llvm.smax.i32(i32 %24, i32 %.070106)
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nsw i64 %indvars.iv to i32
   %spec.select85 = select i1 %25, i32 %26, i32 %.1108
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2611,7 +2603,7 @@ define noundef i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr #0 {
   %23 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = sdiv i32 %24, %8
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nsw i64 %indvars.iv to i32
   %27 = sdiv i32 %26, %8
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %13, i64 %28
@@ -2690,7 +2682,7 @@ define noundef i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr #0 {
 63:                                               ; preds = %62
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
   %indvars = trunc i64 %indvars.iv.next58 to i32
-  %64 = trunc i64 %indvars.iv57 to i32
+  %64 = trunc nsw i64 %indvars.iv57 to i32
   %65 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %indvars, i32 noundef %64)
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %ddShuffle.exit, label %62, !llvm.loop !10
@@ -2894,7 +2886,7 @@ define internal fastcc ptr @ddSiftingDown(ptr noundef %0, i32 noundef %1, i32 no
 
 60:                                               ; preds = %48, %43
   %.3 = phi i32 [ %59, %48 ], [ %.299, %43 ]
-  %61 = trunc i64 %indvars.iv113 to i32
+  %61 = trunc nsw i64 %indvars.iv113 to i32
   %62 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %61, i32 noundef %indvars)
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %79, label %64
@@ -3046,7 +3038,7 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
   %56 = load ptr, ptr %4, align 8
   %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.next121
   %58 = load i32, ptr %57, align 4
-  %59 = trunc i64 %indvars.iv120 to i32
+  %59 = trunc nsw i64 %indvars.iv120 to i32
   %60 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %59)
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %93, label %62

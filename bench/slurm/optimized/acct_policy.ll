@@ -1721,7 +1721,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @acct_policy_job_runnable_pre_select(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @acct_policy_job_runnable_pre_select(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.slurmdb_qos_rec_t, align 8
   %4 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) @__const.acct_policy_job_time_out.locks, i64 28, i1 false)
@@ -1819,7 +1819,7 @@ acct_policy_set_qos_order.exit:                   ; preds = %41
 43:                                               ; preds = %acct_policy_set_qos_order.exit
   %44 = call fastcc i32 @_qos_job_runnable_pre_select(ptr noundef nonnull %0, ptr noundef nonnull %.0155.ph, ptr noundef nonnull %3), !range !24
   %.not116 = icmp eq i32 %44, 0
-  %45 = trunc i32 %44 to i1
+  %45 = trunc nuw i32 %44 to i1
   br i1 %.not116, label %.loopexit, label %acct_policy_set_qos_order.exit.thread165
 
 acct_policy_set_qos_order.exit.thread165:         ; preds = %38, %37, %43, %acct_policy_set_qos_order.exit
@@ -3205,7 +3205,7 @@ _get_tres_state_reason.exit211:                   ; preds = %switch.lookup571, %
   br i1 %exitcond451.not, label %.lr.ph.i232, label %.lr.ph.split.us.i230, !llvm.loop !29
 
 363:                                              ; preds = %.thread124.i
-  %364 = trunc i64 %indvars.iv118.i to i32
+  %364 = trunc nuw nsw i64 %indvars.iv118.i to i32
   store i64 %327, ptr %100, align 8
   %365 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %365) #12
@@ -3237,7 +3237,7 @@ _get_tres_state_reason.exit211:                   ; preds = %switch.lookup571, %
   br label %.loopexit312
 
 386:                                              ; preds = %357
-  %387 = trunc i64 %indvars.iv118.i to i32
+  %387 = trunc nuw nsw i64 %indvars.iv118.i to i32
   store i64 %327, ptr %100, align 8
   %388 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %388) #12
@@ -3327,7 +3327,7 @@ _get_tres_state_reason.exit211:                   ; preds = %switch.lookup571, %
   br i1 %exitcond452.not, label %486, label %.lr.ph.split.us.i233, !llvm.loop !29
 
 _validate_tres_usage_limits.exit245:              ; preds = %.thread124.i237
-  %435 = trunc i64 %indvars.iv118.i234 to i32
+  %435 = trunc nuw nsw i64 %indvars.iv118.i234 to i32
   %436 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %436) #12
   %437 = call fastcc i32 @_get_tres_state_reason(i32 noundef %435, i32 noundef 80)
@@ -3360,7 +3360,7 @@ _validate_tres_usage_limits.exit245:              ; preds = %.thread124.i237
   br label %.loopexit312
 
 459:                                              ; preds = %429
-  %460 = trunc i64 %indvars.iv118.i234 to i32
+  %460 = trunc nuw nsw i64 %indvars.iv118.i234 to i32
   %461 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %461) #12
   %462 = call fastcc i32 @_get_tres_state_reason(i32 noundef %460, i32 noundef 80)
@@ -3452,7 +3452,7 @@ _validate_tres_usage_limits.exit245:              ; preds = %.thread124.i237
   br i1 %exitcond453.not, label %.lr.ph.split.us.split.i214.preheader, label %.lr.ph.split.us.split.i, !llvm.loop !31
 
 _validate_tres_limits_for_assoc.exit:             ; preds = %504
-  %509 = trunc i64 %indvars.iv57.i to i32
+  %509 = trunc nuw nsw i64 %indvars.iv57.i to i32
   %510 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %510) #12
   %511 = call fastcc i32 @_get_tres_state_reason(i32 noundef %509, i32 noundef 83)
@@ -3519,7 +3519,7 @@ _validate_tres_limits_for_assoc.exit:             ; preds = %504
   br i1 %exitcond454.not, label %.lr.ph.i220, label %.lr.ph.split.us.split.i214, !llvm.loop !31
 
 _validate_tres_limits_for_assoc.exit218:          ; preds = %544
-  %549 = trunc i64 %indvars.iv57.i215 to i32
+  %549 = trunc nuw nsw i64 %indvars.iv57.i215 to i32
   %550 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %550) #12
   %551 = call fastcc i32 @_get_tres_state_reason(i32 noundef %549, i32 noundef 81)
@@ -4089,7 +4089,7 @@ _get_tres_state_reason.exit218:                   ; preds = %switch.lookup382, %
   br i1 %244, label %.lr.ph.split.us.i, label %334, !llvm.loop !29
 
 245:                                              ; preds = %.thread124.i
-  %246 = trunc i64 %indvars.iv118.i to i32
+  %246 = trunc nuw nsw i64 %indvars.iv118.i to i32
   store i64 %205, ptr %204, align 8
   %247 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %247) #12
@@ -4160,7 +4160,7 @@ _get_tres_state_reason.exit223:                   ; preds = %switch.lookup385, %
   br label %684
 
 287:                                              ; preds = %236
-  %288 = trunc i64 %indvars.iv118.i to i32
+  %288 = trunc nuw nsw i64 %indvars.iv118.i to i32
   store i64 %205, ptr %204, align 8
   %289 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %289) #12
@@ -4236,7 +4236,7 @@ _get_tres_state_reason.exit228:                   ; preds = %switch.lookup388, %
   br label %684
 
 334:                                              ; preds = %241
-  %335 = trunc i64 %indvars.iv118.i to i32
+  %335 = trunc nuw nsw i64 %indvars.iv118.i to i32
   store i32 %335, ptr %6, align 4
   store i64 %205, ptr %204, align 8
   %336 = getelementptr inbounds i8, ptr %1, i64 72
@@ -4325,7 +4325,7 @@ _get_tres_state_reason.exit228:                   ; preds = %switch.lookup388, %
 
 _validate_tres_usage_limits.exit258:              ; preds = %.thread124.i250, %.thread124.i250.us
   %.us-phi = phi i64 [ %indvars.iv118.i247.us, %.thread124.i250.us ], [ %indvars.iv118.i247, %.thread124.i250 ]
-  %369 = trunc i64 %.us-phi to i32
+  %369 = trunc nuw nsw i64 %.us-phi to i32
   %370 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %370) #12
   %371 = call fastcc i32 @_get_tres_state_reason(i32 noundef %369, i32 noundef 118)
@@ -4353,7 +4353,7 @@ _validate_tres_usage_limits.exit258:              ; preds = %.thread124.i250, %.
 
 .split.us:                                        ; preds = %360, %346
   %.us-phi302 = phi i64 [ %indvars.iv118.i247.us, %346 ], [ %indvars.iv118.i247, %360 ]
-  %387 = trunc i64 %.us-phi302 to i32
+  %387 = trunc nuw nsw i64 %.us-phi302 to i32
   %388 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %388) #12
   %389 = call fastcc i32 @_get_tres_state_reason(i32 noundef %387, i32 noundef 118)
@@ -4384,7 +4384,7 @@ _validate_tres_usage_limits.exit258:              ; preds = %.thread124.i250, %.
 thread-pre-split:                                 ; preds = %365, %351
   %.us-phi303 = phi i64 [ %340, %351 ], [ %indvars.iv118.i247, %365 ]
   %.us-phi304 = phi i32 [ %242, %351 ], [ %366, %365 ]
-  %407 = trunc i64 %.us-phi303 to i32
+  %407 = trunc nuw nsw i64 %.us-phi303 to i32
   store i32 %407, ptr %6, align 4
   %408 = getelementptr inbounds i8, ptr %1, i64 128
   %409 = load ptr, ptr %408, align 8
@@ -4435,7 +4435,7 @@ thread-pre-split:                                 ; preds = %365, %351
   br i1 %433, label %.lr.ph.split.split.split.us.i, label %thread-pre-split268, !llvm.loop !33
 
 _validate_tres_limits_for_qos.exit:               ; preds = %426
-  %434 = trunc i64 %indvars.iv129.i to i32
+  %434 = trunc nuw nsw i64 %indvars.iv129.i to i32
   %435 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %435) #12
   %436 = call fastcc i32 @_get_tres_state_reason(i32 noundef %434, i32 noundef 122)
@@ -4462,7 +4462,7 @@ _validate_tres_limits_for_qos.exit:               ; preds = %426
   br label %684
 
 thread-pre-split268:                              ; preds = %430
-  %452 = trunc i64 %indvars.iv129.i to i32
+  %452 = trunc nuw nsw i64 %indvars.iv129.i to i32
   store i32 %452, ptr %6, align 4
   %.pre341 = load ptr, ptr %67, align 8
   %453 = getelementptr inbounds i8, ptr %1, i64 160
@@ -4513,7 +4513,7 @@ thread-pre-split268:                              ; preds = %430
   br i1 %477, label %.lr.ph.split.split.split.us.i231, label %.loopexit286, !llvm.loop !33
 
 _validate_tres_limits_for_qos.exit237:            ; preds = %470
-  %478 = trunc i64 %indvars.iv129.i232 to i32
+  %478 = trunc nuw nsw i64 %indvars.iv129.i232 to i32
   %479 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %479) #12
   %480 = call fastcc i32 @_get_tres_state_reason(i32 noundef %478, i32 noundef 119)
@@ -4540,7 +4540,7 @@ _validate_tres_limits_for_qos.exit237:            ; preds = %470
   br label %684
 
 .loopexit286:                                     ; preds = %474
-  %496 = trunc i64 %indvars.iv129.i232 to i32
+  %496 = trunc nuw nsw i64 %indvars.iv129.i232 to i32
   store i32 %496, ptr %6, align 4
   br label %thread-pre-split268.thread
 
@@ -4641,7 +4641,7 @@ thread-pre-split268.thread:                       ; preds = %334, %thread-pre-sp
   br i1 %555, label %.lr.ph.split.split.split.i, label %.loopexit, !llvm.loop !33
 
 _validate_tres_limits_for_qos.exit241:            ; preds = %548
-  %556 = trunc i64 %indvars.iv.i to i32
+  %556 = trunc nuw nsw i64 %indvars.iv.i to i32
   %557 = getelementptr inbounds i8, ptr %0, i64 896
   call void @slurm_xfree(ptr noundef nonnull %557) #12
   %558 = call fastcc i32 @_get_tres_state_reason(i32 noundef %556, i32 noundef 123)
@@ -4668,7 +4668,7 @@ _validate_tres_limits_for_qos.exit241:            ; preds = %548
   br label %684
 
 .loopexit:                                        ; preds = %552
-  %574 = trunc i64 %indvars.iv.i to i32
+  %574 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %574, ptr %6, align 4
   br label %575
 
@@ -5467,7 +5467,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %26
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %26 ], [ 0, %.lr.ph.split.us ]
-  %11 = trunc i64 %indvars.iv60 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv60 to i32
   store i32 %11, ptr %0, align 4
   %12 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv60
   %13 = load i16, ptr %12, align 2
@@ -5501,7 +5501,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %45
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %45 ], [ 0, %.lr.ph.split.us ]
-  %30 = trunc i64 %indvars.iv57 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv57 to i32
   store i32 %30, ptr %0, align 4
   %31 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv57
   %32 = load i16, ptr %31, align 2
@@ -5538,7 +5538,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %65
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %65 ], [ 0, %.lr.ph.split ]
-  %49 = trunc i64 %indvars.iv54 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv54 to i32
   store i32 %49, ptr %0, align 4
   %50 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv54
   %51 = load i16, ptr %50, align 2
@@ -5573,7 +5573,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_assoc(ptr n
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %86
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %.lr.ph.split ]
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %69, ptr %0, align 4
   %70 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
   %71 = load i16, ptr %70, align 2
@@ -6981,7 +6981,7 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
 
 9:                                                ; preds = %2
   %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.acct_policy_handle_accrue_time) #12
-  br label %111
+  br label %110
 
 11:                                               ; preds = %2
   %12 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 124), align 2
@@ -6993,13 +6993,13 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %15 = getelementptr inbounds i8, ptr %8, i64 16
   %16 = load i64, ptr %15, align 8
   %.not76 = icmp eq i64 %16, 0
-  br i1 %.not76, label %17, label %111
+  br i1 %.not76, label %17, label %110
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %8, i64 448
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %15, align 8
-  br label %111
+  br label %110
 
 20:                                               ; preds = %11
   %21 = load i16, ptr @accounting_enforce, align 2
@@ -7011,26 +7011,26 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %24 = getelementptr inbounds i8, ptr %8, i64 16
   %25 = load i64, ptr %24, align 8
   %.not63 = icmp eq i64 %25, 0
-  br i1 %.not63, label %26, label %111
+  br i1 %.not63, label %26, label %110
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %8, i64 48
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %24, align 8
-  br label %111
+  br label %110
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %0, i64 712
   %31 = load i32, ptr %30, align 8
   %.not64 = icmp eq i32 %31, 0
-  br i1 %.not64, label %111, label %32
+  br i1 %.not64, label %110, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %0, i64 112
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 536870912
   %.not65 = icmp eq i64 %35, 0
-  br i1 %.not65, label %36, label %111
+  br i1 %.not65, label %36, label %110
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %8, i64 48
@@ -7038,7 +7038,7 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %.not66 = icmp ne i64 %38, 0
   %39 = icmp sgt i64 %38, %6
   %or.cond = select i1 %.not66, i1 %39, i1 false
-  br i1 %or.cond, label %111, label %40
+  br i1 %or.cond, label %110, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %8, i64 16
@@ -7051,7 +7051,7 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 255
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %111
+  br i1 %47, label %48, label %110
 
 48:                                               ; preds = %43, %40
   br i1 %1, label %50, label %49
@@ -7069,11 +7069,11 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
 53:                                               ; preds = %50
   %54 = call i32 @get_log_level() #12
   %55 = icmp sgt i32 %54, 4
-  br i1 %55, label %56, label %109
+  br i1 %55, label %56, label %108
 
 56:                                               ; preds = %53
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.acct_policy_handle_accrue_time, ptr noundef nonnull %0) #12
-  br label %109
+  br label %108
 
 57:                                               ; preds = %50
   %58 = getelementptr inbounds i8, ptr %0, i64 760
@@ -7100,20 +7100,20 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
   %.052 = phi ptr [ %71, %60 ], [ null, %57 ]
   %73 = load i64, ptr %41, align 8
   %.not70 = icmp eq i64 %73, 0
-  br i1 %.not70, label %101, label %74
+  br i1 %.not70, label %100, label %74
 
 74:                                               ; preds = %72
   %75 = load i64, ptr %33, align 8
   %76 = and i64 %75, 262144
   %.not71 = icmp eq i64 %76, 0
-  br i1 %.not71, label %77, label %91
+  br i1 %.not71, label %77, label %90
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %0, i64 448
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 255
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %91, label %82
+  br i1 %81, label %90, label %82
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %0, i64 56
@@ -7123,62 +7123,59 @@ define dso_local noundef i32 @acct_policy_handle_accrue_time(ptr noundef %0, i1 
 
 85:                                               ; preds = %82
   %86 = load i32, ptr %84, align 8
-  %.not73 = icmp eq i32 %86, 0
-  br i1 %.not73, label %87, label %88
+  %spec.select = call i32 @llvm.umax.i32(i32 %86, i32 1)
+  br label %87
 
 87:                                               ; preds = %85, %82
-  br label %88
+  %.0 = phi i32 [ 1, %82 ], [ %spec.select, %85 ]
+  %88 = or disjoint i64 %75, 262144
+  store i64 %88, ptr %33, align 8
+  %89 = load ptr, ptr %51, align 8
+  call fastcc void @_remove_accrue_time_internal(ptr noundef %89, ptr noundef %59, ptr noundef %.053, ptr noundef %.052, i32 noundef %.0)
+  br label %90
 
-88:                                               ; preds = %85, %87
-  %.0 = phi i32 [ 1, %87 ], [ %86, %85 ]
-  %89 = or disjoint i64 %75, 262144
-  store i64 %89, ptr %33, align 8
-  %90 = load ptr, ptr %51, align 8
-  call fastcc void @_remove_accrue_time_internal(ptr noundef %90, ptr noundef %59, ptr noundef %.053, ptr noundef %.052, i32 noundef %.0)
-  br label %91
+90:                                               ; preds = %87, %77, %74
+  %91 = getelementptr inbounds i8, ptr %0, i64 448
+  %92 = load i32, ptr %91, align 8
+  %93 = and i32 %92, 255
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %108
 
-91:                                               ; preds = %88, %77, %74
-  %92 = getelementptr inbounds i8, ptr %0, i64 448
-  %93 = load i32, ptr %92, align 8
-  %94 = and i32 %93, 255
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %109
+95:                                               ; preds = %90
+  %96 = getelementptr inbounds i8, ptr %0, i64 56
+  %97 = load ptr, ptr %96, align 8
+  %.not74 = icmp eq ptr %97, null
+  br i1 %.not74, label %108, label %98
 
-96:                                               ; preds = %91
-  %97 = getelementptr inbounds i8, ptr %0, i64 56
-  %98 = load ptr, ptr %97, align 8
-  %.not74 = icmp eq ptr %98, null
-  br i1 %.not74, label %109, label %99
+98:                                               ; preds = %95
+  %99 = load i32, ptr %97, align 8
+  %.not75 = icmp eq i32 %99, 0
+  br i1 %.not75, label %108, label %105
 
-99:                                               ; preds = %96
-  %100 = load i32, ptr %98, align 8
-  %.not75 = icmp eq i32 %100, 0
-  br i1 %.not75, label %109, label %106
+100:                                              ; preds = %72
+  %101 = getelementptr inbounds i8, ptr %0, i64 448
+  %102 = load i32, ptr %101, align 8
+  %103 = and i32 %102, 255
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %108
 
-101:                                              ; preds = %72
-  %102 = getelementptr inbounds i8, ptr %0, i64 448
-  %103 = load i32, ptr %102, align 8
-  %104 = and i32 %103, 255
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %109
-
-106:                                              ; preds = %101, %99
+105:                                              ; preds = %100, %98
   call fastcc void @_get_accrue_limits(ptr noundef nonnull %0, ptr noundef %.053, ptr noundef %.052, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %107 = load i32, ptr %3, align 4
-  %108 = load i32, ptr %4, align 4
-  call fastcc void @_handle_add_accrue(ptr noundef nonnull %0, ptr noundef %.053, ptr noundef %.052, i32 noundef %107, i32 noundef %108, i64 noundef %6)
-  br label %109
+  %106 = load i32, ptr %3, align 4
+  %107 = load i32, ptr %4, align 4
+  call fastcc void @_handle_add_accrue(ptr noundef nonnull %0, ptr noundef %.053, ptr noundef %.052, i32 noundef %106, i32 noundef %107, i64 noundef %6)
+  br label %108
 
-109:                                              ; preds = %53, %56, %101, %91, %96, %99, %106
-  %.051 = phi i32 [ 0, %106 ], [ 0, %99 ], [ 0, %96 ], [ 0, %91 ], [ 0, %101 ], [ -1, %56 ], [ -1, %53 ]
-  br i1 %1, label %111, label %110
+108:                                              ; preds = %53, %56, %100, %90, %95, %98, %105
+  %.051 = phi i32 [ 0, %105 ], [ 0, %98 ], [ 0, %95 ], [ 0, %90 ], [ 0, %100 ], [ -1, %56 ], [ -1, %53 ]
+  br i1 %1, label %110, label %109
 
-110:                                              ; preds = %109
+109:                                              ; preds = %108
   call void @assoc_mgr_unlock(ptr noundef nonnull %5) #12
-  br label %111
+  br label %110
 
-111:                                              ; preds = %109, %110, %43, %29, %32, %36, %23, %26, %14, %17, %9
-  %.050 = phi i32 [ -1, %9 ], [ 0, %17 ], [ 0, %14 ], [ 0, %26 ], [ 0, %23 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %43 ], [ %.051, %110 ], [ %.051, %109 ]
+110:                                              ; preds = %108, %109, %43, %29, %32, %36, %23, %26, %14, %17, %9
+  %.050 = phi i32 [ -1, %9 ], [ 0, %17 ], [ 0, %14 ], [ 0, %26 ], [ 0, %23 ], [ 0, %36 ], [ 0, %32 ], [ 0, %29 ], [ 0, %43 ], [ %.051, %109 ], [ %.051, %108 ]
   ret i32 %.050
 }
 
@@ -7578,19 +7575,19 @@ define internal fastcc void @_handle_add_accrue(ptr noundef %0, ptr noundef %1, 
 14:                                               ; preds = %11
   %15 = load i32, ptr %13, align 8
   %.not52 = icmp eq i32 %15, 0
-  br i1 %.not52, label %16, label %43
+  br i1 %.not52, label %16, label %42
 
 16:                                               ; preds = %14, %11, %6
   %17 = getelementptr inbounds i8, ptr %8, i64 16
   %18 = load i64, ptr %17, align 8
   %.not56 = icmp eq i64 %18, 0
-  br i1 %.not56, label %19, label %63
+  br i1 %.not56, label %19, label %62
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %8, i64 48
   %21 = load i64, ptr %20, align 8
   %.not57 = icmp eq i64 %21, 0
-  br i1 %.not57, label %63, label %22
+  br i1 %.not57, label %62, label %22
 
 22:                                               ; preds = %19
   br i1 %9, label %25, label %23
@@ -7609,87 +7606,84 @@ define internal fastcc void @_handle_add_accrue(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %25
   %30 = load i32, ptr %28, align 8
-  %.not60 = icmp eq i32 %30, 0
-  br i1 %.not60, label %31, label %32
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
+  br label %31
 
 31:                                               ; preds = %29, %25
-  br label %32
-
-32:                                               ; preds = %29, %31
-  %.042 = phi i32 [ 1, %31 ], [ %30, %29 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 760
-  %36 = load ptr, ptr %35, align 8
-  tail call fastcc void @_add_accrue_time_internal(ptr noundef %34, ptr noundef %36, ptr noundef %1, ptr noundef %2, i32 noundef %.042)
-  br label %63
+  %.042 = phi i32 [ 1, %25 ], [ %spec.select, %29 ]
+  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 760
+  %35 = load ptr, ptr %34, align 8
+  tail call fastcc void @_add_accrue_time_internal(ptr noundef %33, ptr noundef %35, ptr noundef %1, ptr noundef %2, i32 noundef %.042)
+  br label %62
 
 .critedge:                                        ; preds = %10
-  %37 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %38 = and i64 %37, 1125899906842624
-  %.not53 = icmp eq i64 %38, 0
-  br i1 %.not53, label %63, label %39
+  %36 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %37 = and i64 %36, 1125899906842624
+  %.not53 = icmp eq i64 %37, 0
+  br i1 %.not53, label %62, label %38
 
-39:                                               ; preds = %.critedge
-  %40 = tail call i32 @get_log_level() #12
-  %41 = icmp sgt i32 %40, 3
-  br i1 %41, label %42, label %63
+38:                                               ; preds = %.critedge
+  %39 = tail call i32 @get_log_level() #12
+  %40 = icmp sgt i32 %39, 3
+  br i1 %40, label %41, label %62
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.114, ptr noundef nonnull @__func__._handle_add_accrue, ptr noundef nonnull %0) #12
-  br label %63
+  br label %62
 
-43:                                               ; preds = %14
+42:                                               ; preds = %14
   %. = tail call i32 @llvm.umin.i32(i32 %15, i32 %4)
-  %44 = icmp sgt i32 %., 0
-  br i1 %44, label %.lr.ph, label %._crit_edge
+  %43 = icmp sgt i32 %., 0
+  br i1 %43, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %43, %57
-  %.063 = phi i32 [ %58, %57 ], [ 0, %43 ]
-  %.04162 = phi ptr [ %45, %57 ], [ %0, %43 ]
+.lr.ph:                                           ; preds = %42, %56
+  %.063 = phi i32 [ %57, %56 ], [ 0, %42 ]
+  %.04162 = phi ptr [ %44, %56 ], [ %0, %42 ]
   tail call void @job_array_pre_sched(ptr noundef %.04162) #12
-  %45 = tail call ptr @job_array_post_sched(ptr noundef %.04162) #12
-  %46 = getelementptr inbounds i8, ptr %.04162, i64 216
-  %47 = load ptr, ptr %46, align 8
-  %.not54 = icmp eq ptr %47, null
-  br i1 %.not54, label %48, label %49
+  %44 = tail call ptr @job_array_post_sched(ptr noundef %.04162) #12
+  %45 = getelementptr inbounds i8, ptr %.04162, i64 216
+  %46 = load ptr, ptr %45, align 8
+  %.not54 = icmp eq ptr %46, null
+  br i1 %.not54, label %47, label %48
 
-48:                                               ; preds = %.lr.ph
+47:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.115, ptr noundef nonnull @__func__._handle_add_accrue) #13
   unreachable
 
-49:                                               ; preds = %.lr.ph
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
-  store i64 %5, ptr %50, align 8
-  %51 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %52 = and i64 %51, 1125899906842624
-  %.not55 = icmp eq i64 %52, 0
-  br i1 %.not55, label %57, label %53
+48:                                               ; preds = %.lr.ph
+  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  store i64 %5, ptr %49, align 8
+  %50 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %51 = and i64 %50, 1125899906842624
+  %.not55 = icmp eq i64 %51, 0
+  br i1 %.not55, label %56, label %52
 
-53:                                               ; preds = %49
-  %54 = tail call i32 @get_log_level() #12
-  %55 = icmp sgt i32 %54, 3
-  br i1 %55, label %56, label %57
+52:                                               ; preds = %48
+  %53 = tail call i32 @get_log_level() #12
+  %54 = icmp sgt i32 %53, 3
+  br i1 %54, label %55, label %56
 
-56:                                               ; preds = %53
+55:                                               ; preds = %52
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.116, ptr noundef nonnull %.04162, i64 noundef %5) #12
-  br label %57
+  br label %56
 
-57:                                               ; preds = %56, %53, %49
-  %58 = add nuw nsw i32 %.063, 1
-  %exitcond.not = icmp eq i32 %58, %.
+56:                                               ; preds = %55, %52, %48
+  %57 = add nuw nsw i32 %.063, 1
+  %exitcond.not = icmp eq i32 %57, %.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %57, %43
-  %.041.lcssa = phi ptr [ %0, %43 ], [ %45, %57 ]
-  %59 = getelementptr inbounds i8, ptr %.041.lcssa, i64 72
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.041.lcssa, i64 760
-  %62 = load ptr, ptr %61, align 8
-  tail call fastcc void @_add_accrue_time_internal(ptr noundef %60, ptr noundef %62, ptr noundef %1, ptr noundef %2, i32 noundef %.)
-  br label %63
+._crit_edge:                                      ; preds = %56, %42
+  %.041.lcssa = phi ptr [ %0, %42 ], [ %44, %56 ]
+  %58 = getelementptr inbounds i8, ptr %.041.lcssa, i64 72
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %.041.lcssa, i64 760
+  %61 = load ptr, ptr %60, align 8
+  tail call fastcc void @_add_accrue_time_internal(ptr noundef %59, ptr noundef %61, ptr noundef %1, ptr noundef %2, i32 noundef %.)
+  br label %62
 
-63:                                               ; preds = %42, %39, %.critedge, %16, %19, %32, %._crit_edge
+62:                                               ; preds = %41, %38, %.critedge, %16, %19, %31, %._crit_edge
   ret void
 }
 
@@ -7825,32 +7819,32 @@ define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef
   %4 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 124), align 2
   %5 = and i16 %4, 1
   %.not = icmp eq i16 %5, 0
-  br i1 %.not, label %6, label %58
+  br i1 %.not, label %6, label %57
 
 6:                                                ; preds = %2
   %7 = load i16, ptr @accounting_enforce, align 2
   %8 = and i16 %7, 2
   %.not30 = icmp eq i16 %8, 0
-  br i1 %.not30, label %58, label %9
+  br i1 %.not30, label %57, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 216
   %11 = load ptr, ptr %10, align 8
   %.not31 = icmp eq ptr %11, null
-  br i1 %.not31, label %58, label %12
+  br i1 %.not31, label %57, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8
   %.not32 = icmp eq i64 %14, 0
-  br i1 %.not32, label %58, label %15
+  br i1 %.not32, label %57, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 448
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 255
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %58
+  br i1 %19, label %20, label %57
 
 20:                                               ; preds = %15
   br i1 %1, label %22, label %21
@@ -7868,11 +7862,11 @@ define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef
 25:                                               ; preds = %22
   %26 = call i32 @get_log_level() #12
   %27 = icmp sgt i32 %26, 4
-  br i1 %27, label %28, label %56
+  br i1 %27, label %28, label %55
 
 28:                                               ; preds = %25
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.acct_policy_remove_accrue_time, ptr noundef nonnull %0) #12
-  br label %56
+  br label %55
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %0, i64 760
@@ -7904,32 +7898,29 @@ define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef
 
 47:                                               ; preds = %44
   %48 = load i32, ptr %46, align 8
-  %.not36 = icmp eq i32 %48, 0
-  br i1 %.not36, label %49, label %50
+  %spec.select = call i32 @llvm.umax.i32(i32 %48, i32 1)
+  br label %49
 
 49:                                               ; preds = %47, %44
-  br label %50
-
-50:                                               ; preds = %47, %49
-  %.0 = phi i32 [ 1, %49 ], [ %48, %47 ]
+  %.0 = phi i32 [ 1, %44 ], [ %spec.select, %47 ]
   call fastcc void @_remove_accrue_time_internal(ptr noundef nonnull %24, ptr noundef %31, ptr noundef %.024, ptr noundef %.023, i32 noundef %.0)
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  store i64 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
-  %54 = load i64, ptr %53, align 8
-  %55 = and i64 %54, -262145
-  store i64 %55, ptr %53, align 8
-  br label %56
+  %50 = load ptr, ptr %10, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  store i64 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %53 = load i64, ptr %52, align 8
+  %54 = and i64 %53, -262145
+  store i64 %54, ptr %52, align 8
+  br label %55
 
-56:                                               ; preds = %25, %28, %50
-  br i1 %1, label %58, label %57
+55:                                               ; preds = %25, %28, %49
+  br i1 %1, label %57, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @assoc_mgr_unlock(ptr noundef nonnull %3) #12
-  br label %58
+  br label %57
 
-58:                                               ; preds = %15, %9, %12, %6, %2, %57, %56
+57:                                               ; preds = %15, %9, %12, %6, %2, %56, %55
   ret void
 }
 
@@ -8986,7 +8977,7 @@ define internal fastcc noundef zeroext i1 @_acct_policy_validate(ptr nocapture n
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 64
   %.lobit = lshr exact i32 %28, 6
-  %29 = trunc i32 %.lobit to i8
+  %29 = trunc nuw nsw i32 %.lobit to i8
   %.not212 = icmp ne ptr %4, null
   %.not211 = icmp eq i32 %28, 0
   %or.cond231 = select i1 %.not212, i1 %.not211, i1 false
@@ -9451,7 +9442,7 @@ _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limi
   br i1 %.not220, label %285, label %259
 
 259:                                              ; preds = %_validate_tres_time_limits.exit
-  %260 = trunc i64 %indvars.iv.i to i32
+  %260 = trunc nuw nsw i64 %indvars.iv.i to i32
   %261 = icmp ult i32 %260, 5
   br i1 %261, label %switch.lookup28, label %262
 
@@ -9635,7 +9626,7 @@ _validate_tres_time_limits.exit268:               ; preds = %_validate_time_limi
   br i1 %.not221, label %353, label %350
 
 350:                                              ; preds = %_validate_tres_time_limits.exit268
-  %351 = trunc i64 %indvars.iv.i252 to i32
+  %351 = trunc nuw nsw i64 %indvars.iv.i252 to i32
   %352 = call fastcc i32 @_get_tres_state_reason(i32 noundef %351, i32 noundef 80)
   store i32 %352, ptr %5, align 4
   br label %353
@@ -9672,7 +9663,7 @@ _validate_tres_time_limits.exit268:               ; preds = %_validate_time_limi
   br label %.critedge235
 
 .thread334:                                       ; preds = %_validate_time_limit.exit.thread.i262
-  %374 = trunc i64 %indvars.iv.i252 to i32
+  %374 = trunc nuw nsw i64 %indvars.iv.i252 to i32
   store i32 %374, ptr %10, align 4
   %375 = getelementptr inbounds i8, ptr %.0190446, i64 128
   %376 = load i32, ptr %375, align 8
@@ -10183,7 +10174,7 @@ _validate_tres_time_limits.exit312:               ; preds = %_validate_time_limi
   br i1 %.not227, label %638, label %635
 
 635:                                              ; preds = %_validate_tres_time_limits.exit312
-  %636 = trunc i64 %indvars.iv.i296 to i32
+  %636 = trunc nuw nsw i64 %indvars.iv.i296 to i32
   %637 = call fastcc i32 @_get_tres_state_reason(i32 noundef %636, i32 noundef 83)
   store i32 %637, ptr %5, align 4
   br label %638
@@ -10216,7 +10207,7 @@ _validate_tres_time_limits.exit312:               ; preds = %_validate_time_limi
   br label %.loopexit367
 
 .thread342:                                       ; preds = %_validate_time_limit.exit.thread.i306
-  %659 = trunc i64 %indvars.iv.i296 to i32
+  %659 = trunc nuw nsw i64 %indvars.iv.i296 to i32
   store i32 %659, ptr %10, align 4
   %660 = getelementptr inbounds i8, ptr %.0190446, i64 248
   %661 = load i32, ptr %660, align 8
@@ -10401,7 +10392,7 @@ define internal fastcc noundef i32 @_qos_policy_validate(ptr nocapture noundef %
   br i1 %46, label %.lr.ph.split.split.split.us.i, label %_validate_tres_limits_for_qos.exit.thread.loopexit, !llvm.loop !33
 
 _validate_tres_limits_for_qos.exit:               ; preds = %39
-  %47 = trunc i64 %indvars.iv129.i to i32
+  %47 = trunc nuw nsw i64 %indvars.iv129.i to i32
   store i32 %47, ptr %12, align 4
   %48 = load ptr, ptr %16, align 8
   %sext = shl nuw i64 %indvars.iv129.i, 32
@@ -10487,7 +10478,7 @@ _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %73,
   br label %766
 
 _validate_tres_limits_for_qos.exit.thread.loopexit: ; preds = %43
-  %98 = trunc i64 %indvars.iv129.i to i32
+  %98 = trunc nuw nsw i64 %indvars.iv129.i to i32
   store i32 %98, ptr %12, align 4
   %.pre375 = load ptr, ptr %16, align 8
   br label %_validate_tres_limits_for_qos.exit.thread
@@ -10819,7 +10810,7 @@ _validate_tres_time_limits.exit:                  ; preds = %_validate_time_limi
   br i1 %.not224, label %309, label %283
 
 283:                                              ; preds = %_validate_tres_time_limits.exit
-  %284 = trunc i64 %indvars.iv.i to i32
+  %284 = trunc nuw nsw i64 %indvars.iv.i to i32
   %285 = icmp ult i32 %284, 5
   br i1 %285, label %switch.lookup427, label %286
 
@@ -10895,7 +10886,7 @@ _get_tres_state_reason.exit257:                   ; preds = %switch.lookup427, %
   br label %766
 
 .thread:                                          ; preds = %_validate_time_limit.exit.thread.i
-  %330 = trunc i64 %indvars.iv.i to i32
+  %330 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %330, ptr %12, align 4
   %.pre377 = load i32, ptr %243, align 4
   %.pre378 = load ptr, ptr %16, align 8
@@ -10991,7 +10982,7 @@ _validate_tres_time_limits.exit277:               ; preds = %_validate_time_limi
   br i1 %.not225, label %394, label %368
 
 368:                                              ; preds = %_validate_tres_time_limits.exit277
-  %369 = trunc i64 %indvars.iv.i261 to i32
+  %369 = trunc nuw nsw i64 %indvars.iv.i261 to i32
   %370 = icmp ult i32 %369, 5
   br i1 %370, label %switch.lookup430, label %371
 
@@ -11067,7 +11058,7 @@ _get_tres_state_reason.exit282:                   ; preds = %switch.lookup430, %
   br label %766
 
 ..thread339_crit_edge:                            ; preds = %_validate_time_limit.exit.thread.i271
-  %415 = trunc i64 %indvars.iv.i261 to i32
+  %415 = trunc nuw nsw i64 %indvars.iv.i261 to i32
   store i32 %415, ptr %12, align 4
   %.pre382 = load i32, ptr %243, align 4
   %.pre383 = load ptr, ptr %16, align 8
@@ -11170,7 +11161,7 @@ _validate_tres_time_limits.exit302:               ; preds = %_validate_time_limi
   br i1 %.not226, label %460, label %457
 
 457:                                              ; preds = %_validate_tres_time_limits.exit302
-  %458 = trunc i64 %indvars.iv.i286 to i32
+  %458 = trunc nuw nsw i64 %indvars.iv.i286 to i32
   %459 = tail call fastcc i32 @_get_tres_state_reason(i32 noundef %458, i32 noundef 118)
   store i32 %459, ptr %5, align 4
   br label %460
@@ -11203,7 +11194,7 @@ _validate_tres_time_limits.exit302:               ; preds = %_validate_time_limi
   br label %766
 
 .thread338.loopexit:                              ; preds = %_validate_time_limit.exit.thread.i296
-  %481 = trunc i64 %indvars.iv.i286 to i32
+  %481 = trunc nuw nsw i64 %indvars.iv.i286 to i32
   store i32 %481, ptr %12, align 4
   br label %.thread338
 
@@ -11410,7 +11401,7 @@ _validate_tres_limits_for_qos.exit318:            ; preds = %563
   br i1 %.not231, label %597, label %571
 
 571:                                              ; preds = %_validate_tres_limits_for_qos.exit318
-  %572 = trunc i64 %indvars.iv129.i313 to i32
+  %572 = trunc nuw nsw i64 %indvars.iv129.i313 to i32
   %573 = icmp ult i32 %572, 5
   br i1 %573, label %switch.lookup433, label %574
 
@@ -11483,7 +11474,7 @@ _get_tres_state_reason.exit323:                   ; preds = %switch.lookup433, %
   br label %766
 
 .loopexit356:                                     ; preds = %567
-  %615 = trunc i64 %indvars.iv129.i313 to i32
+  %615 = trunc nuw nsw i64 %indvars.iv129.i313 to i32
   store i32 %615, ptr %12, align 4
   %.pre388 = load ptr, ptr %16, align 8
   %.pre389 = load ptr, ptr %22, align 8
@@ -11560,7 +11551,7 @@ _validate_tres_limits_for_qos.exit333:            ; preds = %.thread.us115.i
   br i1 %.not232, label %653, label %650
 
 650:                                              ; preds = %_validate_tres_limits_for_qos.exit333
-  %651 = trunc i64 %indvars.iv129.i328 to i32
+  %651 = trunc nuw nsw i64 %indvars.iv129.i328 to i32
   %652 = tail call fastcc i32 @_get_tres_state_reason(i32 noundef %651, i32 noundef 120)
   store i32 %652, ptr %5, align 4
   br label %653
@@ -11593,7 +11584,7 @@ _validate_tres_limits_for_qos.exit333:            ; preds = %.thread.us115.i
   br label %766
 
 .loopexit:                                        ; preds = %646
-  %674 = trunc i64 %indvars.iv129.i328 to i32
+  %674 = trunc nuw nsw i64 %indvars.iv129.i328 to i32
   store i32 %674, ptr %12, align 4
   br label %675
 
@@ -11760,7 +11751,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph, %57
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %57 ], [ 0, %.lr.ph ]
-  %15 = trunc i64 %indvars.iv135 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv135 to i32
   store i32 %15, ptr %0, align 4
   %16 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv135
   %17 = load i64, ptr %16, align 8
@@ -11846,7 +11837,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %87
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %87 ], [ 0, %.lr.ph.split ]
-  %61 = trunc i64 %indvars.iv132 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv132 to i32
   store i32 %61, ptr %0, align 4
   %62 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv132
   %63 = load i64, ptr %62, align 8
@@ -11907,7 +11898,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %110
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %110 ], [ 0, %.lr.ph.split.split ]
-  %91 = trunc i64 %indvars.iv129 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv129 to i32
   store i32 %91, ptr %0, align 4
   %92 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv129
   %93 = load i64, ptr %92, align 8
@@ -11952,7 +11943,7 @@ define internal fastcc noundef zeroext i1 @_validate_tres_limits_for_qos(ptr noc
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %133
   %indvars.iv = phi i64 [ %indvars.iv.next, %133 ], [ 0, %.lr.ph.split.split ]
-  %114 = trunc i64 %indvars.iv to i32
+  %114 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %114, ptr %0, align 4
   %115 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
   %116 = load i64, ptr %115, align 8
@@ -12017,7 +12008,7 @@ define internal fastcc noundef i32 @_validate_tres_usage_limits(ptr nocapture no
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %49 ], [ 0, %.lr.ph ]
   %.062.us = phi i64 [ %.2.us, %49 ], [ 0, %.lr.ph ]
-  %12 = trunc i64 %indvars.iv118 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv118 to i32
   store i32 %12, ptr %0, align 4
   br i1 %.not, label %17, label %13
 
@@ -12115,7 +12106,7 @@ define internal fastcc noundef i32 @_validate_tres_usage_limits(ptr nocapture no
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread129
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.thread129 ], [ 0, %.lr.ph.split ]
-  %53 = trunc i64 %indvars.iv115 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv115 to i32
   store i32 %53, ptr %0, align 4
   br i1 %.not, label %58, label %54
 
@@ -12159,7 +12150,7 @@ define internal fastcc noundef i32 @_validate_tres_usage_limits(ptr nocapture no
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %92
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %92 ], [ 0, %.lr.ph.split.split ]
-  %71 = trunc i64 %indvars.iv112 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv112 to i32
   store i32 %71, ptr %0, align 4
   br i1 %11, label %72, label %.thread131
 
@@ -12215,7 +12206,7 @@ define internal fastcc noundef i32 @_validate_tres_usage_limits(ptr nocapture no
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %116
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %116 ], [ 0, %.lr.ph.split.split.split ]
-  %96 = trunc i64 %indvars.iv109 to i32
+  %96 = trunc nuw nsw i64 %indvars.iv109 to i32
   store i32 %96, ptr %0, align 4
   %97 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv109
   %98 = load i16, ptr %97, align 2
@@ -12263,7 +12254,7 @@ define internal fastcc noundef i32 @_validate_tres_usage_limits(ptr nocapture no
 
 .lr.ph.split.split.split.split.split:             ; preds = %.lr.ph.split.split.split, %134
   %indvars.iv = phi i64 [ %indvars.iv.next, %134 ], [ 0, %.lr.ph.split.split.split ]
-  %120 = trunc i64 %indvars.iv to i32
+  %120 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %120, ptr %0, align 4
   %121 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv
   %122 = load i16, ptr %121, align 2

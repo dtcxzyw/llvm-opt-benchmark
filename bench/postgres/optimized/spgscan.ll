@@ -366,8 +366,8 @@ define dso_local void @spgrescan(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %100, label %82, label %._crit_edge75.i, !llvm.loop !9
 
 ._crit_edge75.i:                                  ; preds = %97
-  %101 = trunc i8 %.152.i to i1
-  %102 = trunc i8 %.160.i to i1
+  %101 = trunc nuw i8 %.152.i to i1
+  %102 = trunc nuw i8 %.160.i to i1
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %._crit_edge75.thread.i, label %104
 
@@ -993,7 +993,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %165, %163, %140
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %175 = getelementptr i32, ptr %174, i64 %indvars.iv.i
-  %176 = trunc i64 %indvars.iv.i to i32
+  %176 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %176, ptr %175, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1063,7 +1063,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %165, %163, %140
 
 .lr.ph66.i:                                       ; preds = %._crit_edge.i
   %.lobit = lshr exact i16 %101, 3
-  %210 = trunc i16 %.lobit to i8
+  %210 = trunc nuw nsw i16 %.lobit to i8
   %211 = getelementptr inbounds i8, ptr %46, i64 48
   br label %212
 
@@ -1635,20 +1635,21 @@ define internal i32 @pairingheap_SpGistSearchItem_cmp(ptr nocapture noundef read
   %34 = trunc i8 %33 to i1
   %35 = getelementptr inbounds i8, ptr %1, i64 59
   %36 = load i8, ptr %35, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %34, label %38, label %39
+  %37 = and i8 %36, 1
+  br i1 %34, label %38, label %40
 
 38:                                               ; preds = %.loopexit
-  br i1 %37, label %.thread32, label %.thread
-
-39:                                               ; preds = %.loopexit
-  br i1 %37, label %.thread, label %.thread32
-
-.thread32:                                        ; preds = %38, %39
+  %39 = xor i8 %37, 1
+  %spec.select33 = zext nneg i8 %39 to i32
   br label %.thread
 
-.thread:                                          ; preds = %24, %25, %39, %38, %11, %10, %.thread32, %28
-  %.029 = phi i32 [ 0, %.thread32 ], [ %30, %28 ], [ -1, %10 ], [ 1, %11 ], [ 1, %38 ], [ -1, %39 ], [ -1, %24 ], [ 1, %25 ]
+40:                                               ; preds = %.loopexit
+  %41 = zext nneg i8 %37 to i32
+  %spec.select = sub nsw i32 0, %41
+  br label %.thread
+
+.thread:                                          ; preds = %24, %25, %38, %40, %11, %10, %28
+  %.029 = phi i32 [ %30, %28 ], [ -1, %10 ], [ 1, %11 ], [ %spec.select, %40 ], [ %spec.select33, %38 ], [ -1, %24 ], [ 1, %25 ]
   ret i32 %.029
 }
 

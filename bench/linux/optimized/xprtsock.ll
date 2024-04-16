@@ -392,8 +392,8 @@ xs_setup_xprt.exit:                               ; preds = %24, %26, %30, %31
   tail call void @xprt_free(ptr noundef %12) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %7, %1, %32, %78, %61, %xs_setup_xprt.exit
-  %79 = phi ptr [ %67, %78 ], [ %12, %xs_setup_xprt.exit ], [ %12, %61 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ inttoptr (i64 -97 to ptr), %32 ]
+xs_setup_xprt.exit.thread:                        ; preds = %32, %7, %1, %78, %61, %xs_setup_xprt.exit
+  %79 = phi ptr [ %67, %78 ], [ %12, %xs_setup_xprt.exit ], [ %12, %61 ], [ inttoptr (i64 -97 to ptr), %32 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ]
   ret ptr %79
 }
 
@@ -2952,8 +2952,8 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   tail call void @xprt_free(ptr noundef %11) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %7, %1, %31, %91, %74, %xs_setup_xprt.exit
-  %92 = phi ptr [ %80, %91 ], [ %11, %xs_setup_xprt.exit ], [ %11, %74 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ inttoptr (i64 -97 to ptr), %31 ]
+xs_setup_xprt.exit.thread:                        ; preds = %31, %7, %1, %91, %74, %xs_setup_xprt.exit
+  %92 = phi ptr [ %80, %91 ], [ %11, %xs_setup_xprt.exit ], [ %11, %74 ], [ inttoptr (i64 -97 to ptr), %31 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ]
   ret ptr %92
 }
 
@@ -4138,8 +4138,8 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   tail call void @xprt_free(ptr noundef %17) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %7, %1, %37, %112, %95, %xs_setup_xprt.exit
-  %113 = phi ptr [ %101, %112 ], [ %17, %xs_setup_xprt.exit ], [ %17, %95 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ inttoptr (i64 -97 to ptr), %37 ]
+xs_setup_xprt.exit.thread:                        ; preds = %37, %7, %1, %112, %95, %xs_setup_xprt.exit
+  %113 = phi ptr [ %101, %112 ], [ %17, %xs_setup_xprt.exit ], [ %17, %95 ], [ inttoptr (i64 -97 to ptr), %37 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ]
   ret ptr %113
 }
 
@@ -4895,7 +4895,7 @@ define internal fastcc void @xs_tcp_set_socket_timeouts(ptr noundef %0, ptr noca
 
 49:                                               ; preds = %48
   %50 = load ptr, ptr %3, align 8
-  %51 = trunc i64 %42 to i32
+  %51 = trunc nuw nsw i64 %42 to i32
   %52 = add nsw i32 %51, -1
   %53 = tail call i32 @tcp_sock_set_syncnt(ptr noundef %50, i32 noundef %52) #12
   br label %54
@@ -5372,8 +5372,8 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   tail call void @xprt_free(ptr noundef %17) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %7, %1, %37, %105, %88, %xs_setup_xprt.exit
-  %106 = phi ptr [ %94, %105 ], [ %17, %xs_setup_xprt.exit ], [ %17, %88 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ inttoptr (i64 -97 to ptr), %37 ]
+xs_setup_xprt.exit.thread:                        ; preds = %37, %7, %1, %105, %88, %xs_setup_xprt.exit
+  %106 = phi ptr [ %94, %105 ], [ %17, %xs_setup_xprt.exit ], [ %17, %88 ], [ inttoptr (i64 -97 to ptr), %37 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ]
   ret ptr %106
 }
 
@@ -6128,8 +6128,8 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   tail call void @xprt_free(ptr noundef %11) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %7, %1, %31, %75, %.split1, %xs_setup_xprt.exit
-  %76 = phi ptr [ %64, %75 ], [ %11, %xs_setup_xprt.exit ], [ %11, %.split1 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ inttoptr (i64 -97 to ptr), %31 ]
+xs_setup_xprt.exit.thread:                        ; preds = %31, %7, %1, %75, %.split1, %xs_setup_xprt.exit
+  %76 = phi ptr [ %64, %75 ], [ %11, %xs_setup_xprt.exit ], [ %11, %.split1 ], [ inttoptr (i64 -97 to ptr), %31 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ]
   ret ptr %76
 }
 

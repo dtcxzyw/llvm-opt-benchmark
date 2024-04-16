@@ -2416,7 +2416,7 @@ for.inc:                                          ; preds = %if.then, %if.then10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end.loopexit.split.loop.exit:                 ; preds = %if.else91
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %entry
@@ -2999,7 +2999,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not.i, label %do.body, label %for.inc
 
 do.body:                                          ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp3 = icmp sgt i32 %3, 3
   br i1 %cmp3, label %for.end, label %if.end
@@ -3017,7 +3017,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !17
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry, %if.end, %do.body
@@ -3536,7 +3536,7 @@ cond.false144:                                    ; preds = %while.end134
   unreachable
 
 cond.end145:                                      ; preds = %while.end134
-  %conv128.le = trunc i64 %count125.0 to i32
+  %conv128.le = trunc nuw i64 %count125.0 to i32
   %key_specs146 = getelementptr inbounds i8, ptr %25, i64 128
   %62 = load ptr, ptr %key_specs146, align 8
   call void @zfree(ptr noundef %62) #32
@@ -7829,7 +7829,7 @@ if.then232:                                       ; preds = %if.then230
   br label %if.end252
 
 if.end252.loopexit:                               ; preds = %for.body
-  %61 = trunc i64 %indvars.iv.next to i32
+  %61 = trunc nsw i64 %indvars.iv.next to i32
   br label %if.end252
 
 if.end252:                                        ; preds = %if.end252.loopexit, %vaarg.end112, %if.end, %vaarg.end81, %if.then134, %if.then132, %if.then151, %if.then149, %if.then169, %if.then167, %if.then187, %if.then185, %if.then205, %if.then203, %if.then223, %if.then221, %if.then230, %if.then232, %if.then212, %if.then214, %if.then194, %if.then196, %if.then176, %if.then178, %if.then158, %if.then160, %if.then140, %if.then142, %vaarg.end61, %vaarg.end
@@ -10184,7 +10184,7 @@ if.end45:                                         ; preds = %land.lhs.true10, %i
 
 if.then49:                                        ; preds = %if.end45
   %index.lobit = lshr i64 %index, 63
-  %cond = trunc i64 %index.lobit to i32
+  %cond = trunc nuw nsw i64 %index.lobit to i32
   %u = getelementptr inbounds i8, ptr %key, i64 48
   %5 = load ptr, ptr %value.addr, align 8
   call void @listTypeInsert(ptr noundef nonnull %u, ptr noundef %5, i32 noundef %cond) #32
@@ -17326,7 +17326,7 @@ return:                                           ; preds = %entry, %moduleInvok
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkModuleAuthentication(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
+define dso_local i32 @checkModuleAuthentication(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @moduleAuthCallbacks, align 8
   %len = getelementptr inbounds i8, ptr %0, i64 40
@@ -17374,7 +17374,7 @@ if.then12:                                        ; preds = %if.end9
 if.end15:                                         ; preds = %if.end9
   %and17 = and i64 %2, 140737488355328
   %tobool18.not = icmp eq i64 %and17, 0
-  br i1 %tobool18.not, label %if.end25, label %if.then19
+  br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
   %and21 = and i64 %2, -140737488355345
@@ -17382,13 +17382,11 @@ if.then19:                                        ; preds = %if.end15
   %authenticated = getelementptr inbounds i8, ptr %c, i64 256
   %3 = load i32, ptr %authenticated, align 8
   %tobool22.not = icmp eq i32 %3, 0
-  br i1 %tobool22.not, label %if.end25, label %return
-
-if.end25:                                         ; preds = %if.then19, %if.end15
+  %spec.select = zext i1 %tobool22.not to i32
   br label %return
 
-return:                                           ; preds = %if.then19, %if.then5, %entry, %if.end25, %if.then12
-  %retval.0 = phi i32 [ 2, %if.then12 ], [ 1, %if.end25 ], [ 2, %entry ], [ 3, %if.then5 ], [ 0, %if.then19 ]
+return:                                           ; preds = %if.then19, %if.end15, %if.then5, %entry, %if.then12
+  %retval.0 = phi i32 [ 2, %if.then12 ], [ 2, %entry ], [ 3, %if.then5 ], [ 1, %if.end15 ], [ %spec.select, %if.then19 ]
   ret i32 %retval.0
 }
 
@@ -23384,7 +23382,7 @@ for.body:                                         ; preds = %if.end, %for.body
   store ptr %5, ptr %arrayidx9, align 8
   %6 = load i32, ptr %argc, align 4
   %sub = add nsw i32 %6, -1
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nuw i64 %indvars.iv.next to i32
   %cmp3 = icmp sgt i32 %sub, %7
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !64
 
@@ -24205,7 +24203,7 @@ return:                                           ; preds = %if.then20, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @RM_IsSubEventSupported(i64 %event.coerce0, i64 %event.coerce1, i64 noundef %subevent) #22 {
+define dso_local i32 @RM_IsSubEventSupported(i64 %event.coerce0, i64 %event.coerce1, i64 noundef %subevent) #22 {
 entry:
   switch i64 %event.coerce0, label %return [
     i64 0, label %sw.bb
@@ -24254,7 +24252,7 @@ sw.bb10:                                          ; preds = %entry
 
 sw.bb13:                                          ; preds = %entry
   %subevent.lobit18 = lshr i64 %subevent, 63
-  %conv15 = trunc i64 %subevent.lobit18 to i32
+  %conv15 = trunc nuw nsw i64 %subevent.lobit18 to i32
   br label %return
 
 sw.bb16:                                          ; preds = %entry
@@ -24269,7 +24267,7 @@ sw.bb19:                                          ; preds = %entry
 
 sw.bb22:                                          ; preds = %entry
   %subevent.lobit17 = lshr i64 %subevent, 63
-  %conv24 = trunc i64 %subevent.lobit17 to i32
+  %conv24 = trunc nuw nsw i64 %subevent.lobit17 to i32
   br label %return
 
 sw.bb25:                                          ; preds = %entry
@@ -24284,7 +24282,7 @@ sw.bb28:                                          ; preds = %entry
 
 sw.bb31:                                          ; preds = %entry
   %subevent.lobit = lshr i64 %subevent, 63
-  %conv33 = trunc i64 %subevent.lobit to i32
+  %conv33 = trunc nuw nsw i64 %subevent.lobit to i32
   br label %return
 
 sw.bb34:                                          ; preds = %entry
@@ -26679,7 +26677,7 @@ for.body:                                         ; preds = %entry, %if.end19
 
 if.then:                                          ; preds = %for.body
   %4 = add nuw nsw i64 %indvars.iv, 2
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %cmp1.not = icmp sgt i32 %1, %5
   br i1 %cmp1.not, label %if.end5, label %do.body
 
@@ -26714,7 +26712,7 @@ if.then18:                                        ; preds = %if.end5
 
 if.end19:                                         ; preds = %if.then18, %if.end5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %12 = trunc i64 %indvars.iv.next to i32
+  %12 = trunc nuw i64 %indvars.iv.next to i32
   %cmp.not = icmp sgt i32 %1, %12
   br i1 %cmp.not, label %for.body, label %if.then37, !llvm.loop !83
 
@@ -26724,7 +26722,7 @@ if.else:                                          ; preds = %for.body
   br i1 %tobool22.not, label %if.then23, label %do.body29
 
 if.then23:                                        ; preds = %if.else
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %inc = add nuw nsw i32 %13, 1
   %cmp24.not = icmp slt i32 %inc, %1
   br i1 %cmp24.not, label %if.else26, label %if.then25

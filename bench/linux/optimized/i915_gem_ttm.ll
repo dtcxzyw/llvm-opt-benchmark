@@ -281,7 +281,7 @@ define dso_local ptr @i915_ttm_resource_get_st(ptr nocapture noundef %0, ptr nou
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 @dma_max_mapping_size(ptr noundef %29) #11
   %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 4294967295)
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   %33 = and i32 %32, -4096
   %34 = tail call i32 @sg_alloc_table_from_pages_segment(ptr noundef %10, ptr noundef %23, i32 noundef %25, i32 noundef 0, i64 noundef %27, i32 noundef %33, i32 noundef 3264) #11
   %35 = icmp eq i32 %34, 0
@@ -454,7 +454,7 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %17 = getelementptr inbounds i8, ptr %0, i64 376
   %18 = load volatile i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %102, label %20
+  br i1 %19, label %101, label %20
 
 20:                                               ; preds = %14
   %21 = load volatile i32, ptr %0, align 4
@@ -546,14 +546,14 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 2080
   tail call void @_raw_spin_lock(ptr noundef %61) #11
-  br i1 %15, label %97, label %62
+  br i1 %15, label %96, label %62
 
 62:                                               ; preds = %.thread6
   %63 = getelementptr inbounds i8, ptr %0, i64 912
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, 3
   %66 = icmp eq i8 %65, 0
-  br i1 %66, label %67, label %97
+  br i1 %66, label %67, label %96
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds i8, ptr %0, i64 744
@@ -561,7 +561,7 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %70 = icmp ne ptr %69, null
   %71 = icmp ule ptr %69, inttoptr (i64 -4096 to ptr)
   %72 = and i1 %70, %71
-  br i1 %72, label %73, label %97
+  br i1 %72, label %73, label %96
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds i8, ptr %0, i64 384
@@ -590,22 +590,20 @@ define dso_local void @i915_ttm_adjust_lru(ptr noundef %0) #1 align 16 {
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %93, 64
   %95 = icmp eq i64 %94, 0
-  br i1 %95, label %97, label %96
+  %spec.select = select i1 %95, i32 3, i32 2
+  br label %96
 
-96:                                               ; preds = %91, %81, %73
-  br label %97
-
-97:                                               ; preds = %96, %91, %67, %62, %.thread6
-  %98 = phi i32 [ 2, %96 ], [ 3, %.thread6 ], [ 0, %62 ], [ 1, %67 ], [ 3, %91 ]
-  %99 = getelementptr inbounds i8, ptr %0, i64 416
-  store i32 %98, ptr %99, align 8
+96:                                               ; preds = %91, %73, %81, %67, %62, %.thread6
+  %97 = phi i32 [ 3, %.thread6 ], [ 0, %62 ], [ 1, %67 ], [ 2, %81 ], [ 2, %73 ], [ %spec.select, %91 ]
+  %98 = getelementptr inbounds i8, ptr %0, i64 416
+  store i32 %97, ptr %98, align 8
   tail call void @ttm_bo_move_to_lru_tail(ptr noundef %0) #11
-  %100 = load ptr, ptr %59, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 2080
-  tail call void @_raw_spin_unlock(ptr noundef %101) #11
-  br label %102
+  %99 = load ptr, ptr %59, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 2080
+  tail call void @_raw_spin_unlock(ptr noundef %100) #11
+  br label %101
 
-102:                                              ; preds = %97, %14
+101:                                              ; preds = %96, %14
   ret void
 }
 
@@ -950,7 +948,7 @@ define internal i32 @i915_ttm_tt_populate(ptr noundef %0, ptr noundef %1, ptr no
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @dma_max_mapping_size(ptr noundef %12) #11
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 4294967295)
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = and i32 %15, -4096
   %17 = getelementptr inbounds i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4

@@ -831,18 +831,14 @@ do.body17:                                        ; preds = %if.then8, %do.body6
   %socket_gaierror = getelementptr inbounds i8, ptr %mod.val, i64 16
   %3 = load ptr, ptr %socket_gaierror, align 8
   %tobool18.not = icmp eq ptr %3, null
-  br i1 %tobool18.not, label %do.end27, label %if.then19
+  br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %do.body17
   %call22 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #12
-  %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %do.end27, label %return
-
-do.end27:                                         ; preds = %do.body17, %if.then19
   br label %return
 
-return:                                           ; preds = %if.then19, %if.then8, %if.then, %do.end27
-  %retval.0 = phi i32 [ 0, %do.end27 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ]
+return:                                           ; preds = %if.then19, %do.body17, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ 0, %do.body17 ], [ %call22, %if.then19 ]
   ret i32 %retval.0
 }
 
@@ -1589,7 +1585,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %conv.i = trunc i32 %call to i16
+  %conv.i = trunc nuw i32 %call to i16
   %call.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv.i) #13
   %conv4.i = zext i16 %call.i to i64
   %call5.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv4.i) #12
@@ -1641,7 +1637,7 @@ if.then7:                                         ; preds = %land.lhs.true, %if.
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %conv = trunc i64 %call2 to i32
+  %conv = trunc nuw i64 %call2 to i32
   %call13 = tail call i32 @ntohl(i32 noundef %conv) #13
   %conv14 = zext i32 %call13 to i64
   %call15 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv14) #12
@@ -1685,7 +1681,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %conv.i = trunc i32 %call to i16
+  %conv.i = trunc nuw i32 %call to i16
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv.i) #13
   %conv4.i = zext i16 %call.i to i64
   %call5.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv4.i) #12
@@ -1737,7 +1733,7 @@ if.then7:                                         ; preds = %land.lhs.true, %if.
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %conv = trunc i64 %call2 to i32
+  %conv = trunc nuw i64 %call2 to i32
   %call13 = tail call i32 @htonl(i32 noundef %conv) #13
   %conv14 = zext i32 %call13 to i64
   %call15 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv14) #12
@@ -2774,7 +2770,7 @@ if.then5:                                         ; preds = %land.lhs.true, %if.
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw i64 %call to i32
   %call7 = call ptr @if_indextoname(i32 noundef %conv, ptr noundef nonnull %name) #12
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then10, label %if.end12
@@ -3307,7 +3303,7 @@ if.end35:                                         ; preds = %for.cond, %for.cond
   br i1 %cmp3889, label %for.end72, label %if.end40.lr.ph
 
 if.end40.lr.ph:                                   ; preds = %if.end35
-  %conv51 = trunc i32 %af to i16
+  %conv51 = trunc nuw i32 %af to i16
   %sin6_addr = getelementptr inbounds i8, ptr %sin6, i64 8
   %sin_addr = getelementptr inbounds i8, ptr %sin, i64 4
   switch i32 %af, label %sw.default [
@@ -4145,7 +4141,7 @@ declare ptr @if_indextoname(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @PyLong_FromSize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @socket_exec(ptr noundef %m) #0 {
+define internal i32 @socket_exec(ptr noundef %m) #0 {
 entry:
   %0 = getelementptr i8, ptr %m, i64 32
   %m.val = load ptr, ptr %0, align 8
@@ -4160,12 +4156,12 @@ entry:
   %socket_herror = getelementptr inbounds i8, ptr %m.val, i64 8
   store ptr %call2, ptr %socket_herror, align 8
   %cmp = icmp eq ptr %call2, null
-  br i1 %cmp, label %error, label %if.end5
+  br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %entry
   %call7 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %m, ptr noundef nonnull @.str.124, ptr noundef nonnull %call2) #12
   %cmp8 = icmp slt i32 %call7, 0
-  br i1 %cmp8, label %error, label %do.body11
+  br i1 %cmp8, label %return, label %do.body11
 
 do.body11:                                        ; preds = %if.end5
   %2 = load ptr, ptr @PyExc_OSError, align 8
@@ -4173,1986 +4169,1987 @@ do.body11:                                        ; preds = %if.end5
   %socket_gaierror = getelementptr inbounds i8, ptr %m.val, i64 16
   store ptr %call12, ptr %socket_gaierror, align 8
   %cmp14 = icmp eq ptr %call12, null
-  br i1 %cmp14, label %error, label %if.end16
+  br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %do.body11
   %call18 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %m, ptr noundef nonnull @.str.126, ptr noundef nonnull %call12) #12
   %cmp19 = icmp slt i32 %call18, 0
-  br i1 %cmp19, label %error, label %do.end22
+  br i1 %cmp19, label %return, label %do.end22
 
 do.end22:                                         ; preds = %if.end16
   %3 = load ptr, ptr @PyExc_OSError, align 8
   %call23 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %m, ptr noundef nonnull @.str.127, ptr noundef %3) #12
   %cmp24 = icmp slt i32 %call23, 0
-  br i1 %cmp24, label %error, label %if.end26
+  br i1 %cmp24, label %return, label %if.end26
 
 if.end26:                                         ; preds = %do.end22
   %4 = load ptr, ptr @PyExc_TimeoutError, align 8
   %call27 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %m, ptr noundef nonnull @.str.128, ptr noundef %4) #12
   %cmp28 = icmp slt i32 %call27, 0
-  br i1 %cmp28, label %error, label %if.end30
+  br i1 %cmp28, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.end26
   %call31 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef nonnull %m, ptr noundef nonnull @sock_spec, ptr noundef null) #12
   %cmp32 = icmp eq ptr %call31, null
-  br i1 %cmp32, label %error, label %if.end34
+  br i1 %cmp32, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.end30
   store ptr %call31, ptr %m.val, align 8
   %call36 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %m, ptr noundef nonnull @.str.129, ptr noundef nonnull %call31) #12
   %cmp37 = icmp slt i32 %call36, 0
-  br i1 %cmp37, label %error, label %if.end39
+  br i1 %cmp37, label %return, label %if.end39
 
 if.end39:                                         ; preds = %if.end34
   %5 = load ptr, ptr %m.val, align 8
   %call41 = tail call i32 @PyModule_AddType(ptr noundef nonnull %m, ptr noundef %5) #12
   %cmp42 = icmp slt i32 %call41, 0
-  br i1 %cmp42, label %error, label %if.end44
+  br i1 %cmp42, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.end39
   %call45 = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %m, ptr noundef nonnull @.str.130, ptr noundef nonnull @_Py_TrueStruct) #12
   %cmp46 = icmp slt i32 %call45, 0
-  br i1 %cmp46, label %error, label %if.end48
+  br i1 %cmp46, label %return, label %if.end48
 
 if.end48:                                         ; preds = %if.end44
   %call49 = tail call fastcc ptr @sock_get_api(ptr noundef nonnull %m.val)
   %cmp50 = icmp eq ptr %call49, null
-  br i1 %cmp50, label %error, label %if.end52
+  br i1 %cmp50, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.end48
   %call53 = tail call ptr @PyCapsule_New(ptr noundef nonnull %call49, ptr noundef nonnull @.str.131, ptr noundef nonnull @sock_capi_destroy) #12
   %cmp54 = icmp eq ptr %call53, null
-  br i1 %cmp54, label %error.sink.split, label %if.end56
+  br i1 %cmp54, label %if.then55, label %if.end56
+
+if.then55:                                        ; preds = %if.end52
+  tail call fastcc void @sock_capi_free(ptr noundef nonnull %call49)
+  br label %return
 
 if.end56:                                         ; preds = %if.end52
   %call57 = tail call i32 @_PyCapsule_SetTraverse(ptr noundef nonnull %call53, ptr noundef nonnull @sock_capi_traverse, ptr noundef nonnull @sock_capi_clear) #12
   %cmp58 = icmp slt i32 %call57, 0
-  br i1 %cmp58, label %error.sink.split, label %if.end60
+  br i1 %cmp58, label %if.then59, label %if.end60
+
+if.then59:                                        ; preds = %if.end56
+  tail call fastcc void @sock_capi_free(ptr noundef nonnull %call49)
+  br label %return
 
 if.end60:                                         ; preds = %if.end56
   %call61 = tail call i32 @PyModule_Add(ptr noundef nonnull %m, ptr noundef nonnull @.str.132, ptr noundef nonnull %call53) #12
   %cmp62 = icmp slt i32 %call61, 0
-  br i1 %cmp62, label %error, label %do.body65
+  br i1 %cmp62, label %return, label %do.body65
 
 do.body65:                                        ; preds = %if.end60
   %call66 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.133, i64 noundef 0) #12
   %cmp67 = icmp slt i32 %call66, 0
-  br i1 %cmp67, label %error, label %do.body71
+  br i1 %cmp67, label %return, label %do.body71
 
 do.body71:                                        ; preds = %do.body65
   %call72 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.134, i64 noundef 2) #12
   %cmp73 = icmp slt i32 %call72, 0
-  br i1 %cmp73, label %error, label %do.body77
+  br i1 %cmp73, label %return, label %do.body77
 
 do.body77:                                        ; preds = %do.body71
   %call78 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.135, i64 noundef 1) #12
   %cmp79 = icmp slt i32 %call78, 0
-  br i1 %cmp79, label %error, label %do.body83
+  br i1 %cmp79, label %return, label %do.body83
 
 do.body83:                                        ; preds = %do.body77
   %call84 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.136, i64 noundef 3) #12
   %cmp85 = icmp slt i32 %call84, 0
-  br i1 %cmp85, label %error, label %do.body89
+  br i1 %cmp85, label %return, label %do.body89
 
 do.body89:                                        ; preds = %do.body83
   %call90 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.137, i64 noundef 4) #12
   %cmp91 = icmp slt i32 %call90, 0
-  br i1 %cmp91, label %error, label %do.body95
+  br i1 %cmp91, label %return, label %do.body95
 
 do.body95:                                        ; preds = %do.body89
   %call96 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.138, i64 noundef 5) #12
   %cmp97 = icmp slt i32 %call96, 0
-  br i1 %cmp97, label %error, label %do.body101
+  br i1 %cmp97, label %return, label %do.body101
 
 do.body101:                                       ; preds = %do.body95
   %call102 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.139, i64 noundef 6) #12
   %cmp103 = icmp slt i32 %call102, 0
-  br i1 %cmp103, label %error, label %do.body107
+  br i1 %cmp103, label %return, label %do.body107
 
 do.body107:                                       ; preds = %do.body101
   %call108 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.140, i64 noundef 7) #12
   %cmp109 = icmp slt i32 %call108, 0
-  br i1 %cmp109, label %error, label %do.body113
+  br i1 %cmp109, label %return, label %do.body113
 
 do.body113:                                       ; preds = %do.body107
   %call114 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.141, i64 noundef 8) #12
   %cmp115 = icmp slt i32 %call114, 0
-  br i1 %cmp115, label %error, label %do.body119
+  br i1 %cmp115, label %return, label %do.body119
 
 do.body119:                                       ; preds = %do.body113
   %call120 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.142, i64 noundef 38) #12
   %cmp121 = icmp slt i32 %call120, 0
-  br i1 %cmp121, label %error, label %do.body125
+  br i1 %cmp121, label %return, label %do.body125
 
 do.body125:                                       ; preds = %do.body119
   %call126 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.143, i64 noundef 9) #12
   %cmp127 = icmp slt i32 %call126, 0
-  br i1 %cmp127, label %error, label %do.body131
+  br i1 %cmp127, label %return, label %do.body131
 
 do.body131:                                       ; preds = %do.body125
   %call132 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.144, i64 noundef 10) #12
   %cmp133 = icmp slt i32 %call132, 0
-  br i1 %cmp133, label %error, label %do.body137
+  br i1 %cmp133, label %return, label %do.body137
 
 do.body137:                                       ; preds = %do.body131
   %call138 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.145, i64 noundef 11) #12
   %cmp139 = icmp slt i32 %call138, 0
-  br i1 %cmp139, label %error, label %do.body143
+  br i1 %cmp139, label %return, label %do.body143
 
 do.body143:                                       ; preds = %do.body137
   %call144 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.146, i64 noundef 12) #12
   %cmp145 = icmp slt i32 %call144, 0
-  br i1 %cmp145, label %error, label %do.body149
+  br i1 %cmp145, label %return, label %do.body149
 
 do.body149:                                       ; preds = %do.body143
   %call150 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.147, i64 noundef 13) #12
   %cmp151 = icmp slt i32 %call150, 0
-  br i1 %cmp151, label %error, label %do.body155
+  br i1 %cmp151, label %return, label %do.body155
 
 do.body155:                                       ; preds = %do.body149
   %call156 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.148, i64 noundef 14) #12
   %cmp157 = icmp slt i32 %call156, 0
-  br i1 %cmp157, label %error, label %do.body161
+  br i1 %cmp157, label %return, label %do.body161
 
 do.body161:                                       ; preds = %do.body155
   %call162 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.149, i64 noundef 15) #12
   %cmp163 = icmp slt i32 %call162, 0
-  br i1 %cmp163, label %error, label %do.body167
+  br i1 %cmp163, label %return, label %do.body167
 
 do.body167:                                       ; preds = %do.body161
   %call168 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.150, i64 noundef 16) #12
   %cmp169 = icmp slt i32 %call168, 0
-  br i1 %cmp169, label %error, label %do.body173
+  br i1 %cmp169, label %return, label %do.body173
 
 do.body173:                                       ; preds = %do.body167
   %call174 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.151, i64 noundef 0) #12
   %cmp175 = icmp slt i32 %call174, 0
-  br i1 %cmp175, label %error, label %do.body179
+  br i1 %cmp175, label %return, label %do.body179
 
 do.body179:                                       ; preds = %do.body173
   %call180 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.152, i64 noundef 2) #12
   %cmp181 = icmp slt i32 %call180, 0
-  br i1 %cmp181, label %error, label %do.body185
+  br i1 %cmp181, label %return, label %do.body185
 
 do.body185:                                       ; preds = %do.body179
   %call186 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.153, i64 noundef 3) #12
   %cmp187 = icmp slt i32 %call186, 0
-  br i1 %cmp187, label %error, label %do.body191
+  br i1 %cmp187, label %return, label %do.body191
 
 do.body191:                                       ; preds = %do.body185
   %call192 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.154, i64 noundef 5) #12
   %cmp193 = icmp slt i32 %call192, 0
-  br i1 %cmp193, label %error, label %do.body197
+  br i1 %cmp193, label %return, label %do.body197
 
 do.body197:                                       ; preds = %do.body191
   %call198 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.155, i64 noundef 6) #12
   %cmp199 = icmp slt i32 %call198, 0
-  br i1 %cmp199, label %error, label %do.body203
+  br i1 %cmp199, label %return, label %do.body203
 
 do.body203:                                       ; preds = %do.body197
   %call204 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.156, i64 noundef 13) #12
   %cmp205 = icmp slt i32 %call204, 0
-  br i1 %cmp205, label %error, label %do.body209
+  br i1 %cmp205, label %return, label %do.body209
 
 do.body209:                                       ; preds = %do.body203
   %call210 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.157, i64 noundef 14) #12
   %cmp211 = icmp slt i32 %call210, 0
-  br i1 %cmp211, label %error, label %do.body215
+  br i1 %cmp211, label %return, label %do.body215
 
 do.body215:                                       ; preds = %do.body209
   %call216 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.158, i64 noundef 21) #12
   %cmp217 = icmp slt i32 %call216, 0
-  br i1 %cmp217, label %error, label %do.body221
+  br i1 %cmp217, label %return, label %do.body221
 
 do.body221:                                       ; preds = %do.body215
   %call222 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.159, i64 noundef 42) #12
   %cmp223 = icmp slt i32 %call222, 0
-  br i1 %cmp223, label %error, label %do.body227
+  br i1 %cmp223, label %return, label %do.body227
 
 do.body227:                                       ; preds = %do.body221
   %call228 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.160, i64 noundef 40) #12
   %cmp229 = icmp slt i32 %call228, 0
-  br i1 %cmp229, label %error, label %do.body233
+  br i1 %cmp229, label %return, label %do.body233
 
 do.body233:                                       ; preds = %do.body227
   %call234 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.161, i64 noundef 0) #12
   %cmp235 = icmp slt i32 %call234, 0
-  br i1 %cmp235, label %error, label %do.body239
+  br i1 %cmp235, label %return, label %do.body239
 
 do.body239:                                       ; preds = %do.body233
   %call240 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.162, i64 noundef 1) #12
   %cmp241 = icmp slt i32 %call240, 0
-  br i1 %cmp241, label %error, label %do.body245
+  br i1 %cmp241, label %return, label %do.body245
 
 do.body245:                                       ; preds = %do.body239
   %call246 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.163, i64 noundef 2) #12
   %cmp247 = icmp slt i32 %call246, 0
-  br i1 %cmp247, label %error, label %do.body251
+  br i1 %cmp247, label %return, label %do.body251
 
 do.body251:                                       ; preds = %do.body245
   %call252 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.164, i64 noundef 4294967295) #12
   %cmp253 = icmp slt i32 %call252, 0
-  br i1 %cmp253, label %error, label %do.body257
+  br i1 %cmp253, label %return, label %do.body257
 
 do.body257:                                       ; preds = %do.body251
   %call258 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.165, i64 noundef 4294967295) #12
   %cmp259 = icmp slt i32 %call258, 0
-  br i1 %cmp259, label %error, label %do.body263
+  br i1 %cmp259, label %return, label %do.body263
 
 do.body263:                                       ; preds = %do.body257
   %call264 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.166, i64 noundef 2) #12
   %cmp265 = icmp slt i32 %call264, 0
-  br i1 %cmp265, label %error, label %do.body269
+  br i1 %cmp265, label %return, label %do.body269
 
 do.body269:                                       ; preds = %do.body263
   %call270 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.167, i64 noundef 4294967295) #12
   %cmp271 = icmp slt i32 %call270, 0
-  br i1 %cmp271, label %error, label %do.body275
+  br i1 %cmp271, label %return, label %do.body275
 
 do.body275:                                       ; preds = %do.body269
   %call276 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.168, i64 noundef 1977) #12
   %cmp277 = icmp slt i32 %call276, 0
-  br i1 %cmp277, label %error, label %do.body281
+  br i1 %cmp277, label %return, label %do.body281
 
 do.body281:                                       ; preds = %do.body275
   %call282 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.169, i64 noundef 16) #12
   %cmp283 = icmp slt i32 %call282, 0
-  br i1 %cmp283, label %error, label %do.body287
+  br i1 %cmp283, label %return, label %do.body287
 
 do.body287:                                       ; preds = %do.body281
   %call288 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.170, i64 noundef 18) #12
   %cmp289 = icmp slt i32 %call288, 0
-  br i1 %cmp289, label %error, label %do.body293
+  br i1 %cmp289, label %return, label %do.body293
 
 do.body293:                                       ; preds = %do.body287
   %call294 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.171, i64 noundef 19) #12
   %cmp295 = icmp slt i32 %call294, 0
-  br i1 %cmp295, label %error, label %do.body299
+  br i1 %cmp295, label %return, label %do.body299
 
 do.body299:                                       ; preds = %do.body293
   %call300 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.172, i64 noundef 20) #12
   %cmp301 = icmp slt i32 %call300, 0
-  br i1 %cmp301, label %error, label %do.body305
+  br i1 %cmp301, label %return, label %do.body305
 
 do.body305:                                       ; preds = %do.body299
   %call306 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.173, i64 noundef 22) #12
   %cmp307 = icmp slt i32 %call306, 0
-  br i1 %cmp307, label %error, label %do.body311
+  br i1 %cmp307, label %return, label %do.body311
 
 do.body311:                                       ; preds = %do.body305
   %call312 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.174, i64 noundef 23) #12
   %cmp313 = icmp slt i32 %call312, 0
-  br i1 %cmp313, label %error, label %do.body317
+  br i1 %cmp313, label %return, label %do.body317
 
 do.body317:                                       ; preds = %do.body311
   %call318 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.175, i64 noundef 24) #12
   %cmp319 = icmp slt i32 %call318, 0
-  br i1 %cmp319, label %error, label %do.body323
+  br i1 %cmp319, label %return, label %do.body323
 
 do.body323:                                       ; preds = %do.body317
   %call324 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.176, i64 noundef 25) #12
   %cmp325 = icmp slt i32 %call324, 0
-  br i1 %cmp325, label %error, label %do.body329
+  br i1 %cmp325, label %return, label %do.body329
 
 do.body329:                                       ; preds = %do.body323
   %call330 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.177, i64 noundef 26) #12
   %cmp331 = icmp slt i32 %call330, 0
-  br i1 %cmp331, label %error, label %do.body335
+  br i1 %cmp331, label %return, label %do.body335
 
 do.body335:                                       ; preds = %do.body329
   %call336 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.178, i64 noundef 31) #12
   %cmp337 = icmp slt i32 %call336, 0
-  br i1 %cmp337, label %error, label %do.body341
+  br i1 %cmp337, label %return, label %do.body341
 
 do.body341:                                       ; preds = %do.body335
   %call342 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.179, i64 noundef 0) #12
   %cmp343 = icmp slt i32 %call342, 0
-  br i1 %cmp343, label %error, label %do.body347
+  br i1 %cmp343, label %return, label %do.body347
 
 do.body347:                                       ; preds = %do.body341
   %call348 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.180, i64 noundef 1) #12
   %cmp349 = icmp slt i32 %call348, 0
-  br i1 %cmp349, label %error, label %do.body353
+  br i1 %cmp349, label %return, label %do.body353
 
 do.body353:                                       ; preds = %do.body347
   %call354 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.181, i64 noundef 0) #12
   %cmp355 = icmp slt i32 %call354, 0
-  br i1 %cmp355, label %error, label %do.body359
+  br i1 %cmp355, label %return, label %do.body359
 
 do.body359:                                       ; preds = %do.body353
   %call360 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.182, i64 noundef 2) #12
   %cmp361 = icmp slt i32 %call360, 0
-  br i1 %cmp361, label %error, label %do.body365
+  br i1 %cmp361, label %return, label %do.body365
 
 do.body365:                                       ; preds = %do.body359
   %call366 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.183, i64 noundef 3) #12
   %cmp367 = icmp slt i32 %call366, 0
-  br i1 %cmp367, label %error, label %do.body371
+  br i1 %cmp367, label %return, label %do.body371
 
 do.body371:                                       ; preds = %do.body365
   %call372 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.184, i64 noundef 1) #12
   %cmp373 = icmp slt i32 %call372, 0
-  br i1 %cmp373, label %error, label %do.body377
+  br i1 %cmp373, label %return, label %do.body377
 
 do.body377:                                       ; preds = %do.body371
   %call378 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.185, i64 noundef 3) #12
   %cmp379 = icmp slt i32 %call378, 0
-  br i1 %cmp379, label %error, label %do.body383
+  br i1 %cmp379, label %return, label %do.body383
 
 do.body383:                                       ; preds = %do.body377
   %call384 = tail call i32 @PyModule_AddStringConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.187) #12
   %cmp385 = icmp slt i32 %call384, 0
-  br i1 %cmp385, label %error, label %do.body389
+  br i1 %cmp385, label %return, label %do.body389
 
 do.body389:                                       ; preds = %do.body383
   %call390 = tail call i32 @PyModule_AddStringConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.189) #12
   %cmp391 = icmp slt i32 %call390, 0
-  br i1 %cmp391, label %error, label %do.body395
+  br i1 %cmp391, label %return, label %do.body395
 
 do.body395:                                       ; preds = %do.body389
   %call396 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.190, i64 noundef 2) #12
   %cmp397 = icmp slt i32 %call396, 0
-  br i1 %cmp397, label %error, label %do.body401
+  br i1 %cmp397, label %return, label %do.body401
 
 do.body401:                                       ; preds = %do.body395
   %call402 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.191, i64 noundef 29) #12
   %cmp403 = icmp slt i32 %call402, 0
-  br i1 %cmp403, label %error, label %do.body407
+  br i1 %cmp403, label %return, label %do.body407
 
 do.body407:                                       ; preds = %do.body401
   %call408 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.192, i64 noundef 29) #12
   %cmp409 = icmp slt i32 %call408, 0
-  br i1 %cmp409, label %error, label %do.body413
+  br i1 %cmp409, label %return, label %do.body413
 
 do.body413:                                       ; preds = %do.body407
   %call414 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.193, i64 noundef 21) #12
   %cmp415 = icmp slt i32 %call414, 0
-  br i1 %cmp415, label %error, label %do.body419
+  br i1 %cmp415, label %return, label %do.body419
 
 do.body419:                                       ; preds = %do.body413
   %call420 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.194, i64 noundef 21) #12
   %cmp421 = icmp slt i32 %call420, 0
-  br i1 %cmp421, label %error, label %do.body425
+  br i1 %cmp421, label %return, label %do.body425
 
 do.body425:                                       ; preds = %do.body419
   %call426 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.195, i64 noundef 17) #12
   %cmp427 = icmp slt i32 %call426, 0
-  br i1 %cmp427, label %error, label %do.body431
+  br i1 %cmp427, label %return, label %do.body431
 
 do.body431:                                       ; preds = %do.body425
   %call432 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.196, i64 noundef 17) #12
   %cmp433 = icmp slt i32 %call432, 0
-  br i1 %cmp433, label %error, label %do.body437
+  br i1 %cmp433, label %return, label %do.body437
 
 do.body437:                                       ; preds = %do.body431
   %call438 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.197, i64 noundef 0) #12
   %cmp439 = icmp slt i32 %call438, 0
-  br i1 %cmp439, label %error, label %do.body443
+  br i1 %cmp439, label %return, label %do.body443
 
 do.body443:                                       ; preds = %do.body437
   %call444 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.198, i64 noundef 1) #12
   %cmp445 = icmp slt i32 %call444, 0
-  br i1 %cmp445, label %error, label %do.body449
+  br i1 %cmp445, label %return, label %do.body449
 
 do.body449:                                       ; preds = %do.body443
   %call450 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.199, i64 noundef 2) #12
   %cmp451 = icmp slt i32 %call450, 0
-  br i1 %cmp451, label %error, label %do.body455
+  br i1 %cmp451, label %return, label %do.body455
 
 do.body455:                                       ; preds = %do.body449
   %call456 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.200, i64 noundef 3) #12
   %cmp457 = icmp slt i32 %call456, 0
-  br i1 %cmp457, label %error, label %do.body461
+  br i1 %cmp457, label %return, label %do.body461
 
 do.body461:                                       ; preds = %do.body455
   %call462 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.201, i64 noundef 4) #12
   %cmp463 = icmp slt i32 %call462, 0
-  br i1 %cmp463, label %error, label %do.body467
+  br i1 %cmp463, label %return, label %do.body467
 
 do.body467:                                       ; preds = %do.body461
   %call468 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.202, i64 noundef 5) #12
   %cmp469 = icmp slt i32 %call468, 0
-  br i1 %cmp469, label %error, label %do.body473
+  br i1 %cmp469, label %return, label %do.body473
 
 do.body473:                                       ; preds = %do.body467
   %call474 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.203, i64 noundef 6) #12
   %cmp475 = icmp slt i32 %call474, 0
-  br i1 %cmp475, label %error, label %do.body479
+  br i1 %cmp475, label %return, label %do.body479
 
 do.body479:                                       ; preds = %do.body473
   %call480 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.204, i64 noundef 30) #12
   %cmp481 = icmp slt i32 %call480, 0
-  br i1 %cmp481, label %error, label %do.body485
+  br i1 %cmp481, label %return, label %do.body485
 
 do.body485:                                       ; preds = %do.body479
   %call486 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.205, i64 noundef 1) #12
   %cmp487 = icmp slt i32 %call486, 0
-  br i1 %cmp487, label %error, label %do.body491
+  br i1 %cmp487, label %return, label %do.body491
 
 do.body491:                                       ; preds = %do.body485
   %call492 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.206, i64 noundef 2) #12
   %cmp493 = icmp slt i32 %call492, 0
-  br i1 %cmp493, label %error, label %do.body497
+  br i1 %cmp493, label %return, label %do.body497
 
 do.body497:                                       ; preds = %do.body491
   %call498 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.207, i64 noundef 3) #12
   %cmp499 = icmp slt i32 %call498, 0
-  br i1 %cmp499, label %error, label %do.body503
+  br i1 %cmp499, label %return, label %do.body503
 
 do.body503:                                       ; preds = %do.body497
   %call504 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.208, i64 noundef 1) #12
   %cmp505 = icmp slt i32 %call504, 0
-  br i1 %cmp505, label %error, label %do.body509
+  br i1 %cmp505, label %return, label %do.body509
 
 do.body509:                                       ; preds = %do.body503
   %call510 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.209, i64 noundef 2) #12
   %cmp511 = icmp slt i32 %call510, 0
-  br i1 %cmp511, label %error, label %do.body515
+  br i1 %cmp511, label %return, label %do.body515
 
 do.body515:                                       ; preds = %do.body509
   %call516 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.210, i64 noundef 3) #12
   %cmp517 = icmp slt i32 %call516, 0
-  br i1 %cmp517, label %error, label %do.body521
+  br i1 %cmp517, label %return, label %do.body521
 
 do.body521:                                       ; preds = %do.body515
   %call522 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.211, i64 noundef 271) #12
   %cmp523 = icmp slt i32 %call522, 0
-  br i1 %cmp523, label %error, label %do.body527
+  br i1 %cmp523, label %return, label %do.body527
 
 do.body527:                                       ; preds = %do.body521
   %call528 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.212, i64 noundef 127) #12
   %cmp529 = icmp slt i32 %call528, 0
-  br i1 %cmp529, label %error, label %do.body533
+  br i1 %cmp529, label %return, label %do.body533
 
 do.body533:                                       ; preds = %do.body527
   %call534 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.213, i64 noundef 128) #12
   %cmp535 = icmp slt i32 %call534, 0
-  br i1 %cmp535, label %error, label %do.body539
+  br i1 %cmp535, label %return, label %do.body539
 
 do.body539:                                       ; preds = %do.body533
   %call540 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.214, i64 noundef 129) #12
   %cmp541 = icmp slt i32 %call540, 0
-  br i1 %cmp541, label %error, label %do.body545
+  br i1 %cmp541, label %return, label %do.body545
 
 do.body545:                                       ; preds = %do.body539
   %call546 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.215, i64 noundef 130) #12
   %cmp547 = icmp slt i32 %call546, 0
-  br i1 %cmp547, label %error, label %do.body551
+  br i1 %cmp547, label %return, label %do.body551
 
 do.body551:                                       ; preds = %do.body545
   %call552 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.216, i64 noundef 0) #12
   %cmp553 = icmp slt i32 %call552, 0
-  br i1 %cmp553, label %error, label %do.body557
+  br i1 %cmp553, label %return, label %do.body557
 
 do.body557:                                       ; preds = %do.body551
   %call558 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.217, i64 noundef 1) #12
   %cmp559 = icmp slt i32 %call558, 0
-  br i1 %cmp559, label %error, label %do.body563
+  br i1 %cmp559, label %return, label %do.body563
 
 do.body563:                                       ; preds = %do.body557
   %call564 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.218, i64 noundef 2) #12
   %cmp565 = icmp slt i32 %call564, 0
-  br i1 %cmp565, label %error, label %do.body569
+  br i1 %cmp565, label %return, label %do.body569
 
 do.body569:                                       ; preds = %do.body563
   %call570 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.219, i64 noundef 3) #12
   %cmp571 = icmp slt i32 %call570, 0
-  br i1 %cmp571, label %error, label %do.body575
+  br i1 %cmp571, label %return, label %do.body575
 
 do.body575:                                       ; preds = %do.body569
   %call576 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.220, i64 noundef 1) #12
   %cmp577 = icmp slt i32 %call576, 0
-  br i1 %cmp577, label %error, label %do.body581
+  br i1 %cmp577, label %return, label %do.body581
 
 do.body581:                                       ; preds = %do.body575
   %call582 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.221, i64 noundef 2) #12
   %cmp583 = icmp slt i32 %call582, 0
-  br i1 %cmp583, label %error, label %do.body587
+  br i1 %cmp583, label %return, label %do.body587
 
 do.body587:                                       ; preds = %do.body581
   %call588 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.222, i64 noundef 4) #12
   %cmp589 = icmp slt i32 %call588, 0
-  br i1 %cmp589, label %error, label %do.body593
+  br i1 %cmp589, label %return, label %do.body593
 
 do.body593:                                       ; preds = %do.body587
   %call594 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.223, i64 noundef -1) #12
   %cmp595 = icmp slt i32 %call594, 0
-  br i1 %cmp595, label %error, label %do.body599
+  br i1 %cmp595, label %return, label %do.body599
 
 do.body599:                                       ; preds = %do.body593
   %call600 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.224, i64 noundef 1) #12
   %cmp601 = icmp slt i32 %call600, 0
-  br i1 %cmp601, label %error, label %do.body605
+  br i1 %cmp601, label %return, label %do.body605
 
 do.body605:                                       ; preds = %do.body599
   %call606 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.225, i64 noundef 2) #12
   %cmp607 = icmp slt i32 %call606, 0
-  br i1 %cmp607, label %error, label %do.body611
+  br i1 %cmp607, label %return, label %do.body611
 
 do.body611:                                       ; preds = %do.body605
   %call612 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.226, i64 noundef 3) #12
   %cmp613 = icmp slt i32 %call612, 0
-  br i1 %cmp613, label %error, label %do.body617
+  br i1 %cmp613, label %return, label %do.body617
 
 do.body617:                                       ; preds = %do.body611
   %call618 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.227, i64 noundef 0) #12
   %cmp619 = icmp slt i32 %call618, 0
-  br i1 %cmp619, label %error, label %do.body623
+  br i1 %cmp619, label %return, label %do.body623
 
 do.body623:                                       ; preds = %do.body617
   %call624 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.228, i64 noundef 1) #12
   %cmp625 = icmp slt i32 %call624, 0
-  br i1 %cmp625, label %error, label %do.body629
+  br i1 %cmp625, label %return, label %do.body629
 
 do.body629:                                       ; preds = %do.body623
   %call630 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.229, i64 noundef 1) #12
   %cmp631 = icmp slt i32 %call630, 0
-  br i1 %cmp631, label %error, label %do.body635
+  br i1 %cmp631, label %return, label %do.body635
 
 do.body635:                                       ; preds = %do.body629
   %call636 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.230, i64 noundef 2) #12
   %cmp637 = icmp slt i32 %call636, 0
-  br i1 %cmp637, label %error, label %do.body641
+  br i1 %cmp637, label %return, label %do.body641
 
 do.body641:                                       ; preds = %do.body635
   %call642 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.231, i64 noundef 3) #12
   %cmp643 = icmp slt i32 %call642, 0
-  br i1 %cmp643, label %error, label %do.body647
+  br i1 %cmp643, label %return, label %do.body647
 
 do.body647:                                       ; preds = %do.body641
   %call648 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.232, i64 noundef 4) #12
   %cmp649 = icmp slt i32 %call648, 0
-  br i1 %cmp649, label %error, label %do.body653
+  br i1 %cmp649, label %return, label %do.body653
 
 do.body653:                                       ; preds = %do.body647
   %call654 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.233, i64 noundef 5) #12
   %cmp655 = icmp slt i32 %call654, 0
-  br i1 %cmp655, label %error, label %do.body659
+  br i1 %cmp655, label %return, label %do.body659
 
 do.body659:                                       ; preds = %do.body653
   %call660 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.234, i64 noundef 6) #12
   %cmp661 = icmp slt i32 %call660, 0
-  br i1 %cmp661, label %error, label %do.body665
+  br i1 %cmp661, label %return, label %do.body665
 
 do.body665:                                       ; preds = %do.body659
   %call666 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.235, i64 noundef 0) #12
   %cmp667 = icmp slt i32 %call666, 0
-  br i1 %cmp667, label %error, label %do.body671
+  br i1 %cmp667, label %return, label %do.body671
 
 do.body671:                                       ; preds = %do.body665
   %call672 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.236, i64 noundef 1) #12
   %cmp673 = icmp slt i32 %call672, 0
-  br i1 %cmp673, label %error, label %do.body677
+  br i1 %cmp673, label %return, label %do.body677
 
 do.body677:                                       ; preds = %do.body671
   %call678 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.237, i64 noundef 2) #12
   %cmp679 = icmp slt i32 %call678, 0
-  br i1 %cmp679, label %error, label %do.body683
+  br i1 %cmp679, label %return, label %do.body683
 
 do.body683:                                       ; preds = %do.body677
   %call684 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.238, i64 noundef 3) #12
   %cmp685 = icmp slt i32 %call684, 0
-  br i1 %cmp685, label %error, label %do.body689
+  br i1 %cmp685, label %return, label %do.body689
 
 do.body689:                                       ; preds = %do.body683
   %call690 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.239, i64 noundef 2054) #12
   %cmp691 = icmp slt i32 %call690, 0
-  br i1 %cmp691, label %error, label %do.body695
+  br i1 %cmp691, label %return, label %do.body695
 
 do.body695:                                       ; preds = %do.body689
   %call696 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.240, i64 noundef 2048) #12
   %cmp697 = icmp slt i32 %call696, 0
-  br i1 %cmp697, label %error, label %do.body701
+  br i1 %cmp697, label %return, label %do.body701
 
 do.body701:                                       ; preds = %do.body695
   %call702 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.241, i64 noundef 34525) #12
   %cmp703 = icmp slt i32 %call702, 0
-  br i1 %cmp703, label %error, label %do.body707
+  br i1 %cmp703, label %return, label %do.body707
 
 do.body707:                                       ; preds = %do.body701
   %call708 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.242, i64 noundef 33024) #12
   %cmp709 = icmp slt i32 %call708, 0
-  br i1 %cmp709, label %error, label %do.body713
+  br i1 %cmp709, label %return, label %do.body713
 
 do.body713:                                       ; preds = %do.body707
   %call714 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.243, i64 noundef 3) #12
   %cmp715 = icmp slt i32 %call714, 0
-  br i1 %cmp715, label %error, label %do.body719
+  br i1 %cmp715, label %return, label %do.body719
 
 do.body719:                                       ; preds = %do.body713
   %call720 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.244, i64 noundef 1) #12
   %cmp721 = icmp slt i32 %call720, 0
-  br i1 %cmp721, label %error, label %do.body725
+  br i1 %cmp721, label %return, label %do.body725
 
 do.body725:                                       ; preds = %do.body719
   %call726 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.245, i64 noundef 2) #12
   %cmp727 = icmp slt i32 %call726, 0
-  br i1 %cmp727, label %error, label %do.body731
+  br i1 %cmp727, label %return, label %do.body731
 
 do.body731:                                       ; preds = %do.body725
   %call732 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.246, i64 noundef 3) #12
   %cmp733 = icmp slt i32 %call732, 0
-  br i1 %cmp733, label %error, label %do.body737
+  br i1 %cmp733, label %return, label %do.body737
 
 do.body737:                                       ; preds = %do.body731
   %call738 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.247, i64 noundef 5) #12
   %cmp739 = icmp slt i32 %call738, 0
-  br i1 %cmp739, label %error, label %do.body743
+  br i1 %cmp739, label %return, label %do.body743
 
 do.body743:                                       ; preds = %do.body737
   %call744 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.248, i64 noundef 4) #12
   %cmp745 = icmp slt i32 %call744, 0
-  br i1 %cmp745, label %error, label %do.body749
+  br i1 %cmp745, label %return, label %do.body749
 
 do.body749:                                       ; preds = %do.body743
   %call750 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.249, i64 noundef 524288) #12
   %cmp751 = icmp slt i32 %call750, 0
-  br i1 %cmp751, label %error, label %do.body755
+  br i1 %cmp751, label %return, label %do.body755
 
 do.body755:                                       ; preds = %do.body749
   %call756 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.250, i64 noundef 2048) #12
   %cmp757 = icmp slt i32 %call756, 0
-  br i1 %cmp757, label %error, label %do.body761
+  br i1 %cmp757, label %return, label %do.body761
 
 do.body761:                                       ; preds = %do.body755
   %call762 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.251, i64 noundef 1) #12
   %cmp763 = icmp slt i32 %call762, 0
-  br i1 %cmp763, label %error, label %do.body767
+  br i1 %cmp763, label %return, label %do.body767
 
 do.body767:                                       ; preds = %do.body761
   %call768 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.252, i64 noundef 30) #12
   %cmp769 = icmp slt i32 %call768, 0
-  br i1 %cmp769, label %error, label %do.body773
+  br i1 %cmp769, label %return, label %do.body773
 
 do.body773:                                       ; preds = %do.body767
   %call774 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.253, i64 noundef 2) #12
   %cmp775 = icmp slt i32 %call774, 0
-  br i1 %cmp775, label %error, label %do.body779
+  br i1 %cmp775, label %return, label %do.body779
 
 do.body779:                                       ; preds = %do.body773
   %call780 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.254, i64 noundef 49) #12
   %cmp781 = icmp slt i32 %call780, 0
-  br i1 %cmp781, label %error, label %do.body785
+  br i1 %cmp781, label %return, label %do.body785
 
 do.body785:                                       ; preds = %do.body779
   %call786 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.255, i64 noundef 9) #12
   %cmp787 = icmp slt i32 %call786, 0
-  br i1 %cmp787, label %error, label %do.body791
+  br i1 %cmp787, label %return, label %do.body791
 
 do.body791:                                       ; preds = %do.body785
   %call792 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.256, i64 noundef 5) #12
   %cmp793 = icmp slt i32 %call792, 0
-  br i1 %cmp793, label %error, label %do.body797
+  br i1 %cmp793, label %return, label %do.body797
 
 do.body797:                                       ; preds = %do.body791
   %call798 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.257, i64 noundef 6) #12
   %cmp799 = icmp slt i32 %call798, 0
-  br i1 %cmp799, label %error, label %do.body803
+  br i1 %cmp799, label %return, label %do.body803
 
 do.body803:                                       ; preds = %do.body797
   %call804 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.258, i64 noundef 13) #12
   %cmp805 = icmp slt i32 %call804, 0
-  br i1 %cmp805, label %error, label %do.body809
+  br i1 %cmp805, label %return, label %do.body809
 
 do.body809:                                       ; preds = %do.body803
   %call810 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.259, i64 noundef 10) #12
   %cmp811 = icmp slt i32 %call810, 0
-  br i1 %cmp811, label %error, label %do.body815
+  br i1 %cmp811, label %return, label %do.body815
 
 do.body815:                                       ; preds = %do.body809
   %call816 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.260, i64 noundef 15) #12
   %cmp817 = icmp slt i32 %call816, 0
-  br i1 %cmp817, label %error, label %do.body821
+  br i1 %cmp817, label %return, label %do.body821
 
 do.body821:                                       ; preds = %do.body815
   %call822 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.261, i64 noundef 7) #12
   %cmp823 = icmp slt i32 %call822, 0
-  br i1 %cmp823, label %error, label %do.body827
+  br i1 %cmp823, label %return, label %do.body827
 
 do.body827:                                       ; preds = %do.body821
   %call828 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.262, i64 noundef 8) #12
   %cmp829 = icmp slt i32 %call828, 0
-  br i1 %cmp829, label %error, label %do.body833
+  br i1 %cmp829, label %return, label %do.body833
 
 do.body833:                                       ; preds = %do.body827
   %call834 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.263, i64 noundef 19) #12
   %cmp835 = icmp slt i32 %call834, 0
-  br i1 %cmp835, label %error, label %do.body839
+  br i1 %cmp835, label %return, label %do.body839
 
 do.body839:                                       ; preds = %do.body833
   %call840 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.264, i64 noundef 18) #12
   %cmp841 = icmp slt i32 %call840, 0
-  br i1 %cmp841, label %error, label %do.body845
+  br i1 %cmp841, label %return, label %do.body845
 
 do.body845:                                       ; preds = %do.body839
   %call846 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.265, i64 noundef 21) #12
   %cmp847 = icmp slt i32 %call846, 0
-  br i1 %cmp847, label %error, label %do.body851
+  br i1 %cmp847, label %return, label %do.body851
 
 do.body851:                                       ; preds = %do.body845
   %call852 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.266, i64 noundef 20) #12
   %cmp853 = icmp slt i32 %call852, 0
-  br i1 %cmp853, label %error, label %do.body857
+  br i1 %cmp853, label %return, label %do.body857
 
 do.body857:                                       ; preds = %do.body851
   %call858 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.267, i64 noundef 4) #12
   %cmp859 = icmp slt i32 %call858, 0
-  br i1 %cmp859, label %error, label %do.body863
+  br i1 %cmp859, label %return, label %do.body863
 
 do.body863:                                       ; preds = %do.body857
   %call864 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.268, i64 noundef 3) #12
   %cmp865 = icmp slt i32 %call864, 0
-  br i1 %cmp865, label %error, label %do.body869
+  br i1 %cmp865, label %return, label %do.body869
 
 do.body869:                                       ; preds = %do.body863
   %call870 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.269, i64 noundef 16) #12
   %cmp871 = icmp slt i32 %call870, 0
-  br i1 %cmp871, label %error, label %do.body875
+  br i1 %cmp871, label %return, label %do.body875
 
 do.body875:                                       ; preds = %do.body869
   %call876 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.270, i64 noundef 17) #12
   %cmp877 = icmp slt i32 %call876, 0
-  br i1 %cmp877, label %error, label %do.body881
+  br i1 %cmp877, label %return, label %do.body881
 
 do.body881:                                       ; preds = %do.body875
   %call882 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.271, i64 noundef 34) #12
   %cmp883 = icmp slt i32 %call882, 0
-  br i1 %cmp883, label %error, label %do.body887
+  br i1 %cmp883, label %return, label %do.body887
 
 do.body887:                                       ; preds = %do.body881
   %call888 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.272, i64 noundef 31) #12
   %cmp889 = icmp slt i32 %call888, 0
-  br i1 %cmp889, label %error, label %do.body893
+  br i1 %cmp889, label %return, label %do.body893
 
 do.body893:                                       ; preds = %do.body887
   %call894 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.273, i64 noundef 25) #12
   %cmp895 = icmp slt i32 %call894, 0
-  br i1 %cmp895, label %error, label %do.body899
+  br i1 %cmp895, label %return, label %do.body899
 
 do.body899:                                       ; preds = %do.body893
   %call900 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.274, i64 noundef 12) #12
   %cmp901 = icmp slt i32 %call900, 0
-  br i1 %cmp901, label %error, label %do.body905
+  br i1 %cmp901, label %return, label %do.body905
 
 do.body905:                                       ; preds = %do.body899
   %call906 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.275, i64 noundef 36) #12
   %cmp907 = icmp slt i32 %call906, 0
-  br i1 %cmp907, label %error, label %do.body911
+  br i1 %cmp907, label %return, label %do.body911
 
 do.body911:                                       ; preds = %do.body905
   %call912 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.276, i64 noundef 39) #12
   %cmp913 = icmp slt i32 %call912, 0
-  br i1 %cmp913, label %error, label %do.body917
+  br i1 %cmp913, label %return, label %do.body917
 
 do.body917:                                       ; preds = %do.body911
   %call918 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.277, i64 noundef 38) #12
   %cmp919 = icmp slt i32 %call918, 0
-  br i1 %cmp919, label %error, label %do.body923
+  br i1 %cmp919, label %return, label %do.body923
 
 do.body923:                                       ; preds = %do.body917
   %call924 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.278, i64 noundef 4096) #12
   %cmp925 = icmp slt i32 %call924, 0
-  br i1 %cmp925, label %error, label %do.body929
+  br i1 %cmp925, label %return, label %do.body929
 
 do.body929:                                       ; preds = %do.body923
   %call930 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.279, i64 noundef 1) #12
   %cmp931 = icmp slt i32 %call930, 0
-  br i1 %cmp931, label %error, label %do.body935
+  br i1 %cmp931, label %return, label %do.body935
 
 do.body935:                                       ; preds = %do.body929
   %call936 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.280, i64 noundef 2) #12
   %cmp937 = icmp slt i32 %call936, 0
-  br i1 %cmp937, label %error, label %do.body941
+  br i1 %cmp937, label %return, label %do.body941
 
 do.body941:                                       ; preds = %do.body935
   %call942 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.281, i64 noundef 1) #12
   %cmp943 = icmp slt i32 %call942, 0
-  br i1 %cmp943, label %error, label %do.body947
+  br i1 %cmp943, label %return, label %do.body947
 
 do.body947:                                       ; preds = %do.body941
   %call948 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.282, i64 noundef 2) #12
   %cmp949 = icmp slt i32 %call948, 0
-  br i1 %cmp949, label %error, label %do.body953
+  br i1 %cmp949, label %return, label %do.body953
 
 do.body953:                                       ; preds = %do.body947
   %call954 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.283, i64 noundef 4) #12
   %cmp955 = icmp slt i32 %call954, 0
-  br i1 %cmp955, label %error, label %do.body959
+  br i1 %cmp955, label %return, label %do.body959
 
 do.body959:                                       ; preds = %do.body953
   %call960 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.284, i64 noundef 64) #12
   %cmp961 = icmp slt i32 %call960, 0
-  br i1 %cmp961, label %error, label %do.body965
+  br i1 %cmp961, label %return, label %do.body965
 
 do.body965:                                       ; preds = %do.body959
   %call966 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.285, i64 noundef 128) #12
   %cmp967 = icmp slt i32 %call966, 0
-  br i1 %cmp967, label %error, label %do.body971
+  br i1 %cmp967, label %return, label %do.body971
 
 do.body971:                                       ; preds = %do.body965
   %call972 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.286, i64 noundef 32) #12
   %cmp973 = icmp slt i32 %call972, 0
-  br i1 %cmp973, label %error, label %do.body977
+  br i1 %cmp973, label %return, label %do.body977
 
 do.body977:                                       ; preds = %do.body971
   %call978 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.287, i64 noundef 8) #12
   %cmp979 = icmp slt i32 %call978, 0
-  br i1 %cmp979, label %error, label %do.body983
+  br i1 %cmp979, label %return, label %do.body983
 
 do.body983:                                       ; preds = %do.body977
   %call984 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.288, i64 noundef 256) #12
   %cmp985 = icmp slt i32 %call984, 0
-  br i1 %cmp985, label %error, label %do.body989
+  br i1 %cmp985, label %return, label %do.body989
 
 do.body989:                                       ; preds = %do.body983
   %call990 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.289, i64 noundef 16384) #12
   %cmp991 = icmp slt i32 %call990, 0
-  br i1 %cmp991, label %error, label %do.body995
+  br i1 %cmp991, label %return, label %do.body995
 
 do.body995:                                       ; preds = %do.body989
   %call996 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.290, i64 noundef 1073741824) #12
   %cmp997 = icmp slt i32 %call996, 0
-  br i1 %cmp997, label %error, label %do.body1001
+  br i1 %cmp997, label %return, label %do.body1001
 
 do.body1001:                                      ; preds = %do.body995
   %call1002 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.291, i64 noundef 8192) #12
   %cmp1003 = icmp slt i32 %call1002, 0
-  br i1 %cmp1003, label %error, label %do.body1007
+  br i1 %cmp1003, label %return, label %do.body1007
 
 do.body1007:                                      ; preds = %do.body1001
   %call1008 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.292, i64 noundef 2048) #12
   %cmp1009 = icmp slt i32 %call1008, 0
-  br i1 %cmp1009, label %error, label %do.body1013
+  br i1 %cmp1009, label %return, label %do.body1013
 
 do.body1013:                                      ; preds = %do.body1007
   %call1014 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.293, i64 noundef 32768) #12
   %cmp1015 = icmp slt i32 %call1014, 0
-  br i1 %cmp1015, label %error, label %do.body1019
+  br i1 %cmp1015, label %return, label %do.body1019
 
 do.body1019:                                      ; preds = %do.body1013
   %call1020 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.294, i64 noundef 536870912) #12
   %cmp1021 = icmp slt i32 %call1020, 0
-  br i1 %cmp1021, label %error, label %do.body1025
+  br i1 %cmp1021, label %return, label %do.body1025
 
 do.body1025:                                      ; preds = %do.body1019
   %call1026 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.295, i64 noundef 1) #12
   %cmp1027 = icmp slt i32 %call1026, 0
-  br i1 %cmp1027, label %error, label %do.body1031
+  br i1 %cmp1027, label %return, label %do.body1031
 
 do.body1031:                                      ; preds = %do.body1025
   %call1032 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.296, i64 noundef 0) #12
   %cmp1033 = icmp slt i32 %call1032, 0
-  br i1 %cmp1033, label %error, label %do.body1037
+  br i1 %cmp1033, label %return, label %do.body1037
 
 do.body1037:                                      ; preds = %do.body1031
   %call1038 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.297, i64 noundef 6) #12
   %cmp1039 = icmp slt i32 %call1038, 0
-  br i1 %cmp1039, label %error, label %do.body1043
+  br i1 %cmp1039, label %return, label %do.body1043
 
 do.body1043:                                      ; preds = %do.body1037
   %call1044 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.298, i64 noundef 17) #12
   %cmp1045 = icmp slt i32 %call1044, 0
-  br i1 %cmp1045, label %error, label %do.body1049
+  br i1 %cmp1045, label %return, label %do.body1049
 
 do.body1049:                                      ; preds = %do.body1043
   %call1050 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.299, i64 noundef 100) #12
   %cmp1051 = icmp slt i32 %call1050, 0
-  br i1 %cmp1051, label %error, label %do.body1055
+  br i1 %cmp1051, label %return, label %do.body1055
 
 do.body1055:                                      ; preds = %do.body1049
   %call1056 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.300, i64 noundef 101) #12
   %cmp1057 = icmp slt i32 %call1056, 0
-  br i1 %cmp1057, label %error, label %do.body1061
+  br i1 %cmp1057, label %return, label %do.body1061
 
 do.body1061:                                      ; preds = %do.body1055
   %call1062 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.301, i64 noundef 1) #12
   %cmp1063 = icmp slt i32 %call1062, 0
-  br i1 %cmp1063, label %error, label %do.body1067
+  br i1 %cmp1063, label %return, label %do.body1067
 
 do.body1067:                                      ; preds = %do.body1061
   %call1068 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.302, i64 noundef 2147483648) #12
   %cmp1069 = icmp slt i32 %call1068, 0
-  br i1 %cmp1069, label %error, label %do.body1073
+  br i1 %cmp1069, label %return, label %do.body1073
 
 do.body1073:                                      ; preds = %do.body1067
   %call1074 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.303, i64 noundef 1073741824) #12
   %cmp1075 = icmp slt i32 %call1074, 0
-  br i1 %cmp1075, label %error, label %do.body1079
+  br i1 %cmp1075, label %return, label %do.body1079
 
 do.body1079:                                      ; preds = %do.body1073
   %call1080 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.304, i64 noundef 536870912) #12
   %cmp1081 = icmp slt i32 %call1080, 0
-  br i1 %cmp1081, label %error, label %do.body1085
+  br i1 %cmp1081, label %return, label %do.body1085
 
 do.body1085:                                      ; preds = %do.body1079
   %call1086 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.305, i64 noundef 2047) #12
   %cmp1087 = icmp slt i32 %call1086, 0
-  br i1 %cmp1087, label %error, label %do.body1091
+  br i1 %cmp1087, label %return, label %do.body1091
 
 do.body1091:                                      ; preds = %do.body1085
   %call1092 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.306, i64 noundef 536870911) #12
   %cmp1093 = icmp slt i32 %call1092, 0
-  br i1 %cmp1093, label %error, label %do.body1097
+  br i1 %cmp1093, label %return, label %do.body1097
 
 do.body1097:                                      ; preds = %do.body1091
   %call1098 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.307, i64 noundef 536870911) #12
   %cmp1099 = icmp slt i32 %call1098, 0
-  br i1 %cmp1099, label %error, label %do.body1103
+  br i1 %cmp1099, label %return, label %do.body1103
 
 do.body1103:                                      ; preds = %do.body1097
   %call1104 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.308, i64 noundef 6) #12
   %cmp1105 = icmp slt i32 %call1104, 0
-  br i1 %cmp1105, label %error, label %do.body1109
+  br i1 %cmp1105, label %return, label %do.body1109
 
 do.body1109:                                      ; preds = %do.body1103
   %call1110 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.309, i64 noundef 7) #12
   %cmp1111 = icmp slt i32 %call1110, 0
-  br i1 %cmp1111, label %error, label %do.body1115
+  br i1 %cmp1111, label %return, label %do.body1115
 
 do.body1115:                                      ; preds = %do.body1109
   %call1116 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.310, i64 noundef 1) #12
   %cmp1117 = icmp slt i32 %call1116, 0
-  br i1 %cmp1117, label %error, label %do.body1121
+  br i1 %cmp1117, label %return, label %do.body1121
 
 do.body1121:                                      ; preds = %do.body1115
   %call1122 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.311, i64 noundef 3) #12
   %cmp1123 = icmp slt i32 %call1122, 0
-  br i1 %cmp1123, label %error, label %do.body1127
+  br i1 %cmp1123, label %return, label %do.body1127
 
 do.body1127:                                      ; preds = %do.body1121
   %call1128 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.312, i64 noundef 4) #12
   %cmp1129 = icmp slt i32 %call1128, 0
-  br i1 %cmp1129, label %error, label %do.body1133
+  br i1 %cmp1129, label %return, label %do.body1133
 
 do.body1133:                                      ; preds = %do.body1127
   %call1134 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.313, i64 noundef 5) #12
   %cmp1135 = icmp slt i32 %call1134, 0
-  br i1 %cmp1135, label %error, label %do.body1139
+  br i1 %cmp1135, label %return, label %do.body1139
 
 do.body1139:                                      ; preds = %do.body1133
   %call1140 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.314, i64 noundef 6) #12
   %cmp1141 = icmp slt i32 %call1140, 0
-  br i1 %cmp1141, label %error, label %do.body1145
+  br i1 %cmp1141, label %return, label %do.body1145
 
 do.body1145:                                      ; preds = %do.body1139
   %call1146 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.315, i64 noundef 2) #12
   %cmp1147 = icmp slt i32 %call1146, 0
-  br i1 %cmp1147, label %error, label %do.body1151
+  br i1 %cmp1147, label %return, label %do.body1151
 
 do.body1151:                                      ; preds = %do.body1145
   %call1152 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.316, i64 noundef 1) #12
   %cmp1153 = icmp slt i32 %call1152, 0
-  br i1 %cmp1153, label %error, label %do.body1157
+  br i1 %cmp1153, label %return, label %do.body1157
 
 do.body1157:                                      ; preds = %do.body1151
   %call1158 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.317, i64 noundef 2) #12
   %cmp1159 = icmp slt i32 %call1158, 0
-  br i1 %cmp1159, label %error, label %do.body1163
+  br i1 %cmp1159, label %return, label %do.body1163
 
 do.body1163:                                      ; preds = %do.body1157
   %call1164 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.318, i64 noundef 3) #12
   %cmp1165 = icmp slt i32 %call1164, 0
-  br i1 %cmp1165, label %error, label %do.body1169
+  br i1 %cmp1165, label %return, label %do.body1169
 
 do.body1169:                                      ; preds = %do.body1163
   %call1170 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.319, i64 noundef 4) #12
   %cmp1171 = icmp slt i32 %call1170, 0
-  br i1 %cmp1171, label %error, label %do.body1175
+  br i1 %cmp1171, label %return, label %do.body1175
 
 do.body1175:                                      ; preds = %do.body1169
   %call1176 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.320, i64 noundef 5) #12
   %cmp1177 = icmp slt i32 %call1176, 0
-  br i1 %cmp1177, label %error, label %do.body1181
+  br i1 %cmp1177, label %return, label %do.body1181
 
 do.body1181:                                      ; preds = %do.body1175
   %call1182 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.321, i64 noundef 6) #12
   %cmp1183 = icmp slt i32 %call1182, 0
-  br i1 %cmp1183, label %error, label %do.body1187
+  br i1 %cmp1183, label %return, label %do.body1187
 
 do.body1187:                                      ; preds = %do.body1181
   %call1188 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.322, i64 noundef 7) #12
   %cmp1189 = icmp slt i32 %call1188, 0
-  br i1 %cmp1189, label %error, label %do.body1193
+  br i1 %cmp1189, label %return, label %do.body1193
 
 do.body1193:                                      ; preds = %do.body1187
   %call1194 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.323, i64 noundef 8) #12
   %cmp1195 = icmp slt i32 %call1194, 0
-  br i1 %cmp1195, label %error, label %do.body1199
+  br i1 %cmp1195, label %return, label %do.body1199
 
 do.body1199:                                      ; preds = %do.body1193
   %call1200 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.324, i64 noundef 9) #12
   %cmp1201 = icmp slt i32 %call1200, 0
-  br i1 %cmp1201, label %error, label %do.body1205
+  br i1 %cmp1201, label %return, label %do.body1205
 
 do.body1205:                                      ; preds = %do.body1199
   %call1206 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.325, i64 noundef 10) #12
   %cmp1207 = icmp slt i32 %call1206, 0
-  br i1 %cmp1207, label %error, label %do.body1211
+  br i1 %cmp1207, label %return, label %do.body1211
 
 do.body1211:                                      ; preds = %do.body1205
   %call1212 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.326, i64 noundef 11) #12
   %cmp1213 = icmp slt i32 %call1212, 0
-  br i1 %cmp1213, label %error, label %do.body1217
+  br i1 %cmp1213, label %return, label %do.body1217
 
 do.body1217:                                      ; preds = %do.body1211
   %call1218 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.327, i64 noundef 12) #12
   %cmp1219 = icmp slt i32 %call1218, 0
-  br i1 %cmp1219, label %error, label %do.body1223
+  br i1 %cmp1219, label %return, label %do.body1223
 
 do.body1223:                                      ; preds = %do.body1217
   %call1224 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.328, i64 noundef 1) #12
   %cmp1225 = icmp slt i32 %call1224, 0
-  br i1 %cmp1225, label %error, label %do.body1229
+  br i1 %cmp1225, label %return, label %do.body1229
 
 do.body1229:                                      ; preds = %do.body1223
   %call1230 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.329, i64 noundef 2) #12
   %cmp1231 = icmp slt i32 %call1230, 0
-  br i1 %cmp1231, label %error, label %do.body1235
+  br i1 %cmp1231, label %return, label %do.body1235
 
 do.body1235:                                      ; preds = %do.body1229
   %call1236 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.330, i64 noundef 4) #12
   %cmp1237 = icmp slt i32 %call1236, 0
-  br i1 %cmp1237, label %error, label %do.body1241
+  br i1 %cmp1237, label %return, label %do.body1241
 
 do.body1241:                                      ; preds = %do.body1235
   %call1242 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.331, i64 noundef 8) #12
   %cmp1243 = icmp slt i32 %call1242, 0
-  br i1 %cmp1243, label %error, label %do.body1247
+  br i1 %cmp1243, label %return, label %do.body1247
 
 do.body1247:                                      ; preds = %do.body1241
   %call1248 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.332, i64 noundef 16) #12
   %cmp1249 = icmp slt i32 %call1248, 0
-  br i1 %cmp1249, label %error, label %do.body1253
+  br i1 %cmp1249, label %return, label %do.body1253
 
 do.body1253:                                      ; preds = %do.body1247
   %call1254 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.333, i64 noundef 32) #12
   %cmp1255 = icmp slt i32 %call1254, 0
-  br i1 %cmp1255, label %error, label %do.body1259
+  br i1 %cmp1255, label %return, label %do.body1259
 
 do.body1259:                                      ; preds = %do.body1253
   %call1260 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.334, i64 noundef 64) #12
   %cmp1261 = icmp slt i32 %call1260, 0
-  br i1 %cmp1261, label %error, label %do.body1265
+  br i1 %cmp1261, label %return, label %do.body1265
 
 do.body1265:                                      ; preds = %do.body1259
   %call1266 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.335, i64 noundef 128) #12
   %cmp1267 = icmp slt i32 %call1266, 0
-  br i1 %cmp1267, label %error, label %do.body1271
+  br i1 %cmp1267, label %return, label %do.body1271
 
 do.body1271:                                      ; preds = %do.body1265
   %call1272 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.336, i64 noundef 256) #12
   %cmp1273 = icmp slt i32 %call1272, 0
-  br i1 %cmp1273, label %error, label %do.body1277
+  br i1 %cmp1273, label %return, label %do.body1277
 
 do.body1277:                                      ; preds = %do.body1271
   %call1278 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.337, i64 noundef 512) #12
   %cmp1279 = icmp slt i32 %call1278, 0
-  br i1 %cmp1279, label %error, label %do.body1283
+  br i1 %cmp1279, label %return, label %do.body1283
 
 do.body1283:                                      ; preds = %do.body1277
   %call1284 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.338, i64 noundef 1024) #12
   %cmp1285 = icmp slt i32 %call1284, 0
-  br i1 %cmp1285, label %error, label %do.body1289
+  br i1 %cmp1285, label %return, label %do.body1289
 
 do.body1289:                                      ; preds = %do.body1283
   %call1290 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.339, i64 noundef 2048) #12
   %cmp1291 = icmp slt i32 %call1290, 0
-  br i1 %cmp1291, label %error, label %do.body1295
+  br i1 %cmp1291, label %return, label %do.body1295
 
 do.body1295:                                      ; preds = %do.body1289
   %call1296 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.340, i64 noundef 253) #12
   %cmp1297 = icmp slt i32 %call1296, 0
-  br i1 %cmp1297, label %error, label %do.body1301
+  br i1 %cmp1297, label %return, label %do.body1301
 
 do.body1301:                                      ; preds = %do.body1295
   %call1302 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.341, i64 noundef 254) #12
   %cmp1303 = icmp slt i32 %call1302, 0
-  br i1 %cmp1303, label %error, label %do.body1307
+  br i1 %cmp1303, label %return, label %do.body1307
 
 do.body1307:                                      ; preds = %do.body1301
   %call1308 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.342, i64 noundef 255) #12
   %cmp1309 = icmp slt i32 %call1308, 0
-  br i1 %cmp1309, label %error, label %do.body1313
+  br i1 %cmp1309, label %return, label %do.body1313
 
 do.body1313:                                      ; preds = %do.body1307
   %call1314 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.343, i64 noundef 0) #12
   %cmp1315 = icmp slt i32 %call1314, 0
-  br i1 %cmp1315, label %error, label %do.body1319
+  br i1 %cmp1315, label %return, label %do.body1319
 
 do.body1319:                                      ; preds = %do.body1313
   %call1320 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.344, i64 noundef 59904) #12
   %cmp1321 = icmp slt i32 %call1320, 0
-  br i1 %cmp1321, label %error, label %do.body1325
+  br i1 %cmp1321, label %return, label %do.body1325
 
 do.body1325:                                      ; preds = %do.body1319
   %call1326 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.345, i64 noundef 60928) #12
   %cmp1327 = icmp slt i32 %call1326, 0
-  br i1 %cmp1327, label %error, label %do.body1331
+  br i1 %cmp1327, label %return, label %do.body1331
 
 do.body1331:                                      ; preds = %do.body1325
   %call1332 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.346, i64 noundef 65240) #12
   %cmp1333 = icmp slt i32 %call1332, 0
-  br i1 %cmp1333, label %error, label %do.body1337
+  br i1 %cmp1333, label %return, label %do.body1337
 
 do.body1337:                                      ; preds = %do.body1331
   %call1338 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.347, i64 noundef 261888) #12
   %cmp1339 = icmp slt i32 %call1338, 0
-  br i1 %cmp1339, label %error, label %do.body1343
+  br i1 %cmp1339, label %return, label %do.body1343
 
 do.body1343:                                      ; preds = %do.body1337
   %call1344 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.348, i64 noundef 262143) #12
   %cmp1345 = icmp slt i32 %call1344, 0
-  br i1 %cmp1345, label %error, label %do.body1349
+  br i1 %cmp1345, label %return, label %do.body1349
 
 do.body1349:                                      ; preds = %do.body1343
   %call1350 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.349, i64 noundef 262144) #12
   %cmp1351 = icmp slt i32 %call1350, 0
-  br i1 %cmp1351, label %error, label %do.body1355
+  br i1 %cmp1351, label %return, label %do.body1355
 
 do.body1355:                                      ; preds = %do.body1349
   %call1356 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.350, i64 noundef 1) #12
   %cmp1357 = icmp slt i32 %call1356, 0
-  br i1 %cmp1357, label %error, label %do.body1361
+  br i1 %cmp1357, label %return, label %do.body1361
 
 do.body1361:                                      ; preds = %do.body1355
   %call1362 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.351, i64 noundef 2) #12
   %cmp1363 = icmp slt i32 %call1362, 0
-  br i1 %cmp1363, label %error, label %do.body1367
+  br i1 %cmp1363, label %return, label %do.body1367
 
 do.body1367:                                      ; preds = %do.body1361
   %call1368 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.352, i64 noundef 3) #12
   %cmp1369 = icmp slt i32 %call1368, 0
-  br i1 %cmp1369, label %error, label %do.body1373
+  br i1 %cmp1369, label %return, label %do.body1373
 
 do.body1373:                                      ; preds = %do.body1367
   %call1374 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.353, i64 noundef 4) #12
   %cmp1375 = icmp slt i32 %call1374, 0
-  br i1 %cmp1375, label %error, label %do.body1379
+  br i1 %cmp1375, label %return, label %do.body1379
 
 do.body1379:                                      ; preds = %do.body1373
   %call1380 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.354, i64 noundef 1) #12
   %cmp1381 = icmp slt i32 %call1380, 0
-  br i1 %cmp1381, label %error, label %do.body1385
+  br i1 %cmp1381, label %return, label %do.body1385
 
 do.body1385:                                      ; preds = %do.body1379
   %call1386 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.355, i64 noundef 2) #12
   %cmp1387 = icmp slt i32 %call1386, 0
-  br i1 %cmp1387, label %error, label %do.body1391
+  br i1 %cmp1387, label %return, label %do.body1391
 
 do.body1391:                                      ; preds = %do.body1385
   %call1392 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.356, i64 noundef 3) #12
   %cmp1393 = icmp slt i32 %call1392, 0
-  br i1 %cmp1393, label %error, label %do.body1397
+  br i1 %cmp1393, label %return, label %do.body1397
 
 do.body1397:                                      ; preds = %do.body1391
   %call1398 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.357, i64 noundef 4) #12
   %cmp1399 = icmp slt i32 %call1398, 0
-  br i1 %cmp1399, label %error, label %do.body1403
+  br i1 %cmp1399, label %return, label %do.body1403
 
 do.body1403:                                      ; preds = %do.body1397
   %call1404 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.358, i64 noundef 0) #12
   %cmp1405 = icmp slt i32 %call1404, 0
-  br i1 %cmp1405, label %error, label %do.body1409
+  br i1 %cmp1405, label %return, label %do.body1409
 
 do.body1409:                                      ; preds = %do.body1403
   %call1410 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.359, i64 noundef 1) #12
   %cmp1411 = icmp slt i32 %call1410, 0
-  br i1 %cmp1411, label %error, label %do.body1415
+  br i1 %cmp1411, label %return, label %do.body1415
 
 do.body1415:                                      ; preds = %do.body1409
   %call1416 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.360, i64 noundef 0) #12
   %cmp1417 = icmp slt i32 %call1416, 0
-  br i1 %cmp1417, label %error, label %do.body1421
+  br i1 %cmp1417, label %return, label %do.body1421
 
 do.body1421:                                      ; preds = %do.body1415
   %call1422 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.361, i64 noundef 1) #12
   %cmp1423 = icmp slt i32 %call1422, 0
-  br i1 %cmp1423, label %error, label %do.body1427
+  br i1 %cmp1423, label %return, label %do.body1427
 
 do.body1427:                                      ; preds = %do.body1421
   %call1428 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.362, i64 noundef 512) #12
   %cmp1429 = icmp slt i32 %call1428, 0
-  br i1 %cmp1429, label %error, label %do.body1433
+  br i1 %cmp1429, label %return, label %do.body1433
 
 do.body1433:                                      ; preds = %do.body1427
   %call1434 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.363, i64 noundef 276) #12
   %cmp1435 = icmp slt i32 %call1434, 0
-  br i1 %cmp1435, label %error, label %do.body1439
+  br i1 %cmp1435, label %return, label %do.body1439
 
 do.body1439:                                      ; preds = %do.body1433
   %call1440 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.364, i64 noundef 279) #12
   %cmp1441 = icmp slt i32 %call1440, 0
-  br i1 %cmp1441, label %error, label %do.body1445
+  br i1 %cmp1441, label %return, label %do.body1445
 
 do.body1445:                                      ; preds = %do.body1439
   %call1446 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.365, i64 noundef 0) #12
   %cmp1447 = icmp slt i32 %call1446, 0
-  br i1 %cmp1447, label %error, label %do.body1451
+  br i1 %cmp1447, label %return, label %do.body1451
 
 do.body1451:                                      ; preds = %do.body1445
   %call1452 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.366, i64 noundef 0) #12
   %cmp1453 = icmp slt i32 %call1452, 0
-  br i1 %cmp1453, label %error, label %do.body1457
+  br i1 %cmp1453, label %return, label %do.body1457
 
 do.body1457:                                      ; preds = %do.body1451
   %call1458 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.367, i64 noundef 1) #12
   %cmp1459 = icmp slt i32 %call1458, 0
-  br i1 %cmp1459, label %error, label %do.body1463
+  br i1 %cmp1459, label %return, label %do.body1463
 
 do.body1463:                                      ; preds = %do.body1457
   %call1464 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.368, i64 noundef 2) #12
   %cmp1465 = icmp slt i32 %call1464, 0
-  br i1 %cmp1465, label %error, label %do.body1469
+  br i1 %cmp1465, label %return, label %do.body1469
 
 do.body1469:                                      ; preds = %do.body1463
   %call1470 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.369, i64 noundef 41) #12
   %cmp1471 = icmp slt i32 %call1470, 0
-  br i1 %cmp1471, label %error, label %do.body1475
+  br i1 %cmp1471, label %return, label %do.body1475
 
 do.body1475:                                      ; preds = %do.body1469
   %call1476 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.370, i64 noundef 4) #12
   %cmp1477 = icmp slt i32 %call1476, 0
-  br i1 %cmp1477, label %error, label %do.body1481
+  br i1 %cmp1477, label %return, label %do.body1481
 
 do.body1481:                                      ; preds = %do.body1475
   %call1482 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.371, i64 noundef 6) #12
   %cmp1483 = icmp slt i32 %call1482, 0
-  br i1 %cmp1483, label %error, label %do.body1487
+  br i1 %cmp1483, label %return, label %do.body1487
 
 do.body1487:                                      ; preds = %do.body1481
   %call1488 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.372, i64 noundef 8) #12
   %cmp1489 = icmp slt i32 %call1488, 0
-  br i1 %cmp1489, label %error, label %do.body1493
+  br i1 %cmp1489, label %return, label %do.body1493
 
 do.body1493:                                      ; preds = %do.body1487
   %call1494 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.373, i64 noundef 12) #12
   %cmp1495 = icmp slt i32 %call1494, 0
-  br i1 %cmp1495, label %error, label %do.body1499
+  br i1 %cmp1495, label %return, label %do.body1499
 
 do.body1499:                                      ; preds = %do.body1493
   %call1500 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.374, i64 noundef 17) #12
   %cmp1501 = icmp slt i32 %call1500, 0
-  br i1 %cmp1501, label %error, label %do.body1505
+  br i1 %cmp1501, label %return, label %do.body1505
 
 do.body1505:                                      ; preds = %do.body1499
   %call1506 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.375, i64 noundef 136) #12
   %cmp1507 = icmp slt i32 %call1506, 0
-  br i1 %cmp1507, label %error, label %do.body1511
+  br i1 %cmp1507, label %return, label %do.body1511
 
 do.body1511:                                      ; preds = %do.body1505
   %call1512 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.376, i64 noundef 10) #12
   %cmp1513 = icmp slt i32 %call1512, 0
-  br i1 %cmp1513, label %error, label %do.body1517
+  br i1 %cmp1513, label %return, label %do.body1517
 
 do.body1517:                                      ; preds = %do.body1511
   %call1518 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.377, i64 noundef 11) #12
   %cmp1519 = icmp slt i32 %call1518, 0
-  br i1 %cmp1519, label %error, label %do.body1523
+  br i1 %cmp1519, label %return, label %do.body1523
 
 do.body1523:                                      ; preds = %do.body1517
   %call1524 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.378, i64 noundef 22) #12
   %cmp1525 = icmp slt i32 %call1524, 0
-  br i1 %cmp1525, label %error, label %do.body1529
+  br i1 %cmp1525, label %return, label %do.body1529
 
 do.body1529:                                      ; preds = %do.body1523
   %call1530 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.379, i64 noundef 29) #12
   %cmp1531 = icmp slt i32 %call1530, 0
-  br i1 %cmp1531, label %error, label %do.body1535
+  br i1 %cmp1531, label %return, label %do.body1535
 
 do.body1535:                                      ; preds = %do.body1529
   %call1536 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.380, i64 noundef 43) #12
   %cmp1537 = icmp slt i32 %call1536, 0
-  br i1 %cmp1537, label %error, label %do.body1541
+  br i1 %cmp1537, label %return, label %do.body1541
 
 do.body1541:                                      ; preds = %do.body1535
   %call1542 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.381, i64 noundef 44) #12
   %cmp1543 = icmp slt i32 %call1542, 0
-  br i1 %cmp1543, label %error, label %do.body1547
+  br i1 %cmp1543, label %return, label %do.body1547
 
 do.body1547:                                      ; preds = %do.body1541
   %call1548 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.382, i64 noundef 46) #12
   %cmp1549 = icmp slt i32 %call1548, 0
-  br i1 %cmp1549, label %error, label %do.body1553
+  br i1 %cmp1549, label %return, label %do.body1553
 
 do.body1553:                                      ; preds = %do.body1547
   %call1554 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.383, i64 noundef 47) #12
   %cmp1555 = icmp slt i32 %call1554, 0
-  br i1 %cmp1555, label %error, label %do.body1559
+  br i1 %cmp1555, label %return, label %do.body1559
 
 do.body1559:                                      ; preds = %do.body1553
   %call1560 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.384, i64 noundef 50) #12
   %cmp1561 = icmp slt i32 %call1560, 0
-  br i1 %cmp1561, label %error, label %do.body1565
+  br i1 %cmp1561, label %return, label %do.body1565
 
 do.body1565:                                      ; preds = %do.body1559
   %call1566 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.385, i64 noundef 51) #12
   %cmp1567 = icmp slt i32 %call1566, 0
-  br i1 %cmp1567, label %error, label %do.body1571
+  br i1 %cmp1567, label %return, label %do.body1571
 
 do.body1571:                                      ; preds = %do.body1565
   %call1572 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.386, i64 noundef 58) #12
   %cmp1573 = icmp slt i32 %call1572, 0
-  br i1 %cmp1573, label %error, label %do.body1577
+  br i1 %cmp1573, label %return, label %do.body1577
 
 do.body1577:                                      ; preds = %do.body1571
   %call1578 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.387, i64 noundef 59) #12
   %cmp1579 = icmp slt i32 %call1578, 0
-  br i1 %cmp1579, label %error, label %do.body1583
+  br i1 %cmp1579, label %return, label %do.body1583
 
 do.body1583:                                      ; preds = %do.body1577
   %call1584 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.388, i64 noundef 60) #12
   %cmp1585 = icmp slt i32 %call1584, 0
-  br i1 %cmp1585, label %error, label %do.body1589
+  br i1 %cmp1585, label %return, label %do.body1589
 
 do.body1589:                                      ; preds = %do.body1583
   %call1590 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.389, i64 noundef 103) #12
   %cmp1591 = icmp slt i32 %call1590, 0
-  br i1 %cmp1591, label %error, label %do.body1595
+  br i1 %cmp1591, label %return, label %do.body1595
 
 do.body1595:                                      ; preds = %do.body1589
   %call1596 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.390, i64 noundef 132) #12
   %cmp1597 = icmp slt i32 %call1596, 0
-  br i1 %cmp1597, label %error, label %do.body1601
+  br i1 %cmp1597, label %return, label %do.body1601
 
 do.body1601:                                      ; preds = %do.body1595
   %call1602 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.391, i64 noundef 262) #12
   %cmp1603 = icmp slt i32 %call1602, 0
-  br i1 %cmp1603, label %error, label %do.body1607
+  br i1 %cmp1603, label %return, label %do.body1607
 
 do.body1607:                                      ; preds = %do.body1601
   %call1608 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.392, i64 noundef 255) #12
   %cmp1609 = icmp slt i32 %call1608, 0
-  br i1 %cmp1609, label %error, label %do.body1613
+  br i1 %cmp1609, label %return, label %do.body1613
 
 do.body1613:                                      ; preds = %do.body1607
   %call1614 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.393, i64 noundef 1024) #12
   %cmp1615 = icmp slt i32 %call1614, 0
-  br i1 %cmp1615, label %error, label %do.body1619
+  br i1 %cmp1615, label %return, label %do.body1619
 
 do.body1619:                                      ; preds = %do.body1613
   %call1620 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.394, i64 noundef 5000) #12
   %cmp1621 = icmp slt i32 %call1620, 0
-  br i1 %cmp1621, label %error, label %do.body1625
+  br i1 %cmp1621, label %return, label %do.body1625
 
 do.body1625:                                      ; preds = %do.body1619
   %call1626 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.395, i64 noundef 0) #12
   %cmp1627 = icmp slt i32 %call1626, 0
-  br i1 %cmp1627, label %error, label %do.body1631
+  br i1 %cmp1627, label %return, label %do.body1631
 
 do.body1631:                                      ; preds = %do.body1625
   %call1632 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.396, i64 noundef 4294967295) #12
   %cmp1633 = icmp slt i32 %call1632, 0
-  br i1 %cmp1633, label %error, label %do.body1637
+  br i1 %cmp1633, label %return, label %do.body1637
 
 do.body1637:                                      ; preds = %do.body1631
   %call1638 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.397, i64 noundef 2130706433) #12
   %cmp1639 = icmp slt i32 %call1638, 0
-  br i1 %cmp1639, label %error, label %do.body1643
+  br i1 %cmp1639, label %return, label %do.body1643
 
 do.body1643:                                      ; preds = %do.body1637
   %call1644 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.398, i64 noundef 3758096384) #12
   %cmp1645 = icmp slt i32 %call1644, 0
-  br i1 %cmp1645, label %error, label %do.body1649
+  br i1 %cmp1645, label %return, label %do.body1649
 
 do.body1649:                                      ; preds = %do.body1643
   %call1650 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.399, i64 noundef 3758096385) #12
   %cmp1651 = icmp slt i32 %call1650, 0
-  br i1 %cmp1651, label %error, label %do.body1655
+  br i1 %cmp1651, label %return, label %do.body1655
 
 do.body1655:                                      ; preds = %do.body1649
   %call1656 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.400, i64 noundef 3758096639) #12
   %cmp1657 = icmp slt i32 %call1656, 0
-  br i1 %cmp1657, label %error, label %do.body1661
+  br i1 %cmp1657, label %return, label %do.body1661
 
 do.body1661:                                      ; preds = %do.body1655
   %call1662 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.401, i64 noundef 4294967295) #12
   %cmp1663 = icmp slt i32 %call1662, 0
-  br i1 %cmp1663, label %error, label %do.body1667
+  br i1 %cmp1663, label %return, label %do.body1667
 
 do.body1667:                                      ; preds = %do.body1661
   %call1668 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.402, i64 noundef 4) #12
   %cmp1669 = icmp slt i32 %call1668, 0
-  br i1 %cmp1669, label %error, label %do.body1673
+  br i1 %cmp1669, label %return, label %do.body1673
 
 do.body1673:                                      ; preds = %do.body1667
   %call1674 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.403, i64 noundef 3) #12
   %cmp1675 = icmp slt i32 %call1674, 0
-  br i1 %cmp1675, label %error, label %do.body1679
+  br i1 %cmp1675, label %return, label %do.body1679
 
 do.body1679:                                      ; preds = %do.body1673
   %call1680 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.404, i64 noundef 1) #12
   %cmp1681 = icmp slt i32 %call1680, 0
-  br i1 %cmp1681, label %error, label %do.body1685
+  br i1 %cmp1681, label %return, label %do.body1685
 
 do.body1685:                                      ; preds = %do.body1679
   %call1686 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.405, i64 noundef 2) #12
   %cmp1687 = icmp slt i32 %call1686, 0
-  br i1 %cmp1687, label %error, label %do.body1691
+  br i1 %cmp1687, label %return, label %do.body1691
 
 do.body1691:                                      ; preds = %do.body1685
   %call1692 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.406, i64 noundef 6) #12
   %cmp1693 = icmp slt i32 %call1692, 0
-  br i1 %cmp1693, label %error, label %do.body1697
+  br i1 %cmp1693, label %return, label %do.body1697
 
 do.body1697:                                      ; preds = %do.body1691
   %call1698 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.407, i64 noundef 7) #12
   %cmp1699 = icmp slt i32 %call1698, 0
-  br i1 %cmp1699, label %error, label %do.body1703
+  br i1 %cmp1699, label %return, label %do.body1703
 
 do.body1703:                                      ; preds = %do.body1697
   %call1704 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.408, i64 noundef 13) #12
   %cmp1705 = icmp slt i32 %call1704, 0
-  br i1 %cmp1705, label %error, label %do.body1709
+  br i1 %cmp1705, label %return, label %do.body1709
 
 do.body1709:                                      ; preds = %do.body1703
   %call1710 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.409, i64 noundef 7) #12
   %cmp1711 = icmp slt i32 %call1710, 0
-  br i1 %cmp1711, label %error, label %do.body1715
+  br i1 %cmp1711, label %return, label %do.body1715
 
 do.body1715:                                      ; preds = %do.body1709
   %call1716 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.410, i64 noundef 32) #12
   %cmp1717 = icmp slt i32 %call1716, 0
-  br i1 %cmp1717, label %error, label %do.body1721
+  br i1 %cmp1717, label %return, label %do.body1721
 
 do.body1721:                                      ; preds = %do.body1715
   %call1722 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.411, i64 noundef 33) #12
   %cmp1723 = icmp slt i32 %call1722, 0
-  br i1 %cmp1723, label %error, label %do.body1727
+  br i1 %cmp1723, label %return, label %do.body1727
 
 do.body1727:                                      ; preds = %do.body1721
   %call1728 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.412, i64 noundef 34) #12
   %cmp1729 = icmp slt i32 %call1728, 0
-  br i1 %cmp1729, label %error, label %do.body1733
+  br i1 %cmp1729, label %return, label %do.body1733
 
 do.body1733:                                      ; preds = %do.body1727
   %call1734 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.413, i64 noundef 35) #12
   %cmp1735 = icmp slt i32 %call1734, 0
-  br i1 %cmp1735, label %error, label %do.body1739
+  br i1 %cmp1735, label %return, label %do.body1739
 
 do.body1739:                                      ; preds = %do.body1733
   %call1740 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.414, i64 noundef 36) #12
   %cmp1741 = icmp slt i32 %call1740, 0
-  br i1 %cmp1741, label %error, label %do.body1745
+  br i1 %cmp1741, label %return, label %do.body1745
 
 do.body1745:                                      ; preds = %do.body1739
   %call1746 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.415, i64 noundef 1) #12
   %cmp1747 = icmp slt i32 %call1746, 0
-  br i1 %cmp1747, label %error, label %do.body1751
+  br i1 %cmp1747, label %return, label %do.body1751
 
 do.body1751:                                      ; preds = %do.body1745
   %call1752 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.416, i64 noundef 1) #12
   %cmp1753 = icmp slt i32 %call1752, 0
-  br i1 %cmp1753, label %error, label %do.body1757
+  br i1 %cmp1753, label %return, label %do.body1757
 
 do.body1757:                                      ; preds = %do.body1751
   %call1758 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.417, i64 noundef 20) #12
   %cmp1759 = icmp slt i32 %call1758, 0
-  br i1 %cmp1759, label %error, label %do.body1763
+  br i1 %cmp1759, label %return, label %do.body1763
 
 do.body1763:                                      ; preds = %do.body1757
   %call1764 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.418, i64 noundef 19) #12
   %cmp1765 = icmp slt i32 %call1764, 0
-  br i1 %cmp1765, label %error, label %do.body1769
+  br i1 %cmp1765, label %return, label %do.body1769
 
 do.body1769:                                      ; preds = %do.body1763
   %call1770 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.419, i64 noundef 8) #12
   %cmp1771 = icmp slt i32 %call1770, 0
-  br i1 %cmp1771, label %error, label %do.body1775
+  br i1 %cmp1771, label %return, label %do.body1775
 
 do.body1775:                                      ; preds = %do.body1769
   %call1776 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.420, i64 noundef 24) #12
   %cmp1777 = icmp slt i32 %call1776, 0
-  br i1 %cmp1777, label %error, label %do.body1781
+  br i1 %cmp1777, label %return, label %do.body1781
 
 do.body1781:                                      ; preds = %do.body1775
   %call1782 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.421, i64 noundef 37) #12
   %cmp1783 = icmp slt i32 %call1782, 0
-  br i1 %cmp1783, label %error, label %do.body1787
+  br i1 %cmp1783, label %return, label %do.body1787
 
 do.body1787:                                      ; preds = %do.body1781
   %call1788 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.422, i64 noundef 38) #12
   %cmp1789 = icmp slt i32 %call1788, 0
-  br i1 %cmp1789, label %error, label %do.body1793
+  br i1 %cmp1789, label %return, label %do.body1793
 
 do.body1793:                                      ; preds = %do.body1787
   %call1794 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.423, i64 noundef 39) #12
   %cmp1795 = icmp slt i32 %call1794, 0
-  br i1 %cmp1795, label %error, label %do.body1799
+  br i1 %cmp1795, label %return, label %do.body1799
 
 do.body1799:                                      ; preds = %do.body1793
   %call1800 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.424, i64 noundef 40) #12
   %cmp1801 = icmp slt i32 %call1800, 0
-  br i1 %cmp1801, label %error, label %do.body1805
+  br i1 %cmp1801, label %return, label %do.body1805
 
 do.body1805:                                      ; preds = %do.body1799
   %call1806 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.425, i64 noundef 20) #12
   %cmp1807 = icmp slt i32 %call1806, 0
-  br i1 %cmp1807, label %error, label %do.body1811
+  br i1 %cmp1807, label %return, label %do.body1811
 
 do.body1811:                                      ; preds = %do.body1805
   %call1812 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.426, i64 noundef 21) #12
   %cmp1813 = icmp slt i32 %call1812, 0
-  br i1 %cmp1813, label %error, label %do.body1817
+  br i1 %cmp1813, label %return, label %do.body1817
 
 do.body1817:                                      ; preds = %do.body1811
   %call1818 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.427, i64 noundef 18) #12
   %cmp1819 = icmp slt i32 %call1818, 0
-  br i1 %cmp1819, label %error, label %do.body1823
+  br i1 %cmp1819, label %return, label %do.body1823
 
 do.body1823:                                      ; preds = %do.body1817
   %call1824 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.428, i64 noundef 17) #12
   %cmp1825 = icmp slt i32 %call1824, 0
-  br i1 %cmp1825, label %error, label %do.body1829
+  br i1 %cmp1825, label %return, label %do.body1829
 
 do.body1829:                                      ; preds = %do.body1823
   %call1830 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.429, i64 noundef 19) #12
   %cmp1831 = icmp slt i32 %call1830, 0
-  br i1 %cmp1831, label %error, label %do.body1835
+  br i1 %cmp1831, label %return, label %do.body1835
 
 do.body1835:                                      ; preds = %do.body1829
   %call1836 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.430, i64 noundef 16) #12
   %cmp1837 = icmp slt i32 %call1836, 0
-  br i1 %cmp1837, label %error, label %do.body1841
+  br i1 %cmp1837, label %return, label %do.body1841
 
 do.body1841:                                      ; preds = %do.body1835
   %call1842 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.431, i64 noundef 26) #12
   %cmp1843 = icmp slt i32 %call1842, 0
-  br i1 %cmp1843, label %error, label %do.body1847
+  br i1 %cmp1843, label %return, label %do.body1847
 
 do.body1847:                                      ; preds = %do.body1841
   %call1848 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.432, i64 noundef 7) #12
   %cmp1849 = icmp slt i32 %call1848, 0
-  br i1 %cmp1849, label %error, label %do.body1853
+  br i1 %cmp1849, label %return, label %do.body1853
 
 do.body1853:                                      ; preds = %do.body1847
   %call1854 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.433, i64 noundef 62) #12
   %cmp1855 = icmp slt i32 %call1854, 0
-  br i1 %cmp1855, label %error, label %do.body1859
+  br i1 %cmp1855, label %return, label %do.body1859
 
 do.body1859:                                      ; preds = %do.body1853
   %call1860 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.434, i64 noundef 59) #12
   %cmp1861 = icmp slt i32 %call1860, 0
-  br i1 %cmp1861, label %error, label %do.body1865
+  br i1 %cmp1861, label %return, label %do.body1865
 
 do.body1865:                                      ; preds = %do.body1859
   %call1866 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.435, i64 noundef 52) #12
   %cmp1867 = icmp slt i32 %call1866, 0
-  br i1 %cmp1867, label %error, label %do.body1871
+  br i1 %cmp1867, label %return, label %do.body1871
 
 do.body1871:                                      ; preds = %do.body1865
   %call1872 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.436, i64 noundef 54) #12
   %cmp1873 = icmp slt i32 %call1872, 0
-  br i1 %cmp1873, label %error, label %do.body1877
+  br i1 %cmp1873, label %return, label %do.body1877
 
 do.body1877:                                      ; preds = %do.body1871
   %call1878 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.437, i64 noundef 9) #12
   %cmp1879 = icmp slt i32 %call1878, 0
-  br i1 %cmp1879, label %error, label %do.body1883
+  br i1 %cmp1879, label %return, label %do.body1883
 
 do.body1883:                                      ; preds = %do.body1877
   %call1884 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.438, i64 noundef 61) #12
   %cmp1885 = icmp slt i32 %call1884, 0
-  br i1 %cmp1885, label %error, label %do.body1889
+  br i1 %cmp1885, label %return, label %do.body1889
 
 do.body1889:                                      ; preds = %do.body1883
   %call1890 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.439, i64 noundef 50) #12
   %cmp1891 = icmp slt i32 %call1890, 0
-  br i1 %cmp1891, label %error, label %do.body1895
+  br i1 %cmp1891, label %return, label %do.body1895
 
 do.body1895:                                      ; preds = %do.body1889
   %call1896 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.440, i64 noundef 58) #12
   %cmp1897 = icmp slt i32 %call1896, 0
-  br i1 %cmp1897, label %error, label %do.body1901
+  br i1 %cmp1897, label %return, label %do.body1901
 
 do.body1901:                                      ; preds = %do.body1895
   %call1902 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.441, i64 noundef 51) #12
   %cmp1903 = icmp slt i32 %call1902, 0
-  br i1 %cmp1903, label %error, label %do.body1907
+  br i1 %cmp1903, label %return, label %do.body1907
 
 do.body1907:                                      ; preds = %do.body1901
   %call1908 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.442, i64 noundef 53) #12
   %cmp1909 = icmp slt i32 %call1908, 0
-  br i1 %cmp1909, label %error, label %do.body1913
+  br i1 %cmp1909, label %return, label %do.body1913
 
 do.body1913:                                      ; preds = %do.body1907
   %call1914 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.443, i64 noundef 49) #12
   %cmp1915 = icmp slt i32 %call1914, 0
-  br i1 %cmp1915, label %error, label %do.body1919
+  br i1 %cmp1915, label %return, label %do.body1919
 
 do.body1919:                                      ; preds = %do.body1913
   %call1920 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.444, i64 noundef 56) #12
   %cmp1921 = icmp slt i32 %call1920, 0
-  br i1 %cmp1921, label %error, label %do.body1925
+  br i1 %cmp1921, label %return, label %do.body1925
 
 do.body1925:                                      ; preds = %do.body1919
   %call1926 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.445, i64 noundef 66) #12
   %cmp1927 = icmp slt i32 %call1926, 0
-  br i1 %cmp1927, label %error, label %do.body1931
+  br i1 %cmp1927, label %return, label %do.body1931
 
 do.body1931:                                      ; preds = %do.body1925
   %call1932 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.446, i64 noundef 57) #12
   %cmp1933 = icmp slt i32 %call1932, 0
-  br i1 %cmp1933, label %error, label %do.body1937
+  br i1 %cmp1933, label %return, label %do.body1937
 
 do.body1937:                                      ; preds = %do.body1931
   %call1938 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.447, i64 noundef 55) #12
   %cmp1939 = icmp slt i32 %call1938, 0
-  br i1 %cmp1939, label %error, label %do.body1943
+  br i1 %cmp1939, label %return, label %do.body1943
 
 do.body1943:                                      ; preds = %do.body1937
   %call1944 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.448, i64 noundef 0) #12
   %cmp1945 = icmp slt i32 %call1944, 0
-  br i1 %cmp1945, label %error, label %do.body1949
+  br i1 %cmp1945, label %return, label %do.body1949
 
 do.body1949:                                      ; preds = %do.body1943
   %call1950 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.449, i64 noundef 60) #12
   %cmp1951 = icmp slt i32 %call1950, 0
-  br i1 %cmp1951, label %error, label %do.body1955
+  br i1 %cmp1951, label %return, label %do.body1955
 
 do.body1955:                                      ; preds = %do.body1949
   %call1956 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.450, i64 noundef 67) #12
   %cmp1957 = icmp slt i32 %call1956, 0
-  br i1 %cmp1957, label %error, label %do.body1961
+  br i1 %cmp1957, label %return, label %do.body1961
 
 do.body1961:                                      ; preds = %do.body1955
   %call1962 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.451, i64 noundef 1) #12
   %cmp1963 = icmp slt i32 %call1962, 0
-  br i1 %cmp1963, label %error, label %do.body1967
+  br i1 %cmp1963, label %return, label %do.body1967
 
 do.body1967:                                      ; preds = %do.body1961
   %call1968 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.452, i64 noundef 2) #12
   %cmp1969 = icmp slt i32 %call1968, 0
-  br i1 %cmp1969, label %error, label %do.body1973
+  br i1 %cmp1969, label %return, label %do.body1973
 
 do.body1973:                                      ; preds = %do.body1967
   %call1974 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.453, i64 noundef 3) #12
   %cmp1975 = icmp slt i32 %call1974, 0
-  br i1 %cmp1975, label %error, label %do.body1979
+  br i1 %cmp1975, label %return, label %do.body1979
 
 do.body1979:                                      ; preds = %do.body1973
   %call1980 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.454, i64 noundef 4) #12
   %cmp1981 = icmp slt i32 %call1980, 0
-  br i1 %cmp1981, label %error, label %do.body1985
+  br i1 %cmp1981, label %return, label %do.body1985
 
 do.body1985:                                      ; preds = %do.body1979
   %call1986 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.455, i64 noundef 5) #12
   %cmp1987 = icmp slt i32 %call1986, 0
-  br i1 %cmp1987, label %error, label %do.body1991
+  br i1 %cmp1987, label %return, label %do.body1991
 
 do.body1991:                                      ; preds = %do.body1985
   %call1992 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.456, i64 noundef 6) #12
   %cmp1993 = icmp slt i32 %call1992, 0
-  br i1 %cmp1993, label %error, label %do.body1997
+  br i1 %cmp1993, label %return, label %do.body1997
 
 do.body1997:                                      ; preds = %do.body1991
   %call1998 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.457, i64 noundef 7) #12
   %cmp1999 = icmp slt i32 %call1998, 0
-  br i1 %cmp1999, label %error, label %do.body2003
+  br i1 %cmp1999, label %return, label %do.body2003
 
 do.body2003:                                      ; preds = %do.body1997
   %call2004 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.458, i64 noundef 8) #12
   %cmp2005 = icmp slt i32 %call2004, 0
-  br i1 %cmp2005, label %error, label %do.body2009
+  br i1 %cmp2005, label %return, label %do.body2009
 
 do.body2009:                                      ; preds = %do.body2003
   %call2010 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.459, i64 noundef 9) #12
   %cmp2011 = icmp slt i32 %call2010, 0
-  br i1 %cmp2011, label %error, label %do.body2015
+  br i1 %cmp2011, label %return, label %do.body2015
 
 do.body2015:                                      ; preds = %do.body2009
   %call2016 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.460, i64 noundef 10) #12
   %cmp2017 = icmp slt i32 %call2016, 0
-  br i1 %cmp2017, label %error, label %do.body2021
+  br i1 %cmp2017, label %return, label %do.body2021
 
 do.body2021:                                      ; preds = %do.body2015
   %call2022 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.461, i64 noundef 11) #12
   %cmp2023 = icmp slt i32 %call2022, 0
-  br i1 %cmp2023, label %error, label %do.body2027
+  br i1 %cmp2023, label %return, label %do.body2027
 
 do.body2027:                                      ; preds = %do.body2021
   %call2028 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.462, i64 noundef 12) #12
   %cmp2029 = icmp slt i32 %call2028, 0
-  br i1 %cmp2029, label %error, label %do.body2033
+  br i1 %cmp2029, label %return, label %do.body2033
 
 do.body2033:                                      ; preds = %do.body2027
   %call2034 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.463, i64 noundef 13) #12
   %cmp2035 = icmp slt i32 %call2034, 0
-  br i1 %cmp2035, label %error, label %do.body2039
+  br i1 %cmp2035, label %return, label %do.body2039
 
 do.body2039:                                      ; preds = %do.body2033
   %call2040 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.464, i64 noundef 14) #12
   %cmp2041 = icmp slt i32 %call2040, 0
-  br i1 %cmp2041, label %error, label %do.body2045
+  br i1 %cmp2041, label %return, label %do.body2045
 
 do.body2045:                                      ; preds = %do.body2039
   %call2046 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.465, i64 noundef 16) #12
   %cmp2047 = icmp slt i32 %call2046, 0
-  br i1 %cmp2047, label %error, label %do.body2051
+  br i1 %cmp2047, label %return, label %do.body2051
 
 do.body2051:                                      ; preds = %do.body2045
   %call2052 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.466, i64 noundef 17) #12
   %cmp2053 = icmp slt i32 %call2052, 0
-  br i1 %cmp2053, label %error, label %do.body2057
+  br i1 %cmp2053, label %return, label %do.body2057
 
 do.body2057:                                      ; preds = %do.body2051
   %call2058 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.467, i64 noundef 18) #12
   %cmp2059 = icmp slt i32 %call2058, 0
-  br i1 %cmp2059, label %error, label %do.body2063
+  br i1 %cmp2059, label %return, label %do.body2063
 
 do.body2063:                                      ; preds = %do.body2057
   %call2064 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.468, i64 noundef 19) #12
   %cmp2065 = icmp slt i32 %call2064, 0
-  br i1 %cmp2065, label %error, label %do.body2069
+  br i1 %cmp2065, label %return, label %do.body2069
 
 do.body2069:                                      ; preds = %do.body2063
   %call2070 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.469, i64 noundef 20) #12
   %cmp2071 = icmp slt i32 %call2070, 0
-  br i1 %cmp2071, label %error, label %do.body2075
+  br i1 %cmp2071, label %return, label %do.body2075
 
 do.body2075:                                      ; preds = %do.body2069
   %call2076 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.470, i64 noundef 21) #12
   %cmp2077 = icmp slt i32 %call2076, 0
-  br i1 %cmp2077, label %error, label %do.body2081
+  br i1 %cmp2077, label %return, label %do.body2081
 
 do.body2081:                                      ; preds = %do.body2075
   %call2082 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.471, i64 noundef 22) #12
   %cmp2083 = icmp slt i32 %call2082, 0
-  br i1 %cmp2083, label %error, label %do.body2087
+  br i1 %cmp2083, label %return, label %do.body2087
 
 do.body2087:                                      ; preds = %do.body2081
   %call2088 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.472, i64 noundef 23) #12
   %cmp2089 = icmp slt i32 %call2088, 0
-  br i1 %cmp2089, label %error, label %do.body2093
+  br i1 %cmp2089, label %return, label %do.body2093
 
 do.body2093:                                      ; preds = %do.body2087
   %call2094 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.473, i64 noundef 24) #12
   %cmp2095 = icmp slt i32 %call2094, 0
-  br i1 %cmp2095, label %error, label %do.body2099
+  br i1 %cmp2095, label %return, label %do.body2099
 
 do.body2099:                                      ; preds = %do.body2093
   %call2100 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.474, i64 noundef 25) #12
   %cmp2101 = icmp slt i32 %call2100, 0
-  br i1 %cmp2101, label %error, label %do.body2105
+  br i1 %cmp2101, label %return, label %do.body2105
 
 do.body2105:                                      ; preds = %do.body2099
   %call2106 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.475, i64 noundef 26) #12
   %cmp2107 = icmp slt i32 %call2106, 0
-  br i1 %cmp2107, label %error, label %do.body2111
+  br i1 %cmp2107, label %return, label %do.body2111
 
 do.body2111:                                      ; preds = %do.body2105
   %call2112 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.476, i64 noundef 27) #12
   %cmp2113 = icmp slt i32 %call2112, 0
-  br i1 %cmp2113, label %error, label %do.body2117
+  br i1 %cmp2113, label %return, label %do.body2117
 
 do.body2117:                                      ; preds = %do.body2111
   %call2118 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.477, i64 noundef 28) #12
   %cmp2119 = icmp slt i32 %call2118, 0
-  br i1 %cmp2119, label %error, label %do.body2123
+  br i1 %cmp2119, label %return, label %do.body2123
 
 do.body2123:                                      ; preds = %do.body2117
   %call2124 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.478, i64 noundef 29) #12
   %cmp2125 = icmp slt i32 %call2124, 0
-  br i1 %cmp2125, label %error, label %do.body2129
+  br i1 %cmp2125, label %return, label %do.body2129
 
 do.body2129:                                      ; preds = %do.body2123
   %call2130 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.479, i64 noundef 30) #12
   %cmp2131 = icmp slt i32 %call2130, 0
-  br i1 %cmp2131, label %error, label %do.body2135
+  br i1 %cmp2131, label %return, label %do.body2135
 
 do.body2135:                                      ; preds = %do.body2129
   %call2136 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.480, i64 noundef 31) #12
   %cmp2137 = icmp slt i32 %call2136, 0
-  br i1 %cmp2137, label %error, label %do.body2141
+  br i1 %cmp2137, label %return, label %do.body2141
 
 do.body2141:                                      ; preds = %do.body2135
   %call2142 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.481, i64 noundef 32) #12
   %cmp2143 = icmp slt i32 %call2142, 0
-  br i1 %cmp2143, label %error, label %do.body2147
+  br i1 %cmp2143, label %return, label %do.body2147
 
 do.body2147:                                      ; preds = %do.body2141
   %call2148 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.482, i64 noundef 33) #12
   %cmp2149 = icmp slt i32 %call2148, 0
-  br i1 %cmp2149, label %error, label %do.body2153
+  br i1 %cmp2149, label %return, label %do.body2153
 
 do.body2153:                                      ; preds = %do.body2147
   %call2154 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.483, i64 noundef 34) #12
   %cmp2155 = icmp slt i32 %call2154, 0
-  br i1 %cmp2155, label %error, label %do.body2159
+  br i1 %cmp2155, label %return, label %do.body2159
 
 do.body2159:                                      ; preds = %do.body2153
   %call2160 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.484, i64 noundef 35) #12
   %cmp2161 = icmp slt i32 %call2160, 0
-  br i1 %cmp2161, label %error, label %do.body2165
+  br i1 %cmp2161, label %return, label %do.body2165
 
 do.body2165:                                      ; preds = %do.body2159
   %call2166 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.485, i64 noundef 36) #12
   %cmp2167 = icmp slt i32 %call2166, 0
-  br i1 %cmp2167, label %error, label %do.body2171
+  br i1 %cmp2167, label %return, label %do.body2171
 
 do.body2171:                                      ; preds = %do.body2165
   %call2172 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.486, i64 noundef 37) #12
   %cmp2173 = icmp slt i32 %call2172, 0
-  br i1 %cmp2173, label %error, label %do.body2177
+  br i1 %cmp2173, label %return, label %do.body2177
 
 do.body2177:                                      ; preds = %do.body2171
   %call2178 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.487, i64 noundef -9) #12
   %cmp2179 = icmp slt i32 %call2178, 0
-  br i1 %cmp2179, label %error, label %do.body2183
+  br i1 %cmp2179, label %return, label %do.body2183
 
 do.body2183:                                      ; preds = %do.body2177
   %call2184 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.488, i64 noundef -3) #12
   %cmp2185 = icmp slt i32 %call2184, 0
-  br i1 %cmp2185, label %error, label %do.body2189
+  br i1 %cmp2185, label %return, label %do.body2189
 
 do.body2189:                                      ; preds = %do.body2183
   %call2190 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.489, i64 noundef -1) #12
   %cmp2191 = icmp slt i32 %call2190, 0
-  br i1 %cmp2191, label %error, label %do.body2195
+  br i1 %cmp2191, label %return, label %do.body2195
 
 do.body2195:                                      ; preds = %do.body2189
   %call2196 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.490, i64 noundef -4) #12
   %cmp2197 = icmp slt i32 %call2196, 0
-  br i1 %cmp2197, label %error, label %do.body2201
+  br i1 %cmp2197, label %return, label %do.body2201
 
 do.body2201:                                      ; preds = %do.body2195
   %call2202 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.491, i64 noundef -6) #12
   %cmp2203 = icmp slt i32 %call2202, 0
-  br i1 %cmp2203, label %error, label %do.body2207
+  br i1 %cmp2203, label %return, label %do.body2207
 
 do.body2207:                                      ; preds = %do.body2201
   %call2208 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.492, i64 noundef -10) #12
   %cmp2209 = icmp slt i32 %call2208, 0
-  br i1 %cmp2209, label %error, label %do.body2213
+  br i1 %cmp2209, label %return, label %do.body2213
 
 do.body2213:                                      ; preds = %do.body2207
   %call2214 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.493, i64 noundef -5) #12
   %cmp2215 = icmp slt i32 %call2214, 0
-  br i1 %cmp2215, label %error, label %do.body2219
+  br i1 %cmp2215, label %return, label %do.body2219
 
 do.body2219:                                      ; preds = %do.body2213
   %call2220 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.494, i64 noundef -2) #12
   %cmp2221 = icmp slt i32 %call2220, 0
-  br i1 %cmp2221, label %error, label %do.body2225
+  br i1 %cmp2221, label %return, label %do.body2225
 
 do.body2225:                                      ; preds = %do.body2219
   %call2226 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.495, i64 noundef -12) #12
   %cmp2227 = icmp slt i32 %call2226, 0
-  br i1 %cmp2227, label %error, label %do.body2231
+  br i1 %cmp2227, label %return, label %do.body2231
 
 do.body2231:                                      ; preds = %do.body2225
   %call2232 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.496, i64 noundef -8) #12
   %cmp2233 = icmp slt i32 %call2232, 0
-  br i1 %cmp2233, label %error, label %do.body2237
+  br i1 %cmp2233, label %return, label %do.body2237
 
 do.body2237:                                      ; preds = %do.body2231
   %call2238 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.497, i64 noundef -7) #12
   %cmp2239 = icmp slt i32 %call2238, 0
-  br i1 %cmp2239, label %error, label %do.body2243
+  br i1 %cmp2239, label %return, label %do.body2243
 
 do.body2243:                                      ; preds = %do.body2237
   %call2244 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.498, i64 noundef -11) #12
   %cmp2245 = icmp slt i32 %call2244, 0
-  br i1 %cmp2245, label %error, label %do.body2249
+  br i1 %cmp2245, label %return, label %do.body2249
 
 do.body2249:                                      ; preds = %do.body2243
   %call2250 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.499, i64 noundef 1) #12
   %cmp2251 = icmp slt i32 %call2250, 0
-  br i1 %cmp2251, label %error, label %do.body2255
+  br i1 %cmp2251, label %return, label %do.body2255
 
 do.body2255:                                      ; preds = %do.body2249
   %call2256 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.500, i64 noundef 2) #12
   %cmp2257 = icmp slt i32 %call2256, 0
-  br i1 %cmp2257, label %error, label %do.body2261
+  br i1 %cmp2257, label %return, label %do.body2261
 
 do.body2261:                                      ; preds = %do.body2255
   %call2262 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.501, i64 noundef 4) #12
   %cmp2263 = icmp slt i32 %call2262, 0
-  br i1 %cmp2263, label %error, label %do.body2267
+  br i1 %cmp2263, label %return, label %do.body2267
 
 do.body2267:                                      ; preds = %do.body2261
   %call2268 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.502, i64 noundef 1024) #12
   %cmp2269 = icmp slt i32 %call2268, 0
-  br i1 %cmp2269, label %error, label %do.body2273
+  br i1 %cmp2269, label %return, label %do.body2273
 
 do.body2273:                                      ; preds = %do.body2267
   %call2274 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.503, i64 noundef 16) #12
   %cmp2275 = icmp slt i32 %call2274, 0
-  br i1 %cmp2275, label %error, label %do.body2279
+  br i1 %cmp2275, label %return, label %do.body2279
 
 do.body2279:                                      ; preds = %do.body2273
   %call2280 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.504, i64 noundef 32) #12
   %cmp2281 = icmp slt i32 %call2280, 0
-  br i1 %cmp2281, label %error, label %do.body2285
+  br i1 %cmp2281, label %return, label %do.body2285
 
 do.body2285:                                      ; preds = %do.body2279
   %call2286 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.505, i64 noundef 8) #12
   %cmp2287 = icmp slt i32 %call2286, 0
-  br i1 %cmp2287, label %error, label %do.body2291
+  br i1 %cmp2287, label %return, label %do.body2291
 
 do.body2291:                                      ; preds = %do.body2285
   %call2292 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.506, i64 noundef 1025) #12
   %cmp2293 = icmp slt i32 %call2292, 0
-  br i1 %cmp2293, label %error, label %do.body2297
+  br i1 %cmp2293, label %return, label %do.body2297
 
 do.body2297:                                      ; preds = %do.body2291
   %call2298 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.507, i64 noundef 32) #12
   %cmp2299 = icmp slt i32 %call2298, 0
-  br i1 %cmp2299, label %error, label %do.body2303
+  br i1 %cmp2299, label %return, label %do.body2303
 
 do.body2303:                                      ; preds = %do.body2297
   %call2304 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.508, i64 noundef 4) #12
   %cmp2305 = icmp slt i32 %call2304, 0
-  br i1 %cmp2305, label %error, label %do.body2309
+  br i1 %cmp2305, label %return, label %do.body2309
 
 do.body2309:                                      ; preds = %do.body2303
   %call2310 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.509, i64 noundef 1) #12
   %cmp2311 = icmp slt i32 %call2310, 0
-  br i1 %cmp2311, label %error, label %do.body2315
+  br i1 %cmp2311, label %return, label %do.body2315
 
 do.body2315:                                      ; preds = %do.body2309
   %call2316 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.510, i64 noundef 8) #12
   %cmp2317 = icmp slt i32 %call2316, 0
-  br i1 %cmp2317, label %error, label %do.body2321
+  br i1 %cmp2317, label %return, label %do.body2321
 
 do.body2321:                                      ; preds = %do.body2315
   %call2322 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.511, i64 noundef 2) #12
   %cmp2323 = icmp slt i32 %call2322, 0
-  br i1 %cmp2323, label %error, label %do.body2327
+  br i1 %cmp2323, label %return, label %do.body2327
 
 do.body2327:                                      ; preds = %do.body2321
   %call2328 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.512, i64 noundef 16) #12
   %cmp2329 = icmp slt i32 %call2328, 0
-  br i1 %cmp2329, label %error, label %do.body2333
+  br i1 %cmp2329, label %return, label %do.body2333
 
 do.body2333:                                      ; preds = %do.body2327
   %call2334 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.513, i64 noundef 32) #12
   %cmp2335 = icmp slt i32 %call2334, 0
-  br i1 %cmp2335, label %error, label %do.body2339
+  br i1 %cmp2335, label %return, label %do.body2339
 
 do.body2339:                                      ; preds = %do.body2333
   %call2340 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.514, i64 noundef 0) #12
   %cmp2341 = icmp slt i32 %call2340, 0
-  br i1 %cmp2341, label %error, label %do.body2345
+  br i1 %cmp2341, label %return, label %do.body2345
 
 do.body2345:                                      ; preds = %do.body2339
   %call2346 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.515, i64 noundef 1) #12
   %cmp2347 = icmp slt i32 %call2346, 0
-  br i1 %cmp2347, label %error, label %do.body2351
+  br i1 %cmp2347, label %return, label %do.body2351
 
 do.body2351:                                      ; preds = %do.body2345
   %call2352 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %m, ptr noundef nonnull @.str.516, i64 noundef 2) #12
-  %cmp2353 = icmp slt i32 %call2352, 0
-  br i1 %cmp2353, label %error, label %return
-
-error.sink.split:                                 ; preds = %if.end56, %if.end52
-  tail call fastcc void @sock_capi_free(ptr noundef nonnull %call49)
-  br label %error
-
-error:                                            ; preds = %error.sink.split, %do.body2351, %do.body2345, %do.body2339, %do.body2333, %do.body2327, %do.body2321, %do.body2315, %do.body2309, %do.body2303, %do.body2297, %do.body2291, %do.body2285, %do.body2279, %do.body2273, %do.body2267, %do.body2261, %do.body2255, %do.body2249, %do.body2243, %do.body2237, %do.body2231, %do.body2225, %do.body2219, %do.body2213, %do.body2207, %do.body2201, %do.body2195, %do.body2189, %do.body2183, %do.body2177, %do.body2171, %do.body2165, %do.body2159, %do.body2153, %do.body2147, %do.body2141, %do.body2135, %do.body2129, %do.body2123, %do.body2117, %do.body2111, %do.body2105, %do.body2099, %do.body2093, %do.body2087, %do.body2081, %do.body2075, %do.body2069, %do.body2063, %do.body2057, %do.body2051, %do.body2045, %do.body2039, %do.body2033, %do.body2027, %do.body2021, %do.body2015, %do.body2009, %do.body2003, %do.body1997, %do.body1991, %do.body1985, %do.body1979, %do.body1973, %do.body1967, %do.body1961, %do.body1955, %do.body1949, %do.body1943, %do.body1937, %do.body1931, %do.body1925, %do.body1919, %do.body1913, %do.body1907, %do.body1901, %do.body1895, %do.body1889, %do.body1883, %do.body1877, %do.body1871, %do.body1865, %do.body1859, %do.body1853, %do.body1847, %do.body1841, %do.body1835, %do.body1829, %do.body1823, %do.body1817, %do.body1811, %do.body1805, %do.body1799, %do.body1793, %do.body1787, %do.body1781, %do.body1775, %do.body1769, %do.body1763, %do.body1757, %do.body1751, %do.body1745, %do.body1739, %do.body1733, %do.body1727, %do.body1721, %do.body1715, %do.body1709, %do.body1703, %do.body1697, %do.body1691, %do.body1685, %do.body1679, %do.body1673, %do.body1667, %do.body1661, %do.body1655, %do.body1649, %do.body1643, %do.body1637, %do.body1631, %do.body1625, %do.body1619, %do.body1613, %do.body1607, %do.body1601, %do.body1595, %do.body1589, %do.body1583, %do.body1577, %do.body1571, %do.body1565, %do.body1559, %do.body1553, %do.body1547, %do.body1541, %do.body1535, %do.body1529, %do.body1523, %do.body1517, %do.body1511, %do.body1505, %do.body1499, %do.body1493, %do.body1487, %do.body1481, %do.body1475, %do.body1469, %do.body1463, %do.body1457, %do.body1451, %do.body1445, %do.body1439, %do.body1433, %do.body1427, %do.body1421, %do.body1415, %do.body1409, %do.body1403, %do.body1397, %do.body1391, %do.body1385, %do.body1379, %do.body1373, %do.body1367, %do.body1361, %do.body1355, %do.body1349, %do.body1343, %do.body1337, %do.body1331, %do.body1325, %do.body1319, %do.body1313, %do.body1307, %do.body1301, %do.body1295, %do.body1289, %do.body1283, %do.body1277, %do.body1271, %do.body1265, %do.body1259, %do.body1253, %do.body1247, %do.body1241, %do.body1235, %do.body1229, %do.body1223, %do.body1217, %do.body1211, %do.body1205, %do.body1199, %do.body1193, %do.body1187, %do.body1181, %do.body1175, %do.body1169, %do.body1163, %do.body1157, %do.body1151, %do.body1145, %do.body1139, %do.body1133, %do.body1127, %do.body1121, %do.body1115, %do.body1109, %do.body1103, %do.body1097, %do.body1091, %do.body1085, %do.body1079, %do.body1073, %do.body1067, %do.body1061, %do.body1055, %do.body1049, %do.body1043, %do.body1037, %do.body1031, %do.body1025, %do.body1019, %do.body1013, %do.body1007, %do.body1001, %do.body995, %do.body989, %do.body983, %do.body977, %do.body971, %do.body965, %do.body959, %do.body953, %do.body947, %do.body941, %do.body935, %do.body929, %do.body923, %do.body917, %do.body911, %do.body905, %do.body899, %do.body893, %do.body887, %do.body881, %do.body875, %do.body869, %do.body863, %do.body857, %do.body851, %do.body845, %do.body839, %do.body833, %do.body827, %do.body821, %do.body815, %do.body809, %do.body803, %do.body797, %do.body791, %do.body785, %do.body779, %do.body773, %do.body767, %do.body761, %do.body755, %do.body749, %do.body743, %do.body737, %do.body731, %do.body725, %do.body719, %do.body713, %do.body707, %do.body701, %do.body695, %do.body689, %do.body683, %do.body677, %do.body671, %do.body665, %do.body659, %do.body653, %do.body647, %do.body641, %do.body635, %do.body629, %do.body623, %do.body617, %do.body611, %do.body605, %do.body599, %do.body593, %do.body587, %do.body581, %do.body575, %do.body569, %do.body563, %do.body557, %do.body551, %do.body545, %do.body539, %do.body533, %do.body527, %do.body521, %do.body515, %do.body509, %do.body503, %do.body497, %do.body491, %do.body485, %do.body479, %do.body473, %do.body467, %do.body461, %do.body455, %do.body449, %do.body443, %do.body437, %do.body431, %do.body425, %do.body419, %do.body413, %do.body407, %do.body401, %do.body395, %do.body389, %do.body383, %do.body377, %do.body371, %do.body365, %do.body359, %do.body353, %do.body347, %do.body341, %do.body335, %do.body329, %do.body323, %do.body317, %do.body311, %do.body305, %do.body299, %do.body293, %do.body287, %do.body281, %do.body275, %do.body269, %do.body263, %do.body257, %do.body251, %do.body245, %do.body239, %do.body233, %do.body227, %do.body221, %do.body215, %do.body209, %do.body203, %do.body197, %do.body191, %do.body185, %do.body179, %do.body173, %do.body167, %do.body161, %do.body155, %do.body149, %do.body143, %do.body137, %do.body131, %do.body125, %do.body119, %do.body113, %do.body107, %do.body101, %do.body95, %do.body89, %do.body83, %do.body77, %do.body71, %do.body65, %if.end60, %if.end48, %if.end44, %if.end39, %if.end34, %if.end30, %if.end26, %do.end22, %if.end16, %do.body11, %if.end5, %entry
+  %call2352.lobit = ashr i32 %call2352, 31
   br label %return
 
-return:                                           ; preds = %do.body2351, %error
-  %retval.0 = phi i32 [ -1, %error ], [ 0, %do.body2351 ]
+return:                                           ; preds = %do.body2351, %if.then55, %if.then59, %entry, %if.end5, %do.body11, %if.end16, %do.end22, %if.end26, %if.end30, %if.end34, %if.end39, %if.end44, %if.end48, %if.end60, %do.body65, %do.body71, %do.body77, %do.body83, %do.body89, %do.body95, %do.body101, %do.body107, %do.body113, %do.body119, %do.body125, %do.body131, %do.body137, %do.body143, %do.body149, %do.body155, %do.body161, %do.body167, %do.body173, %do.body179, %do.body185, %do.body191, %do.body197, %do.body203, %do.body209, %do.body215, %do.body221, %do.body227, %do.body233, %do.body239, %do.body245, %do.body251, %do.body257, %do.body263, %do.body269, %do.body275, %do.body281, %do.body287, %do.body293, %do.body299, %do.body305, %do.body311, %do.body317, %do.body323, %do.body329, %do.body335, %do.body341, %do.body347, %do.body353, %do.body359, %do.body365, %do.body371, %do.body377, %do.body383, %do.body389, %do.body395, %do.body401, %do.body407, %do.body413, %do.body419, %do.body425, %do.body431, %do.body437, %do.body443, %do.body449, %do.body455, %do.body461, %do.body467, %do.body473, %do.body479, %do.body485, %do.body491, %do.body497, %do.body503, %do.body509, %do.body515, %do.body521, %do.body527, %do.body533, %do.body539, %do.body545, %do.body551, %do.body557, %do.body563, %do.body569, %do.body575, %do.body581, %do.body587, %do.body593, %do.body599, %do.body605, %do.body611, %do.body617, %do.body623, %do.body629, %do.body635, %do.body641, %do.body647, %do.body653, %do.body659, %do.body665, %do.body671, %do.body677, %do.body683, %do.body689, %do.body695, %do.body701, %do.body707, %do.body713, %do.body719, %do.body725, %do.body731, %do.body737, %do.body743, %do.body749, %do.body755, %do.body761, %do.body767, %do.body773, %do.body779, %do.body785, %do.body791, %do.body797, %do.body803, %do.body809, %do.body815, %do.body821, %do.body827, %do.body833, %do.body839, %do.body845, %do.body851, %do.body857, %do.body863, %do.body869, %do.body875, %do.body881, %do.body887, %do.body893, %do.body899, %do.body905, %do.body911, %do.body917, %do.body923, %do.body929, %do.body935, %do.body941, %do.body947, %do.body953, %do.body959, %do.body965, %do.body971, %do.body977, %do.body983, %do.body989, %do.body995, %do.body1001, %do.body1007, %do.body1013, %do.body1019, %do.body1025, %do.body1031, %do.body1037, %do.body1043, %do.body1049, %do.body1055, %do.body1061, %do.body1067, %do.body1073, %do.body1079, %do.body1085, %do.body1091, %do.body1097, %do.body1103, %do.body1109, %do.body1115, %do.body1121, %do.body1127, %do.body1133, %do.body1139, %do.body1145, %do.body1151, %do.body1157, %do.body1163, %do.body1169, %do.body1175, %do.body1181, %do.body1187, %do.body1193, %do.body1199, %do.body1205, %do.body1211, %do.body1217, %do.body1223, %do.body1229, %do.body1235, %do.body1241, %do.body1247, %do.body1253, %do.body1259, %do.body1265, %do.body1271, %do.body1277, %do.body1283, %do.body1289, %do.body1295, %do.body1301, %do.body1307, %do.body1313, %do.body1319, %do.body1325, %do.body1331, %do.body1337, %do.body1343, %do.body1349, %do.body1355, %do.body1361, %do.body1367, %do.body1373, %do.body1379, %do.body1385, %do.body1391, %do.body1397, %do.body1403, %do.body1409, %do.body1415, %do.body1421, %do.body1427, %do.body1433, %do.body1439, %do.body1445, %do.body1451, %do.body1457, %do.body1463, %do.body1469, %do.body1475, %do.body1481, %do.body1487, %do.body1493, %do.body1499, %do.body1505, %do.body1511, %do.body1517, %do.body1523, %do.body1529, %do.body1535, %do.body1541, %do.body1547, %do.body1553, %do.body1559, %do.body1565, %do.body1571, %do.body1577, %do.body1583, %do.body1589, %do.body1595, %do.body1601, %do.body1607, %do.body1613, %do.body1619, %do.body1625, %do.body1631, %do.body1637, %do.body1643, %do.body1649, %do.body1655, %do.body1661, %do.body1667, %do.body1673, %do.body1679, %do.body1685, %do.body1691, %do.body1697, %do.body1703, %do.body1709, %do.body1715, %do.body1721, %do.body1727, %do.body1733, %do.body1739, %do.body1745, %do.body1751, %do.body1757, %do.body1763, %do.body1769, %do.body1775, %do.body1781, %do.body1787, %do.body1793, %do.body1799, %do.body1805, %do.body1811, %do.body1817, %do.body1823, %do.body1829, %do.body1835, %do.body1841, %do.body1847, %do.body1853, %do.body1859, %do.body1865, %do.body1871, %do.body1877, %do.body1883, %do.body1889, %do.body1895, %do.body1901, %do.body1907, %do.body1913, %do.body1919, %do.body1925, %do.body1931, %do.body1937, %do.body1943, %do.body1949, %do.body1955, %do.body1961, %do.body1967, %do.body1973, %do.body1979, %do.body1985, %do.body1991, %do.body1997, %do.body2003, %do.body2009, %do.body2015, %do.body2021, %do.body2027, %do.body2033, %do.body2039, %do.body2045, %do.body2051, %do.body2057, %do.body2063, %do.body2069, %do.body2075, %do.body2081, %do.body2087, %do.body2093, %do.body2099, %do.body2105, %do.body2111, %do.body2117, %do.body2123, %do.body2129, %do.body2135, %do.body2141, %do.body2147, %do.body2153, %do.body2159, %do.body2165, %do.body2171, %do.body2177, %do.body2183, %do.body2189, %do.body2195, %do.body2201, %do.body2207, %do.body2213, %do.body2219, %do.body2225, %do.body2231, %do.body2237, %do.body2243, %do.body2249, %do.body2255, %do.body2261, %do.body2267, %do.body2273, %do.body2279, %do.body2285, %do.body2291, %do.body2297, %do.body2303, %do.body2309, %do.body2315, %do.body2321, %do.body2327, %do.body2333, %do.body2339, %do.body2345
+  %retval.0 = phi i32 [ -1, %do.body2345 ], [ -1, %do.body2339 ], [ -1, %do.body2333 ], [ -1, %do.body2327 ], [ -1, %do.body2321 ], [ -1, %do.body2315 ], [ -1, %do.body2309 ], [ -1, %do.body2303 ], [ -1, %do.body2297 ], [ -1, %do.body2291 ], [ -1, %do.body2285 ], [ -1, %do.body2279 ], [ -1, %do.body2273 ], [ -1, %do.body2267 ], [ -1, %do.body2261 ], [ -1, %do.body2255 ], [ -1, %do.body2249 ], [ -1, %do.body2243 ], [ -1, %do.body2237 ], [ -1, %do.body2231 ], [ -1, %do.body2225 ], [ -1, %do.body2219 ], [ -1, %do.body2213 ], [ -1, %do.body2207 ], [ -1, %do.body2201 ], [ -1, %do.body2195 ], [ -1, %do.body2189 ], [ -1, %do.body2183 ], [ -1, %do.body2177 ], [ -1, %do.body2171 ], [ -1, %do.body2165 ], [ -1, %do.body2159 ], [ -1, %do.body2153 ], [ -1, %do.body2147 ], [ -1, %do.body2141 ], [ -1, %do.body2135 ], [ -1, %do.body2129 ], [ -1, %do.body2123 ], [ -1, %do.body2117 ], [ -1, %do.body2111 ], [ -1, %do.body2105 ], [ -1, %do.body2099 ], [ -1, %do.body2093 ], [ -1, %do.body2087 ], [ -1, %do.body2081 ], [ -1, %do.body2075 ], [ -1, %do.body2069 ], [ -1, %do.body2063 ], [ -1, %do.body2057 ], [ -1, %do.body2051 ], [ -1, %do.body2045 ], [ -1, %do.body2039 ], [ -1, %do.body2033 ], [ -1, %do.body2027 ], [ -1, %do.body2021 ], [ -1, %do.body2015 ], [ -1, %do.body2009 ], [ -1, %do.body2003 ], [ -1, %do.body1997 ], [ -1, %do.body1991 ], [ -1, %do.body1985 ], [ -1, %do.body1979 ], [ -1, %do.body1973 ], [ -1, %do.body1967 ], [ -1, %do.body1961 ], [ -1, %do.body1955 ], [ -1, %do.body1949 ], [ -1, %do.body1943 ], [ -1, %do.body1937 ], [ -1, %do.body1931 ], [ -1, %do.body1925 ], [ -1, %do.body1919 ], [ -1, %do.body1913 ], [ -1, %do.body1907 ], [ -1, %do.body1901 ], [ -1, %do.body1895 ], [ -1, %do.body1889 ], [ -1, %do.body1883 ], [ -1, %do.body1877 ], [ -1, %do.body1871 ], [ -1, %do.body1865 ], [ -1, %do.body1859 ], [ -1, %do.body1853 ], [ -1, %do.body1847 ], [ -1, %do.body1841 ], [ -1, %do.body1835 ], [ -1, %do.body1829 ], [ -1, %do.body1823 ], [ -1, %do.body1817 ], [ -1, %do.body1811 ], [ -1, %do.body1805 ], [ -1, %do.body1799 ], [ -1, %do.body1793 ], [ -1, %do.body1787 ], [ -1, %do.body1781 ], [ -1, %do.body1775 ], [ -1, %do.body1769 ], [ -1, %do.body1763 ], [ -1, %do.body1757 ], [ -1, %do.body1751 ], [ -1, %do.body1745 ], [ -1, %do.body1739 ], [ -1, %do.body1733 ], [ -1, %do.body1727 ], [ -1, %do.body1721 ], [ -1, %do.body1715 ], [ -1, %do.body1709 ], [ -1, %do.body1703 ], [ -1, %do.body1697 ], [ -1, %do.body1691 ], [ -1, %do.body1685 ], [ -1, %do.body1679 ], [ -1, %do.body1673 ], [ -1, %do.body1667 ], [ -1, %do.body1661 ], [ -1, %do.body1655 ], [ -1, %do.body1649 ], [ -1, %do.body1643 ], [ -1, %do.body1637 ], [ -1, %do.body1631 ], [ -1, %do.body1625 ], [ -1, %do.body1619 ], [ -1, %do.body1613 ], [ -1, %do.body1607 ], [ -1, %do.body1601 ], [ -1, %do.body1595 ], [ -1, %do.body1589 ], [ -1, %do.body1583 ], [ -1, %do.body1577 ], [ -1, %do.body1571 ], [ -1, %do.body1565 ], [ -1, %do.body1559 ], [ -1, %do.body1553 ], [ -1, %do.body1547 ], [ -1, %do.body1541 ], [ -1, %do.body1535 ], [ -1, %do.body1529 ], [ -1, %do.body1523 ], [ -1, %do.body1517 ], [ -1, %do.body1511 ], [ -1, %do.body1505 ], [ -1, %do.body1499 ], [ -1, %do.body1493 ], [ -1, %do.body1487 ], [ -1, %do.body1481 ], [ -1, %do.body1475 ], [ -1, %do.body1469 ], [ -1, %do.body1463 ], [ -1, %do.body1457 ], [ -1, %do.body1451 ], [ -1, %do.body1445 ], [ -1, %do.body1439 ], [ -1, %do.body1433 ], [ -1, %do.body1427 ], [ -1, %do.body1421 ], [ -1, %do.body1415 ], [ -1, %do.body1409 ], [ -1, %do.body1403 ], [ -1, %do.body1397 ], [ -1, %do.body1391 ], [ -1, %do.body1385 ], [ -1, %do.body1379 ], [ -1, %do.body1373 ], [ -1, %do.body1367 ], [ -1, %do.body1361 ], [ -1, %do.body1355 ], [ -1, %do.body1349 ], [ -1, %do.body1343 ], [ -1, %do.body1337 ], [ -1, %do.body1331 ], [ -1, %do.body1325 ], [ -1, %do.body1319 ], [ -1, %do.body1313 ], [ -1, %do.body1307 ], [ -1, %do.body1301 ], [ -1, %do.body1295 ], [ -1, %do.body1289 ], [ -1, %do.body1283 ], [ -1, %do.body1277 ], [ -1, %do.body1271 ], [ -1, %do.body1265 ], [ -1, %do.body1259 ], [ -1, %do.body1253 ], [ -1, %do.body1247 ], [ -1, %do.body1241 ], [ -1, %do.body1235 ], [ -1, %do.body1229 ], [ -1, %do.body1223 ], [ -1, %do.body1217 ], [ -1, %do.body1211 ], [ -1, %do.body1205 ], [ -1, %do.body1199 ], [ -1, %do.body1193 ], [ -1, %do.body1187 ], [ -1, %do.body1181 ], [ -1, %do.body1175 ], [ -1, %do.body1169 ], [ -1, %do.body1163 ], [ -1, %do.body1157 ], [ -1, %do.body1151 ], [ -1, %do.body1145 ], [ -1, %do.body1139 ], [ -1, %do.body1133 ], [ -1, %do.body1127 ], [ -1, %do.body1121 ], [ -1, %do.body1115 ], [ -1, %do.body1109 ], [ -1, %do.body1103 ], [ -1, %do.body1097 ], [ -1, %do.body1091 ], [ -1, %do.body1085 ], [ -1, %do.body1079 ], [ -1, %do.body1073 ], [ -1, %do.body1067 ], [ -1, %do.body1061 ], [ -1, %do.body1055 ], [ -1, %do.body1049 ], [ -1, %do.body1043 ], [ -1, %do.body1037 ], [ -1, %do.body1031 ], [ -1, %do.body1025 ], [ -1, %do.body1019 ], [ -1, %do.body1013 ], [ -1, %do.body1007 ], [ -1, %do.body1001 ], [ -1, %do.body995 ], [ -1, %do.body989 ], [ -1, %do.body983 ], [ -1, %do.body977 ], [ -1, %do.body971 ], [ -1, %do.body965 ], [ -1, %do.body959 ], [ -1, %do.body953 ], [ -1, %do.body947 ], [ -1, %do.body941 ], [ -1, %do.body935 ], [ -1, %do.body929 ], [ -1, %do.body923 ], [ -1, %do.body917 ], [ -1, %do.body911 ], [ -1, %do.body905 ], [ -1, %do.body899 ], [ -1, %do.body893 ], [ -1, %do.body887 ], [ -1, %do.body881 ], [ -1, %do.body875 ], [ -1, %do.body869 ], [ -1, %do.body863 ], [ -1, %do.body857 ], [ -1, %do.body851 ], [ -1, %do.body845 ], [ -1, %do.body839 ], [ -1, %do.body833 ], [ -1, %do.body827 ], [ -1, %do.body821 ], [ -1, %do.body815 ], [ -1, %do.body809 ], [ -1, %do.body803 ], [ -1, %do.body797 ], [ -1, %do.body791 ], [ -1, %do.body785 ], [ -1, %do.body779 ], [ -1, %do.body773 ], [ -1, %do.body767 ], [ -1, %do.body761 ], [ -1, %do.body755 ], [ -1, %do.body749 ], [ -1, %do.body743 ], [ -1, %do.body737 ], [ -1, %do.body731 ], [ -1, %do.body725 ], [ -1, %do.body719 ], [ -1, %do.body713 ], [ -1, %do.body707 ], [ -1, %do.body701 ], [ -1, %do.body695 ], [ -1, %do.body689 ], [ -1, %do.body683 ], [ -1, %do.body677 ], [ -1, %do.body671 ], [ -1, %do.body665 ], [ -1, %do.body659 ], [ -1, %do.body653 ], [ -1, %do.body647 ], [ -1, %do.body641 ], [ -1, %do.body635 ], [ -1, %do.body629 ], [ -1, %do.body623 ], [ -1, %do.body617 ], [ -1, %do.body611 ], [ -1, %do.body605 ], [ -1, %do.body599 ], [ -1, %do.body593 ], [ -1, %do.body587 ], [ -1, %do.body581 ], [ -1, %do.body575 ], [ -1, %do.body569 ], [ -1, %do.body563 ], [ -1, %do.body557 ], [ -1, %do.body551 ], [ -1, %do.body545 ], [ -1, %do.body539 ], [ -1, %do.body533 ], [ -1, %do.body527 ], [ -1, %do.body521 ], [ -1, %do.body515 ], [ -1, %do.body509 ], [ -1, %do.body503 ], [ -1, %do.body497 ], [ -1, %do.body491 ], [ -1, %do.body485 ], [ -1, %do.body479 ], [ -1, %do.body473 ], [ -1, %do.body467 ], [ -1, %do.body461 ], [ -1, %do.body455 ], [ -1, %do.body449 ], [ -1, %do.body443 ], [ -1, %do.body437 ], [ -1, %do.body431 ], [ -1, %do.body425 ], [ -1, %do.body419 ], [ -1, %do.body413 ], [ -1, %do.body407 ], [ -1, %do.body401 ], [ -1, %do.body395 ], [ -1, %do.body389 ], [ -1, %do.body383 ], [ -1, %do.body377 ], [ -1, %do.body371 ], [ -1, %do.body365 ], [ -1, %do.body359 ], [ -1, %do.body353 ], [ -1, %do.body347 ], [ -1, %do.body341 ], [ -1, %do.body335 ], [ -1, %do.body329 ], [ -1, %do.body323 ], [ -1, %do.body317 ], [ -1, %do.body311 ], [ -1, %do.body305 ], [ -1, %do.body299 ], [ -1, %do.body293 ], [ -1, %do.body287 ], [ -1, %do.body281 ], [ -1, %do.body275 ], [ -1, %do.body269 ], [ -1, %do.body263 ], [ -1, %do.body257 ], [ -1, %do.body251 ], [ -1, %do.body245 ], [ -1, %do.body239 ], [ -1, %do.body233 ], [ -1, %do.body227 ], [ -1, %do.body221 ], [ -1, %do.body215 ], [ -1, %do.body209 ], [ -1, %do.body203 ], [ -1, %do.body197 ], [ -1, %do.body191 ], [ -1, %do.body185 ], [ -1, %do.body179 ], [ -1, %do.body173 ], [ -1, %do.body167 ], [ -1, %do.body161 ], [ -1, %do.body155 ], [ -1, %do.body149 ], [ -1, %do.body143 ], [ -1, %do.body137 ], [ -1, %do.body131 ], [ -1, %do.body125 ], [ -1, %do.body119 ], [ -1, %do.body113 ], [ -1, %do.body107 ], [ -1, %do.body101 ], [ -1, %do.body95 ], [ -1, %do.body89 ], [ -1, %do.body83 ], [ -1, %do.body77 ], [ -1, %do.body71 ], [ -1, %do.body65 ], [ -1, %if.end60 ], [ -1, %if.end48 ], [ -1, %if.end44 ], [ -1, %if.end39 ], [ -1, %if.end34 ], [ -1, %if.end30 ], [ -1, %if.end26 ], [ -1, %do.end22 ], [ -1, %if.end16 ], [ -1, %do.body11 ], [ -1, %if.end5 ], [ -1, %entry ], [ -1, %if.then59 ], [ -1, %if.then55 ], [ %call2352.lobit, %do.body2351 ]
   ret i32 %retval.0
 }
 
@@ -6302,18 +6299,14 @@ entry:
   %call = tail call ptr @PyCapsule_GetPointer(ptr noundef %capsule, ptr noundef nonnull @.str.131) #12
   %0 = load ptr, ptr %call, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %0, ptr noundef %arg) #12
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -6391,18 +6384,14 @@ entry:
   %0 = getelementptr i8, ptr %s, i64 8
   %s.val3 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %s.val3, null
-  br i1 %tobool.not, label %do.end, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 %visit(ptr noundef nonnull %s.val3, ptr noundef %arg) #12
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %entry, %if.then
   br label %return
 
-return:                                           ; preds = %if.then, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ %call2, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call2, %if.then ]
   ret i32 %retval.0
 }
 
@@ -6442,34 +6431,34 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add28 = add i64 %kwargs.val, %args.val
-  %ob_item33 = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item30 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
-  %or.cond1 = icmp ult i64 %args.val, 5
+  %2 = icmp ult i64 %args.val, 5
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
-  br i1 %or.cond1, label %if.end, label %cond.end15
+  br i1 %2, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
-  %ob_item36 = phi ptr [ %ob_item33, %cond.end.thread ], [ %ob_item, %cond.end ]
-  %add34 = phi i64 [ %add28, %cond.end.thread ], [ %args.val, %cond.end ]
-  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item36, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @sock_initobj._parser, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %argsbuf) #12
+  %ob_item33 = phi ptr [ %ob_item30, %cond.end.thread ], [ %ob_item, %cond.end ]
+  %add31 = phi i64 [ %add28, %cond.end.thread ], [ %args.val, %cond.end ]
+  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item33, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @sock_initobj._parser, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %argsbuf) #12
   %tobool17.not = icmp eq ptr %call14, null
   br i1 %tobool17.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %cond.end, %cond.end15
-  %cond1641 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
-  %add3540 = phi i64 [ %add34, %cond.end15 ], [ %args.val, %cond.end ]
-  %tobool18.not = icmp eq i64 %add3540, 0
+  %cond1638 = phi ptr [ %call14, %cond.end15 ], [ %ob_item, %cond.end ]
+  %add3237 = phi i64 [ %add31, %cond.end15 ], [ %args.val, %cond.end ]
+  %tobool18.not = icmp eq i64 %add3237, 0
   br i1 %tobool18.not, label %skip_optional_pos, label %if.end20
 
 if.end20:                                         ; preds = %if.end
-  %2 = load ptr, ptr %cond1641, align 8
-  %tobool21.not = icmp eq ptr %2, null
+  %3 = load ptr, ptr %cond1638, align 8
+  %tobool21.not = icmp eq ptr %3, null
   br i1 %tobool21.not, label %if.end34, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %call24 = call i32 @PyLong_AsInt(ptr noundef nonnull %2) #12
+  %call24 = call i32 @PyLong_AsInt(ptr noundef nonnull %3) #12
   %cmp25 = icmp eq i32 %call24, -1
   br i1 %cmp25, label %land.lhs.true26, label %if.end30
 
@@ -6479,20 +6468,20 @@ land.lhs.true26:                                  ; preds = %if.then22
   br i1 %tobool28.not, label %if.end30, label %exit
 
 if.end30:                                         ; preds = %land.lhs.true26, %if.then22
-  %dec = add i64 %add3540, -1
+  %dec = add i64 %add3237, -1
   %tobool31.not = icmp eq i64 %dec, 0
   br i1 %tobool31.not, label %skip_optional_pos, label %if.end34
 
 if.end34:                                         ; preds = %if.end30, %if.end20
-  %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %add3540, %if.end20 ]
+  %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %add3237, %if.end20 ]
   %family.0 = phi i32 [ %call24, %if.end30 ], [ -1, %if.end20 ]
-  %arrayidx35 = getelementptr i8, ptr %cond1641, i64 8
-  %3 = load ptr, ptr %arrayidx35, align 8
-  %tobool36.not = icmp eq ptr %3, null
+  %arrayidx35 = getelementptr i8, ptr %cond1638, i64 8
+  %4 = load ptr, ptr %arrayidx35, align 8
+  %tobool36.not = icmp eq ptr %4, null
   br i1 %tobool36.not, label %if.end50, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
-  %call39 = call i32 @PyLong_AsInt(ptr noundef nonnull %3) #12
+  %call39 = call i32 @PyLong_AsInt(ptr noundef nonnull %4) #12
   %cmp40 = icmp eq i32 %call39, -1
   br i1 %cmp40, label %land.lhs.true41, label %if.end45
 
@@ -6509,13 +6498,13 @@ if.end45:                                         ; preds = %land.lhs.true41, %i
 if.end50:                                         ; preds = %if.end45, %if.end34
   %noptargs.1 = phi i64 [ %dec46, %if.end45 ], [ %noptargs.0, %if.end34 ]
   %type.0 = phi i32 [ %call39, %if.end45 ], [ -1, %if.end34 ]
-  %arrayidx51 = getelementptr i8, ptr %cond1641, i64 16
-  %4 = load ptr, ptr %arrayidx51, align 8
-  %tobool52.not = icmp eq ptr %4, null
+  %arrayidx51 = getelementptr i8, ptr %cond1638, i64 16
+  %5 = load ptr, ptr %arrayidx51, align 8
+  %tobool52.not = icmp eq ptr %5, null
   br i1 %tobool52.not, label %if.end66, label %if.then53
 
 if.then53:                                        ; preds = %if.end50
-  %call55 = call i32 @PyLong_AsInt(ptr noundef nonnull %4) #12
+  %call55 = call i32 @PyLong_AsInt(ptr noundef nonnull %5) #12
   %cmp56 = icmp eq i32 %call55, -1
   br i1 %cmp56, label %land.lhs.true57, label %if.end61
 
@@ -6530,26 +6519,26 @@ if.end61:                                         ; preds = %land.lhs.true57, %i
 
 if.end66:                                         ; preds = %if.end61, %if.end50
   %proto.0 = phi i32 [ %call55, %if.end61 ], [ -1, %if.end50 ]
-  %arrayidx67 = getelementptr i8, ptr %cond1641, i64 24
-  %5 = load ptr, ptr %arrayidx67, align 8
+  %arrayidx67 = getelementptr i8, ptr %cond1638, i64 24
+  %6 = load ptr, ptr %arrayidx67, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end61, %if.end45, %if.end30, %if.end, %if.end66
   %family.1 = phi i32 [ %family.0, %if.end66 ], [ %family.0, %if.end61 ], [ %family.0, %if.end45 ], [ %call24, %if.end30 ], [ -1, %if.end ]
   %type.1 = phi i32 [ %type.0, %if.end66 ], [ %type.0, %if.end61 ], [ %call39, %if.end45 ], [ -1, %if.end30 ], [ -1, %if.end ]
   %proto.1 = phi i32 [ %proto.0, %if.end66 ], [ %call55, %if.end61 ], [ -1, %if.end45 ], [ -1, %if.end30 ], [ -1, %if.end ]
-  %fdobj.0 = phi ptr [ %5, %if.end66 ], [ null, %if.end61 ], [ null, %if.end45 ], [ null, %if.end30 ], [ null, %if.end ]
+  %fdobj.0 = phi ptr [ %6, %if.end66 ], [ null, %if.end61 ], [ null, %if.end45 ], [ null, %if.end30 ], [ null, %if.end ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addrlen.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %slen.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp54.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %slen55.i)
-  %6 = getelementptr i8, ptr %self, i64 8
-  %self.val.i = load ptr, ptr %6, align 8
+  %7 = getelementptr i8, ptr %self, i64 8
+  %self.val.i = load ptr, ptr %7, align 8
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i, ptr noundef nonnull @socketmodule) #12
-  %7 = getelementptr i8, ptr %call.i.i, i64 32
-  %call.val.i.i = load ptr, ptr %7, align 8
+  %8 = getelementptr i8, ptr %call.i.i, i64 32
+  %call.val.i.i = load ptr, ptr %8, align 8
   %sock_cloexec_works.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 36
   %call2.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.657, ptr noundef nonnull @.str.658, ptr noundef %self, i32 noundef %family.1, i32 noundef %type.1, i32 noundef %proto.1) #12
   %cmp.i = icmp slt i32 %call2.i, 0
@@ -6577,8 +6566,8 @@ if.end12.i:                                       ; preds = %if.then5.i
   br i1 %cmp13.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.end12.i, %land.lhs.true9.i
-  %8 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.659) #12
+  %9 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.659) #12
   br label %sock_initobj_impl.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
@@ -6593,8 +6582,8 @@ if.then21.i:                                      ; preds = %if.end16.i
   br i1 %cmp22.i, label %if.then24.i, label %if.end39.i
 
 if.then24.i:                                      ; preds = %if.then21.i
-  %9 = load i16, ptr %addrbuf.i, align 8
-  %conv25.i = zext i16 %9 to i32
+  %10 = load i16, ptr %addrbuf.i, align 8
+  %conv25.i = zext i16 %10 to i32
   br label %if.end39.i
 
 if.else.i:                                        ; preds = %if.end16.i
@@ -6602,15 +6591,15 @@ if.else.i:                                        ; preds = %if.end16.i
 
 lor.lhs.false.i:                                  ; preds = %if.else.i
   %call29.i = tail call ptr @__errno_location() #13
-  %10 = load i32, ptr %call29.i, align 4
-  switch i32 %10, label %if.end39.i [
+  %11 = load i32, ptr %call29.i, align 4
+  switch i32 %11, label %if.end39.i [
     i32 9, label %if.then36.i
     i32 88, label %if.then36.i
   ]
 
 if.then36.i:                                      ; preds = %lor.lhs.false.i, %lor.lhs.false.i, %if.else.i
-  %11 = load ptr, ptr @PyExc_OSError, align 8
-  %call.i41.i = call ptr @PyErr_SetFromErrno(ptr noundef %11) #12
+  %12 = load ptr, ptr @PyExc_OSError, align 8
+  %call.i41.i = call ptr @PyErr_SetFromErrno(ptr noundef %12) #12
   br label %sock_initobj_impl.exit
 
 if.end39.i:                                       ; preds = %lor.lhs.false.i, %if.then24.i, %if.then21.i
@@ -6625,16 +6614,16 @@ if.then42.i:                                      ; preds = %if.end39.i
   br i1 %cmp44.i, label %if.then46.i, label %if.else47.i
 
 if.then46.i:                                      ; preds = %if.then42.i
-  %12 = load i32, ptr %tmp.i, align 4
+  %13 = load i32, ptr %tmp.i, align 4
   br label %if.end50.i
 
 if.else47.i:                                      ; preds = %if.then42.i
-  %13 = load ptr, ptr @PyExc_OSError, align 8
-  %call.i42.i = call ptr @PyErr_SetFromErrno(ptr noundef %13) #12
+  %14 = load ptr, ptr @PyExc_OSError, align 8
+  %call.i42.i = call ptr @PyErr_SetFromErrno(ptr noundef %14) #12
   br label %sock_initobj_impl.exit
 
 if.end50.i:                                       ; preds = %if.then46.i, %if.end39.i
-  %type.addr.0.i = phi i32 [ %12, %if.then46.i ], [ %type.1, %if.end39.i ]
+  %type.addr.0.i = phi i32 [ %13, %if.then46.i ], [ %type.1, %if.end39.i ]
   %cmp51.i = icmp eq i32 %proto.1, -1
   br i1 %cmp51.i, label %if.then53.i, label %if.end115.i
 
@@ -6645,12 +6634,12 @@ if.then53.i:                                      ; preds = %if.end50.i
   br i1 %cmp57.i, label %if.then59.i, label %if.else60.i
 
 if.then59.i:                                      ; preds = %if.then53.i
-  %14 = load i32, ptr %tmp54.i, align 4
+  %15 = load i32, ptr %tmp54.i, align 4
   br label %if.end115.i
 
 if.else60.i:                                      ; preds = %if.then53.i
-  %15 = load ptr, ptr @PyExc_OSError, align 8
-  %call.i43.i = call ptr @PyErr_SetFromErrno(ptr noundef %15) #12
+  %16 = load ptr, ptr @PyExc_OSError, align 8
+  %call.i43.i = call ptr @PyErr_SetFromErrno(ptr noundef %16) #12
   br label %sock_initobj_impl.exit
 
 if.else64.i:                                      ; preds = %if.end.i
@@ -6661,15 +6650,15 @@ if.else64.i:                                      ; preds = %if.end.i
   %cmp73.i = icmp eq i32 %proto.1, -1
   %spec.store.select1.i = select i1 %cmp73.i, i32 0, i32 %proto.1
   %call77.i = call ptr @PyEval_SaveThread() #12
-  %16 = load i32, ptr %sock_cloexec_works.i, align 4
-  %cmp79.not.i = icmp eq i32 %16, 0
+  %17 = load i32, ptr %sock_cloexec_works.i, align 4
+  %cmp79.not.i = icmp eq i32 %17, 0
   br i1 %cmp79.not.i, label %if.end103.sink.split.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %if.else64.i
   %or.i = or i32 %spec.store.select2.i, 524288
   %call82.i = call i32 @socket(i32 noundef %spec.store.select.i, i32 noundef %or.i, i32 noundef %spec.store.select1.i) #12
-  %17 = load i32, ptr %sock_cloexec_works.i, align 4
-  %cmp84.i = icmp eq i32 %17, -1
+  %18 = load i32, ptr %sock_cloexec_works.i, align 4
+  %cmp84.i = icmp eq i32 %18, -1
   br i1 %cmp84.i, label %if.then86.i, label %if.end103.i
 
 if.then86.i:                                      ; preds = %if.then81.i
@@ -6683,8 +6672,8 @@ if.end103.thread.i:                               ; preds = %if.then86.i
 
 if.else91.i:                                      ; preds = %if.then86.i
   %call92.i = tail call ptr @__errno_location() #13
-  %18 = load i32, ptr %call92.i, align 4
-  %cmp93.i = icmp eq i32 %18, 22
+  %19 = load i32, ptr %call92.i, align 4
+  %cmp93.i = icmp eq i32 %19, 22
   br i1 %cmp93.i, label %if.then95.i, label %if.end103.i
 
 if.then95.i:                                      ; preds = %if.else91.i
@@ -6702,8 +6691,8 @@ if.end103.i:                                      ; preds = %if.end103.sink.spli
   br i1 %cmp104.i, label %if.then106.i, label %if.end108.i
 
 if.then106.i:                                     ; preds = %if.end103.i
-  %19 = load ptr, ptr @PyExc_OSError, align 8
-  %call.i44.i = call ptr @PyErr_SetFromErrno(ptr noundef %19) #12
+  %20 = load ptr, ptr @PyExc_OSError, align 8
+  %call.i44.i = call ptr @PyErr_SetFromErrno(ptr noundef %20) #12
   br label %sock_initobj_impl.exit
 
 if.end108.i:                                      ; preds = %if.end103.i, %if.end103.thread.i
@@ -6718,7 +6707,7 @@ if.then112.i:                                     ; preds = %if.end108.i
 
 if.end115.i:                                      ; preds = %if.end108.i, %if.then59.i, %if.end50.i
   %fd.1.i = phi i32 [ %conv.i, %if.then59.i ], [ %conv.i, %if.end50.i ], [ %fd.048.i, %if.end108.i ]
-  %proto.addr.0.i = phi i32 [ %14, %if.then59.i ], [ %proto.1, %if.end50.i ], [ %spec.store.select1.i, %if.end108.i ]
+  %proto.addr.0.i = phi i32 [ %15, %if.then59.i ], [ %proto.1, %if.end50.i ], [ %spec.store.select1.i, %if.end108.i ]
   %type.addr.1.i = phi i32 [ %type.addr.0.i, %if.then59.i ], [ %type.addr.0.i, %if.end50.i ], [ %spec.store.select2.i, %if.end108.i ]
   %family.addr.1.i = phi i32 [ %family.addr.0.i, %if.then59.i ], [ %family.addr.0.i, %if.end50.i ], [ %spec.store.select.i, %if.end108.i ]
   %sock_fd.i.i = getelementptr inbounds i8, ptr %self, i64 16
@@ -6743,18 +6732,18 @@ if.then.i.i:                                      ; preds = %if.end115.i
 
 if.else.i.i:                                      ; preds = %if.end115.i
   %defaulttimeout.i.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
-  %20 = load i64, ptr %defaulttimeout.i.i, align 8
+  %21 = load i64, ptr %defaulttimeout.i.i, align 8
   %sock_timeout7.i.i = getelementptr inbounds i8, ptr %self, i64 40
-  store i64 %20, ptr %sock_timeout7.i.i, align 8
-  %cmp.i.i = icmp sgt i64 %20, -1
+  store i64 %21, ptr %sock_timeout7.i.i, align 8
+  %cmp.i.i = icmp sgt i64 %21, -1
   br i1 %cmp.i.i, label %if.then9.i.i, label %init_sockobject.exit.i
 
 if.then9.i.i:                                     ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %block.addr.i.i.i)
   %call.i.i.i = call ptr @PyEval_SaveThread() #12
   store i32 1, ptr %block.addr.i.i.i, align 4
-  %21 = load i32, ptr %sock_fd.i.i, align 8
-  %call1.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %21, i64 noundef 21537, ptr noundef nonnull %block.addr.i.i.i) #12
+  %22 = load i32, ptr %sock_fd.i.i, align 8
+  %call1.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %22, i64 noundef 21537, ptr noundef nonnull %block.addr.i.i.i) #12
   %cmp.not.i.i.i = icmp eq i32 %call1.i.i.i, -1
   call void @PyEval_RestoreThread(ptr noundef %call.i.i.i) #12
   br i1 %cmp.not.i.i.i, label %if.then119.i, label %internal_setblocking.exit.i.i
@@ -6769,8 +6758,8 @@ init_sockobject.exit.i:                           ; preds = %internal_setblockin
   br label %sock_initobj_impl.exit
 
 if.then119.i:                                     ; preds = %if.then9.i.i
-  %22 = load ptr, ptr @PyExc_OSError, align 8
-  %call4.i.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %22) #12
+  %23 = load ptr, ptr @PyExc_OSError, align 8
+  %call4.i.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %23) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %block.addr.i.i.i)
   %call120.i = call i32 @close(i32 noundef %fd.1.i) #12
   br label %sock_initobj_impl.exit
@@ -9753,7 +9742,7 @@ if.end26:                                         ; preds = %if.else21
 
 if.end32:                                         ; preds = %if.then13, %if.end9, %if.end26
   %.sink262 = phi i32 [ 3, %if.end26 ], [ 2, %if.end9 ], [ 2, %if.then13 ]
-  %11 = trunc i64 %7 to i32
+  %11 = trunc nuw i64 %7 to i32
   %conv31 = add nuw nsw i32 %.sink262, %11
   store i32 %conv31, ptr %len_ret, align 4
   %12 = load i32, ptr %sock_family, align 4
@@ -9956,7 +9945,7 @@ if.then113:                                       ; preds = %if.end107
 
 if.end115:                                        ; preds = %if.end107
   store i16 2, ptr %addrbuf, align 4
-  %conv116 = trunc i32 %49 to i16
+  %conv116 = trunc nuw i32 %49 to i16
   %call117 = call zeroext i16 @htons(i16 noundef zeroext %conv116) #13
   %sin_port = getelementptr inbounds i8, ptr %addrbuf, i64 2
   store i16 %call117, ptr %sin_port, align 2
@@ -10053,7 +10042,7 @@ if.end159:                                        ; preds = %if.end154
   %67 = load i32, ptr %sock_family, align 4
   %conv161 = trunc i32 %67 to i16
   store i16 %conv161, ptr %addrbuf, align 4
-  %conv162 = trunc i32 %63 to i16
+  %conv162 = trunc nuw i32 %63 to i16
   %call163 = call zeroext i16 @htons(i16 noundef zeroext %conv162) #13
   %sin6_port = getelementptr inbounds i8, ptr %addrbuf, i64 2
   store i16 %call163, ptr %sin6_port, align 2
@@ -10252,7 +10241,7 @@ if.then254:                                       ; preds = %if.end248
 
 if.end256:                                        ; preds = %if.end248
   store i16 17, ptr %addrbuf, align 4
-  %conv258 = trunc i32 %94 to i16
+  %conv258 = trunc nuw i32 %94 to i16
   %call259 = call zeroext i16 @htons(i16 noundef zeroext %conv258) #13
   %sll_protocol = getelementptr inbounds i8, ptr %addrbuf, i64 2
   store i16 %call259, ptr %sll_protocol, align 2
@@ -10963,7 +10952,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %conv = trunc i32 %0 to i8
+  %conv = trunc nuw i32 %0 to i8
   store i8 %conv, ptr %bdaddr, align 1
   %conv6 = trunc i32 %1 to i8
   %arrayidx8 = getelementptr i8, ptr %bdaddr, i64 1
@@ -10977,7 +10966,7 @@ if.then:                                          ; preds = %land.lhs.true
   %conv15 = trunc i32 %4 to i8
   %arrayidx17 = getelementptr i8, ptr %bdaddr, i64 4
   store i8 %conv15, ptr %arrayidx17, align 1
-  %conv18 = trunc i32 %5 to i8
+  %conv18 = trunc nuw i32 %5 to i8
   %arrayidx20 = getelementptr i8, ptr %bdaddr, i64 5
   store i8 %conv18, ptr %arrayidx20, align 1
   br label %return
@@ -11062,23 +11051,17 @@ if.end24:                                         ; preds = %if.end8, %if.end16
 
 if.then26:                                        ; preds = %if.end24
   %call28 = tail call fastcc i32 @sock_call_ex(ptr noundef nonnull %s, i32 noundef 1, ptr noundef nonnull @sock_connect_impl, ptr noundef null, i32 noundef 1, ptr noundef null, i64 noundef %5), !range !9
-  %cmp29 = icmp slt i32 %call28, 0
-  br i1 %cmp29, label %return, label %if.end38
+  br label %return
 
 if.else32:                                        ; preds = %if.end24
   %call34 = call fastcc i32 @sock_call_ex(ptr noundef nonnull %s, i32 noundef 1, ptr noundef nonnull @sock_connect_impl, ptr noundef null, i32 noundef 1, ptr noundef nonnull %err, i64 noundef %5), !range !9
   %cmp35 = icmp slt i32 %call34, 0
-  br i1 %cmp35, label %if.then36, label %if.end38
-
-if.then36:                                        ; preds = %if.else32
   %6 = load i32, ptr %err, align 4
+  %spec.select10 = select i1 %cmp35, i32 %6, i32 0
   br label %return
 
-if.end38:                                         ; preds = %if.else32, %if.then26
-  br label %return
-
-return:                                           ; preds = %if.then18, %if.then26, %if.then4, %entry, %if.end38, %if.then36, %do.body
-  %retval.0 = phi i32 [ 0, %if.end38 ], [ %6, %if.then36 ], [ -1, %do.body ], [ 0, %entry ], [ -1, %if.then4 ], [ -1, %if.then26 ], [ %1, %if.then18 ]
+return:                                           ; preds = %if.then18, %if.else32, %if.then26, %if.then4, %entry, %do.body
+  %retval.0 = phi i32 [ -1, %do.body ], [ 0, %entry ], [ -1, %if.then4 ], [ %spec.select10, %if.else32 ], [ %call28, %if.then26 ], [ %1, %if.then18 ]
   ret i32 %retval.0
 }
 

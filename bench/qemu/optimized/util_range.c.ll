@@ -67,15 +67,17 @@ if.end:                                           ; preds = %range_is_empty.exit
   br i1 %or.cond, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %tobool7.not = icmp ne i64 %a.val, 0
+  %tobool7.not = icmp eq i64 %a.val, 0
+  br i1 %tobool7.not, label %return, label %land.lhs.true8
+
+land.lhs.true8:                                   ; preds = %if.end5
   %sub10 = add i64 %a.val, -1
   %cmp12 = icmp ugt i64 %sub10, %b.val9
-  %or.cond17 = and i1 %tobool7.not, %cmp12
-  %spec.select = zext i1 %or.cond17 to i32
+  %spec.select = zext i1 %cmp12 to i32
   br label %return
 
-return:                                           ; preds = %if.end5, %if.end
-  %retval.0 = phi i32 [ -1, %if.end ], [ %spec.select, %if.end5 ]
+return:                                           ; preds = %if.end, %land.lhs.true8, %if.end5
+  %retval.0 = phi i32 [ 0, %if.end5 ], [ %spec.select, %land.lhs.true8 ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 

@@ -312,7 +312,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %_ZNSt8optionalIPKN4
 
 if.else5.i.i:                                     ; preds = %_ZNKRSt8optionalIiE5valueEv.exit.i.i
   %cmp8.i.i = icmp eq i32 %ec, 0
-  br i1 %cmp8.i.i, label %if.then11.i.i, label %if.end25.i.i
+  br i1 %cmp8.i.i, label %if.then11.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 if.then11.i.i:                                    ; preds = %if.else5.i.i
   %cmp14.i.i = icmp sgt i32 %f, 0
@@ -320,13 +320,11 @@ if.then11.i.i:                                    ; preds = %if.else5.i.i
 
 if.else16.i.i:                                    ; preds = %if.then11.i.i
   %cmp19.i.i = icmp eq i32 %f, 0
-  br i1 %cmp19.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.end25.i.i
-
-if.end25.i.i:                                     ; preds = %if.else16.i.i, %if.else5.i.i
+  %spec.select.i.i = select i1 %cmp19.i.i, i32 4, i32 7
   br label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
-_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.then11.i.i, %if.else16.i.i, %if.end25.i.i
-  %retval.0.i.i = phi i32 [ 7, %if.end25.i.i ], [ 0, %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 4, %if.else16.i.i ]
+_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.else5.i.i, %if.then11.i.i, %if.else16.i.i
+  %retval.0.i.i = phi i32 [ 0, %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 7, %if.else5.i.i ], [ %spec.select.i.i, %if.else16.i.i ]
   %d_witness.i = getelementptr inbounds i8, ptr %this, i64 200
   store i32 %retval.0.i.i, ptr %d_witness.i, align 8
   ret void
@@ -478,11 +476,11 @@ _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %if.else.i.i
 
 if.else5.i.i:                                     ; preds = %_ZNKRSt8optionalIiE5valueEv.exit.i.i
   %cmp8.i.i = icmp eq i32 %6, 0
-  br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end25.i.i
+  br i1 %cmp8.i.i, label %if.then9.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 if.then9.i.i:                                     ; preds = %if.else5.i.i, %if.else.i.i
   %tobool.i.i6.i.i = trunc i8 %4 to i1
-  br i1 %tobool.i.i6.i.i, label %if.then11.i.i, label %if.end25.i.i
+  br i1 %tobool.i.i6.i.i, label %if.then11.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 if.then11.i.i:                                    ; preds = %if.then9.i.i
   %7 = load i32, ptr %d_focusDirection, align 4
@@ -491,13 +489,11 @@ if.then11.i.i:                                    ; preds = %if.then9.i.i
 
 if.else16.i.i:                                    ; preds = %if.then11.i.i
   %cmp19.i.i = icmp eq i32 %7, 0
-  br i1 %cmp19.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.end25.i.i
-
-if.end25.i.i:                                     ; preds = %if.else16.i.i, %if.then9.i.i, %if.else5.i.i
+  %spec.select.i.i = select i1 %cmp19.i.i, i32 4, i32 7
   br label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
-_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIiE5resetEv.exit4, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.then11.i.i, %if.else16.i.i, %if.end25.i.i
-  %retval.0.i.i = phi i32 [ 7, %if.end25.i.i ], [ 0, %_ZNSt8optionalIiE5resetEv.exit4 ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 4, %if.else16.i.i ]
+_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIiE5resetEv.exit4, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.else5.i.i, %if.then9.i.i, %if.then11.i.i, %if.else16.i.i
+  %retval.0.i.i = phi i32 [ 0, %_ZNSt8optionalIiE5resetEv.exit4 ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 7, %if.then9.i.i ], [ 7, %if.else5.i.i ], [ %spec.select.i.i, %if.else16.i.i ]
   %d_witness.i = getelementptr inbounds i8, ptr %this, i64 200
   store i32 %retval.0.i.i, ptr %d_witness.i, align 8
   ret void
@@ -562,11 +558,11 @@ _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %_ZNSt8optionalIiE5r
 
 if.else5.i.i:                                     ; preds = %_ZNKRSt8optionalIiE5valueEv.exit.i.i
   %cmp8.i.i = icmp eq i32 %ec, 0
-  br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end25.i.i
+  br i1 %cmp8.i.i, label %if.then9.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 if.then9.i.i:                                     ; preds = %if.else5.i.i
   %tobool.i.i6.i.i = trunc i8 %2 to i1
-  br i1 %tobool.i.i6.i.i, label %if.then11.i.i, label %if.end25.i.i
+  br i1 %tobool.i.i6.i.i, label %if.then11.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 if.then11.i.i:                                    ; preds = %if.then9.i.i
   %4 = load i32, ptr %d_focusDirection, align 4
@@ -575,13 +571,11 @@ if.then11.i.i:                                    ; preds = %if.then9.i.i
 
 if.else16.i.i:                                    ; preds = %if.then11.i.i
   %cmp19.i.i = icmp eq i32 %4, 0
-  br i1 %cmp19.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.end25.i.i
-
-if.end25.i.i:                                     ; preds = %if.else16.i.i, %if.then9.i.i, %if.else5.i.i
+  %spec.select.i.i = select i1 %cmp19.i.i, i32 4, i32 7
   br label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
-_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIiE5resetEv.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.then11.i.i, %if.else16.i.i, %if.end25.i.i
-  %retval.0.i.i = phi i32 [ 7, %if.end25.i.i ], [ 0, %_ZNSt8optionalIiE5resetEv.exit ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 4, %if.else16.i.i ]
+_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIiE5resetEv.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.else5.i.i, %if.then9.i.i, %if.then11.i.i, %if.else16.i.i
+  %retval.0.i.i = phi i32 [ 0, %_ZNSt8optionalIiE5resetEv.exit ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 7, %if.then9.i.i ], [ 7, %if.else5.i.i ], [ %spec.select.i.i, %if.else16.i.i ]
   %d_witness.i = getelementptr inbounds i8, ptr %this, i64 200
   store i32 %retval.0.i.i, ptr %d_witness.i, align 8
   ret void
@@ -644,7 +638,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %_ZNSt8optionalIPKN4
 
 if.else5.i.i:                                     ; preds = %_ZNKRSt8optionalIiE5valueEv.exit.i.i
   %cmp8.i.i = icmp eq i32 %ec, 0
-  br i1 %cmp8.i.i, label %if.then11.i.i, label %if.end25.i.i
+  br i1 %cmp8.i.i, label %if.then11.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 if.then11.i.i:                                    ; preds = %if.else5.i.i
   %cmp14.i.i = icmp sgt i32 %fd, 0
@@ -652,13 +646,11 @@ if.then11.i.i:                                    ; preds = %if.else5.i.i
 
 if.else16.i.i:                                    ; preds = %if.then11.i.i
   %cmp19.i.i = icmp eq i32 %fd, 0
-  br i1 %cmp19.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.end25.i.i
-
-if.end25.i.i:                                     ; preds = %if.else16.i.i, %if.else5.i.i
+  %spec.select.i.i = select i1 %cmp19.i.i, i32 4, i32 7
   br label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
-_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.then11.i.i, %if.else16.i.i, %if.end25.i.i
-  %retval.0.i.i = phi i32 [ 7, %if.end25.i.i ], [ 0, %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 4, %if.else16.i.i ]
+_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.else5.i.i, %if.then11.i.i, %if.else16.i.i
+  %retval.0.i.i = phi i32 [ 0, %_ZNSt8optionalIPKN4cvc58internal8RationalEE5resetEv.exit ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 7, %if.else5.i.i ], [ %spec.select.i.i, %if.else16.i.i ]
   %d_witness.i = getelementptr inbounds i8, ptr %this, i64 200
   store i32 %retval.0.i.i, ptr %d_witness.i, align 8
   ret void
@@ -715,7 +707,7 @@ _ZNKRSt8optionalIiE5valueEv.exit.i.i:             ; preds = %_ZNSt8optionalIN4cv
 
 if.else5.i.i:                                     ; preds = %_ZNKRSt8optionalIiE5valueEv.exit.i.i
   %cmp8.i.i = icmp eq i32 %ec, 0
-  br i1 %cmp8.i.i, label %if.then11.i.i, label %if.end25.i.i
+  br i1 %cmp8.i.i, label %if.then11.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
 if.then11.i.i:                                    ; preds = %if.else5.i.i
   %cmp14.i.i = icmp sgt i32 %fd, 0
@@ -723,13 +715,11 @@ if.then11.i.i:                                    ; preds = %if.else5.i.i
 
 if.else16.i.i:                                    ; preds = %if.then11.i.i
   %cmp19.i.i = icmp eq i32 %fd, 0
-  br i1 %cmp19.i.i, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit, label %if.end25.i.i
-
-if.end25.i.i:                                     ; preds = %if.else16.i.i, %if.else5.i.i
+  %spec.select.i.i = select i1 %cmp19.i.i, i32 4, i32 7
   br label %_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit
 
-_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.then11.i.i, %if.else16.i.i, %if.end25.i.i
-  %retval.0.i.i = phi i32 [ 7, %if.end25.i.i ], [ 0, %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 4, %if.else16.i.i ]
+_ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds = %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit, %_ZNKRSt8optionalIiE5valueEv.exit.i.i, %if.else5.i.i, %if.then11.i.i, %if.else16.i.i
+  %retval.0.i.i = phi i32 [ 0, %_ZNSt8optionalIN4cvc58internal13DeltaRationalEEaSIRKS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS2_ES9_IS2_NSt5decayISC_E4typeEEEEESt16is_constructibleIS2_JSC_EESt13is_assignableIRS2_SC_EEERS3_E4typeEOSC_.exit ], [ 1, %_ZNKRSt8optionalIiE5valueEv.exit.i.i ], [ 2, %if.then11.i.i ], [ 7, %if.else5.i.i ], [ %spec.select.i.i, %if.else16.i.i ]
   %d_witness.i = getelementptr inbounds i8, ptr %this, i64 200
   store i32 %retval.0.i.i, ptr %d_witness.i, align 8
   ret void

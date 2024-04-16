@@ -930,7 +930,7 @@ define internal i32 @sysrq_reset_seq_param_set(ptr noundef %0, ptr nocapture nou
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %6
-  %10 = trunc i64 %7 to i16
+  %10 = trunc nuw nsw i64 %7 to i16
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
   store i16 %10, ptr %12, align 2
@@ -1516,8 +1516,8 @@ define internal noundef i64 @write_sysrq_trigger(ptr nocapture readnone %0, ptr 
   %23 = icmp eq i64 %22, %2
   br i1 %23, label %.thread, label %.preheader, !llvm.loop !29
 
-.thread:                                          ; preds = %.thread3, %19, %.preheader, %4
-  %24 = phi i64 [ 0, %4 ], [ %2, %.thread3 ], [ %2, %19 ], [ -14, %.preheader ]
+.thread:                                          ; preds = %19, %.preheader, %.thread3, %4
+  %24 = phi i64 [ 0, %4 ], [ %2, %19 ], [ -14, %.preheader ], [ %2, %.thread3 ]
   ret i64 %24
 }
 

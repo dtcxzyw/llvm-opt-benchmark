@@ -241,7 +241,7 @@ for.inc:                                          ; preds = %land.rhs
   br i1 %exitcond.not, label %if.end72, label %land.rhs, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %land.rhs
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
@@ -289,7 +289,7 @@ for.inc29:                                        ; preds = %land.rhs18
   br i1 %exitcond48.not, label %land.lhs.true35, label %land.rhs18, !llvm.loop !6
 
 for.end31.loopexit:                               ; preds = %land.rhs18
-  %5 = trunc i64 %indvars.iv44 to i32
+  %5 = trunc nuw i64 %indvars.iv44 to i32
   br label %for.end31
 
 for.end31:                                        ; preds = %for.end31.loopexit, %for.cond14.preheader
@@ -466,14 +466,14 @@ if.end9.i:                                        ; preds = %land.rhs.i, %if.end
 do.end.i:                                         ; preds = %if.end9.i
   %call16.i = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %publicKey.i, ptr noundef nonnull %pub, i32 noundef %pubSz) #13
   %cmp17.not.i = icmp eq i32 %call16.i, 0
-  br i1 %cmp17.not.i, label %lor.lhs.false18.i, label %if.end42.i
+  br i1 %cmp17.not.i, label %if.end23.i, label %if.end42.i
 
-lor.lhs.false18.i:                                ; preds = %do.end.i
+if.end23.i:                                       ; preds = %do.end.i
   %call20.i = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %privateKey.i, ptr noundef nonnull %priv, i32 noundef %privSz) #13
   %cmp21.not.i = icmp eq i32 %call20.i, 0
   br i1 %cmp21.not.i, label %if.then25.i, label %if.end42.i
 
-if.then25.i:                                      ; preds = %lor.lhs.false18.i
+if.then25.i:                                      ; preds = %if.end23.i
   %g.i = getelementptr inbounds i8, ptr %key, i64 1040
   %call29.i = call i32 @sp_exptmod(ptr noundef nonnull %g.i, ptr noundef nonnull %privateKey.i, ptr noundef nonnull %key, ptr noundef nonnull %checkKey.i) #13
   %cmp30.not.i = icmp eq i32 %call29.i, 0
@@ -485,8 +485,8 @@ if.then35.i:                                      ; preds = %if.then25.i
   %spec.select10.i = select i1 %cmp39.not.i, i32 0, i32 -120
   br label %if.end42.i
 
-if.end42.i:                                       ; preds = %if.then35.i, %if.then25.i, %lor.lhs.false18.i, %do.end.i
-  %ret.2.i = phi i32 [ %spec.select10.i, %if.then35.i ], [ -111, %lor.lhs.false18.i ], [ -111, %do.end.i ], [ -112, %if.then25.i ]
+if.end42.i:                                       ; preds = %if.then35.i, %if.then25.i, %if.end23.i, %do.end.i
+  %ret.2.i = phi i32 [ %spec.select10.i, %if.then35.i ], [ -112, %if.then25.i ], [ -111, %do.end.i ], [ -111, %if.end23.i ]
   call void @sp_forcezero(ptr noundef nonnull %privateKey.i) #13
   call void @sp_clear(ptr noundef nonnull %publicKey.i) #13
   call void @sp_clear(ptr noundef nonnull %checkKey.i) #13

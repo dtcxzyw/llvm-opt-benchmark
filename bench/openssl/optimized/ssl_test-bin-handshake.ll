@@ -175,8 +175,8 @@ end:                                              ; preds = %lor.lhs.false2, %en
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @do_handshake_internal(ptr noundef %server_ctx, ptr noundef %server2_ctx, ptr noundef %client_ctx, ptr nocapture noundef readonly %test_ctx, ptr noundef %extra, ptr noundef %session_in, ptr noundef %serv_sess_in, ptr noundef writeonly %session_out, ptr noundef writeonly %serv_sess_out) unnamed_addr #0 {
 entry:
-  %name.i.i176 = alloca [80 x i8], align 16
-  %name_len.i.i177 = alloca i64, align 8
+  %name.i.i177 = alloca [80 x i8], align 16
+  %name_len.i.i178 = alloca i64, align 8
   %name.i.i = alloca [80 x i8], align 16
   %name_len.i.i = alloca i64, align 8
   %name.i = alloca [80 x i8], align 16
@@ -223,7 +223,7 @@ if.end:                                           ; preds = %entry
   %conv1.i = trunc i64 %call.i95 to i32
   %call2.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 497, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15, i32 noundef %conv1.i, i32 noundef 1) #10
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %if.then2, label %if.end.i
+  br i1 %tobool.not.i, label %configure_handshake_ctx.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %cmp.not.i = icmp eq ptr %server2_ctx, null
@@ -236,7 +236,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %conv8.i = trunc i64 %call7.i to i32
   %call9.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 502, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.15, i32 noundef %conv8.i, i32 noundef 1) #10
   %tobool10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %tobool10.not.i, label %if.then2, label %if.end13.i
+  br i1 %tobool10.not.i, label %configure_handshake_ctx.exit.thread, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then4.i, %if.end.i
   %2 = load i32, ptr %max_fragment_size.i, align 4
@@ -245,7 +245,7 @@ if.end13.i:                                       ; preds = %if.then4.i, %if.end
   %conv17.i = trunc i64 %call16.i to i32
   %call18.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 506, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.15, i32 noundef %conv17.i, i32 noundef 1) #10
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %if.then2, label %if.end21.i
+  br i1 %tobool19.not.i, label %configure_handshake_ctx.exit.thread, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end13.i
   %3 = load i32, ptr %extra, align 8
@@ -274,7 +274,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
   br i1 %switch.i, label %sw.bb26.i, label %sw.epilog31.i
 
 sw.bb26.i:                                        ; preds = %sw.epilog.i
-  %conv29.i = trunc i32 %4 to i8
+  %conv29.i = trunc nuw i32 %4 to i8
   %call30.i = tail call i32 @SSL_CTX_set_tlsext_max_fragment_length(ptr noundef %client_ctx, i8 noundef zeroext %conv29.i) #10
   br label %sw.epilog31.i
 
@@ -356,7 +356,7 @@ if.then70.i:                                      ; preds = %if.end66.i
   %call74.i = call fastcc i32 @parse_protos(ptr noundef nonnull %9, ptr noundef nonnull %server_ctx_data, ptr noundef nonnull %npn_protocols_len.i), !range !5
   %call77.i = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 588, ptr noundef nonnull @.str.20, i32 noundef %call74.i) #10
   %tobool78.not.i = icmp eq i32 %call77.i, 0
-  br i1 %tobool78.not.i, label %if.then2, label %if.end80.i
+  br i1 %tobool78.not.i, label %configure_handshake_ctx.exit.thread, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.then70.i
   call void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef %server_ctx, ptr noundef nonnull @server_npn_cb, ptr noundef nonnull %server_ctx_data) #10
@@ -373,12 +373,12 @@ if.then85.i:                                      ; preds = %if.end81.i
   %call90.i = call fastcc i32 @parse_protos(ptr noundef nonnull %10, ptr noundef nonnull %server2_ctx_data, ptr noundef nonnull %npn_protocols_len89.i), !range !5
   %call93.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 596, ptr noundef nonnull @.str.21, i32 noundef %call90.i) #10
   %tobool94.not.i = icmp eq i32 %call93.i, 0
-  br i1 %tobool94.not.i, label %if.then2, label %lor.lhs.false.i
+  br i1 %tobool94.not.i, label %configure_handshake_ctx.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then85.i
   %call95.i = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 597, ptr noundef nonnull @.str.22, ptr noundef %server2_ctx) #10
   %tobool96.not.i = icmp eq i32 %call95.i, 0
-  br i1 %tobool96.not.i, label %if.then2, label %if.end98.i
+  br i1 %tobool96.not.i, label %configure_handshake_ctx.exit.thread, label %if.end98.i
 
 if.end98.i:                                       ; preds = %lor.lhs.false.i
   call void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef %server2_ctx, ptr noundef nonnull @server_npn_cb, ptr noundef nonnull %server2_ctx_data) #10
@@ -395,7 +395,7 @@ if.then104.i:                                     ; preds = %if.end99.i
   %call109.i = call fastcc i32 @parse_protos(ptr noundef nonnull %11, ptr noundef nonnull %client_ctx_data, ptr noundef nonnull %npn_protocols_len108.i), !range !5
   %call112.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 605, ptr noundef nonnull @.str.23, i32 noundef %call109.i) #10
   %tobool113.not.i = icmp eq i32 %call112.i, 0
-  br i1 %tobool113.not.i, label %if.then2, label %if.end115.i
+  br i1 %tobool113.not.i, label %configure_handshake_ctx.exit.thread, label %if.end115.i
 
 if.end115.i:                                      ; preds = %if.then104.i
   call void @SSL_CTX_set_next_proto_select_cb(ptr noundef %client_ctx, ptr noundef nonnull @client_npn_cb, ptr noundef nonnull %client_ctx_data) #10
@@ -413,7 +413,7 @@ if.then120.i:                                     ; preds = %if.end116.i
   %call124.i = call fastcc i32 @parse_protos(ptr noundef nonnull %12, ptr noundef nonnull %alpn_protocols123.i, ptr noundef nonnull %alpn_protocols_len.i), !range !5
   %call127.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 614, ptr noundef nonnull @.str.24, i32 noundef %call124.i) #10
   %tobool128.not.i = icmp eq i32 %call127.i, 0
-  br i1 %tobool128.not.i, label %if.then2, label %if.end130.i
+  br i1 %tobool128.not.i, label %configure_handshake_ctx.exit.thread, label %if.end130.i
 
 if.end130.i:                                      ; preds = %if.then120.i
   call void @SSL_CTX_set_alpn_select_cb(ptr noundef %server_ctx, ptr noundef nonnull @server_alpn_cb, ptr noundef nonnull %server_ctx_data) #10
@@ -428,7 +428,7 @@ if.end131.i:                                      ; preds = %if.end130.i, %if.en
 if.then136.i:                                     ; preds = %if.end131.i
   %call137.i = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 619, ptr noundef nonnull @.str.22, ptr noundef %server2_ctx) #10
   %tobool138.not.i = icmp eq i32 %call137.i, 0
-  br i1 %tobool138.not.i, label %if.then2, label %lor.lhs.false139.i
+  br i1 %tobool138.not.i, label %configure_handshake_ctx.exit.thread, label %lor.lhs.false139.i
 
 lor.lhs.false139.i:                               ; preds = %if.then136.i
   %14 = load ptr, ptr %alpn_protocols133.i, align 8
@@ -437,7 +437,7 @@ lor.lhs.false139.i:                               ; preds = %if.then136.i
   %call144.i = call fastcc i32 @parse_protos(ptr noundef %14, ptr noundef nonnull %alpn_protocols142.i, ptr noundef nonnull %alpn_protocols_len143.i), !range !5
   %call147.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 623, ptr noundef nonnull @.str.25, i32 noundef %call144.i) #10
   %tobool148.not.i = icmp eq i32 %call147.i, 0
-  br i1 %tobool148.not.i, label %if.then2, label %if.end150.i
+  br i1 %tobool148.not.i, label %configure_handshake_ctx.exit.thread, label %if.end150.i
 
 if.end150.i:                                      ; preds = %lor.lhs.false139.i
   call void @SSL_CTX_set_alpn_select_cb(ptr noundef %server2_ctx, ptr noundef nonnull @server_alpn_cb, ptr noundef nonnull %server2_ctx_data) #10
@@ -455,7 +455,7 @@ if.then156.i:                                     ; preds = %if.end151.i
   %call159.i = call fastcc i32 @parse_protos(ptr noundef nonnull %15, ptr noundef nonnull %alpn_protos.i, ptr noundef nonnull %alpn_protos_len.i), !range !5
   %call162.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 633, ptr noundef nonnull @.str.26, i32 noundef %call159.i) #10
   %tobool163.not.i = icmp eq i32 %call162.i, 0
-  br i1 %tobool163.not.i, label %if.then2, label %lor.lhs.false164.i
+  br i1 %tobool163.not.i, label %configure_handshake_ctx.exit.thread, label %lor.lhs.false164.i
 
 lor.lhs.false164.i:                               ; preds = %if.then156.i
   %16 = load ptr, ptr %alpn_protos.i, align 8
@@ -464,7 +464,7 @@ lor.lhs.false164.i:                               ; preds = %if.then156.i
   %call166.i = call i32 @SSL_CTX_set_alpn_protos(ptr noundef %client_ctx, ptr noundef %16, i32 noundef %conv165.i) #10
   %call167.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 636, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.10, i32 noundef %call166.i, i32 noundef 0) #10
   %tobool168.not.i = icmp eq i32 %call167.i, 0
-  br i1 %tobool168.not.i, label %if.then2, label %if.end170.i
+  br i1 %tobool168.not.i, label %configure_handshake_ctx.exit.thread, label %if.end170.i
 
 if.end170.i:                                      ; preds = %lor.lhs.false164.i
   call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 638) #10
@@ -482,7 +482,7 @@ if.then175.i:                                     ; preds = %if.end171.i
   store ptr %call178.i, ptr %session_ticket_app_data179.i, align 8
   %call181.i = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 644, ptr noundef nonnull @.str.28, ptr noundef %call178.i) #10
   %tobool182.not.i = icmp eq i32 %call181.i, 0
-  br i1 %tobool182.not.i, label %if.then2, label %if.end184.i
+  br i1 %tobool182.not.i, label %configure_handshake_ctx.exit.thread, label %if.end184.i
 
 if.end184.i:                                      ; preds = %if.then175.i
   %call185.i = call i32 @SSL_CTX_set_session_ticket_cb(ptr noundef %server_ctx, ptr noundef nonnull @generate_session_ticket_cb, ptr noundef nonnull @decrypt_session_ticket_cb, ptr noundef nonnull %server_ctx_data) #10
@@ -497,7 +497,7 @@ if.end186.i:                                      ; preds = %if.end184.i, %if.en
 if.then191.i:                                     ; preds = %if.end186.i
   %call192.i = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 650, ptr noundef nonnull @.str.22, ptr noundef %server2_ctx) #10
   %tobool193.not.i = icmp eq i32 %call192.i, 0
-  br i1 %tobool193.not.i, label %if.then2, label %if.end195.i
+  br i1 %tobool193.not.i, label %configure_handshake_ctx.exit.thread, label %if.end195.i
 
 if.end195.i:                                      ; preds = %if.then191.i
   %20 = load ptr, ptr %session_ticket_app_data188.i, align 8
@@ -506,7 +506,7 @@ if.end195.i:                                      ; preds = %if.then191.i
   store ptr %call198.i, ptr %session_ticket_app_data199.i, align 8
   %call201.i = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 654, ptr noundef nonnull @.str.29, ptr noundef %call198.i) #10
   %tobool202.not.i = icmp eq i32 %call201.i, 0
-  br i1 %tobool202.not.i, label %if.then2, label %if.end204.i
+  br i1 %tobool202.not.i, label %configure_handshake_ctx.exit.thread, label %if.end204.i
 
 if.end204.i:                                      ; preds = %if.end195.i
   %call205.i = call i32 @SSL_CTX_set_session_ticket_cb(ptr noundef %server2_ctx, ptr noundef null, ptr noundef nonnull @decrypt_session_ticket_cb, ptr noundef nonnull %server2_ctx_data) #10
@@ -528,7 +528,7 @@ lor.lhs.false211.i:                               ; preds = %if.end206.i
 
 if.then216.i:                                     ; preds = %lor.lhs.false211.i, %if.end206.i
   call void @CRYPTO_free(ptr noundef %call208.i, ptr noundef nonnull @.str, i32 noundef 669) #10
-  br label %if.then2
+  br label %configure_handshake_ctx.exit.thread
 
 if.end217.i:                                      ; preds = %lor.lhs.false211.i
   call void @CRYPTO_free(ptr noundef %call208.i, ptr noundef nonnull @.str, i32 noundef 672) #10
@@ -537,12 +537,12 @@ if.end217.i:                                      ; preds = %lor.lhs.false211.i
   %conv220.i = zext i1 %cmp219.i to i32
   %call221.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 676, ptr noundef nonnull @.str.32, i32 noundef %conv220.i) #10
   %tobool222.not.i = icmp eq i32 %call221.i, 0
-  br i1 %tobool222.not.i, label %if.then2, label %if.end224.i
+  br i1 %tobool222.not.i, label %configure_handshake_ctx.exit.thread, label %if.end224.i
 
 if.end224.i:                                      ; preds = %if.end217.i
   %ct_validation.i = getelementptr inbounds i8, ptr %extra, i64 32
   %21 = load i32, ptr %ct_validation.i, align 8
-  switch i32 %21, label %sw.epilog243.i [
+  switch i32 %21, label %configure_handshake_ctx.exit [
     i32 1, label %sw.bb226.i
     i32 2, label %sw.bb234.i
   ]
@@ -553,7 +553,7 @@ sw.bb226.i:                                       ; preds = %if.end224.i
   %conv229.i = zext i1 %cmp228.i to i32
   %call230.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 681, ptr noundef nonnull @.str.33, i32 noundef %conv229.i) #10
   %tobool231.not.i = icmp eq i32 %call230.i, 0
-  br i1 %tobool231.not.i, label %if.then2, label %sw.epilog243.i
+  br i1 %tobool231.not.i, label %configure_handshake_ctx.exit.thread, label %configure_handshake_ctx.exit
 
 sw.bb234.i:                                       ; preds = %if.end224.i
   %call235.i = call i32 @SSL_CTX_enable_ct(ptr noundef %client_ctx, i32 noundef 1) #10
@@ -561,23 +561,26 @@ sw.bb234.i:                                       ; preds = %if.end224.i
   %conv237.i = zext i1 %cmp236.i to i32
   %call238.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 685, ptr noundef nonnull @.str.34, i32 noundef %conv237.i) #10
   %tobool239.not.i = icmp eq i32 %call238.i, 0
-  br i1 %tobool239.not.i, label %if.then2, label %sw.epilog243.i
+  br i1 %tobool239.not.i, label %configure_handshake_ctx.exit.thread, label %configure_handshake_ctx.exit
 
-sw.epilog243.i:                                   ; preds = %sw.bb234.i, %sw.bb226.i, %if.end224.i
-  %call244.i = call i32 @configure_handshake_ctx_for_srp(ptr noundef %server_ctx, ptr noundef %server2_ctx, ptr noundef %client_ctx, ptr noundef nonnull %extra, ptr noundef nonnull %server_ctx_data, ptr noundef nonnull %server2_ctx_data, ptr noundef nonnull %client_ctx_data) #10
-  %tobool245.not.i = icmp eq i32 %call244.i, 0
-  br i1 %tobool245.not.i, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end, %if.then4.i, %if.end13.i, %if.then70.i, %if.then85.i, %lor.lhs.false.i, %if.then104.i, %if.then120.i, %if.then136.i, %lor.lhs.false139.i, %if.then156.i, %lor.lhs.false164.i, %if.then175.i, %if.then191.i, %if.end195.i, %if.then216.i, %if.end217.i, %sw.bb226.i, %sw.bb234.i, %sw.epilog243.i
+configure_handshake_ctx.exit.thread:              ; preds = %sw.bb234.i, %sw.bb226.i, %if.end217.i, %if.end195.i, %if.then191.i, %if.then175.i, %if.then156.i, %lor.lhs.false164.i, %if.then136.i, %lor.lhs.false139.i, %if.then120.i, %if.then104.i, %if.then85.i, %lor.lhs.false.i, %if.then70.i, %if.end13.i, %if.then4.i, %if.end, %if.then216.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alpn_protos.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alpn_protos_len.i)
+  br label %if.then2
+
+configure_handshake_ctx.exit:                     ; preds = %if.end224.i, %sw.bb226.i, %sw.bb234.i
+  %call244.i = call i32 @configure_handshake_ctx_for_srp(ptr noundef %server_ctx, ptr noundef %server2_ctx, ptr noundef %client_ctx, ptr noundef nonnull %extra, ptr noundef nonnull %server_ctx_data, ptr noundef nonnull %server2_ctx_data, ptr noundef nonnull %client_ctx_data) #10
+  %tobool245.not.i.not = icmp eq i32 %call244.i, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alpn_protos.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alpn_protos_len.i)
+  br i1 %tobool245.not.i.not, label %if.then2, label %if.end3
+
+if.then2:                                         ; preds = %configure_handshake_ctx.exit.thread, %configure_handshake_ctx.exit
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.2) #10
   call void @HANDSHAKE_RESULT_free(ptr noundef nonnull %call.i)
   br label %return
 
-if.end3:                                          ; preds = %sw.epilog243.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alpn_protos.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alpn_protos_len.i)
+if.end3:                                          ; preds = %configure_handshake_ctx.exit
   %call4 = call fastcc i32 @create_peer(ptr noundef nonnull %server, ptr noundef %server_ctx), !range !5
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then6, label %if.end7
@@ -745,35 +748,35 @@ if.end83:                                         ; preds = %lor.lhs.false77
   br label %for.cond.outer.outer.outer
 
 for.cond.outer.outer.outer:                       ; preds = %if.then153, %if.end83
-  %.ph240.ph.ph = phi i32 [ %45, %if.then153 ], [ 1, %if.end83 ]
-  %.ph241.ph.ph = phi i32 [ 0, %if.then153 ], [ 3, %if.end83 ]
-  %.ph242.ph.ph = phi i32 [ %47, %if.then153 ], [ 1, %if.end83 ]
+  %.ph241.ph.ph = phi i32 [ %45, %if.then153 ], [ 1, %if.end83 ]
+  %.ph242.ph.ph = phi i32 [ 0, %if.then153 ], [ 3, %if.end83 ]
+  %.ph243.ph.ph = phi i32 [ %47, %if.then153 ], [ 1, %if.end83 ]
   %client_turn_count.0.ph.ph.ph = phi i32 [ %inc, %if.then153 ], [ 0, %if.end83 ]
   %client_wait_count.0.ph.ph.ph = phi i32 [ %inc154, %if.then153 ], [ 0, %if.end83 ]
-  %phase.0.ph.ph.ph = phi i32 [ %phase.0.ph.ph.ph249, %if.then153 ], [ 0, %if.end83 ]
-  br label %for.cond.outer.outer.outer243
+  %phase.0.ph.ph.ph = phi i32 [ %phase.0.ph.ph.ph250, %if.then153 ], [ 0, %if.end83 ]
+  br label %for.cond.outer.outer.outer244
 
-for.cond.outer.outer.outer243:                    ; preds = %for.cond.outer.outer.outer, %if.else110
-  %.ph240.ph.ph245 = phi i32 [ %.ph240.ph.ph, %for.cond.outer.outer.outer ], [ 1, %if.else110 ]
+for.cond.outer.outer.outer244:                    ; preds = %for.cond.outer.outer.outer, %if.else110
   %.ph241.ph.ph246 = phi i32 [ %.ph241.ph.ph, %for.cond.outer.outer.outer ], [ 1, %if.else110 ]
   %.ph242.ph.ph247 = phi i32 [ %.ph242.ph.ph, %for.cond.outer.outer.outer ], [ 1, %if.else110 ]
-  %client_turn_count.0.ph.ph.ph248 = phi i32 [ %client_turn_count.0.ph.ph.ph, %for.cond.outer.outer.outer ], [ 0, %if.else110 ]
-  %phase.0.ph.ph.ph249 = phi i32 [ %phase.0.ph.ph.ph, %for.cond.outer.outer.outer ], [ %retval.0.i113.ph, %if.else110 ]
+  %.ph243.ph.ph248 = phi i32 [ %.ph243.ph.ph, %for.cond.outer.outer.outer ], [ 1, %if.else110 ]
+  %client_turn_count.0.ph.ph.ph249 = phi i32 [ %client_turn_count.0.ph.ph.ph, %for.cond.outer.outer.outer ], [ 0, %if.else110 ]
+  %phase.0.ph.ph.ph250 = phi i32 [ %phase.0.ph.ph.ph, %for.cond.outer.outer.outer ], [ %retval.0.i113.ph, %if.else110 ]
   br label %for.cond.outer.outer
 
-for.cond.outer.outer:                             ; preds = %for.cond.outer.outer.outer243, %if.else160
-  %.ph240.ph = phi i32 [ %45, %if.else160 ], [ %.ph240.ph.ph245, %for.cond.outer.outer.outer243 ]
-  %.ph241.ph = phi i32 [ %44, %if.else160 ], [ %.ph241.ph.ph246, %for.cond.outer.outer.outer243 ]
-  %.ph242.ph = phi i32 [ %47, %if.else160 ], [ %.ph242.ph.ph247, %for.cond.outer.outer.outer243 ]
-  %client_turn.0.ph.ph = phi i32 [ %xor161, %if.else160 ], [ 1, %for.cond.outer.outer.outer243 ]
-  %client_turn_count.0.ph.ph = phi i32 [ %inc, %if.else160 ], [ %client_turn_count.0.ph.ph.ph248, %for.cond.outer.outer.outer243 ]
+for.cond.outer.outer:                             ; preds = %for.cond.outer.outer.outer244, %if.else160
+  %.ph241.ph = phi i32 [ %45, %if.else160 ], [ %.ph241.ph.ph246, %for.cond.outer.outer.outer244 ]
+  %.ph242.ph = phi i32 [ %44, %if.else160 ], [ %.ph242.ph.ph247, %for.cond.outer.outer.outer244 ]
+  %.ph243.ph = phi i32 [ %47, %if.else160 ], [ %.ph243.ph.ph248, %for.cond.outer.outer.outer244 ]
+  %client_turn.0.ph.ph = phi i32 [ %xor161, %if.else160 ], [ 1, %for.cond.outer.outer.outer244 ]
+  %client_turn_count.0.ph.ph = phi i32 [ %inc, %if.else160 ], [ %client_turn_count.0.ph.ph.ph249, %for.cond.outer.outer.outer244 ]
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.outer.outer, %if.then140
-  %.ph = phi i32 [ %44, %if.then140 ], [ %.ph241.ph, %for.cond.outer.outer ]
-  %.ph240 = phi i32 [ %45, %if.then140 ], [ %.ph240.ph, %for.cond.outer.outer ]
-  %.ph241 = phi i32 [ %46, %if.then140 ], [ %.ph241.ph, %for.cond.outer.outer ]
-  %.ph242 = phi i32 [ %49, %if.then140 ], [ %.ph242.ph, %for.cond.outer.outer ]
+  %.ph = phi i32 [ %44, %if.then140 ], [ %.ph242.ph, %for.cond.outer.outer ]
+  %.ph241 = phi i32 [ %45, %if.then140 ], [ %.ph241.ph, %for.cond.outer.outer ]
+  %.ph242 = phi i32 [ %46, %if.then140 ], [ %.ph242.ph, %for.cond.outer.outer ]
+  %.ph243 = phi i32 [ %49, %if.then140 ], [ %.ph243.ph, %for.cond.outer.outer ]
   %client_turn.0.ph = phi i32 [ %xor, %if.then140 ], [ %client_turn.0.ph.ph, %for.cond.outer.outer ]
   %tobool89 = icmp ne i32 %client_turn.0.ph, 0
   %tobool135 = icmp eq i32 %client_turn.0.ph, 0
@@ -781,13 +784,13 @@ for.cond.outer:                                   ; preds = %for.cond.outer.oute
 
 for.cond:                                         ; preds = %for.cond.outer, %lor.lhs.false134
   %33 = phi i32 [ %44, %lor.lhs.false134 ], [ %.ph, %for.cond.outer ]
-  %34 = phi i32 [ %45, %lor.lhs.false134 ], [ %.ph240, %for.cond.outer ]
-  %35 = phi i32 [ %46, %lor.lhs.false134 ], [ %.ph241, %for.cond.outer ]
-  %36 = phi i32 [ %45, %lor.lhs.false134 ], [ %.ph242, %for.cond.outer ]
+  %34 = phi i32 [ %45, %lor.lhs.false134 ], [ %.ph241, %for.cond.outer ]
+  %35 = phi i32 [ %46, %lor.lhs.false134 ], [ %.ph242, %for.cond.outer ]
+  %36 = phi i32 [ %45, %lor.lhs.false134 ], [ %.ph243, %for.cond.outer ]
   br i1 %tobool89, label %if.then90, label %if.else100
 
 if.then90:                                        ; preds = %for.cond
-  call fastcc void @do_connect_step(ptr noundef %test_ctx, ptr noundef nonnull %client, i32 noundef %phase.0.ph.ph.ph249)
+  call fastcc void @do_connect_step(ptr noundef %test_ctx, ptr noundef nonnull %client, i32 noundef %phase.0.ph.ph.ph250)
   %37 = load i32, ptr %status86, align 4
   switch i32 %37, label %handshake_status.exit [
     i32 2, label %sw.bb8.i
@@ -809,7 +812,7 @@ sw.bb7.i:                                         ; preds = %if.then90
   br label %handshake_status.exit
 
 sw.bb8.i:                                         ; preds = %if.then90
-  switch i32 %35, label %default.unreachable239 [
+  switch i32 %35, label %default.unreachable240 [
     i32 2, label %sw.bb115
     i32 3, label %if.then97
     i32 0, label %sw.bb113
@@ -822,12 +825,12 @@ handshake_status.exit:                            ; preds = %if.then90, %sw.bb2.
   br i1 %cmp95, label %if.then97, label %if.end104
 
 if.then97:                                        ; preds = %sw.bb8.i, %handshake_status.exit
-  %retval.0.i100214 = phi i32 [ %retval.0.i100, %handshake_status.exit ], [ 1, %sw.bb8.i ]
+  %retval.0.i100215 = phi i32 [ %retval.0.i100, %handshake_status.exit ], [ 1, %sw.bb8.i ]
   store i32 1, ptr %status87, align 4
   br label %if.end104
 
 if.else100:                                       ; preds = %for.cond
-  call fastcc void @do_connect_step(ptr noundef %test_ctx, ptr noundef nonnull %server, i32 noundef %phase.0.ph.ph.ph249)
+  call fastcc void @do_connect_step(ptr noundef %test_ctx, ptr noundef nonnull %server, i32 noundef %phase.0.ph.ph.ph250)
   %38 = load i32, ptr %status87, align 4
   switch i32 %38, label %sw.bb117 [
     i32 2, label %sw.bb8.i106
@@ -852,8 +855,8 @@ sw.bb8.i106:                                      ; preds = %if.else100
 if.end104:                                        ; preds = %handshake_status.exit, %if.then97
   %39 = phi i32 [ 1, %if.then97 ], [ %33, %handshake_status.exit ]
   %40 = phi i32 [ 1, %if.then97 ], [ %35, %handshake_status.exit ]
-  %status.0 = phi i32 [ %retval.0.i100214, %if.then97 ], [ %retval.0.i100, %handshake_status.exit ]
-  switch i32 %status.0, label %default.unreachable239 [
+  %status.0 = phi i32 [ %retval.0.i100215, %if.then97 ], [ %retval.0.i100, %handshake_status.exit ]
+  switch i32 %status.0, label %default.unreachable240 [
     i32 4, label %sw.bb119
     i32 1, label %sw.bb113
     i32 2, label %sw.bb115
@@ -861,7 +864,7 @@ if.end104:                                        ; preds = %handshake_status.ex
   ]
 
 sw.bb:                                            ; preds = %sw.bb2.i, %sw.bb2.i101
-  switch i32 %phase.0.ph.ph.ph249, label %sw.epilog.i117 [
+  switch i32 %phase.0.ph.ph.ph250, label %sw.epilog.i118 [
     i32 0, label %sw.bb.i
     i32 1, label %if.else110
     i32 2, label %sw.bb4.i115
@@ -879,7 +882,7 @@ sw.bb.i:                                          ; preds = %sw.bb
 lor.lhs.false.i116:                               ; preds = %sw.bb.i
   %42 = add i32 %test_ctx.val.i, -7
   %switch.i5.i = icmp ult i32 %42, -3
-  %spec.select.i = select i1 %switch.i5.i, i32 4, i32 1
+  %spec.select.i117 = select i1 %switch.i5.i, i32 4, i32 1
   br label %if.else110
 
 sw.bb4.i115:                                      ; preds = %sw.bb
@@ -895,18 +898,18 @@ sw.bb9.i:                                         ; preds = %sw.bb
 sw.bb10.i114:                                     ; preds = %sw.bb
   br label %if.else110
 
-sw.epilog.i117:                                   ; preds = %sw.bb
+sw.epilog.i118:                                   ; preds = %sw.bb
   br label %if.else110
 
 if.then108:                                       ; preds = %sw.bb
   store i32 0, ptr %call.i, align 8
   br label %err
 
-if.else110:                                       ; preds = %sw.epilog.i117, %sw.bb10.i114, %sw.bb9.i, %sw.bb.i, %sw.bb, %sw.bb4.i115, %lor.lhs.false.i116
-  %retval.0.i113.ph = phi i32 [ %spec.select.i, %lor.lhs.false.i116 ], [ %..i, %sw.bb4.i115 ], [ 2, %sw.bb ], [ 1, %sw.bb.i ], [ 4, %sw.bb9.i ], [ 5, %sw.bb10.i114 ], [ -1, %sw.epilog.i117 ]
+if.else110:                                       ; preds = %sw.epilog.i118, %sw.bb10.i114, %sw.bb9.i, %sw.bb.i, %sw.bb, %sw.bb4.i115, %lor.lhs.false.i116
+  %retval.0.i113.ph = phi i32 [ %spec.select.i117, %lor.lhs.false.i116 ], [ %..i, %sw.bb4.i115 ], [ 2, %sw.bb ], [ 1, %sw.bb.i ], [ 4, %sw.bb9.i ], [ 5, %sw.bb10.i114 ], [ -1, %sw.epilog.i118 ]
   store i32 1, ptr %status87, align 4
   store i32 1, ptr %status86, align 4
-  br label %for.cond.outer.outer.outer243
+  br label %for.cond.outer.outer.outer244
 
 sw.bb113:                                         ; preds = %sw.bb8.i, %sw.bb8.i106, %if.end104
   store i32 2, ptr %call.i, align 8
@@ -916,7 +919,7 @@ sw.bb115:                                         ; preds = %sw.bb8.i, %sw.bb8.i
   store i32 1, ptr %call.i, align 8
   br label %err
 
-default.unreachable239:                           ; preds = %if.end104, %sw.bb8.i
+default.unreachable240:                           ; preds = %if.end104, %sw.bb8.i
   unreachable
 
 sw.bb117:                                         ; preds = %if.else100, %sw.bb2.i101, %sw.bb8.i106, %if.end104
@@ -1039,9 +1042,9 @@ if.end178:                                        ; preds = %if.then176, %err
   %61 = load i32, ptr %sess_id_len, align 4
   %cmp195 = icmp eq i32 %61, 0
   %or.cond4 = select i1 %sess_id.0, i1 true, i1 %cmp195
-  %.sink238 = select i1 %or.cond4, i32 2, i32 1
+  %.sink239 = select i1 %or.cond4, i32 2, i32 1
   %62 = getelementptr inbounds i8, ptr %call.i, i64 144
-  store i32 %.sink238, ptr %62, align 8
+  store i32 %.sink239, ptr %62, align 8
   %session_ticket_do_not_call = getelementptr inbounds i8, ptr %server_ex_data, i64 12
   %63 = load i32, ptr %session_ticket_do_not_call, align 4
   %session_ticket_do_not_call201 = getelementptr inbounds i8, ptr %call.i, i64 48
@@ -1063,94 +1066,94 @@ if.end210:                                        ; preds = %if.then208, %if.end
   %67 = load i32, ptr %proto_len, align 4
   %conv212 = zext i32 %67 to i64
   %cmp.i = icmp eq i32 %67, 0
-  br i1 %cmp.i, label %dup_str.exit, label %if.end.i118
+  br i1 %cmp.i, label %dup_str.exit, label %if.end.i119
 
-if.end.i118:                                      ; preds = %if.end210
-  %call.i119 = call i64 @OPENSSL_strnlen(ptr noundef %66, i64 noundef %conv212) #10
-  %call1.i120 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i119, i64 noundef %conv212) #10
-  %tobool.not.i121 = icmp eq i32 %call1.i120, 0
-  br i1 %tobool.not.i121, label %dup_str.exit, label %if.then2.i
+if.end.i119:                                      ; preds = %if.end210
+  %call.i120 = call i64 @OPENSSL_strnlen(ptr noundef %66, i64 noundef %conv212) #10
+  %call1.i121 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i120, i64 noundef %conv212) #10
+  %tobool.not.i122 = icmp eq i32 %call1.i121, 0
+  br i1 %tobool.not.i122, label %dup_str.exit, label %if.then2.i
 
-if.then2.i:                                       ; preds = %if.end.i118
+if.then2.i:                                       ; preds = %if.end.i119
   %call3.i = call noalias ptr @CRYPTO_strndup(ptr noundef %66, i64 noundef %conv212, ptr noundef nonnull @.str, i32 noundef 1251) #10
-  %call4.i122 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i) #10
+  %call4.i123 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i) #10
   br label %dup_str.exit
 
-dup_str.exit:                                     ; preds = %if.end210, %if.end.i118, %if.then2.i
-  %retval.0.i123 = phi ptr [ null, %if.end210 ], [ %call3.i, %if.then2.i ], [ null, %if.end.i118 ]
+dup_str.exit:                                     ; preds = %if.end210, %if.end.i119, %if.then2.i
+  %retval.0.i124 = phi ptr [ null, %if.end210 ], [ %call3.i, %if.then2.i ], [ null, %if.end.i119 ]
   %client_npn_negotiated = getelementptr inbounds i8, ptr %call.i, i64 56
-  store ptr %retval.0.i123, ptr %client_npn_negotiated, align 8
+  store ptr %retval.0.i124, ptr %client_npn_negotiated, align 8
   call void @SSL_get0_next_proto_negotiated(ptr noundef %54, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
   %68 = load ptr, ptr %proto, align 8
   %69 = load i32, ptr %proto_len, align 4
   %conv215 = zext i32 %69 to i64
-  %cmp.i124 = icmp eq i32 %69, 0
-  br i1 %cmp.i124, label %dup_str.exit133, label %if.end.i125
+  %cmp.i125 = icmp eq i32 %69, 0
+  br i1 %cmp.i125, label %dup_str.exit134, label %if.end.i126
 
-if.end.i125:                                      ; preds = %dup_str.exit
-  %call.i126 = call i64 @OPENSSL_strnlen(ptr noundef %68, i64 noundef %conv215) #10
-  %call1.i127 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i126, i64 noundef %conv215) #10
-  %tobool.not.i128 = icmp eq i32 %call1.i127, 0
-  br i1 %tobool.not.i128, label %dup_str.exit133, label %if.then2.i129
+if.end.i126:                                      ; preds = %dup_str.exit
+  %call.i127 = call i64 @OPENSSL_strnlen(ptr noundef %68, i64 noundef %conv215) #10
+  %call1.i128 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i127, i64 noundef %conv215) #10
+  %tobool.not.i129 = icmp eq i32 %call1.i128, 0
+  br i1 %tobool.not.i129, label %dup_str.exit134, label %if.then2.i130
 
-if.then2.i129:                                    ; preds = %if.end.i125
-  %call3.i130 = call noalias ptr @CRYPTO_strndup(ptr noundef %68, i64 noundef %conv215, ptr noundef nonnull @.str, i32 noundef 1251) #10
-  %call4.i131 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i130) #10
-  br label %dup_str.exit133
+if.then2.i130:                                    ; preds = %if.end.i126
+  %call3.i131 = call noalias ptr @CRYPTO_strndup(ptr noundef %68, i64 noundef %conv215, ptr noundef nonnull @.str, i32 noundef 1251) #10
+  %call4.i132 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i131) #10
+  br label %dup_str.exit134
 
-dup_str.exit133:                                  ; preds = %dup_str.exit, %if.end.i125, %if.then2.i129
-  %retval.0.i132 = phi ptr [ null, %dup_str.exit ], [ %call3.i130, %if.then2.i129 ], [ null, %if.end.i125 ]
+dup_str.exit134:                                  ; preds = %dup_str.exit, %if.end.i126, %if.then2.i130
+  %retval.0.i133 = phi ptr [ null, %dup_str.exit ], [ %call3.i131, %if.then2.i130 ], [ null, %if.end.i126 ]
   %server_npn_negotiated = getelementptr inbounds i8, ptr %call.i, i64 64
-  store ptr %retval.0.i132, ptr %server_npn_negotiated, align 8
+  store ptr %retval.0.i133, ptr %server_npn_negotiated, align 8
   call void @SSL_get0_alpn_selected(ptr noundef %55, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
   %70 = load ptr, ptr %proto, align 8
   %71 = load i32, ptr %proto_len, align 4
   %conv218 = zext i32 %71 to i64
-  %cmp.i134 = icmp eq i32 %71, 0
-  br i1 %cmp.i134, label %dup_str.exit143, label %if.end.i135
+  %cmp.i135 = icmp eq i32 %71, 0
+  br i1 %cmp.i135, label %dup_str.exit144, label %if.end.i136
 
-if.end.i135:                                      ; preds = %dup_str.exit133
-  %call.i136 = call i64 @OPENSSL_strnlen(ptr noundef %70, i64 noundef %conv218) #10
-  %call1.i137 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i136, i64 noundef %conv218) #10
-  %tobool.not.i138 = icmp eq i32 %call1.i137, 0
-  br i1 %tobool.not.i138, label %dup_str.exit143, label %if.then2.i139
+if.end.i136:                                      ; preds = %dup_str.exit134
+  %call.i137 = call i64 @OPENSSL_strnlen(ptr noundef %70, i64 noundef %conv218) #10
+  %call1.i138 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i137, i64 noundef %conv218) #10
+  %tobool.not.i139 = icmp eq i32 %call1.i138, 0
+  br i1 %tobool.not.i139, label %dup_str.exit144, label %if.then2.i140
 
-if.then2.i139:                                    ; preds = %if.end.i135
-  %call3.i140 = call noalias ptr @CRYPTO_strndup(ptr noundef %70, i64 noundef %conv218, ptr noundef nonnull @.str, i32 noundef 1251) #10
-  %call4.i141 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i140) #10
-  br label %dup_str.exit143
+if.then2.i140:                                    ; preds = %if.end.i136
+  %call3.i141 = call noalias ptr @CRYPTO_strndup(ptr noundef %70, i64 noundef %conv218, ptr noundef nonnull @.str, i32 noundef 1251) #10
+  %call4.i142 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i141) #10
+  br label %dup_str.exit144
 
-dup_str.exit143:                                  ; preds = %dup_str.exit133, %if.end.i135, %if.then2.i139
-  %retval.0.i142 = phi ptr [ null, %dup_str.exit133 ], [ %call3.i140, %if.then2.i139 ], [ null, %if.end.i135 ]
+dup_str.exit144:                                  ; preds = %dup_str.exit134, %if.end.i136, %if.then2.i140
+  %retval.0.i143 = phi ptr [ null, %dup_str.exit134 ], [ %call3.i141, %if.then2.i140 ], [ null, %if.end.i136 ]
   %client_alpn_negotiated = getelementptr inbounds i8, ptr %call.i, i64 72
-  store ptr %retval.0.i142, ptr %client_alpn_negotiated, align 8
+  store ptr %retval.0.i143, ptr %client_alpn_negotiated, align 8
   call void @SSL_get0_alpn_selected(ptr noundef %54, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
   %72 = load ptr, ptr %proto, align 8
   %73 = load i32, ptr %proto_len, align 4
   %conv221 = zext i32 %73 to i64
-  %cmp.i144 = icmp eq i32 %73, 0
-  br i1 %cmp.i144, label %dup_str.exit153, label %if.end.i145
+  %cmp.i145 = icmp eq i32 %73, 0
+  br i1 %cmp.i145, label %dup_str.exit154, label %if.end.i146
 
-if.end.i145:                                      ; preds = %dup_str.exit143
-  %call.i146 = call i64 @OPENSSL_strnlen(ptr noundef %72, i64 noundef %conv221) #10
-  %call1.i147 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i146, i64 noundef %conv221) #10
-  %tobool.not.i148 = icmp eq i32 %call1.i147, 0
-  br i1 %tobool.not.i148, label %dup_str.exit153, label %if.then2.i149
+if.end.i146:                                      ; preds = %dup_str.exit144
+  %call.i147 = call i64 @OPENSSL_strnlen(ptr noundef %72, i64 noundef %conv221) #10
+  %call1.i148 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i147, i64 noundef %conv221) #10
+  %tobool.not.i149 = icmp eq i32 %call1.i148, 0
+  br i1 %tobool.not.i149, label %dup_str.exit154, label %if.then2.i150
 
-if.then2.i149:                                    ; preds = %if.end.i145
-  %call3.i150 = call noalias ptr @CRYPTO_strndup(ptr noundef %72, i64 noundef %conv221, ptr noundef nonnull @.str, i32 noundef 1251) #10
-  %call4.i151 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i150) #10
-  br label %dup_str.exit153
+if.then2.i150:                                    ; preds = %if.end.i146
+  %call3.i151 = call noalias ptr @CRYPTO_strndup(ptr noundef %72, i64 noundef %conv221, ptr noundef nonnull @.str, i32 noundef 1251) #10
+  %call4.i152 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i151) #10
+  br label %dup_str.exit154
 
-dup_str.exit153:                                  ; preds = %dup_str.exit143, %if.end.i145, %if.then2.i149
-  %retval.0.i152 = phi ptr [ null, %dup_str.exit143 ], [ %call3.i150, %if.then2.i149 ], [ null, %if.end.i145 ]
+dup_str.exit154:                                  ; preds = %dup_str.exit144, %if.end.i146, %if.then2.i150
+  %retval.0.i153 = phi ptr [ null, %dup_str.exit144 ], [ %call3.i151, %if.then2.i150 ], [ null, %if.end.i146 ]
   %server_alpn_negotiated = getelementptr inbounds i8, ptr %call.i, i64 80
-  store ptr %retval.0.i152, ptr %server_alpn_negotiated, align 8
+  store ptr %retval.0.i153, ptr %server_alpn_negotiated, align 8
   %call224 = call ptr @SSL_get_session(ptr noundef %54) #10
   %cmp225.not = icmp eq ptr %call224, null
   br i1 %cmp225.not, label %if.end230, label %if.then227
 
-if.then227:                                       ; preds = %dup_str.exit153
+if.then227:                                       ; preds = %dup_str.exit154
   %call228 = call i32 @SSL_SESSION_get0_ticket_appdata(ptr noundef nonnull %call224, ptr noundef nonnull %tick, ptr noundef nonnull %tick_len) #10
   %74 = load ptr, ptr %tick, align 8
   %75 = load i64, ptr %tick_len, align 8
@@ -1159,7 +1162,7 @@ if.then227:                                       ; preds = %dup_str.exit153
   store ptr %call229, ptr %result_session_ticket_app_data, align 8
   br label %if.end230
 
-if.end230:                                        ; preds = %if.then227, %dup_str.exit153
+if.end230:                                        ; preds = %if.then227, %dup_str.exit154
   %call232 = call i32 @SSL_session_reused(ptr noundef %55) #10
   %client_resumed = getelementptr inbounds i8, ptr %call.i, i64 88
   store i32 %call232, ptr %client_resumed, align 8
@@ -1169,33 +1172,33 @@ if.end230:                                        ; preds = %if.then227, %dup_st
   %call236 = call ptr @SSL_get_current_cipher(ptr noundef %55) #10
   %call237 = call ptr @SSL_CIPHER_get_name(ptr noundef %call236) #10
   %call238 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call237) #11
-  %cmp.i154 = icmp eq i64 %call238, 0
-  br i1 %cmp.i154, label %dup_str.exit163, label %if.end.i155
+  %cmp.i155 = icmp eq i64 %call238, 0
+  br i1 %cmp.i155, label %dup_str.exit164, label %if.end.i156
 
-if.end.i155:                                      ; preds = %if.end230
-  %call.i156 = call i64 @OPENSSL_strnlen(ptr noundef %call237, i64 noundef %call238) #10
-  %call1.i157 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i156, i64 noundef %call238) #10
-  %tobool.not.i158 = icmp eq i32 %call1.i157, 0
-  br i1 %tobool.not.i158, label %dup_str.exit163, label %if.then2.i159
+if.end.i156:                                      ; preds = %if.end230
+  %call.i157 = call i64 @OPENSSL_strnlen(ptr noundef %call237, i64 noundef %call238) #10
+  %call1.i158 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i157, i64 noundef %call238) #10
+  %tobool.not.i159 = icmp eq i32 %call1.i158, 0
+  br i1 %tobool.not.i159, label %dup_str.exit164, label %if.then2.i160
 
-if.then2.i159:                                    ; preds = %if.end.i155
-  %call3.i160 = call noalias ptr @CRYPTO_strndup(ptr noundef %call237, i64 noundef %call238, ptr noundef nonnull @.str, i32 noundef 1251) #10
-  %call4.i161 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i160) #10
-  br label %dup_str.exit163
+if.then2.i160:                                    ; preds = %if.end.i156
+  %call3.i161 = call noalias ptr @CRYPTO_strndup(ptr noundef %call237, i64 noundef %call238, ptr noundef nonnull @.str, i32 noundef 1251) #10
+  %call4.i162 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i161) #10
+  br label %dup_str.exit164
 
-dup_str.exit163:                                  ; preds = %if.end230, %if.end.i155, %if.then2.i159
-  %retval.0.i162 = phi ptr [ null, %if.end230 ], [ %call3.i160, %if.then2.i159 ], [ null, %if.end.i155 ]
+dup_str.exit164:                                  ; preds = %if.end230, %if.end.i156, %if.then2.i160
+  %retval.0.i163 = phi ptr [ null, %if.end230 ], [ %call3.i161, %if.then2.i160 ], [ null, %if.end.i156 ]
   %cipher240 = getelementptr inbounds i8, ptr %call.i, i64 152
-  store ptr %retval.0.i162, ptr %cipher240, align 8
+  store ptr %retval.0.i163, ptr %cipher240, align 8
   %cmp241.not = icmp eq ptr %session_out, null
   br i1 %cmp241.not, label %if.end246, label %if.then243
 
-if.then243:                                       ; preds = %dup_str.exit163
+if.then243:                                       ; preds = %dup_str.exit164
   %call245 = call ptr @SSL_get1_session(ptr noundef %55) #10
   store ptr %call245, ptr %session_out, align 8
   br label %if.end246
 
-if.end246:                                        ; preds = %if.then243, %dup_str.exit163
+if.end246:                                        ; preds = %if.then243, %dup_str.exit164
   %cmp247.not = icmp eq ptr %serv_sess_out, null
   br i1 %cmp247.not, label %if.end257, label %if.then249
 
@@ -1218,29 +1221,29 @@ if.then261:                                       ; preds = %if.end257
   %76 = load ptr, ptr %tmp_key, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %name.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name_len.i)
-  %call.i164 = call i32 @EVP_PKEY_is_a(ptr noundef %76, ptr noundef nonnull @.str.58) #10
-  %tobool.not.i165 = icmp eq i32 %call.i164, 0
-  br i1 %tobool.not.i165, label %if.end6.i, label %if.then.i166
+  %call.i165 = call i32 @EVP_PKEY_is_a(ptr noundef %76, ptr noundef nonnull @.str.58) #10
+  %tobool.not.i166 = icmp eq i32 %call.i165, 0
+  br i1 %tobool.not.i166, label %if.end6.i, label %if.then.i167
 
-if.then.i166:                                     ; preds = %if.then261
-  %call1.i167 = call i32 @EVP_PKEY_get_group_name(ptr noundef %76, ptr noundef nonnull %name.i, i64 noundef 80, ptr noundef nonnull %name_len.i) #10
-  %tobool2.not.i = icmp eq i32 %call1.i167, 0
-  br i1 %tobool2.not.i, label %pkey_type.exit, label %if.end.i168
+if.then.i167:                                     ; preds = %if.then261
+  %call1.i168 = call i32 @EVP_PKEY_get_group_name(ptr noundef %76, ptr noundef nonnull %name.i, i64 noundef 80, ptr noundef nonnull %name_len.i) #10
+  %tobool2.not.i = icmp eq i32 %call1.i168, 0
+  br i1 %tobool2.not.i, label %pkey_type.exit, label %if.end.i169
 
-if.end.i168:                                      ; preds = %if.then.i166
+if.end.i169:                                      ; preds = %if.then.i167
   %call5.i = call i32 @OBJ_txt2nid(ptr noundef nonnull %name.i) #10
   br label %pkey_type.exit
 
 if.end6.i:                                        ; preds = %if.then261
-  %call7.i170 = call i32 @EVP_PKEY_get_id(ptr noundef %76) #10
+  %call7.i171 = call i32 @EVP_PKEY_get_id(ptr noundef %76) #10
   br label %pkey_type.exit
 
-pkey_type.exit:                                   ; preds = %if.then.i166, %if.end.i168, %if.end6.i
-  %retval.0.i169 = phi i32 [ %call5.i, %if.end.i168 ], [ %call7.i170, %if.end6.i ], [ 0, %if.then.i166 ]
+pkey_type.exit:                                   ; preds = %if.then.i167, %if.end.i169, %if.end6.i
+  %retval.0.i170 = phi i32 [ %call5.i, %if.end.i169 ], [ %call7.i171, %if.end6.i ], [ 0, %if.then.i167 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %name.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name_len.i)
   %tmp_key_type = getelementptr inbounds i8, ptr %call.i, i64 96
-  store i32 %retval.0.i169, ptr %tmp_key_type, align 8
+  store i32 %retval.0.i170, ptr %tmp_key_type, align 8
   %77 = load ptr, ptr %tmp_key, align 8
   call void @EVP_PKEY_free(ptr noundef %77) #10
   br label %if.end263
@@ -1278,20 +1281,20 @@ if.end289:                                        ; preds = %if.end280, %if.else
   %call287.sink = phi ptr [ %call287, %if.else286 ], [ null, %if.end280 ]
   %79 = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr %call287.sink, ptr %79, align 8
-  %call.i171 = call ptr @SSL_get0_peer_certificate(ptr noundef %55) #10
-  %cmp.not.i172 = icmp eq ptr %call.i171, null
-  br i1 %cmp.not.i172, label %peer_pkey_type.exit, label %if.then.i173
+  %call.i172 = call ptr @SSL_get0_peer_certificate(ptr noundef %55) #10
+  %cmp.not.i173 = icmp eq ptr %call.i172, null
+  br i1 %cmp.not.i173, label %peer_pkey_type.exit, label %if.then.i174
 
-if.then.i173:                                     ; preds = %if.end289
-  %call1.i174 = call ptr @X509_get0_pubkey(ptr noundef nonnull %call.i171) #10
+if.then.i174:                                     ; preds = %if.end289
+  %call1.i175 = call ptr @X509_get0_pubkey(ptr noundef nonnull %call.i172) #10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %name.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name_len.i.i)
-  %call.i.i = call i32 @EVP_PKEY_is_a(ptr noundef %call1.i174, ptr noundef nonnull @.str.58) #10
+  %call.i.i = call i32 @EVP_PKEY_is_a(ptr noundef %call1.i175, ptr noundef nonnull @.str.58) #10
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.then.i173
-  %call1.i.i = call i32 @EVP_PKEY_get_group_name(ptr noundef %call1.i174, ptr noundef nonnull %name.i.i, i64 noundef 80, ptr noundef nonnull %name_len.i.i) #10
+if.then.i.i:                                      ; preds = %if.then.i174
+  %call1.i.i = call i32 @EVP_PKEY_get_group_name(ptr noundef %call1.i175, ptr noundef nonnull %name.i.i, i64 noundef 80, ptr noundef nonnull %name_len.i.i) #10
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %pkey_type.exit.i, label %if.end.i.i
 
@@ -1299,8 +1302,8 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   %call5.i.i = call i32 @OBJ_txt2nid(ptr noundef nonnull %name.i.i) #10
   br label %pkey_type.exit.i
 
-if.end6.i.i:                                      ; preds = %if.then.i173
-  %call7.i.i = call i32 @EVP_PKEY_get_id(ptr noundef %call1.i174) #10
+if.end6.i.i:                                      ; preds = %if.then.i174
+  %call7.i.i = call i32 @EVP_PKEY_get_id(ptr noundef %call1.i175) #10
   br label %pkey_type.exit.i
 
 pkey_type.exit.i:                                 ; preds = %if.end6.i.i, %if.end.i.i, %if.then.i.i
@@ -1310,51 +1313,51 @@ pkey_type.exit.i:                                 ; preds = %if.end6.i.i, %if.en
   br label %peer_pkey_type.exit
 
 peer_pkey_type.exit:                              ; preds = %if.end289, %pkey_type.exit.i
-  %retval.0.i175 = phi i32 [ %retval.0.i.i, %pkey_type.exit.i ], [ 0, %if.end289 ]
+  %retval.0.i176 = phi i32 [ %retval.0.i.i, %pkey_type.exit.i ], [ 0, %if.end289 ]
   %server_cert_type = getelementptr inbounds i8, ptr %call.i, i64 100
-  store i32 %retval.0.i175, ptr %server_cert_type, align 4
-  %call.i178 = call ptr @SSL_get0_peer_certificate(ptr noundef %54) #10
-  %cmp.not.i179 = icmp eq ptr %call.i178, null
-  br i1 %cmp.not.i179, label %peer_pkey_type.exit194, label %if.then.i180
+  store i32 %retval.0.i176, ptr %server_cert_type, align 4
+  %call.i179 = call ptr @SSL_get0_peer_certificate(ptr noundef %54) #10
+  %cmp.not.i180 = icmp eq ptr %call.i179, null
+  br i1 %cmp.not.i180, label %peer_pkey_type.exit195, label %if.then.i181
 
-if.then.i180:                                     ; preds = %peer_pkey_type.exit
-  %call1.i181 = call ptr @X509_get0_pubkey(ptr noundef nonnull %call.i178) #10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %name.i.i176)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name_len.i.i177)
-  %call.i.i182 = call i32 @EVP_PKEY_is_a(ptr noundef %call1.i181, ptr noundef nonnull @.str.58) #10
-  %tobool.not.i.i183 = icmp eq i32 %call.i.i182, 0
-  br i1 %tobool.not.i.i183, label %if.end6.i.i192, label %if.then.i.i184
+if.then.i181:                                     ; preds = %peer_pkey_type.exit
+  %call1.i182 = call ptr @X509_get0_pubkey(ptr noundef nonnull %call.i179) #10
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %name.i.i177)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name_len.i.i178)
+  %call.i.i183 = call i32 @EVP_PKEY_is_a(ptr noundef %call1.i182, ptr noundef nonnull @.str.58) #10
+  %tobool.not.i.i184 = icmp eq i32 %call.i.i183, 0
+  br i1 %tobool.not.i.i184, label %if.end6.i.i193, label %if.then.i.i185
 
-if.then.i.i184:                                   ; preds = %if.then.i180
-  %call1.i.i185 = call i32 @EVP_PKEY_get_group_name(ptr noundef %call1.i181, ptr noundef nonnull %name.i.i176, i64 noundef 80, ptr noundef nonnull %name_len.i.i177) #10
-  %tobool2.not.i.i186 = icmp eq i32 %call1.i.i185, 0
-  br i1 %tobool2.not.i.i186, label %pkey_type.exit.i189, label %if.end.i.i187
+if.then.i.i185:                                   ; preds = %if.then.i181
+  %call1.i.i186 = call i32 @EVP_PKEY_get_group_name(ptr noundef %call1.i182, ptr noundef nonnull %name.i.i177, i64 noundef 80, ptr noundef nonnull %name_len.i.i178) #10
+  %tobool2.not.i.i187 = icmp eq i32 %call1.i.i186, 0
+  br i1 %tobool2.not.i.i187, label %pkey_type.exit.i190, label %if.end.i.i188
 
-if.end.i.i187:                                    ; preds = %if.then.i.i184
-  %call5.i.i188 = call i32 @OBJ_txt2nid(ptr noundef nonnull %name.i.i176) #10
-  br label %pkey_type.exit.i189
+if.end.i.i188:                                    ; preds = %if.then.i.i185
+  %call5.i.i189 = call i32 @OBJ_txt2nid(ptr noundef nonnull %name.i.i177) #10
+  br label %pkey_type.exit.i190
 
-if.end6.i.i192:                                   ; preds = %if.then.i180
-  %call7.i.i193 = call i32 @EVP_PKEY_get_id(ptr noundef %call1.i181) #10
-  br label %pkey_type.exit.i189
+if.end6.i.i193:                                   ; preds = %if.then.i181
+  %call7.i.i194 = call i32 @EVP_PKEY_get_id(ptr noundef %call1.i182) #10
+  br label %pkey_type.exit.i190
 
-pkey_type.exit.i189:                              ; preds = %if.end6.i.i192, %if.end.i.i187, %if.then.i.i184
-  %retval.0.i.i190 = phi i32 [ %call5.i.i188, %if.end.i.i187 ], [ %call7.i.i193, %if.end6.i.i192 ], [ 0, %if.then.i.i184 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %name.i.i176)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name_len.i.i177)
-  br label %peer_pkey_type.exit194
+pkey_type.exit.i190:                              ; preds = %if.end6.i.i193, %if.end.i.i188, %if.then.i.i185
+  %retval.0.i.i191 = phi i32 [ %call5.i.i189, %if.end.i.i188 ], [ %call7.i.i194, %if.end6.i.i193 ], [ 0, %if.then.i.i185 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %name.i.i177)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name_len.i.i178)
+  br label %peer_pkey_type.exit195
 
-peer_pkey_type.exit194:                           ; preds = %peer_pkey_type.exit, %pkey_type.exit.i189
-  %retval.0.i191 = phi i32 [ %retval.0.i.i190, %pkey_type.exit.i189 ], [ 0, %peer_pkey_type.exit ]
+peer_pkey_type.exit195:                           ; preds = %peer_pkey_type.exit, %pkey_type.exit.i190
+  %retval.0.i192 = phi i32 [ %retval.0.i.i191, %pkey_type.exit.i190 ], [ 0, %peer_pkey_type.exit ]
   %client_cert_type = getelementptr inbounds i8, ptr %call.i, i64 120
-  store i32 %retval.0.i191, ptr %client_cert_type, align 8
+  store i32 %retval.0.i192, ptr %client_cert_type, align 8
   %80 = load ptr, ptr %server_ctx_data, align 8
   call void @CRYPTO_free(ptr noundef %80, ptr noundef nonnull @.str, i32 noundef 66) #10
   store ptr null, ptr %server_ctx_data, align 8
-  %alpn_protocols.i195 = getelementptr inbounds i8, ptr %server_ctx_data, i64 16
-  %81 = load ptr, ptr %alpn_protocols.i195, align 8
+  %alpn_protocols.i196 = getelementptr inbounds i8, ptr %server_ctx_data, i64 16
+  %81 = load ptr, ptr %alpn_protocols.i196, align 8
   call void @CRYPTO_free(ptr noundef %81, ptr noundef nonnull @.str, i32 noundef 68) #10
-  store ptr null, ptr %alpn_protocols.i195, align 8
+  store ptr null, ptr %alpn_protocols.i196, align 8
   %srp_user.i = getelementptr inbounds i8, ptr %server_ctx_data, i64 32
   %82 = load ptr, ptr %srp_user.i, align 8
   call void @CRYPTO_free(ptr noundef %82, ptr noundef nonnull @.str, i32 noundef 70) #10
@@ -1363,48 +1366,48 @@ peer_pkey_type.exit194:                           ; preds = %peer_pkey_type.exit
   %83 = load ptr, ptr %srp_password.i, align 8
   call void @CRYPTO_free(ptr noundef %83, ptr noundef nonnull @.str, i32 noundef 72) #10
   store ptr null, ptr %srp_password.i, align 8
-  %session_ticket_app_data.i196 = getelementptr inbounds i8, ptr %server_ctx_data, i64 48
-  %84 = load ptr, ptr %session_ticket_app_data.i196, align 8
+  %session_ticket_app_data.i197 = getelementptr inbounds i8, ptr %server_ctx_data, i64 48
+  %84 = load ptr, ptr %session_ticket_app_data.i197, align 8
   call void @CRYPTO_free(ptr noundef %84, ptr noundef nonnull @.str, i32 noundef 74) #10
-  store ptr null, ptr %session_ticket_app_data.i196, align 8
+  store ptr null, ptr %session_ticket_app_data.i197, align 8
   %85 = load ptr, ptr %server2_ctx_data, align 8
   call void @CRYPTO_free(ptr noundef %85, ptr noundef nonnull @.str, i32 noundef 66) #10
   store ptr null, ptr %server2_ctx_data, align 8
-  %alpn_protocols.i197 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 16
-  %86 = load ptr, ptr %alpn_protocols.i197, align 8
+  %alpn_protocols.i198 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 16
+  %86 = load ptr, ptr %alpn_protocols.i198, align 8
   call void @CRYPTO_free(ptr noundef %86, ptr noundef nonnull @.str, i32 noundef 68) #10
-  store ptr null, ptr %alpn_protocols.i197, align 8
-  %srp_user.i198 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 32
-  %87 = load ptr, ptr %srp_user.i198, align 8
+  store ptr null, ptr %alpn_protocols.i198, align 8
+  %srp_user.i199 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 32
+  %87 = load ptr, ptr %srp_user.i199, align 8
   call void @CRYPTO_free(ptr noundef %87, ptr noundef nonnull @.str, i32 noundef 70) #10
-  store ptr null, ptr %srp_user.i198, align 8
-  %srp_password.i199 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 40
-  %88 = load ptr, ptr %srp_password.i199, align 8
+  store ptr null, ptr %srp_user.i199, align 8
+  %srp_password.i200 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 40
+  %88 = load ptr, ptr %srp_password.i200, align 8
   call void @CRYPTO_free(ptr noundef %88, ptr noundef nonnull @.str, i32 noundef 72) #10
-  store ptr null, ptr %srp_password.i199, align 8
-  %session_ticket_app_data.i200 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 48
-  %89 = load ptr, ptr %session_ticket_app_data.i200, align 8
+  store ptr null, ptr %srp_password.i200, align 8
+  %session_ticket_app_data.i201 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 48
+  %89 = load ptr, ptr %session_ticket_app_data.i201, align 8
   call void @CRYPTO_free(ptr noundef %89, ptr noundef nonnull @.str, i32 noundef 74) #10
-  store ptr null, ptr %session_ticket_app_data.i200, align 8
+  store ptr null, ptr %session_ticket_app_data.i201, align 8
   %90 = load ptr, ptr %client_ctx_data, align 8
   call void @CRYPTO_free(ptr noundef %90, ptr noundef nonnull @.str, i32 noundef 66) #10
   store ptr null, ptr %client_ctx_data, align 8
-  %alpn_protocols.i201 = getelementptr inbounds i8, ptr %client_ctx_data, i64 16
-  %91 = load ptr, ptr %alpn_protocols.i201, align 8
+  %alpn_protocols.i202 = getelementptr inbounds i8, ptr %client_ctx_data, i64 16
+  %91 = load ptr, ptr %alpn_protocols.i202, align 8
   call void @CRYPTO_free(ptr noundef %91, ptr noundef nonnull @.str, i32 noundef 68) #10
-  store ptr null, ptr %alpn_protocols.i201, align 8
-  %srp_user.i202 = getelementptr inbounds i8, ptr %client_ctx_data, i64 32
-  %92 = load ptr, ptr %srp_user.i202, align 8
+  store ptr null, ptr %alpn_protocols.i202, align 8
+  %srp_user.i203 = getelementptr inbounds i8, ptr %client_ctx_data, i64 32
+  %92 = load ptr, ptr %srp_user.i203, align 8
   call void @CRYPTO_free(ptr noundef %92, ptr noundef nonnull @.str, i32 noundef 70) #10
-  store ptr null, ptr %srp_user.i202, align 8
-  %srp_password.i203 = getelementptr inbounds i8, ptr %client_ctx_data, i64 40
-  %93 = load ptr, ptr %srp_password.i203, align 8
+  store ptr null, ptr %srp_user.i203, align 8
+  %srp_password.i204 = getelementptr inbounds i8, ptr %client_ctx_data, i64 40
+  %93 = load ptr, ptr %srp_password.i204, align 8
   call void @CRYPTO_free(ptr noundef %93, ptr noundef nonnull @.str, i32 noundef 72) #10
-  store ptr null, ptr %srp_password.i203, align 8
-  %session_ticket_app_data.i204 = getelementptr inbounds i8, ptr %client_ctx_data, i64 48
-  %94 = load ptr, ptr %session_ticket_app_data.i204, align 8
+  store ptr null, ptr %srp_password.i204, align 8
+  %session_ticket_app_data.i205 = getelementptr inbounds i8, ptr %client_ctx_data, i64 48
+  %94 = load ptr, ptr %session_ticket_app_data.i205, align 8
   call void @CRYPTO_free(ptr noundef %94, ptr noundef nonnull @.str, i32 noundef 74) #10
-  store ptr null, ptr %session_ticket_app_data.i204, align 8
+  store ptr null, ptr %session_ticket_app_data.i205, align 8
   call void @SSL_free(ptr noundef %54) #10
   %write_buf.i = getelementptr inbounds i8, ptr %server, i64 8
   %95 = load ptr, ptr %write_buf.i, align 8
@@ -1413,16 +1416,16 @@ peer_pkey_type.exit194:                           ; preds = %peer_pkey_type.exit
   %96 = load ptr, ptr %read_buf.i, align 8
   call void @CRYPTO_free(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 771) #10
   call void @SSL_free(ptr noundef %55) #10
-  %write_buf.i205 = getelementptr inbounds i8, ptr %client, i64 8
-  %97 = load ptr, ptr %write_buf.i205, align 8
+  %write_buf.i206 = getelementptr inbounds i8, ptr %client, i64 8
+  %97 = load ptr, ptr %write_buf.i206, align 8
   call void @CRYPTO_free(ptr noundef %97, ptr noundef nonnull @.str, i32 noundef 770) #10
-  %read_buf.i206 = getelementptr inbounds i8, ptr %client, i64 24
-  %98 = load ptr, ptr %read_buf.i206, align 8
+  %read_buf.i207 = getelementptr inbounds i8, ptr %client, i64 24
+  %98 = load ptr, ptr %read_buf.i207, align 8
   call void @CRYPTO_free(ptr noundef %98, ptr noundef nonnull @.str, i32 noundef 771) #10
   br label %return
 
-return:                                           ; preds = %entry, %peer_pkey_type.exit194, %if.then2
-  %retval.0 = phi ptr [ %call.i, %peer_pkey_type.exit194 ], [ null, %if.then2 ], [ null, %entry ]
+return:                                           ; preds = %entry, %peer_pkey_type.exit195, %if.then2
+  %retval.0 = phi ptr [ %call.i, %peer_pkey_type.exit195 ], [ null, %if.then2 ], [ null, %entry ]
   ret ptr %retval.0
 }
 

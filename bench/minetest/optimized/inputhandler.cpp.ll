@@ -5369,7 +5369,7 @@ if.then.i.i:                                      ; preds = %invoke.cont.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont.i
-  %979 = trunc i64 %indvars.iv.next to i8
+  %979 = trunc nuw i64 %indvars.iv.next to i8
   %980 = or i8 %979, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -5817,8 +5817,8 @@ if.then5:                                         ; preds = %if.end4
 
 invoke.cont:                                      ; preds = %if.then5
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 160
-  %cmp.i.i162.not = icmp eq ptr %call.i163, %add.ptr.i
-  br i1 %cmp.i.i162.not, label %cleanup, label %if.then7
+  %cmp.i.i162.not = icmp ne ptr %call.i163, %add.ptr.i
+  br i1 %cmp.i.i162.not, label %if.then7, label %cleanup
 
 if.then7:                                         ; preds = %invoke.cont
   %PressedDown = getelementptr inbounds i8, ptr %event, i64 20
@@ -5996,7 +5996,7 @@ if.then.i.i.i216:                                 ; preds = %cleanup
 
 _ZN8KeyPressD2Ev.exit220:                         ; preds = %if.then.i.i.i216, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i217
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp) #21
-  br i1 %cmp.i.i162.not, label %if.end129, label %return
+  br label %return
 
 if.else27:                                        ; preds = %if.end4
   %28 = load ptr, ptr @g_touchscreengui, align 8, !tbaa !28
@@ -6010,7 +6010,7 @@ if.then31:                                        ; preds = %if.else27
   br label %return
 
 if.else32:                                        ; preds = %if.else27
-  switch i32 %7, label %if.end129 [
+  switch i32 %7, label %return [
     i32 8, label %if.then35
     i32 1, label %if.then42
     i32 9, label %if.then109
@@ -6469,7 +6469,7 @@ if.then.i.i.i386:                                 ; preds = %sw.epilog
 
 _ZN8KeyPressD2Ev.exit390:                         ; preds = %if.then.i.i.i386, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i387
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %key) #21
-  br label %if.end129
+  br label %return
 
 ehcleanup:                                        ; preds = %lpad96, %lpad87, %lpad78, %lpad67, %lpad56, %lpad48, %lpad44
   %.pn157 = phi { ptr, i32 } [ %40, %lpad48 ], [ %70, %lpad96 ], [ %64, %lpad87 ], [ %59, %lpad78 ], [ %54, %lpad67 ], [ %47, %lpad56 ], [ %39, %lpad44 ]
@@ -6638,11 +6638,8 @@ ehcleanup121:                                     ; preds = %if.then.i.i425, %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp110) #21
   br label %eh.resume
 
-if.end129:                                        ; preds = %_ZN8KeyPressD2Ev.exit390, %if.else32, %_ZN8KeyPressD2Ev.exit220
-  br label %return
-
-return:                                           ; preds = %if.end129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417, %land.rhs, %if.then35, %if.then31, %_ZN8KeyPressD2Ev.exit220, %land.rhs.i, %dynamic_cast.end.i, %if.end.i, %if.end
-  %retval.1 = phi i1 [ true, %_ZN8KeyPressD2Ev.exit220 ], [ false, %if.end129 ], [ true, %if.then31 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417 ], [ false, %if.then35 ], [ %call38, %land.rhs ], [ false, %if.end ], [ false, %dynamic_cast.end.i ], [ %call4.i, %land.rhs.i ], [ false, %if.end.i ]
+return:                                           ; preds = %_ZN8KeyPressD2Ev.exit220, %if.else32, %_ZN8KeyPressD2Ev.exit390, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417, %land.rhs, %if.then35, %if.then31, %land.rhs.i, %dynamic_cast.end.i, %if.end.i, %if.end
+  %retval.1 = phi i1 [ true, %if.then31 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417 ], [ false, %if.then35 ], [ %call38, %land.rhs ], [ false, %if.end ], [ false, %dynamic_cast.end.i ], [ %call4.i, %land.rhs.i ], [ false, %if.end.i ], [ false, %_ZN8KeyPressD2Ev.exit390 ], [ false, %if.else32 ], [ %cmp.i.i162.not, %_ZN8KeyPressD2Ev.exit220 ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %ehcleanup121, %_ZN8KeyPressD2Ev.exit397, %_ZN8KeyPressD2Ev.exit

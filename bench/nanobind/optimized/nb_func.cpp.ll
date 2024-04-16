@@ -535,7 +535,7 @@ define hidden noundef i32 @_ZN8nanobind6detail24nb_bound_method_traverseEP7_obje
 6:                                                ; preds = %3
   %7 = tail call noundef i32 %1(ptr noundef nonnull %5, ptr noundef %2)
   %.not17 = icmp eq i32 %7, 0
-  br i1 %.not17, label %8, label %14
+  br i1 %.not17, label %8, label %13
 
 8:                                                ; preds = %6, %3
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -545,14 +545,10 @@ define hidden noundef i32 @_ZN8nanobind6detail24nb_bound_method_traverseEP7_obje
 
 11:                                               ; preds = %8
   %12 = tail call noundef i32 %1(ptr noundef nonnull %10, ptr noundef %2)
-  %.not19 = icmp eq i32 %12, 0
-  br i1 %.not19, label %13, label %14
+  br label %13
 
-13:                                               ; preds = %8, %11
-  br label %14
-
-14:                                               ; preds = %11, %6, %13
-  %.0 = phi i32 [ 0, %13 ], [ %7, %6 ], [ %12, %11 ]
+13:                                               ; preds = %11, %8, %6
+  %.0 = phi i32 [ %7, %6 ], [ 0, %8 ], [ %12, %11 ]
   ret i32 %.0
 }
 
@@ -2071,7 +2067,7 @@ define internal noundef ptr @_ZN8nanobind6detailL25nb_func_vectorcall_simpleEP7_
 .preheader.us:                                    ; preds = %35, %._crit_edge99.us
   %.0102.us = phi ptr [ %.4.us, %._crit_edge99.us ], [ null, %35 ]
   %.067101.us = phi i32 [ 1, %._crit_edge99.us ], [ %37, %35 ]
-  %38 = trunc i32 %.067101.us to i8
+  %38 = trunc nuw nsw i32 %.067101.us to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %5, i8 %38, i64 8, i1 false)
   br i1 %.not, label %.lr.ph98.us.preheader, label %39
 
@@ -2156,14 +2152,14 @@ define internal noundef ptr @_ZN8nanobind6detailL25nb_func_vectorcall_simpleEP7_
 
 .preheader.us113:                                 ; preds = %.split, %.preheader.us113
   %.067101.us114 = phi i32 [ 1, %.preheader.us113 ], [ %37, %.split ]
-  %66 = trunc i32 %.067101.us114 to i8
+  %66 = trunc nuw nsw i32 %.067101.us114 to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %5, i8 %66, i64 8, i1 false)
   %67 = icmp eq i32 %.067101.us114, 0
   br i1 %67, label %.preheader.us113, label %.loopexit79, !llvm.loop !33
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.067101 = phi i32 [ 1, %.preheader ], [ %37, %.preheader.preheader ]
-  %68 = trunc i32 %.067101 to i8
+  %68 = trunc nuw nsw i32 %.067101 to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %65, i8 %68, i64 7, i1 false)
   %69 = icmp eq i32 %.067101, 0
   br i1 %69, label %.preheader, label %.loopexit79, !llvm.loop !33
@@ -5319,7 +5315,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i.i57:   ; preds = %48
   store ptr %69, ptr getelementptr inbounds (%"struct.nanobind::detail::Buffer", ptr @_ZN8nanobind6detail3bufE, i64 0, i32 1), align 8
   store i8 0, ptr %69, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = trunc i64 %indvars.iv.next to i32
+  %70 = trunc nuw i64 %indvars.iv.next to i32
   invoke void @_ZN8nanobind6detail6Buffer10put_uint32Ej(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8nanobind6detail3bufE, i32 noundef %70)
           to label %71 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 

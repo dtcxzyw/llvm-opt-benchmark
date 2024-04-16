@@ -7259,7 +7259,7 @@ define hidden i32 @_ir_PHI_N(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -11810,8 +11810,8 @@ ir_check_partial_aliasing.exit.thread55.i:        ; preds = %133, %ir_check_part
   %140 = icmp sgt i32 %139, %6
   br i1 %140, label %14, label %ir_find_aliasing_load.exit.thread
 
-ir_find_aliasing_load.exit:                       ; preds = %23, %40, %43, %56
-  %.0.i = phi i32 [ %59, %56 ], [ %30, %43 ], [ %30, %40 ], [ %.04662.i, %23 ]
+ir_find_aliasing_load.exit:                       ; preds = %23, %43, %40, %56
+  %.0.i = phi i32 [ %59, %56 ], [ %30, %40 ], [ %30, %43 ], [ %.04662.i, %23 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge, label %173
 
@@ -11820,9 +11820,9 @@ ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge: ; preds 
   %.pre.i.i.pre = load ptr, ptr %0, align 8
   br label %ir_find_aliasing_load.exit.thread
 
-ir_find_aliasing_load.exit.thread:                ; preds = %80, %83, %123, %119, %116, %92, %87, %ir_check_partial_aliasing.exit.thread55.i, %14, %14, %14, %14, %ir_check_partial_aliasing.exit.i, %71, %104, %111, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge, %3, %48, %50, %43
-  %.pre.i.i = phi ptr [ %.pre.i.i.pre, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge ], [ %.pre.i.i.pre27, %3 ], [ %.pre.i.i.pre27, %48 ], [ %.pre.i.i.pre27, %50 ], [ %.pre.i.i.pre27, %43 ], [ %.pre.i.i.pre27, %111 ], [ %.pre.i.i.pre27, %104 ], [ %.pre.i.i.pre27, %71 ], [ %.pre.i.i.pre27, %ir_check_partial_aliasing.exit.i ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %ir_check_partial_aliasing.exit.thread55.i ], [ %.pre.i.i.pre27, %87 ], [ %.pre.i.i.pre27, %92 ], [ %.pre.i.i.pre27, %116 ], [ %.pre.i.i.pre27, %119 ], [ %.pre.i.i.pre27, %123 ], [ %.pre.i.i.pre27, %83 ], [ %.pre.i.i.pre27, %80 ]
-  %141 = phi i32 [ %.pre, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge ], [ %5, %3 ], [ %5, %48 ], [ %5, %50 ], [ %5, %43 ], [ %5, %111 ], [ %5, %104 ], [ %5, %71 ], [ %5, %ir_check_partial_aliasing.exit.i ], [ %5, %14 ], [ %5, %14 ], [ %5, %14 ], [ %5, %14 ], [ %5, %ir_check_partial_aliasing.exit.thread55.i ], [ %5, %87 ], [ %5, %92 ], [ %5, %116 ], [ %5, %119 ], [ %5, %123 ], [ %5, %83 ], [ %5, %80 ]
+ir_find_aliasing_load.exit.thread:                ; preds = %80, %83, %123, %119, %116, %92, %87, %ir_check_partial_aliasing.exit.thread55.i, %14, %14, %14, %14, %ir_check_partial_aliasing.exit.i, %71, %104, %111, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge, %3, %43, %48, %50
+  %.pre.i.i = phi ptr [ %.pre.i.i.pre, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge ], [ %.pre.i.i.pre27, %3 ], [ %.pre.i.i.pre27, %43 ], [ %.pre.i.i.pre27, %48 ], [ %.pre.i.i.pre27, %50 ], [ %.pre.i.i.pre27, %111 ], [ %.pre.i.i.pre27, %104 ], [ %.pre.i.i.pre27, %71 ], [ %.pre.i.i.pre27, %ir_check_partial_aliasing.exit.i ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %ir_check_partial_aliasing.exit.thread55.i ], [ %.pre.i.i.pre27, %87 ], [ %.pre.i.i.pre27, %92 ], [ %.pre.i.i.pre27, %116 ], [ %.pre.i.i.pre27, %119 ], [ %.pre.i.i.pre27, %123 ], [ %.pre.i.i.pre27, %83 ], [ %.pre.i.i.pre27, %80 ]
+  %141 = phi i32 [ %.pre, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge ], [ %5, %3 ], [ %5, %43 ], [ %5, %48 ], [ %5, %50 ], [ %5, %111 ], [ %5, %104 ], [ %5, %71 ], [ %5, %ir_check_partial_aliasing.exit.i ], [ %5, %14 ], [ %5, %14 ], [ %5, %14 ], [ %5, %14 ], [ %5, %ir_check_partial_aliasing.exit.thread55.i ], [ %5, %87 ], [ %5, %92 ], [ %5, %116 ], [ %5, %119 ], [ %5, %123 ], [ %5, %83 ], [ %5, %80 ]
   %142 = shl i32 %1, 8
   %143 = and i32 %142, 16776960
   %144 = or disjoint i32 %143, 78

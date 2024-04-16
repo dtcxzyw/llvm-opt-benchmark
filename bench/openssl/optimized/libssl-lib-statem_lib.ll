@@ -391,8 +391,8 @@ if.then4:                                         ; preds = %for.end.i, %sw.epil
   br label %return
 
 if.end5:                                          ; preds = %sw.default.i, %for.end.i
-  %ver_min.3.ph = phi i32 [ %ver_min.1, %for.end.i ], [ %3, %sw.default.i ]
-  %ver_max.1.ph = phi i32 [ %version.0.lcssa.fr.i, %for.end.i ], [ %3, %sw.default.i ]
+  %ver_min.2.ph = phi i32 [ %ver_min.1, %for.end.i ], [ %3, %sw.default.i ]
+  %ver_max.0.ph = phi i32 [ %version.0.lcssa.fr.i, %for.end.i ], [ %3, %sw.default.i ]
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 1424
   %10 = load ptr, ptr %arrayidx, align 8
   %cmp6 = icmp eq ptr %10, null
@@ -409,13 +409,13 @@ if.then7:                                         ; preds = %if.end5
   br i1 %tobool9.not, label %if.end18, label %if.then10
 
 if.then10:                                        ; preds = %if.then7
-  %cmp11 = icmp ne i32 %ver_max.1.ph, 256
-  %cmp1245 = icmp slt i32 %ver_max.1.ph, 65279
+  %cmp11 = icmp ne i32 %ver_max.0.ph, 256
+  %cmp1245 = icmp slt i32 %ver_max.0.ph, 65279
   %cmp12.not = and i1 %cmp11, %cmp1245
   br i1 %cmp12.not, label %if.then28, label %if.then20
 
 if.end18:                                         ; preds = %if.then7
-  %cmp15 = icmp sgt i32 %ver_max.1.ph, 770
+  %cmp15 = icmp sgt i32 %ver_max.0.ph, 770
   br i1 %cmp15, label %if.else38, label %if.then20
 
 if.then20:                                        ; preds = %if.then10, %if.end18
@@ -425,13 +425,13 @@ if.then20:                                        ; preds = %if.then10, %if.end1
   br label %return
 
 if.then28:                                        ; preds = %if.then10
-  %cmp29 = icmp eq i32 %ver_min.3.ph, 256
-  %cmp3446 = icmp sgt i32 %ver_min.3.ph, 65277
+  %cmp29 = icmp eq i32 %ver_min.2.ph, 256
+  %cmp3446 = icmp sgt i32 %ver_min.2.ph, 65277
   %cmp34 = or i1 %cmp29, %cmp3446
   br i1 %cmp34, label %if.end45, label %if.end49
 
 if.else38:                                        ; preds = %if.end18
-  %cmp39 = icmp slt i32 %ver_min.3.ph, 771
+  %cmp39 = icmp slt i32 %ver_min.2.ph, 771
   br i1 %cmp39, label %if.end45, label %if.end49
 
 if.end45:                                         ; preds = %if.else38, %if.then28
@@ -460,8 +460,8 @@ if.then51:                                        ; preds = %if.end49
   br i1 %cmp55.not66, label %for.body.lr.ph, label %if.then111
 
 for.body.lr.ph:                                   ; preds = %if.then51
-  %cmp66 = icmp eq i32 %ver_max.1.ph, 256
-  %cond71 = select i1 %cmp66, i32 65280, i32 %ver_max.1.ph
+  %cmp66 = icmp eq i32 %ver_max.0.ph, 256
+  %cond71 = select i1 %cmp66, i32 65280, i32 %ver_max.0.ph
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -495,13 +495,13 @@ land.lhs.true:                                    ; preds = %if.then65
 if.else98:                                        ; preds = %for.body
   %min_tls = getelementptr inbounds i8, ptr %call58, i64 44
   %21 = load i32, ptr %min_tls, align 4
-  %cmp99.not = icmp slt i32 %ver_max.1.ph, %21
+  %cmp99.not = icmp slt i32 %ver_max.0.ph, %21
   br i1 %cmp99.not, label %for.inc, label %land.lhs.true101
 
 land.lhs.true101:                                 ; preds = %if.else98
   %max_tls = getelementptr inbounds i8, ptr %call58, i64 48
   %22 = load i32, ptr %max_tls, align 8
-  %cmp102.not = icmp sgt i32 %ver_max.1.ph, %22
+  %cmp102.not = icmp sgt i32 %ver_max.0.ph, %22
   br i1 %cmp102.not, label %for.inc, label %if.end112
 
 for.inc:                                          ; preds = %land.lhs.true, %if.then65, %if.else98, %land.lhs.true101
@@ -752,20 +752,18 @@ for.inc:                                          ; preds = %for.inc.sink.split,
 
 for.end.thread:                                   ; preds = %if.end13, %if.end13.thread
   store i32 0, ptr %max_version, align 4
-  br label %15
+  br label %return
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
   %version.0.lcssa = phi i32 [ %version.1.us, %for.inc.us ], [ %version.1, %for.inc ]
   %version.0.lcssa.fr = freeze i32 %version.0.lcssa
   store i32 %version.0.lcssa.fr, ptr %max_version, align 4
   %cmp47 = icmp eq i32 %version.0.lcssa.fr, 0
-  br i1 %cmp47, label %15, label %return
-
-15:                                               ; preds = %for.end.thread, %for.end
+  %spec.select = select i1 %cmp47, i32 191, i32 0
   br label %return
 
-return:                                           ; preds = %15, %for.end, %sw.default
-  %retval.0 = phi i32 [ %., %sw.default ], [ 191, %15 ], [ 0, %for.end ]
+return:                                           ; preds = %for.end, %for.end.thread, %sw.default
+  %retval.0 = phi i32 [ %., %sw.default ], [ 191, %for.end.thread ], [ %spec.select, %for.end ]
   ret i32 %retval.0
 }
 
@@ -1174,7 +1172,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_process_cert_verify(ptr noundef %s, ptr nocapture noundef %pkt) local_unnamed_addr #1 {
+define i32 @tls_process_cert_verify(ptr noundef %s, ptr nocapture noundef %pkt) local_unnamed_addr #1 {
 entry:
   %md = alloca ptr, align 8
   %hdatalen = alloca i64, align 8
@@ -1519,7 +1517,7 @@ if.end155:                                        ; preds = %if.else148, %if.end
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %34 = load i32, ptr %server, align 8
   %tobool156.not = icmp eq i32 %34, 0
-  br i1 %tobool156.not, label %land.lhs.true157, label %if.else182
+  br i1 %tobool156.not, label %land.lhs.true157, label %err
 
 land.lhs.true157:                                 ; preds = %if.end155
   %35 = load ptr, ptr %method, align 8
@@ -1529,27 +1527,25 @@ land.lhs.true157:                                 ; preds = %if.end155
   %37 = load i32, ptr %enc_flags161, align 8
   %and162 = and i32 %37, 8
   %tobool163.not = icmp eq i32 %and162, 0
-  br i1 %tobool163.not, label %land.lhs.true164, label %if.else182
+  br i1 %tobool163.not, label %land.lhs.true164, label %err
 
 land.lhs.true164:                                 ; preds = %land.lhs.true157
   %38 = load i32, ptr %35, align 8
   %cmp168 = icmp slt i32 %38, 772
   %cmp174.not = icmp eq i32 %38, 65536
   %or.cond = or i1 %cmp168, %cmp174.not
-  br i1 %or.cond, label %if.else182, label %land.lhs.true176
+  br i1 %or.cond, label %err, label %land.lhs.true176
 
 land.lhs.true176:                                 ; preds = %land.lhs.true164
   %cert_req = getelementptr inbounds i8, ptr %s, i64 712
   %39 = load i32, ptr %cert_req, align 8
   %cmp179 = icmp eq i32 %39, 1
-  br i1 %cmp179, label %err, label %if.else182
-
-if.else182:                                       ; preds = %land.lhs.true176, %land.lhs.true164, %land.lhs.true157, %if.end155
+  %spec.select = select i1 %cmp179, i32 2, i32 3
   br label %err
 
-err:                                              ; preds = %land.lhs.true176, %if.else182, %if.then96, %if.end74, %if.end14, %if.then153, %if.then146, %if.then140, %if.then124, %if.then85, %if.then73, %if.then67, %if.then27, %if.then22, %if.then13, %if.then7, %if.then3, %if.then
-  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then3 ], [ 0, %if.then7 ], [ 0, %if.end14 ], [ 0, %if.then85 ], [ 0, %if.then96 ], [ 0, %if.then124 ], [ 0, %if.then140 ], [ 0, %if.then146 ], [ 3, %if.else182 ], [ 0, %if.then153 ], [ 0, %if.end74 ], [ 0, %if.then73 ], [ 0, %if.then67 ], [ 0, %if.then27 ], [ 0, %if.then13 ], [ 0, %if.then22 ], [ 2, %land.lhs.true176 ]
-  %gost_data.1 = phi ptr [ null, %if.then ], [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.end14 ], [ null, %if.then85 ], [ null, %if.then96 ], [ %gost_data.0, %if.then124 ], [ %gost_data.0, %if.then140 ], [ %gost_data.0, %if.then146 ], [ %gost_data.0, %if.else182 ], [ %gost_data.0, %if.then153 ], [ null, %if.end74 ], [ null, %if.then73 ], [ null, %if.then67 ], [ null, %if.then27 ], [ null, %if.then13 ], [ null, %if.then22 ], [ %gost_data.0, %land.lhs.true176 ]
+err:                                              ; preds = %land.lhs.true176, %if.end155, %land.lhs.true157, %land.lhs.true164, %if.then96, %if.end74, %if.end14, %if.then153, %if.then146, %if.then140, %if.then124, %if.then85, %if.then73, %if.then67, %if.then27, %if.then22, %if.then13, %if.then7, %if.then3, %if.then
+  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then3 ], [ 0, %if.then7 ], [ 0, %if.end14 ], [ 0, %if.then85 ], [ 0, %if.then96 ], [ 0, %if.then124 ], [ 0, %if.then140 ], [ 0, %if.then146 ], [ 0, %if.then153 ], [ 0, %if.end74 ], [ 0, %if.then73 ], [ 0, %if.then67 ], [ 0, %if.then27 ], [ 0, %if.then13 ], [ 0, %if.then22 ], [ 3, %land.lhs.true164 ], [ 3, %land.lhs.true157 ], [ 3, %if.end155 ], [ %spec.select, %land.lhs.true176 ]
+  %gost_data.1 = phi ptr [ null, %if.then ], [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.end14 ], [ null, %if.then85 ], [ null, %if.then96 ], [ %gost_data.0, %if.then124 ], [ %gost_data.0, %if.then140 ], [ %gost_data.0, %if.then146 ], [ %gost_data.0, %if.then153 ], [ null, %if.end74 ], [ null, %if.then73 ], [ null, %if.then67 ], [ null, %if.then27 ], [ null, %if.then13 ], [ null, %if.then22 ], [ %gost_data.0, %land.lhs.true164 ], [ %gost_data.0, %land.lhs.true157 ], [ %gost_data.0, %if.end155 ], [ %gost_data.0, %land.lhs.true176 ]
   %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
   %40 = load ptr, ptr %handshake_buffer, align 8
   %call185 = call i32 @BIO_free(ptr noundef %40) #11
@@ -4031,7 +4027,7 @@ return:                                           ; preds = %for.inc.us, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_method_error(ptr noundef %s, ptr nocapture noundef readonly %method) unnamed_addr #1 {
+define internal fastcc i32 @ssl_method_error(ptr noundef %s, ptr nocapture noundef readonly %method) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %method, align 8
   %min_proto_version = getelementptr inbounds i8, ptr %s, i64 2364
@@ -4114,7 +4110,7 @@ if.end15:                                         ; preds = %if.end12
   %11 = load i32, ptr %flags, align 4
   %and16 = and i32 %11, 2
   %cmp17.not = icmp eq i32 %and16, 0
-  br i1 %cmp17.not, label %if.end21, label %land.lhs.true18
+  br i1 %cmp17.not, label %return, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end15
   %cert = getelementptr inbounds i8, ptr %s, i64 2048
@@ -4123,13 +4119,11 @@ land.lhs.true18:                                  ; preds = %if.end15
   %13 = load i32, ptr %cert_flags, align 4
   %and19 = and i32 %13, 196608
   %tobool.not = icmp eq i32 %and19, 0
-  br i1 %tobool.not, label %if.end21, label %return
-
-if.end21:                                         ; preds = %land.lhs.true18, %if.end15
+  %spec.select = select i1 %tobool.not, i32 0, i32 158
   br label %return
 
-return:                                           ; preds = %if.then1.i, %if.end3.i, %if.end3.i21, %if.then1.i29, %land.lhs.true18, %if.end12, %lor.lhs.false, %if.end21
-  %retval.0 = phi i32 [ 0, %if.end21 ], [ 396, %lor.lhs.false ], [ 258, %if.end12 ], [ 158, %land.lhs.true18 ], [ 166, %if.then1.i29 ], [ 166, %if.end3.i21 ], [ 396, %if.end3.i ], [ 396, %if.then1.i ]
+return:                                           ; preds = %if.then1.i, %if.end3.i, %if.end3.i21, %if.then1.i29, %land.lhs.true18, %if.end15, %if.end12, %lor.lhs.false
+  %retval.0 = phi i32 [ 396, %lor.lhs.false ], [ 258, %if.end12 ], [ 0, %if.end15 ], [ %spec.select, %land.lhs.true18 ], [ 166, %if.then1.i29 ], [ 166, %if.end3.i21 ], [ 396, %if.end3.i ], [ 396, %if.then1.i ]
   ret i32 %retval.0
 }
 
@@ -4577,7 +4571,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   %tobool1 = icmp eq i32 %and, 0
   %cmp3 = icmp slt i32 %vers, 771
   %or.cond = and i1 %cmp3, %tobool1
-  br i1 %or.cond, label %land.lhs.true4, label %if.else8
+  br i1 %or.cond, label %land.lhs.true4, label %if.end9
 
 land.lhs.true4:                                   ; preds = %if.else
   %3 = load i32, ptr %0, align 8
@@ -4593,7 +4587,7 @@ sw.epilog.i:                                      ; preds = %sw.bb3.i, %land.lhs
   %table.0.i = phi ptr [ @dtls_version_table, %sw.bb3.i ], [ @tls_version_table, %land.lhs.true4 ]
   %4 = load i32, ptr %table.0.i, align 16
   %cmp5.not70.i = icmp eq i32 %4, 0
-  br i1 %cmp5.not70.i, label %if.else8, label %land.rhs.us.i
+  br i1 %cmp5.not70.i, label %if.end9, label %land.rhs.us.i
 
 land.rhs.us.i:                                    ; preds = %sw.epilog.i, %for.inc.us.i
   %5 = phi i32 [ %10, %for.inc.us.i ], [ %4, %sw.epilog.i ]
@@ -4615,11 +4609,11 @@ if.end3.i25.us.i:                                 ; preds = %if.end.i19.us.i
   %cmp6.i28.us.i = icmp ne i32 %5, 256
   %cmp11.i30.us.i11 = icmp slt i32 %5, 771
   %cmp11.i30.us.i = and i1 %cmp6.i28.us.i, %cmp11.i30.us.i11
-  br i1 %cmp11.i30.us.i, label %for.inc.us.i, label %if.else8
+  br i1 %cmp11.i30.us.i, label %for.inc.us.i, label %if.end9
 
 if.then1.i33.us.i:                                ; preds = %if.end.i19.us.i
   %cmp2.i34.us.i = icmp sgt i32 %5, 771
-  br i1 %cmp2.i34.us.i, label %for.inc.us.i, label %if.else8
+  br i1 %cmp2.i34.us.i, label %for.inc.us.i, label %if.end9
 
 for.body.thread.us.i:                             ; preds = %land.rhs.us.i
   %cmeth61.us.i = getelementptr inbounds i8, ptr %vent.071.us.i, i64 8
@@ -4637,19 +4631,17 @@ for.inc.us.i:                                     ; preds = %land.lhs.true17.us.
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %vent.071.us.i, i64 24
   %10 = load i32, ptr %incdec.ptr.us.i, align 8
   %cmp5.not.us.i = icmp eq i32 %10, 0
-  br i1 %cmp5.not.us.i, label %if.else8, label %land.rhs.us.i, !llvm.loop !15
+  br i1 %cmp5.not.us.i, label %if.end9, label %land.rhs.us.i, !llvm.loop !15
 
 ssl_version_supported.exit:                       ; preds = %land.lhs.true4
   %version2.i = getelementptr inbounds i8, ptr %s, i64 64
   %11 = load i32, ptr %version2.i, align 8
   %cmp.i.i.not = icmp eq i32 %11, 771
-  br i1 %cmp.i.i.not, label %if.end9, label %if.else8
-
-if.else8:                                         ; preds = %for.inc.us.i, %if.then1.i33.us.i, %if.end3.i25.us.i, %sw.epilog.i, %ssl_version_supported.exit, %if.else
+  %spec.select = select i1 %cmp.i.i.not, i32 2, i32 0
   br label %if.end9
 
-if.end9:                                          ; preds = %land.lhs.true17.us.i, %ssl_version_supported.exit, %land.lhs.true, %if.else8
-  %.sink = phi i32 [ 0, %if.else8 ], [ 1, %land.lhs.true ], [ 2, %ssl_version_supported.exit ], [ 2, %land.lhs.true17.us.i ]
+if.end9:                                          ; preds = %if.end3.i25.us.i, %if.then1.i33.us.i, %for.inc.us.i, %land.lhs.true17.us.i, %ssl_version_supported.exit, %if.else, %sw.epilog.i, %land.lhs.true
+  %.sink = phi i32 [ 1, %land.lhs.true ], [ 0, %sw.epilog.i ], [ 0, %if.else ], [ %spec.select, %ssl_version_supported.exit ], [ 2, %land.lhs.true17.us.i ], [ 0, %for.inc.us.i ], [ 0, %if.then1.i33.us.i ], [ 0, %if.end3.i25.us.i ]
   store i32 %.sink, ptr %dgrd, align 4
   ret void
 }
@@ -5030,9 +5022,9 @@ for.end.i.if.end6_crit_edge:                      ; preds = %for.end.i
 
 if.end6:                                          ; preds = %for.end.i.if.end6_crit_edge, %sw.default.i
   %10 = phi ptr [ %.pre, %for.end.i.if.end6_crit_edge ], [ %2, %sw.default.i ]
-  %ver_max.1.ph = phi i32 [ %version.0.lcssa.fr.i, %for.end.i.if.end6_crit_edge ], [ %4, %sw.default.i ]
+  %ver_max.0.ph = phi i32 [ %version.0.lcssa.fr.i, %for.end.i.if.end6_crit_edge ], [ %4, %sw.default.i ]
   %version = getelementptr inbounds i8, ptr %s, i64 64
-  store i32 %ver_max.1.ph, ptr %version, align 8
+  store i32 %ver_max.0.ph, ptr %version, align 8
   %ssl3_enc = getelementptr inbounds i8, ptr %10, i64 216
   %11 = load ptr, ptr %ssl3_enc, align 8
   %enc_flags = getelementptr inbounds i8, ptr %11, i64 80
@@ -5042,7 +5034,7 @@ if.end6:                                          ; preds = %for.end.i.if.end6_c
   br i1 %tobool.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.end6
-  %cmp8 = icmp eq i32 %ver_max.1.ph, 256
+  %cmp8 = icmp eq i32 %ver_max.0.ph, 256
   br i1 %cmp8, label %if.then9, label %if.end18
 
 if.then9:                                         ; preds = %if.then7
@@ -5051,13 +5043,13 @@ if.then9:                                         ; preds = %if.then7
   br i1 %tobool11.not, label %return, label %if.end18
 
 if.else:                                          ; preds = %if.end6
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %ver_max.1.ph, i32 771)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %ver_max.0.ph, i32 771)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.then7, %if.then9
-  %ver_max.2 = phi i32 [ 256, %if.then9 ], [ %ver_max.1.ph, %if.then7 ], [ %spec.select, %if.else ]
+  %ver_max.1 = phi i32 [ 256, %if.then9 ], [ %ver_max.0.ph, %if.then7 ], [ %spec.select, %if.else ]
   %client_version = getelementptr inbounds i8, ptr %s, i64 2388
-  store i32 %ver_max.2, ptr %client_version, align 4
+  store i32 %ver_max.1, ptr %client_version, align 4
   br label %return
 
 return:                                           ; preds = %for.end.i, %sw.epilog.i, %if.then9, %lor.lhs.false, %if.end18
@@ -5114,7 +5106,7 @@ return:                                           ; preds = %land.lhs.true, %for
 declare i32 @tls_group_allowed(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @create_synthetic_message_hash(ptr noundef %s, ptr noundef %hashval, i64 noundef %hashlen, ptr noundef %hrr, i64 noundef %hrrlen) local_unnamed_addr #1 {
+define i32 @create_synthetic_message_hash(ptr noundef %s, ptr noundef %hashval, i64 noundef %hashlen, ptr noundef %hrr, i64 noundef %hrrlen) local_unnamed_addr #1 {
 entry:
   %hashlen.addr = alloca i64, align 8
   %hashvaltmp = alloca [64 x i8], align 16
@@ -5158,7 +5150,7 @@ lor.lhs.false15:                                  ; preds = %if.end10
 
 if.end19:                                         ; preds = %lor.lhs.false15
   %cmp20.not = icmp eq ptr %hrr, null
-  br i1 %cmp20.not, label %if.end28, label %land.lhs.true
+  br i1 %cmp20.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end19
   %call22 = call i32 @ssl3_finish_mac(ptr noundef %s, ptr noundef nonnull %hrr, i64 noundef %hrrlen) #11
@@ -5174,14 +5166,12 @@ lor.lhs.false24:                                  ; preds = %land.lhs.true
   %4 = load i64, ptr %message_size, align 8
   %add = add i64 %4, 4
   %call25 = call i32 @ssl3_finish_mac(ptr noundef %s, ptr noundef %3, i64 noundef %add) #11
-  %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %return, label %if.end28
-
-if.end28:                                         ; preds = %lor.lhs.false24, %if.end19
+  %tobool26.not = icmp ne i32 %call25, 0
+  %spec.select = zext i1 %tobool26.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %lor.lhs.false24, %if.end10, %lor.lhs.false15, %if.end6, %if.then, %lor.lhs.false, %if.end28
-  %retval.0 = phi i32 [ 1, %if.end28 ], [ 0, %lor.lhs.false ], [ 0, %if.then ], [ 0, %if.end6 ], [ 0, %lor.lhs.false15 ], [ 0, %if.end10 ], [ 0, %lor.lhs.false24 ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %lor.lhs.false24, %if.end19, %land.lhs.true, %if.end10, %lor.lhs.false15, %if.end6, %if.then, %lor.lhs.false
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.then ], [ 0, %if.end6 ], [ 0, %lor.lhs.false15 ], [ 0, %if.end10 ], [ 0, %land.lhs.true ], [ 1, %if.end19 ], [ %spec.select, %lor.lhs.false24 ]
   ret i32 %retval.0
 }
 
@@ -5525,7 +5515,7 @@ declare ptr @X509_STORE_CTX_get0_chain(ptr noundef) local_unnamed_addr #2
 declare i32 @ssl_security_cert_chain(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl_add_cert_to_wpacket(ptr noundef %s, ptr noundef %pkt, ptr noundef %x, i32 noundef %chain, i32 noundef %for_comp) unnamed_addr #1 {
+define internal fastcc i32 @ssl_add_cert_to_wpacket(ptr noundef %s, ptr noundef %pkt, ptr noundef %x, i32 noundef %chain, i32 noundef %for_comp) unnamed_addr #1 {
 entry:
   %outbytes = alloca ptr, align 8
   %tobool = icmp ne i32 %for_comp, 0
@@ -5582,22 +5572,20 @@ land.lhs.true:                                    ; preds = %if.end15
 land.lhs.true21:                                  ; preds = %land.lhs.true
   %cmp25 = icmp ne i32 %3, 65536
   %or.cond = or i1 %tobool, %cmp25
-  br i1 %or.cond, label %land.lhs.true29, label %if.end34
+  br i1 %or.cond, label %land.lhs.true29, label %return
 
 lor.lhs.false27:                                  ; preds = %land.lhs.true, %if.end15
-  br i1 %tobool, label %land.lhs.true29, label %if.end34
+  br i1 %tobool, label %land.lhs.true29, label %return
 
 land.lhs.true29:                                  ; preds = %lor.lhs.false27, %land.lhs.true21
   %conv30 = sext i32 %chain to i64
   %call31 = call i32 @tls_construct_extensions(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %spec.select, ptr noundef %x, i64 noundef %conv30) #11
-  %tobool32.not = icmp eq i32 %call31, 0
-  br i1 %tobool32.not, label %return, label %if.end34
-
-if.end34:                                         ; preds = %land.lhs.true21, %land.lhs.true29, %lor.lhs.false27
+  %tobool32.not = icmp ne i32 %call31, 0
+  %spec.select16 = zext i1 %tobool32.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true29, %if.then11, %if.then13, %if.then1, %if.then3, %if.end34
-  %retval.0 = phi i32 [ 1, %if.end34 ], [ 0, %if.then3 ], [ 0, %if.then1 ], [ 0, %if.then13 ], [ 0, %if.then11 ], [ 0, %land.lhs.true29 ]
+return:                                           ; preds = %land.lhs.true29, %lor.lhs.false27, %land.lhs.true21, %if.then11, %if.then13, %if.then1, %if.then3
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then1 ], [ 0, %if.then13 ], [ 0, %if.then11 ], [ 1, %land.lhs.true21 ], [ 1, %lor.lhs.false27 ], [ %spec.select16, %land.lhs.true29 ]
   ret i32 %retval.0
 }
 

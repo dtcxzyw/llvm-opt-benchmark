@@ -3117,7 +3117,7 @@ define dso_local i32 @snapshot_additional_pages(ptr nocapture noundef readonly %
   %16 = and i64 %14, 4294967295
   %17 = add nuw nsw i64 %16, 511
   %18 = lshr i64 %17, 9
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = add i32 %15, %19
   %21 = icmp ugt i32 %19, 1
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !58
@@ -3820,7 +3820,7 @@ define dso_local noundef i32 @hibernate_preallocate_memory() local_unnamed_addr 
   %82 = and i64 %80, 4294967295
   %83 = add nuw nsw i64 %82, 511
   %84 = lshr i64 %83, 9
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw nsw i64 %84 to i32
   %86 = add i32 %81, %85
   %87 = icmp ugt i32 %85, 1
   br i1 %87, label %.preheader35, label %.loopexit36, !llvm.loop !58
@@ -5088,7 +5088,7 @@ define dso_local noundef i32 @swsusp_save() local_unnamed_addr #3 align 16 {
   %451 = shl nuw nsw i64 %450, 3
   %452 = add nuw nsw i64 %451, 4095
   %453 = lshr i64 %452, 12
-  %454 = trunc i64 %453 to i32
+  %454 = trunc nuw nsw i64 %453 to i32
   store i32 %454, ptr @nr_meta_pages, align 4
   %455 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i32 noundef %219, i32 noundef %449) #21
   br label %456
@@ -6843,7 +6843,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
   %658 = zext i32 %657 to i64
   %659 = add nuw nsw i64 %658, 169
   %660 = udiv i64 %659, 170
-  %661 = trunc i64 %660 to i32
+  %661 = trunc nuw nsw i64 %660 to i32
   %662 = icmp eq i32 %661, 0
   br i1 %662, label %.loopexit113, label %.preheader111
 
@@ -8530,7 +8530,7 @@ define internal fastcc ptr @saveable_page(ptr noundef readnone %0, i64 noundef %
   %181 = load volatile i64, ptr %129, align 8
   %182 = and i64 %181, 16384
   %183 = icmp eq i64 %182, 0
-  br i1 %183, label %189, label %184
+  br i1 %183, label %.thread, label %184
 
 184:                                              ; preds = %180
   %185 = tail call zeroext i1 @kernel_page_present(ptr noundef nonnull %129) #19
@@ -8539,14 +8539,12 @@ define internal fastcc ptr @saveable_page(ptr noundef readnone %0, i64 noundef %
 186:                                              ; preds = %184
   %187 = tail call i32 @pfn_is_nosave(i64 noundef %1) #19
   %188 = icmp eq i32 %187, 0
-  br i1 %188, label %189, label %.thread
-
-189:                                              ; preds = %186, %180
+  %spec.select = select i1 %188, ptr %129, ptr null
   br label %.thread
 
-.thread:                                          ; preds = %124, %94, %71, %37, %11, %2, %189, %186, %184, %175, %168, %150, %131, %67
-  %190 = phi ptr [ %129, %189 ], [ null, %67 ], [ null, %131 ], [ null, %168 ], [ null, %150 ], [ null, %175 ], [ null, %186 ], [ null, %184 ], [ null, %2 ], [ null, %11 ], [ null, %37 ], [ null, %71 ], [ null, %94 ], [ null, %124 ]
-  ret ptr %190
+.thread:                                          ; preds = %124, %94, %71, %37, %11, %2, %186, %180, %184, %175, %168, %150, %131, %67
+  %189 = phi ptr [ null, %67 ], [ null, %131 ], [ null, %168 ], [ null, %150 ], [ null, %175 ], [ null, %184 ], [ %129, %180 ], [ %spec.select, %186 ], [ null, %2 ], [ null, %11 ], [ null, %37 ], [ null, %71 ], [ null, %94 ], [ null, %124 ]
+  ret ptr %189
 }
 
 ; Function Attrs: null_pointer_is_valid

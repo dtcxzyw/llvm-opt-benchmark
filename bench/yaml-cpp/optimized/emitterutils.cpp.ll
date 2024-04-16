@@ -925,7 +925,7 @@ for.end.i.i.i.i.i18:                              ; preds = %if.end23.i.i.i.i.i4
   %__first.sroa.0.0.lcssa.i.i.i.i.i19 = phi ptr [ %call.i12, %if.end.i11 ], [ %scevgep72.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i33 ], [ %scevgep72.i.i.i.i.i, %if.end23.i.i.i.i.i43 ]
   %sub.ptr.rhs.cast.i25.i.i.i.i.i = ptrtoint ptr %__first.sroa.0.0.lcssa.i.i.i.i.i19 to i64
   %sub.ptr.sub.i26.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i14, %sub.ptr.rhs.cast.i25.i.i.i.i.i
-  switch i64 %sub.ptr.sub.i26.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51 [
+  switch i64 %sub.ptr.sub.i26.i.i.i.i.i, label %return [
     i64 3, label %sw.bb.i.i.i.i.i30
     i64 2, label %sw.bb32.i.i.i.i.i26
     i64 1, label %sw.bb39.i.i.i.i.i20
@@ -976,13 +976,11 @@ _ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIc
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i23 = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i19, %sw.bb.i.i.i.i.i30 ], [ %__first.sroa.0.1.i.i.i.i.i27, %sw.bb32.i.i.i.i.i26 ], [ %spec.select.i.i.i.i.i22, %sw.bb39.i.i.i.i.i20 ], [ %incdec.ptr.i20.i.i.i.i.i41.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i17.i.i.i.i.i.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit85 ], [ %incdec.ptr.i.i.i.i.i.i37.le, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.loopexit.split.loop.exit87 ], [ %__first.sroa.0.062.i.i.i.i.i, %for.body.i.i.i.i.i34 ]
   %cmp.i.i.i24 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i23, %call2.i13
   %cond.fr = freeze i1 %cmp.i.i.i24
-  br i1 %cond.fr, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51, label %return
-
-_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51: ; preds = %for.end.i.i.i.i.i18, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit
+  %spec.select = select i1 %cond.fr, i32 3, i32 2
   br label %return
 
-return:                                           ; preds = %sw.bb7, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit, %.loopexit, %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread, %entry, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
-  %retval.0 = phi i32 [ %.6, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ], [ 2, %entry ], [ 0, %.loopexit ], [ 2, %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread ], [ 3, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread51 ], [ 2, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit ], [ 2, %sw.bb7 ]
+return:                                           ; preds = %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit, %for.end.i.i.i.i.i18, %sw.bb7, %.loopexit, %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread, %entry, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
+  %retval.0 = phi i32 [ %.6, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ], [ 2, %entry ], [ 0, %.loopexit ], [ 2, %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit.thread ], [ 2, %sw.bb7 ], [ 3, %for.end.i.i.i.i.i18 ], [ %spec.select, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FlowType5valueEb.exit ]
   ret i32 %retval.0
 }
 
@@ -1141,7 +1139,7 @@ entry:
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %entry
-  %conv = trunc i32 %spec.store.select to i8
+  %conv = trunc nuw i32 %spec.store.select to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i)
   store i8 %conv, ptr %ch.addr.i, align 1
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull %ch.addr.i, i64 noundef 1)
@@ -1154,7 +1152,7 @@ if.else:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.else
   %shr = lshr i32 %spec.store.select, 6
-  %0 = trunc i32 %shr to i8
+  %0 = trunc nuw i32 %shr to i8
   %conv6 = or disjoint i8 %0, -64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i18)
   store i8 %conv6, ptr %ch.addr.i18, align 1
@@ -1175,7 +1173,7 @@ if.else11:                                        ; preds = %if.else
 
 if.then13:                                        ; preds = %if.else11
   %shr14 = lshr i32 %spec.store.select, 12
-  %3 = trunc i32 %shr14 to i8
+  %3 = trunc nuw i32 %shr14 to i8
   %conv16 = or disjoint i8 %3, -32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i20)
   store i8 %conv16, ptr %ch.addr.i20, align 1
@@ -1200,7 +1198,7 @@ if.then13:                                        ; preds = %if.else11
 
 if.else27:                                        ; preds = %if.else11
   %shr28 = lshr i32 %spec.store.select, 18
-  %8 = trunc i32 %shr28 to i8
+  %8 = trunc nuw nsw i32 %shr28 to i8
   %conv30 = or disjoint i8 %8, -16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i23)
   store i8 %conv30, ptr %ch.addr.i23, align 1

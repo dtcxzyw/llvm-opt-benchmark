@@ -14,7 +14,7 @@ define hidden i32 @lj_ccall_ctid_vararg(ptr noundef %cts, ptr nocapture noundef 
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp ult i32 %conv, -13
   br i1 %cmp, label %return, label %if.else
 
@@ -61,15 +61,13 @@ if.then24:                                        ; preds = %if.else15, %if.else
 if.else28:                                        ; preds = %if.else15
   %and30 = and i32 %4, -201326592
   %cmp31 = icmp eq i32 %and30, 67108864
-  br i1 %cmp31, label %land.lhs.true, label %if.else37
+  br i1 %cmp31, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else28
   %size = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %5 = load i32, ptr %size, align 4
   %cmp34 = icmp eq i32 %5, 4
-  br i1 %cmp34, label %return, label %if.else37
-
-if.else37:                                        ; preds = %land.lhs.true, %if.else28
+  %spec.select = select i1 %cmp34, i32 14, i32 %conv7
   br label %return
 
 if.then54:                                        ; preds = %if.else, %if.else
@@ -78,8 +76,8 @@ if.then54:                                        ; preds = %if.else, %if.else
 if.else55:                                        ; preds = %if.else
   br label %return
 
-return:                                           ; preds = %if.else, %land.lhs.true, %entry, %if.else55, %if.then54, %if.else37, %if.then24, %if.then11
-  %retval.0 = phi i32 [ %call14, %if.then11 ], [ %call27, %if.then24 ], [ %conv7, %if.else37 ], [ 3, %if.then54 ], [ 17, %if.else55 ], [ 14, %entry ], [ 14, %land.lhs.true ], [ 19, %if.else ]
+return:                                           ; preds = %land.lhs.true, %if.else, %if.else28, %entry, %if.else55, %if.then54, %if.then24, %if.then11
+  %retval.0 = phi i32 [ %call14, %if.then11 ], [ %call27, %if.then24 ], [ 3, %if.then54 ], [ 17, %if.else55 ], [ 14, %entry ], [ %conv7, %if.else28 ], [ 19, %if.else ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -391,7 +389,7 @@ if.then110.i:                                     ; preds = %if.then103.i
   store i8 %conv111.i, ptr %nsp112.i, align 4
   %conv113.i = trunc i32 %ngpr.1202.i to i8
   store i8 %conv113.i, ptr %ngpr114.i, align 2
-  %conv115.i = trunc i32 %nfpr.0191.i to i8
+  %conv115.i = trunc nuw i32 %nfpr.0191.i to i8
   store i8 %conv115.i, ptr %nfpr116.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dp.i.i)
   %shl.i.i = shl i32 %narg.0194.i, 8
@@ -449,9 +447,9 @@ for.inc.i.i.i:                                    ; preds = %if.end20.i.i.i, %if
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %ccall_struct_reg.exit.i.i, !llvm.loop !9
 
 ccall_struct_reg.exit.i.i:                        ; preds = %for.inc.i.i.i
-  %conv30.i.i.i = trunc i32 %ngpr.1.i.i.i to i8
+  %conv30.i.i.i = trunc nuw i32 %ngpr.1.i.i.i to i8
   store i8 %conv30.i.i.i, ptr %ngpr114.i, align 2
-  %conv32.i.i.i = trunc i32 %nfpr.1.i.i.i to i8
+  %conv32.i.i.i = trunc nuw i32 %nfpr.1.i.i.i to i8
   store i8 %conv32.i.i.i, ptr %nfpr116.i, align 1
   br label %if.end121.i
 
@@ -466,7 +464,7 @@ if.then.i.i:                                      ; preds = %if.then16.i.i.i, %i
   br i1 %cmp.i144.i, label %ccall_struct_arg.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv9.i.i = trunc i32 %add.i143.i to i8
+  %conv9.i.i = trunc nuw i32 %add.i143.i to i8
   store i8 %conv9.i.i, ptr %nsp112.i, align 4
   %idx.ext.i.i = zext i8 %38 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %stack.i.i, i64 %idx.ext.i.i
@@ -647,7 +645,7 @@ for.inc.i:                                        ; preds = %if.then235.i, %land
   br i1 %cmp48.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !10
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %54 = trunc i32 %nfpr.2.i to i8
+  %54 = trunc nuw i32 %nfpr.2.i to i8
   %55 = trunc i32 %nsp.2.i to i8
   %56 = add i8 %55, 7
   br label %for.end.i
@@ -806,7 +804,7 @@ if.end12.i:                                       ; preds = %if.end.i
   %and14.i = and i32 %70, -201326592
   switch i32 %and14.i, label %lor.lhs.false.i [
     i32 872415232, label %if.then16.i
-    i32 67108864, label %if.then47.i
+    i32 67108864, label %ccall_get_results.exit
   ]
 
 if.then16.i:                                      ; preds = %if.end12.i
@@ -833,17 +831,15 @@ if.else.i52:                                      ; preds = %if.then16.i
 lor.lhs.false.i:                                  ; preds = %if.end12.i
   %and44.i = and i32 %70, -134217728
   %cmp45.i = icmp eq i32 %and44.i, 939524096
-  br i1 %cmp45.i, label %if.then47.i, label %ccall_get_results.exit
-
-if.then47.i:                                      ; preds = %lor.lhs.false.i, %if.end12.i
+  %spec.select = select i1 %cmp45.i, ptr %fpr.i, ptr %gpr.i
   br label %ccall_get_results.exit
 
 ccall_get_results.exit.thread:                    ; preds = %ccall_struct_ret.exit.i, %if.then4.i, %if.then16.i, %if.else.i52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rcl.i42)
   br label %while.body.preheader
 
-ccall_get_results.exit:                           ; preds = %lor.lhs.false.i, %if.then47.i
-  %sp.0.i = phi ptr [ %fpr.i, %if.then47.i ], [ %gpr.i, %lor.lhs.false.i ]
+ccall_get_results.exit:                           ; preds = %if.end12.i, %lor.lhs.false.i
+  %sp.0.i = phi ptr [ %fpr.i, %if.end12.i ], [ %spec.select, %lor.lhs.false.i ]
   %83 = load ptr, ptr %top1.i, align 8
   %add.ptr52.i = getelementptr inbounds i8, ptr %83, i64 -8
   %call53.i = call i32 @lj_cconv_tv_ct(ptr noundef nonnull %3, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 0, ptr noundef nonnull %add.ptr52.i, ptr noundef nonnull %sp.0.i) #7

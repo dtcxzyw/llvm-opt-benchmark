@@ -1868,7 +1868,7 @@ define dso_local i64 @intel_rc6_residency_ns(ptr nocapture noundef %0, i32 nound
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 1
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %125, label %14
+  br i1 %13, label %124, label %14
 
 14:                                               ; preds = %2
   %15 = tail call i32 @intel_uncore_forcewake_for_reg(ptr noundef %6, i32 %9, i32 noundef 1) #5
@@ -1924,7 +1924,7 @@ define dso_local i64 @intel_rc6_residency_ns(ptr nocapture noundef %0, i32 nound
   %53 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52) #5, !srcloc !26
   %54 = icmp eq i32 %53, %37
   %55 = or i1 %36, %54
-  br i1 %55, label %.split4.us, label %.split.us
+  br i1 %55, label %.split5.us, label %.split.us
 
 .split:                                           ; preds = %22
   %56 = load ptr, ptr %6, align 8
@@ -1951,16 +1951,16 @@ define dso_local i64 @intel_rc6_residency_ns(ptr nocapture noundef %0, i32 nound
   %73 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %72) #5, !srcloc !26
   %74 = icmp eq i32 %73, %63
   %75 = or i1 %62, %74
-  br i1 %75, label %.split4.us, label %61
+  br i1 %75, label %.split5.us, label %61
 
-.split4.us:                                       ; preds = %61, %.split.us
+.split5.us:                                       ; preds = %61, %.split.us
   %.us-phi = phi i32 [ %53, %.split.us ], [ %73, %61 ]
-  %.us-phi5 = phi i32 [ %45, %.split.us ], [ %68, %61 ]
-  %76 = zext i32 %.us-phi5 to i64
+  %.us-phi6 = phi i32 [ %45, %.split.us ], [ %68, %61 ]
+  %76 = zext i32 %.us-phi6 to i64
   %77 = zext i32 %.us-phi to i64
   %78 = shl nuw nsw i64 %77, 8
   %79 = or i64 %78, %76
-  br label %107
+  br label %106
 
 80:                                               ; preds = %14
   %81 = getelementptr inbounds i8, ptr %4, i64 7176
@@ -1975,59 +1975,58 @@ define dso_local i64 @intel_rc6_residency_ns(ptr nocapture noundef %0, i32 nound
   %88 = load i64, ptr %87, align 4
   %89 = and i64 %88, 2
   %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %92
+  %spec.select = select i1 %90, i64 1280, i64 10000
+  %spec.select1 = select i1 %90, i32 1, i32 12
+  br label %91
 
 91:                                               ; preds = %84, %80
-  br label %92
+  %92 = phi i64 [ 1280, %80 ], [ %spec.select, %84 ]
+  %93 = phi i32 [ 1, %80 ], [ %spec.select1, %84 ]
+  %94 = icmp ult i32 %9, 262144
+  br i1 %94, label %95, label %99
 
-92:                                               ; preds = %91, %84
-  %93 = phi i64 [ 1280, %91 ], [ 10000, %84 ]
-  %94 = phi i32 [ 1, %91 ], [ 12, %84 ]
-  %95 = icmp ult i32 %9, 262144
-  br i1 %95, label %96, label %100
+95:                                               ; preds = %91
+  %96 = getelementptr inbounds i8, ptr %6, i64 36
+  %97 = load i32, ptr %96, align 4
+  %98 = add i32 %97, %9
+  br label %99
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %6, i64 36
-  %98 = load i32, ptr %97, align 4
-  %99 = add i32 %98, %9
-  br label %100
+99:                                               ; preds = %95, %91
+  %100 = phi i32 [ %98, %95 ], [ %9, %91 ]
+  %101 = load ptr, ptr %6, align 8
+  %102 = zext i32 %100 to i64
+  %103 = getelementptr i8, ptr %101, i64 %102
+  %104 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103) #5, !srcloc !26
+  %105 = zext i32 %104 to i64
+  br label %106
 
-100:                                              ; preds = %96, %92
-  %101 = phi i32 [ %99, %96 ], [ %9, %92 ]
-  %102 = load ptr, ptr %6, align 8
-  %103 = zext i32 %101 to i64
-  %104 = getelementptr i8, ptr %102, i64 %103
-  %105 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %104) #5, !srcloc !26
-  %106 = zext i32 %105 to i64
-  br label %107
-
-107:                                              ; preds = %100, %.split4.us
-  %108 = phi i64 [ %79, %.split4.us ], [ %106, %100 ]
-  %109 = phi i64 [ 1099511627776, %.split4.us ], [ 4294967296, %100 ]
-  %110 = phi i64 [ 1000000, %.split4.us ], [ %93, %100 ]
-  %111 = phi i32 [ %24, %.split4.us ], [ %94, %100 ]
-  %112 = getelementptr inbounds i8, ptr %0, i64 16
-  %113 = getelementptr [4 x i64], ptr %112, i64 0, i64 %7
-  %114 = load i64, ptr %113, align 8
-  store i64 %108, ptr %113, align 8
-  %115 = icmp ult i64 %108, %114
-  %116 = select i1 %115, i64 %109, i64 0
-  %117 = getelementptr inbounds i8, ptr %0, i64 48
-  %118 = getelementptr [4 x i64], ptr %117, i64 0, i64 %7
-  %119 = load i64, ptr %118, align 8
-  %120 = sub i64 %108, %114
-  %121 = add i64 %120, %116
-  %122 = add i64 %121, %119
-  store i64 %122, ptr %118, align 8
+106:                                              ; preds = %99, %.split5.us
+  %107 = phi i64 [ %79, %.split5.us ], [ %105, %99 ]
+  %108 = phi i64 [ 1099511627776, %.split5.us ], [ 4294967296, %99 ]
+  %109 = phi i64 [ 1000000, %.split5.us ], [ %92, %99 ]
+  %110 = phi i32 [ %24, %.split5.us ], [ %93, %99 ]
+  %111 = getelementptr inbounds i8, ptr %0, i64 16
+  %112 = getelementptr [4 x i64], ptr %111, i64 0, i64 %7
+  %113 = load i64, ptr %112, align 8
+  store i64 %107, ptr %112, align 8
+  %114 = icmp ult i64 %107, %113
+  %115 = select i1 %114, i64 %108, i64 0
+  %116 = getelementptr inbounds i8, ptr %0, i64 48
+  %117 = getelementptr [4 x i64], ptr %116, i64 0, i64 %7
+  %118 = load i64, ptr %117, align 8
+  %119 = sub i64 %107, %113
+  %120 = add i64 %119, %115
+  %121 = add i64 %120, %118
+  store i64 %121, ptr %117, align 8
   tail call void @intel_uncore_forcewake_put__locked(ptr noundef %6, i32 noundef %15) #5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %16, i64 noundef %17) #5
-  %123 = zext i32 %111 to i64
-  %124 = tail call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %122, i64 %110, i64 %123) #7, !srcloc !27
-  br label %125
+  %122 = zext i32 %110 to i64
+  %123 = tail call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %121, i64 %109, i64 %122) #7, !srcloc !27
+  br label %124
 
-125:                                              ; preds = %107, %2
-  %126 = phi i64 [ %124, %107 ], [ 0, %2 ]
-  ret i64 %126
+124:                                              ; preds = %106, %2
+  %125 = phi i64 [ %123, %106 ], [ 0, %2 ]
+  ret i64 %125
 }
 
 ; Function Attrs: null_pointer_is_valid

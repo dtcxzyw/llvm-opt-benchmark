@@ -265,7 +265,7 @@ define dso_local zeroext i16 @eth_type_trans(ptr noundef %0, ptr noundef %1) #0 
   %56 = load i16, ptr %55, align 1
   %57 = and i16 %56, 254
   %58 = icmp ugt i16 %57, 5
-  br i1 %58, label %66, label %59, !prof !8
+  br i1 %58, label %65, label %59, !prof !8
 
 59:                                               ; preds = %54
   store i16 0, ptr %3, align 2, !annotation !9
@@ -276,15 +276,13 @@ define dso_local zeroext i16 @eth_type_trans(ptr noundef %0, ptr noundef %1) #0 
 62:                                               ; preds = %59
   %63 = load i16, ptr %60, align 2
   %64 = icmp eq i16 %63, -1
-  br i1 %64, label %66, label %65
+  %spec.select = select i1 %64, i16 256, i16 1024
+  br label %65
 
-65:                                               ; preds = %62, %59
-  br label %66
-
-66:                                               ; preds = %65, %62, %54
-  %67 = phi i16 [ 1024, %65 ], [ 256, %62 ], [ %56, %54 ]
+65:                                               ; preds = %62, %59, %54
+  %66 = phi i16 [ %56, %54 ], [ 1024, %59 ], [ %spec.select, %62 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #12
-  ret i16 %67
+  ret i16 %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

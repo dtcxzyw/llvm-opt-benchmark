@@ -1913,7 +1913,7 @@ define dso_local void @intel_fbc_update(ptr nocapture noundef readonly %0, ptr n
 
 .thread16:                                        ; preds = %250, %288, %281, %279
   %290 = phi i32 [ %264, %288 ], [ %264, %281 ], [ %264, %279 ], [ %177, %250 ]
-  %291 = trunc i32 %290 to i8
+  %291 = trunc nuw nsw i32 %290 to i8
   %292 = getelementptr inbounds i8, ptr %58, i64 396
   store i8 %291, ptr %292, align 4
   %293 = icmp eq ptr %178, null
@@ -2895,7 +2895,7 @@ define internal fastcc zeroext i1 @rotation_is_valid(ptr nocapture noundef reado
   %4 = getelementptr inbounds i8, ptr %3, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 8
-  br i1 %6, label %7, label %20
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 184
@@ -2904,38 +2904,35 @@ define internal fastcc zeroext i1 @rotation_is_valid(ptr nocapture noundef reado
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 909199186
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %30
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %0, i64 196
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 10
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %31
+  br label %30
 
-19:                                               ; preds = %14, %7
-  br label %31
+19:                                               ; preds = %1
+  %20 = icmp ugt i16 %5, 4
+  br i1 %20, label %30, label %21
 
-20:                                               ; preds = %1
-  %21 = icmp ugt i16 %5, 4
-  br i1 %21, label %31, label %22
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %3, i64 7184
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %23, 196608
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %30
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %3, i64 7184
-  %24 = load i32, ptr %23, align 4
-  %25 = and i32 %24, 196608
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %31
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds i8, ptr %0, i64 196
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %28, 1
+  br label %30
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 196
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, 1
-  br label %31
-
-31:                                               ; preds = %27, %22, %20, %19, %14
-  %32 = phi i1 [ %30, %27 ], [ true, %19 ], [ false, %14 ], [ true, %22 ], [ true, %20 ]
-  ret i1 %32
+30:                                               ; preds = %14, %7, %26, %21, %19
+  %31 = phi i1 [ %29, %26 ], [ true, %21 ], [ true, %19 ], [ true, %7 ], [ %18, %14 ]
+  ret i1 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
@@ -2945,11 +2942,11 @@ define internal fastcc zeroext i1 @stride_is_valid(ptr nocapture noundef readonl
   %4 = getelementptr inbounds i8, ptr %3, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 10
-  br i1 %6, label %77, label %7
+  br i1 %6, label %76, label %7
 
 7:                                                ; preds = %1
   %8 = icmp ugt i16 %5, 8
-  br i1 %8, label %9, label %40
+  br i1 %8, label %9, label %39
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 184
@@ -2976,7 +2973,7 @@ define internal fastcc zeroext i1 @stride_is_valid(ptr nocapture noundef readonl
   %27 = getelementptr inbounds i8, ptr %11, i64 120
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %39
+  br i1 %29, label %30, label %76
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds i8, ptr %11, i64 72
@@ -2987,71 +2984,68 @@ define internal fastcc zeroext i1 @stride_is_valid(ptr nocapture noundef readonl
   %36 = mul i32 %26, %35
   %37 = and i32 %36, 511
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %77
+  br label %76
 
-39:                                               ; preds = %30, %25
-  br label %77
+39:                                               ; preds = %7
+  %40 = icmp ugt i16 %5, 4
+  br i1 %40, label %76, label %41
 
-40:                                               ; preds = %7
-  %41 = icmp ugt i16 %5, 4
-  br i1 %41, label %77, label %42
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %3, i64 7184
+  %43 = load i32, ptr %42, align 4
+  %44 = and i32 %43, 196608
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %76
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %3, i64 7184
-  %44 = load i32, ptr %43, align 4
-  %45 = and i32 %44, 196608
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %77
+46:                                               ; preds = %41
+  %47 = icmp eq i16 %5, 4
+  %48 = getelementptr inbounds i8, ptr %0, i64 184
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 308
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %0, i64 196
+  %53 = load i32, ptr %52, align 4
+  %54 = and i32 %53, 10
+  %55 = icmp eq i32 %54, 0
+  %56 = getelementptr inbounds i8, ptr %49, i64 72
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 6
+  %59 = load i8, ptr %58, align 2
+  %60 = zext i8 %59 to i32
+  br i1 %47, label %61, label %68
 
-47:                                               ; preds = %42
-  %48 = icmp eq i16 %5, 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 308
-  %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 196
-  %54 = load i32, ptr %53, align 4
-  %55 = and i32 %54, 10
-  %56 = icmp eq i32 %55, 0
-  %57 = getelementptr inbounds i8, ptr %50, i64 72
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 6
-  %60 = load i8, ptr %59, align 2
-  %61 = zext i8 %60 to i32
-  br i1 %48, label %62, label %69
+61:                                               ; preds = %46
+  br i1 %55, label %62, label %._crit_edge3
 
-62:                                               ; preds = %47
-  br i1 %56, label %63, label %._crit_edge3
-
-63:                                               ; preds = %62
-  %64 = udiv i32 %52, %61
+62:                                               ; preds = %61
+  %63 = udiv i32 %51, %60
   br label %._crit_edge3
 
-._crit_edge3:                                     ; preds = %62, %63
-  %65 = phi i32 [ %64, %63 ], [ %52, %62 ]
-  %66 = mul i32 %65, %61
-  %67 = add i32 %66, -2048
-  %68 = icmp ult i32 %67, 14337
-  br label %77
+._crit_edge3:                                     ; preds = %61, %62
+  %64 = phi i32 [ %63, %62 ], [ %51, %61 ]
+  %65 = mul i32 %64, %60
+  %66 = add i32 %65, -2048
+  %67 = icmp ult i32 %66, 14337
+  br label %76
 
-69:                                               ; preds = %47
-  br i1 %56, label %70, label %._crit_edge
+68:                                               ; preds = %46
+  br i1 %55, label %69, label %._crit_edge
 
-70:                                               ; preds = %69
-  %71 = udiv i32 %52, %61
+69:                                               ; preds = %68
+  %70 = udiv i32 %51, %60
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %69, %70
-  %72 = phi i32 [ %71, %70 ], [ %52, %69 ]
-  %73 = mul i32 %72, %61
-  %74 = icmp eq i32 %73, 4096
-  %75 = icmp eq i32 %73, 8192
-  %76 = or i1 %74, %75
-  br label %77
+._crit_edge:                                      ; preds = %68, %69
+  %71 = phi i32 [ %70, %69 ], [ %51, %68 ]
+  %72 = mul i32 %71, %60
+  %73 = icmp eq i32 %72, 4096
+  %74 = icmp eq i32 %72, 8192
+  %75 = or i1 %73, %74
+  br label %76
 
-77:                                               ; preds = %._crit_edge, %._crit_edge3, %42, %40, %39, %30, %1
-  %78 = phi i1 [ %68, %._crit_edge3 ], [ %76, %._crit_edge ], [ true, %1 ], [ true, %39 ], [ false, %30 ], [ true, %42 ], [ true, %40 ]
-  ret i1 %78
+76:                                               ; preds = %30, %25, %._crit_edge, %._crit_edge3, %41, %39, %1
+  %77 = phi i1 [ %67, %._crit_edge3 ], [ %75, %._crit_edge ], [ true, %1 ], [ true, %41 ], [ true, %39 ], [ true, %25 ], [ %38, %30 ]
+  ret i1 %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

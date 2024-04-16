@@ -641,14 +641,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %if.else13, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  switch i64 %2, label %if.end27 [
+  switch i64 %2, label %return [
     i64 2, label %land.lhs.true
     i64 1, label %if.then7
   ]
 
 land.lhs.true:                                    ; preds = %if.then2
   %call4 = tail call noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %props.i)
-  br i1 %call4, label %if.then5, label %if.end27
+  br i1 %call4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %land.lhs.true
   store i8 1, ptr %nocase, align 1
@@ -670,28 +670,26 @@ if.else13:                                        ; preds = %if.end
   br i1 %tobool14, label %if.then15, label %if.else24
 
 if.then15:                                        ; preds = %if.else13
-  switch i64 %2, label %if.end27 [
+  switch i64 %2, label %return [
     i64 2, label %land.lhs.true17
     i64 1, label %land.lhs.true20
   ]
 
 land.lhs.true17:                                  ; preds = %if.then15
   %call18 = tail call noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %props.i)
-  br i1 %call18, label %return, label %if.end27
+  br label %return
 
 land.lhs.true20:                                  ; preds = %if.then15
   %call21 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %props.i)
-  br i1 %call21, label %if.end27, label %return
+  %not.call21 = xor i1 %call21, true
+  br label %return
 
 if.else24:                                        ; preds = %if.else13
   %cmp25 = icmp eq i64 %2, 1
   br label %return
 
-if.end27:                                         ; preds = %land.lhs.true17, %land.lhs.true, %if.then15, %if.then2, %land.lhs.true20
-  br label %return
-
-return:                                           ; preds = %land.lhs.true17, %land.lhs.true20, %if.then7, %if.then9, %entry, %if.end27, %if.else24, %if.then5
-  %retval.0 = phi i1 [ false, %if.end27 ], [ %cmp25, %if.else24 ], [ true, %if.then5 ], [ false, %entry ], [ true, %if.then9 ], [ true, %if.then7 ], [ true, %land.lhs.true20 ], [ true, %land.lhs.true17 ]
+return:                                           ; preds = %land.lhs.true17, %land.lhs.true, %land.lhs.true20, %if.then2, %if.then15, %if.then7, %if.then9, %entry, %if.else24, %if.then5
+  %retval.0 = phi i1 [ %cmp25, %if.else24 ], [ true, %if.then5 ], [ false, %entry ], [ true, %if.then9 ], [ true, %if.then7 ], [ false, %if.then15 ], [ false, %if.then2 ], [ %not.call21, %land.lhs.true20 ], [ false, %land.lhs.true ], [ %call18, %land.lhs.true17 ]
   ret i1 %retval.0
 }
 
@@ -768,20 +766,18 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.034.i, i64 32
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %_M_storage.i.i.i, align 8
   %tobool3.i.i.not.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i, null
-  br i1 %tobool3.i.i.not.i, label %cond.false.i, label %if.then.i.i.i
+  br i1 %tobool3.i.i.not.i, label %cond.end.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
   %agg.tmp.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__x.034.i, i64 40
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, %agg.tmp.sroa.2.0.copyload.i.i
-  br i1 %cmp.i.i.i, label %cond.end.i, label %cond.false.i
-
-cond.false.i:                                     ; preds = %if.then.i.i.i, %while.body.i
+  %spec.select.i = select i1 %cmp.i.i.i, i64 16, i64 24
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.false.i, %if.then.i.i.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %if.then.i.i.i ]
-  %retval.0.i.i29.i = phi i1 [ false, %cond.false.i ], [ true, %if.then.i.i.i ]
+cond.end.i:                                       ; preds = %if.then.i.i.i, %while.body.i
+  %.sink.i = phi i64 [ 24, %while.body.i ], [ %spec.select.i, %if.then.i.i.i ]
+  %retval.0.i.i29.i = phi i1 [ false, %while.body.i ], [ %cmp.i.i.i, %if.then.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.034.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null

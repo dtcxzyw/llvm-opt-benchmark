@@ -466,12 +466,12 @@ define i32 @MRIStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %4 = alloca ptr, align 8
   %5 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepSetUserData, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %15
+  br i1 %.not, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = call i32 @arkSetUserData(ptr noundef %0, ptr noundef %1) #4
   %.not14 = icmp eq i32 %7, 0
-  br i1 %.not14, label %8, label %15
+  br i1 %.not14, label %8, label %14
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %4, align 8
@@ -482,14 +482,10 @@ define i32 @MRIStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 12:                                               ; preds = %8
   %13 = call i32 @arkLSSetUserData(ptr noundef %0, ptr noundef %1) #4
-  %.not16 = icmp eq i32 %13, 0
-  br i1 %.not16, label %14, label %15
+  br label %14
 
-14:                                               ; preds = %12, %8
-  br label %15
-
-15:                                               ; preds = %12, %6, %2, %14
-  %.0 = phi i32 [ 0, %14 ], [ %5, %2 ], [ %7, %6 ], [ %13, %12 ]
+14:                                               ; preds = %12, %8, %6, %2
+  %.0 = phi i32 [ %5, %2 ], [ %7, %6 ], [ 0, %8 ], [ %13, %12 ]
   ret i32 %.0
 }
 

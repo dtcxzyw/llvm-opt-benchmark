@@ -150,7 +150,7 @@ wtap_file_read_till_separator.exit.thread.i:      ; preds = %37, %wtap_file_read
 wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till_separator.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %45
+  br label %89
 
 wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till_separator.exit.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
@@ -160,11 +160,11 @@ wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till
     i32 0, label %45
   ]
 
-45:                                               ; preds = %wtap_file_read_number.exit.thread85, %wtap_file_read_number.exit
+45:                                               ; preds = %wtap_file_read_number.exit
   br label %89
 
 46:                                               ; preds = %wtap_file_read_till_separator.exit.thread.i
-  %47 = trunc i64 %41 to i32
+  %47 = trunc nuw i64 %41 to i32
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not77 = icmp eq i32 %47, 9
@@ -284,8 +284,8 @@ switch.lookup:                                    ; preds = %73
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
   br label %89
 
-89:                                               ; preds = %wtap_file_read_pattern.exit, %73, %70, %61, %57, %53, %49, %wtap_file_read_number.exit, %13, %11, %switch.lookup, %72, %68, %63, %59, %55, %51, %.thread, %45
-  %.0 = phi i32 [ 0, %45 ], [ -1, %.thread ], [ -1, %51 ], [ -1, %55 ], [ -1, %59 ], [ -1, %63 ], [ -1, %68 ], [ -1, %72 ], [ 1, %switch.lookup ], [ %., %11 ], [ 0, %13 ], [ %.019.i.i, %wtap_file_read_number.exit ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %71, %70 ], [ -1, %73 ], [ %spec.select, %wtap_file_read_pattern.exit ]
+89:                                               ; preds = %wtap_file_read_pattern.exit, %wtap_file_read_number.exit.thread85, %73, %70, %61, %57, %53, %49, %wtap_file_read_number.exit, %13, %11, %switch.lookup, %72, %68, %63, %59, %55, %51, %.thread, %45
+  %.0 = phi i32 [ -1, %.thread ], [ -1, %51 ], [ -1, %55 ], [ -1, %59 ], [ -1, %63 ], [ -1, %68 ], [ -1, %72 ], [ 1, %switch.lookup ], [ %., %11 ], [ 0, %13 ], [ %.019.i.i, %wtap_file_read_number.exit ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %71, %70 ], [ -1, %73 ], [ 0, %wtap_file_read_number.exit.thread85 ], [ 0, %45 ], [ %spec.select, %wtap_file_read_pattern.exit ]
   ret i32 %.0
 }
 
@@ -400,7 +400,7 @@ wtap_file_read_till_separator.exit.thread:        ; preds = %18, %wtap_file_read
   br i1 %or.cond3, label %28, label %26
 
 26:                                               ; preds = %wtap_file_read_till_separator.exit.thread
-  %27 = trunc i64 %22 to i32
+  %27 = trunc nuw i64 %22 to i32
   store i32 %27, ptr %1, align 4
   br label %28
 
@@ -700,7 +700,7 @@ define internal fastcc i32 @peektagged_read_packet(ptr nocapture noundef readonl
   %71 = or i16 %.sroa.16.sroa.0.0.insert.insert420, 4100
   %.sroa.16.sroa.0.0.extract.trunc417 = trunc i16 %71 to i8
   %.sroa.16.sroa.28.0.extract.shift425 = lshr i16 %71, 8
-  %.sroa.16.sroa.28.0.extract.trunc426 = trunc i16 %.sroa.16.sroa.28.0.extract.shift425 to i8
+  %.sroa.16.sroa.28.0.extract.trunc426 = trunc nuw nsw i16 %.sroa.16.sroa.28.0.extract.shift425 to i8
   br label %13
 
 72:                                               ; preds = %68
@@ -947,7 +947,7 @@ define internal fastcc i32 @peektagged_read_packet(ptr nocapture noundef readonl
   br i1 %162, label %switch.lookup, label %.thread225
 
 switch.lookup:                                    ; preds = %161
-  %switch.cast = trunc i32 %switch.tableidx to i4
+  %switch.cast = trunc nuw i32 %switch.tableidx to i4
   %switch.downshift = lshr i4 -5, %switch.cast
   %switch.masked = trunc i4 %switch.downshift to i1
   %163 = zext i16 %.sroa.72.0 to i32

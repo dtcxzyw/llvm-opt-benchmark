@@ -276,7 +276,7 @@ if.then84.i:                                      ; preds = %do.body82.i
   %call87.i = tail call i32 %visit(ptr noundef nonnull %8, ptr noundef %arg) #6
   br label %traverse_module_state.exit
 
-traverse_module_state.exit:                       ; preds = %if.then84.i, %do.body82.i, %if.then.i, %if.then7.i, %if.then18.i, %if.then29.i, %if.then40.i, %if.then51.i, %if.then62.i, %if.then73.i
+traverse_module_state.exit:                       ; preds = %if.then.i, %if.then7.i, %if.then18.i, %if.then29.i, %if.then40.i, %if.then51.i, %if.then62.i, %if.then73.i, %do.body82.i, %if.then84.i
   ret i32 0
 }
 
@@ -1828,19 +1828,17 @@ if.end.i.i9.i:                                    ; preds = %lor.lhs.false.i.i.i
   %send.i7.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %29 = load ptr, ptr %send.i7.i.i, align 8
   %cmp2.i.i10.i = icmp eq ptr %29, null
-  br i1 %cmp2.i.i10.i, label %land.lhs.true.i.i.i, label %if.end5.i.i.i
+  br i1 %cmp2.i.i10.i, label %land.lhs.true.i.i.i, label %_channelends_is_open.exit.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i9.i
   %recv.i8.i.i = getelementptr inbounds i8, ptr %26, i64 24
   %30 = load ptr, ptr %recv.i8.i.i, align 8
   %cmp3.i.i.i = icmp eq ptr %30, null
-  br i1 %cmp3.i.i.i, label %_channelends_is_open.exit.i.i, label %if.end5.i.i.i
-
-if.end5.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.end.i.i9.i
+  %spec.select.i.i.i = zext i1 %cmp3.i.i.i to i32
   br label %_channelends_is_open.exit.i.i
 
-_channelends_is_open.exit.i.i:                    ; preds = %if.end5.i.i.i, %land.lhs.true.i.i.i, %lor.lhs.false.i.i.i, %if.end3.i.i
-  %retval.0.i6.i.i = phi i32 [ 0, %if.end5.i.i.i ], [ 1, %lor.lhs.false.i.i.i ], [ 1, %if.end3.i.i ], [ 1, %land.lhs.true.i.i.i ]
+_channelends_is_open.exit.i.i:                    ; preds = %land.lhs.true.i.i.i, %if.end.i.i9.i, %lor.lhs.false.i.i.i, %if.end3.i.i
+  %retval.0.i6.i.i = phi i32 [ 1, %lor.lhs.false.i.i.i ], [ 1, %if.end3.i.i ], [ 0, %if.end.i.i9.i ], [ %spec.select.i.i.i, %land.lhs.true.i.i.i ]
   store i32 %retval.0.i6.i.i, ptr %open.i.i, align 8
   br label %_channel_release_interpreter.exit.i
 
@@ -1962,11 +1960,11 @@ if.end32.i:                                       ; preds = %if.then27.i, %while
   %open33.i = getelementptr inbounds i8, ptr %send.08.i, i64 16
   %13 = load i32, ptr %open33.i, align 8
   %tobool34.not.i = icmp eq i32 %13, 0
-  %nsend_only_released.all.v.i = select i1 %tobool34.not.i, i64 16, i64 8
-  %nsend_only_released.all.i = getelementptr inbounds i8, ptr %info, i64 %nsend_only_released.all.v.i
-  %14 = load i64, ptr %nsend_only_released.all.i, align 8
+  %nsend_only_released.all.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool34.not.i, i64 16, i64 8
+  %nsend_only_released.all.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %info, i64 %nsend_only_released.all.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %14 = load i64, ptr %nsend_only_released.all.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %add40.i = add i64 %14, 1
-  store i64 %add40.i, ptr %nsend_only_released.all.i, align 8
+  store i64 %add40.i, ptr %nsend_only_released.all.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %send.0.i = load ptr, ptr %send.08.i, align 8
   %cmp24.not.i = icmp eq ptr %send.0.i, null
   br i1 %cmp24.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !16
@@ -2029,8 +2027,8 @@ if.then71.i:                                      ; preds = %while.cond60.i
   %open72.i = getelementptr inbounds i8, ptr %recv.011.i, i64 16
   %21 = load i32, ptr %open72.i, align 8
   %tobool73.not.i = icmp eq i32 %21, 0
-  %nrecv_only_released.nrecv_only.v.i = select i1 %tobool73.not.i, i64 32, i64 24
-  %nrecv_only_released.nrecv_only.i = getelementptr inbounds i8, ptr %info, i64 %nrecv_only_released.nrecv_only.v.i
+  %nrecv_only_released.nrecv_only.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool73.not.i, i64 32, i64 24
+  %nrecv_only_released.nrecv_only.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %info, i64 %nrecv_only_released.nrecv_only.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   br label %if.end126.i
 
 if.else83.i:                                      ; preds = %while.body62.i
@@ -2073,7 +2071,7 @@ if.else116.i:                                     ; preds = %if.else105.i
   br label %if.end126.i
 
 if.end126.i:                                      ; preds = %if.else116.i, %if.then108.i, %if.else96.i, %if.then89.i, %if.then71.i
-  %nsend_only_released102.sink20.i = phi ptr [ %nsend_only_released102.i, %if.else96.i ], [ %all91.i, %if.then89.i ], [ %nsend_only_released102.i, %if.else116.i ], [ %all91.i, %if.then108.i ], [ %nrecv_only_released.nrecv_only.i, %if.then71.i ]
+  %nsend_only_released102.sink20.i = phi ptr [ %nsend_only_released102.i, %if.else96.i ], [ %all91.i, %if.then89.i ], [ %nsend_only_released102.i, %if.else116.i ], [ %all91.i, %if.then108.i ], [ %nrecv_only_released.nrecv_only.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, %if.then71.i ]
   %.sink19.i = phi i64 [ -1, %if.else96.i ], [ -1, %if.then89.i ], [ -1, %if.else116.i ], [ -1, %if.then108.i ], [ 1, %if.then71.i ]
   %28 = load i64, ptr %nsend_only_released102.sink20.i, align 8
   %sub103.i = add i64 %28, %.sink19.i
@@ -3172,7 +3170,7 @@ declare ptr @PyInterpreterState_Next(ptr noundef) local_unnamed_addr #1
 declare i32 @PyThread_ParseTimeoutArg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @channel_send_wait(i64 noundef %cid, ptr noundef %obj, i64 noundef %timeout) unnamed_addr #0 {
+define internal fastcc i32 @channel_send_wait(i64 noundef %cid, ptr noundef %obj, i64 noundef %timeout) unnamed_addr #0 {
 entry:
   %waiting = alloca %struct.wait_info, align 8
   %call.i = tail call ptr @PyThread_allocate_lock() #6
@@ -3398,7 +3396,7 @@ channel_clear_sent.exit:                          ; preds = %_channels_lookup.ex
 
 if.end9:                                          ; preds = %channel_clear_sent.exit
   call void @PyErr_Clear() #6
-  br label %if.end14
+  br label %finally
 
 if.else:                                          ; preds = %if.end4
   call void @PyThread_release_lock(ptr noundef %0) #6
@@ -3416,13 +3414,11 @@ _waiting_finish_releasing.exit14:                 ; preds = %while.body.i11, %if
   %received10 = getelementptr inbounds i8, ptr %waiting, i64 12
   %37 = load i32, ptr %received10, align 4
   %tobool11.not = icmp eq i32 %37, 0
-  br i1 %tobool11.not, label %finally, label %if.end14
-
-if.end14:                                         ; preds = %_waiting_finish_releasing.exit14, %if.end9
+  %spec.select = select i1 %tobool11.not, i32 -10, i32 0
   br label %finally
 
-finally:                                          ; preds = %_waiting_finish_releasing.exit14, %channel_clear_sent.exit, %if.end, %if.end14
-  %res.0 = phi i32 [ %call1, %if.end ], [ 0, %if.end14 ], [ -1, %channel_clear_sent.exit ], [ -10, %_waiting_finish_releasing.exit14 ]
+finally:                                          ; preds = %_waiting_finish_releasing.exit14, %if.end9, %channel_clear_sent.exit, %if.end
+  %res.0 = phi i32 [ %call1, %if.end ], [ -1, %channel_clear_sent.exit ], [ 0, %if.end9 ], [ %spec.select, %_waiting_finish_releasing.exit14 ]
   %38 = load ptr, ptr %waiting, align 8
   %cmp.not.i = icmp eq ptr %38, null
   br i1 %cmp.not.i, label %return, label %if.then.i15
@@ -4540,19 +4536,17 @@ if.end.i9.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   %send.i10.i.i = getelementptr inbounds i8, ptr %24, i64 16
   %27 = load ptr, ptr %send.i10.i.i, align 8
   %cmp2.i.i.i = icmp eq ptr %27, null
-  br i1 %cmp2.i.i.i, label %land.lhs.true.i.i.i, label %if.end5.i.i.i
+  br i1 %cmp2.i.i.i, label %land.lhs.true.i.i.i, label %_channel_clear_interpreter.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i9.i.i
   %recv.i11.i.i = getelementptr inbounds i8, ptr %24, i64 24
   %28 = load ptr, ptr %recv.i11.i.i, align 8
   %cmp3.i12.i.i = icmp eq ptr %28, null
-  br i1 %cmp3.i12.i.i, label %_channel_clear_interpreter.exit.i, label %if.end5.i.i.i
-
-if.end5.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.end.i9.i.i
+  %spec.select.i.i.i = zext i1 %cmp3.i12.i.i to i32
   br label %_channel_clear_interpreter.exit.i
 
-_channel_clear_interpreter.exit.i:                ; preds = %if.end5.i.i.i, %land.lhs.true.i.i.i, %lor.lhs.false.i.i.i, %_channelends_clear_interpreter.exit.i.i
-  %retval.0.i.i.i = phi i32 [ 0, %if.end5.i.i.i ], [ 1, %lor.lhs.false.i.i.i ], [ 1, %_channelends_clear_interpreter.exit.i.i ], [ 1, %land.lhs.true.i.i.i ]
+_channel_clear_interpreter.exit.i:                ; preds = %land.lhs.true.i.i.i, %if.end.i9.i.i, %lor.lhs.false.i.i.i, %_channelends_clear_interpreter.exit.i.i
+  %retval.0.i.i.i = phi i32 [ 1, %lor.lhs.false.i.i.i ], [ 1, %_channelends_clear_interpreter.exit.i.i ], [ 0, %if.end.i9.i.i ], [ %spec.select.i.i.i, %land.lhs.true.i.i.i ]
   %open.i.i = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %retval.0.i.i.i, ptr %open.i.i, align 8
   %29 = load ptr, ptr %2, align 8

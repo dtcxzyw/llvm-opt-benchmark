@@ -214,7 +214,7 @@ if.then22:                                        ; preds = %if.then19
   br label %return
 
 if.end23:                                         ; preds = %if.then19
-  %conv24 = trunc i64 %tbslen to i32
+  %conv24 = trunc nsw i64 %tbslen to i32
   %4 = load ptr, ptr %rsa, align 8
   %call26 = call i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef 0, ptr noundef %tbs, i32 noundef %conv24, ptr noundef nonnull %sig, ptr noundef nonnull %sltmp, ptr noundef %4) #11
   %cmp27 = icmp slt i32 %call26, 1
@@ -285,7 +285,7 @@ if.end46:                                         ; preds = %if.end42
 sw.bb55:                                          ; preds = %if.end31
   %mdnid57 = getelementptr inbounds i8, ptr %vprsactx, i64 48
   %13 = load i32, ptr %mdnid57, align 8
-  %conv58 = trunc i64 %tbslen to i32
+  %conv58 = trunc nsw i64 %tbslen to i32
   %14 = load ptr, ptr %rsa, align 8
   %call60 = call i32 @RSA_sign(i32 noundef %13, ptr noundef %tbs, i32 noundef %conv58, ptr noundef nonnull %sig, ptr noundef nonnull %sltmp56, ptr noundef %14) #11
   %cmp61 = icmp slt i32 %call60, 1
@@ -1865,23 +1865,21 @@ return:                                           ; preds = %if.else175, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %vprsactx, ptr nocapture readnone %provctx) #2 {
+define internal nonnull ptr @rsa_settable_ctx_params(ptr noundef readonly %vprsactx, ptr nocapture readnone %provctx) #2 {
 entry:
   %cmp.not = icmp eq ptr %vprsactx, null
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %flag_allow_md = getelementptr inbounds i8, ptr %vprsactx, i64 28
   %bf.load = load i8, ptr %flag_allow_md, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %spec.select = select i1 %tobool.not, ptr @settable_ctx_params_no_digest, ptr @settable_ctx_params
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi ptr [ @settable_ctx_params, %if.end ], [ @settable_ctx_params_no_digest, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi ptr [ @settable_ctx_params, %entry ], [ %spec.select, %land.lhs.true ]
   ret ptr %retval.0
 }
 

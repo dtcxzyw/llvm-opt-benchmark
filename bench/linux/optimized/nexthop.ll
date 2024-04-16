@@ -636,7 +636,7 @@ define dso_local i32 @nexthop_for_each_fib6_nh(ptr noundef %0, ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i16, ptr %11, align 8
   %.not = icmp eq i16 %12, 0
-  br i1 %.not, label %.loopexit, label %13
+  br i1 %.not, label %.thread, label %13
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %10, align 8
@@ -653,7 +653,7 @@ define dso_local i32 @nexthop_for_each_fib6_nh(ptr noundef %0, ptr nocapture nou
   %22 = load i16, ptr %11, align 8
   %23 = zext i16 %22 to i64
   %24 = icmp ult i64 %21, %23
-  br i1 %24, label %25, label %.loopexit, !llvm.loop !26
+  br i1 %24, label %25, label %.thread, !llvm.loop !26
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr [0 x %struct.nh_grp_entry], ptr %10, i64 0, i64 %21
@@ -668,15 +668,11 @@ define dso_local i32 @nexthop_for_each_fib6_nh(ptr noundef %0, ptr nocapture nou
 33:                                               ; preds = %3
   %34 = getelementptr inbounds i8, ptr %8, i64 32
   %35 = tail call i32 %1(ptr noundef %34, ptr noundef %2) #13
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.loopexit, label %.thread
-
-.loopexit:                                        ; preds = %.preheader, %9, %33
   br label %.thread
 
-.thread:                                          ; preds = %25, %13, %.loopexit, %33
-  %37 = phi i32 [ 0, %.loopexit ], [ %35, %33 ], [ %18, %13 ], [ %31, %25 ]
-  ret i32 %37
+.thread:                                          ; preds = %25, %.preheader, %33, %13, %9
+  %36 = phi i32 [ 0, %9 ], [ %18, %13 ], [ %35, %33 ], [ %31, %25 ], [ 0, %.preheader ]
+  ret i32 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7173,7 +7169,7 @@ define internal fastcc noundef i32 @nh_check_attr_group(ptr noundef %0, ptr noca
 
 16:                                               ; preds = %10
   %17 = lshr exact i64 %11, 3
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = getelementptr i8, ptr %6, i64 4
   %20 = icmp eq i32 %18, 0
   br i1 %20, label %.thread, label %.preheader
@@ -8179,7 +8175,7 @@ define internal fastcc noundef i32 @rtm_dump_nexthop_bucket_nh(ptr noundef %0, p
 90:                                               ; preds = %82, %85
   %91 = load ptr, ptr %3, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 4
-  %93 = trunc i64 %29 to i16
+  %93 = trunc nuw i64 %29 to i16
   store i16 %93, ptr %92, align 4
   %94 = load ptr, ptr %8, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8

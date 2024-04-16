@@ -2348,7 +2348,7 @@ if.then65:                                        ; preds = %if.end62
 if.end95:                                         ; preds = %if.then65, %if.end62
   %84 = inttoptr i64 %and.i12 to ptr
   %shr.i.i.i = lshr i64 %material35.sroa.0.0.lcssa, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %return.sink.split.i.i.i
     i32 2, label %return.sink.split.i.i.i
@@ -3214,7 +3214,7 @@ if.then5:                                         ; preds = %entry
   %and.i.i.i.i = and i64 %4, 144115188075855871
   %5 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %4, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   call void @_ZN4pbrt6detail8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_NS_10TexCoord2DENS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEET0_OS4_PKvi(ptr nonnull sret(%"struct.pbrt::TexCoord2D") align 4 %c.i, ptr noundef nonnull align 8 dereferenceable(8) %map.i.i, ptr noundef %5, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp2.i)
@@ -4676,7 +4676,7 @@ sw.bb7:                                           ; preds = %entry
   %11 = load i64, ptr %reflectance.i.i59, align 8
   %and.i16.i.i.i60 = and i64 %11, 144115188075855871
   %cmp.i17.not.i.i.i61 = icmp eq i64 %and.i16.i.i.i60, 0
-  br i1 %cmp.i17.not.i.i.i61, label %for.inc30.i.i.i64, label %land.lhs.true20.i.i.i62
+  br i1 %cmp.i17.not.i.i.i61, label %return, label %land.lhs.true20.i.i.i62
 
 land.lhs.true20.i.i.i62:                          ; preds = %sw.bb7
   %shr.i.mask.i18.i.i.i63 = and i64 %11, -144115188075855872
@@ -4687,7 +4687,7 @@ land.lhs.true20.i.i.i62:                          ; preds = %sw.bb7
     i64 288230376151711744, label %for.inc30.i.i.i64
   ]
 
-for.inc30.i.i.i64:                                ; preds = %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %sw.bb7
+for.inc30.i.i.i64:                                ; preds = %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62, %land.lhs.true20.i.i.i62
   br label %return
 
 sw.bb9:                                           ; preds = %entry
@@ -4733,8 +4733,8 @@ sw.default:                                       ; preds = %entry
   %call15 = tail call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef %ptr, i32 noundef %sub)
   br label %return
 
-return:                                           ; preds = %entry, %for.inc30.i.i.i64, %land.lhs.true20.i.i.i62, %sw.default, %sw.bb11, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, %sw.bb1, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit
-  %retval.0 = phi i1 [ %call15, %sw.default ], [ %call.i80, %sw.bb11 ], [ %retval.0.i.i.i79, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i58, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i43, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit ], [ %call.i, %sw.bb1 ], [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit ], [ true, %for.inc30.i.i.i64 ], [ false, %land.lhs.true20.i.i.i62 ], [ true, %entry ]
+return:                                           ; preds = %entry, %for.inc30.i.i.i64, %land.lhs.true20.i.i.i62, %sw.bb7, %sw.default, %sw.bb11, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, %sw.bb1, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit
+  %retval.0 = phi i1 [ %call15, %sw.default ], [ %call.i80, %sw.bb11 ], [ %retval.0.i.i.i79, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i58, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit ], [ %retval.0.i.i.i43, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit ], [ %call.i, %sw.bb1 ], [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit ], [ false, %land.lhs.true20.i.i.i62 ], [ true, %sw.bb7 ], [ true, %for.inc30.i.i.i64 ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -4813,7 +4813,7 @@ sw.default:                                       ; preds = %entry
   %4 = load i64, ptr %ptr, align 8
   %and.i.i.i.i5 = and i64 %4, 144115188075855871
   %cmp.i.not.i.i.i6 = icmp eq i64 %and.i.i.i.i5, 0
-  br i1 %cmp.i.not.i.i.i6, label %for.inc.i.i.i9, label %land.lhs.true.i.i.i7
+  br i1 %cmp.i.not.i.i.i6, label %return, label %land.lhs.true.i.i.i7
 
 land.lhs.true.i.i.i7:                             ; preds = %sw.default
   %shr.i.mask.i.i.i.i8 = and i64 %4, -144115188075855872
@@ -4824,11 +4824,11 @@ land.lhs.true.i.i.i7:                             ; preds = %sw.default
     i64 288230376151711744, label %for.inc.i.i.i9
   ]
 
-for.inc.i.i.i9:                                   ; preds = %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %sw.default
+for.inc.i.i.i9:                                   ; preds = %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7, %land.lhs.true.i.i.i7
   br label %return
 
-return:                                           ; preds = %for.inc.i.i.i9, %land.lhs.true.i.i.i7, %entry, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit
-  %retval.0 = phi i1 [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit ], [ true, %entry ], [ false, %land.lhs.true.i.i.i7 ], [ true, %for.inc.i.i.i9 ]
+return:                                           ; preds = %for.inc.i.i.i9, %land.lhs.true.i.i.i7, %sw.default, %entry, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit
+  %retval.0 = phi i1 [ %retval.0.i.i.i, %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit ], [ true, %entry ], [ false, %land.lhs.true.i.i.i7 ], [ true, %sw.default ], [ true, %for.inc.i.i.i9 ]
   ret i1 %retval.0
 }
 
@@ -11227,14 +11227,14 @@ cond.end.i.i.i.i:                                 ; preds = %if.end.thread.i.i.i
   %shr3.i.i.i.i.i.i = xor i64 %101, %102
   %conv.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i.i to i32
   %shr4.i.i.i.i.i.i = lshr i64 %99, 59
-  %conv5.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i.i to i32
   %or.i.i49.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i.i, i32 %conv.i.i.i.i.i.i, i32 %conv5.i.i.i.i.i.i)
   %conv.i.i.i.i.i = uitofp i32 %or.i.i49.i.i.i.i to float
   %mul.i.i.i.i.i = fmul float %conv.i.i.i.i.i, 0x3DF0000000000000
   %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float %mul.i.i.i.i.i, float 0x3FEFFFFFE0000000
   %shr.i.i.i.i.i.i.i = lshr i64 %ray.sroa.30.0362.i.i.i.i, 57
-  %conv.i.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i.i to i32
+  %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i.i
     i32 2, label %sw.bb4.i.i.i.i.i.i.i
@@ -11414,7 +11414,7 @@ invoke.cont53.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont9.i.i.i.
   %shr3.i.i.i.i.i.i.i.i.i.i.i = xor i64 %125, %126
   %conv.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %123, 59
-  %conv5.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i.i.i.i.i.i.i to i32
   %or.i.i57.i.i.i.i.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i.i.i.i.i.i.i, i32 %conv.i.i.i.i.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i.i.i.i.i.i.i.i)
   %conv.i.i.i.i.i.i.i.i.i.i = uitofp i32 %or.i.i57.i.i.i.i.i.i.i.i.i to float
   %mul.i58.i.i.i.i.i.i.i.i.i = fmul float %conv.i.i.i.i.i.i.i.i.i.i, 0x3DF0000000000000
@@ -11861,7 +11861,7 @@ invoke.cont48.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont97.i.i.i
   %shr3.i.i.i.i76.i.i.i.i.i.i.i = xor i64 %181, %182
   %conv.i.i.i.i77.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i76.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i78.i.i.i.i.i.i.i = lshr i64 %179, 59
-  %conv5.i.i.i.i79.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i78.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i79.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i78.i.i.i.i.i.i.i to i32
   %or.i.i56.i.i.i.i.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i77.i.i.i.i.i.i.i, i32 %conv.i.i.i.i77.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i79.i.i.i.i.i.i.i)
   %conv.i.i.i80.i.i.i.i.i.i.i = uitofp i32 %or.i.i56.i.i.i.i.i.i.i.i.i to float
   %mul.i57.i.i.i.i.i.i.i.i.i = fmul float %conv.i.i.i80.i.i.i.i.i.i.i, 0x3DF0000000000000
@@ -12327,7 +12327,7 @@ invoke.cont48.i.i213.i.i.i.i.i.i.i:               ; preds = %invoke.cont97.i.i34
   %shr3.i.i.i.i221.i.i.i.i.i.i.i = xor i64 %242, %243
   %conv.i.i.i.i222.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i221.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i223.i.i.i.i.i.i.i = lshr i64 %240, 59
-  %conv5.i.i.i.i224.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i223.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i224.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i223.i.i.i.i.i.i.i to i32
   %or.i.i56.i.i225.i.i.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i222.i.i.i.i.i.i.i, i32 %conv.i.i.i.i222.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i224.i.i.i.i.i.i.i)
   %conv.i.i.i226.i.i.i.i.i.i.i = uitofp i32 %or.i.i56.i.i225.i.i.i.i.i.i.i to float
   %mul.i57.i.i227.i.i.i.i.i.i.i = fmul float %conv.i.i.i226.i.i.i.i.i.i.i, 0x3DF0000000000000
@@ -12779,7 +12779,7 @@ invoke.cont52.i.i485.i.i.i.i.i.i.i:               ; preds = %invoke.cont.i.i477.
   %shr3.i.i.i.i492.i.i.i.i.i.i.i = xor i64 %298, %299
   %conv.i.i.i.i493.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i492.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i494.i.i.i.i.i.i.i = lshr i64 %296, 59
-  %conv5.i.i.i.i495.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i494.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i495.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i494.i.i.i.i.i.i.i to i32
   %or.i.i57.i.i496.i.i.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i493.i.i.i.i.i.i.i, i32 %conv.i.i.i.i493.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i495.i.i.i.i.i.i.i)
   %conv.i.i.i497.i.i.i.i.i.i.i = uitofp i32 %or.i.i57.i.i496.i.i.i.i.i.i.i to float
   %mul.i58.i.i498.i.i.i.i.i.i.i = fmul float %conv.i.i.i497.i.i.i.i.i.i.i, 0x3DF0000000000000
@@ -13222,7 +13222,7 @@ invoke.cont48.i.i766.i.i.i.i.i.i.i:               ; preds = %invoke.cont97.i.i90
   %shr3.i.i.i.i774.i.i.i.i.i.i.i = xor i64 %354, %355
   %conv.i.i.i.i775.i.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i774.i.i.i.i.i.i.i to i32
   %shr4.i.i.i.i776.i.i.i.i.i.i.i = lshr i64 %352, 59
-  %conv5.i.i.i.i777.i.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i776.i.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i777.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i776.i.i.i.i.i.i.i to i32
   %or.i.i56.i.i778.i.i.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i775.i.i.i.i.i.i.i, i32 %conv.i.i.i.i775.i.i.i.i.i.i.i, i32 %conv5.i.i.i.i777.i.i.i.i.i.i.i)
   %conv.i.i.i779.i.i.i.i.i.i.i = uitofp i32 %or.i.i56.i.i778.i.i.i.i.i.i.i to float
   %mul.i57.i.i780.i.i.i.i.i.i.i = fmul float %conv.i.i.i779.i.i.i.i.i.i.i, 0x3DF0000000000000
@@ -14596,7 +14596,7 @@ if.then:                                          ; preds = %_ZNK4pbrt15SampledS
   %shr3.i.i = xor i64 %48, %49
   %conv.i.i = trunc i64 %shr3.i.i to i32
   %shr4.i.i = lshr i64 %46, 59
-  %conv5.i.i = trunc i64 %shr4.i.i to i32
+  %conv5.i.i = trunc nuw nsw i64 %shr4.i.i to i32
   %or.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i, i32 %conv.i.i, i32 %conv5.i.i)
   %conv.i = uitofp i32 %or.i.i to float
   %mul.i157 = fmul float %conv.i, 0x3DF0000000000000
@@ -15513,7 +15513,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %12, label %if.end4.i84 [
     i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EiEixEi.exit80.thread246
     i32 1, label %if.then3.i81
@@ -22273,7 +22273,7 @@ invoke.cont26.i.i.i:                              ; preds = %invoke.cont18.i.i.i
   %shr3.i.i.i.i.i.i = xor i64 %23, %24
   %conv.i.i.i.i.i.i = trunc i64 %shr3.i.i.i.i.i.i to i32
   %shr4.i.i.i.i.i.i = lshr i64 %wrs.sroa.0.0.i.i.i, 59
-  %conv5.i.i.i.i.i.i = trunc i64 %shr4.i.i.i.i.i.i to i32
+  %conv5.i.i.i.i.i.i = trunc nuw nsw i64 %shr4.i.i.i.i.i.i to i32
   %or.i.i.i.i.i.i = call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i.i.i.i, i32 %conv.i.i.i.i.i.i, i32 %conv5.i.i.i.i.i.i)
   %conv.i.i.i.i.i = uitofp i32 %or.i.i.i.i.i.i to float
   %mul.i.i.i.i.i = fmul float %conv.i.i.i.i.i, 0x3DF0000000000000

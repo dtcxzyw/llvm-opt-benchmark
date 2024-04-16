@@ -323,14 +323,12 @@ define dso_local noundef i32 @rps_cpumask_housekeeping(ptr nocapture noundef %0)
   %12 = and i64 %11, %10
   store i64 %12, ptr %0, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %15, label %14
+  %spec.select = select i1 %13, i32 -22, i32 0
+  br label %14
 
 14:                                               ; preds = %4, %1
-  br label %15
-
-15:                                               ; preds = %14, %4
-  %16 = phi i32 [ 0, %14 ], [ -22, %4 ]
-  ret i32 %16
+  %15 = phi i32 [ 0, %1 ], [ %spec.select, %4 ]
+  ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1141,7 +1139,7 @@ define internal i64 @store_rps_map(ptr noundef %0, ptr noundef %1, i64 noundef %
   %4 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   %5 = tail call zeroext i1 @capable(i32 noundef 12) #10
-  br i1 %5, label %6, label %29
+  br i1 %5, label %6, label %28
 
 6:                                                ; preds = %3
   store i64 0, ptr %4, align 8, !annotation !27
@@ -1149,12 +1147,12 @@ define internal i64 @store_rps_map(ptr noundef %0, ptr noundef %1, i64 noundef %
   %8 = load i32, ptr @nr_cpu_ids, align 4
   %9 = call i32 @bitmap_parse(ptr noundef %1, i32 noundef %7, ptr noundef nonnull %4, i32 noundef %8) #10
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %.thread1
+  br i1 %10, label %11, label %.thread2
 
 11:                                               ; preds = %6
   %12 = load i64, ptr %4, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %25, label %14
+  br i1 %13, label %24, label %14
 
 14:                                               ; preds = %11
   %15 = call ptr @housekeeping_cpumask(i32 noundef 5) #10
@@ -1167,25 +1165,25 @@ define internal i64 @store_rps_map(ptr noundef %0, ptr noundef %1, i64 noundef %
   %21 = load i64, ptr %19, align 8
   %22 = and i64 %21, %20
   store i64 %22, ptr %4, align 8
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.thread1, label %25
+  %.not = icmp eq i64 %22, 0
+  br i1 %.not, label %.thread2, label %24
 
-.thread1:                                         ; preds = %6, %14
+.thread2:                                         ; preds = %6, %14
   %.ph = phi i32 [ -22, %14 ], [ %9, %6 ]
-  %24 = sext i32 %.ph to i64
-  br label %29
+  %23 = sext i32 %.ph to i64
+  br label %28
 
-25:                                               ; preds = %14, %11
-  %26 = call fastcc i32 @netdev_rx_queue_set_rps_mask(ptr noundef %0, ptr noundef nonnull %4), !range !6
-  %27 = icmp eq i32 %26, 0
-  %28 = sext i32 %26 to i64
-  %spec.select = select i1 %27, i64 %2, i64 %28
-  br label %29
+24:                                               ; preds = %14, %11
+  %25 = call fastcc i32 @netdev_rx_queue_set_rps_mask(ptr noundef %0, ptr noundef nonnull %4), !range !6
+  %26 = icmp eq i32 %25, 0
+  %27 = sext i32 %25 to i64
+  %spec.select = select i1 %26, i64 %2, i64 %27
+  br label %28
 
-29:                                               ; preds = %25, %.thread1, %3
-  %30 = phi i64 [ -1, %3 ], [ %24, %.thread1 ], [ %spec.select, %25 ]
+28:                                               ; preds = %24, %.thread2, %3
+  %29 = phi i64 [ -1, %3 ], [ %23, %.thread2 ], [ %spec.select, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  ret i64 %30
+  ret i64 %29
 }
 
 ; Function Attrs: null_pointer_is_valid

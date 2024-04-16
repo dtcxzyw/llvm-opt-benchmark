@@ -799,7 +799,7 @@ define hidden void @_ZN8rawspeed10RafDecoder17decodeRawInternalEv(ptr dead_on_un
   %317 = add i64 %308, -21
   %318 = tail call i64 @llvm.smax.i64(i64 %317, i64 -2147483648)
   %319 = tail call i64 @llvm.smin.i64(i64 %318, i64 2147483647)
-  %320 = trunc i64 %319 to i32
+  %320 = trunc nsw i64 %319 to i32
   br label %321
 
 321:                                              ; preds = %316, %310
@@ -834,7 +834,7 @@ define hidden void @_ZN8rawspeed10RafDecoder17decodeRawInternalEv(ptr dead_on_un
   %342 = sub i64 21, %333
   %343 = tail call i64 @llvm.smax.i64(i64 %342, i64 -2147483648)
   %344 = tail call i64 @llvm.smin.i64(i64 %343, i64 2147483647)
-  %345 = trunc i64 %344 to i32
+  %345 = trunc nsw i64 %344 to i32
   br label %346
 
 346:                                              ; preds = %341, %335
@@ -1239,7 +1239,7 @@ define hidden void @_ZN8rawspeed10RafDecoder17decodeRawInternalEv(ptr dead_on_un
   %553 = add i64 %544, -15
   %554 = call i64 @llvm.smax.i64(i64 %553, i64 -2147483648)
   %555 = call i64 @llvm.smin.i64(i64 %554, i64 2147483647)
-  %556 = trunc i64 %555 to i32
+  %556 = trunc nsw i64 %555 to i32
   br label %557
 
 557:                                              ; preds = %552, %546
@@ -1274,7 +1274,7 @@ define hidden void @_ZN8rawspeed10RafDecoder17decodeRawInternalEv(ptr dead_on_un
   %578 = sub i64 15, %569
   %579 = call i64 @llvm.smax.i64(i64 %578, i64 -2147483648)
   %580 = call i64 @llvm.smin.i64(i64 %579, i64 2147483647)
-  %581 = trunc i64 %580 to i32
+  %581 = trunc nsw i64 %580 to i32
   br label %583
 
 582:                                              ; preds = %565, %535
@@ -2248,7 +2248,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   %9 = load i64, ptr %8, align 8, !tbaa.struct !60
   %10 = trunc i64 %9 to i32
   %11 = lshr i64 %9, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = getelementptr inbounds i8, ptr %0, i64 27
   %14 = load i8, ptr %13, align 1, !tbaa !78, !range !79, !noundef !80
   %15 = icmp eq i8 %14, 0
@@ -2259,12 +2259,12 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   %18 = load i64, ptr %17, align 4, !tbaa.struct !60
   %19 = trunc i64 %18 to i32
   %20 = lshr i64 %18, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = getelementptr inbounds i8, ptr %1, i64 316
   %23 = load i64, ptr %22, align 4, !tbaa.struct !60
   %24 = trunc i64 %23 to i32
   %25 = lshr i64 %23, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = tail call noalias noundef nonnull dereferenceable(22) ptr @_Znwm(i64 noundef 22) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %27, ptr noundef nonnull align 1 dereferenceable(21) @.str.6, i64 21, i1 false)
   %28 = getelementptr inbounds i8, ptr %27, i64 21
@@ -2295,7 +2295,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   %45 = add i64 %36, -21
   %46 = tail call i64 @llvm.smax.i64(i64 %45, i64 -2147483648)
   %47 = tail call i64 @llvm.smin.i64(i64 %46, i64 2147483647)
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nsw i64 %47 to i32
   br label %49
 
 49:                                               ; preds = %44, %38
@@ -2330,7 +2330,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   %70 = sub i64 21, %61
   %71 = tail call i64 @llvm.smax.i64(i64 %70, i64 -2147483648)
   %72 = tail call i64 @llvm.smin.i64(i64 %71, i64 2147483647)
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nsw i64 %72 to i32
   br label %74
 
 74:                                               ; preds = %69, %63
@@ -2416,7 +2416,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   %129 = add i64 %120, -11
   %130 = call i64 @llvm.smax.i64(i64 %129, i64 -2147483648)
   %131 = call i64 @llvm.smin.i64(i64 %130, i64 2147483647)
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nsw i64 %131 to i32
   br label %133
 
 133:                                              ; preds = %128, %122
@@ -2451,7 +2451,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   %154 = sub i64 11, %145
   %155 = call i64 @llvm.smax.i64(i64 %154, i64 -2147483648)
   %156 = call i64 @llvm.smin.i64(i64 %155, i64 2147483647)
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nsw i64 %156 to i32
   br label %158
 
 158:                                              ; preds = %153, %147
@@ -4935,7 +4935,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawI
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawImageDataU16ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %17, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4946,20 +4946,18 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspee
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1, !tbaa !62
   %11 = icmp eq i8 %10, 42
-  br i1 %11, label %17, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %14 = freeze i32 %13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, ptr %3, ptr null
+  br label %16
 
-16:                                               ; preds = %12, %5
-  br label %17
-
-17:                                               ; preds = %16, %12, %9, %2
-  %18 = phi ptr [ %3, %2 ], [ %3, %16 ], [ null, %12 ], [ null, %9 ]
-  ret ptr %18
+16:                                               ; preds = %12, %5, %9, %2
+  %17 = phi ptr [ %3, %2 ], [ null, %9 ], [ %3, %5 ], [ %spec.select, %12 ]
+  ret ptr %17
 }
 
 declare void @_ZN8rawspeed15RawImageDataU16C1ERKNS_8iPoint2DEj(ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) unnamed_addr #3

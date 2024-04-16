@@ -615,16 +615,17 @@ _ZN4llvh12StringSwitchINS_6Triple8ArchTypeES2_E7DefaultES2_.exit: ; preds = %if.
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef i32 @_ZL12parseBPFArchN4llvh9StringRefE(ptr nocapture readonly %ArchName.coerce0, i64 %ArchName.coerce1) unnamed_addr #2 {
 entry:
-  switch i64 %ArchName.coerce1, label %if.else13 [
+  switch i64 %ArchName.coerce1, label %return [
     i64 3, label %if.end.i
     i64 6, label %if.end.i109
     i64 5, label %if.end.i118
   ]
 
 if.end.i:                                         ; preds = %entry
-  %bcmp32 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %ArchName.coerce0, ptr noundef nonnull dereferenceable(3) @.str.52, i64 3)
-  %cmp5.i100 = icmp eq i32 %bcmp32, 0
-  br i1 %cmp5.i100, label %return, label %if.else13
+  %bcmp34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %ArchName.coerce0, ptr noundef nonnull dereferenceable(3) @.str.52, i64 3)
+  %cmp5.i100 = icmp eq i32 %bcmp34, 0
+  %spec.select32 = select i1 %cmp5.i100, i32 7, i32 0
+  br label %return
 
 if.end.i109:                                      ; preds = %entry
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %ArchName.coerce0, ptr noundef nonnull dereferenceable(6) @.str.151, i64 6)
@@ -639,18 +640,17 @@ if.end.i118:                                      ; preds = %entry
 if.end.i127:                                      ; preds = %if.end.i109
   %bcmp30 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %ArchName.coerce0, ptr noundef nonnull dereferenceable(6) @.str.152, i64 6)
   %2 = icmp eq i32 %bcmp30, 0
-  br i1 %2, label %return, label %if.else13
+  %spec.select33 = select i1 %2, i32 7, i32 0
+  br label %return
 
 if.end.i136:                                      ; preds = %if.end.i118
   %bcmp31 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %ArchName.coerce0, ptr noundef nonnull dereferenceable(5) @.str.7, i64 5)
   %3 = icmp eq i32 %bcmp31, 0
-  br i1 %3, label %return, label %if.else13
-
-if.else13:                                        ; preds = %if.end.i127, %if.end.i, %entry, %if.end.i136
+  %spec.select = select i1 %3, i32 7, i32 0
   br label %return
 
-return:                                           ; preds = %if.end.i127, %if.end.i136, %if.end.i109, %if.end.i118, %if.end.i, %if.else13
-  %retval.0 = phi i32 [ 0, %if.else13 ], [ 7, %if.end.i ], [ 8, %if.end.i118 ], [ 8, %if.end.i109 ], [ 7, %if.end.i136 ], [ 7, %if.end.i127 ]
+return:                                           ; preds = %if.end.i127, %if.end.i, %if.end.i136, %entry, %if.end.i109, %if.end.i118
+  %retval.0 = phi i32 [ 8, %if.end.i118 ], [ 8, %if.end.i109 ], [ 0, %entry ], [ %spec.select, %if.end.i136 ], [ %spec.select32, %if.end.i ], [ %spec.select33, %if.end.i127 ]
   ret i32 %retval.0
 }
 
@@ -1466,7 +1466,7 @@ switch.lookup:                                    ; preds = %if.end17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
-return:                                           ; preds = %switch.lookup, %if.end17, %if.end.i179, %if.end.i162, %if.then8, %if.end.i170, %land.rhs.i84, %land.rhs.i75
+return:                                           ; preds = %switch.lookup, %if.end17, %if.end.i179, %if.end.i170, %if.end.i162, %if.then8, %land.rhs.i84, %land.rhs.i75
   %retval.0 = phi i32 [ 26, %land.rhs.i75 ], [ 26, %land.rhs.i84 ], [ 0, %if.end17 ], [ 24, %if.end.i170 ], [ 0, %if.then8 ], [ 23, %if.end.i162 ], [ %spec.select, %if.end.i179 ], [ %switch.load, %switch.lookup ]
   ret i32 %retval.0
 }
@@ -1598,7 +1598,7 @@ _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1028: ; preds = %_ZN4llvh12Strin
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1031: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1028, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062
   %cmp.i.i1018.not366 = phi i1 [ true, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062 ], [ false, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1028 ], [ %cmp.i.i1018.not364, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread ]
   %ref.tmp.sroa.102.1 = phi i8 [ 0, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062 ], [ 0, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i1028 ], [ %ref.tmp.sroa.102.0.ph, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread ]
-  %tobool.i141 = trunc i8 %ref.tmp.sroa.102.1 to i1
+  %tobool.i141 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
   %or.cond103 = or i1 %cmp.i.i1049.not, %tobool.i141
   br i1 %or.cond103, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1000, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i997
 
@@ -2025,7 +2025,7 @@ if.end.i.i112:                                    ; preds = %entry
 
 _ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit117: ; preds = %entry
   %cmp.i.i65.not.not = icmp eq i64 %EnvironmentName.coerce1, 3
-  br i1 %cmp.i.i65.not.not, label %if.end.i.i77.thread, label %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit47.thread
+  br i1 %cmp.i.i65.not.not, label %if.end.i.i77.thread, label %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit
 
 if.end.i.i77:                                     ; preds = %if.end.i.i112
   %add.ptr.i27 = getelementptr inbounds i8, ptr %EnvironmentName.coerce0, i64 %EnvironmentName.coerce1
@@ -2039,7 +2039,8 @@ if.end.i.i77.thread:                              ; preds = %_ZN4llvh12StringSwi
   %add.ptr.i.i7477 = getelementptr inbounds i8, ptr %add.ptr.i2776, i64 -3
   %bcmp1678 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i.i7477, ptr noundef nonnull dereferenceable(3) @.str.187, i64 3)
   %2 = icmp eq i32 %bcmp1678, 0
-  br i1 %2, label %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit47.thread
+  %spec.select81 = select i1 %2, i32 2, i32 0
+  br label %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit
 
 _ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit82: ; preds = %if.end.i.i77
   %cmp.i.i30.not = icmp eq i64 %EnvironmentName.coerce1, 4
@@ -2052,9 +2053,6 @@ if.end.i.i42:                                     ; preds = %_ZN4llvh12StringSwi
   %3 = icmp eq i32 %bcmp17, 0
   br i1 %3, label %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit, label %if.end.i.i
 
-_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit47.thread: ; preds = %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit117, %if.end.i.i77.thread
-  br label %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit
-
 if.end.i.i:                                       ; preds = %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit82, %if.end.i.i42
   %add.ptr.i39 = getelementptr inbounds i8, ptr %EnvironmentName.coerce0, i64 %EnvironmentName.coerce1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i39, i64 -4
@@ -2063,8 +2061,8 @@ if.end.i.i:                                       ; preds = %_ZN4llvh12StringSwi
   %spec.select = select i1 %4, i32 4, i32 0
   br label %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit
 
-_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit: ; preds = %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit47.thread, %if.end.i.i77.thread, %if.end.i.i42, %if.end.i.i, %if.end.i.i77, %if.end.i.i112
-  %retval.i.0 = phi i32 [ 1, %if.end.i.i112 ], [ 2, %if.end.i.i77 ], [ 3, %if.end.i.i42 ], [ %spec.select, %if.end.i.i ], [ 2, %if.end.i.i77.thread ], [ 0, %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit47.thread ]
+_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E7DefaultES2_.exit: ; preds = %if.end.i.i77.thread, %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit117, %if.end.i.i42, %if.end.i.i, %if.end.i.i77, %if.end.i.i112
+  %retval.i.0 = phi i32 [ 1, %if.end.i.i112 ], [ 2, %if.end.i.i77 ], [ 3, %if.end.i.i42 ], [ %spec.select, %if.end.i.i ], [ 0, %_ZN4llvh12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit117 ], [ %spec.select81, %if.end.i.i77.thread ]
   ret i32 %retval.i.0
 }
 
@@ -2145,7 +2143,7 @@ if.else:                                          ; preds = %lor.lhs.false.i
 sw.bb6:                                           ; preds = %entry, %entry
   %1 = and i32 %T.44.val, -9
   %spec.select.i.i6 = icmp eq i32 %1, 3
-  br i1 %spec.select.i.i6, label %2, label %lor.lhs.false.i7
+  br i1 %spec.select.i.i6, label %return, label %lor.lhs.false.i7
 
 lor.lhs.false.i7:                                 ; preds = %sw.bb6
   switch i32 %T.44.val, label %return [
@@ -2154,7 +2152,7 @@ lor.lhs.false.i7:                                 ; preds = %sw.bb6
     i32 28, label %2
   ]
 
-2:                                                ; preds = %lor.lhs.false.i7, %lor.lhs.false.i7, %lor.lhs.false.i7, %sw.bb6
+2:                                                ; preds = %lor.lhs.false.i7, %lor.lhs.false.i7, %lor.lhs.false.i7
   br label %return
 
 sw.bb10:                                          ; preds = %entry, %entry
@@ -2163,8 +2161,8 @@ sw.bb10:                                          ; preds = %entry, %entry
 sw.epilog:                                        ; preds = %entry
   unreachable
 
-return:                                           ; preds = %sw.bb, %lor.lhs.false.i, %lor.lhs.false.i, %lor.lhs.false.i, %2, %lor.lhs.false.i7, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %if.else, %sw.bb10
-  %retval.0 = phi i32 [ 4, %sw.bb10 ], [ %., %if.else ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 3, %2 ], [ 2, %lor.lhs.false.i7 ], [ 3, %lor.lhs.false.i ], [ 3, %lor.lhs.false.i ], [ 3, %lor.lhs.false.i ], [ 3, %sw.bb ]
+return:                                           ; preds = %sw.bb, %lor.lhs.false.i, %lor.lhs.false.i, %lor.lhs.false.i, %2, %lor.lhs.false.i7, %sw.bb6, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %if.else, %sw.bb10
+  %retval.0 = phi i32 [ 4, %sw.bb10 ], [ %., %if.else ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %lor.lhs.false.i7 ], [ 3, %sw.bb6 ], [ 3, %2 ], [ 3, %lor.lhs.false.i ], [ 3, %lor.lhs.false.i ], [ 3, %lor.lhs.false.i ], [ 3, %sw.bb ]
   ret i32 %retval.0
 }
 
@@ -2827,7 +2825,7 @@ for.body:                                         ; preds = %if.end37, %for.inc1
   br i1 %or.cond389, label %for.inc172, label %for.body58.preheader
 
 for.body58.preheader:                             ; preds = %for.body
-  %7 = trunc i64 %indvars.iv401 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv401 to i32
   br label %for.body58
 
 for.body58:                                       ; preds = %for.body58.preheader, %for.inc169
@@ -2971,7 +2969,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond400.not, label %while.end, label %land.rhs, !llvm.loop !75
 
 while.end.loopexit.split.loop.exit428:            ; preds = %land.rhs
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit428, %while.cond.preheader
@@ -3281,7 +3279,7 @@ sw.epilog.i:                                      ; preds = %if.else230
   unreachable
 
 if.else236:                                       ; preds = %if.end217
-  %tobool237 = trunc i8 %IsMinGW32.5 to i1
+  %tobool237 = trunc nuw i8 %IsMinGW32.5 to i1
   br i1 %tobool237, label %if.then238, label %if.else243
 
 if.then238:                                       ; preds = %if.else236
@@ -3327,7 +3325,7 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit165: ; preds = %if.else.i
   br label %if.end252.sink.split
 
 if.else243:                                       ; preds = %if.else236
-  %tobool244 = trunc i8 %IsCygwin.5 to i1
+  %tobool244 = trunc nuw i8 %IsCygwin.5 to i1
   br i1 %tobool244, label %if.then245, label %if.end252
 
 if.then245:                                       ; preds = %if.else243
@@ -3383,11 +3381,11 @@ if.end252.sink.split:                             ; preds = %_ZN4llvh9StringRefC
   br label %if.end252
 
 if.end252:                                        ; preds = %if.end252.sink.split, %if.else243, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit
-  %tobool253 = trunc i8 %IsMinGW32.5 to i1
+  %tobool253 = trunc nuw i8 %IsMinGW32.5 to i1
   br i1 %tobool253, label %if.then260, label %lor.lhs.false254
 
 lor.lhs.false254:                                 ; preds = %if.end252
-  %tobool255 = trunc i8 %IsCygwin.5 to i1
+  %tobool255 = trunc nuw i8 %IsCygwin.5 to i1
   %cmp259 = icmp ne i32 %Environment.5, 0
   %or.cond2 = select i1 %cmp218, i1 %cmp259, i1 false
   %or.cond110 = select i1 %tobool255, i1 true, i1 %or.cond2
@@ -4030,7 +4028,7 @@ if.end4:                                          ; preds = %if.end.thread, %if.
   %sub = add i32 %2, -4
   store i32 %sub, ptr %Minor, align 4
   store i32 10, ptr %Major, align 4
-  br label %sw.epilog
+  br label %return
 
 sw.bb5:                                           ; preds = %entry
   %3 = load i32, ptr %Major, align 4
@@ -4040,25 +4038,22 @@ sw.bb5:                                           ; preds = %entry
 if.then7:                                         ; preds = %sw.bb5
   store i32 10, ptr %Major, align 4
   store i32 4, ptr %Minor, align 4
-  %.pr = load i32, ptr %Major, align 4
+  %.pre = load i32, ptr %Major, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %sw.bb5
-  %4 = phi i32 [ %.pr, %if.then7 ], [ %3, %sw.bb5 ]
+  %4 = phi i32 [ %.pre, %if.then7 ], [ %3, %sw.bb5 ]
   %cmp9.not = icmp eq i32 %4, 10
-  br i1 %cmp9.not, label %sw.epilog, label %return
+  br label %return
 
 sw.bb12:                                          ; preds = %entry, %entry, %entry
   store i32 10, ptr %Major, align 4
   store i32 4, ptr %Minor, align 4
   store i32 0, ptr %Micro, align 4
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %if.end8, %sw.bb12, %if.end4
   br label %return
 
-return:                                           ; preds = %if.end8, %if.end, %sw.epilog
-  %retval.0 = phi i1 [ true, %sw.epilog ], [ false, %if.end ], [ false, %if.end8 ]
+return:                                           ; preds = %if.end8, %if.end4, %sw.bb12, %if.end
+  %retval.0 = phi i1 [ false, %if.end ], [ true, %sw.bb12 ], [ true, %if.end4 ], [ %cmp9.not, %if.end8 ]
   ret i1 %retval.0
 }
 

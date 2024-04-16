@@ -920,7 +920,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 
 if.then3:                                         ; preds = %for.body
   %arrayidx.le = getelementptr inbounds [10 x ptr], ptr @_ZL19gCommonICUDataArray, i64 0, i64 %indvars.iv
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   store ptr %call, ptr %arrayidx.le, align 8
   br label %for.end
 
@@ -937,7 +937,7 @@ for.inc:                                          ; preds = %if.else
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end.loopexit.split.loop.exit24:               ; preds = %if.else
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit24, %if.then3
@@ -1159,30 +1159,30 @@ entry:
   %agg.tmp27.sink.sroa.gep186 = getelementptr inbounds i8, ptr %agg.tmp48, i64 8
   %agg.tmp27.sink.sroa.gep187 = getelementptr inbounds i8, ptr %agg.tmp63, i64 8
   %agg.tmp27.sink.sroa.gep188 = getelementptr inbounds i8, ptr %agg.tmp68, i64 8
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+  br i1 %cmp, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(8) @.str.4) #15
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false1
+  br i1 %tobool.not, label %if.end, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %lor.lhs.false
   %call2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(10) @.str.5, i64 noundef 9) #15
   %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %if.then, label %lor.lhs.false4
+  br i1 %tobool3.not, label %if.end, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false1
   %call5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(9) @.str.6, i64 noundef 8) #15
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %lor.lhs.false4, %lor.lhs.false1, %lor.lhs.false, %entry
+if.then:                                          ; preds = %lor.lhs.false4
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false4
-  %tobool61.not = phi i1 [ false, %if.then ], [ true, %lor.lhs.false4 ]
-  %tobool134 = phi i1 [ true, %if.then ], [ false, %lor.lhs.false4 ]
-  %isICUData.0 = phi i8 [ 1, %if.then ], [ 0, %lor.lhs.false4 ]
+if.end:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false1, %if.then, %lor.lhs.false4
+  %tobool61.not = phi i1 [ true, %lor.lhs.false4 ], [ false, %lor.lhs.false1 ], [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.then ]
+  %tobool134 = phi i1 [ false, %lor.lhs.false4 ], [ true, %lor.lhs.false1 ], [ true, %lor.lhs.false ], [ true, %entry ], [ true, %if.then ]
+  %isICUData.0 = phi i8 [ 0, %lor.lhs.false4 ], [ 1, %lor.lhs.false1 ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %if.then ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tocEntryName)
   %len.i = getelementptr inbounds i8, ptr %tocEntryName, i64 56
   store i32 0, ptr %len.i, align 8

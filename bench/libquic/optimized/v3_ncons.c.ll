@@ -637,7 +637,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i22
   %22 = load i32, ptr %17, align 8
   %23 = load i32, ptr %18, align 8
   %cmp7.i = icmp sgt i32 %22, %23
-  br i1 %cmp7.i, label %if.then9.i, label %if.end16.i
+  br i1 %cmp7.i, label %if.then9.i, label %return
 
 if.then9.i:                                       ; preds = %if.then5.i
   %sub.i24 = sub nsw i32 %22, %23
@@ -645,9 +645,7 @@ if.then9.i:                                       ; preds = %if.then5.i
   %add.ptr.i26 = getelementptr inbounds i8, ptr %20, i64 %idx.ext.i25
   %call12.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %19, ptr noundef %add.ptr.i26) #5
   %tobool13.not.i = icmp eq i32 %call12.i, 0
-  br i1 %tobool13.not.i, label %return, label %if.end16.i
-
-if.end16.i:                                       ; preds = %if.then9.i, %if.then5.i
+  %spec.select.i = select i1 %tobool13.not.i, i32 0, i32 47
   br label %return
 
 if.then19.i:                                      ; preds = %if.end.i19
@@ -714,8 +712,8 @@ if.end.i33:                                       ; preds = %lor.lhs.false3.i
 
 if.end12.i:                                       ; preds = %if.end.i33
   %call11.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i34, i32 noundef 47) #6
-  %tobool13.not.i39 = icmp eq ptr %call11.i, null
-  br i1 %tobool13.not.i39, label %if.then14.i, label %if.else.i
+  %tobool13.not.i40 = icmp eq ptr %call11.i, null
+  br i1 %tobool13.not.i40, label %if.then14.i, label %if.else.i
 
 if.then14.i:                                      ; preds = %if.end12.i
   %call15.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i34) #6
@@ -742,7 +740,7 @@ if.end22.i:                                       ; preds = %if.end18.i
 
 if.then26.i:                                      ; preds = %if.end22.i
   %cmp27.i = icmp slt i32 %31, %hostlen.0.i
-  br i1 %cmp27.i, label %if.then29.i, label %if.end40.i
+  br i1 %cmp27.i, label %if.then29.i, label %return
 
 if.then29.i:                                      ; preds = %if.then26.i
   %sext24.i = shl i64 %hostlen.0.in.i, 32
@@ -753,9 +751,7 @@ if.then29.i:                                      ; preds = %if.then26.i
   %add.ptr33.i = getelementptr inbounds i8, ptr %add.ptr30.i, i64 %idx.neg.i
   %call36.i = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %add.ptr33.i, ptr noundef nonnull %27, i64 noundef %idx.ext32.i) #5
   %tobool37.not.i = icmp eq i32 %call36.i, 0
-  br i1 %tobool37.not.i, label %return, label %if.end40.i
-
-if.end40.i:                                       ; preds = %if.then29.i, %if.then26.i
+  %spec.select.i39 = select i1 %tobool37.not.i, i32 0, i32 47
   br label %return
 
 if.end41.i:                                       ; preds = %if.end22.i
@@ -767,11 +763,11 @@ lor.lhs.false45.i:                                ; preds = %if.end41.i
   %conv46.i = ashr exact i64 %sext.i, 32
   %call47.i = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %add.ptr.i34, ptr noundef nonnull %27, i64 noundef %conv46.i) #5
   %tobool48.not.i = icmp eq i32 %call47.i, 0
-  %spec.select.i = select i1 %tobool48.not.i, i32 0, i32 47
+  %spec.select25.i = select i1 %tobool48.not.i, i32 0, i32 47
   br label %return
 
-return:                                           ; preds = %lor.lhs.false45.i, %if.end41.i, %if.end40.i, %if.then29.i, %if.end18.i, %lor.lhs.false3.i, %lor.lhs.false.i, %sw.bb10, %if.end39.i, %if.end29.i, %if.then22.i, %if.end16.i, %if.then9.i, %sw.bb6, %if.end13.i, %land.lhs.true.i14, %sw.bb2, %if.end11.i, %if.end7.i, %land.lhs.true3.i, %land.lhs.true.i, %entry
-  %retval.0 = phi i32 [ 51, %entry ], [ 17, %land.lhs.true.i ], [ 17, %land.lhs.true3.i ], [ 47, %if.end7.i ], [ %..i, %if.end11.i ], [ 0, %sw.bb2 ], [ 47, %land.lhs.true.i14 ], [ %..i12, %if.end13.i ], [ 47, %if.end16.i ], [ 53, %sw.bb6 ], [ 0, %if.then9.i ], [ 47, %if.then22.i ], [ 47, %if.end29.i ], [ %..i21, %if.end39.i ], [ 47, %if.end40.i ], [ 53, %lor.lhs.false3.i ], [ 53, %lor.lhs.false.i ], [ 53, %sw.bb10 ], [ 53, %if.end18.i ], [ 0, %if.then29.i ], [ 47, %if.end41.i ], [ %spec.select.i, %lor.lhs.false45.i ]
+return:                                           ; preds = %lor.lhs.false45.i, %if.end41.i, %if.then29.i, %if.then26.i, %if.end18.i, %lor.lhs.false3.i, %lor.lhs.false.i, %sw.bb10, %if.end39.i, %if.end29.i, %if.then22.i, %if.then9.i, %if.then5.i, %sw.bb6, %if.end13.i, %land.lhs.true.i14, %sw.bb2, %if.end11.i, %if.end7.i, %land.lhs.true3.i, %land.lhs.true.i, %entry
+  %retval.0 = phi i32 [ 51, %entry ], [ 17, %land.lhs.true.i ], [ 17, %land.lhs.true3.i ], [ 47, %if.end7.i ], [ %..i, %if.end11.i ], [ 0, %sw.bb2 ], [ 47, %land.lhs.true.i14 ], [ %..i12, %if.end13.i ], [ 53, %sw.bb6 ], [ 47, %if.then5.i ], [ 47, %if.then22.i ], [ 47, %if.end29.i ], [ %..i21, %if.end39.i ], [ %spec.select.i, %if.then9.i ], [ 53, %lor.lhs.false3.i ], [ 53, %lor.lhs.false.i ], [ 53, %sw.bb10 ], [ 53, %if.end18.i ], [ 47, %if.then26.i ], [ 47, %if.end41.i ], [ %spec.select.i39, %if.then29.i ], [ %spec.select25.i, %lor.lhs.false45.i ]
   ret i32 %retval.0
 }
 

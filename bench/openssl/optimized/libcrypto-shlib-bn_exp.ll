@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_mod_exp_simple = private unnamed_addr constant [18 x i8] c"BN_mod_exp_simple\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_exp(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define i32 @BN_exp(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_get_flags(ptr noundef %p, i32 noundef 4) #5
   %cmp.not = icmp eq i32 %call, 0
@@ -99,18 +99,16 @@ for.inc:                                          ; preds = %if.end33, %if.then3
 
 for.end:                                          ; preds = %for.inc, %if.end28
   %cmp42.not = icmp eq ptr %cond, %r
-  br i1 %cmp42.not, label %if.end46, label %land.lhs.true
+  br i1 %cmp42.not, label %err, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end
   %call43 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef %cond) #5
-  %cmp44 = icmp eq ptr %call43, null
-  br i1 %cmp44, label %err, label %if.end46
-
-if.end46:                                         ; preds = %land.lhs.true, %for.end
+  %cmp44 = icmp ne ptr %call43, null
+  %spec.select = zext i1 %cmp44 to i32
   br label %err
 
-err:                                              ; preds = %if.then36, %for.body, %land.lhs.true, %if.else, %if.then19, %if.end12, %cond.end, %if.end46
-  %ret.0 = phi i32 [ 0, %cond.end ], [ 0, %if.end12 ], [ 0, %if.then19 ], [ 0, %land.lhs.true ], [ 1, %if.end46 ], [ 0, %if.else ], [ 0, %for.body ], [ 0, %if.then36 ]
+err:                                              ; preds = %if.then36, %for.body, %land.lhs.true, %for.end, %if.else, %if.then19, %if.end12, %cond.end
+  %ret.0 = phi i32 [ 0, %cond.end ], [ 0, %if.end12 ], [ 0, %if.then19 ], [ 0, %if.else ], [ 1, %for.end ], [ %spec.select, %land.lhs.true ], [ 0, %for.body ], [ 0, %if.then36 ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #5
   br label %return
 
@@ -598,7 +596,7 @@ if.end77:                                         ; preds = %if.then71
 
 for.cond:                                         ; preds = %lor.lhs.false82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nsw i64 %indvars.iv.next to i32
   %i.0.highbits = lshr i32 %2, %sub
   %cmp78 = icmp eq i32 %i.0.highbits, 0
   br i1 %cmp78, label %for.body, label %if.end92, !llvm.loop !7
@@ -918,7 +916,7 @@ if.end67:                                         ; preds = %if.then61
 
 for.cond:                                         ; preds = %lor.lhs.false72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1 = trunc i64 %indvars.iv.next to i32
+  %1 = trunc nsw i64 %indvars.iv.next to i32
   %i.0.highbits = lshr i32 %1, %sub
   %cmp68 = icmp eq i32 %i.0.highbits, 0
   br i1 %cmp68, label %for.body, label %if.end82, !llvm.loop !11
@@ -1481,7 +1479,7 @@ for.body265:                                      ; preds = %for.body251, %for.i
   call void @bn_mul_mont_gather5(ptr noundef %46, ptr noundef %47, ptr noundef nonnull %add.ptr, ptr noundef %add.ptr224, ptr noundef nonnull %n0199, i32 noundef %0, i32 noundef %49) #5
   %50 = load ptr, ptr %tmp, align 8
   call void @bn_scatter5(ptr noundef %50, i64 noundef %conv140, ptr noundef nonnull %add.ptr, i64 noundef %indvars.iv373) #5
-  %51 = trunc i64 %indvars.iv373 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv373 to i32
   br label %for.body276
 
 for.body276:                                      ; preds = %for.body265, %for.body276
@@ -1921,7 +1919,7 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %acc.0235 = phi i64 [ 0, %for.cond4.preheader ], [ %or, %for.body6 ]
   %arrayidx = getelementptr inbounds i64, ptr %table.0238, i64 %indvars.iv415
   %0 = load volatile i64, ptr %arrayidx, align 8
-  %1 = trunc i64 %indvars.iv415 to i32
+  %1 = trunc nuw nsw i64 %indvars.iv415 to i32
   %xor.i.i = xor i32 %1, %idx
   %2 = sub i32 0, %xor.i.i
   %3 = or i32 %2, %idx
@@ -2006,7 +2004,7 @@ for.body43.us.us.us.us.us.us.us.us:               ; preds = %for.body43.us.us.us
   %arrayidx62.us.us.us.us.us.us.us.us = getelementptr inbounds i64, ptr %table.1115.us.us.us.us, i64 %19
   %20 = load volatile i64, ptr %arrayidx62.us.us.us.us.us.us.us.us, align 8
   %or64.us.us.us.us.us.us.us.us = or i64 %or58.us.us.us.us.us.us.us.us, %20
-  %21 = trunc i64 %indvars.iv401 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv401 to i32
   %xor.i.i68.us.us.us.us.us.us.us.us = xor i32 %and18, %21
   %22 = sub i32 0, %xor.i.i68.us.us.us.us.us.us.us.us
   %23 = or i32 %and18, %22
@@ -2047,7 +2045,7 @@ for.body43.us.us.us.us.us.us:                     ; preds = %for.body43.us.us.us
   %30 = add nuw nsw i64 %indvars.iv387, %13
   %arrayidx62.us.us.us.us.us.us = getelementptr inbounds i64, ptr %table.1115.us.us.us, i64 %30
   %31 = load volatile i64, ptr %arrayidx62.us.us.us.us.us.us, align 8
-  %32 = trunc i64 %indvars.iv387 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv387 to i32
   %xor.i.i68.us.us.us.us.us.us = xor i32 %and18, %32
   %33 = sub i32 0, %xor.i.i68.us.us.us.us.us.us
   %34 = or i32 %and18, %33
@@ -2091,7 +2089,7 @@ for.body43.us.us.us.us.us200.us:                  ; preds = %for.body43.us.us.us
   %arrayidx62.us.us.us.us.us214.us = getelementptr inbounds i64, ptr %table.1115.us.us.us228, i64 %41
   %42 = load volatile i64, ptr %arrayidx62.us.us.us.us.us214.us, align 8
   %or64.us.us.us.us.us216.us = or i64 %or52.us.us.us.us.us208.us, %42
-  %43 = trunc i64 %indvars.iv373 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv373 to i32
   %xor.i.i68.us.us.us.us.us217.us = xor i32 %and18, %43
   %44 = sub i32 0, %xor.i.i68.us.us.us.us.us217.us
   %45 = or i32 %and18, %44
@@ -2131,7 +2129,7 @@ for.body43.us.us.us.us:                           ; preds = %for.body43.us.us.us
   %52 = add nuw nsw i64 %indvars.iv359, %13
   %arrayidx62.us.us.us.us = getelementptr inbounds i64, ptr %table.1115.us.us, i64 %52
   %53 = load volatile i64, ptr %arrayidx62.us.us.us.us, align 8
-  %54 = trunc i64 %indvars.iv359 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv359 to i32
   %xor.i.i68.us.us.us.us = xor i32 %and18, %54
   %55 = sub i32 0, %xor.i.i68.us.us.us.us
   %56 = or i32 %and18, %55
@@ -2178,7 +2176,7 @@ for.body43.us.us.us162.us.us.us:                  ; preds = %for.body43.us.us.us
   %arrayidx62.us.us.us177.us.us.us = getelementptr inbounds i64, ptr %table.1115.us.us191.us, i64 %63
   %64 = load volatile i64, ptr %arrayidx62.us.us.us177.us.us.us, align 8
   %or64.us.us.us179.us.us.us = or i64 %or58.us.us.us174.us.us.us, %64
-  %65 = trunc i64 %indvars.iv345 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv345 to i32
   %xor.i.i68.us.us.us180.us.us.us = xor i32 %and18, %65
   %66 = sub i32 0, %xor.i.i68.us.us.us180.us.us.us
   %67 = or i32 %and18, %66
@@ -2218,7 +2216,7 @@ for.body43.us.us.us162.us:                        ; preds = %for.body43.us.us.us
   %74 = add nuw nsw i64 %indvars.iv331, %13
   %arrayidx62.us.us.us177.us = getelementptr inbounds i64, ptr %table.1115.us.us191, i64 %74
   %75 = load volatile i64, ptr %arrayidx62.us.us.us177.us, align 8
-  %76 = trunc i64 %indvars.iv331 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv331 to i32
   %xor.i.i68.us.us.us180.us = xor i32 %and18, %76
   %77 = sub i32 0, %xor.i.i68.us.us.us180.us
   %78 = or i32 %and18, %77
@@ -2259,7 +2257,7 @@ for.body43.us.us:                                 ; preds = %for.body43.us.us, %
   %86 = load volatile i64, ptr %arrayidx62.us.us, align 8
   %and63.us.us = select i1 %isneg79, i64 %86, i64 0
   %or64.us.us = or i64 %80, %and63.us.us
-  %87 = trunc i64 %indvars.iv317 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv317 to i32
   %xor.i.i68.us.us = xor i32 %and18, %87
   %88 = sub i32 0, %xor.i.i68.us.us
   %89 = or i32 %and18, %88
@@ -2309,7 +2307,7 @@ for.body43.us87.us.us.us.us.us:                   ; preds = %for.body43.us87.us.
   %arrayidx62.us103.us.us.us.us.us = getelementptr inbounds i64, ptr %table.1115.us120.us.us, i64 %96
   %97 = load volatile i64, ptr %arrayidx62.us103.us.us.us.us.us, align 8
   %or64.us105.us.us.us.us.us = or i64 %or58.us100.us.us.us.us.us, %97
-  %98 = trunc i64 %indvars.iv303 to i32
+  %98 = trunc nuw nsw i64 %indvars.iv303 to i32
   %xor.i.i68.us106.us.us.us.us.us = xor i32 %and18, %98
   %99 = sub i32 0, %xor.i.i68.us106.us.us.us.us.us
   %100 = or i32 %and18, %99
@@ -2349,7 +2347,7 @@ for.body43.us87.us.us.us:                         ; preds = %for.body43.us87.us.
   %107 = add nuw nsw i64 %indvars.iv289, %13
   %arrayidx62.us103.us.us.us = getelementptr inbounds i64, ptr %table.1115.us120.us, i64 %107
   %108 = load volatile i64, ptr %arrayidx62.us103.us.us.us, align 8
-  %109 = trunc i64 %indvars.iv289 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv289 to i32
   %xor.i.i68.us106.us.us.us = xor i32 %and18, %109
   %110 = sub i32 0, %xor.i.i68.us106.us.us.us
   %111 = or i32 %and18, %110
@@ -2392,7 +2390,7 @@ for.body43.us87.us.us126.us:                      ; preds = %for.body43.us87.us.
   %arrayidx62.us103.us.us139.us = getelementptr inbounds i64, ptr %table.1115.us120.us153, i64 %118
   %119 = load volatile i64, ptr %arrayidx62.us103.us.us139.us, align 8
   %or64.us105.us.us141.us = or i64 %115, %119
-  %120 = trunc i64 %indvars.iv275 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv275 to i32
   %xor.i.i68.us106.us.us142.us = xor i32 %and18, %120
   %121 = sub i32 0, %xor.i.i68.us106.us.us142.us
   %122 = or i32 %and18, %121
@@ -2431,7 +2429,7 @@ for.body43.us87.us:                               ; preds = %for.body43.us87.us,
   %129 = add nuw nsw i64 %indvars.iv261, %13
   %arrayidx62.us103.us = getelementptr inbounds i64, ptr %table.1115.us120, i64 %129
   %130 = load volatile i64, ptr %arrayidx62.us103.us, align 8
-  %131 = trunc i64 %indvars.iv261 to i32
+  %131 = trunc nuw nsw i64 %indvars.iv261 to i32
   %xor.i.i68.us106.us = xor i32 %and18, %131
   %132 = sub i32 0, %xor.i.i68.us106.us
   %133 = or i32 %and18, %132
@@ -2473,7 +2471,7 @@ for.body43:                                       ; preds = %for.cond40.preheade
   %141 = load volatile i64, ptr %arrayidx62, align 8
   %and63 = select i1 %isneg79, i64 %141, i64 0
   %or64 = or i64 %and57, %and63
-  %142 = trunc i64 %indvars.iv to i32
+  %142 = trunc nuw nsw i64 %indvars.iv to i32
   %xor.i.i68 = xor i32 %and18, %142
   %143 = sub i32 0, %xor.i.i68
   %144 = or i32 %and18, %143
@@ -2618,7 +2616,7 @@ if.end53:                                         ; preds = %if.then47
 
 for.cond:                                         ; preds = %lor.lhs.false58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %0 = trunc i64 %indvars.iv.next to i32
+  %0 = trunc nsw i64 %indvars.iv.next to i32
   %i.0.highbits = lshr i32 %0, %sub
   %cmp54 = icmp eq i32 %i.0.highbits, 0
   br i1 %cmp54, label %for.body, label %if.end68, !llvm.loop !34

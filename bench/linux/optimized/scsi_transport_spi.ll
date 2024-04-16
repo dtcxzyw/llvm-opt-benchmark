@@ -4723,7 +4723,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
 define internal noundef i32 @spi_device_match(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @scsi_is_sdev_device(ptr noundef %1) #16
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %27, label %5
+  br i1 %4, label %26, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 -440
@@ -4731,13 +4731,13 @@ define internal noundef i32 @spi_device_match(ptr nocapture readnone %0, ptr nou
   %8 = getelementptr inbounds i8, ptr %7, i64 176
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %27, label %11
+  br i1 %10, label %26, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %9, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, @spi_host_class
-  br i1 %14, label %15, label %27
+  br i1 %14, label %15, label %26
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %9, i64 352
@@ -4752,14 +4752,12 @@ define internal noundef i32 @spi_device_match(ptr nocapture readnone %0, ptr nou
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %19(ptr noundef %23) #16
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %27
+  %spec.select = zext i1 %25 to i32
+  br label %26
 
-26:                                               ; preds = %21, %15
-  br label %27
-
-27:                                               ; preds = %26, %21, %11, %5, %2
-  %28 = phi i32 [ 1, %26 ], [ 0, %2 ], [ 0, %11 ], [ 0, %5 ], [ 0, %21 ]
-  ret i32 %28
+26:                                               ; preds = %21, %15, %11, %5, %2
+  %27 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 0, %5 ], [ 1, %15 ], [ %spec.select, %21 ]
+  ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid

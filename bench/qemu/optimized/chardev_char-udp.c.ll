@@ -100,18 +100,16 @@ entry:
   %call3 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.7) #5
   store i32 5, ptr %backend, align 8
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+  br i1 %cmp, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %char0 = load i8, ptr %call, align 1
   %cmp5 = icmp eq i8 %char0, 0
-  br i1 %cmp5, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
+  %spec.select = select i1 %cmp5, ptr @.str.8, ptr %call
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %host.0 = phi ptr [ @.str.8, %if.then ], [ %call, %lor.lhs.false ]
+if.end:                                           ; preds = %lor.lhs.false, %entry
+  %host.0 = phi ptr [ @.str.8, %entry ], [ %spec.select, %lor.lhs.false ]
   %cmp6 = icmp eq ptr %call1, null
   br i1 %cmp6, label %if.then10, label %lor.lhs.false7
 
@@ -131,25 +129,25 @@ if.end11:                                         ; preds = %lor.lhs.false7
 lor.lhs.false13:                                  ; preds = %if.end11
   %char030 = load i8, ptr %call3, align 1
   %cmp15 = icmp ne i8 %char030, 0
-  %spec.select32 = select i1 %cmp15, ptr %call3, ptr @.str.10
+  %spec.select33 = select i1 %cmp15, ptr %call3, ptr @.str.10
   br label %if.end17
 
 if.end17:                                         ; preds = %lor.lhs.false13, %if.end11
   %has_local.0 = phi i1 [ false, %if.end11 ], [ %cmp15, %lor.lhs.false13 ]
-  %localport.0 = phi ptr [ @.str.10, %if.end11 ], [ %spec.select32, %lor.lhs.false13 ]
+  %localport.0 = phi ptr [ @.str.10, %if.end11 ], [ %spec.select33, %lor.lhs.false13 ]
   %cmp18 = icmp eq ptr %call2, null
   br i1 %cmp18, label %if.end24, label %lor.lhs.false19
 
 lor.lhs.false19:                                  ; preds = %if.end17
   %char031 = load i8, ptr %call2, align 1
   %cmp21 = icmp ne i8 %char031, 0
-  %spec.select33 = select i1 %cmp21, i1 true, i1 %has_local.0
-  %spec.select34 = select i1 %cmp21, ptr %call2, ptr @.str.11
+  %spec.select34 = select i1 %cmp21, i1 true, i1 %has_local.0
+  %spec.select35 = select i1 %cmp21, ptr %call2, ptr @.str.11
   br label %if.end24
 
 if.end24:                                         ; preds = %lor.lhs.false19, %if.end17
-  %has_local.1 = phi i1 [ %has_local.0, %if.end17 ], [ %spec.select33, %lor.lhs.false19 ]
-  %localaddr.0 = phi ptr [ @.str.11, %if.end17 ], [ %spec.select34, %lor.lhs.false19 ]
+  %has_local.1 = phi i1 [ %has_local.0, %if.end17 ], [ %spec.select34, %lor.lhs.false19 ]
+  %localaddr.0 = phi ptr [ @.str.11, %if.end17 ], [ %spec.select35, %lor.lhs.false19 ]
   %call25 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #6
   %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call25, ptr %u, align 8

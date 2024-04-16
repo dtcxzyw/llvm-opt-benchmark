@@ -650,7 +650,7 @@ define internal i32 @dissect_p_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.neg38.i = mul nsw i64 %125, %.neg.i
   %126 = add nsw i64 %.neg38.i, %123
   %127 = srem i64 %126, 255
-  %128 = trunc i64 %127 to i32
+  %128 = trunc nsw i64 %127 to i32
   %129 = and i64 %127, 2147483648
   %.not.i = icmp eq i64 %129, 0
   %130 = add nsw i32 %128, 255
@@ -1842,7 +1842,7 @@ define internal i32 @p_mul_id_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @p_mul_id_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal i32 @p_mul_id_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, %4
@@ -1862,7 +1862,7 @@ define internal noundef i32 @p_mul_id_hash_equal(ptr nocapture noundef readonly 
   %13 = load i32, ptr %11, align 8
   %14 = load i32, ptr %12, align 8
   %15 = icmp eq i32 %13, %14
-  br i1 %15, label %16, label %31
+  br i1 %15, label %16, label %addresses_equal.exit
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1870,7 +1870,7 @@ define internal noundef i32 @p_mul_id_hash_equal(ptr nocapture noundef readonly 
   %19 = getelementptr inbounds i8, ptr %1, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %18, %20
-  br i1 %21, label %22, label %31
+  br i1 %21, label %22, label %addresses_equal.exit
 
 22:                                               ; preds = %16
   %23 = icmp eq i32 %18, 0
@@ -1884,13 +1884,11 @@ define internal noundef i32 @p_mul_id_hash_equal(ptr nocapture noundef readonly 
   %29 = sext i32 %18 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %26, ptr %28, i64 %29)
   %30 = icmp eq i32 %bcmp.i, 0
-  br i1 %30, label %addresses_equal.exit, label %31
-
-31:                                               ; preds = %24, %16, %10
+  %spec.select.i = zext i1 %30 to i32
   br label %addresses_equal.exit
 
-addresses_equal.exit:                             ; preds = %31, %24, %22, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %31 ], [ 1, %24 ], [ 1, %22 ]
+addresses_equal.exit:                             ; preds = %24, %22, %16, %10, %5, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %22 ], [ 0, %16 ], [ 0, %10 ], [ %spec.select.i, %24 ]
   ret i32 %.0
 }
 

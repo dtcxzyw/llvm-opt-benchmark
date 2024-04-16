@@ -321,7 +321,7 @@ if.end7.i:                                        ; preds = %for.body.i17
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end7.i
-  %20 = trunc i64 %indvars.iv.i18 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   %call11.i = tail call i32 %19(ptr noundef nonnull %env1.i, i32 noundef %20) #8
   %cmp12.i = icmp eq i32 %call11.i, -1
   br i1 %cmp12.i, label %if.then14.i, label %for.inc.i
@@ -496,7 +496,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %add.ptr = getelementptr i8, ptr %mem_buf, i64 %indvars.iv
   %add.ptr.val = load i64, ptr %add.ptr, align 1
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %mul, %3
   %div = sdiv i32 %add, 8
   %idxprom = sext i32 %div to i64
@@ -566,22 +566,20 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @riscv_gdb_set_csr(ptr noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #0 {
+define internal i32 @riscv_gdb_set_csr(ptr noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #0 {
 entry:
   %cmp = icmp slt i32 %n, 4096
-  br i1 %cmp, label %if.then, label %if.end4
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %mem_buf.val = load i64, ptr %mem_buf, align 1
   %call1 = tail call i32 @riscv_csrrw_debug(ptr noundef %env, i32 noundef %n, ptr noundef null, i64 noundef %mem_buf.val, i64 noundef -1) #8
   %cmp2 = icmp eq i32 %call1, -1
-  br i1 %cmp2, label %return, label %if.end4
-
-if.end4:                                          ; preds = %if.then, %entry
+  %spec.select = select i1 %cmp2, i32 8, i32 0
   br label %return
 
-return:                                           ; preds = %if.then, %if.end4
-  %retval.0 = phi i32 [ 0, %if.end4 ], [ 8, %if.then ]
+return:                                           ; preds = %if.then, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %if.then ]
   ret i32 %retval.0
 }
 

@@ -383,14 +383,12 @@ for.end:                                          ; preds = %for.body
   %cmp = icmp slt i32 %cond.i9.fr, 0
   %5 = shl nsw i32 %cond.i9.fr, 1
   %6 = add nsw i32 %5, 3
-  br i1 %cmp, label %for.end.thread, label %7
+  %spec.select = select i1 %cmp, i32 17, i32 %6
+  br label %for.end.thread
 
-for.end.thread:                                   ; preds = %entry, %for.end
-  br label %7
-
-7:                                                ; preds = %for.end, %for.end.thread
-  %8 = phi i32 [ 17, %for.end.thread ], [ %6, %for.end ]
-  ret i32 %8
+for.end.thread:                                   ; preds = %for.end, %entry
+  %7 = phi i32 [ 17, %entry ], [ %spec.select, %for.end ]
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -399,7 +397,7 @@ entry:
   %hex.i7.i = alloca [65 x i8], align 16
   %hex.i.i = alloca [65 x i8], align 16
   %tobool.not10.i = icmp eq ptr %refs, null
-  br i1 %tobool.not10.i, label %for.end.thread.i, label %for.body.i
+  br i1 %tobool.not10.i, label %transport_summary_width.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %maxw.012.i = phi i32 [ %cond.i9.fr.i, %for.body.i ], [ -1, %entry ]
@@ -425,15 +423,13 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 
 for.end.i:                                        ; preds = %for.body.i
   %cmp.i = icmp slt i32 %cond.i9.fr.i, 0
-  %5 = shl nsw i32 %cond.i9.fr.i, 1
-  %6 = add nsw i32 %5, 3
-  br i1 %cmp.i, label %for.end.thread.i, label %transport_summary_width.exit
-
-for.end.thread.i:                                 ; preds = %for.end.i, %entry
+  %5 = shl nuw nsw i32 %cond.i9.fr.i, 1
+  %6 = add nuw nsw i32 %5, 3
+  %spec.select.i = select i1 %cmp.i, i32 17, i32 %6
   br label %transport_summary_width.exit
 
-transport_summary_width.exit:                     ; preds = %for.end.i, %for.end.thread.i
-  %7 = phi i32 [ 17, %for.end.thread.i ], [ %6, %for.end.i ]
+transport_summary_width.exit:                     ; preds = %entry, %for.end.i
+  %7 = phi i32 [ 17, %entry ], [ %spec.select.i, %for.end.i ]
   %call1 = call fastcc i32 @transport_color_config(), !range !9
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -823,15 +819,9 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.84) #20
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end3.thread.i, label %if.end3.thread4.i
+  br i1 %tobool.not.i, label %protocol_allow_list.exit.thread11, label %protocol_allow_list.exit
 
-if.end3.thread4.i:                                ; preds = %if.then.i
-  %call2.i = tail call i32 @string_list_split(ptr noundef nonnull @protocol_allow_list.allowed, ptr noundef nonnull %call.i, i32 noundef 58, i32 noundef -1) #20
-  tail call void @string_list_sort(ptr noundef nonnull @protocol_allow_list.allowed) #20
-  store i32 1, ptr @protocol_allow_list.enabled, align 4
-  br label %if.then
-
-if.end3.thread.i:                                 ; preds = %if.then.i
+protocol_allow_list.exit.thread11:                ; preds = %if.then.i
   store i32 0, ptr @protocol_allow_list.enabled, align 4
   br label %if.end
 
@@ -839,11 +829,17 @@ if.end3.i:                                        ; preds = %entry
   %tobool4.not.i = icmp eq i32 %.fr.i, 0
   br i1 %tobool4.not.i, label %if.end, label %if.then
 
-if.then:                                          ; preds = %if.end3.i, %if.end3.thread4.i
+protocol_allow_list.exit:                         ; preds = %if.then.i
+  %call2.i = tail call i32 @string_list_split(ptr noundef nonnull @protocol_allow_list.allowed, ptr noundef nonnull %call.i, i32 noundef 58, i32 noundef -1) #20
+  tail call void @string_list_sort(ptr noundef nonnull @protocol_allow_list.allowed) #20
+  store i32 1, ptr @protocol_allow_list.enabled, align 4
+  br label %if.then
+
+if.then:                                          ; preds = %if.end3.i, %protocol_allow_list.exit
   %call1 = tail call i32 @string_list_has_string(ptr noundef nonnull @protocol_allow_list.allowed, ptr noundef %type) #20
   br label %return
 
-if.end:                                           ; preds = %if.end3.i, %if.end3.thread.i
+if.end:                                           ; preds = %if.end3.i, %protocol_allow_list.exit.thread11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   %call.i4 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.85, ptr noundef %type) #20
   %call1.i = call i32 @git_config_get_string(ptr noundef %call.i4, ptr noundef nonnull %value.i) #20
@@ -942,7 +938,7 @@ get_protocol_config.exit.thread:                  ; preds = %lor.lhs.false16.i, 
 get_protocol_config.exit:                         ; preds = %parse_protocol_config.exit.i, %parse_protocol_config.exit20.i, %if.end20.i
   %retval.0.i = phi i32 [ %retval.0.i19.i, %parse_protocol_config.exit20.i ], [ %retval.0.i.i, %parse_protocol_config.exit.i ], [ %..i, %if.end20.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  switch i32 %retval.0.i, label %default.unreachable10 [
+  switch i32 %retval.0.i, label %default.unreachable16 [
     i32 2, label %return
     i32 0, label %sw.bb3
     i32 1, label %sw.bb4
@@ -959,7 +955,7 @@ if.then5:                                         ; preds = %sw.bb4
   %call6 = call i32 @git_env_bool(ptr noundef nonnull @.str.4, i32 noundef 1) #20
   br label %return
 
-default.unreachable10:                            ; preds = %get_protocol_config.exit
+default.unreachable16:                            ; preds = %get_protocol_config.exit
   unreachable
 
 return:                                           ; preds = %get_protocol_config.exit.thread, %sw.bb4, %if.then5, %get_protocol_config.exit, %sw.bb3, %if.then
@@ -1519,7 +1515,7 @@ entry:
 if.end.thread:                                    ; preds = %entry
   %0 = tail call i32 @llvm.umin.i32(i32 %verbosity, i32 3)
   %verbose = getelementptr inbounds i8, ptr %transport, i64 120
-  %1 = trunc i32 %0 to i8
+  %1 = trunc nuw nsw i32 %0 to i8
   %bf.load = load i8, ptr %verbose, align 8
   %bf.clear = and i8 %bf.load, -8
   %bf.set = or disjoint i8 %bf.clear, %1
@@ -2544,7 +2540,7 @@ for.body30:                                       ; preds = %if.then24, %for.bod
   br i1 %tobool29.not, label %if.end37.loopexit, label %for.body30, !llvm.loop !24
 
 if.end37.loopexit:                                ; preds = %for.body30
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then24.thread, %if.end37.loopexit, %if.then24, %for.end

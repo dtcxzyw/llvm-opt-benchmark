@@ -5152,7 +5152,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont107
   %conv.i.i.i.i = zext i64 %115 to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 14181476777654086739
   %shr.i15.i.i.i = lshr i128 %mul.i.i.i.i, 64
-  %conv1.i.i.i.i = trunc i128 %shr.i15.i.i.i to i64
+  %conv1.i.i.i.i = trunc nuw i128 %shr.i15.i.i.i to i64
   %mul2.i.i.i.i = mul i64 %115, -4265267296055464877
   %xor.i.i.i.i = xor i64 %mul2.i.i.i.i, %conv1.i.i.i.i
   %mul3.i.i.i.i = mul i64 %xor.i.i.i.i, -4265267296055464877
@@ -5166,7 +5166,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont107
   %116 = load ptr, ptr %add.ptr.i.i271, align 8, !tbaa !167
   %notmask.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i
   %sub.i.i.i.i = xor i64 %notmask.i.i.i.i, -1
-  %conv.i21.i.i.i = trunc i64 %or.i.i.i.i to i8
+  %conv.i21.i.i.i = trunc nuw i64 %or.i.i.i.i to i8
   %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i21.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
@@ -8521,7 +8521,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont2
   %conv.i.i.i.i = zext i64 %7 to i128
   %mul.i.i.i.i = mul nuw i128 %conv.i.i.i.i, 14181476777654086739
   %shr.i15.i.i.i = lshr i128 %mul.i.i.i.i, 64
-  %conv1.i.i.i.i = trunc i128 %shr.i15.i.i.i to i64
+  %conv1.i.i.i.i = trunc nuw i128 %shr.i15.i.i.i to i64
   %mul2.i.i.i.i = mul i64 %7, -4265267296055464877
   %xor.i.i.i.i = xor i64 %mul2.i.i.i.i, %conv1.i.i.i.i
   %mul3.i.i.i.i = mul i64 %xor.i.i.i.i, -4265267296055464877
@@ -8535,7 +8535,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont2
   %8 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !167
   %notmask.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i
   %sub.i.i.i.i = xor i64 %notmask.i.i.i.i, -1
-  %conv.i21.i.i.i = trunc i64 %or.i.i.i.i to i8
+  %conv.i21.i.i.i = trunc nuw i64 %or.i.i.i.i to i8
   %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i21.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.body.i.i.i.i
@@ -9071,7 +9071,7 @@ entry:
   %conv.i.i.i.i.i = zext i64 %p.val1 to i128
   %mul.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i, 14181476777654086739
   %shr.i6.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
-  %conv1.i.i.i.i.i = trunc i128 %shr.i6.i.i.i.i to i64
+  %conv1.i.i.i.i.i = trunc nuw i128 %shr.i6.i.i.i.i to i64
   %mul2.i.i.i.i.i = mul i64 %p.val1, -4265267296055464877
   %xor.i.i.i.i.i = xor i64 %mul2.i.i.i.i.i, %conv1.i.i.i.i.i
   %mul3.i.i.i.i.i = mul i64 %xor.i.i.i.i.i, -4265267296055464877
@@ -9088,7 +9088,7 @@ entry:
   %2 = load ptr, ptr %chunks_.i.i.i.i.i, align 8, !tbaa !165
   %notmask.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i.i
   %sub.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i, -1
-  %conv.i11.i.i.i.i = trunc i64 %or.i.i.i.i.i to i8
+  %conv.i11.i.i.i.i = trunc nuw i64 %or.i.i.i.i.i to i8
   %vecinit.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i11.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load ptr, ptr %localStorage_.i, align 8
@@ -9208,7 +9208,7 @@ if.then:                                          ; preds = %_ZNSt16allocator_tr
   %conv.i = zext i64 %8 to i128
   %mul.i = mul nuw i128 %conv.i, 14181476777654086739
   %shr.i26 = lshr i128 %mul.i, 64
-  %conv1.i = trunc i128 %shr.i26 to i64
+  %conv1.i = trunc nuw i128 %shr.i26 to i64
   %mul2.i = mul i64 %8, -4265267296055464877
   %xor.i = xor i64 %mul2.i, %conv1.i
   %mul3.i = mul i64 %xor.i, -4265267296055464877
@@ -9223,7 +9223,7 @@ if.then:                                          ; preds = %_ZNSt16allocator_tr
   %9 = load ptr, ptr %chunks_.i, align 8, !tbaa !165
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i32 = trunc i64 %or.i to i8
+  %conv.i32 = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i32, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i
@@ -9305,7 +9305,7 @@ if.then:                                          ; preds = %entry
   %conv.i = zext i64 %3 to i128
   %mul.i = mul nuw i128 %conv.i, 14181476777654086739
   %shr.i10 = lshr i128 %mul.i, 64
-  %conv1.i = trunc i128 %shr.i10 to i64
+  %conv1.i = trunc nuw i128 %shr.i10 to i64
   %mul2.i = mul i64 %3, -4265267296055464877
   %xor.i = xor i64 %mul2.i, %conv1.i
   %mul3.i = mul i64 %xor.i, -4265267296055464877
@@ -10073,7 +10073,7 @@ cleanup.thread.i.i.i.i.i.i:                       ; preds = %cleanup.i.i.i.i.i.i
 if.else.i.i.i.i.i.i:                              ; preds = %cleanup.i.i.i.i.i.i, %if.else.lr.ph.i.i.i.i.i.i
   %shr.i23.in.i.i.i.i.i.i = phi i64 [ %2, %if.else.lr.ph.i.i.i.i.i.i ], [ %9, %cleanup.i.i.i.i.i.i ]
   %shr.i23.i.i.i.i.i.i = lshr i64 %shr.i23.in.i.i.i.i.i.i, 32
-  %conv.i24.i.i.i.i.i.i = trunc i64 %shr.i23.i.i.i.i.i.i to i32
+  %conv.i24.i.i.i.i.i.i = trunc nuw i64 %shr.i23.i.i.i.i.i.i to i32
   br label %while.cond.i.i.i.i.i.i.i
 
 while.cond.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
@@ -11102,7 +11102,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !140
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -12497,7 +12497,7 @@ if.then.i:                                        ; preds = %invoke.cont4
   br i1 %cmp4.i, label %if.end.i, label %if.then6.i, !prof !474
 
 if.then6.i:                                       ; preds = %if.then.i
-  %4 = trunc i64 %add.i to i8
+  %4 = trunc nuw nsw i64 %add.i to i8
   %conv.i40.i = sub nuw nsw i8 23, %4
   store i8 %conv.i40.i, ptr %arrayidx.i.i, align 1, !tbaa !140
   %arrayidx2.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add.i
@@ -12602,7 +12602,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.end.i, label %if.then6.i, !prof !474
 
 if.then6.i:                                       ; preds = %if.then.i
-  %2 = trunc i64 %add.i to i8
+  %2 = trunc nuw nsw i64 %add.i to i8
   %conv.i40.i = sub nuw nsw i8 23, %2
   store i8 %conv.i40.i, ptr %arrayidx.i.i, align 1, !tbaa !140
   %arrayidx2.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add.i
@@ -13008,25 +13008,23 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit
-  br i1 %tobool.not, label %land.lhs.true, label %if.else
+  br i1 %tobool.not, label %land.lhs.true, label %if.else.invoke
 
 land.lhs.true:                                    ; preds = %invoke.cont17
   %14 = load ptr, ptr %loopCallbacks_, align 8, !tbaa !154
   %tobool.not.i = icmp eq ptr %14, null
   %cmp.i = icmp eq ptr %14, %loopCallbacks_
   %15 = or i1 %tobool.not.i, %cmp.i
-  br i1 %15, label %if.else.invoke, label %if.else
+  %spec.select = select i1 %15, i32 1, i32 3
+  br label %if.else.invoke
 
 lpad16:                                           ; preds = %if.end44, %if.else.invoke, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase12LoopCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4swapERSC_.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup352
 
-if.else:                                          ; preds = %land.lhs.true, %invoke.cont17
-  br label %if.else.invoke
-
-if.else.invoke:                                   ; preds = %if.else, %land.lhs.true
-  %17 = phi i32 [ 3, %if.else ], [ 1, %land.lhs.true ]
+if.else.invoke:                                   ; preds = %land.lhs.true, %invoke.cont17
+  %17 = phi i32 [ 3, %invoke.cont17 ], [ %spec.select, %land.lhs.true ]
   %.sink = load ptr, ptr %evb_24, align 8, !tbaa !144
   %vtable = load ptr, ptr %.sink, align 8, !tbaa !28
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -13954,7 +13952,7 @@ cleanup.thread.i.i.i.i.i:                         ; preds = %cleanup.i.i.i.i.i, 
 if.else.i.i.i.i.i:                                ; preds = %cleanup.i.i.i.i.i, %if.else.lr.ph.i.i.i.i.i
   %shr.i23.in.i.i.i.i.i = phi i64 [ %2, %if.else.lr.ph.i.i.i.i.i ], [ %9, %cleanup.i.i.i.i.i ]
   %shr.i23.i.i.i.i.i = lshr i64 %shr.i23.in.i.i.i.i.i, 32
-  %conv.i24.i.i.i.i.i = trunc i64 %shr.i23.i.i.i.i.i to i32
+  %conv.i24.i.i.i.i.i = trunc nuw i64 %shr.i23.i.i.i.i.i to i32
   br label %while.cond.i.i.i.i.i.i
 
 while.cond.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -14017,7 +14015,7 @@ cleanup.thread.i.i:                               ; preds = %cleanup.i.i, %for.c
 if.else.i.i:                                      ; preds = %cleanup.i.i, %if.else.lr.ph.i.i
   %shr.i23.in.i.i = phi i64 [ %2, %if.else.lr.ph.i.i ], [ %9, %cleanup.i.i ]
   %shr.i23.i.i = lshr i64 %shr.i23.in.i.i, 32
-  %conv.i24.i.i = trunc i64 %shr.i23.i.i to i32
+  %conv.i24.i.i = trunc nuw i64 %shr.i23.i.i to i32
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.else.i.i
@@ -14094,7 +14092,7 @@ cleanup.thread.i.i.i:                             ; preds = %cleanup.i.i.i, %for
 if.else.i.i.i:                                    ; preds = %cleanup.i.i.i, %if.else.lr.ph.i.i.i
   %shr.i23.in.i.i.i = phi i64 [ %2, %if.else.lr.ph.i.i.i ], [ %9, %cleanup.i.i.i ]
   %shr.i23.i.i.i = lshr i64 %shr.i23.in.i.i.i, 32
-  %conv.i24.i.i.i = trunc i64 %shr.i23.i.i.i to i32
+  %conv.i24.i.i.i = trunc nuw i64 %shr.i23.i.i.i to i32
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %if.else.i.i.i

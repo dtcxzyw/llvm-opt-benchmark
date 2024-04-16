@@ -31,41 +31,41 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5, %13
-  %.077117 = phi i64 [ %14, %13 ], [ %9, %5 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.077117
+  %.077115 = phi i64 [ %14, %13 ], [ %9, %5 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.077115
   %11 = load i8, ptr %gep, align 1
   %12 = icmp eq i8 %11, 47
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %.lr.ph
-  %14 = add i64 %.077117, -1
+  %14 = add i64 %.077115, -1
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   store i8 0, ptr %15, align 1
   %16 = icmp ugt i64 %14, 1
   br i1 %16, label %.lr.ph, label %.critedge2, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %5
-  %.077.lcssa = phi i64 [ %9, %5 ], [ %.077117, %.lr.ph ]
+  %.077.lcssa = phi i64 [ %9, %5 ], [ %.077115, %.lr.ph ]
   %17 = add i64 %.077.lcssa, -1
-  %.not122 = icmp eq i64 %17, 0
-  br i1 %.not122, label %.critedge2, label %.lr.ph124
+  %.not120 = icmp eq i64 %17, 0
+  br i1 %.not120, label %.critedge2, label %.lr.ph122
 
-.lr.ph124:                                        ; preds = %.critedge, %19
-  %.079123 = phi i64 [ %20, %19 ], [ %17, %.critedge ]
-  %gep121 = getelementptr i8, ptr %invariant.gep, i64 %.079123
-  %18 = load i8, ptr %gep121, align 1
+.lr.ph122:                                        ; preds = %.critedge, %19
+  %.079121 = phi i64 [ %20, %19 ], [ %17, %.critedge ]
+  %gep119 = getelementptr i8, ptr %invariant.gep, i64 %.079121
+  %18 = load i8, ptr %gep119, align 1
   %.not89 = icmp eq i8 %18, 47
   br i1 %.not89, label %.critedge2, label %19
 
-19:                                               ; preds = %.lr.ph124
-  %20 = add i64 %.079123, -1
+19:                                               ; preds = %.lr.ph122
+  %20 = add i64 %.079121, -1
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %.critedge2, label %.lr.ph124, !llvm.loop !8
+  br i1 %.not, label %.critedge2, label %.lr.ph122, !llvm.loop !8
 
-.critedge2:                                       ; preds = %13, %.lr.ph124, %19, %.critedge
-  %21 = phi i64 [ 0, %.critedge ], [ %17, %19 ], [ %17, %.lr.ph124 ], [ 0, %13 ]
-  %.077.lcssa132 = phi i64 [ 1, %.critedge ], [ %.077.lcssa, %19 ], [ %.077.lcssa, %.lr.ph124 ], [ 1, %13 ]
-  %.079.lcssa = phi i64 [ 0, %.critedge ], [ %.079123, %.lr.ph124 ], [ 0, %19 ], [ 0, %13 ]
+.critedge2:                                       ; preds = %13, %.lr.ph122, %19, %.critedge
+  %21 = phi i64 [ 0, %.critedge ], [ %17, %19 ], [ %17, %.lr.ph122 ], [ 0, %13 ]
+  %.077.lcssa130 = phi i64 [ 1, %.critedge ], [ %.077.lcssa, %19 ], [ %.077.lcssa, %.lr.ph122 ], [ 1, %13 ]
+  %.079.lcssa = phi i64 [ 0, %.critedge ], [ %.079121, %.lr.ph122 ], [ 0, %19 ], [ 0, %13 ]
   %22 = and i32 %3, 1
   %.not90 = icmp eq i32 %22, 0
   br i1 %.not90, label %23, label %.thread
@@ -95,7 +95,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   %34 = tail call ptr @__errno() #6
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 13
-  br i1 %36, label %.thread110, label %132
+  br i1 %36, label %.thread110, label %131
 
 37:                                               ; preds = %.thread, %23
   %38 = getelementptr inbounds i8, ptr %8, i64 8
@@ -131,7 +131,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   %50 = tail call ptr @__errno() #6
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 13
-  br i1 %52, label %.thread110, label %132
+  br i1 %52, label %.thread110, label %131
 
 .thread110:                                       ; preds = %37, %41, %.thread109, %32, %49, %47, %45
   %.1 = phi i32 [ %., %47 ], [ %., %45 ], [ 2, %49 ], [ 0, %37 ], [ %.103, %41 ], [ 4, %.thread109 ], [ 6, %32 ]
@@ -178,7 +178,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
 
 call_nftw.exit.thread:                            ; preds = %68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %132
+  br label %131
 
 70:                                               ; preds = %68
   %71 = call i32 %1(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %7) #6
@@ -189,7 +189,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   %.017.i = phi i32 [ %71, %70 ], [ %58, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not95 = icmp eq i32 %.017.i, 0
-  br i1 %.not95, label %73, label %132
+  br i1 %.not95, label %73, label %131
 
 73:                                               ; preds = %call_nftw.exit, %.thread110
   %.not96 = icmp eq ptr %.075, null
@@ -202,26 +202,26 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %.not97, label %80, label %77
 
 77:                                               ; preds = %74
-  %78 = add i64 %.077.lcssa132, 1
-  %79 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa132
+  %78 = add i64 %.077.lcssa130, 1
+  %79 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa130
   store i8 47, ptr %79, align 1
   br label %80
 
 80:                                               ; preds = %77, %74
-  %.178 = phi i64 [ %78, %77 ], [ %.077.lcssa132, %74 ]
+  %.178 = phi i64 [ %78, %77 ], [ %.077.lcssa130, %74 ]
   %81 = call ptr @readdir(ptr noundef nonnull %.075) #6
-  %.not98128 = icmp eq ptr %81, null
-  br i1 %.not98128, label %._crit_edge, label %.lr.ph129
+  %.not98126 = icmp eq ptr %81, null
+  br i1 %.not98126, label %._crit_edge, label %.lr.ph127
 
-.lr.ph129:                                        ; preds = %80
+.lr.ph127:                                        ; preds = %80
   %82 = sub i64 256, %.178
   %83 = getelementptr inbounds i8, ptr %0, i64 %.178
   %84 = add nsw i32 %2, -1
   %85 = add nsw i32 %4, 1
   br label %86
 
-86:                                               ; preds = %.lr.ph129, %.backedge
-  %87 = phi ptr [ %81, %.lr.ph129 ], [ %97, %.backedge ]
+86:                                               ; preds = %.lr.ph127, %.backedge
+  %87 = phi ptr [ %81, %.lr.ph127 ], [ %97, %.backedge ]
   %88 = getelementptr inbounds i8, ptr %87, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 46
@@ -255,7 +255,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   %102 = call ptr @__errno() #6
   store i32 36, ptr %102, align 4
   %103 = call i32 @closedir(ptr noundef nonnull %.075)
-  br label %132
+  br label %131
 
 104:                                              ; preds = %98
   %105 = call i64 @strlcpy(ptr noundef %83, ptr noundef nonnull dereferenceable(1) %88, i64 noundef %82) #6
@@ -265,10 +265,10 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
 
 107:                                              ; preds = %104
   %108 = call i32 @closedir(ptr noundef nonnull %.075)
-  br label %132
+  br label %131
 
 ._crit_edge:                                      ; preds = %.backedge, %80
-  %109 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa132
+  %109 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa130
   store i8 0, ptr %109, align 1
   %110 = call i32 @closedir(ptr noundef nonnull %.075)
   br label %111
@@ -310,28 +310,20 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
 126:                                              ; preds = %124, %119
   %.0.i105 = phi i32 [ %123, %119 ], [ %125, %124 ]
   %127 = icmp slt i32 %.0.i105, 0
-  br i1 %127, label %call_nftw.exit108.thread, label %128
-
-call_nftw.exit108.thread:                         ; preds = %126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %132
+  br i1 %127, label %call_nftw.exit108, label %128
 
 128:                                              ; preds = %126
   %129 = call i32 %1(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1, ptr noundef nonnull %6) #6
   %130 = call i32 @lib_restoredir() #6
   br label %call_nftw.exit108
 
-call_nftw.exit108:                                ; preds = %.thread.i107, %128
-  %.017.i106 = phi i32 [ %129, %128 ], [ %116, %.thread.i107 ]
+call_nftw.exit108:                                ; preds = %.thread.i107, %126, %128
+  %.017.i106 = phi i32 [ %.0.i105, %126 ], [ %129, %128 ], [ %116, %.thread.i107 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.not99 = icmp eq i32 %.017.i106, 0
-  br i1 %.not99, label %131, label %132
+  br label %131
 
-131:                                              ; preds = %call_nftw.exit108, %111
-  br label %132
-
-132:                                              ; preds = %call_nftw.exit108.thread, %call_nftw.exit.thread, %call_nftw.exit108, %call_nftw.exit, %49, %.thread109, %131, %107, %101
-  %.0 = phi i32 [ -1, %101 ], [ %106, %107 ], [ 0, %131 ], [ -1, %.thread109 ], [ -1, %49 ], [ %.017.i, %call_nftw.exit ], [ %.017.i106, %call_nftw.exit108 ], [ %.0.i, %call_nftw.exit.thread ], [ %.0.i105, %call_nftw.exit108.thread ]
+131:                                              ; preds = %call_nftw.exit.thread, %call_nftw.exit108, %111, %call_nftw.exit, %49, %.thread109, %107, %101
+  %.0 = phi i32 [ -1, %101 ], [ %106, %107 ], [ -1, %.thread109 ], [ -1, %49 ], [ %.017.i, %call_nftw.exit ], [ 0, %111 ], [ %.017.i106, %call_nftw.exit108 ], [ %.0.i, %call_nftw.exit.thread ]
   ret i32 %.0
 }
 

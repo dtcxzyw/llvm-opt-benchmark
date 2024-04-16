@@ -156,8 +156,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end
   %1 = phi ptr [ @.str.13, %entry ], [ %21, %if.end ]
-  %pname.017 = phi ptr [ @names, %entry ], [ %incdec.ptr, %if.end ]
-  %failed.016 = phi i32 [ 0, %entry ], [ %failed.1, %if.end ]
+  %pname.018 = phi ptr [ @names, %entry ], [ %incdec.ptr, %if.end ]
+  %failed.017 = phi i32 [ 0, %entry ], [ %failed.1, %if.end ]
   %call.i = call ptr @X509_new() #7
   %call1.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 254, ptr noundef nonnull @.str.63, ptr noundef %call.i) #7
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -179,7 +179,7 @@ make_cert.exit:                                   ; preds = %for.body, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then5.i ], [ null, %for.body ], [ %call.i, %if.end.i ]
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 351, ptr noundef nonnull @.str.4, ptr noundef %retval.0.i) #7
   %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
+  br i1 %tobool.not, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %make_cert.exit
   %2 = load ptr, ptr %arrayidx, align 8
@@ -188,12 +188,12 @@ lor.lhs.false:                                    ; preds = %make_cert.exit
   %conv = zext i1 %cmp3 to i32
   %call4 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 352, ptr noundef nonnull @.str.5, i32 noundef %conv) #7
   %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %if.then, label %for.body.i
+  br i1 %tobool5.not, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %lor.lhs.false, %check_message.exit92.i
   %3 = phi ptr [ %20, %check_message.exit92.i ], [ @.str.13, %lor.lhs.false ]
   %pname.0128.i = phi ptr [ %incdec.ptr.i, %check_message.exit92.i ], [ @names, %lor.lhs.false ]
-  %failed.0127.i = phi i32 [ %spec.select56.i, %check_message.exit92.i ], [ 0, %lor.lhs.false ]
+  %failed.0127.i = phi i32 [ %spec.select56.i.fr, %check_message.exit92.i ], [ 0, %lor.lhs.false ]
   %call.i8 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   %cmp1.i = icmp eq i32 %call.i8, 0
   %call2.i9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
@@ -201,7 +201,7 @@ for.body.i:                                       ; preds = %lor.lhs.false, %che
   %call3.i10 = call noalias ptr @CRYPTO_malloc(i64 noundef %add.i, ptr noundef nonnull @.str.2, i32 noundef 288) #7
   %call4.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 291, ptr noundef nonnull @.str.65, ptr noundef %call3.i10) #7
   %tobool.not.i11 = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i11, label %if.then, label %if.end.i12
+  br i1 %tobool.not.i11, label %if.end, label %if.end.i12
 
 if.end.i12:                                       ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i10, ptr nonnull align 1 %3, i64 %add.i, i1 false)
@@ -395,6 +395,7 @@ check_message.exit92.i:                           ; preds = %for.body.i.i83.i, %
   %tobool97.not.i = icmp eq i32 %call96.i, 0
   %19 = select i1 %tobool97.not.i, i1 true, i1 %tobool68.not.i
   %spec.select56.i = select i1 %19, i32 1, i32 %failed.3110.i
+  %spec.select56.i.fr = freeze i32 %spec.select56.i
   call void @CRYPTO_free(ptr noundef %call3.i10, ptr noundef nonnull @.str.2, i32 noundef 336) #7
   %incdec.ptr.i = getelementptr inbounds i8, ptr %pname.0128.i, i64 8
   %20 = load ptr, ptr %incdec.ptr.i, align 8
@@ -402,16 +403,14 @@ check_message.exit92.i:                           ; preds = %for.body.i.i83.i, %
   br i1 %cmp.not.i, label %run_cert.exit, label %for.body.i, !llvm.loop !7
 
 run_cert.exit:                                    ; preds = %check_message.exit92.i
-  %cmp100.i.not = icmp eq i32 %spec.select56.i, 0
-  br i1 %cmp100.i.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %for.body.i, %run_cert.exit, %lor.lhs.false, %make_cert.exit
+  %cmp100.i.not = icmp eq i32 %spec.select56.i.fr, 0
+  %spec.select = select i1 %cmp100.i.not, i32 %failed.017, i32 1
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %run_cert.exit
-  %failed.1 = phi i32 [ %failed.016, %run_cert.exit ], [ 1, %if.then ]
+if.end:                                           ; preds = %for.body.i, %run_cert.exit, %make_cert.exit, %lor.lhs.false
+  %failed.1 = phi i32 [ 1, %lor.lhs.false ], [ 1, %make_cert.exit ], [ %spec.select, %run_cert.exit ], [ 1, %for.body.i ]
   call void @X509_free(ptr noundef %retval.0.i) #7
-  %incdec.ptr = getelementptr inbounds i8, ptr %pname.017, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %pname.018, i64 8
   %21 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %21, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
@@ -641,7 +640,7 @@ entry:
 define internal i32 @set_cn(ptr noundef %crt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @X509_NAME_new() #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %out, label %while.body.preheader
@@ -711,12 +710,9 @@ while.end:                                        ; preds = %vaarg.end
 out:                                              ; preds = %vaarg.end15, %while.end, %entry
   %ret.0 = phi i32 [ 0, %entry ], [ %spec.select, %while.end ], [ 0, %vaarg.end15 ]
   call void @X509_NAME_free(ptr noundef %call) #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %ret.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
 
 declare ptr @X509_NAME_new() local_unnamed_addr #1
 
@@ -726,14 +722,11 @@ declare i32 @X509_set_subject_name(ptr noundef, ptr noundef) local_unnamed_addr 
 
 declare void @X509_NAME_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_altname(ptr noundef %crt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @OPENSSL_sk_new_null() #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %out, label %while.body.preheader
@@ -830,7 +823,7 @@ out:                                              ; preds = %if.end24, %if.end20
   call void @ASN1_IA5STRING_free(ptr noundef %ia5.1) #7
   call void @GENERAL_NAME_free(ptr noundef %gen.1) #7
   call void @GENERAL_NAMES_free(ptr noundef %call) #7
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %ret.0
 }
 
@@ -845,7 +838,7 @@ declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare void @GENERAL_NAME_set0_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #2
 
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -864,12 +857,12 @@ declare i32 @X509_set_version(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -878,7 +871,7 @@ declare i32 @X509_check_host(ptr noundef, ptr noundef, i64 noundef, i32 noundef,
 declare i32 @X509_check_email(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -887,7 +880,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 declare ptr @d2i_GENERAL_NAME(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -897,6 +890,12 @@ declare i32 @GENERAL_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @test_int_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
@@ -905,10 +904,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }

@@ -340,18 +340,14 @@ do.body28:                                        ; preds = %if.then19, %do.body
   %restype = getelementptr inbounds i8, ptr %myself, i64 96
   %3 = load ptr, ptr %restype, align 8
   %tobool29.not = icmp eq ptr %3, null
-  br i1 %tobool29.not, label %do.end38, label %if.then30
+  br i1 %tobool29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %do.body28
   %call33 = tail call i32 %visit(ptr noundef nonnull %3, ptr noundef %arg) #6
-  %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %do.end38, label %return
-
-do.end38:                                         ; preds = %do.body28, %if.then30
   br label %return
 
-return:                                           ; preds = %if.then30, %if.then19, %if.then8, %if.then, %do.end38
-  %retval.0 = phi i32 [ 0, %do.end38 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ %call33, %if.then30 ]
+return:                                           ; preds = %if.then30, %do.body28, %if.then19, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ], [ 0, %do.body28 ], [ %call33, %if.then30 ]
   ret i32 %retval.0
 }
 
@@ -780,9 +776,9 @@ entry:
   %buf = alloca [512 x i8], align 16
   %marker = alloca [1 x %struct.__va_list_tag], align 16
   %call = tail call ptr @PySys_GetObject(ptr noundef nonnull @.str.13) #6
-  call void @llvm.va_start(ptr nonnull %marker)
+  call void @llvm.va_start.p0(ptr nonnull %marker)
   %call3 = call i32 @PyOS_vsnprintf(ptr noundef nonnull %buf, i64 noundef 512, ptr noundef %msg, ptr noundef nonnull %marker) #6
-  call void @llvm.va_end(ptr nonnull %marker)
+  call void @llvm.va_end.p0(ptr nonnull %marker)
   %cmp = icmp ne ptr %call, null
   %cmp5 = icmp ne ptr %call, @_Py_NoneStruct
   %or.cond = and i1 %cmp, %cmp5
@@ -817,13 +813,7 @@ declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #1
 
 declare ptr @PySys_GetObject(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare i32 @PyOS_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare i32 @PyFile_WriteString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -836,6 +826,12 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

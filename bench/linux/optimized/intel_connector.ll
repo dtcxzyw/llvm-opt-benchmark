@@ -402,18 +402,16 @@ define dso_local void @intel_attach_scaling_mode_property(ptr noundef %0) local_
   %10 = getelementptr inbounds i8, ptr %0, i64 140
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 7
-  br i1 %12, label %13, label %14
+  %spec.select = select i1 %12, i32 14, i32 10
+  br label %13
 
 13:                                               ; preds = %9, %1
-  br label %14
-
-14:                                               ; preds = %13, %9
-  %15 = phi i32 [ 14, %13 ], [ 10, %9 ]
-  %16 = tail call i32 @drm_connector_attach_scaling_mode_property(ptr noundef %0, i32 noundef %15) #5
-  %17 = getelementptr inbounds i8, ptr %0, i64 1904
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
-  store i32 3, ptr %19, align 8
+  %14 = phi i32 [ 14, %1 ], [ %spec.select, %9 ]
+  %15 = tail call i32 @drm_connector_attach_scaling_mode_property(ptr noundef %0, i32 noundef %14) #5
+  %16 = getelementptr inbounds i8, ptr %0, i64 1904
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 120
+  store i32 3, ptr %18, align 8
   ret void
 }
 

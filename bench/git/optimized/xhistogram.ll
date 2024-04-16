@@ -435,8 +435,8 @@ if.end85.i.i:                                     ; preds = %if.then72.i.i, %whi
   br i1 %or.cond.i.i, label %land.rhs.i.i, label %while.end.i34.i, !llvm.loop !10
 
 while.end.loopexit.split.loop.exit155.i.i:        ; preds = %land.rhs.i.i
-  %61 = trunc i64 %indvars.iv137.i.i to i32
-  %62 = trunc i64 %indvars.iv.i.i to i32
+  %61 = trunc nuw i64 %indvars.iv137.i.i to i32
+  %62 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %while.end.i34.i
 
 while.end.i34.i:                                  ; preds = %if.end85.i.i, %while.end.loopexit.split.loop.exit155.i.i, %for.cond47.i.i
@@ -492,7 +492,7 @@ if.end133.i.i:                                    ; preds = %if.then115.i.i, %wh
   br i1 %or.cond102.i.i, label %land.rhs94.i.i, label %while.end134.loopexit.i.i, !llvm.loop !11
 
 while.end134.loopexit.split.loop.exit159.i.i:     ; preds = %land.rhs94.i.i
-  %71 = trunc i64 %indvars.iv144.i.i to i32
+  %71 = trunc nuw i64 %indvars.iv144.i.i to i32
   br label %while.end134.loopexit.i.i
 
 while.end134.loopexit.i.i:                        ; preds = %if.end133.i.i, %while.end134.loopexit.split.loop.exit159.i.i
@@ -576,18 +576,20 @@ for.end.i:                                        ; preds = %try_lcs.exit.i, %if
   %lcs.sroa.9.7 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.9.6, %try_lcs.exit.i ]
   %76 = phi i32 [ %add31.i, %if.end29.i ], [ %.pre.i64.i, %try_lcs.exit.i ]
   %77 = load i32, ptr %has_common46.i.i, align 4
-  %tobool36.not.i = icmp ne i32 %77, 0
+  %tobool36.not.i = icmp eq i32 %77, 0
+  br i1 %tobool36.not.i, label %find_lcs.exit, label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %for.end.i
   %cmp39.i = icmp ult i32 %23, %76
-  %or.cond.i = select i1 %tobool36.not.i, i1 %cmp39.i, i1 false
-  %spec.select.i = zext i1 %or.cond.i to i32
+  %spec.select.i = zext i1 %cmp39.i to i32
   br label %find_lcs.exit
 
-find_lcs.exit:                                    ; preds = %while.end.i.i, %if.end45.i.i, %if.end21, %if.end.i, %if.end13.i, %if.end19.i, %for.end.i
-  %lcs.sroa.0.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.0.7, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
-  %lcs.sroa.4.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.4.7, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
-  %lcs.sroa.7.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.7.7, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
-  %lcs.sroa.9.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.9.7, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
-  %ret.0.i = phi i32 [ -1, %if.end21 ], [ -1, %if.end.i ], [ -1, %if.end13.i ], [ -1, %if.end19.i ], [ %spec.select.i, %for.end.i ], [ -1, %if.end45.i.i ], [ -1, %while.end.i.i ]
+find_lcs.exit:                                    ; preds = %while.end.i.i, %if.end45.i.i, %if.end21, %if.end.i, %if.end13.i, %if.end19.i, %for.end.i, %land.lhs.true.i
+  %lcs.sroa.0.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.0.7, %for.end.i ], [ %lcs.sroa.0.7, %land.lhs.true.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
+  %lcs.sroa.4.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.4.7, %for.end.i ], [ %lcs.sroa.4.7, %land.lhs.true.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
+  %lcs.sroa.7.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.7.7, %for.end.i ], [ %lcs.sroa.7.7, %land.lhs.true.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
+  %lcs.sroa.9.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.9.7, %for.end.i ], [ %lcs.sroa.9.7, %land.lhs.true.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
+  %ret.0.i = phi i32 [ -1, %if.end21 ], [ -1, %if.end.i ], [ -1, %if.end13.i ], [ -1, %if.end19.i ], [ 0, %for.end.i ], [ %spec.select.i, %land.lhs.true.i ], [ -1, %if.end45.i.i ], [ -1, %while.end.i.i ]
   %78 = load ptr, ptr %index.i, align 8
   call void @free(ptr noundef %78) #6
   %79 = load ptr, ptr %line_map.i, align 8

@@ -2865,7 +2865,7 @@ define internal i32 @tcaphash_begin_calchash(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @tcaphash_begin_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @tcaphash_begin_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -2885,13 +2885,11 @@ define internal noundef i32 @tcaphash_begin_equal(ptr nocapture noundef readonly
   %15 = getelementptr inbounds i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %19, label %18
+  %spec.select = zext i1 %17 to i32
+  br label %18
 
-18:                                               ; preds = %6, %12, %2
-  br label %19
-
-19:                                               ; preds = %12, %18
-  %.0 = phi i32 [ 0, %18 ], [ 1, %12 ]
+18:                                               ; preds = %12, %2, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 
@@ -2906,7 +2904,7 @@ define internal i32 @tcaphash_cont_calchash(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @tcaphash_cont_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @tcaphash_cont_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -2947,7 +2945,7 @@ define internal noundef i32 @tcaphash_cont_equal(ptr nocapture noundef readonly 
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %26, %28
-  br i1 %29, label %50, label %30
+  br i1 %29, label %49, label %30
 
 30:                                               ; preds = %._crit_edge, %24, %18, %12
   %31 = phi i32 [ %.pre, %._crit_edge ], [ %14, %24 ], [ %14, %18 ], [ %16, %12 ]
@@ -2974,13 +2972,11 @@ define internal noundef i32 @tcaphash_cont_equal(ptr nocapture noundef readonly 
   %46 = getelementptr inbounds i8, ptr %1, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %45, %47
-  br i1 %48, label %50, label %49
+  %spec.select = zext i1 %48 to i32
+  br label %49
 
-49:                                               ; preds = %43, %37, %33, %30, %2
-  br label %50
-
-50:                                               ; preds = %43, %24, %49
-  %.0 = phi i32 [ 0, %49 ], [ 1, %24 ], [ 1, %43 ]
+49:                                               ; preds = %43, %2, %30, %33, %37, %24
+  %.0 = phi i32 [ 1, %24 ], [ 0, %37 ], [ 0, %33 ], [ 0, %30 ], [ 0, %2 ], [ %spec.select, %43 ]
   ret i32 %.0
 }
 
@@ -2992,7 +2988,7 @@ define internal i32 @tcaphash_end_calchash(ptr nocapture noundef readonly %0) #5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @tcaphash_end_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @tcaphash_end_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -3020,13 +3016,11 @@ define internal noundef i32 @tcaphash_end_equal(ptr nocapture noundef readonly %
   %21 = getelementptr inbounds i8, ptr %1, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
-  br i1 %23, label %25, label %24
+  %spec.select = zext i1 %23 to i32
+  br label %24
 
-24:                                               ; preds = %6, %12, %18, %2
-  br label %25
-
-25:                                               ; preds = %18, %24
-  %.0 = phi i32 [ 0, %24 ], [ 1, %18 ]
+24:                                               ; preds = %18, %2, %12, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 0, %2 ], [ %spec.select, %18 ]
   ret i32 %.0
 }
 
@@ -3038,7 +3032,7 @@ define internal i32 @tcaphash_ansi_calchash(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @tcaphash_ansi_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @tcaphash_ansi_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -3071,7 +3065,7 @@ define internal noundef i32 @tcaphash_ansi_equal(ptr nocapture noundef readonly 
   %21 = getelementptr inbounds i8, ptr %1, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
-  br i1 %23, label %38, label %24
+  br i1 %23, label %37, label %24
 
 24:                                               ; preds = %._crit_edge, %18, %12
   %25 = phi i32 [ %.pre, %._crit_edge ], [ %14, %18 ], [ %16, %12 ]
@@ -3090,13 +3084,11 @@ define internal noundef i32 @tcaphash_ansi_equal(ptr nocapture noundef readonly 
   %34 = getelementptr inbounds i8, ptr %1, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %33, %35
-  br i1 %36, label %38, label %37
+  %spec.select = zext i1 %36 to i32
+  br label %37
 
-37:                                               ; preds = %24, %27, %31, %2
-  br label %38
-
-38:                                               ; preds = %18, %31, %37
-  %.0 = phi i32 [ 0, %37 ], [ 1, %31 ], [ 1, %18 ]
+37:                                               ; preds = %31, %2, %27, %24, %18
+  %.0 = phi i32 [ 1, %18 ], [ 0, %24 ], [ 0, %27 ], [ 0, %2 ], [ %spec.select, %31 ]
   ret i32 %.0
 }
 

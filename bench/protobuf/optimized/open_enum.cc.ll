@@ -67,7 +67,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, %name.coerce0
   %spec.select3.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i.i.i.i = trunc i64 %retval.04.i.i.i.i.i.i.i to i32
+  %retval.0.i3.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -120,19 +120,19 @@ if.end13:                                         ; preds = %_ZN4absl12lts_20230
 
 land.rhs.i9:                                      ; preds = %if.end13
   %cmp.i2.i.i = icmp eq i64 %name.coerce0, 0
-  br i1 %cmp.i2.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  br i1 %cmp.i2.i.i, label %return, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %land.rhs.i9
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %land.rhs.i9
   %bcmp.i10 = tail call i32 @bcmp(ptr %name.coerce1, ptr %agg.tmp15.sroa.2.0.copyload, i64 %name.coerce0)
   %cmp.i.i11 = icmp eq i32 %bcmp.i10, 0
   br i1 %cmp.i.i11, label %return, label %if.end18
 
-if.end18:                                         ; preds = %if.end13, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+if.end18:                                         ; preds = %if.end13, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit
   %and20 = and i32 %0, 2
   %tobool21.not = icmp eq i32 %and20, 0
   %cmp24.not = icmp eq ptr %__first.addr.0.lcssa.i.i.i, %1
-  %or.cond28 = select i1 %tobool21.not, i1 true, i1 %cmp24.not
-  br i1 %or.cond28, label %return, label %if.then25
+  %or.cond29 = select i1 %tobool21.not, i1 true, i1 %cmp24.not
+  br i1 %or.cond29, label %return, label %if.then25
 
 if.then25:                                        ; preds = %if.end18
   %arrayidx = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 -16
@@ -151,8 +151,8 @@ land.rhs.i15:                                     ; preds = %lor.rhs.i13
   %cmp7.i17 = icmp eq i32 %bcmp.i16, 0
   br label %return
 
-return:                                           ; preds = %land.rhs.i15, %lor.rhs.i13, %if.then25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %land.rhs.i9, %land.rhs.i, %lor.rhs.i, %if.then8, %if.end18, %if.then3, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.then3 ], [ false, %if.end18 ], [ true, %if.then8 ], [ false, %lor.rhs.i ], [ %cmp7.i, %land.rhs.i ], [ true, %land.rhs.i9 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %if.then25 ], [ false, %lor.rhs.i13 ], [ %cmp7.i17, %land.rhs.i15 ]
+return:                                           ; preds = %land.rhs.i9, %land.rhs.i15, %lor.rhs.i13, %if.then25, %land.rhs.i, %lor.rhs.i, %if.then8, %if.end18, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, %if.then3, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.then3 ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit ], [ false, %if.end18 ], [ true, %if.then8 ], [ false, %lor.rhs.i ], [ %cmp7.i, %land.rhs.i ], [ true, %if.then25 ], [ false, %lor.rhs.i13 ], [ %cmp7.i17, %land.rhs.i15 ], [ true, %land.rhs.i9 ]
   ret i1 %retval.0
 }
 

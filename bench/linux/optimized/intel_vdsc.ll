@@ -513,7 +513,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
 309:                                              ; preds = %71
   %310 = and i16 %6, -80
   %311 = icmp eq i16 %310, 128
-  br i1 %311, label %312, label %314
+  br i1 %311, label %312, label %315
 
 312:                                              ; preds = %309
   %313 = load i8, ptr %76, align 1
@@ -523,11 +523,11 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
     i8 12, label %315
   ]
 
-314:                                              ; preds = %312, %309
+314:                                              ; preds = %312
   br label %315
 
-315:                                              ; preds = %314, %312, %312, %312
-  %316 = phi i32 [ 0, %314 ], [ 1, %312 ], [ 1, %312 ], [ 1, %312 ]
+315:                                              ; preds = %309, %314, %312, %312, %312
+  %316 = phi i32 [ 1, %312 ], [ 1, %312 ], [ 1, %312 ], [ 0, %309 ], [ 0, %314 ]
   %317 = tail call i32 @drm_dsc_setup_rc_params(ptr noundef %4, i32 noundef %316) #8
   %318 = icmp eq i32 %317, 0
   br i1 %318, label %.loopexit, label %334
@@ -2176,7 +2176,7 @@ intel_dsc_get_pps_reg.exit96:                     ; preds = %717, %.thread.i93, 
   %736 = zext i16 %735 to i32
   %737 = lshr i32 %736, %199
   %738 = load i16, ptr %256, align 2
-  %.lhs.trunc = trunc i32 %737 to i16
+  %.lhs.trunc = trunc nuw i32 %737 to i16
   %739 = udiv i16 %.lhs.trunc, %738
   %.zext = zext i16 %739 to i32
   %740 = shl nuw i32 %.zext, 16
@@ -3321,7 +3321,7 @@ intel_dsc_power_domain.exit:                      ; preds = %19, %28, %.thread.i
   %112 = icmp slt i32 %111, 0
   %113 = getelementptr inbounds i8, ptr %0, i64 4756
   %114 = lshr i32 %111, 31
-  %115 = trunc i32 %114 to i8
+  %115 = trunc nuw nsw i32 %114 to i8
   store i8 %115, ptr %113, align 4
   br i1 %112, label %116, label %260
 
@@ -3413,7 +3413,7 @@ intel_dsc_power_domain.exit:                      ; preds = %19, %28, %.thread.i
   store i16 %182, ptr %183, align 2
   %184 = tail call fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef %0, i32 noundef 3)
   %185 = lshr i32 %184, 16
-  %186 = trunc i32 %185 to i16
+  %186 = trunc nuw i32 %185 to i16
   %187 = getelementptr inbounds i8, ptr %0, i64 4766
   store i16 %186, ptr %187, align 2
   %188 = trunc i32 %184 to i16
@@ -3421,7 +3421,7 @@ intel_dsc_power_domain.exit:                      ; preds = %19, %28, %.thread.i
   store i16 %188, ptr %189, align 2
   %190 = tail call fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef %0, i32 noundef 4)
   %191 = lshr i32 %190, 16
-  %192 = trunc i32 %191 to i16
+  %192 = trunc nuw i32 %191 to i16
   %193 = getelementptr inbounds i8, ptr %0, i64 4786
   store i16 %192, ptr %193, align 2
   %194 = trunc i32 %190 to i16
@@ -3430,7 +3430,7 @@ intel_dsc_power_domain.exit:                      ; preds = %19, %28, %.thread.i
   store i16 %195, ptr %196, align 2
   %197 = tail call fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef %0, i32 noundef 5)
   %198 = lshr i32 %197, 16
-  %199 = trunc i32 %198 to i16
+  %199 = trunc nuw i32 %198 to i16
   %200 = and i16 %199, 4095
   %201 = getelementptr inbounds i8, ptr %0, i64 4872
   store i16 %200, ptr %201, align 2
@@ -3453,13 +3453,13 @@ intel_dsc_power_domain.exit:                      ; preds = %19, %28, %.thread.i
   %215 = getelementptr inbounds i8, ptr %0, i64 4868
   store i8 %214, ptr %215, align 2
   %216 = lshr i32 %204, 24
-  %217 = trunc i32 %216 to i8
+  %217 = trunc nuw i32 %216 to i8
   %218 = and i8 %217, 31
   %219 = getelementptr inbounds i8, ptr %0, i64 4869
   store i8 %218, ptr %219, align 1
   %220 = tail call fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef %0, i32 noundef 7)
   %221 = lshr i32 %220, 16
-  %222 = trunc i32 %221 to i16
+  %222 = trunc nuw i32 %221 to i16
   %223 = getelementptr inbounds i8, ptr %0, i64 4876
   store i16 %222, ptr %223, align 2
   %224 = trunc i32 %220 to i16
@@ -3467,7 +3467,7 @@ intel_dsc_power_domain.exit:                      ; preds = %19, %28, %.thread.i
   store i16 %224, ptr %225, align 2
   %226 = tail call fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef %0, i32 noundef 8)
   %227 = lshr i32 %226, 16
-  %228 = trunc i32 %227 to i16
+  %228 = trunc nuw i32 %227 to i16
   %229 = getelementptr inbounds i8, ptr %0, i64 4790
   store i16 %228, ptr %229, align 2
   %230 = trunc i32 %226 to i16
@@ -3499,12 +3499,12 @@ intel_dsc_power_domain.exit:                      ; preds = %19, %28, %.thread.i
 249:                                              ; preds = %172
   %250 = tail call fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef %0, i32 noundef 17)
   %251 = lshr i32 %250, 27
-  %252 = trunc i32 %251 to i8
+  %252 = trunc nuw nsw i32 %251 to i8
   %253 = getelementptr inbounds i8, ptr %0, i64 4892
   store i8 %252, ptr %253, align 2
   %254 = tail call fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef %0, i32 noundef 18)
   %255 = lshr i32 %254, 16
-  %256 = trunc i32 %255 to i16
+  %256 = trunc nuw i32 %255 to i16
   %257 = getelementptr inbounds i8, ptr %0, i64 4894
   store i16 %256, ptr %257, align 2
   %258 = trunc i32 %254 to i16

@@ -1182,26 +1182,22 @@ strbuf_complete.exit:                             ; preds = %entry, %land.lhs.tr
   %9 = load ptr, ptr %buf, align 8
   %call = call ptr @read_gitfile_gently(ptr noundef %9, ptr noundef nonnull %gitfile_error)
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end
 
 lor.lhs.false:                                    ; preds = %strbuf_complete.exit
   %10 = load ptr, ptr %buf, align 8
   %call2 = call i32 @is_git_directory(ptr noundef %10), !range !9
-  %tobool3.not = icmp eq i32 %call2, 0
-  br i1 %tobool3.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false, %strbuf_complete.exit
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %ret.0 = phi i32 [ 1, %if.then ], [ 0, %lor.lhs.false ]
+if.end:                                           ; preds = %lor.lhs.false, %strbuf_complete.exit
+  %ret.0 = phi i32 [ 1, %strbuf_complete.exit ], [ %call2, %lor.lhs.false ]
   %11 = load i32, ptr %gitfile_error, align 4
   %12 = load i64, ptr %path, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %12, i64 1)
   %cmp.i = icmp ult i64 %spec.select.i, %0
-  br i1 %cmp.i, label %if.then.i8, label %if.end.i
+  br i1 %cmp.i, label %if.then.i9, label %if.end.i
 
-if.then.i8:                                       ; preds = %if.end
+if.then.i9:                                       ; preds = %if.end
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.84, i32 noundef 167, ptr noundef nonnull @.str.85) #22
   unreachable
 
@@ -1212,8 +1208,8 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %arrayidx.i7 = getelementptr inbounds i8, ptr %13, i64 %0
-  store i8 0, ptr %arrayidx.i7, align 1
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %13, i64 %0
+  store i8 0, ptr %arrayidx.i8, align 1
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
@@ -2558,7 +2554,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp.i96.not, label %if.end108, label %while.cond, !llvm.loop !15
 
 if.end108:                                        ; preds = %land.rhs
-  %40 = trunc i64 %indvars.iv.next to i32
+  %40 = trunc nsw i64 %indvars.iv.next to i32
   %cond114 = call i32 @llvm.smax.i32(i32 %40, i32 %min_offset.0)
   %conv115 = zext nneg i32 %cond114 to i64
   %41 = load i64, ptr %dir, align 8
@@ -3012,23 +3008,21 @@ sw.default:                                       ; preds = %if.end4
 
 sw.epilog:                                        ; preds = %if.else.i, %strbuf_setlen.exit.i, %if.end14.i, %if.end29, %strbuf_addch.exit.i, %if.end35.i, %if.then20.i, %if.end15.i, %if.end14, %sw.bb
   %prefix.0 = phi ptr [ %call6, %sw.bb ], [ %call16.i, %if.end15.i ], [ %add.ptr.i, %strbuf_addch.exit.i ], [ null, %if.end14 ], [ null, %if.then20.i ], [ null, %if.end35.i ], [ %call15.i, %if.end14.i ], [ null, %if.end29 ], [ null, %if.else.i ], [ null, %strbuf_setlen.exit.i ]
-  br i1 %tobool.not, label %if.else, label %land.lhs.true63
+  br i1 %tobool.not, label %if.end67, label %land.lhs.true63
 
 land.lhs.true63:                                  ; preds = %sw.epilog
   %.pr = load i32, ptr %nongit_ok, align 4
   %tobool64.not = icmp eq i32 %.pr, 0
-  br i1 %tobool64.not, label %if.else, label %if.end67
+  %spec.select = zext i1 %tobool64.not to i32
+  br label %if.end67
 
 if.then65.sink.split:                             ; preds = %sw.bb53, %sw.bb44, %sw.bb38, %sw.bb33
   store i32 1, ptr %nongit_ok, align 4
   br label %if.end67
 
-if.else:                                          ; preds = %land.lhs.true63, %sw.epilog
-  br label %if.end67
-
-if.end67:                                         ; preds = %land.lhs.true63, %if.then65.sink.split, %if.else
-  %.sink = phi i32 [ 1, %if.else ], [ 0, %if.then65.sink.split ], [ 0, %land.lhs.true63 ]
-  %prefix.045 = phi ptr [ %prefix.0, %if.else ], [ null, %if.then65.sink.split ], [ %prefix.0, %land.lhs.true63 ]
+if.end67:                                         ; preds = %land.lhs.true63, %sw.epilog, %if.then65.sink.split
+  %.sink = phi i32 [ 0, %if.then65.sink.split ], [ 1, %sw.epilog ], [ %spec.select, %land.lhs.true63 ]
+  %prefix.045 = phi ptr [ null, %if.then65.sink.split ], [ %prefix.0, %sw.epilog ], [ %prefix.0, %land.lhs.true63 ]
   %47 = load ptr, ptr @startup_info, align 8
   store i32 %.sink, ptr %47, align 8
   %48 = load ptr, ptr @startup_info, align 8
@@ -4513,7 +4507,7 @@ initialize_repository_version.exit.i:             ; preds = %if.then10.i.i, %if.
   %call10.i50 = call ptr (ptr, ptr, ...) @git_path_buf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.22) #21
   %call11.i51 = call i32 @lstat64(ptr noundef %call10.i50, ptr noundef nonnull %st1.i) #21
   %tobool12.not.i52 = icmp eq i32 %call11.i51, 0
-  br i1 %tobool12.not.i52, label %if.then13.i54, label %if.end34.thread39.i
+  br i1 %tobool12.not.i52, label %if.then13.i54, label %if.end34.thread.i
 
 if.then13.i54:                                    ; preds = %initialize_repository_version.exit.i
   %st_mode.i55 = getelementptr inbounds i8, ptr %st1.i, i64 24
@@ -4529,8 +4523,8 @@ land.lhs.true.i:                                  ; preds = %if.then13.i54
   %st_mode20.i = getelementptr inbounds i8, ptr %st2.i, i64 24
   %57 = load i32, ptr %st_mode20.i, align 8
   %cmp21.not.i = icmp eq i32 %56, %57
-  %or.cond45.i = select i1 %tobool17.not.i, i1 true, i1 %cmp21.not.i
-  br i1 %or.cond45.i, label %if.end34.thread.i, label %land.end.i
+  %or.cond48.i = select i1 %tobool17.not.i, i1 true, i1 %cmp21.not.i
+  br i1 %or.cond48.i, label %if.end34.thread.i, label %land.end.i
 
 land.end.i:                                       ; preds = %land.lhs.true.i
   %call23.i = call i32 @chmod(ptr noundef %call10.i50, i32 noundef %56) #21
@@ -4541,27 +4535,26 @@ land.end.i:                                       ; preds = %land.lhs.true.i
 land.lhs.true29.i:                                ; preds = %land.end.i
   %and.i = and i32 %56, 64
   %tobool31.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool31.not.i, label %if.end34.thread39.i, label %if.end34.thread.i
+  %spec.select.i = select i1 %tobool31.not.i, ptr @.str.75, ptr @.str.132
+  br label %if.end34.thread.i
 
 if.end34.i:                                       ; preds = %land.end.i
   %tobool24.not.not.i = icmp eq i32 %call23.i, 0
-  br i1 %tobool24.not.not.i, label %if.end34.thread39.i, label %if.end34.thread.i
+  %spec.select49.i = select i1 %tobool24.not.not.i, ptr @.str.75, ptr @.str.132
+  br label %if.end34.thread.i
 
-if.end34.thread.i:                                ; preds = %if.end34.i, %land.lhs.true29.i, %land.lhs.true.i, %if.then13.i54
-  br label %if.end34.thread39.i
-
-if.end34.thread39.i:                              ; preds = %if.end34.thread.i, %if.end34.i, %land.lhs.true29.i, %initialize_repository_version.exit.i
-  %59 = phi ptr [ @.str.132, %if.end34.thread.i ], [ @.str.75, %if.end34.i ], [ @.str.75, %initialize_repository_version.exit.i ], [ @.str.75, %land.lhs.true29.i ]
+if.end34.thread.i:                                ; preds = %if.end34.i, %land.lhs.true29.i, %land.lhs.true.i, %if.then13.i54, %initialize_repository_version.exit.i
+  %59 = phi ptr [ @.str.132, %land.lhs.true.i ], [ @.str.132, %if.then13.i54 ], [ @.str.75, %initialize_repository_version.exit.i ], [ %spec.select.i, %land.lhs.true29.i ], [ %spec.select49.i, %if.end34.i ]
   call void @git_config_set(ptr noundef nonnull @.str.131, ptr noundef nonnull %59) #21
   %call36.i = call i32 @is_bare_repository() #21
   %tobool37.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool37.not.i, label %if.else.i53, label %if.then38.i
 
-if.then38.i:                                      ; preds = %if.end34.thread39.i
+if.then38.i:                                      ; preds = %if.end34.thread.i
   call void @git_config_set(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.75) #21
   br label %if.end46.i
 
-if.else.i53:                                      ; preds = %if.end34.thread39.i
+if.else.i53:                                      ; preds = %if.end34.thread.i
   call void @git_config_set(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.132) #21
   %60 = load i32, ptr @log_all_ref_updates, align 4
   %cmp39.i = icmp eq i32 %60, -1
@@ -4589,7 +4582,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i.prehe
   %prefix.addr.0.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %do.cond.i.i.i ], [ %call.i44, %do.body.i.i.i.preheader ]
   %61 = load i8, ptr %prefix.addr.0.i.i.i, align 1
   %tobool.not.i.i27.i = icmp eq i8 %61, 0
-  br i1 %tobool.not.i.i27.i, label %land.lhs.true4.i.i, label %do.cond.i.i.i
+  br i1 %tobool.not.i.i27.i, label %needs_work_tree_config.exit.i, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i.i, i64 1
@@ -4598,16 +4591,16 @@ do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %cmp.i.i28.i = icmp eq i8 %62, %61
   br i1 %cmp.i.i28.i, label %do.body.i.i.i, label %if.then44.i, !llvm.loop !7
 
-land.lhs.true4.i.i:                               ; preds = %do.body.i.i.i
+needs_work_tree_config.exit.i:                    ; preds = %do.body.i.i.i
   %call5.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str.addr.0.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.150) #20
-  %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
-  br i1 %tobool6.not.i.i, label %if.end46.i, label %if.then44.i
+  %tobool6.not.i.not.i = icmp eq i32 %call5.i.i, 0
+  br i1 %tobool6.not.i.not.i, label %if.end46.i, label %if.then44.i
 
-if.then44.i:                                      ; preds = %do.cond.i.i.i, %land.lhs.true4.i.i
+if.then44.i:                                      ; preds = %do.cond.i.i.i, %needs_work_tree_config.exit.i
   call void @git_config_set(ptr noundef nonnull @.str.96, ptr noundef %call.i44) #21
   br label %if.end46.i
 
-if.end46.i:                                       ; preds = %if.then44.i, %land.lhs.true4.i.i, %land.lhs.true.i30.i, %if.then38.i
+if.end46.i:                                       ; preds = %if.then44.i, %needs_work_tree_config.exit.i, %land.lhs.true.i30.i, %if.then38.i
   %tobool47.not.i = icmp eq i32 %lor.ext.i.i, 0
   br i1 %tobool47.not.i, label %if.then48.i, label %create_default_files.exit
 
@@ -5405,7 +5398,7 @@ if.else36:                                        ; preds = %if.end24
   br i1 %tobool.not.not, label %while.cond.backedge, label %if.else39
 
 if.else39:                                        ; preds = %if.else36
-  %trunc = trunc i32 %and to i16
+  %trunc = trunc nuw i32 %and to i16
   switch i16 %trunc, label %if.else78 [
     i16 -24576, label %if.then44
     i16 -32768, label %if.then67

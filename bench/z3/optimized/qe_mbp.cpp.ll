@@ -4299,7 +4299,7 @@ if.end66:                                         ; preds = %_ZN15ref_vector_cor
 
 while.end:                                        ; preds = %land.end44, %invoke.cont33, %invoke.cont36, %if.end66, %land.lhs.true35
   %progress.1.lcssa = phi i8 [ %progress.1376, %land.end44 ], [ %progress.1376, %invoke.cont33 ], [ %progress.1376, %invoke.cont36 ], [ %progress.2, %if.end66 ], [ %progress.1376, %land.lhs.true35 ]
-  %tobool67 = trunc i8 %progress.1.lcssa to i1
+  %tobool67 = trunc nuw i8 %progress.1.lcssa to i1
   br i1 %tobool67, label %if.end125, label %land.lhs.true68
 
 land.lhs.true68:                                  ; preds = %while.cond32.preheader, %while.end
@@ -4771,7 +4771,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   br label %for.cond.i, !llvm.loop !32
 
 invoke.cont133:                                   ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
-  %tobool134 = trunc i8 %progress.3 to i1
+  %tobool134 = trunc nuw i8 %progress.3 to i1
   br i1 %tobool134, label %if.then135, label %cleanup
 
 if.then135:                                       ; preds = %invoke.cont133
@@ -4845,7 +4845,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZN10ref_vectorI3app11ast_managerED2Ev.exit:      ; preds = %cleanup, %invoke.cont.i.i, %if.then.i.i.i.i.i203
-  %tobool = trunc i8 %progress.3 to i1
+  %tobool = trunc nuw i8 %progress.3 to i1
   br i1 %tobool, label %land.lhs.true, label %while.end138
 
 ehcleanup:                                        ; preds = %lpad24.loopexit, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad24.loopexit.split-lp.loopexit, %ehcleanup.i, %cleanup.action.i, %lpad91
@@ -10432,16 +10432,16 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit: ; pre
   %shl.i.i.i.i = shl nuw i32 1, %rem.i.i.i.i
   %and.i.i.i = and i32 %3, %shl.i.i.i.i
   %cmp.i.i.i.not = icmp eq i32 %and.i.i.i, 0
-  %spec.select = select i1 %cmp.i.i.i.not, ptr %l, ptr %r
-  %spec.select40 = select i1 %cmp.i.i.i.not, ptr %r, ptr %l
+  %spec.select40 = select i1 %cmp.i.i.i.not, ptr %l, ptr %r
+  %spec.select41 = select i1 %cmp.i.i.i.not, ptr %r, ptr %l
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit, %entry
-  %l.addr.0 = phi ptr [ %l, %entry ], [ %spec.select, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ]
-  %r.addr.0 = phi ptr [ %r, %entry ], [ %spec.select40, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ]
+  %l.addr.0 = phi ptr [ %l, %entry ], [ %spec.select40, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ]
+  %r.addr.0 = phi ptr [ %r, %entry ], [ %spec.select41, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ]
   %4 = load i32, ptr %l.addr.0, align 4
   %cmp.i.i3 = icmp ult i32 %4, %1
-  br i1 %cmp.i.i3, label %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit13, label %if.end13
+  br i1 %cmp.i.i3, label %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit13, label %return
 
 _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit13: ; preds = %if.end
   %m_data.i.i.i.i5 = getelementptr inbounds i8, ptr %is_var, i64 16
@@ -10454,7 +10454,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit13: ; p
   %shl.i.i.i.i10 = shl nuw i32 1, %rem.i.i.i.i9
   %and.i.i.i11 = and i32 %6, %shl.i.i.i.i10
   %cmp.i.i.i12.not = icmp eq i32 %and.i.i.i11, 0
-  br i1 %cmp.i.i.i12.not, label %if.end13, label %_ZN12contains_appC2ER11ast_managerP3app.exit
+  br i1 %cmp.i.i.i12.not, label %return, label %_ZN12contains_appC2ER11ast_managerP3app.exit
 
 _ZN12contains_appC2ER11ast_managerP3app.exit:     ; preds = %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit13
   %7 = load ptr, ptr %this, align 8
@@ -10586,13 +10586,11 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i
   unreachable
 
 _ZN12contains_appD2Ev.exit:                       ; preds = %cleanup, %if.then.i.i.i.i, %if.then2.i.i.i.i
-  br i1 %call.i15, label %if.end13, label %return
-
-if.end13:                                         ; preds = %if.end, %_ZN12contains_appD2Ev.exit, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit13
+  %not.call.i15 = xor i1 %call.i15, true
   br label %return
 
-return:                                           ; preds = %_ZN12contains_appD2Ev.exit, %if.end13
-  %retval.1 = phi i1 [ true, %_ZN12contains_appD2Ev.exit ], [ false, %if.end13 ]
+return:                                           ; preds = %if.end, %_ZN12contains_appD2Ev.exit, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit13
+  %retval.1 = phi i1 [ false, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit13 ], [ %not.call.i15, %_ZN12contains_appD2Ev.exit ], [ false, %if.end ]
   ret i1 %retval.1
 }
 

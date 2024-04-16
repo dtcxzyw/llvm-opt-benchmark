@@ -287,7 +287,7 @@ define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_add
   br i1 %22, label %23, label %25, !prof !15
 
 23:                                               ; preds = %15
-  %24 = trunc i64 %21 to i32
+  %24 = trunc nsw i64 %21 to i32
   br label %50
 
 25:                                               ; preds = %15
@@ -439,20 +439,17 @@ define dso_local noundef zeroext i1 @arch_syscall_is_vdso_sigreturn(ptr nocaptur
   %20 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_32, i64 0, i32 17), align 8
   %21 = add i64 %20, %10
   %22 = icmp eq i64 %19, %21
-  br i1 %22, label %28, label %23
+  br i1 %22, label %27, label %23
 
 23:                                               ; preds = %17
   %24 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_32, i64 0, i32 18), align 8
   %25 = add i64 %24, %10
   %26 = icmp eq i64 %19, %25
-  br i1 %26, label %28, label %27
+  br label %27
 
-27:                                               ; preds = %23, %1
-  br label %28
-
-28:                                               ; preds = %27, %23, %17
-  %29 = phi i1 [ false, %27 ], [ true, %23 ], [ true, %17 ]
-  ret i1 %29
+27:                                               ; preds = %23, %1, %17
+  %28 = phi i1 [ true, %17 ], [ false, %1 ], [ %26, %23 ]
+  ret i1 %28
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -491,7 +488,7 @@ define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %6 = getelementptr inbounds i8, ptr %5, i64 1104
   %7 = load ptr, ptr %6, align 16
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %90, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 16
@@ -501,7 +498,7 @@ define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %12, %14
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %90, label %17
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds i8, ptr %7, i64 64
@@ -531,14 +528,14 @@ define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %38 = ptrtoint ptr %22 to i64
   %39 = sub i64 %38, %37
   %40 = ashr exact i64 %39, 6
-  br i1 %36, label %41, label %.thread
+  br i1 %36, label %41, label %90
 
 41:                                               ; preds = %27, %21
   %42 = phi i64 [ %40, %27 ], [ %25, %21 ]
   %43 = getelementptr inbounds i8, ptr %2, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = tail call i32 @vmf_insert_pfn(ptr noundef %1, i64 noundef %44, i64 noundef %42) #9
-  br label %.thread
+  br label %90
 
 46:                                               ; preds = %17
   %47 = getelementptr inbounds i8, ptr %7, i64 72
@@ -549,13 +546,13 @@ define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr n
 50:                                               ; preds = %46
   %51 = tail call ptr @pvclock_get_pvti_cpu0_va() #9
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread, label %53
+  br i1 %52, label %90, label %53
 
 53:                                               ; preds = %50
   %54 = load volatile i32, ptr @vclocks_used, align 4
   %55 = and i32 %54, 4
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread, label %57
+  br i1 %56, label %90, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %2, i64 24
@@ -572,24 +569,24 @@ define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %69 = getelementptr inbounds i8, ptr %1, i64 24
   %70 = load i64, ptr %69, align 8
   %71 = tail call i32 @vmf_insert_pfn_prot(ptr noundef %1, i64 noundef %59, i64 noundef %68, i64 %70) #9
-  br label %.thread
+  br label %90
 
 72:                                               ; preds = %46
   %73 = getelementptr inbounds i8, ptr %7, i64 80
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %15, %74
-  br i1 %75, label %.thread, label %76
+  br i1 %75, label %90, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %7, i64 88
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %15, %78
-  br i1 %79, label %80, label %.thread
+  br i1 %79, label %80, label %90
 
 80:                                               ; preds = %76
   %81 = tail call ptr @find_timens_vvar_page(ptr noundef %1) #9
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread, label %83
+  br i1 %82, label %90, label %83
 
 83:                                               ; preds = %80
   %84 = load i64, ptr @phys_base, align 8
@@ -598,11 +595,11 @@ define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %87 = getelementptr inbounds i8, ptr %2, i64 24
   %88 = load i64, ptr %87, align 8
   %89 = tail call i32 @vmf_insert_pfn(ptr noundef %1, i64 noundef %88, i64 noundef %86) #9
-  br label %.thread
+  br label %90
 
-.thread:                                          ; preds = %50, %53, %72, %76, %57, %83, %80, %41, %27, %9, %3
-  %90 = phi i32 [ %71, %57 ], [ 2, %3 ], [ 2, %9 ], [ %45, %41 ], [ %34, %27 ], [ %89, %83 ], [ 2, %80 ], [ 2, %76 ], [ 2, %72 ], [ 2, %53 ], [ 2, %50 ]
-  ret i32 %90
+90:                                               ; preds = %50, %53, %57, %72, %76, %83, %80, %41, %27, %9, %3
+  %91 = phi i32 [ 2, %3 ], [ 2, %9 ], [ %45, %41 ], [ %34, %27 ], [ %89, %83 ], [ 2, %80 ], [ 2, %76 ], [ 2, %72 ], [ %71, %57 ], [ 2, %53 ], [ 2, %50 ]
+  ret i32 %91
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -627,7 +624,7 @@ define internal noundef i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture
   %6 = getelementptr inbounds i8, ptr %5, i64 1104
   %7 = load ptr, ptr %6, align 16
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %59, label %9
+  br i1 %8, label %58, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 16
@@ -636,7 +633,7 @@ define internal noundef i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture
   %13 = getelementptr inbounds i8, ptr %7, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %12, %14
-  br i1 %15, label %16, label %59
+  br i1 %15, label %16, label %58
 
 16:                                               ; preds = %9
   %17 = load i64, ptr @vmemmap_base, align 8
@@ -664,11 +661,11 @@ define internal noundef i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture
 36:                                               ; preds = %16
   %37 = add nsw i64 %33, -1
   %38 = inttoptr i64 %37 to ptr
-  br label %56
+  br label %55
 
 39:                                               ; preds = %16
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %56 [label %40], !srcloc !8
+          to label %55 [label %40], !srcloc !8
 
 40:                                               ; preds = %39
   %41 = ptrtoint ptr %30 to i64
@@ -689,20 +686,18 @@ define internal noundef i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture
   %52 = icmp eq i64 %51, 0
   %53 = add nsw i64 %50, -1
   %54 = inttoptr i64 %53 to ptr
-  br i1 %52, label %55, label %56
+  %spec.select = select i1 %52, ptr %30, ptr %54
+  br label %55
 
-55:                                               ; preds = %48, %44, %40
-  br label %56
+55:                                               ; preds = %48, %40, %44, %39, %36
+  %56 = phi ptr [ %38, %36 ], [ %30, %39 ], [ %30, %44 ], [ %30, %40 ], [ %spec.select, %48 ]
+  %57 = getelementptr inbounds i8, ptr %56, i64 52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57, ptr elementtype(i32) %57) #9, !srcloc !16
+  br label %58
 
-56:                                               ; preds = %55, %48, %39, %36
-  %57 = phi ptr [ %38, %36 ], [ %54, %48 ], [ %30, %55 ], [ %30, %39 ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %58, ptr elementtype(i32) %58) #9, !srcloc !16
-  br label %59
-
-59:                                               ; preds = %56, %9, %3
-  %60 = phi i32 [ 0, %56 ], [ 2, %9 ], [ 2, %3 ]
-  ret i32 %60
+58:                                               ; preds = %55, %9, %3
+  %59 = phi i32 [ 0, %55 ], [ 2, %9 ], [ 2, %3 ]
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)

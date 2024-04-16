@@ -1200,7 +1200,7 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   %.0751 = phi i64 [ %403, %395 ], [ %410, %405 ]
   %.0 = phi ptr [ %404, %395 ], [ %409, %405 ]
   %406 = urem i64 %.0751, 10
-  %407 = trunc i64 %406 to i8
+  %407 = trunc nuw nsw i64 %406 to i8
   %408 = or disjoint i8 %407, 48
   %409 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %408, ptr %409, align 1
@@ -5157,7 +5157,7 @@ check_host_whitelist.exit.thread.sink.split:      ; preds = %90, %91, %check_htt
   tail call void @php_url_free(ptr noundef nonnull %27) #16
   br label %check_host_whitelist.exit.thread
 
-check_host_whitelist.exit.thread:                 ; preds = %check_host_whitelist.exit.thread.sink.split, %13, %22, %check_host_whitelist.exit
+check_host_whitelist.exit.thread:                 ; preds = %check_host_whitelist.exit.thread.sink.split, %check_host_whitelist.exit, %13, %22
   %104 = getelementptr inbounds i8, ptr %0, i64 64
   %105 = load ptr, ptr %2, align 8
   %.not46 = icmp eq ptr %105, null
@@ -5272,15 +5272,13 @@ define internal fastcc void @handle_arg(ptr noundef %0, ptr noundef %1, ptr noun
   %37 = load i64, ptr %36, align 8
   %38 = tail call i32 @strncasecmp(ptr noundef nonnull %35, ptr noundef nonnull @.str.16, i64 noundef %37) #17
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %41, label %40
+  %spec.select = zext i1 %39 to i32
+  br label %40
 
 40:                                               ; preds = %33, %22
-  br label %41
-
-41:                                               ; preds = %33, %40
-  %.sink = phi i32 [ 0, %40 ], [ 1, %33 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 156
-  store i32 %.sink, ptr %42, align 4
+  %.sink = phi i32 [ 0, %22 ], [ %spec.select, %33 ]
+  %41 = getelementptr inbounds i8, ptr %0, i64 156
+  store i32 %.sink, ptr %41, align 4
   ret void
 }
 

@@ -741,7 +741,7 @@ define dso_local i32 @__phy_read_mmd(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
-  %16 = trunc i32 %2 to i16
+  %16 = trunc nuw i32 %2 to i16
   %17 = tail call i32 %13(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %16) #9
   br label %37
 
@@ -761,7 +761,7 @@ define dso_local i32 @__phy_read_mmd(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %37
 
 29:                                               ; preds = %18
-  %30 = trunc i32 %2 to i16
+  %30 = trunc nuw i32 %2 to i16
   %31 = trunc i32 %1 to i16
   %32 = tail call i32 @__mdiobus_write(ptr noundef %20, i32 noundef %22, i32 noundef 13, i16 noundef zeroext %31) #9
   %33 = tail call i32 @__mdiobus_write(ptr noundef %20, i32 noundef %22, i32 noundef 14, i16 noundef zeroext %30) #9
@@ -808,7 +808,7 @@ define dso_local i32 @__phy_write_mmd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %12
-  %17 = trunc i32 %2 to i16
+  %17 = trunc nuw i32 %2 to i16
   %18 = tail call i32 %14(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %17, i16 noundef zeroext %3) #9
   br label %38
 
@@ -828,7 +828,7 @@ define dso_local i32 @__phy_write_mmd(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %38
 
 30:                                               ; preds = %19
-  %31 = trunc i32 %2 to i16
+  %31 = trunc nuw i32 %2 to i16
   %32 = trunc i32 %1 to i16
   %33 = tail call i32 @__mdiobus_write(ptr noundef %21, i32 noundef %23, i32 noundef 13, i16 noundef zeroext %32) #9
   %34 = tail call i32 @__mdiobus_write(ptr noundef %21, i32 noundef %23, i32 noundef 14, i16 noundef zeroext %31) #9
@@ -888,7 +888,7 @@ define dso_local i32 @__phy_package_read_mmd(ptr nocapture noundef readonly %0, 
   br label %35
 
 27:                                               ; preds = %18
-  %28 = trunc i32 %3 to i16
+  %28 = trunc nuw i32 %3 to i16
   %29 = trunc i32 %2 to i16
   %30 = tail call i32 @__mdiobus_write(ptr noundef %20, i32 noundef %12, i32 noundef 13, i16 noundef zeroext %29) #9
   %31 = tail call i32 @__mdiobus_write(ptr noundef %20, i32 noundef %12, i32 noundef 14, i16 noundef zeroext %28) #9
@@ -938,7 +938,7 @@ define dso_local i32 @phy_package_read_mmd(ptr nocapture noundef readonly %0, i3
   br label %37
 
 29:                                               ; preds = %18
-  %30 = trunc i32 %3 to i16
+  %30 = trunc nuw i32 %3 to i16
   %31 = trunc i32 %2 to i16
   %32 = tail call i32 @__mdiobus_write(ptr noundef %22, i32 noundef %12, i32 noundef 13, i16 noundef zeroext %31) #9
   %33 = tail call i32 @__mdiobus_write(ptr noundef %22, i32 noundef %12, i32 noundef 14, i16 noundef zeroext %30) #9
@@ -992,7 +992,7 @@ define dso_local i32 @__phy_package_write_mmd(ptr nocapture noundef readonly %0,
   br label %36
 
 28:                                               ; preds = %19
-  %29 = trunc i32 %3 to i16
+  %29 = trunc nuw i32 %3 to i16
   %30 = trunc i32 %2 to i16
   %31 = tail call i32 @__mdiobus_write(ptr noundef %21, i32 noundef %13, i32 noundef 13, i16 noundef zeroext %30) #9
   %32 = tail call i32 @__mdiobus_write(ptr noundef %21, i32 noundef %13, i32 noundef 14, i16 noundef zeroext %29) #9
@@ -1042,7 +1042,7 @@ define dso_local i32 @phy_package_write_mmd(ptr nocapture noundef readonly %0, i
   br label %38
 
 30:                                               ; preds = %19
-  %31 = trunc i32 %3 to i16
+  %31 = trunc nuw i32 %3 to i16
   %32 = trunc i32 %2 to i16
   %33 = tail call i32 @__mdiobus_write(ptr noundef %23, i32 noundef %13, i32 noundef 13, i16 noundef zeroext %32) #9
   %34 = tail call i32 @__mdiobus_write(ptr noundef %23, i32 noundef %13, i32 noundef 14, i16 noundef zeroext %31) #9
@@ -1291,30 +1291,28 @@ define dso_local i32 @phy_select_page(ptr noundef %0, i32 noundef %1) #1 align 1
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 971, i32 2313, i64 12) #9, !srcloc !24
   tail call void asm sideeffect "465: nop\0A\09.pushsection .discard.instr_end\0A\09.long 465b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 465) #9, !srcloc !25
   tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_end\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #9, !srcloc !26
-  br label %.thread3
+  br label %.thread2
 
 13:                                               ; preds = %2
-  br i1 %10, label %14, label %.thread3
+  br i1 %10, label %14, label %.thread2
 
 14:                                               ; preds = %13
   %15 = tail call i32 %9(ptr noundef %0) #9
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.thread3, label %17
+  %17 = icmp eq i32 %15, %1
+  %or.cond = or i1 %16, %17
+  br i1 %or.cond, label %.thread2, label %18
 
-17:                                               ; preds = %14
-  %18 = icmp eq i32 %15, %1
-  br i1 %18, label %30, label %19
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 360
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  %23 = load i1, ptr @__phy_write_page.__already_done, align 1
+  %24 = select i1 %22, i1 true, i1 %23
+  br i1 %24, label %25, label %.thread4, !prof !5
 
-19:                                               ; preds = %17
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 360
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  %24 = load i1, ptr @__phy_write_page.__already_done, align 1
-  %25 = select i1 %23, i1 true, i1 %24
-  br i1 %25, label %26, label %.thread4, !prof !5
-
-.thread4:                                         ; preds = %19
+.thread4:                                         ; preds = %18
   store i1 true, ptr @__phy_write_page.__already_done, align 1
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #9, !srcloc !27
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.28) #9
@@ -1322,22 +1320,21 @@ define dso_local i32 @phy_select_page(ptr noundef %0, i32 noundef %1) #1 align 1
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 979, i32 2313, i64 12) #9, !srcloc !29
   tail call void asm sideeffect "469: nop\0A\09.pushsection .discard.instr_end\0A\09.long 469b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 469) #9, !srcloc !30
   tail call void asm sideeffect "470: nop\0A\09.pushsection .discard.instr_end\0A\09.long 470b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 470) #9, !srcloc !31
-  br label %.thread3
+  br label %.thread2
 
-26:                                               ; preds = %19
-  br i1 %23, label %27, label %.thread3
+25:                                               ; preds = %18
+  br i1 %22, label %26, label %.thread2
 
-27:                                               ; preds = %26
-  %28 = tail call i32 %22(ptr noundef %0, i32 noundef %1) #9
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.thread3, label %30
+26:                                               ; preds = %25
+  %27 = tail call i32 %21(ptr noundef %0, i32 noundef %1) #9
+  %.fr = freeze i32 %27
+  %28 = icmp slt i32 %.fr, 0
+  %spec.select = select i1 %28, i32 %.fr, i32 %15
+  br label %.thread2
 
-30:                                               ; preds = %27, %17
-  br label %.thread3
-
-.thread3:                                         ; preds = %.thread4, %26, %.thread, %13, %30, %27, %14
-  %31 = phi i32 [ %15, %30 ], [ %15, %14 ], [ %28, %27 ], [ -95, %13 ], [ -95, %.thread ], [ -95, %26 ], [ -95, %.thread4 ]
-  ret i32 %31
+.thread2:                                         ; preds = %26, %.thread4, %25, %.thread, %13, %14
+  %29 = phi i32 [ %15, %14 ], [ -95, %13 ], [ -95, %.thread ], [ -95, %25 ], [ -95, %.thread4 ], [ %spec.select, %26 ]
+  ret i32 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

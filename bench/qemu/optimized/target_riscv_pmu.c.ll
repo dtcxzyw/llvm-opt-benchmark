@@ -93,9 +93,9 @@ riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end4
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and.i.i = and i64 %shl.i.i, %conv.i.i
   %tobool.not.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.not.i, label %return, label %land.lhs.true.i
+  br i1 %tobool.not.i.not.i, label %return, label %riscv_pmu_counter_enabled.exit
 
-land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_valid.exit.i
+riscv_pmu_counter_enabled.exit:                   ; preds = %riscv_pmu_counter_valid.exit.i
   %mcountinhibit.i = getelementptr inbounds i8, ptr %cpu, i64 15912
   %6 = load i64, ptr %mcountinhibit.i, align 8
   %and.i = and i64 %6, %shl.i.i
@@ -105,7 +105,7 @@ land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_v
   %tobool.not.i = icmp ugt i64 %and7.i, %and.i
   br i1 %tobool.not.i, label %if.end15, label %return
 
-if.end15:                                         ; preds = %land.lhs.true.i
+if.end15:                                         ; preds = %riscv_pmu_counter_enabled.exit
   %7 = getelementptr i8, ptr %cpu, i64 15184
   %env1.val = load i32, ptr %7, align 16
   %cmp = icmp eq i32 %env1.val, 1
@@ -120,14 +120,14 @@ if.end15:                                         ; preds = %land.lhs.true.i
   br i1 %cmp, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.end15
-  br i1 %cmp.i, label %land.lhs.true.i15, label %lor.lhs.false.i
+  br i1 %cmp.i, label %land.lhs.true.i14, label %lor.lhs.false.i
 
-land.lhs.true.i15:                                ; preds = %if.then18
+land.lhs.true.i14:                                ; preds = %if.then18
   %mhpmeventh_val.i = getelementptr inbounds i8, ptr %cpu, i64 17712
   %arrayidx3.i = getelementptr [32 x i64], ptr %mhpmeventh_val.i, i64 0, i64 %sh_prom.i.i
   %10 = load i64, ptr %arrayidx3.i, align 8
-  %and.i16 = and i64 %10, 1073741824
-  %tobool4.not.i = icmp eq i64 %and.i16, 0
+  %and.i15 = and i64 %10, 1073741824
+  %tobool4.not.i = icmp eq i64 %and.i15, 0
   br i1 %tobool4.not.i, label %if.end.i, label %return
 
 lor.lhs.false.i:                                  ; preds = %if.then18
@@ -184,7 +184,7 @@ land.lhs.true42.i:                                ; preds = %lor.lhs.false37.i
   %tobool47.not.i = icmp eq i64 %and46.i, 0
   br i1 %tobool47.not.i, label %if.end.i, label %return
 
-if.end.i:                                         ; preds = %land.lhs.true42.i, %lor.lhs.false37.i, %land.lhs.true.i15
+if.end.i:                                         ; preds = %land.lhs.true42.i, %lor.lhs.false37.i, %land.lhs.true.i14
   %15 = load i64, ptr %arrayidx.i, align 8
   %cmp48.i = icmp eq i64 %15, 4294967295
   br i1 %cmp48.i, label %if.then49.i, label %if.else66.i
@@ -193,7 +193,7 @@ if.then49.i:                                      ; preds = %if.end.i
   %mhpmcounterh_val.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %16 = load i64, ptr %mhpmcounterh_val.i, align 8
   %cmp50.i = icmp eq i64 %16, 4294967295
-  br i1 %cmp50.i, label %if.then51.i, label %if.else.i14
+  br i1 %cmp50.i, label %if.then51.i, label %if.else.i
 
 if.then51.i:                                      ; preds = %if.then49.i
   %mhpmeventh_val54.i = getelementptr inbounds i8, ptr %cpu, i64 17712
@@ -210,7 +210,7 @@ if.then59.i:                                      ; preds = %if.then51.i
   %call.i = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 8192, i64 noundef -1) #6
   br label %return
 
-if.else.i14:                                      ; preds = %if.then49.i
+if.else.i:                                        ; preds = %if.then49.i
   %inc.i = add i64 %16, 1
   store i64 %inc.i, ptr %mhpmcounterh_val.i, align 8
   br label %return
@@ -221,76 +221,76 @@ if.else66.i:                                      ; preds = %if.end.i
   br label %return
 
 if.else:                                          ; preds = %if.end15
-  br i1 %cmp.i, label %land.lhs.true.i56, label %lor.lhs.false.i25
+  br i1 %cmp.i, label %land.lhs.true.i55, label %lor.lhs.false.i24
 
-land.lhs.true.i56:                                ; preds = %if.else
+land.lhs.true.i55:                                ; preds = %if.else
   %mhpmevent_val.i = getelementptr inbounds i8, ptr %cpu, i64 17456
-  %arrayidx3.i57 = getelementptr [32 x i64], ptr %mhpmevent_val.i, i64 0, i64 %sh_prom.i.i
-  %18 = load i64, ptr %arrayidx3.i57, align 8
-  %and.i58 = and i64 %18, 4611686018427387904
-  %tobool4.not.i59 = icmp eq i64 %and.i58, 0
-  br i1 %tobool4.not.i59, label %if.end.i43, label %return
+  %arrayidx3.i56 = getelementptr [32 x i64], ptr %mhpmevent_val.i, i64 0, i64 %sh_prom.i.i
+  %18 = load i64, ptr %arrayidx3.i56, align 8
+  %and.i57 = and i64 %18, 4611686018427387904
+  %tobool4.not.i58 = icmp eq i64 %and.i57, 0
+  br i1 %tobool4.not.i58, label %if.end.i42, label %return
 
-lor.lhs.false.i25:                                ; preds = %if.else
-  %cmp6.i26 = icmp ne i64 %9, 1
-  %tobool.not.i27 = xor i1 %tobool.i, true
-  %brmerge.i28 = select i1 %cmp6.i26, i1 true, i1 %tobool.not.i27
-  br i1 %brmerge.i28, label %lor.lhs.false15.i50, label %land.lhs.true9.i29
+lor.lhs.false.i24:                                ; preds = %if.else
+  %cmp6.i25 = icmp ne i64 %9, 1
+  %tobool.not.i26 = xor i1 %tobool.i, true
+  %brmerge.i27 = select i1 %cmp6.i25, i1 true, i1 %tobool.not.i26
+  br i1 %brmerge.i27, label %lor.lhs.false15.i49, label %land.lhs.true9.i28
 
-land.lhs.true9.i29:                               ; preds = %lor.lhs.false.i25
+land.lhs.true9.i28:                               ; preds = %lor.lhs.false.i24
   %mhpmevent_val10.i = getelementptr inbounds i8, ptr %cpu, i64 17456
-  %arrayidx12.i30 = getelementptr [32 x i64], ptr %mhpmevent_val10.i, i64 0, i64 %sh_prom.i.i
-  %19 = load i64, ptr %arrayidx12.i30, align 8
-  %and13.i31 = and i64 %19, 576460752303423488
-  %tobool14.not.i32 = icmp eq i64 %and13.i31, 0
-  br i1 %tobool14.not.i32, label %lor.lhs.false26.i33, label %return
+  %arrayidx12.i29 = getelementptr [32 x i64], ptr %mhpmevent_val10.i, i64 0, i64 %sh_prom.i.i
+  %19 = load i64, ptr %arrayidx12.i29, align 8
+  %and13.i30 = and i64 %19, 576460752303423488
+  %tobool14.not.i31 = icmp eq i64 %and13.i30, 0
+  br i1 %tobool14.not.i31, label %lor.lhs.false26.i32, label %return
 
-lor.lhs.false15.i50:                              ; preds = %lor.lhs.false.i25
-  %cmp17.i51 = icmp ne i64 %9, 0
-  %brmerge28.i = select i1 %cmp17.i51, i1 true, i1 %tobool.not.i27
-  br i1 %brmerge28.i, label %lor.lhs.false26.i33, label %land.lhs.true20.i52
+lor.lhs.false15.i49:                              ; preds = %lor.lhs.false.i24
+  %cmp17.i50 = icmp ne i64 %9, 0
+  %brmerge28.i = select i1 %cmp17.i50, i1 true, i1 %tobool.not.i26
+  br i1 %brmerge28.i, label %lor.lhs.false26.i32, label %land.lhs.true20.i51
 
-land.lhs.true20.i52:                              ; preds = %lor.lhs.false15.i50
+land.lhs.true20.i51:                              ; preds = %lor.lhs.false15.i49
   %mhpmevent_val21.i = getelementptr inbounds i8, ptr %cpu, i64 17456
-  %arrayidx23.i53 = getelementptr [32 x i64], ptr %mhpmevent_val21.i, i64 0, i64 %sh_prom.i.i
-  %20 = load i64, ptr %arrayidx23.i53, align 8
-  %and24.i54 = and i64 %20, 288230376151711744
-  %tobool25.not.i55 = icmp eq i64 %and24.i54, 0
-  br i1 %tobool25.not.i55, label %lor.lhs.false37.i38, label %return
+  %arrayidx23.i52 = getelementptr [32 x i64], ptr %mhpmevent_val21.i, i64 0, i64 %sh_prom.i.i
+  %20 = load i64, ptr %arrayidx23.i52, align 8
+  %and24.i53 = and i64 %20, 288230376151711744
+  %tobool25.not.i54 = icmp eq i64 %and24.i53, 0
+  br i1 %tobool25.not.i54, label %lor.lhs.false37.i37, label %return
 
-lor.lhs.false26.i33:                              ; preds = %lor.lhs.false15.i50, %land.lhs.true9.i29
-  %cmp17.not43.i = phi i1 [ %cmp17.i51, %lor.lhs.false15.i50 ], [ true, %land.lhs.true9.i29 ]
-  %cmp6.not3542.i = phi i1 [ %cmp6.i26, %lor.lhs.false15.i50 ], [ false, %land.lhs.true9.i29 ]
+lor.lhs.false26.i32:                              ; preds = %lor.lhs.false15.i49, %land.lhs.true9.i28
+  %cmp17.not43.i = phi i1 [ %cmp17.i50, %lor.lhs.false15.i49 ], [ true, %land.lhs.true9.i28 ]
+  %cmp6.not3542.i = phi i1 [ %cmp6.i25, %lor.lhs.false15.i49 ], [ false, %land.lhs.true9.i28 ]
   %brmerge29.i = select i1 %cmp6.not3542.i, i1 true, i1 %tobool.i
-  br i1 %brmerge29.i, label %lor.lhs.false37.i38, label %land.lhs.true31.i34
+  br i1 %brmerge29.i, label %lor.lhs.false37.i37, label %land.lhs.true31.i33
 
-land.lhs.true31.i34:                              ; preds = %lor.lhs.false26.i33
+land.lhs.true31.i33:                              ; preds = %lor.lhs.false26.i32
   %mhpmevent_val32.i = getelementptr inbounds i8, ptr %cpu, i64 17456
-  %arrayidx34.i35 = getelementptr [32 x i64], ptr %mhpmevent_val32.i, i64 0, i64 %sh_prom.i.i
-  %21 = load i64, ptr %arrayidx34.i35, align 8
-  %and35.i36 = and i64 %21, 2305843009213693952
-  %tobool36.not.i37 = icmp eq i64 %and35.i36, 0
-  br i1 %tobool36.not.i37, label %lor.lhs.false37.i38, label %return
+  %arrayidx34.i34 = getelementptr [32 x i64], ptr %mhpmevent_val32.i, i64 0, i64 %sh_prom.i.i
+  %21 = load i64, ptr %arrayidx34.i34, align 8
+  %and35.i35 = and i64 %21, 2305843009213693952
+  %tobool36.not.i36 = icmp eq i64 %and35.i35, 0
+  br i1 %tobool36.not.i36, label %lor.lhs.false37.i37, label %return
 
-lor.lhs.false37.i38:                              ; preds = %land.lhs.true31.i34, %lor.lhs.false26.i33, %land.lhs.true20.i52
-  %cmp17.not4347.i = phi i1 [ %cmp17.not43.i, %lor.lhs.false26.i33 ], [ %cmp17.not43.i, %land.lhs.true31.i34 ], [ false, %land.lhs.true20.i52 ]
+lor.lhs.false37.i37:                              ; preds = %land.lhs.true31.i33, %lor.lhs.false26.i32, %land.lhs.true20.i51
+  %cmp17.not4347.i = phi i1 [ %cmp17.not43.i, %lor.lhs.false26.i32 ], [ %cmp17.not43.i, %land.lhs.true31.i33 ], [ false, %land.lhs.true20.i51 ]
   %brmerge30.i = select i1 %cmp17.not4347.i, i1 true, i1 %tobool.i
-  br i1 %brmerge30.i, label %if.end.i43, label %land.lhs.true42.i39
+  br i1 %brmerge30.i, label %if.end.i42, label %land.lhs.true42.i38
 
-land.lhs.true42.i39:                              ; preds = %lor.lhs.false37.i38
+land.lhs.true42.i38:                              ; preds = %lor.lhs.false37.i37
   %mhpmevent_val43.i = getelementptr inbounds i8, ptr %cpu, i64 17456
-  %arrayidx45.i40 = getelementptr [32 x i64], ptr %mhpmevent_val43.i, i64 0, i64 %sh_prom.i.i
-  %22 = load i64, ptr %arrayidx45.i40, align 8
-  %and46.i41 = and i64 %22, 1152921504606846976
-  %tobool47.not.i42 = icmp eq i64 %and46.i41, 0
-  br i1 %tobool47.not.i42, label %if.end.i43, label %return
+  %arrayidx45.i39 = getelementptr [32 x i64], ptr %mhpmevent_val43.i, i64 0, i64 %sh_prom.i.i
+  %22 = load i64, ptr %arrayidx45.i39, align 8
+  %and46.i40 = and i64 %22, 1152921504606846976
+  %tobool47.not.i41 = icmp eq i64 %and46.i40, 0
+  br i1 %tobool47.not.i41, label %if.end.i42, label %return
 
-if.end.i43:                                       ; preds = %land.lhs.true42.i39, %lor.lhs.false37.i38, %land.lhs.true.i56
+if.end.i42:                                       ; preds = %land.lhs.true42.i38, %lor.lhs.false37.i37, %land.lhs.true.i55
   %23 = load i64, ptr %arrayidx.i, align 8
-  %cmp48.i44 = icmp eq i64 %23, -1
-  br i1 %cmp48.i44, label %if.then49.i47, label %if.else.i45
+  %cmp48.i43 = icmp eq i64 %23, -1
+  br i1 %cmp48.i43, label %if.then49.i46, label %if.else.i44
 
-if.then49.i47:                                    ; preds = %if.end.i43
+if.then49.i46:                                    ; preds = %if.end.i42
   store i64 0, ptr %arrayidx.i, align 8
   %mhpmevent_val51.i = getelementptr inbounds i8, ptr %cpu, i64 17456
   %arrayidx53.i = getelementptr [32 x i64], ptr %mhpmevent_val51.i, i64 0, i64 %sh_prom.i.i
@@ -298,19 +298,19 @@ if.then49.i47:                                    ; preds = %if.end.i43
   %tobool55.not.i = icmp sgt i64 %24, -1
   br i1 %tobool55.not.i, label %if.then56.i, label %return
 
-if.then56.i:                                      ; preds = %if.then49.i47
-  %or.i48 = or disjoint i64 %24, -9223372036854775808
-  store i64 %or.i48, ptr %arrayidx53.i, align 8
-  %call.i49 = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 8192, i64 noundef -1) #6
+if.then56.i:                                      ; preds = %if.then49.i46
+  %or.i47 = or disjoint i64 %24, -9223372036854775808
+  store i64 %or.i47, ptr %arrayidx53.i, align 8
+  %call.i48 = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 8192, i64 noundef -1) #6
   br label %return
 
-if.else.i45:                                      ; preds = %if.end.i43
-  %inc.i46 = add nuw i64 %23, 1
-  store i64 %inc.i46, ptr %arrayidx.i, align 8
+if.else.i44:                                      ; preds = %if.end.i42
+  %inc.i45 = add nuw i64 %23, 1
+  store i64 %inc.i45, ptr %arrayidx.i, align 8
   br label %return
 
-return:                                           ; preds = %if.else.i45, %if.then56.i, %if.then49.i47, %land.lhs.true42.i39, %land.lhs.true31.i34, %land.lhs.true20.i52, %land.lhs.true9.i29, %land.lhs.true.i56, %if.else66.i, %if.else.i14, %if.then59.i, %if.then51.i, %land.lhs.true42.i, %land.lhs.true31.i, %land.lhs.true20.i, %land.lhs.true9.i, %land.lhs.true.i15, %land.lhs.true.i, %riscv_pmu_counter_valid.exit.i, %if.end4, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end ], [ -1, %if.end4 ], [ -1, %riscv_pmu_counter_valid.exit.i ], [ -1, %land.lhs.true.i ], [ 0, %land.lhs.true.i15 ], [ 0, %land.lhs.true9.i ], [ 0, %land.lhs.true20.i ], [ 0, %land.lhs.true31.i ], [ 0, %land.lhs.true42.i ], [ 0, %if.then51.i ], [ 0, %if.then59.i ], [ 0, %if.else.i14 ], [ 0, %if.else66.i ], [ 0, %land.lhs.true.i56 ], [ 0, %land.lhs.true9.i29 ], [ 0, %land.lhs.true20.i52 ], [ 0, %land.lhs.true31.i34 ], [ 0, %land.lhs.true42.i39 ], [ 0, %if.then49.i47 ], [ 0, %if.then56.i ], [ 0, %if.else.i45 ]
+return:                                           ; preds = %if.end4, %riscv_pmu_counter_valid.exit.i, %if.else.i44, %if.then56.i, %if.then49.i46, %land.lhs.true42.i38, %land.lhs.true31.i33, %land.lhs.true20.i51, %land.lhs.true9.i28, %land.lhs.true.i55, %if.else66.i, %if.else.i, %if.then59.i, %if.then51.i, %land.lhs.true42.i, %land.lhs.true31.i, %land.lhs.true20.i, %land.lhs.true9.i, %land.lhs.true.i14, %riscv_pmu_counter_enabled.exit, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end ], [ -1, %riscv_pmu_counter_enabled.exit ], [ 0, %land.lhs.true.i14 ], [ 0, %land.lhs.true9.i ], [ 0, %land.lhs.true20.i ], [ 0, %land.lhs.true31.i ], [ 0, %land.lhs.true42.i ], [ 0, %if.then51.i ], [ 0, %if.then59.i ], [ 0, %if.else.i ], [ 0, %if.else66.i ], [ 0, %land.lhs.true.i55 ], [ 0, %land.lhs.true9.i28 ], [ 0, %land.lhs.true20.i51 ], [ 0, %land.lhs.true31.i33 ], [ 0, %land.lhs.true42.i38 ], [ 0, %if.then49.i46 ], [ 0, %if.then56.i ], [ 0, %if.else.i44 ], [ -1, %riscv_pmu_counter_valid.exit.i ], [ -1, %if.end4 ]
   ret i32 %retval.0
 }
 
@@ -479,9 +479,9 @@ riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and.i.i = and i64 %shl.i.i, %conv.i.i
   %tobool.not.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.not.i, label %if.end31, label %land.lhs.true.i
+  br i1 %tobool.not.i.not.i, label %if.end31, label %riscv_pmu_counter_enabled.exit
 
-land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_valid.exit.i
+riscv_pmu_counter_enabled.exit:                   ; preds = %riscv_pmu_counter_valid.exit.i
   %mcountinhibit.i = getelementptr inbounds i8, ptr %cpu, i64 15912
   %6 = load i64, ptr %mcountinhibit.i, align 8
   %and.i = and i64 %6, %shl.i.i
@@ -491,7 +491,7 @@ land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_v
   %tobool.not.i = icmp ugt i64 %and7.i, %and.i
   br i1 %tobool.not.i, label %if.end6, label %if.end31
 
-if.end6:                                          ; preds = %land.lhs.true.i
+if.end6:                                          ; preds = %riscv_pmu_counter_enabled.exit
   %7 = getelementptr i8, ptr %cpu, i64 15184
   %env1.val = load i32, ptr %7, align 16
   %cmp8 = icmp eq i32 %env1.val, 1
@@ -529,7 +529,7 @@ if.then28:                                        ; preds = %if.then25
   %call29 = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 8192, i64 noundef -1) #6
   br label %if.end31
 
-if.end31:                                         ; preds = %land.lhs.true.i, %riscv_pmu_counter_valid.exit.i, %if.end, %if.then25, %if.then28, %entry, %if.then19
+if.end31:                                         ; preds = %if.end, %riscv_pmu_counter_valid.exit.i, %if.then25, %if.then28, %riscv_pmu_counter_enabled.exit, %entry, %if.then19
   ret void
 }
 

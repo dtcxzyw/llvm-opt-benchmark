@@ -1978,7 +1978,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i)
   %shr.i.i = lshr i32 %encoding, 24
-  %conv.i.i = trunc i32 %shr.i.i to i8
+  %conv.i.i = trunc nuw i32 %shr.i.i to i8
   store i8 %conv.i.i, ptr %buf.i.i, align 1
   %shr1.i.i = lshr i32 %encoding, 16
   %conv3.i.i = trunc i32 %shr1.i.i to i8
@@ -2001,7 +2001,7 @@ define dso_local void @vnc_write_u16(ptr noundef %vs, i16 noundef zeroext %value
 entry:
   %buf = alloca [2 x i8], align 1
   %shr = lshr i16 %value, 8
-  %conv1 = trunc i16 %shr to i8
+  %conv1 = trunc nuw i16 %shr to i8
   store i8 %conv1, ptr %buf, align 1
   %conv4 = trunc i16 %value to i8
   %arrayidx5 = getelementptr inbounds i8, ptr %buf, i64 1
@@ -2016,7 +2016,7 @@ entry:
   %buf.i = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i)
   %shr.i = lshr i32 %value, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   store i8 %conv.i, ptr %buf.i, align 1
   %shr1.i = lshr i32 %value, 16
   %conv3.i = trunc i32 %shr1.i to i8
@@ -2143,7 +2143,7 @@ sw.bb44:                                          ; preds = %entry
   %8 = load i8, ptr %client_be45, align 4
   %tobool46 = trunc i8 %8 to i1
   %shr48 = lshr i32 %or29, 24
-  %conv49 = trunc i32 %shr48 to i8
+  %conv49 = trunc nuw i32 %shr48 to i8
   br i1 %tobool46, label %if.then47, label %if.else59
 
 if.then47:                                        ; preds = %sw.bb44
@@ -3402,7 +3402,7 @@ define dso_local void @vnc_write_u32(ptr noundef %vs, i32 noundef %value) local_
 entry:
   %buf = alloca [4 x i8], align 1
   %shr = lshr i32 %value, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   store i8 %conv, ptr %buf, align 1
   %shr1 = lshr i32 %value, 16
   %conv3 = trunc i32 %shr1 to i8
@@ -3886,7 +3886,7 @@ if.end84:                                         ; preds = %if.else81, %if.then
   %arrayidx4.i = getelementptr inbounds i8, ptr %buf.i45, i64 1
   store i8 0, ptr %arrayidx4.i, align 1
   %shr5.i = lshr i32 %size.0, 8
-  %conv7.i = trunc i32 %shr5.i to i8
+  %conv7.i = trunc nuw nsw i32 %shr5.i to i8
   %arrayidx8.i = getelementptr inbounds i8, ptr %buf.i45, i64 2
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %conv10.i = trunc i32 %size.0 to i8
@@ -4626,13 +4626,13 @@ for.end11:                                        ; preds = %for.cond3.for.inc9_
   %tobool.not = icmp eq i32 %inc, 0
   %conv = sitofp i32 %inc to double
   %div12 = fdiv double %add7, %conv
-  br i1 %tobool.not, label %for.end11.thread, label %2
+  br i1 %tobool.not, label %2, label %for.end11.thread
 
-for.end11.thread:                                 ; preds = %for.cond3.preheader.lr.ph, %entry, %for.end11
-  br label %2
+2:                                                ; preds = %for.end11
+  br label %for.end11.thread
 
-2:                                                ; preds = %for.end11, %for.end11.thread
-  %3 = phi double [ 0.000000e+00, %for.end11.thread ], [ %div12, %for.end11 ]
+for.end11.thread:                                 ; preds = %for.cond3.preheader.lr.ph, %entry, %for.end11, %2
+  %3 = phi double [ %div12, %for.end11 ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.cond3.preheader.lr.ph ]
   ret double %3
 }
 
@@ -7381,10 +7381,10 @@ sw.epilog.thread.i:                               ; preds = %sw.epilog.i, %if.en
   %rmax.i = getelementptr inbounds i8, ptr %vs, i64 49440
   store i8 %16, ptr %rmax.i, align 8
   %17 = tail call i32 @llvm.ctpop.i32(i32 %red_max.addr.052106.i), !range !32
-  %conv3.i = trunc i32 %17 to i8
+  %conv3.i = trunc nuw nsw i32 %17 to i8
   %rbits.i = getelementptr inbounds i8, ptr %vs, i64 49444
   store i8 %conv3.i, ptr %rbits.i, align 4
-  %conv5.i = trunc i32 %red_shift.addr.06396.i to i8
+  %conv5.i = trunc nuw i32 %red_shift.addr.06396.i to i8
   %rshift.i = getelementptr inbounds i8, ptr %vs, i64 49436
   store i8 %conv5.i, ptr %rshift.i, align 4
   %shl.i149 = shl i32 %red_max.addr.052106.i, %red_shift.addr.06396.i
@@ -7396,10 +7396,10 @@ sw.epilog.thread.i:                               ; preds = %sw.epilog.i, %if.en
   %gmax.i = getelementptr inbounds i8, ptr %vs, i64 49441
   store i8 %spec.select, ptr %gmax.i, align 1
   %19 = tail call i32 @llvm.ctpop.i32(i32 %green_max.addr.055104.i), !range !32
-  %conv17.i = trunc i32 %19 to i8
+  %conv17.i = trunc nuw nsw i32 %19 to i8
   %gbits.i = getelementptr inbounds i8, ptr %vs, i64 49445
   store i8 %conv17.i, ptr %gbits.i, align 1
-  %conv19.i = trunc i32 %green_shift.addr.06594.i to i8
+  %conv19.i = trunc nuw i32 %green_shift.addr.06594.i to i8
   %gshift.i = getelementptr inbounds i8, ptr %vs, i64 49437
   store i8 %conv19.i, ptr %gshift.i, align 1
   %shl21.i = shl i32 %green_max.addr.055104.i, %green_shift.addr.06594.i
@@ -7411,19 +7411,19 @@ sw.epilog.thread.i:                               ; preds = %sw.epilog.i, %if.en
   %bmax.i = getelementptr inbounds i8, ptr %vs, i64 49442
   store i8 %21, ptr %bmax.i, align 2
   %22 = tail call i32 @llvm.ctpop.i32(i32 %blue_max.addr.059100.i), !range !32
-  %conv32.i = trunc i32 %22 to i8
+  %conv32.i = trunc nuw nsw i32 %22 to i8
   %bbits.i = getelementptr inbounds i8, ptr %vs, i64 49446
   store i8 %conv32.i, ptr %bbits.i, align 2
-  %conv34.i = trunc i32 %blue_shift.addr.06792.i to i8
+  %conv34.i = trunc nuw i32 %blue_shift.addr.06792.i to i8
   %bshift.i = getelementptr inbounds i8, ptr %vs, i64 49438
   store i8 %conv34.i, ptr %bshift.i, align 2
   %shl36.i = shl i32 %blue_max.addr.059100.i, %blue_shift.addr.06792.i
   %bmask.i = getelementptr inbounds i8, ptr %vs, i64 49428
   store i32 %shl36.i, ptr %bmask.i, align 4
-  %conv38.i = trunc i32 %bits_per_pixel.addr.048109.i to i8
+  %conv38.i = trunc nuw i32 %bits_per_pixel.addr.048109.i to i8
   store i8 %conv38.i, ptr %client_pf.i, align 8
   %div38.i = lshr i32 %bits_per_pixel.addr.048109.i, 3
-  %conv41.i = trunc i32 %div38.i to i8
+  %conv41.i = trunc nuw nsw i32 %div38.i to i8
   %bytes_per_pixel.i = getelementptr inbounds i8, ptr %vs, i64 49417
   store i8 %conv41.i, ptr %bytes_per_pixel.i, align 1
   %cmp.i = icmp eq i32 %bits_per_pixel.addr.048109.i, 32
@@ -8871,7 +8871,7 @@ entry:
   store i8 1, ptr %value.addr.i8, align 1
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i8, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %value.addr.i8)
-  %conv = trunc i32 %code to i8
+  %conv = trunc nuw nsw i32 %code to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %value.addr.i9)
   store i8 %conv, ptr %value.addr.i9, align 1
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %value.addr.i9, i64 noundef 1)
@@ -9563,7 +9563,7 @@ sw.bb44.i:                                        ; preds = %for.body
   %9 = load i8, ptr %client_be.i, align 4
   %tobool46.i = trunc i8 %9 to i1
   %shr48.i = lshr i32 %or29.i, 24
-  %conv49.i = trunc i32 %shr48.i to i8
+  %conv49.i = trunc nuw i32 %shr48.i to i8
   %shr51.i = lshr i32 %or29.i, 16
   %conv52.i = trunc i32 %shr51.i to i8
   %shr54.i = lshr i32 %or29.i, 8
@@ -10039,7 +10039,7 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i5.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i10.i)
   %shr.i1122.i = lshr i16 %7, 8
-  %conv1.i12.i = trunc i16 %shr.i1122.i to i8
+  %conv1.i12.i = trunc nuw i16 %shr.i1122.i to i8
   store i8 %conv1.i12.i, ptr %buf.i10.i, align 1
   %conv4.i13.i = trunc i16 %7 to i8
   %arrayidx5.i14.i = getelementptr inbounds i8, ptr %buf.i10.i, i64 1
@@ -10048,7 +10048,7 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i15.i)
   %shr.i1623.i = lshr i16 %8, 8
-  %conv1.i17.i = trunc i16 %shr.i1623.i to i8
+  %conv1.i17.i = trunc nuw i16 %shr.i1623.i to i8
   store i8 %conv1.i17.i, ptr %buf.i15.i, align 1
   %conv4.i18.i = trunc i16 %8 to i8
   %arrayidx5.i19.i = getelementptr inbounds i8, ptr %buf.i15.i, i64 1
@@ -10125,7 +10125,7 @@ if.then14:                                        ; preds = %if.end11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i5.i49)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i10.i48)
   %shr.i1122.i59 = lshr i16 %15, 8
-  %conv1.i12.i60 = trunc i16 %shr.i1122.i59 to i8
+  %conv1.i12.i60 = trunc nuw i16 %shr.i1122.i59 to i8
   store i8 %conv1.i12.i60, ptr %buf.i10.i48, align 1
   %conv4.i13.i61 = trunc i16 %15 to i8
   %arrayidx5.i14.i62 = getelementptr inbounds i8, ptr %buf.i10.i48, i64 1
@@ -10134,7 +10134,7 @@ if.then14:                                        ; preds = %if.end11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10.i48)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i15.i47)
   %shr.i1623.i63 = lshr i16 %16, 8
-  %conv1.i17.i64 = trunc i16 %shr.i1623.i63 to i8
+  %conv1.i17.i64 = trunc nuw i16 %shr.i1623.i63 to i8
   store i8 %conv1.i17.i64, ptr %buf.i15.i47, align 1
   %conv4.i18.i65 = trunc i16 %16 to i8
   %arrayidx5.i19.i66 = getelementptr inbounds i8, ptr %buf.i15.i47, i64 1
@@ -10970,7 +10970,7 @@ if.then3:                                         ; preds = %trace_vnc_msg_serve
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i20)
   %shr.i = lshr i32 %size, 24
-  %conv.i = trunc i32 %shr.i to i8
+  %conv.i = trunc nuw i32 %shr.i to i8
   store i8 %conv.i, ptr %buf.i20, align 1
   %shr1.i = lshr i32 %size, 16
   %conv3.i = trunc i32 %shr1.i to i8
@@ -11672,7 +11672,7 @@ for.cond.i:                                       ; preds = %for.end142.i, %if.e
   %div67.i = udiv i64 %offset.0.i, 192
   %conv68.i = trunc i64 %div67.i to i32
   %rem.i = urem i64 %offset.0.i, 192
-  %conv69.i = trunc i64 %rem.i to i32
+  %conv69.i = trunc nuw nsw i64 %rem.i to i32
   %mul70.i = mul i32 %call26.i, %conv68.i
   %idx.ext.i = sext i32 %mul70.i to i64
   %add.ptr.i = getelementptr i8, ptr %call24.i, i64 %idx.ext.i
@@ -11729,13 +11729,13 @@ for.body.i:                                       ; preds = %for.inc136.i, %for.
   %and1.i.i = and i64 %41, %shl.i.i
   %cmp.i.not.i = icmp eq i64 %and1.i.i, 0
   %.pre.i = add nuw nsw i64 %indvars.iv99.i, 1
-  %.pre103.i = trunc i64 %.pre.i to i32
+  %.pre103.i = trunc nuw i64 %.pre.i to i32
   br i1 %cmp.i.not.i, label %for.inc136.i, label %if.end102.i
 
 if.end102.i:                                      ; preds = %for.body.i
   %mul104.i = mul i32 %cond33.i, %.pre103.i
   %cmp105.i = icmp sgt i32 %mul104.i, %cond66.i
-  %42 = trunc i64 %indvars.iv99.i to i32
+  %42 = trunc nuw i64 %indvars.iv99.i to i32
   %mul108.i = mul i32 %cond33.i, %42
   %sub109.i = sub i32 %cond66.i, %mul108.i
   %_cmp_bytes.0.i = select i1 %cmp105.i, i32 %sub109.i, i32 %cond33.i
@@ -11778,7 +11778,7 @@ if.end.i.i:                                       ; preds = %if.then125.i
   %add.i.i = add i32 %46, 1
   %conv.i78.i = sext i32 %add.i.i to i64
   %rem.i79.i = urem i64 %conv.i78.i, 10
-  %conv2.i.i = trunc i64 %rem.i79.i to i32
+  %conv2.i.i = trunc nuw nsw i64 %rem.i79.i to i32
   store i32 %conv2.i.i, ptr %idx.i.i, align 8
   store i8 1, ptr %updated.i.i, align 8
   br label %if.end127.i
@@ -11994,7 +11994,7 @@ if.end21.i:                                       ; preds = %if.end62.i, %if.end
   %div.i = udiv i64 %call1555.i, 192
   %conv22.i = trunc i64 %div.i to i32
   %rem.i30 = urem i64 %call1555.i, 192
-  %conv23.i = trunc i64 %rem.i30 to i32
+  %conv23.i = trunc nuw nsw i64 %rem.i30 to i32
   %sext.i31 = shl i64 %div.i, 32
   %idxprom.i32 = ashr exact i64 %sext.i31, 32
   %arrayidx.i33 = getelementptr [2048 x [3 x i64]], ptr %dirty.i27, i64 0, i64 %idxprom.i32
@@ -12033,7 +12033,7 @@ if.end.i46.i:                                     ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %find_and_clear_dirty_height.exit.i, label %for.body.i.i, !llvm.loop !45
 
 find_and_clear_dirty_height.exit.loopexit.split.loop.exit50.i: ; preds = %for.body.i.i
-  %78 = trunc i64 %indvars.iv.i.i to i32
+  %78 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %find_and_clear_dirty_height.exit.i
 
 find_and_clear_dirty_height.exit.i:               ; preds = %if.end.i46.i, %find_and_clear_dirty_height.exit.loopexit.split.loop.exit50.i, %if.end21.i
@@ -12881,7 +12881,7 @@ if.then82:                                        ; preds = %if.end74
   br label %if.then112
 
 if.end83:                                         ; preds = %if.end74
-  %conv84 = trunc i64 %5 to i32
+  %conv84 = trunc nuw nsw i64 %5 to i32
   %add85 = add nuw nsw i32 %cond, %conv84
   %call86 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.864, i32 noundef %add85) #23
   %port87 = getelementptr inbounds i8, ptr %call, i64 16

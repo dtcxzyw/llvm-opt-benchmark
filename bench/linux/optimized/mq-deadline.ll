@@ -238,7 +238,7 @@ define internal void @dd_exit_sched(ptr nocapture noundef readonly %0) #2 align 
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %7, i64 92
   %33 = load volatile i32, ptr %32, align 4
-  %34 = trunc i64 %6 to i32
+  %34 = trunc nuw nsw i64 %6 to i32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, i32 noundef %34, i32 noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %33) #12
   tail call void asm sideeffect "747: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 747b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 747) #12, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 683, i32 2313, i64 12) #12, !srcloc !18
@@ -344,7 +344,7 @@ define internal noundef i32 @dd_request_merge(ptr nocapture noundef readonly %0,
   %15 = getelementptr inbounds i8, ptr %7, i64 316
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %51, label %18
+  br i1 %17, label %50, label %18
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %2, i64 22
@@ -361,7 +361,7 @@ define internal noundef i32 @dd_request_merge(ptr nocapture noundef readonly %0,
   %30 = getelementptr [3 x %struct.dd_per_prio], ptr %7, i64 0, i64 %25, i32 1, i64 %29
   %31 = tail call ptr @elv_rb_find(ptr noundef %30, i64 noundef %14) #12
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %51, label %33
+  br i1 %32, label %50, label %33
 
 33:                                               ; preds = %18
   %34 = getelementptr inbounds i8, ptr %31, i64 48
@@ -376,7 +376,7 @@ define internal noundef i32 @dd_request_merge(ptr nocapture noundef readonly %0,
 
 38:                                               ; preds = %33
   %39 = tail call zeroext i1 @elv_bio_merge_ok(ptr noundef nonnull %31, ptr noundef %2) #12
-  br i1 %39, label %40, label %51
+  br i1 %39, label %40, label %50
 
 40:                                               ; preds = %38
   store ptr %31, ptr %1, align 8
@@ -391,14 +391,12 @@ define internal noundef i32 @dd_request_merge(ptr nocapture noundef readonly %0,
   %47 = getelementptr inbounds i8, ptr %46, i64 224
   %48 = load i16, ptr %47, align 8
   %49 = icmp ugt i16 %48, 1
-  br i1 %49, label %51, label %50
+  %spec.select = select i1 %49, i32 3, i32 1
+  br label %50
 
-50:                                               ; preds = %45, %40
-  br label %51
-
-51:                                               ; preds = %50, %45, %38, %18, %3
-  %52 = phi i32 [ 0, %3 ], [ 0, %38 ], [ 0, %18 ], [ 1, %50 ], [ 3, %45 ]
-  ret i32 %52
+50:                                               ; preds = %45, %40, %38, %18, %3
+  %51 = phi i32 [ 0, %3 ], [ 0, %38 ], [ 0, %18 ], [ 1, %40 ], [ %spec.select, %45 ]
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

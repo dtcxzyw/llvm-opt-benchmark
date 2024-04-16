@@ -388,12 +388,12 @@ define dso_local i32 @parse_option_end(ptr noundef readonly %0) local_unnamed_ad
   br label %.preheader, !llvm.loop !7
 
 .thread24:                                        ; preds = %4, %8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = add nuw nsw i32 %12, 1
   br label %17
 
 14:                                               ; preds = %.preheader, %.preheader
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %.not22 = icmp eq i8 %3, 0
   %16 = add nuw nsw i32 %15, 1
   %spec.select = select i1 %.not22, i32 0, i32 %16
@@ -561,19 +561,19 @@ define dso_local ptr @strip_quotes(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %.not54, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !9
 
 ._crit_edge.loopexit77:                           ; preds = %20
-  %53 = trunc i64 %indvars.iv.next86 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.next86 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit81:                           ; preds = %40
-  %54 = trunc i64 %indvars.iv.next to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph.split.us.split
-  %55 = trunc i64 %indvars.iv87 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv87 to i32
   br label %._crit_edge
 
 ._crit_edge.loopexit89.split.loop.exit:           ; preds = %.lr.ph.split.split
-  %56 = trunc i64 %indvars.iv83 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv83 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49, %33, %._crit_edge.loopexit89.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit81, %._crit_edge.loopexit77, %8
@@ -850,7 +850,7 @@ define dso_local noundef i32 @commit_check(ptr noundef %0) local_unnamed_addr #1
   %7 = tail call i32 @fileno(ptr noundef %6) #20
   %8 = load i32, ptr @rollback_flag, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %48, label %9
+  br i1 %.not, label %47, label %9
 
 9:                                                ; preds = %1
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %0)
@@ -930,13 +930,11 @@ define dso_local noundef i32 @commit_check(ptr noundef %0) local_unnamed_addr #1
 45:                                               ; preds = %.critedge
   %46 = and i8 %.033, -33
   %or.cond11 = icmp eq i8 %46, 89
-  br i1 %or.cond11, label %48, label %47
+  %spec.select = zext i1 %or.cond11 to i32
+  br label %47
 
-47:                                               ; preds = %45, %44
-  br label %48
-
-48:                                               ; preds = %45, %1, %47
-  %.0 = phi i32 [ 0, %47 ], [ 1, %1 ], [ 1, %45 ]
+47:                                               ; preds = %45, %44, %1
+  %.0 = phi i32 [ 1, %1 ], [ 0, %44 ], [ %spec.select, %45 ]
   ret i32 %.0
 }
 

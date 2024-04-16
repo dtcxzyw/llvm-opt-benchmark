@@ -1106,7 +1106,7 @@ for.body:                                         ; preds = %if.end3, %faulthand
   br i1 %tobool.not.i, label %faulthandler_unregister.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %conv = trunc i64 %signum.012 to i32
+  %conv = trunc nuw nsw i64 %signum.012 to i32
   store i32 0, ptr %arrayidx, align 8
   %previous.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %call.i = tail call i32 @sigaction(i32 noundef %conv, ptr noundef nonnull %previous.i, ptr noundef null) #15
@@ -1329,18 +1329,14 @@ for.inc:                                          ; preds = %if.then8, %do.body6
 do.body19:                                        ; preds = %for.inc, %do.end
   %5 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 26, i32 0, i32 1), align 8
   %tobool20.not = icmp eq ptr %5, null
-  br i1 %tobool20.not, label %do.end28, label %if.then21
+  br i1 %tobool20.not, label %return, label %if.then21
 
 if.then21:                                        ; preds = %do.body19
   %call23 = tail call i32 %visit(ptr noundef nonnull %5, ptr noundef %arg) #15
-  %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %do.end28, label %return
-
-do.end28:                                         ; preds = %do.body19, %if.then21
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then21, %if.then, %do.end28
-  %retval.0 = phi i32 [ 0, %do.end28 ], [ %call, %if.then ], [ %call23, %if.then21 ], [ %call12, %if.then8 ]
+return:                                           ; preds = %if.then8, %if.then21, %do.body19, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %do.body19 ], [ %call23, %if.then21 ], [ %call12, %if.then8 ]
   ret i32 %retval.0
 }
 
@@ -1726,7 +1722,7 @@ if.end38:                                         ; preds = %if.end36, %if.end27
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i16
 
 if.then.i16:                                      ; preds = %if.end38
-  %conv.i = trunc i64 %rem.i to i32
+  %conv.i = trunc nuw nsw i64 %rem.i to i32
   %call.i = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buffer.i, i64 noundef 100, ptr noundef nonnull @.str.55, i64 noundef %div3.i, i64 noundef %rem4.i, i64 noundef %rem2.i, i32 noundef %conv.i) #15
   br label %format_timeout.exit
 
@@ -2432,7 +2428,7 @@ if.end25:                                         ; preds = %if.end21
 if.then29:                                        ; preds = %if.end25
   %call30 = call i64 @PyLong_AsLong(ptr noundef nonnull %call.i) #15
   %or.cond1 = icmp ult i64 %call30, 2147483647
-  %conv = trunc i64 %call30 to i32
+  %conv = trunc nuw nsw i64 %call30 to i32
   %spec.select = select i1 %or.cond1, i32 %conv, i32 -1
   br label %if.end36
 

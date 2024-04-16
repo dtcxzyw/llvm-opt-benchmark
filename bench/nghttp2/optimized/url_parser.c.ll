@@ -75,8 +75,8 @@ if.end17.i:                                       ; preds = %for.body
 
 sw.bb.i:                                          ; preds = %if.end17.i
   switch i8 %1, label %if.end26.i [
-    i8 47, label %parse_url_char.exit.thread57
-    i8 42, label %parse_url_char.exit.thread57
+    i8 47, label %sw.epilog
+    i8 42, label %sw.epilog
   ]
 
 if.end26.i:                                       ; preds = %sw.bb.i
@@ -106,13 +106,13 @@ sw.bb67.i:                                        ; preds = %if.end17.i
 sw.bb73.i:                                        ; preds = %if.end17.i
   switch i8 %1, label %if.end94.i [
     i8 64, label %return
-    i8 47, label %parse_url_char.exit.thread57
+    i8 47, label %sw.epilog
     i8 63, label %for.inc
   ]
 
 sw.bb79.i:                                        ; preds = %if.end17.i, %if.end17.i
   switch i8 %1, label %if.end94.i [
-    i8 47, label %parse_url_char.exit.thread57
+    i8 47, label %parse_url_char.exit.thread52
     i8 63, label %for.inc
     i8 64, label %sw.epilog
   ]
@@ -160,7 +160,7 @@ sw.bb194.i:                                       ; preds = %if.end17.i
   %shl.i = shl nuw nsw i32 1, %and.i
   %and198.i = and i32 %shl.i, %conv196.i
   %tobool.not.i = icmp eq i32 %and198.i, 0
-  br i1 %tobool.not.i, label %if.end200.i, label %parse_url_char.exit.thread57
+  br i1 %tobool.not.i, label %if.end200.i, label %sw.epilog
 
 if.end200.i:                                      ; preds = %sw.bb194.i
   %switch.selectcmp.i = icmp eq i8 %1, 35
@@ -225,7 +225,7 @@ if.end250.i:                                      ; preds = %sw.bb238.i
     i8 35, label %sw.epilog
   ]
 
-parse_url_char.exit.thread57:                     ; preds = %sw.bb.i, %sw.bb.i, %sw.bb194.i, %sw.bb79.i, %sw.bb73.i
+parse_url_char.exit.thread52:                     ; preds = %sw.bb79.i
   br label %sw.epilog
 
 parse_url_char.exit:                              ; preds = %if.end233.i, %if.end216.i, %if.end200.i
@@ -260,10 +260,10 @@ sw.default:                                       ; preds = %parse_url_char.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 589, ptr noundef nonnull @__PRETTY_FUNCTION__.http_parser_parse_url) #4
   unreachable
 
-sw.epilog:                                        ; preds = %if.end250.i, %if.end250.i, %if.end216.i, %sw.bb204.i, %if.end94.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %sw.bb40.i, %if.end26.i, %if.end233.i, %sw.bb238.i, %sw.bb221.i, %sw.bb79.i, %parse_url_char.exit.thread57, %sw.bb4, %parse_url_char.exit, %sw.bb7, %sw.bb6, %sw.bb5
-  %retval.0.i55 = phi i32 [ %retval.0.i, %parse_url_char.exit ], [ %retval.0.i, %sw.bb4 ], [ %retval.0.i, %sw.bb5 ], [ 27, %parse_url_char.exit.thread57 ], [ %retval.0.i, %sw.bb6 ], [ %retval.0.i, %sw.bb7 ], [ 26, %sw.bb79.i ], [ 31, %sw.bb221.i ], [ 31, %sw.bb238.i ], [ 31, %if.end233.i ], [ 31, %if.end250.i ], [ 21, %if.end26.i ], [ 21, %sw.bb40.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %if.end94.i ], [ 29, %sw.bb204.i ], [ 29, %if.end216.i ], [ 31, %if.end250.i ]
-  %uf.0 = phi i32 [ 0, %parse_url_char.exit ], [ 1, %sw.bb4 ], [ 1, %sw.bb5 ], [ 3, %parse_url_char.exit.thread57 ], [ 3, %sw.bb6 ], [ 4, %sw.bb7 ], [ 1, %sw.bb79.i ], [ 5, %sw.bb221.i ], [ 5, %sw.bb238.i ], [ 5, %if.end233.i ], [ 5, %if.end250.i ], [ 0, %if.end26.i ], [ 0, %sw.bb40.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %if.end94.i ], [ 4, %sw.bb204.i ], [ 4, %if.end216.i ], [ 5, %if.end250.i ]
-  %found_at.2 = phi i32 [ %found_at.084, %parse_url_char.exit ], [ 1, %sw.bb4 ], [ %found_at.084, %sw.bb5 ], [ %found_at.084, %parse_url_char.exit.thread57 ], [ %found_at.084, %sw.bb6 ], [ %found_at.084, %sw.bb7 ], [ 1, %sw.bb79.i ], [ %found_at.084, %sw.bb221.i ], [ %found_at.084, %sw.bb238.i ], [ %found_at.084, %if.end233.i ], [ %found_at.084, %if.end250.i ], [ %found_at.084, %if.end26.i ], [ %found_at.084, %sw.bb40.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %if.end94.i ], [ %found_at.084, %sw.bb204.i ], [ %found_at.084, %if.end216.i ], [ %found_at.084, %if.end250.i ]
+sw.epilog:                                        ; preds = %if.end250.i, %if.end250.i, %if.end216.i, %sw.bb204.i, %if.end94.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %sw.bb40.i, %if.end26.i, %if.end233.i, %sw.bb238.i, %sw.bb221.i, %sw.bb73.i, %sw.bb194.i, %sw.bb.i, %sw.bb.i, %sw.bb79.i, %parse_url_char.exit.thread52, %sw.bb4, %parse_url_char.exit, %sw.bb7, %sw.bb6, %sw.bb5
+  %retval.0.i55 = phi i32 [ %retval.0.i, %parse_url_char.exit ], [ %retval.0.i, %sw.bb4 ], [ %retval.0.i, %sw.bb5 ], [ %retval.0.i, %sw.bb6 ], [ %retval.0.i, %sw.bb7 ], [ 26, %sw.bb79.i ], [ 27, %sw.bb.i ], [ 27, %sw.bb.i ], [ 27, %sw.bb194.i ], [ 27, %sw.bb73.i ], [ 27, %parse_url_char.exit.thread52 ], [ 31, %sw.bb221.i ], [ 31, %sw.bb238.i ], [ 31, %if.end233.i ], [ 31, %if.end250.i ], [ 21, %if.end26.i ], [ 21, %sw.bb40.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %if.end94.i ], [ 29, %sw.bb204.i ], [ 29, %if.end216.i ], [ 31, %if.end250.i ]
+  %uf.0 = phi i32 [ 0, %parse_url_char.exit ], [ 1, %sw.bb4 ], [ 1, %sw.bb5 ], [ 3, %sw.bb6 ], [ 4, %sw.bb7 ], [ 1, %sw.bb79.i ], [ 3, %sw.bb.i ], [ 3, %sw.bb.i ], [ 3, %sw.bb194.i ], [ 3, %sw.bb73.i ], [ 3, %parse_url_char.exit.thread52 ], [ 5, %sw.bb221.i ], [ 5, %sw.bb238.i ], [ 5, %if.end233.i ], [ 5, %if.end250.i ], [ 0, %if.end26.i ], [ 0, %sw.bb40.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %if.end94.i ], [ 4, %sw.bb204.i ], [ 4, %if.end216.i ], [ 5, %if.end250.i ]
+  %found_at.2 = phi i32 [ %found_at.084, %parse_url_char.exit ], [ 1, %sw.bb4 ], [ %found_at.084, %sw.bb5 ], [ %found_at.084, %sw.bb6 ], [ %found_at.084, %sw.bb7 ], [ 1, %sw.bb79.i ], [ %found_at.084, %sw.bb.i ], [ %found_at.084, %sw.bb.i ], [ %found_at.084, %sw.bb194.i ], [ %found_at.084, %sw.bb73.i ], [ %found_at.084, %parse_url_char.exit.thread52 ], [ %found_at.084, %sw.bb221.i ], [ %found_at.084, %sw.bb238.i ], [ %found_at.084, %if.end233.i ], [ %found_at.084, %if.end250.i ], [ %found_at.084, %if.end26.i ], [ %found_at.084, %sw.bb40.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %switch.early.test.i ], [ %found_at.084, %if.end94.i ], [ %found_at.084, %sw.bb204.i ], [ %found_at.084, %if.end216.i ], [ %found_at.084, %if.end250.i ]
   %cmp9 = icmp eq i32 %uf.0, %old_uf.082
   br i1 %cmp9, label %if.then10, label %if.end11
 
@@ -285,7 +285,7 @@ if.end11:                                         ; preds = %sw.epilog
   %len18 = getelementptr inbounds i8, ptr %arrayidx14, i64 2
   store i16 1, ptr %len18, align 2
   %shl = shl nuw nsw i32 1, %uf.0
-  %12 = trunc i32 %shl to i16
+  %12 = trunc nuw nsw i32 %shl to i16
   %conv21 = or i16 %0, %12
   store i16 %conv21, ptr %u, align 2
   br label %for.inc
@@ -631,7 +631,7 @@ for.body84:                                       ; preds = %for.cond81.preheade
   br i1 %cmp88, label %return, label %for.cond81
 
 for.end94.loopexit:                               ; preds = %for.cond81
-  %52 = trunc i64 %add87 to i16
+  %52 = trunc nuw i64 %add87 to i16
   br label %for.end94
 
 for.end94:                                        ; preds = %for.end94.loopexit, %for.cond81.preheader
@@ -640,7 +640,7 @@ for.end94:                                        ; preds = %for.end94.loopexit,
   br label %return
 
 switch.hole_check:                                ; preds = %for.end.i
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 943, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %return, label %if.end42

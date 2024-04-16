@@ -1387,19 +1387,17 @@ define internal fastcc void @_net_rx_rss_prepare_ip6(ptr nocapture noundef write
 entry:
   %_now.i.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  br i1 %ipv6ex, label %land.lhs.true, label %cond.false
+  br i1 %ipv6ex, label %land.lhs.true, label %cond.end
 
 land.lhs.true:                                    ; preds = %entry
   %rss_ex_src_valid = getelementptr inbounds i8, ptr %pkt, i64 153
   %0 = load i8, ptr %rss_ex_src_valid, align 1
   %tobool1 = trunc i8 %0 to i1
-  br i1 %tobool1, label %cond.end, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true, %entry
+  %spec.select = select i1 %tobool1, i64 154, i64 120
   br label %cond.end
 
-cond.end:                                         ; preds = %land.lhs.true, %cond.false
-  %.sink = phi i64 [ 120, %cond.false ], [ 154, %land.lhs.true ]
+cond.end:                                         ; preds = %land.lhs.true, %entry
+  %.sink = phi i64 [ 120, %entry ], [ %spec.select, %land.lhs.true ]
   %ip6_src = getelementptr inbounds i8, ptr %pkt, i64 %.sink
   %1 = load i64, ptr %bytes_written, align 8
   %arrayidx.i = getelementptr i8, ptr %rss_input, i64 %1
@@ -1442,19 +1440,17 @@ _net_rx_rss_add_chunk.exit:                       ; preds = %cond.end, %land.lhs
   %9 = load i64, ptr %bytes_written, align 8
   %add.i = add i64 %9, 16
   store i64 %add.i, ptr %bytes_written, align 8
-  br i1 %ipv6ex, label %land.lhs.true3, label %cond.false6
+  br i1 %ipv6ex, label %land.lhs.true3, label %cond.end8
 
 land.lhs.true3:                                   ; preds = %_net_rx_rss_add_chunk.exit
   %rss_ex_dst_valid = getelementptr inbounds i8, ptr %pkt, i64 170
   %10 = load i8, ptr %rss_ex_dst_valid, align 2
   %tobool4 = trunc i8 %10 to i1
-  br i1 %tobool4, label %cond.end8, label %cond.false6
-
-cond.false6:                                      ; preds = %land.lhs.true3, %_net_rx_rss_add_chunk.exit
+  %spec.select27 = select i1 %tobool4, i64 171, i64 136
   br label %cond.end8
 
-cond.end8:                                        ; preds = %land.lhs.true3, %cond.false6
-  %.sink26 = phi i64 [ 136, %cond.false6 ], [ 171, %land.lhs.true3 ]
+cond.end8:                                        ; preds = %land.lhs.true3, %_net_rx_rss_add_chunk.exit
+  %.sink26 = phi i64 [ 136, %_net_rx_rss_add_chunk.exit ], [ %spec.select27, %land.lhs.true3 ]
   %ip6_dst = getelementptr inbounds i8, ptr %pkt, i64 %.sink26
   %arrayidx.i10 = getelementptr i8, ptr %rss_input, i64 %add.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx.i10, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst, i64 16, i1 false)

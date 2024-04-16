@@ -312,14 +312,12 @@ define noundef i32 @input_colorspace(ptr nocapture noundef readnone %0, ptr noca
   %8 = getelementptr inbounds i8, ptr %7, i64 786732
   %9 = load i32, ptr %8, align 4, !tbaa !21
   %10 = icmp eq i32 %9, 6
-  br i1 %10, label %12, label %11
+  %spec.select = select i1 %10, i32 1, i32 2
+  br label %11
 
 11:                                               ; preds = %5, %3
-  br label %12
-
-12:                                               ; preds = %11, %5
-  %13 = phi i32 [ 1, %5 ], [ 2, %11 ]
-  ret i32 %13
+  %12 = phi i32 [ 2, %3 ], [ %spec.select, %5 ]
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

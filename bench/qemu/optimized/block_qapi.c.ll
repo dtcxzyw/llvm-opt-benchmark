@@ -1766,15 +1766,15 @@ if.else:                                          ; preds = %entry
   %1 = load i64, ptr %vm_clock_nsec, align 8
   %div = udiv i64 %1, 1000000000
   %div3 = udiv i64 %1, 3600000000000
-  %conv4 = trunc i64 %div3 to i32
+  %conv4 = trunc nuw nsw i64 %div3 to i32
   %div5 = udiv i64 %1, 60000000000
-  %rem.lhs.trunc = trunc i64 %div5 to i32
+  %rem.lhs.trunc = trunc nuw nsw i64 %div5 to i32
   %rem12 = urem i32 %rem.lhs.trunc, 60
   %rem7 = urem i64 %div, 60
-  %conv8 = trunc i64 %rem7 to i32
+  %conv8 = trunc nuw nsw i64 %rem7 to i32
   %div10 = udiv i64 %1, 1000000
   %rem11 = urem i64 %div10, 1000
-  %conv12 = trunc i64 %rem11 to i32
+  %conv12 = trunc nuw nsw i64 %rem11 to i32
   %call13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %clock_buf, i64 noundef 128, ptr noundef nonnull @.str.15, i32 noundef %conv4, i32 noundef %rem12, i32 noundef %conv8, i32 noundef %conv12) #9
   %vm_state_size = getelementptr inbounds i8, ptr %sn, i64 384
   %2 = load i64, ptr %vm_state_size, align 8
@@ -1830,7 +1830,7 @@ entry:
   call void @visit_complete(ptr noundef %call, ptr noundef nonnull %obj) #9
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %qobject_check_type.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %0, align 8
@@ -1844,13 +1844,11 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %qobject_type.exit.i, %entry
+  %spec.select.i = select i1 %cmp.i, ptr %0, ptr null
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
+qobject_check_type.exit:                          ; preds = %entry, %qobject_type.exit.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %spec.select.i, %qobject_type.exit.i ]
   %call3 = call ptr @qdict_get(ptr noundef %retval.0.i, ptr noundef nonnull @.str.18) #9
   %obj.val.i7 = load i32, ptr %call3, align 8
   %2 = add i32 %obj.val.i7, -1
@@ -1867,10 +1865,10 @@ qobject_type.exit.i10:                            ; preds = %qobject_check_type.
     i32 3, label %if.then
     i32 6, label %if.then
     i32 4, label %qobject_is_empty_dump.exit
-    i32 5, label %qobject_check_type.exit13.i
+    i32 5, label %qobject_check_type.exit12.i
   ]
 
-qobject_check_type.exit13.i:                      ; preds = %qobject_type.exit.i10
+qobject_check_type.exit12.i:                      ; preds = %qobject_type.exit.i10
   %call6.i = call i32 @qlist_empty(ptr noundef nonnull %call3) #9
   %tobool.i.not = icmp eq i32 %call6.i, 0
   br i1 %tobool.i.not, label %if.then, label %if.end7
@@ -1884,7 +1882,7 @@ qobject_is_empty_dump.exit:                       ; preds = %qobject_type.exit.i
   %cmp.i12 = icmp eq i64 %call3.i, 0
   br i1 %cmp.i12, label %if.end7, label %if.then
 
-if.then:                                          ; preds = %qobject_type.exit.i10, %qobject_type.exit.i10, %qobject_type.exit.i10, %qobject_check_type.exit13.i, %qobject_is_empty_dump.exit
+if.then:                                          ; preds = %qobject_type.exit.i10, %qobject_type.exit.i10, %qobject_type.exit.i10, %qobject_check_type.exit12.i, %qobject_is_empty_dump.exit
   %tobool.not = icmp eq ptr %prefix, null
   br i1 %tobool.not, label %if.end, label %if.then5
 
@@ -1898,7 +1896,7 @@ if.end:                                           ; preds = %if.then5, %if.then
   call fastcc void @dump_qobject(i32 noundef %add, ptr noundef nonnull %call3)
   br label %if.end7
 
-if.end7:                                          ; preds = %qobject_check_type.exit13.i, %if.end, %qobject_is_empty_dump.exit
+if.end7:                                          ; preds = %qobject_check_type.exit12.i, %if.end, %qobject_is_empty_dump.exit
   %3 = load ptr, ptr %obj, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
@@ -1907,9 +1905,9 @@ lor.lhs.false.i:                                  ; preds = %if.end7
   %refcnt.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %4, 0
-  br i1 %tobool1.not.i, label %if.else.i15, label %land.lhs.true.i13
+  br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i13
 
-if.else.i15:                                      ; preds = %lor.lhs.false.i
+if.else.i:                                        ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.44, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #12
   unreachable
 
@@ -1951,10 +1949,10 @@ if.else.i:                                        ; preds = %entry
 qobject_type.exit:                                ; preds = %entry
   switch i32 %obj.val, label %sw.default [
     i32 2, label %qobject_check_type.exit
-    i32 3, label %qobject_check_type.exit18
-    i32 4, label %qobject_check_type.exit28
-    i32 5, label %qobject_check_type.exit39
-    i32 6, label %qobject_check_type.exit64
+    i32 3, label %qobject_check_type.exit17
+    i32 4, label %qobject_check_type.exit27
+    i32 5, label %qobject_check_type.exit38
+    i32 6, label %qobject_check_type.exit63
   ]
 
 qobject_check_type.exit:                          ; preds = %qobject_type.exit
@@ -1963,45 +1961,45 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit
   tail call void @g_free(ptr noundef %call2) #9
   br label %sw.epilog
 
-qobject_check_type.exit18:                        ; preds = %qobject_type.exit
+qobject_check_type.exit17:                        ; preds = %qobject_type.exit
   %call7 = tail call ptr @qstring_get_str(ptr noundef nonnull %obj) #9
   %call8 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call7) #9
   br label %sw.epilog
 
-qobject_check_type.exit28:                        ; preds = %qobject_type.exit
+qobject_check_type.exit27:                        ; preds = %qobject_type.exit
   %call.i = tail call ptr @qdict_first(ptr noundef nonnull %obj) #9
-  %tobool.not.i2978 = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i2978, label %sw.epilog, label %for.body.i.lr.ph
+  %tobool.not.i2877 = icmp eq ptr %call.i, null
+  br i1 %tobool.not.i2877, label %sw.epilog, label %for.body.i.lr.ph
 
-for.body.i.lr.ph:                                 ; preds = %qobject_check_type.exit28
+for.body.i.lr.ph:                                 ; preds = %qobject_check_type.exit27
   %mul.i = shl i32 %comp_indent, 2
   %add29.i = add i32 %comp_indent, 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.end.i
-  %entry1.0.i79 = phi ptr [ %call.i, %for.body.i.lr.ph ], [ %call34.i, %if.end.i ]
-  %value.i = getelementptr inbounds i8, ptr %entry1.0.i79, i64 8
+  %entry1.0.i78 = phi ptr [ %call.i, %for.body.i.lr.ph ], [ %call34.i, %if.end.i ]
+  %value.i = getelementptr inbounds i8, ptr %entry1.0.i78, i64 8
   %1 = load ptr, ptr %value.i, align 8
   %.val.i = load i32, ptr %1, align 8
   %2 = add i32 %.val.i, -1
-  %or.cond.i65 = icmp ult i32 %2, 6
-  br i1 %or.cond.i65, label %qobject_type.exit68, label %if.else.i66
+  %or.cond.i64 = icmp ult i32 %2, 6
+  br i1 %or.cond.i64, label %qobject_type.exit67, label %if.else.i65
 
-if.else.i66:                                      ; preds = %for.body.i
+if.else.i65:                                      ; preds = %for.body.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #12
   unreachable
 
-qobject_type.exit68:                              ; preds = %for.body.i
+qobject_type.exit67:                              ; preds = %for.body.i
   %3 = and i32 %.val.i, 6
-  %4 = load ptr, ptr %entry1.0.i79, align 8
+  %4 = load ptr, ptr %entry1.0.i78, align 8
   %call5.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
   %add.i = add i64 %call5.i, 1
   %call6.i = tail call noalias ptr @g_malloc(i64 noundef %add.i) #10
   br label %for.cond7.i
 
-for.cond7.i:                                      ; preds = %cond.end.i, %qobject_type.exit68
-  %i.0.i = phi i32 [ 0, %qobject_type.exit68 ], [ %inc.i, %cond.end.i ]
-  %5 = load ptr, ptr %entry1.0.i79, align 8
+for.cond7.i:                                      ; preds = %cond.end.i, %qobject_type.exit67
+  %i.0.i = phi i32 [ 0, %qobject_type.exit67 ], [ %inc.i, %cond.end.i ]
+  %5 = load ptr, ptr %entry1.0.i78, align 8
   %idxprom.i = sext i32 %i.0.i to i64
   %arrayidx.i = getelementptr i8, ptr %5, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -2036,55 +2034,55 @@ if.then.i:                                        ; preds = %for.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.end.i
   tail call void @g_free(ptr noundef nonnull %call6.i) #9
-  %call34.i = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry1.0.i79) #9
-  %tobool.not.i29 = icmp eq ptr %call34.i, null
-  br i1 %tobool.not.i29, label %sw.epilog, label %for.body.i, !llvm.loop !17
+  %call34.i = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry1.0.i78) #9
+  %tobool.not.i28 = icmp eq ptr %call34.i, null
+  br i1 %tobool.not.i28, label %sw.epilog, label %for.body.i, !llvm.loop !17
 
-qobject_check_type.exit39:                        ; preds = %qobject_type.exit
+qobject_check_type.exit38:                        ; preds = %qobject_type.exit
   %9 = getelementptr i8, ptr %obj, i64 16
-  %entry1.0.i4374 = load ptr, ptr %9, align 8
-  %tobool.not.i4475 = icmp eq ptr %entry1.0.i4374, null
-  br i1 %tobool.not.i4475, label %sw.epilog, label %for.body.i45.lr.ph
+  %entry1.0.i4273 = load ptr, ptr %9, align 8
+  %tobool.not.i4374 = icmp eq ptr %entry1.0.i4273, null
+  br i1 %tobool.not.i4374, label %sw.epilog, label %for.body.i44.lr.ph
 
-for.body.i45.lr.ph:                               ; preds = %qobject_check_type.exit39
-  %mul.i48 = shl i32 %comp_indent, 2
-  %add.i51 = add i32 %comp_indent, 1
-  br label %for.body.i45
+for.body.i44.lr.ph:                               ; preds = %qobject_check_type.exit38
+  %mul.i47 = shl i32 %comp_indent, 2
+  %add.i50 = add i32 %comp_indent, 1
+  br label %for.body.i44
 
-for.body.i45:                                     ; preds = %for.body.i45.lr.ph, %for.inc.i
-  %entry1.0.i4377 = phi ptr [ %entry1.0.i4374, %for.body.i45.lr.ph ], [ %entry1.0.i43, %for.inc.i ]
-  %i.0.i4276 = phi i32 [ 0, %for.body.i45.lr.ph ], [ %inc.i53, %for.inc.i ]
-  %10 = load ptr, ptr %entry1.0.i4377, align 8
-  %.val.i46 = load i32, ptr %10, align 8
-  %11 = add i32 %.val.i46, -1
-  %or.cond.i69 = icmp ult i32 %11, 6
-  br i1 %or.cond.i69, label %qobject_type.exit72, label %if.else.i70
+for.body.i44:                                     ; preds = %for.body.i44.lr.ph, %for.inc.i
+  %entry1.0.i4276 = phi ptr [ %entry1.0.i4273, %for.body.i44.lr.ph ], [ %entry1.0.i42, %for.inc.i ]
+  %i.0.i4175 = phi i32 [ 0, %for.body.i44.lr.ph ], [ %inc.i52, %for.inc.i ]
+  %10 = load ptr, ptr %entry1.0.i4276, align 8
+  %.val.i45 = load i32, ptr %10, align 8
+  %11 = add i32 %.val.i45, -1
+  %or.cond.i68 = icmp ult i32 %11, 6
+  br i1 %or.cond.i68, label %qobject_type.exit71, label %if.else.i69
 
-if.else.i70:                                      ; preds = %for.body.i45
+if.else.i69:                                      ; preds = %for.body.i44
   tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #12
   unreachable
 
-qobject_type.exit72:                              ; preds = %for.body.i45
-  %12 = and i32 %.val.i46, 6
+qobject_type.exit71:                              ; preds = %for.body.i44
+  %12 = and i32 %.val.i45, 6
   %13 = icmp eq i32 %12, 4
-  %cond.i49 = select i1 %13, i32 10, i32 32
-  %call5.i50 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.48, i32 noundef %mul.i48, ptr noundef nonnull @.str.20, i32 noundef %i.0.i4276, i32 noundef %cond.i49) #9
-  %14 = load ptr, ptr %entry1.0.i4377, align 8
-  tail call fastcc void @dump_qobject(i32 noundef %add.i51, ptr noundef %14)
-  br i1 %13, label %for.inc.i, label %if.then.i52
+  %cond.i48 = select i1 %13, i32 10, i32 32
+  %call5.i49 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.48, i32 noundef %mul.i47, ptr noundef nonnull @.str.20, i32 noundef %i.0.i4175, i32 noundef %cond.i48) #9
+  %14 = load ptr, ptr %entry1.0.i4276, align 8
+  tail call fastcc void @dump_qobject(i32 noundef %add.i50, ptr noundef %14)
+  br i1 %13, label %for.inc.i, label %if.then.i51
 
-if.then.i52:                                      ; preds = %qobject_type.exit72
+if.then.i51:                                      ; preds = %qobject_type.exit71
   %call8.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #9
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then.i52, %qobject_type.exit72
-  %15 = getelementptr i8, ptr %entry1.0.i4377, i64 8
-  %inc.i53 = add i32 %i.0.i4276, 1
-  %entry1.0.i43 = load ptr, ptr %15, align 8
-  %tobool.not.i44 = icmp eq ptr %entry1.0.i43, null
-  br i1 %tobool.not.i44, label %sw.epilog, label %for.body.i45, !llvm.loop !18
+for.inc.i:                                        ; preds = %if.then.i51, %qobject_type.exit71
+  %15 = getelementptr i8, ptr %entry1.0.i4276, i64 8
+  %inc.i52 = add i32 %i.0.i4175, 1
+  %entry1.0.i42 = load ptr, ptr %15, align 8
+  %tobool.not.i43 = icmp eq ptr %entry1.0.i42, null
+  br i1 %tobool.not.i43, label %sw.epilog, label %for.body.i44, !llvm.loop !18
 
-qobject_check_type.exit64:                        ; preds = %qobject_type.exit
+qobject_check_type.exit63:                        ; preds = %qobject_type.exit
   %call18 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %obj) #9
   %cond = select i1 %call18, ptr @.str.45, ptr @.str.46
   %call19 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef nonnull %cond) #9
@@ -2094,7 +2092,7 @@ sw.default:                                       ; preds = %qobject_type.exit
   tail call void @abort() #12
   unreachable
 
-sw.epilog:                                        ; preds = %for.inc.i, %if.end.i, %qobject_check_type.exit39, %qobject_check_type.exit28, %qobject_check_type.exit64, %qobject_check_type.exit18, %qobject_check_type.exit
+sw.epilog:                                        ; preds = %for.inc.i, %if.end.i, %qobject_check_type.exit38, %qobject_check_type.exit27, %qobject_check_type.exit63, %qobject_check_type.exit17, %qobject_check_type.exit
   ret void
 }
 

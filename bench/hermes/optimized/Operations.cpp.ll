@@ -307,7 +307,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %p.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %incdec.ptr.i, %do.body.i ]
   %n.0.i = phi i32 [ %conv.i, %if.then.i ], [ %div.i, %do.body.i ]
   %rem.i = urem i32 %n.0.i, 10
-  %12 = trunc i32 %rem.i to i8
+  %12 = trunc nuw nsw i32 %rem.i to i8
   %conv3.i = or disjoint i8 %12, 48
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 -1
   store i8 %conv3.i, ptr %incdec.ptr.i, align 1
@@ -424,7 +424,7 @@ sw.bb22:                                          ; preds = %entry
 
 sw.bb26:                                          ; preds = %entry, %entry
   %cmp.i.i = icmp ugt i64 %0, -844424930131969
-  br i1 %cmp.i.i, label %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, label %if.end
+  br i1 %cmp.i.i, label %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, label %return
 
 _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit: ; preds = %sw.bb26
   %and.i.i = and i64 %0, 281474976710655
@@ -432,16 +432,14 @@ _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit: ; preds = %sw.bb26
   %bf.load.i.i.i.i.i.i.i.i.i = load i32, ptr %1, align 4
   %2 = add i32 %bf.load.i.i.i.i.i.i.i.i.i, -1140850688
   %3 = icmp ult i32 %2, 150994944
-  br i1 %3, label %return, label %if.end
-
-if.end:                                           ; preds = %sw.bb26, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit
+  %spec.select = select i1 %3, i32 26, i32 25
   br label %return
 
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, %entry, %sw.default, %if.end, %sw.bb22, %sw.bb18, %sw.bb14, %sw.bb10, %sw.bb6
-  %.sink = phi i32 [ 19, %sw.default ], [ 25, %if.end ], [ 24, %sw.bb22 ], [ 23, %sw.bb18 ], [ 20, %sw.bb14 ], [ 21, %sw.bb10 ], [ 25, %sw.bb6 ], [ 17, %entry ], [ 26, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ]
+return:                                           ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, %sw.bb26, %entry, %sw.default, %sw.bb22, %sw.bb18, %sw.bb14, %sw.bb10, %sw.bb6
+  %.sink = phi i32 [ 19, %sw.default ], [ 24, %sw.bb22 ], [ 23, %sw.bb18 ], [ 20, %sw.bb14 ], [ 21, %sw.bb10 ], [ 25, %sw.bb6 ], [ 17, %entry ], [ 25, %sw.bb26 ], [ %spec.select, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ]
   %identifierTable_.i.i30 = getelementptr inbounds i8, ptr %runtime, i64 9264
   %call.i.i31 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i30, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %.sink) #17
   %retval.sroa.0.0.in = ptrtoint ptr %call.i.i31 to i64
@@ -1346,7 +1344,7 @@ if.else.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.else.i, %for.body.i
   %cond.i.sink.i = phi i16 [ %12, %for.body.i ], [ %14, %if.else.i ]
   %.sink36.i = phi i8 [ -48, %for.body.i ], [ -87, %if.else.i ]
-  %15 = trunc i16 %cond.i.sink.i to i8
+  %15 = trunc nsw i16 %cond.i.sink.i to i8
   %conv11.i = add i8 %.sink36.i, %15
   %mul.i.i = fmul double %result.0, %conv.i8.i
   %conv3.i.i = uitofp i8 %conv11.i to double
@@ -1507,7 +1505,7 @@ for.end:                                          ; preds = %if.then7
   ]
 
 sw.bb56:                                          ; preds = %for.end
-  %tobool57 = trunc i8 %lowestExponentBit.0 to i1
+  %tobool57 = trunc nuw i8 %lowestExponentBit.0 to i1
   %27 = uitofp i8 %lastMantissaBit.0 to double
   %conv60 = select i1 %tobool57, double %27, double 0.000000e+00
   %add61 = fadd double %result.2, %conv60
@@ -4802,7 +4800,7 @@ while.body:                                       ; preds = %while.body.backedge
   %shl.i = select i1 %cmp.i.i, i64 128, i64 %10
   %and1.i = select i1 %cmp.i.i21, i64 8, i64 %9
   %or.i = or disjoint i64 %and1.i, %shl.i
-  %trunc = trunc i64 %or.i to i8
+  %trunc = trunc nuw i64 %or.i to i8
   switch i8 %trunc, label %return [
     i8 68, label %return.loopexit
     i8 85, label %return.loopexit

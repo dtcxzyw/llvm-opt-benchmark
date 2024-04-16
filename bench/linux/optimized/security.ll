@@ -496,7 +496,8 @@ define internal fastcc noundef i32 @lsm_append(ptr noundef %0) unnamed_addr #3 a
   %5 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #17
   store ptr %5, ptr @lsm_names, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %24, label %23
+  %spec.select = select i1 %6, i32 -12, i32 0
+  br label %23
 
 7:                                                ; preds = %1
   %8 = icmp eq ptr %0, null
@@ -516,13 +517,13 @@ define internal fastcc noundef i32 @lsm_append(ptr noundef %0) unnamed_addr #3 a
   %14 = select i1 %12, ptr %2, ptr %13
   %15 = tail call i32 @strcmp(ptr noundef %14, ptr noundef nonnull dereferenceable(1) %0) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %24, label %17
+  br i1 %16, label %23, label %17
 
 17:                                               ; preds = %10, %9
   %18 = phi ptr [ %2, %10 ], [ %.pre, %9 ]
   %19 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.73, ptr noundef %18, ptr noundef %0) #17
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %24, label %21
+  br i1 %20, label %23, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr @lsm_names, align 8
@@ -530,12 +531,9 @@ define internal fastcc noundef i32 @lsm_append(ptr noundef %0) unnamed_addr #3 a
   store ptr %19, ptr @lsm_names, align 8
   br label %23
 
-23:                                               ; preds = %21, %4
-  br label %24
-
-24:                                               ; preds = %23, %17, %10, %4
-  %25 = phi i32 [ 0, %23 ], [ -12, %4 ], [ 0, %10 ], [ -12, %17 ]
-  ret i32 %25
+23:                                               ; preds = %4, %21, %17, %10
+  %24 = phi i32 [ 0, %10 ], [ -12, %17 ], [ 0, %21 ], [ %spec.select, %4 ]
+  ret i32 %24
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -1994,7 +1992,7 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
 
 .thread5.thread:                                  ; preds = %25
   tail call void @kfree(ptr noundef %26) #17
-  br label %50
+  br label %.thread
 
 .preheader6:                                      ; preds = %25, %33
   %29 = phi ptr [ %34, %33 ], [ %27, %25 ]
@@ -2044,15 +2042,13 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
   %.fr = freeze i32 %48
   call void @kfree(ptr noundef %26) #17
   %49 = icmp eq i32 %.fr, -95
-  br i1 %49, label %50, label %.thread
-
-50:                                               ; preds = %.thread5.thread, %.thread5
+  %spec.select = select i1 %49, i32 0, i32 %.fr
   br label %.thread
 
-.thread:                                          ; preds = %50, %.thread5, %16, %21, %11, %5
-  %51 = phi i32 [ 0, %5 ], [ 0, %11 ], [ -12, %21 ], [ -12, %16 ], [ 0, %50 ], [ %.fr, %.thread5 ]
+.thread:                                          ; preds = %.thread5, %.thread5.thread, %16, %21, %11, %5
+  %50 = phi i32 [ 0, %5 ], [ 0, %11 ], [ -12, %21 ], [ -12, %16 ], [ 0, %.thread5.thread ], [ %spec.select, %.thread5 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  ret i32 %51
+  ret i32 %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

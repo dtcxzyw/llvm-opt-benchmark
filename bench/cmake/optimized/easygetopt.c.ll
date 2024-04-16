@@ -85,26 +85,24 @@ lookup.exit:                                      ; preds = %5, %9, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @curl_easy_option_next(ptr noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @curl_easy_option_next(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
   %.not8 = icmp eq ptr %3, null
-  br i1 %.not8, label %7, label %4
+  br i1 %.not8, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
-  br i1 %.not9, label %7, label %.critedge
-
-7:                                                ; preds = %2, %4
+  %spec.select = select i1 %.not9, ptr null, ptr %5
   br label %.critedge
 
-.critedge:                                        ; preds = %1, %4, %7
-  %.0 = phi ptr [ null, %7 ], [ %5, %4 ], [ @Curl_easyopts, %1 ]
+.critedge:                                        ; preds = %4, %2, %1
+  %.0 = phi ptr [ @Curl_easyopts, %1 ], [ null, %2 ], [ %spec.select, %4 ]
   ret ptr %.0
 }
 

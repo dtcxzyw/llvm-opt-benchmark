@@ -1051,12 +1051,12 @@ define i32 @ARKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %4 = alloca ptr, align 8
   %5 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetUserData, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %21
+  br i1 %.not, label %6, label %20
 
 6:                                                ; preds = %2
   %7 = call i32 @arkSetUserData(ptr noundef %0, ptr noundef %1) #6
   %.not19 = icmp eq i32 %7, 0
-  br i1 %.not19, label %8, label %21
+  br i1 %.not19, label %8, label %20
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %4, align 8
@@ -1068,7 +1068,7 @@ define i32 @ARKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
 12:                                               ; preds = %8
   %13 = call i32 @arkLSSetUserData(ptr noundef %0, ptr noundef %1) #6
   %.not21 = icmp eq i32 %13, 0
-  br i1 %.not21, label %._crit_edge, label %21
+  br i1 %.not21, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %12
   %.pre = load ptr, ptr %4, align 8
@@ -1083,14 +1083,10 @@ define i32 @ARKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 18:                                               ; preds = %14
   %19 = call i32 @arkLSSetMassUserData(ptr noundef %0, ptr noundef %1) #6
-  %.not23 = icmp eq i32 %19, 0
-  br i1 %.not23, label %20, label %21
+  br label %20
 
-20:                                               ; preds = %18, %14
-  br label %21
-
-21:                                               ; preds = %18, %12, %6, %2, %20
-  %.0 = phi i32 [ 0, %20 ], [ %5, %2 ], [ %7, %6 ], [ %13, %12 ], [ %19, %18 ]
+20:                                               ; preds = %18, %14, %12, %6, %2
+  %.0 = phi i32 [ %5, %2 ], [ %7, %6 ], [ %13, %12 ], [ 0, %14 ], [ %19, %18 ]
   ret i32 %.0
 }
 
@@ -1774,7 +1770,7 @@ define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetImplicit, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %37
+  br i1 %.not, label %5, label %35
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
@@ -1786,7 +1782,7 @@ define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %5
   %11 = load ptr, ptr %2, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %11, i32 noundef -22, i32 noundef 1179, ptr noundef nonnull @__func__.ARKStepSetImplicit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #6
-  br label %37
+  br label %35
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %6, i64 28
@@ -1797,7 +1793,7 @@ define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
   %16 = getelementptr inbounds i8, ptr %15, i64 84
   %17 = load i32, ptr %16, align 4
   %.not8 = icmp eq i32 %17, 0
-  br i1 %.not8, label %18, label %36
+  br i1 %.not8, label %18, label %35
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %15, i64 24
@@ -1825,16 +1821,8 @@ define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
   %34 = call i32 @arkSStolerances(ptr noundef nonnull %15, double noundef %31, double noundef %33) #6
   br label %35
 
-35:                                               ; preds = %29, %25
-  %.0 = phi i32 [ %28, %25 ], [ %34, %29 ]
-  %.not10 = icmp eq i32 %.0, 0
-  br i1 %.not10, label %36, label %37
-
-36:                                               ; preds = %35, %12
-  br label %37
-
-37:                                               ; preds = %35, %1, %36, %10
-  %.05 = phi i32 [ -22, %10 ], [ 0, %36 ], [ %4, %1 ], [ %.0, %35 ]
+35:                                               ; preds = %25, %29, %12, %1, %10
+  %.05 = phi i32 [ -22, %10 ], [ %4, %1 ], [ 0, %12 ], [ %28, %25 ], [ %34, %29 ]
   ret i32 %.05
 }
 
@@ -1848,7 +1836,7 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKStepSetImEx, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %42
+  br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
@@ -1859,7 +1847,7 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %5
   %10 = load ptr, ptr %2, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %10, i32 noundef -22, i32 noundef 1224, ptr noundef nonnull @__func__.ARKStepSetImEx, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #6
-  br label %42
+  br label %40
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1870,7 +1858,7 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %11
   %16 = load ptr, ptr %2, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %16, i32 noundef -22, i32 noundef 1230, ptr noundef nonnull @__func__.ARKStepSetImEx, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #6
-  br label %42
+  br label %40
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %6, i64 24
@@ -1881,7 +1869,7 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
   %21 = getelementptr inbounds i8, ptr %20, i64 84
   %22 = load i32, ptr %21, align 4
   %.not8 = icmp eq i32 %22, 0
-  br i1 %.not8, label %23, label %41
+  br i1 %.not8, label %23, label %40
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %20, i64 24
@@ -1909,16 +1897,8 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
   %39 = call i32 @arkSStolerances(ptr noundef nonnull %20, double noundef %36, double noundef %38) #6
   br label %40
 
-40:                                               ; preds = %34, %30
-  %.0 = phi i32 [ %33, %30 ], [ %39, %34 ]
-  %.not10 = icmp eq i32 %.0, 0
-  br i1 %.not10, label %41, label %42
-
-41:                                               ; preds = %40, %17
-  br label %42
-
-42:                                               ; preds = %40, %1, %41, %15, %9
-  %.05 = phi i32 [ -22, %9 ], [ -22, %15 ], [ 0, %41 ], [ %4, %1 ], [ %.0, %40 ]
+40:                                               ; preds = %30, %34, %17, %1, %15, %9
+  %.05 = phi i32 [ -22, %9 ], [ -22, %15 ], [ %4, %1 ], [ 0, %17 ], [ %33, %30 ], [ %39, %34 ]
   ret i32 %.05
 }
 

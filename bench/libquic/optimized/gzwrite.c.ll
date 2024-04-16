@@ -138,7 +138,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 do.body.if.end28_crit_edge:                       ; preds = %do.body
   %.pre = load ptr, ptr %strm1, align 8
-  %.pre50 = load ptr, ptr %in31, align 8
+  %.pre51 = load ptr, ptr %in31, align 8
   br label %if.end28
 
 if.then27:                                        ; preds = %do.body
@@ -147,7 +147,7 @@ if.then27:                                        ; preds = %do.body
   br label %if.end28
 
 if.end28:                                         ; preds = %do.body.if.end28_crit_edge, %if.then27
-  %13 = phi ptr [ %.pre50, %do.body.if.end28_crit_edge ], [ %12, %if.then27 ]
+  %13 = phi ptr [ %.pre51, %do.body.if.end28_crit_edge ], [ %12, %if.then27 ]
   %14 = phi ptr [ %.pre, %do.body.if.end28_crit_edge ], [ %12, %if.then27 ]
   %idx.ext = zext i32 %11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %14, i64 %idx.ext
@@ -170,13 +170,13 @@ if.end28:                                         ; preds = %do.body.if.end28_cr
   store i64 %add43, ptr %pos, align 8
   %sub46 = sub i32 %len.addr.0, %spec.select
   %tobool47.not = icmp eq i32 %sub46, 0
-  br i1 %tobool47.not, label %if.end74, label %land.lhs.true48
+  br i1 %tobool47.not, label %return, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %if.end28
   %add.ptr45 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %conv40
   %call49 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !5
   %cmp50 = icmp eq i32 %call49, -1
-  br i1 %cmp50, label %return, label %do.body, !llvm.loop !8
+  br i1 %cmp50, label %return, label %do.body
 
 if.else:                                          ; preds = %if.end22
   %18 = load i32, ptr %avail_in, align 8
@@ -198,13 +198,11 @@ if.end62:                                         ; preds = %land.lhs.true57, %i
   store i64 %add68, ptr %pos67, align 8
   %call69 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %file, i32 noundef 0), !range !5
   %cmp70 = icmp eq i32 %call69, -1
-  br i1 %cmp70, label %return, label %if.end74
-
-if.end74:                                         ; preds = %if.end28, %if.end62
+  %spec.select46 = select i1 %cmp70, i32 0, i32 %len
   br label %return
 
-return:                                           ; preds = %if.end10.i, %land.lhs.true48, %land.lhs.true.i, %if.end62, %land.lhs.true57, %land.lhs.true, %if.end8, %if.end, %lor.lhs.false, %entry, %if.end74, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then7 ], [ %len, %if.end74 ], [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %if.end8 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true57 ], [ 0, %if.end62 ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true48 ], [ 0, %if.end10.i ]
+return:                                           ; preds = %if.end10.i, %land.lhs.true48, %if.end28, %land.lhs.true.i, %if.end62, %land.lhs.true57, %land.lhs.true, %if.end8, %if.end, %lor.lhs.false, %entry, %if.then7
+  %retval.0 = phi i32 [ 0, %if.then7 ], [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %if.end8 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true57 ], [ %spec.select46, %if.end62 ], [ 0, %land.lhs.true.i ], [ %len, %if.end28 ], [ 0, %land.lhs.true48 ], [ 0, %if.end10.i ]
   ret i32 %retval.0
 }
 
@@ -390,7 +388,7 @@ if.end58.us:                                      ; preds = %do.body.us, %if.end
 if.end64.us:                                      ; preds = %if.end58.us
   %11 = load i32, ptr %avail_out, align 8
   %tobool66.not.us = icmp eq i32 %10, %11
-  br i1 %tobool66.not.us, label %do.end, label %do.body.us, !llvm.loop !9
+  br i1 %tobool66.not.us, label %do.end, label %do.body.us, !llvm.loop !8
 
 do.body.us38:                                     ; preds = %do.body.preheader, %if.end64.us62
   %12 = load ptr, ptr %next_out, align 8
@@ -439,7 +437,7 @@ if.end54.us58:                                    ; preds = %if.end46.us55.if.en
 if.end64.us62:                                    ; preds = %if.end54.us58
   %20 = load i32, ptr %avail_out, align 8
   %tobool66.not.us63 = icmp eq i32 %18, %20
-  br i1 %tobool66.not.us63, label %do.end, label %do.body.us38, !llvm.loop !9
+  br i1 %tobool66.not.us63, label %do.end, label %do.body.us38, !llvm.loop !8
 
 if.then3:                                         ; preds = %if.end
   %fd = getelementptr inbounds i8, ptr %state, i64 28
@@ -543,7 +541,7 @@ if.then63:                                        ; preds = %if.end58, %if.end58
 if.end64:                                         ; preds = %if.end58
   %37 = load i32, ptr %avail_out, align 8
   %tobool66.not = icmp eq i32 %36, %37
-  br i1 %tobool66.not, label %do.end, label %do.body, !llvm.loop !9
+  br i1 %tobool66.not, label %do.end, label %do.body, !llvm.loop !8
 
 do.end:                                           ; preds = %if.end64, %if.end64.us, %if.end64.us62
   %cmp67 = icmp eq i32 %flush, 4
@@ -699,7 +697,7 @@ if.then23:                                        ; preds = %if.end16
 if.end29:                                         ; preds = %if.end16, %if.end11
   %conv30 = trunc i32 %c to i8
   store i8 %conv30, ptr %buf, align 1
-  %call32 = call i32 @MOZ_Z_gzwrite(ptr noundef nonnull %file, ptr noundef nonnull %buf, i32 noundef 1), !range !10
+  %call32 = call i32 @MOZ_Z_gzwrite(ptr noundef nonnull %file, ptr noundef nonnull %buf, i32 noundef 1), !range !9
   %cmp33.not = icmp eq i32 %call32, 1
   %and37 = and i32 %c, 255
   %spec.select = select i1 %cmp33.not, i32 %and37, i32 -1
@@ -715,7 +713,7 @@ define dso_local noundef i32 @MOZ_Z_gzputs(ptr noundef %file, ptr noundef %str) 
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #16
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @MOZ_Z_gzwrite(ptr noundef %file, ptr noundef %str, i32 noundef %conv), !range !10
+  %call1 = tail call i32 @MOZ_Z_gzwrite(ptr noundef %file, ptr noundef %str, i32 noundef %conv), !range !9
   %cmp = icmp eq i32 %call1, 0
   %cmp3 = icmp ne i32 %conv, 0
   %or.cond = and i1 %cmp, %cmp3
@@ -878,17 +876,11 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 define dso_local noundef i32 @MOZ_Z_gzprintf(ptr noundef %file, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
-  %call = call i32 @MOZ_Z_gzvprintf(ptr noundef %file, ptr noundef %format, ptr noundef nonnull %va), !range !11
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
+  %call = call i32 @MOZ_Z_gzvprintf(ptr noundef %file, ptr noundef %format, ptr noundef nonnull %va), !range !10
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret i32 %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @MOZ_Z_gzflush(ptr noundef %file, i32 noundef %flush) local_unnamed_addr #0 {
@@ -1268,30 +1260,36 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @MOZ_Z_deflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 declare i32 @MOZ_Z_deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #10
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare i32 @MOZ_Z_deflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @MOZ_Z_deflateReset(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
@@ -1301,13 +1299,13 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0) }
@@ -1325,6 +1323,5 @@ attributes #16 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i32 0, i32 -2147483648}
-!11 = !{i32 -1, i32 -2147483648}
+!9 = !{i32 0, i32 -2147483648}
+!10 = !{i32 -1, i32 -2147483648}

@@ -234,7 +234,7 @@ sw.bb9.i16:                                       ; preds = %sw.bb7
   %next_bytes13.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan10.i17, i64 0, i64 %idxprom11.i18, i32 2
   %13 = load i64, ptr %next_bytes13.i, align 8
   %shr.i.i = lshr i64 %13, 32
-  %conv15.i = trunc i64 %shr.i.i to i32
+  %conv15.i = trunc nuw i64 %shr.i.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb16.i:                                        ; preds = %sw.bb7
@@ -251,7 +251,7 @@ sw.bb22.i:                                        ; preds = %sw.bb7
   %next_dst26.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan23.i, i64 0, i64 %idxprom24.i, i32 3
   %15 = load i64, ptr %next_dst26.i, align 8
   %shr.i32.i = lshr i64 %15, 32
-  %conv28.i = trunc i64 %shr.i32.i to i32
+  %conv28.i = trunc nuw i64 %shr.i32.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb29.i:                                        ; preds = %sw.bb7
@@ -268,7 +268,7 @@ sw.bb35.i:                                        ; preds = %sw.bb7
   %next_src39.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan36.i, i64 0, i64 %idxprom37.i, i32 4
   %17 = load i64, ptr %next_src39.i, align 8
   %shr.i34.i = lshr i64 %17, 32
-  %conv41.i = trunc i64 %shr.i34.i to i32
+  %conv41.i = trunc nuw i64 %shr.i34.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb42.i:                                        ; preds = %sw.bb7
@@ -292,7 +292,7 @@ sw.bb52.i:                                        ; preds = %sw.bb7
   %exec_bytes56.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan53.i, i64 0, i64 %idxprom54.i, i32 6
   %20 = load i64, ptr %exec_bytes56.i, align 8
   %shr.i36.i = lshr i64 %20, 32
-  %conv58.i = trunc i64 %shr.i36.i to i32
+  %conv58.i = trunc nuw i64 %shr.i36.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb59.i:                                        ; preds = %sw.bb7
@@ -309,7 +309,7 @@ sw.bb65.i:                                        ; preds = %sw.bb7
   %exec_dst69.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan66.i, i64 0, i64 %idxprom67.i, i32 7
   %22 = load i64, ptr %exec_dst69.i, align 8
   %shr.i38.i = lshr i64 %22, 32
-  %conv71.i = trunc i64 %shr.i38.i to i32
+  %conv71.i = trunc nuw i64 %shr.i38.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb72.i:                                        ; preds = %sw.bb7
@@ -326,7 +326,7 @@ sw.bb78.i:                                        ; preds = %sw.bb7
   %exec_src82.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan79.i, i64 0, i64 %idxprom80.i, i32 8
   %24 = load i64, ptr %exec_src82.i, align 8
   %shr.i40.i = lshr i64 %24, 32
-  %conv84.i = trunc i64 %shr.i40.i to i32
+  %conv84.i = trunc nuw i64 %shr.i40.i to i32
   br label %sifive_pdma_readl.exit
 
 do.body.i29:                                      ; preds = %sw.bb7
@@ -742,18 +742,15 @@ entry:
   %2 = load ptr, ptr %arrayidx22, align 8
   %. = zext i1 %or.cond.not to i32
   tail call void @qemu_set_irq(ptr noundef %2, i32 noundef %.) #4
-  br i1 %tobool8.not, label %if.else42, label %land.lhs.true29
+  br i1 %tobool8.not, label %if.end48, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %entry
   %3 = load i32, ptr %arrayidx, align 8
-  %tobool36.not = icmp sgt i32 %3, -1
-  br i1 %tobool36.not, label %if.else42, label %if.end48
-
-if.else42:                                        ; preds = %land.lhs.true29, %entry
+  %.lobit = lshr i32 %3, 31
   br label %if.end48
 
-if.end48:                                         ; preds = %land.lhs.true29, %if.else42
-  %.sink18 = phi i32 [ 0, %if.else42 ], [ 1, %land.lhs.true29 ]
+if.end48:                                         ; preds = %land.lhs.true29, %entry
+  %.sink18 = phi i32 [ 0, %entry ], [ %.lobit, %land.lhs.true29 ]
   %irq43 = getelementptr inbounds i8, ptr %s, i64 1088
   %mul44 = shl nuw nsw i32 %ch, 1
   %add45 = or disjoint i32 %mul44, 1

@@ -1444,7 +1444,7 @@ Vec_IntFind.exit87.thread:                        ; preds = %72, %54, %Vec_IntFi
   %110 = phi i32 [ %89, %.lr.ph104 ], [ %.pre137, %97 ]
   %111 = phi i32 [ %90, %.lr.ph104 ], [ %.pre137, %97 ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %112 = trunc i64 %indvars.iv.next120 to i32
+  %112 = trunc nuw i64 %indvars.iv.next120 to i32
   %113 = icmp sgt i32 %111, %112
   br i1 %113, label %.lr.ph104, label %.critedge2.loopexit.loopexit, !llvm.loop !21
 
@@ -1517,7 +1517,7 @@ Vec_IntFind.exit87.thread:                        ; preds = %72, %54, %Vec_IntFi
   %144 = phi i32 [ %123, %.lr.ph108 ], [ %.pre139, %131 ]
   %145 = phi i32 [ %124, %.lr.ph108 ], [ %.pre139, %131 ]
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %146 = trunc i64 %indvars.iv.next128 to i32
+  %146 = trunc nuw i64 %indvars.iv.next128 to i32
   %147 = icmp sgt i32 %145, %146
   br i1 %147, label %.lr.ph108, label %.loopexit.loopexit, !llvm.loop !23
 
@@ -1609,7 +1609,7 @@ define noundef i32 @Abc_NtkCompareBoxes(ptr nocapture noundef readonly %0, ptr n
 
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr i8, ptr %14, i64 48
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw nsw i64 %indvars.iv to i32
   %.val24 = load ptr, ptr %14, align 8
   %.val25 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %.val24, i64 32
@@ -1700,7 +1700,7 @@ define noundef i32 @Abc_NtkCompareSignals(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not15.i, label %28, label %20
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   %22 = tail call ptr @Abc_ObjName(ptr noundef %13) #11
   %.val20.i = load ptr, ptr %7, align 8
   %23 = getelementptr i8, ptr %.val20.i, i64 8
@@ -1768,7 +1768,7 @@ Abc_NtkComparePis.exit:                           ; preds = %28, %.preheader.i
   br i1 %.not15.i31, label %58, label %50
 
 50:                                               ; preds = %.lr.ph.i25
-  %51 = trunc i64 %indvars.iv.i26 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv.i26 to i32
   %52 = tail call ptr @Abc_ObjName(ptr noundef %43) #11
   %.val20.i32 = load ptr, ptr %37, align 8
   %53 = getelementptr i8, ptr %.val20.i32, i64 8
@@ -1788,8 +1788,8 @@ Abc_NtkComparePis.exit:                           ; preds = %28, %.preheader.i
   %61 = icmp slt i64 %indvars.iv.next.i34, %60
   br i1 %61, label %.lr.ph.i25, label %Abc_NtkComparePos.exit, !llvm.loop !26
 
-Abc_NtkComparePos.exit:                           ; preds = %58, %50, %40, %20, %10, %Abc_NtkComparePis.exit, %.preheader.i24, %32
-  %.0 = phi i32 [ 0, %32 ], [ 1, %.preheader.i24 ], [ 1, %Abc_NtkComparePis.exit ], [ 0, %10 ], [ 0, %20 ], [ 0, %40 ], [ 0, %50 ], [ 1, %58 ]
+Abc_NtkComparePos.exit:                           ; preds = %58, %20, %10, %.preheader.i24, %40, %50, %Abc_NtkComparePis.exit, %32
+  %.0 = phi i32 [ 0, %32 ], [ 1, %Abc_NtkComparePis.exit ], [ 1, %.preheader.i24 ], [ 0, %40 ], [ 0, %50 ], [ 0, %10 ], [ 0, %20 ], [ 1, %58 ]
   ret i32 %.0
 }
 

@@ -837,7 +837,7 @@ define dso_local noundef i32 @intel_uc_check_file_version(ptr nocapture noundef 
   %69 = phi ptr [ %67, %65 ], [ null, %51 ]
   %70 = load i32, ptr %53, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %69, ptr noundef nonnull @.str.52, i32 noundef %70) #10
-  br label %123
+  br label %122
 
 .thread12:                                        ; preds = %2, %4, %6, %43, %8
   %71 = phi ptr [ %9, %8 ], [ %9, %43 ], [ null, %2 ], [ %5, %4 ], [ %7, %6 ]
@@ -845,13 +845,13 @@ define dso_local noundef i32 @intel_uc_check_file_version(ptr nocapture noundef 
   %73 = getelementptr inbounds i8, ptr %0, i64 16
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %123, label %76
+  br i1 %75, label %122, label %76
 
 76:                                               ; preds = %.thread12
   %77 = getelementptr inbounds i8, ptr %0, i64 40
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %123, label %80
+  br i1 %79, label %122, label %80
 
 80:                                               ; preds = %76
   %81 = icmp eq i32 %78, %74
@@ -897,7 +897,8 @@ define dso_local noundef i32 @intel_uc_check_file_version(ptr nocapture noundef 
   %102 = getelementptr inbounds i8, ptr %0, i64 56
   %103 = load i8, ptr %102, align 8, !range !6, !noundef !7
   %104 = icmp eq i8 %103, 0
-  br i1 %104, label %123, label %122
+  %spec.select = select i1 %104, i32 -8, i32 0
+  br label %122
 
 105:                                              ; preds = %80
   %106 = icmp eq ptr %1, null
@@ -927,12 +928,9 @@ define dso_local noundef i32 @intel_uc_check_file_version(ptr nocapture noundef 
   store i8 1, ptr %1, align 1
   br label %122
 
-122:                                              ; preds = %121, %115, %113, %105, %95
-  br label %123
-
-123:                                              ; preds = %68, %122, %95, %76, %.thread12
-  %124 = phi i32 [ 0, %122 ], [ -8, %68 ], [ 0, %76 ], [ 0, %.thread12 ], [ -8, %95 ]
-  ret i32 %124
+122:                                              ; preds = %68, %95, %105, %113, %115, %121, %76, %.thread12
+  %123 = phi i32 [ -8, %68 ], [ 0, %76 ], [ 0, %.thread12 ], [ 0, %121 ], [ 0, %115 ], [ 0, %113 ], [ 0, %105 ], [ %spec.select, %95 ]
+  ret i32 %123
 }
 
 ; Function Attrs: cold null_pointer_is_valid
@@ -1671,7 +1669,7 @@ define dso_local i32 @intel_uc_fw_upload(ptr nocapture noundef %0, i32 noundef %
   %31 = getelementptr i8, ptr %29, i64 %30
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %25, ptr elementtype(i32) %31) #11, !srcloc !22
   %32 = lshr i64 %24, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = load i32, ptr %26, align 4
   %35 = add i32 %34, 49924
   %36 = load ptr, ptr %18, align 8

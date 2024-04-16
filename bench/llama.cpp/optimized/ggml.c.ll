@@ -747,7 +747,7 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.cond4.preheader.loopexit:                     ; preds = %for.body
-  %1 = trunc i64 %indvars.iv.next to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %for.cond4.preheader
 
 for.cond4.preheader:                              ; preds = %for.cond4.preheader.loopexit, %entry
@@ -773,7 +773,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp, label %for.body, label %for.cond4.preheader.loopexit, !llvm.loop !6
 
 for.cond18.preheader.loopexit:                    ; preds = %for.body7
-  %6 = trunc i64 %indvars.iv.next29 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next29 to i32
   br label %for.cond18.preheader
 
 for.cond18.preheader:                             ; preds = %for.cond18.preheader.loopexit, %for.cond4.preheader
@@ -1007,7 +1007,7 @@ for.body:                                         ; preds = %while.end41, %for.i
   br i1 %cmp5123.not, label %for.inc79, label %for.body53.preheader
 
 for.body53.preheader:                             ; preds = %for.body
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw i64 %indvars.iv to i32
   br label %for.body53
 
 for.body53:                                       ; preds = %for.body53.preheader, %for.inc
@@ -1589,7 +1589,7 @@ if.then:                                          ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %ftype to i16
+  %switch.maskindex = trunc nuw i32 %ftype to i16
   %switch.shifted = lshr i16 32655, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %if.then
@@ -4788,19 +4788,16 @@ do.end9:                                          ; preds = %ggml_is_padded_1d.e
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %16 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %16, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then12
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end13
 
 lor.lhs.false:                                    ; preds = %do.end9
   %grad10 = getelementptr inbounds i8, ptr %b, i64 152
   %17 = load ptr, ptr %grad10, align 8
-  %tobool11.not = icmp eq ptr %17, null
-  br i1 %tobool11.not, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %lor.lhs.false, %do.end9
+  %tobool11.not = icmp ne ptr %17, null
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then12, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then12 ], [ false, %lor.lhs.false ]
+if.end13:                                         ; preds = %lor.lhs.false, %do.end9
+  %is_node.0 = phi i1 [ true, %do.end9 ], [ %tobool11.not, %lor.lhs.false ]
   %ne.i18 = getelementptr inbounds i8, ptr %a, i64 16
   br i1 %inplace, label %cond.true, label %cond.false
 
@@ -4977,15 +4974,12 @@ land.lhs.true:                                    ; preds = %do.end25
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %24 = load ptr, ptr %grad, align 8
   %tobool26.not = icmp eq ptr %24, null
-  br i1 %tobool26.not, label %lor.lhs.false, label %if.then29
+  br i1 %tobool26.not, label %lor.lhs.false, label %cond.end
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %grad27 = getelementptr inbounds i8, ptr %b, i64 152
   %25 = load ptr, ptr %grad27, align 8
-  %tobool28.not = icmp eq ptr %25, null
-  br i1 %tobool28.not, label %cond.end, label %if.then29
-
-if.then29:                                        ; preds = %lor.lhs.false, %land.lhs.true
+  %tobool28.not = icmp ne ptr %25, null
   br label %cond.end
 
 cond.true:                                        ; preds = %do.end25
@@ -5024,8 +5018,8 @@ cond.end.thread:                                  ; preds = %for.body.i
   store i32 4, ptr %op59, align 8
   br label %cond.end48
 
-cond.end:                                         ; preds = %lor.lhs.false, %if.then29
-  %is_node.0.ph = phi i1 [ false, %lor.lhs.false ], [ true, %if.then29 ]
+cond.end:                                         ; preds = %land.lhs.true, %lor.lhs.false
+  %is_node.0.ph = phi i1 [ %tobool28.not, %lor.lhs.false ], [ true, %land.lhs.true ]
   %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne.i20, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
@@ -5140,27 +5134,18 @@ land.lhs.true:                                    ; preds = %do.end
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %10 = load ptr, ptr %grad, align 8
   %tobool3.not = icmp eq ptr %10, null
-  br i1 %tobool3.not, label %lor.lhs.false, label %cond.false.thread
+  br i1 %tobool3.not, label %cond.false, label %cond.false.thread
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %grad4 = getelementptr inbounds i8, ptr %b, i64 152
-  %11 = load ptr, ptr %grad4, align 8
-  %tobool5.not = icmp eq ptr %11, null
-  br i1 %tobool5.not, label %cond.false, label %cond.false.thread
-
-cond.false.thread:                                ; preds = %land.lhs.true, %lor.lhs.false
-  %12 = load i32, ptr %a, align 8
-  %call.i.i26 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+cond.false.thread:                                ; preds = %land.lhs.true
+  %11 = load i32, ptr %a, align 8
+  %call.i.i26 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
   %op2227 = getelementptr inbounds i8, ptr %call.i.i26, i64 80
   store i32 5, ptr %op2227, align 8
-  %13 = load i32, ptr %call.i.i26, align 8
-  %ne.i17 = getelementptr inbounds i8, ptr %call.i.i26, i64 16
-  %call.i.i18 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i17, ptr noundef null, i64 noundef 0)
-  br label %cond.end15
+  br label %cond.true12
 
 cond.true:                                        ; preds = %do.end
-  %14 = load i32, ptr %a, align 8
-  %call.i = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef nonnull %a, i64 noundef 0)
+  %12 = load i32, ptr %a, align 8
+  %call.i = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef nonnull %a, i64 noundef 0)
   %name.i = getelementptr inbounds i8, ptr %a, i64 288
   %call2.i = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i, ptr noundef nonnull @.str.33, ptr noundef nonnull %name.i)
   %nb.i = getelementptr inbounds i8, ptr %a, i64 48
@@ -5170,28 +5155,38 @@ cond.true:                                        ; preds = %do.end
 for.body.i:                                       ; preds = %for.body.i, %cond.true
   %indvars.iv.i = phi i64 [ 0, %cond.true ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i
-  %15 = load i64, ptr %arrayidx.i, align 8
+  %13 = load i64, ptr %arrayidx.i, align 8
   %arrayidx5.i = getelementptr inbounds [4 x i64], ptr %nb3.i, i64 0, i64 %indvars.iv.i
-  store i64 %15, ptr %arrayidx5.i, align 8
+  store i64 %13, ptr %arrayidx5.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %cond.end, label %for.body.i, !llvm.loop !41
 
-cond.false:                                       ; preds = %lor.lhs.false
-  %16 = load i32, ptr %a, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+cond.false:                                       ; preds = %land.lhs.true
+  %grad4 = getelementptr inbounds i8, ptr %b, i64 152
+  %14 = load ptr, ptr %grad4, align 8
+  %tobool5.not.not = icmp eq ptr %14, null
+  %15 = load i32, ptr %a, align 8
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %15, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
   %op22 = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 5, ptr %op22, align 8
-  br label %cond.end15
+  br i1 %tobool5.not.not, label %cond.end15, label %cond.true12
 
 cond.end:                                         ; preds = %for.body.i
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 5, ptr %op, align 8
   br label %cond.end15
 
-cond.end15:                                       ; preds = %cond.end, %cond.false, %cond.false.thread
-  %cond23 = phi ptr [ %call.i.i26, %cond.false.thread ], [ %call.i, %cond.end ], [ %call.i.i, %cond.false ]
-  %cond16 = phi ptr [ %call.i.i18, %cond.false.thread ], [ null, %cond.end ], [ null, %cond.false ]
+cond.true12:                                      ; preds = %cond.false.thread, %cond.false
+  %cond24 = phi ptr [ %call.i.i, %cond.false ], [ %call.i.i26, %cond.false.thread ]
+  %16 = load i32, ptr %cond24, align 8
+  %ne.i17 = getelementptr inbounds i8, ptr %cond24, i64 16
+  %call.i.i18 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i17, ptr noundef null, i64 noundef 0)
+  br label %cond.end15
+
+cond.end15:                                       ; preds = %cond.end, %cond.false, %cond.true12
+  %cond23 = phi ptr [ %cond24, %cond.true12 ], [ %call.i, %cond.end ], [ %call.i.i, %cond.false ]
+  %cond16 = phi ptr [ %call.i.i18, %cond.true12 ], [ null, %cond.end ], [ null, %cond.false ]
   %grad17 = getelementptr inbounds i8, ptr %cond23, i64 152
   store ptr %cond16, ptr %grad17, align 8
   %src = getelementptr inbounds i8, ptr %cond23, i64 160
@@ -5417,27 +5412,18 @@ land.lhs.true:                                    ; preds = %do.end
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %10 = load ptr, ptr %grad, align 8
   %tobool3.not = icmp eq ptr %10, null
-  br i1 %tobool3.not, label %lor.lhs.false, label %cond.false.thread
+  br i1 %tobool3.not, label %cond.false, label %cond.false.thread
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %grad4 = getelementptr inbounds i8, ptr %b, i64 152
-  %11 = load ptr, ptr %grad4, align 8
-  %tobool5.not = icmp eq ptr %11, null
-  br i1 %tobool5.not, label %cond.false, label %cond.false.thread
-
-cond.false.thread:                                ; preds = %land.lhs.true, %lor.lhs.false
-  %12 = load i32, ptr %a, align 8
-  %call.i.i30 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+cond.false.thread:                                ; preds = %land.lhs.true
+  %11 = load i32, ptr %a, align 8
+  %call.i.i30 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
   %op2631 = getelementptr inbounds i8, ptr %call.i.i30, i64 80
   store i32 7, ptr %op2631, align 8
-  %13 = load i32, ptr %call.i.i30, align 8
-  %ne.i19 = getelementptr inbounds i8, ptr %call.i.i30, i64 16
-  %call.i.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i19, ptr noundef null, i64 noundef 0)
-  br label %cond.end25
+  br label %cond.true22
 
 cond.true:                                        ; preds = %do.end
-  %14 = load i32, ptr %a, align 8
-  %call.i = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef nonnull %a, i64 noundef 0)
+  %12 = load i32, ptr %a, align 8
+  %call.i = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef nonnull %a, i64 noundef 0)
   %name.i = getelementptr inbounds i8, ptr %a, i64 288
   %call2.i = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i, ptr noundef nonnull @.str.33, ptr noundef nonnull %name.i)
   %nb.i = getelementptr inbounds i8, ptr %a, i64 48
@@ -5447,28 +5433,38 @@ cond.true:                                        ; preds = %do.end
 for.body.i:                                       ; preds = %for.body.i, %cond.true
   %indvars.iv.i = phi i64 [ 0, %cond.true ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i
-  %15 = load i64, ptr %arrayidx.i, align 8
+  %13 = load i64, ptr %arrayidx.i, align 8
   %arrayidx5.i = getelementptr inbounds [4 x i64], ptr %nb3.i, i64 0, i64 %indvars.iv.i
-  store i64 %15, ptr %arrayidx5.i, align 8
+  store i64 %13, ptr %arrayidx5.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %cond.end, label %for.body.i, !llvm.loop !41
 
-cond.false:                                       ; preds = %lor.lhs.false
-  %16 = load i32, ptr %a, align 8
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+cond.false:                                       ; preds = %land.lhs.true
+  %grad4 = getelementptr inbounds i8, ptr %b, i64 152
+  %14 = load ptr, ptr %grad4, align 8
+  %tobool5.not.not = icmp eq ptr %14, null
+  %15 = load i32, ptr %a, align 8
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %15, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
   %op26 = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 7, ptr %op26, align 8
-  br label %cond.end25
+  br i1 %tobool5.not.not, label %cond.end25, label %cond.true22
 
 cond.end:                                         ; preds = %for.body.i
   %op = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 7, ptr %op, align 8
   br label %cond.end25
 
-cond.end25:                                       ; preds = %cond.end, %cond.false, %cond.false.thread
-  %cond27 = phi ptr [ %call.i.i30, %cond.false.thread ], [ %call.i, %cond.end ], [ %call.i.i, %cond.false ]
-  %cond26 = phi ptr [ %call.i.i20, %cond.false.thread ], [ null, %cond.end ], [ null, %cond.false ]
+cond.true22:                                      ; preds = %cond.false.thread, %cond.false
+  %cond28 = phi ptr [ %call.i.i, %cond.false ], [ %call.i.i30, %cond.false.thread ]
+  %16 = load i32, ptr %cond28, align 8
+  %ne.i19 = getelementptr inbounds i8, ptr %cond28, i64 16
+  %call.i.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %16, i32 noundef 4, ptr noundef nonnull %ne.i19, ptr noundef null, i64 noundef 0)
+  br label %cond.end25
+
+cond.end25:                                       ; preds = %cond.end, %cond.false, %cond.true22
+  %cond27 = phi ptr [ %cond28, %cond.true22 ], [ %call.i, %cond.end ], [ %call.i.i, %cond.false ]
+  %cond26 = phi ptr [ %call.i.i20, %cond.true22 ], [ null, %cond.end ], [ null, %cond.false ]
   %grad27 = getelementptr inbounds i8, ptr %cond27, i64 152
   store ptr %cond26, ptr %grad27, align 8
   %src = getelementptr inbounds i8, ptr %cond27, i64 160
@@ -6020,19 +6016,16 @@ do.end:                                           ; preds = %land.lhs.true8
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %8 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then17
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end18
 
 lor.lhs.false:                                    ; preds = %do.end
   %grad15 = getelementptr inbounds i8, ptr %b, i64 152
   %9 = load ptr, ptr %grad15, align 8
-  %tobool16.not = icmp eq ptr %9, null
-  br i1 %tobool16.not, label %if.end18, label %if.then17
-
-if.then17:                                        ; preds = %lor.lhs.false, %do.end
+  %tobool16.not = icmp ne ptr %9, null
   br label %if.end18
 
-if.end18:                                         ; preds = %if.then17, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then17 ], [ false, %lor.lhs.false ]
+if.end18:                                         ; preds = %lor.lhs.false, %do.end
+  %is_node.0 = phi i1 [ true, %do.end ], [ %tobool16.not, %lor.lhs.false ]
   %10 = load i32, ptr %a, align 8
   %arrayidx24 = getelementptr inbounds i8, ptr %a, i64 32
   %11 = load i64, ptr %arrayidx24, align 8
@@ -6854,35 +6847,36 @@ entry:
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %0 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %lor.lhs.false, label %cond.true
+  br i1 %tobool.not, label %if.end, label %if.end.thread
 
-lor.lhs.false:                                    ; preds = %entry
-  %grad1 = getelementptr inbounds i8, ptr %b, i64 152
-  %1 = load ptr, ptr %grad1, align 8
-  %tobool2.not = icmp eq ptr %1, null
-  br i1 %tobool2.not, label %if.end, label %cond.true
-
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load i32, ptr %a, align 8
-  %ne.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
-  %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
-  store i32 18, ptr %op, align 8
-  br label %cond.end
-
-cond.true:                                        ; preds = %entry, %lor.lhs.false
-  %3 = load i32, ptr %a, align 8
+if.end.thread:                                    ; preds = %entry
+  %1 = load i32, ptr %a, align 8
   %ne.i13 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i14 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i13, ptr noundef null, i64 noundef 0)
+  %call.i.i14 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i13, ptr noundef null, i64 noundef 0)
   %op15 = getelementptr inbounds i8, ptr %call.i.i14, i64 80
   store i32 18, ptr %op15, align 8
-  %4 = load i32, ptr %call.i.i14, align 8
-  %ne.i10 = getelementptr inbounds i8, ptr %call.i.i14, i64 16
+  br label %cond.true
+
+if.end:                                           ; preds = %entry
+  %grad1 = getelementptr inbounds i8, ptr %b, i64 152
+  %2 = load ptr, ptr %grad1, align 8
+  %tobool2.not.not = icmp eq ptr %2, null
+  %3 = load i32, ptr %a, align 8
+  %ne.i = getelementptr inbounds i8, ptr %a, i64 16
+  %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
+  %op = getelementptr inbounds i8, ptr %call.i.i, i64 80
+  store i32 18, ptr %op, align 8
+  br i1 %tobool2.not.not, label %cond.end, label %cond.true
+
+cond.true:                                        ; preds = %if.end.thread, %if.end
+  %call.i.i17 = phi ptr [ %call.i.i14, %if.end.thread ], [ %call.i.i, %if.end ]
+  %4 = load i32, ptr %call.i.i17, align 8
+  %ne.i10 = getelementptr inbounds i8, ptr %call.i.i17, i64 16
   %call.i.i11 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i10, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
-  %call.i.i16 = phi ptr [ %call.i.i14, %cond.true ], [ %call.i.i, %if.end ]
+  %call.i.i16 = phi ptr [ %call.i.i17, %cond.true ], [ %call.i.i, %if.end ]
   %cond = phi ptr [ %call.i.i11, %cond.true ], [ null, %if.end ]
   %grad5 = getelementptr inbounds i8, ptr %call.i.i16, i64 152
   store ptr %cond, ptr %grad5, align 8
@@ -7292,19 +7286,16 @@ do.end9:                                          ; preds = %do.body3
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %12 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %12, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then12
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end13
 
 lor.lhs.false:                                    ; preds = %do.end9
   %grad10 = getelementptr inbounds i8, ptr %b, i64 152
   %13 = load ptr, ptr %grad10, align 8
-  %tobool11.not = icmp eq ptr %13, null
-  br i1 %tobool11.not, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %lor.lhs.false, %do.end9
+  %tobool11.not = icmp ne ptr %13, null
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then12, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then12 ], [ false, %lor.lhs.false ]
+if.end13:                                         ; preds = %lor.lhs.false, %do.end9
+  %is_node.0 = phi i1 [ true, %do.end9 ], [ %tobool11.not, %lor.lhs.false ]
   %arrayidx = getelementptr inbounds i8, ptr %a, i64 24
   %14 = load i64, ptr %arrayidx, align 8
   store i64 %14, ptr %ne, align 16
@@ -7453,19 +7444,16 @@ do.end60:                                         ; preds = %land.lhs.true51
   %grad = getelementptr inbounds i8, ptr %21, i64 152
   %22 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %22, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then64
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end65
 
 lor.lhs.false:                                    ; preds = %do.end60
   %grad62 = getelementptr inbounds i8, ptr %b, i64 152
   %23 = load ptr, ptr %grad62, align 8
-  %tobool63.not = icmp eq ptr %23, null
-  br i1 %tobool63.not, label %if.end65, label %if.then64
-
-if.then64:                                        ; preds = %lor.lhs.false, %do.end60
+  %tobool63.not = icmp ne ptr %23, null
   br label %if.end65
 
-if.end65:                                         ; preds = %if.then64, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then64 ], [ false, %lor.lhs.false ]
+if.end65:                                         ; preds = %lor.lhs.false, %do.end60
+  %is_node.0 = phi i1 [ true, %do.end60 ], [ %tobool63.not, %lor.lhs.false ]
   %arrayidx69 = getelementptr inbounds i8, ptr %21, i64 24
   %24 = load i64, ptr %arrayidx69, align 8
   store i64 %24, ptr %ne66, align 16
@@ -7661,19 +7649,16 @@ do.end9:                                          ; preds = %do.body3
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %12 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %12, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then12
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end13
 
 lor.lhs.false:                                    ; preds = %do.end9
   %grad10 = getelementptr inbounds i8, ptr %b, i64 152
   %13 = load ptr, ptr %grad10, align 8
-  %tobool11.not = icmp eq ptr %13, null
-  br i1 %tobool11.not, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %lor.lhs.false, %do.end9
+  %tobool11.not = icmp ne ptr %13, null
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then12, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then12 ], [ false, %lor.lhs.false ]
+if.end13:                                         ; preds = %lor.lhs.false, %do.end9
+  %is_node.0 = phi i1 [ true, %do.end9 ], [ %tobool11.not, %lor.lhs.false ]
   %ne14 = getelementptr inbounds i8, ptr %a, i64 16
   %14 = load i64, ptr %ne14, align 8
   store i64 %14, ptr %ne, align 16
@@ -7792,19 +7777,16 @@ do.end9:                                          ; preds = %ggml_is_padded_1d.e
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %16 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %16, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then12
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end13
 
 lor.lhs.false:                                    ; preds = %do.end9
   %grad10 = getelementptr inbounds i8, ptr %b, i64 152
   %17 = load ptr, ptr %grad10, align 8
-  %tobool11.not = icmp eq ptr %17, null
-  br i1 %tobool11.not, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %lor.lhs.false, %do.end9
+  %tobool11.not = icmp ne ptr %17, null
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then12, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then12 ], [ false, %lor.lhs.false ]
+if.end13:                                         ; preds = %lor.lhs.false, %do.end9
+  %is_node.0 = phi i1 [ true, %do.end9 ], [ %tobool11.not, %lor.lhs.false ]
   %ne.i18 = getelementptr inbounds i8, ptr %a, i64 16
   br i1 %inplace, label %cond.true, label %cond.false
 
@@ -7907,19 +7889,16 @@ do.end:                                           ; preds = %entry
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %10 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %10, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then6
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end7
 
 lor.lhs.false:                                    ; preds = %do.end
   %grad4 = getelementptr inbounds i8, ptr %b, i64 152
   %11 = load ptr, ptr %grad4, align 8
-  %tobool5.not = icmp eq ptr %11, null
-  br i1 %tobool5.not, label %if.end7, label %if.then6
-
-if.then6:                                         ; preds = %lor.lhs.false, %do.end
+  %tobool5.not = icmp ne ptr %11, null
   br label %if.end7
 
-if.end7:                                          ; preds = %if.then6, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then6 ], [ false, %lor.lhs.false ]
+if.end7:                                          ; preds = %lor.lhs.false, %do.end
+  %is_node.0 = phi i1 [ true, %do.end ], [ %tobool5.not, %lor.lhs.false ]
   %12 = load i32, ptr %a, align 8
   br i1 %inplace, label %cond.true, label %cond.end
 
@@ -8099,19 +8078,16 @@ land.lhs.true:                                    ; preds = %do.end
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %10 = load ptr, ptr %grad, align 8
   %tobool4.not = icmp eq ptr %10, null
-  br i1 %tobool4.not, label %lor.lhs.false, label %if.then7
+  br i1 %tobool4.not, label %lor.lhs.false, label %if.end8
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %grad5 = getelementptr inbounds i8, ptr %b, i64 152
   %11 = load ptr, ptr %grad5, align 8
-  %tobool6.not = icmp eq ptr %11, null
-  br i1 %tobool6.not, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %lor.lhs.false, %land.lhs.true
+  %tobool6.not = icmp ne ptr %11, null
   br label %if.end8
 
-if.end8:                                          ; preds = %if.then7, %lor.lhs.false, %do.end
-  %is_node.0 = phi i1 [ false, %do.end ], [ true, %if.then7 ], [ false, %lor.lhs.false ]
+if.end8:                                          ; preds = %lor.lhs.false, %land.lhs.true, %do.end
+  %is_node.0 = phi i1 [ false, %do.end ], [ true, %land.lhs.true ], [ %tobool6.not, %lor.lhs.false ]
   %12 = load i32, ptr %b, align 8
   %call.i = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %12, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef nonnull %b, i64 noundef 0)
   %name.i = getelementptr inbounds i8, ptr %b, i64 288
@@ -9286,19 +9262,16 @@ do.end19:                                         ; preds = %do.body13
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %10 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %10, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then22
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end23
 
 lor.lhs.false:                                    ; preds = %do.end19
   %grad20 = getelementptr inbounds i8, ptr %b, i64 152
   %11 = load ptr, ptr %grad20, align 8
-  %tobool21.not = icmp eq ptr %11, null
-  br i1 %tobool21.not, label %if.end23, label %if.then22
-
-if.then22:                                        ; preds = %lor.lhs.false, %do.end19
+  %tobool21.not = icmp ne ptr %11, null
   br label %if.end23
 
-if.end23:                                         ; preds = %if.then22, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then22 ], [ false, %lor.lhs.false ]
+if.end23:                                         ; preds = %lor.lhs.false, %do.end19
+  %is_node.0 = phi i1 [ true, %do.end19 ], [ %tobool21.not, %lor.lhs.false ]
   %12 = load i64, ptr %ne, align 8
   %13 = load i64, ptr %ne1, align 8
   %arrayidx31 = getelementptr inbounds i8, ptr %b, i64 32
@@ -9414,19 +9387,16 @@ do.end15:                                         ; preds = %land.lhs.true7
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %14 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %14, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then18
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end19
 
 lor.lhs.false:                                    ; preds = %do.end15
   %grad16 = getelementptr inbounds i8, ptr %b, i64 152
   %15 = load ptr, ptr %grad16, align 8
-  %tobool17.not = icmp eq ptr %15, null
-  br i1 %tobool17.not, label %if.end19, label %if.then18
-
-if.then18:                                        ; preds = %lor.lhs.false, %do.end15
+  %tobool17.not = icmp ne ptr %15, null
   br label %if.end19
 
-if.end19:                                         ; preds = %if.then18, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then18 ], [ false, %lor.lhs.false ]
+if.end19:                                         ; preds = %lor.lhs.false, %do.end15
+  %is_node.0 = phi i1 [ true, %do.end15 ], [ %tobool17.not, %lor.lhs.false ]
   %arrayidx23 = getelementptr inbounds i8, ptr %c, i64 24
   %16 = load i64, ptr %arrayidx23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ne.i)
@@ -9987,35 +9957,36 @@ entry:
   %grad.i = getelementptr inbounds i8, ptr %a, i64 152
   %0 = load ptr, ptr %grad.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %lor.lhs.false.i, label %cond.true6.i
+  br i1 %tobool.not.i, label %if.end.i, label %if.end.i.thread
 
-lor.lhs.false.i:                                  ; preds = %entry
-  %grad1.i = getelementptr inbounds i8, ptr %b, i64 152
-  %1 = load ptr, ptr %grad1.i, align 8
-  %tobool2.not.i = icmp eq ptr %1, null
-  br i1 %tobool2.not.i, label %if.end.i, label %cond.true6.i
-
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %2 = load i32, ptr %a, align 8
-  %ne.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i.i, ptr noundef null, i64 noundef 0)
-  %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
-  store i32 40, ptr %op.i, align 8
-  br label %ggml_soft_max_back_impl.exit
-
-cond.true6.i:                                     ; preds = %entry, %lor.lhs.false.i
-  %3 = load i32, ptr %a, align 8
+if.end.i.thread:                                  ; preds = %entry
+  %1 = load i32, ptr %a, align 8
   %ne.i.i2 = getelementptr inbounds i8, ptr %a, i64 16
-  %call.i.i.i3 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i.i2, ptr noundef null, i64 noundef 0)
+  %call.i.i.i3 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %1, i32 noundef 4, ptr noundef nonnull %ne.i.i2, ptr noundef null, i64 noundef 0)
   %op.i4 = getelementptr inbounds i8, ptr %call.i.i.i3, i64 80
   store i32 40, ptr %op.i4, align 8
-  %4 = load i32, ptr %call.i.i.i3, align 8
-  %ne.i13.i = getelementptr inbounds i8, ptr %call.i.i.i3, i64 16
+  br label %cond.true6.i
+
+if.end.i:                                         ; preds = %entry
+  %grad1.i = getelementptr inbounds i8, ptr %b, i64 152
+  %2 = load ptr, ptr %grad1.i, align 8
+  %tobool2.not.i.not = icmp eq ptr %2, null
+  %3 = load i32, ptr %a, align 8
+  %ne.i.i = getelementptr inbounds i8, ptr %a, i64 16
+  %call.i.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %ne.i.i, ptr noundef null, i64 noundef 0)
+  %op.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
+  store i32 40, ptr %op.i, align 8
+  br i1 %tobool2.not.i.not, label %ggml_soft_max_back_impl.exit, label %cond.true6.i
+
+cond.true6.i:                                     ; preds = %if.end.i.thread, %if.end.i
+  %call.i.i.i5 = phi ptr [ %call.i.i.i3, %if.end.i.thread ], [ %call.i.i.i, %if.end.i ]
+  %4 = load i32, ptr %call.i.i.i5, align 8
+  %ne.i13.i = getelementptr inbounds i8, ptr %call.i.i.i5, i64 16
   %call.i.i14.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i13.i, ptr noundef null, i64 noundef 0)
   br label %ggml_soft_max_back_impl.exit
 
 ggml_soft_max_back_impl.exit:                     ; preds = %if.end.i, %cond.true6.i
-  %call.i.i.i6 = phi ptr [ %call.i.i.i3, %cond.true6.i ], [ %call.i.i.i, %if.end.i ]
+  %call.i.i.i6 = phi ptr [ %call.i.i.i5, %cond.true6.i ], [ %call.i.i.i, %if.end.i ]
   %cond10.i = phi ptr [ %call.i.i14.i, %cond.true6.i ], [ null, %if.end.i ]
   %grad11.i = getelementptr inbounds i8, ptr %call.i.i.i6, i64 152
   store ptr %cond10.i, ptr %grad11.i, align 8
@@ -10032,19 +10003,16 @@ entry:
   %grad.i = getelementptr inbounds i8, ptr %a, i64 152
   %0 = load ptr, ptr %grad.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i
+  br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %grad1.i = getelementptr inbounds i8, ptr %b, i64 152
   %1 = load ptr, ptr %grad1.i, align 8
-  %tobool2.not.i = icmp eq ptr %1, null
-  br i1 %tobool2.not.i, label %if.end.i, label %if.then.i
-
-if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
+  %tobool2.not.i = icmp ne ptr %1, null
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %lor.lhs.false.i
-  %is_node.0.i = phi i1 [ true, %if.then.i ], [ false, %lor.lhs.false.i ]
+if.end.i:                                         ; preds = %lor.lhs.false.i, %entry
+  %is_node.0.i = phi i1 [ true, %entry ], [ %tobool2.not.i, %lor.lhs.false.i ]
   %2 = load i32, ptr %a, align 8
   %ne.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %call.i.i = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %2, i32 noundef 4, ptr noundef nonnull %ne.i.i, ptr noundef nonnull %a, i64 noundef 0)
@@ -11443,25 +11411,22 @@ do.end:                                           ; preds = %ggml_can_mul_mat.ex
   %grad = getelementptr inbounds i8, ptr %q, i64 152
   %8 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then8
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end9
 
 lor.lhs.false:                                    ; preds = %do.end
   %grad3 = getelementptr inbounds i8, ptr %k, i64 152
   %9 = load ptr, ptr %grad3, align 8
   %tobool4.not = icmp eq ptr %9, null
-  br i1 %tobool4.not, label %lor.lhs.false5, label %if.then8
+  br i1 %tobool4.not, label %lor.lhs.false5, label %if.end9
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %grad6 = getelementptr inbounds i8, ptr %v, i64 152
   %10 = load ptr, ptr %grad6, align 8
-  %tobool7.not = icmp eq ptr %10, null
-  br i1 %tobool7.not, label %if.end9, label %if.then8
-
-if.then8:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %do.end
+  %tobool7.not = icmp ne ptr %10, null
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then8, %lor.lhs.false5
-  %is_node.0 = phi i1 [ true, %if.then8 ], [ false, %lor.lhs.false5 ]
+if.end9:                                          ; preds = %lor.lhs.false5, %do.end, %lor.lhs.false
+  %is_node.0 = phi i1 [ true, %lor.lhs.false ], [ true, %do.end ], [ %tobool7.not, %lor.lhs.false5 ]
   %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne1.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_set_op_params.exit
@@ -11543,49 +11508,50 @@ do.end:                                           ; preds = %ggml_can_mul_mat.ex
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %8 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %lor.lhs.false, label %cond.true
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end15.thread
 
 lor.lhs.false:                                    ; preds = %do.end
   %grad3 = getelementptr inbounds i8, ptr %b0, i64 152
   %9 = load ptr, ptr %grad3, align 8
   %tobool4.not = icmp eq ptr %9, null
-  br i1 %tobool4.not, label %lor.lhs.false5, label %cond.true
+  br i1 %tobool4.not, label %lor.lhs.false5, label %if.end15.thread
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %grad6 = getelementptr inbounds i8, ptr %b1, i64 152
   %10 = load ptr, ptr %grad6, align 8
   %tobool7.not = icmp eq ptr %10, null
-  br i1 %tobool7.not, label %lor.lhs.false8, label %cond.true
+  br i1 %tobool7.not, label %lor.lhs.false8, label %if.end15.thread
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false5
   %grad9 = getelementptr inbounds i8, ptr %c0, i64 152
   %11 = load ptr, ptr %grad9, align 8
   %tobool10.not = icmp eq ptr %11, null
-  br i1 %tobool10.not, label %lor.lhs.false11, label %cond.true
+  br i1 %tobool10.not, label %if.end15, label %if.end15.thread
 
-lor.lhs.false11:                                  ; preds = %lor.lhs.false8
-  %grad12 = getelementptr inbounds i8, ptr %c1, i64 152
-  %12 = load ptr, ptr %grad12, align 8
-  %tobool13.not = icmp eq ptr %12, null
-  br i1 %tobool13.not, label %if.end15, label %cond.true
-
-if.end15:                                         ; preds = %lor.lhs.false11
-  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne1.i, ptr noundef null, i64 noundef 0)
-  %op = getelementptr inbounds i8, ptr %call.i, i64 80
-  store i32 55, ptr %op, align 8
-  br label %cond.end
-
-cond.true:                                        ; preds = %do.end, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false8, %lor.lhs.false11
+if.end15.thread:                                  ; preds = %lor.lhs.false8, %lor.lhs.false5, %lor.lhs.false, %do.end
   %call.i20 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne1.i, ptr noundef null, i64 noundef 0)
   %op21 = getelementptr inbounds i8, ptr %call.i20, i64 80
   store i32 55, ptr %op21, align 8
-  %13 = load i32, ptr %call.i20, align 8
-  %ne.i18 = getelementptr inbounds i8, ptr %call.i20, i64 16
+  br label %cond.true
+
+if.end15:                                         ; preds = %lor.lhs.false8
+  %grad12 = getelementptr inbounds i8, ptr %c1, i64 152
+  %12 = load ptr, ptr %grad12, align 8
+  %tobool13.not.not = icmp eq ptr %12, null
+  %call.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %ne1.i, ptr noundef null, i64 noundef 0)
+  %op = getelementptr inbounds i8, ptr %call.i, i64 80
+  store i32 55, ptr %op, align 8
+  br i1 %tobool13.not.not, label %cond.end, label %cond.true
+
+cond.true:                                        ; preds = %if.end15.thread, %if.end15
+  %call.i23 = phi ptr [ %call.i20, %if.end15.thread ], [ %call.i, %if.end15 ]
+  %13 = load i32, ptr %call.i23, align 8
+  %ne.i18 = getelementptr inbounds i8, ptr %call.i23, i64 16
   %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %13, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end15, %cond.true
-  %call.i22 = phi ptr [ %call.i20, %cond.true ], [ %call.i, %if.end15 ]
+  %call.i22 = phi ptr [ %call.i23, %cond.true ], [ %call.i, %if.end15 ]
   %cond = phi ptr [ %call.i.i, %cond.true ], [ null, %if.end15 ]
   %grad19 = getelementptr inbounds i8, ptr %call.i22, i64 152
   store ptr %cond, ptr %grad19, align 8
@@ -12342,19 +12308,13 @@ land.lhs.true:                                    ; preds = %do.end73
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %50 = load ptr, ptr %grad, align 8
   %tobool74.not = icmp eq ptr %50, null
-  br i1 %tobool74.not, label %lor.lhs.false, label %cond.true88
+  br i1 %tobool74.not, label %lor.lhs.false, label %cond.false.thread
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %grad75 = getelementptr inbounds i8, ptr %pw, i64 152
   %51 = load ptr, ptr %grad75, align 8
   %tobool76.not = icmp eq ptr %51, null
-  br i1 %tobool76.not, label %lor.lhs.false77, label %cond.true88
-
-lor.lhs.false77:                                  ; preds = %lor.lhs.false
-  %grad78 = getelementptr inbounds i8, ptr %ph, i64 152
-  %52 = load ptr, ptr %grad78, align 8
-  %tobool79.not = icmp eq ptr %52, null
-  br i1 %tobool79.not, label %cond.false, label %cond.true88
+  br i1 %tobool76.not, label %cond.false, label %cond.false.thread
 
 cond.true:                                        ; preds = %do.end73
   %call.i = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i34, ptr noundef nonnull %a, i64 noundef 0)
@@ -12366,20 +12326,31 @@ cond.true:                                        ; preds = %do.end73
 for.body.i:                                       ; preds = %for.body.i, %cond.true
   %indvars.iv.i = phi i64 [ 0, %cond.true ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i
-  %53 = load i64, ptr %arrayidx.i, align 8
+  %52 = load i64, ptr %arrayidx.i, align 8
   %arrayidx5.i = getelementptr inbounds [4 x i64], ptr %nb3.i, i64 0, i64 %indvars.iv.i
-  store i64 %53, ptr %arrayidx5.i, align 8
+  store i64 %52, ptr %arrayidx5.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %cond.end, label %for.body.i, !llvm.loop !41
 
-cond.false:                                       ; preds = %lor.lhs.false77
+cond.false.thread:                                ; preds = %land.lhs.true, %lor.lhs.false
+  %call.i.i98 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i34, ptr noundef null, i64 noundef 0)
+  %op_params.i9399 = getelementptr inbounds i8, ptr %call.i.i98, i64 84
+  store i32 0, ptr %op_params.i9399, align 4
+  %op94100 = getelementptr inbounds i8, ptr %call.i.i98, i64 80
+  store i32 60, ptr %op94100, align 8
+  br label %cond.true88
+
+cond.false:                                       ; preds = %lor.lhs.false
+  %grad78 = getelementptr inbounds i8, ptr %ph, i64 152
+  %53 = load ptr, ptr %grad78, align 8
+  %tobool79.not.not = icmp eq ptr %53, null
   %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i34, ptr noundef null, i64 noundef 0)
   %op_params.i93 = getelementptr inbounds i8, ptr %call.i.i, i64 84
   store i32 0, ptr %op_params.i93, align 4
   %op94 = getelementptr inbounds i8, ptr %call.i.i, i64 80
   store i32 60, ptr %op94, align 8
-  br label %cond.end91
+  br i1 %tobool79.not.not, label %cond.end91, label %cond.true88
 
 cond.end:                                         ; preds = %for.body.i
   %op_params.i = getelementptr inbounds i8, ptr %call.i, i64 84
@@ -12388,19 +12359,15 @@ cond.end:                                         ; preds = %for.body.i
   store i32 60, ptr %op, align 8
   br label %cond.end91
 
-cond.true88:                                      ; preds = %land.lhs.true, %lor.lhs.false, %lor.lhs.false77
-  %call.i.i98 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %11, i32 noundef 4, ptr noundef nonnull %ne.i34, ptr noundef null, i64 noundef 0)
-  %op_params.i9399 = getelementptr inbounds i8, ptr %call.i.i98, i64 84
-  store i32 0, ptr %op_params.i9399, align 4
-  %op94100 = getelementptr inbounds i8, ptr %call.i.i98, i64 80
-  store i32 60, ptr %op94100, align 8
-  %54 = load i32, ptr %call.i.i98, align 8
-  %ne.i87 = getelementptr inbounds i8, ptr %call.i.i98, i64 16
+cond.true88:                                      ; preds = %cond.false.thread, %cond.false
+  %call.i.i101 = phi ptr [ %call.i.i98, %cond.false.thread ], [ %call.i.i, %cond.false ]
+  %54 = load i32, ptr %call.i.i101, align 8
+  %ne.i87 = getelementptr inbounds i8, ptr %call.i.i101, i64 16
   %call.i.i88 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %54, i32 noundef 4, ptr noundef nonnull %ne.i87, ptr noundef null, i64 noundef 0)
   br label %cond.end91
 
-cond.end91:                                       ; preds = %cond.false, %cond.end, %cond.true88
-  %cond95 = phi ptr [ %call.i.i98, %cond.true88 ], [ %call.i, %cond.end ], [ %call.i.i, %cond.false ]
+cond.end91:                                       ; preds = %cond.end, %cond.false, %cond.true88
+  %cond95 = phi ptr [ %call.i.i101, %cond.true88 ], [ %call.i, %cond.end ], [ %call.i.i, %cond.false ]
   %cond92 = phi ptr [ %call.i.i88, %cond.true88 ], [ null, %cond.end ], [ null, %cond.false ]
   %grad93 = getelementptr inbounds i8, ptr %cond95, i64 152
   store ptr %cond92, ptr %grad93, align 8
@@ -12592,15 +12559,12 @@ land.lhs.true:                                    ; preds = %do.end
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %10 = load ptr, ptr %grad, align 8
   %tobool3.not = icmp eq ptr %10, null
-  br i1 %tobool3.not, label %lor.lhs.false, label %if.then6
+  br i1 %tobool3.not, label %lor.lhs.false, label %cond.end
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %grad4 = getelementptr inbounds i8, ptr %b, i64 152
   %11 = load ptr, ptr %grad4, align 8
-  %tobool5.not = icmp eq ptr %11, null
-  br i1 %tobool5.not, label %cond.end, label %if.then6
-
-if.then6:                                         ; preds = %lor.lhs.false, %land.lhs.true
+  %tobool5.not = icmp ne ptr %11, null
   br label %cond.end
 
 cond.true:                                        ; preds = %do.end
@@ -12629,8 +12593,8 @@ cond.end.thread:                                  ; preds = %for.body.i
   store i32 63, ptr %op30, align 8
   br label %cond.end15
 
-cond.end:                                         ; preds = %lor.lhs.false, %if.then6
-  %is_node.0.ph = phi i1 [ false, %lor.lhs.false ], [ true, %if.then6 ]
+cond.end:                                         ; preds = %land.lhs.true, %lor.lhs.false
+  %is_node.0.ph = phi i1 [ %tobool5.not, %lor.lhs.false ], [ true, %land.lhs.true ]
   %14 = load i32, ptr %a, align 8
   %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %14, i32 noundef 4, ptr noundef nonnull %ne.i, ptr noundef null, i64 noundef 0)
   %cmp.not.i = icmp eq ptr %call.i.i, null
@@ -12808,15 +12772,12 @@ land.lhs.true:                                    ; preds = %entry
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %0 = load ptr, ptr %grad, align 8
   %tobool1.not = icmp eq ptr %0, null
-  br i1 %tobool1.not, label %lor.lhs.false, label %if.then
+  br i1 %tobool1.not, label %lor.lhs.false, label %cond.end
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %grad2 = getelementptr inbounds i8, ptr %b, i64 152
   %1 = load ptr, ptr %grad2, align 8
-  %tobool3.not = icmp eq ptr %1, null
-  br i1 %tobool3.not, label %cond.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
+  %tobool3.not = icmp ne ptr %1, null
   br label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -12846,8 +12807,8 @@ cond.end.thread:                                  ; preds = %for.body.i
   store i32 65, ptr %op27, align 8
   br label %cond.end10
 
-cond.end:                                         ; preds = %lor.lhs.false, %if.then
-  %is_node.0.ph = phi i1 [ false, %lor.lhs.false ], [ true, %if.then ]
+cond.end:                                         ; preds = %land.lhs.true, %lor.lhs.false
+  %is_node.0.ph = phi i1 [ %tobool3.not, %lor.lhs.false ], [ true, %land.lhs.true ]
   %4 = load i32, ptr %a, align 8
   %ne.i14 = getelementptr inbounds i8, ptr %a, i64 16
   %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %ne.i14, ptr noundef null, i64 noundef 0)
@@ -12940,21 +12901,18 @@ land.lhs.true:                                    ; preds = %entry
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %0 = load ptr, ptr %grad, align 8
   %tobool1.not = icmp eq ptr %0, null
-  br i1 %tobool1.not, label %lor.lhs.false, label %if.then
+  br i1 %tobool1.not, label %lor.lhs.false, label %cond.end
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %grad2 = getelementptr inbounds i8, ptr %b, i64 152
   %1 = load ptr, ptr %grad2, align 8
   %tobool3.not = icmp eq ptr %1, null
-  br i1 %tobool3.not, label %lor.lhs.false4, label %if.then
+  br i1 %tobool3.not, label %lor.lhs.false4, label %cond.end
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %grad5 = getelementptr inbounds i8, ptr %c, i64 152
   %2 = load ptr, ptr %grad5, align 8
-  %tobool6.not = icmp eq ptr %2, null
-  br i1 %tobool6.not, label %cond.end, label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false4, %lor.lhs.false, %land.lhs.true
+  %tobool6.not = icmp ne ptr %2, null
   br label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -12984,8 +12942,8 @@ cond.end.thread:                                  ; preds = %for.body.i
   store i32 66, ptr %op29, align 8
   br label %cond.end13
 
-cond.end:                                         ; preds = %lor.lhs.false4, %if.then
-  %is_node.0.ph = phi i1 [ false, %lor.lhs.false4 ], [ true, %if.then ]
+cond.end:                                         ; preds = %lor.lhs.false, %land.lhs.true, %lor.lhs.false4
+  %is_node.0.ph = phi i1 [ %tobool6.not, %lor.lhs.false4 ], [ true, %land.lhs.true ], [ true, %lor.lhs.false ]
   %5 = load i32, ptr %a, align 8
   %ne.i16 = getelementptr inbounds i8, ptr %a, i64 16
   %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %ne.i16, ptr noundef null, i64 noundef 0)
@@ -13208,15 +13166,12 @@ land.lhs.true:                                    ; preds = %do.end
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %2 = load ptr, ptr %grad, align 8
   %tobool3.not = icmp eq ptr %2, null
-  br i1 %tobool3.not, label %lor.lhs.false4, label %if.then7
+  br i1 %tobool3.not, label %lor.lhs.false4, label %cond.end
 
 lor.lhs.false4:                                   ; preds = %land.lhs.true
   %grad5 = getelementptr inbounds i8, ptr %b, i64 152
   %3 = load ptr, ptr %grad5, align 8
-  %tobool6.not = icmp eq ptr %3, null
-  br i1 %tobool6.not, label %cond.end, label %if.then7
-
-if.then7:                                         ; preds = %lor.lhs.false4, %land.lhs.true
+  %tobool6.not = icmp ne ptr %3, null
   br label %cond.end
 
 cond.true:                                        ; preds = %do.end
@@ -13250,8 +13205,8 @@ cond.end.thread:                                  ; preds = %for.body.i
   store i32 68, ptr %op33, align 8
   br label %cond.end19
 
-cond.end:                                         ; preds = %lor.lhs.false4, %if.then7
-  %is_node.0.ph = phi i1 [ false, %lor.lhs.false4 ], [ true, %if.then7 ]
+cond.end:                                         ; preds = %land.lhs.true, %lor.lhs.false4
+  %is_node.0.ph = phi i1 [ %tobool6.not, %lor.lhs.false4 ], [ true, %land.lhs.true ]
   %6 = load i32, ptr %a, align 8
   %ne.i16 = getelementptr inbounds i8, ptr %a, i64 16
   %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %ne.i16, ptr noundef null, i64 noundef 0)
@@ -13334,21 +13289,18 @@ land.lhs.true:                                    ; preds = %do.end
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %2 = load ptr, ptr %grad, align 8
   %tobool3.not = icmp eq ptr %2, null
-  br i1 %tobool3.not, label %lor.lhs.false4, label %if.then10
+  br i1 %tobool3.not, label %lor.lhs.false4, label %cond.end
 
 lor.lhs.false4:                                   ; preds = %land.lhs.true
   %grad5 = getelementptr inbounds i8, ptr %b, i64 152
   %3 = load ptr, ptr %grad5, align 8
   %tobool6.not = icmp eq ptr %3, null
-  br i1 %tobool6.not, label %lor.lhs.false7, label %if.then10
+  br i1 %tobool6.not, label %lor.lhs.false7, label %cond.end
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false4
   %grad8 = getelementptr inbounds i8, ptr %c, i64 152
   %4 = load ptr, ptr %grad8, align 8
-  %tobool9.not = icmp eq ptr %4, null
-  br i1 %tobool9.not, label %cond.end, label %if.then10
-
-if.then10:                                        ; preds = %lor.lhs.false7, %lor.lhs.false4, %land.lhs.true
+  %tobool9.not = icmp ne ptr %4, null
   br label %cond.end
 
 cond.true:                                        ; preds = %do.end
@@ -13382,8 +13334,8 @@ cond.end.thread:                                  ; preds = %for.body.i
   store i32 69, ptr %op35, align 8
   br label %cond.end22
 
-cond.end:                                         ; preds = %lor.lhs.false7, %if.then10
-  %is_node.0.ph = phi i1 [ false, %lor.lhs.false7 ], [ true, %if.then10 ]
+cond.end:                                         ; preds = %lor.lhs.false4, %land.lhs.true, %lor.lhs.false7
+  %is_node.0.ph = phi i1 [ %tobool9.not, %lor.lhs.false7 ], [ true, %land.lhs.true ], [ true, %lor.lhs.false4 ]
   %7 = load i32, ptr %a, align 8
   %ne.i18 = getelementptr inbounds i8, ptr %a, i64 16
   %call.i.i = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %ctx, i32 noundef %7, i32 noundef 4, ptr noundef nonnull %ne.i18, ptr noundef null, i64 noundef 0)
@@ -13485,19 +13437,16 @@ do.end:                                           ; preds = %ggml_are_same_shape
   %grad = getelementptr inbounds i8, ptr %a, i64 152
   %10 = load ptr, ptr %grad, align 8
   %tobool.not = icmp eq ptr %10, null
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then5
+  br i1 %tobool.not, label %lor.lhs.false, label %if.end6
 
 lor.lhs.false:                                    ; preds = %do.end
   %grad3 = getelementptr inbounds i8, ptr %b, i64 152
   %11 = load ptr, ptr %grad3, align 8
-  %tobool4.not = icmp eq ptr %11, null
-  br i1 %tobool4.not, label %if.end6, label %if.then5
-
-if.then5:                                         ; preds = %lor.lhs.false, %do.end
+  %tobool4.not = icmp ne ptr %11, null
   br label %if.end6
 
-if.end6:                                          ; preds = %if.then5, %lor.lhs.false
-  %is_node.0 = phi i1 [ true, %if.then5 ], [ false, %lor.lhs.false ]
+if.end6:                                          ; preds = %lor.lhs.false, %do.end
+  %is_node.0 = phi i1 [ true, %do.end ], [ %tobool4.not, %lor.lhs.false ]
   %12 = load i32, ptr %a, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ne0.addr.i)
   store i64 1, ptr %ne0.addr.i, align 8
@@ -17376,16 +17325,14 @@ for.end:                                          ; preds = %sw.epilog
   %mul402 = add i32 %sub401, -64
   %conv403 = sext i32 %mul402 to i64
   %add404 = add i64 %cond397, %conv403
-  br i1 %cmp398.not, label %for.end.thread, label %96
+  %spec.select = select i1 %cmp398.not, i64 0, i64 %add404
+  br label %for.end.thread
 
-for.end.thread:                                   ; preds = %entry, %for.end
-  br label %96
-
-96:                                               ; preds = %for.end, %for.end.thread
-  %97 = phi i64 [ 0, %for.end.thread ], [ %add404, %for.end ]
+for.end.thread:                                   ; preds = %for.end, %entry
+  %96 = phi i64 [ 0, %entry ], [ %spec.select, %for.end ]
   %n_threads406 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %spec.store.select, ptr %n_threads406, align 8
-  store i64 %97, ptr %agg.result, align 8
+  store i64 %96, ptr %agg.result, align 8
   %work_data = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %work_data, align 8
   ret void
@@ -17695,7 +17642,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds %struct.ggml_compute_state, ptr %9, i64 %indvars.iv
   store i64 0, ptr %arrayidx, align 8
   %.compoundliteral.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %10, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx, align 8
   %.compoundliteral.sroa.33.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %state_shared, ptr %.compoundliteral.sroa.33.0.arrayidx.sroa_idx, align 8
@@ -18780,7 +18727,7 @@ for.body196:                                      ; preds = %for.body196.lr.ph, 
   br i1 %cmp202, label %for.end207.thread, label %for.inc205
 
 for.end207.thread:                                ; preds = %for.body196
-  %116 = trunc i64 %indvars.iv250 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv250 to i32
   store i32 %116, ptr %idx, align 4
   br label %for.inc237
 
@@ -18812,15 +18759,15 @@ for.inc225:                                       ; preds = %for.body214
   br i1 %exitcond259.not, label %if.then230, label %for.body214, !llvm.loop !81
 
 if.end228:                                        ; preds = %for.body214
-  %120 = trunc i64 %indvars.iv255 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv255 to i32
   %add223 = add nsw i32 %113, %120
   store i32 %add223, ptr %idx, align 4
   %cmp229 = icmp eq i32 %add223, -1
   br i1 %cmp229, label %if.then230, label %for.inc237
 
 if.then230:                                       ; preds = %for.cond211.preheader, %if.end228, %for.inc225
-  %121 = trunc i64 %indvars.iv264 to i32
-  %122 = trunc i64 %indvars.iv260 to i32
+  %121 = trunc nuw nsw i64 %indvars.iv264 to i32
+  %122 = trunc nuw nsw i64 %indvars.iv260 to i32
   %123 = load ptr, ptr @stderr, align 8
   %call231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.160, ptr noundef nonnull @__func__.ggml_graph_export, i32 noundef %122, i32 noundef %121) #46
   %call232 = tail call i32 @fclose(ptr noundef %call85)
@@ -19250,7 +19197,7 @@ for.body17.i167:                                  ; preds = %for.body17.i167, %i
 
 ggml_nbytes.exit192:                              ; preds = %for.body17.i167, %for.body.i182
   %nbytes.2.i177 = phi i64 [ %add.i189, %for.body.i182 ], [ %add26.i174, %for.body17.i167 ]
-  %46 = trunc i64 %indvars.iv269 to i32
+  %46 = trunc nuw i64 %indvars.iv269 to i32
   %call94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.166, ptr noundef nonnull @__func__.ggml_graph_import, i32 noundef %46, ptr noundef nonnull %name, i64 noundef %nbytes.2.i177) #46
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count
@@ -19452,7 +19399,7 @@ for.body17.i215:                                  ; preds = %for.body17.i215, %i
 
 ggml_nbytes.exit240:                              ; preds = %for.body17.i215, %for.body.i230
   %nbytes.2.i225 = phi i64 [ %add.i237, %for.body.i230 ], [ %add26.i222, %for.body17.i215 ]
-  %79 = trunc i64 %indvars.iv287 to i32
+  %79 = trunc nuw i64 %indvars.iv287 to i32
   %call222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.167, ptr noundef nonnull @__func__.ggml_graph_import, i32 noundef %79, ptr noundef nonnull %name187, i64 noundef %nbytes.2.i225) #46
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next288, %wide.trip.count290
@@ -19537,7 +19484,7 @@ cond.end18:                                       ; preds = %for.body, %cond.fal
   %conv31 = sitofp i64 %4 to double
   %div32 = fdiv double %conv31, 1.000000e+03
   %div38 = fdiv double %div32, %conv28
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %call39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.170, i32 noundef %15, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10, ptr noundef nonnull %cond19, i32 noundef %13, double noundef %div, double noundef %div29, double noundef %div32, double noundef %div38)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %n_nodes, align 4
@@ -19572,7 +19519,7 @@ for.body46:                                       ; preds = %for.body46.lr.ph, %
   %arrayidx.i36 = getelementptr inbounds [72 x ptr], ptr @GGML_OP_NAME, i64 0, i64 %idxprom.i35
   %25 = load ptr, ptr %arrayidx.i36, align 8
   %name.i = getelementptr inbounds i8, ptr %21, i64 288
-  %26 = trunc i64 %indvars.iv45 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv45 to i32
   %call57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, i32 noundef %26, i64 noundef %22, i64 noundef %23, ptr noundef %25, ptr noundef nonnull %name.i)
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %27 = load i32, ptr %n_leafs, align 8
@@ -19775,7 +19722,7 @@ if.then44:                                        ; preds = %ggml_is_matrix.exit
   %idxprom.i118 = zext i32 %24 to i64
   %arrayidx.i119 = getelementptr inbounds [72 x ptr], ptr @GGML_OP_SYMBOL, i64 0, i64 %idxprom.i118
   %25 = load ptr, ptr %arrayidx.i119, align 8
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.190, i32 noundef %26, i64 noundef %22, i64 noundef %23, ptr noundef %25)
   br label %if.end60
 
@@ -19789,7 +19736,7 @@ if.else50:                                        ; preds = %if.end42, %ggml_is_
   %idxprom.i120 = zext i32 %29 to i64
   %arrayidx.i121 = getelementptr inbounds [72 x ptr], ptr @GGML_OP_SYMBOL, i64 0, i64 %idxprom.i120
   %30 = load ptr, ptr %arrayidx.i121, align 8
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %call59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.191, i32 noundef %31, i64 noundef %27, i64 noundef %28, i64 noundef %20, ptr noundef %30)
   br label %if.end60
 
@@ -19862,7 +19809,7 @@ if.end96:                                         ; preds = %if.else92, %if.then
   %44 = load i64, ptr %ne97, align 8
   %arrayidx100 = getelementptr inbounds i8, ptr %41, i64 24
   %45 = load i64, ptr %arrayidx100, align 8
-  %46 = trunc i64 %indvars.iv166 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv166 to i32
   %call101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.196, i32 noundef %46, i64 noundef %44, i64 noundef %45)
   %47 = load i64, ptr %ne97, align 8
   %48 = load i64, ptr %arrayidx100, align 8
@@ -19900,13 +19847,13 @@ for.body110:                                      ; preds = %if.then104, %for.in
   ]
 
 if.then121:                                       ; preds = %for.body110, %for.body110, %for.body110
-  %57 = trunc i64 %indvars.iv163 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv163 to i32
   %call122 = call i32 @ggml_get_i32_1d(ptr noundef nonnull %41, i32 noundef %57)
   %call123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.198, i32 noundef %call122)
   br label %if.end139
 
 if.then132:                                       ; preds = %for.body110, %for.body110
-  %58 = trunc i64 %indvars.iv163 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv163 to i32
   %call133 = call float @ggml_get_f32_1d(ptr noundef nonnull %41, i32 noundef %58)
   %conv134 = fpext float %call133 to double
   %call135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.199, double noundef %conv134)
@@ -19986,7 +19933,7 @@ for.body170:                                      ; preds = %for.body161, %for.i
   br i1 %tobool173.not, label %for.inc182, label %if.then174
 
 if.then174:                                       ; preds = %for.body170
-  %71 = trunc i64 %indvars.iv169 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv169 to i32
   %call176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %label, i64 noundef 16, ptr noundef nonnull @.str.203, i32 noundef %71) #45
   %72 = load ptr, ptr %arrayidx172, align 8
   %73 = load i32, ptr %n_nodes, align 4
@@ -20072,7 +20019,7 @@ for.body202:                                      ; preds = %for.body193, %for.i
   br i1 %tobool206.not, label %for.inc216, label %if.then207
 
 if.then207:                                       ; preds = %for.body202
-  %84 = trunc i64 %indvars.iv175 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv175 to i32
   %call210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %label208, i64 noundef 16, ptr noundef nonnull @.str.203, i32 noundef %84) #45
   %85 = load ptr, ptr %arrayidx205, align 8
   %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call, ptr noundef nonnull @.str.584, ptr noundef %85, ptr noundef nonnull @.str.171, ptr noundef nonnull %82, ptr noundef nonnull @.str.171, ptr noundef nonnull %label208)
@@ -22409,7 +22356,7 @@ for.body3.i.i:                                    ; preds = %for.body3.i.i, %for
   br i1 %exitcond.not.i.i, label %for.inc10.loopexit.i.i, label %for.body3.i.i, !llvm.loop !111
 
 for.inc10.loopexit.i.i:                           ; preds = %for.body3.i.i
-  %172 = trunc i64 %indvars.iv.next.i.i to i32
+  %172 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %for.inc10.i.i
 
 for.inc10.i.i:                                    ; preds = %for.inc10.loopexit.i.i, %for.body.i.i
@@ -22474,7 +22421,7 @@ for.body3.i207.i:                                 ; preds = %for.body3.i207.i, %
   br i1 %exitcond.not.i213.i, label %for.inc9.loopexit.i.i, label %for.body3.i207.i, !llvm.loop !113
 
 for.inc9.loopexit.i.i:                            ; preds = %for.body3.i207.i
-  %188 = trunc i64 %indvars.iv.next.i211.i to i32
+  %188 = trunc nsw i64 %indvars.iv.next.i211.i to i32
   br label %for.inc9.i.i
 
 for.inc9.i.i:                                     ; preds = %for.inc9.loopexit.i.i, %for.body.i191.i
@@ -23113,7 +23060,7 @@ for.body3.i67.i.i:                                ; preds = %for.body3.i67.i.i, 
   br i1 %exitcond.not.i70.i.i, label %for.inc9.loopexit.i.i.i, label %for.body3.i67.i.i, !llvm.loop !113
 
 for.inc9.loopexit.i.i.i:                          ; preds = %for.body3.i67.i.i
-  %285 = trunc i64 %indvars.iv.next.i69.i.i to i32
+  %285 = trunc nsw i64 %indvars.iv.next.i69.i.i to i32
   br label %for.inc9.i.i.i
 
 for.inc9.i.i.i:                                   ; preds = %for.inc9.loopexit.i.i.i, %for.body.i65.i.i
@@ -24167,13 +24114,13 @@ for.cond7.preheader.us:                           ; preds = %for.body.us, %for.i
 
 for.cond4.for.inc30_crit_edge.us:                 ; preds = %for.inc27.us
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, %2
-  %8 = trunc i64 %indvars.iv.next32 to i32
+  %8 = trunc nuw i64 %indvars.iv.next32 to i32
   %cmp.us = icmp slt i32 %8, %n
   br i1 %cmp.us, label %for.body.us, label %for.end32, !llvm.loop !249
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   %div1 = sdiv i32 %9, 32
   %idx.ext = sext i32 %div1 to i64
   %add.ptr = getelementptr inbounds %struct.block_q4_0, ptr %dst, i64 %idx.ext
@@ -24254,13 +24201,13 @@ for.cond7.preheader.us:                           ; preds = %for.body.us, %for.i
 
 for.cond4.for.inc30_crit_edge.us:                 ; preds = %for.inc27.us
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, %2
-  %8 = trunc i64 %indvars.iv.next32 to i32
+  %8 = trunc nuw i64 %indvars.iv.next32 to i32
   %cmp.us = icmp slt i32 %8, %n
   br i1 %cmp.us, label %for.body.us, label %for.end32, !llvm.loop !252
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   %div1 = sdiv i32 %9, 32
   %idx.ext = sext i32 %div1 to i64
   %add.ptr = getelementptr inbounds %struct.block_q4_1, ptr %dst, i64 %idx.ext
@@ -24325,7 +24272,7 @@ for.inc51.us:                                     ; preds = %for.body10.us
 for.body10.us:                                    ; preds = %for.body10.us, %for.body6.us
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %for.body10.us ], [ 0, %for.body6.us ]
   %3 = lshr exact i64 %indvars.iv33, 1
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %shl.us = shl nuw nsw i32 1, %4
   %and.us = and i32 %shl.us, %qh.0.copyload.us
   %shr.us = lshr i32 %and.us, %4
@@ -24362,13 +24309,13 @@ for.body10.us:                                    ; preds = %for.body10.us, %for
 
 for.cond4.for.inc54_crit_edge.us:                 ; preds = %for.inc51.us
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, %2
-  %12 = trunc i64 %indvars.iv.next42 to i32
+  %12 = trunc nuw i64 %indvars.iv.next42 to i32
   %cmp.us = icmp slt i32 %12, %n
   br i1 %cmp.us, label %for.body.us, label %for.end56, !llvm.loop !255
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nsw i64 %indvars.iv to i32
   %div1 = sdiv i32 %13, 32
   %idx.ext = sext i32 %div1 to i64
   %add.ptr = getelementptr inbounds %struct.block_q5_0, ptr %dst, i64 %idx.ext
@@ -24433,7 +24380,7 @@ for.inc51.us:                                     ; preds = %for.body10.us
 for.body10.us:                                    ; preds = %for.body10.us, %for.body6.us
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %for.body10.us ], [ 0, %for.body6.us ]
   %3 = lshr exact i64 %indvars.iv33, 1
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %shl.us = shl nuw nsw i32 1, %4
   %and.us = and i32 %shl.us, %qh.0.copyload.us
   %shr.us = lshr i32 %and.us, %4
@@ -24470,13 +24417,13 @@ for.body10.us:                                    ; preds = %for.body10.us, %for
 
 for.cond4.for.inc54_crit_edge.us:                 ; preds = %for.inc51.us
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, %2
-  %12 = trunc i64 %indvars.iv.next42 to i32
+  %12 = trunc nuw i64 %indvars.iv.next42 to i32
   %cmp.us = icmp slt i32 %12, %n
   br i1 %cmp.us, label %for.body.us, label %for.end56, !llvm.loop !258
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nsw i64 %indvars.iv to i32
   %div1 = sdiv i32 %13, 32
   %idx.ext = sext i32 %div1 to i64
   %add.ptr = getelementptr inbounds %struct.block_q5_1, ptr %dst, i64 %idx.ext
@@ -24551,13 +24498,13 @@ for.cond7.preheader.us:                           ; preds = %for.body.us, %for.i
 
 for.cond4.for.inc19_crit_edge.us:                 ; preds = %for.inc16.us
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, %2
-  %7 = trunc i64 %indvars.iv.next28 to i32
+  %7 = trunc nuw i64 %indvars.iv.next28 to i32
   %cmp.us = icmp slt i32 %7, %n
   br i1 %cmp.us, label %for.body.us, label %for.end21, !llvm.loop !261
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nsw i64 %indvars.iv to i32
   %div1 = sdiv i32 %8, 32
   %idx.ext = sext i32 %div1 to i64
   %add.ptr = getelementptr inbounds %struct.block_q8_0, ptr %dst, i64 %idx.ext
@@ -24672,7 +24619,7 @@ for.cond7.preheader.us.i:                         ; preds = %for.inc27.us.i, %fo
 
 for.cond4.for.inc30_crit_edge.us.i:               ; preds = %for.inc27.us.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, %3
-  %9 = trunc i64 %indvars.iv.next32.i to i32
+  %9 = trunc nuw i64 %indvars.iv.next32.i to i32
   %cmp.us.i = icmp slt i32 %9, %n
   br i1 %cmp.us.i, label %for.body.us.i, label %ggml_quantize_q4_0.exit, !llvm.loop !249
 
@@ -24759,7 +24706,7 @@ for.cond7.preheader.us.i113:                      ; preds = %for.inc27.us.i127, 
 
 for.cond4.for.inc30_crit_edge.us.i130:            ; preds = %for.inc27.us.i127
   %indvars.iv.next32.i131 = add nuw nsw i64 %indvars.iv31.i108, %13
-  %19 = trunc i64 %indvars.iv.next32.i131 to i32
+  %19 = trunc nuw i64 %indvars.iv.next32.i131 to i32
   %cmp.us.i132 = icmp slt i32 %19, %n
   br i1 %cmp.us.i132, label %for.body.us.i107, label %ggml_quantize_q4_1.exit, !llvm.loop !252
 
@@ -24886,7 +24833,7 @@ for.cond7.preheader.us.i151:                      ; preds = %for.inc16.us.i, %fo
 
 for.cond4.for.inc19_crit_edge.us.i:               ; preds = %for.inc16.us.i
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, %29
-  %34 = trunc i64 %indvars.iv.next28.i to i32
+  %34 = trunc nuw i64 %indvars.iv.next28.i to i32
   %cmp.us.i155 = icmp slt i32 %34, %n
   br i1 %cmp.us.i155, label %for.body.us.i147, label %ggml_quantize_q8_0.exit, !llvm.loop !261
 
@@ -25022,7 +24969,7 @@ for.body.preheader.i160:                          ; preds = %sw.bb149
   br label %for.body.i161
 
 for.cond4.preheader.loopexit.i:                   ; preds = %for.body.i161
-  %51 = trunc i64 %indvars.iv.next.i164 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv.next.i164 to i32
   br label %for.cond4.preheader.i
 
 for.cond4.preheader.i:                            ; preds = %for.cond4.preheader.loopexit.i, %sw.bb149
@@ -25756,7 +25703,7 @@ for.inc.i:                                        ; preds = %gguf_get_key.exit.i
   br i1 %exitcond.not.i, label %if.end375, label %gguf_get_key.exit.i, !llvm.loop !270
 
 gguf_find_key.exit:                               ; preds = %gguf_get_key.exit.i
-  %47 = trunc i64 %indvars.iv.i to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp369.not = icmp eq i32 %47, -1
   br i1 %cmp369.not, label %if.end375, label %if.then371
 
@@ -26173,7 +26120,7 @@ for.inc:                                          ; preds = %gguf_get_key.exit
   br i1 %exitcond.not, label %for.end, label %gguf_get_key.exit, !llvm.loop !270
 
 for.end.loopexit.split.loop.exit:                 ; preds = %gguf_get_key.exit
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %entry
@@ -27145,7 +27092,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !276
 
 for.end.loopexit.split.loop.exit:                 ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %entry
@@ -28342,7 +28289,7 @@ for.body141:                                      ; preds = %for.body141.lr.ph, 
 for.end:                                          ; preds = %for.body141, %if.then
   %data156 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %31 = load ptr, ptr %data156, align 8
-  %conv162 = trunc i64 %28 to i32
+  %conv162 = trunc nuw i64 %28 to i32
   tail call void @gguf_set_arr_str(ptr noundef %ctx, ptr noundef %31, ptr noundef %call, i32 noundef %conv162)
   tail call void @free(ptr noundef %call) #45
   br label %for.inc201
@@ -28648,7 +28595,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %do.body, label %for.body.i, !llvm.loop !276
 
 gguf_find_tensor.exit:                            ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp slt i32 %3, 0
   br i1 %cmp, label %do.body, label %if.end
 
@@ -38509,7 +38456,7 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i, %f
   %cmp1.i.us.i = fcmp ogt float %max.011.i.us.i, %7
   %max.0..i.us.i = select i1 %cmp1.i.us.i, float %max.011.i.us.i, float %7
   %cmp6.i.us.i = fcmp oeq float %max.0..i.us.i, %7
-  %8 = trunc i64 %indvars.iv.i.us.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i.us.i to i32
   %idx.1.i.us.i = select i1 %cmp6.i.us.i, i32 %8, i32 %idx.012.i.us.i
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
@@ -46869,7 +46816,7 @@ for.cond49.preheader.us.us.preheader.i:           ; preds = %for.cond49.preheade
 for.cond49.preheader.us.us.i:                     ; preds = %for.cond49.for.inc92_crit_edge.split.us.us.us.i, %for.cond49.preheader.us.us.preheader.i
   %indvars.iv27.i = phi i64 [ 0, %for.cond49.preheader.us.us.preheader.i ], [ %indvars.iv.next28.i, %for.cond49.for.inc92_crit_edge.split.us.us.us.i ]
   %17 = shl nuw nsw i64 %indvars.iv27.i, 1
-  %18 = trunc i64 %indvars.iv27.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv27.i to i32
   %conv84.us.us.i = sitofp i32 %18 to float
   br label %for.cond53.preheader.us.us.us.i
 
@@ -46904,7 +46851,7 @@ if.else.us.us.us.i:                               ; preds = %for.body56.us.us.us
 
 if.then76.us.us.us.i:                             ; preds = %for.body56.us.us.us.i
   %26 = add nuw nsw i64 %indvars.iv.i, 1
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %conv77.us.us.us.i = sitofp i32 %27 to float
   %call78.us.us.us.i = tail call float @powf(float noundef %exp2f.i, float noundef %conv77.us.us.us.i) #45
   br label %if.end83.us.us.us.i
@@ -53783,7 +53730,7 @@ for.body.us.us.i:                                 ; preds = %for.cond299.for.inc
   %conv295.us.us.i = ashr exact i64 %sext.us.us.i, 32
   %mul296.us.us.i = mul i64 %div292.us.us.i, %9
   %77 = trunc i64 %mul296.us.us.i to i32
-  %78 = trunc i64 %indvars.iv593.i to i32
+  %78 = trunc nsw i64 %indvars.iv593.i to i32
   %conv298.us.us.i = sub i32 %78, %77
   %conv303.us.us.i = sext i32 %conv298.us.us.i to i64
   %mul359.us.us.i = mul i64 %13, %conv303.us.us.i
@@ -53806,7 +53753,7 @@ for.body.us.us.i:                                 ; preds = %for.cond299.for.inc
 
 for.body302.us.us.us.i:                           ; preds = %for.cond308.for.inc575_crit_edge.us.us.us.i, %for.body.us.us.i
   %indvars.iv588.i = phi i64 [ %indvars.iv.next589.i, %for.cond308.for.inc575_crit_edge.us.us.us.i ], [ 0, %for.body.us.us.i ]
-  %79 = trunc i64 %indvars.iv588.i to i32
+  %79 = trunc nuw nsw i64 %indvars.iv588.i to i32
   %80 = mul i32 %79, %71
   %conv307.us.us.us.i = add i32 %80, %conv298.us.us.i
   %conv368.us.us.us.i = sext i32 %conv307.us.us.us.i to i64
@@ -57935,7 +57882,7 @@ if.then73.us.us.us:                               ; preds = %for.body70.us.us.us
 
 for.inc.us.us.us:                                 ; preds = %if.then73.us.us.us, %for.body70.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = trunc i64 %indvars.iv.next to i32
+  %59 = trunc nuw i64 %indvars.iv.next to i32
   %cmp68.us.us.us = icmp slt i32 %59, %conv38
   br i1 %cmp68.us.us.us, label %for.body70.us.us.us, label %for.cond67.for.inc89_crit_edge.us.us.us, !llvm.loop !855
 

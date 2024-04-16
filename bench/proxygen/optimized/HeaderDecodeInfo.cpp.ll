@@ -239,7 +239,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
   %9 = add nsw i64 %sub.ptr.div.i.i, -2
   %or.cond.i.i = icmp ult i64 %9, 87
-  %conv.i.i = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %conv.i.i = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %spec.select.i.i = select i1 %or.cond.i.i, i8 %conv.i.i, i8 1
   %.pre = load ptr, ptr %name, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.pre) #18
@@ -335,17 +335,22 @@ if.end36:                                         ; preds = %if.then30
 
 if.then38:                                        ; preds = %if.end36
   switch i8 %spec.select.i.i, label %sw.default [
-    i8 3, label %sw.epilog
+    i8 3, label %sw.bb
     i8 6, label %sw.bb41
     i8 2, label %sw.bb46
     i8 4, label %sw.bb53
     i8 5, label %sw.bb61
   ]
 
+sw.bb:                                            ; preds = %if.then38
+  %verifier = getelementptr inbounds i8, ptr %this, i64 8
+  %call39 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setMethodEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(45) %verifier, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i)
+  br label %return
+
 sw.bb41:                                          ; preds = %if.then38
   %verifier42 = getelementptr inbounds i8, ptr %this, i64 8
   %call44 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setSchemeEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(45) %verifier42, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i)
-  br i1 %call44, label %if.end212, label %return
+  br label %return
 
 sw.bb46:                                          ; preds = %if.then38
   %verifier47 = getelementptr inbounds i8, ptr %this, i64 8
@@ -356,7 +361,7 @@ sw.bb46:                                          ; preds = %if.then38
   %19 = load i8, ptr %strictValidation_, align 1
   %tobool50 = trunc i8 %19 to i1
   %call51 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier12setAuthorityEN5folly5RangeIPKcEEbb(ptr noundef nonnull align 8 dereferenceable(45) %verifier47, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i, i1 noundef zeroext %tobool49, i1 noundef zeroext %tobool50)
-  br i1 %call51, label %if.end212, label %return
+  br label %return
 
 sw.bb53:                                          ; preds = %if.then38
   %verifier54 = getelementptr inbounds i8, ptr %this, i64 8
@@ -367,7 +372,7 @@ sw.bb53:                                          ; preds = %if.then38
   %21 = load i8, ptr %allowEmptyPath_, align 8
   %tobool58 = trunc i8 %21 to i1
   %call59 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier7setPathEN5folly5RangeIPKcEEbb(ptr noundef nonnull align 8 dereferenceable(45) %verifier54, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i, i1 noundef zeroext %tobool57, i1 noundef zeroext %tobool58)
-  br i1 %call59, label %if.end212, label %return
+  br label %return
 
 sw.bb61:                                          ; preds = %if.then38
   %verifier62 = getelementptr inbounds i8, ptr %this, i64 8
@@ -375,18 +380,13 @@ sw.bb61:                                          ; preds = %if.then38
   %22 = load i8, ptr %strictValidation_64, align 1
   %tobool65 = trunc i8 %22 to i1
   %call66 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier18setUpgradeProtocolEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(45) %verifier62, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i, i1 noundef zeroext %tobool65)
-  br i1 %call66, label %if.end212, label %return
+  br label %return
 
 sw.default:                                       ; preds = %if.then38
   call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA25_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp68, ptr noundef nonnull align 1 dereferenceable(25) @.str.5, ptr noundef nonnull align 8 dereferenceable(16) %nameSp)
   %call70 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %parsingError, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #18
   br label %return
-
-sw.epilog:                                        ; preds = %if.then38
-  %verifier = getelementptr inbounds i8, ptr %this, i64 8
-  %call39 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setMethodEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(45) %verifier, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i)
-  br i1 %call39, label %if.end212, label %return
 
 if.else:                                          ; preds = %if.end36
   %cmp75 = icmp eq i8 %spec.select.i.i, 7
@@ -436,7 +436,7 @@ if.then95:                                        ; preds = %if.end85
   %call.i27 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN8proxygen11HTTPMessage8responseEv(ptr noundef nonnull align 8 dereferenceable(616) %28)
   %statusMsg_.i = getelementptr inbounds i8, ptr %call.i27, i64 40
   %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i, ptr noundef %call102)
-  br label %if.end212
+  br label %return
 
 if.else103:                                       ; preds = %if.end85
   call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA23_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp104, ptr noundef nonnull align 1 dereferenceable(23) @.str.7, ptr noundef nonnull align 8 dereferenceable(16) %valueSp)
@@ -716,7 +716,7 @@ if.then183:                                       ; preds = %if.end180
   %agg.tmp188.sroa.0.0.copyload = load ptr, ptr %valueSp, align 8
   %agg.tmp188.sroa.2.0.copyload = load ptr, ptr %e_.i.i, align 8
   call void @_ZN8proxygen11HTTPHeaders3addEN5folly5RangeIPKcEES5_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i, ptr %call.i, ptr %add.ptr.i, ptr %agg.tmp188.sroa.0.0.copyload, ptr %agg.tmp188.sroa.2.0.copyload)
-  br label %if.end212
+  br label %return
 
 land.lhs.true192:                                 ; preds = %if.end180
   %hasAuthority_.i = getelementptr inbounds i8, ptr %this, i64 51
@@ -730,7 +730,7 @@ if.then195:                                       ; preds = %land.lhs.true192
   store i8 38, ptr %ref.tmp199, align 1
   %call200 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp199)
   %call201 = call noundef zeroext i1 @_ZN5follyneINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_(ptr noundef nonnull align 8 dereferenceable(32) %call200, ptr noundef nonnull align 8 dereferenceable(16) %valueSp)
-  br i1 %call201, label %if.then202, label %if.end212
+  br i1 %call201, label %if.then202, label %return
 
 if.then202:                                       ; preds = %if.then195
   %call204 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %parsingError, ptr noundef nonnull @.str.12)
@@ -740,13 +740,10 @@ if.else206:                                       ; preds = %if.end180, %land.lh
   %58 = load ptr, ptr %this, align 8
   %headers_.i82 = getelementptr inbounds i8, ptr %58, i64 480
   call void @_ZN8proxygen11HTTPHeaders3addIRN5folly5RangeIPKcEEEEvNS_14HTTPHeaderCodeEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i82, i8 noundef zeroext %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %valueSp)
-  br label %if.end212
-
-if.end212:                                        ; preds = %sw.bb41, %sw.bb46, %sw.bb53, %sw.bb61, %if.then183, %if.then195, %if.else206, %if.then95, %sw.epilog
   br label %return
 
-return:                                           ; preds = %sw.bb41, %sw.bb46, %sw.bb53, %sw.bb61, %cond.true, %sw.epilog, %cleanup.action, %cond.end, %if.end212, %if.then202, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit, %invoke.cont143, %invoke.cont121, %if.else108, %if.else103, %invoke.cont82, %sw.default, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit
-  %retval.0 = phi i1 [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ false, %sw.default ], [ true, %if.end212 ], [ false, %invoke.cont82 ], [ false, %if.else103 ], [ false, %if.else108 ], [ false, %if.then202 ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ false, %invoke.cont143 ], [ false, %invoke.cont121 ], [ true, %cond.end ], [ true, %cleanup.action ], [ false, %sw.epilog ], [ true, %cond.true ], [ false, %sw.bb61 ], [ false, %sw.bb53 ], [ false, %sw.bb46 ], [ false, %sw.bb41 ]
+return:                                           ; preds = %sw.bb, %sw.bb41, %sw.bb46, %sw.bb53, %sw.bb61, %cond.true, %if.then95, %if.else206, %if.then195, %if.then183, %cleanup.action, %cond.end, %if.then202, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit, %invoke.cont143, %invoke.cont121, %if.else108, %if.else103, %invoke.cont82, %sw.default, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit
+  %retval.0 = phi i1 [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ false, %sw.default ], [ false, %invoke.cont82 ], [ false, %if.else103 ], [ false, %if.else108 ], [ false, %if.then202 ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ false, %invoke.cont143 ], [ false, %invoke.cont121 ], [ true, %cond.end ], [ true, %cleanup.action ], [ true, %if.then183 ], [ true, %if.then195 ], [ true, %if.else206 ], [ true, %if.then95 ], [ true, %cond.true ], [ %call66, %sw.bb61 ], [ %call59, %sw.bb53 ], [ %call51, %sw.bb46 ], [ %call44, %sw.bb41 ], [ %call39, %sw.bb ]
   ret i1 %retval.0
 }
 
@@ -967,26 +964,26 @@ if.end6:                                          ; preds = %for.cond.i, %if.end
 
 land.rhs.i.i:                                     ; preds = %if.end6
   %cmp.i8.i.i.i = icmp eq ptr %scheme.coerce1, %scheme.coerce0
-  br i1 %cmp.i8.i.i.i, label %if.then9, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %cmp.i8.i.i.i, label %if.then9, label %_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
+_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit: ; preds = %land.rhs.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %scheme.coerce0, ptr %call.i.i, i64 %sub.ptr.sub.i.i.i)
-  %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then9, label %if.else
+  %5 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %5, label %if.then9, label %if.else
 
-if.then9:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i.i
+if.then9:                                         ; preds = %land.rhs.i.i, %_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit
   %msg_ = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load ptr, ptr %msg_, align 8
-  %scheme_.i = getelementptr inbounds i8, ptr %5, i64 612
-  %6 = load i32, ptr %scheme_.i, align 4
-  %cmp.not.i2 = icmp eq i32 %6, 2
+  %6 = load ptr, ptr %msg_, align 8
+  %scheme_.i = getelementptr inbounds i8, ptr %6, i64 612
+  %7 = load i32, ptr %scheme_.i, align 4
+  %cmp.not.i2 = icmp eq i32 %7, 2
   br i1 %cmp.not.i2, label %return, label %if.end6.sink.split.i
 
 if.end6.sink.split.i:                             ; preds = %if.then9
   store i32 1, ptr %scheme_.i, align 4
   br label %return
 
-if.else:                                          ; preds = %if.end6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+if.else:                                          ; preds = %if.end6, %_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit
   %call.i.i6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygen7headers7kMasqueB5cxx11E) #18
   %call3.i.i7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygen7headers7kMasqueB5cxx11E) #18
   %cmp.i.i11 = icmp eq i64 %sub.ptr.sub.i.i.i, %call3.i.i7
@@ -994,22 +991,22 @@ if.else:                                          ; preds = %if.end6, %_ZNSt11ch
 
 land.rhs.i.i12:                                   ; preds = %if.else
   %cmp.i8.i.i.i13 = icmp eq ptr %scheme.coerce1, %scheme.coerce0
-  br i1 %cmp.i8.i.i.i13, label %if.then11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14
+  br i1 %cmp.i8.i.i.i13, label %if.then11, label %_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit16
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14: ; preds = %land.rhs.i.i12
+_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit16: ; preds = %land.rhs.i.i12
   %bcmp.i.i15 = tail call i32 @bcmp(ptr %scheme.coerce0, ptr %call.i.i6, i64 %sub.ptr.sub.i.i.i)
-  %cmp.i.i.i16 = icmp eq i32 %bcmp.i.i15, 0
-  br i1 %cmp.i.i.i16, label %if.then11, label %return
+  %8 = icmp eq i32 %bcmp.i.i15, 0
+  br i1 %8, label %if.then11, label %return
 
-if.then11:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14, %land.rhs.i.i12
+if.then11:                                        ; preds = %land.rhs.i.i12, %_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit16
   %msg_12 = getelementptr inbounds i8, ptr %this, i64 32
-  %7 = load ptr, ptr %msg_12, align 8
-  %scheme_.i19 = getelementptr inbounds i8, ptr %7, i64 612
-  store i32 2, ptr %scheme_.i19, align 4
+  %9 = load ptr, ptr %msg_12, align 8
+  %scheme_.i17 = getelementptr inbounds i8, ptr %9, i64 612
+  store i32 2, ptr %scheme_.i17, align 4
   br label %return
 
-return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14, %if.else, %if.end6.sink.split.i, %if.then9, %if.then11, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ true, %if.then11 ], [ true, %if.then9 ], [ true, %if.end6.sink.split.i ], [ true, %if.else ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14 ]
+return:                                           ; preds = %if.else, %if.end6.sink.split.i, %if.then9, %if.then11, %_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit16, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ true, %_ZN5follyeqINS_5RangeIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit16 ], [ true, %if.then11 ], [ true, %if.then9 ], [ true, %if.end6.sink.split.i ], [ true, %if.else ]
   ret i1 %retval.0
 }
 
@@ -1342,7 +1339,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   %state.026.i = phi i32 [ %state.1.i, %for.inc.i ], [ 0, %if.end ]
   %quote.025.i = phi i1 [ %quote.1.i, %for.inc.i ], [ false, %if.end ]
   %escape.024.i = phi i8 [ %escape.2.i, %for.inc.i ], [ 0, %if.end ]
-  %tobool.i = trunc i8 %escape.024.i to i1
+  %tobool.i = trunc nuw i8 %escape.024.i to i1
   %spec.select73.i = select i1 %tobool.i, i8 0, i8 %escape.024.i
   switch i32 %state.026.i, label %for.inc.i [
     i32 0, label %sw.bb.i
@@ -1408,7 +1405,7 @@ for.inc.i:                                        ; preds = %if.then44.i, %sw.bb
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !47
 
 for.end.i:                                        ; preds = %for.inc.i
-  %tobool48.i = trunc i8 %escape.2.i to i1
+  %tobool48.i = trunc nuw i8 %escape.2.i to i1
   br i1 %tobool48.i, label %if.then4, label %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit
 
 _ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit: ; preds = %for.end.i
@@ -1803,7 +1800,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph, %fo
   %state.026.us.us = phi i32 [ %state.1.us.us, %for.inc.us.us ], [ %mode, %for.body.lr.ph ]
   %quote.025.us.us = phi i1 [ %quote.1.us.us, %for.inc.us.us ], [ false, %for.body.lr.ph ]
   %escape.024.us.us = phi i8 [ %escape.2.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph ]
-  %tobool.us.us = trunc i8 %escape.024.us.us to i1
+  %tobool.us.us = trunc nuw i8 %escape.024.us.us to i1
   br i1 %tobool.us.us, label %for.inc.us.us, label %if.end4.us.us
 
 if.end4.us.us:                                    ; preds = %for.body.us.us
@@ -1875,7 +1872,7 @@ for.body.us30:                                    ; preds = %for.body.lr.ph, %fo
   %state.026.us32 = phi i32 [ %state.1.us62, %for.inc.us59 ], [ 0, %for.body.lr.ph ]
   %quote.025.us33 = phi i1 [ %quote.1.us61, %for.inc.us59 ], [ false, %for.body.lr.ph ]
   %escape.024.us34 = phi i8 [ %escape.2.us60, %for.inc.us59 ], [ 0, %for.body.lr.ph ]
-  %tobool.us35 = trunc i8 %escape.024.us34 to i1
+  %tobool.us35 = trunc nuw i8 %escape.024.us34 to i1
   %spec.select72 = select i1 %tobool.us35, i8 0, i8 %escape.024.us34
   switch i32 %state.026.us32, label %for.inc.us59 [
     i32 0, label %sw.bb.us45
@@ -1945,7 +1942,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %state.026 = phi i32 [ %state.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %quote.025 = phi i1 [ %quote.1, %for.inc ], [ false, %for.body.lr.ph ]
   %escape.024 = phi i8 [ %escape.2, %for.inc ], [ 0, %for.body.lr.ph ]
-  %tobool = trunc i8 %escape.024 to i1
+  %tobool = trunc nuw i8 %escape.024 to i1
   %spec.select73 = select i1 %tobool, i8 0, i8 %escape.024
   switch i32 %state.026, label %for.inc [
     i32 0, label %sw.bb
@@ -2013,7 +2010,7 @@ for.inc:                                          ; preds = %sw.default, %sw.bb5
 for.end:                                          ; preds = %for.inc, %for.inc.us.us, %for.inc.us59
   %escape.0.lcssa = phi i8 [ %escape.2.us60, %for.inc.us59 ], [ %escape.2.us.us, %for.inc.us.us ], [ %escape.2, %for.inc ]
   %state.0.lcssa = phi i32 [ %state.1.us62, %for.inc.us59 ], [ %state.1.us.us, %for.inc.us.us ], [ %state.1, %for.inc ]
-  %tobool48 = trunc i8 %escape.0.lcssa to i1
+  %tobool48 = trunc nuw i8 %escape.0.lcssa to i1
   br i1 %tobool48, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %for.end
@@ -2046,18 +2043,15 @@ entry:
 
 land.rhs.i.i:                                     ; preds = %entry
   %cmp.i8.i.i.i = icmp eq ptr %ref.tmp1.sroa.2.0.copyload, %ref.tmp1.sroa.0.0.copyload
-  br i1 %cmp.i8.i.i.i, label %land.lhs.true.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %cmp.i8.i.i.i, label %_ZN5follyneIPKcEEbRKNS_5RangeIT_EES7_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %call.i, ptr %ref.tmp1.sroa.0.0.copyload, i64 %call3.i)
-  %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %_ZN5follyneIPKcEEbRKNS_5RangeIT_EES7_.exit
-
-land.lhs.true.i.i.i:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.rhs.i.i
+  %0 = icmp ne i32 %bcmp.i.i, 0
   br label %_ZN5follyneIPKcEEbRKNS_5RangeIT_EES7_.exit
 
-_ZN5follyneIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.lhs.true.i.i.i
-  %lnot.i = phi i1 [ true, %entry ], [ false, %land.lhs.true.i.i.i ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+_ZN5follyneIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %entry, %land.rhs.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %lnot.i = phi i1 [ true, %entry ], [ false, %land.rhs.i.i ], [ %0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i1 %lnot.i
 }
 

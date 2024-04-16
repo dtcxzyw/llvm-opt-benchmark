@@ -53,7 +53,7 @@ while.body:                                       ; preds = %land.rhs
   %2 = load i32, ptr %u32.i, align 4
   %cmp.i = icmp ult i32 %2, 65536
   %or.cond.i = select i1 %call.i, i1 %cmp.i, i1 false
-  %conv.i = trunc i32 %2 to i16
+  %conv.i = trunc nuw i32 %2 to i16
   %storemerge.i = select i1 %or.cond.i, i16 %conv.i, i16 -1
   store i16 %storemerge.i, ptr %1, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u32.i)
@@ -104,11 +104,11 @@ if.then:                                          ; preds = %entry
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
   %cmp1 = icmp sgt i8 %1, -1
-  br i1 %cmp1, label %if.then2, label %if.else
+  br i1 %cmp1, label %Failure.thread76, label %if.else
 
-if.then2:                                         ; preds = %if.then
+Failure.thread76:                                 ; preds = %if.then
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 1
-  br label %Failure.thread76
+  br label %12
 
 if.else:                                          ; preds = %if.then
   %and = and i32 %conv, 192
@@ -137,7 +137,7 @@ if.then13:                                        ; preds = %if.then10
   %cmp20 = icmp eq i32 %and19, 128
   %cmp21 = icmp ugt i32 %or, 127
   %or.cond = select i1 %cmp20, i1 %cmp21, i1 false
-  br i1 %or.cond, label %Failure.thread76, label %.thread
+  br i1 %or.cond, label %12, label %.thread
 
 if.else27:                                        ; preds = %if.end
   %and29 = and i32 %conv, 240
@@ -172,7 +172,7 @@ lor.lhs.false50:                                  ; preds = %if.then34
   %cmp53 = icmp eq i32 %and52, 128
   %cmp55 = icmp ugt i32 %or46, 2047
   %or.cond2 = select i1 %cmp53, i1 %cmp55, i1 false
-  br i1 %or.cond2, label %Failure.thread76, label %.thread
+  br i1 %or.cond2, label %12, label %.thread
 
 if.else62:                                        ; preds = %if.else27
   %and64 = and i32 %conv, 248
@@ -190,9 +190,27 @@ if.then69:                                        ; preds = %if.then66
   %conv74 = zext i8 %5 to i32
   %and92 = and i32 %conv74, 192
   %cmp93 = icmp eq i32 %and92, 128
-  br i1 %cmp93, label %lor.lhs.false94, label %.thread
+  br i1 %cmp93, label %Failure, label %.thread
 
-lor.lhs.false94:                                  ; preds = %if.then69
+if.else106:                                       ; preds = %if.else62
+  %and108 = and i32 %conv, 252
+  %cmp109 = icmp eq i32 %and108, 248
+  br i1 %cmp109, label %if.then110, label %if.else116
+
+if.then110:                                       ; preds = %if.else106
+  %add.ptr111 = getelementptr inbounds i8, ptr %0, i64 4
+  %cmp112.not.not = icmp ugt ptr %add.ptr111, %pEnd
+  br i1 %cmp112.not.not, label %.thread, label %12
+
+if.else116:                                       ; preds = %if.else106
+  %and118 = and i32 %conv, 254
+  %cmp119 = icmp ne i32 %and118, 252
+  %add.ptr121 = getelementptr inbounds i8, ptr %0, i64 5
+  %cmp122.not.not = icmp ugt ptr %add.ptr121, %pEnd
+  %or.cond91 = select i1 %cmp119, i1 true, i1 %cmp122.not.not
+  br i1 %or.cond91, label %.thread, label %12
+
+Failure:                                          ; preds = %if.then69
   %arrayidx78 = getelementptr inbounds i8, ptr %0, i64 2
   %6 = load i8, ptr %arrayidx78, align 1
   %conv79 = zext i8 %6 to i32
@@ -214,37 +232,19 @@ lor.lhs.false94:                                  ; preds = %if.then69
   %10 = add nsw i32 %or77, -65536
   %11 = icmp ult i32 %10, 1048576
   %or.cond5 = select i1 %cmp97, i1 %11, i1 false
-  br i1 %or.cond5, label %Failure.thread76, label %.thread
+  br i1 %or.cond5, label %12, label %.thread
 
-if.else106:                                       ; preds = %if.else62
-  %and108 = and i32 %conv, 252
-  %cmp109 = icmp eq i32 %and108, 248
-  br i1 %cmp109, label %if.then110, label %if.else116
-
-if.then110:                                       ; preds = %if.else106
-  %add.ptr111 = getelementptr inbounds i8, ptr %0, i64 4
-  %cmp112.not.not = icmp ugt ptr %add.ptr111, %pEnd
-  br i1 %cmp112.not.not, label %.thread, label %Failure.thread76
-
-if.else116:                                       ; preds = %if.else106
-  %and118 = and i32 %conv, 254
-  %cmp119 = icmp ne i32 %and118, 252
-  %add.ptr121 = getelementptr inbounds i8, ptr %0, i64 5
-  %cmp122.not.not = icmp ugt ptr %add.ptr121, %pEnd
-  %or.cond89 = select i1 %cmp119, i1 true, i1 %cmp122.not.not
-  br i1 %or.cond89, label %.thread, label %Failure.thread76
-
-.thread:                                          ; preds = %if.then69, %lor.lhs.false94, %if.then34, %lor.lhs.false50, %entry, %if.else116, %if.then66, %if.then31, %if.then10, %if.else, %if.then13, %if.then110
+.thread:                                          ; preds = %entry, %if.else116, %if.then66, %if.then69, %if.then31, %if.then34, %if.then10, %if.else, %Failure, %if.then13, %if.then110, %lor.lhs.false50
   %.ph = getelementptr inbounds i8, ptr %0, i64 1
-  br label %Failure.thread76
+  br label %12
 
-Failure.thread76:                                 ; preds = %if.else116, %lor.lhs.false94, %lor.lhs.false50, %if.then2, %if.then13, %if.then110, %.thread
-  %12 = phi ptr [ %.ph, %.thread ], [ %add.ptr11, %if.then13 ], [ %add.ptr111, %if.then110 ], [ %add.ptr67, %lor.lhs.false94 ], [ %add.ptr32, %lor.lhs.false50 ], [ %add.ptr, %if.then2 ], [ %add.ptr121, %if.else116 ]
-  %success.07388 = phi i1 [ false, %.thread ], [ true, %if.then13 ], [ true, %if.then110 ], [ true, %lor.lhs.false94 ], [ true, %lor.lhs.false50 ], [ true, %if.then2 ], [ true, %if.else116 ]
-  %13 = phi i32 [ 65535, %.thread ], [ %or, %if.then13 ], [ 65535, %if.then110 ], [ %or86, %lor.lhs.false94 ], [ %or46, %lor.lhs.false50 ], [ %conv, %if.then2 ], [ 65535, %if.else116 ]
-  store ptr %12, ptr %p, align 8
-  store i32 %13, ptr %result, align 4
-  ret i1 %success.07388
+12:                                               ; preds = %if.else116, %Failure, %Failure.thread76, %if.then13, %if.then110, %lor.lhs.false50, %.thread
+  %13 = phi ptr [ %.ph, %.thread ], [ %add.ptr, %Failure.thread76 ], [ %add.ptr67, %Failure ], [ %add.ptr11, %if.then13 ], [ %add.ptr111, %if.then110 ], [ %add.ptr32, %lor.lhs.false50 ], [ %add.ptr121, %if.else116 ]
+  %success.07590 = phi i1 [ false, %.thread ], [ true, %Failure.thread76 ], [ true, %Failure ], [ true, %if.then13 ], [ true, %if.then110 ], [ true, %lor.lhs.false50 ], [ true, %if.else116 ]
+  %14 = phi i32 [ 65535, %.thread ], [ %conv, %Failure.thread76 ], [ %or86, %Failure ], [ %or, %if.then13 ], [ 65535, %if.then110 ], [ %or46, %lor.lhs.false50 ], [ 65535, %if.else116 ]
+  store ptr %13, ptr %p, align 8
+  store i32 %14, ptr %result, align 4
+  ret i1 %success.07590
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -367,7 +367,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %c to i8
+  %conv = trunc nuw nsw i32 %c to i8
   %0 = load ptr, ptr %pResult, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %incdec.ptr, ptr %pResult, align 8
@@ -380,7 +380,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %c, 6
-  %1 = trunc i32 %shr to i8
+  %1 = trunc nuw i32 %shr to i8
   %conv3 = or disjoint i8 %1, -64
   %2 = load ptr, ptr %pResult, align 8
   %incdec.ptr4 = getelementptr inbounds i8, ptr %2, i64 1
@@ -401,7 +401,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then10:                                        ; preds = %if.else8
   %shr11 = lshr i32 %c, 12
-  %6 = trunc i32 %shr11 to i8
+  %6 = trunc nuw i32 %shr11 to i8
   %conv13 = or disjoint i8 %6, -32
   %7 = load ptr, ptr %pResult, align 8
   %incdec.ptr14 = getelementptr inbounds i8, ptr %7, i64 1
@@ -430,7 +430,7 @@ if.else24:                                        ; preds = %if.else8
 
 if.then26:                                        ; preds = %if.else24
   %shr27 = lshr i32 %c, 18
-  %14 = trunc i32 %shr27 to i8
+  %14 = trunc nuw i32 %shr27 to i8
   %conv29 = or disjoint i8 %14, -16
   %15 = load ptr, ptr %pResult, align 8
   %incdec.ptr30 = getelementptr inbounds i8, ptr %15, i64 1
@@ -467,14 +467,14 @@ if.else45:                                        ; preds = %if.else24
 
 if.then47:                                        ; preds = %if.else45
   %shr48 = lshr i32 %c, 24
-  %25 = trunc i32 %shr48 to i8
+  %25 = trunc nuw i32 %shr48 to i8
   %conv50 = or disjoint i8 %25, -8
   %26 = load ptr, ptr %pResult, align 8
   %incdec.ptr51 = getelementptr inbounds i8, ptr %26, i64 1
   store ptr %incdec.ptr51, ptr %pResult, align 8
   store i8 %conv50, ptr %26, align 1
   %shr52 = lshr i32 %c, 18
-  %27 = trunc i32 %shr52 to i8
+  %27 = trunc nuw i32 %shr52 to i8
   %conv54 = or i8 %27, -128
   %28 = load ptr, ptr %pResult, align 8
   %incdec.ptr55 = getelementptr inbounds i8, ptr %28, i64 1
@@ -511,14 +511,14 @@ if.else70:                                        ; preds = %if.else45
 
 if.then72:                                        ; preds = %if.else70
   %shr73 = lshr i32 %c, 30
-  %38 = trunc i32 %shr73 to i8
+  %38 = trunc nuw nsw i32 %shr73 to i8
   %conv75 = or disjoint i8 %38, -4
   %39 = load ptr, ptr %pResult, align 8
   %incdec.ptr76 = getelementptr inbounds i8, ptr %39, i64 1
   store ptr %incdec.ptr76, ptr %pResult, align 8
   store i8 %conv75, ptr %39, align 1
   %shr77 = lshr i32 %c, 24
-  %40 = trunc i32 %shr77 to i8
+  %40 = trunc nuw i32 %shr77 to i8
   %41 = and i8 %40, 63
   %conv80 = or disjoint i8 %41, -128
   %42 = load ptr, ptr %pResult, align 8

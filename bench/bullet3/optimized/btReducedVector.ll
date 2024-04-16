@@ -107,7 +107,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %exitcond.not.i.i, label %for.inc.i.i, label %land.rhs.i.i, !llvm.loop !5
 
 land.lhs.true.i.i:                                ; preds = %land.rhs.i.i
-  %7 = trunc i64 %indvars.iv.i.i to i32
+  %7 = trunc nsw i64 %indvars.iv.i.i to i32
   %sext.i.i = shl i64 %indvars.iv.i.i, 32
   %idxprom.i21.i.i = ashr exact i64 %sext.i.i, 32
   %arrayidx.i22.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i21.i.i
@@ -195,7 +195,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %for.inc.i, label %land.rhs.i, !llvm.loop !5
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i
-  %24 = trunc i64 %indvars.iv.i to i32
+  %24 = trunc nsw i64 %indvars.iv.i to i32
   %sext.i = shl i64 %indvars.iv.i, 32
   %idxprom.i21.i = ashr exact i64 %sext.i, 32
   %arrayidx.i22.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i21.i
@@ -884,7 +884,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %exitcond.not.i.i, label %for.inc.i.i, label %land.rhs.i.i, !llvm.loop !5
 
 land.lhs.true.i.i:                                ; preds = %land.rhs.i.i
-  %6 = trunc i64 %indvars.iv.i.i to i32
+  %6 = trunc nsw i64 %indvars.iv.i.i to i32
   %sext.i.i = shl i64 %indvars.iv.i.i, 32
   %idxprom.i21.i.i = ashr exact i64 %sext.i.i, 32
   %arrayidx.i22.i.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i21.i.i
@@ -996,7 +996,7 @@ while.body.i.i48:                                 ; preds = %land.rhs.i.i30
   br i1 %exitcond.not.i.i51, label %for.inc.i.i23, label %land.rhs.i.i30, !llvm.loop !5
 
 land.lhs.true.i.i34:                              ; preds = %land.rhs.i.i30
-  %22 = trunc i64 %indvars.iv.i.i31 to i32
+  %22 = trunc nsw i64 %indvars.iv.i.i31 to i32
   %sext.i.i35 = shl i64 %indvars.iv.i.i31, 32
   %idxprom.i21.i.i36 = ashr exact i64 %sext.i.i35, 32
   %arrayidx.i22.i.i37 = getelementptr inbounds i32, ptr %1, i64 %idxprom.i21.i.i36
@@ -7905,7 +7905,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %for.inc.i, label %land.rhs.i, !llvm.loop !5
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i
-  %68 = trunc i64 %indvars.iv.i to i32
+  %68 = trunc nsw i64 %indvars.iv.i to i32
   %sext.i = shl i64 %indvars.iv.i, 32
   %idxprom.i21.i = ashr exact i64 %sext.i, 32
   %arrayidx.i22.i = getelementptr inbounds i32, ptr %61, i64 %idxprom.i21.i
@@ -7978,7 +7978,7 @@ while.body.i474:                                  ; preds = %land.rhs.i456
   br i1 %exitcond.not.i477, label %for.inc.i449, label %land.rhs.i456, !llvm.loop !5
 
 land.lhs.true.i460:                               ; preds = %land.rhs.i456
-  %81 = trunc i64 %indvars.iv.i457 to i32
+  %81 = trunc nsw i64 %indvars.iv.i457 to i32
   %sext.i461 = shl i64 %indvars.iv.i457, 32
   %idxprom.i21.i462 = ashr exact i64 %sext.i461, 32
   %arrayidx.i22.i463 = getelementptr inbounds i32, ptr %62, i64 %idxprom.i21.i462
@@ -8048,7 +8048,7 @@ while.body.i519:                                  ; preds = %land.rhs.i501
   br i1 %exitcond.not.i522, label %for.inc.i494, label %land.rhs.i501, !llvm.loop !5
 
 land.lhs.true.i505:                               ; preds = %land.rhs.i501
-  %94 = trunc i64 %indvars.iv.i502 to i32
+  %94 = trunc nsw i64 %indvars.iv.i502 to i32
   %sext.i506 = shl i64 %indvars.iv.i502, 32
   %idxprom.i21.i507 = ashr exact i64 %sext.i506, 32
   %arrayidx.i22.i508 = getelementptr inbounds i32, ptr %62, i64 %idxprom.i21.i507
@@ -9327,25 +9327,23 @@ ehcleanup53:                                      ; preds = %ehcleanup52, %lpad
 define dso_local void @_ZNK15btReducedVector4testEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(68) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK15btReducedVector7testAddEv(ptr nonnull align 8 poison)
-  br i1 %call, label %land.lhs.true, label %if.else
+  br i1 %call, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %call2 = tail call noundef zeroext i1 @_ZNK15btReducedVector9testMinusEv(ptr nonnull align 8 poison)
-  br i1 %call2, label %land.lhs.true3, label %if.else
+  br i1 %call2, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %call4 = tail call noundef zeroext i1 @_ZNK15btReducedVector7testDotEv(ptr nonnull align 8 poison)
-  br i1 %call4, label %land.rhs, label %if.else
+  br i1 %call4, label %land.rhs, label %if.end
 
 land.rhs:                                         ; preds = %land.lhs.true3
   %call5 = tail call noundef zeroext i1 @_ZNK15btReducedVector12testMultiplyEv(ptr nonnull align 8 poison)
-  br i1 %call5, label %if.end, label %if.else
-
-if.else:                                          ; preds = %land.lhs.true3, %land.lhs.true, %entry, %land.rhs
+  %spec.select = select i1 %call5, ptr @str.5, ptr @str.4
   br label %if.end
 
-if.end:                                           ; preds = %land.rhs, %if.else
-  %str.4.sink = phi ptr [ @str.4, %if.else ], [ @str.5, %land.rhs ]
+if.end:                                           ; preds = %land.rhs, %entry, %land.lhs.true, %land.lhs.true3
+  %str.4.sink = phi ptr [ @str.4, %land.lhs.true3 ], [ @str.4, %land.lhs.true ], [ @str.4, %entry ], [ %spec.select, %land.rhs ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.4.sink)
   ret void
 }

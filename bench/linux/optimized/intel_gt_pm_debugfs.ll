@@ -1230,7 +1230,7 @@ define internal noundef i32 @llc_show(ptr noundef %0, ptr nocapture readnone %1)
 
 38:                                               ; preds = %35, %33, %27
   %.in = phi i8 [ %37, %35 ], [ %24, %33 ], [ %24, %27 ]
-  %.in7 = phi i8 [ %36, %35 ], [ %22, %33 ], [ %22, %27 ]
+  %.in8 = phi i8 [ %36, %35 ], [ %22, %33 ], [ %22, %27 ]
   store i32 0, ptr %3, align 4, !annotation !22
   %39 = zext i8 %.in to i32
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.79) #5
@@ -1239,15 +1239,15 @@ define internal noundef i32 @llc_show(ptr noundef %0, ptr nocapture readnone %1)
   %42 = getelementptr inbounds i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 @intel_runtime_pm_get(ptr noundef %43) #5
-  %45 = icmp ugt i8 %.in7, %.in
+  %45 = icmp ugt i8 %.in8, %.in
   br i1 %45, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %38
-  %46 = zext i8 %.in7 to i32
+  %46 = zext i8 %.in8 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.thread3
-  %47 = phi i32 [ %69, %.thread3 ], [ %46, %.preheader.preheader ]
+  %47 = phi i32 [ %68, %.thread3 ], [ %46, %.preheader.preheader ]
   store i32 %47, ptr %3, align 4
   %48 = load ptr, ptr %40, align 8
   %49 = call i32 @snb_pcode_read(ptr noundef %48, i32 noundef 9, ptr noundef nonnull %3, ptr noundef null) #5
@@ -1262,35 +1262,33 @@ define internal noundef i32 @llc_show(ptr noundef %0, ptr nocapture readnone %1)
   %55 = load i64, ptr %54, align 4
   %56 = and i64 %55, 2
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.thread, label %.thread3
+  br label %.thread3
 
 58:                                               ; preds = %.preheader
   %59 = icmp ugt i8 %.fr, 10
-  br i1 %59, label %.thread, label %.thread3
-
-.thread:                                          ; preds = %52, %58
   br label %.thread3
 
-.thread3:                                         ; preds = %52, %58, %.thread
-  %60 = phi i32 [ 3, %.thread ], [ 1, %58 ], [ 1, %52 ]
-  %61 = mul nuw nsw i32 %60, %47
-  %62 = call i32 @intel_gpu_freq(ptr noundef %10, i32 noundef %61) #5
-  %63 = load i32, ptr %3, align 4
-  %64 = and i32 %63, 255
-  %65 = mul nuw nsw i32 %64, 100
-  %66 = lshr i32 %63, 8
-  %67 = and i32 %66, 255
-  %68 = mul nuw nsw i32 %67, 100
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.80, i32 noundef %62, i32 noundef %65, i32 noundef %68) #5
-  %69 = add nuw nsw i32 %47, 1
-  %70 = icmp eq i32 %47, %39
-  br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !23
+.thread3:                                         ; preds = %58, %52
+  %.sink = phi i1 [ %59, %58 ], [ %57, %52 ]
+  %spec.select7 = select i1 %.sink, i32 3, i32 1
+  %60 = mul nuw nsw i32 %spec.select7, %47
+  %61 = call i32 @intel_gpu_freq(ptr noundef %10, i32 noundef %60) #5
+  %62 = load i32, ptr %3, align 4
+  %63 = and i32 %62, 255
+  %64 = mul nuw nsw i32 %63, 100
+  %65 = lshr i32 %62, 8
+  %66 = and i32 %65, 255
+  %67 = mul nuw nsw i32 %66, 100
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.80, i32 noundef %61, i32 noundef %64, i32 noundef %67) #5
+  %68 = add nuw nsw i32 %47, 1
+  %69 = icmp eq i32 %47, %39
+  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.thread3, %38
-  %71 = load ptr, ptr %40, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
-  %73 = load ptr, ptr %72, align 8
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %73) #5
+  %70 = load ptr, ptr %40, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = load ptr, ptr %71, align 8
+  call void @intel_runtime_pm_put_unchecked(ptr noundef %72) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
   ret i32 0
 }

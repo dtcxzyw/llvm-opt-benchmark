@@ -319,36 +319,36 @@ define dso_local ptr @devm_platform_ioremap_resource_byname(ptr noundef %0, ptr 
   %9 = zext i32 %4 to i64
   br label %10
 
-10:                                               ; preds = %24, %6
-  %11 = phi i64 [ 0, %6 ], [ %25, %24 ]
+10:                                               ; preds = %.thread, %6
+  %11 = phi i64 [ 0, %6 ], [ %23, %.thread ]
   %12 = getelementptr %struct.resource, ptr %8, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %24, label %16, !prof !9
+  br i1 %15, label %.thread, label %16, !prof !9
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %12, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 7936
   %20 = icmp eq i64 %19, 512
-  br i1 %20, label %21, label %24
+  br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %16
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef %1) #15
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.loopexit, label %24
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %.loopexit, label %.thread
 
-24:                                               ; preds = %16, %21, %10
-  %25 = add nuw nsw i64 %11, 1
-  %26 = icmp eq i64 %25, %9
-  br i1 %26, label %.loopexit, label %10, !llvm.loop !10
+.thread:                                          ; preds = %21, %16, %10
+  %23 = add nuw nsw i64 %11, 1
+  %24 = icmp eq i64 %23, %9
+  br i1 %24, label %.loopexit, label %10, !llvm.loop !10
 
-.loopexit:                                        ; preds = %21, %24, %2
-  %27 = phi ptr [ null, %2 ], [ %12, %21 ], [ null, %24 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = tail call ptr @devm_ioremap_resource(ptr noundef %28, ptr noundef %27) #15
-  ret ptr %29
+.loopexit:                                        ; preds = %21, %.thread, %2
+  %25 = phi ptr [ null, %2 ], [ null, %.thread ], [ %12, %21 ]
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = tail call ptr @devm_ioremap_resource(ptr noundef %26, ptr noundef %25) #15
+  ret ptr %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
@@ -365,34 +365,34 @@ define dso_local ptr @platform_get_resource_byname(ptr nocapture noundef readonl
   %11 = zext i32 %5 to i64
   br label %12
 
-12:                                               ; preds = %26, %7
-  %13 = phi i64 [ 0, %7 ], [ %27, %26 ]
+12:                                               ; preds = %.thread, %7
+  %13 = phi i64 [ 0, %7 ], [ %25, %.thread ]
   %14 = getelementptr %struct.resource, ptr %9, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %26, label %18, !prof !9
+  br i1 %17, label %.thread, label %18, !prof !9
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %14, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 7936
   %22 = icmp eq i64 %21, %10
-  br i1 %22, label %23, label %26
+  br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %18
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef %2) #15
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.loopexit, label %26
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %.loopexit, label %.thread
 
-26:                                               ; preds = %18, %23, %12
-  %27 = add nuw nsw i64 %13, 1
-  %28 = icmp eq i64 %27, %11
-  br i1 %28, label %.loopexit, label %12, !llvm.loop !10
+.thread:                                          ; preds = %23, %18, %12
+  %25 = add nuw nsw i64 %13, 1
+  %26 = icmp eq i64 %25, %11
+  br i1 %26, label %.loopexit, label %12, !llvm.loop !10
 
-.loopexit:                                        ; preds = %23, %26, %3
-  %29 = phi ptr [ null, %3 ], [ %14, %23 ], [ null, %26 ]
-  ret ptr %29
+.loopexit:                                        ; preds = %23, %.thread, %3
+  %27 = phi ptr [ null, %3 ], [ null, %.thread ], [ %14, %23 ]
+  ret ptr %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -809,13 +809,13 @@ define internal fastcc i32 @__platform_get_irq_byname(ptr noundef %0, ptr nounde
   %6 = icmp sgt i32 %5, 0
   %7 = icmp eq i32 %5, -517
   %8 = or i1 %6, %7
-  br i1 %8, label %.thread6, label %9
+  br i1 %8, label %.thread7, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 768
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread6, label %13
+  br i1 %12, label %.thread7, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 776
@@ -823,56 +823,56 @@ define internal fastcc i32 @__platform_get_irq_byname(ptr noundef %0, ptr nounde
   %16 = zext i32 %11 to i64
   br label %17
 
-17:                                               ; preds = %31, %13
-  %18 = phi i64 [ 0, %13 ], [ %32, %31 ]
+17:                                               ; preds = %.thread, %13
+  %18 = phi i64 [ 0, %13 ], [ %30, %.thread ]
   %19 = getelementptr %struct.resource, ptr %15, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %31, label %23, !prof !9
+  br i1 %22, label %.thread, label %23, !prof !9
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %19, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 7936
   %27 = icmp eq i64 %26, 1024
-  br i1 %27, label %28, label %31
+  br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %23
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef %1) #15
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %34, label %31
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %32, label %.thread
 
-31:                                               ; preds = %23, %28, %17
-  %32 = add nuw nsw i64 %18, 1
-  %33 = icmp eq i64 %32, %16
-  br i1 %33, label %.thread6, label %17, !llvm.loop !10
+.thread:                                          ; preds = %28, %23, %17
+  %30 = add nuw nsw i64 %18, 1
+  %31 = icmp eq i64 %30, %16
+  br i1 %31, label %.thread7, label %17, !llvm.loop !10
 
-34:                                               ; preds = %28
-  %35 = icmp eq ptr %19, null
-  br i1 %35, label %.thread6, label %36
+32:                                               ; preds = %28
+  %33 = icmp eq ptr %19, null
+  br i1 %33, label %.thread7, label %34
 
-36:                                               ; preds = %34
-  %37 = load i64, ptr %19, align 8
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %40, !prof !9
+34:                                               ; preds = %32
+  %35 = load i64, ptr %19, align 8
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %38, !prof !9
 
-39:                                               ; preds = %36
+37:                                               ; preds = %34
   tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #15, !srcloc !21
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1) #15
   tail call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #15, !srcloc !22
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 451, i32 2313, i64 12) #15, !srcloc !23
   tail call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_end\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #15, !srcloc !24
   tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_end\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #15, !srcloc !25
-  br label %.thread6
+  br label %.thread7
 
-40:                                               ; preds = %36
-  %41 = trunc i64 %37 to i32
-  br label %.thread6
+38:                                               ; preds = %34
+  %39 = trunc i64 %35 to i32
+  br label %.thread7
 
-.thread6:                                         ; preds = %31, %9, %40, %39, %34, %2
-  %42 = phi i32 [ %41, %40 ], [ %5, %2 ], [ -22, %39 ], [ -6, %34 ], [ -6, %9 ], [ -6, %31 ]
-  ret i32 %42
+.thread7:                                         ; preds = %.thread, %9, %38, %37, %32, %2
+  %40 = phi i32 [ %39, %38 ], [ %5, %2 ], [ -22, %37 ], [ -6, %32 ], [ -6, %9 ], [ -6, %.thread ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -998,7 +998,7 @@ define dso_local i32 @platform_add_devices(ptr nocapture noundef readonly %0, i3
 
 65:                                               ; preds = %.loopexit, %.preheader
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
-  %66 = trunc i64 %indvars.iv16 to i32
+  %66 = trunc nuw i64 %indvars.iv16 to i32
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.preheader, label %.loopexit6, !llvm.loop !29
 

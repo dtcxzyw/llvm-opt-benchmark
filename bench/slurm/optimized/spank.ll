@@ -275,7 +275,7 @@ _step_fn_name.exit:                               ; preds = %_spank_handle_init.
 .lr.ph:                                           ; preds = %_step_fn_name.exit
   %27 = getelementptr inbounds i8, ptr %5, i64 8
   %28 = icmp ult i32 %1, 13
-  %switch.maskindex = trunc i32 %1 to i16
+  %switch.maskindex = trunc nuw i32 %1 to i16
   %switch.shifted = lshr i16 8189, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %29 = zext nneg i32 %1 to i64
@@ -4093,22 +4093,20 @@ spank_job_control_access_check.exit:              ; preds = %spank_remote.exit.i
 
 dyn_spank_set_job_env.exit.thread:                ; preds = %13
   %17 = tail call i32 @dlclose(ptr noundef %14) #19
-  br label %20
+  br label %spank_job_control_access_check.exit.thread
 
 dyn_spank_set_job_env.exit:                       ; preds = %13
   %18 = tail call i32 %15(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #19
   %.fr = freeze i32 %18
   %19 = icmp slt i32 %.fr, 0
-  br i1 %19, label %20, label %spank_job_control_access_check.exit.thread
-
-20:                                               ; preds = %dyn_spank_set_job_env.exit.thread, %dyn_spank_set_job_env.exit
+  %spec.select = select i1 %19, i32 3001, i32 0
   br label %spank_job_control_access_check.exit.thread
 
 spank_job_control_access_check.exit.thread.fold.split: ; preds = %spank_remote.exit.i
   br label %spank_job_control_access_check.exit.thread
 
-spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %4, %6, %20, %dyn_spank_set_job_env.exit, %spank_job_control_access_check.exit
-  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 3001, %20 ], [ 0, %dyn_spank_set_job_env.exit ], [ 3010, %spank_remote.exit.i ], [ 3001, %4 ], [ 3001, %6 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ]
+spank_job_control_access_check.exit.thread:       ; preds = %dyn_spank_set_job_env.exit, %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %4, %6, %dyn_spank_set_job_env.exit.thread, %spank_job_control_access_check.exit
+  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 3001, %dyn_spank_set_job_env.exit.thread ], [ 3010, %spank_remote.exit.i ], [ 3001, %4 ], [ 3001, %6 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ], [ %spec.select, %dyn_spank_set_job_env.exit ]
   ret i32 %.0
 }
 
@@ -4143,22 +4141,20 @@ spank_job_control_access_check.exit:              ; preds = %spank_remote.exit.i
 
 dyn_spank_unset_job_env.exit.thread:              ; preds = %10
   %14 = tail call i32 @dlclose(ptr noundef %11) #19
-  br label %17
+  br label %spank_job_control_access_check.exit.thread
 
 dyn_spank_unset_job_env.exit:                     ; preds = %10
   %15 = tail call i32 %12(ptr noundef nonnull %1) #19
   %.fr = freeze i32 %15
   %16 = icmp slt i32 %.fr, 0
-  br i1 %16, label %17, label %spank_job_control_access_check.exit.thread
-
-17:                                               ; preds = %dyn_spank_unset_job_env.exit.thread, %dyn_spank_unset_job_env.exit
+  %spec.select = select i1 %16, i32 3001, i32 0
   br label %spank_job_control_access_check.exit.thread
 
 spank_job_control_access_check.exit.thread.fold.split: ; preds = %spank_remote.exit.i
   br label %spank_job_control_access_check.exit.thread
 
-spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %2, %4, %17, %dyn_spank_unset_job_env.exit, %spank_job_control_access_check.exit
-  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 3001, %17 ], [ 0, %dyn_spank_unset_job_env.exit ], [ 3010, %spank_remote.exit.i ], [ 3001, %2 ], [ 3001, %4 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ]
+spank_job_control_access_check.exit.thread:       ; preds = %dyn_spank_unset_job_env.exit, %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %2, %4, %dyn_spank_unset_job_env.exit.thread, %spank_job_control_access_check.exit
+  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 3001, %dyn_spank_unset_job_env.exit.thread ], [ 3010, %spank_remote.exit.i ], [ 3001, %2 ], [ 3001, %4 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ], [ %spec.select, %dyn_spank_unset_job_env.exit ]
   ret i32 %.0
 }
 
@@ -4223,7 +4219,7 @@ define noundef i32 @spank_prepend_task_argv(ptr noundef readonly %0, i32 noundef
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !26
 
 .critedge.loopexit.split.loop.exit73:             ; preds = %.lr.ph
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %.critedge.loopexit.split.loop.exit73, %18
@@ -4822,7 +4818,7 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   br i1 %.not25.i, label %._crit_edge.loopexit.i, label %.lr.ph.i41, !llvm.loop !32
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i41
-  %65 = trunc i64 %indvars.iv.next.i43 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next.i43 to i32
   br label %68
 
 66:                                               ; preds = %_plugin_stack_line_type.exit.i, %50

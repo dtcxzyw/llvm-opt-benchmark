@@ -3732,17 +3732,17 @@ for.inc:                                          ; preds = %if.then.i, %if.else
   br label %for.cond, !llvm.loop !18
 
 lpad.loopexit:                                    ; preds = %for.body, %if.then.i, %if.else.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %entry
-  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit19, %lpad.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp ]
   call void @_ZN13nla2bv_tactic3imp17get_uninterp_procD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %fe_var) #15
   resume { ptr, i32 } %lpad.phi
 
@@ -3758,21 +3758,20 @@ _ZNK6vectorIP3appLb0EjE5emptyEv.exit:             ; preds = %if.end
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 -4
   %9 = load i32, ptr %arrayidx.i11, align 4
   %cmp3.i = icmp eq i32 %9, 0
-  br i1 %cmp3.i, label %land.lhs.true, label %if.end19
+  br i1 %cmp3.i, label %land.lhs.true, label %if.then.i.i.i.i
 
 land.lhs.true:                                    ; preds = %if.end, %_ZNK6vectorIP3appLb0EjE5emptyEv.exit
   %10 = load i8, ptr %m_no_arith.i, align 8
   %tobool.i13 = trunc i8 %10 to i1
-  br i1 %tobool.i13, label %cleanup, label %if.end19
-
-if.end19:                                         ; preds = %land.lhs.true, %_ZNK6vectorIP3appLb0EjE5emptyEv.exit
+  %spec.select = select i1 %tobool.i13, i32 2, i32 0
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true, %for.end, %if.end19
-  %retval.0 = phi i32 [ 0, %if.end19 ], [ 1, %for.end ], [ 2, %land.lhs.true ]
+cleanup:                                          ; preds = %land.lhs.true, %for.end
+  %retval.0 = phi i32 [ 1, %for.end ], [ %spec.select, %land.lhs.true ]
   br i1 %cmp.i, label %_ZN13nla2bv_tactic3imp17get_uninterp_procD2Ev.exit, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %cleanup
+if.then.i.i.i.i:                                  ; preds = %_ZNK6vectorIP3appLb0EjE5emptyEv.exit, %cleanup
+  %retval.017 = phi i32 [ %retval.0, %cleanup ], [ 0, %_ZNK6vectorIP3appLb0EjE5emptyEv.exit ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %_ZN13nla2bv_tactic3imp17get_uninterp_procD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -3785,8 +3784,9 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN13nla2bv_tactic3imp17get_uninterp_procD2Ev.exit: ; preds = %cleanup, %if.then.i.i.i.i
+  %retval.018 = phi i32 [ %retval.0, %cleanup ], [ %retval.017, %if.then.i.i.i.i ]
   call void @_ZN7pb_utilD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %pb.i) #15
-  ret i32 %retval.0
+  ret i32 %retval.018
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3943,7 +3943,7 @@ invoke.cont11:                                    ; preds = %sw.bb12.i.i.i, %if.
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   %23 = load ptr, ptr %r, align 8
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %g, i32 noundef %24, ptr noundef %23, ptr noundef null, ptr noundef null)
           to label %for.inc unwind label %lpad6
 
@@ -4165,7 +4165,7 @@ invoke.cont5:                                     ; preds = %sw.bb12.i.i.i, %if.
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %23 = load ptr, ptr %r, align 8
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %g, i32 noundef %24, ptr noundef %23, ptr noundef null, ptr noundef null)
           to label %for.inc unwind label %lpad3.loopexit.split-lp
 
@@ -4450,7 +4450,7 @@ cleanup.action:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont10
   %26 = load ptr, ptr %r, align 8
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %g, i32 noundef %27, ptr noundef %26, ptr noundef null, ptr noundef null)
           to label %for.inc unwind label %lpad3.loopexit.split-lp
 
@@ -6699,7 +6699,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %conv.i.i.i.i = trunc i64 %u to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %u to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp, align 8
   store i8 0, ptr %m_kind.i.i.i, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit

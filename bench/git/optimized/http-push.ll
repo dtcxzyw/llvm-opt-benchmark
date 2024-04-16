@@ -494,13 +494,13 @@ sw.bb3.i:                                         ; preds = %if.end70
 
 sw.bb4.i:                                         ; preds = %if.end70
   %call5.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54, ptr noundef %call.i90, ptr noundef nonnull @curl_errorstr) #14
-  br label %sw.default.i
-
-sw.default.i:                                     ; preds = %sw.bb4.i, %if.end70
   br label %remote_exists.exit
 
-remote_exists.exit:                               ; preds = %if.end70, %sw.bb3.i, %sw.default.i
-  %ret.0.i = phi i32 [ -1, %sw.default.i ], [ 0, %sw.bb3.i ], [ 1, %if.end70 ]
+sw.default.i:                                     ; preds = %if.end70
+  br label %remote_exists.exit
+
+remote_exists.exit:                               ; preds = %if.end70, %sw.bb3.i, %sw.bb4.i, %sw.default.i
+  %ret.0.i = phi i32 [ 0, %sw.bb3.i ], [ 1, %if.end70 ], [ -1, %sw.bb4.i ], [ -1, %sw.default.i ]
   call void @free(ptr noundef %call.i90) #14
   %34 = load ptr, ptr @repo, align 8
   %has_info_refs = getelementptr inbounds i8, ptr %34, i64 20
@@ -508,28 +508,28 @@ remote_exists.exit:                               ; preds = %if.end70, %sw.bb3.i
   %35 = load ptr, ptr %34, align 8
   %call.i92 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.53, ptr noundef %35, ptr noundef nonnull @.str.11) #14
   %call2.i93 = call i32 @http_get_strbuf(ptr noundef %call.i92, ptr noundef null, ptr noundef null) #14
-  switch i32 %call2.i93, label %sw.default.i96 [
+  switch i32 %call2.i93, label %sw.default.i98 [
     i32 0, label %remote_exists.exit99
-    i32 1, label %sw.bb3.i98
+    i32 1, label %sw.bb3.i97
     i32 2, label %sw.bb4.i94
   ]
 
-sw.bb3.i98:                                       ; preds = %remote_exists.exit
+sw.bb3.i97:                                       ; preds = %remote_exists.exit
   br label %remote_exists.exit99
 
 sw.bb4.i94:                                       ; preds = %remote_exists.exit
   %call5.i95 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.54, ptr noundef %call.i92, ptr noundef nonnull @curl_errorstr) #14
-  br label %sw.default.i96
-
-sw.default.i96:                                   ; preds = %sw.bb4.i94, %remote_exists.exit
   br label %remote_exists.exit99
 
-remote_exists.exit99:                             ; preds = %remote_exists.exit, %sw.bb3.i98, %sw.default.i96
-  %ret.0.i97 = phi i32 [ -1, %sw.default.i96 ], [ 0, %sw.bb3.i98 ], [ 1, %remote_exists.exit ]
+sw.default.i98:                                   ; preds = %remote_exists.exit
+  br label %remote_exists.exit99
+
+remote_exists.exit99:                             ; preds = %remote_exists.exit, %sw.bb3.i97, %sw.bb4.i94, %sw.default.i98
+  %ret.0.i96 = phi i32 [ 0, %sw.bb3.i97 ], [ 1, %remote_exists.exit ], [ -1, %sw.bb4.i94 ], [ -1, %sw.default.i98 ]
   call void @free(ptr noundef %call.i92) #14
   %36 = load ptr, ptr @repo, align 8
   %has_info_packs = getelementptr inbounds i8, ptr %36, i64 28
-  store i32 %ret.0.i97, ptr %has_info_packs, align 4
+  store i32 %ret.0.i96, ptr %has_info_packs, align 4
   %has_info_refs73 = getelementptr inbounds i8, ptr %36, i64 20
   %37 = load i32, ptr %has_info_refs73, align 4
   %tobool74.not = icmp eq i32 %37, 0
@@ -553,7 +553,7 @@ if.else:                                          ; preds = %if.then75
   br label %if.end321
 
 if.end83:                                         ; preds = %if.then78, %remote_exists.exit99
-  %39 = phi i32 [ %.pre183, %if.then78 ], [ %ret.0.i97, %remote_exists.exit99 ]
+  %39 = phi i32 [ %.pre183, %if.then78 ], [ %ret.0.i96, %remote_exists.exit99 ]
   %40 = phi ptr [ %38, %if.then78 ], [ %36, %remote_exists.exit99 ]
   %info_ref_lock.0 = phi ptr [ %call76, %if.then78 ], [ null, %remote_exists.exit99 ]
   %tobool85.not = icmp eq i32 %39, 0

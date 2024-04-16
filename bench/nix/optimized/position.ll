@@ -2201,14 +2201,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   %32 = sub i64 %25, %27
   %spec.select7.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %32, i64 -2147483648)
   %.08.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i.i, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i.i = trunc i64 %.08.i.i.i.i.i.i.i.i to i32
+  %.0.i6.i.i.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i.i.i to i32
   br label %_ZNK3nix3Pos5StdinltERKS1_.exit.i.i.i.i
 
 _ZNK3nix3Pos5StdinltERKS1_.exit.i.i.i.i:          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi i32 [ %31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
   %33 = load ptr, ptr %0, align 8
   %.0.i.i.i.lobit.i.i.i.i = lshr i32 %.0.i.i.i.i.i.i.i, 31
-  %34 = trunc i32 %.0.i.i.i.lobit.i.i.i.i to i8
+  %34 = trunc nuw nsw i32 %.0.i.i.i.lobit.i.i.i.i to i8
   store i8 %34, ptr %33, align 1
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZStltIJSt9monostateN3nix3Pos5StdinENS7_6StringENS6_10SourcePathEEEbRKSt7variantIJDpT_EESG_EUlOT_T0_E_RKSB_IJS5_S8_S9_SA_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESL_SO_.exit
 
@@ -2251,14 +2251,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i17: ; preds = %_Z
   %57 = sub i64 %50, %52
   %spec.select7.i.i.i.i.i.i.i.i18 = tail call i64 @llvm.smax.i64(i64 %57, i64 -2147483648)
   %.08.i.i.i.i.i.i.i.i19 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.i.i18, i64 2147483647)
-  %.0.i6.i.i.i.i.i.i.i20 = trunc i64 %.08.i.i.i.i.i.i.i.i19 to i32
+  %.0.i6.i.i.i.i.i.i.i20 = trunc nsw i64 %.08.i.i.i.i.i.i.i.i19 to i32
   br label %_ZNK3nix3Pos6StringltERKS1_.exit.i.i.i.i
 
 _ZNK3nix3Pos6StringltERKS1_.exit.i.i.i.i:         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i13
   %.0.i.i.i.i.i.i.i15 = phi i32 [ %56, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i13 ], [ %.0.i6.i.i.i.i.i.i.i20, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i17 ]
   %58 = load ptr, ptr %0, align 8
   %.0.i.i.i.lobit.i.i.i.i16 = lshr i32 %.0.i.i.i.i.i.i.i15, 31
-  %59 = trunc i32 %.0.i.i.i.lobit.i.i.i.i16 to i8
+  %59 = trunc nuw nsw i32 %.0.i.i.i.lobit.i.i.i.i16 to i8
   store i8 %59, ptr %58, align 1
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZStltIJSt9monostateN3nix3Pos5StdinENS7_6StringENS6_10SourcePathEEEbRKSt7variantIJDpT_EESG_EUlOT_T0_E_RKSB_IJS5_S8_S9_SA_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESL_SO_.exit
 
@@ -2630,7 +2630,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix3PosESaIvELN9__gnu_cx
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix3PosESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
+  br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2641,19 +2641,17 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix3PosESaIvEL
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %10, 42
-  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
+  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #18
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
-  br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
+  %spec.select = select i1 %12, ptr %3, ptr null
+  br label %_ZNKSt9type_infoeqERKS_.exit.thread
 
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %5, %_ZNKSt9type_infoeqERKS_.exit
-  br label %_ZNKSt9type_infoeqERKS_.exit.thread8
-
-_ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %2
-  %.0 = phi ptr [ %3, %2 ], [ %3, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ]
+_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %9, %5, %2
+  %.0 = phi ptr [ %3, %2 ], [ %3, %5 ], [ null, %9 ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %.0
 }
 

@@ -1647,7 +1647,7 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr nocapture nound
 
 12:                                               ; preds = %4
   %13 = sext i32 %10 to i64
-  br label %38
+  br label %.thread
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %1, i64 10
@@ -1685,7 +1685,7 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr nocapture nound
 
 .thread3:                                         ; preds = %24
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
-  br label %38
+  br label %.thread
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1694,15 +1694,13 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr nocapture nound
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
   %36 = icmp eq i32 %.fr, 0
   %37 = sext i32 %.fr to i64
-  br i1 %36, label %.thread, label %38
+  %spec.select = select i1 %36, i64 %3, i64 %37
+  br label %.thread
 
-.thread:                                          ; preds = %20, %33
-  br label %38
-
-38:                                               ; preds = %.thread, %33, %.thread3, %12
-  %39 = phi i64 [ %13, %12 ], [ %3, %.thread ], [ %37, %33 ], [ -22, %.thread3 ]
+.thread:                                          ; preds = %33, %20, %.thread3, %12
+  %38 = phi i64 [ %13, %12 ], [ -22, %.thread3 ], [ %3, %20 ], [ %spec.select, %33 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
-  ret i64 %39
+  ret i64 %38
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.end52, %if.end49
 declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PySlice_Unpack(ptr nocapture noundef readonly %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step) local_unnamed_addr #1 {
+define dso_local i32 @PySlice_Unpack(ptr nocapture noundef readonly %_r, ptr noundef %start, ptr noundef %stop, ptr noundef %step) local_unnamed_addr #1 {
 entry:
   %step1 = getelementptr inbounds i8, ptr %_r, i64 32
   %0 = load ptr, ptr %step1, align 8
@@ -1372,18 +1372,16 @@ if.then24:                                        ; preds = %if.end21
   %cmp25 = icmp slt i64 %6, 0
   %cond26 = select i1 %cmp25, i64 -9223372036854775808, i64 9223372036854775807
   store i64 %cond26, ptr %stop, align 8
-  br label %if.end33
+  br label %return
 
 if.else27:                                        ; preds = %if.end21
   %call29 = tail call i32 @_PyEval_SliceIndex(ptr noundef %5, ptr noundef %stop) #6
   %tobool30.not = icmp eq i32 %call29, 0
-  br i1 %tobool30.not, label %return, label %if.end33
-
-if.end33:                                         ; preds = %if.else27, %if.then24
+  %spec.select = sext i1 %tobool30.not to i32
   br label %return
 
-return:                                           ; preds = %if.else27, %if.else15, %if.else, %if.end33, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end33 ], [ -1, %if.then5 ], [ -1, %if.else ], [ -1, %if.else15 ], [ -1, %if.else27 ]
+return:                                           ; preds = %if.else27, %if.then24, %if.else15, %if.else, %if.then5
+  %retval.0 = phi i32 [ -1, %if.then5 ], [ -1, %if.else ], [ -1, %if.else15 ], [ 0, %if.then24 ], [ %spec.select, %if.else27 ]
   ret i32 %retval.0
 }
 
@@ -2275,18 +2273,14 @@ do.body16:                                        ; preds = %if.then7, %do.body5
   %step = getelementptr inbounds i8, ptr %v, i64 32
   %2 = load ptr, ptr %step, align 8
   %tobool17.not = icmp eq ptr %2, null
-  br i1 %tobool17.not, label %do.end26, label %if.then18
+  br i1 %tobool17.not, label %return, label %if.then18
 
 if.then18:                                        ; preds = %do.body16
   %call21 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #6
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %do.end26, label %return
-
-do.end26:                                         ; preds = %do.body16, %if.then18
   br label %return
 
-return:                                           ; preds = %if.then18, %if.then7, %if.then, %do.end26
-  %retval.0 = phi i32 [ 0, %do.end26 ], [ %call, %if.then ], [ %call10, %if.then7 ], [ %call21, %if.then18 ]
+return:                                           ; preds = %if.then18, %do.body16, %if.then7, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call10, %if.then7 ], [ 0, %do.body16 ], [ %call21, %if.then18 ]
   ret i32 %retval.0
 }
 

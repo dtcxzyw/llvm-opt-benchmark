@@ -413,32 +413,29 @@ is_opclause.exit.thread.i:                        ; preds = %159, %is_notclause.
   %168 = getelementptr inbounds i8, ptr %1, i64 16
   %169 = load i32, ptr %168, align 8
   %170 = icmp eq i32 %169, 1
-  br i1 %170, label %171, label %179
+  br i1 %170, label %171, label %predicate_implied_by_simple_clause.exit
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds i8, ptr %1, i64 20
   %173 = load i8, ptr %172, align 4
   %174 = trunc i8 %173 to i1
-  br i1 %174, label %179, label %175
+  br i1 %174, label %predicate_implied_by_simple_clause.exit, label %175
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds i8, ptr %1, i64 8
   %177 = load ptr, ptr %176, align 8
   %178 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %.053, ptr noundef %177, i1 noundef zeroext true)
-  br i1 %178, label %predicate_implied_by_simple_clause.exit, label %179
-
-179:                                              ; preds = %175, %171, %167
   br label %predicate_implied_by_simple_clause.exit
 
 is_opclause.exit.thread.thread.i:                 ; preds = %164, %is_opclause.exit.thread.i, %152
-  %180 = tail call fastcc zeroext i1 @operator_predicate_proof(ptr noundef %1, ptr noundef %.053, i1 noundef zeroext false, i1 noundef zeroext %2)
+  %179 = tail call fastcc zeroext i1 @operator_predicate_proof(ptr noundef %1, ptr noundef %.053, i1 noundef zeroext false, i1 noundef zeroext %2)
   br label %predicate_implied_by_simple_clause.exit
 
 default.unreachable79:                            ; preds = %96, %14, %11
   unreachable
 
-predicate_implied_by_simple_clause.exit:          ; preds = %is_opclause.exit.thread.thread.i, %179, %175, %159, %150, %124, %.thread, %118, %106, %93, %.loopexit, %61, %49, %24
-  %.0 = phi i1 [ %.not.not, %118 ], [ %.not65, %106 ], [ %.not66, %93 ], [ %.not6775, %.loopexit ], [ %.not69.not, %61 ], [ %.not71.not, %49 ], [ %.not72, %24 ], [ true, %.thread ], [ false, %179 ], [ %180, %is_opclause.exit.thread.thread.i ], [ true, %124 ], [ true, %150 ], [ true, %159 ], [ true, %175 ]
+predicate_implied_by_simple_clause.exit:          ; preds = %is_opclause.exit.thread.thread.i, %175, %171, %167, %159, %150, %124, %.thread, %118, %106, %93, %.loopexit, %61, %49, %24
+  %.0 = phi i1 [ %.not.not, %118 ], [ %.not65, %106 ], [ %.not66, %93 ], [ %.not6775, %.loopexit ], [ %.not69.not, %61 ], [ %.not71.not, %49 ], [ %.not72, %24 ], [ true, %.thread ], [ %179, %is_opclause.exit.thread.thread.i ], [ true, %124 ], [ true, %150 ], [ true, %159 ], [ false, %171 ], [ false, %167 ], [ %178, %175 ]
   ret i1 %.0
 }
 
@@ -967,18 +964,18 @@ extract_not_arg.exit118.thread:                   ; preds = %201, %199, %209, %1
   br i1 %220, label %predicate_refuted_by_simple_clause.exit, label %221
 
 221:                                              ; preds = %219
-  br i1 %198, label %254, label %222
+  br i1 %198, label %252, label %222
 
 222:                                              ; preds = %221
   %223 = load i32, ptr %1, align 4
   %224 = icmp eq i32 %223, 45
-  br i1 %224, label %225, label %254
+  br i1 %224, label %225, label %252
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds i8, ptr %1, i64 16
   %227 = load i32, ptr %226, align 8
   %228 = icmp eq i32 %227, 0
-  br i1 %228, label %229, label %254
+  br i1 %228, label %229, label %252
 
 229:                                              ; preds = %225
   %230 = getelementptr inbounds i8, ptr %1, i64 8
@@ -990,104 +987,98 @@ extract_not_arg.exit118.thread:                   ; preds = %201, %199, %209, %1
 
 235:                                              ; preds = %229
   %236 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %.075, ptr noundef %231, i1 noundef zeroext true)
-  br i1 %236, label %predicate_refuted_by_simple_clause.exit, label %237
+  %brmerge = or i1 %152, %236
+  br i1 %brmerge, label %predicate_refuted_by_simple_clause.exit, label %237
 
 237:                                              ; preds = %235
-  br i1 %152, label %253, label %238
+  %238 = load i32, ptr %.075, align 4
+  %239 = icmp eq i32 %238, 45
+  br i1 %239, label %240, label %predicate_refuted_by_simple_clause.exit
 
-238:                                              ; preds = %237
-  %239 = load i32, ptr %.075, align 4
-  %240 = icmp eq i32 %239, 45
-  br i1 %240, label %241, label %253
+240:                                              ; preds = %237
+  %241 = getelementptr inbounds i8, ptr %.075, i64 16
+  %242 = load i32, ptr %241, align 8
+  %243 = icmp eq i32 %242, 1
+  br i1 %243, label %244, label %predicate_refuted_by_simple_clause.exit
 
-241:                                              ; preds = %238
-  %242 = getelementptr inbounds i8, ptr %.075, i64 16
-  %243 = load i32, ptr %242, align 8
-  %244 = icmp eq i32 %243, 1
-  br i1 %244, label %245, label %253
+244:                                              ; preds = %240
+  %245 = getelementptr inbounds i8, ptr %.075, i64 20
+  %246 = load i8, ptr %245, align 4
+  %247 = trunc i8 %246 to i1
+  br i1 %247, label %predicate_refuted_by_simple_clause.exit, label %248
 
-245:                                              ; preds = %241
-  %246 = getelementptr inbounds i8, ptr %.075, i64 20
-  %247 = load i8, ptr %246, align 4
-  %248 = trunc i8 %247 to i1
-  br i1 %248, label %253, label %249
-
-249:                                              ; preds = %245
-  %250 = getelementptr inbounds i8, ptr %.075, i64 8
-  %251 = load ptr, ptr %250, align 8
-  %252 = tail call zeroext i1 @equal(ptr noundef %251, ptr noundef %231) #6
-  br i1 %252, label %predicate_refuted_by_simple_clause.exit, label %253
-
-253:                                              ; preds = %249, %245, %241, %238, %237
+248:                                              ; preds = %244
+  %249 = getelementptr inbounds i8, ptr %.075, i64 8
+  %250 = load ptr, ptr %249, align 8
+  %251 = tail call zeroext i1 @equal(ptr noundef %250, ptr noundef %231) #6
   br label %predicate_refuted_by_simple_clause.exit
 
-254:                                              ; preds = %225, %222, %221
-  br i1 %152, label %288, label %255
+252:                                              ; preds = %225, %222, %221
+  br i1 %152, label %285, label %253
 
-255:                                              ; preds = %254
-  %256 = load i32, ptr %.075, align 4
-  %257 = icmp eq i32 %256, 45
-  br i1 %257, label %258, label %288
+253:                                              ; preds = %252
+  %254 = load i32, ptr %.075, align 4
+  %255 = icmp eq i32 %254, 45
+  br i1 %255, label %256, label %285
 
-258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %.075, i64 16
-  %260 = load i32, ptr %259, align 8
-  %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %288
+256:                                              ; preds = %253
+  %257 = getelementptr inbounds i8, ptr %.075, i64 16
+  %258 = load i32, ptr %257, align 8
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %260, label %285
 
-262:                                              ; preds = %258
-  %263 = getelementptr inbounds i8, ptr %.075, i64 8
-  %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %.075, i64 20
-  %266 = load i8, ptr %265, align 4
-  %267 = trunc i8 %266 to i1
-  br i1 %267, label %predicate_refuted_by_simple_clause.exit, label %268
+260:                                              ; preds = %256
+  %261 = getelementptr inbounds i8, ptr %.075, i64 8
+  %262 = load ptr, ptr %261, align 8
+  %263 = getelementptr inbounds i8, ptr %.075, i64 20
+  %264 = load i8, ptr %263, align 4
+  %265 = trunc i8 %264 to i1
+  br i1 %265, label %predicate_refuted_by_simple_clause.exit, label %266
 
-268:                                              ; preds = %262
-  br i1 %198, label %284, label %269
+266:                                              ; preds = %260
+  br i1 %198, label %282, label %267
 
-269:                                              ; preds = %268
-  %270 = load i32, ptr %1, align 4
-  %271 = icmp eq i32 %270, 45
-  br i1 %271, label %272, label %284
+267:                                              ; preds = %266
+  %268 = load i32, ptr %1, align 4
+  %269 = icmp eq i32 %268, 45
+  br i1 %269, label %270, label %282
 
-272:                                              ; preds = %269
-  %273 = getelementptr inbounds i8, ptr %1, i64 16
-  %274 = load i32, ptr %273, align 8
-  %275 = icmp eq i32 %274, 1
-  br i1 %275, label %276, label %284
+270:                                              ; preds = %267
+  %271 = getelementptr inbounds i8, ptr %1, i64 16
+  %272 = load i32, ptr %271, align 8
+  %273 = icmp eq i32 %272, 1
+  br i1 %273, label %274, label %282
 
-276:                                              ; preds = %272
-  %277 = getelementptr inbounds i8, ptr %1, i64 20
-  %278 = load i8, ptr %277, align 4
-  %279 = trunc i8 %278 to i1
-  br i1 %279, label %284, label %280
+274:                                              ; preds = %270
+  %275 = getelementptr inbounds i8, ptr %1, i64 20
+  %276 = load i8, ptr %275, align 4
+  %277 = trunc i8 %276 to i1
+  br i1 %277, label %282, label %278
 
-280:                                              ; preds = %276
-  %281 = getelementptr inbounds i8, ptr %1, i64 8
-  %282 = load ptr, ptr %281, align 8
-  %283 = tail call zeroext i1 @equal(ptr noundef %282, ptr noundef %264) #6
-  br i1 %283, label %predicate_refuted_by_simple_clause.exit, label %284
+278:                                              ; preds = %274
+  %279 = getelementptr inbounds i8, ptr %1, i64 8
+  %280 = load ptr, ptr %279, align 8
+  %281 = tail call zeroext i1 @equal(ptr noundef %280, ptr noundef %262) #6
+  %.not37.i = xor i1 %2, true
+  %brmerge.i = or i1 %281, %.not37.i
+  br i1 %brmerge.i, label %predicate_refuted_by_simple_clause.exit, label %283
 
-284:                                              ; preds = %280, %276, %272, %269, %268
-  br i1 %2, label %285, label %287
+282:                                              ; preds = %274, %270, %267, %266
+  br i1 %2, label %283, label %predicate_refuted_by_simple_clause.exit
 
-285:                                              ; preds = %284
-  %286 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %1, ptr noundef %264, i1 noundef zeroext true)
-  br i1 %286, label %predicate_refuted_by_simple_clause.exit, label %287
-
-287:                                              ; preds = %285, %284
+283:                                              ; preds = %282, %278
+  %284 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %1, ptr noundef %262, i1 noundef zeroext true)
   br label %predicate_refuted_by_simple_clause.exit
 
-288:                                              ; preds = %258, %255, %254
-  %289 = tail call fastcc zeroext i1 @operator_predicate_proof(ptr noundef %1, ptr noundef %.075, i1 noundef zeroext true, i1 noundef zeroext %2)
+285:                                              ; preds = %256, %253, %252
+  %286 = tail call fastcc zeroext i1 @operator_predicate_proof(ptr noundef %1, ptr noundef %.075, i1 noundef zeroext true, i1 noundef zeroext %2)
   br label %predicate_refuted_by_simple_clause.exit
 
 default.unreachable134:                           ; preds = %extract_strong_not_arg.exit.thread, %83, %14, %11
   unreachable
 
-predicate_refuted_by_simple_clause.exit:          ; preds = %288, %287, %285, %280, %262, %253, %249, %235, %229, %219, %.thread, %215, %170, %138, %70, %194, %182, %148, %.loopexit, %93, %80, %49, %37
-  %.0 = phi i1 [ %.not93, %194 ], [ %.not94.not, %182 ], [ %.not96, %148 ], [ %.not97130, %.loopexit ], [ %.not99, %93 ], [ %.not101.not, %80 ], [ %.not102, %49 ], [ %.not104.not, %37 ], [ true, %70 ], [ true, %138 ], [ true, %170 ], [ true, %215 ], [ true, %.thread ], [ false, %253 ], [ false, %287 ], [ %289, %288 ], [ false, %219 ], [ false, %229 ], [ true, %235 ], [ true, %249 ], [ false, %262 ], [ true, %280 ], [ true, %285 ]
+predicate_refuted_by_simple_clause.exit:          ; preds = %235, %285, %283, %282, %278, %260, %248, %244, %240, %237, %229, %219, %.thread, %215, %170, %138, %70, %194, %182, %148, %.loopexit, %93, %80, %49, %37
+  %.0 = phi i1 [ %.not93, %194 ], [ %.not94.not, %182 ], [ %.not96, %148 ], [ %.not97130, %.loopexit ], [ %.not99, %93 ], [ %.not101.not, %80 ], [ %.not102, %49 ], [ %.not104.not, %37 ], [ true, %70 ], [ true, %138 ], [ true, %170 ], [ true, %215 ], [ true, %.thread ], [ %286, %285 ], [ false, %219 ], [ false, %229 ], [ %236, %235 ], [ false, %244 ], [ false, %240 ], [ false, %237 ], [ false, %260 ], [ %281, %278 ], [ false, %282 ], [ %251, %248 ], [ %284, %283 ]
   ret i1 %.0
 }
 
@@ -1790,35 +1781,35 @@ is_opclause.exit:                                 ; preds = %4
 8:                                                ; preds = %is_opclause.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %.not.i132 = icmp eq ptr %10, null
-  br i1 %.not.i132, label %is_opclause.exit.thread, label %list_length.exit
+  %.not.i133 = icmp eq ptr %10, null
+  br i1 %.not.i133, label %is_opclause.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %8
   %11 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %.not = icmp ne i32 %12, 2
-  %.not.i133 = icmp eq ptr %1, null
-  %or.cond139 = or i1 %.not.i133, %.not
-  br i1 %or.cond139, label %is_opclause.exit.thread, label %is_opclause.exit134
+  %.not.i134 = icmp eq ptr %1, null
+  %or.cond140 = or i1 %.not.i134, %.not
+  br i1 %or.cond140, label %is_opclause.exit.thread, label %is_opclause.exit135
 
-is_opclause.exit134:                              ; preds = %list_length.exit
+is_opclause.exit135:                              ; preds = %list_length.exit
   %13 = load i32, ptr %1, align 4
   %14 = icmp eq i32 %13, 15
   br i1 %14, label %15, label %is_opclause.exit.thread
 
-15:                                               ; preds = %is_opclause.exit134
+15:                                               ; preds = %is_opclause.exit135
   %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
-  %.not.i135 = icmp eq ptr %17, null
-  br i1 %.not.i135, label %is_opclause.exit.thread, label %list_length.exit136
+  %.not.i136 = icmp eq ptr %17, null
+  br i1 %.not.i136, label %is_opclause.exit.thread, label %list_length.exit137
 
-list_length.exit136:                              ; preds = %15
+list_length.exit137:                              ; preds = %15
   %18 = getelementptr inbounds i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %.not114 = icmp eq i32 %19, 2
   br i1 %.not114, label %20, label %is_opclause.exit.thread
 
-20:                                               ; preds = %list_length.exit136
+20:                                               ; preds = %list_length.exit137
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1832,14 +1823,14 @@ list_length.exit136:                              ; preds = %15
   %28 = getelementptr inbounds i8, ptr %1, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr i8, ptr %10, i64 16
-  %.val131 = load ptr, ptr %30, align 8
-  %31 = load ptr, ptr %.val131, align 8
-  %32 = getelementptr i8, ptr %.val131, i64 8
+  %.val132 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %.val132, align 8
+  %32 = getelementptr i8, ptr %.val132, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %17, i64 16
-  %.val129 = load ptr, ptr %34, align 8
-  %35 = load ptr, ptr %.val129, align 8
-  %36 = getelementptr i8, ptr %.val129, i64 8
+  %.val130 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %.val130, align 8
+  %36 = getelementptr i8, ptr %.val130, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 @equal(ptr noundef %31, ptr noundef %35) #6
   %39 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %37) #6
@@ -1965,7 +1956,7 @@ list_length.exit136:                              ; preds = %15
   %97 = getelementptr inbounds i8, ptr %.098, i64 32
   %98 = load i8, ptr %97, align 8
   %99 = trunc i8 %98 to i1
-  br i1 %99, label %100, label %110
+  br i1 %99, label %100, label %109
 
 100:                                              ; preds = %96
   %101 = tail call zeroext i1 @op_strict(i32 noundef %.096) #6
@@ -1980,86 +1971,80 @@ list_length.exit136:                              ; preds = %15
   %104 = getelementptr inbounds i8, ptr %.097, i64 32
   %105 = load i8, ptr %104, align 8
   %106 = trunc i8 %105 to i1
-  br i1 %106, label %107, label %109
+  br i1 %106, label %107, label %is_opclause.exit.thread
 
 107:                                              ; preds = %103
   %108 = tail call zeroext i1 @op_strict(i32 noundef %.095) #6
-  br i1 %108, label %is_opclause.exit.thread, label %109
-
-109:                                              ; preds = %107, %103
   br label %is_opclause.exit.thread
 
-110:                                              ; preds = %96
-  %111 = getelementptr inbounds i8, ptr %.097, i64 32
-  %112 = load i8, ptr %111, align 8
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %118
+109:                                              ; preds = %96
+  %110 = getelementptr inbounds i8, ptr %.097, i64 32
+  %111 = load i8, ptr %110, align 8
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %116
 
-114:                                              ; preds = %110
-  br i1 %3, label %115, label %117
+113:                                              ; preds = %109
+  br i1 %3, label %114, label %is_opclause.exit.thread
 
-115:                                              ; preds = %114
-  %116 = tail call zeroext i1 @op_strict(i32 noundef %.095) #6
-  br i1 %116, label %is_opclause.exit.thread, label %117
-
-117:                                              ; preds = %115, %114
+114:                                              ; preds = %113
+  %115 = tail call zeroext i1 @op_strict(i32 noundef %.095) #6
   br label %is_opclause.exit.thread
 
-118:                                              ; preds = %110
-  %119 = tail call fastcc ptr @lookup_proof_cache(i32 noundef %.095, i32 noundef %.096, i1 noundef zeroext %2)
+116:                                              ; preds = %109
+  %117 = tail call fastcc ptr @lookup_proof_cache(i32 noundef %.095, i32 noundef %.096, i1 noundef zeroext %2)
   %.0.in.v.i = select i1 %2, i64 16, i64 12
-  %.0.in.i = getelementptr inbounds i8, ptr %119, i64 %.0.in.v.i
+  %.0.in.i = getelementptr inbounds i8, ptr %117, i64 %.0.in.v.i
   %.0.i = load i32, ptr %.0.in.i, align 4
   %.not121 = icmp eq i32 %.0.i, 0
-  br i1 %.not121, label %is_opclause.exit.thread, label %120
+  br i1 %.not121, label %is_opclause.exit.thread, label %118
 
-120:                                              ; preds = %118
-  %121 = tail call ptr @CreateExecutorState() #6
-  %122 = getelementptr inbounds i8, ptr %121, i64 160
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %123, ptr @CurrentMemoryContext, align 8
-  %125 = tail call ptr @make_opclause(i32 noundef %.0.i, i32 noundef 16, i1 noundef zeroext false, ptr noundef nonnull %.097, ptr noundef nonnull %.098, i32 noundef 0, i32 noundef %22) #6
-  tail call void @fix_opfuncids(ptr noundef %125) #6
-  %126 = tail call ptr @ExecInitExpr(ptr noundef %125, ptr noundef null) #6
-  %127 = getelementptr inbounds i8, ptr %121, i64 232
-  %128 = load ptr, ptr %127, align 8
-  %.not122 = icmp eq ptr %128, null
-  br i1 %.not122, label %129, label %131
+118:                                              ; preds = %116
+  %119 = tail call ptr @CreateExecutorState() #6
+  %120 = getelementptr inbounds i8, ptr %119, i64 160
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %121, ptr @CurrentMemoryContext, align 8
+  %123 = tail call ptr @make_opclause(i32 noundef %.0.i, i32 noundef 16, i1 noundef zeroext false, ptr noundef nonnull %.097, ptr noundef nonnull %.098, i32 noundef 0, i32 noundef %22) #6
+  tail call void @fix_opfuncids(ptr noundef %123) #6
+  %124 = tail call ptr @ExecInitExpr(ptr noundef %123, ptr noundef null) #6
+  %125 = getelementptr inbounds i8, ptr %119, i64 232
+  %126 = load ptr, ptr %125, align 8
+  %.not122 = icmp eq ptr %126, null
+  br i1 %.not122, label %127, label %129
 
-129:                                              ; preds = %120
-  %130 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %121) #6
-  br label %131
+127:                                              ; preds = %118
+  %128 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %119) #6
+  br label %129
 
-131:                                              ; preds = %120, %129
-  %132 = phi ptr [ %130, %129 ], [ %128, %120 ]
-  %133 = getelementptr inbounds i8, ptr %132, i64 40
+129:                                              ; preds = %118, %127
+  %130 = phi ptr [ %128, %127 ], [ %126, %118 ]
+  %131 = getelementptr inbounds i8, ptr %130, i64 40
+  %132 = load ptr, ptr %131, align 8
+  store ptr %132, ptr @CurrentMemoryContext, align 8
+  %133 = getelementptr inbounds i8, ptr %124, i64 32
   %134 = load ptr, ptr %133, align 8
-  store ptr %134, ptr @CurrentMemoryContext, align 8
-  %135 = getelementptr inbounds i8, ptr %126, i64 32
-  %136 = load ptr, ptr %135, align 8
-  %137 = call i64 %136(ptr noundef %126, ptr noundef %132, ptr noundef nonnull %5) #6
-  store ptr %124, ptr @CurrentMemoryContext, align 8
-  call void @FreeExecutorState(ptr noundef nonnull %121) #6
-  %138 = load i8, ptr %5, align 1
-  %139 = trunc i8 %138 to i1
-  br i1 %139, label %140, label %144
+  %135 = call i64 %134(ptr noundef %124, ptr noundef %130, ptr noundef nonnull %5) #6
+  store ptr %122, ptr @CurrentMemoryContext, align 8
+  call void @FreeExecutorState(ptr noundef nonnull %119) #6
+  %136 = load i8, ptr %5, align 1
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %138, label %142
 
-140:                                              ; preds = %131
-  %141 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #6
-  br i1 %141, label %142, label %is_opclause.exit.thread
+138:                                              ; preds = %129
+  %139 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #6
+  br i1 %139, label %140, label %is_opclause.exit.thread
 
-142:                                              ; preds = %140
-  %143 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
+140:                                              ; preds = %138
+  %141 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1924, ptr noundef nonnull @__func__.operator_predicate_proof) #6
   br label %is_opclause.exit.thread
 
-144:                                              ; preds = %131
-  %145 = icmp ne i64 %137, 0
+142:                                              ; preds = %129
+  %143 = icmp ne i64 %135, 0
   br label %is_opclause.exit.thread
 
-is_opclause.exit.thread:                          ; preds = %15, %8, %4, %142, %140, %118, %115, %107, %102, %100, %85, %94, %91, %87, %83, %80, %74, %76, %70, %64, %62, %59, %53, %55, %49, %43, %45, %20, %list_length.exit136, %is_opclause.exit134, %list_length.exit, %is_opclause.exit, %144, %117, %109, %72, %41
-  %.0 = phi i1 [ %42, %41 ], [ false, %109 ], [ false, %117 ], [ %145, %144 ], [ %73, %72 ], [ false, %is_opclause.exit ], [ false, %list_length.exit ], [ false, %is_opclause.exit134 ], [ false, %list_length.exit136 ], [ false, %20 ], [ false, %45 ], [ false, %43 ], [ false, %49 ], [ false, %55 ], [ false, %53 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %70 ], [ false, %76 ], [ false, %74 ], [ false, %80 ], [ false, %83 ], [ false, %87 ], [ false, %91 ], [ false, %94 ], [ false, %85 ], [ false, %100 ], [ true, %102 ], [ true, %107 ], [ true, %115 ], [ false, %118 ], [ false, %140 ], [ false, %142 ], [ false, %4 ], [ false, %8 ], [ false, %15 ]
+is_opclause.exit.thread:                          ; preds = %15, %8, %4, %114, %107, %140, %138, %116, %113, %103, %102, %100, %85, %94, %91, %87, %83, %80, %74, %76, %70, %64, %62, %59, %53, %55, %49, %43, %45, %20, %list_length.exit137, %is_opclause.exit135, %list_length.exit, %is_opclause.exit, %142, %72, %41
+  %.0 = phi i1 [ %42, %41 ], [ %143, %142 ], [ %73, %72 ], [ false, %is_opclause.exit ], [ false, %list_length.exit ], [ false, %is_opclause.exit135 ], [ false, %list_length.exit137 ], [ false, %20 ], [ false, %45 ], [ false, %43 ], [ false, %49 ], [ false, %55 ], [ false, %53 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %70 ], [ false, %76 ], [ false, %74 ], [ false, %80 ], [ false, %83 ], [ false, %87 ], [ false, %91 ], [ false, %94 ], [ false, %85 ], [ false, %100 ], [ true, %102 ], [ false, %103 ], [ false, %113 ], [ false, %116 ], [ false, %138 ], [ false, %140 ], [ %108, %107 ], [ %115, %114 ], [ false, %4 ], [ false, %8 ], [ false, %15 ]
   ret i1 %.0
 }
 

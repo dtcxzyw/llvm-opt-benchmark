@@ -95,7 +95,7 @@ if.end:                                           ; preds = %for.body
 
 if.then11:                                        ; preds = %if.end
   %shr = lshr i64 %or, 32
-  %conv12 = trunc i64 %shr to i32
+  %conv12 = trunc nuw i64 %shr to i32
   %call = tail call i32 @htonl(i32 noundef %conv12) #7
   %6 = load ptr, ptr %cur, align 8
   %last15 = getelementptr inbounds i8, ptr %6, i64 32
@@ -121,7 +121,7 @@ for.body27:                                       ; preds = %if.end, %if.end34
   %nbits.143 = phi i64 [ %sub36, %if.end34 ], [ %add, %if.end ]
   %code.142 = phi i64 [ %shl35, %if.end34 ], [ %or, %if.end ]
   %shr28 = lshr i64 %code.142, 56
-  %conv29 = trunc i64 %shr28 to i8
+  %conv29 = trunc nuw i64 %shr28 to i8
   %call30 = tail call i32 @nghttp2_bufs_addb(ptr noundef %bufs, i8 noundef zeroext %conv29) #8
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end34, label %return
@@ -147,7 +147,7 @@ for.body50:                                       ; preds = %for.cond47.preheade
   %nbits.247 = phi i64 [ %sub59, %if.end57 ], [ %nbits.0, %for.cond47.preheader ]
   %code.246 = phi i64 [ %shl58, %if.end57 ], [ %code.0, %for.cond47.preheader ]
   %shr51 = lshr i64 %code.246, 56
-  %conv52 = trunc i64 %shr51 to i8
+  %conv52 = trunc nuw i64 %shr51 to i8
   %call53 = tail call i32 @nghttp2_bufs_addb(ptr noundef %bufs, i8 noundef zeroext %conv52) #8
   %cmp54.not = icmp eq i32 %call53, 0
   br i1 %cmp54.not, label %if.end57, label %return
@@ -162,26 +162,22 @@ for.end60:                                        ; preds = %if.end57, %for.cond
   %code.2.lcssa = phi i64 [ %code.0, %for.cond47.preheader ], [ %shl58, %if.end57 ]
   %nbits.2.lcssa = phi i64 [ %nbits.0, %for.cond47.preheader ], [ %sub59, %if.end57 ]
   %tobool.not = icmp eq i64 %nbits.2.lcssa, 0
-  br i1 %tobool.not, label %if.end75, label %if.then61
+  br i1 %tobool.not, label %return, label %if.then61
 
 if.then61:                                        ; preds = %for.end60
   %shr62 = lshr i64 %code.2.lcssa, 56
-  %conv63 = trunc i64 %shr62 to i16
-  %13 = trunc i64 %nbits.2.lcssa to i16
+  %conv63 = trunc nuw nsw i64 %shr62 to i16
+  %13 = trunc nuw i64 %nbits.2.lcssa to i16
   %sh_prom = sub nuw nsw i16 8, %13
   %notmask = shl nsw i16 -1, %sh_prom
   %sub67 = xor i16 %notmask, -1
   %or68 = or i16 %sub67, %conv63
-  %conv69 = trunc i16 %or68 to i8
+  %conv69 = trunc nuw i16 %or68 to i8
   %call70 = tail call i32 @nghttp2_bufs_addb(ptr noundef %bufs, i8 noundef zeroext %conv69) #8
-  %cmp71.not = icmp eq i32 %call70, 0
-  br i1 %cmp71.not, label %if.end75, label %return
-
-if.end75:                                         ; preds = %if.then61, %for.end60
   br label %return
 
-return:                                           ; preds = %for.body27, %for.body50, %if.then61, %if.end75
-  %retval.0 = phi i32 [ 0, %if.end75 ], [ %call70, %if.then61 ], [ %call53, %for.body50 ], [ %call30, %for.body27 ]
+return:                                           ; preds = %for.body27, %for.body50, %if.then61, %for.end60
+  %retval.0 = phi i32 [ 0, %for.end60 ], [ %call70, %if.then61 ], [ %call53, %for.body50 ], [ %call30, %for.body27 ]
   ret i32 %retval.0
 }
 

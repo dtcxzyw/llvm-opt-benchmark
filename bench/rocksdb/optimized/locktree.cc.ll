@@ -2157,23 +2157,23 @@ land.rhs:                                         ; preds = %land.lhs.true16
   br i1 %call27, label %while.end.split.loop.exit383, label %while.cond7, !llvm.loop !32
 
 while.end.split.loop.exit:                        ; preds = %land.lhs.true16
-  %21 = trunc i64 %indvars.iv.next to i32
-  %22 = trunc i64 %indvars.iv to i32
+  %21 = trunc nsw i64 %indvars.iv.next to i32
+  %22 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.split.loop.exit374:                     ; preds = %land.lhs.true13
-  %23 = trunc i64 %indvars.iv.next to i32
-  %24 = trunc i64 %indvars.iv to i32
+  %23 = trunc nsw i64 %indvars.iv.next to i32
+  %24 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.split.loop.exit377:                     ; preds = %land.lhs.true
-  %25 = trunc i64 %indvars.iv.next to i32
-  %26 = trunc i64 %indvars.iv to i32
+  %25 = trunc nsw i64 %indvars.iv.next to i32
+  %26 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end.split.loop.exit383:                     ; preds = %land.rhs
-  %27 = trunc i64 %indvars.iv.next to i32
-  %28 = trunc i64 %indvars.iv to i32
+  %27 = trunc nsw i64 %indvars.iv.next to i32
+  %28 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond7, %while.end.split.loop.exit383, %while.end.split.loop.exit377, %while.end.split.loop.exit374, %while.end.split.loop.exit
@@ -2259,7 +2259,7 @@ if.then.i:                                        ; preds = %for.body
   %37 = load i32, ptr %d.i.i.i, align 8
   %38 = load i32, ptr %num_values.i.i, align 4
   %cmp.not17.i.i = icmp eq i32 %38, 0
-  br i1 %cmp.not17.i.i, label %if.end24.thread.i.i, label %while.body.lr.ph.i.i
+  br i1 %cmp.not17.i.i, label %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then.i
   %add.i.i = add i32 %38, %37
@@ -2314,14 +2314,12 @@ if.then14.i.i:                                    ; preds = %while.end.i.i
 if.end24.i.i:                                     ; preds = %while.end.i.i
   %cmp25.not.i.i = icmp eq i32 %best_pos.1.fr.i.i, -1
   %sub29.i.i = sub i32 %best_pos.1.fr.i.i, %37
-  br i1 %cmp25.not.i.i, label %if.end24.thread.i.i, label %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i
-
-if.end24.thread.i.i:                              ; preds = %if.end24.i.i, %if.then.i
+  %spec.select.i.i = select i1 %cmp25.not.i.i, i32 %38, i32 %sub29.i.i
   br label %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i
 
-_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i: ; preds = %if.end24.thread.i.i, %if.end24.i.i, %if.then14.i.i
-  %storemerge15.i.i = phi i32 [ %sub.i.i, %if.then14.i.i ], [ %38, %if.end24.thread.i.i ], [ %sub29.i.i, %if.end24.i.i ]
-  %retval.0.i.i = phi i32 [ 0, %if.then14.i.i ], [ -30989, %if.end24.thread.i.i ], [ -30989, %if.end24.i.i ]
+_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE24find_internal_zero_arrayImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiS9_PS2_Pj.exit.i: ; preds = %if.end24.i.i, %if.then14.i.i, %if.then.i
+  %storemerge15.i.i = phi i32 [ %sub.i.i, %if.then14.i.i ], [ 0, %if.then.i ], [ %spec.select.i.i, %if.end24.i.i ]
+  %retval.0.i.i = phi i32 [ 0, %if.then14.i.i ], [ -30989, %if.then.i ], [ -30989, %if.end24.i.i ]
   store i32 %storemerge15.i.i, ptr %idx, align 4
   br label %invoke.cont55
 

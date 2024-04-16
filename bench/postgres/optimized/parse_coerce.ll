@@ -142,10 +142,10 @@ define dso_local ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local zeroext i1 @can_coerce_type(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp sgt i32 %0, 0
-  br i1 %6, label %.lr.ph.preheader, label %.critedge
+  br i1 %6, label %.lr.ph.preheader, label %typeIsOfTypedTable.exit.thread
 
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -259,17 +259,14 @@ typeIsOfTypedTable.exit:                          ; preds = %31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %46
-  br i1 %.1, label %47, label %.critedge
+  br i1 %.1, label %47, label %typeIsOfTypedTable.exit.thread
 
 47:                                               ; preds = %._crit_edge
   %48 = tail call zeroext i1 @check_generic_type_consistency(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %0)
-  br i1 %48, label %.critedge, label %typeIsOfTypedTable.exit.thread
-
-.critedge:                                        ; preds = %4, %47, %._crit_edge
   br label %typeIsOfTypedTable.exit.thread
 
-typeIsOfTypedTable.exit.thread:                   ; preds = %29, %typeIsOfTypedTable.exit, %47, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ false, %47 ], [ false, %typeIsOfTypedTable.exit ], [ false, %29 ]
+typeIsOfTypedTable.exit.thread:                   ; preds = %29, %typeIsOfTypedTable.exit, %4, %47, %._crit_edge
+  %.0 = phi i1 [ true, %._crit_edge ], [ %48, %47 ], [ true, %4 ], [ false, %typeIsOfTypedTable.exit ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -1374,11 +1371,11 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_generic_type_consistency(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [100 x i32], align 16
   %6 = icmp sgt i32 %2, 0
-  br i1 %6, label %.lr.ph.preheader, label %.thread377
+  br i1 %6, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -1654,7 +1651,7 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
   %.2154 = phi i32 [ %.1153, %77 ], [ %79, %80 ], [ %.1153, %75 ]
   %.2138 = phi i32 [ %.1137, %77 ], [ %81, %80 ], [ %.1137, %75 ]
   %85 = icmp sgt i32 %.2138, 0
-  br i1 %85, label %86, label %.thread377
+  br i1 %85, label %86, label %.loopexit
 
 86:                                               ; preds = %84
   %87 = call fastcc i32 @select_common_type_from_oids(i32 noundef %.2138, ptr noundef nonnull %5, i1 noundef zeroext true)
@@ -1695,13 +1692,10 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph252
   %.not188 = icmp eq i32 %.2154, 0
   %.not189 = icmp eq i32 %.2154, %87
   %or.cond208 = or i1 %.not188, %.not189
-  br i1 %or.cond208, label %.thread377, label %.loopexit
-
-.thread377:                                       ; preds = %3, %93, %84
   br label %.loopexit
 
-.loopexit:                                        ; preds = %48, %47, %40, %39, %32, %25, %21, %17, %14, %verify_common_type_from_oids.exit, %93, %91, %86, %78, %77, %73, %70, %68, %.thread, %64, %62, %59, %57, %54, %.thread377
-  %.0 = phi i1 [ true, %.thread377 ], [ false, %54 ], [ false, %57 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %.thread ], [ false, %68 ], [ false, %70 ], [ false, %73 ], [ false, %77 ], [ false, %78 ], [ false, %86 ], [ false, %verify_common_type_from_oids.exit ], [ false, %91 ], [ false, %93 ], [ false, %14 ], [ false, %17 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ false, %39 ], [ false, %40 ], [ false, %47 ], [ false, %48 ]
+.loopexit:                                        ; preds = %48, %47, %40, %39, %32, %25, %21, %17, %14, %3, %verify_common_type_from_oids.exit, %93, %84, %91, %86, %78, %77, %73, %70, %68, %.thread, %64, %62, %59, %57, %54
+  %.0 = phi i1 [ false, %54 ], [ false, %57 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %.thread ], [ false, %68 ], [ false, %70 ], [ false, %73 ], [ false, %77 ], [ false, %78 ], [ false, %86 ], [ false, %verify_common_type_from_oids.exit ], [ false, %91 ], [ true, %84 ], [ %or.cond208, %93 ], [ true, %3 ], [ false, %14 ], [ false, %17 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ false, %39 ], [ false, %40 ], [ false, %47 ], [ false, %48 ]
   ret i1 %.0
 }
 
@@ -2234,7 +2228,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef %0, ptr noc
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -2327,7 +2321,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef %0, ptr noc
 54:                                               ; preds = %.lr.ph25, %50, %48, %46, %43, %27
   %55 = phi i32 [ %21, %.lr.ph25 ], [ %24, %50 ], [ %21, %48 ], [ %21, %46 ], [ %21, %43 ], [ %24, %27 ]
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %56 = trunc i64 %indvars.iv.next29 to i32
+  %56 = trunc nuw i64 %indvars.iv.next29 to i32
   %57 = icmp slt i32 %56, %0
   br i1 %57, label %.lr.ph25, label %._crit_edge26.loopexit, !llvm.loop !15
 
@@ -2687,7 +2681,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   br i1 %cond, label %138, label %140
 
 138:                                              ; preds = %._crit_edge
-  %139 = trunc i8 %.1 to i1
+  %139 = trunc nuw i8 %.1 to i1
   br i1 %139, label %.thread530, label %.thread904
 
 140:                                              ; preds = %._crit_edge
@@ -2896,7 +2890,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   %.4357 = phi i32 [ %.3356, %215 ], [ %.3356, %214 ], [ %.1354, %138 ], [ 3831, %201 ]
   %.3349 = phi i32 [ %.1347, %215 ], [ %.1347, %214 ], [ %.1347, %138 ], [ 2277, %201 ]
   %.5 = phi i32 [ %.4, %215 ], [ %.4, %214 ], [ %.1345, %138 ], [ 2283, %201 ]
-  %222 = trunc i8 %.1 to i1
+  %222 = trunc nuw i8 %.1 to i1
   br i1 %222, label %223, label %.loopexit536
 
 223:                                              ; preds = %.thread530
@@ -2944,7 +2938,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   br label %249
 
 244:                                              ; preds = %223
-  %245 = trunc i8 %.1370 to i1
+  %245 = trunc nuw i8 %.1370 to i1
   %246 = icmp ne i32 %.1398, 0
   %or.cond23 = select i1 %245, i1 %246, i1 false
   br i1 %or.cond23, label %247, label %249
@@ -3017,7 +3011,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
 
 268:                                              ; preds = %261, %260
   %.0402 = phi i32 [ %262, %261 ], [ 0, %260 ]
-  %269 = trunc i8 %.2373 to i1
+  %269 = trunc nuw i8 %.2373 to i1
   br i1 %269, label %270, label %282
 
 270:                                              ; preds = %268
@@ -3047,7 +3041,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 282:                                              ; preds = %275, %268
-  %283 = trunc i8 %.1370 to i1
+  %283 = trunc nuw i8 %.1370 to i1
   br i1 %283, label %284, label %296
 
 284:                                              ; preds = %282
@@ -3097,7 +3091,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br i1 %4, label %317, label %305
 
 305:                                              ; preds = %304
-  %306 = trunc i8 %.2373 to i1
+  %306 = trunc nuw i8 %.2373 to i1
   br i1 %306, label %307, label %311
 
 307:                                              ; preds = %305
@@ -3109,7 +3103,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 311:                                              ; preds = %305
-  %312 = trunc i8 %.1370 to i1
+  %312 = trunc nuw i8 %.1370 to i1
   br i1 %312, label %313, label %317
 
 313:                                              ; preds = %311

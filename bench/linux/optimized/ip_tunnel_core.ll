@@ -1120,7 +1120,7 @@ define dso_local noundef zeroext i16 @ip_tunnel_parse_protocol(ptr nocapture nou
   %17 = load i8, ptr %7, align 4
   %18 = and i8 %17, -16
   %19 = icmp eq i8 %18, 64
-  br i1 %19, label %28, label %20
+  br i1 %19, label %27, label %20
 
 20:                                               ; preds = %9, %16
   %21 = getelementptr i8, ptr %7, i64 40
@@ -1131,14 +1131,12 @@ define dso_local noundef zeroext i16 @ip_tunnel_parse_protocol(ptr nocapture nou
   %24 = load i8, ptr %7, align 4
   %25 = and i8 %24, -16
   %26 = icmp eq i8 %25, 96
-  br i1 %26, label %28, label %27
+  %spec.select = select i1 %26, i16 -8826, i16 0
+  br label %27
 
-27:                                               ; preds = %23, %20, %1
-  br label %28
-
-28:                                               ; preds = %27, %23, %16
-  %29 = phi i16 [ 0, %27 ], [ 8, %16 ], [ -8826, %23 ]
-  ret i16 %29
+27:                                               ; preds = %23, %16, %1, %20
+  %28 = phi i16 [ 8, %16 ], [ 0, %20 ], [ 0, %1 ], [ %spec.select, %23 ]
+  ret i16 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
@@ -1522,7 +1520,7 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
   %115 = call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %113, i32 %114) #14, !srcloc !20
   %116 = xor i32 %115, -1
   %117 = lshr i32 %116, 16
-  %118 = trunc i32 %117 to i16
+  %118 = trunc nuw i32 %117 to i16
   store i16 %118, ptr %109, align 2
   %119 = load ptr, ptr %28, align 8
   %120 = load ptr, ptr %4, align 8

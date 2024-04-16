@@ -72,7 +72,7 @@ if.then40:                                        ; preds = %if.end31
   %or44 = or disjoint i32 %shl43, %xor16
   %shl45 = shl nuw nsw i32 %or44, 6
   %shl45.masked = and i32 %shl45, 2097088
-  %and47 = or i32 %shl45.masked, %xor34
+  %and47 = or disjoint i32 %shl45.masked, %xor34
   %cmp48 = icmp ult i32 %and47, 65536
   br i1 %cmp48, label %bad, label %return
 
@@ -94,7 +94,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i32 %0 to i8
+  %conv = trunc nuw nsw i32 %0 to i8
   store i8 %conv, ptr %str, align 1
   br label %return
 
@@ -104,7 +104,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %shr = lshr i32 %0, 6
-  %1 = trunc i32 %shr to i8
+  %1 = trunc nuw i32 %shr to i8
   %conv5 = or disjoint i8 %1, -64
   store i8 %conv5, ptr %str, align 1
   %2 = trunc i32 %0 to i8
@@ -123,7 +123,7 @@ if.end10:                                         ; preds = %if.end
 
 if.then15:                                        ; preds = %if.end10
   %shr16 = lshr i32 %spec.store.select, 12
-  %4 = trunc i32 %shr16 to i8
+  %4 = trunc nuw i32 %shr16 to i8
   %conv20 = or disjoint i8 %4, -32
   store i8 %conv20, ptr %str, align 1
   %shr22 = lshr i32 %spec.store.select, 6
@@ -191,7 +191,7 @@ _ZN3re210runetocharEPcPKi.exit:                   ; preds = %if.end10.i, %if.end
 define noundef i32 @_ZN3re28fullruneEPKci(ptr nocapture noundef readonly %str, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %cmp = icmp sgt i32 %n, 0
-  br i1 %cmp, label %if.then, label %if.end16
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %0 = load i8, ptr %str, align 1
@@ -200,7 +200,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %cmp3.not = icmp eq i32 %n, 1
-  br i1 %cmp3.not, label %if.end16, label %if.then4
+  br i1 %cmp3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %cmp5 = icmp ult i8 %0, -32
@@ -208,19 +208,17 @@ if.then4:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then4
   %cmp8 = icmp ugt i32 %n, 2
-  br i1 %cmp8, label %if.then9, label %if.end16
+  br i1 %cmp8, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.end7
   %cmp10 = icmp ult i8 %0, -16
   %cmp11 = icmp ne i32 %n, 3
   %or.cond = or i1 %cmp11, %cmp10
-  br i1 %or.cond, label %return, label %if.end16
-
-if.end16:                                         ; preds = %if.end, %if.then9, %if.end7, %entry
+  %spec.select = zext i1 %or.cond to i32
   br label %return
 
-return:                                           ; preds = %if.then9, %if.then4, %if.then, %if.end16
-  %retval.0 = phi i32 [ 0, %if.end16 ], [ 1, %if.then ], [ 1, %if.then4 ], [ 1, %if.then9 ]
+return:                                           ; preds = %if.then9, %entry, %if.end7, %if.end, %if.then4, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %if.then4 ], [ 0, %if.end ], [ 0, %if.end7 ], [ 0, %entry ], [ %spec.select, %if.then9 ]
   ret i32 %retval.0
 }
 
@@ -402,7 +400,7 @@ if.then40.i:                                      ; preds = %if.end31.i
   %or44.i = or disjoint i32 %shl43.i, %xor16.i
   %shl45.i = shl nuw nsw i32 %or44.i, 6
   %shl45.masked.i = and i32 %shl45.i, 2097088
-  %and47.i = or i32 %shl45.masked.i, %xor34.i
+  %and47.i = or disjoint i32 %shl45.masked.i, %xor34.i
   %cmp48.i = icmp ult i32 %and47.i, 65536
   br i1 %cmp48.i, label %bad.i, label %_ZN3re210chartoruneEPiPKc.exit
 

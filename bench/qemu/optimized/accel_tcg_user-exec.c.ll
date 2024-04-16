@@ -649,19 +649,17 @@ if.end3:                                          ; preds = %if.end3.lr.ph, %res
 land.lhs.true:                                    ; preds = %if.end3
   %and9 = and i32 %or, 4
   %tobool10.not = icmp eq i32 %and9, 0
-  br i1 %tobool10.not, label %if.then15, label %lor.lhs.false
+  br i1 %tobool10.not, label %if.end16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %not11 = xor i32 %5, -1
   %and13 = and i32 %and12, %not11
-  %tobool14.not = icmp eq i32 %and13, 0
-  br i1 %tobool14.not, label %if.end16, label %if.then15
-
-if.then15:                                        ; preds = %lor.lhs.false, %land.lhs.true
+  %tobool14.not = icmp ne i32 %and13, 0
+  %spec.select = select i1 %tobool14.not, i1 true, i1 %inval_tb.0208
   br label %if.end16
 
-if.end16:                                         ; preds = %if.then15, %lor.lhs.false, %if.end3
-  %inval_tb.1 = phi i1 [ true, %if.then15 ], [ %inval_tb.0208, %lor.lhs.false ], [ %inval_tb.0208, %if.end3 ]
+if.end16:                                         ; preds = %lor.lhs.false, %land.lhs.true, %if.end3
+  %inval_tb.1 = phi i1 [ %inval_tb.0208, %if.end3 ], [ true, %land.lhs.true ], [ %spec.select, %lor.lhs.false ]
   %cmp = icmp eq i64 %start.addr.0.ph220, %3
   %cmp18 = icmp eq i64 %4, %last
   %or.cond102 = select i1 %cmp, i1 %cmp18, i1 false
@@ -1209,7 +1207,7 @@ declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i1 @tb_invalidate_phys_page_unwind(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %or = or i64 %addr, -4096
   %sub = sub nsw i64 0, %or
@@ -1233,7 +1231,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %nonfault, i64 noundef %ra) unnamed_addr #2 {
+define internal fastcc i32 @probe_access_internal(ptr noundef %env, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %nonfault, i64 noundef %ra) unnamed_addr #2 {
 entry:
   switch i32 %access_type, label %do.body [
     i32 1, label %sw.epilog
@@ -1295,15 +1293,13 @@ page_get_flags.exit:                              ; preds = %if.end.i, %if.end3.
   br i1 %tobool.not, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %page_get_flags.exit
-  br i1 %cmp, label %land.lhs.true, label %if.end
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then4
   %2 = getelementptr i8, ptr %env, i64 -9472
   %call6.val = load ptr, ptr %2, align 16
   %tobool.i.not = icmp eq ptr %call6.val, null
-  br i1 %tobool.i.not, label %if.end, label %return
-
-if.end:                                           ; preds = %if.then4, %land.lhs.true
+  %spec.select = select i1 %tobool.i.not, i32 0, i32 1024
   br label %return
 
 if.end9:                                          ; preds = %page_get_flags.exit
@@ -1320,8 +1316,8 @@ if.end16:                                         ; preds = %if.end13
   tail call void @cpu_loop_exit_sigsegv(ptr noundef %add.ptr.i9, i64 noundef %addr, i32 noundef %access_type, i1 noundef zeroext %maperr.0, i64 noundef %ra) #17
   unreachable
 
-return:                                           ; preds = %if.end13, %land.lhs.true, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1024, %land.lhs.true ], [ 2048, %if.end13 ]
+return:                                           ; preds = %land.lhs.true, %if.end13, %if.then4
+  %retval.0 = phi i32 [ 0, %if.then4 ], [ 2048, %if.end13 ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

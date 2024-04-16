@@ -113,12 +113,12 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %61, label %746, label %62
 
 62:                                               ; preds = %._crit_edge, %52
-  %.pre-phi65 = phi ptr [ %.pre64, %._crit_edge ], [ %55, %52 ]
+  %.pre-phi62 = phi ptr [ %.pre61, %._crit_edge ], [ %55, %52 ]
   %63 = phi ptr [ %789, %._crit_edge ], [ %57, %52 ]
-  %64 = getelementptr inbounds i8, ptr %.pre-phi65, i64 60
+  %64 = getelementptr inbounds i8, ptr %.pre-phi62, i64 60
   %65 = load i16, ptr %64, align 4
   %66 = zext i16 %65 to i32
-  %67 = load ptr, ptr %.pre-phi65, align 8
+  %67 = load ptr, ptr %.pre-phi62, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 172
   %69 = load i16, ptr %68, align 4
   %70 = zext i16 %69 to i32
@@ -715,7 +715,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %476 = icmp eq i32 %475, 0
   %.pre = load i8, ptr %30, align 1
   %477 = and i8 %.pre, -4
-  %spec.select = select i1 %476, i8 %477, i8 0
+  %spec.select65 = select i1 %476, i8 %477, i8 0
   %478 = and i8 %.pre, 3
   %479 = icmp eq i8 %478, 3
   %480 = select i1 %479, i8 2, i8 %478
@@ -724,7 +724,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %483 = and i8 %482, 1
   %484 = icmp eq i8 %483, 0
   %485 = select i1 %484, i8 %480, i8 0
-  %486 = or disjoint i8 %485, %spec.select
+  %486 = or disjoint i8 %485, %spec.select65
   %487 = load i16, ptr %457, align 2
   %488 = and i16 %487, 4080
   %489 = zext i8 %486 to i16
@@ -1208,8 +1208,8 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %795, label %._crit_edge, label %798, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %791
-  %.pre63 = and i64 %787, -2
-  %.pre64 = inttoptr i64 %.pre63 to ptr
+  %.pre60 = and i64 %787, -2
+  %.pre61 = inttoptr i64 %.pre60 to ptr
   br label %62
 
 796:                                              ; preds = %665, %662, %.thread37
@@ -1253,7 +1253,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %816 = load ptr, ptr %815, align 32
   %817 = call i32 %816(ptr noundef %13, ptr noundef %0, ptr noundef %1) #8
   %818 = icmp eq i32 %817, 1
-  br i1 %818, label %819, label %.loopexit56, !prof !6
+  br i1 %818, label %819, label %.thread48, !prof !6
 
 819:                                              ; preds = %.thread45
   %820 = load i64, ptr %7, align 8
@@ -1272,7 +1272,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 
 830:                                              ; preds = %826
   %831 = call i32 @ip6_output(ptr noundef %13, ptr noundef %0, ptr noundef %1) #8
-  br label %.loopexit56
+  br label %.thread48
 
 832:                                              ; preds = %826
   %833 = icmp eq ptr %828, @ip_output
@@ -1280,11 +1280,11 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 
 834:                                              ; preds = %832
   %835 = call i32 @ip_output(ptr noundef %13, ptr noundef %0, ptr noundef %1) #8
-  br label %.loopexit56
+  br label %.thread48
 
 836:                                              ; preds = %832
   %837 = call i32 %828(ptr noundef %13, ptr noundef %0, ptr noundef %1) #8
-  br label %.loopexit56
+  br label %.thread48
 
 838:                                              ; preds = %819
   %839 = getelementptr inbounds i8, ptr %822, i64 8
@@ -1333,25 +1333,23 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %851 = phi i32 [ %850, %849 ], [ 1, %846 ], [ 1, %845 ], [ 1, %838 ], [ 1, %838 ]
   call void @__rcu_read_unlock() #8
   %852 = icmp eq i32 %851, 1
-  br i1 %852, label %49, label %.loopexit56, !prof !6, !llvm.loop !35
+  br i1 %852, label %49, label %.thread48, !prof !6, !llvm.loop !35
 
 .thread52:                                        ; preds = %705, %783, %514, %118, %121, %340, %654, %653, %339, %513
   %.ph51 = phi i32 [ -95, %513 ], [ -95, %339 ], [ -95, %653 ], [ -95, %654 ], [ -95, %514 ], [ -95, %118 ], [ %122, %121 ], [ %341, %340 ], [ -113, %705 ], [ -113, %783 ]
   call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #8
-  br label %.loopexit56
+  br label %.thread48
 
 .loopexit:                                        ; preds = %102, %655, %746, %796
   %853 = phi i32 [ %797, %796 ], [ %747, %746 ], [ %656, %655 ], [ %105, %102 ]
   %.fr = freeze i32 %853
   call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #8
   %854 = icmp eq i32 %.fr, -115
-  br i1 %854, label %.thread48, label %.loopexit56
+  %spec.select = select i1 %854, i32 0, i32 %.fr
+  br label %.thread48
 
-.thread48:                                        ; preds = %.thread40, %.loopexit
-  br label %.loopexit56
-
-.loopexit56:                                      ; preds = %.thread47, %.thread45, %.thread48, %.loopexit, %.thread52, %836, %834, %830
-  %855 = phi i32 [ %831, %830 ], [ %835, %834 ], [ %837, %836 ], [ 0, %.thread48 ], [ %.fr, %.loopexit ], [ %.ph51, %.thread52 ], [ %851, %.thread47 ], [ %817, %.thread45 ]
+.thread48:                                        ; preds = %.thread40, %.thread47, %.thread45, %.loopexit, %.thread52, %836, %834, %830
+  %855 = phi i32 [ %831, %830 ], [ %835, %834 ], [ %837, %836 ], [ %.ph51, %.thread52 ], [ %spec.select, %.loopexit ], [ 0, %.thread40 ], [ %851, %.thread47 ], [ %817, %.thread45 ]
   ret i32 %855
 }
 

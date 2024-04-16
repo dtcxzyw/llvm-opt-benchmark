@@ -1524,10 +1524,10 @@ define internal fastcc ptr @find_latest_rrpd(ptr nocapture noundef %0) unnamed_a
   switch i32 %17, label %find_latest_rrpd_dcerpc.exit [
     i32 6, label %18
     i32 7, label %78
-    i32 2, label %126
-    i32 3, label %162
-    i32 5, label %198
-    i32 1, label %258
+    i32 2, label %125
+    i32 3, label %160
+    i32 5, label %195
+    i32 1, label %255
   ]
 
 18:                                               ; preds = %.thread
@@ -1664,397 +1664,391 @@ define internal fastcc ptr @find_latest_rrpd(ptr nocapture noundef %0) unnamed_a
   %85 = getelementptr inbounds i8, ptr %0, i64 144
   br label %86
 
-86:                                               ; preds = %124, %.lr.ph.i16
-  %.025.i = phi ptr [ %80, %.lr.ph.i16 ], [ %125, %124 ]
+86:                                               ; preds = %123, %.lr.ph.i16
+  %.025.i = phi ptr [ %80, %.lr.ph.i16 ], [ %124, %123 ]
   %87 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.025.i) #6
   %88 = getelementptr inbounds i8, ptr %87, i64 136
   %89 = load i32, ptr %88, align 8
   %.not20.i = icmp eq i32 %89, 7
-  br i1 %.not20.i, label %90, label %124
+  br i1 %.not20.i, label %90, label %123
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %87, i64 4
   %92 = load i8, ptr %91, align 4
   %93 = load i8, ptr %2, align 4
   %94 = icmp eq i8 %92, %93
-  br i1 %94, label %95, label %116
+  br i1 %94, label %95, label %115
 
 95:                                               ; preds = %90
   %96 = getelementptr inbounds i8, ptr %87, i64 8
   %97 = load i32, ptr %96, align 8
   %98 = load i32, ptr %81, align 8
   %99 = icmp eq i32 %97, %98
-  br i1 %99, label %100, label %116
+  br i1 %99, label %100, label %115
 
 100:                                              ; preds = %95
   %101 = getelementptr inbounds i8, ptr %87, i64 16
   %102 = load i64, ptr %101, align 8
   %103 = load i64, ptr %82, align 8
   %104 = icmp eq i64 %102, %103
-  br i1 %104, label %105, label %116
+  br i1 %104, label %105, label %115
 
 105:                                              ; preds = %100
   %106 = getelementptr inbounds i8, ptr %87, i64 24
   %107 = load i64, ptr %106, align 8
   %108 = load i64, ptr %83, align 8
   %109 = icmp eq i64 %107, %108
-  br i1 %109, label %110, label %116
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %105
   %111 = load i32, ptr %0, align 8
   %.not22.i = icmp eq i32 %111, 0
-  br i1 %.not22.i, label %115, label %112
+  br i1 %.not22.i, label %find_latest_rrpd_dcerpc.exit, label %112
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds i8, ptr %87, i64 88
   %114 = load i32, ptr %113, align 8
   %.not23.i = icmp eq i32 %114, 0
-  br i1 %.not23.i, label %115, label %find_latest_rrpd_dcerpc.exit
-
-115:                                              ; preds = %112, %110
+  %spec.select.i = select i1 %.not23.i, ptr %87, ptr null
   br label %find_latest_rrpd_dcerpc.exit
 
-116:                                              ; preds = %105, %100, %95, %90
-  %117 = load i32, ptr %0, align 8
-  %.not21.i = icmp eq i32 %117, 0
-  br i1 %.not21.i, label %121, label %118
+115:                                              ; preds = %105, %100, %95, %90
+  %116 = load i32, ptr %0, align 8
+  %.not21.i = icmp eq i32 %116, 0
+  br i1 %.not21.i, label %120, label %117
 
-118:                                              ; preds = %116
-  %119 = load i32, ptr %84, align 4
-  %120 = add i32 %119, 1
-  store i32 %120, ptr %84, align 4
-  br label %124
+117:                                              ; preds = %115
+  %118 = load i32, ptr %84, align 4
+  %119 = add i32 %118, 1
+  store i32 %119, ptr %84, align 4
+  br label %123
 
-121:                                              ; preds = %116
-  %122 = load i32, ptr %85, align 8
-  %123 = add i32 %122, 1
-  store i32 %123, ptr %85, align 8
-  br label %124
+120:                                              ; preds = %115
+  %121 = load i32, ptr %85, align 8
+  %122 = add i32 %121, 1
+  store i32 %122, ptr %85, align 8
+  br label %123
 
-124:                                              ; preds = %121, %118, %86
-  %125 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.025.i) #6
-  %.not.i17 = icmp eq ptr %125, null
+123:                                              ; preds = %120, %117, %86
+  %124 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.025.i) #6
+  %.not.i17 = icmp eq ptr %124, null
   br i1 %.not.i17, label %find_latest_rrpd_dcerpc.exit, label %86, !llvm.loop !15
 
-126:                                              ; preds = %.thread
-  %127 = load ptr, ptr @rrpd_list, align 8
-  %128 = tail call ptr @wmem_list_tail(ptr noundef %127) #6
-  %.not23.i18 = icmp eq ptr %128, null
+125:                                              ; preds = %.thread
+  %126 = load ptr, ptr @rrpd_list, align 8
+  %127 = tail call ptr @wmem_list_tail(ptr noundef %126) #6
+  %.not23.i18 = icmp eq ptr %127, null
   br i1 %.not23.i18, label %find_latest_rrpd_dcerpc.exit, label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %126
-  %129 = getelementptr inbounds i8, ptr %0, i64 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 140
-  %131 = getelementptr inbounds i8, ptr %0, i64 144
-  br label %132
+.lr.ph.i19:                                       ; preds = %125
+  %128 = getelementptr inbounds i8, ptr %0, i64 8
+  %129 = getelementptr inbounds i8, ptr %0, i64 140
+  %130 = getelementptr inbounds i8, ptr %0, i64 144
+  br label %131
 
-132:                                              ; preds = %160, %.lr.ph.i19
-  %.024.i = phi ptr [ %128, %.lr.ph.i19 ], [ %161, %160 ]
-  %133 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.024.i) #6
-  %134 = getelementptr inbounds i8, ptr %133, i64 136
-  %135 = load i32, ptr %134, align 8
-  %.off.i = add i32 %135, -1
+131:                                              ; preds = %158, %.lr.ph.i19
+  %.024.i = phi ptr [ %127, %.lr.ph.i19 ], [ %159, %158 ]
+  %132 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.024.i) #6
+  %133 = getelementptr inbounds i8, ptr %132, i64 136
+  %134 = load i32, ptr %133, align 8
+  %.off.i = add i32 %134, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %136, label %160
+  br i1 %switch.i, label %135, label %158
 
-136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %133, i64 4
-  %138 = load i8, ptr %137, align 4
-  %139 = load i8, ptr %2, align 4
-  %140 = icmp eq i8 %138, %139
-  br i1 %140, label %141, label %152
+135:                                              ; preds = %131
+  %136 = getelementptr inbounds i8, ptr %132, i64 4
+  %137 = load i8, ptr %136, align 4
+  %138 = load i8, ptr %2, align 4
+  %139 = icmp eq i8 %137, %138
+  br i1 %139, label %140, label %150
 
-141:                                              ; preds = %136
-  %142 = getelementptr inbounds i8, ptr %133, i64 8
-  %143 = load i32, ptr %142, align 8
-  %144 = load i32, ptr %129, align 8
-  %145 = icmp eq i32 %143, %144
-  br i1 %145, label %146, label %152
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds i8, ptr %132, i64 8
+  %142 = load i32, ptr %141, align 8
+  %143 = load i32, ptr %128, align 8
+  %144 = icmp eq i32 %142, %143
+  br i1 %144, label %145, label %150
 
-146:                                              ; preds = %141
-  %147 = load i32, ptr %0, align 8
-  %.not21.i22 = icmp eq i32 %147, 0
-  br i1 %.not21.i22, label %151, label %148
+145:                                              ; preds = %140
+  %146 = load i32, ptr %0, align 8
+  %.not21.i22 = icmp eq i32 %146, 0
+  br i1 %.not21.i22, label %find_latest_rrpd_dcerpc.exit, label %147
 
-148:                                              ; preds = %146
-  %149 = getelementptr inbounds i8, ptr %133, i64 88
-  %150 = load i32, ptr %149, align 8
-  %.not22.i23 = icmp eq i32 %150, 0
-  br i1 %.not22.i23, label %151, label %find_latest_rrpd_dcerpc.exit
-
-151:                                              ; preds = %148, %146
+147:                                              ; preds = %145
+  %148 = getelementptr inbounds i8, ptr %132, i64 88
+  %149 = load i32, ptr %148, align 8
+  %.not22.i23 = icmp eq i32 %149, 0
+  %spec.select.i24 = select i1 %.not22.i23, ptr %132, ptr null
   br label %find_latest_rrpd_dcerpc.exit
 
-152:                                              ; preds = %141, %136
-  %153 = load i32, ptr %0, align 8
-  %.not20.i21 = icmp eq i32 %153, 0
-  br i1 %.not20.i21, label %157, label %154
+150:                                              ; preds = %140, %135
+  %151 = load i32, ptr %0, align 8
+  %.not20.i21 = icmp eq i32 %151, 0
+  br i1 %.not20.i21, label %155, label %152
 
-154:                                              ; preds = %152
-  %155 = load i32, ptr %130, align 4
-  %156 = add i32 %155, 1
-  store i32 %156, ptr %130, align 4
-  br label %160
+152:                                              ; preds = %150
+  %153 = load i32, ptr %129, align 4
+  %154 = add i32 %153, 1
+  store i32 %154, ptr %129, align 4
+  br label %158
 
-157:                                              ; preds = %152
-  %158 = load i32, ptr %131, align 8
-  %159 = add i32 %158, 1
-  store i32 %159, ptr %131, align 8
-  br label %160
+155:                                              ; preds = %150
+  %156 = load i32, ptr %130, align 8
+  %157 = add i32 %156, 1
+  store i32 %157, ptr %130, align 8
+  br label %158
 
-160:                                              ; preds = %157, %154, %132
-  %161 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.024.i) #6
-  %.not.i20 = icmp eq ptr %161, null
-  br i1 %.not.i20, label %find_latest_rrpd_dcerpc.exit, label %132, !llvm.loop !16
+158:                                              ; preds = %155, %152, %131
+  %159 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.024.i) #6
+  %.not.i20 = icmp eq ptr %159, null
+  br i1 %.not.i20, label %find_latest_rrpd_dcerpc.exit, label %131, !llvm.loop !16
 
-162:                                              ; preds = %.thread
-  %163 = load ptr, ptr @rrpd_list, align 8
-  %164 = tail call ptr @wmem_list_tail(ptr noundef %163) #6
-  %.not20.i24 = icmp eq ptr %164, null
-  br i1 %.not20.i24, label %find_latest_rrpd_dcerpc.exit, label %.lr.ph.i25
+160:                                              ; preds = %.thread
+  %161 = load ptr, ptr @rrpd_list, align 8
+  %162 = tail call ptr @wmem_list_tail(ptr noundef %161) #6
+  %.not20.i25 = icmp eq ptr %162, null
+  br i1 %.not20.i25, label %find_latest_rrpd_dcerpc.exit, label %.lr.ph.i26
 
-.lr.ph.i25:                                       ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %0, i64 8
-  %166 = getelementptr inbounds i8, ptr %0, i64 140
-  %167 = getelementptr inbounds i8, ptr %0, i64 144
-  br label %168
+.lr.ph.i26:                                       ; preds = %160
+  %163 = getelementptr inbounds i8, ptr %0, i64 8
+  %164 = getelementptr inbounds i8, ptr %0, i64 140
+  %165 = getelementptr inbounds i8, ptr %0, i64 144
+  br label %166
 
-168:                                              ; preds = %196, %.lr.ph.i25
-  %.021.i = phi ptr [ %164, %.lr.ph.i25 ], [ %197, %196 ]
-  %169 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.021.i) #6
-  %170 = getelementptr inbounds i8, ptr %169, i64 136
-  %171 = load i32, ptr %170, align 8
-  %.not16.i = icmp eq i32 %171, 3
-  br i1 %.not16.i, label %172, label %196
+166:                                              ; preds = %193, %.lr.ph.i26
+  %.021.i = phi ptr [ %162, %.lr.ph.i26 ], [ %194, %193 ]
+  %167 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.021.i) #6
+  %168 = getelementptr inbounds i8, ptr %167, i64 136
+  %169 = load i32, ptr %168, align 8
+  %.not16.i = icmp eq i32 %169, 3
+  br i1 %.not16.i, label %170, label %193
 
-172:                                              ; preds = %168
-  %173 = getelementptr inbounds i8, ptr %169, i64 4
-  %174 = load i8, ptr %173, align 4
-  %175 = load i8, ptr %2, align 4
-  %176 = icmp eq i8 %174, %175
-  br i1 %176, label %177, label %188
+170:                                              ; preds = %166
+  %171 = getelementptr inbounds i8, ptr %167, i64 4
+  %172 = load i8, ptr %171, align 4
+  %173 = load i8, ptr %2, align 4
+  %174 = icmp eq i8 %172, %173
+  br i1 %174, label %175, label %185
 
-177:                                              ; preds = %172
-  %178 = getelementptr inbounds i8, ptr %169, i64 8
-  %179 = load i32, ptr %178, align 8
-  %180 = load i32, ptr %165, align 8
-  %181 = icmp eq i32 %179, %180
-  br i1 %181, label %182, label %188
+175:                                              ; preds = %170
+  %176 = getelementptr inbounds i8, ptr %167, i64 8
+  %177 = load i32, ptr %176, align 8
+  %178 = load i32, ptr %163, align 8
+  %179 = icmp eq i32 %177, %178
+  br i1 %179, label %180, label %185
 
-182:                                              ; preds = %177
-  %183 = load i32, ptr %0, align 8
-  %.not18.i = icmp eq i32 %183, 0
-  br i1 %.not18.i, label %187, label %184
+180:                                              ; preds = %175
+  %181 = load i32, ptr %0, align 8
+  %.not18.i = icmp eq i32 %181, 0
+  br i1 %.not18.i, label %find_latest_rrpd_dcerpc.exit, label %182
 
-184:                                              ; preds = %182
-  %185 = getelementptr inbounds i8, ptr %169, i64 88
-  %186 = load i32, ptr %185, align 8
-  %.not19.i = icmp eq i32 %186, 0
-  br i1 %.not19.i, label %187, label %find_latest_rrpd_dcerpc.exit
-
-187:                                              ; preds = %184, %182
+182:                                              ; preds = %180
+  %183 = getelementptr inbounds i8, ptr %167, i64 88
+  %184 = load i32, ptr %183, align 8
+  %.not19.i = icmp eq i32 %184, 0
+  %spec.select.i28 = select i1 %.not19.i, ptr %167, ptr null
   br label %find_latest_rrpd_dcerpc.exit
 
-188:                                              ; preds = %177, %172
-  %189 = load i32, ptr %0, align 8
-  %.not17.i = icmp eq i32 %189, 0
-  br i1 %.not17.i, label %193, label %190
+185:                                              ; preds = %175, %170
+  %186 = load i32, ptr %0, align 8
+  %.not17.i = icmp eq i32 %186, 0
+  br i1 %.not17.i, label %190, label %187
 
-190:                                              ; preds = %188
-  %191 = load i32, ptr %166, align 4
+187:                                              ; preds = %185
+  %188 = load i32, ptr %164, align 4
+  %189 = add i32 %188, 1
+  store i32 %189, ptr %164, align 4
+  br label %193
+
+190:                                              ; preds = %185
+  %191 = load i32, ptr %165, align 8
   %192 = add i32 %191, 1
-  store i32 %192, ptr %166, align 4
-  br label %196
+  store i32 %192, ptr %165, align 8
+  br label %193
 
-193:                                              ; preds = %188
-  %194 = load i32, ptr %167, align 8
-  %195 = add i32 %194, 1
-  store i32 %195, ptr %167, align 8
-  br label %196
+193:                                              ; preds = %190, %187, %166
+  %194 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.021.i) #6
+  %.not.i27 = icmp eq ptr %194, null
+  br i1 %.not.i27, label %find_latest_rrpd_dcerpc.exit, label %166, !llvm.loop !17
 
-196:                                              ; preds = %193, %190, %168
-  %197 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.021.i) #6
-  %.not.i26 = icmp eq ptr %197, null
-  br i1 %.not.i26, label %find_latest_rrpd_dcerpc.exit, label %168, !llvm.loop !17
+195:                                              ; preds = %.thread
+  %196 = load ptr, ptr @rrpd_list, align 8
+  %197 = tail call ptr @wmem_list_tail(ptr noundef %196) #6
+  %.not45.i29 = icmp eq ptr %197, null
+  br i1 %.not45.i29, label %find_latest_rrpd_dcerpc.exit, label %.lr.ph.i30
 
-198:                                              ; preds = %.thread
-  %199 = load ptr, ptr @rrpd_list, align 8
-  %200 = tail call ptr @wmem_list_tail(ptr noundef %199) #6
-  %.not45.i27 = icmp eq ptr %200, null
-  br i1 %.not45.i27, label %find_latest_rrpd_dcerpc.exit, label %.lr.ph.i28
+.lr.ph.i30:                                       ; preds = %195
+  %198 = getelementptr inbounds i8, ptr %0, i64 8
+  %199 = getelementptr inbounds i8, ptr %0, i64 16
+  %200 = getelementptr inbounds i8, ptr %0, i64 24
+  %201 = getelementptr inbounds i8, ptr %0, i64 36
+  %202 = getelementptr inbounds i8, ptr %0, i64 140
+  %203 = getelementptr inbounds i8, ptr %0, i64 144
+  br label %204
 
-.lr.ph.i28:                                       ; preds = %198
-  %201 = getelementptr inbounds i8, ptr %0, i64 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 16
-  %203 = getelementptr inbounds i8, ptr %0, i64 24
-  %204 = getelementptr inbounds i8, ptr %0, i64 36
-  %205 = getelementptr inbounds i8, ptr %0, i64 140
-  %206 = getelementptr inbounds i8, ptr %0, i64 144
-  br label %207
-
-207:                                              ; preds = %256, %.lr.ph.i28
-  %.046.i29 = phi ptr [ %200, %.lr.ph.i28 ], [ %257, %256 ]
-  %208 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.046.i29) #6
-  %209 = getelementptr inbounds i8, ptr %208, i64 136
-  %210 = load i32, ptr %209, align 8
-  switch i32 %210, label %256 [
-    i32 5, label %211
-    i32 1, label %211
+204:                                              ; preds = %253, %.lr.ph.i30
+  %.046.i31 = phi ptr [ %197, %.lr.ph.i30 ], [ %254, %253 ]
+  %205 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.046.i31) #6
+  %206 = getelementptr inbounds i8, ptr %205, i64 136
+  %207 = load i32, ptr %206, align 8
+  switch i32 %207, label %253 [
+    i32 5, label %208
+    i32 1, label %208
   ]
 
-211:                                              ; preds = %207, %207
-  %212 = getelementptr inbounds i8, ptr %208, i64 4
-  %213 = load i8, ptr %212, align 4
-  %214 = load i8, ptr %2, align 4
-  %215 = icmp eq i8 %213, %214
-  br i1 %215, label %216, label %250
+208:                                              ; preds = %204, %204
+  %209 = getelementptr inbounds i8, ptr %205, i64 4
+  %210 = load i8, ptr %209, align 4
+  %211 = load i8, ptr %2, align 4
+  %212 = icmp eq i8 %210, %211
+  br i1 %212, label %213, label %247
 
-216:                                              ; preds = %211
-  %217 = getelementptr inbounds i8, ptr %208, i64 8
-  %218 = load i32, ptr %217, align 8
-  %219 = load i32, ptr %201, align 8
-  %220 = icmp eq i32 %218, %219
-  br i1 %220, label %221, label %250
+213:                                              ; preds = %208
+  %214 = getelementptr inbounds i8, ptr %205, i64 8
+  %215 = load i32, ptr %214, align 8
+  %216 = load i32, ptr %198, align 8
+  %217 = icmp eq i32 %215, %216
+  br i1 %217, label %218, label %247
 
-221:                                              ; preds = %216
-  %222 = getelementptr inbounds i8, ptr %208, i64 16
-  %223 = load i64, ptr %222, align 8
-  %224 = load i64, ptr %202, align 8
-  %225 = icmp eq i64 %223, %224
-  br i1 %225, label %226, label %231
+218:                                              ; preds = %213
+  %219 = getelementptr inbounds i8, ptr %205, i64 16
+  %220 = load i64, ptr %219, align 8
+  %221 = load i64, ptr %199, align 8
+  %222 = icmp eq i64 %220, %221
+  br i1 %222, label %223, label %228
 
-226:                                              ; preds = %221
-  %227 = getelementptr inbounds i8, ptr %208, i64 24
-  %228 = load i64, ptr %227, align 8
-  %229 = load i64, ptr %203, align 8
-  %230 = icmp eq i64 %228, %229
-  br i1 %230, label %find_latest_rrpd_dcerpc.exit, label %231
+223:                                              ; preds = %218
+  %224 = getelementptr inbounds i8, ptr %205, i64 24
+  %225 = load i64, ptr %224, align 8
+  %226 = load i64, ptr %200, align 8
+  %227 = icmp eq i64 %225, %226
+  br i1 %227, label %find_latest_rrpd_dcerpc.exit, label %228
 
-231:                                              ; preds = %226, %221
-  %232 = load i32, ptr %204, align 4
-  %.not34.i35 = icmp eq i32 %232, 0
-  br i1 %.not34.i35, label %233, label %find_latest_rrpd_dcerpc.exit
+228:                                              ; preds = %223, %218
+  %229 = load i32, ptr %201, align 4
+  %.not34.i37 = icmp eq i32 %229, 0
+  br i1 %.not34.i37, label %230, label %find_latest_rrpd_dcerpc.exit
 
-233:                                              ; preds = %231
-  %234 = load i32, ptr getelementptr inbounds (%struct._TSUM_PREFERENCES, ptr @preferences, i64 0, i32 1), align 4
-  %.not35.i36 = icmp eq i32 %234, 0
-  %235 = load i32, ptr %0, align 8
-  %.not36.i37 = icmp eq i32 %235, 0
-  br i1 %.not35.i36, label %243, label %236
+230:                                              ; preds = %228
+  %231 = load i32, ptr getelementptr inbounds (%struct._TSUM_PREFERENCES, ptr @preferences, i64 0, i32 1), align 4
+  %.not35.i38 = icmp eq i32 %231, 0
+  %232 = load i32, ptr %0, align 8
+  %.not36.i39 = icmp eq i32 %232, 0
+  br i1 %.not35.i38, label %240, label %233
 
-236:                                              ; preds = %233
-  br i1 %.not36.i37, label %.thread.i34, label %237
+233:                                              ; preds = %230
+  br i1 %.not36.i39, label %.thread.i36, label %234
 
-237:                                              ; preds = %236
-  %238 = getelementptr inbounds i8, ptr %208, i64 88
-  %239 = load i32, ptr %238, align 8
-  %.not41.i38 = icmp eq i32 %239, 0
-  br i1 %.not41.i38, label %240, label %find_latest_rrpd_dcerpc.exit
+234:                                              ; preds = %233
+  %235 = getelementptr inbounds i8, ptr %205, i64 88
+  %236 = load i32, ptr %235, align 8
+  %.not41.i40 = icmp eq i32 %236, 0
+  br i1 %.not41.i40, label %237, label %find_latest_rrpd_dcerpc.exit
 
-240:                                              ; preds = %237
-  %241 = getelementptr inbounds i8, ptr %208, i64 24
-  %242 = load i64, ptr %241, align 8
-  %.not42.i39 = icmp eq i64 %242, 0
-  br i1 %.not42.i39, label %find_latest_rrpd_dcerpc.exit, label %250
+237:                                              ; preds = %234
+  %238 = getelementptr inbounds i8, ptr %205, i64 24
+  %239 = load i64, ptr %238, align 8
+  %.not42.i41 = icmp eq i64 %239, 0
+  br i1 %.not42.i41, label %find_latest_rrpd_dcerpc.exit, label %247
 
-243:                                              ; preds = %233
-  %244 = load i64, ptr %203, align 8
-  %.not37.i42 = icmp eq i64 %244, 0
-  br i1 %.not36.i37, label %246, label %245
+240:                                              ; preds = %230
+  %241 = load i64, ptr %200, align 8
+  %.not37.i44 = icmp eq i64 %241, 0
+  br i1 %.not36.i39, label %243, label %242
 
-245:                                              ; preds = %243
-  %..i41 = select i1 %.not37.i42, ptr %208, ptr null
+242:                                              ; preds = %240
+  %..i43 = select i1 %.not37.i44, ptr %205, ptr null
   br label %find_latest_rrpd_dcerpc.exit
 
-246:                                              ; preds = %243
-  br i1 %.not37.i42, label %247, label %.thread.i34
+243:                                              ; preds = %240
+  br i1 %.not37.i44, label %244, label %.thread.i36
 
-247:                                              ; preds = %246
-  %248 = getelementptr inbounds i8, ptr %208, i64 88
-  %249 = load i32, ptr %248, align 8
-  %.not38.i43 = icmp eq i32 %249, 0
-  br i1 %.not38.i43, label %250, label %find_latest_rrpd_dcerpc.exit
+244:                                              ; preds = %243
+  %245 = getelementptr inbounds i8, ptr %205, i64 88
+  %246 = load i32, ptr %245, align 8
+  %.not38.i45 = icmp eq i32 %246, 0
+  br i1 %.not38.i45, label %247, label %find_latest_rrpd_dcerpc.exit
 
-250:                                              ; preds = %247, %240, %216, %211
-  %.pr.pr.i30 = load i32, ptr %0, align 8
-  %.not43.i31 = icmp eq i32 %.pr.pr.i30, 0
-  br i1 %.not43.i31, label %.thread.i34, label %251
+247:                                              ; preds = %244, %237, %213, %208
+  %.pr.pr.i32 = load i32, ptr %0, align 8
+  %.not43.i33 = icmp eq i32 %.pr.pr.i32, 0
+  br i1 %.not43.i33, label %.thread.i36, label %248
 
-251:                                              ; preds = %250
-  %252 = load i32, ptr %205, align 4
-  %253 = add i32 %252, 1
-  store i32 %253, ptr %205, align 4
-  br label %256
+248:                                              ; preds = %247
+  %249 = load i32, ptr %202, align 4
+  %250 = add i32 %249, 1
+  store i32 %250, ptr %202, align 4
+  br label %253
 
-.thread.i34:                                      ; preds = %250, %246, %236
-  %254 = load i32, ptr %206, align 8
-  %255 = add i32 %254, 1
-  store i32 %255, ptr %206, align 8
-  br label %256
+.thread.i36:                                      ; preds = %247, %243, %233
+  %251 = load i32, ptr %203, align 8
+  %252 = add i32 %251, 1
+  store i32 %252, ptr %203, align 8
+  br label %253
 
-256:                                              ; preds = %.thread.i34, %251, %207
-  %257 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.046.i29) #6
-  %.not.i32 = icmp eq ptr %257, null
-  br i1 %.not.i32, label %find_latest_rrpd_dcerpc.exit, label %207, !llvm.loop !18
+253:                                              ; preds = %.thread.i36, %248, %204
+  %254 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.046.i31) #6
+  %.not.i34 = icmp eq ptr %254, null
+  br i1 %.not.i34, label %find_latest_rrpd_dcerpc.exit, label %204, !llvm.loop !18
 
-258:                                              ; preds = %.thread
-  %259 = load ptr, ptr @rrpd_list, align 8
-  %260 = tail call ptr @wmem_list_tail(ptr noundef %259) #6
-  %.not16.i44 = icmp eq ptr %260, null
-  br i1 %.not16.i44, label %find_latest_rrpd_dcerpc.exit, label %.lr.ph.i45
+255:                                              ; preds = %.thread
+  %256 = load ptr, ptr @rrpd_list, align 8
+  %257 = tail call ptr @wmem_list_tail(ptr noundef %256) #6
+  %.not16.i46 = icmp eq ptr %257, null
+  br i1 %.not16.i46, label %find_latest_rrpd_dcerpc.exit, label %.lr.ph.i47
 
-.lr.ph.i45:                                       ; preds = %258
-  %261 = getelementptr inbounds i8, ptr %0, i64 8
-  %262 = getelementptr inbounds i8, ptr %0, i64 140
-  %263 = getelementptr inbounds i8, ptr %0, i64 144
-  br label %264
+.lr.ph.i47:                                       ; preds = %255
+  %258 = getelementptr inbounds i8, ptr %0, i64 8
+  %259 = getelementptr inbounds i8, ptr %0, i64 140
+  %260 = getelementptr inbounds i8, ptr %0, i64 144
+  br label %261
 
-264:                                              ; preds = %286, %.lr.ph.i45
-  %.017.i = phi ptr [ %260, %.lr.ph.i45 ], [ %287, %286 ]
-  %265 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.017.i) #6
-  %266 = getelementptr inbounds i8, ptr %265, i64 136
-  %267 = load i32, ptr %266, align 8
-  %.not14.i = icmp eq i32 %267, 1
-  br i1 %.not14.i, label %268, label %286
+261:                                              ; preds = %283, %.lr.ph.i47
+  %.017.i = phi ptr [ %257, %.lr.ph.i47 ], [ %284, %283 ]
+  %262 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.017.i) #6
+  %263 = getelementptr inbounds i8, ptr %262, i64 136
+  %264 = load i32, ptr %263, align 8
+  %.not14.i = icmp eq i32 %264, 1
+  br i1 %.not14.i, label %265, label %283
 
-268:                                              ; preds = %264
-  %269 = getelementptr inbounds i8, ptr %265, i64 4
-  %270 = load i8, ptr %269, align 4
-  %271 = load i8, ptr %2, align 4
-  %272 = icmp eq i8 %270, %271
-  br i1 %272, label %273, label %278
+265:                                              ; preds = %261
+  %266 = getelementptr inbounds i8, ptr %262, i64 4
+  %267 = load i8, ptr %266, align 4
+  %268 = load i8, ptr %2, align 4
+  %269 = icmp eq i8 %267, %268
+  br i1 %269, label %270, label %275
 
-273:                                              ; preds = %268
-  %274 = getelementptr inbounds i8, ptr %265, i64 8
-  %275 = load i32, ptr %274, align 8
-  %276 = load i32, ptr %261, align 8
-  %277 = icmp eq i32 %275, %276
-  br i1 %277, label %find_latest_rrpd_dcerpc.exit, label %278
+270:                                              ; preds = %265
+  %271 = getelementptr inbounds i8, ptr %262, i64 8
+  %272 = load i32, ptr %271, align 8
+  %273 = load i32, ptr %258, align 8
+  %274 = icmp eq i32 %272, %273
+  br i1 %274, label %find_latest_rrpd_dcerpc.exit, label %275
 
-278:                                              ; preds = %273, %268
-  %279 = load i32, ptr %0, align 8
-  %.not15.i = icmp eq i32 %279, 0
-  br i1 %.not15.i, label %283, label %280
+275:                                              ; preds = %270, %265
+  %276 = load i32, ptr %0, align 8
+  %.not15.i = icmp eq i32 %276, 0
+  br i1 %.not15.i, label %280, label %277
 
-280:                                              ; preds = %278
-  %281 = load i32, ptr %262, align 4
+277:                                              ; preds = %275
+  %278 = load i32, ptr %259, align 4
+  %279 = add i32 %278, 1
+  store i32 %279, ptr %259, align 4
+  br label %283
+
+280:                                              ; preds = %275
+  %281 = load i32, ptr %260, align 8
   %282 = add i32 %281, 1
-  store i32 %282, ptr %262, align 4
-  br label %286
+  store i32 %282, ptr %260, align 8
+  br label %283
 
-283:                                              ; preds = %278
-  %284 = load i32, ptr %263, align 8
-  %285 = add i32 %284, 1
-  store i32 %285, ptr %263, align 8
-  br label %286
+283:                                              ; preds = %280, %277, %261
+  %284 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.017.i) #6
+  %.not.i48 = icmp eq ptr %284, null
+  br i1 %.not.i48, label %find_latest_rrpd_dcerpc.exit, label %261, !llvm.loop !19
 
-286:                                              ; preds = %283, %280, %264
-  %287 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.017.i) #6
-  %.not.i46 = icmp eq ptr %287, null
-  br i1 %.not.i46, label %find_latest_rrpd_dcerpc.exit, label %264, !llvm.loop !19
-
-find_latest_rrpd_dcerpc.exit:                     ; preds = %286, %273, %256, %247, %240, %237, %231, %226, %196, %160, %124, %76, %67, %60, %57, %51, %46, %258, %245, %198, %187, %184, %162, %151, %148, %126, %115, %112, %78, %65, %18, %.thread, %15, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %15 ], [ null, %.thread ], [ %..i, %65 ], [ null, %18 ], [ %87, %115 ], [ null, %112 ], [ null, %78 ], [ %133, %151 ], [ null, %148 ], [ null, %126 ], [ %169, %187 ], [ null, %184 ], [ null, %162 ], [ %..i41, %245 ], [ null, %198 ], [ null, %258 ], [ null, %76 ], [ %28, %67 ], [ %28, %60 ], [ null, %57 ], [ %28, %51 ], [ %28, %46 ], [ null, %124 ], [ null, %160 ], [ null, %196 ], [ null, %256 ], [ %208, %247 ], [ %208, %240 ], [ null, %237 ], [ %208, %231 ], [ %208, %226 ], [ %265, %273 ], [ null, %286 ]
+find_latest_rrpd_dcerpc.exit:                     ; preds = %283, %270, %253, %244, %237, %234, %228, %223, %193, %158, %123, %76, %67, %60, %57, %51, %46, %255, %242, %195, %182, %180, %160, %147, %145, %125, %112, %110, %78, %65, %18, %.thread, %15, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %15 ], [ null, %.thread ], [ %..i, %65 ], [ null, %18 ], [ %87, %110 ], [ %spec.select.i, %112 ], [ null, %78 ], [ %132, %145 ], [ %spec.select.i24, %147 ], [ null, %125 ], [ %167, %180 ], [ %spec.select.i28, %182 ], [ null, %160 ], [ %..i43, %242 ], [ null, %195 ], [ null, %255 ], [ null, %76 ], [ %28, %67 ], [ %28, %60 ], [ null, %57 ], [ %28, %51 ], [ %28, %46 ], [ null, %123 ], [ null, %158 ], [ null, %193 ], [ null, %253 ], [ %205, %244 ], [ %205, %237 ], [ null, %234 ], [ %205, %228 ], [ %205, %223 ], [ %262, %270 ], [ null, %283 ]
   ret ptr %.0
 }
 

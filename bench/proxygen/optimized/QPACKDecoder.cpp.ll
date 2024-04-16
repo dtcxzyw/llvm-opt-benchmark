@@ -1341,7 +1341,7 @@ if.end.i:                                         ; preds = %while.end
 
 if.then3.i:                                       ; preds = %if.end.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen22QPACKStaticHeaderTable3getEv()
-  %conv5.i = trunc i64 %inc to i32
+  %conv5.i = trunc nuw i64 %inc to i32
   %call6.i = call noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i, i32 noundef %conv5.i)
   br i1 %call6.i, label %if.end48, label %if.then37
 
@@ -1357,14 +1357,14 @@ if.then9.i:                                       ; preds = %if.else.i10
   br i1 %cmp12.i, label %if.then37, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i
-  %9 = trunc i64 %add.i to i32
+  %9 = trunc nuw i64 %add.i to i32
   br label %_ZN8proxygen12QPACKDecoder7isValidEbmb.exit
 
 _ZN8proxygen12QPACKDecoder7isValidEbmb.exit:      ; preds = %if.else.i10, %if.end14.i
   %index.addr.0.i = phi i64 [ 1, %if.end14.i ], [ %inc, %if.else.i10 ]
   %baseIndex.0.i = phi i32 [ %9, %if.end14.i ], [ %8, %if.else.i10 ]
   %add.ptr16.i = getelementptr inbounds i8, ptr %this, i64 32
-  %conv17.i = trunc i64 %index.addr.0.i to i32
+  %conv17.i = trunc nuw i64 %index.addr.0.i to i32
   %call19.i = call noundef zeroext i1 @_ZNK8proxygen16QPACKHeaderTable7isValidEjj(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr16.i, i32 noundef %conv17.i, i32 noundef %baseIndex.0.i)
   br i1 %call19.i, label %if.end48, label %if.then37
 
@@ -1522,7 +1522,7 @@ if.then3.i:                                       ; preds = %if.end.i
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %if.then3.i
-  %conv5.i = trunc i64 %inc to i32
+  %conv5.i = trunc nuw i64 %inc to i32
   %call6.i30 = invoke noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i29, i32 noundef %conv5.i)
           to label %invoke.cont36 unwind label %lpad
 
@@ -1538,14 +1538,14 @@ if.then9.i:                                       ; preds = %if.else.i
   br i1 %cmp12.i, label %if.then38, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i
-  %7 = trunc i64 %add.i to i32
+  %7 = trunc nuw i64 %add.i to i32
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end14.i, %if.else.i
   %index.addr.0.i = phi i64 [ 1, %if.end14.i ], [ %inc, %if.else.i ]
   %baseIndex.0.i = phi i32 [ %7, %if.end14.i ], [ %6, %if.else.i ]
   %add.ptr16.i = getelementptr inbounds i8, ptr %this, i64 32
-  %conv17.i = trunc i64 %index.addr.0.i to i32
+  %conv17.i = trunc nuw i64 %index.addr.0.i to i32
   %call19.i31 = invoke noundef zeroext i1 @_ZNK8proxygen16QPACKHeaderTable7isValidEjj(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr16.i, i32 noundef %conv17.i, i32 noundef %baseIndex.0.i)
           to label %invoke.cont36 unwind label %lpad
 
@@ -2640,7 +2640,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen22QPACKStaticHeaderTable3getEv()
-  %conv5 = trunc i64 %index to i32
+  %conv5 = trunc nuw i64 %index to i32
   %call6 = tail call noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef nonnull align 8 dereferenceable(80) %call.i, i32 noundef %conv5)
   br label %return
 
@@ -2656,14 +2656,14 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.then9
-  %1 = trunc i64 %add to i32
+  %1 = trunc nuw i64 %add to i32
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %if.else
   %index.addr.0 = phi i64 [ 1, %if.end14 ], [ %index, %if.else ]
   %baseIndex.0 = phi i32 [ %1, %if.end14 ], [ %0, %if.else ]
   %add.ptr16 = getelementptr inbounds i8, ptr %this, i64 32
-  %conv17 = trunc i64 %index.addr.0 to i32
+  %conv17 = trunc nuw i64 %index.addr.0 to i32
   %call19 = tail call noundef zeroext i1 @_ZNK8proxygen16QPACKHeaderTable7isValidEjj(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr16, i32 noundef %conv17, i32 noundef %baseIndex.0)
   br label %return
 
@@ -3528,8 +3528,8 @@ lpad:                                             ; preds = %invoke.cont8, %invo
 
 invoke.cont46:                                    ; preds = %_ZN5folly15DestructorCheck6SafetyC2ERS0_.exit
   %15 = load ptr, ptr %prev_.i, align 8
-  %cmp.i = icmp eq ptr %15, null
-  br i1 %cmp.i, label %return, label %if.then.i11
+  %cmp.i.not = icmp eq ptr %15, null
+  br i1 %cmp.i.not, label %return, label %if.then.i11
 
 if.then.i11:                                      ; preds = %invoke.cont46
   %16 = load ptr, ptr %safety, align 8
@@ -3562,8 +3562,8 @@ if.then4.i17:                                     ; preds = %if.then.i15
   store ptr %21, ptr %prev_7.i18, align 8
   br label %eh.resume
 
-return:                                           ; preds = %if.then4.i, %if.then.i11, %entry, %invoke.cont46
-  %retval.1 = phi i1 [ true, %invoke.cont46 ], [ false, %entry ], [ false, %if.then.i11 ], [ false, %if.then4.i ]
+return:                                           ; preds = %if.then4.i, %if.then.i11, %invoke.cont46, %entry
+  %retval.1 = phi i1 [ false, %entry ], [ true, %invoke.cont46 ], [ false, %if.then.i11 ], [ false, %if.then4.i ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %if.then4.i17, %if.then.i15, %lpad45, %lpad

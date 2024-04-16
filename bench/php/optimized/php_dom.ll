@@ -712,7 +712,7 @@ define hidden i32 @dom_node_is_read_only(ptr nocapture noundef readonly %0) loca
   br label %switch.lookup
 
 switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 16035, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %5
@@ -782,13 +782,11 @@ define hidden nonnull ptr @dom_get_doc_props_read_only(ptr noundef readonly %0) 
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not6 = icmp eq ptr %4, null
-  br i1 %.not6, label %5, label %6
+  %spec.select = select i1 %.not6, ptr @default_doc_props, ptr %4
+  br label %5
 
 5:                                                ; preds = %2, %1
-  br label %6
-
-6:                                                ; preds = %2, %5
-  %.0 = phi ptr [ @default_doc_props, %5 ], [ %4, %2 ]
+  %.0 = phi ptr [ @default_doc_props, %1 ], [ %spec.select, %2 ]
   ret ptr %.0
 }
 
@@ -863,54 +861,58 @@ declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @dom_get_doc_classmap(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %dom_get_doc_props_read_only.exit
+  br i1 %.not, label %13, label %dom_get_doc_props_read_only.exit
 
 dom_get_doc_props_read_only.exit:                 ; preds = %2
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not6.i = icmp eq ptr %4, null
-  %spec.select = select i1 %.not6.i, ptr @default_doc_props, ptr %4
-  %5 = load ptr, ptr %spec.select, align 8
+  %spec.select.i = select i1 %.not6.i, ptr @default_doc_props, ptr %4
+  %5 = load ptr, ptr %spec.select.i, align 8
   %.not19 = icmp eq ptr %5, null
-  br i1 %.not19, label %.thread, label %6
+  br i1 %.not19, label %13, label %6
 
 6:                                                ; preds = %dom_get_doc_props_read_only.exit
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @zend_hash_find(ptr noundef nonnull %5, ptr noundef %8) #16
   %.not20 = icmp eq ptr %9, null
-  br i1 %.not20, label %.thread, label %10
+  br i1 %.not20, label %12, label %10
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  br label %.thread
+  br label %12
 
-.thread:                                          ; preds = %6, %2, %dom_get_doc_props_read_only.exit, %10
-  %.015 = phi ptr [ %11, %10 ], [ %1, %dom_get_doc_props_read_only.exit ], [ %1, %2 ], [ %1, %6 ]
+12:                                               ; preds = %6, %10
+  %.0 = phi ptr [ %11, %10 ], [ null, %6 ]
+  %.not21 = icmp eq ptr %.0, null
+  %spec.select = select i1 %.not21, ptr %1, ptr %.0
+  br label %13
+
+13:                                               ; preds = %12, %2, %dom_get_doc_props_read_only.exit
+  %.015 = phi ptr [ %1, %dom_get_doc_props_read_only.exit ], [ %1, %2 ], [ %spec.select, %12 ]
   ret ptr %.015
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @dom_get_strict_error(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %5, label %2
+  br i1 %.not.i, label %dom_get_doc_props_read_only.exit, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not6.i = icmp eq ptr %4, null
-  br i1 %.not6.i, label %5, label %dom_get_doc_props_read_only.exit
-
-5:                                                ; preds = %2, %1
+  %spec.select.i = select i1 %.not6.i, ptr @default_doc_props, ptr %4
   br label %dom_get_doc_props_read_only.exit
 
-dom_get_doc_props_read_only.exit:                 ; preds = %2, %5
-  %.0.i = phi ptr [ @default_doc_props, %5 ], [ %4, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.0.i, i64 13
-  %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %9 = zext nneg i8 %8 to i32
-  ret i32 %9
+dom_get_doc_props_read_only.exit:                 ; preds = %1, %2
+  %.0.i = phi ptr [ @default_doc_props, %1 ], [ %spec.select.i, %2 ]
+  %5 = getelementptr inbounds i8, ptr %.0.i, i64 13
+  %6 = load i8, ptr %5, align 1
+  %7 = and i8 %6, 1
+  %8 = zext nneg i8 %7 to i32
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1172,7 +1174,7 @@ define noundef zeroext i1 @php_dom_create_object(ptr noundef %0, ptr noundef %1,
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %5, align 8
-  br label %72
+  br label %62
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
@@ -1193,175 +1195,165 @@ php_dom_object_get_data.exit:                     ; preds = %6
   store ptr %11, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 776, ptr %14, align 8
-  br label %72
+  br label %62
 
 php_dom_object_get_data.exit.thread:              ; preds = %6, %php_dom_object_get_data.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  switch i32 %16, label %42 [
+  switch i32 %16, label %30 [
     i32 9, label %17
-    i32 13, label %24
-    i32 14, label %46
-    i32 10, label %46
-    i32 1, label %31
-    i32 2, label %32
-    i32 3, label %33
-    i32 8, label %34
-    i32 7, label %35
-    i32 5, label %36
-    i32 17, label %37
-    i32 15, label %37
-    i32 4, label %38
-    i32 11, label %39
-    i32 12, label %40
-    i32 18, label %41
+    i32 13, label %18
+    i32 14, label %35
+    i32 10, label %35
+    i32 1, label %19
+    i32 2, label %20
+    i32 3, label %21
+    i32 8, label %22
+    i32 7, label %23
+    i32 5, label %24
+    i32 17, label %25
+    i32 15, label %25
+    i32 4, label %26
+    i32 11, label %27
+    i32 12, label %28
+    i32 18, label %29
   ]
 
 17:                                               ; preds = %php_dom_object_get_data.exit.thread
   %.not34 = icmp eq ptr %2, null
-  br i1 %.not34, label %.thread48, label %18
+  br i1 %.not34, label %.thread, label %.thread54
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 28
-  %22 = load i8, ptr %21, align 4
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %.thread, label %.thread53
+18:                                               ; preds = %php_dom_object_get_data.exit.thread
+  %.not33 = icmp eq ptr %2, null
+  br i1 %.not33, label %.thread, label %.thread54
+
+19:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
+
+20:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
+
+21:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
+
+22:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
+
+23:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
 
 24:                                               ; preds = %php_dom_object_get_data.exit.thread
-  %.not33 = icmp eq ptr %2, null
-  br i1 %.not33, label %.thread48, label %25
+  br label %35
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 28
-  %29 = load i8, ptr %28, align 4
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %.thread, label %.thread53
+25:                                               ; preds = %php_dom_object_get_data.exit.thread, %php_dom_object_get_data.exit.thread
+  br label %35
 
-31:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
+26:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
 
-32:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
+27:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
 
-33:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
+28:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
 
-34:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
+29:                                               ; preds = %php_dom_object_get_data.exit.thread
+  br label %35
 
-35:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
-
-36:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
-
-37:                                               ; preds = %php_dom_object_get_data.exit.thread, %php_dom_object_get_data.exit.thread
-  br label %46
-
-38:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
-
-39:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
-
-40:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
-
-41:                                               ; preds = %php_dom_object_get_data.exit.thread
-  br label %46
-
-42:                                               ; preds = %php_dom_object_get_data.exit.thread
+30:                                               ; preds = %php_dom_object_get_data.exit.thread
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.148, i32 noundef %16) #16
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 1, ptr %43, align 8
-  br label %72
+  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1, ptr %31, align 8
+  br label %62
 
-.thread:                                          ; preds = %25, %18
-  %44 = phi ptr [ %27, %25 ], [ %20, %18 ]
-  %.026.in.ph = phi ptr [ @dom_html_document_class_entry, %25 ], [ @dom_xml_document_class_entry, %18 ]
-  %.02642 = load ptr, ptr %.026.in.ph, align 8
-  br label %dom_get_doc_props_read_only.exit.i
-
-.thread48:                                        ; preds = %24, %17
-  %.02650 = load ptr, ptr @dom_document_class_entry, align 8
+.thread:                                          ; preds = %18, %17
+  %.02644 = load ptr, ptr @dom_document_class_entry, align 8
   br label %dom_get_doc_classmap.exit
 
-.thread53:                                        ; preds = %25, %18
-  %45 = phi ptr [ %27, %25 ], [ %20, %18 ]
-  %.02655 = load ptr, ptr @dom_document_class_entry, align 8
+.thread54:                                        ; preds = %18, %17
+  %dom_xml_document_class_entry.sink = phi ptr [ @dom_xml_document_class_entry, %17 ], [ @dom_html_document_class_entry, %18 ]
+  %.sink59.in = getelementptr inbounds i8, ptr %2, i64 8
+  %.sink59 = load ptr, ptr %.sink59.in, align 8
+  %32 = getelementptr inbounds i8, ptr %.sink59, i64 28
+  %33 = load i8, ptr %32, align 4
+  %34 = trunc i8 %33 to i1
+  %spec.select = select i1 %34, ptr %dom_xml_document_class_entry.sink, ptr @dom_document_class_entry
+  %.02650 = load ptr, ptr %spec.select, align 8
   br label %dom_get_doc_props_read_only.exit.i
 
-46:                                               ; preds = %php_dom_object_get_data.exit.thread, %php_dom_object_get_data.exit.thread, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31
-  %.026.in = phi ptr [ @dom_namespace_node_class_entry, %41 ], [ @dom_notation_class_entry, %40 ], [ @dom_documentfragment_class_entry, %39 ], [ @dom_cdatasection_class_entry, %38 ], [ @dom_entity_class_entry, %37 ], [ @dom_entityreference_class_entry, %36 ], [ @dom_processinginstruction_class_entry, %35 ], [ @dom_comment_class_entry, %34 ], [ @dom_text_class_entry, %33 ], [ @dom_attr_class_entry, %32 ], [ @dom_element_class_entry, %31 ], [ @dom_documenttype_class_entry, %php_dom_object_get_data.exit.thread ], [ @dom_documenttype_class_entry, %php_dom_object_get_data.exit.thread ]
+35:                                               ; preds = %php_dom_object_get_data.exit.thread, %php_dom_object_get_data.exit.thread, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19
+  %.026.in = phi ptr [ @dom_namespace_node_class_entry, %29 ], [ @dom_notation_class_entry, %28 ], [ @dom_documentfragment_class_entry, %27 ], [ @dom_cdatasection_class_entry, %26 ], [ @dom_entity_class_entry, %25 ], [ @dom_entityreference_class_entry, %24 ], [ @dom_processinginstruction_class_entry, %23 ], [ @dom_comment_class_entry, %22 ], [ @dom_text_class_entry, %21 ], [ @dom_attr_class_entry, %20 ], [ @dom_element_class_entry, %19 ], [ @dom_documenttype_class_entry, %php_dom_object_get_data.exit.thread ], [ @dom_documenttype_class_entry, %php_dom_object_get_data.exit.thread ]
   %.026 = load ptr, ptr %.026.in, align 8
   %.not35 = icmp eq ptr %2, null
-  br i1 %.not35, label %dom_get_doc_classmap.exit, label %47
+  br i1 %.not35, label %dom_get_doc_classmap.exit, label %36
 
-47:                                               ; preds = %46
+36:                                               ; preds = %35
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not36 = icmp eq ptr %.pre, null
   br i1 %.not36, label %dom_get_doc_classmap.exit, label %dom_get_doc_props_read_only.exit.i
 
-dom_get_doc_props_read_only.exit.i:               ; preds = %.thread53, %.thread, %47
-  %.0264460 = phi ptr [ %.026, %47 ], [ %.02655, %.thread53 ], [ %.02642, %.thread ]
-  %48 = phi ptr [ %.pre, %47 ], [ %45, %.thread53 ], [ %44, %.thread ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %.not6.i.i = icmp eq ptr %50, null
-  %spec.select.i = select i1 %.not6.i.i, ptr @default_doc_props, ptr %50
-  %51 = load ptr, ptr %spec.select.i, align 8
-  %.not19.i = icmp eq ptr %51, null
-  br i1 %.not19.i, label %dom_get_doc_classmap.exit, label %52
+dom_get_doc_props_read_only.exit.i:               ; preds = %.thread54, %36
+  %.0265257 = phi ptr [ %.02650, %.thread54 ], [ %.026, %36 ]
+  %37 = phi ptr [ %.sink59, %.thread54 ], [ %.pre, %36 ]
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %.not6.i.i = icmp eq ptr %39, null
+  %spec.select.i.i = select i1 %.not6.i.i, ptr @default_doc_props, ptr %39
+  %40 = load ptr, ptr %spec.select.i.i, align 8
+  %.not19.i = icmp eq ptr %40, null
+  br i1 %.not19.i, label %dom_get_doc_classmap.exit, label %41
 
-52:                                               ; preds = %dom_get_doc_props_read_only.exit.i
-  %53 = getelementptr inbounds i8, ptr %.0264460, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @zend_hash_find(ptr noundef nonnull %51, ptr noundef %54) #16
-  %.not20.i = icmp eq ptr %55, null
-  br i1 %.not20.i, label %dom_get_doc_classmap.exit, label %56
+41:                                               ; preds = %dom_get_doc_props_read_only.exit.i
+  %42 = getelementptr inbounds i8, ptr %.0265257, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call ptr @zend_hash_find(ptr noundef nonnull %40, ptr noundef %43) #16
+  %.not20.i = icmp eq ptr %44, null
+  br i1 %.not20.i, label %47, label %45
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %55, align 8, !nonnull !4, !noundef !4
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
+  br label %47
+
+47:                                               ; preds = %45, %41
+  %.0.i39 = phi ptr [ %46, %45 ], [ null, %41 ]
+  %.not21.i = icmp eq ptr %.0.i39, null
+  %spec.select.i = select i1 %.not21.i, ptr %.0265257, ptr %.0.i39
   br label %dom_get_doc_classmap.exit
 
-dom_get_doc_classmap.exit:                        ; preds = %.thread48, %56, %52, %dom_get_doc_props_read_only.exit.i, %47, %46
-  %.not3546 = phi i1 [ false, %47 ], [ true, %46 ], [ false, %dom_get_doc_props_read_only.exit.i ], [ false, %52 ], [ false, %56 ], [ true, %.thread48 ]
-  %.1 = phi ptr [ %.026, %47 ], [ %.026, %46 ], [ %.0264460, %dom_get_doc_props_read_only.exit.i ], [ %.0264460, %52 ], [ %57, %56 ], [ %.02650, %.thread48 ]
-  %58 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %.1) #16
-  %59 = load ptr, ptr %1, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 -24
-  %61 = getelementptr inbounds i8, ptr %0, i64 64
-  %62 = load ptr, ptr %61, align 8
-  %.not.i38 = icmp eq ptr %62, null
-  br i1 %.not.i38, label %php_dom_instantiate_object_helper.exit, label %63
+dom_get_doc_classmap.exit:                        ; preds = %47, %dom_get_doc_props_read_only.exit.i, %.thread, %36, %35
+  %.not3546 = phi i1 [ false, %36 ], [ true, %35 ], [ true, %.thread ], [ false, %dom_get_doc_props_read_only.exit.i ], [ false, %47 ]
+  %.1 = phi ptr [ %.026, %36 ], [ %.026, %35 ], [ %.02644, %.thread ], [ %.0265257, %dom_get_doc_props_read_only.exit.i ], [ %spec.select.i, %47 ]
+  %48 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %.1) #16
+  %49 = load ptr, ptr %1, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 -24
+  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %52 = load ptr, ptr %51, align 8
+  %.not.i40 = icmp eq ptr %52, null
+  br i1 %.not.i40, label %php_dom_instantiate_object_helper.exit, label %53
 
-63:                                               ; preds = %dom_get_doc_classmap.exit
-  br i1 %.not3546, label %68, label %64
+53:                                               ; preds = %dom_get_doc_classmap.exit
+  br i1 %.not3546, label %58, label %54
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %2, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %59, i64 -16
-  store ptr %66, ptr %67, align 8
-  %.pre.i = load ptr, ptr %61, align 8
-  br label %68
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %49, i64 -16
+  store ptr %56, ptr %57, align 8
+  %.pre.i = load ptr, ptr %51, align 8
+  br label %58
 
-68:                                               ; preds = %64, %63
-  %69 = phi ptr [ %.pre.i, %64 ], [ %62, %63 ]
-  %70 = tail call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %60, ptr noundef %69) #16
+58:                                               ; preds = %54, %53
+  %59 = phi ptr [ %.pre.i, %54 ], [ %52, %53 ]
+  %60 = tail call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %50, ptr noundef %59) #16
   br label %php_dom_instantiate_object_helper.exit
 
-php_dom_instantiate_object_helper.exit:           ; preds = %dom_get_doc_classmap.exit, %68
-  %71 = tail call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %60, ptr noundef nonnull %0, ptr noundef nonnull %60) #16
-  br label %72
+php_dom_instantiate_object_helper.exit:           ; preds = %dom_get_doc_classmap.exit, %58
+  %61 = tail call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %50, ptr noundef nonnull %0, ptr noundef nonnull %50) #16
+  br label %62
 
-72:                                               ; preds = %php_dom_instantiate_object_helper.exit, %42, %10, %4
-  %.0 = phi i1 [ true, %10 ], [ false, %42 ], [ false, %php_dom_instantiate_object_helper.exit ], [ false, %4 ]
+62:                                               ; preds = %php_dom_instantiate_object_helper.exit, %30, %10, %4
+  %.0 = phi i1 [ true, %10 ], [ false, %30 ], [ false, %php_dom_instantiate_object_helper.exit ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -11913,7 +11905,7 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr nocapture noundef re
 
 7:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.458) #16
-  br label %53
+  br label %56
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -11932,9 +11924,9 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr nocapture noundef re
   %16 = phi i8 [ %.pre, %12 ], [ %10, %8 ]
   %.013 = phi ptr [ %14, %12 ], [ %1, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  switch i8 %16, label %40 [
+  switch i8 %16, label %41 [
     i8 6, label %17
-    i8 4, label %38
+    i8 4, label %39
   ]
 
 17:                                               ; preds = %15
@@ -11942,7 +11934,7 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr nocapture noundef re
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load i8, ptr %19, align 1
   %21 = icmp sgt i8 %20, 57
-  br i1 %21, label %42, label %22
+  br i1 %21, label %45, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %18, i64 16
@@ -11955,17 +11947,17 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr nocapture noundef re
 
 ._crit_edge17:                                    ; preds = %22
   %.pre18 = load i64, ptr %6, align 8
-  br label %47
+  br label %50
 
 ._crit_edge:                                      ; preds = %22
   %.pre16 = load ptr, ptr %.013, align 8
-  br label %42
+  br label %45
 
 26:                                               ; preds = %22
   %27 = load double, ptr %5, align 8
   %28 = call double @llvm.fabs.f64(double %27)
   %29 = fcmp ueq double %28, 0x7FF0000000000000
-  br i1 %29, label %.sink.split.i, label %30
+  br i1 %29, label %38, label %30
 
 30:                                               ; preds = %26
   %31 = fcmp oge double %27, 0x43E0000000000000
@@ -11976,52 +11968,57 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr nocapture noundef re
 33:                                               ; preds = %30
   %34 = fcmp ogt double %27, 0.000000e+00
   %35 = select i1 %34, i64 9223372036854775807, i64 -9223372036854775808
-  br label %.sink.split.i
+  br label %38
 
 36:                                               ; preds = %30
   %37 = fptosi double %27 to i64
-  br label %.sink.split.i
+  br label %38
 
-38:                                               ; preds = %15
-  %39 = load i64, ptr %.013, align 8
-  br label %.sink.split.i
+38:                                               ; preds = %36, %33, %26
+  %.035.i = phi i64 [ %35, %33 ], [ %37, %36 ], [ 0, %26 ]
+  store i64 %.035.i, ptr %6, align 8
+  br label %50
 
-40:                                               ; preds = %15
-  %41 = tail call i64 @zval_get_long_func(ptr noundef nonnull %.013, i1 noundef zeroext false) #16
-  br label %.sink.split.i
+39:                                               ; preds = %15
+  %40 = load i64, ptr %.013, align 8
+  br label %43
 
-.sink.split.i:                                    ; preds = %40, %38, %36, %33, %26
-  %.035.sink.i = phi i64 [ %35, %33 ], [ %37, %36 ], [ 0, %26 ], [ %39, %38 ], [ %41, %40 ]
-  store i64 %.035.sink.i, ptr %6, align 8
-  br label %47
+41:                                               ; preds = %15
+  %42 = tail call i64 @zval_get_long_func(ptr noundef nonnull %.013, i1 noundef zeroext false) #16
+  br label %43
 
-42:                                               ; preds = %._crit_edge, %17
-  %43 = phi ptr [ %.pre16, %._crit_edge ], [ %18, %17 ]
+43:                                               ; preds = %41, %39
+  %44 = phi i64 [ %40, %39 ], [ %42, %41 ]
+  store i64 %44, ptr %6, align 8
+  br label %50
+
+45:                                               ; preds = %._crit_edge, %17
+  %46 = phi ptr [ %.pre16, %._crit_edge ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %44 = getelementptr inbounds i8, ptr %0, i64 -24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
-  call void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef %45, ptr noundef nonnull %46, ptr noundef %3) #16
-  br label %53
+  %47 = getelementptr inbounds i8, ptr %0, i64 -24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %46, i64 24
+  call void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef %48, ptr noundef nonnull %49, ptr noundef %3) #16
+  br label %56
 
-47:                                               ; preds = %._crit_edge17, %.sink.split.i
-  %48 = phi i64 [ %.pre18, %._crit_edge17 ], [ %.035.sink.i, %.sink.split.i ]
+50:                                               ; preds = %._crit_edge17, %38, %43
+  %51 = phi i64 [ %.pre18, %._crit_edge17 ], [ %.035.i, %38 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %spec.select = icmp ugt i64 %48, 2147483647
-  br i1 %spec.select, label %49, label %50
+  %spec.select = icmp ugt i64 %51, 2147483647
+  br i1 %spec.select, label %52, label %53
 
-49:                                               ; preds = %47
+52:                                               ; preds = %50
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.459, i32 noundef 2147483647) #16
-  br label %53
+  br label %56
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %0, i64 -24
-  %52 = load ptr, ptr %51, align 8
-  call void @php_dom_named_node_map_get_item_into_zval(ptr noundef %52, i64 noundef %48, ptr noundef %3) #16
-  br label %53
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %0, i64 -24
+  %55 = load ptr, ptr %54, align 8
+  call void @php_dom_named_node_map_get_item_into_zval(ptr noundef %55, i64 noundef %51, ptr noundef %3) #16
+  br label %56
 
-53:                                               ; preds = %50, %49, %42, %7
-  %.0 = phi ptr [ null, %7 ], [ %3, %42 ], [ null, %49 ], [ %3, %50 ]
+56:                                               ; preds = %53, %52, %45, %7
+  %.0 = phi ptr [ null, %7 ], [ %3, %45 ], [ null, %52 ], [ %3, %53 ]
   ret ptr %.0
 }
 
@@ -12045,9 +12042,9 @@ define internal i32 @dom_nodemap_has_dimension(ptr noundef %0, ptr noundef %1, i
   %13 = phi i8 [ %.pre, %9 ], [ %7, %3 ]
   %.07 = phi ptr [ %11, %9 ], [ %1, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  switch i8 %13, label %37 [
+  switch i8 %13, label %38 [
     i8 6, label %14
-    i8 4, label %35
+    i8 4, label %36
   ]
 
 14:                                               ; preds = %12
@@ -12055,26 +12052,26 @@ define internal i32 @dom_nodemap_has_dimension(ptr noundef %0, ptr noundef %1, i
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load i8, ptr %16, align 1
   %18 = icmp sgt i8 %17, 57
-  br i1 %18, label %39, label %19
+  br i1 %18, label %43, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %15, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %16, i64 noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #16
-  switch i8 %22, label %thread-pre-split [
+  switch i8 %22, label %42 [
     i8 0, label %._crit_edge
     i8 5, label %23
   ]
 
 ._crit_edge:                                      ; preds = %19
   %.pre10 = load ptr, ptr %.07, align 8
-  br label %39
+  br label %43
 
 23:                                               ; preds = %19
   %24 = load double, ptr %4, align 8
   %25 = call double @llvm.fabs.f64(double %24)
   %26 = fcmp ueq double %25, 0x7FF0000000000000
-  br i1 %26, label %.sink.split.i, label %27
+  br i1 %26, label %35, label %27
 
 27:                                               ; preds = %23
   %28 = fcmp oge double %24, 0x43E0000000000000
@@ -12085,54 +12082,59 @@ define internal i32 @dom_nodemap_has_dimension(ptr noundef %0, ptr noundef %1, i
 30:                                               ; preds = %27
   %31 = fcmp ogt double %24, 0.000000e+00
   %32 = select i1 %31, i64 9223372036854775807, i64 -9223372036854775808
-  br label %.sink.split.i
+  br label %35
 
 33:                                               ; preds = %27
   %34 = fptosi double %24 to i64
-  br label %.sink.split.i
+  br label %35
 
-35:                                               ; preds = %12
-  %36 = load i64, ptr %.07, align 8
-  br label %.sink.split.i
+35:                                               ; preds = %33, %30, %23
+  %.035.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
+  store i64 %.035.i, ptr %5, align 8
+  br label %50
 
-37:                                               ; preds = %12
-  %38 = tail call i64 @zval_get_long_func(ptr noundef nonnull %.07, i1 noundef zeroext false) #16
-  br label %.sink.split.i
+36:                                               ; preds = %12
+  %37 = load i64, ptr %.07, align 8
+  br label %40
 
-.sink.split.i:                                    ; preds = %37, %35, %33, %30, %23
-  %.035.sink.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ], [ %36, %35 ], [ %38, %37 ]
-  store i64 %.035.sink.i, ptr %5, align 8
-  br label %46
+38:                                               ; preds = %12
+  %39 = tail call i64 @zval_get_long_func(ptr noundef nonnull %.07, i1 noundef zeroext false) #16
+  br label %40
 
-39:                                               ; preds = %._crit_edge, %14
-  %40 = phi ptr [ %.pre10, %._crit_edge ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %41 = getelementptr inbounds i8, ptr %0, i64 -24
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 24
-  %44 = call ptr @php_dom_named_node_map_get_named_item(ptr noundef %42, ptr noundef nonnull %43, i1 noundef zeroext false) #16
-  %45 = icmp ne ptr %44, null
-  br label %54
+40:                                               ; preds = %38, %36
+  %41 = phi i64 [ %37, %36 ], [ %39, %38 ]
+  store i64 %41, ptr %5, align 8
+  br label %50
 
-thread-pre-split:                                 ; preds = %19
+42:                                               ; preds = %19
   %.pr = load i64, ptr %5, align 8
-  br label %46
+  br label %50
 
-46:                                               ; preds = %thread-pre-split, %.sink.split.i
-  %47 = phi i64 [ %.pr, %thread-pre-split ], [ %.035.sink.i, %.sink.split.i ]
+43:                                               ; preds = %._crit_edge, %14
+  %44 = phi ptr [ %.pre10, %._crit_edge ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %48 = icmp sgt i64 %47, -1
-  br i1 %48, label %49, label %54
+  %45 = getelementptr inbounds i8, ptr %0, i64 -24
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %48 = call ptr @php_dom_named_node_map_get_named_item(ptr noundef %46, ptr noundef nonnull %47, i1 noundef zeroext false) #16
+  %49 = icmp ne ptr %48, null
+  br label %58
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 -24
-  %51 = call i32 @php_dom_get_namednodemap_length(ptr noundef nonnull %50) #16
-  %52 = sext i32 %51 to i64
-  %53 = icmp slt i64 %47, %52
-  br label %54
+50:                                               ; preds = %35, %40, %42
+  %51 = phi i64 [ %.035.i, %35 ], [ %41, %40 ], [ %.pr, %42 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %52 = icmp sgt i64 %51, -1
+  br i1 %52, label %53, label %58
 
-54:                                               ; preds = %46, %49, %39
-  %.0.shrunk = phi i1 [ %45, %39 ], [ false, %46 ], [ %53, %49 ]
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %0, i64 -24
+  %55 = call i32 @php_dom_get_namednodemap_length(ptr noundef nonnull %54) #16
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %51, %56
+  br label %58
+
+58:                                               ; preds = %50, %53, %43
+  %.0.shrunk = phi i1 [ %49, %43 ], [ false, %50 ], [ %57, %53 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -12146,7 +12148,7 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr nocapture noundef r
 
 7:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.457) #16
-  br label %48
+  br label %51
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -12165,9 +12167,9 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr nocapture noundef r
   %16 = phi i8 [ %.pre, %12 ], [ %10, %8 ]
   %.011 = phi ptr [ %14, %12 ], [ %1, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  switch i8 %16, label %40 [
+  switch i8 %16, label %41 [
     i8 6, label %17
-    i8 4, label %38
+    i8 4, label %39
   ]
 
 17:                                               ; preds = %15
@@ -12175,26 +12177,26 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr nocapture noundef r
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load i8, ptr %19, align 1
   %21 = icmp sgt i8 %20, 57
-  br i1 %21, label %42, label %22
+  br i1 %21, label %45, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %18, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %19, i64 noundef %24, ptr noundef nonnull %6, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #16
   switch i8 %25, label %._crit_edge [
-    i8 0, label %42
+    i8 0, label %45
     i8 5, label %26
   ]
 
 ._crit_edge:                                      ; preds = %22
   %.pre13 = load i64, ptr %6, align 8
-  br label %44
+  br label %47
 
 26:                                               ; preds = %22
   %27 = load double, ptr %5, align 8
   %28 = call double @llvm.fabs.f64(double %27)
   %29 = fcmp ueq double %28, 0x7FF0000000000000
-  br i1 %29, label %.sink.split.i, label %30
+  br i1 %29, label %38, label %30
 
 30:                                               ; preds = %26
   %31 = fcmp oge double %27, 0x43E0000000000000
@@ -12205,41 +12207,46 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr nocapture noundef r
 33:                                               ; preds = %30
   %34 = fcmp ogt double %27, 0.000000e+00
   %35 = select i1 %34, i64 9223372036854775807, i64 -9223372036854775808
-  br label %.sink.split.i
+  br label %38
 
 36:                                               ; preds = %30
   %37 = fptosi double %27 to i64
-  br label %.sink.split.i
+  br label %38
 
-38:                                               ; preds = %15
-  %39 = load i64, ptr %.011, align 8
-  br label %.sink.split.i
+38:                                               ; preds = %36, %33, %26
+  %.035.i = phi i64 [ %35, %33 ], [ %37, %36 ], [ 0, %26 ]
+  store i64 %.035.i, ptr %6, align 8
+  br label %47
 
-40:                                               ; preds = %15
-  %41 = tail call i64 @zval_get_long_func(ptr noundef nonnull %.011, i1 noundef zeroext false) #16
-  br label %.sink.split.i
+39:                                               ; preds = %15
+  %40 = load i64, ptr %.011, align 8
+  br label %43
 
-.sink.split.i:                                    ; preds = %40, %38, %36, %33, %26
-  %.035.sink.i = phi i64 [ %35, %33 ], [ %37, %36 ], [ 0, %26 ], [ %39, %38 ], [ %41, %40 ]
-  store i64 %.035.sink.i, ptr %6, align 8
-  br label %44
+41:                                               ; preds = %15
+  %42 = tail call i64 @zval_get_long_func(ptr noundef nonnull %.011, i1 noundef zeroext false) #16
+  br label %43
 
-42:                                               ; preds = %22, %17
+43:                                               ; preds = %41, %39
+  %44 = phi i64 [ %40, %39 ], [ %42, %41 ]
+  store i64 %44, ptr %6, align 8
+  br label %47
+
+45:                                               ; preds = %22, %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %43, align 8
-  br label %48
+  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 1, ptr %46, align 8
+  br label %51
 
-44:                                               ; preds = %._crit_edge, %.sink.split.i
-  %45 = phi i64 [ %.pre13, %._crit_edge ], [ %.035.sink.i, %.sink.split.i ]
+47:                                               ; preds = %._crit_edge, %38, %43
+  %48 = phi i64 [ %.pre13, %._crit_edge ], [ %.035.i, %38 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %46 = getelementptr inbounds i8, ptr %0, i64 -24
-  %47 = load ptr, ptr %46, align 8
-  call void @php_dom_nodelist_get_item_into_zval(ptr noundef %47, i64 noundef %45, ptr noundef %3) #16
-  br label %48
+  %49 = getelementptr inbounds i8, ptr %0, i64 -24
+  %50 = load ptr, ptr %49, align 8
+  call void @php_dom_nodelist_get_item_into_zval(ptr noundef %50, i64 noundef %48, ptr noundef %3) #16
+  br label %51
 
-48:                                               ; preds = %44, %42, %7
-  %.0 = phi ptr [ null, %7 ], [ %3, %42 ], [ %3, %44 ]
+51:                                               ; preds = %47, %45, %7
+  %.0 = phi ptr [ null, %7 ], [ %3, %45 ], [ %3, %47 ]
   ret ptr %.0
 }
 
@@ -12263,9 +12270,9 @@ define internal i32 @dom_nodelist_has_dimension(ptr noundef %0, ptr noundef %1, 
   %13 = phi i8 [ %.pre, %9 ], [ %7, %3 ]
   %.05 = phi ptr [ %11, %9 ], [ %1, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  switch i8 %13, label %37 [
+  switch i8 %13, label %38 [
     i8 6, label %14
-    i8 4, label %35
+    i8 4, label %36
   ]
 
 14:                                               ; preds = %12
@@ -12273,14 +12280,14 @@ define internal i32 @dom_nodelist_has_dimension(ptr noundef %0, ptr noundef %1, 
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load i8, ptr %16, align 1
   %18 = icmp sgt i8 %17, 57
-  br i1 %18, label %dom_nodemap_or_nodelist_process_offset_as_named.exit.thread, label %19
+  br i1 %18, label %dom_nodemap_or_nodelist_process_offset_as_named.exit, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %15, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %16, i64 noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #16
-  switch i8 %22, label %thread-pre-split [
-    i8 0, label %dom_nodemap_or_nodelist_process_offset_as_named.exit.thread
+  switch i8 %22, label %42 [
+    i8 0, label %dom_nodemap_or_nodelist_process_offset_as_named.exit
     i8 5, label %23
   ]
 
@@ -12288,7 +12295,7 @@ define internal i32 @dom_nodelist_has_dimension(ptr noundef %0, ptr noundef %1, 
   %24 = load double, ptr %4, align 8
   %25 = call double @llvm.fabs.f64(double %24)
   %26 = fcmp ueq double %25, 0x7FF0000000000000
-  br i1 %26, label %.sink.split.i, label %27
+  br i1 %26, label %35, label %27
 
 27:                                               ; preds = %23
   %28 = fcmp oge double %24, 0x43E0000000000000
@@ -12299,49 +12306,54 @@ define internal i32 @dom_nodelist_has_dimension(ptr noundef %0, ptr noundef %1, 
 30:                                               ; preds = %27
   %31 = fcmp ogt double %24, 0.000000e+00
   %32 = select i1 %31, i64 9223372036854775807, i64 -9223372036854775808
-  br label %.sink.split.i
+  br label %35
 
 33:                                               ; preds = %27
   %34 = fptosi double %24 to i64
-  br label %.sink.split.i
+  br label %35
 
-35:                                               ; preds = %12
-  %36 = load i64, ptr %.05, align 8
-  br label %.sink.split.i
+35:                                               ; preds = %33, %30, %23
+  %.035.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
+  store i64 %.035.i, ptr %5, align 8
+  br label %43
 
-37:                                               ; preds = %12
-  %38 = tail call i64 @zval_get_long_func(ptr noundef nonnull %.05, i1 noundef zeroext false) #16
-  br label %.sink.split.i
+36:                                               ; preds = %12
+  %37 = load i64, ptr %.05, align 8
+  br label %40
 
-.sink.split.i:                                    ; preds = %37, %35, %33, %30, %23
-  %.035.sink.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ], [ %36, %35 ], [ %38, %37 ]
-  store i64 %.035.sink.i, ptr %5, align 8
-  br label %39
+38:                                               ; preds = %12
+  %39 = tail call i64 @zval_get_long_func(ptr noundef nonnull %.05, i1 noundef zeroext false) #16
+  br label %40
 
-dom_nodemap_or_nodelist_process_offset_as_named.exit.thread: ; preds = %19, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %48
+40:                                               ; preds = %38, %36
+  %41 = phi i64 [ %37, %36 ], [ %39, %38 ]
+  store i64 %41, ptr %5, align 8
+  br label %43
 
-thread-pre-split:                                 ; preds = %19
+42:                                               ; preds = %19
   %.pr = load i64, ptr %5, align 8
-  br label %39
+  br label %43
 
-39:                                               ; preds = %thread-pre-split, %.sink.split.i
-  %40 = phi i64 [ %.pr, %thread-pre-split ], [ %.035.sink.i, %.sink.split.i ]
+dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %14, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %41 = icmp sgt i64 %40, -1
-  br i1 %41, label %42, label %48
+  br label %52
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 -24
-  %44 = call i32 @php_dom_get_nodelist_length(ptr noundef nonnull %43) #16
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %40, %45
-  %47 = zext i1 %46 to i32
-  br label %48
+43:                                               ; preds = %35, %40, %42
+  %44 = phi i64 [ %.035.i, %35 ], [ %41, %40 ], [ %.pr, %42 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %45 = icmp sgt i64 %44, -1
+  br i1 %45, label %46, label %52
 
-48:                                               ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exit.thread, %39, %42
-  %.0 = phi i32 [ 0, %39 ], [ %47, %42 ], [ 0, %dom_nodemap_or_nodelist_process_offset_as_named.exit.thread ]
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %0, i64 -24
+  %48 = call i32 @php_dom_get_nodelist_length(ptr noundef nonnull %47) #16
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %44, %49
+  %51 = zext i1 %50 to i32
+  br label %52
+
+52:                                               ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exit, %43, %46
+  %.0 = phi i32 [ 0, %dom_nodemap_or_nodelist_process_offset_as_named.exit ], [ 0, %43 ], [ %51, %46 ]
   ret i32 %.0
 }
 
@@ -13596,7 +13608,7 @@ define hidden noundef i32 @dom_hierarchy(ptr noundef readonly %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @dom_has_feature(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden zeroext i1 @dom_has_feature(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   switch i64 %4, label %.critedge6 [
@@ -13625,7 +13637,7 @@ define hidden noundef zeroext i1 @dom_has_feature(ptr noundef %0, ptr nocapture 
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %13, i64 noundef 3, ptr noundef nonnull @.str.152, i64 noundef 3) #16
   %.not40 = icmp eq i32 %14, 0
-  br i1 %.not40, label %26, label %thread-pre-split
+  br i1 %.not40, label %.critedge6, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %12
   %.pr = load i64, ptr %9, align 8
@@ -13651,13 +13663,10 @@ thread-pre-split:                                 ; preds = %12
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %bcmp42 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %25, ptr noundef nonnull dereferenceable(3) @.str.149, i64 3)
   %.not43 = icmp eq i32 %bcmp42, 0
-  br i1 %.not43, label %26, label %.critedge6
+  br label %.critedge6
 
-.critedge6:                                       ; preds = %2, %7, %15, %18, %24, %21
-  br label %26
-
-26:                                               ; preds = %12, %24, %.critedge6
-  %.0 = phi i1 [ false, %.critedge6 ], [ true, %24 ], [ true, %12 ]
+.critedge6:                                       ; preds = %2, %7, %24, %21, %18, %15, %12
+  %.0 = phi i1 [ true, %12 ], [ false, %15 ], [ false, %18 ], [ false, %21 ], [ %.not43, %24 ], [ false, %7 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -14494,14 +14503,12 @@ define hidden ptr @dom_get_ns(ptr noundef %0, ptr noundef %1, ptr nocapture noun
 .critedge25:                                      ; preds = %12, %.critedge.thread, %4
   %13 = tail call ptr @dom_get_ns_unchecked(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %15
+  %spec.select = select i1 %14, i32 14, i32 0
+  br label %.thread
 
-.thread:                                          ; preds = %.critedge.thread, %7, %12, %.critedge25
-  br label %15
-
-15:                                               ; preds = %.critedge25, %.thread
-  %storemerge = phi i32 [ 14, %.thread ], [ 0, %.critedge25 ]
-  %.0 = phi ptr [ null, %.thread ], [ %13, %.critedge25 ]
+.thread:                                          ; preds = %.critedge.thread, %.critedge25, %12, %7
+  %storemerge = phi i32 [ 14, %7 ], [ 14, %12 ], [ %spec.select, %.critedge25 ], [ 14, %.critedge.thread ]
+  %.0 = phi ptr [ null, %7 ], [ null, %12 ], [ %13, %.critedge25 ], [ null, %.critedge.thread ]
   store i32 %storemerge, ptr %2, align 4
   ret ptr %.0
 }
@@ -14805,83 +14812,83 @@ define internal fastcc void @dom_update_refcount_after_clone(ptr nocapture nound
   %20 = icmp ne ptr %16, null
   %21 = icmp ne ptr %18, null
   %or.cond.i = and i1 %20, %21
-  br i1 %or.cond.i, label %dom_get_doc_props_read_only.exit.i, label %dom_copy_doc_props.exit
+  br i1 %or.cond.i, label %22, label %dom_copy_doc_props.exit
 
-dom_get_doc_props_read_only.exit.i:               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %.not6.i.i = icmp eq ptr %23, null
-  %spec.select.i = select i1 %.not6.i.i, ptr @default_doc_props, ptr %23
-  %24 = getelementptr inbounds i8, ptr %18, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %.not11.i.i = icmp eq ptr %25, null
-  br i1 %.not11.i.i, label %26, label %dom_get_doc_props.exit.i
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %.not6.i.i = icmp eq ptr %24, null
+  %spec.select.i.i = select i1 %.not6.i.i, ptr @default_doc_props, ptr %24
+  %25 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not11.i.i = icmp eq ptr %26, null
+  br i1 %.not11.i.i, label %27, label %dom_get_doc_props.exit.i
 
-26:                                               ; preds = %dom_get_doc_props_read_only.exit.i
-  %27 = tail call noalias ptr @_emalloc_16() #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) @default_doc_props, i64 16, i1 false)
-  store ptr %27, ptr %24, align 8
+27:                                               ; preds = %22
+  %28 = tail call noalias ptr @_emalloc_16() #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) @default_doc_props, i64 16, i1 false)
+  store ptr %28, ptr %25, align 8
   br label %dom_get_doc_props.exit.i
 
-dom_get_doc_props.exit.i:                         ; preds = %26, %dom_get_doc_props_read_only.exit.i
-  %.0.i28.i = phi ptr [ %25, %dom_get_doc_props_read_only.exit.i ], [ %27, %26 ]
-  %28 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
-  %29 = load i8, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i28.i, i64 8
-  %31 = and i8 %29, 1
-  store i8 %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %spec.select.i, i64 9
-  %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.0.i28.i, i64 9
-  %35 = and i8 %33, 1
-  store i8 %35, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %spec.select.i, i64 10
-  %37 = load i8, ptr %36, align 2
-  %38 = getelementptr inbounds i8, ptr %.0.i28.i, i64 10
-  %39 = and i8 %37, 1
-  store i8 %39, ptr %38, align 2
-  %40 = getelementptr inbounds i8, ptr %spec.select.i, i64 11
-  %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %.0.i28.i, i64 11
-  %43 = and i8 %41, 1
-  store i8 %43, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %spec.select.i, i64 12
-  %45 = load i8, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.0.i28.i, i64 12
-  %47 = and i8 %45, 1
-  store i8 %47, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %spec.select.i, i64 13
-  %49 = load i8, ptr %48, align 1
-  %50 = getelementptr inbounds i8, ptr %.0.i28.i, i64 13
-  %51 = and i8 %49, 1
-  store i8 %51, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %spec.select.i, i64 14
-  %53 = load i8, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.0.i28.i, i64 14
-  %55 = and i8 %53, 1
-  store i8 %55, ptr %54, align 2
-  %56 = load ptr, ptr %spec.select.i, align 8
-  %.not.i = icmp eq ptr %56, null
-  br i1 %.not.i, label %61, label %57
+dom_get_doc_props.exit.i:                         ; preds = %27, %22
+  %.0.i28.i = phi ptr [ %26, %22 ], [ %28, %27 ]
+  %29 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
+  %30 = load i8, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %.0.i28.i, i64 8
+  %32 = and i8 %30, 1
+  store i8 %32, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 9
+  %34 = load i8, ptr %33, align 1
+  %35 = getelementptr inbounds i8, ptr %.0.i28.i, i64 9
+  %36 = and i8 %34, 1
+  store i8 %36, ptr %35, align 1
+  %37 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 10
+  %38 = load i8, ptr %37, align 2
+  %39 = getelementptr inbounds i8, ptr %.0.i28.i, i64 10
+  %40 = and i8 %38, 1
+  store i8 %40, ptr %39, align 2
+  %41 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 11
+  %42 = load i8, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %.0.i28.i, i64 11
+  %44 = and i8 %42, 1
+  store i8 %44, ptr %43, align 1
+  %45 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 12
+  %46 = load i8, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %.0.i28.i, i64 12
+  %48 = and i8 %46, 1
+  store i8 %48, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 13
+  %50 = load i8, ptr %49, align 1
+  %51 = getelementptr inbounds i8, ptr %.0.i28.i, i64 13
+  %52 = and i8 %50, 1
+  store i8 %52, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 14
+  %54 = load i8, ptr %53, align 2
+  %55 = getelementptr inbounds i8, ptr %.0.i28.i, i64 14
+  %56 = and i8 %54, 1
+  store i8 %56, ptr %55, align 2
+  %57 = load ptr, ptr %spec.select.i.i, align 8
+  %.not.i = icmp eq ptr %57, null
+  br i1 %.not.i, label %62, label %58
 
-57:                                               ; preds = %dom_get_doc_props.exit.i
-  %58 = tail call noalias ptr @_emalloc_56() #16
-  store ptr %58, ptr %.0.i28.i, align 8
-  tail call void @_zend_hash_init(ptr noundef %58, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #16
-  %59 = load ptr, ptr %.0.i28.i, align 8
-  %60 = load ptr, ptr %spec.select.i, align 8
-  tail call void @zend_hash_copy(ptr noundef %59, ptr noundef %60, ptr noundef null) #16
-  br label %61
+58:                                               ; preds = %dom_get_doc_props.exit.i
+  %59 = tail call noalias ptr @_emalloc_56() #16
+  store ptr %59, ptr %.0.i28.i, align 8
+  tail call void @_zend_hash_init(ptr noundef %59, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #16
+  %60 = load ptr, ptr %.0.i28.i, align 8
+  %61 = load ptr, ptr %spec.select.i.i, align 8
+  tail call void @zend_hash_copy(ptr noundef %60, ptr noundef %61, ptr noundef null) #16
+  br label %62
 
-61:                                               ; preds = %57, %dom_get_doc_props.exit.i
-  %62 = getelementptr inbounds i8, ptr %16, i64 28
-  %63 = load i8, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %18, i64 28
-  %65 = and i8 %63, 1
-  store i8 %65, ptr %64, align 4
+62:                                               ; preds = %58, %dom_get_doc_props.exit.i
+  %63 = getelementptr inbounds i8, ptr %16, i64 28
+  %64 = load i8, ptr %63, align 4
+  %65 = getelementptr inbounds i8, ptr %18, i64 28
+  %66 = and i8 %64, 1
+  store i8 %66, ptr %65, align 4
   br label %dom_copy_doc_props.exit
 
-dom_copy_doc_props.exit:                          ; preds = %61, %19, %11
+dom_copy_doc_props.exit:                          ; preds = %62, %19, %11
   ret void
 }
 

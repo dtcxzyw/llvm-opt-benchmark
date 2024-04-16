@@ -31,11 +31,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @fdt_strerror(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp sgt i32 %0, 0
-  br i1 %2, label %13, label %3
+  br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
   %4 = icmp eq i32 %0, 0
-  br i1 %4, label %13, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %3
   %6 = icmp ugt i32 %0, -19
@@ -47,13 +47,11 @@ define nonnull ptr @fdt_strerror(i32 noundef %0) local_unnamed_addr #0 {
   %10 = getelementptr inbounds [19 x %struct.fdt_errtabent], ptr @fdt_errtable, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %13
+  %spec.select = select i1 %.not, ptr @.str.2, ptr %11
+  br label %12
 
-12:                                               ; preds = %7, %5
-  br label %13
-
-13:                                               ; preds = %7, %3, %1, %12
-  %.0 = phi ptr [ @.str.2, %12 ], [ @.str, %1 ], [ @.str.1, %3 ], [ %11, %7 ]
+12:                                               ; preds = %7, %5, %3, %1
+  %.0 = phi ptr [ @.str, %1 ], [ @.str.1, %3 ], [ @.str.2, %5 ], [ %spec.select, %7 ]
   ret ptr %.0
 }
 

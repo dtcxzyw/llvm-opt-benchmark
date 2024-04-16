@@ -2496,7 +2496,7 @@ zstream_reset_input.exit.i:                       ; preds = %82, %80
   %89 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %.sroa.2.0.i, ptr %89, align 8
   %90 = call i64 @llvm.umin.i64(i64 %17, i64 4294967295)
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   %92 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 %91, ptr %92, align 8
   %93 = call i32 @inflateSync(ptr noundef nonnull %89) #17
@@ -6341,7 +6341,7 @@ RSTRING_END.exit.i38:                             ; preds = %93, %87
   %95 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %94, ptr %95, align 8
   %96 = tail call i64 @llvm.umin.i64(i64 %83, i64 4294967295)
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   store i32 %97, ptr %84, align 8
   br label %zstream_expand_buffer_into.exit46
 
@@ -9541,7 +9541,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %zstream_expand_buff
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %spec.select
   store ptr %50, ptr %48, align 8
-  %51 = trunc i64 %spec.select to i32
+  %51 = trunc nuw i64 %spec.select to i32
   %52 = sub i32 %45, %51
   store i32 %52, ptr %44, align 8
   br label %53
@@ -10262,9 +10262,11 @@ RSTRING_PTR.exit:                                 ; preds = %2, %9
 
 gzfile_fill.exit:                                 ; preds = %.thread, %52
   %59 = phi i64 [ %55, %52 ], [ %45, %.thread ]
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %59, i64 %33)
-  %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %66, label %gzfile_fill.exit.thread
+  %.fr = freeze i64 %59
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %.fr, i64 %33)
+  %60 = icmp sgt i64 %.fr, 0
+  %spec.select = select i1 %60, i64 %spec.select.i, i64 %1
+  br label %gzfile_fill.exit.thread
 
 61:                                               ; preds = %26
   %62 = icmp sgt i32 %28, 0
@@ -10273,13 +10275,10 @@ gzfile_fill.exit:                                 ; preds = %.thread, %52
 63:                                               ; preds = %61
   %64 = zext nneg i32 %28 to i64
   %65 = add nsw i64 %24, %64
-  br label %66
+  br label %gzfile_fill.exit.thread
 
-gzfile_fill.exit.thread:                          ; preds = %.critedge23.i, %58, %37, %gzfile_fill.exit, %61, %14
-  br label %66
-
-66:                                               ; preds = %gzfile_fill.exit, %gzfile_fill.exit.thread, %63
-  %.0 = phi i64 [ %1, %gzfile_fill.exit.thread ], [ %65, %63 ], [ %spec.select.i, %gzfile_fill.exit ]
+gzfile_fill.exit.thread:                          ; preds = %gzfile_fill.exit, %.critedge23.i, %58, %37, %14, %61, %63
+  %.0 = phi i64 [ %65, %63 ], [ %1, %61 ], [ %1, %14 ], [ %1, %37 ], [ %1, %58 ], [ %1, %.critedge23.i ], [ %spec.select, %gzfile_fill.exit ]
   ret i64 %.0
 }
 

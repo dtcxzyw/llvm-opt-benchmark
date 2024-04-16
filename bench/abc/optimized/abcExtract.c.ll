@@ -242,7 +242,7 @@ Vec_WrdPush.exit:
   br i1 %exitcond.not.i, label %.critedge2, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %30 = trunc i64 %indvars.iv.i to i32
+  %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   %31 = icmp eq i32 %.val84115, %30
   br i1 %31, label %.critedge2, label %.preheader.i
 
@@ -264,7 +264,7 @@ Vec_WrdPush.exit:
   %38 = getelementptr inbounds i64, ptr %.val90, i64 %37
   store i64 %36, ptr %38, align 8
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %39 = trunc i64 %indvars.iv.next35.i to i32
+  %39 = trunc nuw i64 %indvars.iv.next35.i to i32
   %40 = icmp sgt i32 %.val84115, %39
   br i1 %40, label %34, label %._crit_edge30.i, !llvm.loop !9
 
@@ -497,7 +497,7 @@ Vec_WrdGrow.exit23:                               ; preds = %Vec_WrdGrow.exit23t
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38, %._crit_edge.loopexit.split.loop.exit, %Vec_WrdGrow.exit23
@@ -587,7 +587,7 @@ Vec_WrdPush.exit:
   br i1 %exitcond.not.i, label %.critedge2, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %43 = trunc i64 %indvars.iv.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   %44 = icmp eq i32 %.val92134, %43
   br i1 %44, label %.critedge2, label %.preheader.i
 
@@ -609,7 +609,7 @@ Vec_WrdPush.exit:
   %51 = getelementptr inbounds i64, ptr %.val98, i64 %50
   store i64 %49, ptr %51, align 8
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %52 = trunc i64 %indvars.iv.next35.i to i32
+  %52 = trunc nuw i64 %indvars.iv.next35.i to i32
   %53 = icmp sgt i32 %.val92134, %52
   br i1 %53, label %47, label %._crit_edge30.i, !llvm.loop !9
 
@@ -1997,7 +1997,7 @@ define void @Abc_NtkSharePrint(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %.lr.ph105
-  %62 = trunc i64 %indvars.iv127 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv127 to i32
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %62, i32 noundef %59)
   %.pre138 = load ptr, ptr %2, align 8
   br label %.critedge
@@ -2170,7 +2170,7 @@ define void @Abc_NtkDumpBlif(ptr noundef %0) local_unnamed_addr #2 {
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %2, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 64
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %32, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val62 = load ptr, ptr %9, align 8
@@ -2215,7 +2215,7 @@ define void @Abc_NtkDumpBlif(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %51, label %44, label %.critedge2, !llvm.loop !37
 
 .critedge2:                                       ; preds = %44, %.lr.ph92
-  %52 = trunc i64 %indvars.iv100 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv100 to i32
   %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.17, i32 noundef %52) #13
   %.val85 = load i32, ptr %41, align 4
   %54 = icmp sgt i32 %.val85, 0
@@ -2528,7 +2528,7 @@ Vec_IntTwoCountCommon.exit.us:                    ; preds = %96, %65
   %112 = load i32, ptr %111, align 4
   %113 = tail call noundef i32 @llvm.smax.i32(i32 %110, i32 %112)
   %114 = icmp slt i32 %.168117.us, %.0.lcssa.i.us
-  br i1 %114, label %118, label %115
+  br i1 %114, label %119, label %115
 
 115:                                              ; preds = %108
   %116 = icmp eq i32 %.168117.us, %.0.lcssa.i.us
@@ -2536,14 +2536,14 @@ Vec_IntTwoCountCommon.exit.us:                    ; preds = %96, %65
   %or.cond.us = select i1 %116, i1 %117, i1 false
   br i1 %or.cond.us, label %118, label %119
 
-118:                                              ; preds = %115, %108
+118:                                              ; preds = %115
   br label %119
 
-119:                                              ; preds = %118, %115, %Vec_IntTwoCountCommon.exit.us, %61
-  %.279.us = phi ptr [ %.178114.us, %61 ], [ %.178114.us, %Vec_IntTwoCountCommon.exit.us ], [ %63, %118 ], [ %.178114.us, %115 ]
-  %.272.us = phi ptr [ %.171116.us, %61 ], [ %.171116.us, %Vec_IntTwoCountCommon.exit.us ], [ %58, %118 ], [ %.171116.us, %115 ]
-  %.269.us = phi i32 [ %.168117.us, %61 ], [ %.168117.us, %Vec_IntTwoCountCommon.exit.us ], [ %.0.lcssa.i.us, %118 ], [ %.168117.us, %115 ]
-  %.2.us = phi i32 [ %.1118.us, %61 ], [ %.1118.us, %Vec_IntTwoCountCommon.exit.us ], [ %113, %118 ], [ %.1118.us, %115 ]
+119:                                              ; preds = %118, %115, %108, %Vec_IntTwoCountCommon.exit.us, %61
+  %.279.us = phi ptr [ %.178114.us, %61 ], [ %.178114.us, %Vec_IntTwoCountCommon.exit.us ], [ %.178114.us, %115 ], [ %63, %108 ], [ %63, %118 ]
+  %.272.us = phi ptr [ %.171116.us, %61 ], [ %.171116.us, %Vec_IntTwoCountCommon.exit.us ], [ %.171116.us, %115 ], [ %58, %108 ], [ %58, %118 ]
+  %.269.us = phi i32 [ %.168117.us, %61 ], [ %.168117.us, %Vec_IntTwoCountCommon.exit.us ], [ %.168117.us, %115 ], [ %.0.lcssa.i.us, %108 ], [ %.168117.us, %118 ]
+  %.2.us = phi i32 [ %.1118.us, %61 ], [ %.1118.us, %Vec_IntTwoCountCommon.exit.us ], [ %.1118.us, %115 ], [ %113, %108 ], [ %113, %118 ]
   %120 = icmp sgt i64 %indvars.iv141, 1
   br i1 %120, label %61, label %..critedge6.loopexit_crit_edge.us, !llvm.loop !43
 
@@ -2587,7 +2587,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %122
 
 135:                                              ; preds = %138, %124
   %indvars.iv.i = phi i64 [ %139, %138 ], [ %134, %124 ]
-  %136 = trunc i64 %indvars.iv.i to i32
+  %136 = trunc nuw i64 %indvars.iv.i to i32
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %144
 
@@ -2641,7 +2641,7 @@ Vec_PtrRemove.exit:                               ; preds = %147, %144
 
 165:                                              ; preds = %168, %Vec_PtrRemove.exit
   %indvars.iv.i99 = phi i64 [ %169, %168 ], [ %164, %Vec_PtrRemove.exit ]
-  %166 = trunc i64 %indvars.iv.i99 to i32
+  %166 = trunc nuw i64 %indvars.iv.i99 to i32
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %168, label %174
 

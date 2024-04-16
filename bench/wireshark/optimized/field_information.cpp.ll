@@ -208,8 +208,8 @@ switch.lookup:                                    ; preds = %10
   %switch.masked = trunc i46 %switch.downshift to i1
   br label %15
 
-15:                                               ; preds = %1, %4, %10, %switch.lookup, %6
-  %.0 = phi i1 [ true, %6 ], [ %switch.masked, %switch.lookup ], [ false, %10 ], [ false, %4 ], [ false, %1 ]
+15:                                               ; preds = %switch.lookup, %1, %4, %10, %6
+  %.0 = phi i1 [ true, %6 ], [ false, %10 ], [ false, %4 ], [ false, %1 ], [ %switch.masked, %switch.lookup ]
   ret i1 %.0
 }
 
@@ -526,13 +526,10 @@ define noundef zeroext i1 @_ZN16FieldInformation11tvbContainsEPS_(ptr nocapture 
   %12 = getelementptr inbounds i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %9, %13
-  br i1 %14, label %16, label %15
+  br label %15
 
 15:                                               ; preds = %7, %2
-  br label %16
-
-16:                                               ; preds = %7, %15
-  %.0 = phi i1 [ false, %15 ], [ true, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ %14, %7 ]
   ret i1 %.0
 }
 

@@ -987,7 +987,7 @@ _end_on_byte.exit20:                              ; preds = %26, %23
 
 _end_on_byte.exit22:                              ; preds = %33, %30
   %cond = icmp eq i8 %12, 84
-  br i1 %cond, label %39, label %_end_on_byte.exit20.thread.fold.split
+  br i1 %cond, label %39, label %_end_on_byte.exit20.thread
 
 39:                                               ; preds = %_end_on_byte.exit22, %_end_on_byte.exit20, %_end_on_byte.exit, %11, %11
   %40 = getelementptr inbounds i8, ptr %8, i64 1
@@ -1008,11 +1008,11 @@ _end_on_byte.exit22:                              ; preds = %33, %30
   %47 = shl nsw i64 %4, 20
   br label %_end_on_byte.exit20.thread
 
-_end_on_byte.exit20.thread.fold.split:            ; preds = %_end_on_byte.exit22, %11
+_end_on_byte.exit20.thread.fold.split:            ; preds = %11
   br label %_end_on_byte.exit20.thread
 
-_end_on_byte.exit20.thread:                       ; preds = %42, %39, %11, %_end_on_byte.exit20.thread.fold.split, %_end_on_byte.exit, %_end_on_byte.exit20, %26, %23, %46, %20, %37, %7, %1
-  %.010 = phi i64 [ -2, %1 ], [ -2, %7 ], [ %4, %11 ], [ %22, %20 ], [ %38, %37 ], [ %47, %46 ], [ %4, %23 ], [ %4, %26 ], [ -2, %_end_on_byte.exit20 ], [ -2, %_end_on_byte.exit ], [ -2, %_end_on_byte.exit20.thread.fold.split ], [ -2, %39 ], [ -2, %42 ]
+_end_on_byte.exit20.thread:                       ; preds = %_end_on_byte.exit22, %42, %39, %11, %_end_on_byte.exit20.thread.fold.split, %_end_on_byte.exit, %_end_on_byte.exit20, %26, %23, %46, %20, %37, %7, %1
+  %.010 = phi i64 [ -2, %1 ], [ -2, %7 ], [ %4, %11 ], [ %22, %20 ], [ %38, %37 ], [ %47, %46 ], [ %4, %23 ], [ %4, %26 ], [ -2, %_end_on_byte.exit20 ], [ -2, %_end_on_byte.exit ], [ -2, %_end_on_byte.exit22 ], [ -2, %_end_on_byte.exit20.thread.fold.split ], [ -2, %39 ], [ -2, %42 ]
   ret i64 %.010
 }
 
@@ -2018,29 +2018,21 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %70, label %4
+  br i1 %.not, label %69, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @xstrdup(ptr noundef nonnull %0) #20
   store ptr %5, ptr %2, align 8
   %6 = call ptr @strtok_r(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #20
   %.not35.not47 = icmp eq ptr %6, null
-  br i1 %.not35.not47, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %4
-  call void @slurm_xfree(ptr noundef nonnull %2) #20
-  br label %69
+  br i1 %.not35.not47, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %67
   %.031.fr49 = phi i16 [ %.031.fr, %67 ], [ 0, %4 ]
   %.03248 = phi ptr [ %68, %67 ], [ %6, %4 ]
   %7 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.59) #20
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.thread, label %9
-
-.thread:                                          ; preds = %.lr.ph
-  call void @slurm_xfree(ptr noundef nonnull %2) #20
-  br label %70
+  br i1 %8, label %.sink.split, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.60) #20
@@ -2158,13 +2150,16 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 ._crit_edge:                                      ; preds = %67
   call void @slurm_xfree(ptr noundef nonnull %2) #20
   %.not37 = icmp eq i16 %.031.fr, 0
-  br i1 %.not37, label %69, label %70
+  %spec.select53 = select i1 %.not37, i16 -1, i16 %.031.fr
+  br label %69
 
-69:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  br label %70
+.sink.split:                                      ; preds = %.lr.ph, %4
+  %.033.ph = phi i16 [ -1, %4 ], [ 0, %.lr.ph ]
+  call void @slurm_xfree(ptr noundef nonnull %2) #20
+  br label %69
 
-70:                                               ; preds = %69, %._crit_edge, %.thread, %1
-  %.033 = phi i16 [ -1, %1 ], [ 0, %.thread ], [ -1, %69 ], [ %.031.fr, %._crit_edge ]
+69:                                               ; preds = %._crit_edge, %.sink.split, %1
+  %.033 = phi i16 [ -1, %1 ], [ %spec.select53, %._crit_edge ], [ %.033.ph, %.sink.split ]
   ret i16 %.033
 }
 

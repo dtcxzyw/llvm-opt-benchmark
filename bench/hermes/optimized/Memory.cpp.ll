@@ -112,7 +112,7 @@ if.end23:                                         ; preds = %if.end12.thread, %i
   store i64 %mul24, ptr %Size, align 8
   %and = and i32 %PFlags, 67108864
   %tobool25.not = icmp eq i32 %and, 0
-  br i1 %tobool25.not, label %if.end33, label %if.then26
+  br i1 %tobool25.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
   %call28 = call { i32, ptr } @_ZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj(ptr noundef nonnull align 8 dereferenceable(16) %Result, i32 noundef %PFlags)
@@ -123,14 +123,13 @@ if.then26:                                        ; preds = %if.end23
   %cmp.i.i.i = icmp ne ptr %15, %call.i
   %cmp.i.i = icmp ne i32 %14, 0
   %.not.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.i.i
-  br i1 %.not.i, label %return, label %if.end33
-
-if.end33:                                         ; preds = %if.then26, %if.end23
+  %spec.select = select i1 %.not.i, i64 0, i64 %mul24
+  %spec.select36 = select i1 %.not.i, ptr null, ptr %call1335
   br label %return
 
-return:                                           ; preds = %if.then26, %entry, %if.end33, %if.end19, %if.then17
-  %retval.sroa.6.0 = phi i64 [ 0, %if.end19 ], [ %11, %if.then17 ], [ %mul24, %if.end33 ], [ 0, %entry ], [ 0, %if.then26 ]
-  %retval.sroa.0.0 = phi ptr [ null, %if.end19 ], [ %10, %if.then17 ], [ %call1335, %if.end33 ], [ null, %entry ], [ null, %if.then26 ]
+return:                                           ; preds = %if.then26, %if.end23, %entry, %if.end19, %if.then17
+  %retval.sroa.6.0 = phi i64 [ 0, %if.end19 ], [ %11, %if.then17 ], [ 0, %entry ], [ %mul24, %if.end23 ], [ %spec.select, %if.then26 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.end19 ], [ %10, %if.then17 ], [ null, %entry ], [ %call1335, %if.end23 ], [ %spec.select36, %if.then26 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert

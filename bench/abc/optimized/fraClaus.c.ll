@@ -253,7 +253,7 @@ define void @transpose32a(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %13 = xor i32 %12, %7
   %14 = zext i32 %13 to i64
   %15 = and i64 %.02326, %14
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = xor i32 %7, %16
   store i32 %17, ptr %6, align 4
   %18 = shl nuw nsw i64 %15, %2
@@ -385,7 +385,7 @@ define i32 @Fra_ClausProcessClausesCut(ptr nocapture noundef readonly %0, ptr no
   %50 = xor i32 %49, %44
   %51 = zext i32 %50 to i64
   %52 = and i64 %.02326.i, %51
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw i64 %52 to i32
   %54 = xor i32 %44, %53
   store i32 %54, ptr %43, align 4
   %55 = shl nuw nsw i64 %52, %39
@@ -445,7 +445,7 @@ transpose32a.exit:                                ; preds = %69
   %78 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv84
   %79 = load i32, ptr %78, align 4
   %.not = icmp eq i32 %79, 0
-  %80 = trunc i64 %indvars.iv84 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv84 to i32
   %81 = shl nuw nsw i32 1, %80
   %82 = select i1 %.not, i32 0, i32 %81
   %.2 = or i32 %82, %.160
@@ -529,7 +529,7 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, %26
   %.not38 = icmp eq i32 %32, 0
-  %33 = trunc i64 %indvars.iv53 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv53 to i32
   %34 = shl nuw nsw i32 1, %33
   %35 = select i1 %.not38, i32 0, i32 %34
   %.137 = or i32 %35, %.03642
@@ -562,7 +562,7 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
   %42 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv64
   %43 = load i32, ptr %42, align 4
   %.not = icmp eq i32 %43, 0
-  %44 = trunc i64 %indvars.iv64 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv64 to i32
   %45 = shl nuw nsw i32 1, %44
   %46 = select i1 %.not, i32 0, i32 %45
   %.1 = or i32 %46, %.049
@@ -694,7 +694,7 @@ define void @Fra_ClausProcessClausesCut3(ptr nocapture noundef readonly %0, ptr 
   %59 = xor i32 %58, %53
   %60 = zext i32 %59 to i64
   %61 = and i64 %.02326.i, %60
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   %63 = xor i32 %53, %62
   store i32 %63, ptr %52, align 4
   %64 = shl nuw nsw i64 %61, %48
@@ -769,7 +769,7 @@ transpose32a.exit:                                ; preds = %78
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, %89
   %.not = icmp eq i32 %95, 0
-  %96 = trunc i64 %indvars.iv87 to i32
+  %96 = trunc nuw nsw i64 %indvars.iv87 to i32
   %97 = shl nuw i32 1, %96
   %98 = select i1 %.not, i32 0, i32 %97
   %.1 = or i32 %98, %.05068
@@ -961,7 +961,7 @@ define void @Fra_ClausRecordClause(ptr nocapture noundef readonly %0, ptr nocapt
   %18 = getelementptr inbounds i32, ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = shl nsw i32 %19, 1
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = lshr i32 %2, %21
   %23 = and i32 %22, 1
   %24 = or disjoint i32 %20, %23
@@ -1207,7 +1207,7 @@ define void @Fra_ClausRecordClause2(ptr nocapture noundef readonly %0, ptr nocap
   %19 = getelementptr inbounds i32, ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = shl nsw i32 %20, 1
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = lshr i32 %2, %22
   %24 = and i32 %23, 1
   %25 = or disjoint i32 %21, %24
@@ -3200,7 +3200,7 @@ Abc_Clock.exit140:                                ; preds = %106, %109
   %176 = xor i32 %175, %170
   %177 = zext i32 %176 to i64
   %178 = and i64 %.02326.i.i, %177
-  %179 = trunc i64 %178 to i32
+  %179 = trunc nuw i64 %178 to i32
   %180 = xor i32 %170, %179
   store i32 %180, ptr %169, align 4
   %181 = shl nuw nsw i64 %178, %165
@@ -3260,7 +3260,7 @@ transpose32a.exit.i:                              ; preds = %195
   %204 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv84.i
   %205 = load i32, ptr %204, align 4
   %.not.i = icmp eq i32 %205, 0
-  %206 = trunc i64 %indvars.iv84.i to i32
+  %206 = trunc nuw nsw i64 %indvars.iv84.i to i32
   %207 = shl nuw nsw i32 1, %206
   %208 = select i1 %.not.i, i32 0, i32 %207
   %.2.i = or i32 %208, %.160.i
@@ -3283,7 +3283,7 @@ Fra_ClausProcessClausesCut.exit:                  ; preds = %.preheader.i
   %214 = add nuw nsw i32 %.093225, 1
   %215 = getelementptr inbounds i8, ptr %.097224, i64 24
   %216 = lshr i64 %213, 56
-  %217 = trunc i64 %216 to i32
+  %217 = trunc nuw nsw i64 %216 to i32
   %218 = icmp ult i32 %214, %217
   br i1 %218, label %.lr.ph, label %.loopexit223.loopexit, !llvm.loop !40
 
@@ -3550,7 +3550,7 @@ Abc_Clock.exit148:                                ; preds = %267, %270
   %336 = xor i32 %335, %330
   %337 = zext i32 %336 to i64
   %338 = and i64 %.02326.i.i184, %337
-  %339 = trunc i64 %338 to i32
+  %339 = trunc nuw i64 %338 to i32
   %340 = xor i32 %330, %339
   store i32 %340, ptr %329, align 4
   %341 = shl nuw nsw i64 %338, %325
@@ -3610,7 +3610,7 @@ transpose32a.exit.i192:                           ; preds = %355
   %364 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv84.i160
   %365 = load i32, ptr %364, align 4
   %.not.i162 = icmp eq i32 %365, 0
-  %366 = trunc i64 %indvars.iv84.i160 to i32
+  %366 = trunc nuw nsw i64 %indvars.iv84.i160 to i32
   %367 = shl nuw nsw i32 1, %366
   %368 = select i1 %.not.i162, i32 0, i32 %367
   %.2.i163 = or i32 %368, %.160.i161
@@ -3632,7 +3632,7 @@ Fra_ClausProcessClausesCut.exit197:               ; preds = %.preheader.i159
 .preheader:                                       ; preds = %Fra_ClausProcessClausesCut.exit197, %381
   %374 = phi i32 [ %382, %381 ], [ %372, %Fra_ClausProcessClausesCut.exit197 ]
   %indvars.iv242 = phi i64 [ %indvars.iv.next243, %381 ], [ 0, %Fra_ClausProcessClausesCut.exit197 ]
-  %375 = trunc i64 %indvars.iv242 to i32
+  %375 = trunc nuw nsw i64 %indvars.iv242 to i32
   %376 = shl nuw i32 1, %375
   %377 = and i32 %376, %371
   %.not113 = icmp eq i32 %377, 0
@@ -3649,7 +3649,7 @@ Fra_ClausProcessClausesCut.exit197:               ; preds = %.preheader.i159
   %382 = phi i32 [ %374, %.preheader ], [ %.pre249, %378 ]
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %383 = lshr i32 %382, 29
-  %384 = trunc i64 %indvars.iv.next243 to i32
+  %384 = trunc nuw i64 %indvars.iv.next243 to i32
   %.092.highbits = lshr i32 %384, %383
   %385 = icmp eq i32 %.092.highbits, 0
   br i1 %385, label %.preheader, label %.loopexit, !llvm.loop !42
@@ -3660,7 +3660,7 @@ Fra_ClausProcessClausesCut.exit197:               ; preds = %.preheader.i159
   %387 = getelementptr inbounds i8, ptr %.198230, i64 24
   %388 = load i64, ptr %289, align 8
   %389 = lshr i64 %388, 56
-  %390 = trunc i64 %389 to i32
+  %390 = trunc nuw nsw i64 %389 to i32
   %391 = icmp ult i32 %386, %390
   br i1 %391, label %.lr.ph233, label %.loopexit222.loopexit, !llvm.loop !43
 
@@ -3771,7 +3771,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #22
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #22
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3790,7 +3790,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -3932,7 +3932,7 @@ Abc_Clock.exit184:                                ; preds = %Abc_Clock.exit182, 
 
 75:                                               ; preds = %70
   %76 = lshr i64 %.val170, 32
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw i64 %76 to i32
   %78 = and i32 %77, 16777215
   %79 = load i32, ptr %60, align 8
   %80 = icmp ugt i32 %78, %79
@@ -3984,7 +3984,7 @@ Abc_Clock.exit184:                                ; preds = %Abc_Clock.exit182, 
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %97
-  %102 = trunc i64 %indvars.iv to i32
+  %102 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Fra_ClausRecordClause2(ptr noundef %0, ptr noundef nonnull %.0143191, i32 noundef %102, i32 noundef %96)
   %.pre = load i8, ptr %88, align 1
   br label %103
@@ -4747,7 +4747,7 @@ define void @Fra_ClausSimInfoRecord(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
+define i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca [16 x ptr], align 16
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
@@ -4840,12 +4840,12 @@ define noundef i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr
   %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ %42, %._crit_edge55.loopexit ]
   %43 = and i32 %25, 31
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %60, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader
 
 ._crit_edge55.thread:                             ; preds = %._crit_edge.thread
   %44 = and i32 %29, 31
   %.not80 = icmp eq i32 %44, 0
-  br i1 %.not80, label %60, label %._crit_edge60
+  br i1 %.not80, label %.loopexit, label %._crit_edge60
 
 .preheader:                                       ; preds = %._crit_edge55
   br i1 %5, label %.lr.ph59, label %._crit_edge60
@@ -4878,14 +4878,12 @@ define noundef i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr
   %57 = sub nsw i32 32, %56
   %58 = lshr i32 -1, %57
   %59 = and i32 %.141.lcssa, %58
-  %.not43 = icmp eq i32 %59, 0
-  br i1 %.not43, label %60, label %.loopexit
-
-60:                                               ; preds = %._crit_edge55.thread, %._crit_edge60, %._crit_edge55
+  %.not43 = icmp ne i32 %59, 0
+  %spec.select = zext i1 %.not43 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge53.us, %._crit_edge.thread, %.preheader47.lr.ph, %._crit_edge60, %60
-  %.039 = phi i32 [ 0, %60 ], [ 1, %._crit_edge60 ], [ 1, %.preheader47.lr.ph ], [ 1, %._crit_edge.thread ], [ 1, %._crit_edge53.us ]
+.loopexit:                                        ; preds = %._crit_edge53.us, %._crit_edge.thread, %._crit_edge55.thread, %.preheader47.lr.ph, %._crit_edge60, %._crit_edge55
+  %.039 = phi i32 [ 0, %._crit_edge55 ], [ %spec.select, %._crit_edge60 ], [ 1, %.preheader47.lr.ph ], [ 0, %._crit_edge55.thread ], [ 1, %._crit_edge.thread ], [ 1, %._crit_edge53.us ]
   ret i32 %.039
 }
 
@@ -5995,7 +5993,7 @@ define void @Fra_ClausPrintIndClauses(ptr nocapture noundef readonly %0) local_u
   br i1 %.not20, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = trunc i64 %indvars.iv28 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv28 to i32
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %29, i32 noundef %27)
   br label %31
 
@@ -6080,7 +6078,7 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
   %22 = getelementptr inbounds i32, ptr %8, i64 %21
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %23, ptr %22, align 4
   br label %24
 
@@ -6369,7 +6367,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
 31:                                               ; preds = %27
   %32 = zext nneg i32 %29 to i64
   %33 = getelementptr inbounds i32, ptr %calloc, i64 %32
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %34, ptr %33, align 4
   br label %35
 
@@ -7100,22 +7098,22 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #18
@@ -7150,9 +7148,9 @@ attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vect
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

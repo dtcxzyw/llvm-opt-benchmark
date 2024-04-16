@@ -251,7 +251,7 @@ invoke.cont4.i:                                   ; preds = %invoke.cont.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4.i
   %limits.sroa.2.0.extract.shift.i.i = lshr i64 %call5.i, 32
-  %limits.sroa.2.0.extract.trunc.i.i = trunc i64 %limits.sroa.2.0.extract.shift.i.i to i32
+  %limits.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %limits.sroa.2.0.extract.shift.i.i to i32
   %limits.sroa.0.0.extract.trunc.i.i = trunc i64 %call5.i to i32
   store i32 %limits.sroa.0.0.extract.trunc.i.i, ptr %huffMin_.i.i, align 4
   store i32 %limits.sroa.2.0.extract.trunc.i.i, ptr %huffMax_.i.i, align 8
@@ -872,11 +872,11 @@ if.end:                                           ; preds = %entry
   %conv.i14 = and i64 %call.i.i, 4294967295
   %add13.i.i.i = add i64 %conv.i14, %sub.ptr.sub.i
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add13.i.i.i, 4294967295
-  %4 = shl i64 %add13.i.i.i, 32
+  %4 = shl nuw i64 %add13.i.i.i, 32
   %5 = or disjoint i64 %4, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 2818, i64 %5
   %ref.tmp11.sroa.21.0.extract.shift.i.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i to i32
   %6 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i, 3
   %cmp.i.i.i.i = icmp eq i64 %6, 1
   %7 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
@@ -922,7 +922,7 @@ if.end34:                                         ; preds = %if.then12
   %call24 = tail call i64 @_ZN8proxygen12QPACKEncoder14maybeDuplicateEj(ptr noundef nonnull align 8 dereferenceable(624) %this, i32 noundef %call16)
   %ref.tmp23.sroa.0.0.extract.trunc = trunc i64 %call24 to i1
   %ref.tmp23.sroa.247.0.extract.shift = lshr i64 %call24, 32
-  %ref.tmp23.sroa.247.0.extract.trunc = trunc i64 %ref.tmp23.sroa.247.0.extract.shift to i32
+  %ref.tmp23.sroa.247.0.extract.trunc = trunc nuw i64 %ref.tmp23.sroa.247.0.extract.shift to i32
   %cmp28 = icmp eq i32 %ref.tmp23.sroa.247.0.extract.trunc, 0
   %15 = and i1 %cmp28, %ref.tmp23.sroa.0.0.extract.trunc
   br i1 %cmp28, label %if.then36, label %while.end124
@@ -958,7 +958,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i18
 if.then8.i:                                       ; preds = %if.then.i
   %call9.i = tail call i64 @_ZN8proxygen12QPACKEncoder14maybeDuplicateEj(ptr noundef nonnull align 8 dereferenceable(624) %this, i32 noundef %call6.i22), !noalias !11
   %ref.tmp.sroa.1.0.extract.shift.i = lshr i64 %call9.i, 32
-  %ref.tmp.sroa.1.0.extract.trunc.i = trunc i64 %ref.tmp.sroa.1.0.extract.shift.i to i32
+  %ref.tmp.sroa.1.0.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift.i to i32
   %tobool.not.i23 = icmp eq i32 %ref.tmp.sroa.1.0.extract.trunc.i, 0
   br i1 %tobool.not.i23, label %_ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE.exit, label %if.then10.i
 
@@ -982,11 +982,11 @@ if.then48:                                        ; preds = %_ZN8proxygen12QPACK
   %conv.i25 = and i64 %call.i.i24, 4294967295
   %add13.i.i.i29 = add i64 %conv.i25, %sub.ptr.sub.i
   %cmp.i.i.i.i.i.i.i30 = icmp ugt i64 %add13.i.i.i29, 4294967295
-  %22 = shl i64 %add13.i.i.i29, 32
+  %22 = shl nuw i64 %add13.i.i.i29, 32
   %23 = or disjoint i64 %22, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i.i31 = select i1 %cmp.i.i.i.i.i.i.i30, i64 2818, i64 %23
   %ref.tmp11.sroa.21.0.extract.shift.i.i.i32 = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i31, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i33 = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i32 to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i33 = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i.i32 to i32
   %24 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i31, 3
   %cmp.i.i.i.i34 = icmp eq i64 %24, 1
   %25 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i33, 32
@@ -1011,7 +1011,7 @@ _ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKc
   br i1 %call8.i, label %if.then53, label %if.else99
 
 if.then53:                                        ; preds = %land.rhs.i37, %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit
-  %tobool55 = trunc i8 %isStatic.0.i to i1
+  %tobool55 = trunc nuw i8 %isStatic.0.i to i1
   %controlBuffer_.i = getelementptr inbounds i8, ptr %this, i64 272
   %call.i38 = tail call noundef i32 @_ZN8proxygen12QPACKEncoder20encodeLiteralQHelperERNS_17HPACKEncodeBufferERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbjhRKNS_5HPACK11InstructionESE_(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(132) %controlBuffer_.i, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %tobool55, i32 noundef %nameIndex.0.i, i8 noundef zeroext 64, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL17Q_INSERT_NAME_REFE, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL20Q_INSERT_NO_NAME_REFE)
   %conv.i39 = zext i32 %call.i38 to i64
@@ -1096,7 +1096,7 @@ if.then105:                                       ; preds = %_ZN8proxygen12QPACK
   %absoluteNameIndex.074 = phi i32 [ %absoluteNameIndex.0.i, %if.end103 ], [ %absoluteNameIndex.0.i, %_ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE.exit ], [ %absoluteNameIndex.0.i, %if.else99 ], [ 0, %if.then96 ], [ %absoluteNameIndex.0.i, %land.lhs.true89 ], [ 0, %if.else ]
   %isStaticName.073 = phi i8 [ %isStatic.0.i, %if.end103 ], [ %isStatic.0.i, %_ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE.exit ], [ %isStatic.0.i, %if.else99 ], [ 1, %if.then96 ], [ %isStatic.0.i, %land.lhs.true89 ], [ %isStatic.0.i, %if.else ]
   %nameIndex.072 = phi i32 [ %nameIndex.0.i, %if.end103 ], [ %nameIndex.0.i, %_ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE.exit ], [ %nameIndex.0.i, %if.else99 ], [ 0, %if.then96 ], [ %nameIndex.0.i, %land.lhs.true89 ], [ %nameIndex.0.i, %if.else ]
-  %tobool107 = trunc i8 %isStaticName.073 to i1
+  %tobool107 = trunc nuw i8 %isStaticName.073 to i1
   %call108 = call noundef i64 @_ZN8proxygen12QPACKEncoder20encodeStreamLiteralQERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbjjjRj(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %tobool107, i32 noundef %nameIndex.072, i32 noundef %absoluteNameIndex.074, i32 noundef %baseIndex, ptr noundef nonnull align 4 dereferenceable(4) %requiredInsertCount), !range !4
   br label %return
 
@@ -1124,7 +1124,7 @@ return:                                           ; preds = %if.then126, %if.els
   %conv = and i64 %call.i, 4294967295
   %add13.i = add i64 %conv, %sub.ptr.sub.i
   %cmp.i.i.i.i.i = icmp ugt i64 %add13.i, 4294967295
-  %38 = shl i64 %add13.i, 32
+  %38 = shl nuw i64 %add13.i, 32
   %39 = or disjoint i64 %38, 1
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2818, i64 %39
   %40 = and i64 %retval.sroa.0.0.insert.insert.i.i.i, 3
@@ -1626,11 +1626,11 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add13.i.i = add i64 %conv, %sub.ptr.sub.i
   %cmp.i.i.i.i.i.i = icmp ugt i64 %add13.i.i, 4294967295
-  %1 = shl i64 %add13.i.i, 32
+  %1 = shl nuw i64 %add13.i.i, 32
   %2 = or disjoint i64 %1, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2818, i64 %2
   %ref.tmp11.sroa.21.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
   %3 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 3
   %cmp.i.i.i = icmp eq i64 %3, 1
   %4 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, 32
@@ -1818,7 +1818,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.then8:                                         ; preds = %if.then
   %call9 = tail call i64 @_ZN8proxygen12QPACKEncoder14maybeDuplicateEj(ptr noundef nonnull align 8 dereferenceable(624) %this, i32 noundef %call6)
   %ref.tmp.sroa.1.0.extract.shift = lshr i64 %call9, 32
-  %ref.tmp.sroa.1.0.extract.trunc = trunc i64 %ref.tmp.sroa.1.0.extract.shift to i32
+  %ref.tmp.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift to i32
   %tobool.not = icmp eq i32 %ref.tmp.sroa.1.0.extract.trunc, 0
   br i1 %tobool.not, label %if.end15, label %if.then10
 
@@ -1912,7 +1912,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %4 = trunc i64 %sub.ptr.sub.i to i8
+  %4 = trunc nuw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %4
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -2872,7 +2872,7 @@ entry:
 
 lor.rhs.i:                                        ; preds = %entry
   %call4.i = tail call noundef zeroext i1 @_ZNK5folly5IOBuf5emptyEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  br i1 %call4.i, label %_ZNK5folly10IOBufQueue5emptyEv.exit, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
+  br i1 %call4.i, label %_ZNK5folly10IOBufQueue5emptyEv.exit, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread
 
 _ZNK5folly10IOBufQueue5emptyEv.exit:              ; preds = %lor.rhs.i
   %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 576
@@ -2882,13 +2882,11 @@ _ZNK5folly10IOBufQueue5emptyEv.exit:              ; preds = %lor.rhs.i
   %3 = load ptr, ptr %tailStart_.i, align 8
   %cmp.i = icmp eq ptr %2, %3
   %cond.fr = freeze i1 %cmp.i
-  br i1 %cond.fr, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
+  %spec.select = select i1 %cond.fr, i8 0, i8 7
+  br label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread
 
-_ZNK5folly10IOBufQueue5emptyEv.exit.thread:       ; preds = %entry, %_ZNK5folly10IOBufQueue5emptyEv.exit
-  br label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
-
-_ZNK5folly10IOBufQueue5emptyEv.exit.thread2:      ; preds = %lor.rhs.i, %_ZNK5folly10IOBufQueue5emptyEv.exit, %_ZNK5folly10IOBufQueue5emptyEv.exit.thread
-  %4 = phi i8 [ 0, %_ZNK5folly10IOBufQueue5emptyEv.exit.thread ], [ 7, %_ZNK5folly10IOBufQueue5emptyEv.exit ], [ 7, %lor.rhs.i ]
+_ZNK5folly10IOBufQueue5emptyEv.exit.thread:       ; preds = %_ZNK5folly10IOBufQueue5emptyEv.exit, %lor.rhs.i, %entry
+  %4 = phi i8 [ 0, %entry ], [ 7, %lor.rhs.i ], [ %spec.select, %_ZNK5folly10IOBufQueue5emptyEv.exit ]
   ret i8 %4
 }
 

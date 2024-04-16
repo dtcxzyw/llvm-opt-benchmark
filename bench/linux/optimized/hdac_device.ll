@@ -477,7 +477,7 @@ define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
   %12 = icmp eq i32 %10, -1
   %13 = select i1 %11, i1 true, i1 %12
   %14 = lshr i32 %10, 16
-  %15 = trunc i32 %14 to i16
+  %15 = trunc nuw i32 %14 to i16
   %16 = and i16 %15, 32767
   %17 = and i32 %10, 32767
   %18 = select i1 %13, i16 0, i16 %16
@@ -504,7 +504,7 @@ define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
   store i32 %19, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 828
   store i16 %18, ptr %32, align 4
-  %33 = trunc i32 %19 to i16
+  %33 = trunc nuw nsw i32 %19 to i16
   %34 = add nuw i16 %18, %33
   %35 = getelementptr inbounds i8, ptr %0, i64 830
   store i16 %34, ptr %35, align 2
@@ -829,7 +829,7 @@ define dso_local i32 @snd_hdac_get_sub_nodes(ptr noundef %0, i16 noundef zeroext
   %11 = icmp eq i32 %9, -1
   %12 = select i1 %10, i1 true, i1 %11
   %13 = lshr i32 %9, 16
-  %14 = trunc i32 %13 to i16
+  %14 = trunc nuw i32 %13 to i16
   %15 = and i16 %14, 32767
   %16 = and i32 %9, 32767
   %.sink = select i1 %12, i16 0, i16 %15
@@ -951,7 +951,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
 72:                                               ; preds = %70
   %73 = load i32, ptr %7, align 4
   %74 = and i32 %73, %37
-  %75 = trunc i32 %74 to i16
+  %75 = trunc nuw nsw i32 %74 to i16
   store i16 %75, ptr %2, align 2
   br label %.thread18
 
@@ -1007,7 +1007,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %108 = and i32 %107, %36
   %109 = icmp eq i32 %108, 0
   %110 = and i32 %107, %37
-  %111 = trunc i32 %110 to i16
+  %111 = trunc nuw nsw i32 %110 to i16
   %112 = and i32 %110, 65535
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %116
@@ -1085,7 +1085,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br label %.loopexit
 
 .loopexit.loopexit20:                             ; preds = %134
-  %147 = trunc i64 %indvars.iv.next to i32
+  %147 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.split.us, %.loopexit.loopexit20, %132, %145
@@ -1176,15 +1176,13 @@ define dso_local i32 @snd_hdac_keep_power_up(ptr noundef %0) local_unnamed_addr 
   %14 = tail call i32 @pm_runtime_get_if_active(ptr noundef %0, i1 noundef zeroext true) #9
   %15 = icmp eq i32 %14, 0
   %16 = sext i1 %15 to i32
-  %17 = icmp sgt i32 %14, 0
-  br i1 %17, label %.loopexit, label %18
+  %.inv = icmp slt i32 %14, 1
+  %spec.select = select i1 %.inv, i32 %16, i32 1
+  br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  br label %18
-
-18:                                               ; preds = %.loopexit, %._crit_edge
-  %19 = phi i32 [ 1, %.loopexit ], [ %16, %._crit_edge ]
-  ret i32 %19
+  %17 = phi i32 [ %spec.select, %._crit_edge ], [ 1, %.lr.ph ]
+  ret i32 %17
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1435,7 +1433,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %38 = zext i16 %37 to i32
   %39 = or disjoint i32 %.sink, %38
   %40 = or i32 %39, %.fr
-  br label %47
+  br label %.thread4
 
 41:                                               ; preds = %28
   %42 = icmp eq i32 %.fr, 0
@@ -1443,14 +1441,12 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %44 = and i16 %43, -32768
   %45 = zext i16 %44 to i32
   %46 = or i32 %.fr, %45
-  br i1 %42, label %.thread4, label %47
+  %spec.select = select i1 %42, i32 0, i32 %46
+  br label %.thread4
 
-.thread4:                                         ; preds = %28, %22, %41
-  br label %47
-
-47:                                               ; preds = %.thread, %41, %.thread4
-  %48 = phi i32 [ 0, %.thread4 ], [ %46, %41 ], [ %40, %.thread ]
-  ret i32 %48
+.thread4:                                         ; preds = %41, %28, %22, %.thread
+  %47 = phi i32 [ %40, %.thread ], [ 0, %22 ], [ 0, %28 ], [ %spec.select, %41 ]
+  ret i32 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

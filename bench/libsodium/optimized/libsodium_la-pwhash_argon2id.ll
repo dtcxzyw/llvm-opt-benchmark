@@ -171,9 +171,9 @@ if.end23:                                         ; preds = %if.end19
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %if.end23
-  %conv = trunc i64 %opslimit to i32
+  %conv = trunc nuw i64 %opslimit to i32
   %div16 = lshr i64 %memlimit, 10
-  %conv24 = trunc i64 %div16 to i32
+  %conv24 = trunc nuw i64 %div16 to i32
   %call25 = tail call i32 @_sodium_argon2id_hash_raw(i32 noundef %conv, i32 noundef %conv24, i32 noundef 1, ptr noundef nonnull %passwd, i64 noundef %passwdlen, ptr noundef nonnull %salt, i64 noundef 16, ptr noundef nonnull %out, i64 noundef %outlen) #6
   %cmp26.not = icmp ne i32 %call25, 0
   %. = sext i1 %cmp26.not to i32
@@ -226,9 +226,9 @@ if.then9:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end
   call void @randombytes_buf(ptr noundef nonnull %salt, i64 noundef 16) #6
-  %conv = trunc i64 %opslimit to i32
+  %conv = trunc nuw i64 %opslimit to i32
   %div11 = lshr i64 %memlimit, 10
-  %conv12 = trunc i64 %div11 to i32
+  %conv12 = trunc nuw i64 %div11 to i32
   %call14 = call i32 @_sodium_argon2id_hash_encoded(i32 noundef %conv, i32 noundef %conv12, i32 noundef 1, ptr noundef nonnull %passwd, i64 noundef %passwdlen, ptr noundef nonnull %salt, i64 noundef 16, i64 noundef 32, ptr noundef nonnull %out, i64 noundef 128) #6
   %cmp15.not = icmp ne i32 %call14, 0
   %. = sext i1 %cmp15.not to i32
@@ -264,13 +264,13 @@ if.end4:                                          ; preds = %entry
 if.then10:                                        ; preds = %if.end4
   %call11 = tail call ptr @__errno_location() #5
   store i32 22, ptr %call11, align 4
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end4, %if.then10
   br label %return
 
-return:                                           ; preds = %if.end4, %if.end12, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.end12 ], [ %call5, %if.end4 ]
+if.end12:                                         ; preds = %if.end4
+  br label %return
+
+return:                                           ; preds = %if.then10, %if.end4, %if.end12, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ %call5, %if.end4 ], [ -1, %if.then10 ], [ -1, %if.end12 ]
   ret i32 %retval.0
 }
 

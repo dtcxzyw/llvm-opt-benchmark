@@ -825,15 +825,13 @@ define dso_local noundef i32 @mii_check_gmii_support(ptr nocapture noundef reado
   %13 = load i32, ptr %0, align 8
   %14 = tail call i32 %11(ptr noundef %12, i32 noundef %13, i32 noundef 15) #4
   %15 = and i32 %14, 12288
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %18
+  %16 = icmp ne i32 %15, 0
+  %spec.select = zext i1 %16 to i32
+  br label %17
 
 17:                                               ; preds = %10, %1
-  br label %18
-
-18:                                               ; preds = %17, %10
-  %19 = phi i32 [ 0, %17 ], [ 1, %10 ]
-  ret i32 %19
+  %18 = phi i32 [ 0, %1 ], [ %spec.select, %10 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

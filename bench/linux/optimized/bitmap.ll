@@ -91,7 +91,7 @@ define dso_local noundef zeroext i1 @__bitmap_equal(ptr nocapture noundef readon
   %18 = phi i64 [ 0, %3 ], [ %7, %15 ]
   %19 = and i32 %2, 63
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %33, label %21
+  br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.loopexit3
   %22 = getelementptr i64, ptr %0, i64 %18
@@ -105,14 +105,11 @@ define dso_local noundef zeroext i1 @__bitmap_equal(ptr nocapture noundef readon
   %30 = lshr i64 -1, %29
   %31 = and i64 %26, %30
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %.loopexit
-
-33:                                               ; preds = %21, %.loopexit3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %33, %21
-  %34 = phi i1 [ true, %33 ], [ false, %21 ], [ false, %8 ]
-  ret i1 %34
+.loopexit:                                        ; preds = %8, %21, %.loopexit3
+  %33 = phi i1 [ true, %.loopexit3 ], [ %32, %21 ], [ false, %8 ]
+  ret i1 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -198,7 +195,7 @@ define dso_local void @__bitmap_shift_right(ptr nocapture noundef writeonly %0, 
   %5 = zext i32 %3 to i64
   %6 = add nuw nsw i64 %5, 63
   %7 = lshr i64 %6, 6
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = lshr i32 %2, 6
   %10 = sub i32 0, %3
   %11 = and i32 %10, 63
@@ -292,7 +289,7 @@ define dso_local void @__bitmap_shift_left(ptr nocapture noundef writeonly %0, p
   %5 = zext i32 %3 to i64
   %6 = add nuw nsw i64 %5, 63
   %7 = lshr i64 %6, 6
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw nsw i64 %7 to i32
   %9 = lshr i32 %2, 6
   %10 = xor i32 %9, -1
   %11 = add nsw i32 %8, %10
@@ -369,7 +366,7 @@ define dso_local void @bitmap_cut(ptr nocapture noundef %0, ptr nocapture nounde
   %6 = zext i32 %4 to i64
   %7 = add nuw nsw i64 %6, 63
   %8 = lshr i64 %7, 6
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw nsw i64 %8 to i32
   %10 = and i32 %2, 63
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %21, label %12
@@ -668,7 +665,7 @@ define dso_local noundef zeroext i1 @__bitmap_intersects(ptr nocapture noundef r
   %19 = phi i64 [ 0, %3 ], [ %7, %16 ]
   %20 = and i32 %2, 63
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %34, label %22
+  br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %.loopexit3
   %23 = getelementptr i64, ptr %0, i64 %19
@@ -681,15 +678,12 @@ define dso_local noundef zeroext i1 @__bitmap_intersects(ptr nocapture noundef r
   %30 = lshr i64 -1, %29
   %31 = and i64 %24, %30
   %32 = and i64 %31, %26
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %.loopexit
-
-34:                                               ; preds = %22, %.loopexit3
+  %33 = icmp ne i64 %32, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %34, %22
-  %35 = phi i1 [ false, %34 ], [ true, %22 ], [ true, %8 ]
-  ret i1 %35
+.loopexit:                                        ; preds = %8, %22, %.loopexit3
+  %34 = phi i1 [ false, %.loopexit3 ], [ %33, %22 ], [ true, %8 ]
+  ret i1 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
@@ -722,7 +716,7 @@ define dso_local noundef zeroext i1 @__bitmap_subset(ptr nocapture noundef reado
   %20 = phi i64 [ 0, %3 ], [ %7, %17 ]
   %21 = and i32 %2, 63
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %36, label %23
+  br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %.loopexit3
   %24 = getelementptr i64, ptr %0, i64 %20
@@ -737,14 +731,11 @@ define dso_local noundef zeroext i1 @__bitmap_subset(ptr nocapture noundef reado
   %33 = and i64 %25, %32
   %34 = and i64 %33, %28
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %.loopexit
-
-36:                                               ; preds = %23, %.loopexit3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %36, %23
-  %37 = phi i1 [ true, %36 ], [ false, %23 ], [ false, %8 ]
-  ret i1 %37
+.loopexit:                                        ; preds = %8, %23, %.loopexit3
+  %36 = phi i1 [ true, %.loopexit3 ], [ %35, %23 ], [ false, %8 ]
+  ret i1 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read)
@@ -976,7 +967,7 @@ define dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef
 18:                                               ; preds = %10
   %19 = tail call i64 @_find_next_bit(ptr noundef %0, i64 noundef %16, i64 noundef %15) #13
   %20 = icmp ult i64 %19, %16
-  %21 = add i64 %19, 1
+  %21 = add nuw i64 %19, 1
   br i1 %20, label %10, label %22
 
 22:                                               ; preds = %18, %10
@@ -1575,7 +1566,7 @@ define dso_local void @bitmap_to_arr32(ptr nocapture noundef %0, ptr nocapture n
 18:                                               ; preds = %9
   %19 = load i64, ptr %12, align 8
   %20 = lshr i64 %19, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = getelementptr i32, ptr %0, i64 %16
   store i32 %21, ptr %22, align 4
   br label %23

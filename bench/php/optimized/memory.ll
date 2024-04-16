@@ -459,7 +459,7 @@ define internal noundef i32 @php_stream_memory_set_option(ptr nocapture noundef 
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %cond = icmp eq i32 %1, 10
-  br i1 %cond, label %7, label %88
+  br i1 %cond, label %7, label %89
 
 7:                                                ; preds = %4
   switch i32 %2, label %88 [
@@ -609,11 +609,11 @@ define internal noundef i32 @php_stream_memory_set_option(ptr nocapture noundef 
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %86, i8 0, i64 %87, i1 false)
   br label %89
 
-88:                                               ; preds = %7, %4
+88:                                               ; preds = %7
   br label %89
 
-89:                                               ; preds = %84, %53, %49, %8, %7, %88
-  %.0174 = phi i32 [ -2, %88 ], [ %2, %7 ], [ -1, %8 ], [ 0, %49 ], [ 0, %53 ], [ 0, %84 ]
+89:                                               ; preds = %4, %84, %53, %49, %8, %7, %88
+  %.0174 = phi i32 [ %2, %7 ], [ -1, %8 ], [ 0, %49 ], [ 0, %53 ], [ 0, %84 ], [ -2, %4 ], [ -2, %88 ]
   ret i32 %.0174
 }
 

@@ -11611,49 +11611,42 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden ptr @global_services_lookup(i16 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i16, align 2
   store i16 %0, ptr %3, align 2
-  switch i32 %1, label %7 [
+  switch i32 %1, label %6 [
     i32 0, label %8
     i32 1, label %4
-    i32 2, label %5
-    i32 3, label %6
+    i32 2, label %.thread
+    i32 3, label %5
   ]
 
 4:                                                ; preds = %2
   br label %8
 
 5:                                                ; preds = %2
-  br label %8
+  br label %.thread
 
 6:                                                ; preds = %2
-  br label %8
-
-7:                                                ; preds = %2
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 81, ptr noundef nonnull @__func__.global_services_lookup, ptr noundef nonnull @.str.2) #6
   unreachable
 
-8:                                                ; preds = %2, %4, %5, %6
-  %.013 = phi ptr [ @global_dccp_services_table, %6 ], [ @global_sctp_services_table, %5 ], [ @global_tcp_udp_services_table, %4 ], [ @global_tcp_udp_services_table, %2 ]
-  %.not17 = phi i1 [ true, %6 ], [ true, %5 ], [ false, %4 ], [ false, %2 ]
-  %.012 = phi ptr [ null, %6 ], [ null, %5 ], [ @global_udp_services_table, %4 ], [ @global_tcp_services_table, %2 ]
-  %.011 = phi i64 [ 9, %6 ], [ 87, %5 ], [ 5253, %4 ], [ 5253, %2 ]
-  %.0 = phi i64 [ undef, %6 ], [ undef, %5 ], [ 303, %4 ], [ 692, %2 ]
-  %9 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull %.013, i64 noundef %.011, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %14
+.thread:                                          ; preds = %5, %2
+  %.013.ph = phi ptr [ @global_dccp_services_table, %5 ], [ @global_sctp_services_table, %2 ]
+  %.011.ph = phi i64 [ 9, %5 ], [ 87, %2 ]
+  %7 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull %.013.ph, i64 noundef %.011.ph, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
+  br label %12
+
+8:                                                ; preds = %2, %4
+  %.012 = phi ptr [ @global_udp_services_table, %4 ], [ @global_tcp_services_table, %2 ]
+  %.0 = phi i64 [ 303, %4 ], [ 692, %2 ]
+  %9 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull @global_tcp_udp_services_table, i64 noundef 5253, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
+  %.not.not = icmp eq ptr %9, null
+  br i1 %.not.not, label %10, label %12
 
 10:                                               ; preds = %8
-  br i1 %.not17, label %13, label %11
+  %11 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull %.012, i64 noundef %.0, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
+  br label %12
 
-11:                                               ; preds = %10
-  %12 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef %.012, i64 noundef %.0, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
-  %.not18 = icmp eq ptr %12, null
-  br i1 %.not18, label %13, label %14
-
-13:                                               ; preds = %11, %10
-  br label %14
-
-14:                                               ; preds = %11, %8, %13
-  %.014 = phi ptr [ null, %13 ], [ %9, %8 ], [ %12, %11 ]
+12:                                               ; preds = %.thread, %10, %8
+  %.014 = phi ptr [ %9, %8 ], [ %11, %10 ], [ %7, %.thread ]
   ret ptr %.014
 }
 
@@ -11680,98 +11673,98 @@ define void @global_services_dump(ptr nocapture noundef %0) local_unnamed_addr #
   %5 = alloca i16, align 2
   br label %6
 
-6:                                                ; preds = %1, %global_services_lookup.exit45.thread
-  %indvars.iv = phi i32 [ 0, %1 ], [ %indvars.iv.next, %global_services_lookup.exit45.thread ]
+6:                                                ; preds = %1, %41
+  %indvars.iv = phi i32 [ 0, %1 ], [ %indvars.iv.next, %41 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  %7 = trunc i32 %indvars.iv to i16
+  %7 = trunc nuw i32 %indvars.iv to i16
   store i16 %7, ptr %5, align 2
   %8 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @global_tcp_udp_services_table, i64 noundef 5253, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
-  %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %9, label %11
+  %.not.not.i = icmp eq ptr %8, null
+  br i1 %.not.not.i, label %global_services_lookup.exit, label %global_services_lookup.exit.thread
 
-9:                                                ; preds = %6
-  %10 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @global_tcp_services_table, i64 noundef 692, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
-  %.not18.i = icmp eq ptr %10, null
-  br i1 %.not18.i, label %global_services_lookup.exit, label %11
-
-global_services_lookup.exit:                      ; preds = %9
+global_services_lookup.exit.thread:               ; preds = %6
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  br label %17
+  br label %10
 
-11:                                               ; preds = %6, %9
-  %.014.i.ph = phi ptr [ %10, %9 ], [ %8, %6 ]
+global_services_lookup.exit:                      ; preds = %6
+  %9 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @global_tcp_services_table, i64 noundef 692, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %.014.i.ph, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.014.i.ph, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %13, i32 noundef %indvars.iv, ptr noundef %15) #7
-  br label %17
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %16, label %10
 
-17:                                               ; preds = %global_services_lookup.exit, %11
+10:                                               ; preds = %global_services_lookup.exit.thread, %global_services_lookup.exit
+  %.014.i41 = phi ptr [ %8, %global_services_lookup.exit.thread ], [ %9, %global_services_lookup.exit ]
+  %11 = getelementptr inbounds i8, ptr %.014.i41, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %.014.i41, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %12, i32 noundef %indvars.iv, ptr noundef %14) #7
+  br label %16
+
+16:                                               ; preds = %10, %global_services_lookup.exit
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   store i16 %7, ptr %4, align 2
-  %18 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @global_tcp_udp_services_table, i64 noundef 5253, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
-  %.not.i34 = icmp eq ptr %18, null
-  br i1 %.not.i34, label %19, label %21
+  %17 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @global_tcp_udp_services_table, i64 noundef 5253, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
+  %.not.not.i34 = icmp eq ptr %17, null
+  br i1 %.not.not.i34, label %global_services_lookup.exit36, label %global_services_lookup.exit36.thread
 
-19:                                               ; preds = %17
-  %20 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @global_udp_services_table, i64 noundef 303, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
-  %.not18.i36 = icmp eq ptr %20, null
-  br i1 %.not18.i36, label %global_services_lookup.exit37, label %21
-
-global_services_lookup.exit37:                    ; preds = %19
+global_services_lookup.exit36.thread:             ; preds = %16
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  br label %27
+  br label %19
 
-21:                                               ; preds = %17, %19
-  %.014.i35.ph = phi ptr [ %20, %19 ], [ %18, %17 ]
+global_services_lookup.exit36:                    ; preds = %16
+  %18 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @global_udp_services_table, i64 noundef 303, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  %22 = getelementptr inbounds i8, ptr %.014.i35.ph, i64 8
+  %.not31 = icmp eq ptr %18, null
+  br i1 %.not31, label %25, label %19
+
+19:                                               ; preds = %global_services_lookup.exit36.thread, %global_services_lookup.exit36
+  %.014.i3544 = phi ptr [ %17, %global_services_lookup.exit36.thread ], [ %18, %global_services_lookup.exit36 ]
+  %20 = getelementptr inbounds i8, ptr %.014.i3544, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %.014.i3544, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.014.i35.ph, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %23, i32 noundef %indvars.iv, ptr noundef %25) #7
-  br label %27
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %21, i32 noundef %indvars.iv, ptr noundef %23) #7
+  br label %25
 
-27:                                               ; preds = %global_services_lookup.exit37, %21
+25:                                               ; preds = %19, %global_services_lookup.exit36
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   store i16 %7, ptr %3, align 2
-  %28 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull @global_sctp_services_table, i64 noundef 87, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
-  %.not.i38 = icmp eq ptr %28, null
+  %26 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull @global_sctp_services_table, i64 noundef 87, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  br i1 %.not.i38, label %global_services_lookup.exit41.thread, label %29
+  %.not32 = icmp eq ptr %26, null
+  br i1 %.not32, label %33, label %27
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %26, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %31, i32 noundef %indvars.iv, ptr noundef %33) #7
-  br label %global_services_lookup.exit41.thread
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %29, i32 noundef %indvars.iv, ptr noundef %31) #7
+  br label %33
 
-global_services_lookup.exit41.thread:             ; preds = %27, %29
+33:                                               ; preds = %27, %25
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
   store i16 %7, ptr %2, align 2
-  %35 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef nonnull @global_dccp_services_table, i64 noundef 9, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
-  %.not.i42 = icmp eq ptr %35, null
+  %34 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef nonnull @global_dccp_services_table, i64 noundef 9, i64 noundef 24, ptr noundef nonnull @compare_entry) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
-  br i1 %.not.i42, label %global_services_lookup.exit45.thread, label %36
+  %.not33 = icmp eq ptr %34, null
+  br i1 %.not33, label %41, label %35
 
-36:                                               ; preds = %global_services_lookup.exit41.thread
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %38, i32 noundef %indvars.iv, ptr noundef %40) #7
-  br label %global_services_lookup.exit45.thread
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %34, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %37, i32 noundef %indvars.iv, ptr noundef %39) #7
+  br label %41
 
-global_services_lookup.exit45.thread:             ; preds = %global_services_lookup.exit41.thread, %36
+41:                                               ; preds = %33, %35
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 49151
   br i1 %exitcond.not, label %42, label %6, !llvm.loop !4
 
-42:                                               ; preds = %global_services_lookup.exit45.thread
+42:                                               ; preds = %41
   ret void
 }
 

@@ -28,16 +28,16 @@ entry:
 if.end.i:                                         ; preds = %entry
   %and.i = and i64 %flags, 2
   %cmp1.i = icmp eq i64 %and.i, 0
-  br i1 %cmp1.i, label %land.lhs.true.i, label %if.then
+  br i1 %cmp1.i, label %ocsp_find_signer.exit, label %if.then
 
-land.lhs.true.i:                                  ; preds = %if.end.i
+ocsp_find_signer.exit:                            ; preds = %if.end.i
   %certs2.i = getelementptr inbounds i8, ptr %bs, i64 72
   %0 = load ptr, ptr %certs2.i, align 8
   %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull %responderId.i)
-  %tobool.not.i = icmp eq ptr %call3.i, null
-  br i1 %tobool.not.i, label %if.then, label %if.end4
+  %tobool.not.i.not = icmp eq ptr %call3.i, null
+  br i1 %tobool.not.i.not, label %if.then, label %if.end4
 
-if.then:                                          ; preds = %if.end.i, %land.lhs.true.i
+if.then:                                          ; preds = %ocsp_find_signer.exit, %if.end.i
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 107, ptr noundef nonnull @__func__.OCSP_basic_verify) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 118, ptr noundef null) #3
@@ -49,10 +49,10 @@ land.lhs.true:                                    ; preds = %entry
   %spec.select = or i64 %1, %flags
   br label %if.end4
 
-if.end4:                                          ; preds = %land.lhs.true.i, %land.lhs.true
-  %.sink.i25 = phi ptr [ %call.i, %land.lhs.true ], [ %call3.i, %land.lhs.true.i ]
-  %flags.addr.0 = phi i64 [ %spec.select, %land.lhs.true ], [ %flags, %land.lhs.true.i ]
-  %call5 = tail call fastcc i32 @ocsp_verify(ptr noundef null, ptr noundef %bs, ptr noundef nonnull %.sink.i25, i64 noundef %flags.addr.0)
+if.end4:                                          ; preds = %ocsp_find_signer.exit, %land.lhs.true
+  %.sink.i28 = phi ptr [ %call3.i, %ocsp_find_signer.exit ], [ %call.i, %land.lhs.true ]
+  %flags.addr.0 = phi i64 [ %flags, %ocsp_find_signer.exit ], [ %spec.select, %land.lhs.true ]
+  %call5 = tail call fastcc i32 @ocsp_verify(ptr noundef null, ptr noundef %bs, ptr noundef nonnull %.sink.i28, i64 noundef %flags.addr.0)
   %cmp6 = icmp sgt i32 %call5, 0
   %and9 = and i64 %flags.addr.0, 16
   %cmp10 = icmp eq i64 %and9, 0
@@ -78,7 +78,7 @@ if.end20:                                         ; preds = %if.then14
 
 if.end24:                                         ; preds = %if.end20, %if.then11
   %untrusted.0 = phi ptr [ %call17, %if.end20 ], [ null, %if.then11 ]
-  %call25 = call fastcc i32 @ocsp_verify_signer(ptr noundef nonnull %.sink.i25, i32 noundef 1, ptr noundef %st, i64 noundef %flags.addr.0, ptr noundef %untrusted.0, ptr noundef nonnull %chain)
+  %call25 = call fastcc i32 @ocsp_verify_signer(ptr noundef nonnull %.sink.i28, i32 noundef 1, ptr noundef %st, i64 noundef %flags.addr.0, ptr noundef %untrusted.0, ptr noundef nonnull %chain)
   %cmp26 = icmp slt i32 %call25, 1
   br i1 %cmp26, label %end, label %if.end28
 
@@ -116,12 +116,12 @@ if.end.i.i:                                       ; preds = %if.end.i19
   %call3.i.i = call ptr @OPENSSL_sk_value(ptr noundef %bs.val, i32 noundef 0) #3
   %5 = load ptr, ptr %call3.i.i, align 8
   %cmp410.not.i.i = icmp eq i32 %call1.i.i, 1
-  br i1 %cmp410.not.i.i, label %if.end5.i20, label %for.body.i.i
+  br i1 %cmp410.not.i.i, label %if.end5.i, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add nuw nsw i32 %i.011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %call1.i.i
-  br i1 %exitcond.not.i.i, label %if.end5.i20, label %for.body.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %if.end5.i, label %for.body.i.i, !llvm.loop !4
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.cond.i.i
   %i.011.i.i = phi i32 [ %inc.i.i, %for.cond.i.i ], [ 1, %if.end.i.i ]
@@ -136,16 +136,16 @@ if.then9.i.i:                                     ; preds = %for.body.i.i
   %8 = load ptr, ptr %5, align 8
   %call12.i.i = call i32 @OBJ_cmp(ptr noundef %7, ptr noundef %8) #3
   %tobool13.not.i.i = icmp eq i32 %call12.i.i, 0
-  br i1 %tobool13.not.i.i, label %if.end36, label %if.end5.i20
+  br i1 %tobool13.not.i.i, label %if.end36, label %if.end5.i
 
-if.end5.i20:                                      ; preds = %for.cond.i.i, %if.then9.i.i, %if.end.i.i
+if.end5.i:                                        ; preds = %for.cond.i.i, %if.then9.i.i, %if.end.i.i
   %caid.0.ph.i = phi ptr [ %5, %if.end.i.i ], [ null, %if.then9.i.i ], [ %5, %for.cond.i.i ]
   %call7.i = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef 0) #3
   %call9.i = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
   %cmp10.i = icmp sgt i32 %call9.i, 1
   br i1 %cmp10.i, label %if.then11.i, label %ocsp_check_issuer.exit
 
-if.then11.i:                                      ; preds = %if.end5.i20
+if.then11.i:                                      ; preds = %if.end5.i
   %call13.i = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef 1) #3
   %call14.i = call fastcc i32 @ocsp_match_issuerid(ptr noundef %call13.i, ptr noundef %caid.0.ph.i, ptr noundef %bs.val), !range !6
   %cmp15.i = icmp slt i32 %call14.i, 0
@@ -173,7 +173,7 @@ land.lhs.true.i.i:                                ; preds = %if.then19.i
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 103, ptr noundef null) #3
   br label %if.end36
 
-ocsp_check_issuer.exit:                           ; preds = %if.end5.i20, %if.end17.i
+ocsp_check_issuer.exit:                           ; preds = %if.end5.i, %if.end17.i
   %call25.i = call fastcc i32 @ocsp_match_issuerid(ptr noundef %call7.i, ptr noundef %caid.0.ph.i, ptr noundef %bs.val), !range !6
   %cmp34.not = icmp eq i32 %call25.i, 0
   br i1 %cmp34.not, label %if.end36, label %end
@@ -385,7 +385,7 @@ if.end.i:                                         ; preds = %entry
   %1 = zext i1 %tobool.not.i to i32
   br label %ocsp_find_signer.exit
 
-ocsp_find_signer.exit:                            ; preds = %if.end.i, %entry
+ocsp_find_signer.exit:                            ; preds = %entry, %if.end.i
   %.sink.i = phi ptr [ %call.i, %entry ], [ %call3.i, %if.end.i ]
   %retval.0.i = phi i32 [ 1, %entry ], [ %1, %if.end.i ]
   store ptr %.sink.i, ptr %signer, align 8

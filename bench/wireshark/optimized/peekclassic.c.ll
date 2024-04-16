@@ -220,14 +220,14 @@ define internal noundef i32 @peekclassic_seek_read_v56(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @peekclassic_read_v7(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal i32 @peekclassic_read_v7(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #6
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call fastcc i32 @peekclassic_read_packet_v7(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %26, label %12
+  br i1 %11, label %25, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %1, i64 64
@@ -240,7 +240,7 @@ define internal noundef i32 @peekclassic_read_v7(ptr nocapture noundef readonly 
   %18 = sub nsw i32 %10, %14
   %19 = tail call i32 @wtap_read_bytes(ptr noundef %17, ptr noundef null, i32 noundef %18, ptr noundef %3, ptr noundef %4) #6
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %26, label %20
+  br i1 %.not, label %25, label %20
 
 20:                                               ; preds = %16, %12
   %21 = and i32 %10, 1
@@ -250,14 +250,12 @@ define internal noundef i32 @peekclassic_read_v7(ptr nocapture noundef readonly 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %0, align 8
   %24 = tail call i32 @wtap_read_bytes(ptr noundef %23, ptr noundef null, i32 noundef 1, ptr noundef %3, ptr noundef %4) #6
-  %.not23 = icmp eq i32 %24, 0
-  br i1 %.not23, label %26, label %25
+  %.not23 = icmp ne i32 %24, 0
+  %spec.select = zext i1 %.not23 to i32
+  br label %25
 
-25:                                               ; preds = %22, %20
-  br label %26
-
-26:                                               ; preds = %22, %16, %6, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %6 ], [ 0, %16 ], [ 0, %22 ]
+25:                                               ; preds = %22, %20, %16, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %16 ], [ 1, %20 ], [ %spec.select, %22 ]
   ret i32 %.0
 }
 

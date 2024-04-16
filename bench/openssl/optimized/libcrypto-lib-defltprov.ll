@@ -818,7 +818,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @deflt_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
+define internal i32 @deflt_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null
@@ -852,19 +852,17 @@ land.lhs.true11:                                  ; preds = %if.end8
 if.end15:                                         ; preds = %land.lhs.true11, %if.end8
   %call16 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.3) #4
   %cmp17.not = icmp eq ptr %call16, null
-  br i1 %cmp17.not, label %if.end23, label %land.lhs.true18
+  br i1 %cmp17.not, label %return, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end15
   %call19 = tail call i32 @ossl_prov_is_running() #4
   %call20 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call16, i32 noundef %call19) #4
-  %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %return, label %if.end23
-
-if.end23:                                         ; preds = %land.lhs.true18, %if.end15
+  %tobool21.not = icmp ne i32 %call20, 0
+  %spec.select = zext i1 %tobool21.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true18, %land.lhs.true11, %land.lhs.true4, %land.lhs.true, %if.end23
-  %retval.0 = phi i32 [ 1, %if.end23 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true18 ]
+return:                                           ; preds = %land.lhs.true18, %if.end15, %land.lhs.true11, %land.lhs.true4, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 1, %if.end15 ], [ %spec.select, %land.lhs.true18 ]
   ret i32 %retval.0
 }
 

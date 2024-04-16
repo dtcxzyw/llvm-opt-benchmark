@@ -688,13 +688,13 @@ define dso_local noundef i32 @ehci_hub_control(ptr noundef %0, i16 noundef zeroe
   store i8 10, ptr %125, align 1
   %126 = getelementptr inbounds i8, ptr %4, i64 6
   store i8 0, ptr %126, align 1
-  %127 = trunc i32 %123 to i8
+  %127 = trunc nuw nsw i32 %123 to i8
   %128 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 %127, ptr %128, align 1
   %129 = lshr i32 %123, 3
-  %130 = trunc i32 %129 to i16
+  %130 = trunc nuw nsw i32 %129 to i16
   %131 = add nuw nsw i16 %130, 1
-  %132 = trunc i16 %131 to i8
+  %132 = trunc nuw nsw i16 %131 to i8
   %133 = shl nuw nsw i8 %132, 1
   %134 = add nuw nsw i8 %133, 7
   store i8 %134, ptr %4, align 1
@@ -5185,7 +5185,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %45
-  %54 = trunc i32 %51 to i8
+  %54 = trunc nuw nsw i32 %51 to i8
   store i8 %54, ptr %48, align 1
   br label %.loopexit35
 
@@ -5310,7 +5310,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
 
 .loopexit8.i:                                     ; preds = %120, %110
   %.val.i = load i16, ptr %74, align 8
-  %129 = trunc i64 %indvars.iv to i32
+  %129 = trunc nuw nsw i64 %indvars.iv to i32
   %130 = tail call fastcc i32 @tt_available(ptr noundef %0, i16 %.val.i, i8 %79, ptr noundef %10, i32 noundef %82, i32 noundef %129)
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %.loopexit, label %132
@@ -5404,7 +5404,7 @@ define internal fastcc i32 @qh_schedule(ptr nocapture noundef %0, ptr noundef %1
   br i1 %189, label %check_intr_schedule.exit, label %check_intr_schedule.exit.thread31
 
 check_intr_schedule.exit.loopexit55:              ; preds = %105
-  %190 = trunc i64 %indvars.iv78 to i32
+  %190 = trunc nuw nsw i64 %indvars.iv78 to i32
   br label %check_intr_schedule.exit
 
 check_intr_schedule.exit:                         ; preds = %96, %check_intr_schedule.exit.loopexit55, %161, %188
@@ -5976,7 +5976,7 @@ define internal fastcc void @compute_tt_budget(ptr nocapture noundef %0, ptr nou
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %31
-  %40 = trunc i32 %37 to i8
+  %40 = trunc nuw nsw i32 %37 to i8
   store i8 %40, ptr %34, align 1
   br label %.loopexit
 
@@ -6213,7 +6213,7 @@ define internal fastcc noundef i32 @tt_available(ptr nocapture noundef readonly 
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %.split.us
-  %34 = trunc i64 %27 to i32
+  %34 = trunc nuw nsw i64 %27 to i32
   %35 = shl nuw nsw i32 %34, 3
   br label %36
 
@@ -6295,7 +6295,7 @@ define internal fastcc noundef i32 @tt_available(ptr nocapture noundef readonly 
   br i1 %84, label %.loopexit, label %85
 
 85:                                               ; preds = %.split
-  %86 = trunc i64 %79 to i32
+  %86 = trunc nuw nsw i64 %79 to i32
   %87 = shl nuw nsw i32 %86, 3
   br label %88
 
@@ -8234,7 +8234,7 @@ define internal i32 @ehci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   store i32 %378, ptr %376, align 4
   %379 = load i64, ptr %361, align 8
   %380 = lshr i64 %379, 32
-  %381 = trunc i64 %380 to i32
+  %381 = trunc nuw i64 %380 to i32
   %382 = getelementptr inbounds i8, ptr %356, i64 64
   %383 = getelementptr [7 x i32], ptr %382, i64 0, i64 %375
   %384 = load i32, ptr %383, align 4
@@ -8257,7 +8257,7 @@ define internal i32 @ehci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %397 = or i32 %396, %393
   store i32 %397, ptr %395, align 4
   %398 = lshr i64 %391, 32
-  %399 = trunc i64 %398 to i32
+  %399 = trunc nuw i64 %398 to i32
   %400 = getelementptr [7 x i32], ptr %382, i64 0, i64 %394
   %401 = load i32, ptr %400, align 4
   %402 = or i32 %401, %399
@@ -8520,7 +8520,7 @@ define internal i32 @ehci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %517, label %550, label %557
 
 550:                                              ; preds = %549
-  %551 = trunc i32 %524 to i16
+  %551 = trunc nuw nsw i32 %524 to i16
   %.lhs.trunc = add nuw nsw i16 %551, 187
   %552 = udiv i16 %.lhs.trunc, 188
   %.zext = zext nneg i16 %552 to i32
@@ -8764,7 +8764,7 @@ define internal i32 @ehci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %691 = getelementptr i8, ptr %667, i64 -56
   store i32 %690, ptr %691, align 16
   %692 = lshr i64 %689, 32
-  %693 = trunc i64 %692 to i32
+  %693 = trunc nuw i64 %692 to i32
   %694 = getelementptr i8, ptr %667, i64 -44
   store i32 %693, ptr %694, align 4
   %695 = getelementptr inbounds i8, ptr %680, i64 16
@@ -8777,7 +8777,7 @@ define internal i32 @ehci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %701 = add i64 %689, 4096
   %702 = select i1 %700, i64 %689, i64 %701
   %703 = lshr i64 %702, 32
-  %704 = trunc i64 %703 to i32
+  %704 = trunc nuw i64 %703 to i32
   %705 = getelementptr i8, ptr %667, i64 -40
   store i32 %704, ptr %705, align 4
   %706 = getelementptr i8, ptr %667, i64 20
@@ -9352,137 +9352,135 @@ define internal i32 @ehci_hub_status_data(ptr noundef %0, ptr nocapture noundef 
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 65536
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %22, label %21
+  %spec.select = select i1 %20, i32 42, i32 10
+  br label %21
 
 21:                                               ; preds = %16, %9
-  br label %22
+  %22 = phi i32 [ 10, %9 ], [ %spec.select, %16 ]
+  %23 = getelementptr inbounds i8, ptr %0, i64 820
+  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %23) #19
+  %25 = getelementptr inbounds i8, ptr %0, i64 1312
+  %26 = load i8, ptr %25, align 8
+  %27 = and i8 %26, 4
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %35, label %29
 
-22:                                               ; preds = %21, %16
-  %23 = phi i32 [ 10, %21 ], [ 42, %16 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 820
-  %25 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %24) #19
-  %26 = getelementptr inbounds i8, ptr %0, i64 1312
-  %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 4
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %30
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds i8, ptr %0, i64 800
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #19, !srcloc !5
+  %34 = lshr i32 %33, 16
+  br label %35
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %0, i64 800
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
-  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #19, !srcloc !5
-  %35 = lshr i32 %34, 16
-  br label %36
+35:                                               ; preds = %29, %21
+  %36 = phi i32 [ %34, %29 ], [ -1, %21 ]
+  %37 = icmp eq i32 %5, 0
+  br i1 %37, label %.loopexit, label %38
 
-36:                                               ; preds = %30, %22
-  %37 = phi i32 [ %35, %30 ], [ -1, %22 ]
-  %38 = icmp eq i32 %5, 0
-  br i1 %38, label %.loopexit, label %39
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %0, i64 800
+  %40 = getelementptr inbounds i8, ptr %0, i64 1216
+  %41 = getelementptr inbounds i8, ptr %0, i64 1072
+  %42 = getelementptr inbounds i8, ptr %0, i64 1300
+  %43 = getelementptr inbounds i8, ptr %0, i64 1296
+  %44 = zext nneg i32 %5 to i64
+  br label %45
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 800
-  %41 = getelementptr inbounds i8, ptr %0, i64 1216
-  %42 = getelementptr inbounds i8, ptr %0, i64 1072
-  %43 = getelementptr inbounds i8, ptr %0, i64 1300
-  %44 = getelementptr inbounds i8, ptr %0, i64 1296
-  %45 = zext nneg i32 %5 to i64
-  br label %46
+45:                                               ; preds = %95, %38
+  %46 = phi i64 [ 0, %38 ], [ %97, %95 ]
+  %47 = phi i32 [ %13, %38 ], [ %96, %95 ]
+  %48 = trunc i64 %46 to i32
+  %49 = shl nuw nsw i32 1, %48
+  %50 = and i32 %49, %36
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %57, label %52
 
-46:                                               ; preds = %96, %39
-  %47 = phi i64 [ 0, %39 ], [ %98, %96 ]
-  %48 = phi i32 [ %13, %39 ], [ %97, %96 ]
-  %49 = trunc i64 %47 to i32
-  %50 = shl nuw nsw i32 1, %49
-  %51 = and i32 %50, %37
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %58, label %53
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %39, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 68
+  %55 = getelementptr [15 x i32], ptr %54, i64 0, i64 %46
+  %56 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55) #19, !srcloc !5
+  br label %57
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %40, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 68
-  %56 = getelementptr [15 x i32], ptr %55, i64 0, i64 %47
-  %57 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %56) #19, !srcloc !5
-  br label %58
+57:                                               ; preds = %52, %45
+  %58 = phi i32 [ %56, %52 ], [ 0, %45 ]
+  %59 = and i32 %58, %22
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %84
 
-58:                                               ; preds = %53, %46
-  %59 = phi i32 [ %57, %53 ], [ 0, %46 ]
-  %60 = and i32 %59, %23
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %85
+61:                                               ; preds = %57
+  %62 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %40, i64 %46) #19, !srcloc !17
+  %63 = icmp ult i8 %62, 2
+  tail call void @llvm.assume(i1 %63)
+  %64 = icmp eq i8 %62, 0
+  br i1 %64, label %65, label %84
 
-62:                                               ; preds = %58
-  %63 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41, i64 %47) #19, !srcloc !17
-  %64 = icmp ult i8 %63, 2
-  tail call void @llvm.assume(i1 %64)
-  %65 = icmp eq i8 %63, 0
-  br i1 %65, label %66, label %85
+65:                                               ; preds = %61
+  %66 = getelementptr [15 x i64], ptr %41, i64 0, i64 %46
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %73, label %69
 
-66:                                               ; preds = %62
-  %67 = getelementptr [15 x i64], ptr %42, i64 0, i64 %47
-  %68 = load i64, ptr %67, align 8
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %74, label %70
+69:                                               ; preds = %65
+  %70 = load volatile i64, ptr @jiffies, align 64
+  %71 = sub i64 %70, %67
+  %72 = icmp sgt i64 %71, -1
+  br i1 %72, label %84, label %73
 
-70:                                               ; preds = %66
-  %71 = load volatile i64, ptr @jiffies, align 64
-  %72 = sub i64 %71, %68
-  %73 = icmp sgt i64 %72, -1
-  br i1 %73, label %85, label %74
+73:                                               ; preds = %69, %65
+  %74 = load i32, ptr %42, align 4
+  %75 = and i32 %74, 16
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %95, label %77
 
-74:                                               ; preds = %70, %66
-  %75 = load i32, ptr %43, align 4
-  %76 = and i32 %75, 16
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %96, label %78
+77:                                               ; preds = %73
+  %78 = load i32, ptr %43, align 8
+  %79 = and i32 %78, 16
+  %80 = icmp ne i32 %79, 0
+  %81 = and i32 %58, 12
+  %82 = icmp eq i32 %81, 0
+  %83 = and i1 %82, %80
+  br i1 %83, label %84, label %95
 
-78:                                               ; preds = %74
-  %79 = load i32, ptr %44, align 8
-  %80 = and i32 %79, 16
-  %81 = icmp ne i32 %80, 0
-  %82 = and i32 %59, 12
-  %83 = icmp eq i32 %82, 0
-  %84 = and i1 %83, %81
-  br i1 %84, label %85, label %96
+84:                                               ; preds = %77, %69, %61, %57
+  %85 = icmp ugt i64 %46, 6
+  %86 = shl nuw nsw i32 2, %48
+  %87 = add i32 %48, -7
+  %88 = shl nuw nsw i32 1, %87
+  %89 = zext i1 %85 to i64
+  %90 = getelementptr i8, ptr %1, i64 %89
+  %91 = select i1 %85, i32 %88, i32 %86
+  %92 = load i8, ptr %90, align 1
+  %93 = trunc i32 %91 to i8
+  %94 = or i8 %92, %93
+  store i8 %94, ptr %90, align 1
+  br label %95
 
-85:                                               ; preds = %78, %70, %62, %58
-  %86 = icmp ugt i64 %47, 6
-  %87 = shl nuw nsw i32 2, %49
-  %88 = add i32 %49, -7
-  %89 = shl nuw nsw i32 1, %88
-  %90 = zext i1 %86 to i64
-  %91 = getelementptr i8, ptr %1, i64 %90
-  %92 = select i1 %86, i32 %89, i32 %87
-  %93 = load i8, ptr %91, align 1
-  %94 = trunc i32 %92 to i8
-  %95 = or i8 %93, %94
-  store i8 %95, ptr %91, align 1
-  br label %96
+95:                                               ; preds = %84, %77, %73
+  %96 = phi i32 [ %47, %77 ], [ %47, %73 ], [ 4, %84 ]
+  %97 = add nuw nsw i64 %46, 1
+  %98 = icmp eq i64 %97, %44
+  br i1 %98, label %.loopexit, label %45, !llvm.loop !112
 
-96:                                               ; preds = %85, %78, %74
-  %97 = phi i32 [ %48, %78 ], [ %48, %74 ], [ 4, %85 ]
-  %98 = add nuw nsw i64 %47, 1
-  %99 = icmp eq i64 %98, %45
-  br i1 %99, label %.loopexit, label %46, !llvm.loop !112
+.loopexit:                                        ; preds = %95, %35
+  %99 = phi i32 [ %13, %35 ], [ %96, %95 ]
+  %100 = load i64, ptr %11, align 8
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %107, label %102
 
-.loopexit:                                        ; preds = %96, %36
-  %100 = phi i32 [ %13, %36 ], [ %97, %96 ]
-  %101 = load i64, ptr %11, align 8
-  %102 = icmp eq i64 %101, 0
-  br i1 %102, label %108, label %103
+102:                                              ; preds = %.loopexit
+  %103 = getelementptr inbounds i8, ptr %0, i64 192
+  %104 = load volatile i64, ptr @jiffies, align 64
+  %105 = add i64 %104, 25
+  %106 = tail call i32 @mod_timer(ptr noundef %103, i64 noundef %105) #19
+  br label %107
 
-103:                                              ; preds = %.loopexit
-  %104 = getelementptr inbounds i8, ptr %0, i64 192
-  %105 = load volatile i64, ptr @jiffies, align 64
-  %106 = add i64 %105, 25
-  %107 = tail call i32 @mod_timer(ptr noundef %104, i64 noundef %106) #19
-  br label %108
-
-108:                                              ; preds = %103, %.loopexit
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %24, i64 noundef %25) #19
-  %109 = icmp eq i32 %100, 0
-  %110 = select i1 %109, i32 0, i32 %10
-  ret i32 %110
+107:                                              ; preds = %102, %.loopexit
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %23, i64 noundef %24) #19
+  %108 = icmp eq i32 %99, 0
+  %109 = select i1 %108, i32 0, i32 %10
+  ret i32 %109
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -10243,7 +10241,7 @@ define internal noundef i32 @ehci_bus_resume(ptr noundef %0) #0 align 16 {
 217:                                              ; preds = %249, %214
   %218 = phi i64 [ %216, %214 ], [ %219, %249 ]
   %219 = add nsw i64 %218, -1
-  %220 = trunc i64 %219 to i32
+  %220 = trunc nuw nsw i64 %219 to i32
   %221 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %204, i64 %219) #19, !srcloc !17
   %222 = icmp ult i8 %221, 2
   call void @llvm.assume(i1 %222)
@@ -10345,7 +10343,7 @@ define internal noundef i32 @ehci_bus_resume(ptr noundef %0) #0 align 16 {
 
 281:                                              ; preds = %271
   call void @_raw_spin_unlock_irq(ptr noundef %11) #19
-  %282 = trunc i64 %258 to i16
+  %282 = trunc nuw nsw i64 %258 to i16
   %283 = call i32 @ehci_hub_control(ptr noundef %0, i16 noundef zeroext 8963, i16 noundef zeroext 4, i16 noundef zeroext %282, ptr noundef null, i16 zeroext poison), !range !124
   call void @_raw_spin_lock_irq(ptr noundef %11) #19
   br label %284
@@ -10383,7 +10381,7 @@ define internal noundef i32 @ehci_bus_resume(ptr noundef %0) #0 align 16 {
 
 300:                                              ; preds = %294
   call void @_raw_spin_unlock_irq(ptr noundef %11) #19
-  %301 = trunc i64 %295 to i16
+  %301 = trunc nuw nsw i64 %295 to i16
   %302 = call i32 @ehci_hub_control(ptr noundef %0, i16 noundef zeroext -23808, i16 noundef zeroext 0, i16 noundef zeroext %301, ptr noundef nonnull %2, i16 zeroext poison), !range !124
   call void @_raw_spin_lock_irq(ptr noundef %11) #19
   %303 = load ptr, ptr %32, align 8
@@ -10991,7 +10989,7 @@ define internal fastcc void @ehci_silence_controller(ptr noundef %0) unnamed_add
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %27
-  %33 = trunc i64 %17 to i32
+  %33 = trunc nuw nsw i64 %17 to i32
   %34 = tail call i32 %30(ptr noundef %10, i32 noundef %33, i1 noundef zeroext false) #19
   br label %35
 
@@ -11097,7 +11095,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr nocapture noundef rea
   %34 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 %33, ptr %34, align 4
   %35 = lshr i64 %32, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = getelementptr inbounds i8, ptr %11, i64 32
   store i32 %36, ptr %37, align 32
   %38 = and i32 %33, 4095
@@ -11115,7 +11113,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr nocapture noundef rea
   %46 = getelementptr i8, ptr %11, i64 16
   store i32 %45, ptr %46, align 4
   %47 = lshr i64 %44, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = getelementptr i8, ptr %11, i64 36
   store i32 %48, ptr %49, align 4
   br label %50
@@ -11213,7 +11211,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr nocapture noundef rea
   %110 = getelementptr inbounds i8, ptr %107, i64 12
   store i32 %109, ptr %110, align 4
   %111 = lshr i64 %106, 32
-  %112 = trunc i64 %111 to i32
+  %112 = trunc nuw i64 %111 to i32
   %113 = getelementptr inbounds i8, ptr %107, i64 32
   store i32 %112, ptr %113, align 32
   %114 = and i32 %109, 4095
@@ -11239,7 +11237,7 @@ define internal fastcc noundef ptr @qh_urb_transaction(ptr nocapture noundef rea
   %128 = getelementptr [5 x i32], ptr %110, i64 0, i64 %123
   store i32 %127, ptr %128, align 4
   %129 = lshr i64 %126, 32
-  %130 = trunc i64 %129 to i32
+  %130 = trunc nuw i64 %129 to i32
   %131 = getelementptr [5 x i32], ptr %113, i64 0, i64 %123
   store i32 %130, ptr %131, align 4
   %132 = add i32 %124, 4096
@@ -11750,11 +11748,11 @@ define internal fastcc noundef ptr @qh_make(ptr nocapture noundef readonly %0, p
   %76 = load i32, ptr %53, align 8
   %77 = tail call i32 @llvm.umin.i32(i32 %75, i32 %76)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 64)
-  %79 = trunc i32 %78 to i8
+  %79 = trunc nuw nsw i32 %78 to i8
   %80 = getelementptr inbounds i8, ptr %3, i64 124
   store i8 %79, ptr %80, align 4
   %81 = lshr i32 %78, 3
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   %83 = getelementptr inbounds i8, ptr %3, i64 125
   store i8 %82, ptr %83, align 1
   br label %135
@@ -11955,7 +11953,7 @@ define internal fastcc noundef ptr @qh_make(ptr nocapture noundef readonly %0, p
   %210 = lshr exact i32 %17, 7
   %211 = xor i32 %210, 1
   %212 = getelementptr inbounds i8, ptr %3, i64 136
-  %213 = trunc i32 %211 to i8
+  %213 = trunc nuw nsw i32 %211 to i8
   %214 = load i8, ptr %212, align 8
   %215 = and i8 %214, -2
   %216 = or disjoint i8 %215, %213
@@ -12441,7 +12439,7 @@ define internal fastcc void @iso_stream_init(ptr nocapture noundef %0, ptr nocap
   %38 = udiv i32 %37, 1000
   %39 = add nuw nsw i32 %38, 1004
   %40 = udiv i32 %39, 1000
-  %41 = trunc i32 %40 to i8
+  %41 = trunc nuw i32 %40 to i8
   %42 = getelementptr inbounds i8, ptr %0, i64 90
   store i8 %41, ptr %42, align 2
   %43 = load ptr, ptr %10, align 8
@@ -12454,7 +12452,7 @@ define internal fastcc void @iso_stream_init(ptr nocapture noundef %0, ptr nocap
   %50 = load i32, ptr %49, align 8
   %51 = tail call i32 @llvm.umin.i32(i32 %48, i32 %50)
   %52 = tail call i32 @llvm.umin.i32(i32 %51, i32 64)
-  %53 = trunc i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = getelementptr inbounds i8, ptr %0, i64 92
   store i8 %53, ptr %54, align 4
   %55 = load i32, ptr %49, align 8
@@ -12466,15 +12464,15 @@ define internal fastcc void @iso_stream_init(ptr nocapture noundef %0, ptr nocap
   %60 = trunc i32 %59 to i16
   %61 = getelementptr inbounds i8, ptr %0, i64 84
   store i16 %60, ptr %61, align 4
-  %.tr = trunc i32 %40 to i16
+  %.tr = trunc nuw nsw i32 %40 to i16
   %62 = shl nuw nsw i16 %.tr, 3
   %.lhs.trunc = and i16 %62, 2040
-  %.rhs.trunc = trunc i32 %52 to i16
+  %.rhs.trunc = trunc nuw nsw i32 %52 to i16
   %63 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %.zext = zext nneg i16 %63 to i32
   %64 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %.zext, ptr %64, align 4
-  %65 = trunc i32 %27 to i16
+  %65 = trunc nuw nsw i32 %27 to i16
   br label %149
 
 66:                                               ; preds = %2
@@ -12497,10 +12495,10 @@ define internal fastcc void @iso_stream_init(ptr nocapture noundef %0, ptr nocap
   %83 = mul nuw nsw i32 %82, 2083
   %84 = add nuw nsw i32 %83, 639481
   %85 = udiv i32 %84, 1000
-  %86 = trunc i32 %85 to i16
+  %86 = trunc nuw i32 %85 to i16
   %.lhs.trunc1 = add nuw i16 %86, 1004
   %87 = udiv i16 %.lhs.trunc1, 1000
-  %88 = trunc i16 %87 to i8
+  %88 = trunc nuw nsw i16 %87 to i8
   %89 = getelementptr inbounds i8, ptr %0, i64 90
   store i8 %88, ptr %89, align 2
   %90 = load ptr, ptr %71, align 8
@@ -12562,7 +12560,7 @@ define internal fastcc void @iso_stream_init(ptr nocapture noundef %0, ptr nocap
   %131 = load i32, ptr %130, align 8
   %132 = tail call i32 @llvm.umin.i32(i32 %129, i32 %131)
   %133 = tail call i32 @llvm.umin.i32(i32 %132, i32 8)
-  %134 = trunc i32 %133 to i8
+  %134 = trunc nuw nsw i32 %133 to i8
   %135 = getelementptr inbounds i8, ptr %0, i64 93
   store i8 %134, ptr %135, align 1
   %136 = shl nuw nsw i8 %134, 3
@@ -12579,7 +12577,7 @@ define internal fastcc void @iso_stream_init(ptr nocapture noundef %0, ptr nocap
   store i16 %143, ptr %144, align 8
   %145 = zext i8 %120 to i16
   %.lhs.trunc5 = add nuw nsw i16 %121, %145
-  %.rhs.trunc6 = trunc i32 %133 to i16
+  %.rhs.trunc6 = trunc nuw nsw i32 %133 to i16
   %146 = udiv i16 %.lhs.trunc5, %.rhs.trunc6
   %.zext7 = zext nneg i16 %146 to i32
   %147 = getelementptr inbounds i8, ptr %0, i64 108
@@ -12596,7 +12594,7 @@ define internal fastcc void @iso_stream_init(ptr nocapture noundef %0, ptr nocap
   %153 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %152, ptr %153, align 8
   %154 = or disjoint i32 %8, %9
-  %155 = trunc i32 %154 to i8
+  %155 = trunc nuw i32 %154 to i8
   %156 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %155, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %0, i64 106

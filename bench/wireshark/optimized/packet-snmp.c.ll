@@ -4867,13 +4867,13 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %19 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i64 0, i32 12), align 8
   %20 = icmp ne ptr %19, null
   %or.cond3 = select i1 %or.cond, i1 %20, i1 false
-  br i1 %or.cond3, label %21, label %90
+  br i1 %or.cond3, label %21, label %89
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %90, label %24
+  br i1 %.not, label %89, label %24
 
 24:                                               ; preds = %21
   store ptr null, ptr %12, align 8
@@ -4900,7 +4900,7 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   call void @col_set_str(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.415) #11
-  br label %95
+  br label %94
 
 44:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -4912,7 +4912,7 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %47 = load i8, ptr %7, align 1
   %48 = and i8 %47, -3
   %or.cond.not.i = icmp eq i8 %48, 1
-  br i1 %or.cond.not.i, label %76, label %49
+  br i1 %or.cond.not.i, label %check_ScopedPdu.exit.thread, label %49
 
 49:                                               ; preds = %44
   %50 = load i8, ptr %8, align 1
@@ -4923,7 +4923,7 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %53 = load i32, ptr %9, align 4
   %54 = icmp ne i32 %53, 10
   %or.cond7.i = select i1 %or.cond5.i, i1 true, i1 %54
-  br i1 %or.cond7.i, label %55, label %76
+  br i1 %or.cond7.i, label %55, label %check_ScopedPdu.exit.thread
 
 55:                                               ; preds = %49
   %56 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %35, i32 noundef %46) #11
@@ -4934,7 +4934,7 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %59 = add i32 %46, 1
   %60 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %35, i32 noundef %59) #11
   %61 = icmp eq i8 %60, 0
-  br i1 %61, label %82, label %62
+  br i1 %61, label %check_ScopedPdu.exit.thread36, label %62
 
 62:                                               ; preds = %58, %55
   %63 = call i32 @get_ber_identifier(ptr noundef nonnull %35, i32 noundef %46, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
@@ -4942,63 +4942,73 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %65 = load i32, ptr %10, align 4
   %66 = add i32 %65, %64
   %.not31.i = icmp sgt i32 %66, %46
-  br i1 %.not31.i, label %67, label %76
+  br i1 %.not31.i, label %67, label %check_ScopedPdu.exit.thread
 
 67:                                               ; preds = %62
   %68 = load i8, ptr %7, align 1
   %69 = and i8 %68, -3
   %or.cond10.not.i = icmp eq i8 %69, 1
-  br i1 %or.cond10.not.i, label %82, label %70
+  br i1 %or.cond10.not.i, label %check_ScopedPdu.exit.thread36, label %70
 
 70:                                               ; preds = %67
   %.not32.i = icmp eq i8 %68, 0
-  br i1 %.not32.i, label %71, label %76
+  br i1 %.not32.i, label %check_ScopedPdu.exit, label %check_ScopedPdu.exit.thread
 
-71:                                               ; preds = %70
-  %72 = load i32, ptr %9, align 4
-  %73 = icmp slt i32 %72, 18
-  %74 = and i32 %72, -9
-  %75 = icmp ne i32 %74, 4
-  %or.cond14.i = and i1 %73, %75
-  br i1 %or.cond14.i, label %76, label %82
-
-76:                                               ; preds = %49, %44, %62, %71, %70
+check_ScopedPdu.exit.thread:                      ; preds = %49, %44, %62, %70
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %77 = load ptr, ptr %33, align 8
-  %78 = call ptr @proto_tree_add_expert(ptr noundef %28, ptr noundef %77, ptr noundef nonnull @ei_snmp_decrypted_data_bad_formatted, ptr noundef nonnull %35, i32 noundef 0, i32 noundef -1) #11
-  %79 = load ptr, ptr %33, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
-  %81 = load ptr, ptr %80, align 8
-  call void @col_set_str(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.416) #11
-  br label %95
+  br label %75
 
-82:                                               ; preds = %67, %71, %58
+check_ScopedPdu.exit.thread36:                    ; preds = %58, %67
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %83 = load ptr, ptr %33, align 8
-  call void @add_new_data_source(ptr noundef %83, ptr noundef nonnull %35, ptr noundef nonnull @.str.43) #11
-  %84 = load i32, ptr @hf_snmp_decryptedPDU, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %84, ptr noundef nonnull %35, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
-  %86 = load i32, ptr @ett_decrypted, align 4
-  %87 = call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86) #11
-  %88 = load i32, ptr @ett_snmp_ScopedPDU, align 4
-  %89 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %87, ptr noundef nonnull %35, i32 noundef 0, ptr noundef nonnull @ScopedPDU_sequence, i32 noundef -1, i32 noundef %88) #11
-  br label %95
+  br label %81
 
-90:                                               ; preds = %21, %6
-  %91 = getelementptr inbounds i8, ptr %3, i64 16
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8
-  call void @col_set_str(ptr noundef %94, i32 noundef 25, ptr noundef nonnull @.str.417) #11
-  br label %95
+check_ScopedPdu.exit:                             ; preds = %70
+  %71 = load i32, ptr %9, align 4
+  %72 = icmp slt i32 %71, 18
+  %73 = and i32 %71, -9
+  %74 = icmp ne i32 %73, 4
+  %or.cond14.not.i.not = and i1 %72, %74
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  br i1 %or.cond14.not.i.not, label %75, label %81
 
-95:                                               ; preds = %82, %90, %76, %36
+75:                                               ; preds = %check_ScopedPdu.exit.thread, %check_ScopedPdu.exit
+  %76 = load ptr, ptr %33, align 8
+  %77 = call ptr @proto_tree_add_expert(ptr noundef %28, ptr noundef %76, ptr noundef nonnull @ei_snmp_decrypted_data_bad_formatted, ptr noundef nonnull %35, i32 noundef 0, i32 noundef -1) #11
+  %78 = load ptr, ptr %33, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  call void @col_set_str(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.416) #11
+  br label %94
+
+81:                                               ; preds = %check_ScopedPdu.exit.thread36, %check_ScopedPdu.exit
+  %82 = load ptr, ptr %33, align 8
+  call void @add_new_data_source(ptr noundef %82, ptr noundef nonnull %35, ptr noundef nonnull @.str.43) #11
+  %83 = load i32, ptr @hf_snmp_decryptedPDU, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %83, ptr noundef nonnull %35, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
+  %85 = load i32, ptr @ett_decrypted, align 4
+  %86 = call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85) #11
+  %87 = load i32, ptr @ett_snmp_ScopedPDU, align 4
+  %88 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %86, ptr noundef nonnull %35, i32 noundef 0, ptr noundef nonnull @ScopedPDU_sequence, i32 noundef -1, i32 noundef %87) #11
+  br label %94
+
+89:                                               ; preds = %21, %6
+  %90 = getelementptr inbounds i8, ptr %3, i64 16
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  call void @col_set_str(ptr noundef %93, i32 noundef 25, ptr noundef nonnull @.str.417) #11
+  br label %94
+
+94:                                               ; preds = %81, %89, %75, %36
   ret i32 %14
 }
 
@@ -5206,7 +5216,7 @@ define internal fastcc ptr @snmp_usm_priv_aes_common(ptr nocapture noundef reado
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = lshr i32 %20, 24
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   store i8 %22, ptr %7, align 16
   %23 = lshr i32 %20, 16
   %24 = trunc i32 %23 to i8
@@ -5222,7 +5232,7 @@ define internal fastcc ptr @snmp_usm_priv_aes_common(ptr nocapture noundef reado
   %31 = getelementptr inbounds i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = lshr i32 %32, 24
-  %34 = trunc i32 %33 to i8
+  %34 = trunc nuw i32 %33 to i8
   %35 = getelementptr inbounds i8, ptr %7, i64 4
   store i8 %34, ptr %35, align 4
   %36 = lshr i32 %32, 16

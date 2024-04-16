@@ -398,25 +398,25 @@ define dso_local noundef zeroext i1 @hsw_crtc_state_ips_capable(ptr nocapture no
   %9 = and i32 %5, 8388608
   %10 = or disjoint i32 %8, %9
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %35, label %12
+  br i1 %11, label %34, label %12
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %2, i64 1648
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %35
+  br i1 %15, label %16, label %34
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %3, i64 6776
   %18 = load i8, ptr %17, align 8, !range !5, !noundef !6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %35, label %20
+  br i1 %19, label %34, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 1364
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 24
-  br i1 %23, label %35, label %24
+  br i1 %23, label %34, label %24
 
 24:                                               ; preds = %20
   %25 = icmp eq i32 %9, 0
@@ -429,15 +429,12 @@ define dso_local noundef zeroext i1 @hsw_crtc_state_ips_capable(ptr nocapture no
   %30 = load i32, ptr %29, align 8
   %31 = mul i32 %30, 95
   %32 = udiv i32 %31, 100
-  %33 = icmp ugt i32 %28, %32
-  br i1 %33, label %35, label %34
+  %33 = icmp ule i32 %28, %32
+  br label %34
 
-34:                                               ; preds = %26, %24
-  br label %35
-
-35:                                               ; preds = %34, %26, %20, %16, %12, %1
-  %36 = phi i1 [ true, %34 ], [ false, %12 ], [ false, %16 ], [ false, %20 ], [ false, %26 ], [ false, %1 ]
-  ret i1 %36
+34:                                               ; preds = %26, %24, %20, %16, %12, %1
+  %35 = phi i1 [ false, %12 ], [ false, %16 ], [ false, %20 ], [ false, %1 ], [ true, %24 ], [ %33, %26 ]
+  ret i1 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -581,7 +578,7 @@ define dso_local void @hsw_ips_get_config(ptr nocapture noundef %0) local_unname
   %23 = tail call i32 %22(ptr noundef %20, i32 275464, i1 noundef zeroext true) #5
   %24 = getelementptr inbounds i8, ptr %0, i64 1516
   %25 = lshr i32 %23, 31
-  %26 = trunc i32 %25 to i8
+  %26 = trunc nuw nsw i32 %25 to i8
   store i8 %26, ptr %24, align 4
   br label %29
 

@@ -1231,7 +1231,7 @@ for.body136:                                      ; preds = %for.body136.lr.ph, 
   %indvars.iv243 = phi i64 [ 0, %for.body136.lr.ph ], [ %indvars.iv.next244, %for.inc175 ]
   %add13.i236238 = phi float [ 0.000000e+00, %for.body136.lr.ph ], [ %add13.i235, %for.inc175 ]
   %225 = phi <2 x float> [ zeroinitializer, %for.body136.lr.ph ], [ %239, %for.inc175 ]
-  %226 = trunc i64 %indvars.iv243 to i32
+  %226 = trunc nuw i64 %indvars.iv243 to i32
   %shl = shl nuw i32 1, %226
   %and137 = and i32 %.pre249, %shl
   %tobool138.not = icmp eq i32 %and137, 0
@@ -2907,7 +2907,7 @@ _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %if.the
 if.then31:                                        ; preds = %_ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit
   %and = and i32 %subm.1, 1
   %tobool.not = icmp eq i32 %and, 0
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 1, %54
   %cond = select i1 %tobool.not, i32 0, i32 %shl
   %and32 = and i32 %subm.1, 2
@@ -3173,7 +3173,7 @@ if.then44:                                        ; preds = %if.then36
   %62 = load i32, ptr %subm, align 4
   %and = and i32 %62, 1
   %tobool45.not = icmp eq i32 %and, 0
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 1, %63
   %cond = select i1 %tobool45.not, i32 0, i32 %shl
   %and46 = and i32 %62, 2
@@ -3496,7 +3496,7 @@ entry:
   %0 = load ptr, ptr %m_simplex, align 8
   %rank = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %rank, align 8
-  switch i32 %1, label %sw.epilog [
+  switch i32 %1, label %return [
     i32 1, label %for.cond.preheader
     i32 2, label %sw.bb14
     i32 3, label %sw.bb56
@@ -3900,7 +3900,7 @@ if.end12:                                         ; preds = %_ZNK12gjkepa2_impl3
   store ptr %179, ptr %arrayidx3.i39, align 8
   %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 1
   %exitcond708.not = icmp eq i64 %indvars.iv.next706, 3
-  br i1 %exitcond708.not, label %sw.epilog, label %for.body, !llvm.loop !29
+  br i1 %exitcond708.not, label %return, label %for.body, !llvm.loop !29
 
 sw.bb14:                                          ; preds = %entry
   %arrayidx16 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4331,7 +4331,7 @@ if.end50:                                         ; preds = %_ZNK12gjkepa2_impl3
 for.inc53:                                        ; preds = %for.body26, %if.end50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %sw.epilog, label %for.body26, !llvm.loop !30
+  br i1 %exitcond.not, label %return, label %for.body26, !llvm.loop !30
 
 sw.bb56:                                          ; preds = %entry
   %arrayidx60 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4380,7 +4380,7 @@ sw.bb56:                                          ; preds = %entry
   %408 = tail call float @llvm.fmuladd.f32(float %407, float %407, float %mul8.i.i144)
   %409 = tail call noundef float @llvm.fmuladd.f32(float %405, float %405, float %408)
   %cmp82 = fcmp ogt float %409, 0.000000e+00
-  br i1 %cmp82, label %if.then83, label %sw.epilog
+  br i1 %cmp82, label %if.then83, label %return
 
 if.then83:                                        ; preds = %sw.bb56
   %arrayidx.i149 = getelementptr inbounds i8, ptr %0, i64 44
@@ -4757,7 +4757,7 @@ if.end95:                                         ; preds = %_ZNK12gjkepa2_impl3
   %idxprom2.i200 = zext i32 %580 to i64
   %arrayidx3.i201 = getelementptr inbounds [4 x ptr], ptr %m_free.i150, i64 0, i64 %idxprom2.i200
   store ptr %579, ptr %arrayidx3.i201, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb98:                                          ; preds = %entry
   %581 = load ptr, ptr %0, align 8
@@ -4818,11 +4818,11 @@ sw.bb98:                                          ; preds = %entry
   %cmp134 = fcmp ueq float %604, 0.000000e+00
   br i1 %cmp134, label %sw.epilog, label %return
 
-sw.epilog:                                        ; preds = %for.inc53, %if.end12, %sw.bb98, %sw.bb56, %if.end95, %entry
+sw.epilog:                                        ; preds = %sw.bb98
   br label %return
 
-return:                                           ; preds = %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit499, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit412, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit325, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit, %sw.bb98, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit673, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit586, %sw.epilog
-  %retval.0 = phi i1 [ false, %sw.epilog ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit586 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit673 ], [ true, %sw.bb98 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit325 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit412 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit499 ]
+return:                                           ; preds = %for.inc53, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit499, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit412, %if.end12, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit325, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit, %entry, %if.end95, %sw.bb56, %sw.bb98, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit673, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit586, %sw.epilog
+  %retval.0 = phi i1 [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit586 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit673 ], [ true, %sw.bb98 ], [ false, %sw.bb56 ], [ false, %if.end95 ], [ false, %entry ], [ false, %sw.epilog ], [ false, %if.end12 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit325 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ false, %for.inc53 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit499 ], [ true, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit412 ]
   ret i1 %retval.0
 }
 

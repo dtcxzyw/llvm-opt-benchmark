@@ -1708,7 +1708,7 @@ Cbs3_ManAssign.exit100:                           ; preds = %._crit_edge.i.i91, 
 
 245:                                              ; preds = %Cbs3_ManAssign.exit, %196, %.thread103, %238, %Cbs3_ManAssign.exit100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %246 = trunc i64 %indvars.iv.next to i32
+  %246 = trunc nuw i64 %indvars.iv.next to i32
   %247 = icmp sgt i32 %.val87, %246
   br i1 %247, label %135, label %._crit_edge, !llvm.loop !13
 
@@ -2123,15 +2123,15 @@ Cbs3_QuePush.exit63:                              ; preds = %._crit_edge.i57, %1
 define i32 @Cbs3_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call i32 @Cbs3_ManPropagateNew(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %130
+  br i1 %.not, label %4, label %129
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %.val68 = load i32, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 68
   %.val69 = load i32, ptr %6, align 4
-  %.not75 = icmp eq i32 %.val68, %.val69
-  br i1 %.not75, label %130, label %7
+  %.not76 = icmp eq i32 %.val68, %.val69
+  br i1 %.not76, label %129, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2157,7 +2157,7 @@ define i32 @Cbs3_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %26 = add nsw i32 %25, %23
   store i32 %26, ptr %24, align 4
   %27 = select i1 %14, i1 true, i1 %22
-  br i1 %27, label %130, label %28
+  br i1 %27, label %129, label %28
 
 28:                                               ; preds = %7
   %29 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2176,9 +2176,9 @@ define i32 @Cbs3_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %38 = sext i32 %.val68 to i64
   br label %39
 
-39:                                               ; preds = %53, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %38, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
-  %.016.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %53 ]
+39:                                               ; preds = %52, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %38, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
+  %.016.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %52 ]
   %40 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 4
   %.not.i = icmp eq i32 %41, 0
@@ -2197,157 +2197,155 @@ define i32 @Cbs3_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %49 = getelementptr inbounds i32, ptr %.val.i, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp slt i32 %47, %50
-  br i1 %51, label %52, label %53
+  %spec.select.i74 = select i1 %51, i32 %41, i32 %.016.i
+  br label %52
 
 52:                                               ; preds = %44, %42
-  br label %53
-
-53:                                               ; preds = %52, %44
-  %.1.i = phi i32 [ %41, %52 ], [ %.016.i, %44 ]
+  %.1.i = phi i32 [ %41, %42 ], [ %spec.select.i74, %44 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %.val69, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %Cbs3_ManDecide.exit.loopexit, label %39, !llvm.loop !16
 
-Cbs3_ManDecide.exit.loopexit:                     ; preds = %53, %39
-  %.0.lcssa.i.ph = phi i32 [ %.1.i, %53 ], [ %.016.i, %39 ]
-  %54 = shl nsw i32 %.0.lcssa.i.ph, 1
+Cbs3_ManDecide.exit.loopexit:                     ; preds = %52, %39
+  %.0.lcssa.i.ph = phi i32 [ %.1.i, %52 ], [ %.016.i, %39 ]
+  %53 = shl nsw i32 %.0.lcssa.i.ph, 1
   br label %Cbs3_ManDecide.exit
 
 Cbs3_ManDecide.exit:                              ; preds = %Cbs3_ManDecide.exit.loopexit, %28
-  %.0.lcssa.i = phi i32 [ 0, %28 ], [ %54, %Cbs3_ManDecide.exit.loopexit ]
-  %55 = getelementptr i8, ptr %0, i64 184
-  %.val70 = load ptr, ptr %55, align 8
-  %56 = sext i32 %.0.lcssa.i to i64
-  %57 = getelementptr inbounds i32, ptr %.val70, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = ashr i32 %58, 1
-  %60 = getelementptr i8, ptr %0, i64 168
-  %.val = load ptr, ptr %60, align 8
-  %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds i32, ptr %.val, i64 %61
-  %63 = load i32, ptr %62, align 4
-  %64 = or disjoint i32 %.0.lcssa.i, 1
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %.val70, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = ashr i32 %67, 1
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %.val, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %.not62 = icmp slt i32 %63, %71
-  %.056.v = select i1 %.not62, i32 %67, i32 %58
+  %.0.lcssa.i = phi i32 [ 0, %28 ], [ %53, %Cbs3_ManDecide.exit.loopexit ]
+  %54 = getelementptr i8, ptr %0, i64 184
+  %.val70 = load ptr, ptr %54, align 8
+  %55 = sext i32 %.0.lcssa.i to i64
+  %56 = getelementptr inbounds i32, ptr %.val70, i64 %55
+  %57 = load i32, ptr %56, align 4
+  %58 = ashr i32 %57, 1
+  %59 = getelementptr i8, ptr %0, i64 168
+  %.val = load ptr, ptr %59, align 8
+  %60 = sext i32 %58 to i64
+  %61 = getelementptr inbounds i32, ptr %.val, i64 %60
+  %62 = load i32, ptr %61, align 4
+  %63 = or disjoint i32 %.0.lcssa.i, 1
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i32, ptr %.val70, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = ashr i32 %66, 1
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i32, ptr %.val, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %.not62 = icmp slt i32 %62, %70
+  %.056.v = select i1 %.not62, i32 %66, i32 %57
   %.056 = xor i32 %.056.v, 1
-  %72 = add nsw i32 %1, 1
-  %73 = ashr i32 %.056.v, 1
-  %74 = getelementptr i8, ptr %0, i64 216
-  %.val.i74 = load ptr, ptr %74, align 8
-  %75 = trunc i32 %.056 to i8
-  %76 = and i8 %75, 1
-  %77 = xor i8 %76, 1
-  %78 = sext i32 %73 to i64
-  %79 = getelementptr inbounds i8, ptr %.val.i74, i64 %78
-  store i8 %77, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %0, i64 44
-  %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %0, i64 48
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp eq i32 %81, %83
-  br i1 %84, label %85, label %._crit_edge.i.i
+  %71 = add nsw i32 %1, 1
+  %72 = ashr i32 %.056.v, 1
+  %73 = getelementptr i8, ptr %0, i64 216
+  %.val.i75 = load ptr, ptr %73, align 8
+  %74 = trunc i32 %.056 to i8
+  %75 = and i8 %74, 1
+  %76 = xor i8 %75, 1
+  %77 = sext i32 %72 to i64
+  %78 = getelementptr inbounds i8, ptr %.val.i75, i64 %77
+  store i8 %76, ptr %78, align 1
+  %79 = getelementptr inbounds i8, ptr %0, i64 44
+  %80 = load i32, ptr %79, align 4
+  %81 = getelementptr inbounds i8, ptr %0, i64 48
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp eq i32 %80, %82
+  br i1 %83, label %84, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %Cbs3_ManDecide.exit
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %Cbs3_ManAssign.exit
 
-85:                                               ; preds = %Cbs3_ManDecide.exit
-  %86 = shl nsw i32 %81, 1
-  store i32 %86, ptr %82, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 56
-  %88 = load ptr, ptr %87, align 8
-  %.not.i.i = icmp eq ptr %88, null
-  %89 = sext i32 %86 to i64
-  %90 = shl nsw i64 %89, 2
-  br i1 %.not.i.i, label %93, label %91
+84:                                               ; preds = %Cbs3_ManDecide.exit
+  %85 = shl nsw i32 %80, 1
+  store i32 %85, ptr %81, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 56
+  %87 = load ptr, ptr %86, align 8
+  %.not.i.i = icmp eq ptr %87, null
+  %88 = sext i32 %85 to i64
+  %89 = shl nsw i64 %88, 2
+  br i1 %.not.i.i, label %92, label %90
 
-91:                                               ; preds = %85
-  %92 = tail call ptr @realloc(ptr noundef nonnull %88, i64 noundef %90) #22
-  %.pre11.pre.i.i = load i32, ptr %80, align 4
-  br label %95
+90:                                               ; preds = %84
+  %91 = tail call ptr @realloc(ptr noundef nonnull %87, i64 noundef %89) #22
+  %.pre11.pre.i.i = load i32, ptr %79, align 4
+  br label %94
 
-93:                                               ; preds = %85
-  %94 = tail call noalias ptr @malloc(i64 noundef %90) #21
-  br label %95
+92:                                               ; preds = %84
+  %93 = tail call noalias ptr @malloc(i64 noundef %89) #21
+  br label %94
 
-95:                                               ; preds = %93, %91
-  %.pre11.i.i = phi i32 [ %.pre11.pre.i.i, %91 ], [ %81, %93 ]
-  %96 = phi ptr [ %92, %91 ], [ %94, %93 ]
-  store ptr %96, ptr %87, align 8
+94:                                               ; preds = %92, %90
+  %.pre11.i.i = phi i32 [ %.pre11.pre.i.i, %90 ], [ %80, %92 ]
+  %95 = phi ptr [ %91, %90 ], [ %93, %92 ]
+  store ptr %95, ptr %86, align 8
   br label %Cbs3_ManAssign.exit
 
-Cbs3_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %95
-  %97 = phi i32 [ %81, %._crit_edge.i.i ], [ %.pre11.i.i, %95 ]
-  %98 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %96, %95 ]
-  %99 = add nsw i32 %97, 1
-  store i32 %99, ptr %80, align 4
-  %100 = sext i32 %97 to i64
-  %101 = getelementptr inbounds i32, ptr %98, i64 %100
-  store i32 %.056, ptr %101, align 4
-  %102 = mul nsw i32 %73, 3
-  %103 = getelementptr i8, ptr %0, i64 248
-  %.val14.i = load ptr, ptr %103, align 8
-  %104 = sext i32 %102 to i64
-  %105 = getelementptr inbounds i32, ptr %.val14.i, i64 %104
-  store i32 %72, ptr %105, align 4
-  %.val15.i = load ptr, ptr %103, align 8
-  %106 = getelementptr i32, ptr %.val15.i, i64 %104
-  %107 = getelementptr i8, ptr %106, i64 4
-  store i32 0, ptr %107, align 4
-  %.val16.i = load ptr, ptr %103, align 8
-  %108 = getelementptr i32, ptr %.val16.i, i64 %104
-  %109 = getelementptr i8, ptr %108, i64 8
-  store i32 0, ptr %109, align 4
-  %110 = tail call i32 @Cbs3_ManSolve2_rec(ptr noundef nonnull %0, i32 noundef %72)
-  %.not63 = icmp eq i32 %110, 0
-  br i1 %.not63, label %130, label %111
+Cbs3_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %94
+  %96 = phi i32 [ %80, %._crit_edge.i.i ], [ %.pre11.i.i, %94 ]
+  %97 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %95, %94 ]
+  %98 = add nsw i32 %96, 1
+  store i32 %98, ptr %79, align 4
+  %99 = sext i32 %96 to i64
+  %100 = getelementptr inbounds i32, ptr %97, i64 %99
+  store i32 %.056, ptr %100, align 4
+  %101 = mul nsw i32 %72, 3
+  %102 = getelementptr i8, ptr %0, i64 248
+  %.val14.i = load ptr, ptr %102, align 8
+  %103 = sext i32 %101 to i64
+  %104 = getelementptr inbounds i32, ptr %.val14.i, i64 %103
+  store i32 %71, ptr %104, align 4
+  %.val15.i = load ptr, ptr %102, align 8
+  %105 = getelementptr i32, ptr %.val15.i, i64 %103
+  %106 = getelementptr i8, ptr %105, i64 4
+  store i32 0, ptr %106, align 4
+  %.val16.i = load ptr, ptr %102, align 8
+  %107 = getelementptr i32, ptr %.val16.i, i64 %103
+  %108 = getelementptr i8, ptr %107, i64 8
+  store i32 0, ptr %108, align 4
+  %109 = tail call i32 @Cbs3_ManSolve2_rec(ptr noundef nonnull %0, i32 noundef %71)
+  %.not63 = icmp eq i32 %109, 0
+  br i1 %.not63, label %129, label %110
 
-111:                                              ; preds = %Cbs3_ManAssign.exit
-  %112 = getelementptr inbounds i8, ptr %0, i64 104
-  %113 = load ptr, ptr %112, align 8
-  %114 = sext i32 %110 to i64
-  %115 = getelementptr i32, ptr %113, i64 %114
-  %116 = getelementptr i8, ptr %115, i64 4
-  %117 = load i32, ptr %116, align 4
-  %.not64 = icmp eq i32 %117, %73
-  br i1 %.not64, label %118, label %130
+110:                                              ; preds = %Cbs3_ManAssign.exit
+  %111 = getelementptr inbounds i8, ptr %0, i64 104
+  %112 = load ptr, ptr %111, align 8
+  %113 = sext i32 %109 to i64
+  %114 = getelementptr i32, ptr %112, i64 %113
+  %115 = getelementptr i8, ptr %114, i64 4
+  %116 = load i32, ptr %115, align 4
+  %.not64 = icmp eq i32 %116, %72
+  br i1 %.not64, label %117, label %129
 
-118:                                              ; preds = %111
+117:                                              ; preds = %110
   tail call fastcc void @Cbs3_ManCancelUntil(ptr noundef nonnull %0, i32 noundef %30)
   store i32 %.val68, ptr %5, align 8
   store i32 %.val69, ptr %6, align 4
-  tail call fastcc void @Cbs3_ManAssign(ptr noundef nonnull %0, i32 noundef %.056.v, i32 noundef %72, i32 noundef 0, i32 noundef 0)
-  %119 = tail call i32 @Cbs3_ManSolve2_rec(ptr noundef nonnull %0, i32 noundef %72)
-  %.not65 = icmp eq i32 %119, 0
-  br i1 %.not65, label %130, label %120
+  tail call fastcc void @Cbs3_ManAssign(ptr noundef nonnull %0, i32 noundef %.056.v, i32 noundef %71, i32 noundef 0, i32 noundef 0)
+  %118 = tail call i32 @Cbs3_ManSolve2_rec(ptr noundef nonnull %0, i32 noundef %71)
+  %.not65 = icmp eq i32 %118, 0
+  br i1 %.not65, label %129, label %119
 
-120:                                              ; preds = %118
-  %121 = load ptr, ptr %112, align 8
-  %122 = sext i32 %119 to i64
-  %123 = getelementptr i32, ptr %121, i64 %122
-  %124 = getelementptr i8, ptr %123, i64 4
-  %125 = load i32, ptr %124, align 4
-  %.not66 = icmp eq i32 %125, %73
-  br i1 %.not66, label %126, label %130
+119:                                              ; preds = %117
+  %120 = load ptr, ptr %111, align 8
+  %121 = sext i32 %118 to i64
+  %122 = getelementptr i32, ptr %120, i64 %121
+  %123 = getelementptr i8, ptr %122, i64 4
+  %124 = load i32, ptr %123, align 4
+  %.not66 = icmp eq i32 %124, %72
+  br i1 %.not66, label %125, label %129
 
-126:                                              ; preds = %120
-  %127 = tail call fastcc i32 @Cbs3_ManResolve(ptr noundef nonnull %0, i32 noundef %110, i32 noundef %119)
-  %128 = load i32, ptr %19, align 4
-  %129 = add nsw i32 %128, 1
-  store i32 %129, ptr %19, align 4
-  br label %130
+125:                                              ; preds = %119
+  %126 = tail call fastcc i32 @Cbs3_ManResolve(ptr noundef nonnull %0, i32 noundef %109, i32 noundef %118)
+  %127 = load i32, ptr %19, align 4
+  %128 = add nsw i32 %127, 1
+  store i32 %128, ptr %19, align 4
+  br label %129
 
-130:                                              ; preds = %120, %118, %111, %Cbs3_ManAssign.exit, %7, %4, %2, %126
-  %.0 = phi i32 [ %127, %126 ], [ %3, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %Cbs3_ManAssign.exit ], [ %110, %111 ], [ 0, %118 ], [ %119, %120 ]
+129:                                              ; preds = %119, %117, %110, %Cbs3_ManAssign.exit, %7, %4, %2, %125
+  %.0 = phi i32 [ %126, %125 ], [ %3, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %Cbs3_ManAssign.exit ], [ %109, %110 ], [ 0, %117 ], [ %118, %119 ]
   ret i32 %.0
 }
 
@@ -3362,7 +3360,7 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %27
   %.val82 = load i64, ptr %89, align 4
   %97 = trunc i64 %.val82 to i32
   %98 = lshr i32 %97, 29
-  %99 = trunc i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   %100 = and i8 %99, 1
   %101 = xor i8 %100, 1
   %102 = load i32, ptr %26, align 4
@@ -3431,7 +3429,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br i1 %.not72, label %532, label %129
 
 129:                                              ; preds = %Vec_StrPush.exit
-  %130 = trunc i64 %indvars.iv to i32
+  %130 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %32, ptr noundef nonnull %41, i32 noundef %130) #23
   br label %532
 
@@ -3831,7 +3829,7 @@ Vec_WecPushTwo.exit.i.i.i:                        ; preds = %Vec_WecGrow.exit.i.
 
 291:                                              ; preds = %Vec_WecPushTwo.exit.i.i.i
   %292 = shl nsw i32 %289, 1
-  %293 = trunc i64 %.pre.i.i to i32
+  %293 = trunc nuw nsw i64 %.pre.i.i to i32
   %294 = call noundef i32 @llvm.smax.i32(i32 %292, i32 %293)
   %295 = load i32, ptr %67, align 8
   %.not.i.i24.i.i.i = icmp slt i32 %295, %294
@@ -3924,7 +3922,7 @@ Vec_WecPushTwo.exit36.i.i.i:                      ; preds = %Vec_WecGrow.exit.i3
   %.val.i33.i.i.i = load ptr, ptr %49, align 8
   %336 = sext i32 %313 to i64
   %337 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.i33.i.i.i, i64 %336
-  %338 = trunc i64 %.pre.i.i to i32
+  %338 = trunc nuw nsw i64 %.pre.i.i to i32
   call fastcc void @Vec_IntPushTwo(ptr noundef %337, i32 noundef %338, i32 noundef 0)
   %339 = xor i32 %262, 1
   %340 = load i32, ptr %48, align 4
@@ -4077,7 +4075,7 @@ Vec_WecPushTwo.exit57.i.i.i:                      ; preds = %Vec_WecGrow.exit.i5
   %.val.i54.i.i.i = load ptr, ptr %49, align 8
   %411 = sext i32 %260 to i64
   %412 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.i54.i.i.i, i64 %411
-  %413 = trunc i64 %indvars.iv20.i.i to i32
+  %413 = trunc nuw nsw i64 %indvars.iv20.i.i to i32
   call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %412, i32 noundef %413, i32 noundef %339)
   %414 = load i32, ptr %48, align 4
   %.not.i58.i.i.i = icmp sgt i32 %414, %262
@@ -4226,7 +4224,7 @@ Vec_StrPush.exit93:                               ; preds = %.Vec_StrGrow.exit10
   %483 = load i32, ptr %75, align 8
   %484 = add nsw i32 %483, %482
   store i32 %484, ptr %75, align 8
-  %485 = trunc i64 %indvars.iv to i32
+  %485 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %32, ptr noundef null, i32 noundef %485) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %486 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #23
@@ -4288,7 +4286,7 @@ Abc_Clock.exit97:                                 ; preds = %497, %505
   %518 = load i32, ptr %79, align 4
   %519 = add nsw i32 %518, %517
   store i32 %519, ptr %79, align 4
-  %520 = trunc i64 %indvars.iv to i32
+  %520 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %32, ptr noundef %41, i32 noundef %520) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %521 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #23
@@ -5125,12 +5123,12 @@ common.ret42:                                     ; preds = %17, %Gia_ObjUpdateT
   %27 = tail call fastcc i32 @Cbs3_ManToSolver2_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %23, i32 noundef %26)
   %.val37 = load i64, ptr %7, align 4
   %28 = lshr i64 %.val37, 32
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 536870911
   %31 = sub nsw i32 %2, %30
   %32 = shl i64 %.val37, 2
   %33 = ashr i64 %32, 63
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nsw i64 %33 to i32
   %35 = add i32 %34, %3
   %36 = tail call fastcc i32 @Cbs3_ManToSolver2_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %31, i32 noundef %35)
   %.val31 = load i64, ptr %7, align 4
@@ -5139,7 +5137,7 @@ common.ret42:                                     ; preds = %17, %Gia_ObjUpdateT
   %39 = and i32 %38, 1
   %40 = xor i32 %39, %27
   %41 = lshr i64 %.val31, 61
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw nsw i64 %41 to i32
   %43 = and i32 %42, 1
   %44 = xor i32 %43, %36
   %45 = tail call fastcc i32 @Cbs3_ManAddNode(ptr noundef %0, i32 noundef %2, i32 noundef %40, i32 noundef %44)

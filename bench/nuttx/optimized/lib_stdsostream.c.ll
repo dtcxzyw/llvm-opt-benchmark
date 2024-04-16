@@ -19,20 +19,18 @@ define void @lib_stdsostream(ptr nocapture noundef writeonly %0, ptr noundef %1)
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 256
   %.not10 = icmp eq i16 %10, 0
-  br i1 %.not10, label %11, label %12
+  %spec.select = select i1 %.not10, ptr @lib_snoflush, ptr @stdsostream_flush
+  br label %11
 
 11:                                               ; preds = %7, %2
-  br label %12
-
-12:                                               ; preds = %7, %11
-  %lib_snoflush.sink = phi ptr [ @lib_snoflush, %11 ], [ @stdsostream_flush, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %lib_snoflush.sink, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr @stdsostream_seek, ptr %14, align 8
+  %lib_snoflush.sink = phi ptr [ @lib_snoflush, %2 ], [ %spec.select, %7 ]
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %lib_snoflush.sink, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr @stdsostream_seek, ptr %13, align 8
   store i32 0, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %1, ptr %15, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %1, ptr %14, align 8
   ret void
 }
 

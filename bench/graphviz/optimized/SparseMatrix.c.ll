@@ -235,7 +235,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 
 .lr.ph195.preheader:                              ; preds = %.lr.ph198
   %65 = sext i32 %61 to i64
-  %66 = trunc i64 %indvars.iv243 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv243 to i32
   br label %.lr.ph195
 
 .lr.ph195:                                        ; preds = %.lr.ph195.preheader, %.lr.ph195
@@ -293,7 +293,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 
 .lr.ph189.preheader:                              ; preds = %.lr.ph192
   %96 = sext i32 %92 to i64
-  %97 = trunc i64 %indvars.iv235 to i32
+  %97 = trunc nuw nsw i64 %indvars.iv235 to i32
   br label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %.lr.ph189.preheader, %.lr.ph189
@@ -369,7 +369,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 
 .lr.ph183.preheader:                              ; preds = %.lr.ph186
   %144 = sext i32 %140 to i64
-  %145 = trunc i64 %indvars.iv227 to i32
+  %145 = trunc nuw nsw i64 %indvars.iv227 to i32
   br label %.lr.ph183
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %.lr.ph183
@@ -415,7 +415,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 
 .lr.ph178.preheader:                              ; preds = %.lr.ph180
   %170 = sext i32 %166 to i64
-  %171 = trunc i64 %indvars.iv219 to i32
+  %171 = trunc nuw nsw i64 %indvars.iv219 to i32
   br label %.lr.ph178
 
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
@@ -1024,7 +1024,7 @@ gv_calloc.exit:                                   ; preds = %15
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %40, i64 %60
-  %62 = trunc i64 %indvars.iv379 to i32
+  %62 = trunc nsw i64 %indvars.iv379 to i32
   store i32 %62, ptr %61, align 4
   %indvars.iv.next380 = add nsw i64 %indvars.iv379, 1
   %exitcond383.not = icmp eq i64 %indvars.iv.next380, %wide.trip.count382
@@ -1143,7 +1143,7 @@ gv_calloc.exit:                                   ; preds = %15
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i32, ptr %40, i64 %108
-  %110 = trunc i64 %indvars.iv354 to i32
+  %110 = trunc nsw i64 %indvars.iv354 to i32
   store i32 %110, ptr %109, align 4
   %indvars.iv.next355 = add nsw i64 %indvars.iv354, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count357
@@ -1258,7 +1258,7 @@ gv_calloc.exit:                                   ; preds = %15
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i32, ptr %40, i64 %164
-  %166 = trunc i64 %indvars.iv329 to i32
+  %166 = trunc nsw i64 %indvars.iv329 to i32
   store i32 %166, ptr %165, align 4
   %indvars.iv.next330 = add nsw i64 %indvars.iv329, 1
   %exitcond333.not = icmp eq i64 %indvars.iv.next330, %wide.trip.count332
@@ -1344,7 +1344,7 @@ gv_calloc.exit:                                   ; preds = %15
   %198 = load i32, ptr %197, align 4
   %199 = sext i32 %198 to i64
   %200 = getelementptr inbounds i32, ptr %40, i64 %199
-  %201 = trunc i64 %indvars.iv to i32
+  %201 = trunc nsw i64 %indvars.iv to i32
   store i32 %201, ptr %200, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1652,7 +1652,7 @@ gv_calloc.exit:                                   ; preds = %35
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i32, ptr %55, i64 %75
-  %77 = trunc i64 %indvars.iv403 to i32
+  %77 = trunc nsw i64 %indvars.iv403 to i32
   store i32 %77, ptr %76, align 4
   %78 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv403
   store i32 %74, ptr %78, align 4
@@ -1668,7 +1668,7 @@ gv_calloc.exit:                                   ; preds = %35
   br i1 %84, label %.lr.ph336, label %._crit_edge337.loopexit
 
 ._crit_edge337.loopexit:                          ; preds = %.lr.ph336
-  %85 = trunc i64 %indvars.iv.next404 to i32
+  %85 = trunc nsw i64 %indvars.iv.next404 to i32
   br label %._crit_edge337
 
 ._crit_edge337:                                   ; preds = %._crit_edge337.loopexit, %.lr.ph350
@@ -1770,7 +1770,7 @@ gv_calloc.exit:                                   ; preds = %35
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i32, ptr %55, i64 %137
-  %139 = trunc i64 %indvars.iv388 to i32
+  %139 = trunc nsw i64 %indvars.iv388 to i32
   store i32 %139, ptr %138, align 4
   %140 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv388
   store i32 %136, ptr %140, align 4
@@ -1794,7 +1794,7 @@ gv_calloc.exit:                                   ; preds = %35
   br i1 %153, label %.lr.ph317, label %._crit_edge318.loopexit
 
 ._crit_edge318.loopexit:                          ; preds = %.lr.ph317
-  %154 = trunc i64 %indvars.iv.next389 to i32
+  %154 = trunc nsw i64 %indvars.iv.next389 to i32
   br label %._crit_edge318
 
 ._crit_edge318:                                   ; preds = %._crit_edge318.loopexit, %.lr.ph331
@@ -1922,7 +1922,7 @@ gv_calloc.exit:                                   ; preds = %35
   %229 = load i32, ptr %228, align 4
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds i32, ptr %55, i64 %230
-  %232 = trunc i64 %indvars.iv373 to i32
+  %232 = trunc nsw i64 %indvars.iv373 to i32
   store i32 %232, ptr %231, align 4
   %233 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv373
   store i32 %229, ptr %233, align 4
@@ -1938,7 +1938,7 @@ gv_calloc.exit:                                   ; preds = %35
   br i1 %239, label %.lr.ph298, label %._crit_edge299.loopexit
 
 ._crit_edge299.loopexit:                          ; preds = %.lr.ph298
-  %240 = trunc i64 %indvars.iv.next374 to i32
+  %240 = trunc nsw i64 %indvars.iv.next374 to i32
   br label %._crit_edge299
 
 ._crit_edge299:                                   ; preds = %._crit_edge299.loopexit, %.lr.ph312
@@ -2026,7 +2026,7 @@ gv_calloc.exit:                                   ; preds = %35
   %283 = load i32, ptr %282, align 4
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds i32, ptr %55, i64 %284
-  %286 = trunc i64 %indvars.iv360 to i32
+  %286 = trunc nsw i64 %indvars.iv360 to i32
   store i32 %286, ptr %285, align 4
   %287 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv360
   store i32 %283, ptr %287, align 4
@@ -2038,7 +2038,7 @@ gv_calloc.exit:                                   ; preds = %35
   br i1 %290, label %.lr.ph281, label %._crit_edge282.loopexit
 
 ._crit_edge282.loopexit:                          ; preds = %.lr.ph281
-  %291 = trunc i64 %indvars.iv.next361 to i32
+  %291 = trunc nsw i64 %indvars.iv.next361 to i32
   br label %._crit_edge282
 
 ._crit_edge282:                                   ; preds = %._crit_edge282.loopexit, %.lr.ph293
@@ -2364,7 +2364,7 @@ define void @SparseMatrix_export(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %9, label %switch.hole_check, label %SparseMatrix_export_csr.exit
 
 switch.hole_check:                                ; preds = %5
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %SparseMatrix_export_csr.exit
@@ -2428,7 +2428,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph102.preheader.i:                            ; preds = %.lr.ph104.i
   %33 = sext i32 %29 to i64
-  %34 = trunc i64 %indvars.iv.next132.i to i32
+  %34 = trunc nuw nsw i64 %indvars.iv.next132.i to i32
   br label %.lr.ph102.i
 
 .lr.ph102.i:                                      ; preds = %.lr.ph102.i, %.lr.ph102.preheader.i
@@ -2471,7 +2471,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph98.preheader.i:                             ; preds = %.lr.ph100.i
   %52 = sext i32 %48 to i64
-  %53 = trunc i64 %indvars.iv.next124.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.next124.i to i32
   br label %.lr.ph98.i
 
 .lr.ph98.i:                                       ; preds = %.lr.ph98.i, %.lr.ph98.preheader.i
@@ -2518,7 +2518,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph94.preheader.i:                             ; preds = %.lr.ph96.i
   %75 = sext i32 %71 to i64
-  %76 = trunc i64 %indvars.iv.next116.i to i32
+  %76 = trunc nuw nsw i64 %indvars.iv.next116.i to i32
   br label %.lr.ph94.i
 
 .lr.ph94.i:                                       ; preds = %.lr.ph94.i, %.lr.ph94.preheader.i
@@ -2551,7 +2551,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph92.i
   %91 = sext i32 %87 to i64
-  %92 = trunc i64 %indvars.iv.next110.i to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.next110.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2574,7 +2574,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %103, label %switch.hole_check53, label %SparseMatrix_export_csr.exit
 
 switch.hole_check53:                              ; preds = %100
-  %switch.maskindex55 = trunc i32 %switch.tableidx52 to i8
+  %switch.maskindex55 = trunc nuw i32 %switch.tableidx52 to i8
   %switch.shifted56 = lshr i8 -117, %switch.maskindex55
   %switch.lobit57 = trunc i8 %switch.shifted56 to i1
   br i1 %switch.lobit57, label %switch.lookup54, label %SparseMatrix_export_csr.exit
@@ -3369,7 +3369,7 @@ define void @SparseMatrix_multiply_dense(ptr nocapture noundef readonly %0, ptr 
   %29 = load double, ptr %26, align 8
   %30 = load i32, ptr %27, align 4
   %31 = mul nsw i32 %30, %3
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = add nsw i32 %31, %32
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds double, ptr %1, i64 %34
@@ -3807,7 +3807,7 @@ define noundef ptr @SparseMatrix_multiply(ptr nocapture noundef readonly %0, ptr
   %33 = sub nuw nsw i64 4294967294, %indvars.iv425
   %34 = sext i32 %29 to i64
   %wide.trip.count423 = sext i32 %31 to i64
-  %35 = trunc i64 %33 to i32
+  %35 = trunc nuw i64 %33 to i32
   br label %36
 
 36:                                               ; preds = %.lr.ph331, %._crit_edge
@@ -4498,7 +4498,7 @@ define noundef ptr @SparseMatrix_multiply3(ptr nocapture noundef readonly %0, pt
   %45 = sub nuw nsw i64 4294967294, %indvars.iv220
   %46 = sext i32 %41 to i64
   %wide.trip.count218 = sext i32 %43 to i64
-  %47 = trunc i64 %45 to i32
+  %47 = trunc nuw i64 %45 to i32
   br label %48
 
 48:                                               ; preds = %.lr.ph174, %._crit_edge169
@@ -5644,7 +5644,7 @@ define noundef ptr @SparseMatrix_remove_diagonal(ptr noundef %0) local_unnamed_a
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %64, label %2
+  br i1 %.not, label %.loopexit58, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5653,11 +5653,11 @@ define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly %0) l
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %64 [
+  switch i32 %8, label %.loopexit58 [
     i32 1, label %9
     i32 2, label %32
-    i32 4, label %.loopexit58
-    i32 8, label %.loopexit58
+    i32 4, label %64
+    i32 8, label %64
   ]
 
 9:                                                ; preds = %2
@@ -5775,11 +5775,11 @@ define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly %0) l
   %63 = icmp slt i64 %indvars.iv.next, %62
   br i1 %63, label %.lr.ph, label %.loopexit59.loopexit
 
-.loopexit58:                                      ; preds = %.loopexit59, %.loopexit, %32, %9, %2, %2
-  br label %64
+64:                                               ; preds = %2, %2
+  br label %.loopexit58
 
-64:                                               ; preds = %2, %1, %.loopexit58
-  %.0 = phi ptr [ %0, %.loopexit58 ], [ null, %1 ], [ null, %2 ]
+.loopexit58:                                      ; preds = %.loopexit59, %.loopexit, %32, %9, %2, %1, %64
+  %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ %0, %64 ], [ %0, %9 ], [ %0, %32 ], [ %0, %.loopexit ], [ %0, %.loopexit59 ]
   ret ptr %.0
 }
 
@@ -6096,7 +6096,7 @@ gv_calloc.exit:                                   ; preds = %20
   br i1 %33, label %34, label %54
 
 34:                                               ; preds = %29
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @SparseMatrix_level_sets(ptr noundef %.0, i32 noundef %35, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false)
   %.pre = load ptr, ptr %5, align 8
   br label %38
@@ -6594,7 +6594,7 @@ gv_calloc.exit118:                                ; preds = %25
 
 .lr.ph151.preheader:                              ; preds = %._crit_edge146
   %77 = sext i32 %61 to i64
-  %78 = trunc i64 %indvars.iv173 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv173 to i32
   %79 = sext i32 %63 to i64
   br label %.lr.ph151
 
@@ -6702,7 +6702,7 @@ gv_calloc.exit118:                                ; preds = %25
   store i32 %122, ptr %120, align 4
   %123 = sext i32 %121 to i64
   %124 = getelementptr inbounds i32, ptr %118, i64 %123
-  %125 = trunc i64 %indvars.iv181 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv181 to i32
   store i32 %125, ptr %124, align 4
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
@@ -6828,7 +6828,7 @@ gv_calloc.exit91:                                 ; preds = %37
   br label %57
 
 .loopexit94.loopexit:                             ; preds = %66
-  %53 = trunc i64 %indvars.iv.next114 to i32
+  %53 = trunc nsw i64 %indvars.iv.next114 to i32
   br label %.loopexit94
 
 .loopexit94:                                      ; preds = %.loopexit94.loopexit, %57
@@ -6862,7 +6862,7 @@ gv_calloc.exit91:                                 ; preds = %37
   %63 = sext i32 %58 to i64
   %64 = sext i32 %.07899 to i64
   %wide.trip.count = sext i32 %60 to i64
-  %65 = trunc i64 %indvars.iv118 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv118 to i32
   br label %66
 
 66:                                               ; preds = %.lr.ph, %66
@@ -6881,7 +6881,7 @@ gv_calloc.exit91:                                 ; preds = %37
   br i1 %exitcond.not, label %.loopexit94.loopexit, label %66
 
 .loopexit.loopexit:                               ; preds = %82
-  %72 = trunc i64 %indvars.iv.next126 to i32
+  %72 = trunc nsw i64 %indvars.iv.next126 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %73
@@ -6904,7 +6904,7 @@ gv_calloc.exit91:                                 ; preds = %37
   %79 = sext i32 %74 to i64
   %80 = sext i32 %.2108 to i64
   %wide.trip.count130 = sext i32 %76 to i64
-  %81 = trunc i64 %indvars.iv132 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv132 to i32
   br label %82
 
 82:                                               ; preds = %.lr.ph105, %82
@@ -7901,7 +7901,7 @@ SparseMatrix_new.exit:                            ; preds = %3, %7
 26:                                               ; preds = %.preheader.us, %26
   %indvars.iv54 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next55, %26 ]
   %27 = getelementptr inbounds i32, ptr %.03848.us, i64 %indvars.iv54
-  %28 = trunc i64 %indvars.iv54 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv54 to i32
   store i32 %28, ptr %27, align 4
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv54
   %29 = load double, ptr %gep, align 8
@@ -8020,7 +8020,7 @@ gv_calloc.exit:                                   ; preds = %15
   br i1 %36, label %.lr.ph42, label %.loopexit
 
 .lr.ph42:                                         ; preds = %32
-  %37 = trunc i64 %indvars.iv54 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv54 to i32
   %38 = sitofp i32 %37 to double
   %39 = sext i32 %33 to i64
   br label %40

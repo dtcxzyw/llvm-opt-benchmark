@@ -2377,9 +2377,9 @@ if.then.i:                                        ; preds = %if.then19
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i, align 8, !tbaa.struct !123
   %sub.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i, 32
-  %ref.tmp.sroa.7.12.extract.trunc.i = trunc i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
+  %ref.tmp.sroa.7.12.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i.i, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %sub.i4.i.i = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc.i, %ref.tmp.sroa.0.4.extract.trunc.i
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i to i32
   %conv.i = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
@@ -3220,7 +3220,7 @@ if.then:                                          ; preds = %land.lhs.true29
   %call50 = tail call i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %call42, ptr noundef %17) #23
   %dim.sroa.0.0.extract.trunc = trunc i64 %call50 to i32
   %dim.sroa.6.0.extract.shift = lshr i64 %call50, 32
-  %dim.sroa.6.0.extract.trunc = trunc i64 %dim.sroa.6.0.extract.shift to i32
+  %dim.sroa.6.0.extract.trunc = trunc nuw i64 %dim.sroa.6.0.extract.shift to i32
   %vtable51 = load ptr, ptr %this, align 8, !tbaa !11
   %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 96
   %19 = load ptr, ptr %vfn52, align 8
@@ -3244,7 +3244,7 @@ if.then:                                          ; preds = %land.lhs.true29
   %add66.neg = xor i32 %add64, -1
   %Y = getelementptr inbounds i8, ptr %pos, i64 4
   %23 = lshr i64 %12, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %sub68 = add i32 %add66.neg, %24
   store i32 %sub68, ptr %Y, align 4, !tbaa !140
   %sub73 = add i32 %24, -2
@@ -3266,9 +3266,9 @@ if.then:                                          ; preds = %land.lhs.true29
 
 lor.lhs.false.i:                                  ; preds = %if.then
   %ref.tmp.sroa.7.12.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i, 32
-  %ref.tmp.sroa.7.12.extract.trunc = trunc i64 %ref.tmp.sroa.7.12.extract.shift to i32
+  %ref.tmp.sroa.7.12.extract.trunc = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift to i32
   %ref.tmp.sroa.0.4.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %ref.tmp.sroa.0.4.extract.trunc = trunc i64 %ref.tmp.sroa.0.4.extract.shift to i32
+  %ref.tmp.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift to i32
   %sub.i74.i = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc, %ref.tmp.sroa.0.4.extract.trunc
   %sub.i77.i = sub nsw i32 %sub73, %sub68
   %cmp5.i = icmp slt i32 %sub.i74.i, %sub.i77.i
@@ -3395,7 +3395,7 @@ _ZN3irr4core4rectIiE11constrainToERKS2_.exit:     ; preds = %if.then48.i, %if.en
   store i64 %retval.sroa.0.0.copyload.i202, ptr %pos, align 8, !tbaa.struct !122
   store i64 %retval.sroa.2.0.copyload.i203, ptr %LowerRightCorner, align 8, !tbaa.struct !123
   %51 = lshr i64 %retval.sroa.0.0.copyload.i202, 32
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw i64 %51 to i32
   %add147 = add nsw i32 %call140, %52
   store i32 %add147, ptr %Y74, align 4, !tbaa !141
   %Parent.i = getelementptr inbounds i8, ptr %50, i64 32
@@ -3412,9 +3412,9 @@ if.then.i:                                        ; preds = %_ZN3irr4core4rectIi
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i, align 8, !tbaa.struct !123
   %sub.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i, 32
-  %ref.tmp.sroa.7.12.extract.trunc.i = trunc i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
+  %ref.tmp.sroa.7.12.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i.i, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %sub.i4.i.i = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc.i, %ref.tmp.sroa.0.4.extract.trunc.i
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i to i32
   %conv.i206 = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
@@ -4371,7 +4371,7 @@ define noundef ptr @_ZN3irr3gui15CGUIEnvironment8addImageEPNS_5video8ITextureENS
 entry:
   %pos.sroa.0.0.extract.trunc = trunc i64 %pos.coerce to i32
   %pos.sroa.3.0.extract.shift = lshr i64 %pos.coerce, 32
-  %pos.sroa.3.0.extract.trunc = trunc i64 %pos.sroa.3.0.extract.shift to i32
+  %pos.sroa.3.0.extract.trunc = trunc nuw i64 %pos.sroa.3.0.extract.shift to i32
   %tobool.not = icmp eq ptr %image, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -5075,7 +5075,7 @@ define noundef ptr @_ZN3irr3gui15CGUIEnvironment7addFontERKNS_4core6stringIcEEPN
 entry:
   %f = alloca %"struct.irr::gui::CGUIEnvironment::SFont", align 8
   %tobool.not = icmp eq ptr %font, null
-  br i1 %tobool.not, label %if.end9, label %if.then
+  br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %f) #23
@@ -5166,7 +5166,7 @@ _ZN3irr4core5arrayINS_3gui15CGUIEnvironment5SFontEE9push_backERKS4_.exit: ; pred
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN3irr4core5arrayINS_3gui15CGUIEnvironment5SFontEE9push_backERKS4_.exit, %if.then2
-  %retval.0 = phi ptr [ %3, %if.then2 ], [ undef, %_ZN3irr4core5arrayINS_3gui15CGUIEnvironment5SFontEE9push_backERKS4_.exit ]
+  %spec.select = phi ptr [ %3, %if.then2 ], [ %font, %_ZN3irr4core5arrayINS_3gui15CGUIEnvironment5SFontEE9push_backERKS4_.exit ]
   %11 = load ptr, ptr %InternalName.i.i, align 8, !tbaa !3
   %cmp.i.i.i.i.i.i = icmp eq ptr %11, %1
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5198,13 +5198,10 @@ if.then.i.i.i3.i.i:                               ; preds = %_ZN3irr4core6string
 
 _ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit:      ; preds = %if.then.i.i.i3.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %f) #23
-  br i1 %cmp.not.not, label %if.end9, label %return
-
-if.end9:                                          ; preds = %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit, %entry
   br label %return
 
-return:                                           ; preds = %if.end9, %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit
-  %retval.1 = phi ptr [ %retval.0, %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit ], [ %font, %if.end9 ]
+return:                                           ; preds = %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit, %entry
+  %retval.1 = phi ptr [ null, %entry ], [ %spec.select, %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit ]
   ret ptr %retval.1
 }
 
@@ -6284,18 +6281,18 @@ if.end:                                           ; preds = %for.body, %if.then,
 define linkonce_odr void @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, i64 %absoluteMovement.coerce) unnamed_addr #0 comdat align 2 {
 entry:
   %absoluteMovement.sroa.2.0.extract.shift = lshr i64 %absoluteMovement.coerce, 32
-  %absoluteMovement.sroa.2.0.extract.trunc = trunc i64 %absoluteMovement.sroa.2.0.extract.shift to i32
+  %absoluteMovement.sroa.2.0.extract.trunc = trunc nuw i64 %absoluteMovement.sroa.2.0.extract.shift to i32
   %DesiredRect = getelementptr inbounds i8, ptr %this, i64 96
   %ret.sroa.0.0.copyload.i = load i64, ptr %DesiredRect, align 8, !tbaa.struct !122
   %ret.sroa.0.sroa.6.0.extract.shift.i = lshr i64 %ret.sroa.0.0.copyload.i, 32
-  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
+  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc nuw i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
   %ret.sroa.8.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 104
   %ret.sroa.8.0.copyload.i = load i64, ptr %ret.sroa.8.0.this.sroa_idx.i, align 8, !tbaa.struct !123
   %add.i.i.i = add i64 %ret.sroa.0.0.copyload.i, %absoluteMovement.coerce
   %add4.i.i.i = add nsw i32 %ret.sroa.0.sroa.6.0.extract.trunc.i, %absoluteMovement.sroa.2.0.extract.trunc
   %add.i4.i.i = add i64 %ret.sroa.8.0.copyload.i, %absoluteMovement.coerce
   %ret.sroa.8.12.extract.shift.i = lshr i64 %ret.sroa.8.0.copyload.i, 32
-  %ret.sroa.8.12.extract.trunc.i = trunc i64 %ret.sroa.8.12.extract.shift.i to i32
+  %ret.sroa.8.12.extract.trunc.i = trunc nuw i64 %ret.sroa.8.12.extract.shift.i to i32
   %add4.i7.i.i = add nsw i32 %ret.sroa.8.12.extract.trunc.i, %absoluteMovement.sroa.2.0.extract.trunc
   %ref.tmp.sroa.0.sroa.0.0.extract.trunc = trunc i64 %add.i.i.i to i32
   %Parent.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -6310,9 +6307,9 @@ if.then.i:                                        ; preds = %entry
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i, align 8, !tbaa.struct !123
   %sub.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %ref.tmp.sroa.7.12.extract.shift.i = lshr i64 %retval.sroa.2.0.copyload.i.i, 32
-  %ref.tmp.sroa.7.12.extract.trunc.i = trunc i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
+  %ref.tmp.sroa.7.12.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.7.12.extract.shift.i to i32
   %ref.tmp.sroa.0.4.extract.shift.i = lshr i64 %retval.sroa.0.0.copyload.i.i, 32
-  %ref.tmp.sroa.0.4.extract.trunc.i = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
+  %ref.tmp.sroa.0.4.extract.trunc.i = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift.i to i32
   %sub.i4.i.i = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc.i, %ref.tmp.sroa.0.4.extract.trunc.i
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %sub.i.i.i to i32
   %conv.i = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i to float
@@ -7386,7 +7383,7 @@ _ZN3irr4core4rectIiE6repairEv.exit:               ; preds = %if.then15.i, %if.en
   %ret.sroa.0.0.copyload.i = load i64, ptr %RelativeRect, align 8, !tbaa.struct !122
   %ret.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %ret.sroa.0.0.copyload.i to i32
   %ret.sroa.0.sroa.6.0.extract.shift.i = lshr i64 %ret.sroa.0.0.copyload.i, 32
-  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
+  %ret.sroa.0.sroa.6.0.extract.trunc.i = trunc nuw i64 %ret.sroa.0.sroa.6.0.extract.shift.i to i32
   %ret.sroa.8.0.copyload.i = load i64, ptr %LowerRightCorner.i232, align 8, !tbaa.struct !123
   %add.i.i.i = add nsw i32 %parentAbsolute.sroa.0.0, %ret.sroa.0.sroa.0.0.extract.trunc.i
   %add4.i.i.i = add nsw i32 %parentAbsolute.sroa.8.0, %ret.sroa.0.sroa.6.0.extract.trunc.i
@@ -7394,7 +7391,7 @@ _ZN3irr4core4rectIiE6repairEv.exit:               ; preds = %if.then15.i, %if.en
   %add.i4.i.i = add nsw i32 %parentAbsolute.sroa.0.0, %ret.sroa.8.8.extract.trunc.i
   %ret.sroa.8.8.insert.ext.i = zext i32 %add.i4.i.i to i64
   %ret.sroa.8.12.extract.shift.i = lshr i64 %ret.sroa.8.0.copyload.i, 32
-  %ret.sroa.8.12.extract.trunc.i = trunc i64 %ret.sroa.8.12.extract.shift.i to i32
+  %ret.sroa.8.12.extract.trunc.i = trunc nuw i64 %ret.sroa.8.12.extract.shift.i to i32
   %add4.i7.i.i = add nsw i32 %parentAbsolute.sroa.8.0, %ret.sroa.8.12.extract.trunc.i
   %ret.sroa.8.12.insert.ext.i = zext i32 %add4.i7.i.i to i64
   %ret.sroa.8.12.insert.shift.i = shl nuw i64 %ret.sroa.8.12.insert.ext.i, 32
@@ -7851,7 +7848,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %3, %1
   %spec.select6.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
@@ -7912,7 +7909,7 @@ if.then.i.i.i.i.i61:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i62 = sub i64 %6, %7
   %spec.select6.i.i.i.i.i.i63 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i62, i64 -2147483648)
   %retval.07.i.i.i.i.i.i64 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i63, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i65 = trunc i64 %retval.07.i.i.i.i.i.i64 to i32
+  %retval.0.i12.i.i.i.i.i65 = trunc nsw i64 %retval.07.i.i.i.i.i.i64 to i32
   br label %_ZNK3irr3gui15CGUIEnvironment5SFontltERKS2_.exit66
 
 _ZNK3irr3gui15CGUIEnvironment5SFontltERKS2_.exit66: ; preds = %if.then.i.i.i.i.i61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54
@@ -8017,7 +8014,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %3, %2
   %spec.select6.i.i.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
@@ -8051,7 +8048,7 @@ if.then.i.i.i.i.i.i38.i.i:                        ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i39.i.i = sub i64 %2, %6
   %spec.select6.i.i.i.i.i.i.i40.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i39.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i41.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i40.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i42.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i41.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i42.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i41.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit43.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit43.i.i: ; preds = %if.then.i.i.i.i.i.i38.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i31.i.i
@@ -8471,7 +8468,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %0, %1
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -8642,7 +8639,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %0, %1
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -8718,7 +8715,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %0, %1
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -8746,7 +8743,7 @@ if.then.i.i.i.i.i.i74:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i75 = sub i64 %1, %4
   %spec.select6.i.i.i.i.i.i.i76 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i75, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i77 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i76, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i78 = trunc i64 %retval.07.i.i.i.i.i.i.i77 to i32
+  %retval.0.i12.i.i.i.i.i.i78 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i77 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit79
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit79: ; preds = %if.then.i.i.i.i.i.i74, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i67
@@ -8772,7 +8769,7 @@ if.then.i.i.i.i.i.i91:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i92 = sub i64 %0, %4
   %spec.select6.i.i.i.i.i.i.i93 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i92, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i94 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i93, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i95 = trunc i64 %retval.07.i.i.i.i.i.i.i94 to i32
+  %retval.0.i12.i.i.i.i.i.i95 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i94 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit96
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit96: ; preds = %if.then.i.i.i.i.i.i91, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i84
@@ -8799,7 +8796,7 @@ if.then.i.i.i.i.i.i108:                           ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i109 = sub i64 %0, %4
   %spec.select6.i.i.i.i.i.i.i110 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i109, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i111 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i110, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i112 = trunc i64 %retval.07.i.i.i.i.i.i.i111 to i32
+  %retval.0.i12.i.i.i.i.i.i112 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i111 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit113
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit113: ; preds = %if.then.i.i.i.i.i.i108, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i101
@@ -8825,7 +8822,7 @@ if.then.i.i.i.i.i.i125:                           ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i126 = sub i64 %1, %4
   %spec.select6.i.i.i.i.i.i.i127 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i126, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i128 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i127, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i129 = trunc i64 %retval.07.i.i.i.i.i.i.i128 to i32
+  %retval.0.i12.i.i.i.i.i.i129 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i128 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit130
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit130: ; preds = %if.then.i.i.i.i.i.i125, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i118
@@ -8994,7 +8991,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -9179,7 +9176,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %4, %5
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr3gui15CGUIEnvironment5SFontENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr3gui15CGUIEnvironment5SFontENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -9300,7 +9297,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %3, %1
   %spec.select6.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
@@ -9361,7 +9358,7 @@ if.then.i.i.i.i.i61:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i62 = sub i64 %6, %7
   %spec.select6.i.i.i.i.i.i63 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i62, i64 -2147483648)
   %retval.07.i.i.i.i.i.i64 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i63, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i65 = trunc i64 %retval.07.i.i.i.i.i.i64 to i32
+  %retval.0.i12.i.i.i.i.i65 = trunc nsw i64 %retval.07.i.i.i.i.i.i64 to i32
   br label %_ZNK3irr3gui15CGUIEnvironment11SSpriteBankltERKS2_.exit66
 
 _ZNK3irr3gui15CGUIEnvironment11SSpriteBankltERKS2_.exit66: ; preds = %if.then.i.i.i.i.i61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i54
@@ -9466,7 +9463,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i.i.i = sub i64 %3, %2
   %spec.select6.i.i.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i
@@ -9500,7 +9497,7 @@ if.then.i.i.i.i.i.i38.i.i:                        ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i39.i.i = sub i64 %2, %6
   %spec.select6.i.i.i.i.i.i.i40.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i39.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i41.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i40.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i42.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i41.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i42.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i41.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit43.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit43.i.i: ; preds = %if.then.i.i.i.i.i.i38.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i31.i.i
@@ -9920,7 +9917,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %0, %1
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -10091,7 +10088,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %0, %1
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -10164,7 +10161,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %0, %1
   %spec.select6.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -10192,7 +10189,7 @@ if.then.i.i.i.i.i.i74:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i75 = sub i64 %1, %4
   %spec.select6.i.i.i.i.i.i.i76 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i75, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i77 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i76, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i78 = trunc i64 %retval.07.i.i.i.i.i.i.i77 to i32
+  %retval.0.i12.i.i.i.i.i.i78 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i77 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit79
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit79: ; preds = %if.then.i.i.i.i.i.i74, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i67
@@ -10218,7 +10215,7 @@ if.then.i.i.i.i.i.i91:                            ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i92 = sub i64 %0, %4
   %spec.select6.i.i.i.i.i.i.i93 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i92, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i94 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i93, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i95 = trunc i64 %retval.07.i.i.i.i.i.i.i94 to i32
+  %retval.0.i12.i.i.i.i.i.i95 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i94 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit96
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit96: ; preds = %if.then.i.i.i.i.i.i91, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i84
@@ -10245,7 +10242,7 @@ if.then.i.i.i.i.i.i108:                           ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i109 = sub i64 %0, %4
   %spec.select6.i.i.i.i.i.i.i110 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i109, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i111 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i110, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i112 = trunc i64 %retval.07.i.i.i.i.i.i.i111 to i32
+  %retval.0.i12.i.i.i.i.i.i112 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i111 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit113
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit113: ; preds = %if.then.i.i.i.i.i.i108, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i101
@@ -10271,7 +10268,7 @@ if.then.i.i.i.i.i.i125:                           ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i126 = sub i64 %1, %4
   %spec.select6.i.i.i.i.i.i.i127 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i126, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i128 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i127, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i129 = trunc i64 %retval.07.i.i.i.i.i.i.i128 to i32
+  %retval.0.i12.i.i.i.i.i.i129 = trunc nsw i64 %retval.07.i.i.i.i.i.i.i128 to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit130
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit130: ; preds = %if.then.i.i.i.i.i.i125, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i118
@@ -10437,7 +10434,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -10622,7 +10619,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %4, %5
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr3gui15CGUIEnvironment11SSpriteBankENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3irr3gui15CGUIEnvironment11SSpriteBankENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i

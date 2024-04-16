@@ -74,7 +74,7 @@ define dso_local noundef i32 @zlib_deflateInit2(ptr noundef %0, i32 noundef %1, 
   %51 = add nsw i32 %38, -1
   %52 = getelementptr inbounds i8, ptr %27, i64 116
   store i32 %51, ptr %52, align 4
-  %53 = trunc i32 %4 to i8
+  %53 = trunc nuw i32 %4 to i8
   %.lhs.trunc = add nuw nsw i8 %53, 9
   %54 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %54 to i32
@@ -124,13 +124,13 @@ define dso_local noundef i32 @zlib_deflateInit2(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @zlib_deflateReset(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %69, label %3
+  br i1 %2, label %68, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %69, label %7
+  br i1 %6, label %68, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -157,82 +157,80 @@ define dso_local noundef i32 @zlib_deflateReset(ptr noundef %0) local_unnamed_ad
 
 18:                                               ; preds = %7
   %19 = icmp eq i32 %.fr, 0
-  br i1 %19, label %20, label %21
+  %spec.select = select i1 %19, i32 42, i32 113
+  br label %20
 
-20:                                               ; preds = %.thread, %18
-  br label %21
-
-21:                                               ; preds = %18, %20
-  %22 = phi i32 [ 42, %20 ], [ 113, %18 ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 52
-  store i32 0, ptr %25, align 4
+20:                                               ; preds = %18, %.thread
+  %21 = phi i32 [ 42, %.thread ], [ %spec.select, %18 ]
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 1, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 52
+  store i32 0, ptr %24, align 4
   tail call void @zlib_tr_init(ptr noundef nonnull %5) #10
-  %26 = getelementptr inbounds i8, ptr %5, i64 56
-  %27 = load i32, ptr %26, align 8
-  %28 = zext i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 1
-  %30 = getelementptr inbounds i8, ptr %5, i64 80
-  store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 96
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 108
-  %34 = load i32, ptr %33, align 4
-  %35 = add i32 %34, -1
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr i16, ptr %32, i64 %36
-  store i16 0, ptr %37, align 2
-  %38 = load ptr, ptr %31, align 8
-  %39 = load i32, ptr %33, align 4
-  %40 = add i32 %39, -1
-  %41 = zext i32 %40 to i64
-  %42 = shl nuw nsw i64 %41, 1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %42, i1 false)
-  %43 = getelementptr inbounds i8, ptr %5, i64 172
-  %44 = load i32, ptr %43, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 1
-  %47 = load i16, ptr %46, align 2
-  %48 = zext i16 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %5, i64 168
-  store i32 %48, ptr %49, align 8
-  %50 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45
-  %51 = load i16, ptr %50, align 16
-  %52 = zext i16 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %5, i64 180
-  store i32 %52, ptr %53, align 4
-  %54 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 2
-  %55 = load i16, ptr %54, align 4
-  %56 = zext i16 %55 to i32
-  %57 = getelementptr inbounds i8, ptr %5, i64 184
-  store i32 %56, ptr %57, align 8
-  %58 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %45, i32 3
-  %59 = load i16, ptr %58, align 2
-  %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %5, i64 164
-  store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %5, i64 148
-  store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %5, i64 128
-  store i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %5, i64 156
-  store i32 0, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %5, i64 160
+  %25 = getelementptr inbounds i8, ptr %5, i64 56
+  %26 = load i32, ptr %25, align 8
+  %27 = zext i32 %26 to i64
+  %28 = shl nuw nsw i64 %27, 1
+  %29 = getelementptr inbounds i8, ptr %5, i64 80
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %5, i64 96
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 108
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, -1
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr i16, ptr %31, i64 %35
+  store i16 0, ptr %36, align 2
+  %37 = load ptr, ptr %30, align 8
+  %38 = load i32, ptr %32, align 4
+  %39 = add i32 %38, -1
+  %40 = zext i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %37, i8 0, i64 %41, i1 false)
+  %42 = getelementptr inbounds i8, ptr %5, i64 172
+  %43 = load i32, ptr %42, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %44, i32 1
+  %46 = load i16, ptr %45, align 2
+  %47 = zext i16 %46 to i32
+  %48 = getelementptr inbounds i8, ptr %5, i64 168
+  store i32 %47, ptr %48, align 8
+  %49 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %44
+  %50 = load i16, ptr %49, align 16
+  %51 = zext i16 %50 to i32
+  %52 = getelementptr inbounds i8, ptr %5, i64 180
+  store i32 %51, ptr %52, align 4
+  %53 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %44, i32 2
+  %54 = load i16, ptr %53, align 4
+  %55 = zext i16 %54 to i32
+  %56 = getelementptr inbounds i8, ptr %5, i64 184
+  store i32 %55, ptr %56, align 8
+  %57 = getelementptr [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %44, i32 3
+  %58 = load i16, ptr %57, align 2
+  %59 = zext i16 %58 to i32
+  %60 = getelementptr inbounds i8, ptr %5, i64 164
+  store i32 %59, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %5, i64 148
+  store i32 0, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %5, i64 128
+  store i64 0, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %5, i64 156
+  store i32 0, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %5, i64 160
+  store i32 2, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %5, i64 136
   store i32 2, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %5, i64 136
-  store i32 2, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 144
+  %66 = getelementptr inbounds i8, ptr %5, i64 144
+  store i32 0, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %5, i64 104
   store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %5, i64 104
-  store i32 0, ptr %68, align 8
-  br label %69
+  br label %68
 
-69:                                               ; preds = %21, %3, %1
-  %70 = phi i32 [ 0, %21 ], [ -2, %3 ], [ -2, %1 ]
-  ret i32 %70
+68:                                               ; preds = %20, %3, %1
+  %69 = phi i32 [ 0, %20 ], [ -2, %3 ], [ -2, %1 ]
+  ret i32 %69
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -402,7 +400,7 @@ define dso_local i32 @zlib_deflate(ptr noundef %0, i32 noundef %1) local_unnamed
   store i8 %113, ptr %120, align 1
   %121 = load i16, ptr %111, align 8
   %122 = lshr i16 %121, 8
-  %123 = trunc i16 %122 to i8
+  %123 = trunc nuw i16 %122 to i8
   %124 = load ptr, ptr %114, align 8
   %125 = load i32, ptr %116, align 8
   %126 = add i32 %125, 1
@@ -718,7 +716,7 @@ define internal fastcc void @flush_pending(ptr nocapture noundef %0) unnamed_add
   store i8 %10, ptr %17, align 1
   %18 = load i16, ptr %8, align 8
   %19 = lshr i16 %18, 8
-  %20 = trunc i16 %19 to i8
+  %20 = trunc nuw i16 %19 to i8
   %21 = load ptr, ptr %11, align 8
   %22 = load i32, ptr %13, align 8
   %23 = add i32 %22, 1
@@ -986,7 +984,7 @@ define internal noundef i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 a
   store i8 %55, ptr %62, align 1
   %63 = load i16, ptr %53, align 8
   %64 = lshr i16 %63, 8
-  %65 = trunc i16 %64 to i8
+  %65 = trunc nuw i16 %64 to i8
   %66 = load ptr, ptr %56, align 8
   %67 = load i32, ptr %58, align 8
   %68 = add i32 %67, 1
@@ -1146,7 +1144,7 @@ define internal noundef i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 a
   store i8 %160, ptr %167, align 1
   %168 = load i16, ptr %158, align 8
   %169 = lshr i16 %168, 8
-  %170 = trunc i16 %169 to i8
+  %170 = trunc nuw i16 %169 to i8
   %171 = load ptr, ptr %161, align 8
   %172 = load i32, ptr %163, align 8
   %173 = add i32 %172, 1
@@ -1297,7 +1295,7 @@ define internal noundef i32 @deflate_stored(ptr noundef %0, i32 noundef %1) #0 a
   store i8 %260, ptr %267, align 1
   %268 = load i16, ptr %258, align 8
   %269 = lshr i16 %268, 8
-  %270 = trunc i16 %269 to i8
+  %270 = trunc nuw i16 %269 to i8
   %271 = load ptr, ptr %261, align 8
   %272 = load i32, ptr %263, align 8
   %273 = add i32 %272, 1
@@ -1679,7 +1677,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   store i8 %187, ptr %194, align 1
   %195 = load i16, ptr %185, align 8
   %196 = lshr i16 %195, 8
-  %197 = trunc i16 %196 to i8
+  %197 = trunc nuw i16 %196 to i8
   %198 = load ptr, ptr %188, align 8
   %199 = load i32, ptr %190, align 8
   %200 = add i32 %199, 1
@@ -1831,7 +1829,7 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   store i8 %288, ptr %295, align 1
   %296 = load i16, ptr %286, align 8
   %297 = lshr i16 %296, 8
-  %298 = trunc i16 %297 to i8
+  %298 = trunc nuw i16 %297 to i8
   %299 = load ptr, ptr %289, align 8
   %300 = load i32, ptr %291, align 8
   %301 = add i32 %300, 1
@@ -2216,7 +2214,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   store i8 %179, ptr %186, align 1
   %187 = load i16, ptr %177, align 8
   %188 = lshr i16 %187, 8
-  %189 = trunc i16 %188 to i8
+  %189 = trunc nuw i16 %188 to i8
   %190 = load ptr, ptr %180, align 8
   %191 = load i32, ptr %182, align 8
   %192 = add i32 %191, 1
@@ -2380,7 +2378,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   store i8 %291, ptr %298, align 1
   %299 = load i16, ptr %289, align 8
   %300 = lshr i16 %299, 8
-  %301 = trunc i16 %300 to i8
+  %301 = trunc nuw i16 %300 to i8
   %302 = load ptr, ptr %292, align 8
   %303 = load i32, ptr %294, align 8
   %304 = add i32 %303, 1
@@ -2566,7 +2564,7 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   store i8 %413, ptr %420, align 1
   %421 = load i16, ptr %411, align 8
   %422 = lshr i16 %421, 8
-  %423 = trunc i16 %422 to i8
+  %423 = trunc nuw i16 %422 to i8
   %424 = load ptr, ptr %414, align 8
   %425 = load i32, ptr %416, align 8
   %426 = add i32 %425, 1
@@ -2754,7 +2752,7 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = tail call i32 @llvm.usub.sat.i32(i32 %54, i32 %3)
-  %56 = trunc i32 %55 to i16
+  %56 = trunc nuw i32 %55 to i16
   store i16 %56, ptr %52, align 2
   %57 = add i32 %50, -1
   %58 = icmp eq i32 %57, 0
@@ -2772,7 +2770,7 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
   %68 = tail call i32 @llvm.usub.sat.i32(i32 %67, i32 %3)
-  %69 = trunc i32 %68 to i16
+  %69 = trunc nuw i32 %68 to i16
   store i16 %69, ptr %65, align 2
   %70 = add i32 %63, -1
   %71 = icmp eq i32 %70, 0

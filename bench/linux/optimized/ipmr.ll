@@ -2179,22 +2179,22 @@ define dso_local noundef i32 @ip_mroute_getsockopt(ptr nocapture noundef readonl
   %11 = getelementptr inbounds i8, ptr %0, i64 514
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, 3
-  br i1 %13, label %14, label %59
+  br i1 %13, label %14, label %copy_to_sockptr.exit
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 14
   %16 = load i16, ptr %15, align 2
   %17 = icmp eq i16 %16, 2
-  br i1 %17, label %18, label %59
+  br i1 %17, label %18, label %copy_to_sockptr.exit
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %10, i64 1352
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %59, label %22
+  br i1 %21, label %copy_to_sockptr.exit, label %22
 
 22:                                               ; preds = %18
-  switch i32 %1, label %59 [
+  switch i32 %1, label %copy_to_sockptr.exit [
     i32 206, label %23
     i32 208, label %24
     i32 207, label %28
@@ -2228,7 +2228,7 @@ define dso_local noundef i32 @ip_mroute_getsockopt(ptr nocapture noundef readonl
   %36 = call i64 @_copy_from_user(ptr noundef nonnull %7, ptr noundef %4, i64 noundef 4) #17
   %37 = and i64 %36, 4294967295
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %59
+  br i1 %38, label %39, label %copy_to_sockptr.exit
 
 39:                                               ; preds = %35
   %40 = load i32, ptr %7, align 4
@@ -2237,7 +2237,7 @@ define dso_local noundef i32 @ip_mroute_getsockopt(ptr nocapture noundef readonl
   %42 = call i64 @_copy_to_user(ptr noundef %4, ptr noundef nonnull %7, i64 noundef 4) #17
   %43 = and i64 %42, 4294967295
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %._crit_edge, label %59
+  br i1 %44, label %._crit_edge, label %copy_to_sockptr.exit
 
 ._crit_edge:                                      ; preds = %39
   %.pre = load i32, ptr %7, align 4
@@ -2259,33 +2259,31 @@ define dso_local noundef i32 @ip_mroute_getsockopt(ptr nocapture noundef readonl
 
 53:                                               ; preds = %48
   %54 = icmp slt i32 %49, 0
-  br i1 %54, label %.critedge, label %copy_to_sockptr.exit, !prof !69
+  br i1 %54, label %55, label %56, !prof !69
 
-.critedge:                                        ; preds = %53
+55:                                               ; preds = %53
   call void asm sideeffect "12: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 12b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 12) #17, !srcloc !70
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 249, i32 2307, i64 12) #17, !srcloc !71
   call void asm sideeffect "13: nop\0A\09.pushsection .discard.instr_end\0A\09.long 13b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 13) #17, !srcloc !72
-  br label %59
+  br label %copy_to_sockptr.exit
 
-copy_to_sockptr.exit:                             ; preds = %53
-  %55 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %8, i64 noundef %50) #17
-  %.fr2 = freeze i64 %55
-  %56 = and i64 %.fr2, 4294967295
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %59
+56:                                               ; preds = %53
+  %57 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %8, i64 noundef %50) #17
+  %.fr2 = freeze i64 %57
+  %58 = and i64 %.fr2, 4294967295
+  %59 = icmp eq i64 %58, 0
+  %60 = select i1 %59, i32 0, i32 -14
+  br label %copy_to_sockptr.exit
 
 copy_to_sockptr.exit.thread:                      ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 4 %8, i64 %50, i1 false)
-  br label %58
+  br label %copy_to_sockptr.exit
 
-58:                                               ; preds = %copy_to_sockptr.exit.thread, %copy_to_sockptr.exit
-  br label %59
-
-59:                                               ; preds = %.critedge, %58, %copy_to_sockptr.exit, %39, %35, %22, %18, %14, %6
-  %60 = phi i32 [ -95, %14 ], [ -95, %6 ], [ -2, %18 ], [ -92, %22 ], [ -14, %35 ], [ -14, %39 ], [ 0, %58 ], [ -14, %copy_to_sockptr.exit ], [ -14, %.critedge ]
+copy_to_sockptr.exit:                             ; preds = %56, %55, %copy_to_sockptr.exit.thread, %39, %35, %22, %18, %14, %6
+  %61 = phi i32 [ -95, %14 ], [ -95, %6 ], [ -2, %18 ], [ -92, %22 ], [ -14, %35 ], [ -14, %39 ], [ 0, %copy_to_sockptr.exit.thread ], [ %60, %56 ], [ -14, %55 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  ret i32 %60
+  ret i32 %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4876,7 +4874,7 @@ define internal fastcc i32 @ipmr_cache_report(ptr noundef %0, ptr noundef %1, i1
   %48 = zext i16 %47 to i64
   %49 = getelementptr i8, ptr %46, i64 %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %45, ptr noundef align 1 dereferenceable(20) %49, i64 20, i1 false)
-  %50 = trunc i32 %3 to i8
+  %50 = trunc nuw nsw i32 %3 to i8
   %51 = getelementptr inbounds i8, ptr %45, i64 8
   store i8 %50, ptr %51, align 4
   %52 = getelementptr inbounds i8, ptr %45, i64 9
@@ -4886,7 +4884,7 @@ define internal fastcc i32 @ipmr_cache_report(ptr noundef %0, ptr noundef %1, i1
 53:                                               ; preds = %32
   %54 = trunc i16 %2 to i8
   %55 = lshr i16 %2, 8
-  %56 = trunc i16 %55 to i8
+  %56 = trunc nuw i16 %55 to i8
   br label %63
 
 57:                                               ; preds = %32
@@ -4965,7 +4963,7 @@ define internal fastcc i32 @ipmr_cache_report(ptr noundef %0, ptr noundef %1, i1
   %116 = getelementptr inbounds i8, ptr %114, i64 10
   store i8 %115, ptr %116, align 2
   %117 = lshr i16 %2, 8
-  %118 = trunc i16 %117 to i8
+  %118 = trunc nuw i16 %117 to i8
   %119 = getelementptr inbounds i8, ptr %114, i64 11
   store i8 %118, ptr %119, align 1
   tail call void @ipv4_pktinfo_prepare(ptr noundef nonnull %21, ptr noundef %1, i1 noundef zeroext false) #17
@@ -4973,7 +4971,7 @@ define internal fastcc i32 @ipmr_cache_report(ptr noundef %0, ptr noundef %1, i1
   %121 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(48) %120, ptr noundef align 8 dereferenceable(48) %121, i64 48, i1 false)
   %122 = tail call ptr @skb_put(ptr noundef nonnull %30, i32 noundef 8) #17
-  %123 = trunc i32 %3 to i8
+  %123 = trunc nuw nsw i32 %3 to i8
   store i8 %123, ptr %122, align 4
   %124 = getelementptr inbounds i8, ptr %114, i64 8
   store i8 %123, ptr %124, align 4
@@ -7019,7 +7017,7 @@ define internal noundef i32 @ipmr_mfc_seq_show(ptr noundef %0, ptr noundef reado
 
 47:                                               ; preds = %43
   %48 = zext i8 %45 to i32
-  %49 = trunc i64 %39 to i32
+  %49 = trunc nsw i64 %39 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %49, i32 noundef %48) #17
   %.pre = load i32, ptr %30, align 4
   br label %50

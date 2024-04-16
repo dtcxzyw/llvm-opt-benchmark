@@ -488,12 +488,12 @@ define dso_local i32 @intel_plane_pin_fb(ptr noundef %0) local_unnamed_addr #0 a
 26:                                               ; preds = %20
   %27 = ptrtoint ptr %24 to i64
   %28 = trunc i64 %27 to i32
-  br label %.thread22
+  br label %192
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %24, ptr %30, align 8
-  br label %.thread22
+  br label %192
 
 31:                                               ; preds = %17
   %32 = getelementptr inbounds i8, ptr %5, i64 472
@@ -505,7 +505,7 @@ define dso_local i32 @intel_plane_pin_fb(ptr noundef %0) local_unnamed_addr #0 a
 36:                                               ; preds = %31
   %37 = ptrtoint ptr %34 to i64
   %38 = trunc i64 %37 to i32
-  br label %.thread22
+  br label %192
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds i8, ptr %0, i64 216
@@ -590,7 +590,7 @@ define dso_local i32 @intel_plane_pin_fb(ptr noundef %0) local_unnamed_addr #0 a
 
 .thread18:                                        ; preds = %.thread18.backedge, %75
   %86 = phi i32 [ -35, %75 ], [ %.be, %.thread18.backedge ]
-  %87 = phi ptr [ null, %75 ], [ %.be35, %.thread18.backedge ]
+  %87 = phi ptr [ null, %75 ], [ %.be33, %.thread18.backedge ]
   switch i32 %86, label %162 [
     i32 -35, label %88
     i32 0, label %165
@@ -730,7 +730,7 @@ define dso_local i32 @intel_plane_pin_fb(ptr noundef %0) local_unnamed_addr #0 a
 
 .thread18.backedge:                               ; preds = %157, %157, %.thread17
   %.be = phi i32 [ %160, %.thread17 ], [ -35, %157 ], [ -35, %157 ]
-  %.be35 = phi ptr [ %161, %.thread17 ], [ %158, %157 ], [ %158, %157 ]
+  %.be33 = phi ptr [ %161, %.thread17 ], [ %158, %157 ], [ %158, %157 ]
   br label %.thread18, !llvm.loop !41
 
 .thread17:                                        ; preds = %157, %110, %153
@@ -788,24 +788,24 @@ define dso_local i32 @intel_plane_pin_fb(ptr noundef %0) local_unnamed_addr #0 a
   store ptr null, ptr %40, align 8
   %185 = ptrtoint ptr %183 to i64
   %186 = trunc i64 %185 to i32
-  br label %.thread22
+  br label %192
 
 187:                                              ; preds = %179
   %188 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %180, ptr %188, align 8
   %189 = load ptr, ptr %40, align 8
   %190 = icmp eq ptr %189, %180
-  br i1 %190, label %191, label %.thread22, !prof !6
+  br i1 %190, label %191, label %192, !prof !6
 
 191:                                              ; preds = %187
   call void asm sideeffect "605: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 605b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 605) #6, !srcloc !42
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 277, i32 2305, i64 12) #6, !srcloc !43
   call void asm sideeffect "606: nop\0A\09.pushsection .discard.instr_end\0A\09.long 606b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 606) #6, !srcloc !44
-  br label %.thread22
+  br label %192
 
-.thread22:                                        ; preds = %187, %191, %29, %36, %182, %26
-  %192 = phi i32 [ %28, %26 ], [ %38, %36 ], [ %186, %182 ], [ 0, %29 ], [ 0, %191 ], [ 0, %187 ]
-  ret i32 %192
+192:                                              ; preds = %36, %182, %187, %191, %29, %26
+  %193 = phi i32 [ %28, %26 ], [ 0, %29 ], [ %38, %36 ], [ %186, %182 ], [ 0, %191 ], [ 0, %187 ]
+  ret i32 %193
 }
 
 ; Function Attrs: null_pointer_is_valid

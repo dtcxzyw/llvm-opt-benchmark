@@ -179,7 +179,7 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %conv12 = trunc i64 %sub to i32
+  %conv12 = trunc nuw nsw i64 %sub to i32
   %add = add nuw nsw i32 %conv12, 1
   call void @luaL_checkstack(ptr noundef %L, i32 noundef %add, ptr noundef nonnull @.str.17) #13
   %1 = getelementptr i8, ptr %call, i64 %retval.0.i
@@ -219,7 +219,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %lor.end
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %lor.end ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call3 = call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %1) #13
   %cmp4 = icmp ult i64 %call3, 256
   br i1 %cmp4, label %lor.end, label %lor.rhs
@@ -2671,7 +2671,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %res.027.us.i = phi i64 [ %or.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
   %indvars.iv.next34.i = add nsw i64 %indvars.iv33.i, -1
   %shl.us.i = shl i64 %res.027.us.i, 8
-  %27 = trunc i64 %indvars.iv33.i to i32
+  %27 = trunc nsw i64 %indvars.iv33.i to i32
   %sub5.us.i = sub i32 %6, %27
   %idxprom.us.i = sext i32 %sub5.us.i to i64
   %arrayidx.us.i = getelementptr inbounds i8, ptr %add.ptr49, i64 %idxprom.us.i
@@ -2711,7 +2711,7 @@ for.body26.us.preheader.i:                        ; preds = %for.body26.lr.ph.i
 
 for.body26.us.i:                                  ; preds = %for.inc45.us.i, %for.body26.us.preheader.i
   %indvars.iv39.i = phi i64 [ 8, %for.body26.us.preheader.i ], [ %indvars.iv.next40.i, %for.inc45.us.i ]
-  %32 = trunc i64 %indvars.iv39.i to i32
+  %32 = trunc nsw i64 %indvars.iv39.i to i32
   %33 = xor i32 %32, -1
   %sub31.us.i = add nsw i32 %6, %33
   %idxprom34.us.i = sext i32 %sub31.us.i to i64
@@ -2742,7 +2742,7 @@ if.then43.i:                                      ; preds = %for.body26.i
 
 for.inc45.i:                                      ; preds = %if.then43.i, %for.body26.i
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
-  %36 = trunc i64 %indvars.iv.next36.i to i32
+  %36 = trunc nuw i64 %indvars.iv.next36.i to i32
   %cmp24.i = icmp sgt i32 %6, %36
   br i1 %cmp24.i, label %for.body26.i, label %unpackint.exit, !llvm.loop !25
 
@@ -3292,7 +3292,7 @@ for.end.i:                                        ; preds = %for.cond.i232
   br label %capture_to_close.exit
 
 return.loopexit.i:                                ; preds = %for.body.i
-  %18 = trunc i64 %indvars.iv.next.i to i32
+  %18 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %capture_to_close.exit
 
 capture_to_close.exit:                            ; preds = %for.end.i, %return.loopexit.i
@@ -4735,17 +4735,17 @@ sw.bb26:                                          ; preds = %entry
 sw.bb28:                                          ; preds = %entry
   %islittle = getelementptr inbounds i8, ptr %h, i64 8
   store i32 1, ptr %islittle, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb29:                                          ; preds = %entry
   %islittle30 = getelementptr inbounds i8, ptr %h, i64 8
   store i32 0, ptr %islittle30, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb31:                                          ; preds = %entry
   %islittle33 = getelementptr inbounds i8, ptr %h, i64 8
   store i32 1, ptr %islittle33, align 8
-  br label %sw.epilog
+  br label %return
 
 sw.bb34:                                          ; preds = %entry
   %48 = load ptr, ptr %fmt, align 8
@@ -4787,19 +4787,19 @@ getnumlimit.exit85:                               ; preds = %sw.bb34, %getnum.ex
   %retval.0.i82 = phi i32 [ %call4.i84, %if.then.i83 ], [ %add.i.i77, %getnum.exit.i80 ], [ 8, %sw.bb34 ]
   %maxalign36 = getelementptr inbounds i8, ptr %h, i64 12
   store i32 %retval.0.i82, ptr %maxalign36, align 4
-  br label %sw.epilog
+  br label %return
 
 sw.default:                                       ; preds = %entry
   %conv = sext i8 %1 to i32
   %60 = load ptr, ptr %h, align 8
   %call38 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %60, ptr noundef nonnull @.str.66, i32 noundef %conv) #13
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %entry, %sw.default, %getnumlimit.exit85, %sw.bb31, %sw.bb29, %sw.bb28
   br label %return
 
-return:                                           ; preds = %entry, %getnum.exit, %if.then, %sw.epilog, %sw.bb26, %sw.bb25, %getnumlimit.exit67, %getnumlimit.exit50, %getnumlimit.exit, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %retval.0 = phi i32 [ 10, %sw.epilog ], [ 9, %sw.bb26 ], [ 8, %sw.bb25 ], [ 6, %getnumlimit.exit67 ], [ 1, %getnumlimit.exit50 ], [ 0, %getnumlimit.exit ], [ 4, %sw.bb11 ], [ 3, %sw.bb10 ], [ 2, %sw.bb9 ], [ 1, %sw.bb8 ], [ 1, %sw.bb7 ], [ 0, %sw.bb6 ], [ 1, %sw.bb5 ], [ 0, %sw.bb4 ], [ 1, %sw.bb3 ], [ 0, %sw.bb2 ], [ 1, %sw.bb1 ], [ 0, %sw.bb ], [ 5, %if.then ], [ 5, %getnum.exit ], [ 7, %entry ]
+sw.epilog:                                        ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %sw.bb28, %sw.bb29, %sw.bb31, %getnumlimit.exit85, %sw.default, %entry, %getnum.exit, %if.then, %sw.epilog, %sw.bb26, %sw.bb25, %getnumlimit.exit67, %getnumlimit.exit50, %getnumlimit.exit, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
+  %retval.0 = phi i32 [ 9, %sw.bb26 ], [ 8, %sw.bb25 ], [ 6, %getnumlimit.exit67 ], [ 1, %getnumlimit.exit50 ], [ 0, %getnumlimit.exit ], [ 4, %sw.bb11 ], [ 3, %sw.bb10 ], [ 2, %sw.bb9 ], [ 1, %sw.bb8 ], [ 1, %sw.bb7 ], [ 0, %sw.bb6 ], [ 1, %sw.bb5 ], [ 0, %sw.bb4 ], [ 1, %sw.bb3 ], [ 0, %sw.bb2 ], [ 1, %sw.bb1 ], [ 0, %sw.bb ], [ 5, %if.then ], [ 5, %getnum.exit ], [ 7, %entry ], [ 10, %sw.default ], [ 10, %getnumlimit.exit85 ], [ 10, %sw.bb31 ], [ 10, %sw.bb29 ], [ 10, %sw.bb28 ], [ 10, %sw.epilog ]
   ret i32 %retval.0
 }
 
@@ -4821,7 +4821,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %res.027.us = phi i64 [ %or.us, %for.body.us ], [ 0, %for.body.lr.ph ]
   %indvars.iv.next34 = add nsw i64 %indvars.iv33, -1
   %shl.us = shl i64 %res.027.us, 8
-  %2 = trunc i64 %indvars.iv33 to i32
+  %2 = trunc nsw i64 %indvars.iv33 to i32
   %sub5.us = sub i32 %size, %2
   %idxprom.us = sext i32 %sub5.us to i64
   %arrayidx.us = getelementptr inbounds i8, ptr %str, i64 %idxprom.us
@@ -4884,7 +4884,7 @@ for.body26.us.preheader:                          ; preds = %for.body26.lr.ph
 
 for.body26.us:                                    ; preds = %for.body26.us.preheader, %for.inc45.us
   %indvars.iv39 = phi i64 [ 8, %for.body26.us.preheader ], [ %indvars.iv.next40, %for.inc45.us ]
-  %8 = trunc i64 %indvars.iv39 to i32
+  %8 = trunc nsw i64 %indvars.iv39 to i32
   %9 = xor i32 %8, -1
   %sub31.us = add nsw i32 %9, %size
   %idxprom34.us = sext i32 %sub31.us to i64
@@ -4917,7 +4917,7 @@ if.then43:                                        ; preds = %for.body26
 
 for.inc45:                                        ; preds = %for.body26, %if.then43
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %12 = trunc i64 %indvars.iv.next36 to i32
+  %12 = trunc nuw i64 %indvars.iv.next36 to i32
   %cmp24 = icmp slt i32 %12, %size
   br i1 %cmp24, label %for.body26, label %if.end48, !llvm.loop !25
 

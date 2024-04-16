@@ -76,7 +76,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit929:                                     ; preds = %34
   %40 = shl i32 %.0573, 6
   %41 = tail call i64 @llvm.cttz.i64(i64 %35, i1 true), !range !4
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw nsw i64 %41 to i32
   %43 = or disjoint i32 %40, %42
   %44 = add i64 %35, -1
   %45 = and i64 %44, %35
@@ -1516,7 +1516,7 @@ ir_sccp_meet_phi.exit.thread:                     ; preds = %702, %735, %372, %4
   %776 = load i8, ptr %775, align 1
   %777 = load i64, ptr %774, align 8
   %778 = call i32 @ir_const(ptr noundef nonnull %0, i64 %777, i8 noundef zeroext %776) #9
-  %779 = trunc i64 %indvars.iv994 to i32
+  %779 = trunc nuw nsw i64 %indvars.iv994 to i32
   call fastcc void @ir_sccp_replace_insn(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %779, i32 noundef %778, ptr noundef nonnull %2)
   br label %ir_sccp_remove_insn.exit
 
@@ -1538,14 +1538,14 @@ ir_sccp_meet_phi.exit.thread:                     ; preds = %702, %735, %372, %4
   %785 = load i32, ptr %.0589910, align 8
   %786 = load i64, ptr %782, align 8
   %787 = call i32 @ir_const_ex(ptr noundef nonnull %0, i64 %786, i8 noundef zeroext %784, i32 noundef %785) #9
-  %788 = trunc i64 %indvars.iv994 to i32
+  %788 = trunc nuw nsw i64 %indvars.iv994 to i32
   call fastcc void @ir_sccp_replace_insn(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %788, i32 noundef %787, ptr noundef nonnull %2)
   br label %ir_sccp_remove_insn.exit
 
 789:                                              ; preds = %780
   %790 = getelementptr inbounds i8, ptr %.pn909, i64 20
   %791 = load i32, ptr %790, align 4
-  %792 = trunc i64 %indvars.iv994 to i32
+  %792 = trunc nuw nsw i64 %indvars.iv994 to i32
   call fastcc void @ir_sccp_replace_insn(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %792, i32 noundef %791, ptr noundef nonnull %2)
   br label %ir_sccp_remove_insn.exit
 
@@ -1581,7 +1581,7 @@ ir_sccp_meet_phi.exit.thread:                     ; preds = %702, %735, %372, %4
 
 .lr.ph.i691:                                      ; preds = %801
   %809 = zext i16 %808 to i32
-  %810 = trunc i64 %indvars.iv994 to i32
+  %810 = trunc nuw nsw i64 %indvars.iv994 to i32
   br label %811
 
 811:                                              ; preds = %853, %.lr.ph.i691
@@ -1702,7 +1702,7 @@ ir_sccp_meet_phi.exit.thread:                     ; preds = %702, %735, %372, %4
   br i1 %.not115.i, label %._crit_edge.i695, label %.lr.ph.split.us.i.preheader
 
 .lr.ph.split.us.i.preheader:                      ; preds = %.loopexit799
-  %878 = trunc i64 %indvars.iv994 to i32
+  %878 = trunc nuw nsw i64 %indvars.iv994 to i32
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %882
@@ -1829,7 +1829,7 @@ ir_sccp_replace_insn.exit:                        ; preds = %._crit_edge122.us.i
   %937 = load i32, ptr %936, align 4
   %938 = getelementptr inbounds %struct._ir_insn, ptr %918, i64 %935, i32 0, i32 1
   store i32 %937, ptr %938, align 4
-  %939 = trunc i64 %indvars.iv994 to i32
+  %939 = trunc nuw nsw i64 %indvars.iv994 to i32
   call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %937, i32 noundef %939, i32 noundef %934) #9
   %940 = load ptr, ptr %26, align 8
   %941 = getelementptr inbounds %struct._ir_use_list, ptr %940, i64 %indvars.iv994
@@ -1883,7 +1883,7 @@ ir_sccp_make_nop.exit.i:                          ; preds = %.lr.ph.preheader.i.
   br i1 %exitcond.not.i699, label %ir_sccp_remove_insn.exit, label %.lr.ph.i698
 
 965:                                              ; preds = %780
-  %966 = trunc i64 %indvars.iv994 to i32
+  %966 = trunc nuw nsw i64 %indvars.iv994 to i32
   %967 = lshr i32 %966, 6
   %968 = and i64 %indvars.iv994, 63
   %969 = shl nuw i64 1, %968
@@ -1896,7 +1896,7 @@ ir_sccp_make_nop.exit.i:                          ; preds = %.lr.ph.preheader.i.
   br label %ir_sccp_remove_insn.exit
 
 974:                                              ; preds = %780
-  %975 = trunc i64 %indvars.iv994 to i32
+  %975 = trunc nuw nsw i64 %indvars.iv994 to i32
   %976 = lshr i32 %975, 6
   %977 = and i64 %indvars.iv994, 63
   %978 = shl nuw i64 1, %977
@@ -1948,7 +1948,7 @@ ir_sccp_remove_insn.exit:                         ; preds = %853, %962, %965, %.
 .loopexit920:                                     ; preds = %992
   %998 = shl i32 %.0578, 6
   %999 = call i64 @llvm.cttz.i64(i64 %993, i1 true), !range !4
-  %1000 = trunc i64 %999 to i32
+  %1000 = trunc nuw nsw i64 %999 to i32
   %1001 = or disjoint i32 %998, %1000
   %1002 = add i64 %993, -1
   %1003 = and i64 %1002, %993
@@ -2381,7 +2381,7 @@ ir_sccp_remove_insn2.exit:                        ; preds = %ir_sccp_remove_insn
 1206:                                             ; preds = %1199
   %1207 = shl i32 %.0587, 6
   %1208 = call i64 @llvm.cttz.i64(i64 %1200, i1 true), !range !4
-  %1209 = trunc i64 %1208 to i32
+  %1209 = trunc nuw nsw i64 %1208 to i32
   %1210 = or disjoint i32 %1207, %1209
   %1211 = add i64 %1200, -1
   %1212 = and i64 %1211, %1200
@@ -3358,7 +3358,7 @@ tailrecurse.backedge:                             ; preds = %19, %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %33, %19, %15, %.loopexit.loopexit, %tailrecurse._crit_edge, %9
-  %.0 = phi i1 [ %14, %9 ], [ false, %tailrecurse._crit_edge ], [ true, %.loopexit.loopexit ], [ false, %15 ], [ false, %19 ], [ false, %33 ], [ false, %28 ]
+  %.0 = phi i1 [ %14, %9 ], [ false, %tailrecurse._crit_edge ], [ false, %15 ], [ false, %28 ], [ false, %33 ], [ false, %19 ], [ true, %.loopexit.loopexit ]
   ret i1 %.0
 }
 
@@ -3776,7 +3776,7 @@ tailrecurse.backedge:                             ; preds = %22, %36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %36, %22, %13, %.loopexit.loopexit, %tailrecurse._crit_edge, %9, %17
-  %.0 = phi i1 [ %21, %17 ], [ %12, %9 ], [ false, %tailrecurse._crit_edge ], [ true, %.loopexit.loopexit ], [ false, %13 ], [ false, %22 ], [ false, %36 ], [ false, %31 ]
+  %.0 = phi i1 [ %21, %17 ], [ %12, %9 ], [ false, %tailrecurse._crit_edge ], [ false, %13 ], [ false, %31 ], [ false, %36 ], [ false, %22 ], [ true, %.loopexit.loopexit ]
   ret i1 %.0
 }
 
@@ -3967,7 +3967,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef %1, i32 n
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %7, i64 8
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   %12 = load i64, ptr %10, align 8
   %13 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %12, i8 noundef zeroext %11) #9
   br label %common.ret56
@@ -4022,7 +4022,7 @@ common.ret56:                                     ; preds = %14, %45, %26, %24, 
   %31 = load i32, ptr %30, align 4
   %32 = tail call fastcc i32 @ir_promote_i2i(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %31, i32 noundef %2)
   store i32 %32, ptr %30, align 4
-  %33 = trunc i32 %1 to i8
+  %33 = trunc nuw i32 %1 to i8
   %34 = getelementptr inbounds i8, ptr %7, i64 1
   store i8 %33, ptr %34, align 1
   br label %common.ret56
@@ -4045,7 +4045,7 @@ common.ret56:                                     ; preds = %14, %45, %26, %24, 
 45:                                               ; preds = %35, %42
   %storemerge = phi i32 [ %44, %42 ], [ %41, %35 ]
   store i32 %storemerge, ptr %38, align 8
-  %46 = trunc i32 %1 to i8
+  %46 = trunc nuw i32 %1 to i8
   %47 = getelementptr inbounds i8, ptr %7, i64 1
   store i8 %46, ptr %47, align 1
   br label %common.ret56

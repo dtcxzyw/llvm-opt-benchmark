@@ -763,20 +763,17 @@ if.end3:                                          ; preds = %invoke.cont, %if.en
   %7 = load i32, ptr @_ZN7logging12_GLOBAL__N_121g_logging_destinationE, align 4
   %and = and i32 %7, 1
   %cmp.not = icmp eq i32 %and, 0
-  br i1 %cmp.not, label %if.end10, label %if.then4
+  br i1 %cmp.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end3
   %call5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   %call6 = call noalias ptr @fopen(ptr noundef %call5, ptr noundef nonnull @.str.16)
   store ptr %call6, ptr @_ZN7logging12_GLOBAL__N_110g_log_fileE, align 8
-  %cmp7 = icmp eq ptr %call6, null
-  br i1 %cmp7, label %return, label %if.end10
-
-if.end10:                                         ; preds = %if.then4, %if.end3
+  %cmp7 = icmp ne ptr %call6, null
   br label %return
 
-return:                                           ; preds = %if.then4, %entry, %if.end10
-  %retval.0 = phi i1 [ true, %if.end10 ], [ true, %entry ], [ false, %if.then4 ]
+return:                                           ; preds = %if.then4, %if.end3, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ true, %if.end3 ], [ %cmp7, %if.then4 ]
   ret i1 %retval.0
 }
 
@@ -977,7 +974,7 @@ if.end:                                           ; preds = %if.then, %entry
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %stream_, i8 noundef signext 91)
   %0 = load i8, ptr @_ZN7logging12_GLOBAL__N_116g_log_process_idE, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
@@ -988,7 +985,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then3, %if.end
   %1 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_thread_idE, align 1
-  %tobool9 = trunc i8 %1 to i1
+  %tobool9 = trunc nuw i8 %1 to i1
   br i1 %tobool9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end8
@@ -999,7 +996,7 @@ if.then10:                                        ; preds = %if.end8
 
 if.end15:                                         ; preds = %if.then10, %if.end8
   %2 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_timestampE, align 1
-  %tobool16 = trunc i8 %2 to i1
+  %tobool16 = trunc nuw i8 %2 to i1
   br i1 %tobool16, label %if.then17, label %if.end57
 
 if.then17:                                        ; preds = %if.end15
@@ -1034,7 +1031,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.end57:                                         ; preds = %if.then17, %if.end15
   %8 = load i8, ptr @_ZN7logging12_GLOBAL__N_115g_log_tickcountE, align 1
-  %tobool58 = trunc i8 %8 to i1
+  %tobool58 = trunc nuw i8 %8 to i1
   br i1 %tobool58, label %if.then59, label %if.end64
 
 if.then59:                                        ; preds = %if.end57

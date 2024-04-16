@@ -1034,7 +1034,7 @@ invoke.cont101:                                   ; preds = %if.then97
 invoke.cont104:                                   ; preds = %invoke.cont101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp99) #16
-  br label %if.end137
+  br label %cleanup138
 
 lpad86:                                           ; preds = %if.then.i.i62, %if.else, %_ZN4absl12lts_2023080211StripPrefixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
   %84 = landingpad { ptr, i32 }
@@ -1098,7 +1098,7 @@ if.then124:                                       ; preds = %invoke.cont122
 invoke.cont128:                                   ; preds = %if.then124
   %call129 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125) #16
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 251, i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef %call129)
-          to label %cleanup138 unwind label %lpad130
+          to label %cleanup187.critedge unwind label %lpad130
 
 lpad111:                                          ; preds = %cond.end
   %96 = landingpad { ptr, i32 }
@@ -1128,22 +1128,12 @@ ehcleanup136:                                     ; preds = %ehcleanup133, %lpad
 
 if.end137.critedge:                               ; preds = %invoke.cont122
   call void @_ZN4absl12lts_202308028StatusOrI21grpc_resolved_addressED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %address) #16
-  br label %if.end137
+  br label %cleanup138
 
-if.end137:                                        ; preds = %if.end137.critedge, %invoke.cont104
+cleanup138:                                       ; preds = %invoke.cont104, %if.end137.critedge
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %server_port) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %server_host) #16
   br label %if.end144
-
-cleanup138:                                       ; preds = %invoke.cont128
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp126) #16
-  %_M_engaged.i.i.i.i.i76 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store i8 0, ptr %_M_engaged.i.i.i.i.i76, align 8
-  call void @_ZN4absl12lts_202308028StatusOrI21grpc_resolved_addressED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %address) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %server_port) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %server_host) #16
-  br label %cleanup187
 
 ehcleanup139:                                     ; preds = %ehcleanup136, %ehcleanup106, %lpad86
   %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %ehcleanup136 ], [ %84, %lpad86 ], [ %.pn, %ehcleanup106 ]
@@ -1151,7 +1141,7 @@ ehcleanup139:                                     ; preds = %ehcleanup136, %ehcl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %server_host) #16
   br label %ehcleanup188
 
-if.end144:                                        ; preds = %if.end137, %if.end81
+if.end144:                                        ; preds = %cleanup138, %if.end81
   %99 = load i64, ptr %uri, align 8
   %cmp.i.i.i.i79 = icmp eq i64 %99, 0
   br i1 %cmp.i.i.i.i79, label %invoke.cont150, label %if.then.i.i80
@@ -1269,7 +1259,17 @@ if.then.i.i.i.i.i109:                             ; preds = %if.end186
   store i8 1, ptr %_M_engaged.i.i.i.i.i107, align 8
   br label %cleanup187
 
-cleanup187:                                       ; preds = %if.then.i.i.i.i.i109, %if.end186, %cleanup138
+cleanup187.critedge:                              ; preds = %invoke.cont128
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp125) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp126) #16
+  %_M_engaged.i.i.i.i.i76 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store i8 0, ptr %_M_engaged.i.i.i.i.i76, align 8
+  call void @_ZN4absl12lts_202308028StatusOrI21grpc_resolved_addressED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %address) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %server_port) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %server_host) #16
+  br label %cleanup187
+
+cleanup187:                                       ; preds = %if.then.i.i.i.i.i109, %if.end186, %cleanup187.critedge
   %109 = load i8, ptr %_M_engaged.i.i56, align 8
   %tobool.i.i.i.i112 = trunc i8 %109 to i1
   br i1 %tobool.i.i.i.i112, label %if.then.i.i.i.i113, label %cleanup189
@@ -2125,7 +2125,7 @@ _ZN9grpc_core12_GLOBAL__N_121GetAddressProxyServerERKNS_11ChannelArgsE.exit: ; p
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %address_value.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %address.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %tobool.i.i = trunc i8 %proxy_address.sroa.2.0 to i1
+  %tobool.i.i = trunc nuw i8 %proxy_address.sroa.2.0 to i1
   br i1 %tobool.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN9grpc_core12_GLOBAL__N_121GetAddressProxyServerERKNS_11ChannelArgsE.exit
@@ -3328,7 +3328,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
   %sub.ptr.rhs.cast14.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %for.end.loopexit.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %entry ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep, %for.end.loopexit.i.i.i ], [ %str.coerce1, %entry ]
   %sub.ptr.sub15.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast14.pre-phi.i.i.i
-  switch i64 %sub.ptr.sub15.i.i.i, label %sw.default.i.i.i [
+  switch i64 %sub.ptr.sub15.i.i.i, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb20.i.i.i
     i64 1, label %sw.bb25.i.i.i
@@ -3369,9 +3369,7 @@ sw.bb25.i.i.i:                                    ; preds = %if.end23.i.i.i, %fo
   %20 = load i8, ptr %arrayidx.i, align 1
   %21 = and i8 %20, 8
   %cmp.i.not = icmp eq i8 %21, 0
-  br i1 %cmp.i.not, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit, label %sw.default.i.i.i
-
-sw.default.i.i.i:                                 ; preds = %sw.bb25.i.i.i, %for.end.i.i.i
+  %spec.select.i.i.i = select i1 %cmp.i.not, ptr %__first.addr.2.i.i.i, ptr %add.ptr.i
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
 _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i
@@ -3386,8 +3384,8 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit41: ; preds 
   %incdec.ptr8.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i, i64 3
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit:      ; preds = %for.body.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit39, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit41, %sw.bb.i.i.i, %sw.bb20.i.i.i, %sw.bb25.i.i.i, %sw.default.i.i.i
-  %retval.0.i.i.i = phi ptr [ %add.ptr.i, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit39 ], [ %incdec.ptr8.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit41 ], [ %__first.addr.055.i.i.i, %for.body.i.i.i ]
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit:      ; preds = %for.body.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit39, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit41, %for.end.i.i.i, %sw.bb.i.i.i, %sw.bb20.i.i.i, %sw.bb25.i.i.i
+  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %add.ptr.i, %for.end.i.i.i ], [ %spec.select.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit39 ], [ %incdec.ptr8.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit41 ], [ %__first.addr.055.i.i.i, %for.body.i.i.i ]
   %sub.ptr.lhs.cast = ptrtoint ptr %retval.0.i.i.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp ugt i64 %sub.ptr.sub, %str.coerce0

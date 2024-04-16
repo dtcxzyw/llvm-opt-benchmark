@@ -387,25 +387,25 @@ define internal noundef i32 @__power_supply_get_supplier_property(ptr nocapture 
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %power_supply_battery_info_get_prop.exit.thread, label %31
+  br i1 %12, label %power_supply_battery_info_get_prop.exit, label %31
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %power_supply_battery_info_get_prop.exit.thread, label %17
+  br i1 %16, label %power_supply_battery_info_get_prop.exit, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %power_supply_battery_info_get_prop.exit.thread, label %.preheader17
+  br i1 %20, label %power_supply_battery_info_get_prop.exit, label %.preheader17
 
 21:                                               ; preds = %.preheader17
   %22 = add i32 %26, 1
   %23 = sext i32 %22 to i64
   %24 = icmp ugt i64 %19, %23
-  br i1 %24, label %.preheader17, label %power_supply_battery_info_get_prop.exit.thread, !llvm.loop !6
+  br i1 %24, label %.preheader17, label %power_supply_battery_info_get_prop.exit, !llvm.loop !6
 
 .preheader17:                                     ; preds = %17, %21
   %25 = phi i64 [ %23, %21 ], [ 0, %17 ]
@@ -420,19 +420,19 @@ define internal noundef i32 @__power_supply_get_supplier_property(ptr nocapture 
   %32 = load ptr, ptr %5, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %power_supply_battery_info_get_prop.exit.thread, label %35
+  br i1 %34, label %power_supply_battery_info_get_prop.exit, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %power_supply_battery_info_get_prop.exit.thread, label %.preheader15
+  br i1 %38, label %power_supply_battery_info_get_prop.exit, label %.preheader15
 
 39:                                               ; preds = %.preheader15
   %40 = add i32 %44, 1
   %41 = sext i32 %40 to i64
   %42 = icmp ugt i64 %37, %41
-  br i1 %42, label %.preheader15, label %power_supply_battery_info_get_prop.exit.thread, !llvm.loop !9
+  br i1 %42, label %.preheader15, label %power_supply_battery_info_get_prop.exit, !llvm.loop !9
 
 .preheader15:                                     ; preds = %35, %39
   %43 = phi i64 [ %41, %39 ], [ 0, %35 ]
@@ -451,7 +451,7 @@ define internal noundef i32 @__power_supply_get_supplier_property(ptr nocapture 
   %53 = getelementptr inbounds i8, ptr %4, i64 912
   %54 = load volatile i32, ptr %53, align 4
   %55 = icmp slt i32 %54, 1
-  br i1 %55, label %power_supply_battery_info_get_prop.exit.thread, label %56
+  br i1 %55, label %power_supply_battery_info_get_prop.exit, label %56
 
 56:                                               ; preds = %.loopexit16
   %57 = load ptr, ptr %4, align 8
@@ -465,7 +465,7 @@ define internal noundef i32 @__power_supply_get_supplier_property(ptr nocapture 
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, %50
-  br i1 %64, label %power_supply_battery_info_get_prop.exit, label %.preheader
+  br i1 %64, label %.loopexit14, label %.preheader
 
 .preheader:                                       ; preds = %60, %69
   %65 = phi i32 [ %66, %69 ], [ 0, %60 ]
@@ -478,114 +478,112 @@ define internal noundef i32 @__power_supply_get_supplier_property(ptr nocapture 
   %70 = getelementptr i32, ptr %62, i64 %67
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, %50
-  br i1 %72, label %power_supply_battery_info_get_prop.exit, label %.preheader, !llvm.loop !10
+  br i1 %72, label %.loopexit14, label %.preheader, !llvm.loop !10
+
+.loopexit14:                                      ; preds = %69, %60
+  %73 = getelementptr inbounds i8, ptr %57, i64 48
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call i32 %74(ptr noundef %4, i32 noundef %50, ptr noundef %52) #17
+  %76 = icmp eq i32 %75, 0
+  %77 = zext i1 %76 to i32
+  br label %power_supply_battery_info_get_prop.exit
 
 .loopexit:                                        ; preds = %.preheader, %56
-  %73 = getelementptr inbounds i8, ptr %4, i64 920
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call zeroext i1 @power_supply_battery_info_has_prop(ptr noundef %74, i32 noundef %50)
-  %76 = icmp ne ptr %74, null
-  %or.cond.not = and i1 %76, %75
-  br i1 %or.cond.not, label %77, label %power_supply_battery_info_get_prop.exit.thread
+  %78 = getelementptr inbounds i8, ptr %4, i64 920
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call zeroext i1 @power_supply_battery_info_has_prop(ptr noundef %79, i32 noundef %50)
+  %81 = icmp ne ptr %79, null
+  %or.cond.not = and i1 %81, %80
+  br i1 %or.cond.not, label %82, label %power_supply_battery_info_get_prop.exit
 
-77:                                               ; preds = %.loopexit
-  %78 = tail call zeroext i1 @power_supply_battery_info_has_prop(ptr noundef nonnull %74, i32 noundef %50)
-  br i1 %78, label %79, label %power_supply_battery_info_get_prop.exit.thread
+82:                                               ; preds = %.loopexit
+  %83 = tail call zeroext i1 @power_supply_battery_info_has_prop(ptr noundef nonnull %79, i32 noundef %50)
+  br i1 %83, label %84, label %power_supply_battery_info_get_prop.exit
 
-79:                                               ; preds = %77
-  switch i32 %50, label %power_supply_battery_info_get_prop.exit.thread [
-    i32 6, label %power_supply_battery_info_get_prop.exit.thread12
-    i32 41, label %80
-    i32 22, label %82
-    i32 11, label %84
-    i32 10, label %86
-    i32 67, label %88
-    i32 68, label %90
-    i32 30, label %92
-    i32 32, label %94
-    i32 58, label %96
-    i32 59, label %98
-    i32 55, label %100
-    i32 56, label %102
-    i32 54, label %104
-    i32 53, label %106
+84:                                               ; preds = %82
+  switch i32 %50, label %power_supply_battery_info_get_prop.exit [
+    i32 6, label %113
+    i32 41, label %85
+    i32 22, label %87
+    i32 11, label %89
+    i32 10, label %91
+    i32 67, label %93
+    i32 68, label %95
+    i32 30, label %97
+    i32 32, label %99
+    i32 58, label %101
+    i32 59, label %103
+    i32 55, label %105
+    i32 56, label %107
+    i32 54, label %109
+    i32 53, label %111
   ]
 
-80:                                               ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %74, i64 4
-  br label %power_supply_battery_info_get_prop.exit.thread12
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds i8, ptr %79, i64 4
+  br label %113
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %74, i64 8
-  br label %power_supply_battery_info_get_prop.exit.thread12
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds i8, ptr %79, i64 8
+  br label %113
 
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %74, i64 12
-  br label %power_supply_battery_info_get_prop.exit.thread12
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds i8, ptr %79, i64 12
+  br label %113
 
-86:                                               ; preds = %79
-  %87 = getelementptr inbounds i8, ptr %74, i64 16
-  br label %power_supply_battery_info_get_prop.exit.thread12
+91:                                               ; preds = %84
+  %92 = getelementptr inbounds i8, ptr %79, i64 16
+  br label %113
 
-88:                                               ; preds = %79
-  %89 = getelementptr inbounds i8, ptr %74, i64 24
-  br label %power_supply_battery_info_get_prop.exit.thread12
+93:                                               ; preds = %84
+  %94 = getelementptr inbounds i8, ptr %79, i64 24
+  br label %113
 
-90:                                               ; preds = %79
-  %91 = getelementptr inbounds i8, ptr %74, i64 32
-  br label %power_supply_battery_info_get_prop.exit.thread12
+95:                                               ; preds = %84
+  %96 = getelementptr inbounds i8, ptr %79, i64 32
+  br label %113
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds i8, ptr %74, i64 44
-  br label %power_supply_battery_info_get_prop.exit.thread12
+97:                                               ; preds = %84
+  %98 = getelementptr inbounds i8, ptr %79, i64 44
+  br label %113
 
-94:                                               ; preds = %79
-  %95 = getelementptr inbounds i8, ptr %74, i64 48
-  br label %power_supply_battery_info_get_prop.exit.thread12
+99:                                               ; preds = %84
+  %100 = getelementptr inbounds i8, ptr %79, i64 48
+  br label %113
 
-96:                                               ; preds = %79
-  %97 = getelementptr inbounds i8, ptr %74, i64 172
-  br label %power_supply_battery_info_get_prop.exit.thread12
+101:                                              ; preds = %84
+  %102 = getelementptr inbounds i8, ptr %79, i64 172
+  br label %113
 
-98:                                               ; preds = %79
-  %99 = getelementptr inbounds i8, ptr %74, i64 176
-  br label %power_supply_battery_info_get_prop.exit.thread12
+103:                                              ; preds = %84
+  %104 = getelementptr inbounds i8, ptr %79, i64 176
+  br label %113
 
-100:                                              ; preds = %79
-  %101 = getelementptr inbounds i8, ptr %74, i64 180
-  br label %power_supply_battery_info_get_prop.exit.thread12
+105:                                              ; preds = %84
+  %106 = getelementptr inbounds i8, ptr %79, i64 180
+  br label %113
 
-102:                                              ; preds = %79
-  %103 = getelementptr inbounds i8, ptr %74, i64 184
-  br label %power_supply_battery_info_get_prop.exit.thread12
+107:                                              ; preds = %84
+  %108 = getelementptr inbounds i8, ptr %79, i64 184
+  br label %113
 
-104:                                              ; preds = %79
-  %105 = getelementptr inbounds i8, ptr %74, i64 188
-  br label %power_supply_battery_info_get_prop.exit.thread12
+109:                                              ; preds = %84
+  %110 = getelementptr inbounds i8, ptr %79, i64 188
+  br label %113
 
-106:                                              ; preds = %79
-  %107 = getelementptr inbounds i8, ptr %74, i64 192
-  br label %power_supply_battery_info_get_prop.exit.thread12
+111:                                              ; preds = %84
+  %112 = getelementptr inbounds i8, ptr %79, i64 192
+  br label %113
 
-power_supply_battery_info_get_prop.exit.thread12: ; preds = %79, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106
-  %108 = phi ptr [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %74, %79 ]
-  %109 = load i32, ptr %108, align 4
-  store i32 %109, ptr %52, align 8
-  br label %114
+113:                                              ; preds = %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %84
+  %114 = phi ptr [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %79, %84 ]
+  %115 = load i32, ptr %114, align 4
+  store i32 %115, ptr %52, align 8
+  br label %power_supply_battery_info_get_prop.exit
 
-power_supply_battery_info_get_prop.exit:          ; preds = %69, %60
-  %110 = getelementptr inbounds i8, ptr %57, i64 48
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call i32 %111(ptr noundef %4, i32 noundef %50, ptr noundef %52) #17
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %power_supply_battery_info_get_prop.exit.thread
-
-power_supply_battery_info_get_prop.exit.thread:   ; preds = %21, %39, %79, %77, %.loopexit16, %.loopexit, %power_supply_battery_info_get_prop.exit, %35, %31, %17, %13, %9
-  br label %114
-
-114:                                              ; preds = %power_supply_battery_info_get_prop.exit.thread12, %power_supply_battery_info_get_prop.exit.thread, %power_supply_battery_info_get_prop.exit
-  %115 = phi i32 [ 0, %power_supply_battery_info_get_prop.exit.thread ], [ 1, %power_supply_battery_info_get_prop.exit ], [ 1, %power_supply_battery_info_get_prop.exit.thread12 ]
-  ret i32 %115
+power_supply_battery_info_get_prop.exit:          ; preds = %21, %39, %.loopexit16, %.loopexit14, %.loopexit, %82, %84, %113, %9, %13, %17, %31, %35
+  %116 = phi i32 [ 0, %35 ], [ 0, %31 ], [ 0, %17 ], [ 0, %13 ], [ 0, %9 ], [ %77, %.loopexit14 ], [ 0, %.loopexit ], [ 0, %.loopexit16 ], [ 0, %82 ], [ 0, %84 ], [ 1, %113 ], [ 0, %39 ], [ 0, %21 ]
+  ret i32 %116
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

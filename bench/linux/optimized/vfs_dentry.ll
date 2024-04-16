@@ -17,93 +17,91 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal i32 @v9fs_lookup_revalidate(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = and i32 %1, 64
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %49
+  br i1 %4, label %5, label %50
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %48, label %9
+  br i1 %8, label %50, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %7, i64 648
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 1
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %48, label %14
+  br i1 %13, label %50, label %14
 
 14:                                               ; preds = %9
   %15 = tail call ptr @v9fs_fid_lookup(ptr noundef %0) #3
   %16 = icmp ugt ptr %15, inttoptr (i64 -4096 to ptr)
-  br i1 %16, label %.thread3, label %19
+  br i1 %16, label %17, label %20
 
-.thread3:                                         ; preds = %14
-  %17 = ptrtoint ptr %15 to i64
-  %18 = trunc i64 %17 to i32
-  br label %49
+17:                                               ; preds = %14
+  %18 = ptrtoint ptr %15 to i64
+  %19 = trunc i64 %18 to i32
+  br label %50
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %7, i64 40
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 872
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 2
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %29, label %27
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %7, i64 40
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 872
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %24, align 8
+  %26 = and i32 %25, 2
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %30, label %28
 
-27:                                               ; preds = %19
-  %28 = tail call i32 @v9fs_refresh_inode_dotl(ptr noundef %15, ptr noundef nonnull %7) #3
-  br label %31
+28:                                               ; preds = %20
+  %29 = tail call i32 @v9fs_refresh_inode_dotl(ptr noundef %15, ptr noundef nonnull %7) #3
+  br label %32
 
-29:                                               ; preds = %19
-  %30 = tail call i32 @v9fs_refresh_inode(ptr noundef %15, ptr noundef nonnull %7) #3
-  br label %31
+30:                                               ; preds = %20
+  %31 = tail call i32 @v9fs_refresh_inode(ptr noundef %15, ptr noundef nonnull %7) #3
+  br label %32
 
-31:                                               ; preds = %29, %27
-  %32 = phi i32 [ %28, %27 ], [ %30, %29 ]
-  %33 = icmp eq ptr %15, null
-  br i1 %33, label %.thread, label %34
+32:                                               ; preds = %30, %28
+  %33 = phi i32 [ %29, %28 ], [ %31, %30 ]
+  %34 = icmp eq ptr %15, null
+  br i1 %34, label %.thread, label %35
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_9p_fid_ref, i64 0, i32 1), i32 2) #3
-          to label %36 [label %35], !srcloc !5
+          to label %37 [label %36], !srcloc !5
 
-35:                                               ; preds = %34
+36:                                               ; preds = %35
   tail call void @do_trace_9p_fid_put(ptr noundef nonnull %15) #3
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %34
-  %37 = getelementptr inbounds i8, ptr %15, i64 12
-  %38 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, i32 -1, ptr elementtype(i32) %37) #3, !srcloc !6
-  %39 = icmp eq i32 %38, 1
-  br i1 %39, label %43, label %40
+37:                                               ; preds = %36, %35
+  %38 = getelementptr inbounds i8, ptr %15, i64 12
+  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 -1, ptr elementtype(i32) %38) #3, !srcloc !6
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %44, label %41
 
-40:                                               ; preds = %36
-  %41 = icmp sgt i32 %38, 0
-  br i1 %41, label %.thread, label %42, !prof !7
+41:                                               ; preds = %37
+  %42 = icmp sgt i32 %39, 0
+  br i1 %42, label %.thread, label %43, !prof !7
 
-42:                                               ; preds = %40
-  tail call void @refcount_warn_saturate(ptr noundef %37, i32 noundef 3) #3
+43:                                               ; preds = %41
+  tail call void @refcount_warn_saturate(ptr noundef %38, i32 noundef 3) #3
   br label %.thread
 
-43:                                               ; preds = %36
+44:                                               ; preds = %37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  %44 = tail call i32 @p9_client_clunk(ptr noundef nonnull %15) #3
+  %45 = tail call i32 @p9_client_clunk(ptr noundef nonnull %15) #3
   br label %.thread
 
-.thread:                                          ; preds = %40, %42, %31, %43
-  %45 = icmp eq i32 %32, -2
-  %46 = icmp sgt i32 %32, -1
-  %47 = select i1 %45, i32 0, i32 %32
-  br i1 %46, label %48, label %49
+.thread:                                          ; preds = %41, %43, %44, %32
+  %46 = icmp eq i32 %33, -2
+  %47 = icmp sgt i32 %33, -1
+  %48 = select i1 %46, i32 0, i32 %33
+  %49 = select i1 %47, i32 1, i32 %48
+  br label %50
 
-48:                                               ; preds = %.thread, %9, %5
-  br label %49
-
-49:                                               ; preds = %.thread3, %48, %.thread, %2
-  %50 = phi i32 [ 1, %48 ], [ %47, %.thread ], [ -10, %2 ], [ %18, %.thread3 ]
-  ret i32 %50
+50:                                               ; preds = %17, %.thread, %5, %9, %2
+  %51 = phi i32 [ -10, %2 ], [ 1, %9 ], [ 1, %5 ], [ %19, %17 ], [ %49, %.thread ]
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)

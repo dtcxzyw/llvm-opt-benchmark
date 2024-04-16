@@ -1237,7 +1237,7 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
 
 40:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %41 = trunc i64 %indvars.iv.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i to i32
   %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %41) #10
   %43 = load ptr, ptr %38, align 8
   %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i
@@ -1471,8 +1471,8 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   br i1 %181, label %173, label %._crit_edge64.loopexit.i.i, !llvm.loop !27
 
 ._crit_edge64.loopexit.i.i:                       ; preds = %173
-  %182 = trunc i64 %indvars.iv76.i.i to i32
-  %183 = trunc i64 %indvars.iv.next77.i.i to i32
+  %182 = trunc nsw i64 %indvars.iv76.i.i to i32
+  %183 = trunc nsw i64 %indvars.iv.next77.i.i to i32
   br label %._crit_edge64.i.i
 
 ._crit_edge64.i.i:                                ; preds = %._crit_edge64.loopexit.i.i, %._crit_edge.i.i
@@ -1509,7 +1509,7 @@ define noundef i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %0) local_
   %196 = load ptr, ptr %6, align 8
   %197 = getelementptr inbounds ptr, ptr %196, i64 %indvars.iv83.i.i
   %198 = load ptr, ptr %197, align 8
-  %199 = trunc i64 %indvars.iv83.i.i to i32
+  %199 = trunc nuw nsw i64 %indvars.iv83.i.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_single, i32 noundef %199, ptr noundef %198) #10
   br label %200
 
@@ -1833,154 +1833,152 @@ define void @spawn_job_wait() local_unnamed_addr #0 {
   %8 = load i32, ptr %7, align 8
   %.fr = freeze i32 %8
   %9 = icmp eq i32 %.fr, 0
-  br i1 %9, label %.thread, label %10
+  %spec.select = select i1 %9, i32 60, i32 %.fr
+  br label %.thread
 
-.thread:                                          ; preds = %0, %4
-  br label %10
-
-10:                                               ; preds = %4, %.thread
-  %11 = phi i32 [ 60, %.thread ], [ %.fr, %4 ]
+.thread:                                          ; preds = %4, %0
+  %10 = phi i32 [ 60, %0 ], [ %spec.select, %4 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %12 = load i32, ptr @spawn_seq, align 4
-  %13 = icmp ugt i32 %12, 1
-  br i1 %13, label %.lr.ph.preheader.i, label %_wait_for_all.exit
+  %11 = load i32, ptr @spawn_seq, align 4
+  %12 = icmp ugt i32 %11, 1
+  br i1 %12, label %.lr.ph.preheader.i, label %_wait_for_all.exit
 
-.lr.ph.preheader.i:                               ; preds = %10
+.lr.ph.preheader.i:                               ; preds = %.thread
   %.pre14.i = load ptr, ptr @spawned_srun_pids, align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
-  %14 = phi ptr [ %.pre14.i, %.lr.ph.preheader.i ], [ %26, %25 ]
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %.012.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %25 ]
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
-  %16 = load i32, ptr %15, align 4
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %25, label %17
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
+  %13 = phi ptr [ %.pre14.i, %.lr.ph.preheader.i ], [ %25, %24 ]
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %24 ]
+  %.012.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %24 ]
+  %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i
+  %15 = load i32, ptr %14, align 4
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %24, label %16
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = call i32 @waitpid(i32 noundef %16, ptr noundef nonnull %2, i32 noundef 1) #10
-  %19 = load ptr, ptr @spawned_srun_pids, align 8
-  %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.i
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %18, %21
-  br i1 %22, label %23, label %25
+16:                                               ; preds = %.lr.ph.i
+  %17 = call i32 @waitpid(i32 noundef %15, ptr noundef nonnull %2, i32 noundef 1) #10
+  %18 = load ptr, ptr @spawned_srun_pids, align 8
+  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.i
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %17, %20
+  br i1 %21, label %22, label %24
 
-23:                                               ; preds = %17
-  store i32 0, ptr %20, align 4
-  %24 = add nsw i32 %.012.i, 1
+22:                                               ; preds = %16
+  store i32 0, ptr %19, align 4
+  %23 = add nsw i32 %.012.i, 1
   %.pre.i = load ptr, ptr @spawned_srun_pids, align 8
-  br label %25
+  br label %24
 
-25:                                               ; preds = %23, %17, %.lr.ph.i
-  %26 = phi ptr [ %.pre.i, %23 ], [ %19, %17 ], [ %14, %.lr.ph.i ]
-  %.1.i = phi i32 [ %24, %23 ], [ %.012.i, %17 ], [ %.012.i, %.lr.ph.i ]
+24:                                               ; preds = %22, %16, %.lr.ph.i
+  %25 = phi ptr [ %.pre.i, %22 ], [ %18, %16 ], [ %13, %.lr.ph.i ]
+  %.1.i = phi i32 [ %23, %22 ], [ %.012.i, %16 ], [ %.012.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %27 = load i32, ptr @spawn_seq, align 4
-  %28 = zext i32 %27 to i64
-  %29 = icmp ult i64 %indvars.iv.next.i, %28
-  br i1 %29, label %.lr.ph.i, label %_wait_for_all.exit, !llvm.loop !32
+  %26 = load i32, ptr @spawn_seq, align 4
+  %27 = zext i32 %26 to i64
+  %28 = icmp ult i64 %indvars.iv.next.i, %27
+  br i1 %28, label %.lr.ph.i, label %_wait_for_all.exit, !llvm.loop !32
 
-_wait_for_all.exit:                               ; preds = %25, %10
-  %30 = phi i32 [ %12, %10 ], [ %27, %25 ]
-  %.0.lcssa.i = phi i32 [ 0, %10 ], [ %.1.i, %25 ]
+_wait_for_all.exit:                               ; preds = %24, %.thread
+  %29 = phi i32 [ %11, %.thread ], [ %26, %24 ]
+  %.0.lcssa.i = phi i32 [ 0, %.thread ], [ %.1.i, %24 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %31 = icmp sgt i32 %11, 0
-  %32 = add i32 %30, -1
-  %33 = icmp ne i32 %.0.lcssa.i, %32
-  %34 = select i1 %31, i1 %33, i1 false
-  br i1 %34, label %.lr.ph, label %.preheader
+  %30 = icmp sgt i32 %10, 0
+  %31 = add i32 %29, -1
+  %32 = icmp ne i32 %.0.lcssa.i, %31
+  %33 = select i1 %30, i1 %32, i1 false
+  br i1 %33, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %_wait_for_all.exit24, %_wait_for_all.exit
-  %35 = phi i32 [ %30, %_wait_for_all.exit ], [ %56, %_wait_for_all.exit24 ]
-  %36 = icmp ugt i32 %35, 1
-  br i1 %36, label %.lr.ph30.preheader, label %._crit_edge
+  %34 = phi i32 [ %29, %_wait_for_all.exit ], [ %55, %_wait_for_all.exit24 ]
+  %35 = icmp ugt i32 %34, 1
+  br i1 %35, label %.lr.ph30.preheader, label %._crit_edge
 
 .lr.ph30.preheader:                               ; preds = %.preheader
   %.pre32 = load ptr, ptr @spawned_srun_pids, align 8
   br label %.lr.ph30
 
 .lr.ph:                                           ; preds = %_wait_for_all.exit, %_wait_for_all.exit24
-  %.128 = phi i32 [ %58, %_wait_for_all.exit24 ], [ %11, %_wait_for_all.exit ]
-  %.01027 = phi i32 [ %57, %_wait_for_all.exit24 ], [ %.0.lcssa.i, %_wait_for_all.exit ]
-  %37 = call i32 @sleep(i32 noundef 1) #10
+  %.128 = phi i32 [ %57, %_wait_for_all.exit24 ], [ %10, %_wait_for_all.exit ]
+  %.01027 = phi i32 [ %56, %_wait_for_all.exit24 ], [ %.0.lcssa.i, %_wait_for_all.exit ]
+  %36 = call i32 @sleep(i32 noundef 1) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  %38 = load i32, ptr @spawn_seq, align 4
-  %39 = icmp ugt i32 %38, 1
-  br i1 %39, label %.lr.ph.preheader.i15, label %_wait_for_all.exit24
+  %37 = load i32, ptr @spawn_seq, align 4
+  %38 = icmp ugt i32 %37, 1
+  br i1 %38, label %.lr.ph.preheader.i15, label %_wait_for_all.exit24
 
 .lr.ph.preheader.i15:                             ; preds = %.lr.ph
   %.pre14.i16 = load ptr, ptr @spawned_srun_pids, align 8
   br label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %51, %.lr.ph.preheader.i15
-  %40 = phi ptr [ %.pre14.i16, %.lr.ph.preheader.i15 ], [ %52, %51 ]
-  %indvars.iv.i18 = phi i64 [ 1, %.lr.ph.preheader.i15 ], [ %indvars.iv.next.i22, %51 ]
-  %.012.i19 = phi i32 [ 0, %.lr.ph.preheader.i15 ], [ %.1.i21, %51 ]
-  %41 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv.i18
-  %42 = load i32, ptr %41, align 4
-  %.not.i20 = icmp eq i32 %42, 0
-  br i1 %.not.i20, label %51, label %43
+.lr.ph.i17:                                       ; preds = %50, %.lr.ph.preheader.i15
+  %39 = phi ptr [ %.pre14.i16, %.lr.ph.preheader.i15 ], [ %51, %50 ]
+  %indvars.iv.i18 = phi i64 [ 1, %.lr.ph.preheader.i15 ], [ %indvars.iv.next.i22, %50 ]
+  %.012.i19 = phi i32 [ 0, %.lr.ph.preheader.i15 ], [ %.1.i21, %50 ]
+  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv.i18
+  %41 = load i32, ptr %40, align 4
+  %.not.i20 = icmp eq i32 %41, 0
+  br i1 %.not.i20, label %50, label %42
 
-43:                                               ; preds = %.lr.ph.i17
-  %44 = call i32 @waitpid(i32 noundef %42, ptr noundef nonnull %1, i32 noundef 1) #10
-  %45 = load ptr, ptr @spawned_srun_pids, align 8
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv.i18
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp eq i32 %44, %47
-  br i1 %48, label %49, label %51
+42:                                               ; preds = %.lr.ph.i17
+  %43 = call i32 @waitpid(i32 noundef %41, ptr noundef nonnull %1, i32 noundef 1) #10
+  %44 = load ptr, ptr @spawned_srun_pids, align 8
+  %45 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv.i18
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %43
-  store i32 0, ptr %46, align 4
-  %50 = add nsw i32 %.012.i19, 1
+48:                                               ; preds = %42
+  store i32 0, ptr %45, align 4
+  %49 = add nsw i32 %.012.i19, 1
   %.pre.i23 = load ptr, ptr @spawned_srun_pids, align 8
-  br label %51
+  br label %50
 
-51:                                               ; preds = %49, %43, %.lr.ph.i17
-  %52 = phi ptr [ %.pre.i23, %49 ], [ %45, %43 ], [ %40, %.lr.ph.i17 ]
-  %.1.i21 = phi i32 [ %50, %49 ], [ %.012.i19, %43 ], [ %.012.i19, %.lr.ph.i17 ]
+50:                                               ; preds = %48, %42, %.lr.ph.i17
+  %51 = phi ptr [ %.pre.i23, %48 ], [ %44, %42 ], [ %39, %.lr.ph.i17 ]
+  %.1.i21 = phi i32 [ %49, %48 ], [ %.012.i19, %42 ], [ %.012.i19, %.lr.ph.i17 ]
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i18, 1
-  %53 = load i32, ptr @spawn_seq, align 4
-  %54 = zext i32 %53 to i64
-  %55 = icmp ult i64 %indvars.iv.next.i22, %54
-  br i1 %55, label %.lr.ph.i17, label %_wait_for_all.exit24, !llvm.loop !32
+  %52 = load i32, ptr @spawn_seq, align 4
+  %53 = zext i32 %52 to i64
+  %54 = icmp ult i64 %indvars.iv.next.i22, %53
+  br i1 %54, label %.lr.ph.i17, label %_wait_for_all.exit24, !llvm.loop !32
 
-_wait_for_all.exit24:                             ; preds = %51, %.lr.ph
-  %56 = phi i32 [ %38, %.lr.ph ], [ %53, %51 ]
-  %.0.lcssa.i14 = phi i32 [ 0, %.lr.ph ], [ %.1.i21, %51 ]
+_wait_for_all.exit24:                             ; preds = %50, %.lr.ph
+  %55 = phi i32 [ %37, %.lr.ph ], [ %52, %50 ]
+  %.0.lcssa.i14 = phi i32 [ 0, %.lr.ph ], [ %.1.i21, %50 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  %57 = add nsw i32 %.0.lcssa.i14, %.01027
-  %58 = add nsw i32 %.128, -1
-  %59 = icmp sgt i32 %.128, 1
-  %60 = add i32 %56, -1
-  %61 = icmp ne i32 %57, %60
-  %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %.lr.ph, label %.preheader, !llvm.loop !33
+  %56 = add nsw i32 %.0.lcssa.i14, %.01027
+  %57 = add nsw i32 %.128, -1
+  %58 = icmp sgt i32 %.128, 1
+  %59 = add i32 %55, -1
+  %60 = icmp ne i32 %56, %59
+  %61 = select i1 %58, i1 %60, i1 false
+  br i1 %61, label %.lr.ph, label %.preheader, !llvm.loop !33
 
-.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %69
-  %63 = phi i32 [ %35, %.lr.ph30.preheader ], [ %70, %69 ]
-  %64 = phi ptr [ %.pre32, %.lr.ph30.preheader ], [ %71, %69 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph30.preheader ], [ %indvars.iv.next, %69 ]
-  %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv
-  %66 = load i32, ptr %65, align 4
-  %.not13 = icmp eq i32 %66, 0
-  br i1 %.not13, label %69, label %67
+.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %68
+  %62 = phi i32 [ %34, %.lr.ph30.preheader ], [ %69, %68 ]
+  %63 = phi ptr [ %.pre32, %.lr.ph30.preheader ], [ %70, %68 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph30.preheader ], [ %indvars.iv.next, %68 ]
+  %64 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv
+  %65 = load i32, ptr %64, align 4
+  %.not13 = icmp eq i32 %65, 0
+  br i1 %.not13, label %68, label %66
 
-67:                                               ; preds = %.lr.ph30
-  %68 = call i32 @kill(i32 noundef %66, i32 noundef 15) #10
+66:                                               ; preds = %.lr.ph30
+  %67 = call i32 @kill(i32 noundef %65, i32 noundef 15) #10
   %.pre = load ptr, ptr @spawned_srun_pids, align 8
   %.pre33 = load i32, ptr @spawn_seq, align 4
-  br label %69
+  br label %68
 
-69:                                               ; preds = %.lr.ph30, %67
-  %70 = phi i32 [ %63, %.lr.ph30 ], [ %.pre33, %67 ]
-  %71 = phi ptr [ %64, %.lr.ph30 ], [ %.pre, %67 ]
+68:                                               ; preds = %.lr.ph30, %66
+  %69 = phi i32 [ %62, %.lr.ph30 ], [ %.pre33, %66 ]
+  %70 = phi ptr [ %63, %.lr.ph30 ], [ %.pre, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = zext i32 %70 to i64
-  %73 = icmp ult i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph30, label %._crit_edge, !llvm.loop !34
+  %71 = zext i32 %69 to i64
+  %72 = icmp ult i64 %indvars.iv.next, %71
+  br i1 %72, label %.lr.ph30, label %._crit_edge, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %69, %.preheader
+._crit_edge:                                      ; preds = %68, %.preheader
   ret void
 }
 

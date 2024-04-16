@@ -207,7 +207,7 @@ for.cond.preheader:                               ; preds = %if.end
   %3 = getelementptr i8, ptr %package, i64 72
   %name10 = getelementptr inbounds i8, ptr %package, i64 8
   %d2i.i.i = getelementptr inbounds i8, ptr %package, i64 80
-  %ifree.i.i = getelementptr inbounds i8, ptr %package, i64 88
+  %ifree.i.i93 = getelementptr inbounds i8, ptr %package, i64 88
   br label %for.body
 
 cond.false:                                       ; preds = %if.end
@@ -216,7 +216,7 @@ cond.false:                                       ; preds = %if.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %fail.0103 = phi i32 [ 0, %for.cond.preheader ], [ %fail.2, %for.inc ]
+  %fail.0110 = phi i32 [ 0, %for.cond.preheader ], [ %fail.2, %for.inc ]
   %4 = load i64, ptr %encode_expectations_elem_size, align 8
   %mul = mul i64 %4, %indvars.iv
   %5 = load ptr, ptr %encode_expectations, align 8
@@ -283,10 +283,10 @@ sw.bb:                                            ; preds = %do_encode_custom.ex
 
 if.then7:                                         ; preds = %sw.bb
   %11 = load ptr, ptr %name10, align 8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 752, ptr noundef nonnull @.str.9, i32 noundef %12, ptr noundef %11) #7
   call void @test_openssl_errors() #7
-  %inc = add nsw i32 %fail.0103, 1
+  %inc = add nsw i32 %fail.0110, 1
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %if.then6.i.i
@@ -296,14 +296,14 @@ sw.bb9:                                           ; preds = %if.then6.i.i
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.8, i32 noundef 704) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expected.i)
   %14 = load ptr, ptr %name10, align 8
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 759, ptr noundef nonnull @.str.10, i32 noundef %15, ptr noundef %14) #7
   call void @test_openssl_errors() #7
-  %inc11 = add nsw i32 %fail.0103, 1
+  %inc11 = add nsw i32 %fail.0110, 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do_encode_custom.exit.thread85, %sw.bb, %if.then7, %sw.bb9
-  %fail.1 = phi i32 [ %inc11, %sw.bb9 ], [ %inc, %if.then7 ], [ %fail.0103, %sw.bb ], [ %fail.0103, %do_encode_custom.exit.thread85 ]
+  %fail.1 = phi i32 [ %inc11, %sw.bb9 ], [ %inc, %if.then7 ], [ %fail.0110, %sw.bb ], [ %fail.0110, %do_encode_custom.exit.thread85 ]
   %16 = load i64, ptr %encode_expectations_elem_size, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %encoding.i)
   store ptr null, ptr %encoding.i, align 8
@@ -327,96 +327,101 @@ if.end.i50:                                       ; preds = %sw.epilog
 if.then.i.i:                                      ; preds = %if.end.i50
   %19 = load i32, ptr %arrayidx, align 4
   %cmp1.i.i = icmp eq i32 %19, 0
-  br i1 %cmp1.i.i, label %if.then2.i.i, label %do_decode_custom.exit.thread91
+  br i1 %cmp1.i.i, label %do_decode_custom.exit.thread94, label %do_decode_custom.exit.thread88
 
-do_decode_custom.exit.thread91:                   ; preds = %if.then.i.i
-  %20 = load ptr, ptr %ifree.i.i, align 8
+do_decode_custom.exit.thread88:                   ; preds = %if.then.i.i
+  %20 = load ptr, ptr %ifree.i.i93, align 8
   call void %20(ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i)
   call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.8, i32 noundef 686) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
   br label %sw.bb17
 
-if.then2.i.i:                                     ; preds = %if.then.i.i
+do_decode_custom.exit.thread94:                   ; preds = %if.then.i.i
   call void @ERR_clear_error() #7
-  br label %do_decode_custom.exit.thread88
-
-if.else3.i.i:                                     ; preds = %if.end.i50
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 %call.i48
-  %21 = load ptr, ptr %bytes.addr.i.i, align 8
-  %cmp4.i.i = icmp eq ptr %add.ptr.i.i, %21
-  br i1 %cmp4.i.i, label %land.lhs.true.i.i, label %sw.bb24
-
-land.lhs.true.i.i:                                ; preds = %if.else3.i.i
-  %bcmp.i.i55 = call i32 @bcmp(ptr nonnull %call.i.i51, ptr %arrayidx, i64 %16)
-  %cmp6.i.i = icmp eq i32 %bcmp.i.i55, 0
-  br i1 %cmp6.i.i, label %do_decode_custom.exit.thread88, label %sw.bb24
-
-do_decode_custom.exit.thread88:                   ; preds = %if.then2.i.i, %land.lhs.true.i.i
-  %22 = load ptr, ptr %ifree.i.i, align 8
-  call void %22(ptr noundef %call.i.i51) #7
+  %21 = load ptr, ptr %ifree.i.i93, align 8
+  call void %21(ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i)
   call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.8, i32 noundef 686) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
   br label %for.inc
 
-sw.bb17:                                          ; preds = %do_decode_custom.exit.thread91, %do_decode_custom.exit.thread
-  %23 = load i32, ptr %arrayidx, align 4
-  %tobool19.not = icmp eq i32 %23, 0
+if.else3.i.i:                                     ; preds = %if.end.i50
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 %call.i48
+  %22 = load ptr, ptr %bytes.addr.i.i, align 8
+  %cmp4.i.i = icmp eq ptr %add.ptr.i.i, %22
+  br i1 %cmp4.i.i, label %do_decode_custom.exit, label %do_decode_custom.exit.thread91
+
+do_decode_custom.exit.thread91:                   ; preds = %if.else3.i.i
+  %23 = load ptr, ptr %ifree.i.i93, align 8
+  call void %23(ptr noundef nonnull %call.i.i51) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i)
+  call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.8, i32 noundef 686) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
+  br label %sw.bb24
+
+do_decode_custom.exit:                            ; preds = %if.else3.i.i
+  %bcmp.i.i55 = call i32 @bcmp(ptr nonnull %call.i.i51, ptr %arrayidx, i64 %16)
+  %cmp6.i.i.not = icmp eq i32 %bcmp.i.i55, 0
+  %24 = load ptr, ptr %ifree.i.i93, align 8
+  call void %24(ptr noundef nonnull %call.i.i51) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i)
+  call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.8, i32 noundef 686) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
+  br i1 %cmp6.i.i.not, label %for.inc, label %sw.bb24
+
+sw.bb17:                                          ; preds = %do_decode_custom.exit.thread88, %do_decode_custom.exit.thread
+  %25 = load i32, ptr %arrayidx, align 4
+  %tobool19.not = icmp eq i32 %25, 0
   br i1 %tobool19.not, label %for.inc, label %if.then20
 
 if.then20:                                        ; preds = %sw.bb17
-  %24 = load ptr, ptr %name10, align 8
-  %25 = trunc i64 %indvars.iv to i32
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 775, ptr noundef nonnull @.str.12, i32 noundef %25, ptr noundef %24) #7
+  %26 = load ptr, ptr %name10, align 8
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 775, ptr noundef nonnull @.str.12, i32 noundef %27, ptr noundef %26) #7
   call void @test_openssl_errors() #7
   %inc22 = add nsw i32 %fail.1, 1
   br label %for.inc
 
-sw.bb24:                                          ; preds = %land.lhs.true.i.i, %if.else3.i.i
-  %26 = load ptr, ptr %ifree.i.i, align 8
-  call void %26(ptr noundef nonnull %call.i.i51) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i)
-  call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.8, i32 noundef 686) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
-  %27 = load ptr, ptr %name10, align 8
-  %28 = trunc i64 %indvars.iv to i32
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 782, ptr noundef nonnull @.str.13, i32 noundef %28, ptr noundef %27) #7
+sw.bb24:                                          ; preds = %do_decode_custom.exit, %do_decode_custom.exit.thread91
+  %28 = load ptr, ptr %name10, align 8
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 782, ptr noundef nonnull @.str.13, i32 noundef %29, ptr noundef %28) #7
   call void @test_openssl_errors() #7
   %inc26 = add nsw i32 %fail.1, 1
   br label %for.inc
 
-for.inc:                                          ; preds = %do_decode_custom.exit.thread88, %sw.bb24, %if.then20, %sw.bb17
-  %fail.2 = phi i32 [ %inc26, %sw.bb24 ], [ %inc22, %if.then20 ], [ %fail.1, %sw.bb17 ], [ %fail.1, %do_decode_custom.exit.thread88 ]
+for.inc:                                          ; preds = %do_decode_custom.exit, %do_decode_custom.exit.thread94, %sw.bb24, %if.then20, %sw.bb17
+  %fail.2 = phi i32 [ %fail.1, %do_decode_custom.exit ], [ %inc26, %sw.bb24 ], [ %inc22, %if.then20 ], [ %fail.1, %sw.bb17 ], [ %fail.1, %do_decode_custom.exit.thread94 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 34
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc
   %encdec_data_size = getelementptr inbounds i8, ptr %package, i64 56
-  %29 = load i64, ptr %encdec_data_size, align 8
+  %30 = load i64, ptr %encdec_data_size, align 8
   %encdec_data_elem_size = getelementptr inbounds i8, ptr %package, i64 64
-  %30 = load i64, ptr %encdec_data_elem_size, align 8
-  %div31 = udiv i64 %29, %30
-  %cmp34107.not = icmp ugt i64 %30, %29
-  br i1 %cmp34107.not, label %for.end60, label %for.body36.lr.ph
+  %31 = load i64, ptr %encdec_data_elem_size, align 8
+  %div31 = udiv i64 %30, %31
+  %cmp34113.not = icmp ugt i64 %31, %30
+  br i1 %cmp34113.not, label %for.end60, label %for.body36.lr.ph
 
 for.body36.lr.ph:                                 ; preds = %for.end
   %encdec_data = getelementptr inbounds i8, ptr %package, i64 48
   br label %for.body36
 
 for.body36:                                       ; preds = %for.body36.lr.ph, %for.inc58
-  %conv33111 = phi i64 [ 0, %for.body36.lr.ph ], [ %conv33, %for.inc58 ]
-  %i.1109 = phi i32 [ 0, %for.body36.lr.ph ], [ %inc59, %for.inc58 ]
-  %fail.3108 = phi i32 [ %fail.2, %for.body36.lr.ph ], [ %fail.4, %for.inc58 ]
-  %31 = load i64, ptr %encdec_data_elem_size, align 8
-  %mul40 = mul i64 %31, %conv33111
-  %32 = load ptr, ptr %encdec_data, align 8
-  %arrayidx42 = getelementptr inbounds i8, ptr %32, i64 %mul40
+  %conv33116 = phi i64 [ 0, %for.body36.lr.ph ], [ %conv33, %for.inc58 ]
+  %i.1115 = phi i32 [ 0, %for.body36.lr.ph ], [ %inc59, %for.inc58 ]
+  %fail.3114 = phi i32 [ %fail.2, %for.body36.lr.ph ], [ %fail.4, %for.inc58 ]
+  %32 = load i64, ptr %encdec_data_elem_size, align 8
+  %mul40 = mul i64 %32, %conv33116
+  %33 = load ptr, ptr %encdec_data, align 8
+  %arrayidx42 = getelementptr inbounds i8, ptr %33, i64 %mul40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
   store ptr null, ptr %data.i, align 8
-  %33 = load ptr, ptr %3, align 8
-  %call.i57 = call i32 %33(ptr noundef %arrayidx42, ptr noundef nonnull %data.i) #7
+  %34 = load ptr, ptr %3, align 8
+  %call.i57 = call i32 %34(ptr noundef %arrayidx42, ptr noundef nonnull %data.i) #7
   %cmp.i58 = icmp slt i32 %call.i57, 0
   br i1 %cmp.i58, label %do_enc_dec.exit.thread, label %if.end.i59
 
@@ -425,90 +430,96 @@ do_enc_dec.exit.thread:                           ; preds = %for.body36
   br label %sw.bb45
 
 if.end.i59:                                       ; preds = %for.body36
-  %34 = load ptr, ptr %data.i, align 8
+  %35 = load ptr, ptr %data.i, align 8
   %conv.i = zext nneg i32 %call.i57 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.addr.i.i56)
-  store ptr %34, ptr %bytes.addr.i.i56, align 8
-  %35 = load ptr, ptr %d2i.i.i, align 8
-  %call.i.i61 = call ptr %35(ptr noundef null, ptr noundef nonnull %bytes.addr.i.i56, i64 noundef %conv.i) #7
+  store ptr %35, ptr %bytes.addr.i.i56, align 8
+  %36 = load ptr, ptr %d2i.i.i, align 8
+  %call.i.i61 = call ptr %36(ptr noundef null, ptr noundef nonnull %bytes.addr.i.i56, i64 noundef %conv.i) #7
   %cmp.i.i62 = icmp eq ptr %call.i.i61, null
   br i1 %cmp.i.i62, label %if.then.i.i74, label %if.else3.i.i63
 
 if.then.i.i74:                                    ; preds = %if.end.i59
-  %36 = load i32, ptr %arrayidx42, align 4
-  %cmp1.i.i75 = icmp eq i32 %36, 0
-  br i1 %cmp1.i.i75, label %if.then2.i.i76, label %do_enc_dec.exit.thread98
+  %37 = load i32, ptr %arrayidx42, align 4
+  %cmp1.i.i75 = icmp eq i32 %37, 0
+  br i1 %cmp1.i.i75, label %do_enc_dec.exit.thread104, label %do_enc_dec.exit.thread98
 
 do_enc_dec.exit.thread98:                         ; preds = %if.then.i.i74
-  %37 = load ptr, ptr %ifree.i.i, align 8
-  call void %37(ptr noundef null) #7
+  %38 = load ptr, ptr %ifree.i.i93, align 8
+  call void %38(ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i56)
-  %38 = load ptr, ptr %data.i, align 8
-  call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str.8, i32 noundef 562) #7
+  %39 = load ptr, ptr %data.i, align 8
+  call void @CRYPTO_free(ptr noundef %39, ptr noundef nonnull @.str.8, i32 noundef 562) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   br label %sw.bb45
 
-if.then2.i.i76:                                   ; preds = %if.then.i.i74
+do_enc_dec.exit.thread104:                        ; preds = %if.then.i.i74
   call void @ERR_clear_error() #7
-  br label %do_enc_dec.exit.thread95
-
-if.else3.i.i63:                                   ; preds = %if.end.i59
-  %add.ptr.i.i64 = getelementptr inbounds i8, ptr %34, i64 %conv.i
-  %39 = load ptr, ptr %bytes.addr.i.i56, align 8
-  %cmp4.i.i65 = icmp eq ptr %add.ptr.i.i64, %39
-  br i1 %cmp4.i.i65, label %land.lhs.true.i.i71, label %sw.bb52
-
-land.lhs.true.i.i71:                              ; preds = %if.else3.i.i63
-  %bcmp.i.i72 = call i32 @bcmp(ptr nonnull %call.i.i61, ptr %arrayidx42, i64 %31)
-  %cmp6.i.i73 = icmp eq i32 %bcmp.i.i72, 0
-  br i1 %cmp6.i.i73, label %do_enc_dec.exit.thread95, label %sw.bb52
-
-do_enc_dec.exit.thread95:                         ; preds = %if.then2.i.i76, %land.lhs.true.i.i71
-  %40 = load ptr, ptr %ifree.i.i, align 8
-  call void %40(ptr noundef %call.i.i61) #7
+  %40 = load ptr, ptr %ifree.i.i93, align 8
+  call void %40(ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i56)
   %41 = load ptr, ptr %data.i, align 8
   call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str.8, i32 noundef 562) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   br label %for.inc58
 
+if.else3.i.i63:                                   ; preds = %if.end.i59
+  %add.ptr.i.i64 = getelementptr inbounds i8, ptr %35, i64 %conv.i
+  %42 = load ptr, ptr %bytes.addr.i.i56, align 8
+  %cmp4.i.i65 = icmp eq ptr %add.ptr.i.i64, %42
+  br i1 %cmp4.i.i65, label %do_enc_dec.exit, label %do_enc_dec.exit.thread101
+
+do_enc_dec.exit.thread101:                        ; preds = %if.else3.i.i63
+  %43 = load ptr, ptr %ifree.i.i93, align 8
+  call void %43(ptr noundef nonnull %call.i.i61) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i56)
+  %44 = load ptr, ptr %data.i, align 8
+  call void @CRYPTO_free(ptr noundef %44, ptr noundef nonnull @.str.8, i32 noundef 562) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
+  br label %sw.bb52
+
+do_enc_dec.exit:                                  ; preds = %if.else3.i.i63
+  %bcmp.i.i71 = call i32 @bcmp(ptr nonnull %call.i.i61, ptr %arrayidx42, i64 %32)
+  %cmp6.i.i72.not = icmp eq i32 %bcmp.i.i71, 0
+  %45 = load ptr, ptr %ifree.i.i93, align 8
+  call void %45(ptr noundef nonnull %call.i.i61) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i56)
+  %46 = load ptr, ptr %data.i, align 8
+  call void @CRYPTO_free(ptr noundef %46, ptr noundef nonnull @.str.8, i32 noundef 562) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
+  br i1 %cmp6.i.i72.not, label %for.inc58, label %sw.bb52
+
 sw.bb45:                                          ; preds = %do_enc_dec.exit.thread98, %do_enc_dec.exit.thread
-  %42 = load i32, ptr %arrayidx42, align 4
-  %tobool47.not = icmp eq i32 %42, 0
+  %47 = load i32, ptr %arrayidx42, align 4
+  %tobool47.not = icmp eq i32 %47, 0
   br i1 %tobool47.not, label %for.inc58, label %if.then48
 
 if.then48:                                        ; preds = %sw.bb45
-  %43 = load ptr, ptr %name10, align 8
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 805, ptr noundef nonnull @.str.15, i32 noundef %i.1109, ptr noundef %43) #7
+  %48 = load ptr, ptr %name10, align 8
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 805, ptr noundef nonnull @.str.15, i32 noundef %i.1115, ptr noundef %48) #7
   call void @test_openssl_errors() #7
-  %inc50 = add nsw i32 %fail.3108, 1
+  %inc50 = add nsw i32 %fail.3114, 1
   br label %for.inc58
 
-sw.bb52:                                          ; preds = %land.lhs.true.i.i71, %if.else3.i.i63
-  %44 = load ptr, ptr %ifree.i.i, align 8
-  call void %44(ptr noundef nonnull %call.i.i61) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i56)
-  %45 = load ptr, ptr %data.i, align 8
-  call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str.8, i32 noundef 562) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
-  %46 = load ptr, ptr %name10, align 8
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 812, ptr noundef nonnull @.str.16, i32 noundef %i.1109, ptr noundef %46) #7
-  %inc54 = add nsw i32 %fail.3108, 1
+sw.bb52:                                          ; preds = %do_enc_dec.exit, %do_enc_dec.exit.thread101
+  %49 = load ptr, ptr %name10, align 8
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 812, ptr noundef nonnull @.str.16, i32 noundef %i.1115, ptr noundef %49) #7
+  %inc54 = add nsw i32 %fail.3114, 1
   br label %for.inc58
 
-for.inc58:                                        ; preds = %do_enc_dec.exit.thread95, %sw.bb52, %if.then48, %sw.bb45
-  %fail.4 = phi i32 [ %inc54, %sw.bb52 ], [ %inc50, %if.then48 ], [ %fail.3108, %sw.bb45 ], [ %fail.3108, %do_enc_dec.exit.thread95 ]
-  %inc59 = add i32 %i.1109, 1
+for.inc58:                                        ; preds = %do_enc_dec.exit, %do_enc_dec.exit.thread104, %sw.bb52, %if.then48, %sw.bb45
+  %fail.4 = phi i32 [ %fail.3114, %do_enc_dec.exit ], [ %inc54, %sw.bb52 ], [ %inc50, %if.then48 ], [ %fail.3114, %sw.bb45 ], [ %fail.3114, %do_enc_dec.exit.thread104 ]
+  %inc59 = add i32 %i.1115, 1
   %conv33 = zext i32 %inc59 to i64
   %cmp34 = icmp ugt i64 %div31, %conv33
   br i1 %cmp34, label %for.body36, label %for.end60, !llvm.loop !8
 
 for.end60:                                        ; preds = %for.inc58, %for.end
   %fail.3.lcssa = phi i32 [ %fail.2, %for.end ], [ %fail.4, %for.inc58 ]
-  %47 = load ptr, ptr %package, align 8
-  %call.i77 = call ptr %47() #7
-  %48 = load i64, ptr %encode_expectations_elem_size, align 8
-  %cmp.i78 = icmp ult i64 %48, 257
+  %50 = load ptr, ptr %package, align 8
+  %call.i77 = call ptr %50() #7
+  %51 = load i64, ptr %encode_expectations_elem_size, align 8
+  %cmp.i78 = icmp ult i64 %51, 257
   br i1 %cmp.i78, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.end60
@@ -521,18 +532,18 @@ cond.end.i:                                       ; preds = %for.end60
   br i1 %cmp2.i, label %if.then63, label %do_print_item.exit
 
 do_print_item.exit:                               ; preds = %cond.end.i
-  %49 = load i64, ptr %encode_expectations_elem_size, align 8
-  %conv.i80 = trunc i64 %49 to i32
+  %52 = load i64, ptr %encode_expectations_elem_size, align 8
+  %conv.i80 = trunc i64 %52 to i32
   %call4.i = call i32 @RAND_bytes(ptr noundef nonnull %call1.i, i32 noundef %conv.i80) #7
-  %50 = load ptr, ptr @bio_err, align 8
-  %call5.i = call i32 @ASN1_item_print(ptr noundef %50, ptr noundef nonnull %call1.i, i32 noundef 0, ptr noundef %call.i77, ptr noundef null) #7
+  %53 = load ptr, ptr @bio_err, align 8
+  %call5.i = call i32 @ASN1_item_print(ptr noundef %53, ptr noundef nonnull %call1.i, i32 noundef 0, ptr noundef %call.i77, ptr noundef null) #7
   call void @CRYPTO_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.8, i32 noundef 723) #7
   %tobool62.not = icmp eq i32 %call5.i, 0
   br i1 %tobool62.not, label %if.then63, label %if.end66
 
 if.then63:                                        ; preds = %cond.end.i, %do_print_item.exit
-  %51 = load ptr, ptr %name10, align 8
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 824, ptr noundef nonnull @.str.18, ptr noundef %51) #7
+  %54 = load ptr, ptr %name10, align 8
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.8, i32 noundef 824, ptr noundef nonnull @.str.18, ptr noundef %54) #7
   call void @test_openssl_errors() #7
   %inc65 = add nsw i32 %fail.3.lcssa, 1
   br label %if.end66
@@ -665,7 +676,7 @@ if.end5.thread.i66:                               ; preds = %cond.end.i60
   %incdec.ptr1233.i = getelementptr inbounds i8, ptr %call24, i64 2
   store i8 2, ptr %incdec.ptr, align 1
   %shr.i = lshr i64 %add18, 8
-  %8 = trunc i64 %shr.i to i8
+  %8 = trunc nuw i64 %shr.i to i8
   %conv20.i = or disjoint i8 %8, -128
   %incdec.ptr21.i = getelementptr inbounds i8, ptr %call24, i64 3
   store i8 %conv20.i, ptr %incdec.ptr1233.i, align 1
@@ -675,7 +686,7 @@ if.end5.thread.i66:                               ; preds = %cond.end.i60
   br label %der_encode_length.exit67
 
 if.then9.i:                                       ; preds = %if.end5.i62
-  %conv.i = trunc i64 %add18 to i8
+  %conv.i = trunc nuw i64 %add18 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call24, i64 2
   store i8 %conv.i, ptr %incdec.ptr, align 1
   br label %der_encode_length.exit67
@@ -683,7 +694,7 @@ if.then9.i:                                       ; preds = %if.end5.i62
 if.else10.i:                                      ; preds = %if.end5.i62
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %call24, i64 2
   store i8 1, ptr %incdec.ptr, align 1
-  %9 = trunc i64 %add18 to i8
+  %9 = trunc nuw i64 %add18 to i8
   %conv16.i = or i8 %9, -128
   %incdec.ptr17.i = getelementptr inbounds i8, ptr %call24, i64 3
   store i8 %conv16.i, ptr %incdec.ptr12.i, align 1
@@ -715,7 +726,7 @@ if.end5.thread.i83:                               ; preds = %cond.end.i70
   %incdec.ptr1233.i84 = getelementptr inbounds i8, ptr %p.0, i64 5
   store i8 2, ptr %incdec.ptr32, align 1
   %shr.i85 = lshr i64 %10, 8
-  %11 = trunc i64 %shr.i85 to i8
+  %11 = trunc nuw i64 %shr.i85 to i8
   %conv20.i86 = or disjoint i8 %11, -128
   %incdec.ptr21.i87 = getelementptr inbounds i8, ptr %p.0, i64 6
   store i8 %conv20.i86, ptr %incdec.ptr1233.i84, align 1
@@ -725,7 +736,7 @@ if.end5.thread.i83:                               ; preds = %cond.end.i70
   br label %der_encode_length.exit90
 
 if.then9.i80:                                     ; preds = %if.end5.i72
-  %conv.i81 = trunc i64 %10 to i8
+  %conv.i81 = trunc nuw i64 %10 to i8
   %incdec.ptr.i82 = getelementptr inbounds i8, ptr %p.0, i64 5
   store i8 %conv.i81, ptr %incdec.ptr32, align 1
   br label %der_encode_length.exit90
@@ -733,7 +744,7 @@ if.then9.i80:                                     ; preds = %if.end5.i72
 if.else10.i75:                                    ; preds = %if.end5.i72
   %incdec.ptr12.i76 = getelementptr inbounds i8, ptr %p.0, i64 5
   store i8 1, ptr %incdec.ptr32, align 1
-  %12 = trunc i64 %10 to i8
+  %12 = trunc nuw i64 %10 to i8
   %conv16.i77 = or i8 %12, -128
   %incdec.ptr17.i78 = getelementptr inbounds i8, ptr %p.0, i64 6
   store i8 %conv16.i77, ptr %incdec.ptr12.i76, align 1
@@ -761,7 +772,7 @@ if.end5.thread.i106:                              ; preds = %cond.end.i93
   %incdec.ptr1233.i107 = getelementptr inbounds i8, ptr %add.ptr37, i64 2
   store i8 2, ptr %incdec.ptr41, align 1
   %shr.i108 = lshr i64 %secondbytesinner.0, 8
-  %14 = trunc i64 %shr.i108 to i8
+  %14 = trunc nuw i64 %shr.i108 to i8
   %conv20.i109 = or disjoint i8 %14, -128
   %incdec.ptr21.i110 = getelementptr inbounds i8, ptr %add.ptr37, i64 3
   store i8 %conv20.i109, ptr %incdec.ptr1233.i107, align 1
@@ -771,7 +782,7 @@ if.end5.thread.i106:                              ; preds = %cond.end.i93
   br label %der_encode_length.exit113
 
 if.then9.i103:                                    ; preds = %if.end5.i95
-  %conv.i104 = trunc i64 %secondbytesinner.0 to i8
+  %conv.i104 = trunc nuw i64 %secondbytesinner.0 to i8
   %incdec.ptr.i105 = getelementptr inbounds i8, ptr %add.ptr37, i64 2
   store i8 %conv.i104, ptr %incdec.ptr41, align 1
   br label %der_encode_length.exit113
@@ -779,7 +790,7 @@ if.then9.i103:                                    ; preds = %if.end5.i95
 if.else10.i98:                                    ; preds = %if.end5.i95
   %incdec.ptr12.i99 = getelementptr inbounds i8, ptr %add.ptr37, i64 2
   store i8 1, ptr %incdec.ptr41, align 1
-  %15 = trunc i64 %secondbytesinner.0 to i8
+  %15 = trunc nuw i64 %secondbytesinner.0 to i8
   %conv16.i100 = or i8 %15, -128
   %incdec.ptr17.i101 = getelementptr inbounds i8, ptr %add.ptr37, i64 3
   store i8 %conv16.i100, ptr %incdec.ptr12.i99, align 1
@@ -809,7 +820,7 @@ if.end5.thread.i129:                              ; preds = %cond.end.i116
   %incdec.ptr1233.i130 = getelementptr inbounds i8, ptr %p.2, i64 2
   store i8 2, ptr %incdec.ptr43, align 1
   %shr.i131 = lshr i64 %16, 8
-  %17 = trunc i64 %shr.i131 to i8
+  %17 = trunc nuw i64 %shr.i131 to i8
   %conv20.i132 = or disjoint i8 %17, -128
   %incdec.ptr21.i133 = getelementptr inbounds i8, ptr %p.2, i64 3
   store i8 %conv20.i132, ptr %incdec.ptr1233.i130, align 1
@@ -819,7 +830,7 @@ if.end5.thread.i129:                              ; preds = %cond.end.i116
   br label %der_encode_length.exit136
 
 if.then9.i126:                                    ; preds = %if.end5.i118
-  %conv.i127 = trunc i64 %16 to i8
+  %conv.i127 = trunc nuw i64 %16 to i8
   %incdec.ptr.i128 = getelementptr inbounds i8, ptr %p.2, i64 2
   store i8 %conv.i127, ptr %incdec.ptr43, align 1
   br label %der_encode_length.exit136
@@ -827,7 +838,7 @@ if.then9.i126:                                    ; preds = %if.end5.i118
 if.else10.i121:                                   ; preds = %if.end5.i118
   %incdec.ptr12.i122 = getelementptr inbounds i8, ptr %p.2, i64 2
   store i8 1, ptr %incdec.ptr43, align 1
-  %18 = trunc i64 %16 to i8
+  %18 = trunc nuw i64 %16 to i8
   %conv16.i123 = or i8 %18, -128
   %incdec.ptr17.i124 = getelementptr inbounds i8, ptr %p.2, i64 3
   store i8 %conv16.i123, ptr %incdec.ptr12.i122, align 1

@@ -154,12 +154,11 @@ define dso_local noundef i32 @archive_read_data_into_fd(ptr noundef %0, i32 noun
   %.us-phi82 = phi i64 [ %.043.us, %.split.us ], [ %.043, %.split ]
   %62 = load i64, ptr %6, align 8
   %63 = icmp sgt i64 %62, %.us-phi82
-  br i1 %63, label %64, label %select.unfold
+  br i1 %63, label %64, label %.sink.split
 
 64:                                               ; preds = %.split81.us
   %65 = call fastcc i32 @pad_to(ptr noundef %0, i32 noundef %1, i32 noundef %17, ptr noundef %.041106, i64 noundef %62, i64 noundef %.us-phi82)
-  %.not56 = icmp eq i32 %65, 0
-  br i1 %.not56, label %select.unfold, label %.sink.split
+  br label %.sink.split
 
 .thread61.sink.split:                             ; preds = %.lr.ph.i, %.lr.ph, %25, %.lr.ph.us
   %.str.1.sink = phi ptr [ @.str.1, %.lr.ph.us ], [ @.str.2, %25 ], [ @.str.1, %.lr.ph ], [ @.str.1, %.lr.ph.i ]
@@ -169,12 +168,9 @@ define dso_local noundef i32 @archive_read_data_into_fd(ptr noundef %0, i32 noun
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %67, ptr noundef nonnull %.str.1.sink) #9
   br label %.sink.split
 
-select.unfold:                                    ; preds = %64, %.split81.us
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.split, %.split.us, %64, %18, %.thread61.sink.split, %select.unfold
-  %.041106.sink = phi ptr [ %.041106, %select.unfold ], [ %.041106, %64 ], [ null, %18 ], [ %.142.ph.ph, %.thread61.sink.split ], [ null, %.split.us ], [ %19, %.split ]
-  %.039.ph = phi i32 [ 0, %select.unfold ], [ %65, %64 ], [ -30, %18 ], [ -30, %.thread61.sink.split ], [ %20, %.split.us ], [ %39, %.split ]
+.sink.split:                                      ; preds = %.split, %.split.us, %64, %.split81.us, %18, %.thread61.sink.split
+  %.041106.sink = phi ptr [ null, %18 ], [ %.142.ph.ph, %.thread61.sink.split ], [ %.041106, %.split81.us ], [ %.041106, %64 ], [ null, %.split.us ], [ %19, %.split ]
+  %.039.ph = phi i32 [ -30, %18 ], [ -30, %.thread61.sink.split ], [ 0, %.split81.us ], [ %65, %64 ], [ %20, %.split.us ], [ %39, %.split ]
   call void @free(ptr noundef %.041106.sink) #9
   br label %68
 

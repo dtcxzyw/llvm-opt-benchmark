@@ -12132,7 +12132,7 @@ if.end7.i:                                        ; preds = %land.lhs.true.i, %f
   %8 = load ptr, ptr %container, align 8
   %arrayidx.i15.i = getelementptr inbounds i64, ptr %8, i64 %indvars.iv.i
   %9 = load i64, ptr %arrayidx.i15.i, align 8
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw i64 %indvars.iv.i to i32
   %sub.i = sub i32 %10, %ofs.021.i
   %idxprom.i16.i = zext i32 %sub.i to i64
   %arrayidx.i17.i = getelementptr inbounds i64, ptr %8, i64 %idxprom.i16.i
@@ -15921,7 +15921,7 @@ for.end.i.i.i:                                    ; preds = %if.end11.i.i.i, %la
   %sub.ptr.lhs.cast.i.i.i97 = ptrtoint ptr %sub.ptr.lhs.cast.i.i.i97.in to i64
   %sub.ptr.rhs.cast14.pre-phi.i.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i to i64
   %sub.ptr.sub15.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i97, %sub.ptr.rhs.cast14.pre-phi.i.i.i
-  switch i64 %sub.ptr.sub15.i.i.i, label %sw.default.i.i.i [
+  switch i64 %sub.ptr.sub15.i.i.i, label %invoke.cont28 [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb20.i.i.i
     i64 1, label %sw.bb25.i.i.i
@@ -15953,9 +15953,7 @@ sw.bb25.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   %42 = load i8, ptr %__first.addr.2.i.i.i, align 1
   %43 = and i8 %42, 1
   %cmp.i31.i.i.i = icmp eq i8 %43, 0
-  br i1 %cmp.i31.i.i.i, label %invoke.cont28, label %sw.default.i.i.i
-
-sw.default.i.i.i:                                 ; preds = %sw.bb25.i.i.i, %for.end.i.i.i
+  %spec.select.i.i.i = select i1 %cmp.i31.i.i.i, ptr %__first.addr.2.i.i.i, ptr %add.ptr.i4896
   br label %invoke.cont28
 
 invoke.cont28.loopexit.split.loop.exit:           ; preds = %if.end7.i.i.i
@@ -15970,8 +15968,8 @@ invoke.cont28.loopexit.split.loop.exit101:        ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i, i64 1
   br label %invoke.cont28
 
-invoke.cont28:                                    ; preds = %for.body.i.i.i, %invoke.cont28.loopexit.split.loop.exit, %invoke.cont28.loopexit.split.loop.exit99, %invoke.cont28.loopexit.split.loop.exit101, %sw.default.i.i.i, %sw.bb25.i.i.i, %sw.bb20.i.i.i, %sw.bb.i.i.i
-  %retval.0.i.i.i = phi ptr [ %add.ptr.i4896, %sw.default.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr8.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit99 ], [ %incdec.ptr.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit101 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
+invoke.cont28:                                    ; preds = %for.body.i.i.i, %invoke.cont28.loopexit.split.loop.exit, %invoke.cont28.loopexit.split.loop.exit99, %invoke.cont28.loopexit.split.loop.exit101, %sw.bb25.i.i.i, %sw.bb20.i.i.i, %sw.bb.i.i.i, %for.end.i.i.i
+  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %add.ptr.i4896, %for.end.i.i.i ], [ %spec.select.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr8.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit99 ], [ %incdec.ptr.i.i.i.le, %invoke.cont28.loopexit.split.loop.exit101 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
   br i1 %cmp.i.i45, label %_ZN6vectorIbLb0EjE3endEv.exit57, label %if.end.i.i52
 
 if.end.i.i52:                                     ; preds = %invoke.cont28
@@ -17443,7 +17441,7 @@ if.end:                                           ; preds = %land.lhs.true, %for
   %9 = load ptr, ptr %f, align 8
   %arrayidx.i11 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv
   %10 = load i64, ptr %arrayidx.i11, align 8
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   %sub = sub i32 %11, %ofs.017
   %idxprom.i12 = zext i32 %sub to i64
   %arrayidx.i13 = getelementptr inbounds i64, ptr %9, i64 %idxprom.i12

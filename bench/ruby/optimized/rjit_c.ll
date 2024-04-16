@@ -1259,7 +1259,7 @@ define internal noundef i64 @builtin_inline_class_84(ptr nocapture noundef reado
   br label %rb_type.exit.i
 
 switch.hole_check:                                ; preds = %21
-  %switch.maskindex = trunc i64 %22 to i16
+  %switch.maskindex = trunc nuw i64 %22 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %24
@@ -1433,18 +1433,18 @@ rb_num2ull_inline.exit:                           ; preds = %12, %14
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 31
   %24 = icmp eq i64 %23, 27
+  br i1 %24, label %RB_FL_TEST.exit.thread, label %RB_FL_TEST.exit
+
+RB_FL_TEST.exit:                                  ; preds = %20
   %25 = and i64 %22, %.0.i
   %.fr = freeze i64 %25
   %.not = icmp eq i64 %.fr, 0
-  %or.cond = or i1 %24, %.not
-  br i1 %or.cond, label %RB_FL_TEST.exit.thread, label %26
+  %spec.select = select i1 %.not, i64 0, i64 20
+  br label %RB_FL_TEST.exit.thread
 
-RB_FL_TEST.exit.thread:                           ; preds = %20, %rb_num2ull_inline.exit
-  br label %26
-
-26:                                               ; preds = %20, %RB_FL_TEST.exit.thread
-  %27 = phi i64 [ 0, %RB_FL_TEST.exit.thread ], [ 20, %20 ]
-  ret i64 %27
+RB_FL_TEST.exit.thread:                           ; preds = %RB_FL_TEST.exit, %20, %rb_num2ull_inline.exit
+  %26 = phi i64 [ 0, %rb_num2ull_inline.exit ], [ 0, %20 ], [ %spec.select, %RB_FL_TEST.exit ]
+  ret i64 %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1614,14 +1614,12 @@ imemo_type_p.exit:                                ; preds = %rb_num2ull_inline.e
   %26 = and i64 %25, 61471
   %27 = icmp ne i64 %26, %23
   %cond.fr = freeze i1 %27
-  br i1 %cond.fr, label %imemo_type_p.exit.thread, label %28
+  %spec.select = select i1 %cond.fr, i64 0, i64 20
+  br label %imemo_type_p.exit.thread
 
-imemo_type_p.exit.thread:                         ; preds = %rb_num2ull_inline.exit, %imemo_type_p.exit
-  br label %28
-
-28:                                               ; preds = %imemo_type_p.exit, %imemo_type_p.exit.thread
-  %29 = phi i64 [ 0, %imemo_type_p.exit.thread ], [ 20, %imemo_type_p.exit ]
-  ret i64 %29
+imemo_type_p.exit.thread:                         ; preds = %imemo_type_p.exit, %rb_num2ull_inline.exit
+  %28 = phi i64 [ 0, %rb_num2ull_inline.exit ], [ %spec.select, %imemo_type_p.exit ]
+  ret i64 %28
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7696,7 +7694,7 @@ define internal i64 @rb_fix_mul_fix(i64 noundef %0, i64 noundef %1) #0 {
 
 13:                                               ; preds = %2
   %.sroa.2.0.extract.shift = lshr i128 %7, 64
-  %.sroa.2.0.extract.trunc = trunc i128 %.sroa.2.0.extract.shift to i64
+  %.sroa.2.0.extract.trunc = trunc nuw i128 %.sroa.2.0.extract.shift to i64
   %14 = tail call i64 @rb_int128t2big(i64 noundef %9, i64 noundef %.sroa.2.0.extract.trunc) #17
   br label %15
 
@@ -8310,7 +8308,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @rb_profile_frames(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rjit_str_neq_internal(i64 noundef %0, i64 noundef %1) #0 {
+define internal i64 @rjit_str_neq_internal(i64 noundef %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -8318,12 +8316,12 @@ define internal noundef i64 @rjit_str_neq_internal(i64 noundef %0, i64 noundef %
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %5, %8
-  br i1 %.not.i, label %9, label %rb_str_eql_internal.exit.thread
+  br i1 %.not.i, label %9, label %rb_str_eql_internal.exit
 
 9:                                                ; preds = %2
   %10 = tail call i32 @rb_str_comparable(i64 noundef %0, i64 noundef %1) #17
   %.not13.i = icmp eq i32 %10, 0
-  br i1 %.not13.i, label %rb_str_eql_internal.exit.thread, label %11
+  br i1 %.not13.i, label %rb_str_eql_internal.exit, label %11
 
 11:                                               ; preds = %9
   %12 = load i64, ptr %3, align 8, !noalias !32
@@ -8356,13 +8354,11 @@ RSTRING_PTR.exit17.i:                             ; preds = %19, %RSTRING_PTR.ex
 21:                                               ; preds = %RSTRING_PTR.exit17.i
   %bcmp.i = tail call i32 @bcmp(ptr %.sroa.2.0.i.i, ptr %.sroa.2.0.i16.i, i64 %5)
   %22 = icmp eq i32 %bcmp.i, 0
-  br i1 %22, label %rb_str_eql_internal.exit, label %rb_str_eql_internal.exit.thread
-
-rb_str_eql_internal.exit.thread:                  ; preds = %2, %9, %21
+  %spec.select = select i1 %22, i64 0, i64 20
   br label %rb_str_eql_internal.exit
 
-rb_str_eql_internal.exit:                         ; preds = %21, %RSTRING_PTR.exit17.i, %rb_str_eql_internal.exit.thread
-  %23 = phi i64 [ 20, %rb_str_eql_internal.exit.thread ], [ 0, %RSTRING_PTR.exit17.i ], [ 0, %21 ]
+rb_str_eql_internal.exit:                         ; preds = %21, %9, %2, %RSTRING_PTR.exit17.i
+  %23 = phi i64 [ 0, %RSTRING_PTR.exit17.i ], [ 20, %2 ], [ 20, %9 ], [ %spec.select, %21 ]
   ret i64 %23
 }
 

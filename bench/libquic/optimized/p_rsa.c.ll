@@ -471,26 +471,23 @@ if.end34:                                         ; preds = %if.end28
   %13 = load ptr, ptr %tbuf.i, align 8
   %call36 = call i32 @RSA_verify_raw(ptr noundef %2, ptr noundef nonnull %rslen, ptr noundef %13, i64 noundef %conv, ptr noundef %sig, i64 noundef %sig_len, i32 noundef 1) #8
   %tobool37.not = icmp eq i32 %call36, 0
-  br i1 %tobool37.not, label %if.then45, label %lor.lhs.false
+  br i1 %tobool37.not, label %if.end46, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end34
   %14 = load i64, ptr %rslen, align 8
   %15 = load i64, ptr %asn1_prefix_len, align 8
   %cmp38 = icmp ult i64 %14, %15
-  br i1 %cmp38, label %if.then45, label %lor.lhs.false40
+  br i1 %cmp38, label %if.end46, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %lor.lhs.false
   %16 = load ptr, ptr %tbuf.i, align 8
   %17 = load ptr, ptr %asn1_prefix, align 8
   %call42 = call i32 @CRYPTO_memcmp(ptr noundef %16, ptr noundef %17, i64 noundef %15) #8
-  %cmp43.not = icmp eq i32 %call42, 0
-  br i1 %cmp43.not, label %if.end46, label %if.then45
-
-if.then45:                                        ; preds = %lor.lhs.false40, %lor.lhs.false, %if.end34
+  %cmp43.not = icmp ne i32 %call42, 0
   br label %if.end46
 
-if.end46:                                         ; preds = %if.then45, %lor.lhs.false40
-  %tobool50.not = phi i1 [ true, %if.then45 ], [ false, %lor.lhs.false40 ]
+if.end46:                                         ; preds = %lor.lhs.false40, %if.end34, %lor.lhs.false
+  %tobool50.not = phi i1 [ true, %lor.lhs.false ], [ true, %if.end34 ], [ %cmp43.not, %lor.lhs.false40 ]
   %18 = load i32, ptr %asn1_prefix_allocated, align 4
   %tobool47.not = icmp eq i32 %18, 0
   br i1 %tobool47.not, label %if.end49, label %if.then48
@@ -1049,7 +1046,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %label_len to i32
+  %conv = trunc nuw nsw i64 %label_len to i32
   %call = tail call i32 @EVP_PKEY_CTX_ctrl(ptr noundef %ctx, i32 noundef 6, i32 noundef 192, i32 noundef 4107, i32 noundef %conv, ptr noundef %label) #8
   br label %return
 

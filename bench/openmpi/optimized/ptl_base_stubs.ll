@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @pmix_ptl_base_peer_is_earlier(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define zeroext i1 @pmix_ptl_base_peer_is_earlier(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %.not = icmp eq i8 %1, -1
   br i1 %.not, label %13, label %5
 
@@ -46,15 +46,15 @@ define noundef zeroext i1 @pmix_ptl_base_peer_is_earlier(ptr nocapture noundef r
   %6 = getelementptr inbounds i8, ptr %0, i64 140
   %7 = load i8, ptr %6, align 4
   %8 = icmp eq i8 %7, -1
-  br i1 %8, label %32, label %9
+  br i1 %8, label %28, label %9
 
 9:                                                ; preds = %5
   %10 = icmp ugt i8 %7, %1
-  br i1 %10, label %32, label %11
+  br i1 %10, label %28, label %11
 
 11:                                               ; preds = %9
   %12 = icmp ult i8 %7, %1
-  br i1 %12, label %32, label %13
+  br i1 %12, label %28, label %13
 
 13:                                               ; preds = %11, %4
   %.not24 = icmp eq i8 %2, -1
@@ -64,39 +64,30 @@ define noundef zeroext i1 @pmix_ptl_base_peer_is_earlier(ptr nocapture noundef r
   %15 = getelementptr inbounds i8, ptr %0, i64 141
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, -1
-  br i1 %17, label %32, label %18
+  br i1 %17, label %28, label %18
 
 18:                                               ; preds = %14
   %19 = icmp ugt i8 %16, %2
-  br i1 %19, label %32, label %20
+  br i1 %19, label %28, label %20
 
 20:                                               ; preds = %18
   %21 = icmp ult i8 %16, %2
-  br i1 %21, label %32, label %22
+  br i1 %21, label %28, label %22
 
 22:                                               ; preds = %20, %13
   %.not25 = icmp eq i8 %3, -1
-  br i1 %.not25, label %31, label %23
+  br i1 %.not25, label %28, label %23
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %0, i64 142
   %25 = load i8, ptr %24, align 2
   %26 = icmp eq i8 %25, -1
-  br i1 %26, label %32, label %27
+  %27 = icmp ult i8 %25, %3
+  %spec.select = or i1 %26, %27
+  br label %28
 
-27:                                               ; preds = %23
-  %28 = icmp ugt i8 %25, %3
-  br i1 %28, label %32, label %29
-
-29:                                               ; preds = %27
-  %30 = icmp ult i8 %25, %3
-  br i1 %30, label %32, label %31
-
-31:                                               ; preds = %29, %22
-  br label %32
-
-32:                                               ; preds = %29, %27, %23, %20, %18, %14, %11, %9, %5, %31
-  %.0 = phi i1 [ false, %31 ], [ true, %5 ], [ false, %9 ], [ true, %11 ], [ true, %14 ], [ false, %18 ], [ true, %20 ], [ true, %23 ], [ false, %27 ], [ true, %29 ]
+28:                                               ; preds = %23, %22, %20, %18, %14, %11, %9, %5
+  %.0 = phi i1 [ true, %5 ], [ false, %9 ], [ true, %11 ], [ true, %14 ], [ false, %18 ], [ true, %20 ], [ false, %22 ], [ %spec.select, %23 ]
   ret i1 %.0
 }
 

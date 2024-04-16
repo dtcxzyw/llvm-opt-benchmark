@@ -11287,18 +11287,16 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit7: ; preds = %i
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit7
-  br i1 %call15, label %land.rhs, label %lor.lhs.false
+  br i1 %call15, label %land.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont14
   %9 = load i8, ptr %knownInFormat, align 1
   %tobool16 = trunc i8 %9 to i1
-  br i1 %tobool16, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %lor.lhs.false, %invoke.cont14
+  %spec.select = and i1 %lnot, %tobool16
   br label %land.end
 
-land.end:                                         ; preds = %land.rhs, %lor.lhs.false
-  %10 = phi i1 [ false, %lor.lhs.false ], [ %lnot, %land.rhs ]
+land.end:                                         ; preds = %lor.lhs.false, %invoke.cont14
+  %10 = phi i1 [ %lnot, %invoke.cont14 ], [ %spec.select, %lor.lhs.false ]
   %d_value.i.i8 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i8)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit10 unwind label %terminate.lpad.i.i.i.i9
@@ -15601,7 +15599,7 @@ invoke.cont229:                                   ; preds = %_ZN4cvc58internal13
           to label %invoke.cont242 unwind label %lpad228
 
 invoke.cont242:                                   ; preds = %invoke.cont229
-  %tobool.i.i = trunc i8 %frombool87 to i1
+  %tobool.i.i = trunc nuw i8 %frombool87 to i1
   %.v = select i1 %tobool.i.i, i1 %call102, i1 %lnot189
   %.v567 = select i1 %tobool.i.i, i1 %lnot, i1 %63
   invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj(ptr nonnull sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %ref.tmp246, ptr noundef nonnull align 8 dereferenceable(24) %extractedSignificand, i32 noundef 0, i32 noundef 0)
@@ -15999,7 +15997,7 @@ invoke.cont381:                                   ; preds = %invoke.cont379
           to label %invoke.cont384 unwind label %lpad380
 
 invoke.cont384:                                   ; preds = %invoke.cont381
-  %120 = trunc i8 %115 to i1
+  %120 = trunc nuw i8 %115 to i1
   %121 = load i8, ptr %known, align 1
   %tobool410 = trunc i8 %121 to i1
   %not.call27 = xor i1 %call27, true

@@ -1237,7 +1237,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i72:    ; preds = %_ZN7QStringD2Ev.exi
 
 124:                                              ; preds = %.lr.ph201, %162
   %indvars.iv = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next, %162 ]
-  %125 = trunc i64 %indvars.iv to i32
+  %125 = trunc nuw i64 %indvars.iv to i32
   %126 = uitofp i32 %125 to double
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %126, ptr %4, align 8
@@ -2483,7 +2483,7 @@ define noundef double @_ZNK15SequenceDiagram10selectTestERK7QPointFbP8QVariant(p
   %11 = fadd double %9, %10
   %12 = fptosi double %11 to i32
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %14, label %25
+  br i1 %13, label %14, label %26
 
 14:                                               ; preds = %4
   %15 = sitofp i32 %12 to double
@@ -2504,11 +2504,11 @@ _ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit:       ; preds = %14, %19
   %24 = fcmp ogt double %23, %15
   br i1 %24, label %26, label %25
 
-25:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %4
+25:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit
   br label %26
 
-26:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %25
-  %.0 = phi double [ -1.000000e+00, %25 ], [ 1.000000e+00, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ]
+26:                                               ; preds = %4, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %25
+  %.0 = phi double [ 1.000000e+00, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ], [ -1.000000e+00, %4 ], [ -1.000000e+00, %25 ]
   ret double %.0
 }
 
@@ -3208,7 +3208,7 @@ _ZN5QListI6QPointElsEOS0_.exit270:                ; preds = %_ZN5QListI6QPointEl
   store double %351, ptr %30, align 8
   store double %328, ptr %115, align 8
   %.sroa.2.0.extract.shift.i = lshr i64 %323, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   store double %325, ptr %116, align 8
   %352 = sitofp i32 %.sroa.2.0.extract.trunc.i to double
   store double %352, ptr %117, align 8
@@ -3702,7 +3702,7 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge: ; preds
   %.sroa.012.018 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %27, %26 ]
   %14 = getelementptr inbounds i8, ptr %.sroa.012.018, i64 32
   %15 = load double, ptr %14, align 8
-  %16 = trunc i8 %.019 to i1
+  %16 = trunc nuw i8 %.019 to i1
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13

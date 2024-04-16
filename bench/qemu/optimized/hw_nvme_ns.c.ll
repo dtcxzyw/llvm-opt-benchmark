@@ -509,7 +509,7 @@ if.end16.i:                                       ; preds = %if.then13.i, %land.
   %logical_block_size.i19 = getelementptr inbounds i8, ptr %ns, i64 176
   %35 = load i32, ptr %logical_block_size.i19, align 8
   %36 = tail call i32 @llvm.ctlz.i32(i32 %35, i1 false), !range !5
-  %37 = trunc i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %conv29.i = sub nsw i8 31, %37
   %ms31.i = getelementptr inbounds i8, ptr %ns, i64 8690
   %38 = load i16, ptr %ms31.i, align 2
@@ -813,7 +813,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %do.b
 
 if.then41.i.i:                                    ; preds = %for.end.i.i
   %78 = call i64 @llvm.ctlz.i64(i64 %76, i1 false), !range !9
-  %cast.i.i.i = trunc i64 %78 to i32
+  %cast.i.i.i = trunc nuw nsw i64 %78 to i32
   %sub44.i.i = sub nuw nsw i32 63, %cast.i.i.i
   store i32 %sub44.i.i, ptr %zone_size_log2.i.i, align 8
   br label %nvme_ns_zoned_init_state.exit.i
@@ -981,7 +981,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i67
   br i1 %exitcond.not.i.i, label %for.body.i78.i.preheader, label %for.body.i.i67, !llvm.loop !11
 
 nvme_find_ruh_by_attr.exit.i:                     ; preds = %for.body.i.i67
-  %105 = trunc i64 %indvars.iv.i.i to i16
+  %105 = trunc nuw i64 %indvars.iv.i.i to i16
   store i16 %105, ptr %call.i65, align 2
   %tobool6.not.i = icmp eq ptr %arrayidx.i.i68, null
   br i1 %tobool6.not.i, label %for.body.i78.i.preheader, label %if.else.i
@@ -1003,7 +1003,7 @@ for.inc.i83.i:                                    ; preds = %for.body.i78.i
   br i1 %exitcond.not.i85.i, label %if.then10.i69, label %for.body.i78.i, !llvm.loop !11
 
 nvme_find_ruh_by_attr.exit88.i:                   ; preds = %for.body.i78.i
-  %107 = trunc i64 %indvars.iv.i79.i to i16
+  %107 = trunc nuw i64 %indvars.iv.i79.i to i16
   store i16 %107, ptr %call.i65, align 2
   %tobool9.not.i70 = icmp eq ptr %arrayidx.i80.i, null
   br i1 %tobool9.not.i70, label %if.then10.i69, label %if.end.i71
@@ -1028,7 +1028,7 @@ if.end.i71:                                       ; preds = %nvme_find_ruh_by_at
   %nrg.i = getelementptr inbounds i8, ptr %97, i64 8098
   %110 = load i16, ptr %nrg.i, align 2
   %cmp122.not.i = icmp eq i16 %110, 0
-  br i1 %cmp122.not.i, label %nvme_ns_init_fdp.exit, label %for.body.lr.ph.i
+  br i1 %cmp122.not.i, label %.loopexit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i71
   %rus.i = getelementptr inbounds i8, ptr %arrayidx.i80.i, i64 32
@@ -1043,13 +1043,13 @@ for.body.i75:                                     ; preds = %for.body.i75, %for.
   %112 = load i16, ptr %nrg.i, align 2
   %113 = zext i16 %112 to i64
   %cmp.i77 = icmp ult i64 %indvars.iv.next141.i, %113
-  br i1 %cmp.i77, label %for.body.i75, label %nvme_ns_init_fdp.exit, !llvm.loop !12
+  br i1 %cmp.i77, label %for.body.i75, label %.loopexit, !llvm.loop !12
 
 if.else.i:                                        ; preds = %nvme_find_ruh_by_attr.exit.i
   %lbafi20.i = getelementptr inbounds i8, ptr %arrayidx.i.i68, i64 16
   %114 = load i8, ptr %lbafi20.i, align 8
   %cmp23.not.i = icmp eq i8 %114, %100
-  br i1 %cmp23.not.i, label %nvme_ns_init_fdp.exit, label %if.then25.i
+  br i1 %cmp23.not.i, label %.loopexit, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 430, ptr noundef nonnull @__func__.nvme_ns_init_fdp, ptr noundef nonnull @.str.20) #13
@@ -1198,7 +1198,7 @@ for.end105.i:                                     ; preds = %for.cond76.loopexit
   store ptr %call109.i, ptr %phs111.i, align 8
   %131 = load i16, ptr %fdp77.i, align 8
   %cmp117118.not.i = icmp eq i16 %131, 0
-  br i1 %cmp117118.not.i, label %nvme_ns_init_fdp.exit, label %for.body119.lr.ph.i
+  br i1 %cmp117118.not.i, label %.loopexit, label %for.body119.lr.ph.i
 
 for.body119.lr.ph.i:                              ; preds = %for.end105.i
   %ruhs128.i = getelementptr inbounds i8, ptr %97, i64 8144
@@ -1289,7 +1289,7 @@ sw.epilog.i60:                                    ; preds = %for.body151.i, %sw.
   %143 = load i16, ptr %fdp77.i, align 8
   %conv116.i = zext i16 %143 to i32
   %cmp117.i = icmp ult i32 %inc171.i, %conv116.i
-  br i1 %cmp117.i, label %for.body119.i, label %nvme_ns_init_fdp.exit, !llvm.loop !18
+  br i1 %cmp117.i, label %for.body119.i, label %.loopexit, !llvm.loop !18
 
 nvme_ns_init_fdp.exit.thread:                     ; preds = %if.then10.i69, %if.then25.i, %if.then96.i, %sw.bb168.i, %if.then166.i, %if.then125.i, %if.then42.i, %if.then51.i, %if.then55.i, %if.then71.i
   %ruhids.0.i.ph = phi ptr [ %call31.i, %if.then71.i ], [ %call31.i, %if.then55.i ], [ %call31.i, %if.then51.i ], [ %call31.i, %if.then42.i ], [ %call31.i, %if.then125.i ], [ %call31.i, %if.then166.i ], [ %call31.i, %sw.bb168.i ], [ %call31.i, %if.then96.i ], [ null, %if.then25.i ], [ null, %if.then10.i69 ]
@@ -1300,7 +1300,7 @@ nvme_ns_init_fdp.exit.thread:                     ; preds = %if.then10.i69, %if.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %return
 
-nvme_ns_init_fdp.exit:                            ; preds = %sw.epilog.i60, %for.body.i75, %if.end.i71, %if.else.i, %for.end105.i
+.loopexit:                                        ; preds = %sw.epilog.i60, %for.body.i75, %for.end105.i, %if.else.i, %if.end.i71
   %ruhids.0.i = phi ptr [ null, %if.else.i ], [ null, %if.end.i71 ], [ %call31.i, %for.end105.i ], [ null, %for.body.i75 ], [ %call31.i, %sw.epilog.i60 ]
   call void @g_free(ptr noundef %ruhids.0.i) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
@@ -1309,8 +1309,8 @@ nvme_ns_init_fdp.exit:                            ; preds = %sw.epilog.i60, %for
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %return
 
-return:                                           ; preds = %if.then29.i, %if.then18.i, %if.then13.i29, %if.then10.i, %if.end.i15, %if.end, %if.then22.i, %if.then.i, %if.then121.i, %if.then106.i, %if.then84.i, %if.then73.i, %if.then67.i, %if.then45.i, %if.then31.i, %if.then21.i, %if.then15.i, %sw.default.i, %if.then6.i, %if.end14, %land.lhs.true, %nvme_ns_init_fdp.exit, %nvme_ns_init_fdp.exit.thread
-  %retval.0 = phi i32 [ -1, %nvme_ns_init_fdp.exit.thread ], [ 0, %nvme_ns_init_fdp.exit ], [ 0, %land.lhs.true ], [ 0, %if.end14 ], [ -1, %if.then6.i ], [ -1, %sw.default.i ], [ -1, %if.then15.i ], [ -1, %if.then21.i ], [ -1, %if.then31.i ], [ -1, %if.then45.i ], [ -1, %if.then67.i ], [ -1, %if.then73.i ], [ -1, %if.then84.i ], [ -1, %if.then106.i ], [ -1, %if.then121.i ], [ -1, %if.then.i ], [ -1, %if.then22.i ], [ -1, %if.end ], [ -1, %if.end.i15 ], [ -1, %if.then10.i ], [ -1, %if.then13.i29 ], [ -1, %if.then18.i ], [ -1, %if.then29.i ]
+return:                                           ; preds = %if.then29.i, %if.then18.i, %if.then13.i29, %if.then10.i, %if.end.i15, %if.end, %if.then22.i, %if.then.i, %if.then121.i, %if.then106.i, %if.then84.i, %if.then73.i, %if.then67.i, %if.then45.i, %if.then31.i, %if.then21.i, %if.then15.i, %sw.default.i, %if.then6.i, %.loopexit, %nvme_ns_init_fdp.exit.thread, %if.end14, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end14 ], [ 0, %.loopexit ], [ -1, %nvme_ns_init_fdp.exit.thread ], [ -1, %if.then6.i ], [ -1, %sw.default.i ], [ -1, %if.then15.i ], [ -1, %if.then21.i ], [ -1, %if.then31.i ], [ -1, %if.then45.i ], [ -1, %if.then67.i ], [ -1, %if.then73.i ], [ -1, %if.then84.i ], [ -1, %if.then106.i ], [ -1, %if.then121.i ], [ -1, %if.then.i ], [ -1, %if.then22.i ], [ -1, %if.end ], [ -1, %if.end.i15 ], [ -1, %if.then10.i ], [ -1, %if.then13.i29 ], [ -1, %if.then18.i ], [ -1, %if.then29.i ]
   ret i32 %retval.0
 }
 

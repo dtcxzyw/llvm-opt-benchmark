@@ -8501,7 +8501,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !254
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !41
@@ -8512,13 +8512,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -61761,14 +61759,14 @@ if.then.i.i.i.i.i:                                ; preds = %if.else.i.i
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L24StringDecompressFunctionINS_9hugeint_tEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS3_E_S3_NS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.else.i.i
-  %input.sroa.29.8.extract.trunc.i.i.i = trunc i64 %input.sroa.29.8.extract.shift.i.i.i to i8
+  %input.sroa.29.8.extract.trunc.i.i.i = trunc nuw i64 %input.sroa.29.8.extract.shift.i.i.i to i8
   %input.sroa.27.8.extract.trunc.i.i.i = trunc i64 %input.sroa.27.8.extract.shift.i.i.i to i8
   %input.sroa.25.8.extract.trunc.i.i.i = trunc i64 %input.sroa.25.8.extract.shift.i.i.i to i8
   %input.sroa.23.8.extract.trunc.i.i.i = trunc i64 %input.sroa.23.8.extract.shift.i.i.i to i8
   %input.sroa.6.0.extract.trunc.i.i.i = trunc i64 %input.sroa.6.0.extract.shift.i.i.i to i8
   %input.sroa.8.0.extract.trunc.i.i.i = trunc i64 %input.sroa.8.0.extract.shift.i.i.i to i8
   %input.sroa.10.0.extract.trunc.i.i.i = trunc i64 %input.sroa.10.0.extract.shift.i.i.i to i8
-  %input.sroa.12.0.extract.trunc.i.i.i = trunc i64 %input.sroa.12.0.extract.shift.i.i.i to i8
+  %input.sroa.12.0.extract.trunc.i.i.i = trunc nuw i64 %input.sroa.12.0.extract.shift.i.i.i to i8
   %input.sroa.17.8.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i, 8
   %input.sroa.21.8.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i, 24
   %input.sroa.19.8.extract.shift.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i, 16
@@ -62030,14 +62028,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body10.i.i.i
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L24StringDecompressFunctionINS_9hugeint_tEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS3_E_S3_NS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv.exit.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %for.body10.i.i.i
-  %input.sroa.29.8.extract.trunc.i.i.i.i = trunc i64 %input.sroa.29.8.extract.shift.i.i.i.i to i8
+  %input.sroa.29.8.extract.trunc.i.i.i.i = trunc nuw i64 %input.sroa.29.8.extract.shift.i.i.i.i to i8
   %input.sroa.27.8.extract.trunc.i.i.i.i = trunc i64 %input.sroa.27.8.extract.shift.i.i.i.i to i8
   %input.sroa.25.8.extract.trunc.i.i.i.i = trunc i64 %input.sroa.25.8.extract.shift.i.i.i.i to i8
   %input.sroa.23.8.extract.trunc.i.i.i.i = trunc i64 %input.sroa.23.8.extract.shift.i.i.i.i to i8
   %input.sroa.6.0.extract.trunc.i.i.i.i = trunc i64 %input.sroa.6.0.extract.shift.i.i.i.i to i8
   %input.sroa.8.0.extract.trunc.i.i.i.i = trunc i64 %input.sroa.8.0.extract.shift.i.i.i.i to i8
   %input.sroa.10.0.extract.trunc.i.i.i.i = trunc i64 %input.sroa.10.0.extract.shift.i.i.i.i to i8
-  %input.sroa.12.0.extract.trunc.i.i.i.i = trunc i64 %input.sroa.12.0.extract.shift.i.i.i.i to i8
+  %input.sroa.12.0.extract.trunc.i.i.i.i = trunc nuw i64 %input.sroa.12.0.extract.shift.i.i.i.i to i8
   %input.sroa.17.8.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i.i, 8
   %input.sroa.21.8.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i.i, 24
   %input.sroa.19.8.extract.shift.i.i.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i.i, 16
@@ -62163,14 +62161,14 @@ if.then.i.i.i183.i.i.i:                           ; preds = %if.then23.i.i.i
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L24StringDecompressFunctionINS_9hugeint_tEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS3_E_S3_NS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv.exit197.i.i.i
 
 if.else.i.i.i120.i.i.i:                           ; preds = %if.then23.i.i.i
-  %input.sroa.29.8.extract.trunc.i121.i.i.i = trunc i64 %input.sroa.29.8.extract.shift.i118.i.i.i to i8
+  %input.sroa.29.8.extract.trunc.i121.i.i.i = trunc nuw i64 %input.sroa.29.8.extract.shift.i118.i.i.i to i8
   %input.sroa.27.8.extract.trunc.i122.i.i.i = trunc i64 %input.sroa.27.8.extract.shift.i117.i.i.i to i8
   %input.sroa.25.8.extract.trunc.i123.i.i.i = trunc i64 %input.sroa.25.8.extract.shift.i116.i.i.i to i8
   %input.sroa.23.8.extract.trunc.i124.i.i.i = trunc i64 %input.sroa.23.8.extract.shift.i115.i.i.i to i8
   %input.sroa.6.0.extract.trunc.i125.i.i.i = trunc i64 %input.sroa.6.0.extract.shift.i111.i.i.i to i8
   %input.sroa.8.0.extract.trunc.i126.i.i.i = trunc i64 %input.sroa.8.0.extract.shift.i112.i.i.i to i8
   %input.sroa.10.0.extract.trunc.i127.i.i.i = trunc i64 %input.sroa.10.0.extract.shift.i113.i.i.i to i8
-  %input.sroa.12.0.extract.trunc.i128.i.i.i = trunc i64 %input.sroa.12.0.extract.shift.i114.i.i.i to i8
+  %input.sroa.12.0.extract.trunc.i128.i.i.i = trunc nuw i64 %input.sroa.12.0.extract.shift.i114.i.i.i to i8
   %input.sroa.17.8.extract.shift.i129.i.i.i = lshr i64 %agg.tmp25.sroa.2.0.copyload.i.i.i, 8
   %input.sroa.21.8.extract.shift.i130.i.i.i = lshr i64 %agg.tmp25.sroa.2.0.copyload.i.i.i, 24
   %input.sroa.19.8.extract.shift.i131.i.i.i = lshr i64 %agg.tmp25.sroa.2.0.copyload.i.i.i, 16
@@ -62298,14 +62296,14 @@ if.then.i.i.i271.i.i.i:                           ; preds = %for.body49.i.i.i
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L24StringDecompressFunctionINS_9hugeint_tEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlRKS3_E_S3_NS_8string_tEEET1_T0_RNS_12ValidityMaskEmPv.exit285.i.i.i
 
 if.else.i.i.i208.i.i.i:                           ; preds = %for.body49.i.i.i
-  %input.sroa.29.8.extract.trunc.i209.i.i.i = trunc i64 %input.sroa.29.8.extract.shift.i206.i.i.i to i8
+  %input.sroa.29.8.extract.trunc.i209.i.i.i = trunc nuw i64 %input.sroa.29.8.extract.shift.i206.i.i.i to i8
   %input.sroa.27.8.extract.trunc.i210.i.i.i = trunc i64 %input.sroa.27.8.extract.shift.i205.i.i.i to i8
   %input.sroa.25.8.extract.trunc.i211.i.i.i = trunc i64 %input.sroa.25.8.extract.shift.i204.i.i.i to i8
   %input.sroa.23.8.extract.trunc.i212.i.i.i = trunc i64 %input.sroa.23.8.extract.shift.i203.i.i.i to i8
   %input.sroa.6.0.extract.trunc.i213.i.i.i = trunc i64 %input.sroa.6.0.extract.shift.i199.i.i.i to i8
   %input.sroa.8.0.extract.trunc.i214.i.i.i = trunc i64 %input.sroa.8.0.extract.shift.i200.i.i.i to i8
   %input.sroa.10.0.extract.trunc.i215.i.i.i = trunc i64 %input.sroa.10.0.extract.shift.i201.i.i.i to i8
-  %input.sroa.12.0.extract.trunc.i216.i.i.i = trunc i64 %input.sroa.12.0.extract.shift.i202.i.i.i to i8
+  %input.sroa.12.0.extract.trunc.i216.i.i.i = trunc nuw i64 %input.sroa.12.0.extract.shift.i202.i.i.i to i8
   %input.sroa.17.8.extract.shift.i217.i.i.i = lshr i64 %agg.tmp51.sroa.2.0.copyload.i.i.i, 8
   %input.sroa.21.8.extract.shift.i218.i.i.i = lshr i64 %agg.tmp51.sroa.2.0.copyload.i.i.i, 24
   %input.sroa.19.8.extract.shift.i219.i.i.i = lshr i64 %agg.tmp51.sroa.2.0.copyload.i.i.i, 16
@@ -62529,14 +62527,14 @@ call4.i.i.i.i96.noexc.i.i:                        ; preds = %if.else.i.i.i.i74.i
   %input.sroa.17.8.extract.shift.i.i83.i.i = lshr i64 %agg.tmp.sroa.2.0.copyload.i63.i.i, 8
   %input.sroa.17.8.extract.trunc.i.i87.i.i = trunc i64 %input.sroa.17.8.extract.shift.i.i83.i.i to i8
   %input.sroa.14.8.extract.trunc.i.i86.i.i = trunc i64 %agg.tmp.sroa.2.0.copyload.i63.i.i to i8
-  %input.sroa.12.0.extract.trunc.i.i82.i.i = trunc i64 %input.sroa.12.0.extract.shift.i.i68.i.i to i8
+  %input.sroa.12.0.extract.trunc.i.i82.i.i = trunc nuw i64 %input.sroa.12.0.extract.shift.i.i68.i.i to i8
   %input.sroa.10.0.extract.trunc.i.i81.i.i = trunc i64 %input.sroa.10.0.extract.shift.i.i67.i.i to i8
   %input.sroa.8.0.extract.trunc.i.i80.i.i = trunc i64 %input.sroa.8.0.extract.shift.i.i66.i.i to i8
   %input.sroa.6.0.extract.trunc.i.i79.i.i = trunc i64 %input.sroa.6.0.extract.shift.i.i65.i.i to i8
   %input.sroa.23.8.extract.trunc.i.i78.i.i = trunc i64 %input.sroa.23.8.extract.shift.i.i69.i.i to i8
   %input.sroa.25.8.extract.trunc.i.i77.i.i = trunc i64 %input.sroa.25.8.extract.shift.i.i70.i.i to i8
   %input.sroa.27.8.extract.trunc.i.i76.i.i = trunc i64 %input.sroa.27.8.extract.shift.i.i71.i.i to i8
-  %input.sroa.29.8.extract.trunc.i.i75.i.i = trunc i64 %input.sroa.29.8.extract.shift.i.i72.i.i to i8
+  %input.sroa.29.8.extract.trunc.i.i75.i.i = trunc nuw i64 %input.sroa.29.8.extract.shift.i.i72.i.i to i8
   store i8 %input.sroa.29.8.extract.trunc.i.i75.i.i, ptr %call4.i.i.i.i96155.i.i, align 1, !tbaa !41, !noalias !2003
   %arrayidx1.1.i15.i.i.i.i97.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i96155.i.i, i64 1
   store i8 %input.sroa.27.8.extract.trunc.i.i76.i.i, ptr %arrayidx1.1.i15.i.i.i.i97.i.i, align 1, !tbaa !41, !noalias !2003
@@ -62697,14 +62695,14 @@ call4.i.i.i92.i.noexc.i.i:                        ; preds = %if.else.i.i.i70.i.i
   %input.sroa.17.8.extract.shift.i79.i.i.i = lshr i64 %agg.tmp18.sroa.2.0.copyload.i.i.i, 8
   %input.sroa.17.8.extract.trunc.i83.i.i.i = trunc i64 %input.sroa.17.8.extract.shift.i79.i.i.i to i8
   %input.sroa.14.8.extract.trunc.i82.i.i.i = trunc i64 %agg.tmp18.sroa.2.0.copyload.i.i.i to i8
-  %input.sroa.12.0.extract.trunc.i78.i.i.i = trunc i64 %input.sroa.12.0.extract.shift.i64.i.i.i to i8
+  %input.sroa.12.0.extract.trunc.i78.i.i.i = trunc nuw i64 %input.sroa.12.0.extract.shift.i64.i.i.i to i8
   %input.sroa.10.0.extract.trunc.i77.i.i.i = trunc i64 %input.sroa.10.0.extract.shift.i63.i.i.i to i8
   %input.sroa.8.0.extract.trunc.i76.i.i.i = trunc i64 %input.sroa.8.0.extract.shift.i62.i.i.i to i8
   %input.sroa.6.0.extract.trunc.i75.i.i.i = trunc i64 %input.sroa.6.0.extract.shift.i61.i.i.i to i8
   %input.sroa.23.8.extract.trunc.i74.i.i.i = trunc i64 %input.sroa.23.8.extract.shift.i65.i.i.i to i8
   %input.sroa.25.8.extract.trunc.i73.i.i.i = trunc i64 %input.sroa.25.8.extract.shift.i66.i.i.i to i8
   %input.sroa.27.8.extract.trunc.i72.i.i.i = trunc i64 %input.sroa.27.8.extract.shift.i67.i.i.i to i8
-  %input.sroa.29.8.extract.trunc.i71.i.i.i = trunc i64 %input.sroa.29.8.extract.shift.i68.i.i.i to i8
+  %input.sroa.29.8.extract.trunc.i71.i.i.i = trunc nuw i64 %input.sroa.29.8.extract.shift.i68.i.i.i to i8
   store i8 %input.sroa.29.8.extract.trunc.i71.i.i.i, ptr %call4.i.i.i92.i157.i.i, align 1, !tbaa !41, !noalias !2003
   %arrayidx1.1.i15.i.i.i93.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i92.i157.i.i, i64 1
   store i8 %input.sroa.27.8.extract.trunc.i72.i.i.i, ptr %arrayidx1.1.i15.i.i.i93.i.i.i, align 1, !tbaa !41, !noalias !2003

@@ -429,11 +429,21 @@ if.then.i:                                        ; preds = %_ZN9grpc_core14Make
           to label %call2.i.noexc unwind label %lpad
 
 call2.i.noexc:                                    ; preds = %if.then.i
-  br i1 %call2.i3, label %cleanup.thread, label %if.then3.i
+  br i1 %call2.i3, label %invoke.cont2.thread, label %if.then3.i
+
+invoke.cont2.thread:                              ; preds = %call2.i.noexc
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_alpn_protocols.i)
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %options.i)
+  br label %cleanup.thread
 
 if.then3.i:                                       ; preds = %call2.i.noexc
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 207, i32 noundef 2, ptr noundef nonnull @.str.4)
-          to label %if.then.i7 unwind label %lpad
+          to label %invoke.cont2.thread16 unwind label %lpad
+
+invoke.cont2.thread16:                            ; preds = %if.then3.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_alpn_protocols.i)
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %options.i)
+  br label %if.then.i7
 
 if.else.i:                                        ; preds = %_ZN9grpc_core14MakeRefCountedIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEJNS_13RefCountedPtrI23grpc_server_credentialsEEEEENS3_IT_EEDpOT0_.exit
   store i64 0, ptr %num_alpn_protocols.i, align 8
@@ -506,8 +516,8 @@ invoke.cont31.i:                                  ; preds = %invoke.cont28.i
           to label %invoke.cont33.i unwind label %lpad.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont31.i
-  %cmp.not.not.i = icmp eq i32 %call32.i, 0
-  br i1 %cmp.not.not.i, label %cleanup.i, label %if.then34.i
+  %cmp.not.not.i.not = icmp eq i32 %call32.i, 0
+  br i1 %cmp.not.not.i.not, label %cleanup.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %invoke.cont33.i
   %call36.i = invoke noundef ptr @_Z20tsi_result_to_string10tsi_result(i32 noundef %call32.i)
@@ -527,7 +537,7 @@ cleanup.i:                                        ; preds = %invoke.cont35.i, %i
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %options.i, i64 104
   %19 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %19, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN33tsi_ssl_server_handshaker_optionsD2Ev.exit.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont2, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %cleanup.i
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
@@ -563,7 +573,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %21, %if.then.i.i.i.i.i.i.i ], [ %24, %if.else.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZN33tsi_ssl_server_handshaker_optionsD2Ev.exit.i
+  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %invoke.cont2
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
@@ -588,17 +598,19 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %27, %if.then.i.i.i.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZN33tsi_ssl_server_handshaker_optionsD2Ev.exit.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %invoke.cont2
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %29 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
-  br label %_ZN33tsi_ssl_server_handshaker_optionsD2Ev.exit.i
+  br label %invoke.cont2
 
-_ZN33tsi_ssl_server_handshaker_optionsD2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %cleanup.i
-  br i1 %cmp.not.not.i, label %cleanup.thread, label %if.then.i7
+invoke.cont2:                                     ; preds = %cleanup.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_alpn_protocols.i)
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %options.i)
+  br i1 %cmp.not.not.i.not, label %cleanup.thread, label %if.then.i7
 
 lpad:                                             ; preds = %if.else.i, %if.then3.i, %if.then.i
   %30 = landingpad { ptr, i32 }
@@ -619,15 +631,11 @@ if.then.i.i:                                      ; preds = %if.then.i5
   call void %32(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #17
   br label %common.resume
 
-cleanup.thread:                                   ; preds = %call2.i.noexc, %_ZN33tsi_ssl_server_handshaker_optionsD2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_alpn_protocols.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %options.i)
+cleanup.thread:                                   ; preds = %invoke.cont2, %invoke.cont2.thread
   store ptr %call.i, ptr %agg.result, align 8
   br label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_134grpc_ssl_server_security_connectorEED2Ev.exit13
 
-if.then.i7:                                       ; preds = %_ZN33tsi_ssl_server_handshaker_optionsD2Ev.exit.i, %if.then3.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_alpn_protocols.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %options.i)
+if.then.i7:                                       ; preds = %invoke.cont2.thread16, %invoke.cont2
   store ptr null, ptr %agg.result, align 8
   %refs_.i.i8 = getelementptr inbounds i8, ptr %call.i, i64 8
   %33 = atomicrmw sub ptr %refs_.i.i8, i64 1 acq_rel, align 8

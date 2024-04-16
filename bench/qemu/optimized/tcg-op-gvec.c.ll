@@ -1301,7 +1301,7 @@ if.end57:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @choose_vector_type(ptr noundef %list, i32 noundef %vece, i32 noundef %size, i1 noundef zeroext %prefer_i64) unnamed_addr #1 {
+define internal fastcc i32 @choose_vector_type(ptr noundef %list, i32 noundef %vece, i32 noundef %size, i1 noundef zeroext %prefer_i64) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @cpuinfo, align 4
   %and = and i32 %0, 1024
@@ -1400,24 +1400,22 @@ if.end33:                                         ; preds = %land.lhs.true30, %l
   %brmerge = or i1 %tobool35.not, %prefer_i64
   %cmp.i26 = icmp ult i32 %size, 8
   %or.cond39 = or i1 %cmp.i26, %brmerge
-  br i1 %or.cond39, label %if.end43, label %if.end.i27
+  br i1 %or.cond39, label %return, label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.end33
   %rem.i29 = and i32 %size, 7
   %cmp1.i31 = icmp eq i32 %rem.i29, 0
   tail call void @llvm.assume(i1 %cmp1.i31)
   %cmp10.i33 = icmp ult i32 %size, 40
-  br i1 %cmp10.i33, label %land.lhs.true40, label %if.end43
+  br i1 %cmp10.i33, label %land.lhs.true40, label %return
 
 land.lhs.true40:                                  ; preds = %if.end.i27
   %call41 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %list, i32 noundef 3, i32 noundef %vece) #7
-  br i1 %call41, label %return, label %if.end43
-
-if.end43:                                         ; preds = %if.end33, %land.lhs.true40, %if.end.i27
+  %spec.select = select i1 %call41, i32 3, i32 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true40, %land.lhs.true24, %land.lhs.true30, %land.lhs.true10, %land.lhs.true16, %if.end43
-  %retval.0 = phi i32 [ 0, %if.end43 ], [ 5, %land.lhs.true16 ], [ 5, %land.lhs.true10 ], [ 4, %land.lhs.true30 ], [ 4, %land.lhs.true24 ], [ 3, %land.lhs.true40 ]
+return:                                           ; preds = %land.lhs.true40, %if.end.i27, %if.end33, %land.lhs.true24, %land.lhs.true30, %land.lhs.true10, %land.lhs.true16
+  %retval.0 = phi i32 [ 5, %land.lhs.true16 ], [ 5, %land.lhs.true10 ], [ 4, %land.lhs.true30 ], [ 4, %land.lhs.true24 ], [ 0, %if.end33 ], [ 0, %if.end.i27 ], [ %spec.select, %land.lhs.true40 ]
   ret i32 %retval.0
 }
 
@@ -7925,7 +7923,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %call.i = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #7
   %call1.i = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #7
   %2 = load ptr, ptr @tcg_env, align 8
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %add.i118 = add i32 %3, %aofs
   %conv.i = zext i32 %add.i118 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i, ptr noundef %2, i64 noundef %conv.i) #7
@@ -8047,7 +8045,7 @@ for.body.i144:                                    ; preds = %for.body.i144.prehe
   %call.i145 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #7
   %call1.i146 = tail call ptr @tcg_temp_new_vec(i32 noundef 5) #7
   %13 = load ptr, ptr @tcg_env, align 8
-  %14 = trunc i64 %indvars.iv225 to i32
+  %14 = trunc nuw i64 %indvars.iv225 to i32
   %add.i147 = add i32 %14, %aofs
   %conv.i148 = zext i32 %add.i147 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i145, ptr noundef %13, i64 noundef %conv.i148) #7
@@ -9690,7 +9688,7 @@ for.body.i.preheader:                             ; preds = %sw.bb
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv146 = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next147, %for.body.i ]
   %1 = load ptr, ptr @tcg_env, align 8
-  %2 = trunc i64 %indvars.iv146 to i32
+  %2 = trunc nuw i64 %indvars.iv146 to i32
   %add.i95 = add i32 %2, %aofs
   %conv.i = zext i32 %add.i95 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call1.i, ptr noundef %1, i64 noundef %conv.i) #7
@@ -9728,7 +9726,7 @@ for.body.i100.preheader:                          ; preds = %sw.bb14
 for.body.i100:                                    ; preds = %for.body.i100.preheader, %for.body.i100
   %indvars.iv149 = phi i64 [ 0, %for.body.i100.preheader ], [ %indvars.iv.next150, %for.body.i100 ]
   %5 = load ptr, ptr @tcg_env, align 8
-  %6 = trunc i64 %indvars.iv149 to i32
+  %6 = trunc nuw i64 %indvars.iv149 to i32
   %add.i102 = add i32 %aofs.addr.0, %6
   %conv.i103 = zext i32 %add.i102 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call1.i98, ptr noundef %5, i64 noundef %conv.i103) #7
@@ -9755,7 +9753,7 @@ for.body.i112.preheader:                          ; preds = %sw.bb17
 for.body.i112:                                    ; preds = %for.body.i112.preheader, %for.body.i112
   %indvars.iv = phi i64 [ 0, %for.body.i112.preheader ], [ %indvars.iv.next, %for.body.i112 ]
   %9 = load ptr, ptr @tcg_env, align 8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   %add.i114 = add i32 %10, %aofs
   %conv.i115 = zext i32 %add.i114 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call1.i110, ptr noundef %9, i64 noundef %conv.i115) #7
@@ -9878,7 +9876,7 @@ if.end68:                                         ; preds = %if.then59, %if.else
   %idxprom61.pn = phi i64 [ %idxprom, %if.else56 ], [ %idxprom61, %if.then59 ]
   %fn.0.in = getelementptr [16 x ptr], ptr @tcg_gen_gvec_cmps.fns, i64 0, i64 %idxprom61.pn
   %fn.0 = load ptr, ptr %fn.0.in, align 8
-  %conv69 = trunc i64 %17 to i32
+  %conv69 = trunc nuw nsw i64 %17 to i32
   %idxprom70 = zext i32 %vece to i64
   %arrayidx71 = getelementptr ptr, ptr %fn.0, i64 %idxprom70
   %20 = load ptr, ptr %arrayidx71, align 8

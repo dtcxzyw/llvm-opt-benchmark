@@ -1484,7 +1484,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %203, %199
   %238 = lshr i16 %213, 8
   %239 = and i16 %238, 15
   %240 = or disjoint i16 %239, %237
-  %241 = trunc i16 %240 to i8
+  %241 = trunc nuw i16 %240 to i8
   %242 = getelementptr inbounds i8, ptr %17, i64 4
   store i8 %241, ptr %242, align 2
   %243 = trunc i16 %210 to i8
@@ -1498,7 +1498,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %203, %199
   %249 = lshr i16 %221, 8
   %250 = and i16 %249, 15
   %251 = or disjoint i16 %250, %248
-  %252 = trunc i16 %251 to i8
+  %252 = trunc nuw i16 %251 to i8
   %253 = getelementptr inbounds i8, ptr %17, i64 7
   store i8 %252, ptr %253, align 1
   %254 = trunc i16 %227 to i8
@@ -1524,7 +1524,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %203, %199
   %271 = lshr i16 %226, 4
   %272 = and i16 %271, 3
   %273 = or disjoint i16 %270, %272
-  %274 = trunc i16 %273 to i8
+  %274 = trunc nuw i16 %273 to i8
   %275 = getelementptr inbounds i8, ptr %17, i64 11
   store i8 %274, ptr %275, align 1
   %276 = getelementptr inbounds i8, ptr %17, i64 12
@@ -1800,7 +1800,7 @@ intel_sdvo_get_dtd_from_mode.exit7:               ; preds = %396, %386
   %430 = lshr i16 %405, 8
   %431 = and i16 %430, 15
   %432 = or disjoint i16 %431, %429
-  %433 = trunc i16 %432 to i8
+  %433 = trunc nuw i16 %432 to i8
   %434 = getelementptr inbounds i8, ptr %16, i64 4
   store i8 %433, ptr %434, align 2
   %435 = trunc i16 %402 to i8
@@ -1814,7 +1814,7 @@ intel_sdvo_get_dtd_from_mode.exit7:               ; preds = %396, %386
   %441 = lshr i16 %413, 8
   %442 = and i16 %441, 15
   %443 = or disjoint i16 %442, %440
-  %444 = trunc i16 %443 to i8
+  %444 = trunc nuw i16 %443 to i8
   %445 = getelementptr inbounds i8, ptr %16, i64 7
   store i8 %444, ptr %445, align 1
   %446 = trunc i16 %419 to i8
@@ -1840,7 +1840,7 @@ intel_sdvo_get_dtd_from_mode.exit7:               ; preds = %396, %386
   %463 = lshr i16 %418, 4
   %464 = and i16 %463, 3
   %465 = or disjoint i16 %462, %464
-  %466 = trunc i16 %465 to i8
+  %466 = trunc nuw i16 %465 to i8
   %467 = getelementptr inbounds i8, ptr %16, i64 11
   store i8 %466, ptr %467, align 1
   %468 = getelementptr inbounds i8, ptr %16, i64 12
@@ -3217,7 +3217,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %6
   %40 = lshr i16 %15, 8
   %41 = and i16 %40, 15
   %42 = or disjoint i16 %41, %39
-  %43 = trunc i16 %42 to i8
+  %43 = trunc nuw i16 %42 to i8
   %44 = getelementptr inbounds i8, ptr %4, i64 4
   store i8 %43, ptr %44, align 2
   %45 = trunc i16 %12 to i8
@@ -3231,7 +3231,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %6
   %51 = lshr i16 %23, 8
   %52 = and i16 %51, 15
   %53 = or disjoint i16 %52, %50
-  %54 = trunc i16 %53 to i8
+  %54 = trunc nuw i16 %53 to i8
   %55 = getelementptr inbounds i8, ptr %4, i64 7
   store i8 %54, ptr %55, align 1
   %56 = trunc i16 %29 to i8
@@ -3257,7 +3257,7 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %6
   %73 = lshr i16 %28, 4
   %74 = and i16 %73, 3
   %75 = or disjoint i16 %72, %74
-  %76 = trunc i16 %75 to i8
+  %76 = trunc nuw i16 %75 to i8
   %77 = getelementptr inbounds i8, ptr %4, i64 11
   store i8 %76, ptr %77, align 1
   %78 = getelementptr inbounds i8, ptr %4, i64 12
@@ -4194,7 +4194,7 @@ define internal fastcc void @intel_sdvo_write_infoframe(ptr nocapture noundef re
   %9 = alloca [8 x i8], align 8
   store i8 %2, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #13
-  %10 = trunc i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %7, align 2
   %11 = getelementptr inbounds i8, ptr %7, i64 1
   store i8 0, ptr %11, align 1
@@ -4259,7 +4259,7 @@ define internal fastcc void @intel_sdvo_write_infoframe(ptr nocapture noundef re
 
 42:                                               ; preds = %39
   %43 = getelementptr i8, ptr %3, i64 %40
-  %44 = trunc i64 %40 to i32
+  %44 = trunc nuw nsw i64 %40 to i32
   %45 = sub nsw i32 %4, %44
   %46 = call i32 @llvm.umin.i32(i32 %45, i32 8)
   %47 = zext nneg i32 %46 to i64
@@ -4299,7 +4299,7 @@ define internal fastcc i64 @intel_sdvo_read_infoframe(ptr nocapture noundef read
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #13
-  %9 = trunc i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   store i8 %9, ptr %5, align 2
   %10 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 0, ptr %10, align 1
@@ -4370,7 +4370,7 @@ define internal fastcc i64 @intel_sdvo_read_infoframe(ptr nocapture noundef read
   %43 = load i8, ptr %6, align 1
   %44 = zext i8 %43 to i32
   %45 = call i32 @llvm.umin.i32(i32 %44, i32 %3)
-  %46 = trunc i32 %45 to i8
+  %46 = trunc nuw i32 %45 to i8
   store i8 %46, ptr %6, align 1
   %47 = icmp eq i32 %45, 0
   br i1 %47, label %.critedge, label %.preheader
@@ -5617,18 +5617,18 @@ define internal i32 @intel_sdvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 al
   %24 = load i32, ptr %1, align 8
   %25 = tail call i32 @intel_cpu_transcoder_mode_valid(ptr noundef %3, ptr noundef %1) #13
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %58
+  br i1 %26, label %27, label %56
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 32
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %58
+  br i1 %31, label %32, label %56
 
 32:                                               ; preds = %27
   %33 = icmp sgt i32 %24, %23
-  br i1 %33, label %58, label %34
+  br i1 %33, label %56, label %34
 
 34:                                               ; preds = %32
   %35 = and i32 %29, 4096
@@ -5636,7 +5636,7 @@ define internal i32 @intel_sdvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
-  br i1 %21, label %38, label %58
+  br i1 %21, label %38, label %56
 
 38:                                               ; preds = %37
   %39 = shl i32 %24, 1
@@ -5647,32 +5647,28 @@ define internal i32 @intel_sdvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 al
   %42 = getelementptr inbounds i8, ptr %5, i64 3536
   %43 = load i32, ptr %42, align 8
   %44 = icmp sgt i32 %43, %41
-  br i1 %44, label %58, label %45
+  br i1 %44, label %56, label %45
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %5, i64 3540
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %47, %41
-  br i1 %48, label %58, label %49
+  br i1 %48, label %56, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %0, i64 2720
   %51 = load i16, ptr %50, align 8
   %52 = and i16 %51, 16448
   %53 = icmp eq i16 %52, 0
-  br i1 %53, label %57, label %54
+  br i1 %53, label %56, label %54
 
 54:                                               ; preds = %49
   %55 = tail call i32 @intel_panel_mode_valid(ptr noundef %0, ptr noundef %1) #13
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %58
+  br label %56
 
-57:                                               ; preds = %54, %49
-  br label %58
-
-58:                                               ; preds = %57, %54, %45, %40, %37, %32, %27, %20
-  %59 = phi i32 [ 0, %57 ], [ %55, %54 ], [ %25, %20 ], [ 8, %27 ], [ 15, %32 ], [ 16, %37 ], [ 16, %40 ], [ 15, %45 ]
-  ret i32 %59
+56:                                               ; preds = %54, %49, %45, %40, %37, %32, %27, %20
+  %57 = phi i32 [ %25, %20 ], [ 8, %27 ], [ 15, %32 ], [ 16, %37 ], [ 16, %40 ], [ 15, %45 ], [ 0, %49 ], [ %55, %54 ]
+  ret i32 %57
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

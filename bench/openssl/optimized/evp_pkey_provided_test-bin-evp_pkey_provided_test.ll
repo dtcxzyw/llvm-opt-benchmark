@@ -764,7 +764,7 @@ for.body:                                         ; preds = %err, %for.inc
   %conv90 = zext i1 %cmp89 to i32
   %call91 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 431, ptr noundef nonnull @.str.72, i32 noundef %conv90) #6
   %tobool92.not = icmp eq i32 %call91, 0
-  br i1 %tobool92.not, label %if.then105, label %lor.lhs.false93
+  br i1 %tobool92.not, label %for.inc, label %lor.lhs.false93
 
 lor.lhs.false93:                                  ; preds = %for.body
   %13 = load ptr, ptr %pk, align 8
@@ -774,19 +774,17 @@ lor.lhs.false93:                                  ; preds = %for.body
   %conv99 = zext i1 %cmp98 to i32
   %call100 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 432, ptr noundef nonnull @.str.73, i32 noundef %conv99) #6
   %tobool101.not = icmp eq i32 %call100, 0
-  br i1 %tobool101.not, label %if.then105, label %lor.lhs.false102
+  br i1 %tobool101.not, label %for.inc, label %lor.lhs.false102
 
 lor.lhs.false102:                                 ; preds = %lor.lhs.false93
   %15 = load ptr, ptr %bn, align 8
   %call103 = call i32 @test_BN_eq(ptr noundef nonnull @.str, i32 noundef 433, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, ptr noundef %15, ptr noundef %call1) #6
   %tobool104.not = icmp eq i32 %call103, 0
-  br i1 %tobool104.not, label %if.then105, label %for.inc
-
-if.then105:                                       ; preds = %lor.lhs.false102, %lor.lhs.false93, %for.body
+  %spec.select = select i1 %tobool104.not, i32 0, i32 %ret.224
   br label %for.inc
 
-for.inc:                                          ; preds = %lor.lhs.false102, %if.then105
-  %ret.3 = phi i32 [ %ret.224, %lor.lhs.false102 ], [ 0, %if.then105 ]
+for.inc:                                          ; preds = %lor.lhs.false102, %for.body, %lor.lhs.false93
+  %ret.3 = phi i32 [ 0, %lor.lhs.false93 ], [ 0, %for.body ], [ %spec.select, %lor.lhs.false102 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [9 x %struct.ossl_param_st], ptr %fromdata_params, i64 0, i64 %indvars.iv.next
   %16 = load ptr, ptr %arrayidx, align 8
@@ -3591,7 +3589,7 @@ declare i32 @test_size_t_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @test_print_key_type_using_encoder(ptr noundef %alg, i32 noundef %type, ptr noundef %pk) unnamed_addr #0 {
+define internal fastcc i32 @test_print_key_type_using_encoder(ptr noundef %alg, i32 noundef %type, ptr noundef %pk) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_mem() #6
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #6
@@ -3646,7 +3644,7 @@ lor.lhs.false19:                                  ; preds = %if.end15
 
 if.end26:                                         ; preds = %lor.lhs.false19
   %cmp27 = icmp eq i32 %type, 1
-  br i1 %cmp27, label %if.then29, label %if.end82
+  br i1 %cmp27, label %if.then29, label %err
 
 if.then29:                                        ; preds = %if.end26
   %call30 = tail call i32 @OSSL_ENCODER_CTX_set_passphrase(ptr noundef %call8, ptr noundef nonnull @.str.78, i64 noundef 4) #6
@@ -3712,15 +3710,13 @@ lor.lhs.false68:                                  ; preds = %if.end62
 lor.lhs.false74:                                  ; preds = %lor.lhs.false68
   %call75 = tail call fastcc i32 @compare_with_file(ptr noundef %alg, i32 noundef 1, ptr noundef %call1), !range !7
   %call78 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @.str.123, i32 noundef %call75) #6
-  %tobool79.not = icmp eq i32 %call78, 0
-  br i1 %tobool79.not, label %err, label %if.end82
-
-if.end82:                                         ; preds = %lor.lhs.false74, %if.end26
+  %tobool79.not = icmp ne i32 %call78, 0
+  %spec.select = zext i1 %tobool79.not to i32
   br label %err
 
-err:                                              ; preds = %if.end62, %lor.lhs.false68, %lor.lhs.false74, %if.end49, %lor.lhs.false55, %if.end36, %lor.lhs.false42, %if.then29, %if.end15, %lor.lhs.false19, %if.end, %lor.lhs.false, %switch.lookup, %if.end82, %sw.default
-  %ctx.0 = phi ptr [ null, %sw.default ], [ %call8, %if.end82 ], [ %call8, %lor.lhs.false74 ], [ %call8, %lor.lhs.false68 ], [ %call8, %if.end62 ], [ %call8, %lor.lhs.false55 ], [ %call8, %if.end49 ], [ %call8, %lor.lhs.false42 ], [ %call8, %if.end36 ], [ %call8, %if.then29 ], [ %call8, %lor.lhs.false19 ], [ %call8, %if.end15 ], [ %call8, %lor.lhs.false ], [ %call8, %if.end ], [ null, %switch.lookup ]
-  %ret.0 = phi i32 [ 0, %sw.default ], [ 1, %if.end82 ], [ 0, %lor.lhs.false74 ], [ 0, %lor.lhs.false68 ], [ 0, %if.end62 ], [ 0, %lor.lhs.false55 ], [ 0, %if.end49 ], [ 0, %lor.lhs.false42 ], [ 0, %if.end36 ], [ 0, %if.then29 ], [ 0, %lor.lhs.false19 ], [ 0, %if.end15 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %switch.lookup ]
+err:                                              ; preds = %lor.lhs.false74, %if.end26, %if.end62, %lor.lhs.false68, %if.end49, %lor.lhs.false55, %if.end36, %lor.lhs.false42, %if.then29, %if.end15, %lor.lhs.false19, %if.end, %lor.lhs.false, %switch.lookup, %sw.default
+  %ctx.0 = phi ptr [ null, %sw.default ], [ %call8, %lor.lhs.false68 ], [ %call8, %if.end62 ], [ %call8, %lor.lhs.false55 ], [ %call8, %if.end49 ], [ %call8, %lor.lhs.false42 ], [ %call8, %if.end36 ], [ %call8, %if.then29 ], [ %call8, %lor.lhs.false19 ], [ %call8, %if.end15 ], [ %call8, %lor.lhs.false ], [ %call8, %if.end ], [ null, %switch.lookup ], [ %call8, %if.end26 ], [ %call8, %lor.lhs.false74 ]
+  %ret.0 = phi i32 [ 0, %sw.default ], [ 0, %lor.lhs.false68 ], [ 0, %if.end62 ], [ 0, %lor.lhs.false55 ], [ 0, %if.end49 ], [ 0, %lor.lhs.false42 ], [ 0, %if.end36 ], [ 0, %if.then29 ], [ 0, %lor.lhs.false19 ], [ 0, %if.end15 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %switch.lookup ], [ 1, %if.end26 ], [ %spec.select, %lor.lhs.false74 ]
   %call83 = tail call i32 @BIO_free(ptr noundef %call1) #6
   tail call void @OSSL_ENCODER_CTX_free(ptr noundef %ctx.0) #6
   ret i32 %ret.0

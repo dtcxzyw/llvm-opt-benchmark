@@ -2709,7 +2709,7 @@ while.end190:                                     ; preds = %while.body185, %whi
   br label %if.end200
 
 if.else195:                                       ; preds = %if.else164
-  %246 = trunc i64 %http_pos.2 to i32
+  %246 = trunc nuw i64 %http_pos.2 to i32
   %conv197 = add i32 %246, -1
   br label %if.end200
 
@@ -5315,7 +5315,7 @@ if.end6.land.rhs.i_crit_edge:                     ; preds = %if.end6
 land.rhs.i:                                       ; preds = %if.end6.land.rhs.i_crit_edge, %if.end.i.i.i29, %lor.rhs.i
   %13 = phi i64 [ %.pre, %if.end6.land.rhs.i_crit_edge ], [ %7, %lor.rhs.i ], [ %7, %if.end.i.i.i29 ]
   %cmp.i.i34 = icmp eq i64 %13, %0
-  br i1 %cmp.i.i34, label %land.rhs.i.i35, label %if.end19
+  br i1 %cmp.i.i34, label %land.rhs.i.i35, label %return
 
 land.rhs.i.i35:                                   ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %land.lhs.true, label %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit
@@ -5325,32 +5325,29 @@ _ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr
   %15 = load ptr, ptr %saved, align 8, !tbaa !43
   %call.i.i.i38 = tail call i32 @wmemcmp(ptr noundef %15, ptr noundef %14, i64 noundef %0) #29
   %16 = icmp eq i32 %call.i.i.i38, 0
-  br i1 %16, label %land.lhs.true, label %if.end19
+  %brmerge.not = and i1 %tobool.i.i11.i, %16
+  br i1 %brmerge.not, label %land.rhs.i43, label %return
 
-land.lhs.true:                                    ; preds = %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit, %land.rhs.i.i35, %if.end6
+land.lhs.true:                                    ; preds = %land.rhs.i.i35, %if.end6
   br i1 %tobool.i.i11.i, label %land.rhs.i43, label %return
 
-land.rhs.i43:                                     ; preds = %land.lhs.true
+land.rhs.i43:                                     ; preds = %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit, %land.lhs.true
   %_M_string_length.i.i.i44 = getelementptr inbounds i8, ptr %other, i64 40
   %17 = load i64, ptr %_M_string_length.i.i.i44, align 8, !tbaa !46
-  %cmp.i.i46 = icmp eq i64 %17, %0
-  br i1 %cmp.i.i46, label %land.rhs.i.i47, label %if.end19
+  %cmp.i.i46 = icmp ne i64 %17, %0
+  %brmerge2 = or i1 %cmp.i.i.i, %cmp.i.i46
+  %not.cmp.i.i46 = xor i1 %cmp.i.i46, true
+  br i1 %brmerge2, label %return, label %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51
 
-land.rhs.i.i47:                                   ; preds = %land.rhs.i43
-  br i1 %cmp.i.i.i, label %return, label %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51
-
-_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51: ; preds = %land.rhs.i.i47
+_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51: ; preds = %land.rhs.i43
   %18 = load ptr, ptr %other, align 8, !tbaa !43
   %19 = load ptr, ptr %saved3, align 8, !tbaa !43
   %call.i.i.i50 = tail call i32 @wmemcmp(ptr noundef %19, ptr noundef %18, i64 noundef %0) #29
   %20 = icmp eq i32 %call.i.i.i50, 0
-  br i1 %20, label %return, label %if.end19
-
-if.end19:                                         ; preds = %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51, %land.rhs.i43, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit, %land.rhs.i
   br label %return
 
-return:                                           ; preds = %if.end19, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51, %land.rhs.i.i47, %land.lhs.true, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit, %if.end.i.i.i29, %land.rhs.i.i27, %_ZStneIwSt11char_traitsIwESaIwEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %entry
-  %retval.0 = phi i1 [ false, %if.end19 ], [ false, %_ZStneIwSt11char_traitsIwESaIwEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ true, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit ], [ true, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51 ], [ true, %land.lhs.true ], [ true, %if.end.i.i.i29 ], [ false, %entry ], [ true, %land.rhs.i.i27 ], [ true, %land.rhs.i.i47 ]
+return:                                           ; preds = %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51, %land.rhs.i43, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit, %land.rhs.i, %land.lhs.true, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit, %if.end.i.i.i29, %land.rhs.i.i27, %_ZStneIwSt11char_traitsIwESaIwEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %entry
+  %retval.0 = phi i1 [ false, %_ZStneIwSt11char_traitsIwESaIwEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ true, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ERKSG_ISA_E.exit ], [ true, %land.lhs.true ], [ true, %if.end.i.i.i29 ], [ false, %entry ], [ true, %land.rhs.i.i27 ], [ %not.cmp.i.i46, %land.rhs.i43 ], [ %16, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit ], [ false, %land.rhs.i ], [ %20, %_ZSteqINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit51 ]
   ret i1 %retval.0
 }
 
@@ -6947,7 +6944,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %tobool7.not, label %while.cond, label %while.end.split.loop.exit363, !llvm.loop !127
 
 while.end.split.loop.exit363:                     ; preds = %land.rhs
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit363
@@ -7620,7 +7617,7 @@ if.else:                                          ; preds = %entry
   %6 = load i32, ptr %m_view5, align 4, !tbaa !117
   %m_cols6 = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load i32, ptr %m_cols6, align 8, !tbaa !116
-  %8 = trunc i64 %0 to i32
+  %8 = trunc nuw i64 %0 to i32
   %conv12 = sub i32 %cols, %8
   store i32 %conv12, ptr %m_cols6, align 8, !tbaa !116
   %cmp.not.not.i = icmp sgt i32 %conv12, %conv4
@@ -9893,7 +9890,7 @@ if.else.i:                                        ; preds = %entry
   %6 = load i32, ptr %m_view5.i, align 4, !tbaa !117
   %m_cols6.i = getelementptr inbounds i8, ptr %this, i64 336
   %7 = load i32, ptr %m_cols6.i, align 8, !tbaa !116
-  %8 = trunc i64 %0 to i32
+  %8 = trunc nuw i64 %0 to i32
   %conv12.i = sub i32 %cols, %8
   store i32 %conv12.i, ptr %m_cols6.i, align 8, !tbaa !116
   %cmp.not.not.i.i = icmp sgt i32 %conv12.i, %conv4.i

@@ -611,7 +611,7 @@ define i32 @pmix_ptl_base_connect_to_peer(ptr noundef %0, ptr noundef %1, i64 no
 23:                                               ; preds = %22, %17, %3
   %24 = tail call i32 @pmix_ptl_base_check_directives(ptr noundef %1, i64 noundef %2) #13
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %589
+  br i1 %.not, label %25, label %588
 
 25:                                               ; preds = %23
   %26 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -1314,11 +1314,11 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
 
 357:                                              ; preds = %356, %351, %349
   %358 = phi ptr [ %.pre, %356 ], [ %345, %351 ], [ %345, %349 ]
-  %359 = trunc i8 %.2 to i1
+  %359 = trunc nuw i8 %.2 to i1
   %360 = getelementptr inbounds i8, ptr %358, i64 5
   %361 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, i1 noundef zeroext %359, ptr noundef nonnull %360)
   %.not286 = icmp eq i32 %361, 0
-  br i1 %.not286, label %563, label %.loopexit344
+  br i1 %.not286, label %562, label %.loopexit344
 
 362:                                              ; preds = %346
   %363 = call noalias ptr @strdup(ptr noundef nonnull %345) #13
@@ -1352,18 +1352,18 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   %377 = trunc i64 %376 to i32
   store i32 %377, ptr %10, align 4
   call void @free(ptr noundef %363) #13
-  br label %563
+  br label %562
 
 378:                                              ; preds = %pmix_obj_run_destructors.exit337
   %.not275 = icmp eq ptr %.2224, null
   br i1 %.not275, label %382, label %379
 
 379:                                              ; preds = %378
-  %380 = trunc i8 %.2 to i1
+  %380 = trunc nuw i8 %.2 to i1
   %381 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, i1 noundef zeroext %380, ptr noundef nonnull %.2224)
   %.not285 = icmp eq i32 %381, 0
   %brmerge = or i1 %.not285, %380
-  br i1 %brmerge, label %563, label %.loopexit344
+  br i1 %brmerge, label %562, label %.loopexit344
 
 382:                                              ; preds = %378
   %383 = load ptr, ptr %9, align 8
@@ -1376,7 +1376,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   br i1 %.not277367, label %.loopexit, label %.lr.ph369
 
 .lr.ph369:                                        ; preds = %.preheader
-  %385 = trunc i8 %.2 to i1
+  %385 = trunc nuw i8 %.2 to i1
   br label %386
 
 386:                                              ; preds = %.lr.ph369, %476
@@ -1428,7 +1428,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   %414 = load i32, ptr %413, align 8
   %415 = or i32 %414, 2
   store i32 %415, ptr %413, align 8
-  br label %563
+  br label %562
 
 416:                                              ; preds = %407
   %417 = load ptr, ptr %9, align 8
@@ -1481,7 +1481,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   %446 = load i32, ptr %445, align 8
   %447 = or i32 %446, -2147483646
   store i32 %447, ptr %445, align 8
-  br label %563
+  br label %562
 
 448:                                              ; preds = %439
   br i1 %385, label %476, label %.loopexit344
@@ -1528,7 +1528,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   %473 = load i32, ptr %472, align 8
   %474 = or i32 %473, 16777218
   store i32 %474, ptr %472, align 8
-  br label %563
+  br label %562
 
 475:                                              ; preds = %466
   br i1 %385, label %476, label %.loopexit344
@@ -1570,7 +1570,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
 
 494:                                              ; preds = %492, %487, %485
   %495 = load ptr, ptr %7, align 8
-  %496 = trunc i8 %.2 to i1
+  %496 = trunc nuw i8 %.2 to i1
   %497 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %495, ptr noundef %.0212, i64 noundef %248, i1 noundef zeroext %496)
   %498 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %498) #13
@@ -1582,7 +1582,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   %501 = load i32, ptr %500, align 8
   %502 = or i32 %501, 2
   store i32 %502, ptr %500, align 8
-  br label %563
+  br label %562
 
 503:                                              ; preds = %.loopexit
   %.not279 = icmp eq ptr %.2227, null
@@ -1613,7 +1613,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
 
 517:                                              ; preds = %515, %510, %508
   %518 = load ptr, ptr %7, align 8
-  %519 = trunc i8 %.2 to i1
+  %519 = trunc nuw i8 %.2 to i1
   %520 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %518, ptr noundef %.0212, i64 noundef %248, i1 noundef zeroext %519)
   %521 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %521) #13
@@ -1625,7 +1625,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   %524 = load i32, ptr %523, align 8
   %525 = or i32 %524, 2
   store i32 %525, ptr %523, align 8
-  br label %563
+  br label %562
 
 526:                                              ; preds = %503
   %527 = call i32 @pmix_ptl_base_check_server_uris(ptr noundef %0, ptr noundef nonnull %6) #13
@@ -1641,12 +1641,12 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   %534 = load ptr, ptr %6, align 8
   %535 = call i32 @pmix_ptl_base_parse_uri(ptr noundef %534, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5) #13
   %.not282 = icmp eq i32 %535, 0
-  br i1 %.not282, label %563, label %.loopexit344
+  br i1 %.not282, label %562, label %.loopexit344
 
 536:                                              ; preds = %526
   %537 = and i32 %531, 268435458
   %or.cond304 = icmp eq i32 %537, 2
-  br i1 %or.cond304, label %562, label %538
+  br i1 %or.cond304, label %.loopexit344, label %538
 
 538:                                              ; preds = %536
   %539 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 7), align 8
@@ -1673,7 +1673,7 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
 
 551:                                              ; preds = %549, %544, %542
   %552 = load ptr, ptr %7, align 8
-  %553 = trunc i8 %.2 to i1
+  %553 = trunc nuw i8 %.2 to i1
   %554 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %552, ptr noundef %.0212, i64 noundef %248, i1 noundef zeroext %553)
   %555 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %555) #13
@@ -1685,92 +1685,90 @@ pmix_obj_run_destructors.exit337:                 ; preds = %.lr.ph.i334, %._cri
   %559 = load i32, ptr %558, align 8
   %560 = or i32 %559, 2
   store i32 %560, ptr %558, align 8
-  br label %563
+  br label %562
 
 561:                                              ; preds = %551
-  br i1 %553, label %562, label %.loopexit344
-
-562:                                              ; preds = %536, %561
+  %spec.select = select i1 %553, i32 -25, i32 %554
   br label %.loopexit344
 
-563:                                              ; preds = %379, %532, %357, %557, %522, %499, %471, %444, %412, %373
-  %564 = load ptr, ptr %5, align 8
-  %565 = call i32 @pmix_ptl_base_make_connection(ptr noundef %0, ptr noundef %564, ptr noundef %.0212, i64 noundef %248) #13
-  %.not287 = icmp eq i32 %565, 0
-  br i1 %.not287, label %566, label %.loopexit344
+562:                                              ; preds = %379, %532, %357, %557, %522, %499, %471, %444, %412, %373
+  %563 = load ptr, ptr %5, align 8
+  %564 = call i32 @pmix_ptl_base_make_connection(ptr noundef %0, ptr noundef %563, ptr noundef %.0212, i64 noundef %248) #13
+  %.not287 = icmp eq i32 %564, 0
+  br i1 %.not287, label %565, label %.loopexit344
 
-566:                                              ; preds = %563
-  %567 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 11), align 4
-  %or.cond17 = icmp ult i32 %567, 64
-  br i1 %or.cond17, label %568, label %574
+565:                                              ; preds = %562
+  %566 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_ptl_base_framework, i64 0, i32 11), align 4
+  %or.cond17 = icmp ult i32 %566, 64
+  br i1 %or.cond17, label %567, label %573
 
-568:                                              ; preds = %566
-  %569 = zext nneg i32 %567 to i64
-  %570 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %569, i32 2
-  %571 = load i32, ptr %570, align 4
-  %572 = icmp sgt i32 %571, 1
-  br i1 %572, label %573, label %574
+567:                                              ; preds = %565
+  %568 = zext nneg i32 %566 to i64
+  %569 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %568, i32 2
+  %570 = load i32, ptr %569, align 4
+  %571 = icmp sgt i32 %570, 1
+  br i1 %571, label %572, label %573
 
-573:                                              ; preds = %568
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %567, ptr noundef nonnull @.str.47) #13
-  br label %574
+572:                                              ; preds = %567
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %566, ptr noundef nonnull @.str.47) #13
+  br label %573
 
-574:                                              ; preds = %573, %568, %566
-  %575 = load ptr, ptr %8, align 8
-  %576 = load i32, ptr %10, align 4
-  %577 = load ptr, ptr %5, align 8
-  call void @pmix_ptl_base_complete_connection(ptr noundef %0, ptr noundef %575, i32 noundef %576, ptr noundef %577) #13
+573:                                              ; preds = %572, %567, %565
+  %574 = load ptr, ptr %8, align 8
+  %575 = load i32, ptr %10, align 4
+  %576 = load ptr, ptr %5, align 8
+  call void @pmix_ptl_base_complete_connection(ptr noundef %0, ptr noundef %574, i32 noundef %575, ptr noundef %576) #13
   br label %.loopexit344
 
-.loopexit344:                                     ; preds = %109, %452, %425, %416, %393, %475, %448, %538, %504, %481, %379, %563, %561, %532, %517, %494, %357, %574, %562, %372, %366
-  %.3228 = phi ptr [ %.2227, %357 ], [ %.2227, %563 ], [ %.2227, %574 ], [ %.2227, %366 ], [ %.2227, %372 ], [ %.2227, %494 ], [ %.2227, %517 ], [ null, %532 ], [ null, %562 ], [ null, %561 ], [ %.2227, %379 ], [ %.2227, %481 ], [ %.2227, %504 ], [ null, %538 ], [ %.2227, %448 ], [ %.2227, %475 ], [ %.2227, %393 ], [ %.2227, %416 ], [ %.2227, %425 ], [ %.2227, %452 ], [ %.0225355, %109 ]
-  %.3 = phi ptr [ %.2224, %357 ], [ %.2224, %563 ], [ %.2224, %574 ], [ %.2224, %366 ], [ %.2224, %372 ], [ null, %494 ], [ null, %517 ], [ null, %532 ], [ null, %562 ], [ null, %561 ], [ %.2224, %379 ], [ null, %481 ], [ null, %504 ], [ null, %538 ], [ null, %448 ], [ null, %475 ], [ null, %393 ], [ null, %416 ], [ null, %425 ], [ null, %452 ], [ %.0222356, %109 ]
-  %.0221 = phi i32 [ %361, %357 ], [ %565, %563 ], [ 0, %574 ], [ -27, %366 ], [ -27, %372 ], [ %497, %494 ], [ %520, %517 ], [ %535, %532 ], [ -25, %562 ], [ %554, %561 ], [ %381, %379 ], [ -32, %481 ], [ -32, %504 ], [ -32, %538 ], [ -32, %452 ], [ -32, %425 ], [ %409, %416 ], [ -32, %393 ], [ %468, %475 ], [ %441, %448 ], [ -27, %109 ]
-  %.1213 = phi ptr [ %.0212, %357 ], [ %.0212, %563 ], [ %.0212, %574 ], [ %.0212, %366 ], [ %.0212, %372 ], [ %.0212, %494 ], [ %.0212, %517 ], [ %.0212, %532 ], [ %.0212, %562 ], [ %.0212, %561 ], [ %.0212, %379 ], [ %.0212, %481 ], [ %.0212, %504 ], [ %.0212, %538 ], [ %.0212, %448 ], [ %.0212, %475 ], [ %.0212, %393 ], [ %.0212, %416 ], [ %.0212, %425 ], [ %.0212, %452 ], [ null, %109 ]
-  %.0211 = phi i64 [ %248, %357 ], [ %248, %563 ], [ %248, %574 ], [ %248, %366 ], [ %248, %372 ], [ %248, %494 ], [ %248, %517 ], [ %248, %532 ], [ %248, %562 ], [ %248, %561 ], [ %248, %379 ], [ %248, %481 ], [ %248, %504 ], [ %248, %538 ], [ %248, %448 ], [ %248, %475 ], [ %248, %393 ], [ %248, %416 ], [ %248, %425 ], [ %248, %452 ], [ 0, %109 ]
-  %578 = load ptr, ptr %8, align 8
-  %.not294 = icmp eq ptr %578, null
-  br i1 %.not294, label %580, label %579
+.loopexit344:                                     ; preds = %109, %452, %425, %416, %393, %475, %448, %561, %536, %538, %504, %481, %379, %562, %532, %517, %494, %357, %573, %372, %366
+  %.3228 = phi ptr [ %.2227, %357 ], [ %.2227, %562 ], [ %.2227, %573 ], [ %.2227, %366 ], [ %.2227, %372 ], [ %.2227, %494 ], [ %.2227, %517 ], [ null, %532 ], [ %.2227, %379 ], [ %.2227, %481 ], [ %.2227, %504 ], [ null, %538 ], [ null, %536 ], [ null, %561 ], [ %.2227, %448 ], [ %.2227, %475 ], [ %.2227, %393 ], [ %.2227, %416 ], [ %.2227, %425 ], [ %.2227, %452 ], [ %.0225355, %109 ]
+  %.3 = phi ptr [ %.2224, %357 ], [ %.2224, %562 ], [ %.2224, %573 ], [ %.2224, %366 ], [ %.2224, %372 ], [ null, %494 ], [ null, %517 ], [ null, %532 ], [ %.2224, %379 ], [ null, %481 ], [ null, %504 ], [ null, %538 ], [ null, %536 ], [ null, %561 ], [ null, %448 ], [ null, %475 ], [ null, %393 ], [ null, %416 ], [ null, %425 ], [ null, %452 ], [ %.0222356, %109 ]
+  %.0221 = phi i32 [ %361, %357 ], [ %564, %562 ], [ 0, %573 ], [ -27, %366 ], [ -27, %372 ], [ %497, %494 ], [ %520, %517 ], [ %535, %532 ], [ %381, %379 ], [ -32, %481 ], [ -32, %504 ], [ -32, %538 ], [ -25, %536 ], [ %spec.select, %561 ], [ -32, %452 ], [ -32, %425 ], [ %409, %416 ], [ -32, %393 ], [ %468, %475 ], [ %441, %448 ], [ -27, %109 ]
+  %.1213 = phi ptr [ %.0212, %357 ], [ %.0212, %562 ], [ %.0212, %573 ], [ %.0212, %366 ], [ %.0212, %372 ], [ %.0212, %494 ], [ %.0212, %517 ], [ %.0212, %532 ], [ %.0212, %379 ], [ %.0212, %481 ], [ %.0212, %504 ], [ %.0212, %538 ], [ %.0212, %536 ], [ %.0212, %561 ], [ %.0212, %448 ], [ %.0212, %475 ], [ %.0212, %393 ], [ %.0212, %416 ], [ %.0212, %425 ], [ %.0212, %452 ], [ null, %109 ]
+  %.0211 = phi i64 [ %248, %357 ], [ %248, %562 ], [ %248, %573 ], [ %248, %366 ], [ %248, %372 ], [ %248, %494 ], [ %248, %517 ], [ %248, %532 ], [ %248, %379 ], [ %248, %481 ], [ %248, %504 ], [ %248, %538 ], [ %248, %536 ], [ %248, %561 ], [ %248, %448 ], [ %248, %475 ], [ %248, %393 ], [ %248, %416 ], [ %248, %425 ], [ %248, %452 ], [ 0, %109 ]
+  %577 = load ptr, ptr %8, align 8
+  %.not294 = icmp eq ptr %577, null
+  br i1 %.not294, label %579, label %578
 
-579:                                              ; preds = %.loopexit344
-  call void @free(ptr noundef nonnull %578) #13
-  br label %580
+578:                                              ; preds = %.loopexit344
+  call void @free(ptr noundef nonnull %577) #13
+  br label %579
 
-580:                                              ; preds = %579, %.loopexit344
+579:                                              ; preds = %578, %.loopexit344
   %.not295 = icmp eq ptr %.1213, null
-  br i1 %.not295, label %582, label %581
+  br i1 %.not295, label %581, label %580
 
-581:                                              ; preds = %580
+580:                                              ; preds = %579
   call void @PMIx_Info_free(ptr noundef nonnull %.1213, i64 noundef %.0211) #13
-  br label %582
+  br label %581
 
-582:                                              ; preds = %581, %580
+581:                                              ; preds = %580, %579
   %.not296 = icmp eq ptr %.3, null
-  br i1 %.not296, label %584, label %583
+  br i1 %.not296, label %583, label %582
 
-583:                                              ; preds = %582
+582:                                              ; preds = %581
   call void @free(ptr noundef nonnull %.3) #13
-  br label %584
+  br label %583
 
-584:                                              ; preds = %583, %582
-  %585 = load ptr, ptr %5, align 8
-  %.not297 = icmp eq ptr %585, null
-  br i1 %.not297, label %587, label %586
+583:                                              ; preds = %582, %581
+  %584 = load ptr, ptr %5, align 8
+  %.not297 = icmp eq ptr %584, null
+  br i1 %.not297, label %586, label %585
 
-586:                                              ; preds = %584
-  call void @free(ptr noundef nonnull %585) #13
-  br label %587
+585:                                              ; preds = %583
+  call void @free(ptr noundef nonnull %584) #13
+  br label %586
 
-587:                                              ; preds = %586, %584
+586:                                              ; preds = %585, %583
   %.not298 = icmp eq ptr %.3228, null
-  br i1 %.not298, label %589, label %588
+  br i1 %.not298, label %588, label %587
 
-588:                                              ; preds = %587
+587:                                              ; preds = %586
   call void @free(ptr noundef nonnull %.3228) #13
-  br label %589
+  br label %588
 
-589:                                              ; preds = %587, %588, %23
-  %.0210 = phi i32 [ %24, %23 ], [ %.0221, %588 ], [ %.0221, %587 ]
+588:                                              ; preds = %586, %587, %23
+  %.0210 = phi i32 [ %24, %23 ], [ %.0221, %587 ], [ %.0221, %586 ]
   ret i32 %.0210
 }
 

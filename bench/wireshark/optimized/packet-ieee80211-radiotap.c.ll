@@ -2206,7 +2206,7 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %.lr.ph
-  %142 = trunc i64 %indvars.iv to i32
+  %142 = trunc nuw nsw i64 %indvars.iv to i32
   %143 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %134, ptr noundef nonnull @ei_radiotap_present, ptr noundef nonnull @.str.1240, i32 noundef %142) #9
   br label %1765
 
@@ -3434,16 +3434,16 @@ dissect_radiotap_flags.exit:                      ; preds = %266, %.sink.split.i
 822:                                              ; preds = %811, %901
   %indvars.iv993 = phi i64 [ 0, %811 ], [ %indvars.iv.next994, %901 ]
   %.0751958 = phi ptr [ null, %811 ], [ %.2753, %901 ]
-  %823 = trunc i64 %indvars.iv993 to i32
+  %823 = trunc nuw nsw i64 %indvars.iv993 to i32
   %824 = add i32 %816, %823
   %825 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %824) #9
   %826 = zext i8 %825 to i32
   %827 = and i32 %826, 15
   %828 = lshr i32 %826, 4
-  %829 = trunc i32 %828 to i8
+  %829 = trunc nuw nsw i32 %828 to i8
   %830 = getelementptr [4 x i8], ptr %110, i64 0, i64 %indvars.iv993
   store i8 %829, ptr %830, align 1
-  %831 = trunc i32 %827 to i8
+  %831 = trunc nuw nsw i32 %827 to i8
   %832 = getelementptr [4 x i8], ptr %111, i64 0, i64 %indvars.iv993
   store i8 %831, ptr %832, align 1
   %.not823 = icmp eq i32 %827, 0
@@ -5522,7 +5522,7 @@ define internal i32 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32 nounde
   %36 = and i32 %.060.lcssa, 7
   %.not78 = icmp eq i32 %36, 0
   %37 = sub nuw nsw i32 8, %36
-  %38 = trunc i32 %37 to i16
+  %38 = trunc nuw nsw i32 %37 to i16
   %39 = select i1 %.not78, i16 0, i16 %38
   %.164 = sub i16 %.063.lcssa, %39
   %40 = icmp ult i16 %.164, 8
@@ -5540,7 +5540,7 @@ define internal i32 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32 nounde
   %.2 = phi i32 [ %43, %41 ], [ %.060.lcssa, %._crit_edge ]
   %46 = and i32 %22, 2
   %.not79 = icmp eq i32 %46, 0
-  br i1 %.not79, label %.critedge, label %47
+  br i1 %.not79, label %.loopexit.sink.split, label %47
 
 47:                                               ; preds = %45
   %48 = icmp ne i16 %.265, 0
@@ -5554,13 +5554,11 @@ define internal i32 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32 nounde
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, 32
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %.critedge, label %.loopexit.sink.split
-
-.critedge:                                        ; preds = %45, %49
+  %spec.select = select i1 %54, ptr @ieee80211_cap_handle, ptr @ieee80211_datapad_cap_handle
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %49, %.critedge
-  %ieee80211_cap_handle.sink = phi ptr [ @ieee80211_cap_handle, %.critedge ], [ @ieee80211_datapad_cap_handle, %49 ]
+.loopexit.sink.split:                             ; preds = %49, %45
+  %ieee80211_cap_handle.sink = phi ptr [ @ieee80211_cap_handle, %45 ], [ %spec.select, %49 ]
   %55 = load ptr, ptr %ieee80211_cap_handle.sink, align 8
   %56 = zext i16 %.265 to i32
   %57 = add i32 %.2, %56

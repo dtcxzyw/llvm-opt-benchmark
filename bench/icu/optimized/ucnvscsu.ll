@@ -36,18 +36,18 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %cmp4.not = icmp eq ptr %0, null
-  br i1 %cmp4.not, label %if.else, label %land.lhs.true
+  br i1 %cmp4.not, label %if.end22, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then3
   %2 = load i8, ptr %0, align 1
   %cmp5 = icmp eq i8 %2, 106
-  br i1 %cmp5, label %land.lhs.true6, label %if.else
+  br i1 %cmp5, label %land.lhs.true6, label %if.end22
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
   %arrayidx7 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %arrayidx7, align 1
   %cmp9 = icmp eq i8 %3, 97
-  br i1 %cmp9, label %land.lhs.true10, label %if.else
+  br i1 %cmp9, label %land.lhs.true10, label %if.end22
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6
   %arrayidx11 = getelementptr inbounds i8, ptr %0, i64 2
@@ -57,12 +57,12 @@ land.lhs.true10:                                  ; preds = %land.lhs.true6
     i8 95, label %if.end22
   ]
 
-if.else:                                          ; preds = %land.lhs.true10, %land.lhs.true6, %land.lhs.true, %if.then3
+if.else:                                          ; preds = %land.lhs.true10
   br label %if.end22
 
-if.end22:                                         ; preds = %land.lhs.true10, %land.lhs.true10, %if.else
-  %.sink = phi i8 [ 0, %if.else ], [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true10 ]
-  %cond.i = phi i64 [ 73751958669950983, %if.else ], [ 433760635709555203, %land.lhs.true10 ], [ 433760635709555203, %land.lhs.true10 ]
+if.end22:                                         ; preds = %if.then3, %land.lhs.true, %land.lhs.true6, %land.lhs.true10, %land.lhs.true10, %if.else
+  %.sink = phi i8 [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true10 ], [ 0, %land.lhs.true6 ], [ 0, %land.lhs.true ], [ 0, %if.then3 ], [ 0, %if.else ]
+  %cond.i = phi i64 [ 433760635709555203, %land.lhs.true10 ], [ 433760635709555203, %land.lhs.true10 ], [ 73751958669950983, %land.lhs.true6 ], [ 73751958669950983, %land.lhs.true ], [ 73751958669950983, %if.then3 ], [ 73751958669950983, %if.else ]
   %locale21 = getelementptr inbounds i8, ptr %call, i64 74
   store i8 %.sink, ptr %locale21, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call, ptr noundef nonnull align 16 dereferenceable(32) @_ZL21initialDynamicOffsets, i64 32, i1 false)
@@ -246,7 +246,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp16, label %if.then17, label %if.else20
 
 if.then17:                                        ; preds = %if.else
-  %conv18 = trunc i32 %add to i16
+  %conv18 = trunc nuw i32 %add to i16
   %incdec.ptr19 = getelementptr inbounds i8, ptr %target.1303, i64 2
   store i16 %conv18, ptr %target.1303, align 2
   br label %if.end35
@@ -446,7 +446,7 @@ if.else115:                                       ; preds = %sw.bb105
   br i1 %cmp123, label %if.then124, label %if.else127
 
 if.then124:                                       ; preds = %if.else115
-  %conv125 = trunc i32 %add122 to i16
+  %conv125 = trunc nuw i32 %add122 to i16
   %incdec.ptr126 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv125, ptr %target.4, align 2
   br label %fastSingle
@@ -800,7 +800,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp22, label %if.then23, label %if.else30
 
 if.then23:                                        ; preds = %if.else
-  %conv24 = trunc i32 %add to i16
+  %conv24 = trunc nuw i32 %add to i16
   %incdec.ptr25 = getelementptr inbounds i8, ptr %target.1388, i64 2
   store i16 %conv24, ptr %target.1388, align 2
   %cmp26.not = icmp eq ptr %offsets.1386, null
@@ -1047,7 +1047,7 @@ if.else148:                                       ; preds = %sw.bb134
   br i1 %cmp156, label %if.then157, label %if.else164
 
 if.then157:                                       ; preds = %if.else148
-  %conv158 = trunc i32 %add155 to i16
+  %conv158 = trunc nuw i32 %add155 to i16
   %incdec.ptr159 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv158, ptr %target.4, align 2
   %cmp160.not = icmp eq ptr %offsets.5, null
@@ -1461,7 +1461,7 @@ if.then17:                                        ; preds = %if.else
   br i1 %tobool18.not, label %if.else23, label %if.then19
 
 if.then19:                                        ; preds = %if.then17
-  %conv20 = trunc i16 %10 to i8
+  %conv20 = trunc nuw i16 %10 to i8
   store i8 %conv20, ptr %target.1, align 1
   br label %if.end192
 
@@ -1632,7 +1632,7 @@ if.then18.i:                                      ; preds = %if.else13.i
   br label %if.then81
 
 _ZL16getDynamicOffsetjPj.exit:                    ; preds = %for.body.i246
-  %22 = trunc i64 %indvars.iv.i247 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i247 to i32
   store i32 %18, ptr %offset, align 4
   %add.i257 = add nuw nsw i32 %22, 249
   %cmp80 = icmp sgt i32 %22, -250
@@ -1933,7 +1933,7 @@ if.end190:                                        ; preds = %if.then46, %if.else
   %target.2.sink = phi ptr [ %target.1, %if.else25 ], [ %target.2, %if.then46 ]
   %source.3 = phi ptr [ %incdec.ptr, %if.else25 ], [ %incdec.ptr47, %if.then46 ]
   %targetCapacity.3.in = phi i32 [ %targetCapacity.1, %if.else25 ], [ %targetCapacity.2, %if.then46 ]
-  %44 = trunc i32 %sub57.sink to i8
+  %44 = trunc nuw i32 %sub57.sink to i8
   %conv61 = or disjoint i8 %44, -128
   store i8 %conv61, ptr %target.2.sink, align 1
   br label %if.end192
@@ -1979,7 +1979,7 @@ if.then209:                                       ; preds = %if.end204
 
 if.then211:                                       ; preds = %if.then209
   %shr = lshr i16 %45, 8
-  %conv212 = trunc i16 %shr to i8
+  %conv212 = trunc nuw i16 %shr to i8
   %incdec.ptr213 = getelementptr inbounds i8, ptr %target.6630820, i64 1
   store i8 %conv212, ptr %target.6630820, align 1
   %conv214 = trunc i16 %45 to i8
@@ -2296,7 +2296,7 @@ if.then18.i475:                                   ; preds = %if.else13.i471
   br label %if.then333
 
 _ZL16getDynamicOffsetjPj.exit484:                 ; preds = %for.body.i454
-  %72 = trunc i64 %indvars.iv.i455 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv.i455 to i32
   store i32 %68, ptr %offset, align 4
   %add.i483 = add nuw nsw i32 %72, 249
   %cmp332 = icmp sgt i32 %72, -250
@@ -2422,7 +2422,7 @@ if.then363:                                       ; preds = %outputBytes
 
 sw.bb:                                            ; preds = %if.then363
   %shr364 = lshr i32 %c.6, 24
-  %conv365 = trunc i32 %shr364 to i8
+  %conv365 = trunc nuw i32 %shr364 to i8
   %incdec.ptr366 = getelementptr inbounds i8, ptr %target.9, i64 1
   store i8 %conv365, ptr %target.9, align 1
   br label %sw.bb367
@@ -2469,7 +2469,7 @@ if.else379:                                       ; preds = %outputBytes, %if.th
 
 sw.bb382:                                         ; preds = %if.else379
   %shr383 = lshr i32 %c.6567, 24
-  %conv384 = trunc i32 %shr383 to i8
+  %conv384 = trunc nuw i32 %shr383 to i8
   %incdec.ptr385 = getelementptr inbounds i8, ptr %0, i64 105
   store i8 %conv384, ptr %charErrorBuffer, align 1
   br label %sw.bb386
@@ -2497,7 +2497,7 @@ sw.bb394:                                         ; preds = %sw.bb390, %if.else3
   br label %sw.epilog397
 
 sw.epilog397:                                     ; preds = %if.else379, %sw.bb394
-  %conv398 = trunc i32 %sub380 to i8
+  %conv398 = trunc nsw i32 %sub380 to i8
   %charErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 91
   store i8 %conv398, ptr %charErrorBufferLength, align 1
   %cmp399 = icmp eq i32 %sub380, 4
@@ -2638,7 +2638,7 @@ if.then23:                                        ; preds = %if.else
   br i1 %tobool24.not, label %if.else33, label %if.then25
 
 if.then25:                                        ; preds = %if.then23
-  %conv26 = trunc i16 %11 to i8
+  %conv26 = trunc nuw i16 %11 to i8
   store i8 %conv26, ptr %target.1, align 1
   %cmp28.not = icmp eq ptr %offsets.1, null
   br i1 %cmp28.not, label %if.end215, label %if.then29
@@ -2658,7 +2658,7 @@ if.else35:                                        ; preds = %if.else
   br i1 %cmp37, label %if.then38, label %if.else47
 
 if.then38:                                        ; preds = %if.else35
-  %12 = trunc i32 %sub36 to i8
+  %12 = trunc nuw i32 %sub36 to i8
   %conv40 = or disjoint i8 %12, -128
   store i8 %conv40, ptr %target.1, align 1
   %cmp42.not = icmp eq ptr %offsets.1, null
@@ -2708,7 +2708,7 @@ if.then60:                                        ; preds = %if.then56
   br i1 %cmp73, label %if.then74, label %for.body.i
 
 if.then74:                                        ; preds = %if.then60
-  %14 = trunc i32 %sub72 to i8
+  %14 = trunc nuw i32 %sub72 to i8
   %conv76 = or disjoint i8 %14, -128
   store i8 %conv76, ptr %target.2, align 1
   %cmp78.not = icmp eq ptr %offsets.5, null
@@ -2843,7 +2843,7 @@ if.then18.i:                                      ; preds = %if.else13.i
   br label %if.then100
 
 _ZL16getDynamicOffsetjPj.exit:                    ; preds = %for.body.i300
-  %25 = trunc i64 %indvars.iv.i301 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i301 to i32
   store i32 %21, ptr %offset, align 4
   %add.i311 = add nuw nsw i32 %25, 249
   %cmp99 = icmp sgt i32 %25, -250
@@ -3196,7 +3196,7 @@ if.then233:                                       ; preds = %if.end227
 
 if.then235:                                       ; preds = %if.then233
   %shr = lshr i16 %47, 8
-  %conv236 = trunc i16 %shr to i8
+  %conv236 = trunc nuw i16 %shr to i8
   %incdec.ptr237 = getelementptr inbounds i8, ptr %target.6727958, i64 1
   store i8 %conv236, ptr %target.6727958, align 1
   %conv238 = trunc i16 %47 to i8
@@ -3529,7 +3529,7 @@ if.then18.i529:                                   ; preds = %if.else13.i525
   br label %if.then363
 
 _ZL16getDynamicOffsetjPj.exit538:                 ; preds = %for.body.i508
-  %74 = trunc i64 %indvars.iv.i509 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv.i509 to i32
   store i32 %70, ptr %offset, align 4
   %add.i537 = add nuw nsw i32 %74, 249
   %cmp362 = icmp sgt i32 %74, -250
@@ -3665,7 +3665,7 @@ if.then396:                                       ; preds = %if.then394
 
 sw.bb:                                            ; preds = %if.then396
   %shr397 = lshr i32 %c.6, 24
-  %conv398 = trunc i32 %shr397 to i8
+  %conv398 = trunc nuw i32 %shr397 to i8
   %incdec.ptr399 = getelementptr inbounds i8, ptr %target.9, i64 1
   store i8 %conv398, ptr %target.9, align 1
   br label %sw.bb400
@@ -3697,7 +3697,7 @@ if.else411:                                       ; preds = %if.then394
 
 sw.bb412:                                         ; preds = %if.else411
   %shr413 = lshr i32 %c.6, 24
-  %conv414 = trunc i32 %shr413 to i8
+  %conv414 = trunc nuw i32 %shr413 to i8
   %incdec.ptr415 = getelementptr inbounds i8, ptr %target.9, i64 1
   store i8 %conv414, ptr %target.9, align 1
   %incdec.ptr416 = getelementptr inbounds i8, ptr %offsets.15, i64 4
@@ -3761,7 +3761,7 @@ if.else435:                                       ; preds = %outputBytes, %if.th
 
 sw.bb438:                                         ; preds = %if.else435
   %shr439 = lshr i32 %c.6625, 24
-  %conv440 = trunc i32 %shr439 to i8
+  %conv440 = trunc nuw i32 %shr439 to i8
   %incdec.ptr441 = getelementptr inbounds i8, ptr %0, i64 105
   store i8 %conv440, ptr %charErrorBuffer, align 1
   br label %sw.bb442
@@ -3789,7 +3789,7 @@ sw.bb450:                                         ; preds = %sw.bb446, %if.else4
   br label %sw.epilog453
 
 sw.epilog453:                                     ; preds = %if.else435, %sw.bb450
-  %conv454 = trunc i32 %sub436 to i8
+  %conv454 = trunc nsw i32 %sub436 to i8
   %charErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 91
   store i8 %conv454, ptr %charErrorBufferLength, align 1
   %mul = shl nsw i32 %sub436, 3
@@ -3983,7 +3983,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %0, ptr %pOffset, align 4
   %add = add nuw nsw i32 %1, 249
   br label %return

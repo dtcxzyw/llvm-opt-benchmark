@@ -2071,7 +2071,7 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   %188 = getelementptr inbounds i32, ptr %.val103, i64 %147
   %189 = load i32, ptr %188, align 4
   %.not124 = icmp eq i32 %189, 1
-  %190 = trunc i64 %indvars.iv to i32
+  %190 = trunc nuw nsw i64 %indvars.iv to i32
   %191 = shl nuw i32 1, %190
   %192 = select i1 %.not124, i32 %191, i32 0
   %.1 = or i32 %192, %.079127
@@ -2129,7 +2129,7 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   %220 = load i32, ptr %219, align 4
   %221 = load ptr, ptr %16, align 8
   %222 = mul nsw i32 %.val89130, %.079.lcssa
-  %223 = trunc i64 %indvars.iv138 to i32
+  %223 = trunc nuw nsw i64 %indvars.iv138 to i32
   %224 = add nsw i32 %222, %223
   %225 = load ptr, ptr %4, align 8
   %226 = getelementptr i8, ptr %225, i64 328
@@ -2175,7 +2175,7 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   %251 = load i32, ptr %250, align 4
   %252 = load ptr, ptr %16, align 8
   %253 = mul nsw i32 %.val86134, %.079.lcssa
-  %254 = trunc i64 %indvars.iv141 to i32
+  %254 = trunc nuw nsw i64 %indvars.iv141 to i32
   %255 = add nsw i32 %253, %254
   %256 = getelementptr i8, ptr %252, i64 8
   %.val93 = load ptr, ptr %256, align 8
@@ -2230,7 +2230,7 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2, %48, %.loopexit.loopexit, %.critedge4
-  %.0 = phi i32 [ 1, %.critedge4 ], [ %56, %.loopexit.loopexit ], [ -1, %48 ], [ -1, %.critedge2 ]
+  %.0 = phi i32 [ 1, %.critedge4 ], [ -1, %48 ], [ -1, %.critedge2 ], [ %56, %.loopexit.loopexit ]
   ret i32 %.0
 }
 
@@ -2349,7 +2349,7 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   %indvars.iv = phi i64 [ %7, %.preheader.preheader ], [ %indvars.iv.next, %23 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw i64 %indvars.iv to i32
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %.preheader.tailrecurse_crit_edge
 

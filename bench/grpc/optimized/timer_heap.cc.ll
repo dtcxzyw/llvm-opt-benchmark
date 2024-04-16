@@ -78,29 +78,28 @@ if.end:                                           ; preds = %entry, %if.end18
   %add35 = phi i64 [ %add, %if.end18 ], [ %add27, %entry ]
   %mul34 = phi i64 [ %mul, %if.end18 ], [ %mul26, %entry ]
   %i.addr.033 = phi i64 [ %cond, %if.end18 ], [ %i, %entry ]
-  %add2 = add i64 %mul34, 2
+  %add2 = add nuw i64 %mul34, 2
   %cmp5 = icmp ult i64 %add2, %sub.ptr.div.i36
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 %add35
-  %3 = load ptr, ptr %add.ptr.i, align 8
-  %4 = load i64, ptr %3, align 8
   br i1 %cmp5, label %land.lhs.true, label %cond.end
 
 land.lhs.true:                                    ; preds = %if.end
+  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 %add35
+  %3 = load ptr, ptr %add.ptr.i, align 8
+  %4 = load i64, ptr %3, align 8
   %add.ptr.i20 = getelementptr inbounds ptr, ptr %2, i64 %add2
   %5 = load ptr, ptr %add.ptr.i20, align 8
   %6 = load i64, ptr %5, align 8
   %cmp11 = icmp sgt i64 %4, %6
-  br i1 %cmp11, label %cond.end, label %cond.false
-
-cond.false:                                       ; preds = %land.lhs.true
+  %spec.select = select i1 %cmp11, i64 %add2, i64 %add35
   br label %cond.end
 
-cond.end:                                         ; preds = %if.end, %land.lhs.true, %cond.false
-  %7 = phi i64 [ %6, %land.lhs.true ], [ %4, %cond.false ], [ %4, %if.end ]
-  %8 = phi ptr [ %5, %land.lhs.true ], [ %3, %cond.false ], [ %3, %if.end ]
-  %cond = phi i64 [ %add2, %land.lhs.true ], [ %add35, %cond.false ], [ %add35, %if.end ]
-  %9 = load i64, ptr %t, align 8
-  %cmp16.not = icmp sgt i64 %9, %7
+cond.end:                                         ; preds = %land.lhs.true, %if.end
+  %cond = phi i64 [ %add35, %if.end ], [ %spec.select, %land.lhs.true ]
+  %7 = load i64, ptr %t, align 8
+  %add.ptr.i21 = getelementptr inbounds ptr, ptr %2, i64 %cond
+  %8 = load ptr, ptr %add.ptr.i21, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp16.not = icmp sgt i64 %7, %9
   br i1 %cmp16.not, label %if.end18, label %for.end
 
 if.end18:                                         ; preds = %cond.end
@@ -205,29 +204,28 @@ if.end.i7:                                        ; preds = %if.else, %if.end18.
   %add35.i = phi i64 [ %add.i, %if.end18.i ], [ %add27.i, %if.else ]
   %mul34.i = phi i64 [ %mul.i, %if.end18.i ], [ %mul26.i, %if.else ]
   %i.addr.033.i = phi i64 [ %cond.i, %if.end18.i ], [ %conv4, %if.else ]
-  %add2.i = add i64 %mul34.i, 2
+  %add2.i = add nuw i64 %mul34.i, 2
   %cmp5.i = icmp ult i64 %add2.i, %sub.ptr.div.i36.i
-  %add.ptr.i.i8 = getelementptr inbounds ptr, ptr %13, i64 %add35.i
-  %14 = load ptr, ptr %add.ptr.i.i8, align 8
-  %15 = load i64, ptr %14, align 8
   br i1 %cmp5.i, label %land.lhs.true.i, label %cond.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i7
+  %add.ptr.i.i10 = getelementptr inbounds ptr, ptr %13, i64 %add35.i
+  %14 = load ptr, ptr %add.ptr.i.i10, align 8
+  %15 = load i64, ptr %14, align 8
   %add.ptr.i20.i = getelementptr inbounds ptr, ptr %13, i64 %add2.i
   %16 = load ptr, ptr %add.ptr.i20.i, align 8
   %17 = load i64, ptr %16, align 8
   %cmp11.i = icmp sgt i64 %15, %17
-  br i1 %cmp11.i, label %cond.end.i, label %cond.false.i
-
-cond.false.i:                                     ; preds = %land.lhs.true.i
+  %spec.select.i = select i1 %cmp11.i, i64 %add2.i, i64 %add35.i
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %cond.false.i, %land.lhs.true.i, %if.end.i7
-  %18 = phi i64 [ %17, %land.lhs.true.i ], [ %15, %cond.false.i ], [ %15, %if.end.i7 ]
-  %19 = phi ptr [ %16, %land.lhs.true.i ], [ %14, %cond.false.i ], [ %14, %if.end.i7 ]
-  %cond.i = phi i64 [ %add2.i, %land.lhs.true.i ], [ %add35.i, %cond.false.i ], [ %add35.i, %if.end.i7 ]
-  %20 = load i64, ptr %timer, align 8
-  %cmp16.not.i = icmp sgt i64 %20, %18
+cond.end.i:                                       ; preds = %land.lhs.true.i, %if.end.i7
+  %cond.i = phi i64 [ %add35.i, %if.end.i7 ], [ %spec.select.i, %land.lhs.true.i ]
+  %18 = load i64, ptr %timer, align 8
+  %add.ptr.i21.i = getelementptr inbounds ptr, ptr %13, i64 %cond.i
+  %19 = load ptr, ptr %add.ptr.i21.i, align 8
+  %20 = load i64, ptr %19, align 8
+  %cmp16.not.i = icmp sgt i64 %18, %20
   br i1 %cmp16.not.i, label %if.end18.i, label %_ZN17grpc_event_engine12experimental9TimerHeap15AdjustDownwardsEmPNS0_5TimerE.exit
 
 if.end18.i:                                       ; preds = %cond.end.i
@@ -236,8 +234,8 @@ if.end18.i:                                       ; preds = %cond.end.i
   %21 = load ptr, ptr %this, align 8
   %add.ptr.i24.i = getelementptr inbounds ptr, ptr %21, i64 %i.addr.033.i
   %22 = load ptr, ptr %add.ptr.i24.i, align 8
-  %heap_index.i9 = getelementptr inbounds i8, ptr %22, i64 8
-  store i64 %i.addr.033.i, ptr %heap_index.i9, align 8
+  %heap_index.i8 = getelementptr inbounds i8, ptr %22, i64 8
+  store i64 %i.addr.033.i, ptr %heap_index.i8, align 8
   %mul.i = shl i64 %cond.i, 1
   %add.i = or disjoint i64 %mul.i, 1
   %23 = load ptr, ptr %_M_finish.i.i, align 8
@@ -246,8 +244,8 @@ if.end18.i:                                       ; preds = %cond.end.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.not.i10 = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i10, label %if.end.i7, label %_ZN17grpc_event_engine12experimental9TimerHeap15AdjustDownwardsEmPNS0_5TimerE.exit, !llvm.loop !6
+  %cmp.not.i9 = icmp ult i64 %add.i, %sub.ptr.div.i.i
+  br i1 %cmp.not.i9, label %if.end.i7, label %_ZN17grpc_event_engine12experimental9TimerHeap15AdjustDownwardsEmPNS0_5TimerE.exit, !llvm.loop !6
 
 _ZN17grpc_event_engine12experimental9TimerHeap15AdjustDownwardsEmPNS0_5TimerE.exit: ; preds = %cond.end.i, %if.end18.i, %if.else
   %i.addr.0.lcssa.i6 = phi i64 [ %conv4, %if.else ], [ %cond.i, %if.end18.i ], [ %i.addr.033.i, %cond.end.i ]
@@ -305,8 +303,8 @@ _ZNKSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE12_M_check_lenEm
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %6
+  %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -344,37 +342,37 @@ _ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_inse
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %7 = load i64, ptr %heap_index, align 8
-  %cmp.not16.i = icmp eq i64 %7, 0
+  %6 = load i64, ptr %heap_index, align 8
+  %cmp.not16.i = icmp eq i64 %6, 0
   br i1 %cmp.not16.i, label %_ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit, %if.end.i
-  %i.addr.017.i = phi i64 [ %div11.i, %if.end.i ], [ %7, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit ]
+  %i.addr.017.i = phi i64 [ %div11.i, %if.end.i ], [ %6, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit ]
   %sub.i = add i64 %i.addr.017.i, -1
   %div11.i = lshr i64 %sub.i, 1
-  %8 = load ptr, ptr %this, align 8
-  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %8, i64 %div11.i
-  %9 = load ptr, ptr %add.ptr.i.i2, align 8
-  %10 = load i64, ptr %9, align 8
-  %11 = load i64, ptr %timer, align 8
-  %cmp3.not.i = icmp sgt i64 %10, %11
+  %7 = load ptr, ptr %this, align 8
+  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %7, i64 %div11.i
+  %8 = load ptr, ptr %add.ptr.i.i2, align 8
+  %9 = load i64, ptr %8, align 8
+  %10 = load i64, ptr %timer, align 8
+  %cmp3.not.i = icmp sgt i64 %9, %10
   br i1 %cmp3.not.i, label %if.end.i, label %_ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit
 
 if.end.i:                                         ; preds = %while.body.i
-  %add.ptr.i13.i = getelementptr inbounds ptr, ptr %8, i64 %i.addr.017.i
-  store ptr %9, ptr %add.ptr.i13.i, align 8
-  %12 = load ptr, ptr %this, align 8
-  %add.ptr.i14.i = getelementptr inbounds ptr, ptr %12, i64 %i.addr.017.i
-  %13 = load ptr, ptr %add.ptr.i14.i, align 8
-  %heap_index.i = getelementptr inbounds i8, ptr %13, i64 8
+  %add.ptr.i13.i = getelementptr inbounds ptr, ptr %7, i64 %i.addr.017.i
+  store ptr %8, ptr %add.ptr.i13.i, align 8
+  %11 = load ptr, ptr %this, align 8
+  %add.ptr.i14.i = getelementptr inbounds ptr, ptr %11, i64 %i.addr.017.i
+  %12 = load ptr, ptr %add.ptr.i14.i, align 8
+  %heap_index.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %i.addr.017.i, ptr %heap_index.i, align 8
   %cmp.not.i3 = icmp ult i64 %sub.i, 2
   br i1 %cmp.not.i3, label %_ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit, label %while.body.i, !llvm.loop !4
 
 _ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit: ; preds = %while.body.i, %if.end.i, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit
   %i.addr.0.lcssa.i = phi i64 [ 0, %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit ], [ %div11.i, %if.end.i ], [ %i.addr.017.i, %while.body.i ]
-  %14 = load ptr, ptr %this, align 8
-  %add.ptr.i15.i = getelementptr inbounds ptr, ptr %14, i64 %i.addr.0.lcssa.i
+  %13 = load ptr, ptr %this, align 8
+  %add.ptr.i15.i = getelementptr inbounds ptr, ptr %13, i64 %i.addr.0.lcssa.i
   store ptr %timer, ptr %add.ptr.i15.i, align 8
   store i64 %i.addr.0.lcssa.i, ptr %heap_index, align 8
   %cmp = icmp eq i64 %i.addr.0.lcssa.i, 0

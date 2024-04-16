@@ -67,100 +67,98 @@ define dso_local i32 @gen4_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   %13 = getelementptr inbounds i8, ptr %7, i64 7176
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 5
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, i32 33554466, i32 33554434
+  br label %16
 
 16:                                               ; preds = %12, %5
-  br label %17
-
-17:                                               ; preds = %16, %12
-  %18 = phi i32 [ 33554466, %16 ], [ 33554434, %12 ]
-  %19 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 22) #3
-  %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
-  br i1 %20, label %24, label %28
+  %17 = phi i32 [ 33554466, %5 ], [ %spec.select, %12 ]
+  %18 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 22) #3
+  %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
+  br i1 %19, label %23, label %27
 
 .thread:                                          ; preds = %2
-  %21 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 2) #3
-  %22 = icmp ugt ptr %21, inttoptr (i64 -4096 to ptr)
-  br i1 %22, label %24, label %.thread1
+  %20 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 2) #3
+  %21 = icmp ugt ptr %20, inttoptr (i64 -4096 to ptr)
+  br i1 %21, label %23, label %.thread1
 
 .thread1:                                         ; preds = %.thread
-  %23 = getelementptr i8, ptr %21, i64 4
-  store i32 33554432, ptr %21, align 4
-  br label %70
+  %22 = getelementptr i8, ptr %20, i64 4
+  store i32 33554432, ptr %20, align 4
+  br label %69
 
-24:                                               ; preds = %.thread, %17
-  %25 = phi ptr [ %21, %.thread ], [ %19, %17 ]
-  %26 = ptrtoint ptr %25 to i64
-  %27 = trunc i64 %26 to i32
-  br label %73
+23:                                               ; preds = %.thread, %16
+  %24 = phi ptr [ %20, %.thread ], [ %18, %16 ]
+  %25 = ptrtoint ptr %24 to i64
+  %26 = trunc i64 %25 to i32
+  br label %72
 
-28:                                               ; preds = %17
-  %29 = getelementptr i8, ptr %19, i64 4
-  store i32 %18, ptr %19, align 4
-  %30 = getelementptr i8, ptr %19, i64 8
-  store i32 2046836738, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4864
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 248
-  %40 = load i32, ptr %39, align 8
-  %41 = trunc i64 %38 to i32
-  %42 = add i32 %40, %41
-  %43 = or i32 %42, 4
-  %44 = getelementptr i8, ptr %19, i64 12
-  store i32 %43, ptr %30, align 4
-  %45 = getelementptr i8, ptr %19, i64 16
+27:                                               ; preds = %16
+  %28 = getelementptr i8, ptr %18, i64 4
+  store i32 %17, ptr %18, align 4
+  %29 = getelementptr i8, ptr %18, i64 8
+  store i32 2046836738, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 4864
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %35, i64 248
+  %39 = load i32, ptr %38, align 8
+  %40 = trunc i64 %37 to i32
+  %41 = add i32 %39, %40
+  %42 = or i32 %41, 4
+  %43 = getelementptr i8, ptr %18, i64 12
+  store i32 %42, ptr %29, align 4
+  %44 = getelementptr i8, ptr %18, i64 16
+  store i32 0, ptr %43, align 4
+  %45 = getelementptr i8, ptr %18, i64 20
   store i32 0, ptr %44, align 4
-  %46 = getelementptr i8, ptr %19, i64 20
-  store i32 0, ptr %45, align 4
-  br label %47
+  br label %46
 
-47:                                               ; preds = %47, %28
-  %48 = phi i32 [ 0, %28 ], [ %51, %47 ]
-  %49 = phi ptr [ %46, %28 ], [ %50, %47 ]
-  %50 = getelementptr i8, ptr %49, i64 4
-  store i32 33554432, ptr %49, align 4
-  %51 = add nuw nsw i32 %48, 1
-  %52 = icmp eq i32 %51, 12
-  br i1 %52, label %53, label %47, !llvm.loop !8
+46:                                               ; preds = %46, %27
+  %47 = phi i32 [ 0, %27 ], [ %50, %46 ]
+  %48 = phi ptr [ %45, %27 ], [ %49, %46 ]
+  %49 = getelementptr i8, ptr %48, i64 4
+  store i32 33554432, ptr %48, align 4
+  %50 = add nuw nsw i32 %47, 1
+  %51 = icmp eq i32 %50, 12
+  br i1 %51, label %52, label %46, !llvm.loop !8
 
-53:                                               ; preds = %47
-  %54 = getelementptr i8, ptr %49, i64 8
-  store i32 2046836738, ptr %50, align 4
-  %55 = load ptr, ptr %31, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4864
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 248
-  %63 = load i32, ptr %62, align 8
-  %64 = trunc i64 %61 to i32
-  %65 = add i32 %63, %64
-  %66 = or i32 %65, 4
-  %67 = getelementptr i8, ptr %49, i64 12
-  store i32 %66, ptr %54, align 4
-  %68 = getelementptr i8, ptr %49, i64 16
+52:                                               ; preds = %46
+  %53 = getelementptr i8, ptr %48, i64 8
+  store i32 2046836738, ptr %49, align 4
+  %54 = load ptr, ptr %30, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 4864
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %58, i64 248
+  %62 = load i32, ptr %61, align 8
+  %63 = trunc i64 %60 to i32
+  %64 = add i32 %62, %63
+  %65 = or i32 %64, 4
+  %66 = getelementptr i8, ptr %48, i64 12
+  store i32 %65, ptr %53, align 4
+  %67 = getelementptr i8, ptr %48, i64 16
+  store i32 0, ptr %66, align 4
+  %68 = getelementptr i8, ptr %48, i64 20
   store i32 0, ptr %67, align 4
-  %69 = getelementptr i8, ptr %49, i64 20
-  store i32 0, ptr %68, align 4
-  br label %70
+  br label %69
 
-70:                                               ; preds = %.thread1, %53
-  %71 = phi i32 [ %18, %53 ], [ 33554432, %.thread1 ]
-  %72 = phi ptr [ %69, %53 ], [ %23, %.thread1 ]
-  store i32 %71, ptr %72, align 4
-  br label %73
+69:                                               ; preds = %.thread1, %52
+  %70 = phi i32 [ %17, %52 ], [ 33554432, %.thread1 ]
+  %71 = phi ptr [ %68, %52 ], [ %22, %.thread1 ]
+  store i32 %70, ptr %71, align 4
+  br label %72
 
-73:                                               ; preds = %70, %24
-  %74 = phi i32 [ %27, %24 ], [ 0, %70 ]
-  ret i32 %74
+72:                                               ; preds = %69, %23
+  %73 = phi i32 [ %26, %23 ], [ 0, %69 ]
+  ret i32 %73
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

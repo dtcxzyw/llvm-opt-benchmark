@@ -3520,7 +3520,7 @@ for.body:                                         ; preds = %for.body, %for.body
   store i8 %conv5.i, ptr %incdec.ptr6.i, align 1, !tbaa !102
   %10 = load i32, ptr %Color, align 4, !tbaa !119
   %shr.i16.i = lshr i32 %10, 24
-  %conv8.i = trunc i32 %shr.i16.i to i8
+  %conv8.i = trunc nuw i32 %shr.i16.i to i8
   %incdec.ptr9.i = getelementptr inbounds i8, ptr %Color28, i64 3
   store i8 %conv8.i, ptr %incdec.ptr9.i, align 1, !tbaa !102
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
@@ -3546,7 +3546,7 @@ for.body37:                                       ; preds = %for.body37, %for.bo
   store i8 %conv5.i178, ptr %incdec.ptr6.i179, align 1, !tbaa !102
   %14 = load i32, ptr %Color40, align 4, !tbaa !119
   %shr.i16.i180 = lshr i32 %14, 24
-  %conv8.i181 = trunc i32 %shr.i16.i180 to i8
+  %conv8.i181 = trunc nuw i32 %shr.i16.i180 to i8
   %incdec.ptr9.i182 = getelementptr inbounds i8, ptr %Color43, i64 3
   store i8 %conv8.i181, ptr %incdec.ptr9.i182, align 1, !tbaa !102
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
@@ -3572,7 +3572,7 @@ for.body55:                                       ; preds = %for.body55, %for.bo
   store i8 %conv5.i191, ptr %incdec.ptr6.i192, align 1, !tbaa !102
   %18 = load i32, ptr %Color58, align 4, !tbaa !119
   %shr.i16.i193 = lshr i32 %18, 24
-  %conv8.i194 = trunc i32 %shr.i16.i193 to i8
+  %conv8.i194 = trunc nuw i32 %shr.i16.i193 to i8
   %incdec.ptr9.i195 = getelementptr inbounds i8, ptr %Color61, i64 3
   store i8 %conv8.i194, ptr %incdec.ptr9.i195, align 1, !tbaa !102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3893,7 +3893,7 @@ if.end15:                                         ; preds = %if.then5, %lor.lhs.
   %Mapped_Index = getelementptr inbounds i8, ptr %HWBuffer, i64 28
   %7 = load i32, ptr %Mapped_Index, align 4, !tbaa !262
   %cmp16.not = icmp eq i32 %7, 0
-  br i1 %cmp16.not, label %if.end35, label %if.then17
+  br i1 %cmp16.not, label %return, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
   %ChangedID_Index = getelementptr inbounds i8, ptr %HWBuffer, i64 20
@@ -3911,7 +3911,7 @@ lor.lhs.false23:                                  ; preds = %if.then17
   %vbo_indicesID = getelementptr inbounds i8, ptr %HWBuffer, i64 44
   %11 = load i32, ptr %vbo_indicesID, align 4, !tbaa !260
   %tobool24.not = icmp eq i32 %11, 0
-  br i1 %tobool24.not, label %if.then25, label %if.end35
+  br i1 %tobool24.not, label %if.then25, label %return
 
 if.then25:                                        ; preds = %lor.lhs.false23, %if.then17
   %12 = load ptr, ptr %MeshBuffer18, align 8, !tbaa !245
@@ -3921,13 +3921,10 @@ if.then25:                                        ; preds = %lor.lhs.false23, %i
   %call29 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   store i32 %call29, ptr %ChangedID_Index, align 4, !tbaa !264
   %call31 = tail call noundef zeroext i1 @_ZN3irr5video13COpenGLDriver25updateIndexHardwareBufferEPNS1_20SHWBufferLink_openglE(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull %HWBuffer)
-  br i1 %call31, label %if.end35, label %return
-
-if.end35:                                         ; preds = %if.then25, %lor.lhs.false23, %if.end15
   br label %return
 
-return:                                           ; preds = %if.end35, %if.then25, %if.then5, %entry
-  %retval.0 = phi i1 [ true, %if.end35 ], [ false, %entry ], [ false, %if.then5 ], [ false, %if.then25 ]
+return:                                           ; preds = %if.then25, %if.end15, %lor.lhs.false23, %if.then5, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then5 ], [ true, %lor.lhs.false23 ], [ true, %if.end15 ], [ %call31, %if.then25 ]
   ret i1 %retval.0
 }
 
@@ -5747,7 +5744,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i8 %conv5.i, ptr %incdec.ptr6.i, align 1, !tbaa !102
   %4 = load i32, ptr %Color, align 4, !tbaa !119
   %shr.i16.i = lshr i32 %4, 24
-  %conv8.i = trunc i32 %shr.i16.i to i8
+  %conv8.i = trunc nuw i32 %shr.i16.i to i8
   %incdec.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 3
   store i8 %conv8.i, ptr %incdec.ptr9.i, align 1, !tbaa !102
   %incdec.ptr = getelementptr inbounds i8, ptr %p.080, i64 36
@@ -5776,7 +5773,7 @@ for.body7:                                        ; preds = %for.cond5.preheader
   store i8 %conv5.i53, ptr %incdec.ptr6.i54, align 1, !tbaa !102
   %9 = load i32, ptr %Color8, align 4, !tbaa !119
   %shr.i16.i55 = lshr i32 %9, 24
-  %conv8.i56 = trunc i32 %shr.i16.i55 to i8
+  %conv8.i56 = trunc nuw i32 %shr.i16.i55 to i8
   %incdec.ptr9.i57 = getelementptr inbounds i8, ptr %add.ptr.i.i47, i64 3
   store i8 %conv8.i56, ptr %incdec.ptr9.i57, align 1, !tbaa !102
   %incdec.ptr11 = getelementptr inbounds i8, ptr %p4.077, i64 44
@@ -5805,7 +5802,7 @@ for.body19:                                       ; preds = %for.cond17.preheade
   store i8 %conv5.i65, ptr %incdec.ptr6.i66, align 1, !tbaa !102
   %14 = load i32, ptr %Color20, align 4, !tbaa !119
   %shr.i16.i67 = lshr i32 %14, 24
-  %conv8.i68 = trunc i32 %shr.i16.i67 to i8
+  %conv8.i68 = trunc nuw i32 %shr.i16.i67 to i8
   %incdec.ptr9.i69 = getelementptr inbounds i8, ptr %add.ptr.i.i59, i64 3
   store i8 %conv8.i68, ptr %incdec.ptr9.i69, align 1, !tbaa !102
   %incdec.ptr23 = getelementptr inbounds i8, ptr %p16.074, i64 60
@@ -7139,7 +7136,7 @@ if.end3:                                          ; preds = %if.end
   %6 = trunc i64 %5 to i32
   %add.i = add nsw i32 %sub.i.i, %6
   %7 = lshr i64 %5, 32
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %add2.i = add nsw i32 %sub.i4.i, %8
   %tobool5.not = icmp eq ptr %clipRect, null
   br i1 %tobool5.not, label %if.end12, label %if.then6
@@ -7161,7 +7158,7 @@ if.then6:                                         ; preds = %if.end3
   %targetRect.sroa.0.0 = select i1 %cmp43.i, i64 %targetRect.sroa.0.0.insert.insert290, i64 %5
   %13 = tail call i32 @llvm.smin.i32(i32 %9, i32 %6)
   %targetRect.sroa.0.4.extract.shift313 = lshr i64 %targetRect.sroa.0.0, 32
-  %targetRect.sroa.0.4.extract.trunc314 = trunc i64 %targetRect.sroa.0.4.extract.shift313 to i32
+  %targetRect.sroa.0.4.extract.trunc314 = trunc nuw i64 %targetRect.sroa.0.4.extract.shift313 to i32
   %cmp54.i = icmp slt i32 %10, %targetRect.sroa.0.4.extract.trunc314
   %targetRect.sroa.0.4.insert.ext316 = zext i32 %10 to i64
   %targetRect.sroa.0.4.insert.shift317 = shl nuw i64 %targetRect.sroa.0.4.insert.ext316, 32
@@ -7188,7 +7185,7 @@ lor.lhs.false:                                    ; preds = %if.then6
   %targetRect.sroa.39.0 = tail call i32 @llvm.smin.i32(i32 %10, i32 %add2.i)
   %targetRect.sroa.39.1 = tail call i32 @llvm.smax.i32(i32 %12, i32 %targetRect.sroa.39.0)
   %targetRect.sroa.0.4.extract.shift321 = lshr i64 %targetRect.sroa.0.3, 32
-  %targetRect.sroa.0.4.extract.trunc322 = trunc i64 %targetRect.sroa.0.4.extract.shift321 to i32
+  %targetRect.sroa.0.4.extract.trunc322 = trunc nuw i64 %targetRect.sroa.0.4.extract.shift321 to i32
   %cmp9 = icmp slt i32 %targetRect.sroa.39.1, %targetRect.sroa.0.4.extract.trunc322
   br i1 %cmp9, label %cleanup.cont, label %if.end12
 
@@ -7215,7 +7212,7 @@ if.end12:                                         ; preds = %lor.lhs.false, %if.
   %targetRect.sroa.0.5 = select i1 %cmp43.i216, i64 %targetRect.sroa.0.0.insert.insert302, i64 %targetRect.sroa.0.4
   %18 = tail call i32 @llvm.smin.i32(i32 %16, i32 %targetRect.sroa.0.0.extract.trunc294.pre-phi)
   %targetRect.sroa.0.4.extract.shift324 = lshr i64 %targetRect.sroa.0.5, 32
-  %targetRect.sroa.0.4.extract.trunc325 = trunc i64 %targetRect.sroa.0.4.extract.shift324 to i32
+  %targetRect.sroa.0.4.extract.trunc325 = trunc nuw i64 %targetRect.sroa.0.4.extract.shift324 to i32
   %cmp54.i219 = icmp slt i32 %17, %targetRect.sroa.0.4.extract.trunc325
   %targetRect.sroa.0.4.insert.ext332 = zext i32 %17 to i64
   %targetRect.sroa.0.4.insert.shift333 = shl nuw i64 %targetRect.sroa.0.4.insert.ext332, 32
@@ -7236,7 +7233,7 @@ if.end12:                                         ; preds = %lor.lhs.false, %if.
 
 lor.lhs.false17:                                  ; preds = %if.end12
   %targetRect.sroa.0.4.extract.shift337 = lshr i64 %targetRect.sroa.0.8, 32
-  %targetRect.sroa.0.4.extract.trunc338 = trunc i64 %targetRect.sroa.0.4.extract.shift337 to i32
+  %targetRect.sroa.0.4.extract.trunc338 = trunc nuw i64 %targetRect.sroa.0.4.extract.shift337 to i32
   %sub.i237 = sub nsw i32 %targetRect.sroa.39.4, %targetRect.sroa.0.4.extract.trunc338
   %cmp19 = icmp slt i32 %sub.i237, 0
   br i1 %cmp19, label %cleanup.cont, label %if.end21
@@ -7653,12 +7650,12 @@ if.else.i.i93.i:                                  ; preds = %if.then.i86.i
   br i1 %tobool3.not.i.i95.i, label %if.else.i.i93.i._ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i_crit_edge, label %if.end6.sink.split.i.i90.i
 
 if.else.i.i93.i._ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i_crit_edge: ; preds = %if.else.i.i93.i
-  %.pre = trunc i64 %8 to i32
+  %.pre = trunc nuw nsw i64 %8 to i32
   br label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i
 
 if.end6.sink.split.i.i90.i:                       ; preds = %if.else.i.i93.i, %if.then.i86.i
   %.sink.i.i91.i = phi ptr [ %12, %if.then.i86.i ], [ %13, %if.else.i.i93.i ]
-  %14 = trunc i64 %8 to i32
+  %14 = trunc nuw nsw i64 %8 to i32
   tail call void %.sink.i.i91.i(i32 noundef %14) #24
   br label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i92.i
 
@@ -8124,7 +8121,7 @@ if.then138:                                       ; preds = %if.end48.cont.cont.
   store i8 %conv5.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !102
   %84 = load i32, ptr %Color, align 8, !tbaa !119
   %shr.i16.i.i = lshr i32 %84, 24
-  %conv8.i.i = trunc i32 %shr.i16.i.i to i8
+  %conv8.i.i = trunc nuw i32 %shr.i16.i.i to i8
   %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %80, i64 3
   store i8 %conv8.i.i, ptr %incdec.ptr9.i.i, align 1, !tbaa !102
   %Color.i.1 = getelementptr inbounds i8, ptr %this, i64 4252
@@ -8145,7 +8142,7 @@ if.then138:                                       ; preds = %if.end48.cont.cont.
   store i8 %conv5.i.i.1, ptr %incdec.ptr6.i.i.1, align 1, !tbaa !102
   %89 = load i32, ptr %Color.i.1, align 4, !tbaa !119
   %shr.i16.i.i.1 = lshr i32 %89, 24
-  %conv8.i.i.1 = trunc i32 %shr.i16.i.i.1 to i8
+  %conv8.i.i.1 = trunc nuw i32 %shr.i16.i.i.1 to i8
   %incdec.ptr9.i.i.1 = getelementptr inbounds i8, ptr %85, i64 7
   store i8 %conv8.i.i.1, ptr %incdec.ptr9.i.i.1, align 1, !tbaa !102
   %Color.i.2 = getelementptr inbounds i8, ptr %this, i64 4288
@@ -8166,7 +8163,7 @@ if.then138:                                       ; preds = %if.end48.cont.cont.
   store i8 %conv5.i.i.2, ptr %incdec.ptr6.i.i.2, align 1, !tbaa !102
   %94 = load i32, ptr %Color.i.2, align 8, !tbaa !119
   %shr.i16.i.i.2 = lshr i32 %94, 24
-  %conv8.i.i.2 = trunc i32 %shr.i16.i.i.2 to i8
+  %conv8.i.i.2 = trunc nuw i32 %shr.i16.i.i.2 to i8
   %incdec.ptr9.i.i.2 = getelementptr inbounds i8, ptr %90, i64 11
   store i8 %conv8.i.i.2, ptr %incdec.ptr9.i.i.2, align 1, !tbaa !102
   %95 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -8186,7 +8183,7 @@ if.then138:                                       ; preds = %if.end48.cont.cont.
   store i8 %conv5.i.i.3, ptr %incdec.ptr6.i.i.3, align 1, !tbaa !102
   %99 = load i32, ptr %Color62307, align 4, !tbaa !119
   %shr.i16.i.i.3 = lshr i32 %99, 24
-  %conv8.i.i.3 = trunc i32 %shr.i16.i.i.3 to i8
+  %conv8.i.i.3 = trunc nuw i32 %shr.i16.i.i.3 to i8
   %incdec.ptr9.i.i.3 = getelementptr inbounds i8, ptr %95, i64 15
   store i8 %conv8.i.i.3, ptr %incdec.ptr9.i.i.3, align 1, !tbaa !102
   br label %if.end141
@@ -8853,7 +8850,7 @@ if.then31:                                        ; preds = %if.end13
   store i8 %conv5.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !102
   %57 = load i32, ptr %Color, align 8, !tbaa !119
   %shr.i16.i.i = lshr i32 %57, 24
-  %conv8.i.i = trunc i32 %shr.i16.i.i to i8
+  %conv8.i.i = trunc nuw i32 %shr.i16.i.i to i8
   %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %53, i64 3
   store i8 %conv8.i.i, ptr %incdec.ptr9.i.i, align 1, !tbaa !102
   %58 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -8873,7 +8870,7 @@ if.then31:                                        ; preds = %if.end13
   store i8 %conv5.i.i.1, ptr %incdec.ptr6.i.i.1, align 1, !tbaa !102
   %62 = load i32, ptr %Color18, align 4, !tbaa !119
   %shr.i16.i.i.1 = lshr i32 %62, 24
-  %conv8.i.i.1 = trunc i32 %shr.i16.i.i.1 to i8
+  %conv8.i.i.1 = trunc nuw i32 %shr.i16.i.i.1 to i8
   %incdec.ptr9.i.i.1 = getelementptr inbounds i8, ptr %58, i64 7
   store i8 %conv8.i.i.1, ptr %incdec.ptr9.i.i.1, align 1, !tbaa !102
   %63 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -8893,7 +8890,7 @@ if.then31:                                        ; preds = %if.end13
   store i8 %conv5.i.i.2, ptr %incdec.ptr6.i.i.2, align 1, !tbaa !102
   %67 = load i32, ptr %Color21, align 8, !tbaa !119
   %shr.i16.i.i.2 = lshr i32 %67, 24
-  %conv8.i.i.2 = trunc i32 %shr.i16.i.i.2 to i8
+  %conv8.i.i.2 = trunc nuw i32 %shr.i16.i.i.2 to i8
   %incdec.ptr9.i.i.2 = getelementptr inbounds i8, ptr %63, i64 11
   store i8 %conv8.i.i.2, ptr %incdec.ptr9.i.i.2, align 1, !tbaa !102
   %68 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -8913,7 +8910,7 @@ if.then31:                                        ; preds = %if.end13
   store i8 %conv5.i.i.3, ptr %incdec.ptr6.i.i.3, align 1, !tbaa !102
   %72 = load i32, ptr %Color24, align 4, !tbaa !119
   %shr.i16.i.i.3 = lshr i32 %72, 24
-  %conv8.i.i.3 = trunc i32 %shr.i16.i.i.3 to i8
+  %conv8.i.i.3 = trunc nuw i32 %shr.i16.i.i.3 to i8
   %incdec.ptr9.i.i.3 = getelementptr inbounds i8, ptr %68, i64 15
   store i8 %conv8.i.i.3, ptr %incdec.ptr9.i.i.3, align 1, !tbaa !102
   br label %if.end33
@@ -8989,7 +8986,7 @@ if.end68:                                         ; preds = %for.body
   %84 = load i64, ptr %add.ptr.i.i381, align 4, !tbaa.struct !128
   %targetPos.sroa.0.0.extract.trunc = trunc i64 %84 to i32
   %targetPos.sroa.13.0.extract.shift = lshr i64 %84, 32
-  %targetPos.sroa.13.0.extract.trunc = trunc i64 %targetPos.sroa.13.0.extract.shift to i32
+  %targetPos.sroa.13.0.extract.trunc = trunc nuw i64 %targetPos.sroa.13.0.extract.shift to i32
   %sub.i.i = sub nsw i32 %78, %79
   %sub.i4.i = sub nsw i32 %80, %81
   br i1 %tobool73.not, label %if.end160, label %if.then74
@@ -9527,7 +9524,7 @@ if.end5:                                          ; preds = %if.end
   %shr.i26 = lshr i32 %color.coerce, 8
   %conv8 = trunc i32 %shr.i26 to i8
   %conv10 = trunc i32 %color.coerce to i8
-  %conv12 = trunc i32 %shr.i to i8
+  %conv12 = trunc nuw i32 %shr.i to i8
   tail call void @glColor4ub(i8 noundef zeroext %conv, i8 noundef zeroext %conv8, i8 noundef zeroext %conv10, i8 noundef zeroext %conv12) #24
   %conv13 = sitofp i32 %pos.sroa.0.2 to float
   %conv15 = sitofp i32 %pos.sroa.8.2 to float
@@ -9960,7 +9957,7 @@ if.then64:                                        ; preds = %_ZN3irr5video13COpe
   store i8 %conv5.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !102
   %67 = load i32, ptr %Color, align 8, !tbaa !119
   %shr.i16.i.i = lshr i32 %67, 24
-  %conv8.i.i = trunc i32 %shr.i16.i.i to i8
+  %conv8.i.i = trunc nuw i32 %shr.i16.i.i to i8
   %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %63, i64 3
   store i8 %conv8.i.i, ptr %incdec.ptr9.i.i, align 1, !tbaa !102
   %68 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -9980,7 +9977,7 @@ if.then64:                                        ; preds = %_ZN3irr5video13COpe
   store i8 %conv5.i.i.1, ptr %incdec.ptr6.i.i.1, align 1, !tbaa !102
   %72 = load i32, ptr %Color18, align 4, !tbaa !119
   %shr.i16.i.i.1 = lshr i32 %72, 24
-  %conv8.i.i.1 = trunc i32 %shr.i16.i.i.1 to i8
+  %conv8.i.i.1 = trunc nuw i32 %shr.i16.i.i.1 to i8
   %incdec.ptr9.i.i.1 = getelementptr inbounds i8, ptr %68, i64 7
   store i8 %conv8.i.i.1, ptr %incdec.ptr9.i.i.1, align 1, !tbaa !102
   %73 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -10000,7 +9997,7 @@ if.then64:                                        ; preds = %_ZN3irr5video13COpe
   store i8 %conv5.i.i.2, ptr %incdec.ptr6.i.i.2, align 1, !tbaa !102
   %77 = load i32, ptr %Color21, align 8, !tbaa !119
   %shr.i16.i.i.2 = lshr i32 %77, 24
-  %conv8.i.i.2 = trunc i32 %shr.i16.i.i.2 to i8
+  %conv8.i.i.2 = trunc nuw i32 %shr.i16.i.i.2 to i8
   %incdec.ptr9.i.i.2 = getelementptr inbounds i8, ptr %73, i64 11
   store i8 %conv8.i.i.2, ptr %incdec.ptr9.i.i.2, align 1, !tbaa !102
   %78 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -10020,7 +10017,7 @@ if.then64:                                        ; preds = %_ZN3irr5video13COpe
   store i8 %conv5.i.i.3, ptr %incdec.ptr6.i.i.3, align 1, !tbaa !102
   %82 = load i32, ptr %Color24, align 4, !tbaa !119
   %shr.i16.i.i.3 = lshr i32 %82, 24
-  %conv8.i.i.3 = trunc i32 %shr.i16.i.i.3 to i8
+  %conv8.i.i.3 = trunc nuw i32 %shr.i16.i.i.3 to i8
   %incdec.ptr9.i.i.3 = getelementptr inbounds i8, ptr %78, i64 15
   store i8 %conv8.i.i.3, ptr %incdec.ptr9.i.i.3, align 1, !tbaa !102
   br label %if.end66
@@ -10406,7 +10403,7 @@ if.then:                                          ; preds = %_ZN3irr5video13COpe
   store i8 %conv5.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !102
   %66 = load i32, ptr %Color, align 8, !tbaa !119
   %shr.i16.i.i = lshr i32 %66, 24
-  %conv8.i.i = trunc i32 %shr.i16.i.i to i8
+  %conv8.i.i = trunc nuw i32 %shr.i16.i.i to i8
   %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %62, i64 3
   store i8 %conv8.i.i, ptr %incdec.ptr9.i.i, align 1, !tbaa !102
   %67 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -10426,7 +10423,7 @@ if.then:                                          ; preds = %_ZN3irr5video13COpe
   store i8 %conv5.i.i.1, ptr %incdec.ptr6.i.i.1, align 1, !tbaa !102
   %71 = load i32, ptr %Color5, align 4, !tbaa !119
   %shr.i16.i.i.1 = lshr i32 %71, 24
-  %conv8.i.i.1 = trunc i32 %shr.i16.i.i.1 to i8
+  %conv8.i.i.1 = trunc nuw i32 %shr.i16.i.i.1 to i8
   %incdec.ptr9.i.i.1 = getelementptr inbounds i8, ptr %67, i64 7
   store i8 %conv8.i.i.1, ptr %incdec.ptr9.i.i.1, align 1, !tbaa !102
   br label %if.end
@@ -15041,12 +15038,12 @@ if.else.i.i:                                      ; preds = %if.then.i428
   br i1 %tobool3.not.i.i, label %if.else.i.i._ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i_crit_edge, label %if.end6.sink.split.i.i
 
 if.else.i.i._ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i_crit_edge: ; preds = %if.else.i.i
-  %.pre587 = trunc i64 %6 to i32
+  %.pre587 = trunc nuw nsw i64 %6 to i32
   br label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i
 
 if.end6.sink.split.i.i:                           ; preds = %if.else.i.i, %if.then.i428
   %.sink.i.i = phi ptr [ %10, %if.then.i428 ], [ %11, %if.else.i.i ]
-  %12 = trunc i64 %6 to i32
+  %12 = trunc nuw nsw i64 %6 to i32
   call void %.sink.i.i(i32 noundef %12) #24
   br label %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i
 
@@ -15746,7 +15743,7 @@ lor.lhs.false287:                                 ; preds = %if.end284, %lor.lhs
 if.then298:                                       ; preds = %lor.lhs.false287, %if.end284.if.then298_crit_edge
   %bf.lshr304.pre-phi = phi i16 [ %.pre586, %if.end284.if.then298_crit_edge ], [ %bf.lshr292, %lor.lhs.false287 ]
   %TextureWrapW302 = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
-  %171 = trunc i16 %bf.lshr304.pre-phi to i8
+  %171 = trunc nuw i16 %bf.lshr304.pre-phi to i8
   %bf.cast306 = and i8 %171, 15
   switch i8 %bf.cast306, label %_ZN3irr5video13COpenGLDriver18getTextureWrapModeEh.exit560 [
     i8 7, label %sw.bb83.i556
@@ -15833,7 +15830,7 @@ _ZN3irr5video13COpenGLDriver18getTextureWrapModeEh.exit560: ; preds = %sw.bb83.i
   call void @glTexParameteri(i32 noundef %99, i32 noundef 32882, i32 noundef %mode.0.i516) #24
   %bf.load312 = load i16, ptr %TextureWrapW302, align 8
   %bf.lshr313 = lshr i16 %bf.load312, 8
-  %185 = trunc i16 %bf.lshr313 to i8
+  %185 = trunc nuw i16 %bf.lshr313 to i8
   %bf.cast315 = and i8 %185, 15
   %WrapW316 = getelementptr inbounds i8, ptr %5, i64 222
   store i8 %bf.cast315, ptr %WrapW316, align 2, !tbaa !446
@@ -16601,7 +16598,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   store i8 %conv5.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !102
   %19 = load i32, ptr %Color.i114, align 4, !tbaa !119
   %shr.i16.i.i = lshr i32 %19, 24
-  %conv8.i.i = trunc i32 %shr.i16.i.i to i8
+  %conv8.i.i = trunc nuw i32 %shr.i16.i.i to i8
   %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 3
   store i8 %conv8.i.i, ptr %incdec.ptr9.i.i, align 1, !tbaa !102
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.080.i, i64 36
@@ -16687,7 +16684,7 @@ if.then:                                          ; preds = %entry
   store i8 %conv5.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !102
   %10 = load i32, ptr %Color, align 8, !tbaa !119
   %shr.i16.i.i = lshr i32 %10, 24
-  %conv8.i.i = trunc i32 %shr.i16.i.i to i8
+  %conv8.i.i = trunc nuw i32 %shr.i16.i.i to i8
   %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %6, i64 3
   store i8 %conv8.i.i, ptr %incdec.ptr9.i.i, align 1, !tbaa !102
   %11 = load ptr, ptr %ColorBuffer.i, align 8, !tbaa !183
@@ -16707,7 +16704,7 @@ if.then:                                          ; preds = %entry
   store i8 %conv5.i.i.1, ptr %incdec.ptr6.i.i.1, align 1, !tbaa !102
   %15 = load i32, ptr %Color4, align 4, !tbaa !119
   %shr.i16.i.i.1 = lshr i32 %15, 24
-  %conv8.i.i.1 = trunc i32 %shr.i16.i.i.1 to i8
+  %conv8.i.i.1 = trunc nuw i32 %shr.i16.i.i.1 to i8
   %incdec.ptr9.i.i.1 = getelementptr inbounds i8, ptr %11, i64 7
   store i8 %conv8.i.i.1, ptr %incdec.ptr9.i.i.1, align 1, !tbaa !102
   br label %if.end
@@ -17106,13 +17103,13 @@ lor.rhs:                                          ; preds = %entry
   %bf.load.i = load i16, ptr %BlendOperation.i, align 2
   %0 = and i16 %bf.load.i, 1920
   %cmp.not.i = icmp eq i16 %0, 0
-  br i1 %cmp.not.i, label %if.end15.i, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %lor.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.rhs
   %BlendFactor.i = getelementptr inbounds i8, ptr %material, i64 164
   %1 = load float, ptr %BlendFactor.i, align 4, !tbaa !412
   %cmp2.i = fcmp une float %1, 0.000000e+00
-  br i1 %cmp2.i, label %if.then.i, label %if.end15.i
+  br i1 %cmp2.i, label %if.then.i, label %lor.end
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %2 = bitcast float %1 to i32
@@ -17134,15 +17131,12 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 cleanup.i:                                        ; preds = %if.then.i
   %and5.i.i = lshr i32 %2, 8
   %shr6.i.i = and i32 %and5.i.i, 15
-  %3 = add nsw i32 %shr6.i.i, -11
-  %switch.i21.i = icmp ult i32 %3, -5
-  br i1 %switch.i21.i, label %if.end15.i, label %lor.end
-
-if.end15.i:                                       ; preds = %cleanup.i, %land.lhs.true.i, %lor.rhs
+  %3 = add nsw i32 %shr6.i.i, -6
+  %switch.i21.i = icmp ult i32 %3, 5
   br label %lor.end
 
-lor.end:                                          ; preds = %if.end15.i, %cleanup.i, %if.then.i, %entry
-  %4 = phi i1 [ true, %entry ], [ true, %cleanup.i ], [ false, %if.end15.i ], [ true, %if.then.i ]
+lor.end:                                          ; preds = %cleanup.i, %lor.rhs, %land.lhs.true.i, %if.then.i, %entry
+  %4 = phi i1 [ true, %entry ], [ true, %if.then.i ], [ false, %land.lhs.true.i ], [ false, %lor.rhs ], [ %switch.i21.i, %cleanup.i ]
   ret i1 %4
 }
 
@@ -17439,7 +17433,7 @@ if.end:
   store i64 %3, ptr %destSize, align 8, !tbaa.struct !128
   %4 = trunc i64 %3 to i32
   %5 = lshr i64 %3, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   br i1 %cmp.not, label %if.then6, label %if.end17
 
 if.then6:                                         ; preds = %if.end
@@ -17954,7 +17948,7 @@ if.end9:                                          ; preds = %_ZN3irr5video23COpe
   %8 = load i64, ptr %Size.i, align 4, !tbaa.struct !128
   %destRenderTargetSize.sroa.0.0.extract.trunc88 = trunc i64 %8 to i32
   %destRenderTargetSize.sroa.8.0.extract.shift90 = lshr i64 %8, 32
-  %destRenderTargetSize.sroa.8.0.extract.trunc91 = trunc i64 %destRenderTargetSize.sroa.8.0.extract.shift90 to i32
+  %destRenderTargetSize.sroa.8.0.extract.trunc91 = trunc nuw i64 %destRenderTargetSize.sroa.8.0.extract.shift90 to i32
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 1048
   %9 = load ptr, ptr %vfn, align 8
@@ -23202,7 +23196,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %9 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %9 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %9, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -23889,7 +23883,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %8 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %8 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %8, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -24646,7 +24640,7 @@ if.end12:                                         ; preds = %entry
   %5 = trunc i64 %4 to i32
   %cmp16 = icmp eq i32 %5, 0
   %6 = lshr i64 %4, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   br i1 %cmp16, label %if.then19, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end12
@@ -25384,7 +25378,7 @@ sw.bb9:                                           ; preds = %entry
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 544
   %5 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(1164) %4, i32 noundef 1) #24
-  br i1 %call13, label %if.then18, label %lor.lhs.false
+  br i1 %call13, label %sw.epilog, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb9
   %6 = load ptr, ptr %Driver10, align 8, !tbaa !368
@@ -25392,9 +25386,7 @@ lor.lhs.false:                                    ; preds = %sw.bb9
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 544
   %7 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(1164) %6, i32 noundef 8) #24
-  br i1 %call17, label %if.then18, label %sw.epilog
-
-if.then18:                                        ; preds = %lor.lhs.false, %sw.bb9
+  %spec.select1 = select i1 %call17, i32 0, i32 %cond
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
@@ -25404,7 +25396,7 @@ sw.bb20:                                          ; preds = %entry
   %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 544
   %9 = load ptr, ptr %vfn23, align 8
   %call24 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(1164) %8, i32 noundef 1) #24
-  br i1 %call24, label %if.then30, label %lor.lhs.false25
+  br i1 %call24, label %sw.epilog, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %sw.bb20
   %10 = load ptr, ptr %Driver21, align 8, !tbaa !368
@@ -25412,13 +25404,11 @@ lor.lhs.false25:                                  ; preds = %sw.bb20
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 544
   %11 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(1164) %10, i32 noundef 8) #24
-  br i1 %call29, label %if.then30, label %sw.epilog
-
-if.then30:                                        ; preds = %lor.lhs.false25, %sw.bb20
+  %spec.select2 = select i1 %call29, i32 0, i32 %cond
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then30, %lor.lhs.false25, %if.then18, %lor.lhs.false, %sw.bb2, %sw.bb, %entry
-  %destFormat.0 = phi i32 [ %cond, %entry ], [ 0, %if.then30 ], [ %cond, %lor.lhs.false25 ], [ 0, %if.then18 ], [ %cond, %lor.lhs.false ], [ %spec.select, %sw.bb ], [ %spec.select45, %sw.bb2 ]
+sw.epilog:                                        ; preds = %lor.lhs.false25, %lor.lhs.false, %sw.bb20, %sw.bb9, %sw.bb2, %sw.bb, %entry
+  %destFormat.0 = phi i32 [ %cond, %entry ], [ %spec.select, %sw.bb ], [ %spec.select45, %sw.bb2 ], [ 0, %sw.bb9 ], [ 0, %sw.bb20 ], [ %spec.select1, %lor.lhs.false ], [ %spec.select2, %lor.lhs.false25 ]
   %Driver32 = getelementptr inbounds i8, ptr %this, i64 120
   %12 = load ptr, ptr %Driver32, align 8, !tbaa !368
   %vtable33 = load ptr, ptr %12, align 8, !tbaa !3

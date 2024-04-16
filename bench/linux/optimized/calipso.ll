@@ -961,71 +961,67 @@ define internal i32 @calipso_req_setattr(ptr noundef %0, ptr nocapture noundef r
   %14 = getelementptr inbounds i8, ptr %0, i64 240
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %21, label %17
+  br i1 %16, label %20, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %22
+  br label %20
 
-21:                                               ; preds = %17, %12
-  br label %22
+20:                                               ; preds = %17, %12
+  %21 = phi ptr [ null, %12 ], [ %19, %17 ]
+  %22 = tail call fastcc ptr @calipso_opt_insert(ptr noundef %21, ptr noundef %1, ptr noundef %2)
+  %23 = icmp ugt ptr %22, inttoptr (i64 -4096 to ptr)
+  br i1 %23, label %24, label %27
 
-22:                                               ; preds = %21, %17
-  %23 = phi ptr [ null, %21 ], [ %19, %17 ]
-  %24 = tail call fastcc ptr @calipso_opt_insert(ptr noundef %23, ptr noundef %1, ptr noundef %2)
-  %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %22
-  %27 = ptrtoint ptr %24 to i64
-  %28 = trunc i64 %27 to i32
+24:                                               ; preds = %20
+  %25 = ptrtoint ptr %22 to i64
+  %26 = trunc i64 %25 to i32
   br label %.thread
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %14, align 8
-  %31 = tail call ptr @ipv6_renew_options(ptr noundef %13, ptr noundef %30, i32 noundef 54, ptr noundef %24) #14
-  tail call void @kfree(ptr noundef %24) #14
-  %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
-  br i1 %32, label %33, label %36
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %14, align 8
+  %29 = tail call ptr @ipv6_renew_options(ptr noundef %13, ptr noundef %28, i32 noundef 54, ptr noundef %22) #14
+  tail call void @kfree(ptr noundef %22) #14
+  %30 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
+  br i1 %30, label %31, label %34
 
-33:                                               ; preds = %29
-  %34 = ptrtoint ptr %31 to i64
-  %35 = trunc i64 %34 to i32
+31:                                               ; preds = %27
+  %32 = ptrtoint ptr %29 to i64
+  %33 = trunc i64 %32 to i32
   br label %.thread
 
-36:                                               ; preds = %29
-  %37 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %14, ptr %31, ptr elementtype(ptr) %14) #14, !srcloc !23
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread, label %39
+34:                                               ; preds = %27
+  %35 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %14, ptr %29, ptr elementtype(ptr) %14) #14, !srcloc !23
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %.thread, label %37
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %13, i64 328
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 %41, ptr elementtype(i32) %42) #14, !srcloc !24
-  %43 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %37, i32 -1, ptr nonnull elementtype(i32) %37) #14, !srcloc !10
-  %44 = icmp eq i32 %43, 1
-  br i1 %44, label %48, label %45
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %35, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds i8, ptr %13, i64 328
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %40, i32 %39, ptr elementtype(i32) %40) #14, !srcloc !24
+  %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %35, i32 -1, ptr nonnull elementtype(i32) %35) #14, !srcloc !10
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %46, label %43
 
-45:                                               ; preds = %39
-  %46 = icmp sgt i32 %43, 0
-  br i1 %46, label %.thread, label %47, !prof !11
+43:                                               ; preds = %37
+  %44 = icmp sgt i32 %41, 0
+  br i1 %44, label %.thread, label %45, !prof !11
 
-47:                                               ; preds = %45
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %37, i32 noundef 3) #14
+45:                                               ; preds = %43
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %35, i32 noundef 3) #14
   br label %.thread
 
-48:                                               ; preds = %39
+46:                                               ; preds = %37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  %49 = getelementptr inbounds i8, ptr %37, i64 48
-  tail call void @kvfree_call_rcu(ptr noundef %49, ptr noundef nonnull %37) #14
+  %47 = getelementptr inbounds i8, ptr %35, i64 48
+  tail call void @kvfree_call_rcu(ptr noundef %47, ptr noundef nonnull %35) #14
   br label %.thread
 
-.thread:                                          ; preds = %45, %47, %48, %36, %33, %26
-  %50 = phi i32 [ %28, %26 ], [ %35, %33 ], [ 0, %36 ], [ 0, %48 ], [ 0, %47 ], [ 0, %45 ]
-  ret i32 %50
+.thread:                                          ; preds = %43, %45, %46, %34, %31, %24
+  %48 = phi i32 [ %26, %24 ], [ %33, %31 ], [ 0, %34 ], [ 0, %46 ], [ 0, %45 ], [ 0, %43 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1586,7 +1582,7 @@ thread-pre-split:                                 ; preds = %16, %16
   %125 = getelementptr i8, ptr %99, i64 %124
   store i8 1, ptr %125, align 1
   %126 = add nsw i32 %30, -2
-  %127 = trunc i32 %126 to i8
+  %127 = trunc nsw i32 %126 to i8
   %128 = add i32 %26, 1
   %129 = zext i32 %128 to i64
   %130 = getelementptr i8, ptr %99, i64 %129
@@ -1727,7 +1723,7 @@ define internal i32 @calipso_skbuff_delattr(ptr noundef %0) #0 align 16 {
   %75 = getelementptr i8, ptr %42, i64 %74
   store i8 1, ptr %75, align 1
   %76 = add nsw i32 %67, -2
-  %77 = trunc i32 %76 to i8
+  %77 = trunc nsw i32 %76 to i8
   %78 = add i32 %51, 1
   %79 = zext i32 %78 to i64
   %80 = getelementptr i8, ptr %42, i64 %79
@@ -2088,7 +2084,7 @@ thread-pre-split:                                 ; preds = %7, %7
   %47 = getelementptr i8, ptr %25, i64 %46
   store i8 1, ptr %47, align 1
   %48 = add nsw i32 %41, -2
-  %49 = trunc i32 %48 to i8
+  %49 = trunc nsw i32 %48 to i8
   %50 = add i32 %38, 1
   %51 = zext i32 %50 to i64
   %52 = getelementptr i8, ptr %25, i64 %51
@@ -2535,7 +2531,7 @@ define internal fastcc i32 @calipso_genopt(ptr noundef %0, i32 noundef %1, i32 n
   %84 = getelementptr i8, ptr %65, i64 8
   store i8 %83, ptr %84, align 1
   %85 = lshr i16 %82, 8
-  %86 = trunc i16 %85 to i8
+  %86 = trunc nuw i16 %85 to i8
   %87 = getelementptr i8, ptr %65, i64 9
   store i8 %86, ptr %87, align 1
   %88 = add nuw nsw i32 %48, %10
@@ -2624,7 +2620,7 @@ define internal fastcc i32 @calipso_opt_del(ptr nocapture noundef readonly %0, p
   %37 = getelementptr i8, ptr %24, i64 %27
   store i8 1, ptr %37, align 1
   %38 = add nsw i32 %33, -2
-  %39 = trunc i32 %38 to i8
+  %39 = trunc nsw i32 %38 to i8
   %40 = add i32 %13, 1
   %41 = zext i32 %40 to i64
   %42 = getelementptr i8, ptr %24, i64 %41

@@ -1251,7 +1251,7 @@ while.body:                                       ; preds = %land.lhs.true
   br i1 %tobool.not, label %while.end, label %land.lhs.true, !llvm.loop !7
 
 while.end.loopexit.split.loop.exit:               ; preds = %land.lhs.true
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit, %entry
@@ -2064,24 +2064,22 @@ if.then12.i.i:                                    ; preds = %if.then9.i.i
 if.end20.i.i:                                     ; preds = %if.then12.i.i
   %call17.i.i = tail call ptr @getenv(ptr noundef nonnull @.str.182) #29
   %cmp21.i.i = icmp eq ptr %call17.i.i, null
-  br i1 %cmp21.i.i, label %if.then28.i.i, label %lor.lhs.false22.i.i
+  br i1 %cmp21.i.i, label %_ZL26uprv_getPOSIXIDForCategoryi.exit.i, label %lor.lhs.false22.i.i
 
 lor.lhs.false22.i.i:                              ; preds = %if.end20.i.i, %if.then12.i.i, %if.then9.i.i, %lor.lhs.false6.i.i
   %posixID.014.i.i = phi ptr [ %call17.i.i, %if.end20.i.i ], [ %call.i.i, %lor.lhs.false6.i.i ], [ %call10.i.i, %if.then9.i.i ], [ %call14.i.i, %if.then12.i.i ]
   %call23.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @.str.6, ptr noundef nonnull dereferenceable(1) %posixID.014.i.i) #32
   %cmp24.i.i = icmp eq i32 %call23.i.i, 0
-  br i1 %cmp24.i.i, label %if.then28.i.i, label %lor.lhs.false25.i.i
+  br i1 %cmp24.i.i, label %_ZL26uprv_getPOSIXIDForCategoryi.exit.i, label %lor.lhs.false25.i.i
 
 lor.lhs.false25.i.i:                              ; preds = %lor.lhs.false22.i.i
   %call26.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.7, ptr noundef nonnull dereferenceable(1) %posixID.014.i.i) #32
   %cmp27.i.i = icmp eq i32 %call26.i.i, 0
-  br i1 %cmp27.i.i, label %if.then28.i.i, label %_ZL26uprv_getPOSIXIDForCategoryi.exit.i
-
-if.then28.i.i:                                    ; preds = %lor.lhs.false25.i.i, %lor.lhs.false22.i.i, %if.end20.i.i
+  %spec.select.i.i = select i1 %cmp27.i.i, ptr @.str.8, ptr %posixID.014.i.i
   br label %_ZL26uprv_getPOSIXIDForCategoryi.exit.i
 
-_ZL26uprv_getPOSIXIDForCategoryi.exit.i:          ; preds = %if.then28.i.i, %lor.lhs.false25.i.i
-  %posixID.1.i.i = phi ptr [ @.str.8, %if.then28.i.i ], [ %posixID.014.i.i, %lor.lhs.false25.i.i ]
+_ZL26uprv_getPOSIXIDForCategoryi.exit.i:          ; preds = %lor.lhs.false25.i.i, %lor.lhs.false22.i.i, %if.end20.i.i
+  %posixID.1.i.i = phi ptr [ @.str.8, %lor.lhs.false22.i.i ], [ @.str.8, %if.end20.i.i ], [ %spec.select.i.i, %lor.lhs.false25.i.i ]
   store ptr %posixID.1.i.i, ptr @_ZZL31uprv_getPOSIXIDForDefaultLocalevE7posixID, align 8
   br label %_ZL31uprv_getPOSIXIDForDefaultLocalev.exit
 
@@ -2252,7 +2250,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
   br i1 %cmp8.not, label %for.cond, label %if.end11
 
 if.end11:                                         ; preds = %for.cond, %lor.lhs.false6
-  %4 = trunc i64 %indvars.iv.next to i16
+  %4 = trunc nuw nsw i64 %indvars.iv.next to i16
   %cmp1314 = icmp ult i16 %4, 4
   br i1 %cmp1314, label %while.body.preheader, label %while.end
 
@@ -2320,7 +2318,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   br i1 %cmp8.not.i, label %for.cond.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %lor.lhs.false6.i, %for.cond.i
-  %4 = trunc i64 %indvars.iv.next.i to i16
+  %4 = trunc nuw nsw i64 %indvars.iv.next.i to i16
   %cmp1314.i = icmp ult i16 %4, 4
   br i1 %cmp1314.i, label %while.body.preheader.i, label %u_versionFromString_75.exit
 
@@ -2501,7 +2499,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   br i1 %cmp8.not.i, label %for.cond.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %lor.lhs.false6.i, %for.cond.i
-  %4 = trunc i64 %indvars.iv.next.i to i16
+  %4 = trunc nuw nsw i64 %indvars.iv.next.i to i16
   %cmp1314.i = icmp ult i16 %4, 4
   br i1 %cmp1314.i, label %while.body.preheader.i, label %u_versionFromString_75.exit
 

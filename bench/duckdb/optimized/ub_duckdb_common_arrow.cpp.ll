@@ -6507,7 +6507,7 @@ if.then.i.i1117:                                  ; preds = %while.end.i.i1112
   br label %invoke.cont298
 
 if.else.i.i1114:                                  ; preds = %while.end.i.i1112
-  %353 = trunc i64 %__val.addr.0.lcssa.i.i1113 to i8
+  %353 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i1113 to i8
   %conv.i.i1115 = or disjoint i8 %353, 48
   br label %invoke.cont298
 
@@ -17673,7 +17673,7 @@ invoke.cont32:                                    ; preds = %invoke.cont25
   %shl.i.i = shl nuw nsw i64 1, %conv.i130
   %arrayidx.i.i131 = getelementptr inbounds i8, ptr %15, i64 %div2.i
   %46 = load i8, ptr %arrayidx.i.i131, align 1, !tbaa !14
-  %47 = trunc i64 %shl.i.i to i8
+  %47 = trunc nuw i64 %shl.i.i to i8
   %48 = xor i8 %47, -1
   %conv2.i.i = and i8 %46, %48
   store i8 %conv2.i.i, ptr %arrayidx.i.i131, align 1, !tbaa !14
@@ -18140,7 +18140,7 @@ invoke.cont30:                                    ; preds = %invoke.cont23
   %shl.i.i = shl nuw nsw i64 1, %conv.i105
   %arrayidx.i.i106 = getelementptr inbounds i8, ptr %15, i64 %div2.i
   %46 = load i8, ptr %arrayidx.i.i106, align 1, !tbaa !14
-  %47 = trunc i64 %shl.i.i to i8
+  %47 = trunc nuw i64 %shl.i.i to i8
   %48 = xor i8 %47, -1
   %conv2.i.i = and i8 %46, %48
   store i8 %conv2.i.i, ptr %arrayidx.i.i106, align 1, !tbaa !14
@@ -19236,7 +19236,7 @@ invoke.cont30:                                    ; preds = %invoke.cont23
   %shl.i.i = shl nuw nsw i64 1, %conv.i130
   %arrayidx.i.i131 = getelementptr inbounds i8, ptr %15, i64 %div2.i
   %46 = load i8, ptr %arrayidx.i.i131, align 1, !tbaa !14
-  %47 = trunc i64 %shl.i.i to i8
+  %47 = trunc nuw i64 %shl.i.i to i8
   %48 = xor i8 %47, -1
   %conv2.i.i = and i8 %46, %48
   store i8 %conv2.i.i, ptr %arrayidx.i.i131, align 1, !tbaa !14
@@ -19309,7 +19309,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %ehcleanup77
 
 if.end53:                                         ; preds = %invoke.cont35
-  %conv54 = trunc i64 %add37 to i32
+  %conv54 = trunc nuw nsw i64 %add37 to i32
   %arrayidx55 = getelementptr inbounds i32, ptr %18, i64 %sub20
   store i32 %conv54, ptr %arrayidx55, align 4, !tbaa !356
   %call.i.i144 = invoke noundef i64 @_ZN6duckdb14NextPowerOfTwoEm(i64 noundef %add37)
@@ -19703,7 +19703,7 @@ invoke.cont30:                                    ; preds = %invoke.cont23
   %shl.i.i = shl nuw nsw i64 1, %conv.i107
   %arrayidx.i.i108 = getelementptr inbounds i8, ptr %15, i64 %div2.i
   %46 = load i8, ptr %arrayidx.i.i108, align 1, !tbaa !14
-  %47 = trunc i64 %shl.i.i to i8
+  %47 = trunc nuw i64 %shl.i.i to i8
   %48 = xor i8 %47, -1
   %conv2.i.i = and i8 %46, %48
   store i8 %conv2.i.i, ptr %arrayidx.i.i108, align 1, !tbaa !14
@@ -20214,7 +20214,7 @@ invoke.cont30:                                    ; preds = %invoke.cont23
   %shl.i.i = shl nuw nsw i64 1, %conv.i125
   %arrayidx.i.i126 = getelementptr inbounds i8, ptr %15, i64 %div2.i
   %45 = load i8, ptr %arrayidx.i.i126, align 1, !tbaa !14
-  %46 = trunc i64 %shl.i.i to i8
+  %46 = trunc nuw i64 %shl.i.i to i8
   %47 = xor i8 %46, -1
   %conv2.i.i = and i8 %45, %47
   store i8 %conv2.i.i, ptr %arrayidx.i.i126, align 1, !tbaa !14
@@ -20668,7 +20668,7 @@ invoke.cont30:                                    ; preds = %invoke.cont23
   %shl.i.i = shl nuw nsw i64 1, %conv.i101
   %arrayidx.i.i102 = getelementptr inbounds i8, ptr %15, i64 %div2.i
   %45 = load i8, ptr %arrayidx.i.i102, align 1, !tbaa !14
-  %46 = trunc i64 %shl.i.i to i8
+  %46 = trunc nuw i64 %shl.i.i to i8
   %47 = xor i8 %46, -1
   %conv2.i.i = and i8 %45, %47
   store i8 %conv2.i.i, ptr %arrayidx.i.i102, align 1, !tbaa !14
@@ -21167,7 +21167,7 @@ invoke.cont30:                                    ; preds = %invoke.cont23
   %shl.i.i = shl nuw nsw i64 1, %conv.i127
   %arrayidx.i.i128 = getelementptr inbounds i8, ptr %15, i64 %div2.i
   %45 = load i8, ptr %arrayidx.i.i128, align 1, !tbaa !14
-  %46 = trunc i64 %shl.i.i to i8
+  %46 = trunc nuw i64 %shl.i.i to i8
   %47 = xor i8 %46, -1
   %conv2.i.i = and i8 %45, %47
   store i8 %conv2.i.i, ptr %arrayidx.i.i128, align 1, !tbaa !14
@@ -21238,7 +21238,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %ehcleanup75
 
 if.end51:                                         ; preds = %if.end32
-  %conv52 = trunc i64 %add35 to i32
+  %conv52 = trunc nuw nsw i64 %add35 to i32
   %arrayidx53 = getelementptr inbounds i32, ptr %18, i64 %sub20
   store i32 %conv52, ptr %arrayidx53, align 4, !tbaa !356
   %call.i.i141 = invoke noundef i64 @_ZN6duckdb14NextPowerOfTwoEm(i64 noundef %add35)
@@ -21621,7 +21621,7 @@ invoke.cont30:                                    ; preds = %invoke.cont23
   %shl.i.i = shl nuw nsw i64 1, %conv.i103
   %arrayidx.i.i104 = getelementptr inbounds i8, ptr %15, i64 %div2.i
   %45 = load i8, ptr %arrayidx.i.i104, align 1, !tbaa !14
-  %46 = trunc i64 %shl.i.i to i8
+  %46 = trunc nuw i64 %shl.i.i to i8
   %47 = xor i8 %46, -1
   %conv2.i.i = and i8 %45, %47
   store i8 %conv2.i.i, ptr %arrayidx.i.i104, align 1, !tbaa !14
@@ -25277,7 +25277,7 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   resume { ptr, i32 } %.pn96
 
 if.end31:                                         ; preds = %if.end17
-  %conv34 = trunc i64 %add19 to i32
+  %conv34 = trunc nuw nsw i64 %add19 to i32
   %arrayidx35 = getelementptr inbounds i32, ptr %2, i64 %sub13
   store i32 %conv34, ptr %arrayidx35, align 4, !tbaa !356
   %cmp37100.not = icmp eq i64 %12, 0
@@ -30995,7 +30995,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !728
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !14
@@ -31006,13 +31006,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 

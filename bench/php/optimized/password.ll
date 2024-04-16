@@ -812,17 +812,15 @@ php_password_algo_find.exit:                      ; preds = %php_password_algo_e
   %40 = getelementptr inbounds i8, ptr %.0.i28, i64 40
   %41 = load ptr, ptr %40, align 8
   %.not26 = icmp eq ptr %41, null
-  br i1 %.not26, label %44, label %42
+  br i1 %.not26, label %php_password_algo_extract_ident.exit.thread, label %42
 
 42:                                               ; preds = %39
   %43 = tail call zeroext i1 %41(ptr noundef nonnull %0) #12
-  br i1 %43, label %44, label %php_password_algo_extract_ident.exit.thread
-
-44:                                               ; preds = %42, %39
+  %spec.select = select i1 %43, ptr %.0.i28, ptr %1
   br label %php_password_algo_extract_ident.exit.thread
 
-php_password_algo_extract_ident.exit.thread:      ; preds = %7, %2, %3, %44, %42, %38
-  %.0 = phi ptr [ %.0.i28, %44 ], [ %1, %42 ], [ %1, %38 ], [ %1, %3 ], [ %1, %2 ], [ %1, %7 ]
+php_password_algo_extract_ident.exit.thread:      ; preds = %7, %2, %3, %42, %38, %39
+  %.0 = phi ptr [ %1, %38 ], [ %.0.i28, %39 ], [ %spec.select, %42 ], [ %1, %3 ], [ %1, %2 ], [ %1, %7 ]
   ret ptr %.0
 }
 
@@ -1126,64 +1124,64 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br i1 %28, label %.thread, label %.thread159
 
 .thread:                                          ; preds = %22, %26, %24, %27
-  %29 = phi i1 [ false, %27 ], [ true, %26 ], [ false, %24 ], [ false, %22 ]
-  %30 = icmp eq i32 %7, 2
-  br i1 %30, label %.thread171, label %31
+  %.2141157 = phi i1 [ false, %27 ], [ true, %26 ], [ false, %24 ], [ false, %22 ]
+  %29 = icmp eq i32 %7, 2
+  br i1 %29, label %.thread171, label %30
 
-31:                                               ; preds = %.thread
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
-  %34 = load i8, ptr %33, align 8
-  %.not = icmp eq i8 %34, 7
+30:                                               ; preds = %.thread
+  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = load i8, ptr %32, align 8
+  %.not = icmp eq i8 %33, 7
   br i1 %.not, label %.thread181, label %.thread159
 
-.thread181:                                       ; preds = %31
-  %35 = load ptr, ptr %32, align 8
+.thread181:                                       ; preds = %30
+  %34 = load ptr, ptr %31, align 8
   br label %.thread171
 
-.thread159:                                       ; preds = %31, %27, %16, %9
-  %.0170 = phi i32 [ 9, %27 ], [ 9, %16 ], [ 1, %9 ], [ 9, %31 ]
-  %.0134169 = phi i32 [ 29, %27 ], [ 4, %16 ], [ 0, %9 ], [ 6, %31 ]
-  %.0135168 = phi ptr [ %19, %27 ], [ %11, %16 ], [ null, %9 ], [ %32, %31 ]
-  %.0136167 = phi i32 [ 2, %27 ], [ 1, %16 ], [ 0, %9 ], [ 3, %31 ]
+.thread159:                                       ; preds = %30, %27, %16, %9
+  %.0170 = phi i32 [ 9, %27 ], [ 9, %16 ], [ 1, %9 ], [ 9, %30 ]
+  %.0134169 = phi i32 [ 29, %27 ], [ 4, %16 ], [ 0, %9 ], [ 6, %30 ]
+  %.0135168 = phi ptr [ %19, %27 ], [ %11, %16 ], [ null, %9 ], [ %31, %30 ]
+  %.0136167 = phi i32 [ 2, %27 ], [ 1, %16 ], [ 0, %9 ], [ 3, %30 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0170, i32 noundef %.0136167, ptr noundef null, i32 noundef %.0134169, ptr noundef %.0135168) #12
-  br label %53
+  br label %52
 
 .thread171:                                       ; preds = %.thread, %.thread181
-  %.2180 = phi ptr [ %35, %.thread181 ], [ null, %.thread ]
-  %36 = load ptr, ptr %4, align 8
-  %37 = load i64, ptr %5, align 8
-  %38 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %36, i64 noundef %37, i1 noundef zeroext %29)
-  %.not151 = icmp eq ptr %38, null
-  br i1 %.not151, label %39, label %41
+  %.2180 = phi ptr [ %34, %.thread181 ], [ null, %.thread ]
+  %35 = load ptr, ptr %4, align 8
+  %36 = load i64, ptr %5, align 8
+  %37 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %35, i64 noundef %36, i1 noundef zeroext %.2141157)
+  %.not151 = icmp eq ptr %37, null
+  br i1 %.not151, label %38, label %40
 
-39:                                               ; preds = %.thread171
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %40, align 8
-  br label %53
+38:                                               ; preds = %.thread171
+  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %39, align 8
+  br label %52
 
-41:                                               ; preds = %.thread171
-  %42 = load ptr, ptr %3, align 8
-  %43 = call ptr @php_password_algo_identify_ex(ptr noundef %42, ptr noundef null)
-  %.not152 = icmp eq ptr %43, %38
-  br i1 %.not152, label %46, label %44
+40:                                               ; preds = %.thread171
+  %41 = load ptr, ptr %3, align 8
+  %42 = call ptr @php_password_algo_identify_ex(ptr noundef %41, ptr noundef null)
+  %.not152 = icmp eq ptr %42, %37
+  br i1 %.not152, label %45, label %43
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %45, align 8
-  br label %53
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %44, align 8
+  br label %52
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %38, i64 24
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = call zeroext i1 %48(ptr noundef %49, ptr noundef %.2180) #12
-  %51 = select i1 %50, i32 3, i32 2
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %51, ptr %52, align 8
-  br label %53
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %37, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %3, align 8
+  %49 = call zeroext i1 %47(ptr noundef %48, ptr noundef %.2180) #12
+  %50 = select i1 %49, i32 3, i32 2
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %50, ptr %51, align 8
+  br label %52
 
-53:                                               ; preds = %46, %44, %39, %.thread159
+52:                                               ; preds = %45, %43, %38, %.thread159
   ret void
 }
 
@@ -1487,75 +1485,75 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br i1 %28, label %.thread, label %.thread161
 
 .thread:                                          ; preds = %22, %26, %24, %27
-  %29 = phi i1 [ false, %27 ], [ true, %26 ], [ false, %24 ], [ false, %22 ]
-  %30 = icmp eq i32 %7, 2
-  br i1 %30, label %.thread173, label %31
+  %.2142159 = phi i1 [ false, %27 ], [ true, %26 ], [ false, %24 ], [ false, %22 ]
+  %29 = icmp eq i32 %7, 2
+  br i1 %29, label %.thread173, label %30
 
-31:                                               ; preds = %.thread
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
-  %34 = load i8, ptr %33, align 8
-  %.not = icmp eq i8 %34, 7
+30:                                               ; preds = %.thread
+  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = load i8, ptr %32, align 8
+  %.not = icmp eq i8 %33, 7
   br i1 %.not, label %.thread183, label %.thread161
 
-.thread183:                                       ; preds = %31
-  %35 = load ptr, ptr %32, align 8
+.thread183:                                       ; preds = %30
+  %34 = load ptr, ptr %31, align 8
   br label %.thread173
 
-.thread161:                                       ; preds = %31, %27, %16, %9
-  %.0134172 = phi i32 [ 9, %27 ], [ 9, %16 ], [ 1, %9 ], [ 9, %31 ]
-  %.0136171 = phi i32 [ 29, %27 ], [ 4, %16 ], [ 0, %9 ], [ 6, %31 ]
-  %.0137170 = phi ptr [ %19, %27 ], [ %11, %16 ], [ null, %9 ], [ %32, %31 ]
-  %.0138169 = phi i32 [ 2, %27 ], [ 1, %16 ], [ 0, %9 ], [ 3, %31 ]
+.thread161:                                       ; preds = %30, %27, %16, %9
+  %.0134172 = phi i32 [ 9, %27 ], [ 9, %16 ], [ 1, %9 ], [ 9, %30 ]
+  %.0136171 = phi i32 [ 29, %27 ], [ 4, %16 ], [ 0, %9 ], [ 6, %30 ]
+  %.0137170 = phi ptr [ %19, %27 ], [ %11, %16 ], [ null, %9 ], [ %31, %30 ]
+  %.0138169 = phi i32 [ 2, %27 ], [ 1, %16 ], [ 0, %9 ], [ 3, %30 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0134172, i32 noundef %.0138169, ptr noundef null, i32 noundef %.0136171, ptr noundef %.0137170) #12
-  br label %55
+  br label %54
 
 .thread173:                                       ; preds = %.thread, %.thread183
-  %.2182 = phi ptr [ %35, %.thread183 ], [ null, %.thread ]
-  %36 = load ptr, ptr %4, align 8
-  %37 = load i64, ptr %5, align 8
-  %38 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %36, i64 noundef %37, i1 noundef zeroext %29)
-  %.not152 = icmp eq ptr %38, null
-  br i1 %.not152, label %39, label %42
+  %.2182 = phi ptr [ %34, %.thread183 ], [ null, %.thread ]
+  %35 = load ptr, ptr %4, align 8
+  %36 = load i64, ptr %5, align 8
+  %37 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %35, i64 noundef %36, i1 noundef zeroext %.2142159)
+  %.not152 = icmp eq ptr %37, null
+  br i1 %.not152, label %38, label %41
 
-39:                                               ; preds = %.thread173
+38:                                               ; preds = %.thread173
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.6) #12
-  %40 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %41 = icmp ne ptr %40, null
-  call void @llvm.assume(i1 %41)
-  br label %55
+  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %40 = icmp ne ptr %39, null
+  call void @llvm.assume(i1 %40)
+  br label %54
 
-42:                                               ; preds = %.thread173
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = call ptr %44(ptr noundef %45, ptr noundef %.2182) #12
-  %.not153 = icmp eq ptr %46, null
-  br i1 %.not153, label %47, label %53
+41:                                               ; preds = %.thread173
+  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %3, align 8
+  %45 = call ptr %43(ptr noundef %44, ptr noundef %.2182) #12
+  %.not153 = icmp eq ptr %45, null
+  br i1 %.not153, label %46, label %52
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not154 = icmp eq ptr %48, null
-  br i1 %.not154, label %49, label %51
+46:                                               ; preds = %41
+  %47 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.not154 = icmp eq ptr %47, null
+  br i1 %.not154, label %48, label %50
 
-49:                                               ; preds = %47
+48:                                               ; preds = %46
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7) #12
   %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %50 = icmp ne ptr %.pre, null
-  br label %51
+  %49 = icmp ne ptr %.pre, null
+  br label %50
 
-51:                                               ; preds = %47, %49
-  %52 = phi i1 [ true, %47 ], [ %50, %49 ]
-  call void @llvm.assume(i1 %52)
-  br label %55
+50:                                               ; preds = %46, %48
+  %51 = phi i1 [ true, %46 ], [ %49, %48 ]
+  call void @llvm.assume(i1 %51)
+  br label %54
 
-53:                                               ; preds = %42
-  store ptr %46, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %54, align 8
-  br label %55
+52:                                               ; preds = %41
+  store ptr %45, ptr %1, align 8
+  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %53, align 8
+  br label %54
 
-55:                                               ; preds = %53, %51, %39, %.thread161
+54:                                               ; preds = %52, %50, %38, %.thread161
   ret void
 }
 

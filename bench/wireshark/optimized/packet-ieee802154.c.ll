@@ -4166,7 +4166,7 @@ define internal ptr @dissect_ieee802154_decrypt(ptr noundef %0, i32 noundef %1, 
   %76 = getelementptr inbounds i8, ptr %3, i64 120
   %77 = load i64, ptr %76, align 8
   %78 = lshr i64 %.0121, 56
-  %79 = trunc i64 %78 to i8
+  %79 = trunc nuw i64 %78 to i8
   store i8 %79, ptr %7, align 1
   %80 = lshr i64 %.0121, 48
   %81 = trunc i64 %80 to i8
@@ -4225,7 +4225,7 @@ define internal ptr @dissect_ieee802154_decrypt(ptr noundef %0, i32 noundef %1, 
 
 .thread._crit_edge:                               ; preds = %.thread
   %.pre154 = lshr i64 %.0121, 56
-  %.pre155 = trunc i64 %.pre154 to i8
+  %.pre155 = trunc nuw i64 %.pre154 to i8
   %.pre157 = lshr i64 %.0121, 48
   %.pre159 = trunc i64 %.pre157 to i8
   %.pre161 = lshr i64 %.0121, 40
@@ -4273,7 +4273,7 @@ define internal ptr @dissect_ieee802154_decrypt(ptr noundef %0, i32 noundef %1, 
   %130 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 %.pre-phi182, ptr %130, align 8
   %131 = lshr i32 %120, 24
-  %132 = trunc i32 %131 to i8
+  %132 = trunc nuw i32 %131 to i8
   %133 = getelementptr inbounds i8, ptr %6, i64 9
   store i8 %132, ptr %133, align 1
   %134 = lshr i32 %120, 16
@@ -4298,7 +4298,7 @@ define internal ptr @dissect_ieee802154_decrypt(ptr noundef %0, i32 noundef %1, 
   %147 = trunc i32 %146 to i8
   store i8 1, ptr %6, align 16
   %148 = lshr i64 %.0121, 56
-  %149 = trunc i64 %148 to i8
+  %149 = trunc nuw i64 %148 to i8
   %150 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %149, ptr %150, align 1
   %151 = lshr i64 %.0121, 48
@@ -4329,7 +4329,7 @@ define internal ptr @dissect_ieee802154_decrypt(ptr noundef %0, i32 noundef %1, 
   %170 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 %169, ptr %170, align 8
   %171 = lshr i32 %145, 24
-  %172 = trunc i32 %171 to i8
+  %172 = trunc nuw i32 %171 to i8
   %173 = getelementptr inbounds i8, ptr %6, i64 9
   store i8 %172, ptr %173, align 1
   %174 = lshr i32 %145, 16
@@ -4450,14 +4450,14 @@ ccm_init_block.exit138:                           ; preds = %229
   %234 = getelementptr inbounds i8, ptr %3, i64 112
   %235 = load i8, ptr %234, align 8
   %.not153 = icmp eq i32 %16, 0
-  %236 = trunc i32 %16 to i8
+  %236 = trunc nuw nsw i32 %16 to i8
   %.lhs.trunc = shl nuw nsw i8 %236, 2
   %237 = add nsw i8 %.lhs.trunc, -7
   %238 = or i8 %237, 64
   %storemerge.i = select i1 %.not153, i8 65, i8 %238
   store i8 %storemerge.i, ptr %6, align 16
   %239 = lshr i64 %.0121, 56
-  %240 = trunc i64 %239 to i8
+  %240 = trunc nuw i64 %239 to i8
   %241 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %240, ptr %241, align 1
   %242 = lshr i64 %.0121, 48
@@ -4488,7 +4488,7 @@ ccm_init_block.exit138:                           ; preds = %229
   %261 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 %260, ptr %261, align 8
   %262 = lshr i32 %233, 24
-  %263 = trunc i32 %262 to i8
+  %263 = trunc nuw i32 %262 to i8
   %264 = getelementptr inbounds i8, ptr %6, i64 9
   store i8 %263, ptr %264, align 1
   %265 = lshr i32 %233, 16
@@ -4508,7 +4508,7 @@ ccm_init_block.exit138:                           ; preds = %229
 
 274:                                              ; preds = %229
   %.not152 = icmp eq i32 %16, 0
-  %275 = trunc i32 %16 to i8
+  %275 = trunc nuw nsw i32 %16 to i8
   %.lhs.trunc150 = shl nuw nsw i8 %275, 2
   %276 = add nsw i8 %.lhs.trunc150, -7
   %277 = or i8 %276, 64
@@ -4520,7 +4520,7 @@ ccm_init_block.exit138:                           ; preds = %229
 279:                                              ; preds = %274
   %280 = trunc i32 %219 to i8
   %281 = lshr i64 %.0121, 56
-  %282 = trunc i64 %281 to i8
+  %282 = trunc nuw i64 %281 to i8
   %283 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %282, ptr %283, align 1
   %284 = lshr i64 %.0121, 48
@@ -4551,7 +4551,7 @@ ccm_init_block.exit138:                           ; preds = %229
   %303 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 %302, ptr %303, align 8
   %304 = lshr i32 %233, 24
-  %305 = trunc i32 %304 to i8
+  %305 = trunc nuw i32 %304 to i8
   %306 = getelementptr inbounds i8, ptr %6, i64 9
   store i8 %305, ptr %306, align 1
   %307 = lshr i32 %233, 16
@@ -5843,7 +5843,7 @@ define hidden void @ccm_init_block(ptr nocapture noundef writeonly %0, i32 nound
 
 18:                                               ; preds = %15
   %19 = lshr i64 %3, 56
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw i64 %19 to i8
   %21 = getelementptr i8, ptr %0, i64 1
   store i8 %20, ptr %21, align 1
   %22 = lshr i64 %3, 48
@@ -5874,7 +5874,7 @@ define hidden void @ccm_init_block(ptr nocapture noundef writeonly %0, i32 nound
   %41 = getelementptr i8, ptr %0, i64 8
   store i8 %40, ptr %41, align 1
   %42 = lshr i32 %4, 24
-  %43 = trunc i32 %42 to i8
+  %43 = trunc nuw i32 %42 to i8
   %44 = getelementptr i8, ptr %0, i64 9
   store i8 %43, ptr %44, align 1
   %45 = lshr i32 %4, 16
@@ -6003,7 +6003,7 @@ define hidden noundef i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nocap
 
 .thread:                                          ; preds = %19
   %21 = lshr i32 %3, 24
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = getelementptr inbounds i8, ptr %9, i64 2
   store i8 %22, ptr %23, align 2
   %24 = lshr i32 %3, 16
@@ -6046,7 +6046,7 @@ define hidden noundef i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %.lr.ph
 
 .preheader63:                                     ; preds = %.lr.ph
-  %45 = trunc i64 %indvars.iv.next to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.next to i32
   %46 = icmp ult i32 %45, 16
   br i1 %46, label %.lr.ph70.preheader, label %._crit_edge
 
@@ -7638,7 +7638,7 @@ dissect_ieee802154_tap_sun_phy.exit.i:            ; preds = %172, %166, %160, %1
   %180 = sdiv i64 %179, 1000000000
   store i64 %180, ptr %13, align 8
   %181 = urem i64 %179, 1000000000
-  %182 = trunc i64 %181 to i32
+  %182 = trunc nuw nsw i64 %181 to i32
   store i32 %182, ptr %50, align 8
   %183 = call ptr @proto_tree_get_parent(ptr noundef %61) #16
   %184 = load ptr, ptr %51, align 8
@@ -7653,7 +7653,7 @@ dissect_ieee802154_tap_sun_phy.exit.i:            ; preds = %172, %166, %160, %1
   %190 = sdiv i64 %189, 1000000000
   store i64 %190, ptr %13, align 8
   %191 = urem i64 %189, 1000000000
-  %192 = trunc i64 %191 to i32
+  %192 = trunc nuw nsw i64 %191 to i32
   store i32 %192, ptr %50, align 8
   %193 = call ptr @proto_tree_get_parent(ptr noundef %61) #16
   %194 = load ptr, ptr %51, align 8
@@ -7676,7 +7676,7 @@ dissect_ieee802154_tap_sun_phy.exit.i:            ; preds = %172, %166, %160, %1
   %205 = sdiv i64 %204, 1000000000
   store i64 %205, ptr %13, align 8
   %206 = urem i64 %204, 1000000000
-  %207 = trunc i64 %206 to i32
+  %207 = trunc nuw nsw i64 %206 to i32
   store i32 %207, ptr %50, align 8
   %208 = call ptr @proto_tree_get_parent(ptr noundef %61) #16
   %209 = load ptr, ptr %51, align 8
@@ -8512,7 +8512,7 @@ define internal i32 @dissect_mpx_ie(ptr noundef %0, ptr noundef %1, ptr noundef 
 52:                                               ; preds = %.thread, %33, %20
   %.1110 = phi i32 [ %37, %33 ], [ %22, %20 ], [ %15, %.thread ]
   %.1 = phi i32 [ 8, %33 ], [ 5, %20 ], [ 3, %.thread ]
-  %trunc = trunc i32 %.1110 to i16
+  %trunc = trunc nuw i32 %.1110 to i16
   switch i16 %trunc, label %85 [
     i16 1, label %53
     i16 2, label %70
@@ -10356,7 +10356,7 @@ declare ptr @proto_tree_add_double_format_value(ptr noundef, i32 noundef, ptr no
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @ieee802154_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #12 {
+define internal nonnull ptr @ieee802154_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #12 {
   switch i32 %1, label %24 [
     i32 0, label %3
     i32 1, label %10
@@ -10368,46 +10368,46 @@ define internal noundef nonnull ptr @ieee802154_conv_get_filter_type(ptr nocaptu
   %5 = load i32, ptr %4, align 8
   %6 = load i32, ptr @ieee802_15_4_short_address_type, align 4
   %7 = icmp eq i32 %5, %6
-  br i1 %7, label %25, label %8
+  br i1 %7, label %24, label %8
 
 8:                                                ; preds = %3
   %9 = icmp eq i32 %5, 8
-  br i1 %9, label %25, label %24
+  %spec.select12 = select i1 %9, ptr @.str.103, ptr @.str.1155
+  br label %24
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr @ieee802_15_4_short_address_type, align 4
   %14 = icmp eq i32 %12, %13
-  br i1 %14, label %25, label %15
+  br i1 %14, label %24, label %15
 
 15:                                               ; preds = %10
   %16 = icmp eq i32 %12, 8
-  br i1 %16, label %25, label %24
+  %spec.select13 = select i1 %16, ptr @.str.97, ptr @.str.1155
+  br label %24
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = load i32, ptr @ieee802_15_4_short_address_type, align 4
   %21 = icmp eq i32 %19, %20
-  br i1 %21, label %25, label %22
+  br i1 %21, label %24, label %22
 
 22:                                               ; preds = %17
   %23 = icmp eq i32 %19, 8
-  br i1 %23, label %25, label %24
+  %spec.select = select i1 %23, ptr @.str.107, ptr @.str.1155
+  br label %24
 
-24:                                               ; preds = %15, %8, %2, %22
-  br label %25
-
-25:                                               ; preds = %22, %17, %15, %10, %8, %3, %24
-  %.0 = phi ptr [ @.str.1155, %24 ], [ @.str.101, %3 ], [ @.str.103, %8 ], [ @.str.96, %10 ], [ @.str.97, %15 ], [ @.str.105, %17 ], [ @.str.107, %22 ]
+24:                                               ; preds = %15, %8, %22, %2, %17, %10, %3
+  %.0 = phi ptr [ @.str.101, %3 ], [ @.str.96, %10 ], [ @.str.105, %17 ], [ @.str.1155, %2 ], [ %spec.select, %22 ], [ %spec.select12, %8 ], [ %spec.select13, %15 ]
   ret ptr %.0
 }
 
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @ieee802154_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #12 {
+define internal nonnull ptr @ieee802154_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #12 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %11
 
@@ -10416,17 +10416,15 @@ define internal noundef nonnull ptr @ieee802154_endpoint_get_filter_type(ptr noc
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @ieee802_15_4_short_address_type, align 4
   %8 = icmp eq i32 %6, %7
-  br i1 %8, label %12, label %9
+  br i1 %8, label %11, label %9
 
 9:                                                ; preds = %4
   %10 = icmp eq i32 %6, 8
-  br i1 %10, label %12, label %11
+  %spec.select = select i1 %10, ptr @.str.107, ptr @.str.1155
+  br label %11
 
-11:                                               ; preds = %9, %2
-  br label %12
-
-12:                                               ; preds = %9, %4, %11
-  %.0 = phi ptr [ @.str.1155, %11 ], [ @.str.105, %4 ], [ @.str.107, %9 ]
+11:                                               ; preds = %9, %2, %4
+  %.0 = phi ptr [ @.str.105, %4 ], [ @.str.1155, %2 ], [ %spec.select, %9 ]
   ret ptr %.0
 }
 

@@ -278,7 +278,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %0 = trunc i64 %indvars.iv.i to i32
+  %0 = trunc nuw i64 %indvars.iv.i to i32
   %add2.i = add i32 %0, %lo
   %shl.i = shl nuw i64 1, %indvars.iv.i
   %and.i = and i64 %shl.i, %val
@@ -326,7 +326,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw i64 %indvars.iv to i32
   %add2 = add i32 %0, %lo
   %shl = shl nuw i64 1, %indvars.iv
   %and = and i64 %shl, %val
@@ -630,7 +630,7 @@ for.body.preheader.i:                             ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw i64 %indvars.iv.i to i32
   %add2.i = add i32 %4, %lo
   %shl.i = shl nuw i64 1, %indvars.iv.i
   %and.i = and i64 %shl.i, %call.i.i.i14
@@ -1063,7 +1063,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i
   %cmp5.not.i = icmp eq i32 %0, 0
-  br i1 %cmp5.not.i, label %if.end18.i, label %if.then6.i
+  br i1 %cmp5.not.i, label %_ZNK11tbv_manager14is_well_formedERK3tbv.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.end.i
   %call8.i = tail call noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %dst)
@@ -1075,13 +1075,10 @@ if.then6.i:                                       ; preds = %for.end.i
   %or11.i = or i32 %5, %call8.i
   %6 = and i32 %or11.i, -1431655766
   %cmp15.not.i = icmp eq i32 %6, -1431655766
-  br i1 %cmp15.not.i, label %if.end18.i, label %_ZNK11tbv_manager14is_well_formedERK3tbv.exit
-
-if.end18.i:                                       ; preds = %if.then6.i, %for.end.i
   br label %_ZNK11tbv_manager14is_well_formedERK3tbv.exit
 
-_ZNK11tbv_manager14is_well_formedERK3tbv.exit:    ; preds = %for.body.i, %if.then6.i, %if.end18.i
-  %retval.0.i = phi i1 [ true, %if.end18.i ], [ false, %if.then6.i ], [ false, %for.body.i ]
+_ZNK11tbv_manager14is_well_formedERK3tbv.exit:    ; preds = %for.body.i, %for.end.i, %if.then6.i
+  %retval.0.i = phi i1 [ true, %for.end.i ], [ %cmp15.not.i, %if.then6.i ], [ false, %for.body.i ]
   ret i1 %retval.0.i
 }
 
@@ -1114,7 +1111,7 @@ for.body:                                         ; preds = %for.cond
 
 for.end:                                          ; preds = %for.cond
   %cmp5.not = icmp eq i32 %0, 0
-  br i1 %cmp5.not, label %if.end18, label %if.then6
+  br i1 %cmp5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %for.end
   %call8 = tail call noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %dst)
@@ -1126,13 +1123,10 @@ if.then6:                                         ; preds = %for.end
   %or11 = or i32 %5, %call8
   %6 = and i32 %or11, -1431655766
   %cmp15.not = icmp eq i32 %6, -1431655766
-  br i1 %cmp15.not, label %if.end18, label %return
-
-if.end18:                                         ; preds = %if.then6, %for.end
   br label %return
 
-return:                                           ; preds = %for.body, %if.then6, %if.end18
-  %retval.0 = phi i1 [ true, %if.end18 ], [ false, %if.then6 ], [ false, %for.body ]
+return:                                           ; preds = %for.body, %if.then6, %for.end
+  %retval.0 = phi i1 [ true, %for.end ], [ %cmp15.not, %if.then6 ], [ false, %for.body ]
   ret i1 %retval.0
 }
 
@@ -1377,7 +1371,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 for.end.i.i:                                      ; preds = %for.cond.i.i
   %cmp5.not.i.i = icmp eq i32 %0, 0
-  br i1 %cmp5.not.i.i, label %if.end18.i.i, label %if.then6.i.i
+  br i1 %cmp5.not.i.i, label %_ZNK11tbv_manager7set_andER3tbvRKS0_.exit, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %for.end.i.i
   %call8.i.i = tail call noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %result)
@@ -1389,13 +1383,10 @@ if.then6.i.i:                                     ; preds = %for.end.i.i
   %or11.i.i = or i32 %5, %call8.i.i
   %6 = and i32 %or11.i.i, -1431655766
   %cmp15.not.i.i = icmp eq i32 %6, -1431655766
-  br i1 %cmp15.not.i.i, label %if.end18.i.i, label %_ZNK11tbv_manager7set_andER3tbvRKS0_.exit
-
-if.end18.i.i:                                     ; preds = %if.then6.i.i, %for.end.i.i
   br label %_ZNK11tbv_manager7set_andER3tbvRKS0_.exit
 
-_ZNK11tbv_manager7set_andER3tbvRKS0_.exit:        ; preds = %for.body.i.i, %if.then6.i.i, %if.end18.i.i
-  %retval.0.i.i = phi i1 [ true, %if.end18.i.i ], [ false, %if.then6.i.i ], [ false, %for.body.i.i ]
+_ZNK11tbv_manager7set_andER3tbvRKS0_.exit:        ; preds = %for.body.i.i, %for.end.i.i, %if.then6.i.i
+  %retval.0.i.i = phi i1 [ true, %for.end.i.i ], [ %cmp15.not.i.i, %if.then6.i.i ], [ false, %for.body.i.i ]
   ret i1 %retval.0.i.i
 }
 

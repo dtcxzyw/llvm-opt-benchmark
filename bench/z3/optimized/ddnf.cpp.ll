@@ -2686,7 +2686,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load ptr, ptr %m, align 8
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %call15 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %4, i32 noundef %6, ptr noundef %5)
           to label %invoke.cont14 unwind label %lpad8.loopexit
 
@@ -2859,7 +2859,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %34 = load ptr, ptr %m_nodes.i.i11, align 8
   %arrayidx.i.i37 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.i
-  %35 = trunc i64 %indvars.iv.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   %36 = xor i32 %35, -1
   %sub4.i = add i32 %33, %36
   %idxprom.i6.i = zext i32 %sub4.i to i64
@@ -2892,7 +2892,7 @@ for.body.i43:                                     ; preds = %for.body.i43, %for.
   %indvars.iv.i44 = phi i64 [ 0, %for.body.preheader.i40 ], [ %indvars.iv.next.i46, %for.body.i43 ]
   %40 = load ptr, ptr %names, align 8
   %arrayidx.i45 = getelementptr inbounds %class.symbol, ptr %40, i64 %indvars.iv.i44
-  %41 = trunc i64 %indvars.iv.i44 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.i44 to i32
   %42 = xor i32 %41, -1
   %sub3.i = add i32 %39, %42
   %idxprom4.i = zext i32 %sub3.i to i64
@@ -7213,7 +7213,7 @@ entry:
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.end46
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %return
 
 land.rhs.i.i.i:                                   ; preds = %entry
   %m_decl.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 16
@@ -7221,7 +7221,7 @@ land.rhs.i.i.i:                                   ; preds = %entry
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.end46, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i
+  br i1 %tobool.not.i.i.i.i.i, label %return, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %land.rhs.i.i.i
   %2 = load i32, ptr %1, align 8
@@ -7230,13 +7230,13 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %land.rhs.i.i.i
   %3 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %3, 2
   %4 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %4, label %land.lhs.true.i, label %if.end46
+  br i1 %4, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i
   %m_num_args.i.i = getelementptr inbounds i8, ptr %e, i64 24
   %5 = load i32, ptr %m_num_args.i.i, align 8
   %cmp.i = icmp eq i32 %5, 2
-  br i1 %cmp.i, label %land.lhs.true, label %if.end46
+  br i1 %cmp.i, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %e, i64 32
@@ -7246,7 +7246,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i
   %bv = getelementptr inbounds i8, ptr %this, i64 24
   %call.i = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %6)
   %call2.i = tail call noundef zeroext i1 @_ZNK14bv_recognizers10is_bv_sortEPK4sort(ptr noundef nonnull align 4 dereferenceable(4) %bv, ptr noundef %call.i)
-  br i1 %call2.i, label %if.then, label %if.end46
+  br i1 %call2.i, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
   %m_kind.i.i = getelementptr inbounds i8, ptr %6, i64 4
@@ -7425,19 +7425,16 @@ if.end40:                                         ; preds = %if.end30.if.end40_c
   %bf.load.i.i73 = phi i32 [ %bf.load.i.i73.pre, %if.end30.if.end40_crit_edge ], [ %bf.load.i.i73.pre101, %_Z9is_groundPK4expr.exit71 ], [ %bf.load.i.i73.pre101, %land.lhs.true33 ]
   %bf.clear.i.i74 = and i32 %bf.load.i.i73, 65535
   %cmp.i75 = icmp eq i32 %bf.clear.i.i74, 1
-  br i1 %cmp.i75, label %land.lhs.true42, label %if.end46
+  br i1 %cmp.i75, label %land.lhs.true42, label %return
 
 land.lhs.true42:                                  ; preds = %if.end40
   %bf.load.i.i77 = load i32, ptr %m_kind.i.i9109, align 4
   %bf.clear.i.i78 = and i32 %bf.load.i.i77, 65535
   %cmp.i79 = icmp eq i32 %bf.clear.i.i78, 1
-  br i1 %cmp.i79, label %return, label %if.end46
-
-if.end46:                                         ; preds = %land.rhs.i.i.i, %entry, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %land.lhs.true.i, %if.end40, %land.lhs.true42, %land.lhs.true
   br label %return
 
-return:                                           ; preds = %land.lhs.true42, %if.end46, %if.then37, %if.then27, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit35, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit
-  %retval.0 = phi i1 [ %call10, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit ], [ %call19, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit35 ], [ %call29, %if.then27 ], [ %call39, %if.then37 ], [ false, %if.end46 ], [ true, %land.lhs.true42 ]
+return:                                           ; preds = %land.rhs.i.i.i, %entry, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %land.lhs.true.i, %land.lhs.true42, %land.lhs.true, %if.end40, %if.then37, %if.then27, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit35, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit
+  %retval.0 = phi i1 [ %call10, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit ], [ %call19, %_ZNK7bv_util11get_bv_sizeEPK4expr.exit35 ], [ %call29, %if.then27 ], [ %call39, %if.then37 ], [ false, %if.end40 ], [ false, %land.lhs.true ], [ %cmp.i79, %land.lhs.true42 ], [ false, %land.lhs.true.i ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %entry ], [ false, %land.rhs.i.i.i ]
   ret i1 %retval.0
 }
 

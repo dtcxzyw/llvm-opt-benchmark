@@ -2248,7 +2248,7 @@ define hidden ptr @plpgsql_exec_trigger(ptr noundef %0, ptr noundef %1) local_un
 66:                                               ; preds = %61
   %67 = load ptr, ptr %30, align 8
   %68 = add nuw nsw i64 %indvars.iv, 1
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw nsw i64 %68 to i32
   call void @expanded_record_set_field_internal(ptr noundef %67, i32 noundef %69, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #11
   %.pre = load i32, ptr %14, align 8
   br label %70
@@ -4413,7 +4413,7 @@ list_length.exit59.thread.i.i:                    ; preds = %list_length.exit59.
   unreachable
 
 287:                                              ; preds = %278, %275, %273
-  %288 = trunc i64 %indvars.iv.i.i to i32
+  %288 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %289 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
   call void @llvm.assume(i1 %289)
   %290 = call i32 @errcode(i32 noundef 16801924) #11
@@ -9937,7 +9937,7 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef %0, ptr nocapture
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %45
-  %50 = trunc i8 %.1107 to i1
+  %50 = trunc nuw i8 %.1107 to i1
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %49
@@ -9956,7 +9956,7 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef %0, ptr nocapture
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %.076110, align 8
   tail call fastcc void @exec_move_row(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %61, ptr noundef %62)
-  %63 = trunc i8 %.1107 to i1
+  %63 = trunc nuw i8 %.1107 to i1
   br i1 %63, label %64, label %compatible_tupdescs.exit
 
 64:                                               ; preds = %58
@@ -11329,7 +11329,7 @@ define internal fastcc ptr @format_preparedparamsdata(ptr nocapture noundef read
   %.not16 = icmp eq i64 %indvars.iv, 0
   %18 = select i1 %.not16, ptr @.str.55, ptr @.str.125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = trunc i64 %indvars.iv.next to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.next to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.130, ptr noundef nonnull %18, i32 noundef %19) #11
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   %21 = load i8, ptr %20, align 8
@@ -11650,18 +11650,18 @@ define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, p
   %20 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %4, ptr %20, align 8
   %21 = load i32, ptr %18, align 4
-  switch i32 %21, label %45 [
+  switch i32 %21, label %43 [
     i32 0, label %22
-    i32 3, label %46
-    i32 4, label %32
-    i32 2, label %42
+    i32 3, label %44
+    i32 4, label %31
+    i32 2, label %40
   ]
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds i8, ptr %10, i64 72
   %24 = load ptr, ptr %23, align 8
   %.not22 = icmp eq ptr %24, %1
-  br i1 %.not22, label %31, label %25
+  br i1 %.not22, label %44, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %18, i64 32
@@ -11669,49 +11669,45 @@ define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, p
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i16, ptr %28, align 8
   %30 = icmp eq i16 %29, -1
-  br i1 %30, label %46, label %31
+  %spec.select = select i1 %30, ptr @plpgsql_param_eval_var_ro, ptr @plpgsql_param_eval_var
+  br label %44
 
-31:                                               ; preds = %25, %22
-  br label %46
+31:                                               ; preds = %5
+  %32 = getelementptr inbounds i8, ptr %10, i64 72
+  %33 = load ptr, ptr %32, align 8
+  %.not21 = icmp eq ptr %33, %1
+  br i1 %.not21, label %44, label %34
 
-32:                                               ; preds = %5
-  %33 = getelementptr inbounds i8, ptr %10, i64 72
-  %34 = load ptr, ptr %33, align 8
-  %.not21 = icmp eq ptr %34, %1
-  br i1 %.not21, label %41, label %35
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %18, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load i16, ptr %37, align 8
+  %39 = icmp eq i16 %38, -1
+  %spec.select23 = select i1 %39, ptr @plpgsql_param_eval_generic_ro, ptr @plpgsql_param_eval_generic
+  br label %44
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %18, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load i16, ptr %38, align 8
-  %40 = icmp eq i16 %39, -1
-  br i1 %40, label %46, label %41
+40:                                               ; preds = %5
+  %41 = getelementptr inbounds i8, ptr %10, i64 72
+  %42 = load ptr, ptr %41, align 8
+  %.not = icmp eq ptr %42, %1
+  br i1 %.not, label %43, label %44
 
-41:                                               ; preds = %35, %32
-  br label %46
+43:                                               ; preds = %5, %40
+  br label %44
 
-42:                                               ; preds = %5
-  %43 = getelementptr inbounds i8, ptr %10, i64 72
-  %44 = load ptr, ptr %43, align 8
-  %.not = icmp eq ptr %44, %1
-  br i1 %.not, label %45, label %46
-
-45:                                               ; preds = %5, %42
-  br label %46
-
-46:                                               ; preds = %42, %35, %5, %25, %45, %41, %31
-  %plpgsql_param_eval_recfield.sink = phi ptr [ @plpgsql_param_eval_generic, %45 ], [ @plpgsql_param_eval_generic, %41 ], [ @plpgsql_param_eval_var, %31 ], [ @plpgsql_param_eval_var_ro, %25 ], [ @plpgsql_param_eval_recfield, %5 ], [ @plpgsql_param_eval_generic_ro, %35 ], [ @plpgsql_param_eval_generic_ro, %42 ]
-  %47 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %plpgsql_param_eval_recfield.sink, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 %12, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 12
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 %51, ptr %52, align 4
+44:                                               ; preds = %34, %25, %40, %31, %5, %22, %43
+  %plpgsql_param_eval_recfield.sink = phi ptr [ @plpgsql_param_eval_generic, %43 ], [ @plpgsql_param_eval_var, %22 ], [ @plpgsql_param_eval_recfield, %5 ], [ @plpgsql_param_eval_generic, %31 ], [ @plpgsql_param_eval_generic_ro, %40 ], [ %spec.select, %25 ], [ %spec.select23, %34 ]
+  %45 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %plpgsql_param_eval_recfield.sink, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 %12, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 12
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds i8, ptr %6, i64 44
+  store i32 %49, ptr %50, align 4
   call void @ExprEvalPushStep(ptr noundef %2, ptr noundef nonnull %6) #11
   ret void
 }
@@ -12227,7 +12223,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %26, %29
   br i1 %exitcond238.not, label %.critedge184, label %.lr.ph209, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph209
-  %59 = trunc i64 %indvars.iv234 to i32
+  %59 = trunc nsw i64 %indvars.iv234 to i32
   %60 = getelementptr i64, ptr %3, i64 %indvars.iv234
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr i8, ptr %4, i64 %indvars.iv234
@@ -12378,7 +12374,7 @@ assign_record_var.exit:                           ; preds = %.critedge186, %112
   br i1 %exitcond.not, label %.critedge187, label %.lr.ph, !llvm.loop !27
 
 .critedge11:                                      ; preds = %.lr.ph
-  %129 = trunc i64 %indvars.iv to i32
+  %129 = trunc nsw i64 %indvars.iv to i32
   %130 = getelementptr i64, ptr %3, i64 %indvars.iv
   %131 = load i64, ptr %130, align 8
   %132 = getelementptr i8, ptr %4, i64 %indvars.iv

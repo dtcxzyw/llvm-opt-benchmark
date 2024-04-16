@@ -307,7 +307,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_set_action_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_set_action_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i22 = alloca i32, align 4
   %value.i20 = alloca i32, align 4
@@ -362,7 +362,7 @@ if.then11:                                        ; preds = %if.end9
 if.end15:                                         ; preds = %if.then11, %if.end9
   %has_watchdog = getelementptr inbounds i8, ptr %obj, i64 24
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_watchdog) #4
-  br i1 %call16, label %if.then17, label %if.end21
+  br i1 %call16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end15
   %watchdog = getelementptr inbounds i8, ptr %obj, i64 28
@@ -373,13 +373,10 @@ if.then17:                                        ; preds = %if.end15
   %7 = load i32, ptr %value.i22, align 4
   store i32 %7, ptr %watchdog, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i22)
-  br i1 %call.i23, label %if.end21, label %return
-
-if.end21:                                         ; preds = %if.then17, %if.end15
   br label %return
 
-return:                                           ; preds = %if.then17, %if.then11, %if.then5, %if.then, %if.end21
-  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ]
+return:                                           ; preds = %if.then17, %if.end15, %if.then11, %if.then5, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ true, %if.end15 ], [ %call.i23, %if.then17 ]
   ret i1 %retval.0
 }
 
@@ -406,17 +403,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_info) #4
-  br i1 %call2, label %if.then3, label %if.end8
+  br i1 %call2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
   %call5 = call zeroext i1 @visit_type_GuestPanicInformation(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %info, ptr noundef %errp)
-  br i1 %call5, label %if.end8, label %return
-
-if.end8:                                          ; preds = %if.then3, %if.end
   br label %return
 
-return:                                           ; preds = %if.then3, %entry, %if.end8
-  %retval.0 = phi i1 [ true, %if.end8 ], [ false, %entry ], [ false, %if.then3 ]
+return:                                           ; preds = %if.then3, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call5, %if.then3 ]
   ret i1 %retval.0
 }
 
@@ -504,17 +498,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_info) #4
-  br i1 %call2, label %if.then3, label %if.end8
+  br i1 %call2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
   %call5 = call zeroext i1 @visit_type_GuestPanicInformation(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %info, ptr noundef %errp)
-  br i1 %call5, label %if.end8, label %return
-
-if.end8:                                          ; preds = %if.then3, %if.end
   br label %return
 
-return:                                           ; preds = %if.then3, %entry, %if.end8
-  %retval.0 = phi i1 [ true, %if.end8 ], [ false, %entry ], [ false, %if.then3 ]
+return:                                           ; preds = %if.then3, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call5, %if.then3 ]
   ret i1 %retval.0
 }
 

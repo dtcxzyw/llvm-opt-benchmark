@@ -4,25 +4,23 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @ASN1_TYPE_get(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define i32 @ASN1_TYPE_get(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %a, align 8
   switch i32 %0, label %lor.lhs.false3 [
-    i32 1, label %if.then
-    i32 5, label %if.then
+    i32 1, label %return
+    i32 5, label %return
   ]
 
 lor.lhs.false3:                                   ; preds = %entry
   %value = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %value, align 8
   %cmp4.not = icmp eq ptr %1, null
-  br i1 %cmp4.not, label %return, label %if.then
-
-if.then:                                          ; preds = %entry, %entry, %lor.lhs.false3
+  %spec.select = select i1 %cmp4.not, i32 0, i32 %0
   br label %return
 
-return:                                           ; preds = %lor.lhs.false3, %if.then
-  %retval.0 = phi i32 [ %0, %if.then ], [ 0, %lor.lhs.false3 ]
+return:                                           ; preds = %lor.lhs.false3, %entry, %entry
+  %retval.0 = phi i32 [ %0, %entry ], [ %0, %entry ], [ %spec.select, %lor.lhs.false3 ]
   ret i32 %retval.0
 }
 

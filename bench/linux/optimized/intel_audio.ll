@@ -2378,11 +2378,11 @@ declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @find_audio_state(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp sgt i32 %2, -1
-  br i1 %4, label %5, label %.thread5
+  br i1 %4, label %5, label %.thread9
 
 5:                                                ; preds = %3
   %6 = icmp ugt i32 %2, 6
-  br i1 %6, label %7, label %19, !prof !18
+  br i1 %6, label %7, label %18, !prof !18
 
 7:                                                ; preds = %5
   tail call void asm sideeffect "935: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 935b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 935) #8, !srcloc !64
@@ -2393,85 +2393,85 @@ define internal fastcc noundef ptr @find_audio_state(ptr noundef readonly %0, i3
   %12 = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %17
+  br i1 %14, label %15, label %.thread8
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %11, align 8
-  br label %17
+  br label %.thread8
 
-17:                                               ; preds = %15, %7
-  %18 = phi ptr [ %16, %15 ], [ %13, %7 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef %10, ptr noundef %18, ptr noundef nonnull @.str.24) #8
+.thread8:                                         ; preds = %7, %15
+  %17 = phi ptr [ %16, %15 ], [ %13, %7 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef %10, ptr noundef %17, ptr noundef nonnull @.str.24) #8
   tail call void asm sideeffect "936: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 936b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 936) #8, !srcloc !65
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1163, i32 2313, i64 12) #8, !srcloc !66
   tail call void asm sideeffect "937: nop\0A\09.pushsection .discard.instr_end\0A\09.long 937b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 937) #8, !srcloc !67
   tail call void asm sideeffect "938: nop\0A\09.pushsection .discard.instr_end\0A\09.long 938b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 938) #8, !srcloc !68
-  br label %.thread
+  br label %.loopexit
 
-19:                                               ; preds = %5
-  %20 = zext nneg i32 %2 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 3520
-  %22 = getelementptr [7 x %struct.intel_audio_state], ptr %21, i64 0, i64 %20
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %33, label %25
+18:                                               ; preds = %5
+  %19 = zext nneg i32 %2 to i64
+  %20 = getelementptr inbounds i8, ptr %0, i64 3520
+  %21 = getelementptr [7 x %struct.intel_audio_state], ptr %20, i64 0, i64 %19
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %.thread, label %24
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %23, i64 132
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, %1
-  br i1 %28, label %29, label %33
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %22, i64 132
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, %1
+  br i1 %27, label %28, label %.thread
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %23, i64 128
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, 11
-  br i1 %32, label %.thread, label %33
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %22, i64 128
+  %30 = load i32, ptr %29, align 8
+  %.not = icmp eq i32 %30, 11
+  br i1 %.not, label %.loopexit, label %.thread
 
-33:                                               ; preds = %29, %25, %19
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %.thread5, label %.thread
+.thread:                                          ; preds = %18, %24, %28
+  %.not12 = icmp eq i32 %2, 0
+  br i1 %.not12, label %.thread9, label %.loopexit
 
-.thread5:                                         ; preds = %3, %33
-  %34 = getelementptr inbounds i8, ptr %0, i64 2639
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %0, i64 3520
-  br label %38
+.thread9:                                         ; preds = %3, %.thread
+  %31 = getelementptr inbounds i8, ptr %0, i64 2639
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %0, i64 3520
+  br label %35
 
-38:                                               ; preds = %.thread6, %.thread5
-  %39 = phi i64 [ 0, %.thread5 ], [ %55, %.thread6 ]
-  %40 = shl nuw nsw i64 1, %39
-  %41 = and i64 %40, %36
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %.thread6, label %43
+35:                                               ; preds = %.thread11, %.thread9
+  %36 = phi i64 [ 0, %.thread9 ], [ %52, %.thread11 ]
+  %37 = shl nuw nsw i64 1, %36
+  %38 = and i64 %37, %33
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %.thread11, label %40
 
-43:                                               ; preds = %38
-  %44 = getelementptr [7 x %struct.intel_audio_state], ptr %37, i64 0, i64 %39
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread6, label %47
+40:                                               ; preds = %35
+  %41 = getelementptr [7 x %struct.intel_audio_state], ptr %34, i64 0, i64 %36
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %.thread11, label %44
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %45, i64 132
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, %1
-  br i1 %50, label %51, label %.thread6
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %42, i64 132
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %46, %1
+  br i1 %47, label %48, label %.thread11
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %45, i64 128
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 11
-  br i1 %54, label %.thread6, label %.thread
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %42, i64 128
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 11
+  br i1 %51, label %.thread11, label %.loopexit
 
-.thread6:                                         ; preds = %51, %47, %43, %38
-  %55 = add nuw nsw i64 %39, 1
-  %56 = icmp eq i64 %55, 7
-  br i1 %56, label %.thread, label %38, !llvm.loop !69
+.thread11:                                        ; preds = %40, %44, %48, %35
+  %52 = add nuw nsw i64 %36, 1
+  %53 = icmp eq i64 %52, 7
+  br i1 %53, label %.loopexit, label %35, !llvm.loop !69
 
-.thread:                                          ; preds = %51, %.thread6, %29, %17, %33
-  %57 = phi ptr [ null, %33 ], [ %22, %29 ], [ null, %17 ], [ %44, %51 ], [ null, %.thread6 ]
-  ret ptr %57
+.loopexit:                                        ; preds = %.thread11, %48, %.thread8, %.thread, %28
+  %54 = phi ptr [ %21, %28 ], [ null, %.thread ], [ null, %.thread8 ], [ null, %.thread11 ], [ %41, %48 ]
+  ret ptr %54
 }
 
 ; Function Attrs: null_pointer_is_valid

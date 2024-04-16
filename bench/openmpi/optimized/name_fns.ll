@@ -670,7 +670,7 @@ define i32 @prte_util_compare_name_fields(i8 noundef zeroext %0, ptr noundef rea
   %.mux = sext i1 %not.or.cond to i32
   %brmerge30 = or i1 %4, %5
   %.mux.mux = select i1 %4, i32 %.mux, i32 1
-  br i1 %brmerge30, label %37, label %6
+  br i1 %brmerge30, label %36, label %6
 
 6:                                                ; preds = %3
   %7 = zext i8 %0 to i32
@@ -697,11 +697,11 @@ define i32 @prte_util_compare_name_fields(i8 noundef zeroext %0, ptr noundef rea
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %37, label %19
+  br i1 %18, label %36, label %19
 
 19:                                               ; preds = %15
   %20 = icmp ugt i64 %16, %17
-  br i1 %20, label %37, label %21
+  br i1 %20, label %36, label %21
 
 21:                                               ; preds = %6, %19, %11, %13
   %22 = and i32 %7, 4
@@ -722,28 +722,26 @@ define i32 @prte_util_compare_name_fields(i8 noundef zeroext %0, ptr noundef rea
 
 25:                                               ; preds = %23
   %26 = icmp eq i32 %.pre, -2
-  br i1 %26, label %37, label %27
+  br i1 %26, label %36, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %2, i64 256
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, -2
-  br i1 %30, label %37, label %31
+  br i1 %30, label %36, label %31
 
 31:                                               ; preds = %._crit_edge, %27
   %32 = phi i32 [ %.pre33, %._crit_edge ], [ %29, %27 ]
   %33 = icmp ult i32 %.pre, %32
-  br i1 %33, label %37, label %34
+  br i1 %33, label %36, label %34
 
 34:                                               ; preds = %31
   %35 = icmp ugt i32 %.pre, %32
-  br i1 %35, label %37, label %36
+  %spec.select = zext i1 %35 to i32
+  br label %36
 
-36:                                               ; preds = %34, %21
-  br label %37
-
-37:                                               ; preds = %3, %34, %31, %25, %27, %19, %15, %36
-  %.0 = phi i32 [ 0, %36 ], [ %.mux.mux, %3 ], [ -1, %15 ], [ 1, %19 ], [ 0, %27 ], [ 0, %25 ], [ -1, %31 ], [ 1, %34 ]
+36:                                               ; preds = %34, %3, %21, %31, %25, %27, %19, %15
+  %.0 = phi i32 [ %.mux.mux, %3 ], [ -1, %15 ], [ 1, %19 ], [ 0, %27 ], [ 0, %25 ], [ -1, %31 ], [ 0, %21 ], [ %spec.select, %34 ]
   ret i32 %.0
 }
 

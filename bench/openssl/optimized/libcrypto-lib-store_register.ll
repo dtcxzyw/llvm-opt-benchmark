@@ -149,7 +149,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_store_register_loader_int(ptr noundef %loader) local_unnamed_addr #0 {
+define i32 @ossl_store_register_loader_int(ptr noundef %loader) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %loader, align 8
   %1 = load i8, ptr %0, align 1
@@ -277,19 +277,17 @@ land.lhs.true:                                    ; preds = %if.end44, %ossl_sto
   %17 = phi ptr [ %16, %if.end44 ], [ %call.i.i, %ossl_store_register_init.exit ]
   %call.i = tail call ptr @OPENSSL_LH_insert(ptr noundef nonnull %17, ptr noundef nonnull %loader) #7
   %cmp48.not = icmp eq ptr %call.i, null
-  br i1 %cmp48.not, label %lor.lhs.false50, label %if.then54
+  br i1 %cmp48.not, label %lor.lhs.false50, label %if.end55
 
 lor.lhs.false50:                                  ; preds = %land.lhs.true
   %18 = load ptr, ptr @loader_register, align 8
   %call.i15 = tail call i32 @OPENSSL_LH_error(ptr noundef %18) #7
   %cmp52 = icmp eq i32 %call.i15, 0
-  br i1 %cmp52, label %if.then54, label %if.end55
-
-if.then54:                                        ; preds = %lor.lhs.false50, %land.lhs.true
+  %spec.select = zext i1 %cmp52 to i32
   br label %if.end55
 
-if.end55:                                         ; preds = %if.then54, %lor.lhs.false50, %ossl_store_register_init.exit
-  %ok.0 = phi i32 [ 1, %if.then54 ], [ 0, %lor.lhs.false50 ], [ 0, %ossl_store_register_init.exit ]
+if.end55:                                         ; preds = %lor.lhs.false50, %land.lhs.true, %ossl_store_register_init.exit
+  %ok.0 = phi i32 [ 0, %ossl_store_register_init.exit ], [ 1, %land.lhs.true ], [ %spec.select, %lor.lhs.false50 ]
   %19 = load ptr, ptr @registry_lock, align 8
   %call56 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %19) #7
   br label %return
@@ -321,7 +319,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_STORE_register_loader(ptr noundef %loader) local_unnamed_addr #0 {
+define i32 @OSSL_STORE_register_loader(ptr noundef %loader) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_store_register_loader_int(ptr noundef %loader), !range !6
   ret i32 %call

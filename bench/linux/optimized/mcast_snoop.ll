@@ -81,7 +81,6 @@ define dso_local i32 @ipv6_mc_check_mld(ptr noundef %0) #0 align 16 {
   %53 = add i16 %50, %52
   store i16 %53, ptr %51, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
-  store i8 0, ptr %2, align 1, !annotation !6
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
   store i16 0, ptr %3, align 2, !annotation !6
   %54 = getelementptr inbounds i8, ptr %31, i64 6
@@ -230,7 +229,7 @@ define dso_local i32 @ipv6_mc_check_mld(ptr noundef %0) #0 align 16 {
   %149 = phi ptr [ %.pre28, %._crit_edge27 ], [ %113, %136 ]
   %150 = getelementptr i8, ptr %149, i64 %.pre-phi32
   %151 = load i8, ptr %150, align 4
-  switch i8 %151, label %262 [
+  switch i8 %151, label %261 [
     i8 -124, label %.thread
     i8 -125, label %.thread
     i8 -113, label %152
@@ -360,7 +359,7 @@ define dso_local i32 @ipv6_mc_check_mld(ptr noundef %0) #0 align 16 {
   %247 = load i64, ptr %246, align 8
   %248 = or i64 %247, %245
   %249 = icmp eq i64 %248, 0
-  br i1 %249, label %250, label %261
+  br i1 %249, label %250, label %.thread
 
 250:                                              ; preds = %239
   %251 = load i16, ptr %6, align 4
@@ -373,17 +372,15 @@ define dso_local i32 @ipv6_mc_check_mld(ptr noundef %0) #0 align 16 {
   %258 = icmp eq i64 %255, 767
   %259 = icmp eq i64 %257, 72057594037927936
   %260 = and i1 %258, %259
-  br i1 %260, label %261, label %.thread
-
-261:                                              ; preds = %250, %239
+  %spec.select = select i1 %260, i32 0, i32 -22
   br label %.thread
 
-262:                                              ; preds = %147
+261:                                              ; preds = %147
   br label %.thread
 
-.thread:                                          ; preds = %67, %100, %106, %102, %23, %35, %29, %25, %.thread15, %262, %261, %250, %235, %233, %204, %202, %184, %179, %177, %172, %152, %147, %147, %143, %141, %112
-  %263 = phi i32 [ -61, %262 ], [ -61, %143 ], [ 0, %147 ], [ 0, %147 ], [ -22, %152 ], [ 0, %172 ], [ -22, %177 ], [ %183, %179 ], [ 0, %261 ], [ -22, %184 ], [ -22, %202 ], [ -22, %235 ], [ -22, %250 ], [ -22, %233 ], [ -22, %204 ], [ -61, %141 ], [ -61, %112 ], [ %.ph, %.thread15 ], [ -22, %25 ], [ -22, %29 ], [ -22, %35 ], [ -22, %23 ], [ -22, %102 ], [ -22, %106 ], [ -22, %100 ], [ -22, %67 ]
-  ret i32 %263
+.thread:                                          ; preds = %67, %100, %106, %102, %23, %35, %29, %25, %.thread15, %250, %239, %261, %235, %233, %204, %202, %184, %179, %177, %172, %152, %147, %147, %143, %141, %112
+  %262 = phi i32 [ -61, %261 ], [ -61, %143 ], [ 0, %147 ], [ 0, %147 ], [ -22, %152 ], [ 0, %172 ], [ -22, %177 ], [ %183, %179 ], [ -22, %184 ], [ -22, %202 ], [ -22, %235 ], [ -22, %233 ], [ -22, %204 ], [ -61, %141 ], [ -61, %112 ], [ 0, %239 ], [ %spec.select, %250 ], [ %.ph, %.thread15 ], [ -22, %25 ], [ -22, %29 ], [ -22, %35 ], [ -22, %23 ], [ -22, %102 ], [ -22, %106 ], [ -22, %100 ], [ -22, %67 ]
+  ret i32 %262
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

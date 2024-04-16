@@ -303,6 +303,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.196 = private unnamed_addr constant [9 x i8] c" * BAD *\00", align 1
 @dissect_jxta_message_element_2.element_flags = internal constant [7 x ptr] [ptr @hf_jxta_element2_flag_64bitlens, ptr @hf_jxta_element2_flag_nameLiteral, ptr @hf_jxta_element2_flag_hasType, ptr @hf_jxta_element2_flag_hasSignature, ptr @hf_jxta_element2_flag_hasEncoding, ptr @hf_jxta_element2_flag_sigOfEncoded, ptr null], align 16
 @.str.197 = private unnamed_addr constant [25 x i8] c"application/octet-stream\00", align 1
+@switch.table.jxta_conv_get_filter_type = private unnamed_addr constant [3 x i64] [i64 8, i64 32, i64 8], align 8
+@switch.table.jxta_conv_get_filter_type.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.186, ptr @.str.187, ptr @.str.58], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_jxta() local_unnamed_addr #0 {
@@ -473,7 +475,7 @@ define internal i32 @dissect_jxta_stream(ptr noundef %0, ptr noundef %1, ptr nou
 
 9:                                                ; preds = %4
   %10 = sub nuw nsw i32 10, %7
-  br label %219
+  br label %213
 
 11:                                               ; preds = %4
   %12 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @JXTA_WELCOME_MSG_SIG, i64 noundef 10) #12
@@ -624,7 +626,7 @@ copy_address_wmem.exit141:                        ; preds = %72, %86
 
 99:                                               ; preds = %96
   %100 = sub i32 0, %97
-  br label %219
+  br label %213
 
 101:                                              ; preds = %96
   %102 = load i32, ptr @proto_jxta, align 4
@@ -654,7 +656,7 @@ copy_address_wmem.exit141:                        ; preds = %72, %86
 
 117:                                              ; preds = %115
   %118 = sub i32 0, %108
-  br label %219
+  br label %213
 
 119:                                              ; preds = %115
   %120 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %108) #12
@@ -662,7 +664,7 @@ copy_address_wmem.exit141:                        ; preds = %72, %86
   %122 = load i64, ptr %5, align 8
   %.not = icmp sgt i64 %122, %121
   %123 = trunc i64 %122 to i32
-  br i1 %.not, label %217, label %124
+  br i1 %.not, label %211, label %124
 
 124:                                              ; preds = %119
   %125 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %108, i32 noundef %123) #12
@@ -675,13 +677,13 @@ copy_address_wmem.exit141:                        ; preds = %72, %86
   %132 = getelementptr inbounds i8, ptr %131, i64 40
   %133 = load i32, ptr %132, align 8
   %.not.i = icmp eq i32 %133, 0
-  br i1 %.not.i, label %addresses_equal.exit145, label %134
+  br i1 %.not.i, label %get_peer_conversation.exit.thread, label %134
 
 134:                                              ; preds = %124
   %135 = getelementptr inbounds i8, ptr %131, i64 96
   %136 = load i32, ptr %135, align 8
   %.not12.i = icmp eq i32 %136, 0
-  br i1 %.not12.i, label %addresses_equal.exit145, label %137
+  br i1 %.not12.i, label %get_peer_conversation.exit.thread, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds i8, ptr %1, i64 20
@@ -703,7 +705,7 @@ get_peer_conversation.exit:                       ; preds = %142, %137
   %148 = load i32, ptr %146, align 8
   %149 = load i32, ptr %147, align 8
   %150 = icmp eq i32 %148, %149
-  br i1 %150, label %151, label %addresses_equal.exit
+  br i1 %150, label %151, label %addresses_equal.exit.thread
 
 151:                                              ; preds = %get_peer_conversation.exit
   %152 = getelementptr inbounds i8, ptr %1, i64 212
@@ -711,140 +713,140 @@ get_peer_conversation.exit:                       ; preds = %142, %137
   %154 = getelementptr inbounds i8, ptr %131, i64 12
   %155 = load i32, ptr %154, align 4
   %156 = icmp eq i32 %153, %155
-  br i1 %156, label %157, label %addresses_equal.exit
+  br i1 %156, label %157, label %addresses_equal.exit.thread
 
 157:                                              ; preds = %151
   %158 = icmp eq i32 %153, 0
-  br i1 %158, label %166, label %159
+  br i1 %158, label %addresses_equal.exit.thread151, label %addresses_equal.exit
 
-159:                                              ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %1, i64 216
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %131, i64 16
-  %163 = load ptr, ptr %162, align 8
-  %164 = sext i32 %153 to i64
-  %bcmp.i = call i32 @bcmp(ptr %161, ptr %163, i64 %164)
-  %165 = icmp eq i32 %bcmp.i, 0
-  br i1 %165, label %166, label %addresses_equal.exit
+addresses_equal.exit:                             ; preds = %157
+  %159 = getelementptr inbounds i8, ptr %1, i64 216
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %131, i64 16
+  %162 = load ptr, ptr %161, align 8
+  %163 = sext i32 %153 to i64
+  %bcmp.i = call i32 @bcmp(ptr %160, ptr %162, i64 %163)
+  %.not162 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not162, label %addresses_equal.exit.thread151, label %addresses_equal.exit.thread
 
-166:                                              ; preds = %159, %157
-  %167 = getelementptr inbounds i8, ptr %131, i64 32
-  %168 = load i32, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %1, i64 284
-  %170 = load i32, ptr %169, align 4
-  %171 = icmp eq i32 %168, %170
-  br i1 %171, label %addresses_equal.exit145.sink.split, label %addresses_equal.exit
+addresses_equal.exit.thread151:                   ; preds = %157, %addresses_equal.exit
+  %164 = getelementptr inbounds i8, ptr %131, i64 32
+  %165 = load i32, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %1, i64 284
+  %167 = load i32, ptr %166, align 4
+  %168 = icmp eq i32 %165, %167
+  br i1 %168, label %get_peer_conversation.exit.thread.sink.split, label %addresses_equal.exit.thread
 
-addresses_equal.exit:                             ; preds = %159, %151, %get_peer_conversation.exit, %166
-  %172 = getelementptr inbounds i8, ptr %131, i64 64
-  %173 = load i32, ptr %172, align 8
-  %174 = icmp eq i32 %148, %173
-  br i1 %174, label %175, label %addresses_equal.exit145
+addresses_equal.exit.thread:                      ; preds = %get_peer_conversation.exit, %151, %addresses_equal.exit.thread151, %addresses_equal.exit
+  %169 = getelementptr inbounds i8, ptr %131, i64 64
+  %170 = load i32, ptr %169, align 8
+  %171 = icmp eq i32 %148, %170
+  br i1 %171, label %172, label %get_peer_conversation.exit.thread
 
-175:                                              ; preds = %addresses_equal.exit
-  %176 = getelementptr inbounds i8, ptr %1, i64 212
-  %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds i8, ptr %131, i64 68
-  %179 = load i32, ptr %178, align 4
-  %180 = icmp eq i32 %177, %179
-  br i1 %180, label %181, label %addresses_equal.exit145
+172:                                              ; preds = %addresses_equal.exit.thread
+  %173 = getelementptr inbounds i8, ptr %1, i64 212
+  %174 = load i32, ptr %173, align 4
+  %175 = getelementptr inbounds i8, ptr %131, i64 68
+  %176 = load i32, ptr %175, align 4
+  %177 = icmp eq i32 %174, %176
+  br i1 %177, label %178, label %get_peer_conversation.exit.thread
 
-181:                                              ; preds = %175
-  %182 = icmp eq i32 %177, 0
-  br i1 %182, label %190, label %183
+178:                                              ; preds = %172
+  %179 = icmp eq i32 %174, 0
+  br i1 %179, label %addresses_equal.exit146.thread156, label %addresses_equal.exit146
 
-183:                                              ; preds = %181
-  %184 = getelementptr inbounds i8, ptr %1, i64 216
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %131, i64 72
-  %187 = load ptr, ptr %186, align 8
-  %188 = sext i32 %177 to i64
-  %bcmp.i144 = call i32 @bcmp(ptr %185, ptr %187, i64 %188)
-  %189 = icmp eq i32 %bcmp.i144, 0
-  br i1 %189, label %190, label %addresses_equal.exit145
+addresses_equal.exit146:                          ; preds = %178
+  %180 = getelementptr inbounds i8, ptr %1, i64 216
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds i8, ptr %131, i64 72
+  %183 = load ptr, ptr %182, align 8
+  %184 = sext i32 %174 to i64
+  %bcmp.i144 = call i32 @bcmp(ptr %181, ptr %183, i64 %184)
+  %.not163 = icmp eq i32 %bcmp.i144, 0
+  br i1 %.not163, label %addresses_equal.exit146.thread156, label %get_peer_conversation.exit.thread
 
-190:                                              ; preds = %183, %181
-  %191 = getelementptr inbounds i8, ptr %131, i64 88
-  %192 = load i32, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %1, i64 284
-  %194 = load i32, ptr %193, align 4
-  %195 = icmp eq i32 %192, %194
-  br i1 %195, label %addresses_equal.exit145.sink.split, label %addresses_equal.exit145
+addresses_equal.exit146.thread156:                ; preds = %178, %addresses_equal.exit146
+  %185 = getelementptr inbounds i8, ptr %131, i64 88
+  %186 = load i32, ptr %185, align 8
+  %187 = getelementptr inbounds i8, ptr %1, i64 284
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp eq i32 %186, %188
+  br i1 %189, label %get_peer_conversation.exit.thread.sink.split, label %get_peer_conversation.exit.thread
 
-addresses_equal.exit145.sink.split:               ; preds = %190, %166
-  %.sink175 = phi ptr [ %132, %166 ], [ %135, %190 ]
-  %.sink174 = phi i64 [ 44, %166 ], [ 100, %190 ]
-  %.sink172 = phi i64 [ 48, %166 ], [ 104, %190 ]
-  %.sink169 = phi ptr [ %152, %166 ], [ %176, %190 ]
-  %.sink164 = phi ptr [ %169, %166 ], [ %193, %190 ]
-  %.sink163 = phi ptr [ %135, %166 ], [ %132, %190 ]
-  %.sink162 = phi i64 [ 100, %166 ], [ 44, %190 ]
-  %.sink = phi i64 [ 104, %166 ], [ 48, %190 ]
-  %196 = load i32, ptr %.sink175, align 8
-  %197 = getelementptr inbounds i8, ptr %131, i64 %.sink174
-  %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds i8, ptr %131, i64 %.sink172
-  %200 = load ptr, ptr %199, align 8
-  store i32 %196, ptr %146, align 8
-  store i32 %198, ptr %.sink169, align 4
-  %201 = getelementptr inbounds i8, ptr %1, i64 216
-  store ptr %200, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %1, i64 224
-  store ptr null, ptr %202, align 8
-  store i32 0, ptr %.sink164, align 4
-  %203 = getelementptr inbounds i8, ptr %1, i64 232
-  %204 = load i32, ptr %.sink163, align 8
-  %205 = getelementptr inbounds i8, ptr %131, i64 %.sink162
-  %206 = load i32, ptr %205, align 4
-  %207 = getelementptr inbounds i8, ptr %131, i64 %.sink
-  %208 = load ptr, ptr %207, align 8
-  store i32 %204, ptr %203, align 8
-  %209 = getelementptr inbounds i8, ptr %1, i64 236
-  store i32 %206, ptr %209, align 4
-  %210 = getelementptr inbounds i8, ptr %1, i64 240
-  store ptr %208, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %1, i64 248
-  store ptr null, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %1, i64 288
-  store i32 0, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %1, i64 280
-  store i32 0, ptr %213, align 8
-  br label %addresses_equal.exit145
+get_peer_conversation.exit.thread.sink.split:     ; preds = %addresses_equal.exit146.thread156, %addresses_equal.exit.thread151
+  %.sink184 = phi ptr [ %132, %addresses_equal.exit.thread151 ], [ %135, %addresses_equal.exit146.thread156 ]
+  %.sink183 = phi i64 [ 44, %addresses_equal.exit.thread151 ], [ 100, %addresses_equal.exit146.thread156 ]
+  %.sink181 = phi i64 [ 48, %addresses_equal.exit.thread151 ], [ 104, %addresses_equal.exit146.thread156 ]
+  %.sink178 = phi ptr [ %152, %addresses_equal.exit.thread151 ], [ %173, %addresses_equal.exit146.thread156 ]
+  %.sink173 = phi ptr [ %166, %addresses_equal.exit.thread151 ], [ %187, %addresses_equal.exit146.thread156 ]
+  %.sink172 = phi ptr [ %135, %addresses_equal.exit.thread151 ], [ %132, %addresses_equal.exit146.thread156 ]
+  %.sink171 = phi i64 [ 100, %addresses_equal.exit.thread151 ], [ 44, %addresses_equal.exit146.thread156 ]
+  %.sink = phi i64 [ 104, %addresses_equal.exit.thread151 ], [ 48, %addresses_equal.exit146.thread156 ]
+  %190 = load i32, ptr %.sink184, align 8
+  %191 = getelementptr inbounds i8, ptr %131, i64 %.sink183
+  %192 = load i32, ptr %191, align 4
+  %193 = getelementptr inbounds i8, ptr %131, i64 %.sink181
+  %194 = load ptr, ptr %193, align 8
+  store i32 %190, ptr %146, align 8
+  store i32 %192, ptr %.sink178, align 4
+  %195 = getelementptr inbounds i8, ptr %1, i64 216
+  store ptr %194, ptr %195, align 8
+  %196 = getelementptr inbounds i8, ptr %1, i64 224
+  store ptr null, ptr %196, align 8
+  store i32 0, ptr %.sink173, align 4
+  %197 = getelementptr inbounds i8, ptr %1, i64 232
+  %198 = load i32, ptr %.sink172, align 8
+  %199 = getelementptr inbounds i8, ptr %131, i64 %.sink171
+  %200 = load i32, ptr %199, align 4
+  %201 = getelementptr inbounds i8, ptr %131, i64 %.sink
+  %202 = load ptr, ptr %201, align 8
+  store i32 %198, ptr %197, align 8
+  %203 = getelementptr inbounds i8, ptr %1, i64 236
+  store i32 %200, ptr %203, align 4
+  %204 = getelementptr inbounds i8, ptr %1, i64 240
+  store ptr %202, ptr %204, align 8
+  %205 = getelementptr inbounds i8, ptr %1, i64 248
+  store ptr null, ptr %205, align 8
+  %206 = getelementptr inbounds i8, ptr %1, i64 288
+  store i32 0, ptr %206, align 8
+  %207 = getelementptr inbounds i8, ptr %1, i64 280
+  store i32 0, ptr %207, align 8
+  br label %get_peer_conversation.exit.thread
 
-addresses_equal.exit145:                          ; preds = %addresses_equal.exit145.sink.split, %124, %134, %183, %175, %addresses_equal.exit, %190
-  %214 = load ptr, ptr %6, align 8
-  %215 = call fastcc i32 @dissect_media(ptr noundef %214, ptr noundef %125, ptr noundef %1, ptr noundef %2)
-  %216 = add i32 %215, %130
+get_peer_conversation.exit.thread:                ; preds = %get_peer_conversation.exit.thread.sink.split, %addresses_equal.exit.thread, %172, %124, %134, %addresses_equal.exit146, %addresses_equal.exit146.thread156
+  %208 = load ptr, ptr %6, align 8
+  %209 = call fastcc i32 @dissect_media(ptr noundef %208, ptr noundef %125, ptr noundef %1, ptr noundef %2)
+  %210 = add i32 %209, %130
   br label %.thread
 
-217:                                              ; preds = %119
-  %218 = sub i32 %123, %120
-  br label %219
+211:                                              ; preds = %119
+  %212 = sub i32 %123, %120
+  br label %213
 
-219:                                              ; preds = %217, %117, %99, %9
-  %.0128 = phi i32 [ %10, %9 ], [ %100, %99 ], [ %118, %117 ], [ %218, %217 ]
-  %220 = icmp sgt i32 %.0128, 0
-  %221 = load i32, ptr @gDESEGMENT, align 4
-  %222 = icmp ne i32 %221, 0
-  %or.cond7 = select i1 %220, i1 %222, i1 false
-  br i1 %or.cond7, label %223, label %.thread
+213:                                              ; preds = %211, %117, %99, %9
+  %.0128 = phi i32 [ %10, %9 ], [ %100, %99 ], [ %118, %117 ], [ %212, %211 ]
+  %214 = icmp sgt i32 %.0128, 0
+  %215 = load i32, ptr @gDESEGMENT, align 4
+  %216 = icmp ne i32 %215, 0
+  %or.cond7 = select i1 %214, i1 %216, i1 false
+  br i1 %or.cond7, label %217, label %.thread
 
-223:                                              ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %1, i64 328
-  %225 = load i16, ptr %224, align 8
-  %.not139 = icmp eq i16 %225, 0
-  br i1 %.not139, label %.thread, label %226
+217:                                              ; preds = %213
+  %218 = getelementptr inbounds i8, ptr %1, i64 328
+  %219 = load i16, ptr %218, align 8
+  %.not139 = icmp eq i16 %219, 0
+  br i1 %.not139, label %.thread, label %220
 
-226:                                              ; preds = %223
-  %227 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 0, ptr %227, align 4
-  %228 = getelementptr inbounds i8, ptr %1, i64 336
-  store i32 %.0128, ptr %228, align 8
-  %229 = sub nsw i32 0, %.0128
+220:                                              ; preds = %217
+  %221 = getelementptr inbounds i8, ptr %1, i64 332
+  store i32 0, ptr %221, align 4
+  %222 = getelementptr inbounds i8, ptr %1, i64 336
+  store i32 %.0128, ptr %222, align 8
+  %223 = sub nsw i32 0, %.0128
   br label %.thread
 
-.thread:                                          ; preds = %101, %addresses_equal.exit145, %219, %223, %107, %226
-  %.0 = phi i32 [ %229, %226 ], [ 0, %107 ], [ 0, %223 ], [ 0, %219 ], [ %216, %addresses_equal.exit145 ], [ %106, %101 ]
+.thread:                                          ; preds = %101, %get_peer_conversation.exit.thread, %213, %217, %107, %220
+  %.0 = phi i32 [ %223, %220 ], [ 0, %107 ], [ 0, %217 ], [ 0, %213 ], [ %210, %get_peer_conversation.exit.thread ], [ %106, %101 ]
   ret i32 %.0
 }
 
@@ -2532,46 +2534,33 @@ declare nonnull ptr @conversation_new(i32 noundef, ptr noundef, ptr noundef, i32
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @jxta_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
-  switch i32 %1, label %18 [
-    i32 0, label %3
-    i32 1, label %8
-    i32 2, label %13
-  ]
+define internal nonnull ptr @jxta_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
+  %3 = icmp ult i32 %1, 3
+  br i1 %3, label %switch.lookup, label %10
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8
-  %6 = load i32, ptr @uri_address_type, align 4
-  %7 = icmp eq i32 %5, %6
-  br i1 %7, label %19, label %18
+switch.lookup:                                    ; preds = %2
+  %4 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.jxta_conv_get_filter_type, i64 0, i64 %4
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %5 = zext nneg i32 %1 to i64
+  %switch.gep11 = getelementptr inbounds [3 x ptr], ptr @switch.table.jxta_conv_get_filter_type.1, i64 0, i64 %5
+  %switch.load12 = load ptr, ptr %switch.gep11, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 %switch.load
+  %7 = load i32, ptr %6, align 8
+  %8 = load i32, ptr @uri_address_type, align 4
+  %9 = icmp eq i32 %7, %8
+  %spec.select7 = select i1 %9, ptr %switch.load12, ptr @.str.188
+  br label %10
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load i32, ptr %9, align 8
-  %11 = load i32, ptr @uri_address_type, align 4
-  %12 = icmp eq i32 %10, %11
-  br i1 %12, label %19, label %18
-
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8
-  %16 = load i32, ptr @uri_address_type, align 4
-  %17 = icmp eq i32 %15, %16
-  br i1 %17, label %19, label %18
-
-18:                                               ; preds = %8, %3, %2, %13
-  br label %19
-
-19:                                               ; preds = %13, %8, %3, %18
-  %.0 = phi ptr [ @.str.188, %18 ], [ @.str.186, %3 ], [ @.str.187, %8 ], [ @.str.58, %13 ]
+10:                                               ; preds = %2, %switch.lookup
+  %.0 = phi ptr [ @.str.188, %2 ], [ %spec.select7, %switch.lookup ]
   ret ptr %.0
 }
 
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @jxta_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
+define internal nonnull ptr @jxta_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %9
 
@@ -2580,13 +2569,11 @@ define internal noundef nonnull ptr @jxta_endpoint_get_filter_type(ptr nocapture
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @uri_address_type, align 4
   %8 = icmp eq i32 %6, %7
-  br i1 %8, label %10, label %9
+  %spec.select = select i1 %8, ptr @.str.58, ptr @.str.188
+  br label %9
 
 9:                                                ; preds = %4, %2
-  br label %10
-
-10:                                               ; preds = %4, %9
-  %.0 = phi ptr [ @.str.188, %9 ], [ @.str.58, %4 ]
+  %.0 = phi ptr [ @.str.188, %2 ], [ %spec.select, %4 ]
   ret ptr %.0
 }
 

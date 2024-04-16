@@ -958,7 +958,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   %28 = load ptr, ptr %0, align 8
   invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil28GetNationalSignificantNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %4)
-          to label %29 unwind label %90
+          to label %29 unwind label %89
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %22, i64 168
@@ -967,11 +967,11 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %32 = select i1 %.not.i.i, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %31
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
-          to label %35 unwind label %90
+          to label %35 unwind label %89
 
 35:                                               ; preds = %29
   %36 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
-          to label %37 unwind label %90
+          to label %37 unwind label %89
 
 37:                                               ; preds = %35
   %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
@@ -1031,7 +1031,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %.pre-phi56.i.i.i = phi i64 [ %.pre55.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %41, %37 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %34, %37 ]
   %68 = ashr exact i64 %.pre-phi56.i.i.i, 2
-  switch i64 %68, label %83 [
+  switch i64 %68, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit [
     i64 3, label %69
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
@@ -1063,41 +1063,39 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %80 = load i32, ptr %.2.i.i.i, align 4
   %81 = sext i32 %80 to i64
   %82 = icmp eq i64 %38, %81
-  br i1 %82, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit, label %83
-
-83:                                               ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
+  %spec.select.i.i.i = select i1 %82, ptr %.2.i.i.i, ptr %36
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %59
-  %84 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
+  %83 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30: ; preds = %54
-  %85 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
+  %84 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit32: ; preds = %49
-  %86 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
+  %85 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %45, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit32, %83, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %69
-  %.028.i.i.i = phi ptr [ %36, %83 ], [ %.029.lcssa.i.i.i, %69 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %85, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30 ], [ %86, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit32 ], [ %.02946.i.i.i, %45 ]
-  %87 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
-          to label %88 unwind label %90
+_ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %45, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit32, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %69, %._crit_edge.i.i.i
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %69 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %83, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit30 ], [ %85, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit32 ], [ %.02946.i.i.i, %45 ]
+  %86 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %87 unwind label %89
 
-88:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit
-  %89 = icmp ne ptr %.028.i.i.i, %87
+87:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit
+  %88 = icmp ne ptr %.028.i.i.i, %86
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   br label %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-90:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit, %35, %29, %27
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit, %35, %29, %27
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  resume { ptr, i32 } %91
+  resume { ptr, i32 } %90
 
-_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i, %3, %88
-  %.0 = phi i1 [ %89, %88 ], [ false, %3 ], [ false, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i ]
+_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i, %3, %87
+  %.0 = phi i1 [ %88, %87 ], [ false, %3 ], [ false, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i ]
   ret i1 %.0
 }
 
@@ -1191,7 +1189,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
 34:                                               ; preds = %2
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %99
 
 .loopexit:                                        ; preds = %37, %43, %_ZSt4findIPKimET_S2_S2_RKT0_.exit, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i, %.noexc
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1206,7 +1204,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
 36:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  br label %100
+  br label %99
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds i8, ptr %29, i64 168
@@ -1279,7 +1277,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %.pre-phi56.i.i.i = phi i64 [ %.pre55.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %49, %45 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %42, %45 ]
   %76 = ashr exact i64 %.pre-phi56.i.i.i, 2
-  switch i64 %76, label %91 [
+  switch i64 %76, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit [
     i64 3, label %77
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
@@ -1311,57 +1309,55 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %88 = load i32, ptr %.2.i.i.i, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp eq i64 %46, %89
-  br i1 %90, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit, label %91
-
-91:                                               ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
+  %spec.select.i.i.i = select i1 %90, ptr %.2.i.i.i, ptr %44
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %67
-  %92 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
+  %91 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48: ; preds = %62
-  %93 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
+  %92 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit50: ; preds = %57
-  %94 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
+  %93 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %53, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit50, %91, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %77
-  %.028.i.i.i = phi ptr [ %44, %91 ], [ %.029.lcssa.i.i.i, %77 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %92, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %93, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48 ], [ %94, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit50 ], [ %.02946.i.i.i, %53 ]
-  %95 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %41)
-          to label %96 unwind label %.loopexit
+_ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %53, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit50, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %77, %._crit_edge.i.i.i
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %77 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %44, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %91, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %92, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48 ], [ %93, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit50 ], [ %.02946.i.i.i, %53 ]
+  %94 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %41)
+          to label %95 unwind label %.loopexit
 
-96:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit
-  %.not17 = icmp eq ptr %.028.i.i.i, %95
+95:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit
+  %.not17 = icmp eq ptr %.028.i.i.i, %94
   br i1 %.not17, label %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %._crit_edge
 
-_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.noexc18, %96
+_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.noexc18, %95
   %.sroa.023.0 = load ptr, ptr %.sroa.023.040, align 8
   %.not47 = icmp eq ptr %.sroa.023.0, %3
   br i1 %.not47, label %._crit_edge, label %13
 
-._crit_edge:                                      ; preds = %96, %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %.preheader
-  %.lcssa = phi i1 [ false, %.preheader ], [ false, %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ true, %96 ]
+._crit_edge:                                      ; preds = %95, %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %.preheader
+  %.lcssa = phi i1 [ false, %.preheader ], [ false, %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ true, %95 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  %97 = load ptr, ptr %3, align 8
-  %.not8.i.i.i = icmp eq ptr %97, %3
+  %96 = load ptr, ptr %3, align 8
+  %.not8.i.i.i = icmp eq ptr %96, %3
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i.i19
 
 .lr.ph.i.i.i19:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i19
-  %.09.i.i.i = phi ptr [ %98, %.lr.ph.i.i.i19 ], [ %97, %._crit_edge ]
-  %98 = load ptr, ptr %.09.i.i.i, align 8
-  %99 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #20
+  %.09.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i19 ], [ %96, %._crit_edge ]
+  %97 = load ptr, ptr %.09.i.i.i, align 8
+  %98 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #20
   call void @_ZdlPv(ptr noundef %.09.i.i.i) #23
-  %.not.i.i.i = icmp eq ptr %98, %3
+  %.not.i.i.i = icmp eq ptr %97, %3
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i.i19, !llvm.loop !69
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %.lr.ph.i.i.i19, %._crit_edge
   ret i1 %.lcssa
 
-100:                                              ; preds = %36, %34
+99:                                               ; preds = %36, %34
   %.pn = phi { ptr, i32 } [ %lpad.phi, %36 ], [ %35, %34 ]
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
   resume { ptr, i32 } %.pn
@@ -1519,7 +1515,7 @@ define internal fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_13
   %.pre-phi56.i.i.i = phi i64 [ %.pre55.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %13, %7 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %8, %7 ]
   %40 = ashr exact i64 %.pre-phi56.i.i.i, 2
-  switch i64 %40, label %55 [
+  switch i64 %40, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit [
     i64 3, label %41
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
@@ -1551,38 +1547,36 @@ define internal fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_13
   %52 = load i32, ptr %.2.i.i.i, align 4
   %53 = sext i32 %52 to i64
   %54 = icmp eq i64 %10, %53
-  br i1 %54, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit, label %55
-
-55:                                               ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
+  %spec.select.i.i.i = select i1 %54, ptr %.2.i.i.i, ptr %9
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %21
-  %56 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
+  %55 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %26
-  %57 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
+  %56 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27: ; preds = %31
-  %58 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
+  %57 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %17, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27, %41, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %55
-  %.028.i.i.i = phi ptr [ %9, %55 ], [ %.029.lcssa.i.i.i, %41 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %56, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %57, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25 ], [ %58, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27 ], [ %.02946.i.i.i, %17 ]
-  %59 = tail call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %60 = icmp eq ptr %.028.i.i.i, %59
-  br i1 %60, label %65, label %.critedge
+_ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %17, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27, %._crit_edge.i.i.i, %41, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %41 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %9, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %55, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %56, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit25 ], [ %57, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit27 ], [ %.02946.i.i.i, %17 ]
+  %58 = tail call noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %59 = icmp eq ptr %.028.i.i.i, %58
+  br i1 %59, label %64, label %.critedge
 
 .critedge:                                        ; preds = %3, %_ZSt4findIPKimET_S2_S2_RKT0_.exit
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false)
-  br label %65
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false)
+  br label %64
 
-65:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit, %.critedge
-  %.0 = phi i1 [ %64, %.critedge ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit ]
+64:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit, %.critedge
+  %.0 = phi i1 [ %63, %.critedge ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit ]
   ret i1 %.0
 }
 
@@ -1827,7 +1821,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   %28 = load ptr, ptr %0, align 8
   invoke void @_ZNK4i18n12phonenumbers15PhoneNumberUtil28GetNationalSignificantNumberERKNS0_11PhoneNumberEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %4)
-          to label %29 unwind label %90
+          to label %29 unwind label %89
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %22, i64 168
@@ -1836,11 +1830,11 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %32 = select i1 %.not.i.i, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %31
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
-          to label %35 unwind label %90
+          to label %35 unwind label %89
 
 35:                                               ; preds = %29
   %36 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
-          to label %37 unwind label %90
+          to label %37 unwind label %89
 
 37:                                               ; preds = %35
   %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
@@ -1900,7 +1894,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %.pre-phi56.i.i.i = phi i64 [ %.pre55.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %41, %37 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %34, %37 ]
   %68 = ashr exact i64 %.pre-phi56.i.i.i, 2
-  switch i64 %68, label %83 [
+  switch i64 %68, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit [
     i64 3, label %69
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
@@ -1932,90 +1926,88 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %80 = load i32, ptr %.2.i.i.i, align 4
   %81 = sext i32 %80 to i64
   %82 = icmp eq i64 %38, %81
-  br i1 %82, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit, label %83
-
-83:                                               ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
+  %spec.select.i.i.i = select i1 %82, ptr %.2.i.i.i, ptr %36
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %59
-  %84 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
+  %83 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit37: ; preds = %54
-  %85 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
+  %84 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit39: ; preds = %49
-  %86 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
+  %85 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %45, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit37, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit39, %83, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %69
-  %.028.i.i.i = phi ptr [ %36, %83 ], [ %.029.lcssa.i.i.i, %69 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %85, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit37 ], [ %86, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit39 ], [ %.02946.i.i.i, %45 ]
-  %87 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
-          to label %88 unwind label %90
+_ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %45, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit37, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit39, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %69, %._crit_edge.i.i.i
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %69 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %36, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %83, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit37 ], [ %85, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit39 ], [ %.02946.i.i.i, %45 ]
+  %86 = invoke noundef ptr @_ZNK6google8protobuf13RepeatedFieldIiE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %87 unwind label %89
 
-88:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit
-  %89 = icmp eq ptr %.028.i.i.i, %87
-  br i1 %89, label %116, label %92
+87:                                               ; preds = %_ZSt4findIPKimET_S2_S2_RKT0_.exit
+  %88 = icmp eq ptr %.028.i.i.i, %86
+  br i1 %88, label %115, label %91
 
-90:                                               ; preds = %114, %107, %100, %92, %_ZSt4findIPKimET_S2_S2_RKT0_.exit, %35, %29, %27
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %113, %106, %99, %91, %_ZSt4findIPKimET_S2_S2_RKT0_.exit, %35, %29, %27
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  resume { ptr, i32 } %91
+  resume { ptr, i32 } %90
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %22, i64 200
-  %96 = load ptr, ptr %95, align 8
-  %.not.i.i17 = icmp eq ptr %96, null
-  %97 = select i1 %.not.i.i17, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %96
-  %98 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(72) %97)
-          to label %99 unwind label %90
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %22, i64 200
+  %95 = load ptr, ptr %94, align 8
+  %.not.i.i17 = icmp eq ptr %95, null
+  %96 = select i1 %.not.i.i17, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %95
+  %97 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(72) %96)
+          to label %98 unwind label %89
 
-99:                                               ; preds = %92
-  br i1 %98, label %116, label %100
+98:                                               ; preds = %91
+  br i1 %97, label %115, label %99
 
-100:                                              ; preds = %99
-  %101 = load ptr, ptr %93, align 8
-  %102 = getelementptr inbounds i8, ptr %22, i64 280
-  %103 = load ptr, ptr %102, align 8
-  %.not.i.i18 = icmp eq ptr %103, null
-  %104 = select i1 %.not.i.i18, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %103
-  %105 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(72) %104)
-          to label %106 unwind label %90
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %92, align 8
+  %101 = getelementptr inbounds i8, ptr %22, i64 280
+  %102 = load ptr, ptr %101, align 8
+  %.not.i.i18 = icmp eq ptr %102, null
+  %103 = select i1 %.not.i.i18, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %102
+  %104 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(72) %103)
+          to label %105 unwind label %89
 
-106:                                              ; preds = %100
-  br i1 %105, label %116, label %107
+105:                                              ; preds = %99
+  br i1 %104, label %115, label %106
 
-107:                                              ; preds = %106
-  %108 = load ptr, ptr %93, align 8
-  %109 = getelementptr inbounds i8, ptr %22, i64 192
-  %110 = load ptr, ptr %109, align 8
-  %.not.i.i19 = icmp eq ptr %110, null
-  %111 = select i1 %.not.i.i19, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %110
-  %112 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(72) %111)
-          to label %113 unwind label %90
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %92, align 8
+  %108 = getelementptr inbounds i8, ptr %22, i64 192
+  %109 = load ptr, ptr %108, align 8
+  %.not.i.i19 = icmp eq ptr %109, null
+  %110 = select i1 %.not.i.i19, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %109
+  %111 = invoke fastcc noundef zeroext i1 @_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(72) %110)
+          to label %112 unwind label %89
 
-113:                                              ; preds = %107
-  br i1 %112, label %116, label %114
+112:                                              ; preds = %106
+  br i1 %111, label %115, label %113
 
-114:                                              ; preds = %113
-  %115 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15ShortNumberInfo28MatchesEmergencyNumberHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext false)
-          to label %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit unwind label %90
+113:                                              ; preds = %112
+  %114 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15ShortNumberInfo28MatchesEmergencyNumberHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext false)
+          to label %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit unwind label %89
 
-_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit: ; preds = %114
-  %. = select i1 %115, i32 0, i32 3
-  br label %116
+_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit: ; preds = %113
+  %. = select i1 %114, i32 0, i32 3
+  br label %115
 
-116:                                              ; preds = %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %113, %106, %99, %88
-  %.0 = phi i32 [ 3, %88 ], [ 2, %99 ], [ 1, %106 ], [ 0, %113 ], [ %., %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ]
+115:                                              ; preds = %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %112, %105, %98, %87
+  %.0 = phi i32 [ 3, %87 ], [ 2, %98 ], [ 1, %105 ], [ 0, %112 ], [ %., %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   br label %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i, %3, %116
-  %.1 = phi i32 [ %.0, %116 ], [ 3, %3 ], [ 3, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i ]
+_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i, %3, %115
+  %.1 = phi i32 [ %.0, %115 ], [ 3, %3 ], [ 3, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE4findIS9_EENSL_8iteratorERKT_.exit.i ]
   ret i32 %.1
 }
 
@@ -3341,7 +3333,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl7debian213hash_internal9HashS
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
   %47 = shl nuw nsw i64 %39, 3
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = shl nuw nsw i32 %46, %48
   %50 = or i32 %49, %45
   %51 = zext i8 %44 to i32

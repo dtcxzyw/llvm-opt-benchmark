@@ -943,7 +943,7 @@ land.lhs.true.i:                                  ; preds = %if.end10
 
 evutil_getaddrinfo_infer_protocols.exit.thread49: ; preds = %land.lhs.true.i
   store i32 17, ptr %ai_protocol.i, align 4
-  br label %sw.bb2.i
+  br label %evutil_unparse_protoname.exit
 
 evutil_getaddrinfo_infer_protocols.exit.thread:   ; preds = %land.lhs.true.i
   store i32 6, ptr %ai_protocol.i, align 4
@@ -962,7 +962,7 @@ land.lhs.true13.i:                                ; preds = %if.end10.i
 
 evutil_getaddrinfo_infer_protocols.exit.thread66: ; preds = %land.lhs.true13.i
   store i32 2, ptr %ai_socktype.i, align 8
-  br label %sw.bb2.i
+  br label %evutil_unparse_protoname.exit
 
 evutil_getaddrinfo_infer_protocols.exit.thread65: ; preds = %land.lhs.true13.i
   store i32 1, ptr %ai_socktype.i, align 8
@@ -970,7 +970,7 @@ evutil_getaddrinfo_infer_protocols.exit.thread65: ; preds = %land.lhs.true13.i
 
 evutil_getaddrinfo_infer_protocols.exit.thread67: ; preds = %land.lhs.true13.i
   store i32 1, ptr %ai_socktype.i, align 8
-  br label %sw.bb3.i
+  br label %evutil_unparse_protoname.exit
 
 evutil_getaddrinfo_infer_protocols.exit:          ; preds = %if.end10.i
   switch i32 %1, label %sw.default.i [
@@ -979,10 +979,10 @@ evutil_getaddrinfo_infer_protocols.exit:          ; preds = %if.end10.i
     i32 17, label %sw.bb2.i
   ]
 
-sw.bb2.i:                                         ; preds = %evutil_getaddrinfo_infer_protocols.exit.thread66, %evutil_getaddrinfo_infer_protocols.exit.thread49, %evutil_getaddrinfo_infer_protocols.exit
+sw.bb2.i:                                         ; preds = %evutil_getaddrinfo_infer_protocols.exit
   br label %evutil_unparse_protoname.exit
 
-sw.bb3.i:                                         ; preds = %evutil_getaddrinfo_infer_protocols.exit, %evutil_getaddrinfo_infer_protocols.exit.thread67
+sw.bb3.i:                                         ; preds = %evutil_getaddrinfo_infer_protocols.exit
   br label %evutil_unparse_protoname.exit
 
 sw.default.i:                                     ; preds = %land.lhs.true13.i, %evutil_getaddrinfo_infer_protocols.exit
@@ -994,8 +994,8 @@ if.then.i:                                        ; preds = %sw.default.i
   %3 = load ptr, ptr %call.i, align 8
   br label %evutil_unparse_protoname.exit
 
-evutil_unparse_protoname.exit:                    ; preds = %evutil_getaddrinfo_infer_protocols.exit, %evutil_getaddrinfo_infer_protocols.exit.thread, %evutil_getaddrinfo_infer_protocols.exit.thread65, %land.lhs.true.i, %sw.bb2.i, %sw.bb3.i, %sw.default.i, %if.then.i
-  %retval.0.i = phi ptr [ %3, %if.then.i ], [ @.str.29, %sw.bb3.i ], [ @.str.28, %sw.bb2.i ], [ null, %sw.default.i ], [ null, %land.lhs.true.i ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread65 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit ]
+evutil_unparse_protoname.exit:                    ; preds = %evutil_getaddrinfo_infer_protocols.exit, %land.lhs.true.i, %evutil_getaddrinfo_infer_protocols.exit.thread67, %evutil_getaddrinfo_infer_protocols.exit.thread66, %evutil_getaddrinfo_infer_protocols.exit.thread65, %evutil_getaddrinfo_infer_protocols.exit.thread49, %evutil_getaddrinfo_infer_protocols.exit.thread, %sw.bb2.i, %sw.bb3.i, %sw.default.i, %if.then.i
+  %retval.0.i = phi ptr [ %3, %if.then.i ], [ null, %sw.default.i ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread ], [ @.str.28, %evutil_getaddrinfo_infer_protocols.exit.thread49 ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit.thread65 ], [ @.str.28, %evutil_getaddrinfo_infer_protocols.exit.thread66 ], [ @.str.28, %sw.bb2.i ], [ @.str.29, %evutil_getaddrinfo_infer_protocols.exit.thread67 ], [ @.str.29, %sw.bb3.i ], [ null, %land.lhs.true.i ], [ @.str.27, %evutil_getaddrinfo_infer_protocols.exit ]
   br i1 %cmp1, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %evutil_unparse_protoname.exit
@@ -1017,9 +1017,9 @@ land.lhs.true4.i.i:                               ; preds = %if.then11
 land.lhs.true8.i.i:                               ; preds = %land.lhs.true4.i.i
   %6 = load i8, ptr %5, align 1
   %tobool10.not.i.i = icmp eq i8 %6, 0
-  br i1 %tobool10.not.i.i, label %parse_numeric_servname.exit.thread.i, label %if.end.i
+  br i1 %tobool10.not.i.i, label %parse_numeric_servname.exit.i, label %if.end.i
 
-parse_numeric_servname.exit.thread.i:             ; preds = %land.lhs.true8.i.i
+parse_numeric_servname.exit.i:                    ; preds = %land.lhs.true8.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
   br label %if.end16
 
@@ -1043,8 +1043,8 @@ if.then4.i:                                       ; preds = %if.then1.i
   %conv6.i = zext i16 %call5.i to i32
   br label %if.end16
 
-if.end16:                                         ; preds = %if.then4.i, %parse_numeric_servname.exit.thread.i, %evutil_unparse_protoname.exit
-  %port.0 = phi i32 [ 0, %evutil_unparse_protoname.exit ], [ %conv6.i, %if.then4.i ], [ %conv.i.i, %parse_numeric_servname.exit.thread.i ]
+if.end16:                                         ; preds = %if.then4.i, %parse_numeric_servname.exit.i, %evutil_unparse_protoname.exit
+  %port.0 = phi i32 [ 0, %evutil_unparse_protoname.exit ], [ %conv6.i, %if.then4.i ], [ %conv.i.i, %parse_numeric_servname.exit.i ]
   %9 = load i32, ptr %ai_family, align 4
   br i1 %cmp, label %if.then18, label %if.end53
 
@@ -1053,7 +1053,7 @@ if.then18:                                        ; preds = %if.end16
   br i1 %cmp20.not, label %if.then18.if.then34_crit_edge, label %if.then21
 
 if.then18.if.then34_crit_edge:                    ; preds = %if.then18
-  %.pre = trunc i32 %port.0 to i16
+  %.pre = trunc nuw i32 %port.0 to i16
   %.pre63 = tail call zeroext i16 @htons(i16 noundef zeroext %.pre) #31
   br label %if.then34
 
@@ -1061,7 +1061,7 @@ if.then21:                                        ; preds = %if.then18
   %10 = getelementptr inbounds i8, ptr %sin6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 24, i1 false)
   store i16 10, ptr %sin6, align 4
-  %conv = trunc i32 %port.0 to i16
+  %conv = trunc nuw i32 %port.0 to i16
   %call22 = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #31
   %sin6_port = getelementptr inbounds i8, ptr %sin6, i64 2
   store i16 %call22, ptr %sin6_port, align 2
@@ -1150,7 +1150,7 @@ if.then60:                                        ; preds = %if.end53, %if.end53
 
 if.then66:                                        ; preds = %if.then60
   store i16 10, ptr %sin661, align 4
-  %conv68 = trunc i32 %port.0 to i16
+  %conv68 = trunc nuw i32 %port.0 to i16
   %call69 = tail call zeroext i16 @htons(i16 noundef zeroext %conv68) #31
   %sin6_port70 = getelementptr inbounds i8, ptr %sin661, i64 2
   store i16 %call69, ptr %sin6_port70, align 2
@@ -1230,7 +1230,7 @@ if.then90:                                        ; preds = %if.end11.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %d.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %more.i)
   store i16 2, ptr %sin85, align 4
-  %conv92 = trunc i32 %port.0 to i16
+  %conv92 = trunc nuw i32 %port.0 to i16
   %call93 = call zeroext i16 @htons(i16 noundef zeroext %conv92) #31
   %sin_port94 = getelementptr inbounds i8, ptr %sin85, i64 2
   store i16 %call93, ptr %sin_port94, align 2
@@ -1423,12 +1423,12 @@ if.end38:                                         ; preds = %for.end
 if.end46:                                         ; preds = %if.end38
   %shl47 = shl nuw nsw i32 %8, 8
   %or48 = or disjoint i32 %shl47, %9
-  %conv = trunc i32 %or48 to i16
+  %conv = trunc nuw i32 %or48 to i16
   %arrayidx = getelementptr inbounds i8, ptr %words, i64 12
   store i16 %conv, ptr %arrayidx, align 4
   %shl49 = shl nuw nsw i32 %10, 8
   %or50 = or disjoint i32 %shl49, %11
-  %conv51 = trunc i32 %or50 to i16
+  %conv51 = trunc nuw i32 %or50 to i16
   %arrayidx52 = getelementptr inbounds i8, ptr %words, i64 14
   store i16 %conv51, ptr %arrayidx52, align 2
   br label %if.end54
@@ -1574,7 +1574,7 @@ for.body165:                                      ; preds = %for.body165.prehead
   %arrayidx167 = getelementptr inbounds [8 x i16], ptr %words, i64 0, i64 %indvars.iv
   %20 = load i16, ptr %arrayidx167, align 2
   %21 = lshr i16 %20, 8
-  %conv169 = trunc i16 %21 to i8
+  %conv169 = trunc nuw i16 %21 to i8
   %22 = shl nuw nsw i64 %indvars.iv, 1
   %arrayidx172 = getelementptr inbounds [16 x i8], ptr %dst, i64 0, i64 %22
   store i8 %conv169, ptr %arrayidx172, align 1
@@ -1846,7 +1846,7 @@ land.rhs:                                         ; preds = %need_numeric_port_h
   %call.i = call i64 @strtol(ptr noundef nonnull %servname, ptr noundef nonnull %endptr.i, i32 noundef 10) #30
   %conv.i = trunc i64 %call.i to i32
   %or.cond.i = icmp ult i32 %conv.i, 65536
-  br i1 %or.cond.i, label %land.lhs.true4.i, label %land.end
+  br i1 %or.cond.i, label %land.lhs.true4.i, label %land.end.thread41
 
 land.lhs.true4.i:                                 ; preds = %land.rhs
   %1 = load i8, ptr %servname, align 1
@@ -1854,14 +1854,14 @@ land.lhs.true4.i:                                 ; preds = %land.rhs
   %2 = load ptr, ptr %endptr.i, align 8
   %tobool7.i = icmp ne ptr %2, null
   %or.cond1.i = select i1 %tobool.i, i1 %tobool7.i, i1 false
-  br i1 %or.cond1.i, label %land.lhs.true8.i, label %land.end
+  br i1 %or.cond1.i, label %land.lhs.true8.i, label %land.end.thread41
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true4.i
   %3 = load i8, ptr %2, align 1
   %tobool10.not.i = icmp eq i8 %3, 0
-  br i1 %tobool10.not.i, label %if.then7, label %land.end
+  br i1 %tobool10.not.i, label %if.then7, label %land.end.thread41
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true4.i, %land.lhs.true8.i
+land.end.thread41:                                ; preds = %land.lhs.true4.i, %land.rhs, %land.lhs.true8.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
   store i32 -1, ptr %portnum, align 4
   br label %if.end12
@@ -1876,10 +1876,10 @@ if.then9:                                         ; preds = %if.then7
   %call10 = call i32 @evutil_getaddrinfo_common_(ptr noundef null, ptr noundef nonnull %servname, ptr noundef nonnull %hints, ptr noundef %res, ptr noundef nonnull %portnum), !range !14
   br label %return
 
-if.end12:                                         ; preds = %need_numeric_port_hack.exit, %land.end, %if.then7
-  %4 = phi i32 [ -1, %land.end ], [ %conv.i, %if.then7 ], [ -1, %need_numeric_port_hack.exit ]
-  %5 = phi i1 [ false, %land.end ], [ true, %if.then7 ], [ false, %need_numeric_port_hack.exit ]
-  %servname.addr.0 = phi ptr [ %servname, %land.end ], [ null, %if.then7 ], [ %servname, %need_numeric_port_hack.exit ]
+if.end12:                                         ; preds = %need_numeric_port_hack.exit, %land.end.thread41, %if.then7
+  %4 = phi i32 [ %conv.i, %if.then7 ], [ -1, %land.end.thread41 ], [ -1, %need_numeric_port_hack.exit ]
+  %5 = phi i1 [ true, %if.then7 ], [ false, %land.end.thread41 ], [ false, %need_numeric_port_hack.exit ]
+  %servname.addr.0 = phi ptr [ null, %if.then7 ], [ %servname, %land.end.thread41 ], [ %servname, %need_numeric_port_hack.exit ]
   %.b.i14 = load i1, ptr @tested_for_getaddrinfo_hacks, align 4
   br i1 %.b.i14, label %need_socktype_protocol_hack.exit, label %if.then.i15
 
@@ -2128,18 +2128,18 @@ if.then3.i38:                                     ; preds = %if.then.i36
 if.end.i39:                                       ; preds = %if.then3.i38, %if.then.i36
   call void @event_mm_free_(ptr noundef nonnull %ai_temp.014.i) #30
   %cmp.i = icmp eq ptr %ai_prev.013.i, null
-  br i1 %cmp.i, label %if.end9.i, label %if.else.i40
+  br i1 %cmp.i, label %if.end9.i, label %if.else.i
 
-if.else.i40:                                      ; preds = %if.end.i39
+if.else.i:                                        ; preds = %if.end.i39
   %ai_next6.i = getelementptr inbounds i8, ptr %ai_prev.013.i, i64 40
   store ptr %23, ptr %ai_next6.i, align 8
   br label %if.end9.i
 
-if.end9.i:                                        ; preds = %if.else.i40, %if.end.i39, %while.body.i
-  %ai_prev.1.i = phi ptr [ %ai_prev.013.i, %if.else.i40 ], [ null, %if.end.i39 ], [ %ai_temp.014.i, %while.body.i ]
-  %ai.addr.1.i = phi ptr [ %ai.addr.015.i33, %if.else.i40 ], [ %23, %if.end.i39 ], [ %ai.addr.015.i33, %while.body.i ]
-  %tobool.not.i41 = icmp eq ptr %23, null
-  br i1 %tobool.not.i41, label %while.end.i, label %while.body.i, !llvm.loop !7
+if.end9.i:                                        ; preds = %if.else.i, %if.end.i39, %while.body.i
+  %ai_prev.1.i = phi ptr [ %ai_prev.013.i, %if.else.i ], [ null, %if.end.i39 ], [ %ai_temp.014.i, %while.body.i ]
+  %ai.addr.1.i = phi ptr [ %ai.addr.015.i33, %if.else.i ], [ %23, %if.end.i39 ], [ %ai.addr.015.i33, %while.body.i ]
+  %tobool.not.i40 = icmp eq ptr %23, null
+  br i1 %tobool.not.i40, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %if.end9.i
   %cmp10.not.i = icmp eq ptr %ai.addr.1.i, null
@@ -2510,7 +2510,7 @@ while.body139:                                    ; preds = %land.rhs
   br i1 %exitcond92.not, label %while.end, label %land.rhs, !llvm.loop !18
 
 while.end.loopexit.split.loop.exit107:            ; preds = %land.rhs
-  %19 = trunc i64 %indvars.iv89 to i32
+  %19 = trunc nsw i64 %indvars.iv89 to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body139, %while.end.loopexit.split.loop.exit107, %while.cond131.preheader
@@ -2579,7 +2579,7 @@ while.body183:                                    ; preds = %land.rhs176
   br i1 %exitcond96.not, label %while.end185, label %land.rhs176, !llvm.loop !20
 
 while.end185.loopexit.split.loop.exit110:         ; preds = %land.rhs176
-  %23 = trunc i64 %indvars.iv93 to i32
+  %23 = trunc nsw i64 %indvars.iv93 to i32
   br label %while.end185
 
 while.end185:                                     ; preds = %while.body183, %while.end185.loopexit.split.loop.exit110, %if.end171
@@ -2759,7 +2759,7 @@ if.then63:                                        ; preds = %land.lhs.true, %if.
   %4 = getelementptr inbounds i8, ptr %sin6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 20, i1 false)
   store i16 10, ptr %sin6, align 4
-  %conv64 = trunc i32 %port.044 to i16
+  %conv64 = trunc nuw i32 %port.044 to i16
   %call65 = tail call zeroext i16 @htons(i16 noundef zeroext %conv64) #31
   %sin6_port = getelementptr inbounds i8, ptr %sin6, i64 2
   store i16 %call65, ptr %sin6_port, align 2
@@ -2788,7 +2788,7 @@ if.end74:                                         ; preds = %if.end70
 if.else76:                                        ; preds = %if.else50.thread, %if.else17, %if.end61
   %port.045 = phi i32 [ %call51, %if.end61 ], [ 0, %if.else17 ], [ %call5155, %if.else50.thread ]
   %addr_part.04043 = phi ptr [ %buf, %if.end61 ], [ %ip_as_string, %if.else17 ], [ %buf, %if.else50.thread ]
-  %conv77 = trunc i32 %port.045 to i16
+  %conv77 = trunc nuw i32 %port.045 to i16
   %call78 = tail call zeroext i16 @htons(i16 noundef zeroext %conv77) #31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %a.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
@@ -2955,21 +2955,7 @@ if.else:                                          ; preds = %if.then8
 
 if.else21:                                        ; preds = %if.else
   %tobool.not = icmp eq i32 %include_port, 0
-  br i1 %tobool.not, label %if.else28, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.else21
-  %sin_port = getelementptr inbounds i8, ptr %sa1, i64 2
-  %4 = load i16, ptr %sin_port, align 2
-  %conv22 = zext i16 %4 to i32
-  %sin_port23 = getelementptr inbounds i8, ptr %sa2, i64 2
-  %5 = load i16, ptr %sin_port23, align 2
-  %conv24 = zext i16 %5 to i32
-  %sub25 = sub nsw i32 %conv22, %conv24
-  %tobool26.not = icmp eq i32 %sub25, 0
-  br i1 %tobool26.not, label %if.else28, label %return
-
-if.else28:                                        ; preds = %land.lhs.true, %if.else21
-  br label %return
+  br i1 %tobool.not, label %return, label %return.sink.split
 
 if.then34:                                        ; preds = %if.end
   %sin6_addr = getelementptr inbounds i8, ptr %sa1, i64 8
@@ -2980,24 +2966,20 @@ if.then34:                                        ; preds = %if.end
 
 if.else42:                                        ; preds = %if.then34
   %tobool43.not = icmp eq i32 %include_port, 0
-  br i1 %tobool43.not, label %if.else51, label %land.lhs.true44
+  br i1 %tobool43.not, label %return, label %return.sink.split
 
-land.lhs.true44:                                  ; preds = %if.else42
+return.sink.split:                                ; preds = %if.else42, %if.else21
   %sin6_port = getelementptr inbounds i8, ptr %sa1, i64 2
-  %6 = load i16, ptr %sin6_port, align 2
-  %conv45 = zext i16 %6 to i32
+  %4 = load i16, ptr %sin6_port, align 2
+  %conv45 = zext i16 %4 to i32
   %sin6_port46 = getelementptr inbounds i8, ptr %sa2, i64 2
-  %7 = load i16, ptr %sin6_port46, align 2
-  %conv47 = zext i16 %7 to i32
+  %5 = load i16, ptr %sin6_port46, align 2
+  %conv47 = zext i16 %5 to i32
   %sub48 = sub nsw i32 %conv45, %conv47
-  %tobool49.not = icmp eq i32 %sub48, 0
-  br i1 %tobool49.not, label %if.else51, label %return
-
-if.else51:                                        ; preds = %land.lhs.true44, %if.else42
   br label %return
 
-return:                                           ; preds = %if.end, %land.lhs.true44, %if.then34, %land.lhs.true, %if.else, %if.then8, %entry, %if.else51, %if.else28
-  %retval.0 = phi i32 [ 0, %if.else28 ], [ 0, %if.else51 ], [ %sub, %entry ], [ -1, %if.then8 ], [ 1, %if.else ], [ %sub25, %land.lhs.true ], [ %call, %if.then34 ], [ %sub48, %land.lhs.true44 ], [ 1, %if.end ]
+return:                                           ; preds = %return.sink.split, %if.end, %if.else42, %if.then34, %if.else21, %if.else, %if.then8, %entry
+  %retval.0 = phi i32 [ %sub, %entry ], [ -1, %if.then8 ], [ 1, %if.else ], [ 0, %if.else21 ], [ %call, %if.then34 ], [ 0, %if.else42 ], [ 1, %if.end ], [ %sub48, %return.sink.split ]
   ret i32 %retval.0
 }
 

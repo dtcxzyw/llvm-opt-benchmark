@@ -1240,10 +1240,10 @@ tb_htable_lookup.exit132.i:                       ; preds = %if.end23.i.i
   store i64 %call.i.i66.i, ptr %page_addr0.i69.i, align 8
   %conv.i.i.i73.i = trunc i64 %call.i.i66.i to i32
   %shr.i.i.i74.i = lshr i64 %call.i.i66.i, 32
-  %conv1.i.i.i75.i = trunc i64 %shr.i.i.i74.i to i32
+  %conv1.i.i.i75.i = trunc nuw i64 %shr.i.i.i74.i to i32
   %conv5.i.i.i79.i = trunc i64 %30 to i32
   %shr6.i.i.i80.i = lshr i64 %30, 32
-  %conv7.i.i.i81.i = trunc i64 %shr6.i.i.i80.i to i32
+  %conv7.i.i.i81.i = trunc nuw i64 %shr6.i.i.i80.i to i32
   %mul.i.i.i82.i = mul i32 %conv.i.i.i73.i, -2048144777
   %add.i.i.i83.i = add i32 %mul.i.i.i82.i, 606290985
   %or.i.i.i.i84.i = call noundef i32 @llvm.fshl.i32(i32 %add.i.i.i83.i, i32 %add.i.i.i83.i, i32 13)
@@ -1344,13 +1344,13 @@ tb_htable_lookup.exit.i:                          ; preds = %if.end79.i.i
   store i64 %call.i.i.i, ptr %page_addr0.i.i, align 8
   %conv.i.i.i.i = trunc i64 %call.i.i.i to i32
   %shr.i.i.i.i = lshr i64 %call.i.i.i, 32
-  %conv1.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv1.i.i.i.i = trunc nuw i64 %shr.i.i.i.i to i32
   %conv2.i.i.i.i = trunc i64 %24 to i32
   %shr3.i.i.i.i = lshr i64 %24, 32
-  %conv4.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
+  %conv4.i.i.i.i = trunc nuw i64 %shr3.i.i.i.i to i32
   %conv5.i.i.i.i = trunc i64 %30 to i32
   %shr6.i.i.i.i = lshr i64 %30, 32
-  %conv7.i.i.i.i = trunc i64 %shr6.i.i.i.i to i32
+  %conv7.i.i.i.i = trunc nuw i64 %shr6.i.i.i.i to i32
   %mul.i.i.i.i = mul i32 %conv.i.i.i.i, -2048144777
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 606290985
   %or.i.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add.i.i.i.i, i32 %add.i.i.i.i, i32 13)
@@ -1671,13 +1671,13 @@ if.end:                                           ; preds = %entry
   %cond = select i1 %tobool.not, i64 %pc, i64 0
   %conv.i.i = trunc i64 %call.i to i32
   %shr.i.i = lshr i64 %call.i, 32
-  %conv1.i.i = trunc i64 %shr.i.i to i32
+  %conv1.i.i = trunc nuw i64 %shr.i.i to i32
   %conv2.i.i = trunc i64 %cond to i32
   %shr3.i.i = lshr i64 %cond, 32
-  %conv4.i.i = trunc i64 %shr3.i.i to i32
+  %conv4.i.i = trunc nuw i64 %shr3.i.i to i32
   %conv5.i.i = trunc i64 %cs_base to i32
   %shr6.i.i = lshr i64 %cs_base, 32
-  %conv7.i.i = trunc i64 %shr6.i.i to i32
+  %conv7.i.i = trunc nuw i64 %shr6.i.i to i32
   %mul.i.i = mul i32 %conv.i.i, -2048144777
   %add.i.i = add i32 %mul.i.i, 606290985
   %or.i.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %add.i.i, i32 %add.i.i, i32 13)
@@ -1737,7 +1737,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @qht_lookup_custom(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @tb_lookup_cmp(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %d) #2 {
+define internal zeroext i1 @tb_lookup_cmp(ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %d) #2 {
 entry:
   %cflags.i = getelementptr inbounds i8, ptr %p, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
@@ -1749,7 +1749,7 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = load i64, ptr %p, align 8
   %2 = load i64, ptr %d, align 8
   %cmp = icmp eq i64 %1, %2
-  br i1 %cmp, label %land.lhs.true, label %if.end22
+  br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %entry
   %3 = getelementptr i8, ptr %p, i64 72
@@ -1757,7 +1757,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %ent
   %page_addr0 = getelementptr inbounds i8, ptr %d, i64 24
   %4 = load i64, ptr %page_addr0, align 8
   %cmp3 = icmp eq i64 %p.val, %4
-  br i1 %cmp3, label %land.lhs.true4, label %if.end22
+  br i1 %cmp3, label %land.lhs.true4, label %return
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %cs_base = getelementptr inbounds i8, ptr %p, i64 8
@@ -1765,7 +1765,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   %cs_base5 = getelementptr inbounds i8, ptr %d, i64 8
   %6 = load i64, ptr %cs_base5, align 8
   %cmp6 = icmp eq i64 %5, %6
-  br i1 %cmp6, label %land.lhs.true7, label %if.end22
+  br i1 %cmp6, label %land.lhs.true7, label %return
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
   %flags = getelementptr inbounds i8, ptr %p, i64 16
@@ -1773,14 +1773,14 @@ land.lhs.true7:                                   ; preds = %land.lhs.true4
   %flags8 = getelementptr inbounds i8, ptr %d, i64 32
   %8 = load i32, ptr %flags8, align 8
   %cmp9 = icmp eq i32 %7, %8
-  br i1 %cmp9, label %land.lhs.true10, label %if.end22
+  br i1 %cmp9, label %land.lhs.true10, label %return
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
   %9 = load atomic i32, ptr %cflags.i monotonic, align 4
   %cflags = getelementptr inbounds i8, ptr %d, i64 36
   %10 = load i32, ptr %cflags, align 4
   %cmp12 = icmp eq i32 %9, %10
-  br i1 %cmp12, label %if.then, label %if.end22
+  br i1 %cmp12, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true10
   %11 = getelementptr i8, ptr %p, i64 80
@@ -1798,13 +1798,10 @@ if.else:                                          ; preds = %if.then
   %13 = load ptr, ptr %env, align 8
   %call.i = tail call i64 @get_page_addr_code_hostp(ptr noundef %13, i64 noundef %and17, ptr noundef null) #12
   %cmp19 = icmp eq i64 %and.i, %call.i
-  br i1 %cmp19, label %return, label %if.end22
-
-if.end22:                                         ; preds = %if.else, %land.lhs.true10, %land.lhs.true7, %land.lhs.true4, %land.lhs.true, %lor.lhs.false
   br label %return
 
-return:                                           ; preds = %if.else, %if.then, %if.end22
-  %retval.0 = phi i1 [ false, %if.end22 ], [ true, %if.then ], [ true, %if.else ]
+return:                                           ; preds = %if.else, %lor.lhs.false, %land.lhs.true, %land.lhs.true4, %land.lhs.true7, %land.lhs.true10, %if.then
+  %retval.0 = phi i1 [ true, %if.then ], [ false, %land.lhs.true10 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true ], [ false, %lor.lhs.false ], [ %cmp19, %if.else ]
   ret i1 %retval.0
 }
 

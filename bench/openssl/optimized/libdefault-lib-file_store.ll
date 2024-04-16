@@ -268,7 +268,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_set_ctx_params(ptr noundef %loaderctx, ptr noundef %params) #0 {
+define internal i32 @file_set_ctx_params(ptr noundef %loaderctx, ptr noundef %params) #0 {
 entry:
   %der = alloca ptr, align 8
   %der_len = alloca i64, align 8
@@ -324,7 +324,7 @@ land.lhs.true:                                    ; preds = %if.end26
 if.end32:                                         ; preds = %land.lhs.true, %if.end26
   %call33 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.11) #8
   %cmp34.not = icmp eq ptr %call33, null
-  br i1 %cmp34.not, label %if.end53, label %if.then35
+  br i1 %cmp34.not, label %return, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
   store ptr null, ptr %der, align 8
@@ -358,14 +358,12 @@ if.end45:                                         ; preds = %lor.lhs.false
   %call49 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %search_name, i64 noundef 9, ptr noundef nonnull @.str.13, i64 noundef %call47) #8
   call void @X509_NAME_free(ptr noundef nonnull %call42) #8
   %6 = load i32, ptr %ok, align 4
-  %cmp50 = icmp eq i32 %6, 0
-  br i1 %cmp50, label %return, label %if.end53
-
-if.end53:                                         ; preds = %if.end45, %if.end32
+  %cmp50 = icmp ne i32 %6, 0
+  %spec.select = zext i1 %cmp50 to i32
   br label %return
 
-return:                                           ; preds = %if.end45, %if.end39, %lor.lhs.false, %land.lhs.true, %if.then15, %if.then4, %entry, %if.end53, %if.then38
-  %retval.0 = phi i32 [ 0, %if.then38 ], [ 1, %if.end53 ], [ 1, %entry ], [ 0, %if.then4 ], [ 0, %if.then15 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false ], [ 0, %if.end39 ], [ 0, %if.end45 ]
+return:                                           ; preds = %if.end45, %if.end32, %if.end39, %lor.lhs.false, %land.lhs.true, %if.then15, %if.then4, %entry, %if.then38
+  %retval.0 = phi i32 [ 0, %if.then38 ], [ 1, %entry ], [ 0, %if.then4 ], [ 0, %if.then15 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false ], [ 0, %if.end39 ], [ 1, %if.end32 ], [ %spec.select, %if.end45 ]
   ret i32 %retval.0
 }
 

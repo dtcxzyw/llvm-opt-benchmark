@@ -324,16 +324,14 @@ for.inc.thread.i:                                 ; preds = %if.else.i, %if.then
   %lname14.i = getelementptr inbounds i8, ptr %pbn.011.i.lcssa, i64 32
   %5 = load ptr, ptr %lname14.i, align 8
   %tobool.not15.i = icmp eq ptr %5, null
-  br i1 %tobool.not15.i, label %if.else12.i, label %for.body.outer.i, !llvm.loop !12
+  br i1 %tobool.not15.i, label %print_reasons.exit, label %for.body.outer.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i
-  br i1 %tobool3.not.i, label %if.else12.i, label %print_reasons.exit
-
-if.else12.i:                                      ; preds = %for.inc.thread.i, %for.end.i
+  %spec.select.i = select i1 %tobool3.not.i, ptr @.str.49, ptr @.str.53
   br label %print_reasons.exit
 
-print_reasons.exit:                               ; preds = %for.end.i, %if.else12.i
-  %.str.49.sink.i = phi ptr [ @.str.49, %if.else12.i ], [ @.str.53, %for.end.i ]
+print_reasons.exit:                               ; preds = %for.inc.thread.i, %for.end.i
+  %.str.49.sink.i = phi ptr [ %spec.select.i, %for.end.i ], [ @.str.49, %for.inc.thread.i ]
   %call13.i = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull %.str.49.sink.i) #3
   br label %if.end9
 
@@ -695,16 +693,14 @@ for.inc.thread.i:                                 ; preds = %if.else.i, %if.then
   %lname14.i = getelementptr inbounds i8, ptr %pbn.011.i.lcssa, i64 32
   %8 = load ptr, ptr %lname14.i, align 8
   %tobool.not15.i = icmp eq ptr %8, null
-  br i1 %tobool.not15.i, label %if.else12.i, label %for.body.outer.i, !llvm.loop !12
+  br i1 %tobool.not15.i, label %print_reasons.exit, label %for.body.outer.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i
-  br i1 %tobool3.not.i, label %if.else12.i, label %print_reasons.exit
-
-if.else12.i:                                      ; preds = %for.inc.thread.i, %for.end.i
+  %spec.select.i = select i1 %tobool3.not.i, ptr @.str.49, ptr @.str.53
   br label %print_reasons.exit
 
-print_reasons.exit:                               ; preds = %for.end.i, %if.else12.i
-  %.str.49.sink.i = phi ptr [ @.str.49, %if.else12.i ], [ @.str.53, %for.end.i ]
+print_reasons.exit:                               ; preds = %for.inc.thread.i, %for.end.i
+  %.str.49.sink.i = phi ptr [ %spec.select.i, %for.end.i ], [ @.str.49, %for.inc.thread.i ]
   %call13.i = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull %.str.49.sink.i) #3
   br label %if.end17
 

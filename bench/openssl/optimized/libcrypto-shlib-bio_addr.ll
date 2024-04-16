@@ -676,7 +676,7 @@ while.end:                                        ; preds = %while.body, %entry,
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_parse_hostserv(ptr noundef %hostserv, ptr noundef writeonly %host, ptr noundef writeonly %service, i32 noundef %hostserv_prio) local_unnamed_addr #0 {
+define i32 @BIO_parse_hostserv(ptr noundef %hostserv, ptr noundef writeonly %host, ptr noundef writeonly %service, i32 noundef %hostserv_prio) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %hostserv, align 1
   %cmp = icmp eq i8 %0, 91
@@ -776,7 +776,7 @@ if.else63:                                        ; preds = %if.then53, %land.lh
 if.end70:                                         ; preds = %if.then62, %if.else63, %if.end47
   %cmp74 = icmp ne ptr %service, null
   %or.cond1 = and i1 %cmp74, %cmp4353
-  br i1 %or.cond1, label %if.then76, label %if.end95
+  br i1 %or.cond1, label %if.then76, label %return
 
 if.then76:                                        ; preds = %if.end70
   switch i64 %pl.051, label %if.else88 [
@@ -791,15 +791,13 @@ land.lhs.true82:                                  ; preds = %if.then76
 
 if.then87:                                        ; preds = %if.then76, %land.lhs.true82
   store ptr null, ptr %service, align 8
-  br label %if.end95
+  br label %return
 
 if.else88:                                        ; preds = %if.then76, %land.lhs.true82
   %call89 = tail call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %p.050, i64 noundef %pl.051, ptr noundef nonnull @.str, i32 noundef 573) #14
   store ptr %call89, ptr %service, align 8
-  %cmp90 = icmp eq ptr %call89, null
-  br i1 %cmp90, label %return, label %if.end95
-
-if.end95:                                         ; preds = %if.then87, %if.else88, %if.end70
+  %cmp90 = icmp ne ptr %call89, null
+  %spec.select = zext i1 %cmp90 to i32
   br label %return
 
 amb_err:                                          ; preds = %if.else18
@@ -814,8 +812,8 @@ spec_err:                                         ; preds = %if.end, %land.lhs.t
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 130, ptr noundef null) #14
   br label %return
 
-return:                                           ; preds = %if.else88, %if.else63, %spec_err, %amb_err, %if.end95
-  %retval.0 = phi i32 [ 0, %spec_err ], [ 1, %if.end95 ], [ 0, %amb_err ], [ 0, %if.else63 ], [ 0, %if.else88 ]
+return:                                           ; preds = %if.else88, %if.end70, %if.then87, %if.else63, %spec_err, %amb_err
+  %retval.0 = phi i32 [ 0, %spec_err ], [ 0, %amb_err ], [ 0, %if.else63 ], [ 1, %if.then87 ], [ 1, %if.end70 ], [ %spec.select, %if.else88 ]
   ret i32 %retval.0
 }
 

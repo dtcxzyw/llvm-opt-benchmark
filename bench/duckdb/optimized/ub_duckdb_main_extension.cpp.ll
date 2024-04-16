@@ -29732,7 +29732,7 @@ if.then.i.i33:                                    ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i32:                                    ; preds = %while.end.i.i
-  %22 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %22 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %22, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -31736,7 +31736,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
   %cmp.i.i41.i.i.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i.i.i, label %cond.false.i.i.i, label %for.inc.i.i.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i.i.i, label %cond.end.i.i.i, label %for.inc.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i.i.i, i64 1
@@ -31747,13 +31747,11 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i.i.i: ; preds = %for.inc.i.i.i.i.i.i, %while.body.i.i.i
   %__first2.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %15, %while.body.i.i.i ], [ %scevgep.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %cmp.i44.i.i.i.not.i.i.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i, %add.ptr.i20.i.i.i.i
-  br i1 %cmp.i44.i.i.i.not.i.i.i, label %cond.false.i.i.i, label %cond.end.i.i.i
-
-cond.false.i.i.i:                                 ; preds = %if.end.i.i.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i.i.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i.i.i, i64 24, i64 16
   br label %cond.end.i.i.i
 
-cond.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i.i, %cond.false.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i.i.i
-  %.sink.i.i.i = phi i64 [ 24, %cond.false.i.i.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i.i.i ], [ 16, %for.body.i.i.i.i.i.i ]
+cond.end.i.i.i:                                   ; preds = %if.end.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i.i.i
+  %.sink.i.i.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i.i.i ], [ 24, %if.end.i.i.i.i.i.i ], [ 16, %for.body.i.i.i.i.i.i ]
   %_M_right.i.i.i.i = getelementptr inbounds i8, ptr %__x.016.i.i.i, i64 %.sink.i.i.i
   %__x.0.i.i.i = load ptr, ptr %_M_right.i.i.i.i, align 8, !tbaa !3
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
@@ -32016,7 +32014,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %conv2.i.i.i.i.i.i = zext i8 %6 to i32
   %call3.i.i.i.i.i.i = tail call i32 @tolower(i32 noundef %conv2.i.i.i.i.i.i) #33
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, %call3.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %if.else.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
@@ -32031,14 +32029,13 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %1, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %if.end.i, label %if.else.i
-
-if.else.i:                                        ; preds = %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 16, i64 24
+  %spec.select1 = select i1 %cmp.i44.i.i.i.not.i, ptr %__x.addr.014.i, ptr %__y.addr.013.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.i.i.i.i, %if.else.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %if.else.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %if.end.i.i.i.i ]
-  %__y.addr.1.i = phi ptr [ %__y.addr.013.i, %if.else.i ], [ %__x.addr.014.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ %__x.addr.014.i, %if.end.i.i.i.i ]
+if.end.i:                                         ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %for.body.i.i.i.i ], [ 16, %if.end.i.i.i.i ]
+  %__y.addr.1.i = phi ptr [ %spec.select1, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ %__y.addr.013.i, %for.body.i.i.i.i ], [ %__x.addr.014.i, %if.end.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.addr.014.i, i64 %.sink.i
   %__x.addr.1.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
@@ -32077,7 +32074,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %cmp.i.i41.i.i.i = icmp slt i32 %call3.i.i.i.i.i, %call.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i, label %cond.false, label %for.inc.i.i.i
+  br i1 %cmp.i.i41.i.i.i, label %cond.end, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i, i64 1
@@ -32088,13 +32085,11 @@ for.inc.i.i.i:                                    ; preds = %if.end.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit: ; preds = %for.inc.i.i.i, %lor.lhs.false
   %__first2.sroa.0.0.lcssa.i.i.i = phi ptr [ %7, %lor.lhs.false ], [ %scevgep.i.i.i, %for.inc.i.i.i ]
   %cmp.i44.i.i.i.not = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i, %add.ptr.i20.i
-  br i1 %cmp.i44.i.i.i.not, label %cond.false, label %cond.end
-
-cond.false:                                       ; preds = %if.end.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit
+  %spec.select2 = select i1 %cmp.i44.i.i.i.not, ptr %__y.addr.1.i, ptr %add.ptr.i
   br label %cond.end
 
-cond.end:                                         ; preds = %for.body.i.i.i, %cond.false, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit, %entry
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.1.i, %cond.false ], [ %add.ptr.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %add.ptr.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %add.ptr.i, %for.body.i.i.i ]
+cond.end:                                         ; preds = %if.end.i.i.i, %for.body.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit, %entry
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %spec.select2, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %__y.addr.1.i, %if.end.i.i.i ], [ %add.ptr.i, %for.body.i.i.i ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -37189,7 +37184,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %43 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %43 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %43, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -37465,7 +37460,7 @@ if.then.i.i319:                                   ; preds = %while.end.i.i313
   br label %_ZNSt7__cxx119to_stringEm.exit351
 
 if.else.i.i316:                                   ; preds = %while.end.i.i313
-  %69 = trunc i64 %__val.addr.0.lcssa.i.i314 to i8
+  %69 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i314 to i8
   %conv.i.i317 = or disjoint i8 %69, 48
   br label %_ZNSt7__cxx119to_stringEm.exit351
 
@@ -41097,7 +41092,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %conv2.i.i.i.i.i.i = zext i8 %6 to i32
   %call3.i.i.i.i.i.i = tail call i32 @tolower(i32 noundef %conv2.i.i.i.i.i.i) #33
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, %call3.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %if.else.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
@@ -41112,14 +41107,13 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %1, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %if.end.i, label %if.else.i
-
-if.else.i:                                        ; preds = %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 16, i64 24
+  %spec.select1 = select i1 %cmp.i44.i.i.i.not.i, ptr %__x.addr.014.i, ptr %__y.addr.013.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.i.i.i.i, %if.else.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %if.else.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %if.end.i.i.i.i ]
-  %__y.addr.1.i = phi ptr [ %__y.addr.013.i, %if.else.i ], [ %__x.addr.014.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ %__x.addr.014.i, %if.end.i.i.i.i ]
+if.end.i:                                         ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %for.body.i.i.i.i ], [ 16, %if.end.i.i.i.i ]
+  %__y.addr.1.i = phi ptr [ %spec.select1, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ %__y.addr.013.i, %for.body.i.i.i.i ], [ %__x.addr.014.i, %if.end.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.addr.014.i, i64 %.sink.i
   %__x.addr.1.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
@@ -41158,7 +41152,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %cmp.i.i41.i.i.i = icmp slt i32 %call3.i.i.i.i.i, %call.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i, label %cond.false, label %for.inc.i.i.i
+  br i1 %cmp.i.i41.i.i.i, label %cond.end, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i, i64 1
@@ -41169,13 +41163,11 @@ for.inc.i.i.i:                                    ; preds = %if.end.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit: ; preds = %for.inc.i.i.i, %lor.lhs.false
   %__first2.sroa.0.0.lcssa.i.i.i = phi ptr [ %7, %lor.lhs.false ], [ %scevgep.i.i.i, %for.inc.i.i.i ]
   %cmp.i44.i.i.i.not = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i, %add.ptr.i20.i
-  br i1 %cmp.i44.i.i.i.not, label %cond.false, label %cond.end
-
-cond.false:                                       ; preds = %if.end.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit
+  %spec.select2 = select i1 %cmp.i44.i.i.i.not, ptr %__y.addr.1.i, ptr %add.ptr.i
   br label %cond.end
 
-cond.end:                                         ; preds = %for.body.i.i.i, %cond.false, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit, %entry
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.1.i, %cond.false ], [ %add.ptr.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %add.ptr.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %add.ptr.i, %for.body.i.i.i ]
+cond.end:                                         ; preds = %if.end.i.i.i, %for.body.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit, %entry
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN14duckdb_httplib6detail2ciESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %spec.select2, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %__y.addr.1.i, %if.end.i.i.i ], [ %add.ptr.i, %for.body.i.i.i ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -41258,7 +41250,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -41269,13 +41261,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %8, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -41519,7 +41509,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -41530,13 +41520,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %8, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -41782,7 +41770,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -41793,13 +41781,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %8, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -42043,7 +42029,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -42054,13 +42040,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %8, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -42304,7 +42288,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -42315,13 +42299,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %8, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -42567,7 +42549,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -42578,13 +42560,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %8, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -42828,7 +42808,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -42839,13 +42819,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %8, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -43118,7 +43096,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -43129,13 +43107,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %13, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -46398,7 +46374,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -46409,13 +46385,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %13, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -48145,7 +48119,7 @@ ehcleanup33:                                      ; preds = %lpad20, %if.then.i9
 
 while.end:                                        ; preds = %if.end24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end_ptr) #28
-  br label %if.end44
+  br label %cleanup47
 
 if.then35:                                        ; preds = %if.end5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end_ptr) #28
@@ -48163,18 +48137,15 @@ lor.lhs.false:                                    ; preds = %invoke.cont37
   %retval.0.i110 = select i1 %cmp.i.i108, ptr %37, ptr %38
   %call40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i110, ptr noundef nonnull dereferenceable(3) @.str.175) #33
   %tobool41.not = icmp eq i32 %call40, 0
-  br i1 %tobool41.not, label %if.end44, label %cleanup47
+  br label %cleanup47
 
 lpad36:                                           ; preds = %if.then35
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
-if.end44:                                         ; preds = %lor.lhs.false, %while.end
-  br label %cleanup47
-
-cleanup47:                                        ; preds = %if.end44, %lor.lhs.false, %invoke.cont37, %cleanup.thread, %invoke.cont
-  %retval.3 = phi i1 [ false, %invoke.cont ], [ true, %if.end44 ], [ false, %lor.lhs.false ], [ false, %invoke.cont37 ], [ false, %cleanup.thread ]
+cleanup47:                                        ; preds = %lor.lhs.false, %while.end, %invoke.cont37, %cleanup.thread, %invoke.cont
+  %retval.3 = phi i1 [ false, %invoke.cont ], [ false, %invoke.cont37 ], [ false, %cleanup.thread ], [ true, %while.end ], [ %tobool41.not, %lor.lhs.false ]
   %40 = load ptr, ptr %glowable_buffer_.i, align 8, !tbaa !9
   %cmp.i.i.i.i = icmp eq ptr %40, %0
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
@@ -48479,7 +48450,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %conv2.i.i.i.i.i.i = zext i8 %13 to i32
   %call3.i.i.i.i.i.i = tail call i32 @tolower(i32 noundef %conv2.i.i.i.i.i.i) #33
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, %call3.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %if.else.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
@@ -48494,14 +48465,13 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %0, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i
-  br i1 %cmp.i44.i.i.i.not.i, label %if.end.i, label %if.else.i
-
-if.else.i:                                        ; preds = %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 16, i64 24
+  %spec.select1 = select i1 %cmp.i44.i.i.i.not.i, ptr %__x.addr.014.i, ptr %__y.addr.013.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end.i.i.i.i, %if.else.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %if.else.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %if.end.i.i.i.i ]
-  %__y.addr.1.i = phi ptr [ %__y.addr.013.i, %if.else.i ], [ %__x.addr.014.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ %__x.addr.014.i, %if.end.i.i.i.i ]
+if.end.i:                                         ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %for.body.i.i.i.i ], [ 16, %if.end.i.i.i.i ]
+  %__y.addr.1.i = phi ptr [ %spec.select1, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ %__y.addr.013.i, %for.body.i.i.i.i ], [ %__x.addr.014.i, %if.end.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.addr.014.i, i64 %.sink.i
   %__x.addr.1.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
@@ -48543,7 +48513,7 @@ for.body.i.i.i.i83:                               ; preds = %for.inc.i.i.i.i93, 
 
 if.end.i.i.i.i91:                                 ; preds = %for.body.i.i.i.i83
   %cmp.i.i41.i.i.i.i92 = icmp slt i32 %call3.i.i.i.i.i.i89, %call.i.i.i.i.i.i87
-  br i1 %cmp.i.i41.i.i.i.i92, label %if.else.i107, label %for.inc.i.i.i.i93
+  br i1 %cmp.i.i41.i.i.i.i92, label %if.end.i100, label %for.inc.i.i.i.i93
 
 for.inc.i.i.i.i93:                                ; preds = %if.end.i.i.i.i91
   %incdec.ptr.i.i.i.i.i94 = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i84, i64 1
@@ -48554,14 +48524,13 @@ for.inc.i.i.i.i93:                                ; preds = %if.end.i.i.i.i91
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i97: ; preds = %for.inc.i.i.i.i93, %while.body.i72
   %__first2.sroa.0.0.lcssa.i.i.i.i98 = phi ptr [ %14, %while.body.i72 ], [ %scevgep.i.i.i.i82, %for.inc.i.i.i.i93 ]
   %cmp.i44.i.i.i.not.i99 = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i98, %add.ptr.i20.i.i77
-  br i1 %cmp.i44.i.i.i.not.i99, label %if.else.i107, label %if.end.i100
-
-if.else.i107:                                     ; preds = %if.end.i.i.i.i91, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i97
+  %spec.select2 = select i1 %cmp.i44.i.i.i.not.i99, i64 24, i64 16
+  %spec.select3 = select i1 %cmp.i44.i.i.i.not.i99, ptr %__y.addr.013.i74, ptr %__x.addr.014.i73
   br label %if.end.i100
 
-if.end.i100:                                      ; preds = %for.body.i.i.i.i83, %if.else.i107, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i97
-  %.sink.i101 = phi i64 [ 24, %if.else.i107 ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i97 ], [ 16, %for.body.i.i.i.i83 ]
-  %__y.addr.1.i102 = phi ptr [ %__y.addr.013.i74, %if.else.i107 ], [ %__x.addr.014.i73, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i97 ], [ %__x.addr.014.i73, %for.body.i.i.i.i83 ]
+if.end.i100:                                      ; preds = %if.end.i.i.i.i91, %for.body.i.i.i.i83, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i97
+  %.sink.i101 = phi i64 [ %spec.select2, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i97 ], [ 24, %if.end.i.i.i.i91 ], [ 16, %for.body.i.i.i.i83 ]
+  %__y.addr.1.i102 = phi ptr [ %spec.select3, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i97 ], [ %__y.addr.013.i74, %if.end.i.i.i.i91 ], [ %__x.addr.014.i73, %for.body.i.i.i.i83 ]
   %_M_right.i.i103 = getelementptr inbounds i8, ptr %__x.addr.014.i73, i64 %.sink.i101
   %__x.addr.1.i104 = load ptr, ptr %_M_right.i.i103, align 8, !tbaa !3
   %cmp.not.i105 = icmp eq ptr %__x.addr.1.i104, null
@@ -51039,7 +51008,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !740
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !15
@@ -51050,13 +51019,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #28
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -51588,7 +51555,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !740
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !15
@@ -51599,13 +51566,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #28
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -51656,7 +51621,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %4, %2
   %spec.select6.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -51714,7 +51679,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i = trunc i64 %retval.07.i.i.i.i to i32
+  %retval.0.i12.i.i.i = trunc nsw i64 %retval.07.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %if.then.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -51753,7 +51718,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %6, %8
   %spec.select6.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -51786,7 +51751,7 @@ if.then.i.i.i91:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i92 = sub i64 %10, %11
   %spec.select6.i.i.i.i93 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i92, i64 -2147483648)
   %retval.07.i.i.i.i94 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i93, i64 2147483647)
-  %retval.0.i12.i.i.i95 = trunc i64 %retval.07.i.i.i.i94 to i32
+  %retval.0.i12.i.i.i95 = trunc nsw i64 %retval.07.i.i.i.i94 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit96
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit96: ; preds = %if.then.i.i.i91, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i86
@@ -51820,7 +51785,7 @@ if.then.i.i.i110:                                 ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i111 = sub i64 %11, %15
   %spec.select6.i.i.i.i112 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i111, i64 -2147483648)
   %retval.07.i.i.i.i113 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i112, i64 2147483647)
-  %retval.0.i12.i.i.i114 = trunc i64 %retval.07.i.i.i.i113 to i32
+  %retval.0.i12.i.i.i114 = trunc nsw i64 %retval.07.i.i.i.i113 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit115
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit115: ; preds = %if.then.i.i.i110, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i105
@@ -51865,7 +51830,7 @@ if.then.i.i.i.i143:                               ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i144 = sub i64 %11, %20
   %spec.select6.i.i.i.i.i145 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i144, i64 -2147483648)
   %retval.07.i.i.i.i.i146 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i145, i64 2147483647)
-  %retval.0.i12.i.i.i.i147 = trunc i64 %retval.07.i.i.i.i.i146 to i32
+  %retval.0.i12.i.i.i.i147 = trunc nsw i64 %retval.07.i.i.i.i.i146 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i134
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i134: ; preds = %if.then.i.i.i.i143, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i130
@@ -51903,7 +51868,7 @@ if.then.i.i.i163:                                 ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i164 = sub i64 %23, %11
   %spec.select6.i.i.i.i165 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i164, i64 -2147483648)
   %retval.07.i.i.i.i166 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i165, i64 2147483647)
-  %retval.0.i12.i.i.i167 = trunc i64 %retval.07.i.i.i.i166 to i32
+  %retval.0.i12.i.i.i167 = trunc nsw i64 %retval.07.i.i.i.i166 to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit168
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit168: ; preds = %if.then.i.i.i163, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i158
@@ -51957,7 +51922,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i = sub i64 %0, %1
   %spec.select6.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i = trunc i64 %retval.07.i.i.i.i to i32
+  %retval.0.i12.i.i.i = trunc nsw i64 %retval.07.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %if.then.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -52043,7 +52008,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i = sub i64 %0, %1
   %spec.select6.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i = trunc i64 %retval.07.i.i.i.i to i32
+  %retval.0.i12.i.i.i = trunc nsw i64 %retval.07.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %if.then.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -54129,7 +54094,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i.i = sub i64 %44, %43
   %spec.select6.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i.i to i32
   br label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
@@ -54164,7 +54129,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %43, %46
   %spec.select6.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -54559,7 +54524,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %10 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %10 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %10, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -57143,7 +57108,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %conv2.i.i.i.i.i.i = zext i8 %7 to i32
   %call3.i.i.i.i.i.i = tail call i32 @tolower(i32 noundef %conv2.i.i.i.i.i.i) #33
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, %call3.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %cond.false.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %cond.end.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
@@ -57158,13 +57123,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %2, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.end.i, label %cond.false.i
-
-cond.false.i:                                     ; preds = %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select = select i1 %cmp.i44.i.i.i.not.i, i64 16, i64 24
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %if.end.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %if.end.i.i.i.i ]
+cond.end.i:                                       ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %for.body.i.i.i.i ], [ 16, %if.end.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.020.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -57282,7 +57245,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   %cmp.i.i41.i.i.i.i = icmp slt i32 %call3.i.i.i.i.i.i, %call.i.i.i.i.i.i
-  br i1 %cmp.i.i41.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i41.i.i.i.i, label %cond.end.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i, i64 1
@@ -57293,13 +57256,11 @@ for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i: ; preds = %for.inc.i.i.i.i, %while.body.i
   %__first2.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %10, %while.body.i ], [ %scevgep.i.i.i.i, %for.inc.i.i.i.i ]
   %cmp.i44.i.i.i.not.i = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i, %add.ptr.i20.i.i
-  br i1 %cmp.i44.i.i.i.not.i, label %cond.false.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %spec.select1 = select i1 %cmp.i44.i.i.i.not.i, i64 24, i64 16
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %for.body.i.i.i.i, %cond.false.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
-  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 16, %for.body.i.i.i.i ]
+cond.end.i:                                       ; preds = %if.end.i.i.i.i, %for.body.i.i.i.i, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i
+  %.sink.i = phi i64 [ %spec.select1, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ 24, %if.end.i.i.i.i ], [ 16, %for.body.i.i.i.i ]
   %_M_right.i.i = getelementptr inbounds i8, ptr %__x.016.i, i64 %.sink.i
   %__x.0.i = load ptr, ptr %_M_right.i.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %__x.0.i, null
@@ -57443,7 +57404,7 @@ for.body.i.i.i.i159:                              ; preds = %for.inc.i.i.i.i169,
 
 if.end.i.i.i.i167:                                ; preds = %for.body.i.i.i.i159
   %cmp.i.i41.i.i.i.i168 = icmp slt i32 %call3.i.i.i.i.i.i165, %call.i.i.i.i.i.i163
-  br i1 %cmp.i.i41.i.i.i.i168, label %cond.false.i183, label %for.inc.i.i.i.i169
+  br i1 %cmp.i.i41.i.i.i.i168, label %cond.end.i176, label %for.inc.i.i.i.i169
 
 for.inc.i.i.i.i169:                               ; preds = %if.end.i.i.i.i167
   %incdec.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %__first1.sroa.0.052.i.i.i.i160, i64 1
@@ -57454,13 +57415,11 @@ for.inc.i.i.i.i169:                               ; preds = %if.end.i.i.i.i167
 _ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i173: ; preds = %for.inc.i.i.i.i169, %while.body.i149
   %__first2.sroa.0.0.lcssa.i.i.i.i174 = phi ptr [ %26, %while.body.i149 ], [ %scevgep.i.i.i.i158, %for.inc.i.i.i.i169 ]
   %cmp.i44.i.i.i.not.i175 = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i.i.i174, %add.ptr.i20.i.i153
-  br i1 %cmp.i44.i.i.i.not.i175, label %cond.false.i183, label %cond.end.i176
-
-cond.false.i183:                                  ; preds = %if.end.i.i.i.i167, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i173
+  %spec.select2 = select i1 %cmp.i44.i.i.i.not.i175, i64 24, i64 16
   br label %cond.end.i176
 
-cond.end.i176:                                    ; preds = %for.body.i.i.i.i159, %cond.false.i183, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i173
-  %.sink.i177 = phi i64 [ 24, %cond.false.i183 ], [ 16, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i173 ], [ 16, %for.body.i.i.i.i159 ]
+cond.end.i176:                                    ; preds = %if.end.i.i.i.i167, %for.body.i.i.i.i159, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i173
+  %.sink.i177 = phi i64 [ %spec.select2, %_ZNK14duckdb_httplib6detail2ciclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i173 ], [ 24, %if.end.i.i.i.i167 ], [ 16, %for.body.i.i.i.i159 ]
   %_M_right.i.i178 = getelementptr inbounds i8, ptr %__x.016.i150, i64 %.sink.i177
   %__x.0.i179 = load ptr, ptr %_M_right.i.i178, align 8, !tbaa !3
   %cmp.not.i180 = icmp eq ptr %__x.0.i179, null

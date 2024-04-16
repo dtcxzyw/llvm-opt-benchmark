@@ -3294,7 +3294,7 @@ for.body250:                                      ; preds = %for.body250.lr.ph, 
   br i1 %tobool253, label %if.then254, label %for.inc265
 
 if.then254:                                       ; preds = %for.body250
-  %81 = trunc i64 %indvars.iv220 to i32
+  %81 = trunc nuw i64 %indvars.iv220 to i32
   %call256 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %arena_ind_str, i64 noundef 20, ptr noundef nonnull @.str.202, i32 noundef %81) #13
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull %arena_ind_str)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
@@ -3627,18 +3627,16 @@ emitter_json_key_prefix.exit:                     ; preds = %emitter_json_key_pr
   %5 = phi i32 [ %.pre5, %emitter_json_key_prefix.exit.loopexit ], [ %emitter.val, %if.then.i ], [ %4, %if.then5.i ]
   %.fr = freeze i32 %5
   %cmp = icmp eq i32 %.fr, 1
-  br i1 %cmp, label %emitter_json_key_prefix.exit.thread, label %6
+  %spec.select = select i1 %cmp, ptr @.str.8, ptr @.str.10
+  br label %emitter_json_key_prefix.exit.thread
 
-emitter_json_key_prefix.exit.thread:              ; preds = %if.end4.i, %emitter_json_key_prefix.exit
-  br label %6
-
-6:                                                ; preds = %emitter_json_key_prefix.exit, %emitter_json_key_prefix.exit.thread
-  %7 = phi ptr [ @.str.8, %emitter_json_key_prefix.exit.thread ], [ @.str.10, %emitter_json_key_prefix.exit ]
-  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.9, ptr noundef %json_key, ptr noundef nonnull %7)
+emitter_json_key_prefix.exit.thread:              ; preds = %emitter_json_key_prefix.exit, %if.end4.i
+  %6 = phi ptr [ @.str.8, %if.end4.i ], [ %spec.select, %emitter_json_key_prefix.exit ]
+  tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.9, ptr noundef %json_key, ptr noundef nonnull %6)
   store i8 1, ptr %emitted_key.i, align 1
   br label %if.end
 
-if.end:                                           ; preds = %6, %entry
+if.end:                                           ; preds = %emitter_json_key_prefix.exit.thread, %entry
   ret void
 }
 
@@ -12069,7 +12067,7 @@ if.else584:                                       ; preds = %if.then578
 if.end595:                                        ; preds = %if.else17.i, %if.then15.i, %if.then10.i, %if.then7.i, %if.then581, %if.else584
   %334 = load i64, ptr %reg_size, align 8
   store i64 %334, ptr %274, align 8
-  %335 = trunc i64 %indvars.iv to i32
+  %335 = trunc nuw i64 %indvars.iv to i32
   store i32 %335, ptr %275, align 8
   %336 = load i64, ptr %curregs, align 8
   %mul596 = mul i64 %336, %334
@@ -13049,7 +13047,7 @@ emitter_json_object_end.exit:                     ; preds = %if.end298, %if.end.
   %96 = load i64, ptr %lextent_size, align 8
   store i64 %96, ptr %77, align 8
   %97 = load i32, ptr %nbins, align 4
-  %98 = trunc i64 %indvars.iv to i32
+  %98 = trunc nuw i64 %indvars.iv to i32
   %add = add i32 %97, %98
   store i32 %add, ptr %78, align 8
   %99 = load i64, ptr %curlextents, align 8

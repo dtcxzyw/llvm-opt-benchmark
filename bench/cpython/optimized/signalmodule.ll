@@ -1090,7 +1090,7 @@ compare_handler.exit38:                           ; preds = %if.end.i30
   br i1 %cmp5.i36.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %if.end.i30, %land.lhs.true5, %compare_handler.exit38
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %call8 = tail call ptr @PyOS_setsig(i32 noundef %6, ptr noundef null) #15
   br label %if.then.i
 
@@ -1325,7 +1325,7 @@ compare_handler.exit36:                           ; preds = %if.end.i28
 
 if.then18:                                        ; preds = %compare_handler.exit36, %compare_handler.exit, %if.end5
   %13 = load ptr, ptr @PyExc_OSError, align 8
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %call19 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef %14) #15
   tail call void @PyErr_WriteUnraisable(ptr noundef nonnull @_Py_NoneStruct) #15
   br label %for.inc
@@ -1345,7 +1345,7 @@ _PyFrame_GetFrameObject.exit:                     ; preds = %if.else
 
 if.end29:                                         ; preds = %_PyFrame_GetFrameObject.exit, %if.else, %if.end20
   %retval.0.i3745.sink = phi ptr [ @_Py_NoneStruct, %if.end20 ], [ %call.i, %_PyFrame_GetFrameObject.exit ], [ %15, %if.else ]
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %call27 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.1, i32 noundef %16, ptr noundef nonnull %retval.0.i3745.sink) #15
   %tobool30.not = icmp eq ptr %call27, null
   br i1 %tobool30.not, label %if.then36, label %if.then31
@@ -1477,7 +1477,7 @@ if.then5:                                         ; preds = %if.end.i9, %land.lh
   br i1 %cmp.not.i, label %trip_signal.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then5
-  %conv.i19 = trunc i32 %signum to i8
+  %conv.i19 = trunc nuw i32 %signum to i8
   store i8 %conv.i19, ptr %byte.i, align 1
   %call1.i = call i64 @_Py_write_noraise(i32 noundef %8, ptr noundef nonnull %byte.i, i64 noundef 1) #15
   %cmp2.i = icmp slt i64 %call1.i, 0
@@ -1571,8 +1571,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call2.i) #15
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %if.then1.i.i, %if.end.i, %for.end, %if.then8, %if.end, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ -1, %if.then8 ], [ 0, %for.end ], [ 0, %if.end.i ], [ 0, %if.then1.i.i ], [ 0, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %if.then1.i.i, %if.end.i, %if.then8, %for.end, %if.end, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ 0, %for.end ], [ -1, %if.then8 ], [ 0, %if.end.i ], [ 0, %if.then1.i.i ], [ 0, %if.end.i.i ]
   ret i32 %retval.0
 }
 
@@ -1709,18 +1709,14 @@ do.body6:                                         ; preds = %if.then, %entry
   %siginfo_type = getelementptr inbounds i8, ptr %module.val, i64 24
   %2 = load ptr, ptr %siginfo_type, align 8
   %tobool7.not = icmp eq ptr %2, null
-  br i1 %tobool7.not, label %do.end16, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body6
   %call11 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #15
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.end16, label %return
-
-do.end16:                                         ; preds = %do.body6, %if.then8
   br label %return
 
-return:                                           ; preds = %if.then8, %if.then, %do.end16
-  %retval.0 = phi i32 [ 0, %do.end16 ], [ %call2, %if.then ], [ %call11, %if.then8 ]
+return:                                           ; preds = %if.then8, %do.body6, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ 0, %do.body6 ], [ %call11, %if.then8 ]
   ret i32 %retval.0
 }
 
@@ -2478,18 +2474,16 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   %13 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %cmp.i1.i.i.i = icmp ne ptr %13, %11
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
-  br i1 %narrow.i.not.i.i, label %PyErr_CheckSignals.exit.thread.i, label %PyErr_CheckSignals.exit.i
+  br i1 %narrow.i.not.i.i, label %signal_pause_impl.exit, label %PyErr_CheckSignals.exit.i
 
 PyErr_CheckSignals.exit.i:                        ; preds = %if.end.i.i
   %call7.i.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %1), !range !7
   %tobool.not.i = icmp eq i32 %call7.i.i, 0
-  br i1 %tobool.not.i, label %PyErr_CheckSignals.exit.thread.i, label %signal_pause_impl.exit
-
-PyErr_CheckSignals.exit.thread.i:                 ; preds = %PyErr_CheckSignals.exit.i, %if.end.i.i
+  %spec.select.i = select i1 %tobool.not.i, ptr @_Py_NoneStruct, ptr null
   br label %signal_pause_impl.exit
 
-signal_pause_impl.exit:                           ; preds = %PyErr_CheckSignals.exit.i, %PyErr_CheckSignals.exit.thread.i
-  %14 = phi ptr [ @_Py_NoneStruct, %PyErr_CheckSignals.exit.thread.i ], [ null, %PyErr_CheckSignals.exit.i ]
+signal_pause_impl.exit:                           ; preds = %if.end.i.i, %PyErr_CheckSignals.exit.i
+  %14 = phi ptr [ @_Py_NoneStruct, %if.end.i.i ], [ %spec.select.i, %PyErr_CheckSignals.exit.i ]
   ret ptr %14
 }
 
@@ -3426,18 +3420,16 @@ if.end.i:                                         ; preds = %_Py_set_eval_breake
   %14 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %cmp.i1.i.i = icmp ne ptr %14, %12
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
-  br i1 %narrow.i.not.i, label %PyErr_CheckSignals.exit.thread, label %PyErr_CheckSignals.exit
+  br i1 %narrow.i.not.i, label %return, label %PyErr_CheckSignals.exit
 
 PyErr_CheckSignals.exit:                          ; preds = %if.end.i
   %call7.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2), !range !7
   %tobool4.not = icmp eq i32 %call7.i, 0
-  br i1 %tobool4.not, label %PyErr_CheckSignals.exit.thread, label %return
-
-PyErr_CheckSignals.exit.thread:                   ; preds = %if.end.i, %PyErr_CheckSignals.exit
+  %spec.select = select i1 %tobool4.not, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-return:                                           ; preds = %PyErr_CheckSignals.exit.thread, %PyErr_CheckSignals.exit, %if.then
-  %retval.0 = phi ptr [ %call2, %if.then ], [ @_Py_NoneStruct, %PyErr_CheckSignals.exit.thread ], [ null, %PyErr_CheckSignals.exit ]
+return:                                           ; preds = %PyErr_CheckSignals.exit, %if.end.i, %if.then
+  %retval.0 = phi ptr [ %call2, %if.then ], [ @_Py_NoneStruct, %if.end.i ], [ %spec.select, %PyErr_CheckSignals.exit ]
   ret ptr %retval.0
 }
 
@@ -3540,18 +3532,16 @@ if.end.i:                                         ; preds = %_Py_set_eval_breake
   %14 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %cmp.i1.i.i = icmp ne ptr %14, %12
   %narrow.i.not.i = select i1 %cmp.i.not.i.i, i1 true, i1 %cmp.i1.i.i
-  br i1 %narrow.i.not.i, label %PyErr_CheckSignals.exit.thread, label %PyErr_CheckSignals.exit
+  br i1 %narrow.i.not.i, label %return, label %PyErr_CheckSignals.exit
 
 PyErr_CheckSignals.exit:                          ; preds = %if.end.i
   %call7.i = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2), !range !7
   %tobool.not = icmp eq i32 %call7.i, 0
-  br i1 %tobool.not, label %PyErr_CheckSignals.exit.thread, label %return
-
-PyErr_CheckSignals.exit.thread:                   ; preds = %if.end.i, %PyErr_CheckSignals.exit
+  %spec.select = select i1 %tobool.not, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-return:                                           ; preds = %PyErr_CheckSignals.exit.thread, %PyErr_CheckSignals.exit, %entry, %if.then3
-  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %entry ], [ @_Py_NoneStruct, %PyErr_CheckSignals.exit.thread ], [ null, %PyErr_CheckSignals.exit ]
+return:                                           ; preds = %PyErr_CheckSignals.exit, %if.end.i, %entry, %if.then3
+  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %entry ], [ @_Py_NoneStruct, %if.end.i ], [ %spec.select, %PyErr_CheckSignals.exit ]
   ret ptr %retval.0
 }
 
@@ -3574,7 +3564,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %entry ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call2 = call i32 @sigismember(ptr noundef nonnull %mask, i32 noundef %0) #15
   %cmp3.not = icmp eq i32 %call2, 1
   br i1 %cmp3.not, label %if.end5, label %for.inc
@@ -4032,7 +4022,7 @@ if.end34:                                         ; preds = %if.end29
 
 for.body.i:                                       ; preds = %if.end34, %Py_XDECREF.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Py_XDECREF.exit.i ], [ 1, %if.end34 ]
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i20 = tail call ptr @PyOS_getsig(i32 noundef %11) #15
   %magicptr.i = ptrtoint ptr %call.i20 to i64
   switch i64 %magicptr.i, label %if.end5.i [
@@ -4123,8 +4113,8 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %call15.i = tail call ptr @PyOS_setsig(i32 noundef 2, ptr noundef nonnull @signal_handler) #15
   br label %return
 
-return:                                           ; preds = %for.end.i, %Py_DECREF.exit.i, %if.end167.i, %if.end162.i, %if.end157.i, %if.end150.i, %if.end144.i, %if.end140.i, %if.end136.i, %if.end132.i, %if.end128.i, %if.end124.i, %if.end120.i, %if.end116.i, %if.end112.i, %if.end108.i, %if.end104.i, %if.end100.i, %if.end96.i, %if.end92.i, %if.end88.i, %if.end84.i, %if.end80.i, %if.end76.i, %if.end72.i, %if.end68.i, %if.end64.i, %if.end60.i, %if.end56.i, %if.end52.i, %if.end48.i, %if.end44.i, %if.end40.i, %if.end36.i, %if.end32.i, %if.end28.i, %if.end24.i, %if.end20.i, %if.end16.i, %if.end12.i, %if.end8.i, %if.end4.i, %if.end.i, %if.end, %if.end34, %if.then11.i, %if.end29, %if.end24, %if.end19, %if.end14, %if.end8, %signal_add_constants.exit, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ -1, %signal_add_constants.exit ], [ -1, %if.end8 ], [ -1, %if.end14 ], [ -1, %if.end19 ], [ -1, %if.end24 ], [ -1, %if.end29 ], [ -1, %if.then11.i ], [ 0, %if.end34 ], [ -1, %if.end ], [ -1, %if.end.i ], [ -1, %if.end4.i ], [ -1, %if.end8.i ], [ -1, %if.end12.i ], [ -1, %if.end16.i ], [ -1, %if.end20.i ], [ -1, %if.end24.i ], [ -1, %if.end28.i ], [ -1, %if.end32.i ], [ -1, %if.end36.i ], [ -1, %if.end40.i ], [ -1, %if.end44.i ], [ -1, %if.end48.i ], [ -1, %if.end52.i ], [ -1, %if.end56.i ], [ -1, %if.end60.i ], [ -1, %if.end64.i ], [ -1, %if.end68.i ], [ -1, %if.end72.i ], [ -1, %if.end76.i ], [ -1, %if.end80.i ], [ -1, %if.end84.i ], [ -1, %if.end88.i ], [ -1, %if.end92.i ], [ -1, %if.end96.i ], [ -1, %if.end100.i ], [ -1, %if.end104.i ], [ -1, %if.end108.i ], [ -1, %if.end112.i ], [ -1, %if.end116.i ], [ -1, %if.end120.i ], [ -1, %if.end124.i ], [ -1, %if.end128.i ], [ -1, %if.end132.i ], [ -1, %if.end136.i ], [ -1, %if.end140.i ], [ -1, %if.end144.i ], [ -1, %if.end150.i ], [ -1, %if.end157.i ], [ -1, %if.end162.i ], [ -1, %if.end167.i ], [ 0, %Py_DECREF.exit.i ], [ 0, %for.end.i ]
+return:                                           ; preds = %for.end.i, %Py_DECREF.exit.i, %if.end167.i, %if.end162.i, %if.end157.i, %if.end150.i, %if.end144.i, %if.end140.i, %if.end136.i, %if.end132.i, %if.end128.i, %if.end124.i, %if.end120.i, %if.end116.i, %if.end112.i, %if.end108.i, %if.end104.i, %if.end100.i, %if.end96.i, %if.end92.i, %if.end88.i, %if.end84.i, %if.end80.i, %if.end76.i, %if.end72.i, %if.end68.i, %if.end64.i, %if.end60.i, %if.end56.i, %if.end52.i, %if.end48.i, %if.end44.i, %if.end40.i, %if.end36.i, %if.end32.i, %if.end28.i, %if.end24.i, %if.end20.i, %if.end16.i, %if.end12.i, %if.end8.i, %if.end4.i, %if.end.i, %if.end, %if.then11.i, %if.end34, %if.end29, %if.end24, %if.end19, %if.end14, %if.end8, %signal_add_constants.exit, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %signal_add_constants.exit ], [ -1, %if.end8 ], [ -1, %if.end14 ], [ -1, %if.end19 ], [ -1, %if.end24 ], [ -1, %if.end29 ], [ 0, %if.end34 ], [ -1, %if.then11.i ], [ -1, %if.end ], [ -1, %if.end.i ], [ -1, %if.end4.i ], [ -1, %if.end8.i ], [ -1, %if.end12.i ], [ -1, %if.end16.i ], [ -1, %if.end20.i ], [ -1, %if.end24.i ], [ -1, %if.end28.i ], [ -1, %if.end32.i ], [ -1, %if.end36.i ], [ -1, %if.end40.i ], [ -1, %if.end44.i ], [ -1, %if.end48.i ], [ -1, %if.end52.i ], [ -1, %if.end56.i ], [ -1, %if.end60.i ], [ -1, %if.end64.i ], [ -1, %if.end68.i ], [ -1, %if.end72.i ], [ -1, %if.end76.i ], [ -1, %if.end80.i ], [ -1, %if.end84.i ], [ -1, %if.end88.i ], [ -1, %if.end92.i ], [ -1, %if.end96.i ], [ -1, %if.end100.i ], [ -1, %if.end104.i ], [ -1, %if.end108.i ], [ -1, %if.end112.i ], [ -1, %if.end116.i ], [ -1, %if.end120.i ], [ -1, %if.end124.i ], [ -1, %if.end128.i ], [ -1, %if.end132.i ], [ -1, %if.end136.i ], [ -1, %if.end140.i ], [ -1, %if.end144.i ], [ -1, %if.end150.i ], [ -1, %if.end157.i ], [ -1, %if.end162.i ], [ -1, %if.end167.i ], [ 0, %Py_DECREF.exit.i ], [ 0, %for.end.i ]
   ret i32 %retval.0
 }
 

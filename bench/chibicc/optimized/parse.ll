@@ -1292,7 +1292,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.end18
   store i8 %frombool, ptr %is_definition, align 1
   br label %if.end40
 
-if.else:                                          ; preds = %while.end.i, %land.lhs.true.i, %land.lhs.true4.i
+if.else:                                          ; preds = %land.lhs.true.i, %while.end.i, %land.lhs.true4.i
   %call.i.i = call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #14
   %name1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call.i, ptr %name1.i.i, align 8
@@ -1852,7 +1852,7 @@ if.then5:                                         ; preds = %land.lhs.true4.i
   tail call fastcc void @mark_live(ptr noundef nonnull %7)
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true4.i, %land.lhs.true.i, %while.end.i, %if.then5
+for.inc:                                          ; preds = %land.lhs.true4.i, %while.end.i, %land.lhs.true.i, %if.then5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %len, align 4
   %10 = sext i32 %9 to i64
@@ -5922,7 +5922,7 @@ return.loopexit:                                  ; preds = %tailrecurse
   br label %return
 
 return:                                           ; preds = %sw.bb2, %sw.bb, %tailrecurse, %return.loopexit
-  %retval.0 = phi i1 [ true, %return.loopexit ], [ false, %tailrecurse ], [ false, %sw.bb ], [ false, %sw.bb2 ]
+  %retval.0 = phi i1 [ false, %tailrecurse ], [ false, %sw.bb2 ], [ false, %sw.bb ], [ true, %return.loopexit ]
   ret i1 %retval.0
 }
 
@@ -9748,7 +9748,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %node.058 = phi ptr [ %call.i, %for.body.lr.ph ], [ %call.i.i, %for.body ]
   store ptr %desg, ptr %desg2, align 8
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %2, ptr %idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %member, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %children, align 8

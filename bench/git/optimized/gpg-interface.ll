@@ -207,7 +207,7 @@ for.cond2.preheader.i:                            ; preds = %for.inc12.i, %gpg_i
   br i1 %tobool.not8.i, label %for.inc12.i, label %for.body5.i
 
 for.cond2.i:                                      ; preds = %for.body5.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2 = load ptr, ptr %sigs.i, align 8
   %arrayidx4.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i
   %3 = load ptr, ptr %arrayidx4.i, align 8
@@ -412,7 +412,7 @@ for.cond2.preheader.i:                            ; preds = %for.inc12.i, %while
   br i1 %tobool.not8.i, label %for.inc12.i, label %for.body5.i
 
 for.cond2.i:                                      ; preds = %for.body5.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2 = load ptr, ptr %sigs.i, align 8
   %arrayidx4.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i
   %3 = load ptr, ptr %arrayidx4.i, align 8
@@ -474,7 +474,7 @@ for.cond2.preheader.i.i:                          ; preds = %for.inc12.i.i, %whi
   br i1 %tobool.not8.i.i, label %for.inc12.i.i, label %for.body5.i.i
 
 for.cond2.i.i:                                    ; preds = %for.body5.i.i
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %2 = load ptr, ptr %sigs.i.i, align 8
   %arrayidx4.i.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i.i
   %3 = load ptr, ptr %arrayidx4.i.i, align 8
@@ -749,8 +749,8 @@ for.body.i:                                       ; preds = %if.then8, %for.cond
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.then8 ]
   %arrayidx.i = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 16
-  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %value) #17
-  %tobool.not.i = icmp eq i32 %call.i34, 0
+  %call.i35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %value) #17
+  %tobool.not.i = icmp eq i32 %call.i35, 0
   br i1 %tobool.not.i, label %if.end20, label %for.cond.i
 
 if.then16:                                        ; preds = %for.cond.i
@@ -759,12 +759,12 @@ if.then16:                                        ; preds = %for.cond.i
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then16
-  %call.i35 = tail call ptr @gettext(ptr noundef nonnull @.str.6) #14
+  %call.i36 = tail call ptr @gettext(ptr noundef nonnull @.str.6) #14
   br label %_.exit
 
 _.exit:                                           ; preds = %if.then16, %if.end3.i
-  %retval.0.i36 = phi ptr [ %call.i35, %if.end3.i ], [ @.str.6, %if.then16 ]
-  %call18 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i36, ptr noundef %var, ptr noundef nonnull %value) #14
+  %retval.0.i37 = phi ptr [ %call.i36, %if.end3.i ], [ @.str.6, %if.then16 ]
+  %call18 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i37, ptr noundef %var, ptr noundef nonnull %value) #14
   br label %return
 
 if.end20:                                         ; preds = %for.body.i
@@ -786,41 +786,41 @@ if.then26:                                        ; preds = %if.then24
 
 if.end29:                                         ; preds = %if.then24
   %call30 = tail call ptr @xstrdup_toupper(ptr noundef nonnull %value) #14
-  br label %for.body.i37
+  br label %for.body.i38
 
-for.cond.i41:                                     ; preds = %for.body.i37
+for.cond.i42:                                     ; preds = %for.body.i38
   %inc.i = add nuw nsw i64 %i.04.i, 1
-  %exitcond.not.i42 = icmp eq i64 %inc.i, 5
-  br i1 %exitcond.not.i42, label %if.then33, label %for.body.i37, !llvm.loop !10
+  %exitcond.not.i43 = icmp eq i64 %inc.i, 5
+  br i1 %exitcond.not.i43, label %if.then33, label %for.body.i38, !llvm.loop !10
 
-for.body.i37:                                     ; preds = %for.cond.i41, %if.end29
-  %i.04.i = phi i64 [ 0, %if.end29 ], [ %inc.i, %for.cond.i41 ]
-  %arrayidx.i38 = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i
-  %3 = load ptr, ptr %arrayidx.i38, align 8
-  %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %call30) #17
-  %tobool.not.i40 = icmp eq i32 %call.i39, 0
-  br i1 %tobool.not.i40, label %parse_gpg_trust_level.exit.thread, label %for.cond.i41
+for.body.i38:                                     ; preds = %for.cond.i42, %if.end29
+  %i.04.i = phi i64 [ 0, %if.end29 ], [ %inc.i, %for.cond.i42 ]
+  %arrayidx.i39 = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i
+  %3 = load ptr, ptr %arrayidx.i39, align 8
+  %call.i40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %call30) #17
+  %tobool.not.i41 = icmp eq i32 %call.i40, 0
+  br i1 %tobool.not.i41, label %parse_gpg_trust_level.exit.thread, label %for.cond.i42
 
-parse_gpg_trust_level.exit.thread:                ; preds = %for.body.i37
-  %value.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 16
+parse_gpg_trust_level.exit.thread:                ; preds = %for.body.i38
+  %value.i = getelementptr inbounds i8, ptr %arrayidx.i39, i64 16
   %4 = load i32, ptr %value.i, align 8
   store i32 %4, ptr @configured_min_trust_level, align 4
   tail call void @free(ptr noundef %call30) #14
   br label %return
 
-if.then33:                                        ; preds = %for.cond.i41
+if.then33:                                        ; preds = %for.cond.i42
   tail call void @free(ptr noundef %call30) #14
   %5 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i44 = icmp eq i32 %5, 0
-  br i1 %tobool1.not.i44, label %_.exit48, label %if.end3.i45
+  %tobool1.not.i45 = icmp eq i32 %5, 0
+  br i1 %tobool1.not.i45, label %_.exit49, label %if.end3.i46
 
-if.end3.i45:                                      ; preds = %if.then33
-  %call.i46 = tail call ptr @gettext(ptr noundef nonnull @.str.6) #14
-  br label %_.exit48
+if.end3.i46:                                      ; preds = %if.then33
+  %call.i47 = tail call ptr @gettext(ptr noundef nonnull @.str.6) #14
+  br label %_.exit49
 
-_.exit48:                                         ; preds = %if.then33, %if.end3.i45
-  %retval.0.i47 = phi ptr [ %call.i46, %if.end3.i45 ], [ @.str.6, %if.then33 ]
-  %call35 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i47, ptr noundef %var, ptr noundef nonnull %value) #14
+_.exit49:                                         ; preds = %if.then33, %if.end3.i46
+  %retval.0.i48 = phi ptr [ %call.i47, %if.end3.i46 ], [ @.str.6, %if.then33 ]
+  %call35 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i48, ptr noundef %var, ptr noundef nonnull %value) #14
   br label %return
 
 if.end38:                                         ; preds = %if.end21
@@ -853,18 +853,16 @@ if.then51:                                        ; preds = %if.end48
 if.end53:                                         ; preds = %if.end48
   %call54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(12) @.str.11) #17
   %tobool55.not = icmp eq i32 %call54, 0
-  br i1 %tobool55.not, label %if.then58, label %lor.lhs.false
+  br i1 %tobool55.not, label %if.end59, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end53
   %call56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(20) @.str.12) #17
   %tobool57.not = icmp eq i32 %call56, 0
-  br i1 %tobool57.not, label %if.then58, label %if.end59
-
-if.then58:                                        ; preds = %lor.lhs.false, %if.end53
+  %spec.select34 = select i1 %tobool57.not, ptr @.str.13, ptr null
   br label %if.end59
 
-if.end59:                                         ; preds = %if.then58, %lor.lhs.false
-  %fmtname.0 = phi ptr [ null, %lor.lhs.false ], [ @.str.13, %if.then58 ]
+if.end59:                                         ; preds = %lor.lhs.false, %if.end53
+  %fmtname.0 = phi ptr [ @.str.13, %if.end53 ], [ %spec.select34, %lor.lhs.false ]
   %call60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(17) @.str.14) #17
   %tobool61.not = icmp eq i32 %call60, 0
   %spec.select = select i1 %tobool61.not, ptr @.str.15, ptr %fmtname.0
@@ -872,33 +870,33 @@ if.end59:                                         ; preds = %if.then58, %lor.lhs
   %tobool65.not = icmp eq i32 %call64, 0
   %fmtname.2 = select i1 %tobool65.not, ptr @.str.17, ptr %spec.select
   %tobool68.not = icmp eq ptr %fmtname.2, null
-  br i1 %tobool68.not, label %return, label %for.body.i49.preheader
+  br i1 %tobool68.not, label %return, label %for.body.i50.preheader
 
-for.body.i49.preheader:                           ; preds = %if.end59
+for.body.i50.preheader:                           ; preds = %if.end59
   %6 = load ptr, ptr @gpg_format, align 16
-  %call.i5265 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %fmtname.2) #17
-  %tobool.not.i5366 = icmp eq i32 %call.i5265, 0
-  br i1 %tobool.not.i5366, label %get_format_by_name.exit58, label %for.cond.i54
+  %call.i5366 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %fmtname.2) #17
+  %tobool.not.i5467 = icmp eq i32 %call.i5366, 0
+  br i1 %tobool.not.i5467, label %get_format_by_name.exit59, label %for.cond.i55
 
-for.cond.i54:                                     ; preds = %for.body.i49.preheader, %for.cond.i54
-  %indvars.iv.i5067 = phi i64 [ %indvars.iv.next.i55, %for.cond.i54 ], [ 0, %for.body.i49.preheader ]
-  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i5067, 1
-  %exitcond.not.i56 = icmp ne i64 %indvars.iv.next.i55, 3
-  tail call void @llvm.assume(i1 %exitcond.not.i56)
-  %arrayidx.i51 = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.next.i55
-  %7 = load ptr, ptr %arrayidx.i51, align 16
-  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %fmtname.2) #17
-  %tobool.not.i53 = icmp eq i32 %call.i52, 0
-  br i1 %tobool.not.i53, label %get_format_by_name.exit58, label %for.cond.i54
+for.cond.i55:                                     ; preds = %for.body.i50.preheader, %for.cond.i55
+  %indvars.iv.i5168 = phi i64 [ %indvars.iv.next.i56, %for.cond.i55 ], [ 0, %for.body.i50.preheader ]
+  %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i5168, 1
+  %exitcond.not.i57 = icmp ne i64 %indvars.iv.next.i56, 3
+  tail call void @llvm.assume(i1 %exitcond.not.i57)
+  %arrayidx.i52 = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.next.i56
+  %7 = load ptr, ptr %arrayidx.i52, align 16
+  %call.i53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %fmtname.2) #17
+  %tobool.not.i54 = icmp eq i32 %call.i53, 0
+  br i1 %tobool.not.i54, label %get_format_by_name.exit59, label %for.cond.i55
 
-get_format_by_name.exit58:                        ; preds = %for.cond.i54, %for.body.i49.preheader
-  %arrayidx.i51.lcssa = phi ptr [ @gpg_format, %for.body.i49.preheader ], [ %arrayidx.i51, %for.cond.i54 ]
-  %program = getelementptr inbounds i8, ptr %arrayidx.i51.lcssa, i64 8
+get_format_by_name.exit59:                        ; preds = %for.cond.i55, %for.body.i50.preheader
+  %arrayidx.i52.lcssa = phi ptr [ @gpg_format, %for.body.i50.preheader ], [ %arrayidx.i52, %for.cond.i55 ]
+  %program = getelementptr inbounds i8, ptr %arrayidx.i52.lcssa, i64 8
   %call71 = tail call i32 @git_config_string(ptr noundef nonnull %program, ptr noundef %var, ptr noundef %value) #14
   br label %return
 
-return:                                           ; preds = %parse_gpg_trust_level.exit.thread, %if.end59, %get_format_by_name.exit58, %if.then51, %if.then46, %if.then41, %_.exit48, %if.then26, %if.end20, %_.exit, %if.then10, %set_signing_key.exit, %if.then2
-  %retval.0 = phi i32 [ %call71, %get_format_by_name.exit58 ], [ %call52, %if.then51 ], [ %call47, %if.then46 ], [ %call42, %if.then41 ], [ -1, %_.exit48 ], [ -1, %if.then26 ], [ 0, %if.end20 ], [ -1, %_.exit ], [ -1, %if.then10 ], [ 0, %set_signing_key.exit ], [ -1, %if.then2 ], [ 0, %if.end59 ], [ 0, %parse_gpg_trust_level.exit.thread ]
+return:                                           ; preds = %parse_gpg_trust_level.exit.thread, %if.end59, %get_format_by_name.exit59, %if.then51, %if.then46, %if.then41, %_.exit49, %if.then26, %if.end20, %_.exit, %if.then10, %set_signing_key.exit, %if.then2
+  %retval.0 = phi i32 [ %call71, %get_format_by_name.exit59 ], [ %call52, %if.then51 ], [ %call47, %if.then46 ], [ %call42, %if.then41 ], [ -1, %_.exit49 ], [ -1, %if.then26 ], [ 0, %if.end20 ], [ -1, %_.exit ], [ -1, %if.then10 ], [ 0, %set_signing_key.exit ], [ -1, %if.then2 ], [ 0, %if.end59 ], [ 0, %parse_gpg_trust_level.exit.thread ]
   ret i32 %retval.0
 }
 

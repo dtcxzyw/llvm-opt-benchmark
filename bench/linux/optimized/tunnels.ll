@@ -140,7 +140,7 @@ define dso_local i32 @ethnl_tunnel_info_doit(ptr nocapture noundef readnone %0, 
 
 81:                                               ; preds = %.loopexit
   %82 = shl i64 %78, 32
-  %83 = add i64 %82, 137438953472
+  %83 = add nuw i64 %82, 137438953472
   %84 = ashr exact i64 %83, 32
   %85 = load ptr, ptr %5, align 8
   %86 = call ptr @ethnl_reply_init(i64 noundef %84, ptr noundef %85, i8 noundef zeroext 29, i16 noundef zeroext 1, ptr noundef %1, ptr noundef nonnull %6) #6
@@ -650,8 +650,8 @@ define dso_local i32 @ethnl_tunnel_info_dumpit(ptr noundef %0, ptr noundef %1) l
   %spec.select = select i1 %71, i32 -90, i32 %70
   br label %72
 
-72:                                               ; preds = %68, %.loopexit, %.thread8
-  %73 = phi i32 [ %66, %.loopexit ], [ 0, %.thread8 ], [ %spec.select, %68 ]
+72:                                               ; preds = %.thread8, %68, %.loopexit
+  %73 = phi i32 [ %66, %.loopexit ], [ %spec.select, %68 ], [ 0, %.thread8 ]
   ret i32 %73
 }
 

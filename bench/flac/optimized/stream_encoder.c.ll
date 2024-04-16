@@ -1937,7 +1937,7 @@ land.lhs.true278:                                 ; preds = %for.body
   br i1 %cmp283, label %if.then284, label %for.inc302
 
 if.then284:                                       ; preds = %land.lhs.true278
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw i64 %indvars.iv to i32
   %dec = add i32 %44, -1
   store i32 %dec, ptr %num_metadata_blocks, align 8
   %48 = load ptr, ptr %encoder, align 8
@@ -5365,7 +5365,7 @@ if.end32:                                         ; preds = %if.end21
   %conv46 = shl i32 %4, 4
   %conv47 = add i32 %conv46, 240
   %shr = lshr i64 %spec.store.select, 32
-  %20 = trunc i64 %shr to i32
+  %20 = trunc nuw i64 %shr to i32
   %conv49 = and i32 %20, 15
   %or = or disjoint i32 %conv49, %conv47
   %conv51 = trunc i32 %or to i8
@@ -5555,7 +5555,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv213 = trunc i64 %shr212 to i8
   store i8 %conv213, ptr %arrayidx55, align 1
   %shr215 = lshr i64 %57, 56
-  %conv216 = trunc i64 %shr215 to i8
+  %conv216 = trunc nuw i64 %shr215 to i8
   store i8 %conv216, ptr %b, align 16
   %stream_offset = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %56, i64 %indvars.iv, i32 1
   %58 = load i64, ptr %stream_offset, align 8
@@ -5580,7 +5580,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv242 = trunc i64 %shr241 to i8
   store i8 %conv242, ptr %arrayidx243, align 1
   %shr244 = lshr i64 %58, 56
-  %conv245 = trunc i64 %shr244 to i8
+  %conv245 = trunc nuw i64 %shr244 to i8
   store i8 %conv245, ptr %arrayidx246, align 8
   %59 = load ptr, ptr %points, align 8
   %frame_samples = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %59, i64 %indvars.iv, i32 2
@@ -8416,7 +8416,7 @@ for.body358:                                      ; preds = %if.else324, %for.bo
   %arrayidx360 = getelementptr inbounds [4 x i32], ptr %bits, i64 0, i64 %indvars.iv342
   %104 = load i32, ptr %arrayidx360, align 4
   %cmp361 = icmp ult i32 %104, %min_bits.0322
-  %105 = trunc i64 %indvars.iv342 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv342 to i32
   %spec.select219 = select i1 %cmp361, i32 %105, i32 %channel_assignment309.0321
   %spec.select220 = tail call i32 @llvm.umin.i32(i32 %104, i32 %min_bits.0322)
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
@@ -8683,7 +8683,7 @@ for.body7:                                        ; preds = %for.body7.preheader
   br i1 %cmp6, label %for.body7, label %for.end.loopexit, !llvm.loop !103
 
 for.end.loopexit:                                 ; preds = %for.body7
-  %5 = trunc i64 %indvars.iv.next68 to i32
+  %5 = trunc nuw i64 %indvars.iv.next68 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.body
@@ -8722,7 +8722,7 @@ for.body22:                                       ; preds = %for.body22.preheade
   br i1 %cmp20, label %for.body22, label %for.end29.loopexit, !llvm.loop !105
 
 for.end29.loopexit:                               ; preds = %for.body22
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nuw i64 %indvars.iv.next to i32
   br label %for.end29
 
 for.end29:                                        ; preds = %for.end29.loopexit, %for.body17
@@ -8958,7 +8958,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp11.not, label %for.inc75, label %for.cond14.preheader
 
 for.cond14.preheader:                             ; preds = %for.body
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %cmp1553.not = icmp eq i32 %1, 0
   br i1 %cmp1553.not, label %for.end, label %for.body17
 
@@ -8977,7 +8977,7 @@ for.inc:                                          ; preds = %for.body17
   br i1 %exitcond69.not, label %for.end, label %for.body17, !llvm.loop !109
 
 for.end.loopexit.split.loop.exit:                 ; preds = %for.body17
-  %10 = trunc i64 %indvars.iv65 to i32
+  %10 = trunc nuw i64 %indvars.iv65 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %for.cond14.preheader
@@ -9088,7 +9088,7 @@ entry:
   %call = tail call i64 @fread(ptr noundef %buffer, i64 noundef 1, i64 noundef %0, ptr noundef %2)
   store i64 %call, ptr %bytes, align 8
   %cmp = icmp eq i64 %call, 0
-  br i1 %cmp, label %if.then, label %if.end11
+  br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %private_, align 8
@@ -9104,13 +9104,11 @@ if.else:                                          ; preds = %if.then
   %6 = load ptr, ptr %file6, align 8
   %call7 = tail call i32 @ferror(ptr noundef %6) #24
   %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.end11, label %return
-
-if.end11:                                         ; preds = %if.else, %entry
+  %spec.select = select i1 %tobool8.not, i32 0, i32 2
   br label %return
 
-return:                                           ; preds = %if.else, %if.then, %if.end11
-  %retval.0 = phi i32 [ 0, %if.end11 ], [ 1, %if.then ], [ 2, %if.else ]
+return:                                           ; preds = %if.else, %entry, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ 0, %entry ], [ %spec.select, %if.else ]
   ret i32 %retval.0
 }
 
@@ -10496,7 +10494,7 @@ lor.lhs.false.i:                                  ; preds = %if.end9.i
 if.else16.i:                                      ; preds = %lor.lhs.false.i
   %shr12.i = lshr i64 %mul.i, 18
   %15 = tail call i64 @llvm.ctlz.i64(i64 %shr12.i, i1 true), !range !128
-  %cast.i.i = trunc i64 %15 to i32
+  %cast.i.i = trunc nuw nsw i64 %15 to i32
   %add21.i = sub nuw nsw i32 64, %cast.i.i
   br label %if.end22.i
 

@@ -1713,9 +1713,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call = call i32 @vprintf(ptr noundef %msg, ptr noundef nonnull %va)
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   %1 = load ptr, ptr @stdout, align 8
   %call3 = call i32 @fflush(ptr noundef %1)
   br label %if.end
@@ -1882,7 +1882,7 @@ if.then44:                                        ; preds = %if.end39
   br label %return
 
 if.end45:                                         ; preds = %if.end39
-  br i1 %tobool11.not, label %if.end60, label %if.then47
+  br i1 %tobool11.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
   %14 = load ptr, ptr %ssl, align 8
@@ -1897,14 +1897,10 @@ if.then51:                                        ; preds = %if.then47
 if.end54:                                         ; preds = %if.then47
   %15 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 2), align 8
   %call55 = tail call fastcc i32 @verify_hostname(ptr noundef nonnull %call49, ptr noundef %15), !range !9
-  %cmp56 = icmp slt i32 %call55, 0
-  br i1 %cmp56, label %return, label %if.end60
-
-if.end60:                                         ; preds = %if.end54, %if.end45
   br label %return
 
-return:                                           ; preds = %if.end54, %if.end60, %if.then51, %if.then44, %if.then33, %if.then26, %if.then21, %if.then16, %if.then5, %if.then
-  %retval.0 = phi i32 [ -1, %if.then44 ], [ 0, %if.end60 ], [ -1, %if.then51 ], [ -1, %if.then33 ], [ -1, %if.then26 ], [ -1, %if.then21 ], [ -1, %if.then16 ], [ -1, %if.then5 ], [ -1, %if.then ], [ -1, %if.end54 ]
+return:                                           ; preds = %if.end54, %if.end45, %if.then51, %if.then44, %if.then33, %if.then26, %if.then21, %if.then16, %if.then5, %if.then
+  %retval.0 = phi i32 [ -1, %if.then44 ], [ -1, %if.then51 ], [ -1, %if.then33 ], [ -1, %if.then26 ], [ -1, %if.then21 ], [ -1, %if.then16 ], [ -1, %if.then5 ], [ -1, %if.then ], [ 0, %if.end45 ], [ %call55, %if.end54 ]
   ret i32 %retval.0
 }
 
@@ -2510,9 +2506,9 @@ return:                                           ; preds = %lor.lhs.false18, %i
 define internal i32 @imap_exec(ptr noundef %ctx, ptr noundef %cb, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call fastcc ptr @issue_imap_cmd(ptr noundef %ctx, ptr noundef %cb, ptr noundef %fmt, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -2748,10 +2744,10 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %1 = load ptr, ptr @stderr, align 8
   %call = call i32 @vfprintf(ptr noundef %1, ptr noundef nonnull @.str.59, ptr noundef nonnull %va) #20
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2764,14 +2760,8 @@ declare void @credential_clear(ptr noundef) local_unnamed_addr #2
 
 declare void @credential_reject(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
@@ -2856,7 +2846,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #18
   %cmp38 = icmp sgt i32 %call2, 0
-  br i1 %cmp38, label %for.body, label %if.end22.sink.split
+  br i1 %cmp38, label %for.body, label %if.end22.critedge
 
 for.body:                                         ; preds = %if.then, %for.inc
   %i.039 = phi i32 [ %inc, %for.inc ], [ 0, %if.then ]
@@ -2913,22 +2903,26 @@ host_matches.exit:                                ; preds = %land.lhs.true10.i
   %call13.i = tail call i32 @strcasecmp(ptr noundef nonnull %host.addr.0.i, ptr noundef nonnull %pattern.addr.0.i) #21
   %call13.i.fr = freeze i32 %call13.i
   %tobool14.not.i.not = icmp eq i32 %call13.i.fr, 0
-  br i1 %tobool14.not.i.not, label %for.end, label %for.inc
+  %spec.select = zext i1 %tobool14.not.i.not to i32
+  br label %for.inc
 
-for.inc:                                          ; preds = %host_matches.exit, %if.then.i, %land.lhs.true10.i, %if.end7.i, %for.body, %land.lhs.true
+for.inc:                                          ; preds = %host_matches.exit, %if.end7.i, %land.lhs.true10.i, %if.then.i, %for.body, %land.lhs.true
+  %found.1 = phi i32 [ 0, %land.lhs.true ], [ 0, %for.body ], [ 0, %if.then.i ], [ 0, %land.lhs.true10.i ], [ 0, %if.end7.i ], [ %spec.select, %host_matches.exit ]
   %inc = add nuw nsw i32 %i.039, 1
+  %tobool3.not = icmp eq i32 %found.1, 0
   %cmp = icmp slt i32 %inc, %call2
-  br i1 %cmp, label %for.body, label %if.end22.sink.split, !llvm.loop !17
+  %8 = select i1 %tobool3.not, i1 %cmp, i1 false
+  br i1 %8, label %for.body, label %for.end, !llvm.loop !17
 
-for.end:                                          ; preds = %host_matches.exit
+for.end:                                          ; preds = %for.inc
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @GENERAL_NAME_free) #18
-  br label %return
+  br i1 %tobool3.not, label %if.end22, label %return
 
-if.end22.sink.split:                              ; preds = %for.inc, %if.then
+if.end22.critedge:                                ; preds = %if.then
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @GENERAL_NAME_free) #18
   br label %if.end22
 
-if.end22:                                         ; preds = %if.end22.sink.split, %entry
+if.end22:                                         ; preds = %if.end22.critedge, %entry, %for.end
   %call23 = tail call ptr @X509_get_subject_name(ptr noundef %cert) #18
   %tobool24.not = icmp eq ptr %call23, null
   br i1 %tobool24.not, label %if.then25, label %if.end28
@@ -2953,11 +2947,11 @@ if.end35:                                         ; preds = %if.end28
   br i1 %cmp39, label %land.lhs.true41, label %if.end46
 
 land.lhs.true41:                                  ; preds = %if.end35
-  %8 = load i8, ptr %cname, align 16
-  %cmp.i12 = icmp eq i8 %8, 42
+  %9 = load i8, ptr %cname, align 16
+  %cmp.i12 = icmp eq i8 %9, 42
   %arrayidx2.i24 = getelementptr inbounds i8, ptr %cname, i64 1
-  %9 = load i8, ptr %arrayidx2.i24, align 1
-  %cmp4.i25 = icmp eq i8 %9, 46
+  %10 = load i8, ptr %arrayidx2.i24, align 1
+  %cmp4.i25 = icmp eq i8 %10, 46
   %or.cond = select i1 %cmp.i12, i1 %cmp4.i25, i1 false
   br i1 %or.cond, label %if.then.i26, label %if.end7.i13
 
@@ -2974,13 +2968,13 @@ if.end.i29:                                       ; preds = %if.then.i26
 if.end7.i13:                                      ; preds = %if.end.i29, %land.lhs.true41
   %host.addr.0.i14 = phi ptr [ %incdec.ptr.i31, %if.end.i29 ], [ %hostname, %land.lhs.true41 ]
   %pattern.addr.0.i15 = phi ptr [ %add.ptr.i30, %if.end.i29 ], [ %cname, %land.lhs.true41 ]
-  %10 = load i8, ptr %host.addr.0.i14, align 1
-  %tobool9.not.i16 = icmp eq i8 %10, 0
+  %11 = load i8, ptr %host.addr.0.i14, align 1
+  %tobool9.not.i16 = icmp eq i8 %11, 0
   br i1 %tobool9.not.i16, label %if.end46, label %land.lhs.true10.i17
 
 land.lhs.true10.i17:                              ; preds = %if.end7.i13
-  %11 = load i8, ptr %pattern.addr.0.i15, align 1
-  %tobool12.not.i18 = icmp eq i8 %11, 0
+  %12 = load i8, ptr %pattern.addr.0.i15, align 1
+  %tobool12.not.i18 = icmp eq i8 %12, 0
   br i1 %tobool12.not.i18, label %if.end46, label %host_matches.exit32
 
 host_matches.exit32:                              ; preds = %land.lhs.true10.i17
@@ -2992,7 +2986,7 @@ if.end46:                                         ; preds = %if.end7.i13, %land.
   %call48 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, ptr noundef nonnull %cname, ptr noundef %hostname) #18
   br label %return
 
-return:                                           ; preds = %for.end, %host_matches.exit32, %if.end46, %if.then32, %if.then25
+return:                                           ; preds = %host_matches.exit32, %for.end, %if.end46, %if.then32, %if.then25
   %retval.0 = phi i32 [ -1, %if.then32 ], [ -1, %if.end46 ], [ -1, %if.then25 ], [ 0, %for.end ], [ 0, %host_matches.exit32 ]
   ret i32 %retval.0
 }
@@ -3024,7 +3018,7 @@ declare i32 @X509_NAME_get_text_by_NID(ptr noundef, i32 noundef, ptr noundef, i3
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
@@ -3037,7 +3031,7 @@ declare i32 @SSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @parse_capability(ptr nocapture noundef %imap, ptr noundef %cmd) unnamed_addr #9 {
@@ -3135,7 +3129,7 @@ for.body:                                         ; preds = %next_arg.exit, %for
   br i1 %tobool3.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 1, %15
   %16 = load i32, ptr %caps, align 4
   %or = or i32 %16, %shl
@@ -4099,7 +4093,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 define internal noundef i32 @nfsnprintf(ptr nocapture noundef %buf, i32 %blen, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %call = call i32 @vsnprintf(ptr noundef %buf, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %va) #18
   %cmp2 = icmp ugt i32 %call, 1023
   br i1 %cmp2, label %if.then, label %if.end
@@ -4109,7 +4103,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret i32 %call
 }
 
@@ -4117,7 +4111,7 @@ if.end:                                           ; preds = %entry
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
@@ -4132,7 +4126,7 @@ declare i32 @SSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @skip_imap_list_l(ptr nocapture noundef %sp, i32 noundef %level) unnamed_addr #13 {
+define internal fastcc noundef i32 @skip_imap_list_l(ptr nocapture noundef %sp, i32 noundef %level) unnamed_addr #12 {
 entry:
   %s = alloca ptr, align 8
   %0 = load ptr, ptr %sp, align 8
@@ -4322,9 +4316,9 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal i32 @imap_exec_m(ptr noundef %ctx, ptr noundef %cb, ptr nocapture readnone %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call fastcc ptr @issue_imap_cmd(ptr noundef %ctx, ptr noundef %cb, ptr noundef nonnull @.str.132, ptr noundef nonnull %ap)
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -4368,11 +4362,17 @@ declare void @curl_free(ptr noundef) local_unnamed_addr #2
 declare i64 @fread_buffer(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #13
 
 declare void @http_trace_curl_no_data() local_unnamed_addr #2
 
 declare void @setup_curl_trace(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
@@ -4399,11 +4399,11 @@ attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nofree nounwind }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

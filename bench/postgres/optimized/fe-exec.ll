@@ -139,20 +139,18 @@ define noundef ptr @PQmakeEmptyPGresult(ptr noundef readonly %0, i32 noundef %1)
   %20 = getelementptr inbounds i8, ptr %0, i64 1016
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.thread.i, label %23
+  br i1 %22, label %pqSetResultError.exit, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %0, i64 1000
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @pqResultStrdup(ptr noundef nonnull %3, ptr noundef %25)
   %.not11.i = icmp eq ptr %26, null
-  br i1 %.not11.i, label %.thread.i, label %pqSetResultError.exit
-
-.thread.i:                                        ; preds = %23, %19
+  %spec.select.i = select i1 %.not11.i, ptr @.str.15, ptr %26
   br label %pqSetResultError.exit
 
-pqSetResultError.exit:                            ; preds = %23, %.thread.i
-  %.str.15.sink.i = phi ptr [ @.str.15, %.thread.i ], [ %26, %23 ]
+pqSetResultError.exit:                            ; preds = %19, %23
+  %.str.15.sink.i = phi ptr [ @.str.15, %19 ], [ %spec.select.i, %23 ]
   store ptr %.str.15.sink.i, ptr %10, align 8
   br label %27
 
@@ -203,13 +201,13 @@ define void @pqSetResultError(ptr noundef %0, ptr noundef readonly %1, i32 nound
 
 4:                                                ; preds = %3
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %.thread, label %6
+  br i1 %5, label %.sink.split, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.sink.split, label %10
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %1, align 8
@@ -217,13 +215,11 @@ define void @pqSetResultError(ptr noundef %0, ptr noundef readonly %1, i32 nound
   %13 = getelementptr i8, ptr %11, i64 %12
   %14 = tail call ptr @pqResultStrdup(ptr noundef nonnull %0, ptr noundef %13)
   %.not11 = icmp eq ptr %14, null
-  br i1 %.not11, label %.thread, label %.sink.split
-
-.thread:                                          ; preds = %4, %6, %10
+  %spec.select = select i1 %.not11, ptr @.str.15, ptr %14
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %.thread
-  %.str.15.sink = phi ptr [ @.str.15, %.thread ], [ %14, %10 ]
+.sink.split:                                      ; preds = %10, %6, %4
+  %.str.15.sink = phi ptr [ @.str.15, %4 ], [ @.str.15, %6 ], [ %spec.select, %10 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr %.str.15.sink, ptr %15, align 8
   br label %16
@@ -272,7 +268,7 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly %0, i
   br i1 %.not43, label %.preheader, label %28
 
 .preheader:                                       ; preds = %.lr.ph
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %.not51 = icmp eq i32 %22, 0
   br i1 %.not51, label %._crit_edge50, label %.lr.ph49
 
@@ -577,7 +573,7 @@ pqResultAlloc.exit.thread9:                       ; preds = %5
   store ptr %38, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 200
   %46 = getelementptr i8, ptr %38, i64 8
-  %47 = trunc i64 %4 to i32
+  %47 = trunc nuw i64 %4 to i32
   %48 = add nuw nsw i32 %47, 8
   store i32 %48, ptr %45, align 8
   %49 = sub nuw nsw i32 2040, %47
@@ -741,7 +737,7 @@ PQsetResultAttrs.exit:                            ; preds = %56, %34, %22, %6
   br i1 %69, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %70 = trunc i64 %indvars.iv84 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv84 to i32
   br label %75
 
 71:                                               ; preds = %75
@@ -760,7 +756,7 @@ PQsetResultAttrs.exit:                            ; preds = %56, %34, %22, %6
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %79, align 8
-  %83 = trunc i64 %indvars.iv to i32
+  %83 = trunc nuw nsw i64 %indvars.iv to i32
   %84 = tail call i32 @PQsetvalue(ptr noundef nonnull %5, i32 noundef %70, i32 noundef %83, ptr noundef %81, i32 noundef %82), !range !11
   %.not69 = icmp eq i32 %84, 0
   br i1 %.not69, label %PQmakeEmptyPGresult.exit.thread.sink.split, label %71
@@ -1233,7 +1229,7 @@ pqResultAlloc.exit.thread30:                      ; preds = %43
   store ptr %75, ptr %18, align 8
   %80 = getelementptr inbounds i8, ptr %10, i64 200
   %81 = getelementptr i8, ptr %75, i64 8
-  %82 = trunc i64 %45 to i32
+  %82 = trunc nuw i64 %45 to i32
   %83 = add nuw nsw i32 %82, 8
   store i32 %83, ptr %80, align 8
   %84 = sub nuw nsw i32 2040, %82
@@ -1370,7 +1366,7 @@ define ptr @pqResultAlloc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2)
   store ptr %49, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 200
   %57 = getelementptr i8, ptr %49, i64 8
-  %58 = trunc i64 %1 to i32
+  %58 = trunc nuw i64 %1 to i32
   %59 = add nuw nsw i32 %58, 8
   store i32 %59, ptr %56, align 8
   %60 = sub nuw nsw i32 2040, %58
@@ -1536,7 +1532,7 @@ define ptr @pqPrepareAsyncResult(ptr noundef %0) local_unnamed_addr #0 {
   %53 = getelementptr inbounds i8, ptr %0, i64 1016
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %.thread.i, label %56
+  br i1 %55, label %pqSetResultError.exit, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %0, i64 1000
@@ -1546,13 +1542,11 @@ define ptr @pqPrepareAsyncResult(ptr noundef %0) local_unnamed_addr #0 {
   %61 = getelementptr i8, ptr %59, i64 %60
   %62 = tail call ptr @pqResultStrdup(ptr noundef nonnull %28, ptr noundef %61)
   %.not11.i = icmp eq ptr %62, null
-  br i1 %.not11.i, label %.thread.i, label %pqSetResultError.exit
-
-.thread.i:                                        ; preds = %56, %52
+  %spec.select.i = select i1 %.not11.i, ptr @.str.15, ptr %62
   br label %pqSetResultError.exit
 
-pqSetResultError.exit:                            ; preds = %56, %.thread.i
-  %.str.15.sink.i = phi ptr [ @.str.15, %.thread.i ], [ %62, %56 ]
+pqSetResultError.exit:                            ; preds = %52, %56
+  %.str.15.sink.i = phi ptr [ @.str.15, %52 ], [ %spec.select.i, %56 ]
   store ptr %.str.15.sink.i, ptr %34, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 1008
   %64 = load i64, ptr %63, align 8
@@ -4030,7 +4024,7 @@ define ptr @PQnotifies(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %46, label %4
+  br i1 %.not, label %44, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 380
@@ -4042,12 +4036,12 @@ define i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 7:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #26
-  br label %46
+  br label %44
 
 8:                                                ; preds = %4, %4
   tail call void @pqParseInput3(ptr noundef nonnull %0) #26
   %9 = icmp sgt i32 %2, 0
-  br i1 %9, label %10, label %45
+  br i1 %9, label %10, label %44
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 920
@@ -4062,7 +4056,7 @@ define i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 18:                                               ; preds = %10
   %19 = tail call i32 @pqFlush(ptr noundef nonnull %0) #26
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %46, label %21
+  br i1 %20, label %44, label %21
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %13, align 4
@@ -4081,29 +4075,27 @@ define i32 @PQputCopyData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %32 = xor i8 %31, 1
   %33 = zext nneg i8 %32 to i32
   %34 = sub nsw i32 0, %33
-  br label %46
+  br label %44
 
 35:                                               ; preds = %21, %10
   %36 = tail call i32 @pqPutMsgStart(i8 noundef signext 100, ptr noundef nonnull %0) #26
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %46, label %38
+  br i1 %37, label %44, label %38
 
 38:                                               ; preds = %35
   %39 = zext nneg i32 %2 to i64
   %40 = tail call i32 @pqPutnchar(ptr noundef %1, i64 noundef %39, ptr noundef nonnull %0) #26
   %41 = icmp slt i32 %40, 0
-  br i1 %41, label %46, label %42
+  br i1 %41, label %44, label %42
 
 42:                                               ; preds = %38
   %43 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #26
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %46, label %45
+  %.inv = icmp sgt i32 %43, -1
+  %spec.select = select i1 %.inv, i32 1, i32 -1
+  br label %44
 
-45:                                               ; preds = %42, %8
-  br label %46
-
-46:                                               ; preds = %35, %38, %42, %18, %3, %45, %28, %7
-  %.0 = phi i32 [ -1, %7 ], [ %34, %28 ], [ 1, %45 ], [ -1, %3 ], [ -1, %18 ], [ -1, %42 ], [ -1, %38 ], [ -1, %35 ]
+44:                                               ; preds = %42, %8, %35, %38, %18, %3, %28, %7
+  %.0 = phi i32 [ -1, %7 ], [ %34, %28 ], [ -1, %3 ], [ -1, %18 ], [ -1, %38 ], [ -1, %35 ], [ 1, %8 ], [ %spec.select, %42 ]
   ret i32 %.0
 }
 
@@ -5032,7 +5024,7 @@ define i32 @PQfnumber(ptr noundef readonly %0, ptr noundef readonly %1) local_un
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %47
-  %53 = trunc i64 %indvars.iv83 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv83 to i32
   tail call void @free(ptr noundef %26) #26
   br label %.loopexit64
 
@@ -5046,7 +5038,7 @@ define i32 @PQfnumber(ptr noundef readonly %0, ptr noundef readonly %1) local_un
   br label %.loopexit64
 
 .loopexit64.loopexit:                             ; preds = %21
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit64
 
 .loopexit64:                                      ; preds = %.loopexit64.loopexit, %.loopexit, %4, %7, %2, %._crit_edge78, %52
@@ -6036,7 +6028,7 @@ define internal fastcc noundef i64 @PQescapeStringInternal(ptr noundef %0, ptr n
 define noundef i64 @PQescapeString(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @static_client_encoding, align 4
   %5 = load i8, ptr @static_std_strings, align 1
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   %7 = tail call fastcc i64 @PQescapeStringInternal(ptr noundef null, ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i32 noundef %4, i1 noundef zeroext %6)
   ret i64 %7
 }
@@ -6548,7 +6540,7 @@ define internal fastcc noalias noundef ptr @PQescapeByteaInternal(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @PQescapeBytea(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @static_std_strings, align 1
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   %6 = tail call fastcc ptr @PQescapeByteaInternal(ptr noundef null, ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %5, i1 noundef zeroext false)
   ret ptr %6
 }

@@ -1374,7 +1374,7 @@ do.end487:                                        ; preds = %land.lhs.true473
 
 if.then489:                                       ; preds = %do.end487
   %shr490 = lshr i32 %sub483, 20
-  %conv491 = trunc i32 %shr490 to i8
+  %conv491 = trunc nuw i32 %shr490 to i8
   %cmp.i242 = icmp ult i8 %conv491, 10
   %142 = or disjoint i8 %conv491, 48
   %narrow.i243 = add nuw nsw i8 %conv491, 87
@@ -1391,7 +1391,7 @@ _ZN6icu_7513UnicodeString6appendEDs.exit248:      ; preds = %if.then489
 
 if.then498:                                       ; preds = %_ZN6icu_7513UnicodeString6appendEDs.exit248, %do.end487
   %shr499 = lshr i32 %sub483, 16
-  %conv500 = trunc i32 %shr499 to i8
+  %conv500 = trunc nuw i32 %shr499 to i8
   %143 = and i8 %conv500, 15
   %cmp.i249 = icmp ult i8 %143, 10
   %144 = or disjoint i8 %143, 48
@@ -1782,18 +1782,18 @@ entry:
   call void @ucnv_getUnicodeSet_75(ptr noundef %cnv, ptr noundef %call, i32 noundef 0, ptr noundef nonnull %err)
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %if.else, label %land.lhs.true
+  br i1 %cmp.i, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call2 = call signext i8 @uset_contains_75(ptr noundef %call, i32 noundef 65279)
   %tobool3.not = icmp eq i8 %call2, 0
-  br i1 %tobool3.not, label %if.else, label %if.end
+  br i1 %tobool3.not, label %if.end, label %if.then4.critedge
 
-if.else:                                          ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %land.lhs.true, %entry
   call void @uset_close_75(ptr noundef %call)
   br label %if.end18
 
-if.end:                                           ; preds = %land.lhs.true
+if.then4.critedge:                                ; preds = %land.lhs.true
   call void @uset_close_75(ptr noundef %call)
   store i16 97, ptr %a, align 2
   store ptr %a, ptr %in, align 8
@@ -1812,14 +1812,14 @@ if.end:                                           ; preds = %land.lhs.true
   %cmp12.not = icmp eq ptr %call11, null
   br i1 %cmp12.not, label %if.end18, label %land.lhs.true13
 
-land.lhs.true13:                                  ; preds = %if.end
+land.lhs.true13:                                  ; preds = %if.then4.critedge
   %2 = load i32, ptr %err, align 4
   %cmp.i6.inv = icmp slt i32 %2, 1
   %spec.select = select i1 %cmp.i6.inv, i32 2, i32 1
   br label %if.end18
 
-if.end18:                                         ; preds = %land.lhs.true13, %if.else, %if.end
-  %result.1 = phi i32 [ 1, %if.end ], [ 0, %if.else ], [ %spec.select, %land.lhs.true13 ]
+if.end18:                                         ; preds = %land.lhs.true13, %if.end, %if.then4.critedge
+  %result.1 = phi i32 [ 1, %if.then4.critedge ], [ 0, %if.end ], [ %spec.select, %land.lhs.true13 ]
   ret i32 %result.1
 }
 
@@ -1856,7 +1856,7 @@ entry:
   %str2 = alloca %"class.icu_75::UnicodeString", align 8
   %idx.ext = sext i32 %argc to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 3
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %argv, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %argv, i64 %add.ptr.idx
   store i32 0, ptr %status, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %cf, i8 0, i64 33, i1 false)
   invoke void @u_init_75(ptr noundef nonnull %status)
@@ -2008,7 +2008,7 @@ lor.lhs.false:                                    ; preds = %for.body
 
 if.then16:                                        ; preds = %lor.lhs.false, %for.body
   %incdec.ptr17 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp18.not = icmp eq ptr %incdec.ptr17, %add.ptr.ptr
+  %cmp18.not = icmp eq ptr %incdec.ptr17, %add.ptr
   br i1 %cmp18.not, label %if.then298.invoke, label %if.then19
 
 if.then19:                                        ; preds = %if.then16
@@ -2027,7 +2027,7 @@ lor.lhs.false26:                                  ; preds = %if.else23
 
 if.then29:                                        ; preds = %lor.lhs.false26, %if.else23
   %incdec.ptr30 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp31.not = icmp eq ptr %incdec.ptr30, %add.ptr.ptr
+  %cmp31.not = icmp eq ptr %incdec.ptr30, %add.ptr
   br i1 %cmp31.not, label %if.then298.invoke, label %if.then32
 
 if.then32:                                        ; preds = %if.then29
@@ -2041,7 +2041,7 @@ if.else36:                                        ; preds = %lor.lhs.false26
 
 if.then39:                                        ; preds = %if.else36
   %incdec.ptr40 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp41.not = icmp eq ptr %incdec.ptr40, %add.ptr.ptr
+  %cmp41.not = icmp eq ptr %incdec.ptr40, %add.ptr
   br i1 %cmp41.not, label %if.then298.invoke, label %if.then42
 
 if.then42:                                        ; preds = %if.then39
@@ -2070,7 +2070,7 @@ lor.lhs.false57:                                  ; preds = %if.else54
 
 if.then60:                                        ; preds = %lor.lhs.false57, %if.else54
   %incdec.ptr61 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp62.not = icmp eq ptr %incdec.ptr61, %add.ptr.ptr
+  %cmp62.not = icmp eq ptr %incdec.ptr61, %add.ptr
   br i1 %cmp62.not, label %if.then298.invoke, label %if.then63
 
 if.then63:                                        ; preds = %if.then60
@@ -2150,7 +2150,7 @@ if.then104:                                       ; preds = %if.else101
 
 if.end108:                                        ; preds = %if.then104
   %incdec.ptr109 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp110.not = icmp eq ptr %incdec.ptr109, %add.ptr.ptr
+  %cmp110.not = icmp eq ptr %incdec.ptr109, %add.ptr
   br i1 %cmp110.not, label %if.then298.invoke, label %if.then111
 
 if.then111:                                       ; preds = %if.end108
@@ -2240,7 +2240,7 @@ if.else162:                                       ; preds = %if.else158
 
 if.then165:                                       ; preds = %if.else162
   %incdec.ptr166 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp167.not = icmp eq ptr %incdec.ptr166, %add.ptr.ptr
+  %cmp167.not = icmp eq ptr %incdec.ptr166, %add.ptr
   br i1 %cmp167.not, label %if.then298.invoke, label %if.then168
 
 if.then168:                                       ; preds = %if.then165
@@ -2305,7 +2305,7 @@ if.else187:                                       ; preds = %if.else162
 
 if.then190:                                       ; preds = %if.else187
   %incdec.ptr191 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp192.not = icmp eq ptr %incdec.ptr191, %add.ptr.ptr
+  %cmp192.not = icmp eq ptr %incdec.ptr191, %add.ptr
   br i1 %cmp192.not, label %if.then298.invoke, label %if.then193
 
 if.then193:                                       ; preds = %if.then190
@@ -2375,7 +2375,7 @@ if.else217:                                       ; preds = %if.else213
 
 if.then220:                                       ; preds = %if.else217
   %incdec.ptr221 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp222.not = icmp eq ptr %incdec.ptr221, %add.ptr.ptr
+  %cmp222.not = icmp eq ptr %incdec.ptr221, %add.ptr
   br i1 %cmp222.not, label %if.then298.invoke, label %if.then223
 
 if.then223:                                       ; preds = %if.then220
@@ -2483,7 +2483,7 @@ lor.lhs.false272:                                 ; preds = %if.else269
 
 if.then275:                                       ; preds = %lor.lhs.false272, %if.else269
   %incdec.ptr276 = getelementptr inbounds i8, ptr %iter.0794, i64 8
-  %cmp277 = icmp eq ptr %incdec.ptr276, %add.ptr.ptr
+  %cmp277 = icmp eq ptr %incdec.ptr276, %add.ptr
   %tobool278 = icmp ne ptr %outfilestr.0788, null
   %or.cond1 = select i1 %cmp277, i1 true, i1 %tobool278
   br i1 %or.cond1, label %if.then298.invoke, label %if.then279
@@ -2554,7 +2554,7 @@ for.inc:                                          ; preds = %if.else253, %lor.lh
   %verbose.1 = phi i8 [ %verbose.0802, %if.then19 ], [ %verbose.0802, %if.then32 ], [ %verbose.0802, %if.then42 ], [ %verbose.0802, %if.then63 ], [ %verbose.0802, %invoke.cont112 ], [ %verbose.0802, %if.then286 ], [ %verbose.0802, %if.then290 ], [ %verbose.0802, %if.else300 ], [ %verbose.0802, %if.then279 ], [ %verbose.0802, %if.then228 ], [ %verbose.0802, %if.then198 ], [ %verbose.0802, %if.then172 ], [ %verbose.0802, %if.else46 ], [ %verbose.0802, %if.else50 ], [ %verbose.0802, %if.then86 ], [ %verbose.0802, %if.end98 ], [ %verbose.0802, %if.else132 ], [ %verbose.0802, %if.then142 ], [ %verbose.0802, %if.else158 ], [ %verbose.0802, %if.else213 ], [ 0, %lor.lhs.false249 ], [ 0, %if.else246 ], [ 1, %lor.lhs.false256 ], [ 1, %if.else253 ]
   %incdec.ptr326 = getelementptr inbounds i8, ptr %iter.1, i64 8
   %remainArgvLimit.0.ptr.ptr = getelementptr inbounds i8, ptr %argv, i64 %remainArgvLimit.1.idx
-  %cmp.not = icmp eq ptr %incdec.ptr326, %add.ptr.ptr
+  %cmp.not = icmp eq ptr %incdec.ptr326, %add.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
@@ -2565,7 +2565,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %or.cond2, label %if.then330, label %if.else334
 
 if.end342.thread:                                 ; preds = %if.end
-  %remainArgvLimit.0.ptr.lcssa.ptr875 = getelementptr inbounds i8, ptr %argv, i64 8
+  %remainArgvLimit.0.ptr.lcssa.ptr877 = getelementptr inbounds i8, ptr %argv, i64 8
   br label %if.then347
 
 if.then330:                                       ; preds = %for.end
@@ -2657,7 +2657,7 @@ if.end27.thread.i:                                ; preds = %if.else23.i
 
 for.body.us.i:                                    ; preds = %if.end27.i, %for.cond.us.i
   %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %for.cond.us.i ], [ 0, %if.end27.i ]
-  %47 = trunc i64 %indvars.iv119.i to i16
+  %47 = trunc nuw i64 %indvars.iv119.i to i16
   %call31.us.i202 = invoke ptr @ucnv_getStandard_75(i16 noundef zeroext %47, ptr noundef nonnull %err.i)
           to label %call31.us.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2680,7 +2680,7 @@ for.cond.i192:                                    ; preds = %call31.i.noexc
 
 for.body.i188:                                    ; preds = %if.end27.thread.i, %for.cond.i192
   %indvars.iv.i189 = phi i64 [ %indvars.iv.next.i193, %for.cond.i192 ], [ 0, %if.end27.thread.i ]
-  %49 = trunc i64 %indvars.iv.i189 to i16
+  %49 = trunc nuw i64 %indvars.iv.i189 to i16
   %call31.i203 = invoke ptr @ucnv_getStandard_75(i16 noundef zeroext %49, ptr noundef nonnull %err.i)
           to label %call31.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3088,40 +3088,40 @@ lor.lhs.false344:                                 ; preds = %if.end342
   br i1 %tobool346.not, label %if.then347, label %if.end350
 
 if.then347:                                       ; preds = %if.end342.thread, %lor.lhs.false344, %if.end342
-  %remainArgvLimit.0.ptr.lcssa.ptr895916966 = phi ptr [ %remainArgvLimit.0.ptr.lcssa.ptr875, %if.end342.thread ], [ %remainArgvLimit.0.ptr.lcssa.ptr, %lor.lhs.false344 ], [ %remainArgvLimit.0.ptr.lcssa.ptr, %if.end342 ]
-  %verbose.0.lcssa894917964 = phi i8 [ 0, %if.end342.thread ], [ %verbose.1, %lor.lhs.false344 ], [ %verbose.1, %if.end342 ]
-  %bufsz.0.lcssa889918962 = phi i64 [ 4096, %if.end342.thread ], [ %bufsz.1, %lor.lhs.false344 ], [ %bufsz.1, %if.end342 ]
-  %remainArgvLimit.0.idx.lcssa888919960 = phi i64 [ 8, %if.end342.thread ], [ %remainArgvLimit.1.idx, %lor.lhs.false344 ], [ %remainArgvLimit.1.idx, %if.end342 ]
-  %touctxt.0.lcssa886921958 = phi ptr [ null, %if.end342.thread ], [ %touctxt.1, %lor.lhs.false344 ], [ %touctxt.1, %if.end342 ]
-  %toucallback.0.lcssa885922956 = phi ptr [ @UCNV_TO_U_CALLBACK_STOP_75, %if.end342.thread ], [ %toucallback.1, %lor.lhs.false344 ], [ %toucallback.1, %if.end342 ]
-  %fromuctxt.0.lcssa884923954 = phi ptr [ null, %if.end342.thread ], [ %fromuctxt.1, %lor.lhs.false344 ], [ %fromuctxt.1, %if.end342 ]
-  %fromucallback.0.lcssa883924952 = phi ptr [ @UCNV_FROM_U_CALLBACK_STOP_75, %if.end342.thread ], [ %fromucallback.1, %lor.lhs.false344 ], [ %fromucallback.1, %if.end342 ]
-  %fallback.0.lcssa882925950 = phi i8 [ 0, %if.end342.thread ], [ %fallback.1, %lor.lhs.false344 ], [ %fallback.1, %if.end342 ]
-  %outfilestr.0.lcssa881926948 = phi ptr [ null, %if.end342.thread ], [ %outfilestr.1, %lor.lhs.false344 ], [ %outfilestr.1, %if.end342 ]
-  %translit.0.lcssa880927946 = phi ptr [ null, %if.end342.thread ], [ %translit.1, %lor.lhs.false344 ], [ %translit.1, %if.end342 ]
-  %tocpage.0.lcssa879928944 = phi ptr [ null, %if.end342.thread ], [ %tocpage.1, %lor.lhs.false344 ], [ %tocpage.1, %if.end342 ]
+  %remainArgvLimit.0.ptr.lcssa.ptr897918968 = phi ptr [ %remainArgvLimit.0.ptr.lcssa.ptr877, %if.end342.thread ], [ %remainArgvLimit.0.ptr.lcssa.ptr, %lor.lhs.false344 ], [ %remainArgvLimit.0.ptr.lcssa.ptr, %if.end342 ]
+  %verbose.0.lcssa896919966 = phi i8 [ 0, %if.end342.thread ], [ %verbose.1, %lor.lhs.false344 ], [ %verbose.1, %if.end342 ]
+  %bufsz.0.lcssa891920964 = phi i64 [ 4096, %if.end342.thread ], [ %bufsz.1, %lor.lhs.false344 ], [ %bufsz.1, %if.end342 ]
+  %remainArgvLimit.0.idx.lcssa890921962 = phi i64 [ 8, %if.end342.thread ], [ %remainArgvLimit.1.idx, %lor.lhs.false344 ], [ %remainArgvLimit.1.idx, %if.end342 ]
+  %touctxt.0.lcssa888923960 = phi ptr [ null, %if.end342.thread ], [ %touctxt.1, %lor.lhs.false344 ], [ %touctxt.1, %if.end342 ]
+  %toucallback.0.lcssa887924958 = phi ptr [ @UCNV_TO_U_CALLBACK_STOP_75, %if.end342.thread ], [ %toucallback.1, %lor.lhs.false344 ], [ %toucallback.1, %if.end342 ]
+  %fromuctxt.0.lcssa886925956 = phi ptr [ null, %if.end342.thread ], [ %fromuctxt.1, %lor.lhs.false344 ], [ %fromuctxt.1, %if.end342 ]
+  %fromucallback.0.lcssa885926954 = phi ptr [ @UCNV_FROM_U_CALLBACK_STOP_75, %if.end342.thread ], [ %fromucallback.1, %lor.lhs.false344 ], [ %fromucallback.1, %if.end342 ]
+  %fallback.0.lcssa884927952 = phi i8 [ 0, %if.end342.thread ], [ %fallback.1, %lor.lhs.false344 ], [ %fallback.1, %if.end342 ]
+  %outfilestr.0.lcssa883928950 = phi ptr [ null, %if.end342.thread ], [ %outfilestr.1, %lor.lhs.false344 ], [ %outfilestr.1, %if.end342 ]
+  %translit.0.lcssa882929948 = phi ptr [ null, %if.end342.thread ], [ %translit.1, %lor.lhs.false344 ], [ %translit.1, %if.end342 ]
+  %tocpage.0.lcssa881930946 = phi ptr [ null, %if.end342.thread ], [ %tocpage.1, %lor.lhs.false344 ], [ %tocpage.1, %if.end342 ]
   %call349 = invoke ptr @ucnv_getDefaultName_75()
           to label %if.end350 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end350:                                        ; preds = %if.then347, %lor.lhs.false344
-  %remainArgvLimit.0.ptr.lcssa.ptr895916965 = phi ptr [ %remainArgvLimit.0.ptr.lcssa.ptr, %lor.lhs.false344 ], [ %remainArgvLimit.0.ptr.lcssa.ptr895916966, %if.then347 ]
-  %verbose.0.lcssa894917963 = phi i8 [ %verbose.1, %lor.lhs.false344 ], [ %verbose.0.lcssa894917964, %if.then347 ]
-  %bufsz.0.lcssa889918961 = phi i64 [ %bufsz.1, %lor.lhs.false344 ], [ %bufsz.0.lcssa889918962, %if.then347 ]
-  %remainArgvLimit.0.idx.lcssa888919959 = phi i64 [ %remainArgvLimit.1.idx, %lor.lhs.false344 ], [ %remainArgvLimit.0.idx.lcssa888919960, %if.then347 ]
-  %touctxt.0.lcssa886921957 = phi ptr [ %touctxt.1, %lor.lhs.false344 ], [ %touctxt.0.lcssa886921958, %if.then347 ]
-  %toucallback.0.lcssa885922955 = phi ptr [ %toucallback.1, %lor.lhs.false344 ], [ %toucallback.0.lcssa885922956, %if.then347 ]
-  %fromuctxt.0.lcssa884923953 = phi ptr [ %fromuctxt.1, %lor.lhs.false344 ], [ %fromuctxt.0.lcssa884923954, %if.then347 ]
-  %fromucallback.0.lcssa883924951 = phi ptr [ %fromucallback.1, %lor.lhs.false344 ], [ %fromucallback.0.lcssa883924952, %if.then347 ]
-  %fallback.0.lcssa882925949 = phi i8 [ %fallback.1, %lor.lhs.false344 ], [ %fallback.0.lcssa882925950, %if.then347 ]
-  %outfilestr.0.lcssa881926947 = phi ptr [ %outfilestr.1, %lor.lhs.false344 ], [ %outfilestr.0.lcssa881926948, %if.then347 ]
-  %translit.0.lcssa880927945 = phi ptr [ %translit.1, %lor.lhs.false344 ], [ %translit.0.lcssa880927946, %if.then347 ]
-  %tocpage.0.lcssa879928943 = phi ptr [ %tocpage.1, %lor.lhs.false344 ], [ %tocpage.0.lcssa879928944, %if.then347 ]
+  %remainArgvLimit.0.ptr.lcssa.ptr897918967 = phi ptr [ %remainArgvLimit.0.ptr.lcssa.ptr, %lor.lhs.false344 ], [ %remainArgvLimit.0.ptr.lcssa.ptr897918968, %if.then347 ]
+  %verbose.0.lcssa896919965 = phi i8 [ %verbose.1, %lor.lhs.false344 ], [ %verbose.0.lcssa896919966, %if.then347 ]
+  %bufsz.0.lcssa891920963 = phi i64 [ %bufsz.1, %lor.lhs.false344 ], [ %bufsz.0.lcssa891920964, %if.then347 ]
+  %remainArgvLimit.0.idx.lcssa890921961 = phi i64 [ %remainArgvLimit.1.idx, %lor.lhs.false344 ], [ %remainArgvLimit.0.idx.lcssa890921962, %if.then347 ]
+  %touctxt.0.lcssa888923959 = phi ptr [ %touctxt.1, %lor.lhs.false344 ], [ %touctxt.0.lcssa888923960, %if.then347 ]
+  %toucallback.0.lcssa887924957 = phi ptr [ %toucallback.1, %lor.lhs.false344 ], [ %toucallback.0.lcssa887924958, %if.then347 ]
+  %fromuctxt.0.lcssa886925955 = phi ptr [ %fromuctxt.1, %lor.lhs.false344 ], [ %fromuctxt.0.lcssa886925956, %if.then347 ]
+  %fromucallback.0.lcssa885926953 = phi ptr [ %fromucallback.1, %lor.lhs.false344 ], [ %fromucallback.0.lcssa885926954, %if.then347 ]
+  %fallback.0.lcssa884927951 = phi i8 [ %fallback.1, %lor.lhs.false344 ], [ %fallback.0.lcssa884927952, %if.then347 ]
+  %outfilestr.0.lcssa883928949 = phi ptr [ %outfilestr.1, %lor.lhs.false344 ], [ %outfilestr.0.lcssa883928950, %if.then347 ]
+  %translit.0.lcssa882929947 = phi ptr [ %translit.1, %lor.lhs.false344 ], [ %translit.0.lcssa882929948, %if.then347 ]
+  %tocpage.0.lcssa881930945 = phi ptr [ %tocpage.1, %lor.lhs.false344 ], [ %tocpage.0.lcssa881930946, %if.then347 ]
   %fromcpage.2 = phi ptr [ %fromcpage.1, %lor.lhs.false344 ], [ %call349, %if.then347 ]
-  %tobool351.not = icmp eq ptr %tocpage.0.lcssa879928943, null
+  %tobool351.not = icmp eq ptr %tocpage.0.lcssa881930945, null
   br i1 %tobool351.not, label %if.then355, label %lor.lhs.false352
 
 lor.lhs.false352:                                 ; preds = %if.end350
-  %call353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tocpage.0.lcssa879928943, ptr noundef nonnull dereferenceable(2) @.str) #20
+  %call353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tocpage.0.lcssa881930945, ptr noundef nonnull dereferenceable(2) @.str) #20
   %tobool354.not = icmp eq i32 %call353, 0
   br i1 %tobool354.not, label %if.then355, label %if.end358
 
@@ -3130,22 +3130,22 @@ if.then355:                                       ; preds = %lor.lhs.false352, %
           to label %if.end358 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end358:                                        ; preds = %if.then355, %lor.lhs.false352
-  %tocpage.2 = phi ptr [ %tocpage.0.lcssa879928943, %lor.lhs.false352 ], [ %call357, %if.then355 ]
-  %cmp359.not = icmp eq ptr %outfilestr.0.lcssa881926947, null
+  %tocpage.2 = phi ptr [ %tocpage.0.lcssa881930945, %lor.lhs.false352 ], [ %call357, %if.then355 ]
+  %cmp359.not = icmp eq ptr %outfilestr.0.lcssa883928949, null
   br i1 %cmp359.not, label %if.else382, label %land.lhs.true360
 
 land.lhs.true360:                                 ; preds = %if.end358
-  %call361 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %outfilestr.0.lcssa881926947, ptr noundef nonnull dereferenceable(2) @.str) #20
+  %call361 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %outfilestr.0.lcssa883928949, ptr noundef nonnull dereferenceable(2) @.str) #20
   %tobool362.not = icmp eq i32 %call361, 0
   br i1 %tobool362.not, label %if.else382, label %if.then363
 
 if.then363:                                       ; preds = %land.lhs.true360
-  %call365 = call noalias ptr @fopen(ptr noundef nonnull %outfilestr.0.lcssa881926947, ptr noundef nonnull @.str.58)
+  %call365 = call noalias ptr @fopen(ptr noundef nonnull %outfilestr.0.lcssa883928949, ptr noundef nonnull @.str.58)
   %cmp366 = icmp eq ptr %call365, null
   br i1 %cmp366, label %if.then367, label %if.end383
 
 if.then367:                                       ; preds = %if.then363
-  invoke void @_ZN6icu_7513UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %str1, ptr noundef nonnull %outfilestr.0.lcssa881926947, ptr noundef nonnull @.str.2)
+  invoke void @_ZN6icu_7513UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %str1, ptr noundef nonnull %outfilestr.0.lcssa883928949, ptr noundef nonnull @.str.2)
           to label %invoke.cont368 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont368:                                   ; preds = %if.then367
@@ -3238,17 +3238,17 @@ if.else382:                                       ; preds = %land.lhs.true360, %
 if.end383:                                        ; preds = %if.then363, %if.else382
   %outfile.0 = phi ptr [ %call365, %if.then363 ], [ %80, %if.else382 ]
   %bufsz.i = getelementptr inbounds i8, ptr %cf, i64 24
-  store i64 %bufsz.0.lcssa889918961, ptr %bufsz.i, align 8
-  %mul.i250 = shl nuw nsw i64 %bufsz.0.lcssa889918961, 1
+  store i64 %bufsz.0.lcssa891920963, ptr %bufsz.i, align 8
+  %mul.i250 = shl nuw nsw i64 %bufsz.0.lcssa891920963, 1
   %call.i252 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i250) #26
           to label %call.i.noexc251 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.noexc251:                                  ; preds = %if.end383
   store ptr %call.i252, ptr %cf, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i252, i64 %bufsz.0.lcssa889918961
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i252, i64 %bufsz.0.lcssa891920963
   %outbuf.i = getelementptr inbounds i8, ptr %cf, i64 8
   store ptr %add.ptr.i, ptr %outbuf.i, align 8
-  %add.i = shl i64 %bufsz.0.lcssa889918961, 2
+  %add.i = shl i64 %bufsz.0.lcssa891920963, 2
   %81 = add i64 %add.i, 4
   %call6.i253 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %81) #26
           to label %invoke.cont384 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3256,38 +3256,36 @@ call.i.noexc251:                                  ; preds = %if.end383
 invoke.cont384:                                   ; preds = %call.i.noexc251
   %fromoffsets.i = getelementptr inbounds i8, ptr %cf, i64 16
   store ptr %call6.i253, ptr %fromoffsets.i, align 8
-  %cmp385 = icmp sgt i64 %remainArgvLimit.0.idx.lcssa888919959, 8
-  %conv390 = zext nneg i8 %verbose.0.lcssa894917963 to i32
+  %cmp385 = icmp sgt i64 %remainArgvLimit.0.idx.lcssa890921961, 8
+  %conv390 = zext nneg i8 %verbose.0.lcssa896919965 to i32
   br i1 %cmp385, label %for.body389, label %if.else399
 
 for.cond387:                                      ; preds = %invoke.cont391
   %incdec.ptr397 = getelementptr inbounds i8, ptr %iter.2821, i64 8
-  %cmp388.not = icmp eq ptr %incdec.ptr397, %remainArgvLimit.0.ptr.lcssa.ptr895916965
+  %cmp388.not = icmp eq ptr %incdec.ptr397, %remainArgvLimit.0.ptr.lcssa.ptr897918967
   br i1 %cmp388.not, label %normal_exit, label %for.body389, !llvm.loop !23
 
 for.body389:                                      ; preds = %invoke.cont384, %for.cond387
   %iter.2821 = phi ptr [ %incdec.ptr397, %for.cond387 ], [ %add.ptr10.ptr, %invoke.cont384 ]
   %82 = load ptr, ptr %iter.2821, align 8
-  %call392 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa885922955, ptr noundef %touctxt.0.lcssa886921957, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa883924951, ptr noundef %fromuctxt.0.lcssa884923953, i8 noundef signext %fallback.0.lcssa882925949, ptr noundef %translit.0.lcssa880927945, ptr noundef %82, ptr noundef %outfile.0, i32 noundef %conv390)
+  %call392 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa887924957, ptr noundef %touctxt.0.lcssa888923959, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa885926953, ptr noundef %fromuctxt.0.lcssa886925955, i8 noundef signext %fallback.0.lcssa884927951, ptr noundef %translit.0.lcssa882929947, ptr noundef %82, ptr noundef %outfile.0, i32 noundef %conv390)
           to label %invoke.cont391 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont391:                                   ; preds = %for.body389
   %tobool393.not = icmp eq i8 %call392, 0
-  br i1 %tobool393.not, label %error_exit, label %for.cond387
+  br i1 %tobool393.not, label %normal_exit, label %for.cond387
 
 if.else399:                                       ; preds = %invoke.cont384
-  %call402 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa885922955, ptr noundef %touctxt.0.lcssa886921957, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa883924951, ptr noundef %fromuctxt.0.lcssa884923953, i8 noundef signext %fallback.0.lcssa882925949, ptr noundef %translit.0.lcssa880927945, ptr noundef null, ptr noundef %outfile.0, i32 noundef %conv390)
+  %call402 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa887924957, ptr noundef %touctxt.0.lcssa888923959, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa885926953, ptr noundef %fromuctxt.0.lcssa886925955, i8 noundef signext %fallback.0.lcssa884927951, ptr noundef %translit.0.lcssa882929947, ptr noundef null, ptr noundef %outfile.0, i32 noundef %conv390)
           to label %invoke.cont401 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont401:                                   ; preds = %if.else399
   %tobool403.not = icmp eq i8 %call402, 0
-  br i1 %tobool403.not, label %error_exit, label %normal_exit
-
-error_exit:                                       ; preds = %invoke.cont391, %invoke.cont401
+  %spec.select = zext i1 %tobool403.not to i32
   br label %normal_exit
 
-normal_exit:                                      ; preds = %for.cond387, %invoke.cont401, %error_exit
-  %ret.0 = phi i32 [ 1, %error_exit ], [ 0, %invoke.cont401 ], [ 0, %for.cond387 ]
+normal_exit:                                      ; preds = %for.cond387, %invoke.cont391, %invoke.cont401
+  %ret.0 = phi i32 [ %spec.select, %invoke.cont401 ], [ 0, %for.cond387 ], [ 1, %invoke.cont391 ]
   %83 = load ptr, ptr @stdout, align 8
   %cmp407.not = icmp eq ptr %outfile.0, %83
   br i1 %cmp407.not, label %if.end411, label %if.then408

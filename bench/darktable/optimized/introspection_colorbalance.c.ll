@@ -2215,41 +2215,37 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr noc
 669:                                              ; preds = %665
   %670 = load i32, ptr %661, align 4, !tbaa !20
   %671 = icmp eq i32 %670, 1
-  br i1 %671, label %673, label %672
+  %spec.select = select i1 %671, ptr @.str.93, ptr @.str.75
+  br label %672
 
-672:                                              ; preds = %669, %665, %659
-  br label %673
+672:                                              ; preds = %669, %659, %665
+  %673 = phi ptr [ @.str.75, %665 ], [ @.str.75, %659 ], [ %spec.select, %669 ]
+  %674 = getelementptr inbounds i8, ptr %660, i64 248
+  %675 = load ptr, ptr %674, align 8, !tbaa !87
+  %676 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %675, ptr noundef null, ptr noundef nonnull %673) #23
+  %677 = getelementptr inbounds i8, ptr %660, i64 300
+  %678 = getelementptr inbounds i8, ptr %660, i64 308
+  %679 = load i32, ptr %678, align 4, !tbaa !20
+  %680 = icmp eq i32 %679, 1
+  br i1 %680, label %681, label %688
 
-673:                                              ; preds = %672, %669
-  %674 = phi ptr [ @.str.75, %672 ], [ @.str.93, %669 ]
-  %675 = getelementptr inbounds i8, ptr %660, i64 248
-  %676 = load ptr, ptr %675, align 8, !tbaa !87
-  %677 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %676, ptr noundef null, ptr noundef nonnull %674) #23
-  %678 = getelementptr inbounds i8, ptr %660, i64 300
-  %679 = getelementptr inbounds i8, ptr %660, i64 308
-  %680 = load i32, ptr %679, align 4, !tbaa !20
-  %681 = icmp eq i32 %680, 1
-  br i1 %681, label %682, label %689
+681:                                              ; preds = %672
+  %682 = getelementptr inbounds i8, ptr %660, i64 304
+  %683 = load i32, ptr %682, align 4, !tbaa !20
+  %684 = icmp eq i32 %683, 1
+  br i1 %684, label %685, label %688
 
-682:                                              ; preds = %673
-  %683 = getelementptr inbounds i8, ptr %660, i64 304
-  %684 = load i32, ptr %683, align 4, !tbaa !20
-  %685 = icmp eq i32 %684, 1
-  br i1 %685, label %686, label %689
+685:                                              ; preds = %681
+  %686 = load i32, ptr %677, align 4, !tbaa !20
+  %687 = icmp eq i32 %686, 1
+  %spec.select1 = select i1 %687, ptr @.str.94, ptr @.str.77
+  br label %688
 
-686:                                              ; preds = %682
-  %687 = load i32, ptr %678, align 4, !tbaa !20
-  %688 = icmp eq i32 %687, 1
-  br i1 %688, label %690, label %689
-
-689:                                              ; preds = %686, %682, %673
-  br label %690
-
-690:                                              ; preds = %689, %686
-  %691 = phi ptr [ @.str.77, %689 ], [ @.str.94, %686 ]
-  %692 = getelementptr inbounds i8, ptr %660, i64 256
-  %693 = load ptr, ptr %692, align 8, !tbaa !88
-  %694 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %693, ptr noundef null, ptr noundef nonnull %691) #23
+688:                                              ; preds = %685, %672, %681
+  %689 = phi ptr [ @.str.77, %681 ], [ @.str.77, %672 ], [ %spec.select1, %685 ]
+  %690 = getelementptr inbounds i8, ptr %660, i64 256
+  %691 = load ptr, ptr %690, align 8, !tbaa !88
+  %692 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %691, ptr noundef null, ptr noundef nonnull %689) #23
   ret void
 }
 
@@ -3238,74 +3234,70 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 12:                                               ; preds = %8
   %13 = load i32, ptr %4, align 4, !tbaa !20
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %16, label %15
+  %spec.select = select i1 %14, ptr @.str.93, ptr @.str.75
+  br label %15
 
-15:                                               ; preds = %12, %8, %1
-  br label %16
+15:                                               ; preds = %12, %1, %8
+  %16 = phi ptr [ @.str.75, %8 ], [ @.str.75, %1 ], [ %spec.select, %12 ]
+  %17 = getelementptr inbounds i8, ptr %3, i64 248
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
+  %19 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %18, ptr noundef null, ptr noundef nonnull %16) #23
+  %20 = getelementptr inbounds i8, ptr %3, i64 300
+  %21 = getelementptr inbounds i8, ptr %3, i64 308
+  %22 = load i32, ptr %21, align 4, !tbaa !20
+  %23 = icmp eq i32 %22, 1
+  br i1 %23, label %24, label %31
 
-16:                                               ; preds = %15, %12
-  %17 = phi ptr [ @.str.75, %15 ], [ @.str.93, %12 ]
-  %18 = getelementptr inbounds i8, ptr %3, i64 248
-  %19 = load ptr, ptr %18, align 8, !tbaa !87
-  %20 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %19, ptr noundef null, ptr noundef nonnull %17) #23
-  %21 = getelementptr inbounds i8, ptr %3, i64 300
-  %22 = getelementptr inbounds i8, ptr %3, i64 308
-  %23 = load i32, ptr %22, align 4, !tbaa !20
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %32
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds i8, ptr %3, i64 304
+  %26 = load i32, ptr %25, align 4, !tbaa !20
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %28, label %31
 
-25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %3, i64 304
-  %27 = load i32, ptr %26, align 4, !tbaa !20
-  %28 = icmp eq i32 %27, 1
-  br i1 %28, label %29, label %32
+28:                                               ; preds = %24
+  %29 = load i32, ptr %20, align 4, !tbaa !20
+  %30 = icmp eq i32 %29, 1
+  %spec.select1 = select i1 %30, ptr @.str.94, ptr @.str.77
+  br label %31
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %21, align 4, !tbaa !20
-  %31 = icmp eq i32 %30, 1
-  br i1 %31, label %33, label %32
-
-32:                                               ; preds = %29, %25, %16
-  br label %33
-
-33:                                               ; preds = %32, %29
-  %34 = phi ptr [ @.str.77, %32 ], [ @.str.94, %29 ]
-  %35 = getelementptr inbounds i8, ptr %3, i64 256
-  %36 = load ptr, ptr %35, align 8, !tbaa !88
-  %37 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %36, ptr noundef null, ptr noundef nonnull %34) #23
-  %38 = getelementptr inbounds i8, ptr %0, i64 680
-  %39 = load ptr, ptr %38, align 8, !tbaa !65
-  %40 = load ptr, ptr %2, align 16, !tbaa !45
-  tail call void @set_visible_widgets(ptr noundef %40)
+31:                                               ; preds = %28, %15, %24
+  %32 = phi ptr [ @.str.77, %24 ], [ @.str.77, %15 ], [ %spec.select1, %28 ]
+  %33 = getelementptr inbounds i8, ptr %3, i64 256
+  %34 = load ptr, ptr %33, align 8, !tbaa !88
+  %35 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %34, ptr noundef null, ptr noundef nonnull %32) #23
+  %36 = getelementptr inbounds i8, ptr %0, i64 680
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
+  %38 = load ptr, ptr %2, align 16, !tbaa !45
+  tail call void @set_visible_widgets(ptr noundef %38)
   tail call void @_configure_slider_blocks(ptr poison, ptr noundef nonnull %0)
-  %41 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !53
-  %42 = getelementptr inbounds i8, ptr %41, i64 120
-  %43 = load i32, ptr %42, align 8, !tbaa !61
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %42, align 8, !tbaa !61
-  %45 = getelementptr inbounds i8, ptr %40, i64 72
-  %46 = load ptr, ptr %45, align 8, !tbaa !51
-  %47 = getelementptr inbounds i8, ptr %40, i64 96
-  %48 = load ptr, ptr %47, align 8, !tbaa !69
-  %49 = getelementptr inbounds i8, ptr %39, i64 4
-  tail call fastcc void @set_HSL_sliders(ptr noundef %46, ptr noundef %48, ptr noundef nonnull %49)
-  %50 = getelementptr inbounds i8, ptr %40, i64 80
-  %51 = load ptr, ptr %50, align 8, !tbaa !71
-  %52 = getelementptr inbounds i8, ptr %40, i64 104
-  %53 = load ptr, ptr %52, align 8, !tbaa !75
-  %54 = getelementptr inbounds i8, ptr %39, i64 20
-  tail call fastcc void @set_HSL_sliders(ptr noundef %51, ptr noundef %53, ptr noundef nonnull %54)
-  %55 = getelementptr inbounds i8, ptr %40, i64 88
-  %56 = load ptr, ptr %55, align 8, !tbaa !76
-  %57 = getelementptr inbounds i8, ptr %40, i64 112
-  %58 = load ptr, ptr %57, align 8, !tbaa !80
-  %59 = getelementptr inbounds i8, ptr %39, i64 36
-  tail call fastcc void @set_HSL_sliders(ptr noundef %56, ptr noundef %58, ptr noundef nonnull %59)
-  %60 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !53
-  %61 = getelementptr inbounds i8, ptr %60, i64 120
-  %62 = load i32, ptr %61, align 8, !tbaa !61
-  %63 = add nsw i32 %62, -1
-  store i32 %63, ptr %61, align 8, !tbaa !61
+  %39 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !53
+  %40 = getelementptr inbounds i8, ptr %39, i64 120
+  %41 = load i32, ptr %40, align 8, !tbaa !61
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %40, align 8, !tbaa !61
+  %43 = getelementptr inbounds i8, ptr %38, i64 72
+  %44 = load ptr, ptr %43, align 8, !tbaa !51
+  %45 = getelementptr inbounds i8, ptr %38, i64 96
+  %46 = load ptr, ptr %45, align 8, !tbaa !69
+  %47 = getelementptr inbounds i8, ptr %37, i64 4
+  tail call fastcc void @set_HSL_sliders(ptr noundef %44, ptr noundef %46, ptr noundef nonnull %47)
+  %48 = getelementptr inbounds i8, ptr %38, i64 80
+  %49 = load ptr, ptr %48, align 8, !tbaa !71
+  %50 = getelementptr inbounds i8, ptr %38, i64 104
+  %51 = load ptr, ptr %50, align 8, !tbaa !75
+  %52 = getelementptr inbounds i8, ptr %37, i64 20
+  tail call fastcc void @set_HSL_sliders(ptr noundef %49, ptr noundef %51, ptr noundef nonnull %52)
+  %53 = getelementptr inbounds i8, ptr %38, i64 88
+  %54 = load ptr, ptr %53, align 8, !tbaa !76
+  %55 = getelementptr inbounds i8, ptr %38, i64 112
+  %56 = load ptr, ptr %55, align 8, !tbaa !80
+  %57 = getelementptr inbounds i8, ptr %37, i64 36
+  tail call fastcc void @set_HSL_sliders(ptr noundef %54, ptr noundef %56, ptr noundef nonnull %57)
+  %58 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !53
+  %59 = getelementptr inbounds i8, ptr %58, i64 120
+  %60 = load i32, ptr %59, align 8, !tbaa !61
+  %61 = add nsw i32 %60, -1
+  store i32 %61, ptr %59, align 8, !tbaa !61
   ret void
 }
 
@@ -3473,19 +3465,17 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 16:                                               ; preds = %12
   %17 = load i32, ptr %4, align 4, !tbaa !20
   %18 = icmp eq i32 %17, 1
-  br i1 %18, label %20, label %19
+  %spec.select = select i1 %18, ptr @.str.94, ptr @.str.77
+  br label %19
 
-19:                                               ; preds = %16, %12, %1
-  br label %20
-
-20:                                               ; preds = %19, %16
-  %21 = phi ptr [ @.str.77, %19 ], [ @.str.94, %16 ]
-  %22 = getelementptr inbounds i8, ptr %3, i64 256
-  %23 = load ptr, ptr %22, align 8, !tbaa !88
-  %24 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %23, ptr noundef null, ptr noundef nonnull %21) #23
-  %25 = getelementptr inbounds i8, ptr %3, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !98
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %26, i32 noundef 0) #23
+19:                                               ; preds = %16, %1, %12
+  %20 = phi ptr [ @.str.77, %12 ], [ @.str.77, %1 ], [ %spec.select, %16 ]
+  %21 = getelementptr inbounds i8, ptr %3, i64 256
+  %22 = load ptr, ptr %21, align 8, !tbaa !88
+  %23 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %22, ptr noundef null, ptr noundef nonnull %20) #23
+  %24 = getelementptr inbounds i8, ptr %3, i64 64
+  %25 = load ptr, ptr %24, align 8, !tbaa !98
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %25, i32 noundef 0) #23
   tail call void @set_visible_widgets(ptr noundef nonnull %3)
   tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %0, i32 noundef 1) #23
   ret void

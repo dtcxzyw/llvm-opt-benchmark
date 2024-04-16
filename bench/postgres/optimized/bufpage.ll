@@ -87,7 +87,7 @@ define dso_local void @PageInit(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 14
   %.val = load i16, ptr %4, align 2
   %5 = icmp eq i16 %.val, 0
@@ -136,7 +136,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %24
-  %30 = trunc i8 %.031 to i1
+  %30 = trunc nuw i8 %.031 to i1
   br i1 %30, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %12, %16, %20, %24, %29, %3
@@ -158,8 +158,8 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %.not40, label %31, label %35
 
 35:                                               ; preds = %32
-  %36 = trunc i8 %.132 to i1
-  br i1 %36, label %37, label %55
+  %36 = trunc nuw i8 %.132 to i1
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %35
   %38 = and i32 %2, 1
@@ -190,18 +190,15 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br label %51
 
 51:                                               ; preds = %50, %48
-  br i1 %.130.shrunk, label %52, label %55
+  br i1 %.130.shrunk, label %52, label %.critedge
 
 52:                                               ; preds = %51
   %53 = load i8, ptr @ignore_checksum_failure, align 1
   %54 = trunc i8 %53 to i1
-  br i1 %54, label %.critedge, label %55
-
-55:                                               ; preds = %51, %52, %35
   br label %.critedge
 
-.critedge:                                        ; preds = %31, %52, %29, %55
-  %.034 = phi i1 [ false, %55 ], [ true, %29 ], [ true, %52 ], [ true, %31 ]
+.critedge:                                        ; preds = %31, %52, %35, %51, %29
+  %.034 = phi i1 [ true, %29 ], [ false, %51 ], [ false, %35 ], [ %54, %52 ], [ true, %31 ]
   ret i1 %.034
 }
 
@@ -634,7 +631,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
   %.069. = select i1 %58, i1 %.069110, i1 false
   %59 = load i32, ptr %36, align 4
   %60 = lshr i32 %59, 17
-  %61 = trunc i32 %60 to i16
+  %61 = trunc nuw nsw i32 %60 to i16
   %62 = add nuw i16 %61, 7
   %63 = and i16 %62, -8
   %64 = getelementptr inbounds i8, ptr %.082105, i64 4
@@ -758,7 +755,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   br i1 %exitcond166.not, label %._crit_edge144, label %10, !llvm.loop !9
 
 21:                                               ; preds = %10
-  %22 = trunc i64 %indvars.iv161 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv161 to i32
   %23 = icmp slt i32 %22, %1
   br i1 %23, label %.lr.ph143, label %._crit_edge144
 
@@ -1332,7 +1329,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
 
 89:                                               ; preds = %83, %80
   %90 = phi i16 [ %.pre81, %83 ], [ %81, %80 ]
-  %91 = trunc i64 %68 to i16
+  %91 = trunc nuw i64 %68 to i16
   %92 = add i16 %90, %91
   store i16 %92, ptr %7, align 2
   %93 = load i16, ptr %3, align 4
@@ -1344,7 +1341,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   br i1 %or.cond79, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %89
-  %96 = trunc i64 %68 to i32
+  %96 = trunc nuw nsw i64 %68 to i32
   %wide.trip.count = zext i16 %37 to i64
   br label %97
 
@@ -1501,13 +1498,13 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
 67:                                               ; preds = %60, %58
   %68 = trunc i32 %.086113 to i16
   store i16 %68, ptr %.088112, align 2
-  %69 = trunc i32 %47 to i16
+  %69 = trunc nuw nsw i32 %47 to i16
   %70 = getelementptr inbounds i8, ptr %.088112, i64 2
   store i16 %69, ptr %70, align 2
   %71 = icmp sgt i32 %.081115, %47
   %..081 = tail call i32 @llvm.smin.i32(i32 %.081115, i32 %47)
   %.0. = select i1 %71, i1 %.0118, i1 false
-  %72 = trunc i32 %46 to i16
+  %72 = trunc nuw nsw i32 %46 to i16
   %73 = add nuw i16 %72, 7
   %74 = and i16 %73, -8
   %75 = getelementptr inbounds i8, ptr %.088112, i64 4
@@ -1720,7 +1717,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
 82:                                               ; preds = %76, %74
   %.val73 = phi i16 [ %.val73.pre, %76 ], [ %.val7379, %74 ]
   %83 = phi i16 [ %.pre, %76 ], [ %8, %74 ]
-  %84 = trunc i64 %68 to i16
+  %84 = trunc nuw i64 %68 to i16
   %85 = add i16 %83, %84
   store i16 %85, ptr %7, align 2
   %86 = icmp ult i16 %.val73, 25
@@ -1729,7 +1726,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
   br i1 %or.cond76, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %82
-  %87 = trunc i64 %68 to i32
+  %87 = trunc nuw nsw i64 %68 to i32
   %88 = add nuw nsw i32 %.059, 1
   %wide.trip.count = zext nneg i32 %88 to i64
   br label %89

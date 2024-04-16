@@ -308,23 +308,19 @@ if.else.i.i39:                                    ; preds = %if.then.i.i37
 
 trace_qed_write_table_cb.exit:                    ; preds = %for.end, %land.lhs.true5.i.i34, %if.then8.i.i40, %if.else.i.i39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i30)
-  %cmp18 = icmp slt i32 %call.i, 0
-  br i1 %cmp18, label %out, label %if.end
+  %cmp18 = icmp sgt i32 %call.i, -1
+  %brmerge.not = and i1 %cmp18, %flush
+  %call15.mux = select i1 %cmp18, i32 0, i32 %call.i
+  br i1 %brmerge.not, label %if.then21, label %out
 
-if.end:                                           ; preds = %trace_qed_write_table_cb.exit
-  br i1 %flush, label %if.then21, label %if.end28
-
-if.then21:                                        ; preds = %if.end
+if.then21:                                        ; preds = %trace_qed_write_table_cb.exit
   %24 = load ptr, ptr %s, align 8
   %call23 = call i32 @bdrv_co_flush(ptr noundef %24) #6
-  %cmp24 = icmp slt i32 %call23, 0
-  br i1 %cmp24, label %out, label %if.end28
-
-if.end28:                                         ; preds = %if.then21, %if.end
+  %spec.select = call i32 @llvm.smin.i32(i32 %call23, i32 0)
   br label %out
 
-out:                                              ; preds = %if.then21, %trace_qed_write_table_cb.exit, %if.end28
-  %ret.0 = phi i32 [ %call.i, %trace_qed_write_table_cb.exit ], [ %call23, %if.then21 ], [ 0, %if.end28 ]
+out:                                              ; preds = %if.then21, %trace_qed_write_table_cb.exit
+  %ret.0 = phi i32 [ %call15.mux, %trace_qed_write_table_cb.exit ], [ %spec.select, %if.then21 ]
   call void @qemu_vfree(ptr noundef %call) #6
   ret i32 %ret.0
 }

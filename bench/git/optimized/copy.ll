@@ -41,7 +41,7 @@ declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @copy_file(ptr noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local i32 @copy_file(ptr noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [8192 x i8], align 16
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %src, i32 noundef 0) #5
@@ -104,18 +104,16 @@ if.then15:                                        ; preds = %sw.epilog
   br label %return
 
 if.end18:                                         ; preds = %sw.epilog
-  br i1 %tobool.not.i, label %land.lhs.true, label %if.end23
+  br i1 %tobool.not.i, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end18
   %call20 = call i32 @adjust_shared_perm(ptr noundef %dst) #5
   %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %if.end23, label %return
-
-if.end23:                                         ; preds = %land.lhs.true, %if.end18
+  %spec.select = select i1 %tobool21.not, i32 %retval.0.i12, i32 -1
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %if.end23, %if.then15, %if.then3
-  %retval.0 = phi i32 [ %call1, %if.then3 ], [ -1, %if.then15 ], [ %retval.0.i12, %if.end23 ], [ %call, %entry ], [ -1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end18, %entry, %if.then15, %if.then3
+  %retval.0 = phi i32 [ %call1, %if.then3 ], [ -1, %if.then15 ], [ %call, %entry ], [ %retval.0.i12, %if.end18 ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -129,7 +127,7 @@ declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @adjust_shared_perm(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @copy_file_with_time(ptr noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local i32 @copy_file_with_time(ptr noundef %dst, ptr nocapture noundef readonly %src, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %times.i = alloca %struct.utimbuf, align 8

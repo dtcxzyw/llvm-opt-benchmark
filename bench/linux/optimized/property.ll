@@ -740,7 +740,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 8
@@ -760,18 +760,18 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   %24 = getelementptr %union.acpi_object, ptr %17, i64 %23
   %25 = load i32, ptr %21, align 8
   %26 = icmp eq i32 %25, 3
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds i8, ptr %21, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 16
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %24, align 8
   %33 = icmp eq i32 %32, 4
-  br i1 %33, label %34, label %.thread
+  br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %21, i64 8
@@ -784,7 +784,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   %40 = getelementptr inbounds i8, ptr %24, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread, label %43
+  br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %24, i64 8
@@ -908,14 +908,14 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
 .thread3.loopexit:                                ; preds = %103
   %108 = and i8 %105, 1
   %109 = icmp ne i8 %108, 0
-  br label %.thread
+  br label %.loopexit
 
 110:                                              ; preds = %34
   %111 = add i32 %19, 2
   %112 = icmp ult i32 %111, %9
-  br i1 %112, label %18, label %.thread, !llvm.loop !18
+  br i1 %112, label %18, label %.loopexit, !llvm.loop !18
 
-.thread:                                          ; preds = %18, %27, %31, %110, %39, %.thread3.loopexit, %4
+.loopexit:                                        ; preds = %18, %27, %31, %110, %39, %.thread3.loopexit, %4
   %113 = phi i1 [ false, %4 ], [ false, %39 ], [ %109, %.thread3.loopexit ], [ false, %110 ], [ false, %31 ], [ false, %27 ], [ false, %18 ]
   ret i1 %113
 }
@@ -2262,7 +2262,7 @@ define internal ptr @acpi_node_get_parent(ptr noundef readonly %0) #6 align 16 {
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
-  br label %23
+  br label %22
 
 12:                                               ; preds = %5
   %13 = icmp eq ptr %7, @acpi_device_fwnode_ops
@@ -2276,14 +2276,12 @@ define internal ptr @acpi_node_get_parent(ptr noundef readonly %0) #6 align 16 {
   %19 = select i1 %17, ptr null, ptr %18
   %20 = icmp eq ptr %19, null
   %21 = getelementptr inbounds i8, ptr %19, i64 16
-  br i1 %20, label %22, label %23
+  %spec.select = select i1 %20, ptr null, ptr %21
+  br label %22
 
-22:                                               ; preds = %14, %12, %1
-  br label %23
-
-23:                                               ; preds = %22, %14, %9
-  %24 = phi ptr [ %11, %9 ], [ %21, %14 ], [ null, %22 ]
-  ret ptr %24
+22:                                               ; preds = %14, %1, %12, %9
+  %23 = phi ptr [ %11, %9 ], [ null, %12 ], [ null, %1 ], [ %spec.select, %14 ]
+  ret ptr %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2394,7 +2392,7 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
 .loopexit11:                                      ; preds = %is_acpi_graph_node.exit, %28
   %30 = phi ptr [ %29, %28 ], [ %5, %is_acpi_graph_node.exit ]
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %is_acpi_graph_node.exit6.thread, label %.thread
+  br i1 %31, label %is_acpi_graph_node.exit6.thread8, label %.thread
 
 .thread:                                          ; preds = %20, %.loopexit11
   %32 = phi ptr [ %30, %.loopexit11 ], [ %5, %20 ]
@@ -2406,7 +2404,7 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
   %35 = phi ptr [ %36, %59 ], [ %32, %.thread ]
   %36 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %35) #15
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %is_acpi_graph_node.exit6.thread, label %38
+  br i1 %37, label %is_acpi_graph_node.exit6.thread8, label %38
 
 38:                                               ; preds = %.preheader
   %39 = icmp ugt ptr %36, inttoptr (i64 -4096 to ptr)
@@ -2451,13 +2449,13 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
 .loopexit:                                        ; preds = %59, %.thread
   %62 = phi ptr [ %33, %.thread ], [ %60, %59 ]
   %63 = icmp ugt ptr %62, inttoptr (i64 -4096 to ptr)
-  br i1 %63, label %is_acpi_graph_node.exit6.thread, label %64
+  br i1 %63, label %is_acpi_graph_node.exit6.thread8, label %64
 
 64:                                               ; preds = %.loopexit
   %65 = getelementptr inbounds i8, ptr %62, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, @acpi_data_fwnode_ops
-  br i1 %67, label %68, label %is_acpi_graph_node.exit6.thread
+  br i1 %67, label %68, label %is_acpi_graph_node.exit6.thread8
 
 68:                                               ; preds = %64
   %69 = getelementptr i8, ptr %62, i64 -16
@@ -2479,13 +2477,11 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
 is_acpi_graph_node.exit6:                         ; preds = %68, %72, %75
   %79 = tail call zeroext i1 @fwnode_property_present(ptr noundef nonnull %62, ptr noundef nonnull @.str.18) #15
   %cond.fr = freeze i1 %79
-  br i1 %cond.fr, label %is_acpi_graph_node.exit6.thread8, label %is_acpi_graph_node.exit6.thread
+  %spec.select = select i1 %cond.fr, ptr %62, ptr null
+  br label %is_acpi_graph_node.exit6.thread8
 
-is_acpi_graph_node.exit6.thread8:                 ; preds = %75, %is_acpi_graph_node.exit6
-  br label %is_acpi_graph_node.exit6.thread
-
-is_acpi_graph_node.exit6.thread:                  ; preds = %.preheader, %.loopexit, %64, %is_acpi_graph_node.exit6.thread8, %is_acpi_graph_node.exit6, %.loopexit11
-  %80 = phi ptr [ null, %.loopexit11 ], [ %62, %is_acpi_graph_node.exit6.thread8 ], [ null, %is_acpi_graph_node.exit6 ], [ null, %64 ], [ null, %.loopexit ], [ null, %.preheader ]
+is_acpi_graph_node.exit6.thread8:                 ; preds = %.preheader, %is_acpi_graph_node.exit6, %.loopexit, %64, %75, %.loopexit11
+  %80 = phi ptr [ null, %.loopexit11 ], [ %62, %75 ], [ null, %64 ], [ null, %.loopexit ], [ %spec.select, %is_acpi_graph_node.exit6 ], [ null, %.preheader ]
   ret ptr %80
 }
 
@@ -2613,7 +2609,7 @@ define internal ptr @acpi_fwnode_get_parent(ptr noundef readonly %0) #6 align 16
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
-  br label %23
+  br label %22
 
 12:                                               ; preds = %5
   %13 = icmp eq ptr %7, @acpi_device_fwnode_ops
@@ -2627,14 +2623,12 @@ define internal ptr @acpi_fwnode_get_parent(ptr noundef readonly %0) #6 align 16
   %19 = select i1 %17, ptr null, ptr %18
   %20 = icmp eq ptr %19, null
   %21 = getelementptr inbounds i8, ptr %19, i64 16
-  br i1 %20, label %22, label %23
+  %spec.select = select i1 %20, ptr null, ptr %21
+  br label %22
 
-22:                                               ; preds = %14, %12, %1
-  br label %23
-
-23:                                               ; preds = %22, %14, %9
-  %24 = phi ptr [ %11, %9 ], [ %21, %14 ], [ null, %22 ]
-  ret ptr %24
+22:                                               ; preds = %14, %1, %12, %9
+  %23 = phi ptr [ %11, %9 ], [ null, %12 ], [ null, %1 ], [ %spec.select, %14 ]
+  ret ptr %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3018,7 +3012,7 @@ select.unfold:                                    ; preds = %.loopexit90, %.thre
   br i1 %124, label %153, label %125
 
 125:                                              ; preds = %123
-  %126 = trunc i64 %121 to i8
+  %126 = trunc nuw i64 %121 to i8
   store i8 %126, ptr %3, align 1
   br label %153
 
@@ -3033,7 +3027,7 @@ select.unfold:                                    ; preds = %.loopexit90, %.thre
   br i1 %132, label %153, label %133
 
 133:                                              ; preds = %131
-  %134 = trunc i64 %129 to i16
+  %134 = trunc nuw i64 %129 to i16
   store i16 %134, ptr %3, align 2
   br label %153
 
@@ -3048,7 +3042,7 @@ select.unfold:                                    ; preds = %.loopexit90, %.thre
   br i1 %140, label %153, label %141
 
 141:                                              ; preds = %139
-  %142 = trunc i64 %137 to i32
+  %142 = trunc nuw i64 %137 to i32
   store i32 %142, ptr %3, align 4
   br label %153
 
@@ -3344,7 +3338,7 @@ default.unreachable:                              ; preds = %276, %select.unfold
   br i1 %302, label %.thread52, label %303
 
 303:                                              ; preds = %299
-  %304 = trunc i64 %301 to i8
+  %304 = trunc nuw i64 %301 to i8
   br label %305
 
 305:                                              ; preds = %303, %291
@@ -3381,7 +3375,7 @@ default.unreachable:                              ; preds = %276, %select.unfold
   br i1 %326, label %.thread52, label %327
 
 327:                                              ; preds = %323
-  %328 = trunc i64 %325 to i16
+  %328 = trunc nuw i64 %325 to i16
   br label %329
 
 329:                                              ; preds = %327, %314
@@ -3418,7 +3412,7 @@ default.unreachable:                              ; preds = %276, %select.unfold
   br i1 %350, label %.thread52, label %351
 
 351:                                              ; preds = %347
-  %352 = trunc i64 %349 to i32
+  %352 = trunc nuw i64 %349 to i32
   br label %353
 
 353:                                              ; preds = %351, %338

@@ -2103,21 +2103,21 @@ land.rhs.i:                                       ; preds = %land.lhs.true11
 
 land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true11
   %land.ext.i = phi i32 [ 0, %land.lhs.true11 ], [ %6, %land.rhs.i ]
-  %call311.i = tail call i32 @OPENSSL_sk_num(ptr noundef %headers) #9
-  %cmp412.i = icmp sgt i32 %call311.i, 0
-  br i1 %cmp412.i, label %for.body.i, label %for.end.i
+  %call312.i = tail call i32 @OPENSSL_sk_num(ptr noundef %headers) #9
+  %cmp413.i = icmp sgt i32 %call312.i, 0
+  br i1 %cmp413.i, label %for.body.i, label %for.end.i
 
 for.cond.i:                                       ; preds = %if.end.i
-  %inc.i = add nuw nsw i32 %i.013.i, 1
+  %inc.i = add nuw nsw i32 %i.014.i, 1
   %call3.i = tail call i32 @OPENSSL_sk_num(ptr noundef %headers) #9
   %cmp4.i = icmp slt i32 %inc.i, %call3.i
   br i1 %cmp4.i, label %for.body.i, label %for.end.i, !llvm.loop !16
 
 for.body.i:                                       ; preds = %land.end.i, %for.cond.i
-  %add_host.014.i = phi i32 [ %add_host.1.i, %for.cond.i ], [ %land.ext.i, %land.end.i ]
-  %i.013.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %land.end.i ]
-  %call7.i = tail call ptr @OPENSSL_sk_value(ptr noundef %headers, i32 noundef %i.013.i) #9
-  %tobool.not.i = icmp eq i32 %add_host.014.i, 0
+  %add_host.015.i = phi i32 [ %add_host.1.i, %for.cond.i ], [ %land.ext.i, %land.end.i ]
+  %i.014.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %land.end.i ]
+  %call7.i = tail call ptr @OPENSSL_sk_value(ptr noundef %headers, i32 noundef %i.014.i) #9
+  %tobool.not.i = icmp eq i32 %add_host.015.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
@@ -2141,14 +2141,14 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %f
 for.end.i:                                        ; preds = %for.cond.i, %land.end.i
   %add_host.0.lcssa.i = phi i32 [ %land.ext.i, %land.end.i ], [ %add_host.1.i, %for.cond.i ]
   %tobool16.not.i = icmp eq i32 %add_host.0.lcssa.i, 0
-  br i1 %tobool16.not.i, label %land.lhs.true15, label %land.lhs.true17.i
+  br i1 %tobool16.not.i, label %land.lhs.true15, label %add1_headers.exit
 
-land.lhs.true17.i:                                ; preds = %for.end.i
+add1_headers.exit:                                ; preds = %for.end.i
   %call18.i = tail call i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef nonnull %rctx, ptr noundef nonnull @.str.55, ptr noundef %4), !range !4
-  %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %return, label %land.lhs.true15
+  %tobool14.not = icmp eq i32 %call18.i, 0
+  br i1 %tobool14.not, label %return, label %land.lhs.true15
 
-land.lhs.true15:                                  ; preds = %land.lhs.true17.i, %for.end.i
+land.lhs.true15:                                  ; preds = %for.end.i, %add1_headers.exit
   %call16 = tail call i32 @OSSL_HTTP_REQ_CTX_set_expected(ptr noundef nonnull %rctx, ptr noundef %expected_content_type, i32 noundef %expect_asn1, i32 noundef %timeout, i32 noundef %keep_alive), !range !4
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %land.rhs18
@@ -2157,8 +2157,8 @@ land.rhs18:                                       ; preds = %land.lhs.true15
   %call19 = tail call fastcc i32 @set1_content(ptr noundef nonnull %rctx, ptr noundef %content_type, ptr noundef %req), !range !4
   br label %return
 
-return:                                           ; preds = %if.end.i, %land.lhs.true17.i, %cond.end, %land.lhs.true15, %land.rhs18, %if.then4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %land.lhs.true15 ], [ 0, %cond.end ], [ %call19, %land.rhs18 ], [ 0, %land.lhs.true17.i ], [ 0, %if.end.i ]
+return:                                           ; preds = %if.end.i, %cond.end, %add1_headers.exit, %land.lhs.true15, %land.rhs18, %if.then4, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %land.lhs.true15 ], [ 0, %add1_headers.exit ], [ 0, %cond.end ], [ %call19, %land.rhs18 ], [ 0, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -2711,18 +2711,16 @@ if.then:                                          ; preds = %lor.lhs.false8, %co
 
 if.end:                                           ; preds = %lor.lhs.false8
   %cmp13 = icmp eq ptr %port, null
-  br i1 %cmp13, label %if.then19, label %lor.lhs.false15
+  br i1 %cmp13, label %if.end20, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %if.end
   %0 = load i8, ptr %port, align 1
   %cmp17 = icmp eq i8 %0, 0
-  br i1 %cmp17, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %lor.lhs.false15, %if.end
+  %spec.select70 = select i1 %cmp17, ptr @.str.21, ptr %port
   br label %if.end20
 
-if.end20:                                         ; preds = %if.then19, %lor.lhs.false15
-  %port.addr.0 = phi ptr [ @.str.21, %if.then19 ], [ %port, %lor.lhs.false15 ]
+if.end20:                                         ; preds = %lor.lhs.false15, %if.end
+  %port.addr.0 = phi ptr [ @.str.21, %if.end ], [ %spec.select70, %lor.lhs.false15 ]
   %cmp21 = icmp eq ptr %call, null
   %cmp24 = icmp eq ptr %call2, null
   %or.cond2 = select i1 %cmp21, i1 true, i1 %cmp24
@@ -2912,16 +2910,16 @@ end:                                              ; preds = %do.body, %while.end
   br i1 %cmp136.not, label %if.end143, label %if.then138
 
 if.then138:                                       ; preds = %if.end42, %end.critedge, %end
-  %ret.074 = phi i32 [ %ret.0, %end ], [ 0, %end.critedge ], [ 0, %if.end42 ]
+  %ret.075 = phi i32 [ %ret.0, %end ], [ 0, %end.critedge ], [ 0, %if.end42 ]
   %call139 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call2, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
   %call141 = tail call ptr @BIO_pop(ptr noundef nonnull %call2) #9
   %call142 = tail call i32 @BIO_free(ptr noundef nonnull %call2) #9
   br label %if.end143
 
 if.end143:                                        ; preds = %if.then138, %end
-  %ret.075 = phi i32 [ %ret.074, %if.then138 ], [ %ret.0, %end ]
+  %ret.076 = phi i32 [ %ret.075, %if.then138 ], [ %ret.0, %end ]
   tail call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str, i32 noundef 1491) #9
-  ret i32 %ret.075
+  ret i32 %ret.076
 }
 
 declare ptr @BIO_f_buffer() local_unnamed_addr #1

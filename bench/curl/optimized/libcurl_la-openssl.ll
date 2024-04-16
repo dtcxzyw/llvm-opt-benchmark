@@ -1683,8 +1683,8 @@ if.end13:                                         ; preds = %if.else, %land.lhs.
 
 if.then16:                                        ; preds = %if.end13
   %call18 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call14) #13
-  %cmp88 = icmp slt i32 %call18, 1
-  br i1 %cmp88, label %for.end.thread, label %for.body.lr.ph
+  %cmp93 = icmp slt i32 %call18, 1
+  br i1 %cmp93, label %for.end.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then16
   %tobool52.not = icmp eq ptr %data, null
@@ -1693,14 +1693,14 @@ for.body.lr.ph:                                   ; preds = %if.then16
   %tobool.not.i = icmp ne ptr %data, null
   switch i32 %target.0.fr, label %for.body [
     i32 2, label %for.body.us
-    i32 7, label %for.body.us101
+    i32 7, label %for.body.us106
   ]
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %dNSName.093.us = phi i1 [ %dNSName.1.us144, %for.inc.us ], [ false, %for.body.lr.ph ]
-  %iPAddress.092.us = phi i1 [ %iPAddress.1.us142, %for.inc.us ], [ false, %for.body.lr.ph ]
-  %i.089.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %call21.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.089.us) #13
+  %dNSName.098.us = phi i1 [ %dNSName.1.us149, %for.inc.us ], [ false, %for.body.lr.ph ]
+  %iPAddress.097.us = phi i1 [ %iPAddress.1.us147, %for.inc.us ], [ false, %for.body.lr.ph ]
+  %i.094.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %call21.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.094.us) #13
   %3 = load i32, ptr %call21.us, align 8
   switch i32 %3, label %if.end29.us [
     i32 2, label %if.then32.us
@@ -1739,71 +1739,71 @@ if.then2.i.us:                                    ; preds = %land.lhs.true.i.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end29.us, %for.body.us, %land.lhs.true39.us, %land.lhs.true.i.us, %if.then2.i.us, %if.then32.us
-  %dNSName.1.us144 = phi i1 [ true, %if.then32.us ], [ %dNSName.093.us, %if.end29.us ], [ true, %if.then2.i.us ], [ true, %land.lhs.true.i.us ], [ true, %land.lhs.true39.us ], [ %dNSName.093.us, %for.body.us ]
-  %iPAddress.1.us142 = phi i1 [ %iPAddress.092.us, %if.then32.us ], [ %iPAddress.092.us, %if.end29.us ], [ %iPAddress.092.us, %if.then2.i.us ], [ %iPAddress.092.us, %land.lhs.true.i.us ], [ %iPAddress.092.us, %land.lhs.true39.us ], [ true, %for.body.us ]
+  %dNSName.1.us149 = phi i1 [ true, %if.then32.us ], [ %dNSName.098.us, %if.end29.us ], [ true, %if.then2.i.us ], [ true, %land.lhs.true.i.us ], [ true, %land.lhs.true39.us ], [ %dNSName.098.us, %for.body.us ]
+  %iPAddress.1.us147 = phi i1 [ %iPAddress.097.us, %if.then32.us ], [ %iPAddress.097.us, %if.end29.us ], [ %iPAddress.097.us, %if.then2.i.us ], [ %iPAddress.097.us, %land.lhs.true.i.us ], [ %iPAddress.097.us, %land.lhs.true39.us ], [ true, %for.body.us ]
   %dnsmatched.1.us = phi i1 [ false, %if.then32.us ], [ false, %if.end29.us ], [ %call.i.us, %if.then2.i.us ], [ %call.i.us, %land.lhs.true.i.us ], [ %call.i.us, %land.lhs.true39.us ], [ false, %for.body.us ]
-  %inc.us = add nuw nsw i32 %i.089.us, 1
+  %inc.us = add nuw nsw i32 %i.094.us, 1
   %cmp.us = icmp sge i32 %inc.us, %call18
   %.not.us = or i1 %cmp.us, %dnsmatched.1.us
   br i1 %.not.us, label %for.end, label %for.body.us, !llvm.loop !13
 
-for.body.us101:                                   ; preds = %for.body.lr.ph, %for.inc.us119
-  %dNSName.093.us102 = phi i1 [ %dNSName.1.us112154, %for.inc.us119 ], [ false, %for.body.lr.ph ]
-  %iPAddress.092.us103 = phi i1 [ %iPAddress.1.us111153, %for.inc.us119 ], [ false, %for.body.lr.ph ]
-  %ipmatched.091.us104 = phi i1 [ %ipmatched.1.us121, %for.inc.us119 ], [ false, %for.body.lr.ph ]
-  %i.089.us106 = phi i32 [ %inc.us122, %for.inc.us119 ], [ 0, %for.body.lr.ph ]
-  %call21.us107 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.089.us106) #13
-  %9 = load i32, ptr %call21.us107, align 8
-  switch i32 %9, label %if.end29.fold.split.us109 [
-    i32 2, label %for.inc.us119
-    i32 7, label %if.then32.us114
+for.body.us106:                                   ; preds = %for.body.lr.ph, %for.inc.us124
+  %dNSName.098.us107 = phi i1 [ %dNSName.1.us117159, %for.inc.us124 ], [ false, %for.body.lr.ph ]
+  %iPAddress.097.us108 = phi i1 [ %iPAddress.1.us116158, %for.inc.us124 ], [ false, %for.body.lr.ph ]
+  %ipmatched.096.us109 = phi i1 [ %ipmatched.1.us126, %for.inc.us124 ], [ false, %for.body.lr.ph ]
+  %i.094.us111 = phi i32 [ %inc.us127, %for.inc.us124 ], [ 0, %for.body.lr.ph ]
+  %call21.us112 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.094.us111) #13
+  %9 = load i32, ptr %call21.us112, align 8
+  switch i32 %9, label %if.end29.fold.split.us114 [
+    i32 2, label %for.inc.us124
+    i32 7, label %if.then32.us119
   ]
 
-if.end29.fold.split.us109:                        ; preds = %for.body.us101
-  br label %for.inc.us119
+if.end29.fold.split.us114:                        ; preds = %for.body.us106
+  br label %for.inc.us124
 
-if.then32.us114:                                  ; preds = %for.body.us101
-  %d.us115 = getelementptr inbounds i8, ptr %call21.us107, i64 8
-  %10 = load ptr, ptr %d.us115, align 8
-  %call33.us116 = call ptr @ASN1_STRING_get0_data(ptr noundef %10) #13
-  %11 = load ptr, ptr %d.us115, align 8
-  %call35.us117 = call i32 @ASN1_STRING_length(ptr noundef %11) #13
-  %conv.us118 = sext i32 %call35.us117 to i64
-  %cmp46.us = icmp eq i64 %addrlen.0, %conv.us118
-  br i1 %cmp46.us, label %land.lhs.true48.us, label %for.inc.us119
+if.then32.us119:                                  ; preds = %for.body.us106
+  %d.us120 = getelementptr inbounds i8, ptr %call21.us112, i64 8
+  %10 = load ptr, ptr %d.us120, align 8
+  %call33.us121 = call ptr @ASN1_STRING_get0_data(ptr noundef %10) #13
+  %11 = load ptr, ptr %d.us120, align 8
+  %call35.us122 = call i32 @ASN1_STRING_length(ptr noundef %11) #13
+  %conv.us123 = sext i32 %call35.us122 to i64
+  %cmp46.us = icmp eq i64 %addrlen.0, %conv.us123
+  br i1 %cmp46.us, label %land.lhs.true48.us, label %for.inc.us124
 
-land.lhs.true48.us:                               ; preds = %if.then32.us114
-  %bcmp.us = call i32 @bcmp(ptr %call33.us116, ptr nonnull %addr, i64 %addrlen.0)
+land.lhs.true48.us:                               ; preds = %if.then32.us119
+  %bcmp.us = call i32 @bcmp(ptr %call33.us121, ptr nonnull %addr, i64 %addrlen.0)
   %tobool50.not.us = icmp ne i32 %bcmp.us, 0
-  %brmerge133 = or i1 %tobool50.not.us, %tobool52.not
+  %brmerge138 = or i1 %tobool50.not.us, %tobool52.not
   %not.tobool50.not.us = xor i1 %tobool50.not.us, true
-  %ipmatched.091.us104.mux = select i1 %not.tobool50.not.us, i1 true, i1 %ipmatched.091.us104
-  br i1 %brmerge133, label %for.inc.us119, label %land.lhs.true53.us
+  %ipmatched.096.us109.mux = select i1 %not.tobool50.not.us, i1 true, i1 %ipmatched.096.us109
+  br i1 %brmerge138, label %for.inc.us124, label %land.lhs.true53.us
 
 land.lhs.true53.us:                               ; preds = %land.lhs.true48.us
   %bf.load54.us = load i64, ptr %verbose, align 2
   %12 = and i64 %bf.load54.us, 536870912
   %tobool58.not.us = icmp eq i64 %12, 0
-  br i1 %tobool58.not.us, label %for.inc.us119, label %if.then59.us
+  br i1 %tobool58.not.us, label %for.inc.us124, label %if.then59.us
 
 if.then59.us:                                     ; preds = %land.lhs.true53.us
   %13 = load ptr, ptr %dispname60, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.27, ptr noundef %13) #13
-  br label %for.inc.us119
+  br label %for.inc.us124
 
-for.inc.us119:                                    ; preds = %for.body.us101, %if.end29.fold.split.us109, %land.lhs.true48.us, %if.then59.us, %land.lhs.true53.us, %if.then32.us114
-  %dNSName.1.us112154 = phi i1 [ %dNSName.093.us102, %land.lhs.true48.us ], [ %dNSName.093.us102, %if.then59.us ], [ %dNSName.093.us102, %land.lhs.true53.us ], [ %dNSName.093.us102, %if.then32.us114 ], [ %dNSName.093.us102, %if.end29.fold.split.us109 ], [ true, %for.body.us101 ]
-  %iPAddress.1.us111153 = phi i1 [ true, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ true, %if.then32.us114 ], [ %iPAddress.092.us103, %if.end29.fold.split.us109 ], [ %iPAddress.092.us103, %for.body.us101 ]
-  %ipmatched.1.us121 = phi i1 [ %ipmatched.091.us104.mux, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ %ipmatched.091.us104, %if.then32.us114 ], [ %ipmatched.091.us104, %if.end29.fold.split.us109 ], [ %ipmatched.091.us104, %for.body.us101 ]
-  %inc.us122 = add nuw nsw i32 %i.089.us106, 1
-  %exitcond.not = icmp eq i32 %inc.us122, %call18
-  br i1 %exitcond.not, label %for.end, label %for.body.us101, !llvm.loop !13
+for.inc.us124:                                    ; preds = %for.body.us106, %if.end29.fold.split.us114, %land.lhs.true48.us, %if.then59.us, %land.lhs.true53.us, %if.then32.us119
+  %dNSName.1.us117159 = phi i1 [ %dNSName.098.us107, %land.lhs.true48.us ], [ %dNSName.098.us107, %if.then59.us ], [ %dNSName.098.us107, %land.lhs.true53.us ], [ %dNSName.098.us107, %if.then32.us119 ], [ %dNSName.098.us107, %if.end29.fold.split.us114 ], [ true, %for.body.us106 ]
+  %iPAddress.1.us116158 = phi i1 [ true, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ true, %if.then32.us119 ], [ %iPAddress.097.us108, %if.end29.fold.split.us114 ], [ %iPAddress.097.us108, %for.body.us106 ]
+  %ipmatched.1.us126 = phi i1 [ %ipmatched.096.us109.mux, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ %ipmatched.096.us109, %if.then32.us119 ], [ %ipmatched.096.us109, %if.end29.fold.split.us114 ], [ %ipmatched.096.us109, %for.body.us106 ]
+  %inc.us127 = add nuw nsw i32 %i.094.us111, 1
+  %exitcond.not = icmp eq i32 %inc.us127, %call18
+  br i1 %exitcond.not, label %for.end, label %for.body.us106, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %dNSName.093 = phi i1 [ %dNSName.1, %for.inc ], [ false, %for.body.lr.ph ]
-  %iPAddress.092 = phi i1 [ %iPAddress.1, %for.inc ], [ false, %for.body.lr.ph ]
-  %i.089 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %call21 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.089) #13
+  %dNSName.098 = phi i1 [ %dNSName.1, %for.inc ], [ false, %for.body.lr.ph ]
+  %iPAddress.097 = phi i1 [ %iPAddress.1, %for.inc ], [ false, %for.body.lr.ph ]
+  %i.094 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %call21 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.094) #13
   %14 = load i32, ptr %call21, align 8
   switch i32 %14, label %if.end29.fold.split [
     i32 2, label %if.end29
@@ -1817,8 +1817,8 @@ if.end29.fold.split:                              ; preds = %for.body
   br label %if.end29
 
 if.end29:                                         ; preds = %for.body, %if.end29.fold.split, %if.then27
-  %iPAddress.1 = phi i1 [ true, %if.then27 ], [ %iPAddress.092, %for.body ], [ %iPAddress.092, %if.end29.fold.split ]
-  %dNSName.1 = phi i1 [ %dNSName.093, %if.then27 ], [ true, %for.body ], [ %dNSName.093, %if.end29.fold.split ]
+  %iPAddress.1 = phi i1 [ true, %if.then27 ], [ %iPAddress.097, %for.body ], [ %iPAddress.097, %if.end29.fold.split ]
+  %dNSName.1 = phi i1 [ %dNSName.098, %if.then27 ], [ true, %for.body ], [ %dNSName.098, %if.end29.fold.split ]
   %cmp31 = icmp eq i32 %14, %target.0.fr
   br i1 %cmp31, label %if.then32, label %for.inc
 
@@ -1831,9 +1831,9 @@ if.then32:                                        ; preds = %if.end29
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then32, %if.end29
-  %inc = add nuw nsw i32 %i.089, 1
-  %exitcond136.not = icmp eq i32 %inc, %call18
-  br i1 %exitcond136.not, label %for.end.thread, label %for.body, !llvm.loop !13
+  %inc = add nuw nsw i32 %i.094, 1
+  %exitcond141.not = icmp eq i32 %inc, %call18
+  br i1 %exitcond141.not, label %for.end.thread, label %for.body, !llvm.loop !13
 
 for.end.thread:                                   ; preds = %for.inc, %if.then16
   %iPAddress.0.lcssa.ph = phi i1 [ false, %if.then16 ], [ %iPAddress.1, %for.inc ]
@@ -1841,18 +1841,18 @@ for.end.thread:                                   ; preds = %for.inc, %if.then16
   call void @GENERAL_NAMES_free(ptr noundef nonnull %call14) #13
   br label %if.else73
 
-for.end:                                          ; preds = %for.inc.us119, %for.inc.us
-  %dnsmatched.0.lcssa = phi i1 [ %dnsmatched.1.us, %for.inc.us ], [ %ipmatched.1.us121, %for.inc.us119 ]
-  %iPAddress.0.lcssa = phi i1 [ %iPAddress.1.us142, %for.inc.us ], [ %iPAddress.1.us111153, %for.inc.us119 ]
-  %dNSName.0.lcssa = phi i1 [ %dNSName.1.us144, %for.inc.us ], [ %dNSName.1.us112154, %for.inc.us119 ]
+for.end:                                          ; preds = %for.inc.us124, %for.inc.us
+  %dnsmatched.0.lcssa = phi i1 [ %dnsmatched.1.us, %for.inc.us ], [ %ipmatched.1.us126, %for.inc.us124 ]
+  %iPAddress.0.lcssa = phi i1 [ %iPAddress.1.us147, %for.inc.us ], [ %iPAddress.1.us116158, %for.inc.us124 ]
+  %dNSName.0.lcssa = phi i1 [ %dNSName.1.us149, %for.inc.us ], [ %dNSName.1.us117159, %for.inc.us124 ]
   call void @GENERAL_NAMES_free(ptr noundef nonnull %call14) #13
   br i1 %dnsmatched.0.lcssa, label %if.end173, label %if.else73
 
 if.else73:                                        ; preds = %for.end.thread, %for.end
-  %dNSName.0.lcssa159 = phi i1 [ %dNSName.0.lcssa.ph, %for.end.thread ], [ %dNSName.0.lcssa, %for.end ]
-  %iPAddress.0.lcssa158 = phi i1 [ %iPAddress.0.lcssa.ph, %for.end.thread ], [ %iPAddress.0.lcssa, %for.end ]
-  %brmerge87 = select i1 %dNSName.0.lcssa159, i1 true, i1 %iPAddress.0.lcssa158
-  br i1 %brmerge87, label %do.body80, label %if.else95
+  %dNSName.0.lcssa164 = phi i1 [ %dNSName.0.lcssa.ph, %for.end.thread ], [ %dNSName.0.lcssa, %for.end ]
+  %iPAddress.0.lcssa163 = phi i1 [ %iPAddress.0.lcssa.ph, %for.end.thread ], [ %iPAddress.0.lcssa, %for.end ]
+  %brmerge92 = select i1 %dNSName.0.lcssa164, i1 true, i1 %iPAddress.0.lcssa163
+  br i1 %brmerge92, label %do.body80, label %if.else95
 
 do.body80:                                        ; preds = %if.else73
   %tobool81.not = icmp eq ptr %data, null
@@ -1915,9 +1915,9 @@ if.then118:                                       ; preds = %if.then114
   %call120 = call ptr @CRYPTO_malloc(i64 noundef %conv119, ptr noundef nonnull @.str.30, i32 noundef 2281) #13
   store ptr %call120, ptr %peer_CN, align 8
   %tobool121.not = icmp eq ptr %call120, null
-  br i1 %tobool121.not, label %if.end173, label %if.end130.thread163
+  br i1 %tobool121.not, label %if.end173, label %if.end130.thread168
 
-if.end130.thread163:                              ; preds = %if.then118
+if.end130.thread168:                              ; preds = %if.then118
   %call123 = call ptr @ASN1_STRING_get0_data(ptr noundef nonnull %call108) #13
   %conv124 = zext nneg i32 %call115 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call120, ptr align 1 %call123, i64 %conv124, i1 false)
@@ -1931,12 +1931,12 @@ if.end130:                                        ; preds = %if.then110
   %tobool131.not = icmp eq ptr %.pr.pre, null
   br i1 %tobool131.not, label %if.then145, label %land.lhs.true132
 
-land.lhs.true132:                                 ; preds = %if.end130.thread163, %if.end130
-  %peerlen.0.ph168 = phi i32 [ %call115, %if.end130.thread163 ], [ %call129, %if.end130 ]
-  %.pr167 = phi ptr [ %call120, %if.end130.thread163 ], [ %.pr.pre, %if.end130 ]
-  %call133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pr167) #14
+land.lhs.true132:                                 ; preds = %if.end130.thread168, %if.end130
+  %peerlen.0.ph173 = phi i32 [ %call115, %if.end130.thread168 ], [ %call129, %if.end130 ]
+  %.pr172 = phi ptr [ %call120, %if.end130.thread168 ], [ %.pr.pre, %if.end130 ]
+  %call133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pr172) #14
   %call134 = call i32 @curlx_uztosi(i64 noundef %call133) #13
-  %cmp135.not = icmp eq i32 %call134, %peerlen.0.ph168
+  %cmp135.not = icmp eq i32 %call134, %peerlen.0.ph173
   br i1 %cmp135.not, label %if.else143, label %if.then137
 
 if.then137:                                       ; preds = %land.lhs.true132
@@ -1944,8 +1944,8 @@ if.then137:                                       ; preds = %land.lhs.true132
   br label %if.end168
 
 if.else143:                                       ; preds = %land.lhs.true132
-  %.pr81.pre = load ptr, ptr %peer_CN, align 8
-  %tobool144.not = icmp eq ptr %.pr81.pre, null
+  %.pr86.pre = load ptr, ptr %peer_CN, align 8
+  %tobool144.not = icmp eq ptr %.pr86.pre, null
   br i1 %tobool144.not, label %if.then145, label %if.else146
 
 if.then145:                                       ; preds = %if.else95, %if.end103, %if.then106, %if.then114, %if.end130, %if.else143
@@ -1953,9 +1953,9 @@ if.then145:                                       ; preds = %if.else95, %if.end1
   br label %if.end168
 
 if.else146:                                       ; preds = %if.else143
-  %20 = sext i32 %peerlen.0.ph168 to i64
+  %20 = sext i32 %peerlen.0.ph173 to i64
   %21 = load ptr, ptr %peer, align 8
-  %call149 = call zeroext i1 @Curl_cert_hostcheck(ptr noundef nonnull %.pr81.pre, i64 noundef %20, ptr noundef %21, i64 noundef %call) #13
+  %call149 = call zeroext i1 @Curl_cert_hostcheck(ptr noundef nonnull %.pr86.pre, i64 noundef %20, ptr noundef %21, i64 noundef %call) #13
   br i1 %call149, label %do.body153, label %if.then150
 
 if.then150:                                       ; preds = %if.else146
@@ -1983,12 +1983,12 @@ if.then163:                                       ; preds = %land.lhs.true155
 
 if.end168:                                        ; preds = %if.then137, %if.then145, %if.then163, %land.lhs.true155, %do.body153, %if.then150
   %result.2.ph = phi i32 [ 60, %if.then137 ], [ 60, %if.then145 ], [ 60, %if.then150 ], [ 0, %do.body153 ], [ 0, %land.lhs.true155 ], [ 0, %if.then163 ]
-  %.pr84 = load ptr, ptr %peer_CN, align 8
-  %tobool169.not = icmp eq ptr %.pr84, null
+  %.pr89 = load ptr, ptr %peer_CN, align 8
+  %tobool169.not = icmp eq ptr %.pr89, null
   br i1 %tobool169.not, label %if.end173, label %if.then170
 
 if.then170:                                       ; preds = %if.end168
-  call void @CRYPTO_free(ptr noundef nonnull %.pr84, ptr noundef nonnull @.str.30, i32 noundef 2320) #13
+  call void @CRYPTO_free(ptr noundef nonnull %.pr89, ptr noundef nonnull @.str.30, i32 noundef 2320) #13
   br label %if.end173
 
 if.end173:                                        ; preds = %for.end, %if.then118, %do.end93, %if.then170, %if.end168
@@ -2218,7 +2218,7 @@ if.then26.i:                                      ; preds = %if.then24.i
 
 if.end.i.i24:                                     ; preds = %if.then26.i
   %28 = load ptr, ptr %20, align 8
-  %conv.i.i25 = trunc i64 %27 to i32
+  %conv.i.i25 = trunc nuw nsw i64 %27 to i32
   %call.i.i26 = tail call ptr @BIO_new_mem_buf(ptr noundef %28, i32 noundef %conv.i.i25) #13
   %tobool.not.i.i27 = icmp eq ptr %call.i.i26, null
   br i1 %tobool.not.i.i27, label %if.then29.i, label %if.end3.i.i
@@ -2747,7 +2747,7 @@ if.end108:                                        ; preds = %if.end105, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ossl_data_pending(ptr nocapture noundef readonly %cf, ptr nocapture readnone %data) #0 {
+define internal zeroext i1 @ossl_data_pending(ptr nocapture noundef readonly %cf, ptr nocapture readnone %data) #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -2756,18 +2756,15 @@ entry:
   %handle = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %handle, align 8
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
+  br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i32 @SSL_pending(ptr noundef nonnull %2) #13
-  %tobool3.not = icmp eq i32 %call, 0
-  br i1 %tobool3.not, label %if.end, label %return
-
-if.end:                                           ; preds = %land.lhs.true, %entry
+  %tobool3.not = icmp ne i32 %call, 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ true, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ %tobool3.not, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -3314,7 +3311,7 @@ entry:
   %2 = load ptr, ptr %backend2, align 8
   tail call void @ERR_clear_error() #13
   %cond18 = tail call i64 @llvm.umin.i64(i64 %buffersize, i64 2147483647)
-  %cond = trunc i64 %cond18 to i32
+  %cond = trunc nuw nsw i64 %cond18 to i32
   %handle = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %handle, align 8
   %call = tail call i32 @SSL_read(ptr noundef %3, ptr noundef %buf, i32 noundef %cond) #13
@@ -3407,7 +3404,7 @@ entry:
   %1 = load ptr, ptr %backend1, align 8
   tail call void @ERR_clear_error() #13
   %cond19 = tail call i64 @llvm.umin.i64(i64 %len, i64 2147483647)
-  %cond = trunc i64 %cond19 to i32
+  %cond = trunc nuw nsw i64 %cond19 to i32
   %handle = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %handle, align 8
   %call = tail call i32 @SSL_write(ptr noundef %2, ptr noundef %mem, i32 noundef %cond) #13
@@ -5906,9 +5903,9 @@ if.else38:                                        ; preds = %if.end27
   br i1 %cmp22, label %if.then.i, label %if.end42
 
 if.then.i:                                        ; preds = %if.else38.thread, %if.else38
-  %conv3954 = phi i32 [ %conv3948, %if.else38.thread ], [ %conv39, %if.else38 ]
-  %tls_rt_name.04051 = phi ptr [ %tls_rt_name.0.ph, %if.else38.thread ], [ %tls_rt_name.0, %if.else38 ]
-  switch i32 %conv3954, label %if.end.i [
+  %conv3952 = phi i32 [ %conv3948, %if.else38.thread ], [ %conv39, %if.else38 ]
+  %tls_rt_name.04050 = phi ptr [ %tls_rt_name.0.ph, %if.else38.thread ], [ %tls_rt_name.0, %if.else38 ]
+  switch i32 %conv3952, label %if.end.i [
     i32 0, label %if.end42
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i34
@@ -5980,9 +5977,9 @@ if.end.i:                                         ; preds = %if.then.i
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end.i, %sw.bb16.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i32, %sw.bb3.i33, %sw.bb2.i34, %sw.bb1.i, %if.then.i, %if.else38, %if.then33, %if.then29
-  %tls_rt_name.039 = phi ptr [ %tls_rt_name.043, %if.then29 ], [ %tls_rt_name.046, %if.then33 ], [ %tls_rt_name.04051, %sw.bb16.i ], [ %tls_rt_name.04051, %sw.bb15.i ], [ %tls_rt_name.04051, %sw.bb14.i ], [ %tls_rt_name.04051, %sw.bb13.i ], [ %tls_rt_name.04051, %sw.bb12.i ], [ %tls_rt_name.04051, %sw.bb11.i ], [ %tls_rt_name.04051, %sw.bb10.i ], [ %tls_rt_name.04051, %sw.bb9.i ], [ %tls_rt_name.04051, %sw.bb8.i ], [ %tls_rt_name.04051, %sw.bb7.i ], [ %tls_rt_name.04051, %sw.bb6.i ], [ %tls_rt_name.04051, %sw.bb5.i ], [ %tls_rt_name.04051, %sw.bb4.i32 ], [ %tls_rt_name.04051, %sw.bb3.i33 ], [ %tls_rt_name.04051, %sw.bb2.i34 ], [ %tls_rt_name.04051, %sw.bb1.i ], [ %tls_rt_name.04051, %if.then.i ], [ %tls_rt_name.0, %if.else38 ], [ %tls_rt_name.04051, %if.end.i ]
+  %tls_rt_name.039 = phi ptr [ %tls_rt_name.043, %if.then29 ], [ %tls_rt_name.046, %if.then33 ], [ %tls_rt_name.04050, %sw.bb16.i ], [ %tls_rt_name.04050, %sw.bb15.i ], [ %tls_rt_name.04050, %sw.bb14.i ], [ %tls_rt_name.04050, %sw.bb13.i ], [ %tls_rt_name.04050, %sw.bb12.i ], [ %tls_rt_name.04050, %sw.bb11.i ], [ %tls_rt_name.04050, %sw.bb10.i ], [ %tls_rt_name.04050, %sw.bb9.i ], [ %tls_rt_name.04050, %sw.bb8.i ], [ %tls_rt_name.04050, %sw.bb7.i ], [ %tls_rt_name.04050, %sw.bb6.i ], [ %tls_rt_name.04050, %sw.bb5.i ], [ %tls_rt_name.04050, %sw.bb4.i32 ], [ %tls_rt_name.04050, %sw.bb3.i33 ], [ %tls_rt_name.04050, %sw.bb2.i34 ], [ %tls_rt_name.04050, %sw.bb1.i ], [ %tls_rt_name.04050, %if.then.i ], [ %tls_rt_name.0, %if.else38 ], [ %tls_rt_name.04050, %if.end.i ]
   %msg_name.0 = phi ptr [ @.str.143, %if.then29 ], [ %call37, %if.then33 ], [ @.str.169, %sw.bb16.i ], [ @.str.168, %sw.bb15.i ], [ @.str.167, %sw.bb14.i ], [ @.str.166, %sw.bb13.i ], [ @.str.165, %sw.bb12.i ], [ @.str.164, %sw.bb11.i ], [ @.str.163, %sw.bb10.i ], [ @.str.162, %sw.bb9.i ], [ @.str.161, %sw.bb8.i ], [ @.str.160, %sw.bb7.i ], [ @.str.159, %sw.bb6.i ], [ @.str.158, %sw.bb5.i ], [ @.str.157, %sw.bb4.i32 ], [ @.str.156, %sw.bb3.i33 ], [ @.str.155, %sw.bb2.i34 ], [ @.str.154, %sw.bb1.i ], [ @.str.153, %if.then.i ], [ @.str.171, %if.else38 ], [ @.str.171, %if.end.i ]
-  %msg_type.0 = phi i32 [ %conv, %if.then29 ], [ %add, %if.then33 ], [ %conv3954, %sw.bb16.i ], [ %conv3954, %sw.bb15.i ], [ %conv3954, %sw.bb14.i ], [ %conv3954, %sw.bb13.i ], [ %conv3954, %sw.bb12.i ], [ %conv3954, %sw.bb11.i ], [ %conv3954, %sw.bb10.i ], [ %conv3954, %sw.bb9.i ], [ %conv3954, %sw.bb8.i ], [ %conv3954, %sw.bb7.i ], [ %conv3954, %sw.bb6.i ], [ %conv3954, %sw.bb5.i ], [ %conv3954, %sw.bb4.i32 ], [ %conv3954, %sw.bb3.i33 ], [ %conv3954, %sw.bb2.i34 ], [ %conv3954, %sw.bb1.i ], [ %conv3954, %if.then.i ], [ %conv39, %if.else38 ], [ %conv3954, %if.end.i ]
+  %msg_type.0 = phi i32 [ %conv, %if.then29 ], [ %add, %if.then33 ], [ %conv3952, %sw.bb16.i ], [ %conv3952, %sw.bb15.i ], [ %conv3952, %sw.bb14.i ], [ %conv3952, %sw.bb13.i ], [ %conv3952, %sw.bb12.i ], [ %conv3952, %sw.bb11.i ], [ %conv3952, %sw.bb10.i ], [ %conv3952, %sw.bb9.i ], [ %conv3952, %sw.bb8.i ], [ %conv3952, %sw.bb7.i ], [ %conv3952, %sw.bb6.i ], [ %conv3952, %sw.bb5.i ], [ %conv3952, %sw.bb4.i32 ], [ %conv3952, %sw.bb3.i33 ], [ %conv3952, %sw.bb2.i34 ], [ %conv3952, %sw.bb1.i ], [ %conv3952, %if.then.i ], [ %conv39, %if.else38 ], [ %conv3952, %if.end.i ]
   %cond45 = select i1 %tobool6.not, ptr @.str.146, ptr @.str.145
   %call46 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %ssl_buf, i64 noundef 1024, ptr noundef nonnull @.str.144, ptr noundef nonnull %verstr.0, ptr noundef nonnull %cond45, ptr noundef %tls_rt_name.039, ptr noundef %msg_name.0, i32 noundef %msg_type.0) #13
   %cmp51 = icmp ult i32 %call46, 1024

@@ -833,14 +833,14 @@ declare i32 @OSSL_STORE_LOADER_set_load(ptr noundef, ptr noundef) local_unnamed_
 define internal ptr @file_load(ptr noundef %ctx, ptr noundef %ui_method, ptr noundef %ui_data) #1 {
 entry:
   %handler_ctx.i = alloca ptr, align 8
-  %try_matchcount.i141 = alloca i32, align 4
+  %try_matchcount.i140 = alloca i32, align 4
   %tmp_handler_ctx.i = alloca ptr, align 8
   %mem.i = alloca ptr, align 8
   %saltlen.i = alloca i32, align 4
   %keylen.i = alloca i32, align 4
-  %peekbuf.i119 = alloca [24 x i8], align 16
-  %p.i120 = alloca ptr, align 8
-  %pass_data.i121 = alloca %struct.pem_pass_data, align 8
+  %peekbuf.i118 = alloca [24 x i8], align 16
+  %p.i119 = alloca ptr, align 8
+  %pass_data.i120 = alloca %struct.pem_pass_data, align 8
   %ispub.i = alloca i32, align 4
   %magic.i = alloca i32, align 4
   %bitlen.i = alloca i32, align 4
@@ -867,9 +867,9 @@ again.preheader:                                  ; preds = %entry
   %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %propq.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %_1.i81 = getelementptr inbounds i8, ptr %ctx, i64 24
-  %data.i.i129 = getelementptr inbounds i8, ptr %pass_data.i121, i64 8
-  %prompt_desc.i.i130 = getelementptr inbounds i8, ptr %pass_data.i121, i64 16
-  %prompt_info.i.i131 = getelementptr inbounds i8, ptr %pass_data.i121, i64 24
+  %data.i.i128 = getelementptr inbounds i8, ptr %pass_data.i120, i64 8
+  %prompt_desc.i.i129 = getelementptr inbounds i8, ptr %pass_data.i120, i64 16
+  %prompt_info.i.i130 = getelementptr inbounds i8, ptr %pass_data.i120, i64 24
   %flags = getelementptr inbounds i8, ptr %ctx, i64 16
   %data.i.i = getelementptr inbounds i8, ptr %pass_data.i, i64 8
   %prompt_desc.i.i = getelementptr inbounds i8, ptr %pass_data.i, i64 16
@@ -1142,8 +1142,8 @@ if.end59:                                         ; preds = %if.then5.i, %again
   br i1 %cmp.i79, label %file_eof.exit95, label %if.end7.i89
 
 if.end7.i89:                                      ; preds = %if.end59
-  %.pre271 = load ptr, ptr %_1.i81, align 8
-  %call9.i90 = call i64 @BIO_ctrl(ptr noundef %.pre271, i32 noundef 2, i64 noundef 0, ptr noundef null) #10
+  %.pre274 = load ptr, ptr %_1.i81, align 8
+  %call9.i90 = call i64 @BIO_ctrl(ptr noundef %.pre274, i32 noundef 2, i64 noundef 0, ptr noundef null) #10
   %conv.i91 = trunc i64 %call9.i90 to i32
   br label %file_eof.exit95
 
@@ -1183,37 +1183,42 @@ cond.false.i:                                     ; preds = %if.then68
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i98 = phi i32 [ %call.i97, %cond.true.i ], [ %call1.i, %cond.false.i ]
   %cmp.i99 = icmp slt i32 %cond.i98, 1
-  br i1 %cmp.i99, label %if.then75, label %if.end.i100
+  br i1 %cmp.i99, label %file_read_pem.exit.thread, label %if.end.i100
 
 if.end.i100:                                      ; preds = %cond.end.i
   %52 = load ptr, ptr %pem_header, align 8
   %call2.i101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #11
   %cmp3.i = icmp ugt i64 %call2.i101, 10
-  br i1 %cmp3.i, label %if.then4.i, label %file_read_pem.exit
+  br i1 %cmp3.i, label %if.then4.i, label %file_read_pem.exit.thread245
+
+file_read_pem.exit.thread245:                     ; preds = %if.end.i100
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cipher.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pass_data.i)
+  br label %if.end101
 
 if.then4.i:                                       ; preds = %if.end.i100
   %call5.i = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %52, ptr noundef nonnull %cipher.i) #10
   %tobool6.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i, label %if.then75, label %lor.lhs.false9.i
+  br i1 %tobool6.not.i, label %file_read_pem.exit.thread, label %file_read_pem.exit
 
-lor.lhs.false9.i:                                 ; preds = %if.then4.i
+file_read_pem.exit.thread:                        ; preds = %cond.end.i, %if.then4.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cipher.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pass_data.i)
+  br label %if.then75
+
+file_read_pem.exit:                               ; preds = %if.then4.i
   store ptr %ui_method, ptr %pass_data.i, align 8
   store ptr %ui_data, ptr %data.i.i, align 8
   store ptr @.str.25, ptr %prompt_desc.i.i, align 8
   store ptr %50, ptr %prompt_info.i.i, align 8
   %53 = load ptr, ptr %data, align 8
-  %call10.i104 = call i32 @PEM_do_header(ptr noundef nonnull %cipher.i, ptr noundef %53, ptr noundef nonnull %len, ptr noundef nonnull @file_get_pem_pass, ptr noundef nonnull %pass_data.i) #10
-  %tobool11.not.i = icmp eq i32 %call10.i104, 0
-  br i1 %tobool11.not.i, label %if.then75, label %file_read_pem.exit
-
-file_read_pem.exit:                               ; preds = %if.end.i100, %lor.lhs.false9.i
+  %call10.i103 = call i32 @PEM_do_header(ptr noundef nonnull %cipher.i, ptr noundef %53, ptr noundef nonnull %len, ptr noundef nonnull @file_get_pem_pass, ptr noundef nonnull %pass_data.i) #10
+  %tobool11.not.i.not = icmp eq i32 %call10.i103, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cipher.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pass_data.i)
-  br label %if.end101
+  br i1 %tobool11.not.i.not, label %if.then75, label %if.end101
 
-if.then75:                                        ; preds = %cond.end.i, %lor.lhs.false9.i, %if.then4.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cipher.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pass_data.i)
+if.then75:                                        ; preds = %file_read_pem.exit.thread, %file_read_pem.exit
   %54 = load i32, ptr %errcnt, align 4
   %inc77 = add nsw i32 %54, 1
   store i32 %inc77, ptr %errcnt, align 4
@@ -1232,43 +1237,43 @@ if.else79:                                        ; preds = %do.body64
   store i32 0, ptr %isdss.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %peekbuf.i, i8 0, i64 16, i1 false)
   store ptr %peekbuf.i, ptr %p.i, align 8
-  %call.i105 = call i64 @BIO_ctrl(ptr noundef %49, i32 noundef 29, i64 noundef 16, ptr noundef nonnull %peekbuf.i) #10
-  %cmp.i106 = icmp slt i64 %call.i105, 1
-  br i1 %cmp.i106, label %lor.lhs.false, label %if.end.i107
+  %call.i104 = call i64 @BIO_ctrl(ptr noundef %49, i32 noundef 29, i64 noundef 16, ptr noundef nonnull %peekbuf.i) #10
+  %cmp.i105 = icmp slt i64 %call.i104, 1
+  br i1 %cmp.i105, label %lor.lhs.false, label %if.end.i106
 
-if.end.i107:                                      ; preds = %if.else79
-  %call2.i108 = call i32 @ossl_do_blob_header(ptr noundef nonnull %p.i, i32 noundef 16, ptr noundef nonnull %magic.i, ptr noundef nonnull %bitlen.i, ptr noundef nonnull %isdss.i, ptr noundef nonnull %ispub.i) #10
-  %cmp3.i109 = icmp slt i32 %call2.i108, 1
-  br i1 %cmp3.i109, label %lor.lhs.false, label %if.end5.i
+if.end.i106:                                      ; preds = %if.else79
+  %call2.i107 = call i32 @ossl_do_blob_header(ptr noundef nonnull %p.i, i32 noundef 16, ptr noundef nonnull %magic.i, ptr noundef nonnull %bitlen.i, ptr noundef nonnull %isdss.i, ptr noundef nonnull %ispub.i) #10
+  %cmp3.i108 = icmp slt i32 %call2.i107, 1
+  br i1 %cmp3.i108, label %lor.lhs.false, label %if.end5.i
 
-if.end5.i:                                        ; preds = %if.end.i107
+if.end5.i:                                        ; preds = %if.end.i106
   %55 = load i32, ptr %ispub.i, align 4
-  %tobool.not.i110 = icmp eq i32 %55, 0
-  br i1 %tobool.not.i110, label %cond.false.i117, label %cond.true.i111
+  %tobool.not.i109 = icmp eq i32 %55, 0
+  br i1 %tobool.not.i109, label %cond.false.i116, label %cond.true.i110
 
-cond.true.i111:                                   ; preds = %if.end5.i
+cond.true.i110:                                   ; preds = %if.end5.i
   %call6.i = call ptr @b2i_PublicKey_bio(ptr noundef %49) #10
-  br label %cond.end.i112
+  br label %cond.end.i111
 
-cond.false.i117:                                  ; preds = %if.end5.i
-  %call7.i118 = call ptr @b2i_PrivateKey_bio(ptr noundef %49) #10
-  br label %cond.end.i112
+cond.false.i116:                                  ; preds = %if.end5.i
+  %call7.i117 = call ptr @b2i_PrivateKey_bio(ptr noundef %49) #10
+  br label %cond.end.i111
 
-cond.end.i112:                                    ; preds = %cond.false.i117, %cond.true.i111
-  %cond.i113 = phi ptr [ %call6.i, %cond.true.i111 ], [ %call7.i118, %cond.false.i117 ]
-  %cmp8.i = icmp eq ptr %cond.i113, null
-  br i1 %cmp8.i, label %if.then11.i, label %lor.lhs.false.i114
+cond.end.i111:                                    ; preds = %cond.false.i116, %cond.true.i110
+  %cond.i112 = phi ptr [ %call6.i, %cond.true.i110 ], [ %call7.i117, %cond.false.i116 ]
+  %cmp8.i = icmp eq ptr %cond.i112, null
+  br i1 %cmp8.i, label %if.then11.i, label %lor.lhs.false.i113
 
-lor.lhs.false.i114:                               ; preds = %cond.end.i112
-  %call9.i115 = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %cond.i113) #10
-  %cmp10.i = icmp eq ptr %call9.i115, null
+lor.lhs.false.i113:                               ; preds = %cond.end.i111
+  %call9.i114 = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %cond.i112) #10
+  %cmp10.i = icmp eq ptr %call9.i114, null
   br i1 %cmp10.i, label %if.then11.i, label %file_try_read_msblob.exit
 
-if.then11.i:                                      ; preds = %lor.lhs.false.i114, %cond.end.i112
-  call void @EVP_PKEY_free(ptr noundef %cond.i113) #10
+if.then11.i:                                      ; preds = %lor.lhs.false.i113, %cond.end.i111
+  call void @EVP_PKEY_free(ptr noundef %cond.i112) #10
   br label %lor.lhs.false
 
-file_try_read_msblob.exit:                        ; preds = %lor.lhs.false.i114
+file_try_read_msblob.exit:                        ; preds = %lor.lhs.false.i113
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ispub.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %magic.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bitlen.i)
@@ -1277,8 +1282,8 @@ file_try_read_msblob.exit:                        ; preds = %lor.lhs.false.i114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %endloop
 
-lor.lhs.false:                                    ; preds = %if.then11.i, %if.else79, %if.end.i107
-  %matchcount.0.ph = phi i32 [ 0, %if.then11.i ], [ -1, %if.end.i107 ], [ -1, %if.else79 ]
+lor.lhs.false:                                    ; preds = %if.then11.i, %if.else79, %if.end.i106
+  %matchcount.0.ph = phi i32 [ 0, %if.then11.i ], [ -1, %if.end.i106 ], [ -1, %if.else79 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ispub.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %magic.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bitlen.i)
@@ -1289,62 +1294,62 @@ lor.lhs.false:                                    ; preds = %if.then11.i, %if.el
   %57 = load ptr, ptr %ctx, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %saltlen.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %keylen.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %peekbuf.i119)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i120)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pass_data.i121)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %peekbuf.i118)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i119)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pass_data.i120)
   store i32 0, ptr %saltlen.i, align 4
   store i32 0, ptr %keylen.i, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %peekbuf.i119, i8 0, i64 24, i1 false)
-  store ptr %peekbuf.i119, ptr %p.i120, align 8
-  %call.i122 = call i64 @BIO_ctrl(ptr noundef %56, i32 noundef 29, i64 noundef 24, ptr noundef nonnull %peekbuf.i119) #10
-  %cmp.i123 = icmp slt i64 %call.i122, 1
-  br i1 %cmp.i123, label %if.end92, label %if.end.i124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %peekbuf.i118, i8 0, i64 24, i1 false)
+  store ptr %peekbuf.i118, ptr %p.i119, align 8
+  %call.i121 = call i64 @BIO_ctrl(ptr noundef %56, i32 noundef 29, i64 noundef 24, ptr noundef nonnull %peekbuf.i118) #10
+  %cmp.i122 = icmp slt i64 %call.i121, 1
+  br i1 %cmp.i122, label %if.end92, label %if.end.i123
 
-if.end.i124:                                      ; preds = %lor.lhs.false
-  %call2.i125 = call i32 @ossl_do_PVK_header(ptr noundef nonnull %p.i120, i32 noundef 24, i32 noundef 0, ptr noundef nonnull %saltlen.i, ptr noundef nonnull %keylen.i) #10
-  %tobool.not.i126 = icmp eq i32 %call2.i125, 0
-  br i1 %tobool.not.i126, label %if.end92, label %lor.lhs.false.i127
+if.end.i123:                                      ; preds = %lor.lhs.false
+  %call2.i124 = call i32 @ossl_do_PVK_header(ptr noundef nonnull %p.i119, i32 noundef 24, i32 noundef 0, ptr noundef nonnull %saltlen.i, ptr noundef nonnull %keylen.i) #10
+  %tobool.not.i125 = icmp eq i32 %call2.i124, 0
+  br i1 %tobool.not.i125, label %if.end92, label %lor.lhs.false.i126
 
-lor.lhs.false.i127:                               ; preds = %if.end.i124
-  %inc.i128 = add nsw i32 %matchcount.0.ph, 1
-  store ptr %ui_method, ptr %pass_data.i121, align 8
-  store ptr %ui_data, ptr %data.i.i129, align 8
-  store ptr @.str.26, ptr %prompt_desc.i.i130, align 8
-  store ptr %57, ptr %prompt_info.i.i131, align 8
-  %call7.i132 = call ptr @b2i_PVK_bio(ptr noundef %56, ptr noundef nonnull @file_get_pem_pass, ptr noundef nonnull %pass_data.i121) #10
-  %cmp8.i133 = icmp eq ptr %call7.i132, null
-  br i1 %cmp8.i133, label %if.then12.i, label %lor.lhs.false9.i134
+lor.lhs.false.i126:                               ; preds = %if.end.i123
+  %inc.i127 = add nsw i32 %matchcount.0.ph, 1
+  store ptr %ui_method, ptr %pass_data.i120, align 8
+  store ptr %ui_data, ptr %data.i.i128, align 8
+  store ptr @.str.26, ptr %prompt_desc.i.i129, align 8
+  store ptr %57, ptr %prompt_info.i.i130, align 8
+  %call7.i131 = call ptr @b2i_PVK_bio(ptr noundef %56, ptr noundef nonnull @file_get_pem_pass, ptr noundef nonnull %pass_data.i120) #10
+  %cmp8.i132 = icmp eq ptr %call7.i131, null
+  br i1 %cmp8.i132, label %if.then12.i, label %lor.lhs.false9.i133
 
-lor.lhs.false9.i134:                              ; preds = %lor.lhs.false.i127
-  %call10.i135 = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %call7.i132) #10
-  %cmp11.i = icmp eq ptr %call10.i135, null
+lor.lhs.false9.i133:                              ; preds = %lor.lhs.false.i126
+  %call10.i134 = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %call7.i131) #10
+  %cmp11.i = icmp eq ptr %call10.i134, null
   br i1 %cmp11.i, label %if.then12.i, label %file_try_read_PVK.exit
 
-if.then12.i:                                      ; preds = %lor.lhs.false9.i134, %lor.lhs.false.i127
-  call void @EVP_PKEY_free(ptr noundef %call7.i132) #10
+if.then12.i:                                      ; preds = %lor.lhs.false9.i133, %lor.lhs.false.i126
+  call void @EVP_PKEY_free(ptr noundef %call7.i131) #10
   br label %if.end92
 
-file_try_read_PVK.exit:                           ; preds = %lor.lhs.false9.i134
+file_try_read_PVK.exit:                           ; preds = %lor.lhs.false9.i133
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %saltlen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %keylen.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %peekbuf.i119)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i120)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pass_data.i121)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %peekbuf.i118)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i119)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pass_data.i120)
   br label %endloop
 
-if.end92:                                         ; preds = %if.then12.i, %lor.lhs.false, %if.end.i124
-  %matchcount.1.ph = phi i32 [ %inc.i128, %if.then12.i ], [ %matchcount.0.ph, %if.end.i124 ], [ %matchcount.0.ph, %lor.lhs.false ]
+if.end92:                                         ; preds = %if.then12.i, %lor.lhs.false, %if.end.i123
+  %matchcount.1.ph = phi i32 [ %inc.i127, %if.then12.i ], [ %matchcount.0.ph, %if.end.i123 ], [ %matchcount.0.ph, %lor.lhs.false ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %saltlen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %keylen.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %peekbuf.i119)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i120)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pass_data.i121)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %peekbuf.i118)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i119)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pass_data.i120)
   %58 = load ptr, ptr %_1.i81, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
   store ptr null, ptr %mem.i, align 8
-  %call.i137 = call i32 @asn1_d2i_read_bio(ptr noundef %58, ptr noundef nonnull %mem.i) #10
-  %cmp.i138 = icmp slt i32 %call.i137, 0
-  br i1 %cmp.i138, label %if.then97, label %file_read_asn1.exit
+  %call.i136 = call i32 @asn1_d2i_read_bio(ptr noundef %58, ptr noundef nonnull %mem.i) #10
+  %cmp.i137 = icmp slt i32 %call.i136, 0
+  br i1 %cmp.i137, label %if.then97, label %file_read_asn1.exit
 
 file_read_asn1.exit:                              ; preds = %if.end92
   %59 = load ptr, ptr %mem.i, align 8
@@ -1364,14 +1369,14 @@ if.then97:                                        ; preds = %if.end92
   store i32 %inc99, ptr %errcnt, align 4
   br label %endloop
 
-if.end101:                                        ; preds = %file_read_asn1.exit, %file_read_pem.exit
-  %matchcount.2 = phi i32 [ -1, %file_read_pem.exit ], [ %matchcount.1.ph, %file_read_asn1.exit ]
+if.end101:                                        ; preds = %file_read_asn1.exit, %file_read_pem.exit.thread245, %file_read_pem.exit
+  %matchcount.2 = phi i32 [ -1, %file_read_pem.exit ], [ %matchcount.1.ph, %file_read_asn1.exit ], [ -1, %file_read_pem.exit.thread245 ]
   %63 = load ptr, ptr %pem_name, align 8
   %64 = load ptr, ptr %pem_header, align 8
   %65 = load ptr, ptr %data, align 8
   %66 = load i64, ptr %len, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %handler_ctx.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %try_matchcount.i141)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %try_matchcount.i140)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp_handler_ctx.i)
   br label %again.i
 
@@ -1383,64 +1388,64 @@ again.i:                                          ; preds = %store_info_free.exi
   %data.addr.0.i = phi ptr [ %65, %if.end101 ], [ %88, %store_info_free.exit50.i ]
   %pem_name.addr.0.i = phi ptr [ %63, %if.end101 ], [ %86, %store_info_free.exit50.i ]
   store ptr null, ptr %handler_ctx.i, align 8
-  %call.i146 = call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str.2, i32 noundef 1178) #10
-  %cmp.i147 = icmp eq ptr %call.i146, null
-  br i1 %cmp.i147, label %err43.i, label %for.body.i
+  %call.i145 = call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str.2, i32 noundef 1178) #10
+  %cmp.i146 = icmp eq ptr %call.i145, null
+  br i1 %cmp.i146, label %err43.i, label %for.body.i
 
 for.body.i:                                       ; preds = %again.i, %for.inc.i
   %matchcount.4 = phi i32 [ %matchcount.5, %for.inc.i ], [ 0, %again.i ]
   %result.157.i = phi ptr [ %result.4.i, %for.inc.i ], [ null, %again.i ]
-  %i.056.i = phi i64 [ %inc.i155, %for.inc.i ], [ 0, %again.i ]
+  %i.056.i = phi i64 [ %inc.i154, %for.inc.i ], [ 0, %again.i ]
   %arrayidx.i = getelementptr inbounds [7 x ptr], ptr @file_handlers, i64 0, i64 %i.056.i
   %67 = load ptr, ptr %arrayidx.i, align 8
-  store i32 0, ptr %try_matchcount.i141, align 4
+  store i32 0, ptr %try_matchcount.i140, align 4
   store ptr null, ptr %tmp_handler_ctx.i, align 8
-  %call2.i149 = call i32 @ERR_set_mark() #10
-  %try_decode.i150 = getelementptr inbounds i8, ptr %67, i64 8
-  %68 = load ptr, ptr %try_decode.i150, align 8
+  %call2.i148 = call i32 @ERR_set_mark() #10
+  %try_decode.i149 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = load ptr, ptr %try_decode.i149, align 8
   %69 = load ptr, ptr %ctx, align 8
   %70 = load ptr, ptr %libctx.i, align 8
   %71 = load ptr, ptr %propq.i, align 8
-  %call3.i151 = call ptr %68(ptr noundef %pem_name.addr.0.i, ptr noundef %64, ptr noundef %data.addr.0.i, i64 noundef %len.addr.0.i, ptr noundef nonnull %tmp_handler_ctx.i, ptr noundef nonnull %try_matchcount.i141, ptr noundef %ui_method, ptr noundef %ui_data, ptr noundef %69, ptr noundef %70, ptr noundef %71) #10
-  %call4.i152 = call i64 @ERR_peek_last_error() #10
-  %72 = and i64 %call4.i152, 4294967295
+  %call3.i150 = call ptr %68(ptr noundef %pem_name.addr.0.i, ptr noundef %64, ptr noundef %data.addr.0.i, i64 noundef %len.addr.0.i, ptr noundef nonnull %tmp_handler_ctx.i, ptr noundef nonnull %try_matchcount.i140, ptr noundef %ui_method, ptr noundef %ui_data, ptr noundef %69, ptr noundef %70, ptr noundef %71) #10
+  %call4.i151 = call i64 @ERR_peek_last_error() #10
+  %72 = and i64 %call4.i151, 4294967295
   %or.cond.i = icmp eq i64 %72, 109576458
-  br i1 %or.cond.i, label %if.then9.i, label %if.else.i153
+  br i1 %or.cond.i, label %if.then9.i, label %if.else.i152
 
 if.then9.i:                                       ; preds = %for.body.i
   %call10.i163 = call i32 @ERR_pop_to_mark() #10
   br label %if.end12.i
 
-if.else.i153:                                     ; preds = %for.body.i
-  %call11.i154 = call i32 @ERR_clear_last_mark() #10
+if.else.i152:                                     ; preds = %for.body.i
+  %call11.i153 = call i32 @ERR_clear_last_mark() #10
   br label %if.end12.i
 
-if.end12.i:                                       ; preds = %if.else.i153, %if.then9.i
-  %73 = load i32, ptr %try_matchcount.i141, align 4
+if.end12.i:                                       ; preds = %if.else.i152, %if.then9.i
+  %73 = load i32, ptr %try_matchcount.i140, align 4
   %cmp13.i = icmp sgt i32 %73, 0
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %idxprom.i157 = sext i32 %matchcount.4 to i64
-  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i146, i64 %idxprom.i157
+  %idxprom.i156 = sext i32 %matchcount.4 to i64
+  %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i145, i64 %idxprom.i156
   store ptr %67, ptr %arrayidx15.i, align 8
   %74 = load ptr, ptr %handler_ctx.i, align 8
-  %tobool.not.i158 = icmp eq ptr %74, null
-  br i1 %tobool.not.i158, label %if.end17.i, label %if.then16.i
+  %tobool.not.i157 = icmp eq ptr %74, null
+  br i1 %tobool.not.i157, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then14.i
-  %destroy_ctx.i159 = getelementptr inbounds i8, ptr %67, i64 24
-  %75 = load ptr, ptr %destroy_ctx.i159, align 8
+  %destroy_ctx.i158 = getelementptr inbounds i8, ptr %67, i64 24
+  %75 = load ptr, ptr %destroy_ctx.i158, align 8
   call void %75(ptr noundef nonnull %handler_ctx.i) #10
-  %.pre.i = load i32, ptr %try_matchcount.i141, align 4
+  %.pre.i = load i32, ptr %try_matchcount.i140, align 4
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then16.i, %if.then14.i
   %76 = phi i32 [ %.pre.i, %if.then16.i ], [ %73, %if.then14.i ]
   %77 = load ptr, ptr %tmp_handler_ctx.i, align 8
   store ptr %77, ptr %handler_ctx.i, align 8
-  %add.i160 = add nsw i32 %76, %matchcount.4
-  %cmp18.i = icmp sgt i32 %add.i160, 1
+  %add.i159 = add nsw i32 %76, %matchcount.4
+  %cmp18.i = icmp sgt i32 %add.i159, 1
   br i1 %cmp18.i, label %if.then19.i, label %if.end25.i
 
 if.then19.i:                                      ; preds = %if.end17.i
@@ -1463,11 +1468,11 @@ if.then.i.i162:                                   ; preds = %land.lhs.true.i.i
 
 store_info_free.exit.i:                           ; preds = %if.then.i.i162, %land.lhs.true.i.i, %if.then19.i
   call void @OSSL_STORE_INFO_free(ptr noundef %result.157.i) #10
-  %cmp.not.i37.i = icmp eq ptr %call3.i151, null
+  %cmp.not.i37.i = icmp eq ptr %call3.i150, null
   br i1 %cmp.not.i37.i, label %store_info_free.exit43.i, label %land.lhs.true.i38.i
 
 land.lhs.true.i38.i:                              ; preds = %store_info_free.exit.i
-  %call.i.i39.i = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %call3.i151) #10
+  %call.i.i39.i = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %call3.i150) #10
   %cmp1.not.i40.i = icmp eq ptr %call.i.i39.i, null
   br i1 %cmp1.not.i40.i, label %store_info_free.exit43.i, label %if.then.i41.i
 
@@ -1481,7 +1486,7 @@ if.then.i41.i:                                    ; preds = %land.lhs.true.i38.i
   br label %store_info_free.exit43.i
 
 store_info_free.exit43.i:                         ; preds = %if.then.i41.i, %land.lhs.true.i38.i, %store_info_free.exit.i
-  call void @OSSL_STORE_INFO_free(ptr noundef %call3.i151) #10
+  call void @OSSL_STORE_INFO_free(ptr noundef %call3.i150) #10
   %destroy_ctx20.i = getelementptr inbounds i8, ptr %67, i64 24
   %82 = load ptr, ptr %destroy_ctx20.i, align 8
   %cmp21.not.i = icmp eq ptr %82, null
@@ -1497,17 +1502,17 @@ if.end24.i:                                       ; preds = %if.then22.i, %store
 
 if.end25.i:                                       ; preds = %if.end24.i, %if.end17.i
   %result.2.i = phi ptr [ null, %if.end24.i ], [ %result.157.i, %if.end17.i ]
-  %tmp_result.0.i = phi ptr [ null, %if.end24.i ], [ %call3.i151, %if.end17.i ]
+  %tmp_result.0.i = phi ptr [ null, %if.end24.i ], [ %call3.i150, %if.end17.i ]
   %cmp26.i = icmp eq ptr %result.2.i, null
-  %spec.select.i = select i1 %cmp26.i, ptr %tmp_result.0.i, ptr %result.2.i
-  %cmp29.i161 = icmp eq ptr %spec.select.i, null
+  %spec.select.i160 = select i1 %cmp26.i, ptr %tmp_result.0.i, ptr %result.2.i
+  %cmp29.i161 = icmp eq ptr %spec.select.i160, null
   br i1 %cmp29.i161, label %if.end42.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end25.i, %if.end12.i
-  %matchcount.5 = phi i32 [ %add.i160, %if.end25.i ], [ %matchcount.4, %if.end12.i ]
-  %result.4.i = phi ptr [ %spec.select.i, %if.end25.i ], [ %result.157.i, %if.end12.i ]
-  %inc.i155 = add nuw nsw i64 %i.056.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i155, 7
+  %matchcount.5 = phi i32 [ %add.i159, %if.end25.i ], [ %matchcount.4, %if.end12.i ]
+  %result.4.i = phi ptr [ %spec.select.i160, %if.end25.i ], [ %result.157.i, %if.end12.i ]
+  %inc.i154 = add nuw nsw i64 %i.056.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i154, 7
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i
@@ -1519,7 +1524,7 @@ land.lhs.true34.i:                                ; preds = %for.end.i
   br i1 %cmp35.i, label %land.lhs.true36.i, label %if.end42.i
 
 land.lhs.true36.i:                                ; preds = %land.lhs.true34.i
-  %83 = load ptr, ptr %call.i146, align 8
+  %83 = load ptr, ptr %call.i145, align 8
   %repeatable.i = getelementptr inbounds i8, ptr %83, i64 32
   %84 = load i32, ptr %repeatable.i, align 8
   %tobool38.not.i = icmp eq i32 %84, 0
@@ -1532,9 +1537,9 @@ if.then39.i:                                      ; preds = %land.lhs.true36.i
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end25.i, %if.then39.i, %land.lhs.true36.i, %land.lhs.true34.i, %for.end.i
-  %matchcount.6 = phi i32 [ %matchcount.5, %for.end.i ], [ 1, %land.lhs.true36.i ], [ 1, %if.then39.i ], [ %matchcount.5, %land.lhs.true34.i ], [ %add.i160, %if.end25.i ]
+  %matchcount.6 = phi i32 [ %matchcount.5, %for.end.i ], [ 1, %land.lhs.true36.i ], [ 1, %if.then39.i ], [ %matchcount.5, %land.lhs.true34.i ], [ %add.i159, %if.end25.i ]
   %result.553.i = phi ptr [ null, %for.end.i ], [ %result.4.i, %land.lhs.true36.i ], [ %result.4.i, %if.then39.i ], [ %result.4.i, %land.lhs.true34.i ], [ null, %if.end25.i ]
-  call void @CRYPTO_free(ptr noundef nonnull %call.i146, ptr noundef nonnull @.str.2, i32 noundef 1236) #10
+  call void @CRYPTO_free(ptr noundef nonnull %call.i145, ptr noundef nonnull @.str.2, i32 noundef 1236) #10
   br label %err43.i
 
 err43.i:                                          ; preds = %if.end42.i, %again.i
@@ -1551,14 +1556,14 @@ land.lhs.true45.i:                                ; preds = %err43.i
   br i1 %cmp47.i, label %land.lhs.true.i45.i, label %file_load_try_decode.exit
 
 land.lhs.true.i45.i:                              ; preds = %land.lhs.true45.i
-  %call.i.i156 = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %result.6.i) #10
-  %pem_name50.i = getelementptr inbounds i8, ptr %call.i.i156, i64 8
+  %call.i.i155 = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %result.6.i) #10
+  %pem_name50.i = getelementptr inbounds i8, ptr %call.i.i155, i64 8
   %86 = load ptr, ptr %pem_name50.i, align 8
-  %87 = load ptr, ptr %call.i.i156, align 8
+  %87 = load ptr, ptr %call.i.i155, align 8
   %data51.i = getelementptr inbounds i8, ptr %87, i64 8
   %88 = load ptr, ptr %data51.i, align 8
   %89 = load i64, ptr %87, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i156, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i155, i8 0, i64 16, i1 false)
   %call.i.i46.i = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %result.6.i) #10
   %cmp1.not.i47.i = icmp eq ptr %call.i.i46.i, null
   br i1 %cmp1.not.i47.i, label %store_info_free.exit50.i, label %if.then.i48.i
@@ -1578,13 +1583,13 @@ store_info_free.exit50.i:                         ; preds = %if.then.i48.i, %lan
 
 file_load_try_decode.exit:                        ; preds = %land.lhs.true45.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %handler_ctx.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %try_matchcount.i141)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %try_matchcount.i140)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp_handler_ctx.i)
   br label %endloop
 
 if.end106:                                        ; preds = %err43.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %handler_ctx.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %try_matchcount.i141)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %try_matchcount.i140)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp_handler_ctx.i)
   %92 = load ptr, ptr %pem_name, align 8
   %cmp107 = icmp eq ptr %92, null
@@ -1660,8 +1665,8 @@ if.then141:                                       ; preds = %ERR_ATTIC_error.exi
   br label %endloop
 
 endloop:                                          ; preds = %if.else124, %file_load_try_decode.exit, %file_try_read_PVK.exit, %file_try_read_msblob.exit, %if.then141, %if.then117, %if.then97, %if.then75
-  %matchcount.8 = phi i32 [ -1, %if.then75 ], [ %matchcount.7, %if.then141 ], [ %matchcount.7, %if.then117 ], [ %matchcount.7, %file_load_try_decode.exit ], [ %matchcount.1.ph, %if.then97 ], [ %inc.i128, %file_try_read_PVK.exit ], [ 0, %file_try_read_msblob.exit ], [ %matchcount.7, %if.else124 ]
-  %result.3 = phi ptr [ %result.2, %if.then75 ], [ null, %if.then141 ], [ null, %if.then117 ], [ %result.6.i, %file_load_try_decode.exit ], [ null, %if.then97 ], [ %call10.i135, %file_try_read_PVK.exit ], [ %call9.i115, %file_try_read_msblob.exit ], [ null, %if.else124 ]
+  %matchcount.8 = phi i32 [ -1, %if.then75 ], [ %matchcount.7, %if.then141 ], [ %matchcount.7, %if.then117 ], [ %matchcount.7, %file_load_try_decode.exit ], [ %matchcount.1.ph, %if.then97 ], [ %inc.i127, %file_try_read_PVK.exit ], [ 0, %file_try_read_msblob.exit ], [ %matchcount.7, %if.else124 ]
+  %result.3 = phi ptr [ %result.2, %if.then75 ], [ null, %if.then141 ], [ null, %if.then117 ], [ %result.6.i, %file_load_try_decode.exit ], [ null, %if.then97 ], [ %call10.i134, %file_try_read_PVK.exit ], [ %call9.i114, %file_try_read_msblob.exit ], [ null, %if.else124 ]
   %101 = load ptr, ptr %pem_name, align 8
   %102 = load i32, ptr %flags, align 8
   %and146 = and i32 %102, 1
@@ -2344,7 +2349,7 @@ if.end21:                                         ; preds = %if.then4, %lor.lhs.
 if.then24:                                        ; preds = %if.end21
   %call.i = call ptr @OPENSSL_sk_new_null() #10
   %cmp26.not = icmp eq ptr %call.i, null
-  br i1 %cmp26.not, label %p12_end, label %if.then28
+  br i1 %cmp26.not, label %store_info_free.exit, label %if.then28
 
 if.then28:                                        ; preds = %if.then24
   %1 = load ptr, ptr %pkey, align 8
@@ -2354,13 +2359,13 @@ if.then28:                                        ; preds = %if.then24
 if.then31:                                        ; preds = %if.then28
   %call32 = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %1) #10
   %cmp33.not = icmp eq ptr %call32, null
-  br i1 %cmp33.not, label %p12_end.thread50, label %land.lhs.true
+  br i1 %cmp33.not, label %p12_end.thread53, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then31
   store ptr null, ptr %pkey, align 8
-  %call.i24 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call32) #10
-  %cmp37.not = icmp eq i32 %call.i24, 0
-  br i1 %cmp37.not, label %p12_end.thread50, label %if.end42
+  %call.i27 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call32) #10
+  %cmp37.not = icmp eq i32 %call.i27, 0
+  br i1 %cmp37.not, label %p12_end.thread53, label %if.end42
 
 if.end42:                                         ; preds = %land.lhs.true, %if.then28
   %2 = load ptr, ptr %cert, align 8
@@ -2370,73 +2375,99 @@ if.end42:                                         ; preds = %land.lhs.true, %if.
 if.then47:                                        ; preds = %if.end42
   %call48 = call ptr @OSSL_STORE_INFO_new_CERT(ptr noundef nonnull %2) #10
   %cmp49.not = icmp eq ptr %call48, null
-  br i1 %cmp49.not, label %p12_end.thread50, label %land.lhs.true51
+  br i1 %cmp49.not, label %p12_end.thread53, label %if.end59
 
-land.lhs.true51:                                  ; preds = %if.then47
+if.end59:                                         ; preds = %if.then47
   store ptr null, ptr %cert, align 8
-  %call.i25 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call48) #10
-  %cmp54.not = icmp eq i32 %call.i25, 0
-  br i1 %cmp54.not, label %p12_end.thread50, label %land.rhs.preheader
+  %call.i28 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call48) #10
+  %cmp54.not.not = icmp eq i32 %call.i28, 0
+  br i1 %cmp54.not.not, label %p12_end.thread53, label %land.rhs.preheader
 
-land.rhs.preheader:                               ; preds = %if.end42, %land.lhs.true51
-  br label %land.rhs
-
-land.rhs:                                         ; preds = %land.rhs.preheader, %land.lhs.true75
+land.rhs.preheader:                               ; preds = %if.end42, %if.end59
   %3 = load ptr, ptr %chain, align 8
-  %call62 = call i32 @OPENSSL_sk_num(ptr noundef %3) #10
-  %cmp63 = icmp sgt i32 %call62, 0
-  br i1 %cmp63, label %while.body, label %p12_end
+  %call6277 = call i32 @OPENSSL_sk_num(ptr noundef %3) #10
+  %cmp6378 = icmp sgt i32 %call6277, 0
+  br i1 %cmp6378, label %while.body, label %store_info_free.exit
 
-while.body:                                       ; preds = %land.rhs
+land.rhs:                                         ; preds = %if.end81
   %4 = load ptr, ptr %chain, align 8
-  %call66 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef 0) #10
+  %call62 = call i32 @OPENSSL_sk_num(ptr noundef %4) #10
+  %cmp63 = icmp sgt i32 %call62, 0
+  br i1 %cmp63, label %while.body, label %store_info_free.exit.loopexit, !llvm.loop !10
+
+while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
+  %5 = load ptr, ptr %chain, align 8
+  %call66 = call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef 0) #10
   %call67 = call ptr @OSSL_STORE_INFO_new_CERT(ptr noundef %call66) #10
   %cmp68.not = icmp eq ptr %call67, null
-  br i1 %cmp68.not, label %p12_end.thread50, label %land.lhs.true70
+  br i1 %cmp68.not, label %p12_end.thread53, label %land.lhs.true70
 
 land.lhs.true70:                                  ; preds = %while.body
-  %5 = load ptr, ptr %chain, align 8
-  %call72 = call ptr @OPENSSL_sk_shift(ptr noundef %5) #10
+  %6 = load ptr, ptr %chain, align 8
+  %call72 = call ptr @OPENSSL_sk_shift(ptr noundef %6) #10
   %cmp73.not = icmp eq ptr %call72, null
-  br i1 %cmp73.not, label %p12_end.thread50, label %land.lhs.true75
+  br i1 %cmp73.not, label %p12_end.thread53, label %if.end81
 
-land.lhs.true75:                                  ; preds = %land.lhs.true70
-  %call.i26 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call67) #10
-  %cmp77.not = icmp eq i32 %call.i26, 0
-  br i1 %cmp77.not, label %p12_end.thread50, label %land.rhs, !llvm.loop !10
+if.end81:                                         ; preds = %land.lhs.true70
+  %call.i29 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call67) #10
+  %cmp77.not.not = icmp eq i32 %call.i29, 0
+  br i1 %cmp77.not.not, label %p12_end.thread53, label %land.rhs, !llvm.loop !10
 
-p12_end.thread50:                                 ; preds = %land.lhs.true75, %land.lhs.true70, %while.body, %if.then47, %land.lhs.true51, %land.lhs.true, %if.then31
-  %osi_cert.061 = phi ptr [ null, %land.lhs.true ], [ null, %if.then31 ], [ %call48, %land.lhs.true51 ], [ null, %if.then47 ], [ null, %while.body ], [ null, %land.lhs.true70 ], [ null, %land.lhs.true75 ]
-  %osi_pkey.04760 = phi ptr [ %call32, %land.lhs.true ], [ null, %if.then31 ], [ null, %land.lhs.true51 ], [ null, %if.then47 ], [ null, %while.body ], [ null, %land.lhs.true70 ], [ null, %land.lhs.true75 ]
-  %osi_ca.0.lcssa = phi ptr [ null, %land.lhs.true ], [ null, %if.then31 ], [ null, %land.lhs.true51 ], [ null, %if.then47 ], [ %call67, %land.lhs.true75 ], [ %call67, %land.lhs.true70 ], [ null, %while.body ]
-  %6 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %6) #10
-  %7 = load ptr, ptr %cert, align 8
-  call void @X509_free(ptr noundef %7) #10
-  %8 = load ptr, ptr %chain, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %8) #10
-  call void @store_info_free(ptr noundef %osi_pkey.04760)
-  call void @store_info_free(ptr noundef %osi_cert.061)
+p12_end.thread53:                                 ; preds = %if.end81, %land.lhs.true70, %while.body, %land.lhs.true, %if.then31, %if.then47, %if.end59
+  %osi_cert.064 = phi ptr [ %call48, %if.end59 ], [ null, %if.then47 ], [ null, %if.then31 ], [ null, %land.lhs.true ], [ null, %while.body ], [ null, %land.lhs.true70 ], [ null, %if.end81 ]
+  %osi_pkey.05063 = phi ptr [ null, %if.end59 ], [ null, %if.then47 ], [ null, %if.then31 ], [ %call32, %land.lhs.true ], [ null, %while.body ], [ null, %land.lhs.true70 ], [ null, %if.end81 ]
+  %osi_ca.0.lcssa = phi ptr [ null, %if.end59 ], [ null, %if.then47 ], [ null, %if.then31 ], [ null, %land.lhs.true ], [ %call67, %if.end81 ], [ %call67, %land.lhs.true70 ], [ null, %while.body ]
+  %7 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %7) #10
+  %8 = load ptr, ptr %cert, align 8
+  call void @X509_free(ptr noundef %8) #10
+  %9 = load ptr, ptr %chain, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %9) #10
+  call void @store_info_free(ptr noundef %osi_pkey.05063)
+  call void @store_info_free(ptr noundef %osi_cert.064)
   call void @store_info_free(ptr noundef %osi_ca.0.lcssa)
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call.i, ptr noundef nonnull @store_info_free) #10
   store ptr null, ptr %pctx, align 8
   call void @PKCS12_free(ptr noundef nonnull %call) #10
   br label %return
 
+store_info_free.exit.loopexit:                    ; preds = %land.rhs
+  %spec.select25.le83 = select i1 %cmp77.not.not, ptr %call67, ptr null
+  br label %store_info_free.exit
+
+store_info_free.exit:                             ; preds = %store_info_free.exit.loopexit, %land.rhs.preheader, %if.then24
+  %osi_ca.2.ph = phi ptr [ null, %if.then24 ], [ null, %land.rhs.preheader ], [ %spec.select25.le83, %store_info_free.exit.loopexit ]
+  %10 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %10) #10
+  %11 = load ptr, ptr %cert, align 8
+  call void @X509_free(ptr noundef %11) #10
+  %12 = load ptr, ptr %chain, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %12) #10
+  call void @OSSL_STORE_INFO_free(ptr noundef null) #10
+  call void @OSSL_STORE_INFO_free(ptr noundef null) #10
+  %cmp.not.i37 = icmp eq ptr %osi_ca.2.ph, null
+  br i1 %cmp.not.i37, label %p12_end, label %land.lhs.true.i38
+
+land.lhs.true.i38:                                ; preds = %store_info_free.exit
+  %call.i.i39 = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %osi_ca.2.ph) #10
+  %cmp1.not.i40 = icmp eq ptr %call.i.i39, null
+  br i1 %cmp1.not.i40, label %p12_end, label %if.then.i41
+
+if.then.i41:                                      ; preds = %land.lhs.true.i38
+  %13 = load ptr, ptr %call.i.i39, align 8
+  call void @BUF_MEM_free(ptr noundef %13) #10
+  %pem_name.i42 = getelementptr inbounds i8, ptr %call.i.i39, i64 8
+  %14 = load ptr, ptr %pem_name.i42, align 8
+  call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef 181) #10
+  call void @CRYPTO_free(ptr noundef nonnull %call.i.i39, ptr noundef nonnull @.str.2, i32 noundef 182) #10
+  br label %p12_end
+
 p12_end.thread:                                   ; preds = %if.end21, %if.then14, %if.then19, %if.end
   call void @PKCS12_free(ptr noundef %call) #10
   br label %return
 
-p12_end:                                          ; preds = %land.rhs, %if.then24
-  %9 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %9) #10
-  %10 = load ptr, ptr %cert, align 8
-  call void @X509_free(ptr noundef %10) #10
-  %11 = load ptr, ptr %chain, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %11) #10
-  call void @OSSL_STORE_INFO_free(ptr noundef null) #10
-  call void @OSSL_STORE_INFO_free(ptr noundef null) #10
-  call void @OSSL_STORE_INFO_free(ptr noundef null) #10
+p12_end:                                          ; preds = %if.then.i41, %land.lhs.true.i38, %store_info_free.exit
+  call void @OSSL_STORE_INFO_free(ptr noundef %osi_ca.2.ph) #10
   store ptr %call.i, ptr %pctx, align 8
   call void @PKCS12_free(ptr noundef nonnull %call) #10
   br i1 %cmp26.not, label %return, label %if.end92
@@ -2444,11 +2475,11 @@ p12_end:                                          ; preds = %land.rhs, %if.then2
 if.end92:                                         ; preds = %p12_end, %entry
   %ctx.2 = phi ptr [ %call.i, %p12_end ], [ %0, %entry ]
   store i32 1, ptr %matchcount, align 4
-  %call.i41 = call ptr @OPENSSL_sk_shift(ptr noundef nonnull %ctx.2) #10
+  %call.i44 = call ptr @OPENSSL_sk_shift(ptr noundef nonnull %ctx.2) #10
   br label %return
 
-return:                                           ; preds = %p12_end.thread50, %p12_end.thread, %p12_end, %if.then, %if.end92
-  %retval.0 = phi ptr [ %call.i41, %if.end92 ], [ null, %if.then ], [ null, %p12_end ], [ null, %p12_end.thread ], [ null, %p12_end.thread50 ]
+return:                                           ; preds = %p12_end.thread53, %p12_end.thread, %p12_end, %if.then, %if.end92
+  %retval.0 = phi ptr [ %call.i44, %if.end92 ], [ null, %if.then ], [ null, %p12_end ], [ null, %p12_end.thread ], [ null, %p12_end.thread53 ]
   ret ptr %retval.0
 }
 

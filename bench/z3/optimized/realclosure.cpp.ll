@@ -1561,7 +1561,7 @@ for.end.thread:                                   ; preds = %for.inc
   br label %for.end12
 
 for.end.loopexit:                                 ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %entry, %for.end.loopexit
@@ -1806,19 +1806,17 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
   %5 = load i32, ptr %m_interval.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp sgt i32 %5, 0
   %6 = select i1 %cmp.i.i.not.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i, i1 false
-  br i1 %6, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i
+  br i1 %6, label %invoke.cont, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i: ; preds = %if.else7.i.i
   %cmp.i.i.i.i4.i.i.i = icmp eq i32 %5, 0
   %7 = select i1 %cmp.i.i.not.i.i.i.i.i, i1 %cmp.i.i.i.i4.i.i.i, i1 false
   %cond.fr.i.i = freeze i1 %7
-  br i1 %cond.fr.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, label %invoke.cont
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.else7.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, i32 1, i32 -1
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.then3.i.i, %entry
-  %retval.0.i.i = phi i32 [ %cond.i.i, %if.then3.i.i ], [ 0, %entry ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i ]
+invoke.cont:                                      ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.else7.i.i, %if.then3.i.i, %entry
+  %retval.0.i.i = phi i32 [ %cond.i.i, %if.then3.i.i ], [ 0, %entry ], [ 1, %if.else7.i.i ], [ %spec.select.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i ]
   %m_to_restore.i.i = getelementptr inbounds i8, ptr %0, i64 1392
   invoke void @_ZN11realclosure7manager3imp23restore_saved_intervalsINS_5valueEEEvR10ptr_vectorIT_E(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull align 8 dereferenceable(8) %m_to_restore.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -1893,19 +1891,16 @@ if.else7.i.i.i:                                   ; preds = %if.else.i.i.i
   %5 = load i32, ptr %m_interval.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp sgt i32 %5, 0
   %6 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
-  br i1 %6, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
+  br i1 %6, label %invoke.cont.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i: ; preds = %if.else7.i.i.i
   %cmp.i.i.i.i4.i.i.i.i = icmp eq i32 %5, 0
   %7 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i4.i.i.i.i, i1 false
   %cond.fr.i.i.i = freeze i1 %7
-  br i1 %cond.fr.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %invoke.cont.i
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.else7.i.i.i
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.then3.i.i.i, %entry
-  %retval.0.i.i.i = phi i1 [ %cmp.i.i.i.inv.i.i.i, %if.then3.i.i.i ], [ false, %entry ], [ true, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i ], [ false, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ]
+invoke.cont.i:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.else7.i.i.i, %if.then3.i.i.i, %entry
+  %retval.0.i.i.i = phi i1 [ %cmp.i.i.i.inv.i.i.i, %if.then3.i.i.i ], [ false, %entry ], [ true, %if.else7.i.i.i ], [ %cond.fr.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ]
   %m_to_restore.i.i.i = getelementptr inbounds i8, ptr %0, i64 1392
   invoke void @_ZN11realclosure7manager3imp23restore_saved_intervalsINS_5valueEEEvR10ptr_vectorIT_E(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull align 8 dereferenceable(8) %m_to_restore.i.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1954,19 +1949,17 @@ if.else7.i.i.i:                                   ; preds = %if.else.i.i.i
   %5 = load i32, ptr %m_interval.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp sgt i32 %5, 0
   %6 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
-  br i1 %6, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
+  br i1 %6, label %invoke.cont.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i: ; preds = %if.else7.i.i.i
   %cmp.i.i.i.i4.i.i.i.i = icmp eq i32 %5, 0
   %7 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i4.i.i.i.i, i1 false
   %cond.fr.i.i.i = freeze i1 %7
-  br i1 %cond.fr.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %invoke.cont.i
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.else7.i.i.i
+  %not.cond.fr.i.i.i = xor i1 %cond.fr.i.i.i, true
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.then3.i.i.i, %entry
-  %retval.0.i.i.i = phi i1 [ %cmp.i.i.i.inv.i.i.i, %if.then3.i.i.i ], [ false, %entry ], [ false, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i ], [ true, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ]
+invoke.cont.i:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.else7.i.i.i, %if.then3.i.i.i, %entry
+  %retval.0.i.i.i = phi i1 [ %cmp.i.i.i.inv.i.i.i, %if.then3.i.i.i ], [ false, %entry ], [ false, %if.else7.i.i.i ], [ %not.cond.fr.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ]
   %m_to_restore.i.i.i = getelementptr inbounds i8, ptr %0, i64 1392
   invoke void @_ZN11realclosure7manager3imp23restore_saved_intervalsINS_5valueEEEvR10ptr_vectorIT_E(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull align 8 dereferenceable(8) %m_to_restore.i.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -2588,6 +2581,7 @@ if.then3.i.i:                                     ; preds = %if.else.i.i
   %m_value.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   %7 = load i32, ptr %m_value.i.i.i, align 8
   %cmp.i.i.i.inv.i.i = icmp slt i32 %7, 1
+  %cond.i.i = select i1 %cmp.i.i.i.inv.i.i, i32 -1, i32 1
   br label %_ZN11realclosure7manager3imp4signERKNS_3numE.exit
 
 if.else7.i.i:                                     ; preds = %if.else.i.i
@@ -2604,13 +2598,15 @@ _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.
   %cmp.i.i.i.i4.i.i.i = icmp eq i32 %9, 0
   %11 = select i1 %cmp.i.i.not.i.i.i.i.i, i1 %cmp.i.i.i.i4.i.i.i, i1 false
   %cond.fr.i.i = freeze i1 %11
-  br i1 %cond.fr.i.i, label %if.end27, label %_ZN11realclosure7manager3imp4signERKNS_3numE.exit
+  %spec.select.i.i = select i1 %cond.fr.i.i, i32 1, i32 -1
+  br label %_ZN11realclosure7manager3imp4signERKNS_3numE.exit
 
 _ZN11realclosure7manager3imp4signERKNS_3numE.exit: ; preds = %if.then3.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i
-  %retval.0.i.i = phi i1 [ %cmp.i.i.i.inv.i.i, %if.then3.i.i ], [ true, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i ]
+  %retval.0.i.i = phi i32 [ %cond.i.i, %if.then3.i.i ], [ %spec.select.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i ]
+  %cmp10 = icmp slt i32 %retval.0.i.i, 0
   %rem = and i32 %k, 1
   %cmp11 = icmp eq i32 %rem, 0
-  %or.cond = and i1 %cmp11, %retval.0.i.i
+  %or.cond = and i1 %cmp11, %cmp10
   br i1 %or.cond, label %if.then12, label %if.end27
 
 if.then12:                                        ; preds = %_ZN11realclosure7manager3imp4signERKNS_3numE.exit
@@ -2640,7 +2636,7 @@ cleanup.action25:                                 ; preds = %if.then12
   call void @__cxa_free_exception(ptr %exception13) #19
   br label %eh.resume
 
-if.end27:                                         ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.else7.i.i, %_ZN11realclosure7manager3imp4signERKNS_3numE.exit
+if.end27:                                         ; preds = %if.else7.i.i, %_ZN11realclosure7manager3imp4signERKNS_3numE.exit
   %14 = ptrtoint ptr %this to i64
   store i64 %14, ptr %p, align 8
   %m_buffer.i.i = getelementptr inbounds i8, ptr %p, i64 8
@@ -2675,13 +2671,13 @@ _ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3
 
 _ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit.thread: ; preds = %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE7inc_refEPS1_.exit.i
   %.pre.i.i = load ptr, ptr %m_buffer.i.i, align 8
-  %idx.ext.i.i157 = zext i32 %17 to i64
-  %add.ptr.i.i158 = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %idx.ext.i.i157
-  store ptr %15, ptr %add.ptr.i.i158, align 8
+  %idx.ext.i.i158 = zext i32 %17 to i64
+  %add.ptr.i.i159 = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %idx.ext.i.i158
+  store ptr %15, ptr %add.ptr.i.i159, align 8
   %19 = load i32, ptr %m_pos.i.i.i.i, align 8
-  %inc.i.i19159 = add i32 %19, 1
-  store i32 %inc.i.i19159, ptr %m_pos.i.i.i.i, align 8
-  %sub160 = add i32 %k, -1
+  %inc.i.i19160 = add i32 %19, 1
+  store i32 %inc.i.i19160, ptr %m_pos.i.i.i.i, align 8
+  %sub161 = add i32 %k, -1
   br label %for.body.preheader
 
 if.then.i.i17:                                    ; preds = %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE7inc_refEPS1_.exit.i
@@ -2736,17 +2732,17 @@ _ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3
   %inc.i.i19 = add i32 %22, 1
   store i32 %inc.i.i19, ptr %m_pos.i.i.i.i, align 8
   %sub = add i32 %k, -1
-  %cmp34150.not = icmp eq i32 %sub, 0
-  br i1 %cmp34150.not, label %for.end, label %for.body.preheader
+  %cmp34151.not = icmp eq i32 %sub, 0
+  br i1 %cmp34151.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit.thread, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit
-  %sub163 = phi i32 [ %sub160, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit.thread ], [ %sub, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit ]
-  %inc.i.i19162 = phi i32 [ %inc.i.i19159, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit.thread ], [ %inc.i.i19, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit ]
+  %sub164 = phi i32 [ %sub161, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit.thread ], [ %sub, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit ]
+  %inc.i.i19163 = phi i32 [ %inc.i.i19160, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit.thread ], [ %inc.i.i19, %_ZN15ref_buffer_coreIN11realclosure5valueE19ref_manager_wrapperIS1_NS0_7manager3impEELj32EE9push_backEPS1_.exit ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %23 = phi i32 [ %inc.i.i51, %for.inc ], [ %inc.i.i19162, %for.body.preheader ]
-  %i.0151 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %23 = phi i32 [ %inc.i.i51, %for.inc ], [ %inc.i.i19163, %for.body.preheader ]
+  %i.0152 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %24 = load i32, ptr %m_capacity.i.i.i.i, align 4
   %cmp.not.i.i25 = icmp ult i32 %23, %24
   br i1 %cmp.not.i.i25, label %entry.if.end_crit_edge.i.i52, label %if.then.i.i26
@@ -2811,17 +2807,17 @@ for.inc:                                          ; preds = %_ZN6bufferIPN11real
   %29 = load i32, ptr %m_pos.i.i.i.i, align 8
   %inc.i.i51 = add i32 %29, 1
   store i32 %inc.i.i51, ptr %m_pos.i.i.i.i, align 8
-  %inc = add nuw i32 %i.0151, 1
-  %exitcond.not = icmp eq i32 %inc, %sub163
+  %inc = add nuw i32 %i.0152, 1
+  %exitcond.not = icmp eq i32 %inc, %sub164
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 lpad30.loopexit:                                  ; preds = %if.then.i.i26, %if.end.i.i.i.i.i45
-  %lpad.loopexit145 = landingpad { ptr, i32 }
+  %lpad.loopexit146 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup61
 
 lpad30.loopexit.split-lp:                         ; preds = %if.end27, %if.then.i.i17, %if.end.i.i.i.i.i, %if.then.i.i66, %if.end.i.i.i.i.i85
-  %lpad.loopexit.split-lp146 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp147 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup61
 
@@ -2955,12 +2951,12 @@ _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.
   br i1 %cond.fr.i, label %if.then.i.i103, label %if.else
 
 if.then53:                                        ; preds = %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit
-  %.pre156 = load ptr, ptr %41, align 8
-  %tobool.not.i.i102 = icmp eq ptr %.pre156, null
+  %.pre157 = load ptr, ptr %41, align 8
+  %tobool.not.i.i102 = icmp eq ptr %.pre157, null
   br i1 %tobool.not.i.i102, label %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i, label %if.then.i.i103
 
-if.then.i.i103:                                   ; preds = %if.then3.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i, %if.then53
-  %50 = phi ptr [ %.pre156, %if.then53 ], [ %43, %if.else7.i ], [ %43, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ], [ %43, %if.then3.i ]
+if.then.i.i103:                                   ; preds = %if.then3.i, %if.else7.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.then53
+  %50 = phi ptr [ %.pre157, %if.then53 ], [ %43, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ], [ %43, %if.else7.i ], [ %43, %if.then3.i ]
   %51 = load i32, ptr %50, align 8
   %inc.i.i104 = add i32 %51, 1
   store i32 %inc.i.i104, ptr %50, align 8
@@ -3008,27 +3004,27 @@ if.end58:                                         ; preds = %_ZN11realclosure7ma
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %b, align 8
   %56 = load ptr, ptr %roots, align 8
-  %cmp.i.i114152 = icmp eq ptr %56, null
-  br i1 %cmp.i.i114152, label %_ZN7svectorIN11realclosure3numEjED2Ev.exit, label %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit.i.thread
+  %cmp.i.i114153 = icmp eq ptr %56, null
+  br i1 %cmp.i.i114153, label %_ZN7svectorIN11realclosure3numEjED2Ev.exit, label %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit.i.thread
 
 _ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit.i.thread: ; preds = %if.end58, %.noexc117
   %57 = phi ptr [ %61, %.noexc117 ], [ %56, %if.end58 ]
-  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i, %.noexc117 ], [ 0, %if.end58 ]
+  %indvars.iv.i154 = phi i64 [ %indvars.iv.next.i, %.noexc117 ], [ 0, %if.end58 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %57, i64 -4
   %58 = load i32, ptr %arrayidx.i.i, align 4
   %59 = zext i32 %58 to i64
-  %cmp.i116144 = icmp ult i64 %indvars.iv.i153, %59
-  br i1 %cmp.i116144, label %for.body.i, label %if.then.i.i.i
+  %cmp.i116145 = icmp ult i64 %indvars.iv.i154, %59
+  br i1 %cmp.i116145, label %for.body.i, label %if.then.i.i.i
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit.i.thread
-  %arrayidx.i4.i = getelementptr inbounds %"class.realclosure::num", ptr %57, i64 %indvars.iv.i153
+  %arrayidx.i4.i = getelementptr inbounds %"class.realclosure::num", ptr %57, i64 %indvars.iv.i154
   %60 = load ptr, ptr %arrayidx.i4.i, align 8
   invoke void @_ZN11realclosure7manager3imp7dec_refEPNS_5valueE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef %60)
           to label %.noexc117 unwind label %lpad39.loopexit
 
 .noexc117:                                        ; preds = %for.body.i
   store ptr null, ptr %arrayidx.i4.i, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i153, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i154, 1
   %61 = load ptr, ptr %roots, align 8
   %cmp.i.i114 = icmp eq ptr %61, null
   br i1 %cmp.i.i114, label %_ZN7svectorIN11realclosure3numEjED2Ev.exit, label %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit.i.thread, !llvm.loop !11
@@ -3115,7 +3111,7 @@ return:                                           ; preds = %if.end.i.i.i.i.i.i.
   ret void
 
 ehcleanup61:                                      ; preds = %lpad30.loopexit, %lpad30.loopexit.split-lp, %lpad39
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad39 ], [ %lpad.loopexit145, %lpad30.loopexit ], [ %lpad.loopexit.split-lp146, %lpad30.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad39 ], [ %lpad.loopexit146, %lpad30.loopexit ], [ %lpad.loopexit.split-lp147, %lpad30.loopexit.split-lp ]
   call void @_ZN7obj_refIN11realclosure5valueENS0_7manager3impEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %neg_a) #19
   call void @_ZN10ref_bufferIN11realclosure5valueENS0_7manager3impELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(280) %p) #19
   br label %eh.resume
@@ -12292,7 +12288,7 @@ invoke.cont44:                                    ; preds = %invoke.cont39
 
 invoke.cont50:                                    ; preds = %invoke.cont44
   %m_value.i = getelementptr inbounds i8, ptr %42, i64 72
-  %tobool52 = trunc i8 %found_z.0465 to i1
+  %tobool52 = trunc nuw i8 %found_z.0465 to i1
   %45 = load ptr, ptr %m_qm.i, align 8
   br i1 %tobool52, label %if.else58, label %if.then53
 
@@ -12357,7 +12353,7 @@ for.end68:                                        ; preds = %for.inc66
   store ptr null, ptr %lcm, align 8
   %m_manager.i190 = getelementptr inbounds i8, ptr %lcm, i64 8
   store ptr %this, ptr %m_manager.i190, align 8
-  %tobool70 = trunc i8 %found_z.1 to i1
+  %tobool70 = trunc nuw i8 %found_z.1 to i1
   br i1 %tobool70, label %if.then71, label %if.else78
 
 if.then71:                                        ; preds = %for.end68
@@ -13504,10 +13500,10 @@ _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i79: ; preds = %invoke.con
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i79, %invoke.cont37
-  %.pre148 = load ptr, ptr %m_buffer.i.i, align 8
+  %.pre149 = load ptr, ptr %m_buffer.i.i, align 8
   %.pre = load i32, ptr %m_pos.i.i.i.i, align 8
   store ptr %call38, ptr %x, align 8
-  invoke void @_ZN11realclosure7manager3imp19mk_polynomial_valueEjPKPNS_5valueES3_R7obj_refIS2_S1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, i32 noundef %.pre, ptr noundef %.pre148, ptr noundef %call38, ptr noundef nonnull align 8 dereferenceable(16) %p)
+  invoke void @_ZN11realclosure7manager3imp19mk_polynomial_valueEjPKPNS_5valueES3_R7obj_refIS2_S1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, i32 noundef %.pre, ptr noundef %.pre149, ptr noundef %call38, ptr noundef nonnull align 8 dereferenceable(16) %p)
           to label %invoke.cont50 unwind label %lpad36
 
 invoke.cont50:                                    ; preds = %invoke.cont43
@@ -13586,7 +13582,7 @@ invoke.cont81:                                    ; preds = %if.then78
   invoke void @_ZN11realclosure7manager3imp3negEPNS_5valueER7obj_refIS2_S1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %if.end85 unwind label %lpad36
 
-if.end85:                                         ; preds = %if.else7.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.end72, %if.then3.i, %invoke.cont81
+if.end85:                                         ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i, %if.end72, %if.then3.i, %invoke.cont81
   br i1 %tobool.not.i78, label %_ZN7obj_refIN11realclosure5valueENS0_7manager3impEED2Ev.exit, label %if.then.i.i96
 
 if.then.i.i96:                                    ; preds = %if.end85
@@ -13741,11 +13737,11 @@ ehcleanup:                                        ; preds = %lpad36, %lpad21
   resume { ptr, i32 } %.pn
 
 if.end90.sink.split.sink.split:                   ; preds = %if.end.i47, %if.end.i
-  %.sink149 = phi ptr [ %8, %if.end.i ], [ %14, %if.end.i47 ]
+  %.sink150 = phi ptr [ %8, %if.end.i ], [ %14, %if.end.i47 ]
   %call12.sink.ph = phi ptr [ %6, %if.end.i ], [ %call12, %if.end.i47 ]
   %m_manager.i.i50 = getelementptr inbounds i8, ptr %q, i64 8
   %91 = load ptr, ptr %m_manager.i.i50, align 8
-  tail call void @_ZN11realclosure7manager3imp7dec_refEPNS_5valueE(ptr noundef nonnull align 8 dereferenceable(1497) %91, ptr noundef nonnull %.sink149)
+  tail call void @_ZN11realclosure7manager3imp7dec_refEPNS_5valueE(ptr noundef nonnull align 8 dereferenceable(1497) %91, ptr noundef nonnull %.sink150)
   br label %if.end90.sink.split
 
 if.end90.sink.split:                              ; preds = %if.end90.sink.split.sink.split, %if.end.i47, %if.end.i
@@ -14224,10 +14220,10 @@ land.lhs.true.i34:                                ; preds = %land.rhs.i, %_ZNK11
   br i1 %tobool.i.i.i36, label %land.rhs.i37, label %land.rhs.i64
 
 land.lhs.true.i34.thread:                         ; preds = %land.lhs.true.i
-  %m_rational.i.i.i35116 = getelementptr inbounds i8, ptr %b, i64 4
-  %11 = load i8, ptr %m_rational.i.i.i35116, align 4
-  %tobool.i.i.i36117 = trunc i8 %11 to i1
-  br i1 %tobool.i.i.i36117, label %land.rhs.i37, label %if.else4.i
+  %m_rational.i.i.i35117 = getelementptr inbounds i8, ptr %b, i64 4
+  %11 = load i8, ptr %m_rational.i.i.i35117, align 4
+  %tobool.i.i.i36118 = trunc i8 %11 to i1
+  br i1 %tobool.i.i.i36118, label %land.rhs.i37, label %if.else4.i
 
 land.rhs.i37:                                     ; preds = %land.lhs.true.i34.thread, %land.lhs.true.i34
   %m_value.i.i38 = getelementptr inbounds i8, ptr %b, i64 72
@@ -14282,7 +14278,7 @@ land.lhs.true.i61.land.rhs.i64_crit_edge:         ; preds = %land.lhs.true.i61
 land.rhs.i64:                                     ; preds = %land.lhs.true.i61.land.rhs.i64_crit_edge, %land.lhs.true.i34
   %19 = phi i32 [ %.pre, %land.lhs.true.i61.land.rhs.i64_crit_edge ], [ %3, %land.lhs.true.i34 ]
   %bf.load.i.i.i.i.i67 = phi i8 [ %bf.load.i.i.i.i.i67.pre, %land.lhs.true.i61.land.rhs.i64_crit_edge ], [ %bf.load.i.i.i.i.i, %land.lhs.true.i34 ]
-  %tobool.i.i.i36118 = phi i1 [ true, %land.lhs.true.i61.land.rhs.i64_crit_edge ], [ false, %land.lhs.true.i34 ]
+  %tobool.i.i.i36119 = phi i1 [ true, %land.lhs.true.i61.land.rhs.i64_crit_edge ], [ false, %land.lhs.true.i34 ]
   %bf.clear.i.i.i.i.i68 = and i8 %bf.load.i.i.i.i.i67, 1
   %cmp.i.i.i.i.i69 = icmp eq i8 %bf.clear.i.i.i.i.i68, 0
   %cmp.i.i.i.i70 = icmp eq i32 %19, -1
@@ -14305,17 +14301,17 @@ if.then12:                                        ; preds = %_ZNK11realclosure7m
   br label %if.end45
 
 land.lhs.true.i79:                                ; preds = %land.rhs.i64, %_ZNK11realclosure7manager3imp21is_rational_minus_oneEPNS_5valueE.exit
-  br i1 %tobool.i.i.i36118, label %land.lhs.true.i79.land.rhs.i82_crit_edge, label %sw.bb
+  br i1 %tobool.i.i.i36119, label %land.lhs.true.i79.land.rhs.i82_crit_edge, label %sw.bb
 
 land.lhs.true.i79.land.rhs.i82_crit_edge:         ; preds = %land.lhs.true.i79
   %m_kind.i.i.i.i.i84.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 76
   %bf.load.i.i.i.i.i85.pre = load i8, ptr %m_kind.i.i.i.i.i84.phi.trans.insert, align 4
   %m_value.i.i83.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 72
-  %.pre144 = load i32, ptr %m_value.i.i83.phi.trans.insert, align 8
+  %.pre145 = load i32, ptr %m_value.i.i83.phi.trans.insert, align 8
   br label %land.rhs.i82
 
 land.rhs.i82:                                     ; preds = %land.lhs.true.i79.land.rhs.i82_crit_edge, %land.lhs.true.i61
-  %23 = phi i32 [ %.pre144, %land.lhs.true.i79.land.rhs.i82_crit_edge ], [ %12, %land.lhs.true.i61 ]
+  %23 = phi i32 [ %.pre145, %land.lhs.true.i79.land.rhs.i82_crit_edge ], [ %12, %land.lhs.true.i61 ]
   %bf.load.i.i.i.i.i85 = phi i8 [ %bf.load.i.i.i.i.i85.pre, %land.lhs.true.i79.land.rhs.i82_crit_edge ], [ %bf.load.i.i.i.i.i40, %land.lhs.true.i61 ]
   %m_value.i.i83 = getelementptr inbounds i8, ptr %b, i64 72
   %bf.clear.i.i.i.i.i86 = and i8 %bf.load.i.i.i.i.i85, 1
@@ -14359,17 +14355,17 @@ invoke.cont24:                                    ; preds = %if.else16
   %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %v, i64 32
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   %m_value.i = getelementptr inbounds i8, ptr %a, i64 72
-  %m_den.i.i123 = getelementptr inbounds i8, ptr %a, i64 88
-  %m_kind.i.i.i.i.i124 = getelementptr inbounds i8, ptr %a, i64 92
-  %bf.load.i.i.i.i.i125 = load i8, ptr %m_kind.i.i.i.i.i124, align 4
-  %bf.clear.i.i.i.i.i126 = and i8 %bf.load.i.i.i.i.i125, 1
-  %cmp.i.i.i.i.i127 = icmp eq i8 %bf.clear.i.i.i.i.i126, 0
-  %28 = load i32, ptr %m_den.i.i123, align 8
-  %cmp.i.i.i.i128 = icmp eq i32 %28, 1
-  %29 = select i1 %cmp.i.i.i.i.i127, i1 %cmp.i.i.i.i128, i1 false
-  br i1 %29, label %land.lhs.true.i130, label %if.else.i
+  %m_den.i.i124 = getelementptr inbounds i8, ptr %a, i64 88
+  %m_kind.i.i.i.i.i125 = getelementptr inbounds i8, ptr %a, i64 92
+  %bf.load.i.i.i.i.i126 = load i8, ptr %m_kind.i.i.i.i.i125, align 4
+  %bf.clear.i.i.i.i.i127 = and i8 %bf.load.i.i.i.i.i126, 1
+  %cmp.i.i.i.i.i128 = icmp eq i8 %bf.clear.i.i.i.i.i127, 0
+  %28 = load i32, ptr %m_den.i.i124, align 8
+  %cmp.i.i.i.i129 = icmp eq i32 %28, 1
+  %29 = select i1 %cmp.i.i.i.i.i128, i1 %cmp.i.i.i.i129, i1 false
+  br i1 %29, label %land.lhs.true.i131, label %if.else.i
 
-land.lhs.true.i130:                               ; preds = %invoke.cont24
+land.lhs.true.i131:                               ; preds = %invoke.cont24
   %m_den.i7.i = getelementptr inbounds i8, ptr %b, i64 88
   %m_kind.i.i.i.i8.i = getelementptr inbounds i8, ptr %b, i64 92
   %bf.load.i.i.i.i9.i = load i8, ptr %m_kind.i.i.i.i8.i, align 4
@@ -14380,48 +14376,48 @@ land.lhs.true.i130:                               ; preds = %invoke.cont24
   %31 = select i1 %cmp.i.i.i.i11.i, i1 %cmp.i.i.i12.i, i1 false
   br i1 %31, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %land.lhs.true.i130
+if.then.i:                                        ; preds = %land.lhs.true.i131
   invoke void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %27, ptr noundef nonnull align 8 dereferenceable(16) %m_value.i, ptr noundef nonnull align 8 dereferenceable(16) %m_value.i.i83, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i99)
-          to label %.noexc131 unwind label %lpad
+          to label %.noexc132 unwind label %lpad
 
-.noexc131:                                        ; preds = %.noexc
+.noexc132:                                        ; preds = %.noexc
   store i32 1, ptr %m_den.i.i99, align 8
   br label %invoke.cont27
 
-if.else.i:                                        ; preds = %land.lhs.true.i130, %invoke.cont24
+if.else.i:                                        ; preds = %land.lhs.true.i131, %invoke.cont24
   invoke void @_ZN11mpq_managerILb0EE7rat_mulERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(32) %m_value.i, ptr noundef nonnull align 8 dereferenceable(32) %m_value.i.i83, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i)
           to label %invoke.cont27 unwind label %lpad
 
-invoke.cont27:                                    ; preds = %.noexc131, %if.else.i
+invoke.cont27:                                    ; preds = %.noexc132, %if.else.i
   %call30 = invoke noundef ptr @_ZN11realclosure7manager3imp11mk_rationalERK3mpq(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   %tobool.not.i = icmp eq ptr %call30, null
-  br i1 %tobool.not.i, label %if.end.i134, label %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i
+  br i1 %tobool.not.i, label %if.end.i135, label %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i: ; preds = %invoke.cont29
   %32 = load i32, ptr %call30, align 8
-  %inc.i.i133 = add i32 %32, 1
-  store i32 %inc.i.i133, ptr %call30, align 8
-  br label %if.end.i134
+  %inc.i.i134 = add i32 %32, 1
+  store i32 %inc.i.i134, ptr %call30, align 8
+  br label %if.end.i135
 
-if.end.i134:                                      ; preds = %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i, %invoke.cont29
+if.end.i135:                                      ; preds = %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i, %invoke.cont29
   %33 = load ptr, ptr %r, align 8
-  %tobool.not.i3.i135 = icmp eq ptr %33, null
-  br i1 %tobool.not.i3.i135, label %invoke.cont31, label %if.then.i4.i136
+  %tobool.not.i3.i136 = icmp eq ptr %33, null
+  br i1 %tobool.not.i3.i136, label %invoke.cont31, label %if.then.i4.i137
 
-if.then.i4.i136:                                  ; preds = %if.end.i134
-  %m_manager.i.i137 = getelementptr inbounds i8, ptr %r, i64 8
-  %34 = load ptr, ptr %m_manager.i.i137, align 8
+if.then.i4.i137:                                  ; preds = %if.end.i135
+  %m_manager.i.i138 = getelementptr inbounds i8, ptr %r, i64 8
+  %34 = load ptr, ptr %m_manager.i.i138, align 8
   invoke void @_ZN11realclosure7manager3imp7dec_refEPNS_5valueE(ptr noundef nonnull align 8 dereferenceable(1497) %34, ptr noundef nonnull %33)
           to label %invoke.cont31 unwind label %lpad
 
-invoke.cont31:                                    ; preds = %if.end.i134, %if.then.i4.i136
+invoke.cont31:                                    ; preds = %if.end.i135, %if.then.i4.i137
   store ptr %call30, ptr %r, align 8
   %35 = load ptr, ptr %v, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %35, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
@@ -14438,7 +14434,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   call void @__clang_call_terminate(ptr %37) #20
   unreachable
 
-lpad:                                             ; preds = %if.then.i4.i136, %if.else.i, %.noexc, %if.then.i, %invoke.cont27
+lpad:                                             ; preds = %if.then.i4.i137, %if.else.i, %.noexc, %if.then.i, %invoke.cont27
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v) #19
@@ -14481,7 +14477,7 @@ sw.bb36:                                          ; preds = %if.else4.i
   tail call void @_ZN11realclosure7manager3imp9mul_rf_rfEPNS_23rational_function_valueES3_R7obj_refINS_5valueES1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(16) %r)
   br label %if.end45
 
-sw.bb39:                                          ; preds = %if.else16, %lor.rhs.i.i, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i
+sw.bb39:                                          ; preds = %if.else16, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %lor.rhs.i.i
   tail call void @_ZN11realclosure7manager3imp8mul_rf_vEPNS_23rational_function_valueEPNS_5valueER7obj_refIS4_S1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(16) %r)
   br label %if.end45
 
@@ -14963,7 +14959,7 @@ sw.bb34:                                          ; preds = %if.else4.i
   tail call void @_ZN11realclosure7manager3imp9add_rf_rfEPNS_23rational_function_valueES3_R7obj_refINS_5valueES1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(16) %r)
   br label %if.end41
 
-sw.bb37:                                          ; preds = %lor.rhs.i.i, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %if.else.i
+sw.bb37:                                          ; preds = %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %lor.rhs.i.i, %if.else.i
   tail call void @_ZN11realclosure7manager3imp8add_rf_vEPNS_23rational_function_valueEPNS_5valueER7obj_refIS4_S1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(16) %r)
   br label %if.end41
 
@@ -18251,13 +18247,13 @@ land.lhs.true.i30:                                ; preds = %land.rhs.i, %_ZNK11
   br i1 %tobool.i.i.i32, label %land.rhs.i33, label %land.rhs.i52
 
 land.lhs.true.i30.thread:                         ; preds = %land.lhs.true.i
-  %m_rational.i.i.i3188 = getelementptr inbounds i8, ptr %a, i64 4
-  %13 = load i8, ptr %m_rational.i.i.i3188, align 4
-  %tobool.i.i.i3289 = trunc i8 %13 to i1
-  br i1 %tobool.i.i.i3289, label %land.rhs.i33, label %if.else38
+  %m_rational.i.i.i3189 = getelementptr inbounds i8, ptr %a, i64 4
+  %13 = load i8, ptr %m_rational.i.i.i3189, align 4
+  %tobool.i.i.i3290 = trunc i8 %13 to i1
+  br i1 %tobool.i.i.i3290, label %land.rhs.i33, label %if.else38
 
 land.rhs.i33:                                     ; preds = %land.lhs.true.i30.thread, %land.lhs.true.i30
-  %m_rational.i.i.i3193 = phi ptr [ %m_rational.i.i.i3188, %land.lhs.true.i30.thread ], [ %m_rational.i.i.i31, %land.lhs.true.i30 ]
+  %m_rational.i.i.i3194 = phi ptr [ %m_rational.i.i.i3189, %land.lhs.true.i30.thread ], [ %m_rational.i.i.i31, %land.lhs.true.i30 ]
   %m_value.i.i34 = getelementptr inbounds i8, ptr %a, i64 72
   %m_kind.i.i.i.i.i35 = getelementptr inbounds i8, ptr %a, i64 76
   %bf.load.i.i.i.i.i36 = load i8, ptr %m_kind.i.i.i.i.i35, align 4
@@ -18296,8 +18292,8 @@ land.lhs.true.i49.land.rhs.i52_crit_edge:         ; preds = %land.lhs.true.i49
 land.rhs.i52:                                     ; preds = %land.lhs.true.i49.land.rhs.i52_crit_edge, %land.lhs.true.i30
   %18 = phi i32 [ %.pre, %land.lhs.true.i49.land.rhs.i52_crit_edge ], [ %5, %land.lhs.true.i30 ]
   %bf.load.i.i.i.i.i55 = phi i8 [ %bf.load.i.i.i.i.i55.pre, %land.lhs.true.i49.land.rhs.i52_crit_edge ], [ %bf.load.i.i.i.i.i, %land.lhs.true.i30 ]
-  %tobool.i.i.i3294.not.not = phi i1 [ true, %land.lhs.true.i49.land.rhs.i52_crit_edge ], [ false, %land.lhs.true.i30 ]
-  %m_rational.i.i.i3191 = phi ptr [ %m_rational.i.i.i3193, %land.lhs.true.i49.land.rhs.i52_crit_edge ], [ %m_rational.i.i.i31, %land.lhs.true.i30 ]
+  %tobool.i.i.i3295.not.not = phi i1 [ true, %land.lhs.true.i49.land.rhs.i52_crit_edge ], [ false, %land.lhs.true.i30 ]
+  %m_rational.i.i.i3192 = phi ptr [ %m_rational.i.i.i3194, %land.lhs.true.i49.land.rhs.i52_crit_edge ], [ %m_rational.i.i.i31, %land.lhs.true.i30 ]
   %m_value.i.i53 = getelementptr inbounds i8, ptr %b, i64 72
   %bf.clear.i.i.i.i.i56 = and i8 %bf.load.i.i.i.i.i55, 1
   %cmp.i.i.i.i.i57 = icmp eq i8 %bf.clear.i.i.i.i.i56, 0
@@ -18321,7 +18317,7 @@ if.then17:                                        ; preds = %_ZNK11realclosure7m
   br label %if.end66
 
 if.else18:                                        ; preds = %land.rhs.i52, %_ZNK11realclosure7manager3imp21is_rational_minus_oneEPNS_5valueE.exit
-  %brmerge.not = and i1 %tobool.i.i.i3294.not.not, %tobool.i.i.i
+  %brmerge.not = and i1 %tobool.i.i.i3295.not.not, %tobool.i.i.i
   br i1 %brmerge.not, label %invoke.cont28, label %if.else38
 
 invoke.cont28:                                    ; preds = %if.else18
@@ -18350,50 +18346,50 @@ invoke.cont31:                                    ; preds = %invoke.cont28
 
 invoke.cont33:                                    ; preds = %invoke.cont31
   %tobool.not.i = icmp eq ptr %call34, null
-  br i1 %tobool.not.i, label %if.end.i101, label %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i
+  br i1 %tobool.not.i, label %if.end.i103, label %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i: ; preds = %invoke.cont33
   %23 = load i32, ptr %call34, align 8
-  %inc.i.i100 = add i32 %23, 1
-  store i32 %inc.i.i100, ptr %call34, align 8
-  br label %if.end.i101
+  %inc.i.i102 = add i32 %23, 1
+  store i32 %inc.i.i102, ptr %call34, align 8
+  br label %if.end.i103
 
-if.end.i101:                                      ; preds = %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i, %invoke.cont33
+if.end.i103:                                      ; preds = %_ZN11realclosure7manager3imp7inc_refEPNS_5valueE.exit.i, %invoke.cont33
   %24 = load ptr, ptr %r, align 8
-  %tobool.not.i3.i102 = icmp eq ptr %24, null
-  br i1 %tobool.not.i3.i102, label %invoke.cont35, label %if.then.i4.i103
+  %tobool.not.i3.i104 = icmp eq ptr %24, null
+  br i1 %tobool.not.i3.i104, label %invoke.cont35, label %if.then.i4.i105
 
-if.then.i4.i103:                                  ; preds = %if.end.i101
-  %m_manager.i.i104 = getelementptr inbounds i8, ptr %r, i64 8
-  %25 = load ptr, ptr %m_manager.i.i104, align 8
+if.then.i4.i105:                                  ; preds = %if.end.i103
+  %m_manager.i.i106 = getelementptr inbounds i8, ptr %r, i64 8
+  %25 = load ptr, ptr %m_manager.i.i106, align 8
   invoke void @_ZN11realclosure7manager3imp7dec_refEPNS_5valueE(ptr noundef nonnull align 8 dereferenceable(1497) %25, ptr noundef nonnull %24)
           to label %invoke.cont35 unwind label %lpad23
 
-invoke.cont35:                                    ; preds = %if.end.i101, %if.then.i4.i103
+invoke.cont35:                                    ; preds = %if.end.i103, %if.then.i4.i105
   store ptr %call34, ptr %r, align 8
   %26 = load ptr, ptr %v, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
-          to label %.noexc.i unwind label %terminate.lpad.i107
+          to label %.noexc.i unwind label %terminate.lpad.i109
 
 .noexc.i:                                         ; preds = %invoke.cont35
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i68)
-          to label %if.end66 unwind label %terminate.lpad.i107
+          to label %if.end66 unwind label %terminate.lpad.i109
 
-terminate.lpad.i107:                              ; preds = %.noexc.i, %invoke.cont35
+terminate.lpad.i109:                              ; preds = %.noexc.i, %invoke.cont35
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   call void @__clang_call_terminate(ptr %28) #20
   unreachable
 
-lpad23:                                           ; preds = %if.then.i4.i103, %invoke.cont31, %invoke.cont28
+lpad23:                                           ; preds = %if.then.i4.i105, %invoke.cont31, %invoke.cont28
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v) #19
   br label %eh.resume
 
 if.else38:                                        ; preds = %if.else18, %land.lhs.true.i30.thread, %land.lhs.true.i49
-  %m_rational.i.i.i3190 = phi ptr [ %m_rational.i.i.i3191, %if.else18 ], [ %m_rational.i.i.i3193, %land.lhs.true.i49 ], [ %m_rational.i.i.i3188, %land.lhs.true.i30.thread ]
+  %m_rational.i.i.i3191 = phi ptr [ %m_rational.i.i.i3192, %if.else18 ], [ %m_rational.i.i.i3194, %land.lhs.true.i49 ], [ %m_rational.i.i.i3189, %land.lhs.true.i30.thread ]
   store ptr null, ptr %inv_b, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %inv_b, i64 8
   store ptr %this, ptr %m_manager.i, align 8
@@ -18402,7 +18398,7 @@ if.else38:                                        ; preds = %if.else18, %land.lh
 
 invoke.cont40:                                    ; preds = %if.else38
   %30 = load ptr, ptr %inv_b, align 8
-  %31 = load i8, ptr %m_rational.i.i.i3190, align 4
+  %31 = load i8, ptr %m_rational.i.i.i3191, align 4
   %tobool.i.i.i74 = trunc i8 %31 to i1
   %m_rational.i.i6.i = getelementptr inbounds i8, ptr %30, i64 4
   %32 = load i8, ptr %m_rational.i.i6.i, align 4
@@ -18410,7 +18406,7 @@ invoke.cont40:                                    ; preds = %if.else38
   br i1 %tobool.i.i.i74, label %invoke.cont43, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont40
-  br i1 %33, label %sw.bb55, label %if.else4.i
+  br i1 %33, label %sw.bb55.invoke, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
   %m_ext.i.i = getelementptr inbounds i8, ptr %a, i64 88
@@ -18432,14 +18428,16 @@ if.else11.i:                                      ; preds = %if.else4.i
 
 lor.rhs.i.i:                                      ; preds = %if.else11.i
   %cmp4.i.i = icmp eq i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
-  br i1 %cmp4.i.i, label %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, label %sw.bb55
+  br i1 %cmp4.i.i, label %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, label %sw.bb55.invoke
 
 _ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i: ; preds = %lor.rhs.i.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i76, 2
   %bf.lshr.i17.i.i = lshr i32 %bf.load.i4.i.i, 2
   %cmp7.i.i = icmp ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i
-  br i1 %cond.fr.i, label %sw.bb55.invoke, label %sw.bb55
+  %spec.select = select i1 %cond.fr.i, ptr %30, ptr %a
+  %spec.select101 = select i1 %cond.fr.i, ptr %a, ptr %30
+  br label %sw.bb55.invoke
 
 invoke.cont43:                                    ; preds = %invoke.cont40
   br i1 %33, label %sw.bb49, label %sw.bb55.invoke
@@ -18454,12 +18452,9 @@ sw.bb49:                                          ; preds = %invoke.cont43, %if.
   invoke void @_ZN11realclosure7manager3imp9mul_rf_rfEPNS_23rational_function_valueES3_R7obj_refINS_5valueES1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %a, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %sw.epilog unwind label %lpad39
 
-sw.bb55:                                          ; preds = %lor.rhs.i.i, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %if.else.i
-  br label %sw.bb55.invoke
-
-sw.bb55.invoke:                                   ; preds = %if.else11.i, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %invoke.cont43, %sw.bb55
-  %38 = phi ptr [ %a, %sw.bb55 ], [ %30, %invoke.cont43 ], [ %30, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i ], [ %30, %if.else11.i ]
-  %39 = phi ptr [ %30, %sw.bb55 ], [ %a, %invoke.cont43 ], [ %a, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i ], [ %a, %if.else11.i ]
+sw.bb55.invoke:                                   ; preds = %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %if.else.i, %lor.rhs.i.i, %if.else11.i, %invoke.cont43
+  %38 = phi ptr [ %30, %invoke.cont43 ], [ %30, %if.else11.i ], [ %a, %lor.rhs.i.i ], [ %a, %if.else.i ], [ %spec.select, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i ]
+  %39 = phi ptr [ %a, %invoke.cont43 ], [ %a, %if.else11.i ], [ %30, %lor.rhs.i.i ], [ %30, %if.else.i ], [ %spec.select101, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i ]
   invoke void @_ZN11realclosure7manager3imp8mul_rf_vEPNS_23rational_function_valueEPNS_5valueER7obj_refIS4_S1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %sw.epilog unwind label %lpad39
 
@@ -21782,7 +21777,7 @@ for.body.us:                                      ; preds = %invoke.cont13.us, %
           to label %invoke.cont23.us unwind label %lpad5.loopexit.split.us
 
 invoke.cont23.us:                                 ; preds = %for.body.us
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw i64 %indvars.iv to i32
   %add.us = add i32 %sub11.us, %22
   %23 = load ptr, ptr %m_buffer.i, align 8
   %idxprom.i.i32.us = zext i32 %add.us to i64
@@ -22832,15 +22827,13 @@ if.else7.i.i29.i:                                 ; preds = %if.else.i.i26.i
   %13 = load i32, ptr %m_interval.i.i.i30.i, align 8
   %cmp.i.i.i.i.i.i.i33.i = icmp sgt i32 %13, 0
   %14 = select i1 %cmp.i.i.not.i.i.i.i.i32.i, i1 %cmp.i.i.i.i.i.i.i33.i, i1 false
-  br i1 %14, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i
+  br i1 %14, label %if.end14.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i: ; preds = %if.else7.i.i29.i
   %cmp.i.i.i.i4.i.i.i35.i = icmp eq i32 %13, 0
   %15 = select i1 %cmp.i.i.not.i.i.i.i.i32.i, i1 %cmp.i.i.i.i4.i.i.i35.i, i1 false
   %cond.fr.i.i36.i = freeze i1 %15
-  br i1 %cond.fr.i.i36.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, label %if.end14.i
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.else7.i.i29.i
+  %spec.select.i.i37.i = select i1 %cond.fr.i.i36.i, i32 1, i32 -1
   br label %if.end14.i
 
 if.else.i.i:                                      ; preds = %if.end.i20.i
@@ -22867,19 +22860,17 @@ if.else7.i9.i.i:                                  ; preds = %if.else.i6.i.i
   %19 = load i32, ptr %m_interval.i.i10.i.i, align 8
   %cmp.i.i.i.i.i.i13.i.i = icmp sgt i32 %19, 0
   %20 = select i1 %cmp.i.i.not.i.i.i.i12.i.i, i1 %cmp.i.i.i.i.i.i13.i.i, i1 false
-  br i1 %20, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
+  br i1 %20, label %if.end14.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i: ; preds = %if.else7.i9.i.i
   %cmp.i.i.i.i4.i.i15.i.i = icmp eq i32 %19, 0
   %21 = select i1 %cmp.i.i.not.i.i.i.i12.i.i, i1 %cmp.i.i.i.i4.i.i15.i.i, i1 false
   %cond.fr.i16.i.i = freeze i1 %21
-  br i1 %cond.fr.i16.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, label %if.end14.i
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i, %if.else7.i9.i.i
+  %spec.select.i17.neg.i.i = select i1 %cond.fr.i16.i.i, i32 -1, i32 1
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.then3.i.i38.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.then3.i19.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
-  %retval.0.i25.i.ph = phi i32 [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i ], [ %cond.i22.neg.i.i, %if.then3.i19.i.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i ], [ %cond.i.i41.i, %if.then3.i.i38.i ]
+if.end14.i:                                       ; preds = %if.then3.i.i38.i, %if.else7.i.i29.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.then3.i19.i.i, %if.else7.i9.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
+  %retval.0.i25.i.ph = phi i32 [ %spec.select.i17.neg.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i ], [ -1, %if.else7.i9.i.i ], [ %cond.i22.neg.i.i, %if.then3.i19.i.i ], [ %spec.select.i.i37.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i ], [ 1, %if.else7.i.i29.i ], [ %cond.i.i41.i, %if.then3.i.i38.i ]
   %cmp15.i = icmp ne i32 %retval.0.i25.i.ph, %prev_sign.0.i302
   %cmp16.i = icmp ne i32 %prev_sign.0.i302, 0
   %or.cond.i = and i1 %cmp16.i, %cmp15.i
@@ -22933,20 +22924,18 @@ if.else7.i.i48.i:                                 ; preds = %if.else.i.i45.i
   %28 = load i32, ptr %m_interval.i.i.i49.i, align 8
   %cmp.i.i.i.i.i.i.i52.i = icmp sgt i32 %28, 0
   %29 = select i1 %cmp.i.i.not.i.i.i.i.i51.i, i1 %cmp.i.i.i.i.i.i.i52.i, i1 false
-  br i1 %29, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
+  br i1 %29, label %if.end14.i203, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i: ; preds = %if.else7.i.i48.i
   %cmp.i.i.i.i4.i.i.i54.i = icmp eq i32 %28, 0
   %30 = select i1 %cmp.i.i.not.i.i.i.i.i51.i, i1 %cmp.i.i.i.i4.i.i.i54.i, i1 false
   %cond.fr.i.i55.i = freeze i1 %30
-  br i1 %cond.fr.i.i55.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, label %if.end14.i203
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i, %if.else7.i.i48.i
+  %spec.select.i.i56.i = select i1 %cond.fr.i.i55.i, i32 1, i32 -1
   br label %if.end14.i203
 
-if.end14.i203:                                    ; preds = %if.then3.i.i58.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
-  %retval.0.i56.i.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i ], [ %cond.i.i61.i, %if.then3.i.i58.i ]
-  %cmp15.i204 = icmp ne i32 %retval.0.i56.i.ph, %prev_sign.0.i187305
+if.end14.i203:                                    ; preds = %if.then3.i.i58.i, %if.else7.i.i48.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
+  %retval.0.i57.i.ph = phi i32 [ %spec.select.i.i56.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i ], [ 1, %if.else7.i.i48.i ], [ %cond.i.i61.i, %if.then3.i.i58.i ]
+  %cmp15.i204 = icmp ne i32 %retval.0.i57.i.ph, %prev_sign.0.i187305
   %cmp16.i205 = icmp ne i32 %prev_sign.0.i187305, 0
   %or.cond.i206 = and i1 %cmp16.i205, %cmp15.i204
   %inc.i207 = zext i1 %or.cond.i206 to i32
@@ -22954,7 +22943,7 @@ if.end14.i203:                                    ; preds = %if.then3.i.i58.i, %
   br label %for.inc.i209
 
 for.inc.i209:                                     ; preds = %for.body.i192, %if.end.i43.i, %if.end14.i203
-  %prev_sign.1.i210 = phi i32 [ %retval.0.i56.i.ph, %if.end14.i203 ], [ %prev_sign.0.i187305, %if.end.i43.i ], [ %prev_sign.0.i187305, %for.body.i192 ]
+  %prev_sign.1.i210 = phi i32 [ %retval.0.i57.i.ph, %if.end14.i203 ], [ %prev_sign.0.i187305, %if.end.i43.i ], [ %prev_sign.0.i187305, %for.body.i192 ]
   %r.2.i211 = phi i32 [ %spec.select.i208, %if.end14.i203 ], [ %r.0.i189307, %if.end.i43.i ], [ %r.0.i189307, %for.body.i192 ]
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next313, %wide.trip.count
@@ -23002,19 +22991,17 @@ if.else7.i.i.i:                                   ; preds = %if.else.i.i.i
   %37 = load i32, ptr %m_interval.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp sgt i32 %37, 0
   %38 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
-  br i1 %38, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
+  br i1 %38, label %if.end14.i240, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i: ; preds = %if.else7.i.i.i
   %cmp.i.i.i.i4.i.i.i.i = icmp eq i32 %37, 0
   %39 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i4.i.i.i.i, i1 false
   %cond.fr.i.i.i = freeze i1 %39
-  br i1 %cond.fr.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %if.end14.i240
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.else7.i.i.i
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i32 1, i32 -1
   br label %if.end14.i240
 
-if.end14.i240:                                    ; preds = %if.then3.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
-  %retval.0.i.i.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i ], [ %cond.i.i.i, %if.then3.i.i.i ]
+if.end14.i240:                                    ; preds = %if.then3.i.i.i, %if.else7.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
+  %retval.0.i.i.ph = phi i32 [ %spec.select.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ], [ 1, %if.else7.i.i.i ], [ %cond.i.i.i, %if.then3.i.i.i ]
   %cmp15.i241 = icmp ne i32 %retval.0.i.i.ph, %prev_sign.0.i222308
   %cmp16.i242 = icmp ne i32 %prev_sign.0.i222308, 0
   %or.cond.i243 = and i1 %cmp16.i242, %cmp15.i241
@@ -23580,15 +23567,13 @@ if.else7.i:                                       ; preds = %if.else.i
   %3 = load i32, ptr %m_interval.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i32 %3, 0
   %4 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
-  br i1 %4, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  br i1 %4, label %return, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i: ; preds = %if.else7.i
   %cmp.i.i.i.i4.i.i = icmp eq i32 %3, 0
   %5 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
   %cond.fr.i = freeze i1 %5
-  br i1 %cond.fr.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %return
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i
+  %spec.select.i.neg = select i1 %cond.fr.i, i32 -1, i32 1
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -23615,15 +23600,13 @@ if.else7.i19:                                     ; preds = %if.else.i16
   %9 = load i32, ptr %m_interval.i.i20, align 8
   %cmp.i.i.i.i.i.i23 = icmp sgt i32 %9, 0
   %10 = select i1 %cmp.i.i.not.i.i.i.i22, i1 %cmp.i.i.i.i.i.i23, i1 false
-  br i1 %10, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24
+  br i1 %10, label %return, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24: ; preds = %if.else7.i19
   %cmp.i.i.i.i4.i.i25 = icmp eq i32 %9, 0
   %11 = select i1 %cmp.i.i.not.i.i.i.i22, i1 %cmp.i.i.i.i4.i.i25, i1 false
   %cond.fr.i26 = freeze i1 %11
-  br i1 %cond.fr.i26, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28, label %return
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24, %if.else7.i19
+  %spec.select.i27 = select i1 %cond.fr.i26, i32 1, i32 -1
   br label %return
 
 if.else5:                                         ; preds = %if.else
@@ -24071,19 +24054,17 @@ if.else7.i185:                                    ; preds = %if.else.i182
   %85 = load i32, ptr %m_interval.i.i186, align 8
   %cmp.i.i.i.i.i.i189 = icmp sgt i32 %85, 0
   %86 = select i1 %cmp.i.i.not.i.i.i.i188, i1 %cmp.i.i.i.i.i.i189, i1 false
-  br i1 %86, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i194, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i190
+  br i1 %86, label %if.then.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i190
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i190: ; preds = %if.else7.i185
   %cmp.i.i.i.i4.i.i191 = icmp eq i32 %85, 0
   %87 = select i1 %cmp.i.i.not.i.i.i.i188, i1 %cmp.i.i.i.i4.i.i191, i1 false
   %cond.fr.i192 = freeze i1 %87
-  br i1 %cond.fr.i192, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i194, label %if.then.i.i
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i194: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i190, %if.else7.i185
+  %spec.select.i193 = select i1 %cond.fr.i192, i32 1, i32 -1
   br label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i194, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i190, %if.then3.i195
-  %retval.0.i193.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i190 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i194 ], [ %cond.i198, %if.then3.i195 ]
+if.then.i.i:                                      ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i190, %if.else7.i185, %if.then3.i195
+  %retval.0.i194.ph = phi i32 [ %spec.select.i193, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i190 ], [ 1, %if.else7.i185 ], [ %cond.i198, %if.then3.i195 ]
   %88 = load ptr, ptr %m_manager.i, align 8
   invoke void @_ZN11realclosure7manager3imp7dec_refEPNS_5valueE(ptr noundef nonnull align 8 dereferenceable(1497) %88, ptr noundef nonnull %81)
           to label %return unwind label %terminate.lpad.i
@@ -24101,8 +24082,8 @@ lpad:                                             ; preds = %if.else31
   call void @_ZN7obj_refIN11realclosure5valueENS0_7manager3impEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %diff) #19
   resume { ptr, i32 } %91
 
-return:                                           ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.then3.i, %if.then, %if.end.i153, %if.end.i, %if.then.i.i, %invoke.cont, %if.then.i.i.i178, %if.then.i.i.i97, %if.then.i.i16.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24, %if.then3.i29, %_ZNK16interval_managerIN11realclosure11mpbq_configEE6beforeERKNS1_8intervalES5_.exit180, %_ZNK16interval_managerIN11realclosure11mpbq_configEE6beforeERKNS1_8intervalES5_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
-  %retval.0 = phi i32 [ %cond, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit ], [ 0, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE6beforeERKNS1_8intervalES5_.exit ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE6beforeERKNS1_8intervalES5_.exit180 ], [ %cond.i32, %if.then3.i29 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28 ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24 ], [ 0, %if.then.i.i16.i ], [ -1, %if.then.i.i.i97 ], [ 1, %if.then.i.i.i178 ], [ %retval.0.i193.ph, %if.then.i.i ], [ 0, %invoke.cont ], [ -1, %if.end.i ], [ 1, %if.end.i153 ], [ %cond.i.neg, %if.then3.i ], [ 0, %if.then ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
+return:                                           ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i, %if.then3.i, %if.then, %if.end.i153, %if.end.i, %if.then.i.i, %invoke.cont, %if.then.i.i.i178, %if.then.i.i.i97, %if.then.i.i16.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24, %if.else7.i19, %if.then3.i29, %_ZNK16interval_managerIN11realclosure11mpbq_configEE6beforeERKNS1_8intervalES5_.exit180, %_ZNK16interval_managerIN11realclosure11mpbq_configEE6beforeERKNS1_8intervalES5_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+  %retval.0 = phi i32 [ %cond, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit ], [ 0, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE6beforeERKNS1_8intervalES5_.exit ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE6beforeERKNS1_8intervalES5_.exit180 ], [ %cond.i32, %if.then3.i29 ], [ 1, %if.else7.i19 ], [ %spec.select.i27, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24 ], [ 0, %if.then.i.i16.i ], [ -1, %if.then.i.i.i97 ], [ 1, %if.then.i.i.i178 ], [ %retval.0.i194.ph, %if.then.i.i ], [ 0, %invoke.cont ], [ -1, %if.end.i ], [ 1, %if.end.i153 ], [ %cond.i.neg, %if.then3.i ], [ 0, %if.then ], [ -1, %if.else7.i ], [ %spec.select.i.neg, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
   ret i32 %retval.0
 }
 
@@ -24312,7 +24293,7 @@ invoke.cont32:                                    ; preds = %if.else30
   br i1 %tobool.i.i.i, label %invoke.cont35, label %if.else.i48
 
 if.else.i48:                                      ; preds = %invoke.cont32
-  br i1 %23, label %sw.bb47, label %if.else4.i
+  br i1 %23, label %sw.bb47.invoke, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i48
   %m_ext.i.i = getelementptr inbounds i8, ptr %a, i64 88
@@ -24334,14 +24315,16 @@ if.else11.i:                                      ; preds = %if.else4.i
 
 lor.rhs.i.i:                                      ; preds = %if.else11.i
   %cmp4.i.i = icmp eq i32 %bf.clear.i.i.i, %bf.clear.i7.i.i
-  br i1 %cmp4.i.i, label %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, label %sw.bb47
+  br i1 %cmp4.i.i, label %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, label %sw.bb47.invoke
 
 _ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i: ; preds = %lor.rhs.i.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i50, 2
   %bf.lshr.i17.i.i = lshr i32 %bf.load.i4.i.i, 2
   %cmp7.i.i = icmp ult i32 %bf.lshr.i.i.i, %bf.lshr.i17.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i
-  br i1 %cond.fr.i, label %sw.bb47.invoke, label %sw.bb47
+  %spec.select = select i1 %cond.fr.i, ptr %20, ptr %a
+  %spec.select61 = select i1 %cond.fr.i, ptr %a, ptr %20
+  br label %sw.bb47.invoke
 
 invoke.cont35:                                    ; preds = %invoke.cont32
   br i1 %23, label %sw.bb41, label %sw.bb47.invoke
@@ -24356,12 +24339,9 @@ sw.bb41:                                          ; preds = %invoke.cont35, %if.
   invoke void @_ZN11realclosure7manager3imp9add_rf_rfEPNS_23rational_function_valueES3_R7obj_refINS_5valueES1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %a, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %sw.epilog unwind label %lpad31
 
-sw.bb47:                                          ; preds = %lor.rhs.i.i, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %if.else.i48
-  br label %sw.bb47.invoke
-
-sw.bb47.invoke:                                   ; preds = %if.else11.i, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %invoke.cont35, %sw.bb47
-  %28 = phi ptr [ %a, %sw.bb47 ], [ %20, %invoke.cont35 ], [ %20, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i ], [ %20, %if.else11.i ]
-  %29 = phi ptr [ %20, %sw.bb47 ], [ %a, %invoke.cont35 ], [ %a, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i ], [ %a, %if.else11.i ]
+sw.bb47.invoke:                                   ; preds = %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i, %if.else.i48, %lor.rhs.i.i, %if.else11.i, %invoke.cont35
+  %28 = phi ptr [ %20, %invoke.cont35 ], [ %20, %if.else11.i ], [ %a, %lor.rhs.i.i ], [ %a, %if.else.i48 ], [ %spec.select, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i ]
+  %29 = phi ptr [ %a, %invoke.cont35 ], [ %a, %if.else11.i ], [ %20, %lor.rhs.i.i ], [ %20, %if.else.i48 ], [ %spec.select61, %_ZN11realclosure7rank_ltEPNS_9extensionES1_.exit.i ]
   invoke void @_ZN11realclosure7manager3imp8add_rf_vEPNS_23rational_function_valueEPNS_5valueER7obj_refIS4_S1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %sw.epilog unwind label %lpad31
 
@@ -24902,7 +24882,7 @@ for.body:                                         ; preds = %_ZN15ref_buffer_cor
           to label %invoke.cont36 unwind label %lpad8.loopexit
 
 invoke.cont36:                                    ; preds = %for.body
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw i64 %indvars.iv to i32
   %add35 = add i32 %sub15, %54
   %55 = load ptr, ptr %m_buffer.i61, align 8
   %idxprom.i.i130 = zext i32 %add35 to i64
@@ -26388,19 +26368,17 @@ if.else7.i:                                       ; preds = %if.else.i
   %4 = load i32, ptr %m_interval.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i32 %4, 0
   %5 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
-  br i1 %5, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  br i1 %5, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i: ; preds = %if.else7.i
   %cmp.i.i.i.i4.i.i = icmp eq i32 %4, 0
   %6 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
   %cond.fr.i = freeze i1 %6
-  br i1 %cond.fr.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i
+  %spec.select.i = select i1 %cond.fr.i, i32 1, i32 -1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
 
-_ZN11realclosure7manager3imp4signEPNS_5valueE.exit: ; preds = %entry, %if.then3.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i
-  %retval.0.i = phi i32 [ %cond.i, %if.then3.i ], [ 0, %entry ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
+_ZN11realclosure7manager3imp4signEPNS_5valueE.exit: ; preds = %entry, %if.then3.i, %if.else7.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  %retval.0.i = phi i32 [ %cond.i, %if.then3.i ], [ 0, %entry ], [ 1, %if.else7.i ], [ %spec.select.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
   %m_interval.i = getelementptr inbounds i8, ptr %0, i64 8
   %m_lower_inf.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i8, ptr %m_lower_inf.i.i.i.i.i.i.i, align 8
@@ -26487,20 +26465,18 @@ if.else7.i19:                                     ; preds = %if.else.i16
   %21 = load i32, ptr %m_interval.i.i20, align 8
   %cmp.i.i.i.i.i.i23 = icmp sgt i32 %21, 0
   %22 = select i1 %cmp.i.i.not.i.i.i.i22, i1 %cmp.i.i.i.i.i.i23, i1 false
-  br i1 %22, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24
+  br i1 %22, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit33, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24: ; preds = %if.else7.i19
   %cmp.i.i.i.i4.i.i25 = icmp eq i32 %21, 0
   %23 = select i1 %cmp.i.i.not.i.i.i.i22, i1 %cmp.i.i.i.i4.i.i25, i1 false
   %cond.fr.i26 = freeze i1 %23
-  br i1 %cond.fr.i26, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit33
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24, %if.else7.i19
+  %spec.select.i27 = select i1 %cond.fr.i26, i32 1, i32 -1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit33
 
-_ZN11realclosure7manager3imp4signEPNS_5valueE.exit33: ; preds = %if.then3.i29, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28
-  %retval.0.i27 = phi i32 [ %cond.i32, %if.then3.i29 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i28 ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24 ]
-  %cmp13.not = icmp eq i32 %retval.0.i27, %retval.0.i
+_ZN11realclosure7manager3imp4signEPNS_5valueE.exit33: ; preds = %if.then3.i29, %if.else7.i19, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24
+  %retval.0.i28 = phi i32 [ %cond.i32, %if.then3.i29 ], [ 1, %if.else7.i19 ], [ %spec.select.i27, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i24 ]
+  %cmp13.not = icmp eq i32 %retval.0.i28, %retval.0.i
   br i1 %cmp13.not, label %for.inc, label %if.then14
 
 if.then14:                                        ; preds = %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit33
@@ -29777,7 +29753,7 @@ if.end.i:                                         ; preds = %invoke.cont
   %bf.load.i2.i.i.i.i = load i8, ptr %m_kind.i1.i.i.i.i, align 4
   %bf.clear3.i3.i.i.i.i = and i8 %bf.load.i2.i.i.i.i, -4
   %m_ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i7, i64 96
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   store i32 %5, ptr %m_value.i.i.i, align 4
   store ptr null, ptr %m_ptr.i.i.i.i.i, align 8
   store i8 %bf.clear3.i.i.i.i.i, ptr %m_kind.i.i.i.i.i, align 4
@@ -30035,11 +30011,11 @@ _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.
   %cond.fr.i = freeze i1 %18
   br i1 %cond.fr.i, label %if.then.i, label %invoke.cont15
 
-if.then.i:                                        ; preds = %if.else7.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.then3.i, %.noexc
+if.then.i:                                        ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i, %if.then3.i, %.noexc
   invoke void @_ZN11realclosure7manager3imp3negER10ref_bufferINS_5valueES1_Lj32EE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(280) %r)
           to label %invoke.cont15 unwind label %lpad2
 
-invoke.cont15:                                    ; preds = %if.then3.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %land.lhs.true.i, %lor.lhs.false.i, %if.then.i
+invoke.cont15:                                    ; preds = %if.then3.i, %lor.lhs.false.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %land.lhs.true.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %d.i)
   invoke void @_ZN11realclosure7manager3imp20normalize_int_coeffsER10ref_bufferINS_5valueES1_Lj32EE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(280) %r)
           to label %invoke.cont30 unwind label %lpad2
@@ -30655,7 +30631,7 @@ for.body34:                                       ; preds = %if.end29, %for.inc4
           to label %invoke.cont40 unwind label %lpad5.loopexit
 
 invoke.cont40:                                    ; preds = %for.body34
-  %50 = trunc i64 %indvars.iv110 to i32
+  %50 = trunc nuw i64 %indvars.iv110 to i32
   %add = add i32 %sub11, %50
   %51 = load ptr, ptr %m_buffer.i, align 8
   %idxprom.i.i49 = zext i32 %add to i64
@@ -32526,15 +32502,13 @@ if.else7.i:                                       ; preds = %if.else.i
   %4 = load i32, ptr %m_interval.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i32 %4, 0
   %5 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
-  br i1 %5, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  br i1 %5, label %return, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i: ; preds = %if.else7.i
   %cmp.i.i.i.i4.i.i = icmp eq i32 %4, 0
   %6 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
   %cond.fr.i = freeze i1 %6
-  br i1 %cond.fr.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %return
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i
+  %spec.select.i = select i1 %cond.fr.i, i32 1, i32 -1
   br label %return
 
 if.else4:                                         ; preds = %entry
@@ -32598,39 +32572,37 @@ if.then12:                                        ; preds = %lor.rhs.i.i, %lor.l
   %cmp.i.i.not.i.i.i = icmp eq i8 %7, 0
   %cmp.i.i.i.i.i32 = icmp sgt i32 %8, 0
   %15 = select i1 %cmp.i.i.not.i.i.i, i1 %cmp.i.i.i.i.i32, i1 false
-  br i1 %15, label %invoke.cont17.thread, label %invoke.cont17
+  br i1 %15, label %cleanup, label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %if.then12
   %cmp.i.i.i.i4.i = icmp eq i32 %8, 0
   %16 = select i1 %cmp.i.i.not.i.i.i, i1 %cmp.i.i.i.i4.i, i1 false
   %cond.fr = freeze i1 %16
-  br i1 %cond.fr, label %invoke.cont17.thread, label %cleanup
-
-invoke.cont17.thread:                             ; preds = %if.then12, %invoke.cont17
+  %spec.select = select i1 %cond.fr, i32 1, i32 -1
   br label %cleanup
 
 lpad.loopexit.split-lp.loopexit.split:            ; preds = %for.cond.i.preheader, %while.body
-  %lpad.loopexit111 = landingpad { ptr, i32 }
+  %lpad.loopexit113 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i.i63, %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57
-  %lpad.loopexit114 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i.i64, %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57
+  %lpad.loopexit116 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i.i
-  %lpad.loopexit117 = landingpad { ptr, i32 }
+  %lpad.loopexit119 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then35.invoke, %while.end, %if.else4
-  %lpad.loopexit.split-lp118 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp120 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit.split.us, %lpad.loopexit.split-lp.loopexit.split, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit109.us, %lpad.loopexit.split.us ], [ %lpad.loopexit111, %lpad.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit111.us, %lpad.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit114, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit117, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp118, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit111.us, %lpad.loopexit.split.us ], [ %lpad.loopexit113, %lpad.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit113.us, %lpad.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit116, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit119, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp120, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN16_scoped_intervalI16interval_managerIN11realclosure11mpbq_configEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %r) #19
   resume { ptr, i32 } %lpad.phi
 
@@ -32716,13 +32688,13 @@ invoke.cont20:                                    ; preds = %for.inc.i, %lor.lhs
   %cmp.lcssa.i = phi i1 [ %cmp.i, %for.inc.i ], [ %cmp9.i, %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i ], [ %cmp9.i, %lor.lhs.false.i ]
   br i1 %cmp.lcssa.i, label %for.body.i36, label %if.then35.invoke
 
-for.body.i36:                                     ; preds = %invoke.cont20, %for.inc.i58
-  %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i59, %for.inc.i58 ], [ 0, %invoke.cont20 ]
-  %r.09.i = phi i32 [ %r.1.i, %for.inc.i58 ], [ -2147483648, %invoke.cont20 ]
+for.body.i36:                                     ; preds = %invoke.cont20, %for.inc.i59
+  %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i60, %for.inc.i59 ], [ 0, %invoke.cont20 ]
+  %r.09.i = phi i32 [ %r.1.i, %for.inc.i59 ], [ -2147483648, %invoke.cont20 ]
   %arrayidx.i38 = getelementptr inbounds ptr, ptr %p, i64 %indvars.iv.i37
   %30 = load ptr, ptr %arrayidx.i38, align 8
   %cmp2.not.i39 = icmp eq ptr %30, null
-  br i1 %cmp2.not.i39, label %for.inc.i58, label %if.then.i40
+  br i1 %cmp2.not.i39, label %for.inc.i59, label %if.then.i40
 
 if.then.i40:                                      ; preds = %for.body.i36
   %m_interval.i.i41 = getelementptr inbounds i8, ptr %30, i64 8
@@ -32750,129 +32722,129 @@ land.rhs.i.i.i.i50:                               ; preds = %lor.lhs.false.i.i.i
   %36 = load i32, ptr %m_upper.i.i.i.i.i.i.i51, align 8
   %cmp.i.i.i.i10.i.i.i.i54 = icmp sgt i32 %36, 0
   %37 = select i1 %cmp.i.i.not.i.i9.i.i.i.i53, i1 true, i1 %cmp.i.i.i.i10.i.i.i.i54
-  br i1 %37, label %if.then.i.i63, label %lor.rhs.i.i.i.i55
+  br i1 %37, label %if.then.i.i64, label %lor.rhs.i.i.i.i55
 
 lor.rhs.i.i.i.i55:                                ; preds = %land.rhs.i.i.i.i50
   %cmp.i.i.i.i14.i.i.i.i56 = icmp eq i32 %36, 0
-  br i1 %cmp.i.i.i.i14.i.i.i.i56, label %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.i.i60, label %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57
+  br i1 %cmp.i.i.i.i14.i.i.i.i56, label %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.i.i61, label %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57
 
-_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.i.i60: ; preds = %lor.rhs.i.i.i.i55
-  %m_upper_open.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %30, i64 59
-  %38 = load i8, ptr %m_upper_open.i.i.i.i.i.i.i61, align 1
-  %cmp.i.i.i15.not.i.i.i.i62 = icmp eq i8 %38, 0
-  br i1 %cmp.i.i.i15.not.i.i.i.i62, label %if.then.i.i63, label %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57
+_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.i.i61: ; preds = %lor.rhs.i.i.i.i55
+  %m_upper_open.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %30, i64 59
+  %38 = load i8, ptr %m_upper_open.i.i.i.i.i.i.i62, align 1
+  %cmp.i.i.i15.not.i.i.i.i63 = icmp eq i8 %38, 0
+  br i1 %cmp.i.i.i15.not.i.i.i.i63, label %if.then.i.i64, label %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57
 
-if.then.i.i63:                                    ; preds = %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.i.i60, %land.rhs.i.i.i.i50
-  %m_value.i.i.i.i64 = getelementptr inbounds i8, ptr %30, i64 72
+if.then.i.i64:                                    ; preds = %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.i.i61, %land.rhs.i.i.i.i50
+  %m_value.i.i.i.i65 = getelementptr inbounds i8, ptr %30, i64 72
   %39 = load i32, ptr %m_ini_precision.i.i.i, align 4
-  invoke void @_ZN11realclosure7manager3imp12mpq_to_mpbqiERK3mpqRNS_11mpbq_config8intervalEj(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_value.i.i.i.i64, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i.i41, i32 noundef %39)
+  invoke void @_ZN11realclosure7manager3imp12mpq_to_mpbqiERK3mpqRNS_11mpbq_config8intervalEj(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(32) %m_value.i.i.i.i65, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i.i41, i32 noundef %39)
           to label %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57: ; preds = %if.then.i.i63, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.i.i60, %lor.rhs.i.i.i.i55, %lor.lhs.false.i.i.i.i45
-  %call5.i66 = invoke noundef i32 @_ZN11realclosure7manager3imp9magnitudeERKNS_11mpbq_config8intervalE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i.i41)
+_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57: ; preds = %if.then.i.i64, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.i.i61, %lor.rhs.i.i.i.i55, %lor.lhs.false.i.i.i.i45
+  %call5.i67 = invoke noundef i32 @_ZN11realclosure7manager3imp9magnitudeERKNS_11mpbq_config8intervalE(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i.i41)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call5.i.noexc:                                    ; preds = %_ZNK11realclosure7manager3imp8intervalEPNS_5valueE.exit.i57
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %call5.i66, i32 %r.09.i)
-  br label %for.inc.i58
+  %spec.select.i58 = call i32 @llvm.smax.i32(i32 %call5.i67, i32 %r.09.i)
+  br label %for.inc.i59
 
-for.inc.i58:                                      ; preds = %call5.i.noexc, %for.body.i36
-  %r.1.i = phi i32 [ %r.09.i, %for.body.i36 ], [ %spec.select.i, %call5.i.noexc ]
-  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i37, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i59, %17
+for.inc.i59:                                      ; preds = %call5.i.noexc, %for.body.i36
+  %r.1.i = phi i32 [ %r.09.i, %for.body.i36 ], [ %spec.select.i58, %call5.i.noexc ]
+  %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i37, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i60, %17
   br i1 %exitcond.not.i, label %invoke.cont26, label %for.body.i36, !llvm.loop !87
 
-invoke.cont26:                                    ; preds = %for.inc.i58
+invoke.cont26:                                    ; preds = %for.inc.i59
   %cmp28 = icmp sgt i32 %r.1.i, -1
   %sub = sub nsw i32 0, %r.1.i
   %prec.0 = select i1 %cmp28, i32 1, i32 %sub
   %m_max_precision = getelementptr inbounds i8, ptr %this, i64 1416
   %40 = load i32, ptr %m_max_precision, align 8
-  %cmp31.not123 = icmp ugt i32 %prec.0, %40
-  br i1 %cmp31.not123, label %while.end, label %while.body.lr.ph
+  %cmp31.not125 = icmp ugt i32 %prec.0, %40
+  br i1 %cmp31.not125, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %invoke.cont26
-  %cmp.i67.not121.not = icmp eq i32 %n, 0
-  %m_lower_open.i.i.i.i.i80 = getelementptr inbounds i8, ptr %r, i64 58
-  %m_upper_open.i.i.i.i.i91 = getelementptr inbounds i8, ptr %r, i64 59
-  br i1 %cmp.i67.not121.not, label %while.body, label %while.body.us
+  %cmp.i68.not123.not = icmp eq i32 %n, 0
+  %m_lower_open.i.i.i.i.i81 = getelementptr inbounds i8, ptr %r, i64 58
+  %m_upper_open.i.i.i.i.i92 = getelementptr inbounds i8, ptr %r, i64 59
+  br i1 %cmp.i68.not123.not, label %while.body, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end54.us
-  %prec.1124.us = phi i32 [ %inc.us, %if.end54.us ], [ %prec.0, %while.body.lr.ph ]
+  %prec.1126.us = phi i32 [ %inc.us, %if.end54.us ], [ %prec.0, %while.body.lr.ph ]
   invoke void @_ZN11realclosure7manager3imp10checkpointEv(ptr noundef nonnull align 8 dereferenceable(1497) %this)
-          to label %for.body.i68.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
+          to label %for.body.i69.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
 
 invoke.cont41.us:                                 ; preds = %for.cond.i.if.end38_crit_edge.us
   %41 = load i8, ptr %m_lower_inf.i.i, align 8
-  %cmp.i.i.not.i.i.i.i76.us = icmp ne i8 %41, 0
+  %cmp.i.i.not.i.i.i.i77.us = icmp ne i8 %41, 0
   %42 = load i32, ptr %m_interval.i, align 8
-  %cmp.i.i.i.i.i.i77.us = icmp slt i32 %42, 0
-  %43 = select i1 %cmp.i.i.not.i.i.i.i76.us, i1 true, i1 %cmp.i.i.i.i.i.i77.us
-  br i1 %43, label %land.rhs.i.i83.us, label %lor.lhs.false.i.i78.us
+  %cmp.i.i.i.i.i.i78.us = icmp slt i32 %42, 0
+  %43 = select i1 %cmp.i.i.not.i.i.i.i77.us, i1 true, i1 %cmp.i.i.i.i.i.i78.us
+  br i1 %43, label %land.rhs.i.i84.us, label %lor.lhs.false.i.i79.us
 
-lor.lhs.false.i.i78.us:                           ; preds = %invoke.cont41.us
-  %cmp.i.i.i.i8.i.i79.us = icmp ne i32 %42, 0
-  %44 = load i8, ptr %m_lower_open.i.i.i.i.i80, align 2
-  %cmp.i.i.i.i.i81.us = icmp ne i8 %44, 0
-  %or.cond.i.i82.us = select i1 %cmp.i.i.i.i8.i.i79.us, i1 true, i1 %cmp.i.i.i.i.i81.us
-  br i1 %or.cond.i.i82.us, label %if.then46, label %land.rhs.i.i83.us
+lor.lhs.false.i.i79.us:                           ; preds = %invoke.cont41.us
+  %cmp.i.i.i.i8.i.i80.us = icmp ne i32 %42, 0
+  %44 = load i8, ptr %m_lower_open.i.i.i.i.i81, align 2
+  %cmp.i.i.i.i.i82.us = icmp ne i8 %44, 0
+  %or.cond.i.i83.us = select i1 %cmp.i.i.i.i8.i.i80.us, i1 true, i1 %cmp.i.i.i.i.i82.us
+  br i1 %or.cond.i.i83.us, label %if.then46, label %land.rhs.i.i84.us
 
-land.rhs.i.i83.us:                                ; preds = %lor.lhs.false.i.i78.us, %invoke.cont41.us
+land.rhs.i.i84.us:                                ; preds = %lor.lhs.false.i.i79.us, %invoke.cont41.us
   %45 = load i8, ptr %m_upper_inf.i.i.i.i.i.i, align 1
-  %cmp.i.i.not.i.i9.i.i86.us = icmp ne i8 %45, 0
+  %cmp.i.i.not.i.i9.i.i87.us = icmp ne i8 %45, 0
   %46 = load i32, ptr %m_upper.i.i, align 8
-  %cmp.i.i.i.i10.i.i87.us = icmp sgt i32 %46, 0
-  %47 = select i1 %cmp.i.i.not.i.i9.i.i86.us, i1 true, i1 %cmp.i.i.i.i10.i.i87.us
-  br i1 %47, label %if.end54.us, label %lor.rhs.i.i88.us
+  %cmp.i.i.i.i10.i.i88.us = icmp sgt i32 %46, 0
+  %47 = select i1 %cmp.i.i.not.i.i9.i.i87.us, i1 true, i1 %cmp.i.i.i.i10.i.i88.us
+  br i1 %47, label %if.end54.us, label %lor.rhs.i.i89.us
 
-lor.rhs.i.i88.us:                                 ; preds = %land.rhs.i.i83.us
-  %cmp.i.i.i.i14.i.i89.us = icmp eq i32 %46, 0
-  %48 = load i8, ptr %m_upper_open.i.i.i.i.i91, align 1
-  %cmp.i.i.i15.not.i.i92.us = icmp eq i8 %48, 0
-  %or.cond108.us = select i1 %cmp.i.i.i.i14.i.i89.us, i1 %cmp.i.i.i15.not.i.i92.us, i1 false
-  br i1 %or.cond108.us, label %if.end54.us, label %if.then46
+lor.rhs.i.i89.us:                                 ; preds = %land.rhs.i.i84.us
+  %cmp.i.i.i.i14.i.i90.us = icmp eq i32 %46, 0
+  %48 = load i8, ptr %m_upper_open.i.i.i.i.i92, align 1
+  %cmp.i.i.i15.not.i.i93.us = icmp eq i8 %48, 0
+  %or.cond109.us = select i1 %cmp.i.i.i.i14.i.i90.us, i1 %cmp.i.i.i15.not.i.i93.us, i1 false
+  br i1 %or.cond109.us, label %if.end54.us, label %if.then46
 
-if.end54.us:                                      ; preds = %lor.rhs.i.i88.us, %land.rhs.i.i83.us
-  %inc.us = add i32 %prec.1124.us, 1
+if.end54.us:                                      ; preds = %lor.rhs.i.i89.us, %land.rhs.i.i84.us
+  %inc.us = add i32 %prec.1126.us, 1
   %49 = load i32, ptr %m_max_precision, align 8
   %cmp31.not.us = icmp ugt i32 %inc.us, %49
   br i1 %cmp31.not.us, label %while.end, label %while.body.us, !llvm.loop !88
 
-for.body.i68.us:                                  ; preds = %while.body.us, %for.inc.i71.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i71.us ], [ 0, %while.body.us ]
-  %arrayidx.i69.us = getelementptr inbounds ptr, ptr %p, i64 %indvars.iv
-  %50 = load ptr, ptr %arrayidx.i69.us, align 8
-  %cmp2.not.i70.us = icmp eq ptr %50, null
-  br i1 %cmp2.not.i70.us, label %for.inc.i71.us, label %land.lhs.true.i.us
+for.body.i69.us:                                  ; preds = %while.body.us, %for.inc.i72.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i72.us ], [ 0, %while.body.us ]
+  %arrayidx.i70.us = getelementptr inbounds ptr, ptr %p, i64 %indvars.iv
+  %50 = load ptr, ptr %arrayidx.i70.us, align 8
+  %cmp2.not.i71.us = icmp eq ptr %50, null
+  br i1 %cmp2.not.i71.us, label %for.inc.i72.us, label %land.lhs.true.i.us
 
-land.lhs.true.i.us:                               ; preds = %for.body.i68.us
-  %call.i72.us = invoke noundef zeroext i1 @_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %50, i32 noundef %prec.1124.us)
+land.lhs.true.i.us:                               ; preds = %for.body.i69.us
+  %call.i73.us = invoke noundef zeroext i1 @_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull %50, i32 noundef %prec.1126.us)
           to label %call.i.noexc.us unwind label %lpad.loopexit.split.us
 
 call.i.noexc.us:                                  ; preds = %land.lhs.true.i.us
-  br i1 %call.i72.us, label %for.inc.i71.us, label %if.then35.invoke
+  br i1 %call.i73.us, label %for.inc.i72.us, label %if.then35.invoke
 
-for.inc.i71.us:                                   ; preds = %call.i.noexc.us, %for.body.i68.us
+for.inc.i72.us:                                   ; preds = %call.i.noexc.us, %for.body.i69.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not, label %for.cond.i.if.end38_crit_edge.us, label %for.body.i68.us, !llvm.loop !89
+  br i1 %exitcond.not, label %for.cond.i.if.end38_crit_edge.us, label %for.body.i69.us, !llvm.loop !89
 
-for.cond.i.if.end38_crit_edge.us:                 ; preds = %for.inc.i71.us
+for.cond.i.if.end38_crit_edge.us:                 ; preds = %for.inc.i72.us
   invoke void @_ZN11realclosure7manager3imp19eval_sign_at_approxEjPKPNS_5valueERK4mpbqRNS_11mpbq_config8intervalE(ptr noundef nonnull align 8 dereferenceable(1497) %this, i32 noundef %n, ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(20) %b, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i)
           to label %invoke.cont41.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
 
 lpad.loopexit.split-lp.loopexit.split.us:         ; preds = %for.cond.i.if.end38_crit_edge.us, %while.body.us
-  %lpad.loopexit111.us = landingpad { ptr, i32 }
+  %lpad.loopexit113.us = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split.us:                           ; preds = %land.lhs.true.i.us
-  %lpad.loopexit109.us = landingpad { ptr, i32 }
+  %lpad.loopexit111.us = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end54
-  %prec.1124 = phi i32 [ %inc, %if.end54 ], [ %prec.0, %while.body.lr.ph ]
+  %prec.1126 = phi i32 [ %inc, %if.end54 ], [ %prec.0, %while.body.lr.ph ]
   invoke void @_ZN11realclosure7manager3imp10checkpointEv(ptr noundef nonnull align 8 dereferenceable(1497) %this)
           to label %for.cond.i.preheader unwind label %lpad.loopexit.split-lp.loopexit.split
 
@@ -32886,53 +32858,51 @@ if.then35.invoke:                                 ; preds = %call.i.noexc.us, %i
 
 invoke.cont41:                                    ; preds = %for.cond.i.preheader
   %52 = load i8, ptr %m_lower_inf.i.i, align 8
-  %cmp.i.i.not.i.i.i.i76 = icmp ne i8 %52, 0
+  %cmp.i.i.not.i.i.i.i77 = icmp ne i8 %52, 0
   %53 = load i32, ptr %m_interval.i, align 8
-  %cmp.i.i.i.i.i.i77 = icmp slt i32 %53, 0
-  %54 = select i1 %cmp.i.i.not.i.i.i.i76, i1 true, i1 %cmp.i.i.i.i.i.i77
-  br i1 %54, label %land.rhs.i.i83, label %lor.lhs.false.i.i78
+  %cmp.i.i.i.i.i.i78 = icmp slt i32 %53, 0
+  %54 = select i1 %cmp.i.i.not.i.i.i.i77, i1 true, i1 %cmp.i.i.i.i.i.i78
+  br i1 %54, label %land.rhs.i.i84, label %lor.lhs.false.i.i79
 
-lor.lhs.false.i.i78:                              ; preds = %invoke.cont41
-  %cmp.i.i.i.i8.i.i79 = icmp ne i32 %53, 0
-  %55 = load i8, ptr %m_lower_open.i.i.i.i.i80, align 2
-  %cmp.i.i.i.i.i81 = icmp ne i8 %55, 0
-  %or.cond.i.i82 = select i1 %cmp.i.i.i.i8.i.i79, i1 true, i1 %cmp.i.i.i.i.i81
-  br i1 %or.cond.i.i82, label %if.then46, label %land.rhs.i.i83
+lor.lhs.false.i.i79:                              ; preds = %invoke.cont41
+  %cmp.i.i.i.i8.i.i80 = icmp ne i32 %53, 0
+  %55 = load i8, ptr %m_lower_open.i.i.i.i.i81, align 2
+  %cmp.i.i.i.i.i82 = icmp ne i8 %55, 0
+  %or.cond.i.i83 = select i1 %cmp.i.i.i.i8.i.i80, i1 true, i1 %cmp.i.i.i.i.i82
+  br i1 %or.cond.i.i83, label %if.then46, label %land.rhs.i.i84
 
-land.rhs.i.i83:                                   ; preds = %lor.lhs.false.i.i78, %invoke.cont41
+land.rhs.i.i84:                                   ; preds = %lor.lhs.false.i.i79, %invoke.cont41
   %56 = load i8, ptr %m_upper_inf.i.i.i.i.i.i, align 1
-  %cmp.i.i.not.i.i9.i.i86 = icmp ne i8 %56, 0
+  %cmp.i.i.not.i.i9.i.i87 = icmp ne i8 %56, 0
   %57 = load i32, ptr %m_upper.i.i, align 8
-  %cmp.i.i.i.i10.i.i87 = icmp sgt i32 %57, 0
-  %58 = select i1 %cmp.i.i.not.i.i9.i.i86, i1 true, i1 %cmp.i.i.i.i10.i.i87
-  br i1 %58, label %if.end54, label %lor.rhs.i.i88
+  %cmp.i.i.i.i10.i.i88 = icmp sgt i32 %57, 0
+  %58 = select i1 %cmp.i.i.not.i.i9.i.i87, i1 true, i1 %cmp.i.i.i.i10.i.i88
+  br i1 %58, label %if.end54, label %lor.rhs.i.i89
 
-lor.rhs.i.i88:                                    ; preds = %land.rhs.i.i83
-  %cmp.i.i.i.i14.i.i89 = icmp eq i32 %57, 0
-  %59 = load i8, ptr %m_upper_open.i.i.i.i.i91, align 1
-  %cmp.i.i.i15.not.i.i92 = icmp eq i8 %59, 0
-  %or.cond108 = select i1 %cmp.i.i.i.i14.i.i89, i1 %cmp.i.i.i15.not.i.i92, i1 false
-  br i1 %or.cond108, label %if.end54, label %if.then46
+lor.rhs.i.i89:                                    ; preds = %land.rhs.i.i84
+  %cmp.i.i.i.i14.i.i90 = icmp eq i32 %57, 0
+  %59 = load i8, ptr %m_upper_open.i.i.i.i.i92, align 1
+  %cmp.i.i.i15.not.i.i93 = icmp eq i8 %59, 0
+  %or.cond109 = select i1 %cmp.i.i.i.i14.i.i90, i1 %cmp.i.i.i15.not.i.i93, i1 false
+  br i1 %or.cond109, label %if.end54, label %if.then46
 
-if.then46:                                        ; preds = %lor.lhs.false.i.i78.us, %lor.rhs.i.i88.us, %lor.lhs.false.i.i78, %lor.rhs.i.i88
-  %.us-phi125 = phi i8 [ 0, %lor.lhs.false.i.i78 ], [ %52, %lor.rhs.i.i88 ], [ 0, %lor.lhs.false.i.i78.us ], [ %41, %lor.rhs.i.i88.us ]
-  %.us-phi126 = phi i32 [ %53, %lor.rhs.i.i88 ], [ %53, %lor.lhs.false.i.i78 ], [ %42, %lor.rhs.i.i88.us ], [ %42, %lor.lhs.false.i.i78.us ]
-  %cmp.i.i.not.i.i.i97 = icmp eq i8 %.us-phi125, 0
-  %cmp.i.i.i.i.i98 = icmp sgt i32 %.us-phi126, 0
-  %60 = select i1 %cmp.i.i.not.i.i.i97, i1 %cmp.i.i.i.i.i98, i1 false
-  br i1 %60, label %invoke.cont51.thread, label %invoke.cont51
+if.then46:                                        ; preds = %lor.lhs.false.i.i79.us, %lor.rhs.i.i89.us, %lor.lhs.false.i.i79, %lor.rhs.i.i89
+  %.us-phi127 = phi i8 [ 0, %lor.lhs.false.i.i79 ], [ %52, %lor.rhs.i.i89 ], [ 0, %lor.lhs.false.i.i79.us ], [ %41, %lor.rhs.i.i89.us ]
+  %.us-phi128 = phi i32 [ %53, %lor.rhs.i.i89 ], [ %53, %lor.lhs.false.i.i79 ], [ %42, %lor.rhs.i.i89.us ], [ %42, %lor.lhs.false.i.i79.us ]
+  %cmp.i.i.not.i.i.i98 = icmp eq i8 %.us-phi127, 0
+  %cmp.i.i.i.i.i99 = icmp sgt i32 %.us-phi128, 0
+  %60 = select i1 %cmp.i.i.not.i.i.i98, i1 %cmp.i.i.i.i.i99, i1 false
+  br i1 %60, label %cleanup, label %invoke.cont51
 
 invoke.cont51:                                    ; preds = %if.then46
-  %cmp.i.i.i.i4.i100 = icmp eq i32 %.us-phi126, 0
-  %61 = select i1 %cmp.i.i.not.i.i.i97, i1 %cmp.i.i.i.i4.i100, i1 false
-  %cond.fr106 = freeze i1 %61
-  br i1 %cond.fr106, label %invoke.cont51.thread, label %cleanup
-
-invoke.cont51.thread:                             ; preds = %if.then46, %invoke.cont51
+  %cmp.i.i.i.i4.i101 = icmp eq i32 %.us-phi128, 0
+  %61 = select i1 %cmp.i.i.not.i.i.i98, i1 %cmp.i.i.i.i4.i101, i1 false
+  %cond.fr107 = freeze i1 %61
+  %spec.select110 = select i1 %cond.fr107, i32 1, i32 -1
   br label %cleanup
 
-if.end54:                                         ; preds = %lor.rhs.i.i88, %land.rhs.i.i83
-  %inc = add i32 %prec.1124, 1
+if.end54:                                         ; preds = %lor.rhs.i.i89, %land.rhs.i.i84
+  %inc = add i32 %prec.1126, 1
   %62 = load i32, ptr %m_max_precision, align 8
   %cmp31.not = icmp ugt i32 %inc, %62
   br i1 %cmp31.not, label %while.end, label %while.body, !llvm.loop !88
@@ -32941,8 +32911,8 @@ while.end:                                        ; preds = %if.end54.us, %if.en
   %call56 = invoke noundef i32 @_ZN11realclosure7manager3imp22expensive_eval_sign_atEjPKPNS_5valueERK4mpbq(ptr noundef nonnull align 8 dereferenceable(1497) %this, i32 noundef %n, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(20) %b)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-cleanup:                                          ; preds = %if.then35.invoke, %invoke.cont51.thread, %invoke.cont51, %invoke.cont17.thread, %invoke.cont17, %while.end
-  %retval.0 = phi i32 [ %call56, %while.end ], [ 1, %invoke.cont17.thread ], [ -1, %invoke.cont17 ], [ 1, %invoke.cont51.thread ], [ -1, %invoke.cont51 ], [ %51, %if.then35.invoke ]
+cleanup:                                          ; preds = %if.then35.invoke, %invoke.cont51, %invoke.cont17, %if.then46, %if.then12, %while.end
+  %retval.0 = phi i32 [ %call56, %while.end ], [ 1, %if.then12 ], [ 1, %if.then46 ], [ %spec.select, %invoke.cont17 ], [ %spec.select110, %invoke.cont51 ], [ %51, %if.then35.invoke ]
   %63 = load ptr, ptr %r, align 8
   %m_c.i.i.i = getelementptr inbounds i8, ptr %63, i64 8
   %64 = load ptr, ptr %m_c.i.i.i, align 8
@@ -32963,8 +32933,8 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   call void @__clang_call_terminate(ptr %69) #20
   unreachable
 
-return:                                           ; preds = %.noexc.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.then3.i, %if.then3, %entry
-  %retval.1 = phi i32 [ %n, %entry ], [ %cond.i, %if.then3.i ], [ 0, %if.then3 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ], [ %retval.0, %.noexc.i ]
+return:                                           ; preds = %.noexc.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i, %if.then3.i, %if.then3, %entry
+  %retval.1 = phi i32 [ %n, %entry ], [ %cond.i, %if.then3.i ], [ 0, %if.then3 ], [ 1, %if.else7.i ], [ %spec.select.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ], [ %retval.0, %.noexc.i ]
   ret i32 %retval.1
 }
 
@@ -33446,19 +33416,17 @@ if.else7.i:                                       ; preds = %if.else.i
   %27 = load i32, ptr %m_interval.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i32 %27, 0
   %28 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
-  br i1 %28, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  br i1 %28, label %invoke.cont70, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i: ; preds = %if.else7.i
   %cmp.i.i.i.i4.i.i = icmp eq i32 %27, 0
   %29 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
   %cond.fr.i = freeze i1 %29
-  br i1 %cond.fr.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %invoke.cont70
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i
+  %spec.select.i = select i1 %cond.fr.i, i32 1, i32 -1
   br label %invoke.cont70
 
-invoke.cont70:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.then3.i, %while.end
-  %retval.0.i = phi i32 [ %cond.i, %if.then3.i ], [ 0, %while.end ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
+invoke.cont70:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i, %if.then3.i, %while.end
+  %retval.0.i = phi i32 [ %cond.i, %if.then3.i ], [ 0, %while.end ], [ 1, %if.else7.i ], [ %spec.select.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
   %30 = load ptr, ptr %rc, align 8
   %tobool.not.i.i48 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i48, label %_ZN7obj_refIN11realclosure5valueENS0_7manager3impEED2Ev.exit, label %if.then.i.i49
@@ -36953,15 +36921,13 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
   %51 = load i32, ptr %m_interval.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i113 = icmp sgt i32 %51, 0
   %52 = select i1 %cmp.i.i.not.i.i.i.i.i112, i1 %cmp.i.i.i.i.i.i.i113, i1 false
-  br i1 %52, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i
+  br i1 %52, label %invoke.cont28, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i: ; preds = %if.else7.i.i
   %cmp.i.i.i.i4.i.i.i = icmp eq i32 %51, 0
   %53 = select i1 %cmp.i.i.not.i.i.i.i.i112, i1 %cmp.i.i.i.i4.i.i.i, i1 false
   %cond.fr.i.i = freeze i1 %53
-  br i1 %cond.fr.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, label %invoke.cont28
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.else7.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, i32 1, i32 -1
   br label %invoke.cont28
 
 for.end.i106:                                     ; preds = %for.cond.i
@@ -36972,8 +36938,8 @@ for.end.i106:                                     ; preds = %for.cond.i
   call void @exit(i32 noundef 114) #20
   unreachable
 
-invoke.cont28:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.then3.i.i
-  %retval.0.i9.i = phi i32 [ %cond.i.i, %if.then3.i.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i ]
+invoke.cont28:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.else7.i.i, %if.then3.i.i
+  %retval.0.i9.i = phi i32 [ %cond.i.i, %if.then3.i.i ], [ 1, %if.else7.i.i ], [ %spec.select.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i ]
   %cmp30 = icmp sgt i32 %retval.0.i9.i, 0
   invoke void @_ZN11realclosure7manager3imp17add_infinitesimalERKNS_11mpbq_config8intervalEbRK4mpbqRS3_(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i, i1 noundef zeroext %cmp30, ptr noundef nonnull align 8 dereferenceable(20) %tiny_value, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i85)
           to label %if.end unwind label %lpad23.loopexit
@@ -37047,15 +37013,13 @@ if.else7.i.i141:                                  ; preds = %if.else.i.i138
   %61 = load i32, ptr %m_interval.i.i.i142, align 8
   %cmp.i.i.i.i.i.i.i145 = icmp sgt i32 %61, 0
   %62 = select i1 %cmp.i.i.not.i.i.i.i.i144, i1 %cmp.i.i.i.i.i.i.i145, i1 false
-  br i1 %62, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i150, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i146
+  br i1 %62, label %invoke.cont43, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i146
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i146: ; preds = %if.else7.i.i141
   %cmp.i.i.i.i4.i.i.i147 = icmp eq i32 %61, 0
   %63 = select i1 %cmp.i.i.not.i.i.i.i.i144, i1 %cmp.i.i.i.i4.i.i.i147, i1 false
   %cond.fr.i.i148 = freeze i1 %63
-  br i1 %cond.fr.i.i148, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i150, label %invoke.cont43
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i150: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i146, %if.else7.i.i141
+  %spec.select.i.i149 = select i1 %cond.fr.i.i148, i32 1, i32 -1
   br label %invoke.cont43
 
 for.end.i131:                                     ; preds = %for.cond.i155
@@ -37066,9 +37030,9 @@ for.end.i131:                                     ; preds = %for.cond.i155
   call void @exit(i32 noundef 114) #20
   unreachable
 
-invoke.cont43:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i150, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i146, %if.then3.i.i151
-  %retval.0.i9.i149 = phi i32 [ %cond.i.i154, %if.then3.i.i151 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i150 ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i146 ]
-  %cmp45 = icmp sgt i32 %retval.0.i9.i149, 0
+invoke.cont43:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i146, %if.else7.i.i141, %if.then3.i.i151
+  %retval.0.i9.i150 = phi i32 [ %cond.i.i154, %if.then3.i.i151 ], [ 1, %if.else7.i.i141 ], [ %spec.select.i.i149, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i146 ]
+  %cmp45 = icmp sgt i32 %retval.0.i9.i150, 0
   invoke void @_ZN11realclosure7manager3imp17add_infinitesimalERKNS_11mpbq_config8intervalEbRK4mpbqRS3_(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i56, i1 noundef zeroext %cmp45, ptr noundef nonnull align 8 dereferenceable(20) %tiny_value, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i88)
           to label %if.end55 unwind label %lpad23.loopexit
 
@@ -37214,19 +37178,17 @@ if.else7.i:                                       ; preds = %if.else.i
   %92 = load i32, ptr %m_interval.i.i, align 8
   %cmp.i.i.i.i.i.i193 = icmp sgt i32 %92, 0
   %93 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i193, i1 false
-  br i1 %93, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  br i1 %93, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i: ; preds = %if.else7.i
   %cmp.i.i.i.i4.i.i = icmp eq i32 %92, 0
   %94 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
   %cond.fr.i = freeze i1 %94
-  br i1 %cond.fr.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i
+  %spec.select.i = select i1 %cond.fr.i, i32 1, i32 -1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
 
-_ZN11realclosure7manager3imp4signEPNS_5valueE.exit: ; preds = %if.else68, %if.then3.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i
-  %retval.0.i194 = phi i32 [ %cond.i, %if.then3.i ], [ 0, %if.else68 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
+_ZN11realclosure7manager3imp4signEPNS_5valueE.exit: ; preds = %if.else68, %if.then3.i, %if.else7.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  %retval.0.i194 = phi i32 [ %cond.i, %if.then3.i ], [ 0, %if.else68 ], [ 1, %if.else7.i ], [ %spec.select.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
   %idxprom.i195 = and i64 %indvars.iv.i48, 4294967295
   %arrayidx.i196 = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i195
   %95 = load ptr, ptr %arrayidx.i196, align 8
@@ -37254,23 +37216,21 @@ if.else7.i201:                                    ; preds = %if.else.i198
   %99 = load i32, ptr %m_interval.i.i202, align 8
   %cmp.i.i.i.i.i.i205 = icmp sgt i32 %99, 0
   %100 = select i1 %cmp.i.i.not.i.i.i.i204, i1 %cmp.i.i.i.i.i.i205, i1 false
-  br i1 %100, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206
+  br i1 %100, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206: ; preds = %if.else7.i201
   %cmp.i.i.i.i4.i.i207 = icmp eq i32 %99, 0
   %101 = select i1 %cmp.i.i.not.i.i.i.i204, i1 %cmp.i.i.i.i4.i.i207, i1 false
   %cond.fr.i208 = freeze i1 %101
-  br i1 %cond.fr.i208, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206, %if.else7.i201
+  %spec.select.i209 = select i1 %cond.fr.i208, i32 1, i32 -1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215
 
-_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215: ; preds = %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, %if.then3.i211, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210
-  %retval.0.i209 = phi i32 [ %cond.i214, %if.then3.i211 ], [ 0, %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210 ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206 ]
+_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215: ; preds = %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, %if.then3.i211, %if.else7.i201, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206
+  %retval.0.i210 = phi i32 [ %cond.i214, %if.then3.i211 ], [ 0, %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit ], [ 1, %if.else7.i201 ], [ %spec.select.i209, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206 ]
   br i1 %cmp, label %return, label %if.else76
 
 if.else76:                                        ; preds = %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215
-  %mul73 = mul nsw i32 %retval.0.i209, %retval.0.i194
+  %mul73 = mul nsw i32 %retval.0.i210, %retval.0.i194
   %cmp77 = icmp ne i32 %mul73, 1
   %m_interval.i216 = getelementptr inbounds i8, ptr %v, i64 8
   %m_kind.i.i.i.i223 = getelementptr inbounds i8, ptr %v, i64 12
@@ -41797,15 +41757,13 @@ if.else7.i.i29.i:                                 ; preds = %if.else.i.i26.i
   %14 = load i32, ptr %m_interval.i.i.i30.i, align 8
   %cmp.i.i.i.i.i.i.i33.i = icmp sgt i32 %14, 0
   %15 = select i1 %cmp.i.i.not.i.i.i.i.i32.i, i1 %cmp.i.i.i.i.i.i.i33.i, i1 false
-  br i1 %15, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i
+  br i1 %15, label %if.end14.i201, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i: ; preds = %if.else7.i.i29.i
   %cmp.i.i.i.i4.i.i.i35.i = icmp eq i32 %14, 0
   %16 = select i1 %cmp.i.i.not.i.i.i.i.i32.i, i1 %cmp.i.i.i.i4.i.i.i35.i, i1 false
   %cond.fr.i.i36.i = freeze i1 %16
-  br i1 %cond.fr.i.i36.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, label %if.end14.i201
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.else7.i.i29.i
+  %spec.select.i.i37.i = select i1 %cond.fr.i.i36.i, i32 1, i32 -1
   br label %if.end14.i201
 
 if.else.i.i:                                      ; preds = %if.end.i20.i
@@ -41832,19 +41790,17 @@ if.else7.i9.i.i:                                  ; preds = %if.else.i6.i.i
   %20 = load i32, ptr %m_interval.i.i10.i.i, align 8
   %cmp.i.i.i.i.i.i13.i.i = icmp sgt i32 %20, 0
   %21 = select i1 %cmp.i.i.not.i.i.i.i12.i.i, i1 %cmp.i.i.i.i.i.i13.i.i, i1 false
-  br i1 %21, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
+  br i1 %21, label %if.end14.i201, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i: ; preds = %if.else7.i9.i.i
   %cmp.i.i.i.i4.i.i15.i.i = icmp eq i32 %20, 0
   %22 = select i1 %cmp.i.i.not.i.i.i.i12.i.i, i1 %cmp.i.i.i.i4.i.i15.i.i, i1 false
   %cond.fr.i16.i.i = freeze i1 %22
-  br i1 %cond.fr.i16.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, label %if.end14.i201
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i, %if.else7.i9.i.i
+  %spec.select.i17.neg.i.i = select i1 %cond.fr.i16.i.i, i32 -1, i32 1
   br label %if.end14.i201
 
-if.end14.i201:                                    ; preds = %if.then3.i.i38.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.then3.i19.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
-  %retval.0.i25.i.ph = phi i32 [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i ], [ %cond.i22.neg.i.i, %if.then3.i19.i.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i ], [ %cond.i.i41.i, %if.then3.i.i38.i ]
+if.end14.i201:                                    ; preds = %if.then3.i.i38.i, %if.else7.i.i29.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.then3.i19.i.i, %if.else7.i9.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
+  %retval.0.i25.i.ph = phi i32 [ %spec.select.i17.neg.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i ], [ -1, %if.else7.i9.i.i ], [ %cond.i22.neg.i.i, %if.then3.i19.i.i ], [ %spec.select.i.i37.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i ], [ 1, %if.else7.i.i29.i ], [ %cond.i.i41.i, %if.then3.i.i38.i ]
   %cmp15.i202 = icmp ne i32 %retval.0.i25.i.ph, %prev_sign.0.i185244
   %cmp16.i203 = icmp ne i32 %prev_sign.0.i185244, 0
   %or.cond.i204 = and i1 %cmp16.i203, %cmp15.i202
@@ -41876,14 +41832,14 @@ for.cond.i128.preheader:                          ; preds = %.noexc20
   %wide.trip.count275 = zext i32 %24 to i64
   br label %for.body.i134
 
-for.body.i134:                                    ; preds = %for.cond.i128.preheader, %for.inc.i167
-  %indvars.iv272 = phi i64 [ 0, %for.cond.i128.preheader ], [ %indvars.iv.next273, %for.inc.i167 ]
-  %r.0.i131252 = phi i32 [ 0, %for.cond.i128.preheader ], [ %r.2.i169, %for.inc.i167 ]
-  %prev_sign.0.i129250 = phi i32 [ 0, %for.cond.i128.preheader ], [ %prev_sign.1.i168, %for.inc.i167 ]
+for.body.i134:                                    ; preds = %for.cond.i128.preheader, %for.inc.i168
+  %indvars.iv272 = phi i64 [ 0, %for.cond.i128.preheader ], [ %indvars.iv.next273, %for.inc.i168 ]
+  %r.0.i131252 = phi i32 [ 0, %for.cond.i128.preheader ], [ %r.2.i170, %for.inc.i168 ]
+  %prev_sign.0.i129250 = phi i32 [ 0, %for.cond.i128.preheader ], [ %prev_sign.1.i169, %for.inc.i168 ]
   %arrayidx.i.i.i137 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv272
   %28 = load i32, ptr %arrayidx.i.i.i137, align 4
   %cmp.i42.i144 = icmp eq i32 %28, 0
-  br i1 %cmp.i42.i144, label %for.inc.i167, label %if.end.i43.i145
+  br i1 %cmp.i42.i144, label %for.inc.i168, label %if.end.i43.i145
 
 if.end.i43.i145:                                  ; preds = %for.body.i134
   %arrayidx.i.i18.i141 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv272
@@ -41892,7 +41848,7 @@ if.end.i43.i145:                                  ; preds = %for.body.i134
   %add.ptr.i.i143 = getelementptr inbounds ptr, ptr %26, i64 %idx.ext.i.i142
   %30 = load ptr, ptr %add.ptr.i.i143, align 8
   %cmp.i.i.i44.i146 = icmp eq ptr %30, null
-  br i1 %cmp.i.i.i44.i146, label %for.inc.i167, label %if.else.i.i45.i147
+  br i1 %cmp.i.i.i44.i146, label %for.inc.i168, label %if.else.i.i45.i147
 
 if.else.i.i45.i147:                               ; preds = %if.end.i43.i145
   %m_rational.i.i.i.i46.i148 = getelementptr inbounds i8, ptr %30, i64 4
@@ -41905,7 +41861,7 @@ if.then3.i.i58.i172:                              ; preds = %if.else.i.i45.i147
   %32 = load i32, ptr %m_value.i.i.i59.i173, align 8
   %cmp.i.i.i.inv.i.i60.i174 = icmp slt i32 %32, 1
   %cond.i.i61.i175 = select i1 %cmp.i.i.i.inv.i.i60.i174, i32 -1, i32 1
-  br label %if.end14.i161
+  br label %if.end14.i162
 
 if.else7.i.i48.i150:                              ; preds = %if.else.i.i45.i147
   %m_interval.i.i.i49.i151 = getelementptr inbounds i8, ptr %30, i64 8
@@ -41915,29 +41871,27 @@ if.else7.i.i48.i150:                              ; preds = %if.else.i.i45.i147
   %34 = load i32, ptr %m_interval.i.i.i49.i151, align 8
   %cmp.i.i.i.i.i.i.i52.i154 = icmp sgt i32 %34, 0
   %35 = select i1 %cmp.i.i.not.i.i.i.i.i51.i153, i1 %cmp.i.i.i.i.i.i.i52.i154, i1 false
-  br i1 %35, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i171, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i155
+  br i1 %35, label %if.end14.i162, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i155
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i155: ; preds = %if.else7.i.i48.i150
   %cmp.i.i.i.i4.i.i.i54.i156 = icmp eq i32 %34, 0
   %36 = select i1 %cmp.i.i.not.i.i.i.i.i51.i153, i1 %cmp.i.i.i.i4.i.i.i54.i156, i1 false
   %cond.fr.i.i55.i157 = freeze i1 %36
-  br i1 %cond.fr.i.i55.i157, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i171, label %if.end14.i161
+  %spec.select.i.i56.i158 = select i1 %cond.fr.i.i55.i157, i32 1, i32 -1
+  br label %if.end14.i162
 
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i171: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i155, %if.else7.i.i48.i150
-  br label %if.end14.i161
+if.end14.i162:                                    ; preds = %if.then3.i.i58.i172, %if.else7.i.i48.i150, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i155
+  %retval.0.i57.i160.ph = phi i32 [ %spec.select.i.i56.i158, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i155 ], [ 1, %if.else7.i.i48.i150 ], [ %cond.i.i61.i175, %if.then3.i.i58.i172 ]
+  %cmp15.i163 = icmp ne i32 %retval.0.i57.i160.ph, %prev_sign.0.i129250
+  %cmp16.i164 = icmp ne i32 %prev_sign.0.i129250, 0
+  %or.cond.i165 = and i1 %cmp16.i164, %cmp15.i163
+  %inc.i166 = zext i1 %or.cond.i165 to i32
+  %spec.select.i167 = add i32 %r.0.i131252, %inc.i166
+  br label %for.inc.i168
 
-if.end14.i161:                                    ; preds = %if.then3.i.i58.i172, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i171, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i155
-  %retval.0.i56.i159.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i155 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i171 ], [ %cond.i.i61.i175, %if.then3.i.i58.i172 ]
-  %cmp15.i162 = icmp ne i32 %retval.0.i56.i159.ph, %prev_sign.0.i129250
-  %cmp16.i163 = icmp ne i32 %prev_sign.0.i129250, 0
-  %or.cond.i164 = and i1 %cmp16.i163, %cmp15.i162
-  %inc.i165 = zext i1 %or.cond.i164 to i32
-  %spec.select.i166 = add i32 %r.0.i131252, %inc.i165
-  br label %for.inc.i167
-
-for.inc.i167:                                     ; preds = %for.body.i134, %if.end.i43.i145, %if.end14.i161
-  %prev_sign.1.i168 = phi i32 [ %retval.0.i56.i159.ph, %if.end14.i161 ], [ %prev_sign.0.i129250, %if.end.i43.i145 ], [ %prev_sign.0.i129250, %for.body.i134 ]
-  %r.2.i169 = phi i32 [ %spec.select.i166, %if.end14.i161 ], [ %r.0.i131252, %if.end.i43.i145 ], [ %r.0.i131252, %for.body.i134 ]
+for.inc.i168:                                     ; preds = %for.body.i134, %if.end.i43.i145, %if.end14.i162
+  %prev_sign.1.i169 = phi i32 [ %retval.0.i57.i160.ph, %if.end14.i162 ], [ %prev_sign.0.i129250, %if.end.i43.i145 ], [ %prev_sign.0.i129250, %for.body.i134 ]
+  %r.2.i170 = phi i32 [ %spec.select.i167, %if.end14.i162 ], [ %r.0.i131252, %if.end.i43.i145 ], [ %r.0.i131252, %for.body.i134 ]
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count275
   br i1 %exitcond276.not, label %call.i.noexc, label %for.body.i134, !llvm.loop !50
@@ -41984,8 +41938,8 @@ for.inc.i119:                                     ; preds = %if.end14.i113, %cal
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270
   br i1 %exitcond271.not, label %call.i.noexc, label %for.body.i102, !llvm.loop !50
 
-call.i.noexc:                                     ; preds = %for.inc.i207, %for.inc.i119, %for.inc.i167, %.noexc17, %.noexc20, %if.else8.i13
-  %retval.0.i14 = phi i32 [ 0, %.noexc17 ], [ 0, %.noexc20 ], [ 0, %if.else8.i13 ], [ %r.2.i169, %for.inc.i167 ], [ %r.2.i121, %for.inc.i119 ], [ %r.2.i209, %for.inc.i207 ]
+call.i.noexc:                                     ; preds = %for.inc.i207, %for.inc.i119, %for.inc.i168, %.noexc17, %.noexc20, %if.else8.i13
+  %retval.0.i14 = phi i32 [ 0, %.noexc17 ], [ 0, %.noexc20 ], [ 0, %if.else8.i13 ], [ %r.2.i170, %for.inc.i168 ], [ %r.2.i121, %for.inc.i119 ], [ %r.2.i209, %for.inc.i207 ]
   %m_upper_inf.i.i = getelementptr inbounds i8, ptr %interval, i64 49
   %42 = load i8, ptr %m_upper_inf.i.i, align 1
   %cmp.i.i.not = icmp eq i8 %42, 0
@@ -42045,19 +41999,17 @@ if.else7.i.i.i:                                   ; preds = %if.else.i.i.i
   %53 = load i32, ptr %m_interval.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp sgt i32 %53, 0
   %54 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
-  br i1 %54, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
+  br i1 %54, label %if.end14.i78, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i: ; preds = %if.else7.i.i.i
   %cmp.i.i.i.i4.i.i.i.i = icmp eq i32 %53, 0
   %55 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i4.i.i.i.i, i1 false
   %cond.fr.i.i.i = freeze i1 %55
-  br i1 %cond.fr.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %if.end14.i78
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.else7.i.i.i
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i32 1, i32 -1
   br label %if.end14.i78
 
-if.end14.i78:                                     ; preds = %if.then3.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
-  %retval.0.i.i.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i ], [ %cond.i.i.i, %if.then3.i.i.i ]
+if.end14.i78:                                     ; preds = %if.then3.i.i.i, %if.else7.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
+  %retval.0.i.i.ph = phi i32 [ %spec.select.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ], [ 1, %if.else7.i.i.i ], [ %cond.i.i.i, %if.then3.i.i.i ]
   %cmp15.i79 = icmp ne i32 %retval.0.i.i.ph, %prev_sign.0.i61253
   %cmp16.i80 = icmp ne i32 %prev_sign.0.i61253, 0
   %or.cond.i81 = and i1 %cmp16.i80, %cmp15.i79
@@ -42129,20 +42081,18 @@ if.else7.i.i48.i:                                 ; preds = %if.else.i.i45.i
   %67 = load i32, ptr %m_interval.i.i.i49.i, align 8
   %cmp.i.i.i.i.i.i.i52.i = icmp sgt i32 %67, 0
   %68 = select i1 %cmp.i.i.not.i.i.i.i.i51.i, i1 %cmp.i.i.i.i.i.i.i52.i, i1 false
-  br i1 %68, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
+  br i1 %68, label %if.end14.i47, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i: ; preds = %if.else7.i.i48.i
   %cmp.i.i.i.i4.i.i.i54.i = icmp eq i32 %67, 0
   %69 = select i1 %cmp.i.i.not.i.i.i.i.i51.i, i1 %cmp.i.i.i.i4.i.i.i54.i, i1 false
   %cond.fr.i.i55.i = freeze i1 %69
-  br i1 %cond.fr.i.i55.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, label %if.end14.i47
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i, %if.else7.i.i48.i
+  %spec.select.i.i56.i = select i1 %cond.fr.i.i55.i, i32 1, i32 -1
   br label %if.end14.i47
 
-if.end14.i47:                                     ; preds = %if.then3.i.i58.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
-  %retval.0.i56.i.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i ], [ %cond.i.i61.i, %if.then3.i.i58.i ]
-  %cmp15.i48 = icmp ne i32 %retval.0.i56.i.ph, %prev_sign.0.i31259
+if.end14.i47:                                     ; preds = %if.then3.i.i58.i, %if.else7.i.i48.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
+  %retval.0.i57.i.ph = phi i32 [ %spec.select.i.i56.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i ], [ 1, %if.else7.i.i48.i ], [ %cond.i.i61.i, %if.then3.i.i58.i ]
+  %cmp15.i48 = icmp ne i32 %retval.0.i57.i.ph, %prev_sign.0.i31259
   %cmp16.i49 = icmp ne i32 %prev_sign.0.i31259, 0
   %or.cond.i50 = and i1 %cmp16.i49, %cmp15.i48
   %inc.i51 = zext i1 %or.cond.i50 to i32
@@ -42150,7 +42100,7 @@ if.end14.i47:                                     ; preds = %if.then3.i.i58.i, %
   br label %for.inc.i53
 
 for.inc.i53:                                      ; preds = %for.body.i36, %if.end.i43.i, %if.end14.i47
-  %prev_sign.1.i54 = phi i32 [ %retval.0.i56.i.ph, %if.end14.i47 ], [ %prev_sign.0.i31259, %if.end.i43.i ], [ %prev_sign.0.i31259, %for.body.i36 ]
+  %prev_sign.1.i54 = phi i32 [ %retval.0.i57.i.ph, %if.end14.i47 ], [ %prev_sign.0.i31259, %if.end.i43.i ], [ %prev_sign.0.i31259, %for.body.i36 ]
   %r.2.i55 = phi i32 [ %spec.select.i52, %if.end14.i47 ], [ %r.0.i33261, %if.end.i43.i ], [ %r.0.i33261, %for.body.i36 ]
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond291.not = icmp eq i64 %indvars.iv.next288, %wide.trip.count290
@@ -42582,15 +42532,13 @@ if.else7.i.i29.i:                                 ; preds = %if.else.i.i26.i
   %11 = load i32, ptr %m_interval.i.i.i30.i, align 8
   %cmp.i.i.i.i.i.i.i33.i = icmp sgt i32 %11, 0
   %12 = select i1 %cmp.i.i.not.i.i.i.i.i32.i, i1 %cmp.i.i.i.i.i.i.i33.i, i1 false
-  br i1 %12, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i
+  br i1 %12, label %if.end14.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i: ; preds = %if.else7.i.i29.i
   %cmp.i.i.i.i4.i.i.i35.i = icmp eq i32 %11, 0
   %13 = select i1 %cmp.i.i.not.i.i.i.i.i32.i, i1 %cmp.i.i.i.i4.i.i.i35.i, i1 false
   %cond.fr.i.i36.i = freeze i1 %13
-  br i1 %cond.fr.i.i36.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, label %if.end14.i
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.else7.i.i29.i
+  %spec.select.i.i37.i = select i1 %cond.fr.i.i36.i, i32 1, i32 -1
   br label %if.end14.i
 
 if.else.i.i:                                      ; preds = %if.end.i20.i
@@ -42617,19 +42565,17 @@ if.else7.i9.i.i:                                  ; preds = %if.else.i6.i.i
   %17 = load i32, ptr %m_interval.i.i10.i.i, align 8
   %cmp.i.i.i.i.i.i13.i.i = icmp sgt i32 %17, 0
   %18 = select i1 %cmp.i.i.not.i.i.i.i12.i.i, i1 %cmp.i.i.i.i.i.i13.i.i, i1 false
-  br i1 %18, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
+  br i1 %18, label %if.end14.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i: ; preds = %if.else7.i9.i.i
   %cmp.i.i.i.i4.i.i15.i.i = icmp eq i32 %17, 0
   %19 = select i1 %cmp.i.i.not.i.i.i.i12.i.i, i1 %cmp.i.i.i.i4.i.i15.i.i, i1 false
   %cond.fr.i16.i.i = freeze i1 %19
-  br i1 %cond.fr.i16.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, label %if.end14.i
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i, %if.else7.i9.i.i
+  %spec.select.i17.neg.i.i = select i1 %cond.fr.i16.i.i, i32 -1, i32 1
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.then3.i.i38.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.then3.i19.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
-  %retval.0.i25.i.ph = phi i32 [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i18.i.i ], [ %cond.i22.neg.i.i, %if.then3.i19.i.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i37.i ], [ %cond.i.i41.i, %if.then3.i.i38.i ]
+if.end14.i:                                       ; preds = %if.then3.i.i38.i, %if.else7.i.i29.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i, %if.then3.i19.i.i, %if.else7.i9.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i
+  %retval.0.i25.i.ph = phi i32 [ %spec.select.i17.neg.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i14.i.i ], [ -1, %if.else7.i9.i.i ], [ %cond.i22.neg.i.i, %if.then3.i19.i.i ], [ %spec.select.i.i37.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i34.i ], [ 1, %if.else7.i.i29.i ], [ %cond.i.i41.i, %if.then3.i.i38.i ]
   %cmp15.i = icmp ne i32 %retval.0.i25.i.ph, %prev_sign.0.i84
   %cmp16.i = icmp ne i32 %prev_sign.0.i84, 0
   %or.cond.i = and i1 %cmp16.i, %cmp15.i
@@ -42704,20 +42650,18 @@ if.else7.i.i48.i:                                 ; preds = %if.else.i.i45.i
   %31 = load i32, ptr %m_interval.i.i.i49.i, align 8
   %cmp.i.i.i.i.i.i.i52.i = icmp sgt i32 %31, 0
   %32 = select i1 %cmp.i.i.not.i.i.i.i.i51.i, i1 %cmp.i.i.i.i.i.i.i52.i, i1 false
-  br i1 %32, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
+  br i1 %32, label %if.end14.i28, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i: ; preds = %if.else7.i.i48.i
   %cmp.i.i.i.i4.i.i.i54.i = icmp eq i32 %31, 0
   %33 = select i1 %cmp.i.i.not.i.i.i.i.i51.i, i1 %cmp.i.i.i.i4.i.i.i54.i, i1 false
   %cond.fr.i.i55.i = freeze i1 %33
-  br i1 %cond.fr.i.i55.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, label %if.end14.i28
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i, %if.else7.i.i48.i
+  %spec.select.i.i56.i = select i1 %cond.fr.i.i55.i, i32 1, i32 -1
   br label %if.end14.i28
 
-if.end14.i28:                                     ; preds = %if.then3.i.i58.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
-  %retval.0.i56.i.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i ], [ %cond.i.i61.i, %if.then3.i.i58.i ]
-  %cmp15.i29 = icmp ne i32 %retval.0.i56.i.ph, %prev_sign.0.i1290
+if.end14.i28:                                     ; preds = %if.then3.i.i58.i, %if.else7.i.i48.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
+  %retval.0.i57.i.ph = phi i32 [ %spec.select.i.i56.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i ], [ 1, %if.else7.i.i48.i ], [ %cond.i.i61.i, %if.then3.i.i58.i ]
+  %cmp15.i29 = icmp ne i32 %retval.0.i57.i.ph, %prev_sign.0.i1290
   %cmp16.i30 = icmp ne i32 %prev_sign.0.i1290, 0
   %or.cond.i31 = and i1 %cmp16.i30, %cmp15.i29
   %inc.i32 = zext i1 %or.cond.i31 to i32
@@ -42725,7 +42669,7 @@ if.end14.i28:                                     ; preds = %if.then3.i.i58.i, %
   br label %for.inc.i34
 
 for.inc.i34:                                      ; preds = %for.body.i17, %if.end.i43.i, %if.end14.i28
-  %prev_sign.1.i35 = phi i32 [ %retval.0.i56.i.ph, %if.end14.i28 ], [ %prev_sign.0.i1290, %if.end.i43.i ], [ %prev_sign.0.i1290, %for.body.i17 ]
+  %prev_sign.1.i35 = phi i32 [ %retval.0.i57.i.ph, %if.end14.i28 ], [ %prev_sign.0.i1290, %if.end.i43.i ], [ %prev_sign.0.i1290, %for.body.i17 ]
   %r.2.i36 = phi i32 [ %spec.select.i33, %if.end14.i28 ], [ %r.0.i1492, %if.end.i43.i ], [ %r.0.i1492, %for.body.i17 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
@@ -42844,19 +42788,17 @@ if.else7.i.i.i:                                   ; preds = %if.else.i.i.i
   %11 = load i32, ptr %m_interval.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp sgt i32 %11, 0
   %12 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 false
-  br i1 %12, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
+  br i1 %12, label %if.end14.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i: ; preds = %if.else7.i.i.i
   %cmp.i.i.i.i4.i.i.i.i = icmp eq i32 %11, 0
   %13 = select i1 %cmp.i.i.not.i.i.i.i.i.i, i1 %cmp.i.i.i.i4.i.i.i.i, i1 false
   %cond.fr.i.i.i = freeze i1 %13
-  br i1 %cond.fr.i.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, label %if.end14.i
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i, %if.else7.i.i.i
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i32 1, i32 -1
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.then3.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
-  %retval.0.i.i.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i.i ], [ %cond.i.i.i, %if.then3.i.i.i ]
+if.end14.i:                                       ; preds = %if.then3.i.i.i, %if.else7.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i
+  %retval.0.i.i.ph = phi i32 [ %spec.select.i.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i.i ], [ 1, %if.else7.i.i.i ], [ %cond.i.i.i, %if.then3.i.i.i ]
   %cmp15.i = icmp ne i32 %retval.0.i.i.ph, %prev_sign.0.i86
   %cmp16.i = icmp ne i32 %prev_sign.0.i86, 0
   %or.cond.i = and i1 %cmp16.i, %cmp15.i
@@ -42932,20 +42874,18 @@ if.else7.i.i48.i:                                 ; preds = %if.else.i.i45.i
   %25 = load i32, ptr %m_interval.i.i.i49.i, align 8
   %cmp.i.i.i.i.i.i.i52.i = icmp sgt i32 %25, 0
   %26 = select i1 %cmp.i.i.not.i.i.i.i.i51.i, i1 %cmp.i.i.i.i.i.i.i52.i, i1 false
-  br i1 %26, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
+  br i1 %26, label %if.end14.i30, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i: ; preds = %if.else7.i.i48.i
   %cmp.i.i.i.i4.i.i.i54.i = icmp eq i32 %25, 0
   %27 = select i1 %cmp.i.i.not.i.i.i.i.i51.i, i1 %cmp.i.i.i.i4.i.i.i54.i, i1 false
   %cond.fr.i.i55.i = freeze i1 %27
-  br i1 %cond.fr.i.i55.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, label %if.end14.i30
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i, %if.else7.i.i48.i
+  %spec.select.i.i56.i = select i1 %cond.fr.i.i55.i, i32 1, i32 -1
   br label %if.end14.i30
 
-if.end14.i30:                                     ; preds = %if.then3.i.i58.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
-  %retval.0.i56.i.ph = phi i32 [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i57.i ], [ %cond.i.i61.i, %if.then3.i.i58.i ]
-  %cmp15.i31 = icmp ne i32 %retval.0.i56.i.ph, %prev_sign.0.i1492
+if.end14.i30:                                     ; preds = %if.then3.i.i58.i, %if.else7.i.i48.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i
+  %retval.0.i57.i.ph = phi i32 [ %spec.select.i.i56.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i53.i ], [ 1, %if.else7.i.i48.i ], [ %cond.i.i61.i, %if.then3.i.i58.i ]
+  %cmp15.i31 = icmp ne i32 %retval.0.i57.i.ph, %prev_sign.0.i1492
   %cmp16.i32 = icmp ne i32 %prev_sign.0.i1492, 0
   %or.cond.i33 = and i1 %cmp16.i32, %cmp15.i31
   %inc.i34 = zext i1 %or.cond.i33 to i32
@@ -42953,7 +42893,7 @@ if.end14.i30:                                     ; preds = %if.then3.i.i58.i, %
   br label %for.inc.i36
 
 for.inc.i36:                                      ; preds = %for.body.i19, %if.end.i43.i, %if.end14.i30
-  %prev_sign.1.i37 = phi i32 [ %retval.0.i56.i.ph, %if.end14.i30 ], [ %prev_sign.0.i1492, %if.end.i43.i ], [ %prev_sign.0.i1492, %for.body.i19 ]
+  %prev_sign.1.i37 = phi i32 [ %retval.0.i57.i.ph, %if.end14.i30 ], [ %prev_sign.0.i1492, %if.end.i43.i ], [ %prev_sign.0.i1492, %for.body.i19 ]
   %r.2.i38 = phi i32 [ %spec.select.i35, %if.end14.i30 ], [ %r.0.i1694, %if.end.i43.i ], [ %r.0.i1694, %for.body.i19 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
@@ -43943,15 +43883,12 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
   %48 = load i32, ptr %m_interval.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i103 = icmp sgt i32 %48, 0
   %49 = select i1 %cmp.i.i.not.i.i.i.i.i102, i1 %cmp.i.i.i.i.i.i.i103, i1 false
-  br i1 %49, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i
+  br i1 %49, label %invoke.cont24, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i: ; preds = %if.else7.i.i
   %cmp.i.i.i.i4.i.i.i = icmp eq i32 %48, 0
   %50 = select i1 %cmp.i.i.not.i.i.i.i.i102, i1 %cmp.i.i.i.i4.i.i.i, i1 false
   %cond.fr.i.i = freeze i1 %50
-  br i1 %cond.fr.i.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, label %invoke.cont24
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.else7.i.i
   br label %invoke.cont24
 
 for.end.i96:                                      ; preds = %for.cond.i
@@ -43962,8 +43899,8 @@ for.end.i96:                                      ; preds = %for.cond.i
   tail call void @exit(i32 noundef 114) #20
   unreachable
 
-invoke.cont24:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.then3.i.i
-  %retval.0.i9.i = phi i1 [ %cmp.i.i.i.inv.i.i, %if.then3.i.i ], [ true, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i ], [ false, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i ]
+invoke.cont24:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i, %if.else7.i.i, %if.then3.i.i
+  %retval.0.i9.i = phi i1 [ %cmp.i.i.i.inv.i.i, %if.then3.i.i ], [ true, %if.else7.i.i ], [ %cond.fr.i.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i ]
   invoke void @_ZN11realclosure7manager3imp17add_infinitesimalERKNS_11mpbq_config8intervalEbRK4mpbqRS3_(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i, i1 noundef zeroext %retval.0.i9.i, ptr noundef nonnull align 8 dereferenceable(20) %tiny_value, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i77)
           to label %if.end unwind label %lpad19
 
@@ -44030,15 +43967,12 @@ if.else7.i.i131:                                  ; preds = %if.else.i.i128
   %59 = load i32, ptr %m_interval.i.i.i132, align 8
   %cmp.i.i.i.i.i.i.i135 = icmp sgt i32 %59, 0
   %60 = select i1 %cmp.i.i.not.i.i.i.i.i134, i1 %cmp.i.i.i.i.i.i.i135, i1 false
-  br i1 %60, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i140, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i136
+  br i1 %60, label %invoke.cont37, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i136
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i136: ; preds = %if.else7.i.i131
   %cmp.i.i.i.i4.i.i.i137 = icmp eq i32 %59, 0
   %61 = select i1 %cmp.i.i.not.i.i.i.i.i134, i1 %cmp.i.i.i.i4.i.i.i137, i1 false
   %cond.fr.i.i138 = freeze i1 %61
-  br i1 %cond.fr.i.i138, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i140, label %invoke.cont37
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i140: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i136, %if.else7.i.i131
   br label %invoke.cont37
 
 for.end.i121:                                     ; preds = %for.cond.i145
@@ -44049,9 +43983,9 @@ for.end.i121:                                     ; preds = %for.cond.i145
   call void @exit(i32 noundef 114) #20
   unreachable
 
-invoke.cont37:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i140, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i136, %if.then3.i.i141
-  %retval.0.i9.i139 = phi i1 [ %cmp.i.i.i.inv.i.i143, %if.then3.i.i141 ], [ true, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i.i140 ], [ false, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i136 ]
-  invoke void @_ZN11realclosure7manager3imp17add_infinitesimalERKNS_11mpbq_config8intervalEbRK4mpbqRS3_(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i48, i1 noundef zeroext %retval.0.i9.i139, ptr noundef nonnull align 8 dereferenceable(20) %tiny_value, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i80)
+invoke.cont37:                                    ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i136, %if.else7.i.i131, %if.then3.i.i141
+  %retval.0.i9.i140 = phi i1 [ %cmp.i.i.i.inv.i.i143, %if.then3.i.i141 ], [ true, %if.else7.i.i131 ], [ %cond.fr.i.i138, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i.i136 ]
+  invoke void @_ZN11realclosure7manager3imp17add_infinitesimalERKNS_11mpbq_config8intervalEbRK4mpbqRS3_(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i48, i1 noundef zeroext %retval.0.i9.i140, ptr noundef nonnull align 8 dereferenceable(20) %tiny_value, ptr noundef nonnull align 8 dereferenceable(52) %m_interval.i80)
           to label %if.end47 unwind label %lpad19
 
 if.else42:                                        ; preds = %if.end, %_ZNK5arrayIPN11realclosure5valueELb0EE4sizeEv.exit115
@@ -44145,19 +44079,17 @@ if.else7.i:                                       ; preds = %if.else.i
   %84 = load i32, ptr %m_interval.i.i, align 8
   %cmp.i.i.i.i.i.i169 = icmp sgt i32 %84, 0
   %85 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i169, i1 false
-  br i1 %85, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  br i1 %85, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i: ; preds = %if.else7.i
   %cmp.i.i.i.i4.i.i = icmp eq i32 %84, 0
   %86 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
   %cond.fr.i = freeze i1 %86
-  br i1 %cond.fr.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i
+  %spec.select.i = select i1 %cond.fr.i, i32 1, i32 -1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
 
-_ZN11realclosure7manager3imp4signEPNS_5valueE.exit: ; preds = %if.else54, %if.then3.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i
-  %retval.0.i170 = phi i32 [ %cond.i, %if.then3.i ], [ 0, %if.else54 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
+_ZN11realclosure7manager3imp4signEPNS_5valueE.exit: ; preds = %if.else54, %if.then3.i, %if.else7.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  %retval.0.i170 = phi i32 [ %cond.i, %if.then3.i ], [ 0, %if.else54 ], [ 1, %if.else7.i ], [ %spec.select.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
   %idxprom.i171 = and i64 %indvars.iv.i40, 4294967295
   %arrayidx.i172 = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i171
   %87 = load ptr, ptr %arrayidx.i172, align 8
@@ -44185,20 +44117,18 @@ if.else7.i177:                                    ; preds = %if.else.i174
   %91 = load i32, ptr %m_interval.i.i178, align 8
   %cmp.i.i.i.i.i.i181 = icmp sgt i32 %91, 0
   %92 = select i1 %cmp.i.i.not.i.i.i.i180, i1 %cmp.i.i.i.i.i.i181, i1 false
-  br i1 %92, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182
+  br i1 %92, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit191, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182: ; preds = %if.else7.i177
   %cmp.i.i.i.i4.i.i183 = icmp eq i32 %91, 0
   %93 = select i1 %cmp.i.i.not.i.i.i.i180, i1 %cmp.i.i.i.i4.i.i183, i1 false
   %cond.fr.i184 = freeze i1 %93
-  br i1 %cond.fr.i184, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit191
-
-_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182, %if.else7.i177
+  %spec.select.i185 = select i1 %cond.fr.i184, i32 1, i32 -1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit191
 
-_ZN11realclosure7manager3imp4signEPNS_5valueE.exit191: ; preds = %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, %if.then3.i187, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186
-  %retval.0.i185 = phi i32 [ %cond.i190, %if.then3.i187 ], [ 0, %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186 ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182 ]
-  %mul = mul nsw i32 %retval.0.i185, %retval.0.i170
+_ZN11realclosure7manager3imp4signEPNS_5valueE.exit191: ; preds = %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, %if.then3.i187, %if.else7.i177, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182
+  %retval.0.i186 = phi i32 [ %cond.i190, %if.then3.i187 ], [ 0, %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit ], [ 1, %if.else7.i177 ], [ %spec.select.i185, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182 ]
+  %mul = mul nsw i32 %retval.0.i186, %retval.0.i170
   %cmp61 = icmp eq i32 %mul, 1
   %m_interval.i192 = getelementptr inbounds i8, ptr %v, i64 8
   br i1 %cmp, label %if.then60, label %if.else71
@@ -50501,15 +50431,14 @@ if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops
 
 lor.rhs.i.i.i40.i:                                ; preds = %if.else.i
   %cmp4.i.i.i41.i = icmp eq i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i24.i
-  br i1 %cmp4.i.i.i41.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i, label %if.else5.i
+  br i1 %cmp4.i.i.i41.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i: ; preds = %lor.rhs.i.i.i40.i
   %bf.lshr.i.i.i.i43.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i44.i = lshr i32 %bf.load.i6.i.i.i23.i, 2
   %cmp7.i.i.i45.i = icmp ult i32 %bf.lshr.i.i.i.i43.i, %bf.lshr.i17.i.i.i44.i
-  br i1 %cmp7.i.i.i45.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %if.else5.i
-
-if.else5.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i, %lor.rhs.i.i.i40.i
+  %spec.select.i = select i1 %cmp7.i.i.i45.i, ptr %2, ptr %0
+  %spec.select81.i = select i1 %cmp7.i.i.i45.i, ptr %add.ptr2, ptr %add.ptr1
   br label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit
 
 if.else7.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i
@@ -50536,20 +50465,19 @@ if.else10.i:                                      ; preds = %_ZN9__gnu_cxx5__ops
 
 lor.rhs.i.i.i68.i:                                ; preds = %if.else10.i
   %cmp4.i.i.i69.i = icmp eq i32 %bf.clear.i7.i.i.i.i, %bf.clear.i7.i.i.i52.i
-  br i1 %cmp4.i.i.i69.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i, label %if.else13.i
+  br i1 %cmp4.i.i.i69.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i: ; preds = %lor.rhs.i.i.i68.i
   %bf.lshr.i.i.i.i71.i = lshr i32 %bf.load.i6.i.i.i.i, 2
   %bf.lshr.i17.i.i.i72.i = lshr i32 %bf.load.i6.i.i.i51.i, 2
   %cmp7.i.i.i73.i = icmp ult i32 %bf.lshr.i.i.i.i71.i, %bf.lshr.i17.i.i.i72.i
-  br i1 %cmp7.i.i.i73.i, label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit, label %if.else13.i
-
-if.else13.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i, %lor.rhs.i.i.i68.i
+  %spec.select82.i = select i1 %cmp7.i.i.i73.i, ptr %3, ptr %1
+  %spec.select83.i = select i1 %cmp7.i.i.i73.i, ptr %add.ptr2, ptr %add.ptr
   br label %_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit
 
-_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit: ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit32.i, %if.else.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i, %if.else5.i, %if.else7.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit60.i, %if.else10.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i, %if.else13.i
-  %.sink80.i = phi ptr [ %1, %if.else13.i ], [ %0, %if.else5.i ], [ %1, %if.then.i ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit32.i ], [ %2, %if.else.i ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i ], [ %0, %if.else7.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit60.i ], [ %3, %if.else10.i ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i ]
-  %__a.sink.i = phi ptr [ %add.ptr, %if.else13.i ], [ %add.ptr1, %if.else5.i ], [ %add.ptr, %if.then.i ], [ %add.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit32.i ], [ %add.ptr2, %if.else.i ], [ %add.ptr2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i ], [ %add.ptr1, %if.else7.i ], [ %add.ptr1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit60.i ], [ %add.ptr2, %if.else10.i ], [ %add.ptr2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i ]
+_ZSt22__move_median_to_firstIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_S9_T0_.exit: ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit32.i, %if.else.i, %lor.rhs.i.i.i40.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i, %if.else7.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit60.i, %if.else10.i, %lor.rhs.i.i.i68.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i
+  %.sink80.i = phi ptr [ %1, %if.then.i ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit32.i ], [ %2, %if.else.i ], [ %0, %lor.rhs.i.i.i40.i ], [ %0, %if.else7.i ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit60.i ], [ %3, %if.else10.i ], [ %1, %lor.rhs.i.i.i68.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i ], [ %spec.select82.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i ]
+  %__a.sink.i = phi ptr [ %add.ptr, %if.then.i ], [ %add.ptr, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit32.i ], [ %add.ptr2, %if.else.i ], [ %add.ptr1, %lor.rhs.i.i.i40.i ], [ %add.ptr1, %if.else7.i ], [ %add.ptr1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit60.i ], [ %add.ptr2, %if.else10.i ], [ %add.ptr, %lor.rhs.i.i.i68.i ], [ %spec.select81.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit46.i ], [ %spec.select83.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit74.i ]
   %4 = load ptr, ptr %__first, align 8
   store ptr %.sink80.i, ptr %__first, align 8
   store ptr %4, ptr %__a.sink.i, align 8
@@ -50635,12 +50563,12 @@ if.end.split:                                     ; preds = %entry
   %add.ptr9 = getelementptr inbounds ptr, ptr %__first, i64 %div11
   %0 = load ptr, ptr %add.ptr9, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i8183 = lshr i64 %sub.i, 1
-  %cmp26.i = icmp ugt i64 %div.i8183, %div11
+  %div.i8284 = lshr i64 %sub.i, 1
+  %cmp26.i = icmp ugt i64 %div.i8284, %div11
   br i1 %cmp26.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
-  %__secondChild.027.i = phi i64 [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i ], [ %div11, %if.end.split ]
+while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
+  %__secondChild.027.i = phi i64 [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %div11, %if.end.split ]
   %add.i = shl i64 %__secondChild.027.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i
@@ -50659,28 +50587,27 @@ while.body.i:                                     ; preds = %if.end.split, %_ZN9
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
   %cmp4.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
-  br i1 %cmp4.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
+  br i1 %cmp4.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i, 2
   %cmp7.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i.i.i
-  br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
+  %spec.select.i = select i1 %cond.fr.i, i64 %sub1.i, i64 %mul.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %while.body.i
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i
-  %3 = phi ptr [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %1, %lor.rhs.i.i.i.i ]
-  %4 = phi i64 [ %sub1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %mul.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %mul.i, %lor.rhs.i.i.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i, %while.body.i
+  %3 = phi i64 [ %sub1.i, %while.body.i ], [ %mul.i, %lor.rhs.i.i.i.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ]
+  %add.ptr3.i = getelementptr inbounds ptr, ptr %__first, i64 %3
+  %4 = load ptr, ptr %add.ptr3.i, align 8
   %add.ptr4.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.027.i
-  store ptr %3, ptr %add.ptr4.i, align 8
-  %cmp.i = icmp slt i64 %4, %div.i8183
+  store ptr %4, ptr %add.ptr4.i, align 8
+  %cmp.i = icmp slt i64 %3, %div.i8284
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !123
 
-while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i, %if.end.split
-  %__secondChild.0.lcssa.i = phi i64 [ %div11, %if.end.split ], [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i ]
+while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, %if.end.split
+  %__secondChild.0.lcssa.i = phi i64 [ %div11, %if.end.split ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ]
   %5 = and i64 %sub.ptr.sub, 8
   %cmp5.i = icmp eq i64 %5, 0
   %div7.i = ashr exact i64 %sub, 1
@@ -50740,8 +50667,8 @@ _ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.015.i.i, %lor.rhs.i.i.i.i.i ], [ %__parent.016.i.i, %while.body.i.i ], [ %__holeIndex.addr.015.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
   store ptr %0, ptr %add.ptr5.i.i, align 8
-  %cmp585 = icmp ult i64 %sub, 2
-  br i1 %cmp585, label %return, label %if.end7.split.lr.ph
+  %cmp586 = icmp ult i64 %sub, 2
+  br i1 %cmp586, label %return, label %if.end7.split.lr.ph
 
 if.end7.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
   %sub12.i52 = or disjoint i64 %sub, 1
@@ -50749,16 +50676,16 @@ if.end7.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
   %add.ptr14.i54 = getelementptr inbounds ptr, ptr %__first, i64 %div7.i
   br label %if.end7.split
 
-if.end7.split:                                    ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80
-  %__parent.086 = phi i64 [ %div11, %if.end7.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80 ]
-  %dec = add nsw i64 %__parent.086, -1
+if.end7.split:                                    ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit81
+  %__parent.087 = phi i64 [ %div11, %if.end7.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit81 ]
+  %dec = add nsw i64 %__parent.087, -1
   %add.ptr10 = getelementptr inbounds ptr, ptr %__first, i64 %dec
   %8 = load ptr, ptr %add.ptr10, align 8
-  %cmp26.i14.not = icmp slt i64 %div.i8183, %__parent.086
+  %cmp26.i14.not = icmp slt i64 %div.i8284, %__parent.087
   br i1 %cmp26.i14.not, label %while.end.i15, label %while.body.i55
 
-while.body.i55:                                   ; preds = %if.end7.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
-  %__secondChild.027.i56 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71 ], [ %dec, %if.end7.split ]
+while.body.i55:                                   ; preds = %if.end7.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i71
+  %__secondChild.027.i56 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i71 ], [ %dec, %if.end7.split ]
   %add.i57 = shl i64 %__secondChild.027.i56, 1
   %mul.i58 = add i64 %add.i57, 2
   %add.ptr.i59 = getelementptr inbounds ptr, ptr %__first, i64 %mul.i58
@@ -50773,35 +50700,34 @@ while.body.i55:                                   ; preds = %if.end7.split, %_ZN
   %bf.load.i6.i.i.i.i66 = load i32, ptr %m_kind.i5.i.i.i.i65, align 4
   %bf.clear.i7.i.i.i.i67 = and i32 %bf.load.i6.i.i.i.i66, 3
   %cmp.i.i.i.i68 = icmp ult i32 %bf.clear.i.i.i.i.i64, %bf.clear.i7.i.i.i.i67
-  br i1 %cmp.i.i.i.i68, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79, label %lor.rhs.i.i.i.i69
+  br i1 %cmp.i.i.i.i68, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i71, label %lor.rhs.i.i.i.i69
 
 lor.rhs.i.i.i.i69:                                ; preds = %while.body.i55
   %cmp4.i.i.i.i70 = icmp eq i32 %bf.clear.i.i.i.i.i64, %bf.clear.i7.i.i.i.i67
-  br i1 %cmp4.i.i.i.i70, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
+  br i1 %cmp4.i.i.i.i70, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i71
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74: ; preds = %lor.rhs.i.i.i.i69
-  %bf.lshr.i.i.i.i.i75 = lshr i32 %bf.load.i.i.i.i.i63, 2
-  %bf.lshr.i17.i.i.i.i76 = lshr i32 %bf.load.i6.i.i.i.i66, 2
-  %cmp7.i.i.i.i77 = icmp ult i32 %bf.lshr.i.i.i.i.i75, %bf.lshr.i17.i.i.i.i76
-  %cond.fr.i78 = freeze i1 %cmp7.i.i.i.i77
-  br i1 %cond.fr.i78, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i75: ; preds = %lor.rhs.i.i.i.i69
+  %bf.lshr.i.i.i.i.i76 = lshr i32 %bf.load.i.i.i.i.i63, 2
+  %bf.lshr.i17.i.i.i.i77 = lshr i32 %bf.load.i6.i.i.i.i66, 2
+  %cmp7.i.i.i.i78 = icmp ult i32 %bf.lshr.i.i.i.i.i76, %bf.lshr.i17.i.i.i.i77
+  %cond.fr.i79 = freeze i1 %cmp7.i.i.i.i78
+  %spec.select.i80 = select i1 %cond.fr.i79, i64 %sub1.i60, i64 %mul.i58
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i71
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74, %while.body.i55
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i71: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i75, %lor.rhs.i.i.i.i69, %while.body.i55
+  %11 = phi i64 [ %sub1.i60, %while.body.i55 ], [ %mul.i58, %lor.rhs.i.i.i.i69 ], [ %spec.select.i80, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i75 ]
+  %add.ptr3.i72 = getelementptr inbounds ptr, ptr %__first, i64 %11
+  %12 = load ptr, ptr %add.ptr3.i72, align 8
+  %add.ptr4.i73 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.027.i56
+  store ptr %12, ptr %add.ptr4.i73, align 8
+  %cmp.i74 = icmp slt i64 %11, %div.i8284
+  br i1 %cmp.i74, label %while.body.i55, label %while.end.i15, !llvm.loop !123
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74, %lor.rhs.i.i.i.i69
-  %11 = phi ptr [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79 ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74 ], [ %9, %lor.rhs.i.i.i.i69 ]
-  %12 = phi i64 [ %sub1.i60, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i79 ], [ %mul.i58, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i74 ], [ %mul.i58, %lor.rhs.i.i.i.i69 ]
-  %add.ptr4.i72 = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.027.i56
-  store ptr %11, ptr %add.ptr4.i72, align 8
-  %cmp.i73 = icmp slt i64 %12, %div.i8183
-  br i1 %cmp.i73, label %while.body.i55, label %while.end.i15, !llvm.loop !123
-
-while.end.i15:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71, %if.end7.split
-  %__secondChild.0.lcssa.i16 = phi i64 [ %dec, %if.end7.split ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i71 ]
+while.end.i15:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i71, %if.end7.split
+  %__secondChild.0.lcssa.i16 = phi i64 [ %dec, %if.end7.split ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i71 ]
   %cmp8.i49 = icmp eq i64 %__secondChild.0.lcssa.i16, %div7.i
-  %or.cond82 = select i1 %cmp5.i, i1 %cmp8.i49, i1 false
-  br i1 %or.cond82, label %if.then9.i50, label %if.end16.i19
+  %or.cond83 = select i1 %cmp5.i, i1 %cmp8.i49, i1 false
+  br i1 %or.cond83, label %if.then9.i50, label %if.end16.i19
 
 if.then9.i50:                                     ; preds = %while.end.i15
   %13 = load ptr, ptr %add.ptr13.i53, align 8
@@ -50810,8 +50736,8 @@ if.then9.i50:                                     ; preds = %while.end.i15
 
 if.end16.i19:                                     ; preds = %if.then9.i50, %while.end.i15
   %__holeIndex.addr.1.i20 = phi i64 [ %sub12.i52, %if.then9.i50 ], [ %__secondChild.0.lcssa.i16, %while.end.i15 ]
-  %cmp14.i.i21.not = icmp slt i64 %__holeIndex.addr.1.i20, %__parent.086
-  br i1 %cmp14.i.i21.not, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80, label %land.rhs.lr.ph.i.i24
+  %cmp14.i.i21.not = icmp slt i64 %__holeIndex.addr.1.i20, %__parent.087
+  br i1 %cmp14.i.i21.not, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit81, label %land.rhs.lr.ph.i.i24
 
 land.rhs.lr.ph.i.i24:                             ; preds = %if.end16.i19
   %m_kind.i5.i.i.i.i.i25 = getelementptr inbounds i8, ptr %8, i64 4
@@ -50833,28 +50759,28 @@ land.rhs.i.i26:                                   ; preds = %while.body.i.i43, %
 
 lor.rhs.i.i.i.i.i37:                              ; preds = %land.rhs.i.i26
   %cmp4.i.i.i.i.i38 = icmp eq i32 %bf.clear.i.i.i.i.i.i33, %bf.clear.i7.i.i.i.i.i35
-  br i1 %cmp4.i.i.i.i.i38, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80
+  br i1 %cmp4.i.i.i.i.i38, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit81
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39: ; preds = %lor.rhs.i.i.i.i.i37
   %bf.lshr.i.i.i.i.i.i40 = lshr i32 %bf.load.i.i.i.i.i.i32, 2
   %bf.lshr.i17.i.i.i.i.i41 = lshr i32 %bf.load.i6.i.i.i.i.i34, 2
   %cmp7.i.i.i.i.i42 = icmp ult i32 %bf.lshr.i.i.i.i.i.i40, %bf.lshr.i17.i.i.i.i.i41
-  br i1 %cmp7.i.i.i.i.i42, label %while.body.i.i43, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80
+  br i1 %cmp7.i.i.i.i.i42, label %while.body.i.i43, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit81
 
 while.body.i.i43:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, %land.rhs.i.i26
   %add.ptr2.i.i44 = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.015.i.i27
   store ptr %14, ptr %add.ptr2.i.i44, align 8
-  %cmp.i.i45.not = icmp slt i64 %__parent.016.i.i29, %__parent.086
-  br i1 %cmp.i.i45.not, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80, label %land.rhs.i.i26, !llvm.loop !124
+  %cmp.i.i45.not = icmp slt i64 %__parent.016.i.i29, %__parent.087
+  br i1 %cmp.i.i45.not, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit81, label %land.rhs.i.i26, !llvm.loop !124
 
-_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80: ; preds = %lor.rhs.i.i.i.i.i37, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, %while.body.i.i43, %if.end16.i19
+_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit81: ; preds = %lor.rhs.i.i.i.i.i37, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39, %while.body.i.i43, %if.end16.i19
   %__holeIndex.addr.0.lcssa.i.i22 = phi i64 [ %__holeIndex.addr.1.i20, %if.end16.i19 ], [ %__holeIndex.addr.015.i.i27, %lor.rhs.i.i.i.i.i37 ], [ %__parent.016.i.i29, %while.body.i.i43 ], [ %__holeIndex.addr.015.i.i27, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i39 ]
   %add.ptr5.i.i23 = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i22
   store ptr %8, ptr %add.ptr5.i.i23, align 8
   %cmp5 = icmp eq i64 %dec, 0
   br i1 %cmp5, label %return, label %if.end7.split, !llvm.loop !125
 
-return:                                           ; preds = %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit, %entry
+return:                                           ; preds = %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit81, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit, %entry
   ret void
 }
 
@@ -50873,8 +50799,8 @@ entry:
   %cmp26.i = icmp sgt i64 %sub.ptr.div, 2
   br i1 %cmp26.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
-  %__secondChild.027.i = phi i64 [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i ], [ 0, %entry ]
+while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
+  %__secondChild.027.i = phi i64 [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ 0, %entry ]
   %add.i = shl i64 %__secondChild.027.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i
@@ -50893,28 +50819,27 @@ while.body.i:                                     ; preds = %entry, %_ZN9__gnu_c
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.body.i
   %cmp4.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i, %bf.clear.i7.i.i.i.i
-  br i1 %cmp4.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
+  br i1 %cmp4.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %lor.rhs.i.i.i.i
   %bf.lshr.i.i.i.i.i = lshr i32 %bf.load.i.i.i.i.i, 2
   %bf.lshr.i17.i.i.i.i = lshr i32 %bf.load.i6.i.i.i.i, 2
   %cmp7.i.i.i.i = icmp ult i32 %bf.lshr.i.i.i.i.i, %bf.lshr.i17.i.i.i.i
   %cond.fr.i = freeze i1 %cmp7.i.i.i.i
-  br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
+  %spec.select.i = select i1 %cond.fr.i, i64 %sub1.i, i64 %mul.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %while.body.i
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i
-  %4 = phi ptr [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %2, %lor.rhs.i.i.i.i ]
-  %5 = phi i64 [ %sub1.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %mul.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %mul.i, %lor.rhs.i.i.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %lor.rhs.i.i.i.i, %while.body.i
+  %4 = phi i64 [ %sub1.i, %while.body.i ], [ %mul.i, %lor.rhs.i.i.i.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ]
+  %add.ptr3.i = getelementptr inbounds ptr, ptr %__first, i64 %4
+  %5 = load ptr, ptr %add.ptr3.i, align 8
   %add.ptr4.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.027.i
-  store ptr %4, ptr %add.ptr4.i, align 8
-  %cmp.i = icmp slt i64 %5, %div.i
+  store ptr %5, ptr %add.ptr4.i, align 8
+  %cmp.i = icmp slt i64 %4, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !123
 
-while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i, %entry
-  %__secondChild.0.lcssa.i = phi i64 [ 0, %entry ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread24.i ]
+while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, %entry
+  %__secondChild.0.lcssa.i = phi i64 [ 0, %entry ], [ %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ]
   %6 = and i64 %sub.ptr.sub, 8
   %cmp5.i = icmp eq i64 %6, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end16.i
@@ -51402,7 +51327,7 @@ _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.
   %cond.fr.i = freeze i1 %18
   br i1 %cond.fr.i, label %if.then17, label %if.else19
 
-if.then17:                                        ; preds = %if.else7.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.then3.i
+if.then17:                                        ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.then3.i, %if.else7.i
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.62)
   br label %if.end22
 

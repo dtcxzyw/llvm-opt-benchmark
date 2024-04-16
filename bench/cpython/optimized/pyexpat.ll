@@ -341,18 +341,14 @@ do.body17:                                        ; preds = %if.then8, %do.body6
   %str_read = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %str_read, align 8
   %tobool18.not = icmp eq ptr %2, null
-  br i1 %tobool18.not, label %do.end27, label %if.then19
+  br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %do.body17
   %call22 = tail call i32 %visit(ptr noundef nonnull %2, ptr noundef %arg) #8
-  %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %do.end27, label %return
-
-do.end27:                                         ; preds = %do.body17, %if.then19
   br label %return
 
-return:                                           ; preds = %if.then19, %if.then8, %if.then, %do.end27
-  %retval.0 = phi i32 [ 0, %do.end27 ], [ %call2, %if.then ], [ %call11, %if.then8 ], [ %call22, %if.then19 ]
+return:                                           ; preds = %if.then19, %do.body17, %if.then8, %if.then
+  %retval.0 = phi i32 [ %call2, %if.then ], [ %call11, %if.then8 ], [ 0, %do.body17 ], [ %call22, %if.then19 ]
   ret i32 %retval.0
 }
 
@@ -6387,7 +6383,7 @@ if.end36:                                         ; preds = %if.end31
   %call37.fca.1.extract = extractvalue { i64, i32 } %call37, 1
   %info.sroa.0.0.extract.trunc = trunc i64 %call37.fca.0.extract to i32
   %info.sroa.2.0.extract.shift = lshr i64 %call37.fca.0.extract, 32
-  %info.sroa.2.0.extract.trunc = trunc i64 %info.sroa.2.0.extract.shift to i32
+  %info.sroa.2.0.extract.trunc = trunc nuw i64 %info.sroa.2.0.extract.shift to i32
   %call38 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.82, i32 noundef %info.sroa.0.0.extract.trunc, i32 noundef %info.sroa.2.0.extract.trunc, i32 noundef %call37.fca.1.extract) #8
   %call39 = tail call i32 @PyModule_Add(ptr noundef %mod, ptr noundef nonnull @.str.83, ptr noundef %call38) #8
   %cmp40 = icmp slt i32 %call39, 0
@@ -6538,7 +6534,7 @@ for.body:                                         ; preds = %if.end4, %for.inc
   br i1 %cmp10, label %for.inc, label %if.end12
 
 if.end12:                                         ; preds = %for.body
-  %conv.i = trunc i64 %error_index.037 to i32
+  %conv.i = trunc nuw nsw i64 %error_index.037 to i32
   %call.i = tail call ptr @PyExpat_XML_ErrorString(i32 noundef %conv.i) #8
   %cmp.i17 = icmp eq ptr %call.i, null
   br i1 %cmp.i17, label %if.then.i, label %if.end.i18
@@ -7063,18 +7059,14 @@ do.body9:                                         ; preds = %for.inc, %entry
   %4 = getelementptr i8, ptr %op, i64 8
   %op.val11 = load ptr, ptr %4, align 8
   %tobool11.not = icmp eq ptr %op.val11, null
-  br i1 %tobool11.not, label %do.end20, label %if.then12
+  br i1 %tobool11.not, label %return, label %if.then12
 
 if.then12:                                        ; preds = %do.body9
   %call15 = tail call i32 %visit(ptr noundef nonnull %op.val11, ptr noundef %arg) #8
-  %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %do.end20, label %return
-
-do.end20:                                         ; preds = %do.body9, %if.then12
   br label %return
 
-return:                                           ; preds = %if.then, %if.then12, %do.end20
-  %retval.0 = phi i32 [ 0, %do.end20 ], [ %call15, %if.then12 ], [ %call, %if.then ]
+return:                                           ; preds = %if.then, %if.then12, %do.body9
+  %retval.0 = phi i32 [ 0, %do.body9 ], [ %call15, %if.then12 ], [ %call, %if.then ]
   ret i32 %retval.0
 }
 
@@ -8536,7 +8528,7 @@ if.then40:                                        ; preds = %if.end34
   br label %return
 
 if.end42:                                         ; preds = %if.end34
-  %conv43 = trunc i64 %call4 to i32
+  %conv43 = trunc nuw nsw i64 %call4 to i32
   store i32 %conv43, ptr %buffer_size, align 8
   br label %return
 

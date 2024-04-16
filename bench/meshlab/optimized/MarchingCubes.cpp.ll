@@ -135,7 +135,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %3, %_ZN6Square15Fac
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN6Square16ReflectEdgeIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = srem i32 %1, 2
-  switch i32 %0, label %.thread16 [
+  switch i32 %0, label %_ZN6Square9EdgeIndexEii.exit [
     i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
     i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
     i32 1, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread
@@ -143,26 +143,25 @@ define noundef i32 @_ZN6Square16ReflectEdgeIndexEii(i32 noundef %0, i32 noundef 
   ]
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %2, %2
-  %.cmp.i = icmp ult i32 %0, 2
-  %.not = icmp ne i32 %3, 0
-  %brmerge = or i1 %.not, %.cmp.i
-  %.mux = select i1 %.not, i32 %0, i32 2
-  br i1 %brmerge, label %_ZN6Square9EdgeIndexEii.exit, label %.thread16
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %_ZN6Square9EdgeIndexEii.exit
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %2, %2
   %.not23 = icmp eq i32 %3, 1
-  br i1 %.not23, label %4, label %_ZN6Square9EdgeIndexEii.exit
+  br i1 %.not23, label %5, label %_ZN6Square9EdgeIndexEii.exit
 
-.thread16:                                        ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %2
+4:                                                ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
+  %.cmp.i.inv = icmp ult i32 %0, 2
+  %spec.select = select i1 %.cmp.i.inv, i32 2, i32 0
   br label %_ZN6Square9EdgeIndexEii.exit
 
-4:                                                ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread
+5:                                                ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread
   %.cmp6.i.inv = icmp ugt i32 %0, 1
   %.5.i = select i1 %.cmp6.i.inv, i32 1, i32 3
   br label %_ZN6Square9EdgeIndexEii.exit
 
-_ZN6Square9EdgeIndexEii.exit:                     ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread, %4, %.thread16
-  %.0 = phi i32 [ %.mux, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit ], [ %.5.i, %4 ], [ 0, %.thread16 ], [ %0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread ]
+_ZN6Square9EdgeIndexEii.exit:                     ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread, %4, %2, %5, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
+  %.0 = phi i32 [ %0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit ], [ %.5.i, %5 ], [ 0, %2 ], [ %spec.select, %4 ], [ %0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread ]
   ret i32 %.0
 }
 
@@ -1022,7 +1021,7 @@ define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr nocapture nound
   br i1 %.not32, label %_ZN15MarchingSquares9SetVertexEiPKdd.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %26, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i [
     i32 0, label %27
     i32 2, label %27
@@ -1143,7 +1142,7 @@ _ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %48, %35, %_ZN6Squar
   br i1 %.not31, label %.loopexit.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %73 = trunc i64 %indvars.iv.next51 to i32
+  %73 = trunc nuw i64 %indvars.iv.next51 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader35, %.preheader35, %.loopexit.loopexit, %3, %3
@@ -1686,7 +1685,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr nocaptur
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %62 = trunc i64 %indvars.iv.next49 to i32
+  %62 = trunc nuw i64 %indvars.iv.next49 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
@@ -2439,7 +2438,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr nocaptur
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %51 = trunc i64 %indvars.iv.next49 to i32
+  %51 = trunc nuw i64 %indvars.iv.next49 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3

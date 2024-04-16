@@ -1883,7 +1883,7 @@ if.then41:                                        ; preds = %if.then.i, %_ZNK7ro
 
 if.end44:                                         ; preds = %if.then.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %land.lhs.true, %if.end32
   %cmp45.not = icmp eq i64 %num_grandparent_boundaries_crossed.0, 0
-  br i1 %cmp45.not, label %if.end101, label %if.then46
+  br i1 %cmp45.not, label %return, label %if.then46
 
 if.then46:                                        ; preds = %if.end44
   %29 = load i64, ptr %grandparent_overlapped_bytes_, align 8
@@ -1899,7 +1899,7 @@ if.end53:                                         ; preds = %if.then46
   %add.ptr = getelementptr inbounds i8, ptr %31, i64 624
   %33 = load i8, ptr %add.ptr, align 8
   %cmp59 = icmp eq i8 %33, 0
-  br i1 %cmp59, label %land.lhs.true60, label %if.end101
+  br i1 %cmp59, label %land.lhs.true60, label %return
 
 land.lhs.true60:                                  ; preds = %if.end53
   %being_grandparent_gap_ = getelementptr inbounds i8, ptr %this, i64 240
@@ -1919,12 +1919,14 @@ land.lhs.true67:                                  ; preds = %land.lhs.true60
   %36 = load i64, ptr %target_output_file_size_.i, align 16
   %div5 = lshr i64 %36, 3
   %cmp71 = icmp ugt i64 %sub, %div5
-  br i1 %cmp71, label %return, label %land.lhs.true80
+  %tobool64.not = xor i1 %tobool64, true
+  %brmerge23 = or i1 %cmp71, %tobool64.not
+  br i1 %brmerge23, label %return, label %land.rhs86
 
-land.lhs.true80:                                  ; preds = %land.lhs.true67, %land.lhs.true60
-  br i1 %tobool64, label %land.rhs86, label %if.end101
+land.lhs.true80:                                  ; preds = %land.lhs.true60
+  br i1 %tobool64, label %land.rhs86, label %return
 
-land.rhs86:                                       ; preds = %land.lhs.true80
+land.rhs86:                                       ; preds = %land.lhs.true67, %land.lhs.true80
   %target_output_file_size_.i12 = getelementptr inbounds i8, ptr %31, i64 16
   %37 = load i64, ptr %target_output_file_size_.i12, align 16
   %add90 = add i64 %37, 99
@@ -1935,14 +1937,11 @@ land.rhs86:                                       ; preds = %land.lhs.true80
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %mul, i64 40)
   %add95 = add nuw nsw i64 %.sroa.speculated, 50
   %mul96 = mul nuw i64 %add95, %div91
-  %cmp97.not = icmp ult i64 %30, %mul96
-  br i1 %cmp97.not, label %if.end101, label %return
-
-if.end101:                                        ; preds = %if.end53, %land.rhs86, %land.lhs.true80, %if.end44
+  %cmp97.not = icmp uge i64 %30, %mul96
   br label %return
 
-return:                                           ; preds = %if.end, %land.rhs86, %land.lhs.true67, %if.then46, %if.end26, %if.end21, %land.rhs, %if.end101, %if.then41
-  %retval.0 = phi i1 [ false, %if.end101 ], [ true, %if.then41 ], [ %not.cmp.i.i.i.not, %if.end ], [ true, %land.rhs ], [ false, %if.end21 ], [ true, %if.end26 ], [ true, %if.then46 ], [ true, %land.lhs.true67 ], [ true, %land.rhs86 ]
+return:                                           ; preds = %land.lhs.true67, %if.end53, %land.rhs86, %if.end, %if.end44, %land.lhs.true80, %if.then46, %if.end26, %if.end21, %land.rhs, %if.then41
+  %retval.0 = phi i1 [ true, %if.then41 ], [ %not.cmp.i.i.i.not, %if.end ], [ true, %land.rhs ], [ false, %if.end21 ], [ true, %if.end26 ], [ true, %if.then46 ], [ %cmp71, %land.lhs.true67 ], [ false, %land.lhs.true80 ], [ false, %if.end44 ], [ %cmp97.not, %land.rhs86 ], [ false, %if.end53 ]
   ret i1 %retval.0
 }
 
@@ -4351,8 +4350,8 @@ _ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
-  %26 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %26
+  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %spec.select.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -4396,12 +4395,12 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPN7roc
 
 cleanup:                                          ; preds = %for.inc, %if.end29, %if.end22, %invoke.cont
   %state_.i21 = getelementptr inbounds i8, ptr %get_time_status, i64 8
-  %27 = load ptr, ptr %state_.i21, align 8
-  %cmp.not.i.i22 = icmp eq ptr %27, null
+  %26 = load ptr, ptr %state_.i21, align 8
+  %cmp.not.i.i22 = icmp eq ptr %26, null
   br i1 %cmp.not.i.i22, label %cleanup.cont, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %27) #16
+  call void @_ZdaPv(ptr noundef nonnull %26) #16
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23, %cleanup, %entry, %lor.lhs.false, %lor.lhs.false7, %lor.lhs.false11, %lor.lhs.false15
@@ -5116,7 +5115,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

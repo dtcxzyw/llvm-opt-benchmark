@@ -361,7 +361,7 @@ lpad38.loopexit.split-lp.loopexit.split-lp:       ; preds = %invoke.cont37
 
 if.end49:                                         ; preds = %for.body43
   %13 = load ptr, ptr %fHistoricRules202205, align 8
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %call52 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %14)
           to label %invoke.cont51 unwind label %lpad38.loopexit.split-lp.loopexit
 
@@ -1307,8 +1307,8 @@ return.loopexit:                                  ; preds = %for.body.i18
   %retval.0.ph = xor i1 %call13.i24, true
   br label %return
 
-return:                                           ; preds = %for.body.i, %return.loopexit, %if.end5.i11, %if.else.i9, %if.end5.i, %if.else.i, %if.end.i.i, %for.cond.preheader.i16, %land.lhs.true, %if.end5, %_ZNKSt9type_infoneERKS_.exit, %lor.lhs.false, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %lor.lhs.false ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %if.end5 ], [ true, %land.lhs.true ], [ true, %for.cond.preheader.i16 ], [ false, %if.end.i.i ], [ false, %if.else.i ], [ false, %if.end5.i ], [ false, %if.else.i9 ], [ false, %if.end5.i11 ], [ %retval.0.ph, %return.loopexit ], [ false, %for.body.i ]
+return:                                           ; preds = %for.body.i, %return.loopexit, %if.end5.i, %if.else.i, %if.end.i.i, %land.lhs.true, %for.cond.preheader.i16, %if.else.i9, %if.end5.i11, %if.end5, %_ZNKSt9type_infoneERKS_.exit, %lor.lhs.false, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ false, %lor.lhs.false ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %if.end5 ], [ true, %land.lhs.true ], [ true, %for.cond.preheader.i16 ], [ false, %if.else.i9 ], [ false, %if.end5.i11 ], [ false, %if.end.i.i ], [ false, %if.else.i ], [ false, %if.end5.i ], [ %retval.0.ph, %return.loopexit ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -1618,21 +1618,21 @@ if.then3:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %and.i.i = and i32 %year, 3
   %cmp.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN6icu_755Grego11monthLengthEii.exit
 
 land.rhs.i.i:                                     ; preds = %if.else
   %rem.i.i = srem i32 %year, 100
-  %cmp1.not.i.i = icmp ne i32 %rem.i.i, 0
+  %cmp1.not.i.i = icmp eq i32 %rem.i.i, 0
+  br i1 %cmp1.not.i.i, label %_ZN6icu_755Grego10isLeapYearEi.exit.i, label %_ZN6icu_755Grego11monthLengthEii.exit
+
+_ZN6icu_755Grego10isLeapYearEi.exit.i:            ; preds = %land.rhs.i.i
   %rem2.i.i = srem i32 %year, 400
   %cmp3.i.not.i = icmp eq i32 %rem2.i.i, 0
-  %or.cond.i = or i1 %cmp1.not.i.i, %cmp3.i.not.i
-  br i1 %or.cond.i, label %_ZN6icu_755Grego11monthLengthEii.exit, label %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-
-_ZN6icu_755Grego10isLeapYearEi.exit.thread.i:     ; preds = %land.rhs.i.i, %if.else
+  %spec.select.i = select i1 %cmp3.i.not.i, i32 12, i32 0
   br label %_ZN6icu_755Grego11monthLengthEii.exit
 
-_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i
-  %1 = phi i32 [ 0, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i ], [ 12, %land.rhs.i.i ]
+_ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %if.else, %land.rhs.i.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i
+  %1 = phi i32 [ 0, %if.else ], [ 12, %land.rhs.i.i ], [ %spec.select.i, %_ZN6icu_755Grego10isLeapYearEi.exit.i ]
   %add.i = add nuw nsw i32 %1, %month
   %idxprom.i = zext nneg i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i
@@ -2139,19 +2139,17 @@ entry:
 if.end:                                           ; preds = %entry
   %call2 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %call, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %time, ptr noundef nonnull align 8 dereferenceable(8) %from, ptr noundef nonnull align 8 dereferenceable(8) %to), !range !11
   %tobool.not = icmp eq i8 %call2, 0
-  br i1 %tobool.not, label %if.end6, label %land.lhs.true
+  br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %2 = load ptr, ptr %to, align 8
   %call3 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %2)
-  %cmp4.not = icmp eq i32 %call3, 0
-  br i1 %cmp4.not, label %if.end6, label %return
-
-if.end6:                                          ; preds = %land.lhs.true, %if.end
+  %cmp4.not = icmp ne i32 %call3, 0
+  %spec.select = zext i1 %cmp4.not to i8
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %if.end6
-  %retval.0 = phi i8 [ 0, %if.end6 ], [ 1, %entry ], [ 1, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry
+  %retval.0 = phi i8 [ 1, %entry ], [ 0, %if.end ], [ %spec.select, %land.lhs.true ]
   ret i8 %retval.0
 }
 
@@ -2235,12 +2233,14 @@ if.then19:                                        ; preds = %if.then17
 if.end36:                                         ; preds = %if.then19
   %tobool34.not = icmp eq i8 %call31, 0
   %.pre = load double, ptr %start0, align 8
+  br i1 %tobool34.not, label %if.then71, label %lor.lhs.false38
+
+lor.lhs.false38:                                  ; preds = %if.end36
   %10 = load double, ptr %start1, align 8
   %cmp39 = fcmp olt double %.pre, %10
-  %or.cond = select i1 %tobool34.not, i1 true, i1 %cmp39
-  br i1 %or.cond, label %if.then40, label %if.then71
+  br i1 %cmp39, label %if.then40, label %if.then71
 
-if.then40:                                        ; preds = %if.end36
+if.then40:                                        ; preds = %lor.lhs.false38
   br label %if.then71
 
 if.else48:                                        ; preds = %if.else15
@@ -2289,11 +2289,11 @@ while.end:                                        ; preds = %while.end.loopexit,
   %17 = load ptr, ptr %to65, align 8
   br label %if.then71
 
-if.then71:                                        ; preds = %if.end36, %if.then5, %if.then14, %while.end, %if.then40
-  %result.sroa.7.1.ph = phi ptr [ %call23, %if.then40 ], [ %16, %while.end ], [ %result.sroa.7.0.copyload29, %if.then14 ], [ %result.sroa.7.0.copyload, %if.then5 ], [ %call21, %if.end36 ]
-  %result.sroa.0.1.ph = phi double [ %.pre, %if.then40 ], [ %15, %while.end ], [ %4, %if.then14 ], [ %1, %if.then5 ], [ %10, %if.end36 ]
-  %result.sroa.13.1.ph = phi ptr [ %call21, %if.then40 ], [ %17, %while.end ], [ %result.sroa.13.0.copyload32, %if.then14 ], [ %result.sroa.13.0.copyload, %if.then5 ], [ %call23, %if.end36 ]
-  %tobool84.not.ph = phi i1 [ false, %if.then40 ], [ true, %while.end ], [ true, %if.then14 ], [ true, %if.then5 ], [ false, %if.end36 ]
+if.then71:                                        ; preds = %if.end36, %if.then5, %if.then14, %while.end, %lor.lhs.false38, %if.then40
+  %result.sroa.7.1.ph = phi ptr [ %call21, %lor.lhs.false38 ], [ %16, %while.end ], [ %result.sroa.7.0.copyload29, %if.then14 ], [ %result.sroa.7.0.copyload, %if.then5 ], [ %call23, %if.end36 ], [ %call23, %if.then40 ]
+  %result.sroa.0.1.ph = phi double [ %10, %lor.lhs.false38 ], [ %15, %while.end ], [ %4, %if.then14 ], [ %1, %if.then5 ], [ %.pre, %if.end36 ], [ %.pre, %if.then40 ]
+  %result.sroa.13.1.ph = phi ptr [ %call23, %lor.lhs.false38 ], [ %17, %while.end ], [ %result.sroa.13.0.copyload32, %if.then14 ], [ %result.sroa.13.0.copyload, %if.then5 ], [ %call21, %if.end36 ], [ %call21, %if.then40 ]
+  %tobool84.not.ph = phi i1 [ false, %lor.lhs.false38 ], [ true, %while.end ], [ true, %if.then14 ], [ true, %if.then5 ], [ false, %if.end36 ], [ false, %if.then40 ]
   %call73 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %result.sroa.7.1.ph)
   %call75 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %result.sroa.13.1.ph)
   %cmp76 = icmp eq i32 %call73, %call75
@@ -2474,8 +2474,8 @@ for.body.i17:                                     ; preds = %for.cond.preheader.
   %call13.i23 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(80) %call11.i19, ptr noundef nonnull align 8 dereferenceable(80) %call12.i20)
   br i1 %call13.i23, label %return, label %for.cond.i24
 
-return:                                           ; preds = %for.body.i, %for.body.i17, %for.cond.i24, %if.end5.i10, %if.else.i8, %if.end5.i, %if.else.i, %if.end.i.i, %for.cond.preheader.i15, %land.lhs.true, %if.end4, %_ZNKSt9type_infoneERKS_.exit, %entry
-  %retval.0 = phi i8 [ 1, %entry ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %if.end4 ], [ 1, %land.lhs.true ], [ 1, %for.cond.preheader.i15 ], [ 0, %if.end.i.i ], [ 0, %if.else.i ], [ 0, %if.end5.i ], [ 0, %if.else.i8 ], [ 0, %if.end5.i10 ], [ 0, %for.body.i17 ], [ 1, %for.cond.i24 ], [ 0, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.cond.i24, %for.body.i17, %if.end5.i, %if.else.i, %if.end.i.i, %land.lhs.true, %for.cond.preheader.i15, %if.else.i8, %if.end5.i10, %if.end4, %_ZNKSt9type_infoneERKS_.exit, %entry
+  %retval.0 = phi i8 [ 1, %entry ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %if.end4 ], [ 1, %land.lhs.true ], [ 1, %for.cond.preheader.i15 ], [ 0, %if.else.i8 ], [ 0, %if.end5.i10 ], [ 0, %if.end.i.i ], [ 0, %if.else.i ], [ 0, %if.end5.i ], [ 0, %for.body.i17 ], [ 1, %for.cond.i24 ], [ 0, %for.body.i ]
   ret i8 %retval.0
 }
 
@@ -2651,12 +2651,14 @@ if.then20:                                        ; preds = %if.then18
 if.end37:                                         ; preds = %if.then20
   %tobool35.not = icmp eq i8 %call32, 0
   %.pre = load double, ptr %start0, align 8
+  br i1 %tobool35.not, label %if.then67, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %if.end37
   %10 = load double, ptr %start1, align 8
   %cmp39 = fcmp ogt double %.pre, %10
-  %or.cond74 = select i1 %tobool35.not, i1 true, i1 %cmp39
-  br i1 %or.cond74, label %if.then40, label %if.then67
+  br i1 %cmp39, label %if.then40, label %if.then67
 
-if.then40:                                        ; preds = %if.end37
+if.then40:                                        ; preds = %lor.lhs.false
   br label %if.then67
 
 if.else47:                                        ; preds = %if.then18
@@ -2685,8 +2687,8 @@ while.body:                                       ; preds = %while.body, %while.
   %or.cond69 = or i1 %cmp54, %or.cond61
   %dec61 = add nsw i32 %idx.071, -1
   %cmp50 = icmp slt i32 %idx.071, 1
-  %or.cond75.not = or i1 %cmp50, %or.cond69
-  br i1 %or.cond75.not, label %while.end, label %while.body, !llvm.loop !13
+  %or.cond74.not = or i1 %cmp50, %or.cond69
+  br i1 %or.cond74.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body, %if.else49
   %result.sroa.0.0.copyload28 = phi double [ %4, %if.else49 ], [ %12, %while.body ]
@@ -2697,10 +2699,10 @@ while.end:                                        ; preds = %while.body, %if.els
   %result.sroa.13.0.copyload36 = load ptr, ptr %result.sroa.13.0.tzt.0.24.sroa_idx, align 8
   br label %if.then67
 
-if.then67:                                        ; preds = %if.end37, %if.then4, %if.then15, %while.end, %if.then40, %if.else47
-  %result.sroa.0.1.ph = phi double [ %4, %if.else47 ], [ %.pre, %if.then40 ], [ %result.sroa.0.0.copyload28, %while.end ], [ %4, %if.then15 ], [ %1, %if.then4 ], [ %10, %if.end37 ]
-  %result.sroa.8.1.ph = phi ptr [ %result.sroa.8.0.copyload30, %if.else47 ], [ %call24, %if.then40 ], [ %result.sroa.8.0.copyload31, %while.end ], [ %result.sroa.8.0.copyload29, %if.then15 ], [ %result.sroa.8.0.copyload, %if.then4 ], [ %call22, %if.end37 ]
-  %result.sroa.13.1.ph = phi ptr [ %result.sroa.13.0.copyload35, %if.else47 ], [ %call22, %if.then40 ], [ %result.sroa.13.0.copyload36, %while.end ], [ %result.sroa.13.0.copyload34, %if.then15 ], [ %result.sroa.13.0.copyload, %if.then4 ], [ %call24, %if.end37 ]
+if.then67:                                        ; preds = %if.end37, %if.then4, %if.then15, %while.end, %lor.lhs.false, %if.then40, %if.else47
+  %result.sroa.0.1.ph = phi double [ %10, %lor.lhs.false ], [ %4, %if.else47 ], [ %result.sroa.0.0.copyload28, %while.end ], [ %4, %if.then15 ], [ %1, %if.then4 ], [ %.pre, %if.end37 ], [ %.pre, %if.then40 ]
+  %result.sroa.8.1.ph = phi ptr [ %call22, %lor.lhs.false ], [ %result.sroa.8.0.copyload30, %if.else47 ], [ %result.sroa.8.0.copyload31, %while.end ], [ %result.sroa.8.0.copyload29, %if.then15 ], [ %result.sroa.8.0.copyload, %if.then4 ], [ %call24, %if.end37 ], [ %call24, %if.then40 ]
+  %result.sroa.13.1.ph = phi ptr [ %call24, %lor.lhs.false ], [ %result.sroa.13.0.copyload35, %if.else47 ], [ %result.sroa.13.0.copyload36, %while.end ], [ %result.sroa.13.0.copyload34, %if.then15 ], [ %result.sroa.13.0.copyload, %if.then4 ], [ %call22, %if.end37 ], [ %call22, %if.then40 ]
   %call69 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %result.sroa.8.1.ph)
   %call71 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %result.sroa.13.1.ph)
   %cmp72 = icmp eq i32 %call69, %call71
@@ -2829,7 +2831,7 @@ while.body23:                                     ; preds = %while.body23.prehea
   %arrayidx29 = getelementptr inbounds ptr, ptr %trsrules, i64 %indvars.iv30
   store ptr %call26, ptr %arrayidx29, align 8
   %14 = load i32, ptr %trscount, align 4
-  %15 = trunc i64 %indvars.iv.next31 to i32
+  %15 = trunc nuw i64 %indvars.iv.next31 to i32
   %cmp19 = icmp sgt i32 %14, %15
   %cmp21 = icmp slt i32 %inc25, %11
   %16 = select i1 %cmp19, i1 %cmp21, i1 false

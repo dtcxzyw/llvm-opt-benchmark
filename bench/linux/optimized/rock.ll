@@ -1559,7 +1559,7 @@ thread-pre-split:                                 ; preds = %215, %126, %113, %.
   store i8 0, ptr %225, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1, i32 8, ptr elementtype(i8) %1) #10, !srcloc !15
-  br label %264
+  br label %263
 
 .thread15:                                        ; preds = %197, %.thread13, %122, %118, %113, %106, %.preheader, %146, %158, %162, %169, %205, %rock_check_overflow.exit
   %233 = load ptr, ptr %3, align 8
@@ -1588,11 +1588,11 @@ thread-pre-split:                                 ; preds = %215, %126, %113, %.
 242:                                              ; preds = %237
   %243 = add nsw i64 %239, -1
   %244 = inttoptr i64 %243 to ptr
-  br label %261
+  br label %260
 
 245:                                              ; preds = %237
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #10
-          to label %261 [label %246], !srcloc !16
+          to label %260 [label %246], !srcloc !16
 
 246:                                              ; preds = %245
   %247 = and i64 %12, 4095
@@ -1612,22 +1612,20 @@ thread-pre-split:                                 ; preds = %215, %126, %113, %.
   %257 = icmp eq i64 %256, 0
   %258 = add nsw i64 %255, -1
   %259 = inttoptr i64 %258 to ptr
-  br i1 %257, label %260, label %261
+  %spec.select = select i1 %257, ptr %1, ptr %259
+  br label %260
 
-260:                                              ; preds = %253, %249, %246
-  br label %261
+260:                                              ; preds = %253, %246, %249, %245, %242
+  %261 = phi ptr [ %244, %242 ], [ %1, %245 ], [ %1, %249 ], [ %1, %246 ], [ %spec.select, %253 ]
+  %262 = getelementptr i8, ptr %261, i64 1
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %262, i32 4, ptr elementtype(i8) %262) #10, !srcloc !15
+  br label %263
 
-261:                                              ; preds = %260, %253, %245, %242
-  %262 = phi ptr [ %244, %242 ], [ %259, %253 ], [ %1, %260 ], [ %1, %245 ]
-  %263 = getelementptr i8, ptr %262, i64 1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %263, i32 4, ptr elementtype(i8) %263) #10, !srcloc !15
-  br label %264
-
-264:                                              ; preds = %261, %232
-  %265 = phi i32 [ -5, %261 ], [ 0, %232 ]
+263:                                              ; preds = %260, %232
+  %264 = phi i32 [ -5, %260 ], [ 0, %232 ]
   tail call void @unlock_page(ptr noundef %1) #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #10
-  ret i32 %265
+  ret i32 %264
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)

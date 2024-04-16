@@ -394,7 +394,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eddsa_get_ctx_params(ptr noundef readonly %vpeddsactx, ptr noundef %params) #0 {
+define internal i32 @eddsa_get_ctx_params(ptr noundef readonly %vpeddsactx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpeddsactx, null
   br i1 %cmp, label %return, label %if.end
@@ -402,7 +402,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.2) #5
   %cmp1.not = icmp eq ptr %call, null
-  br i1 %cmp1.not, label %if.end4, label %land.lhs.true
+  br i1 %cmp1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %aid = getelementptr inbounds i8, ptr %vpeddsactx, i64 272
@@ -410,14 +410,12 @@ land.lhs.true:                                    ; preds = %if.end
   %aid_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 280
   %1 = load i64, ptr %aid_len, align 8
   %call2 = tail call i32 @OSSL_PARAM_set_octet_string(ptr noundef nonnull %call, ptr noundef %0, i64 noundef %1) #5
-  %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %return, label %if.end4
-
-if.end4:                                          ; preds = %land.lhs.true, %if.end
+  %tobool.not = icmp ne i32 %call2, 0
+  %spec.select = zext i1 %tobool.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %entry, %if.end4
-  %retval.0 = phi i32 [ 1, %if.end4 ], [ 0, %entry ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ %spec.select, %land.lhs.true ]
   ret i32 %retval.0
 }
 

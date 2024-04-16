@@ -18,18 +18,14 @@ define i32 @mca_topo_base_lazy_init() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = tail call i32 @mca_base_framework_open(ptr noundef nonnull @ompi_topo_base_framework, i32 noundef 0) #2
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %7
+  br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i32 @mca_topo_base_find_available(i1 noundef zeroext false, i1 noundef zeroext true) #2
-  %.not6 = icmp eq i32 %5, 0
-  br i1 %.not6, label %6, label %7
+  br label %6
 
-6:                                                ; preds = %4, %0
-  br label %7
-
-7:                                                ; preds = %4, %2, %6
-  %.0 = phi i32 [ 0, %6 ], [ %3, %2 ], [ %5, %4 ]
+6:                                                ; preds = %4, %0, %2
+  %.0 = phi i32 [ %3, %2 ], [ 0, %0 ], [ %5, %4 ]
   ret i32 %.0
 }
 

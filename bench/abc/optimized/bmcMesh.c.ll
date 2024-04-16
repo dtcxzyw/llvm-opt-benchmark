@@ -208,13 +208,13 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %59 = trunc i64 %.val459 to i32
   %60 = and i32 %59, 536870911
   %61 = xor i32 %60, -1
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw nsw i64 %indvars.iv to i32
   %63 = add nsw i32 %62, %61
   %64 = add nsw i64 %indvars.iv, -1
   %65 = getelementptr inbounds [102 x [2 x i32]], ptr %18, i64 0, i64 %64
   store i32 %63, ptr %65, align 8
   %66 = lshr i64 %.val459, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = and i32 %67, 536870911
   %69 = xor i32 %68, -1
   %70 = add nsw i32 %62, %69
@@ -1406,7 +1406,7 @@ Abc_Clock.exit541:                                ; preds = %497, %501
 
 532:                                              ; preds = %.lr.ph726, %._crit_edge714
   %indvars.iv876 = phi i64 [ 0, %.lr.ph726 ], [ %indvars.iv.next877, %._crit_edge714 ]
-  %533 = trunc i64 %indvars.iv876 to i32
+  %533 = trunc nuw nsw i64 %indvars.iv876 to i32
   %534 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %533)
   br i1 %115, label %._crit_edge714, label %.lr.ph713
 
@@ -1415,8 +1415,8 @@ Abc_Clock.exit541:                                ; preds = %497, %501
   %536 = icmp eq i64 %indvars.iv876, %374
   br i1 %368, label %.preheader.lr.ph.us, label %.lr.ph713.split
 
-.preheader.lr.ph.us:                              ; preds = %.lr.ph713, %545
-  %indvars.iv871 = phi i64 [ %indvars.iv.next872, %545 ], [ 0, %.lr.ph713 ]
+.preheader.lr.ph.us:                              ; preds = %.lr.ph713, %546
+  %indvars.iv871 = phi i64 [ %indvars.iv.next872, %546 ], [ 0, %.lr.ph713 ]
   %537 = getelementptr inbounds [102 x i32], ptr %17, i64 %indvars.iv871, i64 %indvars.iv876
   %538 = load i32, ptr %537, align 4
   %539 = add nsw i32 %538, %3
@@ -1424,89 +1424,81 @@ Abc_Clock.exit541:                                ; preds = %497, %501
 
 ._crit_edge706.us.thread:                         ; preds = %.preheader.lr.ph.us, %._crit_edge706.us
   %540 = icmp eq i64 %indvars.iv871, 0
-  br i1 %540, label %543, label %541
+  %541 = icmp eq i64 %indvars.iv871, %375
+  %542 = or i1 %541, %540
+  %543 = or i1 %542, %535
+  %544 = or i1 %543, %536
+  %.str.17.sink = select i1 %544, ptr @.str.17, ptr @.str.18
+  %545 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.17.sink)
+  br label %546
 
-541:                                              ; preds = %._crit_edge706.us.thread
-  %542 = icmp eq i64 %indvars.iv871, %375
-  %or.cond5.us = or i1 %535, %542
-  %or.cond454.us = or i1 %536, %or.cond5.us
-  br i1 %or.cond454.us, label %543, label %.sink.split
-
-543:                                              ; preds = %541, %._crit_edge706.us.thread
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %541, %543
-  %.str.17.sink = phi ptr [ @.str.17, %543 ], [ @.str.18, %541 ]
-  %544 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.17.sink)
-  br label %545
-
-545:                                              ; preds = %.sink.split, %._crit_edge706.us
+546:                                              ; preds = %._crit_edge706.us.thread, %._crit_edge706.us
   %indvars.iv.next872 = add nuw nsw i64 %indvars.iv871, 1
   %exitcond875.not = icmp eq i64 %indvars.iv.next872, %wide.trip.count874
   br i1 %exitcond875.not, label %._crit_edge714, label %.preheader.lr.ph.us, !llvm.loop !36
 
 ._crit_edge706.us:                                ; preds = %._crit_edge703.us.us
   %.not443.us = icmp eq i32 %.2.us.us, 0
-  br i1 %.not443.us, label %._crit_edge706.us.thread, label %545
+  br i1 %.not443.us, label %._crit_edge706.us.thread, label %546
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.us, %._crit_edge703.us.us
   %.0705.us.us = phi i32 [ %.2.us.us, %._crit_edge703.us.us ], [ 0, %.preheader.lr.ph.us ]
-  %.3405704.us.us = phi i32 [ %557, %._crit_edge703.us.us ], [ 0, %.preheader.lr.ph.us ]
-  %546 = add nsw i32 %.3405704.us.us, %538
-  br label %547
+  %.3405704.us.us = phi i32 [ %558, %._crit_edge703.us.us ], [ 0, %.preheader.lr.ph.us ]
+  %547 = add nsw i32 %.3405704.us.us, %538
+  br label %548
 
-547:                                              ; preds = %555, %.preheader.us.us
-  %.1701.us.us = phi i32 [ %.0705.us.us, %.preheader.us.us ], [ %.2.us.us, %555 ]
-  %.5411700.us.us = phi i32 [ 0, %.preheader.us.us ], [ %556, %555 ]
-  %548 = call signext i8 @satoko_var_polarity(ptr noundef %32, i32 noundef %546) #10
-  %.not543.us.us = icmp eq i8 %548, 0
-  br i1 %.not543.us.us, label %549, label %555
+548:                                              ; preds = %556, %.preheader.us.us
+  %.1701.us.us = phi i32 [ %.0705.us.us, %.preheader.us.us ], [ %.2.us.us, %556 ]
+  %.5411700.us.us = phi i32 [ 0, %.preheader.us.us ], [ %557, %556 ]
+  %549 = call signext i8 @satoko_var_polarity(ptr noundef %32, i32 noundef %547) #10
+  %.not543.us.us = icmp eq i8 %549, 0
+  br i1 %.not543.us.us, label %550, label %556
 
-549:                                              ; preds = %547
-  %550 = add nsw i32 %539, %.5411700.us.us
-  %551 = call signext i8 @satoko_var_polarity(ptr noundef %32, i32 noundef %550) #10
-  %.not544.us.us = icmp eq i8 %551, 0
-  br i1 %.not544.us.us, label %552, label %555
+550:                                              ; preds = %548
+  %551 = add nsw i32 %539, %.5411700.us.us
+  %552 = call signext i8 @satoko_var_polarity(ptr noundef %32, i32 noundef %551) #10
+  %.not544.us.us = icmp eq i8 %552, 0
+  br i1 %.not544.us.us, label %553, label %556
 
-552:                                              ; preds = %549
-  %553 = add nuw nsw i32 %.5411700.us.us, 97
-  %554 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %553, i32 noundef %.3405704.us.us)
-  br label %555
+553:                                              ; preds = %550
+  %554 = add nuw nsw i32 %.5411700.us.us, 97
+  %555 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %554, i32 noundef %.3405704.us.us)
+  br label %556
 
-555:                                              ; preds = %552, %549, %547
-  %.2.us.us = phi i32 [ 1, %552 ], [ %.1701.us.us, %549 ], [ %.1701.us.us, %547 ]
-  %556 = add nuw nsw i32 %.5411700.us.us, 1
-  %exitcond869.not = icmp eq i32 %556, %45
-  br i1 %exitcond869.not, label %._crit_edge703.us.us, label %547, !llvm.loop !37
+556:                                              ; preds = %553, %550, %548
+  %.2.us.us = phi i32 [ 1, %553 ], [ %.1701.us.us, %550 ], [ %.1701.us.us, %548 ]
+  %557 = add nuw nsw i32 %.5411700.us.us, 1
+  %exitcond869.not = icmp eq i32 %557, %45
+  br i1 %exitcond869.not, label %._crit_edge703.us.us, label %548, !llvm.loop !37
 
-._crit_edge703.us.us:                             ; preds = %555
-  %557 = add nuw nsw i32 %.3405704.us.us, 1
-  %exitcond870.not = icmp eq i32 %557, %3
+._crit_edge703.us.us:                             ; preds = %556
+  %558 = add nuw nsw i32 %.3405704.us.us, 1
+  %exitcond870.not = icmp eq i32 %558, %3
   br i1 %exitcond870.not, label %._crit_edge706.us, label %.preheader.us.us, !llvm.loop !38
 
 .lr.ph713.split:                                  ; preds = %.lr.ph713
-  %558 = or i1 %536, %535
-  br i1 %558, label %.lr.ph713.split.split.us, label %.lr.ph713.split.split
+  %559 = or i1 %536, %535
+  br i1 %559, label %.lr.ph713.split.split.us, label %.lr.ph713.split.split
 
 .lr.ph713.split.split.us:                         ; preds = %.lr.ph713.split, %.lr.ph713.split.split.us
-  %.6710.us719 = phi i32 [ %560, %.lr.ph713.split.split.us ], [ 0, %.lr.ph713.split ]
-  %559 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
-  %560 = add nuw nsw i32 %.6710.us719, 1
-  %exitcond868.not = icmp eq i32 %560, %1
+  %.6710.us719 = phi i32 [ %561, %.lr.ph713.split.split.us ], [ 0, %.lr.ph713.split ]
+  %560 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
+  %561 = add nuw nsw i32 %.6710.us719, 1
+  %exitcond868.not = icmp eq i32 %561, %1
   br i1 %exitcond868.not, label %._crit_edge714, label %.lr.ph713.split.split.us, !llvm.loop !36
 
 .lr.ph713.split.split:                            ; preds = %.lr.ph713.split, %.lr.ph713.split.split
-  %.6710 = phi i32 [ %564, %.lr.ph713.split.split ], [ 0, %.lr.ph713.split ]
-  %561 = icmp eq i32 %.6710, 0
-  %562 = icmp eq i32 %.6710, %116
-  %or.cond = or i1 %561, %562
+  %.6710 = phi i32 [ %565, %.lr.ph713.split.split ], [ 0, %.lr.ph713.split ]
+  %562 = icmp eq i32 %.6710, 0
+  %563 = icmp eq i32 %.6710, %116
+  %or.cond = or i1 %562, %563
   %.str.17..str.18 = select i1 %or.cond, ptr @.str.17, ptr @.str.18
-  %563 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.17..str.18)
-  %564 = add nuw nsw i32 %.6710, 1
-  %exitcond867.not = icmp eq i32 %564, %1
+  %564 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.17..str.18)
+  %565 = add nuw nsw i32 %.6710, 1
+  %exitcond867.not = icmp eq i32 %565, %1
   br i1 %exitcond867.not, label %._crit_edge714, label %.lr.ph713.split.split, !llvm.loop !36
 
-._crit_edge714:                                   ; preds = %.lr.ph713.split.split, %.lr.ph713.split.split.us, %545, %532
+._crit_edge714:                                   ; preds = %.lr.ph713.split.split, %.lr.ph713.split.split.us, %546, %532
   %putchar442 = call i32 @putchar(i32 10)
   %indvars.iv.next877 = add nuw nsw i64 %indvars.iv876, 1
   %exitcond880.not = icmp eq i64 %indvars.iv.next877, %wide.trip.count879
@@ -1543,7 +1535,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #10
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #10
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1562,7 +1554,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1573,22 +1565,22 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
@@ -1604,9 +1596,9 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }

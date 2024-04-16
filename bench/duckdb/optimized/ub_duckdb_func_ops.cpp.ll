@@ -15085,7 +15085,7 @@ lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !458
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
-  br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %1 = load i8, ptr %0, align 1, !tbaa !24
@@ -15096,13 +15096,11 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #17
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
-  br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %cleanup
-
-_ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false
+  %spec.select = select i1 %cmp7.i, ptr %_M_impl.i, ptr null
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i, %entry
-  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ %_M_impl.i, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %if.end.i ]
+cleanup:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit, %lor.lhs.false, %if.end.i, %entry
+  %retval.0 = phi ptr [ %_M_impl.i, %entry ], [ null, %if.end.i ], [ %_M_impl.i, %lor.lhs.false ], [ %spec.select, %_ZNKSt9type_infoeqERKS_.exit ]
   ret ptr %retval.0
 }
 
@@ -16162,7 +16160,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %7 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %7, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -72311,7 +72309,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
 
 if.else.i.i:                                      ; preds = %while.end.i.i, %while.end.i.i.thread
   %__val.addr.0.lcssa.i.i9 = phi i32 [ 1, %while.end.i.i.thread ], [ %cond.i, %while.end.i.i ]
-  %6 = trunc i32 %__val.addr.0.lcssa.i.i9 to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i9 to i8
   %conv.i.i = or disjoint i8 %6, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -74705,7 +74703,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %6, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -78011,7 +78009,7 @@ if.end16.i.i:                                     ; preds = %if.end12.i.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %if.end16.i.i, %if.then14.i.i, %if.then10.i.i, %if.then6.i.i, %entry
   %retval.0.i.i = phi i32 [ %add.i.i, %if.then6.i.i ], [ %add11.i.i, %if.then10.i.i ], [ %add15.i.i, %if.then14.i.i ], [ 1, %entry ], [ %add17.i.i, %if.end16.i.i ]
   %__val.lobit.i = lshr i64 %value, 63
-  %conv.i = trunc i64 %__val.lobit.i to i32
+  %conv.i = trunc nuw nsw i64 %__val.lobit.i to i32
   %add2.i = add i32 %retval.0.i.i, %conv.i
   %conv3.i = zext i32 %add2.i to i64
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -78065,7 +78063,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEl.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %6 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %6 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %6, 48
   br label %_ZNSt7__cxx119to_stringEl.exit
 
@@ -81082,7 +81080,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %6, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -82626,7 +82624,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %8 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %8 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %8, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -84225,7 +84223,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %7 = trunc i64 %__val.addr.0.lcssa.i.i to i8
+  %7 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %7, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -86836,7 +86834,7 @@ if.end.i:                                         ; preds = %_ZN6duckdb14Constan
   %conv.i.i.i = sext i8 %9 to i32
   %conv14.i.i.i = zext nneg i8 %10 to i32
   %shr.i.i.i = ashr i32 %conv.i.i.i, %conv14.i.i.i
-  %12 = trunc i32 %shr.i.i.i to i8
+  %12 = trunc nsw i32 %shr.i.i.i to i8
   %conv2.i.i.i = select i1 %11, i8 %12, i8 0
   store i8 %conv2.i.i.i, ptr %4, align 1, !tbaa !24
   br label %if.end24
@@ -87311,7 +87309,7 @@ for.body9.i:                                      ; preds = %for.body9.i.prehead
   %58 = icmp ult i8 %57, 8
   %conv14.i.i.i = zext nneg i8 %57 to i32
   %shr.i.i.i = ashr i32 %conv.i.i.i, %conv14.i.i.i
-  %59 = trunc i32 %shr.i.i.i to i8
+  %59 = trunc nsw i32 %shr.i.i.i to i8
   %conv2.i.i.i = select i1 %58, i8 %59, i8 0
   %arrayidx12.i = getelementptr inbounds i8, ptr %4, i64 %base_idx.1110.i
   store i8 %conv2.i.i.i, ptr %arrayidx12.i, align 1, !tbaa !24, !alias.scope !2178, !noalias !2181
@@ -87335,7 +87333,7 @@ if.then20.i:                                      ; preds = %for.body18.i
   %conv.i.i97.i = sext i8 %60 to i32
   %conv14.i.i98.i = zext nneg i8 %61 to i32
   %shr.i.i99.i = ashr i32 %conv.i.i97.i, %conv14.i.i98.i
-  %63 = trunc i32 %shr.i.i99.i to i8
+  %63 = trunc nsw i32 %shr.i.i99.i to i8
   %conv2.i.i100.i = select i1 %62, i8 %63, i8 0
   %arrayidx27.i = getelementptr inbounds i8, ptr %4, i64 %base_idx.2112.i
   store i8 %conv2.i.i100.i, ptr %arrayidx27.i, align 1, !tbaa !24, !alias.scope !2178, !noalias !2181
@@ -87359,7 +87357,7 @@ for.body42.i:                                     ; preds = %for.body42.i.prehea
   %65 = icmp ult i8 %64, 8
   %conv14.i.i102.i = zext nneg i8 %64 to i32
   %shr.i.i103.i = ashr i32 %conv.i.i101.i, %conv14.i.i102.i
-  %66 = trunc i32 %shr.i.i103.i to i8
+  %66 = trunc nsw i32 %shr.i.i103.i to i8
   %conv2.i.i104.i = select i1 %65, i8 %66, i8 0
   %arrayidx49.i = getelementptr inbounds i8, ptr %4, i64 %i.0118.i
   store i8 %conv2.i.i104.i, ptr %arrayidx49.i, align 1, !tbaa !24, !alias.scope !2178, !noalias !2181
@@ -87510,7 +87508,7 @@ vector.body68:                                    ; preds = %vector.body68, %vec
   %21 = sext <16 x i8> %wide.load70 to <16 x i32>
   %22 = zext nneg <16 x i8> %wide.load71 to <16 x i32>
   %23 = ashr <16 x i32> %21, %22
-  %24 = trunc <16 x i32> %23 to <16 x i8>
+  %24 = trunc nsw <16 x i32> %23 to <16 x i8>
   %25 = select <16 x i1> %20, <16 x i8> %24, <16 x i8> zeroinitializer
   %26 = getelementptr inbounds i8, ptr %2, i64 %index69
   store <16 x i8> %25, ptr %26, align 1, !tbaa !24, !alias.scope !2195, !noalias !2200
@@ -87542,7 +87540,7 @@ vec.epilog.vector.body84:                         ; preds = %vec.epilog.vector.b
   %31 = sext <8 x i8> %wide.load86 to <8 x i32>
   %32 = zext nneg <8 x i8> %wide.load87 to <8 x i32>
   %33 = ashr <8 x i32> %31, %32
-  %34 = trunc <8 x i32> %33 to <8 x i8>
+  %34 = trunc nsw <8 x i32> %33 to <8 x i8>
   %35 = select <8 x i1> %30, <8 x i8> %34, <8 x i8> zeroinitializer
   %36 = getelementptr inbounds i8, ptr %2, i64 %index85
   store <8 x i8> %35, ptr %36, align 1, !tbaa !24, !alias.scope !2195, !noalias !2200
@@ -87604,7 +87602,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %43 = sext <16 x i8> %wide.load to <16 x i32>
   %44 = zext nneg <16 x i8> %wide.load48 to <16 x i32>
   %45 = ashr <16 x i32> %43, %44
-  %46 = trunc <16 x i32> %45 to <16 x i8>
+  %46 = trunc nsw <16 x i32> %45 to <16 x i8>
   %47 = select <16 x i1> %42, <16 x i8> %46, <16 x i8> zeroinitializer
   %48 = getelementptr inbounds i8, ptr %2, i64 %offset.idx
   store <16 x i8> %47, ptr %48, align 1, !tbaa !24, !alias.scope !2195, !noalias !2200
@@ -87638,7 +87636,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %53 = sext <8 x i8> %wide.load55 to <8 x i32>
   %54 = zext nneg <8 x i8> %wide.load56 to <8 x i32>
   %55 = ashr <8 x i32> %53, %54
-  %56 = trunc <8 x i32> %55 to <8 x i8>
+  %56 = trunc nsw <8 x i32> %55 to <8 x i8>
   %57 = select <8 x i1> %52, <8 x i8> %56, <8 x i8> zeroinitializer
   %58 = getelementptr inbounds i8, ptr %2, i64 %offset.idx54
   store <8 x i8> %57, ptr %58, align 1, !tbaa !24, !alias.scope !2195, !noalias !2200
@@ -87665,7 +87663,7 @@ for.body11.i:                                     ; preds = %for.body11.i.prehea
   %conv.i.i.i = sext i8 %60 to i32
   %conv14.i.i.i = zext nneg i8 %61 to i32
   %shr.i.i.i = ashr i32 %conv.i.i.i, %conv14.i.i.i
-  %63 = trunc i32 %shr.i.i.i to i8
+  %63 = trunc nsw i32 %shr.i.i.i to i8
   %conv2.i.i.i = select i1 %62, i8 %63, i8 0
   %arrayidx14.i = getelementptr inbounds i8, ptr %2, i64 %base_idx.1121.i
   store i8 %conv2.i.i.i, ptr %arrayidx14.i, align 1, !tbaa !24, !alias.scope !2195, !noalias !2200
@@ -87690,7 +87688,7 @@ if.then22.i:                                      ; preds = %for.body20.i
   %conv.i.i108.i = sext i8 %64 to i32
   %conv14.i.i109.i = zext nneg i8 %65 to i32
   %shr.i.i110.i = ashr i32 %conv.i.i108.i, %conv14.i.i109.i
-  %67 = trunc i32 %shr.i.i110.i to i8
+  %67 = trunc nsw i32 %shr.i.i110.i to i8
   %conv2.i.i111.i = select i1 %66, i8 %67, i8 0
   %arrayidx29.i = getelementptr inbounds i8, ptr %2, i64 %base_idx.2123.i
   store i8 %conv2.i.i111.i, ptr %arrayidx29.i, align 1, !tbaa !24, !alias.scope !2195, !noalias !2200
@@ -87717,7 +87715,7 @@ for.body44.i:                                     ; preds = %for.body44.i.prehea
   %conv.i.i112.i = sext i8 %68 to i32
   %conv14.i.i113.i = zext nneg i8 %69 to i32
   %shr.i.i114.i = ashr i32 %conv.i.i112.i, %conv14.i.i113.i
-  %71 = trunc i32 %shr.i.i114.i to i8
+  %71 = trunc nsw i32 %shr.i.i114.i to i8
   %conv2.i.i115.i = select i1 %70, i8 %71, i8 0
   %arrayidx51.i = getelementptr inbounds i8, ptr %2, i64 %i.0129.i
   store i8 %conv2.i.i115.i, ptr %arrayidx51.i, align 1, !tbaa !24, !alias.scope !2195, !noalias !2200
@@ -88038,7 +88036,7 @@ vector.body153:                                   ; preds = %vector.body153, %ve
   %wide.load155 = load <16 x i8>, ptr %3, align 1, !tbaa !24
   %4 = sext <16 x i8> %wide.load155 to <16 x i32>
   %5 = ashr <16 x i32> %4, %broadcast.splat157
-  %6 = trunc <16 x i32> %5 to <16 x i8>
+  %6 = trunc nsw <16 x i32> %5 to <16 x i8>
   %7 = getelementptr inbounds i8, ptr %result_data, i64 %index154
   store <16 x i8> %6, ptr %7, align 1, !tbaa !24
   %index.next158 = add nuw i64 %index154, 16
@@ -88067,7 +88065,7 @@ vec.epilog.vector.body170:                        ; preds = %vec.epilog.vector.b
   %wide.load172 = load <8 x i8>, ptr %9, align 1, !tbaa !24
   %10 = sext <8 x i8> %wide.load172 to <8 x i32>
   %11 = ashr <8 x i32> %10, %broadcast.splat174
-  %12 = trunc <8 x i32> %11 to <8 x i8>
+  %12 = trunc nsw <8 x i32> %11 to <8 x i8>
   %13 = getelementptr inbounds i8, ptr %result_data, i64 %index171
   store <8 x i8> %12, ptr %13, align 1, !tbaa !24
   %index.next175 = add nuw i64 %index171, 8
@@ -88088,7 +88086,7 @@ for.body42.us:                                    ; preds = %for.body42.us.prehe
   %15 = load i8, ptr %arrayidx44.us, align 1, !tbaa !24
   %conv.i.i101.us = sext i8 %15 to i32
   %shr.i.i103.us = ashr i32 %conv.i.i101.us, %conv14.i.i102
-  %16 = trunc i32 %shr.i.i103.us to i8
+  %16 = trunc nsw i32 %shr.i.i103.us to i8
   %arrayidx49.us = getelementptr inbounds i8, ptr %result_data, i64 %i.0118.us
   store i8 %16, ptr %arrayidx49.us, align 1, !tbaa !24
   %inc51.us = add nuw i64 %i.0118.us, 1
@@ -88150,7 +88148,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %wide.load = load <16 x i8>, ptr %21, align 1, !tbaa !24
   %22 = sext <16 x i8> %wide.load to <16 x i32>
   %23 = ashr <16 x i32> %22, %broadcast.splat
-  %24 = trunc <16 x i32> %23 to <16 x i8>
+  %24 = trunc nsw <16 x i32> %23 to <16 x i8>
   %25 = getelementptr inbounds i8, ptr %result_data, i64 %offset.idx
   store <16 x i8> %24, ptr %25, align 1, !tbaa !24
   %index.next = add nuw i64 %index, 16
@@ -88181,7 +88179,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %wide.load139 = load <8 x i8>, ptr %27, align 1, !tbaa !24
   %28 = sext <8 x i8> %wide.load139 to <8 x i32>
   %29 = ashr <8 x i32> %28, %broadcast.splat141
-  %30 = trunc <8 x i32> %29 to <8 x i8>
+  %30 = trunc nsw <8 x i32> %29 to <8 x i8>
   %31 = getelementptr inbounds i8, ptr %result_data, i64 %offset.idx138
   store <8 x i8> %30, ptr %31, align 1, !tbaa !24
   %index.next142 = add nuw i64 %index137, 8
@@ -88205,7 +88203,7 @@ for.body9.us:                                     ; preds = %for.body9.us.prehea
   %34 = load i8, ptr %arrayidx.us, align 1, !tbaa !24
   %conv.i.i.us = sext i8 %34 to i32
   %shr.i.i.us = ashr i32 %conv.i.i.us, %conv14.i.i
-  %35 = trunc i32 %shr.i.i.us to i8
+  %35 = trunc nsw i32 %shr.i.i.us to i8
   %arrayidx12.us = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1110.us
   store i8 %35, ptr %arrayidx12.us, align 1, !tbaa !24
   %inc.us = add nuw i64 %base_idx.1110.us, 1
@@ -88232,7 +88230,7 @@ if.then20:                                        ; preds = %for.body18
   %conv.i.i97 = sext i8 %36 to i32
   %conv14.i.i98 = zext nneg i8 %37 to i32
   %shr.i.i99 = ashr i32 %conv.i.i97, %conv14.i.i98
-  %39 = trunc i32 %shr.i.i99 to i8
+  %39 = trunc nsw i32 %shr.i.i99 to i8
   %conv2.i.i100 = select i1 %38, i8 %39, i8 0
   %arrayidx27 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.2112
   store i8 %conv2.i.i100, ptr %arrayidx27, align 1, !tbaa !24
@@ -88319,7 +88317,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %10 = sext <16 x i8> %wide.load to <16 x i32>
   %11 = zext nneg <16 x i8> %wide.load130 to <16 x i32>
   %12 = ashr <16 x i32> %10, %11
-  %13 = trunc <16 x i32> %12 to <16 x i8>
+  %13 = trunc nsw <16 x i32> %12 to <16 x i8>
   %14 = select <16 x i1> %9, <16 x i8> %13, <16 x i8> zeroinitializer
   %15 = getelementptr inbounds i8, ptr %result_data, i64 %index
   store <16 x i8> %14, ptr %15, align 1, !tbaa !24
@@ -88351,7 +88349,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %20 = sext <8 x i8> %wide.load135 to <8 x i32>
   %21 = zext nneg <8 x i8> %wide.load136 to <8 x i32>
   %22 = ashr <8 x i32> %20, %21
-  %23 = trunc <8 x i32> %22 to <8 x i8>
+  %23 = trunc nsw <8 x i32> %22 to <8 x i8>
   %24 = select <8 x i1> %19, <8 x i8> %23, <8 x i8> zeroinitializer
   %25 = getelementptr inbounds i8, ptr %result_data, i64 %index134
   store <8 x i8> %24, ptr %25, align 1, !tbaa !24
@@ -88377,7 +88375,7 @@ for.body15.us.us:                                 ; preds = %for.body15.us.us.pr
   %conv.i.i89.us.us = sext i8 %27 to i32
   %conv14.i.i90.us.us = zext nneg i8 %28 to i32
   %shr.i.i91.us.us = ashr i32 %conv.i.i89.us.us, %conv14.i.i90.us.us
-  %30 = trunc i32 %shr.i.i91.us.us to i8
+  %30 = trunc nsw i32 %shr.i.i91.us.us to i8
   %conv2.i.i92.us.us = select i1 %29, i8 %30, i8 0
   %arrayidx24.us.us = getelementptr inbounds i8, ptr %result_data, i64 %i11.099.us.us
   store i8 %conv2.i.i92.us.us, ptr %arrayidx24.us.us, align 1, !tbaa !24
@@ -88398,7 +88396,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %conv.i.i89.us = sext i8 %31 to i32
   %conv14.i.i90.us = zext nneg i8 %33 to i32
   %shr.i.i91.us = ashr i32 %conv.i.i89.us, %conv14.i.i90.us
-  %35 = trunc i32 %shr.i.i91.us to i8
+  %35 = trunc nsw i32 %shr.i.i91.us to i8
   %conv2.i.i92.us = select i1 %34, i8 %35, i8 0
   %arrayidx24.us = getelementptr inbounds i8, ptr %result_data, i64 %i11.099.us
   store i8 %conv2.i.i92.us, ptr %arrayidx24.us, align 1, !tbaa !24
@@ -88414,7 +88412,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %conv.i.i89.us.1 = sext i8 %36 to i32
   %conv14.i.i90.us.1 = zext nneg i8 %38 to i32
   %shr.i.i91.us.1 = ashr i32 %conv.i.i89.us.1, %conv14.i.i90.us.1
-  %40 = trunc i32 %shr.i.i91.us.1 to i8
+  %40 = trunc nsw i32 %shr.i.i91.us.1 to i8
   %conv2.i.i92.us.1 = select i1 %39, i8 %40, i8 0
   %arrayidx24.us.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc26.us
   store i8 %conv2.i.i92.us.1, ptr %arrayidx24.us.1, align 1, !tbaa !24
@@ -88454,7 +88452,7 @@ for.body15.us100:                                 ; preds = %for.body15.us100, %
   %conv.i.i89.us106 = sext i8 %43 to i32
   %conv14.i.i90.us107 = zext nneg i8 %44 to i32
   %shr.i.i91.us108 = ashr i32 %conv.i.i89.us106, %conv14.i.i90.us107
-  %46 = trunc i32 %shr.i.i91.us108 to i8
+  %46 = trunc nsw i32 %shr.i.i91.us108 to i8
   %conv2.i.i92.us109 = select i1 %45, i8 %46, i8 0
   %arrayidx24.us110 = getelementptr inbounds i8, ptr %result_data, i64 %i11.099.us101
   store i8 %conv2.i.i92.us109, ptr %arrayidx24.us110, align 1, !tbaa !24
@@ -88470,7 +88468,7 @@ for.body15.us100:                                 ; preds = %for.body15.us100, %
   %conv.i.i89.us106.1 = sext i8 %48 to i32
   %conv14.i.i90.us107.1 = zext nneg i8 %49 to i32
   %shr.i.i91.us108.1 = ashr i32 %conv.i.i89.us106.1, %conv14.i.i90.us107.1
-  %51 = trunc i32 %shr.i.i91.us108.1 to i8
+  %51 = trunc nsw i32 %shr.i.i91.us108.1 to i8
   %conv2.i.i92.us109.1 = select i1 %50, i8 %51, i8 0
   %arrayidx24.us110.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc26.us111
   store i8 %conv2.i.i92.us109.1, ptr %arrayidx24.us110.1, align 1, !tbaa !24
@@ -88538,7 +88536,7 @@ if.then6:                                         ; preds = %_ZNK6duckdb21Templa
   %conv.i.i = sext i8 %58 to i32
   %conv14.i.i = zext nneg i8 %59 to i32
   %shr.i.i = ashr i32 %conv.i.i, %conv14.i.i
-  %61 = trunc i32 %shr.i.i to i8
+  %61 = trunc nsw i32 %shr.i.i to i8
   %conv2.i.i = select i1 %60, i8 %61, i8 0
   %arrayidx9 = getelementptr inbounds i8, ptr %result_data, i64 %i.097
   store i8 %conv2.i.i, ptr %arrayidx9, align 1, !tbaa !24
@@ -88588,7 +88586,7 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %conv.i.i89 = sext i8 %67 to i32
   %conv14.i.i90 = zext nneg i8 %69 to i32
   %shr.i.i91 = ashr i32 %conv.i.i89, %conv14.i.i90
-  %71 = trunc i32 %shr.i.i91 to i8
+  %71 = trunc nsw i32 %shr.i.i91 to i8
   %conv2.i.i92 = select i1 %70, i8 %71, i8 0
   %arrayidx24 = getelementptr inbounds i8, ptr %result_data, i64 %i11.099
   store i8 %conv2.i.i92, ptr %arrayidx24, align 1, !tbaa !24
@@ -88607,7 +88605,7 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %conv.i.i89.1 = sext i8 %73 to i32
   %conv14.i.i90.1 = zext nneg i8 %75 to i32
   %shr.i.i91.1 = ashr i32 %conv.i.i89.1, %conv14.i.i90.1
-  %77 = trunc i32 %shr.i.i91.1 to i8
+  %77 = trunc nsw i32 %shr.i.i91.1 to i8
   %conv2.i.i92.1 = select i1 %76, i8 %77, i8 0
   %arrayidx24.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc26
   store i8 %conv2.i.i92.1, ptr %arrayidx24.1, align 1, !tbaa !24
@@ -88665,7 +88663,7 @@ if.end28.sink.split:                              ; preds = %for.body15.us.epil,
   %conv.i.i89.epil = sext i8 %.sink21 to i32
   %conv14.i.i90.epil = zext nneg i8 %82 to i32
   %shr.i.i91.epil = ashr i32 %conv.i.i89.epil, %conv14.i.i90.epil
-  %84 = trunc i32 %shr.i.i91.epil to i8
+  %84 = trunc nsw i32 %shr.i.i91.epil to i8
   %conv2.i.i92.epil = select i1 %83, i8 %84, i8 0
   %arrayidx24.epil = getelementptr inbounds i8, ptr %result_data, i64 %i11.099.unr15.sink
   store i8 %conv2.i.i92.epil, ptr %arrayidx24.epil, align 1, !tbaa !24
@@ -88727,7 +88725,7 @@ if.end.i:                                         ; preds = %_ZN6duckdb14Constan
   %conv.i.i.i = sext i16 %9 to i32
   %conv14.i.i.i = zext nneg i16 %10 to i32
   %shr.i.i.i = ashr i32 %conv.i.i.i, %conv14.i.i.i
-  %12 = trunc i32 %shr.i.i.i to i16
+  %12 = trunc nsw i32 %shr.i.i.i to i16
   %conv2.i.i.i = select i1 %11, i16 %12, i16 0
   store i16 %conv2.i.i.i, ptr %4, align 2, !tbaa !559
   br label %if.end24
@@ -89130,7 +89128,7 @@ for.body9.i:                                      ; preds = %for.body9.i.prehead
   %42 = icmp ult i16 %41, 16
   %conv14.i.i.i = zext nneg i16 %41 to i32
   %shr.i.i.i = ashr i32 %conv.i.i.i, %conv14.i.i.i
-  %43 = trunc i32 %shr.i.i.i to i16
+  %43 = trunc nsw i32 %shr.i.i.i to i16
   %conv2.i.i.i = select i1 %42, i16 %43, i16 0
   %arrayidx12.i = getelementptr inbounds i16, ptr %4, i64 %base_idx.1110.i
   store i16 %conv2.i.i.i, ptr %arrayidx12.i, align 2, !tbaa !559, !alias.scope !2229, !noalias !2232
@@ -89154,7 +89152,7 @@ if.then20.i:                                      ; preds = %for.body18.i
   %conv.i.i97.i = sext i16 %44 to i32
   %conv14.i.i98.i = zext nneg i16 %45 to i32
   %shr.i.i99.i = ashr i32 %conv.i.i97.i, %conv14.i.i98.i
-  %47 = trunc i32 %shr.i.i99.i to i16
+  %47 = trunc nsw i32 %shr.i.i99.i to i16
   %conv2.i.i100.i = select i1 %46, i16 %47, i16 0
   %arrayidx27.i = getelementptr inbounds i16, ptr %4, i64 %base_idx.2112.i
   store i16 %conv2.i.i100.i, ptr %arrayidx27.i, align 2, !tbaa !559, !alias.scope !2229, !noalias !2232
@@ -89178,7 +89176,7 @@ for.body42.i:                                     ; preds = %for.body42.i.prehea
   %49 = icmp ult i16 %48, 16
   %conv14.i.i102.i = zext nneg i16 %48 to i32
   %shr.i.i103.i = ashr i32 %conv.i.i101.i, %conv14.i.i102.i
-  %50 = trunc i32 %shr.i.i103.i to i16
+  %50 = trunc nsw i32 %shr.i.i103.i to i16
   %conv2.i.i104.i = select i1 %49, i16 %50, i16 0
   %arrayidx49.i = getelementptr inbounds i16, ptr %4, i64 %i.0118.i
   store i16 %conv2.i.i104.i, ptr %arrayidx49.i, align 2, !tbaa !559, !alias.scope !2229, !noalias !2232
@@ -89325,7 +89323,7 @@ vector.body56:                                    ; preds = %vector.body56, %vec
   %21 = sext <8 x i16> %wide.load58 to <8 x i32>
   %22 = zext nneg <8 x i16> %wide.load59 to <8 x i32>
   %23 = ashr <8 x i32> %21, %22
-  %24 = trunc <8 x i32> %23 to <8 x i16>
+  %24 = trunc nsw <8 x i32> %23 to <8 x i16>
   %25 = select <8 x i1> %20, <8 x i16> %24, <8 x i16> zeroinitializer
   %26 = getelementptr inbounds i16, ptr %2, i64 %index57
   store <8 x i16> %25, ptr %26, align 2, !tbaa !559, !alias.scope !2244, !noalias !2249
@@ -89383,7 +89381,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %33 = sext <8 x i16> %wide.load to <8 x i32>
   %34 = zext nneg <8 x i16> %wide.load47 to <8 x i32>
   %35 = ashr <8 x i32> %33, %34
-  %36 = trunc <8 x i32> %35 to <8 x i16>
+  %36 = trunc nsw <8 x i32> %35 to <8 x i16>
   %37 = select <8 x i1> %32, <8 x i16> %36, <8 x i16> zeroinitializer
   %38 = getelementptr inbounds i16, ptr %2, i64 %offset.idx
   store <8 x i16> %37, ptr %38, align 2, !tbaa !559, !alias.scope !2244, !noalias !2249
@@ -89410,7 +89408,7 @@ for.body11.i:                                     ; preds = %for.body11.i.prehea
   %conv.i.i.i = sext i16 %40 to i32
   %conv14.i.i.i = zext nneg i16 %41 to i32
   %shr.i.i.i = ashr i32 %conv.i.i.i, %conv14.i.i.i
-  %43 = trunc i32 %shr.i.i.i to i16
+  %43 = trunc nsw i32 %shr.i.i.i to i16
   %conv2.i.i.i = select i1 %42, i16 %43, i16 0
   %arrayidx14.i = getelementptr inbounds i16, ptr %2, i64 %base_idx.1121.i
   store i16 %conv2.i.i.i, ptr %arrayidx14.i, align 2, !tbaa !559, !alias.scope !2244, !noalias !2249
@@ -89435,7 +89433,7 @@ if.then22.i:                                      ; preds = %for.body20.i
   %conv.i.i108.i = sext i16 %44 to i32
   %conv14.i.i109.i = zext nneg i16 %45 to i32
   %shr.i.i110.i = ashr i32 %conv.i.i108.i, %conv14.i.i109.i
-  %47 = trunc i32 %shr.i.i110.i to i16
+  %47 = trunc nsw i32 %shr.i.i110.i to i16
   %conv2.i.i111.i = select i1 %46, i16 %47, i16 0
   %arrayidx29.i = getelementptr inbounds i16, ptr %2, i64 %base_idx.2123.i
   store i16 %conv2.i.i111.i, ptr %arrayidx29.i, align 2, !tbaa !559, !alias.scope !2244, !noalias !2249
@@ -89462,7 +89460,7 @@ for.body44.i:                                     ; preds = %for.body44.i.prehea
   %conv.i.i112.i = sext i16 %48 to i32
   %conv14.i.i113.i = zext nneg i16 %49 to i32
   %shr.i.i114.i = ashr i32 %conv.i.i112.i, %conv14.i.i113.i
-  %51 = trunc i32 %shr.i.i114.i to i16
+  %51 = trunc nsw i32 %shr.i.i114.i to i16
   %conv2.i.i115.i = select i1 %50, i16 %51, i16 0
   %arrayidx51.i = getelementptr inbounds i16, ptr %2, i64 %i.0129.i
   store i16 %conv2.i.i115.i, ptr %arrayidx51.i, align 2, !tbaa !559, !alias.scope !2244, !noalias !2249
@@ -89783,8 +89781,8 @@ vector.body141:                                   ; preds = %vector.body141, %ve
   %6 = sext <8 x i16> %wide.load144 to <8 x i32>
   %7 = ashr <8 x i32> %5, %broadcast.splat146
   %8 = ashr <8 x i32> %6, %broadcast.splat146
-  %9 = trunc <8 x i32> %7 to <8 x i16>
-  %10 = trunc <8 x i32> %8 to <8 x i16>
+  %9 = trunc nsw <8 x i32> %7 to <8 x i16>
+  %10 = trunc nsw <8 x i32> %8 to <8 x i16>
   %11 = getelementptr inbounds i16, ptr %result_data, i64 %index142
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store <8 x i16> %9, ptr %11, align 2, !tbaa !559
@@ -89808,7 +89806,7 @@ for.body42.us:                                    ; preds = %for.body42.us.prehe
   %15 = load i16, ptr %arrayidx44.us, align 2, !tbaa !559
   %conv.i.i101.us = sext i16 %15 to i32
   %shr.i.i103.us = ashr i32 %conv.i.i101.us, %conv14.i.i102
-  %16 = trunc i32 %shr.i.i103.us to i16
+  %16 = trunc nsw i32 %shr.i.i103.us to i16
   %arrayidx49.us = getelementptr inbounds i16, ptr %result_data, i64 %i.0118.us
   store i16 %16, ptr %arrayidx49.us, align 2, !tbaa !559
   %inc51.us = add nuw i64 %i.0118.us, 1
@@ -89870,8 +89868,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %24 = sext <8 x i16> %wide.load132 to <8 x i32>
   %25 = ashr <8 x i32> %23, %broadcast.splat
   %26 = ashr <8 x i32> %24, %broadcast.splat
-  %27 = trunc <8 x i32> %25 to <8 x i16>
-  %28 = trunc <8 x i32> %26 to <8 x i16>
+  %27 = trunc nsw <8 x i32> %25 to <8 x i16>
+  %28 = trunc nsw <8 x i32> %26 to <8 x i16>
   %29 = getelementptr inbounds i16, ptr %result_data, i64 %offset.idx
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   store <8 x i16> %27, ptr %29, align 2, !tbaa !559
@@ -89899,7 +89897,7 @@ for.body9.us:                                     ; preds = %for.body9.us.prehea
   %35 = load i16, ptr %arrayidx.us, align 2, !tbaa !559
   %conv.i.i.us = sext i16 %35 to i32
   %shr.i.i.us = ashr i32 %conv.i.i.us, %conv14.i.i
-  %36 = trunc i32 %shr.i.i.us to i16
+  %36 = trunc nsw i32 %shr.i.i.us to i16
   %arrayidx12.us = getelementptr inbounds i16, ptr %result_data, i64 %base_idx.1110.us
   store i16 %36, ptr %arrayidx12.us, align 2, !tbaa !559
   %inc.us = add nuw i64 %base_idx.1110.us, 1
@@ -89926,7 +89924,7 @@ if.then20:                                        ; preds = %for.body18
   %conv.i.i97 = sext i16 %37 to i32
   %conv14.i.i98 = zext nneg i16 %38 to i32
   %shr.i.i99 = ashr i32 %conv.i.i97, %conv14.i.i98
-  %40 = trunc i32 %shr.i.i99 to i16
+  %40 = trunc nsw i32 %shr.i.i99 to i16
   %conv2.i.i100 = select i1 %39, i16 %40, i16 0
   %arrayidx27 = getelementptr inbounds i16, ptr %result_data, i64 %base_idx.2112
   store i16 %conv2.i.i100, ptr %arrayidx27, align 2, !tbaa !559
@@ -90009,7 +90007,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %10 = sext <8 x i16> %wide.load to <8 x i32>
   %11 = zext nneg <8 x i16> %wide.load129 to <8 x i32>
   %12 = ashr <8 x i32> %10, %11
-  %13 = trunc <8 x i32> %12 to <8 x i16>
+  %13 = trunc nsw <8 x i32> %12 to <8 x i16>
   %14 = select <8 x i1> %9, <8 x i16> %13, <8 x i16> zeroinitializer
   %15 = getelementptr inbounds i16, ptr %result_data, i64 %index
   store <8 x i16> %14, ptr %15, align 2, !tbaa !559
@@ -90035,7 +90033,7 @@ for.body15.us.us:                                 ; preds = %for.body15.us.us.pr
   %conv.i.i89.us.us = sext i16 %17 to i32
   %conv14.i.i90.us.us = zext nneg i16 %18 to i32
   %shr.i.i91.us.us = ashr i32 %conv.i.i89.us.us, %conv14.i.i90.us.us
-  %20 = trunc i32 %shr.i.i91.us.us to i16
+  %20 = trunc nsw i32 %shr.i.i91.us.us to i16
   %conv2.i.i92.us.us = select i1 %19, i16 %20, i16 0
   %arrayidx24.us.us = getelementptr inbounds i16, ptr %result_data, i64 %i11.099.us.us
   store i16 %conv2.i.i92.us.us, ptr %arrayidx24.us.us, align 2, !tbaa !559
@@ -90056,7 +90054,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %conv.i.i89.us = sext i16 %21 to i32
   %conv14.i.i90.us = zext nneg i16 %23 to i32
   %shr.i.i91.us = ashr i32 %conv.i.i89.us, %conv14.i.i90.us
-  %25 = trunc i32 %shr.i.i91.us to i16
+  %25 = trunc nsw i32 %shr.i.i91.us to i16
   %conv2.i.i92.us = select i1 %24, i16 %25, i16 0
   %arrayidx24.us = getelementptr inbounds i16, ptr %result_data, i64 %i11.099.us
   store i16 %conv2.i.i92.us, ptr %arrayidx24.us, align 2, !tbaa !559
@@ -90072,7 +90070,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %conv.i.i89.us.1 = sext i16 %26 to i32
   %conv14.i.i90.us.1 = zext nneg i16 %28 to i32
   %shr.i.i91.us.1 = ashr i32 %conv.i.i89.us.1, %conv14.i.i90.us.1
-  %30 = trunc i32 %shr.i.i91.us.1 to i16
+  %30 = trunc nsw i32 %shr.i.i91.us.1 to i16
   %conv2.i.i92.us.1 = select i1 %29, i16 %30, i16 0
   %arrayidx24.us.1 = getelementptr inbounds i16, ptr %result_data, i64 %inc26.us
   store i16 %conv2.i.i92.us.1, ptr %arrayidx24.us.1, align 2, !tbaa !559
@@ -90112,7 +90110,7 @@ for.body15.us100:                                 ; preds = %for.body15.us100, %
   %conv.i.i89.us106 = sext i16 %33 to i32
   %conv14.i.i90.us107 = zext nneg i16 %34 to i32
   %shr.i.i91.us108 = ashr i32 %conv.i.i89.us106, %conv14.i.i90.us107
-  %36 = trunc i32 %shr.i.i91.us108 to i16
+  %36 = trunc nsw i32 %shr.i.i91.us108 to i16
   %conv2.i.i92.us109 = select i1 %35, i16 %36, i16 0
   %arrayidx24.us110 = getelementptr inbounds i16, ptr %result_data, i64 %i11.099.us101
   store i16 %conv2.i.i92.us109, ptr %arrayidx24.us110, align 2, !tbaa !559
@@ -90128,7 +90126,7 @@ for.body15.us100:                                 ; preds = %for.body15.us100, %
   %conv.i.i89.us106.1 = sext i16 %38 to i32
   %conv14.i.i90.us107.1 = zext nneg i16 %39 to i32
   %shr.i.i91.us108.1 = ashr i32 %conv.i.i89.us106.1, %conv14.i.i90.us107.1
-  %41 = trunc i32 %shr.i.i91.us108.1 to i16
+  %41 = trunc nsw i32 %shr.i.i91.us108.1 to i16
   %conv2.i.i92.us109.1 = select i1 %40, i16 %41, i16 0
   %arrayidx24.us110.1 = getelementptr inbounds i16, ptr %result_data, i64 %inc26.us111
   store i16 %conv2.i.i92.us109.1, ptr %arrayidx24.us110.1, align 2, !tbaa !559
@@ -90196,7 +90194,7 @@ if.then6:                                         ; preds = %_ZNK6duckdb21Templa
   %conv.i.i = sext i16 %48 to i32
   %conv14.i.i = zext nneg i16 %49 to i32
   %shr.i.i = ashr i32 %conv.i.i, %conv14.i.i
-  %51 = trunc i32 %shr.i.i to i16
+  %51 = trunc nsw i32 %shr.i.i to i16
   %conv2.i.i = select i1 %50, i16 %51, i16 0
   %arrayidx9 = getelementptr inbounds i16, ptr %result_data, i64 %i.097
   store i16 %conv2.i.i, ptr %arrayidx9, align 2, !tbaa !559
@@ -90246,7 +90244,7 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %conv.i.i89 = sext i16 %57 to i32
   %conv14.i.i90 = zext nneg i16 %59 to i32
   %shr.i.i91 = ashr i32 %conv.i.i89, %conv14.i.i90
-  %61 = trunc i32 %shr.i.i91 to i16
+  %61 = trunc nsw i32 %shr.i.i91 to i16
   %conv2.i.i92 = select i1 %60, i16 %61, i16 0
   %arrayidx24 = getelementptr inbounds i16, ptr %result_data, i64 %i11.099
   store i16 %conv2.i.i92, ptr %arrayidx24, align 2, !tbaa !559
@@ -90265,7 +90263,7 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %conv.i.i89.1 = sext i16 %63 to i32
   %conv14.i.i90.1 = zext nneg i16 %65 to i32
   %shr.i.i91.1 = ashr i32 %conv.i.i89.1, %conv14.i.i90.1
-  %67 = trunc i32 %shr.i.i91.1 to i16
+  %67 = trunc nsw i32 %shr.i.i91.1 to i16
   %conv2.i.i92.1 = select i1 %66, i16 %67, i16 0
   %arrayidx24.1 = getelementptr inbounds i16, ptr %result_data, i64 %inc26
   store i16 %conv2.i.i92.1, ptr %arrayidx24.1, align 2, !tbaa !559
@@ -90323,7 +90321,7 @@ if.end28.sink.split:                              ; preds = %for.body15.us.epil,
   %conv.i.i89.epil = sext i16 %.sink21 to i32
   %conv14.i.i90.epil = zext nneg i16 %72 to i32
   %shr.i.i91.epil = ashr i32 %conv.i.i89.epil, %conv14.i.i90.epil
-  %74 = trunc i32 %shr.i.i91.epil to i16
+  %74 = trunc nsw i32 %shr.i.i91.epil to i16
   %conv2.i.i92.epil = select i1 %73, i16 %74, i16 0
   %arrayidx24.epil = getelementptr inbounds i16, ptr %result_data, i64 %i11.099.unr15.sink
   store i16 %conv2.i.i92.epil, ptr %arrayidx24.epil, align 2, !tbaa !559
@@ -93568,7 +93566,7 @@ if.end.i:                                         ; preds = %_ZN6duckdb14Constan
   %conv.i.i.i = zext i8 %9 to i32
   %conv1.i.i.i = zext nneg i8 %10 to i32
   %shr.i.i.i = lshr i32 %conv.i.i.i, %conv1.i.i.i
-  %11 = trunc i32 %shr.i.i.i to i8
+  %11 = trunc nuw i32 %shr.i.i.i to i8
   %conv2.i.i.i = select i1 %cmp2.i.i.i.i, i8 %11, i8 0
   store i8 %conv2.i.i.i, ptr %4, align 1, !tbaa !24
   br label %if.end24
@@ -93892,7 +93890,7 @@ vector.body58:                                    ; preds = %vector.body58, %vec
   %23 = icmp ult <16 x i8> %wide.load60, <i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8>
   %24 = zext nneg <16 x i8> %wide.load60 to <16 x i32>
   %25 = lshr <16 x i32> %broadcast.splat62, %24
-  %26 = trunc <16 x i32> %25 to <16 x i8>
+  %26 = trunc nuw <16 x i32> %25 to <16 x i8>
   %27 = select <16 x i1> %23, <16 x i8> %26, <16 x i8> zeroinitializer
   %28 = getelementptr inbounds i8, ptr %4, i64 %index59
   store <16 x i8> %27, ptr %28, align 1, !tbaa !24, !alias.scope !2355, !noalias !2358
@@ -93923,7 +93921,7 @@ vec.epilog.vector.body75:                         ; preds = %vec.epilog.vector.b
   %31 = icmp ult <8 x i8> %wide.load77, <i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8>
   %32 = zext nneg <8 x i8> %wide.load77 to <8 x i32>
   %33 = lshr <8 x i32> %broadcast.splat79, %32
-  %34 = trunc <8 x i32> %33 to <8 x i8>
+  %34 = trunc nuw <8 x i32> %33 to <8 x i8>
   %35 = select <8 x i1> %31, <8 x i8> %34, <8 x i8> zeroinitializer
   %36 = getelementptr inbounds i8, ptr %4, i64 %index76
   store <8 x i8> %35, ptr %36, align 1, !tbaa !24, !alias.scope !2355, !noalias !2358
@@ -93986,7 +93984,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %42 = icmp ult <16 x i8> %wide.load, <i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8>
   %43 = zext nneg <16 x i8> %wide.load to <16 x i32>
   %44 = lshr <16 x i32> %broadcast.splat, %43
-  %45 = trunc <16 x i32> %44 to <16 x i8>
+  %45 = trunc nuw <16 x i32> %44 to <16 x i8>
   %46 = select <16 x i1> %42, <16 x i8> %45, <16 x i8> zeroinitializer
   %47 = getelementptr inbounds i8, ptr %4, i64 %offset.idx
   store <16 x i8> %46, ptr %47, align 1, !tbaa !24, !alias.scope !2355, !noalias !2358
@@ -94019,7 +94017,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %50 = icmp ult <8 x i8> %wide.load44, <i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8>
   %51 = zext nneg <8 x i8> %wide.load44 to <8 x i32>
   %52 = lshr <8 x i32> %broadcast.splat46, %51
-  %53 = trunc <8 x i32> %52 to <8 x i8>
+  %53 = trunc nuw <8 x i32> %52 to <8 x i8>
   %54 = select <8 x i1> %50, <8 x i8> %53, <8 x i8> zeroinitializer
   %55 = getelementptr inbounds i8, ptr %4, i64 %offset.idx43
   store <8 x i8> %54, ptr %55, align 1, !tbaa !24, !alias.scope !2355, !noalias !2358
@@ -94043,7 +94041,7 @@ for.body9.i:                                      ; preds = %for.body9.i.prehead
   %cmp2.i.i.i.i = icmp ult i8 %57, 8
   %conv1.i.i.i = zext nneg i8 %57 to i32
   %shr.i.i.i = lshr i32 %conv.i.i.i, %conv1.i.i.i
-  %58 = trunc i32 %shr.i.i.i to i8
+  %58 = trunc nuw i32 %shr.i.i.i to i8
   %conv2.i.i.i = select i1 %cmp2.i.i.i.i, i8 %58, i8 0
   %arrayidx12.i = getelementptr inbounds i8, ptr %4, i64 %base_idx.1112.i
   store i8 %conv2.i.i.i, ptr %arrayidx12.i, align 1, !tbaa !24, !alias.scope !2355, !noalias !2358
@@ -94067,7 +94065,7 @@ if.then20.i:                                      ; preds = %for.body18.i
   %conv.i.i98.i = zext i8 %59 to i32
   %conv1.i.i99.i = zext nneg i8 %60 to i32
   %shr.i.i100.i = lshr i32 %conv.i.i98.i, %conv1.i.i99.i
-  %61 = trunc i32 %shr.i.i100.i to i8
+  %61 = trunc nuw i32 %shr.i.i100.i to i8
   %conv2.i.i101.i = select i1 %cmp2.i.i.i97.i, i8 %61, i8 0
   %arrayidx27.i = getelementptr inbounds i8, ptr %4, i64 %base_idx.2114.i
   store i8 %conv2.i.i101.i, ptr %arrayidx27.i, align 1, !tbaa !24, !alias.scope !2355, !noalias !2358
@@ -94091,7 +94089,7 @@ for.body42.i:                                     ; preds = %for.body42.i.prehea
   %cmp2.i.i.i102.i = icmp ult i8 %62, 8
   %conv1.i.i104.i = zext nneg i8 %62 to i32
   %shr.i.i105.i = lshr i32 %conv.i.i103.i, %conv1.i.i104.i
-  %63 = trunc i32 %shr.i.i105.i to i8
+  %63 = trunc nuw i32 %shr.i.i105.i to i8
   %conv2.i.i106.i = select i1 %cmp2.i.i.i102.i, i8 %63, i8 0
   %arrayidx49.i = getelementptr inbounds i8, ptr %4, i64 %i.0120.i
   store i8 %conv2.i.i106.i, ptr %arrayidx49.i, align 1, !tbaa !24, !alias.scope !2355, !noalias !2358
@@ -94242,7 +94240,7 @@ vector.body68:                                    ; preds = %vector.body68, %vec
   %21 = zext <16 x i8> %wide.load70 to <16 x i32>
   %22 = zext nneg <16 x i8> %wide.load71 to <16 x i32>
   %23 = lshr <16 x i32> %21, %22
-  %24 = trunc <16 x i32> %23 to <16 x i8>
+  %24 = trunc nuw <16 x i32> %23 to <16 x i8>
   %25 = select <16 x i1> %20, <16 x i8> %24, <16 x i8> zeroinitializer
   %26 = getelementptr inbounds i8, ptr %2, i64 %index69
   store <16 x i8> %25, ptr %26, align 1, !tbaa !24, !alias.scope !2372, !noalias !2377
@@ -94274,7 +94272,7 @@ vec.epilog.vector.body84:                         ; preds = %vec.epilog.vector.b
   %31 = zext <8 x i8> %wide.load86 to <8 x i32>
   %32 = zext nneg <8 x i8> %wide.load87 to <8 x i32>
   %33 = lshr <8 x i32> %31, %32
-  %34 = trunc <8 x i32> %33 to <8 x i8>
+  %34 = trunc nuw <8 x i32> %33 to <8 x i8>
   %35 = select <8 x i1> %30, <8 x i8> %34, <8 x i8> zeroinitializer
   %36 = getelementptr inbounds i8, ptr %2, i64 %index85
   store <8 x i8> %35, ptr %36, align 1, !tbaa !24, !alias.scope !2372, !noalias !2377
@@ -94336,7 +94334,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %43 = zext <16 x i8> %wide.load to <16 x i32>
   %44 = zext nneg <16 x i8> %wide.load48 to <16 x i32>
   %45 = lshr <16 x i32> %43, %44
-  %46 = trunc <16 x i32> %45 to <16 x i8>
+  %46 = trunc nuw <16 x i32> %45 to <16 x i8>
   %47 = select <16 x i1> %42, <16 x i8> %46, <16 x i8> zeroinitializer
   %48 = getelementptr inbounds i8, ptr %2, i64 %offset.idx
   store <16 x i8> %47, ptr %48, align 1, !tbaa !24, !alias.scope !2372, !noalias !2377
@@ -94370,7 +94368,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %53 = zext <8 x i8> %wide.load55 to <8 x i32>
   %54 = zext nneg <8 x i8> %wide.load56 to <8 x i32>
   %55 = lshr <8 x i32> %53, %54
-  %56 = trunc <8 x i32> %55 to <8 x i8>
+  %56 = trunc nuw <8 x i32> %55 to <8 x i8>
   %57 = select <8 x i1> %52, <8 x i8> %56, <8 x i8> zeroinitializer
   %58 = getelementptr inbounds i8, ptr %2, i64 %offset.idx54
   store <8 x i8> %57, ptr %58, align 1, !tbaa !24, !alias.scope !2372, !noalias !2377
@@ -94397,7 +94395,7 @@ for.body11.i:                                     ; preds = %for.body11.i.prehea
   %conv.i.i.i = zext i8 %60 to i32
   %conv1.i.i.i = zext nneg i8 %61 to i32
   %shr.i.i.i = lshr i32 %conv.i.i.i, %conv1.i.i.i
-  %62 = trunc i32 %shr.i.i.i to i8
+  %62 = trunc nuw i32 %shr.i.i.i to i8
   %conv2.i.i.i = select i1 %cmp2.i.i.i.i, i8 %62, i8 0
   %arrayidx14.i = getelementptr inbounds i8, ptr %2, i64 %base_idx.1123.i
   store i8 %conv2.i.i.i, ptr %arrayidx14.i, align 1, !tbaa !24, !alias.scope !2372, !noalias !2377
@@ -94422,7 +94420,7 @@ if.then22.i:                                      ; preds = %for.body20.i
   %conv.i.i109.i = zext i8 %63 to i32
   %conv1.i.i110.i = zext nneg i8 %64 to i32
   %shr.i.i111.i = lshr i32 %conv.i.i109.i, %conv1.i.i110.i
-  %65 = trunc i32 %shr.i.i111.i to i8
+  %65 = trunc nuw i32 %shr.i.i111.i to i8
   %conv2.i.i112.i = select i1 %cmp2.i.i.i108.i, i8 %65, i8 0
   %arrayidx29.i = getelementptr inbounds i8, ptr %2, i64 %base_idx.2125.i
   store i8 %conv2.i.i112.i, ptr %arrayidx29.i, align 1, !tbaa !24, !alias.scope !2372, !noalias !2377
@@ -94449,7 +94447,7 @@ for.body44.i:                                     ; preds = %for.body44.i.prehea
   %conv.i.i114.i = zext i8 %66 to i32
   %conv1.i.i115.i = zext nneg i8 %67 to i32
   %shr.i.i116.i = lshr i32 %conv.i.i114.i, %conv1.i.i115.i
-  %68 = trunc i32 %shr.i.i116.i to i8
+  %68 = trunc nuw i32 %shr.i.i116.i to i8
   %conv2.i.i117.i = select i1 %cmp2.i.i.i113.i, i8 %68, i8 0
   %arrayidx51.i = getelementptr inbounds i8, ptr %2, i64 %i.0131.i
   store i8 %conv2.i.i117.i, ptr %arrayidx51.i, align 1, !tbaa !24, !alias.scope !2372, !noalias !2377
@@ -94770,7 +94768,7 @@ vector.body154:                                   ; preds = %vector.body154, %ve
   %wide.load156 = load <16 x i8>, ptr %2, align 1, !tbaa !24
   %3 = zext <16 x i8> %wide.load156 to <16 x i32>
   %4 = lshr <16 x i32> %3, %broadcast.splat158
-  %5 = trunc <16 x i32> %4 to <16 x i8>
+  %5 = trunc nuw <16 x i32> %4 to <16 x i8>
   %6 = getelementptr inbounds i8, ptr %result_data, i64 %index155
   store <16 x i8> %5, ptr %6, align 1, !tbaa !24
   %index.next159 = add nuw i64 %index155, 16
@@ -94799,7 +94797,7 @@ vec.epilog.vector.body171:                        ; preds = %vec.epilog.vector.b
   %wide.load173 = load <8 x i8>, ptr %8, align 1, !tbaa !24
   %9 = zext <8 x i8> %wide.load173 to <8 x i32>
   %10 = lshr <8 x i32> %9, %broadcast.splat175
-  %11 = trunc <8 x i32> %10 to <8 x i8>
+  %11 = trunc nuw <8 x i32> %10 to <8 x i8>
   %12 = getelementptr inbounds i8, ptr %result_data, i64 %index172
   store <8 x i8> %11, ptr %12, align 1, !tbaa !24
   %index.next176 = add nuw i64 %index172, 8
@@ -94820,7 +94818,7 @@ for.body42.us:                                    ; preds = %for.body42.us.prehe
   %14 = load i8, ptr %arrayidx44.us, align 1, !tbaa !24
   %conv.i.i103.us = zext i8 %14 to i32
   %shr.i.i105.us = lshr i32 %conv.i.i103.us, %conv1.i.i104
-  %15 = trunc i32 %shr.i.i105.us to i8
+  %15 = trunc nuw i32 %shr.i.i105.us to i8
   %arrayidx49.us = getelementptr inbounds i8, ptr %result_data, i64 %i.0120.us
   store i8 %15, ptr %arrayidx49.us, align 1, !tbaa !24
   %inc51.us = add nuw i64 %i.0120.us, 1
@@ -94882,7 +94880,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %wide.load = load <16 x i8>, ptr %19, align 1, !tbaa !24
   %20 = zext <16 x i8> %wide.load to <16 x i32>
   %21 = lshr <16 x i32> %20, %broadcast.splat
-  %22 = trunc <16 x i32> %21 to <16 x i8>
+  %22 = trunc nuw <16 x i32> %21 to <16 x i8>
   %23 = getelementptr inbounds i8, ptr %result_data, i64 %offset.idx
   store <16 x i8> %22, ptr %23, align 1, !tbaa !24
   %index.next = add nuw i64 %index, 16
@@ -94913,7 +94911,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %wide.load140 = load <8 x i8>, ptr %25, align 1, !tbaa !24
   %26 = zext <8 x i8> %wide.load140 to <8 x i32>
   %27 = lshr <8 x i32> %26, %broadcast.splat142
-  %28 = trunc <8 x i32> %27 to <8 x i8>
+  %28 = trunc nuw <8 x i32> %27 to <8 x i8>
   %29 = getelementptr inbounds i8, ptr %result_data, i64 %offset.idx139
   store <8 x i8> %28, ptr %29, align 1, !tbaa !24
   %index.next143 = add nuw i64 %index138, 8
@@ -94937,7 +94935,7 @@ for.body9.us:                                     ; preds = %for.body9.us.prehea
   %32 = load i8, ptr %arrayidx.us, align 1, !tbaa !24
   %conv.i.i.us = zext i8 %32 to i32
   %shr.i.i.us = lshr i32 %conv.i.i.us, %conv1.i.i
-  %33 = trunc i32 %shr.i.i.us to i8
+  %33 = trunc nuw i32 %shr.i.i.us to i8
   %arrayidx12.us = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1112.us
   store i8 %33, ptr %arrayidx12.us, align 1, !tbaa !24
   %inc.us = add nuw i64 %base_idx.1112.us, 1
@@ -94964,7 +94962,7 @@ if.then20:                                        ; preds = %for.body18
   %conv.i.i98 = zext i8 %34 to i32
   %conv1.i.i99 = zext nneg i8 %35 to i32
   %shr.i.i100 = lshr i32 %conv.i.i98, %conv1.i.i99
-  %36 = trunc i32 %shr.i.i100 to i8
+  %36 = trunc nuw i32 %shr.i.i100 to i8
   %conv2.i.i101 = select i1 %cmp2.i.i.i97, i8 %36, i8 0
   %arrayidx27 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.2114
   store i8 %conv2.i.i101, ptr %arrayidx27, align 1, !tbaa !24
@@ -95051,7 +95049,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %10 = zext <16 x i8> %wide.load to <16 x i32>
   %11 = zext nneg <16 x i8> %wide.load132 to <16 x i32>
   %12 = lshr <16 x i32> %10, %11
-  %13 = trunc <16 x i32> %12 to <16 x i8>
+  %13 = trunc nuw <16 x i32> %12 to <16 x i8>
   %14 = select <16 x i1> %9, <16 x i8> %13, <16 x i8> zeroinitializer
   %15 = getelementptr inbounds i8, ptr %result_data, i64 %index
   store <16 x i8> %14, ptr %15, align 1, !tbaa !24
@@ -95083,7 +95081,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %20 = zext <8 x i8> %wide.load137 to <8 x i32>
   %21 = zext nneg <8 x i8> %wide.load138 to <8 x i32>
   %22 = lshr <8 x i32> %20, %21
-  %23 = trunc <8 x i32> %22 to <8 x i8>
+  %23 = trunc nuw <8 x i32> %22 to <8 x i8>
   %24 = select <8 x i1> %19, <8 x i8> %23, <8 x i8> zeroinitializer
   %25 = getelementptr inbounds i8, ptr %result_data, i64 %index136
   store <8 x i8> %24, ptr %25, align 1, !tbaa !24
@@ -95109,7 +95107,7 @@ for.body15.us.us:                                 ; preds = %for.body15.us.us.pr
   %conv.i.i90.us.us = zext i8 %27 to i32
   %conv1.i.i91.us.us = zext nneg i8 %28 to i32
   %shr.i.i92.us.us = lshr i32 %conv.i.i90.us.us, %conv1.i.i91.us.us
-  %29 = trunc i32 %shr.i.i92.us.us to i8
+  %29 = trunc nuw i32 %shr.i.i92.us.us to i8
   %conv2.i.i93.us.us = select i1 %cmp2.i.i.i89.us.us, i8 %29, i8 0
   %arrayidx24.us.us = getelementptr inbounds i8, ptr %result_data, i64 %i11.0100.us.us
   store i8 %conv2.i.i93.us.us, ptr %arrayidx24.us.us, align 1, !tbaa !24
@@ -95130,7 +95128,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %conv.i.i90.us = zext i8 %30 to i32
   %conv1.i.i91.us = zext nneg i8 %32 to i32
   %shr.i.i92.us = lshr i32 %conv.i.i90.us, %conv1.i.i91.us
-  %33 = trunc i32 %shr.i.i92.us to i8
+  %33 = trunc nuw i32 %shr.i.i92.us to i8
   %conv2.i.i93.us = select i1 %cmp2.i.i.i89.us, i8 %33, i8 0
   %arrayidx24.us = getelementptr inbounds i8, ptr %result_data, i64 %i11.0100.us
   store i8 %conv2.i.i93.us, ptr %arrayidx24.us, align 1, !tbaa !24
@@ -95146,7 +95144,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %conv.i.i90.us.1 = zext i8 %34 to i32
   %conv1.i.i91.us.1 = zext nneg i8 %36 to i32
   %shr.i.i92.us.1 = lshr i32 %conv.i.i90.us.1, %conv1.i.i91.us.1
-  %37 = trunc i32 %shr.i.i92.us.1 to i8
+  %37 = trunc nuw i32 %shr.i.i92.us.1 to i8
   %conv2.i.i93.us.1 = select i1 %cmp2.i.i.i89.us.1, i8 %37, i8 0
   %arrayidx24.us.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc26.us
   store i8 %conv2.i.i93.us.1, ptr %arrayidx24.us.1, align 1, !tbaa !24
@@ -95186,7 +95184,7 @@ for.body15.us101:                                 ; preds = %for.body15.us101, %
   %conv.i.i90.us108 = zext i8 %40 to i32
   %conv1.i.i91.us109 = zext nneg i8 %41 to i32
   %shr.i.i92.us110 = lshr i32 %conv.i.i90.us108, %conv1.i.i91.us109
-  %42 = trunc i32 %shr.i.i92.us110 to i8
+  %42 = trunc nuw i32 %shr.i.i92.us110 to i8
   %conv2.i.i93.us111 = select i1 %cmp2.i.i.i89.us107, i8 %42, i8 0
   %arrayidx24.us112 = getelementptr inbounds i8, ptr %result_data, i64 %i11.0100.us102
   store i8 %conv2.i.i93.us111, ptr %arrayidx24.us112, align 1, !tbaa !24
@@ -95202,7 +95200,7 @@ for.body15.us101:                                 ; preds = %for.body15.us101, %
   %conv.i.i90.us108.1 = zext i8 %44 to i32
   %conv1.i.i91.us109.1 = zext nneg i8 %45 to i32
   %shr.i.i92.us110.1 = lshr i32 %conv.i.i90.us108.1, %conv1.i.i91.us109.1
-  %46 = trunc i32 %shr.i.i92.us110.1 to i8
+  %46 = trunc nuw i32 %shr.i.i92.us110.1 to i8
   %conv2.i.i93.us111.1 = select i1 %cmp2.i.i.i89.us107.1, i8 %46, i8 0
   %arrayidx24.us112.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc26.us113
   store i8 %conv2.i.i93.us111.1, ptr %arrayidx24.us112.1, align 1, !tbaa !24
@@ -95270,7 +95268,7 @@ if.then6:                                         ; preds = %_ZNK6duckdb21Templa
   %conv.i.i = zext i8 %53 to i32
   %conv1.i.i = zext nneg i8 %54 to i32
   %shr.i.i = lshr i32 %conv.i.i, %conv1.i.i
-  %55 = trunc i32 %shr.i.i to i8
+  %55 = trunc nuw i32 %shr.i.i to i8
   %conv2.i.i = select i1 %cmp2.i.i.i, i8 %55, i8 0
   %arrayidx9 = getelementptr inbounds i8, ptr %result_data, i64 %i.098
   store i8 %conv2.i.i, ptr %arrayidx9, align 1, !tbaa !24
@@ -95320,7 +95318,7 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %conv.i.i90 = zext i8 %61 to i32
   %conv1.i.i91 = zext nneg i8 %63 to i32
   %shr.i.i92 = lshr i32 %conv.i.i90, %conv1.i.i91
-  %64 = trunc i32 %shr.i.i92 to i8
+  %64 = trunc nuw i32 %shr.i.i92 to i8
   %conv2.i.i93 = select i1 %cmp2.i.i.i89, i8 %64, i8 0
   %arrayidx24 = getelementptr inbounds i8, ptr %result_data, i64 %i11.0100
   store i8 %conv2.i.i93, ptr %arrayidx24, align 1, !tbaa !24
@@ -95339,7 +95337,7 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %conv.i.i90.1 = zext i8 %66 to i32
   %conv1.i.i91.1 = zext nneg i8 %68 to i32
   %shr.i.i92.1 = lshr i32 %conv.i.i90.1, %conv1.i.i91.1
-  %69 = trunc i32 %shr.i.i92.1 to i8
+  %69 = trunc nuw i32 %shr.i.i92.1 to i8
   %conv2.i.i93.1 = select i1 %cmp2.i.i.i89.1, i8 %69, i8 0
   %arrayidx24.1 = getelementptr inbounds i8, ptr %result_data, i64 %inc26
   store i8 %conv2.i.i93.1, ptr %arrayidx24.1, align 1, !tbaa !24
@@ -95397,7 +95395,7 @@ if.end28.sink.split:                              ; preds = %for.body15.us.epil,
   %conv.i.i90.epil = zext i8 %.sink19 to i32
   %conv1.i.i91.epil = zext nneg i8 %74 to i32
   %shr.i.i92.epil = lshr i32 %conv.i.i90.epil, %conv1.i.i91.epil
-  %75 = trunc i32 %shr.i.i92.epil to i8
+  %75 = trunc nuw i32 %shr.i.i92.epil to i8
   %conv2.i.i93.epil = select i1 %cmp2.i.i.i89.epil, i8 %75, i8 0
   %arrayidx24.epil = getelementptr inbounds i8, ptr %result_data, i64 %i11.0100.unr15.sink
   store i8 %conv2.i.i93.epil, ptr %arrayidx24.epil, align 1, !tbaa !24
@@ -95459,7 +95457,7 @@ if.end.i:                                         ; preds = %_ZN6duckdb14Constan
   %conv.i.i.i = zext i16 %9 to i32
   %conv1.i.i.i = zext nneg i16 %10 to i32
   %shr.i.i.i = lshr i32 %conv.i.i.i, %conv1.i.i.i
-  %11 = trunc i32 %shr.i.i.i to i16
+  %11 = trunc nuw i32 %shr.i.i.i to i16
   %conv2.i.i.i = select i1 %cmp2.i.i.i.i, i16 %11, i16 0
   store i16 %conv2.i.i.i, ptr %4, align 2, !tbaa !559
   br label %if.end24
@@ -95779,7 +95777,7 @@ vector.body45:                                    ; preds = %vector.body45, %vec
   %23 = icmp ult <8 x i16> %wide.load47, <i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16>
   %24 = zext nneg <8 x i16> %wide.load47 to <8 x i32>
   %25 = lshr <8 x i32> %broadcast.splat49, %24
-  %26 = trunc <8 x i32> %25 to <8 x i16>
+  %26 = trunc nuw <8 x i32> %25 to <8 x i16>
   %27 = select <8 x i1> %23, <8 x i16> %26, <8 x i16> zeroinitializer
   %28 = getelementptr inbounds i16, ptr %4, i64 %index46
   store <8 x i16> %27, ptr %28, align 2, !tbaa !559, !alias.scope !2406, !noalias !2409
@@ -95838,7 +95836,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %34 = icmp ult <8 x i16> %wide.load, <i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16>
   %35 = zext nneg <8 x i16> %wide.load to <8 x i32>
   %36 = lshr <8 x i32> %broadcast.splat, %35
-  %37 = trunc <8 x i32> %36 to <8 x i16>
+  %37 = trunc nuw <8 x i32> %36 to <8 x i16>
   %38 = select <8 x i1> %34, <8 x i16> %37, <8 x i16> zeroinitializer
   %39 = getelementptr inbounds i16, ptr %4, i64 %offset.idx
   store <8 x i16> %38, ptr %39, align 2, !tbaa !559, !alias.scope !2406, !noalias !2409
@@ -95862,7 +95860,7 @@ for.body9.i:                                      ; preds = %for.body9.i.prehead
   %cmp2.i.i.i.i = icmp ult i16 %41, 16
   %conv1.i.i.i = zext nneg i16 %41 to i32
   %shr.i.i.i = lshr i32 %conv.i.i.i, %conv1.i.i.i
-  %42 = trunc i32 %shr.i.i.i to i16
+  %42 = trunc nuw i32 %shr.i.i.i to i16
   %conv2.i.i.i = select i1 %cmp2.i.i.i.i, i16 %42, i16 0
   %arrayidx12.i = getelementptr inbounds i16, ptr %4, i64 %base_idx.1112.i
   store i16 %conv2.i.i.i, ptr %arrayidx12.i, align 2, !tbaa !559, !alias.scope !2406, !noalias !2409
@@ -95886,7 +95884,7 @@ if.then20.i:                                      ; preds = %for.body18.i
   %conv.i.i98.i = zext i16 %43 to i32
   %conv1.i.i99.i = zext nneg i16 %44 to i32
   %shr.i.i100.i = lshr i32 %conv.i.i98.i, %conv1.i.i99.i
-  %45 = trunc i32 %shr.i.i100.i to i16
+  %45 = trunc nuw i32 %shr.i.i100.i to i16
   %conv2.i.i101.i = select i1 %cmp2.i.i.i97.i, i16 %45, i16 0
   %arrayidx27.i = getelementptr inbounds i16, ptr %4, i64 %base_idx.2114.i
   store i16 %conv2.i.i101.i, ptr %arrayidx27.i, align 2, !tbaa !559, !alias.scope !2406, !noalias !2409
@@ -95910,7 +95908,7 @@ for.body42.i:                                     ; preds = %for.body42.i.prehea
   %cmp2.i.i.i102.i = icmp ult i16 %46, 16
   %conv1.i.i104.i = zext nneg i16 %46 to i32
   %shr.i.i105.i = lshr i32 %conv.i.i103.i, %conv1.i.i104.i
-  %47 = trunc i32 %shr.i.i105.i to i16
+  %47 = trunc nuw i32 %shr.i.i105.i to i16
   %conv2.i.i106.i = select i1 %cmp2.i.i.i102.i, i16 %47, i16 0
   %arrayidx49.i = getelementptr inbounds i16, ptr %4, i64 %i.0120.i
   store i16 %conv2.i.i106.i, ptr %arrayidx49.i, align 2, !tbaa !559, !alias.scope !2406, !noalias !2409
@@ -96057,7 +96055,7 @@ vector.body56:                                    ; preds = %vector.body56, %vec
   %21 = zext <8 x i16> %wide.load58 to <8 x i32>
   %22 = zext nneg <8 x i16> %wide.load59 to <8 x i32>
   %23 = lshr <8 x i32> %21, %22
-  %24 = trunc <8 x i32> %23 to <8 x i16>
+  %24 = trunc nuw <8 x i32> %23 to <8 x i16>
   %25 = select <8 x i1> %20, <8 x i16> %24, <8 x i16> zeroinitializer
   %26 = getelementptr inbounds i16, ptr %2, i64 %index57
   store <8 x i16> %25, ptr %26, align 2, !tbaa !559, !alias.scope !2421, !noalias !2426
@@ -96115,7 +96113,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %33 = zext <8 x i16> %wide.load to <8 x i32>
   %34 = zext nneg <8 x i16> %wide.load47 to <8 x i32>
   %35 = lshr <8 x i32> %33, %34
-  %36 = trunc <8 x i32> %35 to <8 x i16>
+  %36 = trunc nuw <8 x i32> %35 to <8 x i16>
   %37 = select <8 x i1> %32, <8 x i16> %36, <8 x i16> zeroinitializer
   %38 = getelementptr inbounds i16, ptr %2, i64 %offset.idx
   store <8 x i16> %37, ptr %38, align 2, !tbaa !559, !alias.scope !2421, !noalias !2426
@@ -96142,7 +96140,7 @@ for.body11.i:                                     ; preds = %for.body11.i.prehea
   %conv.i.i.i = zext i16 %40 to i32
   %conv1.i.i.i = zext nneg i16 %41 to i32
   %shr.i.i.i = lshr i32 %conv.i.i.i, %conv1.i.i.i
-  %42 = trunc i32 %shr.i.i.i to i16
+  %42 = trunc nuw i32 %shr.i.i.i to i16
   %conv2.i.i.i = select i1 %cmp2.i.i.i.i, i16 %42, i16 0
   %arrayidx14.i = getelementptr inbounds i16, ptr %2, i64 %base_idx.1123.i
   store i16 %conv2.i.i.i, ptr %arrayidx14.i, align 2, !tbaa !559, !alias.scope !2421, !noalias !2426
@@ -96167,7 +96165,7 @@ if.then22.i:                                      ; preds = %for.body20.i
   %conv.i.i109.i = zext i16 %43 to i32
   %conv1.i.i110.i = zext nneg i16 %44 to i32
   %shr.i.i111.i = lshr i32 %conv.i.i109.i, %conv1.i.i110.i
-  %45 = trunc i32 %shr.i.i111.i to i16
+  %45 = trunc nuw i32 %shr.i.i111.i to i16
   %conv2.i.i112.i = select i1 %cmp2.i.i.i108.i, i16 %45, i16 0
   %arrayidx29.i = getelementptr inbounds i16, ptr %2, i64 %base_idx.2125.i
   store i16 %conv2.i.i112.i, ptr %arrayidx29.i, align 2, !tbaa !559, !alias.scope !2421, !noalias !2426
@@ -96194,7 +96192,7 @@ for.body44.i:                                     ; preds = %for.body44.i.prehea
   %conv.i.i114.i = zext i16 %46 to i32
   %conv1.i.i115.i = zext nneg i16 %47 to i32
   %shr.i.i116.i = lshr i32 %conv.i.i114.i, %conv1.i.i115.i
-  %48 = trunc i32 %shr.i.i116.i to i16
+  %48 = trunc nuw i32 %shr.i.i116.i to i16
   %conv2.i.i117.i = select i1 %cmp2.i.i.i113.i, i16 %48, i16 0
   %arrayidx51.i = getelementptr inbounds i16, ptr %2, i64 %i.0131.i
   store i16 %conv2.i.i117.i, ptr %arrayidx51.i, align 2, !tbaa !559, !alias.scope !2421, !noalias !2426
@@ -96515,8 +96513,8 @@ vector.body142:                                   ; preds = %vector.body142, %ve
   %5 = zext <8 x i16> %wide.load145 to <8 x i32>
   %6 = lshr <8 x i32> %4, %broadcast.splat147
   %7 = lshr <8 x i32> %5, %broadcast.splat147
-  %8 = trunc <8 x i32> %6 to <8 x i16>
-  %9 = trunc <8 x i32> %7 to <8 x i16>
+  %8 = trunc nuw <8 x i32> %6 to <8 x i16>
+  %9 = trunc nuw <8 x i32> %7 to <8 x i16>
   %10 = getelementptr inbounds i16, ptr %result_data, i64 %index143
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   store <8 x i16> %8, ptr %10, align 2, !tbaa !559
@@ -96540,7 +96538,7 @@ for.body42.us:                                    ; preds = %for.body42.us.prehe
   %14 = load i16, ptr %arrayidx44.us, align 2, !tbaa !559
   %conv.i.i103.us = zext i16 %14 to i32
   %shr.i.i105.us = lshr i32 %conv.i.i103.us, %conv1.i.i104
-  %15 = trunc i32 %shr.i.i105.us to i16
+  %15 = trunc nuw i32 %shr.i.i105.us to i16
   %arrayidx49.us = getelementptr inbounds i16, ptr %result_data, i64 %i.0120.us
   store i16 %15, ptr %arrayidx49.us, align 2, !tbaa !559
   %inc51.us = add nuw i64 %i.0120.us, 1
@@ -96602,8 +96600,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %22 = zext <8 x i16> %wide.load133 to <8 x i32>
   %23 = lshr <8 x i32> %21, %broadcast.splat
   %24 = lshr <8 x i32> %22, %broadcast.splat
-  %25 = trunc <8 x i32> %23 to <8 x i16>
-  %26 = trunc <8 x i32> %24 to <8 x i16>
+  %25 = trunc nuw <8 x i32> %23 to <8 x i16>
+  %26 = trunc nuw <8 x i32> %24 to <8 x i16>
   %27 = getelementptr inbounds i16, ptr %result_data, i64 %offset.idx
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   store <8 x i16> %25, ptr %27, align 2, !tbaa !559
@@ -96631,7 +96629,7 @@ for.body9.us:                                     ; preds = %for.body9.us.prehea
   %33 = load i16, ptr %arrayidx.us, align 2, !tbaa !559
   %conv.i.i.us = zext i16 %33 to i32
   %shr.i.i.us = lshr i32 %conv.i.i.us, %conv1.i.i
-  %34 = trunc i32 %shr.i.i.us to i16
+  %34 = trunc nuw i32 %shr.i.i.us to i16
   %arrayidx12.us = getelementptr inbounds i16, ptr %result_data, i64 %base_idx.1112.us
   store i16 %34, ptr %arrayidx12.us, align 2, !tbaa !559
   %inc.us = add nuw i64 %base_idx.1112.us, 1
@@ -96658,7 +96656,7 @@ if.then20:                                        ; preds = %for.body18
   %conv.i.i98 = zext i16 %35 to i32
   %conv1.i.i99 = zext nneg i16 %36 to i32
   %shr.i.i100 = lshr i32 %conv.i.i98, %conv1.i.i99
-  %37 = trunc i32 %shr.i.i100 to i16
+  %37 = trunc nuw i32 %shr.i.i100 to i16
   %conv2.i.i101 = select i1 %cmp2.i.i.i97, i16 %37, i16 0
   %arrayidx27 = getelementptr inbounds i16, ptr %result_data, i64 %base_idx.2114
   store i16 %conv2.i.i101, ptr %arrayidx27, align 2, !tbaa !559
@@ -96741,7 +96739,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %10 = zext <8 x i16> %wide.load to <8 x i32>
   %11 = zext nneg <8 x i16> %wide.load131 to <8 x i32>
   %12 = lshr <8 x i32> %10, %11
-  %13 = trunc <8 x i32> %12 to <8 x i16>
+  %13 = trunc nuw <8 x i32> %12 to <8 x i16>
   %14 = select <8 x i1> %9, <8 x i16> %13, <8 x i16> zeroinitializer
   %15 = getelementptr inbounds i16, ptr %result_data, i64 %index
   store <8 x i16> %14, ptr %15, align 2, !tbaa !559
@@ -96767,7 +96765,7 @@ for.body15.us.us:                                 ; preds = %for.body15.us.us.pr
   %conv.i.i90.us.us = zext i16 %17 to i32
   %conv1.i.i91.us.us = zext nneg i16 %18 to i32
   %shr.i.i92.us.us = lshr i32 %conv.i.i90.us.us, %conv1.i.i91.us.us
-  %19 = trunc i32 %shr.i.i92.us.us to i16
+  %19 = trunc nuw i32 %shr.i.i92.us.us to i16
   %conv2.i.i93.us.us = select i1 %cmp2.i.i.i89.us.us, i16 %19, i16 0
   %arrayidx24.us.us = getelementptr inbounds i16, ptr %result_data, i64 %i11.0100.us.us
   store i16 %conv2.i.i93.us.us, ptr %arrayidx24.us.us, align 2, !tbaa !559
@@ -96788,7 +96786,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %conv.i.i90.us = zext i16 %20 to i32
   %conv1.i.i91.us = zext nneg i16 %22 to i32
   %shr.i.i92.us = lshr i32 %conv.i.i90.us, %conv1.i.i91.us
-  %23 = trunc i32 %shr.i.i92.us to i16
+  %23 = trunc nuw i32 %shr.i.i92.us to i16
   %conv2.i.i93.us = select i1 %cmp2.i.i.i89.us, i16 %23, i16 0
   %arrayidx24.us = getelementptr inbounds i16, ptr %result_data, i64 %i11.0100.us
   store i16 %conv2.i.i93.us, ptr %arrayidx24.us, align 2, !tbaa !559
@@ -96804,7 +96802,7 @@ for.body15.us:                                    ; preds = %for.body15.us, %for
   %conv.i.i90.us.1 = zext i16 %24 to i32
   %conv1.i.i91.us.1 = zext nneg i16 %26 to i32
   %shr.i.i92.us.1 = lshr i32 %conv.i.i90.us.1, %conv1.i.i91.us.1
-  %27 = trunc i32 %shr.i.i92.us.1 to i16
+  %27 = trunc nuw i32 %shr.i.i92.us.1 to i16
   %conv2.i.i93.us.1 = select i1 %cmp2.i.i.i89.us.1, i16 %27, i16 0
   %arrayidx24.us.1 = getelementptr inbounds i16, ptr %result_data, i64 %inc26.us
   store i16 %conv2.i.i93.us.1, ptr %arrayidx24.us.1, align 2, !tbaa !559
@@ -96844,7 +96842,7 @@ for.body15.us101:                                 ; preds = %for.body15.us101, %
   %conv.i.i90.us108 = zext i16 %30 to i32
   %conv1.i.i91.us109 = zext nneg i16 %31 to i32
   %shr.i.i92.us110 = lshr i32 %conv.i.i90.us108, %conv1.i.i91.us109
-  %32 = trunc i32 %shr.i.i92.us110 to i16
+  %32 = trunc nuw i32 %shr.i.i92.us110 to i16
   %conv2.i.i93.us111 = select i1 %cmp2.i.i.i89.us107, i16 %32, i16 0
   %arrayidx24.us112 = getelementptr inbounds i16, ptr %result_data, i64 %i11.0100.us102
   store i16 %conv2.i.i93.us111, ptr %arrayidx24.us112, align 2, !tbaa !559
@@ -96860,7 +96858,7 @@ for.body15.us101:                                 ; preds = %for.body15.us101, %
   %conv.i.i90.us108.1 = zext i16 %34 to i32
   %conv1.i.i91.us109.1 = zext nneg i16 %35 to i32
   %shr.i.i92.us110.1 = lshr i32 %conv.i.i90.us108.1, %conv1.i.i91.us109.1
-  %36 = trunc i32 %shr.i.i92.us110.1 to i16
+  %36 = trunc nuw i32 %shr.i.i92.us110.1 to i16
   %conv2.i.i93.us111.1 = select i1 %cmp2.i.i.i89.us107.1, i16 %36, i16 0
   %arrayidx24.us112.1 = getelementptr inbounds i16, ptr %result_data, i64 %inc26.us113
   store i16 %conv2.i.i93.us111.1, ptr %arrayidx24.us112.1, align 2, !tbaa !559
@@ -96928,7 +96926,7 @@ if.then6:                                         ; preds = %_ZNK6duckdb21Templa
   %conv.i.i = zext i16 %43 to i32
   %conv1.i.i = zext nneg i16 %44 to i32
   %shr.i.i = lshr i32 %conv.i.i, %conv1.i.i
-  %45 = trunc i32 %shr.i.i to i16
+  %45 = trunc nuw i32 %shr.i.i to i16
   %conv2.i.i = select i1 %cmp2.i.i.i, i16 %45, i16 0
   %arrayidx9 = getelementptr inbounds i16, ptr %result_data, i64 %i.098
   store i16 %conv2.i.i, ptr %arrayidx9, align 2, !tbaa !559
@@ -96978,7 +96976,7 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %conv.i.i90 = zext i16 %51 to i32
   %conv1.i.i91 = zext nneg i16 %53 to i32
   %shr.i.i92 = lshr i32 %conv.i.i90, %conv1.i.i91
-  %54 = trunc i32 %shr.i.i92 to i16
+  %54 = trunc nuw i32 %shr.i.i92 to i16
   %conv2.i.i93 = select i1 %cmp2.i.i.i89, i16 %54, i16 0
   %arrayidx24 = getelementptr inbounds i16, ptr %result_data, i64 %i11.0100
   store i16 %conv2.i.i93, ptr %arrayidx24, align 2, !tbaa !559
@@ -96997,7 +96995,7 @@ for.body15:                                       ; preds = %for.body15, %for.bo
   %conv.i.i90.1 = zext i16 %56 to i32
   %conv1.i.i91.1 = zext nneg i16 %58 to i32
   %shr.i.i92.1 = lshr i32 %conv.i.i90.1, %conv1.i.i91.1
-  %59 = trunc i32 %shr.i.i92.1 to i16
+  %59 = trunc nuw i32 %shr.i.i92.1 to i16
   %conv2.i.i93.1 = select i1 %cmp2.i.i.i89.1, i16 %59, i16 0
   %arrayidx24.1 = getelementptr inbounds i16, ptr %result_data, i64 %inc26
   store i16 %conv2.i.i93.1, ptr %arrayidx24.1, align 2, !tbaa !559
@@ -97055,7 +97053,7 @@ if.end28.sink.split:                              ; preds = %for.body15.us.epil,
   %conv.i.i90.epil = zext i16 %.sink19 to i32
   %conv1.i.i91.epil = zext nneg i16 %64 to i32
   %shr.i.i92.epil = lshr i32 %conv.i.i90.epil, %conv1.i.i91.epil
-  %65 = trunc i32 %shr.i.i92.epil to i16
+  %65 = trunc nuw i32 %shr.i.i92.epil to i16
   %conv2.i.i93.epil = select i1 %cmp2.i.i.i89.epil, i16 %65, i16 0
   %arrayidx24.epil = getelementptr inbounds i16, ptr %result_data, i64 %i11.0100.unr15.sink
   store i16 %conv2.i.i93.epil, ptr %arrayidx24.epil, align 2, !tbaa !559

@@ -661,7 +661,7 @@ trace_pci_nvme_dif_check.exit:                    ; preds = %if.end6, %land.lhs.
   br i1 %cmp51, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %trace_pci_nvme_dif_check.exit
-  %tv_usec.i.i.i49.i = getelementptr inbounds i8, ptr %_now.i.i.i11.i, i64 8
+  %tv_usec.i.i.i50.i = getelementptr inbounds i8, ptr %_now.i.i.i11.i, i64 8
   %conv36.i.i = zext i8 %prinfo to i32
   %and37.i.i = and i32 %conv36.i.i, 4
   %tobool.not.i14.i = icmp eq i32 %and37.i.i, 0
@@ -669,8 +669,8 @@ for.body.lr.ph:                                   ; preds = %trace_pci_nvme_dif_
   %tv_usec.i.i62.i.i = getelementptr inbounds i8, ptr %_now.i.i49.i.i, i64 8
   %and53.i28.i = and i32 %conv36.i.i, 2
   %tobool54.not.i29.i = icmp eq i32 %and53.i28.i, 0
-  %conv15.i.i.i33.i = zext i16 %apptag to i32
-  %conv16.i.i.i34.i = zext i16 %appmask to i32
+  %conv15.i.i.i34.i = zext i16 %apptag to i32
+  %conv16.i.i.i35.i = zext i16 %appmask to i32
   %tv_usec.i.i76.i.i = getelementptr inbounds i8, ptr %_now.i.i63.i.i, i64 8
   %and72.i.i = and i32 %conv36.i.i, 1
   %tobool73.not.i.i = icmp eq i32 %and72.i.i, 0
@@ -885,12 +885,12 @@ if.then8.i.i64.i.i:                               ; preds = %if.then.i.i60.i.i
   %57 = load i64, ptr %_now.i.i53.i.i, align 8
   %58 = load i64, ptr %tv_usec.i.i67.i.i, align 8
   %conv11.i.i68.i.i = zext i16 %52 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i66.i.i, i64 noundef %57, i64 noundef %58, i32 noundef %conv11.i.i68.i.i, i32 noundef %conv15.i.i.i33.i, i32 noundef %conv16.i.i.i34.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i66.i.i, i64 noundef %57, i64 noundef %58, i32 noundef %conv11.i.i68.i.i, i32 noundef %conv15.i.i.i34.i, i32 noundef %conv16.i.i.i35.i) #11
   br label %trace_pci_nvme_dif_prchk_apptag.exit.i.i
 
 if.else.i.i62.i.i:                                ; preds = %if.then.i.i60.i.i
   %conv14.i.i63.i.i = zext i16 %52 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %conv14.i.i63.i.i, i32 noundef %conv15.i.i.i33.i, i32 noundef %conv16.i.i.i34.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %conv14.i.i63.i.i, i32 noundef %conv15.i.i.i34.i, i32 noundef %conv16.i.i.i35.i) #11
   br label %trace_pci_nvme_dif_prchk_apptag.exit.i.i
 
 trace_pci_nvme_dif_prchk_apptag.exit.i.i:         ; preds = %if.else.i.i62.i.i, %if.then8.i.i64.i.i, %land.lhs.true5.i.i57.i.i, %if.then36.i.i
@@ -981,16 +981,16 @@ sw.bb1.i:                                         ; preds = %for.body
   %79 = load i8, ptr %dps.i, align 1
   %80 = and i8 %79, 7
   switch i8 %80, label %sw.epilog.i13.i [
-    i8 3, label %sw.bb.i51.i
+    i8 3, label %sw.bb.i52.i
     i8 1, label %sw.bb27.i.i
     i8 2, label %sw.bb27.i.i
   ]
 
-sw.bb.i51.i:                                      ; preds = %sw.bb1.i
-  %cmp.not.i52.i = icmp eq i64 %or24.i.i, 281474976710655
-  br i1 %cmp.not.i52.i, label %sw.bb27.i.i, label %sw.epilog.i13.i
+sw.bb.i52.i:                                      ; preds = %sw.bb1.i
+  %cmp.not.i53.i = icmp eq i64 %or24.i.i, 281474976710655
+  br i1 %cmp.not.i53.i, label %sw.bb27.i.i, label %sw.epilog.i13.i
 
-sw.bb27.i.i:                                      ; preds = %sw.bb.i51.i, %sw.bb1.i, %sw.bb1.i
+sw.bb27.i.i:                                      ; preds = %sw.bb.i52.i, %sw.bb1.i, %sw.bb1.i
   %apptag28.i.i = getelementptr inbounds i8, ptr %add.ptr11, i64 8
   %81 = load i16, ptr %apptag28.i.i, align 8
   %cmp30.not.i.i = icmp eq i16 %81, -1
@@ -1002,42 +1002,42 @@ if.end33.i.i:                                     ; preds = %sw.bb27.i.i
   %83 = tail call noundef i16 @llvm.bswap.i16(i16 %82)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i11.i)
   %84 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i36.i = icmp ne i32 %84, 0
+  %tobool.i.i.i37.i = icmp ne i32 %84, 0
   %85 = load i16, ptr @_TRACE_PCI_NVME_DIF_PRCHK_DISABLED_CRC64_DSTATE, align 2
-  %tobool4.i.i.i37.i = icmp ne i16 %85, 0
-  %or.cond.i.i.i38.i = select i1 %tobool.i.i.i36.i, i1 %tobool4.i.i.i37.i, i1 false
-  br i1 %or.cond.i.i.i38.i, label %land.lhs.true5.i.i.i39.i, label %trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i
+  %tobool4.i.i.i38.i = icmp ne i16 %85, 0
+  %or.cond.i.i.i39.i = select i1 %tobool.i.i.i37.i, i1 %tobool4.i.i.i38.i, i1 false
+  br i1 %or.cond.i.i.i39.i, label %land.lhs.true5.i.i.i40.i, label %trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i
 
-land.lhs.true5.i.i.i39.i:                         ; preds = %if.end33.i.i
+land.lhs.true5.i.i.i40.i:                         ; preds = %if.end33.i.i
   %86 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i40.i = and i32 %86, 32768
-  %cmp.i.not.i.i.i41.i = icmp eq i32 %and.i.i.i.i40.i, 0
-  br i1 %cmp.i.not.i.i.i41.i, label %trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i, label %if.then.i.i.i42.i
+  %and.i.i.i.i41.i = and i32 %86, 32768
+  %cmp.i.not.i.i.i42.i = icmp eq i32 %and.i.i.i.i41.i, 0
+  br i1 %cmp.i.not.i.i.i42.i, label %trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i, label %if.then.i.i.i43.i
 
-if.then.i.i.i42.i:                                ; preds = %land.lhs.true5.i.i.i39.i
+if.then.i.i.i43.i:                                ; preds = %land.lhs.true5.i.i.i40.i
   %87 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i43.i = trunc i8 %87 to i1
-  br i1 %tobool7.i.i.i43.i, label %if.then8.i.i.i46.i, label %if.else.i.i.i44.i
+  %tobool7.i.i.i44.i = trunc i8 %87 to i1
+  br i1 %tobool7.i.i.i44.i, label %if.then8.i.i.i47.i, label %if.else.i.i.i45.i
 
-if.then8.i.i.i46.i:                               ; preds = %if.then.i.i.i42.i
-  %call9.i.i.i47.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i11.i, ptr noundef null) #11
-  %call10.i.i.i48.i = tail call i32 @qemu_get_thread_id() #11
+if.then8.i.i.i47.i:                               ; preds = %if.then.i.i.i43.i
+  %call9.i.i.i48.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i11.i, ptr noundef null) #11
+  %call10.i.i.i49.i = tail call i32 @qemu_get_thread_id() #11
   %88 = load i64, ptr %_now.i.i.i11.i, align 8
-  %89 = load i64, ptr %tv_usec.i.i.i49.i, align 8
-  %conv11.i.i.i50.i = zext i16 %83 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i48.i, i64 noundef %88, i64 noundef %89, i32 noundef %conv11.i.i.i50.i, i64 noundef %or24.i.i) #11
+  %89 = load i64, ptr %tv_usec.i.i.i50.i, align 8
+  %conv11.i.i.i51.i = zext i16 %83 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i.i49.i, i64 noundef %88, i64 noundef %89, i32 noundef %conv11.i.i.i51.i, i64 noundef %or24.i.i) #11
   br label %trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i
 
-if.else.i.i.i44.i:                                ; preds = %if.then.i.i.i42.i
-  %conv12.i.i.i45.i = zext i16 %83 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %conv12.i.i.i45.i, i64 noundef %or24.i.i) #11
+if.else.i.i.i45.i:                                ; preds = %if.then.i.i.i43.i
+  %conv12.i.i.i46.i = zext i16 %83 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %conv12.i.i.i46.i, i64 noundef %or24.i.i) #11
   br label %trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i
 
-trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i: ; preds = %if.else.i.i.i44.i, %if.then8.i.i.i46.i, %land.lhs.true5.i.i.i39.i, %if.end33.i.i
+trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i: ; preds = %if.else.i.i.i45.i, %if.then8.i.i.i47.i, %land.lhs.true5.i.i.i40.i, %if.end33.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i11.i)
   br label %if.end38
 
-sw.epilog.i13.i:                                  ; preds = %sw.bb27.i.i, %sw.bb.i51.i, %sw.bb1.i
+sw.epilog.i13.i:                                  ; preds = %sw.bb27.i.i, %sw.bb.i52.i, %sw.bb1.i
   br i1 %tobool.not.i14.i, label %if.end51.i27.i, label %if.then38.i.i
 
 if.then38.i.i:                                    ; preds = %sw.epilog.i13.i
@@ -1156,12 +1156,12 @@ if.then8.i.i73.i.i:                               ; preds = %if.then.i.i70.i.i
   %111 = load i64, ptr %_now.i.i63.i.i, align 8
   %112 = load i64, ptr %tv_usec.i.i76.i.i, align 8
   %conv11.i.i77.i.i = zext i16 %106 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i75.i.i, i64 noundef %111, i64 noundef %112, i32 noundef %conv11.i.i77.i.i, i32 noundef %conv15.i.i.i33.i, i32 noundef %conv16.i.i.i34.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i75.i.i, i64 noundef %111, i64 noundef %112, i32 noundef %conv11.i.i77.i.i, i32 noundef %conv15.i.i.i34.i, i32 noundef %conv16.i.i.i35.i) #11
   br label %trace_pci_nvme_dif_prchk_apptag.exit.i31.i
 
 if.else.i.i72.i.i:                                ; preds = %if.then.i.i70.i.i
-  %conv14.i.i.i32.i = zext i16 %106 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %conv14.i.i.i32.i, i32 noundef %conv15.i.i.i33.i, i32 noundef %conv16.i.i.i34.i) #11
+  %conv14.i.i.i33.i = zext i16 %106 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %conv14.i.i.i33.i, i32 noundef %conv15.i.i.i34.i, i32 noundef %conv16.i.i.i35.i) #11
   br label %trace_pci_nvme_dif_prchk_apptag.exit.i31.i
 
 trace_pci_nvme_dif_prchk_apptag.exit.i31.i:       ; preds = %if.else.i.i72.i.i, %if.then8.i.i73.i.i, %land.lhs.true5.i.i67.i.i, %if.then55.i30.i
@@ -1217,7 +1217,7 @@ sw.epilog.i:                                      ; preds = %for.body
   tail call void @abort() #12
   unreachable
 
-if.then15:                                        ; preds = %trace_pci_nvme_dif_prchk_guard_crc16.exit.i.i, %trace_pci_nvme_dif_prchk_guard_crc64.exit.i.i
+if.then15:                                        ; preds = %trace_pci_nvme_dif_prchk_guard_crc64.exit.i.i, %trace_pci_nvme_dif_prchk_guard_crc16.exit.i.i
   %cmp22 = icmp eq ptr %bufp.052, %buf
   %or.cond33 = and i1 %cmp19, %cmp22
   br i1 %or.cond33, label %if.then24, label %return
@@ -1241,7 +1241,7 @@ if.end36:                                         ; preds = %if.then31, %if.then
   tail call void @g_free(ptr noundef %call26) #11
   br label %if.end38
 
-if.end38:                                         ; preds = %if.end70.i.i, %trace_pci_nvme_dif_prchk_reftag_crc64.exit.i.i, %if.end51.i.i, %trace_pci_nvme_dif_prchk_reftag_crc16.exit.i.i, %trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i, %trace_pci_nvme_dif_prchk_disabled_crc16.exit.i.i, %if.end36
+if.end38:                                         ; preds = %trace_pci_nvme_dif_prchk_reftag_crc64.exit.i.i, %trace_pci_nvme_dif_prchk_reftag_crc16.exit.i.i, %if.end70.i.i, %trace_pci_nvme_dif_prchk_disabled_crc64.exit.i.i, %if.end51.i.i, %trace_pci_nvme_dif_prchk_disabled_crc16.exit.i.i, %if.end36
   %125 = load i8, ptr %dps.i, align 1
   %126 = and i8 %125, 7
   %cmp43.not = icmp eq i8 %126, 3
@@ -1262,8 +1262,8 @@ for.inc:                                          ; preds = %if.end38, %if.then4
   %cmp = icmp ult ptr %add.ptr48, %add.ptr
   br i1 %cmp, label %for.body, label %return, !llvm.loop !10
 
-return:                                           ; preds = %if.then15, %for.inc, %trace_pci_nvme_dif_prchk_reftag_crc64.exit.i.i, %trace_pci_nvme_dif_prchk_apptag.exit.i31.i, %trace_pci_nvme_dif_prchk_reftag_crc16.exit.i.i, %trace_pci_nvme_dif_prchk_apptag.exit.i.i, %trace_pci_nvme_dif_check.exit, %entry
-  %retval.0 = phi i16 [ %retval.0.i, %entry ], [ 0, %trace_pci_nvme_dif_check.exit ], [ 642, %if.then15 ], [ 0, %for.inc ], [ 644, %trace_pci_nvme_dif_prchk_reftag_crc64.exit.i.i ], [ 643, %trace_pci_nvme_dif_prchk_apptag.exit.i31.i ], [ 644, %trace_pci_nvme_dif_prchk_reftag_crc16.exit.i.i ], [ 643, %trace_pci_nvme_dif_prchk_apptag.exit.i.i ]
+return:                                           ; preds = %if.then15, %for.inc, %trace_pci_nvme_dif_prchk_apptag.exit.i.i, %trace_pci_nvme_dif_prchk_reftag_crc16.exit.i.i, %trace_pci_nvme_dif_prchk_apptag.exit.i31.i, %trace_pci_nvme_dif_prchk_reftag_crc64.exit.i.i, %trace_pci_nvme_dif_check.exit, %entry
+  %retval.0 = phi i16 [ %retval.0.i, %entry ], [ 0, %trace_pci_nvme_dif_check.exit ], [ 642, %if.then15 ], [ 0, %for.inc ], [ 643, %trace_pci_nvme_dif_prchk_apptag.exit.i.i ], [ 644, %trace_pci_nvme_dif_prchk_reftag_crc16.exit.i.i ], [ 643, %trace_pci_nvme_dif_prchk_apptag.exit.i31.i ], [ 644, %trace_pci_nvme_dif_prchk_reftag_crc64.exit.i.i ]
   ret i16 %retval.0
 }
 
@@ -1460,7 +1460,7 @@ entry:
   %control = getelementptr inbounds i8, ptr %req, i64 106
   %7 = load i16, ptr %control, align 1
   %8 = lshr i16 %7, 10
-  %9 = trunc i16 %8 to i8
+  %9 = trunc nuw nsw i16 %8 to i8
   %conv15 = and i8 %9, 15
   %apptag16 = getelementptr inbounds i8, ptr %req, i64 116
   %10 = load i16, ptr %apptag16, align 1
@@ -2083,7 +2083,7 @@ nvme_cid.exit:
   %control = getelementptr inbounds i8, ptr %0, i64 106
   %3 = load i16, ptr %control, align 1
   %4 = lshr i16 %3, 10
-  %5 = trunc i16 %4 to i8
+  %5 = trunc nuw nsw i16 %4 to i8
   %conv6 = and i8 %5, 15
   %apptag7 = getelementptr inbounds i8, ptr %0, i64 116
   %6 = load i16, ptr %apptag7, align 1

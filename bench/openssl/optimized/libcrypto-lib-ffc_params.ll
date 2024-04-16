@@ -572,7 +572,7 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_todata(ptr nocapture noundef readonly %ffc, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #2 {
+define i32 @ossl_ffc_params_todata(ptr nocapture noundef readonly %ffc, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ffc, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -706,18 +706,16 @@ if.end81:                                         ; preds = %land.lhs.true76, %i
   %mdprops = getelementptr inbounds i8, ptr %ffc, i64 80
   %14 = load ptr, ptr %mdprops, align 8
   %cmp82.not = icmp eq ptr %14, null
-  br i1 %cmp82.not, label %if.end89, label %land.lhs.true84
+  br i1 %cmp82.not, label %return, label %land.lhs.true84
 
 land.lhs.true84:                                  ; preds = %if.end81
   %call86 = tail call i32 @ossl_param_build_set_utf8_string(ptr noundef %bld, ptr noundef %params, ptr noundef nonnull @.str.14, ptr noundef nonnull %14) #5
-  %tobool87.not = icmp eq i32 %call86, 0
-  br i1 %tobool87.not, label %return, label %if.end89
-
-if.end89:                                         ; preds = %land.lhs.true84, %if.end81
+  %tobool87.not = icmp ne i32 %call86, 0
+  %spec.select = zext i1 %tobool87.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true84, %land.lhs.true76, %if.end65, %if.end57, %if.end52, %if.then43, %lor.lhs.false, %land.lhs.true36, %if.end30, %if.end26, %if.end22, %land.lhs.true17, %land.lhs.true10, %land.lhs.true3, %land.lhs.true, %if.end89
-  %retval.0 = phi i32 [ 1, %if.end89 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true3 ], [ 0, %land.lhs.true10 ], [ 0, %land.lhs.true17 ], [ 0, %if.end22 ], [ 0, %if.end26 ], [ 0, %if.end30 ], [ 0, %land.lhs.true36 ], [ 0, %lor.lhs.false ], [ 0, %if.then43 ], [ 0, %if.end52 ], [ 0, %if.end57 ], [ 0, %if.end65 ], [ 0, %land.lhs.true76 ], [ 0, %land.lhs.true84 ]
+return:                                           ; preds = %land.lhs.true84, %if.end81, %land.lhs.true76, %if.end65, %if.end57, %if.end52, %if.then43, %lor.lhs.false, %land.lhs.true36, %if.end30, %if.end26, %if.end22, %land.lhs.true17, %land.lhs.true10, %land.lhs.true3, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true3 ], [ 0, %land.lhs.true10 ], [ 0, %land.lhs.true17 ], [ 0, %if.end22 ], [ 0, %if.end26 ], [ 0, %if.end30 ], [ 0, %land.lhs.true36 ], [ 0, %lor.lhs.false ], [ 0, %if.then43 ], [ 0, %if.end52 ], [ 0, %if.end57 ], [ 0, %if.end65 ], [ 0, %land.lhs.true76 ], [ 1, %if.end81 ], [ %spec.select, %land.lhs.true84 ]
   ret i32 %retval.0
 }
 
@@ -734,19 +732,19 @@ declare ptr @ossl_ffc_named_group_get_name(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_param_build_set_utf8_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_print(ptr noundef %bp, ptr nocapture noundef readonly %ffc, i32 noundef %indent) local_unnamed_addr #2 {
+define i32 @ossl_ffc_params_print(ptr noundef %bp, ptr nocapture noundef readonly %ffc, i32 noundef %indent) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ffc, align 8
   %call = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.15, ptr noundef %0, ptr noundef null, i32 noundef %indent) #5
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %err, label %if.end
+  br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %g = getelementptr inbounds i8, ptr %ffc, i64 16
   %1 = load ptr, ptr %g, align 8
   %call1 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.16, ptr noundef %1, ptr noundef null, i32 noundef %indent) #5
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %err, label %if.end4
+  br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %q = getelementptr inbounds i8, ptr %ffc, i64 8
@@ -757,7 +755,7 @@ if.end4:                                          ; preds = %if.end
 land.lhs.true:                                    ; preds = %if.end4
   %call6 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.17, ptr noundef nonnull %2, ptr noundef null, i32 noundef %indent) #5
   %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %err, label %if.end9
+  br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end4
   %j = getelementptr inbounds i8, ptr %ffc, i64 24
@@ -768,7 +766,7 @@ if.end9:                                          ; preds = %land.lhs.true, %if.
 land.lhs.true11:                                  ; preds = %if.end9
   %call13 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.18, ptr noundef nonnull %3, ptr noundef null, i32 noundef %indent) #5
   %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %err, label %if.end16
+  br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true11, %if.end9
   %seed = getelementptr inbounds i8, ptr %ffc, i64 32
@@ -779,12 +777,12 @@ if.end16:                                         ; preds = %land.lhs.true11, %i
 if.then18:                                        ; preds = %if.end16
   %call19 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %indent, i32 noundef 128) #5
   %tobool20.not = icmp eq i32 %call19, 0
-  br i1 %tobool20.not, label %err, label %lor.lhs.false
+  br i1 %tobool20.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then18
   %call21 = tail call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.19) #5
   %cmp22 = icmp slt i32 %call21, 1
-  br i1 %cmp22, label %err, label %for.cond.preheader
+  br i1 %cmp22, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
   %seedlen = getelementptr inbounds i8, ptr %ffc, i64 40
@@ -805,12 +803,12 @@ for.body:                                         ; preds = %for.cond
 if.then27:                                        ; preds = %for.body
   %call28 = tail call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.20) #5
   %cmp29 = icmp slt i32 %call28, 1
-  br i1 %cmp29, label %err, label %lor.lhs.false30
+  br i1 %cmp29, label %return, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.then27
   %call31 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %add, i32 noundef 128) #5
   %tobool32.not = icmp eq i32 %call31, 0
-  br i1 %tobool32.not, label %err, label %lor.lhs.false30.if.end35_crit_edge
+  br i1 %tobool32.not, label %return, label %lor.lhs.false30.if.end35_crit_edge
 
 lor.lhs.false30.if.end35_crit_edge:               ; preds = %lor.lhs.false30
   %.pre = load i64, ptr %seedlen, align 8
@@ -827,7 +825,7 @@ if.end35:                                         ; preds = %lor.lhs.false30.if.
   %cond = select i1 %cmp39, ptr @.str.22, ptr @.str.23
   %call41 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.21, i32 noundef %conv, ptr noundef nonnull %cond) #5
   %cmp42 = icmp slt i32 %call41, 1
-  br i1 %cmp42, label %err, label %for.cond, !llvm.loop !4
+  br i1 %cmp42, label %return, label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
   %call46 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.20, i32 noundef 1) #5
@@ -843,19 +841,17 @@ if.end51:                                         ; preds = %for.end, %if.end16
 if.then54:                                        ; preds = %if.end51
   %call55 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %indent, i32 noundef 128) #5
   %tobool56.not = icmp eq i32 %call55, 0
-  br i1 %tobool56.not, label %err, label %lor.lhs.false57
+  br i1 %tobool56.not, label %return, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %if.then54
   %10 = load i32, ptr %pcounter, align 8
   %call59 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.24, i32 noundef %10) #5
-  %cmp60 = icmp slt i32 %call59, 1
-  br i1 %cmp60, label %err, label %return
-
-err:                                              ; preds = %if.end35, %if.then27, %lor.lhs.false30, %if.then54, %lor.lhs.false57, %if.then18, %lor.lhs.false, %land.lhs.true11, %land.lhs.true, %if.end, %entry
+  %cmp60 = icmp sgt i32 %call59, 0
+  %spec.select = zext i1 %cmp60 to i32
   br label %return
 
-return:                                           ; preds = %if.end51, %lor.lhs.false57, %for.end, %err
-  %retval.0 = phi i32 [ 0, %err ], [ 0, %for.end ], [ 1, %lor.lhs.false57 ], [ 1, %if.end51 ]
+return:                                           ; preds = %lor.lhs.false30, %if.then27, %if.end35, %lor.lhs.false57, %entry, %if.end, %land.lhs.true, %land.lhs.true11, %lor.lhs.false, %if.then18, %if.then54, %if.end51, %for.end
+  %retval.0 = phi i32 [ 0, %for.end ], [ 1, %if.end51 ], [ 0, %if.then54 ], [ 0, %if.then18 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %lor.lhs.false57 ], [ 0, %if.end35 ], [ 0, %if.then27 ], [ 0, %lor.lhs.false30 ]
   ret i32 %retval.0
 }
 

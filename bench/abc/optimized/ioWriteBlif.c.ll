@@ -881,7 +881,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %.val100.val = load ptr, ptr %106, align 8
   %107 = getelementptr inbounds ptr, ptr %.val100.val, i64 %indvars.iv138
   %108 = load ptr, ptr %107, align 8
-  %109 = trunc i64 %indvars.iv138 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv138 to i32
   %110 = tail call ptr @Abc_NodeReadInputDrive(ptr noundef nonnull %1, i32 noundef %109) #10
   %111 = load float, ptr %110, align 4
   %112 = load float, ptr %93, align 4
@@ -964,7 +964,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %.val107.val = load ptr, ptr %150, align 8
   %151 = getelementptr inbounds ptr, ptr %.val107.val, i64 %indvars.iv141
   %152 = load ptr, ptr %151, align 8
-  %153 = trunc i64 %indvars.iv141 to i32
+  %153 = trunc nuw nsw i64 %indvars.iv141 to i32
   %154 = tail call ptr @Abc_NodeReadOutputLoad(ptr noundef nonnull %1, i32 noundef %153) #10
   %155 = load float, ptr %154, align 4
   %156 = load float, ptr %137, align 4
@@ -1216,7 +1216,7 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %52 = getelementptr inbounds [10 x i32], ptr %25, i64 0, i64 %indvars.iv
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %53, ptr %52, align 4
   %54 = getelementptr inbounds [10 x i32], ptr %10, i64 0, i64 %indvars.iv
   store i32 %53, ptr %54, align 4
@@ -1769,7 +1769,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
 
 95:                                               ; preds = %.preheader, %95
   %indvars.iv256 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next257, %95 ]
-  %96 = trunc i64 %indvars.iv256 to i32
+  %96 = trunc nuw nsw i64 %indvars.iv256 to i32
   %97 = and i32 %93, %96
   %.not158 = icmp ne i32 %97, 0
   %98 = sext i1 %.not158 to i64
@@ -1798,7 +1798,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
 
 select.unfold.i:                                  ; preds = %109, %.loopexit
   %indvars.iv.i = phi i64 [ %106, %.loopexit ], [ %110, %109 ]
-  %107 = trunc i64 %indvars.iv.i to i32
+  %107 = trunc nuw i64 %indvars.iv.i to i32
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %109, label %Kit_TruthIsConst0.exit
 
@@ -1811,7 +1811,7 @@ select.unfold.i:                                  ; preds = %109, %.loopexit
 
 select.unfold.i196:                               ; preds = %109, %115
   %indvars.iv.i197 = phi i64 [ %116, %115 ], [ %106, %109 ]
-  %113 = trunc i64 %indvars.iv.i197 to i32
+  %113 = trunc nuw i64 %indvars.iv.i197 to i32
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %115, label %Kit_TruthIsConst0.exit
 
@@ -1839,7 +1839,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i, %s
 
 select.unfold.i201:                               ; preds = %128, %Kit_TruthIsConst0.exit
   %indvars.iv.i202 = phi i64 [ %106, %Kit_TruthIsConst0.exit ], [ %129, %128 ]
-  %126 = trunc i64 %indvars.iv.i202 to i32
+  %126 = trunc nuw i64 %indvars.iv.i202 to i32
   %127 = icmp sgt i32 %126, 0
   br i1 %127, label %128, label %Kit_TruthIsConst1.exit205
 
@@ -2322,7 +2322,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
 
 89:                                               ; preds = %.preheader, %89
   %indvars.iv240 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next241, %89 ]
-  %90 = trunc i64 %indvars.iv240 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv240 to i32
   %91 = and i32 %87, %90
   %.not161 = icmp ne i32 %91, 0
   %92 = sext i1 %.not161 to i64
@@ -2351,7 +2351,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
 
 select.unfold.i:                                  ; preds = %103, %.loopexit
   %indvars.iv.i = phi i64 [ %100, %.loopexit ], [ %104, %103 ]
-  %101 = trunc i64 %indvars.iv.i to i32
+  %101 = trunc nuw i64 %indvars.iv.i to i32
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %103, label %select.unfold.i184.preheader
 
@@ -2364,7 +2364,7 @@ select.unfold.i:                                  ; preds = %103, %.loopexit
 
 select.unfold.i179:                               ; preds = %103, %109
   %indvars.iv.i180 = phi i64 [ %110, %109 ], [ %100, %103 ]
-  %107 = trunc i64 %indvars.iv.i180 to i32
+  %107 = trunc nuw i64 %indvars.iv.i180 to i32
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %109, label %select.unfold.i184.preheader
 
@@ -2380,7 +2380,7 @@ select.unfold.i184.preheader:                     ; preds = %select.unfold.i, %s
 
 select.unfold.i184:                               ; preds = %select.unfold.i184.preheader, %115
   %indvars.iv.i185 = phi i64 [ %116, %115 ], [ %100, %select.unfold.i184.preheader ]
-  %113 = trunc i64 %indvars.iv.i185 to i32
+  %113 = trunc nuw i64 %indvars.iv.i185 to i32
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %115, label %Kit_TruthIsConst1.exit188
 
@@ -3091,11 +3091,11 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
 
 10:                                               ; preds = %9
   tail call void @Io_NtkWriteConvertedBox(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
-  br label %212
+  br label %210
 
 11:                                               ; preds = %9
   %12 = tail call i64 @fwrite(ptr nonnull @.str.75, i64 10, i64 1, ptr %0)
-  br label %212
+  br label %210
 
 13:                                               ; preds = %5
   tail call void @Io_WriteTimingInfo(ptr noundef %0, ptr noundef nonnull %1)
@@ -3313,23 +3313,23 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef %0, ptr nounde
   %.not.i = icmp eq ptr %113, null
   br label %117
 
-117:                                              ; preds = %.lr.ph130, %207
-  %118 = phi ptr [ %114, %.lr.ph130 ], [ %209, %207 ]
-  %.3129 = phi i32 [ 0, %.lr.ph130 ], [ %208, %207 ]
+117:                                              ; preds = %.lr.ph130, %Io_NtkWriteNode.exit.thread
+  %118 = phi ptr [ %114, %.lr.ph130 ], [ %207, %Io_NtkWriteNode.exit.thread ]
+  %.3129 = phi i32 [ 0, %.lr.ph130 ], [ %206, %Io_NtkWriteNode.exit.thread ]
   %119 = getelementptr i8, ptr %118, i64 8
   %.val104.val = load ptr, ptr %119, align 8
   %120 = sext i32 %.3129 to i64
   %121 = getelementptr inbounds ptr, ptr %.val104.val, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %207, label %124
+  br i1 %123, label %Io_NtkWriteNode.exit.thread, label %124
 
 124:                                              ; preds = %117
   %125 = getelementptr i8, ptr %122, i64 20
   %.val105 = load i32, ptr %125, align 4
   %126 = and i32 %.val105, 15
   %.not115 = icmp eq i32 %126, 7
-  br i1 %.not115, label %127, label %207
+  br i1 %.not115, label %127, label %Io_NtkWriteNode.exit.thread
 
 127:                                              ; preds = %124
   br i1 %.not.i, label %131, label %128
@@ -3497,27 +3497,23 @@ Io_NtkWriteNode.exit:                             ; preds = %134, %136, %Abc_Obj
   %204 = tail call i64 @fwrite(ptr nonnull @.str.80, i64 5, i64 1, ptr %0)
   %205 = tail call i32 @Io_NtkWriteNodeGate(ptr noundef %0, ptr noundef nonnull %122, i32 noundef %109), !range !56
   %fputc19.i = tail call i32 @fputc(i32 10, ptr %0)
-  %.not85 = icmp eq i32 %205, 0
-  %206 = add nsw i32 %.3129, 1
-  br i1 %.not85, label %Io_NtkWriteNode.exit.thread, label %207
+  %spec.select = add nsw i32 %205, %.3129
+  br label %Io_NtkWriteNode.exit.thread
 
-Io_NtkWriteNode.exit.thread:                      ; preds = %Io_NtkWriteNodeFanins.exit.i, %141, %Io_NtkWriteNode.exit
-  br label %207
+Io_NtkWriteNode.exit.thread:                      ; preds = %Io_NtkWriteNode.exit, %Io_NtkWriteNodeFanins.exit.i, %141, %124, %117
+  %.4 = phi i32 [ %.3129, %117 ], [ %.3129, %124 ], [ %.3129, %141 ], [ %.3129, %Io_NtkWriteNodeFanins.exit.i ], [ %spec.select, %Io_NtkWriteNode.exit ]
+  %206 = add nsw i32 %.4, 1
+  %207 = load ptr, ptr %111, align 8
+  %208 = getelementptr i8, ptr %207, i64 4
+  %.val = load i32, ptr %208, align 4
+  %209 = icmp slt i32 %206, %.val
+  br i1 %209, label %117, label %.critedge6, !llvm.loop !57
 
-207:                                              ; preds = %Io_NtkWriteNode.exit.thread, %Io_NtkWriteNode.exit, %124, %117
-  %.4 = phi i32 [ %.3129, %117 ], [ %.3129, %124 ], [ %.3129, %Io_NtkWriteNode.exit.thread ], [ %206, %Io_NtkWriteNode.exit ]
-  %208 = add nsw i32 %.4, 1
-  %209 = load ptr, ptr %111, align 8
-  %210 = getelementptr i8, ptr %209, i64 4
-  %.val = load i32, ptr %210, align 4
-  %211 = icmp slt i32 %208, %.val
-  br i1 %211, label %117, label %.critedge6, !llvm.loop !57
-
-.critedge6:                                       ; preds = %207, %108
+.critedge6:                                       ; preds = %Io_NtkWriteNode.exit.thread, %108
   tail call void @Extra_ProgressBarStop(ptr noundef %113) #10
-  br label %212
+  br label %210
 
-212:                                              ; preds = %10, %11, %.critedge6
+210:                                              ; preds = %10, %11, %.critedge6
   ret void
 }
 

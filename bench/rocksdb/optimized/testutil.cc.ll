@@ -1175,7 +1175,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %shr.i.i.us = lshr i64 %mul.i.i.us, 31
   %and.i.i.us = and i64 %mul.i.i.us, 2147483647
   %add.i.i.us = add nuw nsw i64 %shr.i.i.us, %and.i.i.us
-  %conv2.i.i.us = trunc i64 %add.i.i.us to i32
+  %conv2.i.i.us = trunc nuw i64 %add.i.i.us to i32
   %cmp.i.i.us = icmp slt i32 %conv2.i.i.us, 0
   %sub.i.i.us = add i32 %conv2.i.i.us, -2147483647
   %spec.select.i.i.us = select i1 %cmp.i.i.us, i32 %sub.i.i.us, i32 %conv2.i.i.us
@@ -2182,13 +2182,13 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
   store i32 %spec.select.i.i, ptr %rnd, align 4
   %rem.i = urem i32 %spec.select.i.i, 26
-  %1 = trunc i32 %rem.i to i8
+  %1 = trunc nuw nsw i32 %rem.i to i8
   %conv = add nuw nsw i8 %1, 97
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i8 noundef signext %conv)
           to label %for.inc unwind label %lpad.loopexit
@@ -2240,18 +2240,18 @@ entry:
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
   store i32 %spec.select.i.i, ptr %rnd, align 4
   %rem.i = urem i32 %spec.select.i.i, 6
-  %ret.04 = trunc i32 %rem.i to i8
+  %ret.04 = trunc nuw nsw i32 %rem.i to i8
   %call15 = tail call noundef zeroext i1 @_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE(i8 noundef zeroext %ret.04)
   br i1 %call15, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %1 = trunc i32 %rem.i to i16
+  %1 = trunc nuw nsw i32 %rem.i to i16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -2259,7 +2259,7 @@ while.body:                                       ; preds = %while.body.preheade
   %2 = and i16 %ret.0.in6, 255
   %rem.lhs.trunc = add nuw nsw i16 %2, 1
   %rem3 = urem i16 %rem.lhs.trunc, 6
-  %ret.0 = trunc i16 %rem3 to i8
+  %ret.0 = trunc nuw nsw i16 %rem3 to i8
   %call1 = tail call noundef zeroext i1 @_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE(i8 noundef zeroext %ret.0)
   br i1 %call1, label %while.end, label %while.body, !llvm.loop !14
 
@@ -2316,33 +2316,33 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
-  %cmp7.not = icmp eq i64 %count, 0
-  br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
+  %cmp8.not = icmp eq i64 %count, 0
+  br i1 %cmp8.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE5clearEv.exit
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %types, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
-  %i.08 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
+  %i.09 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
   %2 = load i32, ptr %rnd, align 4
   %conv.i.i.i = zext i32 %2 to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 16807
   %shr.i.i.i = lshr i64 %mul.i.i.i, 31
   %and.i.i.i = and i64 %mul.i.i.i, 2147483647
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc i64 %add.i.i.i to i32
+  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
   %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
   store i32 %spec.select.i.i.i, ptr %rnd, align 4
   %rem.i.i = urem i32 %spec.select.i.i.i, 6
-  %ret.04.i = trunc i32 %rem.i.i to i8
+  %ret.04.i = trunc nuw nsw i32 %rem.i.i to i8
   %call15.i = tail call noundef zeroext i1 @_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE(i8 noundef zeroext %ret.04.i)
   br i1 %call15.i, label %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %for.body
-  %3 = trunc i32 %rem.i.i to i16
+  %3 = trunc nuw nsw i32 %rem.i.i to i16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.preheader.i
@@ -2350,7 +2350,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %4 = and i16 %ret.0.in6.i, 255
   %rem.lhs.trunc.i = add nuw nsw i16 %4, 1
   %rem3.i = urem i16 %rem.lhs.trunc.i, 6
-  %ret.0.i = trunc i16 %rem3.i to i8
+  %ret.0.i = trunc nuw nsw i16 %rem3.i to i8
   %5 = icmp ult i8 %ret.0.i, 6
   br i1 %5, label %switch.hole_check, label %while.body.i.backedge
 
@@ -2399,8 +2399,8 @@ _ZNKSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i.i.i, i64 1)
   %add.i.i.i4 = add i64 %.sroa.speculated.i.i.i, %sub.ptr.sub.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i4, %sub.ptr.sub.i.i.i.i
-  %11 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i4, i64 9223372036854775807)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 9223372036854775807, i64 %11
+  %spec.select.i.i.i5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i4, i64 9223372036854775807)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 9223372036854775807, i64 %spec.select.i.i.i5
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -2436,7 +2436,7 @@ _ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__
   br label %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
 _ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %inc = add nuw i64 %i.08, 1
+  %inc = add nuw i64 %i.09, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
@@ -2457,7 +2457,7 @@ cond.false:                                       ; preds = %entry
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -2480,7 +2480,7 @@ sw.bb:                                            ; preds = %cond.end
   %shr.i.i6 = lshr i64 %mul.i.i5, 31
   %and.i.i7 = and i64 %mul.i.i5, 2147483647
   %add.i.i8 = add nuw nsw i64 %shr.i.i6, %and.i.i7
-  %conv2.i.i9 = trunc i64 %add.i.i8 to i32
+  %conv2.i.i9 = trunc nuw i64 %add.i.i8 to i32
   %cmp.i.i10 = icmp slt i32 %conv2.i.i9, 0
   %sub.i.i11 = add i32 %conv2.i.i9, -2147483647
   %spec.select.i.i12 = select i1 %cmp.i.i10, i32 %sub.i.i11, i32 %conv2.i.i9
@@ -2498,7 +2498,7 @@ sw.bb3:                                           ; preds = %cond.end
   %shr.i.i16 = lshr i64 %mul.i.i15, 31
   %and.i.i17 = and i64 %mul.i.i15, 2147483647
   %add.i.i18 = add nuw nsw i64 %shr.i.i16, %and.i.i17
-  %conv2.i.i19 = trunc i64 %add.i.i18 to i32
+  %conv2.i.i19 = trunc nuw i64 %add.i.i18 to i32
   %cmp.i.i20 = icmp slt i32 %conv2.i.i19, 0
   %sub.i.i21 = add i32 %conv2.i.i19, -2147483647
   %spec.select.i.i22 = select i1 %cmp.i.i20, i32 %sub.i.i21, i32 %conv2.i.i19
@@ -2597,7 +2597,7 @@ invoke.cont26:
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -2610,7 +2610,7 @@ invoke.cont26:
   %shr.i.i12 = lshr i64 %mul.i.i11, 31
   %and.i.i13 = and i64 %mul.i.i11, 2147483647
   %add.i.i14 = add nuw nsw i64 %shr.i.i12, %and.i.i13
-  %conv2.i.i15 = trunc i64 %add.i.i14 to i32
+  %conv2.i.i15 = trunc nuw i64 %add.i.i14 to i32
   %cmp.i.i16 = icmp slt i32 %conv2.i.i15, 0
   %sub.i.i17 = add i32 %conv2.i.i15, -2147483647
   %spec.select.i.i18 = select i1 %cmp.i.i16, i32 %sub.i.i17, i32 %conv2.i.i15
@@ -2622,7 +2622,7 @@ invoke.cont26:
   %shr.i.i22 = lshr i64 %mul.i.i21, 31
   %and.i.i23 = and i64 %mul.i.i21, 2147483647
   %add.i.i24 = add nuw nsw i64 %shr.i.i22, %and.i.i23
-  %conv2.i.i25 = trunc i64 %add.i.i24 to i32
+  %conv2.i.i25 = trunc nuw i64 %add.i.i24 to i32
   %cmp.i.i26 = icmp slt i32 %conv2.i.i25, 0
   %sub.i.i27 = add i32 %conv2.i.i25, -2147483647
   %spec.select.i.i28 = select i1 %cmp.i.i26, i32 %sub.i.i27, i32 %conv2.i.i25
@@ -2635,7 +2635,7 @@ invoke.cont26:
   %shr.i.i32 = lshr i64 %mul.i.i31, 31
   %and.i.i33 = and i64 %mul.i.i31, 2147483647
   %add.i.i34 = add nuw nsw i64 %shr.i.i32, %and.i.i33
-  %conv2.i.i35 = trunc i64 %add.i.i34 to i32
+  %conv2.i.i35 = trunc nuw i64 %add.i.i34 to i32
   %cmp.i.i36 = icmp slt i32 %conv2.i.i35, 0
   %sub.i.i37 = add i32 %conv2.i.i35, -2147483647
   %spec.select.i.i38 = select i1 %cmp.i.i36, i32 %sub.i.i37, i32 %conv2.i.i35
@@ -2650,19 +2650,19 @@ invoke.cont26:
   %shr.i.i42 = lshr i64 %mul.i.i41, 31
   %and.i.i43 = and i64 %mul.i.i41, 2147483647
   %add.i.i44 = add nuw nsw i64 %shr.i.i42, %and.i.i43
-  %conv2.i.i45 = trunc i64 %add.i.i44 to i32
+  %conv2.i.i45 = trunc nuw i64 %add.i.i44 to i32
   %cmp.i.i46 = icmp slt i32 %conv2.i.i45, 0
   %sub.i.i47 = add i32 %conv2.i.i45, -2147483647
   %spec.select.i.i48 = select i1 %cmp.i.i46, i32 %sub.i.i47, i32 %conv2.i.i45
   %rem.i49 = urem i32 %spec.select.i.i48, 3
-  %conv16 = trunc i32 %rem.i49 to i8
+  %conv16 = trunc nuw nsw i32 %rem.i49 to i8
   store i8 %conv16, ptr %checksum.i, align 8
   %conv.i.i50 = zext i32 %spec.select.i.i48 to i64
   %mul.i.i51 = mul nuw nsw i64 %conv.i.i50, 16807
   %shr.i.i52 = lshr i64 %mul.i.i51, 31
   %and.i.i53 = and i64 %mul.i.i51, 2147483647
   %add.i.i54 = add nuw nsw i64 %shr.i.i52, %and.i.i53
-  %conv2.i.i55 = trunc i64 %add.i.i54 to i32
+  %conv2.i.i55 = trunc nuw i64 %add.i.i54 to i32
   %cmp.i.i56 = icmp slt i32 %conv2.i.i55, 0
   %sub.i.i57 = add i32 %conv2.i.i55, -2147483647
   %spec.select.i.i58 = select i1 %cmp.i.i56, i32 %sub.i.i57, i32 %conv2.i.i55
@@ -2674,7 +2674,7 @@ invoke.cont26:
   %shr.i.i62 = lshr i64 %mul.i.i61, 31
   %and.i.i63 = and i64 %mul.i.i61, 2147483647
   %add.i.i64 = add nuw nsw i64 %shr.i.i62, %and.i.i63
-  %conv2.i.i65 = trunc i64 %add.i.i64 to i32
+  %conv2.i.i65 = trunc nuw i64 %add.i.i64 to i32
   %cmp.i.i66 = icmp slt i32 %conv2.i.i65, 0
   %sub.i.i67 = add i32 %conv2.i.i65, -2147483647
   %spec.select.i.i68 = select i1 %cmp.i.i66, i32 %sub.i.i67, i32 %conv2.i.i65
@@ -2685,7 +2685,7 @@ invoke.cont26:
   %shr.i.i72 = lshr i64 %mul.i.i71, 31
   %and.i.i73 = and i64 %mul.i.i71, 2147483647
   %add.i.i74 = add nuw nsw i64 %shr.i.i72, %and.i.i73
-  %conv2.i.i75 = trunc i64 %add.i.i74 to i32
+  %conv2.i.i75 = trunc nuw i64 %add.i.i74 to i32
   %cmp.i.i76 = icmp slt i32 %conv2.i.i75, 0
   %sub.i.i77 = add i32 %conv2.i.i75, -2147483647
   %spec.select.i.i78 = select i1 %cmp.i.i76, i32 %sub.i.i77, i32 %conv2.i.i75
@@ -2696,7 +2696,7 @@ invoke.cont26:
   %shr.i.i82 = lshr i64 %mul.i.i81, 31
   %and.i.i83 = and i64 %mul.i.i81, 2147483647
   %add.i.i84 = add nuw nsw i64 %shr.i.i82, %and.i.i83
-  %conv2.i.i85 = trunc i64 %add.i.i84 to i32
+  %conv2.i.i85 = trunc nuw i64 %add.i.i84 to i32
   %cmp.i.i86 = icmp slt i32 %conv2.i.i85, 0
   %sub.i.i87 = add i32 %conv2.i.i85, -2147483647
   %spec.select.i.i88 = select i1 %cmp.i.i86, i32 %sub.i.i87, i32 %conv2.i.i85
@@ -2707,7 +2707,7 @@ invoke.cont26:
   %shr.i.i92 = lshr i64 %mul.i.i91, 31
   %and.i.i93 = and i64 %mul.i.i91, 2147483647
   %add.i.i94 = add nuw nsw i64 %shr.i.i92, %and.i.i93
-  %conv2.i.i95 = trunc i64 %add.i.i94 to i32
+  %conv2.i.i95 = trunc nuw i64 %add.i.i94 to i32
   %cmp.i.i96 = icmp slt i32 %conv2.i.i95, 0
   %sub.i.i97 = add i32 %conv2.i.i95, -2147483647
   %spec.select.i.i98 = select i1 %cmp.i.i96, i32 %sub.i.i97, i32 %conv2.i.i95
@@ -2737,7 +2737,7 @@ cond.false:                                       ; preds = %entry
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -2879,13 +2879,13 @@ invoke.cont.i:                                    ; preds = %for.inc.i, %.noexc
   %shr.i.i.i = lshr i64 %mul.i.i.i, 31
   %and.i.i.i = and i64 %mul.i.i.i, 2147483647
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc i64 %add.i.i.i to i32
+  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
   %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
   store i32 %spec.select.i.i.i, ptr %rnd, align 4, !noalias !16
   %rem.i.i = urem i32 %spec.select.i.i.i, 26
-  %1 = trunc i32 %rem.i.i to i8
+  %1 = trunc nuw nsw i32 %rem.i.i to i8
   %conv.i = add nuw nsw i8 %1, 97
   %call2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i8 noundef signext %conv.i)
           to label %for.inc.i unwind label %lpad.loopexit.i, !noalias !16
@@ -2988,13 +2988,13 @@ invoke.cont.i:                                    ; preds = %for.inc.i, %.noexc
   %shr.i.i.i = lshr i64 %mul.i.i.i, 31
   %and.i.i.i = and i64 %mul.i.i.i, 2147483647
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc i64 %add.i.i.i to i32
+  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
   %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
   store i32 %spec.select.i.i.i, ptr %rnd, align 4, !noalias !19
   %rem.i.i = urem i32 %spec.select.i.i.i, 26
-  %1 = trunc i32 %rem.i.i to i8
+  %1 = trunc nuw nsw i32 %rem.i.i to i8
   %conv.i = add nuw nsw i8 %1, 97
   %call2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i8 noundef signext %conv.i)
           to label %for.inc.i unwind label %lpad.loopexit.i, !noalias !19
@@ -3091,13 +3091,13 @@ invoke.cont.i:                                    ; preds = %for.inc.i, %.noexc
   %shr.i.i.i = lshr i64 %mul.i.i.i, 31
   %and.i.i.i = and i64 %mul.i.i.i, 2147483647
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc i64 %add.i.i.i to i32
+  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
   %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
   store i32 %spec.select.i.i.i, ptr %rnd, align 4, !noalias !22
   %rem.i.i = urem i32 %spec.select.i.i.i, 26
-  %1 = trunc i32 %rem.i.i to i8
+  %1 = trunc nuw nsw i32 %rem.i.i to i8
   %conv.i = add nuw nsw i8 %1, 97
   %call2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i8 noundef signext %conv.i)
           to label %for.inc.i unwind label %lpad.loopexit.i, !noalias !22
@@ -3181,7 +3181,7 @@ entry:
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -3196,7 +3196,7 @@ entry:
   %shr.i.i85 = lshr i64 %mul.i.i84, 31
   %and.i.i86 = and i64 %mul.i.i84, 2147483647
   %add.i.i87 = add nuw nsw i64 %shr.i.i85, %and.i.i86
-  %conv2.i.i88 = trunc i64 %add.i.i87 to i32
+  %conv2.i.i88 = trunc nuw i64 %add.i.i87 to i32
   %cmp.i.i89 = icmp slt i32 %conv2.i.i88, 0
   %sub.i.i90 = add i32 %conv2.i.i88, -2147483647
   %spec.select.i.i91 = select i1 %cmp.i.i89, i32 %sub.i.i90, i32 %conv2.i.i88
@@ -3211,7 +3211,7 @@ entry:
   %shr.i.i95 = lshr i64 %mul.i.i94, 31
   %and.i.i96 = and i64 %mul.i.i94, 2147483647
   %add.i.i97 = add nuw nsw i64 %shr.i.i95, %and.i.i96
-  %conv2.i.i98 = trunc i64 %add.i.i97 to i32
+  %conv2.i.i98 = trunc nuw i64 %add.i.i97 to i32
   %cmp.i.i99 = icmp slt i32 %conv2.i.i98, 0
   %sub.i.i100 = add i32 %conv2.i.i98, -2147483647
   %spec.select.i.i101 = select i1 %cmp.i.i99, i32 %sub.i.i100, i32 %conv2.i.i98
@@ -3226,7 +3226,7 @@ entry:
   %shr.i.i105 = lshr i64 %mul.i.i104, 31
   %and.i.i106 = and i64 %mul.i.i104, 2147483647
   %add.i.i107 = add nuw nsw i64 %shr.i.i105, %and.i.i106
-  %conv2.i.i108 = trunc i64 %add.i.i107 to i32
+  %conv2.i.i108 = trunc nuw i64 %add.i.i107 to i32
   %cmp.i.i109 = icmp slt i32 %conv2.i.i108, 0
   %sub.i.i110 = add i32 %conv2.i.i108, -2147483647
   %spec.select.i.i111 = select i1 %cmp.i.i109, i32 %sub.i.i110, i32 %conv2.i.i108
@@ -3241,7 +3241,7 @@ entry:
   %shr.i.i115 = lshr i64 %mul.i.i114, 31
   %and.i.i116 = and i64 %mul.i.i114, 2147483647
   %add.i.i117 = add nuw nsw i64 %shr.i.i115, %and.i.i116
-  %conv2.i.i118 = trunc i64 %add.i.i117 to i32
+  %conv2.i.i118 = trunc nuw i64 %add.i.i117 to i32
   %cmp.i.i119 = icmp slt i32 %conv2.i.i118, 0
   %sub.i.i120 = add i32 %conv2.i.i118, -2147483647
   %spec.select.i.i121 = select i1 %cmp.i.i119, i32 %sub.i.i120, i32 %conv2.i.i118
@@ -3256,7 +3256,7 @@ entry:
   %shr.i.i125 = lshr i64 %mul.i.i124, 31
   %and.i.i126 = and i64 %mul.i.i124, 2147483647
   %add.i.i127 = add nuw nsw i64 %shr.i.i125, %and.i.i126
-  %conv2.i.i128 = trunc i64 %add.i.i127 to i32
+  %conv2.i.i128 = trunc nuw i64 %add.i.i127 to i32
   %cmp.i.i129 = icmp slt i32 %conv2.i.i128, 0
   %sub.i.i130 = add i32 %conv2.i.i128, -2147483647
   %spec.select.i.i131 = select i1 %cmp.i.i129, i32 %sub.i.i130, i32 %conv2.i.i128
@@ -3270,7 +3270,7 @@ entry:
   %shr.i.i135 = lshr i64 %mul.i.i134, 31
   %and.i.i136 = and i64 %mul.i.i134, 2147483647
   %add.i.i137 = add nuw nsw i64 %shr.i.i135, %and.i.i136
-  %conv2.i.i138 = trunc i64 %add.i.i137 to i32
+  %conv2.i.i138 = trunc nuw i64 %add.i.i137 to i32
   %cmp.i.i139 = icmp slt i32 %conv2.i.i138, 0
   %sub.i.i140 = add i32 %conv2.i.i138, -2147483647
   %spec.select.i.i141 = select i1 %cmp.i.i139, i32 %sub.i.i140, i32 %conv2.i.i138
@@ -3285,7 +3285,7 @@ entry:
   %shr.i.i145 = lshr i64 %mul.i.i144, 31
   %and.i.i146 = and i64 %mul.i.i144, 2147483647
   %add.i.i147 = add nuw nsw i64 %shr.i.i145, %and.i.i146
-  %conv2.i.i148 = trunc i64 %add.i.i147 to i32
+  %conv2.i.i148 = trunc nuw i64 %add.i.i147 to i32
   %cmp.i.i149 = icmp slt i32 %conv2.i.i148, 0
   %sub.i.i150 = add i32 %conv2.i.i148, -2147483647
   %spec.select.i.i151 = select i1 %cmp.i.i149, i32 %sub.i.i150, i32 %conv2.i.i148
@@ -3300,7 +3300,7 @@ entry:
   %shr.i.i155 = lshr i64 %mul.i.i154, 31
   %and.i.i156 = and i64 %mul.i.i154, 2147483647
   %add.i.i157 = add nuw nsw i64 %shr.i.i155, %and.i.i156
-  %conv2.i.i158 = trunc i64 %add.i.i157 to i32
+  %conv2.i.i158 = trunc nuw i64 %add.i.i157 to i32
   %cmp.i.i159 = icmp slt i32 %conv2.i.i158, 0
   %sub.i.i160 = add i32 %conv2.i.i158, -2147483647
   %spec.select.i.i161 = select i1 %cmp.i.i159, i32 %sub.i.i160, i32 %conv2.i.i158
@@ -3315,7 +3315,7 @@ entry:
   %shr.i.i165 = lshr i64 %mul.i.i164, 31
   %and.i.i166 = and i64 %mul.i.i164, 2147483647
   %add.i.i167 = add nuw nsw i64 %shr.i.i165, %and.i.i166
-  %conv2.i.i168 = trunc i64 %add.i.i167 to i32
+  %conv2.i.i168 = trunc nuw i64 %add.i.i167 to i32
   %cmp.i.i169 = icmp slt i32 %conv2.i.i168, 0
   %sub.i.i170 = add i32 %conv2.i.i168, -2147483647
   %spec.select.i.i171 = select i1 %cmp.i.i169, i32 %sub.i.i170, i32 %conv2.i.i168
@@ -3330,7 +3330,7 @@ entry:
   %shr.i.i175 = lshr i64 %mul.i.i174, 31
   %and.i.i176 = and i64 %mul.i.i174, 2147483647
   %add.i.i177 = add nuw nsw i64 %shr.i.i175, %and.i.i176
-  %conv2.i.i178 = trunc i64 %add.i.i177 to i32
+  %conv2.i.i178 = trunc nuw i64 %add.i.i177 to i32
   %cmp.i.i179 = icmp slt i32 %conv2.i.i178, 0
   %sub.i.i180 = add i32 %conv2.i.i178, -2147483647
   %spec.select.i.i181 = select i1 %cmp.i.i179, i32 %sub.i.i180, i32 %conv2.i.i178
@@ -3345,7 +3345,7 @@ entry:
   %shr.i.i185 = lshr i64 %mul.i.i184, 31
   %and.i.i186 = and i64 %mul.i.i184, 2147483647
   %add.i.i187 = add nuw nsw i64 %shr.i.i185, %and.i.i186
-  %conv2.i.i188 = trunc i64 %add.i.i187 to i32
+  %conv2.i.i188 = trunc nuw i64 %add.i.i187 to i32
   %cmp.i.i189 = icmp slt i32 %conv2.i.i188, 0
   %sub.i.i190 = add i32 %conv2.i.i188, -2147483647
   %spec.select.i.i191 = select i1 %cmp.i.i189, i32 %sub.i.i190, i32 %conv2.i.i188
@@ -3360,7 +3360,7 @@ entry:
   %shr.i.i195 = lshr i64 %mul.i.i194, 31
   %and.i.i196 = and i64 %mul.i.i194, 2147483647
   %add.i.i197 = add nuw nsw i64 %shr.i.i195, %and.i.i196
-  %conv2.i.i198 = trunc i64 %add.i.i197 to i32
+  %conv2.i.i198 = trunc nuw i64 %add.i.i197 to i32
   %cmp.i.i199 = icmp slt i32 %conv2.i.i198, 0
   %sub.i.i200 = add i32 %conv2.i.i198, -2147483647
   %spec.select.i.i201 = select i1 %cmp.i.i199, i32 %sub.i.i200, i32 %conv2.i.i198
@@ -3375,7 +3375,7 @@ entry:
   %shr.i.i205 = lshr i64 %mul.i.i204, 31
   %and.i.i206 = and i64 %mul.i.i204, 2147483647
   %add.i.i207 = add nuw nsw i64 %shr.i.i205, %and.i.i206
-  %conv2.i.i208 = trunc i64 %add.i.i207 to i32
+  %conv2.i.i208 = trunc nuw i64 %add.i.i207 to i32
   %cmp.i.i209 = icmp slt i32 %conv2.i.i208, 0
   %sub.i.i210 = add i32 %conv2.i.i208, -2147483647
   %spec.select.i.i211 = select i1 %cmp.i.i209, i32 %sub.i.i210, i32 %conv2.i.i208
@@ -3390,7 +3390,7 @@ entry:
   %shr.i.i215 = lshr i64 %mul.i.i214, 31
   %and.i.i216 = and i64 %mul.i.i214, 2147483647
   %add.i.i217 = add nuw nsw i64 %shr.i.i215, %and.i.i216
-  %conv2.i.i218 = trunc i64 %add.i.i217 to i32
+  %conv2.i.i218 = trunc nuw i64 %add.i.i217 to i32
   %cmp.i.i219 = icmp slt i32 %conv2.i.i218, 0
   %sub.i.i220 = add i32 %conv2.i.i218, -2147483647
   %spec.select.i.i221 = select i1 %cmp.i.i219, i32 %sub.i.i220, i32 %conv2.i.i218
@@ -3405,7 +3405,7 @@ entry:
   %shr.i.i225 = lshr i64 %mul.i.i224, 31
   %and.i.i226 = and i64 %mul.i.i224, 2147483647
   %add.i.i227 = add nuw nsw i64 %shr.i.i225, %and.i.i226
-  %conv2.i.i228 = trunc i64 %add.i.i227 to i32
+  %conv2.i.i228 = trunc nuw i64 %add.i.i227 to i32
   %cmp.i.i229 = icmp slt i32 %conv2.i.i228, 0
   %sub.i.i230 = add i32 %conv2.i.i228, -2147483647
   %spec.select.i.i231 = select i1 %cmp.i.i229, i32 %sub.i.i230, i32 %conv2.i.i228
@@ -3420,7 +3420,7 @@ entry:
   %shr.i.i235 = lshr i64 %mul.i.i234, 31
   %and.i.i236 = and i64 %mul.i.i234, 2147483647
   %add.i.i237 = add nuw nsw i64 %shr.i.i235, %and.i.i236
-  %conv2.i.i238 = trunc i64 %add.i.i237 to i32
+  %conv2.i.i238 = trunc nuw i64 %add.i.i237 to i32
   %cmp.i.i239 = icmp slt i32 %conv2.i.i238, 0
   %sub.i.i240 = add i32 %conv2.i.i238, -2147483647
   %spec.select.i.i241 = select i1 %cmp.i.i239, i32 %sub.i.i240, i32 %conv2.i.i238
@@ -3435,7 +3435,7 @@ entry:
   %shr.i.i245 = lshr i64 %mul.i.i244, 31
   %and.i.i246 = and i64 %mul.i.i244, 2147483647
   %add.i.i247 = add nuw nsw i64 %shr.i.i245, %and.i.i246
-  %conv2.i.i248 = trunc i64 %add.i.i247 to i32
+  %conv2.i.i248 = trunc nuw i64 %add.i.i247 to i32
   %cmp.i.i249 = icmp slt i32 %conv2.i.i248, 0
   %sub.i.i250 = add i32 %conv2.i.i248, -2147483647
   %spec.select.i.i251 = select i1 %cmp.i.i249, i32 %sub.i.i250, i32 %conv2.i.i248
@@ -3450,7 +3450,7 @@ entry:
   %shr.i.i255 = lshr i64 %mul.i.i254, 31
   %and.i.i256 = and i64 %mul.i.i254, 2147483647
   %add.i.i257 = add nuw nsw i64 %shr.i.i255, %and.i.i256
-  %conv2.i.i258 = trunc i64 %add.i.i257 to i32
+  %conv2.i.i258 = trunc nuw i64 %add.i.i257 to i32
   %cmp.i.i259 = icmp slt i32 %conv2.i.i258, 0
   %sub.i.i260 = add i32 %conv2.i.i258, -2147483647
   %spec.select.i.i261 = select i1 %cmp.i.i259, i32 %sub.i.i260, i32 %conv2.i.i258
@@ -3465,7 +3465,7 @@ entry:
   %shr.i.i265 = lshr i64 %mul.i.i264, 31
   %and.i.i266 = and i64 %mul.i.i264, 2147483647
   %add.i.i267 = add nuw nsw i64 %shr.i.i265, %and.i.i266
-  %conv2.i.i268 = trunc i64 %add.i.i267 to i32
+  %conv2.i.i268 = trunc nuw i64 %add.i.i267 to i32
   %cmp.i.i269 = icmp slt i32 %conv2.i.i268, 0
   %sub.i.i270 = add i32 %conv2.i.i268, -2147483647
   %spec.select.i.i271 = select i1 %cmp.i.i269, i32 %sub.i.i270, i32 %conv2.i.i268
@@ -3480,7 +3480,7 @@ entry:
   %shr.i.i275 = lshr i64 %mul.i.i274, 31
   %and.i.i276 = and i64 %mul.i.i274, 2147483647
   %add.i.i277 = add nuw nsw i64 %shr.i.i275, %and.i.i276
-  %conv2.i.i278 = trunc i64 %add.i.i277 to i32
+  %conv2.i.i278 = trunc nuw i64 %add.i.i277 to i32
   %cmp.i.i279 = icmp slt i32 %conv2.i.i278, 0
   %sub.i.i280 = add i32 %conv2.i.i278, -2147483647
   %spec.select.i.i281 = select i1 %cmp.i.i279, i32 %sub.i.i280, i32 %conv2.i.i278
@@ -3495,7 +3495,7 @@ entry:
   %shr.i.i285 = lshr i64 %mul.i.i284, 31
   %and.i.i286 = and i64 %mul.i.i284, 2147483647
   %add.i.i287 = add nuw nsw i64 %shr.i.i285, %and.i.i286
-  %conv2.i.i288 = trunc i64 %add.i.i287 to i32
+  %conv2.i.i288 = trunc nuw i64 %add.i.i287 to i32
   %cmp.i.i289 = icmp slt i32 %conv2.i.i288, 0
   %sub.i.i290 = add i32 %conv2.i.i288, -2147483647
   %spec.select.i.i291 = select i1 %cmp.i.i289, i32 %sub.i.i290, i32 %conv2.i.i288
@@ -3509,7 +3509,7 @@ entry:
   %shr.i.i295 = lshr i64 %mul.i.i294, 31
   %and.i.i296 = and i64 %mul.i.i294, 2147483647
   %add.i.i297 = add nuw nsw i64 %shr.i.i295, %and.i.i296
-  %conv2.i.i298 = trunc i64 %add.i.i297 to i32
+  %conv2.i.i298 = trunc nuw i64 %add.i.i297 to i32
   %cmp.i.i299 = icmp slt i32 %conv2.i.i298, 0
   %sub.i.i300 = add i32 %conv2.i.i298, -2147483647
   %spec.select.i.i301 = select i1 %cmp.i.i299, i32 %sub.i.i300, i32 %conv2.i.i298
@@ -3523,7 +3523,7 @@ entry:
   %shr.i.i305 = lshr i64 %mul.i.i304, 31
   %and.i.i306 = and i64 %mul.i.i304, 2147483647
   %add.i.i307 = add nuw nsw i64 %shr.i.i305, %and.i.i306
-  %conv2.i.i308 = trunc i64 %add.i.i307 to i32
+  %conv2.i.i308 = trunc nuw i64 %add.i.i307 to i32
   %cmp.i.i309 = icmp slt i32 %conv2.i.i308, 0
   %sub.i.i310 = add i32 %conv2.i.i308, -2147483647
   %spec.select.i.i311 = select i1 %cmp.i.i309, i32 %sub.i.i310, i32 %conv2.i.i308
@@ -3537,7 +3537,7 @@ entry:
   %shr.i.i315 = lshr i64 %mul.i.i314, 31
   %and.i.i316 = and i64 %mul.i.i314, 2147483647
   %add.i.i317 = add nuw nsw i64 %shr.i.i315, %and.i.i316
-  %conv2.i.i318 = trunc i64 %add.i.i317 to i32
+  %conv2.i.i318 = trunc nuw i64 %add.i.i317 to i32
   %cmp.i.i319 = icmp slt i32 %conv2.i.i318, 0
   %sub.i.i320 = add i32 %conv2.i.i318, -2147483647
   %spec.select.i.i321 = select i1 %cmp.i.i319, i32 %sub.i.i320, i32 %conv2.i.i318
@@ -3551,7 +3551,7 @@ entry:
   %shr.i.i325 = lshr i64 %mul.i.i324, 31
   %and.i.i326 = and i64 %mul.i.i324, 2147483647
   %add.i.i327 = add nuw nsw i64 %shr.i.i325, %and.i.i326
-  %conv2.i.i328 = trunc i64 %add.i.i327 to i32
+  %conv2.i.i328 = trunc nuw i64 %add.i.i327 to i32
   %cmp.i.i329 = icmp slt i32 %conv2.i.i328, 0
   %sub.i.i330 = add i32 %conv2.i.i328, -2147483647
   %spec.select.i.i331 = select i1 %cmp.i.i329, i32 %sub.i.i330, i32 %conv2.i.i328
@@ -3565,7 +3565,7 @@ entry:
   %shr.i.i335 = lshr i64 %mul.i.i334, 31
   %and.i.i336 = and i64 %mul.i.i334, 2147483647
   %add.i.i337 = add nuw nsw i64 %shr.i.i335, %and.i.i336
-  %conv2.i.i338 = trunc i64 %add.i.i337 to i32
+  %conv2.i.i338 = trunc nuw i64 %add.i.i337 to i32
   %cmp.i.i339 = icmp slt i32 %conv2.i.i338, 0
   %sub.i.i340 = add i32 %conv2.i.i338, -2147483647
   %spec.select.i.i341 = select i1 %cmp.i.i339, i32 %sub.i.i340, i32 %conv2.i.i338
@@ -3580,7 +3580,7 @@ entry:
   %shr.i.i345 = lshr i64 %mul.i.i344, 31
   %and.i.i346 = and i64 %mul.i.i344, 2147483647
   %add.i.i347 = add nuw nsw i64 %shr.i.i345, %and.i.i346
-  %conv2.i.i348 = trunc i64 %add.i.i347 to i32
+  %conv2.i.i348 = trunc nuw i64 %add.i.i347 to i32
   %cmp.i.i349 = icmp slt i32 %conv2.i.i348, 0
   %sub.i.i350 = add i32 %conv2.i.i348, -2147483647
   %spec.select.i.i351 = select i1 %cmp.i.i349, i32 %sub.i.i350, i32 %conv2.i.i348
@@ -3595,7 +3595,7 @@ entry:
   %shr.i.i355 = lshr i64 %mul.i.i354, 31
   %and.i.i356 = and i64 %mul.i.i354, 2147483647
   %add.i.i357 = add nuw nsw i64 %shr.i.i355, %and.i.i356
-  %conv2.i.i358 = trunc i64 %add.i.i357 to i32
+  %conv2.i.i358 = trunc nuw i64 %add.i.i357 to i32
   %cmp.i.i359 = icmp slt i32 %conv2.i.i358, 0
   %sub.i.i360 = add i32 %conv2.i.i358, -2147483647
   %spec.select.i.i361 = select i1 %cmp.i.i359, i32 %sub.i.i360, i32 %conv2.i.i358
@@ -3610,7 +3610,7 @@ entry:
   %shr.i.i365 = lshr i64 %mul.i.i364, 31
   %and.i.i366 = and i64 %mul.i.i364, 2147483647
   %add.i.i367 = add nuw nsw i64 %shr.i.i365, %and.i.i366
-  %conv2.i.i368 = trunc i64 %add.i.i367 to i32
+  %conv2.i.i368 = trunc nuw i64 %add.i.i367 to i32
   %cmp.i.i369 = icmp slt i32 %conv2.i.i368, 0
   %sub.i.i370 = add i32 %conv2.i.i368, -2147483647
   %spec.select.i.i371 = select i1 %cmp.i.i369, i32 %sub.i.i370, i32 %conv2.i.i368
@@ -3625,7 +3625,7 @@ entry:
   %shr.i.i375 = lshr i64 %mul.i.i374, 31
   %and.i.i376 = and i64 %mul.i.i374, 2147483647
   %add.i.i377 = add nuw nsw i64 %shr.i.i375, %and.i.i376
-  %conv2.i.i378 = trunc i64 %add.i.i377 to i32
+  %conv2.i.i378 = trunc nuw i64 %add.i.i377 to i32
   %cmp.i.i379 = icmp slt i32 %conv2.i.i378, 0
   %sub.i.i380 = add i32 %conv2.i.i378, -2147483647
   %spec.select.i.i381 = select i1 %cmp.i.i379, i32 %sub.i.i380, i32 %conv2.i.i378
@@ -3644,7 +3644,7 @@ entry:
   %shr.i.i385 = lshr i64 %mul.i.i384, 31
   %and.i.i386 = and i64 %mul.i.i384, 2147483647
   %add.i.i387 = add nuw nsw i64 %shr.i.i385, %and.i.i386
-  %conv2.i.i388 = trunc i64 %add.i.i387 to i32
+  %conv2.i.i388 = trunc nuw i64 %add.i.i387 to i32
   %cmp.i.i389 = icmp slt i32 %conv2.i.i388, 0
   %sub.i.i390 = add i32 %conv2.i.i388, -2147483647
   %spec.select.i.i391 = select i1 %cmp.i.i389, i32 %sub.i.i390, i32 %conv2.i.i388
@@ -3658,7 +3658,7 @@ entry:
   %shr.i.i395 = lshr i64 %mul.i.i394, 31
   %and.i.i396 = and i64 %mul.i.i394, 2147483647
   %add.i.i397 = add nuw nsw i64 %shr.i.i395, %and.i.i396
-  %conv2.i.i398 = trunc i64 %add.i.i397 to i32
+  %conv2.i.i398 = trunc nuw i64 %add.i.i397 to i32
   %cmp.i.i399 = icmp slt i32 %conv2.i.i398, 0
   %sub.i.i400 = add i32 %conv2.i.i398, -2147483647
   %spec.select.i.i401 = select i1 %cmp.i.i399, i32 %sub.i.i400, i32 %conv2.i.i398
@@ -3674,7 +3674,7 @@ entry:
   %shr.i.i405 = lshr i64 %mul.i.i404, 31
   %and.i.i406 = and i64 %mul.i.i404, 2147483647
   %add.i.i407 = add nuw nsw i64 %shr.i.i405, %and.i.i406
-  %conv2.i.i408 = trunc i64 %add.i.i407 to i32
+  %conv2.i.i408 = trunc nuw i64 %add.i.i407 to i32
   %cmp.i.i409 = icmp slt i32 %conv2.i.i408, 0
   %sub.i.i410 = add i32 %conv2.i.i408, -2147483647
   %spec.select.i.i411 = select i1 %cmp.i.i409, i32 %sub.i.i410, i32 %conv2.i.i408
@@ -3690,7 +3690,7 @@ entry:
   %shr.i.i415 = lshr i64 %mul.i.i414, 31
   %and.i.i416 = and i64 %mul.i.i414, 2147483647
   %add.i.i417 = add nuw nsw i64 %shr.i.i415, %and.i.i416
-  %conv2.i.i418 = trunc i64 %add.i.i417 to i32
+  %conv2.i.i418 = trunc nuw i64 %add.i.i417 to i32
   %cmp.i.i419 = icmp slt i32 %conv2.i.i418, 0
   %sub.i.i420 = add i32 %conv2.i.i418, -2147483647
   %spec.select.i.i421 = select i1 %cmp.i.i419, i32 %sub.i.i420, i32 %conv2.i.i418
@@ -3706,7 +3706,7 @@ entry:
   %shr.i.i425 = lshr i64 %mul.i.i424, 31
   %and.i.i426 = and i64 %mul.i.i424, 2147483647
   %add.i.i427 = add nuw nsw i64 %shr.i.i425, %and.i.i426
-  %conv2.i.i428 = trunc i64 %add.i.i427 to i32
+  %conv2.i.i428 = trunc nuw i64 %add.i.i427 to i32
   %cmp.i.i429 = icmp slt i32 %conv2.i.i428, 0
   %sub.i.i430 = add i32 %conv2.i.i428, -2147483647
   %spec.select.i.i431 = select i1 %cmp.i.i429, i32 %sub.i.i430, i32 %conv2.i.i428
@@ -3722,7 +3722,7 @@ entry:
   %shr.i.i435 = lshr i64 %mul.i.i434, 31
   %and.i.i436 = and i64 %mul.i.i434, 2147483647
   %add.i.i437 = add nuw nsw i64 %shr.i.i435, %and.i.i436
-  %conv2.i.i438 = trunc i64 %add.i.i437 to i32
+  %conv2.i.i438 = trunc nuw i64 %add.i.i437 to i32
   %cmp.i.i439 = icmp slt i32 %conv2.i.i438, 0
   %sub.i.i440 = add i32 %conv2.i.i438, -2147483647
   %spec.select.i.i441 = select i1 %cmp.i.i439, i32 %sub.i.i440, i32 %conv2.i.i438
@@ -3738,7 +3738,7 @@ entry:
   %shr.i.i445 = lshr i64 %mul.i.i444, 31
   %and.i.i446 = and i64 %mul.i.i444, 2147483647
   %add.i.i447 = add nuw nsw i64 %shr.i.i445, %and.i.i446
-  %conv2.i.i448 = trunc i64 %add.i.i447 to i32
+  %conv2.i.i448 = trunc nuw i64 %add.i.i447 to i32
   %cmp.i.i449 = icmp slt i32 %conv2.i.i448, 0
   %sub.i.i450 = add i32 %conv2.i.i448, -2147483647
   %spec.select.i.i451 = select i1 %cmp.i.i449, i32 %sub.i.i450, i32 %conv2.i.i448
@@ -3754,7 +3754,7 @@ entry:
   %shr.i.i455 = lshr i64 %mul.i.i454, 31
   %and.i.i456 = and i64 %mul.i.i454, 2147483647
   %add.i.i457 = add nuw nsw i64 %shr.i.i455, %and.i.i456
-  %conv2.i.i458 = trunc i64 %add.i.i457 to i32
+  %conv2.i.i458 = trunc nuw i64 %add.i.i457 to i32
   %cmp.i.i459 = icmp slt i32 %conv2.i.i458, 0
   %sub.i.i460 = add i32 %conv2.i.i458, -2147483647
   %spec.select.i.i461 = select i1 %cmp.i.i459, i32 %sub.i.i460, i32 %conv2.i.i458
@@ -3770,7 +3770,7 @@ entry:
   %shr.i.i465 = lshr i64 %mul.i.i464, 31
   %and.i.i466 = and i64 %mul.i.i464, 2147483647
   %add.i.i467 = add nuw nsw i64 %shr.i.i465, %and.i.i466
-  %conv2.i.i468 = trunc i64 %add.i.i467 to i32
+  %conv2.i.i468 = trunc nuw i64 %add.i.i467 to i32
   %cmp.i.i469 = icmp slt i32 %conv2.i.i468, 0
   %sub.i.i470 = add i32 %conv2.i.i468, -2147483647
   %spec.select.i.i471 = select i1 %cmp.i.i469, i32 %sub.i.i470, i32 %conv2.i.i468
@@ -3786,7 +3786,7 @@ entry:
   %shr.i.i475 = lshr i64 %mul.i.i474, 31
   %and.i.i476 = and i64 %mul.i.i474, 2147483647
   %add.i.i477 = add nuw nsw i64 %shr.i.i475, %and.i.i476
-  %conv2.i.i478 = trunc i64 %add.i.i477 to i32
+  %conv2.i.i478 = trunc nuw i64 %add.i.i477 to i32
   %cmp.i.i479 = icmp slt i32 %conv2.i.i478, 0
   %sub.i.i480 = add i32 %conv2.i.i478, -2147483647
   %spec.select.i.i481 = select i1 %cmp.i.i479, i32 %sub.i.i480, i32 %conv2.i.i478
@@ -3808,7 +3808,7 @@ entry:
   %shr.i.i = lshr i64 %mul.i.i, 31
   %and.i.i = and i64 %mul.i.i, 2147483647
   %add.i.i = add nuw nsw i64 %shr.i.i, %and.i.i
-  %conv2.i.i = trunc i64 %add.i.i to i32
+  %conv2.i.i = trunc nuw i64 %add.i.i to i32
   %cmp.i.i = icmp slt i32 %conv2.i.i, 0
   %sub.i.i = add i32 %conv2.i.i, -2147483647
   %spec.select.i.i = select i1 %cmp.i.i, i32 %sub.i.i, i32 %conv2.i.i
@@ -3823,7 +3823,7 @@ entry:
   %shr.i.i111 = lshr i64 %mul.i.i110, 31
   %and.i.i112 = and i64 %mul.i.i110, 2147483647
   %add.i.i113 = add nuw nsw i64 %shr.i.i111, %and.i.i112
-  %conv2.i.i114 = trunc i64 %add.i.i113 to i32
+  %conv2.i.i114 = trunc nuw i64 %add.i.i113 to i32
   %cmp.i.i115 = icmp slt i32 %conv2.i.i114, 0
   %sub.i.i116 = add i32 %conv2.i.i114, -2147483647
   %spec.select.i.i117 = select i1 %cmp.i.i115, i32 %sub.i.i116, i32 %conv2.i.i114
@@ -3838,7 +3838,7 @@ entry:
   %shr.i.i121 = lshr i64 %mul.i.i120, 31
   %and.i.i122 = and i64 %mul.i.i120, 2147483647
   %add.i.i123 = add nuw nsw i64 %shr.i.i121, %and.i.i122
-  %conv2.i.i124 = trunc i64 %add.i.i123 to i32
+  %conv2.i.i124 = trunc nuw i64 %add.i.i123 to i32
   %cmp.i.i125 = icmp slt i32 %conv2.i.i124, 0
   %sub.i.i126 = add i32 %conv2.i.i124, -2147483647
   %spec.select.i.i127 = select i1 %cmp.i.i125, i32 %sub.i.i126, i32 %conv2.i.i124
@@ -3853,7 +3853,7 @@ entry:
   %shr.i.i131 = lshr i64 %mul.i.i130, 31
   %and.i.i132 = and i64 %mul.i.i130, 2147483647
   %add.i.i133 = add nuw nsw i64 %shr.i.i131, %and.i.i132
-  %conv2.i.i134 = trunc i64 %add.i.i133 to i32
+  %conv2.i.i134 = trunc nuw i64 %add.i.i133 to i32
   %cmp.i.i135 = icmp slt i32 %conv2.i.i134, 0
   %sub.i.i136 = add i32 %conv2.i.i134, -2147483647
   %spec.select.i.i137 = select i1 %cmp.i.i135, i32 %sub.i.i136, i32 %conv2.i.i134
@@ -3868,7 +3868,7 @@ entry:
   %shr.i.i141 = lshr i64 %mul.i.i140, 31
   %and.i.i142 = and i64 %mul.i.i140, 2147483647
   %add.i.i143 = add nuw nsw i64 %shr.i.i141, %and.i.i142
-  %conv2.i.i144 = trunc i64 %add.i.i143 to i32
+  %conv2.i.i144 = trunc nuw i64 %add.i.i143 to i32
   %cmp.i.i145 = icmp slt i32 %conv2.i.i144, 0
   %sub.i.i146 = add i32 %conv2.i.i144, -2147483647
   %spec.select.i.i147 = select i1 %cmp.i.i145, i32 %sub.i.i146, i32 %conv2.i.i144
@@ -3883,7 +3883,7 @@ entry:
   %shr.i.i151 = lshr i64 %mul.i.i150, 31
   %and.i.i152 = and i64 %mul.i.i150, 2147483647
   %add.i.i153 = add nuw nsw i64 %shr.i.i151, %and.i.i152
-  %conv2.i.i154 = trunc i64 %add.i.i153 to i32
+  %conv2.i.i154 = trunc nuw i64 %add.i.i153 to i32
   %cmp.i.i155 = icmp slt i32 %conv2.i.i154, 0
   %sub.i.i156 = add i32 %conv2.i.i154, -2147483647
   %spec.select.i.i157 = select i1 %cmp.i.i155, i32 %sub.i.i156, i32 %conv2.i.i154
@@ -3898,7 +3898,7 @@ entry:
   %shr.i.i161 = lshr i64 %mul.i.i160, 31
   %and.i.i162 = and i64 %mul.i.i160, 2147483647
   %add.i.i163 = add nuw nsw i64 %shr.i.i161, %and.i.i162
-  %conv2.i.i164 = trunc i64 %add.i.i163 to i32
+  %conv2.i.i164 = trunc nuw i64 %add.i.i163 to i32
   %cmp.i.i165 = icmp slt i32 %conv2.i.i164, 0
   %sub.i.i166 = add i32 %conv2.i.i164, -2147483647
   %spec.select.i.i167 = select i1 %cmp.i.i165, i32 %sub.i.i166, i32 %conv2.i.i164
@@ -3913,7 +3913,7 @@ entry:
   %shr.i.i171 = lshr i64 %mul.i.i170, 31
   %and.i.i172 = and i64 %mul.i.i170, 2147483647
   %add.i.i173 = add nuw nsw i64 %shr.i.i171, %and.i.i172
-  %conv2.i.i174 = trunc i64 %add.i.i173 to i32
+  %conv2.i.i174 = trunc nuw i64 %add.i.i173 to i32
   %cmp.i.i175 = icmp slt i32 %conv2.i.i174, 0
   %sub.i.i176 = add i32 %conv2.i.i174, -2147483647
   %spec.select.i.i177 = select i1 %cmp.i.i175, i32 %sub.i.i176, i32 %conv2.i.i174
@@ -3928,7 +3928,7 @@ entry:
   %shr.i.i181 = lshr i64 %mul.i.i180, 31
   %and.i.i182 = and i64 %mul.i.i180, 2147483647
   %add.i.i183 = add nuw nsw i64 %shr.i.i181, %and.i.i182
-  %conv2.i.i184 = trunc i64 %add.i.i183 to i32
+  %conv2.i.i184 = trunc nuw i64 %add.i.i183 to i32
   %cmp.i.i185 = icmp slt i32 %conv2.i.i184, 0
   %sub.i.i186 = add i32 %conv2.i.i184, -2147483647
   %spec.select.i.i187 = select i1 %cmp.i.i185, i32 %sub.i.i186, i32 %conv2.i.i184
@@ -3944,7 +3944,7 @@ entry:
   %shr.i.i191 = lshr i64 %mul.i.i190, 31
   %and.i.i192 = and i64 %mul.i.i190, 2147483647
   %add.i.i193 = add nuw nsw i64 %shr.i.i191, %and.i.i192
-  %conv2.i.i194 = trunc i64 %add.i.i193 to i32
+  %conv2.i.i194 = trunc nuw i64 %add.i.i193 to i32
   %cmp.i.i195 = icmp slt i32 %conv2.i.i194, 0
   %sub.i.i196 = add i32 %conv2.i.i194, -2147483647
   %spec.select.i.i197 = select i1 %cmp.i.i195, i32 %sub.i.i196, i32 %conv2.i.i194
@@ -3959,7 +3959,7 @@ entry:
   %shr.i.i201 = lshr i64 %mul.i.i200, 31
   %and.i.i202 = and i64 %mul.i.i200, 2147483647
   %add.i.i203 = add nuw nsw i64 %shr.i.i201, %and.i.i202
-  %conv2.i.i204 = trunc i64 %add.i.i203 to i32
+  %conv2.i.i204 = trunc nuw i64 %add.i.i203 to i32
   %cmp.i.i205 = icmp slt i32 %conv2.i.i204, 0
   %sub.i.i206 = add i32 %conv2.i.i204, -2147483647
   %spec.select.i.i207 = select i1 %cmp.i.i205, i32 %sub.i.i206, i32 %conv2.i.i204
@@ -3974,7 +3974,7 @@ entry:
   %shr.i.i211 = lshr i64 %mul.i.i210, 31
   %and.i.i212 = and i64 %mul.i.i210, 2147483647
   %add.i.i213 = add nuw nsw i64 %shr.i.i211, %and.i.i212
-  %conv2.i.i214 = trunc i64 %add.i.i213 to i32
+  %conv2.i.i214 = trunc nuw i64 %add.i.i213 to i32
   %cmp.i.i215 = icmp slt i32 %conv2.i.i214, 0
   %sub.i.i216 = add i32 %conv2.i.i214, -2147483647
   %spec.select.i.i217 = select i1 %cmp.i.i215, i32 %sub.i.i216, i32 %conv2.i.i214
@@ -3989,7 +3989,7 @@ entry:
   %shr.i.i221 = lshr i64 %mul.i.i220, 31
   %and.i.i222 = and i64 %mul.i.i220, 2147483647
   %add.i.i223 = add nuw nsw i64 %shr.i.i221, %and.i.i222
-  %conv2.i.i224 = trunc i64 %add.i.i223 to i32
+  %conv2.i.i224 = trunc nuw i64 %add.i.i223 to i32
   %cmp.i.i225 = icmp slt i32 %conv2.i.i224, 0
   %sub.i.i226 = add i32 %conv2.i.i224, -2147483647
   %spec.select.i.i227 = select i1 %cmp.i.i225, i32 %sub.i.i226, i32 %conv2.i.i224
@@ -4005,7 +4005,7 @@ entry:
   %shr.i.i231 = lshr i64 %mul.i.i230, 31
   %and.i.i232 = and i64 %mul.i.i230, 2147483647
   %add.i.i233 = add nuw nsw i64 %shr.i.i231, %and.i.i232
-  %conv2.i.i234 = trunc i64 %add.i.i233 to i32
+  %conv2.i.i234 = trunc nuw i64 %add.i.i233 to i32
   %cmp.i.i235 = icmp slt i32 %conv2.i.i234, 0
   %sub.i.i236 = add i32 %conv2.i.i234, -2147483647
   %spec.select.i.i237 = select i1 %cmp.i.i235, i32 %sub.i.i236, i32 %conv2.i.i234
@@ -4021,7 +4021,7 @@ entry:
   %shr.i.i241 = lshr i64 %mul.i.i240, 31
   %and.i.i242 = and i64 %mul.i.i240, 2147483647
   %add.i.i243 = add nuw nsw i64 %shr.i.i241, %and.i.i242
-  %conv2.i.i244 = trunc i64 %add.i.i243 to i32
+  %conv2.i.i244 = trunc nuw i64 %add.i.i243 to i32
   %cmp.i.i245 = icmp slt i32 %conv2.i.i244, 0
   %sub.i.i246 = add i32 %conv2.i.i244, -2147483647
   %spec.select.i.i247 = select i1 %cmp.i.i245, i32 %sub.i.i246, i32 %conv2.i.i244
@@ -4037,7 +4037,7 @@ entry:
   %shr.i.i251 = lshr i64 %mul.i.i250, 31
   %and.i.i252 = and i64 %mul.i.i250, 2147483647
   %add.i.i253 = add nuw nsw i64 %shr.i.i251, %and.i.i252
-  %conv2.i.i254 = trunc i64 %add.i.i253 to i32
+  %conv2.i.i254 = trunc nuw i64 %add.i.i253 to i32
   %cmp.i.i255 = icmp slt i32 %conv2.i.i254, 0
   %sub.i.i256 = add i32 %conv2.i.i254, -2147483647
   %spec.select.i.i257 = select i1 %cmp.i.i255, i32 %sub.i.i256, i32 %conv2.i.i254
@@ -4051,7 +4051,7 @@ entry:
   %shr.i.i261 = lshr i64 %mul.i.i260, 31
   %and.i.i262 = and i64 %mul.i.i260, 2147483647
   %add.i.i263 = add nuw nsw i64 %shr.i.i261, %and.i.i262
-  %conv2.i.i264 = trunc i64 %add.i.i263 to i32
+  %conv2.i.i264 = trunc nuw i64 %add.i.i263 to i32
   %cmp.i.i265 = icmp slt i32 %conv2.i.i264, 0
   %sub.i.i266 = add i32 %conv2.i.i264, -2147483647
   %spec.select.i.i267 = select i1 %cmp.i.i265, i32 %sub.i.i266, i32 %conv2.i.i264
@@ -4065,7 +4065,7 @@ entry:
   %shr.i.i271 = lshr i64 %mul.i.i270, 31
   %and.i.i272 = and i64 %mul.i.i270, 2147483647
   %add.i.i273 = add nuw nsw i64 %shr.i.i271, %and.i.i272
-  %conv2.i.i274 = trunc i64 %add.i.i273 to i32
+  %conv2.i.i274 = trunc nuw i64 %add.i.i273 to i32
   %cmp.i.i275 = icmp slt i32 %conv2.i.i274, 0
   %sub.i.i276 = add i32 %conv2.i.i274, -2147483647
   %spec.select.i.i277 = select i1 %cmp.i.i275, i32 %sub.i.i276, i32 %conv2.i.i274
@@ -4079,7 +4079,7 @@ entry:
   %shr.i.i281 = lshr i64 %mul.i.i280, 31
   %and.i.i282 = and i64 %mul.i.i280, 2147483647
   %add.i.i283 = add nuw nsw i64 %shr.i.i281, %and.i.i282
-  %conv2.i.i284 = trunc i64 %add.i.i283 to i32
+  %conv2.i.i284 = trunc nuw i64 %add.i.i283 to i32
   %cmp.i.i285 = icmp slt i32 %conv2.i.i284, 0
   %sub.i.i286 = add i32 %conv2.i.i284, -2147483647
   %spec.select.i.i287 = select i1 %cmp.i.i285, i32 %sub.i.i286, i32 %conv2.i.i284
@@ -4094,7 +4094,7 @@ entry:
   %shr.i.i291 = lshr i64 %mul.i.i290, 31
   %and.i.i292 = and i64 %mul.i.i290, 2147483647
   %add.i.i293 = add nuw nsw i64 %shr.i.i291, %and.i.i292
-  %conv2.i.i294 = trunc i64 %add.i.i293 to i32
+  %conv2.i.i294 = trunc nuw i64 %add.i.i293 to i32
   %cmp.i.i295 = icmp slt i32 %conv2.i.i294, 0
   %sub.i.i296 = add i32 %conv2.i.i294, -2147483647
   %spec.select.i.i297 = select i1 %cmp.i.i295, i32 %sub.i.i296, i32 %conv2.i.i294
@@ -4107,7 +4107,7 @@ entry:
   %shr.i.i301 = lshr i64 %mul.i.i300, 31
   %and.i.i302 = and i64 %mul.i.i300, 2147483647
   %add.i.i303 = add nuw nsw i64 %shr.i.i301, %and.i.i302
-  %conv2.i.i304 = trunc i64 %add.i.i303 to i32
+  %conv2.i.i304 = trunc nuw i64 %add.i.i303 to i32
   %cmp.i.i305 = icmp slt i32 %conv2.i.i304, 0
   %sub.i.i306 = add i32 %conv2.i.i304, -2147483647
   %spec.select.i.i307 = select i1 %cmp.i.i305, i32 %sub.i.i306, i32 %conv2.i.i304
@@ -4121,7 +4121,7 @@ entry:
   %shr.i.i311 = lshr i64 %mul.i.i310, 31
   %and.i.i312 = and i64 %mul.i.i310, 2147483647
   %add.i.i313 = add nuw nsw i64 %shr.i.i311, %and.i.i312
-  %conv2.i.i314 = trunc i64 %add.i.i313 to i32
+  %conv2.i.i314 = trunc nuw i64 %add.i.i313 to i32
   %cmp.i.i315 = icmp slt i32 %conv2.i.i314, 0
   %sub.i.i316 = add i32 %conv2.i.i314, -2147483647
   %spec.select.i.i317 = select i1 %cmp.i.i315, i32 %sub.i.i316, i32 %conv2.i.i314
@@ -4136,7 +4136,7 @@ entry:
   %shr.i.i321 = lshr i64 %mul.i.i320, 31
   %and.i.i322 = and i64 %mul.i.i320, 2147483647
   %add.i.i323 = add nuw nsw i64 %shr.i.i321, %and.i.i322
-  %conv2.i.i324 = trunc i64 %add.i.i323 to i32
+  %conv2.i.i324 = trunc nuw i64 %add.i.i323 to i32
   %cmp.i.i325 = icmp slt i32 %conv2.i.i324, 0
   %sub.i.i326 = add i32 %conv2.i.i324, -2147483647
   %spec.select.i.i327 = select i1 %cmp.i.i325, i32 %sub.i.i326, i32 %conv2.i.i324
@@ -4150,7 +4150,7 @@ entry:
   %shr.i.i331 = lshr i64 %mul.i.i330, 31
   %and.i.i332 = and i64 %mul.i.i330, 2147483647
   %add.i.i333 = add nuw nsw i64 %shr.i.i331, %and.i.i332
-  %conv2.i.i334 = trunc i64 %add.i.i333 to i32
+  %conv2.i.i334 = trunc nuw i64 %add.i.i333 to i32
   %cmp.i.i335 = icmp slt i32 %conv2.i.i334, 0
   %sub.i.i336 = add i32 %conv2.i.i334, -2147483647
   %spec.select.i.i337 = select i1 %cmp.i.i335, i32 %sub.i.i336, i32 %conv2.i.i334
@@ -4164,7 +4164,7 @@ entry:
   %shr.i.i341 = lshr i64 %mul.i.i340, 31
   %and.i.i342 = and i64 %mul.i.i340, 2147483647
   %add.i.i343 = add nuw nsw i64 %shr.i.i341, %and.i.i342
-  %conv2.i.i344 = trunc i64 %add.i.i343 to i32
+  %conv2.i.i344 = trunc nuw i64 %add.i.i343 to i32
   %cmp.i.i345 = icmp slt i32 %conv2.i.i344, 0
   %sub.i.i346 = add i32 %conv2.i.i344, -2147483647
   %spec.select.i.i347 = select i1 %cmp.i.i345, i32 %sub.i.i346, i32 %conv2.i.i344
@@ -4217,7 +4217,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIiSaIiE
   %shr.i.i351 = lshr i64 %mul.i.i350, 31
   %and.i.i352 = and i64 %mul.i.i350, 2147483647
   %add.i.i353 = add nuw nsw i64 %shr.i.i351, %and.i.i352
-  %conv2.i.i354 = trunc i64 %add.i.i353 to i32
+  %conv2.i.i354 = trunc nuw i64 %add.i.i353 to i32
   %cmp.i.i355 = icmp slt i32 %conv2.i.i354, 0
   %sub.i.i356 = add i32 %conv2.i.i354, -2147483647
   %spec.select.i.i357 = select i1 %cmp.i.i355, i32 %sub.i.i356, i32 %conv2.i.i354
@@ -4239,7 +4239,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %shr.i.i362 = lshr i64 %mul.i.i361, 31
   %and.i.i363 = and i64 %mul.i.i361, 2147483647
   %add.i.i364 = add nuw nsw i64 %shr.i.i362, %and.i.i363
-  %conv2.i.i365 = trunc i64 %add.i.i364 to i32
+  %conv2.i.i365 = trunc nuw i64 %add.i.i364 to i32
   %cmp.i.i366 = icmp slt i32 %conv2.i.i365, 0
   %sub.i.i367 = add i32 %conv2.i.i365, -2147483647
   %spec.select.i.i368 = select i1 %cmp.i.i366, i32 %sub.i.i367, i32 %conv2.i.i365
@@ -4254,7 +4254,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %shr.i.i372 = lshr i64 %mul.i.i371, 31
   %and.i.i373 = and i64 %mul.i.i371, 2147483647
   %add.i.i374 = add nuw nsw i64 %shr.i.i372, %and.i.i373
-  %conv2.i.i375 = trunc i64 %add.i.i374 to i32
+  %conv2.i.i375 = trunc nuw i64 %add.i.i374 to i32
   %cmp.i.i376 = icmp slt i32 %conv2.i.i375, 0
   %sub.i.i377 = add i32 %conv2.i.i375, -2147483647
   %spec.select.i.i378 = select i1 %cmp.i.i376, i32 %sub.i.i377, i32 %conv2.i.i375
@@ -4269,7 +4269,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %shr.i.i382 = lshr i64 %mul.i.i381, 31
   %and.i.i383 = and i64 %mul.i.i381, 2147483647
   %add.i.i384 = add nuw nsw i64 %shr.i.i382, %and.i.i383
-  %conv2.i.i385 = trunc i64 %add.i.i384 to i32
+  %conv2.i.i385 = trunc nuw i64 %add.i.i384 to i32
   %cmp.i.i386 = icmp slt i32 %conv2.i.i385, 0
   %sub.i.i387 = add i32 %conv2.i.i385, -2147483647
   %spec.select.i.i388 = select i1 %cmp.i.i386, i32 %sub.i.i387, i32 %conv2.i.i385
@@ -4284,7 +4284,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %shr.i.i392 = lshr i64 %mul.i.i391, 31
   %and.i.i393 = and i64 %mul.i.i391, 2147483647
   %add.i.i394 = add nuw nsw i64 %shr.i.i392, %and.i.i393
-  %conv2.i.i395 = trunc i64 %add.i.i394 to i32
+  %conv2.i.i395 = trunc nuw i64 %add.i.i394 to i32
   %cmp.i.i396 = icmp slt i32 %conv2.i.i395, 0
   %sub.i.i397 = add i32 %conv2.i.i395, -2147483647
   %spec.select.i.i398 = select i1 %cmp.i.i396, i32 %sub.i.i397, i32 %conv2.i.i395
@@ -4299,7 +4299,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %shr.i.i402 = lshr i64 %mul.i.i401, 31
   %and.i.i403 = and i64 %mul.i.i401, 2147483647
   %add.i.i404 = add nuw nsw i64 %shr.i.i402, %and.i.i403
-  %conv2.i.i405 = trunc i64 %add.i.i404 to i32
+  %conv2.i.i405 = trunc nuw i64 %add.i.i404 to i32
   %cmp.i.i406 = icmp slt i32 %conv2.i.i405, 0
   %sub.i.i407 = add i32 %conv2.i.i405, -2147483647
   %spec.select.i.i408 = select i1 %cmp.i.i406, i32 %sub.i.i407, i32 %conv2.i.i405
@@ -4314,7 +4314,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %shr.i.i412 = lshr i64 %mul.i.i411, 31
   %and.i.i413 = and i64 %mul.i.i411, 2147483647
   %add.i.i414 = add nuw nsw i64 %shr.i.i412, %and.i.i413
-  %conv2.i.i415 = trunc i64 %add.i.i414 to i32
+  %conv2.i.i415 = trunc nuw i64 %add.i.i414 to i32
   %cmp.i.i416 = icmp slt i32 %conv2.i.i415, 0
   %sub.i.i417 = add i32 %conv2.i.i415, -2147483647
   %spec.select.i.i418 = select i1 %cmp.i.i416, i32 %sub.i.i417, i32 %conv2.i.i415
@@ -4328,7 +4328,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %shr.i.i422 = lshr i64 %mul.i.i421, 31
   %and.i.i423 = and i64 %mul.i.i421, 2147483647
   %add.i.i424 = add nuw nsw i64 %shr.i.i422, %and.i.i423
-  %conv2.i.i425 = trunc i64 %add.i.i424 to i32
+  %conv2.i.i425 = trunc nuw i64 %add.i.i424 to i32
   %cmp.i.i426 = icmp slt i32 %conv2.i.i425, 0
   %sub.i.i427 = add i32 %conv2.i.i425, -2147483647
   %spec.select.i.i428 = select i1 %cmp.i.i426, i32 %sub.i.i427, i32 %conv2.i.i425
@@ -4349,7 +4349,7 @@ cond.true:                                        ; preds = %for.end
   %shr.i.i432 = lshr i64 %mul.i.i431, 31
   %and.i.i433 = and i64 %mul.i.i431, 2147483647
   %add.i.i434 = add nuw nsw i64 %shr.i.i432, %and.i.i433
-  %conv2.i.i435 = trunc i64 %add.i.i434 to i32
+  %conv2.i.i435 = trunc nuw i64 %add.i.i434 to i32
   %cmp.i.i436 = icmp slt i32 %conv2.i.i435, 0
   %sub.i.i437 = add i32 %conv2.i.i435, -2147483647
   %spec.select.i.i438 = select i1 %cmp.i.i436, i32 %sub.i.i437, i32 %conv2.i.i435
@@ -4374,7 +4374,7 @@ cond.true77:                                      ; preds = %cond.end
   %shr.i.i442 = lshr i64 %mul.i.i441, 31
   %and.i.i443 = and i64 %mul.i.i441, 2147483647
   %add.i.i444 = add nuw nsw i64 %shr.i.i442, %and.i.i443
-  %conv2.i.i445 = trunc i64 %add.i.i444 to i32
+  %conv2.i.i445 = trunc nuw i64 %add.i.i444 to i32
   %cmp.i.i446 = icmp slt i32 %conv2.i.i445, 0
   %sub.i.i447 = add i32 %conv2.i.i445, -2147483647
   %spec.select.i.i448 = select i1 %cmp.i.i446, i32 %sub.i.i447, i32 %conv2.i.i445
@@ -4394,7 +4394,7 @@ cond.end82:                                       ; preds = %cond.end, %cond.tru
   %shr.i.i452 = lshr i64 %mul.i.i451, 31
   %and.i.i453 = and i64 %mul.i.i451, 2147483647
   %add.i.i454 = add nuw nsw i64 %shr.i.i452, %and.i.i453
-  %conv2.i.i455 = trunc i64 %add.i.i454 to i32
+  %conv2.i.i455 = trunc nuw i64 %add.i.i454 to i32
   %cmp.i.i456 = icmp slt i32 %conv2.i.i455, 0
   %sub.i.i457 = add i32 %conv2.i.i455, -2147483647
   %spec.select.i.i458 = select i1 %cmp.i.i456, i32 %sub.i.i457, i32 %conv2.i.i455
@@ -4410,7 +4410,7 @@ cond.end82:                                       ; preds = %cond.end, %cond.tru
   %shr.i.i462 = lshr i64 %mul.i.i461, 31
   %and.i.i463 = and i64 %mul.i.i461, 2147483647
   %add.i.i464 = add nuw nsw i64 %shr.i.i462, %and.i.i463
-  %conv2.i.i465 = trunc i64 %add.i.i464 to i32
+  %conv2.i.i465 = trunc nuw i64 %add.i.i464 to i32
   %cmp.i.i466 = icmp slt i32 %conv2.i.i465, 0
   %sub.i.i467 = add i32 %conv2.i.i465, -2147483647
   %spec.select.i.i468 = select i1 %cmp.i.i466, i32 %sub.i.i467, i32 %conv2.i.i465
@@ -4426,7 +4426,7 @@ cond.end82:                                       ; preds = %cond.end, %cond.tru
   %shr.i.i472 = lshr i64 %mul.i.i471, 31
   %and.i.i473 = and i64 %mul.i.i471, 2147483647
   %add.i.i474 = add nuw nsw i64 %shr.i.i472, %and.i.i473
-  %conv2.i.i475 = trunc i64 %add.i.i474 to i32
+  %conv2.i.i475 = trunc nuw i64 %add.i.i474 to i32
   %cmp.i.i476 = icmp slt i32 %conv2.i.i475, 0
   %sub.i.i477 = add i32 %conv2.i.i475, -2147483647
   %spec.select.i.i478 = select i1 %cmp.i.i476, i32 %sub.i.i477, i32 %conv2.i.i475
@@ -4442,7 +4442,7 @@ cond.end82:                                       ; preds = %cond.end, %cond.tru
   %shr.i.i482 = lshr i64 %mul.i.i481, 31
   %and.i.i483 = and i64 %mul.i.i481, 2147483647
   %add.i.i484 = add nuw nsw i64 %shr.i.i482, %and.i.i483
-  %conv2.i.i485 = trunc i64 %add.i.i484 to i32
+  %conv2.i.i485 = trunc nuw i64 %add.i.i484 to i32
   %cmp.i.i486 = icmp slt i32 %conv2.i.i485, 0
   %sub.i.i487 = add i32 %conv2.i.i485, -2147483647
   %spec.select.i.i488 = select i1 %cmp.i.i486, i32 %sub.i.i487, i32 %conv2.i.i485
@@ -4457,7 +4457,7 @@ cond.end82:                                       ; preds = %cond.end, %cond.tru
   %shr.i.i492 = lshr i64 %mul.i.i491, 31
   %and.i.i493 = and i64 %mul.i.i491, 2147483647
   %add.i.i494 = add nuw nsw i64 %shr.i.i492, %and.i.i493
-  %conv2.i.i495 = trunc i64 %add.i.i494 to i32
+  %conv2.i.i495 = trunc nuw i64 %add.i.i494 to i32
   %cmp.i.i496 = icmp slt i32 %conv2.i.i495, 0
   %sub.i.i497 = add i32 %conv2.i.i495, -2147483647
   %spec.select.i.i498 = select i1 %cmp.i.i496, i32 %sub.i.i497, i32 %conv2.i.i495
@@ -4473,7 +4473,7 @@ cond.end82:                                       ; preds = %cond.end, %cond.tru
   %shr.i.i502 = lshr i64 %mul.i.i501, 31
   %and.i.i503 = and i64 %mul.i.i501, 2147483647
   %add.i.i504 = add nuw nsw i64 %shr.i.i502, %and.i.i503
-  %conv2.i.i505 = trunc i64 %add.i.i504 to i32
+  %conv2.i.i505 = trunc nuw i64 %add.i.i504 to i32
   %cmp.i.i506 = icmp slt i32 %conv2.i.i505, 0
   %sub.i.i507 = add i32 %conv2.i.i505, -2147483647
   %spec.select.i.i508 = select i1 %cmp.i.i506, i32 %sub.i.i507, i32 %conv2.i.i505
@@ -4489,7 +4489,7 @@ cond.end82:                                       ; preds = %cond.end, %cond.tru
   %shr.i.i512 = lshr i64 %mul.i.i511, 31
   %and.i.i513 = and i64 %mul.i.i511, 2147483647
   %add.i.i514 = add nuw nsw i64 %shr.i.i512, %and.i.i513
-  %conv2.i.i515 = trunc i64 %add.i.i514 to i32
+  %conv2.i.i515 = trunc nuw i64 %add.i.i514 to i32
   %cmp.i.i516 = icmp slt i32 %conv2.i.i515, 0
   %sub.i.i517 = add i32 %conv2.i.i515, -2147483647
   %spec.select.i.i518 = select i1 %cmp.i.i516, i32 %sub.i.i517, i32 %conv2.i.i515
@@ -4532,18 +4532,18 @@ if.end:                                           ; preds = %delete.notnull, %co
   %shr.i.i.i = lshr i64 %mul.i.i.i, 31
   %and.i.i.i = and i64 %mul.i.i.i, 2147483647
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc i64 %add.i.i.i to i32
+  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
   %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
   store i32 %spec.select.i.i.i, ptr %rnd, align 4
   %rem.i.i = urem i32 %spec.select.i.i.i, 6
-  %ret.04.i = trunc i32 %rem.i.i to i8
+  %ret.04.i = trunc nuw nsw i32 %rem.i.i to i8
   %call15.i = tail call noundef zeroext i1 @_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE(i8 noundef zeroext %ret.04.i)
   br i1 %call15.i, label %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %if.end
-  %66 = trunc i32 %rem.i.i to i16
+  %66 = trunc nuw nsw i32 %rem.i.i to i16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
@@ -4551,7 +4551,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %67 = and i16 %ret.0.in6.i, 255
   %rem.lhs.trunc.i = add nuw nsw i16 %67, 1
   %rem3.i = urem i16 %rem.lhs.trunc.i, 6
-  %ret.0.i = trunc i16 %rem3.i to i8
+  %ret.0.i = trunc nuw nsw i16 %rem3.i to i8
   %call1.i = tail call noundef zeroext i1 @_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE(i8 noundef zeroext %ret.0.i)
   br i1 %call1.i, label %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit, label %while.body.i, !llvm.loop !14
 
@@ -4569,18 +4569,18 @@ _ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit: ; preds = %while.body
   %shr.i.i.i522 = lshr i64 %mul.i.i.i521, 31
   %and.i.i.i523 = and i64 %mul.i.i.i521, 2147483647
   %add.i.i.i524 = add nuw nsw i64 %shr.i.i.i522, %and.i.i.i523
-  %conv2.i.i.i525 = trunc i64 %add.i.i.i524 to i32
+  %conv2.i.i.i525 = trunc nuw i64 %add.i.i.i524 to i32
   %cmp.i.i.i526 = icmp slt i32 %conv2.i.i.i525, 0
   %sub.i.i.i527 = add i32 %conv2.i.i.i525, -2147483647
   %spec.select.i.i.i528 = select i1 %cmp.i.i.i526, i32 %sub.i.i.i527, i32 %conv2.i.i.i525
   store i32 %spec.select.i.i.i528, ptr %rnd, align 4
   %rem.i.i529 = urem i32 %spec.select.i.i.i528, 6
-  %ret.04.i530 = trunc i32 %rem.i.i529 to i8
+  %ret.04.i530 = trunc nuw nsw i32 %rem.i.i529 to i8
   %call15.i531 = tail call noundef zeroext i1 @_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE(i8 noundef zeroext %ret.04.i530)
   br i1 %call15.i531, label %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit540, label %while.body.preheader.i532
 
 while.body.preheader.i532:                        ; preds = %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit
-  %70 = trunc i32 %rem.i.i529 to i16
+  %70 = trunc nuw nsw i32 %rem.i.i529 to i16
   br label %while.body.i533
 
 while.body.i533:                                  ; preds = %while.body.i533, %while.body.preheader.i532
@@ -4588,7 +4588,7 @@ while.body.i533:                                  ; preds = %while.body.i533, %w
   %71 = and i16 %ret.0.in6.i534, 255
   %rem.lhs.trunc.i535 = add nuw nsw i16 %71, 1
   %rem3.i536 = urem i16 %rem.lhs.trunc.i535, 6
-  %ret.0.i537 = trunc i16 %rem3.i536 to i8
+  %ret.0.i537 = trunc nuw nsw i16 %rem3.i536 to i8
   %call1.i538 = tail call noundef zeroext i1 @_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE(i8 noundef zeroext %ret.0.i537)
   br i1 %call1.i538, label %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit540, label %while.body.i533, !llvm.loop !14
 
@@ -8670,18 +8670,15 @@ if.else5:                                         ; preds = %if.else
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
-  br i1 %cmp.not, label %if.else11, label %land.lhs.true
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else5
   %call.i4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %call8) #28
   %cmp.i5 = icmp eq i32 %call.i4, 0
-  br i1 %cmp.i5, label %return, label %if.else11
-
-if.else11:                                        ; preds = %land.lhs.true, %if.else5
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.else, %entry, %if.else11
-  %retval.0 = phi i1 [ false, %if.else11 ], [ false, %entry ], [ true, %if.else ], [ true, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %if.else5, %if.else, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.else ], [ false, %if.else5 ], [ %cmp.i5, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -9037,18 +9034,15 @@ if.else5.i:                                       ; preds = %if.else.i
   %1 = load ptr, ptr %vfn7.i, align 8
   %call8.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not.i = icmp eq ptr %call8.i, null
-  br i1 %cmp.not.i, label %if.else11.i, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else5.i
   %call.i4.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %id, ptr noundef nonnull %call8.i) #28
   %cmp.i5.i = icmp eq i32 %call.i4.i, 0
-  br i1 %cmp.i5.i, label %return, label %if.else11.i
-
-if.else11.i:                                      ; preds = %land.lhs.true.i, %if.else5.i
   br label %return
 
-return:                                           ; preds = %if.else11.i, %land.lhs.true.i, %if.else.i, %if.else, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.else11.i ], [ false, %if.else ], [ true, %if.else.i ], [ true, %land.lhs.true.i ]
+return:                                           ; preds = %land.lhs.true.i, %if.else5.i, %if.else.i, %if.else, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.else ], [ true, %if.else.i ], [ false, %if.else5.i ], [ %cmp.i5.i, %land.lhs.true.i ]
   ret i1 %retval.0
 }
 
@@ -9209,18 +9203,15 @@ if.else5.i:                                       ; preds = %if.else.i
   %1 = load ptr, ptr %vfn7.i, align 8
   %call8.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not.i = icmp eq ptr %call8.i, null
-  br i1 %cmp.not.i, label %if.else11.i, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else5.i
   %call.i4.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %id, ptr noundef nonnull %call8.i) #28
   %cmp.i5.i = icmp eq i32 %call.i4.i, 0
-  br i1 %cmp.i5.i, label %return, label %if.else11.i
-
-if.else11.i:                                      ; preds = %land.lhs.true.i, %if.else5.i
   br label %return
 
-return:                                           ; preds = %if.else11.i, %land.lhs.true.i, %if.else.i, %if.else, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.else11.i ], [ false, %if.else ], [ true, %if.else.i ], [ true, %land.lhs.true.i ]
+return:                                           ; preds = %land.lhs.true.i, %if.else5.i, %if.else.i, %if.else, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.else ], [ true, %if.else.i ], [ false, %if.else5.i ], [ %cmp.i5.i, %land.lhs.true.i ]
   ret i1 %retval.0
 }
 
@@ -9466,18 +9457,15 @@ if.else5.i:                                       ; preds = %if.else.i
   %1 = load ptr, ptr %vfn7.i, align 8
   %call8.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not.i = icmp eq ptr %call8.i, null
-  br i1 %cmp.not.i, label %if.else11.i, label %land.lhs.true.i
+  br i1 %cmp.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else5.i
   %call.i4.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %id, ptr noundef nonnull %call8.i) #28
   %cmp.i5.i = icmp eq i32 %call.i4.i, 0
-  br i1 %cmp.i5.i, label %return, label %if.else11.i
-
-if.else11.i:                                      ; preds = %land.lhs.true.i, %if.else5.i
   br label %return
 
-return:                                           ; preds = %if.else11.i, %land.lhs.true.i, %if.else.i, %if.else, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.else11.i ], [ false, %if.else ], [ true, %if.else.i ], [ true, %land.lhs.true.i ]
+return:                                           ; preds = %land.lhs.true.i, %if.else5.i, %if.else.i, %if.else, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.else ], [ true, %if.else.i ], [ false, %if.else5.i ], [ %cmp.i5.i, %land.lhs.true.i ]
   ret i1 %retval.0
 }
 
@@ -11557,7 +11545,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -12950,8 +12938,8 @@ _ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
-  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
+  %cond.i = select i1 %cmp7.i, i64 1152921504606846975, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
@@ -12966,8 +12954,8 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10u
 _ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::unique_ptr.242", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load i64, ptr %__args, align 8
-  store i64 %3, ptr %add.ptr, align 8
+  %2 = load i64, ptr %__args, align 8
+  store i64 %2, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %for.body.i.i.i
@@ -12977,8 +12965,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !49, !noalias !46
-  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !46, !noalias !49
+  %3 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !49, !noalias !46
+  store i64 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !46, !noalias !49
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !49, !noalias !46
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
@@ -12996,8 +12984,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10un
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10unique_ptrIN7rocksdb13ObjectLibrary5EntryESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !55, !noalias !52
-  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !52, !noalias !55
+  %4 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !55, !noalias !52
+  store i64 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !52, !noalias !55
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !55, !noalias !52
   %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
@@ -13049,8 +13037,8 @@ _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rock
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
-  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
+  %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
@@ -13070,8 +13058,8 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13ObjectLibrary12PatternEntry10QuantifierEESaISB_EE11_M_allocateEm.exit
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %3 = load i32, ptr %__args1, align 4
-  store i32 %3, ptr %second.i.i.i, align 8
+  %2 = load i32, ptr %__args1, align 4
+  store i32 %2, ptr %second.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13ObjectLibrary12PatternEntry10QuantifierEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit, label %for.body.i.i.i
 
@@ -13083,8 +13071,8 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #28
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
-  %4 = load i32, ptr %second3.i.i.i.i.i.i.i, align 8, !alias.scope !60, !noalias !57
-  store i32 %4, ptr %second.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !60
+  %3 = load i32, ptr %second3.i.i.i.i.i.i.i, align 8, !alias.scope !60, !noalias !57
+  store i32 %3, ptr %second.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !60
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #28
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
@@ -13105,8 +13093,8 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pai
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #28
   %second.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
   %second3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
-  %5 = load i32, ptr %second3.i.i.i.i.i.i.i23, align 8, !alias.scope !66, !noalias !63
-  store i32 %5, ptr %second.i.i.i.i.i.i.i22, align 8, !alias.scope !63, !noalias !66
+  %4 = load i32, ptr %second3.i.i.i.i.i.i.i23, align 8, !alias.scope !66, !noalias !63
+  store i32 %4, ptr %second.i.i.i.i.i.i.i22, align 8, !alias.scope !63, !noalias !66
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #28
   %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 40
   %incdec.ptr1.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 40
@@ -13131,10 +13119,10 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13ObjectLibrary12PatternEntry10QuantifierEESaISB_EE11_M_allocateEm.exit
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = tail call ptr @__cxa_begin_catch(ptr %7) #28
+  %6 = extractvalue { ptr, i32 } %5, 0
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #28
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i31
 
@@ -13143,7 +13131,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont21
 
 lpad19:                                           ; preds = %invoke.cont21
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -13157,13 +13145,13 @@ invoke.cont21:                                    ; preds = %if.then.i31, %if.en
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 terminate.lpad:                                   ; preds = %lpad19
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #29
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #29
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -13647,8 +13635,8 @@ _ZNKSt6vectorISt10shared_ptrIN7rocksdb13ObjectLibraryEESaIS3_EE12_M_check_lenEmP
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
-  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
+  %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %spec.select.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
@@ -13663,26 +13651,26 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13ObjectLibraryEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7rocksdb13ObjectLibraryEESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7rocksdb13ObjectLibraryEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.287", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %3, ptr %add.ptr, align 8
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %2 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %2, ptr %add.ptr, align 8
+  %3 = extractelement <2 x ptr> %2, i64 1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13ObjectLibraryEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13ObjectLibraryEESaIS3_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %6 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %6, 1
+  %5 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %5, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13ObjectLibraryEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13ObjectLibraryEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb13ObjectLibraryEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13ObjectLibraryEESaIS3_EE11_M_allocateEm.exit, %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i
@@ -13695,9 +13683,9 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !75, !noalias !72
+  %7 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !75, !noalias !72
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !72
-  store <2 x ptr> %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !72, !noalias !75
+  store <2 x ptr> %7, ptr %__cur.07.i.i.i, align 8, !alias.scope !72, !noalias !75
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !75, !noalias !72
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
@@ -13716,9 +13704,9 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !81, !noalias !78
+  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !81, !noalias !78
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !81, !noalias !78
-  store <2 x ptr> %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !78, !noalias !81
+  store <2 x ptr> %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !78, !noalias !81
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !81, !noalias !78
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
@@ -13907,8 +13895,8 @@ if.then.i:                                        ; preds = %if.else
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
   %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
-  %mul.i.i.i = shl nuw nsw i64 %5, 2
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 2305843009213693951)
+  %mul.i.i.i = shl nuw nsw i64 %spec.select.i, 2
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i32 0, ptr %add.ptr, align 4
@@ -13917,9 +13905,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
 
 if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 4
-  %6 = shl nuw nsw i64 %__n, 2
-  %7 = add nsw i64 %6, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
+  %5 = shl nuw nsw i64 %__n, 2
+  %6 = add nsw i64 %5, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %6, i1 false)
   br label %try.cont
 
 try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
@@ -13942,7 +13930,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit33: ; preds = %_ZNSt6vectorIi
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds i32, ptr %call5.i.i.i, i64 %5
+  %add.ptr40 = getelementptr inbounds i32, ptr %call5.i.i.i, i64 %spec.select.i
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -15278,7 +15266,7 @@ entry:
   %shr.i.i.i = lshr i64 %mul.i.i.i, 31
   %and.i.i.i = and i64 %mul.i.i.i, 2147483647
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc i64 %add.i.i.i to i32
+  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
   %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i

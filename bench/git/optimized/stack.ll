@@ -279,13 +279,13 @@ if.end34.i:                                       ; preds = %if.end28.if.end34_c
   %arrayidx38.i = getelementptr inbounds %struct.reftable_table, ptr %call7.i, i64 %indvars.iv86.i
   %20 = load ptr, ptr %rd.i, align 8
   call void @reftable_table_from_reader(ptr noundef %arrayidx38.i, ptr noundef %20) #14
-  %indvars.iv.next87.i = add nuw i64 %indvars.iv86.i, 1
+  %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %21 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool8.not.i = icmp eq ptr %21, null
   br i1 %tobool8.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !9
 
 while.end.loopexit.i:                             ; preds = %if.end34.i
-  %22 = trunc i64 %indvars.iv.next87.i to i32
+  %22 = trunc nuw i64 %indvars.iv.next87.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %stack_copy_readers.exit.i
@@ -369,7 +369,7 @@ for.inc77.i:                                      ; preds = %stack_filename.exit
 
 done.loopexit.i:                                  ; preds = %if.end28.i, %stack_filename.exit.i
   %err.0.ph.i = phi i32 [ %call24.i, %stack_filename.exit.i ], [ %call29.i, %if.end28.i ]
-  %34 = trunc i64 %indvars.iv86.i to i32
+  %34 = trunc nuw nsw i64 %indvars.iv86.i to i32
   br label %done.i
 
 done.i:                                           ; preds = %done.loopexit.i, %while.end.i
@@ -571,7 +571,7 @@ if.then20:                                        ; preds = %if.end15
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end15, %if.then20
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i64, ptr %readers_len, align 8
   %cmp7 = icmp ugt i64 %18, %indvars.iv.next
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !13
@@ -962,7 +962,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef %9, i64 noundef %call.i) #14
   call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef nonnull @.str.1, i64 noundef 1) #14
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load ptr, ptr %stack, align 8
   %merged = getelementptr inbounds i8, ptr %10, i64 64
   %11 = load ptr, ptr %merged, align 8
@@ -1481,7 +1481,7 @@ if.then22.i:                                      ; preds = %if.end20.i
 if.end25.i:                                       ; preds = %if.then22.i, %if.end20.i
   %refs.1.i = phi ptr [ %call24.i, %if.then22.i ], [ %refs.025.i, %if.end20.i ]
   %cap.1.i = phi i32 [ %add.i, %if.then22.i ], [ %cap.026.i, %if.end20.i ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds %struct.reftable_ref_record, ptr %refs.1.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(88) %ref.i, i64 88, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %ref.i, i8 0, i64 88, i1 false)
@@ -1490,7 +1490,7 @@ if.end25.i:                                       ; preds = %if.then22.i, %if.en
   br i1 %cmp15.i, label %while.end.loopexit.i, label %if.end17.i
 
 while.end.loopexit.i:                             ; preds = %if.end25.i
-  %16 = trunc i64 %indvars.iv.next.i to i32
+  %16 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %while.body.preheader.i
@@ -1507,7 +1507,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   br label %done.i
 
 done.loopexit.i:                                  ; preds = %if.end17.i
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %done.i
 
 done.i:                                           ; preds = %done.loopexit.i, %while.end.i
@@ -2025,7 +2025,7 @@ for.body132:                                      ; preds = %if.end126, %for.bod
   %call.i87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #15
   call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef %46, i64 noundef %call.i87) #14
   call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef nonnull @.str.1, i64 noundef 1) #14
-  %indvars.iv.next127 = add nuw i64 %indvars.iv126, 1
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %47 = load ptr, ptr %merged.i, align 8
   %stack_len = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load i64, ptr %stack_len, align 8
@@ -2215,7 +2215,7 @@ if.then10:                                        ; preds = %fastlog2.exit
   %arrayidx14 = getelementptr inbounds %struct.segment, ptr %call, i64 %idxprom13
   store i32 %cur.sroa.0.029, ptr %arrayidx14, align 8
   %cur.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %arrayidx14, i64 4
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %1, ptr %cur.sroa.4.0.arrayidx14.sroa_idx, align 4
   %cur.sroa.6.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   store i32 %cur.sroa.6.031, ptr %cur.sroa.6.0.arrayidx14.sroa_idx, align 8
@@ -2315,7 +2315,7 @@ if.then10.i:                                      ; preds = %fastlog2.exit.i
   %arrayidx14.i = getelementptr inbounds %struct.segment, ptr %call.i, i64 %idxprom13.i
   store i32 %cur.sroa.0.029.i, ptr %arrayidx14.i, align 8
   %cur.sroa.4.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 4
-  %1 = trunc i64 %indvars.iv.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %1, ptr %cur.sroa.4.0.arrayidx14.sroa_idx.i, align 4
   %cur.sroa.6.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 8
   store i32 %cur.sroa.6.031.i, ptr %cur.sroa.6.0.arrayidx14.sroa_idx.i, align 8
@@ -2436,7 +2436,7 @@ fastlog2.exit24:                                  ; preds = %for.body.i17, %fast
   br i1 %cmp17, label %while.end, label %if.end19
 
 if.end19:                                         ; preds = %fastlog2.exit24
-  %9 = trunc i64 %indvars.iv.next30 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next30 to i32
   store i32 %9, ptr %agg.result, align 8
   %add = add i64 %8, %7
   store i64 %add, ptr %bytes, align 8
@@ -2498,8 +2498,8 @@ lor.lhs.false:                                    ; preds = %if.end5
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end15, label %if.then14
 
-if.then14:                                        ; preds = %if.end5, %lor.lhs.false, %entry, %if.end
-  %err.0.ph = phi i32 [ %call2, %if.end ], [ %call1, %entry ], [ 1, %lor.lhs.false ], [ 1, %if.end5 ]
+if.then14:                                        ; preds = %entry, %if.end, %if.end5, %lor.lhs.false
+  %err.0.ph = phi i32 [ 1, %lor.lhs.false ], [ 1, %if.end5 ], [ %call2, %if.end ], [ %call1, %entry ]
   call void @reftable_log_record_release(ptr noundef %log) #14
   br label %if.end15
 
@@ -2592,7 +2592,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   %call11.i = call ptr @reader_name(ptr noundef %4) #14
   %call14.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call11.i, ptr noundef nonnull dereferenceable(1) %d_name.i) #15
   %tobool15.not.i = icmp eq i32 %call14.i, 0
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %tobool15.not.i, label %while.cond.backedge.i, label %land.rhs.i, !llvm.loop !31
 
 if.end18.i:                                       ; preds = %land.rhs.i

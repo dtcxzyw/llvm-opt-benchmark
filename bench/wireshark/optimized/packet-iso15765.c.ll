@@ -621,7 +621,8 @@ define internal noundef zeroext i1 @update_config_can_addr_mappings(ptr nocaptur
   br i1 %12, label %.thread46.sink.split, label %.thread36
 
 14:                                               ; preds = %6
-  br i1 %12, label %.thread36.thread, label %.thread46.sink.split
+  %spec.select = select i1 %12, ptr @.str.183, ptr @.str.182
+  br label %.thread46.sink.split
 
 .thread37:                                        ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 20
@@ -633,16 +634,13 @@ define internal noundef zeroext i1 @update_config_can_addr_mappings(ptr nocaptur
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.thread36.thread, label %21
+  br i1 %19, label %.thread46.sink.split, label %21
 
 .thread36:                                        ; preds = %13
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread36.thread, label %.thread40
-
-.thread36.thread:                                 ; preds = %.thread39, %14, %.thread36
-  br label %.thread46.sink.split
+  br i1 %20, label %.thread46.sink.split, label %.thread40
 
 21:                                               ; preds = %.thread39
   %22 = load i32, ptr %0, align 4
@@ -678,8 +676,8 @@ define internal noundef zeroext i1 @update_config_can_addr_mappings(ptr nocaptur
   %.not32 = icmp ult i32 %.pre, 2048
   br i1 %.not32, label %.thread46, label %.thread46.sink.split
 
-.thread46.sink.split:                             ; preds = %29, %28, %27, %26, %25, %24, %14, %.thread37, %13, %.thread36.thread
-  %.str.189.sink = phi ptr [ @.str.183, %.thread36.thread ], [ @.str.181, %13 ], [ @.str.182, %.thread37 ], [ @.str.182, %14 ], [ @.str.184, %24 ], [ @.str.185, %25 ], [ @.str.186, %26 ], [ @.str.187, %27 ], [ @.str.188, %28 ], [ @.str.189, %29 ]
+.thread46.sink.split:                             ; preds = %14, %29, %28, %27, %26, %25, %24, %.thread36, %.thread39, %.thread37, %13
+  %.str.189.sink = phi ptr [ @.str.181, %13 ], [ @.str.182, %.thread37 ], [ @.str.183, %.thread39 ], [ @.str.183, %.thread36 ], [ @.str.184, %24 ], [ @.str.185, %25 ], [ @.str.186, %26 ], [ @.str.187, %27 ], [ @.str.188, %28 ], [ @.str.189, %29 ], [ %spec.select, %14 ]
   %30 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.189.sink) #9
   store ptr %30, ptr %1, align 8
   br label %.thread46
@@ -1519,7 +1517,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %find_pdu_transport_
   %197 = tail call i32 @llvm.ctpop.i32(i32 %191), !range !8
   %198 = add nuw nsw i32 %197, 7
   %199 = lshr i32 %198, 3
-  %200 = trunc i32 %199 to i8
+  %200 = trunc nuw nsw i32 %199 to i8
   br label %.sink.split.i
 
 201:                                              ; preds = %189
@@ -1550,7 +1548,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %find_pdu_transport_
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %217, i32 %216)
   %218 = add nuw nsw i32 %spec.select.i, 7
   %219 = lshr i32 %218, 3
-  %220 = trunc i32 %219 to i8
+  %220 = trunc nuw nsw i32 %219 to i8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %188, %207, %192, %.preheader.i

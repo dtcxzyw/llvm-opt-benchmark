@@ -3180,26 +3180,23 @@ if.else:                                          ; preds = %if.end
   %m_euf = getelementptr inbounds i8, ptr %this, i64 273
   %6 = load i8, ptr %m_euf, align 1
   %tobool = trunc i8 %6 to i1
-  br i1 %tobool, label %if.else18, label %_ZNK3app13get_family_idEv.exit15
+  br i1 %tobool, label %return, label %_ZNK3app13get_family_idEv.exit15
 
 if.else.thread:                                   ; preds = %_ZNK3app13get_family_idEv.exit
   %m_euf19 = getelementptr inbounds i8, ptr %this, i64 273
   %7 = load i8, ptr %m_euf19, align 1
   %tobool20 = trunc i8 %7 to i1
-  br i1 %tobool20, label %if.else18, label %_ZNK3app13get_family_idEv.exit15
+  br i1 %tobool20, label %return, label %_ZNK3app13get_family_idEv.exit15
 
 _ZNK3app13get_family_idEv.exit15:                 ; preds = %if.else.thread, %if.else
   %cond.i.i14 = phi i32 [ -1, %if.else ], [ %2, %if.else.thread ]
   %m_fid.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i32, ptr %m_fid.i, align 8
   %cmp16 = icmp eq i32 %cond.i.i14, %8
-  br i1 %cmp16, label %return, label %if.else18
-
-if.else18:                                        ; preds = %if.else.thread, %_ZNK3app13get_family_idEv.exit15, %if.else
   br label %return
 
-return:                                           ; preds = %_ZNK3app13get_family_idEv.exit15, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %entry, %if.else18, %sw.default, %sw.bb8
-  %retval.0 = phi i1 [ false, %sw.default ], [ %call12, %sw.bb8 ], [ false, %if.else18 ], [ false, %entry ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_family_idEv.exit15 ]
+return:                                           ; preds = %if.else.thread, %_ZNK3app13get_family_idEv.exit15, %if.else, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %entry, %sw.default, %sw.bb8
+  %retval.0 = phi i1 [ false, %sw.default ], [ %call12, %sw.bb8 ], [ false, %entry ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ false, %if.else ], [ %cmp16, %_ZNK3app13get_family_idEv.exit15 ], [ false, %if.else.thread ]
   ret i1 %retval.0
 }
 

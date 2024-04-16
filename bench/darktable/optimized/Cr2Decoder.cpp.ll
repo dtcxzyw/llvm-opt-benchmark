@@ -1173,7 +1173,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15decodeNewFormatEv(ptr dead_on_unwi
   %93 = trunc i64 %92 to i32
   %94 = icmp slt i32 %93, 2
   %95 = lshr i64 %92, 32
-  %96 = trunc i64 %95 to i32
+  %96 = trunc nuw i64 %95 to i32
   %97 = icmp slt i32 %96, 2
   %98 = and i1 %94, %97
   br i1 %98, label %99, label %100
@@ -1591,7 +1591,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
   %45 = add i64 %36, -14
   %46 = call i64 @llvm.smax.i64(i64 %45, i64 -2147483648)
   %47 = call i64 @llvm.smin.i64(i64 %46, i64 2147483647)
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nsw i64 %47 to i32
   br label %49
 
 49:                                               ; preds = %44, %38
@@ -1626,7 +1626,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
   %70 = sub i64 14, %61
   %71 = call i64 @llvm.smax.i64(i64 %70, i64 -2147483648)
   %72 = call i64 @llvm.smin.i64(i64 %71, i64 2147483647)
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nsw i64 %72 to i32
   br label %75
 
 74:                                               ; preds = %57, %13
@@ -1949,7 +1949,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
   %268 = add i64 %259, -8
   %269 = call i64 @llvm.smax.i64(i64 %268, i64 -2147483648)
   %270 = call i64 @llvm.smin.i64(i64 %269, i64 2147483647)
-  %271 = trunc i64 %270 to i32
+  %271 = trunc nsw i64 %270 to i32
   br label %272
 
 272:                                              ; preds = %267, %261
@@ -1984,7 +1984,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
   %293 = sub i64 8, %284
   %294 = call i64 @llvm.smax.i64(i64 %293, i64 -2147483648)
   %295 = call i64 @llvm.smin.i64(i64 %294, i64 2147483647)
-  %296 = trunc i64 %295 to i32
+  %296 = trunc nsw i64 %295 to i32
   br label %297
 
 297:                                              ; preds = %292, %286
@@ -2027,7 +2027,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
   %319 = add i64 %310, -8
   %320 = call i64 @llvm.smax.i64(i64 %319, i64 -2147483648)
   %321 = call i64 @llvm.smin.i64(i64 %320, i64 2147483647)
-  %322 = trunc i64 %321 to i32
+  %322 = trunc nsw i64 %321 to i32
   br label %323
 
 323:                                              ; preds = %318, %312
@@ -2063,7 +2063,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder15sRawInterpolateEv(ptr noundef nonn
   %345 = sub i64 8, %336
   %346 = call i64 @llvm.smax.i64(i64 %345, i64 -2147483648)
   %347 = call i64 @llvm.smin.i64(i64 %346, i64 2147483647)
-  %348 = trunc i64 %347 to i32
+  %348 = trunc nsw i64 %347 to i32
   br label %349
 
 349:                                              ; preds = %344, %338
@@ -2666,7 +2666,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDat
 75:                                               ; preds = %70, %66, %64, %60, %58, %57, %55, %55
   %76 = phi i64 [ %73, %70 ], [ %69, %66 ], [ %63, %60 ], [ 3092376453835, %57 ], [ 3109556323023, %58 ], [ 2078764171743, %64 ], [ 2993592206004, %55 ], [ 2993592206004, %55 ]
   %77 = lshr i64 %76, 32
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw nsw i64 %77 to i32
   %79 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(52) %6, i32 noundef %78)
   %80 = load ptr, ptr %39, align 8, !tbaa !28
   %81 = getelementptr inbounds i8, ptr %80, i64 160
@@ -3301,7 +3301,7 @@ define hidden noundef i32 @_ZNK8rawspeed10Cr2Decoder6getHueEv(ptr noundef nonnul
   %22 = add i64 %13, -12
   %23 = call i64 @llvm.smax.i64(i64 %22, i64 -2147483648)
   %24 = call i64 @llvm.smin.i64(i64 %23, i64 2147483647)
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nsw i64 %24 to i32
   br label %26
 
 26:                                               ; preds = %21, %15
@@ -3336,7 +3336,7 @@ define hidden noundef i32 @_ZNK8rawspeed10Cr2Decoder6getHueEv(ptr noundef nonnul
   %47 = sub i64 12, %38
   %48 = call i64 @llvm.smax.i64(i64 %47, i64 -2147483648)
   %49 = call i64 @llvm.smin.i64(i64 %48, i64 2147483647)
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nsw i64 %49 to i32
   br label %52
 
 51:                                               ; preds = %34, %1
@@ -3402,7 +3402,7 @@ define hidden noundef i32 @_ZNK8rawspeed10Cr2Decoder6getHueEv(ptr noundef nonnul
   %90 = add i64 %81, -18
   %91 = call i64 @llvm.smax.i64(i64 %90, i64 -2147483648)
   %92 = call i64 @llvm.smin.i64(i64 %91, i64 2147483647)
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nsw i64 %92 to i32
   br label %94
 
 94:                                               ; preds = %89, %83
@@ -3437,7 +3437,7 @@ define hidden noundef i32 @_ZNK8rawspeed10Cr2Decoder6getHueEv(ptr noundef nonnul
   %115 = sub i64 18, %106
   %116 = call i64 @llvm.smax.i64(i64 %115, i64 -2147483648)
   %117 = call i64 @llvm.smin.i64(i64 %116, i64 2147483647)
-  %118 = trunc i64 %117 to i32
+  %118 = trunc nsw i64 %117 to i32
   br label %119
 
 119:                                              ; preds = %114, %108
@@ -4237,7 +4237,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawI
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspeed15RawImageDataU16ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
-  br i1 %4, label %17, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4248,20 +4248,18 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8rawspee
 9:                                                ; preds = %5
   %10 = load i8, ptr %7, align 1, !tbaa !98
   %11 = icmp eq i8 %10, 42
-  br i1 %11, label %17, label %12
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %14 = freeze i32 %13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  %spec.select = select i1 %15, ptr %3, ptr null
+  br label %16
 
-16:                                               ; preds = %12, %5
-  br label %17
-
-17:                                               ; preds = %16, %12, %9, %2
-  %18 = phi ptr [ %3, %2 ], [ %3, %16 ], [ null, %12 ], [ null, %9 ]
-  ret ptr %18
+16:                                               ; preds = %12, %5, %9, %2
+  %17 = phi ptr [ %3, %2 ], [ null, %9 ], [ %3, %5 ], [ %spec.select, %12 ]
+  ret ptr %17
 }
 
 declare void @_ZN8rawspeed15RawImageDataU16C1ERKNS_8iPoint2DEj(ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) unnamed_addr #2

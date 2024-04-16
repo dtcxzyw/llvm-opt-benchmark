@@ -514,7 +514,7 @@ netlbl_mgmt_protocols_cb.exit9:                   ; preds = %62, %69
   %.val7.val = load i32, ptr %78, align 4
   %79 = tail call ptr @genlmsg_put(ptr noundef %0, i32 noundef %.val6.val, i32 noundef %.val7.val, ptr noundef nonnull @netlbl_mgmt_gnl_family, i32 noundef 2, i8 noundef zeroext 7) #10
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %netlbl_mgmt_protocols_cb.exit11.thread, label %81
+  br i1 %80, label %netlbl_mgmt_protocols_cb.exit.thread, label %81
 
 81:                                               ; preds = %.thread15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
@@ -568,13 +568,11 @@ netlbl_mgmt_protocols_cb.exit11.thread17:         ; preds = %81
 
 netlbl_mgmt_protocols_cb.exit11:                  ; preds = %95, %102
   %108 = icmp slt i32 %.fr, 0
-  br i1 %108, label %netlbl_mgmt_protocols_cb.exit11.thread, label %netlbl_mgmt_protocols_cb.exit.thread
-
-netlbl_mgmt_protocols_cb.exit11.thread:           ; preds = %.thread15, %netlbl_mgmt_protocols_cb.exit11
+  %spec.select = select i1 %108, i64 2, i64 3
   br label %netlbl_mgmt_protocols_cb.exit.thread
 
-netlbl_mgmt_protocols_cb.exit.thread:             ; preds = %2, %.thread, %9, %netlbl_mgmt_protocols_cb.exit11.thread, %netlbl_mgmt_protocols_cb.exit11, %netlbl_mgmt_protocols_cb.exit11.thread17, %netlbl_mgmt_protocols_cb.exit9, %netlbl_mgmt_protocols_cb.exit
-  %109 = phi i64 [ 0, %netlbl_mgmt_protocols_cb.exit ], [ 1, %netlbl_mgmt_protocols_cb.exit9 ], [ 2, %netlbl_mgmt_protocols_cb.exit11.thread ], [ 3, %netlbl_mgmt_protocols_cb.exit11 ], [ 3, %netlbl_mgmt_protocols_cb.exit11.thread17 ], [ 0, %9 ], [ 1, %.thread ], [ %7, %2 ]
+netlbl_mgmt_protocols_cb.exit.thread:             ; preds = %netlbl_mgmt_protocols_cb.exit11, %2, %.thread15, %.thread, %9, %netlbl_mgmt_protocols_cb.exit11.thread17, %netlbl_mgmt_protocols_cb.exit9, %netlbl_mgmt_protocols_cb.exit
+  %109 = phi i64 [ 0, %netlbl_mgmt_protocols_cb.exit ], [ 1, %netlbl_mgmt_protocols_cb.exit9 ], [ 3, %netlbl_mgmt_protocols_cb.exit11.thread17 ], [ 0, %9 ], [ 1, %.thread ], [ 2, %.thread15 ], [ %7, %2 ], [ %spec.select, %netlbl_mgmt_protocols_cb.exit11 ]
   %110 = and i64 %109, 4294967295
   store i64 %110, ptr %6, align 8
   %111 = getelementptr inbounds i8, ptr %0, i64 112

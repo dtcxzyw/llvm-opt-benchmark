@@ -111,7 +111,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @accel_cpu_common_realize(ptr noundef %cpu, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @accel_cpu_common_realize(ptr noundef %cpu, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #3
@@ -137,17 +137,14 @@ if.end:                                           ; preds = %land.lhs.true6, %la
   %cpu_common_realize = getelementptr inbounds i8, ptr %call3, i64 112
   %2 = load ptr, ptr %cpu_common_realize, align 8
   %tobool10.not = icmp eq ptr %2, null
-  br i1 %tobool10.not, label %if.end15, label %land.lhs.true11
+  br i1 %tobool10.not, label %return, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end
   %call13 = tail call zeroext i1 %2(ptr noundef %cpu, ptr noundef %errp) #3
-  br i1 %call13, label %if.end15, label %return
-
-if.end15:                                         ; preds = %land.lhs.true11, %if.end
   br label %return
 
-return:                                           ; preds = %land.lhs.true11, %land.lhs.true6, %if.end15
-  %retval.0 = phi i1 [ true, %if.end15 ], [ false, %land.lhs.true6 ], [ false, %land.lhs.true11 ]
+return:                                           ; preds = %land.lhs.true11, %if.end, %land.lhs.true6
+  %retval.0 = phi i1 [ false, %land.lhs.true6 ], [ true, %if.end ], [ %call13, %land.lhs.true11 ]
   ret i1 %retval.0
 }
 

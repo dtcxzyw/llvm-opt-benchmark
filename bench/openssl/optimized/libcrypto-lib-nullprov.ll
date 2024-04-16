@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [10 x i8] c"3.3.0-dev\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @ossl_null_provider_init(ptr noundef %handle, ptr nocapture noundef readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) local_unnamed_addr #0 {
+define noundef i32 @ossl_null_provider_init(ptr noundef %handle, ptr nocapture noundef readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) local_unnamed_addr #0 {
 entry:
   store ptr @null_dispatch_table, ptr %out, align 8
   store ptr %handle, ptr %provctx, align 8
@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @null_gettable_params(ptr nocapture readnone %prov) #1 {
+define internal noundef nonnull ptr @null_gettable_params(ptr nocapture readnone %prov) #1 {
 entry:
   ret ptr @null_param_types
 }
@@ -65,24 +65,22 @@ land.lhs.true11:                                  ; preds = %if.end8
 if.end15:                                         ; preds = %land.lhs.true11, %if.end8
   %call16 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.3) #4
   %cmp17.not = icmp eq ptr %call16, null
-  br i1 %cmp17.not, label %if.end23, label %land.lhs.true18
+  br i1 %cmp17.not, label %return, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end15
   %call19 = tail call i32 @ossl_prov_is_running() #4
   %call20 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call16, i32 noundef %call19) #4
-  %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %return, label %if.end23
-
-if.end23:                                         ; preds = %land.lhs.true18, %if.end15
+  %tobool21.not = icmp ne i32 %call20, 0
+  %spec.select = zext i1 %tobool21.not to i32
   br label %return
 
-return:                                           ; preds = %land.lhs.true18, %land.lhs.true11, %land.lhs.true4, %land.lhs.true, %if.end23
-  %retval.0 = phi i32 [ 1, %if.end23 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true18 ]
+return:                                           ; preds = %land.lhs.true18, %if.end15, %land.lhs.true11, %land.lhs.true4, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %land.lhs.true4 ], [ 0, %land.lhs.true11 ], [ 1, %if.end15 ], [ %spec.select, %land.lhs.true18 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias ptr @null_query(ptr nocapture readnone %prov, i32 %operation_id, ptr nocapture noundef writeonly %no_cache) #0 {
+define internal noalias noundef ptr @null_query(ptr nocapture readnone %prov, i32 %operation_id, ptr nocapture noundef writeonly %no_cache) #0 {
 entry:
   store i32 0, ptr %no_cache, align 4
   ret ptr null

@@ -133,7 +133,7 @@ define hidden i64 @rb_dbl_complex_new_polar_pi(double noundef %0, double noundef
 
 15:                                               ; preds = %7
   %16 = lshr i64 %14, 60
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = and i32 %17, 7
   %19 = add nsw i32 %18, -3
   %.not7.i = icmp ult i32 %19, 2
@@ -176,7 +176,7 @@ rb_float_new_inline.exit:                         ; preds = %20, %24, %26
 
 39:                                               ; preds = %32
   %40 = lshr i64 %38, 60
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %42 = and i32 %41, 7
   %43 = add nsw i32 %42, -3
   %.not7.i21 = icmp ult i32 %43, 2
@@ -208,7 +208,7 @@ rb_float_new_inline.exit:                         ; preds = %20, %24, %26
 
 59:                                               ; preds = %52
   %60 = lshr i64 %58, 60
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw nsw i64 %60 to i32
   %62 = and i32 %61, 7
   %63 = add nsw i32 %62, -3
   %.not7.i25 = icmp ult i32 %63, 2
@@ -236,7 +236,7 @@ rb_float_new_inline.exit27:                       ; preds = %64, %68, %70
 
 73:                                               ; preds = %rb_float_new_inline.exit27
   %74 = lshr i64 %72, 60
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw nsw i64 %74 to i32
   %76 = and i32 %75, 7
   %77 = add nsw i32 %76, -3
   %.not7.i29 = icmp ult i32 %77, 2
@@ -285,7 +285,7 @@ define internal fastcc i64 @rb_float_new_inline(double noundef %0) unnamed_addr 
 
 3:                                                ; preds = %1
   %4 = lshr i64 %2, 60
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = and i32 %5, 7
   %7 = add nsw i32 %6, -3
   %.not7 = icmp ult i32 %7, 2
@@ -4544,7 +4544,7 @@ RB_FLOAT_TYPE_P.exit18.thread46:                  ; preds = %59, %RB_FLOAT_TYPE_
 
 80:                                               ; preds = %77
   %81 = lshr i64 %79, 60
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw nsw i64 %81 to i32
   %83 = and i32 %82, 7
   %84 = add nsw i32 %83, -3
   %.not7.i.i = icmp ult i32 %84, 2
@@ -4715,7 +4715,7 @@ RB_FLOAT_TYPE_P.exit36.thread:                    ; preds = %RB_FLOAT_TYPE_P.exi
 
 171:                                              ; preds = %168
   %172 = lshr i64 %170, 60
-  %173 = trunc i64 %172 to i32
+  %173 = trunc nuw nsw i64 %172 to i32
   %174 = and i32 %173, 7
   %175 = add nsw i32 %174, -3
   %.not7.i.i40 = icmp ult i32 %175, 2
@@ -5301,7 +5301,7 @@ define dso_local i64 @rb_dbl_complex_new(double noundef %0, double noundef %1) l
 
 4:                                                ; preds = %2
   %5 = lshr i64 %3, 60
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = and i32 %6, 7
   %8 = add nsw i32 %7, -3
   %.not7.i = icmp ult i32 %8, 2
@@ -5329,7 +5329,7 @@ rb_float_new_inline.exit:                         ; preds = %9, %13, %15
 
 18:                                               ; preds = %rb_float_new_inline.exit
   %19 = lshr i64 %17, 60
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = and i32 %20, 7
   %22 = add nsw i32 %21, -3
   %.not7.i3 = icmp ult i32 %22, 2
@@ -7560,8 +7560,8 @@ f_infinite_p.exit:                                ; preds = %rb_integer_type_p.e
   %21 = load i64, ptr @id_infinite_p, align 8
   %22 = tail call i64 @rb_funcallv(i64 noundef %4, i64 noundef %21, i32 noundef 0, ptr noundef null) #15
   %23 = and i64 %22, -5
-  %.not22 = icmp eq i64 %23, 0
-  br i1 %.not22, label %f_infinite_p.exit.thread, label %f_infinite_p.exit.thread13
+  %.not24 = icmp eq i64 %23, 0
+  br i1 %.not24, label %f_infinite_p.exit.thread, label %f_infinite_p.exit.thread13
 
 f_infinite_p.exit.thread:                         ; preds = %rb_integer_type_p.exit.i.i, %rb_integer_type_p.exit.i.i, %1, %rb_float_value_inline.exit.i, %f_infinite_p.exit
   %24 = getelementptr inbounds i8, ptr %2, i64 24
@@ -7571,7 +7571,7 @@ f_infinite_p.exit.thread:                         ; preds = %rb_integer_type_p.e
   %28 = and i64 %25, 3
   %29 = icmp eq i64 %28, 2
   %or.cond.i.i4 = or i1 %27, %29
-  br i1 %or.cond.i.i4, label %f_infinite_p.exit10.thread, label %30
+  br i1 %or.cond.i.i4, label %f_infinite_p.exit.thread13, label %30
 
 30:                                               ; preds = %f_infinite_p.exit.thread
   %31 = and i64 %25, 6
@@ -7585,8 +7585,8 @@ rb_integer_type_p.exit.i.i5:                      ; preds = %30
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 31
   switch i64 %37, label %f_infinite_p.exit10 [
-    i64 10, label %f_infinite_p.exit10.thread
-    i64 15, label %f_infinite_p.exit10.thread
+    i64 10, label %f_infinite_p.exit.thread13
+    i64 15, label %f_infinite_p.exit.thread13
     i64 4, label %rb_float_value_inline.exit.i9
   ]
 
@@ -7597,18 +7597,20 @@ rb_float_value_inline.exit.i9:                    ; preds = %rb_integer_type_p.e
   %41 = fcmp oeq double %40, 0x7FF0000000000000
   br i1 %41, label %f_infinite_p.exit.thread13, label %f_infinite_p.exit10.thread
 
+f_infinite_p.exit10.thread:                       ; preds = %rb_float_value_inline.exit.i9
+  br label %f_infinite_p.exit.thread13
+
 f_infinite_p.exit10:                              ; preds = %rb_integer_type_p.exit.i.i5, %30
   %42 = load i64, ptr @id_infinite_p, align 8
   %43 = tail call i64 @rb_funcallv(i64 noundef %25, i64 noundef %42, i32 noundef 0, ptr noundef null) #15
-  %44 = and i64 %43, -5
+  %.fr25 = freeze i64 %43
+  %44 = and i64 %.fr25, -5
   %.not = icmp eq i64 %44, 0
-  br i1 %.not, label %f_infinite_p.exit10.thread, label %f_infinite_p.exit.thread13
+  %spec.select = select i1 %.not, i64 4, i64 3
+  br label %f_infinite_p.exit.thread13
 
-f_infinite_p.exit.thread13:                       ; preds = %rb_float_value_inline.exit.i9, %rb_float_value_inline.exit.i, %f_infinite_p.exit10, %f_infinite_p.exit
-  br label %f_infinite_p.exit10.thread
-
-f_infinite_p.exit10.thread:                       ; preds = %rb_integer_type_p.exit.i.i5, %rb_integer_type_p.exit.i.i5, %f_infinite_p.exit.thread, %rb_float_value_inline.exit.i9, %f_infinite_p.exit10, %f_infinite_p.exit.thread13
-  %.0 = phi i64 [ 3, %f_infinite_p.exit.thread13 ], [ 4, %f_infinite_p.exit10 ], [ 4, %rb_float_value_inline.exit.i9 ], [ 4, %f_infinite_p.exit.thread ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %rb_integer_type_p.exit.i.i5 ]
+f_infinite_p.exit.thread13:                       ; preds = %f_infinite_p.exit10, %rb_integer_type_p.exit.i.i5, %rb_integer_type_p.exit.i.i5, %f_infinite_p.exit.thread, %rb_float_value_inline.exit.i9, %rb_float_value_inline.exit.i, %f_infinite_p.exit10.thread, %f_infinite_p.exit
+  %.0 = phi i64 [ 3, %f_infinite_p.exit ], [ 3, %rb_float_value_inline.exit.i ], [ 3, %rb_float_value_inline.exit.i9 ], [ 4, %f_infinite_p.exit.thread ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %rb_integer_type_p.exit.i.i5 ], [ 4, %f_infinite_p.exit10.thread ], [ %spec.select, %f_infinite_p.exit10 ]
   ret i64 %.0
 }
 
@@ -7958,7 +7960,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %1, %32, %rb_integer
 
 53:                                               ; preds = %50
   %54 = lshr i64 %52, 60
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   %56 = and i32 %55, 7
   %57 = add nsw i32 %56, -3
   %.not7.i.i = icmp ult i32 %57, 2
@@ -8404,7 +8406,7 @@ rb_float_value_inline.exit.i.i.i:                 ; preds = %38, %rb_float_value
   %40 = phi i64 [ %31, %38 ], [ %24, %23 ], [ %24, %rb_float_value_inline.exit.i ]
   %.0.i5.i.i.i = phi i64 [ %39, %38 ], [ 0, %23 ], [ %28, %rb_float_value_inline.exit.i ]
   %.0.i5.i.i.lobit.i = lshr i64 %.0.i5.i.i.i, 63
-  %41 = trunc i64 %.0.i5.i.i.lobit.i to i32
+  %41 = trunc nuw nsw i64 %.0.i5.i.i.lobit.i to i32
   br label %f_tpositive_p.exit.i
 
 RB_FLOAT_TYPE_P.exit.thread7.i.i.i:               ; preds = %RB_FLOAT_TYPE_P.exit.i.i.i
@@ -8496,7 +8498,7 @@ RB_FLOAT_TYPE_P.exit.i.i:                         ; preds = %.thread7
 rb_float_value_inline.exit.i.i:                   ; preds = %rb_float_value_inline.exit, %4, %22
   %.0.i5.i.i = phi i64 [ %23, %22 ], [ 0, %4 ], [ %8, %rb_float_value_inline.exit ]
   %.0.i5.i.i.lobit = lshr i64 %.0.i5.i.i, 63
-  %24 = trunc i64 %.0.i5.i.i.lobit to i32
+  %24 = trunc nuw nsw i64 %.0.i5.i.i.lobit to i32
   br label %f_tpositive_p.exit
 
 RB_FLOAT_TYPE_P.exit.thread7.i.i:                 ; preds = %RB_FLOAT_TYPE_P.exit.i.i, %.thread7
@@ -10560,7 +10562,7 @@ define internal fastcc i64 @str2num(ptr noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %7
   %11 = lshr i64 %9, 60
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = and i32 %12, 7
   %14 = add nsw i32 %13, -3
   %.not7.i = icmp ult i32 %14, 2

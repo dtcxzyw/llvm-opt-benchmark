@@ -2305,7 +2305,7 @@ if.end22:                                         ; preds = %while.body
   br i1 %cmp25.not, label %if.end32, label %if.then27
 
 if.then27:                                        ; preds = %if.end22
-  %conv.le = trunc i64 %cond to i32
+  %conv.le = trunc nuw nsw i64 %cond to i32
   %call28 = tail call ptr @__errno_location() #21
   %8 = load i32, ptr %call28, align 4
   %call29 = call ptr @strerror(i32 noundef %8) #19
@@ -5278,16 +5278,15 @@ if.end33:                                         ; preds = %if.end13
 
 if.then37:                                        ; preds = %if.end33
   %tobool39.not = icmp eq i32 %skip_packed_refs, 0
-  br i1 %tobool39.not, label %lor.lhs.false40, label %if.then44
+  br i1 %tobool39.not, label %lor.lhs.false40, label %if.end72
 
 lor.lhs.false40:                                  ; preds = %if.then37
   %packed_ref_store41 = getelementptr inbounds i8, ptr %ref_store, i64 48
   %15 = load ptr, ptr %packed_ref_store41, align 8
   %call42 = call i32 @refs_read_raw_ref(ptr noundef %15, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef nonnull %type, ptr noundef nonnull %ignore_errno38) #19
-  %tobool43.not = icmp eq i32 %call42, 0
-  br i1 %tobool43.not, label %if.end72, label %if.then44
-
-if.then44:                                        ; preds = %lor.lhs.false40, %if.then37
+  %tobool43.not = icmp ne i32 %call42, 0
+  %spec.select62 = select i1 %tobool43.not, i32 21, i32 %4
+  %spec.select63 = sext i1 %tobool43.not to i32
   br label %if.end72
 
 if.end46:                                         ; preds = %land.lhs.true, %if.end24, %if.end33
@@ -5344,9 +5343,9 @@ if.then71:                                        ; preds = %out
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 461, ptr noundef nonnull @.str.99, i32 noundef %ret.0) #20
   unreachable
 
-if.end72:                                         ; preds = %if.end8, %if.then44, %lor.lhs.false40, %if.then31, %out
-  %21 = phi i32 [ %20, %out ], [ %4, %if.then31 ], [ %4, %lor.lhs.false40 ], [ 21, %if.then44 ], [ 2, %if.end8 ]
-  %ret.044 = phi i32 [ %ret.0, %out ], [ 0, %if.then31 ], [ 0, %lor.lhs.false40 ], [ -1, %if.then44 ], [ %spec.select, %if.end8 ]
+if.end72:                                         ; preds = %lor.lhs.false40, %if.end8, %if.then37, %if.then31, %out
+  %21 = phi i32 [ %20, %out ], [ %4, %if.then31 ], [ 2, %if.end8 ], [ 21, %if.then37 ], [ %spec.select62, %lor.lhs.false40 ]
+  %ret.044 = phi i32 [ %ret.0, %out ], [ 0, %if.then31 ], [ %spec.select, %if.end8 ], [ -1, %if.then37 ], [ %spec.select63, %lor.lhs.false40 ]
   store i32 %21, ptr %failure_errno, align 4
   call void @strbuf_release(ptr noundef nonnull %sb_path) #19
   call void @strbuf_release(ptr noundef nonnull %sb_contents) #19

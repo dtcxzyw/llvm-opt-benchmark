@@ -172,7 +172,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %ParseAlias.exit.i
 
 ParseAlias.exit.i:                                ; preds = %if.then.i.i, %entry
-  %retval.0.i.i = phi i32 [ %2, %if.then.i.i ], [ 0, %entry ]
+  %retval.0.i.i = phi i32 [ 0, %entry ], [ %2, %if.then.i.i ]
   %cmp795.i = icmp sgt i32 %argc, 1
   br i1 %cmp795.i, label %for.body.i, label %for.end559.i
 
@@ -523,7 +523,7 @@ if.end14.i.i:                                     ; preds = %if.end.i.i
   br i1 %exitcond.not.i.i, label %land.lhs.true.i.i, label %for.body.i.i, !llvm.loop !5
 
 for.end.i.i:                                      ; preds = %for.body.i.i
-  %45 = trunc i64 %indvars.iv.i.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   switch i32 %45, label %land.lhs.true.i.i [
     i32 0, label %if.then252.i
     i32 1, label %if.end27.i.i
@@ -588,7 +588,7 @@ if.end14.i224.i:                                  ; preds = %if.end.i222.i
   br i1 %exitcond.not.i230.i, label %land.lhs.true.i231.i, label %for.body.i217.i, !llvm.loop !5
 
 for.end.i247.i:                                   ; preds = %for.body.i217.i
-  %53 = trunc i64 %indvars.iv.i218.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i218.i to i32
   switch i32 %53, label %land.lhs.true.i231.i [
     i32 0, label %if.then270.i
     i32 1, label %if.end27.i235.i
@@ -1301,7 +1301,7 @@ while.body19.i:                                   ; preds = %while.cond16.i
   br i1 %cmp20.i, label %if.end25.i39, label %while.cond16.i, !llvm.loop !10
 
 if.end25.i39.loopexit.split.loop.exit:            ; preds = %while.cond16.i
-  %138 = trunc i64 %indvars.iv to i32
+  %138 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.end25.i39
 
 if.end25.i39:                                     ; preds = %while.body19.i, %if.end25.i39.loopexit.split.loop.exit, %if.else.i37, %if.then8.i, %if.then5.i
@@ -1313,7 +1313,7 @@ if.end25.i39:                                     ; preds = %while.body19.i, %if
 
 if.then28.i61:                                    ; preds = %if.end25.i39
   %spec.select60.i = call i64 @llvm.umin.i64(i64 %139, i64 1073741824)
-  %spec.select.i62 = trunc i64 %spec.select60.i to i32
+  %spec.select.i62 = trunc nuw nsw i64 %spec.select60.i to i32
   %call32.i = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %call1.i, i32 noundef 5, i32 noundef %spec.select.i62) #21
   br label %if.end33.i
 
@@ -1967,7 +1967,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %exitcond.not, label %land.lhs.true, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %2, label %land.lhs.true [
     i32 0, label %return
     i32 1, label %if.end27
@@ -2082,7 +2082,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %inc8 = add nsw i32 %4, 1
   store i32 %inc8, ptr %iterator, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %5, ptr %ignore, align 4
   %arrayidx = getelementptr inbounds [20 x i32], ptr %not_input_indices, i64 0, i64 %indvars.iv.next
   %6 = load i32, ptr %arrayidx, align 4
@@ -2539,7 +2539,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr @stderr, align 8
-  %conv.i = trunc i64 %2 to i32
+  %conv.i = trunc nuw nsw i64 %2 to i32
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.69, i32 noundef %conv.i) #19
   br label %PrintBytes.exit
 
@@ -2580,7 +2580,7 @@ PrintBytes.exit:                                  ; preds = %if.then.i, %if.then
 
 if.then.i21:                                      ; preds = %PrintBytes.exit
   %9 = load ptr, ptr @stderr, align 8
-  %conv.i22 = trunc i64 %8 to i32
+  %conv.i22 = trunc nuw nsw i64 %8 to i32
   %call.i23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.69, i32 noundef %conv.i22) #19
   br label %PrintBytes.exit24
 

@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qapi_dummy_qapi_visit_audio_c = dso_local local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj) #4
@@ -132,18 +132,15 @@ if.then29:                                        ; preds = %if.end27
 if.end33:                                         ; preds = %if.then29, %if.end27
   %has_buffer_length = getelementptr inbounds i8, ptr %obj, i64 36
   %call34 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_buffer_length) #4
-  br i1 %call34, label %if.then35, label %if.end39
+  br i1 %call34, label %if.then35, label %return
 
 if.then35:                                        ; preds = %if.end33
   %buffer_length = getelementptr inbounds i8, ptr %obj, i64 40
   %call36 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %buffer_length, ptr noundef %errp) #4
-  br i1 %call36, label %if.end39, label %return
-
-if.end39:                                         ; preds = %if.then35, %if.end33
   br label %return
 
-return:                                           ; preds = %if.then35, %if.then29, %if.then23, %if.then17, %if.then11, %if.then5, %if.then, %if.end39
-  %retval.0 = phi i1 [ true, %if.end39 ], [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ], [ false, %if.then23 ], [ false, %if.then29 ], [ false, %if.then35 ]
+return:                                           ; preds = %if.then35, %if.end33, %if.then29, %if.then23, %if.then17, %if.then11, %if.then5, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then5 ], [ false, %if.then11 ], [ false, %if.then17 ], [ false, %if.then23 ], [ false, %if.then29 ], [ true, %if.end33 ], [ %call36, %if.then35 ]
   ret i1 %retval.0
 }
 
@@ -254,17 +251,14 @@ if.then:                                          ; preds = %entry
 
 if.end9:                                          ; preds = %if.then, %entry
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out) #4
-  br i1 %call10, label %if.then11, label %if.end16
+  br i1 %call10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end9
   %call13 = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out, ptr noundef %errp)
-  br i1 %call13, label %if.end16, label %return
-
-if.end16:                                         ; preds = %if.then11, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then11, %if.then, %if.end16
-  %retval.0 = phi i1 [ true, %if.end16 ], [ false, %if.then ], [ false, %if.then11 ]
+return:                                           ; preds = %if.then11, %if.end9, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end9 ], [ %call13, %if.then11 ]
   ret i1 %retval.0
 }
 
@@ -283,9 +277,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -310,30 +304,38 @@ if.end5:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end5
   %call7.i = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call7.i, label %if.end9.i, label %out_obj.thread16
+  br i1 %call7.i, label %if.end9.i, label %visit_type_AudiodevGenericOptions_members.exit.thread15
+
+visit_type_AudiodevGenericOptions_members.exit.thread15: ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj.thread
 
 if.end9.i:                                        ; preds = %if.then.i, %if.end5
   %call10.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out.i) #4
-  br i1 %call10.i, label %if.then11.i, label %out_obj
+  br i1 %call10.i, label %visit_type_AudiodevGenericOptions_members.exit, label %visit_type_AudiodevGenericOptions_members.exit.thread
 
-if.then11.i:                                      ; preds = %if.end9.i
-  %call13.i = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
-  br i1 %call13.i, label %out_obj, label %out_obj.thread16
-
-out_obj.thread16:                                 ; preds = %if.then11.i, %if.then.i
+visit_type_AudiodevGenericOptions_members.exit.thread: ; preds = %if.end9.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj
+
+visit_type_AudiodevGenericOptions_members.exit:   ; preds = %if.end9.i
+  %call13.i = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br i1 %call13.i, label %out_obj, label %out_obj.thread
+
+out_obj.thread:                                   ; preds = %visit_type_AudiodevGenericOptions_members.exit, %visit_type_AudiodevGenericOptions_members.exit.thread15
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end9.i, %if.then11.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+out_obj:                                          ; preds = %visit_type_AudiodevGenericOptions_members.exit, %visit_type_AudiodevGenericOptions_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -343,15 +345,15 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
 declare void @qapi_free_AudiodevGenericOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevAlsaPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevAlsaPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_dev = alloca i8, align 1
   %dev = getelementptr inbounds i8, ptr %obj, i64 48
@@ -383,18 +385,15 @@ if.then10:                                        ; preds = %if.end8
 if.end14:                                         ; preds = %if.then10, %if.end8
   %has_try_poll = getelementptr inbounds i8, ptr %obj, i64 64
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_try_poll) #4
-  br i1 %call15, label %if.then16, label %if.end20
+  br i1 %call15, label %if.then16, label %return
 
 if.then16:                                        ; preds = %if.end14
   %try_poll = getelementptr inbounds i8, ptr %obj, i64 65
   %call17 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %try_poll, ptr noundef %errp) #4
-  br i1 %call17, label %if.end20, label %return
-
-if.end20:                                         ; preds = %if.then16, %if.end14
   br label %return
 
-return:                                           ; preds = %if.then16, %if.then10, %if.then3, %entry, %if.end20
-  %retval.0 = phi i1 [ true, %if.end20 ], [ false, %entry ], [ false, %if.then3 ], [ false, %if.then10 ], [ false, %if.then16 ]
+return:                                           ; preds = %if.then16, %if.end14, %if.then10, %if.then3, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then3 ], [ false, %if.then10 ], [ true, %if.end14 ], [ %call17, %if.then16 ]
   ret i1 %retval.0
 }
 
@@ -454,7 +453,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_AudiodevAlsaPerDirectionOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevAlsaOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevAlsaOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_in = alloca i8, align 1
   %has_out = alloca i8, align 1
@@ -485,18 +484,15 @@ if.then11:                                        ; preds = %if.end9
 if.end16:                                         ; preds = %if.then11, %if.end9
   %has_threshold = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_threshold) #4
-  br i1 %call17, label %if.then18, label %if.end22
+  br i1 %call17, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.end16
   %threshold = getelementptr inbounds i8, ptr %obj, i64 20
   %call19 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %threshold, ptr noundef %errp) #4
-  br i1 %call19, label %if.end22, label %return
-
-if.end22:                                         ; preds = %if.then18, %if.end16
   br label %return
 
-return:                                           ; preds = %if.then18, %if.then11, %if.then, %if.end22
-  %retval.0 = phi i1 [ true, %if.end22 ], [ false, %if.then ], [ false, %if.then11 ], [ false, %if.then18 ]
+return:                                           ; preds = %if.then18, %if.end16, %if.then11, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ true, %if.end16 ], [ %call19, %if.then18 ]
   ret i1 %retval.0
 }
 
@@ -554,7 +550,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_AudiodevAlsaOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevSndioOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevSndioOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_in = alloca i8, align 1
   %has_out = alloca i8, align 1
@@ -599,18 +595,15 @@ if.then22:                                        ; preds = %if.end20
 if.end27:                                         ; preds = %if.then22, %if.end20
   %has_latency = getelementptr inbounds i8, ptr %obj, i64 24
   %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_latency) #4
-  br i1 %call28, label %if.then29, label %if.end33
+  br i1 %call28, label %if.then29, label %return
 
 if.then29:                                        ; preds = %if.end27
   %latency = getelementptr inbounds i8, ptr %obj, i64 28
   %call30 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %latency, ptr noundef %errp) #4
-  br i1 %call30, label %if.end33, label %return
-
-if.end33:                                         ; preds = %if.then29, %if.end27
   br label %return
 
-return:                                           ; preds = %if.then29, %if.then22, %if.then15, %if.then, %if.end33
-  %retval.0 = phi i1 [ true, %if.end33 ], [ false, %if.then ], [ false, %if.then15 ], [ false, %if.then22 ], [ false, %if.then29 ]
+return:                                           ; preds = %if.then29, %if.end27, %if.then22, %if.then15, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then15 ], [ false, %if.then22 ], [ true, %if.end27 ], [ %call30, %if.then29 ]
   ret i1 %retval.0
 }
 
@@ -668,7 +661,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_AudiodevSndioOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevCoreaudioPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevCoreaudioPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_AudiodevPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
@@ -676,18 +669,15 @@ entry:
 if.end:                                           ; preds = %entry
   %has_buffer_count = getelementptr inbounds i8, ptr %obj, i64 44
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count) #4
-  br i1 %call1, label %if.then2, label %if.end6
+  br i1 %call1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   %buffer_count = getelementptr inbounds i8, ptr %obj, i64 48
   %call3 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count, ptr noundef %errp) #4
-  br i1 %call3, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %entry, %if.end6
-  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.then2 ]
+return:                                           ; preds = %if.then2, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call3, %if.then2 ]
   ret i1 %retval.0
 }
 
@@ -704,9 +694,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -716,28 +706,28 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_type_AudiodevPerDirectionOptions_members(ptr noundef %v, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call.i, label %if.end.i, label %out_obj.thread16
+  br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
   %has_buffer_count.i = getelementptr inbounds i8, ptr %0, i64 44
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count.i) #4
-  br i1 %call1.i, label %if.then2.i, label %out_obj
+  br i1 %call1.i, label %visit_type_AudiodevCoreaudioPerDirectionOptions_members.exit, label %out_obj
 
-if.then2.i:                                       ; preds = %if.end.i
+visit_type_AudiodevCoreaudioPerDirectionOptions_members.exit: ; preds = %if.end.i
   %buffer_count.i = getelementptr inbounds i8, ptr %0, i64 48
   %call3.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count.i, ptr noundef %errp) #4
-  br i1 %call3.i, label %out_obj, label %out_obj.thread16
+  br i1 %call3.i, label %out_obj, label %out_obj.thread
 
-out_obj.thread16:                                 ; preds = %if.then2.i, %if.end5
+out_obj.thread:                                   ; preds = %visit_type_AudiodevCoreaudioPerDirectionOptions_members.exit, %if.end5
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end.i, %if.then2.i
+out_obj:                                          ; preds = %if.end.i, %visit_type_AudiodevCoreaudioPerDirectionOptions_members.exit
   %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -747,8 +737,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
@@ -777,17 +767,14 @@ if.then:                                          ; preds = %entry
 
 if.end9:                                          ; preds = %if.then, %entry
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out) #4
-  br i1 %call10, label %if.then11, label %if.end16
+  br i1 %call10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end9
   %call13 = call zeroext i1 @visit_type_AudiodevCoreaudioPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out, ptr noundef %errp)
-  br i1 %call13, label %if.end16, label %return
-
-if.end16:                                         ; preds = %if.then11, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then11, %if.then, %if.end16
-  %retval.0 = phi i1 [ true, %if.end16 ], [ false, %if.then ], [ false, %if.then11 ]
+return:                                           ; preds = %if.then11, %if.end9, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end9 ], [ %call13, %if.then11 ]
   ret i1 %retval.0
 }
 
@@ -806,9 +793,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -833,30 +820,38 @@ if.end5:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end5
   %call7.i = call zeroext i1 @visit_type_AudiodevCoreaudioPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call7.i, label %if.end9.i, label %out_obj.thread16
+  br i1 %call7.i, label %if.end9.i, label %visit_type_AudiodevCoreaudioOptions_members.exit.thread15
+
+visit_type_AudiodevCoreaudioOptions_members.exit.thread15: ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj.thread
 
 if.end9.i:                                        ; preds = %if.then.i, %if.end5
   %call10.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out.i) #4
-  br i1 %call10.i, label %if.then11.i, label %out_obj
+  br i1 %call10.i, label %visit_type_AudiodevCoreaudioOptions_members.exit, label %visit_type_AudiodevCoreaudioOptions_members.exit.thread
 
-if.then11.i:                                      ; preds = %if.end9.i
-  %call13.i = call zeroext i1 @visit_type_AudiodevCoreaudioPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
-  br i1 %call13.i, label %out_obj, label %out_obj.thread16
-
-out_obj.thread16:                                 ; preds = %if.then11.i, %if.then.i
+visit_type_AudiodevCoreaudioOptions_members.exit.thread: ; preds = %if.end9.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj
+
+visit_type_AudiodevCoreaudioOptions_members.exit: ; preds = %if.end9.i
+  %call13.i = call zeroext i1 @visit_type_AudiodevCoreaudioPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br i1 %call13.i, label %out_obj, label %out_obj.thread
+
+out_obj.thread:                                   ; preds = %visit_type_AudiodevCoreaudioOptions_members.exit, %visit_type_AudiodevCoreaudioOptions_members.exit.thread15
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end9.i, %if.then11.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+out_obj:                                          ; preds = %visit_type_AudiodevCoreaudioOptions_members.exit, %visit_type_AudiodevCoreaudioOptions_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -866,15 +861,15 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
 declare void @qapi_free_AudiodevCoreaudioOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevDsoundOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevDsoundOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_in = alloca i8, align 1
   %has_out = alloca i8, align 1
@@ -905,18 +900,15 @@ if.then11:                                        ; preds = %if.end9
 if.end16:                                         ; preds = %if.then11, %if.end9
   %has_latency = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_latency) #4
-  br i1 %call17, label %if.then18, label %if.end22
+  br i1 %call17, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.end16
   %latency = getelementptr inbounds i8, ptr %obj, i64 20
   %call19 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %latency, ptr noundef %errp) #4
-  br i1 %call19, label %if.end22, label %return
-
-if.end22:                                         ; preds = %if.then18, %if.end16
   br label %return
 
-return:                                           ; preds = %if.then18, %if.then11, %if.then, %if.end22
-  %retval.0 = phi i1 [ true, %if.end22 ], [ false, %if.then ], [ false, %if.then11 ], [ false, %if.then18 ]
+return:                                           ; preds = %if.then18, %if.end16, %if.then11, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ true, %if.end16 ], [ %call19, %if.then18 ]
   ret i1 %retval.0
 }
 
@@ -974,7 +966,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_AudiodevDsoundOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevJackPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevJackPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_server_name = alloca i8, align 1
   %has_client_name = alloca i8, align 1
@@ -1034,18 +1026,15 @@ if.then32:                                        ; preds = %if.end30
 if.end36:                                         ; preds = %if.then32, %if.end30
   %has_exact_name = getelementptr inbounds i8, ptr %obj, i64 74
   %call37 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_exact_name) #4
-  br i1 %call37, label %if.then38, label %if.end42
+  br i1 %call37, label %if.then38, label %return
 
 if.then38:                                        ; preds = %if.end36
   %exact_name = getelementptr inbounds i8, ptr %obj, i64 75
   %call39 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %exact_name, ptr noundef %errp) #4
-  br i1 %call39, label %if.end42, label %return
-
-if.end42:                                         ; preds = %if.then38, %if.end36
   br label %return
 
-return:                                           ; preds = %if.then38, %if.then32, %if.then25, %if.then18, %if.then11, %entry, %if.end42
-  %retval.0 = phi i1 [ true, %if.end42 ], [ false, %entry ], [ false, %if.then11 ], [ false, %if.then18 ], [ false, %if.then25 ], [ false, %if.then32 ], [ false, %if.then38 ]
+return:                                           ; preds = %if.then38, %if.end36, %if.then32, %if.then25, %if.then18, %if.then11, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then11 ], [ false, %if.then18 ], [ false, %if.then25 ], [ false, %if.then32 ], [ true, %if.end36 ], [ %call39, %if.then38 ]
   ret i1 %retval.0
 }
 
@@ -1125,17 +1114,14 @@ if.then:                                          ; preds = %entry
 
 if.end9:                                          ; preds = %if.then, %entry
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out) #4
-  br i1 %call10, label %if.then11, label %if.end16
+  br i1 %call10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end9
   %call13 = call zeroext i1 @visit_type_AudiodevJackPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out, ptr noundef %errp)
-  br i1 %call13, label %if.end16, label %return
-
-if.end16:                                         ; preds = %if.then11, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then11, %if.then, %if.end16
-  %retval.0 = phi i1 [ true, %if.end16 ], [ false, %if.then ], [ false, %if.then11 ]
+return:                                           ; preds = %if.then11, %if.end9, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end9 ], [ %call13, %if.then11 ]
   ret i1 %retval.0
 }
 
@@ -1154,9 +1140,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -1181,30 +1167,38 @@ if.end5:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end5
   %call7.i = call zeroext i1 @visit_type_AudiodevJackPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call7.i, label %if.end9.i, label %out_obj.thread16
+  br i1 %call7.i, label %if.end9.i, label %visit_type_AudiodevJackOptions_members.exit.thread15
+
+visit_type_AudiodevJackOptions_members.exit.thread15: ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj.thread
 
 if.end9.i:                                        ; preds = %if.then.i, %if.end5
   %call10.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out.i) #4
-  br i1 %call10.i, label %if.then11.i, label %out_obj
+  br i1 %call10.i, label %visit_type_AudiodevJackOptions_members.exit, label %visit_type_AudiodevJackOptions_members.exit.thread
 
-if.then11.i:                                      ; preds = %if.end9.i
-  %call13.i = call zeroext i1 @visit_type_AudiodevJackPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
-  br i1 %call13.i, label %out_obj, label %out_obj.thread16
-
-out_obj.thread16:                                 ; preds = %if.then11.i, %if.then.i
+visit_type_AudiodevJackOptions_members.exit.thread: ; preds = %if.end9.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj
+
+visit_type_AudiodevJackOptions_members.exit:      ; preds = %if.end9.i
+  %call13.i = call zeroext i1 @visit_type_AudiodevJackPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br i1 %call13.i, label %out_obj, label %out_obj.thread
+
+out_obj.thread:                                   ; preds = %visit_type_AudiodevJackOptions_members.exit, %visit_type_AudiodevJackOptions_members.exit.thread15
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end9.i, %if.then11.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+out_obj:                                          ; preds = %visit_type_AudiodevJackOptions_members.exit, %visit_type_AudiodevJackOptions_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -1214,15 +1208,15 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
 declare void @qapi_free_AudiodevJackOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevOssPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevOssPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_dev = alloca i8, align 1
   %dev = getelementptr inbounds i8, ptr %obj, i64 48
@@ -1254,18 +1248,15 @@ if.then10:                                        ; preds = %if.end8
 if.end14:                                         ; preds = %if.then10, %if.end8
   %has_try_poll = getelementptr inbounds i8, ptr %obj, i64 64
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_try_poll) #4
-  br i1 %call15, label %if.then16, label %if.end20
+  br i1 %call15, label %if.then16, label %return
 
 if.then16:                                        ; preds = %if.end14
   %try_poll = getelementptr inbounds i8, ptr %obj, i64 65
   %call17 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %try_poll, ptr noundef %errp) #4
-  br i1 %call17, label %if.end20, label %return
-
-if.end20:                                         ; preds = %if.then16, %if.end14
   br label %return
 
-return:                                           ; preds = %if.then16, %if.then10, %if.then3, %entry, %if.end20
-  %retval.0 = phi i1 [ true, %if.end20 ], [ false, %entry ], [ false, %if.then3 ], [ false, %if.then10 ], [ false, %if.then16 ]
+return:                                           ; preds = %if.then16, %if.end14, %if.then10, %if.then3, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then3 ], [ false, %if.then10 ], [ true, %if.end14 ], [ %call17, %if.then16 ]
   ret i1 %retval.0
 }
 
@@ -1323,7 +1314,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_AudiodevOssPerDirectionOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevOssOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevOssOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_in = alloca i8, align 1
   %has_out = alloca i8, align 1
@@ -1374,18 +1365,15 @@ if.then24:                                        ; preds = %if.end22
 if.end28:                                         ; preds = %if.then24, %if.end22
   %has_dsp_policy = getelementptr inbounds i8, ptr %obj, i64 20
   %call29 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %has_dsp_policy) #4
-  br i1 %call29, label %if.then30, label %if.end34
+  br i1 %call29, label %if.then30, label %return
 
 if.then30:                                        ; preds = %if.end28
   %dsp_policy = getelementptr inbounds i8, ptr %obj, i64 24
   %call31 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %dsp_policy, ptr noundef %errp) #4
-  br i1 %call31, label %if.end34, label %return
-
-if.end34:                                         ; preds = %if.then30, %if.end28
   br label %return
 
-return:                                           ; preds = %if.then30, %if.then24, %if.then18, %if.then11, %if.then, %if.end34
-  %retval.0 = phi i1 [ true, %if.end34 ], [ false, %if.then ], [ false, %if.then11 ], [ false, %if.then18 ], [ false, %if.then24 ], [ false, %if.then30 ]
+return:                                           ; preds = %if.then30, %if.end28, %if.then24, %if.then18, %if.then11, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ false, %if.then18 ], [ false, %if.then24 ], [ true, %if.end28 ], [ %call31, %if.then30 ]
   ret i1 %retval.0
 }
 
@@ -1443,7 +1431,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_AudiodevOssOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevPaPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevPaPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_name = alloca i8, align 1
   %has_stream_name = alloca i8, align 1
@@ -1479,18 +1467,15 @@ if.then14:                                        ; preds = %if.end12
 if.end19:                                         ; preds = %if.then14, %if.end12
   %has_latency = getelementptr inbounds i8, ptr %obj, i64 64
   %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_latency) #4
-  br i1 %call20, label %if.then21, label %if.end25
+  br i1 %call20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.end19
   %latency = getelementptr inbounds i8, ptr %obj, i64 68
   %call22 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %latency, ptr noundef %errp) #4
-  br i1 %call22, label %if.end25, label %return
-
-if.end25:                                         ; preds = %if.then21, %if.end19
   br label %return
 
-return:                                           ; preds = %if.then21, %if.then14, %if.then7, %entry, %if.end25
-  %retval.0 = phi i1 [ true, %if.end25 ], [ false, %entry ], [ false, %if.then7 ], [ false, %if.then14 ], [ false, %if.then21 ]
+return:                                           ; preds = %if.then21, %if.end19, %if.then14, %if.then7, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then7 ], [ false, %if.then14 ], [ true, %if.end19 ], [ %call22, %if.then21 ]
   ret i1 %retval.0
 }
 
@@ -1548,7 +1533,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_AudiodevPaPerDirectionOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevPaOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevPaOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_in = alloca i8, align 1
   %has_out = alloca i8, align 1
@@ -1584,17 +1569,14 @@ if.then15:                                        ; preds = %if.end13
 
 if.end20:                                         ; preds = %if.then15, %if.end13
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_server) #4
-  br i1 %call21, label %if.then22, label %if.end27
+  br i1 %call21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end20
   %call24 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %server, ptr noundef %errp) #4
-  br i1 %call24, label %if.end27, label %return
-
-if.end27:                                         ; preds = %if.then22, %if.end20
   br label %return
 
-return:                                           ; preds = %if.then22, %if.then15, %if.then, %if.end27
-  %retval.0 = phi i1 [ true, %if.end27 ], [ false, %if.then ], [ false, %if.then15 ], [ false, %if.then22 ]
+return:                                           ; preds = %if.then22, %if.end20, %if.then15, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then15 ], [ true, %if.end20 ], [ %call24, %if.then22 ]
   ret i1 %retval.0
 }
 
@@ -1652,7 +1634,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_AudiodevPaOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevPipewirePerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevPipewirePerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_name = alloca i8, align 1
   %has_stream_name = alloca i8, align 1
@@ -1688,18 +1670,15 @@ if.then14:                                        ; preds = %if.end12
 if.end19:                                         ; preds = %if.then14, %if.end12
   %has_latency = getelementptr inbounds i8, ptr %obj, i64 64
   %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %has_latency) #4
-  br i1 %call20, label %if.then21, label %if.end25
+  br i1 %call20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.end19
   %latency = getelementptr inbounds i8, ptr %obj, i64 68
   %call22 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %latency, ptr noundef %errp) #4
-  br i1 %call22, label %if.end25, label %return
-
-if.end25:                                         ; preds = %if.then21, %if.end19
   br label %return
 
-return:                                           ; preds = %if.then21, %if.then14, %if.then7, %entry, %if.end25
-  %retval.0 = phi i1 [ true, %if.end25 ], [ false, %entry ], [ false, %if.then7 ], [ false, %if.then14 ], [ false, %if.then21 ]
+return:                                           ; preds = %if.then21, %if.end19, %if.then14, %if.then7, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then7 ], [ false, %if.then14 ], [ true, %if.end19 ], [ %call22, %if.then21 ]
   ret i1 %retval.0
 }
 
@@ -1779,17 +1758,14 @@ if.then:                                          ; preds = %entry
 
 if.end9:                                          ; preds = %if.then, %entry
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out) #4
-  br i1 %call10, label %if.then11, label %if.end16
+  br i1 %call10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end9
   %call13 = call zeroext i1 @visit_type_AudiodevPipewirePerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out, ptr noundef %errp)
-  br i1 %call13, label %if.end16, label %return
-
-if.end16:                                         ; preds = %if.then11, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then11, %if.then, %if.end16
-  %retval.0 = phi i1 [ true, %if.end16 ], [ false, %if.then ], [ false, %if.then11 ]
+return:                                           ; preds = %if.then11, %if.end9, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end9 ], [ %call13, %if.then11 ]
   ret i1 %retval.0
 }
 
@@ -1808,9 +1784,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -1835,30 +1811,38 @@ if.end5:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end5
   %call7.i = call zeroext i1 @visit_type_AudiodevPipewirePerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call7.i, label %if.end9.i, label %out_obj.thread16
+  br i1 %call7.i, label %if.end9.i, label %visit_type_AudiodevPipewireOptions_members.exit.thread15
+
+visit_type_AudiodevPipewireOptions_members.exit.thread15: ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj.thread
 
 if.end9.i:                                        ; preds = %if.then.i, %if.end5
   %call10.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out.i) #4
-  br i1 %call10.i, label %if.then11.i, label %out_obj
+  br i1 %call10.i, label %visit_type_AudiodevPipewireOptions_members.exit, label %visit_type_AudiodevPipewireOptions_members.exit.thread
 
-if.then11.i:                                      ; preds = %if.end9.i
-  %call13.i = call zeroext i1 @visit_type_AudiodevPipewirePerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
-  br i1 %call13.i, label %out_obj, label %out_obj.thread16
-
-out_obj.thread16:                                 ; preds = %if.then11.i, %if.then.i
+visit_type_AudiodevPipewireOptions_members.exit.thread: ; preds = %if.end9.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj
+
+visit_type_AudiodevPipewireOptions_members.exit:  ; preds = %if.end9.i
+  %call13.i = call zeroext i1 @visit_type_AudiodevPipewirePerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br i1 %call13.i, label %out_obj, label %out_obj.thread
+
+out_obj.thread:                                   ; preds = %visit_type_AudiodevPipewireOptions_members.exit, %visit_type_AudiodevPipewireOptions_members.exit.thread15
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end9.i, %if.then11.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+out_obj:                                          ; preds = %visit_type_AudiodevPipewireOptions_members.exit, %visit_type_AudiodevPipewireOptions_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -1868,15 +1852,15 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
 declare void @qapi_free_AudiodevPipewireOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevSdlPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevSdlPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_AudiodevPerDirectionOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
@@ -1884,18 +1868,15 @@ entry:
 if.end:                                           ; preds = %entry
   %has_buffer_count = getelementptr inbounds i8, ptr %obj, i64 44
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count) #4
-  br i1 %call1, label %if.then2, label %if.end6
+  br i1 %call1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
   %buffer_count = getelementptr inbounds i8, ptr %obj, i64 48
   %call3 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count, ptr noundef %errp) #4
-  br i1 %call3, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.then2, %if.end
   br label %return
 
-return:                                           ; preds = %if.then2, %entry, %if.end6
-  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.then2 ]
+return:                                           ; preds = %if.then2, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %call3, %if.then2 ]
   ret i1 %retval.0
 }
 
@@ -1912,9 +1893,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -1924,28 +1905,28 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call zeroext i1 @visit_type_AudiodevPerDirectionOptions_members(ptr noundef %v, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call.i, label %if.end.i, label %out_obj.thread16
+  br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
   %has_buffer_count.i = getelementptr inbounds i8, ptr %0, i64 44
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_buffer_count.i) #4
-  br i1 %call1.i, label %if.then2.i, label %out_obj
+  br i1 %call1.i, label %visit_type_AudiodevSdlPerDirectionOptions_members.exit, label %out_obj
 
-if.then2.i:                                       ; preds = %if.end.i
+visit_type_AudiodevSdlPerDirectionOptions_members.exit: ; preds = %if.end.i
   %buffer_count.i = getelementptr inbounds i8, ptr %0, i64 48
   %call3.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %buffer_count.i, ptr noundef %errp) #4
-  br i1 %call3.i, label %out_obj, label %out_obj.thread16
+  br i1 %call3.i, label %out_obj, label %out_obj.thread
 
-out_obj.thread16:                                 ; preds = %if.then2.i, %if.end5
+out_obj.thread:                                   ; preds = %visit_type_AudiodevSdlPerDirectionOptions_members.exit, %if.end5
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end.i, %if.then2.i
+out_obj:                                          ; preds = %if.end.i, %visit_type_AudiodevSdlPerDirectionOptions_members.exit
   %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -1955,8 +1936,8 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
@@ -1985,17 +1966,14 @@ if.then:                                          ; preds = %entry
 
 if.end9:                                          ; preds = %if.then, %entry
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out) #4
-  br i1 %call10, label %if.then11, label %if.end16
+  br i1 %call10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end9
   %call13 = call zeroext i1 @visit_type_AudiodevSdlPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out, ptr noundef %errp)
-  br i1 %call13, label %if.end16, label %return
-
-if.end16:                                         ; preds = %if.then11, %if.end9
   br label %return
 
-return:                                           ; preds = %if.then11, %if.then, %if.end16
-  %retval.0 = phi i1 [ true, %if.end16 ], [ false, %if.then ], [ false, %if.then11 ]
+return:                                           ; preds = %if.then11, %if.end9, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end9 ], [ %call13, %if.then11 ]
   ret i1 %retval.0
 }
 
@@ -2014,9 +1992,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread19, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread19:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -2041,30 +2019,38 @@ if.end5:                                          ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end5
   %call7.i = call zeroext i1 @visit_type_AudiodevSdlPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call7.i, label %if.end9.i, label %out_obj.thread16
+  br i1 %call7.i, label %if.end9.i, label %visit_type_AudiodevSdlOptions_members.exit.thread15
+
+visit_type_AudiodevSdlOptions_members.exit.thread15: ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj.thread
 
 if.end9.i:                                        ; preds = %if.then.i, %if.end5
   %call10.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out.i) #4
-  br i1 %call10.i, label %if.then11.i, label %out_obj
+  br i1 %call10.i, label %visit_type_AudiodevSdlOptions_members.exit, label %visit_type_AudiodevSdlOptions_members.exit.thread
 
-if.then11.i:                                      ; preds = %if.end9.i
-  %call13.i = call zeroext i1 @visit_type_AudiodevSdlPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
-  br i1 %call13.i, label %out_obj, label %out_obj.thread16
-
-out_obj.thread16:                                 ; preds = %if.then11.i, %if.then.i
+visit_type_AudiodevSdlOptions_members.exit.thread: ; preds = %if.end9.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br label %out_obj
+
+visit_type_AudiodevSdlOptions_members.exit:       ; preds = %if.end9.i
+  %call13.i = call zeroext i1 @visit_type_AudiodevSdlPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+  br i1 %call13.i, label %out_obj, label %out_obj.thread
+
+out_obj.thread:                                   ; preds = %visit_type_AudiodevSdlOptions_members.exit, %visit_type_AudiodevSdlOptions_members.exit.thread15
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end9.i, %if.then11.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
+out_obj:                                          ; preds = %visit_type_AudiodevSdlOptions_members.exit, %visit_type_AudiodevSdlOptions_members.exit.thread
   %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
   call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
   %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
@@ -2074,15 +2060,15 @@ if.then12:                                        ; preds = %land.lhs.true
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread19, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread19 ]
   ret i1 %retval.0
 }
 
 declare void @qapi_free_AudiodevSdlOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_AudiodevWavOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_AudiodevWavOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_in = alloca i8, align 1
   %has_out = alloca i8, align 1
@@ -2118,17 +2104,14 @@ if.then15:                                        ; preds = %if.end13
 
 if.end20:                                         ; preds = %if.then15, %if.end13
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %has_path) #4
-  br i1 %call21, label %if.then22, label %if.end27
+  br i1 %call21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end20
   %call24 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %path, ptr noundef %errp) #4
-  br i1 %call24, label %if.end27, label %return
-
-if.end27:                                         ; preds = %if.then22, %if.end20
   br label %return
 
-return:                                           ; preds = %if.then22, %if.then15, %if.then, %if.end27
-  %retval.0 = phi i1 [ true, %if.end27 ], [ false, %if.then ], [ false, %if.then15 ], [ false, %if.then22 ]
+return:                                           ; preds = %if.then22, %if.end20, %if.then15, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then15 ], [ true, %if.end20 ], [ %call24, %if.then22 ]
   ret i1 %retval.0
 }
 
@@ -2200,7 +2183,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_q_obj_Audiodev_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_Audiodev_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef %obj, ptr noundef %errp) #4
@@ -2220,26 +2203,23 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %has_timer_period = getelementptr inbounds i8, ptr %obj, i64 12
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_timer_period) #4
-  br i1 %call4, label %if.then5, label %if.end9
+  br i1 %call4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end3
   %timer_period = getelementptr inbounds i8, ptr %obj, i64 16
   %call6 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %timer_period, ptr noundef %errp) #4
-  br i1 %call6, label %if.end9, label %return
-
-if.end9:                                          ; preds = %if.then5, %if.end3
   br label %return
 
-return:                                           ; preds = %if.then5, %if.end, %entry, %if.end9
-  %retval.0 = phi i1 [ true, %if.end9 ], [ false, %entry ], [ false, %if.end ], [ false, %if.then5 ]
+return:                                           ; preds = %if.then5, %if.end3, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end3 ], [ %call6, %if.then5 ]
   ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @visit_type_Audiodev_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_Audiodev_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %has_in.i17 = alloca i8, align 1
-  %has_out.i18 = alloca i8, align 1
+  %has_in.i16 = alloca i8, align 1
+  %has_out.i17 = alloca i8, align 1
   %has_in.i = alloca i8, align 1
   %has_out.i = alloca i8, align 1
   %value.i.i = alloca i32, align 4
@@ -2260,14 +2240,14 @@ if.end.i:                                         ; preds = %entry
 if.end3.i:                                        ; preds = %if.end.i
   %has_timer_period.i = getelementptr inbounds i8, ptr %obj, i64 12
   %call4.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_timer_period.i) #4
-  br i1 %call4.i, label %if.then5.i, label %if.end
+  br i1 %call4.i, label %visit_type_q_obj_Audiodev_base_members.exit, label %if.end
 
-if.then5.i:                                       ; preds = %if.end3.i
+visit_type_q_obj_Audiodev_base_members.exit:      ; preds = %if.end3.i
   %timer_period.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call6.i = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %timer_period.i, ptr noundef %errp) #4
   br i1 %call6.i, label %if.end, label %return
 
-if.end:                                           ; preds = %if.then5.i, %if.end3.i
+if.end:                                           ; preds = %if.end3.i, %visit_type_q_obj_Audiodev_base_members.exit
   %2 = load i32, ptr %driver.i, align 8
   switch i32 %2, label %sw.default [
     i32 0, label %sw.bb
@@ -2290,64 +2270,58 @@ sw.bb:                                            ; preds = %if.end
   %frombool5.i = zext i1 %tobool2.i to i8
   store i8 %frombool5.i, ptr %has_out.i, align 1
   %call.i14 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_in.i) #4
-  br i1 %call.i14, label %if.then.i, label %if.end9.i15
+  br i1 %call.i14, label %if.then.i, label %if.end9.i
 
 if.then.i:                                        ; preds = %sw.bb
   %call7.i = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %u, ptr noundef %errp)
-  br i1 %call7.i, label %if.end9.i15, label %visit_type_AudiodevGenericOptions_members.exit
+  br i1 %call7.i, label %if.end9.i, label %visit_type_AudiodevGenericOptions_members.exit
 
-if.end9.i15:                                      ; preds = %if.then.i, %sw.bb
+if.end9.i:                                        ; preds = %if.then.i, %sw.bb
   %call10.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out.i) #4
-  br i1 %call10.i, label %if.then11.i, label %if.end16.i
+  br i1 %call10.i, label %if.then11.i, label %visit_type_AudiodevGenericOptions_members.exit
 
-if.then11.i:                                      ; preds = %if.end9.i15
+if.then11.i:                                      ; preds = %if.end9.i
   %call13.i = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i, ptr noundef %errp)
-  br i1 %call13.i, label %if.end16.i, label %visit_type_AudiodevGenericOptions_members.exit
-
-if.end16.i:                                       ; preds = %if.then11.i, %if.end9.i15
   br label %visit_type_AudiodevGenericOptions_members.exit
 
-visit_type_AudiodevGenericOptions_members.exit:   ; preds = %if.then.i, %if.then11.i, %if.end16.i
-  %retval.0.i16 = phi i1 [ true, %if.end16.i ], [ false, %if.then.i ], [ false, %if.then11.i ]
+visit_type_AudiodevGenericOptions_members.exit:   ; preds = %if.then.i, %if.end9.i, %if.then11.i
+  %retval.0.i15 = phi i1 [ false, %if.then.i ], [ true, %if.end9.i ], [ %call13.i, %if.then11.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
   %u3 = getelementptr inbounds i8, ptr %obj, i64 24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_in.i17)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_out.i18)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_in.i16)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_out.i17)
   %5 = load ptr, ptr %u3, align 8
-  %tobool.i19 = icmp ne ptr %5, null
-  %frombool.i20 = zext i1 %tobool.i19 to i8
-  store i8 %frombool.i20, ptr %has_in.i17, align 1
-  %out.i21 = getelementptr inbounds i8, ptr %obj, i64 32
-  %6 = load ptr, ptr %out.i21, align 8
-  %tobool2.i22 = icmp ne ptr %6, null
-  %frombool5.i23 = zext i1 %tobool2.i22 to i8
-  store i8 %frombool5.i23, ptr %has_out.i18, align 1
-  %call.i24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_in.i17) #4
-  br i1 %call.i24, label %if.then.i31, label %if.end9.i25
+  %tobool.i18 = icmp ne ptr %5, null
+  %frombool.i19 = zext i1 %tobool.i18 to i8
+  store i8 %frombool.i19, ptr %has_in.i16, align 1
+  %out.i20 = getelementptr inbounds i8, ptr %obj, i64 32
+  %6 = load ptr, ptr %out.i20, align 8
+  %tobool2.i21 = icmp ne ptr %6, null
+  %frombool5.i22 = zext i1 %tobool2.i21 to i8
+  store i8 %frombool5.i22, ptr %has_out.i17, align 1
+  %call.i23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_in.i16) #4
+  br i1 %call.i23, label %if.then.i29, label %if.end9.i24
 
-if.then.i31:                                      ; preds = %sw.bb2
-  %call7.i32 = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %u3, ptr noundef %errp)
-  br i1 %call7.i32, label %if.end9.i25, label %visit_type_AudiodevGenericOptions_members.exit33
+if.then.i29:                                      ; preds = %sw.bb2
+  %call7.i30 = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %u3, ptr noundef %errp)
+  br i1 %call7.i30, label %if.end9.i24, label %visit_type_AudiodevGenericOptions_members.exit31
 
-if.end9.i25:                                      ; preds = %if.then.i31, %sw.bb2
-  %call10.i26 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out.i18) #4
-  br i1 %call10.i26, label %if.then11.i29, label %if.end16.i27
+if.end9.i24:                                      ; preds = %if.then.i29, %sw.bb2
+  %call10.i25 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_out.i17) #4
+  br i1 %call10.i25, label %if.then11.i27, label %visit_type_AudiodevGenericOptions_members.exit31
 
-if.then11.i29:                                    ; preds = %if.end9.i25
-  %call13.i30 = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i21, ptr noundef %errp)
-  br i1 %call13.i30, label %if.end16.i27, label %visit_type_AudiodevGenericOptions_members.exit33
+if.then11.i27:                                    ; preds = %if.end9.i24
+  %call13.i28 = call zeroext i1 @visit_type_AudiodevPerDirectionOptions(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %out.i20, ptr noundef %errp)
+  br label %visit_type_AudiodevGenericOptions_members.exit31
 
-if.end16.i27:                                     ; preds = %if.then11.i29, %if.end9.i25
-  br label %visit_type_AudiodevGenericOptions_members.exit33
-
-visit_type_AudiodevGenericOptions_members.exit33: ; preds = %if.then.i31, %if.then11.i29, %if.end16.i27
-  %retval.0.i28 = phi i1 [ true, %if.end16.i27 ], [ false, %if.then.i31 ], [ false, %if.then11.i29 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i17)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i18)
+visit_type_AudiodevGenericOptions_members.exit31: ; preds = %if.then.i29, %if.end9.i24, %if.then11.i27
+  %retval.0.i26 = phi i1 [ false, %if.then.i29 ], [ true, %if.end9.i24 ], [ %call13.i28, %if.then11.i27 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_in.i16)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_out.i17)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
@@ -2364,8 +2338,8 @@ sw.default:                                       ; preds = %if.end
   call void @abort() #5
   unreachable
 
-return:                                           ; preds = %if.then5.i, %if.end.i, %entry, %sw.bb8, %sw.bb5, %visit_type_AudiodevGenericOptions_members.exit33, %visit_type_AudiodevGenericOptions_members.exit
-  %retval.0 = phi i1 [ %call10, %sw.bb8 ], [ %call7, %sw.bb5 ], [ %retval.0.i28, %visit_type_AudiodevGenericOptions_members.exit33 ], [ %retval.0.i16, %visit_type_AudiodevGenericOptions_members.exit ], [ false, %entry ], [ false, %if.end.i ], [ false, %if.then5.i ]
+return:                                           ; preds = %if.end.i, %entry, %visit_type_q_obj_Audiodev_base_members.exit, %sw.bb8, %sw.bb5, %visit_type_AudiodevGenericOptions_members.exit31, %visit_type_AudiodevGenericOptions_members.exit
+  %retval.0 = phi i1 [ %call10, %sw.bb8 ], [ %call7, %sw.bb5 ], [ %retval.0.i26, %visit_type_AudiodevGenericOptions_members.exit31 ], [ %retval.0.i15, %visit_type_AudiodevGenericOptions_members.exit ], [ false, %visit_type_q_obj_Audiodev_base_members.exit ], [ false, %entry ], [ false, %if.end.i ]
   ret i1 %retval.0
 }
 

@@ -603,7 +603,7 @@ define internal i32 @cdrom_mrw_exit(ptr noundef %0) #1 align 16 {
   %21 = add nuw nsw i16 %20, 2
   %22 = zext nneg i16 %21 to i32
   store i32 %22, ptr %8, align 8
-  %23 = trunc i16 %21 to i8
+  %23 = trunc nuw nsw i16 %21 to i8
   store i8 %23, ptr %11, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = call i32 %24(ptr noundef %0, ptr noundef nonnull %4) #16
@@ -1302,7 +1302,7 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %308 = add nuw nsw i16 %307, 2
   %309 = zext nneg i16 %308 to i32
   store i32 %309, ptr %293, align 8
-  %310 = trunc i16 %308 to i8
+  %310 = trunc nuw nsw i16 %308 to i8
   store i8 %310, ptr %296, align 8
   %311 = load ptr, ptr %298, align 8
   %312 = call i32 %311(ptr noundef %0, ptr noundef nonnull %11) #16
@@ -1391,7 +1391,7 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %359 = add nuw nsw i16 %358, 2
   %360 = zext nneg i16 %359 to i32
   store i32 %360, ptr %346, align 8
-  %361 = trunc i16 %359 to i8
+  %361 = trunc nuw nsw i16 %359 to i8
   store i8 %361, ptr %349, align 8
   %362 = load ptr, ptr %351, align 8
   %363 = call i32 %362(ptr noundef %0, ptr noundef nonnull %9) #16
@@ -2016,13 +2016,13 @@ define dso_local i32 @cdrom_multisession(ptr noundef %0, ptr noundef %1) #1 alig
 38:                                               ; preds = %22
   %39 = load i32, ptr %1, align 4
   %40 = srem i32 %39, 75
-  %41 = trunc i32 %40 to i8
+  %41 = trunc nsw i32 %40 to i8
   %42 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %41, ptr %42, align 2
   %43 = sdiv i32 %39, 75
   %44 = add nsw i32 %43, 2
   %45 = srem i32 %44, 60
-  %46 = trunc i32 %45 to i8
+  %46 = trunc nsw i32 %45 to i8
   %47 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %46, ptr %47, align 1
   %48 = sdiv i32 %44, 60
@@ -2086,13 +2086,13 @@ define dso_local i32 @cdrom_read_tocentry(ptr noundef %0, ptr noundef %1) #1 ali
 33:                                               ; preds = %17
   %34 = load i32, ptr %14, align 4
   %35 = srem i32 %34, 75
-  %36 = trunc i32 %35 to i8
+  %36 = trunc nsw i32 %35 to i8
   %37 = getelementptr inbounds i8, ptr %1, i64 6
   store i8 %36, ptr %37, align 2
   %38 = sdiv i32 %34, 75
   %39 = add nsw i32 %38, 2
   %40 = srem i32 %39, 60
-  %41 = trunc i32 %40 to i8
+  %41 = trunc nsw i32 %40 to i8
   %42 = getelementptr inbounds i8, ptr %1, i64 5
   store i8 %41, ptr %42, align 1
   %43 = sdiv i32 %39, 60
@@ -2164,7 +2164,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %33 = add nuw nsw i16 %32, 2
   %34 = zext nneg i16 %33 to i32
   store i32 %34, ptr %20, align 8
-  %35 = trunc i16 %33 to i8
+  %35 = trunc nuw nsw i16 %33 to i8
   store i8 %35, ptr %23, align 8
   %36 = load ptr, ptr %25, align 8
   %37 = call i32 %36(ptr noundef %0, ptr noundef nonnull %5) #16
@@ -2187,7 +2187,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %49 = load i8, ptr %48, align 2
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50
-  %52 = trunc i32 %51 to i16
+  %52 = trunc nuw i32 %51 to i16
   %53 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
@@ -2224,7 +2224,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %71 = add nuw nsw i16 %70, 2
   %72 = zext nneg i16 %71 to i32
   store i32 %72, ptr %55, align 8
-  %73 = trunc i16 %71 to i8
+  %73 = trunc nuw nsw i16 %71 to i8
   store i8 %73, ptr %61, align 8
   %74 = load ptr, ptr %63, align 8
   %75 = call i32 %74(ptr noundef %0, ptr noundef nonnull %4) #16
@@ -2267,7 +2267,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %95 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 1, ptr %95, align 1
   %96 = lshr i16 %89, 8
-  %97 = trunc i16 %96 to i8
+  %97 = trunc nuw i16 %96 to i8
   %98 = getelementptr inbounds i8, ptr %3, i64 4
   store i8 %97, ptr %98, align 4
   %99 = trunc i16 %89 to i8
@@ -2290,7 +2290,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %111 = add nuw nsw i16 %110, 2
   %112 = zext nneg i16 %111 to i32
   store i32 %112, ptr %92, align 8
-  %113 = trunc i16 %111 to i8
+  %113 = trunc nuw nsw i16 %111 to i8
   store i8 %113, ptr %101, align 8
   %114 = load ptr, ptr %103, align 8
   %115 = call i32 %114(ptr noundef %0, ptr noundef nonnull %3) #16
@@ -2503,13 +2503,13 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
 53:                                               ; preds = %37
   %54 = load i32, ptr %13, align 8
   %55 = srem i32 %54, 75
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nsw i32 %55 to i8
   %57 = getelementptr inbounds i8, ptr %13, i64 2
   store i8 %56, ptr %57, align 2
   %58 = sdiv i32 %54, 75
   %59 = add nsw i32 %58, 2
   %60 = srem i32 %59, 60
-  %61 = trunc i32 %60 to i8
+  %61 = trunc nsw i32 %60 to i8
   %62 = getelementptr inbounds i8, ptr %13, i64 1
   store i8 %61, ptr %62, align 1
   %63 = sdiv i32 %59, 60
@@ -3663,13 +3663,13 @@ define internal fastcc i32 @cdrom_ioctl_get_subchnl(ptr noundef %0, ptr noundef 
 50:                                               ; preds = %20
   %51 = load i32, ptr %18, align 4
   %52 = srem i32 %51, 75
-  %53 = trunc i32 %52 to i8
+  %53 = trunc nsw i32 %52 to i8
   %54 = getelementptr inbounds i8, ptr %3, i64 10
   store i8 %53, ptr %54, align 2
   %55 = sdiv i32 %51, 75
   %56 = add nsw i32 %55, 2
   %57 = srem i32 %56, 60
-  %58 = trunc i32 %57 to i8
+  %58 = trunc nsw i32 %57 to i8
   %59 = getelementptr inbounds i8, ptr %3, i64 9
   store i8 %58, ptr %59, align 1
   %60 = sdiv i32 %56, 60
@@ -3677,13 +3677,13 @@ define internal fastcc i32 @cdrom_ioctl_get_subchnl(ptr noundef %0, ptr noundef 
   store i8 %61, ptr %18, align 4
   %62 = load i32, ptr %22, align 4
   %63 = srem i32 %62, 75
-  %64 = trunc i32 %63 to i8
+  %64 = trunc nsw i32 %63 to i8
   %65 = getelementptr inbounds i8, ptr %3, i64 14
   store i8 %64, ptr %65, align 2
   %66 = sdiv i32 %62, 75
   %67 = add nsw i32 %66, 2
   %68 = srem i32 %67, 60
-  %69 = trunc i32 %68 to i8
+  %69 = trunc nsw i32 %68 to i8
   %70 = getelementptr inbounds i8, ptr %3, i64 13
   store i8 %69, ptr %70, align 1
   %71 = sdiv i32 %67, 60
@@ -3791,13 +3791,13 @@ define internal fastcc i32 @cdrom_ioctl_read_tocentry(ptr noundef %0, ptr nounde
 37:                                               ; preds = %21
   %38 = load i32, ptr %18, align 4
   %39 = srem i32 %38, 75
-  %40 = trunc i32 %39 to i8
+  %40 = trunc nsw i32 %39 to i8
   %41 = getelementptr inbounds i8, ptr %3, i64 6
   store i8 %40, ptr %41, align 2
   %42 = sdiv i32 %38, 75
   %43 = add nsw i32 %42, 2
   %44 = srem i32 %43, 60
-  %45 = trunc i32 %44 to i8
+  %45 = trunc nsw i32 %44 to i8
   %46 = getelementptr inbounds i8, ptr %3, i64 5
   store i8 %45, ptr %46, align 1
   %47 = sdiv i32 %43, 60
@@ -3815,8 +3815,8 @@ define internal fastcc i32 @cdrom_ioctl_read_tocentry(ptr noundef %0, ptr nounde
   %spec.select = select i1 %52, i32 0, i32 -14
   br label %53
 
-53:                                               ; preds = %50, %11, %6, %2
-  %54 = phi i32 [ -14, %2 ], [ -22, %6 ], [ %15, %11 ], [ %spec.select, %50 ]
+53:                                               ; preds = %6, %11, %50, %2
+  %54 = phi i32 [ -14, %2 ], [ %spec.select, %50 ], [ -22, %6 ], [ %15, %11 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #16
   ret i32 %54
 }
@@ -4524,7 +4524,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   %47 = getelementptr i8, ptr %2, i64 2
   store i8 0, ptr %47, align 2
   %48 = lshr i32 %34, 16
-  %49 = trunc i32 %48 to i8
+  %49 = trunc nuw nsw i32 %48 to i8
   %50 = getelementptr i8, ptr %2, i64 3
   store i8 %49, ptr %50, align 1
   %51 = lshr i32 %34, 8
@@ -4572,7 +4572,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   %80 = getelementptr inbounds i8, ptr %8, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, i8 0, i64 10, i1 false)
   %81 = lshr i32 %17, 8
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   %83 = getelementptr inbounds i8, ptr %8, i64 10
   %84 = trunc i32 %17 to i8
   %85 = getelementptr inbounds i8, ptr %8, i64 11
@@ -5077,13 +5077,13 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
 135:                                              ; preds = %114
   %136 = load i32, ptr %112, align 4
   %137 = srem i32 %136, 75
-  %138 = trunc i32 %137 to i8
+  %138 = trunc nsw i32 %137 to i8
   %139 = getelementptr inbounds i8, ptr %5, i64 10
   store i8 %138, ptr %139, align 2
   %140 = sdiv i32 %136, 75
   %141 = add nsw i32 %140, 2
   %142 = srem i32 %141, 60
-  %143 = trunc i32 %142 to i8
+  %143 = trunc nsw i32 %142 to i8
   %144 = getelementptr inbounds i8, ptr %5, i64 9
   store i8 %143, ptr %144, align 1
   %145 = sdiv i32 %141, 60
@@ -5092,13 +5092,13 @@ define internal fastcc i32 @mmc_ioctl_cdrom_subchannel(ptr noundef %0, ptr nound
   %147 = getelementptr inbounds i8, ptr %5, i64 12
   %148 = load i32, ptr %147, align 4
   %149 = srem i32 %148, 75
-  %150 = trunc i32 %149 to i8
+  %150 = trunc nsw i32 %149 to i8
   %151 = getelementptr inbounds i8, ptr %5, i64 14
   store i8 %150, ptr %151, align 2
   %152 = sdiv i32 %148, 75
   %153 = add nsw i32 %152, 2
   %154 = srem i32 %153, 60
-  %155 = trunc i32 %154 to i8
+  %155 = trunc nsw i32 %154 to i8
   %156 = getelementptr inbounds i8, ptr %5, i64 13
   store i8 %155, ptr %156, align 1
   %157 = sdiv i32 %153, 60
@@ -5184,7 +5184,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_play_blk(ptr noundef %0, ptr noundef
   store i8 69, ptr %2, align 8
   %9 = load i32, ptr %4, align 8
   %10 = lshr i32 %9, 24
-  %11 = trunc i32 %10 to i8
+  %11 = trunc nuw i32 %10 to i8
   %12 = getelementptr i8, ptr %2, i64 2
   store i8 %11, ptr %12, align 2
   %13 = lshr i32 %9, 16
@@ -5201,7 +5201,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_play_blk(ptr noundef %0, ptr noundef
   %21 = getelementptr inbounds i8, ptr %4, i64 4
   %22 = load i16, ptr %21, align 4
   %23 = lshr i16 %22, 8
-  %24 = trunc i16 %23 to i8
+  %24 = trunc nuw i16 %23 to i8
   %25 = getelementptr i8, ptr %2, i64 7
   store i8 %24, ptr %25, align 1
   %26 = trunc i16 %22 to i8
@@ -5277,7 +5277,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_volume(ptr noundef %0, ptr noundef %
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(12) %2, i8 0, i64 12, i1 false)
   store i8 90, ptr %2, align 8
   store i8 14, ptr %14, align 2
-  %35 = trunc i32 %28 to i8
+  %35 = trunc nuw i32 %28 to i8
   store i8 %35, ptr %16, align 8
   store i8 2, ptr %17, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 88
@@ -5962,7 +5962,7 @@ define internal fastcc i32 @mmc_ioctl_dvd_auth(ptr noundef %0, ptr noundef %1) u
   %89 = getelementptr inbounds i8, ptr %4, i64 3
   store i8 %88, ptr %89, align 1
   %90 = lshr i32 %81, 24
-  %91 = trunc i32 %90 to i8
+  %91 = trunc nuw i32 %90 to i8
   %92 = getelementptr inbounds i8, ptr %4, i64 2
   store i8 %91, ptr %92, align 2
   %93 = getelementptr inbounds i8, ptr %20, i64 88
@@ -6224,7 +6224,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %33 = add nuw nsw i16 %32, 2
   %34 = zext nneg i16 %33 to i32
   store i32 %34, ptr %20, align 8
-  %35 = trunc i16 %33 to i8
+  %35 = trunc nuw nsw i16 %33 to i8
   store i8 %35, ptr %23, align 8
   %36 = load ptr, ptr %25, align 8
   %37 = call i32 %36(ptr noundef %0, ptr noundef nonnull %5) #16
@@ -6283,7 +6283,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %70 = add nuw nsw i16 %69, 2
   %71 = zext nneg i16 %70 to i32
   store i32 %71, ptr %54, align 8
-  %72 = trunc i16 %70 to i8
+  %72 = trunc nuw nsw i16 %70 to i8
   store i8 %72, ptr %60, align 8
   %73 = load ptr, ptr %62, align 8
   %74 = call i32 %73(ptr noundef %0, ptr noundef nonnull %4) #16
@@ -6326,7 +6326,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %94 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 1, ptr %94, align 1
   %95 = lshr i16 %88, 8
-  %96 = trunc i16 %95 to i8
+  %96 = trunc nuw i16 %95 to i8
   %97 = getelementptr inbounds i8, ptr %3, i64 4
   store i8 %96, ptr %97, align 4
   %98 = trunc i16 %88 to i8
@@ -6349,7 +6349,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %110 = add nuw nsw i16 %109, 2
   %111 = zext nneg i16 %110 to i32
   store i32 %111, ptr %91, align 8
-  %112 = trunc i16 %110 to i8
+  %112 = trunc nuw nsw i16 %110 to i8
   store i8 %112, ptr %100, align 8
   %113 = load ptr, ptr %102, align 8
   %114 = call i32 %113(ptr noundef %0, ptr noundef nonnull %3) #16
@@ -6514,7 +6514,7 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %1, 
   store i8 -66, ptr %5, align 8
   store i8 4, ptr %22, align 1
   %40 = lshr i32 %36, 24
-  %41 = trunc i32 %40 to i8
+  %41 = trunc nuw i32 %40 to i8
   store i8 %41, ptr %23, align 2
   %42 = lshr i32 %36, 16
   %43 = trunc i32 %42 to i8
@@ -6526,7 +6526,7 @@ define internal fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %1, 
   store i8 %46, ptr %26, align 1
   store i8 0, ptr %27, align 2
   store i8 0, ptr %28, align 1
-  %47 = trunc i32 %38 to i8
+  %47 = trunc nuw nsw i32 %38 to i8
   store i8 %47, ptr %29, align 8
   %48 = mul nuw nsw i32 %38, 2352
   store i32 %48, ptr %30, align 8

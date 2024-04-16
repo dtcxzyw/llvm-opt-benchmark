@@ -21887,13 +21887,13 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   %20 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @GlobalRANNodeID_choice, ptr noundef nonnull %6) #10
   %21 = load ptr, ptr %.0.i, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %addresses_equal.exit23, label %22
+  br i1 %.not, label %addresses_equal.exit24.thread, label %22
 
 22:                                               ; preds = %ngap_get_private_data.exit
   %23 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 21
-  br i1 %25, label %26, label %addresses_equal.exit23
+  br i1 %25, label %26, label %addresses_equal.exit24.thread
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %7, align 8
@@ -21901,7 +21901,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   %29 = load i32, ptr %28, align 8
   %30 = load i32, ptr %21, align 8
   %31 = icmp eq i32 %29, %30
-  br i1 %31, label %32, label %addresses_equal.exit
+  br i1 %31, label %32, label %addresses_equal.exit.thread
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %27, i64 212
@@ -21909,74 +21909,74 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   %35 = getelementptr inbounds i8, ptr %21, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %34, %36
-  br i1 %37, label %38, label %addresses_equal.exit
+  br i1 %37, label %38, label %addresses_equal.exit.thread
 
 38:                                               ; preds = %32
   %39 = icmp eq i32 %34, 0
-  br i1 %39, label %47, label %40
+  br i1 %39, label %addresses_equal.exit.thread27, label %addresses_equal.exit
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %27, i64 216
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %21, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = sext i32 %34 to i64
-  %bcmp.i = call i32 @bcmp(ptr %42, ptr %44, i64 %45)
-  %46 = icmp eq i32 %bcmp.i, 0
-  br i1 %46, label %47, label %addresses_equal.exit
+addresses_equal.exit:                             ; preds = %38
+  %40 = getelementptr inbounds i8, ptr %27, i64 216
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %21, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = sext i32 %34 to i64
+  %bcmp.i = call i32 @bcmp(ptr %41, ptr %43, i64 %44)
+  %.not35 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not35, label %addresses_equal.exit.thread27, label %addresses_equal.exit.thread
 
-47:                                               ; preds = %40, %38
-  %48 = getelementptr inbounds i8, ptr %27, i64 284
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %21, i64 24
+addresses_equal.exit.thread27:                    ; preds = %38, %addresses_equal.exit
+  %45 = getelementptr inbounds i8, ptr %27, i64 284
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %21, i64 24
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %46, %48
+  br i1 %49, label %addresses_equal.exit24.thread.sink.split, label %addresses_equal.exit.thread
+
+addresses_equal.exit.thread:                      ; preds = %26, %32, %addresses_equal.exit.thread27, %addresses_equal.exit
+  %50 = getelementptr inbounds i8, ptr %21, i64 32
   %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %49, %51
-  br i1 %52, label %addresses_equal.exit23.sink.split, label %addresses_equal.exit
+  %52 = icmp eq i32 %29, %51
+  br i1 %52, label %53, label %addresses_equal.exit24.thread
 
-addresses_equal.exit:                             ; preds = %40, %32, %26, %47
-  %53 = getelementptr inbounds i8, ptr %21, i64 32
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %29, %54
-  br i1 %55, label %56, label %addresses_equal.exit23
+53:                                               ; preds = %addresses_equal.exit.thread
+  %54 = getelementptr inbounds i8, ptr %27, i64 212
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds i8, ptr %21, i64 36
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %55, %57
+  br i1 %58, label %59, label %addresses_equal.exit24.thread
 
-56:                                               ; preds = %addresses_equal.exit
-  %57 = getelementptr inbounds i8, ptr %27, i64 212
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %21, i64 36
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %58, %60
-  br i1 %61, label %62, label %addresses_equal.exit23
+59:                                               ; preds = %53
+  %60 = icmp eq i32 %55, 0
+  br i1 %60, label %addresses_equal.exit24.thread32, label %addresses_equal.exit24
 
-62:                                               ; preds = %56
-  %63 = icmp eq i32 %58, 0
-  br i1 %63, label %71, label %64
+addresses_equal.exit24:                           ; preds = %59
+  %61 = getelementptr inbounds i8, ptr %27, i64 216
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %21, i64 40
+  %64 = load ptr, ptr %63, align 8
+  %65 = sext i32 %55 to i64
+  %bcmp.i22 = call i32 @bcmp(ptr %62, ptr %64, i64 %65)
+  %.not36 = icmp eq i32 %bcmp.i22, 0
+  br i1 %.not36, label %addresses_equal.exit24.thread32, label %addresses_equal.exit24.thread
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %27, i64 216
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %21, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %69 = sext i32 %58 to i64
-  %bcmp.i22 = call i32 @bcmp(ptr %66, ptr %68, i64 %69)
-  %70 = icmp eq i32 %bcmp.i22, 0
-  br i1 %70, label %71, label %addresses_equal.exit23
+addresses_equal.exit24.thread32:                  ; preds = %59, %addresses_equal.exit24
+  %66 = getelementptr inbounds i8, ptr %27, i64 284
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds i8, ptr %21, i64 56
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %67, %69
+  br i1 %70, label %addresses_equal.exit24.thread.sink.split, label %addresses_equal.exit24.thread
 
-71:                                               ; preds = %64, %62
-  %72 = getelementptr inbounds i8, ptr %27, i64 284
-  %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %21, i64 56
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp eq i32 %73, %75
-  br i1 %76, label %addresses_equal.exit23.sink.split, label %addresses_equal.exit23
-
-addresses_equal.exit23.sink.split:                ; preds = %71, %47
-  %.sink29 = phi i64 [ 28, %47 ], [ 60, %71 ]
+addresses_equal.exit24.thread.sink.split:         ; preds = %addresses_equal.exit24.thread32, %addresses_equal.exit.thread27
+  %.sink38 = phi i64 [ 28, %addresses_equal.exit.thread27 ], [ 60, %addresses_equal.exit24.thread32 ]
   %.sink = load i32, ptr %6, align 4
-  %77 = getelementptr inbounds i8, ptr %21, i64 %.sink29
-  store i32 %.sink, ptr %77, align 4
-  br label %addresses_equal.exit23
+  %71 = getelementptr inbounds i8, ptr %21, i64 %.sink38
+  store i32 %.sink, ptr %71, align 4
+  br label %addresses_equal.exit24.thread
 
-addresses_equal.exit23:                           ; preds = %addresses_equal.exit23.sink.split, %64, %56, %addresses_equal.exit, %71, %22, %ngap_get_private_data.exit
+addresses_equal.exit24.thread:                    ; preds = %addresses_equal.exit24.thread.sink.split, %addresses_equal.exit.thread, %53, %addresses_equal.exit24.thread32, %addresses_equal.exit24, %22, %ngap_get_private_data.exit
   ret i32 %20
 }
 
@@ -22316,13 +22316,13 @@ ngap_get_private_data.exit:                       ; preds = %3, %8
   %.0.i = phi ptr [ %7, %3 ], [ %10, %8 ]
   %14 = load ptr, ptr %.0.i, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %addresses_equal.exit18, label %15
+  br i1 %.not, label %addresses_equal.exit19.thread, label %15
 
 15:                                               ; preds = %ngap_get_private_data.exit
   %16 = load i32, ptr %0, align 8
   %17 = load i32, ptr %14, align 8
   %18 = icmp eq i32 %16, %17
-  br i1 %18, label %19, label %addresses_equal.exit
+  br i1 %18, label %19, label %addresses_equal.exit.thread
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %0, i64 4
@@ -22330,70 +22330,70 @@ ngap_get_private_data.exit:                       ; preds = %3, %8
   %22 = getelementptr inbounds i8, ptr %14, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %21, %23
-  br i1 %24, label %25, label %addresses_equal.exit
+  br i1 %24, label %25, label %addresses_equal.exit.thread
 
 25:                                               ; preds = %19
   %26 = icmp eq i32 %21, 0
-  br i1 %26, label %34, label %27
+  br i1 %26, label %addresses_equal.exit.thread22, label %addresses_equal.exit
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = sext i32 %21 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %29, ptr %31, i64 %32)
-  %33 = icmp eq i32 %bcmp.i, 0
-  br i1 %33, label %34, label %addresses_equal.exit
+addresses_equal.exit:                             ; preds = %25
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %14, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = sext i32 %21 to i64
+  %bcmp.i = tail call i32 @bcmp(ptr %28, ptr %30, i64 %31)
+  %.not30 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not30, label %addresses_equal.exit.thread22, label %addresses_equal.exit.thread
 
-34:                                               ; preds = %27, %25
-  %35 = getelementptr inbounds i8, ptr %14, i64 24
+addresses_equal.exit.thread22:                    ; preds = %25, %addresses_equal.exit
+  %32 = getelementptr inbounds i8, ptr %14, i64 24
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp eq i32 %33, %1
+  br i1 %34, label %addresses_equal.exit19.thread.sink.split, label %addresses_equal.exit.thread
+
+addresses_equal.exit.thread:                      ; preds = %15, %19, %addresses_equal.exit.thread22, %addresses_equal.exit
+  %35 = getelementptr inbounds i8, ptr %14, i64 32
   %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, %1
-  br i1 %37, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit
+  %37 = icmp eq i32 %16, %36
+  br i1 %37, label %38, label %addresses_equal.exit19.thread
 
-addresses_equal.exit:                             ; preds = %27, %19, %15, %34
-  %38 = getelementptr inbounds i8, ptr %14, i64 32
-  %39 = load i32, ptr %38, align 8
-  %40 = icmp eq i32 %16, %39
-  br i1 %40, label %41, label %addresses_equal.exit18
+38:                                               ; preds = %addresses_equal.exit.thread
+  %39 = getelementptr inbounds i8, ptr %0, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = getelementptr inbounds i8, ptr %14, i64 36
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %40, %42
+  br i1 %43, label %44, label %addresses_equal.exit19.thread
 
-41:                                               ; preds = %addresses_equal.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %14, i64 36
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %43, %45
-  br i1 %46, label %47, label %addresses_equal.exit18
+44:                                               ; preds = %38
+  %45 = icmp eq i32 %40, 0
+  br i1 %45, label %addresses_equal.exit19.thread27, label %addresses_equal.exit19
 
-47:                                               ; preds = %41
-  %48 = icmp eq i32 %43, 0
-  br i1 %48, label %56, label %49
+addresses_equal.exit19:                           ; preds = %44
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %14, i64 40
+  %49 = load ptr, ptr %48, align 8
+  %50 = sext i32 %40 to i64
+  %bcmp.i17 = tail call i32 @bcmp(ptr %47, ptr %49, i64 %50)
+  %.not31 = icmp eq i32 %bcmp.i17, 0
+  br i1 %.not31, label %addresses_equal.exit19.thread27, label %addresses_equal.exit19.thread
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %14, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = sext i32 %43 to i64
-  %bcmp.i17 = tail call i32 @bcmp(ptr %51, ptr %53, i64 %54)
-  %55 = icmp eq i32 %bcmp.i17, 0
-  br i1 %55, label %56, label %addresses_equal.exit18
+addresses_equal.exit19.thread27:                  ; preds = %44, %addresses_equal.exit19
+  %51 = getelementptr inbounds i8, ptr %14, i64 56
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %52, %1
+  br i1 %53, label %addresses_equal.exit19.thread.sink.split, label %addresses_equal.exit19.thread
 
-56:                                               ; preds = %49, %47
-  %57 = getelementptr inbounds i8, ptr %14, i64 56
-  %58 = load i32, ptr %57, align 8
-  %59 = icmp eq i32 %58, %1
-  br i1 %59, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit18
+addresses_equal.exit19.thread.sink.split:         ; preds = %addresses_equal.exit19.thread27, %addresses_equal.exit.thread22
+  %.sink32 = phi i64 [ 28, %addresses_equal.exit.thread22 ], [ 60, %addresses_equal.exit19.thread27 ]
+  %54 = getelementptr inbounds i8, ptr %14, i64 %.sink32
+  %55 = load i32, ptr %54, align 4
+  br label %addresses_equal.exit19.thread
 
-addresses_equal.exit18.sink.split:                ; preds = %56, %34
-  %.sink23 = phi i64 [ 28, %34 ], [ 60, %56 ]
-  %60 = getelementptr inbounds i8, ptr %14, i64 %.sink23
-  %61 = load i32, ptr %60, align 4
-  br label %addresses_equal.exit18
-
-addresses_equal.exit18:                           ; preds = %addresses_equal.exit18.sink.split, %49, %41, %addresses_equal.exit, %56, %ngap_get_private_data.exit
-  %.0 = phi i32 [ -1, %56 ], [ -1, %ngap_get_private_data.exit ], [ -1, %addresses_equal.exit ], [ -1, %41 ], [ -1, %49 ], [ %61, %addresses_equal.exit18.sink.split ]
+addresses_equal.exit19.thread:                    ; preds = %addresses_equal.exit19.thread.sink.split, %addresses_equal.exit.thread, %38, %addresses_equal.exit19.thread27, %addresses_equal.exit19, %ngap_get_private_data.exit
+  %.0 = phi i32 [ -1, %addresses_equal.exit19.thread27 ], [ -1, %addresses_equal.exit19 ], [ -1, %ngap_get_private_data.exit ], [ -1, %38 ], [ -1, %addresses_equal.exit.thread ], [ %55, %addresses_equal.exit19.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -24956,7 +24956,7 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ngap_is_nbiot_ue(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @ngap_is_nbiot_ue(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
@@ -25005,13 +25005,11 @@ ngap_get_private_data.exit:                       ; preds = %1, %7
   %26 = load i32, ptr %24, align 4
   %27 = load i32, ptr %15, align 8
   %28 = icmp eq i32 %26, %27
-  br i1 %28, label %30, label %29
+  %spec.select = zext i1 %28 to i32
+  br label %29
 
-29:                                               ; preds = %14, %25, %ngap_get_private_data.exit
-  br label %30
-
-30:                                               ; preds = %25, %29
-  %.0 = phi i32 [ 0, %29 ], [ 1, %25 ]
+29:                                               ; preds = %25, %ngap_get_private_data.exit, %14
+  %.0 = phi i32 [ 0, %14 ], [ 0, %ngap_get_private_data.exit ], [ %spec.select, %25 ]
   ret i32 %.0
 }
 

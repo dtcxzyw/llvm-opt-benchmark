@@ -5201,9 +5201,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode6dtypepEv(ptr noundef non
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE24_M_get_insert_unique_posERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %.02434 = load ptr, ptr %3, align 8
-  %.not35 = icmp eq ptr %.02434, null
-  br i1 %.not35, label %._crit_edge.thread, label %.lr.ph
+  %.02435 = load ptr, ptr %3, align 8
+  %.not36 = icmp eq ptr %.02435, null
+  br i1 %.not36, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = load ptr, ptr %1, align 8
@@ -5213,8 +5213,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI12LifeLocationS0_St9_
   br i1 %.not.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us
-  %.02436.us = phi ptr [ %.024.us, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us ], [ %.02434, %.lr.ph ]
-  %8 = getelementptr inbounds i8, ptr %.02436.us, i64 32
+  %.02437.us = phi ptr [ %.024.us, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us ], [ %.02435, %.lr.ph ]
+  %8 = getelementptr inbounds i8, ptr %.02437.us, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not12.i.i.us = icmp eq ptr %9, null
   br i1 %.not12.i.i.us, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us, label %10
@@ -5222,22 +5222,20 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI12LifeLocationS0_St9_
 10:                                               ; preds = %.lr.ph.split.us
   %11 = getelementptr inbounds i8, ptr %9, i64 88
   %12 = load i32, ptr %11, align 8
-  %.not39 = icmp eq i32 %12, 0
-  br i1 %.not39, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread.us
+  %.not40 = icmp eq i32 %12, 0
+  br i1 %.not40, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us
 
 _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us:   ; preds = %.lr.ph.split.us, %10
-  %13 = getelementptr inbounds i8, ptr %.02436.us, i64 40
+  %13 = getelementptr inbounds i8, ptr %.02437.us, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %7, %14
-  br i1 %15, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread.us, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us
-
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread.us: ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us, %10
+  %spec.select50 = select i1 %15, i64 16, i64 24
   br label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us
 
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us: ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread.us
-  %.sink = phi i64 [ 16, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread.us ], [ 24, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us ]
-  %.0.i.i26.us = phi i1 [ true, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread.us ], [ false, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us ]
-  %16 = getelementptr inbounds i8, ptr %.02436.us, i64 %.sink
+_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us: ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us, %10
+  %.sink = phi i64 [ 16, %10 ], [ %spec.select50, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us ]
+  %.0.i.i26.us = phi i1 [ true, %10 ], [ %15, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.us ]
+  %16 = getelementptr inbounds i8, ptr %.02437.us, i64 %.sink
   %.024.us = load ptr, ptr %16, align 8
   %.not.us = icmp eq ptr %.024.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
@@ -5248,58 +5246,56 @@ _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us: ; preds = %_ZNKSt4lessI
   br label %19
 
 19:                                               ; preds = %.lr.ph.split, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread
-  %.02436 = phi ptr [ %.02434, %.lr.ph.split ], [ %.024, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread ]
-  %20 = getelementptr inbounds i8, ptr %.02436, i64 32
+  %.02437 = phi ptr [ %.02435, %.lr.ph.split ], [ %.024, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread ]
+  %20 = getelementptr inbounds i8, ptr %.02437, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not12.i.i = icmp eq ptr %21, null
-  br i1 %.not12.i.i, label %.thread42, label %22
+  br i1 %.not12.i.i, label %.thread43, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %21, i64 88
   %24 = load i32, ptr %23, align 8
   %25 = icmp ult i32 %18, %24
-  br i1 %25, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, label %.thread42
+  br i1 %25, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, label %.thread43
 
-.thread42:                                        ; preds = %19, %22
+.thread43:                                        ; preds = %19, %22
   %26 = phi i32 [ %24, %22 ], [ 0, %19 ]
   %27 = icmp ult i32 %26, %18
-  br i1 %27, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit
+  br i1 %27, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit
 
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit:      ; preds = %.thread42
-  %28 = getelementptr inbounds i8, ptr %.02436, i64 40
+_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit:      ; preds = %.thread43
+  %28 = getelementptr inbounds i8, ptr %.02437, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = icmp ult i32 %7, %29
-  br i1 %30, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28
-
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28: ; preds = %.thread42, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit
+  %spec.select52 = select i1 %30, i64 16, i64 24
   br label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread
 
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit, %22, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28
-  %.sink48 = phi i64 [ 24, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28 ], [ 16, %22 ], [ 16, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit ]
-  %.0.i.i26 = phi i1 [ false, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28 ], [ true, %22 ], [ true, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit ]
-  %31 = getelementptr inbounds i8, ptr %.02436, i64 %.sink48
+_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit, %.thread43, %22
+  %.sink49 = phi i64 [ 16, %22 ], [ 24, %.thread43 ], [ %spec.select52, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit ]
+  %.0.i.i26 = phi i1 [ true, %22 ], [ false, %.thread43 ], [ %30, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit ]
+  %31 = getelementptr inbounds i8, ptr %.02437, i64 %.sink49
   %.024 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %.024, null
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us
-  %.023.lcssa = phi ptr [ %.02436.us, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us ], [ %.02436, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread ]
+  %.023.lcssa = phi ptr [ %.02437.us, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us ], [ %.02437, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread ]
   %.0.lcssa = phi i1 [ %.0.i.i26.us, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us ], [ %.0.i.i26, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread ]
   br i1 %.0.lcssa, label %._crit_edge.thread, label %37
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.023.lcssa46 = phi ptr [ %.023.lcssa, %._crit_edge ], [ %4, %2 ]
+  %.023.lcssa47 = phi ptr [ %.023.lcssa, %._crit_edge ], [ %4, %2 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %.023.lcssa46, %33
+  %34 = icmp eq ptr %.023.lcssa47, %33
   br i1 %34, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread, label %35
 
 35:                                               ; preds = %._crit_edge.thread
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa46) #18
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa47) #18
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge
-  %.023.lcssa45 = phi ptr [ %.023.lcssa46, %35 ], [ %.023.lcssa, %._crit_edge ]
+  %.023.lcssa46 = phi ptr [ %.023.lcssa47, %35 ], [ %.023.lcssa, %._crit_edge ]
   %.sroa.09.0 = phi ptr [ %36, %35 ], [ %.023.lcssa, %._crit_edge ]
   %38 = getelementptr inbounds i8, ptr %.sroa.09.0, i64 32
   %39 = load ptr, ptr %38, align 8
@@ -5329,7 +5325,7 @@ _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI12Lif
 
 52:                                               ; preds = %49
   %53 = icmp ult i32 %50, %44
-  br i1 %53, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8
+  br i1 %53, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8
 
 _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8:     ; preds = %52
   %54 = getelementptr inbounds i8, ptr %.sroa.09.0, i64 40
@@ -5337,14 +5333,13 @@ _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8:     ; preds = %52
   %56 = getelementptr inbounds i8, ptr %1, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = icmp ult i32 %55, %57
-  br i1 %58, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32
-
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32: ; preds = %52, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8
+  %spec.select = select i1 %58, ptr null, ptr %.sroa.09.0
+  %spec.select34 = select i1 %58, ptr %.023.lcssa46, ptr null
   br label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread
 
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread: ; preds = %49, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8, %._crit_edge.thread, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32
-  %.sroa.022.0 = phi ptr [ %.sroa.09.0, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32 ], [ null, %._crit_edge.thread ], [ null, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8 ], [ null, %49 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32 ], [ %.023.lcssa46, %._crit_edge.thread ], [ %.023.lcssa45, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8 ], [ %.023.lcssa45, %49 ]
+_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread: ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8, %52, %49, %._crit_edge.thread
+  %.sroa.022.0 = phi ptr [ null, %._crit_edge.thread ], [ null, %49 ], [ %.sroa.09.0, %52 ], [ %spec.select, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8 ]
+  %.sroa.4.0 = phi ptr [ %.023.lcssa47, %._crit_edge.thread ], [ %.023.lcssa46, %49 ], [ null, %52 ], [ %spec.select34, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.022.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -203,7 +203,7 @@ if.else.i:                                        ; preds = %if.then13
   %12 = load i64, ptr @opt_tcache_gc_delay_bytes, align 8
   %div.i.i = udiv i64 %12, %11
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %div.i.i, i64 255)
-  %conv.i.i = trunc i64 %spec.select.i.i to i8
+  %conv.i.i = trunc nuw i64 %spec.select.i.i to i8
   store i8 %conv.i.i, ptr %arrayidx9.i, align 1
   %conv26.i = zext nneg i16 %10 to i32
   %sub27.i = sub nsw i32 %conv26.i, %sub.i
@@ -397,7 +397,7 @@ while.body.i.lr.ph:                               ; preds = %entry
   br label %while.body.i
 
 for.cond119.i.preheader:                          ; preds = %arena_decay_ticks.exit
-  %6 = trunc i8 %merged_stats.i.1 to i1
+  %6 = trunc nuw i8 %merged_stats.i.1 to i1
   %cmp120.i218.not = icmp eq i32 %dalloc_count.i.2, 0
   br i1 %cmp120.i218.not, label %for.end128.i, label %for.body122.i.preheader
 
@@ -456,7 +456,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %cmp25.i, label %land.lhs.true27.i, label %if.end67.i
 
 land.lhs.true27.i:                                ; preds = %malloc_mutex_lock.exit
-  %tobool28.i = trunc i8 %merged_stats.i.0214 to i1
+  %tobool28.i = trunc nuw i8 %merged_stats.i.0214 to i1
   br i1 %tobool28.i, label %if.end67.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %land.lhs.true27.i
@@ -825,7 +825,7 @@ if.end24.i:                                       ; preds = %if.then.i.i, %if.en
   br i1 %cmp25.i, label %land.lhs.true27.i, label %if.then46.i
 
 land.lhs.true27.i:                                ; preds = %if.end24.i
-  %tobool28.i = trunc i8 %merged_stats.i.0187 to i1
+  %tobool28.i = trunc nuw i8 %merged_stats.i.0187 to i1
   br i1 %tobool28.i, label %if.then46.i, label %if.else37.i
 
 if.else37.i:                                      ; preds = %land.lhs.true27.i
@@ -951,7 +951,7 @@ arena_decay_ticks.exit:                           ; preds = %if.end.i66, %ticker
   br i1 %cmp.i.not, label %for.end128.i, label %while.body.i, !llvm.loop !7
 
 for.end128.i:                                     ; preds = %arena_decay_ticks.exit
-  %30 = trunc i8 %merged_stats.i.1 to i1
+  %30 = trunc nuw i8 %merged_stats.i.1 to i1
   br i1 %30, label %tcache_bin_flush_impl.exit, label %if.else146.i
 
 if.else146.i:                                     ; preds = %entry, %for.end128.i
@@ -1091,7 +1091,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
 if.then19.i:                                      ; preds = %while.body.i
   %.val155 = load i64, ptr %9, align 8
   %and.i = lshr i64 %.val155, 38
-  %13 = trunc i64 %and.i to i32
+  %13 = trunc nuw nsw i64 %and.i to i32
   %conv.i165 = and i32 %13, 63
   %14 = load i32, ptr %arrayidx.i167, align 4
   %idx.ext.i = zext i32 %14 to i64
@@ -1175,7 +1175,7 @@ if.end24.i:                                       ; preds = %if.end24.i.sink.spl
   br i1 %cmp25.i, label %land.lhs.true27.i, label %if.end44.i
 
 land.lhs.true27.i:                                ; preds = %if.end24.i
-  %tobool28.i = trunc i8 %merged_stats.i.0272 to i1
+  %tobool28.i = trunc nuw i8 %merged_stats.i.0272 to i1
   br i1 %tobool28.i, label %if.end44.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %land.lhs.true27.i
@@ -1284,7 +1284,7 @@ for.body75.i.us:                                  ; preds = %for.body75.i.us.pre
 
 tcache_bin_flush_match.exit48.us:                 ; preds = %for.body75.i.us
   %and.i191.us = lshr i64 %.val153.us, 38
-  %39 = trunc i64 %and.i191.us to i32
+  %39 = trunc nuw nsw i64 %and.i191.us to i32
   %conv.i192.us = and i32 %39, 63
   %cmp2.i47.us = icmp eq i32 %conv.i192.us, %cur_binshard.i.0254
   br i1 %cmp2.i47.us, label %if.then96.i.us, label %if.then87.i.us
@@ -1464,7 +1464,7 @@ for.body122.i:                                    ; preds = %for.body122.i.prehe
   br i1 %exitcond296.not, label %for.end128.i, label %for.body122.i, !llvm.loop !8
 
 for.end128.i:                                     ; preds = %for.body122.i, %for.cond119.i.preheader
-  %tobool129.i = trunc i8 %merged_stats.i.1257304 to i1
+  %tobool129.i = trunc nuw i8 %merged_stats.i.1257304 to i1
   br i1 %tobool129.i, label %tcache_bin_flush_impl.exit, label %if.then130.i
 
 if.then130.i:                                     ; preds = %for.end128.i
@@ -2122,7 +2122,7 @@ if.then:                                          ; preds = %for.body
   %3 = load i64, ptr @opt_tcache_gc_delay_bytes, align 8
   %div.i = udiv i64 %3, %2
   %spec.select.i = call i64 @llvm.umin.i64(i64 %div.i, i64 255)
-  %conv.i = trunc i64 %spec.select.i to i8
+  %conv.i = trunc nuw i64 %spec.select.i to i8
   %arrayidx9 = getelementptr inbounds [36 x i8], ptr %bin_flush_delay_items, i64 0, i64 %indvars.iv
   store i8 %conv.i, ptr %arrayidx9, align 1
   br label %if.end
@@ -2609,7 +2609,7 @@ if.end12.i.i:                                     ; preds = %if.end.i.i
   %shl.i.i = shl nuw i64 %tcache_max, 1
   %sub13.i.i = add i64 %shl.i.i, -1
   %6 = call i64 @llvm.ctlz.i64(i64 %sub13.i.i, i1 true), !range !10
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %sub28.i.i = sub nuw nsw i64 60, %6
   %shl31.i.i = shl nsw i64 -1, %sub28.i.i
   %sub32.i.i = add nsw i64 %tcache_max, -1
@@ -2689,7 +2689,7 @@ if.end12.i:                                       ; preds = %if.end.i
   %shl.i = shl nuw nsw i64 %2, 1
   %sub13.i = add nsw i64 %shl.i, -1
   %3 = call i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true), !range !10
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw nsw i64 %3 to i32
   %conv1.i.i.i12.i = xor i32 %4, 63
   %cond21.i = call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i12.i, i32 6)
   %shl22.i = shl nuw nsw i32 %cond21.i, 2
@@ -2715,7 +2715,7 @@ if.end12.i8:                                      ; preds = %if.end.i6
   %shl.i9 = shl nuw nsw i64 %1, 1
   %sub13.i10 = add nsw i64 %shl.i9, -1
   %6 = call i64 @llvm.ctlz.i64(i64 %sub13.i10, i1 true), !range !10
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %conv1.i.i.i12.i11 = xor i32 %7, 63
   %cond21.i12 = call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i12.i11, i32 6)
   %shl22.i13 = shl nuw nsw i32 %cond21.i12, 2
@@ -2848,7 +2848,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i:                                         ; preds = %for.body.i
   %cmp3.i = icmp ult i64 %indvars.iv.i, 36
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw i64 %indvars.iv.i to i32
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.end.i
@@ -2898,7 +2898,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i:                                         ; preds = %for.body.i
   %cmp3.i = icmp ult i64 %indvars.iv.i, 36
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw i64 %indvars.iv.i to i32
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.end.i
@@ -3021,18 +3021,16 @@ if.end9:                                          ; preds = %arena_dalloc_no_tca
   call void @arena_decay(ptr noundef %tsd, ptr noundef %22, i1 noundef zeroext false, i1 noundef zeroext false) #14
   %call13 = call i32 @arena_nthreads_get(ptr noundef %4, i1 noundef zeroext false) #14
   %cmp = icmp eq i32 %call13, 0
-  br i1 %cmp, label %monotonic.i, label %if.else18
+  br i1 %cmp, label %monotonic.i, label %if.end20
 
 monotonic.i:                                      ; preds = %if.end9
   %23 = load atomic i8, ptr @background_thread_enabled_state monotonic, align 1
   %tobool.i223 = trunc i8 %23 to i1
-  br i1 %tobool.i223, label %if.else18, label %if.end20
-
-if.else18:                                        ; preds = %monotonic.i, %if.end9
+  %not.tobool.i223 = xor i1 %tobool.i223, true
   br label %if.end20
 
-if.end20:                                         ; preds = %monotonic.i, %if.else18
-  %.sink = phi i1 [ false, %if.else18 ], [ true, %monotonic.i ]
+if.end20:                                         ; preds = %monotonic.i, %if.end9
+  %.sink = phi i1 [ false, %if.end9 ], [ %not.tobool.i223, %monotonic.i ]
   call void @arena_decay(ptr noundef %tsd, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext %.sink) #14
   ret void
 }
@@ -3064,7 +3062,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp3, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %call6 = tail call ptr @arena_bin_choose(ptr noundef %tsdn, ptr noundef %arena, i32 noundef %3, ptr noundef null) #14
   %lock.i.i = getelementptr inbounds i8, ptr %call6, i64 72
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #14
@@ -3434,7 +3432,7 @@ if.end12.i:                                       ; preds = %if.end.i
   %shl.i = shl nuw i64 %retval.i3.0, 1
   %sub13.i = add i64 %shl.i, -1
   %6 = tail call i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true), !range !10
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %8 = shl nuw nsw i32 %7, 2
   %sub28.i = sub nuw nsw i64 60, %6
   %shl31.i = shl nsw i64 -1, %sub28.i
@@ -3894,7 +3892,7 @@ monotonic.i:                                      ; preds = %if.then.i, %if.then
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
   %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !28
   %shr.i69 = lshr i64 %10, 48
-  %conv.i70 = trunc i64 %shr.i69 to i32
+  %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !31
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17

@@ -678,7 +678,7 @@ for.body.i.i:                                     ; preds = %if.end160.i.i, %for
   %conv.i193.i = zext i32 %symbolTT.sroa.2.0.copyload.i192.i to i64
   %add.i194.i = add nuw nsw i64 %stateOffsetBits.i.sroa.0.0532.i, %conv.i193.i
   %shr.i195.i = lshr i64 %add.i194.i, 16
-  %conv3.i.i = trunc i64 %shr.i195.i to i32
+  %conv3.i.i = trunc nuw nsw i64 %shr.i195.i to i32
   %arrayidx.i.i.i.i = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %shr.i195.i
   %33 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %33 to i64
@@ -698,7 +698,7 @@ for.body.i.i:                                     ; preds = %if.end160.i.i, %for
   %conv.i205.i = zext i32 %symbolTT.sroa.2.0.copyload.i203.i to i64
   %add.i206.i = add nuw nsw i64 %stateMatchLength.i.sroa.0.0533.i, %conv.i205.i
   %shr.i207.i = lshr i64 %add.i206.i, 16
-  %conv3.i208.i = trunc i64 %shr.i207.i to i32
+  %conv3.i208.i = trunc nuw nsw i64 %shr.i207.i to i32
   %arrayidx.i.i.i210.i = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %shr.i207.i
   %36 = load i32, ptr %arrayidx.i.i.i210.i, align 4
   %conv.i.i.i211.i = zext i32 %36 to i64
@@ -718,7 +718,7 @@ for.body.i.i:                                     ; preds = %if.end160.i.i, %for
   %conv.i229.i = zext i32 %symbolTT.sroa.2.0.copyload.i227.i to i64
   %add.i230.i = add nuw nsw i64 %stateLitLength.i.sroa.0.0530.i, %conv.i229.i
   %shr.i231.i = lshr i64 %add.i230.i, 16
-  %conv3.i232.i = trunc i64 %shr.i231.i to i32
+  %conv3.i232.i = trunc nuw nsw i64 %shr.i231.i to i32
   %arrayidx.i.i.i234.i = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %shr.i231.i
   %39 = load i32, ptr %arrayidx.i.i.i234.i, align 4
   %conv.i.i.i235.i = zext i32 %39 to i64
@@ -955,7 +955,7 @@ for.end.i.i:                                      ; preds = %if.end160.i.i, %if.
   %cmp.i.i397.i = icmp ugt ptr %add.ptr.i.i395.i, %add.ptr4.i.i
   %spec.store.select.i.i398.i = select i1 %cmp.i.i397.i, ptr %add.ptr4.i.i, ptr %add.ptr.i.i395.i
   %cmp.not.i.i = icmp ult ptr %spec.store.select.i.i398.i, %add.ptr4.i.i
-  br i1 %cmp.not.i.i, label %BIT_closeCStream.exit.i, label %BIT_closeCStream.exit.thread.i
+  br i1 %cmp.not.i.i, label %BIT_closeCStream.exit.i, label %return
 
 BIT_closeCStream.exit.i:                          ; preds = %for.end.i.i
   %and.i.i399.i = and i32 %add.i.i391.i, 7
@@ -966,14 +966,12 @@ BIT_closeCStream.exit.i:                          ; preds = %for.end.i.i
   %sub.ptr.sub.i.i = add i64 %sub.ptr.lhs.cast.i.i, %conv3.i403.i
   %sub.ptr.sub.i.fr.i = freeze i64 %sub.ptr.sub.i.i
   %add.i404.i = sub i64 %sub.ptr.sub.i.fr.i, %sub.ptr.rhs.cast.i.i
-  %cmp171.i.i = icmp eq i64 %add.i404.i, 0
-  br i1 %cmp171.i.i, label %BIT_closeCStream.exit.thread.i, label %return
-
-BIT_closeCStream.exit.thread.i:                   ; preds = %BIT_closeCStream.exit.i, %for.end.i.i
+  %cmp171.i.i = icmp eq i64 %sub.ptr.sub.i.fr.i, %sub.ptr.rhs.cast.i.i
+  %spec.select.i = select i1 %cmp171.i.i, i64 -70, i64 %add.i404.i
   br label %return
 
-return:                                           ; preds = %BIT_closeCStream.exit.thread.i, %BIT_closeCStream.exit.i, %if.end, %if.then
-  %retval.0 = phi i64 [ %call, %if.then ], [ -70, %if.end ], [ -70, %BIT_closeCStream.exit.thread.i ], [ %add.i404.i, %BIT_closeCStream.exit.i ]
+return:                                           ; preds = %BIT_closeCStream.exit.i, %for.end.i.i, %if.end, %if.then
+  %retval.0 = phi i64 [ %call, %if.then ], [ -70, %if.end ], [ -70, %for.end.i.i ], [ %spec.select.i, %BIT_closeCStream.exit.i ]
   ret i64 %retval.0
 }
 
@@ -1214,7 +1212,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %conv.i193 = zext i32 %symbolTT.sroa.2.0.copyload.i192 to i64
   %add.i194 = add nuw nsw i64 %stateOffsetBits.i.sroa.0.0532, %conv.i193
   %shr.i195 = lshr i64 %add.i194, 16
-  %conv3.i = trunc i64 %shr.i195 to i32
+  %conv3.i = trunc nuw nsw i64 %shr.i195 to i32
   %arrayidx.i.i.i = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %shr.i195
   %33 = load i32, ptr %arrayidx.i.i.i, align 4
   %conv.i.i.i = zext i32 %33 to i64
@@ -1234,7 +1232,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %conv.i205 = zext i32 %symbolTT.sroa.2.0.copyload.i203 to i64
   %add.i206 = add nuw nsw i64 %stateMatchLength.i.sroa.0.0533, %conv.i205
   %shr.i207 = lshr i64 %add.i206, 16
-  %conv3.i208 = trunc i64 %shr.i207 to i32
+  %conv3.i208 = trunc nuw nsw i64 %shr.i207 to i32
   %arrayidx.i.i.i210 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %shr.i207
   %36 = load i32, ptr %arrayidx.i.i.i210, align 4
   %conv.i.i.i211 = zext i32 %36 to i64
@@ -1254,7 +1252,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %conv.i229 = zext i32 %symbolTT.sroa.2.0.copyload.i227 to i64
   %add.i230 = add nuw nsw i64 %stateLitLength.i.sroa.0.0530, %conv.i229
   %shr.i231 = lshr i64 %add.i230, 16
-  %conv3.i232 = trunc i64 %shr.i231 to i32
+  %conv3.i232 = trunc nuw nsw i64 %shr.i231 to i32
   %arrayidx.i.i.i234 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %shr.i231
   %39 = load i32, ptr %arrayidx.i.i.i234, align 4
   %conv.i.i.i235 = zext i32 %39 to i64
@@ -1491,7 +1489,7 @@ for.end.i:                                        ; preds = %if.end160.i, %if.en
   %cmp.i.i397 = icmp ugt ptr %add.ptr.i.i395, %add.ptr4.i
   %spec.store.select.i.i398 = select i1 %cmp.i.i397, ptr %add.ptr4.i, ptr %add.ptr.i.i395
   %cmp.not.i = icmp ult ptr %spec.store.select.i.i398, %add.ptr4.i
-  br i1 %cmp.not.i, label %BIT_closeCStream.exit, label %BIT_closeCStream.exit.thread
+  br i1 %cmp.not.i, label %BIT_closeCStream.exit, label %ZSTD_encodeSequences_body.exit
 
 BIT_closeCStream.exit:                            ; preds = %for.end.i
   %and.i.i399 = and i32 %add.i.i391, 7
@@ -1502,14 +1500,12 @@ BIT_closeCStream.exit:                            ; preds = %for.end.i
   %sub.ptr.sub.i = add i64 %sub.ptr.lhs.cast.i, %conv3.i403
   %sub.ptr.sub.i.fr = freeze i64 %sub.ptr.sub.i
   %add.i404 = sub i64 %sub.ptr.sub.i.fr, %sub.ptr.rhs.cast.i
-  %cmp171.i = icmp eq i64 %add.i404, 0
-  br i1 %cmp171.i, label %BIT_closeCStream.exit.thread, label %ZSTD_encodeSequences_body.exit
-
-BIT_closeCStream.exit.thread:                     ; preds = %for.end.i, %BIT_closeCStream.exit
+  %cmp171.i = icmp eq i64 %sub.ptr.sub.i.fr, %sub.ptr.rhs.cast.i
+  %spec.select = select i1 %cmp171.i, i64 -70, i64 %add.i404
   br label %ZSTD_encodeSequences_body.exit
 
-ZSTD_encodeSequences_body.exit:                   ; preds = %BIT_closeCStream.exit.thread, %BIT_closeCStream.exit, %entry
-  %retval.i.0 = phi i64 [ -70, %entry ], [ -70, %BIT_closeCStream.exit.thread ], [ %add.i404, %BIT_closeCStream.exit ]
+ZSTD_encodeSequences_body.exit:                   ; preds = %BIT_closeCStream.exit, %for.end.i, %entry
+  %retval.i.0 = phi i64 [ -70, %entry ], [ -70, %for.end.i ], [ %spec.select, %BIT_closeCStream.exit ]
   ret i64 %retval.i.0
 }
 

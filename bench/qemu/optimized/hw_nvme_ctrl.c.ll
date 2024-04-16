@@ -910,7 +910,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
   unreachable
 
 nvme_addr_is_cmb.exit.i.i:                        ; preds = %if.end.i.i.i
-  %coerce.sroa.0.0.extract.trunc.i.i.i = trunc i128 %13 to i64
+  %coerce.sroa.0.0.extract.trunc.i.i.i = trunc nuw i128 %13 to i64
   %legacy_cmb.i.i.i = getelementptr inbounds i8, ptr %n, i64 7285
   %14 = load i8, ptr %legacy_cmb.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %14 to i1
@@ -950,7 +950,7 @@ if.else.i.i9.i.i:                                 ; preds = %if.end.i6.i.i
   unreachable
 
 nvme_addr_is_dma.exit.i:                          ; preds = %if.end.i6.i.i
-  %coerce.sroa.0.0.extract.trunc.i11.i.i = trunc i128 %20 to i64
+  %coerce.sroa.0.0.extract.trunc.i11.i.i = trunc nuw i128 %20 to i64
   %cba.i.i.i = getelementptr inbounds i8, ptr %n, i64 7840
   %21 = load i64, ptr %cba.i.i.i, align 16
   %add.i12.i.i = add i64 %21, %coerce.sroa.0.0.extract.trunc.i11.i.i
@@ -984,7 +984,7 @@ nvme_sg_init.exit.i:                              ; preds = %if.else.i.i, %if.th
   br i1 %tobool.not.i, label %if.end.i, label %unmap.i
 
 if.end.i:                                         ; preds = %nvme_sg_init.exit.i
-  %27 = trunc i64 %cond.i to i32
+  %27 = trunc nuw i64 %cond.i to i32
   %conv9.i = sub i32 %conv5, %27
   %tobool10.not.i = icmp eq i32 %conv9.i, 0
   br i1 %tobool10.not.i, label %return, label %if.then11.i
@@ -1236,7 +1236,7 @@ entry:
   store i64 %sgl.coerce1, ptr %0, align 8
   store i64 %len, ptr %len.addr, align 8
   %1 = lshr i64 %sgl.coerce1, 56
-  %2 = trunc i64 %1 to i8
+  %2 = trunc nuw i64 %1 to i8
   %3 = lshr i8 %2, 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1290,7 +1290,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i
   unreachable
 
 nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
-  %coerce.sroa.0.0.extract.trunc.i.i = trunc i128 %11 to i64
+  %coerce.sroa.0.0.extract.trunc.i.i = trunc nuw i128 %11 to i64
   %legacy_cmb.i.i = getelementptr inbounds i8, ptr %n, i64 7285
   %12 = load i8, ptr %legacy_cmb.i.i, align 1
   %tobool1.i.i = trunc i8 %12 to i1
@@ -1330,7 +1330,7 @@ if.else.i.i9.i:                                   ; preds = %if.end.i6.i
   unreachable
 
 nvme_addr_is_dma.exit:                            ; preds = %if.end.i6.i
-  %coerce.sroa.0.0.extract.trunc.i11.i = trunc i128 %18 to i64
+  %coerce.sroa.0.0.extract.trunc.i11.i = trunc nuw i128 %18 to i64
   %cba.i.i = getelementptr inbounds i8, ptr %n, i64 7840
   %19 = load i64, ptr %cba.i.i, align 16
   %add.i12.i = add i64 %19, %coerce.sroa.0.0.extract.trunc.i11.i
@@ -1454,7 +1454,7 @@ if.end39:                                         ; preds = %if.end34
 while.end:                                        ; preds = %if.end39, %if.end27
   %nsgld.0.lcssa = phi i64 [ %div39, %if.end27 ], [ %sub40, %if.end39 ]
   %addr.1.lcssa = phi i64 [ %addr.0, %if.end27 ], [ %add, %if.end39 ]
-  %nsgld.0.tr = trunc i64 %nsgld.0.lcssa to i32
+  %nsgld.0.tr = trunc nuw i64 %nsgld.0.lcssa to i32
   %conv42 = shl nuw nsw i32 %nsgld.0.tr, 4
   %call43 = call fastcc i32 @nvme_addr_read(ptr noundef %n, i64 noundef %addr.1.lcssa, ptr noundef nonnull %segment, i32 noundef %conv42)
   %tobool44.not = icmp eq i32 %call43, 0
@@ -1637,7 +1637,7 @@ if.end16:                                         ; preds = %if.end12, %if.end12
   %cond21 = tail call i32 @llvm.umin.i32(i32 %len.addr.0.ph88, i32 %count.0.ph85)
   %conv = zext i32 %cond21 to i64
   %2 = tail call i64 @llvm.umin.i64(i64 %.us-phi, i64 %conv)
-  %conv30 = trunc i64 %2 to i32
+  %conv30 = trunc nuw i64 %2 to i32
   %idxprom38 = sext i32 %.us-phi51 to i64
   br i1 %tobool.not, label %if.else36, label %if.then32
 
@@ -1690,7 +1690,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i
   unreachable
 
 nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
-  %coerce.sroa.0.0.extract.trunc.i.i = trunc i128 %8 to i64
+  %coerce.sroa.0.0.extract.trunc.i.i = trunc nuw i128 %8 to i64
   %9 = load i8, ptr %legacy_cmb.i.i, align 1
   %tobool1.i.i = trunc i8 %9 to i1
   %cond.in.v.i.i = select i1 %tobool1.i.i, i64 7648, i64 7808
@@ -1725,7 +1725,7 @@ if.else.i.i50.i:                                  ; preds = %if.end.i47.i
   unreachable
 
 nvme_addr_is_pmr.exit.i:                          ; preds = %if.end.i47.i
-  %coerce.sroa.0.0.extract.trunc.i52.i = trunc i128 %14 to i64
+  %coerce.sroa.0.0.extract.trunc.i52.i = trunc nuw i128 %14 to i64
   %15 = load i64, ptr %cba.i.i, align 16
   %add.i53.i = add i64 %15, %coerce.sroa.0.0.extract.trunc.i52.i
   %cmp.i54.i = icmp ule i64 %15, %addr.0
@@ -2053,7 +2053,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i
   unreachable
 
 nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
-  %coerce.sroa.0.0.extract.trunc.i.i = trunc i128 %5 to i64
+  %coerce.sroa.0.0.extract.trunc.i.i = trunc nuw i128 %5 to i64
   %legacy_cmb.i.i = getelementptr inbounds i8, ptr %n, i64 7285
   %6 = load i8, ptr %legacy_cmb.i.i, align 1
   %tobool1.i.i = trunc i8 %6 to i1
@@ -2093,7 +2093,7 @@ if.else.i.i9.i:                                   ; preds = %if.end.i6.i
   unreachable
 
 nvme_addr_is_dma.exit:                            ; preds = %if.end.i6.i
-  %coerce.sroa.0.0.extract.trunc.i11.i = trunc i128 %12 to i64
+  %coerce.sroa.0.0.extract.trunc.i11.i = trunc nuw i128 %12 to i64
   %cba.i.i = getelementptr inbounds i8, ptr %n, i64 7840
   %13 = load i64, ptr %cba.i.i, align 16
   %add.i12.i = add i64 %13, %coerce.sroa.0.0.extract.trunc.i11.i
@@ -2679,7 +2679,7 @@ if.end:                                           ; preds = %entry
   %5 = tail call i64 @llvm.umin.i64(i64 %div14, i64 %conv)
   %spec.select = select i1 %cmp4, i64 %conv, i64 %5
   %cond11 = select i1 %cmp2, i64 %div14, i64 %spec.select
-  %conv12 = trunc i64 %cond11 to i32
+  %conv12 = trunc nuw i64 %cond11 to i32
   store i32 %conv12, ptr %dmrsl, align 4
   ret void
 }
@@ -2759,7 +2759,7 @@ if.else.i.i23:                                    ; preds = %trace_pci_nvme_map_
 nvme_addr_is_iomem.exit:                          ; preds = %trace_pci_nvme_map_addr.exit
   %7 = getelementptr i8, ptr %n, i64 2736
   %n.val22 = load i64, ptr %7, align 16
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %n.val to i64
+  %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %n.val to i64
   %add.i = add i64 %n.val22, %coerce.sroa.0.0.extract.trunc.i
   %cmp.i = icmp ule i64 %n.val22, %addr
   %cmp3.i = icmp ugt i64 %add.i, %addr
@@ -2783,7 +2783,7 @@ if.else.i.i25:                                    ; preds = %if.end.i
   unreachable
 
 nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
-  %coerce.sroa.0.0.extract.trunc.i26 = trunc i128 %10 to i64
+  %coerce.sroa.0.0.extract.trunc.i26 = trunc nuw i128 %10 to i64
   %legacy_cmb.i = getelementptr inbounds i8, ptr %n, i64 7285
   %11 = load i8, ptr %legacy_cmb.i, align 1
   %tobool1.i = trunc i8 %11 to i1
@@ -2815,7 +2815,7 @@ if.else.i.i35:                                    ; preds = %if.end.i32
   unreachable
 
 int128_get64.exit.i36:                            ; preds = %if.end.i32
-  %coerce.sroa.0.0.extract.trunc.i37 = trunc i128 %15 to i64
+  %coerce.sroa.0.0.extract.trunc.i37 = trunc nuw i128 %15 to i64
   %cba.i = getelementptr inbounds i8, ptr %n, i64 7840
   %16 = load i64, ptr %cba.i, align 16
   %add.i38 = add i64 %16, %coerce.sroa.0.0.extract.trunc.i37
@@ -2952,7 +2952,7 @@ if.else.i.i:                                      ; preds = %if.end.i
   unreachable
 
 nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %2 to i64
+  %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %2 to i64
   %legacy_cmb.i = getelementptr inbounds i8, ptr %n, i64 7285
   %3 = load i8, ptr %legacy_cmb.i, align 1
   %tobool1.i = trunc i8 %3 to i1
@@ -2998,7 +2998,7 @@ if.else.i.i50:                                    ; preds = %if.end.i47
   unreachable
 
 nvme_addr_is_pmr.exit:                            ; preds = %if.end.i47
-  %coerce.sroa.0.0.extract.trunc.i52 = trunc i128 %9 to i64
+  %coerce.sroa.0.0.extract.trunc.i52 = trunc nuw i128 %9 to i64
   %cba.i = getelementptr inbounds i8, ptr %n, i64 7840
   %10 = load i64, ptr %cba.i, align 16
   %add.i53 = add i64 %10, %coerce.sroa.0.0.extract.trunc.i52
@@ -3184,7 +3184,7 @@ if.else.i.i9:                                     ; preds = %if.end.i
   unreachable
 
 nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %7 to i64
+  %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %7 to i64
   %legacy_cmb.i = getelementptr inbounds i8, ptr %n, i64 7285
   %8 = load i8, ptr %legacy_cmb.i, align 1
   %tobool1.i = trunc i8 %8 to i1
@@ -3239,7 +3239,7 @@ if.else.i.i:                                      ; preds = %if.end.i
   unreachable
 
 nvme_addr_is_pmr.exit:                            ; preds = %if.end.i
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %2 to i64
+  %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %2 to i64
   %cba.i = getelementptr inbounds i8, ptr %n, i64 7840
   %3 = load i64, ptr %cba.i, align 16
   %add.i = add i64 %3, %coerce.sroa.0.0.extract.trunc.i
@@ -3684,7 +3684,7 @@ if.then30:                                        ; preds = %for.body
   br i1 %tobool.not.i, label %for.inc, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then30
-  %conv22 = trunc i32 %shl to i8
+  %conv22 = trunc nuw nsw i32 %shl to i8
   switch i8 %conv22, label %for.inc [
     i8 1, label %sw.epilog.i
     i8 2, label %sw.bb3.i
@@ -4446,7 +4446,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i16 %41, ptr %pcid.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %vfn.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %42 = trunc i64 %indvars.iv.next.i to i16
+  %42 = trunc nuw nsw i64 %indvars.iv.next.i to i16
   store i16 %42, ptr %vfn.i, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !17
@@ -4494,7 +4494,7 @@ cond.true77.i:                                    ; preds = %if.else57.i
 
 cond.false83.i:                                   ; preds = %if.else57.i
   %cond91.i = tail call i32 @llvm.umax.i32(i32 %conv41.i, i32 1)
-  %div.rhs.trunc.i = trunc i32 %cond91.i to i16
+  %div.rhs.trunc.i = trunc nuw nsw i32 %cond91.i to i16
   %div80.i = udiv i16 %47, %div.rhs.trunc.i
   br label %if.end95.i37
 
@@ -4537,7 +4537,7 @@ cond.true122.i:                                   ; preds = %if.else102.i
 
 cond.false128.i:                                  ; preds = %if.else102.i
   %cond137.i = tail call i32 @llvm.umax.i32(i32 %conv41.i, i32 1)
-  %div138.rhs.trunc.i = trunc i32 %cond137.i to i16
+  %div138.rhs.trunc.i = trunc nuw nsw i32 %cond137.i to i16
   %div13881.i = udiv i16 %53, %div138.rhs.trunc.i
   br label %nvme_init_state.exit
 
@@ -5020,7 +5020,7 @@ nvme_attach_ns.exit:                              ; preds = %if.end24
   %114 = call i64 @llvm.umin.i64(i64 %div14.i, i64 %conv.i92)
   %spec.select.i93 = select i1 %cmp4.i, i64 %conv.i92, i64 %114
   %cond11.i = select i1 %cmp2.i, i64 %div14.i, i64 %spec.select.i93
-  %conv12.i = trunc i64 %cond11.i to i32
+  %conv12.i = trunc nuw i64 %cond11.i to i32
   store i32 %conv12.i, ptr %dmrsl.i, align 4
   br label %if.end25
 
@@ -6469,7 +6469,7 @@ if.end57.i.i:                                     ; preds = %if.end45.i.i
   br i1 %tobool65.not.i.i, label %if.then74.i.i, label %if.end78.i.i
 
 if.then74.i.i:                                    ; preds = %if.end57.i.i
-  %conv77.i.i = trunc i32 %and61.i.i to i8
+  %conv77.i.i = trunc nuw nsw i32 %and61.i.i to i8
   tail call fastcc void @trace_pci_nvme_err_startfail_css(i8 noundef zeroext %conv77.i.i)
   br label %if.then158.i
 
@@ -6481,8 +6481,8 @@ if.end78.i.i:                                     ; preds = %if.end57.i.i
   br i1 %cmp.i251.i, label %if.then91.i.i, label %if.end98.i.i
 
 if.then91.i.i:                                    ; preds = %if.end78.i.i
-  %conv94.i.i = trunc i32 %and.i245.i to i8
-  %conv97.i.i = trunc i64 %and83.i.i to i8
+  %conv94.i.i = trunc nuw nsw i32 %and.i245.i to i8
+  %conv97.i.i = trunc nuw nsw i64 %and83.i.i to i8
   tail call fastcc void @trace_pci_nvme_err_startfail_page_too_small(i8 noundef zeroext %conv94.i.i, i8 noundef zeroext %conv97.i.i)
   br label %if.then158.i
 
@@ -6493,8 +6493,8 @@ if.end98.i.i:                                     ; preds = %if.end78.i.i
   br i1 %cmp104.i.i, label %if.then112.i.i, label %if.end119.i.i
 
 if.then112.i.i:                                   ; preds = %if.end98.i.i
-  %conv115.i.i = trunc i32 %and.i245.i to i8
-  %conv118.i.i = trunc i64 %and103.i.i to i8
+  %conv115.i.i = trunc nuw nsw i32 %and.i245.i to i8
+  %conv118.i.i = trunc nuw nsw i64 %and103.i.i to i8
   tail call fastcc void @trace_pci_nvme_err_startfail_page_too_large(i8 noundef zeroext %conv115.i.i, i8 noundef zeroext %conv118.i.i)
   br label %if.then158.i
 
@@ -6522,7 +6522,7 @@ if.then158.i:                                     ; preds = %if.then144.i.i, %if
   br label %if.end171.i
 
 if.else159.i:                                     ; preds = %if.end132.i.i
-  %116 = trunc i32 %and.i245.i to i16
+  %116 = trunc nuw nsw i32 %and.i245.i to i16
   %conv146.i.i = add nuw nsw i16 %116, 12
   %page_bits147.i.i = getelementptr inbounds i8, ptr %opaque, i64 7424
   store i16 %conv146.i.i, ptr %page_bits147.i.i, align 16
@@ -6533,11 +6533,11 @@ if.else159.i:                                     ; preds = %if.end132.i.i
   %max_prp_ents.i.i = getelementptr inbounds i8, ptr %opaque, i64 7426
   store i16 %conv151.i.i, ptr %max_prp_ents.i.i, align 2
   %admin_cq.i.i = getelementptr inbounds i8, ptr %opaque, i64 18944
-  %118 = trunc i32 %and134.i.i to i16
+  %118 = trunc nuw nsw i32 %and134.i.i to i16
   %conv155.i.i = add nuw nsw i16 %118, 1
   tail call fastcc void @nvme_init_cq(ptr noundef nonnull %admin_cq.i.i, ptr noundef nonnull %opaque, i64 noundef %acq12.val.i.i, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext %conv155.i.i, i16 noundef zeroext 1)
   %admin_sq.i.i = getelementptr inbounds i8, ptr %opaque, i64 18816
-  %119 = trunc i32 %and121.i.i to i16
+  %119 = trunc nuw nsw i32 %and121.i.i to i16
   %conv159.i.i = add nuw nsw i16 %119, 1
   tail call fastcc void @nvme_init_sq(ptr noundef nonnull %admin_sq.i.i, ptr noundef nonnull %opaque, i64 noundef %asq9.val.i.i, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext %conv159.i.i)
   tail call fastcc void @nvme_set_timestamp(ptr noundef nonnull %opaque, i64 noundef 0)
@@ -7086,7 +7086,7 @@ if.else.i.i30:                                    ; preds = %if.then281.i
   unreachable
 
 int128_get64.exit.i:                              ; preds = %if.then281.i
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %184 to i64
+  %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %184 to i64
   %185 = xor i64 %shr286.i, -1
   %cmp291.i = icmp ugt i64 %coerce.sroa.0.0.extract.trunc.i, %185
   br i1 %cmp291.i, label %if.then293.i, label %if.end302.i
@@ -7359,7 +7359,7 @@ if.else.i472.i:                                   ; preds = %if.then410.i
   unreachable
 
 int128_get64.exit474.i:                           ; preds = %if.then410.i
-  %coerce425.sroa.0.0.extract.trunc.i = trunc i128 %221 to i64
+  %coerce425.sroa.0.0.extract.trunc.i = trunc nuw i128 %221 to i64
   %222 = xor i64 %or420.i, -1
   %cmp428.i = icmp ugt i64 %coerce425.sroa.0.0.extract.trunc.i, %222
   br i1 %cmp428.i, label %if.then430.i, label %if.end436.i
@@ -10842,7 +10842,7 @@ sw.bb27.i:                                        ; preds = %if.end20.i
   %cdw14.i = getelementptr inbounds i8, ptr %25, i64 112
   %150 = load i32, ptr %cdw14.i, align 1
   %shr11.i = lshr i32 %150, 24
-  %conv12.i = trunc i32 %shr11.i to i8
+  %conv12.i = trunc nuw i32 %shr11.i to i8
   %shr15.i530 = lshr i32 %146, 16
   %conv16.i = zext i32 %147 to i64
   %conv17.i531 = zext i32 %148 to i64
@@ -11423,7 +11423,7 @@ if.then100.i:                                     ; preds = %if.end88.i
 if.end104.i470:                                   ; preds = %if.end88.i
   %call105.i471 = call noalias dereferenceable_or_null(112) ptr @g_malloc0(i64 noundef 112) #20
   %add.i472 = add i16 %197, 1
-  %conv111.i = trunc i32 %and16.i to i16
+  %conv111.i = trunc nuw nsw i32 %and16.i to i16
   call fastcc void @nvme_init_cq(ptr noundef %call105.i471, ptr noundef nonnull %0, i64 noundef %199, i16 noundef zeroext %195, i16 noundef zeroext %196, i16 noundef zeroext %add.i472, i16 noundef zeroext %conv111.i)
   store i8 1, ptr %qs_created.i, align 2
   br label %if.then55
@@ -11580,7 +11580,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i430, %fo
   br i1 %cmp7.not.i.i, label %for.inc.i.i430, label %if.then.i.i428
 
 if.then.i.i428:                                   ; preds = %for.body.i.i
-  %254 = trunc i64 %indvars.iv.i.i426 to i8
+  %254 = trunc nuw i64 %indvars.iv.i.i426 to i8
   %sub.i.i429 = sub i8 %252, %254
   store i8 %sub.i.i429, ptr %list.i.i, align 1
   %conv18.i.i = zext i8 %sub.i.i429 to i64
@@ -12946,7 +12946,7 @@ nvme_attach_ns.exit.i:                            ; preds = %if.end40.i248
   %446 = call i64 @llvm.umin.i64(i64 %div14.i.i, i64 %conv.i.i250)
   %spec.select.i.i252 = select i1 %cmp4.i.i251, i64 %conv.i.i250, i64 %446
   %cond11.i.i = select i1 %cmp2.i.i, i64 %div14.i.i, i64 %spec.select.i.i252
-  %conv12.i.i = trunc i64 %cond11.i.i to i32
+  %conv12.i.i = trunc nuw i64 %cond11.i.i to i32
   store i32 %conv12.i.i, ptr %dmrsl.i.i, align 4
   %447 = getelementptr i8, ptr %438, i64 3172
   %call28.val.i = load i32, ptr %447, align 1
@@ -13012,7 +13012,7 @@ if.end.i65.i:                                     ; preds = %nvme_ns.exit.i.i243
   %455 = call i64 @llvm.umin.i64(i64 %div13.i.i, i64 %conv.i66.i)
   %spec.select.i70.i = select i1 %cmp4.i69.i, i64 %conv.i66.i, i64 %455
   %cond11.i71.i = select i1 %cmp2.i68.i, i64 %div13.i.i, i64 %spec.select.i70.i
-  %conv12.i72.i = trunc i64 %cond11.i71.i to i32
+  %conv12.i72.i = trunc nuw i64 %cond11.i71.i to i32
   store i32 %conv12.i72.i, ptr %dmrsl.i63.i, align 4
   br label %for.inc.i.i
 
@@ -13057,7 +13057,7 @@ sw.bb45.i:                                        ; preds = %if.end20.i
   %461 = trunc i32 %shr.i to i8
   %conv4.i = and i8 %461, 7
   %shr5.i = lshr i32 %459, 16
-  %conv7.i = trunc i32 %shr5.i to i16
+  %conv7.i = trunc nuw i32 %shr5.i to i16
   %and8.i190 = and i32 %460, 65535
   %462 = load i16, ptr %cid43, align 4
   %conv11.i192 = and i32 %shr.i, 7
@@ -14501,7 +14501,7 @@ trace_pci_nvme_verify.exit:                       ; preds = %nvme_nsid.exit, %la
 
 if.then:                                          ; preds = %trace_pci_nvme_verify.exit
   %17 = lshr i16 %5, 10
-  %18 = trunc i16 %17 to i8
+  %18 = trunc nuw nsw i16 %17 to i8
   %conv11 = and i8 %18, 15
   %conv18 = zext i32 %6 to i64
   %call19 = tail call zeroext i16 @nvme_check_prinfo(ptr noundef nonnull %0, i8 noundef zeroext %conv11, i64 noundef %2, i64 noundef %conv18) #17
@@ -14797,7 +14797,7 @@ if.end56:                                         ; preds = %lor.lhs.false
   br i1 %tobool.not.i87, label %nvme_h2c.exit, label %invalid
 
 nvme_h2c.exit:                                    ; preds = %if.end56
-  %conv68 = trunc i64 %mul to i32
+  %conv68 = trunc nuw nsw i64 %mul to i32
   %call2.i = tail call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i, ptr noundef %call64, i32 noundef %conv68, i32 noundef 0)
   %tobool70.not = icmp eq i16 %call2.i, 0
   br i1 %tobool70.not, label %if.end72, label %invalid
@@ -15239,7 +15239,7 @@ if.then14.i115:                                   ; preds = %if.end11.i
   br i1 %tobool16.not110.i117, label %for.end31.i131, label %land.rhs17.lr.ph.i118
 
 land.rhs17.lr.ph.i118:                            ; preds = %if.then14.i115
-  %49 = trunc i32 %spec.select69 to i8
+  %49 = trunc nuw nsw i32 %spec.select69 to i8
   %50 = lshr i8 %49, 1
   br label %land.rhs17.i119
 
@@ -15281,7 +15281,7 @@ for.end31.i131:                                   ; preds = %for.cond15.i128, %i
   br i1 %tobool33.not113.i134, label %return, label %land.rhs34.lr.ph.i135
 
 land.rhs34.lr.ph.i135:                            ; preds = %for.end31.i131
-  %56 = trunc i32 %spec.select69 to i8
+  %56 = trunc nuw nsw i32 %spec.select69 to i8
   %57 = lshr i8 %56, 1
   br label %land.rhs34.i136
 
@@ -16152,7 +16152,7 @@ for.body38.i:                                     ; preds = %for.body38.i, %for.
   %16 = getelementptr i8, ptr %.val.i, i64 8100
   %.val.val.i = load i8, ptr %16, align 4
   %tobool.not.i.i = icmp eq i8 %.val.val.i, 0
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nuw i64 %indvars.iv.i to i32
   %conv3.i.i = zext i8 %.val.val.i to i32
   %sub.i.i = sub nsw i32 16, %conv3.i.i
   %shl.i.i = shl nuw nsw i32 %17, %sub.i.i
@@ -16198,7 +16198,7 @@ for.end50.i:                                      ; preds = %for.inc47.i, %for.b
   br i1 %tobool.not.i29.i, label %if.end.i.i, label %nvme_io_mgmt_recv_ruhs.exit
 
 if.end.i.i:                                       ; preds = %for.end50.i
-  %conv51.i = trunc i64 %cond.i to i32
+  %conv51.i = trunc nuw i64 %cond.i to i32
   %call2.i.i = tail call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i.i, ptr noundef %call.i, i32 noundef %conv51.i, i32 noundef 1)
   br label %nvme_io_mgmt_recv_ruhs.exit
 
@@ -17023,20 +17023,20 @@ nvme_parse_pid.exit.i:                            ; preds = %lor.lhs.false.i
   %conv2.i.i.i = zext i16 %63 to i32
   %sub.i.i.i = sub nsw i32 16, %conv3.i.i.i
   %shr.i.i.i = lshr i32 %conv2.i.i.i, %sub.i.i.i
-  %conv4.i.i.i = trunc i32 %shr.i.i.i to i16
+  %conv4.i.i.i = trunc nuw i32 %shr.i.i.i to i16
   %retval.0.i.i.i = select i1 %tobool.not.i.i.i, i16 0, i16 %conv4.i.i.i
   %70 = getelementptr i8, ptr %ns.val.i.i, i64 8098
   %.val.i.i = load i16, ptr %70, align 2
   %cmp.i13.i.i = icmp ugt i16 %.val.i.i, %retval.0.i.i.i
   %spec.select.i = select i1 %cmp.i13.i.i, i16 %retval.0.i12.i.i, i16 0
-  %spec.select26.i = select i1 %cmp.i13.i.i, i16 %retval.0.i.i.i, i16 0
+  %spec.select19.i = select i1 %cmp.i13.i.i, i16 %retval.0.i.i.i, i16 0
   %71 = zext i16 %spec.select.i to i64
-  %72 = zext i16 %spec.select26.i to i64
+  %72 = zext i16 %spec.select19.i to i64
   br label %if.end.i130
 
 if.end.i130:                                      ; preds = %nvme_parse_pid.exit.i, %lor.lhs.false.i, %if.then148
-  %ph.0.i = phi i64 [ 0, %lor.lhs.false.i ], [ 0, %if.then148 ], [ %71, %nvme_parse_pid.exit.i ]
-  %rg.0.i = phi i64 [ 0, %lor.lhs.false.i ], [ 0, %if.then148 ], [ %72, %nvme_parse_pid.exit.i ]
+  %ph.0.i = phi i64 [ 0, %lor.lhs.false.i ], [ %71, %nvme_parse_pid.exit.i ], [ 0, %if.then148 ]
+  %rg.0.i = phi i64 [ 0, %lor.lhs.false.i ], [ %72, %nvme_parse_pid.exit.i ], [ 0, %if.then148 ]
   %phs.i = getelementptr inbounds i8, ptr %60, i64 8800
   %73 = load ptr, ptr %phs.i, align 8
   %arrayidx.i131 = getelementptr i16, ptr %73, i64 %ph.0.i
@@ -17059,8 +17059,8 @@ if.end.i130:                                      ; preds = %nvme_parse_pid.exit
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24.i, %if.end.i130
-  %nlb.addr.020.i = phi i32 [ %conv28.i, %if.end24.i ], [ %add, %if.end.i130 ]
-  %conv18.i = zext i32 %nlb.addr.020.i to i64
+  %nlb.addr.021.i = phi i32 [ %conv28.i, %if.end24.i ], [ %add, %if.end.i130 ]
+  %conv18.i = zext i32 %nlb.addr.021.i to i64
   %80 = load i64, ptr %arrayidx13.i, align 8
   %cmp19.i = icmp ugt i64 %80, %conv18.i
   br i1 %cmp19.i, label %if.then21.i, label %if.end24.i
@@ -17072,7 +17072,7 @@ if.then21.i:                                      ; preds = %while.body.i
 
 if.end24.i:                                       ; preds = %while.body.i
   %81 = trunc i64 %80 to i32
-  %conv28.i = sub i32 %nlb.addr.020.i, %81
+  %conv28.i = sub i32 %nlb.addr.021.i, %81
   %call29.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef %n, ptr noundef %60, i16 noundef zeroext %63)
   %tobool.not.i133 = icmp eq i32 %conv28.i, 0
   br i1 %tobool.not.i133, label %if.end150, label %while.body.i, !llvm.loop !59
@@ -18357,7 +18357,7 @@ entry:
   %conv3.i.i = zext i8 %ns.val.val.i to i32
   %sub.i.i = sub nsw i32 16, %conv3.i.i
   %shr.i.i = lshr i32 %conv2.i.i, %sub.i.i
-  %conv4.i.i = trunc i32 %shr.i.i to i16
+  %conv4.i.i = trunc nuw i32 %shr.i.i to i16
   %retval.0.i.i = select i1 %tobool.not.i.i, i16 0, i16 %conv4.i.i
   %sub.i11.i = sub nsw i32 15, %conv3.i.i
   %notmask.i.i = shl nsw i32 -1, %sub.i11.i
@@ -18580,7 +18580,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %cond22.us = tail call i64 @llvm.umin.i64(i64 %sg_len.044.us, i64 %conv17.us)
   %sub.us = sub i64 %cond16.us, %offset.045.us
   %cond31.us = tail call i64 @llvm.umin.i64(i64 %cond22.us, i64 %sub.us)
-  %conv32.us = trunc i64 %cond31.us to i32
+  %conv32.us = trunc nuw i64 %cond31.us to i32
   %tobool33.not.us = icmp eq ptr %dst.047.us, null
   br i1 %tobool33.not.us, label %if.end47.us, label %if.then34.us
 
@@ -18647,7 +18647,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond22 = tail call i64 @llvm.umin.i64(i64 %sg_len.044, i64 %conv17)
   %sub = sub i64 %cond16, %offset.045
   %cond31 = tail call i64 @llvm.umin.i64(i64 %cond22, i64 %sub)
-  %conv32 = trunc i64 %cond31 to i32
+  %conv32 = trunc nuw i64 %cond31 to i32
   %tobool33.not = icmp eq ptr %dst.047, null
   br i1 %tobool33.not, label %if.end47, label %if.then34
 
@@ -19099,7 +19099,7 @@ nvme_cid.exit:
   %control = getelementptr inbounds i8, ptr %opaque, i64 106
   %1 = load i16, ptr %control, align 1
   %2 = lshr i16 %1, 10
-  %3 = trunc i16 %2 to i8
+  %3 = trunc nuw nsw i16 %2 to i8
   %conv3 = and i8 %3, 15
   %apptag4 = getelementptr inbounds i8, ptr %opaque, i64 116
   %4 = load i16, ptr %apptag4, align 1
@@ -19776,7 +19776,7 @@ nvme_cid.exit:
   %control = getelementptr inbounds i8, ptr %0, i64 106
   %4 = load i16, ptr %control, align 1
   %5 = lshr i16 %4, 10
-  %6 = trunc i16 %5 to i8
+  %6 = trunc nuw nsw i16 %5 to i8
   %conv8 = and i8 %6, 15
   %apptag9 = getelementptr inbounds i8, ptr %0, i64 116
   %7 = load i16, ptr %apptag9, align 1
@@ -22192,7 +22192,7 @@ if.end2:                                          ; preds = %if.then.i, %if.then
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end2
-  %conv5 = trunc i64 %cond to i32
+  %conv5 = trunc nuw nsw i64 %cond to i32
   %call2.i = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i, ptr noundef nonnull %errlog, i32 noundef %conv5, i32 noundef 1)
   br label %return
 
@@ -22293,7 +22293,7 @@ if.end12:                                         ; preds = %for.inc, %if.end6
   %sub = sub nuw nsw i64 512, %off
   %conv = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
-  %conv15 = trunc i64 %cond to i32
+  %conv15 = trunc nuw nsw i64 %cond to i32
   %smart_critical_warning = getelementptr inbounds i8, ptr %n, i64 7474
   %15 = load i8, ptr %smart_critical_warning, align 2
   store i8 %15, ptr %smart, align 1
@@ -22397,7 +22397,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %conv3 = trunc i64 %cond to i32
+  %conv3 = trunc nuw nsw i64 %cond to i32
   %add.ptr = getelementptr i8, ptr %fw_log, i64 %off
   %call2.i = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i, ptr noundef %add.ptr, i32 noundef %conv3, i32 noundef 1)
   br label %return
@@ -22457,7 +22457,7 @@ if.end:                                           ; preds = %entry
   %sub = sub nuw nsw i64 4096, %off
   %conv = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
-  %conv3 = trunc i64 %cond to i32
+  %conv3 = trunc nuw nsw i64 %cond to i32
   %changed_nsids = getelementptr inbounds i8, ptr %n, i64 7888
   br label %while.cond
 
@@ -22482,7 +22482,7 @@ find_first_bit.exit:                              ; preds = %for.body.i
   %7 = tail call i64 @llvm.cttz.i64(i64 %6, i1 true), !range !16
   %add.i = or disjoint i64 %7, %result.011.i
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 257)
-  %conv5 = trunc i64 %cond.i to i32
+  %conv5 = trunc nuw nsw i64 %cond.i to i32
   %cmp6.not = icmp eq i32 %conv5, 257
   br i1 %cmp6.not, label %while.end, label %while.body
 
@@ -22640,7 +22640,7 @@ if.end8:                                          ; preds = %sw.epilog5, %if.the
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end8
-  %conv12 = trunc i64 %cond to i32
+  %conv12 = trunc nuw nsw i64 %cond to i32
   %add.ptr = getelementptr i8, ptr %log, i64 %off
   %call2.i = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i, ptr noundef %add.ptr, i32 noundef %conv12, i32 noundef 1)
   br label %return
@@ -22738,7 +22738,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool.not.i, label %if.end.i16, label %return
 
 if.end.i16:                                       ; preds = %for.end
-  %conv37 = trunc i64 %cond to i32
+  %conv37 = trunc nuw nsw i64 %cond to i32
   %add.ptr = getelementptr i8, ptr %info, i64 %off
   %call2.i = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i, ptr noundef %add.ptr, i32 noundef %conv37, i32 noundef 1)
   br label %return
@@ -22777,7 +22777,7 @@ if.end7:                                          ; preds = %if.end, %if.then4
   %mul.i = shl nuw nsw i64 %nruh.0, 2
   %sub.i = add nuw nsw i64 %mul.i, 71
   %and.i = and i64 %sub.i, 524280
-  %3 = trunc i64 %and.i to i32
+  %3 = trunc nuw nsw i64 %and.i to i32
   %conv8 = add nuw nsw i32 %3, 16
   %conv9 = zext nneg i32 %conv8 to i64
   %cmp10.not = icmp ugt i64 %conv9, %off
@@ -22787,7 +22787,7 @@ if.end13:                                         ; preds = %if.end7
   %sub = sub nsw i64 %conv9, %off
   %conv15 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv15)
-  %conv18 = trunc i64 %cond to i32
+  %conv18 = trunc nuw i64 %cond to i32
   %call20 = tail call noalias ptr @g_malloc0(i64 noundef %conv9) #20
   %add.ptr = getelementptr i8, ptr %call20, i64 16
   %add.ptr22 = getelementptr i8, ptr %call20, i64 80
@@ -22905,7 +22905,7 @@ if.end12:                                         ; preds = %if.end5
   %sub = sub nsw i64 %add, %off
   %conv14 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv14)
-  %conv17 = trunc i64 %cond to i32
+  %conv17 = trunc nuw i64 %cond to i32
   %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #20
   %ruhs = getelementptr inbounds i8, ptr %0, i64 12792
   %3 = load ptr, ptr %ruhs, align 8
@@ -22993,7 +22993,7 @@ if.end8:                                          ; preds = %if.end3
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end8
-  %conv13 = trunc i64 %cond to i32
+  %conv13 = trunc nuw nsw i64 %cond to i32
   %add.ptr = getelementptr i8, ptr %log, i64 %off
   %call2.i = call fastcc zeroext i16 @nvme_tx(ptr noundef nonnull %sg.i, ptr noundef %add.ptr, i32 noundef %conv13, i32 noundef 1)
   br label %return
@@ -23040,7 +23040,7 @@ if.end19:                                         ; preds = %if.end7
   %sub = sub nsw i64 %conv15, %off
   %conv21 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv21)
-  %conv24 = trunc i64 %cond to i32
+  %conv24 = trunc nuw i64 %cond to i32
   %call = tail call noalias ptr @g_malloc0(i64 noundef %conv15) #20
   %5 = load i32, ptr %nelems, align 4
   store i32 %5, ptr %call, align 1
@@ -24456,7 +24456,7 @@ if.end37:                                         ; preds = %for.body
   %inc = add i32 %nentries.025, 1
   %idxprom38 = zext i8 %s_events_ndx.024 to i64
   %arrayidx39 = getelementptr %struct.NvmeFdpEventDescr, ptr %call6, i64 %idxprom38
-  %11 = trunc i64 %indvars.iv to i8
+  %11 = trunc nuw i64 %indvars.iv to i8
   store i8 %11, ptr %arrayidx39, align 1
   %12 = load i64, ptr %event_filter, align 8
   %sh_prom = zext nneg i8 %10 to i64

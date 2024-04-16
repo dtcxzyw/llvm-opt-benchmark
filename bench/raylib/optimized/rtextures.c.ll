@@ -481,7 +481,7 @@ define internal fastcc ptr @stbi__load_and_postprocess_8bit(ptr noundef %0, ptr 
   %27 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv.i
   %28 = load i16, ptr %27, align 2
   %29 = lshr i16 %28, 8
-  %30 = trunc i16 %29 to i8
+  %30 = trunc nuw i16 %29 to i8
   %31 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i
   store i8 %30, ptr %31, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1077,7 +1077,7 @@ define hidden noundef ptr @stbi_load_gif_from_memory(ptr noundef %0, i32 noundef
   %33 = mul nsw i32 %32, %31
   %34 = shl nsw i32 %33, 2
   %.not85.i = icmp eq ptr %.070120.i, null
-  %35 = trunc i64 %indvars.iv.next.i to i32
+  %35 = trunc nuw i64 %indvars.iv.next.i to i32
   %36 = mul nsw i32 %34, %35
   %37 = sext i32 %36 to i64
   br i1 %.not85.i, label %65, label %38
@@ -1215,7 +1215,7 @@ stbi__load_gif_main_outofmem.exit100.i:           ; preds = %89, %81
 
 90:                                               ; preds = %78, %77, %64, %50
   %.171.i = phi ptr [ %39, %64 ], [ %39, %50 ], [ %66, %77 ], [ %66, %78 ]
-  %91 = trunc i64 %indvars.iv.i to i32
+  %91 = trunc nuw nsw i64 %indvars.iv.i to i32
   %92 = mul nsw i32 %34, %91
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %.171.i, i64 %93
@@ -1858,7 +1858,7 @@ stbi__zget8.exit15.i.i:                           ; preds = %24, %stbi__zget8.ex
 29:                                               ; preds = %stbi__zget8.exit15.i.i
   %30 = shl nuw nsw i32 %22, 8
   %31 = or disjoint i32 %28, %30
-  %.lhs.trunc.i.i = trunc i32 %31 to i16
+  %.lhs.trunc.i.i = trunc nuw i32 %31 to i16
   %32 = urem i16 %.lhs.trunc.i.i, 31
   %.not8.i.i = icmp eq i16 %32, 0
   br i1 %.not8.i.i, label %33, label %stbi__parse_zlib_header.exit.thread.i
@@ -2458,7 +2458,7 @@ stbi__zreceive.exit76.i.i:                        ; preds = %stbi__zget8.exit.i.
   br i1 %287, label %288, label %293
 
 288:                                              ; preds = %286
-  %289 = trunc i32 %285 to i8
+  %289 = trunc nuw nsw i32 %285 to i8
   %290 = add nsw i32 %.046147.i.i, 1
   %291 = sext i32 %.046147.i.i to i64
   %292 = getelementptr inbounds [455 x i8], ptr %7, i64 0, i64 %291
@@ -2769,7 +2769,7 @@ stbi__compute_huffman_codes.exit.i:               ; preds = %378
 
 418:                                              ; preds = %414, %390
   %.158.i.i = phi ptr [ %416, %414 ], [ %.057.i.i, %390 ]
-  %419 = trunc i32 %385 to i8
+  %419 = trunc nuw i32 %385 to i8
   %420 = getelementptr inbounds i8, ptr %.158.i.i, i64 1
   store i8 %419, ptr %.158.i.i, align 1
   br label %.loopexit.i.i.backedge
@@ -4096,7 +4096,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %35 = getelementptr i8, ptr %31, i64 3
   store <4 x i8> <i8 113, i8 111, i8 105, i8 102>, ptr %31, align 1
   %36 = lshr i32 %9, 24
-  %37 = trunc i32 %36 to i8
+  %37 = trunc nuw i32 %36 to i8
   %38 = getelementptr i8, ptr %31, i64 4
   store i8 %37, ptr %38, align 1
   %39 = lshr i32 %9, 16
@@ -4111,7 +4111,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %46 = getelementptr inbounds i8, ptr %31, i64 7
   store i8 %45, ptr %46, align 1
   %47 = lshr i32 %13, 24
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nuw i32 %47 to i8
   %49 = getelementptr inbounds i8, ptr %31, i64 8
   store i8 %48, ptr %49, align 1
   %50 = lshr i32 %13, 16
@@ -4151,7 +4151,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   %.0210.lcssa = phi i64 [ 14, %32 ], [ %68, %.preheader.loopexit ]
   %scevgep = getelementptr i8, ptr %31, i64 %.0210.lcssa
   store i64 72057594037927936, ptr %scevgep, align 1
-  %69 = trunc i64 %.0210.lcssa to i32
+  %69 = trunc nsw i64 %.0210.lcssa to i32
   %70 = add i32 %69, 8
   store i32 %70, ptr %2, align 4
   br label %168
@@ -4250,7 +4250,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr nound
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %102
-  %116 = trunc i32 %110 to i8
+  %116 = trunc nuw nsw i32 %110 to i8
   %117 = add nsw i32 %.1211, 1
   %118 = sext i32 %.1211 to i64
   %119 = getelementptr inbounds i8, ptr %31, i64 %118
@@ -4589,14 +4589,14 @@ define hidden noalias noundef ptr @qoi_decode(ptr noundef readonly %0, i32 nound
   %146 = add nsw i32 %145, -40
   %147 = lshr i32 %144, 4
   %148 = add nsw i32 %147, %146
-  %149 = trunc i32 %148 to i8
+  %149 = trunc nsw i32 %148 to i8
   %150 = add i8 %.sroa.0.0134, %149
-  %151 = trunc i32 %145 to i8
+  %151 = trunc nuw nsw i32 %145 to i8
   %152 = add i8 %.sroa.11.0135, -32
   %153 = add i8 %152, %151
   %154 = and i32 %144, 15
   %155 = add nsw i32 %154, %146
-  %156 = trunc i32 %155 to i8
+  %156 = trunc nsw i32 %155 to i8
   %157 = add i8 %.sroa.20.0136, %156
   br label %160
 
@@ -4658,7 +4658,7 @@ default.unreachable:                              ; preds = %122
 
 180:                                              ; preds = %174, %178
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %94
-  %181 = trunc i64 %indvars.iv.next to i32
+  %181 = trunc nuw i64 %indvars.iv.next to i32
   %182 = icmp sgt i32 %87, %181
   br i1 %182, label %95, label %.loopexit
 
@@ -5643,7 +5643,7 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %148, %.lr.ph.split.
   br i1 %174, label %.lr.ph139.us.i, label %._crit_edge140.us.i
 
 ._crit_edge140.us.loopexit.split.loop.exit.i:     ; preds = %169
-  %175 = trunc i64 %indvars.iv175.i to i32
+  %175 = trunc nsw i64 %indvars.iv175.i to i32
   br label %._crit_edge140.us.i
 
 ._crit_edge140.us.i:                              ; preds = %173, %.preheader129.us.i, %._crit_edge140.us.loopexit.split.loop.exit.i
@@ -5665,7 +5665,7 @@ stbiw__linear_to_rgbe.exit119.i:                  ; preds = %148, %.lr.ph.split.
   br i1 %182, label %198, label %.critedge.us.split.loop.exit207.i
 
 .critedge.us.split.loop.exit207.i:                ; preds = %179
-  %183 = trunc i64 %indvars.iv180.i to i32
+  %183 = trunc nsw i64 %indvars.iv180.i to i32
   br label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %198, %.critedge.us.split.loop.exit207.i
@@ -5954,7 +5954,7 @@ stbiw__zlib_flushf.exit.thread:                   ; preds = %11, %21, %26
   br i1 %exitcond.not.i, label %stbiw__zlib_countm.exit, label %.lr.ph.i264
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i264
-  %88 = trunc i64 %indvars.iv.i to i32
+  %88 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %stbiw__zlib_countm.exit
 
 stbiw__zlib_countm.exit:                          ; preds = %87, %82, %._crit_edge.loopexit.split.loop.exit.i
@@ -6114,7 +6114,7 @@ stbiw__sbgrowf.exit271:                           ; preds = %112, %.thread710, %
   br i1 %exitcond.not.i281, label %stbiw__zlib_countm.exit282, label %.lr.ph.i276
 
 ._crit_edge.loopexit.split.loop.exit.i279:        ; preds = %.lr.ph.i276
-  %166 = trunc i64 %indvars.iv.i277 to i32
+  %166 = trunc nuw nsw i64 %indvars.iv.i277 to i32
   br label %stbiw__zlib_countm.exit282
 
 stbiw__zlib_countm.exit282:                       ; preds = %165, %160, %._crit_edge.loopexit.split.loop.exit.i279
@@ -6144,12 +6144,12 @@ stbiw__zlib_countm.exit282:                       ; preds = %165, %160, %._crit_
 
 176:                                              ; preds = %172
   %177 = trunc i64 %171 to i32
-  %178 = trunc i64 %indvars.iv853 to i32
+  %178 = trunc nuw nsw i64 %indvars.iv853 to i32
   %179 = icmp ult i32 %178, 23
   br i1 %179, label %.lr.ph.i283.preheader, label %219
 
 .lr.ph.i283.preheader:                            ; preds = %176
-  %180 = trunc i64 %indvars.iv.next854 to i32
+  %180 = trunc nuw nsw i64 %indvars.iv.next854 to i32
   br label %.lr.ph.i283
 
 .lr.ph.i283:                                      ; preds = %.lr.ph.i283.preheader, %.lr.ph.i283
@@ -6410,7 +6410,7 @@ stbiw__zlib_flushf.exit325:                       ; preds = %stbiw__sbgrowf.exit
   br i1 %.not242, label %.lr.ph.i326.preheader, label %302
 
 .lr.ph.i326.preheader:                            ; preds = %302
-  %306 = trunc i64 %indvars.iv856 to i32
+  %306 = trunc nuw nsw i64 %indvars.iv856 to i32
   br label %.lr.ph.i326
 
 .lr.ph.i326:                                      ; preds = %.lr.ph.i326.preheader, %.lr.ph.i326
@@ -7396,7 +7396,7 @@ stbiw__sbgrowf.exit485:                           ; preds = %723, %718, %706
   %.0177.lcssa892 = phi i32 [ %.0177.lcssa893, %._crit_edge804.thread ], [ %.0177.lcssa894, %.thread715 ], [ %.0177.lcssa894, %772 ]
   %.22 = phi ptr [ %.20886890, %._crit_edge804.thread ], [ %.20886891, %.thread715 ], [ %773, %772 ]
   %775 = lshr i32 %.0176.lcssa895, 8
-  %776 = trunc i32 %775 to i8
+  %776 = trunc nuw i32 %775 to i8
   %777 = getelementptr inbounds i8, ptr %.22, i64 -4
   %778 = load i32, ptr %777, align 4
   %779 = add nsw i32 %778, 1
@@ -7459,7 +7459,7 @@ stbiw__sbgrowf.exit485:                           ; preds = %723, %718, %706
 813:                                              ; preds = %794, %805, %810
   %.26 = phi ptr [ %.24, %794 ], [ %.24, %805 ], [ %812, %810 ]
   %814 = lshr i32 %.0177.lcssa892, 8
-  %815 = trunc i32 %814 to i8
+  %815 = trunc nuw i32 %814 to i8
   %816 = getelementptr inbounds i8, ptr %.26, i64 -4
   %817 = load i32, ptr %816, align 4
   %818 = add nsw i32 %817, 1
@@ -7551,7 +7551,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr nocapture noundef readonly 
 
 23:                                               ; preds = %23, %.lr.ph.split.us
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %23 ], [ 0, %.lr.ph.split.us ]
-  %24 = trunc i64 %indvars.iv213 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv213 to i32
   tail call fastcc void @stbiw__encode_png_line(ptr noundef %0, i32 noundef %spec.select, i32 noundef %2, i32 noundef %3, i32 noundef %24, i32 noundef %4, i32 noundef %spec.store.select, ptr noundef nonnull %18)
   %25 = mul nsw i64 %indvars.iv213, %22
   %26 = getelementptr inbounds i8, ptr %15, i64 %25
@@ -7578,7 +7578,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr nocapture noundef readonly 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %33
   %indvars.iv208 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next209, %33 ]
-  %31 = trunc i64 %indvars.iv208 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv208 to i32
   br label %.lr.ph.us.us
 
 32:                                               ; preds = %.split.us.us
@@ -7633,7 +7633,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr nocapture noundef readonly 
 
 .preheader:                                       ; preds = %.preheader.preheader, %50
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %50 ]
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   br label %48
 
 48:                                               ; preds = %.preheader, %48
@@ -7678,7 +7678,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr nocapture noundef readonly 
   store <8 x i8> <i8 0, i8 0, i8 0, i8 13, i8 73, i8 72, i8 68, i8 82>, ptr %62, align 1
   %64 = getelementptr inbounds i8, ptr %60, i64 16
   %65 = lshr i32 %2, 24
-  %66 = trunc i32 %65 to i8
+  %66 = trunc nuw i32 %65 to i8
   store i8 %66, ptr %64, align 1
   %67 = lshr i32 %2, 16
   %68 = trunc i32 %67 to i8
@@ -7693,7 +7693,7 @@ define hidden noundef ptr @stbi_write_png_to_mem(ptr nocapture noundef readonly 
   store i8 %73, ptr %74, align 1
   %75 = getelementptr inbounds i8, ptr %60, i64 20
   %76 = lshr i32 %3, 24
-  %77 = trunc i32 %76 to i8
+  %77 = trunc nuw i32 %76 to i8
   store i8 %77, ptr %75, align 1
   %78 = lshr i32 %3, 16
   %79 = trunc i32 %78 to i8
@@ -7743,7 +7743,7 @@ stbiw__wpcrc.exit:                                ; preds = %.lr.ph.i.i
   %105 = getelementptr inbounds i8, ptr %60, i64 29
   %106 = xor i32 %104, -1
   %107 = lshr i32 %106, 24
-  %108 = trunc i32 %107 to i8
+  %108 = trunc nuw i32 %107 to i8
   store i8 %108, ptr %105, align 1
   %109 = lshr i32 %106, 16
   %110 = trunc i32 %109 to i8
@@ -7758,7 +7758,7 @@ stbiw__wpcrc.exit:                                ; preds = %.lr.ph.i.i
   store i8 %115, ptr %116, align 1
   %117 = getelementptr inbounds i8, ptr %60, i64 33
   %118 = lshr i32 %57, 24
-  %119 = trunc i32 %118 to i8
+  %119 = trunc nuw i32 %118 to i8
   store i8 %119, ptr %117, align 1
   %120 = lshr i32 %57, 16
   %121 = trunc i32 %120 to i8
@@ -7810,7 +7810,7 @@ stbiw__wpcrc.exit:                                ; preds = %.lr.ph.i.i
 stbiw__wpcrc.exit119:                             ; preds = %stbiw__wpcrc.exit, %._crit_edge.loopexit.i.i
   %.07.lcssa.i.i = phi i32 [ 0, %stbiw__wpcrc.exit ], [ %144, %._crit_edge.loopexit.i.i ]
   %145 = lshr i32 %.07.lcssa.i.i, 24
-  %146 = trunc i32 %145 to i8
+  %146 = trunc nuw i32 %145 to i8
   store i8 %146, ptr %131, align 1
   %147 = lshr i32 %.07.lcssa.i.i, 16
   %148 = trunc i32 %147 to i8
@@ -7850,7 +7850,7 @@ stbiw__wpcrc.exit128:                             ; preds = %.lr.ph.i.i121
   %167 = getelementptr inbounds i8, ptr %131, i64 12
   %168 = xor i32 %166, -1
   %169 = lshr i32 %168, 24
-  %170 = trunc i32 %169 to i8
+  %170 = trunc nuw i32 %169 to i8
   store i8 %170, ptr %167, align 1
   %171 = lshr i32 %168, 16
   %172 = trunc i32 %171 to i8
@@ -8085,7 +8085,7 @@ define internal fastcc void @stbiw__encode_png_line(ptr nocapture noundef readon
   %105 = zext i8 %104 to i16
   %106 = add nuw nsw i16 %105, %101
   %107 = lshr i16 %106, 1
-  %108 = trunc i16 %107 to i8
+  %108 = trunc nuw i16 %107 to i8
   %109 = sub i8 %97, %108
   %110 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv189
   store i8 %109, ptr %110, align 1
@@ -8270,7 +8270,7 @@ define internal fastcc noundef i32 @stbi_write_jpg_core(ptr nocapture noundef re
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %35
-  %.rhs.trunc = trunc i32 %39 to i16
+  %.rhs.trunc = trunc nuw nsw i32 %39 to i16
   %42 = udiv i16 5000, %.rhs.trunc
   %.zext = zext nneg i16 %42 to i32
   br label %46
@@ -8293,7 +8293,7 @@ define internal fastcc noundef i32 @stbi_write_jpg_core(ptr nocapture noundef re
   %53 = sdiv i32 %52, 100
   %54 = tail call i32 @llvm.smin.i32(i32 %53, i32 255)
   %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nuw i32 %55 to i8
   %57 = getelementptr inbounds [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
@@ -8306,7 +8306,7 @@ define internal fastcc noundef i32 @stbi_write_jpg_core(ptr nocapture noundef re
   %65 = sdiv i32 %64, 100
   %66 = tail call i32 @llvm.smin.i32(i32 %65, i32 255)
   %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 1)
-  %68 = trunc i32 %67 to i8
+  %68 = trunc nuw i32 %67 to i8
   %69 = getelementptr inbounds [64 x i8], ptr %18, i64 0, i64 %59
   store i8 %68, ptr %69, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10852,7 +10852,7 @@ stbir__decode_and_resample_for_vertical_gather_loop.exit.i: ; preds = %314, %308
 
 346:                                              ; preds = %346, %.lr.ph.i.i
   %indvars.iv.i55.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %346 ]
-  %347 = trunc i64 %indvars.iv.i55.i to i32
+  %347 = trunc nuw nsw i64 %indvars.iv.i55.i to i32
   %348 = add i32 %345, %347
   %349 = srem i32 %348, %.val48.i.i
   %350 = mul nsw i32 %349, %.val.i54.i
@@ -10947,7 +10947,7 @@ stbir__resample_horizontal_gather.exit.i.i:       ; preds = %385, %379, %366
 
 405:                                              ; preds = %401
   %406 = load ptr, ptr %51, align 8
-  %407 = trunc i64 %indvars.iv.i to i32
+  %407 = trunc nsw i64 %indvars.iv.i to i32
   call void %404(ptr noundef %395, i32 noundef %396, i32 noundef %407, ptr noundef %406) #49
   br label %stbir__resample_vertical_gather.exit.i
 
@@ -11372,7 +11372,7 @@ stbir__resample_horizontal_gather.exit.i:         ; preds = %622, %616, %stbir__
 
 645:                                              ; preds = %659, %.lr.ph.i.i29
   %indvars.iv.i142.i = phi i64 [ 0, %.lr.ph.i.i29 ], [ %indvars.iv.next.i.i33, %659 ]
-  %646 = trunc i64 %indvars.iv.i142.i to i32
+  %646 = trunc nuw nsw i64 %indvars.iv.i142.i to i32
   %647 = add i32 %644, %646
   %648 = srem i32 %647, %.val31.i.i
   %649 = mul nsw i32 %648, %.val.i.i30
@@ -12722,7 +12722,7 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %45 = getelementptr inbounds i16, ptr %22, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2
   %47 = lshr i16 %46, 8
-  %48 = trunc i16 %47 to i8
+  %48 = trunc nuw i16 %47 to i8
   %49 = and i8 %48, -8
   %50 = getelementptr inbounds %struct.Color, ptr %12, i64 %indvars.iv
   store i8 %49, ptr %50, align 1
@@ -12746,7 +12746,7 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %62 = getelementptr inbounds i16, ptr %22, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2
   %64 = lshr i16 %63, 8
-  %65 = trunc i16 %64 to i8
+  %65 = trunc nuw i16 %64 to i8
   %66 = and i8 %65, -8
   %67 = getelementptr inbounds %struct.Color, ptr %12, i64 %indvars.iv
   store i8 %66, ptr %67, align 1
@@ -12767,10 +12767,10 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %76 = getelementptr inbounds i16, ptr %22, i64 %indvars.iv
   %77 = load i16, ptr %76, align 2
   %78 = lshr i16 %77, 12
-  %79 = trunc i16 %78 to i8
+  %79 = trunc nuw nsw i16 %78 to i8
   %80 = getelementptr inbounds %struct.Color, ptr %12, i64 %indvars.iv
   %81 = lshr i16 %77, 8
-  %82 = trunc i16 %81 to i8
+  %82 = trunc nuw i16 %81 to i8
   %83 = and i8 %82, 15
   %84 = trunc i16 %77 to i8
   %85 = lshr i8 %84, 4
@@ -13359,7 +13359,7 @@ GetPixelDataSize.exit:                            ; preds = %12, %18, %20
   %.07378 = phi i32 [ %60, %.lr.ph81 ], [ %74, %63 ]
   %64 = sext i32 %.07378 to i64
   %65 = getelementptr inbounds i8, ptr %25, i64 %64
-  %66 = trunc i64 %indvars.iv84 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv84 to i32
   %67 = urem i32 %66, 20
   %68 = icmp eq i32 %67, 0
   %69 = select i1 %68, ptr @.str.38, ptr @.str.39
@@ -13493,7 +13493,7 @@ define void @GenImageGradientLinear(ptr dead_on_unwind noalias nocapture writabl
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %37 = trunc i64 %indvars.iv62 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv62 to i32
   %38 = sitofp i32 %37 to float
   %39 = fmul float %15, %38
   %invariant.gep = getelementptr %struct.Color, ptr %10, i64 %indvars.iv62
@@ -13501,7 +13501,7 @@ define void @GenImageGradientLinear(ptr dead_on_unwind noalias nocapture writabl
 
 40:                                               ; preds = %.preheader.us, %40
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %40 ]
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = sitofp i32 %41 to float
   %43 = fmul float %16, %42
   %44 = fadd float %39, %43
@@ -13599,7 +13599,7 @@ define void @GenImageGradientRadial(ptr dead_on_unwind noalias nocapture writabl
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv64 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next65, %._crit_edge.us ]
-  %33 = trunc i64 %indvars.iv64 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv64 to i32
   %34 = sitofp i32 %33 to float
   %35 = fsub float %34, %14
   %36 = trunc i64 %indvars.iv64 to i32
@@ -13610,7 +13610,7 @@ define void @GenImageGradientRadial(ptr dead_on_unwind noalias nocapture writabl
 
 39:                                               ; preds = %.preheader.us, %39
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %39 ]
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = sitofp i32 %40 to float
   %42 = fsub float %41, %12
   %43 = tail call float @hypotf(float noundef %42, float noundef %35) #49
@@ -13708,7 +13708,7 @@ define void @GenImageGradientSquare(ptr dead_on_unwind noalias nocapture writabl
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %30 = trunc i64 %indvars.iv62 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv62 to i32
   %31 = sitofp i32 %30 to float
   %32 = fsub float %31, %14
   %33 = tail call float @llvm.fabs.f32(float %32)
@@ -13721,7 +13721,7 @@ define void @GenImageGradientSquare(ptr dead_on_unwind noalias nocapture writabl
 
 38:                                               ; preds = %.preheader.us, %38
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %38 ]
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = sitofp i32 %39 to float
   %41 = fsub float %40, %12
   %42 = tail call float @llvm.fabs.f32(float %41)
@@ -13792,7 +13792,7 @@ define void @GenImageChecked(ptr dead_on_unwind noalias nocapture writable write
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv31 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next32, %._crit_edge.us ]
-  %14 = trunc i64 %indvars.iv31 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv31 to i32
   %15 = sdiv i32 %14, %4
   %16 = trunc i64 %indvars.iv31 to i32
   %17 = mul i32 %16, %1
@@ -13802,7 +13802,7 @@ define void @GenImageChecked(ptr dead_on_unwind noalias nocapture writable write
 
 19:                                               ; preds = %.preheader.us, %19
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %19 ]
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = sdiv i32 %20, %3
   %22 = add nsw i32 %15, %21
   %23 = and i32 %22, 1
@@ -14237,7 +14237,7 @@ define void @GenImageCellular(ptr dead_on_unwind noalias nocapture writable writ
 
 .lr.ph94.us:                                      ; preds = %.lr.ph94.us.preheader, %._crit_edge.us
   %indvars.iv110 = phi i64 [ 0, %.lr.ph94.us.preheader ], [ %indvars.iv.next111, %._crit_edge.us ]
-  %21 = trunc i64 %indvars.iv110 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv110 to i32
   %22 = sdiv i32 %21, %3
   %23 = sext i32 %22 to i64
   %24 = trunc i64 %indvars.iv110 to i32
@@ -14248,7 +14248,7 @@ define void @GenImageCellular(ptr dead_on_unwind noalias nocapture writable writ
 
 27:                                               ; preds = %.lr.ph94.us, %30
   %indvars.iv105 = phi i64 [ 0, %.lr.ph94.us ], [ %indvars.iv.next106, %30 ]
-  %28 = trunc i64 %indvars.iv105 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv105 to i32
   %29 = sdiv i32 %28, %3
   br label %35
 
@@ -14327,7 +14327,7 @@ define void @GenImageCellular(ptr dead_on_unwind noalias nocapture writable writ
 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %58 = trunc i64 %indvars.iv to i32
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
   %59 = sdiv i32 %58, %9
   %60 = mul nsw i32 %59, %3
   %61 = tail call i32 @GetRandomValue(i32 noundef 0, i32 noundef %16) #49
@@ -14651,7 +14651,7 @@ GetPixelDataSize.exit:                            ; preds = %18, %.thread
 
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = mul i32 %25, %44
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %29, i64 %46
@@ -16825,13 +16825,13 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %11 = icmp eq ptr %10, null
   %.0187.sroa.gep192 = getelementptr inbounds i8, ptr %8, i64 8
   %.0187.sroa.gep193 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %11, label %187, label %12
+  br i1 %11, label %186, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %187, label %16
+  br i1 %15, label %186, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 12
@@ -16847,7 +16847,7 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %or.cond8 = select i1 %or.cond5, i1 true, i1 %26
-  br i1 %or.cond8, label %187, label %27
+  br i1 %or.cond8, label %186, label %27
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16867,7 +16867,7 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 36:                                               ; preds = %32
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.64) #49
-  br label %187
+  br label %186
 
 37:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -17022,223 +17022,223 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %.sroa.20.12.vec.insert177 = insertelement <2 x float> %.sroa.20.7, float %.pre-phi, i64 1
   %.sroa.20.8 = select i1 %97, <2 x float> %.sroa.20.12.vec.insert177, <2 x float> %.sroa.20.7
   %98 = icmp ugt i32 %6, -16777217
-  br i1 %98, label %99, label %102
+  br i1 %98, label %99, label %switch.edge
 
 99:                                               ; preds = %93
   %100 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
   %101 = icmp ult i32 %100, 5
-  br i1 %101, label %switch.lookup, label %102
+  br i1 %101, label %switch.lookup, label %switch.edge
 
 switch.lookup:                                    ; preds = %99
-  %switch.cast = trunc i32 %100 to i5
+  %switch.cast = trunc nuw i32 %100 to i5
   %switch.downshift = lshr i5 5, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1
-  br label %102
+  br label %switch.edge
 
-102:                                              ; preds = %switch.lookup, %99, %93
-  %.0189 = phi i1 [ true, %93 ], [ true, %99 ], [ %switch.masked, %switch.lookup ]
-  %103 = load i32, ptr %33, align 4
-  %switch.tableidx = add i32 %103, -1
-  %104 = icmp ult i32 %switch.tableidx, 24
-  br i1 %104, label %switch.lookup279, label %106
+switch.edge:                                      ; preds = %99, %switch.lookup, %93
+  %.0189 = phi i1 [ true, %93 ], [ %switch.masked, %switch.lookup ], [ true, %99 ]
+  %102 = load i32, ptr %33, align 4
+  %switch.tableidx = add i32 %102, -1
+  %103 = icmp ult i32 %switch.tableidx, 24
+  br i1 %103, label %switch.lookup279, label %105
 
-switch.lookup279:                                 ; preds = %102
-  %105 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %105
+switch.lookup279:                                 ; preds = %switch.edge
+  %104 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %106
+  br label %105
 
-106:                                              ; preds = %switch.lookup279, %102
-  %.0.i = phi i32 [ 0, %102 ], [ %switch.load, %switch.lookup279 ]
-  %107 = mul nsw i32 %.0.i, %94
-  %108 = sdiv i32 %107, 8
-  %109 = icmp slt i32 %94, 4
-  br i1 %109, label %110, label %GetPixelDataSize.exit
+105:                                              ; preds = %switch.lookup279, %switch.edge
+  %.0.i = phi i32 [ 0, %switch.edge ], [ %switch.load, %switch.lookup279 ]
+  %106 = mul nsw i32 %.0.i, %94
+  %107 = sdiv i32 %106, 8
+  %108 = icmp slt i32 %94, 4
+  br i1 %108, label %109, label %GetPixelDataSize.exit
 
-110:                                              ; preds = %106
-  %111 = and i32 %103, -2
-  %or.cond3.i = icmp eq i32 %111, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %112
+109:                                              ; preds = %105
+  %110 = and i32 %102, -2
+  %or.cond3.i = icmp eq i32 %110, 14
+  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %111
 
-112:                                              ; preds = %110
-  %113 = and i32 %103, -8
-  %or.cond5.i = icmp eq i32 %113, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %108
+111:                                              ; preds = %109
+  %112 = and i32 %102, -8
+  %or.cond5.i = icmp eq i32 %112, 16
+  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %107
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %106, %110, %112
-  %.016.i = phi i32 [ %108, %106 ], [ 8, %110 ], [ %spec.select.i, %112 ]
-  %114 = sdiv i32 %.016.i, %94
-  %115 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %switch.tableidx281 = add i32 %115, -1
-  %116 = icmp ult i32 %switch.tableidx281, 24
-  br i1 %116, label %switch.lookup280, label %118
+GetPixelDataSize.exit:                            ; preds = %105, %109, %111
+  %.016.i = phi i32 [ %107, %105 ], [ 8, %109 ], [ %spec.select.i, %111 ]
+  %113 = sdiv i32 %.016.i, %94
+  %114 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %switch.tableidx281 = add i32 %114, -1
+  %115 = icmp ult i32 %switch.tableidx281, 24
+  br i1 %115, label %switch.lookup280, label %117
 
 switch.lookup280:                                 ; preds = %GetPixelDataSize.exit
-  %117 = zext nneg i32 %switch.tableidx281 to i64
-  %switch.gep282 = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %117
+  %116 = zext nneg i32 %switch.tableidx281 to i64
+  %switch.gep282 = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %116
   %switch.load283 = load i32, ptr %switch.gep282, align 4
-  br label %118
+  br label %117
 
-118:                                              ; preds = %switch.lookup280, %GetPixelDataSize.exit
+117:                                              ; preds = %switch.lookup280, %GetPixelDataSize.exit
   %.0.i225 = phi i32 [ 0, %GetPixelDataSize.exit ], [ %switch.load283, %switch.lookup280 ]
-  %119 = mul nsw i32 %.0.i225, %67
-  %120 = sdiv i32 %119, 8
-  %121 = icmp slt i32 %67, 4
-  br i1 %121, label %122, label %GetPixelDataSize.exit230
+  %118 = mul nsw i32 %.0.i225, %67
+  %119 = sdiv i32 %118, 8
+  %120 = icmp slt i32 %67, 4
+  br i1 %120, label %121, label %GetPixelDataSize.exit230
 
-122:                                              ; preds = %118
-  %123 = and i32 %115, -2
-  %or.cond3.i227 = icmp eq i32 %123, 14
-  br i1 %or.cond3.i227, label %GetPixelDataSize.exit230, label %124
+121:                                              ; preds = %117
+  %122 = and i32 %114, -2
+  %or.cond3.i227 = icmp eq i32 %122, 14
+  br i1 %or.cond3.i227, label %GetPixelDataSize.exit230, label %123
 
-124:                                              ; preds = %122
-  %125 = and i32 %115, -8
-  %or.cond5.i228 = icmp eq i32 %125, 16
-  %spec.select.i229 = select i1 %or.cond5.i228, i32 16, i32 %120
+123:                                              ; preds = %121
+  %124 = and i32 %114, -8
+  %or.cond5.i228 = icmp eq i32 %124, 16
+  %spec.select.i229 = select i1 %or.cond5.i228, i32 16, i32 %119
   br label %GetPixelDataSize.exit230
 
-GetPixelDataSize.exit230:                         ; preds = %118, %122, %124
-  %.016.i226 = phi i32 [ %120, %118 ], [ 8, %122 ], [ %spec.select.i229, %124 ]
-  %126 = sdiv i32 %.016.i226, %67
-  %127 = load ptr, ptr %.0187.sroa.phi200, align 8
+GetPixelDataSize.exit230:                         ; preds = %117, %121, %123
+  %.016.i226 = phi i32 [ %119, %117 ], [ 8, %121 ], [ %spec.select.i229, %123 ]
+  %125 = sdiv i32 %.016.i226, %67
+  %126 = load ptr, ptr %.0187.sroa.phi200, align 8
   %.sroa.0101.4.vec.extract130 = extractelement <2 x float> %.sroa.0101.4, i64 1
-  %128 = fptosi float %.sroa.0101.4.vec.extract130 to i32
-  %129 = mul nsw i32 %67, %128
+  %127 = fptosi float %.sroa.0101.4.vec.extract130 to i32
+  %128 = mul nsw i32 %67, %127
   %.sroa.0101.0.vec.extract115 = extractelement <2 x float> %.sroa.0101.4, i64 0
-  %130 = fptosi float %.sroa.0101.0.vec.extract115 to i32
-  %131 = add nsw i32 %129, %130
-  %132 = mul nsw i32 %126, %131
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds i8, ptr %127, i64 %133
-  %135 = load ptr, ptr %0, align 8
+  %129 = fptosi float %.sroa.0101.0.vec.extract115 to i32
+  %130 = add nsw i32 %128, %129
+  %131 = mul nsw i32 %125, %130
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr %126, i64 %132
+  %134 = load ptr, ptr %0, align 8
   %.sroa.074.4.vec.extract96 = extractelement <2 x float> %.sroa.074.1, i64 1
-  %136 = fptosi float %.sroa.074.4.vec.extract96 to i32
-  %137 = mul nsw i32 %94, %136
+  %135 = fptosi float %.sroa.074.4.vec.extract96 to i32
+  %136 = mul nsw i32 %94, %135
   %.sroa.074.0.vec.extract85 = extractelement <2 x float> %.sroa.074.1, i64 0
-  %138 = fptosi float %.sroa.074.0.vec.extract85 to i32
-  %139 = add nsw i32 %137, %138
-  %140 = mul nsw i32 %114, %139
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %135, i64 %141
+  %137 = fptosi float %.sroa.074.0.vec.extract85 to i32
+  %138 = add nsw i32 %136, %137
+  %139 = mul nsw i32 %113, %138
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds i8, ptr %134, i64 %140
   %.sroa.20.12.vec.extract179 = extractelement <2 x float> %.sroa.20.8, i64 1
-  %143 = fptosi float %.sroa.20.12.vec.extract179 to i32
-  %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %.lr.ph242, label %._crit_edge
+  %142 = fptosi float %.sroa.20.12.vec.extract179 to i32
+  %143 = icmp sgt i32 %142, 0
+  br i1 %143, label %.lr.ph242, label %._crit_edge
 
 .lr.ph242:                                        ; preds = %GetPixelDataSize.exit230
   %.sroa.20.8.vec.extract154 = extractelement <2 x float> %.sroa.20.8, i64 0
-  %145 = fptosi float %.sroa.20.8.vec.extract154 to i32
-  %.fr256 = freeze i32 %145
-  %146 = mul nsw i32 %126, %.fr256
-  %147 = sext i32 %146 to i64
-  %148 = icmp sgt i32 %.fr256, 0
-  %149 = sext i32 %114 to i64
-  %150 = sext i32 %126 to i64
-  %151 = sext i32 %.016.i226 to i64
-  %152 = sext i32 %.016.i to i64
-  br i1 %148, label %.lr.ph242.split.us, label %.lr.ph242.split
+  %144 = fptosi float %.sroa.20.8.vec.extract154 to i32
+  %.fr256 = freeze i32 %144
+  %145 = mul nsw i32 %125, %.fr256
+  %146 = sext i32 %145 to i64
+  %147 = icmp sgt i32 %.fr256, 0
+  %148 = sext i32 %113 to i64
+  %149 = sext i32 %125 to i64
+  %150 = sext i32 %.016.i226 to i64
+  %151 = sext i32 %.016.i to i64
+  br i1 %147, label %.lr.ph242.split.us, label %.lr.ph242.split
 
 .lr.ph242.split.us:                               ; preds = %.lr.ph242
   br i1 %.0189, label %.lr.ph.us.us, label %.lr.ph242.split.us.split
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph242.split.us, %..loopexit_crit_edge.split.us.us.us
-  %.0184241.us.us = phi i32 [ %164, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.lr.ph242.split.us ]
-  %.0185238.us.us = phi ptr [ %163, %..loopexit_crit_edge.split.us.us.us ], [ %142, %.lr.ph242.split.us ]
-  %.0186235.us.us = phi ptr [ %162, %..loopexit_crit_edge.split.us.us.us ], [ %134, %.lr.ph242.split.us ]
-  br label %153
+  %.0184241.us.us = phi i32 [ %163, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.lr.ph242.split.us ]
+  %.0185238.us.us = phi ptr [ %162, %..loopexit_crit_edge.split.us.us.us ], [ %141, %.lr.ph242.split.us ]
+  %.0186235.us.us = phi ptr [ %161, %..loopexit_crit_edge.split.us.us.us ], [ %133, %.lr.ph242.split.us ]
+  br label %152
 
-153:                                              ; preds = %153, %.lr.ph.us.us
-  %.0234.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %161, %153 ]
-  %.0182233.us.us.us = phi ptr [ %.0185238.us.us, %.lr.ph.us.us ], [ %159, %153 ]
-  %.0183232.us.us.us = phi ptr [ %.0186235.us.us, %.lr.ph.us.us ], [ %160, %153 ]
-  %154 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %155 = call i32 @GetPixelColor(ptr noundef %.0183232.us.us.us, i32 noundef %154)
-  %156 = load i32, ptr %33, align 4
-  %157 = call i32 @GetPixelColor(ptr noundef %.0182233.us.us.us, i32 noundef %156)
-  %158 = call i32 @ColorAlphaBlend(i32 %157, i32 %155, i32 %6)
-  call void @SetPixelColor(ptr noundef %.0182233.us.us.us, i32 %158, i32 noundef %156)
-  %159 = getelementptr inbounds i8, ptr %.0182233.us.us.us, i64 %149
-  %160 = getelementptr inbounds i8, ptr %.0183232.us.us.us, i64 %150
-  %161 = add nuw nsw i32 %.0234.us.us.us, 1
-  %exitcond263.not = icmp eq i32 %161, %.fr256
-  br i1 %exitcond263.not, label %..loopexit_crit_edge.split.us.us.us, label %153
+152:                                              ; preds = %152, %.lr.ph.us.us
+  %.0234.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %160, %152 ]
+  %.0182233.us.us.us = phi ptr [ %.0185238.us.us, %.lr.ph.us.us ], [ %158, %152 ]
+  %.0183232.us.us.us = phi ptr [ %.0186235.us.us, %.lr.ph.us.us ], [ %159, %152 ]
+  %153 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %154 = call i32 @GetPixelColor(ptr noundef %.0183232.us.us.us, i32 noundef %153)
+  %155 = load i32, ptr %33, align 4
+  %156 = call i32 @GetPixelColor(ptr noundef %.0182233.us.us.us, i32 noundef %155)
+  %157 = call i32 @ColorAlphaBlend(i32 %156, i32 %154, i32 %6)
+  call void @SetPixelColor(ptr noundef %.0182233.us.us.us, i32 %157, i32 noundef %155)
+  %158 = getelementptr inbounds i8, ptr %.0182233.us.us.us, i64 %148
+  %159 = getelementptr inbounds i8, ptr %.0183232.us.us.us, i64 %149
+  %160 = add nuw nsw i32 %.0234.us.us.us, 1
+  %exitcond263.not = icmp eq i32 %160, %.fr256
+  br i1 %exitcond263.not, label %..loopexit_crit_edge.split.us.us.us, label %152
 
-..loopexit_crit_edge.split.us.us.us:              ; preds = %153
-  %162 = getelementptr inbounds i8, ptr %.0186235.us.us, i64 %151
-  %163 = getelementptr inbounds i8, ptr %.0185238.us.us, i64 %152
-  %164 = add nuw nsw i32 %.0184241.us.us, 1
-  %exitcond264.not = icmp eq i32 %164, %143
+..loopexit_crit_edge.split.us.us.us:              ; preds = %152
+  %161 = getelementptr inbounds i8, ptr %.0186235.us.us, i64 %150
+  %162 = getelementptr inbounds i8, ptr %.0185238.us.us, i64 %151
+  %163 = add nuw nsw i32 %.0184241.us.us, 1
+  %exitcond264.not = icmp eq i32 %163, %142
   br i1 %exitcond264.not, label %._crit_edge, label %.lr.ph.us.us
 
 .lr.ph242.split.us.split:                         ; preds = %.lr.ph242.split.us, %..loopexit_crit_edge.split.us246
-  %.0184241.us = phi i32 [ %171, %..loopexit_crit_edge.split.us246 ], [ 0, %.lr.ph242.split.us ]
-  %.0185238.us = phi ptr [ %170, %..loopexit_crit_edge.split.us246 ], [ %142, %.lr.ph242.split.us ]
-  %.0186235.us = phi ptr [ %169, %..loopexit_crit_edge.split.us246 ], [ %134, %.lr.ph242.split.us ]
-  %165 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %166 = load i32, ptr %33, align 4
-  %167 = icmp eq i32 %165, %166
-  br i1 %167, label %168, label %.lr.ph.us
+  %.0184241.us = phi i32 [ %170, %..loopexit_crit_edge.split.us246 ], [ 0, %.lr.ph242.split.us ]
+  %.0185238.us = phi ptr [ %169, %..loopexit_crit_edge.split.us246 ], [ %141, %.lr.ph242.split.us ]
+  %.0186235.us = phi ptr [ %168, %..loopexit_crit_edge.split.us246 ], [ %133, %.lr.ph242.split.us ]
+  %164 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %165 = load i32, ptr %33, align 4
+  %166 = icmp eq i32 %164, %165
+  br i1 %166, label %167, label %.lr.ph.us
 
-168:                                              ; preds = %.lr.ph242.split.us.split
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238.us, ptr align 1 %.0186235.us, i64 %147, i1 false)
+167:                                              ; preds = %.lr.ph242.split.us.split
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238.us, ptr align 1 %.0186235.us, i64 %146, i1 false)
   br label %..loopexit_crit_edge.split.us246
 
-..loopexit_crit_edge.split.us246:                 ; preds = %.lr.ph.us, %168
-  %169 = getelementptr inbounds i8, ptr %.0186235.us, i64 %151
-  %170 = getelementptr inbounds i8, ptr %.0185238.us, i64 %152
-  %171 = add nuw nsw i32 %.0184241.us, 1
-  %exitcond262.not = icmp eq i32 %171, %143
+..loopexit_crit_edge.split.us246:                 ; preds = %.lr.ph.us, %167
+  %168 = getelementptr inbounds i8, ptr %.0186235.us, i64 %150
+  %169 = getelementptr inbounds i8, ptr %.0185238.us, i64 %151
+  %170 = add nuw nsw i32 %.0184241.us, 1
+  %exitcond262.not = icmp eq i32 %170, %142
   br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph242.split.us.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph242.split.us.split, %.lr.ph.us
-  %.0234.us243 = phi i32 [ %177, %.lr.ph.us ], [ 0, %.lr.ph242.split.us.split ]
-  %.0182233.us244 = phi ptr [ %175, %.lr.ph.us ], [ %.0185238.us, %.lr.ph242.split.us.split ]
-  %.0183232.us245 = phi ptr [ %176, %.lr.ph.us ], [ %.0186235.us, %.lr.ph242.split.us.split ]
-  %172 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %173 = call i32 @GetPixelColor(ptr noundef %.0183232.us245, i32 noundef %172)
-  %174 = load i32, ptr %33, align 4
-  call void @SetPixelColor(ptr noundef %.0182233.us244, i32 %173, i32 noundef %174)
-  %175 = getelementptr inbounds i8, ptr %.0182233.us244, i64 %149
-  %176 = getelementptr inbounds i8, ptr %.0183232.us245, i64 %150
-  %177 = add nuw nsw i32 %.0234.us243, 1
-  %exitcond261.not = icmp eq i32 %177, %.fr256
+  %.0234.us243 = phi i32 [ %176, %.lr.ph.us ], [ 0, %.lr.ph242.split.us.split ]
+  %.0182233.us244 = phi ptr [ %174, %.lr.ph.us ], [ %.0185238.us, %.lr.ph242.split.us.split ]
+  %.0183232.us245 = phi ptr [ %175, %.lr.ph.us ], [ %.0186235.us, %.lr.ph242.split.us.split ]
+  %171 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %172 = call i32 @GetPixelColor(ptr noundef %.0183232.us245, i32 noundef %171)
+  %173 = load i32, ptr %33, align 4
+  call void @SetPixelColor(ptr noundef %.0182233.us244, i32 %172, i32 noundef %173)
+  %174 = getelementptr inbounds i8, ptr %.0182233.us244, i64 %148
+  %175 = getelementptr inbounds i8, ptr %.0183232.us245, i64 %149
+  %176 = add nuw nsw i32 %.0234.us243, 1
+  %exitcond261.not = icmp eq i32 %176, %.fr256
   br i1 %exitcond261.not, label %..loopexit_crit_edge.split.us246, label %.lr.ph.us
 
 .lr.ph242.split:                                  ; preds = %.lr.ph242
-  %178 = icmp ne i32 %115, %103
-  %or.cond275.not = or i1 %178, %.0189
+  %177 = icmp ne i32 %114, %102
+  %or.cond275.not = or i1 %177, %.0189
   br i1 %or.cond275.not, label %._crit_edge, label %.lr.ph242.split.split.split
 
 .lr.ph242.split.split.split:                      ; preds = %.lr.ph242.split, %.loopexit
-  %.0184241 = phi i32 [ %185, %.loopexit ], [ 0, %.lr.ph242.split ]
-  %.0185238 = phi ptr [ %184, %.loopexit ], [ %142, %.lr.ph242.split ]
-  %.0186235 = phi ptr [ %183, %.loopexit ], [ %134, %.lr.ph242.split ]
-  %179 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
-  %180 = load i32, ptr %33, align 4
-  %181 = icmp eq i32 %179, %180
-  br i1 %181, label %182, label %.loopexit
+  %.0184241 = phi i32 [ %184, %.loopexit ], [ 0, %.lr.ph242.split ]
+  %.0185238 = phi ptr [ %183, %.loopexit ], [ %141, %.lr.ph242.split ]
+  %.0186235 = phi ptr [ %182, %.loopexit ], [ %133, %.lr.ph242.split ]
+  %178 = load i32, ptr %.0187.sroa.phi200.sroa.phi, align 4
+  %179 = load i32, ptr %33, align 4
+  %180 = icmp eq i32 %178, %179
+  br i1 %180, label %181, label %.loopexit
 
-182:                                              ; preds = %.lr.ph242.split.split.split
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238, ptr align 1 %.0186235, i64 %147, i1 false)
+181:                                              ; preds = %.lr.ph242.split.split.split
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0185238, ptr align 1 %.0186235, i64 %146, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph242.split.split.split, %182
-  %183 = getelementptr inbounds i8, ptr %.0186235, i64 %151
-  %184 = getelementptr inbounds i8, ptr %.0185238, i64 %152
-  %185 = add nuw nsw i32 %.0184241, 1
-  %exitcond.not = icmp eq i32 %185, %143
+.loopexit:                                        ; preds = %.lr.ph242.split.split.split, %181
+  %182 = getelementptr inbounds i8, ptr %.0186235, i64 %150
+  %183 = getelementptr inbounds i8, ptr %.0185238, i64 %151
+  %184 = add nuw nsw i32 %.0184241, 1
+  %exitcond.not = icmp eq i32 %184, %142
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph242.split.split.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %..loopexit_crit_edge.split.us246, %..loopexit_crit_edge.split.us.us.us, %.lr.ph242.split, %GetPixelDataSize.exit230
-  br i1 %.0188, label %186, label %187
+  br i1 %.0188, label %185, label %186
 
-186:                                              ; preds = %._crit_edge
+185:                                              ; preds = %._crit_edge
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @free(ptr noundef %.sroa.0.0.copyload) #49
-  br label %187
+  br label %186
 
-187:                                              ; preds = %._crit_edge, %186, %7, %12, %16, %36
+186:                                              ; preds = %._crit_edge, %185, %7, %12, %16, %36
   ret void
 }
 
@@ -17626,7 +17626,7 @@ GetPixelDataSize.exit:                            ; preds = %75, %.thread
 
 91:                                               ; preds = %.lr.ph103, %91
   %indvars.iv110 = phi i64 [ 1, %.lr.ph103 ], [ %indvars.iv.next111, %91 ]
-  %92 = trunc i64 %indvars.iv110 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv110 to i32
   %93 = mul i32 %86, %92
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %82, i64 %94
@@ -17693,7 +17693,7 @@ define void @SetPixelColor(ptr nocapture noundef writeonly %0, i32 %1, i32 nound
   %5 = insertelement <2 x i32> %4, i32 %1, i64 1
   %6 = trunc <2 x i32> %5 to <2 x i8>
   %.sroa.22.0.extract.shift = lshr i32 %1, 24
-  %.sroa.22.0.extract.trunc = trunc i32 %.sroa.22.0.extract.shift to i8
+  %.sroa.22.0.extract.trunc = trunc nuw i32 %.sroa.22.0.extract.shift to i8
   switch i32 %2, label %125 [
     i32 1, label %7
     i32 2, label %20
@@ -17977,7 +17977,7 @@ define void @ImageAlphaCrop(ptr nocapture noundef %0, float noundef %1) local_un
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %27
-  %33 = trunc i64 %indvars.iv.i to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %33, i32 %.155.us.i)
   %.236.us.i = tail call i32 @llvm.smax.i32(i32 %33, i32 %.13554.us.i)
   %.245.us.i = tail call i32 @llvm.smin.i32(i32 %24, i32 %.14451.us.i)
@@ -18078,7 +18078,7 @@ define { <2 x float>, <2 x float> } @GetImageAlphaBorder(ptr nocapture noundef r
   %12 = trunc i64 %indvars.iv74 to i32
   %13 = mul i32 %8, %12
   %14 = zext i32 %13 to i64
-  %15 = trunc i64 %indvars.iv74 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv74 to i32
   br label %16
 
 16:                                               ; preds = %.preheader.us, %23
@@ -18094,7 +18094,7 @@ define { <2 x float>, <2 x float> } @GetImageAlphaBorder(ptr nocapture noundef r
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %16
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select.us = tail call i32 @llvm.smin.i32(i32 %22, i32 %.155.us)
   %.236.us = tail call i32 @llvm.smax.i32(i32 %22, i32 %.13554.us)
   %.245.us = tail call i32 @llvm.smin.i32(i32 %15, i32 %.14451.us)
@@ -19087,7 +19087,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %23, label %.lr.ph394.preheader, label %._crit_edge
 
 .lr.ph394.preheader:                              ; preds = %.preheader344
-  %71 = trunc i64 %indvars.iv436 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv436 to i32
   %invariant.gep456 = getelementptr %struct.Vector4, ptr %21, i64 %indvars.iv436
   %invariant.gep469 = getelementptr %struct.Vector4, ptr %20, i64 %indvars.iv436
   br label %.lr.ph394
@@ -19107,7 +19107,7 @@ define void @ImageBlurGaussian(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %indvars.iv431 = phi i64 [ 0, %.lr.ph394.preheader ], [ %indvars.iv.next432, %97 ]
   %.0298392 = phi i32 [ %1, %.lr.ph394.preheader ], [ %.2, %97 ]
   %76 = phi <4 x float> [ %70, %.lr.ph394.preheader ], [ %98, %97 ]
-  %77 = trunc i64 %indvars.iv431 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv431 to i32
   %78 = add i32 %77, %26
   %79 = icmp sgt i32 %78, -1
   br i1 %79, label %80, label %88
@@ -19374,7 +19374,7 @@ define void @ImageKernelConvolution(ptr noundef %0, ptr noundef readonly %1, i32
   br i1 %46, label %.preheader219.us.us.preheader, label %.preheader220.us
 
 .preheader219.us.us.preheader:                    ; preds = %.preheader221.us
-  %78 = trunc i64 %indvars.iv267 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv267 to i32
   br label %.preheader219.us.us
 
 .preheader219.us.us:                              ; preds = %.preheader219.us.us.preheader, %._crit_edge226.us.us
@@ -19391,7 +19391,7 @@ define void @ImageKernelConvolution(ptr noundef %0, ptr noundef readonly %1, i32
 85:                                               ; preds = %103, %.preheader219.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %103 ], [ %48, %.preheader219.us.us ]
   %86 = add nsw i64 %indvars.iv, %49
-  %87 = trunc i64 %indvars.iv to i32
+  %87 = trunc nsw i64 %indvars.iv to i32
   %88 = add i32 %83, %87
   %.not218.us.us = icmp ult i32 %88, %25
   br i1 %.not218.us.us, label %90, label %89
@@ -19622,16 +19622,16 @@ define void @ImageDither(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %
   %.sroa.8147.0.copyload148 = load i8, ptr %.sroa.8147.0..sroa_idx, align 1
   %76 = zext i8 %.sroa.0140.0.copyload142 to i32
   %77 = lshr i32 %76, %61
-  %78 = trunc i32 %77 to i8
+  %78 = trunc nuw i32 %77 to i8
   %79 = zext i8 %.sroa.4.0.copyload143 to i32
   %80 = lshr i32 %79, %62
-  %81 = trunc i32 %80 to i8
+  %81 = trunc nuw i32 %80 to i8
   %82 = zext i8 %.sroa.6.0.copyload145 to i32
   %83 = lshr i32 %82, %63
-  %84 = trunc i32 %83 to i8
+  %84 = trunc nuw i32 %83 to i8
   %85 = zext i8 %.sroa.8147.0.copyload148 to i32
   %86 = lshr i32 %85, %64
-  %87 = trunc i32 %86 to i8
+  %87 = trunc nuw i32 %86 to i8
   %88 = shl i32 %77, %61
   %89 = sub nsw i32 %76, %88
   %90 = shl i32 %80, %62
@@ -20018,7 +20018,7 @@ GetPixelDataSize.exit:                            ; preds = %32, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %indvars.iv.next34 = add nsw i64 %indvars.iv33, -1
   %46 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv
-  %47 = trunc i64 %indvars.iv.next34 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.next34 to i32
   %48 = mul i32 %38, %47
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %.pre, i64 %49
@@ -20158,7 +20158,7 @@ GetPixelDataSize.exit:                            ; preds = %32, %.thread
 .preheader41.us.us:                               ; preds = %._crit_edge44.split.us.us.us, %.preheader41.lr.ph.split.us.split.us
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %._crit_edge44.split.us.us.us ], [ 0, %.preheader41.lr.ph.split.us.split.us ]
   %48 = mul nsw i64 %indvars.iv59, %47
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nsw i64 %48 to i32
   %50 = add nuw i32 %36, %49
   br label %.preheader.us.us.us
 
@@ -20364,7 +20364,7 @@ GetPixelDataSize.exit:                            ; preds = %54, %.thread
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv142 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next143, %._crit_edge.us ]
-  %77 = trunc i64 %indvars.iv142 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv142 to i32
   %78 = sitofp i32 %77 to float
   %79 = fsub float %78, %69
   %80 = insertelement <2 x float> poison, float %79, i64 0
@@ -20375,7 +20375,7 @@ GetPixelDataSize.exit:                            ; preds = %54, %.thread
 
 84:                                               ; preds = %.preheader.us, %.loopexit.us
   %indvars.iv137 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next138, %.loopexit.us ]
-  %85 = trunc i64 %indvars.iv137 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv137 to i32
   %86 = sitofp i32 %85 to float
   %87 = fsub float %86, %67
   %88 = insertelement <2 x float> poison, float %87, i64 0
@@ -20791,7 +20791,7 @@ GetPixelDataSize.exit:                            ; preds = %32, %.thread
 .preheader47.us.us:                               ; preds = %._crit_edge50.split.us.us.us, %.preheader47.lr.ph.split.us.split.us
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %._crit_edge50.split.us.us.us ], [ 0, %.preheader47.lr.ph.split.us.split.us ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %48 = trunc i64 %indvars.iv.next67 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv.next67 to i32
   %49 = mul i32 %36, %48
   br label %.preheader.us.us.us
 
@@ -21165,7 +21165,7 @@ define void @ImageColorReplace(ptr noundef %0, i32 %1, i32 %2) local_unnamed_add
   %.sroa.3.0.extract.shift = lshr i32 %2, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %52, label %6
@@ -21477,7 +21477,7 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %40 = getelementptr inbounds i16, ptr %36, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = lshr i16 %41, 8
-  %43 = trunc i16 %42 to i8
+  %43 = trunc nuw i16 %42 to i8
   %44 = and i8 %43, -8
   %45 = lshr i16 %41, 3
   %46 = trunc i16 %45 to i8
@@ -21497,7 +21497,7 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %57 = getelementptr inbounds i16, ptr %53, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = lshr i16 %58, 8
-  %60 = trunc i16 %59 to i8
+  %60 = trunc nuw i16 %59 to i8
   %61 = and i8 %60, -8
   %62 = lshr i16 %58, 3
   %63 = trunc i16 %62 to i8
@@ -21514,10 +21514,10 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %71 = getelementptr inbounds i16, ptr %67, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = lshr i16 %72, 12
-  %74 = trunc i16 %73 to i8
+  %74 = trunc nuw nsw i16 %73 to i8
   %75 = mul nuw i8 %74, 17
   %76 = lshr i16 %72, 8
-  %77 = trunc i16 %76 to i8
+  %77 = trunc nuw i16 %76 to i8
   %78 = and i8 %77, 15
   %79 = mul nuw i8 %78, 17
   %80 = trunc i16 %72 to i8
@@ -21934,7 +21934,7 @@ define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %6 = insertelement <2 x i32> %5, i32 %3, i64 1
   %7 = trunc <2 x i32> %6 to <2 x i8>
   %.sroa.40.0.extract.shift = lshr i32 %3, 24
-  %.sroa.40.0.extract.trunc = trunc i32 %.sroa.40.0.extract.shift to i8
+  %.sroa.40.0.extract.trunc = trunc nuw i32 %.sroa.40.0.extract.shift to i8
   %8 = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %8, null
   %10 = icmp slt i32 %1, 0
@@ -22951,16 +22951,16 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %12 = lshr i16 %11, 11
   %13 = mul nuw nsw i16 %12, 255
   %14 = udiv i16 %13, 31
-  %15 = trunc i16 %14 to i8
+  %15 = trunc nuw i16 %14 to i8
   %16 = lshr i16 %11, 5
   %17 = and i16 %16, 63
   %18 = mul nuw nsw i16 %17, 255
   %19 = udiv i16 %18, 63
-  %20 = trunc i16 %19 to i8
+  %20 = trunc nuw i16 %19 to i8
   %21 = and i16 %11, 31
   %narrow = mul nuw nsw i16 %21, 255
   %22 = udiv i16 %narrow, 31
-  %23 = trunc i16 %22 to i8
+  %23 = trunc nuw i16 %22 to i8
   %24 = insertelement <4 x i8> <i8 poison, i8 poison, i8 poison, i8 -1>, i8 %15, i64 0
   %25 = insertelement <4 x i8> %24, i8 %20, i64 1
   %26 = insertelement <4 x i8> %25, i8 %23, i64 2
@@ -22971,16 +22971,16 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %29 = lshr i16 %28, 11
   %30 = mul nuw nsw i16 %29, 255
   %31 = udiv i16 %30, 31
-  %32 = trunc i16 %31 to i8
+  %32 = trunc nuw i16 %31 to i8
   %33 = lshr i16 %28, 6
   %34 = and i16 %33, 31
   %35 = mul nuw nsw i16 %34, 255
   %36 = udiv i16 %35, 31
-  %37 = trunc i16 %36 to i8
+  %37 = trunc nuw i16 %36 to i8
   %38 = and i16 %28, 31
   %39 = mul nuw nsw i16 %38, 255
   %40 = udiv i16 %39, 31
-  %41 = trunc i16 %40 to i8
+  %41 = trunc nuw i16 %40 to i8
   %42 = trunc i16 %28 to i8
   %43 = and i8 %42, 1
   %44 = sub nsw i8 0, %43
@@ -22993,9 +22993,9 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 49:                                               ; preds = %2
   %50 = load i16, ptr %0, align 2
   %51 = lshr i16 %50, 12
-  %52 = trunc i16 %51 to i8
+  %52 = trunc nuw nsw i16 %51 to i8
   %53 = lshr i16 %50, 8
-  %54 = trunc i16 %53 to i8
+  %54 = trunc nuw i16 %53 to i8
   %55 = and i8 %54, 15
   %56 = trunc i16 %50 to i8
   %57 = lshr i8 %56, 4
@@ -23583,7 +23583,7 @@ define void @LoadTextureCubemap(ptr dead_on_unwind noalias nocapture writable wr
 
 .preheader:                                       ; preds = %59, %.preheader
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader ], [ 0, %59 ]
-  %61 = trunc i64 %indvars.iv88 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv88 to i32
   %62 = sitofp i32 %61 to float
   %63 = fmul float %56, %62
   %64 = getelementptr inbounds [6 x %struct.Rectangle], ptr %5, i64 0, i64 %indvars.iv88
@@ -23688,7 +23688,7 @@ GenImageColor.exit:                               ; preds = %.lr.ph.i, %.loopexi
 99:                                               ; preds = %GenImageColor.exit, %99
   %indvars.iv92 = phi i64 [ 0, %GenImageColor.exit ], [ %indvars.iv.next93, %99 ]
   %100 = getelementptr inbounds [6 x %struct.Rectangle], ptr %5, i64 0, i64 %indvars.iv92
-  %101 = trunc i64 %indvars.iv92 to i32
+  %101 = trunc nuw nsw i64 %indvars.iv92 to i32
   %102 = sitofp i32 %101 to float
   %103 = fmul float %56, %102
   %.sroa.01.4.vec.insert = insertelement <2 x float> <float 0.000000e+00, float poison>, float %103, i64 1
@@ -24132,7 +24132,7 @@ define void @DrawTexturePro(ptr nocapture noundef readonly byval(%struct.Texture
   %.sroa.3.0.extract.shift = lshr i32 %7, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.485.0.extract.shift = lshr i32 %7, 24
-  %.sroa.485.0.extract.trunc = trunc i32 %.sroa.485.0.extract.shift to i8
+  %.sroa.485.0.extract.trunc = trunc nuw i32 %.sroa.485.0.extract.shift to i8
   %9 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %78, label %10
@@ -24294,7 +24294,7 @@ define void @DrawTextureNPatch(ptr nocapture noundef readonly byval(%struct.Text
   %.sroa.3.0.extract.shift = lshr i32 %6, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i32 %6, 24
-  %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
+  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i8
   %8 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %105, label %9
@@ -24837,7 +24837,7 @@ define i32 @ColorTint(i32 %0, i32 %1) local_unnamed_addr #6 {
   %26 = extractelement <2 x float> %25, i64 0
   %27 = fmul float %26, 2.550000e+02
   %28 = fptoui float %27 to i8
-  %29 = trunc <2 x i32> %8 to <2 x i8>
+  %29 = trunc nuw <2 x i32> %8 to <2 x i8>
   %30 = uitofp <2 x i8> %29 to <2 x float>
   %31 = fdiv <2 x float> %30, <float 2.550000e+02, float 2.550000e+02>
   %shift15 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -25291,7 +25291,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
 
 90:                                               ; preds = %.loopexit.i.i.i, %.lr.ph253.split.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph253.split.i.i.i ], [ %indvars.iv.next.i.i.i, %.loopexit.i.i.i ]
-  %91 = trunc i64 %indvars.iv.i.i.i to i32
+  %91 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %92 = mul i32 %73, %91
   %93 = mul i32 %92, %71
   %94 = zext i32 %93 to i64
@@ -25481,7 +25481,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %150 = mul nuw nsw i32 %146, 29
   %151 = add nuw nsw i32 %149, %150
   %152 = lshr i32 %151, 8
-  %153 = trunc i32 %152 to i16
+  %153 = trunc nuw i32 %152 to i16
   store i16 %153, ptr %.7214.i.i.i, align 2
   %154 = getelementptr inbounds i8, ptr %.7148213.i.i.i, i64 6
   %155 = getelementptr inbounds i8, ptr %.7214.i.i.i, i64 2
@@ -25507,7 +25507,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %167 = mul nuw nsw i32 %163, 29
   %168 = add nuw nsw i32 %166, %167
   %169 = lshr i32 %168, 8
-  %170 = trunc i32 %169 to i16
+  %170 = trunc nuw i32 %169 to i16
   store i16 %170, ptr %.8209.i.i.i, align 2
   %171 = getelementptr inbounds i8, ptr %.8209.i.i.i, i64 2
   store i16 -1, ptr %171, align 2
@@ -25535,7 +25535,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %185 = mul nuw nsw i32 %181, 29
   %186 = add nuw nsw i32 %184, %185
   %187 = lshr i32 %186, 8
-  %188 = trunc i32 %187 to i16
+  %188 = trunc nuw i32 %187 to i16
   store i16 %188, ptr %.9204.i.i.i, align 2
   %189 = getelementptr inbounds i8, ptr %.9150203.i.i.i, i64 8
   %190 = getelementptr inbounds i8, ptr %.9204.i.i.i, i64 2
@@ -25561,7 +25561,7 @@ stbi__get8.exit.i.i:                              ; preds = %stbi__refill_buffer
   %202 = mul nuw nsw i32 %198, 29
   %203 = add nuw nsw i32 %201, %202
   %204 = lshr i32 %203, 8
-  %205 = trunc i32 %204 to i16
+  %205 = trunc nuw i32 %204 to i16
   store i16 %205, ptr %.10199.i.i.i, align 2
   %206 = getelementptr inbounds i8, ptr %.10151198.i.i.i, i64 6
   %207 = load i16, ptr %206, align 2
@@ -26762,7 +26762,7 @@ stbi__get8.exit302.thread:                        ; preds = %250, %stbi__get8.ex
   br label %.loopexit
 
 299:                                              ; preds = %296
-  %.lhs.trunc = trunc i32 %64 to i16
+  %.lhs.trunc = trunc nuw i32 %64 to i16
   %300 = udiv i16 %.lhs.trunc, 3
   %.zext = zext nneg i16 %300 to i32
   %301 = mul nuw nsw i32 %.zext, 3
@@ -27126,7 +27126,7 @@ stbi__get8.exit326:                               ; preds = %412, %415, %stbi__r
 .lr.ph738:                                        ; preds = %.preheader357, %.lr.ph738
   %indvars.iv1111 = phi i64 [ %indvars.iv.next1112, %.lr.ph738 ], [ 0, %.preheader357 ]
   %456 = tail call fastcc i32 @stbi__get16be(ptr noundef nonnull %8), !range !23
-  %457 = trunc i32 %456 to i16
+  %457 = trunc nuw i32 %456 to i16
   %458 = getelementptr inbounds [3 x i16], ptr %6, i64 0, i64 %indvars.iv1111
   store i16 %457, ptr %458, align 2
   %indvars.iv.next1112 = add nuw nsw i64 %indvars.iv1111, 1
@@ -27434,12 +27434,12 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
 
 598:                                              ; preds = %595
   %599 = lshr i32 %66, 8
-  %600 = trunc i32 %599 to i8
+  %600 = trunc nuw i32 %599 to i8
   store i8 %600, ptr @stbi__parse_png_file.invalid_chunk, align 16
   %601 = trunc i32 %66 to i8
   store i8 %601, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 1), align 1
   %602 = lshr i32 %68, 8
-  %603 = trunc i32 %602 to i8
+  %603 = trunc nuw i32 %602 to i8
   store i8 %603, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 2), align 2
   %604 = trunc i32 %68 to i8
   store i8 %604, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 3), align 1
@@ -27588,7 +27588,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
 
 25:                                               ; preds = %.lr.ph254.split, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph254.split ], [ %indvars.iv.next, %.loopexit ]
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = mul i32 %26, %3
   %28 = mul i32 %27, %1
   %29 = zext i32 %28 to i64
@@ -27782,7 +27782,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %86 = mul nuw nsw i32 %82, 29
   %87 = add nuw nsw i32 %85, %86
   %88 = lshr i32 %87, 8
-  %89 = trunc i32 %88 to i8
+  %89 = trunc nuw i32 %88 to i8
   store i8 %89, ptr %.7215, align 1
   %90 = getelementptr inbounds i8, ptr %.7148214, i64 3
   %91 = getelementptr inbounds i8, ptr %.7215, i64 1
@@ -27808,7 +27808,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %103 = mul nuw nsw i32 %99, 29
   %104 = add nuw nsw i32 %102, %103
   %105 = lshr i32 %104, 8
-  %106 = trunc i32 %105 to i8
+  %106 = trunc nuw i32 %105 to i8
   store i8 %106, ptr %.8210, align 1
   %107 = getelementptr inbounds i8, ptr %.8210, i64 1
   store i8 -1, ptr %107, align 1
@@ -27836,7 +27836,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %121 = mul nuw nsw i32 %117, 29
   %122 = add nuw nsw i32 %120, %121
   %123 = lshr i32 %122, 8
-  %124 = trunc i32 %123 to i8
+  %124 = trunc nuw i32 %123 to i8
   store i8 %124, ptr %.9205, align 1
   %125 = getelementptr inbounds i8, ptr %.9150204, i64 4
   %126 = getelementptr inbounds i8, ptr %.9205, i64 1
@@ -27862,7 +27862,7 @@ stbi__malloc_mad3.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %138 = mul nuw nsw i32 %134, 29
   %139 = add nuw nsw i32 %137, %138
   %140 = lshr i32 %139, 8
-  %141 = trunc i32 %140 to i8
+  %141 = trunc nuw i32 %140 to i8
   store i8 %141, ptr %.10200, align 1
   %142 = getelementptr inbounds i8, ptr %.10151199, i64 3
   %143 = load i8, ptr %142, align 1
@@ -28429,7 +28429,7 @@ define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr
   %23 = mul nuw nsw i32 %22, 255
   %24 = zext nneg i8 %19 to i32
   %25 = add nuw nsw i32 %23, %24
-  %.lhs.trunc = trunc i32 %25 to i16
+  %.lhs.trunc = trunc nuw i32 %25 to i16
   %.rhs.trunc = zext i8 %16 to i16
   %26 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %27 = trunc i16 %26 to i8
@@ -28439,14 +28439,14 @@ define internal fastcc void @stbi__de_iphone(ptr nocapture readonly %.0.val, ptr
   %30 = zext i8 %29 to i32
   %31 = mul nuw nsw i32 %30, 255
   %32 = add nuw nsw i32 %31, %24
-  %.lhs.trunc1 = trunc i32 %32 to i16
+  %.lhs.trunc1 = trunc nuw i32 %32 to i16
   %33 = udiv i16 %.lhs.trunc1, %.rhs.trunc
   %34 = trunc i16 %33 to i8
   store i8 %34, ptr %28, align 1
   %35 = zext i8 %17 to i32
   %36 = mul nuw nsw i32 %35, 255
   %37 = add nuw nsw i32 %36, %24
-  %.lhs.trunc4 = trunc i32 %37 to i16
+  %.lhs.trunc4 = trunc nuw i32 %37 to i16
   %38 = udiv i16 %.lhs.trunc4, %.rhs.trunc
   %39 = trunc i16 %38 to i8
   store i8 %39, ptr %20, align 1
@@ -28497,21 +28497,21 @@ define internal fastcc noundef i32 @stbi__expand_png_palette(ptr nocapture nound
 
 12:                                               ; preds = %3
   %13 = icmp eq i32 %2, 0
-  br i1 %13, label %stbi__malloc_mad2.exit, label %stbi__mul2sizes_valid.exit.i.i
+  br i1 %13, label %stbi__malloc_mad2.exit, label %stbi__mad2sizes_valid.exit.i
 
-stbi__mul2sizes_valid.exit.i.i:                   ; preds = %12
+stbi__mad2sizes_valid.exit.i:                     ; preds = %12
   %14 = udiv i32 2147483647, %2
-  %.not10.i.i = icmp slt i32 %14, %8
-  br i1 %.not10.i.i, label %stbi__malloc_mad2.exit.thread, label %stbi__malloc_mad2.exit
+  %.not10.i.not.i = icmp slt i32 %14, %8
+  br i1 %.not10.i.not.i, label %stbi__malloc_mad2.exit.thread, label %stbi__malloc_mad2.exit
 
-stbi__malloc_mad2.exit:                           ; preds = %12, %stbi__mul2sizes_valid.exit.i.i
+stbi__malloc_mad2.exit:                           ; preds = %12, %stbi__mad2sizes_valid.exit.i
   %15 = mul nsw i32 %8, %2
   %16 = sext i32 %15 to i64
   %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #50
   %18 = icmp eq ptr %17, null
   br i1 %18, label %stbi__malloc_mad2.exit.thread, label %19
 
-stbi__malloc_mad2.exit.thread:                    ; preds = %3, %stbi__mul2sizes_valid.exit.i.i, %stbi__malloc_mad2.exit
+stbi__malloc_mad2.exit.thread:                    ; preds = %3, %stbi__mad2sizes_valid.exit.i, %stbi__malloc_mad2.exit
   store ptr @.str.93, ptr @stbi__g_failure_reason, align 8
   br label %46
 
@@ -28974,7 +28974,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %162 = zext i8 %161 to i16
   %163 = add nuw nsw i16 %162, %158
   %164 = lshr i16 %163, 1
-  %.tr638 = trunc i16 %164 to i8
+  %.tr638 = trunc nuw i16 %164 to i8
   %.narrow639 = add i8 %155, %.tr638
   %165 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv946
   store i8 %.narrow639, ptr %165, align 1
@@ -29222,7 +29222,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %242 = zext i8 %241 to i16
   %243 = add nuw nsw i16 %242, %238
   %244 = lshr i16 %243, 1
-  %.tr623 = trunc i16 %244 to i8
+  %.tr623 = trunc nuw i16 %244 to i8
   %.narrow624 = add i8 %235, %.tr623
   %245 = getelementptr inbounds i8, ptr %.5547770, i64 %indvars.iv910
   store i8 %.narrow624, ptr %245, align 1
@@ -29385,7 +29385,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %indvars.iv961.be = phi i64 [ %indvars.iv.next962, %.loopexit721 ], [ %indvars.iv.next962982, %.loopexit721.thread ]
   %.0522822.be = phi ptr [ %.10532, %.loopexit721 ], [ %.9531, %.loopexit721.thread ]
   %303 = load ptr, ptr %31, align 8
-  %304 = trunc i64 %indvars.iv961.be to i32
+  %304 = trunc nuw i64 %indvars.iv961.be to i32
   %305 = mul i32 %13, %304
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds i8, ptr %303, i64 %306
@@ -29429,7 +29429,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
 323:                                              ; preds = %.lr.ph861, %.loopexit
   %indvars.iv973 = phi i64 [ 0, %.lr.ph861 ], [ %indvars.iv.next974, %.loopexit ]
   %324 = load ptr, ptr %31, align 8
-  %325 = trunc i64 %indvars.iv973 to i32
+  %325 = trunc nuw i64 %indvars.iv973 to i32
   %326 = mul i32 %13, %325
   %327 = zext i32 %326 to i64
   %328 = getelementptr inbounds i8, ptr %324, i64 %327
@@ -32254,7 +32254,7 @@ define internal fastcc noundef i32 @stbi__zbuild_huffman(ptr nocapture noundef %
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %13 ], [ 1, %._crit_edge.preheader ]
   %17 = getelementptr inbounds [17 x i32], ptr %5, i64 0, i64 %indvars.iv83
   %18 = load i32, ptr %17, align 4
-  %19 = trunc i64 %indvars.iv83 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv83 to i32
   %20 = shl nuw nsw i32 1, %19
   %21 = icmp sgt i32 %18, %20
   br i1 %21, label %.loopexit70.sink.split, label %13
@@ -32275,7 +32275,7 @@ define internal fastcc noundef i32 @stbi__zbuild_huffman(ptr nocapture noundef %
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, %.06573
   %.not68 = icmp ne i32 %29, 0
-  %31 = trunc i64 %indvars.iv87 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv87 to i32
   %32 = shl nuw nsw i32 1, %31
   %.not69.not = icmp sgt i32 %30, %32
   %or.cond = select i1 %.not68, i1 %.not69.not, i1 false
@@ -32325,7 +32325,7 @@ define internal fastcc noundef i32 @stbi__zbuild_huffman(ptr nocapture noundef %
   %58 = zext i16 %57 to i32
   %59 = add nsw i32 %55, %58
   %60 = shl nuw nsw i32 %47, 9
-  %61 = trunc i64 %indvars.iv94 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv94 to i32
   %62 = or i32 %60, %61
   %63 = trunc i32 %62 to i16
   %64 = sext i32 %59 to i64
@@ -32475,7 +32475,7 @@ stbi__fill_bits.exit:                             ; preds = %stbi__zget8.exit.i,
   br i1 %43, label %44, label %40
 
 44:                                               ; preds = %40
-  %45 = trunc i64 %indvars.iv.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i to i32
   %46 = icmp ugt i32 %45, 15
   br i1 %46, label %stbi__zhuffman_decode_slowpath.exit, label %47
 
@@ -32574,7 +32574,7 @@ stbiw__write_flush.exit.us.i:                     ; preds = %._crit_edge.us.i, %
   %33 = load ptr, ptr %22, align 8
   call void %32(ptr noundef %33, ptr noundef nonnull %12, i32 noundef %9) #49
   %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, %26
-  %34 = trunc i64 %indvars.iv.next37.i to i32
+  %34 = trunc nsw i64 %indvars.iv.next37.i to i32
   %.not31.us.i = icmp eq i32 %.026.i, %34
   br i1 %.not31.us.i, label %stbiw__write_pixels.exit, label %.preheader.us.i
 
@@ -32745,7 +32745,7 @@ define internal fastcc void @stbiw__writefv(ptr nocapture noundef readonly %0, p
   %72 = trunc i32 %71 to i8
   store i8 %72, ptr %11, align 1
   %73 = lshr i32 %67, 24
-  %74 = trunc i32 %73 to i8
+  %74 = trunc nuw i32 %73 to i8
   store i8 %74, ptr %12, align 1
   %75 = load ptr, ptr %0, align 8
   %76 = load ptr, ptr %13, align 8
@@ -33484,7 +33484,7 @@ stbiw__jpg_writeBits.exit:                        ; preds = %231, %181, %stbiw__
   br i1 %275, label %270, label %276
 
 276:                                              ; preds = %270
-  %277 = trunc i64 %indvars.iv312 to i32
+  %277 = trunc nsw i64 %indvars.iv312 to i32
   %278 = sub nsw i32 %277, %.0122273
   %279 = icmp sgt i32 %278, 15
   br i1 %279, label %.lr.ph271.preheader, label %299
@@ -33978,7 +33978,7 @@ define internal fastcc void @stbir__set_sampler(ptr nocapture noundef %0, i32 no
 
 14:                                               ; preds = %10
   %15 = fcmp ugt float %12, 1.000000e+00
-  br i1 %15, label %29, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %5, i64 16
@@ -33995,11 +33995,11 @@ define internal fastcc void @stbir__set_sampler(ptr nocapture noundef %0, i32 no
   %28 = fcmp oeq float %27, %18
   br i1 %28, label %30, label %29
 
-29:                                               ; preds = %16, %14
+29:                                               ; preds = %16
   br label %30
 
-30:                                               ; preds = %16, %10, %29, %8
-  %.0 = phi i32 [ 4, %29 ], [ 5, %10 ], [ %1, %8 ], [ 6, %16 ]
+30:                                               ; preds = %14, %16, %10, %29, %8
+  %.0 = phi i32 [ 5, %10 ], [ %1, %8 ], [ 6, %16 ], [ 4, %14 ], [ 4, %29 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %.0, ptr %31, align 4
   %32 = zext i32 %.0 to i64
@@ -36805,7 +36805,7 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %._crit_edge.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i154 ], [ %indvars.iv.next.i, %218 ]
   %.173.i = phi i32 [ %.06175.i, %.lr.ph.i154 ], [ %.2.i156, %218 ]
   %193 = add nuw nsw i64 %indvars.iv.i, %190
-  %194 = trunc i64 %193 to i32
+  %194 = trunc nuw nsw i64 %193 to i32
   %195 = sitofp i32 %194 to float
   %196 = fadd float %195, 5.000000e-01
   %197 = fadd float %189, %196
@@ -37289,7 +37289,7 @@ stbir_overlapping_memcpy.exit:                    ; preds = %74, %72, %._crit_ed
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv403 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next404, %.preheader ]
-  %97 = trunc i64 %indvars.iv403 to i32
+  %97 = trunc nuw nsw i64 %indvars.iv403 to i32
   %98 = sub i32 %97, %92
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds float, ptr %.1198353, i64 %99
@@ -37319,7 +37319,7 @@ stbir_overlapping_memcpy.exit:                    ; preds = %74, %72, %._crit_ed
 
 111:                                              ; preds = %107, %stbir__insert_coeff.exit
   %indvars.iv396 = phi i64 [ %84, %107 ], [ %indvars.iv.next397, %stbir__insert_coeff.exit ]
-  %112 = trunc i64 %indvars.iv396 to i32
+  %112 = trunc nsw i64 %indvars.iv396 to i32
   %113 = tail call i32 %108(i32 noundef %112, i32 noundef %8) #49
   %114 = sub nsw i64 %indvars.iv396, %109
   %115 = getelementptr inbounds float, ptr %.1198353, i64 %114
@@ -37677,7 +37677,7 @@ stbir__insert_coeff.exit268:                      ; preds = %.preheader, %._crit
   br i1 %252, label %246, label %.critedge
 
 .critedge:                                        ; preds = %249
-  %253 = trunc i64 %indvars.iv408 to i32
+  %253 = trunc nsw i64 %indvars.iv408 to i32
   %254 = add i32 %240, -1
   %255 = add i32 %254, %253
   store i32 %255, ptr %241, align 4

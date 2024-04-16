@@ -730,7 +730,7 @@ get_str_opt.exit197:                              ; preds = %62
   br label %399
 
 ._crit_edge.loopexit:                             ; preds = %134
-  %155 = trunc i32 %.2 to i16
+  %155 = trunc nuw i32 %.2 to i16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %132
@@ -1462,7 +1462,7 @@ isofile_free.exit82:                              ; preds = %.lr.ph.i79, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @iso9660_write_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @iso9660_write_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1591,7 +1591,7 @@ define internal noundef i32 @iso9660_finish_entry(ptr noundef %0) #0 {
   %58 = getelementptr inbounds i8, ptr %2, i64 10
   store i8 %57, ptr %58, align 2
   %59 = lshr i32 %51, 24
-  %60 = trunc i32 %59 to i8
+  %60 = trunc nuw i32 %59 to i8
   %61 = getelementptr inbounds i8, ptr %2, i64 11
   store i8 %60, ptr %61, align 1
   %62 = load i8, ptr %49, align 8
@@ -1966,39 +1966,39 @@ zisofs_rewind_boot_file.exit.thread243:           ; preds = %54
 148:                                              ; preds = %145
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %87, ptr noundef nonnull dereferenceable(8) @zisofs_magic, i64 8)
   %.not59.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not59.i.i.i, label %149, label %.critedge.i.i.i
+  br i1 %.not59.i.i.i, label %149, label %157
 
 149:                                              ; preds = %148
   %150 = load i32, ptr %93, align 1
   %151 = zext i32 %150 to i64
   %.not60.i.i.i = icmp eq i64 %125, %151
-  br i1 %.not60.i.i.i, label %152, label %.critedge.i.i.i
+  br i1 %.not60.i.i.i, label %152, label %157
 
 152:                                              ; preds = %149
   %153 = load i8, ptr %94, align 1
   %.not61.i.i.i = icmp eq i8 %153, 4
-  br i1 %.not61.i.i.i, label %154, label %.critedge.i.i.i
+  br i1 %.not61.i.i.i, label %154, label %157
 
 154:                                              ; preds = %152
   %155 = load i8, ptr %95, align 1
   %156 = zext i8 %155 to i32
   %.not62.i.i.i = icmp eq i32 %126, %156
-  br i1 %.not62.i.i.i, label %157, label %.critedge.i.i.i
+  br i1 %.not62.i.i.i, label %.critedge.i.i.i, label %157
 
-.critedge.i.i.i:                                  ; preds = %154, %152, %149, %148
+157:                                              ; preds = %154, %152, %149, %148
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.71) #23
   br label %wb_write_padding_to_temp.exit.thread.i
 
-157:                                              ; preds = %154
+.critedge.i.i.i:                                  ; preds = %154
   %158 = add nsw i64 %114, -16
   %159 = or disjoint i8 %122, 2
   store i8 %159, ptr %89, align 8
   br label %160
 
-160:                                              ; preds = %157, %142
-  %161 = phi i8 [ %159, %157 ], [ %122, %142 ]
-  %.054.i.i.i = phi i64 [ %158, %157 ], [ %114, %142 ]
-  %.053.i.i.i = phi ptr [ %96, %157 ], [ %87, %142 ]
+160:                                              ; preds = %.critedge.i.i.i, %142
+  %161 = phi i8 [ %159, %.critedge.i.i.i ], [ %122, %142 ]
+  %.054.i.i.i = phi i64 [ %158, %.critedge.i.i.i ], [ %114, %142 ]
+  %.053.i.i.i = phi ptr [ %96, %.critedge.i.i.i ], [ %87, %142 ]
   %162 = load i64, ptr %97, align 8
   %163 = icmp ult i64 %162, %133
   br i1 %163, label %164, label %zisofs_extract_init.exit.i.thread.i
@@ -2180,7 +2180,7 @@ wb_consume.exit.thread116.i.i:                    ; preds = %wb_consume.exit.i.i
   store ptr %.093.i.i, ptr %102, align 8
   %239 = zext i32 %238 to i64
   %240 = icmp ugt i64 %.094.i.i, %239
-  %241 = trunc i64 %.094.i.i to i32
+  %241 = trunc nuw i64 %.094.i.i to i32
   %spec.select.i.i195 = select i1 %240, i32 %238, i32 %241
   store i32 %spec.select.i.i195, ptr %105, align 8
   %.val.i.i = load ptr, ptr %7, align 8
@@ -2283,8 +2283,8 @@ wb_write_padding_to_temp.exit.i:                  ; preds = %.thread.i
   %spec.select79.i = select i1 %287, i32 -30, i32 0
   br label %wb_write_padding_to_temp.exit.thread.i
 
-wb_write_padding_to_temp.exit.thread.i:           ; preds = %wb_write_padding_to_temp.exit.i, %.thread.i, %zisofs_extract.exit.thread.i, %zisofs_extract.exit.thread.thread.i, %249, %wb_consume.exit.thread.i.i, %216, %207, %202, %192, %.critedge.i.i.i, %147, %141, %.thread74.i
-  %.1.i = phi i32 [ %277, %zisofs_extract.exit.thread.i ], [ -30, %.thread74.i ], [ 0, %.thread.i ], [ -30, %wb_consume.exit.thread.i.i ], [ -30, %.critedge.i.i.i ], [ -30, %147 ], [ -30, %141 ], [ -30, %249 ], [ -30, %216 ], [ -30, %207 ], [ -30, %202 ], [ -30, %192 ], [ %spec.select79.i, %wb_write_padding_to_temp.exit.i ], [ -30, %zisofs_extract.exit.thread.thread.i ]
+wb_write_padding_to_temp.exit.thread.i:           ; preds = %wb_write_padding_to_temp.exit.i, %.thread.i, %zisofs_extract.exit.thread.i, %zisofs_extract.exit.thread.thread.i, %249, %wb_consume.exit.thread.i.i, %216, %207, %202, %192, %157, %147, %141, %.thread74.i
+  %.1.i = phi i32 [ %277, %zisofs_extract.exit.thread.i ], [ -30, %.thread74.i ], [ 0, %.thread.i ], [ -30, %wb_consume.exit.thread.i.i ], [ -30, %157 ], [ -30, %147 ], [ -30, %141 ], [ -30, %249 ], [ -30, %216 ], [ -30, %207 ], [ -30, %202 ], [ -30, %192 ], [ %spec.select79.i, %wb_write_padding_to_temp.exit.i ], [ -30, %zisofs_extract.exit.thread.thread.i ]
   call void @free(ptr noundef %87) #23
   %288 = load ptr, ptr %90, align 8
   call void @free(ptr noundef %288) #23
@@ -4184,7 +4184,7 @@ isoent_setup_file_location.exit:                  ; preds = %.loopexit.i224, %11
   %1211 = getelementptr inbounds i8, ptr %2, i64 6
   store i8 %1210, ptr %1211, align 2
   %1212 = lshr i32 %1204, 24
-  %1213 = trunc i32 %1212 to i8
+  %1213 = trunc nuw i32 %1212 to i8
   %1214 = getelementptr inbounds i8, ptr %2, i64 7
   store i8 %1213, ptr %1214, align 1
   %1215 = getelementptr inbounds i8, ptr %1167, i64 66408
@@ -4224,7 +4224,7 @@ fd_boot_image_size.exit.thread.i236:              ; preds = %fd_boot_image_size.
   %1231 = getelementptr inbounds i8, ptr %2, i64 10
   store i8 %1230, ptr %1231, align 2
   %1232 = lshr i32 %.136.i, 24
-  %1233 = trunc i32 %1232 to i8
+  %1233 = trunc nuw i32 %1232 to i8
   %1234 = getelementptr inbounds i8, ptr %2, i64 11
   store i8 %1233, ptr %1234, align 1
   %1235 = getelementptr inbounds i8, ptr %2, i64 12
@@ -4239,7 +4239,7 @@ fd_boot_image_size.exit.thread.i236:              ; preds = %fd_boot_image_size.
   %1242 = getelementptr inbounds i8, ptr %2, i64 14
   store i8 %1241, ptr %1242, align 2
   %1243 = lshr i32 %1195, 24
-  %1244 = trunc i32 %1243 to i8
+  %1244 = trunc nuw i32 %1243 to i8
   %1245 = getelementptr inbounds i8, ptr %2, i64 15
   store i8 %1244, ptr %1245, align 1
   %1246 = getelementptr inbounds i8, ptr %2, i64 16
@@ -6381,7 +6381,7 @@ declare i32 @__archive_write_output(ptr noundef, ptr noundef, i64 noundef) local
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @write_iso9660_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @write_iso9660_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -6391,7 +6391,7 @@ define internal fastcc noundef i64 @write_iso9660_data(ptr noundef %0, ptr nound
 
 9:                                                ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.46) #23
-  br label %98
+  br label %97
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 64
@@ -6432,12 +6432,12 @@ define internal fastcc noundef i64 @write_iso9660_data(ptr noundef %0, ptr nound
 31:                                               ; preds = %28
   %32 = tail call fastcc i32 @zisofs_write_to_temp(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %23)
   %.not59 = icmp eq i32 %32, 0
-  br i1 %.not59, label %42, label %98
+  br i1 %.not59, label %42, label %97
 
 33:                                               ; preds = %28
   %34 = tail call fastcc i32 @wb_write_to_temp(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %23), !range !5
   %.not58 = icmp eq i32 %34, 0
-  br i1 %.not58, label %35, label %98
+  br i1 %.not58, label %35, label %97
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %14, align 8
@@ -6463,7 +6463,7 @@ wb_write_padding_to_temp.exit:                    ; preds = %42
   %49 = sub nsw i64 2048, %48
   %50 = tail call fastcc i32 @write_null(ptr noundef nonnull %0, i64 noundef %49)
   %.not60 = icmp eq i32 %50, 0
-  br i1 %.not60, label %wb_write_padding_to_temp.exit.wb_write_padding_to_temp.exit.thread_crit_edge, label %98
+  br i1 %.not60, label %wb_write_padding_to_temp.exit.wb_write_padding_to_temp.exit.thread_crit_edge, label %97
 
 wb_write_padding_to_temp.exit.wb_write_padding_to_temp.exit.thread_crit_edge: ; preds = %wb_write_padding_to_temp.exit
   %.pre68 = load ptr, ptr %14, align 8
@@ -6487,7 +6487,7 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
 
 59:                                               ; preds = %wb_write_padding_to_temp.exit.thread
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.59) #23
-  br label %98
+  br label %97
 
 60:                                               ; preds = %wb_write_padding_to_temp.exit.thread
   %61 = getelementptr inbounds i8, ptr %1, i64 %23
@@ -6536,12 +6536,13 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
 85:                                               ; preds = %82
   %86 = tail call fastcc i32 @zisofs_write_to_temp(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %.054)
   %.not64 = icmp eq i32 %86, 0
-  br i1 %.not64, label %97, label %98
+  %spec.select = select i1 %.not64, i64 %2, i64 -30
+  br label %97
 
 87:                                               ; preds = %82
   %88 = tail call fastcc i32 @wb_write_to_temp(ptr noundef nonnull %0, ptr noundef %.053, i64 noundef %.054), !range !5
   %.not63 = icmp eq i32 %88, 0
-  br i1 %.not63, label %89, label %98
+  br i1 %.not63, label %89, label %97
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %5, i64 16
@@ -6554,11 +6555,8 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
   store i64 %96, ptr %94, align 8
   br label %97
 
-97:                                               ; preds = %85, %89
-  br label %98
-
-98:                                               ; preds = %87, %85, %wb_write_padding_to_temp.exit, %33, %31, %97, %59, %9
-  %.0 = phi i64 [ -30, %9 ], [ -30, %59 ], [ %2, %97 ], [ -30, %31 ], [ -30, %33 ], [ -30, %wb_write_padding_to_temp.exit ], [ -30, %85 ], [ -30, %87 ]
+97:                                               ; preds = %85, %89, %87, %wb_write_padding_to_temp.exit, %33, %31, %59, %9
+  %.0 = phi i64 [ -30, %9 ], [ -30, %59 ], [ -30, %31 ], [ -30, %33 ], [ -30, %wb_write_padding_to_temp.exit ], [ -30, %87 ], [ %2, %89 ], [ %spec.select, %85 ]
   ret i64 %.0
 }
 
@@ -6697,7 +6695,7 @@ define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zisofs_write_to_temp(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @zisofs_write_to_temp(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -7039,7 +7037,7 @@ wb_consume.exit.thread:                           ; preds = %41, %wb_consume.exi
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wb_set_offset(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @wb_set_offset(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 66280
@@ -7141,7 +7139,8 @@ write_to_temp.exit:                               ; preds = %29
   %51 = load i32, ptr %50, align 8
   %52 = tail call i64 @lseek(i32 noundef %51, i64 noundef %1, i32 noundef 0) #23
   store i64 %1, ptr %12, align 8
-  br label %.sink.split
+  store i64 65536, ptr %9, align 8
+  br label %.loopexit
 
 53:                                               ; preds = %.thread._crit_edge, %38
   %54 = phi i64 [ %.pre75, %.thread._crit_edge ], [ %20, %38 ]
@@ -7152,7 +7151,8 @@ write_to_temp.exit:                               ; preds = %29
 56:                                               ; preds = %53
   %reass.sub = sub i64 %55, %1
   %57 = add i64 %reass.sub, 65536
-  br label %.sink.split
+  store i64 %57, ptr %9, align 8
+  br label %.loopexit
 
 58:                                               ; preds = %53
   %59 = sub nsw i64 %1, %54
@@ -7178,23 +7178,16 @@ write_to_temp.exit:                               ; preds = %29
 ._crit_edge:                                      ; preds = %63, %58
   %.0.lcssa = phi i64 [ %59, %58 ], [ %65, %63 ]
   %66 = icmp sgt i64 %.0.lcssa, 0
-  br i1 %66, label %67, label %69
+  br i1 %66, label %67, label %.loopexit
 
 67:                                               ; preds = %._crit_edge
   %68 = tail call fastcc i32 @write_null(ptr noundef %0, i64 noundef %.0.lcssa)
   %.not60 = icmp eq i32 %68, 0
-  br i1 %.not60, label %69, label %.loopexit
-
-.sink.split:                                      ; preds = %.thread68, %56
-  %.sink = phi i64 [ %57, %56 ], [ 65536, %.thread68 ]
-  store i64 %.sink, ptr %9, align 8
-  br label %69
-
-69:                                               ; preds = %.sink.split, %67, %._crit_edge
+  %spec.select = select i1 %.not60, i32 0, i32 -30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %write_to_temp.exit, %67, %48, %69, %7
-  %.050 = phi i32 [ -30, %7 ], [ 0, %69 ], [ -30, %write_to_temp.exit ], [ -30, %48 ], [ -30, %67 ], [ -30, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %write_to_temp.exit, %67, %.thread68, %._crit_edge, %56, %48, %7
+  %.050 = phi i32 [ -30, %7 ], [ -30, %write_to_temp.exit ], [ -30, %48 ], [ 0, %56 ], [ 0, %._crit_edge ], [ 0, %.thread68 ], [ %spec.select, %67 ], [ -30, %.lr.ph ]
   ret i32 %.050
 }
 
@@ -7448,7 +7441,7 @@ define internal fastcc i32 @write_VD(ptr noundef %0, ptr nocapture noundef reado
   %40 = getelementptr inbounds i8, ptr %16, i64 82
   store i8 %39, ptr %40, align 1
   %41 = lshr i32 %33, 24
-  %42 = trunc i32 %41 to i8
+  %42 = trunc nuw i32 %41 to i8
   %43 = getelementptr inbounds i8, ptr %16, i64 83
   store i8 %42, ptr %43, align 1
   %44 = getelementptr inbounds i8, ptr %16, i64 84
@@ -7510,7 +7503,7 @@ define internal fastcc i32 @write_VD(ptr noundef %0, ptr nocapture noundef reado
   %77 = getelementptr inbounds i8, ptr %16, i64 134
   store i8 %76, ptr %77, align 1
   %78 = lshr i32 %70, 24
-  %79 = trunc i32 %78 to i8
+  %79 = trunc nuw i32 %78 to i8
   %80 = getelementptr inbounds i8, ptr %16, i64 135
   store i8 %79, ptr %80, align 1
   %81 = getelementptr inbounds i8, ptr %16, i64 136
@@ -7535,7 +7528,7 @@ define internal fastcc i32 @write_VD(ptr noundef %0, ptr nocapture noundef reado
   %94 = getelementptr inbounds i8, ptr %16, i64 142
   store i8 %93, ptr %94, align 1
   %95 = lshr i32 %87, 24
-  %96 = trunc i32 %95 to i8
+  %96 = trunc nuw i32 %95 to i8
   %97 = getelementptr inbounds i8, ptr %16, i64 143
   store i8 %96, ptr %97, align 1
   %98 = getelementptr inbounds i8, ptr %16, i64 144
@@ -7544,7 +7537,7 @@ define internal fastcc i32 @write_VD(ptr noundef %0, ptr nocapture noundef reado
   store i32 0, ptr %98, align 1
   %101 = load i32, ptr %100, align 8
   %102 = lshr i32 %101, 24
-  %103 = trunc i32 %102 to i8
+  %103 = trunc nuw i32 %102 to i8
   store i8 %103, ptr %99, align 1
   %104 = lshr i32 %101, 16
   %105 = trunc i32 %104 to i8
@@ -7669,7 +7662,7 @@ define internal fastcc i32 @write_VD_boot_record(ptr noundef %0) unnamed_addr #0
   %26 = getelementptr inbounds i8, ptr %8, i64 73
   store i8 %25, ptr %26, align 1
   %27 = lshr i32 %19, 24
-  %28 = trunc i32 %27 to i8
+  %28 = trunc nuw i32 %27 to i8
   %29 = getelementptr inbounds i8, ptr %8, i64 74
   store i8 %28, ptr %29, align 1
   %30 = getelementptr inbounds i8, ptr %8, i64 75
@@ -8119,10 +8112,10 @@ define internal fastcc i32 @write_path_table(ptr noundef %0, i32 noundef %1, ptr
 
 .lr.ph.i:                                         ; preds = %15, %109
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %109 ], [ 0, %15 ]
-  %.06299.i = phi i32 [ %112, %109 ], [ 0, %15 ]
-  %.06497.i = phi i64 [ %.165.i, %109 ], [ %18, %15 ]
-  %.06696.i = phi ptr [ %114, %109 ], [ %21, %15 ]
-  %.06895.i = phi ptr [ %.169.i, %109 ], [ %20, %15 ]
+  %.062102.i = phi i32 [ %112, %109 ], [ 0, %15 ]
+  %.064100.i = phi i64 [ %.165.i, %109 ], [ %18, %15 ]
+  %.06699.i = phi ptr [ %114, %109 ], [ %21, %15 ]
+  %.06898.i = phi ptr [ %.169.i, %109 ], [ %20, %15 ]
   %25 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 168
@@ -8138,11 +8131,11 @@ define internal fastcc i32 @write_path_table(ptr noundef %0, i32 noundef %1, ptr
 
 34:                                               ; preds = %30, %.lr.ph.i
   %.0.i = phi i64 [ %33, %30 ], [ 1, %.lr.ph.i ]
-  %35 = getelementptr inbounds i8, ptr %.06696.i, i64 1
+  %35 = getelementptr inbounds i8, ptr %.06699.i, i64 1
   %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %.06895.i to i64
+  %37 = ptrtoint ptr %.06898.i to i64
   %38 = sub i64 %36, %37
-  %39 = sub i64 %.06497.i, %38
+  %39 = sub i64 %.064100.i, %38
   %40 = add nsw i64 %.0.i, 1
   %41 = add nsw i64 %.0.i, 9
   %42 = icmp ult i64 %39, %41
@@ -8183,9 +8176,9 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
   br label %60
 
 60:                                               ; preds = %wb_consume.exit.thread80.i, %34
-  %.169.i = phi ptr [ %58, %wb_consume.exit.thread80.i ], [ %.06895.i, %34 ]
-  %.167.i = phi ptr [ %59, %wb_consume.exit.thread80.i ], [ %.06696.i, %34 ]
-  %.165.i = phi i64 [ %56, %wb_consume.exit.thread80.i ], [ %.06497.i, %34 ]
+  %.169.i = phi ptr [ %58, %wb_consume.exit.thread80.i ], [ %.06898.i, %34 ]
+  %.167.i = phi ptr [ %59, %wb_consume.exit.thread80.i ], [ %.06699.i, %34 ]
+  %.165.i = phi i64 [ %56, %wb_consume.exit.thread80.i ], [ %.064100.i, %34 ]
   %61 = getelementptr inbounds i8, ptr %.167.i, i64 1
   %62 = trunc i64 %.0.i to i8
   store i8 %62, ptr %61, align 1
@@ -8200,7 +8193,7 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
 
 69:                                               ; preds = %60
   %70 = lshr i32 %66, 24
-  %71 = trunc i32 %70 to i8
+  %71 = trunc nuw i32 %70 to i8
   store i8 %71, ptr %64, align 1
   %72 = lshr i32 %66, 16
   %73 = trunc i32 %72 to i8
@@ -8230,7 +8223,7 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
   %90 = getelementptr inbounds i8, ptr %.167.i, i64 5
   store i8 %89, ptr %90, align 1
   %91 = lshr i32 %66, 24
-  %92 = trunc i32 %91 to i8
+  %92 = trunc nuw i32 %91 to i8
   store i8 %92, ptr %67, align 1
   %93 = load ptr, ptr %68, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 136
@@ -8239,12 +8232,12 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
   br label %97
 
 97:                                               ; preds = %83, %69
-  %.sink110.in.i = phi i32 [ %95, %83 ], [ %82, %69 ]
+  %.sink113.in.i = phi i32 [ %95, %83 ], [ %82, %69 ]
   %.sink.in.i = phi i32 [ %96, %83 ], [ %81, %69 ]
   %.sink.i = trunc i32 %.sink.in.i to i8
-  %.sink110.i = trunc i32 %.sink110.in.i to i8
+  %.sink113.i = trunc i32 %.sink113.in.i to i8
   %98 = getelementptr inbounds i8, ptr %.167.i, i64 7
-  store i8 %.sink110.i, ptr %98, align 1
+  store i8 %.sink113.i, ptr %98, align 1
   %99 = getelementptr inbounds i8, ptr %.167.i, i64 8
   store i8 %.sink.i, ptr %99, align 1
   %100 = load ptr, ptr %27, align 8
@@ -8273,7 +8266,7 @@ wb_consume.exit.thread80.i:                       ; preds = %wb_consume.exit.i, 
 109:                                              ; preds = %107, %105
   %.1.i = phi i64 [ %40, %107 ], [ %.0.i, %105 ]
   %110 = trunc i64 %.1.i to i32
-  %111 = add i32 %.06299.i, 8
+  %111 = add i32 %.062102.i, 8
   %112 = add i32 %111, %110
   %113 = add nsw i64 %.1.i, 8
   %114 = getelementptr inbounds i8, ptr %.167.i, i64 %113
@@ -8317,11 +8310,14 @@ wb_consume.exit78.thread.i:                       ; preds = %122
 
 wb_consume.exit78.i:                              ; preds = %131
   %134 = tail call fastcc i32 @wb_write_out(ptr noundef nonnull %0)
-  %135 = icmp slt i32 %134, 0
-  br i1 %135, label %_write_path_table.exit.thread, label %_write_path_table.exit
+  %.fr.i = freeze i32 %134
+  %135 = icmp slt i32 %.fr.i, 0
+  %spec.select.i = select i1 %135, i32 %.fr.i, i32 %.062.lcssa.i
+  br label %_write_path_table.exit
 
 _write_path_table.exit:                           ; preds = %._crit_edge.i, %131, %wb_consume.exit78.i
-  %136 = icmp slt i32 %.062.lcssa.i, 0
+  %.061.i = phi i32 [ %.062.lcssa.i, %._crit_edge.i ], [ %.062.lcssa.i, %131 ], [ %spec.select.i, %wb_consume.exit78.i ]
+  %136 = icmp slt i32 %.061.i, 0
   br i1 %136, label %_write_path_table.exit.thread, label %_write_path_table.exit._write_path_table.exit.thread23_crit_edge
 
 _write_path_table.exit._write_path_table.exit.thread23_crit_edge: ; preds = %_write_path_table.exit
@@ -8330,7 +8326,7 @@ _write_path_table.exit._write_path_table.exit.thread23_crit_edge: ; preds = %_wr
 
 _write_path_table.exit.thread23:                  ; preds = %_write_path_table.exit._write_path_table.exit.thread23_crit_edge, %9
   %137 = phi i32 [ %.pre, %_write_path_table.exit._write_path_table.exit.thread23_crit_edge ], [ %10, %9 ]
-  %.061.i25 = phi i32 [ %.062.lcssa.i, %_write_path_table.exit._write_path_table.exit.thread23_crit_edge ], [ 0, %9 ]
+  %.061.i25 = phi i32 [ %.061.i, %_write_path_table.exit._write_path_table.exit.thread23_crit_edge ], [ 0, %9 ]
   %138 = zext nneg i32 %.061.i25 to i64
   %139 = add i64 %.045, %138
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8348,8 +8344,8 @@ _write_path_table.exit.thread23:                  ; preds = %_write_path_table.e
   %145 = tail call fastcc i32 @write_null(ptr noundef %0, i64 noundef %144)
   br label %_write_path_table.exit.thread
 
-_write_path_table.exit.thread:                    ; preds = %wb_consume.exit78.i, %_write_path_table.exit, %wb_consume.exit.i, %3, %wb_consume.exit78.thread.i, %wb_consume.exit.thread.i, %._crit_edge, %143
-  %.018 = phi i32 [ %145, %143 ], [ %.061.i25, %._crit_edge ], [ -30, %wb_consume.exit78.thread.i ], [ -30, %wb_consume.exit.thread.i ], [ 0, %3 ], [ %52, %wb_consume.exit.i ], [ %134, %wb_consume.exit78.i ], [ %.062.lcssa.i, %_write_path_table.exit ]
+_write_path_table.exit.thread:                    ; preds = %_write_path_table.exit, %wb_consume.exit.i, %3, %wb_consume.exit78.thread.i, %wb_consume.exit.thread.i, %._crit_edge, %143
+  %.018 = phi i32 [ %145, %143 ], [ %.061.i25, %._crit_edge ], [ -30, %wb_consume.exit78.thread.i ], [ -30, %wb_consume.exit.thread.i ], [ 0, %3 ], [ %52, %wb_consume.exit.i ], [ %.061.i, %_write_path_table.exit ]
   ret i32 %.018
 }
 
@@ -8737,7 +8733,7 @@ define internal fastcc i32 @write_file_descriptors(ptr noundef %0) unnamed_addr 
   %35 = trunc i16 %34 to i8
   store i8 %35, ptr %27, align 1
   %36 = lshr i16 %34, 8
-  %37 = trunc i16 %36 to i8
+  %37 = trunc nuw i16 %36 to i8
   store i8 %37, ptr %26, align 1
   store i8 -120, ptr %33, align 1
   %38 = getelementptr inbounds i8, ptr %3, i64 66408
@@ -8752,7 +8748,7 @@ define internal fastcc i32 @write_file_descriptors(ptr noundef %0) unnamed_addr 
   %44 = load i16, ptr %43, align 2
   %45 = trunc i16 %44 to i8
   %46 = lshr i16 %44, 8
-  %47 = trunc i16 %46 to i8
+  %47 = trunc nuw i16 %46 to i8
   br label %48
 
 48:                                               ; preds = %42, %32
@@ -8777,7 +8773,7 @@ define internal fastcc i32 @write_file_descriptors(ptr noundef %0) unnamed_addr 
   %59 = load i16, ptr %58, align 4
   %60 = trunc i16 %59 to i8
   %61 = lshr i16 %59, 8
-  %62 = trunc i16 %61 to i8
+  %62 = trunc nuw i16 %61 to i8
   br label %63
 
 63:                                               ; preds = %57, %48
@@ -8805,7 +8801,7 @@ define internal fastcc i32 @write_file_descriptors(ptr noundef %0) unnamed_addr 
   %79 = getelementptr inbounds i8, ptr %11, i64 42
   store i8 %78, ptr %79, align 1
   %80 = lshr i32 %72, 24
-  %81 = trunc i32 %80 to i8
+  %81 = trunc nuw i32 %80 to i8
   %82 = getelementptr inbounds i8, ptr %11, i64 43
   store i8 %81, ptr %82, align 1
   %83 = getelementptr inbounds i8, ptr %11, i64 44
@@ -8923,19 +8919,15 @@ make_boot_catalog.exit.thread61:                  ; preds = %88, %make_boot_cata
   %.143.lcssa = phi i64 [ %.042, %107 ], [ %.4, %.loopexit ]
   %.1.lcssa = phi i64 [ 0, %107 ], [ %.3, %.loopexit ]
   %133 = icmp sgt i64 %.143.lcssa, 0
-  br i1 %133, label %134, label %138
+  br i1 %133, label %134, label %.loopexit63
 
 134:                                              ; preds = %._crit_edge
   %135 = shl i64 %.143.lcssa, 11
   %136 = tail call fastcc i32 @write_file_contents(ptr noundef %0, i64 noundef %.1.lcssa, i64 noundef %135), !range !26
-  %137 = icmp slt i32 %136, 0
-  br i1 %137, label %.loopexit63, label %138
-
-138:                                              ; preds = %134, %._crit_edge
   br label %.loopexit63
 
-.loopexit63:                                      ; preds = %119, %make_boot_catalog.exit.thread, %134, %103, %make_boot_catalog.exit, %138
-  %.047 = phi i32 [ 0, %138 ], [ %91, %make_boot_catalog.exit ], [ %105, %103 ], [ %136, %134 ], [ -30, %make_boot_catalog.exit.thread ], [ %120, %119 ]
+.loopexit63:                                      ; preds = %119, %make_boot_catalog.exit.thread, %134, %._crit_edge, %103, %make_boot_catalog.exit
+  %.047 = phi i32 [ %91, %make_boot_catalog.exit ], [ %105, %103 ], [ 0, %._crit_edge ], [ %136, %134 ], [ -30, %make_boot_catalog.exit.thread ], [ %120, %119 ]
   ret i32 %.047
 }
 
@@ -9465,7 +9457,7 @@ idr_start.exit:                                   ; preds = %8, %26
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %.lr.ph137
-  %trunc.i = trunc i32 %71 to i16
+  %trunc.i = trunc nuw i32 %71 to i16
   switch i16 %trunc.i, label %joliet_allowed_char.exit [
     i16 42, label %74
     i16 47, label %74
@@ -9509,7 +9501,7 @@ joliet_allowed_char.exit:                         ; preds = %73
   %85 = trunc i64 %84 to i32
   %86 = getelementptr inbounds i8, ptr %.198141, i64 176
   store i32 %85, ptr %86, align 8
-  %87 = trunc i64 %spec.select to i32
+  %87 = trunc nuw nsw i64 %spec.select to i32
   %88 = sub nsw i32 %87, %85
   %89 = getelementptr inbounds i8, ptr %.198141, i64 180
   store i32 %88, ptr %89, align 4
@@ -9718,13 +9710,13 @@ idr_extend_identifier.exit.i:                     ; preds = %168, %.lr.ph.i
   store i32 %207, ptr %205, align 8
   %208 = sext i32 %206 to i64
   %209 = urem i64 %208, 46656
-  %.lhs.trunc.i = trunc i64 %209 to i16
+  %.lhs.trunc.i = trunc nuw i64 %209 to i16
   %210 = udiv i16 %.lhs.trunc.i, 1296
   %.zext.i = zext nneg i16 %210 to i64
   %211 = getelementptr inbounds [36 x i16], ptr @idr_set_num_beutf16.xdig, i64 0, i64 %.zext.i
   %212 = load i16, ptr %211, align 2
   %213 = lshr i16 %212, 8
-  %214 = trunc i16 %213 to i8
+  %214 = trunc nuw i16 %213 to i8
   store i8 %214, ptr %196, align 1
   %215 = trunc i16 %212 to i8
   store i8 %215, ptr %198, align 1
@@ -9734,7 +9726,7 @@ idr_extend_identifier.exit.i:                     ; preds = %168, %.lr.ph.i
   %218 = getelementptr inbounds [36 x i16], ptr @idr_set_num_beutf16.xdig, i64 0, i64 %.zext11.i
   %219 = load i16, ptr %218, align 2
   %220 = lshr i16 %219, 8
-  %221 = trunc i16 %220 to i8
+  %221 = trunc nuw i16 %220 to i8
   store i8 %221, ptr %199, align 1
   %222 = trunc i16 %219 to i8
   store i8 %222, ptr %200, align 1
@@ -9743,7 +9735,7 @@ idr_extend_identifier.exit.i:                     ; preds = %168, %.lr.ph.i
   %224 = getelementptr inbounds [36 x i16], ptr @idr_set_num_beutf16.xdig, i64 0, i64 %.zext13.i
   %225 = load i16, ptr %224, align 2
   %226 = lshr i16 %225, 8
-  %227 = trunc i16 %226 to i8
+  %227 = trunc nuw i16 %226 to i8
   store i8 %227, ptr %201, align 1
   %228 = trunc i16 %225 to i8
   store i8 %228, ptr %202, align 1
@@ -10286,7 +10278,7 @@ idr_extend_identifier.exit.i:                     ; preds = %220, %.lr.ph.i
   store i32 %256, ptr %254, align 8
   %257 = sext i32 %255 to i64
   %258 = urem i64 %257, 46656
-  %.lhs.trunc.i = trunc i64 %258 to i16
+  %.lhs.trunc.i = trunc nuw i64 %258 to i16
   %259 = udiv i16 %.lhs.trunc.i, 1296
   %.zext.i = zext nneg i16 %259 to i64
   %260 = getelementptr inbounds [36 x i8], ptr @idr_set_num.xdig, i64 0, i64 %.zext.i
@@ -11170,7 +11162,7 @@ define internal fastcc i32 @set_directory_record(ptr noundef %0, i64 noundef %1,
   %.sink131.in.in = phi ptr [ %61, %58 ], [ %57, %56 ]
   %.sink131.in = load i32, ptr %.sink131.in.in, align 4
   %.sink128.in = lshr i32 %.sink131.in, 24
-  %.sink128 = trunc i32 %.sink128.in to i8
+  %.sink128 = trunc nuw i32 %.sink128.in to i8
   %.sink129.in = lshr i32 %.sink131.in, 16
   %.sink129 = trunc i32 %.sink129.in to i8
   %.sink130.in = lshr i32 %.sink131.in, 8
@@ -11206,7 +11198,7 @@ define internal fastcc i32 @set_directory_record(ptr noundef %0, i64 noundef %1,
   %79 = lshr i32 %76, 16
   %80 = trunc i32 %79 to i8
   %81 = lshr i32 %76, 24
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw i32 %81 to i8
   br label %95
 
 83:                                               ; preds = %62
@@ -11604,7 +11596,7 @@ extra_tell_used_size.exit473.i:                   ; preds = %253, %247, %245
   %.0394544.i = phi i64 [ %.1395.i, %322 ], [ %spec.store.select.i, %276 ]
   %.0396543.i = phi ptr [ %294, %322 ], [ %265, %276 ]
   %.0397542.i = phi i64 [ %293, %322 ], [ %264, %276 ]
-  %283 = trunc i64 %.0394544.i to i32
+  %283 = trunc nuw nsw i64 %.0394544.i to i32
   %.not460.i = icmp eq ptr %.5545.i, null
   br i1 %.not460.i, label %.lr.ph._crit_edge.i, label %284
 
@@ -11615,7 +11607,7 @@ extra_tell_used_size.exit473.i:                   ; preds = %253, %247, %245
   br label %292
 
 284:                                              ; preds = %.lr.ph.i
-  %285 = trunc i64 %.0394544.i to i8
+  %285 = trunc nuw i64 %.0394544.i to i8
   %286 = getelementptr inbounds i8, ptr %.5545.i, i64 3
   store i8 %285, ptr %286, align 1
   %287 = getelementptr inbounds i8, ptr %.5545.i, i64 5
@@ -11799,7 +11791,7 @@ extra_tell_used_size.exit479.i:                   ; preds = %342, %336, %334
   %381 = getelementptr inbounds i8, ptr %.10.i, i64 7
   store i8 %380, ptr %381, align 1
   %382 = lshr i32 %.1393.i, 24
-  %383 = trunc i32 %382 to i8
+  %383 = trunc nuw i32 %382 to i8
   %384 = getelementptr inbounds i8, ptr %.10.i, i64 8
   store i8 %383, ptr %384, align 1
   %385 = getelementptr inbounds i8, ptr %.10.i, i64 9
@@ -11824,7 +11816,7 @@ extra_tell_used_size.exit479.i:                   ; preds = %342, %336, %334
   %398 = getelementptr inbounds i8, ptr %.10.i, i64 15
   store i8 %397, ptr %398, align 1
   %399 = lshr i32 %391, 24
-  %400 = trunc i32 %399 to i8
+  %400 = trunc nuw i32 %399 to i8
   %401 = getelementptr inbounds i8, ptr %.10.i, i64 16
   store i8 %400, ptr %401, align 1
   %402 = getelementptr inbounds i8, ptr %.10.i, i64 17
@@ -11902,7 +11894,7 @@ extra_tell_used_size.exit479.i:                   ; preds = %342, %336, %334
   %449 = getelementptr inbounds i8, ptr %.10.i, i64 39
   store i8 %448, ptr %449, align 1
   %450 = lshr i32 %442, 24
-  %451 = trunc i32 %450 to i8
+  %451 = trunc nuw i32 %450 to i8
   %452 = getelementptr inbounds i8, ptr %.10.i, i64 40
   store i8 %451, ptr %452, align 1
   %453 = getelementptr inbounds i8, ptr %.10.i, i64 41
@@ -11943,7 +11935,7 @@ extra_tell_used_size.exit479.i:                   ; preds = %342, %336, %334
   %477 = trunc i32 %476 to i8
   store i8 %477, ptr %462, align 1
   %478 = lshr i32 %472, 24
-  %479 = trunc i32 %478 to i8
+  %479 = trunc nuw i32 %478 to i8
   store i8 %479, ptr %463, align 1
   store i8 %479, ptr %464, align 1
   store i8 %477, ptr %465, align 1
@@ -11965,7 +11957,7 @@ extra_tell_used_size.exit479.i:                   ; preds = %342, %336, %334
   %489 = trunc i32 %488 to i8
   store i8 %489, ptr %462, align 1
   %490 = lshr i32 %484, 24
-  %491 = trunc i32 %490 to i8
+  %491 = trunc nuw i32 %490 to i8
   store i8 %491, ptr %463, align 1
   store i8 %491, ptr %464, align 1
   store i8 %489, ptr %465, align 1
@@ -12461,7 +12453,7 @@ extra_tell_used_size.exit488.i:                   ; preds = %662, %656, %654
   store i8 84, ptr %698, align 1
   %699 = getelementptr inbounds i8, ptr %.19.i, i64 2
   store i8 70, ptr %699, align 1
-  %700 = trunc i32 %.3401.i to i8
+  %700 = trunc nuw nsw i32 %.3401.i to i8
   %701 = getelementptr inbounds i8, ptr %.19.i, i64 3
   store i8 %700, ptr %701, align 1
   %702 = getelementptr inbounds i8, ptr %.19.i, i64 4
@@ -12802,7 +12794,7 @@ extra_tell_used_size.exit494.i:                   ; preds = %878, %872, %870
   %906 = getelementptr inbounds i8, ptr %.28.i, i64 7
   store i8 %905, ptr %906, align 1
   %907 = lshr i32 %899, 24
-  %908 = trunc i32 %907 to i8
+  %908 = trunc nuw i32 %907 to i8
   %909 = getelementptr inbounds i8, ptr %.28.i, i64 8
   store i8 %908, ptr %909, align 1
   %910 = getelementptr inbounds i8, ptr %.28.i, i64 9
@@ -12885,7 +12877,7 @@ extra_tell_used_size.exit497.i:                   ; preds = %922, %916, %914
   %952 = getelementptr inbounds i8, ptr %.31.i, i64 7
   store i8 %951, ptr %952, align 1
   %953 = lshr i32 %945, 24
-  %954 = trunc i32 %953 to i8
+  %954 = trunc nuw i32 %953 to i8
   %955 = getelementptr inbounds i8, ptr %.31.i, i64 8
   store i8 %954, ptr %955, align 1
   %956 = getelementptr inbounds i8, ptr %.31.i, i64 9
@@ -12967,7 +12959,7 @@ extra_tell_used_size.exit500.i:                   ; preds = %968, %962, %960
   %997 = getelementptr inbounds i8, ptr %.34.i, i64 7
   store i8 %996, ptr %997, align 1
   %sum.shift.i = lshr i64 %988, 56
-  %998 = trunc i64 %sum.shift.i to i8
+  %998 = trunc nuw i64 %sum.shift.i to i8
   %999 = getelementptr inbounds i8, ptr %.34.i, i64 8
   store i8 %998, ptr %999, align 1
   %1000 = getelementptr inbounds i8, ptr %.34.i, i64 9
@@ -13083,7 +13075,7 @@ extra_tell_used_size.exit503.i:                   ; preds = %1027, %1021, %1019
   %1063 = getelementptr inbounds i8, ptr %.37.i, i64 11
   store i8 %1062, ptr %1063, align 1
   %1064 = lshr i32 %1056, 24
-  %1065 = trunc i32 %1064 to i8
+  %1065 = trunc nuw i32 %1064 to i8
   %1066 = getelementptr inbounds i8, ptr %.37.i, i64 12
   store i8 %1065, ptr %1066, align 1
   %1067 = getelementptr inbounds i8, ptr %.37.i, i64 13
@@ -13157,7 +13149,7 @@ extra_tell_used_size.exit506.i:                   ; preds = %1079, %1073, %1071
   %1103 = getelementptr inbounds i8, ptr %.39.i, i64 7
   store i8 %1102, ptr %1103, align 1
   %1104 = lshr i32 %1095, 24
-  %1105 = trunc i32 %1104 to i8
+  %1105 = trunc nuw i32 %1104 to i8
   %1106 = getelementptr inbounds i8, ptr %.39.i, i64 8
   store i8 %1105, ptr %1106, align 1
   %1107 = getelementptr inbounds i8, ptr %.39.i, i64 9
@@ -13258,7 +13250,7 @@ extra_tell_used_size.exit509.i:                   ; preds = %1123, %1117, %1115
   %1156 = getelementptr inbounds i8, ptr %1141, i64 6
   store i8 %1155, ptr %1156, align 1
   %1157 = lshr i32 %1144, 24
-  %1158 = trunc i32 %1157 to i8
+  %1158 = trunc nuw i32 %1157 to i8
   %1159 = getelementptr inbounds i8, ptr %1141, i64 7
   store i8 %1158, ptr %1159, align 1
   %1160 = getelementptr inbounds i8, ptr %1141, i64 8
@@ -13281,7 +13273,7 @@ extra_tell_used_size.exit509.i:                   ; preds = %1123, %1117, %1115
   %1171 = getelementptr inbounds i8, ptr %1141, i64 14
   store i8 %1170, ptr %1171, align 1
   %1172 = lshr i32 %1146, 24
-  %1173 = trunc i32 %1172 to i8
+  %1173 = trunc nuw i32 %1172 to i8
   %1174 = getelementptr inbounds i8, ptr %1141, i64 15
   store i8 %1173, ptr %1174, align 1
   %1175 = getelementptr inbounds i8, ptr %1141, i64 16
@@ -13304,7 +13296,7 @@ extra_tell_used_size.exit509.i:                   ; preds = %1123, %1117, %1115
   %1186 = getelementptr inbounds i8, ptr %1141, i64 22
   store i8 %1185, ptr %1186, align 1
   %1187 = lshr i32 %1148, 24
-  %1188 = trunc i32 %1187 to i8
+  %1188 = trunc nuw i32 %1187 to i8
   %1189 = getelementptr inbounds i8, ptr %1141, i64 23
   store i8 %1188, ptr %1189, align 1
   %1190 = getelementptr inbounds i8, ptr %1141, i64 24
@@ -13619,7 +13611,7 @@ extra_tell_used_size.exit:                        ; preds = %4, %6, %13
   %50 = getelementptr inbounds i8, ptr %35, i64 6
   store i8 %49, ptr %50, align 1
   %51 = lshr i32 %38, 24
-  %52 = trunc i32 %51 to i8
+  %52 = trunc nuw i32 %51 to i8
   %53 = getelementptr inbounds i8, ptr %35, i64 7
   store i8 %52, ptr %53, align 1
   %54 = getelementptr inbounds i8, ptr %35, i64 8
@@ -13642,7 +13634,7 @@ extra_tell_used_size.exit:                        ; preds = %4, %6, %13
   %65 = getelementptr inbounds i8, ptr %35, i64 14
   store i8 %64, ptr %65, align 1
   %66 = lshr i32 %40, 24
-  %67 = trunc i32 %66 to i8
+  %67 = trunc nuw i32 %66 to i8
   %68 = getelementptr inbounds i8, ptr %35, i64 15
   store i8 %67, ptr %68, align 1
   %69 = getelementptr inbounds i8, ptr %35, i64 16
@@ -13665,7 +13657,7 @@ extra_tell_used_size.exit:                        ; preds = %4, %6, %13
   %80 = getelementptr inbounds i8, ptr %35, i64 22
   store i8 %79, ptr %80, align 1
   %81 = lshr i32 %42, 24
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw i32 %81 to i8
   %83 = getelementptr inbounds i8, ptr %35, i64 23
   store i8 %82, ptr %83, align 1
   %84 = getelementptr inbounds i8, ptr %35, i64 24
@@ -14148,7 +14140,7 @@ define internal fastcc void @set_date_time(ptr nocapture noundef writeonly %0, i
   %.046.i = phi i64 [ %9, %.lr.ph.i ], [ 4, %2 ]
   %9 = add nsw i64 %.046.i, -1
   %10 = srem i32 %.07.i, 10
-  %11 = trunc i32 %10 to i8
+  %11 = trunc nsw i32 %10 to i8
   %12 = add nsw i8 %11, 48
   %13 = getelementptr inbounds i8, ptr %0, i64 %9
   store i8 %12, ptr %13, align 1
@@ -14168,7 +14160,7 @@ set_digit.exit:                                   ; preds = %.lr.ph.i
   %.046.i10 = phi i64 [ %19, %.lr.ph.i8 ], [ 2, %set_digit.exit ]
   %19 = add nsw i64 %.046.i10, -1
   %20 = srem i32 %.07.i9, 10
-  %21 = trunc i32 %20 to i8
+  %21 = trunc nsw i32 %20 to i8
   %22 = add nsw i8 %21, 48
   %23 = getelementptr inbounds i8, ptr %15, i64 %19
   store i8 %22, ptr %23, align 1
@@ -14187,7 +14179,7 @@ set_digit.exit12:                                 ; preds = %.lr.ph.i8
   %.046.i15 = phi i64 [ %28, %.lr.ph.i13 ], [ 2, %set_digit.exit12 ]
   %28 = add nsw i64 %.046.i15, -1
   %29 = srem i32 %.07.i14, 10
-  %30 = trunc i32 %29 to i8
+  %30 = trunc nsw i32 %29 to i8
   %31 = add nsw i8 %30, 48
   %32 = getelementptr inbounds i8, ptr %25, i64 %28
   store i8 %31, ptr %32, align 1
@@ -14206,7 +14198,7 @@ set_digit.exit17:                                 ; preds = %.lr.ph.i13
   %.046.i20 = phi i64 [ %37, %.lr.ph.i18 ], [ 2, %set_digit.exit17 ]
   %37 = add nsw i64 %.046.i20, -1
   %38 = srem i32 %.07.i19, 10
-  %39 = trunc i32 %38 to i8
+  %39 = trunc nsw i32 %38 to i8
   %40 = add nsw i8 %39, 48
   %41 = getelementptr inbounds i8, ptr %34, i64 %37
   store i8 %40, ptr %41, align 1
@@ -14225,7 +14217,7 @@ set_digit.exit22:                                 ; preds = %.lr.ph.i18
   %.046.i25 = phi i64 [ %46, %.lr.ph.i23 ], [ 2, %set_digit.exit22 ]
   %46 = add nsw i64 %.046.i25, -1
   %47 = srem i32 %.07.i24, 10
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nsw i32 %47 to i8
   %49 = add nsw i8 %48, 48
   %50 = getelementptr inbounds i8, ptr %43, i64 %46
   store i8 %49, ptr %50, align 1
@@ -14243,7 +14235,7 @@ set_digit.exit27:                                 ; preds = %.lr.ph.i23
   %.046.i30 = phi i64 [ %54, %.lr.ph.i28 ], [ 2, %set_digit.exit27 ]
   %54 = add nsw i64 %.046.i30, -1
   %55 = srem i32 %.07.i29, 10
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nsw i32 %55 to i8
   %57 = add nsw i8 %56, 48
   %58 = getelementptr inbounds i8, ptr %52, i64 %54
   store i8 %57, ptr %58, align 1
@@ -14357,7 +14349,7 @@ define internal fastcc noundef i32 @set_str_utf16be(ptr noundef %0, ptr nocaptur
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %.lr.ph65
-  %trunc.i = trunc i32 %38 to i16
+  %trunc.i = trunc nuw i32 %38 to i16
   switch i16 %trunc.i, label %joliet_allowed_char.exit [
     i16 42, label %41
     i16 47, label %41

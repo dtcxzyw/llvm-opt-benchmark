@@ -399,7 +399,7 @@ define i32 @lo_truncate(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_un
   %23 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 1, ptr %23, align 4
   store i32 4, ptr %22, align 16
-  %24 = trunc i64 %2 to i32
+  %24 = trunc nuw nsw i64 %2 to i32
   %25 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %24, ptr %25, align 8
   %26 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %13, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 2) #10
@@ -492,7 +492,7 @@ define i32 @lo_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef 
   %16 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 1, ptr %16, align 4
   store i32 4, ptr %15, align 16
-  %17 = trunc i64 %3 to i32
+  %17 = trunc nuw nsw i64 %3 to i32
   %18 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 864
@@ -538,7 +538,7 @@ define i32 @lo_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef
   %16 = getelementptr inbounds i8, ptr %5, i64 16
   %17 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 0, ptr %17, align 4
-  %18 = trunc i64 %3 to i32
+  %18 = trunc nuw nsw i64 %3 to i32
   store i32 %18, ptr %16, align 16
   %19 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %2, ptr %19, align 8
@@ -1141,14 +1141,14 @@ lo_open.exit.thread:                              ; preds = %3, %22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  br label %115
+  br label %118
 
 lo_open.exit:                                     ; preds = %22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %115, label %36
+  br i1 %35, label %118, label %36
 
 36:                                               ; preds = %lo_open.exit
   %37 = call i32 (ptr, i32, ...) @open(ptr noundef %2, i32 noundef 577, i32 noundef 438) #10
@@ -1197,7 +1197,7 @@ lo_close.exit:                                    ; preds = %44, %49
   store i32 0, ptr %58, align 8
   %59 = call ptr @pg_strerror_r(i32 noundef %46, ptr noundef nonnull %19, i64 noundef 256) #10
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %2, ptr noundef %59) #10
-  br label %115
+  br label %118
 
 60:                                               ; preds = %.preheader, %72
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -1226,7 +1226,7 @@ lo_close.exit:                                    ; preds = %44, %49
 .thread:                                          ; preds = %63, %60
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %.thread58
+  br label %.thread56
 
 lo_read.exit:                                     ; preds = %63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -1249,7 +1249,7 @@ lo_read.exit:                                     ; preds = %63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %79 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %lo_close.exit46, label %81
+  br i1 %80, label %lo_close.exit47, label %81
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds i8, ptr %7, i64 4
@@ -1263,9 +1263,9 @@ lo_read.exit:                                     ; preds = %63
   %87 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %86, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 1) #10
   %88 = call i32 @PQresultStatus(ptr noundef %87) #10
   call void @PQclear(ptr noundef %87) #10
-  br label %lo_close.exit46
+  br label %lo_close.exit47
 
-lo_close.exit46:                                  ; preds = %76, %81
+lo_close.exit47:                                  ; preds = %76, %81
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -1276,11 +1276,11 @@ lo_close.exit46:                                  ; preds = %76, %81
   store i32 0, ptr %91, align 8
   %92 = call ptr @pg_strerror_r(i32 noundef %78, ptr noundef nonnull %19, i64 noundef 256) #10
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %2, ptr noundef %92) #10
-  br label %115
+  br label %118
 
 93:                                               ; preds = %lo_read.exit
   %94 = icmp slt i32 %70, 0
-  br i1 %94, label %.thread58, label %95
+  br i1 %94, label %.thread56, label %95
 
 95:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1288,55 +1288,54 @@ lo_close.exit46:                                  ; preds = %76, %81
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %96 = call fastcc i32 @lo_initialize(ptr noundef nonnull %0), !range !4
   %97 = icmp slt i32 %96, 0
-  br i1 %97, label %lo_close.exit49.thread, label %98
+  br i1 %97, label %.thread65, label %100
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 1, ptr %99, align 4
+.thread65:                                        ; preds = %95
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  %98 = call i32 @close(i32 noundef %37) #10
+  br label %118
+
+.thread56:                                        ; preds = %93, %.thread
+  %99 = call i32 @close(i32 noundef %37) #10
+  br label %118
+
+100:                                              ; preds = %95
+  %101 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 1, ptr %101, align 4
   store i32 4, ptr %4, align 16
-  %100 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %34, ptr %100, align 8
-  %101 = load ptr, ptr %28, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 4
-  %103 = load i32, ptr %102, align 4
-  %104 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %103, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 1) #10
-  %105 = call i32 @PQresultStatus(ptr noundef %104) #10
-  %106 = icmp eq i32 %105, 1
-  call void @PQclear(ptr noundef %104) #10
-  br i1 %106, label %lo_close.exit49, label %lo_close.exit49.thread
-
-lo_close.exit49.thread:                           ; preds = %95, %98
+  %102 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %34, ptr %102, align 8
+  %103 = load ptr, ptr %28, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %105, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 1) #10
+  %107 = call i32 @PQresultStatus(ptr noundef %106) #10
+  %108 = icmp eq i32 %107, 1
+  call void @PQclear(ptr noundef %106) #10
+  %109 = load i32, ptr %5, align 4
+  %110 = icmp eq i32 %109, 0
+  %111 = select i1 %108, i1 %110, i1 false
+  %cond.fr = freeze i1 %111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.thread58
+  %spec.select = select i1 %cond.fr, i32 1, i32 -1
+  %112 = call i32 @close(i32 noundef %37) #10
+  %113 = icmp ne i32 %112, 0
+  %or.cond = and i1 %cond.fr, %113
+  br i1 %or.cond, label %114, label %118
 
-lo_close.exit49:                                  ; preds = %98
-  %107 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %.not = icmp eq i32 %107, 0
-  br i1 %.not, label %109, label %.thread58
+114:                                              ; preds = %100
+  %115 = tail call ptr @__errno_location() #12
+  %116 = load i32, ptr %115, align 4
+  %117 = call ptr @pg_strerror_r(i32 noundef %116, ptr noundef nonnull %19, i64 noundef 256) #10
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %2, ptr noundef %117) #10
+  br label %118
 
-.thread58:                                        ; preds = %93, %lo_close.exit49, %.thread, %lo_close.exit49.thread
-  %108 = call i32 @close(i32 noundef %37) #10
-  br label %115
-
-109:                                              ; preds = %lo_close.exit49
-  %110 = call i32 @close(i32 noundef %37) #10
-  %.not61 = icmp eq i32 %110, 0
-  br i1 %.not61, label %115, label %111
-
-111:                                              ; preds = %109
-  %112 = tail call ptr @__errno_location() #12
-  %113 = load i32, ptr %112, align 4
-  %114 = call ptr @pg_strerror_r(i32 noundef %113, ptr noundef nonnull %19, i64 noundef 256) #10
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %2, ptr noundef %114) #10
-  br label %115
-
-115:                                              ; preds = %.thread58, %lo_open.exit.thread, %109, %111, %lo_open.exit, %lo_close.exit46, %lo_close.exit
-  %.0 = phi i32 [ -1, %lo_close.exit ], [ -1, %lo_close.exit46 ], [ -1, %lo_open.exit ], [ -1, %111 ], [ 1, %109 ], [ -1, %lo_open.exit.thread ], [ -1, %.thread58 ]
+118:                                              ; preds = %.thread65, %.thread56, %lo_open.exit.thread, %100, %114, %lo_open.exit, %lo_close.exit47, %lo_close.exit
+  %.0 = phi i32 [ -1, %lo_close.exit ], [ -1, %lo_close.exit47 ], [ -1, %lo_open.exit ], [ -1, %114 ], [ %spec.select, %100 ], [ -1, %lo_open.exit.thread ], [ -1, %.thread56 ], [ -1, %.thread65 ]
   ret i32 %.0
 }
 

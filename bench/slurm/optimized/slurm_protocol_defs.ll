@@ -3676,13 +3676,13 @@ define i32 @slurm_addto_char_list_with_case(ptr noundef %0, ptr noundef %1, i1 n
   %26 = getelementptr inbounds i8, ptr %1, i64 %25
   %27 = load i8, ptr %26, align 1
   %.not85 = icmp eq i8 %27, 0
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not85, label %._crit_edge, label %29
 
 29:                                               ; preds = %24
   %30 = zext i32 %.068102 to i64
   %.not86 = icmp eq i64 %indvars.iv, %30
-  %31 = trunc i64 %25 to i32
+  %31 = trunc nuw i64 %25 to i32
   br i1 %.not86, label %.thread, label %32
 
 32:                                               ; preds = %29
@@ -4154,7 +4154,7 @@ define noundef i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture noundef %1
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %21
-  %25 = trunc i64 %15 to i32
+  %25 = trunc nuw nsw i64 %15 to i32
   store i32 %25, ptr %9, align 4
   %26 = load i8, ptr %22, align 1
   %27 = icmp eq i8 %26, 95
@@ -4221,7 +4221,7 @@ define noundef i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture noundef %1
   br i1 %59, label %.loopexit, label %60
 
 60:                                               ; preds = %57
-  %61 = trunc i64 %53 to i32
+  %61 = trunc nuw nsw i64 %53 to i32
   store i32 %61, ptr %8, align 4
   %62 = load i8, ptr %58, align 1
   %63 = icmp eq i8 %62, 95
@@ -4292,7 +4292,7 @@ define noundef i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture noundef %1
 92:                                               ; preds = %90, %._crit_edge
   %93 = phi ptr [ %86, %._crit_edge ], [ %74, %90 ]
   %.040 = phi i64 [ %84, %._crit_edge ], [ %73, %90 ]
-  %94 = trunc i64 %.040 to i32
+  %94 = trunc nuw i64 %.040 to i32
   store i32 %94, ptr %11, align 4
   store ptr %93, ptr %3, align 8
   %95 = load i8, ptr %93, align 1
@@ -4340,7 +4340,7 @@ define noundef i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not56, label %115, label %.loopexit
 
 115:                                              ; preds = %113
-  %116 = trunc i64 %104 to i32
+  %116 = trunc nuw nsw i64 %104 to i32
   store i32 %116, ptr %10, align 4
   br label %.loopexit
 
@@ -12399,7 +12399,7 @@ define i32 @get_cluster_node_offset(ptr noundef %0, ptr nocapture noundef readon
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge.loopexit.split.loop.exit13:           ; preds = %.lr.ph
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit.split.loop.exit13, %2
@@ -12499,17 +12499,17 @@ define i64 @suffix_mult(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @verify_step_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #18 {
+define zeroext i1 @verify_step_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #18 {
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %3, %4
-  br i1 %.not, label %5, label %21
+  br i1 %.not, label %5, label %20
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -2
-  br i1 %8, label %21, label %9
+  br i1 %8, label %20, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12525,13 +12525,10 @@ define noundef zeroext i1 @verify_step_id(ptr nocapture noundef readonly %0, ptr
   %18 = icmp eq i32 %15, %17
   %19 = icmp eq i32 %15, -2
   %or.cond = or i1 %19, %18
-  br i1 %or.cond, label %21, label %20
+  br label %20
 
-20:                                               ; preds = %13, %9
-  br label %21
-
-21:                                               ; preds = %13, %5, %2, %20
-  %.0 = phi i1 [ false, %20 ], [ false, %2 ], [ true, %5 ], [ true, %13 ]
+20:                                               ; preds = %13, %9, %5, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %9 ], [ %or.cond, %13 ]
   ret i1 %.0
 }
 
@@ -13069,7 +13066,7 @@ define i32 @slurm_get_rep_count_inx(ptr nocapture noundef readonly %0, i32 nound
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 .loopexit.loopexit.split.loop.exit20:             ; preds = %9
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.loopexit.loopexit.split.loop.exit20, %3, %7
